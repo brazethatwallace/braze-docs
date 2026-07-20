@@ -20,7 +20,7 @@ description: "This article outlines details about the Remove email addresses fro
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `email.spam.remove` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `email.spam.remove` permission.
 
 ## Rate limit
 

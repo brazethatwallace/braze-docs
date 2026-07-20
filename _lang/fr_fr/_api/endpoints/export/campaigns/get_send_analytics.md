@@ -14,9 +14,9 @@ description: "Cet article présente en détail l'endpoint Braze Exporter l'analy
 /sends/data_series
 {% endapimethod %}
 
-> Utilisez cet endpoint pour récupérer une série quotidienne de diverses statistiques pour un `send_id` suivi dans le cadre de Campagnes API.
+> Utilisez cet endpoint pour récupérer une série quotidienne de diverses statistiques pour un `send_id` suivi dans le cadre de Campaigns API.
 
-Braze stocke les analyses d'envoi pendant 14 jours après l'envoi. Les conversions de la campagne seront attribuées au `send_id` le plus récent qu'un utilisateur donné a reçu de cette campagne.
+Braze stocke les analyses d'envoi pendant 14 jours après l'envoi. Les conversions de la Campaign seront attribuées au `send_id` le plus récent qu'un utilisateur donné a reçu de cette Campaign.
 
 {% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
 
@@ -24,7 +24,7 @@ Braze stocke les analyses d'envoi pendant 14 jours après l'envoi. Les conversio
 
 ## Conditions préalables {#prerequisites}
 
-Cet endpoint est réservé aux Campagnes API. Pour l'utiliser, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `sends.data_series`.
+Cet endpoint est réservé aux Campaigns API. Pour l'utiliser, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `sends.data_series`.
 
 ## Limite de débit {#rate-limit}
 

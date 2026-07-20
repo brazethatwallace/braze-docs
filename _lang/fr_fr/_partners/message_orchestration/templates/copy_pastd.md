@@ -9,13 +9,13 @@ search_tag: Partner
 
 # Copy Pastd
 
-> [Copy Pastd](https://copypastd.com/) Building Blocks est un générateur d'e-mails par glisser-déposer qui envoie des Content Blocks alimentés par Liquid et des modèles complets directement dans votre espace de travail Braze. Concevez une fois, synchronisez avec Braze et réutilisez les mêmes composants dans vos campagnes, Canvas et flux déclenchés sans recréer le HTML à chaque fois.
+> [Copy Pastd](https://copypastd.com/) Building Blocks est un générateur d'e-mails par glisser-déposer qui envoie des Content Blocks alimentés par Liquid et des modèles complets directement dans votre espace de travail Braze. Concevez une fois, synchronisez avec Braze et réutilisez les mêmes composants dans vos Campaigns, Canvas et flux déclenchés sans recréer le HTML à chaque fois.
 
 _Cette intégration est maintenue par Copy Pastd._
 
 ## À propos de l'intégration {#about-the-integration}
 
-L'intégration de Braze et Copy Pastd vous permet de créer des e-mails dans Building Blocks, un générateur d'e-mails hébergé qui produit un contenu natif Braze avec du Liquid propre, des références aux Content Blocks et des modèles qui s'intègrent dans n'importe quelle campagne ou Canvas sans conversion.
+L'intégration de Braze et Copy Pastd vous permet de créer des e-mails dans Building Blocks, un générateur d'e-mails hébergé qui produit un contenu natif Braze avec du Liquid propre, des références aux Content Blocks et des modèles qui s'intègrent dans n'importe quelle Campaign ou Canvas sans conversion.
 
 Vous pouvez assembler un e-mail à partir de blocs réutilisables, l'envoyer vers Braze en un clic et avoir la certitude que les mêmes styles de marque, composants et contenus dynamiques s'affichent de manière cohérente à chaque envoi. Le résultat : moins de modèles codés à la main, moins de temps consacré à la création et à l'envoi d'e-mails, et une bibliothèque centralisée qui se met à jour partout lorsqu'elle est modifiée.
 
@@ -26,19 +26,19 @@ Les éléments suivants sont requis pour utiliser cette intégration :
 | Condition | Description |
 | ----------- | ----------- |
 | Compte Copy Pastd | Requis pour utiliser Building Blocks. Inscrivez-vous sur [copypastd.com](https://copypastd.com). Chaque client reçoit un espace de travail, une bibliothèque de feuilles de style, cinq postes de générateur et une bibliothèque de blocs. |
-| Clé API REST Braze pour les modèles d'e-mail | Une clé API avec les autorisations `templates.email.create`, `templates.email.update` et `templates.email.list`.<br><br>Créez la clé dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-| Clé API REST Braze pour les Content Blocks | Une clé API avec les autorisations `content_blocks.create`, `content_blocks.update`, `content_blocks.info` et `content_blocks.list`.<br><br>Créez la clé dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
+| Clé API REST Braze pour les modèles d'e-mail | Une clé API avec les autorisations `templates.email.create`, `templates.email.update` et `templates.email.list`.<br><br>Créez la clé dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Clé API REST Braze pour les Content Blocks | Une clé API avec les autorisations `content_blocks.create`, `content_blocks.update`, `content_blocks.info` et `content_blocks.list`.<br><br>Créez la clé dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Clé API REST Braze pour les Catalogues (facultatif) | Une clé API avec un accès en lecture à `catalogs.get`, `catalogs.get_item` et `catalogs.get_selections`. Requis uniquement si vous prévoyez de lier des blocs aux Catalogues Braze. |
-| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. Building Blocks sélectionne automatiquement l'endpoint en fonction du cluster que vous choisissez. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. Building Blocks sélectionne automatiquement l'endpoint en fonction du cluster que vous choisissez. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 * **Création cohérente avec la marque à grande échelle.** Appliquez une feuille de style Building Blocks à chaque modèle : les couleurs, polices, styles de boutons et échelles de marge s'affichent de manière identique sur des centaines d'e-mails. Lorsque la marque évolue, mettez à jour la feuille de style une seule fois et resynchronisez pour déployer la mise à jour sur tous vos e-mails en une fois.
-* **Contenu connecté et modèles de produits liés aux Catalogues.** Liez les champs de blocs d'e-mail directement à vos endpoints de [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) et aux [Catalogues Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/) depuis le générateur. Réutilisez le même modèle pour les lancements de nouveaux produits, les collections saisonnières ou les actualisations de contenu sans toucher au Liquid.
+* **Contenu connecté et modèles de produits liés aux Catalogues.** Liez les champs de blocs d'e-mail directement à vos endpoints de [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) et aux [Catalogues Braze]({{site.baseurl}}/user_guide/data/activation/catalogs) depuis le générateur. Réutilisez le même modèle pour les lancements de nouveaux produits, les collections saisonnières ou les actualisations de contenu sans toucher au Liquid.
 * **Production d'e-mails en libre-service pour les marketeurs non techniques.** Composez un e-mail complet à partir de blocs approuvés, y compris la personnalisation et la logique Liquid, et envoyez-le vers Braze pour révision sans avoir besoin d'un développeur pour écrire du HTML ou du Liquid, ni pour effectuer l'assurance qualité.
 * **En-têtes et pieds de page centralisés, mis à jour en un clic.** Créez un en-tête ou un pied de page une seule fois dans le générateur Building Blocks et envoyez-le vers Braze. Chaque modèle qui le référence reste synchronisé, de sorte qu'un changement de logo, une modification de mentions légales ou un nouveau lien social ne nécessite qu'une seule mise à jour dans Building Blocks pour se propager à tous les e-mails déjà dans Braze.
-* **Contenu centralisé pour tous les e-mails.** Créez un héros, un pied de page ou une carte promotionnelle une seule fois en tant que bloc intelligent Building Blocks. Mettez-le à jour, synchronisez, et chaque e-mail déjà dans Braze qui le référence récupère la modification lors du prochain envoi. Les flux de bienvenue, les newsletters hebdomadaires et les parcours déclenchés restent à jour sans modifier chaque campagne.
+* **Contenu centralisé pour tous les e-mails.** Créez un héros, un pied de page ou une carte promotionnelle une seule fois en tant que bloc intelligent Building Blocks. Mettez-le à jour, synchronisez, et chaque e-mail déjà dans Braze qui le référence récupère la modification lors du prochain envoi. Les flux de bienvenue, les newsletters hebdomadaires et les parcours déclenchés restent à jour sans modifier chaque Campaign.
 * **Modèles verrouillés pour le libre-service des contributeurs.** Créez des modèles, verrouillez certains champs, puis invitez d'autres équipes à créer leurs propres e-mails depuis une interface contributeur sans leur donner accès aux outils destinés aux utilisateurs.
 
 ## Intégration {#integration}
@@ -69,11 +69,11 @@ La connexion de Building Blocks à Braze est une configuration unique. Une fois 
 3. Sélectionnez **Save**. Building Blocks régénère le Liquid pour chaque bloc qui utilise cette feuille de style.
 4. Sélectionnez **Sync now** pour envoyer les styles mis à jour dans votre espace de travail Braze.
 
-### Étape 2 : Activer les endpoints de Contenu connecté (facultatif) {#step-2-enable-connected-content-endpoints-optional}
+### Étape 2 : Activer les endpoints de contenu connecté (facultatif) {#step-2-enable-connected-content-endpoints-optional}
 
 1. Dans Building Blocks, accédez à **Settings** > **Connect** > **Connected Content endpoints**.
 2. Ajoutez l'URL de l'endpoint, nommez-le et enregistrez. Building Blocks prend en charge un format de réponse Google Sheets en plus du format JSON standard.
-3. Dans le générateur, liez n'importe quel champ texte, image ou lien à une variable de Contenu connecté depuis le panneau **Personalize**. Le Liquid {% raw %}`{% connected_content %}`{% endraw %} correct est généré à l'exportation.
+3. Dans le générateur, liez n'importe quel champ texte, image ou lien à une variable de contenu connecté depuis le panneau **Personalize**. Le Liquid {% raw %}`{% connected_content %}`{% endraw %} correct est généré à l'exportation.
 
 ### Étape 3 : Lier aux Catalogues Braze (facultatif) {#step-3-bind-to-braze-catalogs-optional}
 
@@ -88,7 +88,7 @@ Building Blocks est livré avec les attributs utilisateur Braze par défaut (`fi
 
 1. Dans Building Blocks, accédez à **Team Settings** > **Connect** > **Custom Attributes**.
 2. Importez vos attributs personnalisés en utilisant l'une des méthodes suivantes :
-* **Import en masse (recommandé).** Dans Braze, accédez à **Data Settings** > **Custom Attributes** et sélectionnez **Export** (en haut à droite). Téléversez le CSV dans Building Blocks.
+* **Import en masse (recommandé).** Dans Braze, accédez à **Data Settings** > **Custom Attributes** et sélectionnez **Export**. Téléversez le CSV dans Building Blocks.
 * **Ajouter les attributs un par un.** Saisissez le nom de l'attribut (par exemple, `loyalty_tier`) et sélectionnez **Add**. Cette méthode est utile si vous n'ajoutez que quelques attributs ou si vous souhaitez ajouter un nouvel attribut entre deux exports Braze.
 
 Après l'enregistrement, vos attributs personnalisés apparaissent dans le menu déroulant **Personalize** du générateur aux côtés des attributs par défaut. L'insertion d'un attribut génère le Liquid {% raw %}`{{custom_attribute.${name}}}`{% endraw %} correct à l'exportation, de sorte que Braze résout la valeur par destinataire au moment de l'envoi.
@@ -98,14 +98,14 @@ Après l'enregistrement, vos attributs personnalisés apparaissent dans le menu 
 ### Étape 1 : Envoyer un modèle vers Braze {#step-1-push-a-template-to-braze}
 
 1. Ouvrez n'importe quel e-mail dans le générateur Building Blocks.
-2. Sélectionnez **Push to Braze** (en haut à droite).
+2. Sélectionnez **Push to Braze** dans la barre d'actions.
 3. Sélectionnez l'espace de travail et confirmez. Building Blocks crée un modèle d'e-mail dans Braze avec le Liquid rendu.
 
-Le modèle apparaît dans Braze sous **Templates & Media** > **Email Templates**, nommé d'après l'e-mail et la date sélectionnée dans les paramètres de l'e-mail.
+Le modèle apparaît dans Braze sous **Modèles et médias** > **Modèles d'e-mail**, nommé d'après l'e-mail et la date sélectionnée dans les paramètres de l'e-mail.
 
-### Étape 2 : Utiliser le modèle dans une campagne ou un Canvas {#step-2-use-the-template-in-a-campaign-or-canvas}
+### Étape 2 : Utiliser le modèle dans une Campaign ou un Canvas {#step-2-use-the-template-in-a-campaign-or-canvas}
 
-1. Dans Braze, créez une nouvelle campagne e-mail ou une étape du Canvas.
+1. Dans Braze, créez une nouvelle Campaign e-mail ou une étape du Canvas.
 2. Sélectionnez **Templates** et choisissez le modèle envoyé par Building Blocks.
 
 Le modèle contient chaque référence Building Blocks (feuille de style, Content Blocks) sous forme de Liquid {% raw %}`{{content_blocks.${...}}}`{% endraw %} actif, de sorte que les mises à jour dans Building Blocks se propagent sans réimporter le modèle.
@@ -115,7 +115,7 @@ Le modèle contient chaque référence Building Blocks (feuille de style, Conten
 1. Dans Building Blocks, modifiez le bloc ou la feuille de style concerné.
 2. Sélectionnez **Sync** pour renvoyer le Content Block mis à jour vers Braze.
 
-Chaque e-mail dans Braze qui le référence (flux permanents, déclenchés, de bienvenue) récupère la nouvelle version lors du prochain envoi. Vous n'avez pas besoin de modifier chaque campagne.
+Chaque e-mail dans Braze qui le référence (flux permanents, déclenchés, de bienvenue) récupère la nouvelle version lors du prochain envoi. Vous n'avez pas besoin de modifier chaque Campaign.
 
 ### Étape 4 : Créer des pools de contenu {#step-4-build-content-pools}
 
@@ -139,7 +139,7 @@ Un bloc intelligent est un bloc sur le canevas du générateur qui référence u
 
 À partir de maintenant, vous mettez à jour le pool, pas l'e-mail. Les flux déclenchés, les newsletters permanentes et les campagnes saisonnières restent tous à jour tant que le pool est à jour.
 
-Retrouvez vos modèles Building Blocks téléversés dans Braze sous **Templates & Media** > **Email Templates**. Les feuilles de style et blocs synchronisés apparaissent sous **Templates & Media** > **Content Blocks**.
+Retrouvez vos modèles Building Blocks téléversés dans Braze sous **Modèles et médias** > **Modèles d'e-mail**. Les feuilles de style et blocs synchronisés apparaissent sous **Modèles et médias** > **Content Blocks**.
 
 ## Considérations {#considerations}
 

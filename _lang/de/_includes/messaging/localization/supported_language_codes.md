@@ -174,4 +174,4 @@ Braze unterstützt die meisten Sprachcodes des [ISO-639-1-Standards](http://en.w
 | YORUBA | `yo` |
 | ZARMA | `dje` |
 | ZULU | `zu` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported language codes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unterstützte Sprachcodes" }

@@ -15,18 +15,18 @@ description: "Este artigo de referência aborda o uso de um vetor de objetos com
 
 ## Considerações {#considerations}
 
-- Os vetores de objetos destinam-se a atributos personalizados enviados por meio da API. Não há suporte para fazer upload de CSV. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e as vírgulas nos valores causarão erros de análise.
+- Os vetores de objetos destinam-se a atributos personalizados enviados por meio da API. Não há suporte para upload de CSV. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e as vírgulas nos valores causarão erros de análise.
 - Os vetores de objetos não têm limite para o número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização (como `$add` ou `$update`) fizer o vetor exceder esse limite, a Braze descarta a atualização e o atributo permanece inalterado. A requisição da API ainda retorna uma resposta de sucesso. Para manter o vetor dentro do limite e permitir a adição de novos itens, use `$remove` para excluir itens do vetor primeiro.
-- Nem todos os parceiros da Braze suportam vetores de objetos. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home/) para confirmar se a integração suporta esse recurso.
+- Nem todos os parceiros da Braze suportam vetores de objetos. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home) para confirmar se a integração suporta esse recurso.
 
 A atualização ou remoção de itens em um vetor exige a identificação do item por chave e valor, portanto, considere incluir um identificador exclusivo para cada item do vetor. A exclusividade tem escopo apenas para o vetor e é útil se você quiser atualizar e remover objetos específicos do vetor. Isso não é imposto pela Braze.
 
 {% alert important %}
-Quando um atributo personalizado aninhado na sua requisição contém valores inválidos (como formatos de hora inválidos ou valores `null`), a Braze descarta todas as atualizações de atributos personalizados aninhados da requisição durante o processamento. Isso se aplica a todas as estruturas aninhadas dentro desse atributo específico. Verifique se todos os valores dentro dos atributos personalizados aninhados são válidos antes de enviar. Para saber mais, consulte [Criar e atualizar usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes).
+Quando um atributo personalizado aninhado na sua requisição contém valores inválidos (como formatos de hora inválidos ou valores `null`), a Braze descarta todas as atualizações de atributos personalizados aninhados da requisição durante o processamento. Isso se aplica a todas as estruturas aninhadas dentro desse atributo específico. Verifique se todos os valores dentro dos atributos personalizados aninhados são válidos antes de enviar. Para saber mais, consulte [Criar e atualizar usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track#how-does-userstrack-handle-invalid-nested-custom-attributes).
 {% endalert %}
 
 {% alert tip %}
-Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 {% endalert %}
 
 ## Exemplo de API {#api-example}
@@ -50,13 +50,13 @@ Use este formato quando quiser criar o atributo pela primeira vez ou substituir 
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }
@@ -81,19 +81,19 @@ Use `$add` quando precisar anexar um ou mais novos objetos e manter os objetos e
             "id": 3,
             "type": "dog",
             "breed": "corgi",
-            "name": "Doug"
+            "name": "Biscuit"
           },
           {
             "id": 4,
             "type": "fish",
             "breed": "salmon",
-            "name": "Larry"
+            "name": "Pepper"
           },
            {
             "id": 5,
             "type": "bird",
             "breed": "parakeet",
-            "name": "Mary"
+            "name": "Noodle"
           }
         ]
       }
@@ -104,7 +104,7 @@ Use `$add` quando precisar anexar um ou mais novos objetos e manter os objetos e
 {% endtab %}
 {% tab Atualizar %}
 
-Atualize valores de objetos específicos dentro de um vetor usando o parâmetro `_merge_objects` e o operador `$update`. Semelhante às atualizações de outros objetos de [atributos personalizados aninhados]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body), isso realiza um merge profundo.
+Atualize valores de objetos específicos dentro de um vetor usando o parâmetro `_merge_objects` e o operador `$update`. Semelhante às atualizações de outros objetos de [atributos personalizados aninhados]({{site.baseurl}}/nested_custom_attribute_support#api-request-body), isso realiza um merge profundo.
 
 Observe que `$update` não pode ser usado para remover uma propriedade aninhada de um objeto dentro de um vetor. Para isso, você precisará remover o item inteiro do vetor e depois adicionar o objeto sem essa chave específica (usando uma combinação de `$remove` e `$add`).
 
@@ -220,7 +220,7 @@ Ao incluir campos como timestamps em um vetor de objetos, use o formato `$time` 
 ```
 
 {% alert tip %}
-Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 {% endalert %}
 
 ## Exemplo de SDK {#sdk-example}
@@ -240,7 +240,7 @@ val json = JSONArray()
         .put("id", 2)
         .put("type", "cat")
         .put("breed", "calico")
-        .put("name", "Gerald")
+        .put("name", "Pixel")
     )
 
 braze.getCurrentUser { user ->
@@ -262,12 +262,12 @@ val json = JSONObject()
             .put("id", 4)
             .put("type", "fish")
             .put("breed", "salmon")
-            .put("name", "Larry"))
+            .put("name", "Pepper"))
         .put(JSONObject()
             .put("id", 5)
             .put("type", "bird")
             .put("breed", "parakeet")
-            .put("name", "Mary")
+            .put("name", "Noodle")
         )
     )
 
@@ -338,13 +338,13 @@ let json: [[String: Any?]] = [
     "id": 1,
     "type": "dog",
     "breed": "beagle",
-    "name": "Gus"
+    "name": "Mochi"
   ],
   [
     "id": 2,
     "type": "cat",
     "breed": "calico",
-    "name": "Gerald"
+    "name": "Pixel"
   ]
 ]
 
@@ -360,19 +360,19 @@ let json: [String: Any?] = [
       "id": 3,
       "type": "dog",
       "breed": "corgi",
-      "name": "Doug"
+      "name": "Biscuit"
     ],
     [
       "id": 4,
       "type": "fish",
       "breed": "salmon",
-      "name": "Larry"
+      "name": "Pepper"
     ],
     [
       "id": 5,
       "type": "bird",
       "breed": "parakeet",
-      "name": "Mary"
+      "name": "Noodle"
     ]
   ]
 ]
@@ -444,12 +444,12 @@ const json = [{
   "id": 1,
   "type": "dog",
   "breed": "beagle",
-  "name": "Gus"
+  "name": "Mochi"
 }, {
   "id": 2,
   "type": "cat",
   "breed": "calico",
-  "name": "Gerald"
+  "name": "Pixel"
 }];
 braze.getUser().setCustomUserAttribute("pets", json);
 ```
@@ -468,12 +468,12 @@ const json = {
     "id":  4,
     "type":  "fish",
     "breed":  "salmon",
-    "name":  "Larry",
+    "name":  "Pepper",
   }, {
     "id":  5,
     "type":  "bird",
     "breed":  "parakeet",
-    "name":  "Mary",
+    "name":  "Noodle",
   }]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir uma frase para cada animal de estimação. [Atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) ao atributo personalizado `pets` e use a notação de ponto para acessar propriedades de um objeto. Especifique o nome do objeto, seguido de um ponto `.`, seguido do nome da propriedade.
+Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir uma frase para cada animal de estimação. [Atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) ao atributo personalizado `pets` e use a notação de ponto para acessar propriedades de um objeto. Especifique o nome do objeto, seguido de um ponto `.`, seguido do nome da propriedade.
 
 ## Segmentação {#segmentation}
 
@@ -562,7 +562,7 @@ Por exemplo, se você quiser filtrar um vetor de objetos `top_3_movies` com base
 
 ### Níveis de aninhamento {#levels-of-nesting}
 
-Você pode criar um segmento com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um segmento para `pets[].name` contém `Gus`, mas não pode criar um segmento para `pets[].nicknames[]` contém `Gugu`.
+Você pode criar um segmento com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um segmento para `pets[].name` contém `Mochi`, mas não pode criar um segmento para `pets[].nicknames[]` contém `Gugu`.
 
 {% raw %}
 ```json
@@ -575,20 +575,20 @@ Você pode criar um segmento com até um nível de aninhamento de vetor (vetor d
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus",
+          "name": "Mochi",
           "nicknames": [
-            "Gugu",
-            "Gusto"
+            "MoMo",
+            "Mochi"
           ]
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald",
+          "name": "Pixel",
           "nicknames": [
-            "GeGe",
-            "Gerry"
+            "PiPi",
+            "Pixel"
           ]
         }
       ]
@@ -617,13 +617,13 @@ Criar um novo vetor registra um ponto de dados para cada atributo em um objeto. 
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }

@@ -43,7 +43,7 @@ Ao importar os dados dos seus clientes, você pode usar um `external_id` como id
 - Download: [Modelo de importação de eventos por CSV: External ID](https://braze.com/unlisted_docs/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)
 
 {% alert note %}
-Se você estiver fazendo upload de uma combinação de usuários com `external_id` e usuários sem, será necessário criar um CSV para cada importação. Um CSV não pode conter tanto `external_ids` quanto aliases de usuário.
+Se você estiver fazendo upload de uma combinação de usuários com `external_id` e usuários sem, será necessário criar um CSV para cada importação. Um CSV não pode conter tanto `external_id` quanto aliases de usuário.
 {% endalert %}
 {% endtab %}
 
@@ -202,7 +202,7 @@ Apenas um único `subscription_group_id` pode ser definido por linha na importa�
 {% tab custom events %}
 #### Identificadores obrigatórios {#required-identifiers-custom-events}
 
-Embora `external_id` não seja obrigatório, você **deve** incluir **um** dos seguintes identificadores como cabeçalho no seu arquivo CSV. Para detalhes sobre cada um, consulte [Escolher um identificador](#choose-an-identifier).
+Embora `external_id` não seja obrigatório, seu arquivo CSV deve incluir um identificador de usuário que mapeie para **um** dos seguintes identificadores. Para detalhes sobre cada um, consulte [Escolher um identificador](#choose-an-identifier).
 
 - `external_id`
 - `braze_id`
@@ -212,9 +212,9 @@ Embora `external_id` não seja obrigatório, você **deve** incluir **um** dos s
 
 #### Campos de eventos personalizados {#custom-event-fields}
 
-Além dos campos a seguir, seu CSV também pode conter cabeçalhos de coluna adicionais para propriedades de eventos. Essas propriedades devem ter um cabeçalho de coluna no formato `<event_name>.properties.<property name>.`
+Além dos campos padrão listados na tabela a seguir, seu CSV também pode conter cabeçalhos de coluna adicionais para propriedades de eventos. Essas propriedades devem ter um cabeçalho de coluna no formato `<event_name>.properties.<property name>` ou `<property name>`.
 
-Por exemplo, o evento personalizado `trip_booked` pode ter as propriedades `destination` e `duration`. Elas podem ser importadas usando os cabeçalhos de coluna `trip_booked.properties.destination` e `trip_booked.properties.duration`.
+Por exemplo, o evento personalizado `trip_booked` pode ter as propriedades `destination` e `duration`. Você pode importá-las usando os cabeçalhos de coluna `trip_booked.properties.destination` e `trip_booked.properties.duration`. Você também pode representar propriedades nos cabeçalhos como `<property name>`. A Braze detecta as propriedades relevantes para cada evento com base na existência de um valor na célula CSV correspondente.
 
 | Campo do perfil de usuário | Tipo de dado | Informações | Obrigatório? |
 | :---- | :---- | :---- | :---- |
@@ -226,7 +226,8 @@ Por exemplo, o evento personalizado `trip_booked` pode ter as propriedades `dest
 | `phone` | String | Um número de telefone conforme indicado pelos seus usuários, no formato `E.164` (por exemplo, `+442071838750`). Consulte [Números de telefone dos usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) para orientações de formatação. | Não, e só pode ser usado na ausência de outros identificadores. Consulte a nota a seguir. |
 | `name` | String | Um evento personalizado dos seus usuários. | Sim |
 | `time` | String | O horário do evento. Pode ser passado em um dos seguintes formatos ISO-8601: "AAAA-MM-DD" "AAAA-MM-DDTHH:MM:SS+00:00" "AAAA-MM-DDTHH:MM:SSZ" "AAAA-MM-DDTHH:MM:SS" (por exemplo, 2019-11-20T18:38:57) | Sim |
-| `<event name>.properties.<property name>` | Múltiplas | Uma propriedade de evento associada a um evento personalizado. Um exemplo é `trip_booked.properties.destination` | Não |
+| `<event name>.properties.<property name>` | Múltiplos | Uma propriedade de evento associada a um evento personalizado. Um exemplo é `trip_booked.properties.destination` | Não |
+| `<property name>` | Múltiplos | Uma propriedade de evento que pode ser usada em vários tipos de eventos. Um exemplo é `destination`. Essa propriedade é associada a um evento quando há um valor não nulo na célula CSV correspondente. | Não |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campos de eventos personalizados" }
 
 #### Requisitos de formato para eventos personalizados {#format-requirements-for-custom-events}
@@ -235,11 +236,11 @@ Ao importar eventos personalizados usando CSV, você deve formatar seu arquivo d
 
 ##### Entendendo a formatação de eventos personalizados {#understanding-custom-event-formatting}
 
-É importante formatar corretamente o CSV de eventos personalizados usando notação de ponto para que cada propriedade seja mapeada para o evento correto. Se o formato estiver incorreto, as propriedades podem ser descartadas ou a importação pode falhar, especialmente quando vários tipos de eventos estão incluídos em um único arquivo.
+Formate corretamente o CSV de eventos personalizados usando notação de ponto, ou com um valor não nulo na célula correspondente, para que a Braze mapeie cada propriedade para o evento correto. Se o formato estiver incorreto, as propriedades podem ser descartadas ou a importação pode falhar, especialmente quando vários tipos de eventos estão incluídos em um único arquivo.
 
 ##### Use notação de ponto para propriedades de eventos {#use-dot-notation-for-event-properties}
 
-A notação de ponto é usada para definir a relação hierárquica entre um evento personalizado e suas propriedades. Essa convenção de formatação permite importar dados de eventos estruturados que incluem atributos específicos para cada evento.
+Use notação de ponto para definir a relação hierárquica entre um evento personalizado e suas propriedades. Essa convenção de formatação permite importar dados de eventos estruturados que incluem atributos específicos para cada evento.
 
 O formato de notação de ponto segue esta estrutura: `event_name.properties.property_name`
 
@@ -257,6 +258,8 @@ Para um evento personalizado chamado `rented_movie` com as propriedades `movie_n
 - `rented_movie.properties.genre`
 
 Essa notação informa à Braze para criar um evento personalizado chamado `rented_movie` e anexar as propriedades `movie_name` e `genre` a essa instância específica do evento.
+
+Se você usar uma combinação de notação de ponto e notação sem ponto para importar propriedades, o upload do seu CSV pode falhar porque a Braze detecta cabeçalhos duplicados. Isso ocorre quando você tem os cabeçalhos `rented_movie.properties.movie_name` e `movie_name` no mesmo arquivo. Para evitar isso, use apenas um formato de propriedades nos seus cabeçalhos.
 
 ##### Um evento por linha {#one-event-per-row}
 
@@ -287,19 +290,21 @@ Neste exemplo:
 
 ### Etapa 4: Fazer upload do seu arquivo {#step-4-upload-your-file}
 
-Para fazer upload do seu arquivo, selecione **Attributes** ou **Events**, clique em **Browse Files** e faça upload do seu CSV. A Braze exibe uma pré-visualização das primeiras linhas e um resumo dos campos detectados.
+Para fazer upload do seu arquivo, selecione **Attributes** ou **Events**, clique em **Browse Files** e faça upload do seu CSV. A Braze exibe uma prévia das primeiras linhas e um resumo dos campos detectados.
 
 Para arquivos grandes (até 500 MB para atributos padrão e atributos personalizados, ou 50 MB para eventos personalizados), o dashboard pode parecer temporariamente sem resposta enquanto o arquivo é carregado e a Braze calcula a importação. Esses uploads e cálculos podem levar mais tempo para serem concluídos do que para arquivos menores. Aguarde a conclusão desta etapa. Para mais contexto sobre limites de arquivo e tempo, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
-No campo **Import name**, você pode renomear sua importação. Por padrão, o nome do arquivo é usado.
+Antes de fazer upload do seu arquivo CSV, renomeie-o com o nome de importação que você deseja ver na Braze. Não é possível editar o nome da importação após o upload.
 
 {% alert note %}
-A pré-visualização do arquivo mostra apenas as primeiras linhas do seu arquivo. Para verificar todas as linhas antes de importar, use a [validação de arquivo](#file-validation).
+A prévia do arquivo mostra apenas as primeiras linhas do seu arquivo. Para verificar todas as linhas antes de importar, use a [validação de arquivo](#file-validation).
 {% endalert %}
 
-### Etapa 5: Mapear seus campos (para atributos) {#csv-data-mapping}
+### Etapa 5: Mapear seus campos {#csv-data-mapping}
 
-Após a pré-visualização, você pode mapear os cabeçalhos do seu CSV para atributos da Braze. A Braze mapeia automaticamente os campos do seu arquivo CSV para atributos com nomes idênticos e cria novos atributos quando necessário. Você também terá a flexibilidade de ajustar manualmente as sugestões ou selecionar atributos diferentes para qualquer coluna.
+Após a prévia, você pode mapear os cabeçalhos do seu CSV para atributos, eventos ou propriedades de eventos da Braze. A Braze mapeia automaticamente os campos do seu arquivo CSV para atributos, eventos ou propriedades de eventos com nomes idênticos e cria novos campos quando necessário. Você também terá a flexibilidade de ajustar manualmente as sugestões ou selecionar atributos, eventos ou propriedades diferentes.
+
+Para propriedades de eventos, a Braze detecta propriedades e as associa a eventos relevantes com base na existência de um valor não nulo na célula CSV, ou a partir de cabeçalhos que usam notação de ponto no formato `<event name>.properties.<property name>`.
 
 ![A página de mapeamento de colunas.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
 
@@ -309,23 +314,24 @@ A coluna de status de mapeamento indica a ação que ocorre quando seu arquivo C
 
 | Status de mapeamento | O que significa |
 |:---|:---|
-| **Mapeado** | Campo mapeado para um atributo ou identificador existente. |
-| **Novo atributo** | A Braze cria um novo atributo na importação. Você pode editar esse atributo selecionando o botão **Edit new attribute**. |
-| **Incompatibilidade de tipo de dado** | O tipo de dado detectado da coluna CSV não corresponde ao tipo de dado do atributo ou identificador existente. A Braze tenta converter o tipo de dado na importação para corresponder ao atributo existente. O valor é descartado se isso não for possível. |
-| **Atributo na lista de bloqueio** | O campo CSV corresponde ao nome de um atributo na lista de bloqueio. Selecione um atributo diferente para mapear ou a coluna não será importada. |
+| **Mapeado** | Campo mapeado para um atributo, evento ou identificador existente. |
+| **Novo atributo**, **Novo evento** ou **Nova propriedade de evento** | A Braze cria um novo atributo ou evento na importação. Você pode editá-lo selecionando o botão **Edit new attribute**, **Edit new event** ou **Edit new property**. |
+| **Incompatibilidade de tipo de dado** | O tipo de dado detectado da coluna CSV não corresponde ao tipo de dado do atributo, evento ou identificador existente. A Braze tenta converter o tipo de dado na importação para corresponder ao atributo existente. O valor é descartado se isso não for possível. |
+| **Atributo na lista de bloqueio** ou **Evento na lista de bloqueio** | O campo CSV corresponde ao nome de um atributo ou evento na lista de bloqueio. Selecione um atributo ou evento diferente para mapear, ou a coluna não será importada. |
 | **Atributo duplicado** | Há um ou mais campos com o mesmo nome no seu arquivo CSV. Mapeie as colunas com o mesmo nome para atributos diferentes ou apenas a primeira coluna será importada. |
+| **Chave de evento reservada** | O nome da sua propriedade de evento corresponde a uma chave de evento reservada na Braze, como `time` ou `event_name`. Insira um nome diferente ou selecione uma propriedade diferente para mapear, ou o valor será descartado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Status de mapeamento" }
 
 
-#### Editando novos atributos {#editing-new-attributes}
+#### Editando novos atributos, eventos e propriedades {#editing-new-attributes-events-and-properties}
 
-Quando um atributo correspondente não existe no seu espaço de trabalho, a Braze tenta criar um novo atributo na importação usando o nome do campo CSV e o tipo de dado detectado. Você pode editar esse novo atributo antes da importação selecionando o botão **Edit new attribute** ao lado do status de mapeamento.
+Quando um atributo, evento ou propriedade de evento correspondente não existe no seu espaço de trabalho, a Braze tenta criar um novo atributo, evento ou propriedade na importação usando o nome do campo CSV e o tipo de dado detectado. Você pode editar esse novo campo antes da importação selecionando o botão **Edit new attribute**, **Edit new event** ou **Edit new property** ao lado do status de mapeamento.
 
 ![O botão de editar novo atributo na página de mapeamento de colunas.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
 
 
 {% alert note %}
-Você não pode prosseguir além da etapa de mapeamento até que um identificador seja mapeado. A Braze mapeia automaticamente um identificador quando possível. Consulte a seção **Required fields** para verificar se um identificador está mapeado.
+Você não pode prosseguir além da etapa de mapeamento até que um identificador seja mapeado. A Braze mapeia automaticamente um identificador quando possível. Para eventos personalizados, você também deve mapear as colunas `name` e `time`. Consulte a seção **Required fields** para mais informações.
 {% endalert %}
 
 ### Etapa 6: Escolher preferências de direcionamento {#targeting-preferences}
@@ -421,7 +427,7 @@ Definir `language` ou `country` em um usuário por meio de importação por CSV 
 
 Se você usou a [validação de arquivo](#file-validation), comece pelo relatório de erros, pois ele inclui o problema específico de cada linha sinalizada e uma descrição de como corrigi-lo. Para linhas que falharam durante a importação e não na validação, baixe o relatório de erros passando o cursor sobre a linha e selecionando o botão <i class="fas fa-download" title="Download"></i> na página **Import Users**.
 
-Para solucionar problemas de importação por CSV, revise os problemas comuns a seguir.
+Para solucionar problemas de importação por CSV, revise os problemas comuns nas seções a seguir.
 
 ### Usar e-mail como `external_id` {#use-email-as-external_id}
 
@@ -496,7 +502,7 @@ Se um dado de usuário padrão (como `email` ou `first_name`) for importado como
 
 #### Alterar o tipo de dado de um atributo personalizado {#change-a-custom-attributes-data-type}
 
-Se você precisar alterar o tipo de dado de um atributo personalizado existente (por exemplo, de string para booleano), atualize o tipo de dado na página [**Atributos personalizados**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) no dashboard antes de importar seu CSV. Se o tipo de dado no seu CSV não corresponder ao tipo de dado atualmente definido para o atributo, a importação falhará com um erro.
+Se você precisar alterar o tipo de dado de um atributo personalizado existente (por exemplo, de string para booleano), atualize o tipo de dado na página [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) no dashboard antes de importar seu CSV. Se o tipo de dado no seu CSV não corresponder ao tipo de dado atualmente definido para o atributo, a importação falhará com um erro.
 
 #### Múltiplos tipos de dados {#multiple-data-types}
 
@@ -506,7 +512,7 @@ Além disso, iniciar um atributo numérico com zero causará problemas, pois nú
 
 #### Tipos de atributos padrão {#default-attribute-types}
 
-Alguns atributos padrão podem aceitar apenas determinados valores como válidos para atualizações de usuário. Para orientações, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
+Alguns atributos padrão aceitam apenas determinados valores como válidos para atualizações de usuário. Para orientações, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
 
 Espaços à direita e diferenças na capitalização podem fazer com que um valor seja interpretado como inválido. Por exemplo, no arquivo CSV a seguir, apenas o usuário na primeira linha (`brazetest1`) terá seus status de e-mail e push atualizados com sucesso, pois os valores aceitos são `unsubscribed`, `subscribed` e `opted_in`.
 

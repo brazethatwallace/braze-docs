@@ -9,9 +9,9 @@ search_tag: Partner
 
 # Simon AI
 
-> A plataforma de marketing agêntico [Simon AI][1] ajuda equipes de marketing a alcançar uma personalização verdadeiramente individual. Ela combina um CDP composável com agentes de IA que operam diretamente no Snowflake AI Data Cloud para atuar como a equipe de dados e execução de um profissional de marketing.
+> A plataforma de marketing agêntico [Simon AI][1] ajuda equipes de marketing a alcançar uma personalização verdadeiramente individual. Ela combina uma plataforma de dados do cliente composável com agentes de IA que operam diretamente no Snowflake AI Data Cloud para atuar como a equipe de dados e execução de um profissional de marketing.
 
-Use a integração da Braze com o Simon AI para criar e sincronizar públicos avançados com a Braze para orquestração em tempo real e sem código. Com essa integração, você pode aproveitar a resolução de identidade, a unificação de dados de clientes e a segmentação orientada por IA do Simon AI para potencializar Campaigns da Braze mais personalizadas e impactantes.
+Use a integração da Braze com o Simon AI para criar e sincronizar públicos avançados com a Braze para orquestração em tempo real e sem código. Com essa integração, você pode aproveitar a resolução de identidade, a unificação de dados de clientes e a segmentação orientada por IA do Simon AI para potencializar campanhas da Braze mais personalizadas e impactantes.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -40,9 +40,9 @@ Ao usar a integração do Simon com a Braze, o Simon envia apenas os deltas em c
 
 Para usar a integração com a Braze, primeiro autentique sua conta da Braze no Simon:
 
-1. Na navegação à esquerda, clique em **Integrations** e role até Braze.
+1. No menu de navegação, clique em **Integrations** e role até Braze.
 2. Insira sua [chave da API REST][2] da Braze e sua [URL do dashboard][3].
-3. Clique em **Salvar alterações**.
+3. Clique em **Save Changes**.
 
 Uma conexão bem-sucedida exibe **Connected** na janela.
 
@@ -82,7 +82,7 @@ Depois que o Contact Traits for ativado pelo seu gerente de conta:
 ![Selecionando traits de sincronização no Simon AI.][10]
 
 [1]: https://www.simon.ai/
-[2]: {{site.baseurl}}/api/basics/#creating-and-managing-rest-api-keys
+[2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
 [3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two

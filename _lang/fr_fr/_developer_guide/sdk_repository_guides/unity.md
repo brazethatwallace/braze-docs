@@ -6,14 +6,16 @@ description: "Référence du README du SDK Unity Braze, reproduite depuis GitHub
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guide du dépôt du SDK Unity {#unity-sdk-repository-guide}
+
 ## À propos du SDK Unity Braze {#about-the-braze-unity-sdk}
 
 Le SDK Unity Braze vous aide à intégrer les fonctionnalités d'envoi de messages, d'analyse et d'engagement utilisateur de Braze dans votre application.
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide de l'utilisateur Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guide du développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity)
+- [Guide de l'utilisateur Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guide du développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=unity)
 
 ## Configuration du plugin {#plugin-setup}
 
@@ -31,7 +33,7 @@ Avant de pouvoir commencer à utiliser Braze dans les scripts Unity, vous devez 
 Pour intégrer Braze dans votre application Unity, suivez nos instructions pour l'[intégration du SDK Unity Braze][2].
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
-[2]: {{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity
+[2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
 
 ## Contact {#contact}
 

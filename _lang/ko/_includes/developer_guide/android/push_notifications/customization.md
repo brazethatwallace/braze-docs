@@ -5,7 +5,7 @@
 Braze는 푸시 알림을 수신하거나 열람하거나 해제하는 경우에 대한 [`subscribeToPushNotificationEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/subscribe-to-push-notification-events.html) 콜백을 제공합니다. 애플리케이션이 실행되지 않는 동안 발생하는 이벤트를 놓치지 않도록 `Application.onCreate()`에 이 콜백을 배치하는 것이 좋습니다.
 
 {% alert note %}
-이전에 애플리케이션에서 이 기능을 위해 커스텀 방송 수신기를 사용했다면 이 통합 옵션을 위해 해당 수신기를 안전하게 제거할 수 있습니다.
+이전에 애플리케이션에서 이 기능을 위해 커스텀 브로드캐스트 리시버를 사용했다면 이 통합 옵션을 위해 해당 리시버를 안전하게 제거할 수 있습니다.
 {% endalert %}
 
 {% tabs %}
@@ -72,18 +72,18 @@ Braze.getInstance(context).subscribeToPushNotificationEvents { event ->
 {% endtabs %}
 
 {% alert tip %}
-알림 실행 버튼의 경우 `opens app` 또는 `deep link` 동작이 있는 버튼을 클릭하면 `BRAZE_PUSH_INTENT_NOTIFICATION_OPENED` 인텐트가 실행됩니다. 딥링크 및 추가 처리 기능은 동일하게 유지됩니다. `close` 동작이 있는 버튼은 `BRAZE_PUSH_INTENT_NOTIFICATION_OPENED` 인텐트를 실행하지 않으며 알림을 자동으로 해제합니다.
+알림 실행 버튼의 경우 `opens app` 또는 `deep link` 동작이 있는 버튼을 클릭하면 `BRAZE_PUSH_INTENT_NOTIFICATION_OPENED` 인텐트가 실행됩니다. 딥링크 및 추가 데이터 처리는 동일하게 유지됩니다. `close` 동작이 있는 버튼은 `BRAZE_PUSH_INTENT_NOTIFICATION_OPENED` 인텐트를 실행하지 않으며 알림을 자동으로 해제합니다.
 {% endalert %}
 
 {% alert important %}
-`Application.onCreate`에서 푸시 알림 리스너를 생성하여 최종 사용자가 앱이 종료된 상태에서 알림을 탭하면 리스너가 트리거되도록 하세요.
+`Application.onCreate`에서 푸시 알림 리스너를 생성하여 최종 사용자가 앱이 종료된 상태에서 알림을 탭해도 리스너가 트리거되도록 하세요.
 {% endalert %}
 
-## 알림 표시 사용자 정의 {#customization-display}
+## 알림 표시 사용자 지정 {#customization-display}
 
 ### 1단계: 커스텀 알림 팩토리 만들기 {#step-1-create-your-custom-notification-factory}
 
-일부 시나리오에서는 서버 측에서 번거롭거나 사용할 수 없는 방식으로 푸시 알림을 사용자 정의하고 싶을 수 있습니다. 알림 표시를 완벽하게 제어할 수 있도록, [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)를 정의하여 Braze에서 표시할 알림 오브젝트를 생성하는 기능을 추가했습니다.
+일부 시나리오에서는 서버 측에서 번거롭거나 사용할 수 없는 방식으로 푸시 알림을 사용자 지정하고 싶을 수 있습니다. 알림 표시를 완벽하게 제어할 수 있도록, [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)를 정의하여 Braze에서 표시할 알림 오브젝트를 생성하는 기능을 추가했습니다.
 
 커스텀 `IBrazeNotificationFactory`를 설정한 경우, 사용자에게 알림이 표시되기 전에 푸시 수신 시 Braze가 팩토리의 `createNotification()` 메서드를 호출합니다. Braze는 Braze 푸시 데이터를 포함하는 `Bundle` 및 대시보드 또는 메시징 API를 통해 전송된 커스텀 키-값 페어를 포함하는 다른 `Bundle`을 전달합니다.
 
@@ -207,7 +207,7 @@ Braze SDK 버전 3.1.1에서는 푸시 알림에 다색 텍스트를 렌더링�
 {% endtab %}
 
 {% tab BrazeConfig %}
-[`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration/#runtime-configuration)에 다음을 추가합니다:
+[`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration#runtime-configuration)에 다음을 추가합니다:
 
 {% subtabs local %}
 {% subtab JAVA %}
@@ -334,7 +334,7 @@ Braze.configure(this, brazeConfig)
 
 인라인 이미지 푸시를 사용하면 Android 푸시 알림 내에서 더 큰 이미지를 표시할 수 있습니다. 이 디자인을 사용하면 사용자가 이미지를 확대하기 위해 수동으로 푸시를 확장할 필요가 없습니다. 일반 Android 푸시 알림과 달리 인라인 이미지 푸시 이미지는 3:2 종횡비로 제공됩니다.
 
-![]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
+![인라인 이미지 푸시 렌더링을 보여주는 Android 푸시 알림 미리보기.]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
 
 ### 호환성 {#compatibility}
 
@@ -348,13 +348,13 @@ Android 12를 실행하는 기기는 커스텀 푸시 알림 스타일의 변경
 
 Android 푸시 메시지를 작성할 때 **Notification Type** 드롭다운에서 이 기능을 사용할 수 있습니다.
 
-![푸시 캠페인 편집기에서 "Notification Type" 드롭다운 위치 표시(표준 푸시 미리보기 상단).]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![표준 푸시 미리보기 근처에 있는 "Notification Type" 드롭다운 위치를 보여주는 푸시 캠페인 편집기.]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## 설정 {#settings}
 
 Braze 대시보드를 통해 전송되는 Android 푸시 알림에는 다양한 고급 설정이 제공됩니다. 이 문서에서는 이러한 기능과 성공적으로 사용하는 방법에 대해 설명합니다.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Braze Android 푸시 작성기 고급 설정 패널.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### 알림 ID {#notification-id}
 
@@ -372,17 +372,17 @@ Braze 대시보드를 통해 전송되는 Android 푸시 알림에는 다양한 
 
 요약 텍스트를 사용하면 확장된 알림 보기에서 추가 텍스트를 설정할 수 있습니다. 이미지가 포함된 알림의 캡션으로도 사용됩니다.
 
-![제목이 "This is the title for the notification."이고 요약 텍스트가 "This is the summary text for the notification."인 Android 메시지]({% image_buster /assets/img/android/push/collapsed-android-notification.png %}){: style="max-width:65%;"}
+![제목이 "This is the title for the notification."이고 요약 텍스트가 "This is the summary text for the notification."인 Android 메시지.]({% image_buster /assets/img/android/push/collapsed-android-notification.png %}){: style="max-width:65%;"}
 
 요약 텍스트는 확장된 보기에서 메시지 본문 아래에 표시됩니다.
 
-![제목이 "This is the title for the notification."이고 요약 텍스트가 "This is the summary text for the notification."인 Android 메시지]({% image_buster /assets/img/android/push/expanded-android-notification.png %}){: style="max-width:65%;"}
+![제목이 "This is the title for the notification."이고 요약 텍스트가 "This is the summary text for the notification."인 Android 메시지.]({% image_buster /assets/img/android/push/expanded-android-notification.png %}){: style="max-width:65%;"}
 
 이미지가 포함된 푸시 알림의 경우, 메시지 텍스트는 축소된 보기에서 표시되며, 요약 텍스트는 알림이 확장될 때 이미지 캡션으로 표시됩니다.
 
 ### 커스텀 URI {#custom-uri}
 
-**Custom URI** 기능을 사용하면 알림을 클릭할 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI가 지정되지 않은 경우 알림을 클릭하면 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부에 딥링킹하고 사용자를 앱 외부에 존재하는 리소스로 연결할 수 있습니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/) 또는 그림과 같이 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다:
+**Custom URI** 기능을 사용하면 알림을 클릭할 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI가 지정되지 않은 경우 알림을 클릭하면 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부에 딥링킹하고 사용자를 앱 외부에 존재하는 리소스로 연결할 수 있습니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 그림과 같이 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다:
 
 ![Braze 푸시 작성기의 딥링킹 고급 설정.]({% image_buster /assets/img_archive/deep_link.png %})
 
@@ -415,7 +415,7 @@ Android 또는 Fire OS 푸시 알림에서 설정할 수 있는 우선순위 수
 
 Android O에서는 알림 소리가 알림 채널의 속성이 되었습니다. 개발자와 협력하여 채널 구성 중 소리를 정의한 다음 대시보드를 사용하여 알림을 보낼 때 적절한 채널을 선택해야 합니다.
 
-Android O 이전 버전을 실행하는 기기의 경우, Braze를 사용하면 대시보드 작성기를 통해 개별 푸시 메시지의 소리를 설정할 수 있습니다. 기기에서 로컬 사운드 리소스를 지정하면 됩니다(예: `android.resource://com.mycompany.myapp/raw/mysound`). 이 필드에서 "default"를 지정하면 기기에서 기본 알림 소리가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/) 또는 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다.
+Android O 이전 버전을 실행하는 기기의 경우, Braze를 사용하면 대시보드 작성기를 통해 개별 푸시 메시지의 소리를 설정할 수 있습니다. 기기에서 로컬 사운드 리소스를 지정하면 됩니다(예: `android.resource://com.mycompany.myapp/raw/mysound`). 이 필드에서 "default"를 지정하면 기기에서 기본 알림 소리가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다.
 
 ![Braze 푸시 작성기의 사운드 고급 설정.]({% image_buster /assets/img_archive/sound_android.png %})
 

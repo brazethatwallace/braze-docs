@@ -181,10 +181,11 @@ module Jekyll
           #build_menu_html(menu_hash,'',0)
           #puts menu_hash.to_s.gsub(/\=\>/,': ').gsub(/\:menu_nav_list/,' "menu_nav_list"').gsub(/\:menu_nav_pages/,' "menu_nav_pages"').gsub(/\:menu_sorted_list/,' "menu_sorted_list"')  .gsub(/ nil/,' ""')
         end
-        build_menu_html(context['site']['data'][site_data_key],'',0)
+        @rail_slot_used = false
+        build_menu_html(context['site']['data'][site_data_key], '', 0, true)
       end
 
-      def build_menu_html(menu_hash,parent_key,level)
+      def build_menu_html(menu_hash, parent_key, level, root_nav = false)
         resultstr = ''
         unless menu_hash.nil?
           # Loop through list of pages on the current navigation, sorted by page weight
@@ -197,7 +198,17 @@ module Jekyll
                 menu_hash[@menu_sorted_list].push(v)
               end
 
-              menu_hash[@menu_sorted_list].sort_by!{|e| [ e[@page_weight_index] ? 0 : 1,  e[@page_weight_index] ]}
+              # Sort by page_order first (pages with a weight before pages without), then by
+              # nav title. Avoid nil in the sort key — Ruby 3.3's sort_by can reorder equal
+              # keys that contain nil (swapping first/last once the list has 8+ items).
+              menu_hash[@menu_sorted_list].sort_by! do |e|
+                weight = e[@page_weight_index]
+                [
+                  weight.nil? ? 1 : 0,
+                  weight.nil? ? 0 : weight,
+                  e[@page_title_index].to_s.downcase
+                ]
+              end
 
             end
 
@@ -205,9 +216,6 @@ module Jekyll
             results = ''
             navclass = ''
             ariaexpanded = false
-            # First root item shares one row with the sidebar rail toggle (see left_nav_menu.html + documents.js).
-            rail_slot_used = false
-
             # if less then 2, then always show
             if (level < @minlevel)
               navclass = ' show'
@@ -254,9 +262,9 @@ module Jekyll
 
                 # if it's an auto expand page, set to expanded
                 if (@nav_expand_list.include?(ma[@page_id_index]) || is_currentpage)
-                  item = build_menu_html(menu_hash[ma[@page_key_index]], parent_page_key, (@minlevel - 1))
+                  item = build_menu_html(menu_hash[ma[@page_key_index]], parent_page_key, (@minlevel - 1), false)
                 else
-                  item = build_menu_html(menu_hash[ma[@page_key_index]], parent_page_key, nextlevel)
+                  item = build_menu_html(menu_hash[ma[@page_key_index]], parent_page_key, nextlevel, false)
                 end
 
                 ariaexpanded = false
@@ -299,7 +307,8 @@ module Jekyll
                     cur_url = curinfo['redirect_to'].gsub!(/^\/docs\//, "#{@baseurl}\/")
                   end
 
-                  apply_rail_layout = (level == 0 && !rail_slot_used)
+                  # Rail toggle docks to the first root nav item only (root_nav), not nested level-0 rebuilds.
+                  apply_rail_layout = (root_nav && level == 0 && !@rail_slot_used)
                   nav_item_classes = [@nav_item_class, curclass.strip]
                   nav_item_classes << 'nav-item--rail' if apply_rail_layout
                   items << "<div class='#{nav_item_classes.reject(&:empty?).join(' ')}' id='parent_#{@nav_prefix}_#{parent_page_key}' data-parent='parent_#{@nav_prefix}_#{parent_key}'>"
@@ -328,7 +337,7 @@ module Jekyll
                   if apply_rail_layout
                     items << "</div>\n"
                     items << "<div class='nav-item--rail__toggle' id='sidebar_toggle_host'></div>\n"
-                    rail_slot_used = true
+                    @rail_slot_used = true
                   end
                   items << "</div>\n"
 

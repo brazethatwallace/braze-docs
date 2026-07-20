@@ -44,7 +44,7 @@ Figma에서 **Plugins** 섹션에서도 Figma to Braze Export 플러그인을 �
 
 ### 3단계: Figma 자산 선택 {#step-3-select-your-figma-assets}
 
-Braze로 내보낼 이미지 및 시각적 자산을 선택합니다. 다중 자산을 선택하려면 <kbd>Shift</kbd>를 누르거나 자산 위로 커서를 드래그 앤 드롭합니다.
+Braze로 내보낼 이미지 및 시각적 자산을 선택합니다. 여러 자산을 선택하려면 <kbd>Shift</kbd>를 누르거나 자산 위로 커서를 드래그 앤 드롭하세요.
 
 내보낸 이미지 또는 시각적 자산의 이름은 Figma에서 선택한 프레임의 이름을 사용합니다.
 

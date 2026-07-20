@@ -3,7 +3,7 @@ nav_title: リッチ通知の作成
 article_title: "iOS向けリッチプッシュ通知の作成"
 page_order: 3
 page_type: tutorial
-description: "このチュートリアルでは、BrazeのCampaignsにおけるiOSリッチ通知の作成要件と手順について説明します。"
+description: "このチュートリアルでは、BrazeのキャンペーンにおけるiOSリッチ通知の作成要件と手順について説明します。"
 
 platform: iOS
 channel:
@@ -123,9 +123,9 @@ iOS 15では、「即時」および「重大」の表示がタイトルをタ�
 
 ## iOSリッチ通知の設定 {#setting-up-your-ios-rich-notification}
 
-### ステップ 1: プッシュCampaignを作成する {#step-1-create-a-push-campaign}
+### ステップ 1: プッシュキャンペーンを作成する {#step-1-create-a-push-campaign}
 
-[Campaignの作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message)の手順に従って、iOS向けのプッシュ通知を作成します。リッチコンテンツを含まないプッシュ通知の設定に使用するのと同じコンポーザーを使用します。
+[キャンペーンの作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)の手順に従って、iOS向けのプッシュ通知を作成します。リッチコンテンツを含まないプッシュ通知の設定に使用するのと同じコンポーザーを使用します。
 
 ### ステップ 2: メディアを追加する {#step-2-add-media}
 
@@ -137,9 +137,9 @@ iOS 15では、「即時」および「重大」の表示がタイトルをタ�
 
 ![画像を追加するか画像URLを入力できる展開通知画像セクション。]({% image_buster /assets/img_archive/rich_notification_ios10_select.png %}){: style="max-width:70%;" }
 
-### ステップ 3: Campaignの作成を続ける {#step-3-continue-creating-your-campaign}
+### ステップ 3: キャンペーンの作成を続ける {#step-3-continue-creating-your-campaign}
 
-リッチ通知コンテンツがダッシュボードにアップロードされたら、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign)を続行できます。
+リッチ通知コンテンツがダッシュボードにアップロードされたら、[キャンペーンのスケジュール設定]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger)を続行できます。
 
 ユーザーがプッシュ通知を受信すると、プッシュメッセージを強く押して画像を展開できます。
 

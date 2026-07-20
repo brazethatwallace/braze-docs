@@ -15,18 +15,18 @@ API使用状況アラートを使用して、以下のカテゴリのリクエ�
 
 | APIカテゴリ | 詳細 |
 |--------------|---------|
-| REST APIエンドポイント | Brazeのバックエンドに対して行われたすべてのREST API呼び出しの使用状況をトラッキングします。例えば、メッセージの送信、Campaignsの作成、ユーザーのエクスポートなどです。 |
-| SDK APIリクエスト | Braze SDKからクライアントアプリに対して行われるAPIリクエストをトラッキングします。例えば、アプリ内メッセージのトリガーやユーザーデータの同期などです。<br><br>_*「月間アクティブユーザー – CY 24-25」を購入したお客様のみ利用可能です。_ |
+| REST APIエンドポイント | Brazeのバックエンドに対して行われたすべてのREST API呼び出しの使用状況をトラッキングします。例えば、メッセージの送信、キャンペーンの作成、ユーザーのエクスポートなどです。 |
+| SDK APIリクエスト | Braze SDKからクライアントアプリで行われるAPIリクエストをトラッキングします。例えば、アプリ内メッセージのトリガーやユーザーデータの同期などです。<br><br>_*「月間アクティブユーザー – CY 24-25」を購入したお客様のみ利用可能です。_ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="API使用アラートについて" }
 
 ## API使用アラートの作成 {#creating-an-api-usage-alert}
 
 API使用アラートを作成するには：
 
-1. **設定** > **APIキー** > **API使用量アラート**に移動し、新しいアラートを作成します。
+1. **設定** > **APIと識別子** > **API使用状況アラート**に移動し、新しいアラートを作成します。
 2. アラートの名前を入力し、通知を受け取りたいREST APIエンドポイントとAPIキーを選択します。
 3. 1つ以上の応答コードを選択し、[アラートしきい値](#api-usage-alert-thresholds)を指定してアラート基準を定義します。
-4. 完了したら、**Alert enabled**をオンに切り替えます。
+4. 完了したら、**アラートを有効化**をオンに切り替えます。
     ![API使用アラートの例。Track usersエンドポイントが1時間以内に100％増加した場合に通知を送信します。]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts1.png %})
 
 ## アラートしきい値 {#api-usage-alert-thresholds}
@@ -58,7 +58,7 @@ API使用アラートを作成するには：
       <td>しきい値条件と組み合わせて使用します。</td>
     </tr>
     <tr>
-      <td>Within (範囲内)</td>
+      <td>Within（範囲内）</td>
       <td>アラート評価の時間枠です。</td>
     </tr>
   </tbody>
@@ -67,7 +67,7 @@ API使用アラートを作成するには：
 
 ## アラート通知の設定 {#setting-up-alert-notifications}
 
-メールアラート、Webhookアラート、またはその両方を設定できます。Webhookアラートは、Slackチャネルなどの外部プラットフォームにアラートを送信するようなユースケースに非常に便利です。例については、通知設定でSlackと連携する方法に関する[ドキュメント]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/#slack-incoming-webhook-integration)をご覧ください。
+メールアラート、Webhookアラート、またはその両方を設定できます。Webhookアラートは、Slackチャネルなどの外部プラットフォームにアラートを送信するようなユースケースに非常に便利です。例については、通知設定でSlackと連携する方法に関する[ドキュメント]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences)をご覧ください。
 
 ![アラートの基準に達すると、選択したメールアドレスにメールが送信されます。]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 
@@ -120,8 +120,8 @@ APIの全般的な健全性を監視するためのアラートを設定でき�
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="アラートの例" }
 {% endtab %}
 
-{% tab APIトリガーのCampaigns %}
-このアラート設定は、APIトリガーのCampaignsやCanvasesでエラーが発生した場合に通知します。これらの中には優先度の高いものも含まれる場合があります。
+{% tab APIトリガーキャンペーン %}
+このアラート設定は、APIトリガーのキャンペーンやキャンバスでエラーが発生した場合に通知します。これらの中には優先度の高いものも含まれる場合があります。
 
 | エンドポイント | APIキー | 応答コード | しきい値条件 | しきい値ボリューム | 時間枠 |
 | --- | --- | --- | --- | --- | --- |

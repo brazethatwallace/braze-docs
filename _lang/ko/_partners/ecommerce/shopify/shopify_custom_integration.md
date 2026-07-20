@@ -16,7 +16,7 @@ page_order: 3
 
 Shopify 헤드리스 스토어를 Braze와 통합하려면 다음 두 가지 목표를 완료해야 합니다:
 
-1. **Braze Web SDK를 초기화하고 로드하여 온사이트 추적 활성화**<br><br> Shopify 웹사이트에 코드를 수동으로 추가하여 Braze 온사이트 추적을 활성화합니다. Shopify 헤드리스 스토어에 Braze SDK를 구현하면 세션, 익명 사용자 행동, 결제 전 쇼핑객 동작, 그리고 개발팀과 함께 포함하기로 선택한 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events) 또는 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)을 포함한 온사이트 활동을 추적할 수 있습니다. 인앱 메시지나 Content Cards와 같이 SDK에서 지원하는 채널도 추가할 수 있습니다.
+1. **Braze Web SDK를 초기화하고 로드하여 온사이트 추적 활성화**<br><br> Shopify 웹사이트에 코드를 수동으로 추가하여 Braze 온사이트 추적을 활성화합니다. Shopify 헤드리스 스토어에 Braze SDK를 구현하면 세션, 익명 사용자 행동, 결제 전 쇼핑객 동작, 그리고 개발팀과 함께 포함하기로 선택한 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events) 또는 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)을 포함한 온사이트 활동을 추적할 수 있습니다. In-App Messages나 Content Cards와 같이 SDK에서 지원하는 채널도 추가할 수 있습니다.
 
 {: start="2"}
 2. **Braze Shopify 통합 설치**<br><br> Shopify 스토어를 Braze에 연결하면 Shopify 웹훅을 통해 고객, 결제, 주문 및 제품 데이터에 접근할 수 있습니다.
@@ -51,13 +51,13 @@ Braze에서 **설정** > **앱 설정**으로 이동한 다음 **앱 추가**를
 첫 번째 단계는 Braze Web SDK를 초기화하는 것입니다. NPM 패키지를 설치하여 수행하는 것을 권장합니다:
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
 
 {% alert important %}
-Braze Web SDK 버전은 5.4.0이어야 합니다.
+Braze Web SDK 버전은 5.4.0 이상이어야 합니다.
 {% endalert %}
 
 그런 다음 `vite.config.js` 파일에 최상위 키로 [이 설정을 포함]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)합니다:
@@ -646,7 +646,7 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 
 드롭다운에서 `external_id` 유형을 선택합니다.
 
-!["가입자 수집" 섹션.]({% image_buster /assets/img/shopify/external_id_standard.png %})
+!["구독자 수집" 섹션.]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 이메일 주소 또는 해시된 이메일 주소를 Braze 외부 ID로 사용하면 데이터 소스 전반에서 ID 관리를 간소화할 수 있습니다. 그러나 사용자 개인정보 보호 및 데이터 보안에 대한 잠재적 위험을 고려하는 것이 중요합니다.<br><br>
@@ -734,7 +734,7 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집할 수 있는 �
 
 이메일 또는 SMS 채널을 사용하는 경우 이메일 및 SMS 마케팅 옵트인 상태를 Braze에 동기화할 수 있습니다. Shopify에서 이메일 마케팅 옵트인을 동기화하면 Braze는 해당 특정 스토어와 연결된 모든 사용자에 대해 이메일 구독 그룹을 자동으로 생성합니다. 이 구독 그룹에 고유한 이름을 생성해야 합니다.
 
-![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "가입자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
+![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "구독자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 [Shopify 개요]({{site.baseurl}}/shopify_overview)에서 언급한 바와 같이, 서드파티 캡처 폼을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 폼 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>

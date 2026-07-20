@@ -102,7 +102,7 @@ Após a importação, à medida que cada usuário inicia a versão do seu app ha
 
 A Braze verifica uma vez por mês para encontrar qualquer perfil anônimo com a flag `push_token_import` que não tenha um token por push. Se o perfil anônimo não tiver mais um token por push, a Braze exclui o perfil. No entanto, se o perfil anônimo ainda tiver um token por push, sugerindo que o usuário real ainda não fez login no dispositivo com o referido token por push, a Braze não faz nada.
 
-Para saber mais, consulte [Migração de tokens por push](#migrating-push-tokens).
+Para saber mais, consulte [Migração de tokens por push](#migrate-push-tokens).
 
 #### Tipos de dados de atributos personalizados {#custom-attribute-data-types}
 
@@ -144,7 +144,7 @@ Os seguintes campos de perfil de usuário diferenciam maiúsculas de minúsculas
 {% endalert %}
 
 {% alert tip %}
-Para uma referência de atributos padrão voltada ao cliente, organizada por categoria e com orientações para SDK, API, CSV e Ingestão de dados na nuvem, consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes).
+Para uma referência de atributos padrão voltada ao cliente, organizada por categoria e com orientações para SDK, API, CSV e ingestão de dados na nuvem, consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes).
 {% endalert %}
 
 | Campo de perfil do usuário | Especificação do tipo de dados |
@@ -216,7 +216,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Migração de tokens por push {#migrating-push-tokens}
+## Migração de tokens por push {#migrate-push-tokens}
 
 Se você estava enviando notificações por push antes de integrar a Braze, seja por conta própria ou por meio de outro provedor, a migração de token por push permite que você continue enviando notificações por push aos seus usuários com tokens por push registrados.
 
@@ -352,3 +352,9 @@ Você deve ter um receptor para manipular e exibir cargas úteis push. Para noti
 {% alert note %}
 Para alguns provedores de notificações por push, a Braze precisa achatar os pares chave-valor para que possam ser interpretados corretamente. Para achatar pares chave-valor para um app Android específico, entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Como encontrar usuários tratados como spam ou bloqueados para envio de mensagens {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+A Braze não fornece uma lista de spam dedicada no dashboard. A Braze bloqueia usuários individuais com mais de cinco milhões de sessões ("usuários fictícios") e não ingere mais seus eventos de SDK. Se um identificador estiver bloqueado, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pode retornar o erro `"provided external_id is blacklisted and disallowed"`. Essa mensagem é reproduzida literalmente da resposta da API. Para encontrar perfis afetados, crie um [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) com o filtro **Contagem de sessões** definido como **mais de 5.000.000**, exporte o segmento como CSV e verifique os campos do perfil em **Engajamento** > **Pesquisar usuários** ou com o endpoint [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier).

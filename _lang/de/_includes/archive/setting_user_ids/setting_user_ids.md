@@ -1,14 +1,13 @@
-Für jeden Ihrer Benutzer sollten Benutzer-IDs festgelegt werden. Diese sollten unveränderlich und zugänglich sein, wenn ein Benutzer die App öffnet. Die richtige Benennung Ihrer Benutzer-IDs von Anfang an ist einer der **wichtigsten** Schritte bei der Einrichtung von Benutzer-IDs. Wir empfehlen dringend die Verwendung des Braze-Standards für UUIDs und GUIDs (siehe unten). Wir empfehlen Ihnen außerdem dringend, diese Kennung anzugeben, da Sie damit die Möglichkeit haben:
+Für alle Nutzer:innen sollten Nutzer-IDs festgelegt werden. Diese sollten unveränderlich und zugänglich sein, wenn eine Nutzer:in die App öffnet. Die richtige Benennung Ihrer Nutzer-IDs von Anfang an ist einer der **wichtigsten** Schritte bei der Einrichtung von Nutzer-IDs. Wir empfehlen dringend die Verwendung des Braze-Standards für UUIDs und GUIDs (siehe folgender Abschnitt). Wir empfehlen Ihnen außerdem dringend, diesen Bezeichner anzugeben, da Sie damit Folgendes tun können:
 
-- Verfolgen Sie Ihre Nutzer geräte- und plattformübergreifend und verbessern Sie so die Qualität Ihrer verhaltensbezogenen und demografischen Daten.
-- Importieren Sie Daten über Ihre Benutzer mit unserer [Benutzerdaten-API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
-- Richten Sie sich mit unserer [Messaging-API]({{site.baseurl}}/api/endpoints/messaging/) für allgemeine und transaktionsbezogene Nachrichten an bestimmte Nutzer.
+- Ihre Nutzer:innen geräte- und plattformübergreifend tracken und so die Qualität Ihrer verhaltensbezogenen und demografischen Daten verbessern.
+- Daten über Ihre Nutzer:innen mithilfe unserer [Nutzerdaten-API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) importieren.
+- Bestimmte Nutzer:innen über unsere [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) sowohl für allgemeine als auch für transaktionsbezogene Nachrichten ansprechen.
 
 {% alert note %}
-Wenn eine solche Kennung nicht verfügbar ist, weist Braze Ihren Benutzern eine eindeutige Kennung zu, aber Ihnen fehlen dann die für Benutzer-IDs aufgeführten Möglichkeiten. Sie sollten es vermeiden, Benutzer-IDs für Benutzer festzulegen, für die Sie keinen eindeutigen Bezeichner haben, die mit ihnen als Individuum verbunden ist. Die Übergabe eines Gerätebezeichners bietet keinen Vorteil gegenüber der automatischen anonymen Benutzerverfolgung, die Braze standardmäßig anbietet.
+Wenn ein solcher Bezeichner nicht verfügbar ist, weist Braze Ihren Nutzer:innen einen eindeutigen Bezeichner zu, aber Ihnen fehlen dann die für Nutzer-IDs aufgeführten Möglichkeiten. Sie sollten es vermeiden, Nutzer-IDs für Nutzer:innen festzulegen, für die Sie keinen eindeutigen Bezeichner haben, der mit ihnen als Individuum verknüpft ist. Die Übergabe eines Gerätebezeichners bietet keinen Vorteil gegenüber dem automatischen anonymen Nutzer-Tracking, das Braze standardmäßig anbietet.
 {% endalert %}
 
 {% alert warning %}
-Wenn Sie einen identifizierbaren Wert als Nutzer:innen-ID verwenden möchten, **empfehlen wir Ihnen,** zur zusätzlichen Sicherheit unser [SDK-Authentifizierungs-Feature]({{site.baseurl}}/developer_guide/authentication/) hinzuzufügen, um Identitätswechsel zu verhindern.
+Wenn Sie einen identifizierbaren Wert als Nutzer-ID verwenden möchten, **empfehlen wir Ihnen dringend**, zur zusätzlichen Sicherheit unser [SDK-Authentifizierungs-Feature]({{site.baseurl}}/developer_guide/authentication) hinzuzufügen, um einen Identitätswechsel zu verhindern.
 {% endalert %}
-

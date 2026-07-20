@@ -76,7 +76,14 @@ Das Dashboard für API-Nutzung umfasst alle REST API-Anfragen, die Braze empfang
 
 Die im Dashboard angezeigten Daten können eine kurze Verzögerung bei der Darstellung des aktuellen Traffics aufweisen. In Zeiten hoher Nutzung können Sie das Dashboard bis zu 4 Mal pro Minute aktualisieren. Möglicherweise müssen Sie einige Minuten warten, bevor Sie das Dashboard erneut aktualisieren können.
 
+### API-Schlüssel im Anfrage-Body {#api-keys-in-request-body}
+
+Wenn API-Schlüssel im Anfrage-Body statt im Anfrage-Header gesendet werden, werden einige Anfragen möglicherweise nicht im Dashboard für API-Nutzung angezeigt. Dies kann zu unvollständigen Daten im Dashboard führen und die genaue Überwachung der API-Nutzung erschweren.
+
+Für die genaueste Berichterstattung im Dashboard für API-Nutzung sollten Sie [API-Schlüssel im Anfrage-Header angeben]({{site.baseurl}}/api/basics#bearer-token-authentication), anstatt sie im Anfrage-Body zu senden.
+
 ## Verwandte Artikel {#related-articles}
 
 - [API-Nutzungswarnungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Rate-Limits]({{site.baseurl}}/api/api_limits)
+- [Bearer-Token-Authentifizierung]({{site.baseurl}}/api/basics#bearer-token-authentication)

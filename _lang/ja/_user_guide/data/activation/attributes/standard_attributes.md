@@ -10,22 +10,22 @@ description: "このリファレンス記事では、Brazeの標準ユーザー�
 
 > 標準属性項目は、Brazeがすべてのユーザープロファイルで認識する定義済みのフィールドです。このページでは、各標準属性項目のフィールド名、データタイプ、想定されるフォーマットをクイックリファレンスとして確認できます。
 
-標準属性項目（*デフォルト属性*や*予約キー*とも呼ばれます）は、ビジネス固有の[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)とは異なります。このページに記載されているフィールド名でBrazeにデータを送信すると、Brazeは新しいカスタム属性を作成する代わりに、定義済みのプロファイルフィールドにデータを保存します。
+標準属性項目（*デフォルト属性*や*予約キー*とも呼ばれます）は、ビジネス固有の[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)とは異なります。このページに記載されているフィールド名でBrazeにデータを送信すると、Brazeは新しいカスタム属性を作成する代わりに、定義済みのプロファイルフィールドにデータを保存します。
 
 標準属性項目は、以下のいずれかの方法で設定できます。
 
-- [Braze SDK]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
-- [`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)の[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)
-- [CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)
-- [クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)
+- [Braze SDK]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
+- [`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)の[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)
+- [CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
+- [クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)
 
 {% alert important %}
-標準属性項目の名前は大文字と小文字が区別されます。常に小文字を使用してください（例：`First_Name`ではなく`first_name`）。スペルや大文字小文字が正確に一致しない場合、Brazeはその値を[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)として保存します。
+標準属性項目の名前は大文字と小文字が区別されます。常に小文字を使用してください（例：`First_Name`ではなく`first_name`）。スペルや大文字小文字が正確に一致しない場合、Brazeはその値を[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)として保存します。
 {% endalert %}
 
 ## 識別子 {#identifiers}
 
-識別子は、Brazeにどのユーザープロファイルを更新または作成するかを伝えます。すべてのAPIリクエストとCSV行には、少なくとも1つの識別子を含める必要があります。適切な識別子の選択方法については、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution)を参照してください。
+識別子は、Brazeにどのユーザープロファイルを更新または作成するかを伝えます。すべてのAPIリクエストとCSV行には、少なくとも1つの識別子を含める必要があります。適切な識別子の選択方法については、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)を参照してください。
 
 | フィールド | データタイプ | フォーマットと注意事項 |
 |---|---|---|
@@ -33,7 +33,7 @@ description: "このリファレンス記事では、Brazeの標準ユーザー�
 | `braze_id` | 文字列 | SDKが初めてデバイスを検出したときに作成される、Brazeが割り当てる識別子です。読み取り専用で、編集できません。 |
 | `user_alias` | オブジェクト | `alias_name`（文字列）と`alias_label`（文字列）を含むオブジェクトで、`external_id`を持たないユーザーを識別するために使用します。同じリクエスト内で`external_id`とは相互排他的です。 |
 | `email` | 文字列 | `external_id`と`user_alias`がない場合に識別子として使用できます。両方が送信された場合、`phone`よりも優先されます。 |
-| `phone` | 文字列 | `external_id`、`user_alias`、`email`がない場合に識別子として使用できます。[E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format)形式を使用してください（例：`+14155552671`）。 |
+| `phone` | 文字列 | `external_id`、`user_alias`、`email`がない場合に識別子として使用できます。[E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format)形式を使用してください（例：`+14155552671`）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## プロファイルフィールド {#profile-fields}
@@ -45,18 +45,18 @@ description: "このリファレンス記事では、Brazeの標準ユーザー�
 | `first_name` | 文字列 | ユーザーの名（例：`Jane`）。 |
 | `last_name` | 文字列 | ユーザーの姓（例：`Doe`）。 |
 | `email` | 文字列 | ユーザーのメールアドレス（例：`jane.doe@braze.com`）。 |
-| `phone` | 文字列 | ユーザーの電話番号。[E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format)形式を使用してください（例：`+14155552671`）。 |
+| `phone` | 文字列 | ユーザーの電話番号。[E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format)形式を使用してください（例：`+14155552671`）。 |
 | `dob` | 文字列 | 生年月日。`YYYY-MM-DD`形式で指定します（例：`1988-02-14`）。誕生日によるターゲティングが可能になります。 |
 | `gender` | 文字列 | `M`、`F`、`O`（その他）、`N`（該当なし）、`P`（回答しない）、または`null`（不明）のいずれかです。 |
 | `country` | 文字列 | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1)形式の国コード（例：`US`、`GB`）。CSVインポートまたはAPIで`country`を設定すると、SDKによる自動取得が無効になります。 |
 | `home_city` | 文字列 | ユーザーの居住都市（例：`London`）。 |
-| `language` | 文字列 | [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)形式の言語コード（例：`en`）。[対応言語の一覧]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/)を参照してください。CSVインポートまたはAPIで`language`を設定すると、SDKによる自動取得が無効になります。 |
+| `language` | 文字列 | [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)形式の言語コード（例：`en`）。[対応言語の一覧]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes)を参照してください。CSVインポートまたはAPIで`language`を設定すると、SDKによる自動取得が無効になります。 |
 | `time_zone` | 文字列 | [IANAタイムゾーンデータベース](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)のタイムゾーン名（例：`America/New_York`または`Eastern Time (US & Canada)`）。 |
 | `current_location` | オブジェクト | `longitude`と`latitude`を含むオブジェクト（例：`{"longitude": -73.991443, "latitude": 40.753824}`）。 |
 | `image_url` | 文字列 | ユーザーのプロファイル画像のURL。最大1,024文字です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## サブスクリプションと同意 {#subscription-and-consent}
+## 購読と同意 {#subscription-and-consent}
 
 これらのフィールドは、ユーザーがチャネル間でメッセージを受信する方法を管理します。これらのフィールドを更新しても、データポイント使用量にはカウントされません。
 
@@ -70,7 +70,7 @@ description: "このリファレンス記事では、Brazeの標準ユーザー�
 | `marked_email_as_spam_at` | 文字列 | ユーザーのメールがスパムとしてマークされたタイムスタンプです。[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)形式を使用してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-サブスクリプショングループの設定の詳細については、[サブスクリプショングループ]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups)を参照してください。
+購読グループの設定の詳細については、[購読グループ]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)を参照してください。
 
 ## セッションとエンゲージメント {#sessions-and-engagement}
 
@@ -84,7 +84,7 @@ description: "このリファレンス記事では、Brazeの標準ユーザー�
 
 ## プッシュトークン {#push-tokens}
 
-これらのフィールドは、別のプラットフォームからプッシュトークンを移行する際に使用します。Braze SDKを統合すると、プッシュトークンは自動的に取得されます。移行のガイダンスについては、[プッシュトークンの移行]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください。
+これらのフィールドは、別のプラットフォームからプッシュトークンを移行する際に使用します。Braze SDKを統合すると、プッシュトークンは自動的に取得されます。移行のガイダンスについては、[プッシュトークンの移行]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を参照してください。
 
 | フィールド | データタイプ | フォーマットと注意事項 |
 |---|---|---|
@@ -104,7 +104,7 @@ description: "このリファレンス記事では、Brazeの標準ユーザー�
 
 ## APIの例 {#api-example}
 
-以下のリクエストは、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を通じて2人のユーザーに標準属性項目を設定します。
+以下のリクエストは、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を通じて2人のユーザーに標準属性項目を設定します。
 
 ```http
 POST https://YOUR_REST_API_URL/users/track
@@ -114,7 +114,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "attributes": [
     {
       "external_id": "user1",
-      "first_name": "Jane",
+      "first_name": "Alex",
       "last_name": "Doe",
       "email": "jane.doe@example.com",
       "country": "US",
@@ -142,7 +142,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-完全なAPIコントラクトについては、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)を参照してください。
+完全なAPIコントラクトについては、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照してください。
 
 ## CSVの例 {#csv-example}
 
@@ -154,7 +154,7 @@ user1,Jane,Doe,jane.doe@example.com,US,en,1988-02-14,opted_in
 user2,Alex,Smith,alex.smith@example.com,GB,en,1992-09-30,subscribed
 ```
 
-一部の標準属性項目はCSVインポートでは設定できません。配列、プッシュトークン、ネストされたオブジェクトは、APIまたは[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を通じて送信する必要があります。CSVでサポートされるフィールドの完全なリストとインポート手順については、[デフォルト属性]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/#default-attributes)を参照してください。
+一部の標準属性項目はCSVインポートでは設定できません。配列、プッシュトークン、ネストされたオブジェクトは、APIまたは[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を通じて送信する必要があります。CSVでサポートされるフィールドの完全なリストとインポート手順については、[デフォルト属性]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes)を参照してください。
 
 ## 注意事項 {#considerations}
 
@@ -168,9 +168,9 @@ user2,Alex,Smith,alex.smith@example.com,GB,en,1992-09-30,subscribed
 
 ## 関連ページ {#related-pages}
 
-- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/) — 属性オブジェクトの完全なAPIコントラクト。
-- [`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) — ユーザープロファイルの作成と更新を行うRESTエンドポイント。
-- [ユーザー属性の設定]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/) — 標準属性項目とカスタム属性を設定するためのSDKメソッド。
-- [CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) — CSVファイルを通じて標準属性項目をアップロードします。
-- [カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) — ビジネス固有の属性を定義します。
-- [データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/) — サポートされるデータタイプのリファレンス。
+- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object) — 属性オブジェクトの完全なAPIコントラクト。
+- [`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track) — ユーザープロファイルの作成と更新を行うRESTエンドポイント。
+- [ユーザー属性の設定]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes) — 標準属性項目とカスタム属性を設定するためのSDKメソッド。
+- [CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) — CSVファイルを通じて標準属性項目をアップロードします。
+- [カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) — ビジネス固有の属性を定義します。
+- [データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) — サポートされるデータタイプのリファレンス。

@@ -42,18 +42,18 @@ Braze에 저장된 커스텀 속성은 오디언스 Segments를 구축하고 Liq
 
 ### 설명 추가 {#adding-descriptions}
 
-`Manage Events, Attributes, Purchases` [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)이 있는 경우 커스텀 속성이 생성된 후 설명을 추가할 수 있습니다. 커스텀 속성을 편집하고 팀을 위한 메모 등 원하는 내용을 입력하세요.
+`Manage Events, Attributes, Purchases` [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)이 있는 경우 커스텀 속성이 생성된 후 설명을 추가할 수 있습니다. 커스텀 속성을 편집하고 팀을 위한 메모 등 원하는 내용을 입력하세요.
 
 ### 태그 추가 {#adding-tags}
 
-"Manage Events, Attributes, Purchases" [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)이 있는 경우 커스텀 속성이 생성된 후 태그를 추가할 수 있습니다. 태그를 사용하여 속성 목록을 필터링할 수 있습니다.
+"Manage Events, Attributes, Purchases" [사용자 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)이 있는 경우 커스텀 속성이 생성된 후 태그를 추가할 수 있습니다. 태그를 사용하여 속성 목록을 필터링할 수 있습니다.
 
 ### 커스텀 속성 제거 {#removing-custom-attributes}
 
 고객 프로필에서 커스텀 속성을 제거하는 방법은 두 가지가 있습니다.
 
-* [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
-* API 요청에서 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track)에 `null` 값을 설정합니다.
+* [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
+* API 요청에서 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에 `null` 값을 설정합니다.
 
 ### 사용 보고서 보기 {#viewing-usage-reports}
 
@@ -73,17 +73,17 @@ Braze에 저장된 커스텀 속성은 오디언스 Segments를 구축하고 Liq
 
 - [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
+- [웹]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## 커스텀 속성 저장 {#custom-attribute-storage}
 
-**고객 프로필**에 저장된 모든 데이터(커스텀 속성 데이터 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users) 상태인 한 무기한 보존됩니다.
+**고객 프로필**에 저장된 모든 데이터(커스텀 속성 데이터 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users) 상태인 한 무기한 보존됩니다.
 
 ## 커스텀 속성 데이터 유형 {#custom-attribute-data-types}
 
@@ -96,8 +96,8 @@ Braze에 저장된 커스텀 속성은 오디언스 Segments를 구축하고 Liq
 - [문자열](#strings)
 - [배열](#arrays)
 - [시간](#time)
-- [오브젝트]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [오브젝트 배열]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [오브젝트]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [오브젝트 배열]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### 부울(참/거짓) {#booleans}
 
@@ -158,7 +158,7 @@ Braze에 저장된 커스텀 속성은 오디언스 Segments를 구축하고 Liq
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-"12-1-2021" 또는 "12/1/2021"과 같은 날짜 문자열은 datetime 오브젝트로 변환되어 [시간 속성]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time)으로 처리됩니다.
+"12-1-2021" 또는 "12/1/2021"과 같은 날짜 문자열은 datetime 오브젝트로 변환되어 [시간 속성]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#time)으로 처리됩니다.
 {% endalert %}
 
 {% alert important %}
@@ -197,7 +197,7 @@ Braze에 저장된 커스텀 속성은 오디언스 Segments를 구축하고 Liq
 {% alert tip %}
 정규표현식(regex) 사용 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 - [Perl 호환 정규표현식(PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Braze에서의 정규표현식]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
+- [Braze에서의 정규표현식]({{site.baseurl}}/user_guide/engagement_tools/segments/regex)
 - [정규표현식 디버거 및 테스터](https://www.regex101.com/)
 - [정규표현식 튜토리얼](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -206,7 +206,7 @@ Braze에 저장된 커스텀 속성은 오디언스 Segments를 구축하고 Liq
 
 시간 속성은 특정 행동이 마지막으로 수행된 시간을 저장하는 데 유용하며, 사용자에게 콘텐츠별 재참여 메시지를 제공할 수 있습니다.
 
-상대적 날짜를 사용하는 시간 필터(예: 1일 전 이상, 2일 전 미만)는 1일을 24시간으로 측정합니다. 이러한 필터를 사용하여 실행하는 모든 Campaign은 24시간 단위로 모든 사용자를 포함합니다. 예를 들어 `last used app more than 1 day ago`는 Campaign이 실행되는 정확한 시간으로부터 "24시간 이상 전에 마지막으로 앱을 사용한" 모든 사용자를 캡처합니다. 더 긴 날짜 범위로 설정된 Campaign에도 동일하게 적용됩니다. 따라서 활성화로부터 5일은 이전 120시간을 의미합니다.
+상대적 날짜를 사용하는 시간 필터(예: 1일 전 이상, 2일 전 미만)는 1일을 24시간으로 측정합니다. 이러한 필터를 사용하여 실행하는 모든 Campaign(캠페인)은 24시간 단위로 모든 사용자를 포함합니다. 예를 들어 `last used app more than 1 day ago`는 Campaign이 실행되는 정확한 시간으로부터 "24시간 이상 전에 마지막으로 앱을 사용한" 모든 사용자를 캡처합니다. 더 긴 날짜 범위로 설정된 Campaign에도 동일하게 적용됩니다. 따라서 활성화로부터 5일은 이전 120시간을 의미합니다.
 
 예를 들어 미래 24시간에서 48시간 사이의 시간 속성을 가진 사용자를 타겟팅하는 Segment를 구축하려면 `in more than 1 day in the future` 및 `in less than 2 days in the future` 필터를 적용합니다.
 
@@ -236,11 +236,11 @@ Braze에 저장된 커스텀 속성은 오디언스 Segments를 구축하고 Liq
 
 ### 오브젝트 {#objects}
 
-중첩 커스텀 속성을 사용하여 오브젝트를 커스텀 속성의 데이터 유형으로 전송할 수 있습니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)을 참조하세요.
+중첩 커스텀 속성을 사용하여 오브젝트를 커스텀 속성의 데이터 유형으로 전송할 수 있습니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)을 참조하세요.
 
 ### 오브젝트 배열 {#arrays-of-objects}
 
-오브젝트 배열을 사용하여 관련 속성을 그룹화할 수 있습니다. 자세한 내용은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/) 문서를 참조하세요.
+오브젝트 배열을 사용하여 관련 속성을 그룹화할 수 있습니다. 자세한 내용은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects) 문서를 참조하세요.
 
 ### 통합된 연산자 {#consolidated-operators}
 
@@ -266,14 +266,14 @@ Braze에 저장된 커스텀 속성은 오디언스 Segments를 구축하고 Liq
 | 마지막 구매가 **X 날짜 이후에** 발생했는지 확인 | **AFTER** | **TIME** | 이 필터가 `2024/31/1`을 지정하고 사용자의 마지막 구매가 `2024/31/1` 이후인 경우, 사용자는 이 필터에 일치합니다.|
 | 마지막 구매가 **X 날짜 이전에** 발생했는지 확인 | **BEFORE** | **TIME** | 이 필터가 `2024/31/1`을 지정하고 사용자의 마지막 구매가 `2024/31/1` 이전인 경우, 사용자는 이 필터에 일치합니다.|
 | 마지막 구매가 **X일 전보다 이전에** 발생했는지 확인 | **MORE THAN** | **TIME** | 이 필터가 `7`을 지정하고 사용자의 마지막 구매가 오늘로부터 7일 전보다 이전인 경우, 사용자는 이 필터에 일치합니다.|
-| 마지막 구매가 **X일 전보다 이후에** 발생했는지 확인 | **LESS THAN** | **TIME** |  이 필터가 `7`을 지정하고 사용자의 마지막 구매가 오늘로부터 7일 전보다 이후인 경우, 사용자는 이 필터에 일치합니다.|
-| 구매가 **X회(최대 = 50) 이상** 발생했는지 확인 | **MORE THAN** | 지난 **Y일(Y = 1,3,7,14,21,30)** 동안 |  이 필터가 `7`회 및 `21`일을 지정하고 사용자가 지난 21일 동안 7회 이상 구매한 경우, 사용자는 이 필터에 일치합니다.|
+| 마지막 구매가 **X일 전보다 이후에** 발생했는지 확인 | **LESS THAN** | **TIME** | 이 필터가 `7`을 지정하고 사용자의 마지막 구매가 오늘로부터 7일 전보다 이후인 경우, 사용자는 이 필터에 일치합니다.|
+| 구매가 **X회(최대 = 50) 이상** 발생했는지 확인 | **MORE THAN** | 지난 **Y일(Y = 1,3,7,14,21,30)** 동안 | 이 필터가 `7`회 및 `21`일을 지정하고 사용자가 지난 21일 동안 7회 이상 구매한 경우, 사용자는 이 필터에 일치합니다.|
 | 구매가 **X회(최대 = 50) 미만** 발생했는지 확인 | **LESS THAN** | 지난 **Y일(Y = 1,3,7,14,21,30)** 동안 | 이 필터가 `7`회 및 `21`일을 지정하고 사용자가 지난 21일 동안 7회 미만 구매한 경우, 사용자는 이 필터에 일치합니다.|
 | 구매가 **정확히 X회(최대 = 50)** 발생했는지 확인 | **EXACTLY** | 지난 **Y일(Y = 1,3,7,14,21,30)** 동안 | 이 필터가 `7`회 및 `21`일을 지정하고 사용자가 지난 21일 동안 정확히 7회 구매한 경우, 사용자는 이 필터에 일치합니다.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
-특정 구매가 발생한 횟수를 기준으로 세분화하려면 해당 구매를 [증분 커스텀 속성]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes)으로 개별적으로 기록해야 합니다.
+특정 구매가 발생한 횟수를 기준으로 세분화하려면 해당 구매를 [증분 커스텀 속성]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes#incrementingdecrementing-custom-attributes)으로 개별적으로 기록해야 합니다.
 {% endalert %}
 
-커스텀 속성의 데이터 유형을 변경할 수 있지만, [데이터 유형 변경]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/)의 영향에 대해 알고 있어야 합니다.
+커스텀 속성의 데이터 유형을 변경할 수 있지만, [데이터 유형 변경]({{site.baseurl}}/help/help_articles/data/change_custom_data_type)의 영향에 대해 알고 있어야 합니다.

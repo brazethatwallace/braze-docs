@@ -43,7 +43,7 @@ Siga estas etapas para configurar seu método de autenticação de chave secreta
 
 ## Etapa 1: Conecte suas chaves do AWS KMS {#step-1-connect-your-aws-kms-keys}
 
-No dashboard da Braze, acesse **Configurações de dados** > **Field-Level Encryption**. Para suas configurações do AWS KMS, insira o seguinte:
+No dashboard da Braze, acesse **Data Settings** > **Field-Level Encryption**. Para suas configurações do AWS KMS, insira o seguinte:
 
 - ID da chave de acesso
 - Chave de acesso secreta
@@ -87,7 +87,7 @@ Esses recursos não são compatíveis com a criptografia em nível de campo do i
 
 ### Objeto de atributos do usuário {#user-attributes-object}
 
-Ao usar a criptografia em nível de campo do identificador com o endpoint `/users/track`, observe estes detalhes de campo para o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens):
+Ao usar a criptografia em nível de campo do identificador com o endpoint `/users/track`, observe estes detalhes de campo para o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens):
 
 - O campo `email` deve ser o valor com hash do e-mail.
 - O campo `email_encrypted` deve ser o valor criptografado do e-mail.
@@ -108,7 +108,7 @@ Os endereços de e-mail em texto simples são aceitos no envio de testes. Para v
 {%raw%}
 ### O que acontece se eu adicionar este endereço de e-mail Liquid `{{${email_address}}}` na Braze? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
-A Braze renderizará o endereço de e-mail em texto simples ao enviar o e-mail. Nas pré-visualizações, exibiremos a versão criptografada do e-mail. Recomendamos usar o ID externo do usuário se estiver fazendo referência a um usuário em uma URL personalizada de um clique.
+A Braze renderizará o endereço de e-mail em texto simples ao enviar o e-mail. Nas prévias, exibiremos a versão criptografada do e-mail. Recomendamos usar o ID externo do usuário se estiver fazendo referência a um usuário em uma URL personalizada de um clique.
 
 `{{${email_address}}}` não é compatível atualmente com a Central de Preferências e as páginas de cancelamento de inscrição.
 {%endraw%}

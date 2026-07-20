@@ -90,6 +90,7 @@ Gardez les comportements suivants à l'esprit lorsque vous attribuez l'accès au
 - **Administrateur d'espace de travail et administrateur d'entreprise :** les administrateurs d'espace de travail gèrent les autorisations au sein des espaces de travail qui leur sont attribués. Les administrateurs d'entreprise disposent d'une autorité à l'échelle de l'entreprise, y compris la suppression d'autres utilisateurs du tableau de bord.
 - **Utilisateurs limités :** les utilisateurs limités disposant de l'autorisation « Edit Dashboard Users » peuvent gérer d'autres utilisateurs limités, mais ne peuvent pas créer ni gérer des comptes d'administrateur d'entreprise.
 - **Portée de la gestion des utilisateurs du tableau de bord :** sur la page de détails de l'utilisateur, les autorisations n'apparaissent que pour les espaces de travail auxquels l'éditeur peut accéder. Un utilisateur limité qui peut modifier les utilisateurs dans un espace de travail peut ne pas voir les cases à cocher des autorisations d'un autre espace de travail.
+- **Bouton Attribuer des autorisations :** lorsque vous modifiez un utilisateur et qu'il dispose déjà d'autorisations au niveau de l'espace de travail ou d'ensembles d'autorisations pour chaque espace de travail que vous pouvez gérer, le bouton **Attribuer des autorisations** disparaît. Cela se produit car il n'y a plus d'espaces de travail supplémentaires à attribuer au niveau de l'espace de travail.
 - **Exporter les données utilisateur :** l'exportation des données utilisateur nécessite un accès au niveau de l'espace de travail en plus de l'autorisation d'exportation.
 - **Autorisations composites :** certaines zones nécessitent plusieurs autorisations. Par exemple, la configuration des [partenaires technologiques]({{site.baseurl}}/partners) nécessite généralement à la fois l'accès au partenaire et une autorisation de lecture de base pour les fonctionnalités de l'espace de travail concerné.
 - **Importer et mettre à jour les données utilisateur :** cette autorisation inclut la possibilité de modifier les profils utilisateur de l'application via les flux d'importation, et pas seulement les enregistrements des utilisateurs du tableau de bord.
@@ -194,9 +195,9 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Indicateurs de fonctionnalité | Edit Feature Flags | Créer et mettre à jour des indicateurs de fonctionnalité |
 | Limites de fréquence | View Frequency Capping Rules | Consulter les règles de limite de fréquence |
 | Limites de fréquence | Edit Frequency Capping Rules | Créer et mettre à jour les règles de limite de fréquence |
-| Pages d'accueil | View Landing Pages | Consulter les pages d'accueil |
-| Pages d'accueil | Publish Landing Pages | Rendre active une page d'accueil en brouillon |
-| Pages d'accueil | Edit Landing Page Drafts | Créer et enregistrer des brouillons de pages d'accueil |
+| Pages de destination | View Landing Pages | Consulter les pages de destination |
+| Pages de destination | Publish Landing Pages | Rendre active une page de destination en brouillon |
+| Pages de destination | Edit Landing Page Drafts | Créer et enregistrer des brouillons de pages de destination |
 | Paramètres d'archivage des messages | View Message Archiving Settings | Consulter les paramètres d'archivage des messages sans apporter de modifications |
 | Paramètres d'archivage des messages | Edit Message Archiving Settings | Créer et mettre à jour les paramètres d'archivage des messages |
 | Priorisation des messages | View Message Prioritization | Consulter les paramètres de priorisation des messages sans apporter de modifications |
@@ -221,7 +222,8 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Données utilisateur | Edit User Data | Créer et mettre à jour les données utilisateur |
 | Données utilisateur | Export User Data | Télécharger des utilisateurs depuis le tableau de bord |
 | Utilisateurs en double | View User Merge Records | Consulter une liste des enregistrements de fusion d'utilisateurs |
-| Utilisateurs | View User Profiles (PII Redacted) | Consulter les profils utilisateur de manière conforme aux données personnelles |
+| Utilisateurs | View User Profiles (PII Redacted) | Consulter les profils utilisateur de manière conforme aux données personnelles. Les utilisateurs disposant de cette autorisation ne peuvent pas enregistrer ni lancer de Campaigns faisant référence à des attributs personnalisés marqués comme données personnelles, sauf s'ils disposent également de l'autorisation « View Custom Attributes Marked as PII ».<br><br>L'autorisation « View User Profiles (PII Redacted) » doit être activée avant utilisation. Contactez votre gestionnaire du succès des clients pour l'activer dans votre espace de travail. |
+| Utilisateurs | View User Event Properties | Consulter les propriétés d'événement dans l'onglet **Historique des événements** des profils utilisateur |
 | Utilisateurs en double | Merge Duplicate Users | Combiner des utilisateurs en double en un seul utilisateur. Les doublons sont supprimés après la fusion |
 | Suppression d'utilisateurs | View User Deletion Records | Consulter une liste des enregistrements de suppression d'utilisateurs |
 | Suppression d'utilisateurs | Delete Users | Supprimer définitivement des utilisateurs du tableau de bord individuellement ou en masse |
@@ -249,9 +251,9 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Modèles de messages in-app | View IAM Templates | Consulter les modèles de messages in-app sans apporter de modifications |
 | Modèles de messages in-app | Archive IAM Templates | Déplacer des modèles de messages in-app vers les archives |
 | Modèles de messages in-app | Edit IAM Templates | Créer et mettre à jour des modèles de messages in-app |
-| Modèles de page d'accueil | View Landing Page Templates | Consulter les modèles de page d'accueil |
-| Modèles de page d'accueil | Archive Landing Page Template | Déplacer des modèles de page d'accueil vers les archives |
-| Modèles de page d'accueil | Edit Landing Page Templates | Créer et mettre à jour des modèles de page d'accueil |
+| Modèles de page de destination | View Landing Page Templates | Consulter les modèles de page de destination |
+| Modèles de page de destination | Archive Landing Page Template | Déplacer des modèles de page de destination vers les archives |
+| Modèles de page de destination | Edit Landing Page Templates | Créer et mettre à jour des modèles de page de destination |
 | Modèles de webhook | View Webhook Templates | Consulter les modèles de webhook sans apporter de modifications |
 | Modèles de webhook | Archive Webhook Templates | Déplacer des modèles de webhook vers les archives |
 | Modèles de webhook | Edit Webhook Templates | Créer et mettre à jour des modèles de webhook |
@@ -361,7 +363,7 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Paramètres de domaine | Edit Domain Settings | Ajouter des domaines délégués et des domaines personnalisés sous les domaines vérifiés |
 | Chiffrement au niveau des champs | Edit Identifier Field-Level Encryption | Activer et mettre à jour les paramètres de chiffrement au niveau des champs |
 | Ressources de la bibliothèque multimédia | View Media Library Assets | Consulter les ressources de la bibliothèque multimédia |
-| Ressources de la bibliothèque multimédia | Delete Media Library Assets | Supprimer définitivement des ressources de la bibliothèque multimédia |
+| Ressources de la bibliothèque multimédia | Delete Media Library Assets | Supprimer des ressources de la bibliothèque multimédia depuis l'interface. Les ressources supprimées restent hébergées par Braze pour éviter de casser les messages qui y font référence. Pour supprimer définitivement une ressource, contactez l'assistance Braze. |
 | Ressources de la bibliothèque multimédia | Edit Media Library Assets | Créer et mettre à jour des ressources de la bibliothèque multimédia |
 | Ressources de la bibliothèque multimédia | Replace Media Library Assets | Remplacer le fichier d'une ressource existante de la bibliothèque multimédia tout en conservant son URL et son ID de ressource |
 | Limites de débit des messages | View Messaging Rate Limits | Consulter les limites de débit des messages au niveau de l'espace de travail |

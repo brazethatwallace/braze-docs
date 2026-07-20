@@ -8,15 +8,15 @@ description: "このリファレンス記事では、ShopifyからBrazeカタロ
 
 # Shopify商品同期 {#shopify-product-sync}
 
-> Shopifyストアのすべての商品をBrazeの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)に同期し、より深いメッセージングパーソナライゼーションを実現できます。
+> Shopifyストアのすべての商品をBrazeの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)に同期し、より深いメッセージングパーソナライゼーションを実現できます。
 
 Shopifyカタログは、Shopifyストア内の商品に編集や変更を加えると、ほぼリアルタイムで更新されます。カート放棄や注文確認などを、最新の商品詳細や情報で強化できます。
 
-[コアのShopify商品データ](#supported-shopify-catalog-data)のサポートに加えて、Shopifyコレクション、商品タグ、商品メタフィールドをBrazeカタログに同期できます。これらの追加フィールドにより、よりリッチなパーソナライゼーション、より正確なカタログセレクション、[セグメントエクステンション]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/)を通じたより強力なセグメンテーションが可能になります。
+[コアのShopify商品データ](#supported-shopify-catalog-data)のサポートに加えて、Shopifyコレクション、商品タグ、商品メタフィールドをBrazeカタログに同期できます。これらの追加フィールドにより、よりリッチなパーソナライゼーション、より正確なカタログセレクション、[セグメントエクステンション]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension)を通じたより強力なセグメンテーションが可能になります。
 
 ## Shopify商品同期を設定する {#set-up}
 
-Shopifyストアがすでにインストールされている場合でも、以下の手順に従って商品を同期できます。
+Shopifyストアがすでにインストールされている場合でも、このセクションの手順に従って商品を同期できます。
 
 ### ステップ1: 同期をオンにする {#step-1-turn-on-the-sync}
 
@@ -161,7 +161,7 @@ Shopifyパートナーページから、商品タグ、コレクション、商�
 ![アクティブな商品カタログ同期が表示されたインテグレーション設定ページ。]({% image_buster /assets/img/shopify/active_catalog_sync.png %})
 
 {% alert important %}
-同期するセレクションを変更すると、それらを参照しているアクティブなCampaigns、Canvases、またはカタログセレクションに影響する可能性があります。変更を適用する際は、アクティブなコンテンツが正しく動作するように更新してください。
+同期するセレクションを変更すると、それらを参照しているアクティブなキャンペーン、キャンバス、またはカタログセレクションに影響する可能性があります。変更を適用する際は、アクティブなコンテンツが正しく動作するように更新してください。
 {% endalert %}
 
 ## サポートされているShopifyカタログデータ {#supported-shopify-catalog-data}
@@ -208,7 +208,7 @@ Brazeは各Shopify商品につき最大250のバリアントをカタログに�
 {% tabs %}
 {% tab 商品タグ %}
 
-商品タグを使用して、Shopifyでの商品のカテゴリ分けに基づいてメッセージをパーソナライズできます。例えば、[カタログセレクション]({{site.baseurl}}/catalog_selections/)を通じて「Summer Sale」タグが付いたすべての商品を紹介するプロモーションを送信したり、「Premium」タグが付いた商品を購入したユーザーのセグメントを構築したりできます。
+商品タグを使用して、Shopifyでの商品のカテゴリ分けに基づいてメッセージをパーソナライズできます。例えば、[カタログセレクション]({{site.baseurl}}/catalog_selections)を通じて「Summer Sale」タグが付いたすべての商品を紹介するプロモーションを送信したり、「Premium」タグが付いた商品を購入したユーザーのセグメントを構築したりできます。
 
 商品タグは、各カタログアイテムの配列フィールドとして保存されます。商品タグの同期を設定するには、[Shopify商品タグ](#shopify-product-tags)を参照してください。
 
@@ -297,7 +297,7 @@ Checkout the latest women's clothing:
 
 ### カタログセグメンテーション（SQL） {#catalog-segmentation-sql}
 
-[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品タグとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、特定の商品タグを含むカタログアイテムとエンゲージしたユーザーを見つけるには、次のクエリを使用します。
+[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用して、商品タグとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、特定の商品タグを含むカタログアイテムとエンゲージしたユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
 ```liquid
@@ -347,7 +347,7 @@ WHERE
 
 ### パーソナライゼーション
 
-1. 該当する値を含むメタフィールドでフィルタリングする[カタログセレクション]({{site.baseurl}}/catalog_selections/)を作成します。
+1. 該当する値を含むメタフィールドでフィルタリングする[カタログセレクション]({{site.baseurl}}/catalog_selections)を作成します。
 
 ![属性summerを持つメタフィールドでフィルタリングするカタログセレクション。]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
@@ -415,7 +415,7 @@ Check out the latest summer products:
 
 ### カタログセグメンテーション（SQL）
 
-[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品メタフィールドとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、メタフィールド配列に特定の値を含む商品でeコマースイベントをトリガーしたユーザーを見つけるには、次のクエリを使用します。
+[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用して、商品メタフィールドとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、メタフィールド配列に特定の値を含む商品でeコマースイベントをトリガーしたユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
 ```sql
@@ -585,7 +585,7 @@ WHERE
 {% endtab %}
 {% tab コレクション %}
 
-Shopifyコレクションを使用して、Shopifyサイトやアプリ体験でも使用されているキュレートされた商品グループをメッセージに取り込みます。例えば、プロモーションメールで「New Arrivals」を紹介したり、カート放棄Canvasで「Best Sellers」をクロスセルしたり、季節限定コレクションを閲覧したユーザーをターゲットにしたりできます。
+Shopifyコレクションを使用して、Shopifyサイトやアプリ体験でも使用されているキュレートされた商品グループをメッセージに取り込みます。例えば、プロモーションメールで「New Arrivals」を紹介したり、カート放棄キャンバスで「Best Sellers」をクロスセルしたり、季節限定コレクションを閲覧したユーザーをターゲットにしたりできます。
 
 ### カタログセレクション
 
@@ -677,7 +677,7 @@ Checkout the latest women's clothing:
 
 ### カタログセグメンテーション（SQL）
 
-コレクションとインタラクションしたユーザーのセグメントを作成します。[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、コレクションメンバーシップに基づいてセグメントを構築します。例えば、過去1年間に特定のコレクションの商品を購入したユーザーを見つけるには、次のクエリを使用します。
+コレクションとインタラクションしたユーザーのセグメントを作成します。[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用して、コレクションメンバーシップに基づいてセグメントを構築します。例えば、過去1年間に特定のコレクションの商品を購入したユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
 ```json
@@ -711,12 +711,12 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)や[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)も設定できます！<br><br>各ユースケースでは、ユーザーのサブスクリプションステータスをカタログにキャプチャするカスタムイベントを作成する必要があります。カスタムイベントには、Shopify商品同期の一部として選択した[SKUまたはShopifyバリアントID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/#step-2-select-your-product-identifier)のいずれかにマップされるイベントプロパティが必要です。
+[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)や[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)も設定できます！<br><br>各ユースケースでは、ユーザーの購読ステータスをカタログにキャプチャするカスタムイベントを作成する必要があります。カスタムイベントには、Shopify商品同期の一部として選択した<a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKUまたはShopifyバリアントID</a> のいずれかにマップされるイベントプロパティが必要です。
 {% endalert %}
 
 ## 商品同期を非アクティブにする {#deactivate}
 
-Shopify商品同期機能を非アクティブにすると、カタログと商品がすべて削除されます。この操作は、このカタログの商品データをアクティブに使用しているメッセージにも影響する可能性があります。商品詳細のないメッセージが送信される可能性があるため、非アクティブ化する前にCampaignsまたはCanvasesを更新または一時停止していることを確認してください。カタログページでShopifyカタログを直接削除しないでください。
+Shopify商品同期機能を非アクティブにすると、カタログと商品がすべて削除されます。この操作は、このカタログの商品データをアクティブに使用しているメッセージにも影響する可能性があります。商品詳細のないメッセージが送信される可能性があるため、非アクティブ化する前にキャンペーンまたはキャンバスを更新または一時停止していることを確認してください。カタログページでShopifyカタログを直接削除しないでください。
 
 ## トラブルシューティング {#troubleshooting}
 

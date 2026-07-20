@@ -14,7 +14,7 @@ tool:
 
 > Push-Benachrichtigungen eignen sich hervorragend für zeitkritische Handlungsaufforderungen sowie zur Reaktivierung von Nutzer:innen, die die App längere Zeit nicht geöffnet haben. Erfolgreiche Push-Kampagnen führen Nutzer:innen direkt zu Inhalten und demonstrieren den Wert Ihrer App. Beispiele für Push-Benachrichtigungen finden Sie in unseren [Braze-Fallstudien](https://www.braze.com/customers).
 
-## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#create-new-campaign-push}
+## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#create-new-campaign-push}
 
 {% alert tip %}
 Sie sind sich nicht sicher, ob Sie eine Campaign oder ein Canvas verwenden sollen? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
@@ -22,7 +22,7 @@ Sie sind sich nicht sicher, ob Sie eine Campaign oder ein Canvas verwenden solle
 
 {% tabs %}
 {% tab Campaign %}
-1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
+1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Campaign erstellen**.
 2. Für Campaigns, die mehrere Kanäle ansprechen, wählen Sie **Multichannel**. Andernfalls wählen Sie **Push-Benachrichtigung**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu.
@@ -42,7 +42,7 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt habe
 {% tab Canvas %}
 1. [Erstellen Sie Ihr Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) mit dem Canvas-Composer.
 2. Nachdem Sie Ihr Canvas eingerichtet haben, fügen Sie im Canvas-Builder einen Schritt hinzu. Geben Sie Ihrem Schritt einen klaren und aussagekräftigen Namen.
-3. Wählen Sie einen [Schritt-Zeitplan]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) und legen Sie bei Bedarf eine Verzögerung fest.
+3. Wählen Sie einen [Schritt-Zeitplan]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) und legen Sie bei Bedarf eine Verzögerung fest.
 4. Filtern Sie die Zielgruppe für diesen Schritt nach Bedarf. Sie können die Empfänger:innen dieses Schritts weiter eingrenzen, indem Sie Segmente angeben und zusätzliche Filter hinzufügen. Die Zielgruppenoptionen werden nach der Verzögerung zum Zeitpunkt des Nachrichtenversands überprüft.
 5. Wählen Sie Ihr [Fortschrittsverhalten]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Wählen Sie alle weiteren Messaging-Kanäle, die Sie mit Ihrer Nachricht kombinieren möchten.
@@ -50,7 +50,7 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt habe
 {% endtab %}
 {% endtabs %}
 
-## 2. Schritt: Push-Plattformen auswählen {#step-2-select-push-platforms}
+## Schritt 2: Push-Plattformen auswählen {#step-2-select-push-platforms}
 
 Wählen Sie als Nächstes, welche Plattform- und Mobilgerätekombination die Push-Benachrichtigung erhalten soll. Verwenden Sie diese Auswahl, um die Zustellung einer Push-Benachrichtigung auf eine bestimmte Gruppe von Apps zu beschränken.
 
@@ -63,7 +63,7 @@ Je nach Ihren vorherigen Auswahlen gibt es verschiedene Möglichkeiten:
 | Canvas | Wählen Sie in Ihrem Nachrichtenschritt **+ Weitere hinzufügen**, um zusätzliche Push-Plattformen hinzuzufügen. Ähnlich wie bei Multichannel-Campaigns ist die Plattformauswahl variantenspezifisch. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Plattformen auswählen" }
 
-## 3. Schritt: Benachrichtigungstyp auswählen (iOS und Android) {#step-3-select-notification-type-ios-and-android}
+## Schritt 3: Benachrichtigungstyp auswählen (iOS und Android) {#step-3-select-notification-type-ios-and-android}
 
 Wenn Sie eine Push-Campaign für mehrere Plattformen erstellen und Web und/oder Kindle auswählen, wird der Benachrichtigungstyp automatisch auf **Standard-Push** gesetzt und kann nicht geändert werden.
 
@@ -77,7 +77,7 @@ Andernfalls wählen Sie für iOS und Android Ihren Benachrichtigungstyp:
 
 Wenn Sie Bilder in Ihre Push-Campaign einbinden möchten, lesen Sie die folgenden Anleitungen zum Erstellen einer Rich-Benachrichtigung für [iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications) oder [Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications).
 
-## 4. Schritt: Push-Nachricht verfassen {#step-4-compose-your-push-message}
+## Schritt 4: Push-Nachricht verfassen {#step-4-compose-your-push-message}
 
 Jetzt ist es an der Zeit, Ihre Push-Nachricht zu schreiben! Der Tab **Verfassen** ermöglicht es Ihnen, alle Aspekte des Inhalts und Verhaltens Ihrer Nachricht zu bearbeiten.
 
@@ -99,13 +99,13 @@ Wenn Sie Text in einer Sprache hinzufügen, die von rechts nach links geschriebe
 
 {% tabs local %}
 {% tab iOS %}
-Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im Vorschaufeld links erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
+Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im Vorschaufeld daneben erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
 
 Fügen Sie eine Überschrift über das Feld **Title** hinzu. Um Ihren Push personalisiert und zielgerichtet zu gestalten, können Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) einbinden.
 {% endtab %}
 
 {% tab Android %}
-Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im Vorschaufeld links erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
+Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im Vorschaufeld daneben erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
 
 Um Ihren Push personalisiert und zielgerichtet zu gestalten, können Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) einbinden.
 
@@ -167,13 +167,13 @@ Mehrfache Sendungen können weiterhin auftreten, wenn eine Campaign verschiedene
 
 Für iOS können Sie das Messaging weiter einschränken, indem Sie Push-Benachrichtigungen nur an iPad-Geräte oder nur an iPhone- und iPod-Geräte senden.
 
-## 5. Schritt: Vorschau und Test Ihrer Nachricht (optional) {#step-5-preview-and-test-your-message-optional}
+## Schritt 5: Vorschau und Test Ihrer Nachricht (optional) {#step-5-preview-and-test-your-message-optional}
 
 Das Testen ist wohl einer der wichtigsten Schritte. Nachdem Sie Ihre perfekte Push-Nachricht verfasst haben, testen Sie sie, bevor Sie sie versenden. Wählen Sie den Tab **Test**, um aus den Optionen zum Testen Ihrer Push-Nachricht zu wählen. Unter **Testempfänger:innen** können Sie eine Inhalts-Testgruppe oder einzelne Nutzer:innen auswählen. Sie können auch **Nachricht als Nutzer:in in der Vorschau anzeigen** verwenden, um einen Eindruck davon zu bekommen, wie Ihre Nachricht auf dem Mobilgerät für zufällige, bestehende, benutzerdefinierte oder mehrsprachige Nutzer:innen aussehen könnte.
 
 Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=push).
 
-## 6. Schritt: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-6-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 6: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-6-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -186,7 +186,7 @@ Push-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion o
 
 Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 
-In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. Nutzer:innen erlauben, [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) zu werden, die Campaign zu erhalten, oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)-Regeln aktivieren.
+In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. Nutzer:innen erlauben, [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) zu werden, die Campaign zu erhalten, oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Regeln aktivieren.
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
@@ -224,18 +224,18 @@ Fügen Sie bei dieser Konfiguration im Schritt **Zielgruppe** keine Filter hinzu
 
 ### Konversions-Events wählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
+Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und Intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) unserer Canvas-Dokumentation.
 
 {% endtab %}
 {% endtabs %}
 
-## 7. Schritt: Überprüfen und bereitstellen {#review-and-deploy-push}
+## Schritt 7: Überprüfen und bereitstellen {#review-and-deploy-push}
 
 Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details. Bei Campaigns gibt Ihnen die letzte Seite eine Zusammenfassung der von Ihnen entworfenen Campaign. Bestätigen Sie alle relevanten Details, stellen Sie sicher, dass Sie Ihre Nachricht getestet haben, und senden Sie sie ab – dann beobachten Sie, wie die Daten eintreffen!
 

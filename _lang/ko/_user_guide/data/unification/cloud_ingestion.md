@@ -16,7 +16,7 @@ toc_headers: h2
 Braze 클라우드 데이터 수집(CDI)을 사용하면 데이터 웨어하우스 인스턴스와 Braze 워크스페이스 간의 통합을 설정하여 데이터를 정기적으로 동기화할 수 있습니다. 이 동기화는 사용자가 설정한 스케줄에 따라 실행되며, 각 통합은 서로 다른 스케줄을 가질 수 있습니다. 동기화는 15분마다 자주 실행하거나 한 달에 한 번씩 드물게 실행할 수 있습니다. 15분보다 더 자주 동기화해야 하는 경우 고객 성공 매니저에게 문의하거나 실시간 데이터 수집을 위해 REST API 호출을 사용하는 것을 고려하세요.
 
 {% alert note %}
-대시보드의 동기화 빈도는 Braze가 동기화를 실행하는 주기를 제어합니다(예: 매시간 또는 한 시간 내 더 자주 실행하는 옵션). 실행 간 1시간보다 긴 커스텀 간격을 설정하는 것은 아닙니다. 예약된 주기 외에 동기화를 실행하려면(예: 웨어하우스 로드가 완료된 후 온디맨드로 실행) 통합 ID와 함께 [동기화 트리거]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) 엔드포인트를 사용하세요.
+대시보드의 동기화 빈도는 Braze가 동기화를 실행하는 주기를 제어합니다(예: 매시간 또는 한 시간 내 더 자주 실행하는 옵션). 실행 간 1시간보다 긴 커스텀 간격을 설정하는 것은 아닙니다. 예약된 주기 외에 동기화를 실행하려면(예: 웨어하우스 로드가 완료된 후 온디맨드로 실행) 통합 ID와 함께 [동기화 트리거]({{site.baseurl}}/api/endpoints/cdi/post_job_sync) 엔드포인트를 사용하세요.
 {% endalert %}
 
 동기화가 실행되면 Braze는 데이터 웨어하우스 인스턴스에 직접 연결하여 지정된 테이블에서 모든 새 데이터를 검색하고 Braze 대시보드에서 해당 데이터를 업데이트합니다. 동기화가 실행될 때마다 업데이트된 데이터가 Braze에 반영됩니다.
@@ -25,7 +25,7 @@ Braze 클라우드 데이터 수집(CDI)을 사용하면 데이터 웨어하우�
 
 Braze 대시보드에서 통합을 볼 때 URL에서 통합 ID를 찾을 수 있습니다. **데이터 설정** > **클라우드 데이터 수집**으로 이동하여 통합을 선택합니다. 통합 ID는 `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]` 형식의 URL에 나타납니다. 예를 들어, URL이 `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz`인 경우 통합 ID는 `abc123xyz`입니다. 이 ID를 사용하여 API 호출로 동기화를 트리거하거나 동기화 상태를 확인할 수 있습니다.
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 Braze 클라우드 데이터 수집 기능을 사용하면 다음을 수행할 수 있습니다:
 
@@ -33,7 +33,7 @@ Braze 클라우드 데이터 수집 기능을 사용하면 다음을 수행할 �
 - 데이터 웨어하우스에서 Braze로 속성, 이벤트, 구매를 포함한 사용자 데이터를 안전하게 동기화할 수 있습니다.
 - 클라우드 데이터 수집을 Currents 또는 Snowflake 데이터 공유와 결합하여 Braze와의 데이터 루프를 닫을 수 있습니다.
 
-또한 [연결된 소스]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/)는 제로 복사 대안입니다. Braze가 데이터 웨어하우스 또는 파일 스토리지 솔루션을 직접 쿼리하여 CDI Segments를 구성할 수 있습니다&#8212;기본 데이터를 Braze로 복사하지 않고도 가능합니다.
+또한 [연결된 소스]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources)는 제로 복사 대안입니다. Braze가 데이터 웨어하우스 또는 파일 스토리지 솔루션을 직접 쿼리하여 CDI 세그먼트를 구성할 수 있습니다&#8212;기본 데이터를 Braze로 복사하지 않고도 가능합니다.
 
 ## 지원되는 데이터 소스 {#supported-data-sources}
 
@@ -78,19 +78,19 @@ Braze 클라우드 데이터 수집 기능을 사용하면 다음을 수행할 �
 | `PHONE` | 사용자의 전화번호입니다. 동일한 전화번호를 가진 여러 프로필이 존재하는 경우, 가장 최근에 업데이트된 프로필이 업데이트 우선순위를 갖습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="데이터 수집을 위한 사용자 식별자" }
 
-테이블 열 설정 및 페이로드 형식 요구 사항에 대한 자세한 내용은 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/)을 참조하세요.
+테이블 열 설정 및 페이로드 형식 요구 사항에 대한 자세한 내용은 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)을 참조하세요.
 
-소스별 설정 지침 및 SQL 예시는 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)을 참조하세요.
+소스별 설정 지침 및 SQL 예시는 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)을 참조하세요.
 
 ## 데이터 포인트 사용량 {#data-point-usage}
 
-데이터 포인트 기반 청구를 사용하는 고객의 경우, 클라우드 데이터 수집에 대한 데이터 포인트 청구는 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track)를 통한 업데이트에 대한 청구와 동일합니다. 자세한 내용은 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)를 참조하세요.
+데이터 포인트 기반 청구를 사용하는 고객의 경우, 클라우드 데이터 수집에 대한 데이터 포인트 청구는 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 통한 업데이트에 대한 청구와 동일합니다. 자세한 내용은 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points)를 참조하세요.
 
 {% alert important %}
 Braze 클라우드 데이터 수집은 사용 가능한 사용량 제한에 포함되므로, 다른 방법으로 데이터를 전송하는 경우 Braze API와 클라우드 데이터 수집 간에 사용량 제한이 합산됩니다.
 {% endalert %}
 
-## 제품 제한 {#product-limitations}
+## 제품 제한 사항 {#product-limitations}
 
 | 제한 사항 | 설명 |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -101,4 +101,4 @@ Braze 클라우드 데이터 수집은 사용 가능한 사용량 제한에 포�
 | 데이터 유형 | 클라우드 데이터 수집을 통해 사용자 속성, 이벤트 및 구매를 동기화할 수 있습니다. |
 | Braze 리전 | 이 제품은 모든 Braze 리전에서 사용할 수 있습니다. 어떤 Braze 리전이든 어떤 소스 데이터 리전에든 연결할 수 있습니다. |
 | 소스 리전 | Braze는 모든 리전 또는 클라우드 제공자의 데이터 웨어하우스 또는 클라우드 환경에 연결됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="제품 제한" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="제품 제한 사항" }

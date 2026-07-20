@@ -19,10 +19,6 @@ module Jekyll
         (?<params>.*)
       !mx.freeze
 
-      LANGUAGE_MAP = {
-        'fr' => 'fr_fr',
-        'pt-br' => 'pt_br',
-      }
       FULL_VALID_SYNTAX = %r!\A\s*(?:#{VALID_SYNTAX}(?=\s|\z)\s*)*\z!.freeze
       VALID_FILENAME_CHARS = %r!^[\w/.\-()+~\#@]+$!.freeze
 			INVALID_SEQUENCES = %r![./]{2,}!.freeze
@@ -107,11 +103,8 @@ module Jekyll
 
       def render(context)
         site = context.registers[:site]
-	      lang = (
-          LANGUAGE_MAP[site.config['language']] ?
-            LANGUAGE_MAP[site.config['language']] :
-            site.config['language']
-        ) || 'en'
+        lang_code = resolved_lang_code(site)
+	      lang = include_dir_for(site, lang_code)
 				include_prefix = ''
         lang_prefix = ''
 				if (lang != 'en')
@@ -144,6 +137,21 @@ module Jekyll
             raise e
           end
         end
+      end
+
+      def resolved_lang_code(site)
+        config_lang = (site.config['language'] || 'en').to_s.downcase
+        supported = Array(site.data.dig('locales', 'supported')).map { |code| code.to_s.downcase }
+        return config_lang if supported.include?(config_lang)
+
+        'en'
+      end
+
+      def include_dir_for(site, lang_code)
+        overrides = site.data.dig('locales', 'include_dir_overrides')
+        return lang_code unless overrides.is_a?(Hash)
+
+        overrides[lang_code] || lang_code
       end
 
       def valid_include_file?(path, dir, safe)

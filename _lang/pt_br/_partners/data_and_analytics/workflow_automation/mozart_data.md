@@ -37,7 +37,7 @@ table td {
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Conta Mozart Data | É necessário ter uma conta Mozart Data para aproveitar essa parceria. [Inscreva-se aqui.](https://app.mozartdata.com/signup)|
+| Conta Mozart Data | É necessário ter uma conta Mozart Data para aproveitar essa parceria. [Inscreva-se para uma conta Mozart Data.](https://app.mozartdata.com/signup)|
 | Conta Snowflake<br>Opção 1: Nova conta | Selecione **Create a New Snowflake Account** durante o processo de criação da conta da Mozart Data para que a Mozart Data provisione uma nova conta do Snowflake para você. |
 | Conta Snowflake<br>Opção 2: Conta existente | Se sua organização já tiver uma conta do Snowflake, você poderá usar a opção Mozart Data Connected.<br><br>Selecione a opção **Already Have a Snowflake Account** para conectar uma conta Snowflake existente. Para usar essa opção, um usuário com permissões no nível da conta deve [seguir estas etapas](https://help.mozartdata.com/docs/setting-up-data-warehouse#existingsnowflakeaccount). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }

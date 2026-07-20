@@ -34,7 +34,7 @@ Work with your Constructor onboarding team to complete the integration process. 
 
 ## Constructor's Offsite Discovery API URL
 
-You can use Constructor's Offsite Discovery API URL to render product images and direct users to the appropriate product detail page. Below is a breakdown of the endpoint structure and an example of how to use it:
+You can use Constructor's Offsite Discovery API URL to render product images and direct users to the appropriate product detail page. The following is a breakdown of the endpoint structure and an example of how to use it:
 
 ### Example
 

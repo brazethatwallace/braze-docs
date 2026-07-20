@@ -9,7 +9,7 @@ channel: push
 
 # プッシュメッセージタイプ {#push-message-types}
 
-> プッシュ通知には、顧客とやり取りするために使用できるさまざまなタイプがあります。これらの設定のほとんどはプッシュCampaignで構成できますが、説明に記載されているように、一部はバックエンドの設定が必要です。
+> プッシュ通知には、顧客とやり取りするために使用できるさまざまなタイプがあります。これらの設定のほとんどはプッシュキャンペーンで構成できますが、説明に記載されているように、一部はバックエンドの設定が必要です。
 
 ## 標準プッシュ {#standard-push}
 
@@ -27,9 +27,9 @@ channel: push
 
 詳細については、[Webプッシュ通知]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)を参照してください。
 
-## プッシュプライマーCampaign {#push-primer-campaigns}
+## プッシュプライマーキャンペーン {#push-primer-campaigns}
 
-プッシュのオプトインまたはオプトアウトの明示的なシグナルをユーザーから取得するために使用されるアプリ内メッセージCampaignです。プライマーを通じて、デバイス設定でプッシュをオフにする可能性が高いユーザーへの通知送信を回避できます。iOSの場合、フォアグラウンドプッシュ通知（デバイスを起動する通知など）は、ユーザーがiOSのネイティブプッシュプロンプトに明示的にオプトインするまで有効になりません。そのため、プッシュCampaignは重要です。
+プッシュのオプトインまたはオプトアウトの明示的なシグナルをユーザーから取得するために使用されるアプリ内メッセージキャンペーンです。プライマーを通じて、デバイス設定でプッシュをオフにする可能性が高いユーザーへの通知送信を回避できます。iOSの場合、フォアグラウンドプッシュ通知（デバイスを起動する通知など）は、ユーザーがiOSのネイティブプッシュプロンプトに明示的にオプトインするまで有効になりません。そのため、プッシュキャンペーンは重要です。
 
 **対応プラットフォーム:** Web、Android、iOS
 
@@ -79,7 +79,7 @@ HTMLプッシュ通知は、HTMLでハードコードされたプッシュメッ
 
 **対応プラットフォーム:** iOS、Android
 
-詳細については、[通知チャネル]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels)および[高度なプッシュCampaign設定]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings)を参照してください。
+詳細については、[通知チャネル]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels)および[高度なプッシュキャンペーン設定]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings)を参照してください。
 
 ## バックグラウンドまたはサイレントプッシュ通知 {#background-push-notifications}
 

@@ -6,18 +6,20 @@ description: "GitHub에서 미러링된 Braze Roku SDK README 참조입니다."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Roku SDK 리포지토리 가이드 {#roku-sdk-repository-guide}
+
 ## Braze Roku SDK 소개 {#about-the-braze-roku-sdk}
 
 Braze Roku SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애플리케이션에 통합하는 데 도움을 줍니다.
 
 시작하려면 다음 리소스를 참조하세요:
 
-- [Braze 사용자 가이드]({{site.baseurl}}/user_guide/introduction)
-- [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=roku)
+- [Braze 사용자 가이드](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
 ## 초기 SDK 통합 {#initial-sdk-integration}
 
-Braze Roku SDK는 분석, 세분화 및 참여에 사용할 정보를 보고하기 위한 API를 제공합니다.
+Braze Roku SDK는 분석, 세분화 및 인게이지먼트에 사용할 정보를 보고하기 위한 API를 제공합니다.
 
 ## 1단계: 파일 추가 {#step-1-add-files}
 

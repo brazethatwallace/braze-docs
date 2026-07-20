@@ -16,19 +16,19 @@ description: "Diese Seite beschreibt, wie Sie ein SMS-, RCS- und WhatsApp-Regist
 
 ## Ein Telefonnummer-Registrierungsformular erstellen {#creating-a-phone-number-sign-up-form}
 
-### 1. Schritt: Template auswählen {#step-1-choose-your-template}
+### Schritt 1: Template auswählen {#step-1-choose-your-template}
 
 Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **SMS sign-up** (dies deckt auch die RCS-Registrierung ab) oder **WhatsApp sign-up** als Template und dann **Build message**. Diese Templates werden sowohl für mobile Apps als auch für Webbrowser unterstützt.
 
 ![Modal zur Auswahl von „SMS sign-up“ oder „WhatsApp sign-up“ als Template beim Erstellen einer In-App-Nachricht.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_template.png %}){: style="max-width:80%"}
 
-### 2. Schritt: Nachrichtenstile einrichten {#step-2-set-up-your-message-styles}
+### Schritt 2: Nachrichtenstile einrichten {#step-2-set-up-your-message-styles}
 
 {% multi_lang_include drag_and_drop/templates.md section='message style' %}
 
-![Workflow zum Hochladen und Auswählen einer benutzerdefinierten Schriftart.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_custom_font.gif %})
+![Workflow zum Hochladen und Auswählen einer angepassten Schriftart.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_custom_font.gif %})
 
-### 3. Schritt: Telefonnummer-Eingabekomponente anpassen {#step-3-customize-your-phone-number-input-component}
+### Schritt 3: Telefonnummer-Eingabekomponente anpassen {#step-3-customize-your-phone-number-input-component}
 
 Um mit dem Erstellen Ihres Registrierungsformulars zu beginnen, wählen Sie die Telefonnummer-Eingabekomponente im Editor aus.
 
@@ -44,9 +44,9 @@ Standardmäßig werden Nummern weltweit erfasst. Sie können jedoch die Anzahl d
 
 #### Ungültige Telefonnummern {#invalid-phone-numbers}
 
-Wenn Ihre Nutzer:innen eine Telefonnummer eingeben, die nicht akzeptierte Sonderzeichen enthält, wird ein allgemeiner Fehlerindikator angezeigt, der nicht anpassbar ist, und das Formular kann nicht abgesendet werden. Sie können das Fehlerverhalten im Tab **Preview & Test** und auf Ihrem Testgerät überprüfen. Lesen Sie diesen Artikel, um zu erfahren, [wie Braze Telefonnummern formatiert]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#importing-phone-numbers).
+Wenn Ihre Nutzer:innen eine Telefonnummer eingeben, die nicht akzeptierte Sonderzeichen enthält, wird ein allgemeiner Fehlerindikator angezeigt, der nicht anpassbar ist, und das Formular kann nicht abgesendet werden. Sie können das Fehlerverhalten im Tab **Preview & Test** und auf Ihrem Testgerät überprüfen. Lesen Sie diesen Artikel, um zu erfahren, [wie Braze Telefonnummern formatiert]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers).
 
-### 4. Schritt: Haftungsausschluss hinzufügen (für SMS- und RCS-Registrierungsformulare) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
+### Schritt 4: Haftungsausschluss hinzufügen (für SMS- und RCS-Registrierungsformulare) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 
 Für SMS- und RCS-Registrierungsformulare ist es wichtig, klar zu kommunizieren, welche Art von SMS oder RCS Sie senden werden. Stellen Sie sicher, dass Ihr Listenwachstum konform ist, indem Sie die folgenden Informationen in Ihr Formular aufnehmen:
 
@@ -62,11 +62,11 @@ Wir haben im Template einen Platzhalter-Haftungsausschluss ausschließlich als B
 Diese Dokumentation ist nicht dazu bestimmt, Rechtsberatung zu erteilen, und darf auch nicht vollständig als solche herangezogen werden.
 {% endalert %}
 
-Weitere Informationen zur SMS- und RCS-Compliance finden Sie unter [Gesetze und Vorschriften für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Weitere Informationen zur SMS- und RCS-Compliance finden Sie unter [Gesetze und Vorschriften für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
-### 5. Schritt: Nachricht gestalten {#step-5-style-your-message}
+### Schritt 5: Nachricht gestalten {#step-5-style-your-message}
 
-Passen Sie das Erscheinungsbild Ihrer Nachricht mit den Drag-and-Drop-[In-App-Nachricht-Komponenten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) an.
+Passen Sie das Erscheinungsbild Ihrer Nachricht mit den Drag-and-Drop-[In-App-Nachricht-Komponenten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) an.
 
 ## Ergebnisse analysieren {#analyzing-the-results}
 

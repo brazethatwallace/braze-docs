@@ -20,13 +20,13 @@ page_order: 2
 | 카탈로그 에이전트 | 카탈로그 필드 | 카탈로그 행이 생성되거나 업데이트될 때 | [카탈로그 에이전트 사용](#use-catalog-agents) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="커스텀 에이전트 유형" }
 
-에이전트를 생성할 때 **에이전트 콘솔**에서 에이전트 유형을 선택합니다. 설정 단계는 [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#step-1-choose-an-agent-type)을 참조하세요.
+에이전트를 생성할 때 **Agent Console**에서 에이전트 유형을 선택합니다. 설정 단계는 [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#step-1-choose-an-agent-type)을 참조하세요.
 
 ## 모범 사례 {#best-practices}
 
 에이전트가 가장 큰 투자수익률(ROI)을 이끌어낼 수 있는 고가치 사용 사례를 타겟팅하고, 반응할 가능성이 높은 오디언스를 선택하세요. 규모가 작지만 기회가 높은 오디언스가 기회가 낮은 대규모 오디언스보다 더 나은 성과를 내는 경우가 많습니다.
 
-Canvas 에이전트의 경우, 최근 검색, 높은 참여도 또는 풍부한 프로필 데이터 등 강한 신호를 가진 사용자부터 시작한 후 더 넓은 Segments로 확장하세요. 카탈로그 에이전트의 경우, 필요한 입력 열이 이미 채워져 있는 행을 우선시하여 각 호출이 유용한 출력을 생성할 수 있는 충분한 컨텍스트를 갖도록 하세요.
+캔버스 단계 에이전트의 경우, 최근 검색, 높은 인게이지먼트 또는 풍부한 프로필 데이터 등 강한 신호를 가진 사용자부터 시작한 후 더 넓은 Segments로 확장하세요. 카탈로그 에이전트의 경우, 필요한 입력 열이 이미 채워져 있는 행을 우선시하여 각 호출이 유용한 출력을 생성할 수 있는 충분한 컨텍스트를 갖도록 하세요.
 
 에이전트를 광범위하게 배포하기 전에 소규모로 ROI를 테스트하려면, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 사용하여 오디언스의 일부만 에이전트 단계가 포함된 분기에 진입하도록 하세요.
 
@@ -46,15 +46,15 @@ Canvas에 에이전트를 추가하려면:
 
 1. 사이드바에서 **에이전트** 구성요소를 드래그 앤 드롭하거나, 단계 하단의 <i class="fas fa-plus-circle"></i> 플러스 버튼을 선택한 후 **에이전트**를 선택합니다.
 2. 이 단계에서 데이터를 처리할 에이전트를 선택합니다.
-3. 출력 변수 이름을 정의합니다. 출력 데이터 유형은 [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents)에서 설정합니다.
+3. 출력 변수 이름을 정의합니다. 출력 데이터 유형은 [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents)에서 설정합니다.
 4. (선택 사항) 에이전트가 실행될 때 참조할 추가 컨텍스트 값을 추가합니다. 여기에는 에이전트 설정에서 아직 바인딩하지 않은 추가 Liquid 변수나 Canvas 컨텍스트가 포함될 수 있습니다. 예를 들어, 이 단계에서 전송 시점에만 전달하려는 값이 해당됩니다.
-5. 단계 미리보기에서 에이전트 출력을 테스트하고 미리봅니다.
+5. 단계 내 미리보기 또는 [Canvas 테스트]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps)를 사용하여 에이전트를 테스트하고 전체 사용자 경로를 확인합니다.
 
 출력 데이터 유형, Liquid 템플릿 및 스크린샷은 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)를 참조하세요.
 
-### 활용 사례 {#use-cases}
+### 사용 사례 {#use-cases}
 
-| 활용 사례 | 설명 |
+| 사용 사례 | 설명 |
 | --- | --- |
 | 리드 스코어링 및 자격 평가 | 에이전트 단계를 사용하여 유입되는 리드를 척도(예: 1-10)로 평가합니다. 기준 점수를 초과하는 사용자를 육성 경로로 라우팅하고, 적합하지 않은 리드는 제외합니다. |
 | 동적 메시지 개인화 | 에이전트가 사용자 속성이나 최근 동작을 기반으로 제목란, 제품 추천 또는 메시지 문구를 생성하도록 합니다. 응답은 메시지 단계에 직접 삽입할 수 있습니다. |
@@ -62,7 +62,7 @@ Canvas에 에이전트를 추가하려면:
 | 지능형 라우팅 | 에이전트 출력(부울 또는 숫자)을 사용하여 사용자를 서로 다른 Canvas 경로로 분할합니다. 예를 들어, 사용자를 "위험" 또는 "건강"으로 분류하고 메시징 주기를 그에 맞게 조정합니다. |
 | 설문조사 또는 응답 해석 | 에이전트가 개방형 설문조사 응답이나 자유 텍스트 필드를 구문 분석하여 다운스트림 경로를 유도하는 구조화된 값(예: 의도 또는 필요 분류)을 반환하도록 합니다. |
 | 다단계 추론 | 에이전트가 컨텍스트 필드를 결합하고 여러 사용자 속성을 기반으로 다음 최선의 동작(이메일, SMS 또는 담당자 연결)을 추천하는 등 복잡한 결정을 내리도록 구성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용 사례" }
 
 ### 에이전트 출력 사용 {#use-the-agent-output}
 
@@ -76,13 +76,13 @@ Canvas에 에이전트를 추가하려면:
 
 ### 오류 처리 및 대체 동작 {#fallback-behavior}
 
-다음은 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)의 **캔버스 단계 에이전트**에 적용됩니다.
+다음은 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)의 캔버스 단계 에이전트에 적용됩니다.
 
 - 연결된 모델이 LLM 제공자로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)를 반환하면, Braze는 호출이 성공하거나 완료할 수 없다고 판단할 때까지 지수 백오프를 사용하여 요청을 지속적으로 재시도합니다. 이후 사용자는 다음 캔버스 단계로 진행합니다.
-- 다른 실패(예: 타임아웃 또는 잘못된 API 키)의 경우, 에이전트에 에이전트 콘솔에서 [대체 값이 구성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)되어 있지 않으면 출력 변수가 `null`로 설정됩니다.
+- 다른 실패(예: 타임아웃 또는 잘못된 API 키)의 경우, 에이전트에 Agent Console에서 [대체 값이 구성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)되어 있지 않으면 출력 변수가 `null`로 설정됩니다.
 - 에이전트가 일일 호출 한도에 도달하면, Braze는 구성된 대체 값이 있을 때 이를 적용합니다. 그렇지 않으면 출력 변수가 `null`로 설정됩니다.
 
-대체 값이 구성된 경우, Braze는 재시도 불가능한 오류와 일일 한도 실패에 대해 대체 값을 적용합니다. Braze는 사용자별로 Liquid를 사용하여 대체 값을 렌더링하고 결과를 에이전트 단계 출력 변수에 저장합니다. 대체 값이 없으면 해당 실패 시 출력 변수가 `null`로 설정됩니다. 에이전트 콘솔 대체 값 대신 메시지 단계에서 단계별 기본값을 구성하려면, 에이전트 설정의 **출력** 섹션에서 대체 값을 비워 두어 에이전트가 null을 반환할 때 Liquid 기본값이 적용되도록 할 수 있습니다. 다운스트림에서 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)을 사용하면 됩니다.
+대체 값이 구성된 경우, Braze는 재시도 불가능한 오류와 일일 한도 실패에 대해 대체 값을 적용합니다. Braze는 사용자별로 Liquid를 사용하여 대체 값을 렌더링하고 결과를 에이전트 단계 출력 변수에 저장합니다. 대체 값이 없으면 해당 실패 시 출력 변수가 `null`로 설정됩니다. Agent Console 대체 값 대신 메시지 단계에서 단계별 기본값을 구성하려면, 에이전트 설정의 **Output** 섹션에서 대체 값을 비워 두어 에이전트가 null을 반환할 때 Liquid 기본값이 적용되도록 할 수 있습니다. 다운스트림에서 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)을 사용하면 됩니다.
 
 - 동일한 입력에 대한 응답은 캐시되며, 몇 분 이내에 반복되는 동일한 호출에 재사용될 수 있습니다. 캐시된 응답도 총 호출 수와 일일 호출 수에 포함됩니다.
 - 에이전트 단계는 대량의 사용자를 처리하는 데 시간이 걸릴 수 있습니다. Braze는 [호출 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)에 따라 호출을 대기줄에 넣으므로, 대량 전송 시 사용자가 대기 상태로 남아 있을 수 있습니다.
@@ -136,17 +136,17 @@ Canvas에 에이전트를 추가하려면:
 | 종속 열 | 열 3이 열 1과 2에 종속되는 경우, 에이전트는 해당 행에 열 1과 2에 값이 있을 때까지 열 3에 쓰지 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="카탈로그 에이전트 모범 사례" }
 
-### 활용 사례
+### 사용 사례
 
-| 활용 사례 | 설명 |
+| 사용 사례 | 설명 |
 | --- | --- |
 | 제품 설명 생성 | 새로운 카탈로그 항목에 대한 짧은 마케팅 문구를 자동으로 생성합니다. 예를 들어, 이름, 카테고리, 기능 등 구조화된 제품 데이터에서 매력적인 설명을 생성합니다. |
 | 제품 속성 보강 | 제품 이름과 세부 정보를 기반으로 색상 계열, 스타일 또는 시즌 등 누락된 값을 채웁니다. 예를 들어, 제품 이름이 "Laguna Polarized Sunglasses"인 경우 에이전트가 스타일을 "스포츠"로, 색상 계열을 "블루"로 지정할 수 있습니다. |
 | 파생 필드 계산 | 기존 필드를 사용하여 속성 기반의 "적합 점수"나 판매 및 리뷰 수에서 파생된 "인기 태그" 등 새로운 데이터를 생성합니다. |
 | 항목 분류 또는 태그 지정 | 개인화 모델이 제품을 더 효과적으로 세분화할 수 있도록 추천 로직용 태그를 할당합니다. 예를 들어, 제품에 "아웃도어", "페스티벌 준비 완료" 또는 "프리미엄" 태그를 지정합니다. |
-| 콘텐츠 현지화 | 글로벌 Campaign(캠페인)을 위해 카탈로그 텍스트를 다른 언어로 번역하거나, 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나, SMS 캠페인을 위해 설명을 단축합니다. |
+| 콘텐츠 현지화 | 글로벌 캠페인을 위해 카탈로그 텍스트를 다른 언어로 번역하거나, 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나, SMS 캠페인을 위해 설명을 단축합니다. |
 | 리뷰 또는 피드백 요약 | 감정이나 피드백을 새로운 필드로 요약합니다. 예를 들어, 긍정적, 중립적 또는 부정적 감정 점수를 할당하거나 "대부분의 고객이 좋은 핏을 언급하지만 느린 배송을 지적합니다."와 같은 짧은 텍스트 요약을 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용 사례" }
 
 ### 응답 필드 정의 {#define-response-fields}
 
@@ -168,8 +168,8 @@ Canvas에 에이전트를 추가하려면:
 
 ### 오류 처리 {#error-handling}
 
-- 실패한 카탈로그 호출은 LLM 제공자가 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)를 반환하는 경우를 포함하여 재시도되지 않습니다.
-- 기반 모델 제공자에 대한 API 호출이 잘못된 API 키 오류 등 다른 오류를 반환하면 필드 값이 업데이트되지 않습니다. 카탈로그 에이전트는 에이전트 콘솔에서 대체 값 구성을 지원하지 않습니다.
+- LLM 제공자가 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)를 반환하면, Braze는 호출이 성공하거나 완료할 수 없다고 판단할 때까지 지수 백오프를 사용하여 요청을 지속적으로 재시도합니다.
+- 다른 실패(예: 타임아웃 또는 잘못된 API 키)의 경우, 카탈로그 필드 값이 업데이트되지 않습니다. 카탈로그 에이전트는 Agent Console에서 대체 값 구성을 지원하지 않습니다.
 - 실패한 실행에 대한 세부 정보는 에이전트의 로그에서 확인할 수 있습니다.
 - 카탈로그 에이전트는 행당 최대 25KB의 입력 값을 처리할 수 있습니다.
 
@@ -193,6 +193,8 @@ Canvas에 에이전트를 추가하려면:
 
 ![입력 프롬프트, 출력 응답 및 관련 사용자 ID를 보여주는 에이전트 Random Sports Assignment의 세부 정보 패널.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 
+캔버스 단계 에이전트의 경우, 로그에는 호출 오류 발생 시 사용된 대체 출력을 보여주는 **Fallback Output** 섹션이 포함됩니다.
+
 ### Currents 사용 {#use-currents}
 
 다음 Currents 이벤트를 사용하여 Kafka 레코드 스키마에 접근할 수도 있습니다:
@@ -200,7 +202,7 @@ Canvas에 에이전트를 추가하려면:
 - 에이전트 실행 이벤트
 - 도구 호출 이벤트
 
-자세한 내용은 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)을 참조하세요.
+자세한 내용은 [메시지 인게이지먼트 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)을 참조하세요.
 
 ## 관련 문서 {#related-articles}
 

@@ -76,7 +76,14 @@ Le tableau de bord d'utilisation de l'API inclut toutes les requêtes de l'API R
 
 Les données affichées peuvent présenter un léger délai pour le trafic récent. En période de forte utilisation, vous pouvez actualiser le tableau de bord jusqu'à 4 fois par minute. Il peut être nécessaire d'attendre quelques minutes avant de pouvoir l'actualiser à nouveau.
 
+### Clés API dans le corps de la requête {#api-keys-in-request-body}
+
+Lorsque les clés API sont envoyées dans le corps de la requête plutôt que dans l'en-tête, certaines requêtes peuvent ne pas apparaître dans le tableau de bord d'utilisation de l'API. Cela peut entraîner des données incomplètes dans le tableau de bord et rendre difficile le suivi précis de l'utilisation de l'API.
+
+Pour obtenir des rapports plus précis dans le tableau de bord d'utilisation de l'API, [incluez les clés API dans l'en-tête de la requête]({{site.baseurl}}/api/basics#bearer-token-authentication) plutôt que dans le corps de la requête.
+
 ## Articles connexes {#related-articles}
 
 - [Alertes d'utilisation de l'API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Limites de débit]({{site.baseurl}}/api/api_limits)
+- [Authentification par jeton Bearer]({{site.baseurl}}/api/basics#bearer-token-authentication)

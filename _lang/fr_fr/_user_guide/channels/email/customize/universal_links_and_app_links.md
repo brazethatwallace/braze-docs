@@ -25,6 +25,10 @@ Lorsqu'un lien universel ou un App Link est ouvert, le système d'exploitation v
 
 En d'autres termes, les liens universels permettent à un site web d'associer ses pages web à des écrans spécifiques de l'application, de sorte que lorsqu'un utilisateur clique sur un lien vers une page web correspondant à un écran de l'application, celle-ci peut être ouverte directement (si l'application est actuellement installée).
 
+{% alert important %}
+Firebase Dynamic Links est obsolète. Braze ne dispose pas d'une intégration directe avec Firebase, et la création de liens profonds est gérée en dehors de la plateforme Braze. Migrez vers des solutions natives de la plateforme (liens universels Apple et Android App Links, comme décrit dans cet article) ou vers des fournisseurs de services de création de liens profonds alternatifs. Pour des conseils de migration, consultez la [FAQ de migration Firebase](https://firebase.google.com/support/dynamic-links-faq).
+{% endalert %}
+
 Ce tableau présente les principales différences entre les liens universels et les liens profonds traditionnels :
 
 |                        | Liens universels et App Links                                  | Liens profonds                   |
@@ -35,11 +39,11 @@ Ce tableau présente les principales différences entre les liens universels et 
 | Installation de l'application       | Ouvre l'application si elle est installée, sinon ouvre le contenu web | Nécessite que l'application soit installée |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fonctionnement des liens universels et des App Links" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 Les liens universels et les App Links sont le plus souvent utilisés pour les campagnes par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
 
-Certains canaux ne fonctionnent pas bien avec ces liens. Par exemple, les notifications push, les messages in-app et les Content Cards doivent utiliser des liens profonds basés sur un schéma (`mydomain://`).
+Certains canaux ne fonctionnent pas bien avec ces liens. Par exemple, les notifications push, les In-App Messages et les Content Cards doivent utiliser des liens profonds basés sur un schéma (`mydomain://`).
 
 {% alert note %}
 Les Android App Links nécessitent un `IBrazeDeeplinkHandler` personnalisé avec une logique pour gérer les liens de leurs domaines séparément des autres URL web. Il peut être plus simple d'utiliser des liens profonds à la place et de maintenir des pratiques de liens uniformes pour les canaux autres que l'e-mail.
@@ -444,7 +448,19 @@ Assurez-vous que les définitions des domaines que votre application est autoris
 
 #### Le domaine de suivi ne peut pas servir les fichiers .well-known {#tracking-domain-cant-serve-well-known-files}
 
-Dans certains cas, votre domaine de suivi des clics peut ne pas être en mesure d'héberger les fichiers `.well-known` requis en raison de limitations de l'ESP ou de contraintes d'infrastructure. Si vous ne pouvez pas héberger le fichier AASA ou Digital Asset Links sur votre domaine de suivi, envisagez les options suivantes :
+Dans certains cas, votre domaine de suivi des clics peut ne pas être en mesure d'héberger les fichiers `.well-known` requis en raison de limitations du fournisseur de services d'e-mailing ou de contraintes d'infrastructure. Si vous ne pouvez pas héberger le fichier AASA ou Digital Asset Links sur votre domaine de suivi, envisagez les options suivantes :
 
 - **Désactivez sélectivement le suivi des clics sur les URL de liens profonds :** vous pouvez désactiver le suivi des clics pour des liens universels spécifiques afin qu'ils pointent directement vers votre domaine principal (où vous pouvez héberger le fichier AASA ou Digital Asset Links). Notez que cette méthode peut entraîner une perte d'analyse des clics pour ces liens spécifiques. Consultez [Désactiver le suivi des clics lien par lien](#turning-off-click-tracking-on-a-link-to-link-basis) pour les instructions.
-- **Placez un réseau de diffusion de contenu devant le sous-domaine de suivi :** si vous avez besoin d'une couverture complète du suivi des clics et de la création de liens profonds, vous pouvez placer un réseau de diffusion de contenu (tel que Cloudflare ou CloudFront) devant votre sous-domaine de suivi. Configurez le réseau de diffusion de contenu pour servir les fichiers `.well-known` localement et transmettre tout le reste du trafic à votre ESP. Cette approche est plus complexe mais vous donne un contrôle total sur le suivi des clics et les liens universels.
+- **Placez un CDN devant le sous-domaine de suivi :** si vous avez besoin d'une couverture complète du suivi des clics et de la création de liens profonds, vous pouvez placer un CDN (tel que Cloudflare ou CloudFront) devant votre sous-domaine de suivi. Configurez le CDN pour servir les fichiers `.well-known` localement et transmettre tout le reste du trafic à votre fournisseur de services d'e-mailing. Cette approche est plus complexe mais vous donne un contrôle total sur le suivi des clics et les liens universels.
+
+#### Les liens fonctionnent dans un espace de travail mais pas dans un autre {#links-working-in-one-workspace-but-not-another}
+
+Si les liens universels ou les App Links fonctionnent correctement dans votre espace de travail de production mais échouent dans votre espace de travail de développement ou de test, vérifiez que le domaine de l'adresse e-mail d'envoi correspond au domaine de suivi configuré dans les paramètres e-mail de chaque espace de travail. Une configuration incohérente entre les espaces de travail peut entraîner un comportement différent des liens, même lorsque vous utilisez les mêmes modèles d'e-mail et les mêmes fichiers AASA ou Digital Asset Links.
+
+Pour vérifier votre configuration e-mail :
+
+1. Accédez à **Paramètres** > **Préférences e-mail** dans le tableau de bord de Braze.
+2. Vérifiez les **Paramètres d'envoi d'e-mails sortants** sous **Configuration d'envoi**.
+3. Confirmez que votre domaine d'envoi et votre domaine de suivi sont correctement alignés pour l'espace de travail où les liens ne fonctionnent pas.
+
+Si votre domaine d'envoi diffère entre les espaces de travail, assurez-vous que chaque espace de travail dispose des enregistrements DNS appropriés configurés et que vos fichiers AASA (iOS) ou Digital Asset Links (Android) sont accessibles depuis chaque domaine de suivi.

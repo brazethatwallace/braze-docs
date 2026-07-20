@@ -37,7 +37,7 @@ Si vous avez déjà configuré et activé le [remplissage historique]({{site.bas
 Après la synchronisation initiale des données, Braze suivra en permanence les nouvelles données et les mises à jour, directement depuis Shopify et les SDK de Braze.
 
 {% alert note %}
-Si vous êtes un client existant de Braze avec des campagnes ou des Canvas actifs, consultez le [remplissage historique de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill) pour obtenir des informations importantes. Pour savoir quelles données clients spécifiques sont renseignées, reportez-vous aux [fonctionnalités de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features).
+Si vous êtes un client existant de Braze avec des Campaigns ou des Canvas actifs, consultez le [remplissage historique de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill) pour obtenir des informations importantes. Pour savoir quelles données clients spécifiques sont renseignées, reportez-vous aux [fonctionnalités de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features).
 {% endalert %}
 
 ### Synchronisation des utilisateurs et des données {#user-and-data-syncing}
@@ -54,7 +54,7 @@ Lors de l'onboarding de l'intégration, vous devrez sélectionner le moment où 
 
 {% alert note %}
 - Les visites du site web (sessions) comptent dans vos allocations d'utilisateurs actifs par mois (MAU).
-- Les versions du SDK Web et du SDK JavaScript de Braze seront automatiquement définies sur v5.4.0.
+- Les versions du SDK Web et du SDK JavaScript de Braze sont automatiquement définies sur v6.8.0. Vous pouvez mettre à jour la version de votre SDK à tout moment depuis les paramètres de l'intégration.
 {% endalert %}
 
 Braze utilise l'intégration Shopify pour prendre en charge plusieurs identifiants qui suivent vos utilisateurs depuis leur expérience d'achat en tant qu'invité jusqu'à ce qu'ils deviennent des utilisateurs identifiés :
@@ -85,19 +85,19 @@ Le statut d'abonnement marketing Shopify pour le marketing par e-mail et par SMS
 - **Processus de paiement :** Si un utilisateur met à jour son statut d'abonnement lors de la validation de sa commande.
 
 {% alert note %}
-Le statut d'abonnement au marketing par e-mail de Shopify ne modifiera pas l'[état de l'abonnement global à l'e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions) d'un utilisateur dans Braze. L'état de l'abonnement par défaut lors de la création d'un profil utilisateur est « abonné ». N'oubliez pas d'utiliser le groupe d'abonnement dans les critères d'entrée de votre campagne ou de votre Canvas.
+Le statut d'abonnement au marketing par e-mail de Shopify ne modifiera pas l'[état de l'abonnement global à l'e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions) d'un utilisateur dans Braze. L'état de l'abonnement par défaut lors de la création d'un profil utilisateur est « subscribed ». N'oubliez pas d'utiliser le groupe d'abonnement dans les critères d'entrée de votre Campaign ou de votre Canvas.
 {% endalert %}
 
 Ce tableau montre quels états d'abonnement marketing Shopify correspondent aux statuts au sein de votre groupe d'abonnement Braze.
 
 | État d'abonnement marketing Shopify | État du groupe d'abonnement Braze |
 | --- | --- |
-| E-mail abonné | Abonné |
-| E-mail désabonné | Désabonné |
-| E-mail en attente de confirmation | Désabonné |
-| E-mail non valide | Désabonné |
-| SMS abonné | Abonné |
-| SMS désabonné | Désabonné |
+| E-mail abonné | Subscribed |
+| E-mail désabonné | Unsubscribed |
+| E-mail en attente de confirmation | Unsubscribed |
+| E-mail non valide | Unsubscribed |
+| SMS abonné | Subscribed |
+| SMS désabonné | Unsubscribed |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Synchronisation des abonnements marketing par e-mail et par SMS de Shopify" }
 
 ### Formulaires d'inscription {#sign-up-forms}
@@ -129,7 +129,7 @@ Braze propose deux types de modèles de formulaires d'inscription :
 Lorsque vous utilisez ces modèles de formulaire d'inscription, Braze met automatiquement à jour l'état de l'abonnement global à l'e-mail sur le profil utilisateur. Pour plus de détails sur la gestion de l'état de l'abonnement global à l'e-mail, y compris des informations sur la validation de l'e-mail, reportez-vous à la documentation de chaque type de modèle de formulaire.
 
 {% alert note %}
-- Veillez à inclure des critères d'entrée dans votre campagne ou Canvas qui incluent à la fois le statut global de l'abonnement e-mail et le groupe d'abonnement connectés à votre boutique Shopify. Cela vous permettra de cibler la bonne audience.
+- Veillez à inclure des critères d'entrée dans votre Campaign ou Canvas qui incluent à la fois le statut global de l'abonnement e-mail et le groupe d'abonnement connectés à votre boutique Shopify. Cela vous permettra de cibler la bonne audience.
 - Braze recueille des informations sur les visiteurs, telles que les adresses e-mail et les numéros de téléphone, par le biais de messages dans le navigateur. Ces informations sont ensuite envoyées à l'API Visitor de Shopify, mais ne créent pas de profil client dans Shopify. Pour plus de détails, reportez-vous à l'[API Visitor](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api).
 {% endalert %}
 

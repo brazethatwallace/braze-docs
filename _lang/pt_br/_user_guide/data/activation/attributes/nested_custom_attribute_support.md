@@ -22,9 +22,9 @@ description: "Este artigo de referência aborda o uso de atributos personalizado
 - Os nomes das chaves e os valores das strings têm um limite de tamanho de 255 caracteres.
 - Os nomes das chaves não podem conter espaços.
 - Pontos (`.`) e sinais de dólar (`$`) não são caracteres suportados em uma carga útil de API se você estiver tentando enviar um atributo personalizado aninhado para um perfil de usuário.
-- Nem todos os parceiros da Braze suportam atributos personalizados aninhados. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home/) para confirmar se integrações com parceiros específicos suportam esse recurso.
+- Nem todos os parceiros da Braze suportam atributos personalizados aninhados. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home) para confirmar se integrações com parceiros específicos suportam esse recurso.
 - Os atributos personalizados aninhados não podem ser usados como filtro ao fazer uma chamada à API do Connected Audience.
-- Por padrão, o filtro de Segment **Nested Custom Attributes** inclui atributos personalizados do tipo objeto, atributos de vetor de objetos e atributos personalizados do tipo vetor. Quando você seleciona um atributo, o seletor de esquema de propriedades inclui caminhos de vetor (usando a notação `[]`) para campos de vetor aninhados. Para ocultar atributos personalizados de vetor de nível superior desse filtro, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/).
+- Por padrão, o filtro de Segment **Nested Custom Attributes** inclui atributos personalizados do tipo objeto, atributos de vetor de objetos e atributos personalizados do tipo vetor. Quando você seleciona um atributo, o seletor de esquema de propriedades inclui caminhos de vetor (usando a notação `[]`) para campos de vetor aninhados. Para ocultar atributos personalizados de vetor de nível superior desse filtro, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support).
 - Ao pré-visualizar mensagens no dashboard usando **Preview as a Custom User**, você pode inserir dados simulados apenas como uma string ou vetor de strings — objetos aninhados não são suportados. Para pré-visualizar uma mensagem que referencia atributos personalizados aninhados, selecione um usuário existente que já tenha o atributo aninhado em seu perfil. Para propriedades de eventos personalizados aninhados, você deve lançar uma campanha ativa direcionada a um usuário teste para verificar a renderização.
 
 ## Exemplo de API {#api-example}
@@ -107,7 +107,7 @@ Para excluir um objeto de atributo personalizado, envie um POST para `users/trac
 ```
 
 {% alert note %}
-Essa abordagem não pode ser usada para excluir uma chave aninhada dentro de um [vetor de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+Essa abordagem não pode ser usada para excluir uma chave aninhada dentro de um [vetor de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 {% endalert %}
 
 {% endtab %}
@@ -268,7 +268,7 @@ Use a tag de personalização `custom_attribute` e a notação de ponto para ace
 Para usar Liquid de atributos personalizados aninhados na sua mensagem:
 
 1. Acesse uma Campaign ou um Canvas e abra a etapa de mensagem onde deseja adicionar personalização.
-2. No criador de mensagens, insira o trecho Liquid onde deseja que o valor apareça.
+2. No criador de mensagens, insira o snippet Liquid onde deseja que o valor apareça.
 3. Use **Preview & Test** com um usuário existente que já tenha o atributo personalizado aninhado em seu perfil para confirmar que o valor é renderizado conforme esperado.
 
 ### Personalização {#personalization}
@@ -297,7 +297,7 @@ Verifique se um esquema foi gerado caso você não veja a opção de inserir atr
 
 ## Regenerar esquemas {#regenerate-schema}
 
-Após um esquema ser gerado, ele pode ser regenerado **uma vez por dia corrido** (com base no fuso horário da sua empresa). Esta seção descreve como regenerar seu esquema. Para informações mais detalhadas sobre esquemas, consulte [Gerar um esquema usando o explorador de objetos aninhados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Após um esquema ser gerado, ele pode ser regenerado **uma vez por dia corrido** (com base no fuso horário da sua empresa). Esta seção descreve como regenerar seu esquema. Para informações mais detalhadas sobre esquemas, consulte [Gerar um esquema usando o explorador de objetos aninhados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
 
 Para regenerar o esquema do seu atributo personalizado aninhado:
 
@@ -316,7 +316,7 @@ Se os dados não aparecerem como esperado após regenerar o esquema, o atributo 
 
 ## Disparar alterações em atributos personalizados aninhados {#trigger-nested-custom-attribute-changes}
 
-Você pode disparar ações quando um objeto de atributo personalizado aninhado é alterado. Essa opção não está disponível para alterações em vetores de objetos. Se você não vir a opção de visualizar o explorador de jornadas, verifique se você gerou um esquema.
+Você pode disparar ações quando um objeto de atributo personalizado aninhado é alterado. Essa opção não está disponível para alterações em vetores de objetos. Se você não vir a opção de visualizar o explorador de caminhos, verifique se você gerou um esquema.
 
 Por exemplo, em uma Campaign baseada em ação, você pode adicionar uma nova ação-gatilho para **Change Custom Attribute Value** para direcionar usuários que alteraram suas preferências de escritório de bairro.
 
@@ -328,6 +328,28 @@ Para configurar esse gatilho em uma Campaign baseada em ação:
    Por exemplo, selecione `preferences.neighborhood_office`.
 4. Selecione a condição de gatilho desejada, como **any new value**.
 5. Termine de configurar a mensagem e o público da sua Campaign e, em seguida, lance a Campaign.
+
+## Solução de problemas {#troubleshooting}
+
+### Valores de atributos personalizados aninhados não aplicados de forma consistente {#nested-custom-attribute-values-not-applied-consistently}
+
+Se você perceber que os valores de atributos personalizados aninhados não estão sendo adicionados aos perfis de usuário de forma consistente, o problema geralmente está relacionado a incompatibilidades de tipo de dados.
+
+Para diagnosticar e resolver esse problema:
+
+1. **Compare exemplos de usuários:** obtenha um exemplo de usuário bem-sucedido e um malsucedido em que o atributo personalizado aninhado deveria ter sido definido.
+2. **Revise a estrutura de dados:** visualize e compare os valores do atributo personalizado em ambos os perfis:
+   - As propriedades estão armazenadas em um objeto?
+   - As propriedades estão armazenadas como um vetor de propriedades?
+3. **Verifique o filtro de segmentação:** compare a estrutura de dados armazenada com a forma como o atributo personalizado aninhado é referenciado nos seus filtros de segmentação.
+4. **Verifique o tipo de dados:** para identificar o tipo de dados de um atributo personalizado:
+   - Acesse **Configurações de dados** > **Atributos personalizados**.
+   - Pesquise o atributo personalizado de nível superior que contém o atributo aninhado que deseja verificar.
+   - Se a linha mostrar **Generate Schema**, selecione para gerar o esquema primeiro.
+   - Após o esquema ser gerado, selecione o ícone de mais na coluna **Attribute Name** para esse atributo.
+   - No modal **Edit schema**, revise os atributos aninhados e seus valores correspondentes na coluna **Data type**.
+
+Se você descobrir que o tipo de dados não corresponde ao formato pretendido nos perfis de usuário, remova o valor formatado incorretamente dos perfis de usuário afetados e reenvie o atributo no formato correto usando a solicitação de API ou o método de SDK apropriado.
 
 ## Comportamento de segmentação com vetores de objetos {#segmentation-behavior-with-arrays-of-objects}
 
@@ -351,7 +373,7 @@ Um Segment com os seguintes filtros AND:
 
 Esse usuário se qualificaria porque o primeiro filtro corresponde ao item "Shoes" (80 > 50) e o segundo filtro corresponde ao item "Hat" (25 < 30). Mesmo que nenhum item individual satisfaça ambas as condições, o usuário ainda entra no Segment.
 
-Se você precisar que todas as condições correspondam ao mesmo item dentro de um vetor, use [segmentação multicritério]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) no mesmo caminho, ou reestruture seus dados para evitar correspondência entre itens diferentes.
+Se você precisar que todas as condições correspondam ao mesmo item dentro de um vetor, use [segmentação multicritério]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) no mesmo caminho, ou reestruture seus dados para evitar correspondência entre itens diferentes.
 
 ## Pontos de dados {#data-points}
 

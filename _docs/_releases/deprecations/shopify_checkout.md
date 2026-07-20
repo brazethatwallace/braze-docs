@@ -21,7 +21,7 @@ For general information on upgrading to Checkout Extensibility, see [Shopify's u
 
 The Braze and Shopify integration uses [Shopify ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy) to load the Braze Web SDK for non-headless sites. We are planning to launch a new version of the integration before the 2025 deadline to support all customers before `checkout.liquid` is fully deprecated. 
 
-For the upcoming changes on August 13, 2024, check the details below to see if you will be impacted by your development team.
+For the upcoming changes on August 13, 2024, check the following details to see if you will be impacted by your development team.
 
 ### Phase one: August 13, 2024
 

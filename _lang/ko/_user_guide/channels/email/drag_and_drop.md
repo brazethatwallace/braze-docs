@@ -108,7 +108,7 @@ tool:
 
 그런 다음 **Edit Email Body**를 선택하여 드래그 앤 드롭 편집기에서 이메일 구조를 디자인하기 시작합니다.
 
-![예시 이메일 본문이 포함된 "Email Variants" 섹션.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
+![예시 이메일 본문이 포함된 'Email Variants' 섹션.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
 
 ### 2단계: 이메일 작성 {#step-2-build-your-email}
 
@@ -196,7 +196,7 @@ tool:
 
 이메일 템플릿에 대한 편집 사항은 이전에 생성된 링크에 반영되지 않습니다. 편집 사항을 확인하려면 새 링크 미리보기를 생성해야 합니다.
 
-!["Copy preview link" 버튼과 생성된 링크를 복사하는 이메일 미리보기.]({% image_buster /assets/img/dnd_email_link_preview.png %})
+!['Copy preview link' 버튼과 생성된 링크를 복사하는 이메일 미리보기.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
 #### Inbox Vision 사용 {#use-inbox-vision}
 
@@ -255,7 +255,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 **Settings** 탭으로 이동하여 원하는 언어를 선택하면 언어 속성을 설정할 수 있습니다. 메시지가 동적 언어 값을 가진 사용자를 대상으로 하는 경우 사용자 속성 {%raw%} `{{${language}}}` {%endraw%}를 타겟팅할 수도 있습니다.
 
-![이메일의 "Language" 값 설정.]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
+![이메일의 'Language' 값 설정.]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
 
 ### 개인화 {#personalization}
 
@@ -272,7 +272,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 #### 동적 이미지 {#dynamic-images}
 
-이미지 소스 속성에 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content) 또는 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 포함하여 이메일 메시징에 동적 이미지를 포함할 수 있습니다. 예를 들어, 정적 이미지 대신 {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %}를 이미지 URL로 삽입하여 이미지에 사용자의 이름을 포함할 수 있습니다. 이를 통해 각 사용자에게 이메일을 개인화할 수 있습니다.
+이미지 소스 속성에 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) 또는 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 포함하여 이메일 메시징에 동적 이미지를 포함할 수 있습니다. 예를 들어, 정적 이미지 대신 {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %}를 이미지 URL로 삽입하여 이미지에 사용자의 이름을 포함할 수 있습니다. 이를 통해 각 사용자에게 이메일을 개인화할 수 있습니다.
 
 {% alert important %}
 이미지 URL은 `https://`로 시작해야 합니다. `http://`를 사용하면 앱이 충돌합니다.
@@ -290,7 +290,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 #### 링크에 대한 HTML 속성 {#html-attributes-to-links}
 
-![링크에 대해 "clicktracking" 속성이 꺼진 "Attributes" 섹션.]({% image_buster /assets/img/dnd_custom_attributes.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![링크에 대해 'clicktracking' 속성이 꺼진 'Attributes' 섹션.]({% image_buster /assets/img/dnd_custom_attributes.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 드래그 앤 드롭 편집기에서 링크, 버튼, 이미지, 동영상을 사용할 때 **Content** 섹션의 **Attributes**에서 **Add new attribute**를 선택하여 이메일의 HTML 태그에 추가 정보를 첨부할 수 있습니다. 이는 메시지 개인화, 세분화, 스타일링에 특히 유용할 수 있습니다.
 

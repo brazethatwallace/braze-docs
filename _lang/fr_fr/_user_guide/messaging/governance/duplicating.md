@@ -18,7 +18,7 @@ tool:
 Après avoir dupliqué une Campaign ou un Canvas, le nouveau message sera automatiquement intitulé `"Copy of [Original Name]"` et vous serez redirigé vers sa page d'édition. Ces duplicatas resteront à l'état de brouillon jusqu'à ce que vous les modifiiez et les lanciez.
 
 {% alert tip %}
-Vous pouvez également [copier des Campaigns, des Canvas et des pages d'accueil]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/) d'un espace de travail à un autre. La copie restera à l'état de brouillon jusqu'à ce que vous la modifiiez et lanciez la Campaign ou le Canvas, ou que vous publiiez la page d'accueil.
+Vous pouvez également [copier des Campaigns, des Canvas et des pages d'accueil]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces) d'un espace de travail à un autre. La copie restera à l'état de brouillon jusqu'à ce que vous la modifiiez et lanciez la Campaign ou le Canvas, ou que vous publiiez la page d'accueil.
 {% endalert %}
 
 {% tabs %}

@@ -1,6 +1,6 @@
 {% if include.section == "default behavior" %}
 
-De manera predeterminada, el contenido conectado establecerá un encabezado `Content-Type` en una solicitud GET HTTP que haga a `application/json` con `Accept: */*`. Si necesita otro tipo de contenido, especifíquelo explícitamente añadiendo `:content_type your/content-type` a la etiqueta. A continuación, Braze establecerá tanto el encabezado Content-Type como Accept en el tipo que especifique.
+De manera predeterminada, el contenido conectado establecerá un encabezado `Content-Type` en una solicitud GET HTTP que realice a `application/json` con `Accept: */*`. Si necesitas otro tipo de contenido, especifícalo explícitamente añadiendo `:content_type your/content-type` a la etiqueta. Braze establecerá entonces tanto el encabezado Content-Type como el Accept en el tipo que especifiques.
 
 {% raw %}
 ```js
@@ -12,14 +12,14 @@ De manera predeterminada, el contenido conectado establecerá un encabezado `Con
 
 {% if include.section == "http post" %}
 
-De manera predeterminada, el Contenido conectado realiza una solicitud HTTP GET a la URL especificada. Para realizar una solicitud POST en su lugar, especifique `:method post`.
+De manera predeterminada, el contenido conectado realiza una solicitud HTTP GET a la URL especificada. Para realizar una solicitud POST en su lugar, especifica `:method post`.
 
-Opcionalmente, puede proporcionar un cuerpo POST especificando `:body` seguido de una cadena de consulta con el formato `key1=value1&key2=value2&...` o una referencia a los valores capturados. Content-Type predeterminado a `application/x-www-form-urlencoded`. Si especifica `:content_type application/json` y proporciona un cuerpo con codificación URL de formulario como `key1=value1&key2=value2`, Braze codificará automáticamente el cuerpo en JSON antes de enviarlo.
+Opcionalmente, puedes proporcionar un cuerpo POST especificando `:body` seguido de una cadena de consulta con el formato `key1=value1&key2=value2&...` o una referencia a los valores capturados. Content-Type se establece de manera predeterminada en `application/x-www-form-urlencoded`. Si especificas `:content_type application/json` y proporcionas un cuerpo con codificación URL de formulario como `key1=value1&key2=value2`, Braze codificará automáticamente el cuerpo en JSON antes de enviarlo.
 
-El contenido conectado tampoco almacena en caché las llamadas POST de forma predeterminada. Puedes actualizar este comportamiento añadiendo`:cache_max_age`  a la llamada POST de contenido conectado.
+El contenido conectado tampoco almacena en caché las llamadas POST de forma predeterminada. Puedes actualizar este comportamiento añadiendo `:cache_max_age` a la llamada POST de contenido conectado.
 
 {% tabs %}
-{% tab Default content-type %}
+{% tab Tipo de contenido predeterminado %}
 
 {% raw %}
 ```js
@@ -28,7 +28,7 @@ El contenido conectado tampoco almacena en caché las llamadas POST de forma pre
 {% endraw %}
 
 {% endtab %}
-{% tab Application/JSON Content-Type %}
+{% tab Tipo de contenido Application/JSON %}
 
 {% raw %}
 ```js

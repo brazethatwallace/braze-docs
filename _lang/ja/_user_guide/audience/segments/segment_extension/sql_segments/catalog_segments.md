@@ -10,7 +10,7 @@ tool: Segments
 
 # カタログセグメント {#catalog-segments}
 
-> カタログセグメントは、カタログデータとカスタムイベントまたは購入のデータを組み合わせて作成されるSQLセグメントエクステンションの一種です。Segmentで参照し、CampaignsやCanvasesでターゲティングできます。
+> カタログセグメントは、カタログデータとカスタムイベントまたは購入のデータを組み合わせて作成されるSQLセグメントエクステンションの一種です。セグメントで参照し、キャンペーンやキャンバスでターゲティングできます。
 
 カタログセグメントは、SQLを使用してカタログのデータとカスタムイベントまたは購入のデータを結合します。そのためには、カタログとカスタムイベントまたは購入の間で共通の識別子フィールドが必要です。たとえば、カタログ内のアイテムIDの値は、カスタムイベントのプロパティの値と一致する必要があります。
 
@@ -38,7 +38,7 @@ tool: Segments
 - `Catalog field`：このカタログ内の特定のフィールド（列名）
 - `Value`：そのフィールドまたは列内の特定の値 <br><br> ヘルスアプリを例にすると、予約可能な各医師のカタログ内に`specialty`というフィールドがあり、`vision`や`dental`などの値が含まれているとします。`dental`の値を持つ医師を訪問したユーザーをセグメント化するには、`Catalog field`として`specialty`を選択し、`Value`として`dental`を選択します。
 
-5. SQLセグメントを作成した後、**プレビューを実行**をクリックして、クエリがユーザーを返すか、エラーがないかを確認することをお勧めします。[クエリ結果のプレビュー]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results)、[SQLセグメントエクステンションの管理]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions)などの詳細については、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)をご確認ください。
+5. SQLセグメントを作成した後、**プレビューを実行**をクリックして、クエリがユーザーを返すか、エラーがないかを確認することをお勧めします。[クエリ結果のプレビュー]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-3-preview-the-query)、[SQLセグメントエクステンションの管理]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-your-segment-extensions)などの詳細については、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)をご確認ください。
 
 {% alert note %}
 `CATALOGS_ITEMS_SHARED`テーブルを使用するSQLセグメントを作成する場合は、カタログIDを指定する必要があります。例：
@@ -59,7 +59,7 @@ LIMIT 10
 ![「過去30日間にメールを1〜4回クリック」というセグメントエクステンションで、SQLを反転するオプションが選択されている状態。]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-イベントがゼロのユーザーを特にターゲティングする場合を除き、SQLを反転する必要はありません。**SQLを反転**が選択されている場合は、その機能が必要であること、およびSegmentが目的のオーディエンスと一致していることを確認してください。たとえば、クエリがイベントが1回以上のユーザーをターゲティングしている場合、反転するとイベントがゼロのユーザーのみがターゲティングされます。
+イベントがゼロのユーザーを特にターゲティングする場合を除き、SQLを反転する必要はありません。**SQLを反転**が選択されている場合は、その機能が必要であること、およびセグメントが目的のオーディエンスと一致していることを確認してください。たとえば、クエリがイベントが1回以上のユーザーをターゲティングしている場合、反転するとイベントがゼロのユーザーのみがターゲティングされます。
 {% endalert %}
 
 ## セグメントメンバーシップの更新 {#refreshing-segment-membership}
@@ -67,7 +67,7 @@ LIMIT 10
 カタログセグメントのセグメントメンバーシップを更新するには、カタログセグメントを開き、**アクション** > **更新** > **はい、更新します**を選択します。
 
 {% alert tip %}
-ユーザーが定期的に出入りすることが予想されるSegmentを作成した場合は、そのSegmentをCampaignやCanvasでターゲティングする前に、使用しているカタログセグメントを手動で更新してください。
+ユーザーが定期的に出入りすることが予想されるセグメントを作成した場合は、そのセグメントをキャンペーンやキャンバスでターゲティングする前に、使用しているカタログセグメントを手動で更新してください。
 {% endalert %}
 
 ### 更新設定の指定 {#designating-refresh-settings}
@@ -129,7 +129,7 @@ B2B SaaSプラットフォームがあり、既存顧客の従業員であるユ
 
 ### カタログセグメントの実行はSQLセグメントエクステンションのクレジットを消費しますか？ {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-はい、カタログセグメントはSQLを利用しており、SQLセグメントエクステンションのクレジットを消費します。詳細については、[SQLセグメントの使用状況]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage)をご確認ください。
+はい、カタログセグメントはSQLを利用しており、SQLセグメントエクステンションのクレジットを消費します。詳細については、[SQLセグメントの使用状況]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits)をご確認ください。
 
 ### カタログセグメントの作成はSQLセグメントエクステンションの割り当てを消費しますか？ {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 

@@ -128,7 +128,7 @@ For the full request body (including `trigger_properties`, `send_to_existing_onl
 
 ## Verify your integration
 
-1. Send a request using one of the options above, with your own user ID as the recipient.
+1. Send a request using one of the available options, with your own user ID as the recipient.
 2. Confirm the message is delivered.
 3. If using Option 2, check the campaign in the Braze dashboard to confirm the send is recorded.
 

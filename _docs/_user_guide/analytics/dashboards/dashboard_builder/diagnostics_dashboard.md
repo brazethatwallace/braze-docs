@@ -12,7 +12,7 @@ toc_headers: h2
 > The **Messaging Diagnostics** dashboard provides a high-level breakdown of message sending outcomes, allowing you to spot trends and diagnose potential issues in your messaging setup. This dashboard can help you understand why messages from your campaigns or Canvases may not have been sent as expected.
 
 {% alert important %}
-The **Messaging Diagnostics** dashboard is currently in early access. Contact your customer success manager if you're interested in participating in the early access.
+The **Messaging Diagnostics** dashboard is generally available. Contact your customer success manager if you're interested in getting access to the feature.
 {% endalert %}
 
 ## Key concepts
@@ -29,7 +29,7 @@ When Braze "sends" a message, the final delivery may depend on external services
 | --- | --- |
 | Content Cards | The card was sent and is eligible for viewing. |
 | Email | Braze hands the message to an email service provider (ESP). The ESP is then responsible for the final delivery. That ESP, for example, may report a "bounce" if the email address is invalid or the inbox is full. |
-| In-app messages | The message was surfaced to the user. |
+| In-app messages | The message was viewed by the user and an impression was logged. |
 | LINE | The message was successfully handed off to a sending partner. |
 | Push | Braze hands the message to the appropriate push notification service (such as Apple Push Notification service for iOS or Firebase Cloud Messaging for Android). That service is responsible for the final delivery of the notification to the device. |
 | SMS/MMS/RCS | Braze hands the message to an SMS gateway (like Twilio). That gateway is responsible for the final delivery to the mobile carrier. |
@@ -51,7 +51,7 @@ To run the dashboard and view your data:
 2. Select one or more campaigns or Canvases.
 3. Select **Run Dashboard** to load the data for your selected filters.
 
-![Campaign and Canvas diagnostics example from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![Campaign and Canvas diagnostics example with graph on hover from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
+![Campaign and Canvas diagnostics example from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Campaign and Canvas diagnostics example with graph on hover from May 25 to May 31, 2025 for a welcome series campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
 
 ## Interpreting the data
 
@@ -63,35 +63,43 @@ The dashboard surfaces up to only the last seven days of data. All timestamps di
 
 At the top of the page, there are key summary tiles for your selected timeframe that show:
 
-- **Total Aborts:** The total count of messages that were aborted. This includes Canvas audience members who didn’t enter the Canvas or exited the Canvas because they experienced a step failure or met exit criteria while performing an exit event.
-- **Message Sends:** The total count of messages that Braze successfully processed and sent. 
+- **Sent:** The total count of messages that Braze successfully processed and sent. 
   - **Email, SMS/MMS/RCS, WhatsApp, LINE, and push:** The message was successfully handed off to a sending partner.  
   - **Webhooks:** The webhook request was made successfully, returning a `2xx` response.  
   - **Content Cards:** The card was sent and is eligible for viewing.    
   - **In-app messages:** The message was displayed to the user.
+- **Not Sent:** The total count of messages that were aborted. This includes Canvas audience members who didn’t enter the Canvas or exited the Canvas because they experienced a step failure or met exit criteria while performing an exit event.
 
 ### Message outcomes over time
 
-This time series chart shows a day-by-day breakdown of the different reasons a message was aborted or a user was dropped from a Canvas. This chart doesn't display the number of sends.  
-
-{% alert note %}
-To keep the chart organized, any abort or drop reason with zero occurrences in your selected time range does not appear on the chart.
-{% endalert %}
+This time series chart shows an hourly breakdown of why a message was aborted or why a user was dropped from a Canvas. Outcome labels in this chart are normalized dashboard labels, not raw event payload values. This chart doesn't display the number of sends.  
 
 ### Message outcomes granular log
 
-Below the time series chart, the dashboard shows a granular table of individual message outcomes for your selected filters and time range. Use this table to review specific records, including the timestamp, user ID, Canvas step, outcome, and channel.
+The dashboard shows a granular table of individual message outcomes for your selected filters and time range. Use this table to review specific records, including the timestamp, user ID, Canvas step, outcome, details and channel.
 
 You can filter the table to focus on specific records:
 
-- **Filter by outcome:** Select an outcome from the outcome filter to show only rows with that outcome (for example, `Frequency capped` or `User not eligible`).
+- **Filter by outcome:** Select an outcome from the outcome filter to show only rows with that outcome (for example, `Frequency capped` or `User not eligible for channel`).
 - **Search by user ID:** Enter a user ID in the search field to show rows for that specific user.
 
 When you apply both filters, the table returns rows that match both the selected outcome and the entered user ID.
 
+Select a row in the table to open the details panel. The details panel provides additional context about that outcome and Ask Operator provides remediation guidance to help you troubleshoot the underlying issue.
+
+![Messaging Diagnostics granular outcomes log with a selected row and details panel access.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Messaging Diagnostics details panel expanded with outcome context and remediation guidance.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
+
+{% alert note %}
+Channel filters apply to outcomes that are tied to a specific messaging channel. Some outcomes are channel-agnostic, so they can still appear in aggregate views even when you apply a channel filter.
+{% endalert %}
+
 ### Abort outcomes
 
 The following definitions explain the abort outcomes shown on the dashboard. Outcomes are grouped by category to make it easier to find the one you're investigating.
+
+{% alert note %}
+Abort outcomes in Messaging Diagnostics are human-readable dashboard labels. In [Currents message engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), abort information is represented with fields such as `abort_type` and `abort_log`. Because these datasets have different representations and processing paths, counts or naming can differ between Currents and Messaging Diagnostics.
+{% endalert %}
 
 #### Content and rendering
 
@@ -104,6 +112,7 @@ The following definitions explain the abort outcomes shown on the dashboard. Out
 | Liquid abort | The [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) Liquid tag was called, so the send was canceled. |
 | Liquid rendering timeout | It took too long to render the Liquid template. Most likely to occur for Banners, in-app messages, and email. |
 | Liquid syntax error | The Liquid template had a parsing error, so the message was canceled. |
+| Media URL failure | Braze could not process the media URL in the message. This can happen when the URL is blocked, invalid, times out, returns an invalid HTTP status, or fails SSL validation. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
 
 #### Campaign and Canvas state
@@ -132,8 +141,8 @@ The following definitions explain the abort outcomes shown on the dashboard. Out
 | Abort outcome | Explanation |
 | ---- | ---- |
 | Duplicate user identifier | Multiple users with a matching identifier (such as external ID, email address, phone number) were eligible to receive this message. To prevent duplicate sends to the same user, this message was aborted. |
-| User failed pre-check for Message step | This pre-check runs before delivery validations. When this occurs, the user did not meet the basic pre-check for this Message step (user not found or ineligible for the Message step's channel). **Note:** For a multi-channel Message step, this means the user was not found; channel eligibility is only checked here for single-channel Message steps. |
-| User failed pre-check for triggered message | For a triggered message, Braze runs a first-pass set of basic pre-checks for audience eligibility, re-eligibility, and channel eligibility before creating a message to send from this trigger. |
+| User failed pre-check for Message step | Braze runs a first-pass set of basic pre-checks for audience eligibility, re-eligibility, and channel eligibility before full delivery validations for a Canvas Message step. This outcome means the user or message failed one of those checks so the message was aborted for that step. |
+| User failed pre-check for triggered message | Braze runs a first-pass set of basic pre-checks for audience eligibility, re-eligibility, and channel eligibility before creating a message to send from this trigger. This outcome means that the user or message failed one of those checks so the message was aborted. |
 | User no longer eligible | The user was initially in the target audience, but no longer matched the audience criteria before Braze sent the message or entered the user into the Canvas. The time between the user initially meeting the audience criteria and falling out of audience could be due to delays from: {::nomarkdown}<ul><li>Intelligent timing</li><li>Quiet Hours</li><li>Local time</li><li>Delivery speed rate limits (not applicable for Canvas entry)</li><li>Messaging pipeline delays</li></ul>{:/} |
 | User not eligible for step | The user didn't meet the set [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) for the Message step or was part of a [suppression list]({{site.baseurl}}/user_guide/audience/suppression_lists). Depending on the **Delivery validations** settings, the user may have exited the Canvas or proceeded to the next step. |
 | User not re-eligible | The user was eligible to receive the message or enter the Canvas, but the send was canceled because of re-eligibility or re-entry settings. This can happen if the user has already received the campaign or entered the Canvas too recently, if another send for the same campaign is already in progress for this user, or if re-eligibility or re-entry is turned off. |
@@ -144,18 +153,11 @@ The following definitions explain the abort outcomes shown on the dashboard. Out
 
 | Abort outcome | Explanation |
 | ---- | ---- |
-| Partner delivery timeout | Braze attempted to send this message to your delivery partner for 24 hours, but the partner returned temporary errors for the entire window. |
-| Push credentials invalid | The [push credentials]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) for this app are missing or invalid, so the send was canceled. Update your credentials in **App Settings**. |
-| User not enabled for Android push, app, or device | Push cannot be sent to this user. Some common reasons: {::nomarkdown}<ul><li> The user doesn't have the app installed.</li> <li> The user doesn't have a valid push token. </li> <li>The user doesn't have the necessary device for this push notification. </li> <li> The user has disabled notifications for this app in their device settings. </li> <li> The user is not subscribed to or opted-in to receive push notifications.</li></ul>{:/} |
-| User not enabled for iOS push, app, or device | Same as "User not enabled for Android push, app, or device" abort outcome. |
-| User not enabled for Kindle push, app, or device | Same as "User not enabled for Android push, app, or device" abort outcome. |
-| User not enabled for web push, app, or device | Same as "User not enabled for Android push, app, or device" abort outcome. |
-| User not enabled for Content Cards | The user has not used any apps that include this Content Card. |
-| User not enabled for email | Emails cannot be sent to this user. Some common reasons: {::nomarkdown}<ul><li> The user doesn't have an email address on their user profile. </li><li> The user's subscription state excludes them from receiving this email. </li><li> The user's email address has previously been marked invalid (hard bounce). </li><li> Messages sent to this email address are consistently marked as spam, so the send was canceled.</li></ul>{:/} |
-| User not enabled for LINE | LINE messages cannot be sent to this user. Some common reasons: {::nomarkdown}<ul><li> The user doesn't have a phone number on their user profile. </li><li> The user's phone number has been marked invalid due to delivery failures. </li><li> The user's subscription state excludes them from receiving this message. </li><li> The user doesn't have a LINE ID.</li></ul>{:/} |
-| User not enabled for SMS/MMS/RCS | SMS messages cannot be sent to this user. Some common reasons: {::nomarkdown}<ul><li> The user doesn't have a phone number on their user profile. </li><li> The user's phone number has been marked invalid due to delivery failures. </li><li> The user's phone number is not in a valid E.164 format, and attempts to automatically format the number failed. </li><li> The user's subscription state excludes them from receiving the SMS message.</li><li>The user's phone number is in a blocked country.</li></ul>{:/} |
-| User not enabled for WhatsApp | WhatsApp messages cannot be sent to this user. Some common reasons: {::nomarkdown}<ul><li> The user doesn't have a phone number on their user profile. </li><li> The user's phone number has been marked invalid due to delivery failures. </li><li> The user's subscription state excludes them from receiving this message. </li><li> The user doesn't have a WhatsApp account.</li></ul>{:/} |
-| Webhook failed | The webhook received an unsuccessful response code (non-`2xx`). See the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) for more details. Logs that are more than 60 hours old are cleaned and no longer accessible; webhook errors are sampled up to 20 logs per hour. |
+| Partner delivery error | Braze attempted to send this message to your delivery partner for 24 hours, but the partner returned temporary errors for the entire window. |
+| Push credentials invalid | The [push credentials]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) for this app are missing or invalid, so the send was canceled. Update your credentials in **App Settings**. |
+| Subscription group failure | The message could not be sent because of subscription-group or messaging-service configuration issues. Common reasons include missing sending numbers for SMS or WhatsApp, or unsupported MMS on the configured messaging service. |
+| User not eligible for channel | The user is not eligible to receive this message on the selected channel. Common reasons include missing or invalid channel identifiers, no eligible push tokens, subscription state restrictions, unsupported channel capability, or blocked countries for phone-based channels. |
+| Webhook failed | The webhook received an unsuccessful response code (non-`2xx`). Common error codes might be `4XX` client errors, `5XX` server error or timeout, or `598 Host Unhealthy` or requests halted briefly. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and delivery" }
 
 ## Frequently asked questions
@@ -168,9 +170,9 @@ If a user fails this single bundled check, they are dropped immediately. This bu
 
 ### What does an "other" abort outcome mean?
 
-These are aborts that didn’t fall into any of the pre-existing Braze categories. If you notice a large proportion of aborts with this outcome, contact [Braze Support]({{site.baseurl}}/braze_support) for further assistance.
+These are aborts that don’t fall into existing dashboard categories. If you still notice a large proportion of aborts with "Other", contact [Braze Support]({{site.baseurl}}/braze_support) for further assistance.
 
-### Why is the sum of _Total Aborts_ and _Message Sends_ lower than my expected audience size?
+### Why is the sum of _Not Sent_ and _Sent_ lower than my expected audience size?
 
 This can happen for several reasons:
 
@@ -179,11 +181,11 @@ This can happen for several reasons:
 - **Data freshness:** The dashboard data updates approximately every 15 minutes, but this is not a guarantee. The newest data for this campaign or Canvas may not have reached the dashboard yet.
 - **Edge cases:** There is a small chance you are encountering an edge case that is not captured in this dashboard at this time. If you suspect this is the case, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
-### Why is the sum of _Total Aborts_ and _Message Sends_ greater than the audience for a campaign and Canvas?
+### Why is the sum of _Not Sent_ and _Sent_ greater than the audience for a campaign and Canvas?
 
 This can occur for the following reasons:
 
-- **Multi-channel messages:** The campaign or Canvas step was configured to send on multiple channels (such as SMS and email). A single user can receive a "sent" outcome for one channel (such as email) and an "abort" outcome for another (such as "User not enabled for SMS/MMS/RCS"). In this case, that one user would be counted twice in the chart: once as a "sent" and once as an "abort."
-  - **Example:** You send a push campaign to 100 users, targeting both iOS and Android. If a user has only an iOS device, they receive the iOS push ("sent") but also trigger an abort for the Android push ("User not enabled for Android push, app, or device").
+- **Multi-channel messages:** The campaign or Canvas step was configured to send on multiple channels (such as SMS and email). A single user can receive a "sent" outcome for one channel (such as email) and an "abort" outcome for another (such as "User not eligible for channel"). In this case, that one user would be counted twice in the chart: once as a "sent" and once as an "abort."
+  - **Example:** You send a push campaign to 100 users, targeting both iOS and Android. If a user has only an iOS device, they receive the iOS push ("sent") but also trigger an abort for the Android push ("User not eligible for channel").
 - **Multiple Message steps (Canvas only):** Your Canvas may have more than one Message step in a given path. This dashboard aggregates all outcomes, so a single user could be counted multiple times if they pass through multiple Message steps within the selected time range.
 - **Test messages:** Test sending (which is counted in the dashboard) is making the total counts higher than the audience size. 

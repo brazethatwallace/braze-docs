@@ -38,7 +38,7 @@ El formulario de captura de correo electrónico establece la dirección de corre
 
 Si un usuario anónimo introduce su correo electrónico en el formulario y lo envía, Braze añade la dirección de correo electrónico a su perfil. Si se llama a `changeUser` más adelante en su recorrido web y se asigna un nuevo `external_id` (por ejemplo, cuando un nuevo usuario se registra en el servicio), todos los datos del perfil de usuario anónimo se fusionan, incluida la dirección de correo electrónico.
 
-Si se llama a `changeUser` con un `external_id` existente, el perfil de usuario anónimo queda huérfano y los [campos específicos de datos del perfil de usuario]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior) que aún no existen en el usuario identificado se fusionan, pero los campos que ya existen se pierden, incluida la dirección de correo electrónico.
+Si se llama a `changeUser` con un `external_id` existente, el perfil de usuario anónimo queda huérfano y los [campos específicos de datos del perfil de usuario]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) que aún no existen en el usuario identificado se fusionan, pero los campos que ya existen se pierden, incluida la dirección de correo electrónico.
 
 Para más información, consulta el [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
@@ -46,7 +46,7 @@ Para más información, consulta el [Ciclo de vida del perfil de usuario]({{site
 
 ## Paso 1: Crea una Campaign de mensaje dentro de la aplicación {#step-1-create-an-in-app-message-campaign}
 
-Para acceder a esta opción, debes crear una Campaign de mensajería dentro de la aplicación. Desde ahí, según tu caso de uso, configura **Send To** como **Web Browsers**, **Mobile Apps** o **Both Mobile Apps & Web Browsers**, y luego selecciona **Email Capture Form** como tu **Message Type**.
+Para acceder a esta opción, debes crear una Campaign de mensajería dentro de la aplicación. Desde ahí, según tu caso de uso, configura **Enviar a** como **Navegadores web**, **Aplicaciones móviles** o **Aplicaciones móviles y navegadores web**, y luego selecciona **Email Capture Form** como tu **Tipo de mensaje**.
 
 {% alert note %}
 **¿Quieres dirigirte a usuarios web?** <br>Para habilitar los mensajes HTML dentro de la aplicación a través del SDK web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes HTML dentro de la aplicación pueden ejecutar JavaScript, por lo que requerimos que un administrador del sitio los habilite.
@@ -65,11 +65,11 @@ A continuación, personaliza tu formulario según sea necesario. Puedes personal
 - Botón de envío
     - Ten en cuenta que el botón de envío solo aparece después de que el usuario introduce una dirección de correo electrónico válida. Esto te ayuda a recopilar direcciones de correo electrónico completas.
 
-![Compositor del formulario de captura de correo electrónico.]({% image_buster /assets/img/email_capture.png %})
+![Creador del formulario de captura de correo electrónico.]({% image_buster /assets/img/email_capture.png %})
 
-Si necesitas más personalización, elige **Custom Code** como tu **Message Type**. Usa esta [plantilla modal de captura de correo electrónico](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal) del repositorio de GitHub de [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) como tu código inicial.
+Si necesitas más personalización, elige **Custom Code** como tu **Tipo de mensaje**. Usa esta [plantilla modal de captura de correo electrónico](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal) del repositorio de GitHub de [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) como tu código inicial.
 
-## Paso 3: Configura tu audiencia de entrada {#step-3-set-your-entry-audience}
+## Paso 3: Configura tu público de entrada {#step-3-set-your-entry-audience}
 
 Si estás usando un mensaje dentro de la aplicación para capturar correos electrónicos de usuarios, es posible que quieras limitar la audiencia a los usuarios que aún no han proporcionado esta información.
 

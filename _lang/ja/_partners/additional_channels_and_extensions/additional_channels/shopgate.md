@@ -1,7 +1,7 @@
 ---
 nav_title: Shopgate
 article_title: Shopgate
-description: "このリファレンス記事では、BrazeとShopgateのパートナーシップについて説明します。Shopgateはモバイルコマースおよびオムニチャネルプロバイダーであり、複数のチャネルを通じてアプリCampaignを作成できます。"
+description: "このリファレンス記事では、BrazeとShopgateのパートナーシップについて説明します。Shopgateはモバイルコマースおよびオムニチャネルプロバイダーであり、複数のチャネルを通じてアプリキャンペーンを作成できます。"
 alias: /partners/shopgate/
 page_type: partner
 search_tag: Partner
@@ -16,12 +16,12 @@ _この連携はShopgateによって管理されています。_
 
 ## 連携について {#about-the-integration}
 
-BrazeとShopgateの連携により、プッシュ通知、アプリ内コンテンツ、ロケーションベースのマーケティングなど、複数のチャネルを通じて強力かつ高度にカスタマイズされたアプリCampaignを作成できます。
+BrazeとShopgateの連携により、プッシュ通知、アプリ内コンテンツ、ロケーションベースのマーケティングなど、複数のチャネルを通じて強力かつ高度にカスタマイズされたアプリキャンペーンを作成できます。
 
 ## ユースケース {#use-cases}
 
 - 権限管理を含むカスタムアプリオンボーディング
-- プッシュCampaign
+- プッシュキャンペーン
 - アプリ内メッセージ
 - BrazeバナーおよびContent Cardsを使用したダイナミックなコンテンツ
 - アプリ受信トレイ

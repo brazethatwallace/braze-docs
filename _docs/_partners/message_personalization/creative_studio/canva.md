@@ -68,7 +68,7 @@ Video: Choose a Braze workspace and complete the export to the media library.
 Use this flow when your Canva file is an **Email** design type. It publishes HTML to Braze as a template (similar metadata to the image flow, but you start from **Share** instead of **Apps**).
 
 1. In Canva, create or open an **Email** design. Build your message from scratch or use a Canva email template.
-2. Click **Share** in the upper right of the editor and select **Braze**. If Braze isn't listed, open **See more**, scroll to **More options** to find Braze.
+2. Click **Share** in the editor action bar and select **Braze**. If Braze isn't listed, open **See more**, scroll to **More options** to find Braze.
 
 ![More ways to publish in Canva with Braze under More options.]({% image_buster /assets/img/canva_integration/canva-share-more-options-braze.png %})
 

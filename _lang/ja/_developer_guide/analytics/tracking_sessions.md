@@ -77,7 +77,7 @@ document.addEventListener('visibilitychange', function() {
 
 ## セッション更新のサブスクライブ {#subscribing-to-session-updates}
 
-### ステップ1:更新をサブスクライブする {#step-1-subscribe-to-updates}
+### ステップ1：更新をサブスクライブする {#step-1-subscribe-to-updates}
 
 セッション更新をサブスクライブするには、`subscribeToSessionUpdates()`メソッドを使用します。
 
@@ -176,7 +176,7 @@ React Native SDKは、セッション更新を直接サブスクライブする�
 {% endtab %}
 {% endtabs %}
 
-### ステップ2:セッショントラッキングをテストする（オプション） {#step-2-test-session-tracking-optional}
+### ステップ2：セッショントラッキングをテストする（オプション） {#step-2-test-session-tracking-optional}
 
 セッショントラッキングをテストするには、デバイスでセッションを開始し、Brazeダッシュボードを開いて関連するユーザーを検索します。ユーザープロファイルで、**Sessions Overview**を選択します。指標が期待どおりに更新された場合、セッショントラッキングは正常に動作しています。
 
@@ -264,7 +264,7 @@ SDKの外部でユーザーが作成された場合、ユーザープロファ�
 
 ### 一部のユーザーがセッションを記録していない {#some-users-are-not-logging-sessions}
 
-セッションはSDKが初期化された後にのみトラッキングされるため、SDK初期化をトリガーしないユーザーはセッションを記録しません。これは通常、ログインフロー、同意プロンプト、またはフィーチャーフラグの背後で初期化を遅延させるなど、SDKを初期化する前に条件付きロジックを使用している場合に発生します。実装ガイダンスについては、[遅延初期化]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift)を参照してください。これらのケースでは、条件を満たさないユーザーはセッションを開始しません。
+セッションはSDKが初期化された後にのみトラッキングされるため、SDK初期化をトリガーしないユーザーはセッションを記録しません。これは通常、ログインフロー、同意プロンプト、またはフィーチャーフラグの背後で初期化を遅延させるなど、SDKを初期化する前に条件付きロジックを使用している場合に発生します。実装ガイダンスについては、[遅延初期化]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional)を参照してください。これらのケースでは、条件を満たさないユーザーはセッションを開始しません。
 
 一部のユーザーがセッションを記録し、他のユーザーが記録していない場合は、以下を確認してください。
 

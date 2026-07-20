@@ -5,7 +5,7 @@ page_order: 2
 description: "このリファレンス記事では、トランザクションメールキャンペーンのリアルタイムトラッキングの設定方法について説明します。"
 page_type: reference
 tool:
-  - Campaigns
+  - キャンペーン
 channel: email
 
 ---

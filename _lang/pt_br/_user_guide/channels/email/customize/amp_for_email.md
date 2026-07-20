@@ -22,8 +22,8 @@ A Braze não é responsável pelo registro dos usuários no Google nem pelo cump
 | AMP para e-mail ativado | O AMP está disponível para todos os usuários. |
 | Capacitação da conta do Gmail | Consulte [Ativando a conta do Gmail](#enabling-gmail-account). |
 | Autenticação de remetente do Google | O Gmail [autentica o remetente](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) de e-mails AMP com DKIM, SPF e DMARC. Esses protocolos devem estar configurados na sua conta. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| Elementos de e-mail AMP | Um e-mail AMP atraente inclui o uso estratégico de diversos componentes. Consulte a guia Essenciais na seção [Componentes](#components) abaixo. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
+| Elementos de e-mail AMP | Um e-mail AMP atraente inclui o uso estratégico de diversos componentes. Consulte a guia Essenciais na seção [Componentes](#components). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ### Clientes de e-mail compatíveis {#supported-email-clients}
 
@@ -35,9 +35,13 @@ Antes de enviar e-mails AMP para os usuários, você precisa se registrar nos no
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Clientes de e-mail compatíveis" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 Para uma lista completa de clientes de e-mail compatíveis, consulte a [documentação do AMP](https://amp.dev/support/faq/email-support).
+
+#### Enviar para provedores não registrados {#send-to-unregistered-providers}
+
+Se você enviar um e-mail AMP para provedores como Yahoo ou Mail.ru antes de concluir o processo de registro, esses provedores ignoram a parte AMP do e-mail e exibem a versão de fallback em HTML ou texto simples. A parte AMP em si não causa problemas de entregabilidade para remetentes não registrados.
 
 ### Ativando a conta do Gmail {#enabling-gmail-account}
 
@@ -47,7 +51,7 @@ Acesse as configurações do Gmail e selecione **Ativar e-mail dinâmico** na gu
 
 ## Uso da API {#api-usage}
 
-Você também pode usar o AMP para e-mail com a nossa API. Se você usar qualquer um dos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) da Braze para enviar um e-mail, adicione `amp_body` como uma especificação de objeto, conforme mostrado abaixo.
+Você também pode usar o AMP para e-mail com a nossa API. Se você usar qualquer um dos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) da Braze para enviar um e-mail, adicione `amp_body` como uma especificação de objeto, conforme mostrado na seção a seguir.
 
 ### Especificação do objeto de e-mail {#email-object-specification}
 
@@ -100,7 +104,7 @@ Cada um desses elementos é obrigatório no corpo do seu e-mail AMP.
 | Identificação <br><br> `⚡4email` ou `amp4email`| Identifica seu e-mail como um e-mail AMP HTML. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
 | Carregar runtime do AMP <br><br> `<script>` | Permite que o AMP funcione no seu e-mail usando JavaScript. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
 | CSS Boilerplate | Oculta o conteúdo até que o AMP seja carregado. <br> Provedores de e-mail que suportam e-mails AMP aplicam verificações de segurança que permitem apenas scripts AMP verificados em seus clientes. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Componentes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
   {% endtab %}
   {% tab Dinâmico %}
@@ -111,7 +115,7 @@ Use esses componentes para criar layouts e comportamentos dinâmicos nos seus e-
 |---------|--------------|---------|
 | [Accordion](https://amp.dev/documentation/components/amp-accordion?format=email) <br><br> `amp-accordion`| Permite que os usuários visualizem o resumo do conteúdo e naveguem para qualquer seção. | `<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>` |
 | [Formulários](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| Cria formulários para enviar campos de entrada em um documento AMP. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Componentes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
 {% alert note %}
 Qualquer componente que exija autenticação do usuário deve usar [tokens de acesso do Google](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) ou [tokens de asserção de proxy](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -126,7 +130,7 @@ Qualquer componente que exija autenticação do usuário deve usar [tokens de ac
 | [Imagem animada](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-anim`| Exibe uma imagem animada (geralmente um GIF) gerenciada via runtime. | `<script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>` |
 | [Carrossel](https://amp.dev/documentation/components/amp-carousel?format=email) <br><br> `amp-carousel`| Exibe vários conteúdos semelhantes ao longo de um eixo horizontal. | `<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>` |
 | [Imagem](https://amp.dev/documentation/components/amp-img?format=email) | Uma substituição gerenciada via runtime para a tag HTML `img`. <br>  Você também pode criar um [lightbox para sua imagem](https://amp.dev/documentation/components/amp-image-lightbox?format=email). | `<amp-img alt="A view of the sea"` <br> `src="images/sea.jpg"` <br> `width="900"` <br>  `height="675"` <br>  `layout="responsive">`  <br> `</amp-img>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Componentes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
 {% alert note %}
 Qualquer componente que exija autenticação do usuário deve usar [tokens de acesso do Google](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) ou [tokens de asserção de proxy](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -138,7 +142,7 @@ Qualquer componente que exija autenticação do usuário deve usar [tokens de ac
 | Componente | Descrição |
 |---------|--------------|
 | [Data Binding e expressões](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| Adiciona interatividade personalizada com estado às suas páginas AMP por meio de data binding e expressões semelhantes a JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Componentes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Components" }
 
 {% alert note %}
 Qualquer componente que exija autenticação do usuário deve usar [tokens de acesso do Google](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) ou [tokens de asserção de proxy](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -209,7 +213,7 @@ Ao envolver seu conteúdo com a tag `raw`, o mecanismo de processamento da Braze
     <thead>
         <tr>
             <th>Métrica</th>
-            <th>Informações</th>
+            <th>Detalhes</th>
         </tr>
     </thead>
     <tbody>
@@ -256,7 +260,7 @@ Se nenhuma dessas condições estiver causando o erro, entre em contato com o [S
 
 Você pode configurar sua caixa de entrada do Gmail para renderizar e-mails AMP para fins de teste seguindo os passos abaixo:
 
-1. No Gmail, selecione **Configurações** no canto superior direito da sua caixa de entrada.
+1. No Gmail, selecione **Configurações** na barra de ferramentas da sua caixa de entrada.
 2. Selecione **Ver todas as configurações**.
 3. Na guia **Geral**, vá até a seção **E-mail dinâmico** e confirme que a caixa de seleção **Ativar e-mail dinâmico** está marcada.
 4. Em seguida, selecione **Configurações de desenvolvedor** e marque a caixa de seleção **Sempre permitir e-mails dinâmicos deste remetente:**.

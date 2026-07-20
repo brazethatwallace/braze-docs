@@ -28,11 +28,11 @@ Webhookはシステム同士を接続する優れた方法です。そもそもW
 
 より具体的なユースケースには以下のようなものがあります。
 
-- WebhookとCanvasを使用して[リードスコアリングワークフロー]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring)を作成し、リードの評価とルーティングを行います。
+- Webhookとキャンバスを使用して[リードスコアリングワークフロー]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring)を作成し、リードの評価とルーティングを行います。
 - ユーザーがメールの配信停止を行った場合、Webhookを使用して分析データベースやCRMに同じ情報を更新し、そのユーザーの動作を包括的に把握できるようにします。
 - Facebook MessengerやLine内のユーザーに[トランザクションメッセージ]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign)を送信します。
 - [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob)などのサードパーティサービスとの通信にWebhookを使用して、アプリ内およびWebアクティビティに応じてダイレクトメールを顧客に送信します。
-- ゲーマーが特定のレベルに到達したり、一定のポイントを獲得した場合、Webhookと既存のAPIセットアップを使用して、キャラクターのアップグレードやコインを直接アカウントに送信できます。マルチチャネルメッセージングCampaignの一部としてWebhookを送信すれば、プッシュ通知やその他のメッセージを送信して、報酬についてゲーマーに同時に知らせることができます。
+- ゲーマーが特定のレベルに到達したり、一定のポイントを獲得した場合、Webhookと既存のAPIセットアップを使用して、キャラクターのアップグレードやコインを直接アカウントに送信できます。マルチチャネルメッセージングキャンペーンの一部としてWebhookを送信すれば、プッシュ通知やその他のメッセージを送信して、報酬についてゲーマーに同時に知らせることができます。
 - 航空会社の場合、Webhookと既存のAPIセットアップを使用して、顧客が一定数のフライトを予約した後に割引をアカウントに付与できます。
 - 無限の「If This Then That」（[IFTTT](https://ifttt.com/about)）レシピ。例えば、顧客がメールでアプリにサインインした場合、そのアドレスを自動的にSalesforceに設定できます。
 

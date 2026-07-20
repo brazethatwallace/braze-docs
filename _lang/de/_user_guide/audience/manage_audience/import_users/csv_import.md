@@ -22,7 +22,7 @@ Sie können den CSV-Import verwenden, um die folgenden Nutzerattribute und angep
 
 ## CSV-Import verwenden {#using-csv-import}
 
-### 1. Schritt: CSV-Template herunterladen {#step-1-download-a-csv-template}
+### Schritt 1: CSV-Template herunterladen {#step-1-download-a-csv-template}
 
 Um den CSV-Import zu öffnen, gehen Sie zu **Audiences** > **Import Users**. Dort finden Sie eine Tabelle mit Details zu den letzten Importen, wie z. B. das Upload-Datum, den Namen der hochladenden Person, den Dateinamen, die Targeting-Verfügbarkeit, die Anzahl der importierten Zeilen und den Status des Imports.
 
@@ -30,7 +30,7 @@ Um zu beginnen, wählen Sie **Attributes** oder **Events** und laden Sie dann da
 
 ![Die Seite „Import Users“ im Braze-Dashboard.]({% image_buster /assets/img/csv_import/import_users_page.png %})
 
-### 2. Schritt: Bezeichner auswählen {#choose-an-identifier}
+### Schritt 2: Bezeichner auswählen {#choose-an-identifier}
 
 Die CSV-Datei, die Sie importieren, benötigt einen dedizierten Bezeichner. Wählen Sie einen der folgenden Bezeichnertypen für Ihren Import:
 
@@ -43,7 +43,7 @@ Beim Import Ihrer Kundendaten können Sie eine `external_id` als eindeutigen Bez
 - Download: [CSV-Event-Import-Template: Externe ID](https://braze.com/unlisted_docs/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)
 
 {% alert note %}
-Wenn Sie eine Mischung aus Nutzer:innen mit einer `external_id` und Nutzer:innen ohne hochladen, müssen Sie für jeden Import eine separate CSV-Datei erstellen. Eine CSV-Datei kann nicht gleichzeitig `external_ids` und Nutzer-Aliase enthalten.
+Wenn Sie eine Mischung aus Nutzer:innen mit einer `external_id` und Nutzer:innen ohne hochladen, müssen Sie für jeden Import eine separate CSV-Datei erstellen. Eine CSV-Datei kann nicht gleichzeitig `external_id` und Nutzer-Aliase enthalten.
 {% endalert %}
 {% endtab %}
 
@@ -103,7 +103,7 @@ Wenn kein Profil mit dieser E-Mail-Adresse oder Telefonnummer existiert, erstell
 {% endtab %}
 {% endtabs %}
 
-### 3. Schritt: CSV-Datei erstellen {#step-3-build-your-csv-file}
+### Schritt 3: CSV-Datei erstellen {#step-3-build-your-csv-file}
 
 Sie können einen der folgenden Datentypen als einzelne CSV-Datei hochladen. Um mehr als einen Datentyp hochzuladen, laden Sie mehrere CSV-Dateien hoch.
 
@@ -202,7 +202,7 @@ Pro Zeile im Nutzerimport kann nur eine einzige `subscription_group_id` festgele
 {% tab Angepasste Events %}
 #### Erforderliche Bezeichner {#required-identifiers-custom-events}
 
-Obwohl `external_id` nicht erforderlich ist, **müssen** Sie **einen** der folgenden Bezeichner als Überschrift in Ihrer CSV-Datei angeben. Details zu jedem einzelnen finden Sie unter [Bezeichner auswählen](#choose-an-identifier).
+Obwohl `external_id` nicht erforderlich ist, muss Ihre CSV-Datei einen Nutzerbezeichner enthalten, der **einem** der folgenden Bezeichner zugeordnet werden kann. Details zu jedem einzelnen finden Sie unter [Bezeichner auswählen](#choose-an-identifier).
 
 - `external_id`
 - `braze_id`
@@ -212,9 +212,9 @@ Obwohl `external_id` nicht erforderlich ist, **müssen** Sie **einen** der folge
 
 #### Felder für angepasste Events {#custom-event-fields}
 
-Zusätzlich zu den folgenden Feldern kann Ihre CSV-Datei auch weitere Spaltenüberschriften für Event-Eigenschaften enthalten. Diese Eigenschaften sollten eine Spaltenüberschrift im Format `<event_name>.properties.<property name>.` haben.
+Zusätzlich zu den in der folgenden Tabelle aufgeführten Standardfeldern kann Ihre CSV-Datei auch weitere Spaltenüberschriften für Event-Eigenschaften enthalten. Diese Eigenschaften sollten eine Spaltenüberschrift im Format `<event_name>.properties.<property name>` oder `<property name>` haben.
 
-Zum Beispiel könnte das angepasste Event `trip_booked` die Eigenschaften `destination` und `duration` haben. Diese können importiert werden, indem die Spaltenüberschriften `trip_booked.properties.destination` und `trip_booked.properties.duration` verwendet werden.
+Zum Beispiel könnte das angepasste Event `trip_booked` die Eigenschaften `destination` und `duration` haben. Sie können diese importieren, indem Sie die Spaltenüberschriften `trip_booked.properties.destination` und `trip_booked.properties.duration` verwenden. Sie können Eigenschaften auch in den Überschriften als `<property name>` darstellen. Braze erkennt die relevanten Eigenschaften für jedes Event basierend darauf, ob in der entsprechenden CSV-Zelle ein Wert vorhanden ist.
 
 | Nutzerprofilfeld | Datentyp | Information | Erforderlich? |
 | :---- | :---- | :---- | :---- |
@@ -226,7 +226,8 @@ Zum Beispiel könnte das angepasste Event `trip_booked` die Eigenschaften `desti
 | `phone` | String | Eine Telefonnummer, wie von Ihren Nutzer:innen angegeben, im `E.164`-Format (z. B. `+442071838750`). Formatierungshinweise finden Sie unter [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers). | Nein, und kann nur verwendet werden, wenn keine anderen Bezeichner vorhanden sind. Siehe den folgenden Hinweis. |
 | `name` | String | Ein angepasstes Event Ihrer Nutzer:innen. | Ja |
 | `time` | String | Der Zeitpunkt des Events. Kann in einem der folgenden ISO-8601-Formate übergeben werden: „YYYY-MM-DD“ „YYYY-MM-DDTHH:MM:SS+00:00“ „YYYY-MM-DDTHH:MM:SSZ“ „YYYY-MM-DDTHH:MM:SS“ (z. B. 2019-11-20T18:38:57) | Ja |
-| `<event name>.properties.<property name>` | Mehrere | Eine Event-Eigenschaft, die mit einem angepassten Event verknüpft ist. Ein Beispiel ist `trip_booked.properties.destination` | Nein |
+| `<event name>.properties.<property name>` | Mehrere | Eine Event-Eigenschaft, die mit einem angepassten Event verknüpft ist. Ein Beispiel ist `trip_booked.properties.destination`. | Nein |
+| `<property name>` | Mehrere | Eine Event-Eigenschaft, die Sie über mehrere Event-Typen hinweg verwenden können. Ein Beispiel ist `destination`. Diese Eigenschaft wird einem Event zugeordnet, wenn in der entsprechenden CSV-Zelle ein Wert vorhanden ist, der nicht null ist. | Nein |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Felder für angepasste Events" }
 
 #### Formatierungsanforderungen für angepasste Events {#format-requirements-for-custom-events}
@@ -235,7 +236,7 @@ Beim Import angepasster Events über CSV müssen Sie Ihre Datei gemäß den folg
 
 ##### Formatierung angepasster Events verstehen {#understanding-custom-event-formatting}
 
-Es ist wichtig, Ihre CSV-Datei für angepasste Events korrekt mit Punktnotation zu formatieren, damit jede Eigenschaft dem richtigen Event zugeordnet wird. Wenn das Format nicht korrekt ist, können Eigenschaften verworfen werden oder der Import kann fehlschlagen, insbesondere wenn mehrere Event-Typen in einer Datei enthalten sind.
+Es ist wichtig, Ihre CSV-Datei für angepasste Events korrekt mit Punktnotation oder mit einem Wert ungleich null in der entsprechenden Zelle zu formatieren, damit Braze jede Eigenschaft dem richtigen Event zuordnet. Wenn das Format nicht korrekt ist, können Eigenschaften verworfen werden oder der Import kann fehlschlagen, insbesondere wenn mehrere Event-Typen in einer Datei enthalten sind.
 
 ##### Punktnotation für Event-Eigenschaften verwenden {#use-dot-notation-for-event-properties}
 
@@ -257,6 +258,8 @@ Für ein angepasstes Event namens `rented_movie` mit den Eigenschaften `movie_na
 - `rented_movie.properties.genre`
 
 Diese Notation weist Braze an, ein angepasstes Event namens `rented_movie` zu erstellen und die Eigenschaften `movie_name` und `genre` dieser spezifischen Event-Instanz zuzuordnen.
+
+Wenn Sie eine Kombination aus Punktnotation und Nicht-Punktnotation für den Import von Eigenschaften verwenden, kann Ihr CSV-Upload fehlschlagen, da Braze doppelte Überschriften erkennt. Dies tritt auf, wenn Sie die Überschriften `rented_movie.properties.movie_name` und `movie_name` in derselben Datei haben. Um dies zu vermeiden, verwenden Sie nur ein Format für Ihre Eigenschaftsüberschriften.
 
 ##### Ein Event pro Zeile {#one-event-per-row}
 
@@ -285,21 +288,23 @@ In diesem Beispiel:
 {% endtab %}
 {% endtabs %}
 
-### 4. Schritt: Datei hochladen {#step-4-upload-your-file}
+### Schritt 4: Datei hochladen {#step-4-upload-your-file}
 
 Um Ihre Datei hochzuladen, wählen Sie **Attributes** oder **Events**, klicken Sie auf **Browse Files** und laden Sie Ihre CSV-Datei hoch. Braze zeigt eine Vorschau der ersten Zeilen und eine Zusammenfassung der erkannten Felder an.
 
 Bei großen Dateien (bis zu 500 MB für Standardattribute und angepasste Attribute oder 50 MB für angepasste Events) kann das Dashboard vorübergehend nicht reagieren, während die Datei hochgeladen wird und Braze den Import berechnet. Diese Uploads und Berechnungen können länger dauern als bei kleineren Dateien. Lassen Sie diesen Schritt abschließen. Weitere Informationen zu Dateigrößenlimits und Zeitangaben finden Sie unter [CSV-Datei erstellen]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
-Im Feld **Import name** können Sie Ihren Import umbenennen. Standardmäßig wird der Dateiname verwendet.
+Benennen Sie Ihre CSV-Datei vor dem Upload in den Importnamen um, den Sie in Braze sehen möchten. Der Importname kann nach dem Upload nicht mehr geändert werden.
 
 {% alert note %}
 Die Dateivorschau zeigt nur die ersten Zeilen Ihrer Datei. Um jede Zeile vor dem Import zu prüfen, verwenden Sie die [Dateivalidierung](#file-validation).
 {% endalert %}
 
-### 5. Schritt: Felder zuordnen (für Attribute) {#csv-data-mapping}
+### Schritt 5: Felder zuordnen {#csv-data-mapping}
 
-Nach der Vorschau können Sie Ihre CSV-Überschriften Braze-Attributen zuordnen. Braze ordnet Felder in Ihrer CSV-Datei automatisch Attributen mit identischen Namen zu und erstellt bei Bedarf neue Attribute. Sie haben außerdem die Möglichkeit, Vorschläge manuell anzupassen oder andere Attribute für beliebige Spalten auszuwählen.
+Nach der Vorschau können Sie Ihre CSV-Überschriften Braze-Attributen, Events oder Event-Eigenschaften zuordnen. Braze ordnet Felder in Ihrer CSV-Datei automatisch Attributen, Events oder Event-Eigenschaften mit identischen Namen zu und erstellt bei Bedarf neue Felder. Sie haben außerdem die Möglichkeit, Vorschläge manuell anzupassen oder andere Attribute, Events oder Eigenschaften auszuwählen.
+
+Für Event-Eigenschaften erkennt Braze Eigenschaften und ordnet sie relevanten Events zu, basierend darauf, ob eine CSV-Zelle einen Wert ungleich null enthält, oder anhand von Überschriften, die Punktnotation im Format `<event name>.properties.<property name>` verwenden.
 
 ![Die Spaltenzuordnungsseite.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
 
@@ -309,26 +314,27 @@ Die Spalte „Zuordnungsstatus“ zeigt die Aktion an, die beim Import Ihrer CSV
 
 | Zuordnungsstatus | Bedeutung |
 |:---|:---|
-| **Zugeordnet** | Feld wurde einem bestehenden Attribut oder Bezeichner zugeordnet. |
-| **Neues Attribut** | Braze erstellt beim Import ein neues Attribut. Sie können dieses Attribut bearbeiten, indem Sie den Button **Edit new attribute** auswählen. |
-| **Datentyp-Konflikt** | Der erkannte Datentyp der CSV-Spalte stimmt nicht mit dem Datentyp des bestehenden Attributs oder Bezeichners überein. Braze versucht, den Datentyp beim Import zu konvertieren, um ihn an das bestehende Attribut anzupassen. Der Wert wird verworfen, wenn dies nicht möglich ist. |
-| **Blocklist-Attribut** | Das CSV-Feld stimmt mit dem Namen eines blockierten Attributs überein. Wählen Sie ein anderes Attribut für die Zuordnung aus, oder die Spalte wird nicht importiert. |
-| **Doppeltes Attribut** | Es gibt ein oder mehrere Felder mit demselben Namen in Ihrer CSV-Datei. Ordnen Sie die gleichnamigen Spalten verschiedenen Attributen zu, oder es wird nur die erste Spalte importiert. |
+| **Zugeordnet** | Feld wurde einem bestehenden Attribut, Event oder Bezeichner zugeordnet. |
+| **Neues Attribut**, **Neues Event** oder **Neue Event-Eigenschaft** | Braze erstellt beim Import ein neues Attribut oder Event. Sie können es bearbeiten, indem Sie den Button **Edit new attribute**, **Edit new event** oder **Edit new property** auswählen. |
+| **Datentyp-Konflikt** | Der erkannte Datentyp der CSV-Spalte stimmt nicht mit dem Datentyp des bestehenden Attributs, Events oder Bezeichners überein. Braze versucht, den Datentyp beim Import zu konvertieren, um ihn an das bestehende Attribut anzupassen. Der Wert wird verworfen, wenn dies nicht möglich ist. |
+| **Blocklist-Attribut** oder **Blocklist-Event** | Das CSV-Feld stimmt mit dem Namen eines blockierten Attributs oder Events überein. Wählen Sie ein anderes Attribut oder Event für die Zuordnung aus, andernfalls wird die Spalte nicht importiert. |
+| **Doppeltes Attribut** | Es gibt ein oder mehrere Felder mit demselben Namen in Ihrer CSV-Datei. Ordnen Sie die gleichnamigen Spalten verschiedenen Attributen zu, andernfalls wird nur die erste Spalte importiert. |
+| **Reservierter Event-Schlüssel** | Der Name Ihrer Event-Eigenschaft stimmt mit einem reservierten Event-Schlüssel in Braze überein, wie z. B. `time` oder `event_name`. Geben Sie einen anderen Namen ein oder wählen Sie eine andere Eigenschaft für die Zuordnung, andernfalls wird der Wert verworfen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Zuordnungsstatus" }
 
 
-#### Neue Attribute bearbeiten {#editing-new-attributes}
+#### Neue Attribute, Events und Eigenschaften bearbeiten {#editing-new-attributes-events-and-properties}
 
-Wenn ein passendes Attribut in Ihrem Workspace nicht existiert, versucht Braze, beim Import ein neues Attribut mit dem Namen des CSV-Felds und dem erkannten Datentyp zu erstellen. Sie können dieses neue Attribut vor dem Import bearbeiten, indem Sie den Button **Edit new attribute** neben dem Zuordnungsstatus auswählen.
+Wenn ein passendes Attribut, Event oder eine Event-Eigenschaft in Ihrem Workspace nicht existiert, versucht Braze, beim Import ein neues Attribut, Event oder eine neue Eigenschaft mit dem Namen des CSV-Felds und dem erkannten Datentyp zu erstellen. Sie können dieses neue Feld vor dem Import bearbeiten, indem Sie den Button **Edit new attribute**, **Edit new event** oder **Edit new property** neben dem Zuordnungsstatus auswählen.
 
 ![Der Button „Edit new attribute“ auf der Spaltenzuordnungsseite.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
 
 
 {% alert note %}
-Sie können den Zuordnungsschritt erst fortsetzen, wenn ein Bezeichner zugeordnet ist. Braze ordnet nach Möglichkeit automatisch einen Bezeichner zu. Im Abschnitt **Required fields** können Sie prüfen, ob ein Bezeichner zugeordnet ist.
+Sie können den Zuordnungsschritt erst fortsetzen, wenn ein Bezeichner zugeordnet ist. Braze ordnet nach Möglichkeit automatisch einen Bezeichner zu. Für angepasste Events müssen Sie außerdem die Spalten `name` und `time` zuordnen. Weitere Informationen finden Sie im Abschnitt **Erforderliche Felder**.
 {% endalert %}
 
-### 6. Schritt: Targeting-Einstellungen wählen {#targeting-preferences}
+### Schritt 6: Targeting-Einstellungen wählen {#targeting-preferences}
 
 Nach der Zuordnung können Sie auf der Seite „Import-Einstellungen“ aus den folgenden Targeting-Einstellungen wählen. Wenn Sie keinen neuen Targeting-Filter oder kein neues Segment aus Ihrem Import erstellen müssen, wählen Sie **Do not make this list available as a targeting filter**.
 
@@ -338,9 +344,9 @@ Nach der Zuordnung können Sie auf der Seite „Import-Einstellungen“ aus den 
 | Neue Segmente | Um zusätzlich ein neues Segment aus Ihrem neuen Targeting-Filter zu erstellen, wählen Sie **Create targeting filter and add to new segment**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 6: Targeting-Einstellungen wählen" }
 
-![Eine Filtergruppe mit dem Filter „Updated/Imported from CSV„, der eine CSV-Datei mit dem Titel „Halloween season fun“ enthält.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
+![Eine Filtergruppe mit dem Filter „Updated/Imported from CSV“, der eine CSV-Datei mit dem Titel „Halloween season fun“ enthält.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
-### 7. Schritt: Datei validieren (optional) {#file-validation}
+### Schritt 7: Datei validieren (optional) {#file-validation}
 
 Bevor Sie Ihren Import starten, können Sie eine Dateivalidierung durchführen, um jede Zeile auf Fehler und Warnungen zu prüfen. Um Ihre Datei zu validieren, wählen Sie **Validate file before importing** auf der Seite „Import-Einstellungen“ und klicken Sie dann auf **Next**.
 
@@ -374,7 +380,7 @@ Nach der Überprüfung des Berichts können Sie die Probleme in Ihrer Originalda
 
 
 
-### 8. Schritt: CSV-Import starten {#step-8-start-your-csv-import}
+### Schritt 8: CSV-Import starten {#step-8-start-your-csv-import}
 
 Wenn Sie bereit sind, wählen Sie **Start Import**. Sie können den aktuellen Fortschritt auf der Seite **Import Users** verfolgen, die sich automatisch alle 5 Sekunden aktualisiert.
 Die Verarbeitung kann je nach Größe Ihrer CSV-Datei von wenigen Minuten bis zu mehreren Stunden dauern. Während dieser Zeit kann das Dashboard nicht reagieren oder langsam antworten, aber der Import läuft weiter.

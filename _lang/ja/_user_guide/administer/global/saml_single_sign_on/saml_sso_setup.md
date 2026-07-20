@@ -75,7 +75,7 @@ IDプロバイダーでBrazeの設定が完了すると、IDプロバイダー�
 
 ## RelayStateのセットアップ {#setting-up-your-relaystate}
 
-1. Brazeで、**設定** > **APIキー**に移動します。
+1. Brazeで、**設定** > **APIと識別子**に移動します。
 2. **APIキー**タブで、**APIキーを作成**ボタンを選択します。
 3. **APIキー名**フィールドにキーの名前を入力します。
 4. **権限**の下にある**SSO**ドロップダウンを展開し、**sso.saml.login**にチェックを入れます。
@@ -94,6 +94,10 @@ SSOの使用を選択したメンバーは、以前のようにパスワード�
 ![「認証ルール」セクションのセットアップ例。最小パスワード長は8文字、パスワードの再利用可能回数は3回です。パスワードは180日後に期限切れとなり、ユーザーは1,440分の非アクティブ後にログアウトされます。]({% image_buster /assets/img/sso3.png %})
 
 制限を有効にすると、以前パスワードでログインしていた場合でも、会社のBrazeユーザーはパスワードを使用してログインできなくなります。
+
+{% alert important %}
+SSOが強制された後、SSO認証が失敗した場合のフォールバックオプションはありません。SSOの強制を有効にする前に、SSO設定が正しいこと、すべての証明書が最新で更新されていること、セキュリティ設定が適切に管理されていることを確認して、ログインの問題を防いでください。
+{% endalert %}
 
 ## SAMLトレースの取得 {#obtaining-a-saml-trace}
 
@@ -199,5 +203,5 @@ Google SSOの強制が有効になると、ユーザーはGoogle認証でサイ�
 
 SAML SSOを設定した後、以下のことができます:
 
-- セキュリティ設定で[SSOのみのログインを強制]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction)し、ユーザーがパスワードでログインすることを制限します。
+- セキュリティ設定で[SSOのみのログインを強制]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)し、ユーザーがパスワードでログインすることを制限します。
 - [SAMLジャストインタイムプロビジョニングを設定]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)して、新しいユーザーが初回のSSOサインイン時に自動的にBrazeアカウントを作成できるようにします。

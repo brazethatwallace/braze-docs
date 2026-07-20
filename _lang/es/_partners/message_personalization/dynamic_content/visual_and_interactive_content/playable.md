@@ -22,7 +22,7 @@ La integración de Braze y Playable te permite entregar tu mejor contenido (vide
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Cuenta Playable | Se necesita una cuenta Playable para beneficiarte de esta asociación. Si aún no tienes una cuenta en Playable, regístrate [aquí](https://signup.playable.video).
+| Cuenta Playable | Se necesita una cuenta Playable para beneficiarte de esta asociación. Si aún no tienes una cuenta en Playable, [suscríbete a una cuenta Playable](https://signup.playable.video).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 | Contenido de video | Sube archivos de video a Playable o proporciona URL de video desde sitios web como Facebook, Instagram, YouTube, X (antes Twitter), TikTok y más. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }

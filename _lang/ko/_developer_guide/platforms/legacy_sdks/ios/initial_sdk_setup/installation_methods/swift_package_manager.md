@@ -22,7 +22,7 @@ tvOS는 현재 스위프트 패키지 매니저를 통해 사용할 수 없습�
 
 ### SDK 버전 가져오기 {#import-sdk-version}
 
-프로젝트를 열고 프로젝트 설정으로 이동합니다. **Swift Packages** 탭을 선택하고 패키지 목록 아래에 있는 <i class="fas fa-plus" aria-label="추가"></i> 추가 버튼을 클릭합니다.
+프로젝트를 열고 프로젝트 설정으로 이동합니다. **Swift Packages** 탭을 선택하고 패키지 목록 아래에 있는 <i class="fas fa-plus"></i> 추가 버튼을 클릭합니다.
 
 ![Swift Packages 탭이 선택된 Xcode 프로젝트 설정.]({% image_buster /assets/img/ios/spm/swiftpackages.png %})
 

@@ -26,17 +26,17 @@ Movable Inkは、Customer Data APIを介してBrazeから行動イベントを�
 | Movable Ink API認証情報 | Movable Inkのソリューションチームが API認証情報を生成します。API認証情報は以下で構成されます。{::nomarkdown}<ul><li>エンドポイントURL（データの送信先）</li><li>ユーザー名とパスワード（APIの認証に使用）</li></ul>{:/} 必要に応じて、Movable Inkはユーザー名とパスワードを、基本認証ヘッダー値として使用するbase64エンコード値として提供できます。 |
 | 行動イベントペイロード | イベントペイロードをMovable Inkクライアントエクスペリエンスチームと共有する必要があります。詳細については、「Movable Inkと[イベントペイロードを共有する](#event-payloads)」を参照してください。 |
 | クリエイティブアセットとビジネスロジック | Movable Inkとクリエイティブアセットを共有する必要があります。これには、ブロックの構築方法をMovable Inkに指示するAdobe Photoshop（PSD）ファイルとフォールバック画像が含まれます。また、パートナーによってアクティブ化されたコンテンツブロックをいつどのように表示するかについてのビジネスロジックを提供する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
-### ステップ1: BrazeでWebhook Campaignを作成する {#step-1-create-a-webhook-campaign-in-braze}
+### ステップ1: BrazeでWebhookキャンペーンを作成する {#step-1-create-a-webhook-campaign-in-braze}
 
-#### ステップ1a: 新しいCampaignを作成する {#step-1a-create-a-new-campaign}
+#### ステップ1a: 新しいキャンペーンを作成する {#step-1a-create-a-new-campaign}
 
-1. Brazeで、[Webhook Campaignを作成します]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)。
-2. Campaignに名前と任意の説明を付けます。
-3. テンプレートとして**Blank Template**を選択します。
+1. Brazeで、[Webhookキャンペーンを作成します]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)。
+2. キャンペーンに名前と任意の説明を付けます。
+3. テンプレートとして**空白テンプレート**を選択します。
 
 #### ステップ1b: Customer Data API認証情報を追加する {#step-1b-add-your-customer-data-api-credentials}
 
@@ -52,20 +52,20 @@ Movable Inkは、Customer Data APIを介してBrazeから行動イベントを�
 | --- | --- |
 | Content-Type | application/json |
 | Authorization | Movable Inkから受け取った基本認証を入力します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1b: Add your Customer Data API credentials" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1b: Customer Data API認証情報を追加する" }
 
 ![Content-TypeとAuthorizationのキーと値のペアが設定されたBrazeのWebhookコンポーザーの設定タブ]({% image_buster /assets/img/movable_ink/cd_api_webhook_settings.png %}){: style="max-width:75%" }
 
 #### ステップ1c: ペイロードを設定する {#step-1c-configure-your-payload}
 
-1. **Compose**タブに戻ります。
-2. **Request Body**として、JSONキーと値のペアを使用して独自のリクエストボディを作成するか、イベントペイロードを生のテキストとして入力します。標準的なeコマースイベントの例については、[サンプルペイロード](#sample-payloads)を参照してください。
+1. **作成**タブに戻ります。
+2. **リクエストボディ**として、JSONキーと値のペアを使用して独自のリクエストボディを作成するか、イベントペイロードを生のテキストとして入力します。標準的なeコマースイベントの例については、[サンプルペイロード](#sample-payloads)を参照してください。
 
 ![ID、タイムスタンプ、ユーザーID、およびイベントタイプのJSONキーと値のペアが設定されたBrazeのWebhookコンポーザーの作成タブ]({% image_buster /assets/img/movable_ink/cd_api_webhook_kvp.png %}){: style="max-width:75%" }
 
 #### ステップ1d: Webhookをテストする {#step-1d}
 
-サンプルペイロードをMovable Inkクライアントエクスペリエンスチームと共有する必要があります。このペイロードは、作成したペイロードに基づいて**Test**タブで生成できます。
+サンプルペイロードをMovable Inkクライアントエクスペリエンスチームと共有する必要があります。このペイロードは、作成したペイロードに基づいて**テスト**タブで生成できます。
 
 {% alert important %}
 Movable Inkは、Movable Inkクライアントエクスペリエンスチームがマッピングを完了し、テストを受ける準備ができたことを確認するまで、BrazeでのWebhookテストを待つことを推奨しています。このマッピングが完了していない場合、テスト時にエラーが発生する可能性が高くなります。
@@ -73,47 +73,47 @@ Movable Inkは、Movable Inkクライアントエクスペリエンスチーム�
 
 Webhookをテストするには、以下の手順を実行します。
 
-1. **Test**タブを選択します。
+1. **テスト**タブを選択します。
 2. ユーザーとしてメッセージをプレビューし、そのユーザーのサンプルイベントペイロードを表示します。ランダムユーザー、特定のユーザー、またはカスタムユーザーとしてのプレビューを選択できます。
-3. 問題がなければ、**Send test**をクリックしてテストリクエストを送信します。
+3. 問題がなければ、**テストを送信**をクリックしてテストリクエストを送信します。
 
 ![200 OKレスポンスを示すBrazeのWebhookレスポンスメッセージ]({% image_buster /assets/img/movable_ink/cd_api_webhook_response.png %}){: style="max-width:75%" }
 
-### ステップ2: Campaign設定を確定する {#step-2-finalize-your-campaign-setup}
+### ステップ2: キャンペーン設定を確定する {#step-2-finalize-your-campaign-setup}
 
-#### ステップ2a: Campaignをスケジュールする {#step-2a-schedule-your-campaign}
+#### ステップ2a: キャンペーンをスケジュールする {#step-2a-schedule-your-campaign}
 
-Webhookの作成とテストが完了したら、[Campaignをスケジュールします]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)。
+Webhookの作成とテストが完了したら、[キャンペーンをスケジュールします]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)。
 
 Brazeでは、スケジュール配信、アクションベースの配信、およびAPIトリガー配信がサポートされています。[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)は、通常ほとんどの行動イベントのユースケースに最適です。ユースケースに最適な方法についてのご質問は、BrazeおよびMovable Inkのカスタマーサクセスマネージャーにお問い合わせください。
 
 アクションベースの配信の場合:
 
 1. トリガーアクションを指定します。これは、Movable InkへのWebhookをトリガーするイベントです。
-2. **スケジュールの遅延**が**Immediately**に設定されていることを確認します。イベント発生直後にイベントデータが遅延なくMovable Inkに送信される必要があります。
-3. 開始時間を指定してCampaign期間を設定します。終了時刻は適用されない可能性がありますが、ユースケースに必要な場合は設定できます。
+2. **配信スケジュールの遅延**が**即時**に設定されていることを確認します。イベント発生直後にイベントデータが遅延なくMovable Inkに送信される必要があります。
+3. 開始時間を指定してキャンペーン期間を設定します。終了時刻は適用されない可能性がありますが、ユースケースに必要な場合は設定できます。
 
 {% alert note %}
-データがMovable Inkにリアルタイムでストリーミングされるようにするには、**Send campaign to users in their local time zone**を選択しないでください。
+データがMovable Inkにリアルタイムでストリーミングされるようにするには、**ローカルタイムゾーンでキャンペーンを送信**を選択しないでください。
 {% endalert %}
 
 #### ステップ2b: オーディエンスを指定する {#step-2b-specify-your-audience}
 
-次に、このCampaignでターゲットにするユーザーを決定します。詳細については、「[ユーザーをターゲットにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)」を参照してください。
+次に、このキャンペーンでターゲットにするユーザーを決定します。詳細については、「[ユーザーをターゲットにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)」を参照してください。
 
-**コントロールグループ**のチェックボックスをオフにして、CampaignでABテストを使用しないようにしてください。コントロールグループが含まれている場合、一定の割合のユーザーのデータがMovable Inkに送信されません。オーディエンス全体を、コントロールグループではなくバリアントに移動する必要があります。
+**コントロールグループ**のチェックボックスをオフにして、キャンペーンでABテストを使用しないようにしてください。コントロールグループが含まれている場合、一定の割合のユーザーのデータがMovable Inkに送信されません。オーディエンス全体を、コントロールグループではなくバリアントに移動する必要があります。
 
-![バリアント分布の100%がバリアント1に割り当てられ、コントロールグループがないBraze CampaignのABテストパネル]({% image_buster /assets/img/movable_ink/cd_api_webhook_ab.png %})
+![バリアント分布の100%がバリアント1に割り当てられ、コントロールグループがないBrazeキャンペーンのABテストパネル]({% image_buster /assets/img/movable_ink/cd_api_webhook_ab.png %})
 
 #### ステップ2c: コンバージョンイベントを選択する（オプション） {#step-2c-choose-conversion-events-optional}
 
-必要であれば、Braze内でこのCampaignにコンバージョンイベントを割り当てることができます。
+必要であれば、Braze内でこのキャンペーンにコンバージョンイベントを割り当てることができます。
 
-ただし、Webhookがデータのストリーミングのみを目的としている場合、このレベルでのアトリビューションは、Brazeの行動データを使用してコンテンツをパーソナライズした後にCampaignレベルでアトリビューションを確認するよりも有用性が低い可能性があります。
+ただし、Webhookがデータのストリーミングのみを目的としている場合、このレベルでのアトリビューションは、Brazeの行動データを使用してコンテンツをパーソナライズした後にキャンペーンレベルでアトリビューションを確認するよりも有用性が低い可能性があります。
 
-### ステップ3: Campaignを起動する {#step-3-launch-the-campaign}
+### ステップ3: キャンペーンを起動する {#step-3-launch-the-campaign}
 
-Webhookの設定を確認し、Campaignを起動します。
+Webhookの設定を確認し、キャンペーンを起動します。
 
 ## 考慮事項 {#considerations}
 
@@ -143,7 +143,7 @@ Brazeでは、匿名のユーザープロファイルでイベントを記録で
 
 #### 既知のユーザーのBrazeイベントのみを転送する {#only-forwarding-braze-events-for-known-users}
 
-Webhook Campaignで`External User ID`フィルターを使用して、フィルター`External User ID` `is not blank`に一致する`external_id`を持つユーザーのみをターゲットにします。
+Webhookキャンペーンで`External User ID`フィルターを使用して、フィルター`External User ID` `is not blank`に一致する`external_id`を持つユーザーのみをターゲットにします。
 
 #### 匿名ユーザーと既知ユーザーのBrazeイベントを転送する {#forwarding-braze-events-for-anonymous-and-known-users}
 

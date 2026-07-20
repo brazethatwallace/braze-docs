@@ -5,15 +5,15 @@ hidden: true
 
 # Snowflake 데이터 공유 통합 {#snowflake-data-sharing-integration}
 
-> Snowflake 데이터 공유를 통합 방법으로 사용하는 경우, Braze는 고객을 대신하여 Snowflake 인스턴스에 공유를 프로비저닝합니다. 이 공유에는 모든 메시지 참여 및 사용자 행동 이벤트가 자동으로 포함됩니다.
+> Snowflake 데이터 공유를 통합 방법으로 사용하는 경우, Braze는 고객을 대신하여 Snowflake 인스턴스에 공유를 프로비저닝합니다. 이 공유에는 모든 메시지 인게이지먼트 및 사용자 행동 이벤트가 자동으로 포함됩니다.
 
 공유는 고객이 Snowflake 데이터 공유 자격을 구매한 후 고객별로 프로비저닝됩니다. 고객이 데이터 공유를 요청하면 Braze는 고객의 워크스페이스에 공유를 추가하고, 고객은 셀프서비스 UI를 사용하여 관련 파트너 Snowflake 계정 데이터를 추가할 수 있습니다.
 
-![]({% image_buster /assets/img/snowflake.png %})
+![Braze 대시보드의 Snowflake 데이터 공유 프로비저닝]({% image_buster /assets/img/snowflake.png %})
 
 공유가 프로비저닝되면 모든 데이터는 Snowflake 인스턴스 내에서 수신 데이터 공유로 즉시 액세스할 수 있습니다.
 
-![]({% image_buster /assets/img/snowflake2.png %})
+![고객 Snowflake 인스턴스의 Snowflake 수신 데이터 공유]({% image_buster /assets/img/snowflake2.png %})
 
 Snowflake 인스턴스 내에는 리전당 하나의 공유가 표시됩니다. 각 테이블에는 사실상 Braze의 테넌트 키인 `app_group_id` 열이 있습니다. 동일한 리전 내 공유에 새 고객이 추가되면 기존 테이블 내에서 다른 `app_group_ids`로 표시됩니다.
 
@@ -29,11 +29,11 @@ Braze는 현재 모든 사용자 수준 데이터를 Snowflake AWS US East-1 및
 
 중복이 예상되지만 모든 이벤트에는 고유 식별자인 ID 열이 있습니다. `select distinct(id)`를 수행하여 중복을 제거할 수 있습니다.
 
-## 파괴적 변경 사항과 비파괴적 변경 사항 {#breaking-versus-non-breaking-changes}
+## 파괴적 변경과 비파괴적 변경 {#breaking-versus-non-breaking-changes}
 
-### 비파괴적 변경 사항 {#non-breaking-changes}
+### 비파괴적 변경 {#non-breaking-changes}
 
-비파괴적 변경 사항은 언제든지 발생할 수 있으며 일반적으로 추가 기능을 제공합니다. 비파괴적 변경 사항의 예시:
+비파괴적 변경은 언제든지 발생할 수 있으며 일반적으로 추가 기능을 제공합니다. 비파괴적 변경의 예시:
 - 새 테이블 또는 뷰 추가
 - 기존 테이블 또는 뷰에 열 추가
 
@@ -41,16 +41,16 @@ Braze는 현재 모든 사용자 수준 데이터를 Snowflake AWS US East-1 및
 새 열은 비파괴적 변경으로 간주되므로 Braze는 `SELECT *` 쿼리를 사용하는 대신 각 쿼리에서 관심 있는 열을 명시적으로 나열할 것을 적극 권장합니다. 또는 열 이름을 명시적으로 지정하는 뷰를 생성한 다음, 테이블을 직접 쿼리하는 대신 해당 뷰를 쿼리할 수 있습니다.
 {% endalert %}
 
-### 파괴적 변경 사항 {#breaking-changes}
+### 파괴적 변경 {#breaking-changes}
 
-가능한 경우, 파괴적 변경 사항은 사전 공지 및 마이그레이션 기간이 선행됩니다. 파괴적 변경 사항의 예시:
+가능한 경우, 파괴적 변경은 사전 공지 및 마이그레이션 기간이 선행됩니다. 파괴적 변경의 예시:
 - 테이블 또는 뷰 제거
 - 기존 테이블 또는 뷰에서 열 제거
 - 기존 열의 유형 또는 널 허용 여부 변경
 
 ## SNAPSHOTS 및 CHANGELOGS 테이블이 업데이트되는 시점 {#when-snapshots-and-changelogs-tables-are-updated}
 
-SNAPSHOTS 및 CHANGELOGS 테이블은 Campaign(캠페인)과 Canvases의 변경 사항을 추적합니다. 이 테이블이 업데이트되는 시점을 이해하는 것은 가장 최근의 메시지 변형 및 Canvas 구성을 쿼리하는 데 중요합니다.
+SNAPSHOTS 및 CHANGELOGS 테이블은 Campaign과 Canvases의 변경 사항을 추적합니다. 이 테이블이 업데이트되는 시점을 이해하는 것은 가장 최근의 메시지 변형 및 Canvas 구성을 쿼리하는 데 중요합니다.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 

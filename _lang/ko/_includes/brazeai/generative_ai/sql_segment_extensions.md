@@ -1,6 +1,6 @@
 # SQL 세그먼트 확장 {#sql-segment-extensions}
 
-> [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) 데이터의 Snowflake SQL 쿼리를 사용하여 세그먼트 확장을 생성할 수 있습니다. SQL은 다른 세분화 기능으로는 달성할 수 없는 방식으로 데이터 간의 관계를 설명할 수 있는 유연성을 제공하기 때문에 새로운 세그먼트 사용 사례를 발굴하는 데 도움이 됩니다.
+> [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) 데이터의 Snowflake SQL 쿼리를 사용하여 세그먼트 확장을 생성할 수 있습니다. SQL은 다른 세분화 기능으로는 달성할 수 없는 방식으로 데이터 간의 관계를 설명할 수 있는 유연성을 제공하기 때문에 새로운 세그먼트 사용 사례를 발굴하는 데 도움이 됩니다.
 >
 > 표준 세그먼트 확장과 마찬가지로 SQL 세그먼트 확장에서 최대 2년(730일)까지의 이벤트를 쿼리할 수 있습니다. 표준 세그먼트 확장과 달리 SQL 세그먼트 확장은 [크레딧을 소모합니다](#credits).
 
@@ -23,35 +23,35 @@ SQL 세그먼트 확장을 만들 때 선택할 수 있는 SQL 편집기에는 S
 {% endalert %}
 
 {% tabs local %}
-{% tab Full refresh %}
+{% tab 전체 새로고침 %}
 
 전체 새로고침 SQL 세그먼트 확장을 만들려면 다음과 같이 하세요:
 
 1. **오디언스** > **세그먼트 확장**으로 이동합니다.
-2. **Create New Extension**을 선택한 후 **Full refresh**를 선택합니다.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+2. **새 확장 만들기**를 선택한 후 **전체 새로고침**을 선택합니다.<br><br>
+   ![전체 새로고침 및 증분 새로고침 옵션이 있는 새 확장 만들기 모달.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. 세그먼트 확장의 이름을 추가하고 SQL을 입력합니다. 요구 사항 및 리소스에 대해서는 [2단계](#step-2-write-your-sql)를 참조하세요.<br><br>
-   ![SQL 편집기에 표시된 SQL 세그먼트 확장 예시.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
+   ![SQL 세그먼트 확장 예시를 보여주는 SQL 편집기.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
 4. 세그먼트 확장을 저장합니다.
 
 {% endtab %}
-{% tab Incremental refresh %}
+{% tab 증분 새로고침 %}
 
 증분 새로고침 SQL 세그먼트 확장을 만들려면 다음과 같이 하세요:
 
 1. **오디언스** > **세그먼트 확장**으로 이동합니다.
-2. **Create New Extension**을 선택하고 **Incremental refresh**를 선택합니다.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+2. **새 확장 만들기**를 선택하고 **증분 새로고침**을 선택합니다.<br><br>
+   ![전체 새로고침 및 증분 새로고침 옵션이 있는 새 확장 만들기 모달.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. 세그먼트 확장의 이름을 추가하고 SQL을 입력합니다. 요구 사항 및 리소스는 [SQL 작성하기](#writing-sql) 섹션을 참조하세요.<br><br>
    ![증분 SQL 세그먼트 확장의 예시를 보여주는 SQL 편집기.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
-4. 원하는 경우 **Regenerate Extension Daily**를 선택합니다.<br><br>
+4. 원하는 경우 **매일 확장 재생성**을 선택합니다.<br><br>
    ![확장을 매일 재생성하는 체크박스.]({% image_buster /assets/img_archive/sql_segments_regenerate.png %}){: style="max-width:60%" }<br><br>
    이 옵션을 선택하면 Braze가 매일 자동으로 세그먼트 멤버십을 업데이트합니다. 즉, 매일 자정(최대 1시간 지연 가능)에 회사 시간대 기준으로 Braze가 세그먼트에 새로운 사용자가 있는지 확인하고 자동으로 추가합니다. 7일 동안 세그먼트 확장을 사용하지 않은 경우, Braze는 자동으로 일일 재생성을 일시 중지합니다. 사용하지 않은 세그먼트 확장은 Campaign 또는 Canvas에 포함되지 않은 확장을 말합니다(Campaign 또는 Canvas가 활성 상태가 아니어도 확장은 "사용 중"으로 간주됩니다).<br><br>
 5. 세그먼트 확장을 저장합니다.
 
 {% endtab %}
 
-{% tab AI SQL Generator %}
+{% tab AI SQL 생성기 %}
 
 {% alert note %}
 AI SQL 생성기는 현재 베타 기능으로 제공되고 있습니다. 이 베타 체험에 참여하려면 고객 성공 매니저에게 문의하세요.
@@ -63,8 +63,8 @@ AI SQL 생성기는 OpenAI가 제공하는 [GPT](https://openai.com/gpt-4)를 �
 
 AI SQL 생성기를 사용하려면 다음과 같이 하세요:
 
-1. 전체 또는 증분 새로고침을 사용하여 [SQL 세그먼트]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/)를 생성한 후 **Launch AI SQL Generator**를 선택합니다.
-2. 프롬프트를 입력하고 **Generate**를 선택하여 프롬프트를 SQL로 변환합니다.
+1. 전체 또는 증분 새로고침을 사용하여 [SQL 세그먼트]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments)를 생성한 후 **AI SQL 생성기 시작**을 선택합니다.
+2. 프롬프트를 입력하고 **생성**을 선택하여 프롬프트를 SQL로 변환합니다.
 3. 생성된 SQL을 검토하여 올바른지 확인한 다음 세그먼트를 저장합니다.
 
 #### 프롬프트 예시 {#example-prompts}
@@ -74,7 +74,7 @@ AI SQL 생성기를 사용하려면 다음과 같이 하세요:
 
 #### 팁 {#tips}
 
-- 사용 가능한 [Snowflake 데이터 테이블]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/)을 숙지하세요. 이러한 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
+- 사용 가능한 [Snowflake 데이터 테이블]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables)을 숙지하세요. 이러한 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
 - 이 기능에 대한 [SQL 작성 규칙]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql)을 숙지하세요. 이러한 규칙을 따르지 않으면 오류가 발생합니다. 예를 들어 SQL 코드에서 `user_id` 열을 선택해야 합니다. "users who"로 프롬프트를 시작하면 도움이 될 수 있습니다.
 - AI SQL 생성기를 사용하면 분당 최대 20개의 프롬프트를 보낼 수 있습니다.
 
@@ -87,18 +87,18 @@ AI SQL 생성기를 사용하려면 다음과 같이 하세요:
 실행하는 데 20분 이상 걸리는 SQL 쿼리는 시간 초과됩니다.
 {% endalert %}
 
-확장 처리가 완료되면 세그먼트 확장을 사용하여 [세그먼트를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/#step-5-use-your-extension-in-a-segment)하고, Campaign 및 Canvases를 통해 이 새 세그먼트를 타겟팅할 수 있습니다.
+확장 처리가 완료되면 세그먼트 확장을 사용하여 [세그먼트를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension#step-5-use-your-extension-in-a-segment)하고, Campaign 및 Canvases를 통해 이 새 세그먼트를 타겟팅할 수 있습니다.
 
 ### 2단계: SQL 작성하기 {#step-2-write-your-sql}
 
-SQL 쿼리는 [Snowflake 구문](https://docs.snowflake.com/en/sql-reference.html)을 사용하여 작성해야 합니다. 쿼리할 수 있는 테이블과 열의 전체 목록은 [테이블 참조]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/)를 확인하세요.
+SQL 쿼리는 [Snowflake 구문](https://docs.snowflake.com/en/sql-reference.html)을 사용하여 작성해야 합니다. 쿼리할 수 있는 테이블과 열의 전체 목록은 [테이블 참조]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables)를 확인하세요.
 
 {% alert important %}
-쿼리할 수 있는 테이블에는 이벤트 데이터만 포함되어 있다는 점에 유의하세요. 사용자 속성을 쿼리하려면 SQL 세그먼트와 [기존 세그멘터]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)의 커스텀 속성 필터를 결합해야 합니다.
+쿼리할 수 있는 테이블에는 이벤트 데이터만 포함되어 있다는 점에 유의하세요. 사용자 속성을 쿼리하려면 SQL 세그먼트와 [기존 세그멘터]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)의 커스텀 속성 필터를 결합해야 합니다.
 {% endalert %}
 
 {% tabs %}
-{% tab SQL Editor %}
+{% tab SQL 편집기 %}
 
 SQL은 다음 규칙을 추가로 준수해야 합니다:
 
@@ -119,7 +119,7 @@ SELECT DISTINCT user_id FROM "INSERT TABLE NAME"
 
 - `DECLARE` 문을 사용할 수 없습니다.
 {% endtab %}
-{% tab Incremental SQL Editor %}
+{% tab 증분 SQL 편집기 %}
 
 모든 증분 새로고침 쿼리는 쿼리와 스키마 세부 정보의 두 부분으로 구성됩니다.
 
@@ -171,23 +171,23 @@ LIMIT 10
 
 ### 4단계: SQL 반전 필요 여부 판단 {#step-4-determine-if-you-need-to-invert-sql}
 
-다음으로, SQL을 반전시켜야 하는지 판단합니다. 이벤트가 0건인 사용자를 직접 쿼리할 수는 없지만, **Invert SQL**을 사용하여 해당 사용자를 타겟팅할 수 있습니다.
+다음으로, SQL을 반전시켜야 하는지 판단합니다. 이벤트가 0건인 사용자를 직접 쿼리할 수는 없지만, **SQL 반전**을 사용하여 해당 사용자를 타겟팅할 수 있습니다.
 
 {% alert note %}
-기본적으로 **Invert SQL**은 토글되어 있지 않습니다. 그러나 부정이 필요한 SQL 문을 생성하기 위해 AI SQL 생성기를 사용할 경우, ChatGPT가 이 기능을 자동으로 토글하는 출력을 반환할 수 있습니다.
+기본적으로 **SQL 반전**은 토글되어 있지 않습니다. 그러나 부정이 필요한 SQL 문을 생성하기 위해 AI SQL 생성기를 사용할 경우, ChatGPT가 이 기능을 자동으로 토글하는 출력을 반환할 수 있습니다.
 {% endalert %}
 
-예를 들어, 구매 횟수가 3회 미만인 사용자를 타겟팅하려면, 먼저 구매 횟수가 3회 이상인 사용자를 선택하는 쿼리를 작성합니다. 그런 다음 **Invert SQL**을 선택하여 구매 횟수가 3회 미만인 사용자(구매 횟수가 0인 사용자 포함)를 타겟팅합니다.
+예를 들어, 구매 횟수가 3회 미만인 사용자를 타겟팅하려면, 먼저 구매 횟수가 3회 이상인 사용자를 선택하는 쿼리를 작성합니다. 그런 다음 **SQL 반전**을 선택하여 구매 횟수가 3회 미만인 사용자(구매 횟수가 0인 사용자 포함)를 타겟팅합니다.
 
 {% alert important %}
-이벤트가 전혀 없는 사용자를 특별히 타겟팅하려는 경우가 아니라면 SQL을 반전시킬 필요가 없습니다. **Invert SQL**이 선택된 경우, 해당 기능이 필요한지 확인하고 세그먼트가 원하는 오디언스와 일치하는지 확인하세요. 예를 들어, 쿼리가 최소 한 건의 이벤트가 있는 사용자를 타겟팅하는 경우, 이를 반전하면 이벤트가 전혀 없는 사용자만 타겟팅합니다.
+이벤트가 전혀 없는 사용자를 특별히 타겟팅하려는 경우가 아니라면 SQL을 반전시킬 필요가 없습니다. **SQL 반전**이 선택된 경우, 해당 기능이 필요한지 확인하고 세그먼트가 원하는 오디언스와 일치하는지 확인하세요. 예를 들어, 쿼리가 최소 한 건의 이벤트가 있는 사용자를 타겟팅하는 경우, 이를 반전하면 이벤트가 전혀 없는 사용자만 타겟팅합니다.
 {% endalert %}
 
 !["지난 30일 동안 1~4개의 이메일을 클릭함"이라는 세그먼트 확장에 SQL 반전 옵션이 선택된 상태.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:90%;"}
 
 ## 세그먼트 멤버십 새로고침 {#refreshing-segment-membership}
 
-SQL을 사용하여 생성한 세그먼트 확장의 세그먼트 멤버십을 새로고침하려면 세그먼트 확장을 열고 **Refresh**를 선택합니다.
+SQL을 사용하여 생성한 세그먼트 확장의 세그먼트 멤버십을 새로고침하려면 세그먼트 확장을 열고 **새로고침**을 선택합니다.
 
 {% alert tip %}
 사용자가 정기적으로 들어오고 나갈 것으로 예상되는 세그먼트를 만든 경우, Campaign이나 Canvas에서 해당 세그먼트를 타겟팅하기 전에 사용하는 세그먼트 확장을 수동으로 새로고침하세요.
@@ -217,7 +217,7 @@ Snowflake 크레딧은 기능 간에 공유되지 않습니다. 예를 들어 SQ
 
 크레딧을 절약하려면 SQL 세그먼트 확장을 저장하기 전에 쿼리를 미리보기하여 올바른지 확인하세요.
 
-크레딧은 매월 1일 오전 12시(UTC)에 5로 초기화됩니다. 크레딧 사용량 패널에서 한 달 동안의 크레딧 사용량을 모니터링할 수 있습니다. **세그먼트 확장** 페이지에서 <i class="fa-solid fa-chart-column"></i> **View SQL Credit Usage**를 클릭합니다.
+크레딧은 매월 1일 오전 12시(UTC)에 5로 초기화됩니다. 크레딧 사용량 패널에서 한 달 동안의 크레딧 사용량을 모니터링할 수 있습니다. **세그먼트 확장** 페이지에서 <i class="fa-solid fa-chart-column"></i> **SQL 크레딧 사용량 보기**를 클릭합니다.
 
 ![SQL 세그먼트 확장 페이지의 SQL 크레딧 사용량 패널]({% image_buster /assets/img_archive/sql_segments_credits.png %}){: style="max-width:60%"}
 

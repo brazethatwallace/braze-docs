@@ -28,7 +28,7 @@ Ein gültiges Berechtigungsobjekt ist ein JSON-Objekt mit den folgenden Schlüss
 | `companyPermissions` | Optional | Array | Array von [Berechtigungsstrings auf Unternehmensebene]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_company), wobei das Vorhandensein des Strings bedeutet, dass die Nutzer:in über die entsprechende Berechtigung verfügt. |
 | `roles` | Optional | Array | Array von [Rollenobjekten]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_role-object). |
 | `appGroup` | Erforderlich | Array | Array von [Workspace-Berechtigungsobjekten]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Berechtigungsobjekt" }
 
 ### Workspace-Berechtigungsobjekt {#workspace-permissions-object}
 
@@ -36,12 +36,12 @@ Ein gültiges App-Gruppen-Berechtigungsobjekt ist ein JSON-Objekt mit den folgen
 
 | Schlüssel | Erforderlich | Datentyp | Beschreibung |
 | --- | --- | --- | --- |
-| `appGroupName`| Optional | String | Name des Workspace. Wird verwendet, um anzugeben, für welchen Workspace die in diesem Objekt enthaltenen Berechtigungen gelten. |
+| `appGroupName` | Optional | String | Name des Workspace. Wird verwendet, um anzugeben, für welchen Workspace die in diesem Objekt enthaltenen Berechtigungen gelten. |
 | `appGroupId` | Erforderlich, wenn `appGroupName` fehlt | String | ID des Workspace, die als alternative Methode zur Angabe des Workspace dient. |
 | `appGroupPermissionSets` | Optional | Array | Array mit einem einzelnen [Workspace-Berechtigungssatz-Objekt]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Erforderlich | Array | Array von Berechtigungsstrings auf Workspace-Ebene aus der Tabelle der [Workspace-Berechtigungsstrings]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), wobei das Vorhandensein des Strings bedeutet, dass die Nutzer:in die entsprechende Berechtigung für den angegebenen Workspace hat. |
 | `team` | Optional | Array | Array von [Team-Berechtigungsobjekten]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace-Berechtigungsobjekt" }
 
 ### Workspace-Berechtigungssatz-Objekt {#workspace-permissions-set-object}
 
@@ -51,7 +51,7 @@ Ein gültiges Workspace-Berechtigungssatz-Objekt ist ein JSON-Objekt mit den fol
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Optional | String | Name des Workspace-Berechtigungssatzes, der der Nutzer:in für diesen Workspace zugewiesen wird. |
 | `appGroupPermissionSetID` | Erforderlich, wenn `appGroupPermissionSetName` fehlt | String | ID des Workspace, die als alternative Methode zur Angabe des Workspace-Berechtigungssatzes dient, der der Nutzer:in für diesen Workspace zugewiesen wird. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace-Berechtigungssatz-Objekt #workspace-permissions-set-object" }
 
 ### Team-Berechtigungsobjekt {#team-permissions-object}
 
@@ -62,7 +62,7 @@ Ein gültiges Team-Berechtigungsobjekt ist ein JSON-Objekt mit den folgenden Sch
 | `teamName` | Optional | String | Name des Teams, der verwendet werden kann, um anzugeben, für welches Team die Berechtigungen in diesem Objekt gelten. |
 | `teamId` | Erforderlich, wenn `teamName` fehlt | String | ID des Teams, die als alternative Methode zur Angabe des Teams dient. |
 | `teamPermissions` | Erforderlich | Array | Array von Berechtigungsstrings auf Team-Ebene aus der Tabelle der [Team-Berechtigungsstrings]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team), wobei das Vorhandensein des Strings bedeutet, dass die Nutzer:in die entsprechende Berechtigung für das angegebene Team hat. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team-Berechtigungsobjekt" }
 
 ## Rollenobjekt {#role-object}
 
@@ -72,7 +72,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | --- | --- | --- | --- |
 | `roleName` | Optional | String | Name der Rolle, die der Nutzer:in zugewiesen wird. |
 | `roleId` | Erforderlich, wenn `roleName` fehlt | String | ID der Rolle, die als alternative Methode zur Angabe der Rolle dient. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Rollenobjekt" }
 
 ## Anhang {#appendix}
 
@@ -83,7 +83,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Administrator | `admin` |
 | Unternehmenseinstellungen verwalten | `manage_company_settings` |
 | Workspaces erstellen und löschen | `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Berechtigungsstrings auf Unternehmensebene #company" }
 
 ### Workspace-Berechtigungsstrings {#workspace-strings}
 
@@ -200,7 +200,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Kataloge löschen | `delete_catalogs` |
 | WhatsApp-Einstellungen anzeigen | `view_whatsapp_settings` |
 | Technologie-Partner bearbeiten | `edit_technology_partners` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace-Berechtigungsstrings #workspace-strings" }
 
 ### Team-Berechtigungsstrings {#team}
 
@@ -253,7 +253,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Campaigns starten | `launch_campaigns` |
 | Canvases starten | `launch_canvases` |
 | Dashboard-Nutzer:innen bearbeiten | `edit_dashboard_users` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Team-Berechtigungsstrings #team" }
 
 ### Abteilungsstrings {#department-strings}
 
@@ -266,4 +266,4 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Finanzen | `finance` |
 | Marketing / Redaktion | `marketing` |
 | Produktmanagement | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abteilungsstrings" }

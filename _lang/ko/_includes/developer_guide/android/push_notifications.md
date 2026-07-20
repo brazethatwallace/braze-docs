@@ -6,9 +6,9 @@
 
 | 기능 | 설명 |
 |-------|-----------|
-| Push Stories | Android Push Stories는 기본적으로 Braze Android SDK에 내장되어 있습니다. 자세한 내용은 [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)를 참조하세요. |
-| 푸시 프라이머 | 푸시 프라이머 Campaign은 사용자가 기기에서 앱에 대한 푸시 알림을 활성화하도록 유도합니다. [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)를 사용하면 SDK 커스터마이징 없이도 이 작업을 수행할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
+| Push Stories | Android Push Stories는 기본적으로 Braze Android SDK에 내장되어 있습니다. 자세한 내용은 [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories)를 참조하세요. |
+| 푸시 프라이머 | 푸시 프라이머 Campaign은 사용자가 기기에서 앱에 대한 푸시 알림을 활성화하도록 유도합니다. [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages)를 사용하면 SDK 커스터마이징 없이도 이 작업을 수행할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="내장 기능" }
 
 ## 푸시 알림 수명 주기에 관하여 {#push-notification-lifecycle}
 
@@ -353,11 +353,22 @@ Braze.configure(this, brazeConfig)
 {% endsubtab %}
 {% endsubtabs %}
 
-{% alert tip %}
-FCM 토큰을 수동으로 등록하려면 앱의 [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()) 메서드 내에서 [`Braze.setRegisteredPushToken()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/registered-push-token.html)을 호출하면 됩니다.
-{% endalert %}
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+FCM 토큰을 수동으로 등록하려면 앱의 [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()) 메서드 내에서 Braze 인스턴스의 [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) 속성정보를 설정하면 됩니다.
+
+```kotlin
+// Kotlin
+Braze.getInstance(context).registeredPushToken = "FCM_TOKEN"
+```
+
+```java
+// Java
+Braze.getInstance(context).setRegisteredPushToken("FCM_TOKEN");
+```
+{% endalert %}
 
 ### 8단계: 애플리케이션 클래스에서 자동 요청 제거 {#step-8-remove-automatic-requests-in-your-application-class}
 
@@ -443,7 +454,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-또는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 통해 설정합니다:
+또는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 통해 설정합니다:
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -529,7 +540,7 @@ Braze를 사용하면 `braze.xml`에서 drawable 리소스를 지정하여 알�
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-이 플래그는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 통해서도 설정할 수 있습니다:
+이 플래그는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 통해서도 설정할 수 있습니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -554,7 +565,7 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-딥링크를 커스텀 처리하려면 Braze에서 푸시 수신 및 열기 인텐트를 수신 대기하는 푸시 콜백을 만들어야 합니다. 자세한 내용은 [푸시 이벤트에 대한 콜백 사용]({{site.baseurl}}/developer_guide/push_notifications/customization/#android_using-a-callback-for-push-events)을 참조하세요.
+딥링크를 커스텀 처리하려면 Braze에서 푸시 수신 및 열기 인텐트를 수신 대기하는 푸시 콜백을 만들어야 합니다. 자세한 내용은 [푸시 이벤트에 대한 콜백 사용]({{site.baseurl}}/developer_guide/push_notifications/customization#android_using-a-callback-for-push-events)을 참조하세요.
 
 ## 포그라운드 알림 처리 {#handling-foreground-notifications}
 
@@ -626,7 +637,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 #### 커스텀 딥링크 만들기 {#creating-custom-deep-links}
 
-앱에 아직 딥링크를 추가하지 않았다면 딥링킹에 대한 [Android 개발자 설명서](http://developer.android.com/training/app-indexing/deep-linking.html)의 지침을 따르세요. 딥링크가 무엇인지 자세히 알아보려면 [FAQ 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)를 참조하세요.
+앱에 아직 딥링크를 추가하지 않았다면 딥링킹에 대한 [Android 개발자 설명서](http://developer.android.com/training/app-indexing/deep-linking.html)의 지침을 따르세요. 딥링크가 무엇인지 자세히 알아보려면 [FAQ 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)를 참조하세요.
 
 #### 딥링크 추가 {#adding-deep-links}
 
@@ -638,7 +649,7 @@ Braze 대시보드는 푸시 알림 Campaign과 Canvases에서 알림을 클릭�
 
 기본적으로 Android SDK는 푸시 딥링크를 따라갈 때 호스트 앱의 기본 런처 액티비티를 백 스택에 배치합니다. Braze를 사용하면 기본 런처 액티비티 대신 백 스택에서 열릴 커스텀 액티비티를 설정하거나 백 스택을 완전히 비활성화할 수 있습니다.
 
-예를 들어 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 사용하여 `YourMainActivity`라는 액티비티를 백 스택 액티비티로 설정하려면:
+예를 들어 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 사용하여 `YourMainActivity`라는 액티비티를 백 스택 액티비티로 설정하려면:
 
 {% tabs %}
 {% tab JAVA %}
@@ -674,13 +685,13 @@ Braze.configure(this, brazeConfig)
 
 ### 5단계: 알림 채널 정의 {#step-5-define-notification-channels}
 
-Braze Android SDK는 [Android 알림 채널](https://developer.android.com/preview/features/notification-channels.html)을 지원합니다. Braze 알림에 알림 채널 ID가 포함되어 있지 않거나 유효하지 않은 채널 ID가 포함되어 있는 경우, Braze는 SDK에 정의된 기본 알림 채널로 알림을 표시합니다. 회사 사용자는 플랫폼 내에서 [Android 알림 채널]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/)을 사용하여 알림을 그룹화합니다.
+Braze Android SDK는 [Android 알림 채널](https://developer.android.com/preview/features/notification-channels.html)을 지원합니다. Braze 알림에 알림 채널 ID가 포함되어 있지 않거나 유효하지 않은 채널 ID가 포함되어 있는 경우, Braze는 SDK에 정의된 기본 알림 채널로 알림을 표시합니다. 회사 사용자는 플랫폼 내에서 [Android 알림 채널]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels)을 사용하여 알림을 그룹화합니다.
 
 기본 Braze 알림 채널의 사용자 대면 이름을 설정하려면 [`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html)을 사용합니다.
 
 기본 Braze 알림 채널의 사용자 대면 설명을 설정하려면 [`BrazeConfig.setDefaultNotificationChannelDescription()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-description.html)을 사용합니다.
 
-`notification_channel` 필드를 포함하도록 [Android 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/android_object/) 매개변수를 사용하여 모든 API Campaign을 업데이트합니다. 이 필드를 지정하지 않으면 Braze는 [대시보드 대체]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel) 채널 ID와 함께 알림 페이로드를 전송합니다.
+`notification_channel` 필드를 포함하도록 [Android 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/android_object) 매개변수를 사용하여 모든 API Campaign을 업데이트합니다. 이 필드를 지정하지 않으면 Braze는 [대시보드 대체]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel) 채널 ID와 함께 알림 페이로드를 전송합니다.
 
 기본 알림 채널 외에는 Braze에서 어떠한 채널도 생성하지 않습니다. 다른 모든 채널은 호스트 앱에서 프로그래밍 방식으로 정의한 다음 Braze 대시보드에 입력해야 합니다.
 
@@ -703,13 +714,13 @@ Braze Android SDK는 [Android 알림 채널](https://developer.android.com/previ
 
 #### 분석 테스트 {#testing-analytics}
 
-이 시점에서 푸시 알림 열기에 대한 분석 로깅도 작동해야 합니다. 알림이 도착했을 때 클릭하면 Campaign 결과 페이지의 **직접 열람 수**가 1씩 증가합니다. 푸시 분석에 대한 자세한 내용은 [푸시 보고]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) 문서를 참조하세요.
+이 시점에서 푸시 알림 열기에 대한 분석 로깅도 작동해야 합니다. 알림이 도착했을 때 클릭하면 Campaign 결과 페이지의 **직접 열람 수**가 1씩 증가합니다. 푸시 분석에 대한 자세한 내용은 [푸시 보고]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting) 문서를 참조하세요.
 
 푸시 분석과 관련된 문제는 [문제 해결 가이드]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)를 참조하세요.
 
 #### 명령줄에서 테스트 {#testing-from-command-line}
 
-명령줄 인터페이스를 통해 인앱 및 푸시 알림을 테스트하려면 터미널에서 cURL 및 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/)를 사용하여 단일 알림을 보낼 수 있습니다. 다음 필드를 테스트 케이스에 맞는 올바른 값으로 바꿔야 합니다:
+명령줄 인터페이스를 통해 인앱 및 푸시 알림을 테스트하려면 터미널에서 cURL 및 [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 사용하여 단일 알림을 보낼 수 있습니다. 다음 필드를 테스트 케이스에 맞는 올바른 값으로 바꿔야 합니다:
 
 - `YOUR_API_KEY` (**설정** > **API 키**로 이동합니다.)
 - `YOUR_EXTERNAL_USER_ID` (**사용자 검색** 페이지에서 프로필을 검색합니다.)
@@ -731,11 +742,11 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
 }' https://rest.iad-01.braze.com/messages/send
 ```
 
-이 예에서는 `US-01` 인스턴스를 사용합니다. 이 인스턴스를 사용하지 않는 경우 `US-01` 엔드포인트를 [사용자의 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)로 바꾸세요.
+이 예에서는 `US-01` 인스턴스를 사용합니다. 이 인스턴스를 사용하지 않는 경우 `US-01` 엔드포인트를 [사용자의 엔드포인트]({{site.baseurl}}/api/basics#endpoints)로 바꾸세요.
 
 ## 대화 푸시 알림 {#conversation-push-notifications}
 
-![]({% image_buster /assets/img/android/push/conversations_android.png %}){: style="float:right;max-width:35%;margin-left:15px;border: 0;"}
+![여러 연락처의 세 개의 그룹화된 대화 알림이 표시된 Android 알림 셰이드의 대화 섹션.]({% image_buster /assets/img/android/push/conversations_android.png %}){: style="float:right;max-width:35%;margin-left:15px;border: 0;"}
 
 [사람과 대화 이니셔티브](https://developer.android.com/guide/topics/ui/conversations)는 휴대폰의 시스템 표면에서 사람과 대화를 더 부각시키는 것을 목표로 하는 다년간의 Android 이니셔티브입니다. 이 우선순위는 모든 인구 통계에 걸쳐 대부분의 Android 사용자에게 다른 사람들과의 소통 및 상호작용이 여전히 가장 가치 있고 중요한 기능 영역이라는 사실에 기반합니다.
 
@@ -744,7 +755,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
 - 이 알림 유형에는 Braze Android SDK v15.0.0 이상 및 Android 11 이상 기기가 필요합니다.
 - 지원되지 않는 기기 또는 SDK에서는 표준 푸시 알림으로 대체됩니다.
 
-이 기능은 Braze REST API를 통해서만 사용할 수 있습니다. 자세한 내용은 [Android 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/android_object/#android-conversation-push-object)를 참조하세요.
+이 기능은 Braze REST API를 통해서만 사용할 수 있습니다. 자세한 내용은 [Android 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/android_object#android-conversation-push-object)를 참조하세요.
 
 ## FCM 할당량 초과 오류 {#fcm-quota-exceeded-errors}
 
@@ -767,4 +778,4 @@ FCM에 대한 사용량 제한 증가를 요청하려면 [Firebase 지원팀](ht
 
 #### 워크스페이스 사용량 제한 적용 {#apply-a-workspace-rate-limit}
 
-Android 푸시 알림에 대한 워크스페이스 사용량 제한을 적용할 수 있습니다. 이를 통해 발신 메시지의 전달 속도를 조절할 수 있습니다. 자세한 내용은 [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits/)을 참조하세요.
+Android 푸시 알림에 대한 워크스페이스 사용량 제한을 적용할 수 있습니다. 이를 통해 발신 메시지의 전달 속도를 조절할 수 있습니다. 자세한 내용은 [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits)을 참조하세요.

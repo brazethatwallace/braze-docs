@@ -12,7 +12,7 @@ channel:
 
 # Ein HTML-E-Mail-Template hochladen {#upload-an-html-email-template}
 
-> Das Braze-Dashboard ermöglicht es Ihnen, Ihre eigenen HTML-E-Mail-Templates hochzuladen und für die spätere Verwendung in Kampagnen zu speichern. Sie können auch [ein E-Mail-Template erstellen]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/), indem Sie unseren Editor verwenden.
+> Das Braze-Dashboard ermöglicht es Ihnen, Ihre eigenen HTML-E-Mail-Templates hochzuladen und für die spätere Verwendung in Campaigns zu speichern. Sie können auch [ein E-Mail-Template erstellen]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template), indem Sie unseren Editor verwenden.
 
 ## Voraussetzungen {#upload-requirements}
 
@@ -27,7 +27,7 @@ Zunächst müssen Sie Ihr HTML-E-Mail-Template erstellen. Es muss sich um eine Z
 
 ### 1. Schritt: Zum E-Mail-Template-Editor navigieren {#step-1-go-to-the-email-template-editor}
 
-Gehen Sie zu **Content** > **Email**. Wählen Sie **Create email template**.
+Gehen Sie zu **Inhalt** > **E-Mail**. Wählen Sie **E-Mail-Template erstellen**.
 
 ### 2. Schritt: Template-Details hinzufügen {#step-2-add-template-details}
 
@@ -35,25 +35,25 @@ Geben Sie einen Template-Namen ein. Optional können Sie eine Beschreibung, Team
 
 ### 3. Schritt: Ihr Template hochladen {#step-3-upload-your-template}
 
-Wählen Sie im Abschnitt **Template content** unter der Kachel **HTML code editor** die Option **Upload file**. Wählen Sie Ihr Template von Ihrem Computer aus. Lesen Sie den Abschnitt [Voraussetzungen](#upload-requirements), um sicherzustellen, dass Ihr Template die Upload-Anforderungen erfüllt.
+Wählen Sie im Abschnitt **Template-Inhalt** die Option **Datei hochladen**. Wählen Sie Ihr Template von Ihrem Computer aus. Lesen Sie den Abschnitt [Voraussetzungen](#upload-requirements), um sicherzustellen, dass Ihr Template die Upload-Anforderungen erfüllt.
 
 ### 4. Schritt: Ihr Template fertigstellen und speichern {#step-4-finish-and-save-your-template}
 
-Stellen Sie sicher, dass Sie Ihr Template speichern, indem Sie **Save template** auswählen. Sie können dieses Template jetzt in jeder Kampagne oder jedem Canvas verwenden!
+Stellen Sie sicher, dass Sie Ihr Template speichern, indem Sie **Template speichern** auswählen. Sie können dieses Template jetzt in jeder Campaign oder jedem Canvas verwenden.
 
 {% alert note %}
-Wenn Sie Änderungen an einem bestehenden Template vornehmen, werden diese Änderungen nicht in Kampagnen übernommen, die mit früheren Versionen dieses Templates erstellt wurden.
+Wenn Sie Änderungen an einem bestehenden Template vornehmen, werden diese Änderungen nicht in Campaigns übernommen, die mit früheren Versionen dieses Templates erstellt wurden.
 {% endalert %}
 
-## Ihre Templates in API-Kampagnen verwenden {#api_for_upload_email_templates}
+## Ihre Templates in API-Campaigns verwenden {#api_for_upload_email_templates}
 
-Um Ihre E-Mail für eine API-Kampagne zu verwenden, benötigen Sie die `email_template_id`, die am Ende jedes in Braze erstellten E-Mail-Templates zu finden ist.
+Um Ihre E-Mail für eine API-Campaign zu verwenden, benötigen Sie die `email_template_id`, die am Ende jedes in Braze erstellten E-Mail-Templates zu finden ist.
 
 ![API-Bezeichner-Abschnitt eines HTML-E-Mail-Templates.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:50%;"}
 
 ## E-Mail-Templates verwalten {#managing-email-templates}
 
-Sie können E-Mail-Templates [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/)! Erfahren Sie mehr über das Erstellen und Verwalten von Templates und kreativen Inhalten unter [Templates]({{site.baseurl}}/user_guide/messaging/templates/).
+Sie können E-Mail-Templates [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)! Erfahren Sie mehr über das Erstellen und Verwalten von Templates und kreativen Inhalten unter [Templates]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -70,8 +70,8 @@ Es gibt verschiedene E-Mail-Fehlermeldungen, die beim Hochladen einer HTML-Templ
 | `Missing Images` | Wenn in Ihrer HTML-Datei auf Bilder verwiesen wird, diese aber nicht im Bilderordner der ZIP-Datei enthalten sind, erhalten Sie einen Dateifehler. Überprüfen Sie Ihre Datei und korrigieren Sie eventuelle Fehler (wie Tippfehler), oder fügen Sie die fehlenden Bilder zu Ihrer ZIP-Datei hinzu und versuchen Sie es erneut.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
-Beachten Sie, dass beim Herunterladen der Dateien für HTML-Kampagnen, Canvas-Schritte mit E-Mail-Nachrichten oder Templates auf einem Windows-Computer das Zeichen `|` (Pipe-Zeichen) nicht unterstützt wird. Möglicherweise müssen Sie eine andere Anwendung verwenden, um den Inhalt der ZIP-Datei zu extrahieren.
+Beachten Sie, dass beim Herunterladen der Dateien für HTML-Campaigns, Canvas-Schritte mit E-Mail-Nachrichten oder Templates auf einem Windows-Computer das Zeichen `|` (Pipe-Zeichen) nicht unterstützt wird. Möglicherweise müssen Sie eine andere Anwendung verwenden, um den Inhalt der ZIP-Datei zu extrahieren.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-Antworten auf häufig gestellte Fragen zu E-Mail-Templates finden Sie auf unserer Seite [FAQ zu E-Mail- und Link-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Antworten auf häufig gestellte Fragen zu E-Mail-Templates finden Sie auf unserer Seite [FAQ zu E-Mail- und Link-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

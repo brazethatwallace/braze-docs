@@ -20,10 +20,10 @@ Pour les SDK wrapper non répertoriés, utilisez plutôt la méthode native Andr
 
 ### Empêcher le suivi des utilisateurs anonymes {#preventing-anonymous-user-tracking}
 
-Si votre cas d'utilisation exige qu'aucune donnée ne soit collectée avant l'identification d'un utilisateur, vous pouvez retarder l'initialisation du SDK Braze jusqu'à ce que l'utilisateur se connecte et qu'un `external_id` soit disponible. Définissez un indicateur dans votre code qui passe à `true` lorsque l'utilisateur se connecte, et n'initialisez le SDK que lorsque cet indicateur est activé.
+Si votre cas d'usage exige qu'aucune donnée ne soit collectée avant l'identification d'un utilisateur, vous pouvez retarder l'initialisation du SDK Braze jusqu'à ce que l'utilisateur se connecte et qu'un `external_id` soit disponible. Définissez un indicateur dans votre code qui passe à `true` lorsque l'utilisateur se connecte, et n'initialisez le SDK que lorsque cet indicateur est activé.
 
 {% alert warning %}
-Ne retardez l'initialisation que **la première fois** qu'un utilisateur télécharge votre application (avant qu'un `external_id` ne soit défini). Si vous empêchez le SDK de s'initialiser chaque fois qu'un utilisateur se déconnecte ou démarre une nouvelle session, cela interférera avec le préchargement des ressources de messages in-app et de cartes de contenu, ce qui peut entraîner des erreurs de livrabilité pour ces Campaigns.
+Ne retardez l'initialisation que **la première fois** qu'un utilisateur télécharge votre application (avant qu'un `external_id` ne soit défini). Si vous empêchez le SDK de s'initialiser chaque fois qu'un utilisateur se déconnecte ou démarre une nouvelle session, cela interférera avec le préchargement des ressources de messages in-app et de Content Cards, ce qui peut entraîner des erreurs de livrabilité pour ces Campaigns.
 {% endalert %}
 
 ## Définition d'un ID utilisateur {#setting-a-user-id}
@@ -34,7 +34,7 @@ Si vous hachez un identifiant unique, veillez à normaliser l'entrée de votre f
 
 {% tabs local %}
 {% tab WEB %}
-Pour une implémentation standard du SDK Web, vous pouvez utiliser la méthode suivante :
+Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suivante :
 
 ```javascript
 braze.changeUser(YOUR_USER_ID_STRING);
@@ -75,6 +75,32 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% endsubtabs %}
+
+{% alert note %}
+`changeUser` met en file d'attente le changement d'utilisateur et retourne immédiatement sur le thread appelant. Tout appel de setter d'attribut sur `braze.user` effectué ensuite est automatiquement sérialisé derrière les opérations initiées par `changeUser`. La lecture de `braze.user.id` bloque le thread appelant jusqu'à ce que le changement d'utilisateur soit entièrement terminé. Pour les contextes sensibles à la latence ou sur le thread principal, utilisez plutôt les alternatives non bloquantes.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.user.getId { userId in
+  print("User ID:", userId ?? "anonymous")
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let userId = await AppDelegate.braze?.user.getId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze.user getIdWithCompletion:^(NSString * _Nullable userId) {
+  NSLog(@"User ID: %@", userId ?: @"anonymous");
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 {% endtab %}
 
 {% tab CORDOVA %}

@@ -48,7 +48,7 @@ Las funciones de vista previa y prueba están diseñadas para mensajes de izquie
 En las notificaciones push, la alineación del título generalmente sigue la configuración de idioma del dispositivo, mientras que la alineación del cuerpo puede seguir el primer carácter direccional fuerte en cada línea (trata cada línea después de un salto de línea por separado). Esto significa que una sola notificación push puede mezclar la alineación entre líneas; por ejemplo, una línea de cuerpo de derecha a izquierda seguida de una línea de izquierda a derecha. Cuando necesites un diseño predecible, mantén la consistencia direccional y usa saltos de línea entre segmentos de idiomas mixtos.
 
 {% alert note %}
-El renderizado aún depende del sistema operativo del dispositivo y del cliente push. Envía [mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) a tus propios dispositivos para confirmar la alineación antes de lanzar en vivo.
+El renderizado aún depende del sistema operativo del dispositivo y del cliente push. Envía [mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) a tus propios dispositivos para confirmar la alineación antes de lanzar en vivo.
 {% endalert %}
 
 ### Texto bidireccional {#bi-directional-text}

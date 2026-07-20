@@ -8,7 +8,7 @@ noindex: true
 
 # プッシュ分析とカスタムイベントのログ記録 {#push-analytics-and-custom-event-logging}
 
-> このページでは、ネイティブプッシュ分析（開封、影響を受けた開封、Campaignレポート）とプッシュペイロードからのカスタムデータのログ記録（カスタムイベントと属性）のワークフローについて説明します。このガイドを使用して、ユースケースに該当するワークフローを特定し、プラットフォームに応じた手順に従ってください。
+> このページでは、ネイティブプッシュ分析（開封、影響を受けた開封、キャンペーンレポート）とプッシュペイロードからのカスタムデータのログ記録（カスタムイベントと属性）のワークフローについて説明します。このガイドを使用して、ユースケースに該当するワークフローを特定し、プラットフォームに応じた手順に従ってください。
 
 ## 前提条件 {#prerequisites}
 
@@ -24,12 +24,12 @@ noindex: true
 
 | 分析カテゴリ | 説明 | 表示場所 |
 | --- | --- | --- |
-| ネイティブプッシュ分析 | 開封や影響を受けた開封など、Brazeプッシュキャンペーンに紐づくプッシュ指標 | プッシュCampaign分析、Currentsメッセージエンゲージメントイベント、レポートビルダー |
-| カスタムイベントと属性 | SDKメソッドまたは`/users/track`エンドポイントを通じて定義・ログ記録する分析 | ユーザープロファイル、セグメンテーション、アクションベースのCampaignsとCanvases、カスタムイベント分析 |
+| ネイティブプッシュ分析 | 開封や影響を受けた開封など、Brazeプッシュキャンペーンに紐づくプッシュ指標 | プッシュキャンペーン分析、Currentsメッセージエンゲージメントイベント、レポートビルダー |
+| カスタムイベントと属性 | SDKメソッドまたは`/users/track`エンドポイントを通じて定義・ログ記録する分析 | ユーザープロファイル、セグメンテーション、アクションベースのキャンペーンとキャンバス、カスタムイベント分析 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ネイティブプッシュ分析とカスタムイベントのログ記録の違い" }
 
 {% alert important %}
-カスタムイベント（`push_notification_opened`など）のログ記録は、Brazeのネイティブプッシュ開封トラッキングとは異なります。カスタムイベントは、ネイティブプッシュCampaignの開封指標やプッシュアトリビューションには反映されません。
+カスタムイベント（`push_notification_opened`など）のログ記録は、Brazeのネイティブプッシュ開封トラッキングとは異なります。カスタムイベントは、ネイティブプッシュキャンペーンの開封指標やプッシュアトリビューションには反映されません。
 {% endalert %}
 
 ## Brazeが自動的にログ記録するもの {#what-braze-logs-automatically}
@@ -801,8 +801,8 @@ extension Dictionary where Key == String, Value == Any {
 
 | 分析カテゴリ | Brazeでの確認場所 |
 | --- | --- |
-| ネイティブプッシュ分析 | Campaignレベルのプッシュ開封指標を確認するには、プッシュCampaignの**Campaign Analytics**ページに移動します。指標の定義については、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)を参照してください。カスタム分析ビューを作成するには、**Analytics** > **Report Builder (New)**に移動します。操作手順については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を参照してください。ウェアハウスレベルのイベントスキーマについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)を参照してください。 |
-| カスタムイベントと属性 | カスタムイベントのトレンドを確認するには、**Analytics** > **カスタムイベントレポート**に移動します。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を参照してください。ユーザーレベルの値を確認するには、**ユーザーを検索**ページに移動してプロファイルを開きます。手順については、[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)を参照してください。これらの値でオーディエンスをフィルタリングするには、**Audience** > **Segments**に移動します。操作手順については、[Segmentの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)と[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)のフィルターオプションを参照してください。 |
+| ネイティブプッシュ分析 | キャンペーンレベルのプッシュ開封指標を確認するには、プッシュキャンペーンの**キャンペーン Analytics**ページに移動します。指標の定義については、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)を参照してください。カスタム分析ビューを作成するには、**Analytics** > **Report Builder (New)**に移動します。操作手順については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を参照してください。ウェアハウスレベルのイベントスキーマについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)を参照してください。 |
+| カスタムイベントと属性 | カスタムイベントのトレンドを確認するには、**Analytics** > **カスタムイベントレポート**に移動します。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を参照してください。ユーザーレベルの値を確認するには、**ユーザーを検索**ページに移動してプロファイルを開きます。手順については、[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)を参照してください。これらの値でオーディエンスをフィルタリングするには、**Audience** > **セグメント**に移動します。操作手順については、[セグメントの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)と[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)のフィルターオプションを参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="結果の分析" }
 
 カスタムレポートの作成については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を参照してください。

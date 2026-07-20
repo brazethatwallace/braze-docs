@@ -46,7 +46,7 @@ Sie können keine Canvases mehr mit dem ursprünglichen Editor erstellen oder du
 - Context ist nur als Referenz in Liquid verfügbar. Um nach den Eigenschaften innerhalb des Canvas zu filtern, verwenden Sie stattdessen die [Event-Eigenschafts-Segmentierung]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 - Für In-App-Nachrichten-Kanäle können Sie `context` und `event_properties` in einem Canvas referenzieren. Auf `event_properties` kann zugegriffen werden, wenn sie im ersten Canvas-Schritt enthalten sind, da dieser triggerbasiert ist.
 - Sie können `event_properties` nicht im führenden Nachrichten-Schritt verwenden. Stattdessen können Sie `context` verwenden oder einen Aktionspfade-Schritt mit dem entsprechenden Event **vor** dem Nachrichten-Schritt hinzufügen, der `event_properties` enthält.
-- Wenn ein Aktionspfade-Schritt einen „Eingehende SMS-Nachricht gesendet“- oder „Eingehende WhatsApp-Nachricht gesendet“-Trigger enthält, können die nachfolgenden Canvas-Schritte eine SMS- oder WhatsApp-Liquid-Eigenschaft enthalten. Dies spiegelt wider, wie Event-Eigenschaften in Canvases funktionieren. Auf diese Weise können Sie Ihre Nachrichten nutzen, um First-Party-Daten in Nutzerprofilen und konversationsbasiertem Messaging zu speichern und zu referenzieren.
+- Wenn ein Aktionspfade-Schritt einen Trigger „Eingehende SMS-Nachricht gesendet“ oder „Eingehende WhatsApp-Nachricht gesendet“ enthält, können die nachfolgenden Canvas-Schritte eine SMS- oder WhatsApp-Liquid-Eigenschaft enthalten. Dies spiegelt wider, wie Event-Eigenschaften in Canvases funktionieren. Auf diese Weise können Sie Ihre Nachrichten nutzen, um First-Party-Daten in Nutzerprofilen und konversationsbasiertem Messaging zu speichern und zu referenzieren.
 
 {% alert note %}
 Die Zielgruppen-Berechtigung wird einmalig beim Canvas-Eintritt ausgewertet. Wenn Nutzer:innen während des Eintritts zusammengeführt werden, durchlaufen die identifizierten Nutzer:innen den Canvas weiter und werden nicht erneut anhand der Canvas-Segment-Kriterien bewertet.
@@ -58,7 +58,7 @@ Die Zielgruppen-Berechtigung wird einmalig beim Canvas-Eintritt ausgewertet. Wen
 
 Wenn Sie Zeitstempel mit einem [Datetime-Typ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) aus Events verwenden, die aktionsbasierte Canvases triggern und über [Context]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) referenziert werden, werden Zeitstempel auf UTC normalisiert.
 
-Angesichts dieses Verhaltens empfiehlt Braze dringend, einen Liquid-Zeitzonen-Filter wie im folgenden Beispiel zu verwenden, um sicherzustellen, dass Ihre Nachrichten mit Ihrer [bevorzugten Zeitzone]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#time-zone-filter) gesendet werden.
+Angesichts dieses Verhaltens empfiehlt Braze dringend, einen Liquid-Zeitzonen-Filter wie im folgenden Beispiel zu verwenden, um sicherzustellen, dass Ihre Nachrichten mit Ihrer [bevorzugten Zeitzone]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) gesendet werden.
 
 {% raw %}
 ```liquid

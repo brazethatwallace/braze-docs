@@ -25,7 +25,7 @@ Xiaomi、OPPO、Vivoなどの中国のオリジナル機器メーカー（OEM）
 
 - Androidプッシュ通知でのみ利用可能
 - アクションベースまたはAPIトリガーメッセージではサポートされていません
-- [ユーザーの最後に使用したデバイスにのみ送信する]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#device-options)オプションが選択されている場合はサポートされていません
+- [ユーザーの最後に使用したデバイスにのみ送信する]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#most-recently-used-device)オプションが選択されている場合はサポートされていません
 
 ## 前提条件 {#prerequisites}
 
@@ -36,23 +36,23 @@ Push Maxを使用して送信されたプッシュ通知は、少なくとも以
 ## Push Maxの使用 {#using-push-max}
 
 {% tabs %}
-{% tab Campaigns %}
+{% tab キャンペーン %}
 
-CampaignsでPush Maxを使用するには：
+キャンペーンでPush Maxを使用するには：
 
-1. プッシュCampaignを作成します。
+1. プッシュキャンペーンを作成します。
 2. プラットフォームとして**Android Push**を選択します。
-3. **Schedule Delivery**ステップに移動します。
+3. **配信をスケジュール**ステップに移動します。
 4. **Send using Push Max**を選択します。
 
-![Schedule DeliveryステップのAndroid Push Deliverabilityセクション。「Send using Push Max」オプションが表示されています。]({% image_buster /assets/img_archive/push_max_campaigns.png %})
+![配信をスケジュールステップのAndroid Push Deliverabilityセクション。「Send using Push Max」オプションが表示されています。]({% image_buster /assets/img_archive/push_max_campaigns.png %})
 
 {% endtab %}
-{% tab Canvas %}
+{% tab キャンバス %}
 
-CanvasでPush Maxを使用するには：
+キャンバスでPush Maxを使用するには：
 
-1. Canvasにメッセージステップを追加します。
+1. キャンバスにメッセージステップを追加します。
 2. プラットフォームとして**Android Push**を選択します。
 3. **Delivery Settings**タブに移動します。
 4. **Send using Push Max**を選択します。
@@ -72,7 +72,7 @@ Push Maxは、[インテリジェントタイミング]({{site.baseurl}}/user_gu
 
 Time to Live（TTL）は、Firebase Cloud Messaging（FCM）への失敗したプッシュ通知を追跡し、ユーザーが受信しやすいタイミングで通知を再試行できます。
 
-デフォルトでは、Time to Liveは最大値である28日に設定されています。すべての新しいAndroidプッシュメッセージのデフォルトTTLは、**設定** > **ワークスペース設定** > **プッシュ設定**から短縮できます。また、Androidプッシュ通知を作成する際に**Settings**タブでメッセージごとに日数を設定することもできます。
+デフォルトでは、Time to Liveは最大値である28日に設定されています。すべての新しいAndroidプッシュメッセージのデフォルトTTLは、**設定** > **ワークスペース設定** > **プッシュ設定**から短縮できます。また、Androidプッシュ通知を作成する際に**設定**タブでメッセージごとに日数を設定することもできます。
 
 ![Time to Liveフィールドが28日に設定されています。]({% image_buster /assets/img_archive/time_to_live.png %}){: style="max-width:60%"}
 
@@ -84,6 +84,6 @@ Push Maxがオンになっているメッセージでは、Brazeの[プロモー
 
 プロモーションコードはユニークであるためです。プロモーションコードを含むプッシュ通知の配信に失敗した場合、Push Maxによってその通知が再送信される際に、新しいプロモーションコードが送信されます。これにより、プロモーションコードが予想よりも早く消費される可能性があります。
 
-### Canvasイベントプロパティとエントリプロパティ {#canvas-event-properties-and-entry-properties}
+### キャンバスのイベントプロパティとエントリプロパティ {#canvas-event-properties-and-entry-properties}
 
-メッセージに[Canvasエントリプロパティまたはイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)へのLiquid参照を含めると、Push Maxが期待どおりに動作しない場合があります。これは、Push Maxがメッセージの再送信を試みる際に、エントリプロパティとイベントプロパティが利用できないためです。
+メッセージに[キャンバスのエントリプロパティまたはイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)へのLiquid参照を含めると、Push Maxが期待どおりに動作しない場合があります。これは、Push Maxがメッセージの再送信を試みる際に、エントリプロパティとイベントプロパティが利用できないためです。

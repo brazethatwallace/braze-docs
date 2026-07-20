@@ -63,9 +63,9 @@ Geben Sie den Hauptinhalt Ihrer Nachricht ein und personalisieren Sie den Text n
 
 Sie können überall dort Personalisierung hinzufügen, wo der **+**-Plus-Button erscheint. Nicht alle Felder unterstützen Personalisierung.
 
-#### Footer (optional) {#footer-optional}
+#### Fußzeile (optional) {#footer-optional}
 
-Fügen Sie einen kurzen Footer hinzu, der unter dem Nachrichtentext erscheint.
+Fügen Sie eine kurze Fußzeile hinzu, die unter dem Nachrichtentext erscheint.
 
 #### Buttons (optional) {#buttons-optional}
 
@@ -96,9 +96,9 @@ Wählen Sie **Senden**, um Ihr Template zur Überprüfung an Meta zu senden. Die
 
 Im WhatsApp-Template-Builder werden derzeit nur Marketing-Templates unterstützt.
 
-## Ein genehmigtes Template in einer Kampagne verwenden {#use-an-approved-template-in-a-campaign}
+## Ein genehmigtes Template in einer Campaign verwenden {#use-an-approved-template-in-a-campaign}
 
-Nachdem Meta Ihr Template genehmigt hat, können Sie es in einer WhatsApp-Kampagne oder einem Canvas verwenden.
+Nachdem Meta Ihr Template genehmigt hat, können Sie es in einer WhatsApp-Campaign oder einem Canvas verwenden.
 
 1. Gehen Sie zu **Campaigns** und wählen Sie **Kampagne erstellen** > **WhatsApp**.
 2. Wählen Sie im Nachrichten-Editor Ihr genehmigtes Template aus.
@@ -106,7 +106,7 @@ Nachdem Meta Ihr Template genehmigt hat, können Sie es in einer WhatsApp-Kampag
 4. Aktualisieren Sie bei Bedarf variable Inhalte oder Personalisierungen. Von Meta gesperrte Felder (grau dargestellt) können nicht bearbeitet werden. Um gesperrte Inhalte zu ändern, müssen Sie das Template bearbeiten und erneut zur Genehmigung einreichen.
 5. Verwenden Sie den Tab **Test**, um eine Vorschau der Nachricht anzuzeigen, Text-Variablen zu aktualisieren und zu bestätigen, dass die Nachricht vor dem Start wie erwartet aussieht.
 
-Weitere Informationen zum Erstellen von WhatsApp-Kampagnen finden Sie unter [WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
+Weitere Informationen zum Erstellen von WhatsApp-Campaigns finden Sie unter [WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -116,7 +116,7 @@ Weitere Informationen zum Erstellen von WhatsApp-Kampagnen finden Sie unter [Wha
 
 ### Kann ich ein Template nach der Genehmigung bearbeiten? {#can-i-edit-a-template-after-its-been-approved}
 
-Alle Änderungen an gesperrten Inhalten (Textkörper oder andere von Meta kontrollierte Felder) erfordern eine erneute Einreichung des Templates zur Genehmigung, die über den WhatsApp Business Manager erfolgen muss. Sie können Inhalte und Personalisierungen beim Erstellen Ihrer Kampagne oder Ihres Canvas aktualisieren.
+Alle Änderungen an gesperrten Inhalten (Textkörper oder andere von Meta kontrollierte Felder) erfordern eine erneute Einreichung des Templates zur Genehmigung, die über den WhatsApp Business Manager erfolgen muss. Sie können Inhalte und Personalisierungen beim Erstellen Ihrer Campaign oder Ihres Canvas aktualisieren.
 
 ### Was passiert mit Templates, die ich vor der Verfügbarkeit des Template Builders eingereicht habe? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 

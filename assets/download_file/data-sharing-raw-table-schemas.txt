@@ -499,6 +499,21 @@ USERS_CANVAS_CONVERSION_SHARED: when a user converts for a Canvas
 	CONVERSION_BEHAVIOR (VARCHAR(16777216)): JSON-encoded string describing the conversion behavior
 	SF_CREATED_AT (TIMESTAMP_LTZ(9)): when this event was picked up by the Snowpipe
 
+USERS_CANVAS_COSTEP_SEND_SHARED: The canvas sends for content optimization canvas step
+	APP_GROUP_API_ID (VARCHAR(16777216)): API ID of the app group this user belongs to
+	APP_GROUP_ID (VARCHAR(16777216)): BSON ID of the app group this user belongs to
+	EXTERNAL_USER_ID (VARCHAR(16777216)): [PII] External ID of the user
+	ID (VARCHAR(16777216)): Globally unique ID for this event
+	TIME (NUMBER(38,0)): UNIX timestamp at which the event happened
+	USER_ID (VARCHAR(16777216)): [PII] Braze user ID of the user who performed this event
+	DISPATCH_ID (VARCHAR(16777216)): ID of the dispatch this message belongs to
+	CHANNEL (VARCHAR(16777216)): Channel this event belongs to
+	CANVAS_ID (VARCHAR(16777216)): BSON ID of the Canvas this event belongs to
+	CANVAS_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas variation this event belongs to
+	CONTENT_OPTIMIZER_STEP_ID (VARCHAR(16777216)): CO step internal ID
+	COMBINATION_TOKEN (VARCHAR(16777216)): Component combination assigned
+	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
+
 USERS_CANVAS_ENTRY_SHARED: when a user enters a Canvas
 	ID (VARCHAR(16777216)): Globally unique ID for this event
 	USER_ID (VARCHAR(16777216)): [PII] Braze user ID of the user who performed this event
@@ -2069,6 +2084,7 @@ USERS_MESSAGES_RCS_ABORT_SHARED: An event that is created when an RCS send is in
 	CANVAS_STEP_API_ID (VARCHAR(16777216)): API ID of the Canvas step this event belongs to
 	CANVAS_STEP_MESSAGE_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas step message variation this user received
 	CAMPAIGN_API_ID (VARCHAR(16777216)): API ID of the campaign this event belongs to
+	CANVAS_API_ID (VARCHAR(16777216)): API ID of the Canvas this event belongs to
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_RCS_CLICK_SHARED: An event that is created when the end user interacts with an RCS message in a way that involves tapping or clicking on a UI element
@@ -2101,6 +2117,7 @@ USERS_MESSAGES_RCS_CLICK_SHARED: An event that is created when the end user inte
 	URL (VARCHAR(16777216)): URL that the user clicked on
 	SUBSCRIPTION_GROUP_API_ID (VARCHAR(16777216)): Subscription group API ID
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
+	CANVAS_API_ID (VARCHAR(16777216)): API ID of the Canvas this event belongs to
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_RCS_DELIVERY_SHARED: An event that is created when an RCS message is successfully delivered to an end user's mobile device
@@ -2127,6 +2144,7 @@ USERS_MESSAGES_RCS_DELIVERY_SHARED: An event that is created when an RCS message
 	CANVAS_STEP_MESSAGE_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas step message variation this user received
 	CAMPAIGN_API_ID (VARCHAR(16777216)): API ID of the campaign this event belongs to
 	FROM_RCS_SENDER (VARCHAR(16777216)): The RCS sender ID or agent name used to send the message
+	CANVAS_API_ID (VARCHAR(16777216)): API ID of the Canvas this event belongs to
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED: An event that is created when Braze receives an RCS message that originates from the end user.
@@ -2155,6 +2173,7 @@ USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED: An event that is created when Braze re
 	CAMPAIGN_API_ID (VARCHAR(16777216)): API ID of the campaign this event belongs to
 	CAMPAIGN_ID (VARCHAR(16777216)): BSON ID of the campaign this event belongs to
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
+	CANVAS_API_ID (VARCHAR(16777216)): API ID of the Canvas this event belongs to
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_RCS_READ_SHARED: An event that is created when the end user opens an RCS message on their device, indicating that they have seen/read the message content
@@ -2176,6 +2195,7 @@ USERS_MESSAGES_RCS_READ_SHARED: An event that is created when the end user opens
 	CANVAS_STEP_API_ID (VARCHAR(16777216)): API ID of the Canvas step this event belongs to
 	CANVAS_STEP_MESSAGE_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas step message variation this user received
 	CAMPAIGN_API_ID (VARCHAR(16777216)): API ID of the campaign this event belongs to
+	CANVAS_API_ID (VARCHAR(16777216)): API ID of the Canvas this event belongs to
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_RCS_REJECTION_SHARED: An event that is created when an RCS message fails to be delivered to an end user's mobile device due to intervention by the carrier
@@ -2205,6 +2225,7 @@ USERS_MESSAGES_RCS_REJECTION_SHARED: An event that is created when an RCS messag
 	TO_PHONE_NUMBER (VARCHAR(16777216)): [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)
 	CAMPAIGN_API_ID (VARCHAR(16777216)): API ID of the campaign this event belongs to
 	CANVAS_STEP_MESSAGE_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas step message variation this user received
+	CANVAS_API_ID (VARCHAR(16777216)): API ID of the Canvas this event belongs to
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_RCS_SEND_SHARED: An event that is created when an RCS messages is sent out of Braze's systems to our last-mile delivery partners
@@ -2233,6 +2254,7 @@ USERS_MESSAGES_RCS_SEND_SHARED: An event that is created when an RCS messages is
 	CANVAS_STEP_MESSAGE_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas step message variation this user received
 	CANVAS_STEP_API_ID (VARCHAR(16777216)): API ID of the Canvas step this event belongs to
 	CAMPAIGN_API_ID (VARCHAR(16777216)): API ID of the campaign this event belongs to
+	CANVAS_API_ID (VARCHAR(16777216)): API ID of the Canvas this event belongs to
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_SMS_ABORT_SHARED: An originally scheduled sms message was aborted for some reason.

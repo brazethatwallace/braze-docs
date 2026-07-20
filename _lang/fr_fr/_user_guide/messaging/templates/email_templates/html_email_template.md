@@ -12,7 +12,7 @@ channel:
 
 # Télécharger un modèle d'e-mail HTML {#upload-an-html-email-template}
 
-> Le tableau de bord de Braze vous permet de télécharger vos propres modèles d'e-mail HTML et de les enregistrer pour une utilisation ultérieure dans des campagnes. Vous pouvez également [créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) à l'aide de notre éditeur.
+> Le tableau de bord de Braze vous permet de télécharger vos propres modèles d'e-mail HTML et de les enregistrer pour une utilisation ultérieure dans des campagnes. Vous pouvez également [créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) à l'aide de notre éditeur.
 
 ## Conditions requises {#upload-requirements}
 
@@ -31,11 +31,11 @@ Accédez à **Content** > **Email**. Sélectionnez **Create email template**.
 
 ### Étape 2 : Ajouter les détails du modèle {#step-2-add-template-details}
 
-Indiquez un nom de modèle. Vous pouvez éventuellement ajouter une description, des équipes et des étiquettes.
+Indiquez un nom de modèle. Vous pouvez éventuellement ajouter une description, des équipes et des tags.
 
 ### Étape 3 : Télécharger votre modèle {#step-3-upload-your-template}
 
-Dans la section **Template content**, sélectionnez **Upload file** sous la tuile **HTML code editor**. Sélectionnez votre modèle depuis votre ordinateur. Consultez la section [Conditions requises](#upload-requirements) pour vous assurer que votre modèle respecte les exigences de téléchargement.
+Dans la section **Template content**, sélectionnez **Upload file**. Sélectionnez votre modèle depuis votre ordinateur. Consultez la section [Conditions requises](#upload-requirements) pour vous assurer que votre modèle respecte les exigences de téléchargement.
 
 ### Étape 4 : Finaliser et enregistrer votre modèle {#step-4-finish-and-save-your-template}
 
@@ -53,7 +53,7 @@ Pour utiliser votre e-mail dans une campagne API, vous avez besoin de l'`email_t
 
 ## Gérer les modèles d'e-mail {#managing-email-templates}
 
-Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) des modèles d'e-mail ! Pour en savoir plus sur la création et la gestion des modèles et du contenu créatif, consultez la page [Modèles]({{site.baseurl}}/user_guide/messaging/templates/).
+Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) des modèles d'e-mail ! Pour en savoir plus sur la création et la gestion des modèles et du contenu créatif, consultez la page [Modèles]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Résolution des problèmes {#troubleshooting}
 
@@ -74,4 +74,4 @@ Notez que lors du téléchargement des fichiers pour des campagnes HTML, des ét
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
-Pour obtenir des réponses aux questions fréquemment posées sur les modèles d'e-mail, consultez notre page [FAQ sur les modèles d'e-mail et de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Pour obtenir des réponses aux questions fréquemment posées sur les modèles d'e-mail, consultez notre page [FAQ sur les modèles d'e-mail et de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

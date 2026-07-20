@@ -44,7 +44,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [cronograma de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) e especifique uma postergação conforme necessário.
+3. Escolha um [cronograma de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) e especifique uma postergação conforme necessário.
 4. Filtre seu público para esta etapa, se necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
@@ -52,7 +52,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 {% endtabs %}
 
 {% alert tip %}
-Se você planeja criar HTML personalizado e precisa que os fundos permaneçam consistentes no app móvel do Gmail com o modo escuro do dispositivo ativado, consulte [App móvel do Gmail e cores de fundo no modo escuro](#gmail-dark-mode).
+Se você planeja criar HTML personalizado e precisa que os fundos permaneçam consistentes no app móvel do Gmail com o modo escuro do dispositivo ativado, consulte [App móvel do Gmail e modo escuro](#gmail-dark-mode).
 {% endalert %}
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='email html editor' %}
@@ -63,7 +63,7 @@ A Braze oferece duas experiências de edição ao criar uma campanha de e-mail: 
 
 ![Escolhendo entre o editor de arrastar e soltar, o editor de HTML ou modelos para sua experiência de edição de e-mail.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-Depois, você pode selecionar um [modelo de e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template) existente, [fazer upload de um modelo]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) a partir de um arquivo (somente editor de HTML) ou usar um modelo em branco.
+Depois, você pode selecionar um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) existente, [fazer upload de um modelo]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) a partir de um arquivo (somente editor de HTML) ou usar um modelo em branco.
 
 Se você usar o editor de HTML e precisar que as cores de fundo permaneçam consistentes no app móvel do Gmail quando o dispositivo estiver no modo escuro, consulte [App móvel do Gmail e cores de fundo no modo escuro](#gmail-dark-mode).
 
@@ -112,7 +112,7 @@ Substitua `#ffffff` pela cor desejada.
 
 {% alert note %}
 Essa abordagem não se aplica de forma confiável apenas a elementos `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`, então defina o gradiente na célula em vez de apenas na tabela.
-  <caption>Gmail mobile app and dark mode</caption>
+  <caption>App móvel do Gmail e modo escuro</caption>
 {% endalert %}
 
 Para mais informações sobre a sintaxe de gradientes, consulte [Gradientes CSS no W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -124,7 +124,7 @@ Depois de terminar de projetar e construir sua mensagem de e-mail, adicione suas
 1. Em **Sending Info**, selecione um e-mail como **From Display Name + Address**. Você também pode personalizar isso selecionando **Customize From Display Name + Address**.
 2. Selecione um e-mail como **Reply-To Address**. Você também pode personalizar isso selecionando **Customize Reply-To Address**.
 3. Em seguida, selecione um e-mail como **BCC Address** para tornar seu e-mail visível para esse endereço.
-4. Adicione uma linha de assunto ao seu e-mail. Opcionalmente, você também pode adicionar um pré-cabeçalho e um espaço em branco após o pré-cabeçalho.
+4. Adicione uma linha de assunto ao seu e-mail. Opcionalmente, você também pode adicionar um pré-cabeçalho. Para adicionar espaço em branco após o pré-cabeçalho, marque a caixa de seleção **Add whitespace after preheader**.
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -134,7 +134,7 @@ Uma pré-visualização no painel à direita será preenchida com as informaçõ
 
 Em **Sending Settings** > **Advanced**, ative **inline CSS** para o suporte mais amplo de clientes. Se as mensagens forem cortadas ou as imagens se esticarem até a altura da linha, tente desativar o inline CSS **temporariamente**. Alguns modelos funcionam melhor sem inlining.
 
-Você também pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail para enviar dados adicionais de volta para outros prestadores de serviço de e-mail.
+Você também pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail para enviar dados adicionais de volta para outros provedores de serviços de e-mail.
 
 ##### Anexos de e-mail {#email-attachments}
 
@@ -201,7 +201,7 @@ Evite usar as seguintes chaves:
 
 ##### Adicionando extras de e-mail {#adding-email-extras}
 
-Os extras de e-mail permitem enviar dados adicionais de volta para outros prestadores de serviço de e-mail. Isso é aplicável apenas para casos de uso avançados, então você só deve usar extras de e-mail se sua empresa já tiver isso configurado.
+Os extras de e-mail permitem enviar dados adicionais de volta para outros provedores de serviços de e-mail. Isso é aplicável apenas para casos de uso avançados, então você só deve usar extras de e-mail se sua empresa já tiver isso configurado.
 
 Para adicionar extras de e-mail, acesse **Sending Info** e selecione **Add New Extra**.
 
@@ -233,7 +233,7 @@ Se você encontrar algum problema com seu e-mail ou quiser fazer alterações, s
 
 {% alert tip %}
 Clientes de e-mail que suportam texto de pré-visualização sempre puxam caracteres suficientes para preencher todo o espaço disponível de texto de pré-visualização. No entanto, isso pode deixá-lo em situações onde o texto de pré-visualização está incompleto ou não otimizado.
-<br><br>Para evitar isso, você pode criar espaço em branco após o texto de pré-visualização desejado para que os clientes de e-mail não puxem outros textos ou caracteres que distraiam para o conteúdo do envelope. Para isso, adicione uma cadeia de zero-width non-joiners (‌`&zwnj;`) e espaços não quebráveis (`&nbsp;`) após o texto de pré-visualização que você deseja exibir. <br><br>Quando adicionado ao final do seu texto de pré-visualização na seção de pré-cabeçalho, o seguinte trecho de código para o editor de HTML adicionará o espaço em branco que você procura:<br><br>
+<br><br>Para evitar isso, você pode criar espaço em branco após o texto de pré-visualização desejado para que os clientes de e-mail não puxem outros textos ou caracteres que distraiam para o conteúdo do envelope. Na seção **Sending Settings**, você pode marcar a caixa de seleção **Add whitespace after preheader** para adicionar espaço em branco automaticamente. <br><br>Como alternativa, se precisar de mais controle, você pode adicionar manualmente uma cadeia de zero-width non-joiners (‌`&zwnj;`) e espaços não quebráveis (`&nbsp;`) após o texto de pré-visualização que você deseja exibir. <br><br>Quando adicionado ao final do seu texto de pré-visualização na seção de pré-cabeçalho, o seguinte trecho de código para o editor de HTML adicionará o espaço em branco que você procura:<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
@@ -275,7 +275,7 @@ Entregue e-mails com base em um horário programado, uma ação ou um gatilho de
 Para Campaigns disparadas por API, quando a ação-gatilho é definida como **Interact With Campaign**, selecionar uma opção **Receive** como interação fará com que sua nova campanha seja disparada assim que a Braze marcar a campanha selecionada como enviada, mesmo que essa mensagem sofra bounce ou falhe na entrega.
 {% endalert %}
 
-Você também pode definir a duração da campanha, especificar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) e definir regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+Você também pode definir a duração da campanha, especificar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) e definir regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Escolha os usuários-alvo {#choose-users-to-target}
 
@@ -314,11 +314,11 @@ A Braze permite rastrear com que frequência os usuários realizam ações espec
 - Realiza um evento personalizado específico
 - Abre o e-mail
 
-Você pode permitir um período de até 30 dias durante o qual a Braze conta uma conversão se o usuário realizar a ação especificada. Embora a Braze rastreie aberturas e cliques automaticamente, você pode definir o evento de conversão como uma abertura ou clique para usar a [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
+Você pode permitir um período de até 30 dias durante o qual a Braze conta uma conversão se o usuário realizar a ação especificada. Embora a Braze rastreie aberturas e cliques automaticamente, você pode definir o evento de conversão como uma abertura ou clique para usar a [seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 {% endtab %}
 
 {% tab Canvas %}
-Se ainda não o fez, conclua as seções restantes dos seus componentes de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes dos seus componentes de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) da nossa documentação de Canvas.
 {% endtab %}
 {% endtabs %}
 

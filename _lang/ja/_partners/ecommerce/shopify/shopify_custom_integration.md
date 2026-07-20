@@ -51,13 +51,13 @@ Brazeで、**設定** > **アプリ設定**に移動し、**Add app**を選択�
 まず、Braze Web SDKを初期化します。NPMパッケージをインストールすることをお勧めします。
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
 
 {% alert important %}
-Braze Web SDKバージョンは5.4.0である必要があります。
+Braze Web SDKバージョンは5.4.0以降である必要があります。
 {% endalert %}
 
 次に、最上位キーとして[この設定]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)を `vite.config.js` ファイルに含めます。
@@ -732,14 +732,14 @@ Brazeは、external IDのJSONを返す `200` ステータスコードを期待�
 
 Shopifyからメールまたは SMSマーケティングのオプトインを収集するオプションもあります。
 
-メールやSMSチャネルを使用している場合、メールやSMSマーケティングのオプトイン状態をBrazeに同期できます。ShopifyからメールマーケティングオプトインをBrazeに同期すると、Brazeはその特定のストアに関連付けられたすべてのユーザーのメールサブスクリプショングループを自動的に作成します。このサブスクリプショングループに一意の名前を作成する必要があります。
+メールやSMSチャネルを使用している場合、メールやSMSマーケティングのオプトイン状態をBrazeに同期できます。ShopifyからメールマーケティングオプトインをBrazeに同期すると、Brazeはその特定のストアに関連付けられたすべてのユーザーのメール購読グループを自動的に作成します。この購読グループに一意の名前を作成する必要があります。
 
 ![メールまたはSMSマーケティングのオプトインを収集するオプションがある「サブスクライバーの収集」セクション。]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
-[Shopify概要]({{site.baseurl}}/shopify_overview)で説明されているように、サードパーティ製のキャプチャフォームを使用する場合は、開発者がBraze SDKコードを統合する必要があります。これにより、フォーム送信からメールアドレスとグローバルメールサブスクリプションステータスをキャプチャできます。具体的には、`theme.liquid` ファイルに以下のメソッドを実装してテストする必要があります。<br><br>
+[Shopify概要]({{site.baseurl}}/shopify_overview)で説明されているように、サードパーティ製のキャプチャフォームを使用する場合は、開発者がBraze SDKコードを統合する必要があります。これにより、フォーム送信からメールアドレスとグローバルメール購読ステータスをキャプチャできます。具体的には、`theme.liquid` ファイルに以下のメソッドを実装してテストする必要があります。<br><br>
 - [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): ユーザープロファイルにメールアドレスを設定します
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): グローバルメールサブスクリプションステータスを更新します
+- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): グローバルメール購読ステータスを更新します
 {% endalert %}
 
 ### ステップ7: 商品を同期する（オプション） {#step-7-sync-products-optional}
@@ -752,8 +752,8 @@ Shopifyストアの全商品をBrazeカタログに同期し、より詳細な�
 
 Shopify直接統合を使用してIn-App Messages、Content Cards、およびフィーチャーフラグを有効にするには、各チャネルをSDKに追加します。以下の各チャネルのドキュメントリンクに従ってください。
 
-- **In-App Messages:** リード獲得フォームのユースケースでアプリ内メッセージを有効にするには、[In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages) を参照してください。
-- **Content Cards:** 受信トレイやWebサイトバナーのユースケースでContent Cardsを有効にするには、[Content Cards]({{site.baseurl}}/developer_guide/content_cards) を参照してください。
+- **In-App Messages:** リード獲得フォームのユースケースでアプリ内メッセージを有効にするには、[In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages)を参照してください。
+- **Content Cards:** 受信トレイやWebサイトバナーのユースケースでContent Cardsを有効にするには、[Content Cards]({{site.baseurl}}/developer_guide/content_cards)を参照してください。
 - **フィーチャーフラグ:** サイト実験のユースケースでフィーチャーフラグを有効にするには、[フィーチャーフラグ]({{site.baseurl}}/developer_guide/feature_flags)を参照してください。
 
 ### ステップ9: 設定を完了する {#step-9-finish-setup}

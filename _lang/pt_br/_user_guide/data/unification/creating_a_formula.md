@@ -21,11 +21,11 @@ A seguir, alguns exemplos dos tipos de padrões de comportamento que podem ser d
 
 - **Apps de viagem por aplicativo:** Se você tiver um evento personalizado para quando o usuário cancelar uma viagem, poderá configurar uma função para Canceled Rides / DAU para descobrir se determinados segmentos de usuários tendem a cancelar mais viagens do que outros.
 - **Apps de e-commerce:** Ao configurar uma função para compras de um determinado ID de produto / MAU, você pode comparar a popularidade de um produto promovido recentemente entre segmentos, mesmo que todas as promoções não possam ser rastreadas usando a Braze.
-- **Apps de mídia que usam anúncios:** Se a experiência dos usuários for interrompida por anúncios entre clipes de vídeo ou áudio, registrar as saídas no meio do anúncio como um evento personalizado e calcular a proporção de saídas no meio do anúncio / DAU pode ajudar a encontrar os melhores segmentos para direcionamento com uma campanha de inscrições premium sem anúncios.
+- **Apps de mídia que usam anúncios:** Se a experiência dos usuários for interrompida por anúncios entre clipes de vídeo ou áudio, registrar as saídas no meio do anúncio como um evento personalizado e calcular a proporção de saídas no meio do anúncio / DAU pode ajudar a encontrar os melhores segmentos para direcionamento com uma Campaign de inscrições premium sem anúncios.
 
 ## Criação de fórmulas {#creating-formulas}
 
-As fórmulas podem ser acessadas nos painéis de estatísticas nas páginas [Página inicial]({{site.baseurl}}/user_guide/analytics/dashboards/home/), [Relatório de receitas]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) e [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) no dashboard. Para visualizar esse painel, acesse o gráfico **Performance Over Time**, altere o menu suspenso **Statistics For** para **KPI Formulas** e selecione pelo menos uma fórmula de KPI para preencher o gráfico.
+As fórmulas podem ser acessadas nos painéis de estatísticas nas páginas [Página inicial]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Relatório de receitas]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) e [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) no dashboard. Para visualizar esse painel, acesse o gráfico **Performance Over Time**, altere o menu suspenso **Statistics For** para **KPI Formulas** e selecione pelo menos uma fórmula de KPI para preencher o gráfico.
 
 ![Exibir estatísticas para fórmulas de KPI no dashboard da Braze]({% image_buster /assets/img_archive/kpi_forms.png %})
 
@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | Sessões | DAU |
 | | Tamanho do segmento |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de visão geral" }
 
 ### Dashboard de receitas {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | Compras (todas) | DAU |
 | Compras selecionadas (como um cartão-presente ou ID de produto) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de receitas" }
 
 ### Dashboard de eventos personalizados {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | Contagem de eventos personalizados | MAU |
 |  | DAU |
-|  | Tamanho do segmento (somente segmentos que tenham o [rastreamento de análise de dados]({{site.baseurl}}/viewing_and_understanding_segment_data/) ativado podem ser usados) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }
+|  | Tamanho do segmento (somente segmentos que tenham o [rastreamento de análise de dados]({{site.baseurl}}/viewing_and_understanding_segment_data) ativado podem ser usados) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de eventos personalizados" }

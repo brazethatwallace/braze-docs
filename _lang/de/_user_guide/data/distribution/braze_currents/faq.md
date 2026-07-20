@@ -15,21 +15,21 @@ tool: Currents
 
 Um Campaign- oder Canvas-Metriken für einen definierten Zeitraum abzurufen, verwenden Sie einen der folgenden Ansätze:
 
-- Reichen Sie eine [Produktanfrage](https://portal.braze.com/) für datumsbasierte Exporte ein, wenn Sie Dashboard-ähnliche Berichte außerhalb der Standard-API-Zeitfenster benötigen.
-- Rufen Sie die Endpunkte für [Campaign Analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) oder [Canvas Analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) mit den Parametern `ending_at` und `length` auf (oder verwenden Sie [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) und [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/)) für Zeitreihendaten.
-- Streamen Sie Events mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) in Ihr Data Warehouse, wenn Sie fortlaufend abfragbare Nachrichten-Engagement-Daten in Amazon S3, Azure Blob Storage oder einem anderen unterstützten Ziel benötigen.
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
+- Rufen Sie die Endpunkte für [Campaign Analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) oder [Canvas Analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) mit den Parametern `ending_at` und `length` auf (oder verwenden Sie [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) und [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) für Zeitreihendaten.
+- Streamen Sie Events mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) in Ihr Data Warehouse, wenn Sie fortlaufend abfragbare Nachrichten-Engagement-Daten in Amazon S3, Azure Blob Storage oder einem anderen unterstützten Ziel benötigen.
 
 ## Wie bearbeite ich eine aktive Currents-Integration? {#how-do-i-edit-a-live-currents-integration}
 
-Um einen aktiven Currents-Konnektor zu ändern, öffnen Sie die Integration und klicken Sie unten links auf der Seite auf **Bearbeiten**. Ohne **Bearbeiten** bleibt die Integrations-UI schreibgeschützt, und Sie können die Konnektor-Einstellungen nicht allein über die Symbole ändern.
+Um einen aktiven Currents-Konnektor zu ändern, öffnen Sie die Integration und wählen Sie **Bearbeiten**. Ohne **Bearbeiten** bleibt die Integrations-UI schreibgeschützt, und Sie können die Konnektor-Einstellungen nicht allein über die Symbole ändern.
 
 ## Wie geht Braze mit Azure Blob Storage Avro-Dateien nach dem Hochladen um? {#how-does-braze-handle-azure-blob-storage-avro-files-after-upload}
 
-Braze ändert Avro-Dateien in [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) nach Abschluss des Uploads nicht. Azure kann das Löschen eines Blobs blockieren, solange ein Upload noch läuft.
+Braze ändert Avro-Dateien in [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) nach Abschluss des Uploads nicht. Azure kann das Löschen eines Blobs blockieren, solange ein Upload noch läuft.
 
 ## Wie komme ich an historische Daten? {#how-do-i-get-historical-data}
 
-Currents ist ein Realtime-Live-Daten-Stream, d. h. Events können nicht erneut abgespielt werden. Sie können jedoch Currents-Daten in einem Data Warehouse wie [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) oder [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) speichern, sodass Sie nach Belieben auf vergangene Events zugreifen können. Die Daten werden 30 Tage lang aufbewahrt. Für weiter zurückliegende historische Daten können Sie [Snowflake]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake/) abfragen.
+Currents ist ein Realtime-Live-Daten-Stream, d. h. Events können nicht erneut abgespielt werden. Sie können jedoch Currents-Daten in einem Data Warehouse wie [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) oder [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) speichern, sodass Sie nach Belieben auf vergangene Events zugreifen können. Die Daten werden 30 Tage lang aufbewahrt. Für weiter zurückliegende historische Daten können Sie [Snowflake]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake) abfragen.
 
 ## Warum gibt Currents die Daten im Avro-Format und nicht in JSON aus? {#why-does-currents-output-data-in-the-avro-format-not-json}
 
@@ -42,17 +42,17 @@ Wir bauen einen Extract, Transform, Load (ETL)-Prozess auf, mit dem Sie große D
 ## Wo sollte ich diese Daten für Abfragen speichern? {#where-should-i-store-this-data-for-querying}
 
 Braze arbeitet mit mehreren Data Warehouses zusammen, in denen Sie Ihre Daten für Abfragen speichern können. Wir empfehlen:
-- [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)
-- [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)
-- [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/).
+- [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)
+- [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents)
+- [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents).
 
 ## Wie zuverlässig sind Currents-Daten? {#how-reliable-is-currents-data}
 
-Currents garantiert eine „At-least-once“-Zustellung, d. h. doppelte Events können gelegentlich in Ihren Speicher-Bucket geschrieben werden. Wenn Ihr Anwendungsfall eine Exactly-once-Zustellung erfordert, können Sie Events mithilfe des eindeutigen Bezeichnerfelds (`id`) deduplizieren, das mit jedem Event gesendet wird. Weitere Informationen finden Sie unter [Event-Zustellungssemantik]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/).
+Currents garantiert eine „At-least-once“-Zustellung, d. h. doppelte Events können gelegentlich in Ihren Speicher-Bucket geschrieben werden. Wenn Ihr Anwendungsfall eine Exactly-once-Zustellung erfordert, können Sie Events mithilfe des eindeutigen Bezeichnerfelds (`id`) deduplizieren, das mit jedem Event gesendet wird. Weitere Informationen finden Sie unter [Event-Zustellungssemantik]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics).
 
 ## Wie oft werden Daten mit Currents synchronisiert? {#how-often-is-data-synced-to-currents}
 
-Daten werden kontinuierlich gestreamt. Braze sendet einen Batch von Events, sobald ein vollständiger Batch vorliegt oder alle 5 Minuten – je nachdem, was zuerst eintritt. Bei Konnektoren mit hohem Volumen treffen die Daten nahezu in Realtime ein. Bei Konnektoren mit geringem Volumen ist mit einer Verzögerung von 5 bis 30 Minuten zu rechnen. Weitere Informationen finden Sie unter [Avro-Schreibschwellenwert]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/#avro-write-threshold).
+Daten werden kontinuierlich gestreamt. Braze sendet einen Batch von Events, sobald ein vollständiger Batch vorliegt oder alle 5 Minuten – je nachdem, was zuerst eintritt. Bei Konnektoren mit hohem Volumen treffen die Daten nahezu in Realtime ein. Bei Konnektoren mit geringem Volumen ist mit einer Verzögerung von 5 bis 30 Minuten zu rechnen. Weitere Informationen finden Sie unter [Avro-Schreibschwellenwert]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics#avro-write-threshold).
 
 {% alert note %}
 Wenn ein Gerät nicht mit dem Internet verbunden ist, kann es zu einer Verzögerung bei der Erstellung des Events kommen. Dies tritt am häufigsten bei In-App-Nachrichten-Events auf, da In-App-Nachrichten auch offline getriggert werden können.
@@ -60,7 +60,7 @@ Wenn ein Gerät nicht mit dem Internet verbunden ist, kann es zu einer Verzöger
 
 ## Wie finde ich heraus, welche Events für Currents verfügbar sind? {#how-do-i-find-which-events-are-available-for-currents}
 
-Eine vollständige Liste der Events, die Currents protokolliert, finden Sie in den Glossaren [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) und [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). Sie können diese Glossare nach Event-Typ filtern (z. B. Sendungen, Zustellungen oder Öffnungen).
+Eine vollständige Liste der Events, die Currents protokolliert, finden Sie in den Glossaren [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) und [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events). Sie können diese Glossare nach Event-Typ filtern (z. B. Sendungen, Zustellungen oder Öffnungen).
 
 ## Warum stimmen meine Currents-Event-Zahlen nicht mit meinen Dashboard- oder Engagement-Bericht-Metriken überein? {#why-do-my-currents-event-counts-not-match-my-dashboard-or-engagement-report-metrics}
 
@@ -76,7 +76,7 @@ Currents und das Braze-Dashboard berechnen bestimmte Metriken unterschiedlich, s
 
 ## Warum unterscheidet sich die `external_user_id` (Braze-Schema: `external_id`) in meinem Currents-E-Mail-Öffnungs- oder Klick-Event vom Nutzerprofil im Braze-Dashboard? {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
 
-- **Im Braze-Dashboard:** Wenn ein:e Nutzer:in, der/die mit einer E-Mail-Adresse verknüpft ist, eine E-Mail öffnet oder anklickt, werden alle Nutzerprofile, die diese E-Mail-Adresse teilen, als geöffnet bzw. angeklickt markiert. Weitere Informationen finden Sie unter [Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben?]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
+- **Im Braze-Dashboard:** Wenn ein:e Nutzer:in, der/die mit einer E-Mail-Adresse verknüpft ist, eine E-Mail öffnet oder anklickt, werden alle Nutzerprofile, die diese E-Mail-Adresse teilen, als geöffnet bzw. angeklickt markiert. Weitere Informationen finden Sie unter [Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben?]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
 - **In Currents:** Dieselbe Öffnung oder derselbe Klick wird nur einem Profil zugeordnet. Braze ordnet das Event dem Profil zu, das ursprünglich für den Versand ausgewählt wurde, sofern dieses Profil die E-Mail-Adresse noch teilt. Andernfalls ordnet Braze es einem zufällig ausgewählten Profil unter denjenigen zu, die die E-Mail-Adresse teilen.
 
 Aus diesem Grund stimmt der Wert von `external_user_id` (im Braze-Schema-Mapping als `external_id` bezeichnet) eines Currents-E-Mail-Öffnungs- oder Klick-Events möglicherweise nicht mit dem Nutzerprofil überein, das Sie erwarten, wenn Sie Currents mit dem Braze-Dashboard vergleichen.
@@ -95,21 +95,21 @@ Braze füllt Events nicht rückwirkend in Currents auf. Angepasste Events könne
 
 ## Welche Nutzer-Bezeichner sind in Currents-Events enthalten? {#what-user-identifiers-are-included-in-currents-events}
 
-Nachrichten-Engagement-Events (Sendungen, Öffnungen, Klicks usw.) enthalten die Braze-Nutzer-ID (`user_id`) und, sofern im Profil vorhanden, den externen Bezeichner (`external_user_id` in Event-Payloads, im Braze-Schema-Mapping als `external_id` bezeichnet). Einige E-Mail-Nachrichten-Engagement-Events enthalten auch `email_address`. Angepasste Attribute sind nicht enthalten – siehe unten.
+Nachrichten-Engagement-Events (Sendungen, Öffnungen, Klicks usw.) enthalten die Braze-Nutzer-ID (`user_id`) und, sofern im Profil vorhanden, den externen Bezeichner (`external_user_id` in Event-Payloads, im Braze-Schema-Mapping als `external_id` bezeichnet). Einige E-Mail-Nachrichten-Engagement-Events enthalten auch `email_address`. Angepasste Attribute sind nicht enthalten.
 
 Wenn Sie Currents-Daten an ein Data Warehouse oder CRM weiterleiten und mit Profildaten verknüpfen müssen, führen Sie diesen Join in Ihrem nachgelagerten System über `user_id` oder `external_user_id` durch.
 
 ## Kann ich angepasste Attribute in Currents-Sende-Events einbeziehen? {#can-i-include-custom-attributes-in-currents-send-events}
 
-Nein. Currents enthält keine angepassten Attribute in Sende-Events. Currents protokolliert angepasste Events und Nachrichten-Engagement-Events. Eine vollständige Liste der verfügbaren Felder finden Sie in den [Event-Glossaren]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/).
+Nein. Currents enthält keine angepassten Attribute in Sende-Events. Currents protokolliert angepasste Events und Nachrichten-Engagement-Events. Eine vollständige Liste der verfügbaren Felder finden Sie in den [Event-Glossaren]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary).
 
 ## Enthält Currents Campaign- oder Canvas-Tags oder Schlüssel-Wert-Paare? {#does-currents-include-campaign-or-canvas-tags-or-key-value-pairs}
 
-Nein. Currents enthält keine Campaign- oder Canvas-Tags und keine Schlüssel-Wert-Paare auf Nachrichtenebene. Um Tag-Daten abzurufen, verwenden Sie die [Export-REST-API]({{site.baseurl}}/api/endpoints/export/). Als weiteren Workaround können Sie einen Webhook-Kanal in einer Campaign verwenden, um Tag- oder Schlüssel-Wert-Paar-Daten an Ihren eigenen Endpunkt zu senden, und dabei [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) nutzen, um die Werte als Template einzubinden.
+Nein. Currents enthält keine Campaign- oder Canvas-Tags und keine Schlüssel-Wert-Paare auf Nachrichtenebene. Um Tag-Daten abzurufen, verwenden Sie die [Export-REST-API]({{site.baseurl}}/api/endpoints/export). Als weiteren Workaround können Sie einen Webhook-Kanal in einer Campaign verwenden, um Tag- oder Schlüssel-Wert-Paar-Daten an Ihren eigenen Endpunkt zu senden, und dabei [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) nutzen, um die Werte als Template einzubinden.
 
 ## Wie informiert Braze Kund:innen über Änderungen an Currents? {#how-does-braze-notify-customers-of-changes-to-currents}
 
-Wenn Änderungen an Currents vorgenommen werden (z. B. neue Event-Felder oder Event-Typen), sendet Braze eine E-Mail an alle Kund:innen mit aktiven Currents-Integrationen, die das Dashboard in den letzten 30 Tagen genutzt haben. Außerdem können Sie den [Currents-Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/) für die neuesten Änderungen einsehen.
+In dem seltenen Fall, dass Breaking Changes auftreten, sendet Braze vorab eine E-Mail an den Kontakt jeder aktiven Integration sowie an alle Admins mit aktiven Currents-Integrationen, die das Dashboard in den letzten 30 Tagen genutzt haben. Bei nicht-brechenden Änderungen, wie neuen Events oder neuen Feldern zu einem bestehenden Event, sendet Braze keine Benachrichtigung. Die neuesten Änderungen können Sie im [Currents-Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) einsehen.
 
 ## Wie viel Speicherplatz benötige ich für Currents-Daten? {#how-much-storage-do-i-need-for-currents-data}
 
@@ -125,7 +125,7 @@ Sitzungsende-Events folgen dem normalen Upload-Zeitplan des SDK. Das Braze SDK s
 
 Wenn ein:e Nutzer:in die App erzwungen beendet oder offline geht, bevor der nächste Upload stattfindet, kann das Sitzungsende-Event verspätet oder gar nicht eintreffen. Unter iOS werden Sitzungsende-Events oft erst beim erneuten Öffnen der App übertragen, da das SDK keine Daten senden kann, während die App im Hintergrund läuft.
 
-Wenn Sie zeitnähere Sitzungsgrenzen in Currents benötigen, rufen Sie `requestImmediateDataFlush()` an Lifecycle-Punkten auf, z. B. wenn die App in den Hintergrund wechselt oder in den Vordergrund zurückkehrt. Weitere Informationen finden Sie unter [Daten-Upload und -Download]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/#data-upload-and-download) und [Sitzungsende und Sitzungsstart haben ähnliche Zeitstempel (iOS)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/#session-end-and-session-start-have-similar-timestamps-ios).
+Wenn Sie zeitnähere Sitzungsgrenzen in Currents benötigen, rufen Sie `requestImmediateDataFlush()` an Lifecycle-Punkten auf, z. B. wenn die App in den Hintergrund wechselt oder in den Vordergrund zurückkehrt. Weitere Informationen finden Sie unter [Daten-Upload und -Download]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#data-upload-and-download) und [Sitzungsende und Sitzungsstart haben ähnliche Zeitstempel (iOS)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log#session-end-and-session-start-have-similar-timestamps-ios).
 
 ## Was passiert, wenn mein Speicher-Bucket nicht verfügbar ist, wenn Currents versucht, Daten zu schreiben? {#what-happens-if-my-storage-bucket-is-unavailable-when-currents-tries-to-write-data}
 
@@ -137,7 +137,7 @@ Diese Meldung kann erscheinen, wenn Sie eine bestehende Currents-Integration akt
 
 ## Wie oft ändert sich die Currents-Version im Speicherpfad? {#how-often-does-the-currents-version-in-the-storage-path-change}
 
-Das Segment `version=<currents_version>` im Speicherpfad wird mit jedem Currents-Release in einem monatlichen Rhythmus aktualisiert (z. B. von `version=6` auf `version=7`). Wir empfehlen, Dateien rekursiv vom Stammpfad aus zu lesen, anstatt ein bestimmtes Versionssegment fest zu codieren, damit Ihre Pipeline nach einer Versionsänderung automatisch die neuen Daten erfasst. Weitere Informationen zum Pfadformat finden Sie unter [Event-Zustellungssemantik]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/). Eine Übersicht der Änderungen nach Version finden Sie im [Currents-Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/).
+Das Segment `version=<currents_version>` im Speicherpfad wird mit jedem Currents-Release in einem monatlichen Rhythmus aktualisiert (z. B. von `version=6` auf `version=7`). Wir empfehlen, Dateien rekursiv vom Stammpfad aus zu lesen, anstatt ein bestimmtes Versionssegment fest zu codieren, damit Ihre Pipeline nach einer Versionsänderung automatisch die neuen Daten erfasst. Weitere Informationen zum Pfadformat finden Sie unter [Event-Zustellungssemantik]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics). Eine Übersicht der Änderungen nach Version finden Sie im [Currents-Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs).
 
 ## Warum fehlen `campaign_id` oder `canvas_id` in einem Nachrichten-Engagement-Event? {#why-are-campaign_id-or-canvas_id-missing-from-a-message-engagement-event}
 
@@ -145,7 +145,7 @@ Je nach Event-Typ und Kontext ist ein Nachrichten-Engagement-Event möglicherwei
 
 ## Warum sind Currents-Zeitstempel auf Sekundenpräzision beschränkt? {#why-are-currents-timestamps-limited-to-second-precision}
 
-Das Feld `time` in Currents-Events wird als 32-Bit-Ganzzahl gespeichert und ist daher auf Sekundenpräzision beschränkt. Einige Events enthalten zusätzlich ein separates 64-Bit-Zeitstempelfeld mit Millisekunden-Präzision. Welche Felder für den jeweiligen Event-Typ verfügbar sind, erfahren Sie im [Event-Glossar]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/).
+Das Feld `time` in Currents-Events wird als 32-Bit-Ganzzahl gespeichert und ist daher auf Sekundenpräzision beschränkt. Einige Events enthalten zusätzlich ein separates 64-Bit-Zeitstempelfeld mit Millisekunden-Präzision. Welche Felder für den jeweiligen Event-Typ verfügbar sind, erfahren Sie im [Event-Glossar]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary).
 
 ## Warum hat das `users.canvas.Conversion`-Event aus Currents einen anderen Zeitpunkt als das Canvas? {#why-does-the-userscanvasconversion-event-from-currents-have-a-different-time-than-the-canvas}
 

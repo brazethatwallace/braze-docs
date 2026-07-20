@@ -44,10 +44,10 @@ Braze는 먼저 소스 테이블에서 행을 읽은 다음, 선택한 데이터
 - Braze는 `UPDATED_AT`가 마지막으로 동기화된 값보다 이후인 행을 동기화합니다.
 - 새 행이 동일한 타임스탬프를 공유하는 경우 정확한 경계 타임스탬프의 행이 다시 동기화될 수 있습니다.
 
-중복 타임스탬프 및 증분 업데이트에 대한 지침은 [클라우드 데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)를 참조하세요.
+중복 타임스탬프 및 증분 업데이트에 대한 지침은 [클라우드 데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps)를 참조하세요.
 
 {% alert note %}
-파일 스토리지 소스는 다른 설정 요구 사항을 사용하며 `UPDATED_AT`를 지원하지 않습니다. 자세한 내용은 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#required-file-formats)을 참조하세요.
+파일 스토리지 소스는 다른 설정 요구 사항을 사용하며 `UPDATED_AT`를 지원하지 않습니다. 자세한 내용은 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats)을 참조하세요.
 {% endalert %}
 
 ## `PAYLOAD` 열 설정 {#set-up-the-payload-column}
@@ -56,12 +56,12 @@ Braze는 먼저 소스 테이블에서 행을 읽은 다음, 선택한 데이터
 
 | 데이터 유형 | 형식 참조 |
 | --- | --- |
-| `attributes` | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `events` | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOAD 열 설정" }
 
-중첩 속성의 경우 [오브젝트 등록정보로 날짜 캡처]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties)의 형식을 사용하여 날짜를 포함합니다.
+중첩 속성의 경우 [오브젝트 속성으로 날짜 캡처]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties)의 형식을 사용하여 날짜를 포함합니다.
 
 ### 페이로드 예시 {#payload-examples}
 
@@ -97,7 +97,7 @@ Braze는 먼저 소스 테이블에서 행을 읽은 다음, 선택한 데이터
     "time" : "2013-07-16T19:20:45+01:00",
     "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
     }
 }
 ```
@@ -149,6 +149,6 @@ Braze는 먼저 소스 테이블에서 행을 읽은 다음, 선택한 데이터
 
 ## 관련 CDI 설정 문서 {#related-cdi-setup-docs}
 
-- 소스별 DDL 예시는 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)을 참조하세요.
-- 파일 기반 설정은 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)을 참조하세요.
-- 동기화 동작 및 최적화 지침은 [클라우드 데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/)를 참조하세요.
+- 소스별 DDL 예시는 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)을 참조하세요.
+- 파일 기반 설정은 [파일 스토리지 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)을 참조하세요.
+- 동기화 동작 및 최적화 지침은 [클라우드 데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices)를 참조하세요.

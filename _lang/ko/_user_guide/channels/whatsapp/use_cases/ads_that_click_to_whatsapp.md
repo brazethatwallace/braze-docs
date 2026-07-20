@@ -52,7 +52,7 @@ WhatsApp으로 연결되는 광고는 Facebook, Instagram 또는 기타 플랫�
 {: start="4"}
 4. 다음 업데이트 방법 중 하나를 사용하여 고객 프로필의 구독 상태를 업데이트하여 사용자를 옵트인합니다:
     - REST API를 통해 구독 상태를 업데이트하는 Braze-to-Braze 웹훅을 생성합니다.
-    - 고급 JSON 편집기를 사용하여 [WhatsApp Canvas에 대한 사용자의 구독 상태 업데이트]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#whatsapp-opt-in-and-opt-out-process) 템플릿으로 고객 프로필을 업데이트합니다.
+    - 고급 JSON 편집기를 사용하여 [WhatsApp Canvas에 대한 사용자의 구독 상태 업데이트]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process) 템플릿으로 고객 프로필을 업데이트합니다.
 
 ![고급 JSON 편집기를 사용하여 고객 프로필을 업데이트하는 사용자 업데이트 캔버스 단계.]({% image_buster /assets/img/whatsapp/user_update_step_json.png %})
 

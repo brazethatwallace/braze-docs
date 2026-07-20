@@ -25,13 +25,13 @@ Para permitir que os usuários façam opt-in para SMS a partir de uma mensagem n
 
 A Braze recomenda que você também use o recurso de [double opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in). Esse recurso funciona automaticamente com o formulário de captura de número de telefone da mensagem no app, solicitando que os usuários confirmem sua intenção após enviar o número de telefone pelo formulário.
 
-## Opção 3: Fluxo de cadastro {#option-3-sign-up-flow}
+## Opção 3: Fluxo de inscrição {#option-3-sign-up-flow}
 
 Quando um novo usuário se cadastra ou se registra no site ou app, peça o número de telefone e o e-mail. Inclua uma caixa de seleção para receber e-mails e SMS promocionais.
 
-Após o cadastro do usuário, faça o seguinte:
+Após a inscrição do usuário, faça o seguinte:
 
-1. Use o [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status) para criar o usuário e salvar seus atributos.
+1. Use o [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) para criar o usuário e salvar seus atributos.
 
 {% raw %}
 ```http

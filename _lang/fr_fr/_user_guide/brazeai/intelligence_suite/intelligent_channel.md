@@ -16,14 +16,14 @@ search_rank: 11
 
 Dans ce cas, « le meilleur » signifie le canal qui a la plus forte probabilité d'engagement, compte tenu de l'historique de l'utilisateur. Vous pouvez sélectionner l'e-mail, le SMS, WhatsApp, les notifications push Web ou les notifications push mobiles (incluant tout système d'exploitation ou appareil mobile disponible) en tant que canal.
 
-Le canal intelligent calcule le taux d'engagement de chaque utilisateur pour chacun des canaux disponibles en prenant le rapport entre les interactions avec les messages (ouvertures ou clics) et le nombre de messages reçus au cours des six derniers mois d'activité. Les canaux disponibles sont classés selon leurs taux d'engagement respectifs et le canal ayant le rapport le plus élevé est considéré comme celui avec « Le plus d'interactions » pour cet utilisateur.
+Le canal intelligent calcule le taux d'engagement de chaque utilisateur pour chacun des canaux disponibles en prenant le rapport entre les interactions avec les messages (ouvertures ou clics) et le nombre de messages reçus au cours des six derniers mois d'activité. Les canaux disponibles sont classés selon leurs taux d'engagement respectifs et le canal ayant le rapport le plus élevé est considéré comme celui avec « le plus d'interactions » pour cet utilisateur.
 
 Chaque fois qu'un message est envoyé à un utilisateur ou qu'un utilisateur interagit avec un message, le taux d'engagement est recalculé en quelques secondes. Un utilisateur ne peut être compté comme ayant interagi avec un message qu'une seule fois (par exemple, une ouverture et un clic sur le même e-mail feront que ce message sera marqué comme ayant généré une interaction une seule fois, et non deux).
 
-Pour activer le filtre de canal intelligent, sélectionnez le filtre **Intelligent Channel** sur la page **Audiences cibles** lors de la création d'une campagne d'e-mail, de notification push Web ou de notification push mobile.
+Pour activer le filtre de canal intelligent, sélectionnez le filtre **Intelligent Channel** sur la page **Audiences cibles** lors de la création d'une Campaign d'e-mail, de notification push Web ou de notification push mobile.
 
 {% alert important %}
-Pour calculer le taux d'engagement du canal SMS, activez le [raccourcissement des liens SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview) avec suivi avancé et suivi des clics. Sans ce suivi, le SMS peut être sélectionné comme canal intelligent avec un taux d'engagement de 0 % en raison de notre [comportement de départage]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
+Pour calculer le taux d'engagement du canal SMS, activez le [raccourcissement des liens SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) avec suivi avancé et suivi des clics. Sans ce suivi, le SMS peut être sélectionné comme canal intelligent avec un taux d'engagement de 0 % en raison de notre [comportement de départage]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
 {% endalert %}
 
 ## Option « Données insuffisantes » {#the-not-enough-data-option}
@@ -32,7 +32,7 @@ Pour que Braze détermine quel canal est « le meilleur », il doit disposer de 
 
 Si les utilisateurs n'ont pas reçu suffisamment de messages sur les différents canaux, ils basculeront dans l'option « Not Enough Data » de ce filtre. Cela vous permet d'utiliser n'importe lequel des trois canaux de communication disponibles pour cibler ces utilisateurs.
 
-Supposons par exemple que vous souhaitiez que les utilisateurs qui préfèrent les notifications push en reçoivent et que les utilisateurs ne disposant pas de données suffisantes reçoivent le même message push. Dans ce cas, vous pourriez définir le filtre de canal intelligent sur **Mobile push** et utiliser **OR** pour ajouter un second filtre de canal intelligent défini sur **Not Enough Data**. Une campagne séparée avec le filtre de canal intelligent réglé sur l'e-mail pourrait cibler les utilisateurs qui préfèrent ce canal.
+Supposons par exemple que vous souhaitiez que les utilisateurs qui préfèrent les notifications push en reçoivent et que les utilisateurs ne disposant pas de données suffisantes reçoivent le même message push. Dans ce cas, vous pourriez définir le filtre de canal intelligent sur **Mobile push** et utiliser **OR** pour ajouter un second filtre de canal intelligent défini sur **Not Enough Data**. Une Campaign séparée avec le filtre de canal intelligent réglé sur l'e-mail pourrait cibler les utilisateurs qui préfèrent ce canal.
 
 ![Filtres de canal intelligents pour les notifications push mobiles ou en cas de données insuffisantes.]({% image_buster /assets/img/intelligent_example.png %}){:style="border:none"}
 

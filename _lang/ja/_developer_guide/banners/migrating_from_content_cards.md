@@ -1,7 +1,7 @@
 ---
 nav_title: "Content Cardsから移行する"
 article_title: "Content Cardsからバナーへ移行する"
-description: "Content Cardsからバナーへの移行方法を学びます。サポートされている全SDKのコード例、制限事項、利点を含みます。"
+description: "Content Cardsからバナーへの移行方法について、サポートされている全SDKのコード例、制限事項、利点を含めて説明します。"
 page_order: 5
 toc_headers: h2
 channel:
@@ -18,13 +18,13 @@ platform:
 
 > このガイドは、バナー形式のメッセージングユースケースにおいて、Content Cardsからバナーへの移行を支援するものです。バナーは、アプリケーション内の特定の配置に表示される、インラインで持続的なアプリ内メッセージおよびWebメッセージに最適です。
 
-## なぜバナーに移行するのか？ {#why-migrate-to-banners}
+## なぜバナーに移行するのか {#why-migrate-to-banners}
 
-- エンジニアリングチームがカスタムContent Cardsを構築または保守している場合、バナーへの移行によりその継続的な投資を削減できます。バナーはマーケターがUIを直接コントロールできるようにし、開発者を他の作業に解放します。
+- 開発チームがカスタムContent Cardsを構築または保守している場合、バナーへの移行によりその継続的な投資を削減できます。バナーはマーケターがUIを直接コントロールできるようにし、開発者を他の作業に解放します。
 - 新しいホームページメッセージやオンボーディングフロー、常時表示の告知を立ち上げる場合は、Content Cardsで構築するよりバナーから始めましょう。リアルタイムのパーソナライゼーション、30日間の有効期限なし、サイズ制限なし、そしてネイティブな優先順位付けを導入初日から活用できます。
 - 30日間の有効期限制限を回避する必要がある場合、複雑な再適格性ロジックを管理している場合、あるいは陳腐化したパーソナライゼーションに悩まされている場合、バナーはこれらの問題をネイティブに解決します。
 
-バナーは、バナー形式のメッセージングにおいてContent Cardsよりもいくつかの利点があります：
+バナーは、バナー形式のメッセージングにおいてContent Cardsよりもいくつかの利点があります。
 
 ### 制作の加速 {#accelerated-production}
 
@@ -39,7 +39,7 @@ platform:
 
 ### 永続性 {#persistence}
 
-- **有効期限なし**：バナーCampaignsにはContent Cardsのような30日間の有効期限がないため、メッセージを真に永続的に表示できます。
+- **有効期限なし**：バナーキャンペーンにはContent Cardsのような30日間の有効期限がないため、メッセージを真に永続的に表示できます。
 
 ## 移行するタイミング {#when-to-migrate}
 
@@ -55,8 +55,8 @@ platform:
 以下が必要な場合は、Content Cardsを引き続き使用してください：
 
 - **フィード体験：** 複数のスクロール可能なメッセージやカード形式の「受信トレイ」を伴うあらゆるユースケース。
-- **特定の機能：** コネクテッドコンテンツやプロモーションコードを必要とするメッセージ。バナーはこれらをネイティブでサポートしていません。
-- **トリガー配信：** APIトリガーまたはアクションベースの配信を厳密に必要とするユースケース。バナーはAPIトリガー型やアクションベースの配信をサポートしていませんが、リアルタイム適格性評価により、ユーザーは各リフレッシュ時にSegmentの所属に基づいて即座に適格か不適格かが判定されます。
+- **特定の機能：** Connected Contentやプロモーションコードを必要とするメッセージ。バナーはこれらをネイティブでサポートしていません。
+- **トリガー配信：** APIトリガーまたはアクションベースの配信を厳密に必要とするユースケース。バナーはAPIトリガー型やアクションベースの配信をサポートしていませんが、リアルタイム適格性評価により、ユーザーは各リフレッシュ時にセグメントの所属に基づいて即座に適格か不適格かが判定されます。
 
 ## 移行ガイド {#migration-guide}
 
@@ -263,7 +263,7 @@ for card in cards {
 Braze.launchContentCards();
 
 // Or manually render cards
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 cards.forEach(card => {
   if (card.type === 'CLASSIC') {
     // Render classic card
@@ -353,7 +353,7 @@ braze.banners.requestBannersRefresh(placementIds: ["sample_placement_id"])
 ```javascript
 // Using BrazeBannerView component
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 
 // Or get banner data
@@ -742,7 +742,7 @@ let bannerView = BrazeBannerUI.BannerUIView(
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 ```
 {% endtab %}
@@ -759,14 +759,14 @@ BrazeBannerView(
 
 ## 制限事項 {#limitations}
 
-Content Cardsからバナーへ移行する際は、以下の制限事項に注意してください：
+Content Cardsからバナーへ移行する際は、以下の制限事項に注意してください。
 
 ### トリガーメッセージの移行 {#migrating-triggered-messages}
 
-バナーはスケジュールされた配信Campaignsのみをサポートしています。以前APIトリガーまたはアクションベースで送信されていたメッセージを移行するには、Segmentベースのターゲティングに変換してください：
+バナーはスケジュールされた配信キャンペーンのみをサポートしています。以前APIトリガーまたはアクションベースで送信されていたメッセージを移行するには、セグメントベースのターゲティングに変換してください：
 
-- **例：** APIで「プロファイルを完了」カードをトリガーする代わりに、過去7日以内に登録したがプロファイルを完了していないユーザー向けのSegmentを作成します。
-- **リアルタイム適格性：** ユーザーは、各リフレッシュ時にSegmentの所属に基づいて、バナーの表示対象となるか否かが即座に判定されます。
+- **例：** APIで「プロファイルを完了」カードをトリガーする代わりに、過去7日以内に登録したがプロファイルを完了していないユーザー向けのセグメントを作成します。
+- **リアルタイム適格性：** ユーザーは、各リフレッシュ時にセグメントの所属に基づいて、バナーの表示対象となるか否かが即座に判定されます。
 
 ### 機能の違い {#feature-differences}
 
@@ -789,7 +789,7 @@ Content Cardsからバナーへ移行する際は、以下の制限事項に注�
 | 優先順位付け | ❌ カスタムロジックが必要です | ✅ ネイティブ優先順位付け |
 | **ユーザーインタラクション** |
 | 手動での解除 | ✅ サポートされています | ✅ サポートされています |
-| 解除後の再適格性 | ❌ カスタムフィルターまたはCampaignロジックが必要です | ✅ デフォルトの待機期間 |
+| 解除後の再適格性 | ❌ カスタムフィルターまたはキャンペーンロジックが必要です | ✅ デフォルトの待機期間 |
 | 固定されたカード | ✅ サポートされています | N/A |
 | **分析** |
 | 自動分析（デフォルトUI） | ✅ サポートされています | ✅ サポートされています |

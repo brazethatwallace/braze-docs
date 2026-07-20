@@ -4,7 +4,7 @@ article_title: Operator로 할 수 있는 것
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "이 참조 문서에서는 BrazeAI Operator™를 통해 사용할 수 있는 AI 작업(카피라이팅, Liquid, 이미지 생성, 데이터 변환 코드, 콘텐츠 검토 등)을 다룹니다."
+description: "이 참조 문서에서는 BrazeAI Operator™를 통해 사용할 수 있는 AI 작업(카피라이팅, 메시지 생성, Liquid, 이미지 생성, 데이터 변환 코드, 콘텐츠 검토 등)을 다룹니다."
 ---
 
 # Operator로 할 수 있는 것 {#operator-capabilities}
@@ -29,6 +29,8 @@ Operator는 사용자와 동일한 권한을 가지므로, 특정 동작에는 �
 | 데이터 변환 AI 코파일럿 | 변환 코드 생성 | 데이터 변환 페이지의 **Insert Code** 버튼 |
 | 콘텐츠 검토 | 맞춤법, 문법, 톤, 부적절한 언어, 잔여 코드 확인 | **테스트** 탭의 **Review with Operator** 버튼 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Operator를 통해 사용할 수 있는 기능" }
+
+Operator는 배너 HTML 편집기에서 배너용 HTML도 생성할 수 있습니다. 자세한 내용은 [메시지 생성](#generate-messages)을 참조하세요.
 
 ## 브랜드 가이드라인 적용 {#apply-brand-guidelines}
 
@@ -57,6 +59,26 @@ Operator는 독립형 카피라이터보다 몇 가지 면에서 개선되었습
 
 {% include copy_block.html content="Translate this copy into Spanish." %}
 
+## 메시지 생성 {#generate-messages}
+
+Operator는 지원되는 작성기에서 메시지 HTML을 생성할 수 있습니다. 원하는 메시지를 자연어로 설명하고, 출력을 검토한 후 작성기에 삽입하세요.
+
+작성 중인 작성기에서 Operator를 사용할 때 가장 좋은 결과를 얻을 수 있으며, 이 경우 채널과 메시지 유형에 대한 [페이지 인식 컨텍스트]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 활용합니다. [브랜드 가이드라인](#apply-brand-guidelines)이 구성되어 있으면 Operator가 자동으로 적용합니다.
+
+### HTML 배너 {#generate-messages-html-banners}
+
+[배너 HTML 편집기]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner)에서 **Ask Operator**를 선택하여 배너용 HTML을 생성하세요. 원하는 레이아웃, 콘텐츠, 스타일링을 설명하세요. Operator는 생성된 마크업에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) 개인화를 포함할 수 있습니다.
+
+대화를 이어가며 결과를 다듬을 수 있습니다. 예를 들어, 다른 레이아웃, 더 짧은 카피, 업데이트된 버튼 스타일링을 요청한 후 HTML을 편집기에 삽입하세요.
+
+#### 프롬프트 예시 {#generate-messages-html-banners-example-prompts}
+
+{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." %}
+
+{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." %}
+
+{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." %}
+
 ## Liquid 생성 {#generate-liquid}
 
 모든 메시지 작성기에서 Operator를 열어 개인화를 위한 Liquid를 생성하고 다듬을 수 있습니다. Operator는 [Liquid 구문]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), 표준 및 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 이해하며, 코드가 무엇을 하는지 설명할 수 있습니다.
@@ -67,7 +89,7 @@ Operator는 독립형 카피라이터보다 몇 가지 면에서 개선되었습
 
 ### Liquid 기능 {#generate-liquid-attributes}
 
-Operator는 Liquid에 매우 능숙합니다. 워크스페이스의 데이터를 기반으로 복잡한 Liquid 로직을 생성할 수 있으며, 여기에는 예시 값을 찾기 위한 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 데이터 조회도 포함됩니다. 또한 Campaign의 기존 Liquid를 검토하고 설명할 수 있습니다.
+Operator는 Liquid에 매우 능숙합니다. 워크스페이스의 데이터를 기반으로 복잡한 Liquid 로직을 생성할 수 있으며, 여기에는 예시 값을 찾기 위한 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 데이터 조회도 포함됩니다. 또한 캠페인의 기존 Liquid를 검토하고 설명할 수 있습니다.
 
 ### 모범 사례 {#generate-liquid-best-practices}
 
@@ -80,11 +102,11 @@ Operator는 자연어를 이해하도록 훈련되었습니다. 도움을 요청
 컨텍스트를 제공하면 Operator가 프로젝트를 둘러싼 전체적인 그림을 이해하는 데 도움이 됩니다. 다음과 같은 컨텍스트를 포함하면 유용합니다:
 
 - 회사 이름과 업종
-- 작업 중인 Campaign(예: 블랙 프라이데이 또는 연말 세일)
+- 작업 중인 캠페인(예: 블랙 프라이데이 또는 연말 세일)
 - 목표(예: 클릭률 향상)
 - 메시지에 포함하려는 특정 커스텀 속성
 
-프롬프트에 컨텍스트를 포함하면 Operator가 요구 사항에 더 잘 맞는 응답을 제공하는 데 도움이 됩니다. Campaign, 메시지 브리프 또는 브레인스토밍 문서의 세부 정보를 포함하여 Operator에게 배경 정보를 제공할 수도 있습니다.
+프롬프트에 컨텍스트를 포함하면 Operator가 요구 사항에 더 잘 맞는 응답을 제공하는 데 도움이 됩니다. 캠페인, 메시지 브리프 또는 브레인스토밍 문서의 세부 정보를 포함하여 Operator에게 배경 정보를 제공할 수도 있습니다.
 
 #### 구체적으로 작성 {#generate-liquid-be-specific}
 
@@ -171,7 +193,7 @@ Operator는 OpenAI의 AI 시스템이자 Braze 서드파티 제공업체인 [GPT
 
 ## 콘텐츠 품질 검토 {#review-content-quality}
 
-SMS, Android 푸시, iOS 푸시, 전통적인 인앱 메시지의 **테스트** 탭에서 **Review with Operator**를 선택하여 발송 전에 콘텐츠를 검토할 수 있습니다. 기본적으로 Operator는 Campaign의 맞춤법 및 문법 오류, 브랜드에 맞지 않거나 부적절한 톤, 공격적인 언어, 잔여 코드, 테스트 콘텐츠 또는 렌더링되지 않은 Liquid를 검토하고 발견된 문제의 수정 방법을 추천합니다. 프롬프트에서 Operator가 콘텐츠를 검토하는 방식을 직접 맞춤 설정하도록 요청할 수도 있습니다.
+SMS, Android 푸시, iOS 푸시, 전통적인 인앱 메시지의 **테스트** 탭에서 **Review with Operator**를 선택하여 발송 전에 콘텐츠를 검토할 수 있습니다. 기본적으로 Operator는 캠페인의 맞춤법 및 문법 오류, 브랜드에 맞지 않거나 부적절한 톤, 공격적인 언어, 잔여 코드, 테스트 콘텐츠 또는 렌더링되지 않은 Liquid를 검토하고 발견된 문제의 수정 방법을 추천합니다. 프롬프트에서 Operator가 콘텐츠를 검토하는 방식을 직접 맞춤 설정하도록 요청할 수도 있습니다.
 
 ### Operator에게 확인을 요청할 수 있는 항목 {#review-content-quality-supported-features}
 
@@ -202,7 +224,7 @@ SMS, Android 푸시, iOS 푸시, 전통적인 인앱 메시지의 **테스트** 
 
 ## 데이터 프라이버시 및 보안 {#data-privacy-and-security}
 
-Operator는 OpenAI와 통합하여 출력을 생성합니다. Braze가 OpenAI에 보내는 정보, 해당 데이터의 사용 방식, 지적 재산권에 대한 자세한 내용은 [OpenAI와의 데이터 사용 방식]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai)을 참조하세요.
+Operator는 OpenAI와 통합하여 출력을 생성합니다. Braze가 OpenAI에 보내는 정보, 해당 데이터의 사용 방식, 지적 재산권에 대한 자세한 내용은 [OpenAI와의 데이터 사용 방식]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security)을 참조하세요.
 
 ## 다음 단계 {#next-steps}
 

@@ -58,7 +58,7 @@ platform:
 - 기기 시간대
 
 {% alert note %}
-Braze SDK는 IDFA를 자동으로 수집하지 않습니다. 앱은 바로 아래의 메서드를 구현하여 선택적으로 IDFA를 Braze에 전달할 수 있습니다. 앱은 앱 추적 투명성 프레임워크를 통해 최종 사용자로부터 추적에 대한 명시적인 옵트인을 확보한 후에 IDFA를 Braze에 전달해야 합니다.
+Braze SDK는 IDFA를 자동으로 수집하지 않습니다. 앱은 다음 섹션의 메서드를 구현하여 선택적으로 IDFA를 Braze에 전달할 수 있습니다. 앱은 앱 추적 투명성 프레임워크를 통해 최종사용자로부터 추적에 대한 명시적인 옵트인을 확보한 후에 IDFA를 Braze에 전달해야 합니다.
 
 1. 광고 추적 상태를 설정하려면 [`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/)을 사용하세요.
 2. 광고주 식별자(IDFA)를 설정하려면 [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/)를 사용하세요.
@@ -73,7 +73,7 @@ Braze SDK는 IDFA를 자동으로 수집하지 않습니다. 앱은 바로 아�
 예를 들어 허용 목록에 추가할 기기 언어를 지정할 수 있습니다. 자세한 내용은 [`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)의 `devicePropertyAllowlist` 옵션을 참조하세요.
 
 ```javascript
-import * as braze from"@braze/web-sdk";
+import * as braze from "@braze/web-sdk";
 braze.initialize("API-KEY", {
     baseUrl: "BASE-URL",
     devicePropertyAllowlist: [ braze.DeviceProperties.LANGUAGE ] // list of `DeviceProperties` you want to collect
@@ -92,7 +92,7 @@ new BrazeConfig.Builder()
 {% endtab %}
 
 {% tab swift %}
-예를 들어 허용 목록에 추가할 시간대 및 로케일 수집을 지정할 수 있습니다. 자세한 내용은 `configuration` 오브젝트의 [`devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) 등록정보를 참조하세요.
+예를 들어 허용 목록에 추가할 시간대 및 로케일 수집을 지정할 수 있습니다. 자세한 내용은 `configuration` 오브젝트의 [`devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) 속성정보를 참조하세요.
 
 {% subtabs %}
 {% subtab swift %}
@@ -122,7 +122,9 @@ configuration.devicePropertyAllowList = @[
 
 ## 쿠키 저장(웹 전용) {#cookies}
 
-[웹 Braze SDK를 초기화](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)하면 새 세션에서 자동으로 갱신되는 400일 만료 쿠키가 생성되어 저장됩니다.
+[웹 Braze SDK를 초기화](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)하면 SDK가 자체 도메인에 설정된 퍼스트파티 쿠키를 생성하고 저장하며, 만료 기간은 400일이고 새 세션에서 자동으로 갱신됩니다.
+
+쿠키는 사용자, 세션, 기기 식별자만 저장합니다. 인앱 메시지 트리거 대기, Content Cards, 아직 Braze에 동기화되지 않은 대기줄에 있는 이벤트 또는 속성 등 기타 데이터는 `localStorage`에 저장됩니다.
 
 다음과 같은 쿠키가 저장됩니다.
 
@@ -149,7 +151,7 @@ braze.initialize("API-KEY", {
 
 ### 쿠키 비활성화하기 {#disable-cookies}
 
-모든 쿠키를 비활성화하려면 웹 SDK를 초기화할 때 [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) 옵션을 사용하세요. 이렇게 하면 하위 도메인 간에 이동하는 익명 사용자를 연결할 수 없으며 각 하위 도메인에 새로운 사용자가 생성됩니다.
+모든 쿠키를 비활성화하려면 웹 SDK를 초기화할 때 [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) 옵션을 사용하세요. 쿠키가 비활성화되면 SDK는 사용자와 세션을 식별하기 위해 `localStorage`를 대신 사용합니다. 이렇게 하면 하위 도메인 간에 이동하는 익명 사용자를 연결할 수 없으며 각 하위 도메인에 새로운 사용자가 생성됩니다.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -159,4 +161,4 @@ braze.initialize("API-KEY", {
 });
 ```
 
-일반적으로 Braze 추적을 중지하거나 저장된 브라우저 데이터를 모두 지우려면 각각 [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disableSDK) 및 [`wipeData`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#wipedata) SDK 메서드를 참조하세요. 이 두 가지 메서드는 사용자가 동의를 철회하거나 SDK가 이미 초기화된 후 모든 Braze 기능을 중지하려는 경우에 유용할 수 있습니다.
+일반적으로 Braze 추적을 중지하거나 저장된 브라우저 데이터를 모두 지우려면 각각 [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disableSDK) 및 [`wipeData`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#wipedata) SDK 메서드를 참조하세요. 이 두 가지 메서드는 사용자가 동의를 철회하거나 SDK가 초기화된 후 모든 Braze 기능을 중지하려는 경우에 유용할 수 있습니다.

@@ -22,7 +22,7 @@ Les éléments suivants ne sont pas migrés en masse lorsque vous pointez les SD
 | --- | --- |
 | **Profils utilisateur** | Les profils ne sont pas transférés en tant qu'unité packagée. Recréez ou importez les utilisateurs dans l'espace de travail de destination (voir [Données de profil utilisateur](#user-profile-data)). |
 | **Segments et filtres** | Les définitions de segments restent dans l'espace de travail source. Reconstruisez les segments dans l'espace de travail de destination en utilisant la même logique lorsque c'est possible. |
-| **Historique des messages** | L'historique de réception des Campaigns et Canvas sur un profil est lié à l'espace de travail source. Il n'apparaît pas sur un nouveau profil dans un autre espace de travail, sauf si vous le modélisez vous-même (par exemple, via des attributs personnalisés), comme indiqué dans la [FAQ d'onboarding Braze]({{site.baseurl}}/user_guide/onboarding_faq). |
+| **Historique des messages** | L'historique de réception des Campaigns et Canvas sur un profil est lié à l'espace de travail source. Il n'apparaît pas sur un nouveau profil dans un autre espace de travail, sauf si vous le modélisez vous-même (par exemple, via des attributs personnalisés), comme indiqué dans la [FAQ d'onboarding Braze]({{site.baseurl}}/onboarding_faq). |
 | **Configuration spécifique aux canaux** | Les domaines d'envoi, les abonnements SMS, les numéros WhatsApp et les paramètres similaires sont limités à l'espace de travail. Reconfigurez-les dans l'espace de travail de destination le cas échéant. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ce que Braze ne migre pas automatiquement entre les espaces de travail" }
 
@@ -32,9 +32,9 @@ Si vous utilisez des espaces de travail distincts pour le staging et la producti
 
 ## Ce que vous pouvez déplacer ou recréer {#what-you-can-move-or-recreate}
 
-### Contenu des Campaigns, Canvas et pages d'accueil {#campaign-canvas-and-landing-page-content}
+### Contenu des Campaigns, Canvas et pages de destination {#campaign-canvas-and-landing-page-content}
 
-Vous pouvez copier de nombreuses définitions de Campaigns, Canvas et pages d'accueil vers un autre espace de travail sous forme de brouillons. Les canaux pris en charge, les champs omis et les mises en garde concernant Liquid sont documentés dans [Copier des Campaigns, Canvas et pages d'accueil entre espaces de travail]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces). Après la copie, mettez à jour les segments, les déclencheurs et toutes les références spécifiques à l'espace de travail avant de lancer ou de publier.
+Vous pouvez copier de nombreuses définitions de Campaigns, Canvas et pages de destination vers un autre espace de travail sous forme de brouillons. Les canaux pris en charge, les champs omis et les mises en garde concernant Liquid sont documentés dans [Copier des Campaigns, Canvas et pages de destination entre espaces de travail]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces). Après la copie, mettez à jour les segments, les déclencheurs et toutes les références spécifiques à l'espace de travail avant de lancer ou de publier.
 
 ### Données de profil utilisateur {#user-profile-data}
 
@@ -81,7 +81,7 @@ Les champs d'attribution provenant des intégrations partenaires (les champs `at
 
 ### Jetons de notification push {#push-tokens}
 
-Lorsque les utilisateurs possèdent déjà des jetons de notification push provenant d'un fournisseur précédent ou d'une version antérieure de l'application, vous pouvez importer les jetons pour les applications mobiles via l'API, ou vous appuyer sur le SDK après l'intégration. Les jetons de notification push Web ont des limitations au niveau de l'API. Pour tous les détails et exemples, consultez [Migration des jetons de notification push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Lorsque les utilisateurs possèdent déjà des jetons de notification push provenant d'un fournisseur précédent ou d'une version antérieure de l'application, vous pouvez importer les jetons pour les applications mobiles via l'API, ou vous appuyer sur le SDK après l'intégration. Les jetons de notification push Web ont des limitations au niveau de l'API. Pour tous les détails et exemples, consultez [Migration des jetons de notification push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ### WhatsApp
 

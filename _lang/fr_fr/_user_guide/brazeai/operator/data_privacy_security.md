@@ -3,12 +3,12 @@ nav_title: Confidentialité et sécurité des données
 article_title: Confidentialité et sécurité des données pour BrazeAI Operator
 page_order: 5
 page_type: reference
-description: "Cet article de référence explique comment BrazeAI Operator gère les données, y compris la conformité HIPAA, la conservation des données, la minimisation des informations personnelles identifiables et la gouvernance."
+description: "Cet article de référence explique comment BrazeAI Operator gère les données, y compris la conformité HIPAA, la conservation des données, la minimisation des données d'identification et la gouvernance."
 ---
 
 # Confidentialité et sécurité des données pour BrazeAI Operator {#data-privacy-and-security-for-brazeai-operator}
 
-> BrazeAI Operator<sup>TM</sup> s'intègre à OpenAI pour fournir une assistance alimentée par l'intelligence artificielle. Cet article explique comment Operator gère les données, quelles informations sont partagées avec OpenAI, et comment minimiser l'exposition des informations personnelles identifiables (PII) et contrôler les accès.
+> BrazeAI Operator<sup>TM</sup> s'intègre à OpenAI pour fournir une assistance alimentée par l'intelligence artificielle. Cet article explique comment Operator gère les données, quelles informations sont partagées avec OpenAI, et comment minimiser l'exposition des données d'identification et contrôler les accès.
 
 ## Comment Operator accède aux données {#how-operator-accesses-data}
 
@@ -42,9 +42,9 @@ Pour générer des résultats d'intelligence artificielle via les fonctionnalit�
 
 Si vous utilisez le cluster US-02 de Braze, Operator est couvert par l'accord de partenariat commercial (BAA) de Braze, et les informations de santé protégées (PHI) peuvent être soumises à la fonctionnalité conformément aux exigences HIPAA. Ne soumettez pas de PHI soumises à la réglementation HIPAA lorsque vous utilisez Operator dans d'autres clusters Braze.
 
-### Suppression des PII {#pii-redaction}
+### Suppression des données d'identification {#pii-redaction}
 
-Il n'existe pas de couche automatisée de suppression des PII dans le pipeline de requêtes d'Operator. Les données sont envoyées entièrement brutes et ne sont pas anonymisées avant leur transmission à OpenAI. L'accès est limité à la page active du tableau de bord ou à la saisie de l'utilisateur du tableau de bord, mais aucun filtrage de contenu n'est appliqué avant la transmission.
+Il n'existe pas de couche automatisée de suppression des données d'identification dans le pipeline de requêtes d'Operator. Les données sont envoyées entièrement brutes et ne sont pas anonymisées avant leur transmission à OpenAI. L'accès est limité à la page active du tableau de bord ou à la saisie de l'utilisateur du tableau de bord, mais aucun filtrage de contenu n'est appliqué avant la transmission.
 
 ### Conservation des données par OpenAI {#openai-data-retention}
 
@@ -64,14 +64,14 @@ Les données envoyées à l'API d'OpenAI via Braze ne sont pas utilisées pour e
 
 Le routage des données dans l'UE n'est pas actuellement implémenté pour Operator, et aucun plan n'est prévu pour le mettre en œuvre.
 
-## Minimiser l'exposition des PII {#minimize-pii-exposure}
+## Minimiser l'exposition des données d'identification {#minimize-pii-exposure}
 
-Vous pouvez prendre plusieurs mesures pour limiter l'exposition des PII lorsque vous utilisez Operator :
+Vous pouvez prendre plusieurs mesures pour limiter l'exposition des données d'identification lorsque vous utilisez Operator :
 
-- **Désactivez le paramètre Afficher les PII** pour tous les utilisateurs qui utilisent Operator. Si un utilisateur ne peut pas voir les PII, Operator ne peut pas y accéder non plus.
+- **Désactivez le paramètre Afficher les données d'identification** pour tous les utilisateurs qui utilisent Operator. Si un utilisateur ne peut pas voir les données d'identification, Operator ne peut pas y accéder non plus.
 - **N'ouvrez pas Operator sur une page de profil utilisateur.** Le contenu de la page est scrapé et inclus dans chaque requête envoyée à OpenAI.
 - **Lors des tests, utilisez un profil utilisateur personnalisé** plutôt que de sélectionner un profil existant. C'est le comportement par défaut d'Operator.
-- **Ne saisissez pas et ne collez pas de PII** directement dans le prompt d'Operator.
+- **Ne saisissez pas et ne collez pas de données d'identification** directement dans le prompt d'Operator. Operator ne bloque pas les données d'identification incluses dans les prompts utilisateur. Si un utilisateur saisit manuellement des données d'identification dans une requête, ce contenu est envoyé au modèle de langage sous-jacent.
 - **Désactivez l'approbation automatique des actions** pour garder le contrôle sur ce qu'Operator peut accéder et exécuter.
 - **Ne demandez pas à Operator d'afficher les valeurs de prévisualisation des attributs** lors de la création d'un segment ou de l'écriture de Liquid.
 
@@ -79,7 +79,7 @@ Vous pouvez prendre plusieurs mesures pour limiter l'exposition des PII lorsque 
 
 ### Restreindre l'accès à Operator {#restrict-access-to-operator}
 
-L'accès à Operator est géré au niveau de l'espace de travail via les [autorisations granulaires des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Les administrateurs peuvent accorder ou révoquer l'autorisation **Use BrazeAI Operator** pour des utilisateurs individuels, garantissant que seul le personnel autorisé peut interagir avec l'outil. Sans ces autorisations spécifiques, l'interface d'Operator est entièrement masquée et les endpoints backend restent sécurisés.
+L'accès à Operator est géré au niveau de l'espace de travail via les [autorisations granulaires des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Les administrateurs peuvent accorder ou révoquer l'autorisation « Use BrazeAI Operator » pour des utilisateurs individuels, garantissant que seul le personnel autorisé peut interagir avec l'outil. Sans ces autorisations spécifiques, l'interface d'Operator est entièrement masquée et les endpoints backend restent sécurisés.
 
 ### Modèle avec intervention humaine {#human-in-the-loop-model}
 
@@ -90,6 +90,17 @@ Les utilisateurs peuvent activer **l'approbation automatique des actions** dans 
 ### Héritage des autorisations utilisateur {#user-permission-inheritance}
 
 Operator hérite intégralement du profil d'autorisations de l'utilisateur connecté. Il ne peut pas consulter des données ni exécuter des actions, telles que des modifications de campagne, que l'utilisateur n'est pas déjà autorisé à effectuer de manière indépendante.
+
+### Autorisation Afficher les données d'identification {#view-pii-permission}
+
+Operator n'a pas besoin de l'autorisation « View PII » pour fonctionner, et c'est intentionnel. Operator n'a pas d'accès direct à votre magasin de données et n'interroge pas votre base de données de manière indépendante. Il envoie des requêtes aux mêmes endpoints backend que le reste du tableau de bord en utilisant les identifiants de session de l'utilisateur authentifié. Cela signifie qu'Operator est entièrement limité par les [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) existantes de l'utilisateur et ne peut accéder à rien que l'utilisateur ne puisse déjà voir.
+
+Les données d'identification ne peuvent atteindre Operator que de deux manières :
+
+- L'utilisateur saisit des données d'identification directement dans un prompt.
+- L'utilisateur consulte déjà des données d'identification dans le tableau de bord lorsqu'il utilise Operator.
+
+Si un utilisateur ne dispose pas de l'autorisation « View PII », Operator ne peut pas lui présenter de données d'identification. Gardez à l'esprit qu'Operator ne filtre pas le contenu saisi directement dans les prompts : les données d'identification saisies manuellement sont envoyées au modèle de langage sous-jacent. Pour réduire ce risque, consultez [Minimiser l'exposition des données d'identification](#minimize-pii-exposure).
 
 ### Auditer l'utilisation de l'équipe {#audit-team-usage}
 

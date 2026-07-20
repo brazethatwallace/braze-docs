@@ -76,7 +76,14 @@ API 사용량 대시보드에는 Braze가 수신하여 `2XX`, `4XX` 또는 `5XX`
 
 대시보드에 표시되는 데이터는 최근 트래픽을 반영하는 데 약간의 지연이 있을 수 있습니다. 사용량이 많은 기간에는 분당 최대 4회까지 대시보드를 새로고침할 수 있습니다. 다시 새로고침하기 전에 몇 분 정도 기다려야 할 수 있습니다.
 
+### 요청 본문의 API 키 {#api-keys-in-request-body}
+
+API 키를 요청 헤더가 아닌 요청 본문에 포함하여 전송하면 일부 요청이 API 사용량 대시보드에 표시되지 않을 수 있습니다. 이로 인해 대시보드의 데이터가 불완전해지고 API 사용량을 정확하게 모니터링하기 어려울 수 있습니다.
+
+API 사용량 대시보드에서 가장 정확한 보고를 위해 API 키를 요청 본문이 아닌 [요청 헤더에 포함]({{site.baseurl}}/api/basics#bearer-token-authentication)하세요.
+
 ## 관련 문서 {#related-articles}
 
 - [API 사용량 알림]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [사용량 제한]({{site.baseurl}}/api/api_limits)
+- [Bearer 토큰 인증]({{site.baseurl}}/api/basics#bearer-token-authentication)

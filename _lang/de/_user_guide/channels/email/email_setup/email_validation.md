@@ -9,11 +9,11 @@ channel: email
 
 ---
 
-# E-Mail-Validierung
+# E-Mail-Validierung {#email-validation}
 
 > Dieser Referenzartikel behandelt die Validierungsregeln für den lokalen und den Host-Teil von E-Mail-Adressen. Die Validierung wird für Dashboard-E-Mail-Adressen, Endnutzer:innen-E-Mail-Adressen (Ihre Kund:innen) sowie für Absender- und Antwortadressen einer E-Mail-Nachricht verwendet.
 
-## Funktionsweise
+## Funktionsweise {#how-it-works}
 
 Braze validiert eine E-Mail-Adresse, wenn sie aktualisiert, per API importiert, per CSV hochgeladen, über das SDK übermittelt oder im Dashboard geändert wird. E-Mail-Adressen dürfen keine Leerzeichen enthalten. Wenn Sie die API verwenden, gibt ein Leerzeichen einen `400`-Fehler zurück.
 
@@ -56,9 +56,9 @@ Wenn der Domain-Teil nicht standardmäßige ASCII-Zeichen enthält, muss er [Pun
 
 Wenn Braze eine Anfrage erhält, ein:e Nutzer:in mit einer ungültigen E-Mail-Adresse hinzuzufügen, gibt die API einen Fehler zurück. Bei einem CSV-Upload erstellt Braze die/den Nutzer:in, lässt aber die ungültige E-Mail-Adresse weg.
 
-## Validierungsregeln für den lokalen Teil
+## Validierungsregeln für den lokalen Teil {#local-part-validation-rules}
 
-### Allgemeine E-Mail-Validierung
+### Allgemeine E-Mail-Validierung {#general-email-validation}
 
 Für die meisten Domains muss der lokale Teil folgende Parameter erfüllen:
 - Kann beliebige Buchstaben und Ziffern enthalten, einschließlich Unicode-Buchstaben und -Ziffern, sowie die folgenden Zeichen: (+) (&) (#) (_) (-) (^) oder (/)
@@ -71,11 +71,11 @@ Der folgende reguläre Ausdruck kann verwendet werden, um zu prüfen, ob eine E-
 /\A([a-zA-Z0-9_\-\^+$'\&#\/!%\*=\?`\|~]|[[^\p{ASCII}\p{Space}]&&\p{Alnum}\p{Punct}\p{S}])(([a-zA-Z0-9_\-\^+$'\&#\/!%\*=\?`\|~\.]|[[^\p{ASCII}\p{Space}]&&\p{Alnum}\p{Punct}\p{S}])*([a-zA-Z0-9_\-\^+$'\&#\/!%\*=\?`\|~]|[[^\p{ASCII}\p{Space}]&&\p{Alnum}\p{Punct}\p{S}]))?\z/
 ```
 
-### Gmail-Adressen
+### Gmail-Adressen {#gmail-addresses}
 
 Wenn der Domain-Teil Gmail ist, muss der lokale Teil mindestens zwei Zeichen lang sein und der oben aufgeführten Validierung mit regulärem Ausdruck entsprechen.
 
-### Microsoft-Domains
+### Microsoft-Domains {#microsoft-domains}
 
 Wenn die Host-Domain „msn“, „hotmail“, „outlook“ oder „live“ enthält, verwendet Braze den folgenden regulären Ausdruck zur Validierung des lokalen Teils: `/\A\w[\-\w]*(?:\.[\-\w]+)*\z/i`
 
@@ -90,7 +90,7 @@ Der lokale Teil der Microsoft-Adresse muss folgende Parameter erfüllen:
 
 Der Validierungstest prüft, ob der lokale Teil vor dem „+“ dem regulären Ausdruck entspricht.
 
-## Validierungsregeln für den Host-Teil
+## Validierungsregeln für den Host-Teil {#host-part-validation-rules}
 
 Der Host-Teil darf keine IPv4- oder IPv6-Adresse sein. Die Top-Level-Domain (wie .com, .org, .net) darf nicht vollständig numerisch sein.
 
@@ -109,7 +109,7 @@ Der Domainname muss folgende Parameter erfüllen:
 	- Mit einem alphanumerischen Zeichen (a–z oder 0–9) enden
 	- 1 bis 63 Zeichen enthalten
 
-### Zusätzliche erforderliche Validierung
+### Zusätzliche erforderliche Validierung {#additional-validation-required}
 
 Das letzte Label der Domain muss eine gültige Top-Level-Domain (TLD) sein, die durch alles nach dem letzten Punkt bestimmt wird. Diese TLD sollte in der [TLD-Liste der ICANN](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) erscheinen. Der Braze-Validator prüft nur die Syntax. Er erkennt keine Tippfehler oder nicht existierende Adressen.
 

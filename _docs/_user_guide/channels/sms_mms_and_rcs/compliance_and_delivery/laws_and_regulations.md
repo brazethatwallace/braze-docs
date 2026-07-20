@@ -69,7 +69,7 @@ Here are some links you might need to consult as you build up your SMS, MMS, or 
 
 A customer's privacy is key to a meaningful and respectful relationship. Respecting a customer's privacy and information is just another opportunity to create a bond between them and your brand. Sometimes, using marketing tools can put data and privacy last.
 
-Luckily for you, Braze follows the guidelines of many [security regulations]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications), including [GDPR]({{site.baseurl}}/dp-technical-assistance).
+Luckily for you, Braze follows the guidelines of many [security regulations]({{site.baseurl}}/developer_guide/disclosures/security_qualifications), including [GDPR]({{site.baseurl}}/dp-technical-assistance).
 
 The [CTIA](https://www.ctia.org/) (a trade association representing the wireless communications industry in the United States) recommends that you maintain and conspicuously display a clear and easy-to-understand privacy policy.
 

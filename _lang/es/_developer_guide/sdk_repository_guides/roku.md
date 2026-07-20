@@ -6,18 +6,20 @@ description: "Referencia del README del SDK de Roku de Braze reflejada desde Git
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guía del repositorio del SDK de Roku {#roku-sdk-repository-guide}
+
 ## Acerca del SDK de Roku de Braze {#about-the-braze-roku-sdk}
 
-El SDK de Roku de Braze te ayuda a integrar las capacidades de mensajería, análisis e interacción de usuarios de Braze en tu aplicación.
+El SDK de Roku de Braze te ayuda a integrar las capacidades de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 
-- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=roku)
+- [Guía del usuario de Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
 ## Integración inicial del SDK {#initial-sdk-integration}
 
-El SDK de Roku de Braze te proporcionará una API para reportar información que se utilizará en análisis, segmentación e interacción.
+El SDK de Roku de Braze te proporcionará una API para reportar información que se utilizará en análisis, segmentación y participación.
 
 ## Paso 1: Añadir archivos {#step-1-add-files}
 
@@ -83,7 +85,7 @@ Luego puedes decidir qué hacer con el mensaje dentro de la aplicación. Algunos
 - `in_app_message.header` - El texto del encabezado del mensaje dentro de la aplicación
 - `in_app_message.uri` - Cuando `click_action` es "URI", esto debería mostrarse
 
-También hay varios campos de estilo que podrías elegir utilizar desde el dashboard. Alternativamente, podrías implementar el mensaje dentro de la aplicación y darle estilo dentro de tu aplicación Roku utilizando una paleta estándar.
+También hay varios campos de estilo que podrías elegir utilizar desde el panel. Alternativamente, podrías implementar el mensaje dentro de la aplicación y darle estilo dentro de tu aplicación Roku utilizando una paleta estándar.
 - `in_app_message.bg_color` - Color de fondo
 - `in_app_message.close_button_color` - Color del botón de cierre
 - `in_app_message.frame_color` - El color de la superposición de la pantalla de fondo

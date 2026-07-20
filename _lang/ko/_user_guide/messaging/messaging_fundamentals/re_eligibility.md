@@ -24,7 +24,7 @@ toc_headers: h2
 {% tab campaign %}
 Campaign의 재적격성을 활성화하려면 **전달 제어** 섹션에서 **사용자가 Campaign을 다시 수신할 수 있도록 허용** 체크박스를 선택합니다. Campaign의 최대 재적격 기간은 720일입니다.
 
-재적격성이 활성화된 트리거 Campaign의 경우, 트리거 이벤트를 완료했음에도 [실제로 Campaign 메시지를 수신하지 못한]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#why-did-a-user-not-receive-my-triggered-campaign) 사용자는 다음에 트리거 이벤트를 완료할 때 자동으로 메시지 수신 자격을 얻습니다. 이는 재적격성이 Campaign 진입이 아닌 메시지 수신을 기반으로 하기 때문입니다. 트리거 Campaign에 대해 사용자를 재적격 상태로 만들면 사용자가 메시지를 단순히 트리거하는 것이 아니라 실제로 수신할 수 있게 됩니다.
+재적격성이 활성화된 트리거 Campaign의 경우, 트리거 이벤트를 완료했음에도 [실제로 Campaign 메시지를 수신하지 못한]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#why-did-a-user-not-receive-my-triggered-campaign) 사용자는 다음에 트리거 이벤트를 완료할 때 자동으로 메시지 수신 자격을 얻습니다. 이는 재적격성이 Campaign 진입이 아닌 메시지 수신을 기반으로 하기 때문입니다. 트리거 Campaign에 대해 사용자를 재적격 상태로 만들면 사용자가 메시지를 단순히 트리거하는 것이 아니라 실제로 수신할 수 있게 됩니다.
 
 {% alert note %}
 "수신"에는 공유 채널 식별자를 통한 기여도가 포함됩니다. 메시지가 전달, 열람 또는 클릭되면 Braze는 동일한 이메일 또는 전화번호를 공유하는 모든 프로필의 데이터를 업데이트하므로, 직접 메시지를 받지 않은 사용자도 수신한 것으로 표시되어 재적격 상태가 되지 않을 수 있습니다.
@@ -49,11 +49,11 @@ Canvas의 재적격성을 활성화하려면 **진입 제어** 섹션에서 **�
 
 사용자가 동일한 단계나 메시지를 여러 번 수신하지 않도록 추가 필터를 설정할 수 있습니다. 그러나 사용자가 두 번째로 Canvas에 다시 진입하면, 첫 번째 진입 시 수신한 단계는 사용자에게 표시되지 않습니다. 즉, 사용자가 동일한 메시지를 다시 수신할 수 있습니다. 이를 방지하려면 재진입을 차단하도록 Canvas를 구성하거나 Canvas의 최대 기간으로 재적격 기간을 설정할 수 있습니다.
 
-또한 [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)를 사용하여 해당 단계를 수신하는 사용자가 이를 커스텀 속성으로 기록하도록 할 수 있으며, 이 속성을 사용하여 Canvas 여정 중 해당 단계를 이미 수신한 사용자를 필터링할 수 있습니다.
+또한 [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)를 사용하여 해당 단계를 수신하는 사용자가 이를 커스텀 속성으로 기록하도록 할 수 있으며, 이 속성을 사용하여 Canvas 여정 중 해당 단계를 이미 수신한 사용자를 필터링할 수 있습니다.
 
 ### 예시 {#example}
 
-예를 들어, 이메일 주소가 없는 사용자가 사용자 여정에 하나의 단계가 포함된 일일 반복 Canvas에 진입한다고 가정해 보겠습니다. 이 단계에는 이메일 메시지만 포함되어 있으므로 사용자는 참여를 받지 못합니다. Canvas에 재적격성이 활성화되어 있지 않으면 이 사용자는 Canvas에 다시 진입할 수 없습니다.
+예를 들어, 이메일 주소가 없는 사용자가 사용자 여정에 하나의 단계가 포함된 일일 반복 Canvas에 진입한다고 가정해 보겠습니다. 이 단계에는 이메일 메시지만 포함되어 있으므로 사용자는 인게이지먼트를 받지 못합니다. Canvas에 재적격성이 활성화되어 있지 않으면 이 사용자는 Canvas에 다시 진입할 수 없습니다.
 
 재적격성이 없는 활성 반복 또는 트리거 Canvas가 있고, 사용자가 Canvas에서 메시지를 수신할 때까지 다시 진입하도록 하려면 Canvas에서 메시지를 수신한 고객을 제외하는 필터를 진입 기준에 추가하여 사용자가 진입에 대해 재적격 상태가 되도록 허용하는 것을 고려할 수 있습니다.
 
@@ -76,11 +76,15 @@ Campaigns와 Canvases 모두의 재적격성은 캘린더 일수가 아닌 초 �
 
 ## Content Cards 재적격성 {#re-eligibility-for-content-cards}
 
-Content Cards Campaign이나 캔버스 단계에 재적격성이 활성화된 경우, 동일한 Campaign의 이전 카드가 아직 피드에 남아 있는 상태에서 사용자가 다른 카드를 수신할 수 있으며, 이는 중복 카드처럼 보일 수 있습니다. 중복을 줄이려면 재적격성을 비활성화하거나, 사용자가 다음 발송 자격을 얻기 전에 첫 번째 카드가 [피드에서 만료]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility)되도록 재적격 기간을 늘리세요.
+Content Cards Campaign이나 캔버스 단계에 재적격성이 활성화된 경우, 동일한 Campaign의 이전 카드가 아직 피드에 남아 있는 상태에서 사용자가 다른 카드를 수신할 수 있으며, 이는 중복 카드처럼 보일 수 있습니다. 중복을 줄이려면 재적격성을 비활성화하거나, 사용자가 다음 발송 자격을 얻기 전에 첫 번째 카드가 [피드에서 만료]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#the-30-day-expiration-and-re-eligibility)되도록 재적격 기간을 늘리세요.
+
+푸시나 이메일과 같은 다른 채널에서는 메시지 전달 타임스탬프를 기준으로 재적격성을 계산하지만, Content Cards의 재적격성은 사용자가 실제로 카드를 확인하는 노출 타임스탬프를 기준으로 계산됩니다. 즉, 카드가 전달된 시점과 사용자가 세션을 열어 카드를 확인하는 시점 사이에 시간 차이가 있으면 예상대로 재적격 상태가 되지 않을 수 있습니다.
+
+예를 들어, 일일 Content Cards Campaign의 재적격 기간이 24시간이고 사용자가 카드가 전달된 후 몇 시간 뒤에 카드를 확인한 경우, 노출 이후 24시간이 경과하지 않았으므로 다음 날 카드를 수신하지 못할 수 있습니다. 이를 고려하여 반복 Content Cards Campaign의 재적격 기간을 약간 짧게 설정하는 것을 고려하세요.
 
 ## 배너 재적격성 {#re-eligibility-for-banners}
 
-배너 Campaign에 재적격성이 활성화된 경우, 배너를 닫은 사용자는 닫은 시점부터 시작되는 설정 가능한 쿨다운 기간 이후 다시 적격 상태가 될 수 있습니다. 재적격성이 활성화되지 않은 경우, 배너를 닫은 사용자는 부적격 상태로 유지됩니다. 재적격성을 구성하려면 [재적격성 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)을 참조하세요. Canvas 배너 단계는 Canvas 재진입 설정을 대신 사용합니다.
+배너 Campaign에 재적격성이 활성화된 경우, 배너를 닫은 사용자는 닫은 시점부터 시작되는 설정 가능한 쿨다운 기간 이후 다시 적격 상태가 될 수 있습니다. 재적격성이 활성화되지 않은 경우, 배너를 닫은 사용자는 부적격 상태로 유지됩니다. 재적격성을 구성하려면 [재적격성 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#re-eligibility)을 참조하세요. Canvas 배너 단계는 Canvas 재진입 설정을 대신 사용합니다.
 
 ## 다변량 테스트 {#multivariate-testing}
 

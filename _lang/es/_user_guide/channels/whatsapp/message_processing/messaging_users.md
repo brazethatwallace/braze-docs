@@ -16,13 +16,13 @@ alias: /whatsapp_quick_replies/
 
 ## Desencadenantes basados en acciones {#action-based-triggers}
 
-Tanto las campañas como los Canvas pueden iniciarse, ramificarse y tener cambios a mitad del recorrido a partir de un mensaje entrante de WhatsApp (un usuario que envía un mensaje a tu WhatsApp), como una palabra desencadenante.
+Tanto las Campaigns como los Canvas pueden iniciarse, ramificarse y tener cambios a mitad del recorrido a partir de un mensaje entrante de WhatsApp (un usuario que envía un mensaje a tu WhatsApp), como una palabra desencadenante.
 
 Asegúrate de que tu palabra desencadenante coincida con lo que esperas de los usuarios.
 
 **Cosas que debes saber:**
-- Cada letra de tu palabra desencadenante debe estar en mayúsculas cuando se configura. Braze no requiere que las palabras desencadenantes entrantes enviadas por los usuarios estén en mayúsculas. Por ejemplo, enviar "jOin2023" seguirá desencadenando el Canvas o la campaña.
-- Si no se especifica ninguna palabra desencadenante en el desencadenante basado en acciones del horario de entrada, la campaña o el Canvas se ejecutará para TODOS los mensajes entrantes de WhatsApp. Esto incluye mensajes que coincidan con frases en campañas y Canvas activos, en cuyo caso el usuario recibirá dos mensajes de WhatsApp.
+- Cada letra de tu palabra desencadenante debe estar en mayúsculas cuando se configura. Braze no requiere que las palabras desencadenantes entrantes enviadas por los usuarios estén en mayúsculas. Por ejemplo, enviar "jOin2023" seguirá desencadenando el Canvas o la Campaign.
+- Si no se especifica ninguna palabra desencadenante en el desencadenante basado en acciones del horario de entrada, la Campaign o el Canvas se ejecutará para TODOS los mensajes entrantes de WhatsApp. Esto incluye mensajes que coincidan con frases en Campaigns y Canvas activos, en cuyo caso el usuario recibirá dos mensajes de WhatsApp.
 
 {% tabs %}
 {% tab Campaign %}
@@ -111,9 +111,9 @@ Agrega un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_
 
 Agrega un nombre de **List button** que los usuarios seleccionarán para mostrar tu lista. Luego, usa los campos en **List content** para crear tu lista:
 
-- **Section:** Agrega hasta 10 secciones para agrupar y organizar los elementos de tu lista. Por ejemplo, un minorista de ropa podría usar secciones para organizar por estilos de temporada (como primavera, verano, otoño e invierno) o artículos de ropa (como tops, pantalones y zapatos).
-- **Row:** Agrega hasta 10 filas, o elementos de lista, en todas las secciones.
-- **Row description (optional):** Agrega una descripción opcional a todas las filas (elementos de lista).
+- **Section:** agrega hasta 10 secciones para agrupar y organizar los elementos de tu lista. Por ejemplo, un minorista de ropa podría usar secciones para organizar por estilos de temporada (como primavera, verano, otoño e invierno) o artículos de ropa (como tops, pantalones y zapatos).
+- **Row:** agrega hasta 10 filas, o elementos de lista, en todas las secciones.
+- **Row description (optional):** agrega una descripción opcional a todas las filas (elementos de lista).
 
 ![La sección "List content" completada con dos secciones, y varias filas y descripciones de filas.]({% image_buster /assets/img/whatsapp/list_content.png %}){: style="max-width:60%;"}
 
@@ -155,6 +155,31 @@ Los siguientes eventos desbloquean los mensajes de respuesta:
   - Evento [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)
 
 ![Una ruta de acción con el desencadenante de un evento personalizado realizado `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
+
+### Respuestas rápidas y mensajes entrantes fuera de la ventana de 24 horas {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+Cuando un usuario interactúa con tu negocio en WhatsApp —incluyendo al tocar un botón de respuesta rápida en un mensaje de plantilla anterior— su acción cuenta como un mensaje entrante. Ese mensaje entrante abre una nueva ventana de servicio al cliente de 24 horas, incluso si la plantilla original fue enviada hace más de 24 horas.
+
+En un Canvas con botones de respuesta rápida, los usuarios pueden tocar un botón días después de recibir la plantilla de bienvenida y aún así ingresar a la ruta de acción correcta. Braze evalúa la ruta de acción cuando llega el mensaje entrante; no necesitas extender la duración de la ruta de acción más allá del valor predeterminado para capturar respuestas tardías.
+
+El siguiente diagrama muestra un flujo común de respuesta rápida:
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### Cosas que debes saber {#things-to-know}
+
+- El paso del mensaje de respuesta aún debe estar dentro de las 24 horas del mensaje entrante del usuario. En la mayoría de los flujos de Canvas, la respuesta se envía inmediatamente después de que se evalúa la ruta de acción, por lo que esto no suele ser un problema.
+- No confundas la ventana de servicio al cliente de 24 horas con los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) de Canvas, que pueden usar una ventana de hasta 30 días. Las ventanas de conversión controlan la atribución; no afectan si un mensaje de respuesta puede enviarse.
+- Para facturación, consulta [¿Los mensajes de respuesta de WhatsApp son gratuitos?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
 
 ### Filtrar por un atributo de tiempo personalizado {#filtering-by-a-custom-time-attribute}
 

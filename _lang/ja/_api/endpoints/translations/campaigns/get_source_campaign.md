@@ -19,7 +19,7 @@ description: "この記事では、キャンペーンの翻訳ソースエンド
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`campaigns.translations.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -29,7 +29,7 @@ description: "この記事では、キャンペーンの翻訳ソースエンド
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | CampaignのID。|
+| `campaign_id` | 必須 | 文字列 | キャンペーンのID。|
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。|
 | `locale_id` | オプション | 文字列 | 応答をフィルタリングするためのロケールUUID。|
 | `post_launch_draft_version` | オプション | ブール値 | `true`の場合、最新の公開済みライブバージョンではなく、最新の下書きバージョンを返します。デフォルトは`false`で、最新のライブバージョンを返します。|

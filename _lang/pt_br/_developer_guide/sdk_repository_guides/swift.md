@@ -6,14 +6,16 @@ description: "Referência do README do Braze Swift SDK espelhada do GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guia do repositório do Swift SDK {#swift-sdk-repository-guide}
+
 ## Sobre o Braze Swift SDK {#about-the-braze-swift-sdk}
 
 O Braze Swift SDK ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
 
 Para começar, consulte os seguintes recursos:
 
-- [Guia do Usuário da Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guia do Desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift)
+- [Guia do Usuário da Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guia do Desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
 
 ## Início rápido {#quickstart}
 
@@ -49,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-Para saber mais sobre opções avançadas de integração, consulte o [Guia do Desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift).
+Para saber mais sobre opções avançadas de integração, consulte o [Guia do Desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift).
 
 ## Suporte de versão {#version-support}
 
@@ -85,13 +87,13 @@ A tabela a seguir descreve cada biblioteca do Braze Swift SDK.
 <sup>1</sup> _Notificações por push não são suportadas no tvOS_<br/>
 <sup>2</sup> _Monitoramento de geofence não é suportado no tvOS e no visionOS_
 
-[análise de dados]: {{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
-[notificações por push]: {{site.baseurl}}/user_guide/message_building_by_channel/push
-[In-App Messages]: {{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages
-[Content Cards]: {{site.baseurl}}/user_guide/message_building_by_channel/content_cards
-[análise de local e monitoramento de geofence]: {{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences
-[notificações por push avançadas]: {{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/
-[Push Stories]: {{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
+[análise de dados]: https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
+[notificações por push]: https://www.braze.com/docs/user_guide/message_building_by_channel/push
+[In-App Messages]: https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages
+[Content Cards]: https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards
+[análise de local e monitoramento de geofence]: https://www.braze.com/docs/user_guide/engagement_tools/locations_and_geofences
+[notificações por push avançadas]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/ios/rich_notifications/
+[Push Stories]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
 
 ## Exemplos {#examples}
 
@@ -107,9 +109,9 @@ Explore nosso [projeto de exemplos](https://github.com/braze-inc/braze-swift-sdk
 | XCFrameworks combináveis (acesso antecipado) | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                                 ✗ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Repositórios alternativos" }
 
-## Contato {#contact}
+## Fale conosco {#contact}
 
-Se você tiver dúvidas, entre em contato pelo e-mail [support@braze.com](mailto:support@braze.com).
+Se você tiver dúvidas, entre em contato com o suporte técnico da Braze para obter assistência.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

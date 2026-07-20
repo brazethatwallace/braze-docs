@@ -17,7 +17,7 @@ Folgen Sie diesen Schritten, um diesen Anwendungsfall umzusetzen:
 
 ## 1. Schritt: Anstehende Buchungsdaten in ein Braze-Nutzerprofil schreiben {#step-1}
 
-Verwenden Sie den Braze-Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), um bei jeder Buchung ein [verschachteltes angepasstes Attribut]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/) in ein Nutzerprofil zu schreiben. Stellen Sie sicher, dass das verschachtelte angepasste Attribut alle Informationen enthält, die Sie zum Versenden und Personalisieren der Erinnerungsnachricht benötigen. In diesem Anwendungsfall nennen wir das verschachtelte angepasste Attribut „trips“.
+Verwenden Sie den Braze-Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um bei jeder Buchung ein [verschachteltes angepasstes Attribut]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support) in ein Nutzerprofil zu schreiben. Stellen Sie sicher, dass das verschachtelte angepasste Attribut alle Informationen enthält, die Sie zum Versenden und Personalisieren der Erinnerungsnachricht benötigen. In diesem Anwendungsfall nennen wir das verschachtelte angepasste Attribut „trips“.
 
 ### Buchung hinzufügen {#add-booking}
 
@@ -136,7 +136,7 @@ Erstellen Sie eine Zielgruppe für den Empfang von Erinnerungen mithilfe einer S
 
 ### Schritt 2b: Nachricht erstellen {#step-2b-create-your-message}
 
-Erstellen Sie die Erinnerungs-E-Mail, indem Sie die Schritte unter [E-Mail mit angepasstem HTML erstellen]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/) befolgen. Verwenden Sie Liquid, um die Nachricht mit Daten aus dem von Ihnen erstellten angepassten Attribut („trips“) zu personalisieren, wie in diesem Beispiel.
+Erstellen Sie die Erinnerungs-E-Mail, indem Sie die Schritte unter [E-Mail mit angepasstem HTML erstellen]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor) befolgen. Verwenden Sie Liquid, um die Nachricht mit Daten aus dem von Ihnen erstellten angepassten Attribut („trips“) zu personalisieren, wie in diesem Beispiel.
 
 {% raw %}
 ```liquid
@@ -166,8 +166,8 @@ Da Sie nun Erinnerungsnachrichten versenden, können Sie auch Bestätigungsnachr
 {% tabs %}
 {% tab /users/track %}
 
-#### Daten über den Endpunkt `/users/track` senden {#send-data-through-the-userstrack-endpoint}
-Verwenden Sie den Braze-Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), um ein angepasstes Event zu senden, wenn ein:e Nutzer:in eine Buchung aktualisiert oder storniert. Geben Sie in diesem Event die erforderlichen Daten als Event-Eigenschaften an, die die Änderung bestätigen.
+#### Daten über den Endpunkt `/users/track` senden
+Verwenden Sie den Braze-Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um ein angepasstes Event zu senden, wenn ein:e Nutzer:in eine Buchung aktualisiert oder storniert. Geben Sie in diesem Event die erforderlichen Daten als Event-Eigenschaften an, die die Änderung bestätigen.
 
 Nehmen wir an, dass in diesem Anwendungsfall ein:e Nutzer:in das Datum der Reise nach Sydney aktualisiert hat. Das Event würde wie folgt aussehen:
 
@@ -193,7 +193,7 @@ Nehmen wir an, dass in diesem Anwendungsfall ein:e Nutzer:in das Datum der Reise
 {% endtab %}
 {% tab SDK %}
 
-#### Angepasste Events über das SDK senden {#write-nested-attributes-to-user-profiles-through-the-sdk}
+#### Angepasste Events über das SDK senden
 
 Senden Sie angepasste Events über das SDK an das Nutzerprofil. Wenn Sie beispielsweise das Web SDK verwenden, könnten Sie Folgendes senden:
 
@@ -212,7 +212,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### Schritt 3b: Bestätigungsnachricht für das Update erstellen {#step-3b-create-a-message-to-confirm-the-update}
 
-Erstellen Sie eine [aktionsbasierte Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/), um der bzw. dem Nutzer:in eine Bestätigung der aktualisierten Buchung zu senden. Sie können [Liquid verwenden, um Event-Eigenschaften als Template einzusetzen]({{site.baseurl}}/user_guide/data/custom_data/custom_events/), die den Namen, die alte Zeit und die neue Zeit der Buchung (oder nur den Namen bei einer Stornierung) in der Nachricht selbst wiedergeben.
+Erstellen Sie eine [aktionsbasierte Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery), um der bzw. dem Nutzer:in eine Bestätigung der aktualisierten Buchung zu senden. Sie können [Liquid verwenden, um Event-Eigenschaften als Template einzusetzen]({{site.baseurl}}/user_guide/data/custom_data/custom_events), die den Namen, die alte Zeit und die neue Zeit der Buchung (oder nur den Namen bei einer Stornierung) in der Nachricht selbst wiedergeben.
 
 Sie könnten beispielsweise die folgende Nachricht verfassen:
 

@@ -23,7 +23,7 @@ PhraseとBrazeの統合により、Brazeインターフェイスを離れるこ�
 | 必要条件 | 説明 |
 | --- | --- |
 | Phrase TMSアカウント | このパートナーシップを利用するには、Phrase TMS UltimateまたはEnterpriseアカウントが必要です。 |
-| Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**Settings** > **API Keys**から作成できます。 |
+| Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**設定** > **API キー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 

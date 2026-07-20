@@ -54,20 +54,20 @@ Certifique-se de que sua exportação do Braze Currents inclua dados de quaisque
 Para integrações do Salesforce Marketing Cloud, o Decisioning Studio Go requer:
 
 1. **Data Extensions:** seu público deve ser definido em uma Data Extension que o Decisioning Studio Go possa acessar. Use o SubscriberKey como o identificador principal do usuário.
-2. **Acesso a eventos de rastreamento:** desde que o pacote de aplicativo instalado suporte configuração automatizada de ponta a ponta, nenhuma configuração adicional é necessária.
+2. **Acesso a eventos de rastreamento:** desde que o pacote de app instalado suporte configuração automatizada de ponta a ponta, nenhuma configuração adicional é necessária.
 
-As extensões de dados e consultas de SQL são configuradas como parte da [configuração de orquestração]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration).
+As extensões de dados e consultas de SQL são configuradas como parte de [Configurar seu agente do Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup).
 
 {% endtab %}
 {% endtabs %}
 
 ## Melhores práticas {#best-practices}
 
-- **Mantenha os dados atualizados:** certifique-se de que seus segmentos de público e dados de cliente sejam atualizados regularmente (no mínimo, diariamente) para que o agente trabalhe com informações atuais.
+- **Mantenha os dados atualizados:** atualize seus segmentos de público e dados de cliente regularmente (no mínimo, diariamente) para que o agente trabalhe com informações atuais.
 - **Inclua atributos relevantes:** pense em quais características do cliente podem influenciar quais mensagens têm mais impacto: dados demográficos, histórico de engajamento, comportamento de compra e estágio do ciclo de vida são todos sinais valiosos.
 
 ## Próximos passos {#next-steps}
 
-Agora que você entende como o Go se conecta aos dados, prossiga para configurar sua integração com a CEP:
+Agora que você entende como o Go se conecta aos dados, configure seu agente no dashboard da Braze:
 
-- [Configurar orquestração]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)
+- [Configurar seu agente do Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)

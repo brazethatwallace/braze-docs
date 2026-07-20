@@ -75,7 +75,7 @@ Braze가 스크린샷을 찍기 전에 이메일이 도착할 때까지 기다�
 받은편지함 배치는 주로 실제 수신자의 참여에 의해 결정됩니다. 스팸 테스트 결과는 실제 Campaign에서 보이는 것과 다를 수 있습니다.
 {% endalert %}
 
-전달 가능성을 더 명확하게 파악하려면 소규모 실제 코호트로 콘텐츠를 테스트하세요. 높은 열기율과 클릭률이 가장 신뢰할 수 있는 신호입니다. 스팸 테스트는 참여 모니터링과 함께 하나의 입력 자료로 활용하세요.
+전달 가능성을 더 명확하게 파악하려면 소규모 실제 코호트로 콘텐츠를 테스트하세요. 높은 열람율과 클릭률이 가장 신뢰할 수 있는 신호입니다. 스팸 테스트는 참여 모니터링과 함께 하나의 입력 자료로 활용하세요.
 
 ### 스팸 테스트 결과 보기 {#viewing-spam-test-results}
 
@@ -128,7 +128,7 @@ Inbox Vision은 수정 우선순위를 정하는 데 도움이 되도록 접근�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="심각도 수준" }
 
 {% alert important %}
-드래그 앤 드롭 편집기는 문서 `<title>` 요소 설정을 지원하지 않으므로 접근성 스캐너는 항상 이 검사에서 실패합니다.<br><br>이 제한 사항은 향후 개선을 위해 추적되고 있습니다. 이것이 워크플로우나 사용자에게 영향을 미치는 경우 [피드백을 공유]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback)하여 영향력 있는 수정의 우선순위를 정하는 데 도움을 주세요.
+드래그 앤 드롭 편집기는 문서 `<title>` 요소 설정을 지원하지 않으므로 접근성 스캐너는 항상 이 검사에서 실패합니다.<br><br>이 제한 사항은 향후 개선을 위해 추적되고 있습니다. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### 자동화된 접근성 테스트 이해하기 {#understanding-automated-accessibility-testing}
@@ -137,15 +137,15 @@ Inbox Vision은 수정 우선순위를 정하는 데 도움이 되도록 접근�
 
 ## 모범 사례 {#best-practices}
 
-### 이메일 가입자 목록 검토 {#review-your-email-subscriber-list}
+### 이메일 구독자 목록 검토 {#review-your-email-subscriber-list}
 
-[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard)를 참조하여 가입자가 참여하는 가장 인기 있는 기기 유형과 제공업체를 확인하세요. 브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터 또는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder)를 활용하여 사용자의 최근 이메일 참여에 대한 세부 정보를 가져올 수 있습니다.
+[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard)를 참조하여 구독자가 참여하는 가장 인기 있는 기기 유형과 제공업체를 확인하세요. 브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터 또는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder)를 활용하여 사용자의 최근 이메일 참여에 대한 세부 정보를 가져올 수 있습니다.
 
-그렇지 않으면 Braze는 일반적인 업계 및 전문가 데이터를 기반으로 상위 20개 미리보기를 기본값으로 제공하며, 이는 가입자가 이메일에 참여하는 대부분의 환경을 포함합니다. 데이터 분석 결과 다른 더 인기 있는 미리보기가 있는 경우 Inbox Vision을 실행할 때마다 기본 미리보기 세트를 정의할 수 있습니다.
+그렇지 않으면 Braze는 일반적인 업계 및 전문가 데이터를 기반으로 상위 20개 미리보기를 기본값으로 제공하며, 이는 구독자가 이메일에 참여하는 대부분의 환경을 포함합니다. 데이터 분석 결과 다른 더 인기 있는 미리보기가 있는 경우 Inbox Vision을 실행할 때마다 기본 미리보기 세트를 정의할 수 있습니다.
 
 ### 의미 있는 미리보기와 영향을 받는 미리보기 선택 {#select-meaningful-previews-and-impacted-previews}
 
-비즈니스가 주로 미국에 기반을 두고 있다면 GMX.de와 같은 국제 미리보기는 소수의 사용자만 사용하는 특정 미리보기일 수 있습니다. 상당한 가입자 영향이 있는 받은편지함에 대해 우선순위를 정하고 최적화하며, 영향력이 높은 받은편지함을 위해 미리보기를 아껴두는 것을 권장합니다.
+비즈니스가 주로 미국에 기반을 두고 있다면 GMX.de와 같은 국제 미리보기는 소수의 사용자만 사용하는 특정 미리보기일 수 있습니다. 상당한 구독자 영향이 있는 받은편지함에 대해 우선순위를 정하고 최적화하며, 영향력이 높은 받은편지함을 위해 미리보기를 아껴두는 것을 권장합니다.
 
 특정 미리보기에 영향을 미치는 수정을 할 때는 사용하지 않는 미리보기를 소비하지 않도록 영향을 받는 미리보기만 선택하세요.
 

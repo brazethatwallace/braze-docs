@@ -3,43 +3,43 @@ nav_title: エントリイベントに一致する終了条件
 article_title: エントリイベントに一致する終了条件
 page_order: 5
 page_type: tutorial
-description: "イベントプロパティをCanvasのエントリプロパティと比較する終了条件とアクションパスの設定方法を学びます。これにより、ユーザーがエントリ時の特定のアクションを完了した場合にのみ終了または分岐するようになります。"
+description: "イベントプロパティをキャンバスのエントリプロパティと比較する終了条件とアクションパスの設定方法を学びます。これにより、ユーザーがエントリ時の特定のアクションを完了した場合にのみ終了または分岐するようになります。"
 tool: Canvas
 ---
 
 # エントリイベントに一致する終了条件 {#matching-exit-criteria-to-entry-events}
 
-> この記事では、Canvasのエントリイベントに直接関連する終了条件とアクションパスの設定方法について説明します。これにより、ユーザーがCanvasに入った理由に関連する特定のアクションを実行した場合にのみ、終了または分岐するようになります。
+> この記事では、キャンバスのエントリイベントに直接関連する終了条件とアクションパスの設定方法について説明します。これにより、ユーザーがキャンバスに入った理由に関連する特定のアクションを実行した場合にのみ、終了または分岐するようになります。
 
-イベントプロパティを[Canvasのエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)と比較することで、高度にターゲットされたフローを作成できます。例えば、カート放棄Canvasでは、ユーザーが放棄した商品と同じ商品を購入した場合にのみ終了するように設定し、別の商品を購入した場合はリマインダーメッセージを引き続き受信するようにできます。
+イベントプロパティを[キャンバスのエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)と比較することで、高度にターゲットされたフローを作成できます。例えば、カート放棄キャンバスでは、ユーザーが放棄した商品と同じ商品を購入した場合にのみ終了するように設定し、別の商品を購入した場合はリマインダーメッセージを引き続き受信するようにできます。
 
 このアプローチでは、[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)を使用してイベント間のプロパティを比較します。このパターンは、eコマース以外にも、保険の更新、予約リマインダー、サブスクリプション管理など、多くのシナリオに適用できます。
 
-## 終了条件: 一致するアクションが発生した場合にCanvasを終了する {#exit-criteria-exiting-the-canvas-when-a-matching-action-occurs}
+## 終了条件: 一致するアクションが発生した場合にキャンバスを終了する {#exit-criteria-exiting-the-canvas-when-a-matching-action-occurs}
 
-一致するエントリイベントに対応するアクションを実行した後、ユーザーをCanvasから完全に退出させたい場合は、[終了条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)を使用します。
+一致するエントリイベントに対応するアクションを実行した後、ユーザーをキャンバスから完全に退出させたい場合は、[終了条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)を使用します。
 
 ### 例: チケット購入の放棄 {#example-abandoned-ticket-purchase}
 
-このシナリオでは、ユーザーがカスタムイベント `Selected Ticket` を実行するとCanvasに入ります。このイベントには `event_id` というプロパティが含まれています。終了条件は、ユーザーがカスタムイベント `Purchased Ticket`（同様に `event_id` というプロパティを含む）をトリガーした際に、終了イベントのプロパティがエントリイベントのプロパティと比較されるように設定されています。2つが一致すると、ユーザーはCanvasを終了します。
+このシナリオでは、ユーザーがカスタムイベント `Selected Ticket` を実行するとキャンバスに入ります。このイベントには `event_id` というプロパティが含まれています。終了条件は、ユーザーがカスタムイベント `Purchased Ticket`（同様に `event_id` というプロパティを含む）をトリガーした際に、終了イベントのプロパティがエントリイベントのプロパティと比較されるように設定されています。2つが一致すると、ユーザーはキャンバスを終了します。
 
 これは以下を意味します:
 
-- ユーザーが最初に選択したチケットと同じチケットを購入した場合、Canvasを終了し、リマインダーの受信を停止します。
-- ユーザーが別のチケットを購入した場合、Canvasに残り、元のチケットに関するフォローアップメッセージを引き続き受信します。
+- ユーザーが最初に選択したチケットと同じチケットを購入した場合、キャンバスを終了し、リマインダーの受信を停止します。
+- ユーザーが別のチケットを購入した場合、キャンバスに残り、元のチケットに関するフォローアップメッセージを引き続き受信します。
 
 設定方法:
 
-1. トリガーとなるカスタムイベント（`Selected Ticket` など）とその関連プロパティ（`event_id` など）を使用して、アクションベースのCanvasエントリを設定します。
+1. トリガーとなるカスタムイベント（`Selected Ticket` など）とその関連プロパティ（`event_id` など）を使用して、アクションベースのキャンバスエントリを設定します。
 2. **ターゲットオーディエンス**ステップで、完了カスタムイベント（`Purchased Ticket` など）を使用して終了条件の例外イベントを設定します。
 3. **プロパティフィルターを追加**を選択し、基本プロパティ `event_id` の比較が `equals` に設定されたフィルターを追加します。
 4. **値をパーソナライズ**トグルをオンにし、**パーソナライゼーションタイプ**を `Context Variables` に設定し、**属性**を `event_id` に設定します。
 
-これにより、`Purchased Ticket` イベントの `event_id` が、元のCanvasエントリイベントから保存された `event_id` と比較されます。これらのフィルターの設定の詳細については、[終了条件の例]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#exit-criteria-examples)を参照してください。
+これにより、`Purchased Ticket` イベントの `event_id` が、元のキャンバスエントリイベントから保存された `event_id` と比較されます。これらのフィルターの設定の詳細については、[終了条件の例]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#exit-criteria-examples)を参照してください。
 
 ## アクションパス: 一致するアクションに基づいて分岐する {#action-paths-branching-based-on-a-matching-action}
 
-ユーザーをCanvasに残しつつ、後続のアクションがエントリイベントと一致するかどうかに応じて異なるパスに進ませたい場合は、[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を使用します。
+ユーザーをキャンバスに残しつつ、後続のアクションがエントリイベントと一致するかどうかに応じて異なるパスに進ませたい場合は、[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を使用します。
 
 ### 例: 分岐パスを持つカート放棄 {#example-abandoned-checkout-with-branching-paths}
 
@@ -62,7 +62,7 @@ tool: Canvas
 
 この記事では購入放棄の例を使用していますが、完了アクションをエントリアクションと関連付ける必要があるあらゆるシナリオに同じパターンを適用できます。例えば:
 
-- **保険の更新:** Canvasをトリガーした特定の保険を更新したユーザーを終了させます。
+- **保険の更新:** キャンバスをトリガーした特定の保険を更新したユーザーを終了させます。
 - **予約リマインダー:** 元の予約を確認したか変更したかに基づいてユーザーを分岐させます。
 - **サブスクリプション管理:** 案内された特定のプランをアップグレードしたかどうかに応じて、ユーザーを異なるルートに振り分けます。
 - **イベント登録:** 興味を示した特定のイベントの登録を完了したユーザーを終了させます。

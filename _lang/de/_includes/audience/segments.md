@@ -1,9 +1,9 @@
 {% if include.section == "Differing audience size" %}
 
-Die Größe der Zielpopulation, die in einer Campaign oder einem Canvas angezeigt wird, kann sich von der [Größe der erreichbaren Zielgruppe für ein Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/#segment-membership-calculation) unterscheiden, selbst wenn Sie dieses Segment ohne zusätzliche Filter direkt in Ihre Campaign oder Ihr Canvas einfügen.
+Die Größe der Zielpopulation, die in einer Campaign oder einem Canvas angezeigt wird, kann sich von der [Größe der erreichbaren Zielgruppe für ein Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation) unterscheiden, selbst wenn Sie dieses Segment ohne zusätzliche Filter direkt in Ihre Campaign oder Ihr Canvas einfügen.
 Dafür kann es mehrere Gründe geben:
 
-- Wenn eine Globale Kontrollgruppe für eine Campaign oder ein Canvas gilt, werden Nutzer:innen in dieser Globalen Kontrollgruppe bei der Zählung der erreichbaren Nutzer:innen ausgeschlossen.
+- Wenn eine globale Kontrollgruppe für eine Campaign oder ein Canvas gilt, werden Nutzer:innen in dieser globalen Kontrollgruppe bei der Zählung der erreichbaren Nutzer:innen ausgeschlossen.
 - Die Zielpopulation einer Campaign oder eines Canvas schließt Nutzer:innen aus, die nicht über die verschiedenen Nachrichten-Kanäle kontaktiert werden können; das Verhalten unterscheidet sich von Kanal zu Kanal. So schließt die erreichbare Zielgruppe für eine Campaign oder ein Canvas beispielsweise Nutzer:innen aus, die abgemeldet, als Spam markiert (bei E-Mails) oder als Hard Bounce (bei E-Mails) eingestuft sind. Das Segment selbst schließt jedoch nur Opt-outs aus, wenn es die geschätzte Anzahl der per E-Mail erreichbaren Nutzer:innen anzeigt.
 - Braze sendet SMS-Nachrichten nur an Nutzer:innen innerhalb der ausgewählten Abo-Gruppe. Daher schließt die SMS-Zielpopulation für eine Campaign oder ein Canvas auch alle Nutzer:innen aus, die nicht zu Ihrer ausgewählten Abo-Gruppe gehören.
 
@@ -58,7 +58,7 @@ Geplante Aktualisierungen werden automatisch deaktiviert, sobald eine Segmenterw
 
 - Nicht in aktiven Campaigns oder Canvases verwendet
 - In keinem Segment verwendet, das in einer aktiven Campaign oder einem Canvas eingesetzt wird
-- In keinem Segment verwendet, für das [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking) aktiviert ist
+- In keinem Segment verwendet, für das [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) aktiviert ist
 - Seit mehr als sieben Tagen nicht geändert wurde
 - Seit mehr als sieben Tagen nicht zu einer Campaign, einem Canvas (einschließlich Entwürfen) oder einem Segment hinzugefügt wurde
 

@@ -1,6 +1,6 @@
 ## 푸시 구독 상태 {#push-sub-states}
 
-Braze의 '푸시 구독 상태'는 푸시 알림 수신에 대한 **사용자의** 글로벌 선호도를 식별합니다. 구독 상태는 사용자 기반이므로 개별 앱에 한정되지 않습니다. 구독 상태는 푸시 알림을 타겟팅할 사용자를 결정할 때 유용한 플래그가 됩니다.
+Braze의 "푸시 구독 상태"는 푸시 알림 수신에 대한 **사용자의** 글로벌 선호도를 식별합니다. 구독 상태는 사용자 기반이므로 개별 앱에 한정되지 않습니다. 구독 상태는 푸시 알림을 타겟팅할 사용자를 결정할 때 유용한 플래그가 됩니다.
 
 {% alert note %}
 사용자의 푸시 구독 상태는 사용자의 모든 기기를 포함한 전체 고객 프로필에 적용됩니다.
@@ -15,7 +15,7 @@ Braze의 '푸시 구독 상태'는 푸시 알림 수신에 대한 **사용자의
 | `Subscribed` | Braze에서 고객 프로필을 생성할 때의 기본 푸시 구독 상태입니다. |
 | `Opted-In` | 사용자가 푸시 알림 수신을 명시적으로 선호한다고 밝혔습니다. Braze는 사용자가 OS 수준의 푸시 프롬프트를 수락하면 사용자의 옵트인 상태를 자동으로 `Opted-In`으로 변경합니다.<br><br>Android 12 이하 사용자에게는 적용되지 않습니다. |
 | `Unsubscribed` | 사용자가 애플리케이션 또는 브랜드가 제공하는 기타 방법을 통해 푸시 수신을 명시적으로 취소한 경우입니다. 기본적으로 Braze 푸시 Campaigns는 푸시에 대해 `Subscribed` 또는 `Opted-in`인 사용자만을 대상으로 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 구독 상태 #push-sub-states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 구독 상태" }
 
 {% alert important %}
 Braze는 사용자의 푸시 구독 상태를 `Unsubscribed`로 자동 변경하지 않습니다. 사용자의 푸시 구독 상태가 `Unsubscribed`인 경우 세분화에서 해당 사용자의 `Foreground Push Enabled` 필터는 `false`임을 기억하세요.
@@ -23,7 +23,7 @@ Braze는 사용자의 푸시 구독 상태를 `Unsubscribed`로 자동 변경하
 
 ### 푸시 등록 및 도달 가능 사용자 {#push-registration-and-reachable-users}
 
-푸시 구독 상태는 사용자의 선호도를 반영하지만, 대시보드에서 푸시에 대해 **도달 가능**으로 집계되는지 여부는 [푸시 등록]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/), 즉 프로필에 유효한 포그라운드 푸시 토큰이 있는지에 따라 달라집니다. Braze가 채널 수준 수치를 계산하는 방법은 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)을 참조하세요.
+푸시 구독 상태는 사용자의 선호도를 반영하지만, 대시보드에서 푸시에 대해 **도달 가능**으로 집계되는지 여부는 [푸시 등록]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle), 즉 프로필에 유효한 포그라운드 푸시 토큰이 있는지에 따라 달라집니다. Braze가 채널 수준 수치를 계산하는 방법은 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)을 참조하세요.
 
 - **푸시 Campaigns 및 Canvases:** 푸시에 등록되지 않은 사용자는 푸시 구독 상태가 `Subscribed` 또는 `Opted-In`이더라도 오디언스 통계에서 Android 푸시 또는 iOS 푸시의 **도달 가능 사용자**에 포함되지 않습니다.
 - **기타 채널:** 동일한 사용자라도 자격을 갖춘 다른 채널(예: 이메일 또는 인앱 메시지)에서는 도달 가능으로 집계될 수 있습니다.
@@ -31,7 +31,7 @@ Braze는 사용자의 푸시 구독 상태를 `Unsubscribed`로 자동 변경하
 
 고객 프로필에 푸시 구독 상태가 `Subscribed`로 표시되더라도 푸시 토큰이 할당되지 않은 경우가 있습니다. 이러한 사용자는 Braze가 유효한 토큰을 기록할 때까지 Android 푸시 또는 iOS 푸시의 **도달 가능 사용자**에 집계되지 않습니다.
 
-필터 정의에 대해서는 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 참조하세요.
+필터 정의에 대해서는 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 참조하세요.
 
 ### 푸시 구독 상태 업데이트하기 {#update-push-subscription-state}
 
@@ -70,7 +70,7 @@ AppDelegate.braze = braze
 
 #### REST API
 
-Braze REST API의 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 사용자의 [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/) 속성을 업데이트함으로써 구독 상태를 변경할 수 있습니다.
+Braze REST API의 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자의 [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object) 속성을 업데이트함으로써 구독 상태를 변경할 수 있습니다.
 
 ### 푸시 활성화와 푸시 구독 상태의 차이 {#differences-between-push-enablement-and-push-subscription-status}
 
@@ -78,11 +78,11 @@ Braze REST API의 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoint
 
 자동 옵트인이 활성화된 경우(기본값), Braze는 사용자가 앱에 대한 푸시 알림을 승인하거나 시스템 설정에서 권한을 다시 활성화할 때(예: iOS, Android 13+, 지원되는 웹 브라우저) 사용자의 푸시 구독 상태를 `Opted-In`으로 업데이트합니다. 그렇지 않으면 SDK 메서드 또는 REST API 호출을 사용하여 명시적으로 변경할 때까지 사용자의 푸시 구독 상태는 `Subscribed`로 유지됩니다.
 
-Braze는 사용자가 OS, 브라우저 또는 앱 수준에서 알림을 옵트아웃할 때 사용자의 푸시 구독 상태를 `Unsubscribed`로 자동 변경하지 않습니다. 사용자의 푸시 구독 상태를 업데이트하려면 Braze에서 직접 업데이트해야 합니다. 예를 들어, 사용자가 인앱 환경설정 센터에서 푸시를 비활성화하면 Braze에서 푸시 구독 상태를 `Unsubscribed`로 업데이트하세요. Braze는 환경설정 센터를 기반으로 고객 프로필을 자동 업데이트하지 않습니다. 구독 상태를 사용자의 인앱 환경설정과 일치시키려면 [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration)(iOS 또는 Android) 또는 [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api)를 사용하여 적절한 메서드를 호출하세요.
+Braze는 사용자가 OS, 브라우저 또는 앱 수준에서 알림을 옵트아웃할 때 사용자의 푸시 구독 상태를 `Unsubscribed`로 자동 변경하지 않습니다. 사용자의 푸시 구독 상태를 업데이트하려면 Braze에서 직접 업데이트해야 합니다. 예를 들어, 사용자가 인앱 환경설정 센터에서 푸시를 비활성화하면 Braze에서 푸시 구독 상태를 `Unsubscribed`로 업데이트하세요. Braze는 환경설정 센터를 기반으로 고객 프로필을 자동 업데이트하지 않습니다. 구독 상태를 사용자의 인앱 환경설정과 일치시키려면 SDK(iOS 또는 Android) 또는 REST API를 사용하여 적절한 메서드를 호출하세요. 자세한 내용은 [푸시 구독 상태 업데이트하기]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state)를 참조하세요.
 
 ### 가져온 푸시 토큰(iOS) {#imported-push-tokens-ios}
 
-[iOS 푸시 토큰을 가져올]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#push-token-import) 때 `push_token_import`를 사용하면, 사용자의 푸시 구독 상태는 일반적으로 Braze 통합 앱에서 세션을 기록할 때까지 **`Subscribed`**입니다. 첫 번째 세션 이후, [자동 옵트인](#automatic-opt-in-default)이 적용되는 경우(예: 사용자가 iOS에서 푸시를 승인하고 `optInWhenPushAuthorized`가 활성화된 경우) Braze가 상태를 **`Opted-In`**으로 업데이트할 수 있습니다.
+`push_token_import`를 사용하여 [iOS 푸시 토큰을 가져올]({{site.baseurl}}/api/objects_filters/user_attributes_object#push-token-import) 때, 사용자의 푸시 구독 상태는 일반적으로 Braze 통합 앱에서 세션을 기록할 때까지 **`Subscribed`**입니다. 첫 번째 세션 이후, [자동 옵트인](#automatic-opt-in-default)이 적용되는 경우(예: 사용자가 iOS에서 푸시를 승인하고 `optInWhenPushAuthorized`가 활성화된 경우) Braze가 상태를 **`Opted-In`**으로 업데이트할 수 있습니다.
 
 가져오기 후와 사용자의 첫 인앱 세션 이후에 고객 프로필의 **연락처 설정**을 확인하여 예상 상태를 확인하세요.
 
@@ -92,5 +92,5 @@ Braze는 사용자가 OS, 브라우저 또는 앱 수준에서 알림을 옵트�
 
 Braze를 사용하여 사용자의 푸시 구독 상태를 확인할 수 있는 방법은 다음과 같습니다:
 
-* **고객 프로필:** Braze 대시보드의 **[사용자 검색]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/)** 페이지에서 개별 고객 프로필에 접근할 수 있습니다. 이메일 주소, 전화번호 또는 외부 사용자 ID를 통해 사용자의 프로필을 찾은 후 **Engagement** 탭을 선택하여 사용자의 구독 상태를 확인하고 수동으로 조정할 수 있습니다.
-* **REST API 내보내기:** [Segment별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) 또는 [식별자별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) 내보내기 엔드포인트를 사용하여 개별 고객 프로필을 JSON 형식으로 내보낼 수 있습니다. Braze는 각 기기에 대한 푸시 활성화 정보를 포함하는 푸시 토큰 오브젝트를 반환합니다.
+* **고객 프로필:** Braze 대시보드의 **[사용자 검색]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles)** 페이지에서 개별 고객 프로필에 접근할 수 있습니다. 이메일 주소, 전화번호 또는 외부 사용자 ID를 통해 사용자의 프로필을 찾은 후 **인게이지먼트** 탭을 선택하여 사용자의 구독 상태를 확인하고 수동으로 조정할 수 있습니다.
+* **REST API 내보내기:** [Segment별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) 또는 [식별자별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) 내보내기 엔드포인트를 사용하여 개별 고객 프로필을 JSON 형식으로 내보낼 수 있습니다. Braze는 각 기기에 대한 푸시 활성화 정보를 포함하는 푸시 토큰 오브젝트를 반환합니다.

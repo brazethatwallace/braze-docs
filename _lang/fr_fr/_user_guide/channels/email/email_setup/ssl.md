@@ -3,7 +3,7 @@ nav_title: SSL chez Braze
 article_title: Aperçu SSL
 page_order: 5
 page_type: reference
-description: "Le présent article de référence couvre le SSL, son utilité et la manière dont il est utilisé chez Braze."
+description: "Cet article de référence couvre le SSL, son utilité et la manière dont il est utilisé chez Braze."
 channel: email
 
 ---
@@ -18,11 +18,11 @@ channel: email
 
 La plupart des domaines ne nécessitent pas de SSL, mais Braze recommande fortement de l'utiliser pour les raisons suivantes.
 
-La sécurisation de votre site Internet et de vos liens avec SSL est une pratique courante, même pour les entreprises qui ne traitent pas directement des informations sensibles sur leurs clients. Les utilisateurs font davantage confiance aux liens sécurisés avec SSL, et la couche d'authentification supplémentaire permet de protéger vos données.
+La sécurisation de votre site web et de vos liens avec SSL est une pratique courante, même pour les entreprises qui ne traitent pas directement des informations sensibles sur leurs clients. Les utilisateurs font davantage confiance aux liens sécurisés avec SSL, et la couche d'authentification supplémentaire permet de protéger vos données.
 
 ### Nécessaire pour le suivi des clics et des ouvertures {#necessary-for-click-and-open-tracking}
 
-Braze transforme vos liens en utilisant votre sous-domaine de suivi de liens personnalisé afin de suivre les clics et les ouvertures. Par défaut, ces liens commencent par HTTP. Les utilisateurs disposant de navigateurs ou d'extensions qui restreignent le trafic non sécurisé peuvent rencontrer des difficultés pour passer par la redirection avant l'URL de destination, même si l'URL est sécurisée. Cela peut entraîner des images endommagées et un suivi inexact. Appliquez le protocole SSL au sous-domaine de suivi de liens pour garantir des redirections sécurisées.
+Braze transforme vos liens en utilisant votre sous-domaine de suivi de liens personnalisé afin de suivre les clics et les ouvertures. Par défaut, ces liens commencent par HTTP. Les utilisateurs disposant de navigateurs ou d'extensions qui restreignent le trafic non sécurisé peuvent rencontrer des difficultés pour passer par la redirection avant l'URL de destination, même si l'URL est sécurisée. Cela peut entraîner des images cassées et un suivi inexact. Appliquez le protocole SSL au sous-domaine de suivi de liens pour garantir des redirections sécurisées.
 
 ## Exigences {#requirements}
 
@@ -32,13 +32,13 @@ Les principaux navigateurs tels que Google Chrome restreignent le trafic via des
 
 ### Domaines HSTS {#hsts-domains}
 
-Si vous disposez d'un domaine HTTP Strict Transport Security (HSTS), configurez le SSL et paramétrez un réseau de diffusion de contenu pour envoyer les certificats de sécurité requis. Sans SSL, les liens vers les images et les pages web ne fonctionneront pas.
+Si vous disposez d'un domaine HTTP Strict Transport Security (HSTS), configurez le SSL et paramétrez un CDN pour envoyer les certificats de sécurité requis. Sans SSL, les liens vers les images et les pages web ne fonctionneront pas.
 
 ## Obtenir un certificat SSL {#acquire-an-ssl-certificate}
 
 Obtenez un certificat SSL auprès d'un tiers, généralement un réseau de diffusion de contenu (CDN). Un CDN héberge le certificat et le présente au navigateur lorsqu'un utilisateur clique sur un lien, en redirigeant le trafic via le CDN pour appliquer les certificats avant de l'envoyer à SendGrid ou SparkPost.
 
-Pour démarrer la configuration SSL, contactez votre gestionnaire de la satisfaction client Braze afin de lancer une configuration complète de l'e-mail Braze.
+Pour démarrer la configuration SSL, contactez votre gestionnaire du succès des clients Braze afin de lancer une configuration complète de l'e-mail Braze.
 
 Une fois que Braze a lancé la configuration, suivez ces étapes :
 
@@ -46,14 +46,14 @@ Une fois que Braze a lancé la configuration, suivez ces étapes :
 2. Braze vérifiera si les enregistrements ont été correctement ajoutés à votre registre.
 3. Ensuite, sélectionnez un CDN et obtenez des certificats SSL auprès d'un fournisseur tiers.
 4. À ce stade, vous configurez votre CDN. Notez que Braze ne peut pas vous aider à résoudre les problèmes de configuration du CDN. Contactez votre fournisseur de CDN pour toute assistance supplémentaire.
-5. Contactez votre gestionnaire de la satisfaction client pour activer le SSL.
+5. Contactez votre gestionnaire du succès des clients pour activer le SSL.
 
 ## Qu'est-ce qu'un CDN et pourquoi en ai-je besoin ? {#what-is-a-cdn-and-why-do-i-need-it}
 
 Un réseau de diffusion de contenu (CDN) est une plateforme de serveurs qui contribue à garantir des temps de chargement rapides du contenu sur différents supports tout en gérant les certificats de sécurité.
 
 {% alert important %}
-La configuration du CDN intervient toujours après la validation de vos enregistrements DNS par Braze. Si vous n'avez pas encore lancé cette étape, contactez votre gestionnaire de la satisfaction client pour en savoir plus sur la marche à suivre.
+La configuration du CDN intervient toujours après la validation de vos enregistrements DNS par Braze. Si vous n'avez pas encore lancé cette étape, contactez votre gestionnaire du succès des clients pour en savoir plus sur la marche à suivre.
 {% endalert %}
 
 Pour le suivi des clics et des ouvertures, les partenaires de distribution transforment les liens à l'aide d'un sous-domaine personnalisé et le CDN applique le certificat SSL à ces liens transformés. Les partenaires doivent souvent présenter des certificats valides au navigateur du destinataire pour que les liens et les images s'affichent correctement. Comme Braze ne demande ni ne gère les certificats, vous devez effectuer cette configuration via un CDN.
@@ -83,11 +83,11 @@ Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en
 | SendGrid | CloudFlare | [Utiliser CloudFlare](https://sendgrid.com/docs/ui/sending-email/content-delivery-networks/#using-cloudflare) |
 | SendGrid | Fastly | [Utiliser Fastly](https://sendgrid.com/docs/ui/sending-email/content-delivery-networks/#using-fastly) |
 | SendGrid | KeyCDN | [Utiliser KeyCDN](https://sendgrid.com/docs/ui/sending-email/content-delivery-networks/#using-keycdn) |
-| SparkPost | AWS CloudFront | [Guide étape par étape avec AWS CloudFront](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-aws-cloudfront) |
-| SparkPost | CloudFlare | [Guide étape par étape avec Cloudflare](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-cloudflare) |
-| SparkPost | Fastly | [Guide étape par étape avec Fastly](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
-| SparkPost | Google Cloud Platform | [Guide étape par étape avec Google Cloud Platform](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
-| SparkPost | Microsoft Azure | [Guide étape par étape avec Microsoft Azure](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
+| SparkPost | AWS CloudFront | [Guide étape par étape avec AWS CloudFront](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-aws-cloudfront) |
+| SparkPost | CloudFlare | [Guide étape par étape avec Cloudflare](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-cloudflare) |
+| SparkPost | Fastly | [Guide étape par étape avec Fastly](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-fastly) |
+| SparkPost | Google Cloud Platform | [Guide étape par étape avec Google Cloud Platform](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-google-cloud-platform) |
+| SparkPost | Microsoft Azure | [Guide étape par étape avec Microsoft Azure](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-microsoft-azure) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ressources supplémentaires" }
 
 ### Amazon SES

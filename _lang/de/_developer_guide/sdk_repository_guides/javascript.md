@@ -6,14 +6,16 @@ description: "Braze JavaScript SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# JavaScript SDK – Repository-Leitfaden {#javascript-sdk-repository-guide}
+
 ## Über das Braze JavaScript SDK {#about-the-braze-javascript-sdk}
 
 Das Braze JavaScript SDK hilft Ihnen, Braze-Messaging-, Analytics- und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.
 
 Für den Einstieg stehen Ihnen folgende Ressourcen zur Verfügung:
 
-- [Braze-Benutzerhandbuch]({{site.baseurl}}/user_guide/introduction)
-- [Braze-Entwicklerhandbuch]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=javascript)
+- [Braze-Benutzerhandbuch](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze-Entwicklerhandbuch](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
 
 ### Architekturübersicht {#architecture-overview}
 
@@ -28,8 +30,8 @@ Das Braze JavaScript SDK ist eine **plattformunabhängige** Bibliothek, die in j
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
-- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
+- [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## Schnellstart {#quickstart}
@@ -107,7 +109,7 @@ interface StorageManager {
   clearData(storageKeys: string[]): Promise<void>;
 }
 ```
-- Der Parameter `isId` kennzeichnet **persistente ID-Speicherung**: Wenn `true`, speichert das SDK einen persistenten Bezeichner (Geräte-ID, Nutzer-ID) oder das Opt-out-Flag. Implementierungen sollten diese über App-Neustarts hinweg beibehalten, damit das SDK dasselbe Gerät bzw. dieselbe:n Nutzer:in wiedererkennen kann. Wenn `false`, handelt es sich um Sitzungs-/Cache-Daten (Ereignisse, Attribute usw.), die nur im Arbeitsspeicher gehalten werden können. Für Webumgebungen empfiehlt es sich, Cookies für Schlüssel zu verwenden, die mit `isId: true` gespeichert werden, um sitzungsübergreifende Persistenz sicherzustellen.
+- Der Parameter `isId` kennzeichnet **persistente ID-Speicherung**: Wenn `true`, speichert das SDK einen persistenten Bezeichner (Geräte-ID, Nutzer:innen-ID) oder das Opt-out-Flag. Implementierungen sollten diese über App-Neustarts hinweg beibehalten, damit das SDK dasselbe Gerät bzw. dieselbe:n Nutzer:in wiedererkennen kann. Wenn `false`, handelt es sich um Sitzungs-/Cache-Daten (Ereignisse, Attribute usw.), die nur im Arbeitsspeicher gehalten werden können. Für Webumgebungen empfiehlt es sich, Cookies für Schlüssel zu verwenden, die mit `isId: true` gespeichert werden, um sitzungsübergreifende Persistenz sicherzustellen.
 - Muss asynchrone Operationen für alle Speichervorgänge unterstützen
 
 **2. NetworkManager** (optional) – HTTP-POST-Anfrageschnittstelle
@@ -676,7 +678,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 3. **Methoden können `null` zurückgeben**: Einige Methoden geben `null` zurück, um „nicht gefunden“ anzuzeigen (z. B. gibt `getUserId()` `null` zurück, wenn die:der Nutzer:in anonym ist). Dies unterscheidet sich von `undefined` (SDK nicht initialisiert).
 
 4. **Speicherschlüssel verwenden das `isId`-Flag**: Der Parameter `isId` in StorageManager-Methoden unterscheidet zwischen:
-   - ID-Speicher: Persistente Bezeichner (Geräte-ID, Nutzer-ID), die sitzungsübergreifend erhalten bleiben sollen
+   - ID-Speicher: Persistente Bezeichner (Geräte-ID, Nutzer:innen-ID), die sitzungsübergreifend erhalten bleiben sollen
    - Objekt-Speicher: Sitzungsbezogene Daten, die gelöscht werden können
 
 5. **SDK-Metadaten-Tags**: Das `sdkMetadata`-Array identifiziert die Plattform/den Wrapper, der das SDK verwendet (z. B. `['npm']` oder `[BrazeSdkMetadata.NPM]`). Gültige Tags werden durch das `BrazeSdkMetadata`-Enum definiert (z. B. `npm`, `cdn`, `manu`, `shp`, `gg`, `kep`), und das SDK fügt automatisch `'wjs'` hinzu, um das JavaScript SDK zu kennzeichnen.

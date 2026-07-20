@@ -69,7 +69,7 @@ You can view up to 100 usage reports at a time by selecting the checkboxes next 
 
 ## Logging custom events
 
-Custom events require additional setup. Refer to the list below for documentation about each platform, where you'll find information about the methods used to log custom events and how to add properties and quantities to your custom events.
+Custom events require additional setup. Refer to the following platform documentation for the methods used to log custom events and how to add properties and quantities to your custom events.
 
 {% details Expand for documentation by platform %}
 
@@ -85,7 +85,7 @@ Custom events require additional setup. Refer to the list below for documentatio
 
 ## Custom event storage
 
-All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_archival#active-users).
+All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is <a href="/docs/user_archival#active-users">active</a>.
 
 ## View a user's event history
 
@@ -116,7 +116,7 @@ Common use cases include:
 - Investigating a support issue for a specific user without setting up a data export.
 
 {% alert note %}
-Viewing the **Event History** tab requires both the **Search Users** and **View PII** user permissions because event properties can contain personal data. For more information, refer to [Company user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Viewing the **Event History** tab requires the **Search Users**, **View PII**, and **View User Event Properties** user permissions because event properties can contain personal data. For more information, refer to [Company user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Segmentation filters
@@ -150,7 +150,7 @@ You can also use **Filters** to break down your custom events by hour, monthly a
 ![Custom event graph filters]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Increment custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers) to keep a counter on a user action similar to a custom event. However, you can't view custom attribute data in a time series. User actions that don't need to be analyzed in a time series should be recorded using this method.
+[Increment custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) to keep a counter on a user action similar to a custom event. However, you can't view custom attribute data in a time series. User actions that don't need to be analyzed in a time series should be recorded using this method.
 {% endalert %}
 
 ### Why custom events analytics aren't showing

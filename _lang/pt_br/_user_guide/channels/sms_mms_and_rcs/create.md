@@ -20,21 +20,21 @@ search_rank: 1
 
 ## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
-Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canvas? Campanhas são melhores para envios de mensagens únicos e direcionados, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
+Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para envios de mensagens únicos e direcionados, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
 
 {% tabs %}
 {% tab Campaign %}
 
-1. Acesse **Envio de mensagens** > **Campaigns** e selecione **Criar campanha**.
+1. Acesse **Envio de mensagens** > **Campaigns** e selecione **Criar Campaign**.
 2. Selecione **SMS/MMS/RCS** ou, para campanhas direcionadas a múltiplos canais, selecione **Multicanal**.
-3. Dê à sua campanha um nome claro e significativo.
+3. Dê à sua Campaign um nome claro e significativo.
 4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
    * Tags facilitam a busca e a criação de relatórios das suas campanhas. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
-5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada uma das variantes adicionadas. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
-   * A Braze permite incluir variantes de SMS e RCS em uma única campanha, para que você possa comparar o desempenho de cada uma.
+5. Adicione e nomeie quantas variantes forem necessárias para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada uma das variantes adicionadas. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+   * A Braze permite incluir variantes de SMS e RCS em uma única Campaign, para que você possa comparar o desempenho de cada uma.
 
 {% alert tip %}
-Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Depois, escolha **Copiar da variante** no menu suspenso **Adicionar variante**.
+Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Depois, escolha **Copiar da variante** no menu suspenso **Adicionar variante**.
 {% endalert %}
 
 {% endtab %}
@@ -43,7 +43,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa de mensagem **SMS/MMS/RCS** no construtor de Canvas.
 3. Dê à sua etapa um nome claro e significativo.
-4. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) e especifique uma postergação conforme necessário.
+4. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) e especifique uma postergação conforme necessário.
 5. Filtre seu público para esta etapa conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 6. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 7. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
@@ -53,7 +53,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 ## Etapa 2: Selecione um grupo de inscrições {#step-2-select-a-subscription-group}
 
-Selecione um [grupo de inscrições]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) para garantir que você está enviando sua mensagem para os usuários corretos. Ao selecionar um grupo de inscrições, a Braze adicionará automaticamente um filtro de segmentação, garantindo que apenas usuários inscritos receberão a campanha.
+Selecione um [grupo de inscrições]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) para garantir que você está enviando sua mensagem para os usuários corretos. Ao selecionar um grupo de inscrições, a Braze adicionará automaticamente um filtro de segmentação, garantindo que apenas usuários inscritos receberão a Campaign.
 
 O grupo de inscrições selecionado determina quais tipos de mensagem estão disponíveis no criador:
 
@@ -79,7 +79,7 @@ A experiência de redação muda dependendo do tipo de mensagem selecionado. Sel
 {% tabs local %}
 {% tab SMS %}
 
-Escreva sua mensagem usando idiomas e personalização (Liquid, Conteúdo conectado e emojis) conforme necessário. Certifique-se de seguir nossos limites de texto para reduzir suas chances de cobranças excedentes.
+Escreva sua mensagem usando idiomas e personalização (Liquid, Conteúdo Conectado e emojis) conforme necessário. Certifique-se de seguir nossos limites de texto para reduzir suas chances de cobranças excedentes.
 
 {% alert important %}
 Antes de prosseguir, leia as diretrizes sobre [segmentos de mensagem SMS e limites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Segmentos de mensagem SMS são os lotes de caracteres que as operadoras de telefonia usam para medir mensagens de texto. As mensagens são cobradas por segmento de mensagem, então é uma boa ideia entender as nuances de como as mensagens serão divididas.
@@ -96,7 +96,7 @@ Você pode adicionar um cartão de contato à sua mensagem SMS para que os clien
 
 Para enviar uma mensagem MMS, seu grupo de inscrições deve ter pelo menos um número de telefone habilitado para MMS. Isso é indicado por uma tag **MMS** ao lado do grupo de inscrições no criador.
 
-Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JPEG ou GIF da [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) ou especifique uma URL de imagem. Apenas uma imagem é suportada por mensagem.
+Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JPEG ou GIF da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) ou especifique uma URL de imagem. Apenas uma imagem é suportada por mensagem.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -167,7 +167,7 @@ Mensagens RCS de mídia permitem usar formatos de mídia envolventes que não s�
 **Recursos:**
 
 - Suporta tudo disponível nos tipos de mensagem de texto, incluindo texto, respostas sugeridas e ações sugeridas.
-- Arquivos de imagem (JPEG, PNG) enviados da [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
+- Arquivos de imagem (JPEG, PNG) enviados da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 - Arquivos de vídeo (MP4, MPEG, MV4) adicionados por URL no criador de mensagens.
 - Arquivos de documento (PDF) adicionados por URL no criador de mensagens.
 
@@ -190,10 +190,10 @@ A experiência do usuário ao receber mensagens RCS pode variar com base na cobe
 {% endsubtab %}
 {% endsubtabs %}
 
-Escreva sua mensagem usando idiomas e personalização ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) e emojis) conforme necessário. Certifique-se de seguir os limites de texto para reduzir suas chances de cobranças excedentes.
+Escreva sua mensagem usando idiomas e personalização ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Conteúdo Conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) e emojis) conforme necessário. Certifique-se de seguir os limites de texto para reduzir suas chances de cobranças excedentes.
 
 {% alert important %}
-Antes de prosseguir, leia as [diretrizes de tipo de mensagem RCS](#step-3-compose-your-message) acima. Mensagens RCS são [cobradas por mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), então é uma boa ideia entender o que pode ser incluído em cada tipo.
+Antes de prosseguir, leia as [diretrizes de tipo de mensagem RCS](#step-3-compose-your-message) anteriormente nesta seção. Mensagens RCS são [cobradas por mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), então é uma boa ideia entender o que pode ser incluído em cada tipo.
 {% endalert %}
 
 {% endtab %}
@@ -219,26 +219,26 @@ A aparência final das mensagens da direita para a esquerda depende em grande pa
 
 #### Criar fluxos de mensagens conversacionais (RCS) {#create-conversational-message-workflows-rcs}
 
-Fluxos de mensagens conversacionais permitem responder dinamicamente aos usuários, criando uma experiência de mensagens de ida e volta. Para construir um fluxo, crie um Canvas e combine respostas sugeridas com [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para direcionar seu fluxo com base na resposta que o usuário selecionar.
+Fluxos de mensagens conversacionais permitem responder dinamicamente aos usuários, criando uma experiência de mensagens de ida e volta. Para construir um fluxo, crie um Canvas e combine respostas sugeridas com [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para direcionar seu fluxo com base na resposta que o usuário selecionar.
 
 1. No construtor de Canvas, crie uma etapa de mensagem RCS com múltiplas respostas sugeridas.
 
 ![Criador de mensagem RCS com respostas sugeridas.]({% image_buster /assets/img/rcs/suggested_replies.png %})
 
 {: start="2"}
-2. Conecte essa mensagem a uma Jornada de ação com um grupo de ação para cada resposta sugerida.
+2. Conecte essa mensagem a uma jornada de ação com um grupo de ação para cada resposta sugerida.
 3. Para cada grupo de ação:
    - Selecione o gatilho **Enviar uma mensagem SMS de entrada**.
    - Defina o corpo da mensagem para ser o mesmo da resposta sugerida correspondente.
 
-![Etapa de Jornada de ação configurada com três grupos de ação, um para cada resposta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
+![Etapa de jornada de ação configurada com três grupos de ação, um para cada resposta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
 
 {: start="4"}
 4. Conecte cada grupo de ação a uma etapa de mensagem RCS e adicione conteúdo com base na resposta sugerida associada.
 5. Continue o fluxo conversacional adicionando respostas sugeridas a quaisquer mensagens de acompanhamento.
 6. Repita as etapas 2 a 4 até que o fluxo esteja completo.
 
-![Canvas mostrando um fluxo conversacional com duas Jornadas de ação.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
+![Canvas mostrando um fluxo conversacional com duas jornadas de ação.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
 
 ## Etapa 4: Pré-visualize e teste sua mensagem {#step-4-preview-and-test-your-message}
 
@@ -258,22 +258,22 @@ Para MMS, a ordenação dos ativos (imagem e corpo da mensagem) não pode ser pe
 Como a renderização do RCS é controlada pelo sistema operacional do usuário, fabricante do dispositivo, operadora e app de mensagens (por exemplo, Google Messages vs. Apple Messages), a aparência da mensagem pode variar. A pré-visualização mostrada na Braze pode não corresponder exatamente ao que o usuário final recebe. Valide a renderização final em dispositivos reais sempre que possível. Para saber mais sobre a renderização do RCS em dispositivos iOS, consulte [Por que minha mensagem RCS não é renderizada corretamente em dispositivos iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
-Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs).
+Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs).
 
-## Etapa 5: Construa o restante da sua campanha ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## Etapa 5: Construa o restante da sua Campaign ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Em seguida, construa o restante da sua campanha. Consulte as seções a seguir para mais detalhes sobre como usar melhor nossas ferramentas para criar sua mensagem.
+Em seguida, construa o restante da sua Campaign. Consulte as seções a seguir para mais detalhes sobre como usar melhor nossas ferramentas para criar sua mensagem.
 
 ### Escolha o agendamento ou gatilho de entrega {#choose-delivery-schedule-or-trigger}
 
-As mensagens podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+As mensagens podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
+Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) para receber a campanha, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para receber a Campaign, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Escolha os usuários a direcionar {#choose-users-to-target}
 
@@ -281,7 +281,7 @@ Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messa
 
 {% multi_lang_include audience/target_audiences.md %}
 
-Selecione o público maior dos seus segmentos e restrinja ainda mais esse segmento com filtros opcionais. Você receberá automaticamente uma pré-visualização da população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
+Selecione o público maior dos seus segmentos e restrinja ainda mais esse segmento com filtros opcionais. Você receberá automaticamente uma prévia da população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
 {% alert tip %}
 Interessado em redirecionamento? Consulte [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) para saber mais.
@@ -289,9 +289,9 @@ Interessado em redirecionamento? Consulte [Redirecionamento de usuários]({{site
 
 ### Escolha eventos de conversão {#choose-conversion-events}
 
-A Braze permite rastrear com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma campanha. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contada se o usuário realizar a ação especificada.
+A Braze permite rastrear com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma Campaign. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contada se o usuário realizar a ação especificada.
 
-Eventos de conversão ajudam a medir o sucesso da sua campanha. Por exemplo:
+Eventos de conversão ajudam a medir o sucesso da sua Campaign. Por exemplo:
 
 - Se você está usando geotargeting para disparar uma mensagem cujo objetivo final é o usuário fazer uma compra, defina o evento de conversão como `Purchase`.
 - Se você está tentando direcionar o usuário para o seu app, defina o evento de conversão como `Starts Session`.
@@ -301,14 +301,14 @@ Você também pode definir eventos de conversão personalizados com base no seu 
 {% endtab %}
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) da nossa documentação de Canvas.
 
 {% endtab %}
 {% endtabs %}
 
 ## Etapa 6: Revise e implante {#step-6-review-and-deploy}
 
-Depois de terminar de construir a última parte da sua campanha ou Canvas, revise seus detalhes, teste e envie!
+Depois de terminar de construir a última parte da sua Campaign ou Canvas, revise seus detalhes, teste e envie!
 
 Em seguida, confira [Relatórios de SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) para saber como acessar os resultados das suas campanhas.
 

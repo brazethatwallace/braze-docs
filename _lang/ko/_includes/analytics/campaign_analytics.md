@@ -187,6 +187,13 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![배리언트 1에 대한 측정기준 표가 포함된 WhatsApp Performance 패널.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### 크레딧과 발송 수 {#credits-versus-send-counts}
+
+캠페인 분석의 WhatsApp 발송 수는 전달 시도를 반영합니다. Meta가 메시지 카테고리(마케팅, 유틸리티, 인증, 서비스)별로 과금하는 경우 소비되는 크레딧이 다를 수 있습니다.
+
+- Braze에서 작성된 응답 메시지는 Braze WhatsApp 크레딧을 소비하지 않습니다.
+- 방향성 발송 볼륨을 확인하려면 **Analytics** > **Daily Stats**를 사용하세요. 캠페인 또는 Canvas별 크레딧 세부 내역은 제공되지 않습니다.
+
 {% endif %}
 
 보기를 간소화하려면 <i class="fas fa-plus"></i> **Add/Remove Columns**를 클릭하고 원하는 측정기준을 선택 해제하세요. 기본적으로 모든 측정기준이 표시됩니다.
@@ -365,6 +372,12 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
 
 _Unique Daily Impressions_는 실제로 본 배너를 의미합니다.
 
+#### 대조군과 배리언트 간의 차이 {#discrepancies-between-control-groups-and-variants}
+
+배너 캠페인에서 대조군을 사용하는 경우, 오디언스 분할이 균등하더라도 대조군 노출이 배리언트 노출보다 높을 수 있습니다. 이 차이는 대조군과 배리언트 배너의 노출 기록 방식 차이로 인해 발생합니다.
+
+대조군과 배리언트 노출 모두 배너 배치가 뷰포트에 진입해야 합니다. 배리언트 노출은 전체 배너가 화면에 표시될 때만 기록됩니다. 대조군 노출은 배치가 뷰포트에 진입하는 즉시 기록될 수 있으며, 이는 배리언트의 경우 전체 배너가 표시되기 전입니다.
+
 {% elsif include.channel == "email" %}
 
 #### 이메일 측정기준 {#email-metrics}
@@ -455,10 +468,10 @@ _발송 − (전달 + 하드바운스) ≈ 소프트바운스_
 
 이메일 분석을 검토할 때 다음 패턴을 염두에 두세요:
 
-- **_발송_과 (_전달_ + _하드바운스_) 간의 차이:** 일회성 발송 후 ESP 재시도 기간 동안 이 차이는 소프트바운스 또는 아직 재시도 중인 연기를 반영하는 경우가 많습니다. 재시도가 완료된 후 남아 있는 차이는 보통 소프트바운스되어 전달되지 않은 메시지를 의미합니다. 이러한 발송은 캠페인 _전달_ 또는 _반송_에 포함되지 않습니다. 위의 공식을 사용하여 진행 중인 소프트바운스를 대략적으로 계산하세요.
+- **_발송_과 (_전달_ + _하드바운스_) 간의 차이:** 일회성 발송 후 ESP 재시도 기간 동안 이 차이는 소프트바운스 또는 아직 재시도 중인 연기를 반영하는 경우가 많습니다. 재시도가 완료된 후 남아 있는 차이는 보통 소프트바운스되어 전달되지 않은 메시지를 의미합니다. 이러한 발송은 캠페인 _전달_ 또는 _반송_에 포함되지 않습니다. [전달 및 반송](#deliveries-and-bounces)의 공식을 사용하여 진행 중인 소프트바운스를 대략적으로 계산하세요.
 - **재시도 완료 후 낮은 _전달_:** 재시도가 완료된 후에도 전달률이 낮은 경우, 이번 발송의 볼륨을 일반적인 패턴과 비교하세요. 메일함 제공업체는 발신자 평판 대비 볼륨이 급증하면 메일을 연기, 제한 또는 소프트바운스할 수 있습니다. [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]`와 같은 메시지를 확인할 수 있습니다. 대량 발송의 속도를 조절하려면 [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)을 사용하고, 추가 문제 해결 단계는 [제한된 IP]({{site.baseurl}}/user_guide/channels/email/reporting#throttled-ips)를 참조하세요.
-- **캠페인 분석에 소프트바운스 및 연기가 표시되지 않는 경우:** 캠페인 분석에서는 _하드바운스_가 강조 표시되지만 _소프트바운스_ 또는 _연기_는 별도의 열로 포함되지 않습니다. 메시지 활동 로그, [소프트바운스 Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) 또는 Currents 연기 이벤트를 통해 이러한 이벤트를 모니터링하세요. 재시도 작동 방식에 대해서는 아래의 [연기](#deferrals)를 참조하세요.
-- **전달 백분율이 100%에 미치지 않을 수 있는 경우:** _전달 %_, _반송 %_ 및 _스팸률 %_의 합이 _발송_의 100%가 되지 않을 수 있습니다. ESP 재시도 기간 후 소프트바운스되어 전달되지 않은 메시지는 캠페인 _전달_ 또는 _반송_에 포함되지 않으므로, _발송_의 일부가 해당 비율에서 누락될 수 있습니다. 최종 전달 성과를 판단하기 전에 재시도가 완료될 때까지 기다리거나, 위의 공식을 사용하여 아직 재시도 중인 발송 수를 추정하세요.
+- **캠페인 분석에 소프트바운스 및 연기가 표시되지 않는 경우:** 캠페인 분석에서는 _하드바운스_가 강조 표시되지만 _소프트바운스_ 또는 _연기_는 별도의 열로 포함되지 않습니다. 메시지 활동 로그, [소프트바운스 Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) 또는 Currents 연기 이벤트를 통해 이러한 이벤트를 모니터링하세요. 재시도 작동 방식에 대해서는 [연기](#deferrals)를 참조하세요.
+- **전달 백분율이 100%에 미치지 않을 수 있는 경우:** _전달 %_, _반송 %_ 및 _스팸률 %_의 합이 _발송_의 100%가 되지 않을 수 있습니다. ESP 재시도 기간 후 소프트바운스되어 전달되지 않은 메시지는 캠페인 _전달_ 또는 _반송_에 포함되지 않으므로, _발송_의 일부가 해당 비율에서 누락될 수 있습니다. 최종 전달 성과를 판단하기 전에 재시도가 완료될 때까지 기다리거나, [전달 및 반송](#deliveries-and-bounces)의 공식을 사용하여 아직 재시도 중인 발송 수를 추정하세요.
 
 ##### 열람 이벤트 없는 클릭 {#clicks-without-an-open-event}
 
@@ -496,11 +509,11 @@ Braze는 열람 추적 픽셀이 로드될 때 이메일 열람을 기록합니�
 
 _연기_는 _소프트바운스_와 다릅니다. 이 재시도 기간 동안 이메일이 성공적으로 전달되지 않으면, Braze는 시도된 캠페인 발송당 하나의 소프트바운스 이벤트를 전송합니다. 2025년 2월 25일 이전에는 이러한 재시도가 1개의 캠페인 발송에 대해 여러 번의 소프트바운스로 카운트되었습니다.
 
-_연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQL Segment, Snowflake 데이터 공유)을 통해서만 확인할 수 있습니다. 캠페인 또는 Canvas 분석에 포함하고 싶으시다면 [제품 피드백을 제출]({{site.baseurl}}/user_guide/administrative/access_braze/portal)해 주세요.
+_연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQL Segment, Snowflake 데이터 공유)을 통해서만 확인할 수 있습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### 추정 실제 열람율 {#estimated-real-open-rate}
 
-이 통계는 Braze가 개발한 독점 분석 모델을 사용하여 기계 열람이 존재하지 않는 것처럼 캠페인의 고유 열람율 추정치를 재구성합니다. 이메일 발신자로부터 일부 열람 이벤트에 대한 *Machine Opens* 레이블을 받지만(위 참조), 이러한 레이블은 실제 열람을 기계 열람으로 잘못 분류하는 경우가 많습니다. 즉, *Other Opens*는 실제 사용자에 의한 열람 수를 과소 추정할 가능성이 높습니다. 대신 Braze는 각 캠페인의 클릭 데이터를 사용하여 실제 사용자가 메시지를 열어본 비율을 추론합니다. 이를 통해 Apple의 MPP를 비롯한 다양한 기계 열람 메커니즘을 보완합니다.
+이 통계는 Braze가 개발한 독점 분석 모델을 사용하여 기계 열람이 존재하지 않는 것처럼 캠페인의 고유 열람율 추정치를 재구성합니다. 이메일 발신자로부터 일부 열람 이벤트에 대한 *Machine Opens* 레이블을 받지만, 이러한 레이블은 실제 열람을 기계 열람으로 잘못 분류하는 경우가 많습니다. 즉, *Other Opens*는 실제 사용자에 의한 열람 수를 과소 추정할 가능성이 높습니다. 대신 Braze는 각 캠페인의 클릭 데이터를 사용하여 실제 사용자가 메시지를 열어본 비율을 추론합니다. 이를 통해 Apple의 MPP를 비롯한 다양한 기계 열람 메커니즘을 보완합니다.
 
 _Estimated Real Open Rate_는 이메일 발송이 시작된 후 24시간이 지나면 계산되며, 이후 매 72시간마다 재계산됩니다.
 
@@ -593,9 +606,9 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
     </tbody>
 </table>
 
-#### 대조군과 배리언트 간의 차이 {#discrepancies-between-control-groups-and-variants}
+#### 대조군과 배리언트 간의 차이
 
-인앱 메시지 캠페인에서 배리언트를 50대 50으로 분할하면, 대조군이 배리언트보다 약간 높은 비율을 보일 수 있습니다(예: 대조군 51%, 배리언트 49%). 이 차이는 렌더링 시간의 차이로 인해 발생합니다.
+인앱 메시지 캠페인에서 배리언트를 50대 50으로 분할하면, 대조군이 배리언트보다 약간 높은 비율을 보일 수 있습니다(예: 대조군 51%, 배리언트 49%). 이 차이는 렌더링 시간의 차이로 인해 발생합니다. 예를 들어, 배리언트 메시지가 큰 이미지나 템플릿화된 연결된 콘텐츠를 사용하여 렌더링이 완료되기 전에 사용자가 떠나는 반면, 대조군은 메시지를 표시하지 않고 노출을 기록하는 경우입니다.
 
 대조군과 배리언트 그룹 간의 분배는 대략적으로 균등하게 의도되지만, 배리언트 할당은 인앱 메시지가 실제로 기기에 전송될 때 이루어집니다. 일부 사용자는 인앱 메시지를 트리거하지 않을 수 있으며(예: 필요한 커스텀 이벤트를 트리거하는 동작을 수행하지 않는 경우), 이로 인해 그룹 크기에 차이가 발생할 수 있습니다.
 
@@ -690,7 +703,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 
 ##### 열람 이해하기 {#understanding-opens}
 
-_Direct Opens_와 _Influenced Opens_는 모두 "열람"이라는 단어를 포함하지만, 실제로는 서로 다른 측정기준입니다. _Direct Opens_는 위의 표에 명시된 대로 푸시 알림을 직접 여는 것을 의미합니다. _Influenced Opens_는 푸시 알림을 받은 후 특정 시간 내에 푸시 알림을 열지 않고 앱을 여는 것을 의미합니다. 따라서 _Influenced Opens_는 푸시 알림 열람이 아닌 앱 열람을 나타냅니다.
+_Direct Opens_와 _Influenced Opens_는 모두 "열람"이라는 단어를 포함하지만, 실제로는 서로 다른 측정기준입니다. _Direct Opens_는 푸시 알림을 직접 여는 것을 의미합니다. _Influenced Opens_는 푸시 알림을 받은 후 특정 시간 내에 푸시 알림을 열지 않고 앱을 여는 것을 의미합니다. 따라서 _Influenced Opens_는 푸시 알림 열람이 아닌 앱 열람을 나타냅니다.
 
 ##### 푸시 실행 버튼과 보고 {#push-action-buttons-and-reporting}
 
@@ -867,6 +880,8 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
     </tbody>
 </table>
 
+실패가 증가한 경우 [WhatsApp 발송 실패 조사]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures)를 참조하세요.
+
 #### 최종 사용자 차단 및 보고 측정기준 {#end-user-blocking-and-reporting-metrics}
 
 추가 측정기준은 [WhatsApp 매니저 대시보드](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx)를 통해 확인할 수 있지만, 모든 인사이트에 접근하려면 [접근 권한 확인](https://www.facebook.com/business/help/218116047387456)이 필요합니다.
@@ -899,7 +914,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 
 여기에서 각 키워드 카테고리의 응답 분포를 확인하여 [리타겟팅]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns)의 다음 단계를 결정하고 편리하게 [Segment를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)할 수 있습니다.
 
-![키워드 카테고리, 응답 분포 및 리타겟팅 열이 있는 선 그래프 아래의 테이블로, 키워드 카테고리로 Segment를 생성할 수 있는 옵션이 제공됩니다.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![키워드 카테고리, 응답 분포 및 리타겟팅 열이 있는 테이블로, 키워드 카테고리로 Segment를 생성할 수 있는 옵션이 제공됩니다.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 
@@ -935,7 +950,7 @@ Braze 분석 외에도 템플릿 수준의 분석은 WhatsApp 비즈니스 매�
 
 ### SMS Currents 이벤트 {#sms-currents-events}
 
-이메일과 마찬가지로, Braze는 SMS 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 SMS 이벤트는 [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
+이메일과 마찬가지로, Braze는 SMS 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 SMS 이벤트는 [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
 
 {% alert note %}
 인바운드 메시지는 1,600자를 초과하면 잘립니다.

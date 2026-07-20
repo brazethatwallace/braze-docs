@@ -55,8 +55,6 @@ Lors de la génération du JWT, les champs suivants sont attendus :
 | `typ` | Oui  | Le type doit être égal à `JWT`.        |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Créer un jeton Web JSON pour l'utilisateur actuel" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Créer un jeton Web JSON pour l'utilisateur actuel #create-jwt" }
-
 **Payload JWT**
 
 | Champ | Requis | Description                                                                            |
@@ -64,8 +62,6 @@ Lors de la génération du JWT, les champs suivants sont attendus :
 | `sub` | Oui  | Le « sujet » doit être égal à l'ID utilisateur que vous fournissez au SDK Braze lorsque vous appelez `changeUser`  |
 | `exp` | Oui | L'« expiration » indiquant quand vous souhaitez que ce jeton expire, sous forme d'horodatage Unix en secondes (par exemple, `1893456000` pour le 1er janvier 2030).                                |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Créer un jeton Web JSON pour l'utilisateur actuel" }
-
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Créer un jeton Web JSON pour l'utilisateur actuel #create-jwt" }
 
 {% alert tip %}
 Pour en savoir plus sur les jetons Web JSON ou pour parcourir les nombreuses bibliothèques open source qui simplifient ce processus de signature, consultez [https://jwt.io](https://jwt.io).
@@ -376,6 +372,11 @@ Fournissez le JWT lors de l'appel à [`changeUser`](https://braze-inc.github.io/
 ```swift
 AppDelegate.braze?.changeUser(userId: "userId", sdkAuthSignature: "JWT-FROM-SERVER")
 ```
+
+{% alert note %}
+`changeUser` retourne immédiatement sur le thread appelant. La signature d'authentification SDK fournie ici est attachée une fois le changement d'utilisateur terminé.
+{% endalert %}
+
 Ou, lorsque vous avez actualisé le jeton de l'utilisateur en cours de session :
 
 ```swift
@@ -722,9 +723,9 @@ Dans la page **Gérer les paramètres** du tableau de bord, chaque application d
 | **Désactivé** | Braze ne vérifiera pas le JWT fourni pour un utilisateur. (Paramètre par défaut) |
 | **Facultatif** | Braze vérifiera les requêtes pour les utilisateurs connectés, mais ne rejettera pas les requêtes invalides. |
 | **Requis** | Braze vérifiera les requêtes pour les utilisateurs connectés et rejettera les JWT invalides. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Options d'application #enforcement-options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Options d'application" }
 
-![]({% image_buster /assets/img/sdk-auth-settings.png %})
+![Paramètres d'authentification SDK de Braze affichant les options d'application Désactivé, Facultatif et Requis.]({% image_buster /assets/img/sdk-auth-settings.png %})
 
 Le paramètre **Facultatif** est un moyen utile de surveiller l'impact potentiel de cette fonctionnalité sur le trafic SDK de votre application.
 
@@ -779,47 +780,47 @@ Les données sont disponibles en temps réel, et vous pouvez survoler les points
 | 26 | `MISSING_TOKEN` | Aucun jeton n'a été fourni dans la requête. | Assurez-vous que vous transmettez un jeton lors de l'appel à `changeUser(id, token)` et que votre jeton n'est pas vide. |
 | 27 | `NO_MATCHING_PUBLIC_KEYS` | Aucune clé publique ne correspond au jeton fourni. | La clé privée utilisée dans le JWT ne correspond à aucune des clés publiques configurées pour votre application. Vérifiez que vous avez bien ajouté les clés publiques à l'application appropriée dans votre espace de travail correspondant à cette clé API. |
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | Tous les ID utilisateur dans le payload de la requête ne correspondent pas comme requis. | Ce cas est inattendu et peut entraîner un payload malformé. Ouvrez un ticket d'assistance pour obtenir de l'aide. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Codes d'erreur #error-codes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Codes d'erreur" }
 
 ## Foire aux questions (FAQ) {#faq}
 
-#### Cette fonctionnalité doit-elle être activée sur toutes mes applications en même temps ? {#faq-app-by-app}
+### Cette fonctionnalité doit-elle être activée sur toutes mes applications en même temps ? {#faq-app-by-app}
 
 Non, cette fonctionnalité peut être activée pour des applications spécifiques et n'a pas besoin d'être utilisée sur toutes vos applications en même temps.
 
-#### Que se passe-t-il pour les utilisateurs qui utilisent encore des versions antérieures de mon application ? {#faq-sdk-backward-compatibility}
+### Que se passe-t-il pour les utilisateurs qui utilisent encore des versions antérieures de mon application ? {#faq-sdk-backward-compatibility}
 
 Lorsque vous commencez à appliquer cette fonctionnalité, les requêtes effectuées par les versions antérieures de l'application seront rejetées par Braze et relancées par le SDK. Une fois que les utilisateurs auront mis à jour leur application vers une version prise en charge, les requêtes en file d'attente seront à nouveau acceptées.
 
 Dans la mesure du possible, vous devriez inciter les utilisateurs à effectuer la mise à jour comme pour toute autre mise à niveau obligatoire. Vous pouvez également laisser la fonctionnalité en mode [Facultatif](#enforcement-options) jusqu'à ce qu'un pourcentage acceptable d'utilisateurs ait effectué la mise à jour.
 
-#### Quelle expiration dois-je utiliser lors de la génération d'un JWT ? {#faq-expiration}
+### Quelle expiration dois-je utiliser lors de la génération d'un JWT ? {#faq-expiration}
 
 Nous recommandons d'utiliser la valeur la plus élevée parmi : la durée moyenne de session, l'expiration du cookie/jeton de session, ou la fréquence à laquelle votre application actualise normalement le profil de l'utilisateur actuel.
 
-#### Que se passe-t-il si un JWT expire au milieu de la session d'un utilisateur ? {#faq-jwt-expiration}
+### Que se passe-t-il si un JWT expire au milieu de la session d'un utilisateur ? {#faq-jwt-expiration}
 
 Si le jeton d'un utilisateur expire en cours de session, le SDK dispose d'une [fonction de rappel](#sdk-callback) qu'il invoquera pour indiquer à votre application qu'un nouveau JWT est nécessaire pour continuer à envoyer des données à Braze.
 
-#### Que se passe-t-il si mon intégration côté serveur est interrompue et que je ne peux plus créer de JWT ? {#faq-server-downtime}
+### Que se passe-t-il si mon intégration côté serveur est interrompue et que je ne peux plus créer de JWT ? {#faq-server-downtime}
 
 Si votre serveur n'est pas en mesure de fournir un JWT ou si vous remarquez un problème d'intégration, vous pouvez toujours désactiver la fonctionnalité dans le tableau de bord de Braze.
 
 Une fois désactivée, toutes les requêtes SDK échouées en attente seront finalement relancées par le SDK et acceptées par Braze.
 
-#### Pourquoi cette fonctionnalité utilise-t-elle des clés publiques/privées plutôt que des secrets partagés ? {#faq-shared-secrets}
+### Pourquoi cette fonctionnalité utilise-t-elle des clés publiques/privées plutôt que des secrets partagés ? {#faq-shared-secrets}
 
 Avec des secrets partagés, toute personne ayant accès à ce secret, comme la page du tableau de bord de Braze, serait en mesure de générer des jetons et d'usurper l'identité de vos utilisateurs finaux.
 
 Nous utilisons plutôt des clés publiques/privées afin que même les employés de Braze (et a fortiori les utilisateurs de votre entreprise) n'aient pas accès à vos clés privées.
 
-#### Comment les requêtes rejetées seront-elles relancées ? {#faq-retry-logic}
+### Comment les requêtes rejetées sont-elles relancées ? {#faq-retry-logic}
 
 Lorsqu'une requête est rejetée en raison d'une erreur d'authentification, le SDK invoque votre rappel utilisé pour actualiser le JWT de l'utilisateur.
 
 Les requêtes seront relancées périodiquement selon une approche de délais exponentiels. Après 50 tentatives consécutives échouées, les nouvelles tentatives seront suspendues jusqu'au début de la prochaine session. Chaque SDK dispose également d'une méthode permettant de demander manuellement un envoi des données.
 
-#### Est-il possible d'utiliser l'authentification SDK pour les utilisateurs anonymes ? {#faq-anonymous-users}
+### Est-il possible d'utiliser l'authentification SDK pour les utilisateurs anonymes ? {#faq-anonymous-users}
 
 Non. L'authentification SDK fonctionne en faisant valider l'identité d'une personne par votre site web, elle ne s'applique donc qu'aux utilisateurs identifiés. En tant qu'utilisateur anonyme, il n'y a pas d'identité à valider.
 
@@ -831,10 +832,10 @@ Cela signifie qu'un parcours utilisateur typique pourrait ressembler à ceci :
 2. L'utilisateur s'inscrit ou se connecte, et votre application appelle `changeUser` avec un `external_id`.
 3. Braze continue de collecter l'activité pour cet utilisateur, et l'authentification SDK est appliquée pour les requêtes concernant ce profil identifié.
 
-#### L'authentification SDK fonctionne-t-elle avec les alias d'utilisateur ? {#faq-aliases}
+### L'authentification SDK fonctionne-t-elle avec les alias d'utilisateur ? {#faq-aliases}
 
 Non. L'authentification SDK nécessite un `external_id`. Vous ne pouvez pas la configurer lorsque seul un `braze_id` ou un `alias_id` est disponible, les profils avec alias uniquement ne peuvent donc pas utiliser l'authentification SDK.
 
-#### L'activation de l'authentification SDK bloque-t-elle la collecte d'activité non authentifiée ? {#faq-unauthenticated-collection}
+### L'activation de l'authentification SDK bloque-t-elle la collecte d'activité non authentifiée ? {#faq-unauthenticated-collection}
 
 Non. L'authentification SDK ne bloque pas la collecte légitime d'activité anonyme. Elle ne s'applique qu'après l'identification d'un profil avec `changeUser`.

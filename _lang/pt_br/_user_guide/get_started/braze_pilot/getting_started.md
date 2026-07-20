@@ -12,7 +12,7 @@ description: "Este artigo de referência aborda brevemente as etapas de integra�
 
 ## Etapa 1: Baixe o Braze Pilot {#step-1-download-braze-pilot}
 
-Para começar a usar o Braze Pilot, primeiro você precisa baixar o app na Apple App Store ou na Google Play Store. Você pode pesquisar o app na loja de apps ou escanear os códigos QR abaixo para acessar a página do app no seu dispositivo.
+Para começar a usar o Braze Pilot, primeiro você precisa baixar o app na Apple App Store ou na Google Play Store. Você pode pesquisar o app na loja de apps ou escanear os códigos QR na seção a seguir para acessar a página do app no seu dispositivo.
 
 ## Etapa 2: Aceite os termos e condições {#step-2-accept-the-terms-and-conditions}
 
@@ -22,7 +22,7 @@ Em seguida, aceite os termos e condições e insira seu e-mail de trabalho no fo
 
 ## Etapa 3: Inicialize a conexão com o SDK da Braze {#step-3-initialize-the-connection-with-the-braze-sdk}
 
-O Braze Pilot permite que você inicialize o SDK da Braze em qualquer dashboard da Braze. Depois que o SDK for inicializado, o Pilot começará a enviar dados de engajamento para a Braze e permitirá que você acione qualquer envio de mensagens lançado a partir desse dashboard.
+O Braze Pilot permite que você inicialize o SDK da Braze em qualquer dashboard da Braze. Depois que o SDK for inicializado, o Pilot começará a enviar dados de engajamento para a Braze e permitirá que você dispare qualquer envio de mensagens lançado a partir desse dashboard.
 
 Existem dois métodos para configurar a conexão do SDK no Pilot: códigos QR de demonstração e o assistente de configuração.
 
@@ -31,7 +31,7 @@ Existem dois métodos para configurar a conexão do SDK no Pilot: códigos QR de
 
 ### Método 1: Códigos QR de demonstração {#method-1-demo-qr-codes}
 
-Escaneie um código QR que inclui todos os detalhes necessários para inicializar o SDK, criar seu perfil de usuário e fazer deep link para uma simulação de app específica no Braze Pilot. Os códigos QR de demonstração são exibidos no painel complementar de Campaigns de demonstração específicas no seu teste gratuito.
+Escaneie um código QR que inclui todos os detalhes necessários para inicializar o SDK, criar seu perfil de usuário e fazer deep link para uma simulação de app específica no Braze Pilot. Os códigos QR de demonstração são exibidos no painel complementar de campanhas de demonstração específicas no seu teste gratuito.
 
 | Pilot para Android | Pilot para iOS |
 | --- | --- |
@@ -47,7 +47,7 @@ Siga um guia passo a passo para inicializar a conexão com o espaço de trabalho
 
 ![Etapa 1 do assistente de configuração do Braze Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
-Essa conexão é específica do espaço de trabalho. Isso significa que, se você inicializar a conexão a partir do espaço de trabalho de demonstração e depois mudar para o espaço de trabalho ativo no dashboard do seu teste gratuito, será necessário reinicializar o SDK a partir desse espaço de trabalho para receber as Campaigns lançadas nele.
+Essa conexão é específica do espaço de trabalho. Isso significa que, se você inicializar a conexão a partir do espaço de trabalho de demonstração e depois mudar para o espaço de trabalho ativo no dashboard do seu teste gratuito, será necessário reinicializar o SDK a partir desse espaço de trabalho para receber as campanhas lançadas nele.
 
 ![O menu suspenso de espaços de trabalho no dashboard da Braze com "Demo - Braze" selecionado como o espaço de trabalho ativo.]({% image_buster /assets/img/braze_pilot/dashboard_workspace.png %}){:style="max-width:60%"}
 
@@ -77,7 +77,7 @@ Abra as configurações do seu dispositivo e localize o Braze Pilot. Em seguida,
 {% endtab %}
 {% tab Lance uma mensagem introdutória de push %}
 
-Você pode usar uma mensagem no app da Braze para solicitar permissões de push para o app, assim como faria para seus próprios consumidores. Para saber como criar esse tipo de mensagem na Braze, consulte [Mensagens introdutórias de push no app]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/#push-primer-in-app-messages).
+Você pode usar uma mensagem no app da Braze para solicitar permissões de push para o app, assim como faria para seus próprios consumidores. Para saber como criar esse tipo de mensagem na Braze, consulte [Mensagens introdutórias de push no app]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">
@@ -89,6 +89,6 @@ Você pode usar uma mensagem no app da Braze para solicitar permissões de push 
 
 ## Etapa 5: Experimente o envio de mensagens da Braze no Pilot {#step-5-experience-braze-messaging-in-pilot}
 
-Agora você está pronto para começar a receber Campaigns e Canvas do seu dashboard da Braze como usuário do Braze Pilot! Acesse qualquer uma das Campaigns lançadas no seu espaço de trabalho de demonstração para uma rápida demonstração dos casos de uso da Braze. Depois, vá para o seu espaço de trabalho ativo para começar a enviar suas próprias mensagens.
+Agora você está pronto para começar a receber Campaigns e Canvas do seu dashboard da Braze como usuário do Braze Pilot! Acesse qualquer uma das campanhas lançadas no seu espaço de trabalho de demonstração para uma rápida demonstração dos casos de uso da Braze. Depois, vá para o seu espaço de trabalho ativo para começar a enviar suas próprias mensagens.
 
-Para mais informações sobre como configurar Campaigns e Canvas na Braze, consulte [Primeiros passos: Campaigns e Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+Para mais informações sobre como configurar Campaigns e Canvas na Braze, consulte [Primeiros passos: Campaigns e Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).

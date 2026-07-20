@@ -15,7 +15,7 @@ tool: Reports
 
 SQL変数を使用するメリットには以下があります。
 
-- レポート作成時にCampaign IDを貼り付ける代わりに、Campaign変数を作成してリストから選択することで時間を節約できます。
+- レポート作成時にキャンペーン IDを貼り付ける代わりに、キャンペーン変数を作成してリストから選択することで時間を節約できます。
 - 変数を追加して値を入れ替えることで、将来的にわずかに異なるユースケース（異なるカスタムイベントなど）でレポートを再利用できます。
 - 各レポートに必要な編集量を減らすことで、SQLの編集時のユーザーエラーを軽減できます。SQLに慣れているチームメンバーがレポートを作成し、技術的な知識が少ないチームメンバーがそのレポートを使用できます。
 
@@ -39,7 +39,7 @@ SQL変数を使用するメリットには以下があります。
 | `custom_label` | クエリビルダーの**変数**タブで変数を識別するために使用されるラベル。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1: 変数を追加する" }
 
-以下の例では、ある月の初日から最終日までのユーザー総数をCampaignに対してクエリしています。各変数には次のステップで値が割り当てられます。
+以下の例では、ある月の初日から最終日までのユーザー総数をキャンペーンに対してクエリしています。各変数には次のステップで値が割り当てられます。
 
 {% raw %}
 ```sql
@@ -55,7 +55,7 @@ WHERE campaign_id = '{{campaign.${Campaign}}}'
 
 デフォルトでは、クエリビルダーに**変数**タブは表示されません。クエリに最初の変数を追加した後にのみ表示されます。そこで値を割り当てることができます。選択できる具体的な値は、その変数の[タイプ](#variable-types)によって異なります。
 
-以下の例では、「Summer Feature Launch」Campaignが値として割り当てられ、2025年6月の初日と最終日も設定されています。
+以下の例では、「Summer Feature Launch」キャンペーンが値として割り当てられ、2025年6月の初日と最終日も設定されています。
 
 ![クエリビルダーの「変数」タブに上記の例が表示されている画面。]({% image_buster /assets/img/query_builder_example.png %})
 
@@ -189,11 +189,11 @@ Liquidは指定された日付範囲内にカレンダーを表示するため�
 
 ![Brazeでレンダリングされたカレンダーの例。]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### Campaigns
+### キャンペーン
 
 {% tabs local %}
-{% tab 1つのCampaign %}
-1つのCampaignを選択するために使用します。Canvasと同じラベルを共有すると、**変数**タブ内にCanvasまたはCampaignのいずれかを選択するためのラジオボタンが表示されます。
+{% tab 1つのキャンペーン %}
+1つのキャンペーンを選択するために使用します。キャンバスと同じラベルを共有すると、**変数**タブ内にキャンバスまたはキャンペーンのいずれかを選択するためのラジオボタンが表示されます。
 
 {% subtabs %}
 {% subtab 使用方法 %}
@@ -206,10 +206,10 @@ campaign_id = '{{campaign.${custom_label}}}'
 {% endsubtabs %}
 {% endtab %}
 
-{% tab 複数のCampaigns %}
-Campaignsを複数選択するために使用します。Canvasと同じラベルを共有すると、**変数**タブ内にCanvasまたはCampaignのいずれかを選択するためのラジオボタンが表示されます。
+{% tab 複数のキャンペーン %}
+キャンペーンを複数選択するために使用します。キャンバスと同じラベルを共有すると、**変数**タブ内にキャンバスまたはキャンペーンのいずれかを選択するためのラジオボタンが表示されます。
 
-- **置換値:** CampaignsのBSON ID
+- **置換値:** キャンペーンのBSON ID
 
 {% subtabs %}
 {% subtab 使用方法 %}
@@ -222,10 +222,10 @@ campaign_id IN ({{campaigns.${custom_label}}})
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Campaignバリアント %}
-選択されたCampaignに属するCampaignバリアントを選択するために使用します。CampaignまたはCampaigns変数と併用する必要があります。
+{% tab キャンペーンバリアント %}
+選択されたキャンペーンに属するキャンペーンバリアントを選択するために使用します。キャンペーンまたはキャンペーン変数と併用する必要があります。
 
-- **置換値:** CampaignバリアントのAPI ID。`api-id1, api-id2`のようにカンマ区切りの文字列です。
+- **置換値:** キャンペーンバリアントのAPI ID。`api-id1, api-id2`のようにカンマ区切りの文字列です。
 
 {% subtabs %}
 {% subtab 使用方法 %}
@@ -240,16 +240,16 @@ message_variation_api_id IN ({{campaign_variants.${custom_label}}})
 {% endtabs %}
 
 {% alert important %}
-すべてのCampaignおよびCanvas変数は、単一グループ内で状態を同期するために同じ識別子を使用する必要があります。
+すべてのキャンペーンおよびキャンバス変数は、単一グループ内で状態を同期するために同じ識別子を使用する必要があります。
 {% endalert %}
 
-### Canvases {#canvases}
+### キャンバス {#canvases}
 
 {% tabs local %}
-{% tab 1つのCanvas %}
-1つのCanvasを選択するために使用します。Campaignと同じラベルを共有すると、**変数**タブ内にCanvasまたはCampaignのいずれかを選択するためのラジオボタンが表示されます。
+{% tab 1つのキャンバス %}
+1つのキャンバスを選択するために使用します。キャンペーンと同じラベルを共有すると、**変数**タブ内にキャンバスまたはキャンペーンのいずれかを選択するためのラジオボタンが表示されます。
 
-- **置換値:** CanvasのBSON ID
+- **置換値:** キャンバスのBSON ID
 
 {% subtabs %}
 {% subtab 使用方法 %}
@@ -262,10 +262,10 @@ canvas_id = '{{canvas.${custom_label}}}'
 {% endsubtabs %}
 {% endtab %}
 
-{% tab 複数のCanvases %}
-複数のCanvasesを選択するために使用します。Campaignと同じラベルを共有すると、**変数**タブ内にCanvasまたはCampaignのいずれかを選択するためのラジオボタンが表示されます。
+{% tab 複数のキャンバス %}
+複数のキャンバスを選択するために使用します。キャンペーンと同じラベルを共有すると、**変数**タブ内にキャンバスまたはキャンペーンのいずれかを選択するためのラジオボタンが表示されます。
 
-- **置換値:** CanvasesのBSON ID
+- **置換値:** キャンバスのBSON ID
 
 {% subtabs %}
 {% subtab 使用方法 %}
@@ -278,8 +278,8 @@ canvas_id IN ({{canvases.${custom_label}}})
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Canvasバリアント %}
-選択されたCanvasに属するCanvasバリアントを選択するために使用します。CanvasまたはCanvases変数と併用する必要があります。1つ以上のCanvasバリアントAPI IDを、`api-id1, api-id2`のようにカンマ区切りの文字列として設定します。
+{% tab キャンバスバリアント %}
+選択されたキャンバスに属するキャンバスバリアントを選択するために使用します。キャンバスまたはキャンバス変数と併用する必要があります。1つ以上のキャンバスバリアントAPI IDを、`api-id1, api-id2`のようにカンマ区切りの文字列として設定します。
 
 {% subtabs %}
 {% subtab 使用方法 %}
@@ -293,7 +293,7 @@ canvas_variation_api_id IN ({{canvas_variants.${custom_label}}})
 {% endtab %}
 
 {% tab 1つのキャンバスステップ %}
-選択されたCanvasに属するキャンバスステップを選択するために使用します。Canvas変数と併用する必要があります。
+選択されたキャンバスに属するキャンバスステップを選択するために使用します。キャンバス変数と併用する必要があります。
 
 {% subtabs %}
 {% subtab 使用方法 %}
@@ -307,7 +307,7 @@ canvas_step_api_id = '{{canvas_step.${custom_label}}}'
 {% endtab %}
 
 {% tab 複数のキャンバスステップ %}
-選択されたCanvasesに属するキャンバスステップを選択するために使用します。CanvasまたはCanvases変数と併用する必要があります。
+選択されたキャンバスに属するキャンバスステップを選択するために使用します。キャンバスまたはキャンバス変数と併用する必要があります。
 
 {% subtabs %}
 {% subtab 使用方法 %}
@@ -322,7 +322,7 @@ canvas_step_api_id IN ({{canvas_steps.${custom_label}}})
 {% endtabs %}
 
 {% alert important %}
-すべてのCampaignおよびCanvas変数は、単一グループ内で状態を同期するために同じ識別子を使用する必要があります。
+すべてのキャンペーンおよびキャンバス変数は、単一グループ内で状態を同期するために同じ識別子を使用する必要があります。
 {% endalert %}
 
 ### 製品 {#products}
@@ -441,9 +441,9 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### Segments
+### セグメント
 
-[分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)が有効になっているSegmentsを選択するために使用します。Segmentの分析IDに設定します。これは、このカラムが利用可能なテーブルの`user_segment_membership_ids`カラムに格納されているIDに対応します。
+[分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)が有効になっているセグメントを選択するために使用します。セグメントの分析IDに設定します。これは、このカラムが利用可能なテーブルの`user_segment_membership_ids`カラムに格納されているIDに対応します。
 
 {% tabs %}
 {% tab 使用方法 %}
@@ -457,7 +457,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### タグ {#tags}
 
-CampaignsおよびCanvasesのタグを選択するために使用します。選択されたタグに関連付けられた、シングルクォートでカンマ区切りのBSON IDを持つCampaignsおよびCanvasesに設定されます。
+キャンペーンおよびキャンバスのタグを選択するために使用します。選択されたタグに関連付けられた、シングルクォートでカンマ区切りのBSON IDを持つキャンペーンおよびキャンバスに設定されます。
 
 {% tabs %}
 {% tab 使用方法 %}

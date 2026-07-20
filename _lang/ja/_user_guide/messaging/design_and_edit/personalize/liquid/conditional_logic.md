@@ -2,13 +2,13 @@
 nav_title: 条件付きメッセージングロジック
 article_title: 条件付き Liquid メッセージングロジック
 page_order: 6
-description: "このリファレンス記事では、Campaignでタグをどのように使用できるか、また使用すべきかについて説明します。"
+description: "このリファレンス記事では、キャンペーンでタグをどのように使用できるか、また使用すべきかについて説明します。"
 
 ---
 
 # 条件付きメッセージングロジック {#conditional-messaging-logic}
 
-> [タグ](https://docs.shopify.com/themes/liquid-documentation/tags)を使用すると、メッセージングCampaignにプログラミングロジックを含めることができます。タグは、条件文の実行や、変数の割り当てやコードブロックの反復処理などの高度なユースケースに使用できます。<br><br>このページでは、null、nil、blankの属性値の処理方法やカスタム属性の参照方法など、タグの使用方法について説明します。
+> [タグ](https://docs.shopify.com/themes/liquid-documentation/tags)を使用すると、メッセージングキャンペーンにプログラミングロジックを含めることができます。タグは、条件文の実行や、変数の割り当てやコードブロックの反復処理などの高度なユースケースに使用できます。<br><br>このページでは、null、nil、blankの属性値の処理方法やカスタム属性の参照方法など、タグの使用方法について説明します。
 
 ## タグのフォーマット {#formatting-tags}
 
@@ -28,7 +28,7 @@ description: "このリファレンス記事では、Campaignでタグをどの�
 {% endif %}
 ```
 
-緑色でハイライトされることを確認してから、`X` をメッセージフィールドの角にある青い `+` を使って選択した Liquid またはコネクテッドコンテンツに置き換え、`0` を希望の値に置き換えます。
+緑色でハイライトされることを確認してから、`X` をメッセージフィールドの角にある青い `+` を使って選択した Liquid またはConnected Contentに置き換え、`0` を希望の値に置き換えます。
 <br><br>
 次に、`else` 条件の間に必要に応じてメッセージバリエーションを追加します:
 ```liquid
@@ -42,7 +42,7 @@ Buy now! Would 5% off convince you?
 
 ## 条件ロジック {#conditional-logic}
 
-[メッセージ内にインテリジェントロジック](http://docs.shopify.com/themes/liquid-documentation/basics)を多数含めることができます（条件文など）。以下の例では、[条件](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)を使用してCampaignを国際化しています:
+[メッセージ内にインテリジェントロジック](http://docs.shopify.com/themes/liquid-documentation/basics)を多数含めることができます（条件文など）。以下の例では、[条件](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)を使用してキャンペーンを国際化しています:
 {% raw %}
 
 ```liquid
@@ -85,14 +85,14 @@ This is not a cake nor a cookie
 {% endcase %}
 ```
 
-`handle` の代わりにBrazeのパーソナライゼーションタグやその他の Liquid 式を使用して同じパターンを適用できます。構文オプションの詳細については、Shopifyの [`case` タグドキュメント](https://shopify.dev/docs/api/liquid/tags/case)を参照してください。
+`handle` の代わりにBrazeのパーソナライゼーションタグやその他の Liquid 式を使用して同じパターンを適用できます。構文オプションの詳細については、Shopifyの[`case` タグドキュメント](https://shopify.dev/docs/api/liquid/tags/case)を参照してください。
 
 #### `endif`
 
 `{% endif %}` タグは `if` ブロックが終了したことを示します。そのチェーン内で `if`、`elsif`、`unless`、または `else` を使用するすべてのメッセージに `{% endif %}` タグを含める必要があります。`{% endif %}` タグを含めないと、Brazeがメッセージを解析できないためエラーが発生します。`{% case %}` を使用する場合は、`{% endif %}` ではなく `{% endcase %}` でブロックを閉じてください。
 
 {% alert note %}
-`if`、`elsif`、`unless` タグでは演算子を使用できますが、フィルターは使用できません。`case` と `when` タグでは、`case` 式が `when` の値と等しい場合に各ブランチが一致します。これらの式でもフィルターはサポートされていません。フィルター処理された値を評価するには、まずフィルター結果を変数に割り当ててから、その変数を `case` または `when` 句で参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。
+`if`、`elsif`、`unless` タグでは演算子を使用できますが、フィルターは使用できません。`case` と `when` タグでは、`case` 式が `when` の値と等しい場合に各ブランチが一致します。これらの式でもフィルターはサポートされていません。フィルター処理された値を評価するには、まずフィルター結果を変数に割り当ててから、その変数を `case` または `when` 句で参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)を参照してください。
 {% endalert %}
 
 ### チュートリアル: ロケーションベースのコンテンツを配信する {#tutorial-deliver-location-based-content}
@@ -220,7 +220,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 ## カスタム属性の参照 {#referencing-custom-attributes}
 
-[カスタム属性を作成]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes)した後、Liquid メッセージングでこれらのカスタム属性を参照できます。
+[カスタム属性を作成]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes)した後、Liquid メッセージングでこれらのカスタム属性を参照できます。
 
 条件ロジックを使用する場合、正しい構文を使用するために、カスタム属性のデータタイプを知る必要があります。ダッシュボードの**カスタム属性**ページから、カスタム属性に関連付けられたデータタイプを確認し、各データタイプに対して以下に記載されている例を参照してください。
 
@@ -230,9 +230,9 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 文字列と配列はストレートアポストロフィで囲む必要がありますが、ブール値と整数にはアポストロフィは不要です。
 {% endalert %}
 
-#### ブール値 {#boolean}
+### ブール値 {#boolean}
 
-[ブール値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans)はバイナリ値で、`registration_complete: true` のように `true` または `false` に設定できます。ブール値にはアポストロフィは付きません。
+[ブール値]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans)はバイナリ値で、`registration_complete: true` のように `true` または `false` に設定できます。ブール値にはアポストロフィは付きません。
 
 {% raw %}
 
@@ -242,9 +242,9 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% endraw %}
 
-#### 数値 {#number}
+### 数値 {#number}
 
-[数値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers)は整数または浮動小数点数の数値です。たとえば、ユーザーは `shoe_size: 10` や `levels_completed: 287` を持つことがあります。数値にはアポストロフィは付きません。
+[数値]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)は整数または浮動小数点数の数値です。たとえば、ユーザーは `shoe_size: 10` や `levels_completed: 287` を持つことがあります。数値にはアポストロフィは付きません。
 
 {% raw %}
 
@@ -264,9 +264,9 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% endraw %}
 
-#### 文字列 {#string}
+### 文字列 {#string}
 
-[文字列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings)は英数字で構成され、ユーザーに関するデータを格納します。たとえば、`favorite_color: red` や `phone_number: 3025981329` などがあります。文字列の値はアポストロフィで囲む必要があります。
+[文字列]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)は英数字で構成され、ユーザーに関するデータを格納します。たとえば、`favorite_color: red` や `phone_number: 3025981329` などがあります。文字列の値はアポストロフィで囲む必要があります。
 
 {% raw %}
 
@@ -278,9 +278,9 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 文字列の場合、Liquidで「==」と「contains」の両方を使用できます。
 
-#### 配列 {#array}
+### 配列 {#array}
 
-[配列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays)は、ユーザーに関する情報のリストです。たとえば、ユーザーは `last_viewed_shows: stranger things, planet earth, westworld` を持つことがあります。配列の値はアポストロフィで囲む必要があります。
+[配列]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)は、ユーザーに関する情報のリストです。たとえば、ユーザーは `last_viewed_shows: stranger things, planet earth, westworld` を持つことがあります。配列の値はアポストロフィで囲む必要があります。
 
 {% raw %}
 
@@ -290,11 +290,47 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% endraw %}
 
-配列の場合、「contains」を使用する必要があり、「==」は使用できません。
+配列の場合、`contains` を使用する必要があり、`==` は使用できません。
 
-#### 時間 {#time}
+#### 文字列と配列での `contains` の動作の違い {#how-contains-works-with-strings-versus-arrays}
 
-イベントが発生した時点のタイムスタンプです。[時間]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time)の値を条件ロジックで使用するには、[数学フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters)を適用する必要があります。
+`contains` 演算子は、文字列を評価する場合と配列を評価する場合で動作が異なります:
+
+- **文字列:** `contains` はテキスト内の任意の位置で部分文字列をチェックします。
+- **配列:** `contains` は配列内の完全な要素に対して完全一致をチェックします。
+
+{% alert important %}
+属性が配列として格納されている場合（たとえば `["med1", "med2", "abc"]`）、`contains "ab"` を検索すると `false` と評価されます。これは、そのリスト内のどの要素も正確に `"ab"` ではないためです。
+{% endalert %}
+
+##### 配列での部分文字列マッチング {#substring-matching-on-arrays}
+
+配列属性内で部分一致（部分文字列）を検索する必要がある場合は、まず `join` フィルターを使用して配列を1つの文字列に変換する必要があります。
+
+Brazeは条件 {% raw %}`{% if %}`{% endraw %} ブロック内でインラインフィルターを直接サポートしていないため、2ステップのプロセスに従う必要があります。まず結合された値を変数に割り当て、次に条件チェックを実行します。
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+`join` は配列要素を1つの文字列に結合するため（デフォルトの区切り文字: 半角スペース1つ）、部分文字列チェックが要素の境界をまたいで一致する可能性があります（たとえば、`["Napa", "boulevard"]` は `Napa boulevard` になり、`contains "a b"` が `true` になります）。明示的な区切り文字（「,」など）を使用すると、境界がより明確になり、意図しない要素間の一致を減らすことができます。
+{% endalert %}
+
+### 時間 {#time}
+
+イベントが発生した時点のタイムスタンプです。[時間]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)の値を条件ロジックで使用するには、[数学フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters)を適用する必要があります。
 
 {% raw %}
 

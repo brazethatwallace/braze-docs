@@ -34,6 +34,7 @@ guide_featured_list:
 
 # channel to icon/fa or image mapping
 glossary_tags:
+  - name: Apps
   - name: Campaigns
   - name: Canvas
   - name: Catalogs
@@ -57,6 +58,10 @@ glossary_tags:
   - name: Cloud Data Ingestion
 
 glossaries:
+  - name: <a href='/docs/api/endpoints/apps/post_update_push_credential'>/apps/push_credential/update</a>
+    description: 単一アプリのプッシュ認証情報を更新します。
+    tags:
+      - Apps
   - name: <a href='/docs/api/endpoints/user_data/post_user_alias'>/users/alias/new</a>
     description: 識別された既存のユーザーに新しいユーザーエイリアスを追加するか、未識別の新規ユーザーを作成します。
     tags:
@@ -78,7 +83,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_segment'>/users/export/segment</a>
-    description: Segment内のすべてのユーザーをエクスポートします。
+    description: セグメント内のすべてのユーザーをエクスポートします。
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename'>/users/external_ids/rename</a>
@@ -106,7 +111,7 @@ glossaries:
     tags:
       - Send Messages
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_canvases'>/canvas/trigger/send</a>
-    description: APIトリガー配信でCanvasメッセージを送信します。
+    description: APIトリガー配信でキャンバスメッセージを送信します。
     tags:
       - Send Messages
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_messages'>/messages/send</a>
@@ -114,7 +119,7 @@ glossaries:
     tags:
       - Send Messages
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_create_send_ids'>/sends/id/create</a>
-    description: 送信ごとにCampaignを作成せずに、メッセージの送信およびメッセージパフォーマンスのトラッキングに使用する送信IDをプログラムで作成します。
+    description: 送信ごとにキャンペーンを作成せずに、メッセージの送信およびメッセージパフォーマンスのトラッキングに使用する送信IDをプログラムで作成します。
     tags:
       - Send Messages
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_transactional_message'>/transactional/v1/campaigns/{CAMPAIGN_ID}/send</a>
@@ -122,23 +127,23 @@ glossaries:
     tags:
       - Send Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
-    description: ダッシュボードで作成したCampaignメッセージをAPIトリガー配信で送信します。
+    description: ダッシュボードで作成したキャンペーンメッセージをAPIトリガー配信で送信します。
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages'>/campaigns/trigger/schedule/delete</a>
-    description: 以前にスケジュールしたAPIトリガーCampaignメッセージを送信前にキャンセルします。
+    description: 以前にスケジュールしたAPIトリガーキャンペーンメッセージを送信前にキャンセルします。
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns'>/campaigns/trigger/schedule/update</a>
-    description: ダッシュボードで作成したスケジュール済みのAPIトリガーCampaignを更新します。
+    description: ダッシュボードで作成したスケジュール済みのAPIトリガーキャンペーンを更新します。
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases'>/canvas/trigger/schedule/delete</a>
-    description: 以前にAPIトリガーでスケジュールしたCanvasメッセージを送信前にキャンセルします。
+    description: 以前にAPIトリガーでスケジュールしたキャンバスメッセージを送信前にキャンセルします。
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases'>/canvas/trigger/schedule/create</a>
-    description: APIトリガー配信でCanvasメッセージをスケジュールします。
+    description: APIトリガー配信でキャンバスメッセージをスケジュールします。
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages'>/messages/schedule/update</a>
@@ -150,15 +155,15 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_messages'>/messages/schedule/create</a>
-    description: Campaign、Canvas、またはその他のメッセージを指定した時間に送信するようスケジュールします。
+    description: キャンペーン、キャンバス、またはその他のメッセージを指定した時間に送信するようスケジュールします。
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases'>/canvas/trigger/schedule/update</a>
-    description: ダッシュボードで作成したスケジュール済みのAPIトリガーCanvasを更新します。
+    description: ダッシュボードで作成したスケジュール済みのAPIトリガーキャンバスを更新します。
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/get_messages_scheduled'>/messages/scheduled_broadcasts</a>
-    description: 現在からリクエストで指定した<code>end_time</code>までの間にスケジュールされたCampaignおよびエントリCanvasに関する情報のJSONリストを返します。
+    description: 現在からリクエストで指定した<code>end_time</code>までの間にスケジュールされたキャンペーンおよびエントリキャンバスに関する情報のJSONリストを返します。
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/live_activity/update'>/messages/live_activity/update</a>
@@ -166,19 +171,19 @@ glossaries:
     tags:
       - Live Activity
   - name: <a href='/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status'>/subscription/status/set</a>
-    description: Brazeダッシュボード上で最大50ユーザーのサブスクリプション状態を一括更新します。
+    description: Brazeダッシュボード上で最大50ユーザーの購読状態を一括更新します。
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2'>/v2/subscription/status/set</a>
-    description: Brazeダッシュボード上で最大50ユーザーのサブスクリプション状態を一括更新します。
+    description: Brazeダッシュボード上で最大50ユーザーの購読状態を一括更新します。
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/get_list_user_subscription_group_status'>/subscription/status/get</a>
-    description: サブスクリプショングループ内のユーザーのサブスクリプション状態を取得します。
+    description: 購読グループ内のユーザーの購読状態を取得します。
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/get_list_user_subscription_groups'>/subscription/user/status</a>
-    description: 特定のユーザーのサブスクリプショングループをリストアップして取得します。
+    description: 特定のユーザーの購読グループをリストアップして取得します。
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/email/post_blacklist'>/email/blacklist</a>
@@ -194,7 +199,7 @@ glossaries:
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/email/post_email_subscription_status'>/email/status</a>
-    description: ユーザーのメールサブスクリプション状態を設定します。
+    description: ユーザーのメール購読状態を設定します。
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/templates/email_templates/post_create_email_template'>/templates/email/create</a>
@@ -210,7 +215,7 @@ glossaries:
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/email/get_query_unsubscribed_email_addresses'>/email/unsubscribes</a>
-    description: <code>start_date</code>から<code>end_date</code>までの期間に配信停止したメールアドレスを返します。
+    description: <code>start_date</code>から<code>end_date</code>までの期間に購読解除したメールアドレスを返します。
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/templates/email_templates/get_see_email_template_information'>/templates/email/info</a>
@@ -222,15 +227,15 @@ glossaries:
     tags:
       - Email Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
-    description: Campaignに関するさまざまな統計の日次データを取得します。
+    description: キャンペーンに関するさまざまな統計の日次データを時系列で取得します。
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_details'>/campaigns/details</a>
-    description: 指定したCampaignの関連情報を取得します。
+    description: 指定したキャンペーンの関連情報を取得します。
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaigns'>/campaigns/list</a>
-    description: Campaignのリストをエクスポートします。各Campaignには、名前、Campaign API識別子、APIキャンペーンかどうか、およびCampaignに関連付けられたタグが含まれます。
+    description: キャンペーンのリストをエクスポートします。各キャンペーンには、名前、キャンペーンAPI識別子、APIキャンペーンかどうか、およびキャンペーンに関連付けられたタグが含まれます。
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_send_analytics'>/sends/data_series</a>
@@ -238,31 +243,31 @@ glossaries:
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/canvas/get_canvas_analytics'>/canvas/data_series</a>
-    description: Canvasの時系列データをエクスポートします。
+    description: キャンバスの時系列データをエクスポートします。
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/canvas/get_canvas_analytics_summary'>/canvas/data_summary</a>
-    description: Canvasの時系列データのロールアップをエクスポートし、Canvasの結果の簡潔なサマリーを提供します。
+    description: キャンバスの時系列データのロールアップをエクスポートし、キャンバスの結果の簡潔なサマリーを提供します。
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/canvas/get_canvas_details'>/canvas/details</a>
-    description: 名前、作成日時、現在のステータスなど、Canvasに関するメタデータをエクスポートします。
+    description: 名前、作成日時、現在のステータスなど、キャンバスに関するメタデータをエクスポートします。
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/canvas/get_canvases'>/canvas/list</a>
-    description: 名前、Canvas API識別子、関連タグを含むCanvasのリストをエクスポートします。
+    description: 名前、キャンバスAPI識別子、関連タグを含むキャンバスのリストをエクスポートします。
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_analytics'>/segments/data_series</a>
-    description: Segmentの推定サイズの日次データを時系列で取得します。
+    description: セグメントの推定サイズの日次データを時系列で取得します。
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_details'>/segments/details</a>
-    description: Segmentの関連情報を取得します。
+    description: セグメントの関連情報を取得します。
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment'>/segments/list</a>
-    description: Segmentのリストをエクスポートします。各Segmentには、名前、セグメントAPI識別子、および分析トラッキングが有効かどうかが含まれます。
+    description: セグメントのリストをエクスポートします。各セグメントには、名前、セグメントAPI識別子、および分析トラッキングが有効かどうかが含まれます。
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/post_cancel_export'>/export/segment/cancel</a>
@@ -354,7 +359,7 @@ glossaries:
     tags:
       - Preference Center
   - name: <a href='/docs/api/endpoints/preference_center/post_create_preference_center'>/preference_center/v1</a>
-    description: ユーザー設定センターを作成し、ユーザーがメールCampaignの通知設定を管理できるようにします。
+    description: ユーザー設定センターを作成し、ユーザーがメールキャンペーンの通知設定を管理できるようにします。
     tags:
       - Preference Center
   - name: <a href='/docs/api/endpoints/preference_center/put_update_preference_center'>/preference_center/v1/{preferenceCenterExternalId}</a>
@@ -450,11 +455,11 @@ glossaries:
     tags:
       - SCIM
   - name: <a href='/docs/api/endpoints/cdi/get_integration_list'>/cdi/integrations</a>
-    description: 既存の統合のリストを返します。
+    description: 既存のインテグレーションのリストを返します。
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/cdi/post_job_sync'>/cdi/integrations/{integration_id}/sync</a>
-    description: 指定した統合の同期をトリガーします。
+    description: 指定したインテグレーションの同期をトリガーします。
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/cdi/get_job_sync_status'>/cdi/integrations/{integration_id}/job_sync_status</a>

@@ -20,21 +20,21 @@ tool:
 **타겟팅 옵션**에서 다음 옵션을 사용하여 Campaign 또는 Canvas에서 타겟팅할 사용자를 선택할 수 있습니다. 정의한 기준에 맞는 사용자만 메시지를 수신합니다. 정확한 Segment 멤버십은 항상 메시지가 발송되기 직전에 계산된다는 점을 유의하세요.
 
 {% tabs local %}
-{% tab single segment %}
+{% tab 단일 Segment %}
 이전에 생성한 Segment의 멤버를 타겟팅하려면 **세그먼트별로 사용자 타겟팅** 아래의 드롭다운에서 하나의 Segment를 선택하세요.
 {% endtab %}
 
-{% tab multiple segments %}
+{% tab 다중 Segments %}
 이전에 생성한 여러 Segments에 해당하는 사용자를 타겟팅하려면 **세그먼트별로 사용자 타겟팅** 아래의 드롭다운에서 여러 Segments를 추가하세요. 결과 타겟 오디언스는 첫 번째 Segment와 두 번째 Segment, 세 번째 Segment 등에 모두 속하는 사용자가 됩니다.
 {% endtab %}
 
-{% tab multiple filters %}
+{% tab 다중 필터 %}
 Segment를 추가하지 않고 사용자를 타겟팅하려면 일련의 필터를 사용할 수 있습니다. 이는 메시지 생성 중 임시 오디언스를 만드는 것으로, 일회성 오디언스에 발송할 때 Segment 생성을 건너뛸 수 있습니다.
 
 ![하루 이내에 마지막으로 앱을 열었고, Campaign 또는 캔버스 단계를 수신한 적이 없으며, 30일 이내에 구매한 사용자를 타겟팅하는 메시지의 추가 필터.]({% image_buster /assets/img_archive/additional_filters.png %}){: style="max-width:90%;"}
 {% endtab %}
 
-{% tab segments & filters %}
+{% tab Segments 및 필터 %}
 이전에 생성한 하나 이상의 Segments에 속하면서 추가 필터에도 해당하는 사용자를 타겟팅할 수도 있습니다. 먼저 Segments를 선택한 후 **추가 필터** 섹션에서 오디언스를 더 세분화할 수 있습니다. 다음 스크린샷은 "일일 활성 사용자" Segment, "이메일을 열어본 적 없음" Segment에 속하면서 30일 이전에 구매한 사용자를 타겟팅하는 예시입니다.
 
 ![두 개의 Segments를 포함하고 30일 이내에 마지막 구매가 이루어진 추가 필터가 있는 메시지의 타겟팅 옵션.]({% image_buster /assets/img_archive/target_segmenter.png %}){: style="max-width:90%;"}
@@ -67,18 +67,18 @@ Segment 멤버십 필터를 통해 **추가 필터** 섹션에 Segment를 추가
 {% endtabs %}
 
 {% alert tip %}
-이메일 Campaign의 경우 **시드 그룹** 섹션에서 시드 그룹을 타겟팅할 수 있습니다. 시드 그룹은 API Campaign에서는 사용할 수 없지만, Campaign에서 API 트리거 진입을 통해 시드 그룹을 포함할 수 있습니다. 자세한 내용은 [시드 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups)을 참조하세요.
+이메일 Campaign의 경우 **시드 그룹** 섹션에서 시드 그룹을 타겟팅할 수 있습니다. 시드 그룹은 API Campaign에서는 사용할 수 없지만, Campaign에서 API 트리거 진입을 통해 시드 그룹을 포함할 수 있습니다. 자세한 내용은 [시드 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups)을 참조하세요.
 {% endalert %}
 
 ### 2단계: 오디언스 테스트 {#step-2-test-your-audience}
 
-오디언스에 Segments와 필터를 추가한 후 [사용자 조회]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)를 통해 오디언스가 예상대로 설정되었는지 테스트하여 오디언스 기준에 맞는지 확인할 수 있습니다.
+오디언스에 Segments와 필터를 추가한 후 [사용자 조회]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 통해 오디언스가 예상대로 설정되었는지 테스트하여 오디언스 기준에 맞는지 확인할 수 있습니다.
 
 !["사용자 조회" 버튼이 있는 "사용자 조회" 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
 #### 오디언스 요약 {#audience-summary}
 
-**오디언스 요약**은 타겟 오디언스에 누가 포함되어 있는지에 대한 개요를 보여줍니다. 여기에서 최대 사용자 수 상한을 설정하거나 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) 전달 속도를 설정하여 오디언스를 추가로 제한할 수 있습니다.
+**오디언스 요약**은 타겟 오디언스에 누가 포함되어 있는지에 대한 개요를 보여줍니다. 여기에서 최대 사용자 수 상한을 설정하거나 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) 전달 속도를 설정하여 오디언스를 추가로 제한할 수 있습니다.
 
 ![최대 사용자 수 상한 또는 사용량 제한 전달 속도를 설정하는 옵션이 있는 "오디언스 요약" 섹션.]({% image_buster /assets/img_archive/audience_summary.png %})
 
@@ -86,13 +86,13 @@ Segment 멤버십 필터를 통해 **추가 필터** 섹션에 Segment를 추가
 
 **A/B 테스트** 섹션에서는 동일한 마케팅 Campaign의 여러 버전에 대한 사용자 반응을 비교하는 테스트를 설정할 수 있습니다. 이러한 버전은 유사한 마케팅 목표를 공유하지만 문구와 스타일이 다릅니다. 목표는 마케팅 목표를 가장 잘 달성하는 Campaign 버전을 식별하는 것입니다.
 
-자세한 내용과 모범 사례는 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
+자세한 내용과 모범 사례는 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 참조하세요.
 
 #### 오디언스 통계 {#audience-statistics}
 
-Braze는 하단에 타겟팅된 채널의 상세한 오디언스 통계를 제공합니다. 사용자 기반이 클수록 **도달 가능 사용자** 수는 대략적인 추정치일 가능성이 높습니다. [전역 제어 그룹]({{site.baseurl}}/user_guide/audience/global_control_group/)을 사용하거나 메시지 자격 조건을 설정하면 도달 가능 사용자 수가 줄어들 수 있습니다.
+Braze는 하단에 타겟팅된 채널의 상세한 오디언스 통계를 제공합니다. 사용자 기반이 클수록 **도달 가능 사용자** 수는 대략적인 추정치일 가능성이 높습니다. [글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)을 사용하거나 메시지 자격 조건을 설정하면 도달 가능 사용자 수가 줄어들 수 있습니다.
 
-- 도달 가능 사용자의 정확한 수를 확인하려면 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics)을 선택하세요. 이 기능은 사용자 기반의 모든 사용자를 검색합니다.
+- 도달 가능 사용자의 정확한 수를 확인하려면 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics)을 선택하세요. 이 기능은 사용자 기반의 모든 사용자를 검색합니다.
 - 사용자 기반 중 타겟팅되는 비율이나 이 Segment의 생애주기 가치(LTV)를 확인하려면 **추가 통계 보기**를 선택하세요.
 
 ##### 타겟 오디언스 수와 도달 가능 사용자 수가 다를 수 있는 이유 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
@@ -113,7 +113,7 @@ Braze에서 Campaign 또는 Canvas를 구축할 때 타겟팅은 두 부분으�
 1. **타겟 오디언스:** 누가 자격이 있는지
 2. **진입 기준:** 무엇이 전달을 트리거하는지
 
-순서가 중요합니다: Braze는 진입 기준을 평가하기 전에 해당 사용자가 타겟 오디언스에 속하는지 먼저 확인합니다. 사용자가 해당 시점에 오디언스 자격을 갖추지 못하면, 나중에 진입 이벤트를 트리거하더라도 Campaign 또는 Canvas에 진입하지 않습니다. 타겟 오디언스를 대기실이라고 생각하세요: 트리거가 발생할 때 이미 안에 있는 사용자만 앞으로 진행할 수 있습니다.
+순서가 중요합니다. Braze는 진입 기준을 평가하기 전에 해당 사용자가 타겟 오디언스에 속하는지 먼저 확인합니다. 사용자가 해당 시점에 오디언스 자격을 갖추지 못하면, 나중에 진입 이벤트를 트리거하더라도 Campaign 또는 Canvas에 진입하지 않습니다. 타겟 오디언스를 대기실이라고 생각하세요. 트리거가 발생할 때 이미 안에 있는 사용자만 앞으로 진행할 수 있습니다.
 
 ### 예시 1 {#example-1}
 

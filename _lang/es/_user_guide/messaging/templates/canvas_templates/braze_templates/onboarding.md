@@ -15,7 +15,7 @@ En este artículo, te guiaremos a través de un caso de uso para la plantilla de
 
 ## Requisitos previos {#prerequisites}
 
-Antes de usar esta plantilla, necesitas crear las siguientes [plantillas de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) para hacer referencia en el Canvas:
+Antes de usar esta plantilla, necesitas crear las siguientes [plantillas de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) para hacer referencia en el Canvas:
 
 - Un correo electrónico de bienvenida para todos los usuarios de tu aplicación
 - Un correo electrónico con consejos sobre cómo usar tu aplicación
@@ -98,5 +98,5 @@ Del conjunto de usuarios que no han interactuado con nuestra aplicación, podemo
 Después de probar y revisar nuestro Canvas para asegurarnos de que funciona como se espera, selecciona **Launch Canvas** para lanzar el Canvas. ¡Ahora podemos ofrecer a nuestros nuevos usuarios una experiencia de incorporación personalizada para fomentar una relación duradera!
 
 {% alert tip %}
-Consulta nuestra [Lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.
+Consulta nuestra [Lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.
 {% endalert %}

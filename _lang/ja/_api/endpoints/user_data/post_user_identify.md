@@ -66,7 +66,7 @@ description: "この記事では、「ユーザーの識別」Brazeエンドポ�
 - 最終購入日（Brazeは2つの日付のうち遅い方を選択します）
 - アプリの概要
 - Last_X_at フィールド（孤立したプロファイルのフィールドがより新しい場合、Brazeはフィールドを更新します）
-- Campaignの概要（Brazeは最も新しい日付フィールドを選択します）
+- キャンペーンの概要（Brazeは最も新しい日付フィールドを選択します）
 - ワークフローの概要（Brazeは最も新しい日付フィールドを選択します）
 - メッセージとメッセージのエンゲージメント履歴
 - カスタムイベントと購入イベントのカウント、および最初の日付と最後の日付のタイムスタンプ
@@ -168,6 +168,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 {% alert tip %}
 `alias_name` および `alias_label` の詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)のドキュメントをご覧ください。
 {% endalert %}
+
+### 識別リクエストが成功を返すのにプロファイルがマージされないのはなぜですか？ {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
+
+`201 Created` と `message: success` は、リクエストが受け付けられたことを意味します。ペイロード内のすべてのエイリアスやメールが既存のプロファイルに一致したことを保証するものではありません。`alias_name` の大文字と小文字の不一致、重複プロファイル、または優先順位ルールにより、呼び出しが成功しても目に見えるマージが行われない場合があります。`alias_name` の大文字と小文字が保存されている値と正確に一致していることを確認し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)で重複プロファイルを確認し、`emails_to_identify` を使用する場合は[`prioritization`](#identifying-users-by-email)を確認してください。
 
 ## 応答 {#response}
 

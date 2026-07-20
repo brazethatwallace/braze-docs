@@ -35,18 +35,18 @@ Preencha os seguintes campos:
 | **Nome do modelo** | Um nome exclusivo para o seu modelo. Os nomes de modelo só podem conter letras minúsculas, números e underscores. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Configurar as definições do modelo" }
 
-### Etapa 3: Escolher uma disposição {#step-3-choose-a-layout}
+### Etapa 3: Escolher um layout {#step-3-choose-a-layout}
 
-Em **Disposição**, selecione o tipo de modelo:
+Em **Layout**, selecione o tipo de modelo:
 
-- **Padrão:** Uma mensagem padrão do WhatsApp. Esta é a disposição abordada neste artigo.
+- **Padrão:** Uma mensagem padrão do WhatsApp. Este é o layout abordado neste artigo.
 - **Carrossel:** Uma mensagem com cartões roláveis horizontalmente. Para saber mais, consulte [Modelos de carrossel]({{site.baseurl}}/whatsapp_carousel_templates).
 
 ### Etapa 4: Criar seu modelo {#step-4-build-your-template}
 
 #### Cabeçalho (opcional) {#header-optional}
 
-Adicione um cabeçalho para aparecer acima do corpo da mensagem. Você pode escolher:
+Adicione um cabeçalho para aparecer antes do corpo da mensagem. Você pode escolher:
 
 - **Texto:** Um cabeçalho de texto curto.
 - **Mídia:** Uma imagem, vídeo ou documento (somente URL). A Braze armazena a referência de mídia e envia uma amostra para a Meta para aprovação.
@@ -57,7 +57,7 @@ Adicione um cabeçalho para aparecer acima do corpo da mensagem. Você pode esco
 Insira o conteúdo principal da sua mensagem e personalize o corpo conforme necessário usando Liquid ou variáveis genéricas:
 
 {% raw %}
-- Use Liquid tags (por exemplo, `{{${first_name}}}`). A Braze salva seu Liquid e o exibe quando você usa o modelo em uma campanha ou no criador de Canvas.
+- Use Liquid tags (por exemplo, `{{${first_name}}}`). A Braze salva seu Liquid e o exibe quando você usa o modelo em uma Campaign ou no criador de Canvas.
 - Use variáveis genéricas, como placeholders numerados (por exemplo, `{{1}}`), se preferir adicionar personalização depois, ao criar sua mensagem.
 {% endraw %}
 
@@ -65,7 +65,7 @@ Você pode adicionar personalização onde o botão **+** (mais) aparecer. Nem t
 
 #### Rodapé (opcional) {#footer-optional}
 
-Adicione um rodapé curto para aparecer abaixo do corpo da mensagem.
+Adicione um rodapé curto para aparecer após o corpo da mensagem.
 
 #### Botões (opcional) {#buttons-optional}
 
@@ -85,7 +85,7 @@ Adicione até 10 botões ao seu modelo. Os tipos de botão têm categorias e esp
 
 Antes de enviar, pré-visualize como sua mensagem aparecerá para os destinatários:
 
-- **Pré-visualizar como um usuário:** Veja uma pré-visualização genérica da mensagem.
+- **Pré-visualizar como um usuário:** Veja uma prévia genérica da mensagem.
 - **Pré-visualizar como um usuário específico:** Selecione um perfil de usuário para pré-visualizar como o modelo será renderizado com os dados desse usuário.
 
 ### Etapa 6: Enviar para revisão {#step-6-submit-for-review}
@@ -98,7 +98,7 @@ Atualmente, apenas modelos de marketing são suportados no Criador de modelos de
 
 ## Usar um modelo aprovado em uma campanha {#use-an-approved-template-in-a-campaign}
 
-Depois que a Meta aprovar seu modelo, você pode usá-lo em uma campanha ou Canvas de WhatsApp.
+Depois que a Meta aprovar seu modelo, você pode usá-lo em uma Campaign ou Canvas de WhatsApp.
 
 1. Acesse **Campaigns** e selecione **Create Campaign** > **WhatsApp**.
 2. No criador de mensagens, selecione seu modelo aprovado.
@@ -116,7 +116,7 @@ As revisões normalmente são concluídas em cinco minutos, mas podem levar até
 
 ### Posso editar um modelo depois que ele foi aprovado? {#can-i-edit-a-template-after-its-been-approved}
 
-Qualquer alteração em conteúdo bloqueado (texto do corpo ou outros campos controlados pela Meta) exige o reenvio do modelo para aprovação, o que deve ser feito pelo WhatsApp Business Manager. Você pode atualizar conteúdo e personalização ao criar sua campanha ou Canvas.
+Qualquer alteração em conteúdo bloqueado (texto do corpo ou outros campos controlados pela Meta) exige o reenvio do modelo para aprovação, o que deve ser feito pelo WhatsApp Business Manager. Você pode atualizar conteúdo e personalização ao criar sua Campaign ou Canvas.
 
 ### O que acontece com os modelos que enviei antes de o Criador de modelos estar disponível? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 

@@ -101,7 +101,7 @@ table td {
 | `postal_code`                 | String     | Não       | CEP do endereço da conta. |
 | `country`                     | String     | Não       | País onde a conta está localizada. |
 | `notes`                       | String     | Não       | Observações adicionais sobre a conta. |
-| `website`                     | String     | Não       | URL do site da conta. |
+| `website`                     | String     | Não       | URL do website da conta. |
 | `main_phone`                  | String     | Não       | Telefone principal da conta. |
 | `created_date`                | Time       | Não       | Data em que a conta foi criada. |
 | `account_owner_email_address` | String     | Não       | Um proprietário interno da conta (como "Tom da equipe de vendas da Empresa A é responsável pela Empresa B"). |
@@ -360,7 +360,7 @@ A Braze gera a tag {% raw %}`{% business %}`{% endraw %}, que define um array ch
 
 Ajuste a saída gerada automaticamente para criar sua mensagem.
 
-No exemplo abaixo, mova a chamada à tag {% raw %}`{% business %}`{% endraw %} para o topo da mensagem e personalize com o nome do usuário. Use o nome da conta para personalizar a mensagem. A saída do Liquid permanece a mesma, mas você a posiciona em diferentes partes da mensagem.
+No exemplo a seguir, mova a chamada à tag {% raw %}`{% business %}`{% endraw %} para o topo da mensagem e personalize com o nome do usuário. Use o nome da conta para personalizar a mensagem. A saída do Liquid permanece a mesma, mas você a posiciona em diferentes partes da mensagem.
 
 {% raw %}
 ```javascript

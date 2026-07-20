@@ -9,21 +9,21 @@ description: "Este artículo contiene notas de la versión de mayo de 2020."
 
 ## Google Tag Manager
 
-Se ha añadido documentación y ejemplos sobre cómo desplegar y gestionar el SDK de Android de Braze mediante [Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android).
+Se ha añadido documentación y ejemplos sobre cómo desplegar y gestionar el SDK de Android de Braze mediante [Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
-## Nuevo punto de conexión de API para lista negra de correo electrónico {#new-blacklist-email-api-endpoint}
+## Nuevo endpoint de API para lista negra de correo electrónico {#new-blacklist-email-api-endpoint}
 
 Ahora puedes poner en [lista negra]({{site.baseurl}}/api/endpoints/email/post_blacklist) direcciones de correo electrónico a través de la API de Braze. Poner una dirección de correo electrónico en la lista negra cancelará la suscripción del usuario al correo electrónico y lo marcará como rebote duro.
 
-## Cambio de clave de API para los puntos de conexión de la API de Braze {#api-key-change-for-braze-api-endpoints}
+## Cambio de clave de API para los endpoints de la API de Braze {#api-key-change-for-braze-api-endpoints}
 
-A partir de mayo de 2020, Braze ha cambiado la forma de leer las claves de API para que sean más seguras. Ahora las claves de API deben pasarse como encabezado de solicitud. Puedes encontrar ejemplos en las páginas de cada punto de conexión, en **Solicitud de ejemplo**, así como en la **Explicación de la clave de API**.
+A partir de mayo de 2020, Braze ha cambiado la forma de leer las claves de API para que sean más seguras. Ahora las claves de API deben pasarse como encabezado de solicitud. Puedes encontrar ejemplos en las páginas de cada endpoint, en **Solicitud de ejemplo**, así como en la **Explicación de la clave de API**.
 
 Braze seguirá admitiendo que `api_key` se pase a través del cuerpo de la solicitud y los parámetros de la URL, pero con el tiempo dejará de hacerlo (por determinar). **Actualiza tus llamadas a la API en consecuencia.** Estos cambios se han actualizado en [Postman](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#intro).
 {% details API Key Explanation %}
 {% tabs %}
 {% tab GET Request %}
-Este ejemplo utiliza el punto de conexión `/email/hard_bounces`.
+Este ejemplo utiliza el endpoint `/email/hard_bounces`.
 
 **Antes: clave de API en el cuerpo de la solicitud**
 ```
@@ -36,7 +36,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?
 ```
 {% endtab %}
 {% tab POST Request %}
-Este ejemplo utiliza el punto de conexión `/user/track`.
+Este ejemplo utiliza el endpoint `/user/track`.
 
 **Antes: clave de API en el cuerpo de la solicitud**
 ```

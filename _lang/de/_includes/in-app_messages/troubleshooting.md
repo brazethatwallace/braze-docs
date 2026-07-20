@@ -21,7 +21,7 @@ Wenn Ihre App In-App-Nachrichten anfordert und empfängt, diese aber nicht angez
 {% endcase %}
 {% case include.sdk %}
   {% when "iOS", "Android" %}
-5. Wenn die Ausrichtung des Geräts nicht mit der von der In-App-Nachricht vorgegebenen Ausrichtung übereinstimmt, wird die Nachricht nicht angezeigt.
+5. Wenn die Ausrichtung des Geräts nicht mit der Einstellung der In-App-Nachricht übereinstimmt, wird die Nachricht nicht angezeigt.
 {% endcase %}
 {% case include.sdk %}
   {% when "iOS", "Android" %}

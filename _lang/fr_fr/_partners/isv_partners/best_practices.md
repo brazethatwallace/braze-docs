@@ -25,7 +25,7 @@ En savoir plus sur la manière dont Braze collecte les données :
     - Lorsque l'adresse e-mail ou le numéro de téléphone est utilisé comme identifiant dans une requête, trois résultats sont possibles :
         1. Si un utilisateur avec cet e-mail/téléphone n'existe pas dans Braze, un profil utilisateur e-mail uniquement ou téléphone uniquement sera créé, et toutes les données de la requête seront ajoutées au profil.
         2. Si un profil avec cet e-mail/téléphone existe déjà dans Braze, il sera mis à jour pour inclure toutes les données envoyées dans la requête.
-        3. Dans un cas d'utilisation avec plus d'un profil ayant cet e-mail/téléphone, le profil le plus récemment mis à jour sera prioritaire.
+        3. Dans un cas d'usage avec plus d'un profil ayant cet e-mail/téléphone, le profil le plus récemment mis à jour sera prioritaire.
     - Notez que si un profil utilisateur e-mail uniquement ou téléphone uniquement existe et qu'un profil identifié avec le même e-mail/téléphone est ensuite créé (par exemple un autre profil avec la même adresse e-mail ET un ID externe), Braze créera un second profil. Les mises à jour ultérieures seront dirigées vers le profil portant l'ID externe.
         - Les deux profils peuvent être fusionnés à l'aide de l'endpoint Braze [/merge/users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
 
@@ -48,7 +48,7 @@ Si la requête ne renvoie pas de profil utilisateur, vous pouvez choisir de cré
 
 Utilisez l'endpoint de suivi des utilisateurs pour créer un alias d'utilisateur, en utilisant l'identifiant de votre choix comme nom d'alias. En incluant `_update_existing_only` avec la valeur `false` dans l'objet attribut, événement ou achat où le nouvel alias d'utilisateur est défini, vous pouvez créer le profil d'alias et ajouter simultanément des attributs, des événements et des achats à ce profil.
 
-Pour que l'alias d'utilisateur soit un profil pouvant recevoir des envois, vous devez inclure l'adresse e-mail dans le champ `email`, comme indiqué ci-dessous.
+Pour que l'alias d'utilisateur soit un profil pouvant recevoir des envois, vous devez inclure l'adresse e-mail dans le champ `email`, comme indiqué dans l'exemple suivant.
 
 ```json
 {
@@ -102,7 +102,7 @@ Cette fonctionnalité est en accès anticipé.
 - Lorsque vous utilisez cet endpoint, incluez la clé `partner` comme indiqué dans notre documentation pour les partenaires.
 
 [Ingestion de données cloud]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/cloud_ingestion/overview#what-is-cloud-data-ingestion)
-- Comme pour l'endpoint de suivi des utilisateurs, les données peuvent être synchronisées avec les profils utilisateurs par le biais de l'Ingestion de données cloud. Lorsque vous utilisez cet outil, les attributs, les événements et les achats sont enregistrés dans les profils en configurant et en connectant la table ou la vue de l'entrepôt de données que vous souhaitez synchroniser avec l'espace de travail Braze souhaité.
+- Comme pour l'endpoint de suivi des utilisateurs, les données peuvent être synchronisées avec les profils utilisateurs par le biais de l'ingestion de données cloud. Lorsque vous utilisez cet outil, les attributs, les événements et les achats sont enregistrés dans les profils en configurant et en connectant la table ou la vue de l'entrepôt de données que vous souhaitez synchroniser avec l'espace de travail Braze souhaité.
 
 [Points de données]({{site.baseurl}}/user_guide/data/infrastructure/data_points)
 - Braze dispose d'un modèle de points de données dans lequel les points de données sont enregistrés par « écriture » dans le profil utilisateur, que la valeur ait changé ou non. C'est pourquoi nous recommandons de n'envoyer à Braze que les attributs qui ont été modifiés.
@@ -152,12 +152,12 @@ Les clients peuvent configurer des Campaigns et des Canvas pour qu'ils soient d�
 - [Déclencher des Campaigns via l'API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#request-body)
     - Les Campaigns sont des messages individuels, tels que des e-mails distincts.
 - [Déclencher des Canvas via l'API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#request-body)
-    - Canvas est une interface unifiée où les marketeurs peuvent créer des Campaigns avec plusieurs messages et étapes pour former un parcours cohérent. Lorsque vous déclenchez un Canvas, vous faites entrer un utilisateur dans le flux Canvas, où il continuera à recevoir des messages jusqu'à ce qu'il ne corresponde plus aux critères du Canvas.
+    - Canvas est une interface unifiée où les marketeurs peuvent créer des campagnes avec plusieurs messages et étapes pour former un parcours cohérent. Lorsque vous déclenchez un Canvas, vous faites entrer un utilisateur dans le flux Canvas, où il continuera à recevoir des messages jusqu'à ce qu'il ne corresponde plus aux critères du Canvas.
 - [Propriétés de déclenchement API / propriétés d'entrée Canvas]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
     - Données qui peuvent être intégrées de manière dynamique dans le message au moment de l'envoi.
 
 ### Campaigns API {#api-campaigns}
-Lors de la création de Campaigns API (différentes des Campaigns déclenchées par l'API mentionnées ci-dessus), le tableau de bord de Braze est uniquement utilisé pour générer un `campaign_id`, qui permet au client de suivre les analyses pour le reporting de la Campaign. Le message de la Campaign lui-même est défini dans la requête API.
+Lors de la création de Campaigns API (différentes des Campaigns déclenchées par l'API mentionnées dans cette section), le tableau de bord de Braze est uniquement utilisé pour générer un `campaign_id`, qui permet au client de suivre les analyses pour le reporting de la Campaign. Le message de la Campaign lui-même est défini dans la requête API.
 - [Envoyer immédiatement une Campaign API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 - [Planifier une Campaign API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
 
@@ -169,7 +169,7 @@ Utilisez l'endpoint Braze pour générer un ID d'envoi qui peut être utilisé p
 
 Le contenu connecté peut être utilisé dans n'importe quel type de canal pour envoyer une requête API à l'endpoint spécifié au moment de l'envoi et intégrer dans le message ce qui est renvoyé dans la réponse.
 
-La polyvalence du contenu connecté en fait une fonctionnalité utilisée par nombre de nos clients pour insérer des contenus qui n'existent pas ou ne peuvent pas être hébergés dans Braze. Voici quelques-uns des cas d'utilisation les plus courants :
+La polyvalence du contenu connecté en fait une fonctionnalité utilisée par nombre de nos clients pour insérer des contenus qui n'existent pas ou ne peuvent pas être hébergés dans Braze. Voici quelques-uns des cas d'usage les plus courants :
 - Intégration de contenu de blog ou d'article dans les messages
 - Recommandations de contenu
 - Métadonnées de produit

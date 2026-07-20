@@ -5,7 +5,7 @@ alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "Este artículo de referencia describe cómo configurar una exportación de Currents personalizada para transmitir datos de eventos de Braze Currents directamente a tu propio punto de conexión HTTP en tiempo real."
+description: "Este artículo de referencia describe cómo configurar una exportación de Currents personalizada para transmitir datos de eventos de Braze Currents directamente a tu propio endpoint HTTP en tiempo real."
 ---
 
 # Exportación de Currents personalizada {#custom-currents-export}
@@ -18,21 +18,21 @@ Esta característica también se conoce como conector HTTP personalizado en la d
 
 ## Requisitos previos {#prerequisites}
 
-Para integrar un conector de Currents personalizado en Braze, necesitarás proporcionar una URL de punto de conexión y un [token de autenticación opcional](#authentication).
+Para integrar un conector de Currents personalizado en Braze, necesitarás proporcionar una URL de endpoint y un [token de autenticación opcional](#authentication).
 
-Además, si tienes más de un grupo de aplicaciones en Braze, necesitarás configurar un conector de Currents personalizado para cada grupo. Sin embargo, puedes apuntar todos los grupos de aplicaciones al mismo punto de conexión, o a un punto de conexión con un parámetro `GET` adicional, como `your_app_group_key="Brand A"`.
+Además, si tienes más de un grupo de aplicaciones en Braze, necesitarás configurar un conector de Currents personalizado para cada grupo. Sin embargo, puedes apuntar todos los grupos de aplicaciones al mismo endpoint, o a un endpoint con un parámetro `GET` adicional, como `your_app_group_key="Brand A"`.
 
 ## Integración {#integration}
 
-### Paso 1: Configura tu punto de conexión {#step-1-set-up-your-endpoint}
+### Paso 1: Configura tu endpoint {#step-1-set-up-your-endpoint}
 
-Necesitarás una URL de punto de conexión para configurar esta integración. Tu punto de conexión debe poder recibir solicitudes HTTP POST y devolver un código de estado `2XX` para confirmar la recepción correcta de los eventos. Si deseas autenticar las solicitudes de Braze, también necesitarás un token bearer.
+Necesitarás una URL de endpoint para configurar esta integración. Tu endpoint debe poder recibir solicitudes HTTP POST y devolver un código de estado `2XX` para confirmar la recepción correcta de los eventos. Si deseas autenticar las solicitudes de Braze, también necesitarás un token bearer.
 
 ### Paso 2: Configura Braze Currents {#step-2-configure-braze-currents}
 
 En Braze, ve a **Integraciones de socios** > **Exportación de datos**, haz clic en **Crear nuevo Current** y selecciona **Exportación de Currents personalizada**.
 
-Asigna un nombre a tu exportación y un correo electrónico de contacto, luego continúa a la página **Detalles del Current**. En esta página, introduce la URL de tu punto de conexión y el token bearer opcional.
+Asigna un nombre a tu exportación y un correo electrónico de contacto, luego continúa a la página **Detalles del Current**. En esta página, introduce la URL de tu endpoint y el token bearer opcional.
 
 Después de configurar tus credenciales, marca todos los eventos de interacción con mensajes, comportamiento del cliente y eventos de usuario que desees exportar, y haz clic en **Lanzar Current**.
 
@@ -49,7 +49,7 @@ Para ver la estructura de la carga útil de cada evento, selecciona la pestaña 
 
 ### Monitoreo de errores {#error-monitoring}
 
-Para evitar la pérdida de datos y la interrupción del servicio, es esencial que monitorees tus puntos de conexión en todo momento y abordes rápidamente cualquier error o tiempo de inactividad.
+Para evitar la pérdida de datos y la interrupción del servicio, es esencial que monitorees tus endpoints en todo momento y abordes rápidamente cualquier error o tiempo de inactividad.
 
 Para la mayoría de los tipos de error (como errores del servidor y errores de conexión de red), Braze reintentará activamente las transmisiones de eventos. Si el problema persiste durante más de 5 días, la integración se deshabilitará automáticamente. Los nuevos eventos entrantes se descartarán y se perderán permanentemente.
 
@@ -60,14 +60,14 @@ Ocasionalmente, realizaremos cambios no disruptivos en los esquemas de Braze Cur
 Normalmente damos un aviso de dos semanas para estos cambios, pero a veces esto no es posible. Es esencial que diseñes tu integración para manejar campos o tipos de eventos no reconocidos; de lo contrario, es probable que se produzca pérdida de datos.
 
 {% alert tip %}
-Para ver la lista completa de esquemas de eventos de Currents, consulta [Eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) y [Eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Para ver la lista completa de esquemas de eventos de Currents, consulta [Eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) y [Eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 {% endalert %}
 
 ## Agrupación en lotes y serialización {#batching-and-serialization}
 
-El formato de datos de destino es JSON sobre HTTPS. De forma predeterminada, los eventos se envían a tu punto de conexión en lotes de hasta 100 eventos cada uno.
+El formato de datos de destino es JSON sobre HTTPS. De forma predeterminada, los eventos se envían a tu endpoint en lotes de hasta 100 eventos cada uno.
 
-Los eventos se envían al punto de conexión como un array JSON de todos los eventos en el siguiente formato:
+Los eventos se envían al endpoint como un array JSON de todos los eventos en el siguiente formato:
 
 ```json
 {"events": [event1, event2, event3, etc...]}
@@ -81,7 +81,7 @@ Habrá un objeto JSON de nivel superior con la clave `"events"` que se asigna a 
 | `"properties"` | Contiene atributos de un evento, como la `app/campaign/canvas/platform` a la que se aplica. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Si un punto de conexión posterior recibe una carga útil con cero eventos o un cuerpo de solicitud vacío, el resultado debe considerarse una operación nula, lo que significa que no deben producirse efectos posteriores a partir de esta llamada. Sin embargo, aún debes verificar el encabezado `Authorization` (como lo harías con una llamada API normal) y dar una respuesta HTTP apropiada para [credenciales no válidas](#authentication), como `401` o `403`. Esto permite a Braze saber que las credenciales del conector son válidas.
+Si un endpoint posterior recibe una carga útil con cero eventos o un cuerpo de solicitud vacío, el resultado debe considerarse una operación nula, lo que significa que no deben producirse efectos posteriores a partir de esta llamada. Sin embargo, aún debes verificar el encabezado `Authorization` (como lo harías con una llamada API normal) y dar una respuesta HTTP apropiada para [credenciales no válidas](#authentication), como `401` o `403`. Esto permite a Braze saber que las credenciales del conector son válidas.
 
 ## Autenticación {#authentication}
 
@@ -123,11 +123,11 @@ Al igual que nuestros [esquemas de almacenamiento en almacén de datos]({{site.b
 
 ## Manejo de errores y mecanismo de reintentos {#error-handling-and-retry-mechanism}
 
-Si se produce un error, Braze pondrá en cola y reintentará la solicitud en función del código de retorno HTTP recibido. Si el problema persiste durante más de 5 días, la integración se deshabilitará automáticamente: los nuevos eventos entrantes se descartarán y se perderán permanentemente, y los eventos ya en cola se descartarán permanentemente después de retenerlos durante 7 días. Si los datos están atascados durante más de 24 horas, nuestros ingenieros de guardia recibirán una alerta automáticamente. Para un desglose completo de cómo se maneja cada código de estado, consulta la tabla a continuación.
+Si se produce un error, Braze pondrá en cola y reintentará la solicitud en función del código de retorno HTTP recibido. Si el problema persiste durante más de 5 días, la integración se deshabilitará automáticamente: los nuevos eventos entrantes se descartarán y se perderán permanentemente, y los eventos ya en cola se descartarán permanentemente después de retenerlos durante 7 días. Si los datos están atascados durante más de 24 horas, nuestros ingenieros de guardia recibirán una alerta automáticamente. Para un desglose completo de cómo se maneja cada código de estado, consulta la tabla en la siguiente sección.
 
 Si tu integración de Currents está devolviendo errores de autenticación, Braze te enviará automáticamente un correo electrónico de notificación.
 
-Cualquier código de error HTTP no listado a continuación se tratará como un error HTTP `5XX`.
+Cualquier código de error HTTP no listado en la siguiente sección se tratará como un error HTTP `5XX`.
 
 {% alert warning %}
 Si el problema persiste durante más de 5 días, la integración se deshabilitará. Los nuevos eventos entrantes se descartarán y se perderán permanentemente, y los eventos ya en cola se descartarán permanentemente después de retenerlos durante 7 días.
@@ -172,7 +172,7 @@ Los siguientes códigos de estado HTTP serán reconocidos por nuestro cliente co
     <tr>
       <td><code>404</code></td>
       <td>No encontrado</td>
-      <td>El conector se configuró con una URL de punto de conexión incorrecta o credenciales no válidas. Verifica que la URL de tu punto de conexión sea correcta y accesible. Corrige tu configuración y vuelve a habilitar la integración para reanudar. Si el problema persiste durante más de 5 días, la integración se deshabilitará y los eventos ya en cola se retendrán durante 7 días.</td>
+      <td>El conector se configuró con una URL de endpoint incorrecta o credenciales no válidas. Verifica que la URL de tu endpoint sea correcta y accesible. Corrige tu configuración y vuelve a habilitar la integración para reanudar. Si el problema persiste durante más de 5 días, la integración se deshabilitará y los eventos ya en cola se retendrán durante 7 días.</td>
     </tr>
     <tr>
       <td><code>413</code></td>

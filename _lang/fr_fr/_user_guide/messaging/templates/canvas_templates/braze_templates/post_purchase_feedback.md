@@ -17,14 +17,14 @@ Cet article vous guidera à travers un cas d'utilisation du modèle **Post-Purch
 
 Pour utiliser ce modèle avec succès, vous aurez besoin des éléments suivants :
 
-- Un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes) à référencer pour les résultats de l'enquête de satisfaction.
-- Une intégration [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/) configurée avec les partenaires et audiences que vous utilisez.
+- Un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) à référencer pour les résultats de l'enquête de satisfaction.
+- Une intégration [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) configurée avec les partenaires et audiences que vous utilisez.
 
 ## Adapter le modèle à vos besoins {#tailoring-the-template-to-your-needs}
 
 Imaginons que nous travaillons pour Decorumsoft, un développeur de jeux vidéo mobiles. Nous utiliserons le modèle de retour d'expérience post-achat pour évaluer les retours sur le lancement de notre dernier jeu vidéo, Proxy War 3: War of Thirst. Grâce à ces retours, nous orienterons nos plans de développement pour le pack d'extension, Liquid Mirage.
 
-Avant de créer le Canvas, nous avons configuré l'intégration [Braze Audience Sync vers Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) afin de pouvoir ajouter des données utilisateur de Braze aux audiences Google pour envoyer des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore.
+Avant de créer le Canvas, nous avons configuré l'intégration [Braze Audience Sync vers Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) afin de pouvoir ajouter des données utilisateur de Braze aux audiences Google pour envoyer des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore.
 
 Pour accéder au modèle de retour d'expérience post-achat, lors de la création d'un nouveau Canvas, sélectionnez **Use a Canvas template** > **Braze templates**. Ensuite, à côté de **Post-Purchase Feedback**, sélectionnez **Apply Template**. Nous pouvons maintenant parcourir le modèle pour l'adapter à nos besoins.
 
@@ -90,7 +90,7 @@ Nous commencerons notre personnalisation en parcourant chaque composant de messa
 4. Sélectionnez **Edit message** pour remplacer le message e-mail du modèle par notre message d'enquête de satisfaction. Cela inclut le remplacement des liens pour chaque appel à l'action afin de capturer l'option sélectionnée, qui sera référencée dans l'étape de parcours d'action de notre parcours utilisateur.
 
 {% alert tip %}
-Vous pouvez utiliser les [propriétés d'entrée Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) pour personnaliser les messages de votre Canvas en fonction du produit auquel vous faites référence.
+Vous pouvez utiliser les [propriétés d'entrée Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) pour personnaliser les messages de votre Canvas en fonction du produit auquel vous faites référence.
 {% endalert %}
 
 #### Configurer l'enquête de satisfaction {#set-up-feedback-survey}
@@ -128,5 +128,5 @@ Pour l'étape de message nommée **Support Case Creation**, nous mettrons à jou
 Après avoir testé et vérifié que notre Canvas fonctionne comme prévu, sélectionnez **Launch Canvas** pour lancer le Canvas. Nous pouvons désormais cibler les utilisateurs de manière réfléchie avec un parcours utilisateur personnalisé pour les encourager à répondre à notre enquête de satisfaction en fonction de leur récent achat de Proxy War 3 !
 
 {% alert tip %}
-Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
+Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
 {% endalert %}

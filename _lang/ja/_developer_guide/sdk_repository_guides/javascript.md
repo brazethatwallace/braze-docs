@@ -6,18 +6,20 @@ description: "GitHubからミラーリングされたBraze JavaScript SDK README
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# JavaScript SDK リポジトリガイド {#javascript-sdk-repository-guide}
+
 ## Braze JavaScript SDKについて {#about-the-braze-javascript-sdk}
 
 Braze JavaScript SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction)
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=javascript)
+- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
 
 ### アーキテクチャの概要 {#architecture-overview}
 
-Braze JavaScript SDKは、純粋なJavaScript環境で動作するように設計された**プラットフォーム非依存**のライブラリーです。ブラウザやNode.js固有のAPIを含まないため、さまざまなJavaScriptランタイムでの使用に適しています。
+Braze JavaScript SDKは、純粋なJavaScript環境で動作するように設計された**プラットフォーム非依存**のライブラリです。ブラウザやNode.js固有のAPIを含まないため、さまざまなJavaScriptランタイムでの使用に適しています。
 
 **主要な設計原則：**
 - **依存性注入**: SDKはプラットフォーム固有のAPIを使用する代わりに、ストレージ、ネットワーキング、デバイス情報の実装を必要とします
@@ -28,8 +30,8 @@ Braze JavaScript SDKは、純粋なJavaScript環境で動作するように設�
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
-- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
+- [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## クイックスタート {#quickstart}
@@ -75,8 +77,8 @@ Braze JavaScript SDKを統合する前に、以下が必要です：
 
 ### 認証情報の取得 {#getting-your-credentials}
 
-1. **APIキー**: Brazeダッシュボードの**Settings** > **API Keys**にあります
-2. **SDKエンドポイント**: **Settings** > **SDK Authentication** > **Endpoints**にあります
+1. **APIキー**: Brazeダッシュボードの**設定** > **APIキー**にあります
+2. **SDKエンドポイント**: **設定** > **SDK認証** > **エンドポイント**にあります
 
 ## 統合 {#integration}
 
@@ -502,7 +504,7 @@ async function initializeSafely() {
 }
 ```
 
-#### サブスクリプション管理 {#subscription-management}
+#### 購読管理 {#subscription-management}
 
 ``` typescript
 import {
@@ -657,10 +659,10 @@ subscribeToInAppMessage(async (inAppMessage) => {
 - `openSession()`は新しいセッションの場合`true`を、再開の場合`false`を返します
 - `changeUser()`または`setIdentifierToken()`の後に`openSession()`を呼び出す必要があります
 
-**サブスクリプション管理：**
-- サブスクリプションコールバックは、イベント発生時に同期的に呼び出されます
-- メモリリークを防ぐためにサブスクリプションを削除してください
-- `removeAllSubscriptions()`はすべてのサブスクリプションを一度にクリアします
+**購読管理：**
+- 購読コールバックは、イベント発生時に同期的に呼び出されます
+- メモリリークを防ぐために購読を削除してください
+- `removeAllSubscriptions()`はすべての購読を一度にクリアします
 
 **データフラッシュ：**
 - 10秒ごとに自動フラッシュ（設定可能、最小：3秒）

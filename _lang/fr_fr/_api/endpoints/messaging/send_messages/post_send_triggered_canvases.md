@@ -1,24 +1,24 @@
 ---
-nav_title: "POST : Envoyer des messages Canvas via la réception/distribution déclenchée par l'API"
-article_title: "POST : Envoyer des messages Canvas via la réception/distribution déclenchée par l'API"
+nav_title: "POST : Envoyer des messages Canvas via la distribution déclenchée par l'API"
+article_title: "POST : Envoyer des messages Canvas via la distribution déclenchée par l'API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l'endpoint Braze permettant d'envoyer des Canvas via la réception/distribution déclenchée par l'API."
+description: "Cet article présente en détail l'endpoint Braze permettant d'envoyer des Canvas via la distribution déclenchée par l'API."
 
 ---
 {% api %}
-# Envoyer des messages Canvas via la réception/distribution déclenchée par l'API {#send-canvas-messages-using-api-triggered-delivery}
+# Envoyer des messages Canvas via la distribution déclenchée par l'API {#send-canvas-messages-using-api-triggered-delivery}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/send
 {% endapimethod %}
 
-> Utilisez cet endpoint pour envoyer des messages Canvas avec la réception/distribution déclenchée par l'API.
+> Utilisez cet endpoint pour envoyer des messages Canvas avec la distribution déclenchée par l'API.
 
-La réception/distribution déclenchée par l'API vous permet de stocker le contenu des messages dans le tableau de bord de Braze tout en déterminant quand un message est envoyé et à qui, à l'aide de votre API.
+La distribution déclenchée par l'API vous permet de stocker le contenu des messages dans le tableau de bord de Braze tout en déterminant quand un message est envoyé et à qui, à l'aide de votre API.
 
-Avant de pouvoir envoyer des messages avec cet endpoint, vous devez disposer d'un [ID Canvas]({{site.baseurl}}/api/identifier_types#canvas-api-identifier) (qui est créé lorsque vous créez un Canvas).
+Avant de pouvoir envoyer des messages avec cet endpoint, vous devez disposer d'un [ID Canvas]({{site.baseurl}}/api/identifier_types#canvas-identifier) (qui est créé lorsque vous créez un Canvas).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c9a8a5fe-a101-4755-99f2-73aa8fc146fe {% endapiref %}
 
@@ -30,7 +30,7 @@ Pour utiliser cet endpoint, vous devrez générer une clé API avec l'autorisati
 
 {% multi_lang_include rate_limits.md endpoint='send endpoints' category='send messages endpoints' %}
 
-## Corps de la demande {#request-body}
+## Corps de la requête {#request-body}
 
 ```
 Content-Type: application/json
@@ -59,18 +59,18 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Paramètres de demande {#request-parameters}
+## Paramètres de la requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant Canvas]({{site.baseurl}}/api/identifier_types). |
 | `context` | Facultatif | Objet | Propriétés de contexte Canvas pour tous les destinataires de cette requête. Les paires clé-valeur de personnalisation s'appliquent à chaque utilisateur, sauf si un `context` par destinataire remplace une clé. L'objet `context` peut atteindre une taille maximale de 50 Ko. |
-| `broadcast` | Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur true lorsque vous envoyez un message à l'ensemble du segment configuré comme audience cible du Canvas dans le tableau de bord de Braze. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur true, une liste `recipients` ne peut pas être incluse. Toutefois, soyez prudent lorsque vous définissez `broadcast: true`, car en activant involontairement cet indicateur, vous risquez d'envoyer votre message à une audience plus large que prévu. |
+| `broadcast` | Facultatif | Booléen | Vous devez définir `broadcast` sur true lorsque vous envoyez un message à l'ensemble du segment configuré comme audience cible du Canvas dans le tableau de bord de Braze. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur true, une liste `recipients` ne peut pas être incluse. Toutefois, soyez prudent lorsque vous définissez `broadcast: true`, car en activant involontairement cet indicateur, vous risquez d'envoyer votre message à une audience plus large que prévu. |
 | `audience` | Facultatif | Objet audience connectée | Voir [Audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience). Lorsque vous incluez `audience`, le message est envoyé uniquement aux utilisateurs qui correspondent aux filtres définis, tels que les attributs personnalisés et les statuts d'abonnement. |
-| `recipients` | Facultatif | Tableau | Voir [Objet destinataires]({{site.baseurl}}/api/objects_filters/recipient_object). <br><br> Si `send_to_existing_only` est `false`, un objet `attributes` doit être inclus pour le destinataire. <br><br> Si cette option n'est pas fournie et que `broadcast` est défini sur `true`, le message est envoyé à l'ensemble du segment configuré comme audience cible du Canvas dans le tableau de bord de Braze.<br><br> Le tableau `recipients` peut contenir jusqu'à 50 objets. Chaque objet doit inclure exactement un des éléments suivants : `external_user_id`, `user_alias` ou `email`, et peut inclure un objet `context` par destinataire pour les propriétés de contexte Canvas (les clés par destinataire remplacent le `context` de niveau parent en cas de conflit). <br><br> Si `email` est l'identifiant, vous devez inclure [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) dans l'objet destinataire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
+| `recipients` | Facultatif | Tableau | Voir [Objet destinataires]({{site.baseurl}}/api/objects_filters/recipient_object). <br><br> Si `send_to_existing_only` est `false`, un objet `attributes` doit être inclus pour le destinataire. <br><br> Si cette option n'est pas fournie et que `broadcast` est défini sur `true`, le message est envoyé à l'ensemble du segment configuré comme audience cible du Canvas dans le tableau de bord de Braze.<br><br> Le tableau `recipients` peut contenir jusqu'à 50 objets. Chaque objet doit inclure exactement un des éléments suivants : `external_user_id`, `user_alias` ou `email`, et peut inclure un objet `context` par destinataire pour les propriétés de contexte Canvas (les clés par destinataire remplacent le `context` de niveau parent en cas de conflit). <br><br> Si `email` est l'identifiant, vous devez inclure [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) dans l'objet destinataire. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la requête" }
 
-## Exemple de demande {#example-request}
+## Exemple de requête {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/send' \
 --header 'Content-Type: application/json' \
@@ -160,11 +160,11 @@ Le code de statut `201` pourrait renvoyer le corps de réponse suivant. Si le Ca
 
 Si votre Canvas est archivé, vous verrez ce message `notice` : "The Canvas is archived. Unarchive the Canvas to ensure trigger requests will take effect." Si votre Canvas n'est pas actif, vous verrez ce message `notice` : "The Canvas is paused. Resume the Canvas to ensure trigger requests will take effect."
 
-Si votre demande rencontre une erreur fatale, reportez-vous à la section [Erreurs et réponses]({{site.baseurl}}/api/errors#fatal-errors) pour connaître le code d'erreur et sa description.
+Si votre requête rencontre une erreur fatale, reportez-vous à la section [Erreurs et réponses]({{site.baseurl}}/api/errors#fatal-errors) pour connaître le code d'erreur et sa description.
 
 ## Considérations {#considerations}
 
-Tenez compte des éléments suivants lorsque vous effectuez des appels API pour envoyer des messages Canvas via la réception/distribution déclenchée par l'API :
+Tenez compte des éléments suivants lorsque vous effectuez des appels API pour envoyer des messages Canvas via la distribution déclenchée par l'API :
 
 - **Envoi aux utilisateurs existants** : Lorsque `send_to_existing_only` est défini sur `true` (valeur par défaut), le message est envoyé uniquement aux utilisateurs existants dans Braze.
 - **Création de nouveaux utilisateurs** : Lorsque `send_to_existing_only` est défini sur `false`, vous devez inclure un objet `attributes`. Si un utilisateur avec l'ID spécifié n'existe pas, Braze crée un utilisateur avec cet ID et ces attributs avant d'envoyer le message.
@@ -181,7 +181,7 @@ Tenez compte des éléments suivants lorsque vous effectuez des appels API pour 
 Utilisez l'objet de message `attributes` pour ajouter, créer ou mettre à jour les attributs et les valeurs d'un utilisateur avant de lui envoyer un Canvas déclenché par l'API à l'aide de l'endpoint `canvas/trigger/send`. Cet appel API traite l'objet des attributs de l'utilisateur avant de traiter et d'envoyer le Canvas. Cela permet de minimiser le risque de problèmes causés par des [conditions de concurrence]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions). Toutefois, par défaut, les groupes d'abonnement ne peuvent pas être mis à jour de cette manière.
 
 {% alert note %}
-Vous cherchez la version Campaign de cet endpoint ? Consultez [Envoi de messages Campaign via la réception/distribution déclenchée par l'API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
+Vous cherchez la version Campaign de cet endpoint ? Consultez [Envoi de messages Campaign via la distribution déclenchée par l'API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 {% endalert %}
 
 {% endapi %}

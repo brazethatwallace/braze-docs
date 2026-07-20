@@ -20,7 +20,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les ID 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `purchases.product_list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `purchases.product_list`.
 
 ## Limite de débit {#rate-limit}
 

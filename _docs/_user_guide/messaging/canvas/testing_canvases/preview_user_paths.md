@@ -33,9 +33,23 @@ The following steps are supported:
 - Delay
 - Action Path
 - Experiment Path
+- Agent
 - User Update (only in the UI editor, meaning steps using JSON editor are skipped)
 
-If the test overlaps with a step type that isn't listed above, the unsupported step is skipped, and the test user continues to the next supported step.
+If the test overlaps with a step type that isn't listed in this section, the unsupported step is skipped, and the test user continues to the next supported step.
+
+### Agent steps
+
+When a test run reaches an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze pauses and asks **Do you want to run the agent "{agentName}"?** Choose how to continue:
+
+- **Yes:** Optionally add context in the text field (in addition to the test user's profile and any Canvas context already in the journey), then select **Simulate response** to invoke the agent. You can enter sample values in plain language—for example, describing cart contents or inbound message text—to mimic runtime context the agent would receive in production.
+- **No:** Braze does not invoke the agent. The step uses the agent's configured **fallback output** from the **Output** section in [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values).
+
+When you select **Yes** and **Simulate response**, the agent runs for the preview user, stores its output in the Agent step's output variable, and the test continues down the journey. Invocations from **Simulate response** count toward the agent's daily invocation limit and appear in **Agent Console** > **Logs**.
+
+To test an Agent step in isolation (without running the full Canvas path), use the in-step preview in the Canvas builder. For setup details, see [Test the agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#step-5-test-the-agent) in Agent step.
+
+If your Agent step depends on data from an upstream [Context step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context), run **Test Canvas** so context variables are populated along the path. Seed Groups do not evaluate Context steps or context variables for seed recipients.
 
 ### Canvas step details
 
@@ -43,7 +57,7 @@ To view more details for the entrance criteria, select **See more**. Steps with 
 
 ### Liquid
 
-Braze processes Liquid logic during a test run, even if you're not sending an actual test message. This means the [abort message logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) and other Liquid logic are reflected and could impact the Canvas user journey.
+Braze processes Liquid logic during a test run, even if you're not sending an actual test message. This means the [abort message logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) and other Liquid logic are reflected and could impact the Canvas user journey.
 
 If your preview sends the last step of your user journey instead of aborting, the preview may be using the current time as the time being tested for Liquid evaluation, not the actual time the user would be in the step based on the Canvas entry time.
 

@@ -6,14 +6,16 @@ description: "GitHub에서 미러링된 Braze JavaScript SDK README 참조입니
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# JavaScript SDK 리포지토리 가이드 {#javascript-sdk-repository-guide}
+
 ## Braze JavaScript SDK 소개 {#about-the-braze-javascript-sdk}
 
-Braze JavaScript SDK는 Braze 메시징, 분석, 사용자 참여 기능을 애플리케이션에 통합할 수 있도록 도와줍니다.
+Braze JavaScript SDK는 Braze 메시징, 분석, 사용자 인게이지먼트 기능을 애플리케이션에 통합할 수 있도록 도와줍니다.
 
 시작하려면 다음 리소스를 참조하세요:
 
-- [Braze 사용자 가이드]({{site.baseurl}}/user_guide/introduction)
-- [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=javascript)
+- [Braze 사용자 가이드](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
 
 ### 아키텍처 개요 {#architecture-overview}
 
@@ -28,8 +30,8 @@ Braze JavaScript SDK는 순수 JavaScript 환경에서 작동하도록 설계된
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
-- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
+- [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## 빠른 시작 {#quickstart}
@@ -693,7 +695,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 11. **타입 안전성**: SDK는 완전한 타입 정의와 함께 TypeScript로 작성되었습니다. 최상의 경험과 타입 검사를 위해 TypeScript를 사용하세요.
 
-12. **유효성 검사 규칙**: 이벤트 이름, 속성 키, 등록정보 키에는 엄격한 유효성 검사가 적용됩니다(최대 255자, `$`로 시작할 수 없음, 영숫자 + 구두점만 허용). 잘못된 값은 무시되거나 오류를 발생시킬 수 있습니다.
+12. **유효성 검사 규칙**: 이벤트 이름, 속성 키, 속성정보 키에는 엄격한 유효성 검사가 적용됩니다(최대 255자, `$`로 시작할 수 없음, 영숫자 + 구두점만 허용). 잘못된 값은 무시되거나 오류를 발생시킬 수 있습니다.
 
 ## 디버깅 / 문제 해결 {#debugging-troubleshooting}
 

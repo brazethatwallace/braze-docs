@@ -1,6 +1,6 @@
 ## Über Flutter-Content-Cards {#about-flutter-content-cards}
 
-Das Braze SDK enthält einen Standard-Kartenfeed, der Ihnen den Einstieg in die Arbeit mit Content-Cards erleichtert. Sie können den Kartenfeed mit der Methode `braze.launchContentCards()` anzeigen. Der im Braze SDK enthaltene Standard-Kartenfeed verarbeitet das gesamte Analytics-Tracking, Ausblendungen und die Darstellung der Content-Cards.
+Das Braze SDK enthält einen Standard-Kartenfeed, der Ihnen den Einstieg in die Arbeit mit Content Cards erleichtert. Sie können den Kartenfeed mit der Methode `braze.launchContentCards()` anzeigen. Der im Braze SDK enthaltene Standard-Kartenfeed verarbeitet das gesamte Analytics-Tracking, Ausblendungen und die Darstellung der Content Cards für Nutzer:innen.
 
 {% multi_lang_include developer_guide/prerequisites/flutter.md %}
 
@@ -10,17 +10,17 @@ Sie können diese zusätzlichen Methoden verwenden, um einen angepassten Content
 
 | Methode | Beschreibung |
 | --- | --- |
-| `braze.requestContentCardsRefresh()` | Fordert die neuesten Content-Cards vom Braze SDK-Server an. |
+| `braze.requestContentCardsRefresh()` | Fordert die neuesten Content Cards vom Braze SDK-Server an. |
 | `braze.logContentCardClicked(contentCard)` | Protokolliert einen Klick für das angegebene Content-Card-Objekt. |
 | `braze.logContentCardImpression(contentCard)` | Protokolliert eine Impression für das angegebene Content-Card-Objekt. |
 | `braze.logContentCardDismissed(contentCard)` | Protokolliert eine Ausblendung für das angegebene Content-Card-Objekt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Karten-Methoden" }
 
 ## Empfangen von Content-Card-Daten {#receiving-content-card-data}
 
 Um Content-Card-Daten in Ihrer Flutter-App zu empfangen, unterstützt `BrazePlugin` das Senden von Content-Card-Daten mithilfe von [Dart-Streams](https://dart.dev/tutorials/language/streams).
 
-Das [Objekt](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazeContentCard-class.html) `BrazeContentCard` unterstützt eine Teilmenge der Felder, die in den nativen Modellobjekten verfügbar sind, darunter `description`, `title`, `image`, `url`, `extras` und weitere.
+Das `BrazeContentCard`-[Objekt](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazeContentCard-class.html) unterstützt eine Teilmenge der Felder, die in den nativen Modellobjekten verfügbar sind, darunter `description`, `title`, `image`, `url`, `extras` und weitere.
 
 ### Auf Content-Card-Daten im Dart-Layer lauschen {#listen-for-content-card-data-in-the-dart-layer}
 
@@ -57,9 +57,10 @@ Ein Beispiel finden Sie in [AppDelegate.swift](https://github.com/braze-inc/braz
 {% endtab %}
 {% endtabs %}
 
-#### Wiederholung des Callbacks für Content-Cards {#replaying-the-callback-for-content-cards}
+#### Wiederholung des Callbacks für Content Cards {#replaying-the-callback-for-content-cards}
 
-Um alle Content-Cards zu speichern, die getriggert wurden, bevor der Callback verfügbar ist, und sie nach dem Setzen des Callbacks erneut abzuspielen, fügen Sie bei der Initialisierung von `BrazePlugin` den folgenden Eintrag in die `customConfigs`-Map ein:
+Um alle Content Cards zu speichern, die getriggert wurden, bevor der Callback verfügbar ist, und sie nach dem Setzen des Callbacks erneut abzuspielen, fügen Sie bei der Initialisierung von `BrazePlugin` den folgenden Eintrag in die `customConfigs`-Map ein:
+
 ```dart
 BrazePlugin braze = new BrazePlugin(customConfigs: {replayCallbacksConfigKey: true});
 ```

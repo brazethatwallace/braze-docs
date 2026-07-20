@@ -1,9 +1,9 @@
 ---
 nav_title: FAQ
-article_title: Canvas FAQ
+article_title: キャンバス FAQ
 page_order: 8
 alias: "/canvas_v2_101/"
-description: "この記事では、Canvasに関するよくある質問への回答を提供します。"
+description: "この記事では、キャンバスに関するよくある質問への回答を提供します。"
 tool: Canvas
 toc_headers: h2
 
@@ -11,79 +11,91 @@ toc_headers: h2
 
 # よくある質問 {#frequently-asked-questions}
 
-> この記事では、Canvasに関するよくある質問への回答を提供します。
+> この記事では、キャンバスに関するよくある質問への回答を提供します。
 
-## Canvasの構築と編集 {#building-and-editing-canvas}
+## キャンバスの構築と編集 {#building-and-editing-canvas}
 
-### Canvasに含めることができるステップ数はいくつですか？ {#how-many-steps-i-can-include-in-a-canvas}
+### キャンバスに含めることができるステップ数はいくつですか？ {#how-many-steps-i-can-include-in-a-canvas}
 
-Canvasには最大200ステップを追加できます。
+キャンバスには最大200ステップを追加できます。
 
 ### コンポーネントとステップの違いは何ですか？ {#whats-the-difference-between-a-component-and-a-step}
 
-[コンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about)は、Canvasの効果を判断するために使用できるCanvasの個々のパーツです。コンポーネントには、ユーザージャーニーの分岐、遅延の追加、複数のCanvasパスのテストなどのアクションを含めることができます。Canvasのステップは、Canvasブランチにおけるパーソナライズされたユーザージャーニーを指します。基本的に、Canvasはユーザージャーニーのステップを作成する個々のコンポーネントで構成されています。
+[コンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about)は、キャンバスの効果を判断するために使用できるキャンバスの個々のパーツです。コンポーネントには、ユーザージャーニーの分岐、遅延の追加、複数のキャンバスパスのテストなどのアクションを含めることができます。キャンバスのステップは、キャンバスブランチにおけるパーソナライズされたユーザージャーニーを指します。基本的に、キャンバスはユーザージャーニーのステップを作成する個々のコンポーネントで構成されています。
 
-### 切断されたステップがあるCanvasを起動できますか？ {#can-i-launch-a-canvas-with-disconnected-steps}
+### 切断されたステップがあるキャンバスを起動できますか？ {#can-i-launch-a-canvas-with-disconnected-steps}
 
-はい。起動後に切断されたステップがあるCanvasを保存することもできます。
+はい。起動後に切断されたステップがあるキャンバスを保存することもできます。
 
 ### 切断されたステップに到達したユーザーはどこに進みますか？ {#where-do-users-go-when-theyve-reached-a-disconnected-step}
 
-ユーザーがCanvasワークフローの切断されたステップにいる場合、後続のステップがあればそこに進み、ステップの設定がユーザーの進行方法を決定します。これは、ユーザーがステップをCanvasの残りの部分に直接接続しなくても変更を加えられるようにすることを目的としています。また、すぐに公開する前にテストする余地を提供し、実質的に下書きの保存を可能にします。
+ユーザーがキャンバスワークフローの切断されたステップにいる場合、後続のステップがあればそこに進み、ステップの設定がユーザーの進行方法を決定します。これは、ユーザーがステップをキャンバスの残りの部分に直接接続しなくても変更を加えられるようにすることを目的としています。また、すぐに公開する前にテストする余地を提供し、実質的に下書きの保存を可能にします。
 
 ステップを切断する前に、キャンバスステップで保留中のユーザーの分析ビューを確認することをお勧めします。
 
-### 1つのバリアントで複数のブランチを持つCanvasのオーディエンスと送信時間が同一の場合、どうなりますか？ {#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches}
+### 1つのバリアントで複数のブランチを持つキャンバスのオーディエンスと送信時間が同一の場合、どうなりますか？ {#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches}
 
 各ステップに対してジョブをキューに入れます。これらはほぼ同時に実行され、そのうちの1つが「勝ちます」。実際には、ある程度均等に分配される場合がありますが、最初に作成されたステップに少なくともわずかな偏りが生じる可能性があります。
 
 さらに、その分布がどのようになるかについて正確な保証はできません。均等な分割が必要な場合は、[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)フィルターを追加してください。
 
-### Canvasのオーディエンスはどのように評価されますか？ {#how-are-canvas-audiences-evaluated}
+### キャンバスのオーディエンスはどのように評価されますか？ {#how-are-canvas-audiences-evaluated}
 
-デフォルトでは、Canvasのフルステップのフィルターとセグメントは送信時に確認されます。条件分岐ステップは、前のステップを受信した直後（または遅延の前）に評価を実行します。
+デフォルトでは、キャンバスのフルステップのフィルターとセグメントは送信時に確認されます。条件分岐ステップは、前のステップを受信した直後（または遅延の前）に評価を実行します。
 
 ### 例外イベントはいつトリガーされますか？ {#when-does-an-exception-event-trigger}
 
-例外イベントは、ユーザーが関連付けられたCanvasコンポーネントの受信を待っている間にのみトリガーされます。ユーザーが事前にアクションを実行した場合、例外イベントはトリガーされません。特定のイベントを事前に実行したユーザーを除外したい場合は、代わりに[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を使用してください。
+例外イベントは、ユーザーが関連付けられたキャンバスコンポーネントの受信を待っている間にのみトリガーされます。ユーザーが事前にアクションを実行した場合、例外イベントはトリガーされません。特定のイベントを事前に実行したユーザーを除外したい場合は、代わりに[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を使用してください。
 
-### Canvasの編集は、すでにCanvas内にいるユーザーにどのような影響を与えますか？ {#how-does-editing-a-canvas-affect-users-already-in-the-canvas}
+### キャンバスの編集は、すでにキャンバス内にいるユーザーにどのような影響を与えますか？ {#how-does-editing-a-canvas-affect-users-already-in-the-canvas}
 
-マルチステップCanvasのいくつかのステップを編集した場合、すでにオーディエンスに含まれているがまだステップを受信していないユーザーは、更新されたバージョンのメッセージを受信します。ただし、これはまだそのステップの評価が行われていない場合にのみ発生します。
+マルチステップキャンバスのいくつかのステップを編集した場合、すでにオーディエンスに含まれているがまだステップを受信していないユーザーは、更新されたバージョンのメッセージを受信します。ただし、これはまだそのステップの評価が行われていない場合にのみ発生します。
 
-起動後に編集できる内容の詳細については、[起動後のCanvasの変更]({{site.baseurl}}/post-launch_edits)を参照してください。
+起動後に編集できる内容の詳細については、[起動後のキャンバスの変更]({{site.baseurl}}/post-launch_edits)を参照してください。
 
-### Canvasを停止するとどうなりますか？ {#what-happens-when-you-stop-a-canvas}
+### キャンバスを停止するとどうなりますか？ {#what-happens-when-you-stop-a-canvas}
 
-Canvasを停止すると、以下が適用されます：
+キャンバスを停止すると、以下が適用されます：
 
-- ユーザーはCanvasに入ることができなくなります。
+- ユーザーはキャンバスに入ることができなくなります。
 - フロー内のユーザーの位置に関係なく、それ以上のメッセージは送信されません。
-- **例外：** メールを含むCanvasはすぐには停止しません。送信リクエストがSendGridに送られた後は、ユーザーへの配信を停止する手段はありません。
+- **例外：** メールを含むキャンバスはすぐには停止しません。送信リクエストがSendGridに送られた後は、ユーザーへの配信を停止する手段はありません。
 
-### ユーザーライフサイクルごとに1つのCanvasを構築すべきですか、それとも別々のCanvasを構築すべきですか？ {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
+### ユーザーライフサイクルごとに1つのキャンバスを構築すべきですか、それとも別々のキャンバスを構築すべきですか？ {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
 
-Canvasで達成したい目標に応じて、ユーザージャーニーの構築方法に異なるアプローチが必要になる場合があります。Canvasの柔軟性により、ユーザーライフサイクルのあらゆる段階のユーザージャーニーをマッピングできます。効果的なユーザージャーニーを作成するための合理化されたアプローチの例については、[Brazeキャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)をご覧ください。
+キャンバスで達成したい目標に応じて、ユーザージャーニーの構築方法に異なるアプローチが必要になる場合があります。キャンバスの柔軟性により、ユーザーライフサイクルのあらゆる段階のユーザージャーニーをマッピングできます。効果的なユーザージャーニーを作成するための合理化されたアプローチの例については、[Brazeキャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)をご覧ください。
 
 ## メッセージと配信 {#messages-and-delivery}
 
-### Canvasのアプリ内メッセージはいつ送信されますか？ {#when-are-in-app-messages-in-canvas-sent}
+### キャンバスのアプリ内メッセージはいつ送信されますか？ {#when-are-in-app-messages-in-canvas-sent}
 
-アプリ内メッセージは次のセッション開始時に送信されます。つまり、Canvasが停止される前にユーザーがキャンバスステップに入った場合、アプリ内メッセージがまだ期限切れになっていない限り、次のセッション開始時にアプリ内メッセージを受信します。
+アプリ内メッセージは次のセッション開始時に送信されます。つまり、キャンバスが停止される前にユーザーがキャンバスステップに入った場合、アプリ内メッセージがまだ期限切れになっていない限り、次のセッション開始時にアプリ内メッセージを受信します。
 
-Canvasが停止される前にユーザーがセッションを開始したが、アプリ内メッセージがすぐに表示されない場合があります。これは、アプリ内メッセージがカスタムイベントによってトリガーされるか、遅延されている場合に発生する可能性があります。つまり、Canvasが停止された後にユーザーがアプリ内メッセージのインプレッションを記録し、アプリ内メッセージを「受信」する可能性があります。ただし、ユーザーはCanvasが停止される前にセッションを開始している必要がありますが、キャンバスステップを受信した**後**である必要があります。
+キャンバスが停止される前にユーザーがセッションを開始したが、アプリ内メッセージがすぐに表示されない場合があります。これは、アプリ内メッセージがカスタムイベントによってトリガーされるか、遅延されている場合に発生する可能性があります。つまり、キャンバスが停止された後にユーザーがアプリ内メッセージのインプレッションを記録し、アプリ内メッセージを「受信」する可能性があります。ただし、ユーザーはキャンバスが停止される前にセッションを開始している必要がありますが、キャンバスステップを受信した**後**である必要があります。
 
 {% alert note %}
-Canvasを停止しても、メッセージの受信を待っているユーザーがユーザージャーニーから退出することはありません。Canvasを再度有効にし、ユーザーがまだメッセージを待っている場合、メッセージを受信します（メッセージが送信されるべき時間が過ぎている場合は受信しません）。
+キャンバスを停止しても、メッセージの受信を待っているユーザーがユーザージャーニーから退出することはありません。キャンバスを再度有効にし、ユーザーがまだメッセージを待っている場合、メッセージを受信します（メッセージが送信されるべき時間が過ぎている場合は受信しません）。
 {% endalert %}
 
-### インプレッションが記録されているのに、Canvasの送信数がゼロと表示されるのはなぜですか？ {#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged}
+### インプレッションが記録されているのに、キャンバスの送信数がゼロと表示されるのはなぜですか？ {#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged}
 
-アプリ内メッセージステップを含むCanvasで*送信済みメッセージ*が常にゼロの場合、これはアプリ内メッセージの配信が他のメッセージングチャネルとは異なる仕組みで動作するためです。
+アプリ内メッセージステップを含むキャンバスで*送信済みメッセージ*が常にゼロの場合、これはアプリ内メッセージの配信が他のメッセージングチャネルとは異なる仕組みで動作するためです。
 
-アプリ内メッセージは、Brazeから「プッシュ」されるのではなく、SDKによって「プル」されます。対象ユーザーのアプリ内メッセージはセッション開始時に自動的に配信され、表示前にトリガーイベントを「待ちます」。対象ユーザーがセッションを開始した時にメッセージを受信するため、Brazeはこれを送信イベントとして報告しません。ユーザーがトリガーイベントを実行すると、メッセージが表示され、Brazeはインプレッションを記録し、ユーザープロファイル上でキャンバスステップ（またはCampaign）を受信済みとしてマークします。その結果、アプリ内メッセージの*送信数*の合計はゼロになります。
+アプリ内メッセージは、Brazeから「プッシュ」されるのではなく、SDKによって「プル」されます。対象ユーザーのアプリ内メッセージはセッション開始時に自動的に配信され、表示前にトリガーイベントを「待ちます」。対象ユーザーがセッションを開始した時にメッセージを受信するため、Brazeはこれを送信イベントとして報告しません。ユーザーがトリガーイベントを実行すると、メッセージが表示され、Brazeはインプレッションを記録し、ユーザープロファイル上でキャンバスステップ（またはキャンペーン）を受信済みとしてマークします。その結果、アプリ内メッセージの*送信数*の合計はゼロになります。
 
-### 同じCanvasメッセージステップまたは多変量送信で、バリアントごとに異なる送信時間をスケジュールできますか？ {#can-i-schedule-different-send-times-for-each-variant-in-the-same-canvas-message-step-or-multivariate-send}
+### 長い遅延やブランチの後にユーザーがアプリ内メッセージを受信しなかったのはなぜですか？ {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
+
+上流の[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)ステップとオーディエンスチェックが完了した後、ユーザーはメッセージステップに到達した時点でのみアプリ内メッセージの対象となります。メッセージがカレンダー日付で期限切れになるか、**ステップが利用可能になってからの短い期間**ウィンドウで期限切れになる場合、遅いブランチのユーザーは期限切れ後に到着し、メッセージを見ることができません。期限切れを最も長い現実的なパス遅延に合わせてください。詳細と例については、[アプリ内メッセージの期限切れ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration)を参照してください。
+
+### 「キャンバス Entry PropertiesはIn-App Messagesでは使用できません」と表示されるのはなぜですか？ {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
+
+このメッセージは、パーソナライゼーションがアプリ内メッセージではキャンバス内で解決できないフィールドを参照している場合に表示されます。[コンテキストとイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)および[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)に記載されている`context`オブジェクトを使用してください。レガシーのLiquid名前空間`canvas_entry_properties`には`context`とは異なる制約があります。複数のステップにわたって値を保持する必要がある場合は、Brazeチームと[オリジナルキャンバスエディターの永続プロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)を確認してください。保存された値は、デバイスがアプリ内ペイロードをダウンロードする前にユーザーがキャンバスを退出するとクリアされます。
+
+### キャンバスのドラッグ＆ドロップアプリ内メッセージのボタンクリックはどこで確認できますか？ {#where-can-i-find-button-clicks-for-drag-and-drop-in-app-messages-in-canvas}
+
+ドラッグ＆ドロップアプリ内メッセージのボタンレベルの指標は、キャンバスの概要レベルだけでなく、**キャンバスの詳細**内の**メッセージ**ステップ分析カードに表示されます。キャンバスを開き、メッセージステップを選択して、アプリ内エンゲージメントを確認してください。レポートの概念については、[キャンバス分析による測定とテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)を参照してください。
+
+### 同じキャンバスメッセージステップまたは多変量送信で、バリアントごとに異なる送信時間をスケジュールできますか？ {#can-i-schedule-different-send-times-for-each-variant-in-the-same-canvas-message-step-or-multivariate-send}
 
 いいえ。同じ多変量設定またはメッセージステップ内のバリアントは、1つの配信スケジュールを共有します。同じスケジュール送信で、あるバリアントを午後6時に送信し、別のバリアントを午後7時に送信するように割り当てることはできません。
 
@@ -91,49 +103,62 @@ Canvasを停止しても、メッセージの受信を待っているユーザ�
 
 - メッセージステップの間に遅延ステップを配置して、各メッセージに独自のスケジュールを持たせます。
 - ブランチまたは[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)ステップを使用して、ユーザーが異なるタイミングのパスをたどるようにします。
-- ユースケースが1つのCanvas内に収まる必要がない場合は、別々のCampaignsを使用します。
+- ユースケースが1つのキャンバス内に収まる必要がない場合は、別々のキャンペーンを使用します。
 
-Campaignsにおける多変量テストとABテストの概念については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
+キャンペーンにおける多変量テストとABテストの概念については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
-### ユーザーがCanvasメッセージステップでグローバルフリークエンシーキャップに達した場合、どうなりますか？ {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+### ユーザーがキャンバスメッセージステップでグローバルフリークエンシーキャップに達した場合、どうなりますか？ {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
 
-キャップされたチャネルの送信は受信しませんが、メッセージステップはグローバルフリークエンシーキャップによりメッセージが送信されなかった場合でもユーザーを進行させます。ステップごとの進行ケースについては、[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance)を参照してください。グローバルフリークエンシーキャップだけではユーザーをCanvasから退出させません。この動作はメッセージステップの**配信バリデーション**とは別のものです。詳細については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)を参照してください。
+キャップされたチャネルの送信は受信しませんが、メッセージステップはグローバルフリークエンシーキャップによりメッセージが送信されなかった場合でもユーザーを進行させます。ステップごとの進行ケースについては、[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance)を参照してください。グローバルフリークエンシーキャップだけではユーザーをキャンバスから退出させません。この動作はメッセージステップの**配信バリデーション**とは別のものです。詳細については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)を参照してください。
 
 ### 送信数が推定オーディエンスサイズよりも少ないのはなぜですか？ {#why-are-sends-lower-than-the-estimated-audience-size}
 
-送信数が**推定オーディエンス**よりも少なくなる理由は、[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq#why-are-sends-lower-than-the-estimated-audience-size)と同様の多くの理由があります。これには、フリークエンシーキャップ、厳格なデバイスまたはブラウザフィルター、再適格性ウィンドウ、レート制限、チャネルレベルの除外（例：プッシュ到達可能性やメールサブスクリプションおよび配信可能性チェック）が含まれます。
+送信数が**推定オーディエンス**よりも少なくなる理由は、[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/faq#why-are-sends-lower-than-the-estimated-audience-size)と同様の多くの理由があります。これには、フリークエンシーキャップ、厳格なデバイスまたはブラウザフィルター、再適格性ウィンドウ、レート制限、チャネルレベルの除外（例：プッシュ到達可能性やメールサブスクリプションおよび配信可能性チェック）が含まれます。
 
-Canvas固有の要因も適用されます：
+キャンバス固有の要因も適用されます：
 
 - **アクションベースまたはAPIトリガーエントリ：** ユーザーはエントリ動作を実行した後にのみ入場（およびステップを受信）するため、それらのアクションが発生するまで実際の送信数は事前の推定を下回ります。
 - **オーディエンスパス：** ユーザーは適格な最も優先度の高いブランチにルーティングされるため、下流のブランチはフラットなセグメント数が示すよりも少ないユーザーを受け取る場合があります。
-- **オーディエンスと送信時間のチェック：** フルステップは、別途設定しない限り送信時にフィルターを再評価します。Canvasの構築時に適格だったユーザーが、メッセージ送信前に脱落する場合があります。
-- **コントロールグループ：** グローバルまたはCanvasコントロールグループは、エントリしたユーザーの一部をメッセージングから除外します。
+- **オーディエンスと送信時間のチェック：** フルステップは、別途設定しない限り送信時にフィルターを再評価します。キャンバスの構築時に適格だったユーザーが、メッセージ送信前に脱落する場合があります。
+- **コントロールグループ：** グローバルまたはキャンバスのコントロールグループは、エントリしたユーザーの一部をメッセージングから除外します。
 - **サイレント時間帯と遅延：** メッセージが保留またはリスケジュールされ、表示中のレポート期間から送信がずれる場合があります。
 - **最大エントリまたはオーディエンスキャップ：** エントリまたは送信キャップにより、基盤となるセグメントが大きくても追加のユーザーが停止されます。
 - **レポート期間：** 分析範囲に、推定と比較しているすべての送信が含まれていない場合があります。
 
+### 推定オーディエンスとキャンバスユーザー数が一致しないのはなぜですか？ {#why-dont-estimated-audience-and-canvas-user-counts-match}
+
+**推定オーディエンス**は、推定が実行された時点でセグメントとエントリフィルターに一致するユーザーを反映します。その時点以降、遅延エントリやアクションベースのエントリ、再適格性、APIトリガー、またはブランチルーティングにより、スナップショットと比較してジャーニーに接触するプロファイル数が増加する場合があります。また、送信時のフィルターが失敗した場合にユーザーが脱落し、実際のエントリや送信数が減少することもあります。タイミング、キャップ、評価設定を[送信数が推定オーディエンスサイズよりも少ないのはなぜですか？](#why-are-sends-lower-than-the-estimated-audience-size)と合わせて比較してください。
+
 ### *ユニーク受信者*がターゲットしたユーザー数よりも多いのはなぜですか？ {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
-*ユニーク受信者*が予想よりも多くなることがあります。これは、BrazeがCanvasおよびCampaignレポートで**日次ユニーク受信者**を追跡するためです。これにより、ユーザーがジャーニー内でメッセージを受信するたびに正確なコンバージョンアトリビューションがサポートされます。
+*ユニーク受信者*が予想よりも多くなることがあります。これは、Brazeがキャンバスおよびキャンペーンレポートで**日次ユニーク受信者**を追跡するためです。これにより、ユーザーがジャーニー内でメッセージを受信するたびに正確なコンバージョンアトリビューションがサポートされます。
 
 例えば、ユーザーが月曜日にキャンバスステップを受信し、金曜日に再度受信して、各送信後にコンバージョンした場合、Brazeは2つの受信者行と2つの対象コンバージョンをカウントできます。繰り返しエントリまたは再適格性により、同じ少数のプロファイルセットが数日間にわたって複数の*ユニーク受信者*を生成する場合があります。
 
+### キャンバスの送信レートが低下しているのはなぜですか？ {#why-is-my-canvas-experiencing-lower-send-rates}
+
+日次スケジュールのキャンバスが時間の経過とともに送信ユーザー数が減少している場合は、以下を確認してください：
+
+- **再適格性がオンになっているか確認してください：** 再適格性がない場合、Brazeは各ユーザーをキャンバスに1回のみ入場させます。日次スケジュールのキャンバスでは、オーディエンスに一致し、まだキャンバスに入っていないユーザーのみが各エントリの対象となります。より多くのユーザーが入場するにつれて、後のエントリごとに対象ユーザーが少なくなるため、エントリ量が減少します。
+- **オーディエンスのメンバーシップが固定されていないか確認してください：** 固定ユーザーリスト（セグメントフィルターとして使用される[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)など）から構築されたオーディエンスは、自動的に新しいメンバーを獲得しません。新しいエントリがなければ、ユーザーがキャンバスに入場するにつれてエントリ量は回復できません。
+
+単一の発生で送信数を低下させる[配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)やその他の要因については、[送信数が推定オーディエンスサイズよりも少ないのはなぜですか？](#why-are-sends-lower-than-the-estimated-audience-size)を参照してください。
+
 ## 分析とコンバージョン {#analytics-and-conversions}
 
-### Canvasでユーザーコンバージョンはどのように追跡されますか？ {#how-are-user-conversions-tracked-in-a-canvas}
+### キャンバスでユーザーコンバージョンはどのように追跡されますか？ {#how-are-user-conversions-tracked-in-a-canvas}
 
-ユーザーはCanvasエントリごとに1回のみコンバージョンできます。コンバージョンは、そのエントリでユーザーが受信した最新のメッセージに割り当てられます。Canvasの先頭にあるサマリーブロックは、メッセージを受信したかどうかに関係なく、そのパス内のユーザーが実行したすべてのコンバージョンを反映します。後続の各ステップは、そのステップがユーザーが受信した最新のステップであった間に発生したコンバージョンのみを表示します。
+ユーザーはキャンバスエントリごとに1回のみコンバージョンできます。コンバージョンは、そのエントリでユーザーが受信した最新のメッセージに割り当てられます。キャンバスの先頭にあるサマリーブロックは、メッセージを受信したかどうかに関係なく、そのパス内のユーザーが実行したすべてのコンバージョンを反映します。後続の各ステップは、そのステップがユーザーが受信した最新のステップであった間に発生したコンバージョンのみを表示します。
 
 {% alert note %}
-ユーザーがCanvasに再エントリした場合、コンバージョンイベントは最新のエントリに対してのみ追跡されます。コンバージョンイベントがバックフィルされた場合でも、以前のエントリに対してはコンバージョンイベントは記録されません。
+ユーザーがキャンバスに再エントリした場合、コンバージョンイベントは最新のエントリに対してのみ追跡されます。コンバージョンイベントがバックフィルされた場合でも、以前のエントリに対してはコンバージョンイベントは記録されません。
 {% endalert %}
 
 {% details 例を展開 %}
 
 **例 1**
 
-10件のプッシュ通知があるCanvasパスがあり、コンバージョンイベントが「セッション開始」（「アプリを開く」）の場合：
+10件のプッシュ通知があるキャンバスパスがあり、コンバージョンイベントが「セッション開始」（「アプリを開く」）の場合：
 
 - ユーザーAはエントリ後、最初のメッセージを受信する前にアプリを開きます。
 - ユーザーBは各プッシュ通知の後にアプリを開きます。
@@ -146,95 +171,111 @@ Canvas固有の要因も適用されます：
 
 **例 2**
 
-サイレント時間帯が有効な1ステップのCanvasがある場合：
+サイレント時間帯が有効な1ステップのキャンバスがある場合：
 
-1. ユーザーがCanvasに入ります。
+1. ユーザーがキャンバスに入ります。
 2. 最初のステップには遅延がありませんが、設定されたサイレント時間帯内にあるため、メッセージは抑制されます。
 3. ユーザーがコンバージョンイベントを実行します。
 
-**結果：** ユーザーはCanvasバリアント全体ではコンバージョンとしてカウントされますが、ステップを受信していないため、ステップではカウントされません。
+**結果：** ユーザーはキャンバスバリアント全体ではコンバージョンとしてカウントされますが、ステップを受信していないため、ステップではカウントされません。
 
 {% enddetails %}
 
 ### 異なるコンバージョン率タイプの違いは何ですか？ {#whats-the-difference-between-the-different-conversion-rate-types}
 
-- Canvas全体のコンバージョンは、コンバージョンイベントを完了したユニークユーザー数を反映し、各ユーザーが完了したコンバージョン数ではありません。
-- バリアントコンバージョン率またはCanvasの先頭にあるサマリーブロックは、メッセージを受信したかどうかに関係なく、そのパス内のユーザーが実行したすべてのコンバージョンを集計合計として反映します。
+- キャンバス全体のコンバージョンは、コンバージョンイベントを完了したユニークユーザー数を反映し、各ユーザーが完了したコンバージョン数ではありません。
+- バリアントコンバージョン率またはキャンバスの先頭にあるサマリーブロックは、メッセージを受信したかどうかに関係なく、そのパス内のユーザーが実行したすべてのコンバージョンを集計合計として反映します。
 - ステップコンバージョン率は、そのメッセージステップを受信し、概要に記載されたコンバージョンイベントのいずれかを完了した個人の数を反映します。
 
-### キャンバスステップのコンバージョン率がCanvasバリアントの合計コンバージョン率と等しくないのはなぜですか？ {#why-is-my-canvas-step-conversion-rate-not-equal-to-my-canvas-variant-total-conversion-rate}
+### キャンバスステップのコンバージョン率がキャンバスバリアントの合計コンバージョン率と等しくないのはなぜですか？ {#why-is-my-canvas-step-conversion-rate-not-equal-to-my-canvas-variant-total-conversion-rate}
 
-Canvasバリアントのコンバージョン合計がステップ合計の合算よりも大きくなることはよくあります。これは、ユーザーがバリアントに入るとすぐにバリアントのコンバージョンイベントを実行できるためです。ただし、この同じコンバージョンイベントはキャンバスステップにはカウントされません。そのため、Canvasに入り、最初のキャンバスステップを受信する前にコンバージョンイベントを実行したユーザーは、バリアントのコンバージョン合計にはカウントされますが、ステップ合計にはカウントされません。Canvasに入ったが、いずれのステップも受信する前にCanvasを退出したユーザーについても同様です。
+キャンバスバリアントのコンバージョン合計がステップ合計の合算よりも大きくなることはよくあります。これは、ユーザーがバリアントに入るとすぐにバリアントのコンバージョンイベントを実行できるためです。ただし、この同じコンバージョンイベントはキャンバスステップにはカウントされません。そのため、キャンバスに入り、最初のキャンバスステップを受信する前にコンバージョンイベントを実行したユーザーは、バリアントのコンバージョン合計にはカウントされますが、ステップ合計にはカウントされません。キャンバスに入ったが、いずれのステップも受信する前にキャンバスを退出したユーザーについても同様です。
 
-また、ユーザーがバリアントに入り、ステップからメッセージを送信されず、その後コンバージョンする場合もあります。この場合、ステップレベルではコンバージョンは記録されません。ただし、ユーザーは技術的にコンバージョンしたため、Canvasレベルではコンバージョンが記録されます。
+また、ユーザーがバリアントに入り、ステップからメッセージを送信されず、その後コンバージョンする場合もあります。この場合、ステップレベルではコンバージョンは記録されません。ただし、ユーザーは技術的にコンバージョンしたため、キャンバスレベルではコンバージョンが記録されます。
 
-### APIトリガーのCanvasをユーザーが受信したことを確認するにはどうすればよいですか？ {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+### APIトリガーのキャンバスをユーザーが受信したことを確認するにはどうすればよいですか？ {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
 
-Canvasフィルターを使用して[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)し、ユーザーがCanvasに入ったか、特定のキャンバスステップを受信したかを確認できます。例えば、ユーザーがAPIトリガーのCanvasに入ったことを確認したい場合はCanvasエントリフィルターを使用し、Canvasからメッセージを受信したことを確認したい場合は受信ステップフィルターを使用します。次に、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)を使用して、そのセグメント内のユーザーをエクスポートします。
+キャンバスフィルターを使用して[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)し、ユーザーがキャンバスに入ったか、特定のキャンバスステップを受信したかを確認できます。例えば、ユーザーがAPIトリガーのキャンバスに入ったことを確認したい場合はキャンバスエントリフィルターを使用し、キャンバスからメッセージを受信したことを確認したい場合は受信ステップフィルターを使用します。次に、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)を使用して、そのセグメント内のユーザーをエクスポートします。
 
-### Canvasを削除できますか？ {#can-i-delete-a-canvas}
+### キャンバスを削除できますか？ {#can-i-delete-a-canvas}
 
-いいえ。ただし、[Canvasをアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving)することはできます。
+いいえ。ただし、[キャンバスをアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving)することはできます。
 
-### 各Canvasコンポーネントの分析はどのように確認できますか？ {#how-can-i-view-analytics-for-each-of-my-canvas-components}
+### アーカイブされたキャンバスやキャンペーンを再開するにはどうすればよいですか？ {#how-do-i-resume-an-archived-canvas-or-campaign}
 
-Canvasコンポーネントの分析を確認するには、Canvasに移動し、**Canvas Details**ページを下にスクロールします。ここで、各コンポーネントの分析を確認できます。詳細については、[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)をご覧ください。
+アーカイブされたメッセージは、編集可能な状態に戻すまで送信されません。キャンペーンまたはキャンバスを[アーカイブ解除]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving)し、エントリスケジュールまたは送信時間を将来のウィンドウに設定し（クリーンなコピーが必要な場合はジャーニーを複製し）、必要に応じて**再開**または起動してください。詳細については、[キャンペーンとキャンバスのアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving)を参照してください。
 
-### ユニークユーザー数を確認する場合、Canvas分析とセグメンターのどちらがより正確ですか？ {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
+### エラーが表示されないのにキャンバスが保存されないのはなぜですか？ {#why-doesnt-my-canvas-save-when-no-error-appears}
 
-セグメンターは、CanvasやCampaignの統計と比較して、ユニークユーザーデータのより正確な統計です。これは、CanvasやCampaignの統計が、何かが発生した時にBrazeがインクリメントする数値であるためです。つまり、この数値がセグメンターの数値と異なる結果になる変数が存在する可能性があります。例えば、ユーザーはCanvasやCampaignに対して複数回コンバージョンできます。
+オーディエンスまたはステップレベルのフィルターで空の**カスタム属性**フィルターがあると、詳細なバリデーションメッセージなしで保存がブロックされる場合があります。各フィルターカードを開き、不完全なカスタム属性ルールを削除するか、属性名と値の両方を入力してから、再度**保存**を選択してください。
 
-### Canvasに入るユーザー数が予想数と一致しないのはなぜですか？ {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
+### キャンバスやキャンペーンからタグが消えたのはなぜですか？ {#why-did-a-tag-disappear-from-my-canvas-or-campaign}
 
-Canvasに入るユーザー数は、オーディエンスとトリガーの評価方法により、予想数と異なる場合があります。Brazeでは、オーディエンスはトリガーの前に評価されます（[属性の変更]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)トリガーを使用している場合を除く）。これにより、トリガーアクションが評価される前に、選択したオーディエンスに含まれていないユーザーがCanvasから脱落します。
+ワークスペースから[タグ]({{site.baseurl}}/user_guide/messaging/governance/tags)が削除されると、Brazeはそのタグを参照していたすべてのキャンペーンとキャンバスからタグを削除します。このクリーンアップは、キャンバスの変更ログに独自の行を生成するとは限りません。
 
-### 匿名ユーザーはCanvasジャーニー中にどうなりますか？ {#what-happens-to-anonymous-users-during-their-canvas-journey}
+### 各キャンバスコンポーネントの分析はどのように確認できますか？ {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
-匿名ユーザーはCanvasに入退出できますが、識別されるまでそのアクションは特定のユーザープロファイルに関連付けられないため、インタラクションが分析で完全に追跡されない場合があります。[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)を使用して、これらの指標のレポートを生成できます。
+キャンバスコンポーネントの分析を確認するには、キャンバスに移動し、**キャンバスの詳細**ページを下にスクロールします。ここで、各コンポーネントの分析を確認できます。詳細については、[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)をご覧ください。
+
+### キャンバスステップからのエンゲージメントはいつユーザープロファイルに表示されますか？ {#when-is-engagement-from-a-canvas-step-visible-on-a-user-profile}
+
+`Received Message from キャンバス Step`などのフィルターは、Brazeがそのステップに対応する送信、受信、またはエンゲージメントイベントを記録した後に更新されます。アプリ内メッセージは、送信スタイルの指標とは別にインプレッションを記録する場合があります。[インプレッションが記録されているのに、キャンバスの送信数がゼロと表示されるのはなぜですか？](#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged)を参照してください。これらの同じイベントは、**キャンバスの詳細**のステップ指標にも表示されます。
+
+### ユニークユーザー数を確認する場合、キャンバス分析とセグメンターのどちらがより正確ですか？ {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
+
+セグメンターは、キャンバスやキャンペーンの統計と比較して、ユニークユーザーデータのより正確な統計です。これは、キャンバスやキャンペーンの統計が、何かが発生した時にBrazeがインクリメントする数値であるためです。つまり、この数値がセグメンターの数値と異なる結果になる変数が存在する可能性があります。例えば、ユーザーはキャンバスやキャンペーンに対して複数回コンバージョンできます。
+
+### キャンバスに入るユーザー数が予想数と一致しないのはなぜですか？ {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
+
+キャンバスに入るユーザー数は、オーディエンスとトリガーの評価方法により、予想数と異なる場合があります。Brazeでは、オーディエンスはトリガーの前に評価されます（[属性の変更]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)トリガーを使用している場合を除く）。これにより、トリガーアクションが評価される前に、選択したオーディエンスに含まれていないユーザーがキャンバスから脱落します。
+
+### 匿名ユーザーはキャンバスジャーニー中にどうなりますか？ {#what-happens-to-anonymous-users-during-their-canvas-journey}
+
+匿名ユーザーはキャンバスに入退出できますが、識別されるまでそのアクションは特定のユーザープロファイルに関連付けられないため、インタラクションが分析で完全に追跡されない場合があります。[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)を使用して、これらの指標のレポートを生成できます。
 
 {% alert tip %}
-Canvasのトラブルシューティングについてさらにサポートが必要な場合は、問題発生から30日以内にBrazeサポートにお問い合わせください。直近30日間の診断ログのみ保持しています。
+キャンバスのトラブルシューティングについてさらにサポートが必要な場合は、問題発生から30日以内にBrazeサポートにお問い合わせください。直近30日間の診断ログのみ保持しています。
 {% endalert %}
 
-### 現在Canvasジャーニー中のユーザーをCampaignやセグメントから除外できますか？ {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+### 現在キャンバスジャーニー中のユーザーをキャンペーンやセグメントから除外できますか？ {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
 
-[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)（`Entered Canvas Variation`、`In Canvas Control Group`、`Received Message from Canvas Step`など）を使用して、Canvasエントリ、バリアント割り当て、またはステップエンゲージメントに基づいてユーザーをターゲットできます。これらのフィルターはエントリ履歴とインタラクションを評価するもので、ユーザーがアクティブなジャーニーをまだ進行中かどうかを示すものではありません。
+[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)（`Entered キャンバス Variation`、`In キャンバス Control Group`、`Received Message from キャンバス Step`など）を使用して、キャンバスエントリ、バリアント割り当て、またはステップエンゲージメントに基づいてユーザーをターゲットできます。これらのフィルターはエントリ履歴とインタラクションを評価するもので、ユーザーがアクティブなジャーニーをまだ進行中かどうかを示すものではありません。
 
-アクティブなCanvas参加に基づいてユーザーを含めたり除外したりするには、Canvasのエントリと退出に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを追加してカスタム属性を設定およびクリアし、CampaignsやSegmentsでそれらの属性をフィルターとして使用します。
+アクティブなキャンバス参加に基づいてユーザーを含めたり除外したりするには、キャンバスのエントリと退出に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを追加してカスタム属性を設定およびクリアし、キャンペーンやセグメントでそれらの属性をフィルターとして使用します。
 
 ## セグメンテーション {#segmentation}
 
-### 「Canvasバリエーションに入っていない」と「Canvasコントロールグループに含まれていない」の違いは何ですか？ {#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group}
+### 「キャンバスバリエーションに入っていない」と「キャンバスコントロールグループに含まれていない」の違いは何ですか？ {#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group}
 
 フィルターの完全な定義については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を参照してください。
 
-#### Canvasバリエーションに入っていない {#has-not-entered-canvas-variation}
+#### キャンバスバリエーションに入っていない {#has-not-entered-canvas-variation}
 
-ユーザーが特定のCanvasのバリエーションパスに一度も入っていないことを意味します。Canvasに入ったかどうかに関係なく、コントロールグループに含まれていないすべてのユーザーが含まれます。これには、別のバリエーションに入ったユーザーや、いずれのバリエーションにも入っていないユーザーが含まれます。
+ユーザーが特定のキャンバスのバリエーションパスに一度も入っていないことを意味します。キャンバスに入ったかどうかに関係なく、コントロールグループに含まれていないすべてのユーザーが含まれます。これには、別のバリエーションに入ったユーザーや、いずれのバリエーションにも入っていないユーザーが含まれます。
 
-#### Canvasコントロールグループに含まれていない {#is-not-in-canvas-control-group}
+#### キャンバスコントロールグループに含まれていない {#is-not-in-canvas-control-group}
 
-ユーザーがCanvasに入ったが、コントロールグループには含まれておらず、結果としてバリエーションを受信したことを意味します。これにはCanvasに入ったユーザーのみが含まれます。
+ユーザーがキャンバスに入ったが、コントロールグループには含まれておらず、結果としてバリエーションを受信したことを意味します。これにはキャンバスに入ったユーザーのみが含まれます。
 
-バリエーションの割り当てはCanvasエントリ時に行われることに注意してください。ユーザーがCanvasに入っていない場合、バリアントは割り当てられません。つまり、コントロールグループにもバリアントにも含まれません。
+バリアントの割り当てはキャンバスエントリ時に行われることに注意してください。ユーザーがキャンバスに入っていない場合、バリアントは割り当てられません。つまり、コントロールグループにもバリアントにも含まれません。
 
-## オリジナルCanvasエディター {#original-canvas-editor}
+## オリジナルキャンバスエディター {#original-canvas-editor}
 
-{% details オリジナルCanvasエディターのFAQを展開 %}
+{% details オリジナルキャンバスエディターのFAQを展開 %}
 
-### 既存のCanvasをオリジナルエディターから現在のエディターに変換するにはどうすればよいですか？ {#how-do-i-convert-an-existing-canvas-from-the-original-editor-to-the-current-editor}
+### 既存のキャンバスをオリジナルエディターから現在のエディターに変換するにはどうすればよいですか？ {#how-do-i-convert-an-existing-canvas-from-the-original-editor-to-the-current-editor}
 
-[Canvasを複製]({{site.baseurl}}/cloning_canvases)できます。これにより、最新のCanvasワークフローでオリジナルCanvasのコピーが作成されます。
+[キャンバスを複製]({{site.baseurl}}/cloning_canvases)できます。これにより、最新のキャンバスワークフローでオリジナルキャンバスのコピーが作成されます。
 
-### 現在のCanvasエディターとオリジナルCanvasエディターの主な違いは何ですか？ {#what-are-the-main-differences-between-the-current-and-original-canvas-editors}
+### 現在のキャンバスエディターとオリジナルキャンバスエディターの主な違いは何ですか？ {#what-are-the-main-differences-between-the-current-and-original-canvas-editors}
 
-#### Canvasコンポーネントツールバー {#canvas-component-toolbar}
+#### キャンバスコンポーネントツールバー {#canvas-component-toolbar}
 
-以前のオリジナルCanvasエディターでは、ユーザージャーニーにステップを作成するたびに、デフォルトでフルステップが追加されていました。これらのフルステップは異なるCanvasコンポーネントに置き換えられ、編集体験の可視性とカスタマイズ性が向上しました。CanvasステップツールバーからすべてのCanvasコンポーネントをすぐに確認できます。
+以前のオリジナルキャンバスエディターでは、ユーザージャーニーにステップを作成するたびに、デフォルトでフルステップが追加されていました。これらのフルステップは異なるキャンバスコンポーネントに置き換えられ、編集体験の可視性とカスタマイズ性が向上しました。キャンバスステップツールバーからすべてのキャンバスコンポーネントをすぐに確認できます。
 
 #### ステップの動作 {#step-behavior}
 
-以前は、各フルステップに遅延とスケジュール設定、例外イベント、オーディエンスフィルター、メッセージ設定、メッセージ進行オプションなどの情報がすべて1つのコンポーネントに含まれていました。現在のエディターではこれらは別々の設定になっており、Canvas構築体験がよりカスタマイズ可能になり、機能にいくつかの違いが生じています。
+以前は、各フルステップに遅延とスケジュール設定、例外イベント、オーディエンスフィルター、メッセージ設定、メッセージ進行オプションなどの情報がすべて1つのコンポーネントに含まれていました。現在のエディターではこれらは別々の設定になっており、キャンバス構築体験がよりカスタマイズ可能になり、機能にいくつかの違いが生じています。
 
 #### メッセージコンポーネントの進行 {#message-component-advancement}
 
@@ -250,7 +291,7 @@ Canvasのトラブルシューティングについてさらにサポートが�
 
 #### インテリジェントタイミングの動作 {#intelligent-timing-behavior}
 
-[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)はメッセージコンポーネントに保存されるため、遅延はインテリジェントタイミングの計算の前に適用されます。つまり、ユーザーがコンポーネントに入るタイミングによっては、オリジナルCanvasワークフローで構築されたCanvasよりもメッセージの受信が遅くなる場合があります。
+[インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)はメッセージコンポーネントに保存されるため、遅延はインテリジェントタイミングの計算の前に適用されます。つまり、ユーザーがコンポーネントに入るタイミングによっては、オリジナルキャンバスワークフローで構築されたキャンバスよりもメッセージの受信が遅くなる場合があります。
 
 例えば、遅延が2日に設定され、インテリジェントタイミングがオンになっており、メッセージを送信する最適な時間が午後2時と判断されたとします。ユーザーが午後2時1分に遅延ステップに入ります。
 - **現在のワークフロー：** 遅延が経過するまで48時間かかるため、ユーザーは3日目の午後2時にメッセージを受信します。
@@ -262,7 +303,7 @@ Canvasのトラブルシューティングについてさらにサポートが�
 
 ##### サイレント時間帯 {#quiet-hours}
 
-例外イベントはアクションパスを使用して適用され、メッセージステップとは別になっています。サイレント時間帯はメッセージコンポーネントで適用されます。つまり、ユーザーがすでにアクションパスを通過し（例外イベントで除外されなかった場合）、メッセージコンポーネントに到達した時にサイレント時間帯に遭遇し、サイレント時間帯の後にメッセージを再送信するようにCanvasが設定されている場合、例外イベントは適用されなくなります。このユースケースは一般的ではないことに注意してください。
+例外イベントはアクションパスを使用して適用され、メッセージステップとは別になっています。サイレント時間帯はメッセージコンポーネントで適用されます。つまり、ユーザーがすでにアクションパスを通過し（例外イベントで除外されなかった場合）、メッセージコンポーネントに到達した時にサイレント時間帯に遭遇し、サイレント時間帯の後にメッセージを再送信するようにキャンバスが設定されている場合、例外イベントは適用されなくなります。このユースケースは一般的ではないことに注意してください。
 
 セグメントとフィルターについては、メッセージステップに配信バリデーションがあり、送信時に検証される追加のセグメントとフィルターを設定できます。これにより、前述のサイレント時間帯のエッジケースを防ぐことができます。
 
@@ -274,7 +315,7 @@ Canvasのトラブルシューティングについてさらにサポートが�
 
 ### 「リクエストタイムアウト」エラーのサポートチケットを送信する際に何を含めるべきですか？ {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
-Canvasの編集中に「リクエストタイムアウト」エラーが発生し、[Brazeサポート]({{site.baseurl}}/braze_support)に連絡する必要がある場合は、解決を迅速化するために以下の情報を含めてください：
+キャンバスの編集中に「リクエストタイムアウト」エラーが発生し、[Brazeサポート]({{site.baseurl}}/braze_support)に連絡する必要がある場合は、解決を迅速化するために以下の情報を含めてください：
 
 - **画面録画：** エラーが表示される前に行った手順の録画（ページ遷移を含む）。
 - **タイムスタンプとタイムゾーン：** エラーが発生した正確な時刻とタイムゾーン。
@@ -282,39 +323,39 @@ Canvasの編集中に「リクエストタイムアウト」エラーが発生�
 - **再現手順：** エラーをトリガーするアクションの明確な説明（関連する特定のキャンバスステップや設定を含む）。
 - **ネットワークログ（オプション）：** ブラウザの開発者ツール（**Network**タブ）を開き、エラーを再現し、ネットワークログをHTTPアーカイブ（HAR）ログファイルとしてエクスポートします。これにより、サポートチームがどのAPIコールがタイムアウトしているかを特定できます。
 
-## Canvasの配信とトラブルシューティング {#canvas-delivery-and-troubleshooting}
+## キャンバスの配信とトラブルシューティング {#canvas-delivery-and-troubleshooting}
 
-### 孤立したユーザーはCanvasメッセージを受信する資格がありますか？ {#are-orphaned-users-eligible-to-receive-canvas-messages}
+### 孤立したユーザーはキャンバスメッセージを受信する資格がありますか？ {#are-orphaned-users-eligible-to-receive-canvas-messages}
 
-いいえ。[孤立したユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users)はメッセージを受信する資格がありません。ユーザーがCanvasジャーニー中にプロファイルが孤立した場合、フローからサイレントに退出します。分析では、その退出に対して**退出済み**イベントが常に表示されるとは限らず、ワークフローサマリーに`exited_date`や`exit_reason`のない`partial_update_token`が含まれる場合があります。
+いいえ。[孤立したユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users)はメッセージを受信する資格がありません。ユーザーがキャンバスジャーニー中にプロファイルが孤立した場合、フローからサイレントに退出します。分析では、その退出に対して**退出済み**イベントが常に表示されるとは限らず、ワークフローサマリーに`exited_date`や`exit_reason`のない`partial_update_token`が含まれる場合があります。
 
 マージと孤立プロファイルの詳細については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を参照してください。
 
-### アクティブなCanvasやCampaignを停止した場合、すでにESPに送信されたメッセージは配信されますか？ {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
+### アクティブなキャンバスやキャンペーンを停止した場合、すでにESPに送信されたメッセージは配信されますか？ {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
 
-はい。Brazeがメールサービスプロバイダー（ESP）にリクエストを送信した後、Brazeはその送信を取り消すことはできません。CanvasやCampaignを停止すると新しい送信リクエストは防止されますが、すでにESPに引き渡されたメッセージは配信される可能性があり、ESPが処理する際に送信カウントがインクリメントされる場合があります。
+はい。Brazeがメールサービスプロバイダー（ESP）にリクエストを送信した後、Brazeはその送信を取り消すことはできません。キャンバスやキャンペーンを停止すると新しい送信リクエストは防止されますが、すでにESPに引き渡されたメッセージは配信される可能性があり、ESPが処理する際に送信カウントがインクリメントされる場合があります。
 
-これは[Canvasを停止した場合](#what-happens-when-you-stop-a-canvas)に説明されている動作と同じです。送信中のメールはすぐには停止されません。
+これは[キャンバスを停止した場合](#what-happens-when-you-stop-a-canvas)に説明されている動作と同じです。送信中のメールはすぐには停止されません。
 
-### Canvas Webhookステップがユーザーに表示されるコンテンツなしで実行されたことを確認するにはどうすればよいですか？ {#how-can-i-confirm-a-canvas-webhook-step-fired-without-user-visible-content}
+### キャンバスのWebhookステップがユーザーに表示されるコンテンツなしで実行されたことを確認するにはどうすればよいですか？ {#how-can-i-confirm-a-canvas-webhook-step-fired-without-user-visible-content}
 
-Brazeは、CampaignsおよびCanvasの[Webhook]({{site.baseurl}}/user_guide/channels/webhooks)ステップに対してWebhookの**送信数**と関連する配信結果を追跡します。ステップ分析、[Webhookレポート]({{site.baseurl}}/user_guide/channels/webhooks/reporting)、または[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) Webhookイベントを使用して、ステップが実行されたことを確認できます。エンドポイントのリクエストログは、サーバー側の受信証明が必要な場合に追加の確認を提供します。
+Brazeは、キャンペーンおよびキャンバスの[Webhook]({{site.baseurl}}/user_guide/channels/webhooks)ステップに対してWebhookの**送信数**と関連する配信結果を追跡します。ステップ分析、[Webhookレポート]({{site.baseurl}}/user_guide/channels/webhooks/reporting)、または[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)のWebhookイベントを使用して、ステップが実行されたことを確認できます。エンドポイントのリクエストログは、サーバー側の受信証明が必要な場合に追加の確認を提供します。
 
-BrazeにはWebhookステップ用の組み込みの非表示トラッキングピクセルは含まれていません。Braze Webhook指標とエンドポイントのログに依存し、カスタムの1ピクセル画像リクエストではなくこれらを使用してください。
+BrazeにはWebhookステップ用の組み込みの非表示トラッキングピクセルは含まれていません。カスタムの1ピクセル画像リクエストではなく、BrazeのWebhook指標とエンドポイントのログを使用してください。
 
-### ユーザーがトリガーイベントを実行した回数よりもCanvasに入った回数が少ないのはなぜですか？ {#why-did-a-user-enter-a-canvas-fewer-times-than-they-performed-the-trigger-event}
+### ユーザーがトリガーイベントを実行した回数よりもキャンバスに入った回数が少ないのはなぜですか？ {#why-did-a-user-enter-a-canvas-fewer-times-than-they-performed-the-trigger-event}
 
-アクションベースおよびAPIトリガーのCanvasでは、Brazeはトリガーイベントの重複を排除するため、ユーザーは同じCanvasに対して**1秒あたり最大約1回**しか入ることができません。ユーザーが1秒以内に同じトリガーを複数回実行した場合、1回のエントリのみが処理されます。
+アクションベースおよびAPIトリガーのキャンバスでは、Brazeはトリガーイベントの重複を排除するため、ユーザーは同じキャンバスに対して**1秒あたり最大約1回**しか入ることができません。ユーザーが1秒以内に同じトリガーを複数回実行した場合、1回のエントリのみが処理されます。
 
-同じ秒内に複数のエントリを許可するには、トリガーイベントの間隔を少なくとも1.1秒空けてください（例：サーバーからイベントタイミングを制御する場合）。同じ秒内の複数のトリガーを許可するCampaignスタイルの動作については、適切なスケジュールと再適格性設定を持つ[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns)とユースケースを比較してください。
+同じ秒内に複数のエントリを許可するには、トリガーイベントの間隔を少なくとも1.1秒空けてください（例：サーバーからイベントタイミングを制御する場合）。同じ秒内の複数のトリガーを許可するキャンペーンスタイルの動作については、適切なスケジュールと再適格性設定を持つ[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns)とユースケースを比較してください。
 
 ### テストプッシュが間違ったアプリに送信されるのに、ライブ送信は正しく見えるのはなぜですか？ {#why-does-a-test-push-go-to-the-wrong-app-but-live-sends-look-correct}
 
 ユーザープロファイルの**テストプッシュ**は、そのプロファイルのプッシュ有効なすべてのデバイスに配信されます。1つのデバイスに複数のアプリがインストールされている場合、OSは通常、最初に利用可能なアプリにテスト通知を配信しますが、これは検証したいアプリではない場合があります。
 
-アプリ固有のターゲティングを確認するには、プロファイルの**テストプッシュ**だけに頼るのではなく、狭いオーディエンス（例：`external_id`でフィルター）を持つCampaignまたはCanvasを通じてライブまたはテストメッセージを送信してください。
+アプリ固有のターゲティングを確認するには、プロファイルの**テストプッシュ**だけに頼るのではなく、狭いオーディエンス（例：`external_id`でフィルター）を持つキャンペーンまたはキャンバスを通じてライブまたはテストメッセージを送信してください。
 
-複数のアプリを持つ**Canvas**メッセージステップの場合、メッセージステップで**メッセージ送信時にオーディエンスを検証**をオンにして、送信時にセグメントとフィルターのチェックが実行されるようにします。詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を参照してください。
+複数のアプリを持つ**キャンバス**メッセージステップの場合、メッセージステップで**メッセージ送信時にオーディエンスを検証**をオンにして、送信時にセグメントとフィルターのチェックが実行されるようにします。詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を参照してください。
 
 一般的なテストプッシュの動作については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)および[プッシュFAQ]({{site.baseurl}}/user_guide/channels/push/faqs)を参照してください。
 
@@ -322,6 +363,18 @@ BrazeにはWebhookステップ用の組み込みの非表示トラッキング�
 
 セットアップとクリエイティブ要件については、[Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories)から始めてください。実装とリッチプッシュ通知の処理については、開発者ガイドの[リッチプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/rich)および[Push Stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories)を参照してください。
 
-### 「Canvasメッセージが24時間以上遅延」メールを受信するのは誰ですか？ {#who-receives-the-canvas-messages-delayed-24-hours-email}
+### 「キャンバスメッセージが24時間以上遅延」メールを受信するのは誰ですか？ {#who-receives-the-canvas-messages-delayed-24-hours-email}
 
-Brazeは、Canvasメッセージがレート制限により24時間以上遅延した場合にこの通知を送信します。メールは、影響を受けたCanvasに以前変更を加えたダッシュボードユーザー（Canvas変更ログに基づく）に送信されます。Brazeがそれらの受信者を特定できない場合、メールはワークスペースの**会社管理者**に送信されます。
+Brazeは、キャンバスメッセージがレート制限により24時間以上遅延した場合にこの通知を送信します。メールは、影響を受けたキャンバスに以前変更を加えたダッシュボードユーザー（キャンバス変更ログに基づく）に送信されます。Brazeがそれらの受信者を特定できない場合、メールはワークスペースの**会社管理者**に送信されます。
+
+### 例外イベント後、ユーザーはいつメッセージの受信を停止しますか？ {#when-does-a-user-stop-receiving-messages-after-an-exception-event}
+
+Brazeは例外イベントが発生するとすぐに退出を記録しますが、タイマーが終了するまでユーザーがステップ内に留まる場合があります。これは遅延ステップで最も顕著です。動作はスケジュールされたステップとイベントトリガーのステップでも異なります。タイムライン、例、分析の注意点については、[退出条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)を参照してください。
+
+### アクションパスステップでリンクエイリアスインタラクションを選択するとエラーが表示されるのはなぜですか？ {#why-does-my-action-paths-step-show-an-error-when-i-select-a-link-alias-interaction}
+
+メールインタラクティビティトリガー（例：**メール内のエイリアスをクリック**や**任意のキャンペーンまたはキャンバスステップでエイリアスをクリック**）を使用するアクショングループには、そのリンクを含むメッセージをすでに送信したメッセージステップが必要です。メールがアクションパスステップの評価前に送信されるようにステップを追加または並べ替えるか、ユーザーがこのキャンバスですでに受信したメッセージに一致するインタラクションを選択してください。インタラクショントリガーの完全なリストについては、[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)を参照してください。
+
+### 過去のカスタムイベントのタイムスタンプはアクションベースのキャンバスやキャンペーンにどのように影響しますか？ {#how-do-historical-custom-event-timestamps-affect-action-based-canvases-and-campaigns}
+
+Brazeは、適格なイベントが取り込まれ、ユーザーがオーディエンスルールを満たした時にアクションベースのジャーニーを評価します。イベントがキャンバスやキャンペーンがアクティブだったウィンドウの外でプロファイルに到着した場合、またはユーザーがオーディエンスに一致する前にイベントが到着した場合、エントリや下流の送信が期待通りに行われない場合があります。イベントのタイムスタンプを公開時間やセグメントメンバーシップと比較するには、ユーザープロファイルのアクティビティログと[カスタムイベントのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#troubleshooting-custom-events)のトラブルシューティング手順を使用してください。動作が期待と一致しない場合は、[Brazeサポート]({{site.baseurl}}/braze_support)にお問い合わせください。

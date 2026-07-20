@@ -8,7 +8,7 @@ description: "Descubre todo lo que necesitas saber sobre las herramientas de rec
 
 # Recomendaciones de elementos {#item-recommendations}
 
-> Mejora tus recomendaciones con Braze creando una herramienta de recomendaciones que pueda sugerir a tus usuarios los elementos y contenidos que realmente desean. Desde personalizar experiencias con IA hasta construir tus propias herramientas con Liquid o Contenido conectado, encontrarás todo lo que necesitas para que cada recomendación cuente.
+> Mejora tus recomendaciones con Braze creando una herramienta de recomendaciones que pueda sugerir a tus usuarios los elementos y contenidos que realmente desean. Desde personalizar experiencias con IA hasta construir tus propias herramientas con Liquid o contenido conectado, encontrarás todo lo que necesitas para que cada recomendación cuente.
 
 ## Requisitos previos {#prerequisites}
 
@@ -18,11 +18,11 @@ Antes de poder crear o utilizar recomendaciones de elementos en Braze, deberás 
 
 ### Personalización de IA {#ai}
 
-Como parte de la característica de [Recomendaciones de elementos de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai), las recomendaciones personalizadas de IA aprovechan el aprendizaje profundo para predecir lo que más les puede interesar a tus usuarios en función de lo que les ha interesado en el pasado. Este método proporciona un sistema de recomendación dinámico y a medida que se adapta al comportamiento del usuario.
+Como parte de la característica de [recomendaciones de elementos de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai), las recomendaciones personalizadas de IA aprovechan el aprendizaje profundo para predecir lo que más les puede interesar a tus usuarios en función de lo que les ha interesado en el pasado. Este método proporciona un sistema de recomendación dinámico y a medida que se adapta al comportamiento del usuario.
 
 Las recomendaciones personalizadas de IA utilizan los datos de los últimos 6 meses de interacción con los elementos, como compras o eventos personalizados, para construir el modelo de recomendación. Para los usuarios que no disponen de datos suficientes para crear una lista personalizada, los elementos más populares sirven como alternativa, de modo que los usuarios siguen recibiendo sugerencias relevantes.
 
-Con las Recomendaciones de elementos de IA, también puedes filtrar aún más los elementos disponibles con
+Con las recomendaciones de elementos de IA, también puedes filtrar aún más los elementos disponibles con
 [selecciones]({{site.baseurl}}/user_guide/data/activation/catalogs/selections). Sin embargo, las selecciones con Liquid no pueden utilizarse en las recomendaciones de IA, así que tenlo en cuenta cuando construyas las selecciones de tu catálogo.
 
 {% alert tip %}
@@ -38,7 +38,7 @@ Según los datos de interacción que se estén rastreando, los casos de uso de e
 Predecir y recomendar los elementos que un usuario tiene más probabilidades de comprar a continuación, basándose en eventos de compra o eventos personalizados relacionados con las compras. Por ejemplo:
 
 - Un sitio de viajes podría sugerir paquetes de vacaciones, vuelos o estancias en hoteles basándose en el historial de navegación y las reservas anteriores de un usuario, anticipándose a su próximo destino de viaje y facilitándole la planificación del mismo.
-- Una plataforma de streaming puede analizar los hábitos de visionado para recomendar programas o películas que un usuario tiene más probabilidades de ver a continuación, manteniéndolo interactuando y reduciendo las tasas de abandono.
+- Una plataforma de streaming puede analizar los hábitos de visionado para recomendar programas o películas que un usuario tiene más probabilidades de ver a continuación, manteniéndolo interactuando y reduciendo las tasas de cancelaciones.
 
 {% details Requisitos %}
 - Recomendaciones de elementos de IA
@@ -152,7 +152,7 @@ Por ejemplo, un comercio minorista de moda podría promocionar ropa y accesorios
 
 ### Elemento más reciente {#most-recent}
 
-El modelo de recomendación "Most recent" muestra los elementos con los que los usuarios han interactuado más recientemente. Utiliza este modelo para reducir el abandono animando a los usuarios inactivos a volver a interactuar con contenidos relevantes.
+El modelo de recomendación "Most recent" muestra los elementos con los que los usuarios han interactuado más recientemente. Utiliza este modelo para reducir las cancelaciones animando a los usuarios inactivos a volver a interactuar con contenidos relevantes.
 
 #### Casos de uso
 
@@ -160,7 +160,7 @@ Según los datos de interacción que se estén rastreando, los casos de uso de e
 
 {% tabs local %}
 {% tab Clics recientes %}
-Anima a los usuarios a volver a visitar los elementos en los que han hecho clic recientemente, basándote en un evento personalizado para los clics. Por ejemplo, un minorista de moda online podría crear una recomendación para enviar correos electrónicos de seguimiento o notificaciones push con prendas por las que un usuario ha mostrado interés al hacer clic en ellas, animándole a volver a visitar el elemento y realizar una compra.
+Anima a los usuarios a volver a visitar los elementos en los que han hecho clic recientemente, basándote en un evento personalizado para los clics. Por ejemplo, un comercio minorista de moda online podría crear una recomendación para enviar correos electrónicos de seguimiento o notificaciones push con prendas por las que un usuario ha mostrado interés al hacer clic en ellas, animándole a volver a visitar el elemento y realizar una compra.
 
 {% details Requisitos %}
 - Recomendaciones de elementos de IA
@@ -265,7 +265,7 @@ Destaca los elementos que tus usuarios han comprado recientemente con mayor frec
 {% enddetails %}
 
 {% details Configuración %}
-1. Crea una [recomendación de elementos de IA]({{site.baseurl}}/ai_item_recommendations).
+1. Crea una [recomendación de elementos de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Establece el **Tipo** en **Trending**.
 3. Selecciona tu catálogo.
 4. (Opcional) Añade una selección para filtrar tu recomendación solo a los elementos relevantes.
@@ -285,7 +285,7 @@ Destaca los elementos que han gustado recientemente a tus usuarios con mayor fre
 {% enddetails %}
 
 {% details Configuración %}
-1. Crea una [recomendación de elementos de IA]({{site.baseurl}}/ai_item_recommendations).
+1. Crea una [recomendación de elementos de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Establece el **Tipo** en **Trending**.
 3. Selecciona tu catálogo.
 4. (Opcional) Añade una selección para filtrar tu recomendación solo a los elementos relevantes.
@@ -303,7 +303,7 @@ Destaca los elementos que han gustado recientemente a tus usuarios con mayor fre
 Los tres tipos anteriores implican la configuración y el entrenamiento de un modelo de recomendación en Braze. Aunque también puedes utilizar selecciones en esos modelos, también puedes llevar a cabo algunos casos de uso de recomendaciones solo con selecciones de catálogo y personalización de Liquid.
 
 {% alert note %}
-Si utilizas selecciones, el campo de clasificación y cualquier límite no se utilizarán con las Recomendaciones de elementos de IA. Esto significa que si creas una selección con un campo de clasificación específico y limitas el número de elementos devueltos, esas restricciones no se utilizarán cuando se procesen las Recomendaciones de elementos de IA.
+Si utilizas selecciones, el campo de clasificación y cualquier límite no se utilizarán con las recomendaciones de elementos de IA. Esto significa que si creas una selección con un campo de clasificación específico y limitas el número de elementos devueltos, esas restricciones no se utilizarán cuando se procesen las recomendaciones de elementos de IA.
 {% endalert %}
 
 #### Casos de uso
@@ -351,7 +351,7 @@ Por ejemplo, una librería online podría ofrecer la característica "Sorprénde
 
 ### Basado en reglas {#rules-based}
 
-Una herramienta de [recomendaciones basada en reglas]({{site.baseurl}}/rules_based_recommendations) utiliza datos de usuario e información sobre productos para sugerir a los usuarios elementos relevantes dentro de los mensajes. Utiliza Liquid y los catálogos de Braze o Contenido conectado para personalizar dinámicamente el contenido en función del comportamiento y los atributos del usuario.
+Una herramienta de [recomendaciones basada en reglas]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based) utiliza datos de usuario e información sobre productos para sugerir a los usuarios elementos relevantes dentro de los mensajes. Utiliza Liquid y los catálogos de Braze o contenido conectado para personalizar dinámicamente el contenido en función del comportamiento y los atributos del usuario.
 
 Las recomendaciones basadas en reglas se basan en una lógica fija que debes establecer manualmente. Esto significa que tus recomendaciones no se ajustarán al historial de compras y los gustos individuales de los usuarios a menos que actualices la lógica; por lo tanto, este método es el más adecuado para recomendaciones que no necesitan actualizaciones frecuentes.
 
@@ -390,4 +390,30 @@ Sí, pero solo después de la próxima actualización programada. Las recomendac
 
 ### ¿Cómo puedo hacer que todas las recomendaciones que duran varios días caduquen a la vez? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
-Si deseas que todas las recomendaciones de varios días caduquen en una fecha específica (para que todas las recomendaciones activas reciban nuevas predicciones a la vez), ponte en contacto con el soporte de Braze o con tu administrador del éxito del cliente para obtener ayuda. Los expertos de BrazeAI realizan esta tarea manualmente para garantizar el máximo rendimiento del modelo.
+Si deseas que todas las recomendaciones de varios días caduquen en una fecha específica (para que todas las recomendaciones activas reciban nuevas predicciones a la vez), ponte en contacto con el soporte de Braze o con tu administrador de éxito de cliente para obtener ayuda. Los expertos de BrazeAI realizan esta tarea manualmente para garantizar el máximo rendimiento del modelo.
+
+### ¿Qué ocurre si actualizo el nombre de la propiedad de una recomendación de elementos de IA activa? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+
+Cuando actualizas el nombre de la propiedad (ruta del ID del elemento) y seleccionas **Guardar y construir**, Braze inicia un trabajo de reentrenamiento en segundo plano que analiza los últimos seis meses de datos de interacción utilizando el nuevo mapeado.
+
+Mientras el modelo se reentrena, los usuarios siguen viendo las recomendaciones de la versión anterior. Las recomendaciones no cambian hasta que el nuevo modelo finaliza el entrenamiento con éxito. Esto significa:
+
+- Los usuarios ven elementos personalizados del modelo anterior (o la alternativa global si no tienen recomendaciones específicas).
+- No hay tiempo de inactividad ni vacíos en las recomendaciones durante el proceso de reentrenamiento.
+- La transición del modelo anterior al nuevo es fluida una vez que el entrenamiento se completa con éxito.
+
+Los eventos con la ruta de ID de elemento anterior se ignoran para el nuevo modelo. Solo se incluyen en el reentrenamiento los eventos que utilizan el nuevo mapeado de nombre de propiedad.
+
+### ¿Qué ocurre si el trabajo de reentrenamiento falla después de cambiar el nombre de la propiedad? {#what-happens-if-the-retraining-job-fails-after-changing-the-property-name}
+
+{% alert important %}
+Si el trabajo de reentrenamiento falla, toda la recomendación de elementos entra en un estado deshabilitado (no activo). Dado que Braze actualmente no recurre al último modelo entrenado con éxito en caso de fallo del entrenamiento, cualquier Liquid que haga referencia a esta recomendación fallará y los mensajes asociados no se enviarán.
+{% endalert %}
+
+Para reducir este riesgo, considera el siguiente enfoque:
+
+1. Crea una nueva recomendación de elementos con la configuración de nombre de propiedad deseada.
+2. Verifica que el entrenamiento se complete con éxito.
+3. Actualiza tu mensajería para hacer referencia a la nueva recomendación en lugar de modificar directamente una recomendación activa.
+
+Este enfoque te permite probar la nueva configuración sin arriesgar la interrupción de los mensajes que hacen referencia a tu recomendación existente.

@@ -36,6 +36,10 @@ Para realizar o aquecimento de IP automatizado, você deve ter o seguinte:
 - "Approve and Deny Campaigns" se o fluxo de aprovação para Campaigns estiver ativado
     - A Braze aprova automaticamente as campanhas criadas a partir do aquecimento de IP automatizado em seu nome.
 
+{% alert important %}
+Esse recurso pode não ser compatível dependendo da sua infraestrutura de e-mail.
+{% endalert %}
+
 ## Configurar um plano de aquecimento de IP automatizado {#set-up-an-automated-ip-warming-plan}
 
 ### Etapa 1: Definir uma programação {#step-1-set-a-schedule}
@@ -97,7 +101,7 @@ O sistema monitora a integridade com base nos seguintes benchmarks do setor:
 - Taxa de entrega cai para 90% ou menos
 - Taxa de abertura menor que 10%
 - Bounces maiores que 5%
-- Taxas de relatório de spam maiores que 0,04%
+- Taxas de relatório de SPAM maiores que 0,04%
 
 Se as estatísticas estiverem abaixo dos nossos benchmarks, o sistema mantém o volume no dia seguinte em vez de aumentá-lo, para mitigar riscos à reputação do remetente.
 
@@ -120,7 +124,7 @@ O rastreador permanece na página inicial por 90 dias após o término do plano.
 - _Enviados_
 - _Entregues_
 - _Bounces_
-- _Relatórios de spam_
+- _Relatórios de SPAM_
 - _Total de aberturas_
 - _Aberturas únicas_
 - _Cliques_

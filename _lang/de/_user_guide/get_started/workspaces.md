@@ -77,15 +77,15 @@ Sie müssen für jede Version Ihrer App auf jeder Plattform separate App-Instanz
 
 #### Teams {#teams}
 
-[Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) können nach Kundenstandort, Sprache und angepassten Attributen eingerichtet werden, sodass Teammitglieder und Nicht-Teammitglieder unterschiedlichen Zugriff auf Messaging-Funktionen und Kundendaten haben.
+[Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) können nach Kundenstandort, Sprache und angepassten Attributen eingerichtet werden, sodass Teammitglieder und Nicht-Teammitglieder unterschiedlichen Zugriff auf Messaging-Funktionen und Kundendaten haben.
 
 #### Unternehmensnutzer:innen-Berechtigungen {#company-user-permissions}
 
-Workspaces haben unabhängige Zugriffs- und Berechtigungsdefinitionen. Mit [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) können Sie granular festlegen, worauf eine einzelne Dashboard-Nutzerin bzw. ein einzelner Dashboard-Nutzer oder ein Team innerhalb eines einzelnen Workspace Zugriff hat.
+Workspaces haben unabhängige Zugriffs- und Berechtigungsdefinitionen. Mit [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) können Sie granular festlegen, worauf eine einzelne Dashboard-Nutzerin bzw. ein einzelner Dashboard-Nutzer oder ein Team innerhalb eines einzelnen Workspace Zugriff hat.
 
 #### Currents-Konnektoren {#currents-connectors}
 
-Das [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Tool ist ein Realtime-Daten-Stream Ihrer Engagement-Ereignisse und der robusteste und zugleich granularste Export der Braze-Plattform. Currents-Konnektoren sind in bestimmten Braze-Paketen enthalten, und möglicherweise haben Sie zunächst einen erhalten, der einen einzigen Workspace voraussetzt.
+Das [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Tool ist ein Realtime-Daten-Stream Ihrer Engagement-Ereignisse und der robusteste und zugleich granularste Export der Braze-Plattform. Currents-Konnektoren sind in bestimmten Braze-Paketen enthalten, und möglicherweise haben Sie zunächst einen erhalten, der einen einzigen Workspace voraussetzt.
 
 Wenn Sie sich entscheiden, ob Sie getrennte oder kombinierte Workspaces erstellen möchten, sollten Sie die Anzahl Ihrer Currents-Konnektoren berücksichtigen, da Currents-Konnektoren nicht über Workspaces hinweg gemeinsam genutzt werden.
 
@@ -93,7 +93,7 @@ Wenn Sie beispielsweise getrennte Workspaces für die Entwicklungs- und die Prod
 
 #### Nutzerprofile {#user-profiles}
 
-Alle persistenten Daten, die mit einer Nutzerin oder einem Nutzer verknüpft sind, werden in ihrem [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) gespeichert. Nutzerprofile sind jedoch auch eine hervorragende Ressource für die Fehlerbehebung und das Testen, da Sie einfach auf Informationen zur Engagement-Historie, Segmentzugehörigkeit, zum Gerät und zum Betriebssystem zugreifen können.
+Alle persistenten Daten, die mit einer Nutzerin oder einem Nutzer verknüpft sind, werden in ihrem [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) gespeichert. Nutzerprofile sind jedoch auch eine hervorragende Ressource für die Fehlerbehebung und das Testen, da Sie einfach auf Informationen zur Engagement-Historie, Segmentzugehörigkeit, zum Gerät und zum Betriebssystem zugreifen können.
 
 #### Segmente, Campaigns und Canvases {#segments-campaigns-and-canvases}
 
@@ -209,7 +209,7 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
         <th scope="row">Duplizieren von Inhalten</th>
         <td>N/A</td>
         <td>Einige Inhalte, wie Segmente und Content-Card-Kampagnen, können nicht über Workspaces hinweg kopiert werden.</td>
-        <td>Sie können <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>Campaigns, Canvases und Landing-Pages über Workspaces hinweg kopieren</a>. Unterstützte Inhalte umfassen Campaigns und Canvases für berechtigte Kanäle sowie Landing-Pages, E-Mail-Templates, Feature-Flags und Content Blocks.<br><br>Sie können Segmente, Campaigns, Canvases und Landing-Pages duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
+        <td>Sie können <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>Campaigns, Canvases und Landing-Pages über Workspaces hinweg kopieren</a>. Unterstützte Inhalte umfassen Campaigns und Canvases für berechtigte Kanäle sowie Landing-Pages, E-Mail-Templates, Feature-Flags und Content Blocks.<br><br>Sie können Segmente, Campaigns, Canvases und Landing-Pages duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
         <td>N/A</td>
     </tr>
     <tr>
@@ -221,6 +221,10 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
     </tr>
     </tbody>
 </table>
+
+{% alert note %}
+Informationen dazu, wie sich MAU bei der Anzeige aller Apps im Vergleich zu einer einzelnen App unterscheidet, finden Sie unter [Monatlich aktive Nutzer:innen]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+{% endalert %}
 
 ## Best Practices {#best-practices}
 
@@ -245,4 +249,4 @@ Sie sollten mehr als eine Braze-Nutzerin oder einen Braze-Nutzer mit Admin-Berec
 
 ## Nächste Schritte {#next-steps}
 
-Nachdem Sie Ihren Workspace-Plan festgelegt haben, ist es an der Zeit, Ihren Workspace zu erstellen und App-Instanzen hinzuzufügen. Die entsprechenden Schritte finden Sie unter [Workspaces erstellen und verwalten]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/).
+Nachdem Sie Ihren Workspace-Plan festgelegt haben, ist es an der Zeit, Ihren Workspace zu erstellen und App-Instanzen hinzuzufügen. Die entsprechenden Schritte finden Sie unter [Workspaces erstellen und verwalten]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).

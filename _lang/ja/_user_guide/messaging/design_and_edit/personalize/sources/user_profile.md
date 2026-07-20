@@ -44,7 +44,7 @@ Hi {{${first_name} | default: 'there'}}, check out our latest picks for you!
 ## イベントプロパティ {#event-properties}
 
 {% raw %}
-CampaignまたはCanvasがカスタムイベントや購入によってトリガーされると、そのイベントのプロパティをパーソナライゼーションに使用できます。`{{event_properties.${property_name}}}`を使用して参照します。
+キャンペーンまたはキャンバスがカスタムイベントや購入によってトリガーされると、そのイベントのプロパティをパーソナライゼーションに使用できます。`{{event_properties.${property_name}}}`を使用して参照します。
 
 たとえば、カスタムイベント`completed_purchase`に`product_name`プロパティが含まれている場合は次のようにします。
 
@@ -53,12 +53,12 @@ Thanks for purchasing {{event_properties.${product_name}}}! Your order is on its
 ```
 {% endraw %}
 
-イベントプロパティは、アクションベースのCampaignおよびアクションベースのCanvasの最初のステップで使用できます。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を参照してください。
+イベントプロパティは、アクションベースのキャンペーンおよびアクションベースのキャンバスの最初のステップで使用できます。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を参照してください。
 
 ## APIトリガープロパティ {#api-trigger-properties}
 
 {% raw %}
-APIを通じてトリガーされるCampaignやCanvasesでは、トリガープロパティオブジェクトを使用して追加データを渡すことができます。これらの値は`{{api_trigger_properties.${property_name}}}`で参照します。
+APIを通じてトリガーされるキャンペーンやキャンバスでは、トリガープロパティオブジェクトを使用して追加データを渡すことができます。これらの値は`{{api_trigger_properties.${property_name}}}`で参照します。
 
 たとえば、次のようにします。
 

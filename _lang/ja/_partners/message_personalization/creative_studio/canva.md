@@ -24,7 +24,7 @@ BrazeとCanvaの連携は、2つのエクスポートパスをサポートして
 
 ## BrazeとCanvaを連携する {#integrate-braze-with-canva}
 
-### ステップ 1:CanvaにBrazeアプリをインストールする {#step-1-install-the-braze-app-in-canva}
+### ステップ1：CanvaにBrazeアプリをインストールする {#step-1-install-the-braze-app-in-canva}
 
 Brazeアプリは[Canva Apps Marketplace](https://www.canva.com/your-apps/AAG1cO7kIyc)で見つけることができます。
 
@@ -32,7 +32,7 @@ Brazeアプリは[Canva Apps Marketplace](https://www.canva.com/your-apps/AAG1cO
 
 ![CanvaのAppsメニューに表示されたBrazeアプリ。]({% image_buster /assets/img/canva_integration/braze-canva-app.png %}){: style="max-width:50%;"}
 
-### ステップ 2:Brazeアカウントを認証する {#step-2-authorize-your-braze-account}
+### ステップ2：Brazeアカウントを認証する {#step-2-authorize-your-braze-account}
 
 Brazeアプリを初めて使用する際、**Apps**メニュー（メディアライブラリエクスポート）または**Share**メニュー（メールエクスポート）のどちらから開いた場合でも、**Connect**を選択して認証を開始します。これにより、Canvaがアクセス可能なBrazeワークスペースを一覧表示し、代わりにメディアライブラリアセットを作成できるようになります。
 
@@ -68,7 +68,7 @@ Brazeメディアライブラリにファイルを保存したい場合、標準
 Canvaファイルが**メール**デザインタイプの場合、このフローを使用します。HTMLをテンプレートとしてBrazeに公開します（画像フローと同様のメタデータですが、**Apps**ではなく**Share**から開始します）。
 
 1. Canvaで**メール**デザインを作成するか開きます。ゼロからメッセージを作成するか、Canvaのメールテンプレートを使用します。
-2. エディターの右上にある**Share**をクリックし、**Braze**を選択します。Brazeが表示されていない場合は、**See more**を開き、**More options**までスクロールしてBrazeを見つけます。
+2. エディターのアクションバーで**Share**をクリックし、**Braze**を選択します。Brazeが表示されていない場合は、**See more**を開き、**More options**までスクロールしてBrazeを見つけます。
 
 ![CanvaのMore optionsにBrazeが表示された公開オプション。]({% image_buster /assets/img/canva_integration/canva-share-more-options-braze.png %})
 
@@ -88,6 +88,6 @@ Canvaファイルが**メール**デザインタイプの場合、このフロ�
 ![CanvaのメールデザインをBrazeに公開した後の成功メッセージとCheck it outボタン。]({% image_buster /assets/img/canva_integration/canva-email-publish-success.png %})
 
 {: start="6"}
-6. Brazeで、CampaignまたはCanvasでテンプレートを使用する前に、**From**アドレス、プリヘッダー、配信停止リンクなどの必要なメール設定を完了します。
+6. Brazeで、キャンペーンまたはキャンバスでテンプレートを使用する前に、**差出人**アドレス、プリヘッダー、購読解除リンクなどの必要なメール設定を完了します。
 
 ![Canvaから開いたBrazeのメールテンプレート。送信情報とプレビューが表示されています。]({% image_buster /assets/img/canva_integration/braze-email-template-from-canva.png %})

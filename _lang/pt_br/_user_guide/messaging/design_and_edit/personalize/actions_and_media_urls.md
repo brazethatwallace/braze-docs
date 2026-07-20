@@ -42,14 +42,14 @@ Para apps criados com frameworks wrapper (por exemplo, Flutter ou Cordova), a Br
 - `utm_source`: O identificador da origem do tráfego (por exemplo, `my_app`)
 - `utm_medium`: O meio da campanha (por exemplo, `newsfeed`)
 - `utm_campaign`: O identificador da campanha (por exemplo, `spring_2016_campaign`)
-- `utm_term`: Identificador de um termo de pesquisa paga que trouxe o usuário ao seu app ou site (por exemplo, `pizza`)
+- `utm_term`: Identificador de um termo de pesquisa paga que trouxe o usuário ao seu app ou website (por exemplo, `pizza`)
 - `utm_content`: Um identificador para o link ou conteúdo específico em que o usuário clicou (por exemplo, `toplink` ou `android_iam_button2`)
 
 As tags UTM podem ser incorporadas tanto em links HTTP regulares (web) quanto em deep links e rastreadas usando o Google Analytics.
 
 ##### Cálculos de tags UTM {#utm-tag-calculations}
 
-A Braze reporta o _Total de Cliques_ para todos os links em uma Campaign ou etapa do Canvas, o que pode incluir links que não possuem tags UTM. Isso significa que você pode ver um resultado diferente (geralmente menor) nos links de rastreamento de campanha do Google Analytics em comparação com o _Total de Cliques_ exibido no desempenho da sua campanha ou no Criador de relatórios.
+A Braze reporta o _Total de cliques_ para todos os links em uma Campaign ou etapa do Canvas, o que pode incluir links que não possuem tags UTM. Isso significa que você pode ver um resultado diferente (geralmente menor) nos links de rastreamento de campanha do Google Analytics em comparação com o _Total de cliques_ exibido no desempenho da sua campanha ou no Criador de relatórios.
 
 #### Usando tags UTM com a Braze {#using-utm-tags-with-braze}
 
@@ -100,7 +100,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-Também oferecemos suporte ao encurtamento de variáveis Liquid personalizadas. Vários exemplos são mostrados abaixo:
+Também oferecemos suporte ao encurtamento de variáveis Liquid personalizadas, como nos exemplos a seguir:
 
 ### Crie uma URL usando variáveis Liquid {#create-a-url-using-liquid-variables}
 
@@ -123,5 +123,5 @@ O encurtamento de links também está ativado para mensagens somente via API por
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `link_shortening_enabled` | Sim | booleano | Defina `link_shortening_enabled` como `true` para ativar o encurtamento de links. Para usar o rastreamento, um `campaign_id` e um `message_variation_id` devem estar presentes. |
+| `link_shortening_enabled` | Sim | Booleano | Defina `link_shortening_enabled` como `true` para ativar o encurtamento de links. Para usar o rastreamento, um `campaign_id` e um `message_variation_id` devem estar presentes. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Encurtar URLs no endpoint /messages/send" }

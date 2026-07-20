@@ -30,6 +30,10 @@ Non, la bibliothèque multimédia ne prend pas en charge les fichiers vidéo. No
 
 Non, la bibliothèque multimédia ne prend pas en charge le recadrage des images GIF.
 
+### Puis-je utiliser des images SVG dans les e-mails ? {#can-i-use-svg-images-in-email}
+
+Les images SVG ne sont pas recommandées pour les e-mails en raison d'une prise en charge limitée par les clients de messagerie. Gmail et plusieurs autres fournisseurs de messagerie majeurs n'affichent pas les images SVG, ce qui peut entraîner des images cassées ou manquantes pour les destinataires. Pour un rendu fiable des e-mails, utilisez plutôt les formats PNG, JPEG ou GIF.
+
 ### Comment recadrer une image existante ? {#how-do-i-crop-an-existing-image}
 
 Vous pouvez recadrer une image existante en la sélectionnant dans la bibliothèque multimédia, puis en cliquant sur **Crop & Save New Image**.

@@ -16,7 +16,7 @@ guide_featured_list:
   - name: Transformación de datos
     link: /docs/user_guide/data/unification/data_transformation
     image: /assets/img/braze_icons/database-01.svg
-  - name: Crea una fórmula
+  - name: Crear una fórmula
     link: /docs/user_guide/data/unification/creating_a_formula
     image: /assets/img/braze_icons/beaker-02.svg
   - name: Datos de usuario
@@ -26,13 +26,13 @@ guide_featured_list:
 guide_menu_title2: "Artículos relacionados"
 guide_menu_list2:
   - name: REST API de Braze
-    link: /docs/api/home/
+    link: /docs/api/home
     image: /assets/img/braze_icons/code-02.svg
   - name: Shopify
-    link: /docs/partners/ecommerce/shopify/
+    link: /docs/partners/ecommerce/shopify
     image: /assets/img/braze_icons/shopify.svg
   - name: Integrar el SDK
-    link: /docs/developer_guide/sdk_integration/
+    link: /docs/developer_guide/sdk_integration
     image: /assets/img/braze_icons/code-square-01.svg
 ---
 <br><br>

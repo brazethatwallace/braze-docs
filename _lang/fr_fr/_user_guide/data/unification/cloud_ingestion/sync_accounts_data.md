@@ -25,7 +25,7 @@ Effectuez les mises à jour de votre schéma de compte uniquement lorsque la syn
 
 ## Fonctionnement de la synchronisation {#how-syncing-works}
 
-- Chaque synchronisation importe les lignes dont la valeur `UPDATED_AT` est postérieure à l'horodatage de la dernière synchronisation. Les lignes situées exactement à l'horodatage limite peuvent être resynchronisées si de nouvelles lignes partagent ce même horodatage. Pour en savoir plus, consultez [Éviter la resynchronisation de lignes avec des horodatages en double]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+- Chaque synchronisation importe les lignes dont la valeur `UPDATED_AT` est postérieure à l'horodatage de la dernière synchronisation. Les lignes situées exactement à l'horodatage limite peuvent être resynchronisées si de nouvelles lignes partagent ce même horodatage. Pour en savoir plus, consultez [Éviter la resynchronisation de lignes avec des horodatages en double]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 - Les données issues de l'intégration créent ou mettent à jour des comptes en fonction de l'`id` fourni.
 - Si `DELETED` est `true`, le compte est supprimé.
 - La synchronisation ne consomme pas de points de donnée, mais toutes les données synchronisées sont comptabilisées dans l'utilisation totale de vos comptes, mesurée par le volume total de données stockées — il n'est pas nécessaire de se limiter aux seules données modifiées.
@@ -73,7 +73,7 @@ Pour intégrer votre source de données à votre entrepôt de données :
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. Si vous utilisez des politiques réseau, ajoutez les adresses IP de Braze à la liste autorisée afin que le service CDI puisse se connecter. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Si vous utilisez des politiques réseau, ajoutez les adresses IP de Braze à la liste autorisée afin que le service CDI puisse se connecter. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 4. Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** et créez une nouvelle synchronisation.
 5. Saisissez les détails de connexion (ou réutilisez des identifiants existants), puis ajoutez la table source.
 6. Sélectionnez le type de synchronisation **Accounts**, puis saisissez le nom de l'intégration et la planification.
@@ -109,7 +109,7 @@ Pour intégrer votre source de données à votre entrepôt de données :
     GRANT SELECT ON TABLE ACCOUNTS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Si vous disposez d'un pare-feu ou de politiques réseau, autorisez Braze à accéder à votre instance Redshift. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Si vous disposez d'un pare-feu ou de politiques réseau, autorisez Braze à accéder à votre instance Redshift. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab BigQuery %}
@@ -156,7 +156,7 @@ Pour intégrer votre source de données à votre entrepôt de données :
     Après avoir accordé les autorisations, générez une clé JSON. Consultez [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) pour les instructions. Vous la téléverserez ultérieurement dans le tableau de bord de Braze.
 
 {:start="4"}
-4. Si vous utilisez des politiques réseau, autorisez les adresses IP de Braze à accéder à votre instance BigQuery. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+4. Si vous utilisez des politiques réseau, autorisez les adresses IP de Braze à accéder à votre instance BigQuery. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab Databricks %}
@@ -198,7 +198,7 @@ Pour intégrer votre source de données à votre entrepôt de données :
     5. Copiez et enregistrez le jeton en lieu sûr pour l'utiliser dans le tableau de bord de Braze.
 
 {:start="4"}
-4. Si vous utilisez des politiques réseau, autorisez les adresses IP de Braze à accéder à votre instance Databricks. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+4. Si vous utilisez des politiques réseau, autorisez les adresses IP de Braze à accéder à votre instance Databricks. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab Microsoft Fabric %}
@@ -220,7 +220,7 @@ Pour intégrer votre source de données à votre entrepôt de données :
 2. Créez un principal de service et accordez les autorisations. Si vous disposez déjà d'identifiants provenant d'une autre synchronisation, vous pouvez les réutiliser — assurez-vous simplement qu'ils ont accès à la table des comptes.
 
 {:start="3"}
-3. Si vous utilisez des politiques réseau, autorisez les adresses IP de Braze à accéder à votre instance Microsoft Fabric. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Si vous utilisez des politiques réseau, autorisez les adresses IP de Braze à accéder à votre instance Microsoft Fabric. Pour la liste des adresses IP, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -239,7 +239,7 @@ Pour synchroniser les données de compte depuis un stockage de fichiers, créez 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Synchroniser les données de votre compte" }
 
 {% alert note %}
-Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez des horodatages pour garantir l'unicité. Pour en savoir plus sur la synchronisation Amazon S3, consultez [Intégrations de stockage de fichiers]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
+Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez des horodatages pour garantir l'unicité. Pour en savoir plus sur la synchronisation Amazon S3, consultez [Intégrations de stockage de fichiers]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 Les exemples suivants montrent des formats JSON et CSV valides pour synchroniser les données de compte depuis un stockage de fichiers.

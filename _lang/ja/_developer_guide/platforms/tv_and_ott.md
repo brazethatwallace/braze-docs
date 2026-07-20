@@ -18,118 +18,92 @@ platform:
 
 ## プラットフォームと機能 {#platforms-and-features}
 
-以下は、現在サポートされている機能とメッセージングチャネルの一覧です。
+以下の表は、一般的なTVおよびOTTプラットフォームにおけるメッセージングチャネルのサポート状況をまとめたものです。すべてのプラットフォームでデータと分析、キャンバス、フィーチャーフラグもサポートされています。Kindle Fireについては、Amazon Fire TVと同じガイダンスを使用してください。Apple Vision Proについては、[visionOSサポート]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos)を参照してください。
 
 <style>
 #tv-feature-table td,
 #tv-feature-table th {
-    text-align: center !important;
-    vertical-align: center;
+    text-align: center;
+    vertical-align: middle;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+
+#tv-feature-table td:first-child,
+#tv-feature-table th:first-child {
+    text-align: left;
 }
 
 </style>
-<table aria-label="プラットフォームと機能" id="tv-feature-table">
-  <caption>プラットフォームと機能</caption>
+<table aria-label="TVおよびOTTメッセージングチャネルのサポート" id="tv-feature-table">
+  <caption>TVおよびOTTメッセージングチャネルのサポート</caption>
     <thead>
         <tr>
             <th>デバイスタイプ</th>
-            <th>データと分析</th>
+            <th>SDK</th>
             <th>アプリ内メッセージ</th>
             <th>Content Cards</th>
             <th>プッシュ通知</th>
-            <th>Canvas</th>
-            <th>フィーチャーフラグ</th>
             <th>バナー</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Amazon Fire TV</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push"><i class="fas fa-check text-success"></i></td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
-        </tr>
-        <tr>
-            <td>Kindle Fire</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push"><i class="fas fa-check text-success"></i></td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-vega-sdk">Vega SDK</a></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">サポート対象</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">サポート対象</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">サポート対象</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
         </tr>
         <tr>
             <td>Android TV</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push"><i class="fas fa-check text-success"></i></td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-android-sdk">Android SDK</a></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">サポート対象</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">サポート対象</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">サポート対象</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
         </tr>
         <tr>
             <td>LGテレビ（webOS）</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push">該当なし</td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-web-sdk">Web SDK</a></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
+            <td><span aria-hidden="true">➖</span><span class="sr-only">OTTプラットフォームではサポートされていません</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
         </tr>
         <tr>
             <td>Samsung Tizen TV</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push">該当なし</td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-web-sdk">Web SDK</a></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
+            <td><span aria-hidden="true">➖</span><span class="sr-only">OTTプラットフォームではサポートされていません</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
         </tr>
         <tr>
             <td>Roku</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-times text-warning"></i></td>
-            <td for="push">該当なし</td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-times text-warning"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-roku-sdk">Roku SDK</a></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Brazeではサポートされていません</span></td>
+            <td><span aria-hidden="true">➖</span><span class="sr-only">OTTプラットフォームではサポートされていません</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Brazeではサポートされていません</span></td>
         </tr>
         <tr>
-            <td>Apple TV OS</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-             <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push"><i class="fa-solid fa-minus"></i></td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td>Apple TV OS（tvOS）</td>
+            <td><a href="https://github.com/braze-inc/braze-swift-sdk">Swift SDK</a></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Brazeではサポートされていません</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">ヘッドレスのみ</span></td>
         </tr>
-       <tr>
-          <td>Apple Vision Pro</td>
-          <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-           <td for="iam"><i class="fas fa-check text-success"></i></td>
-          <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-          <td for="push"><i class="fa-solid fa-minus"></i></td>
-          <td for="canvas"><i class="fas fa-check text-success"></i></td>
-          <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-          <td for="banners"><i class="fas fa-check text-success"></i></td>
-      </tr>
     </tbody>
 </table>
 
-- <i class="fas fa-check text-success"></i> = サポート対象
-- <i class="fa-solid fa-minus"></i> = 部分的にサポート
-- <i class="fas fa-times text-warning"></i> = Brazeではサポートされていません
-- 該当なし = OTTプラットフォームではサポートされていません
+- <span aria-hidden="true">✅</span> = サポート対象
+- <span aria-hidden="true">🔧</span> = ヘッドレスのみ（カスタムUIの構築が必要です）
+- <span aria-hidden="true">➖</span> = OTTプラットフォームではサポートされていません
+- <span aria-hidden="true">❌</span> = Brazeではサポートされていません
 
 ## 統合ガイド {#integration-guides}
 
@@ -202,7 +176,7 @@ Braze Web SDKを使用して[LG webOSテレビ](https://webostv.developer.lge.co
 - バナー
   - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements)を使用して、webOSアプリにメッセージを直接埋め込みます。
 
-詳細については、[Web Smart TV統合ガイド]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs)を参照してください。
+詳細については、[Webスマートテレビ統合ガイド]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs)を参照してください。
 
 ### Samsung Tizen {#tizen}
 
@@ -217,7 +191,7 @@ Braze Web SDKを使用して[Samsung Tizenテレビ](https://developer.samsung.c
 - バナー
   - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements)を使用して、Tizenアプリにメッセージを直接埋め込みます。
 
-詳細については、[Web Smart TV統合ガイド]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs)を参照してください。
+詳細については、[Webスマートテレビ統合ガイド]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs)を参照してください。
 
 ### Roku {#roku}
 
@@ -275,9 +249,9 @@ Braze Swift SDKを使用してvisionOSと統合します。iOSで利用可能な
 
 ## アプリターゲティング {#app-targeting}
 
-メッセージングでOTTアプリをターゲットにするには、OTTアプリ専用のSegmentを作成することをお勧めします。
+メッセージングでOTTアプリをターゲットにするには、OTTアプリ専用のセグメントを作成することをお勧めします。
 
-![Android OTTアプリを使用して作成されたSegment。]({% image_buster /assets/img/android_ott.png %})
+![Android OTTアプリを使用して作成されたセグメント。]({% image_buster /assets/img/android_ott.png %})
 
 ## ヘッドレスUI {#custom-ui}
 

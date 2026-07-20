@@ -14,7 +14,7 @@ search_rank: 1
 In Braze gespeicherte angepasste Attribute können zum Aufbau von Zielgruppen-Segmenten und zur Personalisierung von Nachrichten mit Liquid verwendet werden. Denken Sie daran, dass Braze keine Zeitreiheninformationen für angepasste Attribute speichert, sodass Sie keine darauf basierenden Diagramme erhalten können, wie dies bei angepassten Events der Fall ist.
 
 {% alert important %}
-**Namen sind exakte Übereinstimmungen.** Schlüssel für angepasste Attribute sind **case-sensitiv** – zum Beispiel sind `Home_City` und `home_city` zwei verschiedene Attribute. Wenn Sie Daten über die [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) oder ein SDK senden, **entfernt Braze führende und nachgestellte Leerzeichen** aus Attributnamen, sodass `greeting` und ` greeting ` zum selben Schlüssel aufgelöst werden. Verwenden Sie überall, wo Sie ein Attribut referenzieren, dieselbe Schreibweise und Groß-/Kleinschreibung – in **Dateneinstellungen** > **Angepasste Attribute**, API- und SDK-Payloads sowie CSV-Importen. Informationen dazu, wie Braze eingehende Werte konvertiert, wenn Sie [einen Datentyp erzwingen]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#data-type-coercion), finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+**Namen sind exakte Übereinstimmungen.** Schlüssel für angepasste Attribute sind **case-sensitiv** – zum Beispiel sind `Home_City` und `home_city` zwei verschiedene Attribute. Wenn Sie Daten über die [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder ein SDK senden, **entfernt Braze führende und nachgestellte Leerzeichen** aus Attributnamen, sodass `greeting` und ` greeting ` zum selben Schlüssel aufgelöst werden. Verwenden Sie überall, wo Sie ein Attribut referenzieren, dieselbe Schreibweise und Groß-/Kleinschreibung – in **Dateneinstellungen** > **Angepasste Attribute**, API- und SDK-Payloads sowie CSV-Importen. Informationen dazu, wie Braze eingehende Werte konvertiert, wenn Sie [einen Datentyp erzwingen]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#data-type-coercion), finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 {% endalert %}
 
 ## Anwendungsfälle {#use-cases}
@@ -22,24 +22,24 @@ In Braze gespeicherte angepasste Attribute können zum Aufbau von Zielgruppen-Se
 Einige häufige Anwendungsfälle für angepasste Attribute sind:
 
 - Targeting und Unterdrückung von Zielgruppen durch Segmentierung von Nutzer:innen basierend auf Merkmalen wie Treuestufe, Abo-Status, bevorzugter Sprache oder Tariftyp
-- Personalisierung von Nachrichten mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) durch Referenzierung von Attributen wie dem Vornamen, Rewards-Punkten oder der Lieblingskategorie
+- Personalisierung von Nachrichten mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) durch Referenzierung von Attributen wie dem Vornamen, Rewards-Punkten oder der Lieblingskategorie
 - Tracking von Lebenszyklusphasen und Nutzerstatus, wie z. B. Onboarding-Phase, Kontostatus oder Testende-Datum
-- Zählen von geringwertigen Aktionen mithilfe von [numerischen Attributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#numbers), z. B. durch Inkrementieren eines `feature_views_count`-Attributs bei jedem Aufruf eines Features
-- Aufzeichnung, wann geringwertige Aktionen zuletzt stattfanden, mithilfe von [Zeitattributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#time), wie z. B. `last_support_ticket_at` oder `last_password_reset_at`
-- Speichern von Nutzerinteressen und -verlauf als [Arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#arrays), z. B. Lieblingsgenres oder kürzlich angesehene Inhalte, für interessenbasiertes Targeting
-- Speichern umfangreicherer Profildaten als [Objekte]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/) oder [Arrays von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/), z. B. strukturierte Präferenzen oder mehrere gespeicherte Adressen
-- Auslösen aktionsbasierter Nachrichten bei Änderung eines Attributwerts mithilfe von [Attribut-Triggern]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/), z. B. Senden einer Stufenaufstiegs-Benachrichtigung, wenn sich die `rewards_tier` einer Nutzerin oder eines Nutzers ändert
+- Zählen von geringwertigen Aktionen mithilfe von [numerischen Attributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), z. B. durch Inkrementieren eines `feature_views_count`-Attributs bei jedem Aufruf eines Features
+- Aufzeichnung, wann geringwertige Aktionen zuletzt stattfanden, mithilfe von [Zeitattributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), wie z. B. `last_support_ticket_at` oder `last_password_reset_at`
+- Speichern von Nutzerinteressen und -verlauf als [Arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), z. B. Lieblingsgenres oder kürzlich angesehene Inhalte, für interessenbasiertes Targeting
+- Speichern umfangreicherer Profildaten als [Objekte]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) oder [Arrays von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), z. B. strukturierte Präferenzen oder mehrere gespeicherte Adressen
+- Auslösen aktionsbasierter Nachrichten bei Änderung eines Attributwerts mithilfe von [Attribut-Triggern]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), z. B. Senden einer Stufenaufstiegs-Benachrichtigung, wenn sich die `rewards_tier` einer Nutzerin oder eines Nutzers ändert
 
 ## Angepasste Attribute verwalten {#managing-custom-attributes}
 
 Um angepasste Attribute im Dashboard zu erstellen und zu verwalten, gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
 
-![Vier angepasste Attribute, die Boolesche Werte sind.]({% image_buster /assets/img/export_custom_attributes.png %})
+![Vier angepasste Attribute, die boolesche Werte sind.]({% image_buster /assets/img/export_custom_attributes.png %})
 
 In der Spalte **Letztes Update** sehen Sie, wann das angepasste Attribut das letzte Mal bearbeitet wurde, z. B. wann es zuletzt auf Blockliste oder aktiv gesetzt wurde.
 
 {% alert important %}
-Für ein korrektes Nachrichten-Targeting stellen Sie sicher, dass der Datentyp Ihres angepassten Attributs mit dem tatsächlichen angepassten Attribut übereinstimmt. <br><br>Wenn beispielsweise `newsletter_subscribed` als String definiert ist, sollte Ihre Liquid-Syntax so aussehen: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}`{% endraw %}. Wenn `newsletter_subscribed` als Boolescher Wert definiert ist, sollte die Liquid-Syntax keine einfachen Anführungszeichen enthalten: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == true %}`{% endraw %}.
+Für ein korrektes Nachrichten-Targeting stellen Sie sicher, dass der Datentyp Ihres angepassten Attributs mit dem tatsächlichen angepassten Attribut übereinstimmt. <br><br>Wenn beispielsweise `newsletter_subscribed` als String definiert ist, sollte Ihre Liquid-Syntax so aussehen: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}`{% endraw %}. Wenn `newsletter_subscribed` als boolescher Wert definiert ist, sollte die Liquid-Syntax keine einfachen Anführungszeichen enthalten: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == true %}`{% endraw %}.
 {% endalert %}
 
 Von dieser Seite aus können Sie vorhandene angepasste Attribute anzeigen, verwalten, erstellen oder auf die Blockliste setzen. Wählen Sie das Menü neben einem angepassten Attribut für die folgenden Aktionen:
@@ -56,7 +56,7 @@ Wenn Sie ein angepasstes Attribut blockieren:
 
 Wenn ein blockiertes angepasstes Attribut derzeit von Filtern oder Triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warnhinweis, der erklärt, dass alle Instanzen der Filter oder Trigger, die darauf verweisen, entfernt und archiviert werden.
 
-Weitere Details zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+Weitere Details zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
 ### Als personenbezogene Daten (PII) markieren {#mark-as-personally-identifiable-information-pii}
 
@@ -64,18 +64,18 @@ Administrator:innen können auf dieser Seite auch angepasste Attribute erstellen
 
 ### Beschreibungen hinzufügen {#add-descriptions}
 
-Sie können einem angepassten Attribut nach der Erstellung eine Beschreibung hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases` haben. Wählen Sie **Beschreibung bearbeiten** für das angepasste Attribut und geben Sie ein, was Sie möchten, z. B. eine Notiz für Ihr Team.
+Sie können einem angepassten Attribut nach der Erstellung eine Beschreibung hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) `Manage Events, Attributes, Purchases` haben. Wählen Sie **Beschreibung bearbeiten** für das angepasste Attribut und geben Sie ein, was Sie möchten, z. B. eine Notiz für Ihr Team.
 
 ### Tags hinzufügen {#add-tags}
 
-Sie können einem angepassten Attribut nach der Erstellung Tags hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) „Manage Events, Attributes, Purchases“ haben. Die Tags können dann verwendet werden, um die Liste der Attribute zu filtern.
+Sie können einem angepassten Attribut nach der Erstellung Tags hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) „Manage Events, Attributes, Purchases“ haben. Die Tags können dann verwendet werden, um die Liste der Attribute zu filtern.
 
 ### Angepasste Attribute entfernen {#remove-custom-attributes}
 
 Es gibt zwei Möglichkeiten, angepasste Attribute aus Nutzerprofilen zu entfernen:
 
-* Wählen Sie den Namen des zu entfernenden angepassten Attributs in einem [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#removing-custom-attributes) aus.
-* Setzen Sie den Wert `null` in Ihrer API-Anfrage an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
+* Wählen Sie den Namen des zu entfernenden angepassten Attributs in einem [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes) aus.
+* Setzen Sie den Wert `null` in Ihrer API-Anfrage an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ### Daten exportieren {#export-data}
 
@@ -92,7 +92,7 @@ Das angepasste Attribut darf derzeit nicht in aktiven Campaigns, Canvases oder S
 1. Stoppen Sie alle aktiven Campaigns oder Canvases, die das Attribut in Segmenten oder Filtern verwenden.
 2. Entfernen Sie das Attribut aus allen Segment-, Campaign- und Canvas-Filtern.
 3. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute** (oder **Angepasste Events**), suchen Sie das Attribut und aktualisieren Sie es auf den gewünschten Datentyp.
-4. Aktualisieren Sie die Attributwerte in vorhandenen Nutzerprofilen, damit sie dem neuen Datentyp entsprechen (z. B. über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)).
+4. Aktualisieren Sie die Attributwerte in vorhandenen Nutzerprofilen, damit sie dem neuen Datentyp entsprechen (z. B. über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track)).
 5. Wenden Sie das Attribut erneut auf die relevanten Segmente, Campaigns und Canvases an und reaktivieren Sie dann alle gestoppten Campaigns oder Canvases.
 
 ### Wichtige Hinweise {#things-to-know}
@@ -119,21 +119,21 @@ Im Folgenden finden Sie Methoden für verschiedene Plattformen, die zum Setzen a
 
 {% details Für plattformspezifische Dokumentation aufklappen %}
 
-- [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [.NET MAUI (ehemals Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
+- [.NET MAUI (ehemals Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## Speicherung angepasster Attribute {#custom-attribute-storage}
 
-Alle im **Nutzerprofil** gespeicherten Daten, einschließlich angepasster Attributdaten, werden auf unbestimmte Zeit aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_archival/#active-users) ist.
+Alle im **Nutzerprofil** gespeicherten Daten, einschließlich angepasster Attributdaten, werden auf unbestimmte Zeit aufbewahrt, solange jedes Profil <a href="/docs/user_archival#active-users">aktiv</a> ist.
 
-Eine vollständige Referenz aller Datentypen, die Sie als angepasste Attribute speichern können – einschließlich Boolescher Werte, Zahlen, Strings, Arrays, Zeitangaben, Objekte und Arrays von Objekten – finden Sie unter [Datentypen für angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+Eine vollständige Referenz aller Datentypen, die Sie als angepasste Attribute speichern können – einschließlich boolescher Werte, Zahlen, Strings, Arrays, Zeitangaben, Objekte und Arrays von Objekten – finden Sie unter [Datentypen für angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 
 ### Leere Strings im Vergleich zu Null-Werten {#blank-strings-versus-null-values}
 
@@ -144,9 +144,11 @@ Beim Löschen oder Aufheben eines angepassten Attributs unterscheidet sich das V
 | `""` (leerer String) | Das Attribut wird auf einen leeren Wert gesetzt und bleibt im Nutzerprofil sichtbar. |
 | `null` | Das Attribut wird vollständig aus dem Nutzerprofil entfernt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }
 
 {% alert important %}
-Bei Nicht-String-Datentypen, bei denen der Datentyp im Braze-Dashboard manuell festgelegt wird (nicht automatisch erkannt), müssen Sie `null` verwenden, um den Wert aufzuheben. Die Übergabe von `""` ist nur für String-Attribute gültig – beispielsweise wird das Setzen eines Booleschen Attributs auf `""` als leerer String behandelt, was ein ungültiger Wert für diesen Typ ist. Um einen Booleschen Wert aufzuheben, übergeben Sie `null`.
+Bei Nicht-String-Datentypen, bei denen der Datentyp im Braze-Dashboard manuell festgelegt wird (nicht automatisch erkannt), müssen Sie `null` verwenden, um den Wert aufzuheben. Die Übergabe von `""` ist nur für String-Attribute gültig – beispielsweise wird das Setzen eines booleschen Attributs auf `""` als leerer String behandelt, was ein ungültiger Wert für diesen Typ ist. Um einen booleschen Wert aufzuheben, übergeben Sie `null`.
 
-Beachten Sie, dass der CSV-Import `null` nicht unterstützt – Boolesche Werte in CSV-Importen müssen `TRUE` oder `FALSE` sein.
+Beachten Sie, dass der CSV-Import `null` nicht unterstützt – boolesche Werte in CSV-Importen müssen `TRUE` oder `FALSE` sein.
 {% endalert %}

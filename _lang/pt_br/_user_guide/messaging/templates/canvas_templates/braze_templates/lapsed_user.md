@@ -15,13 +15,13 @@ Este artigo vai guiar você por um caso de uso do modelo **Usuário inativo**, q
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar o modelo de usuário inativo com sucesso, você precisa configurar o [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/) com os parceiros e públicos que você utiliza.
+Para usar o modelo de usuário inativo com sucesso, você precisa configurar o [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) com os parceiros e públicos que você utiliza.
 
 ## Adaptando o modelo às suas necessidades {#tailoring-the-template-to-your-needs}
 
 Digamos que você trabalha para a MovieCanon, um serviço de streaming com conteúdo exclusivo de filmes e séries. Você pode usar o modelo de usuário inativo para promover vantagens e conteúdo premium para usuários que não visitaram seu app nos últimos 30 dias.
 
-Antes de criar o Canvas, configure a integração [Braze Audience Sync com o Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) para que você possa adicionar dados de usuários da Braze aos públicos do Google e enviar anúncios com base em gatilhos comportamentais, segmentação e muito mais.
+Antes de criar o Canvas, configure a integração [Braze Audience Sync com o Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) para que você possa adicionar dados de usuários da Braze aos públicos do Google e enviar anúncios com base em gatilhos comportamentais, segmentação e muito mais.
 
 Para acessar o modelo de usuário inativo, ao criar um novo Canvas, selecione **Use a Canvas template** > **Braze templates**. Em seguida, ao lado de **Lapsing User**, selecione **Apply Template**. Agora você pode percorrer o modelo para adaptá-lo às suas necessidades.
 
@@ -58,8 +58,8 @@ Mantenha as configurações padrão para o público de entrada, que direciona us
 Mantenha a maioria das configurações padrão de inscrição:
 
 - Enviar apenas para usuários que se inscreveram ou optaram por receber mensagens ou notificações.
-- Aplicar suas [regras de limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) para não sobrecarregar seu público com a quantidade de mensagens que recebem. Neste caso, defina seu limite de frequência para limitar o número de Campaigns ou etapas do Canvas com a tag "Lapsing/Retention" que um usuário pode receber a duas por semana.
-- Não enviar mensagens durante o horário de silêncio no horário local do usuário (0h às 8h).
+- Aplicar suas [regras de limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) para não sobrecarregar seu público com a quantidade de mensagens que recebem. Neste caso, defina seu limite de frequência para limitar o número de Campaigns ou etapas do Canvas com a tag "Lapsing/Retention" que um usuário pode receber a duas por semana.
+- Não enviar mensagens durante o horário de silêncio no fuso local do usuário (0h às 8h).
 
 A única configuração a alterar é o que acontece quando uma mensagem é disparada durante o horário de silêncio. Em vez de cancelar a mensagem, selecione **Send at next available time** para que seus usuários não percam nenhuma promoção.
 
@@ -76,7 +76,7 @@ Agora, construa seu Canvas personalizando as etapas do modelo:
 3. Mantenha o padrão para a etapa de divisão de decisão chamada "Sessions?", que define o grupo ">1 Session" como usuários que usaram seu app mais de uma vez no último dia do calendário.
 4. Personalize a etapa de mensagem para usuários que se enquadram no grupo ">1 Session". Neste caso de uso, agradeça os usuários por visitarem seu app e destaque as vantagens que eles desbloquearam.
 5. Certifique-se de que seu Google Audience Sync está configurado na etapa de atualização de público de anúncios, para que você atualize e sincronize os dados dos usuários que tiveram múltiplas sessões após receberem o primeiro e-mail.
-6. Mantenha o padrão para o componente de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#experiment-paths) chamado "A/B Test". Isso enviará aleatoriamente uma de duas promoções (que você personaliza na próxima etapa) para usuários que tiveram menos de duas sessões.
+6. Mantenha o padrão para o componente de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) chamado "A/B Test". Isso enviará aleatoriamente uma de duas promoções (que você personaliza na próxima etapa) para usuários que tiveram menos de duas sessões.
 7. Personalize as duas promoções que serão enviadas aos usuários como parte da jornada experimental. Neste caso de uso, faça uma promoção de 20% para uma assinatura de três meses e outra de 10% para uma assinatura de um mês.
 
 ![Etapas do Canvas com jornadas ramificadas com base em quantas sessões um usuário teve.]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}
@@ -86,5 +86,5 @@ Agora, construa seu Canvas personalizando as etapas do modelo:
 Após testar e revisar seu Canvas para garantir que funciona conforme esperado, lance-o selecionando **Launch Canvas**. Usuários que não visitaram seu app há mais de 30 dias e que se inscreveram em seus canais de envio de mensagens agora receberão e-mails incentivando-os a retornar!
 
 {% alert tip %}
-Confira nossa [lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
+Confira nossa [lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
 {% endalert %}

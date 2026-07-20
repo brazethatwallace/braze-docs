@@ -3,7 +3,7 @@ nav_title: Braze Pilot
 page_order: 10.5
 layout: dev_guide
 guide_top_header: "Braze Pilot"
-guide_top_text: "Braze Pilot은 Braze 대시보드와 원활하게 연결되도록 설계된 모바일 앱입니다. 이 앱을 통해 Campaign과 Canvas를 앱으로 실행하여 Braze 메시지를 자신의 휴대폰에서 직접 확인할 수 있습니다. Braze Pilot에는 다양한 산업을 대표하는 가상 브랜드의 앱 시뮬레이션 라이브러리가 포함되어 있어, 고객의 관점에서 메시징이 어떻게 보일지 체험할 수 있습니다."
+guide_top_text: "Braze Pilot은 Braze 대시보드와 원활하게 연결되도록 설계된 모바일 앱입니다. 이 앱을 통해 Campaign과 Canvases를 앱으로 실행하여 Braze 메시지를 자신의 휴대폰에서 직접 확인할 수 있습니다. Braze Pilot에는 다양한 산업을 대표하는 가상 브랜드의 앱 시뮬레이션 라이브러리가 포함되어 있어, 고객의 관점에서 메시징이 어떻게 보일지 체험할 수 있습니다."
 description: "Braze 대시보드에서 휴대폰으로 메시지를 전송하는 다양한 방법을 확인해 보세요."
 
 guide_featured_title: "섹션 문서"
@@ -29,7 +29,7 @@ Braze Pilot의 핵심은 앱 시뮬레이션 라이브러리입니다. 각 앱�
 
 ### Steppington
 
-Steppington은 운동, 운동 목표, Steppington+ 프리미엄 서비스를 제공하는 피트니스 앱입니다. [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)를 시연할 수 있는 여러 영역, [기능 플래그]({{site.baseurl}}/developer_guide/feature_flags/)로 표시할 수 있는 섹션, 그리고 이 산업의 다양한 고객 여정을 보여줄 수 있는 풍부한 커스텀 이벤트 로깅 라이브러리를 제공합니다.
+Steppington은 운동, 운동 목표, Steppington+ 프리미엄 서비스를 제공하는 피트니스 앱입니다. [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)를 시연할 수 있는 여러 영역, [기능 플래그]({{site.baseurl}}/developer_guide/feature_flags)로 표시할 수 있는 섹션, 그리고 이 산업의 다양한 고객 여정을 보여줄 수 있는 풍부한 커스텀 이벤트 로깅 라이브러리를 제공합니다.
 
 ![마라톤 훈련, 요가, 사이클링, 웨이트 아이콘이 있는 Steppington 홈 페이지.]({% image_buster /assets/img/braze_pilot/steppington_app.png %}){:style="max-width:50%"}
 
@@ -38,7 +38,7 @@ Steppington은 운동, 운동 목표, Steppington+ 프리미엄 서비스를 제
 
 ### PantsLabyrinth
 
-PantsLabyrinth는 (예상하셨겠지만) 바지를 판매하는 이커머스 앱입니다! PantsLabyrinth 앱에는 전체 장바구니 결제 경험, 피처 플래그로 활성화할 수 있는 선택적 위시리스트 기능, 그리고 영국 친구들과 재치 있는 농담을 나눌 수 있는 다양한 기회가 포함되어 있습니다.
+PantsLabyrinth는 (예상하셨겠지만) 바지를 판매하는 이커머스 앱입니다! PantsLabyrinth 앱에는 전체 장바구니 결제 경험, 기능 플래그로 활성화할 수 있는 선택적 위시리스트 기능, 그리고 영국 친구들과 재치 있는 농담을 나눌 수 있는 다양한 기회가 포함되어 있습니다.
 
 ![장바구니에 청바지를 추가할 수 있는 옵션이 있는 PantsLabyrinth 제품 페이지.]({% image_buster /assets/img/braze_pilot/pantslabyrinth_app.png %}){:style="max-width:50%"}
 
@@ -66,9 +66,9 @@ Pilot이 Braze 대시보드에 연결되면, Braze SDK는 자체 앱이나 웹�
 - 세션 데이터, 기기 정보, 푸시 토큰을 자동으로 수집합니다.
 - SDK 통합이 필요한 푸시 알림, 인앱 메시지, Content Cards 메시징 채널을 지원합니다.
 
-Braze SDK에 대한 자세한 내용은 [통합]({{site.baseurl}}/user_guide/get_started/integrations/)을 확인하세요.
+Braze SDK에 대한 자세한 내용은 [통합]({{site.baseurl}}/user_guide/get_started/integrations)을 확인하세요.
 
-![통합, API, 데이터 수집을 위한 SDK, 분류, 오케스트레이션, 개인화, 그리고 고객과의 상호 피드백 루프를 위한 메시징 채널의 동작을 포함하는 Braze 고객 참여 스택.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
+![통합, API, 데이터 수집을 위한 SDK, 분류, 오케스트레이션, 개인화, 그리고 고객과의 인터랙티브 피드백 루프를 위한 메시징 채널의 동작을 포함하는 Braze 고객 참여 스택.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
 ## Braze의 고객 프로필 {#user-profiles-in-braze}
 
@@ -76,7 +76,7 @@ Braze에 전송된 모든 데이터는 앱이나 웹사이트의 특정 사용�
 
 ### 익명 사용자 {#anonymous}
 
-이 연결 상태는 아직 로그인하지 않은 앱이나 웹사이트의 게스트 경험을 나타냅니다. Pilot을 익명 사용자로 초기화하면, Braze는 [익명 사용자 프로필]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/)을 생성하고 해당 프로필에 활동 데이터를 기록합니다. 익명 사용자도 Campaign의 타겟이 될 수 있지만, Braze 대시보드에서 직접 고객 프로필을 조회할 수는 없습니다.
+이 연결 상태는 아직 로그인하지 않은 앱이나 웹사이트의 게스트 경험을 나타냅니다. Pilot을 익명 사용자로 초기화하면, Braze는 [익명 사용자 프로필]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users)을 생성하고 해당 프로필에 활동 데이터를 기록합니다. 익명 사용자도 Campaign의 타겟이 될 수 있지만, Braze 대시보드에서 직접 고객 프로필을 조회할 수는 없습니다.
 
 ### 식별된 사용자 {#identified}
 
@@ -84,7 +84,7 @@ Braze에 전송된 모든 데이터는 앱이나 웹사이트의 특정 사용�
 
 ### 연결 유형 {#connection-type}
 
-연결 유형을 확인하려면 Pilot 앱 오른쪽 상단의 연결 상태 표시를 확인하세요.
+연결 유형을 확인하려면 Pilot 앱 상단의 연결 상태 표시를 확인하세요.
 
 {% tabs local %}
 {% tab 익명 사용자 %}
@@ -104,7 +104,7 @@ Braze에 전송된 모든 데이터는 앱이나 웹사이트의 특정 사용�
 {% endtab %}
 {% endtabs %}
 
-## Campaigns 및 Canvases {#campaigns-and-canvases}
+## Campaigns와 Canvases {#campaigns-and-canvases}
 
 Campaigns와 Canvases는 사용자에게 메시지를 보내는 방법입니다.
 
@@ -113,6 +113,6 @@ Campaigns와 Canvases는 사용자에게 메시지를 보내는 방법입니다.
 
 ## 지원되는 메시징 채널 {#supported-messaging-channels}
 
-Braze Pilot은 현재 [인앱 메시지]({{site.baseurl}}/in-app_messages/)를 지원하며, 사용자가 적극적으로 참여하는 동안 앱 내에서 적시에 메시지를 전달합니다.
+Braze Pilot은 현재 [인앱 메시지]({{site.baseurl}}/in-app_messages)를 지원하며, 사용자가 적극적으로 참여하는 동안 앱 내에서 적시에 메시지를 전달합니다.
 
 ![MovieCanon 앱의 인앱 메시지 "MovieCanon을 즐기고 계신가요? 친구를 추천하세요!" 추천을 보내기 위해 이메일 주소를 입력할 수 있는 옵션이 있습니다.]({% image_buster /assets/img/braze_pilot/moviecanon_iam.png %}){:style="max-width:40%"}

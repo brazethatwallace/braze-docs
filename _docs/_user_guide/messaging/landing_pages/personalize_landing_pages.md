@@ -15,7 +15,7 @@ Liquid personalization for landing pages is only available on the Pro tier of la
 
 ## Inserting Liquid
 
-In the drag-and-drop editor, you can insert Liquid personalization both in the editor and in the page or block settings in the right-hand panel. For instructions on implementing Liquid, check out our dedicated [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid).
+In the drag-and-drop editor, you can insert Liquid personalization both in the editor and in the page or block settings in the right-hand panel. For instructions on implementing Liquid, check out our dedicated [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 
 ![Landing page editor with Liquid personalization added.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
@@ -66,6 +66,10 @@ Pre-filling only works for [identified users](#use-liquid-for-identified-and-ano
 
 - **Input fields:** Display their placeholder text.
 - **Checkboxes, radio buttons, and similar controls:** Remain unselected until the user interacts with them.
+
+{% alert warning %}
+If a user forwards a landing page link (from an email, SMS, or other message) to another person, the recipient sees the pre-filled data intended for the original user. This is the same security consideration that applies to unsubscribe links and preference center links. Consider the sensitivity of the data you're pre-filling and your audience's sharing behavior when using this feature.
+{% endalert %}
 
 ## Fetching external data with custom code
 

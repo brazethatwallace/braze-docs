@@ -20,7 +20,7 @@ Inbox Vision funktioniert möglicherweise nicht, wenn Ihr E-Mail-Inhalt auf Temp
 
 ## Überlegungen {#considerations}
 
-Im Allgemeinen funktioniert Ihre E-Mail nicht mit Inbox Vision, wenn deren Inhalt auf Template-Informationen basiert, wie beispielsweise Informationen zum Nutzerprofil. Dies liegt daran, dass Braze ein leeres Nutzerprofil als Template verwendet, wenn wir E-Mails mit diesem Feature versenden.
+Im Allgemeinen funktioniert Ihre E-Mail nicht mit Inbox Vision, wenn deren Inhalt auf Template-Informationen basiert, wie beispielsweise Informationen zum Nutzerprofil. Dies liegt daran, dass Braze ein leeres Nutzerprofil als Template verwendet, wenn E-Mails mit diesem Feature versendet werden.
 
 Sie können dieses Problem beheben, indem Sie Standardwerte oder beliebige Werte zum Liquid in Ihrer E-Mail-Nachricht hinzufügen, bevor Sie Inbox Vision ausführen. Wenn Sie die Prüfung in Inbox Vision abgeschlossen haben, wird die ursprüngliche E-Mail-Nachricht angezeigt. Wenn keine Werte angegeben werden, kann der Test die Vorschauen möglicherweise nicht erfolgreich rendern.
 
@@ -128,7 +128,7 @@ Inbox Vision klassifiziert Barrierefreiheitsprobleme nach Schweregrad, um Ihnen 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schweregrade" }
 
 {% alert important %}
-Der Drag-and-Drop-Editor unterstützt nicht das Setzen eines `<title>`-Elements im Dokument, sodass der Barrierefreiheitsscanner diese Prüfung immer als fehlgeschlagen meldet.<br><br>Diese Einschränkung wird für zukünftige Verbesserungen verfolgt. Wenn dies Ihre Workflows oder Ihre Nutzer:innen betrifft, [teilen Sie Ihr Feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback), damit wir wirkungsvolle Korrekturen priorisieren können.
+Der Drag-and-Drop-Editor unterstützt nicht das Setzen eines `<title>`-Elements im Dokument, sodass der Barrierefreiheitsscanner diese Prüfung immer als fehlgeschlagen meldet.<br><br>Diese Einschränkung wird für zukünftige Verbesserungen verfolgt. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### Automatisierte Barrierefreiheitstests verstehen {#understanding-automated-accessibility-testing}

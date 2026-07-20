@@ -43,7 +43,7 @@ Sélectionnez **Create template** et commencez à configurer les détails de vot
 
 ### Étape 3 : Personnaliser votre modèle {#step-3-customize-your-template}
 
-Ensuite, personnalisez votre modèle en [configurant votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2-build-your-canvas). Vous pouvez décider quand les utilisateurs doivent entrer dans le Canvas, déterminer quels utilisateurs peuvent y accéder, ajuster vos paramètres d'envoi et construire le parcours utilisateur pour le modèle.
+Ensuite, personnalisez votre modèle en [configurant votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas). Vous pouvez décider quand les utilisateurs doivent entrer dans le Canvas, déterminer quels utilisateurs peuvent y accéder, ajuster vos paramètres d'envoi et construire le parcours utilisateur pour le modèle.
 
 ### Étape 4 : Enregistrer votre modèle {#step-4-save-your-template}
 
@@ -58,7 +58,7 @@ Il existe deux façons d'utiliser votre modèle lors de la composition d'un Canv
 
 ### Modèles Braze disponibles {#available-braze-templates}
 
-Pour une liste des modèles de Canvas disponibles, consultez [Utiliser les modèles de Canvas Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Pour plus de détails sur l'utilisation des modèles Canvas eCommerce, consultez [Comment utiliser les événements recommandés eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
+Pour une liste des modèles de Canvas disponibles, consultez [Utiliser les modèles de Canvas Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates). Pour plus de détails sur l'utilisation des modèles Canvas eCommerce, consultez [Comment utiliser les événements recommandés eCommerce]({{site.baseurl}}/ecommerce_use_cases).
 
 ## Gérer les modèles de Canvas {#managing-canvas-templates}
 
@@ -68,7 +68,7 @@ Les modèles de Canvas peuvent être dupliqués et archivés, de manière simila
 
 ### Autorisations pour les équipes et les espaces de travail {#permissions-for-teams-and-workspaces}
 
-Pour permettre uniquement à certains utilisateurs d'accéder à des modèles de Canvas spécifiques et de les utiliser, [ajoutez une équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) aux modèles, puis attribuez les autorisations au niveau de l'équipe « Access Campaigns, Canvases, Content Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Center ».
+Pour permettre uniquement à certains utilisateurs d'accéder à des modèles de Canvas spécifiques et de les utiliser, [ajoutez une équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) aux modèles, puis attribuez les autorisations au niveau de l'équipe « Access Campaigns, Canvases, Content Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Center ».
 
 Si vous attribuez l'une des autorisations suivantes au niveau de l'équipe, mais pas au niveau de l'espace de travail, vous ne pouvez effectuer les actions suivantes que pour les éléments assignés à votre équipe :
 

@@ -100,7 +100,7 @@ The **Engagement** tab contains information about a user's interactions with the
 ### Event History tab
 
 {% alert note %}
-To view the **Event History** tab, you need the **Search Users** and **View PII** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), because event properties can contain personal data.
+To view the **Event History** tab, you need the **Search Users**, **View User Event Properties**, and **View PII** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), because event properties can contain personal data.
 {% endalert %}
 
 The **Event History** tab shows the custom events and purchases a user has logged. Use it to verify event data is arriving correctly and troubleshoot user-level issues directly in the dashboard—no data exports or external tooling required.
@@ -137,8 +137,10 @@ These descriptions cover when a send is logged for **Campaigns received**. They 
 
 The **Message History** tab of the user profile shows recent messaging-related events (about 40) for an individual user from the past 30 days. These events include the messages that the user was sent, received, interacted with, and more. 
 
-{% alert note %}
 The data in this tab isn't updated after a user is merged. Additionally, any events associated with messages sent through API (for example, the [/messages/send endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)) do not appear in this tab if there is no campaign ID specified in those sends.
+
+{% alert important %}
+RCS events aren't currently supported in the **Messaging History** tab.
 {% endalert %}
 
 ![The Messaging History tab showing which campaigns and Canvases a user has received.]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
@@ -164,7 +166,7 @@ The following message engagement events are available for email, SMS, push, in-a
 
 ##### Message abort events
 
-Message abort events occur when a message sent to a user was aborted due to conditional logic in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages), or from Liquid rendering timeouts.
+Message abort events occur when a message sent to a user was aborted due to conditional logic in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content), or from Liquid rendering timeouts.
 
 Abort events are available for the following channels:
 
@@ -177,7 +179,7 @@ Abort events are currently not available for in-app messages and Content Cards.
 
 ##### Frequency cap events
 
-A frequency cap event occurs when a user is qualified to receive a message, but doesn't actually receive it due to [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) settings. You can customize frequency capping settings from **Settings** > **Frequency Capping Rules**.
+A frequency cap event occurs when a user is qualified to receive a message, but doesn't actually receive it due to [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) settings. You can customize frequency capping settings from **Settings** > **Frequency Capping Rules**.
 
 ##### Blank destinations
 

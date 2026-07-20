@@ -14,7 +14,7 @@ description: "이 페이지는 CDI를 사용하여 Braze Canvases를 트리거�
 
 ### 빠른 시작 단계 {#quick-start-steps}
 
-이미 Braze CDI에 익숙하다면, Canvas 트리거 동기화 설정은 [사용자 데이터 CDI 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/) 프로세스와 거의 동일하며, 다음과 같은 주의 사항이 있습니다:
+이미 Braze CDI에 익숙하다면, Canvas 트리거 동기화 설정은 [사용자 데이터 CDI 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations) 프로세스와 거의 동일하며, 다음과 같은 주의 사항이 있습니다:
 
 - 외부 ID 또는 사용자 별칭 식별자만 지원됩니다. 이메일 및 전화번호는 지원되지 않는 식별자입니다.
 - 기존 Braze 사용자만 동기화할 수 있습니다. 새 사용자는 생성할 수 없습니다.
@@ -81,7 +81,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 ##### 1.3단계: 네트워크 정책 구성 {#step-13-configure-network-policies}
 
-계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional)을 참조하세요.
+계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional)을 참조하세요.
 
 {% endtab %}
 {% tab Redshift %}
@@ -128,7 +128,7 @@ GRANT SELECT ON TABLE CANVAS_TRIGGERS_SYNC TO braze_user;
 
 ##### 1.3단계: 네트워크 정책 구성
 
-계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=redshift#step-13-allow-access-to-braze-ips)을 참조하세요.
+계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=redshift#step-13-allow-access-to-braze-ips)을 참조하세요.
 
 {% endtab %}
 {% tab BigQuery %}
@@ -183,7 +183,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC`
 권한을 부여한 후 JSON 키를 생성하세요. 자세한 방법은 [키 생성 및 삭제](https://cloud.google.com/iam/docs/keys-create-delete)를 참조하세요. 나중에 Braze 대시보드에 업로드하게 됩니다.
 
 ##### 1.4단계: 네트워크 정책 구성 {#step-14-configure-network-policies}
-계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=bigquery#step-13-allow-access-to-braze-ips)을 참조하세요.
+계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=bigquery#step-13-allow-access-to-braze-ips)을 참조하세요.
 
 {% endtab %}
 {% tab Databricks %}
@@ -243,8 +243,7 @@ Databricks에서 개인 액세스 토큰을 생성합니다:
 5. Braze 대시보드에서 사용할 수 있도록 토큰을 안전하게 복사하고 저장합니다.
 
 ##### 1.4단계: 네트워크 정책 구성
-
-계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=databricks#step-13-allow-access-to-braze-ips)을 참조하세요.
+계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=databricks#step-13-allow-access-to-braze-ips)을 참조하세요.
 
 {% endtab %}
 {% tab Fabric %}
@@ -271,7 +270,7 @@ GO
 
 ##### 1.3단계: 네트워크 정책 구성
 
-계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional)을 참조하세요.
+계정에 네트워크 정책이 있는 경우, CDI 서비스 연결을 활성화하기 위해 Braze IP를 허용 목록에 추가하세요. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional)을 참조하세요.
 
 {% endtab %}
 {% tab 파일 저장소 %}
@@ -286,7 +285,7 @@ GO
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.3단계: 네트워크 정책 구성" }
 
 {% alert tip %}
-파일 이름은 AWS 규칙을 따라야 하며 고유해야 합니다. 고유성을 보장하기 위해 타임스탬프를 추가하세요. Amazon S3 동기화에 대한 자세한 내용은 [파일 저장소 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)을 참조하세요.
+파일 이름은 AWS 규칙을 따라야 하며 고유해야 합니다. 고유성을 보장하기 위해 타임스탬프를 추가하세요. Amazon S3 동기화에 대한 자세한 내용은 [파일 저장소 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)을 참조하세요.
 {% endalert %}
 
 {% endtab %}
@@ -294,9 +293,9 @@ GO
 
 #### 2단계: 대상 Canvas 구성 {#step-2-configure-your-destination-canvas}
 
-1. Canvas 트리거를 위한 대상 Canvas를 설정하세요. 새로운 API 트리거 Canvas를 생성하거나 기존 Canvas를 선택하세요. API 트리거 전달 스케줄 유형으로 Canvas를 만드는 방법에 대한 지침은 [진입 스케줄 유형]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)을 참조하세요.
+1. Canvas 트리거를 위한 대상 Canvas를 설정하세요. 새로운 API 트리거 Canvas를 생성하거나 기존 Canvas를 선택하세요. API 트리거 전달 스케줄 유형으로 Canvas를 만드는 방법에 대한 지침은 [진입 스케줄 유형]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types)을 참조하세요.
 2. API 트리거 전달 스케줄 유형을 선택한 후, Canvas 설정을 계속하고 Canvas를 구축하세요. Canvases는 단순한 단일 메시지 전송부터 여러 단계가 포함된 복잡한 고객 워크플로우까지 다양할 수 있습니다.
-3. 캔버스 단계 내에서 [Canvas 진입 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)를 사용하여 소스 테이블에서 동기화할 등록정보 필드로 메시지를 개인화하세요.
+3. 캔버스 단계 내에서 [Canvas 진입 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)를 사용하여 소스 테이블에서 동기화할 등록정보 필드로 메시지를 개인화하세요.
   * 예를 들어, 1단계에서 `account_balance`에 대한 등록정보 필드를 설정했다면, 메시지를 개인화하기 위해 다음의 Liquid 템플릿을 사용할 수 있습니다: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
 5. Canvas를 구축한 후 시작하고 [3단계](#step-3-create-your-zero-copy-sync)로 진행하세요.
 
@@ -307,7 +306,7 @@ GO
 1. Braze에서 **데이터 설정** > **클라우드 데이터 수집**으로 이동하세요.
 1. 연결 세부정보(또는 기존 자격 증명 재사용)를 입력하고 [1단계](#step-1-set-up-data-source-for-canvas-triggers)의 소스 테이블을 설정하세요.
 2. 통합 이름을 지정하세요.
-3. **Canvas Triggers** 데이터 유형을 선택하세요.
+3. **Canvas triggers** 데이터 유형을 선택하세요.
 4. 대상 Canvas를 선택하세요([2단계](#step-2-configure-your-destination-canvas)에서 설정한 Canvas).
 5. 동기화 빈도를 선택하세요.
 6. 알림 환경설정을 구성하세요.
@@ -327,7 +326,7 @@ CDI Canvas 트리거는 `/canvas/trigger/send`에 대한 REST API 사용량 제�
 각 동기화 실행은 최대 약 375만 사용자/시간의 속도로 해당 대상 Canvas에 사용자를 진입시킵니다. 다음과 같은 경우 소스에서 Canvas 진입까지의 시간이 길어질 수 있습니다:
 
 * 동기화 실행당 375만 명 이상의 사용자를 동기화하는 경우.
-* REST API의 [`/canvas/trigger/send`에 대한 사용량 제한]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit)을 이미 포화 상태로 사용하면서 CDI Canvas 트리거를 사용하는 경우.
+* REST API의 [`/canvas/trigger/send`에 대한 사용량 제한]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit)을 이미 포화 상태로 사용하면서 CDI Canvas 트리거를 사용하는 경우.
 
 메시지 아카이브가 활성화된 상태에서 제로 복사 CDI를 사용할 때 다음 사항을 고려하세요:
 

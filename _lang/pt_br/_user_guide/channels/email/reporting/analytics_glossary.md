@@ -116,7 +116,7 @@ Count
 <span class="calculation-line">Cálculo: (Envios) - (Bounces) </span>
 
 {% alert note %}
-Para o estado de **recebimento** no nível do usuário e a lógica relacionada (como limite de frequência), a Braze geralmente marca um usuário quando o envio é processado e entregue para despacho — não quando o provedor de serviço de e-mail (ESP) confirma a entrega final na caixa de entrada. Isso evita lacunas de tempo entre a confirmação do ESP e as regras no produto. Pode diferir dos relatórios de entrega do ESP ou de terceiros.
+Para o estado de **recebimento** no nível do usuário e a lógica relacionada (como limite de frequência), a Braze geralmente marca um usuário quando o envio é processado e entregue para despacho — não quando o provedor de serviços de e-mail (ESP) confirma a entrega final na caixa de entrada. Isso evita lacunas de tempo entre a confirmação do ESP e as regras no produto. Pode diferir dos relatórios de entrega do ESP ou de terceiros.
 {% endalert %}
 
 {% endapi %}
@@ -167,7 +167,7 @@ No [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents
 
 {% api %}
 
-### Hard Bounce {#hard-bounce}
+### Hard bounce {#hard-bounce}
 
 {% apitags %}
 Count
@@ -183,7 +183,7 @@ Quando um e-mail sofre hard bounce ou é marcado como spam, a Braze marca o ende
 
 {% api %}
 
-### Soft Bounce {#soft-bounce}
+### Soft bounce {#soft-bounce}
 
 {% apitags %}
 Count
@@ -191,7 +191,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Se um e-mail receber um soft bounce, geralmente tentaremos novamente dentro de 72 horas, mas o número de tentativas varia de acordo com o destinatário.
 
-Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou excluir esses usuários do seu envio com o [filtro de segmento Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
+Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou excluir esses usuários do seu envio com o [filtro de segmento Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
 
 <span class="calculation-line">Cálculo: Contagem </span>
 
@@ -264,6 +264,8 @@ Count, Percentage
 #### Links inesperados no mapa de calor de e-mail {#unexpected-links-on-the-email-heatmap}
 
 Quando o [mapa de calor de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting) mostrar links que você não espera, inspecione o HTML da mensagem em busca de [blocos de conteúdo]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks) ou espaçamentos entre palavras que criam URLs rastreadas. Use a **Tabela de links por total de cliques** na visualização do mapa de calor para identificar URLs que não correspondem ao texto visível.
+
+A Braze não expande tags Liquid na prévia da mensagem, então o renderizador do mapa de calor não consegue corresponder o link clicado na prévia. Esse é o comportamento esperado. O renderizador do mapa de calor tenta corresponder as URLs clicadas com aquelas na mensagem. Quando a URL é significativamente diferente, como quando a URL inteira é passada como uma propriedade de evento, o mapa de calor não consegue identificá-la.
 
 {% endapi %}
 
@@ -352,7 +354,7 @@ Count, Percentage
 
 {% api %}
 
-### Intervalo de confiança {#confidence}
+### Confiança {#confidence}
 
 {% apitags %}
 Count
@@ -420,7 +422,7 @@ O filtro de segmento [`Message Open Likelihood`]({{site.baseurl}}/user_guide/aud
 
 ### Links de cancelamento de inscrição e cliques únicos {#unsubscribe-links-and-unique-clicks}
 
-Quando um destinatário clica em um link de cancelamento de inscrição, a Braze contabiliza como um clique porque a ação usa uma URL. Isso se aplica tanto aos links de cancelamento de inscrição fornecidos pela Braze quanto aos links de cancelamento de inscrição personalizados no corpo da sua mensagem. Esses cliques contribuem para *Cliques únicos* e *Total de cliques* junto com outros cliques em links. Para definições de métricas, consulte [Cliques únicos](#unique-clicks) acima e [Por que estou vendo um número diferente de cancelamentos de inscrição em relação aos cliques no meu link de cancelamento de inscrição?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Quando um destinatário clica em um link de cancelamento de inscrição, a Braze contabiliza como um clique porque a ação usa uma URL. Isso se aplica tanto aos links de cancelamento de inscrição fornecidos pela Braze quanto aos links de cancelamento de inscrição personalizados no corpo da sua mensagem. Esses cliques contribuem para *Cliques únicos* e *Total de cliques* junto com outros cliques em links. Para definições de métricas, consulte [Cliques únicos](#unique-clicks) e [Por que estou vendo um número diferente de cancelamentos de inscrição em relação aos cliques no meu link de cancelamento de inscrição?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Visualizar no navegador {#view-in-browser}
 

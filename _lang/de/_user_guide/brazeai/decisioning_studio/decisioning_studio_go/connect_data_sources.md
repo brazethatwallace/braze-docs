@@ -56,18 +56,18 @@ Für Salesforce Marketing Cloud-Integrationen erfordert Decisioning Studio Go Fo
 1. **Datenerweiterungen:** Ihre Zielgruppe muss in einer Datenerweiterung definiert sein, auf die Decisioning Studio Go zugreifen kann. Verwenden Sie den SubscriberKey als primären Bezeichner für Nutzer:innen.
 2. **Zugriff auf Tracking-Ereignisse:** Solange das installierte App-Paket eine End-to-End-Automatisierung der Einrichtung unterstützt, ist keine zusätzliche Konfiguration erforderlich.
 
-Die Datenerweiterungen und SQL-Anfragen werden im Rahmen der [Orchestrierung einrichten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration) konfiguriert.
+Die Datenerweiterungen und SQL-Anfragen werden im Rahmen von [Decisioning Studio Go-Agent einrichten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) konfiguriert.
 
 {% endtab %}
 {% endtabs %}
 
 ## Best Practices {#best-practices}
 
-- **Daten aktuell halten:** Stellen Sie sicher, dass Ihre Zielgruppensegmente und Kundendaten regelmäßig (mindestens einmal täglich) aktualisiert werden, damit der Agent mit aktuellen Informationen arbeitet.
+- **Daten aktuell halten:** Aktualisieren Sie Ihre Zielgruppensegmente und Kundendaten regelmäßig (mindestens einmal täglich), damit der Agent mit aktuellen Informationen arbeitet.
 - **Relevante Attribute einbeziehen:** Überlegen Sie, welche Kundenmerkmale Einfluss darauf haben könnten, welche Nachrichten Anklang finden – demografische Daten, Engagement-Historie, Kaufverhalten und Lebenszyklusphase sind allesamt wertvolle Indikatoren.
 
 ## Nächste Schritte {#next-steps}
 
-Nachdem Sie nun verstanden haben, wie Go eine Verbindung zu Daten herstellt, fahren Sie mit der Einrichtung Ihrer CEP-Integration fort:
+Nachdem Sie nun verstanden haben, wie Go eine Verbindung zu Daten herstellt, richten Sie Ihren Agenten im Braze-Dashboard ein:
 
-- [Orchestrierung einrichten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)
+- [Decisioning Studio Go-Agent einrichten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)

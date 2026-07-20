@@ -12,18 +12,18 @@
 
 | `abort_type` の値 | 説明 |
 | --- | --- |
-| `liquid_abort_message` | [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/) Liquidタグが呼び出されたため、送信がキャンセルされました。 |
+| `liquid_abort_message` | [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages) Liquidタグが呼び出されたため、送信がキャンセルされました。 |
 | `template_parse_error` | 構文またはレンダリングエラーによりメッセージテンプレートを解析できなかったため、送信がキャンセルされました。 |
-| `rate_limit` | 設定された[レート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/)を超えたため、メッセージが中止されました。 |
-| `campaign_disabled` | メッセージが送信される前にCampaignが無効化されました。 |
-| `campaign_does_not_exist` | このメッセージに関連付けられたCampaignが存在しなくなりました。 |
-| `campaign_action_does_not_exist` | このメッセージに関連付けられたCampaignアクションが存在しなくなりました。 |
+| `rate_limit` | 設定された[レート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting)を超えたため、メッセージが中止されました。 |
+| `campaign_disabled` | メッセージが送信される前にキャンペーンが無効化されました。 |
+| `campaign_does_not_exist` | このメッセージに関連付けられたキャンペーンが存在しなくなりました。 |
+| `campaign_action_does_not_exist` | このメッセージに関連付けられたキャンペーンアクションが存在しなくなりました。 |
 | `message_variation_does_not_exist` | このユーザーに割り当てられたメッセージバリエーションが存在しなくなりました。 |
 | `user_not_in_segment` | ユーザーがターゲットセグメントに含まれていないため、メッセージは送信されませんでした。 |
 | `trigger_event_blacklisted` | トリガーイベントがブロックリストに登録されているため、メッセージは送信されませんでした。 |
 | `exhausted_retries` | 最大リトライ回数を超えてもメッセージを送信できませんでした。 |
-| `frequency_capped` | ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping)ルールで許可されたメッセージの最大数をユーザーがすでに受信しています。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
+| `frequency_capped` | ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#about-frequency-capping)ルールで許可されたメッセージの最大数をユーザーがすでに受信しています。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="一般" }
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
@@ -34,7 +34,7 @@
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
-| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)がサポートされていないため、メッセージが中止されました。 |
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
 | `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
@@ -44,17 +44,17 @@
 | `invalid_http_status` | HTTPリクエストが失敗のステータスコードを返しました。 |
 | `http_timeout` | HTTPリクエストが応答を受信する前にタイムアウトしました。 |
 | `missing_hostname` | リクエストURLにホスト名がありません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンテンツとレンダリング" }
 
 {% else %}
 
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
-| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)がサポートされていないため、メッセージが中止されました。 |
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンテンツとレンダリング" }
 
 {% endif %}
 
@@ -64,13 +64,13 @@
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
-| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)がサポートされていないため、メッセージが中止されました。 |
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
 | `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
 | `blocked_media_url` | メディアURLがセキュリティポリシーによりブロックされました。 |
 | `invalid_media_url` | メディアURLが無効であるか、解決できませんでした。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンテンツとレンダリング（メディアURL）" }
 
 {% endunless %}
 {% endif %}
@@ -81,14 +81,14 @@
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
-| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)がサポートされていないため、メッセージが中止されました。 |
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
 | `ssl_error` | リクエスト中にSSLエラーが発生しました。 |
 | `invalid_http_status` | HTTPリクエストが失敗のステータスコードを返しました。 |
 | `http_timeout` | HTTPリクエストが応答を受信する前にタイムアウトしました。 |
 | `missing_hostname` | リクエストURLにホスト名がありません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンテンツとレンダリング（HTTPおよびSSL）" }
 
 {% endunless %}
 {% endif %}
@@ -104,7 +104,7 @@
 | `exhausted_link_shortening_retries` | リンク短縮が最大リトライ回数を超えて失敗しました。 |
 | `missing_email` | ユーザーのプロファイルにメールアドレスがありません。 |
 | `invalid_domain` | メールアドレスのドメインが無効です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Email" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メール" }
 
 {% endif %}
 
@@ -116,7 +116,7 @@
 | --- | --- |
 | `invalid_push_payload` | プッシュ通知のペイロードが無効または不正な形式です。 |
 | `sdk_not_supported` | ユーザーのデバイスのSDKバージョンがこのタイプのプッシュ通知をサポートしていません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュ" }
 
 {% endif %}
 
@@ -131,7 +131,7 @@
 | `sms_no_sending_numbers` | このサブスクリプショングループで利用可能な送信用電話番号がありません。 |
 | `sms_fatal_provider_error` | SMSプロバイダーで致命的なエラーが発生し、メッセージを配信できませんでした。 |
 | `sms_gateway_domain_not_allowed` | SMSゲートウェイドメインが許可リストに含まれていません。 |
-| `blocked_recipient_country` | 受信者の電話番号が[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)によりブロックされている国のものです。 |
+| `blocked_recipient_country` | 受信者の電話番号が[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions)によりブロックされている国のものです。 |
 | `mms_not_supported` | この受信者または送信番号ではMMSがサポートされていません。 |
 | `no_current_messaging_service` | このサブスクリプショングループにアクティブなメッセージングサービスが設定されていません。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
@@ -196,7 +196,7 @@
 | --- | --- |
 | `no_longer_in_availability_window` | 設定された利用可能時間枠内にメッセージを送信できなかったため、中止されました。 |
 | `maximum_impressions_reached` | アプリ内メッセージはすでに最大インプレッション数に達しています。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="In-app messages" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アプリ内メッセージ" }
 
 {% endif %}
 
@@ -207,6 +207,6 @@
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `blocked_webhook_url` | WebhookのURLがセキュリティポリシーによりブロックされました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhooks" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook" }
 
 {% endif %}

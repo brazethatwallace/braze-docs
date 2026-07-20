@@ -5,7 +5,7 @@ alias: /post_user_track_synchronous/
 layout: api_page
 page_order: 4.5
 page_type: reference
-description: "この記事では、同期処理のユーザー追跡 Braze エンドポイントの詳細について説明します。"
+description: "この記事では、同期処理のユーザー追跡Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
@@ -26,7 +26,7 @@ description: "この記事では、同期処理のユーザー追跡 Braze エ�
 
 同期呼び出しでは、APIはステータスコード`201`を返します。これはリクエストが正常に受信され、理解され、受け入れられ、完了したことを示します。呼び出し応答には、操作の結果として選択されたユーザープロファイルフィールドが表示されます。
 
-このエンドポイントは、`/users/track`エンドポイントよりも低いレート制限を持っています（下記の[レート制限](#rate-limit)を参照）。各`/users/track/sync`リクエストには、1つのイベントオブジェクト、1つの属性オブジェクト、**または**1つの購入オブジェクトのみを含めることができます。このエンドポイントは、同期呼び出しが必要なユーザープロファイルの更新用に予約してください。健全な実装のためには、`/users/track/sync`と`/users/track`を併用することをお勧めします。
+このエンドポイントは、`/users/track`エンドポイントよりも低いレート制限を持っています（[レート制限](#rate-limit)を参照）。各`/users/track/sync`リクエストには、1つのイベントオブジェクト、1つの属性オブジェクト、**または**1つの購入オブジェクトのみを含めることができます。このエンドポイントは、同期呼び出しが必要なユーザープロファイルの更新用に予約してください。健全な実装のためには、`/users/track/sync`と`/users/track`を併用することをお勧めします。
 
 例えば、同じユーザーに対して短時間に連続してリクエストを送信する場合、非同期の`/users/track`エンドポイントでは競合が発生する可能性がありますが、`/users/track/sync`エンドポイントでは、`2XX`レスポンスを受信した後にそれらのリクエストを順番に送信できます。
 
@@ -65,7 +65,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | オプション | 1つの属性オブジェクト | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を参照してください |
+| `attributes` | オプション | 1つの属性オブジェクト | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を参照してください |
 | `events` | オプション | 1つのイベントオブジェクト | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)を参照してください |
 | `purchases` | オプション | 1つの購入オブジェクト | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を参照してください |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
@@ -285,10 +285,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 同じユーザーに対して、同じ属性、イベント、または購入のために複数のリクエストを送信する場合、Brazeは競合の発生を防ぐために、各リクエストの間に成功した応答を待つことを推奨します。
 
+同じユーザーに対して`/users/track`を短時間に連続して呼び出してもプロファイルの状態が一貫しない場合は、それらの更新を`/users/track/sync`に切り替え、一度に1つのリクエストを発行し、次のリクエストの前に各`2XX`レスポンスを待ってください。この順序付けは、タイトなループや並列ワーカー間での読み取り後書き込みの競合を回避するためにサポートされている方法です。
+
 ### なぜレスポンスの値が元のリクエストの値と一致しないのですか？ {#why-doesnt-the-response-value-match-the-one-in-my-original-request}
 
 リクエストは完了しましたが、カスタム属性の値が更新されなかった可能性があります。これは、カスタム属性の更新が最大文字数を超えている場合、配列の制限を超えている場合、またはユーザーがBrazeに存在せず`_update_existing_only = true`が設定されている場合に発生する可能性があります。
 
-このような場合、リクエストは完了したものの、希望する更新が行われなかったことを示すものとして応答を処理してください。上記の理由を参考にトラブルシューティングを行ってください。
+このような場合、リクエストは完了したものの、希望する更新が行われなかったことを示すものとして応答を処理してください。[なぜレスポンスの値が元のリクエストの値と一致しないのですか？](#why-doesnt-the-response-value-match-the-one-in-my-original-request)に記載されている理由を参考にトラブルシューティングを行ってください。
 
 {% endapi %}

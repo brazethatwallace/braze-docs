@@ -6,14 +6,16 @@ description: "GitHub에서 미러링된 Braze Unity SDK README 참조입니다."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Unity SDK 리포지토리 가이드 {#unity-sdk-repository-guide}
+
 ## Braze Unity SDK 소개 {#about-the-braze-unity-sdk}
 
 Braze Unity SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애플리케이션에 통합하는 데 도움을 줍니다.
 
 시작하려면 다음 리소스를 참조하세요:
 
-- [Braze 사용자 가이드]({{site.baseurl}}/user_guide/introduction)
-- [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity)
+- [Braze 사용자 가이드](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=unity)
 
 ## 플러그인 설정 {#plugin-setup}
 
@@ -31,7 +33,7 @@ Unity 스크립트에서 Braze를 사용하려면 먼저 플러그인 파일을 
 Braze를 Unity 애플리케이션에 통합하려면 [Braze Unity SDK 통합][2] 안내를 완료하세요.
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
-[2]: {{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity
+[2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
 
 ## 연락처 {#contact}
 

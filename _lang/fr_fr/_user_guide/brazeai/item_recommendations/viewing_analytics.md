@@ -22,7 +22,7 @@ Vous pouvez consulter les analyses de votre recommandation pour voir quels artic
 
 Il s'agit d'indicateurs liés à l'audience de votre recommandation, qui comprennent la précision, la couverture et le type de recommandation.
 
-![Indicateurs d'audience des recommandations affichant la précision (25,3 %), la couverture (54,3 %) et les types de recommandations répartis entre les articles personnalisés et les articles les plus populaires.]({% image_buster /assets/img/item_recs_analytics_1.png %})
+![Indicateurs d'audience des recommandations affichant la précision, la couverture et les types de recommandations répartis entre les articles personnalisés et les articles les plus populaires.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
 Pour plus d'informations, reportez-vous au tableau suivant :
 

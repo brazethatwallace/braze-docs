@@ -51,13 +51,13 @@ La tienda debe llamarse "Shopify" o la integración podría no funcionar correct
 El primer paso es inicializar el SDK web de Braze. Te recomendamos hacerlo instalando nuestro paquete NPM:
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
 
 {% alert important %}
-La versión del SDK web de Braze debe ser 5.4.0.
+La versión del SDK web de Braze debe ser 5.4.0 o posterior.
 {% endalert %}
 
 A continuación, [incluye esta configuración]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) como clave de nivel superior en tu archivo `vite.config.js`:
@@ -138,7 +138,7 @@ Las políticas de seguridad de contenido (normalmente ubicadas en el archivo `en
 Realiza un seguimiento de cuándo un comprador inicia sesión en su cuenta y sincroniza su información de usuario con Braze. Esto incluye llamar a nuestro método `changeUser` para identificar a los clientes con un ID externo de Braze.
 
 {% alert note %}
-Actualmente no disponemos de orientación para admitir un ID externo personalizado de Braze. Si necesitas esto para tu integración ahora, ponte en contacto con tu administrador del éxito del cliente.
+Actualmente no disponemos de orientación para admitir un ID externo personalizado de Braze. Si necesitas esto para tu integración ahora, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
 
 Antes de empezar, asegúrate de que has configurado las URI de devolución de llamada para que el inicio de sesión del cliente funcione dentro de Hydrogen. Para más información, consulta [Utilizar la API de cuenta de cliente con Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
@@ -574,7 +574,7 @@ function CartLineUpdateButton({children, lines}) {
 
 ### Paso 1: Conectar tu tienda Shopify {#step-1-connect-your-shopify-store}
 
-Ve a la página del socio de Shopify para iniciar tu configuración. Primero, selecciona **Begin Setup** para instalar la aplicación de Braze desde la tienda de aplicaciones de Shopify. Sigue los pasos guiados para completar el proceso de instalación.
+Ve a la página del partner de Shopify para iniciar tu configuración. Primero, selecciona **Begin Setup** para instalar la aplicación de Braze desde la tienda de aplicaciones de Shopify. Sigue los pasos guiados para completar el proceso de instalación.
 
 ![Página de configuración de la integración de Shopify en el panel de Braze.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
@@ -602,7 +602,7 @@ Si prefieres realizar el relleno más tarde, puedes completar la configuración 
 
 Para consultar la lista completa de datos en la carga inicial, el comportamiento de los informes de ingresos y la monitorización de la sincronización, consulta [Relleno histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill).
 
-### Paso 5: Configuración personalizada de seguimiento de datos (avanzada) {#step-5-custom-data-tracking-setup-advanced}
+### Paso 5: Configuración personalizada de seguimiento de datos (avanzada) {#step-6}
 
 Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o atributos personalizados que vayan más allá de los datos admitidos para esta integración. Los eventos personalizados capturan interacciones únicas en tu tienda, como:
 
@@ -642,7 +642,7 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
 
 El SDK debe estar inicializado (a la escucha de la actividad) en el dispositivo del usuario para registrar eventos o atributos personalizados. Para saber más sobre el registro de datos personalizados, consulta [User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) y [logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
 
-### Paso 6: Configurar cómo administras a los usuarios (opcional) {#step-6}
+### Paso 6: Configurar cómo administras a los usuarios (opcional)
 
 Selecciona tu tipo de `external_id` en el desplegable.
 
@@ -675,24 +675,24 @@ Una vez creado el metacampo, rellénalo para tus clientes. Recomendamos los sigu
 - **Escuchar webhooks de creación de clientes:** Configura un webhook para escuchar [los eventos `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Esto te permite escribir el metacampo cuando se crea un nuevo cliente.
 - **Rellenar clientes existentes:** Utiliza la [Admin API](https://shopify.dev/docs/api/admin-graphql) o la [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para rellenar el metacampo de los clientes creados previamente.
 
-#### Paso 6.2: Crear un punto de conexión para recuperar tu ID externo {#step-62-create-an-endpoint-to-retrieve-your-external-id}
+#### Paso 6.2: Crear un endpoint para recuperar tu ID externo {#step-62-create-an-endpoint-to-retrieve-your-external-id}
 
-Debes crear un punto de conexión público al que Braze pueda llamar para recuperar el ID externo. Esto permite a Braze obtener el ID en situaciones en las que Shopify no puede proporcionar directamente el metacampo `braze.external_id`.
+Debes crear un endpoint público al que Braze pueda llamar para recuperar el ID externo. Esto permite a Braze obtener el ID en situaciones en las que Shopify no puede proporcionar directamente el metacampo `braze.external_id`.
 
-##### Especificaciones del punto de conexión {#endpoint-specifications}
+##### Especificaciones del endpoint {#endpoint-specifications}
 
 **Método:** GET
 
-Braze envía los siguientes parámetros a tu punto de conexión:
+Braze envía los siguientes parámetros a tu endpoint:
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | Sí      | Cadena    | El ID de cliente de Shopify.                                         |
-| shopify_storefront   | Sí      | Cadena    | El nombre del escaparate para la solicitud. Ej.: `<storefront_name>.myshopify.com` |
-| email_address        | No       | Cadena    | La dirección de correo electrónico del usuario conectado. <br><br>Este campo puede faltar en algunos escenarios de webhook. La lógica de tu punto de conexión debe tener en cuenta los valores nulos aquí (por ejemplo, obtener el correo electrónico utilizando shopify_customer_id si tu lógica interna lo requiere). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Especificaciones del punto de conexión" }
+| shopify_customer_id | Sí | Cadena | El ID de cliente de Shopify. |
+| shopify_storefront | Sí | Cadena | El nombre del escaparate para la solicitud. Ej.: `<storefront_name>.myshopify.com` |
+| email_address | No | Cadena | La dirección de correo electrónico del usuario conectado. <br><br>Este campo puede faltar en algunos escenarios de webhook. La lógica de tu endpoint debe tener en cuenta los valores nulos aquí (por ejemplo, obtener el correo electrónico utilizando shopify_customer_id si tu lógica interna lo requiere). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Especificaciones del endpoint" }
 
-##### Ejemplo de punto de conexión {#example-endpoint}
+##### Ejemplo de endpoint {#example-endpoint}
 
 ```http
 GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
@@ -714,17 +714,17 @@ Es fundamental validar que `shopify_customer_id` y `email_address` (si está pre
 ##### Comportamiento en caso de fallo y fusión {#failure-behavior-and-merging}
 Cualquier código de estado distinto de `200` se considera un fallo.
 
-- **Implicaciones de la fusión:** Si el punto de conexión falla (devuelve un código distinto de `200` o se agota el tiempo de espera), Braze no puede recuperar el ID externo. En consecuencia, la fusión entre el usuario de Shopify y el perfil de usuario de Braze no se producirá en ese momento.
+- **Implicaciones de la fusión:** Si el endpoint falla (devuelve un código distinto de `200` o se agota el tiempo de espera), Braze no puede recuperar el ID externo. En consecuencia, la fusión entre el usuario de Shopify y el perfil de usuario de Braze no se producirá en ese momento.
 - **Lógica de reintento:** Braze puede intentar reintentos de red estándar inmediatos, pero si el fallo persiste, la fusión se aplazará hasta el siguiente evento que cumpla los requisitos (por ejemplo, la próxima vez que el usuario actualice su perfil o complete una compra).
-- **Compatibilidad:** Para poder fusionar usuarios a tiempo, asegúrate de que tu punto de conexión tiene una alta disponibilidad y gestiona el campo opcional `email_address` de forma adecuada.
+- **Compatibilidad:** Para poder fusionar usuarios a tiempo, asegúrate de que tu endpoint tiene una alta disponibilidad y gestiona el campo opcional `email_address` de forma adecuada.
 
 #### Paso 6.3: Introducir tu ID externo {#step-63-input-your-external-id}
 
-Repite [el paso 6](#step-6) e introduce la URL de tu punto de conexión después de seleccionar ID externo personalizado como tipo de ID externo de Braze.
+Repite [el paso 6](#step-6) e introduce la URL de tu endpoint después de seleccionar ID externo personalizado como tipo de ID externo de Braze.
 
 ##### Consideraciones {#considerations}
 
-- Si tu ID externo no se genera cuando Braze envía una solicitud a tu punto de conexión, la integración utilizará de forma predeterminada el ID de cliente de Shopify cuando se llame a la función `changeUser`. Este paso es crucial para fusionar el perfil de usuario anónimo con el perfil de usuario identificado. Como resultado, puede haber un periodo temporal durante el cual existan diferentes tipos de ID externos dentro de tu espacio de trabajo.
+- Si tu ID externo no se genera cuando Braze envía una solicitud a tu endpoint, la integración utilizará de forma predeterminada el ID de cliente de Shopify cuando se llame a la función `changeUser`. Este paso es crucial para fusionar el perfil de usuario anónimo con el perfil de usuario identificado. Como resultado, puede haber un periodo temporal durante el cual existan diferentes tipos de ID externos dentro de tu espacio de trabajo.
 - Cuando el ID externo esté disponible en el metacampo `braze.external_id`, la integración priorizará y asignará este ID externo.
     - Si el ID de cliente de Shopify estaba previamente configurado como ID externo de Braze, se sustituirá por el valor del metacampo `braze.external_id`.
 
@@ -758,7 +758,7 @@ Para activar los mensajes dentro de la aplicación, Content Cards y conmutadores
 
 ### Paso 9: Finalizar la configuración {#step-9-finish-setup}
 
-Cuando hayas realizado todos los pasos, selecciona **Finish Setup** para volver a la página del socio. A continuación, habilita la incrustación de la aplicación Braze en tu página de administración de Shopify, tal y como indica el banner que aparece.
+Cuando hayas realizado todos los pasos, selecciona **Finish Setup** para volver a la página del partner. A continuación, habilita la incrustación de la aplicación Braze en tu página de administración de Shopify, tal y como indica el banner que aparece.
 
 ![Banner que indica que actives la incrustación de la aplicación Braze en Shopify para que puedas terminar de configurar tu integración.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 

@@ -2,14 +2,10 @@
 
 > Descubre el servidor MCP de Braze, una conexión segura que permite a herramientas de IA como Claude y Cursor acceder a datos de Braze que no son PII para responder preguntas, analizar tendencias y proporcionar información.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
-
 {% alert important %}
-## Fin del soporte del servidor MCP de Braze alojado localmente {#sunsetting-the-locally-hosted-braze-mcp-server}
+Este verano, Braze lanzará un servidor MCP remoto, alojado por Braze, en acceso anticipado. Sustituye al servidor beta alojado localmente (`braze-mcp-server` en [PyPI](https://pypi.org/project/braze-mcp-server/) y el directorio de extensiones de Claude Desktop).<br><br>
 
-Este verano, Braze lanzará un servidor MCP remoto, alojado por Braze, en acceso anticipado. Sustituye al servidor beta alojado localmente (`braze-mcp-server` en [PyPI](https://pypi.org/project/braze-mcp-server/) y el directorio de extensiones de Claude Desktop).
-
-**Qué significa esto para ti:**
+**Qué significa esto para ti:**<br><br>
 
 - El servidor alojado localmente seguirá funcionando, pero ya no cuenta con soporte. No añadiremos nuevos puntos finales ni corregiremos problemas en la versión beta.
 - Cuando el servidor remoto esté disponible en acceso anticipado, tendrás que migrar a él. El servidor remoto no requiere instalación local, utiliza OAuth en lugar de claves de API estáticas y funciona con clientes MCP como Claude, Copilot, Gemini CLI, Codex y Cursor.
@@ -89,7 +85,7 @@ Comprueba si estás en modo de consulta o en modo de agente. Para utilizar el se
 
 ### ¿Qué hago cuando el agente devuelve una respuesta que parece incorrecta? {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
 
-Cuando trabajes con herramientas como Cursor, es posible que quieras probar a cambiar el modelo utilizado. Por ejemplo, si lo tienes configurado en automático, prueba a cambiarlo a un modelo específico y experimenta para descubrir cuál es el modelo con mejor rendimiento para tu caso de uso. También puedes intentar iniciar un nuevo chat y volver a intentar el prompt.
+Cuando trabajes con herramientas como Cursor, es posible que quieras probar a cambiar el modelo utilizado. Por ejemplo, si lo tienes configurado en automático, prueba a cambiarlo a un modelo específico y experimenta para descubrir cuál ofrece mejor rendimiento para tu caso de uso. También puedes intentar iniciar un nuevo chat y volver a intentar el prompt.
 
 Si los problemas persisten, puedes enviarnos un correo electrónico a [mcp-product@braze.com](mailto:mcp-product@braze.com) para informarnos. Si es posible, incluye un video y amplía las funciones de llamada para que podamos ver qué llamadas intentó realizar el agente.
 

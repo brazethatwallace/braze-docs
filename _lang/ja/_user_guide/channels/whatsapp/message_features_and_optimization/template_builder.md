@@ -10,7 +10,7 @@ channel:
 
 # WhatsApp テンプレートビルダー {#whatsapp-template-builder}
 
-> WhatsApp テンプレートビルダーを使用すると、BrazeとMeta Business Managerを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成して送信できます。Metaがテンプレートを承認した後は、必要な数のCampaignsやCanvasesで使用できます。
+> WhatsApp テンプレートビルダーを使用すると、BrazeとMeta Business Managerを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成して送信できます。Metaがテンプレートを承認した後は、必要な数のキャンペーンやキャンバスで使用できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -18,7 +18,7 @@ channel:
 
 ## テンプレートを作成する {#create-a-template}
 
-### ステップ 1:WhatsApp テンプレートに移動する {#step-1-go-to-whatsapp-templates}
+### ステップ 1:WhatsAppテンプレートに移動する {#step-1-go-to-whatsapp-templates}
 
 **コンテンツ** > **WhatsApp**に移動し、**新規テンプレートを作成**を選択します。
 
@@ -30,7 +30,7 @@ channel:
 
 | フィールド | 説明 |
 | ----- | ----- |
-| **アカウント** | テンプレートを送信するWhatsApp Business Account（WABA）。WABA内のすべてのサブスクリプショングループと電話番号がテンプレートアクセスを共有します。 |
+| **アカウント** | テンプレートを送信するWhatsApp Business Account（WABA）。WABA内のすべての購読グループと電話番号がテンプレートアクセスを共有します。 |
 | **言語** | このテンプレートの言語。WhatsAppでは言語ごとに個別のテンプレートが必要です。 |
 | **テンプレート名** | テンプレートのユニークな名前。テンプレート名には小文字、数字、アンダースコアのみ使用できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2:テンプレート設定を構成する" }
@@ -57,7 +57,7 @@ channel:
 メッセージのメインコンテンツを入力し、Liquidまたは汎用変数を使用して本文を必要に応じてパーソナライズします。
 
 {% raw %}
-- Liquidタグ（例: `{{${first_name}}}`）を使用します。BrazeはLiquidを保存し、CampaignまたはCanvasの作成画面でテンプレートを使用する際に表示します。
+- Liquidタグ（例: `{{${first_name}}}`）を使用します。BrazeはLiquidを保存し、キャンペーンまたはキャンバスの作成画面でテンプレートを使用する際に表示します。
 - 後でメッセージ作成時にパーソナライゼーションを追加したい場合は、番号付きプレースホルダー（例: `{{1}}`）などの汎用変数を使用します。
 {% endraw %}
 
@@ -90,23 +90,23 @@ channel:
 
 ### ステップ 6:レビューのために送信する {#step-6-submit-for-review}
 
-**送信**を選択して、テンプレートをMetaのレビューに送信します。レビューは通常数分で完了しますが、最大24時間かかる場合があります。テンプレートは送信後に**WhatsApp テンプレート**ページに表示され、**WhatsApp テンプレート**ページを更新するとステータスが更新されます。
+**送信**を選択して、テンプレートをMetaのレビューに送信します。レビューは通常数分で完了しますが、最大24時間かかる場合があります。テンプレートは送信後に**WhatsAppテンプレート**ページに表示され、**WhatsAppテンプレート**ページを更新するとステータスが更新されます。
 
 ## サポートされているテンプレートカテゴリ {#supported-template-categories}
 
-WhatsApp テンプレートビルダーでは、現在マーケティングテンプレートのみがサポートされています。
+WhatsAppテンプレートビルダーでは、現在マーケティングテンプレートのみがサポートされています。
 
-## 承認済みテンプレートをCampaignで使用する {#use-an-approved-template-in-a-campaign}
+## 承認済みテンプレートをキャンペーンで使用する {#use-an-approved-template-in-a-campaign}
 
-Metaがテンプレートを承認した後、WhatsApp CampaignまたはCanvasで使用できます。
+Metaがテンプレートを承認した後、WhatsAppキャンペーンまたはキャンバスで使用できます。
 
-1. **Campaigns**に移動し、**キャンペーンを作成** > **WhatsApp**を選択します。
+1. **キャンペーン**に移動し、**キャンペーンを作成** > **WhatsApp**を選択します。
 2. メッセージ作成画面で、承認済みテンプレートを選択します。
 3. Brazeはテンプレートのコンテンツ（テンプレート作成時に入力したメディアやLiquidを含む）を自動的に入力するため、再入力する必要はありません。
 4. 必要に応じて変数コンテンツやパーソナライゼーションを更新します。Metaによってロックされたフィールド（グレーで表示）は編集できません。ロックされたコンテンツを変更するには、テンプレートを編集して承認のために再送信する必要があります。
 5. **テスト**タブを使用してメッセージをプレビューし、本文変数を更新し、起動前にメッセージが期待どおりに表示されることを確認します。
 
-WhatsApp Campaignの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)を参照してください。
+WhatsAppキャンペーンの構築の詳細については、[WhatsAppメッセージを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -116,7 +116,7 @@ WhatsApp Campaignの構築の詳細については、[WhatsAppメッセージを
 
 ### 承認後にテンプレートを編集できますか {#can-i-edit-a-template-after-its-been-approved}
 
-ロックされたコンテンツ（本文コピーやその他のMeta管理フィールド）を変更するには、テンプレートを承認のために再送信する必要があり、WhatsApp Business Managerから行う必要があります。CampaignまたはCanvasを構築する際に、コンテンツとパーソナライゼーションを更新できます。
+ロックされたコンテンツ（本文コピーやその他のMeta管理フィールド）を変更するには、テンプレートを承認のために再送信する必要があり、WhatsApp Business Managerから行う必要があります。キャンペーンまたはキャンバスを構築する際に、コンテンツとパーソナライゼーションを更新できます。
 
 ### テンプレートビルダーが利用可能になる前に送信したテンプレートはどうなりますか {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 

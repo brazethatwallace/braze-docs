@@ -2,19 +2,19 @@
 nav_title: メッセージエクストラタグ
 article_title: メッセージエクストラタグ
 page_order: 1
-description: "この記事では、メッセージエクストラ Liquid タグの使用方法と構文の確認方法について説明します。"
+description: "この記事では、メッセージエクストラ Liquidタグの使用方法と構文の確認方法について説明します。"
 alias: "/message_extras_tag/"
 ---
 
-# メッセージエクストラ Liquid タグ {#message-extras-liquid-tag}
+# メッセージエクストラ Liquidタグ {#message-extras-liquid-tag}
 
-> `message_extras` Liquid タグを使用して、コネクテッドコンテンツ、カタログ、カスタム属性（言語、国など）、Canvasエントリプロパティ、またはその他のデータソースからのダイナミックなデータで送信イベントにアノテーションを付けます。
+> `message_extras` Liquidタグを使用して、Connected Content、カタログ、カスタム属性（言語、国など）、キャンバスエントリプロパティ、またはその他のデータソースからのダイナミックなデータで送信イベントにアノテーションを付けます。
 
-`message_extras` Liquid タグは、Currentsおよび Snowflake データ共有の対応する送信イベントにキーと値のペアを追加します。
+`message_extras` Liquidタグは、Currentsおよび Snowflake データ共有の対応する送信イベントにキーと値のペアを追加します。
 
-ダイナミックなデータまたは追加データをCurrentsまたは Snowflake データ共有の送信イベントに返すには、メッセージ本文に適切な Liquid タグを挿入します。
+ダイナミックなデータまたは追加データをCurrentsまたは Snowflake データ共有の送信イベントに返すには、メッセージ本文に適切な Liquidタグを挿入します。
 
-以下は、`message_extras` の標準的な Liquid タグ形式の例です。
+以下は、`message_extras` の標準的な Liquidタグ形式の例です。
 
 {% raw %}
 ```liquid
@@ -22,21 +22,21 @@ alias: "/message_extras_tag/"
 ```
 {% endraw %}
 
-これらのタグは、メッセージ本文のキーと値のペアに必要に応じて追加できます。ただし、すべてのキーと値の長さの合計は1,000バイト（1&nbsp;KB）を超えないようにしてください。Currentsおよび Snowflake データ共有では、送信イベントに `message_extras` という新しいイベントフィールドが表示されます。これにより、1つのフィールドに JSON シリアライズされた文字列が生成されます。
+これらのタグは、メッセージ本文のキーと値のペアに必要に応じて追加できます。ただし、すべてのキーと値の長さの合計は1,000バイト（1&nbsp;KB）を超えないようにしてください。Currentsおよび Snowflake データ共有では、送信イベントに `message_extras` という新しいイベントフィールドが表示されます。これにより、1つのフィールドに JSONシリアライズされた文字列が生成されます。
 
 ## Currentsを使用したメッセージエクストラデータの送信方法 {#how-message-extras-data-is-sent-using-currents}
 
-**メッセージエクストラ**は、送信時に付加されるキーと値のペアです。設定はチャネルによって異なります。メールの場合、ヘッダーを使用して追加されます。iOS プッシュの場合、プッシュペイロードに含まれます。サポートされているすべての送信イベントは、メッセージが送信されると、Currents（および Snowflake）で同じ `message_extras` フィールドを表示します。
+**メッセージエクストラ**は、送信時に付加されるキーと値のペアです。設定はチャネルによって異なります。メールの場合、ヘッダーを使用して追加されます。iOSプッシュの場合、プッシュペイロードに含まれます。サポートされているすべての送信イベントは、メッセージが送信されると、Currents（および Snowflake）で同じ `message_extras` フィールドを表示します。
 
 ## サポートされているチャネル {#supported-channels}
 
-`message_extras` タグは、送信イベントを持つすべてのメッセージタイプと、アプリ内メッセージのインプレッションイベントでサポートされています。アプリ内メッセージで `message_extras` を使用するには、特定の[最小 SDK バージョン](#iam-sdk)を満たす必要があります。
+`message_extras` タグは、送信イベントを持つすべてのメッセージタイプと、アプリ内メッセージのインプレッションイベントでサポートされています。アプリ内メッセージで `message_extras` を使用するには、特定の[最小SDKバージョン](#iam-sdk)を満たす必要があります。
 
 ## `message_extras` タグの使用方法 {#how-to-use-the-message_extras-tag}
 
-1. チャネルのメッセージ本文に、`message_extras` Liquid タグを入力します。または、**Add Personalization** モーダルを使用して、パーソナライゼーションタイプとして **Message Extras** を選択することもできます。
+1. チャネルのメッセージ本文に、`message_extras` Liquidタグを入力します。または、**パーソナライゼーションを追加**モーダルを使用して、パーソナライゼーションタイプとして**メッセージエクストラ**を選択することもできます。
 
-![パーソナライゼーションタイプとして Message Extras が選択された Add Personalization モーダル。]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
+![パーソナライゼーションタイプとしてメッセージエクストラが選択されたパーソナライゼーションを追加モーダル。]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
 
 {: start="2"}
 
@@ -46,7 +46,7 @@ alias: "/message_extras_tag/"
 
 {: start="3"}
 
-3. CampaignまたはCanvasが送信された後、Brazeは送信時にCurrentsまたは Snowflake データ共有の送信イベントを通じて、ダイナミックなデータを `message_extras` フィールドに付加します。
+3. キャンペーンまたはキャンバスが送信された後、Brazeは送信時にCurrentsまたは Snowflake データ共有の送信イベントを通じて、ダイナミックなデータを `message_extras` フィールドに付加します。
 
 ## 構文の確認 {#checking-syntax}
 
@@ -66,18 +66,18 @@ alias: "/message_extras_tag/"
 
 - 1,000バイト（1&nbsp;KB）を超えるキーと値は切り捨てられます。
 - 空白は文字数にカウントされます。Brazeは先頭と末尾の空白を省略することに注意してください。
-- 結果の JSON は文字列値のみを出力します。
-- Liquid 変数をキーまたは値として含めることができますが、`message_extras` 内に追加の Liquid タグをネストすることはできません。
-  - 例えば、次の Liquid を使用できます：{% raw %}`{% assign value = '123' %} {% assign key = 'test' %} {% message_extras :key {{key}} :value {{value}} %}`{% endraw %}
+- 結果のJSONは文字列値のみを出力します。
+- Liquid変数をキーまたは値として含めることができますが、`message_extras` 内に追加のLiquidタグをネストすることはできません。
+  - 例えば、次のLiquidを使用できます：{% raw %}`{% assign value = '123' %} {% assign key = 'test' %} {% message_extras :key {{key}} :value {{value}} %}`{% endraw %}
 
 ## よくある質問 {#frequently-asked-questions}
 
-### 送信イベントの message_extras フィールドを、開封やクリックなどのエンゲージメントイベントに関連付けるにはどうすればよいですか？ {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
+### 送信イベントのmessage_extrasフィールドを、開封やクリックなどのエンゲージメントイベントに関連付けるにはどうすればよいですか？ {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
 
-`dispatch_id` が生成され、送信イベントに提供されます。これは、特定のクリック、開封、または配信イベントに紐付けるためのユニークな識別子として使用できます。このフィールドはCurrentsまたは Snowflake でクエリできます。詳しくは、[Dispatch ID の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)をご覧ください。
+`dispatch_id` が生成され、送信イベントに提供されます。これは、特定のクリック、開封、または配信イベントに紐付けるためのユニークな識別子として使用できます。このフィールドはCurrentsまたは Snowflake でクエリできます。詳しくは、[Dispatch IDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)をご覧ください。
 
-#### アプリ内メッセージで message_extras を使用できますか？ {#iam-sdk}
+#### アプリ内メッセージでmessage_extrasを使用できますか？ {#iam-sdk}
 
-はい、ユーザーのデバイスが以下の最小 SDK バージョンを満たしている限り、アプリ内メッセージで `message_extras` を使用できます。
+はい、ユーザーのデバイスが以下の最小SDKバージョンを満たしている限り、アプリ内メッセージで `message_extras` を使用できます。
 
 {% sdk_min_versions web:5.2.0 android:30.4.0 swift:8.4.0 %}

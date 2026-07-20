@@ -48,13 +48,13 @@ Braze 커스텀 속성용 Celebrus 커넥터는 Braze가 수신할 것으로 예
 
 #### 2단계: Braze 대시보드에서 클라우드 데이터 수집 구성 {#step-2-configure-cloud-data-ingestion-in-your-braze-dashboard}
 
-이 통합은 Braze 클라우드 데이터 수집을 사용합니다. [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)의 지침에 따라 사용 중인 웨어하우스 유형에 맞게 [클라우드 데이터 수집 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)을 설정하고 구성합니다.
+이 통합은 Braze 클라우드 데이터 수집을 사용합니다. [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)의 지침에 따라 사용 중인 웨어하우스 유형에 맞게 [클라우드 데이터 수집 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 설정하고 구성합니다.
 
 #### 3단계: Celebrus에서 Braze로 데이터 동기화 {#step-3-sync-data-from-celebrus-to-braze}
 
 Celebrus는 이메일, 전화번호, `external_id` 또는 사용자 별칭과 같은 고유 식별자를 개인에게 캡처하고 할당한 후 CDI를 통해 Braze로 전송합니다. 이를 통해 동일한 개인에 대한 데이터를 Braze와 동기화할 수 있습니다.
 
-Celebrus는 정의된 식별자를 사용하여 Celebrus 프로필 빌더에 정의된 고객 속성을 전송하지만, 속성 값이 변경된 경우에만 전송합니다. Celebrus 프로필 빌더에 정의된 속성 이름은 기본적으로 Braze에서 사용됩니다. 따라서 [Braze 명명 규칙]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)을 준수하도록 이러한 이름을 업데이트해야 합니다.
+Celebrus는 정의된 식별자를 사용하여 Celebrus 프로필 빌더에 정의된 고객 속성을 전송하지만, 속성 값이 변경된 경우에만 전송합니다. Celebrus 프로필 빌더에 정의된 속성 이름은 기본적으로 Braze에서 사용됩니다. 따라서 [Braze 명명 규칙]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)을 준수하도록 이러한 이름을 업데이트해야 합니다.
 
 {% alert important %}
 현재 이 릴리스는 이벤트와 구매를 지원하지 않습니다.<br><br> 이 통합은 속성을 문자열 값으로 전송하므로 일부 속성은 리스트(예: signals)입니다. 현재 리스트를 배열로 변환할 수 없습니다. 중첩된 속성은 없습니다.

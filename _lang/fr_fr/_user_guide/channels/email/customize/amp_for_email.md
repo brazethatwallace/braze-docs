@@ -3,7 +3,7 @@ nav_title: "AMP pour l'e-mail"
 article_title: "AMP pour l'e-mail"
 alias: /amphtml/
 page_order: 11
-description: "Cet article de référence fournit un aperçu d'AMP pour l'e-mail et des cas d'utilisation courants."
+description: "Cet article de référence fournit un aperçu d'AMP pour l'e-mail et des cas d'usage courants."
 channel:
   - email
 
@@ -22,7 +22,7 @@ Braze n'est pas responsable de l'inscription des utilisateurs auprès de Google 
 | AMP pour l'e-mail activé | AMP est disponible pour tous les utilisateurs. |
 | Activation du compte Gmail | Voir [Activation du compte Gmail](#enabling-gmail-account). |
 | Authentification de l'expéditeur Google | Gmail [authentifie l'expéditeur](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) des e-mails AMP avec DKIM, SPF et DMARC. Ceux-ci doivent être configurés pour votre compte. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| Éléments d'e-mail AMP | Un e-mail AMP convaincant inclut l'utilisation stratégique de divers composants. Consultez l'onglet Essentiels dans la section [Composants](#components) ci-dessous. |
+| Éléments d'e-mail AMP | Un e-mail AMP convaincant inclut l'utilisation stratégique de divers composants. Consultez l'onglet Essentiels dans la section [Composants](#components). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions requises" }
 
 ### Clients de messagerie pris en charge {#supported-email-clients}
@@ -39,6 +39,10 @@ Avant de pouvoir envoyer des e-mails AMP à vos utilisateurs, vous devez vous in
 
 Pour une liste complète des clients de messagerie pris en charge, consultez la [documentation AMP](https://amp.dev/support/faq/email-support).
 
+#### Envoi à des fournisseurs non enregistrés {#send-to-unregistered-providers}
+
+Si vous envoyez un e-mail AMP à des fournisseurs comme Yahoo ou Mail.ru avant d'avoir terminé leur processus d'inscription, ces fournisseurs ignorent la partie AMP de l'e-mail et affichent la version HTML ou texte brut de secours à la place. La partie AMP elle-même ne cause pas de problèmes de livrabilité pour les expéditeurs non enregistrés.
+
 ### Activation du compte Gmail {#enabling-gmail-account}
 
 Accédez aux paramètres de votre compte Gmail, puis sélectionnez **Enable dynamic email** dans l'onglet **General**.
@@ -47,7 +51,7 @@ Accédez aux paramètres de votre compte Gmail, puis sélectionnez **Enable dyna
 
 ## Utilisation de l'API {#api-usage}
 
-Vous pouvez également utiliser AMP pour l'e-mail avec notre API. Si vous utilisez l'un des [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging) de Braze pour envoyer un e-mail, ajoutez `amp_body` comme spécification d'objet comme indiqué ci-dessous.
+Vous pouvez également utiliser AMP pour l'e-mail avec notre API. Si vous utilisez l'un des [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging) de Braze pour envoyer un e-mail, ajoutez `amp_body` comme spécification d'objet comme indiqué dans la section suivante.
 
 ### Spécification de l'objet e-mail {#email-object-specification}
 
@@ -149,7 +153,7 @@ Tout composant nécessitant l'authentification de l'utilisateur doit utiliser de
 
 Pour une liste complète des composants AMP, consultez la [documentation AMP](https://amp.dev/documentation/components/?format=email).
 
-### Cas d'utilisation {#use-cases}
+### Cas d'usage {#use-cases}
 
 {% tabs local %}
 {% tab Sondages interactifs %}
@@ -192,7 +196,7 @@ Exemples :
 
 ### Utilisation d'amp-mustache {#use-amp-mustache}
 
-Comme Liquid, AMP prend en charge un langage de script pour des cas d'utilisation plus avancés. Ce composant s'appelle [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email). Lorsque vous incluez du balisage Mustache, vous devez l'envelopper dans la balise [`raw`](https://shopify.github.io/liquid/tags/raw/) de Liquid. Notez que Liquid et Mustache partagent un style de syntaxe similaire.
+Comme Liquid, AMP prend en charge un langage de script pour des cas d'usage plus avancés. Ce composant s'appelle [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email). Lorsque vous incluez du balisage Mustache, vous devez l'envelopper dans la balise [`raw`](https://shopify.github.io/liquid/tags/raw/) de Liquid. Notez que Liquid et Mustache partagent un style de syntaxe similaire.
 
 En enveloppant votre contenu dans la balise `raw`, le moteur de traitement de Braze ignorera tout contenu entre les balises `raw` et enverra la variable Mustache dont votre équipe a besoin.
 
@@ -256,7 +260,7 @@ Si aucune de ces conditions n'est à l'origine de l'erreur, contactez l'[Assista
 
 Vous pouvez configurer votre boîte de réception Gmail pour afficher les e-mails AMP à des fins de test en procédant comme suit :
 
-1. Dans Gmail, sélectionnez **Settings** dans le coin supérieur droit de votre boîte de réception.
+1. Dans Gmail, sélectionnez **Settings** dans la barre d'outils de votre boîte de réception.
 2. Sélectionnez **See all settings**.
 3. Dans l'onglet **General**, accédez à la section **Dynamic email** et vérifiez que la case **Enable dynamic email** est cochée.
 4. Ensuite, sélectionnez **Developer Settings**, puis cochez la case **Always allow dynamic emails from this sender:**.

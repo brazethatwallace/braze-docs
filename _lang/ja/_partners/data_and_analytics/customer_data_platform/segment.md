@@ -7,7 +7,7 @@ guide_top_text: "セグメントは、ファーストパーティの顧客デー
 description: "このランディングページは、顧客データプラットフォームであるセグメントに関するあらゆる情報のホームページです。"
 
 guide_featured_list:
-- name: セグメント
+- name: Segments
   link: /docs/partners/data_and_analytics/customer_data_platform/segment/segment/
   image: /assets/img/braze_icons/user-circle.svg
 - name: セグメント Engage

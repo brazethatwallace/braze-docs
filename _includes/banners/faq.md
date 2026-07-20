@@ -24,9 +24,23 @@ If a user qualifies for multiple Banner campaigns that share the same placement,
 
 Banners are different from Content Cards, meaning you can’t use Banners and Content Cards in the same feed. To replace existing Content Card feeds with Banners, you’ll need to [create placements in your app or website]({{site.baseurl}}/developer_guide/banners/placements/).
 
+## How are Banners different from in-app messages?
+
+Banners and [in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/) both reach users inside your app or website, but they use different delivery models. If you're comparing Banners to an existing in-app message setup, expect differences in triggers, refresh timing, and testing, not a one-to-one swap.
+
+| Topic | Banners | In-app messages |
+| --- | --- | --- |
+| Where messages appear | Inline at [placements]({{site.baseurl}}/developer_guide/banners/placements/) you define in your app or site | Full-screen, modal, or slide-up overlays managed by the SDK |
+| When content updates | When your app or site calls a Banner refresh (for example at session start or mid-session) | Templated messages evaluate Liquid when the in-app message is triggered (for example on a custom event or session start), after the payload is cached on the device |
+| Action-based triggers | No [action-based delivery]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery); use segments, priority, and refresh timing instead | Supports action-based and API-triggered delivery |
+| Testing | Preview a user, then confirm the placement refresh in your app or site shows the expected Banner | Use **Test Send** or in-app preview flows for trigger-based display |
+| Reporting | Banner views and clicks follow Banner analytics | In-app impressions and clicks follow in-app message analytics |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How are Banners different from in-app messages?" }
+
+
 ## Can Banners include video?
 
-The standard Banner composer supports images, text, and buttons. To include a video in a Banner, you could use a **Custom Code** block and render a video or embedded player in your app or website.
+The standard Banner builder supports images, text, and buttons. To include a video in a Banner, you can use a **Custom Code** block in the builder, or build the entire Banner with the HTML editor and embed a video player directly in your HTML.
 
 ## Can I trigger a banner based on user actions?
 
@@ -41,7 +55,7 @@ When the user starts a new session or refreshes Banners after performing the act
 
 ## Can users dismiss a Banner?
 
-Yes. You can allow users to manually dismiss a Banner by turning on dismissal behavior in the Banner composer. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for details on turning on dismissal and customizing the dismiss button.
+Yes. You can allow users to manually dismiss a Banner. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for details on how to configure dismissal in both the builder and the HTML editor.
 
 Users can manually dismiss Banners only if dismissal behavior is enabled. If dismissal isn't enabled, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
 
@@ -69,8 +83,9 @@ No. However, most Liquid tags are supported for Banner messages, except for `cat
 
 Yes. How click events are captured depends on how your Banner is rendered:
 
-- **Standard editor components:** If your Banner uses standard editor components (images, buttons, text), clicks are tracked automatically when using the SDK's insertion methods.
-- **Custom Code Blocks:** If you want to track clicks for elements within a Custom Code editor block, you must call `brazeBridge.logClick()` from within your custom HTML to track clicks. This applies even when using the SDK methods to insert and render the Banner. For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge).
+- **Builder — standard components:** If your Banner uses standard editor components (images, buttons, text), clicks are tracked automatically when using the SDK's insertion methods.
+- **Builder — Custom Code blocks:** If you want to track clicks for elements within a Custom Code editor block, you must call `brazeBridge.logClick()` from within your custom HTML. This applies even when using the SDK methods to insert and render the Banner.
+- **HTML editor:** Click tracking is not automatic. You must call `brazeBridge.logClick()` for every clickable element you want to track. For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code/#javascript-bridge).
 - **Custom UI (headless):** If you're building a fully custom UI using the Banner's custom properties instead of rendering the Banner HTML, call `logClick()` on the Banner object from your application code.
 
 For more information, see [Logging clicks]({{site.baseurl}}/developer_guide/banners/placements/#logging-clicks).

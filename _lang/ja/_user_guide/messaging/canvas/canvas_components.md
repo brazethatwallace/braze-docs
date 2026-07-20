@@ -1,14 +1,14 @@
 ---
-nav_title: Canvasコンポーネント
-article_title: Canvasコンポーネント
+nav_title: キャンバスコンポーネント
+article_title: キャンバスコンポーネント
 page_order: 3
 alias: "/user_guide/messaging/canvas/canvas_components/about/"
 layout: dev_guide
-guide_top_header: "Canvasコンポーネント"
-guide_top_text: "Canvasコンポーネントを使用して、Canvasジャーニーを強化しましょう。Canvasコンポーネントを使用すると、過剰なフルステップを1つに置き換えることで、Canvasの効果を判断するプロセスを簡素化できます。Canvasのコンポーネントとは、Canvasブランチにおけるパーソナライズされたユーザージャーニーを指します。"
+guide_top_header: "キャンバスコンポーネント"
+guide_top_text: "キャンバスコンポーネントを使用して、キャンバスジャーニーを強化しましょう。キャンバスコンポーネントを使用すると、過剰なフルステップを1つに置き換えることで、キャンバスの効果を判断するプロセスを簡素化できます。キャンバスのコンポーネントとは、キャンバスブランチにおけるパーソナライズされたユーザージャーニーを指します。"
 
 page_type: landing
-description: "このランディングページには、より高度なCanvasesの作成に役立つCanvasコンポーネントの記事がまとめられています。これらのコンポーネントには、メッセージステップ、遅延ステップ、条件分岐ステップなどがあります。"
+description: "このランディングページには、より高度なキャンバスの作成に役立つキャンバスコンポーネントの記事がまとめられています。これらのコンポーネントには、メッセージステップ、遅延ステップ、条件分岐ステップなどがあります。"
 tool: Canvas
 
 guide_featured_title: "セクション記事"
@@ -54,23 +54,23 @@ guide_featured_list:
     image: /assets/img/braze_icons/user-check-01.svg
 ---
 
-## Canvasコンポーネントについて {#about-canvas-components}
+## キャンバスコンポーネントについて {#about-canvas-components}
 
-Canvasコンポーネントを使用すると、新しいユーザージャーニーを実現し、プロセスを改善してオーディエンスへのリーチの効果を高めることができます。
+キャンバスコンポーネントを使用すると、新しいユーザージャーニーを実現し、プロセスを改善してオーディエンスへのリーチの効果を高めることができます。
 
 ### ユーザージャーニーのカスタマイズ {#customizing-user-journeys}
 
-![条件分岐ステップの後に遅延ステップとメッセージステップが続くCanvasユーザージャーニーの例。]({% image_buster /assets/img/canvas_intro/canvas_intro.gif %}){: style="float:right;max-width:55%;margin-left:15px;"}
+![条件分岐ステップの後に遅延ステップとメッセージステップが続くキャンバスユーザージャーニーの例。]({% image_buster /assets/img/canvas_intro/canvas_intro.gif %}){: style="float:right;max-width:55%;margin-left:15px;"}
 
-[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を使用すると、購入などのアクションやエンゲージメントイベントに基づいてユーザージャーニーを分岐できます。オーディエンスをフィルタリングしてターゲティングしたい場合は、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)を使用すると、オーディエンス条件に基づいてユーザーを異なるCanvasパスに送ることで、ユーザーターゲティングを簡素化できます。
+[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を使用すると、購入などのアクションやエンゲージメントイベントに基づいてユーザージャーニーを分岐できます。オーディエンスをフィルタリングしてターゲティングしたい場合は、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)を使用すると、オーディエンス条件に基づいてユーザーを異なるキャンバスパスに送ることで、ユーザーターゲティングを簡素化できます。
 
 [条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)コンポーネントは、シンプルな「はい/いいえ」のロジックを使用して、アクションまたはユーザー属性に基づく2つの相互排他的なパスを作成します。これにより、ユーザーグループの特定とターゲティングが可能になります。
 
-[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)コンポーネントを使用すると、Canvas内の単一ステップを遅延させることができます。Canvas内のこのスタンドアロンの遅延ステップは、特定のタイミングでユーザーにメッセージを送信する場合に最適です。さらに、遅延コンポーネントは、オーディエンスがコンポーネントの条件を満たすための時間を確保することで、オーディエンスリーチを拡大する効果もあります。
+[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)コンポーネントを使用すると、キャンバス内の単一ステップを遅延させることができます。キャンバス内のこのスタンドアロンの遅延ステップは、特定のタイミングでユーザーにメッセージを送信する場合に最適です。さらに、遅延コンポーネントは、オーディエンスがコンポーネントの条件を満たすための時間を確保することで、オーディエンスリーチを拡大する効果もあります。
 
 ### テスト {#testing}
 
-ユーザージャーニーを作成する際に、最も効果的なCanvasパスをテストしたい場合があります。[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)を使用すると、任意のステップで複数のCanvasパスをテストできます。また、ステップ間の接続を高レベルのプレビューとして使用することもできます。オレンジ色の接続は、前のステップがユーザーを次のステップにすぐに進めることを示しています。
+ユーザージャーニーを作成する際に、最も効果的なキャンバスパスをテストしたい場合があります。[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)を使用すると、任意のステップで複数のキャンバスパスをテストできます。また、ステップ間の接続を高レベルのプレビューとして使用することもできます。オレンジ色の接続は、前のステップがユーザーを次のステップにすぐに進めることを示しています。
 
 ### 統合 {#integration}
 

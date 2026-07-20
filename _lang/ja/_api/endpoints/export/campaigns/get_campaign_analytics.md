@@ -24,7 +24,7 @@ description: "この記事では、キャンペーン分析のエクスポート
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.data_series` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`campaigns.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -34,7 +34,7 @@ description: "この記事では、キャンペーン分析のエクスポート
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [キャンペーンAPI 識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br>API キャンペーンの`campaign_id`は、[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページおよびダッシュボードの**Campaign Details**ページで確認できます。また、[キャンペーン一覧エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns)を使用することもできます。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーンAPI識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br>APIキャンペーンの`campaign_id`は、[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページおよびダッシュボードの**キャンペーンの詳細**ページで確認できます。また、[キャンペーン一覧エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns)を使用することもできます。 |
 | `length` | 必須 | 整数 | 返されるシリーズに含める`ending_at`までの最大日数。1以上100以下（両端を含む）でなければなりません。 |
 | `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。デフォルトはリクエストの時刻です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
@@ -48,9 +48,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 ```
 {% endraw %}
 
-## 応答 {#responses}
+## レスポンス {#responses}
 
-### マルチチャネル応答 {#multichannel-response}
+### マルチチャネルレスポンス {#multichannel-response}
 
 ```json
 {
@@ -151,7 +151,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 }
 ```
 
-### 多変量応答 {#multivariate-response}
+### 多変量レスポンス {#multivariate-response}
 
 ```json
 {
@@ -236,6 +236,6 @@ CSVおよびAPIのエクスポートに関するヘルプについては、「[�
 
 ### APIトリガーキャンペーンの配信失敗を確認する {#viewing-delivery-failures-for-api-triggered-campaigns}
 
-[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)エンドポイントは、集計された日次統計（例: SMSの`delivery_failed`やWebhookの`errors`）を返します。受信者ごとの失敗理由は返されません。
+[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)エンドポイントは、集計された日次統計（例: SMSの`delivery_failed`やwebhookの`errors`）を返します。受信者ごとの失敗理由は返されません。
 
-APIトリガーまたはAPI キャンペーンからのメッセージ送信の失敗、バウンス、中止については、ダッシュボードの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)を使用してください。送信および配信イベントに関するカスタムレポートには、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)と[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)またはカスタムSQLを使用できます。ワークスペースでこれらの製品が有効になっている場合は、CurrentsまたはSnowflakeデータ共有を通じて失敗イベントをストリーミングすることもできます。
+APIトリガーまたはAPIキャンペーンからのメッセージ送信の失敗、バウンス、中止については、ダッシュボードの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)を使用してください。送信および配信イベントに関するカスタムレポートには、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)と[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)またはカスタムSQLを使用できます。ワークスペースでこれらの製品が有効になっている場合は、CurrentsまたはSnowflakeデータ共有を通じて失敗イベントをストリーミングすることもできます。

@@ -15,11 +15,11 @@ description: "이 문서에서는 카탈로그 선택 항목 만들기 Braze 엔
 /catalogs/{catalog_name}/selections
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 카탈로그에서 선택 항목을 생성합니다.
+> 이 엔드포인트를 사용하여 카탈로그에서 선택 항목을 생성할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.create_selection` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.create_selection` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -150,18 +150,18 @@ API는 선택 요청당 최대 네 개의 필터를 지원합니다. Braze 대�
 
 | 오류 | 문제 해결 |
 |--------------------------------------|-----------------------------------------------------------------------------------------------|
-| `catalog-not-found`                  | 카탈로그 이름이 유효한지 확인합니다. |
+| `catalog-not-found`                  | 카탈로그 이름이 유효한지 확인하세요. |
 | `company-size-limit-already-reached` | 카탈로그 저장소 크기 제한에 도달했습니다. |
 | `selection-limit-reached`            | 카탈로그 선택 항목 제한에 도달했습니다. |
-| `invalid-selection`                  | 선택 항목이 유효한지 확인합니다. |
-| `too-many-filters`                   | 선택 항목에 필터가 너무 많은지 확인합니다. |
-| `selection-name-already-exists`      | 선택 항목 이름이 카탈로그에 이미 존재하는지 확인합니다. |
-| `selection-has-invalid-filter`       | 선택 항목 필터가 유효한지 확인합니다. |
-| `selection-invalid-results-limit`    | 선택 항목 결과 제한이 유효한지 확인합니다. |
-| `invalid-sorting`                    | 선택 항목 정렬이 유효한지 확인합니다. |
-| `invalid-sort-field`                 | 선택 항목 정렬 필드가 유효한지 확인합니다. |
-| `invalid-sort-order`                 | 선택 항목 정렬 순서가 유효한지 확인합니다. |
-| `selection-contains-too-many-arrays` | 선택 항목에 `array` 유형의 필드가 두 개 이상 포함되어 있는지 확인합니다. 하나만 지원됩니다. |
+| `invalid-selection`                  | 선택 항목이 유효한지 확인하세요. |
+| `too-many-filters`                   | 선택 항목에 필터가 너무 많은지 확인하세요. |
+| `selection-name-already-exists`      | 선택 항목 이름이 카탈로그에 이미 존재하는지 확인하세요. |
+| `selection-has-invalid-filter`       | 선택 항목 필터가 유효한지 확인하세요. |
+| `selection-invalid-results-limit`    | 선택 항목 결과 제한이 유효한지 확인하세요. |
+| `invalid-sorting`                    | 선택 항목 정렬이 유효한지 확인하세요. |
+| `invalid-sort-field`                 | 선택 항목 정렬 필드가 유효한지 확인하세요. |
+| `invalid-sort-order`                 | 선택 항목 정렬 순서가 유효한지 확인하세요. |
+| `selection-contains-too-many-arrays` | 선택 항목에 `array` 유형의 필드가 두 개 이상 포함되어 있는지 확인하세요. 하나만 지원됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

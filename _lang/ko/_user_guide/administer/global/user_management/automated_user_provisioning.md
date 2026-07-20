@@ -14,6 +14,10 @@ alias: /scim/automated_user_provisioning/
 
 ## SCIM 프로비저닝 설정에 접근하기 {#accessing-scim-provisioning-settings}
 
+{% alert important %}
+SCIM 프로비저닝 사용 가능 여부는 플랫폼 에디션에 따라 다릅니다. 워크스페이스에서 이 기능을 사용할 수 없는 경우 고객 성공 매니저에게 문의하세요.
+{% endalert %}
+
 1. Braze 대시보드에서 **설정** > **관리자 설정** > **SCIM 프로비저닝**으로 이동한 다음 **SCIM 통합 구성**을 선택합니다.
 2. **Braze 구성** 단계에서 프로비저닝 방법을 선택하고 접근 설정을 제공합니다.
 
@@ -145,6 +149,10 @@ Microsoft Entra 관리 센터에 로그인합니다.
 3. **Setup SCIM provisioning** 페이지의 테이블에 표시되는 속성과 일치하도록 **Attribute Mapping** 섹션을 검토하고 구성합니다.
 4. **Attribute Mapping** 페이지를 닫습니다.
 
+{% alert important %}
+`userName` 속성은 SCIM이 사용자를 올바르게 식별하고 관리할 수 있도록 Braze에서 사용자의 이메일 주소와 정확히 일치해야 합니다. SCIM이 활성화되기 전에 Braze에서 수동으로 프로비저닝된 사용자는 SCIM 애플리케이션에 추가되더라도 자동으로 IdP 관리 사용자로 전환되지 않습니다. 해당 사용자의 프로비저닝 방법은 수동으로 유지됩니다.
+{% endalert %}
+
 ## 2단계: 앱에 사용자 할당하기
 
 1. **Manage** > **Users and Groups**로 이동합니다.
@@ -158,7 +166,7 @@ Microsoft Entra 관리 센터에 로그인합니다.
 ## 1단계: SCIM 설정 구성하기 {#step-1-configure-your-scim-settings}
 
 - **기본 워크스페이스:** 새 사용자가 기본적으로 추가될 워크스페이스를 선택합니다. [SCIM API 요청]({{site.baseurl}}/post_create_user_account)에서 워크스페이스를 지정하지 않으면 Braze가 사용자를 이 워크스페이스에 할당합니다.
-- **서비스 오리진:** SCIM 요청의 오리진 도메인을 입력합니다. Braze는 이를 `X-Request-Origin` 헤더에서 사용하여 요청의 출처를 확인합니다.
+- **서비스 Origin:** SCIM 요청의 Origin 도메인을 입력합니다. Braze는 이를 `X-Request-Origin` 헤더에서 사용하여 요청의 출처를 확인합니다.
 - **IP 허용 목록(선택 사항):** SCIM 요청을 특정 IP 주소로 제한할 수 있습니다. 허용할 IP 주소를 쉼표로 구분된 목록 또는 범위로 입력합니다. 각 요청의 `X-Request-Origin` 헤더를 사용하여 요청 IP 주소를 허용 목록과 대조합니다.
 
 ## 2단계: SCIM 토큰 생성하기 {#step-2-generate-a-scim-token}

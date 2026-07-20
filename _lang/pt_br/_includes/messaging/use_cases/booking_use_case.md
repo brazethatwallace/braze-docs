@@ -17,7 +17,7 @@ Siga estas etapas para alcançar este caso de uso:
 
 ## Etapa 1: Grave os dados de reserva futuros em um perfil de usuário da Braze {#step-1}
 
-Use o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze para gravar um [atributo personalizado aninhado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/) em um perfil de usuário cada vez que uma reserva for realizada. Certifique-se de que o atributo personalizado aninhado contenha todas as informações necessárias para enviar e personalizar a mensagem de lembrete. Neste caso de uso, nomearemos o atributo personalizado aninhado como "trips".
+Use o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze para gravar um [atributo personalizado aninhado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support) em um perfil de usuário cada vez que uma reserva for realizada. Certifique-se de que o atributo personalizado aninhado contenha todas as informações necessárias para enviar e personalizar a mensagem de lembrete. Neste caso de uso, nomearemos o atributo personalizado aninhado como "trips".
 
 ### Adicionar reserva {#add-booking}
 
@@ -136,7 +136,7 @@ Crie um público-alvo para receber lembretes usando segmentação multicritério
 
 ### Etapa 2b: Crie sua mensagem {#step-2b-create-your-message}
 
-Crie a mensagem de e-mail de lembrete seguindo as etapas em [Criando um e-mail com HTML personalizado]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/). Use Liquid para personalizar a mensagem com dados do atributo personalizado que você criou ("trips"), como neste exemplo.
+Crie a mensagem de e-mail de lembrete seguindo as etapas em [Criando um e-mail com HTML personalizado]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor). Use Liquid para personalizar a mensagem com dados do atributo personalizado que você criou ("trips"), como neste exemplo.
 
 {% raw %}
 ```liquid
@@ -166,8 +166,8 @@ Agora que você está enviando mensagens de lembrete, pode configurar mensagens 
 {% tabs %}
 {% tab /users/track %}
 
-#### Enviar dados através do endpoint `/users/track` {#send-data-through-the-userstrack-endpoint}
-Use o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze para enviar um evento personalizado quando um usuário atualiza ou cancela uma reserva. Nesse evento, coloque os dados necessários nas propriedades do evento que confirmarão a mudança.
+#### Enviar dados através do endpoint `/users/track`
+Use o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze para enviar um evento personalizado quando um usuário atualiza ou cancela uma reserva. Nesse evento, coloque os dados necessários nas propriedades do evento que confirmarão a mudança.
 
 Vamos supor que, neste caso de uso, um usuário atualizou a data de sua viagem para Sydney. O evento seria assim:
 
@@ -193,7 +193,7 @@ Vamos supor que, neste caso de uso, um usuário atualizou a data de sua viagem p
 {% endtab %}
 {% tab SDK %}
 
-#### Gravar atributos aninhados nos perfis de usuário através do SDK {#write-nested-attributes-to-user-profiles-through-the-sdk}
+#### Gravar atributos aninhados nos perfis de usuário através do SDK
 
 Envie eventos personalizados para o perfil de usuário através do SDK. Por exemplo, se você estiver usando o Web SDK, poderá enviar:
 
@@ -212,7 +212,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### Etapa 3b: Crie uma mensagem para confirmar a atualização {#step-3b-create-a-message-to-confirm-the-update}
 
-Crie uma [Campaign baseada em ação]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) para enviar ao usuário uma confirmação da reserva atualizada. Você pode [usar Liquid para inserir propriedades do evento]({{site.baseurl}}/user_guide/data/custom_data/custom_events/) que refletem o nome, o horário antigo e o novo horário da reserva (ou apenas o nome, se for um cancelamento) na própria mensagem.
+Crie uma [Campaign baseada em ação]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery) para enviar ao usuário uma confirmação da reserva atualizada. Você pode [usar Liquid para inserir propriedades do evento]({{site.baseurl}}/user_guide/data/custom_data/custom_events) que refletem o nome, o horário antigo e o novo horário da reserva (ou apenas o nome, se for um cancelamento) na própria mensagem.
 
 Por exemplo, você poderia redigir a seguinte mensagem:
 

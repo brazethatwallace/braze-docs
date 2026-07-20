@@ -14,12 +14,12 @@ noindex: true
 
 <br>
 {% alert important %}
-基本的なコンテンツカード開発者統合ガイドをお探しですか？[基本的なコンテンツカード開発者統合ガイド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration)をご覧ください。
+基本的なContent Cards開発者統合ガイドをお探しですか？[基本的なContent Cards開発者統合ガイド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration)をご覧ください。
 {% endalert %}
 
-# コンテンツカード実装ガイド {#content-card-implementation-guide}
+# Content Cards実装ガイド {#content-card-implementation-guide}
 
-> このオプションの高度な実装ガイドでは、コンテンツカードのコードに関する考慮事項、当社チームが構築した3つのカスタムユースケース、付随するコードスニペット、およびインプレッション、クリック、却下のロギングに関するガイダンスについて説明します。[こちらから Braze Demo リポジトリ](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)にアクセスしてください！この実装ガイドは Swift の実装を中心としていますが、興味のある方のために Objective-C のスニペットも提供されています。
+> このオプションの高度な実装ガイドでは、Content Cardsのコードに関する考慮事項、当社チームが構築した3つのカスタムユースケース、付随するコードスニペット、およびインプレッション、クリック、却下のロギングに関するガイダンスについて説明します。[こちらから](https://github.com/braze-inc/braze-growth-shares-ios-demo-app) Braze Demo リポジトリにアクセスしてください！この実装ガイドは Swift の実装を中心としていますが、興味のある方のために Objective-C のスニペットも提供されています。
 
 ## コードに関する考慮事項 {#code-considerations}
 
@@ -27,7 +27,7 @@ noindex: true
 
 ブースターを追加するロケット船のように、独自のカスタムオブジェクトを拡張してContent Cardsとして機能させることができます。このような限定された API サーフェスは、異なるデータバックエンドとの互換性を保つ柔軟性を提供します。これは、`ContentCardable` プロトコルに準拠し、（次のコードスニペットに示すように）イニシャライザを実装することで実行できます。また、`ContentCardData` 構造体を使用することで、`ABKContentCard` データにアクセスできます。`ABKContentCard` ペイロードは、すべてプロトコルに付属のイニシャライザを使用して `Dictionary` 型から `ContentCardData` 構造体とカスタムオブジェクト自体を初期化するために使用されます。
 
-イニシャライザには `ContentCardClassType` enum も含まれます。この enum は、初期化するオブジェクトを決定するために使用されます。Braze ダッシュボード内のキーと値のペアを使用して、初期化するオブジェクトを決定するために使用する明示的な `class_type` キーを設定できます。Content Cardsのこれらのキーと値のペアは、`ABKContentCard` の `extras` 変数に格納されます。イニシャライザのもう1つのコアコンポーネントは、`metaData` ディクショナリパラメータです。`metaData` には解析された `ABKContentCard` から一連のキーと値までのすべてが含まれます。関連するカードが解析され、カスタムオブジェクトに変換された後、アプリは JSON またはその他のソースからインスタンス化されたかのように、それらのカードで作業を開始する準備ができています。
+イニシャライザには `ContentCardClassType` enumも含まれます。この enumは、初期化するオブジェクトを決定するために使用されます。Braze ダッシュボード内のキーと値のペアを使用して、初期化するオブジェクトを決定するために使用する明示的な `class_type` キーを設定できます。Content Cardsのこれらのキーと値のペアは、`ABKContentCard` の `extras` 変数に格納されます。イニシャライザのもう1つのコアコンポーネントは、`metaData` ディクショナリパラメータです。`metaData` には解析された `ABKContentCard` から一連のキーと値までのすべてが含まれます。関連するカードが解析され、カスタムオブジェクトに変換された後、アプリは JSON またはその他のソースからインスタンス化されたかのように、それらのカードで作業を開始する準備ができています。
 
 これらのコードに関する考慮事項をしっかりと理解したら、[ユースケース](#sample-use-cases)をチェックして、カスタムオブジェクトの実装を開始してください。
 
@@ -61,7 +61,7 @@ extension ContentCardable {
   }
 }
 ```
-**コンテンツカードデータ構造体**<br>
+**Content Cardsデータ構造体**<br>
 `ContentCardData` は、`ABKContentCard` の解析された値を表します。
 
 ```swift
@@ -98,7 +98,7 @@ extension ContentCardData: Equatable {
 
 @end
 ```
-**コンテンツカードデータ構造体**<br>
+**Content Cardsデータ構造体**<br>
 `ContentCardData` は、`ABKContentCard` の解析された値を表します。
 
 ```objc
@@ -442,9 +442,9 @@ Content Cardsを既存のフィードにシームレスにブレンドし、複�
 
 #### ダッシュボード設定 {#dashboard-configuration}
 
-このContent Cardsは、APIトリガーのキーと値のペアを持つAPIトリガーCampaignによって提供されます。これは、カードの値が外部要因に依存して、ユーザーに表示するコンテンツを決定するCampaignに最適です。なお、`class_type` はセットアップ時に把握しておく必要があります。
+このContent Cardsは、APIトリガーのキーと値のペアを持つAPIトリガーキャンペーンによって提供されます。これは、カードの値が外部要因に依存して、ユーザーに表示するコンテンツを決定するキャンペーンに最適です。なお、`class_type` はセットアップ時に把握しておく必要があります。
 
-![補足コンテンツカードのユースケースのキーと値のペア。この例では、カードの各要素（「tile_id」、「tile_deeplink」、「tile_title」など）がLiquidを使って設定されています。]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
+![補足Content Cardsのユースケースのキーと値のペア。この例では、カードの各要素（「tile_id」、「tile_deeplink」、「tile_title」など）がLiquidを使って設定されています。]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
 ##### 分析をログに記録する準備はできましたか？ {#ready-to-log-analytics}
 データフローの外観について理解を深めるには、[以下のセクション](#logging-impressions-clicks-and-dismissals)を参照してください。

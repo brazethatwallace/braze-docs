@@ -32,4 +32,20 @@ CSSインライン展開は、[コネクテッドコンテンツ]({{site.baseurl
 
 ## カスタムHTMLテンプレートでのContent Blocks {#content-blocks-in-custom-html-templates}
 
-**カスタムHTML**メールテンプレートまたはCampaign内でLiquidを使用して[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を取り込む場合、親テンプレートのCSSルールがコンテンツブロック内で定義されたスタイルを上書きする可能性があります。テンプレートラッパー内の競合するセレクターやグローバルルールを確認してください。
+**カスタムHTML**メールテンプレートまたはキャンペーン内でLiquidを使用して[コンテンツブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を取り込む場合、親テンプレートのCSSルールがコンテンツブロック内で定義されたスタイルを上書きする可能性があります。テンプレートラッパー内の競合するセレクターやグローバルルールを確認してください。
+
+## GmailのCSS制限 {#gmail-css-limitations}
+
+Gmailには特定のCSS制限があり、Gmailアプリでメールがモバイルビューではなくデスクトップビューで表示される場合があります。これは以下の理由で発生する可能性があります。
+
+- **CSSが多すぎる場合:** メールに過剰なCSSが含まれていると、Gmailがスタイルブロック全体を削除する場合があります。
+- **互換性のないCSS:** Gmailと互換性のないCSS（Gmailがサポートしていない有効なCSSを含む）があると、スタイルブロックが削除される可能性があります。
+- **Gmailアプリ内の非Gmailアカウント:** `<head>`内のCSSはサポートされていません。
+
+### Gmailでのメディアクエリ {#media-queries-in-gmail}
+
+CSSメディアクエリは一般的にGmailアプリで機能しますが、制限があります。Gmailでメディアクエリが正しく動作しない問題が発生している場合は、以下を確認してください。
+
+- [GmailのサポートされているCSSリファレンス](https://developers.google.com/gmail/design/reference/supported_css)を確認して、CSSに互換性があることを確認してください。
+- [GmailのCSSデザインガイドライン](https://developers.google.com/gmail/design/css)でベストプラクティスを確認してください。
+- モバイルレンダリングにメディアクエリのみに依存しない、モバイルファーストのレスポンシブデザインパターンを検討してください。

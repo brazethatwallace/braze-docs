@@ -38,7 +38,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) e especifique uma postergação conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
+3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) e especifique uma postergação conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
 4. Filtre seu público para esta etapa, conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
@@ -56,10 +56,10 @@ Você pode encontrar mais informações específicas sobre Canvas em [Mensagens 
 
 Comece escolhendo quais plataformas devem receber a mensagem. Use essa seleção para limitar a entrega de uma campanha a um conjunto específico de apps. Por exemplo, você pode escolher **Web Browsers** para uma mensagem no navegador incentivando os usuários a baixar seu app móvel, garantindo que eles não recebam a mensagem depois de já terem obtido seu app. Como as seleções de plataforma são específicas para cada variante, você pode testar o engajamento com mensagem por plataforma.
 
-| Plataforma                        | Entrega da mensagem             |
+| Plataforma | Entrega da mensagem |
 |---------------------------------|------------------------------|
-| Apps móveis                     | SDKs iOS, Android e Vega |
-| Navegadores web                    | SDK Web                      |
+| Apps móveis | SDKs iOS, Android e Vega |
+| Navegadores web | SDK Web |
 | Apps móveis e navegadores web | SDKs iOS, Android, Vega e Web |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Especifique as plataformas de entrega" }
 
@@ -147,14 +147,14 @@ Essas mensagens no app são personalizáveis de acordo com suas necessidades.
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#custom-html-messages'>Mensagem HTML personalizada</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Mensagem HTML personalizada</a></td>
     <td>Mensagens personalizadas que funcionam conforme definido no seu código personalizado (HTML, CSS e/ou JavaScript).</td>
     <td>N/D</td>
     <td>É necessário definir a opção de inicialização <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> como <code>true</code> para que sua mensagem no app funcione.</td>
     <td>Essa é uma boa opção se você quer todas as vantagens das mensagens no app, mas precisa de funcionalidades adicionais ou que a aparência permaneça "dentro da marca". Você pode alterar cada detalhe da mensagem — fonte, cor, forma, tamanho, botões, etc. <br><br>Exemplos de casos de uso incluem pedir feedback sobre o app, formulários de captura de e-mail ou mensagens paginadas</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>Formulário de captura de e-mail</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>Formulário de captura de e-mail</a></td>
     <td>Normalmente usado para capturar o e-mail do visualizador.</td>
     <td>N/D</td>
     <td>É necessário definir a opção de inicialização <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> como <code>true</code> para que sua mensagem no app funcione.</td>
@@ -176,7 +176,7 @@ Essas mensagens no app são personalizáveis de acordo com suas necessidades.
 </table>
 
 {% alert important %}
-Se a Braze detectar que você não incluiu um botão de fechar ou dispensar no seu código, solicitaremos que você adicione um. Para sua conveniência, fornecemos um trecho que você pode copiar e colar no seu código: <br><br>`<a href= "appboy://close">X</a>`.
+Se a Braze detectar que você não incluiu um botão de fechar ou dispensar no seu código, solicitaremos que você adicione um. Para sua conveniência, fornecemos um snippet que você pode copiar e colar no seu código: <br><br>`<a href= "appboy://close">X</a>`.
 {% endalert %}
 
 ## Etapa 4: Redija sua mensagem no app {#step-4-compose-your-in-app-message}
@@ -225,7 +225,7 @@ Se você optar por usar apenas um botão, ele se ajustará automaticamente para 
 
 Se você decidir formatar esses botões com suas próprias cores, recomendamos usar o Botão 2 para o resultado que você mais deseja.
 
-Em outras palavras, se você quer que o usuário clique em um botão mais do que no outro, certifique-se de que ele esteja à direita. O botão da direita frequentemente demonstra melhor potencial de ser clicado, especialmente se tiver uma cor um pouco contrastante ou que se destaque do restante da mensagem. Isso é ainda mais evidente quando o botão da esquerda se mistura mais visualmente com a mensagem.
+Em outras palavras, se você quer que o usuário clique em um botão mais do que no outro, certifique-se de que ele seja o botão secundário. O botão secundário frequentemente demonstra melhor potencial de ser clicado, especialmente se tiver uma cor um pouco contrastante ou que se destaque do restante da mensagem. Isso é ainda mais evidente quando o botão principal se mistura mais visualmente com a mensagem.
 
 ![Botões principal e secundário em uma mensagem no app]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
@@ -246,6 +246,8 @@ Quando seu cliente clica em um botão na sua mensagem no app, as seguintes açõ
 Observação: as opções __Solicitar permissão de push__, __Registrar evento personalizado__ e __Registrar atributo personalizado__ requerem as seguintes versões mínimas do SDK:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
+
+Para combinar múltiplas ações ou realizar ações adicionais do SDK não disponíveis no dashboard (como adicionar a um grupo de inscrições ou definir um tipo de inscrição de e-mail), você pode usar [deep links de Braze Actions]({{site.baseurl}}/developer_guide/braze_actions).
 
 ### Opções de dispositivos iOS {#ios-device-options}
 
@@ -395,7 +397,7 @@ A Braze permite que você rastreie com que frequência os usuários realizam aç
 {% endtab %}
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) da nossa documentação de Canvas.
 
 Para informações sobre opções de mensagens no app específicas do Canvas, consulte [Mensagens no app no Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 

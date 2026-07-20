@@ -50,26 +50,26 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 
 サイレントプッシュを受信すると、ユーザープロファイルに対してSDKが記録したイベント「アプリ内メッセージトリガー」がログに記録されます。なお、これらのアプリ内メッセージは、アプリケーションがフォアグラウンドにある間にサイレントプッシュが受信された場合にのみトリガーされます。
 
-## ステップ 2:プッシュCampaignを作成する {#step-2-create-a-push-campaign}
+## ステップ 2:プッシュキャンペーンを作成する {#step-2-create-a-push-campaign}
 
-サーバー送信イベントを介してトリガーされるサイレントプッシュCampaignを作成します。サイレントプッシュCampaignの作成の詳細については、[サイレントプッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications)を参照してください。
+サーバー送信イベントを介してトリガーされるサイレントプッシュキャンペーンを作成します。サイレントプッシュキャンペーンの作成の詳細については、[サイレントプッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications)を参照してください。
 
-![カスタムイベント「server_event」を実行したユーザーに配信される、アクションベースの配信アプリ内メッセージCampaign。]({% image_buster /assets/img_archive/iosServerSentPush.png %})
+![カスタムイベント「server_event」を実行したユーザーに配信される、アクションベースの配信アプリ内メッセージキャンペーン。]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
-プッシュCampaignにはキーと値のペアのエクストラを含める必要があります。これは、このプッシュCampaignがSDKカスタムイベントを記録するために送信されることを示します。このイベントはアプリ内メッセージをトリガーするために使用されます。
+プッシュキャンペーンにはキーと値のペアのエクストラを含める必要があります。これは、このプッシュキャンペーンがSDKカスタムイベントを記録するために送信されることを示します。このイベントはアプリ内メッセージをトリガーするために使用されます。
 
-![2つのキーと値のペアを持つアクションベースの配信アプリ内メッセージCampaign。「CAMPAIGN_NAME」は「In-app message name example」に設定され、「IS_SERVER_EVENT」は「true」に設定されています。]({% image_buster /assets/img_archive/iOSServerPush.png %})
+![2つのキーと値のペアを持つアクションベースの配信アプリ内メッセージキャンペーン。「CAMPAIGN_NAME」は「In-app message name example」に設定され、「IS_SERVER_EVENT」は「true」に設定されています。]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
 `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッド内のコードはキー `IS_SERVER_EVENT` をチェックし、存在する場合はSDKカスタムイベントをログに記録します。
 
 プッシュペイロードのキーと値のペアのエクストラ内で目的の値を送信することで、イベント名またはイベントプロパティのいずれかを変更できます。カスタムイベントを記録する場合、これらのエクストラはイベント名のパラメータまたはイベントプロパティとして使用できます。
 
-## ステップ 3:アプリ内メッセージCampaignを作成する {#step-3-create-an-in-app-message-campaign}
+## ステップ 3:アプリ内メッセージキャンペーンを作成する {#step-3-create-an-in-app-message-campaign}
 
-Brazeダッシュボード内から、ユーザーに表示されるアプリ内メッセージCampaignを作成します。このCampaignにはアクションベースの配信を設定し、`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッド内から記録されたカスタムイベントからトリガーされるようにする必要があります。
+Brazeダッシュボード内から、ユーザーに表示されるアプリ内メッセージキャンペーンを作成します。このキャンペーンにはアクションベースの配信を設定し、`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッド内から記録されたカスタムイベントからトリガーされるようにする必要があります。
 
 以下の例では、イベントプロパティを最初のサイレントプッシュの一部として送信することで、トリガーされる特定のアプリ内メッセージが設定されています。
 
-![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースの配信アプリ内メッセージCampaign。ここで「campaign_name」は「In-app message name example」に等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースの配信アプリ内メッセージキャンペーン。ここで「campaign_name」は「In-app message name example」に等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 SDKが記録したカスタムイベントの記録にプッシュメッセージが使用されているため、Brazeはこのソリューションを有効にするために、ユーザーごとにプッシュトークンを保存する必要があります。iOSとAndroidの両方で、BrazeはユーザーがOSのプッシュプロンプトを受け取った時点からのトークンのみを保存します。これ以前では、ユーザーはプッシュを使用して到達できず、上記のソリューションも実行できません。

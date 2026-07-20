@@ -1,10 +1,10 @@
 {% if include.section == "Differing audience size" %}
 
-O tamanho do público-alvo exibido em uma Campaign ou Canvas pode ser diferente do [tamanho do público alcançável para um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/#segment-membership-calculation), mesmo que você esteja adicionando diretamente esse segmento à sua Campaign ou Canvas sem filtros adicionais.
+O tamanho do público-alvo exibido em uma Campaign ou Canvas pode ser diferente do [tamanho do público alcançável para um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation), mesmo que você esteja adicionando diretamente esse segmento à sua Campaign ou Canvas sem filtros adicionais.
 Isso pode ocorrer por vários motivos:
 
-- Quando um Grupo de controle global se aplica a uma Campaign ou Canvas, os usuários desse Grupo de controle global são excluídos da contagem de usuários contatáveis.
-- O tamanho do público-alvo de uma Campaign ou Canvas exclui os usuários que não podem ser contatados por meio de vários canais de mensagens; o comportamento difere de canal para canal. Por exemplo, o público alcançável de uma Campaign ou Canvas exclui os usuários que cancelaram a inscrição, foram marcados como spam (para e-mails) ou sofreram hard bounce (para e-mails). O segmento em si, no entanto, exclui apenas os descadastramentos ao mostrar o número estimado de usuários alcançáveis por e-mail.
+- Quando um grupo de controle global se aplica a uma Campaign ou Canvas, os usuários desse grupo de controle global são excluídos da contagem de usuários contatáveis.
+- O tamanho do público-alvo de uma Campaign ou Canvas exclui os usuários que não podem ser contatados por meio de vários canais de mensagens; o comportamento difere de canal para canal. Por exemplo, o público alcançável de uma Campaign ou Canvas exclui os usuários que cancelaram a inscrição, foram marcados como SPAM (para e-mails) ou sofreram hard bounce (para e-mails). O segmento em si, no entanto, exclui apenas os cancelamentos de inscrição ao mostrar o número estimado de usuários alcançáveis por e-mail.
 - A Braze só envia mensagens SMS para usuários dentro do grupo de inscrições selecionado, portanto, o público-alvo de SMS para uma Campaign ou Canvas também excluirá todos os usuários que não fizerem parte do grupo de inscrições selecionado.
 
 {% endif %}
@@ -58,7 +58,7 @@ As atualizações programadas são automaticamente desativadas quando uma extens
 
 - Não é usada em nenhuma Campaign ou Canvas ativo
 - Não é usada em nenhum segmento que esteja em uma Campaign ou Canvas ativo
-- Não é usada em nenhum segmento que tenha o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking) ativado
+- Não é usada em nenhum segmento que tenha o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ativado
 - Não foi modificada há mais de sete dias
 - Não foi adicionada a uma Campaign ou Canvas (incluindo rascunhos) ou segmento há mais de sete dias
 

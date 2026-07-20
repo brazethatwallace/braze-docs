@@ -3,8 +3,9 @@
 AI style review for Braze Docs pull requests (Copilot-style editorial feedback).
 
 Fetches changed Markdown in a PR, sends diffs to Claude with the Braze writing
-style reference, and posts a pull request review with inline suggestion comments
-where GitHub allows one-click Commit.
+style reference, and posts inline suggestion comments on the diff where GitHub
+allows one-click Commit. Findings without postable inline suggestions (including
+PR-level notes) go in a single summary issue comment per run.
 
 Environment:
     PR_NUMBER          Required
@@ -14,10 +15,14 @@ Environment:
     ANTHROPIC_API_KEY  Required
     REVIEW_MODEL       Optional (default claude-sonnet-4-6)
     MAX_INLINE_COMMENTS Optional (default 25)
+    STYLE_REVIEW_REPLACE_PRIOR_COMMENTS Optional (default 1). When enabled, each run
+        deletes prior automated inline style review comments before posting new ones.
+        Set to 0 to keep prior comments and only remove stale/outdated threads.
 """
 
 from __future__ import annotations
 
+import base64
 import json
 import os
 import re
@@ -43,6 +48,9 @@ STYLE_REF = REPO_ROOT / ".github/skills/braze-docs/references/writing-style.md"
 GLOSSARY_REF = REPO_ROOT / ".github/skills/braze-docs/references/glossary.md"
 SUMMARY_MARKER = "<!-- braze-docs-style-review -->"
 CODE_ONLY_SKIP_MARKER = "<!-- braze-docs-style-review:code-only -->"
+DISMISSALS_MARKER_RE = re.compile(
+    r"<!-- braze-docs-style-review:dismissals:([A-Za-z0-9+/=]+) -->"
+)
 SUMMARY_FILE = REPO_ROOT / "docs_style_review_summary.md"
 
 MARKDOWN_PREFIXES = ("_docs/", "_includes/", "_lang/")
@@ -62,6 +70,18 @@ DISMISS_INSTRUCTION_FOOTER = (
     "— the bot won't suggest this again on this PR."
 )
 BOT_LOGINS = frozenset({"github-actions[bot]", "cursor[bot]"})
+SUMMARY_OBSERVATION_HINTS = (
+    "good improvement",
+    "no banned",
+    "no issues found",
+    "no terminology issues",
+    "looks correct",
+    "well-written",
+    "well written",
+    "technically clear",
+    "generally well-written",
+    "are correct editorially",
+)
 
 SYSTEM_PROMPT = """\
 You are a senior technical editor reviewing Braze documentation pull requests.
@@ -71,7 +91,10 @@ Apply the Braze Docs Style Guide provided in the user message.
 
 - Editorial quality: voice, tone, clarity, active voice, second person, present tense.
 - Style guide compliance: headings, UI formatting, links, lists, numbers, alerts, inclusive language.
-- Braze terminology: Canvas, workspace (not app group), customers (not clients), allowlist/blocklist, etc.
+- Bold text: bold UI labels only. Flag and remove bold used for emphasis or scanning
+  (for example **important**, **finalize**, or mid-sentence **campaign**).
+- Braze terminology: Canvas, workspace (not app group), customers (not clients), allowlist/blocklist,
+  lowercase campaign/segment/catalog in running text unless matching a capitalized UI label, etc.
 - Internal consistency within a file beats isolated style preferences (match dominant usage in the
   same article before suggesting a one-off change).
 - Present tense: target future "will"/"would" for user-action outcomes—not a blanket ban on past
@@ -100,10 +123,36 @@ Respond with ONLY valid JSON (no markdown fences). Schema:
       "suggested_line": "Full replacement text for this single line on the NEW file side."
     }
   ],
-  "summary": [
-    "PR-level notes that are not tied to a single line (optional)."
-  ]
+  "summary": {
+    "actionable": [
+      "One specific editorial fix or issue per item (full sentence). Do not combine multiple points in one string."
+    ],
+    "observations": [
+      "Optional positives or non-actionable context only (for example clear writing, helpful placeholders, no banned terms in changed lines). One item per string."
+    ],
+    "promotable": [
+      {
+        "path": "repo-relative/path.md",
+        "line": 42,
+        "message": "Short explanation for the author.",
+        "suggested_line": "Full single-line replacement on the NEW file side."
+      }
+    ]
+  }
 }
+
+Summary rules:
+- **Inline first:** Any single-line fix on a changed line in the PR diff MUST go in `inline`
+  (with path, line, message, and suggested_line) so the author can use **Commit suggestion**.
+  Do not put commit-able single-line fixes only in `summary.actionable`.
+- Use `summary.actionable` ONLY for non-inline guidance: multi-line edits, moving blocks, adding
+  sections or alerts, lines outside the diff, or subjective structure the author must apply manually.
+- Use `summary.promotable` only as a fallback when you also need the full inline object alongside
+  a narrative actionable note (same shape as `inline` items). Prefer `inline` alone when possible.
+- Put praise, confirmations, and general non-actionable context in `observations`.
+- Never use inline numbering like (1) or 1. inside a string—use separate array elements instead.
+- If the PR is compliant with nothing to note, use empty arrays for actionable, observations,
+  and promotable.
 
 - "message" must describe ONLY the specific edit you are making—the difference between
   the current line in the numbered excerpt and suggested_line. Name the exact word(s) or
@@ -320,7 +369,7 @@ def _parse_style_thread_first_comment(thread: dict) -> tuple[str, str | None, st
 
 def fetch_dismissed_style_suggestions() -> tuple[set[tuple[str, str]], set[tuple[str, str]]]:
     """
-    Suggestions reviewers dismissed on this PR.
+    Suggestions reviewers dismissed on this PR (from open review threads).
 
     Returns:
         dismissed_suggested: (path, suggested_line) pairs
@@ -348,6 +397,63 @@ def fetch_dismissed_style_suggestions() -> tuple[set[tuple[str, str]], set[tuple
             f"(resolved={thread.get('isResolved')}, reject_reply={rejected})"
         )
 
+    return dismissed_suggested, dismissed_message
+
+
+def _encode_dismissals_marker(
+    dismissed_suggested: set[tuple[str, str]],
+    dismissed_message: set[tuple[str, str]],
+) -> str:
+    payload = {
+        "suggested": sorted([list(item) for item in dismissed_suggested]),
+        "message": sorted([list(item) for item in dismissed_message]),
+    }
+    encoded = base64.b64encode(
+        json.dumps(payload, separators=(",", ":")).encode("utf-8")
+    ).decode("ascii")
+    return f"<!-- braze-docs-style-review:dismissals:{encoded} -->"
+
+
+def _decode_dismissals_marker(body: str) -> tuple[set[tuple[str, str]], set[tuple[str, str]]]:
+    dismissed_suggested: set[tuple[str, str]] = set()
+    dismissed_message: set[tuple[str, str]] = set()
+    match = DISMISSALS_MARKER_RE.search(body)
+    if not match:
+        return dismissed_suggested, dismissed_message
+    try:
+        payload = json.loads(base64.b64decode(match.group(1)).decode("utf-8"))
+        if not isinstance(payload, dict):
+            raise TypeError("dismissals payload is not a dict")
+        for entry in payload.get("suggested", []) or []:
+            if not isinstance(entry, (list, tuple)) or len(entry) != 2:
+                continue
+            path, suggested = entry
+            if isinstance(path, str) and isinstance(suggested, str):
+                dismissed_suggested.add((path, suggested.rstrip()))
+        for entry in payload.get("message", []) or []:
+            if not isinstance(entry, (list, tuple)) or len(entry) != 2:
+                continue
+            path, message = entry
+            if isinstance(path, str) and isinstance(message, str):
+                dismissed_message.add((path, message.rstrip()))
+    except (json.JSONDecodeError, ValueError, UnicodeDecodeError, TypeError, AttributeError):
+        print("Warning: could not parse persisted dismissal marker from summary comment")
+    return dismissed_suggested, dismissed_message
+
+
+def load_persisted_dismissals() -> tuple[set[tuple[str, str]], set[tuple[str, str]]]:
+    """Dismissals stored in prior summary issue comments (survives inline comment deletion)."""
+    dismissed_suggested: set[tuple[str, str]] = set()
+    dismissed_message: set[tuple[str, str]] = set()
+    for comment in _list_pr_comments_with_marker():
+        suggested, message = _decode_dismissals_marker(comment.get("body") or "")
+        dismissed_suggested |= suggested
+        dismissed_message |= message
+    if dismissed_suggested or dismissed_message:
+        print(
+            f"Loaded {len(dismissed_suggested) + len(dismissed_message)} persisted "
+            "dismissal(s) from prior summary comment(s)."
+        )
     return dismissed_suggested, dismissed_message
 
 
@@ -380,20 +486,38 @@ def format_dismissed_section(
     return "\n".join(lines)
 
 
+def _normalize_dismissal_text(text: str) -> str:
+    return re.sub(r"\s+", " ", text.strip())
+
+
 def filter_dismissed_suggestions(
     inline: list[dict],
     dismissed_suggested: set[tuple[str, str]],
     dismissed_message: set[tuple[str, str]],
 ) -> list[dict]:
+    dismissed_suggested_normalized = {
+        (path, _normalize_dismissal_text(suggested))
+        for path, suggested in dismissed_suggested
+    }
+    dismissed_message_normalized = {
+        (path, _normalize_dismissal_text(message))
+        for path, message in dismissed_message
+    }
     kept: list[dict] = []
     for item in inline:
         path = item["path"]
         suggested = item["suggested_line"].rstrip()
         message = item["message"].rstrip()
-        if (path, suggested) in dismissed_suggested:
+        norm_suggested = _normalize_dismissal_text(suggested)
+        norm_message = _normalize_dismissal_text(message)
+        if (path, suggested) in dismissed_suggested or (
+            path, norm_suggested
+        ) in dismissed_suggested_normalized:
             print(f"Skipping dismissed suggestion on `{path}` (matched prior suggested line)")
             continue
-        if (path, message) in dismissed_message:
+        if (path, message) in dismissed_message or (
+            path, norm_message
+        ) in dismissed_message_normalized:
             print(f"Skipping dismissed suggestion on `{path}` (matched prior review message)")
             continue
         kept.append(item)
@@ -453,6 +577,70 @@ def _resolve_review_thread(thread_id: str) -> bool:
     }
     """
     return _graphql(mutation, {"threadId": thread_id}) is not None
+
+
+def _replace_prior_style_review_comments() -> bool:
+    return os.environ.get("STYLE_REVIEW_REPLACE_PRIOR_COMMENTS", "1").lower() not in (
+        "0",
+        "false",
+        "no",
+    )
+
+
+def _list_prior_style_review_inline_comments() -> list[dict]:
+    """Bot inline review comments from earlier style review runs on this PR."""
+    owner, repo = REPO.split("/", 1)
+    result = subprocess.run(
+        ["gh", "api", f"repos/{owner}/{repo}/pulls/{PR_NUMBER}/comments", "--paginate"],
+        capture_output=True,
+        text=True,
+        cwd=REPO_ROOT,
+        check=False,
+    )
+    if result.returncode != 0:
+        print(f"Pull comment fetch warning: {result.stderr.strip()}", file=sys.stderr)
+        return []
+
+    comments: list[dict] = []
+    for comment in json.loads(result.stdout):
+        body = comment.get("body") or ""
+        if STYLE_REVIEW_INLINE_MARKER not in body:
+            continue
+        login = (comment.get("user") or {}).get("login", "")
+        if not _is_bot_login(login):
+            continue
+        comments.append(comment)
+    return comments
+
+
+def cleanup_prior_style_review_comments(
+    prior_inline_comments: list[dict] | None = None,
+) -> int:
+    """Replace or clean up prior automated inline style review comments on this PR."""
+    if not _replace_prior_style_review_comments():
+        removed = cleanup_stale_style_review_comments()
+        if removed:
+            print(f"Cleaned up {removed} stale style review thread(s) from earlier commits.")
+        return removed
+
+    comments = (
+        prior_inline_comments
+        if prior_inline_comments is not None
+        else _list_prior_style_review_inline_comments()
+    )
+    deleted = 0
+    for comment in comments:
+        comment_id = comment.get("id")
+        path = comment.get("path") or ""
+        if not comment_id:
+            continue
+        if _delete_review_comment(int(comment_id)):
+            deleted += 1
+            line = comment.get("line") or comment.get("original_line")
+            print(f"Deleted prior style review comment on `{path}` line {line}")
+    if deleted:
+        print(f"Removed {deleted} prior automated style review inline comment(s).")
+    return deleted
 
 
 def cleanup_stale_style_review_comments() -> int:
@@ -732,7 +920,9 @@ def build_user_prompt(
             f"#### New file (numbered)\n```\n{numbered_excerpt(path)}\n```\n"
         )
     sections.append(
-        "\nReview only the files above. Return JSON per the schema."
+        "\nReview only the files above. Return JSON per the schema. "
+        "Put every commit-able single-line diff fix in `inline`; reserve `summary.actionable` "
+        "for manual or structural items only."
     )
     return "\n".join(sections)
 
@@ -766,8 +956,135 @@ def call_claude(user_prompt: str) -> dict:
         print("ERROR: expected JSON object", file=sys.stderr)
         sys.exit(1)
     data.setdefault("inline", [])
-    data.setdefault("summary", [])
+    data.setdefault("summary", {"actionable": [], "observations": []})
     return data
+
+
+def _looks_like_observation(item: str) -> bool:
+    lower = item.lower()
+    return any(hint in lower for hint in SUMMARY_OBSERVATION_HINTS)
+
+
+def _split_numbered_summary_blob(text: str) -> tuple[str | None, list[str]]:
+    text = text.strip()
+    if not text:
+        return None, []
+    parts = re.split(r"\s*\((\d+)\)\s+", text)
+    if len(parts) < 3:
+        return None, [text]
+    intro = parts[0].strip().rstrip(":").strip() or None
+    items = [part.strip() for part in parts[2::2] if part.strip()]
+    return intro, items
+
+
+def _normalize_legacy_summary_entry(text: str) -> tuple[list[str], list[str]]:
+    actionable: list[str] = []
+    observations: list[str] = []
+    text = text.strip()
+    if not text:
+        return actionable, observations
+    intro, items = _split_numbered_summary_blob(text)
+    if intro:
+        observations.append(intro)
+    if items:
+        for item in items:
+            if _looks_like_observation(item):
+                observations.append(item)
+            else:
+                actionable.append(item)
+    elif _looks_like_observation(text):
+        observations.append(text)
+    else:
+        actionable.append(text)
+    return actionable, observations
+
+
+def _coerce_summary_text_list(raw: object) -> list[str]:
+    if raw is None:
+        return []
+    if isinstance(raw, list):
+        texts: list[str] = []
+        for item in raw:
+            if isinstance(item, dict):
+                continue
+            text = str(item).strip()
+            if text:
+                texts.append(text)
+        return texts
+    if isinstance(raw, str):
+        text = raw.strip()
+        return [text] if text else []
+    return []
+
+
+def collect_promotable_inline_candidates(raw_summary: object) -> list[dict]:
+    """Inline-shaped items from summary.promotable or dict entries in summary.actionable."""
+    candidates: list[dict] = []
+    if not isinstance(raw_summary, dict):
+        return candidates
+
+    for key in ("promotable", "actionable"):
+        raw = raw_summary.get(key)
+        if not isinstance(raw, list):
+            continue
+        for item in raw:
+            if isinstance(item, dict):
+                candidates.append(item)
+
+    return candidates
+
+
+def filter_promoted_actionable_summary(
+    actionable: list[str],
+    promoted: list[dict],
+) -> list[str]:
+    """Drop actionable bullets that duplicate successfully promoted inline suggestions."""
+    if not actionable or not promoted:
+        return actionable
+
+    promoted_keys = {(item["path"], item["line"]) for item in promoted}
+    kept: list[str] = []
+    for note in actionable:
+        drop = False
+        for path, line in promoted_keys:
+            if f"`{path}`" not in note:
+                continue
+            if re.search(rf"\bline\s+{line}\b", note, re.IGNORECASE) or f":{line}" in note:
+                drop = True
+                break
+        if not drop:
+            kept.append(note)
+    return kept
+
+
+def parse_model_summary(raw_summary: object) -> tuple[list[str], list[str]]:
+    """Normalize model summary output into actionable items and observations."""
+    actionable: list[str] = []
+    observations: list[str] = []
+
+    if isinstance(raw_summary, dict):
+        actionable.extend(_coerce_summary_text_list(raw_summary.get("actionable")))
+        observations.extend(_coerce_summary_text_list(raw_summary.get("observations")))
+        return actionable, observations
+
+    if isinstance(raw_summary, list):
+        for note in raw_summary:
+            text = str(note).strip()
+            if not text:
+                continue
+            act, obs = _normalize_legacy_summary_entry(text)
+            actionable.extend(act)
+            observations.extend(obs)
+        return actionable, observations
+
+    if isinstance(raw_summary, str):
+        text = raw_summary.strip()
+        if text:
+            act, obs = _normalize_legacy_summary_entry(text)
+            actionable.extend(act)
+            observations.extend(obs)
+
+    return actionable, observations
 
 
 def _block_exists_in_file(suggested: str, file_lines: list[str]) -> bool:
@@ -1271,28 +1588,18 @@ def _parse_suggestion_body(body: str) -> str | None:
     return match.group(1).rstrip() if match else None
 
 
-def fetch_prior_style_suggestions() -> dict[tuple[str, int], list[str]]:
+def fetch_prior_style_suggestions(
+    prior_inline_comments: list[dict] | None = None,
+) -> dict[tuple[str, int], list[str]]:
     """Earlier inline suggestions from this bot on the same PR (includes outdated comments)."""
-    owner, repo = REPO.split("/", 1)
-    result = subprocess.run(
-        ["gh", "api", f"repos/{owner}/{repo}/pulls/{PR_NUMBER}/comments", "--paginate"],
-        capture_output=True,
-        text=True,
-        cwd=REPO_ROOT,
-        check=False,
+    comments = (
+        prior_inline_comments
+        if prior_inline_comments is not None
+        else _list_prior_style_review_inline_comments()
     )
-    if result.returncode != 0:
-        print(f"Pull comment fetch warning: {result.stderr.strip()}", file=sys.stderr)
-        return {}
-
     prior: dict[tuple[str, int], list[str]] = {}
-    for comment in json.loads(result.stdout):
+    for comment in comments:
         body = comment.get("body") or ""
-        if STYLE_REVIEW_INLINE_MARKER not in body:
-            continue
-        login = (comment.get("user") or {}).get("login", "")
-        if not _is_bot_login(login):
-            continue
         suggested = _parse_suggestion_body(body)
         path = comment.get("path") or ""
         line = comment.get("line") or comment.get("original_line")
@@ -1388,35 +1695,23 @@ def _post_single_review_comment(owner: str, repo: str, comment: dict) -> bool:
     return result.returncode == 0
 
 
-def post_pull_request_review(inline: list[dict], summary_notes: list[str]) -> tuple[int, list[dict]]:
-    """Returns (posted_inline, fallback_comments)."""
+def post_pull_request_review(inline: list[dict]) -> tuple[int, list[dict]]:
+    """Post inline suggestion comments via a pull request review. Returns (posted_inline, fallback_comments)."""
     owner, repo = REPO.split("/", 1)
     review_comments = [_inline_to_review_comment(item) for item in inline[:MAX_INLINE]]
     fallback: list[dict] = []
+
+    if not review_comments:
+        return 0, fallback
 
     summary_lines = [
         "## Docs style review (automated)\n",
         f"Model: `{REVIEW_MODEL}` · Inline suggestions: **{len(review_comments)}**",
         "",
+        "Open the **Files changed** tab and use **Commit suggestion** or "
+        "**Commit all suggestions** on inline comments where offered.",
+        "",
     ]
-    if review_comments:
-        summary_lines.append(
-            "Open the **Files changed** tab and use **Commit suggestion** or "
-            "**Commit all suggestions** on inline comments where offered."
-        )
-        summary_lines.append("")
-    if summary_notes:
-        summary_lines.append("### Additional notes")
-        summary_lines.append("")
-        for note in summary_notes:
-            summary_lines.append(f"- {note}")
-        summary_lines.append("")
-    if not review_comments and not summary_notes:
-        summary_lines.append(
-            "**No issues or errors found** for the changed Markdown in this PR."
-        )
-        summary_lines.append("")
-
     review_body = "\n".join(summary_lines).strip()
 
     payload: dict = {
@@ -1464,9 +1759,15 @@ def post_pull_request_review(inline: list[dict], summary_notes: list[str]) -> tu
 def _has_style_findings(
     posted: int,
     fallback: list[dict],
-    summary_notes: list[str],
+    summary_actionable: list[str],
 ) -> bool:
-    return posted > 0 or bool(fallback) or bool(summary_notes)
+    return posted > 0 or bool(fallback) or bool(summary_actionable)
+
+
+def _latest_pr_comment(comments: list[dict]) -> dict | None:
+    if not comments:
+        return None
+    return max(comments, key=lambda comment: int(comment.get("id") or 0))
 
 
 def _list_pr_comments_with_marker() -> list[dict]:
@@ -1489,9 +1790,10 @@ def _list_pr_comments_with_marker() -> list[dict]:
 def _existing_summary_is_code_only_pass() -> bool:
     """True when the PR already has a no-prose (code/markup-only) pass summary."""
     marked = _list_pr_comments_with_marker()
-    if not marked:
+    latest = _latest_pr_comment(marked)
+    if not latest:
         return False
-    body = marked[-1].get("body") or ""
+    body = latest.get("body") or ""
     if CODE_ONLY_SKIP_MARKER in body:
         return True
     return "did not edit user-facing copy" in body and not _has_style_findings(0, [], [])
@@ -1514,13 +1816,33 @@ def _delete_issue_comment(comment_id: int) -> None:
     )
 
 
+def _delete_style_review_summary_comments(*, keep_comment_id: int | None = None) -> int:
+    """Remove prior automated summary issue comments on this PR."""
+    if keep_comment_id is None:
+        return 0
+    marked = _list_pr_comments_with_marker()
+    deleted = 0
+    for comment in marked:
+        comment_id = comment.get("id")
+        if not comment_id:
+            continue
+        if keep_comment_id is not None and int(comment_id) == int(keep_comment_id):
+            continue
+        _delete_issue_comment(int(comment_id))
+        deleted += 1
+    return deleted
+
+
 def sync_summary_comment(
     posted: int,
     fallback: list[dict],
-    summary_notes: list[str],
+    summary_actionable: list[str],
+    summary_observations: list[str],
     files_reviewed: list[str],
     *,
     skip_reason: str | None = None,
+    dismissed_suggested: set[tuple[str, str]] | None = None,
+    dismissed_message: set[tuple[str, str]] | None = None,
 ) -> None:
     owner, repo = REPO.split("/", 1)
     lines = [
@@ -1530,7 +1852,7 @@ def sync_summary_comment(
         "",
     ]
 
-    if not _has_style_findings(posted, fallback, summary_notes):
+    if not _has_style_findings(posted, fallback, summary_actionable):
         lines.extend(
             [
                 "**No issues or errors found.** This PR is OK to merge from the "
@@ -1604,10 +1926,16 @@ def sync_summary_comment(
         for c in fallback:
             lines.append(f"- `{c['path']}:{c['line']}` — {c['body'].split(chr(10))[0]}")
         lines.append("")
-    if summary_notes:
-        lines.append("### PR-level notes")
+    if summary_actionable:
+        lines.append("### Items to address")
         lines.append("")
-        for note in summary_notes:
+        for note in summary_actionable:
+            lines.append(f"- {note}")
+        lines.append("")
+    if summary_observations:
+        lines.append("### Observations")
+        lines.append("")
+        for note in summary_observations:
             lines.append(f"- {note}")
         lines.append("")
 
@@ -1616,53 +1944,70 @@ def sync_summary_comment(
     )
     lines.append("")
 
+    if dismissed_suggested or dismissed_message:
+        lines.append(
+            _encode_dismissals_marker(
+                dismissed_suggested or set(),
+                dismissed_message or set(),
+            )
+        )
+        lines.append("")
+
     body = "\n".join(lines)
 
-    # One summary comment per PR: replace content on every run (pass ↔ findings).
-    marked = _list_pr_comments_with_marker()
-    if len(marked) > 1:
-        marked.sort(key=lambda c: c["id"])
-        for duplicate in marked[:-1]:
-            _delete_issue_comment(duplicate["id"])
-            print(f"Removed duplicate summary comment {duplicate['id']}")
+    prior_summary_ids = {
+        int(comment["id"])
+        for comment in _list_pr_comments_with_marker()
+        if comment.get("id")
+    }
 
-    if marked:
-        target = marked[-1]
-        subprocess.run(
-            [
-                "gh",
-                "api",
-                "--method",
-                "PATCH",
-                f"repos/{owner}/{repo}/issues/comments/{target['id']}",
-                "--input",
-                "-",
-            ],
-            input=json.dumps({"body": body}),
-            cwd=REPO_ROOT,
-            capture_output=True,
-            text=True,
-            check=True,
+    result = subprocess.run(
+        [
+            "gh",
+            "api",
+            "--method",
+            "POST",
+            f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
+            "--input",
+            "-",
+        ],
+        input=json.dumps({"body": body}),
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+
+    keep_comment_id: int | None = None
+    try:
+        response = json.loads(result.stdout)
+        if response.get("id"):
+            keep_comment_id = int(response["id"])
+    except (json.JSONDecodeError, TypeError, ValueError):
+        pass
+
+    if keep_comment_id is None:
+        new_summaries = [
+            comment
+            for comment in _list_pr_comments_with_marker()
+            if comment.get("id") and int(comment["id"]) not in prior_summary_ids
+        ]
+        if len(new_summaries) == 1:
+            keep_comment_id = int(new_summaries[0]["id"])
+        elif new_summaries:
+            keep_comment_id = max(int(comment["id"]) for comment in new_summaries)
+
+    if keep_comment_id is None:
+        print(
+            "Warning: could not identify newly created summary comment; "
+            "skipping deletion of prior summaries to preserve dismissal data.",
+            file=sys.stderr,
         )
-        print(f"Updated summary comment {target['id']} (replaced prior message for this run)")
     else:
-        subprocess.run(
-            [
-                "gh",
-                "api",
-                "--method",
-                "POST",
-                f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
-                "--input",
-                "-",
-            ],
-            input=json.dumps({"body": body}),
-            cwd=REPO_ROOT,
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        print("Created summary comment")
+        deleted = _delete_style_review_summary_comments(keep_comment_id=keep_comment_id)
+        if deleted:
+            print(f"Removed {deleted} prior style review summary comment(s).")
+    print("Created summary comment")
 
     SUMMARY_FILE.write_text(body, encoding="utf-8")
 
@@ -1675,23 +2020,28 @@ def main() -> None:
         print("ERROR: ANTHROPIC_API_KEY is required", file=sys.stderr)
         sys.exit(1)
 
-    removed = cleanup_stale_style_review_comments()
-    if removed:
-        print(f"Cleaned up {removed} stale style review thread(s) from earlier commits.")
-
-    prior_suggestions = fetch_prior_style_suggestions()
+    prior_inline_comments = _list_prior_style_review_inline_comments()
+    persisted_suggested, persisted_message = load_persisted_dismissals()
+    prior_suggestions = fetch_prior_style_suggestions(prior_inline_comments)
     if prior_suggestions:
         print(
             f"Found {sum(len(v) for v in prior_suggestions.values())} prior inline "
             "suggestion(s) on this PR."
         )
 
-    dismissed_suggested, dismissed_message = fetch_dismissed_style_suggestions()
+    thread_suggested, thread_message = fetch_dismissed_style_suggestions()
+    dismissed_suggested = persisted_suggested | thread_suggested
+    dismissed_message = persisted_message | thread_message
     if dismissed_suggested or dismissed_message:
         print(
             f"Honoring {len(dismissed_suggested) + len(dismissed_message)} dismissed "
             "style review item(s) on this PR."
         )
+
+    dismissals_changed = (
+        dismissed_suggested != persisted_suggested
+        or dismissed_message != persisted_message
+    )
 
     files = get_changed_markdown_files()
     files, code_only_files = filter_files_with_prose_changes(files)
@@ -1703,13 +2053,27 @@ def main() -> None:
     print(f"Reviewing {len(files)} Markdown file(s) in PR #{PR_NUMBER}")
     if not files:
         skip_reason = "code_only" if code_only_files else None
-        if skip_reason == "code_only" and _existing_summary_is_code_only_pass():
+        if (
+            skip_reason == "code_only"
+            and _existing_summary_is_code_only_pass()
+            and not dismissals_changed
+        ):
             print(
                 "No user-facing prose changes; existing code-only pass summary unchanged "
                 "(no new comment)."
             )
             return
-        sync_summary_comment(0, [], [], [], skip_reason=skip_reason)
+        sync_summary_comment(
+            0,
+            [],
+            [],
+            [],
+            [],
+            skip_reason=skip_reason,
+            dismissed_suggested=dismissed_suggested,
+            dismissed_message=dismissed_message,
+        )
+        cleanup_prior_style_review_comments(prior_inline_comments)
         if code_only_files:
             print(
                 "No user-facing prose changes in eligible Markdown; posted pass summary."
@@ -1736,6 +2100,12 @@ def main() -> None:
     inline_raw = data.get("inline") or []
     if not isinstance(inline_raw, list):
         inline_raw = []
+    promotable_raw = collect_promotable_inline_candidates(data.get("summary"))
+    if promotable_raw:
+        print(
+            f"Found {len(promotable_raw)} summary promotable inline candidate(s) to merge."
+        )
+    inline_raw = [*inline_raw, *promotable_raw]
     validated: list[dict] = []
     for item in inline_raw:
         if not isinstance(item, dict):
@@ -1751,27 +2121,58 @@ def main() -> None:
     validated = filter_dismissed_suggestions(
         validated, dismissed_suggested, dismissed_message
     )
-    validated = filter_duplicate_prior_suggestions(validated, prior_suggestions)
-    validated = filter_conflicting_prior_suggestions(validated, prior_suggestions)
+    if not _replace_prior_style_review_comments():
+        validated = filter_duplicate_prior_suggestions(validated, prior_suggestions)
+        validated = filter_conflicting_prior_suggestions(validated, prior_suggestions)
     postable, outside_diff = filter_to_diff_lines(validated)
 
-    summary_notes = data.get("summary") or []
-    if not isinstance(summary_notes, list):
-        summary_notes = []
-    summary_notes = [str(s).strip() for s in summary_notes if str(s).strip()]
+    summary_actionable, summary_observations = parse_model_summary(data.get("summary"))
+    summary_actionable = filter_promoted_actionable_summary(summary_actionable, postable)
 
     print(f"Model returned {len(validated)} valid inline suggestion(s)")
-    has_findings = bool(validated) or bool(summary_notes)
-    if has_findings:
-        posted, fallback = post_pull_request_review(postable, summary_notes)
-        fallback.extend(_inline_to_review_comment(item) for item in outside_diff)
+    has_findings = bool(validated) or bool(summary_actionable) or bool(summary_observations)
+    outside_fallback = [_inline_to_review_comment(item) for item in outside_diff]
+    posted = 0
+    fallback: list[dict] = []
+
+    if has_findings and postable:
+        posted, fallback = post_pull_request_review(postable)
+        fallback.extend(outside_fallback)
         print(f"Posted {posted} inline suggestion(s) on the PR diff.")
+        if posted == 0:
+            print(
+                "Keeping prior inline comments because new suggestions could not be posted."
+            )
+            sync_summary_comment(
+                posted,
+                fallback,
+                summary_actionable,
+                summary_observations,
+                files,
+                dismissed_suggested=dismissed_suggested,
+                dismissed_message=dismissed_message,
+            )
+            print("Summary comment posted for this commit.")
+            return
+    elif has_findings:
+        fallback = outside_fallback
+        print(
+            "No inline suggestions on the diff; posting findings in the summary comment only."
+        )
     else:
-        posted, fallback = 0, []
         print("No findings; skipping PR review (pass/fail only in summary comment).")
 
-    sync_summary_comment(posted, fallback, summary_notes, files)
-    print("Summary comment updated for this commit.")
+    sync_summary_comment(
+        posted,
+        fallback,
+        summary_actionable,
+        summary_observations,
+        files,
+        dismissed_suggested=dismissed_suggested,
+        dismissed_message=dismissed_message,
+    )
+    cleanup_prior_style_review_comments(prior_inline_comments)
+    print("Summary comment posted for this commit.")
 
 
 if __name__ == "__main__":

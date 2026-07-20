@@ -12,10 +12,10 @@ tool: Currents
 
 > Esta página describe y define cómo Currents gestiona los datos de eventos de archivos planos que enviamos a los socios de almacenamiento de almacén de datos.
 
-Currents para almacenamiento de datos es una transmisión continua de datos desde nuestra plataforma a un contenedor de almacenamiento en una de las [conexiones de nuestro socio]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) de almacén de datos. Currents escribe archivos Avro en tu contenedor de almacenamiento en umbrales regulares, lo que te permite procesar y analizar los datos de eventos con tu propio conjunto de herramientas de inteligencia empresarial (BI).
+Currents para almacenamiento de datos es una transmisión continua de datos desde nuestra plataforma a un contenedor de almacenamiento en una de las [conexiones de nuestros socios]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) de almacén de datos. Currents escribe archivos Avro en tu contenedor de almacenamiento en umbrales regulares, lo que te permite procesar y analizar los datos de eventos con tu propio conjunto de herramientas de inteligencia empresarial (BI).
 
 {% alert important %}
-Este contenido **solo se aplica a los datos de eventos de archivos planos que enviamos a los socios de almacenamiento de almacén de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage)**. <br><br>Para el contenido que se aplica a otros socios, consulta nuestra lista de [socios disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) y revisa sus respectivas páginas.
+Este contenido **solo se aplica a los datos de eventos de archivos planos que enviamos a los socios de almacenamiento de almacén de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage)**. <br><br>Para el contenido que se aplica a otros socios, consulta nuestra lista de [socios disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y revisa sus respectivas páginas.
 {% endalert %}
 
 ## Eventos de prueba {#test-events}
@@ -57,7 +57,7 @@ Currents creará un archivo para cada tipo de evento usando el siguiente formato
 ```
 
 {% alert tip %}
-¿No puedes ver el código por la barra de desplazamiento? Aprende cómo solucionarlo [aquí]({{site.baseurl}}/user_guide/).
+¿No puedes ver el código por la barra de desplazamiento? Aprende cómo solucionarlo [en la página de inicio de la guía del usuario de Braze]({{site.baseurl}}/user_guide).
 {% endalert %}
 
 Por ejemplo, la ruta de un evento de envío push puede verse así:
@@ -80,7 +80,7 @@ El segmento de ruta `version` es un valor entero simple de la versión de Curren
 | `<environment>` | Para uso interno de Braze. |
 | `<partition>` | Para uso interno de Braze. Entero. |
 | `<offset>` | Para uso interno de Braze. Entero. Ten en cuenta que diferentes archivos enviados dentro de la misma hora tendrán un parámetro `<offset>` diferente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Apache Avro format" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Formato Apache Avro" }
 
 {% alert tip %}
 Las convenciones de nomenclatura de archivos pueden cambiar. Braze recomienda buscar todas las claves en tu contenedor que tengan el prefijo &lt;your-bucket-prefix&gt;.
@@ -116,4 +116,4 @@ Cuando se elimina o cambia un campo en el esquema de Avro, lo consideramos un ca
 
 Todos los cambios con ruptura se comunicarán con anticipación antes del lanzamiento.
 
-Para un historial completo de cambios por versión, consulta el [registro de cambios de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/).
+Para un historial completo de cambios por versión, consulta el [registro de cambios de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs).

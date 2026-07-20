@@ -12,10 +12,10 @@ channel:
 
 > 이 참조 문서에서는 Braze의 WhatsApp 임베디드 가입 워크플로를 단계별로 안내합니다.
 
-WhatsApp 임베디드 가입 워크플로는 Braze 워크스페이스에 처음 [WhatsApp을 통합]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)할 때, 그리고 기존 WhatsApp 통합에 [WhatsApp Business 계정을 추가]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)할 때 접근할 수 있습니다.
+WhatsApp 임베디드 가입 워크플로는 Braze 워크스페이스에 처음 [WhatsApp을 통합]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)할 때, 그리고 기존 WhatsApp 통합에 [WhatsApp Business 계정을 추가]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)할 때 접근할 수 있습니다.
 
 {% alert note %}
-Braze 워크스페이스에 [여러 WhatsApp Business 계정]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)을 추가할 수 있습니다. 그러나 각 특정 WhatsApp Business 계정은 하나의 Braze 워크스페이스에만 추가할 수 있습니다.
+Braze 워크스페이스에 [여러 WhatsApp Business 계정]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)을 추가할 수 있습니다. 그러나 각 특정 WhatsApp Business 계정은 하나의 Braze 워크스페이스에만 추가할 수 있습니다.
 {% endalert %}
 
 ## 워크플로 접근하기 {#accessing-the-workflow}

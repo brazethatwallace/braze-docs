@@ -14,6 +14,10 @@ alias: /scim/automated_user_provisioning/
 
 ## Accès aux paramètres de provisionnement SCIM {#accessing-scim-provisioning-settings}
 
+{% alert important %}
+La disponibilité du provisionnement SCIM dépend de votre édition de plateforme. Si cette fonctionnalité n'est pas disponible dans votre espace de travail, contactez votre gestionnaire du succès des clients pour plus d'informations.
+{% endalert %}
+
 1. Dans le tableau de bord de Braze, accédez à **Paramètres** > **Paramètres d'administration** > **Provisionnement SCIM**, puis sélectionnez **Configure SCIM integration**.
 2. Dans l'étape **Braze configuration**, sélectionnez une méthode de provisionnement et fournissez les paramètres d'accès.
 
@@ -145,6 +149,10 @@ Connectez-vous à votre centre d'administration Microsoft Entra.
 3. Vérifiez et configurez la section **Attribute Mapping** pour qu'elle corresponde aux attributs qui apparaissent dans le tableau de la page **Setup SCIM provisioning**.
 4. Fermez la page **Attribute Mapping**.
 
+{% alert important %}
+L'attribut `userName` doit correspondre exactement à l'adresse e-mail de l'utilisateur dans Braze pour que SCIM puisse identifier et gérer correctement les utilisateurs. Les utilisateurs qui ont été provisionnés manuellement dans Braze avant l'activation de SCIM ne seront pas automatiquement convertis en utilisateurs gérés par l'IdP, même s'ils sont ajoutés à l'application SCIM. Leur méthode de provisionnement reste manuelle.
+{% endalert %}
+
 ## Étape 2 : Affecter des utilisateurs à l'application
 
 1. Accédez à **Manage** > **Users and Groups**.
@@ -153,7 +161,7 @@ Connectez-vous à votre centre d'administration Microsoft Entra.
 4. Sélectionnez le bouton **Select** pour confirmer l'affectation.
 
 {% endtab %}
-{% tab Custom %}
+{% tab Personnalisé %}
 
 ## Étape 1 : Configurer vos paramètres SCIM {#step-1-configure-your-scim-settings}
 

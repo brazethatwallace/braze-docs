@@ -6,14 +6,16 @@ description: "Referencia del README del Android SDK de Braze reflejada desde Git
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guía del repositorio del Android SDK {#android-sdk-repository-guide}
+
 ## Acerca del Android SDK de Braze {#about-the-braze-android-sdk}
 
 El Android SDK de Braze te ayuda a integrar las capacidades de mensajería, análisis e interacción con el usuario de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 
-- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android)
+- [Guía del usuario de Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
 
 ## Inicio rápido {#quickstart}
 
@@ -47,7 +49,7 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-Para más información sobre opciones de integración avanzadas, consulta la [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
+Para más información sobre opciones de integración avanzadas, consulta la [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android).
 
 ## Compatibilidad de versiones {#version-support}
 

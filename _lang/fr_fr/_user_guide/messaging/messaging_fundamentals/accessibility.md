@@ -122,7 +122,7 @@ Une fois votre structure en place, l'étape suivante consiste à vous assurer qu
 
 - **Écrivez des phrases courtes et claires :** Les phrases courtes sont faciles à comprendre pour tout le monde, en particulier pour les personnes utilisant des lecteurs d'écran ou ayant des difficultés à traiter des informations complexes. Écrivez à un niveau de lecture correspondant à la cinquième (environ 12 ans). Vous pouvez utiliser des ressources telles que [Hemingway App](https://hemingwayapp.com/) pour vérifier le niveau de lecture de votre texte.
 - **Choisissez des tailles de police et un espacement lisibles :** Un texte trop petit peut être difficile à lire, surtout sur mobile. Utilisez au moins 14 px pour le corps du texte. Agrandissez les titres pour que les utilisateurs puissent clairement voir la différence. Un espacement supplémentaire entre les lignes (environ 1,5 de hauteur de ligne) et les paragraphes améliore la lisibilité, en particulier pour les personnes ayant des besoins visuels ou cognitifs.
-- **Évitez le texte justifié :** Le texte justifié crée un espacement inégal entre les mots, rendant la lecture difficile pour les personnes dyslexiques ou ayant des handicaps cognitifs. Envisagez d'aligner à gauche le contenu qui s'étend sur plus de deux lignes pour les langues de gauche à droite, ou à droite pour les [langues de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- **Évitez le texte justifié :** Le texte justifié crée un espacement inégal entre les mots, rendant la lecture difficile pour les personnes dyslexiques ou ayant des handicaps cognitifs. Envisagez d'aligner à gauche le contenu qui s'étend sur plus de deux lignes pour les langues de gauche à droite, ou à droite pour les [langues de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 - **Utilisez le gras, l'italique et les majuscules avec parcimonie :** Mettre trop de texte en évidence rend la lecture difficile, en particulier pour les personnes dyslexiques ou malvoyantes. Restez simple.
 
 #### Clarté et facilité d'utilisation {#clarity-and-usability}
@@ -131,7 +131,7 @@ Enfin, parlons des détails les plus fins, ceux qui aident les utilisateurs non 
 
 - **Étiquetez clairement les liens et les boutons :** Assurez-vous que le texte de vos [liens](#links) et [boutons](#buttons) explique clairement ce qui va se passer ensuite. Cela aide les personnes utilisant des lecteurs d'écran ou naviguant au clavier à savoir à quoi s'attendre.
 - **Utilisez les symboles et les emojis avec modération :** Les caractères spéciaux et les emojis peuvent rendre votre contenu ludique, mais ils peuvent être déroutants lorsqu'ils sont lus par des lecteurs d'écran. Utilisez-les avec parcimonie et assurez-vous qu'ils ne remplacent pas un texte clair et descriptif.
-- **Testez la troncature :** Testez toujours votre texte en [envoyant un message de test]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) sur un appareil pour vous assurer que votre texte n'est pas tronqué. Si votre message est coupé, cela nuit à la fois à vous et à votre audience, car cela empêche votre contenu de les atteindre.
+- **Testez la troncature :** Testez toujours votre texte en [envoyant un message de test]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) sur un appareil pour vous assurer que votre texte n'est pas tronqué. Si votre message est coupé, cela nuit à la fois à vous et à votre audience, car cela empêche votre contenu de les atteindre.
 
 ### Langue d'accessibilité {#accessibility-language}
 
@@ -143,11 +143,11 @@ Les Campaigns et les Canvas utilisent les mêmes éditeurs pour ces options, sau
 
 #### Configurer la langue d'accessibilité {#configure-accessibility-language}
 
-Lorsque votre éditeur le propose, accédez à la section **Accessibilité** dans les paramètres du message. Choisissez une langue dans le menu déroulant ou utilisez Liquid (par exemple {% raw %}`{{accessibility_language}}`{% endraw %} lorsque les [messages multilingues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) sont activés et que les **Paramètres de localisation** sont configurés).
+Lorsque votre éditeur le propose, accédez à la section **Accessibilité** dans les paramètres du message. Choisissez une langue dans le menu déroulant ou utilisez Liquid (par exemple {% raw %}`{{accessibility_language}}`{% endraw %} lorsque les [messages multilingues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) sont activés et que les **Paramètres de localisation** sont configurés).
 
 #### Messages multilingues {#multi-language-messages}
 
-Dans les **Paramètres de localisation**, définissez une langue d'accessibilité pour chaque locale afin que Liquid puisse renseigner {% raw %}`{{accessibility_language}}`{% endraw %} pour les envois localisés. Le fait que cette valeur soit déjà sélectionnée pour les nouveaux messages dépend du canal. Pour les flux de travail CSV et de traduction, commencez par [Paramètres de langue et accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility).
+Dans les **Paramètres de localisation**, définissez une langue d'accessibilité pour chaque locale afin que Liquid puisse renseigner {% raw %}`{{accessibility_language}}`{% endraw %} pour les envois localisés. Le fait que cette valeur soit déjà sélectionnée pour les nouveaux messages dépend du canal. Pour les flux de travail CSV et de traduction, commencez par [Paramètres de langue et accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility).
 
 #### Prise en charge par canal et éditeur {#channel-and-editor-support}
 
@@ -159,7 +159,7 @@ Utilisez ce tableau pour comparer les canaux. Les valeurs par défaut peuvent di
 | E-mail (code HTML) | Braze n'ajoute pas de balise de langue pour vous. Ajoutez-la dans votre HTML si nécessaire. |
 | Messages in-app (glisser-déposer) | Lorsque vous choisissez une langue sous **Accessibilité**, Braze ajoute cette langue au HTML externe du message afin que les lecteurs d'écran traitent l'ensemble du message dans cette langue. Avec les messages multilingues activés, les nouveaux messages peuvent utiliser par défaut les langues de vos locales. La **prévisualisation** peut ne pas afficher de langue tant que vous n'en avez pas choisi une sous **Paramètres**. |
 | Bannières | Même comportement que les messages in-app. |
-| Pages d'accueil | Vous pouvez définir la langue sur la page en ligne. Choisissez une langue, ou utilisez Liquid si votre compte autorise Liquid sur les pages d'accueil. Les valeurs par défaut diffèrent également de celles des messages in-app et des bannières — vérifiez la page publiée. |
+| Pages de destination | Vous pouvez définir la langue sur la page en ligne. Choisissez une langue, ou utilisez Liquid si votre compte autorise Liquid sur les pages de destination. Les valeurs par défaut diffèrent également de celles des messages in-app et des bannières — vérifiez la page publiée. |
 | Content Cards | Les Content Cards utilisent un champ **Langue** pour les applications au lieu d'une langue d'accessibilité explicite. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prise en charge par canal et éditeur" }
 
@@ -633,8 +633,8 @@ Les e-mails créés dans l'éditeur d'e-mails par glisser-déposer ont les élé
 
 Pour vous aider à identifier et corriger les problèmes d'accessibilité en amont, Braze propose des tests d'accessibilité automatisés dans les domaines suivants :
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing) pour les e-mails
-- [Scanner d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner) pour les messages créés avec notre éditeur HTML (par exemple, les messages in-app HTML, les Content Blocks HTML, les [pieds de page d'e-mail personnalisés]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), les [pages d'abonnement par e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page) et les [pages de désabonnement par e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)).
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) pour les e-mails
+- [Scanner d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) pour les messages créés avec notre éditeur HTML (par exemple, les messages in-app HTML, les Content Blocks HTML, les [pieds de page d'e-mail personnalisés]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), les [pages d'abonnement par e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page) et les [pages de désabonnement par e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)).
 
 Ces tests vérifient votre message par rapport aux directives d'accessibilité du contenu web ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)), un ensemble de normes techniques internationalement reconnues pour le contenu accessible. Tout problème pouvant être détecté automatiquement est signalé et classé par gravité pour vous aider à prioriser.
 
@@ -668,3 +668,5 @@ Même si votre message passe toutes les vérifications automatisées, il est tou
 - Utiliser des outils comme les lecteurs d'écran, la navigation au clavier uniquement et le zoom du navigateur pour simuler différents besoins d'accès.
 
 En combinant les tests automatisés avec une révision manuelle réfléchie, vous détecterez davantage de problèmes potentiels et créerez des campagnes plus inclusives et utilisables pour chaque destinataire.
+
+{% multi_lang_include accessibility/automated_testing.md %}

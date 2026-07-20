@@ -29,4 +29,4 @@ Die Intelligence Suite bietet leistungsstarke Features zur Analyse des Verlaufs 
 ### Unterhaltung {#entertainment}
 
 - **Neue Inhalte bewerben:** Nutzen Sie [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), um Benachrichtigungen über neue Filme, Sendungen, Musik und andere Arten von Inhalten dann zu versenden, wenn Nutzer:innen Ihre Nachrichten am ehesten öffnen.
-- **In-Game-Käufe:** Verwenden Sie die Intelligente Auswahl, um verschiedene Werbenachrichten für In-Game-Käufe zu testen und automatisch diejenige auszuwählen, die die höchsten Conversion-Raten erzielt.
+- **In-Game-Käufe:** Verwenden Sie die Intelligente Auswahl, um verschiedene Werbenachrichten für In-Game-Käufe zu testen und automatisch diejenige auszuwählen, die die höchsten Konversionsraten erzielt.

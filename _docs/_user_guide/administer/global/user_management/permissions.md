@@ -32,7 +32,7 @@ Use permission sets to bundle permissions related to specific subject areas or a
 
 ## Creating a role
 
-Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. To create a role, go to **Settings** > **User Management** > **Roles**, then select **Create role**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the appropriate workspaces and directly grant them the associated permissions. To create a role, go to **Settings** > **User Management** > **Roles**, then select **Create role**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab example roles %}
@@ -90,6 +90,7 @@ Keep the following behaviors in mind when you assign dashboard access:
 - **Workspace Admin versus Company Admin:** Workspace Admins manage permissions within assigned workspaces. Company Admins have company-wide authority, including deleting other dashboard users.
 - **Limited users:** Limited users with the "Edit Dashboard Users" permission can manage other limited users but cannot create or manage Company Admin accounts.
 - **Manage Dashboard Users scope:** On the user detail page, permissions appear only for workspaces the editor can access. A limited user who can edit users in one workspace may not see another workspace's permission checkboxes.
+- **Assign permissions button:** When you edit a user and they already have workspace-level permissions or permission sets for every workspace you can manage, the **Assign permissions** button disappears. This happens because there are no additional workspaces left to assign at the workspace level.
 - **Export User Data:** Exporting user data requires workspace-level access in addition to the export permission.
 - **Composite permissions:** Some areas require multiple permissions. For example, configuring [Technology Partners]({{site.baseurl}}/partners) typically requires both partner access and a baseline read permission for the related workspace features.
 - **Import and Update User Data:** This permission includes the ability to edit app user profiles through import flows, not only dashboard user records.
@@ -221,7 +222,8 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | User Data | Edit User Data | Create and update user data |
 | User Data | Export User Data | Download users from the dashboard |
 | Duplicate Users | View User Merge Records | View a list of user merge records |
-| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner |
+| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner. Users with this permission can't save or launch campaigns that reference custom attributes marked as PII unless they also have the "View Custom Attributes Marked as PII" permission.<br><br>The "View User Profiles (PII Redacted)" permission must be enabled before use. Contact your customer success manager to enable it for your workspace. |
+| Users | View User Event Properties | View event properties in the **Event History** tab on user profiles |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
 | Delete Users | View User Deletion Records | View a list of user deletion records |
 | Delete Users | Delete Users | Permanently delete users from the dashboard individually or in bulk |
@@ -361,7 +363,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Domain Settings | Edit Domain Settings | Add delegated domains and custom domains under Verified Domains |
 | Field Level Encryption | Edit Identifier Field-Level Encryption | Enable and update Field-Level Encryption settings |
 | Media Library Assets | View Media Library Assets | View media library assets |
-| Media Library Assets | Delete Media Library Assets | Permanently delete media library assets |
+| Media Library Assets | Delete Media Library Assets | Remove media library assets from the UI. Deleted assets remain hosted by Braze to prevent breaking messages that reference them. To permanently delete an asset, contact Braze Support. |
 | Media Library Assets | Edit Media Library Assets | Create and update media library assets |
 | Media Library Assets | Replace Media Library Assets | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 | Messaging Rate Limits | View Messaging Rate Limits | View workspace-level messaging rate limits |

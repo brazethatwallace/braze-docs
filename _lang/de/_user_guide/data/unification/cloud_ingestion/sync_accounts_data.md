@@ -25,7 +25,7 @@ Nehmen Sie Änderungen an Ihrem Kontoschema nur vor, wenn die Synchronisierung p
 
 ## Wie die Synchronisierung funktioniert {#how-syncing-works}
 
-- Bei jeder Synchronisierung werden Zeilen importiert, deren `UPDATED_AT`-Zeitstempel nach dem zuletzt synchronisierten Zeitstempel liegt. Zeilen an der exakten Grenze des Zeitstempels können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen. Weitere Informationen finden Sie unter [Erneutes Synchronisieren von Zeilen mit doppelten Zeitstempeln vermeiden]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+- Bei jeder Synchronisierung werden Zeilen importiert, deren `UPDATED_AT`-Zeitstempel nach dem zuletzt synchronisierten Zeitstempel liegt. Zeilen an der exakten Grenze des Zeitstempels können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen. Weitere Informationen finden Sie unter [Erneutes Synchronisieren von Zeilen mit doppelten Zeitstempeln vermeiden]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 - Die Daten aus der Integration erstellen oder aktualisieren Konten auf Grundlage der bereitgestellten `id`.
 - Wenn `DELETED` den Wert `true` hat, wird das Konto gelöscht.
 - Bei der Synchronisierung werden keine Datenpunkte protokolliert, jedoch werden alle synchronisierten Daten auf Ihre gesamte Kontonutzung angerechnet, gemessen an der Gesamtmenge der gespeicherten Daten – es ist nicht erforderlich, sich nur auf geänderte Daten zu beschränken.
@@ -73,7 +73,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. Wenn Sie Netzwerkrichtlinien verwenden, setzen Sie die Braze-IPs auf die Allowlist, damit der CDI-Dienst eine Verbindung herstellen kann. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Wenn Sie Netzwerkrichtlinien verwenden, setzen Sie die Braze-IPs auf die Allowlist, damit der CDI-Dienst eine Verbindung herstellen kann. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 4. Gehen Sie im Braze-Dashboard zu **Dateneinstellungen** > **Cloud-Datenaufnahme** und erstellen Sie eine neue Synchronisierung.
 5. Geben Sie die Verbindungsdetails ein (oder verwenden Sie vorhandene) und fügen Sie dann die Quelltabelle hinzu.
 6. Wählen Sie den Synchronisierungstyp **Accounts** aus und geben Sie dann den Integrationsnamen und den Zeitplan ein.
@@ -109,7 +109,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
     GRANT SELECT ON TABLE ACCOUNTS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Wenn Sie eine Firewall oder Netzwerkrichtlinien verwenden, erlauben Sie Braze den Zugriff auf Ihre Redshift-Instanz. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Wenn Sie eine Firewall oder Netzwerkrichtlinien verwenden, erlauben Sie Braze den Zugriff auf Ihre Redshift-Instanz. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab BigQuery %}
@@ -156,7 +156,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
     Generieren Sie nach der Vergabe der Berechtigungen einen JSON-Schlüssel. Anweisungen finden Sie unter [Schlüssel erstellen und löschen](https://cloud.google.com/iam/docs/keys-create-delete). Sie laden ihn später im Braze-Dashboard hoch.
 
 {:start="4"}
-4. Wenn Sie Netzwerkrichtlinien verwenden, erlauben Sie Braze-IPs den Zugriff auf Ihre BigQuery-Instanz. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+4. Wenn Sie Netzwerkrichtlinien verwenden, erlauben Sie Braze-IPs den Zugriff auf Ihre BigQuery-Instanz. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab Databricks %}
@@ -198,7 +198,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
     5. Kopieren und speichern Sie das Token sicher für die Verwendung im Braze-Dashboard.
 
 {:start="4"}
-4. Wenn Sie Netzwerkrichtlinien verwenden, erlauben Sie Braze-IPs den Zugriff auf Ihre Databricks-Instanz. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+4. Wenn Sie Netzwerkrichtlinien verwenden, erlauben Sie Braze-IPs den Zugriff auf Ihre Databricks-Instanz. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab Microsoft Fabric %}
@@ -220,7 +220,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
 2. Erstellen Sie einen Dienstprinzipal und vergeben Sie Berechtigungen. Wenn Sie bereits Zugangsdaten von einer anderen Synchronisierung haben, können Sie diese wiederverwenden – stellen Sie sicher, dass sie Zugriff auf die Kontotabelle haben.
 
 {:start="3"}
-3. Wenn Sie Netzwerkrichtlinien verwenden, erlauben Sie Braze-IPs den Zugriff auf Ihre Microsoft Fabric-Instanz. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. Wenn Sie Netzwerkrichtlinien verwenden, erlauben Sie Braze-IPs den Zugriff auf Ihre Microsoft Fabric-Instanz. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -239,7 +239,7 @@ Um Kontodaten aus einem Dateispeicher zu synchronisieren, erstellen Sie eine Que
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kontodaten synchronisieren" }
 
 {% alert note %}
-Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Hängen Sie Zeitstempel an, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Amazon S3-Synchronisierung finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
+Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Hängen Sie Zeitstempel an, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Amazon S3-Synchronisierung finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 Die folgenden Beispiele zeigen gültige JSON- und CSV-Formate für die Synchronisierung von Kontodaten aus einem Dateispeicher.

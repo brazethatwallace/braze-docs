@@ -11,17 +11,17 @@ tool: Campaigns
 
 > Este artículo de referencia explica cómo generar un `campaign_id` para incluirlo en tus llamadas a la API y cómo configurar esa campaña.
 
-Las campañas de API suelen utilizarse para mensajería transaccional. Al crear campañas API (no [campañas desencadenadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)), el dashboard de Braze solo se utiliza para generar un `campaign_id`, que te permite hacer un seguimiento de los análisis para los informes de campaña. También puedes generar un ID de variación del mensaje, que es diferente para cada variante de tu campaña.
+Las campañas de API suelen utilizarse para mensajería transaccional. Al crear campañas API (no [campañas desencadenadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)), el panel de Braze solo se utiliza para generar un `campaign_id`, que te permite hacer un seguimiento de los análisis para los informes de campaña. También puedes generar un ID de variación del mensaje, que es diferente para cada variante de tu campaña.
 
 A continuación, enviarás esa información a tu equipo de desarrollo para que la utilice en la solicitud de API, junto con lo siguiente:
 - Texto de la campaña
 - Pertenencia a la audiencia
 - Activos
 
-Una vez iniciada la campaña, puedes ver los resultados en el dashboard. Las campañas API utilizan las [API de mensajería]({{site.baseurl}}/api/endpoints/messaging) de Braze, que tienen las mismas opciones detalladas de informes y reorientación que las campañas creadas completamente a través del dashboard.
+Una vez iniciada la campaña, puedes ver los resultados en el panel. Las campañas API utilizan las [API de mensajería]({{site.baseurl}}/api/endpoints/messaging) de Braze, que tienen las mismas opciones detalladas de informes y reorientación que las campañas creadas completamente a través del panel.
 
 {% alert warning %}
-Como las campañas API suelen ser transaccionales, todos los usuarios son elegibles para las campañas API, incluso los de tu Grupo de control global. En estos envíos no se añade un encabezado de [cancelar suscripción con un clic]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe). Si deseas añadir un encabezado de cancelación de suscripción con un solo clic a todas las campañas de API, ponte en contacto con tu administrador del éxito del cliente.
+Como las campañas API suelen ser transaccionales, todos los usuarios son elegibles para las campañas API, incluso los de tu grupo de control global. En estos envíos no se añade un encabezado de [cancelar suscripción con un clic]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe). Si deseas añadir un encabezado de cancelación de suscripción con un solo clic a todas las campañas de API, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
 
 ## Crear una nueva campaña {#create-a-new-campaign}
@@ -41,6 +41,6 @@ Para configurar tu campaña, realiza los siguientes pasos:
 
 ## Llamadas a la API {#api-calls}
 
-Después de guardar tu campaña de API, incluye lo siguiente en tu solicitud API:
-- Los campos `campaign_id` generados con tu solicitud API según se haya indicado en los [puntos finales de envío de mensajes]({{site.baseurl}}/api/endpoints/messaging#send-endpoints).
-- Un [objeto de mensaje]({{site.baseurl}}/api/objects_filters#messaging-objects) para cada plataforma incluida en la campaña. En el objeto de mensaje, proporciona el ID de variación del mensaje. Esto especificará que las estadísticas deben recopilarse y mostrarse bajo esa variante. Se admiten los siguientes objetos de mensaje: Android, Content Cards, correo electrónico, iOS, Kindle, SMS/MMS, notificación push web y webhook.
+Después de guardar tu campaña de API, incluye lo siguiente en tu solicitud de API:
+- Los campos `campaign_id` generados con tu solicitud de API según se indique en los [endpoints de envío de mensajes]({{site.baseurl}}/api/endpoints/messaging).
+- Un [objeto de mensaje]({{site.baseurl}}/api/objects_filters#messaging-objects) para cada plataforma incluida en la campaña. En el objeto de mensaje, proporciona el ID de variación del mensaje. Esto especifica que las estadísticas deben recopilarse y mostrarse bajo esa variante. Se admiten los siguientes objetos de mensaje: Android, Content Cards, correo electrónico, iOS, Kindle, SMS/MMS, notificación push web y webhook.

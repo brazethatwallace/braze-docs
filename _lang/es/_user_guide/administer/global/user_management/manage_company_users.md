@@ -19,7 +19,7 @@ Para añadir un nuevo usuario:
 1. Ve a **Configuración** > **Administrar usuarios** > **Usuarios de la empresa**.
 2. Selecciona **+ Añadir nuevo usuario**.
 3. Introduce su información según se solicite, incluyendo su correo electrónico, departamento y [rol de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role).
-4. Para los usuarios que no son administradores, selecciona los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions) a nivel de empresa y a nivel de espacio de trabajo que deseas que tenga este usuario.
+4. Para los usuarios que no son administradores, selecciona los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions) a nivel de empresa y a nivel de espacio de trabajo que deseas que tenga este usuario.
 
 ![Permisos a nivel de espacio de trabajo con una sección para campos de permisos personalizados.]({% image_buster /assets/img/add_new_user_3.png %})
 
@@ -55,7 +55,7 @@ Los administradores también pueden suspender a un usuario seleccionando su nomb
 
 Para eliminar a un usuario, ve a **Configuración** > **Administrar usuarios** > **Usuarios de la empresa**, busca el nombre del usuario y selecciona <i class="fa fa-trash-can"></i> **Eliminar usuario**.
 
-Solo los administradores pueden eliminar usuarios de la empresa, y los usuarios de la empresa no pueden eliminar sus propias cuentas. Un administrador no puede eliminar su propia cuenta del dashboard; otro administrador debe hacerlo por él.
+Solo los administradores pueden eliminar usuarios de la empresa, y los usuarios de la empresa no pueden eliminar sus propias cuentas. Un administrador no puede eliminar su propia cuenta del panel; otro administrador debe hacerlo por él.
 
 ![Eliminar a un usuario.]({% image_buster /assets/img_archive/delete_user_new.png %})
 
@@ -73,27 +73,27 @@ Después de eliminar a un usuario, Braze no conserva ninguno de los siguientes d
 Braze conservará los siguientes datos de la cuenta:
 
 - Atributos personalizados o datos de prueba asociados a su cuenta
-- Campaigns o Canvas que crearon (pero el nombre del usuario no aparecerá en ellos, como por ejemplo en la columna **Fecha últ. modific.**)
+- Campaigns o Canvas que crearon (pero el nombre del usuario no aparecerá en ellos, como por ejemplo en la columna **Last edited by**)
 
-### Impacto de eliminar un usuario del dashboard {#impact-of-deleting-a-dashboard-user}
+### Impacto de eliminar un usuario del panel {#impact-of-deleting-a-dashboard-user}
 
-Cuando se elimina un usuario del dashboard, no hay un impacto significativo en los activos que creó dentro del dashboard, como Campaigns, Segments y Canvas. Sin embargo, el campo **Creada por** de estos activos mostrará un valor "null" en lugar de la dirección de correo electrónico del usuario eliminado.
+Cuando se elimina un usuario del panel, no hay un impacto significativo en los activos que creó dentro del panel, como Campaigns, Segments y Canvas. Sin embargo, el campo **Created By** de estos activos mostrará un valor "null" en lugar de la dirección de correo electrónico del usuario eliminado.
 
-Si posteriormente se crea un nuevo usuario del dashboard con la misma dirección de correo electrónico que el usuario eliminado, Braze no volverá a asociar los activos creados por el usuario eliminado con el nuevo usuario. El nuevo usuario del dashboard comenzará desde cero y no se le acreditará como creador de ningún activo existente en el dashboard.
+Si posteriormente se crea un nuevo usuario del panel con la misma dirección de correo electrónico que el usuario eliminado, Braze no volverá a asociar los activos creados por el usuario eliminado con el nuevo usuario. El nuevo usuario del panel comenzará desde cero y no se le acreditará como creador de ningún activo existente en el panel.
 
 ## Solución de problemas {#troubleshooting}
 
 ### "No se puede realizar la acción" al añadir un usuario {#unable-to-perform-action-when-adding-a-user}
 
-Si al añadir un usuario del dashboard se produce un error de "No se puede realizar la acción" (o similar):
+Si al añadir un usuario del panel se produce un error de "No se puede realizar la acción" (o similar):
 
 - Elimina los espacios iniciales o finales y los caracteres ocultos de la dirección de correo electrónico.
 - Confirma que la dirección tiene un formato de correo electrónico válido para tu organización. Algunos caracteres especiales son rechazados.
-- El mismo correo electrónico no puede utilizarse para dos usuarios del dashboard en el mismo [clúster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account). Si la dirección ya está registrada en otro espacio de trabajo en ese clúster, utiliza una dirección diferente o un alias como `user+1@company.com`.
+- El mismo correo electrónico no puede utilizarse para dos usuarios del panel en el mismo [clúster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account). Si la dirección ya está registrada en otro espacio de trabajo en ese clúster, utiliza una dirección diferente o un alias como `user+1@company.com`.
 
 ### "El correo electrónico ya está en uso" al intentar añadir un usuario {#email-is-already-taken-when-trying-to-add-a-user}
 
-Si intentas añadir un nuevo usuario y recibes un error que indica que el correo electrónico ya está en uso, pero no puedes encontrarlo en tu lista de usuarios, ese usuario probablemente existe en una instancia diferente del mismo clúster del dashboard de Braze.
+Si intentas añadir un nuevo usuario y recibes un error que indica que el correo electrónico ya está en uso, pero no puedes encontrarlo en tu lista de usuarios, ese usuario probablemente existe en una instancia diferente del mismo clúster del panel de Braze.
 
 Para crear este nuevo usuario, puedes hacer cualquiera de las siguientes opciones:
 
@@ -106,5 +106,5 @@ Si no recibes el mensaje de activación en tu buzón de entrada al usar `testing
 
 Después de añadir usuarios, administra su acceso:
 
-- [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para configurar lo que cada usuario puede hacer en el dashboard.
-- [Equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) para organizar usuarios en grupos con acceso compartido a objetos específicos del dashboard.
+- [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para configurar lo que cada usuario puede hacer en el panel.
+- [Equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) para organizar usuarios en grupos con acceso compartido a objetos específicos del panel.

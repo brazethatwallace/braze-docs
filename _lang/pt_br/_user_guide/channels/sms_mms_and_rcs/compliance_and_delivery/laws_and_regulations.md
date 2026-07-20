@@ -29,18 +29,18 @@ Use as seguintes regras ao enviar mensagens:
   - A data e hora em que o usuário deu consentimento
   - O tipo de mensagem SMS, MMS ou RCS para o qual ele consentiu
   - O número de telefone do usuário
-  - O idioma no qual ele fez o opt-in<br><br>
+  - O idioma no qual ele fez a aceitação<br><br>
 
 2. **Comunique claramente os tipos de SMS, MMS ou RCS que você enviará**. Os usuários devem entender quais mensagens esperar da sua marca nesse canal e os tipos de informações ou ofertas que receberão. Declare explicitamente o propósito das suas futuras campanhas, a frequência das mensagens e lembre os usuários de que taxas de mensagem/dados podem ser aplicadas.<br><br>
 
-3. **Mantenha as informações essenciais atualizadas e visíveis**. Certifique-se de que a versão mais atualizada dos Termos e Condições da sua marca e da sua Política de Privacidade de Marketing por SMS/MMS/RCS estejam claramente visíveis e facilmente acessíveis na sua página de opt-in.<br><br>
+3. **Mantenha as informações essenciais atualizadas e visíveis**. Certifique-se de que a versão mais atualizada dos Termos e Condições da sua marca e da sua Política de Privacidade de Marketing por SMS/MMS/RCS estejam claramente visíveis e facilmente acessíveis na sua página de aceitação.<br><br>
 
-4. **Envie SMS, MMS ou RCS apenas para números de telefone obtidos legalmente e com opt-in**. Como parte do planejamento de migração técnica, certifique-se de que sua equipe compreenda o mecanismo para vincular os status de opt-in a cada perfil de usuário na sua plataforma de engajamento com clientes.<br><br>
+4. **Envie SMS, MMS ou RCS apenas para números de telefone obtidos legalmente e com aceitação**. Como parte do planejamento de migração técnica, certifique-se de que sua equipe compreenda o mecanismo para vincular os status de aceitação a cada perfil de usuário na sua plataforma de engajamento com clientes.<br><br>
 
 5. **Garanta a conformidade com SHAFT nos EUA e em outras regiões relevantes.** O envio de mensagens SMS, MMS ou RCS que contenham linguagem relacionada a sexo, ódio, álcool, armas de fogo e tabaco (SHAFT) é geralmente considerado ilegal nos EUA e em algumas outras regiões.<br><br>
 
-6. **Respeite a "revogação razoável" para mensagens nos EUA.** Para clientes que enviam mensagens nos EUA, a Lei de Proteção ao Consumidor de Telefonia (TCPA) exige que qualquer mensagem que possa ser razoavelmente interpretada como um descadastramento deve ser respeitada. Isso significa que os gatilhos de cancelamento de inscrição não estão mais limitados a palavras-chave específicas (como "STOP").
-  - **Descadastramentos baseados em intenção:** Frases como "no more", "please don't text me anymore" e "stoppp" devem ser processadas como descadastramentos legais.
+6. **Respeite a "revogação razoável" para mensagens nos EUA.** Para clientes que enviam mensagens nos EUA, a Lei de Proteção ao Consumidor de Telefonia (TCPA) exige que qualquer mensagem que possa ser razoavelmente interpretada como um cancelamento de inscrição deve ser respeitada. Isso significa que os gatilhos de cancelamento de inscrição não estão mais limitados a palavras-chave específicas (como "STOP").
+  - **Cancelamentos baseados em intenção:** Frases como "no more", "please don't text me anymore" e "stoppp" devem ser processadas como cancelamentos de inscrição legais.
   - **Sem mensagens de esclarecimento:** Você não pode enviar uma mensagem para esclarecer a intenção de cancelamento de inscrição de um usuário (por exemplo, "Você quis cancelar a inscrição? Se sim, responda STOP") antes de processar a solicitação.<br><br>
 
 7. **Verifique tudo duas vezes**. Trabalhe com sua equipe jurídica para garantir que seu programa de SMS, MMS ou RCS esteja totalmente em conformidade com todas as regras e regulamentações aplicáveis para as regiões em que sua marca opera.<br><br>
@@ -51,9 +51,9 @@ Use as seguintes regras ao enviar mensagens:
 O RCS é um espaço emergente e em evolução. Estados, países e outros órgãos reguladores podem introduzir legislações ou regulamentações novas ou diferentes. As informações a seguir são para orientação geral e fins educacionais. As marcas devem sempre consultar sua equipe jurídica antes de enviar mensagens RCS.
 {% endalert %}
 
-- **Entenda a sobreposição regulatória:** Como RCS e SMS compartilham muitas semelhanças, as mesmas leis, regulamentações e políticas de operadoras se aplicam. Isso inclui as regras da TCPA para coleta de opt-in e as diretrizes da CTIA (como SHAFT).
+- **Entenda a sobreposição regulatória:** Como RCS e SMS compartilham muitas semelhanças, as mesmas leis, regulamentações e políticas de operadoras se aplicam. Isso inclui as regras da TCPA para coleta de aceitação e as diretrizes da CTIA (como SHAFT).
 - **Consentimentos:** Trabalhe com sua equipe jurídica para avaliar se você precisa coletar consentimentos adicionais para enviar RCS aos seus usuários de SMS existentes.
-- **Atualize políticas e avisos legais:** É recomendável atualizar seus Termos de Serviço Móvel e Política de Privacidade para incluir referências ao RCS. Também é recomendável que suas campanhas de opt-in incluam linguagem sobre RCS, além de SMS.
+- **Atualize políticas e avisos legais:** É recomendável atualizar seus Termos de Serviço Móvel e Política de Privacidade para incluir referências ao RCS. Também é recomendável que suas campanhas de aceitação incluam linguagem sobre RCS, além de SMS.
 
 ## Recursos {#resources}
 
@@ -69,32 +69,32 @@ Aqui estão alguns links que você pode precisar consultar ao criar sua campanha
 
 A privacidade do cliente é fundamental para um relacionamento significativo e respeitoso. Respeitar a privacidade e as informações de um cliente é mais uma oportunidade de criar um vínculo entre ele e sua marca. Às vezes, o uso de ferramentas de marketing pode colocar dados e privacidade em segundo plano.
 
-Felizmente, a Braze segue as diretrizes de muitas [regulamentações de segurança]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications), incluindo o [GDPR]({{site.baseurl}}/dp-technical-assistance).
+Felizmente, a Braze segue as diretrizes de muitas [regulamentações de segurança]({{site.baseurl}}/developer_guide/disclosures/security_qualifications), incluindo o [GDPR]({{site.baseurl}}/dp-technical-assistance).
 
 A [CTIA](https://www.ctia.org/) (uma associação comercial que representa a indústria de comunicações sem fio nos Estados Unidos) recomenda que você mantenha e exiba de forma visível uma política de privacidade clara e fácil de entender.
 
 ### Consentimento {#consent}
 
-As opções de opt-in, ajuda e descadastramento são absolutamente essenciais ao criar campanhas de SMS, MMS ou RCS.
+As opções de aceitação, ajuda e cancelamento de inscrição são absolutamente essenciais ao criar campanhas de SMS, MMS ou RCS.
 
 A Lei de Proteção ao Consumidor de Telefonia ([TCPA](https://en.wikipedia.org/wiki/Telephone_Consumer_Protection_Act_of_1991)) determina que uma empresa deve receber "consentimento expresso por escrito" para enviar mensagens aos clientes — você pode fazer isso de várias maneiras, incluindo web ou dispositivo móvel. Você deve ser claro com o cliente sobre como pretende usar o SMS para se comunicar com ele.
 
 Lembre-se de cumprir o [Registro Nacional de Não Ligar](https://www.donotcall.gov/).
 
-A Braze usa [Grupos de inscrições]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing) para gerenciar grupos de usuários com base no nível de consentimento deles.
+A Braze usa [grupos de inscrições]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing) para gerenciar grupos de usuários com base no nível de consentimento deles.
 
-#### Conformidade por meio de descadastramento aproximado (fuzzy opt-out) {#compliance-through-fuzzy-opt-out}
+#### Conformidade por meio de cancelamento aproximado (fuzzy opt-out) {#compliance-through-fuzzy-opt-out}
 
-Para ajudar a automatizar o reconhecimento de solicitações de descadastramento não padronizadas, você pode ativar o descadastramento aproximado (fuzzy opt-out) nas configurações do seu grupo de inscrições, caso seja um cliente nos EUA.
+Para ajudar a automatizar o reconhecimento de solicitações de cancelamento de inscrição não padronizadas, você pode ativar o cancelamento aproximado (fuzzy opt-out) nas configurações do seu grupo de inscrições, caso seja um cliente nos EUA.
 
-- **Configuração imediata:** Por padrão, o descadastramento aproximado envia uma mensagem de esclarecimento. Para aplicar um descadastramento imediato em vez de um esclarecimento, você pode configurar seu espaço de trabalho seguindo as instruções na [seção de descadastramento aproximado (fuzzy opt-out)]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out#configure-fuzzy-opt-out).
-- **Adições manuais de palavras-chave:** Recomendamos adicionar manualmente palavras de alto risco à sua categoria de palavras-chave de **Descadastramento**, como "REMOVE", "END", "HALT", "CEASE", "DISCONTINUE" e "UNSUBSCRIBE", além das palavras-chave padrão já fornecidas.
+- **Configuração imediata:** Por padrão, o cancelamento aproximado envia uma mensagem de esclarecimento. Para aplicar um cancelamento imediato em vez de um esclarecimento, você pode configurar seu espaço de trabalho seguindo as instruções na [seção de cancelamento aproximado (fuzzy opt-out)]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out#configure-fuzzy-opt-out).
+- **Adições manuais de palavras-chave:** Recomendamos adicionar manualmente palavras de alto risco à sua categoria de palavras-chave de **cancelamento de inscrição**, como "REMOVE", "END", "HALT", "CEASE", "DISCONTINUE" e "UNSUBSCRIBE", além das palavras-chave padrão já fornecidas.
 
-### Spam e cadência {#spam-and-cadence}
+### SPAM e cadência {#spam-and-cadence}
 
 Assim como no e-mail, seus usuários ou clientes podem sofrer fadiga de caixa de entrada. Mas esse é apenas um motivo para não enviar mensagens incessantemente aos seus clientes. Você deve consultar especificamente a [Seção 5 da Lei da FTC](https://www.federalreserve.gov/boarddocs/supmanual/cch/ftca.pdf) para garantir a conformidade (nos EUA).
 
-Algumas considerações sobre spam já estão incorporadas nas capacidades de SMS em geral (limites de envio de código longo e curto), assim como nos limites de taxa da Braze. No entanto, você ainda deve considerar as leis de conformidade ao planejar suas campanhas.
+Algumas considerações sobre SPAM já estão incorporadas nas capacidades de SMS em geral (limites de envio de código longo e curto), assim como nos limites de frequência da Braze. No entanto, você ainda deve considerar as leis de conformidade ao planejar suas campanhas.
 
 ### Conteúdo {#content}
 

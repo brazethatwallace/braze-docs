@@ -72,7 +72,7 @@ window.addEventListener("ab.BridgeReady", function(){
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>
 ```
 
-また、新しいカスタムボタン名をトラッキングすることもできます（Campaignあたり最大100個のユニークな名前）。例えば、`brazeBridge.logClick('blue button')`や`brazeBridge.logClick('viewed carousel page 3')`などです。
+また、新しいカスタムボタン名をトラッキングすることもできます（キャンペーンあたり最大100個のユニークな名前）。例えば、`brazeBridge.logClick('blue button')`や`brazeBridge.logClick('viewed carousel page 3')`などです。
 
 {% alert tip %}
 `onclick`属性内でJavaScriptメソッドを使用する場合、ダブルクォートで囲まれたHTML属性との衝突を避けるため、文字列値はシングルクォートで囲んでください。
@@ -80,6 +80,6 @@ window.addEventListener("ab.BridgeReady", function(){
 
 #### 制限事項（アプリ内メッセージのみ） {#limitations-in-app-messages-only}
 
-- Campaignあたり最大100個のユニークなボタンIDを設定できます。
+- キャンペーンあたり最大100個のユニークなボタンIDを設定できます。
 - ボタンIDはそれぞれ最大255文字です。
 - ボタンIDには、英字、数字、スペース、ダッシュ、およびアンダースコアのみを使用できます。

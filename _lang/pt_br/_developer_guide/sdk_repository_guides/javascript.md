@@ -6,14 +6,16 @@ description: "Referência do README do Braze JavaScript SDK espelhada do GitHub.
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guia do repositório do JavaScript SDK {#javascript-sdk-repository-guide}
+
 ## Sobre o Braze JavaScript SDK {#about-the-braze-javascript-sdk}
 
 O Braze JavaScript SDK ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
 
 Para começar, consulte os seguintes recursos:
 
-- [Guia do usuário da Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guia do desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=javascript)
+- [Guia do usuário da Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guia do desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
 
 ### Visão geral da arquitetura {#architecture-overview}
 
@@ -28,8 +30,8 @@ O Braze JavaScript SDK é uma biblioteca **independente de plataforma** projetad
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
-- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
+- [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## Início rápido {#quickstart}
@@ -98,7 +100,7 @@ await logPurchase('sku-1', 9.99, 'USD', 1);
 
 O objeto de configuração do initialize requer `storageManager`. `networkManager` e `pushManager` são opcionais.
 
-**1. StorageManager** - Interface de armazenamento assíncrono chave-valor
+**1. StorageManager** — Interface de armazenamento assíncrono chave-valor
 ``` typescript
 interface StorageManager {
   store(key: string, value: string, isId?: boolean): Promise<void>;
@@ -110,7 +112,7 @@ interface StorageManager {
 - O parâmetro `isId` indica **armazenamento persistente de ID**: quando `true`, o SDK está armazenando um identificador persistente (ID do dispositivo, ID do usuário) ou a flag de descadastramento. As implementações devem persistir esses dados entre reinicializações do app para que o SDK possa reconhecer o mesmo dispositivo/usuário. Quando `false`, o valor é dado de sessão/cache (eventos, atributos, etc.) e pode ficar apenas em memória. Para ambientes web, considere usar cookies para chaves armazenadas com `isId: true` para garantir persistência entre sessões.
 - Deve lidar com operações assíncronas para todas as operações de armazenamento
 
-**2. NetworkManager** (opcional) - Interface de requisição HTTP POST
+**2. NetworkManager** (opcional) — Interface de requisição HTTP POST
 ``` typescript
 interface NetworkManager {
   postRequest(
@@ -122,9 +124,9 @@ interface NetworkManager {
 ```
 - A implementação padrão usa a API `fetch` (requer `fetch` e `URL` globais)
 - Pode ser substituída se `fetch` não for a API preferida
-- Nota: O SDK já possui lógica de retry e limite de taxa integrada
+- Nota: O SDK já possui lógica de retry e limite de frequência integrada
 
-**3. PushManager** (opcional) - Interface de notificação por push
+**3. PushManager** (opcional) — Interface de notificação por push
 ``` typescript
 interface PushManager {
   isPushBlocked(): boolean | undefined;

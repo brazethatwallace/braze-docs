@@ -31,7 +31,7 @@ Cuando un nuevo usuario se registra en el sitio web o la aplicación, solicita s
 
 Después de que el usuario se registre, haz lo siguiente:
 
-1. Usa el [punto de conexión `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status) para crear el usuario y guardar sus atributos.
+1. Usa el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) para crear el usuario y guardar sus atributos.
 
 {% raw %}
 ```http
@@ -50,7 +50,7 @@ POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 {% endraw %}
 
 {: start="2"}
-2. Usa el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para suscribir al usuario a SMS.
+2. Usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para suscribir al usuario a SMS.
 
 {% raw %}
 ```
@@ -78,7 +78,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 {% alert tip %}
 Para que los usuarios entren en el flujo de trabajo de [doble adhesión voluntaria por SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) al suscribirlos a través de la REST API, establece el parámetro `use_double_opt_in_logic` en `true` en tu solicitud. Si omites este parámetro, los usuarios se suscriben sin recibir una confirmación de doble adhesión voluntaria.
 
-Este parámetro es compatible con los siguientes puntos de conexión:<br><br>
+Este parámetro es compatible con los siguientes endpoints:<br><br>
 - [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)
 - [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2)
 - [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)

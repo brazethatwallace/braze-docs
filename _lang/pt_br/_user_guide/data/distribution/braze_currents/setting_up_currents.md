@@ -16,12 +16,16 @@ search_rank: 8
 O Currents está incluído em determinados pacotes da Braze. Entre em contato com seu representante da Braze se tiver alguma dúvida ou quiser obter acesso.
 {% endalert %}
 
-Se você vir a mensagem "Você não tem mais integrações de Currents disponíveis" ao adicionar uma nova integração, as causas mais comuns são:
+## Solução de problemas {#troubleshooting}
+
+### Não é possível adicionar uma nova integração de Currents {#cannot-add-a-new-currents-integration}
+
+Se você vir a mensagem "Você não tem mais integrações de Currents disponíveis" ao adicionar uma nova integração, ou se o botão para adicionar um novo conector de Currents estiver desativado, as causas mais comuns são:
 
 - Nenhuma permissão de Currents foi adquirida para este espaço de trabalho.
 - A permissão de Currents está disponível em um espaço de trabalho diferente na sua empresa.
 
-Entre em contato com seu gerente de conta da Braze para solicitar uma permissão ou ajustar sua configuração.
+Para resolver isso, verifique outros espaços de trabalho na sua empresa. Um espaço de trabalho diferente pode mostrar uma permissão de Currents disponível. Se você precisar solicitar uma permissão ou ajustar sua configuração, entre em contato com seu gerente de conta da Braze.
 
 ## Requisitos {#requirements}
 
@@ -29,7 +33,7 @@ O uso do Currents com qualquer um de nossos parceiros requer os mesmos parâmetr
 
 Cada parceiro exige que a Braze tenha permissão para gravar e enviar arquivos de dados para eles, e a Braze solicita o local em que esses arquivos devem ser gravados, especificamente nomes de buckets ou chaves.
 
-Os requisitos a seguir são os requisitos básicos e mínimos para a integração com a maioria de nossos parceiros. Alguns parceiros exigirão parâmetros adicionais, que estão listados em suas respectivas [documentações de parceiros]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/), juntamente com quaisquer nuances associadas a esses requisitos básicos.
+Os requisitos a seguir são os requisitos básicos e mínimos para a integração com a maioria de nossos parceiros. Alguns parceiros exigirão parâmetros adicionais, que estão listados em suas respectivas [documentações de parceiros]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners), juntamente com quaisquer nuances associadas a esses requisitos básicos.
 
 | Requisito | Origin | Acesso | Descrição
 |---|---|---|---|
@@ -49,7 +53,7 @@ Os requisitos a seguir são os requisitos básicos e mínimos para a integraçã
 
 O Braze Currents permite a integração por meio do armazenamento de dados usando arquivos simples ou com nossos parceiros de análise comportamental e dados de cliente usando cargas úteis JSON em lote para um endpoint designado.
 
-Antes de iniciar sua integração, é melhor decidir qual integração é a mais adequada para seus objetivos. Por exemplo, se você já utiliza o mParticle e o Segment e gostaria que os dados da Braze fossem enviados para lá, seria melhor usar uma carga útil JSON em lote. Se preferir manipular os dados por conta própria ou tiver um sistema mais complexo de análise de dados, talvez seja melhor usar o armazenamento de dados ([a Braze usa esse método]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)!)
+Antes de iniciar sua integração, é melhor decidir qual integração é a mais adequada para seus objetivos. Por exemplo, se você já utiliza o mParticle e o Segment e gostaria que os dados da Braze fossem enviados para lá, seria melhor usar uma carga útil JSON em lote. Se preferir manipular os dados por conta própria ou tiver um sistema mais complexo de análise de dados, talvez seja melhor usar o armazenamento de dados ([a Braze usa esse método]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)!)
 
 ### Etapa 2: Abra o Currents {#step-2-open-currents}
 
@@ -61,15 +65,15 @@ Para começar, acesse **Integrações de parceiros** > **Currents**. Você será
 
 Adicione um parceiro, às vezes chamado de "conector de Currents", selecionando o menu suspenso na parte superior da tela.
 
-Cada parceiro requer um conjunto diferente de etapas de configuração. Para ativar cada integração, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) e siga as instruções em suas respectivas páginas.
+Cada parceiro requer um conjunto diferente de etapas de configuração. Para ativar cada integração, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e siga as instruções em suas respectivas páginas.
 
 ### Etapa 4: Configure seus eventos {#step-4-configure-your-events}
 
-Escolha os eventos que você deseja enviar para esse parceiro marcando as opções disponíveis. Você pode encontrar listas desses eventos em nossas bibliotecas de [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) e [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Escolha os eventos que você deseja enviar para esse parceiro marcando as opções disponíveis. Você pode encontrar listas desses eventos em nossas bibliotecas de [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) e [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
-![]({% image_buster /assets/img/current4.png %})
+![Página de configuração do Currents com eventos de parceiro selecionados para exportação.]({% image_buster /assets/img/current4.png %})
 
-Se necessário, você pode saber mais sobre nossos eventos no artigo sobre [semântica de entrega de eventos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/).
+Se necessário, você pode saber mais sobre nossos eventos no artigo sobre [semântica de entrega de eventos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics).
 
 ### Etapa 5: Configure transformações de campo {#step-5-set-up-field-transformations}
 
@@ -88,11 +92,11 @@ Selecionar um campo para uma dessas transformações aplicará essa transformaç
 O Currents descartará eventos com cargas úteis excessivamente grandes, superiores a 900&nbsp;KB.
 {% endalert %}
 
-Antes de testar, considere conferir nossos [dados de exemplo do Currents no GitHub](https://github.com/Appboy/currents-examples). Quando estiver pronto para testar, escolha uma opção abaixo:
+Antes de testar, considere conferir nossos [dados de exemplo do Currents no GitHub](https://github.com/Appboy/currents-examples). Quando estiver pronto para testar, escolha uma opção na seção a seguir:
 
 #### Enviando eventos de teste {#sending-test-events}
 
-Para testar sua integração, você pode selecionar **Enviar Eventos de Teste** para enviar um evento de cada um dos seus tipos de evento selecionados para este Current. Para informações detalhadas sobre cada tipo de evento, consulte nossas bibliotecas de [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) e [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+Para testar sua integração, você pode selecionar **Enviar eventos de teste** para enviar um evento de cada um dos seus tipos de evento selecionados para este Current. Para informações detalhadas sobre cada tipo de evento, consulte nossas bibliotecas de [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) e [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 ![A página "Teste de Currents" no dashboard da Braze.]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 
@@ -105,7 +109,7 @@ Os conectores de teste de Currents são versões gratuitas de nossos conectores 
 
 Após seus conectores de teste de Currents atingirem o limite de envio, seu conector não enviará eventos até o dia seguinte (à meia-noite UTC).
 
-Para fazer upgrade do seu conector de teste de Currents, edite a integração no dashboard e selecione **Fazer upgrade da integração de teste**.
+Para fazer upgrade do seu conector de teste de Currents, edite a integração no dashboard e selecione **Upgrade Test Integration**.
 
 ## Atualização do Currents {#updating-currents}
 

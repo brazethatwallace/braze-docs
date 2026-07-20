@@ -6,14 +6,16 @@ description: "Référence du README du SDK JavaScript de Braze, miroir depuis Gi
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guide du dépôt du SDK JavaScript {#javascript-sdk-repository-guide}
+
 ## À propos du SDK JavaScript de Braze {#about-the-braze-javascript-sdk}
 
 Le SDK JavaScript de Braze vous aide à intégrer les fonctionnalités d'envoi de messages, d'analyse et d'engagement utilisateur de Braze dans votre application.
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide utilisateur de Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guide développeur de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=javascript)
+- [Guide utilisateur de Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guide développeur de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
 
 ### Aperçu de l'architecture {#architecture-overview}
 
@@ -28,8 +30,8 @@ Le SDK JavaScript de Braze est une bibliothèque **indépendante de la plateform
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
-- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
+- [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## Démarrage rapide {#quickstart}
@@ -542,7 +544,7 @@ destroy();
 await initialize({ /* new config */ });
 ```
 
-### Cas d'utilisation courants {#common-use-cases}
+### Cas d'usage courants {#common-use-cases}
 
 #### Identification des utilisateurs et suivi des attributs {#user-identification-and-attribute-tracking}
 

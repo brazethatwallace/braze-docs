@@ -89,4 +89,4 @@ Better Emailは利用可能なBrazeカスタム属性を読み取り、受信者
 
 ## 統合の使用 {#use-the-integration}
 
-エクスポートしたBetter Emailテンプレートは、Brazeの**テンプレートとメディア** > **メールテンプレート**で確認できます。任意のBraze CampaignまたはCanvasで使用してください。
+エクスポートしたBetter Emailテンプレートは、Brazeの**テンプレートとメディア** > **メールテンプレート**で確認できます。任意のBraze キャンペーンまたはキャンバスで使用してください。

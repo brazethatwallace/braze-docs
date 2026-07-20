@@ -2,12 +2,12 @@
 nav_title: 데이터 소스 연결
 article_title: 데이터 소스 연결
 page_order: 1
-description: "BrazeAI Decisioning Studio Go가 고객 참여 플랫폼을 통해 고객 데이터에 연결되는 방법을 알아보세요."
+description: "BrazeAI Decisioning Studio Go가 고객 인게이지먼트 플랫폼을 통해 고객 데이터에 연결하는 방법을 알아보세요."
 ---
 
 # 데이터 소스 연결 {#connect-data-sources}
 
-> BrazeAI Decisioning Studio™ Go는 고객 참여 플랫폼(CEP)을 통해 고객 데이터에 연결합니다. 이 문서에서는 어떤 데이터가 사용되며 연결이 어떻게 작동하는지 설명합니다.
+> BrazeAI Decisioning Studio™ Go는 고객 인게이지먼트 플랫폼(CEP)을 통해 고객 데이터에 연결합니다. 이 문서에서는 어떤 데이터가 사용되며 연결이 어떻게 작동하는지 설명합니다.
 
 ## Go가 고객 데이터에 접근하는 방법 {#how-go-accesses-customer-data}
 
@@ -54,9 +54,9 @@ Braze 커런츠 내보내기에 비교 대상 Campaigns(BAU Campaigns 포함)의
 Salesforce Marketing Cloud 통합을 위해 Decisioning Studio Go에는 다음이 필요합니다:
 
 1. **데이터 확장:** 오디언스는 Decisioning Studio Go가 접근할 수 있는 데이터 확장에 정의되어야 합니다. SubscriberKey를 기본 사용자 식별자로 사용하세요.
-2. **추적 이벤트 접근:** 설치된 앱 패키지가 종단 간 자동화 설정을 지원하는 한, 추가 구성은 필요하지 않습니다.
+2. **추적 이벤트 접근:** 설치된 앱 패키지가 포괄적인 자동화 설정을 지원하는 한, 추가 구성은 필요하지 않습니다.
 
-데이터 확장 및 SQL 쿼리는 [오케스트레이션 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)의 일부로 구성됩니다.
+데이터 확장 및 SQL 쿼리는 [Decisioning Studio Go 에이전트 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)의 일부로 구성됩니다.
 
 {% endtab %}
 {% endtabs %}
@@ -68,6 +68,6 @@ Salesforce Marketing Cloud 통합을 위해 Decisioning Studio Go에는 다음�
 
 ## 다음 단계 {#next-steps}
 
-Go가 데이터에 연결되는 방식을 이해하셨으니, 이제 CEP 통합 설정을 진행하세요:
+Go가 데이터에 연결되는 방식을 이해하셨으니, 이제 Braze 대시보드에서 에이전트를 설정하세요:
 
-- [오케스트레이션 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)
+- [Decisioning Studio Go 에이전트 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)

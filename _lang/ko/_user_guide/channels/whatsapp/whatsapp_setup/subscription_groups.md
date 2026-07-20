@@ -28,31 +28,31 @@ WhatsApp 사용자에게는 `subscribed`와 `unsubscribed` 두 가지 구독 상
 
 ### 사용자의 WhatsApp 구독 그룹 설정하기 {#setting-users-whatsapp-subscription-groups}
 
-- **REST API:** 사용자 프로필은 Braze REST API를 사용하여 [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)를 통해 프로그래밍 방식으로 설정할 수 있습니다.
+- **REST API:** 사용자 프로필은 Braze REST API를 사용하여 [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)를 통해 프로그래밍 방식으로 설정할 수 있습니다.
 - **Web SDK:** 사용자는 [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)), 또는 [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)용 `addToSubscriptionGroup` 메서드를 사용하여 이메일, SMS 또는 WhatsApp 구독 그룹에 추가할 수 있습니다.
-- **사용자 가져오기**: 사용자는 **사용자 가져오기**를 통해 이메일 또는 SMS 구독 그룹에 추가할 수 있습니다. 구독 그룹 상태를 업데이트할 때 CSV에 `subscription_group_id`와 `subscription_state` 두 개의 열이 있어야 합니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#updating-subscription-group-status)를 참조하세요.
+- **사용자 가져오기**: 사용자는 **사용자 가져오기**를 통해 이메일 또는 SMS 구독 그룹에 추가할 수 있습니다. 구독 그룹 상태를 업데이트할 때 CSV에 `subscription_group_id`와 `subscription_state` 두 개의 열이 있어야 합니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)를 참조하세요.
 
 ### 사용자의 WhatsApp 구독 그룹 확인하기 {#checking-a-users-whatsapp-subscription-group}
 
-- **사용자 프로필:** 개별 사용자 프로필은 Braze 대시보드에서 **오디언스** > **사용자 검색**을 통해 액세스할 수 있습니다. 여기에서 이메일 주소, 전화번호 또는 외부 사용자 ID로 사용자 프로필을 검색할 수 있습니다. 사용자 프로필 내 **참여** 탭에서 사용자의 WhatsApp 구독 그룹과 상태를 확인할 수 있습니다.
+- **사용자 프로필:** 개별 사용자 프로필은 Braze 대시보드에서 **오디언스** > **사용자 검색**을 통해 액세스할 수 있습니다. 여기에서 이메일 주소, 전화번호 또는 외부 사용자 ID로 사용자 프로필을 검색할 수 있습니다. 사용자 프로필 내 **인게이지먼트** 탭에서 사용자의 WhatsApp 구독 그룹과 상태를 확인할 수 있습니다.
 
-- **REST API:** 개별 사용자 프로필의 구독 그룹은 Braze REST API를 사용하여 [사용자의 구독 그룹 나열 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) 또는 [사용자의 구독 그룹 상태 나열 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)를 통해 확인할 수 있습니다.
+- **REST API:** 개별 사용자 프로필의 구독 그룹은 Braze REST API를 사용하여 [사용자의 구독 그룹 나열 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) 또는 [사용자의 구독 그룹 상태 나열 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 통해 확인할 수 있습니다.
 
-## 구독 그룹 아카이브 {#archive-subscription-groups}
+## 구독 그룹 보관 {#archive-subscription-groups}
 
-WhatsApp 구독 그룹 사용을 중단해야 하는 경우, 아카이브하여 비활성으로 표시할 수 있습니다.
+WhatsApp 구독 그룹 사용을 중단해야 하는 경우, 보관하여 비활성으로 표시할 수 있습니다.
 
-구독 그룹을 아카이브하면 비활성으로 표시되지만 워크스페이스에서 삭제되지는 않습니다. WhatsApp 전화번호 또는 구독 그룹을 완전히 제거해야 하는 경우, Braze 고객지원에 삭제를 요청하기 전에 먼저 구독 그룹 관리에서 해당 구독 그룹을 아카이브해야 합니다.
+구독 그룹을 보관하면 비활성으로 표시되지만 워크스페이스에서 삭제되지는 않습니다. WhatsApp 전화번호 또는 구독 그룹을 완전히 제거해야 하는 경우, Braze 고객지원에 삭제를 요청하기 전에 먼저 구독 그룹 매니저에서 해당 구독 그룹을 보관해야 합니다.
 
-구독 그룹을 아카이브하려면:
+구독 그룹을 보관하려면:
 
 1. **오디언스** > **구독 그룹 관리**로 이동합니다.
-2. 아카이브하려는 WhatsApp 구독 그룹을 찾습니다.
-3. 구독 그룹의 상태 위에 마우스를 올리고 <i class="fa-solid fa-box-archive"></i> **아카이브**를 선택합니다.
+2. 보관하려는 WhatsApp 구독 그룹을 찾습니다.
+3. 구독 그룹의 상태 위에 마우스를 올리고 <i class="fa-solid fa-box-archive"></i> **보관**을 선택합니다.
 
 ## WhatsApp 옵트인 및 옵트아웃 프로세스 {#whatsapp-opt-in-and-opt-out-process}
 
-현재 사용자는 [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), 웹사이트, WhatsApp 스레드, 전화 또는 대면 등 다양한 방법으로 WhatsApp 메시징에 가입하고 [옵트인 및 옵트아웃]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/)할 수 있습니다. 옵트인은 필수입니다.
+현재 사용자는 [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), 웹사이트, WhatsApp 스레드, 전화 또는 대면 등 다양한 방법으로 WhatsApp 메시징에 가입하고 [옵트인 및 옵트아웃]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs)할 수 있습니다. 옵트인은 필수입니다.
 
 현재 WhatsApp 채널에서는 옵트인 키워드가 지원되지 않으므로 사용자 목록을 직접 관리해야 합니다. WhatsApp은 옵트인 및 사용량 제한에 대해 소급 적용 방식을 사용하므로, 사용자가 신고하거나 차단하기 시작하면 사용량 제한이 낮아집니다.
 
@@ -60,11 +60,11 @@ WhatsApp 구독 그룹 사용을 중단해야 하는 경우, 아카이브하여 
 
 사용하는 옵트인 및 옵트아웃 방법에 관계없이 다음 업데이트 방법 중 하나를 사용하여 사용자 프로필의 구독 상태를 업데이트할 수 있습니다:
 
-- 다음 예시와 같이 REST API를 통해 구독 상태를 업데이트하는 [Braze-to-Braze 웹훅]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook/#things-to-know)을 생성합니다:
+- 다음 예시와 같이 REST API를 통해 구독 상태를 업데이트하는 [Braze-to-Braze 웹훅]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#considerations)을 생성합니다:
 
-![POST 방법을 사용하는 메시지가 포함된 웹훅 작성기.]({% image_buster /assets/img/whatsapp/whatsapp118.png %}){: style="max-width:90%;"}
+![POST 메서드를 사용하는 메시지가 포함된 웹훅 작성기.]({% image_buster /assets/img/whatsapp/whatsapp118.png %}){: style="max-width:90%;"}
 
-경합 조건을 방지하기 위해 웹훅 이후의 후속 메시징은 첫 번째 Canvas의 결과(예: 사용자가 Canvas 변형에 진입하고 WhatsApp 구독 그룹에 속해 있는 경우)에 의해 트리거되는 두 번째 Canvas에 포함되어야 합니다.
+경합 조건을 방지하기 위해 웹훅 이후의 후속 메시징은 첫 번째 Canvas의 결과(예: 사용자가 Canvas 배리언트에 진입하고 WhatsApp 구독 그룹에 속해 있는 경우)에 의해 트리거되는 두 번째 Canvas에 포함되어야 합니다.
 
 - 고급 JSON 편집기를 사용하여 다음 템플릿으로 사용자 프로필을 업데이트합니다:
 

@@ -30,7 +30,7 @@ Sortieren Sie die Segments in der Liste, indem Sie die folgenden Filter anpassen
 - **Estimated Size:** Ungefähre Spanne, wie viele Nutzer:innen sich in den Segments befinden
 - **Tags:** Tags, die den Segments zugeordnet sind
 - **Teams:** Teams, die den Segments zugeordnet sind
-- **Advanced Tracking Segments Only:** Zeigt nur die Segments an, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) aktiviert ist.
+- **Advanced Tracking Segments Only:** Zeigt nur die Segments an, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) aktiviert ist.
 
 ### Spalten {#columns}
 
@@ -58,7 +58,7 @@ Um Schleifen durch gegenseitige Segment-Referenzen zu vermeiden, können Segment
 
 ## Bestimmte Segments verwalten {#managing-specific-segments}
 
-![Das Bearbeitungsmenü für ein Segment mit den Optionen „Bearbeiten“, „Duplizieren“, „Archivieren“ und „Zu markierten hinzufügen“.]({% image_buster /assets/img/segment/segments_page_edit_menu.png %}){: style="float:right;max-width:25%;"}
+![Das Bearbeitungsmenü für ein Segment mit den Optionen „Edit“, „Duplicate“, „Archive“ und „Add to starred“.]({% image_buster /assets/img/segment/segments_page_edit_menu.png %}){: style="float:right;max-width:25%;"}
 
 Um ein bestimmtes Segment zu verwalten, bewegen Sie den Mauszeiger darüber und wählen Sie das Menüsymbol am Ende der Zeile, um die folgenden Optionen anzuzeigen:
 - **Edit:** Bearbeiten Sie die Filter in Ihrem Segment.

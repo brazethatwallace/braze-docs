@@ -25,7 +25,7 @@ Braze hat den [`/email/blocklist`-Endpunkt]({{site.baseurl}}/api/endpoints/email
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `email.blacklist`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `email.blacklist`.
 
 ## Rate-Limit
 

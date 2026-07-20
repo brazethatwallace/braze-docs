@@ -10,12 +10,12 @@ repositories {
 }
 ```
 
-A continuación, añade Braze a tus dependencias. En los siguientes ejemplos, sustituye `SDK_VERSION` por la versión actual de tu SDK de Android Braze. Para ver la lista completa de versiones, consulta [los registros de cambios]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+A continuación, añade Braze a tus dependencias. En los siguientes ejemplos, sustituye `SDK_VERSION` por la versión actual de tu SDK de Android Braze. Para ver la lista completa de versiones, consulta [Registro de cambios]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
 
 {% alert note %}
 - Para Kotlin DSL (`build.gradle.kts`), utiliza la sintaxis `implementation("...")`.
 - Para Groovy (`build.gradle`), utiliza la sintaxis `implementation '...'`.
-- Para [los catálogos de versiones](https://developer.android.com/build/migrate-to-catalogs), añade entradas a tu archivo `gradle/libs.versions.toml` y haz referencia a ellas utilizando los accesores generados.
+- Para [catálogos de versiones](https://developer.android.com/build/migrate-to-catalogs), añade entradas a tu archivo `gradle/libs.versions.toml` y haz referencia a ellas utilizando los accesores generados.
 {% endalert %}
 
 {% tabs local %}
@@ -64,7 +64,7 @@ dependencies {
 {% endtab %}
 
 {% tab with ui components %}
-Si tienes pensado utilizar componentes de la interfaz de usuario de Braze, añade lo siguiente a tus dependencias.
+Si tienes pensado utilizar los componentes de la interfaz de usuario de Braze, añade lo siguiente a tus dependencias.
 
 {% subtabs local %}
 {% subtab Groovy %}
@@ -111,12 +111,12 @@ dependencies {
 ### Paso 2: Configura tu `braze.xml` {#step-2-configure-your-brazexml}
 
 {% alert note %}
-A partir de diciembre de 2019, ya no se proporcionan puntos de conexión personalizados; si tienes un punto de conexión personalizado preexistente, puedes seguir utilizándolo. Para más detalles, consulta nuestra <a href="{{site.baseurl}}/api/basics/#endpoints">lista de puntos de conexión disponibles</a>.
+A partir de diciembre de 2019, ya no se proporcionan endpoints personalizados; si tienes un endpoint personalizado preexistente, puedes seguir utilizándolo. Para más detalles, consulta nuestra <a href="{{site.baseurl}}/api/basics/#endpoints">lista de endpoints disponibles</a>.
 {% endalert %}
 
-Crea un archivo `braze.xml` en la carpeta `res/values` de tu proyecto. Si estás en un clúster de datos específico o tienes un punto de conexión personalizado preexistente, también tienes que especificar el punto de conexión en tu archivo `braze.xml`.
+Crea un archivo `braze.xml` en la carpeta `res/values` de tu proyecto. Si estás en un clúster de datos específico o tienes un endpoint personalizado preexistente, también necesitas especificar el endpoint en tu archivo `braze.xml`.
 
-El contenido de ese archivo debe parecerse al siguiente fragmento de código. Asegúrate de sustituir `YOUR_APP_IDENTIFIER_API_KEY` por el identificador que se encuentra en la página **Administrar configuración** del panel de Braze. Inicia sesión en [dashboard.braze.com](https://dashboard.braze.com) para encontrar la [dirección de tu clúster]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/).
+El contenido de ese archivo debe parecerse al siguiente fragmento de código. Asegúrate de sustituir `YOUR_APP_IDENTIFIER_API_KEY` por el identificador que se encuentra en la página **Administrar configuración** del panel de Braze. Inicia sesión en [dashboard.braze.com](https://dashboard.braze.com) para encontrar la [dirección de tu clúster]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -322,7 +322,7 @@ Para ver la lista de parámetros disponibles, consulta [`BrazeActivityLifecycleC
 ## Probar el seguimiento de sesiones {#testing-session-tracking}
 
 {% alert tip %}
-También puedes utilizar el [depurador del SDK]({{site.baseurl}}/developer_guide/debugging/) para diagnosticar problemas relacionados con el SDK.
+También puedes utilizar el [depurador del SDK]({{site.baseurl}}/developer_guide/debugging) para diagnosticar problemas relacionados con el SDK.
 {% endalert %}
 
 Si experimentas problemas durante las pruebas, habilita [el registro detallado](#android_enabling-logs) y, a continuación, utiliza logcat para detectar llamadas `openSession` y `closeSession` que faltan en tus actividades.
@@ -447,7 +447,7 @@ De forma predeterminada, el nivel de registro del SDK de Braze para Android est�
 
 #### Habilitar registros {#enabling-logs}
 
-Para ayudar a solucionar problemas en tu aplicación o reducir los tiempos de respuesta con el soporte de Braze, puedes habilitar los registros detallados para el SDK. Cuando envíes registros detallados al soporte de Braze, asegúrate de que empiezan en cuanto inicias la aplicación y terminan mucho después de que se produzca el problema. Para obtener un resumen centralizado, consulta [Registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Para aprender a interpretar la salida del registro, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/).
+Para ayudar a solucionar problemas en tu aplicación o reducir los tiempos de respuesta con el soporte de Braze, puedes habilitar los registros detallados para el SDK. Cuando envíes registros detallados al soporte de Braze, asegúrate de que empiezan en cuanto inicias la aplicación y terminan mucho después de que se produzca el problema. Para obtener un resumen centralizado, consulta [Registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Para aprender a interpretar la salida del registro, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 Ten en cuenta que los registros detallados solo están pensados para tu entorno de desarrollo, por lo que deberás desactivarlos antes de publicar tu aplicación.
 
@@ -571,7 +571,7 @@ Para cada variante de compilación relevante, crea un nuevo `braze.xml` en el di
 ```
 
 {% alert tip %}
-Para aprender a configurar la clave de API en tu código, consulta [Configuración en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android).
+Para aprender a configurar la clave de API en tu código, consulta [Configuración en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration).
 {% endalert %}
 
 ### TalkBack exclusivo para mensajes dentro de la aplicación {#exclusive-in-app-message-talkback}

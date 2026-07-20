@@ -10,6 +10,11 @@ description: >
 
 Use support-case exports to find doc gaps, triage by category, verify against product source when possible, then propose **`_docs`** updates. Two paths coexist: **scheduled CI** (digest + optional Phase 2 rules) and **manual Cursor triage** (this rule, full steps below).
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only origin/develop...HEAD 2>/dev/null || git diff --name-only $(git merge-base HEAD $(git rev-parse --verify origin/develop 2>/dev/null || git rev-parse --verify develop 2>/dev/null || echo HEAD~1))..HEAD 2>/dev/null`
+- Open PR: !`gh pr view --json number,title,body 2>/dev/null || echo "none"`
+
 ---
 
 ## How the pieces fit together
@@ -123,6 +128,7 @@ Before creating branches, confirm the user wants to proceed.
 1. **Prefer refining existing prose** over new alerts or FAQ entries unless the content cannot fit naturally.
 2. Follow [Braze docs style guides](docs/contributing/style_guide.md).
 3. Keep additions concise (bullets, tables, code samples where appropriate).
+4. When documenting a product limitation or enhancement ask, use `_includes/product_feedback_cta.md` per [Product feedback CTAs](docs/contributing/style_guide/product_feedback_ctas.md). Do not add ad hoc `portal.braze.com` or legacy portal links.
 
 ---
 
@@ -187,6 +193,23 @@ Stage and commit only relevant **`_docs`** (and linked includes if needed) with 
 ### Reviewers (Step 4 follow-up)
 
 If [`.github/CODEOWNERS`](.github/CODEOWNERS) lists owners for the paths you changed, assign them. Otherwise assign **`braze-inc/docs-team`** via `gh pr edit --add-reviewer`.
+
+---
+
+## Step 8: Prune stale support CSVs (optional)
+
+After manual triage is complete and any related digest or Phase 2 PRs have merged, remove **dated local exports** you no longer need. The CI canonical file is always **`_data/support_cases_latest.csv`** on branch **`support-analyzer-data`** — never prune that path.
+
+Local exports from `scripts/export_support_cases_from_looker.py` default to `_data/support_cases_<YYYYMMDD>.csv` when `SUPPORT_ANALYZER_OUTPUT` is unset. Prune only snapshots you have finished analyzing.
+
+From the repo root:
+
+```bash
+python3 scripts/prune_data_files.py --dry-run --group support-csv
+python3 scripts/prune_data_files.py --confirm --group support-csv
+```
+
+[`scripts/prune_data_files.py`](../../../scripts/prune_data_files.py) only deletes files under `_data/` and refuses live site config, sitemaps, and `support_cases_latest.csv`.
 
 ---
 

@@ -40,7 +40,7 @@ Stellen Sie sicher, dass Ihr Trigger-Wort dem entspricht, was Sie von Nutzer:inn
 ## Nicht erkannte Antworten {#unrecognized-responses}
 
 Wir empfehlen, eine Option für nicht erkannte Antworten in interaktiven Canvases einzubauen. Dies hilft Nutzer:innen zu verstehen, welche Eingabeaufforderungen verfügbar sind, und setzt Erwartungen für den Kanal. Erwartungsmanagement kann besonders hilfreich sein, wenn Sie WhatsApp-Kanäle mit Live-Agent-Chat haben.
-- Erstellen Sie im Aktions-Schritt nach den Aktionsgruppen für die benutzerdefinierten Filterphrasen eine zusätzliche Aktionsgruppe für „WhatsApp-Nachricht senden“, aber **aktivieren Sie nicht die Option „Where the message body“**. Dies fängt alle nicht erkannten Nutzerantworten ab, ähnlich einer „else“-Klausel.
+- Erstellen Sie im Aktions-Schritt nach den Aktionsgruppen für die angepassten Filterphrasen eine zusätzliche Aktionsgruppe für „WhatsApp-Nachricht senden“, aber **aktivieren Sie nicht die Option „Where the message body“**. Dies fängt alle nicht erkannten Nutzerantworten ab, ähnlich einer „else“-Klausel.
 - Wir empfehlen, mit einer WhatsApp-Nachricht zu antworten, die die Nutzer:innen darüber informiert, dass dieser Kanal nicht betreut wird, und sie bei Bedarf an einen Support-Kanal weiterzuleiten.
 
 ## Schnellantworten {#quick-replies}
@@ -53,11 +53,11 @@ Schnellantworten erscheinen als anklickbare Button-Optionen innerhalb der Konver
 
 ### Schnellantwort-Erlebnis in Canvas konfigurieren {#configure-the-quick-reply-experience-in-canvas}
 
-#### 1. Schritt: CTAs erstellen {#step-1-build-out-ctas}
+#### Schritt 1: CTAs erstellen {#step-1-build-out-ctas}
 
 Erstellen Sie zunächst Ihre Schnellantwort-CTAs im [WhatsApp-Nachrichtentemplate-Manager](https://business.facebook.com/wa/manage/message-templates/) innerhalb eines Nachrichtentemplates.
 
-![Die WhatsApp-Nachrichtentemplate-Manager-Oberfläche, die zeigt, wie ein CTA-Button erstellt wird, mit Angabe des Button-Typs (benutzerdefiniert) und des Button-Texts.]({% image_buster /assets/img/whatsapp/whatsapp12.png %}){: style="max-width:80%;"}
+![Die WhatsApp-Nachrichtentemplate-Manager-Oberfläche, die zeigt, wie ein CTA-Button erstellt wird, mit Angabe des Button-Typs (angepasst) und des Button-Texts.]({% image_buster /assets/img/whatsapp/whatsapp12.png %}){: style="max-width:80%;"}
 
 Sobald Ihr Template eingereicht und von WhatsApp genehmigt wurde, können Sie es verwenden, um einen Canvas in Braze zu erstellen.
 
@@ -65,7 +65,7 @@ Sobald Ihr Template eingereicht und von WhatsApp genehmigt wurde, können Sie es
 Sie können den Canvas erstellen, bevor Sie die Genehmigung für Ihr Nachrichtentemplate erhalten.
 {% endalert %}
 
-#### 2. Schritt: Canvas erstellen {#step-2-build-your-canvas}
+#### Schritt 2: Canvas erstellen {#step-2-build-your-canvas}
 
 Erstellen Sie als Nächstes einen Canvas mit einem Nachrichten-Schritt, der Ihr erstelltes Template enthält.
 
@@ -99,11 +99,11 @@ Listennachrichten erscheinen als Textnachricht mit einer Liste anklickbarer Opti
 
 ### Listennachrichten-Erlebnis in Canvas konfigurieren {#configure-the-list-message-experience-in-canvas}
 
-#### 1. Schritt: Aktionsbasierte Canvases erstellen oder bearbeiten {#step-1-create-or-edit-an-existing-action-based-canvases}
+#### Schritt 1: Aktionsbasierte Canvases erstellen oder bearbeiten {#step-1-create-or-edit-an-existing-action-based-canvases}
 
 Sie können WhatsApp-Listennachrichten nur zu aktionsbasierten Canvases hinzufügen, da sie als Antwort auf eine Nutzernachricht erfolgen müssen.
 
-#### 2. Schritt: WhatsApp-Nachrichten-Schritt erstellen {#step-2-create-a-whatsapp-message-step}
+#### Schritt 2: WhatsApp-Nachrichten-Schritt erstellen {#step-2-create-a-whatsapp-message-step}
 
 Fügen Sie einen WhatsApp-[Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu und wählen Sie dann das Antwortnachrichten-Layout **Listennachricht** aus.
 
@@ -121,17 +121,17 @@ Fügen Sie einen **Listen-Button**-Namen hinzu, den Nutzer:innen auswählen, um 
 
 ![Ziehen eines Listenabschnitts an eine neue Position.]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-Fügen Sie im Canvas-Editor nach dem Nachrichten-Schritt einen [Aktions-Pfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) hinzu, der eine Gruppe für jede Listenantwort enthält. In jeder Gruppe:
+Fügen Sie im Canvas-Editor nach dem Nachrichten-Schritt einen [Aktionspfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) hinzu, der eine Gruppe für jede Listenantwort enthält. In jeder Gruppe:
 
 1. Fügen Sie einen Trigger für **Eingehende WhatsApp-Abo-Gruppe gesendet** hinzu und wählen Sie die entsprechende WhatsApp-Abo-Gruppe aus.
 2. Aktivieren Sie das Kontrollkästchen **Where the message body**.
 3. Geben Sie den Inhalt für eine Zeile (oder ein Listenelement) an.
 
-![Editor für einen Aktions-Pfad mit Gruppen für verschiedene Kleidungsstile.]({% image_buster /assets/img/whatsapp/action_path_list_message.png %})
+![Editor für einen Aktionspfad mit Gruppen für verschiedene Kleidungsstile.]({% image_buster /assets/img/whatsapp/action_path_list_message.png %})
 
 Fahren Sie mit dem Aufbau Ihres Canvas fort.
 
-### Aktions-Pfade für lange Beschreibungen erstellen {#creating-actions-paths-for-long-descriptions}
+### Aktionspfade für lange Beschreibungen erstellen {#creating-actions-paths-for-long-descriptions}
 
 Wenn Sie Zeilenbeschreibungen haben, müssen Sie **Matches regex** verwenden, um eine Zeile anzugeben. Wenn Sie beispielsweise eine Zeile mit der Beschreibung „Unser neuer Stil, der über Ihre Lieblings-Stiefeletten passt“ angeben möchten, könnten Sie [Regex]({{site.baseurl}}/user_guide/audience/segments/regex) mit „Stiefeletten“ verwenden.
 
@@ -146,7 +146,7 @@ Antwortnachrichten müssen innerhalb von 24 Stunden nach Erhalt einer Nutzernach
 Die folgenden Ereignisse schalten Antwortnachrichten frei:
 
 - Eingehende Nachricht
-  - [Aktions-Pfad]({{site.baseurl}}/action_paths) oder [aktionsbasierter Einstieg]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit dem Trigger **Eine eingehende WhatsApp-Nachricht senden**.
+  - [Aktionspfad]({{site.baseurl}}/action_paths) oder [aktionsbasierter Einstieg]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit dem Trigger **Eine eingehende WhatsApp-Nachricht senden**.
 
 ![Ein aktionsbasierter Einstiegsschritt mit dem Trigger „Eine eingehende WhatsApp-Nachricht senden“.]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
@@ -154,7 +154,32 @@ Die folgenden Ereignisse schalten Antwortnachrichten frei:
 - Eingehende Produktnachricht
   - [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)-Event
 
-![Ein Aktions-Pfad mit dem Trigger eines ausgeführten angepassten Events `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
+![Ein Aktionspfad mit dem Trigger eines ausgeführten angepassten Events `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
+
+### Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+Wenn Nutzer:innen mit Ihrem Unternehmen auf WhatsApp interagieren – einschließlich durch Tippen auf einen Schnellantwort-Button einer älteren Template-Nachricht – zählt ihre Aktion als eingehende Nachricht. Diese eingehende Nachricht öffnet ein neues 24-Stunden-Kundenservice-Fenster, auch wenn das ursprüngliche Template vor mehr als 24 Stunden gesendet wurde.
+
+In einem Canvas mit Schnellantwort-Buttons können Nutzer:innen Tage nach Erhalt des Willkommens-Templates auf einen Button tippen und trotzdem den richtigen Aktionspfad betreten. Braze wertet den Aktionspfad aus, wenn die eingehende Nachricht eintrifft; Sie müssen die Dauer des Aktionspfads nicht über den Standard hinaus verlängern, um verspätete Antworten zu erfassen.
+
+Das folgende Diagramm zeigt einen typischen Schnellantwort-Ablauf:
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### Wissenswertes {#things-to-know}
+
+- Der Antwortnachrichten-Schritt muss weiterhin innerhalb von 24 Stunden nach der eingehenden Nachricht der Nutzer:innen liegen. In den meisten Canvas-Abläufen wird die Antwort sofort nach der Auswertung des Aktionspfads gesendet, sodass dies kein Problem darstellt.
+- Verwechseln Sie das 24-Stunden-Kundenservice-Fenster nicht mit Canvas-[Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), die ein Fenster von bis zu 30 Tagen verwenden können. Konversions-Fenster steuern die Attribution; sie beeinflussen nicht, ob eine Antwortnachricht gesendet werden kann.
+- Informationen zur Abrechnung finden Sie unter [Sind WhatsApp-Antwortnachrichten kostenlos?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
 
 ### Filtern nach einem angepassten Zeitattribut {#filtering-by-a-custom-time-attribute}
 

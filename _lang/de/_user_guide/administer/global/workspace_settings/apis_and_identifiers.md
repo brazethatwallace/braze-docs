@@ -26,7 +26,7 @@ Für zusätzliche Sicherheit können Sie eine Liste von IP-Adressen und Subnetze
 Wenn Sie keine angeben, können Anfragen von jeder IP-Adresse gesendet werden.
 
 {% alert tip %}
-Sie erstellen einen Braze-zu-Braze-Webhook und verwenden Allowlisting? Sehen Sie sich unsere Liste der [IPs für das Whitelisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-whitelisting) an.
+Sie erstellen einen Braze-zu-Braze-Webhook und verwenden Allowlisting? Sehen Sie sich unsere Liste der [IPs für das Whitelisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting) an.
 {% endalert %}
 
 ### API-Nutzungsbenachrichtigungen {#api-usage-alerts}
@@ -46,6 +46,6 @@ Dieser Abschnitt enthält eine Liste von Bezeichnern, die verwendet werden, um b
 
 ## Weitere Bezeichner {#other-identifiers}
 
-Für die Integration mit unserer API können Sie nach Bezeichnern suchen, die mit Segmenten, Kampagnen, Content Cards und mehr verknüpft sind und auf die Sie über die externe Braze API zugreifen möchten. Alle Nachrichten sollten die [UTF-8](https://en.wikipedia.org/wiki/UTF-8)-Kodierung verwenden. Nachdem Sie einen Bezeichner ausgewählt haben, wird er unterhalb des Dropdown-Menüs angezeigt.
+Für die Integration mit unserer API können Sie nach Bezeichnern suchen, die mit Segmenten, Campaigns, Content Cards und mehr verknüpft sind und auf die Sie über die externe Braze API zugreifen möchten. Alle Nachrichten sollten die [UTF-8](https://en.wikipedia.org/wiki/UTF-8)-Kodierung verwenden. Nachdem Sie einen Bezeichner ausgewählt haben, wird er unterhalb des Dropdown-Menüs angezeigt.
 
 Weitere Informationen finden Sie unter [API-Bezeichnertypen]({{site.baseurl}}/api/identifier_types).

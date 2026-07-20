@@ -30,11 +30,11 @@ BrazeでカスタムCurrentsコネクターを統合するには、エンドポ�
 
 ### ステップ2:Braze Currentsを設定する {#step-2-configure-braze-currents}
 
-Brazeで、**パートナー連携** > **データのエクスポート**に移動し、**Create New Current**をクリックして、**Custom Currents Export**を選択します。
+Brazeで、**パートナー連携** > **データのエクスポート**に移動し、**新しいCurrentを作成**をクリックして、**カスタムCurrentsエクスポート**を選択します。
 
-エクスポートに名前と連絡先メールアドレスを入力し、**Current Details**ページに進みます。このページで、エンドポイントURLとオプションのベアラートークンを入力します。
+エクスポートに名前と連絡先メールアドレスを入力し、**Currentの詳細**ページに進みます。このページで、エンドポイントURLとオプションのベアラートークンを入力します。
 
-認証情報を設定したら、エクスポートしたいすべてのメッセージエンゲージメント、顧客行動、およびユーザーイベントにチェックを入れ、**Launch Current**をクリックします。
+認証情報を設定したら、エクスポートしたいすべてのメッセージエンゲージメント、顧客行動、およびユーザーイベントにチェックを入れ、**Currentを起動**をクリックします。
 
 ## サポートされているCurrentsイベント {#supported-currents-events}
 
@@ -60,7 +60,7 @@ Braze Currentsのスキーマに対して、非破壊的な変更を行うこと
 通常、これらの変更については2週間前に通知しますが、それが不可能な場合もあります。認識されないフィールドやイベントタイプを処理できるように統合を設計することが不可欠です。そうしないと、データ損失につながる可能性があります。
 
 {% alert tip %}
-Currentsイベントスキーマの完全なリストについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)と[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)を参照してください。
+Currentsイベントスキーマの完全なリストについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)と[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)を参照してください。
 {% endalert %}
 
 ## バッチ処理とシリアライゼーション {#batching-and-serialization}
@@ -123,11 +123,11 @@ Braze-Currents-Version: 1
 
 ## エラー処理とリトライメカニズム {#error-handling-and-retry-mechanism}
 
-エラーが発生した場合、Brazeは受信したHTTPリターンコードに基づいてリクエストをキューに入れ、リトライします。問題が5日以上続く場合、統合は自動的に無効化されます。新しい受信イベントはドロップされ永久に失われ、すでにキューに入っているイベントは7日間保持された後に永久にドロップされます。データが24時間以上滞留している場合、オンコールエンジニアに自動的にアラートが送信されます。各ステータスコードの処理方法の詳細については、以下の表を参照してください。
+エラーが発生した場合、Brazeは受信したHTTPリターンコードに基づいてリクエストをキューに入れ、リトライします。問題が5日以上続く場合、統合は自動的に無効化されます。新しい受信イベントはドロップされ永久に失われ、すでにキューに入っているイベントは7日間保持された後に永久にドロップされます。データが24時間以上滞留している場合、オンコールエンジニアに自動的にアラートが送信されます。各ステータスコードの処理方法の詳細については、以下のセクションの表を参照してください。
 
 Currents統合が認証エラーを返している場合、Brazeは自動的に通知メールを送信します。
 
-以下にリストされていないHTTPエラーコードは、HTTP `5XX`エラーとして扱われます。
+以下のセクションにリストされていないHTTPエラーコードは、HTTP `5XX`エラーとして扱われます。
 
 {% alert warning %}
 問題が5日以上続く場合、統合は無効化されます。新しい受信イベントはドロップされ永久に失われ、すでにキューに入っているイベントは7日間保持された後に永久にドロップされます。

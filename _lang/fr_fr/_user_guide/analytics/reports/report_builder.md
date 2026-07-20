@@ -11,9 +11,9 @@ page_order: 3
 
 # Générateur de rapports {#report-builder}
 
-> Cette page explique comment utiliser le Générateur de rapports pour créer et consulter des rapports détaillés à partir des données Braze, et comment ajouter des rapports à des tableaux de bord.
+> Cette page explique comment utiliser le générateur de rapports pour créer et consulter des rapports détaillés à partir des données Braze, et comment ajouter des rapports à des tableaux de bord.
 
-La vidéo suivante offre un aperçu de la création et de la personnalisation de rapports dans le Générateur de rapports.
+La vidéo suivante offre un aperçu de la création et de la personnalisation de rapports dans le générateur de rapports.
 
 {% multi_lang_include video.html id="oi66kwwldv" source="wistia" %}
 
@@ -22,8 +22,8 @@ La vidéo suivante offre un aperçu de la création et de la personnalisation de
 1. Accédez à **Analytics** > **Report Builder (New)**.
 2. Sélectionnez la flèche **More options** à côté du bouton **Create New Report**, puis sélectionnez **Use a report template**.<br><br>![Menu déroulant du bouton « Create New Report » avec les options de créer un rapport personnalisé ou d'utiliser un modèle.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Sélectionnez l'un des modèles de rapport dans la bibliothèque de modèles Braze.
-    - Utilisez les menus déroulants **Row items** et **Tags** pour trouver les rapports pertinents pour vos cas d'utilisation.<br><br>![Fenêtre « Braze report templates » avec une liste de modèles Braze à sélectionner.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
-4. Suivez l'étape 3 et les suivantes dans [Créer un rapport](#creating-a-report) pour personnaliser davantage le rapport selon votre cas d'utilisation.
+    - Utilisez les menus déroulants **Row items** et **Tags** pour trouver les rapports pertinents pour vos cas d'usage.<br><br>![Fenêtre « Braze report templates » avec une liste de modèles Braze à sélectionner.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
+4. Suivez l'étape 3 et les suivantes dans [Créer un rapport](#creating-a-report) pour personnaliser davantage le rapport selon votre cas d'usage.
 
 ## Créer un rapport {#creating-a-report}
 
@@ -67,7 +67,8 @@ Essayez différentes configurations d'options de détail pour explorer les [nomb
 8. Ensuite, en fonction de vos sélections à l'étape 3, choisissez d'ajouter manuellement ou automatiquement des Campaigns, des Canvas, ou les deux à votre rapport.
     - **Ajouter manuellement :** Choisissez chaque Campaign ou Canvas à inclure dans le rapport en utilisant les filtres pour les dates de **Last Sent** et les étiquettes ou canaux, ou en recherchant le nom de la Campaign ou du Canvas.<br><br>![La section « Manually add campaigns and canvases » avec une liste de Campaigns à sélectionner.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Ajouter automatiquement :** Définissez des règles pour déterminer quelles Campaigns ou quels Canvas inclure dans le rapport. Vous n'êtes tenu de sélectionner qu'un seul champ sur cette page.
-        - Notez qu'à mesure que des Campaigns ou des Canvas supplémentaires remplissent les conditions que vous avez définies sur cet écran, ils seront automatiquement ajoutés aux exécutions futures de votre rapport.<br><br>![La section « Automatically add campaigns and canvases » avec des champs pour définir les règles déterminant quelles Campaigns et quels Canvas doivent être ajoutés au rapport.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - Notez qu'à mesure que des Campaigns ou des Canvas supplémentaires remplissent les conditions que vous avez définies sur cet écran, ils seront automatiquement ajoutés aux exécutions futures de votre rapport.
+        - Banners n'est pas une option dans le menu déroulant **Channel**, vous ne pouvez donc pas utiliser les règles de canal pour ajouter automatiquement des Campaigns ou des Canvas de type Banner. Vous pouvez toutefois inclure les KPI de Banner dans les indicateurs de votre rapport.<br><br>![La section « Automatically add campaigns and canvases » avec des champs pour définir les règles déterminant quelles Campaigns et quels Canvas doivent être ajoutés au rapport.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Exécutez le rapport en sélectionnant **Save & Run**.
 
 {% alert note %}
@@ -79,7 +80,7 @@ L'exécution du rapport peut prendre quelques minutes, en fonction de la plage d
 Votre sélection pour **Rows** affecte les indicateurs que vous pouvez sélectionner.
 
 {% alert tip %}
-Si vous souhaitez créer un rapport sur les variantes ou les étapes de Canvas, sélectionnez **Canvases** pour les lignes et laissez le champ vide ou sélectionnez **Date** comme détail. Cela crée un menu déroulant **Canvas View** pour afficher les indicateurs du Canvas uniquement, ou regrouper les indicateurs par variante, étape ou message.
+Si vous souhaitez créer un rapport sur les variantes ou les étapes de Canvas, sélectionnez **Canvases** pour les lignes et laissez le champ vide ou sélectionnez **Date** comme détail. Cela crée un menu déroulant **Canvas View** pour afficher les indicateurs du Canvas uniquement, ou regrouper les indicateurs par variante, étape ou message.<br><br> Lorsque vous regroupez par étape, le tableau d'aperçu lors de la configuration de votre rapport affiche un maximum de 50 lignes. Exécutez le rapport ou exportez-le au format CSV pour afficher toutes les lignes.
 
 ![Le menu déroulant « Canvas View » ouvert.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}

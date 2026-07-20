@@ -11,15 +11,15 @@ search_tag: Partner
 
 > [O Zapier](https://zapier.com/) é uma ferramenta da web de automação que permite compartilhar dados entre apps da web e, em seguida, usar essas informações para automatizar ações.
 
-A parceria entre a Braze e o Zapier usa a API e os [webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#creating-a-webhook) da Braze para se conectar a aplicativos de terceiros, como Google Workplace, Slack, Salesforce, WordPress etc., para automatizar várias ações.
+A parceria entre a Braze e o Zapier alavanca a API e os [webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook) da Braze para se conectar a aplicativos de terceiros, como Google Workplace, Slack, Salesforce, WordPress etc., para automatizar várias ações.
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisitos | Descrição |
 |---|---|
 | Conta Zapier | É necessário ter uma conta do Zapier para usar essa parceria. |
-| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#api-definitions). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#api-definitions). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -41,9 +41,9 @@ Em seguida, defina a ação do zap. Quando seu zap estiver ativado e seu gatilho
 
 Continuando com nosso exemplo, queremos enviar uma solicitação POST como JSON para um endpoint da Braze. Isso pode ser feito selecionando a opção **Webhooks** em **Apps**.
 
-![]({% image_buster /assets/img_archive/zapier3.png %})
+![Etapa de Apps do Zapier com Webhooks selecionado para a ação.]({% image_buster /assets/img_archive/zapier3.png %})
 
-### Etapa 3: Configure o POST da Braze {#step-3-set-up-braze-post}
+### Etapa 3: Configurar o POST da Braze {#step-3-set-up-braze-post}
 
 Ao configurar seu webhook, use as seguintes configurações e forneça seu endpoint REST da Braze na URL do webhook. Quando terminar, selecione **Publish**.
 
@@ -71,7 +71,7 @@ Ao configurar seu webhook, use as seguintes configurações e forneça seu endpo
 }
 ```
 
-![]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
+![Configuração do webhook do Zapier com endpoint da Braze, cabeçalhos e campos de carga útil.]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
 
 ### Etapa 4: Criar uma Campaign na Braze {#step-4-create-a-braze-campaign}
 
@@ -79,7 +79,7 @@ Depois de configurar seu zap com êxito, você poderá personalizar suas Campaig
 
 ## Usando o Zapier com o endpoint `/users/track` {#using-zapier-with-the-userstrack-endpoint}
 
-Para enviar dados ao endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze (por exemplo, ao usar um gatilho como **New or Updated Spreadsheet Row** no Google Sheets), use **Webhooks by Zapier** com uma **Custom Request** — não use a ação padrão **POST**. A ação POST padrão formata a solicitação de uma maneira que não é compatível com o endpoint `/users/track`.
+Para enviar dados ao endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze (por exemplo, ao usar um gatilho como **New or Updated Spreadsheet Row** no Google Sheets), use **Webhooks by Zapier** com uma **Custom Request** — não use a ação padrão **POST**. A ação POST padrão formata a solicitação de uma maneira que não é compatível com o endpoint `/users/track`.
 
 1. No Zapier, escolha seu gatilho (por exemplo, **New or Updated Spreadsheet Row** no Google Sheets).
 2. Para a ação, selecione **Webhooks by Zapier** e escolha **Custom Request** (não POST).

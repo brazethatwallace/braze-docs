@@ -17,13 +17,13 @@ tool: Canvas
 
 이 템플릿을 성공적으로 사용하려면 다음이 필요합니다:
 
-- 사용자의 이메일을 수집하는 페이지와 성공 메시지를 전달하는 페이지가 포함된 [멀티 페이지 인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page).
+- 사용자의 이메일을 수집하는 페이지와 성공 메시지를 전달하는 페이지가 포함된 [멀티 페이지 인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page).
 - 사용자가 이메일 주소를 인증할 수 있는 확인 이메일.
 - 더블 옵트인한 사용자를 위한 독점 프로모션 코드가 포함된 환영 이메일.
 
 ## 필요에 맞게 템플릿 조정하기 {#tailoring-the-template-to-your-needs}
 
-칼로리 추적, 디지털 운동 수업, 플래시몹 마라톤 등의 기능으로 유명한 건강 앱 Steppington에서 일하고 있다고 가정해 보겠습니다. Canvas를 만들기 전에, 사용자가 앱을 처음 사용한 경험과 인상을 파악하기 위한 일련의 흥미로운 질문이 포함된 [멀티 페이지 인앱 및 인브라우저 메시지를 설정]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page)합니다.
+칼로리 추적, 디지털 운동 수업, 플래시몹 마라톤 등의 기능으로 유명한 건강 앱 Steppington에서 일하고 있다고 가정해 보겠습니다. Canvas를 만들기 전에, 사용자가 앱을 처음 사용한 경험과 인상을 파악하기 위한 일련의 흥미로운 질문이 포함된 [멀티 페이지 인앱 및 인브라우저 메시지를 설정]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page)합니다.
 
 템플릿에 접근하려면 새 Canvas를 만들 때 **Use a Canvas template** > **Braze templates**를 선택합니다. 그런 다음 **Email sign-up with double opt-in** 옆에 있는 **Apply Template**을 선택합니다. 이제 필요에 맞게 템플릿을 살펴보겠습니다.
 
@@ -46,7 +46,7 @@ tool: Canvas
 
 다음으로 전환 이벤트를 할당합니다. 전환 이벤트는 Canvas의 성공을 측정하는 데 사용할 수 있는 측정기준 유형입니다. **Conversion event type**에서 **Performs Custom Event**를 선택합니다. 그런 다음 **Custom event name**에서 **email_opt_in**을 선택합니다.
 
-![이메일 옵트인 전환 이벤트 유형에 대한 "Assign Conversion Events" 섹션.]({% image_buster /assets/img/canvas_templates/email_signup3.png %}){: style="max-width:90%;"}
+![이메일 옵트인 전환 이벤트 유형에 대한 "전환 이벤트 할당" 섹션.]({% image_buster /assets/img/canvas_templates/email_signup3.png %}){: style="max-width:90%;"}
 
 가장 최근 사용자를 타겟팅하려면 템플릿의 전환 기한을 3일로 유지합니다.
 
@@ -64,7 +64,7 @@ tool: Canvas
 
 ### 4단계: 타겟 오디언스 선택하기 {#step-4-select-the-target-audience}
 
-고객 프로필에 이메일 주소가 없는 Steppington 사용자를 타겟 오디언스로 정의합니다. 템플릿의 기본 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)인 `Email Available is false`를 유지합니다.
+고객 프로필에 이메일 주소가 없는 Steppington 사용자를 타겟 오디언스로 정의합니다. 템플릿의 기본 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)인 `Email Available is false`를 유지합니다.
 
 !["Email Available is false" 필터가 적용된 진입 오디언스.]({% image_buster /assets/img/canvas_templates/email_signup6.png %}){: style="max-width:90%;"}
 
@@ -105,5 +105,5 @@ tool: Canvas
 Canvas를 테스트하고 검토하여 예상대로 작동하는지 확인한 후 **Launch Canvas**를 선택하여 시작합니다.
 
 {% alert tip %}
-Canvas를 시작하기 전후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)를 확인하세요.
+Canvas를 시작하기 전후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)를 확인하세요.
 {% endalert %}

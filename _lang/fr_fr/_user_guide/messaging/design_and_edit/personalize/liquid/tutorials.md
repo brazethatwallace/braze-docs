@@ -8,11 +8,11 @@ page_type: tutorial
 
 # Tutoriels : Écrire du code Liquid {#tutorials-writing-liquid-code}
 
-> Vous débutez avec Liquid ? Ces tutoriels vous aideront à démarrer l'écriture de code Liquid pour des cas d'utilisation adaptés aux débutants. Chaque tutoriel couvre une combinaison différente d'objectifs d'apprentissage, tels que la logique conditionnelle et les opérateurs.
+> Vous débutez avec Liquid ? Ces tutoriels vous aideront à démarrer l'écriture de code Liquid pour des cas d'usage adaptés aux débutants. Chaque tutoriel couvre une combinaison différente d'objectifs d'apprentissage, tels que la logique conditionnelle et les opérateurs.
 
 À la fin de ces tutoriels, vous serez en mesure de :
 
-- Écrire du code Liquid pour des cas d'utilisation courants
+- Écrire du code Liquid pour des cas d'usage courants
 - Enchaîner de la logique conditionnelle Liquid pour personnaliser les messages en fonction des données utilisateur
 - Utiliser des variables et des filtres pour écrire des équations qui exploitent les valeurs des attributs
 - Reconnaître les commandes de base dans le code Liquid et comprendre de manière générale ce que fait le code
@@ -24,7 +24,7 @@ page_type: tutorial
 | [Compte à rebours d'événement](#countdown) | variables, filtres de date |
 | [Message d'anniversaire mensuel](#birthday) | variables, filtres de date, opérateurs |
 | [Promouvoir un produit favori](#favorite-product) | variables, filtres de date, équations, opérateurs |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tutorials: Writing Liquid code" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tutoriels : Écrire du code Liquid" }
 
 ## Messages personnalisés par segments d'utilisateurs {#segments}
 
@@ -333,7 +333,7 @@ Promouvons le produit favori d'un utilisateur si son dernier achat remonte à pl
 {% endraw %}
 
 {: start="6"}
-6. Comme la dernière date d'achat et la date du jour sont en secondes, nous devrons calculer combien de secondes représentent six mois. Créons une équation (environ 6 mois × 30,44 jours × 24 heures × 60 minutes × 60 secondes) et assignons-la à la variable `six_months`. Nous utiliserons `times` pour spécifier la multiplication des unités de temps.
+6. Comme la dernière date d'achat et la date du jour sont en secondes, nous devrons calculer combien de secondes représentent six mois. Créons une équation (environ 6 mois \* 30,44 jours \* 24 heures \* 60 minutes \* 60 secondes) et assignons-la à la variable `six_months`. Nous utiliserons `times` pour spécifier la multiplication des unités de temps.
 
 {% raw %}
 ```liquid

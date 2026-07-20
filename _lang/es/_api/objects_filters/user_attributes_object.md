@@ -11,7 +11,7 @@ description: "Este artículo de referencia explica los distintos componentes del
 
 > Una solicitud API con cualquier campo del objeto de atributos crea o actualiza un atributo con ese nombre y el valor indicado en el perfil de usuario especificado.
 
-Utiliza los nombres de campo de perfil de usuario de Braze (enumerados a continuación o cualquiera de los enumerados en la sección de [campos de perfil de usuario de Braze](#braze-user-profile-fields)) para actualizar esos valores especiales en el perfil de usuario en el dashboard o añade tus propios datos de atributos personalizados al usuario.
+Utiliza los nombres de campo de perfil de usuario de Braze (enumerados a continuación o cualquiera de los enumerados en la sección de [campos de perfil de usuario de Braze](#braze-user-profile-fields)) para actualizar esos valores especiales en el perfil de usuario en el panel o añade tus propios datos de atributos personalizados al usuario.
 
 ## Cuerpo del objeto {#object-body}
 
@@ -67,7 +67,7 @@ A menos que estés realizando una [importación anónima de tokens de notificaci
 
 Ten en cuenta lo siguiente al utilizar identificadores:
 
-- **`external_id` y `user_alias` son mutuamente excluyentes.** Incluir ambos en el mismo objeto de atributos de usuario devuelve un error. Para añadir un alias a un usuario que ya tiene un `external_id`, utiliza el [punto de conexión `/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias).
+- **`external_id` y `user_alias` son mutuamente excluyentes.** Incluir ambos en el mismo objeto de atributos de usuario devuelve un error. Para añadir un alias a un usuario que ya tiene un `external_id`, utiliza el [endpoint `/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias).
 - **`email` tiene prioridad sobre `phone`.** Si tanto `email` como `phone` están incluidos en el mismo objeto, Braze utiliza `email` como identificador. Esto significa que los atributos se aplican al perfil de usuario asociado a esa dirección de correo electrónico, incluso si el número de teléfono pertenece a un perfil diferente.
 
 {% alert important %}
@@ -79,7 +79,7 @@ Para evitar comportamientos inesperados, utiliza un único identificador por obj
 Si deseas actualizar solo los perfiles de usuario existentes en Braze, debes pasar la clave `_update_existing_only` con el valor `true` en el cuerpo de la solicitud. Si se omite este valor, Braze crea un nuevo perfil de usuario si el `external_id` aún no existe.
 
 {% alert note %}
-Si estás creando un perfil de usuario solo con alias a través del punto de conexión `/users/track`, debes establecer `_update_existing_only` en `false`. Si omites este valor, Braze no creará el perfil solo con alias.
+Si estás creando un perfil de usuario solo con alias a través del endpoint `/users/track`, debes establecer `_update_existing_only` en `false`. Si omites este valor, Braze no creará el perfil solo con alias.
 {% endalert %}
 
 #### Importación de tokens de notificaciones push {#push-token-import}
@@ -102,7 +102,7 @@ Después de la importación, cada vez que un usuario inicia la versión de tu ap
 
 Braze comprueba una vez al mes si hay algún perfil anónimo con la marca `push_token_import` que no tenga un token de notificaciones push. Si el perfil anónimo ya no tiene un token de notificaciones push, Braze elimina el perfil. Sin embargo, si el perfil anónimo todavía tiene un token de notificaciones push, lo que sugiere que el usuario real aún no ha iniciado sesión en el dispositivo con dicho token de notificaciones push, Braze no hace nada.
 
-Para más información, consulta [Migración de tokens de notificaciones push](#migrating-push-tokens).
+Para más información, consulta [Migración de tokens de notificaciones push](#migrate-push-tokens).
 
 #### Tipos de datos de atributos personalizados {#custom-attribute-data-types}
 
@@ -113,7 +113,7 @@ Los siguientes tipos de datos pueden almacenarse como un atributo personalizado:
 | Matrices | Se admiten matrices de atributos personalizados. Cuando añades un elemento, se añade al final de la matriz. Si el elemento ya existe, se mueve desde su posición actual hasta el final.<br><br>Solo se almacenan valores únicos. Por ejemplo, importar `['hotdog','hotdog','hotdog','pizza']` da como resultado `['hotdog', 'pizza']`.<br><br>Puedes establecer una matriz directamente (por ejemplo, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), añadir a una matriz existente con `"my_array_custom_attribute" : { "add" : ["Value3"] }`, o eliminar valores con `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>La cantidad máxima de elementos predeterminada en una matriz es 500. Puedes actualizar la cantidad máxima de matrices en el panel de Braze, en **Configuración de datos** > **Atributos personalizados**. Para más información, consulta [Matrices]({{site.baseurl}}/developer_guide/analytics#arrays). |
 | Matriz de objetos | Utiliza una matriz de objetos para definir una lista de objetos en la que cada objeto contenga un conjunto de atributos. Utiliza este tipo para almacenar varios conjuntos de datos relacionados con un usuario, como estancias en hoteles, historial de compras o preferencias. <br><br>Por ejemplo, define un atributo personalizado llamado `hotel_stays` en un perfil de usuario como una matriz en la que cada objeto representa una estancia independiente, con atributos como `hotel_name`, `check_in_date` y `nights_stayed`.<br><br>Las matrices de objetos no tienen límite en la cantidad de elementos, pero sí tienen un tamaño máximo de 100&nbsp;KB. Si una actualización hace que la matriz supere este límite, Braze descarta la actualización y el atributo permanece sin cambios.<br><br>Para las cargas útiles de `/users/track` y del SDK, utiliza `$add`, `$remove` y `$update` para las operaciones con matrices de objetos. Utiliza `add` y `remove` (sin `$`) para los atributos personalizados de matrices regulares que contienen valores escalares. Para más detalles, consulta [Ejemplo de API de matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#api-example), [Ejemplo de SDK de matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#sdk-example) y [Ejemplo de matriz de objetos](#array-of-objects-example). |
 | Booleanos | `true` o `false` |
-| Fechas | Almacena las fechas en formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (recomendado) o en cualquiera de los siguientes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Ten en cuenta que la "T" es un indicador de tiempo, no un marcador de posición, y no debe cambiarse ni eliminarse. <br><br>Los valores de fecha que no coincidan con ninguno de los formatos enumerados se almacenan como cadenas en el perfil de usuario en lugar de como el tipo de datos Hora. Esto significa que los filtros de segmentación basados en el tiempo (como "antes de", "después de" o "en los últimos X días") no funcionan para esos atributos. Por ejemplo, `Mar 26 2026 06:12 PM +00:00` se almacena como una cadena porque no coincide con un formato admitido. Para evitar esto, utiliza el formato ISO 8601 (como `2026-03-26T18:12:00Z`). <br><br>Los atributos de tiempo sin zona horaria se establecen de forma predeterminada a medianoche UTC (y se formatean en el dashboard como el equivalente a medianoche UTC en la zona horaria de la empresa). Para especificar una zona horaria, añade un desplazamiento UTC a la marca de tiempo (por ejemplo, `2024-11-10T18:00:00-05:00` para EST). Si el desplazamiento de zona horaria falta o tiene un formato incorrecto, el valor se establece de forma predeterminada en UTC. <br><br>Las horas se muestran en el dashboard en la zona horaria de tu empresa. Por ejemplo, `2024-11-10T18:00:00-05:00` (6:00 PM EST) aparecería como la hora equivalente en la zona horaria configurada de tu empresa. <br><br>Los eventos con marcas de tiempo en el futuro se establecen de forma predeterminada en la hora actual. <br><br>Para los atributos personalizados habituales, si el año es inferior a 0 o superior a 3000, Braze almacena el valor como una cadena en el perfil de usuario. |
+| Fechas | Almacena las fechas en formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (recomendado) o en cualquiera de los siguientes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Ten en cuenta que la "T" es un indicador de tiempo, no un marcador de posición, y no debe cambiarse ni eliminarse. <br><br>Los valores de fecha que no coincidan con ninguno de los formatos enumerados se almacenan como cadenas en el perfil de usuario en lugar de como el tipo de datos Hora. Esto significa que los filtros de segmentación basados en el tiempo (como "antes de", "después de" o "en los últimos X días") no funcionan para esos atributos. Por ejemplo, `Mar 26 2026 06:12 PM +00:00` se almacena como una cadena porque no coincide con un formato admitido. Para evitar esto, utiliza el formato ISO 8601 (como `2026-03-26T18:12:00Z`). <br><br>Los atributos de tiempo sin zona horaria se establecen de forma predeterminada a medianoche UTC (y se formatean en el panel como el equivalente a medianoche UTC en la zona horaria de la empresa). Para especificar una zona horaria, añade un desplazamiento UTC a la marca de tiempo (por ejemplo, `2024-11-10T18:00:00-05:00` para EST). Si el desplazamiento de zona horaria falta o tiene un formato incorrecto, el valor se establece de forma predeterminada en UTC. <br><br>Las horas se muestran en el panel en la zona horaria de tu empresa. Por ejemplo, `2024-11-10T18:00:00-05:00` (6:00 PM EST) aparecería como la hora equivalente en la zona horaria configurada de tu empresa. <br><br>Los eventos con marcas de tiempo en el futuro se establecen de forma predeterminada en la hora actual. <br><br>Para los atributos personalizados habituales, si el año es inferior a 0 o superior a 3000, Braze almacena el valor como una cadena en el perfil de usuario. |
 | Flotantes | Los atributos personalizados flotantes son números positivos o negativos con un punto decimal. Por ejemplo, puedes utilizar flotantes para almacenar saldos de cuentas o valoraciones de usuarios de productos o servicios. |
 | Enteros | Puedes incrementar los atributos personalizados enteros asignando un objeto con el campo "inc" y la cantidad que deseas añadir. <br><br>Ejemplo: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Atributos personalizados anidados | Los atributos personalizados anidados definen un conjunto de atributos como propiedad de otro atributo. Cuando defines un objeto de atributo personalizado, añades un conjunto de atributos a ese objeto. Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). |
@@ -144,7 +144,7 @@ Los siguientes campos del perfil de usuario distinguen entre mayúsculas y minú
 {% endalert %}
 
 {% alert tip %}
-Para una referencia orientada al cliente de los atributos estándar organizada por categoría y con orientación para SDK, API, CSV e Ingesta de datos de Cloud, consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes).
+Para una referencia orientada al cliente de los atributos estándar organizada por categoría y con orientación para SDK, API, CSV e ingesta de datos en la nube, consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes).
 {% endalert %}
 
 | Campo de perfil de usuario | Especificación del tipo de datos |
@@ -159,8 +159,8 @@ Para una referencia orientada al cliente de los atributos estándar organizada p
 | dob | (fecha de nacimiento) Cadena en formato "AAAA-MM-DD", por ejemplo, 1980-12-21. |
 | email | (cadena) |
 | email_subscribe | (cadena) Los valores disponibles son "opted_in" (registrado explícitamente para recibir mensajes de correo electrónico), "unsubscribed" (excluido explícitamente de los mensajes de correo electrónico) y "subscribed" (ni incluido ni excluido).  |
-| email_open_tracking_disabled |(booleano) `true` o `false` aceptados. Establécelo en `true` para desactivar que el píxel de seguimiento de apertura se añada a todos los futuros correos electrónicos enviados a este usuario. Disponible solo para SparkPost y SendGrid.|
-| email_click_tracking_disabled |(booleano) `true` o `false` aceptados. Establécelo en `true` para desactivar el seguimiento de clics para todos los enlaces dentro de un futuro correo electrónico enviado a este usuario. Disponible solo para SparkPost y SendGrid.|
+| email_open_tracking_disabled | (booleano) `true` o `false` aceptados. Establécelo en `true` para desactivar que el píxel de seguimiento de apertura se añada a todos los futuros correos electrónicos enviados a este usuario. Disponible solo para SparkPost y SendGrid. |
+| email_click_tracking_disabled | (booleano) `true` o `false` aceptados. Establécelo en `true` para desactivar el seguimiento de clics para todos los enlaces dentro de un futuro correo electrónico enviado a este usuario. Disponible solo para SparkPost y SendGrid. |
 | external_id | (cadena) Un identificador único para un perfil de usuario. Después de asignar un `external_id`, Braze identifica el perfil de usuario en todos los dispositivos del usuario. La primera vez que se asigna un external_id a un perfil de usuario desconocido, Braze realiza la migración de todos los datos del perfil de usuario existentes al nuevo perfil de usuario. |
 | facebook | hash que contiene cualquiera de `id` (cadena), `likes` (matriz de cadenas), `num_friends` (entero). |
 | first_name | (cadena) |
@@ -169,10 +169,10 @@ Para una referencia orientada al cliente de los atributos estándar organizada p
 | language | (cadena) Requerimos que el idioma se pase a Braze en el [estándar ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Para conocer los idiomas admitidos, consulta nuestra [lista de idiomas aceptados]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes).<br><br>La configuración de `language` en un usuario mediante la importación de CSV o la API impide que Braze capture automáticamente esta información a través del SDK. |
 | last_name | (cadena) |
 | marked_email_as_spam_at | (cadena) Fecha en la que el correo electrónico del usuario fue marcado como correo no deseado. Aparece en formato ISO 8601 o en cualquiera de los siguientes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` |
-| phone | (cadena) Recomendamos proporcionar los números de teléfono en el formato [E.164](https://en.wikipedia.org/wiki/E.164). Para más detalles, consulta [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format).|
+| phone | (cadena) Recomendamos proporcionar los números de teléfono en el formato [E.164](https://en.wikipedia.org/wiki/E.164). Para más detalles, consulta [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format). |
 | push_subscribe | (cadena) Los valores disponibles son "opted_in" (registrado explícitamente para recibir mensajes push), "unsubscribed" (excluido explícitamente de los mensajes push) y "subscribed" (ni incluido ni excluido).  |
 | push_tokens | Matriz de objetos con `app_id` y cadena `token`. Opcionalmente, puedes proporcionar un `device_id` para el dispositivo al que está asociado este token, por ejemplo, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Si no se proporciona un `device_id`, se genera uno aleatoriamente. |
-| subscription_groups| Matriz de objetos con una cadena `subscription_group_id` y `subscription_state`, por ejemplo, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Los valores disponibles para `subscription_state` son "subscribed" y "unsubscribed".|
+| subscription_groups | Matriz de objetos con una cadena `subscription_group_id` y `subscription_state`, por ejemplo, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Los valores disponibles para `subscription_state` son "subscribed" y "unsubscribed". |
 | time_zone | (cadena) Nombre de la zona horaria de la [base de datos de zonas horarias de la IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (por ejemplo, "America/New_York" o "Eastern Time (US & Canada)"). Solo se establecen valores de zona horaria válidos. |
 | twitter | Hash que contiene cualquiera de `id` (entero), `screen_name` (cadena, identificador de X (antes Twitter)), `followers_count` (entero), `friends_count` (entero), `statuses_count` (entero). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de perfil de usuario de Braze" }
@@ -216,7 +216,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Migración de tokens de notificaciones push {#migrating-push-tokens}
+## Migración de tokens de notificaciones push {#migrate-push-tokens}
 
 Si enviabas notificaciones push antes de integrar Braze, por tu cuenta o a través de otro proveedor, la migración de tokens de notificaciones push te permite seguir enviando notificaciones push a tus usuarios con tokens de notificaciones push registrados.
 
@@ -240,7 +240,7 @@ Debido a la naturaleza de los tokens de notificaciones push web, asegúrate de t
 
 La migración manual de tokens de notificaciones push es el proceso de importar estas claves creadas previamente a tu plataforma Braze a través de la API.
 
-Migra programáticamente los tokens de iOS (APNs) y Android (FCM) a tu plataforma utilizando el [punto de conexión `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Puedes migrar tanto usuarios identificados (usuarios con un ID externo asociado) como usuarios anónimos (usuarios sin ID externo).
+Migra programáticamente los tokens de iOS (APNs) y Android (FCM) a tu plataforma utilizando el [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Puedes migrar tanto usuarios identificados (usuarios con un ID externo asociado) como usuarios anónimos (usuarios sin ID externo).
 
 Especifica el `app_id` de tu aplicación durante la migración del token de notificaciones push para asociar el token de notificaciones push adecuado con la aplicación apropiada. Cada aplicación (iOS, Android, etc.) tiene su propio `app_id`, que puedes encontrar en la sección **Identification** de la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Asegúrate de utilizar el `app_id` de la plataforma correcta.
 
@@ -331,7 +331,7 @@ Sin el campo gateway, Braze utiliza la configuración del entorno alternativo de
 
 Para evitar problemas de entrega:
 
-- Asegúrate de que la configuración del entorno de tu aplicación en el dashboard de Braze coincida con los tokens que estás importando.
+- Asegúrate de que la configuración del entorno de tu aplicación en el panel de Braze coincida con los tokens que estás importando.
 - Para aplicaciones en producción, importa solo tokens de producción.
 - Para entornos de prueba, verifica que tanto la configuración de tu aplicación como los tokens importados utilicen el entorno de desarrollo.
 
@@ -347,8 +347,14 @@ La siguiente consideración solo se aplica a las aplicaciones Android. Las aplic
 
 Si debes enviar notificaciones push de Android a tus usuarios antes de que se complete la integración del SDK de Braze, utiliza pares clave-valor para validar las notificaciones push.
 
-Debes tener un receptor para gestionar y mostrar cargas útiles push. Para notificar al receptor la carga útil push, añade los pares clave-valor necesarios a la campaña push. Los valores de estos pares dependen del socio de push específico que hayas utilizado antes de Braze.
+Debes tener un receptor para gestionar y mostrar cargas útiles push. Para notificar al receptor la carga útil push, añade los pares clave-valor necesarios a la campaña push. Los valores de estos pares dependen del partner de push específico que hayas utilizado antes de Braze.
 
 {% alert note %}
-Para algunos proveedores de notificaciones push, Braze necesita aplanar los pares clave-valor para que puedan interpretarse correctamente. Para aplanar los pares clave-valor de una aplicación Android específica, ponte en contacto con tu administrador del éxito del cliente.
+Para algunos proveedores de notificaciones push, Braze necesita aplanar los pares clave-valor para que puedan interpretarse correctamente. Para aplanar los pares clave-valor de una aplicación Android específica, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
+
+## Preguntas frecuentes {#frequently-asked-questions}
+
+### ¿Cómo encuentro usuarios tratados como correo no deseado o bloqueados para la mensajería? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+Braze no proporciona una lista de correo no deseado dedicada en el panel. Braze bloquea a los usuarios individuales con más de cinco millones de sesiones ("usuarios ficticios") y deja de ingerir sus eventos del SDK. Si un identificador está bloqueado, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) puede devolver el error `"provided external_id is blacklisted and disallowed"`. Este texto se toma literalmente de la respuesta de la API. Para encontrar los perfiles afectados, crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) con el filtro **Recuento de sesiones** establecido en **más de 5 000 000**, exporta el segmento como CSV y comprueba los campos del perfil en **Interacción** > **Buscar usuarios** o con el endpoint [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier).

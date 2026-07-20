@@ -38,13 +38,13 @@ Brazeは、最初のSDKセッション開始時のIPアドレスを使用して�
 
 ## 位置情報ターゲティング {#location-targeting}
 
-位置情報の追跡データとSegmentsを使用して、位置情報ベースのCampaignと戦略を設定できます。たとえば、特定の地域に住んでいるユーザー向けにプロモーションCampaignを実行したり、より厳しい規制がある地域のユーザーを除外したりすることができます。
+位置情報の追跡データとセグメントを使用して、位置情報ベースのキャンペーンと戦略を設定できます。たとえば、特定の地域に住んでいるユーザー向けにプロモーションキャンペーンを実行したり、より厳しい規制がある地域のユーザーを除外したりすることができます。
 
-位置情報Segmentの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting)を参照してください。
+位置情報セグメントの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting)を参照してください。
 
 ## デフォルトの位置属性をハード設定する {#hard-setting-the-default-location-attribute}
 
-APIの[`users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、[`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) 標準属性項目を更新することもできます。例を以下に示します。
+APIの[`users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、[`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) 標準属性項目を更新することもできます。例を以下に示します。
 
 ```
 https://[your_braze_rest_endpoint]/users/track
@@ -83,7 +83,7 @@ Brazeは、アプリケーションがフォアグラウンドで開いている
 - 位置情報が無効になっている場合、`Most Recent Location` フィルターは最後に記録された位置を表示します。
 - ユーザーのプロファイルに位置情報が保存されたことがある場合、その後位置情報の追跡をオプトアウトしていても、`Location Available` フィルターの条件を満たします。
 
-### Most Recent Device Localeフィルターと Most Recent Locationフィルターの違いは何ですか？ {#whats-the-difference-between-the-most-recent-device-locale-and-most-recent-location-filters}
+### Most Recent Device LocaleフィルターとMost Recent Locationフィルターの違いは何ですか？ {#whats-the-difference-between-the-most-recent-device-locale-and-most-recent-location-filters}
 
 `Most Recent Device Locale` はユーザーのデバイス設定から取得されます。たとえば、iPhoneユーザーの場合、デバイスの**設定** > **一般** > **言語と地域**に表示されます。このフィルターは、日付や住所などの言語と地域のフォーマットをキャプチャするために使用され、`Most Recent Location` フィルターとは独立しています。
 
@@ -110,7 +110,7 @@ BrazeはデフォルトでSDKを通じてユーザーの最新の位置情報を
 
 ユーザーの位置データがBrazeに送信されているかどうかを確認するには、**Location Available** フィルターを使用します。このフィルターを使用すると、「最新の位置」を持つユーザーの割合を確認できます。
 
-![「Location Available」フィルターを使用した「Test Location」Segment。]({% image_buster /assets/img_archive/trouble7.png %})
+![「Location Available」フィルターを使用した「Test Location」セグメント。]({% image_buster /assets/img_archive/trouble7.png %})
 
 #### データ転送 {#data-transfer}
 

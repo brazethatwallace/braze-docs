@@ -11,7 +11,7 @@ description: "Brazeインスタンスに対応する正しいダッシュボー�
 
 > Brazeインスタンスに対応する正しいダッシュボードURL、REST APIエンドポイント、SDKエンドポイントを確認できます。ログイン、API呼び出し、SDKの統合にこれらのURLが必要です。
 
-Brazeでは、ダッシュボード、SDK、RESTエンドポイント用に複数のインスタンスを管理しており、これらを「クラスター」と呼んでいます。Brazeのオンボーディングマネージャーが、お客様がどのクラスターに属しているかをお知らせします。Braze SDKの詳細については、[Braze 101](https://learning.braze.com/braze-101) Brazeラーニングコースをご覧ください。
+Brazeでは、ダッシュボード、SDK、RESTエンドポイント用に複数のインスタンスを管理しており、これらを「クラスター」と呼んでいます。Brazeのオンボーディングマネージャーが、お客様がどのクラスターに属しているかをお知らせします。Braze SDKの詳細については、[Braze 101](https://learning.braze.com/braze-101) Braze Learningコースをご覧ください。
 
 [dashboard.braze.com](https://dashboard.braze.com)にログインすると、自動的に正しいクラスターアドレスに移動します。
 

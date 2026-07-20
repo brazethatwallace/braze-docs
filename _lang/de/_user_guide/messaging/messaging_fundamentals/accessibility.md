@@ -122,7 +122,7 @@ Sobald Ihre Struktur steht, ist der nächste Schritt sicherzustellen, dass Ihre 
 
 - **Schreiben Sie kurze, klare Sätze:** Kurze Sätze sind für alle leicht verständlich, besonders für Menschen, die Screenreader verwenden oder Schwierigkeiten haben, komplexe Informationen zu verarbeiten. Schreiben Sie auf dem Leseniveau der siebten Klasse in den USA. Sie können Ressourcen wie die [Hemingway App](https://hemingwayapp.com/) verwenden, um das Leseniveau Ihres Textes zu überprüfen.
 - **Wählen Sie lesbare Schriftgrößen und Abstände:** Text, der zu klein ist, kann schwer zu lesen sein – besonders auf Mobilgeräten. Verwenden Sie mindestens 14px für Fließtext. Machen Sie Überschriften größer, damit Nutzer:innen den Unterschied deutlich erkennen können. Zusätzlicher Zeilenabstand (etwa 1,5-fache Zeilenhöhe) und Absatzabstände verbessern die Lesbarkeit, besonders für Menschen mit visuellen oder kognitiven Bedürfnissen.
-- **Vermeiden Sie Blocksatz:** Blocksatz erzeugt ungleichmäßige Abstände zwischen Wörtern, was das Lesen für Menschen mit Legasthenie oder kognitiven Behinderungen erschwert. Erwägen Sie, Inhalte, die über mehr als zwei Zeilen umbrechen, für Links-nach-rechts-Sprachen linksbündig oder für [Rechts-nach-links-Sprachen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/) rechtsbündig auszurichten.
+- **Vermeiden Sie Blocksatz:** Blocksatz erzeugt ungleichmäßige Abstände zwischen Wörtern, was das Lesen für Menschen mit Legasthenie oder kognitiven Behinderungen erschwert. Erwägen Sie, Inhalte, die über mehr als zwei Zeilen umbrechen, für Links-nach-rechts-Sprachen linksbündig oder für [Rechts-nach-links-Sprachen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) rechtsbündig auszurichten.
 - **Verwenden Sie Fett, Kursiv und Großbuchstaben sparsam:** Zu viel hervorgehobener Text erschwert das Lesen – besonders für Menschen mit Legasthenie oder Sehbeeinträchtigungen. Halten Sie es einfach.
 
 #### Klarheit und Benutzerfreundlichkeit {#clarity-and-usability}
@@ -131,7 +131,7 @@ Zum Schluss sprechen wir über die feineren Details – die Dinge, die Nutzer:in
 
 - **Beschriften Sie Links und Buttons klar:** Stellen Sie sicher, dass Ihr [Link](#links)- und [Button](#buttons)-Text klar erklärt, was als Nächstes passiert. Das hilft Menschen, die Screenreader verwenden oder mit der Tastatur navigieren, zu wissen, was sie erwartet.
 - **Gehen Sie sparsam mit Symbolen und Emojis um:** Sonderzeichen und Emojis können Ihre Inhalte verspielt machen, aber sie können verwirrend sein, wenn sie von Screenreadern vorgelesen werden. Verwenden Sie sie sparsam und stellen Sie sicher, dass sie keinen klaren, beschreibenden Text ersetzen.
-- **Testen Sie auf Textabschneidung:** Testen Sie Ihren Text immer, indem Sie eine [Testnachricht senden]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/), um sicherzustellen, dass Ihr Text nicht abgeschnitten wird. Wenn Ihre Nachricht abgeschnitten wird, schadet das sowohl Ihnen als auch Ihrer Zielgruppe, da Ihre Inhalte sie nicht erreichen.
+- **Testen Sie auf Textabschneidung:** Testen Sie Ihren Text immer, indem Sie eine [Testnachricht senden]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages), um sicherzustellen, dass Ihr Text nicht abgeschnitten wird. Wenn Ihre Nachricht abgeschnitten wird, schadet das sowohl Ihnen als auch Ihrer Zielgruppe, da Ihre Inhalte sie nicht erreichen.
 
 ### Barrierefreiheitssprache {#accessibility-language}
 
@@ -143,11 +143,11 @@ Campaigns und Canvases verwenden dieselben Editoren für diese Optionen, es sei 
 
 #### Barrierefreiheitssprache konfigurieren {#configure-accessibility-language}
 
-Wenn Ihr Editor diese Option enthält, gehen Sie zum Abschnitt **Accessibility** in den Nachrichteneinstellungen. Wählen Sie eine Sprache aus dem Dropdown oder verwenden Sie Liquid (zum Beispiel {% raw %}`{{accessibility_language}}`{% endraw %}, wenn [mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) aktiviert sind und die **Einstellungen für die Lokalisierung** konfiguriert sind).
+Wenn Ihr Editor diese Option enthält, gehen Sie zum Abschnitt **Accessibility** in den Nachrichteneinstellungen. Wählen Sie eine Sprache aus dem Dropdown oder verwenden Sie Liquid (zum Beispiel {% raw %}`{{accessibility_language}}`{% endraw %}, wenn [mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) aktiviert sind und die **Einstellungen für die Lokalisierung** konfiguriert sind).
 
 #### Mehrsprachige Nachrichten {#multi-language-messages}
 
-Legen Sie in den **Einstellungen für die Lokalisierung** eine Barrierefreiheitssprache für jede Locale fest, damit Liquid {% raw %}`{{accessibility_language}}`{% endraw %} für lokalisierte Sendungen ausfüllen kann. Ob dieser Wert für neue Nachrichten bereits vorausgewählt ist, hängt vom Kanal ab. Für CSV- und Übersetzungs-Workflows beginnen Sie mit [Spracheinstellungen und Barrierefreiheit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility).
+Legen Sie in den **Einstellungen für die Lokalisierung** eine Barrierefreiheitssprache für jede Locale fest, damit Liquid {% raw %}`{{accessibility_language}}`{% endraw %} für lokalisierte Sendungen ausfüllen kann. Ob dieser Wert für neue Nachrichten bereits vorausgewählt ist, hängt vom Kanal ab. Für CSV- und Übersetzungs-Workflows beginnen Sie mit [Spracheinstellungen und Barrierefreiheit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility).
 
 #### Kanal- und Editor-Unterstützung {#channel-and-editor-support}
 
@@ -219,7 +219,7 @@ Halten Sie Button-Texte kurz, um Abschneidung zu vermeiden. Wenn der Text eines 
 Button-Text muss vor der Hintergrundfarbe des Buttons gut lesbar sein. Überprüfen Sie, ob Ihr Button-Text die WCAG 2.2 AA [Kontrastminima](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) erfüllt:
 
 - 4,5:1 Kontrastverhältnis für normalgroßen Text (die meisten Buttons)
-- 3:1 Kontrastverhältnis für großen Text (typischerweise über 18pt)
+- 3:1 Kontrastverhältnis für großen Text (typischerweise 18pt oder größer)
 
 Hoher Kontrast hilft sicherzustellen, dass Buttons für alle lesbar und klickbar bleiben, einschließlich Nutzer:innen mit Sehbeeinträchtigungen oder solchen, die Ihre Nachricht unter schwierigen Bedingungen betrachten. Weitere Informationen finden Sie im Abschnitt [Farbkontrast](#color-contrast).
 
@@ -451,7 +451,7 @@ Füllen Sie Alt-Text nicht mit SEO-Begriffen oder Handlungsaufforderungen auf, d
     </tr>
     <tr>
       <td>„Mobiltelefon, das eine Wetter-App mit 24 °C anzeigt“</td>
-      <td>„Erleben Sie Echtzeit-Innovationen im Wetter-Tracking, die alles verändern“ (Spiegelt nicht wider, was sichtbar gezeigt wird)</td>
+      <td>„Erleben Sie Realtime-Innovationen im Wetter-Tracking, die alles verändern“ (Spiegelt nicht wider, was sichtbar gezeigt wird)</td>
     </tr>
   </tbody>
 </table>
@@ -633,8 +633,8 @@ E-Mails, die im E-Mail-Drag-and-Drop-Editor erstellt werden, haben Präsentation
 
 Um Ihnen zu helfen, Barrierefreiheitsprobleme frühzeitig zu erkennen und zu beheben, bietet Braze automatisierte Barrierefreiheitstests in den folgenden Bereichen:
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing) für E-Mails
-- [Barrierefreiheits-Scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner) für Nachrichten, die mit unserem HTML-Editor erstellt wurden (zum Beispiel HTML-In-App-Nachrichten, HTML Content Blocks, [benutzerdefinierte E-Mail-Fußzeilen]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), [E-Mail-Opt-in-Seiten]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page) und [E-Mail-Abmeldeseiten]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)).
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) für E-Mails
+- [Barrierefreiheits-Scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) für Nachrichten, die mit unserem HTML-Editor erstellt wurden (zum Beispiel HTML-In-App-Nachrichten, HTML Content Blocks, [benutzerdefinierte E-Mail-Fußzeilen]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [E-Mail-Opt-in-Seiten]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page) und [E-Mail-Abmeldeseiten]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)).
 
 Diese Tests prüfen Ihre Nachricht anhand des Standards der Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) – einer Reihe international anerkannter technischer Standards für barrierefreie Inhalte. Alle Probleme, die automatisch erkannt werden können, werden markiert und nach Schweregrad kategorisiert, um Ihnen bei der Priorisierung zu helfen.
 

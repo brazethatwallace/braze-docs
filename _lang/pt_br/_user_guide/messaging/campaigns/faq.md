@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## Como crio uma Campaign multicanal? {#how-do-i-create-a-multichannel-campaign}
 
-Consulte [Campaigns multicanais]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) em **Criar uma Campaign** para etapas de configuração e canais suportados.
+Consulte [Campaigns multicanais]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) em **Criar uma Campaign** para etapas de configuração e canais suportados.
 
 ### Posso adicionar um grupo de controle à minha Campaign multicanal? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
@@ -174,7 +174,7 @@ Se você editar uma Campaign ativa sem pará-la primeiro, os usuários podem rec
 
 ### Qual é a diferença entre as opções Exportar dados de usuários em CSV e Exportar endereços de e-mail em CSV na página de análise de dados da minha Campaign? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
-Selecionar a opção **Exportar endereços de e-mail em CSV** baixa dados apenas de usuários com endereços de e-mail. Por exemplo, se você tem um segmento de 100.000 usuários, mas apenas 50.000 deles possuem endereços de e-mail, e você clica em **Exportar endereços de e-mail em CSV**, a exportação conterá apenas 50.000 linhas de dados. Em comparação, selecionar **Exportar dados de usuários em CSV** exporta todos os dados de usuários.
+Selecionar a opção **CSV Export Email Addresses** baixa dados apenas de usuários com endereços de e-mail. Por exemplo, se você tem um segmento de 100.000 usuários, mas apenas 50.000 deles possuem endereços de e-mail, e você clica em **CSV Export Email Addresses**, a exportação conterá apenas 50.000 linhas de dados. Em comparação, selecionar **CSV Export User Data** exporta todos os dados de usuários.
 
 ### Posso pesquisar uma Campaign pelo seu identificador de API? {#can-i-search-for-a-campaign-by-its-api-identifier}
 
@@ -246,7 +246,7 @@ Se você encontrar um erro "Request Timed Out" ao criar ou editar uma Campaign o
 Se você adicionar ou alterar um limite máximo de destinatários em uma Campaign ativa, o limite pode não ser refletido na sua análise de dados de envio pelos seguintes motivos:
 
 - **Limite adicionado após o lançamento:** Se o limite máximo de destinatários não estiver definido quando a Campaign for lançada, as mensagens que já estão enfileiradas antes de você aplicar o limite ainda serão enviadas. O limite só entra em vigor para envios que você enfileirar após salvar a alteração.
-- **Interação com limite de taxa:** Se uma Campaign também tem limite de taxa, as mensagens podem ser distribuídas ao longo de uma janela de tempo mais longa. O limite máximo de destinatários é avaliado quando as mensagens são enfileiradas, não quando são entregues. Se o limite for alterado enquanto as mensagens já estão na fila, o limite original se aplica a essas mensagens.
+- **Interação com limite de frequência:** Se uma Campaign também tem limite de frequência, as mensagens podem ser distribuídas ao longo de uma janela de tempo mais longa. O limite máximo de destinatários é avaliado quando as mensagens são enfileiradas, não quando são entregues. Se o limite for alterado enquanto as mensagens já estão na fila, o limite original se aplica a essas mensagens.
 - **Campaigns recorrentes:** Para Campaigns recorrentes, cada envio programado avalia o limite máximo de destinatários de forma independente. Alterar o limite entre envios não ajusta retroativamente as contagens de envios anteriores.
 
 Para evitar desalinhamentos, defina o limite máximo de destinatários antes de lançar a Campaign e evite modificá-lo enquanto os envios estiverem em andamento.
@@ -261,20 +261,29 @@ Vários fatores podem fazer com que o número de envios seja menor do que o tama
 - **Grupos de controle:** Se um [Grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) ou grupo de controle no nível da Campaign estiver em uso, uma parte do público é retida da entrega.
 - **Horário e janelas de entrega:** Para Campaigns por fuso horário local ou programadas, os usuários devem se qualificar tanto na entrada quanto no momento do envio; usuários em determinados fusos horários podem ficar fora da janela de entrega.
 - **Deduplicação de e-mail:** Sua Campaign ou Canvas direciona múltiplos usuários com e-mails correspondentes, então um usuário aleatório com aquele endereço de e-mail é escolhido no momento do envio. A mensagem é enviada apenas uma vez e deduplicada para que não seja enviada ao mesmo e-mail várias vezes, mas o tamanho estimado do público inclui todos os usuários.
-- **Filtros de entregabilidade de e-mail:** Para Campaigns de e-mail, a Braze exclui usuários que tiveram hard bounce, cancelaram a inscrição de e-mails, foram marcados como spam, não possuem endereço de e-mail no perfil ou não estão inscritos em um grupo de inscrições obrigatório. Essas verificações são executadas no momento do envio, então um usuário presente no seu segmento ainda pode ser excluído da contagem real de envios.
+- **Filtros de entregabilidade de e-mail:** Para Campaigns de e-mail, a Braze exclui usuários que tiveram hard bounce, cancelaram a inscrição de e-mails, foram marcados como SPAM, não possuem endereço de e-mail no perfil ou não estão inscritos em um grupo de inscrições obrigatório. Essas verificações são executadas no momento do envio, então um usuário presente no seu segmento ainda pode ser excluído da contagem real de envios.
 - **Limite de frequência global:** Limites no nível do espaço de trabalho podem impedir que usuários elegíveis recebam outra mensagem na mesma janela, o que reduz os envios realizados.
 - **Usuários recém-importados:** Perfis que acabaram de se tornar elegíveis podem não receber até a próxima avaliação ou rodada de envio, então as contagens se atualizam em uma execução posterior.
 - **Alcançabilidade de push:** Para Campaigns de push, confirme que o público está habilitado para push no app correto. Se você não filtrar por usuários habilitados para push, o público estimado pode incluir perfis que não podem receber push. Verifique **Usuários contatáveis** na etapa **Público-alvo** para uma estimativa operacional mais precisa.
-- **Limite de taxa:** Se o limite de taxa estiver aplicado, as mensagens são distribuídas ao longo do tempo e alguns envios podem ser adiados ou ainda não refletidos na contagem.
+- **Limite de velocidade de entrega:** Um [limite de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) limita quantas mensagens a Braze envia por minuto durante uma única ocorrência de envio. A Braze distribui a entrega ao longo de uma janela mais longa, então alguns envios podem ser adiados, ainda não refletidos na contagem, ou não concluídos se o limite for baixo em relação ao público elegível.
 - **Janelas de reelegibilidade:** Usuários que ainda não são reelegíveis não receberão novamente durante o período de espera, então os envios ficam abaixo do tamanho estimado do público para esse período.
 - **Janela de relatório:** O intervalo de tempo da análise de dados pode não incluir todos os envios.
 - **Reavaliação do segmento:** Para Campaigns baseadas em ação ou programadas que reavaliam no momento do envio, os usuários que estavam no segmento quando a Campaign foi enfileirada podem não se qualificar mais quando a mensagem é realmente enviada.
 - **Limites de envio:** Um número máximo de usuários (ou limite similar) em **Público-alvo** interrompe a entrega quando o limite é atingido.
-- **Filtros rigorosos de dispositivo ou navegador:** Filtros que correspondem apenas às versões mais recentes de apps ou navegadores reduzem o conjunto alcançável no momento do envio em comparação com uma pré-visualização ampla de segmento.
+- **Filtros rigorosos de dispositivo ou navegador:** Filtros que correspondem apenas às versões mais recentes de apps ou navegadores reduzem o conjunto alcançável no momento do envio em comparação com uma prévia ampla de segmento.
 
 ### Onde estão as perguntas frequentes sobre limite de frequência global? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
-Para perguntas sobre dias corridos, push silencioso, webhooks, comportamento do Canvas e tópicos relacionados, consulte as [Perguntas frequentes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) de [Limite de taxa e limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+Para perguntas sobre dias corridos, push silencioso, webhooks, comportamento do Canvas e tópicos relacionados, consulte as [Perguntas frequentes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) de [Limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+
+### Por que minha Campaign está com taxas de envio mais baixas? {#why-is-my-campaign-experiencing-lower-send-rates}
+
+Se você perceber que suas Campaigns programadas diárias estão enviando para menos usuários ao longo do tempo, verifique o seguinte:
+
+- **Verifique se a reelegibilidade está ativada:** Sem reelegibilidade, a Braze envia a mensagem para cada usuário apenas uma vez. Em Campaigns programadas diárias, apenas os usuários que correspondem ao público e que ainda não receberam a mensagem são elegíveis para cada envio. À medida que mais usuários recebem a mensagem, cada envio posterior tem menos usuários elegíveis, então o volume de envios diminui.
+- **Verifique se o público tem associação fixa:** Públicos construídos a partir de uma lista fixa de usuários (como uma [importação de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) usada como filtro de segmento) não ganham novos membros automaticamente. Sem novos entrantes, o volume de envios não pode se recuperar à medida que os usuários são alcançados.
+
+Para [limites de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) e outros fatores que reduzem os envios em uma única ocorrência, consulte [Por que os envios são menores do que o tamanho estimado do público?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ### Por que os destinatários únicos podem exceder os envios para e-mail e SMS? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 

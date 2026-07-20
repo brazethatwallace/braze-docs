@@ -10,7 +10,7 @@ description: "Dieser Referenzartikel behandelt die Fehlerbehebung für Segmentfe
 
 # Fehlerbehebung für Segmente {#troubleshoot-segments}
 
-> Ordnen Sie Ihr Symptom unten zu, um den richtigen Abschnitt zu finden. Diese Seite behandelt Startfehler, Nutzereignung, Filterprobleme und Analytics-Abweichungen. Filterdefinitionen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Informationen zu Segmentgrößenschätzungen, exakten Zählungen und historischen Mitgliedschaftsdiagrammen finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+> Ordnen Sie Ihr Symptom in der folgenden Liste zu, um den richtigen Abschnitt zu finden. Diese Seite behandelt Startfehler, Nutzereignung, Filterprobleme und Analytics-Abweichungen. Filterdefinitionen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Informationen zu Segmentgrößenschätzungen, exakten Zählungen und historischen Mitgliedschaftsdiagrammen finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Hier starten: Symptom zuordnen {#start-here-match-your-symptom}
 
@@ -112,7 +112,7 @@ Nutzer:innen können mehrere Apps haben, sodass die Auswahl einer bestimmten App
 
 Ihre Filteroptionen hängen mit dem Format (Datentyp) zusammen, das Sie für Ihr angepasstes Attribut an Braze übergeben. Um den Datentyp zu überprüfen, den Braze für Ihre angepassten Attribute erkennt, navigieren Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
 
-Wenn sich Ihre Filteroptionen geändert haben, deutet dies darauf hin, dass Ihre Daten in einem anderen Format (Datentyp) als zuvor an Braze übergeben werden. Detaillierte Beschreibungen der verschiedenen Datentypen und ihrer Filteroptionen finden Sie unter [Datentypen für angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types).
+Wenn sich Ihre Filteroptionen geändert haben, deutet dies darauf hin, dass Ihre Daten in einem anderen Format (Datentyp) als zuvor an Braze übergeben werden. Detaillierte Beschreibungen der verschiedenen Datentypen und ihrer Filteroptionen finden Sie unter [Datentypen für angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 Beachten Sie, dass das Ändern des Datentyps eines angepassten Attributs im Dashboard Daten ablehnt, die in einem anderen Format an Braze gesendet werden. Sie können den Datentyp eines angepassten Attributs nicht ändern, solange dieses Attribut in aktiven Campaigns, Canvases oder Segmenten referenziert wird; das Dashboard zeigt einen Fehler an und blockiert die Änderung.
 
@@ -122,7 +122,7 @@ Der Tab **Werte** eines angepassten Attributs zeigt Ergebnisse aus einer Stichpr
 
 Wenn Ihr Segment trotz restriktiv wirkender Filter viel größer aussieht als erwartet, prüfen Sie, ob Sie negative Filter (`ist nicht`, `ist nicht gleich`, `stimmt nicht mit Regex überein` oder `nicht enthalten`) mit dem **OR**-Operator für dasselbe Attribut mehr als einmal verwenden. Diese Kombination kann Nutzer:innen mit allen Werten für das Attribut ansprechen.
 
-Hinweise dazu, wann Sie **AND** statt **OR** verwenden sollten, finden Sie unter [Wann Sie den OR-Operator vermeiden sollten]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator) in „Segment erstellen“.
+Hinweise dazu, wann Sie **AND** statt **OR** verwenden sollten, finden Sie unter [Wann Sie den OR-Operator vermeiden sollten]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#segmentation-logic-using-and-and-or) in „Segment erstellen“.
 
 ## Analytics und Berichterstattung {#analytics-and-reporting}
 

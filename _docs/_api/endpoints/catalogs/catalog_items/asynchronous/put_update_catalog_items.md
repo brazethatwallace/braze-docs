@@ -23,7 +23,7 @@ If a catalog item doesn't exist, this endpoint will create the item in your cata
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.replace_items` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `catalogs.replace_items` permission.
 
 ## Rate limit
 
@@ -88,7 +88,7 @@ The `Location` field uses the `geo` data type, which expects an array formatted 
 There are three status code responses for this endpoint: `202`, `400`, and `404`.
 
 {% alert note %}
-The system can also return a `400` response if your company has reached its catalog storage limit. The free version of catalogs is capped at 100&nbsp;MB. For more information about storage tiers and how to upgrade, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+The system can also return a `400` response if your company has reached its catalog storage limit. The free version of catalogs is capped at 500&nbsp;MB. For more information about storage tiers and how to upgrade, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Example success response

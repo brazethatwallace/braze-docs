@@ -16,7 +16,7 @@ _この統合はGrowthLoopによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとGrowthLoopの統合により、データウェアハウスから直接顧客データをセグメント化してBrazeに送信できます。これにより、ユーザーはBrazeの豊富な機能セットを、信頼できる唯一の情報源とともに最適化できます。顧客セグメンテーションとアクティベーションのためのマーケティング活動を合理化し、Brazeに送信されたターゲットキャンペーンのセグメンテーション、ローンチ、テスト、結果測定にかかる時間を短縮します。
+BrazeとGrowthLoopの統合により、データウェアハウスから直接顧客データをセグメント化してBrazeに送信できます。これにより、ユーザーはBrazeの豊富な機能セットを、信頼できる唯一の情報源とともに最適化できます。顧客セグメンテーションとアクティベーションのためのマーケティング活動を合理化し、Brazeに送信されたターゲットキャンペーンのセグメント化、ローンチ、テスト、結果測定にかかる時間を短縮します。
 
 ## 前提条件 {#prerequisites}
 
@@ -24,8 +24,8 @@ BrazeとGrowthLoopの統合により、データウェアハウスから直接�
 | ----------- | ----------- |
 | GrowthLoopのgrowthアカウントまたはenterpriseアカウント | このパートナーシップを利用するには、GrowthLoopのアカウントが必要です。 |
 | Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br>これはBrazeのダッシュボードで**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)に応じて異なります。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)に応じて異なります。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -39,7 +39,7 @@ BrazeとGrowthLoopの統合により、データウェアハウスから直接�
 
 ### GrowthLoopでBraze接続を設定する {#configure-braze-connection-in-growthloop}
 
-GrowthLoopのセグメントation Platformにサインインしたら、左サイドバーの**Destinations**タブを開き、右上の**New Destination**をクリックします。
+GrowthLoopのSegmentation Platformにサインインしたら、左サイドバーの**Destinations**タブを開き、アクションバーの**New Destination**をクリックします。
 
 Brazeが見つかるまでスクロールし、**Add Braze**をクリックします。
 
@@ -52,7 +52,7 @@ Brazeが見つかるまでスクロールし、**Add Braze**をクリックし�
 
 **Create**をクリックします。これで最初のオーディエンスをBrazeにエクスポートできます。GrowthLoopでオーディエンスを作成するには、[オーディエンスの作成](https://www.growthloop.com/help-center-articles/create-an-audience)を参照してください。
 
-### エクスポート後の作業 {#post-export}
+### エクスポート後 {#post-export}
 
 オーディエンスがエクスポートされると、GrowthLoopは15分ごとに最新の顧客リストを生成してBrazeに送信します。
 

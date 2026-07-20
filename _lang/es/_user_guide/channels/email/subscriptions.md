@@ -31,7 +31,7 @@ Braze no cuenta los cambios de estado de suscripción como puntos de datos, ni a
 
 ### Direcciones de correo electrónico con suscripción cancelada {#unsubscribed-email-addresses}
 
-Braze cancela automáticamente la suscripción de cualquier usuario que la cancele manualmente a través de un [pie de página personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer). Si el usuario actualiza su dirección de correo electrónico y **Volver a suscribir a los usuarios cuando actualicen su correo electrónico** está habilitado en **Enviando configuración**, se reanuda el envío normal.
+Braze cancela automáticamente la suscripción de cualquier usuario que la cancele manualmente a través de un [pie de página personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer). Si el usuario actualiza su dirección de correo electrónico y **Volver a suscribir a los usuarios cuando actualicen su correo electrónico** está habilitado en **Configuración de envío**, se reanuda el envío normal.
 
 Si un usuario marca uno o más de tus correos electrónicos como correo no deseado, Braze solo envía correos electrónicos transaccionales a ese usuario. Los correos electrónicos transaccionales se refieren a la opción **Enviar a todos los usuarios, incluidos los que cancelaron su suscripción** en **Público objetivo**.
 
@@ -55,7 +55,7 @@ Usa el SDK de Braze para actualizar el estado de suscripción de un usuario.
 
 #### REST API
 
-Usa el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar el [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) de un usuario. Por ejemplo, para establecer el estado de suscripción de correo electrónico de un usuario como cancelado cuando utiliza un enlace de cancelación de suscripción personalizado, incluye `email_subscribe: "unsubscribed"` en los atributos de usuario de tu solicitud.
+Usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar el [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) de un usuario. Por ejemplo, para establecer el estado de suscripción de correo electrónico de un usuario como cancelado cuando utiliza un enlace de cancelación de suscripción personalizado, incluye `email_subscribe: "unsubscribed"` en los atributos de usuario de tu solicitud.
 
 #### Perfil de usuario {#user-profile}
 
@@ -74,18 +74,18 @@ Incluye Liquid del [centro de preferencias](#email-preference-center) en la part
 
 Usa cualquiera de los siguientes métodos para verificar el estado de suscripción de correo electrónico de un usuario:
 
-1. **Exportación de REST API:** Usa los puntos de conexión [Exportar usuarios por segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) o [Exportar usuarios por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para exportar perfiles de usuario individuales en formato JSON.
+1. **Exportación de REST API:** Usa los endpoints [Exportar usuarios por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) o [Exportar usuarios por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para exportar perfiles de usuario individuales en formato JSON.
 2. **Perfil de usuario:** Busca el perfil del usuario en la página [Buscar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), luego selecciona la pestaña **Interacción** para ver y actualizar manualmente el estado de suscripción de un usuario.
 
-Cuando un usuario actualiza su dirección de correo electrónico, su estado de suscripción se establece como suscrito. Si la dirección de correo electrónico actualizada ya existe en otro lugar dentro de un espacio de trabajo de Braze, el usuario hereda el estado de suscripción de ese usuario existente, a menos que **Volver a suscribir a los usuarios cuando actualicen su configuración de correo electrónico** esté activado en **Enviando configuración**.
+Cuando un usuario actualiza su dirección de correo electrónico, su estado de suscripción se establece como suscrito. Si la dirección de correo electrónico actualizada ya existe en otro lugar dentro de un espacio de trabajo de Braze, el usuario hereda el estado de suscripción de ese usuario existente, a menos que **Volver a suscribir a los usuarios cuando actualicen su configuración de correo electrónico** esté activado en **Configuración de envío**.
 
 Para solucionar problemas con los cambios de estado de suscripción, revisa **Cambios en el estado de suscripción de correo electrónico** en los registros del perfil de usuario para ver el historial y la fuente. Las siguientes fuentes pueden desencadenar un cambio en el estado de suscripción de correo electrónico:
 
 | Fuente | Descripción |
 | ------ | ----------- |
 | SDK | Actualización de atributo de usuario enviada a través de un SDK de Braze |
-| REST API | Actualización de atributo de usuario enviada a través del punto de conexión [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) |
-| Dashboard | Estado de suscripción cambiado manualmente en la página del perfil de usuario |
+| REST API | Actualización de atributo de usuario enviada a través del endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) |
+| Panel | Estado de suscripción cambiado manualmente en la página del perfil de usuario |
 | Importación CSV | Estado de suscripción establecido durante una importación CSV de usuarios |
 | Centro de preferencias | El usuario actualizó su preferencia desde un centro de preferencias alojado en Braze |
 | Página de suscripción | El usuario seleccionó un enlace de cancelación de suscripción en un correo electrónico y llegó a la página de suscripción de Braze |
@@ -103,7 +103,7 @@ Los grupos de suscripción son filtros de segmento que pueden reducir aún más 
 
 Por ejemplo, supongamos que envías múltiples categorías de campañas de correo electrónico (promocionales, boletines informativos o actualizaciones de producto). En ese caso, puedes usar grupos de suscripción para permitir que tus clientes elijan de qué categorías de correo electrónico desean suscribirse o cancelar la suscripción de forma masiva desde una sola página, usando un [centro de preferencias de correo electrónico](#email-preference-center). Alternativamente, podrías usar grupos de suscripción para permitir que tus clientes elijan con qué frecuencia desean recibir correos electrónicos, creando grupos de suscripción para correos electrónicos diarios, semanales o mensuales.
 
-Usa los [puntos de conexión de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups) para administrar programáticamente los grupos de suscripción que has almacenado en el dashboard de Braze en la página **Grupo de suscripción**.
+Usa los [endpoints de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups) para administrar programáticamente los grupos de suscripción que has almacenado en el panel de Braze en la página **Grupo de suscripción**.
 
 ### Creación de un grupo de suscripción {#creating-a-subscription-group}
 
@@ -152,12 +152,12 @@ Puedes ver los recuentos de usuarios que cambiaron su estado de suscripción (su
 
 ### Verificación del grupo de suscripción de correo electrónico de un usuario {#checking-a-users-email-subscription-group}
 
-- **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del dashboard de Braze desde la página [Buscar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. También puedes ver los grupos de suscripción de correo electrónico de un usuario en la pestaña **Interacción**.
-- **REST API de Braze:** Usa el [punto de conexión Listar grupos de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [punto de conexión Listar estado del grupo de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para ver los grupos de suscripción del perfil de usuario individual.
+- **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del panel de Braze desde la página [Buscar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. También puedes ver los grupos de suscripción de correo electrónico de un usuario en la pestaña **Interacción**.
+- **REST API de Braze:** Usa el [endpoint Listar grupos de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint Listar estado del grupo de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para ver los grupos de suscripción del perfil de usuario individual.
 
 ## Centro de preferencias de correo electrónico {#email-preference-center}
 
-El centro de preferencias de correo electrónico te permite administrar qué usuarios reciben boletines de grupos de suscripción. Encuéntralo en el dashboard en **Grupos de suscripción**. Cada grupo de suscripción que crees se añade a la lista del centro de preferencias.
+El centro de preferencias de correo electrónico te permite administrar qué usuarios reciben boletines de grupos de suscripción. Encuéntralo en el panel en **Grupos de suscripción**. Cada grupo de suscripción que crees se añade a la lista del centro de preferencias.
 
 Para obtener más información sobre cómo añadir o personalizar un centro de preferencias, consulta [Centro de preferencias]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 
@@ -179,19 +179,19 @@ Si anticipas direcciones IP chinas, no dependas únicamente de un enlace de canc
 
 ### Creación de una página personalizada para cancelar la suscripción {#creating-a-custom-unsubscribe-page}
 
-Cuando los usuarios seleccionan una URL de cancelación de suscripción en un correo electrónico, abren una página de inicio predeterminada que confirma el cambio de suscripción.
+Cuando los usuarios seleccionan una URL de cancelación de suscripción en un correo electrónico, abren una página de destino predeterminada que confirma el cambio de suscripción.
 
-Para usar una página de inicio personalizada en su lugar:
+Para usar una página de destino personalizada en su lugar:
 
 1. Ve a **Preferencias de correo electrónico** > **Páginas de suscripción y pies de página**.
 2. Añade el HTML de tu página personalizada.
 
 Incluye un enlace de resuscripción (por ejemplo {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) para que los usuarios puedan deshacer una cancelación de suscripción accidental.
 
-También puedes enviar a los usuarios a tu sitio y actualizar el estado con la REST API de Braze (por ejemplo, un enlace con {% raw %}`?user_id={{${user_id}}}`{% endraw %} y luego llamar a [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status).
+También puedes enviar a los usuarios a tu sitio y actualizar el estado con la REST API de Braze (por ejemplo, un enlace con {% raw %}`?user_id={{${user_id}}}`{% endraw %} y luego llamar a [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
 
 {% alert note %}
-Si usas el pie de página del dashboard en lugar de solo un bloque de contenido HTML, la plantilla aún debe contener {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} para guardarse. Para usar una URL de cancelación de suscripción diferente temporalmente, puedes comentar la etiqueta predeterminada. Un ejemplo es: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
+Si usas el pie de página del panel en lugar de solo un bloque de contenido HTML, la plantilla aún debe contener {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} para guardarse. Para usar una URL de cancelación de suscripción diferente temporalmente, puedes comentar la etiqueta predeterminada. Un ejemplo es: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
 {% endalert %}
 
 ![Página personalizada para cancelar la suscripción con una vista previa que dice "¡Lamentamos verte partir!".]({% image_buster /assets/img/custom_unsubscribe.png %})
@@ -212,9 +212,9 @@ Usa un proceso de doble adhesión voluntaria para mejorar el alcance. Braze env�
 
 ![Correo electrónico personalizado de adhesión voluntaria con un mensaje "Nos alegra que sigas queriendo saber de nosotros".]({% image_buster /assets/img/custom_optin.png %})
 
-## Suscripciones y segmentación de Campaigns {#subscriptions-and-campaign-targeting}
+## Suscripciones y segmentación de campañas {#subscriptions-and-campaign-targeting}
 
-De forma predeterminada, Braze dirige las Campaigns con mensajes push o de correo electrónico a los usuarios que están suscritos o con adhesión voluntaria. Cambia esto en **Público objetivo** seleccionando el menú desplegable junto a **Enviar a estos usuarios:**.
+De forma predeterminada, Braze dirige las campañas con mensajes push o de correo electrónico a los usuarios que están suscritos o con adhesión voluntaria. Cambia esto en **Público objetivo** seleccionando el menú desplegable junto a **Enviar a estos usuarios:**.
 
 Braze admite tres estados de segmentación:
 
@@ -230,6 +230,6 @@ Es tu responsabilidad cumplir con todas las [leyes de correo no deseado]({{site.
 
 Usa los filtros "Estado de suscripción de correo electrónico" y "Estado de suscripción push" para segmentar usuarios por estado de suscripción.
 
-Usa esto para dirigirte a usuarios que no han optado ni por recibir ni por dejar de recibir mensajes, y fomenta una adhesión voluntaria explícita. Crea un segmento con el filtro "El estado de suscripción de correo electrónico/push es Suscrito" y envía Campaigns a usuarios que están suscritos pero no con adhesión voluntaria.
+Usa esto para dirigirte a usuarios que no han optado ni por recibir ni por dejar de recibir mensajes, y fomenta una adhesión voluntaria explícita. Crea un segmento con el filtro "El estado de suscripción de correo electrónico/push es Suscrito" y envía campañas a usuarios que están suscritos pero no con adhesión voluntaria.
 
 ![Estado de suscripción de correo electrónico utilizado como filtro de segmento.]({% image_buster /assets/img_archive/not_optin.png %})

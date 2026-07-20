@@ -107,6 +107,8 @@ To see descriptions of what each user permission includes and how to use them, c
 ## Assign Team tags {#tags-and-filters}
 
 You can assign a Team to Canvases, campaigns, Content Cards, segments, email templates, webhook templates, Content Blocks, and media library assets with the **Add Team** filter.
+
+For Canvases, team filters only validate users at Canvas entry. After a user enters a Canvas, they continue to receive messages from all Canvas steps even if their attributes change and they no longer match the team filter criteria. Team filters don't behave like delivery validations that re-evaluate users at each message step.
  
 ![Adding a Team tag to a campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
@@ -166,7 +168,7 @@ For changes to active campaigns:
 
 You can archive Teams from the **Internal Teams** page.
 
-Select one or many Teams to archive. If the Team is not associated with any object within Braze, the Team will be archived immediately. If the Team is associated with an object, you will be presented with an option to remove the Team after the archive process or replace the Team.
+Select one or many Teams to archive. If the Team is not associated with any object within Braze, the Team is archived immediately. If the Team is associated with an object, you are presented with an option to remove the Team after the archive process or replace the Team.
 
 ![Archiving a Team that is associated with an object in Braze]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
 

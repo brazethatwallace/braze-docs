@@ -39,7 +39,7 @@ Segment 빌더에서 **`Foreground Push Enabled`**, **`Foreground Push Enabled f
 
 ### Campaign 및 Canvas 분석 {#campaign-and-canvas-analytics}
 
-푸시 **Campaign** 또는 **Canvas** 분석 페이지에서 *발송됨*, *반송*, *열람* 등의 측정기준은 해당 발송에 대한 전달 및 참여를 반영합니다. 이러한 수치를 개별 프로필과 대조하려면 **Campaign Details** 또는 **Canvas Details**에서 **User Data**(CSV)를 사용하여 수신자를 내보내세요. 단계 및 권한에 대해서는 [Campaign 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data) 및 [Canvas 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data)를 참조하세요. 분석과 내보내기 간의 수치가 일치하지 않는 경우, 내보내기 문제 해결의 [Campaign 및 Canvas 분석]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics)을 참조하세요.
+푸시 **Campaign** 또는 **Canvas** 분석 페이지에서 *발송됨*, *반송*, *열람* 등의 측정기준은 해당 발송에 대한 전달 및 인게이지먼트를 반영합니다. 이러한 수치를 개별 프로필과 대조하려면 **Campaign Details** 또는 **Canvas Details**에서 **User Data**(CSV)를 사용하여 수신자를 내보내세요. 단계 및 권한에 대해서는 [Campaign 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data) 및 [Canvas 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data)를 참조하세요. 분석과 내보내기 간의 수치가 일치하지 않는 경우, 내보내기 문제 해결의 [Campaign 및 Canvas 분석]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting#campaign-and-canvas-analytics)을 참조하세요.
 
 ## iOS 사용자 동작 및 푸시 상태 {#ios-user-actions-push-status}
 
@@ -57,11 +57,11 @@ Segment 빌더에서 **`Foreground Push Enabled`**, **`Foreground Push Enabled f
 
 <sup>* 앱이 임시 푸시를 사용하지 않는 경우, 사용자가 푸시 알림을 허용할 때까지 `Foreground Push Enabled`는 `false`입니다. 앱이 임시 푸시를 사용하는 경우, 첫 번째 세션 시작 시 `Foreground Push Enabled`는 `true`입니다. 자세한 내용은 [임시 승인 및 조용한 푸시](#provisional-push)를 참조하세요.</sup>
 
-<sup>** [Braze Swift SDK 버전 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)부터 `optInWhenPushAuthorized` 구성 속성이 푸시 권한이 승인될 때 푸시 구독 상태를 자동으로 `Opted-In`으로 설정할지 여부를 제어합니다. 자세한 내용은 [푸시 구독 상태 업데이트](#update-push-subscription-state)를 참조하세요.</sup>
+<sup>** [Braze Swift SDK 버전 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)부터 `optInWhenPushAuthorized` 구성 속성이 푸시 권한이 승인될 때 푸시 구독 상태를 자동으로 `Opted-In`으로 설정할지 여부를 제어합니다. 자세한 내용은 [푸시 토큰](#push-tokens)을 참조하세요.</sup>
 
 ## 푸시 권한 {#push-permission}
 
-모든 푸시 지원 플랫폼(iOS, 웹, Android)은 OS 수준의 시스템 프롬프트를 통한 명시적 옵트인을 요구하며, 아래에 설명된 약간의 차이가 있습니다.
+모든 푸시 지원 플랫폼(iOS, 웹, Android)은 OS 수준의 시스템 프롬프트를 통한 명시적 옵트인을 요구하며, 다음 섹션에서 설명하는 약간의 차이가 있습니다.
 
 사용자의 결정은 최종적이며 거부 후에는 다시 요청할 수 없으므로, [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) 인앱 메시지를 사용하는 것이 옵트인율을 높이는 중요한 전략입니다.
 
@@ -92,7 +92,7 @@ Android 13 이전에는 푸시 알림을 보내는 데 권한이 필요하지 �
 
 iOS 12(2018년 출시) 이전에는 모든 사용자가 푸시 알림을 받으려면 명시적으로 옵트인해야 했습니다.
 
-iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/mastering-provisional-push)을 도입하여, 브랜드가 사용자가 명시적으로 옵트인하기 전에 사용자의 알림 센터에 조용한 푸시 알림을 보낼 수 있게 했으며, 이를 통해 메시지의 가치를 일찍 보여줄 수 있는 기회를 제공합니다. 자세한 내용은 [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications)을 참조하세요.
+iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/mastering-provisional-push)을 도입하여, 브랜드가 사용자가 명시적으로 옵트인하기 전에 사용자의 알림 센터에 조용한 푸시 알림을 보낼 수 있게 했으며, 이를 통해 메시지의 가치를 일찍 보여줄 수 있는 기회를 제공합니다. 자세한 내용은 [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)을 참조하세요.
 
 ### 웹 {#web}
 
@@ -167,7 +167,7 @@ iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/m
 - **iOS 백그라운드 활성화:** 사용자에게 푸시 프롬프트가 표시되었고 거부했거나, 수락한 후 나중에 기기 설정에서 푸시 알림을 끈 경우입니다(사용자가 세션을 가진 후 반영됨).
 - **iOS 포그라운드 활성화:** 사용자에게 푸시 프롬프트가 표시되었고 포그라운드 푸시를 받을 수 있는 상태입니다.
 
-Campaign 분석은 위의 세부 사항에 맞춰 푸시 통계를 인라인으로 반영합니다. Campaign 또는 Canvas에 진입한 사용자 프로필을 다운로드하여 사용자 프로필을 교차 참조할 수도 있습니다.
+Campaign 분석은 이 섹션의 앞부분에서 설명한 세부 사항에 맞춰 푸시 통계를 인라인으로 반영합니다. Campaign 또는 Canvas에 진입한 사용자 프로필을 다운로드하여 사용자 프로필을 교차 참조할 수도 있습니다.
 
 ## 기타 플랫폼별 시나리오 {#other-platform-specific-scenarios}
 
@@ -225,7 +225,7 @@ Android의 경우, Braze는 다음과 같은 경우 사용자를 푸시 비활�
 이 시나리오에서는 백그라운드 푸시 토큰이 여전히 존재하므로, 세분화 필터 `Background or Foreground Push Enabled = true`를 사용하여 백그라운드(사일런트) 푸시 알림을 계속 보낼 수 있습니다.
 
 {% alert note %}
-iOS는 푸시 알림이 표시되기 전에 앱이 푸시 알림을 가로채는 것을 허용하지 않습니다. 이는 앱(및 Braze)이 알림을 표시하거나 숨길 수 있는지에 대한 제어권이 없음을 의미합니다. 사용자는 기기 설정에서 앱의 푸시 알림을 옵트아웃할 수 있지만, 이는 운영체제에 의해 제어됩니다.
+iOS는 푸시 알림이 표시되기 전에 앱이 푸시 알림을 가로채는 것을 허용하지 않습니다. 이는 앱(및 Braze)이 알림을 표시하거나 숨길 수 있는지에 대한 제어권이 없음을 의미합니다. 사용자는 기기 설정에서 앱의 푸시 알림을 옵트아웃할 수 있지만, 이는 운영 체제에 의해 제어됩니다.
 {% endalert %}
 
 {% endtab %}

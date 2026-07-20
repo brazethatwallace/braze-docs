@@ -24,7 +24,7 @@ Les données renvoyées comprennent le nombre de messages envoyés, ouverts, cli
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `campaigns.data_series`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `campaigns.data_series`.
 
 ## Limite de débit {#rate-limit}
 
@@ -238,4 +238,4 @@ Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [R�
 
 L'endpoint [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) renvoie des statistiques quotidiennes agrégées (par exemple, `delivery_failed` pour les SMS ou `errors` pour les webhooks). Il ne renvoie pas les raisons d'échec par destinataire.
 
-Pour les échecs d'envoi, les rebonds et les abandons par message provenant de campagnes déclenchées par API ou de campagnes API, utilisez le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) dans le tableau de bord. Pour les rapports personnalisés sur les événements d'envoi et de distribution, utilisez le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder) avec des [modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) ou du SQL personnalisé. Vous pouvez également diffuser les événements d'échec via Currents ou le Partage de données Snowflake si votre espace de travail dispose de ces produits.
+Pour les échecs d'envoi, les rebonds et les abandons par message provenant de campagnes déclenchées par API ou de campagnes API, utilisez le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) dans le tableau de bord. Pour les rapports personnalisés sur les événements d'envoi et de distribution, utilisez le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder) avec des [modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) ou du SQL personnalisé. Vous pouvez également diffuser les événements d'échec via Currents ou le partage de données Snowflake si votre espace de travail dispose de ces produits.

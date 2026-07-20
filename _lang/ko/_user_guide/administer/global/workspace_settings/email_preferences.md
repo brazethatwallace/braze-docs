@@ -6,13 +6,14 @@ page_order: 2
 description: "이 참조 문서에서는 발송 구성, 열람 추적 픽셀, 가입 페이지 및 바닥글 등 Braze 대시보드의 이메일 환경설정에 대해 다룹니다."
 tool: Dashboard
 channel: email
+alias: /email_preferences/
 toc_headers: h2
 
 ---
 
 # 이메일 환경설정 {#email-preferences}
 
-> 이메일 환경설정은 사용자 지정 바닥글, 사용자 지정 옵트인 및 옵트아웃 페이지 등 특정 발신 이메일 설정을 구성하는 곳입니다. 이러한 옵션을 발신 이메일에 포함하면 사용자에게 매끄럽고 일관된 경험을 제공할 수 있습니다.
+> 이메일 환경설정은 커스텀 바닥글, 커스텀 옵트인 및 옵트아웃 페이지 등 특정 발신 이메일 설정을 구성하는 곳입니다. 이러한 옵션을 발신 이메일에 포함하면 사용자에게 매끄럽고 일관된 경험을 제공할 수 있습니다.
 
 **이메일 환경설정**은 대시보드의 **설정**에서 찾을 수 있습니다.
 
@@ -35,7 +36,7 @@ toc_headers: h2
 
 **From Display Name**, **Local Part**, **Domain** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 사용하여 커스텀 속성을 기반으로 발신자 이름과 이메일 주소를 동적으로 템플릿화할 수 있습니다. **Domain** 필드에서 Liquid를 사용하려면 이메일 Campaign의 **Sending Info** 옵션으로 이동하여 **Customize from display name + address** 체크박스를 선택해야 합니다.
 
-![보낸 사람 표시 이름, 주소, 도메인을 사용자 지정하는 필드가 있는 발송 설정.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
+![보낸 사람 표시 이름, 주소, 도메인을 커스터마이즈하는 필드가 있는 발송 설정.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
 예를 들어, 조건 로직을 사용하여 다른 브랜드나 지역에서 발송할 수 있습니다:
 
@@ -105,7 +106,7 @@ Braze에서 보내는 모든 이메일 메시지에 BCC 주소를 포함해야 �
 
 [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-open-tracking-pixel/){: style="float:right;width:120px;border:0;" class="noimgborder"}
 
-이메일 열람 추적 픽셀은 보이지 않는 1 x 1&nbsp;px 이미지로, 이메일 HTML에 자동으로 삽입됩니다. 이 픽셀은 Braze가 사용자가 이메일을 열었는지 감지하는 데 도움을 줍니다. 사용자의 이메일 클라이언트가 추적 픽셀에 요청을 보내면, 해당 요청에는 IP 주소, 사용자 에이전트, 타임스탬프 등의 정보가 포함될 수 있습니다. 이메일 열람 정보는 해당 열람률을 파악하여 효과적인 마케팅 전략을 결정하는 데 매우 유용합니다.
+이메일 열람 추적 픽셀은 보이지 않는 1 x 1&nbsp;px 이미지로, 이메일 HTML에 자동으로 삽입됩니다. 이 픽셀은 Braze가 사용자가 이메일을 열었는지 감지하는 데 도움을 줍니다. 사용자의 이메일 클라이언트가 추적 픽셀에 요청을 보내면, 해당 요청에는 IP 주소, 사용자 에이전트, 타임스탬프 등의 정보가 포함될 수 있습니다. 이메일 열람 정보는 해당 열람율을 파악하여 효과적인 마케팅 전략을 결정하는 데 매우 유용합니다.
 
 ### 배치 {#placement}
 
@@ -140,24 +141,24 @@ SSL 활성화는 추적 픽셀의 URL을 HTTP 대신 HTTPS로 래핑합니다. S
 ## 목록 탈퇴 헤더 {#list-unsubscribe}
 
 {% alert note %}
-2024년 2월 15일부터 신규 회사에는 목록 탈퇴 헤더(원클릭 탈퇴 포함)가 기본적으로 활성화됩니다.
+2026년 6월 15일부터 원클릭 목록 탈퇴 헤더가 특정 구독 그룹으로 범위가 지정되도록 구성된 경우, Braze는 더 이상 이메일에 mailto 헤더를 포함하지 않습니다. 목록 탈퇴 헤더를 통해 탈퇴하는 사용자는 전체가 아닌 해당 특정 구독 그룹에서만 탈퇴됩니다.
 {% endalert %}
 
 목록 탈퇴 헤더를 사용하면 수신자가 메시지 본문이 아닌 메일함 UI 내에 **Unsubscribe** 버튼을 표시하여 마케팅 이메일에서 쉽게 탈퇴할 수 있습니다.
 
-테스트 발송에는 일반적으로 목록 탈퇴 헤더가 포함되지 **않습니다**. 실제 헤더가 표시되는지 여부는 메일함 공급자에 따라 다르며 평판 기반입니다. 발신자 평판이 높을수록 일반적으로 가시성이 향상됩니다.
+테스트 발송에는 일반적으로 목록 탈퇴 헤더가 포함되지 않습니다. 실제 헤더가 표시되는지 여부는 메일함 공급자에 따라 다르며 평판 기반입니다. 발송자 평판이 높을수록 일반적으로 가시성이 향상됩니다.
 
 ![메시지 본문 외부에 목록 탈퇴가 표시되는 이메일 클라이언트 메일함 UI에서 메시지 옆에 Unsubscribe 옵션이 있는 화면.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
 수신자가 **Unsubscribe**를 선택하면 메일함 공급자가 이메일 헤더에 정의된 대상으로 탈퇴 요청을 보냅니다.
 
-목록 탈퇴를 활성화하는 것은 전달 가능성 모범 사례이며 주요 메일함 공급자의 요구 사항입니다. 이는 최종 사용자가 이메일 클라이언트에서 스팸 버튼을 누르는 대신 원치 않는 메시지에서 안전하게 자신을 제거하도록 권장하며, 후자는 발신자 평판과 이메일 전달 가능성에 해롭습니다.
+목록 탈퇴를 활성화하는 것은 전달 가능성 모범 사례이며 주요 메일함 공급자의 요구 사항입니다. 이는 최종사용자가 이메일 클라이언트에서 스팸 버튼을 누르는 대신 원치 않는 메시지에서 안전하게 자신을 제거하도록 권장하며, 후자는 발송자 평판과 이메일 전달 가능성에 해롭습니다.
 
 [Gmail에서 구독을 관리](https://support.google.com/mail/answer/15621070?sjid=2292320204527911296-NC)할 때, Gmail은 메시지 본문에서 탈퇴 링크를 가져올 수도 있지만, 헤더에 목록 탈퇴가 있는 경우 이를 우선시합니다.
 
 ### 목록 탈퇴 헤더를 끄면 Gmail의 탈퇴 버튼이 제거되나요? {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
 
-아니요. Braze 목록 탈퇴 헤더 설정을 끄면 Braze가 보내는 메시지에서 `List-Unsubscribe` 헤더가 제거되지만, Gmail이 메일함 UI에 **Unsubscribe** 옵션을 표시하는지 여부는 제어하지 않습니다. 위에서 언급한 바와 같이, Gmail은 메시지 본문의 링크에서 탈퇴 옵션을 표시하거나 다른 공급자 로직을 사용할 수 있습니다. 원본 메시지에 헤더가 나타나는지 여부는 Gmail이 수신자에게 탈퇴 옵션을 표시하는지 여부와 별개입니다. 자세한 내용은 [Gmail 이메일 발신자 가이드라인 FAQ](https://support.google.com/a/answer/14229414)를 참조하세요.
+아니요. Braze 목록 탈퇴 헤더 설정을 끄면 Braze가 보내는 메시지에서 `List-Unsubscribe` 헤더가 제거되지만, Gmail이 메일함 UI에 **Unsubscribe** 옵션을 표시하는지 여부는 제어하지 않습니다. 이전 섹션에서 언급한 바와 같이, Gmail은 메시지 본문의 링크에서 탈퇴 옵션을 표시하거나 다른 공급자 로직을 사용할 수 있습니다. 원본 메시지에 헤더가 나타나는지 여부는 Gmail이 수신자에게 탈퇴 옵션을 표시하는지 여부와 별개입니다. 자세한 내용은 [Gmail 이메일 발신자 가이드라인 FAQ](https://support.google.com/a/answer/14229414)를 참조하세요.
 
 ### 메일함 공급자 지원 {#mailbox-provider-support}
 
@@ -179,7 +180,7 @@ _*Yahoo와 Gmail은 결국 "mailto:" 헤더를 지원 중단하고 원클릭만 
 1. 이메일에서 **Show Original**을 선택합니다. 이메일의 원본 버전과 헤더가 포함된 새 탭이 열립니다.
 2. "List-Unsubscribe"를 검색합니다. 원클릭 탈퇴의 경우, 많은 공급자가 "List-Unsubscribe-Post" 헤더도 포함합니다. 원클릭이 사용 가능할 것으로 예상되는 경우 원본 메시지에 두 헤더가 모두 나타나는지 확인하세요.
 
-헤더가 이메일의 원본 버전에 있지만 표시되지 않는 경우, 메일함 공급자가 탈퇴 옵션을 표시하지 않기로 결정한 것이며, 메일함 공급자가 헤더를 표시하지 않는 이유에 대한 추가 인사이트는 없습니다. 목록 탈퇴 헤더의 표시는 궁극적으로 평판 기반입니다. 대부분의 경우 메일함 공급자에 대한 발신자 평판이 좋을수록 목록 탈퇴 헤더가 나타날 가능성이 높습니다.
+헤더가 이메일의 원본 버전에 있지만 표시되지 않는 경우, 메일함 공급자가 탈퇴 옵션을 표시하지 않기로 결정한 것이며, 메일함 공급자가 헤더를 표시하지 않는 이유에 대한 추가 인사이트는 없습니다. 목록 탈퇴 헤더의 표시는 궁극적으로 평판 기반입니다. 대부분의 경우 메일함 공급자에 대한 발송자 평판이 좋을수록 목록 탈퇴 헤더가 나타날 가능성이 높습니다.
 
 ### 워크스페이스의 이메일 탈퇴 헤더 {#email-unsubscribe-header-in-workspaces}
 
@@ -205,10 +206,10 @@ Braze는 다음 버전의 목록 탈퇴 헤더를 지원합니다:
 | ----- | --- |
 | 원클릭 (RFC 8058) | 수신자가 한 번의 클릭으로 이메일을 옵트아웃할 수 있는 간단한 방법을 제공합니다. 이는 대량 발신자에 대한 Yahoo 및 Gmail의 요구 사항입니다. |
 | 목록 탈퇴 URL 또는 HTTPS | 수신자에게 탈퇴할 수 있는 웹 페이지로 이동하는 링크를 제공합니다. |
-| Mailto | 탈퇴 요청 메시지가 수신자로부터 브랜드로 전송될 대상으로 이메일 주소를 지정합니다. <br><br> _mailto 목록 탈퇴 요청을 처리하려면, 해당 탈퇴 요청에 탈퇴하는 최종 사용자에 대해 Braze에 저장된 이메일 주소가 포함되어야 합니다. 이는 최종 사용자가 탈퇴하는 이메일의 "보낸 사람 주소", 인코딩된 제목, 또는 최종 사용자가 수신한 이메일의 인코딩된 본문에서 제공될 수 있습니다. 매우 제한된 경우에 일부 받은편지함 공급자가 [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368) 프로토콜을 준수하지 않아 이메일 주소가 올바르게 전달되지 않을 수 있습니다. 이로 인해 Braze에서 탈퇴 요청을 처리할 수 없게 될 수 있습니다._ |
+| Mailto | 탈퇴 요청 메시지가 수신자로부터 브랜드로 전송될 대상으로 이메일 주소를 지정합니다. <br><br> _mailto 목록 탈퇴 요청을 처리하려면, 해당 탈퇴 요청에 탈퇴하는 최종사용자에 대해 Braze에 저장된 이메일 주소가 포함되어야 합니다. 이는 최종사용자가 탈퇴하는 이메일의 "보낸 사람 주소", 인코딩된 제목, 또는 최종사용자가 수신한 이메일의 인코딩된 본문에서 제공될 수 있습니다. 매우 제한된 경우에 일부 받은편지함 공급자가 [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368) 프로토콜을 준수하지 않아 이메일 주소가 올바르게 전달되지 않을 수 있습니다. 이로 인해 Braze에서 탈퇴 요청을 처리할 수 없게 될 수 있습니다._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="기본 목록 탈퇴 헤더" }
 
-Braze가 위의 방법 중 하나를 통해 사용자로부터 목록 탈퇴 요청을 수신하면, 이 사용자의 글로벌 이메일 구독 상태가 탈퇴로 설정됩니다. 일치하는 항목이 없으면 Braze는 이 요청을 처리하지 않습니다.
+Braze가 [기본 목록 탈퇴 헤더](#default-list-unsubscribe-header) 방법 중 하나를 통해 사용자로부터 목록 탈퇴 요청을 수신하면, 이 사용자의 글로벌 이메일 구독 상태가 탈퇴로 설정됩니다. 일치하는 항목이 없으면 Braze는 이 요청을 처리하지 않습니다.
 
 ### 원클릭 탈퇴 {#one-click-unsubscribe}
 
@@ -283,35 +284,35 @@ CSS 인라인은 이메일 및 새 이메일의 CSS 스타일을 자동으로 �
 ## 가입 페이지 및 바닥글 {#subscription-pages-and-footers}
 
 {% tabs local %}
-{% tab 사용자 지정 바닥글 %}
+{% tab 커스텀 바닥글 %}
 
-상업 이메일의 경우, [CAN-SPAM 법](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003)은 모든 상업 이메일에 탈퇴 옵션을 포함하도록 요구합니다. 사용자 지정 바닥글 설정을 사용하면 CAN-SPAM을 준수하면서 이메일 옵트아웃 바닥글을 사용자 지정할 수 있습니다. 규정을 준수하려면 이 워크스페이스의 Campaign으로 발송되는 모든 이메일에 사용자 지정 바닥글을 추가해야 합니다.
+상업 이메일의 경우, [CAN-SPAM 법](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003)은 모든 상업 이메일에 탈퇴 옵션을 포함하도록 요구합니다. 커스텀 바닥글 설정을 사용하면 CAN-SPAM을 준수하면서 이메일 옵트아웃 바닥글을 커스터마이즈할 수 있습니다. 규정을 준수하려면 이 워크스페이스의 Campaign으로 발송되는 모든 이메일에 커스텀 바닥글을 추가해야 합니다.
 
-이메일 메시징을 위한 사용자 지정 바닥글을 만들 때 다음 요구 사항에 유의하세요:
+이메일 메시징을 위한 커스텀 바닥글을 만들 때 다음 요구 사항에 유의하세요:
 - 탈퇴 URL과 실제 우편 주소를 포함해야 합니다.
 - 100 KB 미만이어야 합니다.
 
-![CAN-SPAM 준수를 위한 탈퇴 링크 및 우편 주소 필드가 있는 사용자 지정 이메일 바닥글 편집기.]({% image_buster /assets/img/email_settings/custom_footer.png %})
+![CAN-SPAM 준수를 위한 탈퇴 링크 및 우편 주소 필드가 있는 커스텀 이메일 바닥글 편집기.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-사용자 지정 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)을 참조하세요.
-
-{% endtab %}
-{% tab 사용자 지정 구독취소 페이지 %}
-
-Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설정할 수 있습니다. 이 페이지는 사용자가 이메일 하단에서 탈퇴를 선택한 후 표시됩니다. 이 페이지는 750 KB 미만이어야 합니다.
-
-![사용자가 이메일에서 탈퇴한 후 표시되는 페이지의 사용자 지정 구독취소 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
-
-이메일 목록 관리 모범 사례에 대해 자세히 알아보려면 [이메일 구독 관리]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses)를 참조하세요.
+커스텀 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [커스텀 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)을 참조하세요.
 
 {% endtab %}
-{% tab 사용자 지정 옵트인 페이지 %}
+{% tab 커스텀 구독취소 페이지 %}
 
-자체 HTML을 사용하여 사용자 지정 옵트인 페이지를 만들 수 있습니다. 이를 이메일에 포함하면 사용자 라이프사이클 전반에 걸쳐 브랜딩과 메시지를 일관되게 유지하려는 경우 특히 유용합니다. 이 페이지는 750 KB 미만이어야 합니다.
+Braze에서는 자체 HTML로 **커스텀 구독취소 페이지**를 설정할 수 있습니다. 이 페이지는 사용자가 이메일 하단에서 탈퇴를 선택한 후 표시됩니다. 이 페이지는 750 KB 미만이어야 합니다.
 
-![브랜드 이메일 구독 확인을 위한 사용자 지정 옵트인 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![사용자가 이메일에서 탈퇴한 후 표시되는 페이지의 커스텀 구독취소 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-이메일 목록 관리 모범 사례에 대해 자세히 알아보려면 [이메일 구독 관리]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses)를 참조하세요.
+{% multi_lang_include email/external_font_domains.md page_type='unsubscribe' %}
+
+{% endtab %}
+{% tab 커스텀 옵트인 페이지 %}
+
+자체 HTML을 사용하여 커스텀 옵트인 페이지를 만들 수 있습니다. 이를 이메일에 포함하면 사용자 라이프사이클 전반에 걸쳐 브랜딩과 메시지를 일관되게 유지하려는 경우 특히 유용합니다. 이 페이지는 750 KB 미만이어야 합니다.
+
+![브랜드 이메일 구독 확인을 위한 커스텀 옵트인 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+
+{% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
 {% endtab %}
 {% endtabs %}
@@ -337,7 +338,7 @@ Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설
 {% enddetails %}
 
 {% details 원본 메시지나 원시 데이터에서 목록 탈퇴 및 원클릭 탈퇴 헤더를 볼 수 있는데, Gmail이나 Yahoo에서 탈퇴 버튼이 보이지 않는 이유는 무엇인가요? %}
-Gmail과 Yahoo는 궁극적으로 목록 탈퇴 또는 원클릭 탈퇴 헤더를 표시할지 여부를 결정합니다. 신규 발신자이거나 발신자 평판이 낮은 경우 탈퇴 버튼이 표시되지 않을 수 있습니다.
+Gmail과 Yahoo는 궁극적으로 목록 탈퇴 또는 원클릭 탈퇴 헤더를 표시할지 여부를 결정합니다. 신규 발신자이거나 발송자 평판이 낮은 경우 탈퇴 버튼이 표시되지 않을 수 있습니다.
 {% enddetails %}
 
 {% details 커스텀 원클릭 탈퇴 헤더는 Liquid를 지원하나요? %}
@@ -367,7 +368,7 @@ A/B 테스트가 있는 Campaign의 경우, Braze는 사용자에게 배리언�
 {% enddetails %}
 
 {% details 원클릭 탈퇴 설정은 이메일 템플릿에서 사용할 수 있나요? %}
-아니요, 현재 이메일 템플릿에 이 기능을 추가할 계획은 없습니다. 이러한 템플릿은 발송 도메인에 할당되지 않기 때문입니다. 이메일 템플릿에 이 기능이 필요한 경우 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal)을 제출하세요.
+아니요, 현재 이메일 템플릿에 이 기능을 추가할 계획은 없습니다. 이러한 템플릿은 발송 도메인에 할당되지 않기 때문입니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details 이 기능은 커스텀 옵션에 추가된 원클릭 탈퇴 URL이 유효한지 확인하나요? %}

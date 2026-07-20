@@ -32,7 +32,7 @@ Shopifyカタログから、**セレクション**タブでShopifyコレクシ�
 
 ## Shopify コレクションの使用 {#using-shopify-collections}
 
-Shopifyコレクションを使用して、Campaign内の各ユーザーに対してメッセージをパーソナライズできます。これは[Brazeセレクション]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/catalogs/selections/)の使用方法と同様です。
+Shopifyコレクションを使用して、キャンペーン内の各ユーザーに対してメッセージをパーソナライズできます。これは[Brazeセレクション]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/catalogs/selections/)の使用方法と同様です。
 
 {% alert warning %}
 ベータ版では以下の動作にご注意ください。<br><br>Shopifyコレクションの説明やフィルター設定を更新すると、Shopifyコレクション同期が壊れます。その結果、Shopifyコレクションが期待どおりに動作しなくなります。
@@ -46,9 +46,9 @@ Shopifyコレクションを使用して、Campaign内の各ユーザーに対�
 
 ![セレクションの編集ページ。フィルター設定、並び替えの種類、結果の上限を選択できる。][4]
 
-### ステップ2: Campaignでコレクションを使用する {#step-2-use-the-collection-in-a-campaign}
+### ステップ2: キャンペーンでコレクションを使用する {#step-2-use-the-collection-in-a-campaign}
 
-1. Campaignを作成し、メッセージ作成画面で**+ パーソナライゼーション**を選択します。
+1. キャンペーンを作成し、メッセージ作成画面で**+ パーソナライゼーション**を選択します。
 2. 以下を選択します:<br>- **パーソナライゼーションタイプ**として**カタログアイテム**<br>- カタログ名<br>- アイテムの選択方法<br>- セレクション名（Shopifyコレクション名）<br>- メッセージに表示する情報
 
 {: start="3"}

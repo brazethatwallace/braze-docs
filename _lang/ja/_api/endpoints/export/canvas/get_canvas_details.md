@@ -1,26 +1,26 @@
 ---
-nav_title: "GET: Canvasの詳細をエクスポートする"
-article_title: "GET: Canvasの詳細をエクスポートする"
+nav_title: "GET: キャンバスの詳細をエクスポートする"
+article_title: "GET: キャンバスの詳細をエクスポートする"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「Canvasの詳細のエクスポート」Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、「キャンバスの詳細のエクスポート」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# Canvasの詳細をエクスポートする {#export-canvas-details}
+# キャンバスの詳細をエクスポートする {#export-canvas-details}
 {% apimethod get %}
 /canvas/details
 {% endapimethod %}
 
-> このエンドポイントを使用して、名前、作成時間、現在のステータスなど、Canvasに関するメタデータをエクスポートします。
+> このエンドポイントを使用して、名前、作成時間、現在のステータスなど、キャンバスに関するメタデータをエクスポートします。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5188873c-13a3-4aaf-a54b-9fa1daeac5f8 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.details` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`canvas.details` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -30,9 +30,9 @@ description: "この記事では、「Canvasの詳細のエクスポート」Bra
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | 必須 | 文字列 | [Canvas API識別子]({{site.baseurl}}/api/identifier_types)を参照してください |
-| `post_launch_draft_version` | オプション | ブール値 | 起動後の下書きがあるCanvasの場合、これを`true`に設定すると、利用可能な下書きの変更が表示されます。デフォルトは`false`です。 |
-| `include_has_translatable_content` | オプション | ブール値 | `true`に設定すると、API応答の各メッセージに`has_translatable_content`フィールドが含まれます。デフォルトは`false`です。 |
+| `canvas_id` | 必須 | 文字列 | [キャンバスAPI識別子]({{site.baseurl}}/api/identifier_types)を参照してください |
+| `post_launch_draft_version` | オプション | ブール値 | ローンチ後の下書きがあるキャンバスの場合、これを`true`に設定すると、利用可能な下書きの変更が表示されます。デフォルトは`false`です。 |
+| `include_has_translatable_content` | オプション | ブール値 | `true`に設定すると、APIレスポンスの各メッセージに`has_translatable_content`フィールドが含まれます。デフォルトは`false`です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
@@ -44,10 +44,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 {% endraw %}
 
-## 応答 {#responses}
+## レスポンス {#responses}
 
 {% alert note %}
-すべてのCanvasステップには、`{name, next_step_id}`データの配列である`next_paths`フィールドがあります。メッセージステップでは`next_step_ids`フィールドが存在しますが、他のCanvasステップのデータは含まれません。
+すべてのキャンバスステップには、`{name, next_step_id}`データの配列である`next_paths`フィールドがあります。メッセージステップでは`next_step_ids`フィールドが存在しますが、他のキャンバスステップのデータは含まれません。
 {% endalert %}
 
 ```json
@@ -106,7 +106,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 
 ### チャネル別のメッセージ {#messages-by-channel}
 
-以下は、異なるチャネル（メール、プッシュ、SMS、アプリ内メッセージ）を通じて送信されたCanvasメッセージを含む応答の例です。
+以下は、異なるチャネル（メール、プッシュ、SMS、アプリ内メッセージ）を通じて送信されたキャンバスメッセージを含むレスポンスの例です。
 
 ```json
 {

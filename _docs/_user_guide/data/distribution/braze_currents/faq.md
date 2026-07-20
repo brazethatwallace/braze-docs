@@ -15,13 +15,13 @@ tool: Currents
 
 To pull campaign or Canvas metrics for a defined date range, use one of the following approaches:
 
-- Submit a [product request](https://portal.braze.com/) for date-aligned exports when you need dashboard-style reporting outside standard API windows.
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
 - Call the [campaign analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) or [Canvas analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) endpoints with `ending_at` and `length` parameters (or use [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) and [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) for time-series data.
 - Stream events to your warehouse with [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) when you need ongoing, queryable message engagement data in Amazon S3, Azure Blob Storage, or another supported destination.
 
 ## How do I edit a live Currents integration?
 
-To change a live Currents connector, open the integration and click **Edit** in the lower left of the page. Without **Edit**, the integration UI stays read-only and you cannot modify connector settings from the icons alone.
+To change a live Currents connector, open the integration and select **Edit**. Without **Edit**, the integration UI stays read-only, and you cannot modify connector settings from the icons alone.
 
 ## How does Braze handle Azure Blob Storage Avro files after upload?
 
@@ -95,7 +95,7 @@ Braze does not backfill events to Currents. However, custom events can be logged
 
 ## What user identifiers are included in Currents events?
 
-Message engagement events (sends, opens, clicks, and so on) include the Braze user ID (`user_id`) and, when present on the profile, the external identifier (`external_user_id` in event payloads, labeled as `external_id` in the Braze schema mapping table). Some email message engagement events also include `email_address`. Custom attributes are not included—see below.
+Message engagement events (sends, opens, clicks, and so on) include the Braze user ID (`user_id`) and, when present on the profile, the external identifier (`external_user_id` in event payloads, labeled as `external_id` in the Braze schema mapping table). Some email message engagement events also include `email_address`. Custom attributes are not included.
 
 If you are routing Currents data to a warehouse or CRM and need to join on profile data, perform that join in your downstream system using `user_id` or `external_user_id`.
 
@@ -109,7 +109,7 @@ No. Currents does not include campaign or Canvas tags or message-level key-value
 
 ## How does Braze notify customers of changes to Currents?
 
-When Currents changes occur (such as new event fields or event types), Braze sends an email to all customers with active Currents integrations who have used the dashboard within the past 30 days. You can also refer to the [Currents changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) for latest changes.
+In the rare circumstance when breaking changes occur, Braze sends an advance email to the contact on any active integration and all admins with active Currents integrations who have used the dashboard within the past 30 days. For non-breaking changes, like new events or new fields to an existing event, Braze does not send a notification. You can refer to the [Currents changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) for the latest changes.
 
 ## How much storage do I need for Currents data?
 

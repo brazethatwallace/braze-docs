@@ -64,10 +64,10 @@ Nachdem Sie Ihre Dokumente zusammengestellt haben, folgen Sie diesen Schritten:
 
 ## KakaoTalk integrieren {#integrate-kakaotalk}
 
-### 1. Schritt: Den KakaoTalk-Kanal mit Braze verbinden {#step-1-connect-the-kakaotalk-channel-to-braze}
+### Schritt 1: Den KakaoTalk-Kanal mit Braze verbinden {#step-1-connect-the-kakaotalk-channel-to-braze}
 
 1. Gehen Sie zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie Ihren KakaoTalk-Anbieter aus.
-2. Sammeln Sie die erforderlichen Zugangsdaten für Ihren Anbieter (siehe unten), geben Sie diese auf der Seite **Technologie-Partner** ein und speichern Sie.
+2. Sammeln Sie die erforderlichen Zugangsdaten für Ihren Anbieter (siehe folgenden Abschnitt), geben Sie diese auf der Seite **Technologie-Partner** ein und speichern Sie.
 3. Verwenden Sie die neu gespeicherten Zugangsdaten zum Senden.
 
 #### CJ OliveNetworks

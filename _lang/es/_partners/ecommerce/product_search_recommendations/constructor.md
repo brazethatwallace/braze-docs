@@ -13,7 +13,7 @@ search_tag: Partner
 
 Con la integración de Braze y Constructor, puedes utilizar el Descubrimiento de productos fuera del sitio de Constructor para generar y entregar dinámicamente recomendaciones de productos personalizadas en mensajes de Braze.
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 - **Carrito abandonado y seguimiento posterior al pedido**: genera recomendaciones de productos dinámicas basadas en el comportamiento del usuario y el contenido del carrito para enviar recordatorios personalizados de carritos abandonados o sugerencias posteriores al pedido.
 - **Recomendaciones de productos similares para artículos del carrito abandonado**: sugiere productos similares a los artículos que quedaron en el carrito de un usuario para mantener su interacción y ofrecerle alternativas.
@@ -34,7 +34,7 @@ Trabaja con tu equipo de incorporación de Constructor para completar el proceso
 
 ## URL de la API de Descubrimiento fuera del sitio de Constructor {#constructors-offsite-discovery-api-url}
 
-Puedes utilizar la URL de la API de Descubrimiento fuera del sitio de Constructor para mostrar imágenes de productos y dirigir a los usuarios a la página de detalles del producto correspondiente. A continuación encontrarás un desglose de la estructura del punto de conexión y un ejemplo de cómo utilizarlo:
+Puedes utilizar la URL de la API de Descubrimiento fuera del sitio de Constructor para mostrar imágenes de productos y dirigir a los usuarios a la página de detalles del producto correspondiente. A continuación encontrarás un desglose de la estructura del endpoint y un ejemplo de cómo utilizarlo:
 
 ### Ejemplo {#example}
 

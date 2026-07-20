@@ -77,15 +77,15 @@ Você deve criar instâncias do app separadas para cada versão do seu app em ca
 
 #### Equipes {#teams}
 
-[As equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) podem ser configuradas de acordo com o local, o idioma e os atributos personalizados da base de clientes, de modo que os membros e não membros da equipe tenham acesso diferente aos recursos de envio de mensagens e aos dados de clientes.
+[As equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) podem ser configuradas de acordo com o local, o idioma e os atributos personalizados da base de clientes, de modo que os membros e não membros da equipe tenham acesso diferente aos recursos de envio de mensagens e aos dados de clientes.
 
 #### Permissões de usuário da empresa {#company-user-permissions}
 
-Os espaços de trabalho têm acesso independente e definições de permissão de usuário. [As permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) permitem criar controles granulares em relação ao que um usuário individual do dashboard ou uma equipe tem acesso em um único espaço de trabalho.
+Os espaços de trabalho têm acesso independente e definições de permissão de usuário. [As permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) permitem criar controles granulares em relação ao que um usuário individual do dashboard ou uma equipe tem acesso em um único espaço de trabalho.
 
 #### Conectores Currents {#currents-connectors}
 
-A ferramenta [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) é um fluxo de dados em tempo real de seus eventos de engajamento que é a exportação mais robusta e granular da plataforma Braze. Os conectores Currents estão incluídos em determinados pacotes da Braze, e você pode ter recebido um inicialmente, supondo um único espaço de trabalho.
+A ferramenta [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) é um fluxo de dados em tempo real de seus eventos de engajamento que é a exportação mais robusta e granular da plataforma Braze. Os conectores Currents estão incluídos em determinados pacotes da Braze, e você pode ter recebido um inicialmente, supondo um único espaço de trabalho.
 
 Quando estiver decidindo entre criar espaços de trabalho separados ou combinados, é importante pensar no número de conectores Currents que você tem, pois os conectores Currents não são compartilhados entre os espaços de trabalho.
 
@@ -93,7 +93,7 @@ Por exemplo, se você tiver espaços de trabalho separados para os ambientes de 
 
 #### Perfis de usuário {#user-profiles}
 
-Todos os dados persistentes associados a um usuário são armazenados em seu [perfil de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). No entanto, os perfis de usuário também são um ótimo recurso para solução de problemas e testes, pois é possível acessar facilmente informações sobre o histórico de engajamento, a associação ao Segment, o dispositivo e o sistema operacional de um usuário.
+Todos os dados persistentes associados a um usuário são armazenados em seu [perfil de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). No entanto, os perfis de usuário também são um ótimo recurso para solução de problemas e testes, pois é possível acessar facilmente informações sobre o histórico de engajamento, a associação ao Segment, o dispositivo e o sistema operacional de um usuário.
 
 #### Segments, Campaigns e Canvas {#segments-campaigns-and-canvases}
 
@@ -209,7 +209,7 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
         <th scope="row">Duplicação de conteúdo</th>
         <td>N/D</td>
         <td>Alguns conteúdos, como Segments e Campaigns de cartão de conteúdo, não podem ser copiados entre espaços de trabalho.</td>
-        <td>Pode <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>copiar Campaigns, Canvas e landing pages entre espaços de trabalho</a>. Os conteúdos suportados incluem Campaigns e Canvas para canais elegíveis, além de landing pages, modelos de e-mail, Feature Flags e Content Blocks.<br><br>Pode duplicar Segments, Campaigns, Canvas e landing pages para reutilizar conteúdo de uma instância do app para outra.</td>
+        <td>Pode <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>copiar Campaigns, Canvas e landing pages entre espaços de trabalho</a>. Os conteúdos suportados incluem Campaigns e Canvas para canais elegíveis, além de landing pages, modelos de e-mail, Feature Flags e Content Blocks.<br><br>Pode duplicar Segments, Campaigns, Canvas e landing pages para reutilizar conteúdo de uma instância do app para outra.</td>
         <td>N/D</td>
     </tr>
     <tr>
@@ -221,6 +221,10 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
     </tr>
     </tbody>
 </table>
+
+{% alert note %}
+Para saber como o MAU difere ao visualizar todos os apps em comparação com um único app, consulte [Usuários ativos mensais]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+{% endalert %}
 
 ## Práticas recomendadas {#best-practices}
 
@@ -245,4 +249,4 @@ Você deve ter mais de um usuário da Braze com permissões de administrador par
 
 ## Próximas etapas {#next-steps}
 
-Depois de determinar o plano do espaço de trabalho, é hora de criar o espaço de trabalho e adicionar instâncias do app. Para ver as etapas, confira [Criar e gerenciar espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/).
+Depois de determinar o plano do espaço de trabalho, é hora de criar o espaço de trabalho e adicionar instâncias do app. Para ver as etapas, confira [Criar e gerenciar espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).

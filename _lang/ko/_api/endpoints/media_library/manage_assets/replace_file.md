@@ -19,7 +19,7 @@ description: "이 문서에서는 `PUT /media_library/replace_file` 엔드포인
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `media_library.replace` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `media_library.replace` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -63,7 +63,7 @@ description: "이 문서에서는 `PUT /media_library/replace_file` 엔드포인
 ### 교체 파일 요구 사항 {#replacement-file-requirements}
 
 - 교체 파일의 확장자는 기존 자산의 확장자와 정확히 일치해야 합니다. 예를 들어, `.png` 자산을 `.jpg` 파일로 교체할 수 없습니다.
-- 이미지, SVG, 문서, 글꼴, 연락처 카드 및 코드 파일에 대해 파일 교체가 지원됩니다. 동영상 자산은 교체할 수 없습니다.
+- 이미지, SVG, 문서, 글꼴, 연락처 카드 및 코드 파일에 대해 파일 교체가 지원됩니다. 비디오 자산은 교체할 수 없습니다.
 
 ## 요청 예시 {#example-request}
 
@@ -128,7 +128,7 @@ curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file
 | `ASSET_NOT_FOUND` | 404 | 이 워크스페이스에 지정된 `asset_id`를 가진 자산이 없습니다. `meta` 오브젝트에 `asset_id`가 포함됩니다. |
 | `INVALID_ASSET_URL` | 400 | `asset_url` 값이 유효한 URI가 아닙니다. `meta` 오브젝트에 `asset_url`이 포함됩니다. |
 | `EXTENSION_MISMATCH` | 400 | 교체 파일의 확장자가 기존 자산의 확장자와 일치하지 않습니다. `meta` 오브젝트에 `expected_extension`과 `received_extension`이 포함됩니다. |
-| `UNSUPPORTED_ASSET_TYPE_FOR_REPLACE` | 400 | 이 자산 유형(예: 동영상)에 대해서는 파일 교체가 지원되지 않습니다. `meta` 오브젝트에 `asset_type`이 포함됩니다. |
+| `UNSUPPORTED_ASSET_TYPE_FOR_REPLACE` | 400 | 이 자산 유형(예: 비디오)에 대해서는 파일 교체가 지원되지 않습니다. `meta` 오브젝트에 `asset_type`이 포함됩니다. |
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | 파일이 허용되는 최대 크기를 초과합니다. `meta` 오브젝트에 `size_limit_bytes`와 `file_size_bytes`가 포함됩니다. |
 | `CORRUPT_FILE` | 400 | 이미지 파일이 손상되었거나 읽을 수 없습니다. `meta` 오브젝트에 `file_name`이 포함됩니다. |
 | `GENERIC_ERROR` | 500 | 파일 교체 중 예기치 않은 오류가 발생했습니다. `meta` 오브젝트에 디버깅을 위한 `original_error`가 포함됩니다. 다시 시도하거나 [고객지원]({{site.baseurl}}/support_contact)에 문의하세요. |

@@ -11,7 +11,7 @@ toc_headers: h2
 
 > Auf dieser Seite erfahren Sie, wie Sie den SQL-Editor der Braze Cloud-Datenaufnahme (CDI) verwenden, um Synchronisierungen mit SQL-Anfragen zu erstellen und zu validieren.
 
-Der SQL-Editor der Cloud-Datenaufnahme ermöglicht es Ihnen, Synchronisierungen zu erstellen, indem Sie SQL-Anfragen direkt gegen Ihr Data Warehouse schreiben. Dadurch entfällt die Notwendigkeit, eine dedizierte CDI-Tabelle zu erstellen oder zu pflegen, was zuvor in [Schritt 1.1 der Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) erforderlich war.
+Der SQL-Editor der Cloud-Datenaufnahme ermöglicht es Ihnen, Synchronisierungen zu erstellen, indem Sie SQL-Anfragen direkt gegen Ihr Data Warehouse schreiben. Dadurch entfällt die Notwendigkeit, eine dedizierte CDI-Tabelle zu erstellen oder zu pflegen, was zuvor in [Schritt 1.1 der Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) erforderlich war.
 
 Verwenden Sie den SQL-Editor, wenn Sie:
 
@@ -40,7 +40,7 @@ Braze führt nur lesende Anfragen gegen Ihre Daten aus und ändert Ihre zugrunde
 Befolgen Sie diese Schritte, um zuerst eine Quelle und dann eine Synchronisierung mit dem SQL-Editor zu erstellen. Wenn Sie bereits eine Quelle für CDI eingerichtet haben, können Sie direkt zu Schritt 3 springen.
 
 {% alert note %}
-Beachten Sie, dass diese Schritte eine Snowflake-Quelle als Beispiel verwenden. Der Einrichtungsprozess für andere Data-Warehouse-Quellen ist ähnlich und kann unter [2. Schritt: Eine neue Quelle im Braze-Dashboard erstellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-2-create-a-new-source-in-the-braze-dashboard) in der Dokumentation [Data-Warehouse-Integrationen einrichten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) nachgelesen werden.
+Beachten Sie, dass diese Schritte eine Snowflake-Quelle als Beispiel verwenden. Der Einrichtungsprozess für andere Data-Warehouse-Quellen ist ähnlich und kann unter [2. Schritt: Eine neue Quelle im Braze-Dashboard erstellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) in der Dokumentation [Data-Warehouse-Integrationen einrichten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations) nachgelesen werden.
 {% endalert %}
 
 ### 1. Schritt: Snowflake-Rolle, Berechtigungen, Warehouse und Nutzer:in einrichten {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
@@ -241,7 +241,7 @@ Wenn Ihre Anfrage kompiliert wird, kann die Validierung dennoch fehlschlagen, we
 - `UPDATED_AT` fehlt
 - Andere erforderliche Spalten fehlen
 
-In diesem Fall wird die Vorschau dennoch angezeigt, um Ihnen bei einer erfolgreichen Validierung zu helfen. Details zu den erforderlichen Spalten für jeden Synchronisierungsdatentyp finden Sie unter [4. Schritt im vorherigen Abschnitt](#step-4-preview-and-validate-your-query).
+In diesem Fall wird die Vorschau dennoch angezeigt, um Ihnen bei einer erfolgreichen Validierung zu helfen. Details zu den erforderlichen Spalten für jeden Synchronisierungsdatentyp finden Sie unter [Schritt 4 im vorherigen Abschnitt](#step-4-preview-and-validate-your-query).
 
 ### Ergebnisse mit null Zeilen {#zero-row-results}
 
@@ -253,7 +253,7 @@ Wenn Ihre Anfrage null Zeilen zurückgibt:
 
 ## `PAYLOAD`-Unterstützung (Legacy) {#payload-support-legacy}
 
-Der SQL-Editor unterstützt [Legacy-CDI-Tabellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views), in denen eine `PAYLOAD`-Spalte vorhanden ist.
+Der SQL-Editor unterstützt [Legacy-CDI-Tabellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views), in denen eine `PAYLOAD`-Spalte vorhanden ist.
 
 Wenn Ihre Anfrage Folgendes enthält:
 

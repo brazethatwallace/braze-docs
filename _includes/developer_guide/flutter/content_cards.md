@@ -24,7 +24,7 @@ The `BrazeContentCard` [object](https://pub.dev/documentation/braze_plugin/lates
 
 ### Listen for Content Card data in the Dart layer
 
-To receive Content Card data in the Dart layer, use the code below to create a `StreamSubscription` and call `braze.subscribeToContentCards()`. Remember to `cancel()` the stream subscription when it is no longer needed.
+To receive Content Card data in the Dart layer, use the following code to create a `StreamSubscription` and call `braze.subscribeToContentCards()`. Remember to `cancel()` the stream subscription when it is no longer needed.
 
 ```dart
 // Create stream subscription

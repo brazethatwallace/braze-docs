@@ -38,7 +38,7 @@ Veja as diretrizes para selecionar as variáveis:
 - `Catalog field`: Um campo específico (nome da coluna) dentro deste catálogo
 - `Value`: Um valor específico dentro desse campo ou coluna <br><br> Usando o app de saúde como exemplo, digamos que dentro do catálogo de cada médico que você pode agendar, existe um campo chamado `specialty` que contém um valor como `vision` ou `dental`. Para segmentar usuários que visitaram médicos com o valor `dental`, você pode selecionar `specialty` como o `Catalog field` e selecionar `dental` como o `Value`.
 
-5. Após criar uma extensão de segmento SQL, recomendamos clicar em **Executar pré-visualização** para verificar se a sua consulta retorna usuários ou se há erros. Para saber mais sobre [pré-visualização de resultados de consulta]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results), gerenciamento de [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions) e mais, confira [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
+5. Após criar uma extensão de segmento SQL, recomendamos clicar em **Executar prévia** para verificar se a sua consulta retorna usuários ou se há erros. Para saber mais sobre [prévia dos resultados da consulta]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-3-preview-the-query), gerenciamento de [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-your-segment-extensions) e mais, confira [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 
 {% alert note %}
 Se você estiver criando um segment SQL que usa a tabela `CATALOGS_ITEMS_SHARED`, é necessário especificar um ID de catálogo. Por exemplo:
@@ -129,7 +129,7 @@ Você configuraria um segment de catálogo usando as seguintes variáveis:
 
 ### Executar um segment de catálogo consome créditos de extensão de segmento SQL? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-Sim, segments de catálogo são alimentados por SQL e consomem créditos de extensão de segmento SQL. Para saber mais, confira [Uso de Segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage).
+Sim, segments de catálogo são alimentados por SQL e consomem créditos de extensão de segmento SQL. Para saber mais, confira [Uso de Segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits).
 
 ### Criar um segment de catálogo consome a cota de extensões de segmento SQL? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 

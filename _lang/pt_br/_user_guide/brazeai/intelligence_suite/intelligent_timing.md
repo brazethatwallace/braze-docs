@@ -15,8 +15,8 @@ description: "Este artigo fornece uma visão geral do Intelligent Timing (anteri
 A Braze calcula o momento ideal para o envio com base em uma análise estatística das interações anteriores dos usuários com seu app e suas interações com cada canal de envio de mensagens. São usados os seguintes dados de interação:
 
 - Horários das sessões
-- Aberturas diretas de push
-- Aberturas por influência de push
+- Aberturas Diretas de push
+- Aberturas por Influência de push
 - Cliques em e-mail
 - Aberturas de e-mail (excluindo [aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens))
 - Cliques em SMS (somente se [o encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) e o rastreamento avançado estiverem ativados)
@@ -59,7 +59,7 @@ O horário de silêncio substituiu a configuração **Only send within specific 
 1. Selecione **Enable Quiet Hours**.
 2. Selecione o horário de início e término em que **não** deseja enviar mensagens.
 
-![A opção Horário de silêncio está ativada, com o horário de início e término definidos para bloquear o envio de mensagens durante a noite]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
+![Opção de horário de silêncio ativada, com horário de início e término definidos para bloquear o envio de mensagens durante a noite]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
 
 Quando o horário de silêncio está ativado, a Braze não enviará mensagens durante o período de silêncio, mesmo que esse horário corresponda ao horário ideal de envio do usuário. Se o horário ideal do usuário estiver dentro da janela de silêncio, a mensagem será enviada no limite mais próximo da janela.
 
@@ -183,10 +183,10 @@ No entanto, o Intelligent Timing está programado para entregar às 14h, horári
 
 ## Considerações {#considerations}
 
-- In-App Messages e webhooks são entregues imediatamente e não recebem horários ideais.
+- Mensagens no app e webhooks são entregues imediatamente e não recebem horários ideais.
 - O Intelligent Timing não está disponível para campanhas baseadas em ações ou disparadas por API.
 - O Intelligent Timing não deve ser usado nos seguintes cenários:
-    - **Limite de taxa:** Se tanto o limite de taxa quanto o Intelligent Timing forem usados, não há garantia sobre quando a mensagem será entregue. Campanhas recorrentes diárias com Intelligent Timing não suportam com precisão um limite total de envio de mensagens.
+    - **Limite de frequência:** Se tanto o limite de frequência quanto o Intelligent Timing forem usados, não há garantia sobre quando a mensagem será entregue. Campanhas recorrentes diárias com Intelligent Timing não suportam com precisão um limite total de envio de mensagens.
     - **Campanhas de aquecimento de IP:** Alguns comportamentos do Intelligent Timing podem causar dificuldades em atingir os volumes diários necessários quando você está começando a aquecer seu IP. Isso ocorre porque o Intelligent Timing avalia os segmentos duas vezes — uma vez quando a campanha ou o Canvas é criado pela primeira vez, e novamente antes de enviar aos usuários para verificar se eles ainda devem estar nesse segmento. Isso pode fazer com que os segmentos mudem, muitas vezes levando alguns usuários a saírem do segmento na segunda avaliação. Esses usuários não são substituídos, impactando o quão próximo do limite máximo de usuários você consegue alcançar.
 
 ## Solução de problemas {#troubleshooting}
@@ -197,7 +197,9 @@ Se não houver eventos relevantes para um usuário (por exemplo, novos usuários
 
 ### Impacto do fuso horário na entrega do Intelligent Timing {#impact-of-time-zone-on-intelligent-timing-delivery}
 
-O Intelligent Timing depende do fuso horário local especificado de cada usuário, portanto a data e a hora de entrega programadas podem variar entre os usuários.
+O Intelligent Timing usa o fuso horário local de cada usuário e dias corridos para determinar a entrega ideal. Por isso, usuários em fusos horários à frente ou atrás do fuso horário de referência da sua campanha podem receber mensagens em um dia diferente do esperado.
+
+Por exemplo, se uma campanha estiver programada para 15 de março e o horário ideal de um usuário for calculado para essa data, um usuário em um fuso horário à frente do ponto de referência da campanha pode receber a mensagem no final do dia 14 de março no fuso de referência, enquanto um usuário em um fuso horário atrás do ponto de referência pode recebê-la em 16 de março.
 
 Se os usuários não receberem as mensagens como esperado, verifique se o campo de fuso horário nos perfis deles está preenchido corretamente. Se o campo de fuso horário estiver vazio, o usuário poderá receber mensagens alinhadas ao fuso horário da empresa, em vez do seu fuso local.
 
@@ -280,11 +282,11 @@ O horário de silêncio pode ser usado em uma campanha que utiliza o Intelligent
 
 Se o horário ideal determinado cair dentro do horário de silêncio, a Braze encontra o limite mais próximo do horário de silêncio e programa a mensagem para o próximo horário permitido antes ou depois do período de silêncio. A mensagem é enfileirada para envio no limite mais próximo do horário de silêncio em relação ao horário ideal.
 
-#### Posso usar o Intelligent Timing com limite de taxa? {#can-i-use-intelligent-timing-and-rate-limiting}
+#### Posso usar o Intelligent Timing com limite de frequência? {#can-i-use-intelligent-timing-and-rate-limiting}
 
-O limite de taxa pode ser usado em uma campanha que utiliza o Intelligent Timing. No entanto, a natureza do limite de taxa significa que alguns usuários podem receber suas mensagens em um momento menos ideal, especialmente se um grande número de usuários em relação ao tamanho do limite de taxa estiver programado para o horário de fallback por não terem eventos relevantes.
+O limite de frequência pode ser usado em uma campanha que utiliza o Intelligent Timing. No entanto, a natureza do limite de frequência significa que alguns usuários podem receber suas mensagens em um momento menos ideal, especialmente se um grande número de usuários em relação ao tamanho do limite de frequência estiver programado para o horário de fallback por não terem eventos relevantes.
 
-Recomendamos usar o limite de taxa em uma campanha com Intelligent Timing apenas quando houver requisitos técnicos que precisem ser atendidos com o limite de taxa.
+Recomendamos usar o limite de frequência em uma campanha com Intelligent Timing apenas quando houver requisitos técnicos que precisem ser atendidos com o limite de frequência.
 
 #### Posso usar o Intelligent Timing durante o aquecimento de IP? {#can-i-use-intelligent-timing-while-ip-warming}
 
@@ -303,3 +305,7 @@ Sim, as aberturas por máquina são filtradas pelo Intelligent Timing, de modo q
 #### Como posso garantir que o Intelligent Timing funcione da melhor forma possível? {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
 
 O Intelligent Timing usa o histórico individual de engajamento com mensagens de cada usuário, considerando os horários em que eles receberam mensagens. Antes de usar o Intelligent Timing, certifique-se de ter enviado mensagens aos usuários em diferentes horários do dia. Dessa forma, você consegue "amostrar" qual pode ser o melhor horário para cada usuário. Uma amostragem inadequada de diferentes horários do dia pode fazer com que o Intelligent Timing escolha um horário de envio abaixo do ideal para um usuário.
+
+#### Como ativo o Intelligent Timing em uma etapa do Canvas? {#how-do-i-enable-intelligent-timing-on-a-canvas-step}
+
+No Canvas, adicione ou abra uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), acesse as **Delivery Settings** e selecione **Using Intelligent Timing**. Conforme as orientações de configuração do Canvas neste artigo, inclua uma [etapa de postergação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) de pelo menos dois dias corridos entre a entrada no Canvas e essa mensagem, para que o Intelligent Timing tenha um histórico de engajamento adequado para avaliar.

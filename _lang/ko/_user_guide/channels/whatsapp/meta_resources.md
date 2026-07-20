@@ -135,12 +135,12 @@ Meta는 특정 기간 동안 사용자가 모든 비즈니스로부터 수신할
 
 한 가지 예외는, 사용자가 마케팅 메시지에 응답하면 24시간 고객 서비스 기간이 시작된다는 것입니다. 이 기간 내에 발송된 마케팅 메시지는 해당 사용자의 제한에 포함되지 않습니다.
 
-구체적인 제한은 사용자의 참여 수준에 따라 다릅니다. WhatsApp의 사용자별 마케팅 템플릿 메시지 제한에 대해 [여기](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits)에서 자세히 알아보세요.
+구체적인 제한은 사용자의 참여 수준에 따라 다릅니다. WhatsApp의 사용자별 마케팅 템플릿 메시지 제한에 대해 [WhatsApp의 사용자별 마케팅 템플릿 메시지 제한 설명서](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits)에서 자세히 알아보세요.
 
 ### 2025년 1월: WhatsApp, 4월 1일부터 미국 사용자에게 마케팅 메시지 발송 일시 중지 {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *최종 업데이트: 2025년 1월*
 
-WhatsApp은 2025년 4월 1일부터 미국 사용자(미국 전화번호를 가진 사용자)에게 마케팅 메시지 발송을 일시 중지합니다. [유틸리티, 서비스, 인증](https://developers.facebook.com/docs/whatsapp/pricing/) 및 [응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages)는 미국에서 계속 허용됩니다.
+WhatsApp은 2025년 4월 1일부터 미국 사용자(미국 전화번호를 가진 사용자)에게 마케팅 메시지 발송을 일시 중지합니다. [유틸리티, 서비스, 인증](https://developers.facebook.com/docs/whatsapp/pricing/) 및 [응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)는 미국에서 계속 허용됩니다.
 
 마케팅 메시지 발송(및 기타 모든 메시지 유형)은 다른 모든 국가 또는 지역에서 계속 허용되며 영향을 받지 않습니다.
 
@@ -169,7 +169,7 @@ WhatsApp이 정책을 완화했지만, Braze는 최상의 고객 경험과 참�
 
 Meta가 사용자별 마케팅 템플릿 제한을 도입한 이후, 사용자 읽기율과 만족도에서 상당한 개선이 있었습니다.
 
-현재 연말 시즌을 앞두고, 미국 사용자는 새로운 마케팅 대화를 더 적게 수신하게 됩니다. Meta는 이 변경이 더 참여도 높은 오디언스를 만들어 궁극적으로 비즈니스에 더 나은 결과를 가져올 것으로 기대합니다. 미국 전화번호로 마케팅 메시지를 발송하는 경우 전달률이 낮아질 수 있으며, 이는 Braze 커런츠 및 메시지 활동 로그를 통해 오류 코드 `131049`로 모니터링할 수 있습니다.
+현재 연말 시즌을 앞두고, 미국 사용자는 새로운 마케팅 대화를 더 적게 수신하게 됩니다. Meta는 이 변경이 더 참여도 높은 오디언스를 만들어 궁극적으로 비즈니스에 더 나은 성과를 가져올 것으로 기대합니다. 미국 전화번호로 마케팅 메시지를 발송하는 경우 전달률이 낮아질 수 있으며, 이는 Braze 커런츠 및 메시지 활동 로그를 통해 오류 코드 `131049`로 모니터링할 수 있습니다.
 
 미국 비즈니스는 다른 지역에서는 여전히 마케팅 메시지를 전달할 수 있으며, 유틸리티, 인증 또는 서비스 메시지, 또는 사용자가 시작한 대화 기간 내에 발송된 마케팅 템플릿 메시지(예: WhatsApp 광고 클릭, 제품 캐러셀 또는 대화의 일부로 발송된 쿠폰 템플릿)에는 영향이 없습니다.
 

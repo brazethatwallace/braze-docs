@@ -14,7 +14,7 @@ description: "Découvrez les moteurs de recommandation d'articles dans Braze."
 
 Avant de pouvoir créer ou utiliser des recommandations d'articles dans Braze, vous devez [créer au moins un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create)&#8212;seuls les articles de ce catalogue seront recommandés aux utilisateurs.
 
-## Types et cas d'utilisation {#types-and-use-cases}
+## Types et cas d'usage {#types-and-use-cases}
 
 ### IA personnalisée {#ai}
 
@@ -29,9 +29,9 @@ Grâce aux recommandations d'articles par intelligence artificielle, vous pouvez
 Les recommandations IA personnalisées fonctionnent au mieux avec des centaines ou des milliers d'articles et généralement au moins 30 000 utilisateurs disposant de données d'achat ou d'interaction. Il s'agit d'une indication approximative qui peut varier. Les autres types de recommandations peuvent fonctionner avec moins de données.
 {% endalert %}
 
-#### Cas d'utilisation {#use-cases}
+#### Cas d'usage {#use-cases}
 
-En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure :
+En fonction des données d'interaction suivies, les cas d'usage de ce modèle pourraient inclure :
 
 {% tabs local %}
 {% tab Achat le plus probable %}
@@ -53,7 +53,7 @@ Prédire et recommander les articles qu'un utilisateur est le plus susceptible d
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez la manière dont vous suivez actuellement les événements d'achat et la propriété d'événement correspondante.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
+7. [Utilisez la recommandation dans vos messages]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -62,9 +62,9 @@ Prédire et recommander les articles qu'un utilisateur est le plus susceptible d
 
 Le modèle de recommandation « Les plus populaires » met en avant les articles avec lesquels les utilisateurs interagissent le plus.
 
-#### Cas d'utilisation
+#### Cas d'usage
 
-En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure la recommandation de :
+En fonction des données d'interaction suivies, les cas d'usage de ce modèle pourraient inclure la recommandation de :
 
 {% tabs local %}
 {% tab Les plus populaires %}
@@ -83,7 +83,7 @@ Encouragez les utilisateurs à explorer les articles populaires de votre catalog
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents. Par exemple, le service de livraison de repas pourrait proposer une sélection pour filtrer par emplacement du restaurant ou type de plat.
 5. Choisissez la manière dont vous suivez actuellement les événements et la propriété d'événement correspondante.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
+7. [Utilisez la recommandation dans vos messages]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -103,7 +103,7 @@ Encouragez les utilisateurs à explorer les articles qu'ils ont récemment aimé
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les likes dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
+7. [Utilisez la recommandation dans vos messages]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -123,7 +123,7 @@ Mettez en avant les articles qui ont attiré l'attention de votre base d'utilisa
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les vues dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
+7. [Utilisez la recommandation dans vos messages]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -145,7 +145,7 @@ Par exemple, un détaillant de mode pourrait promouvoir des vêtements et des ac
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour l'ajout au panier dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
+7. [Utilisez la recommandation dans vos messages]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -154,9 +154,9 @@ Par exemple, un détaillant de mode pourrait promouvoir des vêtements et des ac
 
 Le modèle de recommandation « Les plus récents » met en avant les articles avec lesquels les utilisateurs interagissent le plus. Utilisez ce modèle pour réduire l'attrition en encourageant les utilisateurs inactifs à se réengager avec du contenu pertinent.
 
-#### Cas d'utilisation
+#### Cas d'usage
 
-En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure la recommandation de :
+En fonction des données d'interaction suivies, les cas d'usage de ce modèle pourraient inclure la recommandation de :
 
 {% tabs local %}
 {% tab Cliqués récemment %}
@@ -175,7 +175,7 @@ Encouragez les utilisateurs à revenir sur les articles sur lesquels ils ont ré
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les clics dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
+7. [Utilisez la recommandation dans vos messages]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 
 {% endtab %}
@@ -195,16 +195,16 @@ Encouragez les utilisateurs à explorer les articles qu'ils ont récemment aimé
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les likes dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
+7. [Utilisez la recommandation dans vos messages]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
 {% tab Interactions récentes %}
 Mettez en avant les articles avec lesquels les utilisateurs ont récemment interagi, qu'il s'agisse de vues, de clics ou d'achats. Cette approche permet de garder vos recommandations à jour et alignées sur les derniers centres d'intérêt de l'utilisateur. Par exemple :
 
-- **Éducation :** Une plateforme d'éducation en ligne pourrait encourager les utilisateurs qui ont récemment regardé une vidéo éducative mais ne se sont pas inscrits à un cours à consulter des cours similaires ou des sujets d'intérêt, afin de maintenir leur engagement et de les motiver à commencer l'apprentissage.
-- **Remise en forme :** Une application de fitness peut suggérer des entraînements ou des défis similaires à ceux que l'utilisateur a récemment effectués ou avec lesquels il a interagi, ce qui lui permet de varier son programme d'exercices et de rester motivé.
-- **Bricolage et rénovation :** Après l'achat d'un outil électrique par un client, un détaillant de bricolage peut lui recommander des accessoires associés ou des équipements de sécurité en fonction de son achat récent, améliorant ainsi l'expérience et la sécurité de l'utilisateur.
+- **Éducation :** une plateforme d'éducation en ligne pourrait encourager les utilisateurs qui ont récemment regardé une vidéo éducative mais ne se sont pas inscrits à un cours à consulter des cours similaires ou des sujets d'intérêt, afin de maintenir leur engagement et de les motiver à commencer l'apprentissage.
+- **Remise en forme :** une application de fitness peut suggérer des entraînements ou des défis similaires à ceux que l'utilisateur a récemment effectués ou avec lesquels il a interagi, ce qui lui permet de varier son programme d'exercices et de rester motivé.
+- **Bricolage et rénovation :** après l'achat d'un outil électrique par un client, un détaillant de bricolage peut lui recommander des accessoires associés ou des équipements de sécurité en fonction de son achat récent, améliorant ainsi l'expérience et la sécurité de l'utilisateur.
 
 {% details Conditions requises %}
 - Recommandations d'articles par intelligence artificielle
@@ -219,7 +219,7 @@ Mettez en avant les articles avec lesquels les utilisateurs ont récemment inter
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour les clics dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
+7. [Utilisez la recommandation dans vos messages]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -239,7 +239,7 @@ Rappelez aux utilisateurs leur intérêt pour les articles qu'ils ont récemment
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
 5. Choisissez **Custom Event** et sélectionnez votre événement personnalisé pour l'ajout au panier dans la liste.
 6. Entraînez la recommandation.
-7. [Utilisez la recommandation dans vos messages.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
+7. [Utilisez la recommandation dans vos messages]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -250,9 +250,9 @@ Le modèle de recommandation « Tendances » met en avant les articles ayant con
 
 Contrairement au modèle « Les plus populaires », qui met en avant des articles avec un taux d'interaction élevé et constant, ce modèle présente des articles ayant connu une hausse des interactions. Vous pouvez l'utiliser pour recommander des produits émergents qui bénéficient actuellement d'un regain de popularité.
 
-#### Cas d'utilisation
+#### Cas d'usage
 
-En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure la recommandation de :
+En fonction des données d'interaction suivies, les cas d'usage de ce modèle pourraient inclure la recommandation de :
 
 {% tabs local %}
 {% tab Achats en vogue %}
@@ -265,7 +265,7 @@ Mettez en évidence les articles que vos utilisateurs ont récemment achetés av
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/ai_item_recommendations).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Trending**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
@@ -285,7 +285,7 @@ Mettez en évidence les articles que vos utilisateurs ont récemment aimés de m
 {% enddetails %}
 
 {% details Mise en place %}
-1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/ai_item_recommendations).
+1. Créez une [recommandation d'article par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Définissez le **Type** sur **Trending**.
 3. Sélectionnez votre catalogue.
 4. (Facultatif) Ajoutez une sélection pour filtrer votre recommandation et ne retenir que les articles pertinents.
@@ -300,15 +300,15 @@ Mettez en évidence les articles que vos utilisateurs ont récemment aimés de m
 
 Les [sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) sont des groupes spécifiques de données du catalogue. Lorsque vous utilisez une sélection, vous configurez essentiellement des filtres personnalisés basés sur des colonnes spécifiques de votre catalogue. Il peut s'agir de filtres pour la marque, la taille, l'emplacement, la date d'ajout, etc. Cela vous donne le contrôle sur ce que vous recommandez en vous permettant de définir les critères auxquels les articles doivent répondre pour être présentés aux utilisateurs.
 
-Les trois types précédents impliquent tous la configuration et l'entraînement d'un modèle de recommandation dans Braze. Bien que vous puissiez également utiliser des sélections dans ces modèles, vous pouvez aussi réaliser certains cas d'utilisation de recommandation avec uniquement des sélections de catalogue et la personnalisation Liquid.
+Les trois types précédents impliquent tous la configuration et l'entraînement d'un modèle de recommandation dans Braze. Bien que vous puissiez également utiliser des sélections dans ces modèles, vous pouvez aussi réaliser certains cas d'usage de recommandation avec uniquement des sélections de catalogue et la personnalisation Liquid.
 
 {% alert note %}
 Si vous utilisez des sélections, le champ de tri et les limites ne seront pas pris en compte dans les recommandations d'articles par intelligence artificielle. Cela signifie que si vous créez une sélection avec un champ de tri spécifique et limitez le nombre d'articles renvoyés, ces contraintes ne seront pas utilisées lors du traitement des recommandations d'articles par intelligence artificielle.
 {% endalert %}
 
-#### Cas d'utilisation
+#### Cas d'usage
 
-En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure la recommandation de :
+En fonction des données d'interaction suivies, les cas d'usage de ce modèle pourraient inclure la recommandation de :
 
 {% tabs local %}
 {% tab Nouveaux articles %}
@@ -326,7 +326,7 @@ Par exemple, une plateforme d'e-commerce technologique pourrait alerter les pass
 3. Assurez-vous que l'option **Randomize Sort Order** est désactivée.
 4. Pour **Sort Field**, sélectionnez votre champ de date d'ajout.
 5. Définissez **Sort Order** sur décroissant.
-6. [Utilisez la sélection dans vos messages.]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging)
+6. [Utilisez la sélection dans vos messages]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
 
@@ -344,25 +344,25 @@ Par exemple, une librairie en ligne pourrait proposer une fonctionnalité « Sur
 1. [Créez une sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#creating-a-selection) à partir de votre catalogue.
 2. (Facultatif) Ajoutez des filtres si vous le souhaitez.
 3. Activez l'option **Randomize Sort Order**.
-4. [Utilisez la sélection dans vos messages.]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging)
+4. [Utilisez la sélection dans vos messages]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### Basé sur des règles {#rules-based}
 
-Un moteur de [recommandation basé sur des règles]({{site.baseurl}}/rules_based_recommendations) utilise les données des utilisateurs et les informations sur les produits pour suggérer des articles pertinents aux utilisateurs dans les messages. Il utilise Liquid et les catalogues Braze ou le contenu connecté pour personnaliser dynamiquement le contenu en fonction du comportement et des attributs de l'utilisateur.
+Un moteur de [recommandation basé sur des règles]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based) utilise les données des utilisateurs et les informations sur les produits pour suggérer des articles pertinents aux utilisateurs dans les messages. Il utilise Liquid et les catalogues Braze ou le contenu connecté pour personnaliser dynamiquement le contenu en fonction du comportement et des attributs de l'utilisateur.
 
 Les recommandations basées sur des règles reposent sur une logique fixe que vous devez définir manuellement. Cela signifie que vos recommandations ne s'adapteront pas à l'historique d'achat et aux goûts individuels d'un utilisateur, à moins que vous ne mettiez à jour la logique. Cette méthode est donc idéale pour les recommandations qui ne nécessitent pas de mises à jour fréquentes.
 
-#### Cas d'utilisation
+#### Cas d'usage
 
-En fonction des données d'interaction suivies, les cas d'utilisation de ce modèle pourraient inclure :
+En fonction des données d'interaction suivies, les cas d'usage de ce modèle pourraient inclure :
 
-- **Rappels de réapprovisionnement :** Envoi de rappels de réapprovisionnement pour les articles dont le cycle d'utilisation est prévisible, comme les vitamines mensuelles ou les courses hebdomadaires, en fonction de la dernière date d'achat.
-- **Premiers acheteurs :** Recommandez des kits de démarrage ou des offres de lancement aux premiers acheteurs afin de les encourager à effectuer un deuxième achat.
-- **Programmes de fidélité :** Mettez en avant les produits qui maximiseraient les points de fidélité ou les récompenses d'un client en fonction de son solde de points actuel.
-- **Contenu éducatif :** Suggérez de nouveaux cours ou contenus basés sur les thèmes des documents déjà consultés ou achetés.
+- **Rappels de réapprovisionnement :** envoi de rappels de réapprovisionnement pour les articles dont le cycle d'utilisation est prévisible, comme les vitamines mensuelles ou les courses hebdomadaires, en fonction de la dernière date d'achat.
+- **Premiers acheteurs :** recommandez des kits de démarrage ou des offres de lancement aux premiers acheteurs afin de les encourager à effectuer un deuxième achat.
+- **Programmes de fidélité :** mettez en avant les produits qui maximiseraient les points de fidélité ou les récompenses d'un client en fonction de son solde de points actuel.
+- **Contenu éducatif :** suggérez de nouveaux cours ou contenus basés sur les thèmes des documents déjà consultés ou achetés.
 
 {% multi_lang_include brazeai/recommendations/ai.md section="Plan-specific features" %}
 
@@ -390,4 +390,30 @@ Oui, mais uniquement après leur prochaine mise à jour planifiée. Les recomman
 
 ### Comment faire expirer en même temps toutes les recommandations qui durent plusieurs jours ? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
-Si vous souhaitez faire expirer toutes les recommandations sur plusieurs jours à une date précise (afin que toutes les recommandations actives reçoivent de nouvelles prédictions en même temps), contactez l'assistance Braze ou votre gestionnaire de la satisfaction client. Les experts en intelligence artificielle de Braze effectuent cette opération manuellement afin de garantir des performances optimales du modèle.
+Si vous souhaitez faire expirer toutes les recommandations sur plusieurs jours à une date précise (afin que toutes les recommandations actives reçoivent de nouvelles prédictions en même temps), contactez l'assistance Braze ou votre gestionnaire du succès des clients. Les experts en intelligence artificielle de Braze effectuent cette opération manuellement afin de garantir des performances optimales du modèle.
+
+### Que se passe-t-il si je modifie le nom de la propriété pour une recommandation d'article par intelligence artificielle active ? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+
+Lorsque vous modifiez le nom de la propriété (chemin de l'ID d'article) et sélectionnez **Enregistrer et créer**, Braze lance une tâche de réentraînement en arrière-plan qui analyse les six derniers mois de données d'interaction en utilisant le nouveau mappage.
+
+Pendant le réentraînement du modèle, les utilisateurs continuent de voir les recommandations de la version précédente. Les recommandations ne changent pas tant que le nouveau modèle n'a pas terminé son entraînement avec succès. Cela signifie :
+
+- Les utilisateurs voient des articles personnalisés issus de l'ancien modèle (ou la solution de repli globale s'ils n'ont pas de recommandations spécifiques).
+- Il n'y a aucun temps d'arrêt ni interruption des recommandations pendant le processus de réentraînement.
+- La transition de l'ancien modèle vers le nouveau est transparente une fois l'entraînement terminé avec succès.
+
+Les événements associés à l'ancien chemin d'ID d'article sont effectivement ignorés pour le nouveau modèle. Seuls les événements utilisant le nouveau mappage de nom de propriété sont inclus dans le réentraînement.
+
+### Que se passe-t-il si la tâche de réentraînement échoue après la modification du nom de la propriété ? {#what-happens-if-the-retraining-job-fails-after-changing-the-property-name}
+
+{% alert important %}
+Si la tâche de réentraînement échoue, la recommandation d'article passe entièrement à un état désactivé (non actif). Étant donné que Braze ne revient pas actuellement au dernier modèle entraîné avec succès en cas d'échec de l'entraînement, tout code Liquid faisant référence à cette recommandation échouera et les messages associés ne seront pas envoyés.
+{% endalert %}
+
+Pour réduire ce risque, envisagez l'approche suivante :
+
+1. Créez une nouvelle recommandation d'article avec la configuration de nom de propriété souhaitée.
+2. Vérifiez que l'entraînement se termine avec succès.
+3. Mettez à jour vos messages pour faire référence à la nouvelle recommandation au lieu de modifier directement une recommandation active.
+
+Cette approche vous permet de tester la nouvelle configuration sans risquer de perturber les messages qui font référence à votre recommandation existante.

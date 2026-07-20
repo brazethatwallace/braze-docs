@@ -16,7 +16,7 @@ search_tag: OtherLevels
 
 ## 概要 {#overview}
 
-BrazeとOtherLevelsの統合により、OtherLevels Experience PlatformへのAPIコールを通じてカスタムGenAI動画を作成し、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を通じてこれらの動画をiOSプッシュ動画としてユーザーに送信できます。
+BrazeとOtherLevelsの統合により、OtherLevels Experience PlatformへのAPIコールを通じてカスタムGenAI動画を作成し、[Braze Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)を通じてこれらの動画をiOSプッシュ動画としてユーザーに送信できます。
 
 OtherLevelsのAIを活用した体験で、ユーザーにより良いエクスペリエンスを提供しましょう。既存のコンテンツやサードパーティコンテンツを拡張性の高い動画やリッチメディアに変換し、すでに異なる方法でコンテンツを消費し、文脈に応じたパーソナライズされた体験に強く反応するオーディエンスに届けましょう。
 
@@ -24,11 +24,11 @@ OtherLevelsのAIを活用した体験で、ユーザーにより良いエクス�
 
 開始する前に、以下が必要です。
 
-| 前提条件 | 説明 |
+| 要件 | 説明 |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | OtherLevelsアカウント | このパートナーシップを利用するには、OtherLevelsアカウントが必要です。 |
-| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 この統合では、Brazeからユーザーにメッセージを送信する前に、動画生成プロセスの一部としてOtherLevels Experience Platform APIを呼び出す必要があります。このドキュメントではcURLの例を提供していますが、APIコールを自動化するためにPostmanのようなAPIクライアントの使用を推奨します。
@@ -139,7 +139,7 @@ APIレスポンスの一部として、OtherLevelsはAPIコールが成功した
 以下はAPIからのレスポンスの例です。
 
 {% raw %}
-`````````bash
+```bash
 {"$schema":"https://exp-platform-api.prod.awsotherlevels.com/schemas/GenerateMediaResBody.json","message":"success","recipe_id":"LMINHWXV2BBD6JGV5VF3ZNZV7BDDRR7FH5FJH6MMX4BVLTPRKTWQ","media_short_id":"LMINHWX","status":"triggered"}
 ```
 {% endraw %}
@@ -155,7 +155,7 @@ APIレスポンスの一部として、OtherLevelsはAPIコールが成功した
 {% endalert %}
 
 {% raw %}
-`````````bash
+```bash
 curl --location --request POST 'BRAZE_API_ENDPOINT/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer BRAZE_API_KEY' \
@@ -174,18 +174,18 @@ curl --location --request POST 'BRAZE_API_ENDPOINT/users/track' \
 
 | プレースホルダー | 説明 |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT` | 現在のBrazeインスタンスのBraze RESTエンドポイントURL。詳細については、[REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)を参照してください。 |
+| `BRAZE_API_ENDPOINT` | 現在のBrazeインスタンスのBraze RESTエンドポイントURL。詳細については、[REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys)を参照してください。 |
 | `BRAZE_API_KEY` | `users.track`権限を持つBraze REST APIキー。 |
-| `USER_ID` | この動画を受信するユーザーID。使用できる識別子の例については、[/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users)を参照してください。 |
+| `USER_ID` | この動画を受信するユーザーID。使用できる識別子の例については、[/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を参照してください。 |
 | `RECIPE_ID` | [ステップ1](#step-1)でOtherLevels APIレスポンスから受け取った`recipe_id`。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2：recipe_idをカスタム属性として設定する" }
 
-### ステップ3：Brazeコネクテッドコンテンツで送信する {#step-3-sending-through-braze-connected-content}
+### ステップ3：Braze Connected Contentで送信する {#step-3-sending-through-braze-connected-content}
 
 GenAI動画をiOSプッシュメッセージとしてユーザーに送信するには、以下の手順に従います。
 
 1. Braze iOSプッシュ通知キャンペーンを作成します。
-2. キャンペーンの作成中に、**アセット**セクションに移動し、以下のコネクテッドコンテンツ構文を**URLから追加**フィールドに貼り付けます。
+2. キャンペーンの作成中に、**アセット**セクションに移動し、以下のConnected Content構文を**URLから追加**フィールドに貼り付けます。
 
 {% raw %}
 ```
@@ -199,7 +199,7 @@ GenAI動画をiOSプッシュメッセージとしてユーザーに送信する
 3. **URLファイル形式**のドロップダウンで、**MP4**を選択します。
 4. キャンペーンの残りの部分（メッセージ内容、送信スケジュール、ターゲットオーディエンスなど）を、希望する設定に基づいて構成します。
 
-![コネクテッドコンテンツのアセットフィールドの例。]({% image_buster /assets/img/otherlevels/1.png %})
+![Connected Contentのアセットフィールドの例。]({% image_buster /assets/img/otherlevels/1.png %})
 
 ## GenAI動画のカスタマイズ {#customizing-the-genai-video}
 

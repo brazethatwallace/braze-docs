@@ -46,13 +46,13 @@ Blingsの担当者にHTMLスニペットをリクエストしてください。
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2: BrazeでCampaignを作成する {#step-2-create-a-braze-campaign}
+### ステップ 2: Brazeでキャンペーンを作成する {#step-2-create-a-braze-campaign}
 
-Brazeで新しいメールまたはアプリ内メッセージのCampaignを作成し、BlingsのHTMLスニペットを挿入します。エディター内プレビューを使用して、パーソナライズされたフィールドとCreative Suiteのダイナミックなコンテンツが期待どおりに表示されることを確認します。
+Brazeで新しいメールまたはアプリ内メッセージのキャンペーンを作成し、BlingsのHTMLスニペットを挿入します。エディター内プレビューを使用して、パーソナライズされたフィールドとCreative Suiteのダイナミックなコンテンツが期待どおりに表示されることを確認します。
 
 ### ステップ 3: テストして起動する {#step-3-test-and-launch}
 
-BrazeでCampaignをプレビューし、パーソナライズされたフィールドが正しく入力されていることを確認します。その後、MP5 Campaignを大規模に展開します。
+Brazeでキャンペーンをプレビューし、パーソナライズされたフィールドが正しく入力されていることを確認します。その後、MP5 キャンペーンを大規模に展開します。
 
 ![Braze Blingsプレビュー。]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
 

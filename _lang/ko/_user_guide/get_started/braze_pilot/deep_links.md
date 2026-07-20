@@ -8,7 +8,7 @@ description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필
 
 # Braze Pilot의 내비게이션 딥링크 {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilot은 Braze 메시징에서 Pilot 앱의 특정 부분으로의 딥링킹을 지원합니다. 이를 통해 참여 사용 사례를 생성하여 사용자를 Pilot 애플리케이션의 다양한 부분으로 유도할 수 있습니다. 선택 사항인 딥링크 매개변수를 사용하여 앱 내 특정 페이지의 콘텐츠를 사용자에 맞게 커스텀할 수도 있습니다. 딥링킹에 대한 자세한 내용은 [인앱 콘텐츠로 딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)을 참조하세요.
+> Braze Pilot은 Braze 메시징에서 Pilot 앱의 특정 부분으로의 딥링킹을 지원합니다. 이를 통해 참여 사용 사례를 생성하여 사용자를 Pilot 애플리케이션의 다양한 부분으로 유도할 수 있습니다. 선택 사항인 딥링크 매개변수를 사용하여 앱 내 특정 페이지의 콘텐츠를 사용자에 맞게 커스텀할 수도 있습니다. 딥링킹에 대한 자세한 내용은 [인앱 콘텐츠로 딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)을 참조하세요.
 
 ## 기본설정 {#general}
 
@@ -21,7 +21,7 @@ description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필
 | 설정 | `braze-pilot://navigation/setup` |
 | 언어 변경 | `braze-pilot://navigation/selectlanguage` |
 | 카메라 | `braze-pilot://navigation/camera` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="기본설정" }
 
 ## Steppington
 다음은 Pilot 내 Steppington 가상 브랜드 앱의 딥링크입니다.
@@ -39,7 +39,7 @@ description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필
 | Steppington+ 페이지 | `braze-pilot://navigation/steppington/plus` |
 | 목표 화면 | `braze-pilot://navigation/steppington/goals` |
 | 목표 변경 화면 | `braze-pilot://navigation/steppington/changegoals` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="매개변수가 없는 딥링크" }
 
 ### 매개변수가 있는 딥링크 {#steppington-deep-links-with-parameters}
 
@@ -47,7 +47,7 @@ description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필
 | --- | --- |
 | 운동 | `braze-pilot://navigation/steppington/workout` |
 | 활성 운동 | `braze-pilot://navigation/steppington/activeworkout` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="매개변수가 있는 딥링크" }
 
 #### 허용되는 매개변수 {#steppington-accepted-parameters}
 
@@ -75,7 +75,7 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table aria-label="Accepted parameters">
+<table aria-label="허용되는 매개변수">
   <caption>허용되는 매개변수</caption>
     <thead>
         <tr>
@@ -205,7 +205,7 @@ th:nth-child(6), td:nth-child(6) {
 | `YOGA_HOME` | ![요가 자세를 취한 사람 아이콘.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
 | `BICYCLE_HOME` | ![자전거 아이콘.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
 | `DUMBBELL_HOME` | ![덤벨 아이콘.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Icon options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="아이콘 옵션" }
 
 ## PantsLabyrinth
 다음은 Pilot 내 PantsLabyrinth 가상 브랜드 앱의 딥링크입니다.
@@ -223,14 +223,14 @@ th:nth-child(6), td:nth-child(6) {
 | 목록 화면 | `braze-pilot://navigation/pantslabyrinth/listing` |
 | 장바구니 페이지 | `braze-pilot://navigation/pantslabyrinth/cart` |
 | 위시리스트 페이지 | `braze-pilot://navigation/pantslabyrinth/wishlist` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="매개변수가 없는 딥링크" }
 
 ### 매개변수가 있는 딥링크 {#pantslabyrinth-deep-links-with-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
 | 상품 상세 페이지 | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="매개변수가 있는 딥링크" }
 
 #### 허용되는 매개변수 {#pantslabyrinth-accepted-parameters}
 
@@ -258,7 +258,7 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table aria-label="Accepted parameters">
+<table aria-label="허용되는 매개변수">
   <caption>허용되는 매개변수</caption>
     <thead>
         <tr>
@@ -360,14 +360,14 @@ th:nth-child(6), td:nth-child(6) {
 | 스플래시 화면 | `braze-pilot://navigation/moviecannon/splash` |
 | 환영 화면 | `braze-pilot://navigation/moviecannon/welcome` |
 | 영화 목록 페이지 | `braze-pilot://navigation/moviecannon/moviecannon` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="매개변수가 없는 딥링크" }
 
 ### 매개변수가 있는 딥링크 {#moviecanon-deep-links-with-parameters}
 
 | 화면 | 딥링크 |
 | --- | --- |
 | 영화 상세 페이지 | `braze-pilot://navigation/moviecannon/moviedetails` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="매개변수가 있는 딥링크" }
 
 #### 허용되는 매개변수 {#moviecanon-accepted-parameters}
 
@@ -378,4 +378,4 @@ th:nth-child(6), td:nth-child(6) {
 | `thumbnail` | 영화 재생 전에 표시될 썸네일의 웹 URL입니다. | 예 | 문자열 | `https://picsum.photos/400` |
 | `video` | 표시할 동영상 목록의 인덱스입니다. | 아니요 | 숫자 | 0 |
 | `description` | 동영상에 대한 설명입니다. | 예 | 문자열 | `This%20video%20is%20awesome%21` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Accepted parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="허용되는 매개변수" }

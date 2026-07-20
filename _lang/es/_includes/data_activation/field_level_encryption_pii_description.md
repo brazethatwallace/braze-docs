@@ -1,10 +1,10 @@
 {% comment %}
-  Descripción del cifrado a nivel de campo del identificador y la información de identificación personal (PII). Úsalo en documentos de cifrado a nivel de campo y notas de lanzamiento.
+  Descripción del cifrado a nivel de campo del identificador y la PII. Se usa en el documento de cifrado a nivel de campo y en las notas de lanzamiento.
   Parámetros:
-  - enlace (opcional): Si se establece, el «cifrado a nivel de campo del identificador» se incluirá en este enlace (e.g. {{site.baseurl}}/user_guide/analytics/field_level_encryption/).
+  - link (opcional): Si se establece, "cifrado a nivel de campo del identificador" se incluirá en este enlace (e.g. {{site.baseurl}}/user_guide/analytics/field_level_encryption/).
 {% endcomment %}
 {% if include.link %}
-Mediante el cifrado a nivel de ]({{ site.baseurl }}/{{ include.link }})campo identificador, puedes cifrar fácilmente las direcciones de correo electrónico con AWS Key Management Service (KMS) para minimizar la información de identificación personal (PII) compartida en Braze. La encriptación sustituye los datos sensibles por texto cifrado, que es información encriptada ilegible.
+Mediante el [cifrado a nivel de campo del identificador]({{ site.baseurl }}/{{ include.link }}), puedes cifrar fácilmente las direcciones de correo electrónico con AWS Key Management Service (KMS) para minimizar la información de identificación personal (PII) compartida en Braze. El cifrado sustituye los datos sensibles por texto cifrado, que es información cifrada ilegible.
 {% else %}
-Mediante el cifrado a nivel de campo identificador, puedes cifrar fácilmente las direcciones de correo electrónico con el servicio de administración de claves (KMS) de AWS para minimizar la información de identificación personal (PII) compartida en Braze. La encriptación sustituye los datos sensibles por texto cifrado, que es información encriptada ilegible.
+Mediante el cifrado a nivel de campo del identificador, puedes cifrar fácilmente las direcciones de correo electrónico con AWS Key Management Service (KMS) para minimizar la información de identificación personal (PII) compartida en Braze. El cifrado sustituye los datos sensibles por texto cifrado, que es información cifrada ilegible.
 {% endif %}

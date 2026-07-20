@@ -6,6 +6,8 @@ description: "Referência do README do Braze React Native SDK espelhada do GitHu
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guia do repositório do React Native SDK {#react-native-sdk-repository-guide}
+
 ## Sobre o Braze React Native SDK {#about-the-braze-react-native-sdk}
 
 O Braze React Native SDK conecta seus apps iOS e Android à Braze: perfis de usuário, superfícies de envio de mensagens, análise de dados e Feature Flags. Ele encapsula os SDKs nativos [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk) e [Braze Android SDK](https://github.com/braze-inc/braze-android-sdk) por trás de uma API JavaScript.
@@ -21,7 +23,7 @@ O Braze React Native SDK conecta seus apps iOS e Android à Braze: perfis de usu
 - **Notificações por push**: solicitações de permissão, registro de token, listeners de carga útil (veja as notas de plataforma abaixo)
 - **Feature Flags**: atualizar, ler propriedades, registrar impressões
 - **Análise de dados**: eventos personalizados, compras, envio imediato
-- **Controles do SDK**: ativar/desativar o SDK, limpar dados locais, assinaturas de Autenticação do SDK
+- **Controles do SDK**: ativar/desativar o SDK, limpar dados locais, assinaturas de autenticação do SDK
 
 ## Pré-requisitos {#prerequisites}
 
@@ -29,9 +31,9 @@ O Braze React Native SDK conecta seus apps iOS e Android à Braze: perfis de usu
 - Ambiente de desenvolvimento **React Native** ([configuração do ambiente React Native](https://reactnative.dev/docs/set-up-your-environment))
 - **iOS**: Xcode, CocoaPods (`cd ios && pod install`)
 - **Android**: Android Studio / Gradle; plugin Kotlin Gradle conforme exigido pelo seu template React Native
-- **Push** (se utilizado): configuração de FCM (Android) e APNs (iOS) conforme a [documentação de push]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/push_notifications)
+- **Push** (se utilizado): configuração de FCM (Android) e APNs (iOS) conforme a [documentação de push](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)
 
-Para localizar as credenciais no dashboard, siga a [visão geral da integração]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
+Para localizar as credenciais no dashboard, siga a [visão geral da integração](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native).
 
 ## Instalação {#installation}
 
@@ -71,7 +73,7 @@ Chamar `Braze.initialize` novamente com credenciais diferentes destrói a instâ
 
 ## Configuração nativa {#native-setup}
 
-> **Fonte oficial:** telas passo a passo, alterações de Gradle/CocoaPods e a lista completa de chaves XML do Android estão no [guia do desenvolvedor Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native). Os trechos abaixo são exemplos mínimos.
+> **Fonte oficial:** telas passo a passo, alterações de Gradle/CocoaPods e a lista completa de chaves XML do Android estão no [guia do desenvolvedor Braze React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). Os trechos abaixo são exemplos mínimos.
 
 ### Android
 
@@ -144,7 +146,7 @@ No React Native, **a configuração é nativa**: o Android lê `res/values/braze
 
 ### Android (`braze.xml`)
 
-Os padrões ficam em XML; [`BrazeConfig.Builder`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html) pode sobrescrevê-los na inicialização. A lista oficial de chaves e tipos está no [guia de integração do Android SDK]({{site.baseurl}}/developer_guide/platforms/android/sdk_integration) e em [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) (cada propriedade Kotlin corresponde a recursos `com_braze_*` documentados).
+Os padrões ficam em XML; [`BrazeConfig.Builder`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html) pode sobrescrevê-los na inicialização. A lista oficial de chaves e tipos está no [guia de integração do Android SDK](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/) e em [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) (cada propriedade Kotlin corresponde a recursos `com_braze_*` documentados).
 
 Entradas comumente usadas:
 
@@ -158,7 +160,7 @@ Entradas comumente usadas:
 | `com_braze_firebase_cloud_messaging_sender_id` | `string` | ID de remetente do FCM quando o registro automático está ativado. |
 | `com_braze_handle_push_deep_links_automatically` | `bool` | Permite que a Braze abra deep links de push automaticamente. |
 | `com_braze_trigger_action_minimum_time_interval_seconds` | `integer` | Mínimo de segundos entre ações de gatilho de mensagens no app. |
-| **Outras** | *diversos* | Chaves adicionais não listadas aqui (tempo limite de sessão, geofences, localização, padrões de notificação, listas de permissão de dispositivos, inicialização atrasada, Autenticação do SDK, etc.). Consulte [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) e o [guia de integração do Android SDK]({{site.baseurl}}/developer_guide/platforms/android/sdk_integration). |
+| **Outras** | *diversos* | Chaves adicionais não listadas aqui (tempo limite de sessão, geofences, localização, padrões de notificação, listas de permissão de dispositivos, inicialização atrasada, autenticação do SDK, etc.). Consulte [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) e o [guia de integração do Android SDK](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android (braze.xml)" }
 
 ### iOS (`Braze.Configuration`)
@@ -172,7 +174,7 @@ Defina propriedades de configuração nativa na closure `configure` passada para
 | **Push** | `push.automation`, `push.appGroup`, … | A automação simplifica o registro; `appGroup` é necessário para Push Stories / extensões quando utilizados. |
 | **Mensagens no app** | `triggerMinimumTimeInterval` | Padrão de **30** segundos entre gatilhos. |
 | **Sessões** | `sessionTimeout` | Inatividade antes de uma nova sessão (consulte a documentação de sessões da Braze). |
-| **Privacidade / dados** | `api.trackingPropertyAllowList`, `devicePropertyAllowList`, `api.sdkAuthentication` | Alinhe com o [manifesto de privacidade]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest) e as configurações do produto de Autenticação do SDK. |
+| **Privacidade / dados** | `api.trackingPropertyAllowList`, `devicePropertyAllowList`, `api.sdkAuthentication` | Alinhe com o [manifesto de privacidade](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/) e as configurações do produto de autenticação do SDK. |
 | **Rede** | `api.requestPolicy`, `api.flushInterval` | Política de retry de requisições e cadência de envio. |
 | **Inscrição push** | `optInWhenPushAuthorized` | Quando `true`, a inscrição pode mudar para opted-in após o usuário autorizar notificações. |
 | **IAM e mudanças de usuário** | `preventInAppMessageDisplayForDifferentUser` | Reduz mensagens no app incompatíveis se o ID do usuário mudar. |
@@ -207,7 +209,7 @@ Braze.addToSubscriptionGroup("NEWSLETTER_GROUP_UUID");
 
 ### Mensagens no app {#in-app-messages}
 
-- Com a **interface padrão da Braze**, siga a [documentação de mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=react%20native); normalmente você **não** precisa chamar `subscribeToInAppMessage` apenas para exibir a interface padrão.
+- Com a **interface padrão da Braze**, siga a [documentação de mensagens no app](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native); normalmente você **não** precisa chamar `subscribeToInAppMessage` apenas para exibir a interface padrão.
 - Para tratamento **personalizado**, inscreva-se com `useBrazeUI: false` e registre impressões/cliques conforme necessário:
 
 ``` typescript
@@ -221,7 +223,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
 ### Content Cards
 
 ``` typescript
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 Braze.requestContentCardsRefresh();
 Braze.launchContentCards(); // default Braze UI
 
@@ -240,7 +242,7 @@ Braze.requestBannersRefresh(["homepage_banner"]);
 const banner = await Braze.getBanner("homepage_banner");
 
 // Or use the native Banner view:
-// <Braze.BrazeBannerView placementID="homepage_banner" />
+// <Braze.BrazeBannerView placementId="homepage_banner" />
 ```
 
 ### Notificações por push {#push-notifications}
@@ -347,7 +349,7 @@ useEffect(() => {
 
 - **Expo**: use o [plugin Braze Expo](https://github.com/braze-inc/braze-expo-plugin) para evitar configuração nativa manual sempre que possível.
 - **Nova Arquitetura / Turbo Modules**: suportada em versões recentes do plugin; siga o guia do desenvolvedor e as configurações de exemplo do `AppDelegate` / Gradle se você migrar.
-- **Privacidade (iOS)**: métodos como `updateTrackingPropertyAllowList` suportam configuração relacionada ao manifesto de privacidade; consulte o [manifesto de privacidade Swift]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest).
+- **Privacidade (iOS)**: métodos como `updateTrackingPropertyAllowList` suportam configuração relacionada ao manifesto de privacidade; consulte o [manifesto de privacidade Swift](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/).
 ## - **Jest**: faça mock dos módulos nativos do `react-native` ou do Turbo module da Braze (consulte `__tests__/jest.setup.js` neste repositório para padrões). {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
 
 ## Suporte de versão {#version-support}
@@ -412,20 +414,20 @@ Ative o logging da Braze na configuração **nativa** durante o desenvolvimento 
 - **iOS** — Na closure `configure` passada para `BrazeReactInitializer.configure`, defina `config.logger.level = .debug` (ou `.info`). Reduza ou desative em produção para que os logs não fiquem visíveis para os usuários.
 - **Android** — Use o recurso `com_braze_logger_initial_log_level` no `braze.xml` ou defina o equivalente em `BrazeConfig.Builder` (consulte [BrazeConfigurationProvider](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/logger-initial-log-level.html)). Use um nível não detalhado ou remova a sobrescrita antes do lançamento.
 
-Para solução de problemas mais aprofundada (rede, sessão ou comportamento de Campaign), consulte o [guia do desenvolvedor Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native) e a documentação dos SDKs nativos ([Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk)).
+Para solução de problemas mais aprofundada (rede, sessão ou comportamento de Campaign), consulte o [guia do desenvolvedor Braze React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native) e a documentação dos SDKs nativos ([Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk)).
 
 ---
 
 ## Recursos adicionais {#additional-resources}
 
-- [Guia do desenvolvedor Braze — React Native]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)
-- [Notificações por push — React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/push_notifications)
+- [Guia do desenvolvedor Braze — React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)
+- [Notificações por push — React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)
 - [Repositório GitHub](https://github.com/braze-inc/braze-react-native-sdk)
 - [Pacote npm](https://www.npmjs.com/package/@braze/react-native-sdk)
 
 ## Contato {#contact}
 
-Se você tiver dúvidas, entre em contato com [support@braze.com](mailto:support@braze.com).
+Se você tiver dúvidas, entre em contato com o suporte técnico da Braze para obter assistência.
 <!-- END GENERATED README CONTENT -->
 
 Para detalhes do repositório e projetos de exemplo, consulte [https://github.com/braze-inc/braze-react-native-sdk](https://github.com/braze-inc/braze-react-native-sdk).

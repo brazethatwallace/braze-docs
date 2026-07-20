@@ -34,7 +34,7 @@ Das Panel **Campaign Details** zeigt einen Überblick über die gesamte Performa
   {% elsif include.channel == "webhook" %}Webhook.
   {% endif %}
 
-In diesem Panel sehen Sie Gesamtmetriken wie die Anzahl der gesendeten Nachrichten, die Anzahl der Empfänger:innen, die primäre Konversionsrate und den Gesamtumsatz, der mit dieser Nachricht erzielt wurde. Auf dieser Seite können Sie auch die Einstellungen für Zustellung, Zielgruppe und Conversion überprüfen.
+In diesem Panel sehen Sie Gesamtmetriken wie die Anzahl der gesendeten Nachrichten, die Anzahl der Empfänger:innen, die primäre Konversionsrate und den Gesamtumsatz, der mit dieser Nachricht erzielt wurde. Auf dieser Seite können Sie auch die Einstellungen für Zustellung, Zielgruppe und Konversion überprüfen.
 
 {% alert note %}
 Die Analytics-Zahlen im Dashboard und in Snowflake können leicht voneinander abweichen. Braze misst die Zahlen im Dashboard und schreibt Zeilen separat nach Snowflake. Snowflake ist die präzisere Datenquelle. Wenn Sie Abweichungen zwischen diesen Quellen feststellen, empfehlen wir, sich auf die Snowflake-Daten zu beziehen.
@@ -165,7 +165,7 @@ Das Panel **SMS/MMS/RCS Performance** zeigt Ihnen, wie gut Ihre Nachricht in ver
 
 Das Panel **Banner Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Diese Metriken variieren je nach Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen.
 
-![SMS/MMS-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
+![Banner-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ### KakaoTalk-Performance
@@ -185,6 +185,13 @@ Das Panel **Webhook Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschi
 Das Panel **WhatsApp Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 ![WhatsApp-Performance-Panel mit einer Tabelle mit Metriken für Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
+
+#### Credits versus Sendezähler {#credits-versus-send-counts}
+
+Die WhatsApp-Sendezähler in den Kampagnen-Analytics spiegeln Zustellversuche wider. Die verbrauchten Credits können abweichen, wenn Meta nach Nachrichtenkategorie (Marketing, Utility, Authentifizierung, Service) abrechnet.
+
+- Antwortnachrichten, die in Braze erstellt werden, verbrauchen keine Braze-WhatsApp-Credits.
+- Verwenden Sie **Analytics** > **Daily Stats** für eine Orientierung zum Sendevolumen. Credit-Aufschlüsselungen pro Kampagne oder Canvas sind nicht verfügbar.
 
 {% endif %}
 
@@ -365,6 +372,12 @@ Nehmen wir als weiteres Beispiel an, Sie sehen fünf _Unique Impressions_ in ein
 
 _Unique Daily Impressions_ bezieht sich auf die Banner, die tatsächlich angesehen wurden.
 
+#### Abweichungen zwischen Kontrollgruppen und Varianten {#discrepancies-between-control-groups-and-variants}
+
+Wenn eine Banner-Kampagne eine Kontrollgruppe verwendet, können die Impressionen der Kontrollgruppe höher sein als die der Variante, selbst wenn die Zielgruppenaufteilung zwischen den Gruppen gleichmäßig ist. Diese Abweichung wird durch einen Unterschied in der Art und Weise verursacht, wie Impressionen für Kontroll- und Varianten-Banner protokolliert werden.
+
+Sowohl Kontroll- als auch Varianten-Impressionen erfordern, dass die Banner-Platzierung in den sichtbaren Bereich gelangt. Varianten-Impressionen werden erst protokolliert, wenn das vollständige Banner auf dem Bildschirm sichtbar ist. Kontroll-Impressionen können bereits protokolliert werden, sobald die Platzierung in den sichtbaren Bereich gelangt – bevor das vollständige Banner für eine Variante sichtbar wäre.
+
 {% elsif include.channel == "email" %}
 
 #### E-Mail-Metriken {#email-metrics}
@@ -455,10 +468,10 @@ _Zustellungen_ können während des Wiederholungsfensters Ihres E-Mail-Anbieters
 
 Beachten Sie bei der Überprüfung Ihrer E-Mail-Analytics die folgenden Muster:
 
-- **Lücke zwischen _Sendungen_ und (_Zustellungen_ + _Hard Bounces_):** Während des ESP-Wiederholungsfensters nach einem einmaligen Versand spiegelt diese Lücke häufig Soft Bounces oder Deferrals wider, die noch wiederholt werden. Nach Abschluss der Wiederholungsversuche bedeutet eine verbleibende Lücke in der Regel, dass Nachrichten einen Soft Bounce hatten und nie zugestellt wurden – diese Sendungen werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt. Verwenden Sie die obige Formel, um laufende Soft Bounces abzuschätzen.
+- **Lücke zwischen _Sendungen_ und (_Zustellungen_ + _Hard Bounces_):** Während des ESP-Wiederholungsfensters nach einem einmaligen Versand spiegelt diese Lücke häufig Soft Bounces oder Deferrals wider, die noch wiederholt werden. Nach Abschluss der Wiederholungsversuche bedeutet eine verbleibende Lücke in der Regel, dass Nachrichten einen Soft Bounce hatten und nie zugestellt wurden – diese Sendungen werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt. Verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um laufende Soft Bounces abzuschätzen.
 - **Niedrige _Zustellungen_ nach Abschluss der Wiederholungsversuche:** Wenn die Zustellraten nach Abschluss der Wiederholungsversuche niedrig bleiben, vergleichen Sie das Sendevolumen mit Ihren üblichen Mustern. Postfach-Anbieter können E-Mails verzögern, drosseln oder mit einem Soft Bounce versehen, wenn das Volumen im Verhältnis zu Ihrer Absender-Reputation ansteigt. Möglicherweise sehen Sie Nachrichten wie `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Verwenden Sie [Rate-Limiting für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), um große Sendungen zu dosieren, und lesen Sie [Gedrosselte IPs]({{site.baseurl}}/user_guide/channels/email/reporting#throttled-ips) für weitere Schritte zur Fehlerbehebung.
-- **Soft Bounces und Deferrals werden nicht in den Kampagnen-Analytics angezeigt:** Kampagnen-Analytics heben _Hard Bounces_ hervor, enthalten aber _Soft Bounces_ oder _Deferrals_ nicht als separate Spalten. Überwachen Sie diese Ereignisse im Nachrichten-Aktivitätsprotokoll, mit dem [Segmentfilter „Soft Bounced“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) oder über Currents-Deferral-Events. Informationen zur Funktionsweise von Wiederholungsversuchen finden Sie unter [Deferrals](#deferrals) weiter unten.
-- **Zustellprozentsätze, die sich möglicherweise nicht zu 100 % addieren:** _Zustellungen %_, _Bounce %_ und _Spam Rate %_ ergeben möglicherweise nicht 100 % der _Sendungen_. Nachrichten, die einen Soft Bounce haben und nach dem ESP-Wiederholungsfenster nie zugestellt werden, werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt, sodass ein Teil der _Sendungen_ in diesen Raten nicht berücksichtigt wird. Warten Sie, bis die Wiederholungsversuche abgeschlossen sind, bevor Sie die endgültige Zustellleistung beurteilen, oder verwenden Sie die obige Formel, um abzuschätzen, wie viele Sendungen sich noch im Wiederholungsversuch befinden.
+- **Soft Bounces und Deferrals werden nicht in den Kampagnen-Analytics angezeigt:** Kampagnen-Analytics heben _Hard Bounces_ hervor, enthalten aber _Soft Bounces_ oder _Deferrals_ nicht als separate Spalten. Überwachen Sie diese Ereignisse im Nachrichten-Aktivitätsprotokoll, mit dem [Segmentfilter „Soft Bounced“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) oder über Currents-Deferral-Events. Informationen zur Funktionsweise von Wiederholungsversuchen finden Sie unter [Deferrals](#deferrals).
+- **Zustellprozentsätze, die sich möglicherweise nicht zu 100 % addieren:** _Zustellungen %_, _Bounce %_ und _Spam Rate %_ ergeben möglicherweise nicht 100 % der _Sendungen_. Nachrichten, die einen Soft Bounce haben und nach dem ESP-Wiederholungsfenster nie zugestellt werden, werden nicht in den Kampagnen-_Zustellungen_ oder _Bounces_ gezählt, sodass ein Teil der _Sendungen_ in diesen Raten nicht berücksichtigt wird. Warten Sie, bis die Wiederholungsversuche abgeschlossen sind, bevor Sie die endgültige Zustellleistung beurteilen, oder verwenden Sie die Formel unter [Zustellungen und Bounces](#deliveries-and-bounces), um abzuschätzen, wie viele Sendungen sich noch im Wiederholungsversuch befinden.
 
 ##### Klicks ohne Öffnungs-Event {#clicks-without-an-open-event}
 
@@ -496,11 +509,11 @@ Ein Deferral bedeutet, dass eine E-Mail nicht sofort zugestellt werden konnte, B
 
 _Deferrals_ unterscheiden sich von _Soft Bounces_. Wenn während dieses Wiederholungszeitraums keine E-Mail erfolgreich zugestellt wurde, sendet Braze ein Soft-Bounce-Event pro versuchtem Kampagnenversand. Vor dem 25. Februar 2025 wurden diese Wiederholungsversuche als mehrere Soft Bounces für einen Kampagnenversand gezählt.
 
-Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Abfrage-Builder, SQL-Segmente, Snowflake-Datenfreigabe) verfügbar sind. Wenn Sie dies in Kampagnen- oder Canvas-Analytics einbeziehen möchten, [senden Sie uns bitte Produkt-Feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Abfrage-Builder, SQL-Segmente, Snowflake-Datenfreigabe) verfügbar sind. {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Geschätzte reale Öffnungsrate {#estimated-real-open-rate}
 
-Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten (siehe oben), können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
+Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten, können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
 
 Die _Estimated Real Open Rate_ wird 24 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 72 Stunden neu berechnet.
 
@@ -524,7 +537,7 @@ Nachdem eine E-Mail unsere Server verlassen hat, haben wir nur begrenzte Einblic
 2. Ein höheres positives Engagement korreliert in der Regel mit niedrigerer NHI. Daher ist es wichtig, die [Best Practices]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices) für E-Mail-Messaging zu befolgen. Dazu gehört, die ausdrückliche Erlaubnis Ihrer Nutzer:innen für den E-Mail-Versand einzuholen und nicht engagierte Abonnent:innen regelmäßig per Sunsetting zu entfernen.
 3. Verwenden Sie wenn möglich HTTPS-Links in Ihren E-Mails. NHI ist bei Absendern, die sichere Links verwenden, weniger verbreitet.
 4. Wenn Sie einen Ein-Klick-Abmeldeprozess verwenden, sollten Sie die Einrichtung eines [Präferenzzentrums]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview) in Betracht ziehen, das die Nutzer:innen zu einer Seite weiterleitet, auf der sie ihre Benachrichtigungseinstellungen bearbeiten und verwalten können. Dies kann hilfreich sein, da NHI Nutzer:innen versehentlich abmelden kann.
-5. Ziehen Sie [andere Metriken]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance) in Betracht, um den Erfolg Ihres E-Mail-Marketings zu messen, z. B. Conversions, App-Sitzungen oder Website-Besuche.
+5. Ziehen Sie [andere Metriken]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance) in Betracht, um den Erfolg Ihres E-Mail-Marketings zu messen, z. B. Konversionen, App-Sitzungen oder Website-Besuche.
 6. Fügen Sie einen versteckten Link in Ihre E-Mail-Kampagnen ein. Dieser Link sollte für Menschen nicht sichtbar sein, z. B. weißer Text auf weißem Hintergrund oder ein Interpunktionszeichen. Bots neigen dazu, alle Links anzuklicken. Daher können Sie davon ausgehen, dass Nutzer:innen, die Klick-Events auf dem unsichtbaren Link generieren, tatsächlich das Ergebnis von NHI sind – die Öffnung oder der Klick deutet also nicht unbedingt auf positives Engagement hin.
 
 {% elsif include.channel == "in-app message" %}
@@ -593,9 +606,9 @@ Die Berichterstattung für _Button 1 Clicks_ und _Button 2 Clicks_ funktioniert 
     </tbody>
 </table>
 
-#### Abweichungen zwischen Kontrollgruppen und Varianten {#discrepancies-between-control-groups-and-variants}
+#### Abweichungen zwischen Kontrollgruppen und Varianten
 
-Wenn eine In-App-Nachrichten-Kampagne eine 50/50-Variantenaufteilung hat, kann die Kontrollgruppe manchmal einen etwas höheren Prozentsatz aufweisen als die Variante (z. B. 51 % für die Kontrollgruppe und 49 % für die Variante). Diese Abweichung wird durch einen Unterschied in der Rendering-Zeit verursacht.
+Wenn eine In-App-Nachrichten-Kampagne eine 50/50-Variantenaufteilung hat, kann die Kontrollgruppe manchmal einen etwas höheren Prozentsatz aufweisen als die Variante (z. B. 51 % für die Kontrollgruppe und 49 % für die Variante). Diese Abweichung wird durch einen Unterschied in der Rendering-Zeit verursacht – zum Beispiel wenn Varianten-Nachrichten große Bilder oder templated Connected-Content verwenden und Nutzer:innen die Seite verlassen, bevor das Rendering abgeschlossen ist, während die Kontrollgruppe Impressionen protokolliert, ohne eine Nachricht anzuzeigen.
 
 Die Verteilung zwischen Kontroll- und Variantengruppen ist grundsätzlich annähernd gleichmäßig, aber die Zuweisung zu einer Variante erfolgt erst, wenn die In-App-Nachricht tatsächlich an das Gerät gesendet wird. Einige Nutzer:innen lösen die In-App-Nachricht möglicherweise nie aus (z. B. weil sie die Aktion, die das erforderliche angepasste Event triggert, nie ausführen), was zu Unterschieden in den Gruppengrößen führen kann.
 
@@ -690,7 +703,7 @@ Als weitere Möglichkeit empfehlen wir, ein angepasstes Event für Push-Abmeldun
 
 ##### Öffnungen verstehen {#understanding-opens}
 
-Auch wenn _Direct Opens_ und _Influenced Opens_ das Wort „Opens“ enthalten, handelt es sich um unterschiedliche Metriken. _Direct Opens_ bezieht sich auf das direkte Öffnen einer Push-Benachrichtigung, wie in der Tabelle oben beschrieben. _Influenced Opens_ bezieht sich auf das Öffnen einer App, ohne dass eine Push-Benachrichtigung innerhalb eines bestimmten Zeitraums nach Erhalt geöffnet wurde. _Influenced Opens_ bezieht sich also auf App-Öffnungen, nicht auf das Öffnen von Push-Benachrichtigungen.
+Auch wenn _Direct Opens_ und _Influenced Opens_ das Wort „Opens“ enthalten, handelt es sich um unterschiedliche Metriken. _Direct Opens_ bezieht sich auf das direkte Öffnen einer Push-Benachrichtigung. _Influenced Opens_ bezieht sich auf das Öffnen einer App, ohne dass eine Push-Benachrichtigung innerhalb eines bestimmten Zeitraums nach Erhalt geöffnet wurde. _Influenced Opens_ bezieht sich also auf App-Öffnungen, nicht auf das Öffnen von Push-Benachrichtigungen.
 
 ##### Push-Action-Buttons und Berichterstattung {#push-action-buttons-and-reporting}
 
@@ -867,7 +880,9 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
     </tbody>
 </table>
 
-#### Metriken zu Endnutzer:innen-Sperrung und -Meldung {#end-user-blocking-and-reporting-metrics}
+Wenn die Fehlerrate erhöht ist, lesen Sie [WhatsApp-Sendefehler untersuchen]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
+#### Metriken zu Sperrung und Meldung durch Endnutzer:innen {#end-user-blocking-and-reporting-metrics}
 
 Über das [Dashboard des WhatsApp Managers](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx) können Sie auf weitere Metriken zugreifen. Allerdings ist eine [Bestätigung Ihres Zugriffs](https://www.facebook.com/business/help/218116047387456) erforderlich, um alle verfügbaren Insights einzusehen.
 
@@ -899,7 +914,7 @@ Das Panel **Keyword Responses** zeigt Ihnen eine Zeitleiste der eingehenden Schl
 
 Hier können Sie auch die Antwortverteilung für jede Schlüsselwort-Kategorie einsehen, um die nächsten Schritte für das [Retargeting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) festzulegen und bequem [ein Segment zu erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
-![Die Tabelle unterhalb des Liniendiagramms mit Spalten für Keyword Category, Response Distribution und Retargeting, wobei Sie die Möglichkeit haben, ein Segment mit der Schlüsselwort-Kategorie zu erstellen.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![Eine Tabelle mit Spalten für Keyword Category, Response Distribution und Retargeting, wobei Sie die Möglichkeit haben, ein Segment mit der Schlüsselwort-Kategorie zu erstellen.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 
@@ -935,7 +950,7 @@ Zusätzlich zu den Braze-Analytics können Sie im WhatsApp Business Manager auf 
 
 ### SMS-Currents-Events
 
-Wie bei E-Mails empfängt Braze Events auf Nutzerebene im Zusammenhang mit einer SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden SMS-Events werden auch als Currents-Event über das Event [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
+Wie bei E-Mails empfängt Braze Events auf Nutzerebene im Zusammenhang mit einer SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden SMS-Events werden auch als Currents-Event über das Event [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
 
 {% alert note %}
 Eingehende Nachrichten werden nach 1.600 Zeichen abgeschnitten.
@@ -951,7 +966,7 @@ Bindungsberichte zeigen Ihnen die Raten, mit denen Ihre Nutzer:innen ein ausgew�
 
 ## Funnel-Bericht {#funnel-report}
 
-Funnel-Berichte bieten einen visuellen Bericht, mit dem Sie die Journeys Ihrer Kund:innen nach dem Erhalt einer Kampagne{% if include.channel != "banner" %} oder Canvas{% endif %} analysieren können. Wenn Ihre Kampagne {% if include.channel != "banner" %}oder Canvas {% endif %}eine Kontrollgruppe oder mehrere Varianten verwendet, können Sie nachvollziehen, wie sich die verschiedenen Varianten auf den Konversionstrichter ausgewirkt haben, und auf Grundlage dieser Daten optimieren.
+Funnel-Berichte bieten einen visuellen Bericht, mit dem Sie die Journeys Ihrer Kund:innen nach dem Erhalt einer Kampagne{% if include.channel != "banner" %} oder Canvas{% endif %} analysieren können. Wenn Ihre Kampagne {% if include.channel != "banner" %}oder Canvas {% endif %}eine Kontrollgruppe oder mehrere Varianten verwendet, können Sie nachvollziehen, wie sich die verschiedenen Varianten auf den Konversions-Funnel ausgewirkt haben, und auf Grundlage dieser Daten optimieren.
 
 Weitere Informationen finden Sie unter [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports).
 

@@ -11,17 +11,17 @@ alias: /landing_pages/
 
 > Las páginas de inicio de Braze son páginas web independientes que pueden impulsar tu estrategia de adquisición e interacción de usuarios.
 
-Utiliza las páginas de inicio para hacer crecer tu audiencia, capturar datos de usuario, promocionar ofertas especiales y apoyar campañas multicanal. Para una referencia de los bloques de arrastrar y soltar de las páginas de inicio, consulta [Bloques de editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
+Utiliza las páginas de inicio para hacer crecer tu audiencia, capturar datos de usuario, promocionar ofertas especiales y apoyar campañas multicanal. Para una referencia de los bloques de arrastrar y soltar de las páginas de inicio, consulta [Bloques de editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
-La disponibilidad de páginas de inicio y dominios personalizados depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador del éxito del cliente para empezar.
+La disponibilidad de páginas de inicio y dominios personalizados depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador de éxito de cliente para empezar.
 {% endalert %}
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder acceder, crear y publicar páginas de inicio, necesitas [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) de administrador o todos los permisos siguientes:
+Antes de poder acceder, crear y publicar páginas de inicio, necesitas [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) de administrador o todos los permisos siguientes:
 
 - View Landing Pages
 - Edit Landing Page Drafts
@@ -37,7 +37,7 @@ El número de páginas de inicio publicadas, dominios personalizados y caracter�
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Páginas de inicio publicadas | Cinco por empresa | 20 adicionales |
 | Dominios personalizados | Uno por empresa | Cinco adicionales |
-| [Personalización con Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | No disponible | Disponible |
+| [Personalización con Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages) | No disponible | Disponible |
 | Campos de formulario prerrellenados | No disponible | Disponible |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveles de plan" }
 
@@ -70,7 +70,7 @@ El tamaño del cuerpo de la página de inicio puede ser de hasta 500 KB.
 
 Sí, las páginas de inicio no personalizadas pueden gestionar escenarios de alto tráfico de forma eficaz. Cuando se solicita por primera vez una página de inicio no personalizada, Braze la almacena en caché a través de Cloudflare. Esto significa que todas las solicitudes posteriores del mismo enlace se sirven desde la caché, por lo que el rendimiento no se degrada en solicitudes de alto volumen. Esta caché dura 24 horas, y las vistas de páginas en caché no cuentan para los límites de velocidad.
 
-Para páginas de inicio personalizadas (que usan personalización con Liquid), los límites de velocidad se aplican a las solicitudes no almacenadas en caché. Para mantener un rendimiento óptimo, consulta [Consideraciones de personalización]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
+Para páginas de inicio personalizadas (que usan personalización con Liquid), los límites de velocidad se aplican a las solicitudes no almacenadas en caché. Para mantener un rendimiento óptimo, consulta [Consideraciones de personalización]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
 ### ¿Hay algún requisito técnico para publicar una página de inicio? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
@@ -80,6 +80,12 @@ No, no hay ningún requisito técnico.
 
 Sí. Usa el bloque **Custom Code** en el editor de arrastrar y soltar para añadir o editar HTML.
 
+### ¿Puedo usar iframes en las páginas de inicio? {#can-i-use-iframes-on-landing-pages}
+
+Sí. Agrega un bloque de **Custom Code** en el editor de arrastrar y soltar e incluye un elemento iframe con la URL del contenido que deseas incrustar.
+
+Si el sitio web incrustado restringe el enmarcado a través de `frame-ancestors` en su política de seguridad de contenido (CSP) o `X-Frame-Options`, es posible que la página no se cargue en el iframe. Braze no puede anular esa configuración: el sitio incrustado debe estar configurado para permitir el dominio de tu página de inicio.
+
 ### ¿Puedo crear un webhook dentro de una página de inicio? {#can-i-create-a-webhook-inside-a-landing-page}
 
 No, pero el evento **Submitted a Landing Page form** puede actuar como desencadenante para Canvas o campañas de webhook:
@@ -87,6 +93,6 @@ No, pero el evento **Submitted a Landing Page form** puede actuar como desencade
 - **Canvas:** Usa el evento **Submitted a Landing Page form** como desencadenante de entrada de Canvas y añade un paso de webhook.
 - **Campaign:** Usa el evento **Submitted a Landing Page form** para desencadenar en función del envío del formulario.
 
-Cuando la página no se envía a través de un canal de Braze (por ejemplo, a través de un sitio web o un anuncio), puede crearse un nuevo perfil de usuario al enviar el formulario, incluso si esa persona ya existe en Braze. Para gestionar esto, configura un Canvas desencadenado por **Submitted a Landing Page form** y añade un paso de webhook de Braze a Braze que llame al punto de conexión [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) para fusionar el nuevo perfil con el existente.
+Cuando la página no se envía a través de un canal de Braze (por ejemplo, a través de un sitio web o un anuncio), puede crearse un nuevo perfil de usuario al enviar el formulario, incluso si esa persona ya existe en Braze. Para gestionar esto, configura un Canvas desencadenado por **Submitted a Landing Page form** y añade un paso de webhook de Braze a Braze que llame al endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) para fusionar el nuevo perfil con el existente.
 
 Cuando usas la etiqueta de Liquid `landing_page_url` para compartir la página, los envíos de formularios se vinculan automáticamente al perfil de usuario existente. Después puedes hacer referencia a los atributos de usuario enviados en la página de inicio a través de Liquid para la creación de plantillas posteriores.

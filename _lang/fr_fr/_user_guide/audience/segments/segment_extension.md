@@ -15,12 +15,12 @@ La segmentation Braze vous permet de cibler les utilisateurs en fonction d'un é
 
 ## Pourquoi utiliser les extensions de segments ? {#why-use-segment-extensions}
 
-Les segments Braze vous offrent des outils de ciblage puissants pour créer des groupes dynamiques d'utilisateurs. Pour la plupart des cas d'utilisation, cela suffit pour atteindre votre audience efficacement. Les extensions de segments sont conçues pour des cas d'utilisation avancés où vous devez analyser des comportements remontant jusqu'à deux ans ou appliquer une logique complexe, sans compromettre la rétention des données ni les performances du système. Vous pouvez utiliser des requêtes [SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) (extensions de segments SQL) ou des données provenant de votre propre [entrepôt de données]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) pour affiner davantage votre audience.
+Les Segments Braze vous offrent des outils de ciblage puissants pour créer des groupes dynamiques d'utilisateurs. Pour la plupart des cas d'usage, cela suffit pour atteindre votre audience efficacement. Les extensions de segments sont conçues pour des cas d'usage avancés où vous devez analyser des comportements remontant jusqu'à deux ans ou appliquer une logique complexe, sans compromettre la rétention des données ni les performances du système. Vous pouvez utiliser des requêtes [SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) (extensions de segments SQL) ou des données provenant de votre propre [entrepôt de données]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) pour affiner davantage votre audience.
 
 Par exemple, la segmentation par défaut de Braze trouvera les utilisateurs correspondant à des critères spécifiques que vous définissez, comme identifier un utilisateur qui a récemment acheté l'un de vos produits. Les extensions de segments vous permettent d'aller plus loin, par exemple en identifiant les utilisateurs qui ont acheté une couleur particulière d'un produit spécifique au moins deux fois entre 18 et 24 mois auparavant. Les extensions de segments sont un enrichissement, pas une obligation. Si vous avez besoin de filtres plus avancés ou d'une fenêtre de rétrospection plus longue, c'est un excellent outil qui vous aide tout en optimisant votre utilisation des données.
 
 {% alert note %}
-Il existe une allocation par défaut de 25 extensions de segments actives par espace de travail à un moment donné. Si vous devez augmenter cette limite, contactez votre gestionnaire de la satisfaction client Braze pour discuter de votre cas d'utilisation.
+Il existe une allocation par défaut de 50 extensions de segments actives par espace de travail à un moment donné. Si vous devez augmenter cette limite, contactez votre gestionnaire du succès des clients Braze pour discuter de votre cas d'usage.
 {% endalert %}
 
 ## Créer une extension de segments {#creating-a-segment-extension}
@@ -33,8 +33,7 @@ Allez dans **Audience** > **Extensions de segments**.
 
 Depuis le tableau des extensions de segments, sélectionnez **Créer une nouvelle extension**, puis choisissez votre expérience de création d'extension de segments :
 
-- **Simple extension :** Créez une extension de segments centrée sur un seul événement à l'aide d'un formulaire guidé.
-Idéal lorsque vous ne souhaitez pas utiliser SQL.
+- **Simple extension :** Créez une extension de segments centrée sur un seul événement à l'aide d'un formulaire guidé. Idéal lorsque vous ne souhaitez pas utiliser SQL.
 - **Start with a template :** Créez un segment SQL avec un modèle personnalisable utilisant les données Snowflake.
 - **Incremental refresh :** Rédigez un segment SQL Snowflake qui actualise automatiquement les données des 2 derniers jours ou actualisez manuellement selon vos besoins. Idéal pour équilibrer précision et rentabilité.
 - **Full refresh :** Rédigez un segment SQL avec les données Snowflake ou toute [source connectée CDI]({{site.baseurl}}/cdi_segment_extensions) qui recalcule l'ensemble de l'audience lors d'une actualisation manuelle. Idéal lorsque vous avez besoin d'une vue complète et à jour de votre audience.
@@ -72,7 +71,7 @@ Si vous créez une extension de segments à l'aide d'un événement eCommerce re
 
 #### Segmentation par propriété d'événement {#event-property-segmentation}
 
-Pour augmenter la précision du ciblage, cochez la case **Add Property Filters**. Cela vous permettra d'affiner en fonction des propriétés spécifiques de votre achat ou événement personnalisé. Nous prenons en charge la segmentation par propriété d'événement basée sur les objets de type chaîne de caractères, numérique, valeur booléenne et date/heure.
+Pour augmenter la précision du ciblage, cochez la case **Add Property Filters**. Cela vous permettra d'affiner en fonction des propriétés spécifiques de votre achat ou événement personnalisé. Nous prenons en charge la segmentation par propriété d'événement basée sur les objets de type chaîne de caractères, numérique, booléen et date/heure.
 
 Pour les propriétés de type chaîne de caractères, vous pouvez saisir plusieurs valeurs à la fois. Dans l'exemple ci-dessous, ce filtre recherche les utilisateurs dont le statut est égal à l'une des valeurs suivantes : gold, silver ou bronze.
 
@@ -88,7 +87,7 @@ Si vous utilisez des événements eCommerce recommandés et ajoutez une proprié
 
 ![Détails de l'extension de segments avec un menu déroulant des propriétés disponibles.]({% image_buster /assets/img/segment/ecommerce_recommended_event_properties.png %})
 
-Nous prenons également en charge la segmentation basée sur les [propriétés de l'événement imbriqué]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). Dans le menu déroulant de comparaison, sélectionnez la comparaison qui correspond au type de données de votre propriété imbriquée. Vous pouvez utiliser la même syntaxe de propriété d'événement imbriqué pour ajouter des propriétés imbriquées pour tout événement eCommerce recommandé contenant des propriétés imbriquées. Pour plus d'informations sur les différentes propriétés imbriquées disponibles, consultez [Types d'événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events). Pour générer le schéma nécessaire pour le nom de propriété de votre extension de segments, suivez les étapes dans [Objets imbriqués dans les événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
+Nous prenons également en charge la segmentation basée sur les [propriétés de l'événement imbriqué]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). Dans le menu déroulant de comparaison, sélectionnez la comparaison qui correspond au type de données de votre propriété imbriquée. Vous pouvez utiliser la même syntaxe de propriété d'événement imbriqué pour ajouter des propriétés imbriquées pour tout événement eCommerce recommandé contenant des propriétés imbriquées. Pour plus d'informations sur les différentes propriétés imbriquées disponibles, consultez [Types d'événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Pour générer le schéma nécessaire pour le nom de propriété de votre extension de segments, suivez les étapes dans [Objets imbriqués dans les événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ![Segmentation basée sur les propriétés de l'événement imbriqué.]({% image_buster /assets/img/segment/nested_segment_extensions.png %})
 
@@ -114,7 +113,7 @@ Lorsqu'une extension de segments est en cours de traitement, Braze continuera d'
 
 ### Étape 6 : Utiliser votre extension dans un segment {#step-6-use-your-extension-in-a-segment}
 
-Après avoir créé une extension de segments, vous pouvez l'utiliser comme filtre lors de la création d'un segment ou de la définition d'une audience pour une campagne ou un Canvas. Commencez par choisir **Braze Segment Extension** dans la liste des filtres sous la section **Attributs utilisateur**.
+Après avoir créé une extension de segments, vous pouvez l'utiliser comme filtre lors de la création d'un segment ou de la définition d'une audience pour une Campaign ou un Canvas. Commencez par choisir **Braze Segment Extension** dans la liste des filtres sous la section **Attributs utilisateur**.
 
 ![Section « Filtres » avec un menu déroulant de filtres affichant « Braze Segment Extensions ».]({% image_buster /assets/img/segment/segment_extension7.png %})
 
@@ -136,7 +135,7 @@ Oui. Vous pouvez ajouter plusieurs événements ou référencer plusieurs tables
 
 Lorsque vous utilisez des extensions de segments de type **Simple extension**, vous pouvez sélectionner un événement personnalisé, un événement d'achat ou une interaction de canal. Cependant, vous pouvez combiner plusieurs extensions de segments avec un ET ou un OU lors de la création du segment par défaut.
 
-### Puis-je archiver des extensions de segments si elles existent dans une campagne active ? {#can-i-archive-segment-extensions-if-they-exist-in-an-active-campaign}
+### Puis-je archiver des extensions de segments si elles existent dans une Campaign active ? {#can-i-archive-segment-extensions-if-they-exist-in-an-active-campaign}
 
 Non. Avant de pouvoir archiver une extension de segments, vous devez la retirer de tous les envois de messages actifs.
 

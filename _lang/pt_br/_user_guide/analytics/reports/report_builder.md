@@ -67,7 +67,8 @@ Experimente diferentes configurações de opções de detalhamento para explorar
 8. Em seguida, dependendo das suas seleções na etapa 3, escolha adicionar manualmente ou automaticamente Campaigns, Canvas ou ambos ao seu relatório.
     - **Adicionar manualmente:** Escolha cada Campaign ou Canvas para incluir no relatório usando os filtros de datas de **Last Sent** e tags ou canais, ou pesquisando pelo nome da Campaign ou do Canvas.<br><br>![A seção "Adicionar manualmente Campaigns e Canvas" com uma lista de Campaigns para selecionar.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Adicionar automaticamente:** Defina regras para quais Campaigns ou Canvas incluir no relatório. Você só precisa selecionar um campo nesta página.
-        - Observe que, à medida que Campaigns ou Canvas adicionais atenderem às condições definidas nesta tela, eles serão automaticamente adicionados a execuções futuras do seu relatório.<br><br>![A seção "Adicionar automaticamente Campaigns e Canvas" com campos para definir regras sobre quais Campaigns e Canvas devem ser adicionados ao relatório.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - Observe que, à medida que Campaigns ou Canvas adicionais atenderem às condições definidas nesta tela, eles serão automaticamente adicionados a execuções futuras do seu relatório.
+        - Banners não é uma opção no menu suspenso **Channel**, então você não pode usar regras de canal para adicionar automaticamente Campaigns ou Canvas de Banner. Ainda assim, é possível incluir KPIs de Banner nas métricas do seu relatório.<br><br>![A seção "Adicionar automaticamente Campaigns e Canvas" com campos para definir regras sobre quais Campaigns e Canvas devem ser adicionados ao relatório.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Execute o relatório selecionando **Save & Run**.
 
 {% alert note %}
@@ -79,7 +80,7 @@ O relatório pode levar alguns minutos para ser executado, dependendo do interva
 Sua seleção de **Rows** afeta as métricas que você pode selecionar.
 
 {% alert tip %}
-Se você deseja gerar relatórios sobre variantes ou etapas de Canvas, selecione **Canvases** para as linhas e deixe o campo vazio ou selecione **Date** como detalhamento. Isso cria um menu suspenso **Canvas View** para ver métricas apenas do Canvas, ou agrupar métricas por variante, etapa ou mensagem.
+Se você deseja gerar relatórios sobre variantes ou etapas de Canvas, selecione **Canvases** para as linhas e deixe o campo vazio ou selecione **Date** como detalhamento. Isso cria um menu suspenso **Canvas View** para visualizar métricas apenas do Canvas, ou agrupar métricas por variante, etapa ou mensagem.<br><br> Quando você agrupa por etapa, a tabela de prévia durante a configuração do relatório exibe no máximo 50 linhas. Execute o relatório ou exporte-o como CSV para visualizar todas as linhas.
 
 ![O menu suspenso "Canvas View" aberto.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}

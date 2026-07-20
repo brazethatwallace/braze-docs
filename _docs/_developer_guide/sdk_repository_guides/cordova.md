@@ -6,6 +6,8 @@ description: "Braze Cordova SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Cordova SDK repository guide
+
 ## About the Braze Cordova SDK
 
 The Braze Cordova SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.

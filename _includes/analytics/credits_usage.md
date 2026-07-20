@@ -23,7 +23,7 @@ Credits usage overview data is limited to the contract period, which is displaye
 
 ### Credits usage over contract
 
-The **Message credits usage over contract** graph shows your usage over the selected period of time. The granularity of this chart depends on your selected time frame. View export options by selecting the menu in the top right corner of the chart.
+The **Message credits usage over contract** graph shows your usage over the selected period of time. The granularity of this chart depends on your selected time frame. View export options by selecting the menu in the chart menu.
 
 ![Credit usage over contract graph.]({% image_buster /assets/img/app_settings/credit_usage_over_contract1.png %})
 
@@ -205,6 +205,8 @@ Use **Export** to download the table data.
 ### Agent Console
 
 **Agent Console Credits Usage** shows Agent Console credit usage across all accounts. Tiles show total credits consumed and total invocations. The **Usage by account** table includes **Braze workspace**, **Agent name**, **Model owner**, **Total invocations**, **Credit ratio**, and **Credits**. When data is available, **Last updated** shows when the table was refreshed.
+
+To plan daily spend before launch, compare these ratios with each agent's **Daily action credit cost limit** in Agent Console (daily invocation limit × credit ratio). See [Daily invocation and credit limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 
 #### Filters
 

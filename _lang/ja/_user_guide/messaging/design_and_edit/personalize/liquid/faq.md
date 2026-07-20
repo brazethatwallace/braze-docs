@@ -18,15 +18,15 @@ Brazeは現在、ShopifyのLiquidを100%サポートしているわけではな�
 
 ### BrazeでLiquidスニペットを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-snippets-in-braze}
 
-多くの場合、CampaignやCanvasesに移動し、メール本文やSegmentsなどの領域でパーソナライゼーションモーダルにLiquidを挿入することで、Liquidスニペットを組み込むことができます。
+多くの場合、キャンペーンやキャンバスに移動し、メール本文やセグメントなどの領域でパーソナライゼーションモーダルにLiquidを挿入することで、Liquidスニペットを組み込むことができます。
 
 #### 詳しくはどこで学べますか？ {#where-can-i-learn-more}
 
-Liquidの詳細については、ガイド付きの[Liquidによるダイナミックパーソナライゼーション](https://learning.braze.com/path/dynamic-personalization-with-liquid) Braze Learningパスをご覧ください。また、[Liquidユースケースライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)を参照して、Liquidを使用したパーソナライゼーションの例やインスピレーションを得ることもできます。
+Liquidの詳細については、ガイド付きの[Liquidによるダイナミックパーソナライゼーション](https://learning.braze.com/path/dynamic-personalization-with-liquid) Braze Learningパスをご覧ください。また、[Liquidユースケースライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)を参照して、Liquidを使用したパーソナライゼーションの例やインスピレーションを得ることもできます。
 
-### パーソナライゼーションにおけるLiquidとコネクテッドコンテンツの違いは何ですか？ {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
+### パーソナライゼーションにおけるLiquidとConnected Contentの違いは何ですか？ {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
-Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パーソナライゼーションにも使用されますが、このデータはBraze内に保存されたデータではなく、外部エンドポイントから取得されます。メッセージのパーソナライズ方法を拡張する方法について詳しくは、専用の[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)セクションをご覧ください。
+BrazeのConnected Contentは、Liquidタグの一例です。パーソナライゼーションにも使用されますが、このデータはBraze内に保存されたデータではなく、外部エンドポイントから取得されます。メッセージのパーソナライズ方法を拡張する方法について詳しくは、専用の[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)セクションをご覧ください。
 
 ### Liquidテンプレートとは何ですか？ {#what-is-liquid-templating}
 
@@ -55,16 +55,16 @@ Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パ
 {% raw %}
 ### {{campaign.${name}}}と{{campaign.${message_name}}}の違いは何ですか？ {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
-`{{campaign.${name}}}`と`{{campaign.${message_name}}}`はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもCampaignの属性を参照します。`{{campaign.${name}}}`はCampaignの名前を示し、`{{campaign.${message_name}}}`はメッセージバリアントの名前です。
+`{{campaign.${name}}}`と`{{campaign.${message_name}}}`はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもキャンペーンの属性を参照します。`{{campaign.${name}}}`はキャンペーンの名前を示し、`{{campaign.${message_name}}}`はメッセージバリアントの名前です。
 {% endraw %}
 
-URLやクエリ文字列での使用（名前に`%`やスペースが含まれる場合など）については、[URLでのCampaign名]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls)を参照してください。
+URLやクエリ文字列での使用（名前に`%`やスペースが含まれる場合など）については、[URLでのキャンペーン名]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls)を参照してください。
 
 ### ネストされたオブジェクトでLiquidを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-with-nested-objects}
 
-Brazeには、メッセージで使用できるSegments用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するセグメントを作成できます。
+Brazeには、メッセージで使用できるセグメント用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するセグメントを作成できます。
 
-詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation)をご覧ください。
+詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects)をご覧ください。
 
 ### イベント属性を使用して、イベントがトリガーするメッセージをパーソナライズするにはどうすればよいですか？ {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -89,7 +89,7 @@ Liquidはネイティブで配列の配列をサポートしていません。�
 - `assign`は、ブール値、数値、単純な文字列など、単一の値を格納するシンプルな変数に使用します。同じ行で単一のフィルターを適用することもできます。
 - `capture`は、複数の変数、文字列、または複雑な式を含む可能性のあるテキストブロックを格納するために使用します。
 
-他のLiquid変数やカスタム属性をパラメーターとして利用するURLなど、単一の`assign`ステートメントでは複雑すぎる値の場合に`capture`を使用してください。`capture`は、コネクテッドコンテンツ呼び出しの本文でLiquid変数を実装する場合にも推奨されます。
+他のLiquid変数やカスタム属性をパラメーターとして利用するURLなど、単一の`assign`ステートメントでは複雑すぎる値の場合に`capture`を使用してください。`capture`は、Connected Content呼び出しの本文でLiquid変数を実装する場合にも推奨されます。
 
 #### 例 {#examples}
 
@@ -120,13 +120,13 @@ Join our VIP program to unlock free shipping.
 
 ### Liquid変数は件名と本文の間で引き継がれますか？ {#do-liquid-variables-carry-between-subject-line-and-body}
 
-いいえ。Brazeは各メッセージコンポーネント（件名、HTML本文、プリヘッダー、プッシュタイトルなど）を個別にレンダリングします。あるフィールドで行った割り当てやキャプチャは、別のフィールドでは使用できません。値が必要な各フィールドでLiquidまたはコネクテッドコンテンツの呼び出しを繰り返してください。
+いいえ。Brazeは各メッセージコンポーネント（件名、HTML本文、プリヘッダー、プッシュタイトルなど）を個別にレンダリングします。あるフィールドで行った割り当てやキャプチャは、別のフィールドでは使用できません。値が必要な各フィールドでLiquidまたはConnected Contentの呼び出しを繰り返してください。
 
 ### forループロジックとは何ですか？また、どのように使用できますか？ {#what-is-for-loop-logic-and-how-can-i-use-it}
 
 forループは[反復タグ](https://shopify.github.io/liquid/tags/iteration/)とも呼ばれます。Liquidスニペットでforループロジックを使用すると、条件が満たされるまでLiquidブロックを繰り返し処理できます。
 
-Brazeでは、配列カスタム属性のアイテムのチェック、または[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)呼び出しの応答で返される値やオブジェクトのリストのチェックに使用できます。具体的には、forループロジックをメッセージングの一部として使用して、製品が在庫にあるかどうか、または製品が最低評価を満たしているかどうかを確認できます。
+Brazeでは、配列カスタム属性のアイテムのチェック、または[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)、[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)呼び出しの応答で返される値やオブジェクトのリストのチェックに使用できます。具体的には、forループロジックをメッセージングの一部として使用して、製品が在庫にあるかどうか、または製品が最低評価を満たしているかどうかを確認できます。
 
 例えば、「Games」というカタログに「cheap_games」というセレクションがあるとします。「cheap_games」のゲームタイトルを取得するには、次のLiquidスニペットを使用できます：
 
@@ -143,13 +143,48 @@ Brazeでは、配列カスタム属性のアイテムのチェック、または
 
 ### 中止ロジックとは何ですか？また、どのように使用できますか？ {#what-is-abort-logic-and-how-can-i-use-it}
 
-中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングCampaignでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)で詳しくご覧ください。
+中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングキャンペーンでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)で詳しくご覧ください。
 
 ### `abort_message`タグ内でLiquidを使用できますか？ {#can-i-use-liquid-inside-the-abort_message-tag}
 
 いいえ。{% raw %}`{% abort_message %}`{% endraw %}タグは引用符で囲まれた静的な文字列のみを受け付け、Liquidパーソナライゼーションは使用できません。条件付きの中止動作が必要な場合は、タグの前に他のLiquidロジックを使用してください。
 
-## Canvas、カタログ、トリガープロパティ {#canvas-catalogs-and-trigger-properties}
+### 電話番号をLiquidでマスクするにはどうすればよいですか？ {#how-do-i-mask-phone-numbers-with-liquid}
+
+`slice`フィルターを使用して特定の桁を抽出し、`append`フィルターを使用してマスク文字と組み合わせることで、電話番号をマスクできます。
+
+#### 下4桁以外をすべてマスクする {#mask-all-but-the-last-four-digits}
+
+10桁の電話番号を`******7890`と表示するには：
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### 最初の3桁と最後の4桁を表示する {#show-the-first-three-and-last-four-digits}
+
+10桁の電話番号を`123***7890`と表示するには：
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
+
+## キャンバス、カタログ、トリガープロパティ {#canvas-catalogs-and-trigger-properties}
 
 ### APIトリガーのLiquidがBrazeで失敗するのはなぜですか？ {#why-is-my-api-triggered-liquid-failing-in-braze}
 
@@ -157,13 +192,13 @@ Brazeでは、配列カスタム属性のアイテムのチェック、または
 よくある原因は、余分な波括弧のペアです。例えば、`{{{api_trigger_properties.${attribute_key}}}}`は有効なBrazeパーソナライゼーション構文ではありません。開き波括弧2つと閉じ波括弧2つを正確に使用してください：`{{api_trigger_properties.${attribute_key}}}`。
 {% endraw %}
 
-### Canvasコンテキストプロパティにサイズ制限はありますか？ {#are-there-size-limits-for-canvas-context-properties}
+### キャンバスコンテキストプロパティにサイズ制限はありますか？ {#are-there-size-limits-for-canvas-context-properties}
 
-Brazeは[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)にハードリミットを設けていませんが、ペイロードは約1 KB（約1,000文字）以下に抑えてください。大きなオブジェクトはメモリ使用量を増加させ、大量送信時のメッセージレンダリングを遅延させる可能性があります。
+Brazeは[キャンバスコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)にハードリミットを設けていませんが、ペイロードは約1 KB（約1,000文字）以下に抑えてください。大きなオブジェクトはメモリ使用量を増加させ、大量送信時のメッセージレンダリングを遅延させる可能性があります。
 
 ### ダッシュボードで特定のデータタイプをプレビューするとLiquidエラーが発生するのはなぜですか？ {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
 
-一部の[Canvasコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)タイプは、比較や計算で使用する前にLiquidでの型変換が必要です。例えば、数値の動作が必要な場合：
+一部の[キャンバスコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)タイプは、比較や計算で使用する前にLiquidでの型変換が必要です。例えば、数値の動作が必要な場合：
 
 {% raw %}
 ```liquid
@@ -217,8 +252,8 @@ Content BlockをLiquidでテンプレート化すると、ブロック内のモ�
 
 このエラーは通常、波括弧の過不足を示しています。{% raw %}`{{ }}`{% endraw %}を別のLiquidタグ式の中にネストしないでください。例えば、属性参照を追加の波括弧で囲むのではなく、{% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %}を使用してください。
 
-### アプリ内メッセージでコネクテッドコンテンツのリトライが利用できないのはなぜですか？ {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+### アプリ内メッセージでConnected Contentのリトライが利用できないのはなぜですか？ {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
 
 {% raw %}
-リトライ付きの`{% connected_content %}`タグは、一部のアプリ内メッセージ形式を含むすべてのメッセージタイプでサポートされているわけではありません。リトライパラメーターを削除するか、リトライ付きコネクテッドコンテンツ呼び出しにサポートされているチャネルを使用してください。
+リトライ付きの`{% connected_content %}`タグは、一部のアプリ内メッセージ形式を含むすべてのメッセージタイプでサポートされているわけではありません。リトライパラメーターを削除するか、リトライ付きConnected Content呼び出しにサポートされているチャネルを使用してください。
 {% endraw %}

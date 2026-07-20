@@ -57,11 +57,11 @@ guide_featured_list:
 
 | 목표 | 추천 기능 |
 | --- | --- |
-| 사용자의 컨텍스트를 활용하여 사용자별 메시지 카피를 개인화 | Braze 에이전트(Canvas 또는 카탈로그), 일회성 초안 카피의 경우 생성형 AI |
-| 시간이 지남에 따라 가장 성과가 좋은 메시지 콘텐츠(제목, CTA 등)를 최적화 | 콘텐츠 최적화 프로그램(이메일, 푸시 알림 또는 SMS/MMS/RCS) 또는 위닝 배리언트 |
-| 오퍼, 채널, 타이밍 전반에 걸쳐 1:1 의사 결정으로 비즈니스 측정기준(매출, 전환)을 극대화 | 결정 스튜디오 |
-| 고객이탈 가능성이 높거나 특정 이벤트를 수행할 가능성이 높은 사용자를 찾기 | Predictive Churn 또는 Predictive Events |
-| 메시지에서 카탈로그의 특정 제품을 추천 | 아이템 추천 |
-| 사용자별로 최적의 시간 또는 최적의 채널로 전송 | Intelligent Timing, 인텔리전트 채널 |
-| 대시보드에서 직접 카피와 크리에이티브를 생성하거나 다듬기 | 생성형 AI(카피라이팅, 이미지, QA), 도움이 필요하면 Operator |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 사용자의 컨텍스트를 활용하여 사용자별 메시지 카피를 개인화 | [Braze 에이전트]({{site.baseurl}}/user_guide/brazeai/agents)([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) 또는 [카탈로그]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); 일회성 초안 카피의 경우 [생성형 AI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| 시간이 지남에 따라 가장 성과가 좋은 메시지 콘텐츠(제목, CTA 등)를 최적화 | [콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)(이메일, 푸시 알림 또는 SMS/MMS/RCS) 또는 [위닝 배리언트]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| 오퍼, 채널, 타이밍 전반에 걸쳐 1:1 의사 결정으로 비즈니스 측정기준(매출, 전환)을 극대화 | [결정 스튜디오]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| 고객이탈 가능성이 높거나 특정 이벤트를 수행할 가능성이 높은 사용자를 찾기 | [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) 또는 [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| 메시지에서 카탈로그의 특정 제품을 추천 | [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| 사용자별로 최적의 시간 또는 최적의 채널로 전송 | [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| 대시보드에서 직접 카피와 크리에이티브를 생성하거나 다듬기 | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="기능 개요" }

@@ -16,7 +16,7 @@ tool:
 
 ## Zugriff auf Daten zu Ihren Segmenten und Mitgliedschaften {#accessing-data-about-your-segments-and-membership}
 
-Die Seite **Segments** in Ihrem Braze-Dashboard enthält eine Zusammenfassung aller Ihrer Segmente und ermöglicht es Ihnen, detaillierte Daten für jedes einzelne einzusehen. Suchen Sie auf dieser Seite nach dem Namen eines Segments und wählen Sie es aus, um es zu bearbeiten und seine Daten anzuzeigen. Informationen zum Erstellen eines Segments finden Sie unter [Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#creating-a-segment).
+Die Seite **Segments** in Ihrem Braze-Dashboard enthält eine Zusammenfassung aller Ihrer Segmente und ermöglicht es Ihnen, detaillierte Daten für jedes einzelne einzusehen. Suchen Sie auf dieser Seite nach dem Namen eines Segments und wählen Sie es aus, um es zu bearbeiten und seine Daten anzuzeigen. Informationen zum Erstellen eines Segments finden Sie unter [Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![Seite „Segments“]({% image_buster /assets/img_archive/segments.png %})
 
@@ -112,14 +112,14 @@ Bevor Sie Ihren Bericht generieren, navigieren Sie zum Tab **Variables**, um Inf
 
 Die Variablen umfassen:
 
-- **Kampagne oder Canvas:** Sie können eine oder mehrere Kampagnen oder Canvases einbeziehen (es gibt kein Maximum für die Anzahl der Kampagnen oder Canvases, die Sie angeben können). Wenn Sie keine Kampagnen oder Canvases angeben, enthält der Bericht alle Kampagnen oder Canvases aus Ihrem gewählten Zeitraum.
-- **Variante:** Wenn Sie eine Vorlage verwenden, die Aufschlüsselungen auf Variantenebene bietet, können Sie nach Auswahl einer Kampagne oder eines Canvas Varianten innerhalb dieser Kampagne oder dieses Canvas auswählen. Wenn Sie mehrere Varianten auswählen, werden Ihre Ergebnisse nach Variante gruppiert.
+- **Campaign oder Canvas:** Sie können eine oder mehrere Campaigns oder Canvases einbeziehen (es gibt kein Maximum für die Anzahl der Campaigns oder Canvases, die Sie angeben können). Wenn Sie keine Campaigns oder Canvases angeben, enthält der Bericht alle Campaigns oder Canvases aus Ihrem gewählten Zeitraum.
+- **Variante:** Wenn Sie eine Vorlage verwenden, die Aufschlüsselungen auf Variantenebene bietet, können Sie nach Auswahl einer Campaign oder eines Canvas Varianten innerhalb dieser Campaign oder dieses Canvas auswählen. Wenn Sie mehrere Varianten auswählen, werden Ihre Ergebnisse nach Variante gruppiert.
 - **Schritt:** Wenn Sie eine Canvas-Variante auswählen, können Sie einen Canvas-Schritt auswählen. Sie können keinen Schritt auswählen, ohne zuvor eine Canvas-Variante ausgewählt zu haben.
 - **Zeitraum:** Legen Sie den Zeitraum fest, aus dem Sie Daten abrufen möchten. Wenn kein Zeitraum angegeben wird, werden standardmäßig die letzten 30 Tage verwendet.
 - **Produktname:** Wenn Sie einen Bericht für Kaufdaten erstellen, können Sie ein bestimmtes Produkt angeben, für das Daten abgerufen werden sollen.
 - **Conversion-Fenster:** Immer erforderlich für Berichte mit Umsatz- und Kaufdaten. Die Anzahl der Tage nach E-Mail-Empfang oder -Klick, in denen Braze Käufe oder Umsatz zuordnen soll.
 - **Segmente:** Geben Sie die Segmente an, nach denen die Daten aufgeschlüsselt werden sollen. Wenn keine angegeben werden, wird der Bericht für alle Segmente ausgeführt, für die Analytics-Tracking aktiviert ist.
-- **Tags:** Geben Sie Tags unter **Variables** an, um Ihren Bericht für alle Kampagnen oder Canvases mit bestimmten Tags auszuführen. Sie können mehrere Tags einbeziehen. Wenn Sie sowohl Tags als auch bestimmte Kampagnen oder Canvases zu einem Bericht hinzufügen, enthält Ihr Bericht Daten aus Ihren Tags und den angegebenen Kampagnen oder Canvases.
+- **Tags:** Geben Sie Tags unter **Variables** an, um Ihren Bericht für alle Campaigns oder Canvases mit bestimmten Tags auszuführen. Sie können mehrere Tags einbeziehen. Wenn Sie sowohl Tags als auch bestimmte Campaigns oder Canvases zu einem Bericht hinzufügen, enthält Ihr Bericht Daten aus Ihren Tags und den angegebenen Campaigns oder Canvases.
 
 ## Datenverfügbarkeit {#data-availability}
 
@@ -128,6 +128,6 @@ Daten sind für Zeiträume verfügbar, in denen beide der folgenden Bedingungen 
 1. [Segment-Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ist für die Segmente aktiviert, für die Sie Daten einsehen möchten.
 2. Das Feature „Performance-Daten nach Segment“ ist aktiviert.
 
-Sie können nicht auf Daten aus Zeiträumen zugreifen, die vor der Aktivierung dieses Features für Ihr Unternehmen liegen. Wenn beispielsweise Analytics-Tracking für Segment A am 1. Oktober aktiviert wird und dieses Feature für Ihr Unternehmen am 2. Oktober aktiviert wird, können Sie nur Daten für Segment A für die Kampagnen und Canvases einsehen, die nach dem 2. Oktober Metriken aufgezeichnet haben.
+Sie können nicht auf Daten aus Zeiträumen zugreifen, die vor der Aktivierung dieses Features für Ihr Unternehmen liegen. Wenn beispielsweise Analytics-Tracking für Segment A am 1. Oktober aktiviert wird und dieses Feature für Ihr Unternehmen am 2. Oktober aktiviert wird, können Sie nur Daten für Segment A für die Campaigns und Canvases einsehen, die nach dem 2. Oktober Metriken aufgezeichnet haben.
 
-Wenn Ihr Unternehmen dieses Feature am 2. Oktober aktiviert hat und Analytics-Tracking für Segment B am 3. Oktober aktiviert wurde, können Sie nur Daten für Segment B für die Kampagnen und Canvases einsehen, die nach dem 3. Oktober Metriken aufgezeichnet haben.
+Wenn Ihr Unternehmen dieses Feature am 2. Oktober aktiviert hat und Analytics-Tracking für Segment B am 3. Oktober aktiviert wurde, können Sie nur Daten für Segment B für die Campaigns und Canvases einsehen, die nach dem 3. Oktober Metriken aufgezeichnet haben.

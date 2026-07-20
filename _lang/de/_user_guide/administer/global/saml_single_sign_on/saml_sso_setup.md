@@ -95,6 +95,10 @@ Sie können die Mitglieder Ihrer Organisation darauf beschränken, sich nur mit 
 
 Durch die Aktivierung von Einschränkungen können sich die Braze-Nutzer:innen Ihres Unternehmens nicht mehr mit einem Passwort anmelden, selbst wenn sie sich zuvor mit einem Passwort angemeldet haben.
 
+{% alert important %}
+Nach der Erzwingung von SSO gibt es keine Fallback-Option für die Anmeldung, wenn die SSO-Authentifizierung fehlschlägt. Stellen Sie vor der Aktivierung der SSO-Erzwingung sicher, dass Ihre SSO-Konfiguration korrekt ist, alle Zertifikate aktuell und erneuert sind und Ihre Sicherheitseinstellungen ordnungsgemäß verwaltet werden, um Anmeldeprobleme zu vermeiden.
+{% endalert %}
+
 ## Einen SAML-Trace erhalten {#obtaining-a-saml-trace}
 
 Wenn Sie Anmeldeprobleme im Zusammenhang mit SSO haben, kann Ihnen ein SAML-Trace bei der Fehlerbehebung Ihrer SSO-Verbindung helfen, indem er zeigt, was in den SAML-Anfragen gesendet wird.
@@ -199,5 +203,5 @@ Wenn sich einige Nutzer:innen nicht mit Google SSO anmelden können, überprüfe
 
 Nach der Einrichtung von SAML SSO können Sie:
 
-- [Nur-SSO-Anmeldung erzwingen]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) in Ihren Sicherheitseinstellungen, um Nutzer:innen daran zu hindern, sich mit einem Passwort anzumelden.
+- [Nur-SSO-Anmeldung erzwingen]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) in Ihren Sicherheitseinstellungen, um Nutzer:innen daran zu hindern, sich mit einem Passwort anzumelden.
 - [SAML Just-in-Time-Bereitstellung einrichten]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning), damit neue Nutzer:innen bei ihrer ersten SSO-Anmeldung automatisch Braze-Konten erstellen.

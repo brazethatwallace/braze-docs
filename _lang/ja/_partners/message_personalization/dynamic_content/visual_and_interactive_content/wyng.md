@@ -22,7 +22,7 @@ BrazeとWyngの統合により、Wyngのエクスペリエンスから取得し�
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Wyngアカウント | このパートナーシップを活用するには、Wyngアカウントが必要です。 |
-| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これはBrazeダッシュボードの**Settings** > **API Keys**から作成できます。 |
+| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これはBrazeダッシュボードの**設定** > **API キー**から作成できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}

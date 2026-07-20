@@ -3,12 +3,12 @@ nav_title: Journaux de synchronisation et observabilité
 article_title: Journaux de synchronisation et observabilité
 page_order: 8
 page_type: reference
-description: "Cette page fournit un aperçu des fonctionnalités d'observabilité disponibles dans l'Ingestion de données cloud."
+description: "Cette page fournit un aperçu des fonctionnalités d'observabilité disponibles dans l'ingestion de données cloud."
 ---
 
 # Journaux de synchronisation et observabilité {#sync-logs-and-observability}
 
-> Le tableau de bord **Sync Log** de l'Ingestion de données cloud (CDI) vous permet de surveiller toutes les données traitées par CDI, de vérifier si les données ont été synchronisées avec succès et de diagnostiquer tout problème lié à des données « incorrectes » ou manquantes.
+> Le tableau de bord **Sync Log** de l'ingestion de données cloud (CDI) vous permet de surveiller toutes les données traitées par CDI, de vérifier si les données ont été synchronisées avec succès et de diagnostiquer tout problème lié à des données « incorrectes » ou manquantes.
 
 Pour accéder aux journaux de synchronisation, rendez-vous dans **Paramètres des données** > **Ingestion de données cloud** et sélectionnez l'onglet **Sync Log**.
 
@@ -27,7 +27,7 @@ La page principale du **Sync Log** fournit un aperçu de haut niveau de toutes v
 Les journaux de synchronisation fournissent également les détails suivants pour chaque synchronisation :
 
 * **Nom de la synchronisation :** le nom de la configuration de synchronisation.
-* **ID d'exécution :** un identifiant unique pour une exécution spécifique de la synchronisation. Sélectionnez cet ID pour afficher plus de détails. Il peut également être utilisé dans les [endpoints de l'API CDI]({{site.baseurl}}/api/endpoints/cdi/) ou pour référencer une exécution de synchronisation auprès de l'assistance Braze.
+* **ID d'exécution :** un identifiant unique pour une exécution spécifique de la synchronisation. Sélectionnez cet ID pour afficher plus de détails ou pour référencer une exécution de synchronisation auprès de l'assistance Braze.
 * **État :** le statut de l'exécution (réussi, succès partiel, erreur, en cours).
 * **Nouvelles lignes lues depuis la source :** le nombre de nouvelles lignes extraites de votre entrepôt de données pour cette exécution.
 * **Résultats :** une ventilation du nombre de lignes ayant réussi ou échoué au cours de l'exécution.
@@ -69,7 +69,7 @@ Ce tableau offre une visibilité au niveau des lignes sur les données traitées
 
 #### Affichage des payloads {#viewing-payloads}
 
-Pour afficher les données exactes envoyées à Braze pour une ligne spécifique, sélectionnez **View payload** dans la colonne **Source** payload. Cela affiche le payload JSON brut qui a été traité pour cet utilisateur.
+Pour afficher les données exactes envoyées à Braze pour une ligne spécifique, sélectionnez **View payload** dans la colonne **Source payload**. Cela affiche le payload JSON brut qui a été traité pour cet utilisateur.
 
 #### Exportation des journaux de synchronisation {#exporting-sync-logs}
 

@@ -6,14 +6,16 @@ description: "GitHubからミラーリングされたBraze Swift SDK READMEリ�
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Swift SDKリポジトリガイド {#swift-sdk-repository-guide}
+
 ## Braze Swift SDKについて {#about-the-braze-swift-sdk}
 
 Braze Swift SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリに統合するのに役立ちます。
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction)
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift)
+- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
 
 ## クイックスタート {#quickstart}
 
@@ -49,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-高度な統合オプションについては、[Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift)を参照してください。
+高度な統合オプションについては、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)を参照してください。
 
 ## バージョンサポート {#version-support}
 
@@ -85,13 +87,13 @@ Xcode|26.0+ (17A324)
 <sup>1</sup> _tvOSではプッシュ通知はサポートされていません_<br/>
 <sup>2</sup> _tvOSおよびvisionOSではジオフェンスモニタリングはサポートされていません_
 
-[分析]: {{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
-[プッシュ通知]: {{site.baseurl}}/user_guide/message_building_by_channel/push
-[In-App Messages]: {{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages
-[Content Cards]: {{site.baseurl}}/user_guide/message_building_by_channel/content_cards
-[ロケーション分析とジオフェンスモニタリング]: {{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences
-[リッチプッシュ通知]: {{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/
-[Push Stories]: {{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
+[分析]: https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
+[プッシュ通知]: https://www.braze.com/docs/user_guide/message_building_by_channel/push
+[In-App Messages]: https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages
+[Content Cards]: https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards
+[ロケーション分析とジオフェンスモニタリング]: https://www.braze.com/docs/user_guide/engagement_tools/locations_and_geofences
+[リッチプッシュ通知]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/ios/rich_notifications/
+[Push Stories]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
 
 ## サンプル {#examples}
 
@@ -109,7 +111,7 @@ Xcode|26.0+ (17A324)
 
 ## お問い合わせ {#contact}
 
-ご質問がある場合は、[support@braze.com](mailto:support@braze.com)までお問い合わせください。
+ご質問がある場合は、Brazeテクニカルサポートまでお問い合わせください。
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

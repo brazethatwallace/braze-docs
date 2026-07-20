@@ -25,7 +25,7 @@ L'intégration de Braze et Airbridge vous permet de transmettre toutes les donn�
 | Compte Airbridge | Un compte Airbridge est nécessaire pour profiter de ce partenariat. |
 | Application iOS ou Android | Cette intégration prend en charge les applications iOS et Android. En fonction de votre plateforme, des extraits de code peuvent être nécessaires dans votre application. |
 | SDK Airbridge | Outre le SDK Braze requis, vous devez installer le SDK Airbridge [Android](https://help.airbridge.io/en/developers/android-sdk) ou [iOS](https://help.airbridge.io/en/developers/ios-sdk). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -196,11 +196,11 @@ Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologi
 
 Ici, vous trouverez l'endpoint REST et pourrez générer votre clé d'importation des données Braze. Une fois la clé générée, vous pouvez créer une nouvelle clé ou invalider une clé existante. La clé d'importation des données et l'endpoint REST sont utilisés à l'étape suivante lors de la configuration d'un postback dans le tableau de bord d'Airbridge.
 
-![]({% image_buster /assets/img/airbridge/airbridge_integration_step_1.png %})
+![Page partenaire Braze Airbridge affichant les champs de la clé d'importation des données et de l'endpoint REST.]({% image_buster /assets/img/airbridge/airbridge_integration_step_1.png %})
 
 ### Étape 3 : Configurer Braze dans le tableau de bord d'Airbridge {#step-3-configure-braze-in-airbridges-dashboard}
 
-1. Dans Airbridge, accédez à **Integrations > Third-party Integrations** dans la barre latérale gauche et sélectionnez **Braze**.
+1. Dans Airbridge, accédez à **Integrations > Third-party Integrations** dans la barre latérale de navigation et sélectionnez **Braze**.
 2. Indiquez la clé d'importation des données et l'endpoint REST que vous avez trouvés dans le tableau de bord de Braze.
 3. Sélectionnez le type d'événement (Install Event ou Install & Deeplink Open Event) et enregistrez.
 
@@ -228,11 +228,11 @@ En supposant que vous configurez votre intégration comme suggéré, Braze mappe
 | `Campaign` | Campaign d'attribution d'installation | La campagne à laquelle les installations ou les ouvertures de liens profonds sont attribuées |
 | `Ad Group` | Groupe d'annonces d'attribution d'installation | Le groupe d'annonces auquel les installations ou les ouvertures de liens profonds sont attribuées |
 | `Ad Creative` | Publicité d'attribution d'installation | Le contenu publicitaire auquel les installations ou les ouvertures de liens profonds sont attribuées |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available data fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs de données disponibles" }
 
 Votre base d'utilisateurs peut être segmentée par les données d'attribution dans le tableau de bord de Braze en utilisant les filtres d'attribution d'installation.
 
-![]({% image_buster /assets/img/airbridge/airbridge_integration_step_2.png %})
+![Filtres de segment Braze affichant les champs d'attribution d'installation Airbridge disponibles.]({% image_buster /assets/img/airbridge/airbridge_integration_step_2.png %})
 
 ## Données d'attribution Meta Business {#meta-business-attribution-data}
 
@@ -246,7 +246,7 @@ Pour commencer avec les liens de suivi des clics Airbridge, consultez [Airbridge
 
 {% tabs %}
 {% tab Android %}
-Pour Android, Braze permet aux clients de s'abonner à la [collecte d'identifiants publicitaires Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id). Le GAID est également collecté nativement via l'intégration du SDK Airbridge. Vous pouvez inclure le GAID dans vos liens de suivi des clics Airbridge en utilisant la logique Liquid suivante :
+Pour Android, Braze permet aux clients de s'abonner à la [collecte d'identifiants publicitaires Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id). Le GAID est également collecté nativement via l'intégration du SDK Airbridge. Vous pouvez inclure le GAID dans vos liens de suivi des clics Airbridge en utilisant la logique Liquid suivante :
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

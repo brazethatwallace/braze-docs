@@ -49,7 +49,7 @@ Wählen Sie im geöffneten Fenster **Next** aus, bis der Button **Begin Integrat
 
 ### 2. Schritt: WhatsApp-Einrichtung {#step-2-whatsapp-setup}
 
-Als Nächstes werden Sie durch den Braze-Einrichtungsworkflow geführt. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Eingebettete WhatsApp-Anmeldung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+Als Nächstes werden Sie durch den Braze-Einrichtungsworkflow geführt. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Eingebettete WhatsApp-Anmeldung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).
 
 In diesem Ablauf werden Sie:
 1. Ihre Meta- und WhatsApp Business-Konten erstellen oder auswählen. Lesen Sie unbedingt die [WhatsApp-Richtlinien für Anzeigenamen](https://www.facebook.com/business/help/757569725593362). <br><br>Es ist wahrscheinlich, dass in Ihrem Unternehmen bereits mindestens ein Meta Business-Konto existiert. Wenn das der Fall ist, wählen Sie dasjenige aus, in dem Ihr WhatsApp Business-Konto angesiedelt sein soll. Nutzer:innenberechtigungen und die Unternehmensverifizierung für WhatsApp werden zentral in Ihrem Meta Business-Konto verwaltet.<br><br>
@@ -60,7 +60,7 @@ Nach Abschluss der Einrichtung wird eine dedizierte WhatsApp-Abo-Gruppe für Ihr
 
 ### 3. Schritt: WhatsApp-Templates erstellen {#step-3-create-whatsapp-templates}
 
-Nur genehmigte WhatsApp-Nachrichten-Templates können verwendet werden, um Konversationen mit Kund:innen zu starten. WhatsApp-Templates können im [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343) erstellt werden. Eine Liste der von Braze unterstützten WhatsApp-Messaging-Features finden Sie unter [Unterstützte WhatsApp-Features]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#supported-whatsapp-features).
+Nur genehmigte WhatsApp-Nachrichten-Templates können verwendet werden, um Konversationen mit Kund:innen zu starten. WhatsApp-Templates können im [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343) erstellt werden. Eine Liste der von Braze unterstützten WhatsApp-Messaging-Features finden Sie unter [Unterstützte WhatsApp-Features]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features).
 
 1. **Navigieren Sie zum [Template-Manager](https://business.facebook.com/wa/manage/message-templates)**<br>
 Wählen Sie im Meta Business Manager unter **Account Tools** die Option **Message Templates** aus.
@@ -87,10 +87,10 @@ Genehmigte Templates können in beliebig vielen Campaigns und Canvases verwendet
 
 ### 4. Schritt: Eine WhatsApp-Campaign erstellen {#step-4-create-a-whatsapp-campaign}
 
-Sobald WhatsApp-Templates genehmigt wurden, können Sie zum Dashboard wechseln, um eine [WhatsApp-Canvas oder -Campaign]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/) zu erstellen.
+Sobald WhatsApp-Templates genehmigt wurden, können Sie zum Dashboard wechseln, um eine [WhatsApp-Canvas oder -Campaign]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) zu erstellen.
 
 {% alert note %}
-Nachdem Ihr WhatsApp Business-Konto erstellt wurde, legt Meta Ihr anfängliches Nachrichtenlimit fest. Weitere Informationen finden Sie unter [Durchsatz]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/#throughput).
+Nachdem Ihr WhatsApp Business-Konto erstellt wurde, legt Meta Ihr anfängliches Nachrichtenlimit fest. Weitere Informationen finden Sie unter [Durchsatz]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc#throughput).
 {% endalert %}
 
 ## Nächste Schritte {#next-steps}
@@ -100,7 +100,7 @@ Nach Abschluss der Integration empfehlen wir, die folgenden zwei Meta-Prozesse d
 	- Möglicherweise haben Sie die Unternehmensverifizierung bereits abgeschlossen, wenn Sie einen bestehenden Meta Business Manager verwendet haben.
 - [Offizielles Geschäftskonto](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
-Wir empfehlen außerdem, sich über [Telefonnummern von Nutzer:innen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/) zu informieren und alle Nutzer:innen hinzuzufügen, die Zugriff benötigen, um Nachrichten-[Templates in Ihrer Organisation](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143) zu erstellen.
+Wir empfehlen außerdem, sich über [Telefonnummern von Nutzer:innen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) zu informieren und alle Nutzer:innen hinzuzufügen, die Zugriff benötigen, um Nachrichten-[Templates in Ihrer Organisation](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143) zu erstellen.
 
 ### WhatsApp Cloud API Local Storage {#whatsapp-cloud-api-local-storage}
 

@@ -35,14 +35,14 @@ Você deve garantir que os seguintes itens tenham sido criados e/ou concluídos 
 | --- | --- | --- |
 | Conta de anúncios da Criteo | [Criteo](https://marketing.criteo.com/) | Uma conta ativa de anúncios da Criteo vinculada à sua marca.<br><br>Certifique-se de que o administrador da Criteo lhe concedeu as permissões apropriadas para acessar públicos. |
 | [Diretrizes de publicidade da Criteo](https://www.criteo.com/advertising-guidelines/)<br>e<br>[Diretrizes de segurança da marca Criteo](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Como cliente ativo da Criteo, você precisa confirmar que está em conformidade com as diretrizes de publicidade e segurança de marca da Criteo antes de lançar qualquer campanha na Criteo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
 ### Etapa 1: conecte-se à Criteo {#step-1-connect-to-criteo}
 
 {% alert important %}
-Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para conectar a Criteo à sua conta da Braze.
+Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) para conectar a Criteo à sua conta da Braze.
 {% endalert %}
 
 No dashboard da Braze, acesse **Partner Integrations** > **Technology Partners** e selecione **Criteo**. Em Criteo Audience Export, selecione **Connect Criteo**.
@@ -65,15 +65,15 @@ Sua conexão com a Criteo será aplicada no nível do espaço de trabalho da Bra
 
 Ao criar públicos para rastreamento de anúncios, talvez seja necessário incluir ou excluir determinados usuários com base em suas preferências e para cumprir as leis de privacidade, como o direito de "Não vender ou compartilhar" de acordo com a [CCPA](https://oag.ca.gov/privacy/ccpa). Os profissionais de marketing devem implementar os filtros relevantes para a elegibilidade dos usuários em seus critérios de entrada no Canvas. Abaixo, listamos algumas opções.
 
-Se você tiver coletado o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), poderá usar o filtro Ads Tracking Enabled. Selecione o valor como true para enviar apenas usuários para destinos do Audience Sync nos quais eles fizeram opt-in.
+Se você tiver coletado o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), poderá usar o filtro Ads Tracking Enabled. Selecione o valor como true para enviar apenas usuários para destinos do Audience Sync nos quais eles fizeram opt-in.
 
-![]({% image_buster /assets/img/criteo/criteo11.png %})
+![Filtro de entrada do Canvas mostrando Ads Tracking Enabled definido como true.]({% image_buster /assets/img/criteo/criteo11.png %})
 
 Se você estiver coletando `opt-ins`, `opt-outs`, `Do Not Sell Or Share` ou quaisquer outros atributos personalizados relevantes, deve incluí-los nos seus critérios de entrada do Canvas como um filtro:
 
-![]({% image_buster /assets/img/criteo/criteo12.png %})
+![Filtro de entrada do Canvas usando atributos personalizados de opt-in para elegibilidade de público.]({% image_buster /assets/img/criteo/criteo12.png %})
 
-Para saber mais sobre como cumprir essas leis de proteção de dados na plataforma Braze, consulte a [Assistência técnica de proteção de dados]({{site.baseurl}}/dp-technical-assistance/).
+Para saber mais sobre como cumprir essas leis de proteção de dados na plataforma Braze, consulte a [Assistência técnica de proteção de dados]({{site.baseurl}}/dp-technical-assistance).
 
 ### Etapa 3: adicione uma etapa de sincronização de público com a Criteo {#step-3-add-an-audience-sync-step-with-criteo}
 
@@ -87,7 +87,7 @@ Clique no botão **Custom Audience** para abrir o editor de componentes.
 
 Selecione **Criteo** como parceiro desejado do Audience Sync.
 
-![]({% image_buster /assets/img/criteo/criteo6.png %})
+![Editor da etapa de Audience Sync com a Criteo selecionada como parceira.]({% image_buster /assets/img/criteo/criteo6.png %})
 
 Em seguida, selecione a conta de anúncios da Criteo desejada. No menu suspenso **Choose a New or Existing Audience**, digite o nome de um público novo ou existente.
 
@@ -121,11 +121,11 @@ Você pode visualizar o público na Criteo acessando sua conta do gerenciador de
 
 ![A biblioteca de público mostrando o segmento, o ID, a origem, o tipo, o tamanho, o uso atual e a última atualização.]({% image_buster /assets/img/criteo/criteo.png %})
 
-## Considerações sobre sincronização de usuários e limite de taxa {#user-syncing-and-rate-limit-considerations}
+## Considerações sobre sincronização de usuários e limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-Quando os usuários atingem a etapa de sincronização de público, a Braze os sincroniza quase em tempo real, respeitando os limites de taxa da API da Criteo. A Braze agrupa e processa o maior número possível de usuários a cada cinco segundos antes de enviá-los para a Criteo.
+Quando os usuários atingem a etapa de sincronização de público, a Braze os sincroniza quase em tempo real, respeitando os limites de frequência da API da Criteo. A Braze agrupa e processa o maior número possível de usuários a cada cinco segundos antes de enviá-los para a Criteo.
 
-O limite de taxa da API da Criteo não permite mais do que 250 solicitações por minuto. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por até ~13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Usuários com erro.
+O limite de frequência da API da Criteo não permite mais do que 250 solicitações por minuto. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por até ~13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Usuários com erro.
 
 ## Entendendo a análise de dados {#understanding-analytics}
 
@@ -140,7 +140,7 @@ A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melh
 | Usuários pendentes | Número de usuários atualmente sendo processados pela Braze para sincronização com a Criteo. |
 | Usuários com erro | Número de usuários que não foram sincronizados com a Criteo devido a um erro de API após cerca de 13 horas de tentativas. As possíveis causas de erros podem incluir um token inválido da Criteo ou se o público foi excluído na Criteo. |
 | Saíram do Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa de um Canvas é um componente de Audience Sync. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entendendo a análise de dados" }
 
 {% alert important %}
 Lembre-se de que haverá um atraso nos relatórios das métricas de usuários sincronizados e usuários com erro devido ao envio em massa e à nova tentativa de 13 horas, respectivamente.

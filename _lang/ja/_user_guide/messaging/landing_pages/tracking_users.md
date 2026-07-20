@@ -7,11 +7,11 @@ page_order: 2
 
 # フォームを通じたユーザーの追跡 {#track-users-through-a-form}
 
-> ランディングページのLiquidタグをメッセージに追加することで、ランディングページのフォームを送信したユーザーを追跡する方法を説明します。このLiquidタグは、メール、SMS、アプリ内メッセージなど、Brazeのすべてのメッセージングチャネルでサポートされています。トラッキングデータの詳細については、[ランディングページのトラッキングデータについて]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data/)を参照してください。
+> ランディングページのLiquidタグをメッセージに追加することで、ランディングページのフォームを送信したユーザーを追跡する方法を説明します。このLiquidタグは、メール、SMS、アプリ内メッセージなど、Brazeのすべてのメッセージングチャネルでサポートされています。トラッキングデータの詳細については、[ランディングページのトラッキングデータについて]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-開始する前に、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)と[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)を作成する必要があります。
+開始する前に、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)と[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)を作成する必要があります。
 
 ## 仕組み {#how-it-works}
 
@@ -31,7 +31,7 @@ Brazeの単一チャネルまたはマルチチャネルメッセージに{% raw
 
 ### ステップ 1: ページURLの確認 {#page-url}
 
-BrazeはランディングページのURLを使用して、ユニークなLiquidタグを生成します。現在のページURLを変更する場合は、**Messaging** > **Landing Pages**に移動し、ランディングページを開きます。**page URL**で新しいページURLを入力できます。
+BrazeはランディングページのURLを使用して、ユニークなLiquidタグを生成します。現在のページURLを変更する場合は、**メッセージング** > **ランディングページ**に移動し、ランディングページを開きます。**page URL**で新しいページURLを入力できます。
 
 {% alert warning %}
 メッセージ送信後にページURLを変更すると、古いURLを使用してランディングページにアクセスしようとしたユーザーは`404`ページに転送されます。
@@ -41,9 +41,9 @@ BrazeはランディングページのURLを使用して、ユニークなLiquid
 
 ### ステップ 2: Liquidタグの生成 {#step-2-generate-the-liquid-tag}
 
-**Messaging** > **キャンペーン**に移動し、キャンペーンを選択します。メッセージエディターで**Personalization**を選択します。
+**メッセージング** > **キャンペーン**に移動し、キャンペーンを選択します。メッセージエディターで**Personalization**を選択します。
 
-![ドラッグ＆ドロップエディターの「Add personalization」ボタン。]({% image_buster /assets/img/landing_pages/select-personalization.png %}){: style="max-width:75%;"}
+![ドラッグ＆ドロップエディターのパーソナライゼーション追加ボタン。]({% image_buster /assets/img/landing_pages/select-personalization.png %}){: style="max-width:75%;"}
 
 Brazeは[ランディングページURL](#page-url)を使用してLiquidタグを自動的に生成します。タグを生成するには、以下の表を参照してください。
 
@@ -51,14 +51,14 @@ Brazeは[ランディングページURL](#page-url)を使用してLiquidタグ�
 | **ランディングページ** | [事前に作成した](#prerequisites)ランディングページを選択します。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2: Liquidタグの生成" }
 
-Liquidタグをメッセージに追加するには、**Insert**を選択するか、スニペットをクリップボードにコピーして手動で追加します。
+Liquidタグをメッセージに追加するには、**挿入**を選択するか、スニペットをクリップボードにコピーして手動で追加します。
 
 ![選択したランディングページの自動生成されたLiquidタグ。]({% image_buster /assets/img/landing_pages/get-snippet.png %}){: style="max-width:40%;"}
 
 スニペットは以下のようになります。
 
 {% raw %}
-`````````ruby
+```ruby
 {% landing_page_url custom-url-handle %}
 ```
 {% endraw %}
@@ -68,7 +68,7 @@ Liquidタグをメッセージに追加するには、**Insert**を選択する�
 Liquidスニペットをメッセージに埋め込み、残りのメッセージを完成させます。例：
 
 {% raw %}
-`````````html
+```html
 <a href="{% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
 ```
 {% endraw %}

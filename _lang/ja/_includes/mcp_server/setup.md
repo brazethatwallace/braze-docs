@@ -80,7 +80,7 @@ APIキーを作成するには：
 {% endalert %}
 
 {% details サポートされている権限の一覧 %}
-#### Campaigns
+#### キャンペーン
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -88,9 +88,9 @@ APIキーを作成するには：
 | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | `campaigns.details` |
 | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | `campaigns.list` |
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャンペーン" }
 
-#### Canvas
+#### キャンバス
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -98,7 +98,7 @@ APIキーを作成するには：
 | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | `canvas.data_summary` |
 | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | `canvas.details` |
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャンバス" }
 
 #### カタログ {#catalogs}
 
@@ -188,14 +188,14 @@ APIキーを作成するには：
 | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="購入" }
 
-#### Segments
+#### セグメント
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | `segments.list` |
 | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | `segments.data_series` |
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="セグメント" }
 
 #### 送信 {#sends}
 

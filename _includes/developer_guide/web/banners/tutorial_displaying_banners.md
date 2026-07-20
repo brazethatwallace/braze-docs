@@ -49,28 +49,28 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 !!step
 lines-index.js=5
 
-#### 1. Enable debugging (optional)
+### 1. Enable debugging (optional)
 
 To make troubleshooting easier while developing, consider enabling debugging.
 
 !!step
 lines-index.js=8-23
 
-#### 2. Subscribe to Banner updates
+### 2. Subscribe to Banner updates
 
 Use `subscribeToBannersUpdates()` to register a handler that runs whenever a Banner is updated. Inside the handler, call `braze.getBanner("global_banner")` to get the latest placement.
 
 !!step
 lines-index.js=15-22
 
-#### 3. Insert the Banner and handle control groups
+### 3. Insert the Banner and handle control groups
 
 Use `braze.insertBanner(banner, container)` to insert a Banner when it's returned. To ensure keep your layout clean, hide or collapse Banners that are apart of a control group (for example, when `isControl` is `true`).
 
 !!step
 lines-index.js=25
 
-#### 4. Refresh your Banners
+### 4. Refresh your Banners
 
 After initializing the SDK, call `requestBannersRefresh(["global_banner", ...])` to ensure that Banners are refreshed at the start of each session.
 
@@ -79,7 +79,7 @@ You can also call this function at any time to refresh Banner placements later.
 !!step
 lines-main.html=3
 
-#### 5. Add a container for your Banner
+### 5. Add a container for your Banner
 
 In your HTML, add a new `<div>` element and give it a short, Banner-related `id`, such as `global-banner-container`. Braze will use this `<div>` to insert your Banner into the page.
 

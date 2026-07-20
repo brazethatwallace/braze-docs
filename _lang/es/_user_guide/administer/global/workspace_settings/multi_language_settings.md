@@ -49,6 +49,7 @@ Para conocer los pasos para usar estas configuraciones regionales en tus mensaje
 - Puedes seleccionar hasta dos atributos personalizados en una sola configuración regional, o hasta dos idiomas de atributos de usuario predeterminados. En ambos casos, el segundo atributo es opcional.
 - Al editar los valores traducidos en el archivo CSV, evita modificar los valores predeterminados del archivo.
 - La clave de configuración regional en tu archivo cargado debe coincidir con la de tu configuración multilingüe.
+- Para actualizar `device_locale` a `zh_CN` (chino simplificado como se usa en China continental), debes añadir un archivo de localización `zh_CN` a tu proyecto, ya que iOS usa de forma nativa `zh-Hans`.
 
 ### Soporte y priorización {#support-and-prioritization}
 

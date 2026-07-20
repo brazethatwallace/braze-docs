@@ -40,7 +40,7 @@ To set a user's subscription group state, use one of the following methods:
 - **SDK Integration** Users can be added to an email or SMS and RCS subscription group using the `addToSubscriptionGroup` method for [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)), or [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
 - **Phone Number Capture IAM Form:** User phone numbers can be collected through the phone number capture template in the in-app message drag-and-drop editor.
 - **Automatically handled upon user opt-in/opt-out:** By users texting a default opt-in or opt-out [keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout), Braze automatically sets and updates users' subscription state.
-- **User import**: Users can be added into email or SMS and RCS subscription groups through **Import Users**. When updating subscription group status, you must have these two columns in your CSV: `subscription_group_id` and `subscription_state`. Refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status) for more information.
+- **User import**: Users can be added into email or SMS and RCS subscription groups through **Import Users**. When updating subscription group status, you must have these two columns in your CSV: `subscription_group_id` and `subscription_state`. Refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) for more information.
 
 #### Update a user's state in a Canvas
 
@@ -107,14 +107,14 @@ For comprehensive subscription management, you can capture opt-out intent that f
 1. In the [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents), create an "SMS Sentiment Analysis Agent".
 
 {% alert tip %}
-Use [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples) to assist with the initial agent configuration.
+Use [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator) to assist with the initial agent configuration.
 {% endalert %}
 
 {: start="2"}
 2. Create an action-based Canvas triggered by **Send an SMS inbound message**, within the **Other** keyword category.
 3. Add the [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) to the Canvas to identify opt-out intent.
 4. Add a subsequent SMS [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) to confirm the request: "It looks like you're trying to unsubscribe from SMS, so we are going to unsubscribe you. If this is a mistake, text START to opt back in."
-5. Add a [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) to change the user's status in the specific SMS subscription group to "Unsubscribed."
+5. Add a [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) to change the user's status in the specific SMS subscription group to "Unsubscribed."
 
 {% alert note %}
 Using the Agent Console consumes Message or Action Credits.

@@ -9,11 +9,11 @@ tool:
   - Canvas
 ---
 
-# Tags
+# Tags {#tags}
 
 > A Braze rastreia informações de autor, editor, data e status sobre segmentos, campanhas e Canvas, e oferece a capacidade de criar tags para organizar e classificar ainda mais seus engajamentos.
 
-## Tags de Campaign, Canvas e Segment {#campaign-canvas-and-segment-tags}
+## Tags de Campaign, Canvas e segmento {#campaign-canvas-and-segment-tags}
 
 Você pode adicionar tags ao criar ou editar uma campanha, um Canvas ou um segmento. Clique em <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tags** abaixo do nome do engajamento e selecione uma tag existente ou comece a digitar para adicionar uma nova tag.
 
@@ -47,10 +47,10 @@ As tags ficam visíveis na lista de campanhas, Canvas ou segmentos, junto com ta
 
 ## Tags de dados personalizados {#custom-data-tags}
 
-Tags também podem ser adicionadas a dados personalizados ao gerenciar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes) e [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#adding-tags).
+Tags também podem ser adicionadas a dados personalizados ao gerenciar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) e [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags).
 
 {% alert important %}
 Esse recurso está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
 {% endalert %}
 
-Para informações sobre como renomear, remover ou aninhar tags no seu dashboard, consulte [Gerenciamento de tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/#managing-tags).
+Para informações sobre como renomear, remover ou aninhar tags no seu dashboard, consulte [Gerenciamento de tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

@@ -40,9 +40,9 @@ SMSおよびRCSユーザーには、`subscribed`と`unsubscribed`の2つのサ�
 - **SDK統合:** ユーザーは、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html)、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:))、または[Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)の`addToSubscriptionGroup`メソッドを使用して、メールまたはSMSおよびRCSサブスクリプショングループに追加できます。
 - **電話番号キャプチャIAMフォーム:** アプリ内メッセージのドラッグ＆ドロップエディターの電話番号キャプチャテンプレートを通じて、ユーザーの電話番号を収集できます。
 - **ユーザーのオプトイン/オプトアウト時に自動処理:** ユーザーがデフォルトのオプトインまたはオプトアウト[キーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)をテキスト送信すると、Brazeはユーザーのサブスクリプション状態を自動的に設定および更新します。
-- **ユーザーインポート:** ユーザーは**Import Users**を通じてメールまたはSMSおよびRCSサブスクリプショングループに追加できます。サブスクリプショングループのステータスを更新する場合、CSVに`subscription_group_id`と`subscription_state`の2つの列が必要です。詳細については、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status)を参照してください。
+- **ユーザーインポート:** ユーザーは**ユーザーをインポート**を通じてメールまたはSMSおよびRCSサブスクリプショングループに追加できます。サブスクリプショングループのステータスを更新する場合、CSVに`subscription_group_id`と`subscription_state`の2つの列が必要です。詳細については、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)を参照してください。
 
-#### Canvasでユーザーの状態を更新する {#update-a-users-state-in-a-canvas}
+#### キャンバスでユーザーの状態を更新する {#update-a-users-state-in-a-canvas}
 
 キャンバスフローの一部としてユーザーのサブスクリプショングループステータスを更新する場合は、Webhookの代わりに[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを使用してください。ユーザーの更新ステップは、処理が完了するまで待ってからユーザーを次のステップに進めるため、後続のメッセージングステップでは更新されたサブスクリプションステータスが使用されます。
 
@@ -59,7 +59,7 @@ Webhookを使用してサブスクリプショングループを更新すると�
 
 ## サブスクリプショングループでメッセージを送信する {#send-messages-with-a-subscription-group}
 
-Brazeを通じてSMSまたはRCSのCampaignを開始するには、**SMS/MMS/RCSバリアント**ドロップダウンからサブスクリプショングループを選択します。選択すると、オーディエンスフィルターがCampaignまたはCanvasに自動的に追加され、選択したサブスクリプショングループに`subscribed`しているユーザーのみがターゲットオーディエンスに含まれるようになります。
+Brazeを通じてSMSまたはRCSキャンペーンを開始するには、**SMS/MMS/RCSバリアント**ドロップダウンからサブスクリプショングループを選択します。選択すると、オーディエンスフィルターがキャンペーンまたはキャンバスに自動的に追加され、選択したサブスクリプショングループに`subscribed`しているユーザーのみがターゲットオーディエンスに含まれるようになります。
 
 {% alert important %}
 国際的な[通信コンプライアンスおよびガイドライン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)に準拠して、Brazeは選択したサブスクリプショングループに購読していないユーザーにSMSまたはRCSを送信しません。
@@ -107,14 +107,14 @@ RCS認証済み送信者を追加するには、2つの方法があります。
 1. [エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents)で「SMSセンチメント分析エージェント」を作成します。
 
 {% alert tip %}
-初期エージェント設定のサポートには[Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples)を使用してください。
+初期エージェント設定のサポートには[オペレーター]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を使用してください。
 {% endalert %}
 
 {: start="2"}
-2. **その他**のキーワードカテゴリ内で、**SMS受信メッセージを送信**によってトリガーされるアクションベースのCanvasを作成します。
-3. Canvasに[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)を追加して、オプトアウト意図を識別します。
+2. **その他**のキーワードカテゴリ内で、**SMS受信メッセージを送信**によってトリガーされるアクションベースのキャンバスを作成します。
+3. キャンバスに[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)を追加して、オプトアウト意図を識別します。
 4. リクエストを確認するための後続のSMS[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を追加します：「SMSの配信停止をご希望のようですので、配信を停止いたします。間違いの場合は、STARTとテキスト送信して再度オプトインしてください。」
-5. [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update)を追加して、特定のSMSサブスクリプショングループでのユーザーのステータスを「購読解除」に変更します。
+5. [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)を追加して、特定のSMSサブスクリプショングループでのユーザーのステータスを「購読解除」に変更します。
 
 {% alert note %}
 エージェントコンソールの使用にはメッセージクレジットまたはアクションクレジットが消費されます。
@@ -122,13 +122,13 @@ RCS認証済み送信者を追加するには、2つの方法があります。
 
 ## SMSトラフィックをRCSに移行する {#migrate-sms-traffic-to-rcs}
 
-SMSとRCSのサブスクリプショングループが別々にある場合、1ステップのCanvasを使用してユーザーをSMSからRCSに移行できます。
+SMSとRCSのサブスクリプショングループが別々にある場合、1ステップのキャンバスを使用してユーザーをSMSからRCSに移行できます。
 
 Brazeでは、最初は少数のユーザーにRCSの送信をテストし、時間をかけてより多くのユーザーをRCSサブスクリプショングループに移行することを推奨しています。たとえば、SMSサブスクリプショングループに1,000,000人のユーザーが購読している場合、まずすべてのユーザーを新しいサブスクリプショングループに移行し、次に50,000〜100,000人（5〜10%）の小規模なオーディエンスにセグメントしてRCSメッセージをテストするという方法が考えられます。
 
-### ステップ1: Canvasを作成してエントリスケジュールを設定する {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
+### ステップ1: キャンバスを作成してエントリスケジュールを設定する {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Canvasを作成し、識別しやすい名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでスケジュールします。
+キャンバスを作成し、識別しやすい名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでスケジュールします。
 
 ### ステップ2: オーディエンスを定義する {#step-2-define-your-audience}
 {: #step-2-define-your-audience}
@@ -137,13 +137,13 @@ Canvasを作成し、識別しやすい名前を付けます（「SMS-RCSサブ�
 
 | 方法 | 説明 |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Segmentを作成する** | サブスクリプショングループ内のすべてのユーザーまたはセグメンテーションフィルターを使用したサブセット（ランダムな5〜10%など）を含むSegmentを作成します。Segmentは各送信前に更新され、現在のユーザー群を反映します。 |
-| **CampaignまたはCanvasフィルターを適用する** | CampaignまたはCanvasの**ターゲットオーディエンス**ステップでオーディエンスを絞り込みます。ページを離れることなくターゲティングオプションを調整でき、柔軟性が向上します。 |
+| **セグメントを作成する** | サブスクリプショングループ内のすべてのユーザーまたはセグメンテーションフィルターを使用したサブセット（ランダムな5〜10%など）を含むセグメントを作成します。セグメントは各送信前に更新され、現在のユーザー群を反映します。 |
+| **キャンペーンまたはキャンバスフィルターを適用する** | キャンペーンまたはキャンバスの**ターゲットオーディエンス**ステップでオーディエンスを絞り込みます。ページを離れることなくターゲティングオプションを調整でき、柔軟性が向上します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2: オーディエンスを定義する" }
 
 ### ステップ3: ユーザーの更新ステップを設定する {#step-3-configure-a-user-update-step}
 
-Canvasにユーザーの更新ステップを追加します。ステップ内で**高度なJSONエディター**を開き、以下を入力します（一意のユーザー識別子フィールドには、`braze_id`フィールドの使用を推奨します）。
+キャンバスにユーザーの更新ステップを追加します。ステップ内で**高度なJSONエディター**を開き、以下を入力します（一意のユーザー識別子フィールドには、`braze_id`フィールドの使用を推奨します）。
 
 {% raw %}
 ```json
@@ -166,13 +166,13 @@ Canvasにユーザーの更新ステップを追加します。ステップ内�
 
 ![前述のJSONコードを含む「ユーザーの更新オブジェクト」。]({% image_buster /assets/img/sms/user_update_object.png %})
 
-### ステップ4: Canvasをテストする {#step-4-test-the-canvas}
+### ステップ4: キャンバスをテストする {#step-4-test-the-canvas}
 
-より広いオーディエンスに送信する前に、[Canvasをテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases)して期待どおりに動作することを確認することを強く推奨します。
+より広いオーディエンスに送信する前に、[キャンバスをテスト]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases)して期待どおりに動作することを確認することを強く推奨します。
 
-### ステップ5: Canvasを起動する {#step-5-launch-your-canvas}
+### ステップ5: キャンバスを起動する {#step-5-launch-your-canvas}
 
-Canvasのテストが成功したら、ユーザーのサブセットに対して起動しましょう！
+キャンバスのテストが成功したら、ユーザーのサブセットに対して起動しましょう！
 
 ユーザーが正常に移行されたことを確認するには、更新された個々のユーザープロファイルをいくつか確認することを推奨します。**エンゲージメント**タブで**連絡先設定**を探し、スクロールしてユーザーが購読しているサブスクリプショングループを確認します。RCSサブスクリプショングループのトグルがオンになっているはずです。
 
@@ -196,7 +196,7 @@ RCS送信者とサブスクリプショングループの設定については�
 
 ### 明確な命名規則を使用する {#use-clear-naming-conventions}
 
-SMSのCampaignを作成する際に正しいグループが選択されるよう、わかりやすく明確なサブスクリプショングループ名を選択してください。
+SMSキャンペーンを作成する際に正しいグループが選択されるよう、わかりやすく明確なサブスクリプショングループ名を選択してください。
 
 ### 国別にグループを分ける {#separate-groups-by-country}
 

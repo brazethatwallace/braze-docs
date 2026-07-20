@@ -6,7 +6,7 @@ page_order: 6
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Sustituir elemento del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Sustituir elemento del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,15 +15,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para sustituir un elemento de tu catálogo.
+> Utiliza este endpoint para sustituir un elemento de tu catálogo.
 
-Si no se encuentra el `item_id`, este punto de conexión creará el elemento en tu catálogo. Este punto de conexión es síncrono.
+Si no se encuentra el `item_id`, este endpoint creará el elemento en tu catálogo. Este endpoint es síncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b2871ed7-734e-4a37-b8f1-e11584e569f5 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.replace_item`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.replace_item`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -76,7 +76,7 @@ El campo `Location` utiliza el tipo de datos `geo`, que espera un array con el f
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `200`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `200`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

@@ -21,7 +21,7 @@ channel: email
 
 Não, a Braze não oferece essa funcionalidade. Isso ocorre porque a grande maioria dos e-mails é aberta em dispositivos móveis e clientes de e-mail modernos, que renderizam imagens e conteúdo sem problemas.
 
-**Alternativa:** Para obter o mesmo resultado, você pode hospedar o conteúdo do seu e-mail em uma landing page externa (como o seu site), que pode ser vinculada a partir da campanha de e-mail que você está criando usando a ferramenta **Link** ao editar o corpo do e-mail.
+**Alternativa:** Para obter o mesmo resultado, você pode hospedar o conteúdo do seu e-mail em uma landing page externa (como o seu site), que pode ser vinculada a partir da Campaign de e-mail que você está criando usando a ferramenta **Link** ao editar o corpo do e-mail.
 
 ### Como crio um link de cancelamento de inscrição personalizado para meus modelos de e-mail? {#how-do-i-create-a-custom-unsubscribe-link-for-my-email-templates}
 
@@ -32,16 +32,16 @@ Você pode alterar o link de cancelamento de inscrição no rodapé personalizad
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Em seguida, você pode chamar o [endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) para atualizar o status de inscrição do usuário. Para saber mais, consulte nossa documentação sobre [como alterar inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Em seguida, você pode chamar o [endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) para atualizar o status de inscrição do usuário. Para saber mais, consulte nossa documentação sobre [como alterar inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Para salvar esse novo link, a tag padrão de cancelamento de inscrição da Braze {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} deve estar no rodapé. Isso significa que você precisará incluir o link padrão "ocultando-o", colocando a tag em um comentário ou em uma tag `<div>` oculta.
 
 - **Exemplo de tag em comentário:** colocando a tag em um comentário: `<!-- ${set_user_to_unsubscribed_url} -->`
 - **Exemplo de comentário em tag `<div>` oculta:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### O que acontece se eu editar um modelo de e-mail que está sendo usado em uma campanha? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
+### O que acontece se eu editar um modelo de e-mail que está sendo usado em uma Campaign? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
 
-As edições feitas em um modelo existente não serão refletidas em campanhas que foram criadas usando versões anteriores desse modelo. Para campanhas da API que usam um modelo no corpo da REST API, a Braze usará a versão mais recente do modelo no momento do envio.
+As edições feitas em um modelo existente não serão refletidas em Campaigns que foram criadas usando versões anteriores desse modelo. Para Campaigns da API que usam um modelo no corpo da REST API, a Braze usará a versão mais recente do modelo no momento do envio.
 
 ## Modelos de link {#link-templates}
 
@@ -51,7 +51,7 @@ Sim, você pode inserir quantos modelos quiser nas suas mensagens de e-mail. Com
 
 ### Como pré-visualizo meus links com todas as tags aplicadas? {#how-do-i-preview-my-links-with-all-of-the-tags-applied}
 
-Existem várias maneiras de pré-visualizar seus links. Depois de aplicar o [modelo de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/), você pode enviar um [e-mail de teste]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) para si mesmo para visualizar todos os links.
+Existem várias maneiras de pré-visualizar seus links. Depois de aplicar o [modelo de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template), você pode enviar um [e-mail de teste]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) para si mesmo para visualizar todos os links.
 
 No painel de pré-visualização em uma nova guia, você também pode abrir os links para visualizá-los. Você também pode passar o mouse sobre os links no painel de pré-visualização e vê-los na parte inferior do seu navegador.
 
@@ -67,7 +67,7 @@ Evite adicionar o ponto de interrogação (?) ao seu Liquid, pois isso fará com
 
 Para todos os novos Content Blocks criados, o alias de link é aplicado em todos os espaços de trabalho, já que esse é um recurso no nível da empresa.
 
-Os Content Blocks existentes não serão modificados quando o alias de link for ativado. Embora os modelos de link existentes não sejam modificados, a seção de modelo de link existente em uma mensagem será removida. Confira [Alias de link em Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-aliasing-in-content-blocks) para saber mais.
+Os Content Blocks existentes não serão modificados quando o alias de link for ativado. Embora os modelos de link existentes não sejam modificados, a seção de modelo de link existente em uma mensagem será removida. Confira [Alias de link em Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks) para saber mais.
 
 ### Posso usar lógica condicional de Liquid inteiramente dentro de uma tag âncora HTML? {#can-i-use-liquid-conditional-logic-entirely-within-an-html-anchor-tag}
 

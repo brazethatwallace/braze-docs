@@ -18,7 +18,7 @@ tool: Media
 |---|---|
 | 「View Media Library Assets」権限 | メディアライブラリアセットの表示 |
 | 「Edit Media Library Assets」権限 | メディアライブラリアセットの作成と更新 |
-| 「Delete Media Library Assets」権限 | メディアライブラリアセットの完全な削除 |
+| 「Delete Media Library Assets」権限 | UIからメディアライブラリアセットを削除します。削除されたアセットは、参照しているメッセージが壊れないよう、Brazeによって引き続きホスティングされます。アセットを完全に削除するには、Brazeサポートにお問い合わせください。 |
 | 「Replace Media Library Assets」権限 | 既存のメディアライブラリアセットのURLとアセットIDを維持したままファイルを置換 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メディアライブラリの権限" }
 
@@ -30,7 +30,7 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 
 ## メディアライブラリへのアクセス {#accessing-the-media-library}
 
-メディアライブラリでは、アセットの種類、サイズ、寸法、URL、ライブラリに追加された日付、その他の情報を確認できます。Brazeのメディアライブラリにアクセスするには、**Content** > **Media Library**に移動します。ここでは、以下の操作が可能です。
+メディアライブラリでは、アセットの種類、サイズ、寸法、URL、ライブラリに追加された日付、その他の情報を確認できます。Brazeのメディアライブラリにアクセスするには、**コンテンツ** > **メディアライブラリ**に移動します。ここでは、以下の操作が可能です。
 
 * 複数の画像を一度にアップロード
 * バーチャルコンタクトファイル（.vcf）のアップロード
@@ -54,11 +54,11 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 
 ## ファイルの置換 {#replace-a-file}
 
-メディアライブラリ内の既存アセットのURLとアセットIDを維持したまま、ファイルを置換できます。URLが変わらないため、そのアセットを参照しているメッセージやCampaign（すでに送信済みのメールを含む）は、自動的に更新されたファイルを反映します。これは、ロゴなどの共有アセットを各Campaignを個別に更新するのではなく、一か所で更新したい場合に便利です。
+メディアライブラリ内の既存アセットのURLとアセットIDを維持したまま、ファイルを置換できます。URLが変わらないため、そのアセットを参照しているメッセージやキャンペーン（すでに送信済みのメールを含む）は、自動的に更新されたファイルを反映します。これは、ロゴなどの共有アセットを各キャンペーンを個別に更新するのではなく、一か所で更新したい場合に便利です。
 
 アセットを置換するには、「Replace Media Library Assets」権限が必要です。
 
-1. **Content** > **Media Library**に移動します。
+1. **コンテンツ** > **メディアライブラリ**に移動します。
 2. 置換したいアセットを選択します。
 3. モーダルで**Replace file**を選択します。
 4. 置換ファイルをアップロードします。
@@ -90,7 +90,7 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-この機能を使用する前に、[データがどのように使用され、OpenAIに送信されるか]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy)を確認してください。
+この機能を使用する前に、[データがどのように使用され、OpenAIに送信されるか]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security)を確認してください。
 {% endalert %}
 
-**Media Library**ページに**AI Image Generator**が表示されない場合は、**Edit Media Library Assets**権限があることを確認してください。それでもオプションが表示されない場合は、Brazeカスタマーチームに連絡して、ワークスペースがBrazeAI画像生成にアクセスできることを確認してください。生成に失敗した場合は、[OpenAIコンテンツポリシー]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy)を確認してください。
+**メディアライブラリ**ページに**AI Image Generator**が表示されない場合は、**Edit Media Library Assets**権限があることを確認してください。それでもオプションが表示されない場合は、Brazeカスタマーチームに連絡して、ワークスペースがBrazeAI画像生成にアクセスできることを確認してください。生成に失敗した場合は、[OpenAIコンテンツポリシー]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security)を確認してください。

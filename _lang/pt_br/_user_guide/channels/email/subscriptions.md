@@ -33,7 +33,7 @@ A Braze não contabiliza alterações no estado de inscrição como pontos de da
 
 A Braze cancela automaticamente a inscrição de qualquer usuário que cancele manualmente a inscrição por meio de um [rodapé personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer). Se o usuário atualizar seu endereço de e-mail e a opção **Resubscribe users when they update their email** estiver ativada em **Sending Configuration**, o envio normal será retomado.
 
-Se um usuário marcar um ou mais dos seus e-mails como spam, a Braze enviará apenas e-mails de transação para esse usuário. E-mails de transação referem-se à opção **Send to all users including unsubscribed users** em **Target Audience**.
+Se um usuário marcar um ou mais dos seus e-mails como SPAM, a Braze enviará apenas e-mails de transação para esse usuário. E-mails de transação referem-se à opção **Send to all users including unsubscribed users** em **Target Audience**.
 
 {% alert tip %}
 Consulte nossas práticas recomendadas de [aquecimento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) para orientações sobre como reengajar seus usuários de forma eficaz.
@@ -49,13 +49,13 @@ Quando um endereço de e-mail sofre hard bounce, a Braze não altera automaticam
 
 Existem quatro maneiras de atualizar o estado de inscrição de e-mail de um usuário:
 
-#### Integração de SDK {#sdk-integration}
+#### Integração SDK {#sdk-integration}
 
 Use o SDK da Braze para atualizar o estado de inscrição de um usuário.
 
 #### REST API
 
-Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para atualizar o [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) de um usuário. Por exemplo, para definir o estado de inscrição de e-mail de um usuário como cancelado quando ele usar um link de cancelamento de inscrição personalizado, inclua `email_subscribe: "unsubscribed"` nos atributos do usuário na sua requisição.
+Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para atualizar o [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) de um usuário. Por exemplo, para definir o estado de inscrição de e-mail de um usuário como cancelado quando ele usar um link de cancelamento de inscrição personalizado, inclua `email_subscribe: "unsubscribed"` nos atributos do usuário na sua requisição.
 
 #### Perfil de usuário {#user-profile}
 
@@ -129,7 +129,7 @@ Grupos de inscrições arquivados não podem ser editados e não aparecerão mai
 Para arquivar seu grupo na página **Subscription Groups**, faça o seguinte:
 
 1. Encontre seu grupo na lista de grupos de inscrições.
-2. Selecione **Archive** no menu suspenso <i class="fa-solid fa-ellipsis-vertical"></i>.
+2. Selecione **Archive** no menu suspenso <i class="fa-solid fa-ellipsis-vertical" aria-label="Mais opções"></i>&nbsp;.
 
 A Braze não processa alterações de estado para usuários em grupos arquivados. Por exemplo, se você arquivar o Grupo de inscrições 1 enquanto Alex está inscrito nele, Alex permanecerá como "inscrito" mesmo que clique em um link de cancelamento de inscrição. Isso não importa porque o Grupo de inscrições 1 está arquivado e você não pode enviar mensagens usando ele.
 
@@ -165,7 +165,7 @@ Para saber mais sobre como adicionar ou personalizar uma Central de Preferência
 
 Na maioria dos casos, os usuários gerenciam sua inscrição de e-mail por meio de links incluídos nos e-mails que recebem. Insira um rodapé legalmente compatível com um link de cancelamento de inscrição na parte inferior de cada e-mail. Quando os usuários selecionam a URL de cancelamento de inscrição, a Braze cancela a inscrição deles e exibe uma landing page confirmando a alteração. Inclua esta Liquid tag: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
 
-Quando um usuário seleciona "Cancelar inscrição de todos os tipos de e-mail acima" na Central de Preferências, a Braze define o status global de inscrição de e-mail como `unsubscribed` e cancela a inscrição de todos os grupos.
+Quando um usuário seleciona "Cancelar inscrição de todos os tipos de e-mail listados" na Central de Preferências, a Braze define o status global de inscrição de e-mail como `unsubscribed` e cancela a inscrição de todos os grupos.
 
 ### Criando rodapés personalizados {#custom-footer}
 
@@ -194,11 +194,11 @@ Você também pode enviar os usuários para o seu site e atualizar o status com 
 Se você usar o rodapé do dashboard em vez de apenas um bloco de conteúdo HTML, o modelo ainda deve conter {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} para salvar. Para usar uma URL de cancelamento de inscrição diferente temporariamente, você pode comentar a tag padrão. Um exemplo é: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
 {% endalert %}
 
-![Página de cancelamento de inscrição personalizada com a pré-visualização "Sorry to see you go!".]({% image_buster /assets/img/custom_unsubscribe.png %})
+![Página de cancelamento de inscrição personalizada com a prévia "Sorry to see you go!".]({% image_buster /assets/img/custom_unsubscribe.png %})
 
 ### Criando uma página de opt-in personalizada {#creating-a-custom-opt-in-page}
 
-Use uma página de opt-in personalizada para permitir que os usuários reconheçam e controlem as preferências de notificação antes da inscrição. Essa comunicação adicional pode ajudar as Campaigns de e-mail a não caírem em pastas de spam.
+Use uma página de opt-in personalizada para permitir que os usuários reconheçam e controlem as preferências de notificação antes da inscrição. Essa comunicação adicional pode ajudar as Campaigns de e-mail a não caírem em pastas de SPAM.
 
 1. Acesse **Settings** > **Email Preferences**.
 2. Selecione **Subscription Pages and Footers**.
@@ -223,7 +223,7 @@ A Braze suporta três estados de direcionamento:
 - Todos os usuários, incluindo aqueles que cancelaram a inscrição.
 
 {% alert important %}
-É sua responsabilidade cumprir todas as [leis de spam]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations) aplicáveis ao usar essas configurações de direcionamento.
+É sua responsabilidade cumprir todas as [leis de SPAM]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations) aplicáveis ao usar essas configurações de direcionamento.
 {% endalert %}
 
 ## Segmentando por inscrições de usuários {#segmenting-by-user-subscriptions}

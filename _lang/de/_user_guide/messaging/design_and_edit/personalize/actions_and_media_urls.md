@@ -49,7 +49,7 @@ UTM Tags können sowohl in reguläre HTTP-(Web-)Links als auch in Deeplinks eing
 
 ##### Berechnung von UTM Tags {#utm-tag-calculations}
 
-Braze meldet _Gesamtklicks_ für alle Links in einer Kampagne oder einem Canvas-Schritt, was auch Links ohne UTM Tags einschließen kann. Das bedeutet, dass Sie in Ihren Google-Analytics-Kampagnen-Tracking-Links möglicherweise ein anderes (oft niedrigeres) Ergebnis sehen als die _Gesamtklicks_, die in Ihrer Kampagnen-Performance oder im Berichts-Builder angezeigt werden.
+Braze meldet _Gesamtklicks_ für alle Links in einer Campaign oder einem Canvas-Schritt, was auch Links ohne UTM Tags einschließen kann. Das bedeutet, dass Sie in Ihren Google-Analytics-Kampagnen-Tracking-Links möglicherweise ein anderes (oft niedrigeres) Ergebnis sehen als die _Gesamtklicks_, die in Ihrer Kampagnen-Performance oder im Berichts-Builder angezeigt werden.
 
 #### UTM Tags mit Braze verwenden {#using-utm-tags-with-braze}
 

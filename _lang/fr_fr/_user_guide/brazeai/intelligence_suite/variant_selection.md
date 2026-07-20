@@ -17,7 +17,7 @@ La sélection de variante BrazeAI<sup>TM</sup> n'est actuellement disponible que
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser la sélection de variante BrazeAI<sup>TM</sup>, vous devez disposer des éléments suivants dans votre campagne ou Canvas :
+Pour utiliser la sélection de variante BrazeAI<sup>TM</sup>, vous devez disposer des éléments suivants dans votre Campaign ou Canvas :
 
 {% tabs %}
 {% tab Campaign %}
@@ -79,7 +79,7 @@ Par exemple (en supposant une répartition uniforme) :
 - Variante 3 : 2,5 %
 - Variante 4 : 2 %
 
-Le taux d'ouverture sans optimisation est de 2,75 % (.035*.25 + .03*.25 + 0.025*.25 + 0.02*.25). La sélection de variante choisit la variante 1, soit 3,5 %, ce qui donne une amélioration de 27,3 %.
+Le taux d'ouverture sans optimisation est de 2,75 % (.035\*.25 + .03\*.25 + 0.025\*.25 + 0.02\*.25). La sélection de variante choisit la variante 1, soit 3,5 %, ce qui donne une amélioration de 27,3 %.
 {% endtab %}
 
 {% tab Récurrent %}
@@ -93,7 +93,7 @@ Par exemple :
 - Variante 3 : 2,5 %, 25 % de la cohorte
 - Variante 4 : 2 %, 25 % de la cohorte
 
-Le taux d'ouverture sans optimisation est de 2,75 % (.035*.25 + .03*.25 + 0.025*.25 + 0.02*.25). La sélection de variante pondère davantage les variantes les plus performantes.
+Le taux d'ouverture sans optimisation est de 2,75 % (.035\*.25 + .03\*.25 + 0.025\*.25 + 0.02\*.25). La sélection de variante pondère davantage les variantes les plus performantes.
 
 Supposons qu'elle effectue la répartition suivante :
 - Variante 1 : 65 %
@@ -101,29 +101,29 @@ Supposons qu'elle effectue la répartition suivante :
 - Variante 3 : 10 %
 - Variante 4 : 5 %
 
-Cela équivaut à un taux d'ouverture choisi de 3,075 % (.035*.65 + .03*.15 + 0.025*.1 + 0.02*.05), soit une amélioration de 11,8 %. Nous effectuons ce calcul à chaque période, puis nous en faisons la moyenne sur l'ensemble de la période d'optimisation.
+Cela équivaut à un taux d'ouverture choisi de 3,075 % (.035\*.65 + .03\*.15 + 0.025\*.1 + 0.02\*.05), soit une amélioration de 11,8 %. Nous effectuons ce calcul à chaque période, puis nous en faisons la moyenne sur l'ensemble de la période d'optimisation.
 {% endtab %}
 {% endtabs %}
 
 ## Questions fréquentes {#faq}
 
-### Pourquoi la rééligibilité en moins de 24 heures n'est-elle pas disponible lorsqu'elle est combinée avec la sélection de variante pour les campagnes ou Canvas récurrents ? {#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-variant-selection-for-recurring-campaigns-or-canvases}
+### Pourquoi la rééligibilité en moins de 24 heures n'est-elle pas disponible lorsqu'elle est combinée avec la sélection de variante pour les Campaigns ou Canvas récurrents ? {#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-variant-selection-for-recurring-campaigns-or-canvases}
 
-Nous n'autorisons pas les campagnes avec sélection de variante à avoir une rééligibilité dans une fenêtre trop courte, car nos tests montrent que cela affecte l'intégrité de la variante de contrôle et peut conduire à des répartitions indésirables.
+Nous n'autorisons pas les Campaigns avec sélection de variante à avoir une rééligibilité dans une fenêtre trop courte, car nos tests montrent que cela affecte l'intégrité de la variante de contrôle et peut conduire à des répartitions indésirables.
 
-### Pourquoi mes variantes affichent-elles des envois égaux pendant les premières étapes de ma campagne récurrente ? {#why-are-my-variants-showing-equal-sends-during-the-early-stages-of-my-recurring-campaign}
+### Pourquoi mes variantes affichent-elles des envois égaux pendant les premières étapes de ma Campaign récurrente ? {#why-are-my-variants-showing-equal-sends-during-the-early-stages-of-my-recurring-campaign}
 
-La sélection de variante ne détermine les allocations finales des variantes qu'après une période d'entraînement, pendant laquelle les envois sont répartis uniformément entre les variantes. Elle s'ajuste au fil du temps en détectant les tendances de performance. Si vous ne souhaitez pas envoyer de manière uniforme pendant les premières étapes de votre campagne, utilisez des variantes fixes pour un test A/B traditionnel.
+La sélection de variante ne détermine les allocations finales des variantes qu'après une période d'entraînement, pendant laquelle les envois sont répartis uniformément entre les variantes. Elle s'ajuste au fil du temps en détectant les tendances de performance. Si vous ne souhaitez pas envoyer de manière uniforme pendant les premières étapes de votre Campaign, utilisez des variantes fixes pour un test A/B traditionnel.
 
 ### La sélection de variante récurrente cesse-t-elle d'optimiser sans choisir de gagnant clair ? {#does-recurring-variant-selection-stop-optimizing-without-picking-a-clear-winner}
 
 Oui, elle cesse d'optimiser lorsqu'elle a une confiance de 95 % que la poursuite de l'expérience n'améliorera pas le taux de conversion de plus de 1 % par rapport à son taux actuel.
 
-### Pourquoi ne puis-je pas activer la sélection de variante dans mon Canvas ou ma campagne ? {#why-cant-i-enable-variant-selection-in-my-canvas-or-campaign}
+### Pourquoi ne puis-je pas activer la sélection de variante dans mon Canvas ou ma Campaign ? {#why-cant-i-enable-variant-selection-in-my-canvas-or-campaign}
 
-Pour l'envoi unique, vous ne pouvez pas activer la sélection de variante si votre Canvas ou votre campagne ne comporte qu'une seule variante.
+Pour l'envoi unique, vous ne pouvez pas activer la sélection de variante si votre Canvas ou votre Campaign ne comporte qu'une seule variante.
 
 Pour les envois récurrents, vous ne pouvez pas activer la sélection de variante si :
-- Vous n'avez pas ajouté d'événements de conversion à votre campagne ou Canvas.
+- Vous n'avez pas ajouté d'événements de conversion à votre Campaign ou Canvas.
 - Vous avez activé la rééligibilité avec une fenêtre inférieure à 24 heures.
-- Votre Canvas ou votre campagne ne comporte qu'une seule variante.
+- Votre Canvas ou votre Campaign ne comporte qu'une seule variante.

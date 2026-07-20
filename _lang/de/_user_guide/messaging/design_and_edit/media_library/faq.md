@@ -30,6 +30,10 @@ Nein, die Medienbibliothek unterstützt keine Videodateien. Wir empfehlen, diese
 
 Nein, die Medienbibliothek unterstützt das Zuschneiden von GIF-Bildern nicht.
 
+### Kann ich SVG-Bilder in E-Mails verwenden? {#can-i-use-svg-images-in-email}
+
+SVG-Bilder werden für E-Mails nicht empfohlen, da die Unterstützung bei E-Mail-Clients eingeschränkt ist. Gmail und mehrere andere große E-Mail-Anbieter rendern SVG-Bilder nicht, was zu fehlerhaften oder fehlenden Bildern bei Empfänger:innen führen kann. Verwenden Sie für eine zuverlässige E-Mail-Darstellung stattdessen die Formate PNG, JPEG oder GIF.
+
 ### Wie schneide ich ein vorhandenes Bild zu? {#how-do-i-crop-an-existing-image}
 
 Sie können ein vorhandenes Bild zuschneiden, indem Sie das Bild in der Medienbibliothek auswählen und auf **Zuschneiden und neues Bild speichern** klicken.

@@ -5,7 +5,7 @@ alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "이 참조 문서에서는 Braze 커런츠 이벤트 데이터를 자체 HTTP 엔드포인트로 실시간 스트리밍하기 위해 커스텀 커런츠 내보내기를 설정하는 방법을 설명합니다."
+description: "이 참조 문서에서는 Braze Currents 이벤트 데이터를 자체 HTTP 엔드포인트로 실시간 스트리밍하기 위해 커스텀 커런츠 내보내기를 설정하는 방법을 설명합니다."
 ---
 
 # 커스텀 커런츠 내보내기 {#custom-currents-export}
@@ -28,19 +28,19 @@ Braze에서 커스텀 Currents 커넥터를 통합하려면 엔드포인트 URL�
 
 이 통합을 구성하려면 엔드포인트 URL이 필요합니다. 엔드포인트는 HTTP POST 요청을 수신하고 이벤트 수신 성공을 확인하기 위해 `2XX` 상태 코드를 반환할 수 있어야 합니다. Braze의 요청을 인증하려면 베어러 토큰도 필요합니다.
 
-### 2단계: Braze 커런츠 구성 {#step-2-configure-braze-currents}
+### 2단계: Braze Currents 구성 {#step-2-configure-braze-currents}
 
 Braze에서 **파트너 통합** > **데이터 내보내기**로 이동한 후 **새 커런트 생성**을 클릭하고 **커스텀 커런츠 내보내기**를 선택합니다.
 
 내보내기 이름과 연락처 이메일을 입력한 다음 **커런트 세부 정보** 페이지로 이동합니다. 이 페이지에서 엔드포인트 URL과 선택 사항인 베어러 토큰을 입력합니다.
 
-자격 증명을 구성한 후, 내보내려는 모든 메시지 참여, 고객 행동 및 사용자 이벤트를 선택하고 **커런트 시작**을 클릭합니다.
+자격 증명을 구성한 후, 내보내려는 모든 메시지 인게이지먼트, 고객 행동 및 사용자 이벤트를 선택하고 **커런트 시작**을 클릭합니다.
 
 ## 지원되는 Currents 이벤트 {#supported-currents-events}
 
 Braze는 커스텀 HTTP 커넥터로 다음 데이터를 내보내는 것을 지원합니다:
 
-- [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events?tab=custom%20http%20connector)
+- [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events?tab=custom%20http%20connector)
 - [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events?tab=custom%20http%20connector)
 
 각 이벤트의 페이로드 구조를 확인하려면 이벤트 용어집에서 **Custom HTTP Connector** 탭을 선택하세요.
@@ -55,12 +55,12 @@ Braze는 커스텀 HTTP 커넥터로 다음 데이터를 내보내는 것을 지
 
 ### 변경 복원력 {#change-resilience}
 
-때때로 Braze 커런츠 스키마에 비파괴적 변경을 적용할 수 있습니다. 비파괴적 변경이란 새로운 nullable 열이나 이벤트 유형을 의미합니다.
+때때로 Braze Currents 스키마에 비파괴적 변경을 적용할 수 있습니다. 비파괴적 변경이란 새로운 nullable 열이나 이벤트 유형을 의미합니다.
 
 일반적으로 이러한 변경에 대해 2주 전에 공지하지만, 항상 가능한 것은 아닙니다. 인식되지 않는 필드나 이벤트 유형을 처리할 수 있도록 통합을 설계하는 것이 필수적이며, 그렇지 않으면 데이터 손실이 발생할 가능성이 높습니다.
 
 {% alert tip %}
-Currents 이벤트 스키마의 전체 목록은 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 및 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)를 참조하세요.
+Currents 이벤트 스키마의 전체 목록은 [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 및 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)를 참조하세요.
 {% endalert %}
 
 ## 배치 처리 및 직렬화 {#batching-and-serialization}
@@ -123,11 +123,11 @@ Braze-Currents-Version: 1
 
 ## 오류 처리 및 재시도 메커니즘 {#error-handling-and-retry-mechanism}
 
-오류가 발생하면 Braze는 수신된 HTTP 반환 코드에 따라 요청을 대기줄에 넣고 재시도합니다. 문제가 5일 이상 지속되면 통합이 자동으로 비활성화됩니다. 새로 수신되는 이벤트는 삭제되어 영구적으로 손실되며, 이미 대기줄에 있는 이벤트는 7일간 보관 후 영구적으로 삭제됩니다. 데이터가 24시간 이상 정체되면 당직 엔지니어에게 자동으로 알림이 전송됩니다. 각 상태 코드의 처리 방식에 대한 전체 내역은 아래 표를 참조하세요.
+오류가 발생하면 Braze는 수신된 HTTP 반환 코드에 따라 요청을 대기줄에 넣고 재시도합니다. 문제가 5일 이상 지속되면 통합이 자동으로 비활성화됩니다. 새로 수신되는 이벤트는 삭제되어 영구적으로 손실되며, 이미 대기줄에 있는 이벤트는 7일간 보관 후 영구적으로 삭제됩니다. 데이터가 24시간 이상 정체되면 당직 엔지니어에게 자동으로 알림이 전송됩니다. 각 상태 코드의 처리 방식에 대한 전체 내역은 다음 섹션의 표를 참조하세요.
 
 Currents 통합에서 인증 오류가 반환되면 Braze가 자동으로 알림 이메일을 발송합니다.
 
-아래에 나열되지 않은 HTTP 오류 코드는 HTTP `5XX` 오류로 처리됩니다.
+다음 섹션에 나열되지 않은 HTTP 오류 코드는 HTTP `5XX` 오류로 처리됩니다.
 
 {% alert warning %}
 문제가 5일 이상 지속되면 통합이 비활성화됩니다. 새로 수신되는 이벤트는 삭제되어 영구적으로 손실되며, 이미 대기줄에 있는 이벤트는 7일간 보관 후 영구적으로 삭제됩니다.
@@ -182,7 +182,7 @@ Currents 통합에서 인증 오류가 반환되면 Braze가 자동으로 알림
     <tr>
       <td><code>429</code></td>
       <td>요청이 너무 많음</td>
-      <td>사용량 제한을 나타냅니다. 이벤트 데이터가 지터가 포함된 지수 백오프 패턴으로 재전송됩니다. 문제가 5일 이상 지속되면 통합이 비활성화되며, 이미 대기줄에 있는 이벤트는 7일간 보관됩니다.</td>
+      <td>사용량 제한조치를 나타냅니다. 이벤트 데이터가 지터가 포함된 지수 백오프 패턴으로 재전송됩니다. 문제가 5일 이상 지속되면 통합이 비활성화되며, 이미 대기줄에 있는 이벤트는 7일간 보관됩니다.</td>
     </tr>
   </tbody>
 </table>

@@ -45,7 +45,7 @@ Assista ao vídeo a seguir para uma visão geral opcional sobre como configurar 
 
 ### Etapa 1: Configurar locais {#step-1-set-up-locales}
 
-Antes de adicionar traduções a uma mensagem, você deve primeiro [criar os locais que deseja suportar]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/). Os locais definem as variantes de idioma (e opcionalmente região) disponíveis para envio de mensagens.
+Antes de adicionar traduções a uma mensagem, você deve primeiro [criar os locais que deseja suportar]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings). Os locais definem as variantes de idioma (e opcionalmente região) disponíveis para envio de mensagens.
 
 ### Etapa 2: Marcar conteúdo para tradução {#step-2-mark-content-for-translation}
 
@@ -54,7 +54,7 @@ Envolva o texto que deseja traduzir com as tags de tradução Liquid {% raw %}`{
 Aqui está um exemplo de mensagem marcada para tradução: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Selecione o texto que deseja traduzir e use o atalho de teclado **Cmd + Alt + L** (macOS) ou **Ctrl + Alt + L** (Windows) para envolvê-lo em tags de tradução.<br><br> Esse atalho funciona em todos os canais que suportam mensagens multilíngues, exceto nos editores de arrastar e soltar para e-mail e Content Blocks. Para esses, use o botão **Add personalization** na barra lateral esquerda para adicionar tags de tradução.
+Selecione o texto que deseja traduzir e use o atalho de teclado **Cmd + Alt + L** (macOS) ou **Ctrl + Alt + L** (Windows) para envolvê-lo em tags de tradução.<br><br> Esse atalho funciona em todos os canais que suportam mensagens multilíngues, exceto nos editores de arrastar e soltar para e-mail e Content Blocks. Para esses, use o botão **Add personalization** para adicionar tags de tradução.
 {% endalert %}
 
 #### Localizar URLs {#localize-urls}
@@ -153,7 +153,7 @@ Certifique-se de que cada Content Block inclua traduções para todos os locais 
 
 Depois de selecionar os locais, adicione traduções à sua mensagem usando um dos seguintes métodos:
 
-![A guia Add translations com opções para fazer upload de traduções por CSV ou conectando-se a parceiros de tradução.]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
+![A guia Adicionar traduções com opções para fazer upload de traduções por CSV ou conectando-se a parceiros de tradução.]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
 
 {% tabs %}
 {% tab Fazer upload de modelo CSV %}
@@ -193,11 +193,11 @@ Para pré-visualizar sua mensagem, selecione a opção **Multi-Language User** n
 
 ### Duplicar etapas do Canvas ou Campaigns e traduções {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-Quando você duplica uma etapa do Canvas, uma Campaign ou uma variação, as traduções são incluídas. Isso também vale ao copiar entre espaços de trabalho, desde que os locais estejam definidos no espaço de trabalho de destino. Certifique-se de revisar e atualizar as traduções ao fazer modificações no seu Canvas ou Campaign.
+Quando você duplica uma etapa do Canvas, uma Campaign ou uma variante, as traduções são incluídas. Isso também vale ao copiar entre espaços de trabalho, desde que os locais estejam definidos no espaço de trabalho de destino. Certifique-se de revisar e atualizar as traduções ao fazer modificações no seu Canvas ou Campaign.
 
 ### Salvar traduções em Content Blocks {#save-translations-in-content-blocks}
 
-Content Blocks suportam multilíngue da mesma forma que as mensagens. Ao criar ou editar Content Blocks, você pode marcar conteúdo para tradução, adicionar locais e fazer upload de traduções usando um CSV ou a [API de tradução]({{site.baseurl}}/api/endpoints/translations/).
+Content Blocks suportam multilíngue da mesma forma que as mensagens. Ao criar ou editar Content Blocks, você pode marcar conteúdo para tradução, adicionar locais e fazer upload de traduções usando um CSV ou a [API de tradução]({{site.baseurl}}/api/endpoints/translations).
 
 As traduções salvas permanecem associadas ao Content Block. Quando o bloco é adicionado a uma mensagem, suas traduções são incluídas automaticamente.
 
@@ -213,7 +213,7 @@ Ao preencher o arquivo de tradução para idiomas escritos da direita para a esq
 
 ### Rastreamento de links de e-mail {#email-link-tracking}
 
-Em Campaigns de e-mail, a Braze rastreia links adicionando informações de rastreamento (parâmetros de consulta) a cada URL. Esse comportamento suporta tanto [alias de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) quanto [modelos de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
+Em Campaigns de e-mail, a Braze rastreia links adicionando informações de rastreamento (parâmetros de consulta) a cada URL. Esse comportamento suporta tanto [alias de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) quanto [modelos de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 
 Quando uma URL está envolvida em tags de tradução, a Braze pode não conseguir determinar onde adicionar essas informações de rastreamento. Para garantir que isso funcione corretamente, você deve incluir um caractere especial no final da URL para indicar onde o rastreamento deve ser adicionado.
 
@@ -231,7 +231,7 @@ URLs usam dois caracteres especiais para controlar como isso funciona:
 
 ### Configurações de idioma e acessibilidade {#language-settings-and-accessibility}
 
-Comece com [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) em [Acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) para contexto WCAG, comportamento de canal e editor (incluindo landing pages) e configurações de **Accessibility** no nível da mensagem.
+Comece com [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) em [Acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para contexto WCAG, comportamento de canal e editor (incluindo landing pages) e configurações de **Accessibility** no nível da mensagem.
 
 Ao usar **mensagens multilíngues**, alinhe o idioma de acessibilidade com cada local para que os envios localizados declarem o idioma apropriado.
 
@@ -241,17 +241,17 @@ Você pode definir o idioma de acessibilidade em dois níveis:
 
 ##### Nível da mensagem {#message-level}
 
-No nível da mensagem, defina o idioma de acessibilidade na seção **Accessibility** das configurações da sua mensagem. Para selecionar um idioma, usar Liquid e limitações por canal, consulte [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
+No nível da mensagem, defina o idioma de acessibilidade na seção **Accessibility** das configurações da sua mensagem. Para selecionar um idioma, usar Liquid e limitações por canal, consulte [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
 
 ##### Nível do local {#locale-level}
 
 Para mensagens multilíngues, defina o idioma de acessibilidade para cada local nas **Configurações de localização**. Você pode usar {% raw %}`{{accessibility_language}}`{% endraw %} na seção **Accessibility** para que o idioma do documento ou cartão seja mapeado para os valores desses locais.
 
-Se esse token aparece por padrão em novas mensagens depende do canal e do editor. Por exemplo, mensagens no app e banners se comportam de forma diferente de landing pages e e-mails de arrastar e soltar. Consulte [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) para mais detalhes.
+Se esse token aparece por padrão em novas mensagens depende do canal e do editor. Por exemplo, mensagens no app e banners se comportam de forma diferente de landing pages e e-mails de arrastar e soltar. Consulte [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) para mais detalhes.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-#### Quais são os limites para tags de tradução? {#what-are-the-limits-for-translation-tags}
+### Quais são os limites para tags de tradução? {#what-are-the-limits-for-translation-tags}
 
 Ao usar tags de tradução, os seguintes limites se aplicam:
 
@@ -279,7 +279,7 @@ Além disso, considere envolver partes menores e semanticamente relacionadas do 
 
 #### Posso fazer uma alteração na cópia traduzida em um dos meus locais?
 
-Sim. Se estiver usando um CSV, primeiro faça a edição no arquivo e depois faça upload novamente para alterar a cópia traduzida. Se estiver usando a [API de tradução]({{site.baseurl}}/api/endpoints/translations/), use os endpoints de atualização para fazer alterações.
+Sim. Se estiver usando um CSV, primeiro faça a edição no arquivo e depois faça upload novamente para alterar a cópia traduzida. Se estiver usando a [API de tradução]({{site.baseurl}}/api/endpoints/translations), use os endpoints de atualização para fazer alterações.
 
 #### Quais validações ou verificações adicionais a Braze realiza? {#what-validations-or-extra-checks-does-braze-do}
 

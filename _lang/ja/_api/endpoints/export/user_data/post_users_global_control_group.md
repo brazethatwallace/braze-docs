@@ -18,23 +18,23 @@ description: "この記事では、「グローバルコントロールグルー
 
 ユーザーデータは、改行で区切られたユーザーJSONオブジェクトの複数のファイルとしてエクスポートされます（1行に1つのJSONオブジェクトなど）。ファイルが生成されるたびに、グローバルコントロールグループのすべてのユーザーが含まれます。Brazeは、ユーザーがいつグローバルコントロールグループに追加または削除されたかの履歴を保存しません。
 
-グローバルコントロールグループのSegment識別子を確認するには、[API識別子タイプ]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier)を参照してください。
+グローバルコントロールグループのセグメント識別子を確認するには、[API識別子タイプ]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier)を参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aa3d8b90-d984-48f0-9287-57aa30469de2 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.export.global_control_group` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`users.export.global_control_group` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 認証情報ベースの応答の詳細 {#credentials-based-response-details}
+## 認証情報ベースのレスポンスの詳細 {#credentials-based-response-details}
 
 それぞれの**テクノロジーパートナー**ページを通じてBrazeに[S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)または[Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents)の認証情報を追加した場合、各ファイルはバケットにZIPファイルとしてアップロードされ、キー形式は `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip` のようになります。Azureを使用している場合は、BrazeのAzureパートナー概要ページで**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認してください。
 
-一般的に、処理を最適化するために5,000ユーザーごとに1つのファイルを作成します。大きなワークスペース内で小さなSegmentをエクスポートすると、複数のファイルが生成される場合があります。その後、ファイルを展開し、必要に応じてすべての `json` ファイルを1つのファイルに連結できます。`output_format` に `gzip` を指定した場合、ファイル拡張子は `.zip` ではなく `.gz` になります。
+一般的に、処理を最適化するために5,000ユーザーごとに1つのファイルを作成します。大きなワークスペース内で小さなセグメントをエクスポートすると、複数のファイルが生成される場合があります。その後、ファイルを展開し、必要に応じてすべての `json` ファイルを1つのファイルに連結できます。`output_format` に `gzip` を指定した場合、ファイル拡張子は `.zip` ではなく `.gz` になります。
 
 {% details ZIPのエクスポートパスの内訳 %}
 **ZIP形式:**
@@ -52,7 +52,7 @@ description: "この記事では、「グローバルコントロールグルー
 | `RANDOM_UUID` | リクエスト時にBrazeによって生成されるランダムUUID。 | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
 | `TIMESTAMP_WHEN_EXPORT_STARTED` | UTCでエクスポートが要求されたUnix時間（2017-01-01:00:00:00Zからの秒数）。 | `1556044807` |
 | `filename` | ファイルごとにランダム。 | `114f0226319130e1a4770f2602b5639a` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Credentials-based response details" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="認証情報ベースのレスポンスの詳細" }
 
 {% enddetails %}
 
@@ -62,7 +62,7 @@ description: "この記事では、「グローバルコントロールグルー
 
 クラウドストレージの認証情報を提供していない場合、リクエストに対するレスポンスには、すべてのユーザーファイルを含むZIPをダウンロードできるURLが含まれます。URLはエクスポートの準備が完了してから初めて有効になります。
 
-クラウドストレージの認証情報を提供しない場合、このエンドポイントからエクスポートできるデータ量に制限があることに注意してください。エクスポートするフィールドやユーザー数によっては、ファイルが大きすぎると転送が失敗する場合があります。ベストプラクティスは、`fields_to_export` を使用してエクスポートするフィールドを指定し、転送サイズを抑えるために必要なフィールドのみを指定することです。ファイルの生成でエラーが発生する場合は、ランダムバケット番号に基づいてユーザー群をより多くのSegmentに分割することを検討してください（たとえば、ランダムバケット番号が1,000未満、または1,000～2,000のSegmentを作成するなど）。
+クラウドストレージの認証情報を提供しない場合、このエンドポイントからエクスポートできるデータ量に制限があることに注意してください。エクスポートするフィールドやユーザー数によっては、ファイルが大きすぎると転送が失敗する場合があります。ベストプラクティスは、`fields_to_export` を使用してエクスポートするフィールドを指定し、転送サイズを抑えるために必要なフィールドのみを指定することです。ファイルの生成でエラーが発生する場合は、ランダムバケット番号に基づいてユーザー群をより多くのセグメントに分割することを検討してください（たとえば、ランダムバケット番号が1,000未満、または1,000～2,000のセグメントを作成するなど）。
 
 どちらのシナリオでも、オプションで `callback_endpoint` を指定して、エクスポートの準備が整ったときに通知を受け取ることができます。`callback_endpoint` が指定された場合、ダウンロードの準備が整った時点で、指定されたアドレスにPOSTリクエストを送信します。POSTの本文は `"success":true` です。クラウドストレージの認証情報をBrazeに追加していない場合、POSTの本文にはさらに `url` 属性が含まれ、その値としてダウンロードURLが設定されます。
 
@@ -94,7 +94,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `callback_endpoint` | オプション | 文字列 | エクスポートが利用可能になったときにダウンロードURLをPOSTするエンドポイント。 |
 | `fields_to_export` | 必須* | 文字列の配列 | エクスポートするユーザーデータフィールドの名前。カスタム属性もエクスポートできます。<br><br>*2021年4月以降、新しいアカウントではエクスポートする特定のフィールドを指定する必要があります。 |
 | `output_format` | オプション | 文字列 | 独自のS3バケットを使用する場合、ファイル形式を `zip` または `gzip` に指定できます。デフォルトはZIPファイル形式です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -117,8 +117,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 | `apps` | 配列 | このユーザーがセッションを記録したアプリ。以下のフィールドが含まれます。<br><br>- `name`: アプリ名<br>- `platform`: アプリプラットフォーム（iOS、Android、Webなど）<br>- `version`: アプリのバージョン番号または名前<br>- `sessions`: このアプリの総セッション数<br>- `first_used`: 初回セッションの日付<br>- `last_used`: 最終セッションの日付<br><br>すべてのフィールドは文字列です。 |
 | `attributed_campaign` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。特定の広告キャンペーンの識別子。 |
 | `attributed_source` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。広告が掲載されたプラットフォームの識別子。 |
-| `attributed_adgroup` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。Campaignの下のオプションのサブグループの識別子。 |
-| `attributed_ad` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。Campaignおよび広告グループの下のオプションのサブグループの識別子。 |
+| `attributed_adgroup` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
+| `attributed_ad` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンおよび広告グループの下のオプションのサブグループの識別子。 |
 | `braze_id` | 文字列 | このユーザーに対してBrazeが設定したデバイス固有の一意のユーザー識別子。 |
 | `country` | 文字列 | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)標準を使用したユーザーの国。 |
 | `created_at` | 文字列 | ユーザープロファイルが作成された日時（ISO 8601形式）。 |
@@ -136,12 +136,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 | `last_name` | 文字列 | ユーザーの姓。 |
 | `phone` | 文字列 | E.164形式のユーザーの電話番号。 |
 | `purchase`s | 配列 | このユーザーが過去90日間に行った購入。 |
-| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)。ランダムユーザーの均一分布Segmentを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
-| `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、ユーザーが受信したCampaignおよびCanvasのコンバージョン期間中に行った購入に基づいて計算されます。 |
+| `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、ユーザーが受信したキャンペーンおよびキャンバスのコンバージョン期間中に行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
-| `user_aliases` | オブジェクト | `alias_name` および `alias_label` を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)（存在する場合）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
+| `user_aliases` | オブジェクト | `alias_name` および `alias_label` を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)（存在する場合）。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="エクスポートするフィールド" }
 
 ## レスポンス {#response}
 

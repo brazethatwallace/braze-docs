@@ -25,7 +25,7 @@ El SDK de Braze .NET MAUI tiene tres tipos de tarjetas de contenido únicos que 
 | `isControlCard` | Si esta tarjeta es una tarjeta de control. Las tarjetas de control no deben mostrarse al usuario. |
 | `extras` | El mapa de extras clave-valor de esta tarjeta. |
 | `isTest` | Si esta tarjeta es una tarjeta de prueba. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modelo de tarjeta base" }
 
 Para una referencia completa de la tarjeta base, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct).
 
@@ -41,7 +41,7 @@ Las tarjetas banner son imágenes de tamaño completo en las que se puede hacer 
 
 Para una referencia completa de la tarjeta banner, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct) (ahora renombrada a solo imagen).
 
-### Imagen con pie de foto {#xamarin_captioned-image}
+### Imagen con pie de foto {#captioned-image}
 
 Las tarjetas de imagen con pie de foto son imágenes de tamaño completo en las que se puede hacer clic y que van acompañadas de un texto descriptivo.
 
@@ -52,13 +52,13 @@ Las tarjetas de imagen con pie de foto son imágenes de tamaño completo en las 
 | `title` | El texto del título de la tarjeta. |
 | `cardDescription` | El texto descriptivo de la tarjeta. |
 | `domain` | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción/dirección de hacer clic en la tarjeta. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Imagen con pie de foto" }
 
 Para una referencia completa de la tarjeta de imagen con pie de foto, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
 
-### Clásica {#xamarin_classic}
+### Clásica {#classic}
 
-Las tarjetas clásicas tienen un título, una descripción y una imagen opcional a la izquierda del texto.
+Las tarjetas clásicas tienen un título, una descripción y una imagen opcional antes del texto.
 
 | Propiedad | Descripción |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -66,7 +66,7 @@ Las tarjetas clásicas tienen un título, una descripción y una imagen opcional
 | `title` | El texto del título de la tarjeta. |
 | `cardDescription` | El texto descriptivo de la tarjeta. |
 | `domain` | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción/dirección de hacer clic en la tarjeta. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Clásica" }
 
 Para una referencia completa de la Content Card clásica (anuncio de texto), consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct). Para una referencia completa de la tarjeta de imagen clásica (noticias breves), consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct).
 
@@ -81,4 +81,4 @@ Puedes utilizar estos métodos adicionales para crear una fuente personalizada d
 | `logContentCardClicked(cardId)` | Registra un clic para el ID de Content Card dado. Este método solo se utiliza para análisis. |
 | `logContentCardImpression(cardId)` | Registra una impresión para el ID de Content Card dado. |
 | `logContentCardDismissed(cardId)` | Registra un descarte para el ID de Content Card dado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos de tarjeta" }

@@ -7,7 +7,7 @@ description: "Este artigo de referência aborda como usar catálogos para fazer 
 
 # Usando catálogos {#using-catalogs}
 
-> Depois de criar um catálogo, é possível fazer referência a dados de não usuários em suas Campaigns da Braze por meio do [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Você pode usar catálogos em todos os seus canais de envio de mensagens, inclusive em qualquer lugar do editor de arrastar e soltar em que o Liquid seja compatível.
+> Depois de criar um catálogo, é possível fazer referência a dados de não usuários em suas Campaigns da Braze por meio do [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid). Você pode usar catálogos em todos os seus canais de envio de mensagens, inclusive em qualquer lugar do editor de arrastar e soltar em que o Liquid seja compatível.
 
 ## Uso de catálogos em uma mensagem {#using-catalogs-in-a-message}
 
@@ -80,7 +80,7 @@ O retorno é o seguinte:
 ```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
-Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
+Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to create groups of data for more personalized messaging!
 {% endalert %}
 
 ### Using Liquid `if` statements
@@ -174,7 +174,7 @@ Você também pode usar templates para extrair dinamicamente itens do catálogo 
 Os objetos JSON nos catálogos só são ingeridos por meio da API. Não é possível fazer upload de um objeto JSON usando um arquivo CSV.
 {% endalert %}
 
-Usando templates Liquid, você pode extrair dinamicamente os IDs da lista de desejos e usá-los em sua mensagem. Para fazer isso, [atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) ao seu atributo personalizado e depois use o modal **Add Personalization** para puxar um item específico do array. Variáveis referenciadas como o ID do item do catálogo devem estar envolvidas em chaves para serem referenciadas corretamente, como `{{result}}`.
+Usando templates Liquid, você pode extrair dinamicamente os IDs da lista de desejos e usá-los em sua mensagem. Para fazer isso, [atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) ao seu atributo personalizado e depois use o modal **Add Personalization** para puxar um item específico do array. Variáveis referenciadas como o ID do item do catálogo devem estar envolvidas em chaves para serem referenciadas corretamente, como `{{result}}`.
 
 {% alert tip %}
 Lembre-se de que os arrays começam em `0`, e não em `1`.
@@ -206,7 +206,7 @@ Você também pode montar catálogos manualmente com lógica Liquid. No entanto,
 
 #### Usando templates em itens de catálogo com Liquid
 
-Semelhante ao [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), você deve usar o sinalizador `:rerender` em uma Liquid tag para renderizar o conteúdo Liquid de um item de catálogo. Observe que o sinalizador `:rerender` tem apenas um nível de profundidade, o que significa que não se aplicará a nenhuma chamada de Liquid tag aninhada.
+Semelhante ao [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), você deve usar o sinalizador `:rerender` em uma Liquid tag para renderizar o conteúdo Liquid de um item de catálogo. Observe que o sinalizador `:rerender` tem apenas um nível de profundidade, o que significa que não se aplicará a nenhuma chamada de Liquid tag aninhada.
 
 Se um item de catálogo contiver campos de perfil de usuário (dentro de uma tag de personalização do Liquid), esses valores deverão ser definidos no Liquid no início da mensagem e antes do template para que o Liquid seja renderizado corretamente. Se o sinalizador `:rerender` não for fornecido, o conteúdo bruto do Liquid será renderizado.
 
@@ -246,12 +246,12 @@ Se o Liquid do catálogo ou da seleção não for exibido como esperado em uma m
 | Sintoma | O que verificar |
 | --- | --- |
 | A prévia mostra itens, mas os envios reais estão vazios | Confirme se os **IDs dos itens** do catálogo existem no momento do envio. Se o ID no seu Liquid não corresponder a uma linha, a Braze retorna um array de itens vazio — consulte [Usando Liquid](#using-liquid). Verifique se há erros de digitação e se as fontes de ID (como propriedades de eventos) estão presentes no gatilho ou no perfil do usuário. |
-| A prévia do criador funciona em uma Campaign, mas não no Canvas | Confirme se você está usando o contexto correto do Liquid — **propriedades de contexto do Canvas** versus **propriedades de eventos** — e se esses campos existem no gatilho. Consulte [Propriedades de contexto e de eventos]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/). |
-| Uma seleção não retorna itens | Revise os [filtros de seleção]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) e os limites; confirme se os dados do catálogo estão sincronizados e se os nomes das colunas correspondem aos seus filtros. |
-| `:rerender` ou entrega com template parece incorreto | Para Liquid aninhado dentro de campos de catálogo, você precisa de `:rerender` e da ordenação correta das variáveis — consulte [Usando templates em itens de catálogo com Liquid](#templating-catalog-items-including-liquid). Mensagens no app com template são resolvidas no momento do gatilho; consulte [O que são mensagens no app com template?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages). Alguns canais restringem tags de catálogo (por exemplo, certos usos de **:rerender** com Banners) — consulte [Todas as Liquid tags são compatíveis?]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported) no FAQ de Banners. |
+| A prévia do criador funciona em uma Campaign, mas não no Canvas | Confirme se você está usando o contexto correto do Liquid — **propriedades de contexto do Canvas** versus **propriedades de eventos** — e se esses campos existem no gatilho. Consulte [Propriedades de contexto e de eventos]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
+| Uma seleção não retorna itens | Revise os [filtros de seleção]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) e os limites; confirme se os dados do catálogo estão sincronizados e se os nomes das colunas correspondem aos seus filtros. |
+| `:rerender` ou entrega com template parece incorreto | Para Liquid aninhado dentro de campos de catálogo, você precisa de `:rerender` e da ordenação correta das variáveis — consulte [Usando templates em itens de catálogo com Liquid](#templating-catalog-items-including-liquid). Mensagens no app com template são resolvidas no momento do gatilho; consulte [O que são mensagens no app com template?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Alguns canais restringem tags de catálogo (por exemplo, certos usos de **:rerender** com Banners) — consulte [Todas as Liquid tags são compatíveis?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) no FAQ de Banners. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas de personalização de catálogo" }
 
-Para o comportamento geral do Liquid, consulte [Casos de uso do Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) e [Usando Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
+Para o comportamento geral do Liquid, consulte [Casos de uso do Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) e [Usando Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 ## Estruturando os dados do seu catálogo
 
@@ -270,7 +270,7 @@ Com chamadas padrão de catálogo, você faz a correspondência de um valor com 
 
 ### Quando usar seleções de catálogo
 
-As [seleções de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) permitem filtrar por qualquer coluna do seu catálogo e retornar até 50 itens correspondentes. Ao inserir atributos personalizados ou propriedades de eventos nos filtros de seleção, os resultados são personalizados para cada usuário. Casos de uso comuns incluem:
+As [seleções de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) permitem filtrar por qualquer coluna do seu catálogo e retornar até 50 itens correspondentes. Ao inserir atributos personalizados ou propriedades de eventos nos filtros de seleção, os resultados são personalizados para cada usuário. Casos de uso comuns incluem:
 
 - Itens cuja categoria corresponde à preferência do usuário
 - Itens que correspondem à marca, culinária ou tamanho preferido do usuário

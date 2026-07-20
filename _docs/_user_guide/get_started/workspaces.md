@@ -222,6 +222,10 @@ The following table describes the benefits and drawbacks of these two approaches
     </tbody>
 </table>
 
+{% alert note %}
+For how MAU differs when viewing all apps versus a single app, see [Monthly active users]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+{% endalert %}
+
 ## Best practices
 
 ### Set up a testing workspace

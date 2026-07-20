@@ -46,13 +46,13 @@ For more information on these two methods of connecting your Facebook account to
 - <a href="https://help.zapier.com/hc/en-us/articles/8496123584781-How-to-get-started-with-Facebook-Lead-Ads-for-Business-Admins-on-Zapier#h_01HC9VZFZG0GR2KRYM5EQJN329" target="_blank">Facebook Lead Ads (for Business Admins)</a>
 - <a href="https://help.zapier.com/hc/en-us/articles/8496061306253#h_01HC9VMZ2XP0017AR6SE7S30JG" target="_blank">Facebook Lead Ads</a>
 
-![]({% image_buster /assets/img/fb_lead_ads_zapier/integration1.png %}){: style="max-width:80%;"}
+![Zapier app search showing Facebook Lead Ads connection options.]({% image_buster /assets/img/fb_lead_ads_zapier/integration1.png %}){: style="max-width:80%;"}
 
 #### Step 2b: Add Zapier to Leads Access in Facebook Business Manager
 
-In your Facebook Business Manager, go to **Integrations** > **Leads Access** on the left-hand menu. Select your Facebook Page, then click **CRMs**. On the CRM tab, select **Assign CRMs** and add **Zapier**.
+In your Facebook Business Manager, go to **Integrations** > **Leads Access** in the navigation menu. Select your Facebook Page, then click **CRMs**. On the CRM tab, select **Assign CRMs** and add **Zapier**.
 
-![]({% image_buster /assets/img/fb_lead_ads_zapier/integration2.png %}){: style="max-width:80%;"}
+![Facebook Business Manager Leads Access page with Zapier assigned as a CRM integration.]({% image_buster /assets/img/fb_lead_ads_zapier/integration2.png %}){: style="max-width:80%;"}
 
 For steps to assign Zapier as a CRM integration, refer to Facebook's <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862" target="_blank">documentation</a>.
 
@@ -62,19 +62,19 @@ For steps to assign Zapier as a CRM integration, refer to Facebook's <a href="ht
 
 Once you have connected your Facebook account, you can proceed to create a Zap. For the **Trigger**, select **Facebook Lead Ads** or **Facebook Lead Ads (for Business Admins)** based on your choice from step 2. 
 
-![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap1.png %}){: style="max-width:80%;"}
+![Zapier trigger step with Facebook Lead Ads selected.]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap1.png %}){: style="max-width:80%;"}
 
 For the **Event**, select **New Leads** > **Continue**. 
 
-![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap2.png %}){: style="max-width:80%;"}
+![Zapier trigger event selection showing New Leads.]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap2.png %}){: style="max-width:80%;"}
 
 Select your Facebook account, then **Continue**. 
 
-![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap3.png %}){: style="max-width:80%;"}
+![Zapier Facebook account connection step for the trigger.]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap3.png %}){: style="max-width:80%;"}
 
 Select your Facebook Page and instant form you previously created, then **Continue**.
 
-![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap4.png %}){: style="max-width:80%;"}
+![Zapier trigger configuration selecting a Facebook Page and instant form.]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap4.png %}){: style="max-width:80%;"}
 
 Next, test this trigger. After validating your form output, select **Continue with selected record**.
 
@@ -82,7 +82,7 @@ Next, test this trigger. After validating your form output, select **Continue wi
 
 Add a new step, then select **Webhooks by Zapier**. Next, select **Custom Request** for the **Event** field, then click **Continue**. 
 
-![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap5.png %}){: style="max-width:80%;"}
+![Zapier action step configured with Webhooks by Zapier and Custom Request.]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap5.png %}){: style="max-width:80%;"}
 
 Lastly, set up your custom request by inserting fields in your payload. The following code snippet shows an example payload. 
 
@@ -118,7 +118,7 @@ Lastly, set up your custom request by inserting fields in your payload. The foll
 
 Here's an example of what this looks like in Zapier:
 
-![]({% image_buster /assets/img/fb_lead_ads_zapier/configuration_example.png %}){: style="max-width:80%;"}
+![Zapier webhook payload mapping example for sending Facebook lead fields to Braze.]({% image_buster /assets/img/fb_lead_ads_zapier/configuration_example.png %}){: style="max-width:80%;"}
 
 After configuring your webhook, select **Continue and test**. If the test is successful, you can publish your Zap.
 
@@ -128,7 +128,7 @@ To test this end-to-end, use Facebook’s Leads Ads Testing Tool in your Faceboo
 
 ## User identity management
 
-This integration allows you to attribute your Facebook leads by email through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#example-request-for-updating-a-user-profile-by-phone-number).
+This integration allows you to attribute your Facebook leads by email through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number).
 
 * If the email matches an existing user profile, Braze will update the profile with Facebook leads data.
 * If there are multiple user profiles with the same email, Braze will prioritize the most recently updated profile with an external ID for updates.
@@ -162,7 +162,7 @@ If you don’t use Zapier and don’t plan on using Zapier, you can build the in
 
 For retrieving leads from Facebook, use <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">webhooks</a>. Refer to <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">Webhooks documentation</a> to get started with webhooks in Facebook.
 
-After establishing the webhooks URL in Facebook, work with your team to determine the best path to forward the data to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Similar to the Zapier approach, we’d recommend making a [request by email]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number) through the `users/track` endpoint.
+After establishing the webhooks URL in Facebook, work with your team to determine the best path to forward the data to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Similar to the Zapier approach, we’d recommend making a [request by email]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number) through the `users/track` endpoint.
 {% enddetails %}
 
 {% alert tip %}

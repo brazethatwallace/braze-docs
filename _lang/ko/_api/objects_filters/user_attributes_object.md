@@ -102,7 +102,7 @@ API를 통해 업로드해야 하는 경우, 식별된 사용자 또는 익명 �
 
 Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필 중 푸시 토큰이 없는 프로필을 찾습니다. 익명 프로필에 더 이상 푸시 토큰이 없으면 Braze는 해당 프로필을 삭제합니다. 그러나 익명 프로필에 여전히 푸시 토큰이 있는 경우, 이는 실제 사용자가 해당 푸시 토큰이 있는 기기에 아직 로그인하지 않았음을 의미하며 Braze는 아무 작업도 수행하지 않습니다.
 
-자세한 내용은 [푸시 토큰 마이그레이션](#migrating-push-tokens)을 참조하세요.
+자세한 내용은 [푸시 토큰 마이그레이션](#migrate-push-tokens)을 참조하세요.
 
 #### 커스텀 속성 데이터 유형 {#custom-attribute-data-types}
 
@@ -116,7 +116,7 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | 날짜 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식(권장) 또는 다음 형식 중 하나로 날짜를 저장합니다: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>"T"는 플레이스홀더가 아닌 시간 지정자이므로 변경하거나 제거해서는 안 됩니다. <br><br>나열된 형식과 일치하지 않는 날짜 값은 시간 데이터 유형이 아닌 문자열로 고객 프로필에 저장됩니다. 즉, 시간 기반 세분화 필터("이전", "이후" 또는 "지난 X일 이내" 등)가 해당 속성에 대해 작동하지 않습니다. 예를 들어, `Mar 26 2026 06:12 PM +00:00`은 지원되는 형식과 일치하지 않으므로 문자열로 저장됩니다. 이를 방지하려면 ISO 8601 형식(예: `2026-03-26T18:12:00Z`)을 사용하세요. <br><br>시간대가 없는 시간 속성은 기본적으로 자정 UTC로 설정되며(대시보드에서는 회사의 시간대에서 자정 UTC에 해당하는 형식으로 표시됩니다). 시간대를 지정하려면 타임스탬프에 UTC 오프셋을 추가합니다(예: EST의 경우 `2024-11-10T18:00:00-05:00`). 시간대 오프셋이 누락되었거나 형식이 잘못된 경우 값은 기본적으로 UTC로 설정됩니다. <br><br>시간은 대시보드에서 회사의 시간대로 표시됩니다. 예를 들어, `2024-11-10T18:00:00-05:00`(오후 6:00 EST)은 회사에 설정된 시간대의 해당 시간으로 표시됩니다. <br><br>미래의 타임스탬프가 있는 이벤트는 현재 시간으로 기본 설정됩니다. <br><br>일반 커스텀 속성의 경우, 연도가 0보다 작거나 3000보다 크면 Braze는 고객 프로필에 값을 문자열로 저장합니다. |
 | 플로트 | 플로트 커스텀 속성은 소수점이 있는 양수 또는 음수입니다. 예를 들어 플로트를 사용하여 계정 잔액이나 제품 또는 서비스에 대한 사용자 평점을 저장할 수 있습니다. |
 | 정수 | 정수 커스텀 속성은 "inc" 필드와 추가할 양을 가진 오브젝트를 할당하여 증가시킬 수 있습니다. <br><br>예시: `"my_custom_attribute_2" : {"inc" : int_value},`|
-| 중첩 커스텀 속성 | 중첩 커스텀 속성은 속성 집합을 다른 속성의 등록정보로 정의합니다. 커스텀 속성 오브젝트를 정의할 때 해당 오브젝트에 속성 집합을 추가합니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)을 참조하세요. |
+| 중첩 커스텀 속성 | 중첩 커스텀 속성은 속성 집합을 다른 속성의 속성정보로 정의합니다. 커스텀 속성 오브젝트를 정의할 때 해당 오브젝트에 속성 집합을 추가합니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)을 참조하세요. |
 | 문자열 | 문자열 커스텀 속성은 텍스트 데이터를 저장하는 데 사용되는 문자 시퀀스입니다. 예를 들어 문자열을 사용하여 이름과 성, 이메일 주소 또는 환경설정을 저장할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 속성 데이터 유형" }
 
@@ -155,10 +155,10 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | country | (문자열) [ISO-3166-1 alpha-2 표준](http://en.wikipedia.org/wiki/ISO_3166-1)에 따라 국가 코드를 Braze에 전달해야 합니다. API는 다양한 형식으로 수신된 국가를 매핑하기 위해 최선을 다합니다. 예를 들어 "Australia"는 "AU"로 매핑될 수 있습니다. 그러나 입력이 [ISO-3166-1 alpha-2 표준](http://en.wikipedia.org/wiki/ISO_3166-1)과 일치하지 않으면 국가 값은 `NULL`로 설정됩니다. <br><br>CSV 가져오기 또는 API를 통해 사용자에게 `country`를 설정하면 Braze가 SDK를 통해 이 정보를 자동으로 캡처하지 못합니다. |
 | current_location | (오브젝트) {"longitude": -73.991443, "latitude": 40.753824} 형식 |
 | date_of_first_session | (사용자가 앱을 처음 사용한 날짜) ISO 8601 형식 또는 다음 형식 중 하나의 문자열: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` |
-| date_of_last_session | (사용자가 마지막으로 앱을 사용한 날짜) ISO 8601 형식 또는 다음 형식 중 하나의 문자열: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY`  |
+| date_of_last_session | (사용자가 마지막으로 앱을 사용한 날짜) ISO 8601 형식 또는 다음 형식 중 하나의 문자열: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` |
 | dob | (생년월일) "YYYY-MM-DD" 형식의 문자열(예: 1980-12-21). |
 | email | (문자열) |
-| email_subscribe | (문자열) 사용 가능한 값은 "opted_in"(이메일 메시지를 수신하도록 명시적으로 등록됨), "unsubscribed"(이메일 메시지 수신을 명시적으로 거부함), "subscribed"(가입도 거부도 아님)입니다.  |
+| email_subscribe | (문자열) 사용 가능한 값은 "opted_in"(이메일 메시지를 수신하도록 명시적으로 등록됨), "unsubscribed"(이메일 메시지 수신을 명시적으로 거부함), "subscribed"(가입도 거부도 아님)입니다. |
 | email_open_tracking_disabled |(부울) `true` 또는 `false` 허용됨. 이 사용자에게 향후 전송되는 모든 이메일에 오픈 추적 픽셀이 추가되지 않도록 하려면 `true`로 설정합니다. SparkPost 및 SendGrid에서만 사용할 수 있습니다.|
 | email_click_tracking_disabled |(부울) `true` 또는 `false` 허용됨. 이 사용자에게 전송되는 향후 이메일 내의 모든 링크에 대한 클릭 추적을 비활성화하려면 `true`로 설정합니다. SparkPost 및 SendGrid에서만 사용할 수 있습니다.|
 | external_id | (문자열) 고객 프로필의 고유 식별자입니다. `external_id`가 할당된 후, Braze는 사용자의 기기 전반에서 고객 프로필을 식별합니다. 알려지지 않은 고객 프로필에 external_id를 처음 할당하면, Braze는 모든 기존 고객 프로필 데이터를 새 고객 프로필로 마이그레이션합니다. |
@@ -170,7 +170,7 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | last_name | (문자열) |
 | marked_email_as_spam_at | (문자열) 사용자의 이메일이 스팸으로 표시된 날짜입니다. ISO 8601 형식 또는 다음 형식 중 하나로 표시됩니다: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` |
 | phone | (문자열) 전화번호를 [E.164](https://en.wikipedia.org/wiki/E.164) 형식으로 제공하는 것이 좋습니다. 자세한 내용은 [사용자 전화번호]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format)를 참조하세요.|
-| push_subscribe | (문자열) 사용 가능한 값은 "opted_in"(푸시 메시지를 수신하도록 명시적으로 등록됨), "unsubscribed"(푸시 메시지 수신을 명시적으로 거부함), "subscribed"(가입도 거부도 아님)입니다.  |
+| push_subscribe | (문자열) 사용 가능한 값은 "opted_in"(푸시 메시지를 수신하도록 명시적으로 등록됨), "unsubscribed"(푸시 메시지 수신을 명시적으로 거부함), "subscribed"(가입도 거부도 아님)입니다. |
 | push_tokens | `app_id` 및 `token` 문자열이 포함된 오브젝트 배열입니다. 선택적으로 이 토큰이 연결된 기기의 `device_id`를 제공할 수 있습니다(예: `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`). `device_id`가 제공되지 않으면 무작위로 생성됩니다. |
 | subscription_groups| `subscription_group_id` 및 `subscription_state` 문자열이 포함된 오브젝트 배열(예: `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`). `subscription_state`에 사용할 수 있는 값은 "subscribed" 및 "unsubscribed"입니다.|
 | time_zone | (문자열) [IANA 시간대 데이터베이스](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)의 시간대 이름(예: "America/New_York" 또는 "Eastern Time (US & Canada)"). 유효한 시간대 값만 설정됩니다. |
@@ -179,7 +179,7 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 
 이 API를 통해 명시적으로 설정된 언어 값은 Braze가 기기에서 자동으로 수신하는 로케일 정보보다 우선합니다.
 
-####  사용자 속성 예제 요청 {#user-attribute-example-request}
+#### 사용자 속성 예제 요청 {#user-attribute-example-request}
 
 이 예시에는 API 호출당 허용되는 총 75개의 속성 오브젝트 중 4개의 사용자 속성 오브젝트가 포함되어 있습니다.
 
@@ -216,7 +216,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## 푸시 토큰 마이그레이션 {#migrating-push-tokens}
+## 푸시 토큰 마이그레이션 {#migrate-push-tokens}
 
 Braze를 통합하기 전에 자체적으로 또는 다른 제공업체를 통해 푸시 알림을 보내고 있었다면, 푸시 토큰 마이그레이션을 통해 등록된 푸시 토큰이 있는 사용자에게 푸시 알림을 계속 보낼 수 있습니다.
 
@@ -232,8 +232,8 @@ Braze를 통합하기 전에 자체적으로 또는 다른 제공업체를 통�
 
 | 고려 사항 | 세부 정보 |
 |----------------------|------------|
-| **서비스 워커**  | 기본적으로 웹 SDK는 `manageServiceWorkerExternally` 또는 `serviceWorkerLocation`과 같은 다른 옵션이 지정되지 않는 한 `./service-worker`에서 서비스 워커를 찾습니다. 서비스 워커가 제대로 설정되어 있지 않으면 사용자의 푸시 토큰이 만료될 수 있습니다. |
-| **만료된 토큰**   | 사용자가 60일 이내에 웹 세션을 시작하지 않으면 푸시 토큰이 만료됩니다. Braze는 만료된 푸시 토큰을 마이그레이션할 수 없으므로, 사용자를 재참여시키기 위해 [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)를 보내야 합니다. |
+| **서비스 워커** | 기본적으로 웹 SDK는 `manageServiceWorkerExternally` 또는 `serviceWorkerLocation`과 같은 다른 옵션이 지정되지 않는 한 `./service-worker`에서 서비스 워커를 찾습니다. 서비스 워커가 제대로 설정되어 있지 않으면 사용자의 푸시 토큰이 만료될 수 있습니다. |
+| **만료된 토큰** | 사용자가 60일 이내에 웹 세션을 시작하지 않으면 푸시 토큰이 만료됩니다. Braze는 만료된 푸시 토큰을 마이그레이션할 수 없으므로, 사용자를 재참여시키기 위해 [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)를 보내야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="웹 토큰 고려 사항" }
 
 ### API를 통한 수동 마이그레이션 {#manual-migration-through-api}
@@ -352,3 +352,9 @@ Braze SDK 통합이 완료되기 전에 사용자에게 Android 푸시 알림을
 {% alert note %}
 일부 푸시 알림 제공업체의 경우, Braze에서 키-값 페어를 평탄화해야 올바르게 해석할 수 있습니다. 특정 Android 앱에 대한 키-값 페어를 평탄화하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
+
+## 자주 묻는 질문 {#frequently-asked-questions}
+
+### 스팸으로 처리되거나 메시지 발송이 차단된 사용자를 어떻게 찾나요? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+
+Braze는 대시보드에 전용 스팸 목록을 제공하지 않습니다. Braze는 500만 건 이상의 세션을 가진 개별 사용자("더미 사용자")를 차단하고 해당 사용자의 SDK 이벤트를 더 이상 수집하지 않습니다. 식별자가 차단된 경우 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에서 `"provided external_id is blacklisted and disallowed"` 오류가 반환될 수 있습니다. 이 문구는 API 응답에서 그대로 가져온 것입니다. 영향을 받는 프로필을 찾으려면 **세션 수** 필터를 **5,000,000 초과**로 설정한 [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 생성하고, Segment를 CSV로 내보낸 다음 **Engagement** > **사용자 검색** 또는 [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) 엔드포인트에서 프로필 필드를 교차 확인하세요.

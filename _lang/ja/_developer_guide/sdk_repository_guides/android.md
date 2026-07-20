@@ -6,14 +6,16 @@ description: "GitHubからミラーリングされたBraze Android SDK READMEリ
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Android SDKリポジトリガイド {#android-sdk-repository-guide}
+
 ## Braze Android SDKについて {#about-the-braze-android-sdk}
 
 Braze Android SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction)
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android)
+- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
 
 ## クイックスタート {#quickstart}
 
@@ -47,7 +49,7 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-高度な統合オプションの詳細については、[Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android)を参照してください。
+高度な統合オプションの詳細については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)を参照してください。
 
 ## バージョンサポート {#version-support}
 
@@ -75,13 +77,13 @@ Font Awesome|4.3.0
 
 モジュール | 説明
 :----|:----
-`android-sdk-base`|Braze SDKの基本分析ライブラリーです。
-`android-sdk-ui`|アプリ内メッセージ、プッシュ、Content Cards、バナー用のBraze SDKユーザーインターフェイスライブラリーです。
-`android-sdk-location`|ロケーションとジオフェンス用のBraze SDKロケーションライブラリーです。
-`android-sdk-jetpack-compose`|Jetpack Composeサポート用のBraze SDKライブラリーです。
+`android-sdk-base`|Braze SDKの基本分析ライブラリです。
+`android-sdk-ui`|アプリ内メッセージ、プッシュ、Content Cards、バナー用のBraze SDKユーザーインターフェイスライブラリです。
+`android-sdk-location`|ロケーションとジオフェンス用のBraze SDKロケーションライブラリです。
+`android-sdk-jetpack-compose`|Jetpack Composeサポート用のBraze SDKライブラリです。
 `droidboy`|Brazeの詳細な使用方法を示すサンプルアプリです。
-`android-sdk-unity`|Unity上でのBraze SDK統合を可能にするライブラリーです。
-`samples`|さまざまな統合オプションのサンプルアプリを含むフォルダーです。
+`android-sdk-unity`|Unity上でのBraze SDK統合を可能にするライブラリです。
+`samples`|さまざまな統合オプションのサンプルアプリを含むフォルダです。
 
 ## お問い合わせ {#contact}
 

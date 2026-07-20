@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Chord
 
-> [Chord](https://www.chord.co/)は、eコマースストアフロントからイベントをキャプチャし標準化する顧客データプラットフォームを提供します。ChordをBrazeに接続すると、購入アクティビティ、行動イベント、ID更新がBrazeに流れ込み、パイプラインを自分で構築することなくCampaignsをトリガーしたりプロファイルを最新の状態に保つことができます。
+> [Chord](https://www.chord.co/)は、eコマースストアフロントからイベントをキャプチャし標準化する顧客データプラットフォームを提供します。ChordをBrazeに接続すると、購入アクティビティ、行動イベント、ID更新がBrazeに流れ込み、パイプラインを自分で構築することなくキャンペーンをトリガーしたりプロファイルを最新の状態に保つことができます。
 
 _このインテグレーションはChordによって管理されています。_
 
@@ -17,7 +17,7 @@ _このインテグレーションはChordによって管理されています�
 
 ## インテグレーションについて {#about-the-integration}
 
-Chordは、ストアとBrazeの間のデータレイヤーとして機能します。Chord CDPでBrazeを送信先として接続すると、ChordはトラッキングプランのイベントをBrazeにマッピングします。そのデータをSegments、Canvases、メッセージパーソナライゼーションで使用して、消費者がサイト上で行っていることを反映できます。
+Chordは、ストアとBrazeの間のデータレイヤーとして機能します。Chord CDPでBrazeを送信先として接続すると、ChordはトラッキングプランのイベントをBrazeにマッピングします。そのデータをセグメント、キャンバス、メッセージパーソナライゼーションで使用して、消費者がサイト上で行っていることを反映できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -40,7 +40,7 @@ Chordはクラウドモード（Braze REST APIを介したサーバー間呼び�
 2. Destinationsの横にある**Add**を選択し、カタログから**Braze**を選択して、送信先名とBraze REST APIキーを入力します。
 3. 送信先を作成して接続を完了します。
 
-REST APIキーはBrazeダッシュボードの**Settings** > **API Keys**から作成します。古いナビゲーションを使用している場合は、**Developer Console** > **API Settings**に移動してください。Chordがワークスペースに対して異なる要件を文書化していない限り、キーには`users.track`と`users.identify`の権限が必要です。詳細については、[APIキー]({{site.baseurl}}/api/api_key/)を参照してください。
+REST APIキーはBrazeダッシュボードの**設定** > **API キー**から作成します。古いナビゲーションを使用している場合は、**開発者コンソール** > **API 設定**に移動してください。Chordがワークスペースに対して異なる要件を文書化していない限り、キーには`users.track`と`users.identify`の権限が必要です。詳細については、[APIキー]({{site.baseurl}}/api/api_key/)を参照してください。
 
 ### デバイスモード {#device-mode}
 
@@ -79,7 +79,7 @@ Chordトラッキングプランに含まれ、Braze送信先に設定された�
 
 ### ステップ2：オーディエンスとジャーニーを構築する {#step-2-build-audiences-and-journeys}
 
-同期されたイベントと属性を[Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)、[Canvases]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)、Campaignsで使用して、ストアの行動に基づいて消費者をターゲティングします。
+同期されたイベントと属性を[セグメント]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)、[キャンバス]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)、キャンペーンで使用して、ストアの行動に基づいて消費者をターゲティングします。
 
 ## ユースケース {#use-cases}
 

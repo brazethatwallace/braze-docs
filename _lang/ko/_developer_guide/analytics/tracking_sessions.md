@@ -28,7 +28,7 @@ Web SDK에서 세션 수명 주기가 구현되는 방식에 대한 자세한 �
 
 **기본적으로 활동으로 간주되는 항목:**
 - 웹 앱 열기 또는 새로고침
-- Braze 기반 UI 요소와의 상호작용(예: [인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages) 또는 [Content Cards]({{site.baseurl}}/developer_guide/content_cards))
+- Braze 기반 UI 요소와의 상호작용(예: [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages) 또는 [Content Cards]({{site.baseurl}}/developer_guide/content_cards))
 - 추적된 이벤트를 전송하는 SDK 메서드 호출(예: [커스텀 이벤트]({{site.baseurl}}/developer_guide/analytics/logging_events) 또는 [사용자 속성 업데이트]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes))
 
 **기본적으로 활동으로 간주되지 않는 항목:**
@@ -82,7 +82,7 @@ document.addEventListener('visibilitychange', function() {
 세션 업데이트를 구독하려면 `subscribeToSessionUpdates()` 메서드를 사용하세요.
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 현재 Web Braze SDK에서는 세션 업데이트 구독이 지원되지 않습니다.
 {% endtab %}
 
@@ -191,7 +191,7 @@ React Native SDK는 세션 업데이트를 직접 구독하는 메서드를 제�
 세션이 자동으로 타임아웃되기까지의 시간을 변경할 수 있습니다.
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 기본적으로 세션 타임아웃은 `30`분으로 설정되어 있습니다. 이를 변경하려면 [`initialize`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize) 함수에 `sessionTimeoutInSeconds` 옵션을 전달하세요. `1` 이상의 정수로 설정할 수 있습니다.
 
 ```js
@@ -264,7 +264,7 @@ SDK 외부에서 사용자가 생성된 경우 고객 프로필의 세션 수가
 
 ### 일부 사용자가 세션을 기록하지 않는 경우 {#some-users-are-not-logging-sessions}
 
-세션은 SDK가 초기화된 후에만 추적되므로, SDK 초기화를 트리거하지 않는 사용자는 세션을 기록하지 않습니다. 이는 일반적으로 앱이 SDK를 초기화하기 전에 조건 로직을 사용하는 경우에 발생합니다. 예를 들어 로그인 플로우, 동의 프롬프트 또는 피처 플래그 뒤에 초기화를 지연시키는 경우입니다. 구현 가이드는 [지연 초기화]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift)를 참조하세요. 이러한 경우 조건을 충족하지 않는 사용자는 세션을 시작하지 않습니다.
+세션은 SDK가 초기화된 후에만 추적되므로, SDK 초기화를 트리거하지 않는 사용자는 세션을 기록하지 않습니다. 이는 일반적으로 앱이 SDK를 초기화하기 전에 조건 로직을 사용하는 경우에 발생합니다. 예를 들어 로그인 플로우, 동의 프롬프트 또는 피처 플래그 뒤에 초기화를 지연시키는 경우입니다. 구현 가이드는 [지연 초기화]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional)를 참조하세요. 이러한 경우 조건을 충족하지 않는 사용자는 세션을 시작하지 않습니다.
 
 일부 사용자는 세션을 기록하고 다른 사용자는 기록하지 않는 경우 다음을 확인하세요:
 
@@ -276,6 +276,6 @@ SDK 외부에서 사용자가 생성된 경우 고객 프로필의 세션 수가
 
 - 문제를 재현하는 단계
 - 영향을 받는 앱 버전
-- 문제가 발생하는 동안 캡처한 [상세 SDK 로그]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)(또는 플랫폼별: [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging))
+- 문제가 발생하는 동안 캡처한 [상세 SDK 로그]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)(또는 플랫폼별: [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level), [웹]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging))
 - SDK 초기화 코드 스니펫
 - 초기화 전에 적용된 조건 로직 요약

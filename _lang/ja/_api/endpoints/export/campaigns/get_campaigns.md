@@ -14,7 +14,7 @@ description: "この記事では、「キャンペーンリストのエクスポ
 /campaigns/list
 {% endapimethod %}
 
-> このエンドポイントを使用して、キャンペーンのリストをエクスポートします。各キャンペーンには、名前、Campaign API識別子、APIキャンペーンであるかどうか、およびキャンペーンに関連付けられたタグが含まれます。
+> このエンドポイントを使用して、キャンペーンのリストをエクスポートします。各キャンペーンには、名前、キャンペーンAPI識別子、APIキャンペーンであるかどうか、およびキャンペーンに関連付けられたタグが含まれます。
 
 キャンペーンは、作成時間順（デフォルトでは古いものから新しいもの）にソートされた100件のグループで返されます。
 
@@ -22,7 +22,7 @@ description: "この記事では、「キャンペーンリストのエクスポ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.list` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`campaigns.list` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -45,7 +45,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {

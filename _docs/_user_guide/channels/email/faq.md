@@ -54,7 +54,7 @@ Avoid [multivariate and A/B tests]({{site.baseurl}}/user_guide/engagement_tools/
 
 #### Canvas and duplicate email addresses
 
-For Canvas journeys, whether duplicate email addresses receive one send or more than one can depend on entry batching, step timing, and other factors. Treat behavior as undefined until you validate it for your journey. Where possible, merge or consolidate duplicate profiles. If you need a product change, submit feedback through your Braze team.
+For Canvas journeys, whether duplicate email addresses receive one send or more than one can depend on entry batching, step timing, and other factors. Treat behavior as undefined until you validate it for your journey. Where possible, merge or consolidate duplicate profiles. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### What happens to the subscription state when a user's email address changes to one shared by another user?
 
@@ -66,9 +66,9 @@ No. Updates made to the outbound email settings do not retroactively affect exis
 
 ### What is a "good" email delivery rate?
 
-Typically, the "magic number" is around 98% of messages delivered with a bounce rate no higher than 3%. If your delivery dips below that, there is usually cause for concern.
+Typically, the "magic number" is around 98% of messages delivered with a bounce rate no higher than 3%. If fewer than 98% of messages are delivered, there is usually cause for concern.
 
-However, a rate above 98% can still have deliverability issues. For example, if all your bounces come from a single domain, that is a clear signal of a reputation issue with that provider.
+However, a delivery rate of 98% or higher can still have deliverability issues. For example, if all your bounces come from a single domain, that is a clear signal of a reputation issue with that provider.
 
 Additionally, messages may be getting delivered and ending up in Spam, indicating potentially serious reputation issues. It's important to monitor not just the number of messages being delivered, but also open and click rates to determine whether users are actually seeing the messages in their inboxes. Because providers usually don't report every spam instance, a spam rate of even 1% could be cause for concern and further analysis.
 
@@ -86,7 +86,7 @@ An email feedback loop (FBL) allows senders to monitor their reputation by ident
 
 ### What are open tracking pixels?
 
-[Open tracking pixels]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel) leverage a sender's email click tracking domain to track email open events. The pixel is an image tag appended to the email's HTML. It is most commonly the last HTML element within the body tag. When a user loads their email, a request is made to populate the image from the branded tracking domain, which logs an open event.
+[Open tracking pixels]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) leverage a sender's email click tracking domain to track email open events. The pixel is an image tag appended to the email's HTML. It is most commonly the last HTML element within the body tag. When a user loads their email, a request is made to populate the image from the branded tracking domain, which logs an open event.
 
 ### What happens when an email campaign or Canvas is stopped?
 
@@ -109,6 +109,35 @@ _Total Opens_ is the count of how many times the email was opened by users, wher
 You may see no email opens or clicks if there's a misconfiguration in your tracking domain. This can be due to any of the following reasons:
 - There is an SSL issue where tracking URLs are `http` instead of `https`.
 - There is an issue with your CDN where the user agent string on the open events, click events, or both aren't populating.
+
+### Why am I seeing unusual email open or click behavior?
+
+If you notice unexpected patterns in your email open or click metrics—such as a single user appearing to click every link immediately, or opens not registering as expected—review the following common causes:
+
+#### Email clipping removes the tracking pixel
+
+When an email is clipped by the recipient's email provider (such as Gmail clipping messages over approximately 102 KB), content at the bottom of the email may be truncated. Because the open tracking pixel is typically inserted at the bottom of the email, clipping can prevent open tracking from working.
+
+**How to identify:** Check whether the email displays a "View entire message" or similar link at the bottom. You can use [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to preview the full scrollable email and verify whether the message is being clipped.
+
+**How to resolve:** You can configure Braze to place the tracking pixel at the top of the email instead of the bottom. Moving the tracking pixel may affect how some email clients render your HTML, so test your emails in Inbox Vision after making this change. Note that if the recipient has images disabled, opens cannot be tracked regardless of pixel placement.
+
+#### Delayed stats or clicks without opens
+
+Open tracking relies on the recipient loading the email with images enabled. In some cases, stats may appear delayed or clicks may be logged without corresponding opens due to:
+
+- The recipient viewing the email in a preview pane without fully opening it, then clicking links directly from the preview.
+- The email client not loading images (and therefore the tracking pixel) until after the recipient has interacted with links.
+
+#### Security software simulates link clicks
+
+Some corporate email security tools (such as Barracuda, Proofpoint, and similar services) scan incoming emails by automatically clicking all links in the message to verify they are safe. This can result in click events appearing within seconds of send, often with every link in the email clicked in rapid succession.
+
+This behavior is more common with institutional email domains (such as high schools, universities, and corporate environments) and is more likely when your sending domain differs significantly from your tracking domain. Setting up a [custom branded tracking domain]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) can reduce the frequency of these automated clicks.
+
+**How to identify:** Look up the IP address of the click event (available in Currents data) in a search engine. If the IP is associated with a known security provider (such as Barracuda Networks), the clicks are likely automated. You may also see a consistent User-Agent header across multiple automated clicks.
+
+For additional context on how security scanning affects email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### What are the potential risks of triggering server clicks?
 
@@ -152,7 +181,7 @@ To mitigate this:
 - **Use a preference center:** Instead of a direct unsubscribe link, use a [preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions) that requires user interaction to confirm the unsubscribe action. Security scanners typically won't complete multi-step forms.
 - **Review unsubscribe logs:** Check the `User-Agent` header and IP address in your Currents unsubscribe event data to identify patterns consistent with automated scanning (such as consistent `User-Agent` headers across multiple unsubscribes).
 
-For more details on how server-side scanning can affect email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+For more details on how server-side scanning can affect email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Why has my machine open rate changed unexpectedly?
 
@@ -242,7 +271,21 @@ Use the following tables to narrow down the cause.
 
 ### How can I optimize images in Outlook?
 
-Outlook often uses Microsoft Word–style rendering, which can add a border around images. You can wrap content so it hides in Office clients using standard conditional comments, for example:
+Outlook often uses Microsoft Word rendering rather than standard browser rendering, which can cause images to render incorrectly or add borders around images.
+
+If images display larger than their expected width in Outlook, add the following CSS to the image:
+
+```css
+max-width: 100%;
+```
+
+For example:
+
+```html
+<img src="your-image.png" style="max-width: 100%;" alt="Description">
+```
+
+You can also wrap content so it hides in Outlook desktop using conditional comments:
 
 ```html
 <!--[if !mso]><!-- -->
@@ -256,6 +299,12 @@ SVG images are not recommended for email due to limited support across email cli
 
 Instead, use widely supported formats such as PNG or JPEG so images render reliably.
 
+### Can I embed videos in emails?
+
+Embedded videos are not natively supported by many popular email clients such as Gmail, Outlook, and Yahoo. As a result, embedded video elements may not display as intended or may not appear at all. Additionally, embedding video directly in an email can significantly increase the email size, which increases the chance that the message may be marked as spam.
+
+Instead, you can create a GIF or static image that resembles a video in a video player, then link that image to your video. When users click the image, they are directed to the video hosted on your website or a video platform.
+
 ### Can Liquid variables assigned in one part of the message composer be used in another?
 
 No. Each part of the email (subject, body, headers, buttons, and so on) is generated separately, so Liquid assigned in one field is not available in another. Assign variables in each field that needs them.
@@ -267,6 +316,15 @@ First, confirm you have the [user permissions]({{site.baseurl}}/user_guide/admin
 ### Do I need to register domains for relay or masked emails?
 
 [Apple’s Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) requires you to register your sending domains in the Apple Developer Portal to prevent bounces. Google Shielded Email does not require a manual domain registration or allowlisting process.
+
+
+### Can I add hyperlinks in email subject lines or preheaders?
+
+No. Adding hyperlinks in email subject lines is not supported by mailbox providers. While some mailbox providers automatically scan subject lines and convert physical addresses, dates, or times into clickable links, this happens automatically on the recipient's device and is outside Braze's (or any ESP's) control.
+
+Similarly, adding hyperlinks within the preheader is not supported across the email industry.
+
+If you need functionality similar to clickable content in the subject line or preheader area, consider using [Gmail Promotions]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab) to add interactive annotations to your emails for Gmail users.
 
 ### What does the bounce reason `unable to get mx info` or `failed to get IPs from PTR record` mean?
 

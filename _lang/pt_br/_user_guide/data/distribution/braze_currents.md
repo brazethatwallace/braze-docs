@@ -6,7 +6,7 @@ article_title: Currents
 layout: dev_guide
 
 page_type: landing
-description: "Essa landing page lista artigos sobre o produto de dados da Braze chamado Currents. Aqui, você pode descobrir como configurar o Currents, os parceiros disponíveis, a semântica de entrega, os glossários de eventos e muito mais."
+description: "Esta landing page lista artigos sobre o produto de dados da Braze chamado Currents. Aqui, você pode descobrir como configurar o Currents, os parceiros disponíveis, a semântica de entrega, os glossários de eventos e muito mais."
 tool: currents
 search_rank: 9
 guide_top_header: "Braze Currents"
@@ -23,22 +23,22 @@ guide_featured_list:
   - name: Casos de uso
     link: /docs/user_guide/data/distribution/braze_currents/use_cases
     image: /assets/img/braze_icons/expand-05.svg
-  - name: Perguntas frequentes
+  - name: FAQ
     link: /docs/user_guide/data/distribution/braze_currents/faq
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## Recursos do Currents
+## Recursos do Currents {#currents-capabilities}
 
 O Currents permite que você:
-* Envie dados de eventos da Braze para um data warehouse ou para um de nossos [parceiros de análise de dados]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) para análise detalhada.
+* Envie dados de eventos da Braze para um data warehouse ou para um de nossos [parceiros de análise de dados]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) para análise detalhada.
 * Envie dados de eventos da Braze continuamente para alimentar ferramentas de business intelligence, algoritmos de machine learning e muito mais.
-* Encaminhe dados de eventos da Braze para vários outros sistemas usando [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium/), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/) ou [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/).
+* Encaminhe dados de eventos da Braze para vários outros sistemas usando [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) ou [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents).
 
-Há muito mais que pode ser feito com os dados de eventos acessados pelo Currents. [A Braze também usa Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)!
+Há muito mais que pode ser feito com os dados de eventos acessados pelo Currents. [A Braze também usa o Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)!
 
-## Como acessar o Currents
+## Como acessar o Currents {#how-to-access-currents}
 
-Um conector Currents já está incluído em muitos de nossos pacotes de nível profissional e empresarial. Se você tiver interesse em usar o Currents, entre em contato com seu gerente de conta. Seu gerente de conta e nossos especialistas em dados podem ajudar na [configuração e integração do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/).
+Um conector do Currents já está incluído em muitos de nossos pacotes de nível profissional e empresarial. Se você tiver interesse em usar o Currents, entre em contato com seu gerente de conta. Seu gerente de conta e nossos especialistas em dados podem ajudar na [configuração e integração do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents).
 
 <br><br>

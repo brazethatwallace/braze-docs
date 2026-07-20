@@ -29,7 +29,7 @@ Das Herzstück von Braze Pilot ist die Bibliothek mit App-Simulationen. Jede App
 
 ### Steppington
 
-Steppington ist eine Fitness-App mit Trainingsprogrammen, Trainingszielen und einem Steppington+ Premium-Dienst. Sie bietet mehrere Möglichkeiten zur Demonstration von [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/), einen Bereich, der mit [Feature-Flags]({{site.baseurl}}/developer_guide/feature_flags/) freigeschaltet werden kann, sowie eine umfangreiche Bibliothek zur Protokollierung angepasster Events, mit denen sich viele Customer Journeys für diese Branche veranschaulichen lassen.
+Steppington ist eine Fitness-App mit Trainingsprogrammen, Trainingszielen und einem Steppington+ Premium-Dienst. Sie bietet mehrere Möglichkeiten zur Demonstration von [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), einen Bereich, der mit [Feature-Flags]({{site.baseurl}}/developer_guide/feature_flags) freigeschaltet werden kann, sowie eine umfangreiche Bibliothek zur Protokollierung angepasster Events, mit denen sich viele Customer Journeys für diese Branche veranschaulichen lassen.
 
 ![Die Startseite von Steppington mit Symbolen für Marathontraining, Yoga, Radfahren und Krafttraining.]({% image_buster /assets/img/braze_pilot/steppington_app.png %}){:style="max-width:50%"}
 
@@ -66,7 +66,7 @@ Nachdem Pilot eine Verbindung zu Ihrem Braze-Dashboard hergestellt hat, funktion
 - Automatisch Sitzungsdaten, Geräteinformationen und Push-Token erfasst.
 - Push-Benachrichtigungen, In-App-Nachrichten und Content-Card-Messaging-Kanäle unterstützt, die eine SDK-Integration erfordern, um zu funktionieren.
 
-Weitere Informationen zum Braze SDK finden Sie unter [Integration]({{site.baseurl}}/user_guide/get_started/integrations/).
+Weitere Informationen zum Braze SDK finden Sie unter [Integration]({{site.baseurl}}/user_guide/get_started/integrations).
 
 ![Der Braze-Customer-Engagement-Stack umfasst Integrationen, APIs und SDKs für die Datenaufnahme, Klassifizierung, Orchestrierung, Personalisierung und Aktionen mit Messaging-Kanälen für einen interaktiven Feedback-Loop mit Ihren Kund:innen.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
@@ -76,7 +76,7 @@ Jedes an Braze gesendete Datenelement wird in einem Nutzerprofil gespeichert, da
 
 ### Anonym {#anonymous}
 
-Dieser Verbindungsstatus spiegelt die Erfahrung eines Gastes Ihrer App oder Website wider, der sich noch nicht angemeldet hat. Wenn Sie Pilot als anonyme:r Nutzer:in initialisieren, erstellt Braze ein [anonymes Nutzerprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/) für Sie und protokolliert dort Daten zu Ihren Aktivitäten. Anonyme Nutzer:innen können weiterhin mit Campaigns angesprochen werden, jedoch ist es nicht möglich, ihr Nutzerprofil direkt in Ihrem Braze-Dashboard aufzurufen.
+Dieser Verbindungsstatus spiegelt die Erfahrung eines Gastes Ihrer App oder Website wider, der sich noch nicht angemeldet hat. Wenn Sie Pilot als anonyme:r Nutzer:in initialisieren, erstellt Braze ein [anonymes Nutzerprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) für Sie und protokolliert dort Daten zu Ihren Aktivitäten. Anonyme Nutzer:innen können weiterhin mit Campaigns angesprochen werden, jedoch ist es nicht möglich, ihr Nutzerprofil direkt in Ihrem Braze-Dashboard aufzurufen.
 
 ### Identifiziert {#identified}
 
@@ -84,7 +84,7 @@ Dieser Verbindungsstatus bedeutet, dass Braze Ihr Nutzerprofil anhand eines Ihne
 
 ### Verbindungstyp {#connection-type}
 
-Um zu überprüfen, welche Art von Verbindung Sie haben, sehen Sie oben rechts in der Pilot-App den Verbindungsstatus.
+Um zu überprüfen, welche Art von Verbindung Sie haben, sehen Sie oben in der Pilot-App den Verbindungsstatus.
 
 {% tabs local %}
 {% tab Anonyme:r Nutzer:in  %}
@@ -109,10 +109,10 @@ Wenn Sie Daten als identifizierte:r Nutzer:in protokollieren, zeigt der Statusbe
 Mit Campaigns und Canvases senden Sie Nachrichten an Ihre Nutzer:innen.
 
 - Campaigns eignen sich am besten für einzelne Nachrichten, die über verschiedene Kanäle an ein bestimmtes Zielgruppensegment gesendet werden.
-- Canvases sind fortgeschrittene Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases tragen dazu bei, eine konsistente und nahtlose Kommunikation über verschiedene Kontaktpunkte hinweg sicherzustellen und so die Chancen für Customer-Engagement und Conversion zu erhöhen.
+- Canvases sind fortgeschrittene Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases tragen dazu bei, eine konsistente und nahtlose Kommunikation über verschiedene Kontaktpunkte hinweg sicherzustellen und so die Chancen für Customer-Engagement und Konversion zu erhöhen.
 
 ## Unterstützte Messaging-Kanäle {#supported-messaging-channels}
 
-Braze Pilot unterstützt derzeit [In-App-Nachrichten]({{site.baseurl}}/in-app_messages/), die in Ihrer App angezeigt werden und zeitnahe Nachrichten übermitteln, während die Nutzer:innen aktiv mit der App interagieren.
+Braze Pilot unterstützt derzeit [In-App-Nachrichten]({{site.baseurl}}/in-app_messages), die in Ihrer App angezeigt werden und zeitnahe Nachrichten übermitteln, während die Nutzer:innen aktiv mit der App interagieren.
 
 ![Eine In-App-Nachricht in der MovieCanon-App: „Gefällt Ihnen MovieCanon? Empfehlen Sie es Ihren Freunden!“ mit der Option, Ihre E-Mail-Adresse einzugeben, um eine Empfehlung zu versenden.]({% image_buster /assets/img/braze_pilot/moviecanon_iam.png %}){:style="max-width:40%"}

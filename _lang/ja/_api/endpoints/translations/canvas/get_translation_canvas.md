@@ -1,25 +1,25 @@
 ---
-nav_title: "GET: Canvasの翻訳を表示する"
-article_title: "GET: Canvasの翻訳を表示する"
+nav_title: "GET: キャンバスの翻訳を表示する"
+article_title: "GET: キャンバスの翻訳を表示する"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事では、「Canvasの翻訳を表示する」エンドポイントについて詳しく説明します。"
+description: "この記事では、「キャンバスの翻訳を表示する」エンドポイントについて詳しく説明します。"
 ---
 
 {% api %}
-# Canvasの翻訳を表示する {#view-translation-for-a-canvas}
+# キャンバスの翻訳を表示する {#view-translation-for-a-canvas}
 {% apimethod get %}
 /canvas/translations
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの翻訳されたメッセージをプレビューします。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
+> このエンドポイントを使用して、キャンバスの翻訳されたメッセージをプレビューします。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`canvas.translations.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -29,7 +29,7 @@ description: "この記事では、「Canvasの翻訳を表示する」エンド
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id` | 必須 | 文字列 | CanvasのID。 |
+| `workflow_id` | 必須 | 文字列 | キャンバスのID。 |
 | `step_id` | 必須 | 文字列 | キャンバスステップのID。 |
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
 | `locale_id` | オプション | 文字列 | ロケールのID（UUID）。 |
@@ -37,7 +37,7 @@ description: "この記事では、「Canvasの翻訳を表示する」エンド
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="クエリパラメーター" }
 
 {% alert note %}
-すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できます。
+すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントのレスポンスで確認できます。
 {% endalert %}
 
 ## リクエスト例 {#example-request}
@@ -48,13 +48,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコード応答があります。
+このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `200` は、次の応答ヘッダーと本文を返す可能性があります。
+ステータスコード `200` は、次のレスポンスヘッダーと本文を返す可能性があります。
 
 ```json
 {
@@ -77,9 +77,9 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンス本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {

@@ -6,12 +6,12 @@ page_order: 1
 alias: /audience_sync_criteo/
 
 tool:
-  - キャンバス
+  - Canvas
 ---
 
 # Audience Sync to Criteo
 
-Braze Audience Sync to Criteoを使用すると、ブランドは独自のBraze統合からのユーザーデータをCriteoの顧客リストに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。通常はユーザーデータに基づいてBraze キャンバスでメッセージをトリガーするための基準（プッシュ、メール、SMS、Webhookなど）を、Criteo顧客リスト内の該当ユーザーに対する広告のトリガーに使用できるようになりました。
+Braze Audience Sync to Criteoを使用すると、ブランドは独自のBraze統合からのユーザーデータをCriteoの顧客リストに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。通常はユーザーデータに基づいてBrazeキャンバスでメッセージをトリガーするための基準（プッシュ、メール、SMS、Webhookなど）を、Criteo顧客リスト内の該当ユーザーに対する広告のトリガーに使用できるようになりました。
 
 **オーディエンス同期の一般的なユースケースには次のものがあります。**
 
@@ -34,7 +34,7 @@ Audience Sync to Criteoを設定する前に、以下の項目が作成または
 | 必要条件 | 提供元 | 説明 |
 | --- | --- | --- |
 | Criteo広告アカウント | [Criteo](https://marketing.criteo.com/) | ブランドに関連付けられたアクティブなCriteo広告アカウント。<br><br>Criteo管理者から、オーディエンスにアクセスするための適切な権限が付与されていることを確認してください。 |
-| [Criteo広告ガイドライン](https://www.criteo.com/advertising-guidelines/)<br>および<br>[Criteoブランドセーフティガイドライン](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Criteoのアクティブな顧客として、Criteo キャンペーンを開始する前に、Criteoの広告ガイドラインおよびブランドセーフティガイドラインを遵守できることを確認する必要があります。 |
+| [Criteo広告ガイドライン](https://www.criteo.com/advertising-guidelines/)<br>および<br>[Criteoブランドセーフティガイドライン](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Criteoのアクティブな顧客として、Criteoキャンペーンを開始する前に、Criteoの広告ガイドラインおよびブランドセーフティガイドラインを遵守できることを確認する必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
 ## 統合 {#integration}
@@ -42,12 +42,12 @@ Audience Sync to Criteoを設定する前に、以下の項目が作成または
 ### ステップ1:Criteoに接続する {#step-1-connect-to-criteo}
 
 {% alert important %}
-CriteoをBrazeアカウントに接続するには、[「Admin」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)が必要です。
+CriteoをBrazeアカウントに接続するには、[「Admin」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)が必要です。
 {% endalert %}
 
 Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、**Criteo**を選択します。Criteo Audience Exportで、**Connect Criteo**を選択します。
 
-![Brazeの Criteoテクノロジーページ。概要セクション、Criteoセクション、および「Connected Criteo」ボタンが表示されています。]({% image_buster /assets/img/criteo/criteo5.png %}){: style="max-width:80%;"}
+![BrazeのCriteoテクノロジーページ。概要セクション、Criteoセクション、および「Connected Criteo」ボタンが表示されています。]({% image_buster /assets/img/criteo/criteo5.png %}){: style="max-width:80%;"}
 
 Criteo oAuthページが表示され、Audience Sync統合に関連する権限をBrazeに付与します。
 
@@ -65,15 +65,15 @@ Criteoとの接続はBrazeワークスペースレベルで適用されます。
 
 広告トラッキングのためにオーディエンスを作成する場合、ユーザーの設定に基づいて特定のユーザーを含めるか除外し、[CCPA](https://oag.ca.gov/privacy/ccpa)の「販売または共有を禁止する」権利などのプライバシー法に準拠することを希望する場合があります。マーケターは、キャンバスのエントリ基準の範囲内で、ユーザーの適格性に関する適切なフィルターを実装する必要があります。以下にいくつかの選択肢を挙げます。
 
-[Braze SDKでiOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)を収集した場合、「広告の追跡が有効」フィルターを使用できます。ユーザーがオプトインしたAudience Syncの宛先にのみユーザーを送信するには、値をtrueに選択します。
+[Braze SDKでiOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)を収集した場合、「広告の追跡が有効」フィルターを使用できます。ユーザーがオプトインしたAudience Syncの送信先にのみユーザーを送信するには、値をtrueに選択します。
 
-![]({% image_buster /assets/img/criteo/criteo11.png %})
+![広告トラッキングが有効に設定されたキャンバスエントリフィルター。]({% image_buster /assets/img/criteo/criteo11.png %})
 
 `opt-ins`、`opt-outs`、`Do Not Sell Or Share`、またはその他の関連するカスタム属性を収集する場合は、キャンバスのエントリ基準にこれらをフィルターとして含める必要があります。
 
-![]({% image_buster /assets/img/criteo/criteo12.png %})
+![オーディエンスの適格性のためにカスタムオプトイン属性を使用したキャンバスエントリフィルター。]({% image_buster /assets/img/criteo/criteo12.png %})
 
-Brazeプラットフォーム内でこれらのデータ保護法を遵守する方法の詳細については、[データ保護テクニカルアシスタンス]({{site.baseurl}}/dp-technical-assistance/)を参照してください。
+Brazeプラットフォーム内でこれらのデータ保護法を遵守する方法の詳細については、[データ保護テクニカルアシスタンス]({{site.baseurl}}/dp-technical-assistance)を参照してください。
 
 ### ステップ3:CriteoでAudience Syncステップを追加する {#step-3-add-an-audience-sync-step-with-criteo}
 
@@ -87,7 +87,7 @@ Brazeプラットフォーム内でこれらのデータ保護法を遵守する
 
 目的のAudience Syncパートナーとして**Criteo**を選択します。
 
-![]({% image_buster /assets/img/criteo/criteo6.png %})
+![Criteoがパートナーとして選択されたAudience Syncステップエディター。]({% image_buster /assets/img/criteo/criteo6.png %})
 
 次に、目的のCriteo広告アカウントを選択します。**Choose a New or Existing Audience**ドロップダウンで、新規または既存のオーディエンスの名前を入力します。
 

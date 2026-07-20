@@ -263,40 +263,262 @@ def strip_code_fences(text):
     return match.group(1) if match else stripped
 
 
-def split_into_chunks(content, max_chunk_kb=None):
-    """Split a large Markdown file into translatable chunks at H2 boundaries.
+_LIQUID_TAG_RE = re.compile(r"\{%[-\s]*(.*?)[-\s]*%\}", re.DOTALL)
+_LIQUID_BLOCK_PAIRS = {
+    "api": "endapi",
+    "details": "enddetails",
+    "tabs": "endtabs",
+    "tab": "endtab",
+    "alert": "endalert",
+    "apitags": "endapitags",
+    "capture": "endcapture",
+    "if": "endif",
+    "unless": "endunless",
+    "for": "endfor",
+}
+_LIQUID_CLOSE_TO_OPEN = {close: open_ for open_, close in _LIQUID_BLOCK_PAIRS.items()}
+_LIQUID_PAIRED_TAGS_FOR_QC = tuple(_LIQUID_BLOCK_PAIRS.items())
 
-    Returns a list of strings.  The first element is everything before the
-    first ``## `` heading (front matter + intro).  Subsequent elements group
-    consecutive H2 sections so that each chunk stays under *max_chunk_kb*.
-    If the file has no H2 headings, falls back to a line-count split.
+
+def _liquid_tag_token(inner):
+    """Return ('open', name), ('close', name), or (None, None) for a Liquid tag body."""
+    parts = inner.strip().split()
+    if not parts:
+        return None, None
+    name = parts[0]
+    if name in _LIQUID_CLOSE_TO_OPEN:
+        return "close", _LIQUID_CLOSE_TO_OPEN[name]
+    if name in _LIQUID_BLOCK_PAIRS:
+        return "open", name
+    return None, None
+
+
+def _liquid_block_stack_at(content, position):
+    """Return open Liquid block tag names at *position* in *content*."""
+    stack = []
+    for match in _LIQUID_TAG_RE.finditer(content[:position]):
+        kind, name = _liquid_tag_token(match.group(1))
+        if kind == "open":
+            stack.append(name)
+        elif kind == "close" and stack and stack[-1] == name:
+            stack.pop()
+    return stack
+
+
+def _liquid_safe_split_offsets(content):
+    """Byte offsets where a chunk boundary will not split an open Liquid block."""
+    offsets = [0]
+    stack = []
+    for match in _LIQUID_TAG_RE.finditer(content):
+        kind, name = _liquid_tag_token(match.group(1))
+        if kind == "open":
+            stack.append(name)
+        elif kind == "close" and stack and stack[-1] == name:
+            stack.pop()
+        if not stack:
+            offsets.append(match.end())
+    if offsets[-1] != len(content):
+        offsets.append(len(content))
+    return sorted(set(offsets))
+
+
+def _count_liquid_tag(content, tag_name):
+    return len(re.findall(rf"\{{%[-\s]*{re.escape(tag_name)}\b", content))
+
+
+def validate_liquid_paired_tags(content, label="translation"):
+    """Raise ValueError when paired Liquid block tags are unbalanced."""
+    problems = []
+    for open_tag, close_tag in _LIQUID_PAIRED_TAGS_FOR_QC:
+        open_count = _count_liquid_tag(content, open_tag)
+        close_count = _count_liquid_tag(content, close_tag)
+        if open_count != close_count:
+            problems.append(f"{open_tag}={open_count} {close_tag}={close_count}")
+    if problems:
+        raise ValueError(
+            f"Liquid paired-tag imbalance in {label}: " + ", ".join(problems)
+        )
+
+
+def _liquid_tag_line_pattern(tag_name):
+    return re.compile(
+        rf"(?m)^[ \t]*\{{%[-\s]*{re.escape(tag_name)}\b[^%]*%\}}[ \t]*(?:\n|\Z)"
+    )
+
+
+def _unmatched_open_tag_matches(content, open_tag, close_tag):
+    """Return open-tag line matches that remain unmatched at end of *content*."""
+    events = []
+    for match in _liquid_tag_line_pattern(open_tag).finditer(content):
+        events.append((match.start(), 0, match))
+    for match in _liquid_tag_line_pattern(close_tag).finditer(content):
+        events.append((match.start(), 1, match))
+    events.sort(key=lambda item: (item[0], item[1]))
+    stack = []
+    for _, kind, match in events:
+        if kind == 0:
+            stack.append(match)
+        elif stack:
+            stack.pop()
+    return stack
+
+
+def _remove_one_liquid_tag_line(
+    content,
+    tag_name,
+    *,
+    prefer_last=False,
+    skip_first=False,
+    preserve_first_n=0,
+):
+    """Remove one standalone ``{% tag %}`` line from *content*.
+
+    ``preserve_first_n`` keeps the first N matches (use the English open-count
+    when dropping extras). ``skip_first=True`` is ``preserve_first_n=1``.
+    """
+    if skip_first:
+        preserve_first_n = max(preserve_first_n, 1)
+    matches = list(_liquid_tag_line_pattern(tag_name).finditer(content))
+    if not matches:
+        raise ValueError(f"No standalone {{% {tag_name} %}} line found")
+    if preserve_first_n < 0:
+        raise ValueError("preserve_first_n must be >= 0")
+    if len(matches) <= preserve_first_n:
+        raise ValueError(
+            f"Only {len(matches)} {{% {tag_name} %}} line(s); "
+            f"cannot preserve first {preserve_first_n}"
+        )
+    pool = matches[preserve_first_n:]
+    match = pool[-1] if prefer_last else pool[0]
+    return content[: match.start()] + content[match.end() :]
+
+
+def _remove_one_extra_liquid_open_tag(content, open_tag, close_tag, *, preserve_first_n=0):
+    """Remove one excess ``{% open %}`` line, preferring unmatched opens.
+
+    Prefer the last open that is still on the Liquid stack at EOF so a spurious
+    tag between two complete blocks is removed instead of a legitimate trailing
+    open (Bugbot: skip_first only protecting match[0] when en_open > 1).
+    Fall back to preserving the first ``preserve_first_n`` opens and dropping
+    the last remaining match.
+    """
+    unmatched = _unmatched_open_tag_matches(content, open_tag, close_tag)
+    if unmatched:
+        match = unmatched[-1]
+        return content[: match.start()] + content[match.end() :]
+    return _remove_one_liquid_tag_line(
+        content,
+        open_tag,
+        prefer_last=True,
+        preserve_first_n=preserve_first_n,
+    )
+
+
+def repair_liquid_paired_tags_from_english(
+    english_content, translated_content, label="translation"
+):
+    """Align paired Liquid tag counts with balanced English when a chunk drifts."""
+    for open_tag, close_tag in _LIQUID_PAIRED_TAGS_FOR_QC:
+        en_open = _count_liquid_tag(english_content, open_tag)
+        en_close = _count_liquid_tag(english_content, close_tag)
+        if en_open != en_close:
+            raise ValueError(
+                f"English reference unbalanced ({open_tag}/{close_tag}) in {label}"
+            )
+
+        tr_open = _count_liquid_tag(translated_content, open_tag)
+        tr_close = _count_liquid_tag(translated_content, close_tag)
+
+        while tr_open > en_open:
+            translated_content = _remove_one_extra_liquid_open_tag(
+                translated_content,
+                open_tag,
+                close_tag,
+                preserve_first_n=en_open,
+            )
+            tr_open -= 1
+
+        while tr_open > tr_close:
+            translated_content = (
+                translated_content.rstrip() + f"\n\n{{% {close_tag} %}}\n"
+            )
+            tr_close += 1
+
+        while tr_close > en_close:
+            translated_content = _remove_one_liquid_tag_line(
+                translated_content,
+                close_tag,
+                prefer_last=True,
+            )
+            tr_close -= 1
+
+    validate_liquid_paired_tags(translated_content, label=label)
+    open_blocks = _liquid_block_stack_at(translated_content, len(translated_content))
+    if open_blocks:
+        raise ValueError(
+            f"Liquid block still open at end of {label}: {open_blocks}"
+        )
+    return translated_content
+
+
+def _validate_or_repair_chunk_liquid(en_chunk, translated, chunk_label):
+    """Validate chunk Liquid; repair from English when counts drift."""
+    try:
+        validate_liquid_paired_tags(translated, label=chunk_label)
+    except ValueError:
+        translated = repair_liquid_paired_tags_from_english(
+            en_chunk, translated, label=chunk_label
+        )
+    open_blocks = _liquid_block_stack_at(translated, len(translated))
+    if open_blocks:
+        raise ValueError(
+            f"Liquid block still open at end of {chunk_label}: {open_blocks}"
+        )
+    return translated
+
+
+def split_into_chunks(content, max_chunk_kb=None):
+    """Split a large Markdown file into translatable chunks.
+
+    Boundaries are chosen only where no Liquid block tag remains open, so
+    ``{% details %}`` / ``{% api %}`` regions are never cut in half.  When
+    possible, groups consecutive safe segments up to *max_chunk_kb* each.
     """
     if max_chunk_kb is None:
         max_chunk_kb = CHUNK_TARGET_KB
     max_bytes = max_chunk_kb * 1024
 
-    parts = re.split(r'(?=\n## )', content)
-
-    if len(parts) <= 1:
-        lines = content.split('\n')
+    safe_offsets = _liquid_safe_split_offsets(content)
+    if len(safe_offsets) <= 2:
+        lines = content.split("\n")
         target_lines = max(200, len(lines) // ((len(content) // max_bytes) + 1))
         chunks = []
         for i in range(0, len(lines), target_lines):
-            chunks.append('\n'.join(lines[i:i + target_lines]))
+            chunk = "\n".join(lines[i:i + target_lines])
+            start = sum(len(l) + 1 for l in lines[:i])
+            if _liquid_block_stack_at(content, start + len(chunk)):
+                raise ValueError(
+                    "Line-based chunk split would break an open Liquid block"
+                )
+            chunks.append(chunk)
         return chunks
 
-    preamble = parts[0]
-    sections = parts[1:]
+    segments = [
+        content[safe_offsets[i]:safe_offsets[i + 1]]
+        for i in range(len(safe_offsets) - 1)
+    ]
 
-    chunks = [preamble]
+    chunks = []
     current_chunk = ""
-
-    for section in sections:
-        if current_chunk and len((current_chunk + section).encode()) > max_bytes:
+    for segment in segments:
+        if (
+            current_chunk
+            and len((current_chunk + segment).encode()) > max_bytes
+        ):
             chunks.append(current_chunk)
-            current_chunk = section
+            current_chunk = segment
         else:
-            current_chunk += section
+            current_chunk += segment
 
     if current_chunk:
         chunks.append(current_chunk)
@@ -412,6 +634,16 @@ def _is_retryable_api_error(exc):
     """Return True when another Claude API attempt may succeed."""
     msg = str(exc).lower()
     return any(token in msg for token in _RETRYABLE_API_ERROR_TOKENS)
+
+
+def _is_retryable_translation_error(error):
+    """Return True when re-running the full translate pass may succeed."""
+    msg = str(error)
+    if _is_retryable_api_error(msg):
+        return True
+    # Chunked reassembly can drift {% api %}/{% endapi %} counts per locale;
+    # a fresh pass often succeeds (same as manual workflow job re-runs).
+    return "liquid paired-tag imbalance" in msg.lower()
 
 
 def _api_retry_wait_seconds(exc, attempt):
@@ -620,9 +852,17 @@ step copy—use **Target Audiences** when English does. **Portuguese** \
 ``concepts``—keep **bucket** for random-bucket terminology (never *baldes*); \
 ``optimizations``—parallel plural titles and *na etapa **Públicos-alvo***. \
 **Korean** ``optimizations``—**WhatsApp Campaigns** when listing channels in \
-plural series. **Japanese** ``create_tests``—**Messaging** > **Campaigns**, \
-**Create Campaign** for US UI paths; ``ab_test_projection``—use **予測を実行** \
-consistently for “run projection”. **German** ``optimizations``—**Gewinnervariante** \
+plural series. **Japanese** ``create_tests`` and campaign composer docs \
+(``creating_campaign.md``, ``target_users.md``, channel create articles)—localize \
+bold wizard labels from ``ja.json`` (**メッセージング** > **キャンペーン**, \
+**キャンペーンを作成**, **ターゲットオーディエンス**, **配信をスケジュール**, \
+**オーディエンスの概要**, **ユーザー検索**, **レビューサマリー**, \
+**これらのユーザーに送信**, **マルチチャネル**, **チャネルを追加**, \
+**バリアントからコピー**, **バリアントを追加**); do not leave US \
+**Target Audiences** / **Schedule Delivery** / **Create Campaign** English in \
+JA prose. **Japanese** ``ab_test_projection``—use **予測を実行** consistently \
+for “run projection”. \
+**German** ``optimizations``—**Gewinnervariante** \
 /**Personalisierte Variante** (no **Winning Variant** / **Winning-Varianten**); \
 ``conversion_correlation``—**Nutzer:innen** / **Nutzerattribute** consistently \
 (no **Benutzer** mix). **French** ``conversion_correlation``—**campagnes** in \
@@ -1246,7 +1486,7 @@ def _retry_failed_translations(
     retriable = [
         item
         for item in failed_items
-        if _is_retryable_api_error(item.get("error", ""))
+        if _is_retryable_translation_error(item.get("error", ""))
     ]
     if not retriable:
         return [], list(failed_items)
@@ -1334,18 +1574,55 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
 
     print(f"    [{lang_key}] chunked: {len(en_chunks)} chunks")
 
+    # Per-chunk Liquid checks: discovering a missing {% endapi %} only after
+    # all ~26 chunks finish wastes ~90 minutes on Currents glossaries.
+    chunk_liquid_attempts = max(3, (api_retries or API_RETRIES) // 2)
+
     translated_chunks = []
     try:
         for i, (en_chunk, tr_chunk) in enumerate(zip(en_chunks, tr_chunks)):
             print(f"    [{lang_key}] translating chunk {i + 1}/{len(en_chunks)} "
                   f"({len(en_chunk) // 1024}KB)...")
-            translated = translate_file(
-                client, prompt, en_chunk, tr_chunk or None,
-                lang_info["name"], extra_context, api_retries=api_retries,
+            chunk_label = (
+                f"{target.relative_to(REPO_ROOT)} chunk {i + 1}/{len(en_chunks)}"
             )
+            last_exc = None
+            translated = None
+            for attempt in range(1, chunk_liquid_attempts + 1):
+                try:
+                    candidate = translate_file(
+                        client,
+                        prompt,
+                        en_chunk,
+                        tr_chunk or None,
+                        lang_info["name"],
+                        extra_context,
+                        api_retries=api_retries,
+                    )
+                    translated = _validate_or_repair_chunk_liquid(
+                        en_chunk, candidate, chunk_label
+                    )
+                    break
+                except ValueError as exc:
+                    last_exc = exc
+                    if attempt < chunk_liquid_attempts:
+                        print(
+                            f"    [{lang_key}] chunk {i + 1} Liquid check failed "
+                            f"(attempt {attempt}/{chunk_liquid_attempts}): {exc}; "
+                            f"retrying chunk..."
+                        )
+                        time.sleep(min(30, 5 * attempt))
+                    else:
+                        raise
+            if translated is None:
+                raise last_exc or ValueError(f"No translation for {chunk_label}")
             translated_chunks.append(translated)
 
         full_translation = "\n\n".join(c.strip() for c in translated_chunks)
+        validate_liquid_paired_tags(
+            full_translation,
+            label=str(target.relative_to(REPO_ROOT)),
+        )
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(full_translation)
         return {
@@ -1514,8 +1791,6 @@ def cmd_translate(args):
         )
         results["translated"].extend(recovered)
         results["failed"] = still_failed
-        if not recovered:
-            break
 
     save_results(results)
     ok = len(results["translated"])
@@ -3173,16 +3448,198 @@ def repair_korean_query_hangul_typo(translated_path, translated_content, lang_ke
     ]
 
 
-# Latin Braze product / SDK tokens immediately followed by a Japanese
-# particle should not have an ASCII space in between — models often emit
-# ``Segment を`` / ``Canvas の`` (seen on auto-translate PR #13316) which
-# reads like sloppy typography next to native ``を``/``の``.
+# Latin SDK / feature tokens and localized JA product names immediately
+# followed by a Japanese particle should not have an ASCII space in between.
 _JA_LATIN_TOKEN_PARTICLE_RE = re.compile(
     r"(?P<tok>"
-    r"Content Cards|In-App Messages|REST API|"
-    r"Campaigns?|Segment|Canvas|SDK"
+    r"Content Cards|In-App Messages|REST API|SDK|"
+    r"キャンペーン|キャンバス|セグメント"
     r")\s+(?P<particle>[をのとはがも])"
 )
+
+_JA_EN_CAMPAIGN_CANVAS_SEGMENT_TERMS = (
+    "Campaign",
+    "Campaigns",
+    "Canvas",
+    "Canvases",
+    "Segment",
+    "Segments",
+)
+
+# Preserve English Liquid tab labels and multi-word UI strings during token repair.
+_JA_PROTECTED_ENGLISH_PHRASES = (
+    "Save Campaign",
+    "{% tab Campaigns %}",
+    "{% tab Canvas %}",
+    "{% tab Segments %}",
+)
+
+
+def _mask_ja_protected_english_phrases(chunk: str) -> tuple[str, dict[str, str]]:
+    placeholders: dict[str, str] = {}
+    for i, phrase in enumerate(_JA_PROTECTED_ENGLISH_PHRASES):
+        if phrase not in chunk:
+            continue
+        token = f"__JA_PHRASE_PROTECT_{i}__"
+        chunk = chunk.replace(phrase, token)
+        placeholders[token] = phrase
+    return chunk, placeholders
+
+
+def _unmask_ja_protected_english_phrases(
+    chunk: str, placeholders: dict[str, str]
+) -> str:
+    for token, phrase in placeholders.items():
+        chunk = chunk.replace(token, phrase)
+    return chunk
+
+
+def _ja_campaign_canvas_segment_replacement_pairs():
+    """Longest-first ``(english, japanese)`` pairs for Campaign/Canvas/Segment repair."""
+    glossary_path = GLOSSARY_DIR / "ja.json"
+    raw = (
+        json.loads(glossary_path.read_text())
+        if glossary_path.exists()
+        else {}
+    )
+    pairs = []
+    for en, ja in raw.items():
+        if not ja or en == ja:
+            continue
+        if not re.search(r"[ぁ-んァ-ン一-龥]", ja):
+            continue
+        if not re.search(r"(?i)(campaign|canvas|segment)", en):
+            continue
+        # Lowercase single tokens (``campaign``, ``canvas``, ``segment``) appear
+        # inside URL slugs and anchor IDs — only Title Case + multi-word UI.
+        if " " not in en and en[:1].islower():
+            continue
+        pairs.append((en, ja))
+    for en, ja in (
+        ("Canvases", "キャンバス"),
+        ("Campaigns", "キャンペーン"),
+        ("Segments", "セグメント"),
+        ("Canvas", "キャンバス"),
+        ("Campaign", "キャンペーン"),
+        ("Segment", "セグメント"),
+    ):
+        pairs.append((en, ja))
+    seen = set()
+    out = []
+    for en, ja in sorted(pairs, key=lambda x: len(x[0]), reverse=True):
+        if en in seen:
+            continue
+        seen.add(en)
+        out.append((en, ja))
+    return out
+
+
+def _replace_ja_product_terms_in_text_segment(segment, pairs):
+    """Apply glossary replacements outside code fences, URLs, and ``{#anchors}``."""
+
+    def _replace_plain(chunk: str) -> str:
+        chunk, protected = _mask_ja_protected_english_phrases(chunk)
+        for en, ja in pairs:
+            if re.search(r"\s", en):
+                chunk = chunk.replace(en, ja)
+            else:
+                chunk = re.sub(
+                    rf"(?<![A-Za-z/_-]){re.escape(en)}(?![A-Za-z/_-])",
+                    ja,
+                    chunk,
+                )
+        return _unmask_ja_protected_english_phrases(chunk, protected)
+
+    parts = re.split(r"(\{#[^}]+\})", segment)
+    out: list[str] = []
+    for part in parts:
+        if part.startswith("{#") and part.endswith("}"):
+            out.append(part)
+            continue
+
+        def _fix_link(m: re.Match) -> str:
+            return f"[{_replace_plain(m.group(1))}]({m.group(2)})"
+
+        part = re.sub(r"\[([^\]]*)\]\(([^)]*)\)", _fix_link, part)
+        out.append(_replace_plain(part))
+    return "".join(out)
+
+
+def repair_japanese_english_product_terms(
+    translated_path, translated_content, lang_key
+):
+    """Replace English Campaign/Canvas/Segment tokens with JA glossary forms.
+
+    JA docs historically kept Title Case product nouns in English via
+    ``PROTECTED_PRODUCT_TERMS``; partner review (2026-06) expects
+    **キャンペーン** / **キャンバス** / **セグメント** in prose and UI
+  labels where ``ja.json`` defines a translation.
+    """
+    if lang_key != "ja":
+        return translated_content, []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    pairs = _ja_campaign_canvas_segment_replacement_pairs()
+    fm_match = re.match(
+        r"^([ \t]*---\s*\n.*?\n---[ \t]*(?:\n|\Z))",
+        translated_content,
+        re.DOTALL,
+    )
+    if fm_match:
+        prefix = fm_match.group(1)
+        body = translated_content[fm_match.end() :]
+    else:
+        prefix = ""
+        body = translated_content
+    parts = re.split(r"(```.*?```)", body, flags=re.DOTALL)
+    for i in range(0, len(parts), 2):
+        parts[i] = _replace_ja_product_terms_in_text_segment(parts[i], pairs)
+    new = prefix + "".join(parts)
+    if new == translated_content:
+        return translated_content, []
+    return new, [
+        "ja-product-terms — replaced English Campaign/Canvas/Segment "
+        "with glossary Japanese forms"
+    ]
+
+
+def check_japanese_english_product_terms_in_prose(
+    translated_path, translated_content, lang_key
+):
+    """Warn when JA docs still use English Campaign/Canvas/Segment in prose."""
+    if lang_key != "ja":
+        return []
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return []
+    # API/event schema pages intentionally keep English field tokens.
+    if any(
+        part in rel
+        for part in (
+            "/_api/",
+            "/event_glossary/",
+            "/_includes/snowflake_users_messages/",
+        )
+    ):
+        return []
+
+    _, body = _extract_front_matter(translated_content)
+    parts = re.split(r"(```.*?```)", body, flags=re.DOTALL)
+    prose = "".join(parts[i] for i in range(0, len(parts), 2))
+    warnings = []
+    for term in _JA_EN_CAMPAIGN_CANVAS_SEGMENT_TERMS:
+        matches = re.findall(
+            rf"(?<![A-Za-z]){re.escape(term)}(?![A-Za-z])",
+            prose,
+        )
+        if matches:
+            warnings.append(
+                f"ja-product-terms — English '{term}' appears {len(matches)}x "
+                f"in prose; use glossary Japanese (キャンペーン/キャンバス/セグメント)"
+            )
+    return warnings
 
 
 def repair_japanese_latin_token_particle_spacing(
@@ -5056,6 +5513,28 @@ def repair_glossary_identifiers(english_content, translated_content, lang_key):
     return translated_content, repairs
 
 
+def check_liquid_paired_block_tags(english_content, translated_content):
+    """Warn when paired Liquid block open/close counts drift from English."""
+    warnings = []
+    for open_tag, close_tag in _LIQUID_PAIRED_TAGS_FOR_QC:
+        en_open = _count_liquid_tag(english_content, open_tag)
+        tr_open = _count_liquid_tag(translated_content, open_tag)
+        en_close = _count_liquid_tag(english_content, close_tag)
+        tr_close = _count_liquid_tag(translated_content, close_tag)
+        if tr_open != tr_close:
+            warnings.append(
+                f"liquid_paired — {open_tag}/{close_tag} unbalanced in translation "
+                f"({open_tag}={tr_open}, {close_tag}={tr_close})"
+            )
+        elif tr_open != en_open or tr_close != en_close:
+            warnings.append(
+                f"liquid_paired — {open_tag}/{close_tag} count drift "
+                f"(English {open_tag}={en_open}/{close_tag}={en_close}, "
+                f"translation {open_tag}={tr_open}/{close_tag}={tr_close})"
+            )
+    return warnings
+
+
 def check_liquid_tags(english_content, translated_content):
     """Check that Liquid tags are preserved between source and translation."""
     warnings = []
@@ -6135,6 +6614,95 @@ def repair_trailing_whitespace(translated_content: str):
     return translated_content, []
 
 
+_JA_CAMPAIGN_COMPOSER_UI = [
+    ("**Target Audiences**", "**ターゲットオーディエンス**"),
+    ("**Schedule Delivery**", "**配信をスケジュール**"),
+    ("**Action-Based Delivery**", "**アクションベースの配信**"),
+    ("**Action-Based**", "**アクションベース**"),
+    ("**Perform Custom Event**", "**カスタムイベントを実行**"),
+    ("**Perform a Back in Stock Event**", "**再入荷イベントを実行**"),
+    ("**Start Time (Required)**", "**開始時刻 (必須)**"),
+    ("**Edit email body**", "**メール本文を編集**"),
+    ("**Campaign Monitoring**", "**キャンペーンモニタリング**"),
+    ("**Set Up Alert**", "**アラートを設定**"),
+    ("**Send an SMS Inbound Message**", "**SMS インバウンドメッセージを送信**"),
+    ("**SMSインバウンドメッセージを送信する**", "**SMS インバウンドメッセージを送信**"),
+    ("SMSインバウンドメッセージを送信する", "SMS インバウンドメッセージを送信"),
+    ("**Send a WhatsApp inbound message**", "**WhatsApp インバウンドメッセージを送信**"),
+    ("**WhatsAppインバウンドメッセージを送信する**", "**WhatsApp インバウンドメッセージを送信**"),
+    ("WhatsAppインバウンドメッセージを送信する", "WhatsApp インバウンドメッセージを送信"),
+    ("**Entry Audience**", "**エントリオーディエンス**"),
+    ("**Delivery Controls**", "**配信コントロール**"),
+    ("「Delivery Controls」", "「配信コントロール」"),
+    ("**Send Settings:**", "**送信設定:**"),
+    ("**Send Settings**", "**送信設定**"),
+    ("**Audience Summary**", "**オーディエンスの概要**"),
+    ("**User Lookup**", "**ユーザー検索**"),
+    ("**Review Summary**", "**レビューサマリー**"),
+    ("**Send to these users**", "**これらのユーザーに送信**"),
+    ("**Multichannel キャンペーン**", "**マルチチャネル キャンペーン**"),
+    ("**Multichannel**", "**マルチチャネル**"),
+    ("**Add channel**", "**チャネルを追加**"),
+    ("**Add Variant**", "**バリアントを追加**"),
+    ("**Copy from Variant**", "**バリアントからコピー**"),
+    ("**Create Campaign**", "**キャンペーンを作成**"),
+    ("**Create キャンペーン**", "**キャンペーンを作成**"),
+    ("**Audience** > **Search Users**", "**オーディエンス** > **ユーザーを検索**"),
+    ("**Settings** > **API Keys**", "**設定** > **API キー**"),
+    ("**Settings** > **App Settings** > **+ Add App**", "**設定** > **アプリ設定** > **アプリを追加**"),
+    ("**Search Users**", "**ユーザーを検索**"),
+    ("**View User Event Properties**", "**ユーザーイベントプロパティを表示**"),
+    ("**Target Audience**", "**ターゲットオーディエンス**"),
+    ("**Entry Schedule**", "**エントリスケジュール**"),
+    ("**Pending Approval**", "**承認待ち**"),
+    ("**Summary**ステップ", "**レビューサマリー**ステップ"),
+    ("**Summary** step", "**レビューサマリー**ステップ"),
+    ("キャンペーンコンポーザーの**Schedule**", "キャンペーンコンポーザーの**配信をスケジュール**"),
+    ("campaign composer's **Schedule**", "campaign composer's **配信をスケジュール**"),
+    ("**Schedule**部分", "**配信をスケジュール**部分"),
+    (
+        "**Allow users to become re-eligible to receive campaign**",
+        "**ユーザーがキャンペーンを再度受信できるようにする**",
+    ),
+    ("**Approved**", "**承認済み**"),
+    ("[**Target Audiences (ターゲットオーディエンス)**]", "**ターゲットオーディエンス**"),
+    ("「User Lookup」", "「ユーザー検索」"),
+    ("「Lookup User」", "「ユーザーを検索」"),
+    ("「Schedule Delivery」", "「配信をスケジュール」"),
+    ("「Send Settings」", "「送信設定」"),
+    ("Schedule Deliveryステップ", "配信をスケジュールステップ"),
+]
+
+
+def repair_ja_campaign_composer_ui(translated_path, translated_content, lang_key):
+    """Localize leaked English campaign-composer wizard labels in Japanese docs."""
+    if lang_key != "ja":
+        return translated_content, []
+
+    rel = Path(translated_path).as_posix().replace("\\", "/")
+    if "_lang/ja/" not in rel:
+        return translated_content, []
+
+    from _glossary_locale_propagation import replace_outside_fences  # noqa: WPS433
+
+    repairs = []
+    new = translated_content
+    for old, new_label in _JA_CAMPAIGN_COMPOSER_UI:
+        if old not in new:
+            continue
+        updated, count = replace_outside_fences(new, old, new_label)
+        if count:
+            new = updated
+            repairs.append(
+                "ja_campaign_composer_ui — "
+                f"{old.strip('*')} → {new_label.strip('*')}"
+            )
+
+    if new != translated_content:
+        return new, repairs
+    return translated_content, []
+
+
 def repair_messaging_ab_testing_locale_drift(
     translated_path, translated_content, lang_key
 ):
@@ -6236,17 +6804,6 @@ def repair_messaging_ab_testing_locale_drift(
         _apply("WhatsApp Campaign에", "WhatsApp Campaigns에", "ko_ab_optim — WhatsApp Campaigns plural")
 
     if lang_key == "ja":
-        if rel.endswith("_user_guide/messaging/ab_testing/create_tests.md"):
-            _apply(
-                "1. **メッセージング** > **Campaigns**に移動します。",
-                "1. **Messaging** > **Campaigns**に移動します。",
-                "ja_ab_create — Messaging UI path",
-            )
-            _apply(
-                "2. **キャンペーンを作成**を選択し、",
-                "2. **Create Campaign**を選択し、",
-                "ja_ab_create — Create Campaign UI",
-            )
         if rel.endswith("_user_guide/messaging/ab_testing/ab_test_projection.md"):
             _apply("**投影の実行**", "**予測を実行**", "ja_ab_projection — run projection verb parity")
 
@@ -6639,6 +7196,18 @@ def qc_check_file(english_path, translated_path, lang_key):
     )
     findings["repairs"].extend(ko_query_repairs)
 
+    translated_content, ja_product_repairs = (
+        repair_japanese_english_product_terms(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["repairs"].extend(ja_product_repairs)
+
+    translated_content, ja_campaign_ui_repairs = repair_ja_campaign_composer_ui(
+        translated_path, translated_content, lang_key
+    )
+    findings["repairs"].extend(ja_campaign_ui_repairs)
+
     translated_content, ja_particle_repairs = (
         repair_japanese_latin_token_particle_spacing(
             translated_path, translated_content, lang_key
@@ -6899,6 +7468,14 @@ def qc_check_file(english_path, translated_path, lang_key):
         check_liquid_tags(english_content, translated_content)
     )
     findings["warnings"].extend(
+        check_liquid_paired_block_tags(english_content, translated_content)
+    )
+    findings["warnings"].extend(
+        check_japanese_english_product_terms_in_prose(
+            translated_path, translated_content, lang_key
+        )
+    )
+    findings["warnings"].extend(
         check_glossary_compliance(english_content, translated_content, lang_key)
     )
     findings["warnings"].extend(
@@ -7015,10 +7592,43 @@ def jekyll_build(lang_config_key):
     return result.returncode == 0, result.stderr + "\n" + result.stdout
 
 
+VERIFY_BUILD_LOG_TAIL = 3000
+
+
+def _jekyll_output_tail(output, max_chars=None):
+    """Return the trailing slice of Jekyll stdout/stderr for logs and results."""
+    if max_chars is None:
+        max_chars = VERIFY_BUILD_LOG_TAIL
+    if not output:
+        return ""
+    return output[-max_chars:]
+
+
+def _print_build_failure_output(lang_name, output, attempt, max_attempts):
+    """Emit Jekyll output to CI logs when a locale build fails."""
+    tail = _jekyll_output_tail(output)
+    print(f"  --- Jekyll build output ({lang_name}, attempt {attempt}/{max_attempts}) ---")
+    if tail:
+        print(tail)
+    else:
+        print("  (no build output captured)")
+    print("  --- end Jekyll build output ---")
+
+
 def extract_error_files(error_output, lang_dir):
-    """Pull file paths from Jekyll error output that belong to a language dir."""
-    pattern = rf"_lang/{re.escape(lang_dir)}/\S+\.md"
-    return list(set(re.findall(pattern, error_output)))
+    """Pull locale markdown paths from Jekyll error output."""
+    paths = set()
+    patterns = (
+        rf"_lang/{re.escape(lang_dir)}/\S+\.md",
+        rf"(?<![\w/]){re.escape(lang_dir)}/\S+\.md",
+    )
+    for pattern in patterns:
+        for match in re.findall(pattern, error_output):
+            if match.startswith("_lang/"):
+                paths.add(match)
+            else:
+                paths.add(f"_lang/{match}")
+    return list(paths)
 
 
 def cmd_verify(args):
@@ -7049,11 +7659,14 @@ def cmd_verify(args):
                 break
 
             print(f"  {lang_info['name']} build failed")
+            _print_build_failure_output(
+                lang_info["name"], output, attempt, args.max_attempts,
+            )
 
             if attempt == args.max_attempts:
                 build_results["failed"].append({
                     "lang": lang_key,
-                    "error": output[-3000:],
+                    "error": _jekyll_output_tail(output),
                 })
                 print(f"  {lang_info['name']} still failing after {args.max_attempts} attempts")
                 break
@@ -7063,7 +7676,7 @@ def cmd_verify(args):
                 print("  Could not identify failing file(s) from build output")
                 build_results["failed"].append({
                     "lang": lang_key,
-                    "error": output[-3000:],
+                    "error": _jekyll_output_tail(output),
                 })
                 break
 
@@ -7074,7 +7687,10 @@ def cmd_verify(args):
                 print(f"  Fixing {efile}...")
                 try:
                     content = epath.read_text()
-                    fixed = fix_file(client, prompt, content, output[-3000:], lang_info["name"])
+                    fixed = fix_file(
+                        client, prompt, content, _jekyll_output_tail(output),
+                        lang_info["name"],
+                    )
                     epath.write_text(fixed)
                 except Exception as exc:
                     print(f"  Fix attempt failed: {exc}")
@@ -7351,6 +7967,33 @@ def cmd_summary(_args):
     print(body)
 
 
+def cmd_repair_ja_product_terms(args: argparse.Namespace) -> None:
+    """Batch-apply ``repair_japanese_english_product_terms`` under ``_lang/ja/``."""
+    ja_root = REPO_ROOT / "_lang" / "ja"
+    if not ja_root.is_dir():
+        print("No _lang/ja/ directory found.", file=sys.stderr)
+        sys.exit(1)
+
+    changed = 0
+    for path in sorted(ja_root.rglob("*.md")):
+        rel = path.relative_to(REPO_ROOT).as_posix()
+        original = path.read_text()
+        updated, repairs = repair_japanese_english_product_terms(
+            rel, original, "ja"
+        )
+        if not repairs:
+            continue
+        changed += 1
+        if args.dry_run:
+            print(f"would repair: {rel}")
+        else:
+            path.write_text(updated)
+            print(f"repaired: {rel}")
+
+    label = "Would repair" if args.dry_run else "Repaired"
+    print(f"{label} {changed} file(s) under _lang/ja/")
+
+
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -7443,6 +8086,20 @@ def main():
         ),
     )
     st.set_defaults(func=cmd_stale_english_sources)
+
+    rj = sub.add_parser(
+        "repair-ja-product-terms",
+        help=(
+            "Replace English Campaign/Canvas/Segment tokens in _lang/ja/ "
+            "with glossary Japanese forms (one-off corpus repair)"
+        ),
+    )
+    rj.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print files that would change without writing",
+    )
+    rj.set_defaults(func=cmd_repair_ja_product_terms)
 
     args = parser.parse_args()
     args.func(args)

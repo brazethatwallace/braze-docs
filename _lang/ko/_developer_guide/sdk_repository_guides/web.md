@@ -6,9 +6,11 @@ description: "GitHub에서 미러링된 Braze Web SDK README 참조입니다."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Web SDK 리포지토리 가이드 {#web-sdk-repository-guide}
+
 ## Braze Web SDK 소개 {#about-the-braze-web-sdk}
 
-Braze Web SDK를 사용하면 Braze의 고객 참여 플랫폼을 웹 애플리케이션에 직접 통합할 수 있습니다. TypeScript로 구축되고 최신 웹 개발을 위해 설계된 이 SDK는 사용자 관리, 메시징, 분석 및 기능 플래그를 위한 포괄적인 도구를 제공합니다.
+Braze Web SDK를 사용하면 Braze의 고객 인게이지먼트 플랫폼을 웹 애플리케이션에 직접 통합할 수 있습니다. TypeScript로 구축되고 최신 웹 개발을 위해 설계된 이 SDK는 사용자 관리, 메시징, 분석 및 기능 플래그를 위한 포괄적인 도구를 제공합니다.
 
 ### 주요 기능 {#what-you-can-do}
 
@@ -46,6 +48,8 @@ npm install --save @braze/web-sdk
 ```
 
 ## 빠른 시작 {#quick-start}
+
+다음 스니펫은 Braze Web SDK를 초기화하는 데 필요한 최소 구성을 보여줍니다.
 
 ``` typescript
 import * as braze from "@braze/web-sdk";
@@ -90,7 +94,7 @@ braze.changeUser('Jane Doe');
 | `requireExplicitInAppMessageDismissal` | `boolean` | `false` | 기본적으로 인앱 메시지는 외부를 클릭하거나 Escape 키를 눌러 닫을 수 있습니다. 사용자가 명시적으로 닫기 버튼이나 동작 버튼을 클릭하여 메시지를 닫도록 하려면 이 옵션을 true로 설정합니다. |
 | `devicePropertyAllowlist` | `string[]` | `undefined` | 기본적으로 Braze SDK는 DeviceProperties의 모든 기기 속성을 자동으로 감지하고 수집합니다. 이 동작을 재정의하려면 DeviceProperties 배열을 제공합니다. Braze 서버로 전송되는 모든 속성을 비활성화하려면 빈 배열을 제공합니다. 일부 속성이 없으면 모든 기능이 제대로 작동하지 않을 수 있습니다. 예를 들어 시간대가 없으면 로컬 시간대 전달이 작동하지 않습니다. |
 | `serviceWorkerScope` | `string` | `undefined` | 기본적으로 Braze Web SDK는 기본 범위(서비스 워커의 디렉토리)로 서비스 워커를 등록합니다. 이 기본값을 재정의하고 서비스 워커의 사용자 정의 범위를 지정하려면 이 옵션에 값을 제공합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Initialization Options" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="초기화 옵션" }
 
 ---
 
@@ -519,7 +523,7 @@ if (banner) {
 #### 배너 업데이트 구독 {#subscribe-to-banner-updates}
 
 ``` typescript
-import { subscribeToBannersUpdates } from "@braze/web-sdk";
+import { insertBanner, subscribeToBannersUpdates } from "@braze/web-sdk";
 
 subscribeToBannersUpdates((banners) => {
     Object.entries(banners).forEach(([placementId, banner]) => {
@@ -533,6 +537,39 @@ subscribeToBannersUpdates((banners) => {
     });
 });
 ```
+
+#### 커스텀 UI에서 배너 닫기 {#dismiss-banners-in-a-custom-ui}
+
+``` typescript
+import { dismissBanner, getBanner, subscribeToBannersUpdates } from "@braze/web-sdk";
+
+subscribeToBannersUpdates((banners) => {
+    const banner = getBanner("homepage_banner");
+    const container = document.getElementById("custom-banner-container");
+    if (!container) {
+        return;
+    }
+
+    if (!banner) {
+        container.replaceChildren();
+        return;
+    }
+
+    banner.subscribeToDismissedEvent(() => {
+        console.log("Dismissed banner:", banner);
+    });
+
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Close";
+    closeButton.addEventListener("click", () => {
+        dismissBanner(banner);
+    });
+
+    // Render your custom UI here and include the close button.
+});
+```
+
+`dismissBanner(banner)`를 호출하면 SDK가 배너 닫기 상태를 처리하고, 활성 배너 업데이트에서 해당 배너를 제거하며, 배너의 닫기 이벤트 구독자에게 알리고, Braze에 닫기를 동기화합니다. 커스텀 UI는 `dismissBanner`를 단순히 로컬 UI 변경이나 분석 로깅 메서드로만 취급하지 말고, `subscribeToBannersUpdates`를 사용하여 닫힌 배너가 제거되는 것에 반응해야 합니다.
 
 #### 배너 새로고침 요청 {#request-banner-refresh}
 
@@ -771,7 +808,7 @@ AMP 통합을 위해 다음이 필요합니다:
 4. **서비스 워커 생성**: Braze 서비스 워커 파일을 추가합니다
 5. **AMP 웹 푸시 요소 구성**: API 키와 기본 URL을 쿼리 파라미터로 포함하여 `amp-web-push` 요소를 추가합니다
 
-자세한 AMP 통합 지침은 [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#amp)를 참조하세요.
+자세한 AMP 통합 지침은 [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)를 참조하세요.
 
 ### Electron
 
@@ -785,14 +822,19 @@ Electron은 공식적으로 웹 푸시 알림을 지원하지 않습니다 (참�
 ### 서비스 워커(푸시 알림) {#service-worker-push-notifications}
 
 - **필수**: 푸시 알림이 작동하려면 Braze 서비스 워커를 포함해야 합니다
-- **등록**: `navigator.serviceWorker.register()`를 사용하여 웹사이트 코드에서 서비스 워커를 등록합니다
+- **기본 등록**: 기본적으로 Braze Web SDK는 `requestPushPermission()`이 호출될 때와 이미 푸시 권한을 부여한 사용자의 새 세션 시작 시 서비스 워커를 자동으로 등록하고 관리합니다. Braze 서비스 워커 코드가 포함된 서비스 워커 파일을 예상 위치에 호스팅해야 합니다.
+- **자체 서비스 워커 관리**: 애플리케이션에서 이미 서비스 워커를 관리하고 있는 경우, `manageServiceWorkerExternally` 초기화 옵션을 `true`로 설정하고, 서비스 워커 파일에 Braze 서비스 워커 코드를 추가한 다음, `navigator.serviceWorker.register()`를 사용하여 직접 등록합니다
 - **푸시 권한**: 사용자 상호작용(예: 버튼 클릭)에 대한 응답으로 `braze.requestPushPermission()`을 호출합니다. 브라우저 권한을 요청하기 전에 소프트 푸시 프롬프트(커스텀 UI)를 사용합니다
 
 ### 태그 관리자 {#tag-managers}
 
 #### Tealium iQ
 
-Tealium iQ는 기본적인 턴키 Braze 통합을 제공합니다. 통합을 구성하려면 Tealium 태그 관리 인터페이스에서 Braze를 검색하고 대시보드에서 Web SDK API 키를 제공합니다. 자세한 내용이나 심층적인 Tealium 구성 지원은 [통합 설명서]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium)를 확인하거나 Tealium 계정 매니저에게 문의하세요.
+Tealium iQ는 기본적인 턴키 Braze 통합을 제공합니다. 통합을 구성하려면 Tealium 태그 관리 인터페이스에서 Braze를 검색하고 대시보드에서 Web SDK API 키를 제공합니다. 자세한 내용이나 심층적인 Tealium 구성 지원은 [통합 설명서](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)를 확인하거나 Tealium 계정 매니저에게 문의하세요.
+
+#### Google Tag Manager
+
+Web SDK는 Google Tag Manager 컨테이너의 커스텀 HTML 태그에서 초기화하고 호출할 수 있습니다. GTM을 통해 Braze로 이벤트를 전송하는 예시는 [Google Tag Manager 샘플 앱](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager)을 참조하거나, 자세한 내용은 [통합 설명서](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager)를 확인하세요.
 
 #### 기타 태그 관리자 {#other-tag-managers}
 
@@ -802,12 +844,14 @@ Braze는 커스텀 HTML 태그 내에서 통합 지침을 따르면 다른 태�
 
 ## 라이브러리 {#libraries}
 
+다음 표는 사용 가능한 Braze Web SDK 배포판을 설명합니다.
+
 | 이름 | 설명 | npm | CDN URL
 | ---- | ----------- | --- | -------
-| Full | UI가 포함된 전체 SDK입니다. npm 버전을 사용할 때 JavaScript 번들러는 UI를 포함하여 사용하지 않는 코드를 제거합니다. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js
-| Core | UI가 없는 SDK입니다. 이 버전의 SDK를 사용할 때는 In-App Messages 및 Content Cards에 대한 자체 UI를 구현해야 합니다. UI 요소는 CSS를 통해 완전히 사용자 정의할 수 있으므로 일반적으로 전체 라이브러리 통합을 권장합니다. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js
-| No-AMD | AMD 지원이 없는 전체 SDK입니다. 사이트에서 RequireJS 또는 다른 AMD 모듈 로더를 사용하지만 CDN을 통해 SDK를 로드하려는 경우에 유용합니다. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Libraries" }
+| Full | UI가 포함된 전체 SDK입니다. npm 버전을 사용할 때 JavaScript 번들러는 UI 코드를 포함하여 사용하지 않는 코드를 제거합니다. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.9/braze.min.js
+| Core | UI가 없는 SDK입니다. 이 버전의 SDK를 사용할 때는 In-App Messages 및 Content Cards에 대한 자체 UI를 구현해야 합니다. CSS를 통해 사용자 정의 가능한 UI 요소를 제공하므로 대부분의 통합에는 전체 라이브러리를 사용하는 것을 권장합니다. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.core.min.js
+| No-AMD | AMD 지원이 없는 전체 SDK입니다. 사이트에서 RequireJS 또는 다른 AMD 모듈 로더를 사용하지만 CDN을 통해 SDK를 로드하려는 경우에 유용합니다. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.no-amd.min.js
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="라이브러리" }
 
 ## 지원 브라우저 {#supported-browsers}
 
@@ -817,7 +861,7 @@ Braze는 커스텀 HTML 태그 내에서 통합 지침을 따르면 다른 태�
 
 ## 디버깅 및 문제 해결 {#debugging-troubleshooting}
 
-initialize 함수에 `enableLogging: true` 옵션을 전달하면(`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) Braze가 JavaScript 콘솔에 로그를 기록합니다. 이는 개발에 유용하지만 모든 사용자에게 표시되므로, 프로덕션에 페이지를 릴리스하기 전에 이 옵션을 제거하거나 [대체 로거를 제공](https://js.appboycdn.com/web-sdk/6.8/doc/modules/braze.html#setlogger)해야 합니다.
+initialize 함수에 `enableLogging: true` 옵션을 전달하면(`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) Braze가 JavaScript 콘솔에 로그를 기록합니다. 이는 개발에 유용하지만 모든 사용자에게 표시되므로, 프로덕션에 페이지를 릴리스하기 전에 이 옵션을 제거하거나 [대체 로거를 제공](https://js.appboycdn.com/web-sdk/6.9/doc/modules/braze.html#setlogger)해야 합니다.
 
 ## Font Awesome
 
@@ -825,13 +869,13 @@ Braze는 인앱 메시지 아이콘에 [Font Awesome](http://fortawesome.github.
 
 ## 추가 리소스 {#additional-resources}
 
-- [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)
+- [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web)
 - [SDK 설명서](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [샘플 빌드](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 
 ## 문의 {#contact}
 
-질문이 있으시면 [support@braze.com](mailto:support@braze.com)으로 연락해 주세요.
+질문이 있으시면 Braze 기술 지원팀에 문의하세요.
 <!-- END GENERATED README CONTENT -->
 
 리포지토리 세부 정보 및 샘플 프로젝트는 [https://github.com/braze-inc/braze-web-sdk](https://github.com/braze-inc/braze-web-sdk)를 참조하세요.

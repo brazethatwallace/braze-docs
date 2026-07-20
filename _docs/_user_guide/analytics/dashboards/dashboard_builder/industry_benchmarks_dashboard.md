@@ -26,7 +26,7 @@ The dashboard is organized into four channel sections: **Email**, **Push Notific
 
 | Section              | Description                                                                                                                                             |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| KPI cards            | Show your workspace's rate for each key metric, along with the delta compared to the industry rate. A green up arrow indicates your workspace is above the industry rate; a red down arrow indicates it's below. |
+| KPI cards            | Show your workspace's rate for each key metric, along with the delta compared to the industry rate. A green up arrow indicates your workspace is higher than the industry rate; a red down arrow indicates it is lower. |
 | Monthly trend chart  | Plots your workspace rate against the industry rate over time, so you can identify seasonality and longer-term trends.                                   |
 | Regional breakdown   | Breaks down your workspace rate against the industry rate across regions, so you can spot where regional performance diverges from the industry.         |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Section" }

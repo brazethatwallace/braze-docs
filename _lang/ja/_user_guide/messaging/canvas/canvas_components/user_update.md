@@ -4,7 +4,7 @@ article_title: ユーザーの更新
 alias: "/user_update/"
 page_order: 12
 page_type: reference
-description: "このリファレンス記事では、ユーザーの更新コンポーネントと、Canvasでの使用方法について説明します。"
+description: "このリファレンス記事では、ユーザーの更新コンポーネントと、キャンバスでの使用方法について説明します。"
 tool: Canvas
 ---
 
@@ -16,7 +16,7 @@ tool: Canvas
 
 ![属性「Is Premium Member」を「true」に更新する「Update loyalty」という名前のユーザーの更新ステップ。]({% image_buster /assets/img_archive/canvas_user_update_step.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-このコンポーネントをCanvasで使用する場合、更新は `/users/track` の1分あたりのリクエスト数のレート制限にカウントされません。代わりに、これらの更新はバッチ処理されるため、Brazeは Braze-to-Braze Webhookよりも効率的に処理できます。なお、このコンポーネントは、課金対象外のデータポイント（サブスクリプショングループなど）の更新に使用される場合、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)を記録しません。
+このコンポーネントをキャンバスで使用する場合、更新は `/users/track` の1分あたりのリクエスト数のレート制限にカウントされません。代わりに、これらの更新はバッチ処理されるため、Brazeは Braze-to-Braze Webhookよりも効率的に処理できます。なお、このコンポーネントは、課金対象外のデータポイント（サブスクリプショングループなど）の更新に使用される場合、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)を記録しません。
 
 ユーザーがユーザーの更新ステップに入り、処理が完了すると、次のステップに進みます。つまり、これらのユーザー更新に依存する後続のメッセージングは、次のステップが実行される時点で最新の状態になっています。
 
@@ -54,7 +54,7 @@ tool: Canvas
 
 ### オブジェクトの配列を更新する {#updating-an-array-of-objects}
 
-[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)は、ユーザーのプロファイルに保存されるデータリッチなカスタム属性です。ユーザーとブランドとのインタラクション履歴を作成したり、購入履歴や合計ライフタイムバリューなどの計算フィールドに基づいてSegmentを作成したりするために使用できます。
+[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)は、ユーザーのプロファイルに保存されるデータリッチなカスタム属性です。ユーザーとブランドとのインタラクション履歴を作成したり、購入履歴や合計ライフタイムバリューなどの計算フィールドに基づいてセグメントを作成したりするために使用できます。
 
 **Advanced JSON Editor** オプションを使用して、JSON を挿入し、このオブジェクトの配列にアイテムを追加したり、アイテムを削除したりできます。
 
@@ -119,7 +119,7 @@ tool: Canvas
 
 {:start="2"}
 2. ユーザーがカートにアイテムを追加したときに記録される `add_item_to_cart` という名前の[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を作成します。
-3. このカスタムイベントを実行したユーザーをターゲットとするCanvasを作成します。これにより、ユーザーがカートにアイテムを追加すると、このCanvasがトリガーされます。その後、特定の金額に達した場合のクーポンコードの提供、一定時間カートを放置した場合のリマインド、またはユースケースに合ったその他のメッセージングを、そのユーザーに直接ターゲティングできます。
+3. このカスタムイベントを実行したユーザーをターゲットとするキャンバスを作成します。これにより、ユーザーがカートにアイテムを追加すると、このキャンバスがトリガーされます。その後、特定の金額に達した場合のクーポンコードの提供、一定時間カートを放置した場合のリマインド、またはユースケースに合ったその他のメッセージングを、そのユーザーに直接ターゲティングできます。
 
 `shopping_cart` 属性には、多くのカスタムイベントの合計が含まれます。すべてのアイテムの合計コスト、カート内のアイテムの合計数、ショッピングカートにギフトが含まれているかどうかなどです。これは以下のようになります。
 
@@ -145,15 +145,15 @@ tool: Canvas
 ```
 {% endraw %}
 
-## Canvasエントリプロパティを属性として設定する {#setting-canvas-entry-property-as-an-attribute}
+## キャンバスエントリプロパティを属性として設定する {#setting-canvas-entry-property-as-an-attribute}
 
-ユーザーの更新ステップを使用して、`canvas_entry_property` を永続化できます。例えば、アイテムがカートに追加されたときにトリガーされるイベントがあるとします。カートに最後に追加されたアイテムの ID を保存し、リマーケティングCampaignに使用できます。パーソナライゼーション機能を使用して、Canvasエントリプロパティを取得し、属性に保存します。
+ユーザーの更新ステップを使用して、`canvas_entry_property` を永続化できます。例えば、アイテムがカートに追加されたときにトリガーされるイベントがあるとします。カートに最後に追加されたアイテムの ID を保存し、リマーケティングキャンペーンに使用できます。パーソナライゼーション機能を使用して、キャンバスエントリプロパティを取得し、属性に保存します。
 
 ![属性「most_recent_cart_item」をアイテム ID で更新するユーザーの更新ステップ。]({% image_buster /assets/img_archive/canvas_user_update_cep.png %}){: style="max-width:90%;"}
 
 ### パーソナライゼーション {#personalization}
 
-Canvasのトリガーイベントのプロパティを属性として保存するには、パーソナライゼーションモーダルを使用してCanvasエントリプロパティを抽出し、保存します。ユーザーの更新では、以下のパーソナライゼーション機能もサポートしています。
+キャンバスのトリガーイベントのプロパティを属性として保存するには、パーソナライゼーションモーダルを使用してキャンバスエントリプロパティを抽出し、保存します。ユーザーの更新では、以下のパーソナライゼーション機能もサポートしています。
 
 * [コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)
 * [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)
@@ -162,7 +162,7 @@ Canvasのトリガーイベントのプロパティを属性として保存す�
 * オブジェクトごとの複数の属性またはイベントの更新
 
 {% alert warning %}
-ユーザーの更新ステップでのコネクテッドコンテンツ Liquid パーソナライゼーションの使用には注意が必要です。このステップタイプには1分あたり200,000リクエストのレート制限があります。このレート制限はCanvasのレート制限を上書きします。
+ユーザーの更新ステップでのコネクテッドコンテンツ Liquid パーソナライゼーションの使用には注意が必要です。このステップタイプには1分あたり200,000リクエストのレート制限があります。このレート制限はキャンバスのレート制限を上書きします。
 {% endalert %}
 
 ## 高度な JSON エディター {#advanced-json-editor}
@@ -184,7 +184,7 @@ JSON エディターを使用する際に、API キーなどの機密データ�
 * プッシュトークンのインポートに関連するフィールド
 
 {% alert important %}
-Canvasプロパティ（`canvas_id`、`canvas_name`、`canvas_variant_name` の Liquid タグなど）は、ユーザーの更新ステップではサポートされていません。
+キャンバスプロパティ（`canvas_id`、`canvas_name`、`canvas_variant_name` の Liquid タグなど）は、ユーザーの更新ステップではサポートされていません。
 {% endalert %}
 
 {% raw %}

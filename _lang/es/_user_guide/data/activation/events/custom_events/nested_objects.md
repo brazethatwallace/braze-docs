@@ -3,7 +3,7 @@ nav_title: Objetos anidados
 article_title: Objetos anidados en eventos personalizados
 page_order: 1
 page_type: reference
-description: "En este artículo se describe cómo enviar datos JSON anidados como propiedades de eventos personalizados y compras, y cómo utilizar esos objetos anidados en la mensajería."
+description: "En este artículo se describe cómo enviar datos JSON anidados como propiedades de eventos personalizados y compras, y cómo utilizar esos objetos anidados en tu mensajería."
 ---
 
 # Objetos anidados en eventos personalizados {#nested-objects-in-custom-events}
@@ -14,7 +14,7 @@ Puedes usar objetos anidados —objetos que están dentro de otro objeto— para
 
 ## Consideraciones {#considerations}
 
-- Los datos anidados son compatibles tanto con [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) como con [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/), pero no con otros tipos de eventos.
+- Los datos anidados son compatibles tanto con [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) como con [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), pero no con otros tipos de eventos.
 - Los objetos de propiedades de eventos que contienen valores de array u objeto pueden tener una carga útil de propiedades del evento de hasta 100 KB.
 - No se pueden generar esquemas de propiedades de eventos para eventos de compra.
 - Los esquemas de propiedades de eventos se generan mediante el muestreo de eventos personalizados de las últimas 24 horas.
@@ -33,7 +33,7 @@ Puedes acceder a los datos anidados en tu evento personalizado generando un esqu
 2. Selecciona **Administrar propiedades** para los eventos con propiedades anidadas.
 3. Selecciona el botón <i class="fas fa-arrows-rotate"></i> para generar el esquema. Para ver el esquema, selecciona el botón de <i class="fas fa-plus"></i> más.
 
-![]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
+![Selecciona el botón para generar el esquema. Para ver el esquema, selecciona el botón de más.]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
 
 Si se envían nuevas propiedades en el futuro, no estarán en el esquema hasta que se regenere. Los esquemas se pueden regenerar cada 24 horas.
 
@@ -134,12 +134,12 @@ Plantilla en Liquid en un mensaje desencadenado por el evento "Ordered":
 
 ### Desencadenamiento de mensajes {#message-triggering}
 
-Para usar estas propiedades para desencadenar una Campaign, selecciona tu evento personalizado o compra, y luego añade un filtro de **Nested Property**. Ten en cuenta que el desencadenamiento de mensajes aún no es compatible con mensajes dentro de la aplicación, pero las propiedades anidadas en la personalización Liquid de los mensajes se seguirán mostrando.
+Para usar estas propiedades para desencadenar una campaña, selecciona tu evento personalizado o compra, y luego añade un filtro de **Nested Property**. Ten en cuenta que el desencadenamiento de mensajes aún no es compatible con mensajes dentro de la aplicación, pero las propiedades anidadas en la personalización Liquid de los mensajes se seguirán mostrando.
 
 {% tabs %}
 {% tab Music Example %}
 
-Desencadenar una Campaign con propiedades anidadas del evento "Created Playlist":
+Desencadenar una campaña con propiedades anidadas del evento "Created Playlist":
 
 ![Un usuario eligiendo una propiedad anidada para filtros de propiedades en un evento personalizado.]({% image_buster /assets/img/nested_object2.png %})
 
@@ -152,7 +152,7 @@ El filtro **does not equal** solo coincide si ninguna de las propiedades en tu a
 {% endtab %}
 {% tab Restaurant Example %}
 
-Desencadenar una Campaign con propiedades anidadas del evento "Ordered":
+Desencadenar una campaña con propiedades anidadas del evento "Ordered":
 
 ![Un usuario añadiendo el filtro de propiedad r_details.name is SandwichEmperor para un evento personalizado.]({% image_buster /assets/img/nested_object1.png %})
 
@@ -167,9 +167,9 @@ Si tu propiedad de evento contiene los caracteres `[]` o `.`, escápalos envolvi
 
 ### Segmentación {#segmentation}
 
-Para segmentar usuarios basándote en propiedades de eventos anidados, debes usar [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). Después de haber generado un esquema, el explorador de objetos anidados aparecerá en la sección de segmentación.
+Para segmentar usuarios basándote en propiedades de eventos anidados, debes usar [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Después de haber generado un esquema, el explorador de objetos anidados aparecerá en la sección de segmentación.
 
-![]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
+![Captura de pantalla relacionada con la segmentación.]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
 
 La segmentación usa la misma notación que el desencadenamiento (consulta [Desencadenamiento de mensajes](#message-triggering)).
 
@@ -179,7 +179,7 @@ Para editar o crear Extensiones de segmento, necesitarás el permiso "Edit Segme
 
 Usando el modal **Add Personalization**, selecciona **Advanced Event Properties** como tipo de personalización. Esto permite añadir propiedades de eventos anidados después de que se haya generado un esquema.
 
-![]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
+![Usando el modal Add Personalization, selecciona Advanced Event Properties como tipo de personalización. Esto permite añadir propiedades de eventos anidados después de que se haya generado un esquema.]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
 
 ## Probar objetos anidados en mensajes {#testing-nested-objects-in-messages}
 
@@ -188,15 +188,15 @@ La herramienta **Preview & Test** del dashboard no admite añadir datos simulado
 ### Atributos personalizados anidados {#nested-custom-attributes}
 
 1. Importa los atributos anidados al perfil del usuario de prueba a través de la API.
-2. En tu Campaign o Canvas, ve a **Preview & Test**.
+2. En tu campaña o Canvas, ve a **Preview & Test**.
 3. Selecciona **Preview as user** y busca al usuario de prueba. El Liquid se resolverá usando los atributos anidados reales del perfil de ese usuario.
 
 ### Propiedades de eventos anidados {#nested-event-properties}
 
 Las propiedades de eventos anidados no se pueden previsualizar en el dashboard porque requieren un desencadenamiento de evento en vivo. Para probar:
 
-1. Crea una Campaign o paso en Canvas que se dirija solo a tus usuarios de prueba y que sea desencadenada por (o haga referencia a) el evento personalizado con propiedades anidadas.
-2. Lanza la Campaign a tu audiencia de prueba.
+1. Crea una campaña o paso en Canvas que se dirija solo a tus usuarios de prueba y que sea desencadenada por (o haga referencia a) el evento personalizado con propiedades anidadas.
+2. Lanza la campaña a tu audiencia de prueba.
 3. Registra el evento personalizado con la carga útil del objeto anidado en el perfil de tu usuario de prueba (usando la API o el SDK).
 4. Verifica que el mensaje se renderice correctamente con los valores de las propiedades anidadas.
 

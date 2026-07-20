@@ -217,7 +217,9 @@ DELIVERYFAILURE
 Demandbase
 Denada
 Deprioritization
+deprioritize
 deprioritized
+deprioritizes
 detangle
 Deutsch
 developerid
@@ -257,9 +259,11 @@ Eppo’s
 Erdelyi
 Eshop
 ESP
+ESPs
 Espa
 Eswatini
 Eventbrite
+Everest
 EWONDO
 exfiltration
 EXPERIMENTSTEP
@@ -603,6 +607,7 @@ PhDs
 Phiture's
 phrasee
 pickencoding
+Plazma
 Podfile
 postbacks
 prebuild
@@ -773,6 +778,7 @@ Squarespace
 SSSZ
 stackadapt
 STATECHANGE
+Stayfilm
 Stensul
 Steppington
 Stpo
@@ -839,6 +845,7 @@ Toolkits
 Toovio
 Toovio's
 torchie
+TOTP
 Touchpoint
 Touchpoints
 trackpad
@@ -893,6 +900,8 @@ USERDELETEREQUEST
 useridentifier
 USERORPHAN
 validreg
+Validity
+Validity's
 VARCHAR
 videosmart
 viewports
@@ -922,11 +931,13 @@ Whitelabeled
 whitelabeling
 WiFi
 Winback
+winbacks
 wishlisted
 Wistia
 wordmap
 WordPress
 wordprocessor
+Wormholy
 WWDC
 Wyng
 Xamarin

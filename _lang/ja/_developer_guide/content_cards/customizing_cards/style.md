@@ -23,7 +23,7 @@ platform:
 ![2枚のコンテンツカード。1枚はデフォルトのフォントで角が四角いもの、もう1枚は角が丸くカーリーフォントのもの]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-Content Cardsのプロパティ（`title`、`cardDescription`、`imageUrl` など）は、[ダッシュボード]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)から直接編集できます。これは、詳細を変更するための推奨される方法です。
+Content Cardsのプロパティ（`title`、`cardDescription`、`imageUrl`など）は、[ダッシュボード]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)から直接編集できます。これは、詳細を変更するための推奨される方法です。
 {% endalert %}
 
 

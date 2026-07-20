@@ -70,14 +70,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obrigatória | String | Consulte [identificador de Campaign]({{site.baseurl}}/api/identifier_types). |
+| `campaign_id` | Obrigatório | String | Consulte [identificador de Campaign]({{site.baseurl}}/api/identifier_types). |
 | `send_id` | Opcional | String | Consulte [identificador de envio]({{site.baseurl}}/api/identifier_types). |
 | `trigger_properties` | Opcional | Objeto | Consulte [propriedades do disparador]({{site.baseurl}}/api/objects_filters/trigger_properties_object). Os pares de chave-valor de personalização se aplicam a todos os usuários nesta solicitação. |
 | `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para todo o Segment configurado como o público-alvo da Campaign no dashboard da Braze. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag inadvertidamente pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
 | `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). Quando você inclui `audience`, a mensagem é enviada apenas para usuários que correspondem aos filtros definidos, como atributos personalizados e status de inscrição. |
-| `recipients` | Opcional | Vetor | Consulte [objeto de destinatários]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>Se `send_to_existing_only` for `false`, um objeto `attributes` deverá ser incluído.<br><br>Você pode atualizar o status do grupo de inscrições de um usuário incluindo `subscription_groups` no objeto `attributes` aninhado. Para saber mais, consulte [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>Se `recipients` não for fornecido e `broadcast` estiver definido como true, a mensagem é enviada para todo o Segment configurado como o público-alvo da Campaign no dashboard da Braze.<br><br>Se `email` for o identificador, você deve incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) no objeto de destinatários. |
+| `recipients` | Opcional | Vetor | Consulte [objeto de destinatários]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>Se `send_to_existing_only` for `false`, um objeto `attributes` deverá ser incluído.<br><br>Você pode atualizar o status do grupo de inscrições de um usuário incluindo `subscription_groups` no objeto `attributes` aninhado. Para saber mais, consulte [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>Se `recipients` não for fornecido e `broadcast` estiver definido como true, a mensagem é enviada para todo o Segment configurado como o público-alvo da Campaign no dashboard da Braze.<br><br>Se `email` for o identificador, você deve incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) no objeto de destinatários. |
 | `attachments` | Opcional | Vetor | Se `broadcast` estiver definido como true, a lista `attachments` não poderá ser incluída. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 Esta seção explica como a Braze seleciona um perfil de usuário para envio e o que acontece quando um perfil não é selecionado.
 
-O status do grupo de inscrições de um usuário pode ser atualizado com a inclusão de um parâmetro `subscription_groups` no objeto `attributes`. Para saber mais, consulte [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+O status do grupo de inscrições de um usuário pode ser atualizado com a inclusão de um parâmetro `subscription_groups` no objeto `attributes`. Para saber mais, consulte [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 #### Limites de destinatários e criação de perfis {#recipient-limits-and-profile-creation}
 
@@ -95,8 +95,8 @@ Saiba mais sobre como os limites de destinatários e a criação de perfis funci
 - Quando `send_to_existing_only` é `true` (o padrão), a Braze envia a mensagem apenas para usuários existentes.
 - Quando `send_to_existing_only` é `false` e um objeto `attributes` é fornecido, a Braze cria um novo usuário se ele não existir.
 - **Perfis novos precisam de `attributes` com `send_to_existing_only: false`.** A Braze executa a criação ou atualização pré-envio a partir do objeto `attributes` no mesmo destinatário. Se você definir `send_to_existing_only` como `false`, mas omitir `attributes` (ou enviar um objeto vazio), a Braze não hidrata os dados do perfil da mesma forma, então você não obtém o comportamento combinado de "criar ou atualizar usuário e depois enviar" para o qual esse padrão foi projetado.
-- **Endereçamento de e-mail e SMS.** Para a maioria dos envios de e-mail ou SMS disparados por API para alguém que ainda não está na Braze, inclua os campos de entrega necessários dentro de `attributes` (por exemplo, `email` ou os atributos de telefone que seu espaço de trabalho usa para SMS). Você também pode definir a associação ao grupo de inscrições ou o status de inscrição quando o estado de opt-in precisa ser alterado na mesma chamada.
-- **Elegibilidade da Campaign.** Depois que o perfil existir ou for atualizado, o usuário ainda precisa corresponder ao público-alvo da Campaign no dashboard e às regras de envio do canal (por exemplo, ter opt-in para e-mail) para que a Braze envie a mensagem.
+- **Endereçamento de e-mail e SMS.** Para a maioria dos envios de e-mail ou SMS disparados por API para alguém que ainda não está na Braze, inclua os campos de entrega necessários dentro de `attributes` (por exemplo, `email` ou os atributos de telefone que seu espaço de trabalho usa para SMS). Você também pode definir a associação ao grupo de inscrições ou o status de inscrição quando o estado de aceitação precisa ser alterado na mesma chamada.
+- **Elegibilidade da Campaign.** Depois que o perfil existir ou for atualizado, o usuário ainda precisa corresponder ao público-alvo da Campaign no dashboard e às regras de envio do canal (por exemplo, ter aceitação para e-mail) para que a Braze envie a mensagem.
 - Definir `send_to_existing_only` como `false` não é compatível com aliases de usuário. Novos usuários apenas com alias não podem ser criados por meio deste endpoint. Para enviar para um usuário apenas com alias, o usuário já deve existir na Braze.
 
 #### Identificador de e-mail e empates de priorização {#email-identifier-and-prioritization-ties}
@@ -115,7 +115,7 @@ Saiba o que acontece quando `prioritization` não retorna exatamente um perfil.
 - Quando `prioritization` não retorna exatamente um perfil de usuário, a Braze tenta a resolução novamente até 40 vezes. Esse comportamento de nova tentativa é esperado.
 - A configuração `send_to_existing_only` não altera o comportamento de empate de `prioritization`. O mesmo comportamento de empate e nova tentativa se aplica independentemente de essa configuração ser `true` ou `false`.
 
-Se você disparar uma Campaign somente de e-mail para um destinatário identificado por `external_user_id` ou `user_alias`, e esse perfil de usuário não tiver um endereço de e-mail no momento da chamada, a Braze tenta o envio novamente por aproximadamente 2 horas. Isso cobre o padrão comum de criar um usuário e definir seu endereço de e-mail em sequência. Para enviar sem atraso, inclua o atributo `email` dentro de `recipients[].attributes` para que o endereço seja definido na mesma chamada do disparo.
+Se você disparar uma Campaign somente de e-mail para um destinatário identificado por `external_user_id` ou `user_alias`, e esse perfil de usuário não tiver um endereço de e-mail no momento da chamada, a Braze tenta o envio novamente por aproximadamente 2 horas. Isso cobre o padrão comum de criar um usuário e definir seu endereço de e-mail em sequência. Para enviar sem postergação, inclua o atributo `email` dentro de `recipients[].attributes` para que o endereço seja definido na mesma chamada do disparo.
 
 {% alert note %}
 O parâmetro `segment_id` não é compatível com este endpoint. Para direcionar um Segment, configure o Segment nas configurações de público-alvo da Campaign no dashboard da Braze e use `"broadcast": true`, ou use o parâmetro `audience` com filtros de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience).
@@ -212,7 +212,11 @@ Se sua solicitação encontrar um erro fatal, consulte [Erros e respostas]({{sit
 A Braze tem um objeto de envio de mensagens chamado `attributes` que permite adicionar, criar ou atualizar atributos e valores para um usuário antes de enviar uma Campaign disparada por API. Usar o endpoint `campaign/trigger/send` como essa chamada de API processa o objeto de atributos do usuário antes de processar e enviar a Campaign. Isso ajuda a minimizar o risco de problemas causados por [condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
 {% alert tip %}
-Está procurando a versão do Canvas desse endpoint? Confira [Envio de mensagens do Canvas usando entrega disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#create-send-endpoint).
+Está procurando a versão do Canvas desse endpoint? Confira [Envio de mensagens do Canvas usando entrega disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 {% endalert %}
+
+### Por que o Liquid não renderiza quando eu o coloco diretamente no corpo JSON? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}
+
+Quando o corpo da sua solicitação é um JSON válido, a Braze avalia qualquer Liquid na carga útil no servidor. Se você incorporar Liquid como strings brutas, coloque aspas e escape essas strings para que o corpo permaneça um JSON válido — por exemplo, escape aspas duplas dentro de strings. Se o corpo falhar na análise JSON, a Braze retorna um `400` antes de avaliar qualquer Liquid. Quando possível, passe valores dinâmicos por meio de [`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object) em vez de incorporar Liquid diretamente na carga útil.
 
 {% endapi %}

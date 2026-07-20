@@ -32,26 +32,26 @@ O Braze Audience Sync com o Snapchat é uma integração do Audience Sync Pro. P
 
 Você deve garantir que os itens a seguir sejam criados, concluídos e/ou aceitos antes de configurar a etapa do público do Snapchat no Canvas.
 
-| Requisito | Origin | Descrição |
+| Requisito | Origem | Descrição |
 | --- | --- | --- |
 | Gerente de negócios do Snapchat | Snapchat | Uma ferramenta centralizada para gerenciar os ativos do Snapchat de sua marca (como contas de anúncios, páginas, apps). |
 | Conta de anúncios do Snapchat | Snapchat | Uma conta ativa de anúncios do Snapchat vinculada ao Snapchat Business Manager de sua marca.<br><br>Certifique-se de que o administrador do Snapchat Business Manager lhe concedeu permissões de administrador para as contas de anúncios do Snapchat que você planeja usar com a Braze. |
 | Termos e políticas do Snapchat | [Snapchat](https://www.snap.com/en-US/policies) | Concordar em cumprir todos os termos, políticas, diretrizes e documentação exigidos pelo Snapchat relacionados ao seu uso do Snapchat Audience Sync, incluindo quaisquer termos, políticas, diretrizes e documentação incorporados por referência, que podem incluir: os Termos de Serviço, os Termos de Serviço para Empresas, os Termos do Desenvolvedor, o Audience Match, as Políticas de Publicidade, a Política de Conteúdo Comercial, as Diretrizes da Comunidade e a Responsabilidade do Fornecedor. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
 ### Etapa 1: Conectar-se ao Snapchat {#step-1-connect-to-snapchat}
 
 {% alert important %}
-Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para conectar o Snapchat à sua conta Braze.
+Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) para conectar o Snapchat à sua conta Braze.
 {% endalert %}
 
 No dashboard da Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** e selecione **Snapchat**. Em Snapchat Audience Sync, selecione **Connect Snapchat**.
 
-![Página de tecnologia do Snapchat na Braze que inclui uma seção de Visão geral e uma seção de Snapchat Audience Sync com o botão Connect Snapchat.]({% image_buster /assets/img/snapchat/snapchat1.png %}){: style="max-width:80%;"}
+![Página de tecnologia do Snapchat na Braze que inclui uma seção de visão geral e uma seção de Snapchat Audience Sync com o botão Connect Snapchat.]({% image_buster /assets/img/snapchat/snapchat1.png %}){: style="max-width:80%;"}
 
-Em seguida, você será redirecionado para a página OAuth do Snapchat para autorizar a Braze a conceder as permissões relacionadas à sua integração com o Audience Sync.
+Em seguida, você será redirecionado para a página OAuth do Snapchat para autorizar a Braze a obter as permissões relacionadas à sua integração com o Audience Sync.
 
 Depois de selecionar confirmar, você será redirecionado de volta à Braze para selecionar as contas de anúncios do Snapchat que deseja sincronizar.
 
@@ -67,7 +67,7 @@ Sua conexão com o Snapchat será aplicada no nível do espaço de trabalho da B
 
 Adicione um componente ao seu Canvas e selecione **Audience Sync**.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Seletor de etapas do Canvas com a opção do componente Audience Sync.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Cartão do componente Audience Sync adicionado a uma jornada do Canvas.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### Etapa 3: Configuração de sincronização {#step-3-sync-setup}
 
@@ -75,7 +75,7 @@ Clique no botão **Custom Audience** para abrir o editor de componentes.
 
 Selecione **Snapchat** como parceiro desejado do Audience Sync.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Editor do componente Audience Sync com o Snapchat selecionado como parceiro de sincronização.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 Em seguida, selecione sua conta de anúncios do Snapchat desejada. No menu suspenso **Choose a New or Existing Audience**, digite o nome de um público novo ou existente.
 
@@ -111,11 +111,11 @@ Depois de configurar o Audience Sync para o Snapchat, lance o Canvas! Um novo p�
 
 ![Detalhes do público de um determinado público do Snapchat que incluem o nome do público, o tipo de público, o tamanho do público e a retenção do público em dias.]({% image_buster /assets/img/snapchat/snapchat7.png %})
 
-## Considerações sobre sincronização de usuários e limite de taxa {#user-syncing-and-rate-limit-considerations}
+## Considerações sobre sincronização de usuários e limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-Quando os usuários atingem a etapa de sincronização do público, a Braze os sincroniza quase em tempo real, respeitando os limites de taxa da API do Snapchat. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Snapchat.
+Quando os usuários atingem a etapa de sincronização do público, a Braze os sincroniza quase em tempo real, respeitando os limites de frequência da API do Snapchat. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Snapchat.
 
-O limite de taxa da API do Snapchat não permite mais do que dez consultas por segundo e 100.000 usuários por solicitação. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por até ~13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Usuários com erro.
+O limite de frequência da API do Snapchat não permite mais do que dez consultas por segundo e 100.000 usuários por solicitação. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por até ~13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Usuários com erro.
 
 ### Entendendo a análise de dados {#understanding-analytics}
 
@@ -130,7 +130,7 @@ A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melh
 | Usuários pendentes | Número de usuários que estão sendo processados pela Braze para sincronização com o Snapchat. |
 | Usuários com erro | Número de usuários que não foram sincronizados com o Snapchat devido a um erro de API após cerca de 13 horas de tentativas. As possíveis causas de erros podem incluir um token inválido do Snapchat ou se o público foi excluído do Snapchat. |
 | Saíram do Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa de um Canvas é um componente de Audience Sync. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entendendo a análise de dados" }
 
 {% alert important %}
 Lembre-se de que haverá um atraso nos relatórios de usuários sincronizados e métricas com erro devido ao envio em massa e à nova tentativa de 13 horas, respectivamente.

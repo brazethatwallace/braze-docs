@@ -16,7 +16,7 @@ description: "この記事では、「送信分析をエクスポートする」
 
 > このエンドポイントを使用して、APIキャンペーンに関して追跡された `send_id` のさまざまな統計の日次情報を取得します。
 
-Brazeは送信後14日間、送信分析を保存します。Campaignのコンバージョンは、特定のユーザーがCampaignから受け取った直近の `send_id` に帰属します。
+Brazeは送信後14日間、送信分析を保存します。キャンペーンのコンバージョンは、特定のユーザーがキャンペーンから受け取った直近の `send_id` に帰属します。
 
 {% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
 
@@ -24,7 +24,7 @@ Brazeは送信後14日間、送信分析を保存します。Campaignのコン�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントはAPIキャンペーン専用です。このエンドポイントを使用するには、`sends.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントはAPIキャンペーン専用です。このエンドポイントを使用するには、`sends.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -34,7 +34,7 @@ Brazeは送信後14日間、送信分析を保存します。Campaignのコン�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- |------------ |
-| `campaign_id` | 必須 | 文字列 | [Campaign API識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーンAPI識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `send_id` | 必須 | 文字列 | [送信API識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `length` | 必須 | 整数 | 返されるシリーズに含める `ending_at` までの最大日数。1以上100以下（両端を含む）でなければなりません。 |
 | `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。デフォルトはリクエストの時刻です。 |

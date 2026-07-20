@@ -125,7 +125,7 @@ Os seguintes detalhes também podem impactar a truncagem de texto:
 
 ### Etapa 1: Crie uma Campaign de push {#step-1-create-a-push-campaign}
 
-Siga as [etapas da Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) para redigir uma notificação por push para iOS. Você usará o mesmo criador que utiliza para configurar notificações por push que não contêm conteúdo avançado.
+Siga as [etapas da Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) para redigir uma notificação por push para iOS. Você usará o mesmo criador que utiliza para configurar notificações por push que não contêm conteúdo avançado.
 
 ### Etapa 2: Adicione mídia {#step-2-add-media}
 
@@ -139,7 +139,7 @@ Você também pode limitar esta mensagem para enviar apenas a usuários que poss
 
 ### Etapa 3: Continue criando sua Campaign {#step-3-continue-creating-your-campaign}
 
-Depois que o conteúdo da sua notificação Rich for carregado no dashboard, você pode continuar [programando sua Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign).
+Depois que o conteúdo da sua notificação Rich for carregado no dashboard, você pode continuar [agendando sua Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger).
 
 Quando um usuário receber a notificação por push, ele pode pressionar com força a mensagem para expandir a imagem.
 

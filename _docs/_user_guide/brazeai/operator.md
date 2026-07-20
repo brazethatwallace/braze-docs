@@ -20,7 +20,7 @@ Open Operator from any page in the Braze dashboard.
 ![The BrazeAI Operator icon next to a user profile.]({% image_buster /assets/img/operator/operator_icon.png %})
 
 {:start="2"}
-2. The Operator chat panel opens on the right-hand side of the screen.
+2. The Operator chat panel opens in a side panel.
 
 ![The Operator chat panel.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
 
@@ -39,7 +39,7 @@ Describe what you're trying to accomplish using natural language. Prompts can ra
 - **Simple:** Why isn't my Liquid rendering?
 - **Complex:** How can I make the `abort_message` tag of my message include the user attribute that caused the abort?
 
-Operator can provide step-by-step instructions, links to Braze documentation, and plain-language explanations. Clear and specific questions lead to more helpful responses. Operator uses [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), which offers strong reasoning and is suited for complex, multi-step tasks. For ready-to-use examples, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
+Operator can provide step-by-step instructions, links to Braze documentation, and plain-language explanations. Clear and specific questions lead to more helpful responses. Operator uses [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), which is suited for complex, multi-step tasks. For ready-to-use examples, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Best practices
 

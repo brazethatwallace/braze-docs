@@ -6,6 +6,7 @@ page_order: 2
 description: "Cet article de référence couvre les préférences des e-mails dans le tableau de bord de Braze, y compris les configurations d'envoi, les pixels de suivi d'ouverture, les pages et pieds de page d'abonnement, et plus encore."
 tool: Dashboard
 channel: email
+alias: /email_preferences/
 toc_headers: h2
 
 ---
@@ -125,7 +126,7 @@ Pour modifier l'emplacement :
 
 1. Dans Braze, accédez à **Paramètres** > **Préférences des e-mails**.
 2. Sélectionnez l'une des options suivantes : **Move for SendGrid**, **Move for SparkPost** ou **Move for Amazon SES**.
-3. Sélectionnez **Save**.
+3. Sélectionnez **Enregistrer**.
 
 Après l'enregistrement, Braze envoie des instructions spéciales à l'ESP pour placer le pixel de suivi d'ouverture en haut de tous les e-mails HTML.
 
@@ -140,12 +141,12 @@ Le suivi des clics s'applique uniquement aux liens commençant par `http://` ou 
 ## En-tête list-unsubscribe {#list-unsubscribe}
 
 {% alert note %}
-Depuis le 15 février 2024, les nouvelles entreprises ont l'en-tête list-unsubscribe (avec désabonnement en un clic) activé par défaut.
+Depuis le 15 juin 2026, lorsque l'en-tête de désabonnement en un clic est configuré pour s'appliquer à un groupe d'abonnement spécifique, Braze n'inclut plus l'en-tête mailto dans les e-mails. Les utilisateurs qui se désabonnent via l'en-tête list-unsubscribe sont désabonnés uniquement de ce groupe d'abonnement spécifique, et non globalement.
 {% endalert %}
 
 L'utilisation d'un en-tête list-unsubscribe permet à vos destinataires de se désabonner facilement des e-mails marketing en affichant un bouton **Se désabonner** dans l'interface de la boîte de réception, et non dans le corps du message.
 
-Les envois de test n'incluent généralement **pas** les en-têtes list-unsubscribe. L'affichage de l'en-tête en production dépend du fournisseur de messagerie et est basé sur la réputation — une meilleure réputation d'expéditeur améliore généralement la visibilité.
+Les envois de test n'incluent généralement pas les en-têtes list-unsubscribe. L'affichage de l'en-tête en production dépend du fournisseur de messagerie et est basé sur la réputation — une meilleure réputation d'expéditeur améliore généralement la visibilité.
 
 ![Interface de la boîte de réception d'un client de messagerie avec une option Se désabonner à côté du message, où le list-unsubscribe apparaît en dehors du corps du message.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
@@ -157,7 +158,7 @@ Lors de la [gestion de vos abonnements dans Gmail](https://support.google.com/ma
 
 ### La désactivation de l'en-tête list-unsubscribe supprime-t-elle le bouton Se désabonner de Gmail ? {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
 
-Non. La désactivation du paramètre d'en-tête list-unsubscribe de Braze supprime l'en-tête `List-Unsubscribe` des messages envoyés par Braze, mais ne contrôle pas si Gmail affiche une option **Se désabonner** dans l'interface de la boîte de réception. Comme indiqué ci-dessus, Gmail peut toujours afficher une option de désabonnement à partir des liens dans le corps du message ou utiliser d'autres logiques du fournisseur. La présence de l'en-tête dans le message brut est distincte de l'affichage d'une option de désabonnement par Gmail aux destinataires. Pour plus d'informations, consultez la [FAQ des directives pour les expéditeurs de Gmail](https://support.google.com/a/answer/14229414).
+Non. La désactivation du paramètre d'en-tête list-unsubscribe de Braze supprime l'en-tête `List-Unsubscribe` des messages envoyés par Braze, mais ne contrôle pas si Gmail affiche une option **Se désabonner** dans l'interface de la boîte de réception. Comme indiqué dans la section précédente, Gmail peut toujours afficher une option de désabonnement à partir des liens dans le corps du message ou utiliser d'autres logiques du fournisseur. La présence de l'en-tête dans le message brut est distincte de l'affichage d'une option de désabonnement par Gmail aux destinataires. Pour plus d'informations, consultez la [FAQ des directives pour les expéditeurs de Gmail](https://support.google.com/a/answer/14229414).
 
 ### Prise en charge par les fournisseurs de messagerie {#mailbox-provider-support}
 
@@ -185,7 +186,7 @@ Si l'en-tête est dans la version brute de l'e-mail mais n'est pas affiché, le 
 
 ![Sélection de « utilisateurs abonnés ou ayant donné leur accord » pour les utilisateurs à cibler.]({% image_buster /assets/img/email_settings/email_unsub_header_workspaces.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Lorsque la fonctionnalité d'en-tête de désabonnement des e-mails est activée, ce paramètre s'applique à l'ensemble de l'espace de travail, et non au niveau de l'entreprise. Il est ajouté aux Campaigns et Canvas configurés pour envoyer aux utilisateurs abonnés ou ayant donné leur accord, ou aux utilisateurs ayant donné leur accord dans l'étape **Audience cible** des générateurs de Campaigns et Canvas.
+Lorsque la fonctionnalité d'en-tête de désabonnement des e-mails est activée, ce paramètre s'applique à l'ensemble de l'espace de travail, et non au niveau de l'entreprise. Il est ajouté aux Campaigns et Canvas configurés pour envoyer aux utilisateurs abonnés ou ayant donné leur accord, ou aux utilisateurs ayant donné leur accord dans l'étape **Target Audience** des générateurs de Campaigns et Canvas.
 
 Lors de l'utilisation de la « valeur par défaut de l'espace de travail », Braze n'ajoute pas l'en-tête de désabonnement en un clic pour les Campaigns considérées comme transactionnelles, qui sont configurées pour « envoyer à tous les utilisateurs, y compris les utilisateurs désabonnés ». Pour remplacer ce comportement et ajouter l'en-tête de désabonnement en un clic lors de l'envoi aux utilisateurs désabonnés, vous pouvez sélectionner **Unsubscribe globally from all emails** dans les paramètres de désabonnement en un clic au niveau du message.
 
@@ -208,7 +209,7 @@ Braze prend en charge les versions suivantes de l'en-tête list-unsubscribe :
 | Mailto | Spécifie une adresse e-mail comme destination pour le message de demande de désabonnement envoyé par le destinataire à la marque. <br><br> _Pour traiter les demandes de désabonnement mailto list-unsubscribe, ces demandes doivent inclure l'adresse e-mail telle qu'elle est stockée dans Braze pour l'utilisateur final qui se désabonne. Celle-ci peut être fournie par l'adresse « from » de l'e-mail à partir duquel l'utilisateur final se désabonne, le sujet encodé ou le corps encodé de l'e-mail reçu par l'utilisateur final dont il se désabonne. Dans de très rares cas, certains fournisseurs de messagerie ne respectent pas le protocole [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368), ce qui empêche la transmission correcte de l'adresse e-mail. Cela peut entraîner l'impossibilité de traiter une demande de désabonnement dans Braze._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="En-tête list-unsubscribe par défaut" }
 
-Lorsque Braze reçoit une demande de désabonnement d'un utilisateur via l'une des méthodes ci-dessus, l'état d'abonnement global aux e-mails de cet utilisateur est défini sur désabonné. S'il n'y a pas de correspondance, Braze ne traite pas cette demande.
+Lorsque Braze reçoit une demande de désabonnement d'un utilisateur via l'une des méthodes de l'[en-tête list-unsubscribe par défaut](#default-list-unsubscribe-header), l'état d'abonnement global aux e-mails de cet utilisateur est défini sur désabonné. S'il n'y a pas de correspondance, Braze ne traite pas cette demande.
 
 ### Désabonnement en un clic {#one-click-unsubscribe}
 
@@ -216,7 +217,7 @@ L'utilisation du désabonnement en un clic pour l'en-tête list-unsubscribe ([RF
 
 ### Désabonnement en un clic au niveau du message {#message-level-one-click-list-unsubscribe}
 
-Le paramètre de désabonnement en un clic au niveau du message remplace la fonctionnalité d'en-tête de désabonnement des e-mails définie pour les espaces de travail. Appliquez le comportement de désabonnement en un clic par Campaign ou étape Canvas pour les utilisations suivantes :
+Le paramètre de désabonnement en un clic au niveau du message remplace la fonctionnalité d'en-tête de désabonnement des e-mails définie pour les espaces de travail. Appliquez le comportement de désabonnement en un clic par Campaign ou étape Canvas pour les cas d'usage suivants :
 
 - Ajouter un désabonnement en un clic Braze pour un groupe d'abonnement spécifique afin de prendre en charge plusieurs marques/listes au sein d'un même espace de travail
 - Basculer entre le désabonnement par défaut de Braze ou une URL personnalisée
@@ -235,7 +236,7 @@ Dans votre éditeur d'e-mail, accédez à **Sending Settings** > **Sending Info*
     - Lors de la sélection d'un groupe d'abonnement, ajoutez le filtre **Subscription Group** dans **Target Audiences** pour cibler uniquement les utilisateurs abonnés à ce groupe spécifique. Le groupe d'abonnement sélectionné pour le désabonnement en un clic doit correspondre au groupe d'abonnement que vous ciblez. En cas de non-correspondance du groupe d'abonnement, vous risquez d'envoyer un message à un utilisateur qui tente de se désabonner d'un groupe d'abonnement dont il est déjà désabonné.
 
 {% alert important %}
-Le paramètre **Unsubscribe from specific subscription group** s'applique uniquement à l'en-tête de désabonnement en un clic. L'en-tête mailto list-unsubscribe n'est pas affecté lors de la sélection de cette option. Cela signifie qu'un destinataire qui se désabonne par cette méthode enregistre un désabonnement global, et non un désabonnement du groupe d'abonnement spécifique. Pour exclure l'en-tête mailto list-unsubscribe du désabonnement global des utilisateurs lors de la sélection de ce paramètre, contactez l'[Assistance]({{site.baseurl}}/support_contact).
+Le paramètre **Unsubscribe from specific subscription group** s'applique uniquement à l'en-tête de désabonnement en un clic. L'en-tête mailto list-unsubscribe n'est pas affecté lors de la sélection de cette option. Cela signifie qu'un destinataire qui se désabonne par cette méthode enregistre un désabonnement global, et non un désabonnement du groupe d'abonnement spécifique. Pour exclure l'en-tête mailto list-unsubscribe du désabonnement global des utilisateurs lors de la sélection de ce paramètre, contactez l'[assistance]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 - **Custom** : ajoute votre URL de désabonnement en un clic personnalisée pour que vous puissiez traiter les désabonnements directement.
@@ -298,11 +299,11 @@ Pour en savoir plus sur le templating Liquid des pieds de page personnalisés, c
 {% endtab %}
 {% tab Page de désabonnement personnalisée %}
 
-Braze vous permet de définir une **Page de désabonnement personnalisée** avec votre propre HTML. Cette page apparaît après qu'un utilisateur a choisi de se désabonner en bas d'un e-mail. Notez que cette page doit faire moins de 750 Ko.
+Braze vous permet de définir une **page de désabonnement personnalisée** avec votre propre HTML. Cette page apparaît après qu'un utilisateur a choisi de se désabonner en bas d'un e-mail. Notez que cette page doit faire moins de 750 Ko.
 
 ![Éditeur HTML et prévisualisation de la page de désabonnement personnalisée affichée après qu'un utilisateur se désabonne d'un e-mail.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-Pour les bonnes pratiques de gestion des listes d'e-mails, consultez [Gérer les abonnements aux e-mails]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='unsubscribe' %}
 
 {% endtab %}
 {% tab Page d'abonnement personnalisée %}
@@ -311,7 +312,7 @@ Vous pouvez créer une page d'abonnement personnalisée en utilisant votre propr
 
 ![Éditeur HTML et prévisualisation de la page d'abonnement personnalisée pour la confirmation d'abonnement aux e-mails avec votre image de marque.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-Pour les bonnes pratiques de gestion des listes d'e-mails, consultez [Gérer les abonnements aux e-mails]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
 {% endtab %}
 {% endtabs %}
@@ -333,7 +334,7 @@ Un centre de préférences n'est pas considéré comme un lien de désabonnement
 {% enddetails %}
 
 {% details Dois-je modifier les Campaigns d'e-mail et Canvas existants pour appliquer le paramètre de désabonnement en un clic après l'avoir activé ? %}
-Si vous n'avez aucun des cas d'utilisation pour le paramètre de désabonnement en un clic au niveau du message, aucune action n'est requise tant que le paramètre est activé dans les **Préférences des e-mails**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les Campaigns d'e-mail et les étapes Canvas existantes en conséquence.
+Si vous n'avez aucun des cas d'usage pour le paramètre de désabonnement en un clic au niveau du message, aucune action n'est requise tant que le paramètre est activé dans les **Préférences des e-mails**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les Campaigns d'e-mail et les étapes Canvas existantes en conséquence.
 {% enddetails %}
 
 {% details Je peux voir l'en-tête list-unsubscribe et de désabonnement en un clic dans le message original ou les données brutes, mais pourquoi ne vois-je pas le bouton Se désabonner dans Gmail ou Yahoo ? %}
@@ -363,11 +364,11 @@ Non. Si le paramètre de l'espace de travail est désactivé et que le paramètr
 {% enddetails %}
 
 {% details Que se passe-t-il si un groupe d'abonnement est archivé ? Cela casse-t-il le désabonnement en un clic sur les e-mails envoyés ? %}
-Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de segment, profil utilisateur et zones similaires).
+Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de Segment, profil utilisateur et zones similaires).
 {% enddetails %}
 
 {% details Le paramètre de désabonnement en un clic est-il disponible pour les modèles d'e-mail ? %}
-Non, nous n'avons actuellement pas prévu d'ajouter cette fonctionnalité pour les modèles d'e-mail, car ces modèles ne sont pas associés à un domaine d'envoi. Si cette fonctionnalité vous intéresse pour les modèles d'e-mail, soumettez un [retour produit]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Non, nous n'avons actuellement pas prévu d'ajouter cette fonctionnalité pour les modèles d'e-mail, car ces modèles ne sont pas associés à un domaine d'envoi. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details Cette fonctionnalité vérifie-t-elle que l'URL de désabonnement en un clic ajoutée à l'option personnalisée est valide ? %}

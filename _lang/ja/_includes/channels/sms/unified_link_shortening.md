@@ -1,6 +1,8 @@
 リンク短縮を使用すると、SMSまたはRCSメッセージに含まれるURLを自動的に短縮し、クリックスルー率の分析を収集できます。これにより、追加のエンゲージメント指標が提供され、ユーザーがキャンペーンにどのように関わっているかを理解するのに役立ちます。
 
-リンク短縮は、キャンペーンとキャンバスの両方で[メッセージバリアントレベル]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign)で有効にできます。リンク短縮が有効になると、クリックによりCurrentsを通じて送信される[SMSクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)が生成されます。
+リンク短縮は、キャンペーンとキャンバスの両方で[メッセージバリアントレベル]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign)で有効にできます。リンク短縮が有効になると、クリックによりCurrentsを通じて送信される[SMSクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)が生成されます。
+
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
 
 リンクは共有ショートドメイン（`brz.ai`）またはカスタムリンク短縮ドメインを使用して短縮され、作成日から9週間有効です。URLの例は `https://brz.ai/8jshX2dj` のようになります。
 
@@ -31,13 +33,13 @@ Brazeは `http://` または `https://` で始まるURLのみを認識します�
 
 ## URLでのLiquidパーソナライゼーション {#liquid-personalization-in-urls}
 
-Brazeの作成画面内で直接URLをダイナミックに構築し、URLにダイナミックなUTMパラメーターを追加したり、ユーザーにユニークなリンクを送信したりする方法については、[URLでのLiquidパーソナライゼーションの使用]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#use-liquid-personalization-in-urls)を参照してください。
+Brazeの作成画面内で直接URLをダイナミックに構築し、URLにダイナミックなUTMパラメーターを追加したり、ユーザーにユニークなリンクを送信したりする方法については、[URLでのLiquidパーソナライゼーションの使用]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls)を参照してください。
 
 ## テスト {#testing}
 
-キャンペーンまたはキャンバスを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**テスト**タブに移動して、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups)または個々のユーザーにSMSまたはRCSメッセージをプレビューして送信します。
+キャンペーンまたはキャンバスを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**テスト**タブに移動して、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個々のユーザーにSMSまたはRCSメッセージをプレビューして送信します。
 
-このプレビューは、関連するパーソナライゼーションと短縮URLで更新されます。文字数と[課金対象セグメント]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/)も、レンダリングされたパーソナライゼーションと短縮URLを反映して更新されます。
+このプレビューは、関連するパーソナライゼーションと短縮URLで更新されます。文字数と[課金対象セグメント]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)も、レンダリングされたパーソナライゼーションと短縮URLを反映して更新されます。
 
 テストメッセージを送信する前にキャンペーンまたはキャンバスを保存して、メッセージで配信される短縮URLの表現を受け取るようにしてください。テスト送信前にキャンペーンまたはキャンバスが保存されていない場合、テスト送信にはプレースホルダーURLが含まれます。
 
@@ -53,7 +55,7 @@ Liquidパーソナライゼーションと短縮URLは、ユーザーが選択�
 
 ## クリックトラッキング {#click-tracking}
 
-リンク短縮が有効になっている場合、**SMS/MMS/RCSパフォーマンス**テーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**合計クリック数**という列が含まれます。指標の詳細については、[メッセージパフォーマンス]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/)を参照してください。
+リンク短縮が有効になっている場合、**SMS/MMS/RCSパフォーマンス**テーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**合計クリック数**という列が含まれます。指標の詳細については、[メッセージパフォーマンス]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting)を参照してください。
 
 ![SMSおよびMMSパフォーマンス指標テーブル。]({% image_buster /assets/img/link_shortening/shortening4.png %})
 
@@ -61,7 +63,7 @@ Liquidパーソナライゼーションと短縮URLは、ユーザーが選択�
 
 ## ユーザーのリターゲティング {#retargeting-users}
 
-リターゲティングに関するガイダンスについては、[リターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/#filter-by-advanced-tracking-links)を参照してください。
+リターゲティングに関するガイダンスについては、[リターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#filter-by-advanced-tracking-links)を参照してください。
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
 
@@ -69,7 +71,7 @@ Liquidパーソナライゼーションと短縮URLは、ユーザーが選択�
 
 ### URLをクリックした個々のユーザーを特定できますか？ {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
-はい。[SMSリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)またはCurrentsによって送信されるSMSクリックイベント（`users.messages.sms.ShortLinkClick`）を使用して、URLをクリックしたユーザーをリターゲティングできます。
+はい。[SMSリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)またはCurrentsによって送信されるSMSクリックイベント（`users.messages.sms.ShortLinkClick`）を使用して、URLをクリックしたユーザーをリターゲティングできます。
 
 ### リンク短縮はディープリンクやユニバーサルリンクで機能しますか？ {#does-link-shortening-work-with-deep-links-or-universal-links}
 
@@ -79,9 +81,9 @@ Liquidパーソナライゼーションと短縮URLは、ユーザーが選択�
 ユニバーサルリンクでリンク短縮を実装する前に、ユーザーエクスペリエンスをテストして、期待どおりであることを確認してください。
 {% endalert %}
 
-### `send_ids`はSMSクリックイベントに関連付けられていますか？ {#are-sendids-associated-with-sms-click-events}
+### `send_ids`はSMSクリックイベントに関連付けられていますか？ {#are-send_ids-associated-with-sms-click-events}
 
-いいえ。ただし、一般的に[クエリビルダー]({{site.baseurl}}/query_builder/)を使用して、以下のクエリでCurrentsデータをクエリすることにより、`send_ids`をクリックイベントに関連付けることができます。
+いいえ。ただし、一般的に[クエリビルダー]({{site.baseurl}}/query_builder)を使用して、以下のクエリでCurrentsデータをクエリすることにより、`send_ids`をクリックイベントに関連付けることができます。
 
 ```sql
 SELECT c.*, s.send_id

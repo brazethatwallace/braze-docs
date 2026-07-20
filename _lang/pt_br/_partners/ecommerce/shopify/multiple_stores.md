@@ -11,7 +11,7 @@ description: "Este artigo de referência aborda como conectar e configurar vári
 > Conecte vários domínios de lojas da Shopify a um único espaço de trabalho para ter uma visão holística de seus clientes em todos os mercados. Crie e lance programas e jornadas de automação em um único espaço de trabalho sem duplicar esforços em lojas regionais.
 
 {% alert important %}
-Esse recurso não é compatível com o Shopify Markets ou o Markets Pro. Se você quiser solicitar suporte para eles, envie uma [solicitação de produto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Esse recurso não é compatível com o Shopify Markets ou o Markets Pro. {% multi_lang_include product_feedback_cta.md context="gap" feature="Shopify Markets or Markets Pro support" %}
 {% endalert %}
 
 ## Requisitos {#requirements}

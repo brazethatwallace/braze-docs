@@ -34,7 +34,7 @@ Os modelos de marketing são o tipo mais comum usado na Braze. Eles consistem em
 |---|---|---|
 | Cabeçalho | Não | Suporta texto, imagem, vídeo, documento ou localização. Consulte [Especificações de mídia](#media-specifications) para requisitos de tipo de arquivo, tamanho e dimensões. |
 | Corpo | Sim | O conteúdo principal da mensagem |
-| Rodapé | Não | Texto complementar exibido abaixo do corpo |
+| Rodapé | Não | Texto complementar exibido após o corpo |
 | Botões | Não | Inclua até 10 botões (todos os tipos de botão são suportados) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de marketing" }
 
@@ -54,7 +54,7 @@ Os modelos de marketing são o tipo mais comum usado na Braze. Eles consistem em
 | Tipo de botão | Comportamento | Notas |
 |---|---|---|
 | Resposta rápida | Envia o texto do rótulo do botão como resposta na conversa | |
-| URL | Abre uma URL no navegador padrão do usuário; suporta 1 variável adicionada ao final da URL (máximo de 2.000 caracteres) | |
+| URL | Abre uma URL no navegador padrão do usuário; suporta 1 variável adicionada ao final da URL (máximo de 2.000 caracteres) | URLs contendo caracteres especiais (como `&`, `%`, `<`, `>`) podem causar falhas no envio da mensagem. Use o filtro Liquid [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) ou [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) para codificar corretamente URLs com caracteres especiais. |
 | Número de telefone | Inicia uma chamada para o número de telefone especificado | |
 | Copiar código de cupom | Copia um código de cupom para a área de transferência do usuário | Sempre requer aprovação da Meta |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de botão" }
@@ -62,6 +62,38 @@ Os modelos de marketing são o tipo mais comum usado na Braze. Eles consistem em
 #### Formatação de parâmetros {#parameter-formatting}
 
 As variáveis de modelo podem usar parâmetros nomeados (como {% raw %}`{{first_name}}`{% endraw %}) ou parâmetros posicionais (como {% raw %}`{{1}}`{% endraw %}). Na Braze, as variáveis podem ser substituídas por Liquid ou texto simples. Sempre inclua valores padrão para variáveis Liquid; mensagens com valores de variáveis ausentes não serão enviadas.
+
+### Modelos de oferta por tempo limitado {#limited-time-offer-templates}
+
+Os modelos de oferta por tempo limitado exibem uma oferta promocional com prazo definido, com uma contagem regressiva opcional conforme a oferta se aproxima do vencimento. Use esse layout para promoções com prazo determinado, como vendas sazonais ou ofertas personalizadas com base em um atributo do usuário.
+
+| Componente | Obrigatório | Notas |
+|---|---|---|
+| Cabeçalho | Não | Selecione **Nenhum** ou adicione mídia (imagem ou vídeo). Consulte [Especificações de mídia](#media-specifications) para requisitos de tipo de arquivo, tamanho e dimensões. |
+| Detalhes da oferta | Sim | Título da oferta, código da oferta e um vencimento opcional. |
+| Corpo | Sim | O conteúdo principal da mensagem. Suporta Liquid. |
+| Rodapé | Não | Texto complementar exibido após o corpo. |
+| Botões | Sim | **Copiar código da oferta** é incluído automaticamente. Você pode adicionar um botão **Visitar website**; nenhum outro tipo de botão é suportado para esse tipo de modelo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de oferta por tempo limitado" }
+
+#### Detalhes da oferta {#offer-details}
+
+| Campo | Obrigatório | Notas |
+|---|---|---|
+| Título | Sim | Uma linha curta descrevendo a oferta. |
+| Código | Sim | O código da oferta que os destinatários irão copiar. Isso preenche o botão **Copiar código da oferta** automaticamente. |
+| Vencimento | Não | Defina uma data e hora fixas (por exemplo, uma data de término para uma promoção de verão) ou personalize com base em um atributo do usuário (por exemplo, o aniversário de cada usuário). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalhes da oferta" }
+
+Se você definir um vencimento, os destinatários verão uma contagem regressiva na mensagem que é atualizada conforme a oferta se aproxima do fim. Por exemplo, a mensagem pode inicialmente mostrar a data de término e depois mudar para algo como "Faltam 5 dias" quando a data de término estiver mais próxima. Se você não definir um vencimento, a oferta será exibida sem contagem regressiva. A Braze impede o envio de mensagens quando o vencimento já passou (por exemplo, se o vencimento for 1º de novembro de 2026, mas o horário de envio for 15 de novembro de 2026).
+
+#### Tipos de botão
+
+| Tipo de botão | Notas |
+|---|---|
+| Copiar código da oferta | Incluído automaticamente. O texto do botão é "Copy offer code" e não pode ser editado. |
+| Visitar website | O único outro botão que você pode adicionar. Máximo de 1. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de botão de oferta por tempo limitado" }
 
 ### Modelos de carrossel de cartões de mídia {#media-card-carousel-templates}
 
@@ -91,7 +123,7 @@ Os modelos de carrossel exibem um corpo de mensagem seguido de 2 a 10 cartões d
 | Texto do corpo do cartão | 160 caracteres | |
 | Rótulo do botão | 25 caracteres | |
 | Número de telefone (no botão de telefone) | 20 caracteres | |
-| URL (no botão de URL) | 2.000 caracteres; suporta 1 variável adicionada ao final | Botões de URL abrem no navegador padrão do usuário, fora do WhatsApp. Nenhum webhook de pedido ou conversão é acionado a partir desse ponto. |
+| URL (no botão de URL) | 2.000 caracteres; suporta 1 variável adicionada ao final | Botões de URL abrem no navegador padrão do usuário, fora do WhatsApp. Nenhum webhook de pedido ou conversão é disparado a partir desse ponto. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comprimento de caracteres por cartão" }
 
 ## Mensagens de resposta {#response-messages}

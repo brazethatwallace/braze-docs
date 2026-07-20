@@ -67,7 +67,8 @@ Try out different configurations of drilldown options to explore the [many ways 
 8. Then, depending on your selections in step 3, choose to manually or automatically add campaigns, Canvases, or both to your report.
     - **Add manually:** Choose each campaign or Canvas to include in the report by using the filters for **Last Sent** dates and tags or channels, or searching the campaign or Canvas name.<br><br>![The "Manually add campaigns and canvases" section with a list of campaigns to select.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Add automatically:** Set rules for which campaigns or Canvases to include in the report. You're only required to select one field on this page.
-        - Note that as additional campaigns or Canvases satisfy the conditions you set on this screen, they will automatically be added to future runs of your report.<br><br>![The "Automatically add campaigns and canvases" section with fields to set rules for which campaigns and Canvases should be added to the report.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - Note that as additional campaigns or Canvases satisfy the conditions you set on this screen, they are automatically added to future runs of your report.
+        - Banners isn't an option in the **Channel** dropdown, so you can't use channel rules to automatically add Banner campaigns or Canvases. You can still include Banner KPIs in your report metrics.<br><br>![The "Automatically add campaigns and canvases" section with fields to set rules for which campaigns and Canvases should be added to the report.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Run the report by selecting **Save & Run**.
 
 {% alert note %}
@@ -79,7 +80,7 @@ The report may take up to a few minutes to run, depending on the date range and 
 Your selection for **Rows** affects the metrics you can select.
 
 {% alert tip %}
-If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. This creates a **Canvas View** dropdown to view metrics for the Canvas only, or group metrics by variant, step, or message. 
+If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. This creates a **Canvas View** dropdown to view metrics for the Canvas only, or group metrics by variant, step, or message.<br><br> When you group by step, the preview table while configuring your report shows a maximum of 50 rows. Run the report or export it as a CSV to view all rows.
 
 ![The opened "Canvas View" dropdown.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -105,7 +106,7 @@ In the same report, _Unique Recipients_ can be higher than _Unique Impressions_ 
 
 ## Viewing a report
 
-After running your report, you can view your results in table format on the report page. 
+After running your report, you can view your results in table format on the report page.
 
 ![A table of the report data for each campaign's metrics.]({% image_buster /assets/img/report_builder_2/report_table.png %}){: style="width:90%;"}
 

@@ -9,7 +9,7 @@ description: "This article contains release notes for July 2020."
 
 ## Promotion codes
 
-Using Liquid, you can have your messages pull from a list of [promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#promotion-codes) you upload. This feature offers expiry dates of up to six months and supports u to 20MM individual codes per list.
+Using Liquid, you can have your messages pull from a list of [promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/) you upload. This feature offers expiry dates of up to six months and supports u to 20MM individual codes per list.
 
 ## Variant retention report
 
@@ -21,7 +21,7 @@ The filter option for Canvas and campaign GET list endpoints allow your customer
 
 ## Currents `ad-id`
 
-Updated [storage connect documentation]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#content-card-click-events) to reflect the new `ad-id` (advertiser ID) fields to Currents.
+Updated [storage connect documentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#content-card-click-events) to reflect the new `ad-id` (advertiser ID) fields to Currents.
 
 ## BCC functionality
 

@@ -16,11 +16,11 @@ La integración del SDK Unity de Firebase puede hacer que se anule tu `AndroidMa
 
 #### Paso 1.2: Configura tus credenciales de Firebase {#step-12-set-your-firebase-credentials}
 
-Tienes que introducir tu clave de servidor Firebase y tu ID de remitente en el panel de Braze. Para ello, accede a la [consola de desarrolladores de Firebase](https://console.firebase.google.com/) y selecciona tu proyecto Firebase. A continuación, selecciona **Cloud Messaging** en **Settings** y copia la clave del servidor y el ID del remitente:<br>![]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+Tienes que introducir tu clave de servidor Firebase y tu ID de remitente en el panel de Braze. Para ello, accede a la [consola de desarrolladores de Firebase](https://console.firebase.google.com/) y selecciona tu proyecto Firebase. A continuación, selecciona **Cloud Messaging** en **Settings** y copia la clave del servidor y el ID del remitente:<br>![Configuración de Cloud Messaging en la consola de Firebase mostrando la clave del servidor y el ID del remitente.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
 En Braze, selecciona tu aplicación Android en la página **Configuración de la aplicación**, en **Administrar configuración**. A continuación, introduce tu clave de servidor de Firebase en el campo **Firebase Cloud Messaging Server Key** y el ID de remitente de Firebase en el campo **Firebase Cloud Messaging Sender** ID.
 
-![]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
+![Configuración de la aplicación Android en Braze con los campos de clave de servidor y ID de remitente de Firebase Cloud Messaging.]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
 {% endtab %}
 
 {% tab Swift %}
@@ -64,7 +64,7 @@ El SDK de Braze puede gestionar automáticamente el registro push con los servid
 | Handle Push Deeplinks Automatically | Si el SDK debe gestionar la apertura de vínculos profundos o la apertura de la aplicación cuando se hace clic en las notificaciones push. |
 | Small Notification Icon Drawable | Referencia de recurso drawable de Android para el icono pequeño que se muestra cuando llega una notificación push. Introduce la referencia completa incluyendo el prefijo `@drawable/` (por ejemplo, `@drawable/hourglass_icon`). La integración automatizada escribe este valor en `braze.xml` tal como se introduce. Si lo dejas vacío, la notificación utiliza el icono de la aplicación como icono pequeño. |
 | Large Notification Icon Drawable | Icono grande opcional para las notificaciones. Utiliza el mismo formato `@drawable/` que el icono pequeño (por ejemplo, `@drawable/my_large_icon`). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2.1: Configurar los ajustes push" }
 
 {% alert note %}
 **Small Notification Icon Drawable** y **Large Notification Icon Drawable** aparecen en **Push Configuration** dentro de **Braze > Braze Configuration**. Ambos valores se escriben en `braze.xml` tal como los introduces. Incluye tú mismo el prefijo `@drawable/`: la integración de Braze Unity no lo añade por ti (por ejemplo, `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
@@ -171,7 +171,7 @@ El archivo JAR de ADM necesario puede colocarse en cualquier lugar de tu proyect
 
 Por último, debes añadir el secreto de cliente y el ID de cliente que obtuviste en el [paso 1](#unity_step-1-enable-adm) a la página **Administrar configuración** del panel de Braze.
 
-![]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
+![Página de configuración de la aplicación Fire OS en Braze con los campos de ID de cliente y secreto de cliente de ADM.]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -298,7 +298,7 @@ Para saber más sobre las escuchas push de ADM, consulta [Amazon: Integra Amazon
 
 {% tabs %}
 {% tab Android %}
-#### Vinculación en profundidad a los recursos de la aplicación {#deep-linking-to-in-app-resources}
+### Vinculación en profundidad a los recursos de la aplicación {#deep-linking-to-in-app-resources}
 
 Aunque Braze puede gestionar vínculos profundos estándar (como URL de sitios web, URI de Android, etc.) de forma predeterminada, la creación de vínculos profundos personalizados requiere una configuración adicional del manifiesto.
 

@@ -104,7 +104,7 @@ For more on planning endpoint capacity and reducing call volume, see [Best pract
 If your messages use Connected Content and you send at high volume, plan for more requests than the number of recipients or sends:
 
 1. **Estimate peak load:** Use a conservative multiplier when sizing your endpoint or middleware—Connected Content requests can exceed the number of recipients or messages sent. For example, for email a single recipient can generate multiple calls (HTML, plain text, and AMP), so recipients × 2 or × 3 is often used as a conservative estimate.
-2. **Use caching where appropriate:** GET requests are cached by default. For POST requests, add `:cache_max_age` when the response can be reused for a period (for example, token or content that doesn't change per request). See [Caching responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) and the [POST caching FAQ](#what-is-caching-behavior) below.
+2. **Use caching where appropriate:** GET requests are cached by default. For POST requests, add `:cache_max_age` when the response can be reused for a period (for example, token or content that doesn't change per request). See [Caching responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) and the [POST caching FAQ](#what-is-caching-behavior) in the following section.
 3. **Set delivery speed rate limiting:** [Delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) on campaigns or Canvas steps is the only lever to indirectly limit Connected Content request volume—Braze does not rate limit Connected Content itself. It is only a proxy, and not a perfect one, because Connected Content requests are not 1:1 with messages. Use it to keep message (and thus Connected Content) volume within what your endpoint can handle.
 4. **Design for idempotency and retries:** Braze may call your endpoint more than once per recipient. Ensure your endpoint can tolerate duplicate requests without incorrect side effects.
 
@@ -168,7 +168,7 @@ Some API configurations require the retrieval of an access token that can then b
 
 #### Step 1: Retrieve the access token
 
-The following example illustrates retrieving and saving an access token to a local variable, which can then be used to authenticate the subsequent API call. A `:cache_max_age` parameter can be added to match the time that the access token is valid for and reduce the number of outbound Connected Content calls. See [Configurable Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) for more information.
+The following example illustrates retrieving and saving an access token to a local variable, which can then be used to authenticate the subsequent API call. A `:cache_max_age` parameter can be added to match the time that the access token is valid for and reduce the number of outbound Connected Content calls. See [Configurable Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) for more information.
 
 {% raw %}
 ```
@@ -184,6 +184,10 @@ The following example illustrates retrieving and saving an access token to a loc
 %}
 ```
 {% endraw %}
+
+{% alert note %}
+When the token endpoint expects `application/x-www-form-urlencoded` and you pass credentials in `:body`, URL-encode any special characters in parameter values. For example, forward slashes (`/`) become `%2F` and plus signs (`+`) become `%2B`. Unencoded special characters may cause OAuth token requests to fail.
+{% endalert %}
 
 #### Step 2: Authorize the API using the retrieved access token
 
@@ -256,7 +260,7 @@ See [Understanding Connected Content call volume](#understanding-connected-conte
 
 ### How does rate limiting work with Connected Content?
 
-Connected Content doesn’t have its own rate limit. Instead, the rate limit is based on the message-sending rate. We recommend setting the messaging rate limit below your intended Connected Content rate limit if there are more Connected Content calls than messages sent.  
+Connected Content doesn’t have its own rate limit. Instead, the rate limit is based on the message-sending rate. We recommend setting the messaging rate limit higher than your intended Connected Content rate limit if there are more Connected Content calls than messages sent.  
 
 ### What is caching behavior?
 

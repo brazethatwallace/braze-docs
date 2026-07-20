@@ -11,20 +11,20 @@ search_tag: Partner
 
 > [Lytics](https://www.lytics.com/)は、顧客中心の次世代ビジネスに最適な顧客データプラットフォーム（CDP）です。Lytics Decision Engine、Conductor、Cloud Connectの各ソリューションは、マーケターとデータチームに、プライバシーに準拠した方法で、アイデンティティ解決、オーケストレーション、キャンペーン最適化をリアルタイムで実行する機会を提供します。
 
-_この統合はLyticsによって管理されます。_
+_この統合はLyticsによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとLyticsの統合により、顧客を一元的に把握できるため、強力なパーソナライゼーションが可能になり、ネクストベストアクションのオーケストレーションと意思決定を使用して最適化されたCampaignsを推進できます。
+BrazeとLyticsの統合により、顧客を一元的に把握できるため、強力なパーソナライゼーションが可能になり、ネクストベストアクションのオーケストレーションと意思決定を使用して最適化されたキャンペーンを推進できます。
 
 この統合により、ブランドは以下のことができるようになります。
 
 - LyticsからBrazeに直接オーディエンスをエクスポートする
-- BrazeのCampaignsやCanvasesのイベントをリアルタイムでLyticsに送信し、パーソナライズされたCampaignsやリッチなユーザープロファイルを構築する
+- BrazeのキャンペーンやキャンバスのイベントをリアルタイムでLyticsに送信し、パーソナライズされたキャンペーンやリッチなユーザープロファイルを構築する
 
 ## ユースケース {#use-cases}
 
-BrazeをLyticsに接続して、メール、SMS、プッシュアクティビティを[インポート](#importing-data-from-braze-to-lytics)し、Lyticsのユーザープロファイルを充実させます。BrazeとLyticsを併用することで、Lyticsのクロスチャネル、行動主導型のオーディエンスを[エクスポート](#integration)し、ファーストパーティデータを使用して高度にパーソナライズされたBrazeカスタマージャーニーを構築することもできます。
+BrazeをLyticsに接続して、メール、SMS、プッシュアクティビティを[インポート](#importing-data-from-braze-to-lytics)し、Lyticsのユーザープロファイルを充実させます。BrazeとLyticsを併用することで、Lyticsのクロスチャネルの行動主導型オーディエンスを[エクスポート](#integration)し、ファーストパーティデータを使用して高度にパーソナライズされたBrazeカスタマージャーニーを構築することもできます。
 
 ## 前提条件 {#prerequisites}
 
@@ -63,7 +63,7 @@ Lyticsで、ナビゲーションバーの**Data**コンソール内の**Jobs**�
 
 **Configure Job**プロンプト内で、ラベルとオプションの説明を入力します。次に、**Braze External User ID Field**の入力欄から、Braze外部ユーザーID（`braze_id`）を含むLyticsのフィールドを選択します。次は最も重要なステップです。同じプロンプト内のオーディエンスピッカーを使用して、Brazeにエクスポートするオーディエンスを選択します。
 
-最後に、**Existing Users**チェックボックスで適切なオプションを選択します。このボックスをオンのままにすると、選択したLyticsオーディエンスにすでに存在しているユーザーが追加されます。オフにすると、ワークフロー開始後にオーディエンスに追加される時点またはオーディエンスから外される時点でのみ、ユーザーがBrazeにエクスポートされます。
+最後に、**Existing Users**チェックボックスで適切なオプションを選択します。このボックスをオンのままにすると、選択したLyticsオーディエンスにすでに存在しているユーザーが追加されます。オフにすると、ワークフロー開始後にオーディエンスに追加された時点またはオーディエンスから外れた時点でのみ、ユーザーがBrazeにエクスポートされます。
 
 {% alert note %}
 このボックスをチェックすると、選択したオーディエンスのすべての既存ユーザーがBrazeに送信されます。Brazeの料金にデータポイントが含まれている場合は、データポイント使用量を適宜モニターしてください。
@@ -101,7 +101,7 @@ Lyticsで、ナビゲーションバーの**Data**コンソール内の**Jobs**�
 }
 ```
 
-オーディエンスのエクスポートに含まれ、Brazeにまだ存在していない`external_id`に対し、Brazeで新しいユーザーが作成されます。
+オーディエンスのエクスポートに含まれ、Brazeにまだ存在していない`external_id`に対して、Brazeで新しいユーザーが作成されます。
 
 ## BrazeからLyticsにデータをインポートする {#importing-data-from-braze-to-lytics}
 
@@ -114,7 +114,7 @@ BrazeからLyticsへのオーディエンスデータのインポートは、以
 
 #### ステップ1:Lytics APIトークンを作成する {#step-1-create-a-lytics-api-token}
 
-アカウント名を選択して左下にあるLytics Account Menuに移動し、ドロップダウンメニューから**Access Tokens**を選択します。次に**Create API Token**を選択します。
+アカウント名を選択してLytics Account Menuに移動し、ドロップダウンメニューから**Access Tokens**を選択します。次に**Create API Token**を選択します。
 
 ![アカウントメニューからCreate API Tokenが選択されたLyticsのAccess Tokens画面。]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
@@ -124,7 +124,7 @@ BrazeからLyticsへのオーディエンスデータのインポートは、以
 
 #### ステップ2:LyticsのWebhook URLを設定する {#step-2-configure-the-lytics-webhook-url}
 
-Lytics Webhook URLは、BrazeからLytics APIにメッセージを送信するためにBrazeによって使用されます。このメッセージは、LyticsでCampaignsをパーソナライズする場合や、Lyticsの顧客プロファイルを充実させる場合に使用できます。以下の2つのパラメータは、Lytics Webhook URL内に追加する必要があります。
+Lytics Webhook URLは、BrazeからLytics APIにメッセージを送信するためにBrazeによって使用されます。このメッセージは、Lyticsでキャンペーンをパーソナライズする場合や、Lyticsの顧客プロファイルを充実させる場合に使用できます。以下の2つのパラメータは、Lytics Webhook URL内に追加する必要があります。
 
 - Lyticsアカウント番号
 - Lytics APIトークン
@@ -162,7 +162,7 @@ Brazeで新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channel
 
 ### CSVファイルから {#from-a-csv-file}
 
-このセクションでは、BrazeのユーザーデータをSegmentからLyticsにインポートする方法を説明します。
+このセクションでは、BrazeのユーザーデータをセグメントからLyticsにインポートする方法を説明します。
 
 #### ステップ1:認証を作成する
 
@@ -182,7 +182,7 @@ Lyticsで、ナビゲーションバーの**Data**コンソール内の**Authori
 
 #### ステップ2:セグメントデータをCSVにエクスポートする {#step-2-export-your-segment-data-to-csv}
 
-Brazeで**オーディエンス** > **Segments**に移動します。エクスポートするSegmentを見つけ、<i class="fas fa-gear" aria-label="設定"></i>を選択し、次に**ユーザーデータをCSV形式でエクスポート**を選択します。1つのSegmentで最大500,000ユーザーをエクスポートできます。詳細については、「[CSVへのセグメントデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)」を参照してください。
+Brazeで**オーディエンス** > **セグメント**に移動します。エクスポートするセグメントを見つけ、<i class="fas fa-gear" aria-label="設定"></i>を選択し、次に**ユーザーデータをCSV形式でエクスポート**を選択します。1つのセグメントで最大500,000ユーザーをエクスポートできます。詳細については、「[CSVへのセグメントデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)」を参照してください。
 
 #### ステップ3:CSVインポートジョブを設定する {#step-3-configure-a-csv-import-job}
 

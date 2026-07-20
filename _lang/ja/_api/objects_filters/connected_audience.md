@@ -11,16 +11,16 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 > 接続オーディエンスは、APIリクエスト内でインラインに定義するダイナミックなオーディエンスフィルターです。Brazeダッシュボードでセグメントを作成・管理することなく、送信時に適切なユーザーをターゲットにできます。
 
-あらゆるオーディエンスの組み合わせに対してセグメントを事前に構築する代わりに、APIコールにフィルター条件を直接渡します。エンドポイントに応じて、このオブジェクトは`audience`または`custom_audience`として渡されます。Brazeはリアルタイムで各ユーザーをその条件に照らして評価し、条件に一致するユーザーにのみメッセージを配信します。つまり、1つのCampaign、Canvas、またはAPIのみのメッセージ定義で、ビジネスロジックに完全に基づいた無制限のオーディエンスバリエーションに対応できます。
+あらゆるオーディエンスの組み合わせに対してセグメントを事前に構築する代わりに、APIコールにフィルター条件を直接渡します。エンドポイントに応じて、このオブジェクトは`audience`または`custom_audience`として渡されます。Brazeはリアルタイムで各ユーザーをその条件に照らして評価し、条件に一致するユーザーにのみメッセージを配信します。つまり、1つのキャンペーン、キャンバス、またはAPIのみのメッセージ定義で、ビジネスロジックに完全に基づいた無制限のオーディエンスバリエーションに対応できます。
 
 ## 仕組み {#how-it-works}
 
-1. BrazeダッシュボードでAPIトリガーのCampaignまたはCanvasを作成してメッセージを定義するか、APIリクエストの[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)を使用してメッセージコンテンツを完全にインラインで定義します。ダイナミックなパーソナライゼーションには[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object)または[Canvasコンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)を使用します。
-2. 対応するエンドポイントを呼び出し、接続オーディエンスフィルターを`audience`パラメーターに含めます。`/messages/live_activity/start`の場合は`custom_audience`に含めます。カスタム属性、プッシュ通知のサブスクリプションステータス、メールのサブスクリプションステータス、最後にアプリを使用した時間でフィルターできます。
+1. BrazeダッシュボードでAPIトリガーのキャンペーンまたはキャンバスを作成してメッセージを定義するか、APIリクエストの[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)を使用してメッセージコンテンツを完全にインラインで定義します。ダイナミックなパーソナライゼーションには[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object)または[キャンバスコンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)を使用します。
+2. 対応するエンドポイントを呼び出し、接続オーディエンスフィルターを`audience`パラメーターに含めます。`/messages/live_activity/start`の場合は`custom_audience`に含めます。カスタム属性、プッシュ通知の購読ステータス、メールの購読ステータス、最後にアプリを使用した時間でフィルターできます。
 3. Brazeは送信時にフィルターを評価し、条件に一致するユーザーにのみメッセージを配信します。
 
 {% alert tip %}
-`audience`パラメーターを使用する場合、`campaign_id`は必須ではありません。[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)および[`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)エンドポイントでは、事前に作成したCampaignなしでメッセージコンテンツをインラインで定義できます。ただし、ダッシュボードでCampaignレベルの指標（送信数、クリック数、バウンスなど）を追跡したい場合は、`campaign_id`を含めてください。
+`audience`パラメーターを使用する場合、`campaign_id`は必須ではありません。[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)および[`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)エンドポイントでは、事前に作成したキャンペーンなしでメッセージコンテンツをインラインで定義できます。ただし、ダッシュボードでキャンペーンレベルの指標（送信数、クリック数、バウンスなど）を追跡したい場合は、`campaign_id`を含めてください。
 {% endalert %}
 
 オーディエンスはリクエストごとに定義されるため、バックエンドシステムは任意のビジネスイベント（価格変更、気象警報、ライブスコア更新など）に応じて、ダッシュボードの操作なしに状況に即した関連メッセージをトリガーできます。
@@ -37,6 +37,8 @@ description: "この記事では、接続オーディエンスオブジェクト
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
 - [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start)（`custom_audience`を使用）
 
+`audience`パラメーターはオブジェクトの配列をサポートしていません。
+
 ## ユースケース {#use-cases}
 
 バックエンドシステムがイベントを検出し、動的に決定されたユーザーセットに通知する必要があるシナリオで接続オーディエンスを使用します。
@@ -51,7 +53,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 | 金融サービス | 取引プラットフォームが、`watchlist`配列に価格閾値を超えた銘柄コードを含むユーザーにアラートを送信します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
-いずれの場合も、1つのCampaignまたはAPIのみのメッセージ定義ですべてのバリエーションに対応します。バックエンドがフィルター値を決定してAPIリクエストに渡すため、商品、番組、チーム、ロケーションごとに個別のセグメントやCampaignを作成する必要はありません。
+いずれの場合も、1つのキャンペーンまたはAPIのみのメッセージ定義ですべてのバリエーションに対応します。バックエンドがフィルター値を決定してAPIリクエストに渡すため、商品、番組、チーム、ロケーションごとに個別のセグメントやキャンペーンを作成する必要はありません。
 
 ## リクエスト例 {#example-request}
 
@@ -112,6 +114,19 @@ description: "この記事では、接続オーディエンスオブジェクト
 ## 接続オーディエンスフィルター {#connected-audience-filters}
 
 複数のフィルターを`AND`および`OR`演算子と組み合わせて、接続オーディエンスフィルターを作成します。
+
+### 考慮事項 {#considerations}
+
+接続オーディエンスでは、以下の条件によるユーザーのフィルタリングはできません。
+
+ - デフォルト属性
+ - カスタムイベント
+ - セグメント
+ - メッセージエンゲージメントイベント
+ - 階層化カスタム属性
+
+これらのフィルターを使用するには、オーディエンスセグメントに組み込んだうえで、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters)の`segment_id`パラメーターでそのセグメントを指定することをお勧めします。他のエンドポイントを使用する場合は、まずBrazeダッシュボードでAPIトリガーのキャンペーンまたはキャンバスにセグメントを追加する必要があります。階層化属性でフィルタリングする必要がある場合は、代わりに[標準セグメント]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)を使用してください。
+
 
 ### カスタム属性フィルター {#custom-attribute-filter}
 
@@ -183,9 +198,9 @@ description: "この記事では、接続オーディエンスオブジェクト
   }
 }
 ```
-### プッシュ通知のサブスクリプションフィルター {#push-subscription-filter}
+### プッシュ通知の購読フィルター {#push-subscription-filter}
 
-このフィルターでは、ユーザーのプッシュ通知のサブスクリプションステータスに基づいてセグメント化できます。
+このフィルターでは、ユーザーのプッシュ通知の購読ステータスに基づいてセグメント化できます。
 
 #### フィルター本文 {#filter-body}
 
@@ -202,9 +217,9 @@ description: "この記事では、接続オーディエンスオブジェクト
 - **許容される比較：** `is`、`is_not`
 - **許容される値：** `opted_in`、`subscribed`、`unsubscribed`
 
-### メールのサブスクリプションフィルター {#email-subscription-filter}
+### メールの購読フィルター {#email-subscription-filter}
 
-このフィルターでは、ユーザーのメールのサブスクリプションステータスに基づいてセグメント化できます。
+このフィルターでは、ユーザーのメールの購読ステータスに基づいてセグメント化できます。
 
 #### フィルター本文
 
@@ -239,15 +254,3 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 - **許容される比較：** `after`、`before`
 - **許容される値：** datetime（ISO 8601文字列）
-
-### 考慮事項 {#considerations}
-
-接続オーディエンスでは、以下の条件によるユーザーのフィルタリングはできません。
-
- - デフォルト属性
- - カスタムイベント
- - Segments
- - メッセージエンゲージメントイベント
- - 階層化カスタム属性
-
-これらのフィルターを使用するには、オーディエンスセグメントに組み込んだうえで、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters)の`segment_id`パラメーターでそのセグメントを指定することをお勧めします。他のエンドポイントを使用する場合は、まずBrazeダッシュボードでAPIトリガーのCampaignまたはCanvasにセグメントを追加する必要があります。

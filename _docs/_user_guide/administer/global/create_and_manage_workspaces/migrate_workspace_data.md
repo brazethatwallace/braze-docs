@@ -22,7 +22,7 @@ The following is not bulk-migrated when you point SDKs or APIs at a new workspac
 | --- | --- |
 | **User profiles** | Profiles don't transfer as a packaged unit. Recreate or import users in the destination workspace (see [User profile data](#user-profile-data)). |
 | **Segments and filters** | Segment definitions stay in the source workspace. Rebuild segments in the destination workspace using the same logic where possible. |
-| **Messaging history** | Campaign and Canvas receipt history on a profile is tied to the source workspace. It doesn't appear on a new profile in another workspace unless you model it yourself (for example, via custom attributes), as noted in [Braze onboarding FAQs]({{site.baseurl}}/user_guide/onboarding_faq). |
+| **Messaging history** | Campaign and Canvas receipt history on a profile is tied to the source workspace. It doesn't appear on a new profile in another workspace unless you model it yourself (for example, via custom attributes), as noted in [Braze onboarding FAQs]({{site.baseurl}}/onboarding_faq). |
 | **Channel-specific configuration** | Sending domains, SMS subscriptions, WhatsApp numbers, and similar settings are workspace-scoped. Reconfigure them in the destination workspace where applicable. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="What Braze does not automatically migrate between workspaces" }
 
@@ -73,7 +73,7 @@ You can set `date_of_first_session` and `date_of_last_session` through [`/users/
 
 Each user is assigned a [random bucket number]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-update-events) in their workspace. That value cannot be re-imported; the user gets a new random bucket in the destination workspace.
 
-If you rely on the old number for holdouts or sampling (for example, excluding users whose `random_bucket` is below a threshold), save the exported value as a custom attribute and build segments or filters on that attribute instead of the built-in random bucket field.
+If you rely on the old number for holdouts or sampling (for example, excluding users whose `random_bucket` is less than a threshold), save the exported value as a custom attribute and build segments or filters on that attribute instead of the built-in random bucket field.
 
 #### Partner attribution fields (`attributed_*`)
 
@@ -81,7 +81,7 @@ Attribution fields from partner integrations (the `attributed_*` fields in an ex
 
 ### Push tokens
 
-When users already have push tokens from a previous provider or app version, you can import tokens for mobile apps through the API, or rely on the SDK after integration. Web push tokens have API limitations. For full detail and examples, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+When users already have push tokens from a previous provider or app version, you can import tokens for mobile apps through the API, or rely on the SDK after integration. Web push tokens have API limitations. For full detail and examples, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ### WhatsApp
 

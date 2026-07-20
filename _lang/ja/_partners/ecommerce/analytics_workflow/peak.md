@@ -33,18 +33,18 @@ BrazeとPeakのパートナーシップにより、顧客の行動とインタ�
 
 Peakソリューションの顧客インテリジェンスはモデルを活用して、顧客の行動とインタラクションに基づいてさまざまな将来予測属性を生成します。これらの属性はPeak内に保存され、顧客の解約確率などの予測セグメンテーションを生成するために使用できます。これらの予測属性の更新は、設定可能な頻度（毎日または毎週）に基づいて行われます。
 
-### ステップ 1：モデルを実行して顧客を抽出する {#step-1-run-model-and-extract-customers}
+### ステップ1：モデルを実行して顧客を抽出する {#step-1-run-model-and-extract-customers}
 
 この統合は、AIモデルの実行と予測顧客属性の再計算をきっかけにトリガーされます。これらのAI出力はPeak内に保存され、属性が新しいステータスまたは値で更新されたタイミングも含まれます。
 
 属性が更新されたタイミングに基づいて、PeakとBrazeの前回の同期以降に予測属性が更新されたすべての顧客を収集するためのセレクションが行われます。
 
-### ステップ 2：Brazeを更新する {#step-2-update-braze}
+### ステップ2：Brazeを更新する {#step-2-update-braze}
 
-更新された顧客と関連する属性を使用して、Peakは[`/user/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を利用し、[一括]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#making-bulk-updates)ヘッダーを指定してこれらをBrazeにPOSTします。
+更新された顧客と関連する属性を使用して、Peakは[`/user/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を利用し、[一括]({{site.baseurl}}/api/endpoints/user_data/post_user_track#need-to-update-users-in-bulk)ヘッダーを指定してこれらをBrazeにPOSTします。
 
 APIから成功ステータスコードを受信すると、PeakはPeakとBrazeの間での同期の成功を記録します。
 
-### ステップ 3：この統合を使用する {#step-3-using-this-integration}
+### ステップ3：この統合を使用する {#step-3-using-this-integration}
 
-PeakとBrazeの同期が成功すると、更新されたユーザーには新しい属性が含まれるようになります。CampaignsやCanvasesでこれらの属性を使用して、ユーザーをターゲティングし、メッセージをパーソナライズしましょう。
+PeakとBrazeの同期が成功すると、更新されたユーザーには新しい属性が含まれるようになります。キャンペーンやキャンバスでこれらの属性を使用して、ユーザーをターゲティングし、メッセージをパーソナライズしましょう。

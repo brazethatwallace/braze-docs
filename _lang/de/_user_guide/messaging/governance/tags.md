@@ -9,7 +9,7 @@ tool:
   - Canvas
 ---
 
-# Tags
+# Tags {#tags}
 
 > Braze erfasst Informationen zu Autor:in, Bearbeiter:in, Datum und Status von Segments, Campaigns und Canvases und bietet Ihnen die Möglichkeit, Tags zu erstellen, um Ihre Engagements weiter zu organisieren und zu sortieren.
 
@@ -47,10 +47,10 @@ Tags sind in der Liste der Campaigns, Canvases oder Segments sichtbar, zusammen 
 
 ## Tags für angepasste Daten {#custom-data-tags}
 
-Tags können auch zu angepassten Daten hinzugefügt werden, wenn Sie [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes) und [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#adding-tags) verwalten.
+Tags können auch zu angepassten Daten hinzugefügt werden, wenn Sie [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) und [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags) verwalten.
 
 {% alert important %}
 Dieses Feature befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind.
 {% endalert %}
 
-Informationen zum Umbenennen, Entfernen oder Verschachteln von Tags in Ihrem Dashboard finden Sie unter [Tags verwalten]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/#managing-tags).
+Informationen zum Umbenennen, Entfernen oder Verschachteln von Tags in Ihrem Dashboard finden Sie unter [Tags verwalten]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

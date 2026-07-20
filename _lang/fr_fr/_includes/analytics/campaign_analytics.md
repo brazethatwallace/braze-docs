@@ -84,11 +84,11 @@ Le tableau suivant résume la signification de chaque libellé.
 
 | Libellé | Quand il est utilisé |
 | --- | --- |
-| **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Utilisateurs pouvant être atteints** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
+| **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Reachable users** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
 | **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience estimée et audience actuelle" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
-Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **Reachable users**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 {% if include.channel == "Content Card" %}
 
@@ -118,7 +118,7 @@ Pour mesurer l'impact d'un message webhook individuel, vous pouvez ajouter un [g
 
 #### Modifications depuis la dernière consultation {#changes-since-last-viewed}
 
-Le nombre de mises à jour de la campagne effectuées par d'autres membres de votre équipe est suivi par l'indicateur *Modifications depuis la dernière consultation* sur la page d'aperçu de la campagne. Sélectionnez **Changes Since Last Viewed** pour afficher un journal des modifications apportées au nom de la campagne, à sa planification, à ses étiquettes, à son message, à son audience, à son statut d'approbation ou à la configuration de l'accès de l'équipe. Pour chaque mise à jour, vous pouvez voir qui a effectué la modification et quand. Ce journal des modifications vous permet d'auditer les changements apportés à votre campagne.
+Le nombre de mises à jour de la campagne effectuées par d'autres membres de votre équipe est suivi par l'indicateur *Changes Since Last Viewed* sur la page d'aperçu de la campagne. Sélectionnez **Changes Since Last Viewed** pour afficher un journal des modifications apportées au nom de la campagne, à sa planification, à ses étiquettes, à son message, à son audience, à son statut d'approbation ou à la configuration de l'accès de l'équipe. Pour chaque mise à jour, vous pouvez voir qui a effectué la modification et quand. Ce journal des modifications vous permet d'auditer les changements apportés à votre campagne.
 
 <!--
 ### Message Performance
@@ -186,6 +186,13 @@ Le panneau **WhatsApp Performance** présente les performances de votre message 
 
 ![Panneau de performances WhatsApp comprenant un tableau d'indicateurs pour la variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Crédits et nombre d'envois {#credits-versus-send-counts}
+
+Les compteurs d'envois WhatsApp dans l'analytique de campagne reflètent les tentatives de distribution. Les crédits consommés peuvent différer lorsque Meta facture par catégorie de message (marketing, utilitaire, authentification, service).
+
+- Les messages de réponse composés dans Braze ne consomment pas de crédits WhatsApp Braze.
+- Utilisez **Analytics** > **Daily Stats** pour le volume d'envoi directionnel. Les ventilations de crédits par campagne ou Canvas ne sont pas disponibles.
+
 {% endif %}
 
 Si vous souhaitez simplifier votre vue, cliquez sur <i class="fas fa-plus"></i> **Add/Remove Columns** et décochez les indicateurs souhaités. Par défaut, tous les indicateurs sont affichés.
@@ -197,7 +204,7 @@ Si vous souhaitez simplifier votre vue, cliquez sur <i class="fas fa-plus"></i> 
 Grâce aux cartes thermiques, vous pouvez visualiser le succès des différents liens d'une même campagne e-mail. Dans la section **Message Analytics**, accédez au panneau **Email Performance**. Sélectionnez **Preview & Heatmap** pour afficher un aperçu de votre campagne e-mail et de la carte thermique. Vous pouvez également sélectionner le lien hypertexte dans le nom de la variante pour afficher la carte thermique.
 
 {% alert note %}
-L'analytique de campagne affiche les données de clics pour un maximum de 100 URL uniques par variante, triées par nombre total de clics. Les URL sont regroupées par leur forme normalisée, qui n'inclut pas les paramètres de requête. Si une variante comporte plus de 100 URL normalisées uniques, seules les 100 premières par nombre de clics sont affichées. Les données de clics pour les URL au-delà de cette limite existent toujours, mais n'apparaîtront pas dans le tableau de bord ni dans la carte thermique. Lorsque l'aliasage de lien est activé, les clics sont suivis par identifiant de lien plutôt que par URL brute, ce qui entraîne généralement moins d'entrées uniques et rend cette limite moins susceptible d'être atteinte.
+L'analytique de campagne affiche les données de clics pour un maximum de 100 URL uniques par variante, triées par nombre total de clics. Les URL sont regroupées par leur forme normalisée, qui n'inclut pas les paramètres de requête. Si une variante comporte plus de 100 URL normalisées uniques, seules les 100 premières par nombre de clics sont affichées. Les données de clics pour les URL au-delà de cette limite existent toujours, mais n'apparaîtront pas dans le tableau de bord ni dans la carte thermique. Lorsque l'aliasing de lien est activé, les clics sont suivis par identifiant de lien plutôt que par URL brute, ce qui entraîne généralement moins d'entrées uniques et rend cette limite moins susceptible d'être atteinte.
 {% endalert %}
 
 Dans cette vue, vous pouvez utiliser la bascule **Show Heatmap** pour afficher une vue visuelle de votre e-mail qui montre la fréquence globale et l'emplacement des clics au cours de la durée de vie de la campagne. Dans le panneau **Link Table by Total Clicks**, vous pouvez afficher tous les liens de votre campagne e-mail et les trier par nombre total de clics. Cela peut fournir des informations supplémentaires sur les endroits où vos utilisateurs naviguent. Pour enregistrer une copie de la carte thermique à des fins de référence, sélectionnez le bouton de téléchargement.
@@ -365,6 +372,12 @@ Autre exemple : supposons que vous observiez cinq _impressions uniques_ sur une 
 
 Les _impressions quotidiennes uniques_ désignent les bannières qui ont été effectivement vues.
 
+#### Écarts entre les groupes de contrôle et les variantes {#discrepancies-between-control-groups-and-variants}
+
+Lorsqu'une campagne de bannières utilise un groupe de contrôle, les impressions du groupe de contrôle peuvent être supérieures à celles des variantes, même lorsque la répartition de l'audience entre les groupes est égale. Cet écart est dû à une différence dans la manière dont les impressions sont enregistrées pour les bannières de contrôle et les variantes.
+
+Les impressions de contrôle et de variante nécessitent toutes deux que l'emplacement de la bannière entre dans la zone visible. Les impressions de variante ne sont enregistrées que lorsque la bannière complète est visible à l'écran. Les impressions de contrôle peuvent être enregistrées dès que l'emplacement entre dans la zone visible, avant que la bannière complète ne soit visible pour une variante.
+
 {% elsif include.channel == "email" %}
 
 #### Indicateurs des e-mails {#email-metrics}
@@ -455,10 +468,10 @@ Les _réceptions_ peuvent augmenter pendant la fenêtre de réessai de votre fou
 
 Lors de l'examen de vos analyses e-mail, gardez ces schémas à l'esprit :
 
-- **Écart entre les _envois_ et (_réceptions_ + _échecs d'envoi définitifs_) :** Pendant la fenêtre de réessai de l'ESP après un envoi unique, cet écart reflète souvent des échecs provisoires d'envoi ou des reports encore en cours de réessai. Une fois les réessais terminés, tout écart restant correspond généralement à des messages qui ont subi un échec provisoire d'envoi et n'ont jamais été distribués — ces envois ne sont pas comptabilisés dans les _réceptions_ ni dans les _rebonds_ de la campagne. Utilisez la formule ci-dessus pour estimer les échecs provisoires d'envoi en cours.
+- **Écart entre les _envois_ et (_réceptions_ + _échecs d'envoi définitifs_) :** Pendant la fenêtre de réessai de l'ESP après un envoi unique, cet écart reflète souvent des échecs provisoires d'envoi ou des reports encore en cours de réessai. Une fois les réessais terminés, tout écart restant correspond généralement à des messages qui ont subi un échec provisoire d'envoi et n'ont jamais été distribués — ces envois ne sont pas comptabilisés dans les _réceptions_ ni dans les _rebonds_ de la campagne. Utilisez la formule de la section [Réceptions et rebonds](#deliveries-and-bounces) pour estimer les échecs provisoires d'envoi en cours.
 - **_Réceptions_ faibles après la fin des réessais :** Si les taux de distribution restent faibles une fois les réessais terminés, comparez le volume de cet envoi à vos habitudes. Les fournisseurs de boîtes de réception peuvent reporter, limiter ou rejeter provisoirement les e-mails lorsque le volume augmente par rapport à votre réputation d'expéditeur. Vous pouvez voir des messages tels que `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Utilisez la [limitation du débit de distribution]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) pour cadencer les envois importants, et consultez la section [IP limitées]({{site.baseurl}}/user_guide/channels/email/reporting#throttled-ips) pour des étapes de résolution supplémentaires.
-- **Échecs provisoires d'envoi et reports non affichés dans l'analytique de campagne :** L'analytique de campagne met en évidence les _échecs d'envoi définitifs_ mais n'inclut pas les _échecs provisoires d'envoi_ ni les _reports_ en tant que colonnes distinctes. Surveillez ces événements dans le Journal d'activité des messages, avec le [filtre de segment Échec provisoire d'envoi]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced), ou via les événements de report Currents. Pour comprendre le fonctionnement des réessais, consultez la section [Reports](#deferrals) ci-dessous.
-- **Les pourcentages de distribution peuvent ne pas totaliser 100 % :** Le _% de réceptions_, le _% de rebonds_ et le _taux de spam_ peuvent ne pas totaliser 100 % des _envois_. Les messages qui subissent un échec provisoire d'envoi et ne sont jamais distribués après la fenêtre de réessai de l'ESP ne sont pas comptabilisés dans les _réceptions_ ni dans les _rebonds_ de la campagne, de sorte qu'une partie des _envois_ peut rester non comptabilisée dans ces taux. Attendez la fin des réessais avant de juger les performances finales de distribution, ou utilisez la formule ci-dessus pour estimer le nombre d'envois encore en cours de réessai.
+- **Échecs provisoires d'envoi et reports non affichés dans l'analytique de campagne :** L'analytique de campagne met en évidence les _échecs d'envoi définitifs_ mais n'inclut pas les _échecs provisoires d'envoi_ ni les _reports_ en tant que colonnes distinctes. Surveillez ces événements dans le Journal d'activité des messages, avec le [filtre de segment Échec provisoire d'envoi]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced), ou via les événements de report Currents. Pour comprendre le fonctionnement des réessais, consultez la section [Reports](#deferrals).
+- **Les pourcentages de distribution peuvent ne pas totaliser 100 % :** Le _% de réceptions_, le _% de rebonds_ et le _taux de spam_ peuvent ne pas totaliser 100 % des _envois_. Les messages qui subissent un échec provisoire d'envoi et ne sont jamais distribués après la fenêtre de réessai de l'ESP ne sont pas comptabilisés dans les _réceptions_ ni dans les _rebonds_ de la campagne, de sorte qu'une partie des _envois_ peut rester non comptabilisée dans ces taux. Attendez la fin des réessais avant de juger les performances finales de distribution, ou utilisez la formule de la section [Réceptions et rebonds](#deliveries-and-bounces) pour estimer le nombre d'envois encore en cours de réessai.
 
 ##### Clics sans événement d'ouverture {#clicks-without-an-open-event}
 
@@ -496,11 +509,11 @@ On parle de report ou d'ajournement lorsqu'un e-mail n'a pas été livré imméd
 
 Les _reports_ diffèrent des _échecs provisoires d'envoi_. Si aucun e-mail n'a été délivré avec succès pendant cette période de réessai, Braze enverra un événement d'échec provisoire d'envoi par tentative de campagne envoyée. Avant le 25 février 2025, ces tentatives étaient comptabilisées comme plusieurs échecs provisoires d'envoi pour un même envoi de campagne.
 
-Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fonctionnalités Currents ou Braze Snowflake (telles que le Générateur de requêtes, SQL Segment, Snowflake Data Sharing). Si vous souhaitez les inclure dans l'analytique des campagnes ou de Canvas, veuillez [nous faire part de vos commentaires sur le produit]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fonctionnalités Currents ou Braze Snowflake (telles que le générateur de requêtes, SQL Segment, Snowflake Data Sharing). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Taux d'ouverture réel estimé {#estimated-real-open-rate}
 
-Cette statistique utilise un modèle analytique propriétaire créé par Braze pour reconstruire une estimation du taux d'ouverture unique de la campagne comme si les ouvertures automatiques n'existaient pas. Bien que nous recevions des étiquettes *Ouvertures automatiques* pour certains événements d'ouverture provenant d'expéditeurs d'e-mails (voir ci-dessus), ces étiquettes peuvent souvent classer les ouvertures réelles comme des ouvertures automatiques. Autrement dit, les *autres ouvertures* sont probablement une sous-estimation des ouvertures réelles (par des utilisateurs réels). Braze utilise plutôt les données de clics de chaque campagne pour déduire le taux d'ouverture du message par des humains réels. Cela permet de compenser les divers mécanismes d'ouverture automatique, y compris la protection de la confidentialité dans Mail d'Apple.
+Cette statistique utilise un modèle analytique propriétaire créé par Braze pour reconstruire une estimation du taux d'ouverture unique de la campagne comme si les ouvertures automatiques n'existaient pas. Bien que nous recevions des étiquettes *Machine Opens* pour certains événements d'ouverture provenant d'expéditeurs d'e-mails, ces étiquettes peuvent souvent classer les ouvertures réelles comme des ouvertures automatiques. Autrement dit, les *Other Opens* sont probablement une sous-estimation des ouvertures réelles (par des utilisateurs réels). Braze utilise plutôt les données de clics de chaque campagne pour déduire le taux d'ouverture du message par des humains réels. Cela permet de compenser les divers mécanismes d'ouverture automatique, y compris la protection de la confidentialité dans Mail d'Apple.
 
 Le _taux d'ouverture réel estimé_ est calculé 24 heures après le début de l'envoi de l'e-mail et est ensuite recalculé toutes les 72 heures.
 
@@ -593,9 +606,9 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
     </tbody>
 </table>
 
-#### Écarts entre les groupes de contrôle et les variantes {#discrepancies-between-control-groups-and-variants}
+#### Écarts entre les groupes de contrôle et les variantes
 
-Lorsqu'une campagne de messages in-app a une répartition 50-50 entre les variantes, il arrive que le groupe de contrôle ait un pourcentage légèrement supérieur à celui de la variante (par exemple 51 % pour le groupe de contrôle et 49 % pour la variante). Cet écart est dû à une différence dans le temps de rendu.
+Lorsqu'une campagne de messages in-app a une répartition 50-50 entre les variantes, il arrive que le groupe de contrôle ait un pourcentage légèrement supérieur à celui de la variante (par exemple 51 % pour le groupe de contrôle et 49 % pour la variante). Cet écart est dû à une différence dans le temps de rendu — par exemple, lorsque les messages de la variante utilisent des images volumineuses ou du contenu connecté avec modèle et que les utilisateurs quittent avant la fin du rendu, tandis que le groupe de contrôle enregistre les impressions sans afficher de message.
 
 La répartition entre les groupes de contrôle et les variantes est censée être à peu près égale, mais l'affectation à une variante se produit au moment où le message in-app est effectivement envoyé à l'appareil. Certains utilisateurs peuvent ne jamais déclencher le message in-app (par exemple, s'ils n'effectuent jamais l'action qui déclenche l'événement personnalisé requis), ce qui peut entraîner des différences dans la taille des groupes.
 
@@ -690,7 +703,7 @@ Autre solution possible : nous vous recommandons de créer un événement person
 
 ##### Comprendre les ouvertures {#understanding-opens}
 
-Bien que les termes _ouvertures directes_ et _ouvertures influencées_ contiennent le mot « ouvertures », il s'agit en fait d'indicateurs différents. Les _ouvertures directes_ font référence à l'ouverture directe d'une notification push, comme indiqué dans le tableau ci-dessus. Les _ouvertures influencées_ font référence à l'ouverture d'une application sans ouverture d'une notification push dans un délai spécifique après sa réception. Les _ouvertures influencées_ concernent donc les ouvertures de l'application, et non les ouvertures des notifications push.
+Bien que les termes _ouvertures directes_ et _ouvertures influencées_ contiennent le mot « ouvertures », il s'agit en fait d'indicateurs différents. Les _ouvertures directes_ font référence à l'ouverture directe d'une notification push. Les _ouvertures influencées_ font référence à l'ouverture d'une application sans ouverture d'une notification push dans un délai spécifique après sa réception. Les _ouvertures influencées_ concernent donc les ouvertures de l'application, et non les ouvertures des notifications push.
 
 ##### Boutons d'action push et rapports {#push-action-buttons-and-reporting}
 
@@ -698,11 +711,11 @@ Lorsque vous ajoutez des [boutons d'action push]({{site.baseurl}}/user_guide/cha
 
 Les _ouvertures directes_ reflètent les indicateurs du tableau de bord pour les interactions comptabilisées comme une ouverture directe de votre message. Les événements **Push Notification Open** dans [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou Snowflake décrivent les interactions push de manière plus large et peuvent inclure des champs facultatifs tels que `button_action_type` (par exemple, `close`) et `button_string`. Pour les définitions des champs, consultez les [événements Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#push-notification-open-events).
 
-Pour **iOS**, les catégories de notification par défaut de Braze (telles que **Yes** / **No**, **Accept** / **Decline**, ou **Confirm** / **Cancel**) utilisent un appariement fixe : la première action prend en charge `OPEN_APP`, un URI ou un lien profond (aligné avec le **comportement au clic** dans le compositeur). L'action complémentaire utilise `CLOSE` par défaut — elle ferme la notification et n'ouvre pas l'application. Consultez le mappage par défaut dans l'[objet bouton d'action push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons).
+Pour **iOS**, les catégories de notification par défaut de Braze (telles que **Yes** / **No**, **Accept** / **Decline**, ou **Confirm** / **Cancel**) utilisent un appariement fixe : la première action prend en charge `OPEN_APP`, un URI ou un deep link (aligné avec le **comportement au clic** dans le compositeur). L'action complémentaire utilise `CLOSE` par défaut — elle ferme la notification et n'ouvre pas l'application. Consultez le mappage par défaut dans l'[objet bouton d'action push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons).
 
 De ce fait, les appuis sur le bouton prédéfini de rejet (par exemple, **No** ou **Decline**) ne comptent généralement **pas** dans les _ouvertures directes_. Ces appuis peuvent toutefois apparaître dans les exports **Push Notification Open** lorsqu'ils sont enregistrés, avec `button_action_type` défini sur `close` et `button_string` identifiant l'action appuyée. Lorsque vous comparez l'analytique de campagne aux données de l'entrepôt, utilisez ces champs de payload pour ne pas traiter les appuis de rejet de la même manière que les appuis sur le corps de la notification ou l'action principale.
 
-Pour **Android**, vous définissez le **comportement au clic** par bouton (**Ouvrir l'application**, **Rediriger vers une URL web** ou **Lien profond**), de sorte que les rapports suivent les actions que vous configurez plutôt que la répartition par défaut `OPEN_APP` / `CLOSE` d'iOS.
+Pour **Android**, vous définissez le **comportement au clic** par bouton (**Ouvrir l'application**, **Rediriger vers une URL web** ou **Deep link**), de sorte que les rapports suivent les actions que vous configurez plutôt que la répartition par défaut `OPEN_APP` / `CLOSE` d'iOS.
 
 ##### Pourquoi les envois push peuvent dépasser le nombre de destinataires uniques {#why-push-sends-can-exceed-unique-recipients}
 
@@ -867,6 +880,8 @@ Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos an
     </tbody>
 </table>
 
+Si les échecs sont élevés, consultez [Analyser les échecs d'envoi WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### Indicateurs de blocage et de signalement par l'utilisateur final {#end-user-blocking-and-reporting-metrics}
 
 D'autres indicateurs peuvent être consultés via le [tableau de bord du gestionnaire WhatsApp](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), bien qu'une [confirmation de votre accès](https://www.facebook.com/business/help/218116047387456) soit nécessaire pour accéder à toutes les informations disponibles.
@@ -919,7 +934,7 @@ Le panneau **Conversion Correlation** vous donne des informations sur les attrib
 
 ## Générateur de rapports {#report-builder}
 
-Vous pouvez également utiliser le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Canaux**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
+Vous pouvez également utiliser le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Channels**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
 
 {% endif %}
 
@@ -935,7 +950,7 @@ En plus des analyses de Braze, des analyses au niveau des modèles sont accessib
 
 ### Événements SMS Currents {#sms-currents-events}
 
-Comme pour les e-mails, Braze reçoit des événements au niveau utilisateur liés à un message SMS à mesure qu'il effectue son parcours vers un utilisateur. Tout événement SMS entrant sera également envoyé en tant qu'événement Currents par le biais de l'événement [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Cela vous permet d'effectuer des actions supplémentaires ou des rapports sur les messages que vos utilisateurs envoient en dehors de la plateforme Braze.
+Comme pour les e-mails, Braze reçoit des événements au niveau utilisateur liés à un message SMS à mesure qu'il effectue son parcours vers un utilisateur. Tout événement SMS entrant sera également envoyé en tant qu'événement Currents par le biais de l'événement [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Cela vous permet d'effectuer des actions supplémentaires ou des rapports sur les messages que vos utilisateurs envoient en dehors de la plateforme Braze.
 
 {% alert note %}
 Les messages entrants sont tronqués au-delà de 1 600 caractères.

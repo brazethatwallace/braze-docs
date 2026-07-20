@@ -6,14 +6,16 @@ description: "Referencia del README del JavaScript SDK de Braze reflejada desde 
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guía del repositorio del JavaScript SDK {#javascript-sdk-repository-guide}
+
 ## Acerca del JavaScript SDK de Braze {#about-the-braze-javascript-sdk}
 
 El JavaScript SDK de Braze te ayuda a integrar las funcionalidades de mensajería, análisis e interacción con usuarios de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 
-- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=javascript)
+- [Guía del usuario de Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
 
 ### Resumen de la arquitectura {#architecture-overview}
 
@@ -28,8 +30,8 @@ El JavaScript SDK de Braze es una biblioteca **independiente de la plataforma** 
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
-- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
+- [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## Inicio rápido {#quickstart}
@@ -71,12 +73,12 @@ Antes de integrar el JavaScript SDK de Braze, necesitarás:
 
 - **Cuenta de Braze**: una cuenta de Braze con acceso a la API
 - **Clave de API**: la clave de API de tu aplicación desde el panel de Braze
-- **Punto de conexión del SDK**: la URL de tu punto de conexión del SDK de Braze (por ejemplo, `sdk.iad-01.braze.com`)
+- **Endpoint del SDK**: la URL de tu endpoint del SDK de Braze (por ejemplo, `sdk.iad-01.braze.com`)
 
 ### Obtener tus credenciales {#getting-your-credentials}
 
 1. **Clave de API**: se encuentra en tu panel de Braze en **Configuración** > **Claves de API**
-2. **Punto de conexión del SDK**: se encuentra en **Configuración** > **Autenticación SDK** > **Puntos finales**
+2. **Endpoint del SDK**: se encuentra en **Configuración** > **Autenticación SDK** > **Endpoints**
 
 ## Integración {#integration}
 

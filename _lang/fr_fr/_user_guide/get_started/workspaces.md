@@ -18,7 +18,7 @@ Les espaces de travail ont deux fonctions essentielles :
 - **Séparer des activités distinctes :** Les espaces de travail permettent également de séparer des marques ou des activités distinctes. Par exemple, si vous avez plusieurs sous-marques avec des bases d'utilisateurs différentes, il est avantageux de créer des espaces de travail distincts pour chacune d'entre elles.
 
 {% alert tip %}
-Cette approche est particulièrement utile pour des entreprises telles que les sociétés de jeux mobiles qui peuvent gérer des espaces de travail individuels pour chacun de leurs jeux, ou les sites de commerce électronique qui souhaitent des espaces de travail distincts pour chaque région dans laquelle ils opèrent.
+Cette approche est particulièrement utile pour des entreprises telles que les sociétés de jeux mobiles qui peuvent gérer des espaces de travail individuels pour chacun de leurs jeux, ou les sites d'e-commerce qui souhaitent des espaces de travail distincts pour chaque région dans laquelle ils opèrent.
 {% endalert %}
 
 ## Planification des espaces de travail {#planning-workspaces}
@@ -77,15 +77,15 @@ Vous devez créer des instances d'application distinctes pour chaque version de 
 
 #### Équipes {#teams}
 
-Les [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) peuvent être constituées en fonction de l'emplacement de la base de clients, de la langue et d'attributs personnalisés, de sorte que les membres de l'équipe et les non-membres aient un accès différent aux fonctionnalités d'envoi de messages et aux données des clients.
+Les [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) peuvent être constituées en fonction de l'emplacement de la base de clients, de la langue et d'attributs personnalisés, de sorte que les membres de l'équipe et les non-membres aient un accès différent aux fonctionnalités d'envoi de messages et aux données des clients.
 
 #### Autorisations des utilisateurs de l'entreprise {#company-user-permissions}
 
-Les espaces de travail ont des définitions indépendantes en termes d'accès et d'autorisations pour les utilisateurs. Les [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) vous permettent de créer des contrôles granulaires concernant l'accès d'un utilisateur ou d'une équipe au tableau de bord au sein d'un espace de travail unique.
+Les espaces de travail ont des définitions indépendantes en termes d'accès et d'autorisations pour les utilisateurs. Les [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) vous permettent de créer des contrôles granulaires concernant l'accès d'un utilisateur ou d'une équipe au tableau de bord au sein d'un espace de travail unique.
 
 #### Connecteurs Currents {#currents-connectors}
 
-L'outil [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) est un flux de données en temps réel de vos événements d'engagement qui constitue l'exportation la plus robuste et la plus granulaire de la plateforme Braze. Les connecteurs Currents sont inclus dans certains forfaits Braze, et vous en avez peut-être reçu un au départ, dans l'hypothèse d'un espace de travail unique.
+L'outil [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) est un flux de données en temps réel de vos événements d'engagement qui constitue l'exportation la plus robuste et la plus granulaire de la plateforme Braze. Les connecteurs Currents sont inclus dans certains forfaits Braze, et vous en avez peut-être reçu un au départ, dans l'hypothèse d'un espace de travail unique.
 
 Lorsque vous décidez de créer des espaces de travail séparés ou combinés, il est important de tenir compte du nombre de connecteurs Currents dont vous disposez, car les connecteurs Currents ne sont pas partagés entre les espaces de travail.
 
@@ -93,7 +93,7 @@ Par exemple, si vous disposez d'espaces de travail distincts pour les environnem
 
 #### Profils utilisateur {#user-profiles}
 
-Toutes les données persistantes associées à un utilisateur sont stockées dans son [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Cependant, les profils utilisateur sont également une ressource précieuse pour la résolution des problèmes et les tests, car vous pouvez facilement accéder à des informations sur l'historique d'engagement d'un utilisateur, son appartenance à un segment, son appareil et son système d'exploitation.
+Toutes les données persistantes associées à un utilisateur sont stockées dans son [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). Cependant, les profils utilisateur sont également une ressource précieuse pour la résolution des problèmes et les tests, car vous pouvez facilement accéder à des informations sur l'historique d'engagement d'un utilisateur, son appartenance à un segment, son appareil et son système d'exploitation.
 
 #### Segments, Campaigns et Canvas {#segments-campaigns-and-canvases}
 
@@ -180,7 +180,7 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
     <tr>
         <th scope="row">Événements et attributs personnalisés</th>
         <td>Les attributs et les événements personnalisés sont garantis comme étant spécifiques à une instance d'application.</td>
-        <td>Impossible de suivre le comportement des utilisateurs entre les espaces de travail.<br><br><b>Conseil :</b> Pour ce faire, vous pouvez utiliser plusieurs connecteurs Currents.</td>
+        <td>Impossible de suivre le comportement des utilisateurs entre les espaces de travail.<br><br><b>Conseil :</b> Pour ce faire, vous pouvez tirer parti de plusieurs connecteurs Currents.</td>
         <td>Possibilité de suivre le comportement de l'utilisateur dans toutes les instances d'applications de l'espace de travail.</td>
         <td>Les attributs et événements personnalisés s'appliqueraient à toutes les instances de l'application, ce qui pourrait rendre difficile de déterminer quelles données d'un profil utilisateur sont pertinentes pour telle ou telle instance de l'application. Par exemple, « date_of_parking » concerne-t-il l'application 1 ou l'application 2 ? Pour y remédier, veillez à utiliser des conventions de nommage bien structurées.</td>
     </tr>
@@ -208,8 +208,8 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
     <tr>
         <th scope="row">Duplication de contenu</th>
         <td>S.O.</td>
-        <td>Certains contenus, comme les segments et les campagnes de cartes de contenu, ne peuvent pas être copiés entre les espaces de travail.</td>
-        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>copier des Campaigns, des Canvas et des pages d'accueil entre les espaces de travail</a>. Les contenus pris en charge incluent les Campaigns et les Canvas pour les canaux éligibles, ainsi que les pages d'accueil, les modèles d'e-mails, les indicateurs de fonctionnalité et les Content Blocks.<br><br>Possibilité de dupliquer les segments, les Campaigns, les Canvas et les pages d'accueil pour réutiliser le contenu d'une instance d'application à l'autre.</td>
+        <td>Certains contenus, comme les Segments et les campagnes de content cards, ne peuvent pas être copiés entre les espaces de travail.</td>
+        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>copier des Campaigns, des Canvas et des pages de destination entre les espaces de travail</a>. Les contenus pris en charge incluent les Campaigns et les Canvas pour les canaux éligibles, ainsi que les pages de destination, les modèles d'e-mails, les feature flags et les Content Blocks.<br><br>Possibilité de dupliquer les Segments, les Campaigns, les Canvas et les pages de destination pour réutiliser le contenu d'une instance d'application à l'autre.</td>
         <td>S.O.</td>
     </tr>
     <tr>
@@ -221,6 +221,10 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
     </tr>
     </tbody>
 </table>
+
+{% alert note %}
+Pour comprendre comment les MAU diffèrent lorsque vous consultez toutes les applications par rapport à une seule application, consultez [Utilisateurs actifs mensuels]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+{% endalert %}
 
 ## Bonnes pratiques {#best-practices}
 
@@ -245,4 +249,4 @@ Vous devez avoir plus d'un utilisateur Braze avec des droits d'administrateur po
 
 ## Étapes suivantes {#next-steps}
 
-Après avoir déterminé votre plan d'espace de travail, il est temps de créer votre espace de travail et d'ajouter des instances d'applications. Pour connaître les étapes à suivre, consultez [Créer et gérer des espaces de travail]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/).
+Après avoir déterminé votre plan d'espace de travail, il est temps de créer votre espace de travail et d'ajouter des instances d'applications. Pour connaître les étapes à suivre, consultez [Créer et gérer des espaces de travail]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).

@@ -99,6 +99,18 @@ After Braze receives attribution data from Branch, the status connection indicat
 
 This status changes only after Braze receives data about an attributed install. Braze ignores organic installs (excludes them from the Branch postback) and does not count them when determining if the connection is successful.
 
+## Field mapping
+
+Branch attribution fields map to Braze as follows:
+
+| Branch field | Braze field |
+| --- | --- |
+| Campaign | `campaign` |
+| Channel | `source` |
+| Ad Set Name | `adgroup` |
+| Ad Name | `ad` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Branch field mapping" }
+
 ## Facebook and X (formerly Twitter) attribution data
 
 Attribution data for Facebook and X (formerly Twitter) campaigns is not available through our partners. These media sources do not permit their partners to share attribution data with third parties and, therefore, our partners cannot send that data to Braze.

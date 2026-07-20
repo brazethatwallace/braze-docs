@@ -225,7 +225,7 @@ The rendered copy is uploaded immediately before sending the message to the user
 
 ### Can I create a new bucket specifically for message archiving while keeping the current bucket used for Currents data?
 
-No. If you're interested in creating these specific buckets, submit [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+No. {% multi_lang_include product_feedback_cta.md context="gap" feature="dedicated message archiving buckets while keeping a separate Currents bucket" %}
 
 ### Is archived data written to a dedicated folder in an existing bucket, similar to how Currents data exports are structured?
 

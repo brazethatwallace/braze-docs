@@ -12,7 +12,7 @@ description: "이 문서에는 2019년 5월의 릴리스 노트가 포함되어 
 
 Content Cards는 고객의 앱 및 웹 경험 내에 표시되는 영구 콘텐츠입니다.
 
-Content Cards를 사용하면 고객의 경험을 방해하지 않고도 고객이 즐겨 사용하는 앱 내에서 바로 고도로 타겟팅된 풍부한 콘텐츠의 동적 스트림을 고객에게 보낼 수 있습니다. 또는 Content Cards를 이메일이나 푸시 알림과 같은 다른 채널과 페어링하여 일관된 마케팅 전략을 사용할 수 있습니다.
+Content Cards를 사용하면 고객의 경험을 방해하지 않고도 고객이 즐겨 사용하는 앱 내에서 바로 고도로 타겟팅된 풍부한 콘텐츠의 동적 스트림을 고객에게 보낼 수 있습니다. 또는 Content Cards를 이메일이나 푸시 알림과 같은 다른 채널과 페어링하여 일관된 마케팅 전략을 수립할 수 있습니다.
 
 ![Content Cards 피드]({% image_buster /assets/img/cc-feed.png %}){: height="50%" width="50%"}
 
@@ -25,7 +25,7 @@ Content Cards를 사용하면 고객의 경험을 방해하지 않고도 고객�
 - Android: 2.6.0 이상
 - 웹: 2.2.0 이상
 
-[여기에서 Content Cards에 대해 자세히 알아보세요!]({{site.baseurl}}/user_guide/channels/content_cards/)
+[여기에서 Content Cards에 대해 자세히 알아보세요!]({{site.baseurl}}/user_guide/channels/content_cards)
 
 {% alert update %}
 Currents용 Content Cards와 Content Cards용 API 설명서는 이번 주 후반에 출시될 예정입니다. 기대해 주세요!
@@ -39,13 +39,13 @@ Braze의 기능에 새로운 채널이 추가되었습니다! 새로운 채널�
 
 ## Canvas 또는 Campaign 업데이트에 대한 알림 환경설정 {#notification-preferences-for-canvas-or-campaign-updates}
 
-이 [새로운 알림]({{site.baseurl}}/user_guide/administrative/company_settings/notification_preferences/#notification-preferences)은 Campaign이나 Canvas가 활성화, 업데이트, 재활성화 또는 비활성화되면 이메일을 통해 알려줍니다. Braze 계정의 **알림 환경설정**에서 이 기능을 활성화하세요.
+이 [새로운 알림]({{site.baseurl}}/user_guide/administrative/company_settings/notification_preferences#notification-preferences)은 Campaign이나 Canvas가 활성화, 업데이트, 재활성화 또는 비활성화되면 이메일을 통해 알려줍니다. Braze 계정의 **알림 환경설정**에서 이 기능을 활성화하세요.
 
 ## Jampp 기술 파트너 설명서 {#jampp-technology-partner-documentation}
 
 Jampp는 모바일 고객을 확보하고 리타겟팅하기 위한 성과 마케팅 플랫폼입니다. 행동 데이터와 예측 및 프로그래매틱 기술을 결합하여 소비자가 처음 구매하거나 더 자주 구매하도록 유도하는 개인 맞춤형 관련성 광고를 표시함으로써 광고주에게 수익을 창출합니다.
 
-Braze 고객은 이벤트를 Jampp로 스트리밍하도록 Braze 웹훅 채널을 구성하여 [Jampp와 통합]({{site.baseurl}}/partners/jampp/)할 수 있습니다. 그 결과, 고객은 모바일 광고 생태계 내에서 Jampp를 통해 리타겟팅 이니셔티브에 더 풍부한 데이터 세트를 추가할 수 있습니다.
+Braze 고객은 이벤트를 Jampp로 스트리밍하도록 Braze 웹훅 채널을 구성하여 [Jampp와 통합]({{site.baseurl}}/partners/jampp)할 수 있습니다. 그 결과, 고객은 모바일 광고 생태계 내에서 Jampp를 통해 리타겟팅 이니셔티브에 더 풍부한 데이터 세트를 추가할 수 있습니다.
 
 ## 인앱 메시지용 플랫폼 선택기 {#platform-picker-for-in-app-messages}
 
@@ -56,7 +56,7 @@ Campaign 제작 과정에서 이 단계를 강조하는 플랫폼 선택 기능�
 ## 이메일용 발송 ID Currents 필드 {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 엔트리 단계 제외)를 "스케줄된" 경우에도 트리거된 이벤트로 취급하기 때문입니다. Canvas와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)에 대해 자세히 알아보세요.
+`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 항목 단계 제외)를 "스케줄된" 경우에도 트리거된 이벤트로 취급하기 때문입니다. Canvas와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)에 대해 자세히 알아보세요.
 
 _2019년 8월에 업데이트가 기록되었습니다._
 {% endalert %}
@@ -75,7 +75,7 @@ Currents 기능을 지속적으로 개선하기 위해 모든 커넥터 유형�
 
 ## 별칭으로 사용자 삭제 {#delete-users-by-alias}
 
-이제 `users/delete` 엔드포인트를 사용하여 [별칭으로 사용자를 삭제]({{site.baseurl}}/api/endpoints/user_data/#user-delete-request)할 수 있습니다!
+이제 `users/delete` 엔드포인트를 사용하여 [별칭으로 사용자를 삭제]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)할 수 있습니다!
 
 ## 이메일 클릭 및 열람에 대한 고유 계산 {#unique-calculation-for-email-clicks-and-opens}
 
@@ -85,19 +85,18 @@ Currents 기능을 지속적으로 개선하기 위해 모든 커넥터 유형�
 
 이전 고유성 기간이 30일 이상이었기 때문에 Mailjet을 사용하는 사용자도 이 수치가 급증하는 것을 볼 수 있습니다. 이 변경 사항은 3주 전에 안내해 드렸습니다. SendGrid 고객은 아무런 차이를 느끼지 못할 것입니다.
 
-업데이트된 용어는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)에서 검색할 수 있습니다.
+업데이트된 용어는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)에서 검색할 수 있습니다.
 
 {% alert update %}
-`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 엔트리 단계 제외)를 "스케줄된" 경우에도 트리거된 이벤트로 취급하기 때문입니다. [Canvas와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)에 대해 자세히 알아보세요.
+`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 항목 단계 제외)를 "스케줄된" 경우에도 트리거된 이벤트로 취급하기 때문입니다. [Canvas와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)에 대해 자세히 알아보세요.
 
 _2019년 8월에 업데이트가 기록되었습니다._
 {% endalert %}
 
-
 ## 참여도가 가장 높은 채널 {#most-engaged-channel}
 
 {% alert update %}
-[2019년 11월 제품 릴리스]({{site.baseurl}}/help/release_notes/2019/november/#intelligence-suite)부터 "참여도가 가장 높은 채널"은 ["인텔리전트 채널"]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)로 이름이 변경되었습니다.
+[2019년 11월 제품 릴리스]({{site.baseurl}}/help/release_notes/2019/november#intelligence-suite)부터 "참여도가 가장 높은 채널"은 ["인텔리전트 채널"]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel)로 이름이 변경되었습니다.
 {% endalert %}
 
 참여도가 가장 높은 채널 필터는 선택한 메시징 채널이 "최고"의 채널인 오디언스 중 일부를 선택합니다. 이 경우 "최고"는 "사용자의 기록을 고려할 때 참여 가능성이 가장 높음"을 의미합니다. 이메일, 웹 푸시 또는 모바일 푸시(사용 가능한 모든 모바일 OS 또는 기기 포함)를 채널로 선택할 수 있습니다.

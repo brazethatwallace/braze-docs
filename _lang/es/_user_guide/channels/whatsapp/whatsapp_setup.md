@@ -49,7 +49,7 @@ En la ventana abierta, selecciona **Next** hasta que aparezca el botón **Begin 
 
 ### Paso 2: Configuración de WhatsApp {#step-2-whatsapp-setup}
 
-A continuación, el flujo de trabajo de configuración de Braze te guiará. Para un recorrido paso a paso, consulta [Registro integrado de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+A continuación, el flujo de trabajo de configuración de Braze te guiará. Para un recorrido paso a paso, consulta [Registro integrado de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).
 
 Dentro de este flujo, podrás:
 1. Crear o seleccionar tus cuentas de Meta y WhatsApp Business. Asegúrate de revisar las [directrices de nombre para mostrar de WhatsApp](https://www.facebook.com/business/help/757569725593362). <br><br>Es probable que ya tengas al menos una cuenta de Meta Business existente en tu empresa. Si es así, selecciona aquella en la que deseas que resida tu cuenta de WhatsApp Business. Los permisos de usuario y la verificación empresarial para WhatsApp se controlarán de forma centralizada en tu cuenta de Meta Business.<br><br>
@@ -60,7 +60,7 @@ Una vez completada la configuración, se creará un grupo de suscripción de Wha
 
 ### Paso 3: Crear plantillas de WhatsApp {#step-3-create-whatsapp-templates}
 
-Solo las plantillas de mensajes de WhatsApp aprobadas pueden utilizarse para iniciar conversaciones con los clientes. Las plantillas de WhatsApp se pueden crear en el [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343). Para ver una lista de las funciones de mensajería de WhatsApp compatibles con Braze, consulta [Funciones de WhatsApp compatibles]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#supported-whatsapp-features).
+Solo las plantillas de mensajes de WhatsApp aprobadas pueden utilizarse para iniciar conversaciones con los clientes. Las plantillas de WhatsApp se pueden crear en el [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343). Para ver una lista de las funciones de mensajería de WhatsApp compatibles con Braze, consulta [Funciones de WhatsApp compatibles]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features).
 
 1. **Navega al [administrador de plantillas](https://business.facebook.com/wa/manage/message-templates)**<br>
 En el Meta Business Manager, en **Account Tools**, selecciona **Message Templates**.
@@ -87,10 +87,10 @@ Las plantillas aprobadas se pueden utilizar en tantas campañas y Canvas como de
 
 ### Paso 4: Crear una campaña de WhatsApp {#step-4-create-a-whatsapp-campaign}
 
-Una vez que las plantillas de WhatsApp hayan sido aprobadas, puedes ir al dashboard para crear una [campaña o Canvas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/).
+Una vez que las plantillas de WhatsApp hayan sido aprobadas, puedes ir al dashboard para crear una [campaña o Canvas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 {% alert note %}
-Después de que se cree tu cuenta de WhatsApp Business, Meta determinará tu límite de mensajería inicial. Para obtener más información, consulta [rendimiento]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/#throughput).
+Después de que se cree tu cuenta de WhatsApp Business, Meta determinará tu límite de mensajería inicial. Para obtener más información, consulta [rendimiento]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc#throughput).
 {% endalert %}
 
 ## Próximos pasos {#next-steps}
@@ -100,7 +100,7 @@ Después de completar la integración, te recomendamos completar los dos siguien
 	- Es posible que ya tengas la verificación empresarial si has utilizado un Meta Business Manager existente.
 - [Cuenta empresarial oficial](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
-También te recomendamos leer sobre los [números de teléfono de los usuarios]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/) y agregar a cualquier usuario que necesite acceso para crear [plantillas en tu organización](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143).
+También te recomendamos leer sobre los [números de teléfono de los usuarios]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) y agregar a cualquier usuario que necesite acceso para crear [plantillas en tu organización](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143).
 
 ### Almacenamiento local de la API en la nube de WhatsApp {#whatsapp-cloud-api-local-storage}
 

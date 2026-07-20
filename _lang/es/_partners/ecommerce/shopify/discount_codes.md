@@ -8,7 +8,7 @@ description: "Este artículo de referencia cubre un caso de uso enviado por la c
 
 # Envía códigos de descuento únicos a través de Shopify {#send-unique-discount-codes-through-shopify}
 
-> Este caso de uso enviado por la comunidad muestra cómo utilizar los [códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/) de Braze con el Bot de código de descuento masivo de Shopify para generar códigos de descuento únicos para tus Campaigns y Canvas. Los códigos de descuento únicos ayudan a evitar la explotación de códigos promocionales genéricos.
+> Este caso de uso enviado por la comunidad muestra cómo utilizar los [códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) de Braze con el Bot de código de descuento masivo de Shopify para generar códigos de descuento únicos para tus Campaigns y Canvas. Los códigos de descuento únicos ayudan a evitar la explotación de códigos promocionales genéricos.
 
 {% alert important %}
 Se trata de una integración enviada por la comunidad y no está soportada directamente por Braze. El Bot de códigos de descuento masivo es compatible directamente con Shopify. Braze solo admite códigos promocionales de Braze.
@@ -18,7 +18,7 @@ Se trata de una integración enviada por la comunidad y no está soportada direc
 
 | Requisito | Descripción |
 | --- | --- |
-| Configurar una tienda Shopify | Confirma que ya has [configurado una tienda Shopify con Braze]({{site.baseurl}}/shopify_overview/). |
+| Configurar una tienda Shopify | Confirma que ya has [configurado una tienda Shopify con Braze]({{site.baseurl}}/shopify_overview). |
 | Instalar la aplicación Bulk Discount Code Bot | Descarga la aplicación [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) en la tienda de aplicaciones de Shopify. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
@@ -42,9 +42,9 @@ En el archivo CSV, elimina la fila 1 para quitar el encabezado de columna "Promo
 
 ### Paso 3: Añade tus códigos de descuento a Braze {#step-3-add-your-discount-codes-to-braze}
 
-En Braze, ve a **Data Settings** > **Promotion Codes** > **Create Promotion Code List** y [configura tu lista de códigos de descuento]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list). Asegúrate de que coincide con la fecha de caducidad configurada por el Bot de código de descuento masivo.
+En Braze, ve a **Configuración de datos** > **Códigos promocionales** > **Crear lista de códigos promocionales** y [configura tu lista de códigos de descuento]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create). Asegúrate de que coincide con la fecha de caducidad configurada por el Bot de código de descuento masivo.
 
-A continuación, carga tu archivo CSV y selecciona **Save List**.
+A continuación, carga tu archivo CSV y selecciona **Guardar lista**.
 
 ### Paso 4: Añade tus códigos de descuento a una Campaign o un paso en Canvas de Braze {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
 
@@ -56,10 +56,10 @@ Pega el fragmento de código Liquid en una Campaign o paso en Canvas.
 
 ![Un GIF que muestra el fragmento de código Liquid añadido a un paso en Canvas.][5]
 
-Si quieres que los usuarios reciban un único código de descuento, independientemente de cuántas veces se haga referencia al código de descuento en Campaigns o Canvas, crea un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) directamente antes del primer paso de mensaje que asigne el código de descuento a un atributo personalizado, como "Promo Code".
+Si quieres que los usuarios reciban un único código de descuento, independientemente de cuántas veces se haga referencia al código de descuento en Campaigns o Canvas, crea un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) directamente antes del primer paso de mensaje que asigne el código de descuento a un atributo personalizado, como "Promo Code".
 
 {% alert tip %}
-También puedes [crear un atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) yendo a **Data Settings** > **Custom Attributes**.
+También puedes [crear un atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) yendo a **Configuración de datos** > **Atributos personalizados**.
 {% endalert %}
 
 En el paso Actualización de usuario, haz lo siguiente para cada campo:

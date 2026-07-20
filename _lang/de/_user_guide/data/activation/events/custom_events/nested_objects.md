@@ -14,7 +14,7 @@ Sie können verschachtelte Objekte – also Objekte innerhalb eines anderen Obje
 
 ## Hinweise {#considerations}
 
-- Verschachtelte Daten werden sowohl für [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) als auch für [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/) unterstützt, jedoch nicht für andere Event-Typen.
+- Verschachtelte Daten werden sowohl für [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) als auch für [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) unterstützt, jedoch nicht für andere Event-Typen.
 - Event-Eigenschafts-Objekte, die Array- oder Objektwerte enthalten, können eine Event-Eigenschafts-Payload von bis zu 100 KB haben.
 - Event-Eigenschafts-Schemas können nicht für Kauf-Events generiert werden.
 - Event-Eigenschafts-Schemas werden durch Sampling angepasster Events der letzten 24 Stunden generiert.
@@ -33,7 +33,7 @@ Sie können auf die verschachtelten Daten in Ihrem angepassten Event zugreifen, 
 2. Wählen Sie **Eigenschaften verwalten** für die Events mit verschachtelten Eigenschaften.
 3. Wählen Sie den <i class="fas fa-arrows-rotate"></i> Button, um das Schema zu generieren. Um das Schema anzuzeigen, wählen Sie den <i class="fas fa-plus"></i> Plus-Button.
 
-![]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
+![Wählen Sie den Button, um das Schema zu generieren. Um das Schema anzuzeigen, wählen Sie den Plus-Button.]({% image_buster /assets/img_archive/schema_generation_example.png %}){: style="max-width:80%;"}
 
 Wenn in Zukunft neue Eigenschaften gesendet werden, sind diese erst nach einer erneuten Generierung im Schema enthalten. Schemas können alle 24 Stunden neu generiert werden.
 
@@ -167,19 +167,19 @@ Wenn Ihre Event-Eigenschaft die Zeichen `[]` oder `.` enthält, escapen Sie dies
 
 ### Segmentierung {#segmentation}
 
-Um Nutzer:innen basierend auf verschachtelten Event-Eigenschaften zu segmentieren, müssen Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) verwenden. Nachdem Sie ein Schema generiert haben, wird der Explorer für verschachtelte Objekte im Segmentierungsbereich angezeigt.
+Um Nutzer:innen basierend auf verschachtelten Event-Eigenschaften zu segmentieren, müssen Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) verwenden. Nachdem Sie ein Schema generiert haben, wird der Explorer für verschachtelte Objekte im Segmentierungsbereich angezeigt.
 
-![]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
+![Screenshot des Segmentierungsbereichs mit dem Explorer für verschachtelte Objekte.]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
 
 Die Segmentierung verwendet die gleiche Notation wie das Triggering (siehe [Nachrichten-Triggering](#message-triggering)).
 
-Um Segmenterweiterungen zu bearbeiten oder zu erstellen, benötigen Sie die Berechtigung „Segments bearbeiten“.
+Um Segmenterweiterungen zu bearbeiten oder zu erstellen, benötigen Sie die Berechtigung „Segmente bearbeiten“.
 
 ### Personalisierung {#personalization}
 
 Wählen Sie im Modal **Personalisierung hinzufügen** die Option **Erweiterte Event-Eigenschaften** als Personalisierungstyp aus. Dies ermöglicht es, verschachtelte Event-Eigenschaften hinzuzufügen, nachdem ein Schema generiert wurde.
 
-![]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
+![Im Modal „Personalisierung hinzufügen“ wird „Erweiterte Event-Eigenschaften“ als Personalisierungstyp ausgewählt. Dies ermöglicht es, verschachtelte Event-Eigenschaften hinzuzufügen, nachdem ein Schema generiert wurde.]({% image_buster /assets/img_archive/nested_event_properties_personalization.png %}){: style="max-width:70%;"}
 
 ## Verschachtelte Objekte in Nachrichten testen {#testing-nested-objects-in-messages}
 

@@ -1,33 +1,33 @@
 ---
 nav_title: Personnaliser l'URL
 article_title: Personnaliser l'URL
-description: "Découvrez comment personnaliser les URL de vos pages d'accueil avec la marque de votre entreprise en connectant votre domaine à votre espace de travail Braze."
+description: "Découvrez comment personnaliser les URL de vos pages de destination avec la marque de votre entreprise en connectant votre domaine à votre espace de travail Braze."
 page_order: 1
 ---
 
-# Personnaliser les URL des pages d'accueil {#customize-landing-page-urls}
+# Personnaliser les URL des pages de destination {#customize-landing-page-urls}
 
-> Découvrez comment personnaliser les URL de vos pages d'accueil avec la marque de votre entreprise en connectant votre domaine à votre espace de travail Braze.
+> Découvrez comment personnaliser les URL de vos pages de destination avec la marque de votre entreprise en connectant votre domaine à votre espace de travail Braze.
 
 ## Comment ça fonctionne {#how-it-works}
 
-Lorsque vous [connectez votre domaine à Braze](#connect-your-domain-to-braze), il sera utilisé comme domaine par défaut pour toutes les pages d'accueil. Par exemple, si vous connectez le sous-domaine `forms.example.com`, les URL de vos pages d'accueil seront désormais `forms.example.com/holiday-sale`.
+Lorsque vous [connectez votre domaine à Braze](#connect-your-domain-to-braze), il sera utilisé comme domaine par défaut pour toutes les pages de destination. Par exemple, si vous connectez le sous-domaine `forms.example.com`, les URL de vos pages de destination seront désormais `forms.example.com/holiday-sale`.
 
-Le nombre de domaines personnalisés que vous pouvez connecter à votre compte Braze dépend de votre [niveau de forfait]({{site.baseurl}}/user_guide/messaging/landing_pages/#plan-tiers). Pour augmenter votre limite, contactez votre gestionnaire de compte Braze.
+Le nombre de domaines personnalisés que vous pouvez connecter à votre compte Braze dépend de votre [niveau de forfait]({{site.baseurl}}/user_guide/messaging/landing_pages#plan-tiers). Pour augmenter votre limite, contactez votre gestionnaire de compte Braze.
 
 ## Connecter votre domaine à Braze {#connect-your-domain-to-braze}
 
 Pour connecter un domaine à votre compte Braze, demandez à un administrateur de suivre les étapes ci-dessous.
 
-1. Accédez à **Settings** > **Landing Page Settings**.
-2. Saisissez le domaine que vous souhaitez connecter et sélectionnez **Submit**. Par exemple, `forms.example.com`.
+1. Accédez à **Paramètres** > **Paramètres de la page de destination**.
+2. Saisissez le domaine que vous souhaitez connecter et sélectionnez **Envoyer**. Par exemple, `forms.example.com`.
 3. Copiez et collez les enregistrements **TXT** et **CNAME** dans les paramètres DNS de votre fournisseur de domaine.
 4. Retournez au tableau de bord de Braze pour vérifier la connexion.
 
-![Page des paramètres de la page d'accueil avec un enregistrement TXT et deux enregistrements CNAME répertoriés avec leurs noms et valeurs respectifs.]({% image_buster /assets/img/landing_pages/connect_subdomain.png %})
+![Page des paramètres de la page de destination avec un enregistrement TXT et deux enregistrements CNAME répertoriés avec leurs noms et valeurs respectifs.]({% image_buster /assets/img/landing_pages/connect_subdomain.png %})
 
 {% alert note %}
-Selon votre fournisseur de domaine, la connexion peut prendre jusqu'à 48 heures. Lorsque le processus est terminé, nous commencerons à utiliser votre domaine personnalisé pour vos pages d'accueil dans le tableau de bord de Braze.
+Selon votre fournisseur de domaine, la connexion peut prendre jusqu'à 48 heures. Lorsque le processus est terminé, nous commencerons à utiliser votre domaine personnalisé pour vos pages de destination dans le tableau de bord de Braze.
 {% endalert %}
 
 ### Configuration du certificat SSL {#ssl-certificate-setup}
@@ -38,13 +38,13 @@ Braze utilise Cloudflare pour provisionner automatiquement des certificats SSL p
 
 Si vous êtes administrateur Braze, vous pouvez supprimer un domaine précédemment configuré en suivant les étapes suivantes :
 
-1. Accédez à **Settings** > **Landing Page Settings**.
-2. Sélectionnez **Remove Custom Domain**.
+1. Accédez à **Paramètres** > **Paramètres de la page de destination**.
+2. Sélectionnez **Supprimer le domaine personnalisé**.
 3. Confirmez la suppression du domaine.
 4. Supprimez les enregistrements DNS répertoriés de vos paramètres de domaine.
 
 {% alert important %}
-Lorsque vous supprimez un domaine personnalisé, cette URL ne sera plus valide. Toutes les pages d'accueil qui utilisaient ce domaine reviendront automatiquement au domaine par défaut défini par Braze.
+Lorsque vous supprimez un domaine personnalisé, cette URL ne sera plus valide. Toutes les pages de destination qui utilisaient ce domaine reviendront automatiquement au domaine par défaut défini par Braze.
 {% endalert %}
 
 ## Migrer votre domaine {#migrate-your-domain}
@@ -69,7 +69,7 @@ Vérifiez que votre domaine a été saisi correctement et qu'il correspond à ce
 
 ### Puis-je utiliser des sous-domaines imbriqués pour mon domaine personnalisé ? {#can-i-use-nested-subdomains-for-my-custom-domain}
 
-Oui, vous pouvez utiliser des sous-domaines imbriqués pour vos pages d'accueil. Par exemple, `forms.braze.com`, `pages.forms.braze.com` ou des niveaux plus profonds sont tous pris en charge. La seule exigence est que vous ne pouvez pas utiliser un domaine apex (tel que `braze.com`) car Braze utilise des enregistrements CNAME pour la connexion.
+Oui, vous pouvez utiliser des sous-domaines imbriqués pour vos pages de destination. Par exemple, `forms.braze.com`, `pages.forms.braze.com` ou des niveaux plus profonds sont tous pris en charge. La seule exigence est que vous ne pouvez pas utiliser un domaine apex (tel que `braze.com`) car Braze utilise des enregistrements CNAME pour la connexion.
 
 ### Puis-je connecter plusieurs sous-domaines à mon espace de travail, ou connecter un sous-domaine à plusieurs espaces de travail ? {#can-i-connect-multiple-subdomains-to-my-workspace-or-connect-one-subdomain-to-multiple-workspaces}
 
@@ -77,7 +77,7 @@ Non, vous ne pouvez actuellement connecter qu'un seul sous-domaine à un espace 
 
 ### Puis-je utiliser le même sous-domaine que celui que j'utilise actuellement pour mon site web principal ou mon domaine d'envoi ? {#can-i-use-the-same-subdomain-that-i-currently-use-for-my-main-website-or-my-sending-domain}
 
-Non, vous ne pouvez pas utiliser des sous-domaines déjà utilisés. Bien que ces sous-domaines soient valides, ils ne peuvent pas être utilisés pour les pages d'accueil s'ils sont déjà affectés à d'autres usages ou s'ils ont des enregistrements DNS en conflit avec les enregistrements CNAME requis.
+Non, vous ne pouvez pas utiliser des sous-domaines déjà utilisés. Bien que ces sous-domaines soient valides, ils ne peuvent pas être utilisés pour les pages de destination s'ils sont déjà affectés à d'autres usages ou s'ils ont des enregistrements DNS en conflit avec les enregistrements CNAME requis.
 
 ### Pourquoi mon domaine personnalisé reste-t-il bloqué sur « Connexion en cours » malgré des enregistrements DNS valides ? {#why-is-my-custom-domain-stuck-on-connecting-despite-valid-dns-records}
 
@@ -103,6 +103,6 @@ Pour résoudre ce problème, demandez à votre équipe informatique de libérer 
 
 Après avoir résolu l'un ou l'autre problème, supprimez et recréez votre domaine personnalisé dans le tableau de bord de Braze pour redémarrer le processus de validation.
 
-### Puis-je utiliser un proxy inverse pour servir des pages d'accueil sous mon domaine principal ou un sous-répertoire ? {#can-i-use-a-reverse-proxy-to-serve-landing-pages-under-my-main-domain-or-a-subdirectory}
+### Puis-je utiliser un proxy inverse pour servir des pages de destination sous mon domaine principal ou un sous-répertoire ? {#can-i-use-a-reverse-proxy-to-serve-landing-pages-under-my-main-domain-or-a-subdirectory}
 
-Non, les balises Liquid d'URL de page d'accueil ne fonctionneront pas correctement avec les proxys inverses.
+Non, les étiquettes Liquid d'URL de page de destination ne fonctionneront pas correctement avec les proxys inverses.

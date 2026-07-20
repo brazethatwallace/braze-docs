@@ -58,7 +58,7 @@ Preencha os campos obrigatórios.
 
 ### Etapa 3: Adicionar conteúdo do corpo {#step-3-add-body-content}
 
-Toda mensagem de carrossel deve começar com o conteúdo do corpo, que é o texto exibido acima dos cartões do carrossel.
+Toda mensagem de carrossel deve começar com o conteúdo do corpo, que é o texto exibido antes dos cartões do carrossel.
 
 Você pode incluir variáveis Liquid para personalização, como {% raw %}`{{first_name}}`{% endraw %}, que cria um espaço de variável vazio que pode ser preenchido com conteúdo dinâmico ou modificado posteriormente ao usar o modelo em Campaigns. As variáveis não podem ser colocadas no início ou no final do conteúdo do corpo.
 
@@ -97,7 +97,7 @@ Use variáveis Liquid estrategicamente para personalizar conteúdo como porcenta
 
 ### Etapa 6: Pré-visualizar e enviar {#step-6-preview-and-submit}
 
-1. Use a seção **Pré-visualização** para ver como seu carrossel aparecerá para os usuários.
+1. Use a seção **Prévia** para ver como seu carrossel aparecerá para os usuários.
 2. Selecione **Enviar para revisão da Meta** para que a Braze envie o modelo para aprovação da Meta.
 3. A aprovação geralmente leva poucos minutos, mas pode levar até 24 horas.
 4. Verifique o status do modelo na lista de **Modelos** na página de modelos do WhatsApp ou no seletor de Canvas e Campaign.
@@ -146,7 +146,7 @@ Quando seu modelo é carregado, ele contém conteúdo bloqueado e editável.
 - Se você enviou o modelo com Liquid (por exemplo, `{{first_name}}`), a Braze preserva e exibe automaticamente esse Liquid.
 - Você pode alterar o Liquid para variáveis diferentes (por exemplo, trocar de `{{first_name}}` para `{{last_name}}`).
 - Imagens com variáveis podem ser tornadas dinâmicas usando URLs com Liquid.
-- Você pode fazer upload de novas imagens da Biblioteca de mídia da Braze em vez de usar a mídia enviada.
+- Você pode fazer upload de novas imagens da biblioteca de mídia da Braze em vez de usar a mídia enviada.
 {% endraw %}
 
 #### Exemplo {#example}
@@ -167,7 +167,7 @@ Após a composição, prossiga com o fluxo de lançamento da sua Campaign ou Can
 - **Posicionamento do conteúdo do corpo:** as variáveis não podem ser colocadas no final do conteúdo do corpo. Adicione pelo menos uma palavra ou sinal de pontuação após cada variável.
 - **Estrutura consistente dos cartões:** todos os cartões devem ter o mesmo formato, tipo de mídia e configuração de botões. Planeje seu conteúdo de acordo.
 - **Quantidade ideal de cartões:** embora você possa criar até 10 cartões, considere a experiência do usuário. Muitos cartões podem ser cansativos; de 3 a 5 cartões funcionam bem para a maioria dos casos de uso.
-- **Valores padrão:** ao usar variáveis Liquid, sempre forneça valores padrão para uma pré-visualização precisa. Isso ajuda a confirmar que a mensagem é exibida corretamente caso determinados dados do perfil do usuário estejam ausentes.
+- **Valores padrão:** ao usar variáveis Liquid, sempre forneça valores padrão para uma prévia precisa. Isso ajuda a confirmar que a mensagem é exibida corretamente caso determinados dados do perfil do usuário estejam ausentes.
 
 ### Contas do WhatsApp Business e grupos de inscrições {#whatsapp-business-accounts-and-subscription-groups}
 

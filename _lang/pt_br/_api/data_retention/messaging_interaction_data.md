@@ -11,19 +11,19 @@ page_type: reference
 
 > Saiba mais sobre os dados de interação de mensagens para Campaigns e Canvas, incluindo por quanto tempo a Braze os mantém e quais recursos os utilizam para redirecionamento.
 
-### O que são dados de interação de mensagens? {#what-is-messaging-interaction-data}
+## O que são dados de interação de mensagens? {#what-is-messaging-interaction-data}
 
 Os dados de interação de mensagens referem-se a como um usuário interage com uma Campaign ou um Canvas que recebeu (por exemplo, quando um usuário abre a Campaign A ou um usuário recebe a variante A). Esses dados são usados para redirecionamento.
 
-### Quando os dados de interação de mensagens ficam disponíveis? {#when-is-messaging-interaction-data-available}
+## Quando os dados de interação de mensagens ficam disponíveis? {#when-is-messaging-interaction-data-available}
 
 Os dados de interação estão sempre disponíveis. Para Campaigns e Canvas ativos, os dados de interação estão sempre disponíveis em tempo real.
 
-Para Campaigns e Canvas interrompidos, seus dados de interação expiram após três meses, a menos que sejam usados em filtros de redirecionamento por Campaigns ou Canvas ativos. Os dados de interação expirados são movidos para armazenamento de longo prazo e não ficam disponíveis para uso, a menos que sejam restaurados usando o processo descrito abaixo.
+Para Campaigns e Canvas interrompidos, seus dados de interação expiram após três meses, a menos que sejam usados em filtros de redirecionamento por Campaigns ou Canvas ativos. Os dados de interação expirados são movidos para armazenamento de longo prazo e não ficam disponíveis para uso, a menos que sejam restaurados usando o processo descrito.
 
 Os dados de interação expirados nunca são excluídos e podem ser restaurados a qualquer momento.
 
-#### Recursos que usam dados de interação {#features-that-use-interaction-data}
+### Recursos que usam dados de interação {#features-that-use-interaction-data}
 
 Os seguintes recursos usam dados de interação de mensagens:
 
@@ -54,13 +54,13 @@ Esses recursos não incluem dados de interação expirados em seus resultados. P
 
 Por exemplo, Canvas não podem ser lançados se os dados de interação estiverem expirados, o que significa que uma edição como adicionar uma equipe ao Canvas não pode ser salva.
 
-#### Recursos que não usam dados de interação {#features-that-dont-use-interaction-data}
+### Recursos que não usam dados de interação {#features-that-dont-use-interaction-data}
 
 Os seguintes recursos **não** usam dados de interação de mensagens, o que significa que esses recursos não são afetados pela expiração dos dados de interação de mensagens:
 
 - Configuração de Campaigns e Canvas
 - Análise de dados de Campaigns e Canvas
-- Relatórios de análise de dados (como Criador de relatórios, Criador de consultas e Relatórios de engajamento)
+- Relatórios de análise de dados (como Criador de relatórios, Criador de consultas e relatórios de engajamento)
 - Currents
 - Snowflake Data Share
 - Extensões de segmento
@@ -85,7 +85,7 @@ Os seguintes recursos **não** usam dados de interação de mensagens, o que sig
     - Last Viewed News Feed
     - News Feed View Count
 
-### Como restaurar dados de interação de mensagens? {#how-do-i-restore-messaging-interaction-data}
+## Como restaurar dados de interação de mensagens? {#how-do-i-restore-messaging-interaction-data}
 
 Para restaurar seus dados de interação, siga estas etapas:
 
@@ -96,7 +96,7 @@ Você também pode restaurar dados de interação para múltiplas Campaigns na p
 
 O tempo para restaurar os dados de interação pode variar, mas na maioria dos casos, esse processo pode levar de 5 a 15 minutos. Após a conclusão da restauração, você receberá um e-mail.
 
-#### Restauração por tag {#restoring-by-tag}
+### Restauração por tag {#restoring-by-tag}
 
 Você também pode restaurar dados de interação para Campaigns ou Canvas expirados com uma determinada tag.
 
@@ -106,7 +106,7 @@ Você também pode restaurar dados de interação para Campaigns ou Canvas expir
 
 Após mais três meses de inatividade, essas Campaigns ou Canvas expiram novamente.
 
-#### Redirecionamento por tag {#retargeting-by-tag}
+### Redirecionamento por tag {#retargeting-by-tag}
 
 Campaigns que usam filtros de redirecionamento que redirecionam por tag não estão isentas da expiração. Os filtros de redirecionamento que redirecionam por tag incluem:
 
@@ -114,11 +114,24 @@ Campaigns que usam filtros de redirecionamento que redirecionam por tag não est
 - Clicked/Opened Campaign or Canvas With Tag
 - Last Received Message from Campaign or Canvas With Tag
 
-### Quando os dados de interação de mensagens estiveram disponíveis no passado? {#when-was-messaging-interaction-data-available-in-the-past}
+## Quando os dados de interação de mensagens estiveram disponíveis no passado? {#when-was-messaging-interaction-data-available-in-the-past}
 
 Anteriormente, os dados de interação de mensagens eram excluídos quando uma Campaign ou Canvas:
 
 - Não havia enviado mensagens em 25 meses corridos, E
 - Não era usado para redirecionamento em nenhuma Campaign, Canvas ou Content Cards ativo.
 
-Campaigns e Canvas com dados de interação de mensagens excluídos anteriormente não podem ser usados em filtros de redirecionamento para Campaigns, Canvas e Segments.
+Campaigns e Canvas com dados de interação de mensagens excluídos anteriormente não podem ser usados em filtros de redirecionamento para Campaigns, Canvas e segmentos.
+
+## Solução de problemas {#troubleshooting}
+
+Você pode encontrar as seguintes mensagens de erro ao tentar retomar ou desarquivar Campaigns, Canvas ou Content Cards com dados de interação expirados:
+
+| Mensagem de erro | Quando aparece | Solução |
+| --- | --- | --- |
+| "Can't resume Canvases because at least one Canvas is using filters or segments that have expired data. Remove these and try again." | Quando você tenta retomar um ou mais Canvas (ação em massa) que usam filtros ou segmentos com dados de interação expirados | [Restaure os dados de interação](#how-do-i-restore-messaging-interaction-data) para as Campaigns ou Canvas referenciados nos filtros, ou remova os filtros afetados do Canvas |
+| "Can't resume {name} because it is using filters or segments that have expired data. Remove these and try again." | Quando você tenta retomar um único Canvas que usa filtros ou segmentos com dados de interação expirados | [Restaure os dados de interação](#how-do-i-restore-messaging-interaction-data) para as Campaigns ou Canvas referenciados nos filtros, ou remova os filtros afetados do Canvas |
+| "Resume is only available for stopped Canvases with available interaction data" | Quando você tenta retomar um Canvas pelo menu de ação em massa, mas o Canvas tem dados de interação expirados | [Restaure os dados de interação](#how-do-i-restore-messaging-interaction-data) para o Canvas |
+| "You can't resume these Campaigns. One or more Campaigns include expired filters." | Quando você tenta retomar uma ou mais Campaigns que usam filtros com dados de interação expirados | [Restaure os dados de interação](#how-do-i-restore-messaging-interaction-data) para as Campaigns ou Canvas referenciados nos filtros, ou remova os filtros afetados da Campaign |
+| "You can't unarchive these Cards. One or more Cards include expired filters." | Quando você tenta desarquivar um ou mais Content Cards que usam filtros com dados de interação expirados | [Restaure os dados de interação](#how-do-i-restore-messaging-interaction-data) para as Campaigns ou Canvas referenciados nos filtros, ou remova os filtros afetados do cartão |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensagens de erro comuns" }

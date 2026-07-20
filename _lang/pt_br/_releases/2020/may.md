@@ -9,7 +9,7 @@ description: "Este artigo contém notas de versão de maio de 2020."
 
 ## Google Tag Manager
 
-Foram adicionados documentação e exemplos de como implantar e gerenciar o SDK da Braze para Android usando o [Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android).
+Foram adicionados documentação e exemplos de como implantar e gerenciar o SDK da Braze para Android usando o [Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
 ## Novo endpoint de API para lista de proibições de e-mail {#new-blacklist-email-api-endpoint}
 
@@ -17,7 +17,7 @@ Agora você pode colocar endereços de e-mail [em uma lista de proibições]({{s
 
 ## Alteração da chave de API para endpoints da API da Braze {#api-key-change-for-braze-api-endpoints}
 
-A partir de maio de 2020, a Braze mudou a forma como lemos as chaves de API para torná-las mais seguras. Agora, as chaves de API devem ser passadas como um cabeçalho de solicitação. Os exemplos podem ser encontrados nas páginas de endpoints individuais em **Example Request**, bem como em **API Key Explanation**.
+A partir de maio de 2020, a Braze mudou a forma como lemos as chaves de API para torná-las mais seguras. Agora, as chaves de API devem ser passadas como um cabeçalho da solicitação. Os exemplos podem ser encontrados nas páginas de endpoints individuais em **Example Request**, bem como em **API Key Explanation**.
 
 A Braze continuará a oferecer suporte ao `api_key` sendo transmitido por meio do corpo da solicitação e dos parâmetros de URL, mas acabará sendo descontinuado (a definir). **Atualize suas chamadas de API adequadamente.** Essas alterações foram atualizadas no [Postman](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#intro).
 {% details API Key Explanation %}

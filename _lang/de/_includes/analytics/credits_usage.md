@@ -23,7 +23,7 @@ Die Übersichtsdaten zur Credits-Nutzung sind auf den Vertragszeitraum beschrän
 
 ### Credits-Nutzung über den Vertragszeitraum {#credits-usage-over-contract}
 
-Das Diagramm **Message credits usage over contract** zeigt Ihre Nutzung über den ausgewählten Zeitraum. Die Granularität dieses Charts hängt vom ausgewählten Zeitrahmen ab. Exportoptionen können Sie über das Menü in der oberen rechten Ecke des Charts aufrufen.
+Das Diagramm **Message credits usage over contract** zeigt Ihre Nutzung über den ausgewählten Zeitraum. Die Granularität dieses Charts hängt vom ausgewählten Zeitrahmen ab. Exportoptionen können Sie über das Menü im Chart aufrufen.
 
 ![Diagramm zur Credit-Nutzung über den Vertragszeitraum.]({% image_buster /assets/img/app_settings/credit_usage_over_contract1.png %})
 
@@ -206,6 +206,8 @@ Verwenden Sie **Export**, um die Tabellendaten herunterzuladen.
 
 **Agent Console Credits Usage** zeigt die Credit-Nutzung der Agentenkonsole über alle Konten hinweg. Kacheln zeigen die insgesamt verbrauchten Credits und die Gesamtzahl der Aufrufe. Die Tabelle **Usage by account** enthält **Braze workspace**, **Agent name**, **Model owner**, **Total invocations**, **Credit ratio** und **Credits**. Wenn Daten verfügbar sind, zeigt **Last updated** an, wann die Tabelle zuletzt aktualisiert wurde.
 
+Um die täglichen Ausgaben vor dem Start zu planen, vergleichen Sie diese Verhältnisse mit dem **Daily action credit cost limit** jedes Agenten in der Agentenkonsole (tägliches Aufruflimit × Credit-Verhältnis). Siehe [Tägliche Aufruf- und Credit-Limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+
 #### Filter
 
 Sie können Ihre Daten filtern nach:
@@ -274,7 +276,7 @@ Das Dashboard **Credits Usage** schließt das Enddatum des ausgewählten Bereich
 
 Beim Vergleich der Braze-Credits-Nutzungsdaten mit Drittanbietern (wie Infobip) sollten Sie Folgendes beachten:
 
-- **Nachrichten-Segmente versus Nachrichten**: Braze zählt SMS-Nachrichten nach Segmenten. Eine einzelne SMS-Nachricht, die in mehrere Segmente aufgeteilt wird (z. B. aufgrund der Länge), wird in Braze als mehrere Segmente gezählt. Weitere Informationen finden Sie unter [SMS- und RCS-Abrechnungsrechner]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments/).
+- **Nachrichtensegmente versus Nachrichten**: Braze zählt SMS-Nachrichten nach Segmenten. Eine einzelne SMS-Nachricht, die in mehrere Segmente aufgeteilt wird (z. B. aufgrund der Länge), wird in Braze als mehrere Segmente gezählt. Weitere Informationen finden Sie unter [SMS- und RCS-Abrechnungsrechner]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments).
 - **Credit-basierte versus nicht-credit-basierte Nachrichten**: Das Dashboard enthält sowohl credit-basierte als auch nicht-credit-basierte Nachrichten. Drittanbieter zählen möglicherweise nur credit-basierte Nachrichten, was zu Abweichungen bei den Gesamtzahlen führen kann.
 - **Eingehend versus ausgehend**: Stellen Sie sicher, dass Sie die gleichen Nachrichtentypen vergleichen. Einige Drittanbieter-Dashboards enthalten sowohl eingehende als auch ausgehende Nachrichten in ihren Gesamtzahlen, während Braze Ihnen ermöglicht, nach Richtung zu filtern.
 - **Ausrichtung des Datumsbereichs**: Da das Dashboard das Enddatum ausschließt, können tagesweise Vergleiche genauer übereinstimmen als längere Datumsbereiche. Wenn Sie Daten für einen bestimmten Zeitraum vergleichen, erweitern Sie Ihren Braze-Datumsbereich um einen Tag, um den letzten Tag Ihres Vergleichszeitraums einzuschließen.

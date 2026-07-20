@@ -19,7 +19,7 @@ You can no longer create or duplicate Canvases using the original Canvas experie
 
 First, go to **Messaging** > **Canvas**, then select **Create Canvas**.
 
-The Canvas builder will guide you step-by-step through setting up your Canvas—everything from naming it to setting conversion events and bringing the right users into your customer journey. Select each of the following tabs to view which settings you can adjust for each builder step.
+The Canvas builder will guide you step-by-step through setting up your Canvas—everything from naming it to setting conversion events and bringing the intended users into your customer journey. Select each of the following tabs to view which settings you can adjust for each builder step.
 
 {% tabs local %}
   {% tab Basics %}
@@ -68,7 +68,7 @@ The Canvas builder will guide you step-by-step through setting up your Canvas—
 
 ### Step 1.1: Start with your Canvas basics
 
-Here, you'll name your Canvas, assign [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams), and create or add [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags). You can also assign conversion events for the Canvas.
+Here, you'll name your Canvas, assign [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams), and create or add [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags). You can also assign conversion events for the Canvas.
 
 {% alert tip %}
 Tag your Canvases so they're easy to find and build reports out of. For instance, when using [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), you can filter by particular tags.
@@ -155,9 +155,9 @@ Entry controls determine if users are allowed to re-enter a Canvas. You can also
 - **Action-Based:** Hourly, daily, or the lifetime of the Canvas
 - **API-Triggered:** Hourly, daily, or the lifetime of the Canvas
 
-For example, if you have an action-based Canvas and select **Limit entrance volume** and set the **Maximum entries** field to 5,000 users with **Daily** as the limit cadence, then the Canvas only sends to 5,000 users per day.
+For example, if you have a scheduled Canvas and select **Limit entrance volume** and set the **Maximum entries** field to 500,000 users with **Every time Canvas is scheduled** as the limit cadence, then the Canvas only sends to 500,000 users per scheduled send.
 
-![The "Entry Controls" page displaying checkboxes for "Allow users to re-enter Canvas" and "Limit entrance volume". The latter allows you to set the maximum entries and choose a cadence that depends on the entry schedule type (for example, lifetime of the Canvas or every time the Canvas is scheduled for scheduled entry, and hourly, daily, or lifetime of the Canvas for action-based and API-triggered entry).]({% image_buster /assets/img_archive/entry_controls.png %})
+![The "Entry Controls" page displaying checkboxes for "Allow users to re-enter Canvas" and "Limit entrance volume".]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
 Braze does not recommend selecting **Every time the Canvas is scheduled** for IP warming as this may lead to increased send volumes.
@@ -169,7 +169,7 @@ Setting the [exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/create_
 
 #### Calculating target population
 
-In the **Target Population** section, you can view a summary of your audience, such as your selected segments and additional filters, and a breakdown of how many users are reachable per messaging channel. To calculate the exact number of reachable users in your target audience instead of the default estimation, select [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics).
+In the **Target Population** section, you can view a summary of your audience, such as your selected segments and additional filters, and a breakdown of how many users are reachable per messaging channel. To calculate the exact number of reachable users in your target audience instead of the default estimation, select [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 
 Note that:
 
@@ -187,7 +187,7 @@ To view additional statistics, such as the average lifetime revenue for targeted
 
 ### Step 1.4: Select your send settings
 
-Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over-messaging them.
+Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over-messaging them.
 
 For Canvases targeting email and push channels, you may want to limit your Canvas so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in status:
 

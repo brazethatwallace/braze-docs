@@ -11,14 +11,14 @@ search_tag: Partner
 
 > [Zapier](https://zapier.com/)는 웹 앱 간에 데이터를 공유하고 해당 정보를 사용하여 동작을 자동화할 수 있는 자동화 웹 도구입니다.
 
-Braze와 Zapier 파트너십은 Braze API 및 Braze [웹훅]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#creating-a-webhook)을 활용하여 Google Workplace, Slack, Salesforce, WordPress 등과 같은 서드파티 애플리케이션에 연결하고 다양한 동작을 자동화합니다.
+Braze와 Zapier 파트너십은 Braze API 및 Braze [웹훅]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook)을 활용하여 Google Workplace, Slack, Salesforce, WordPress 등과 같은 서드파티 애플리케이션에 연결하고 다양한 동작을 자동화합니다.
 
 ## 필수 조건 {#prerequisites}
 
 | 요구 사항 | 설명 |
 |---|---|
 | Zapier 계정 | 이 파트너십을 활용하려면 Zapier 계정이 필요합니다. |
-| Braze REST 엔드포인트 | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#api-definitions)에 따라 달라집니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics#api-definitions)에 따라 달라집니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
@@ -41,7 +41,7 @@ WordPress 예제를 사용하여 Zapier 플랫폼에서 새 WordPress 게시물�
 
 예제를 계속 진행하면, JSON 형식의 POST 요청을 Braze 엔드포인트로 전송하려고 합니다. **Apps** 아래에서 **Webhooks** 옵션을 선택하면 됩니다.
 
-![]({% image_buster /assets/img_archive/zapier3.png %})
+![동작에 대해 Webhooks가 선택된 Zapier Apps 단계입니다.]({% image_buster /assets/img_archive/zapier3.png %})
 
 ### 3단계: Braze POST 설정 {#step-3-set-up-braze-post}
 
@@ -51,7 +51,7 @@ WordPress 예제를 사용하여 Zapier 플랫폼에서 새 WordPress 게시물�
 - **Webhook URL**: `https://rest.iad-01.braze.com/canvas/trigger/send`
 - **Data Pass-Through**: False
 - **Unflatten**: No
-- **Request Header**:
+- **요청 헤더**:
   - **Content-Type**: application/json
   - **Authorization**: Bearer YOUR-API-KEY
 - **Data**:
@@ -71,7 +71,7 @@ WordPress 예제를 사용하여 Zapier 플랫폼에서 새 WordPress 게시물�
 }
 ```
 
-![]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
+![Braze 엔드포인트, 헤더 및 페이로드 필드가 포함된 Zapier 웹훅 구성 화면입니다.]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
 
 ### 4단계: Braze Campaign 생성 {#step-4-create-a-braze-campaign}
 
@@ -79,7 +79,7 @@ zap을 성공적으로 설정한 후에는 Liquid 형식을 사용하여 메시�
 
 ## `/users/track` 엔드포인트에서 Zapier 사용하기 {#using-zapier-with-the-userstrack-endpoint}
 
-Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트로 데이터를 전송하려면(예: Google Sheets에서 **New or Updated Spreadsheet Row**와 같은 트리거를 사용하는 경우) **Custom Request**와 함께 **Webhooks by Zapier**를 사용하세요. 표준 **POST** 동작은 사용하지 마세요. 표준 POST 동작은 `/users/track` 엔드포인트와 호환되지 않는 형식으로 요청을 포맷합니다.
+Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트로 데이터를 전송하려면(예: Google Sheets에서 **New or Updated Spreadsheet Row**와 같은 트리거를 사용하는 경우) **Custom Request**와 함께 **Webhooks by Zapier**를 사용하세요. 표준 **POST** 동작은 사용하지 마세요. 표준 POST 동작은 `/users/track` 엔드포인트와 호환되지 않는 형식으로 요청을 포맷합니다.
 
 1. Zapier에서 트리거를 선택합니다(예: Google Sheets의 **New or Updated Spreadsheet Row**).
 2. 동작으로 **Webhooks by Zapier**를 선택하고 **Custom Request**(POST가 아님)를 선택합니다.

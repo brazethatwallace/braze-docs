@@ -37,7 +37,7 @@ El panel **Campaign Details** muestra un resumen de alto nivel del rendimiento g
 Revisa este panel para ver métricas generales como el número de mensajes enviados a los destinatarios, la tasa de conversión primaria y los ingresos totales generados por este mensaje. También puedes revisar la configuración de entrega, audiencia y conversión desde esta página.
 
 {% alert note %}
-Las cifras de análisis en el dashboard y en Snowflake pueden diferir ligeramente. Braze mide las cifras en el dashboard y registra las filas en Snowflake por separado. Snowflake es la fuente de datos más precisa, por lo que si ves discrepancias entre estas fuentes, te recomendamos consultar los datos de Snowflake.
+Las cifras de análisis en el panel y en Snowflake pueden diferir ligeramente. Braze mide las cifras en el panel y registra las filas en Snowflake por separado. Snowflake es la fuente de datos más precisa, por lo que si ves discrepancias entre estas fuentes, te recomendamos consultar los datos de Snowflake.
 {% endalert %}
 
 {% if include.channel == "whatsapp" %}
@@ -186,6 +186,13 @@ El panel **WhatsApp Performance** muestra el rendimiento de tu mensaje en varias
 
 ![Panel de rendimiento de WhatsApp que incluye una tabla de métricas para la variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Créditos frente a recuentos de envíos {#credits-versus-send-counts}
+
+Los recuentos de envíos de WhatsApp en los análisis de campaña reflejan los intentos de entrega. Los créditos consumidos pueden diferir cuando Meta factura por categoría de mensaje (marketing, utilidad, autenticación, servicio).
+
+- Los mensajes de respuesta compuestos en Braze no consumen créditos de WhatsApp de Braze.
+- Utiliza **Analytics** > **Daily Stats** para el volumen de envío orientativo. Los desgloses de créditos por Campaign o Canvas no están disponibles.
+
 {% endif %}
 
 Si quieres simplificar la vista, haz clic en <i class="fas fa-plus"></i> **Add/Remove Columns** y desmarca las métricas que desees. De forma predeterminada, se muestran todas las métricas.
@@ -197,7 +204,7 @@ Si quieres simplificar la vista, haz clic en <i class="fas fa-plus"></i> **Add/R
 Con los mapas de calor, puedes ver el éxito de los distintos enlaces de una misma campaña de correo electrónico. En la sección **Message Analytics**, ve al panel **Email Performance**. Selecciona **Preview & Heatmap** para ver una vista previa de tu campaña de correo electrónico y el mapa de calor. También puedes seleccionar el hipervínculo del nombre de la variante para ver el mapa de calor.
 
 {% alert note %}
-Los análisis de campaña muestran datos de clics para un máximo de 100 URL únicas por variante, ordenadas por clics totales. Las URL se agrupan por su forma normalizada, que no incluye parámetros de consulta. Si una variante tiene más de 100 URL normalizadas únicas, solo se muestran las 100 principales por número de clics. Los datos de clics de las URL que superan este límite siguen existiendo, pero no aparecerán en el dashboard ni en el mapa de calor. Cuando el aliasing de enlaces está habilitado, los clics se rastrean por ID de enlace en lugar de por URL sin procesar, lo que normalmente da como resultado menos entradas únicas y hace que sea menos probable alcanzar este límite.
+Los análisis de campaña muestran datos de clics para un máximo de 100 URL únicas por variante, ordenadas por clics totales. Las URL se agrupan por su forma normalizada, que no incluye parámetros de consulta. Si una variante tiene más de 100 URL normalizadas únicas, solo se muestran las 100 principales por número de clics. Los datos de clics de las URL que superan este límite siguen existiendo, pero no aparecerán en el panel ni en el mapa de calor. Cuando el aliasing de enlaces está habilitado, los clics se rastrean por ID de enlace en lugar de por URL sin procesar, lo que normalmente da como resultado menos entradas únicas y hace que sea menos probable alcanzar este límite.
 {% endalert %}
 
 En esta vista, puedes usar la opción **Show Heatmap** para obtener una vista visual de tu correo electrónico que muestre la frecuencia general y la ubicación de los clics dentro de la duración de la campaña. En el panel **Link Table by Total Clicks**, puedes ver todos los enlaces de tu campaña de correo electrónico y ordenarlos por clics totales. Esto puede proporcionar información adicional sobre por dónde navegan tus usuarios. Para guardar una copia del mapa de calor como referencia, selecciona el botón de descarga.
@@ -212,7 +219,7 @@ Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo c
 
 Te recomendamos habilitar CORS en las URL de tus imágenes para evitar que se rompan en las vistas previas y exportaciones de mapas de calor.
 
-Si faltan imágenes en una exportación, trabaja con tus desarrolladores para que los activos de imagen permitan el acceso entre orígenes: el servidor debe devolver el encabezado `Access-Control-Allow-Origin` con `*` o el dominio de tu dashboard de Braze.
+Si faltan imágenes en una exportación, trabaja con tus desarrolladores para que los activos de imagen permitan el acceso entre orígenes: el servidor debe devolver el encabezado `Access-Control-Allow-Origin` con `*` o el dominio de tu panel de Braze.
 
 {% endif %}
 
@@ -365,6 +372,12 @@ Como otro ejemplo, supongamos que ves cinco _Unique Impressions_ en una campaña
 
 _Unique Daily Impressions_ se refiere a los banners que realmente se vieron.
 
+#### Discrepancias entre grupos de control y variantes {#discrepancies-between-control-groups-and-variants}
+
+Cuando una campaña de banners utiliza un grupo de control, las impresiones del grupo de control pueden ser superiores a las impresiones de la variante, incluso cuando la división de audiencia entre los grupos es uniforme. Esta discrepancia se debe a una diferencia en cómo se registran las impresiones para los banners de control y de variante.
+
+Tanto las impresiones de control como las de variante requieren que la ubicación del banner entre en la ventana de visualización. Las impresiones de variante se registran solo cuando el banner completo es visible en la pantalla. Las impresiones de control pueden registrarse tan pronto como la ubicación entra en la ventana de visualización, antes de que el banner completo sea visible para una variante.
+
 {% elsif include.channel == "email" %}
 
 #### Métricas de correo electrónico {#email-metrics}
@@ -445,7 +458,7 @@ Aquí tienes algunas métricas clave específicas del correo electrónico que no
 
 ##### Entregas y rebotes {#deliveries-and-bounces}
 
-El dashboard resalta los _rebotes duros_. Algunos _rebotes_ pueden ser rebotes blandos y no coincidirán con ese recuento por sí solos. Puedes aproximar los rebotes blandos con esta fórmula:
+El panel resalta los _rebotes duros_. Algunos _rebotes_ pueden ser rebotes blandos y no coincidirán con ese recuento por sí solos. Puedes aproximar los rebotes blandos con esta fórmula:
 
 _Envíos − (Entregas + Rebotes duros) ≈ Rebotes blandos_
 
@@ -455,10 +468,10 @@ Las _entregas_ pueden aumentar durante la ventana de reintentos de tu proveedor 
 
 Al revisar tus análisis de correo electrónico, ten en cuenta estos patrones:
 
-- **Diferencia entre _envíos_ y (_entregas_ + _rebotes duros_):** Durante la ventana de reintentos del ESP después de un envío único, esta diferencia a menudo refleja rebotes blandos o aplazamientos que aún se están reintentando. Después de que finalizan los reintentos, cualquier diferencia restante generalmente significa mensajes que rebotaron de forma blanda y nunca se entregaron; esos envíos no se contabilizan en las _entregas_ ni en los _rebotes_ de la campaña. Utiliza la fórmula anterior para aproximar los rebotes blandos en curso.
+- **Diferencia entre _envíos_ y (_entregas_ + _rebotes duros_):** Durante la ventana de reintentos del ESP después de un envío único, esta diferencia a menudo refleja rebotes blandos o aplazamientos que aún se están reintentando. Después de que finalizan los reintentos, cualquier diferencia restante generalmente significa mensajes que rebotaron de forma blanda y nunca se entregaron; esos envíos no se contabilizan en las _entregas_ ni en los _rebotes_ de la campaña. Utiliza la fórmula en [Entregas y rebotes](#deliveries-and-bounces) para aproximar los rebotes blandos en curso.
 - **_Entregas_ bajas después de que finalizan los reintentos:** Si las tasas de entrega siguen siendo bajas una vez que los reintentos han finalizado, compara el volumen de este envío con tus patrones habituales. Los proveedores de buzón pueden aplazar, limitar o rebotar de forma blanda el correo cuando el volumen aumenta en relación con tu reputación de remitente. Puedes ver mensajes como `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Utiliza la [limitación de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) para dosificar los envíos grandes, y consulta [IP limitadas]({{site.baseurl}}/user_guide/channels/email/reporting#throttled-ips) para pasos adicionales de solución de problemas.
-- **Rebotes blandos y aplazamientos no mostrados en los análisis de campaña:** Los análisis de campaña resaltan los _rebotes duros_ pero no incluyen los _rebotes blandos_ ni los _aplazamientos_ como columnas separadas. Monitoriza estos eventos en el Registro de actividad de mensajes, con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced), o a través de los eventos de aplazamiento de Currents. Para saber cómo funcionan los reintentos, consulta [Aplazamientos](#deferrals) a continuación.
-- **Los porcentajes de entrega pueden no sumar el 100 %:** El _% de entregas_, el _% de rebotes_ y el _% de spam_ pueden no sumar el 100 % de los _envíos_. Los mensajes que rebotan de forma blanda y nunca se entregan después de la ventana de reintentos del ESP no se contabilizan en las _entregas_ ni en los _rebotes_ de la campaña, por lo que pueden dejar una parte de los _envíos_ sin contabilizar en esas tasas. Espera a que finalicen los reintentos antes de juzgar el rendimiento final de la entrega, o utiliza la fórmula anterior para estimar cuántos envíos aún están en reintento.
+- **Rebotes blandos y aplazamientos no mostrados en los análisis de campaña:** Los análisis de campaña resaltan los _rebotes duros_ pero no incluyen los _rebotes blandos_ ni los _aplazamientos_ como columnas separadas. Monitoriza estos eventos en el Registro de actividad de mensajes, con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced), o a través de los eventos de aplazamiento de Currents. Para saber cómo funcionan los reintentos, consulta [Aplazamientos](#deferrals).
+- **Los porcentajes de entrega pueden no sumar el 100 %:** El _% de entregas_, el _% de rebotes_ y el _% de spam_ pueden no sumar el 100 % de los _envíos_. Los mensajes que rebotan de forma blanda y nunca se entregan después de la ventana de reintentos del ESP no se contabilizan en las _entregas_ ni en los _rebotes_ de la campaña, por lo que pueden dejar una parte de los _envíos_ sin contabilizar en esas tasas. Espera a que finalicen los reintentos antes de juzgar el rendimiento final de la entrega, o utiliza la fórmula en [Entregas y rebotes](#deliveries-and-bounces) para estimar cuántos envíos aún están en reintento.
 
 ##### Clics sin un evento de apertura {#clicks-without-an-open-event}
 
@@ -496,11 +509,11 @@ Diferido o aplazamiento es cuando un correo electrónico no se entregó inmediat
 
 Los _aplazamientos_ difieren de los _rebotes blandos_. Si no se entregó correctamente ningún correo electrónico durante este periodo de reintento, Braze enviará un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contabilizaban como múltiples rebotes blandos para 1 envío de campaña.
 
-Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el Generador de consultas, SQL Segment, Snowflake Data Sharing). Si quieres incluirlo en los análisis de Campaign o Canvas, [envía tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el generador de consultas, SQL Segment, Snowflake Data Sharing). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Estimación de la tasa de apertura real {#estimated-real-open-rate}
 
-Esta estadística utiliza un modelo de análisis propio creado por Braze para reconstruir una estimación de la tasa de apertura única de la campaña como si las aperturas automáticas no existieran. Aunque recibimos etiquetas de *Machine Opens* en algunos eventos de apertura de los remitentes de correo electrónico (véase más arriba), estas etiquetas a menudo pueden etiquetar aperturas reales como aperturas automáticas. En otras palabras, las *Other Opens* son probablemente una subestimación de las aperturas reales (por usuarios reales). En su lugar, Braze utiliza los datos de clics de cada campaña para deducir la tasa a la que los humanos reales abrieron el mensaje. Esto compensa varios mecanismos de apertura automática, incluido el MPP de Apple.
+Esta estadística utiliza un modelo de análisis propio creado por Braze para reconstruir una estimación de la tasa de apertura única de la campaña como si las aperturas automáticas no existieran. Aunque recibimos etiquetas de *Machine Opens* en algunos eventos de apertura de los remitentes de correo electrónico, estas etiquetas a menudo pueden etiquetar aperturas reales como aperturas automáticas. En otras palabras, las *Other Opens* son probablemente una subestimación de las aperturas reales (por usuarios reales). En su lugar, Braze utiliza los datos de clics de cada campaña para deducir la tasa a la que los humanos reales abrieron el mensaje. Esto compensa varios mecanismos de apertura automática, incluido el MPP de Apple.
 
 La _Estimated Real Open Rate_ se calcula 24 horas después del inicio del envío del correo electrónico y se recalcula cada 72 horas a partir de entonces.
 
@@ -593,9 +606,9 @@ Los informes sobre _Button 1 Clicks_ y _Button 2 Clicks_ solo funcionan cuando e
     </tbody>
 </table>
 
-#### Discrepancias entre grupos de control y variantes {#discrepancies-between-control-groups-and-variants}
+#### Discrepancias entre grupos de control y variantes
 
-Cuando una campaña de mensajes dentro de la aplicación tiene una división de variantes 50-50, a veces el grupo de control tendrá un porcentaje ligeramente superior al de la variante (como 51 % para el grupo de control y 49 % para la variante). Esta discrepancia se debe a una diferencia en el tiempo de renderizado.
+Cuando una campaña de mensajes dentro de la aplicación tiene una división de variantes 50-50, a veces el grupo de control tendrá un porcentaje ligeramente superior al de la variante (como 51 % para el grupo de control y 49 % para la variante). Esta discrepancia se debe a una diferencia en el tiempo de renderizado; por ejemplo, cuando los mensajes de variante utilizan imágenes grandes o contenido conectado con plantillas y los usuarios se van antes de que se complete el renderizado, mientras que el grupo de control registra impresiones sin mostrar un mensaje.
 
 La distribución entre los grupos de control y variante está pensada para ser aproximadamente uniforme, pero la asignación a una variante ocurre cuando el mensaje dentro de la aplicación se envía realmente al dispositivo. Algunos usuarios pueden no desencadenar nunca el mensaje dentro de la aplicación (por ejemplo, nunca realizan la acción que desencadena el evento personalizado requerido), lo que puede causar diferencias en el tamaño de los grupos.
 
@@ -606,7 +619,7 @@ La distribución entre los grupos de control y variante está pensada para ser a
 Aquí tienes algunas métricas clave de KakaoTalk que puedes ver en tus análisis. Para más detalles, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics).
 
 {% alert note %}
-Actualmente, las estadísticas de audiencia estimada o exacta no están disponibles para las Campaigns de KakaoTalk.
+Actualmente, las estadísticas de audiencia estimada o exacta no están disponibles para las campañas de KakaoTalk.
 {% endalert %}
 
 | Término | Definición |
@@ -617,7 +630,7 @@ Actualmente, las estadísticas de audiencia estimada o exacta no están disponib
 | Clics totales | El número total de veces que los usuarios hicieron clic en los mensajes de KakaoTalk enviados. |
 | Errores | _Errores_ es el número de errores devueltos por el proveedor de KakaoTalk (se incrementa durante el proceso de envío). |
 | Ingresos | _Ingresos_ son los ingresos en dólares de los destinatarios de la campaña dentro de la ventana de conversión primaria establecida. |
-| Conversiones primarias | _Conversiones primarias_ es el número de veces que ocurrió un evento definido después de interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la campaña. |
+| Conversiones primarias | _Conversiones primarias_ es el número de veces que ocurrió un evento definido después de interactuar con o ver un mensaje recibido de una campaña de Braze. Este evento definido lo determinas tú al crear la campaña. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de KakaoTalk" }
 
 {% elsif include.channel == "push" %}
@@ -690,17 +703,17 @@ Para una solución diferente, también recomendamos crear un evento personalizad
 
 ##### Comprender las aperturas {#understanding-opens}
 
-Aunque _Direct Opens_ e _Influenced Opens_ incluyen la palabra "opens" (aperturas), en realidad son métricas diferentes. _Direct Opens_ se refiere a la apertura directa de una notificación push, como se indica en la tabla anterior. _Influenced Opens_ se refiere a la apertura de una aplicación sin abrir una notificación push dentro de un plazo de tiempo determinado tras recibirla. Por tanto, _Influenced Opens_ se refiere a las aperturas de la aplicación, no a las aperturas de las notificaciones push.
+Aunque _Direct Opens_ e _Influenced Opens_ incluyen la palabra "opens" (aperturas), en realidad son métricas diferentes. _Direct Opens_ se refiere a la apertura directa de una notificación push. _Influenced Opens_ se refiere a la apertura de una aplicación sin abrir una notificación push dentro de un plazo de tiempo determinado tras recibirla. Por tanto, _Influenced Opens_ se refiere a las aperturas de la aplicación, no a las aperturas de las notificaciones push.
 
 ##### Botones de acción push e informes {#push-action-buttons-and-reporting}
 
-Cuando añades [botones de acción push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons), el panel **Push Performance** puede incluir **Body Clicks**, **Button 1 Clicks** y **Button 2 Clicks** junto con métricas como **Direct Opens**. Estas columnas miden interacciones diferentes, así que compáralas cuando interpretes la interacción.
+Cuando añades [botones de acción push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons), el panel **Push Performance** puede incluir **Body Clicks**, **Button 1 Clicks** y **Button 2 Clicks** junto con métricas como **Direct Opens**. Estas columnas miden interacciones diferentes, así que compáralas cuando interpretes la participación.
 
-_Direct Opens_ refleja las métricas del dashboard para las interacciones que cuentan como una apertura directa de tu mensaje. Los eventos **Push Notification Open** en [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) o Snowflake describen las interacciones push de forma más amplia y pueden incluir campos opcionales como `button_action_type` (por ejemplo, `close`) y `button_string`. Para las definiciones de los campos, consulta [Eventos Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#push-notification-open-events).
+_Direct Opens_ refleja las métricas del panel para las interacciones que cuentan como una apertura directa de tu mensaje. Los eventos **Push Notification Open** en [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) o Snowflake describen las interacciones push de forma más amplia y pueden incluir campos opcionales como `button_action_type` (por ejemplo, `close`) y `button_string`. Para las definiciones de los campos, consulta [Eventos Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#push-notification-open-events).
 
-Para **iOS**, las categorías de notificación predeterminadas de Braze (como **Yes** / **No**, **Accept** / **Decline** o **Confirm** / **Cancel**) utilizan un emparejamiento fijo: la primera acción admite `OPEN_APP`, un URI o un vínculo profundo (alineado con **On-Click Behavior** en el compositor). La acción complementaria utiliza `CLOSE` de forma predeterminada: descarta la notificación y no abre la aplicación. Consulta el mapeo predeterminado en [Objeto de botón de acción push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons).
+Para **iOS**, las categorías de notificación predeterminadas de Braze (como **Yes** / **No**, **Accept** / **Decline** o **Confirm** / **Cancel**) utilizan un emparejamiento fijo: la primera acción admite `OPEN_APP`, un URI o un vínculo profundo (alineado con **On-Click Behavior** en el creador). La acción complementaria utiliza `CLOSE` de forma predeterminada: descarta la notificación y no abre la aplicación. Consulta el mapeo predeterminado en [Objeto de botón de acción push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons).
 
-Debido a esto, los toques en el botón preestablecido de descarte (por ejemplo, **No** o **Decline**) normalmente **no** cuentan para _Direct Opens_. Esos toques pueden seguir apareciendo en las exportaciones de **Push Notification Open** cuando se registran, con `button_action_type` establecido en `close` y `button_string` identificando la acción tocada. Cuando compares los análisis de Campaign con los datos del almacén, utiliza esos campos de la carga útil para no tratar los toques de descarte de la misma manera que los toques en el cuerpo de la notificación o la acción principal.
+Debido a esto, los toques en el botón preestablecido de descarte (por ejemplo, **No** o **Decline**) normalmente **no** cuentan para _Direct Opens_. Esos toques pueden seguir apareciendo en las exportaciones de **Push Notification Open** cuando se registran, con `button_action_type` establecido en `close` y `button_string` identificando la acción tocada. Cuando compares los análisis de campaña con los datos del almacén, utiliza esos campos de la carga útil para no tratar los toques de descarte de la misma manera que los toques en el cuerpo de la notificación o la acción principal.
 
 Para **Android**, tú configuras el **On-Click Behavior** por botón (**Open App**, **Redirect to Web URL** o **Deep Link**), por lo que los informes siguen las acciones que configures en lugar de la división predeterminada `OPEN_APP` / `CLOSE` de iOS.
 
@@ -719,7 +732,7 @@ El número de _envíos_ puede superar el número de _destinatarios únicos_ debi
 
 Los rebotes se producen en los servicios de notificaciones push de Apple (APNs) cuando una notificación push intenta entregarse a un dispositivo que no tiene instalada la aplicación prevista. APNs también tiene derecho a cambiar los tokens de los dispositivos arbitrariamente. Si intentas enviar al dispositivo de un usuario en el que su token de notificaciones push ha cambiado entre el momento en que registramos previamente su token (como al principio de cada sesión, cuando registramos a un usuario para obtener un token push) y el momento del envío, se produciría un rebote.
 
-Si un usuario desactiva push en la configuración de su dispositivo, al abrir la aplicación posteriormente el SDK detectará que se ha desactivado push y lo notificará a Braze. En este punto actualizaremos el estado de habilitación de push para que esté deshabilitado. Cuando un usuario deshabilitado recibe una Campaign push antes de tener una nueva sesión, la campaña se enviaría correctamente y aparecería como entregada. El push no rebotará para este usuario. Tras una sesión posterior, cuando intentas enviar un push al usuario, Braze ya sabe si tenemos un token de primer plano, por lo que no se envía ninguna notificación.
+Si un usuario desactiva push en la configuración de su dispositivo, al abrir la aplicación posteriormente el SDK detectará que se ha desactivado push y lo notificará a Braze. En este punto actualizaremos el estado de habilitación de push para que esté deshabilitado. Cuando un usuario deshabilitado recibe una campaña push antes de tener una nueva sesión, la campaña se enviaría correctamente y aparecería como entregada. El push no rebotará para este usuario. Tras una sesión posterior, cuando intentas enviar un push al usuario, Braze ya sabe si tenemos un token de primer plano, por lo que no se envía ninguna notificación.
 
 Las notificaciones push que caducan antes de la entrega no se consideran fallidas y no se registrarán como rebotadas.
 
@@ -867,6 +880,8 @@ Aquí tienes algunas métricas clave de WhatsApp que puedes ver en tus análisis
     </tbody>
 </table>
 
+Si los fallos son elevados, consulta [Investigar fallos de envío de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### Métricas de bloqueo e informes de usuarios finales {#end-user-blocking-and-reporting-metrics}
 
 Se puede acceder a métricas adicionales a través del [panel del administrador de WhatsApp](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), aunque es necesario [confirmar tu acceso](https://www.facebook.com/business/help/218116047387456) para acceder a toda la información disponible.
@@ -895,7 +910,7 @@ Si seleccionas enviar solo a usuarios que puedan ver la última versión de Braz
 
 El panel **Keyword Responses** te muestra una cronología de las palabras clave entrantes con las que los usuarios respondieron tras recibir tu mensaje.
 
-![Panel de respuestas a palabras clave SMS/MMS/RCS a nivel de Campaign que incluye un gráfico lineal de la distribución de palabras clave a lo largo del tiempo y una sección de categorías de palabras clave con casillas de verificación seleccionadas para adhesión voluntaria, cancelación de suscripción, ayuda, otros, más y asesoramiento.]({% image_buster /assets/img/sms/keyword_responses.png %})
+![Panel de respuestas a palabras clave SMS/MMS/RCS a nivel de campaña que incluye un gráfico lineal de la distribución de palabras clave a lo largo del tiempo y una sección de categorías de palabras clave con casillas de verificación seleccionadas para adhesión voluntaria, cancelación de suscripción, ayuda, otros, más y asesoramiento.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
 Aquí también puedes ver la distribución de la respuesta de cada categoría de palabras clave para determinar los próximos pasos para [reorientar]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) y [crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment) cómodamente.
 
@@ -919,7 +934,7 @@ El panel **Conversion Correlation** te da información sobre qué atributos y co
 
 ## Generador de informes {#report-builder}
 
-También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para crear informes personalizados para tus Campaigns de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo Campaigns de KakaoTalk seleccionando **KakaoTalk** en **Channels**, o filtrando por cualquier etiqueta que hayas aplicado a tus Campaigns de KakaoTalk.
+También puedes usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para crear informes personalizados para tus campañas de KakaoTalk. Al crear un informe, puedes filtrar para incluir solo campañas de KakaoTalk seleccionando **KakaoTalk** en **Channels**, o filtrando por cualquier etiqueta que hayas aplicado a tus campañas de KakaoTalk.
 
 {% endif %}
 
@@ -935,7 +950,7 @@ Además de los análisis de Braze, se puede acceder a los análisis a nivel de p
 
 ### Eventos SMS de Currents {#sms-currents-events}
 
-Al igual que el correo electrónico, Braze recibe eventos a nivel de usuario relacionados con un mensaje SMS a medida que hace su recorrido hasta un usuario. Cualquier evento SMS entrante también se enviará como evento de Currents a través del evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Esto te permite realizar acciones adicionales o informes sobre los mensajes que envían tus usuarios fuera de la plataforma Braze.
+Al igual que el correo electrónico, Braze recibe eventos a nivel de usuario relacionados con un mensaje SMS a medida que hace su recorrido hasta un usuario. Cualquier evento SMS entrante también se enviará como evento de Currents a través del evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Esto te permite realizar acciones adicionales o informes sobre los mensajes que envían tus usuarios fuera de la plataforma Braze.
 
 {% alert note %}
 Los mensajes entrantes se truncan a partir de 1600 caracteres.
@@ -947,11 +962,11 @@ Los mensajes entrantes se truncan a partir de 1600 caracteres.
 
 ## Informe de retención {#retention-report}
 
-Los informes de retención muestran las tasas a las que tus usuarios han realizado un evento de retención seleccionado a lo largo de períodos de tiempo en una Campaign específica{% if include.channel != "banner" %} o Canvas{% endif %}. Para más información, consulta [Informes de retención]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports).
+Los informes de retención muestran las tasas a las que tus usuarios han realizado un evento de retención seleccionado a lo largo de períodos de tiempo en una campaña específica{% if include.channel != "banner" %} o Canvas{% endif %}. Para más información, consulta [Informes de retención]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports).
 
 ## Informe de embudo {#funnel-report}
 
-Los informes de embudo ofrecen un informe visual que te permite analizar los recorridos que realizan tus clientes después de recibir una Campaign{% if include.channel != "banner" %} o Canvas{% endif %}. Si tu Campaign {% if include.channel != "banner" %}o Canvas {% endif %}utiliza un grupo de control o varias variantes, podrás comprender cómo las diferentes variantes han influido en el embudo de conversión a un nivel más detallado y optimizar en función de estos datos.
+Los informes de embudo ofrecen un informe visual que te permite analizar los recorridos que realizan tus clientes después de recibir una campaña{% if include.channel != "banner" %} o Canvas{% endif %}. Si tu campaña {% if include.channel != "banner" %}o Canvas {% endif %}utiliza un grupo de control o varias variantes, podrás comprender cómo las diferentes variantes han influido en el embudo de conversión a un nivel más detallado y optimizar en función de estos datos.
 
 Para más información, consulta [Informes de embudo]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports).
 

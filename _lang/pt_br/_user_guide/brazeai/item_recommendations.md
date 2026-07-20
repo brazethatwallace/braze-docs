@@ -3,12 +3,12 @@ nav_title: Recomendações de itens
 article_title: Recomendações de itens na Braze
 page_order: 10
 search_rank: 1
-description: "Aprenda tudo sobre motores de recomendação de itens na Braze."
+description: "Aprenda tudo sobre mecanismos de recomendação de itens na Braze."
 ---
 
 # Recomendações de itens {#item-recommendations}
 
-> Aprimore suas recomendações com a Braze criando um motor de recomendação que pode sugerir itens e conteúdos que seus usuários realmente desejam. Desde a personalização de experiências com IA até a criação de seus próprios mecanismos com Liquid ou Conteúdo conectado, você encontrará tudo o que precisa para fazer com que cada recomendação conte.
+> Aprimore suas recomendações com a Braze criando um mecanismo de recomendação que pode sugerir itens e conteúdos que seus usuários realmente desejam. Desde a personalização de experiências com IA até a criação de seus próprios mecanismos com Liquid ou Connected Content, você encontrará tudo o que precisa para fazer com que cada recomendação conte.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -265,7 +265,7 @@ Destaque os itens que seus usuários compraram recentemente com maior frequênci
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/ai_item_recommendations).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Em alta**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
@@ -285,7 +285,7 @@ Destaque itens que seus usuários curtiram recentemente com maior frequência. P
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/ai_item_recommendations).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Em alta**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
@@ -351,7 +351,7 @@ Por exemplo, uma livraria on-line poderia oferecer o recurso "Surpreenda-me", re
 
 ### Baseado em regras {#rules-based}
 
-Um mecanismo de [recomendação baseado em regras]({{site.baseurl}}/rules_based_recommendations) usa dados de usuários e informações de produtos para sugerir itens relevantes aos usuários dentro das mensagens. Ele usa o Liquid e os catálogos da Braze ou o Conteúdo conectado para personalizar dinamicamente o conteúdo com base no comportamento e nos atributos do usuário.
+Um mecanismo de [recomendação baseado em regras]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based) usa dados de usuários e informações de produtos para sugerir itens relevantes aos usuários dentro das mensagens. Ele usa Liquid e os catálogos da Braze ou Connected Content para personalizar dinamicamente o conteúdo com base no comportamento e nos atributos do usuário.
 
 As recomendações baseadas em regras são fundamentadas em uma lógica fixa que você deve definir manualmente. Isso significa que suas recomendações não se ajustarão ao histórico de compras e gostos individuais de um usuário, a menos que você atualize a lógica; portanto, esse método é mais indicado para recomendações que não precisam de atualizações frequentes.
 
@@ -391,3 +391,29 @@ Sim, mas apenas após a próxima atualização programada. As recomendações ex
 ### Como posso fazer com que todas as recomendações que duram vários dias expirem de uma vez? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
 Se você quiser expirar todas as recomendações de vários dias em uma data específica (para que todas essas recomendações ativas recebam novas previsões de uma vez), entre em contato com o suporte da Braze ou seu gerente de sucesso do cliente para obter assistência. Os especialistas em IA da Braze realizam isso manualmente para garantir o máximo desempenho do modelo.
+
+### O que acontece se eu atualizar o nome da propriedade de uma recomendação de item de IA ativa? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+
+Quando você atualiza o nome da propriedade (caminho do ID do item) e seleciona **Salvar e criar**, a Braze inicia um trabalho de retreinamento em segundo plano que analisa os últimos seis meses de dados de interação usando o novo mapeamento.
+
+Enquanto o modelo está sendo retreinado, os usuários continuam vendo recomendações da versão anterior. As recomendações não mudam até que o novo modelo conclua o treinamento com sucesso. Isso significa:
+
+- Os usuários veem itens personalizados do modelo antigo (ou o fallback global se não tiverem recomendações específicas).
+- Não há tempo de inatividade ou lacuna nas recomendações durante o processo de retreinamento.
+- A transição do modelo antigo para o novo é transparente assim que o treinamento é concluído com sucesso.
+
+Os eventos com o caminho de ID de item antigo são efetivamente ignorados para o novo modelo. Apenas os eventos que usam o novo mapeamento de nome de propriedade são incluídos no retreinamento.
+
+### O que acontece se o trabalho de retreinamento falhar após a alteração do nome da propriedade? {#what-happens-if-the-retraining-job-fails-after-changing-the-property-name}
+
+{% alert important %}
+Se o trabalho de retreinamento falhar, toda a recomendação de item entrará em um estado desativado (não ativo). Como a Braze atualmente não faz fallback para o modelo treinado com sucesso mais recentemente em caso de falha no treinamento, qualquer Liquid que faça referência a essa recomendação falhará, e as mensagens associadas não serão enviadas.
+{% endalert %}
+
+Para reduzir esse risco, considere a seguinte abordagem:
+
+1. Crie uma nova recomendação de item com a configuração de nome de propriedade desejada.
+2. Verifique se o treinamento foi concluído com sucesso.
+3. Atualize seu envio de mensagens para fazer referência à nova recomendação em vez de modificar diretamente uma recomendação ativa.
+
+Essa abordagem permite que você teste a nova configuração sem arriscar interrupções nas mensagens que fazem referência à sua recomendação existente.

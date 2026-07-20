@@ -17,7 +17,7 @@ Les numéros de téléphone sont affichés dans le profil utilisateur au format 
 
 ## Importation des numéros de téléphone {#importing-phone-numbers}
 
-Vous pouvez importer des numéros de téléphone en [chargeant un fichier CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv) ou [via l'API]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) pour créer un utilisateur.
+Vous pouvez importer des numéros de téléphone en [chargeant un fichier CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [via l'API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour créer un utilisateur.
 
 ### Formatage {#formatting}
 
@@ -29,7 +29,7 @@ Tous les numéros américains doivent être des numéros de téléphone valides 
 
 Tous les numéros internationaux doivent commencer par un `+`, suivi de l'indicatif du pays puis du numéro de téléphone (par exemple `+442071838750`).
 
-![Exemple d'un numéro de téléphone international valide au format E.164.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
+![Capture d'écran relative au formatage.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
 Cependant, pour garantir la précision lorsque vous envoyez vers plusieurs régions avec des indicatifs de pays ou régionaux différents, il est recommandé d'utiliser le format `E.164`, même pour les numéros de téléphone basés aux États-Unis.
 
@@ -44,7 +44,7 @@ Vous pouvez voir les différences entre le formatage local des numéros et le fo
 
 ### Ajout d'utilisateurs à un groupe d'abonnement WhatsApp {#adding-users-to-whatsapp-a-subscription-group}
 
-Pour qu'un client puisse recevoir un message WhatsApp, il doit disposer d'un numéro de téléphone valide et avoir donné son consentement à un groupe d'abonnement. Pour en savoir plus, consultez la section [Groupes d'abonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Pour qu'un client puisse recevoir un message WhatsApp, il doit disposer d'un numéro de téléphone valide et avoir donné son consentement à un groupe d'abonnement. Pour en savoir plus, consultez la section [Groupes d'abonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 
 ### Plusieurs utilisateurs avec le même numéro de téléphone {#multiple-users-with-the-same-phone-number}

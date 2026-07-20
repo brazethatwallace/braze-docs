@@ -29,12 +29,12 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 2. Sélectionnez **SMS/MMS/RCS** ou, pour les campagnes ciblant plusieurs canaux, sélectionnez **Multichannel**.
 3. Donnez à votre campagne un nom clair et significatif.
 4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire.
-   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
+   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
 5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
    * Braze vous permet d'inclure des variantes SMS et RCS au sein d'une même campagne, afin de comparer les performances de chacune.
 
 {% alert tip %}
-Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
+Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copier depuis la variante** dans le menu déroulant **Ajouter une variante**.
 {% endalert %}
 
 {% endtab %}
@@ -43,7 +43,7 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape de message **SMS/MMS/RCS** dans le générateur Canvas.
 3. Donnez à votre étape un nom clair et significatif.
-4. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) et spécifiez un délai si nécessaire.
+4. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) et spécifiez un délai si nécessaire.
 5. Filtrez votre audience pour cette étape si nécessaire. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
 6. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 7. Choisissez les autres canaux de communication que vous souhaitez associer à votre message.
@@ -79,7 +79,7 @@ L'expérience de rédaction change en fonction du type de message que vous avez 
 {% tabs local %}
 {% tab SMS %}
 
-Rédigez votre message en utilisant les langues et la personnalisation (Liquid, Contenu connecté et emojis) selon vos besoins. Veillez à respecter nos limites de texte pour réduire vos risques de frais supplémentaires.
+Rédigez votre message en utilisant les langues et la personnalisation (Liquid, contenu connecté et emojis) selon vos besoins. Veillez à respecter nos limites de texte pour réduire vos risques de frais supplémentaires.
 
 {% alert important %}
 Avant de continuer, lisez les directives sur les [segments de messages SMS et les limites de texte]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Les segments de messages SMS sont les lots de caractères que les opérateurs téléphoniques utilisent pour mesurer les messages texte. Les messages sont facturés par segment de message, il est donc judicieux de comprendre les nuances de la façon dont les messages seront découpés.
@@ -190,10 +190,10 @@ L'expérience utilisateur lors de la réception de messages RCS peut varier en f
 {% endsubtab %}
 {% endsubtabs %}
 
-Rédigez votre message en utilisant les langues et la personnalisation ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) et emojis) selon vos besoins. Veillez à respecter les limites de texte pour réduire vos risques de frais supplémentaires.
+Rédigez votre message en utilisant les langues et la personnalisation ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) et emojis) selon vos besoins. Veillez à respecter les limites de texte pour réduire vos risques de frais supplémentaires.
 
 {% alert important %}
-Avant de continuer, lisez les [directives sur les types de messages RCS](#step-3-compose-your-message) ci-dessus. Les messages RCS sont [facturés par message]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), il est donc judicieux de comprendre ce qui peut être inclus dans chaque type.
+Avant de continuer, lisez les [directives sur les types de messages RCS](#step-3-compose-your-message) plus haut dans cette section. Les messages RCS sont [facturés par message]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), il est donc judicieux de comprendre ce qui peut être inclus dans chaque type.
 {% endalert %}
 
 {% endtab %}
@@ -204,7 +204,7 @@ Avant de continuer, lisez les [directives sur les types de messages RCS](#step-3
 #### Utiliser Liquid {#using-liquid}
 
 {% raw %}
-Si vous prévoyez d'utiliser Liquid, veillez à inclure une valeur par défaut pour la personnalisation choisie afin que, dans le cas où le profil de votre utilisateur serait incomplet, il ne reçoive pas un espace réservé vide `Hi, !` au lieu de son nom ou d'une phrase cohérente.
+Si vous prévoyez d'utiliser Liquid, veillez à inclure une valeur par défaut pour la personnalisation choisie afin que, dans le cas où le profil de votre utilisateur serait incomplet, il ne reçoive pas une marque substitutive vide `Hi, !` au lieu de son nom ou d'une phrase cohérente.
 {% endraw %}
 
 #### Générer du texte avec l'IA {#generating-ai-copy}
@@ -219,7 +219,7 @@ L'apparence finale des messages de droite à gauche dépend en grande partie de 
 
 #### Créer des flux de messages conversationnels (RCS) {#create-conversational-message-workflows-rcs}
 
-Les flux de messages conversationnels vous permettent de répondre dynamiquement aux utilisateurs, créant une expérience de messagerie interactive. Pour créer un flux, créez un Canvas puis combinez les réponses suggérées avec les [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) pour diriger votre flux en fonction de la réponse sélectionnée par l'utilisateur.
+Les flux de messages conversationnels vous permettent de répondre dynamiquement aux utilisateurs, créant une expérience de messagerie interactive. Pour créer un flux, créez un Canvas puis combinez les réponses suggérées avec les [parcours d'action]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) pour diriger votre flux en fonction de la réponse sélectionnée par l'utilisateur.
 
 1. Dans le générateur Canvas, créez une étape de message RCS avec plusieurs réponses suggérées.
 
@@ -238,7 +238,7 @@ Les flux de messages conversationnels vous permettent de répondre dynamiquement
 5. Poursuivez le flux conversationnel en ajoutant des réponses suggérées à tous les messages de suivi.
 6. Répétez les étapes 2 à 4 jusqu'à ce que le flux soit terminé.
 
-![Canvas montrant un flux conversationnel avec deux parcours d'actions.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
+![Canvas montrant un flux conversationnel avec deux parcours d'action.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
 
 ## Étape 4 : Prévisualiser et tester votre message {#step-4-preview-and-test-your-message}
 
@@ -273,7 +273,7 @@ Les messages peuvent être livrés en fonction d'une heure planifiée, d'une act
 
 Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-C'est également à cette étape que vous pouvez spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+C'est également à cette étape que vous pouvez spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
@@ -296,12 +296,12 @@ Les événements de conversion vous aident à mesurer le succès de votre campag
 - Si vous utilisez le géociblage pour déclencher un message dont l'objectif final est que l'utilisateur effectue un achat, définissez l'événement de conversion sur `Purchase`.
 - Si vous essayez d'inciter l'utilisateur à ouvrir votre application, définissez l'événement de conversion sur `Starts Session`.
 
-Vous pouvez également définir des événements de conversion personnalisés en fonction de votre cas d'utilisation spécifique.
+Vous pouvez également définir des événements de conversion personnalisés en fonction de votre cas d'usage spécifique.
 
 {% endtab %}
 {% tab Canvas %}
 
-Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la Sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 
 {% endtab %}
 {% endtabs %}

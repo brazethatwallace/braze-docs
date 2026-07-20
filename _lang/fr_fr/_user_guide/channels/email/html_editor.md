@@ -33,7 +33,7 @@ Utilisez les campagnes pour un envoi de messages simple et unique. Utilisez les 
 2. Sélectionnez **Email** ou, pour les campagnes ciblant plusieurs canaux, sélectionnez **Multichannel**.
 3. Donnez à votre campagne un nom clair et significatif.
 4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire.
-   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
+   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
 5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
@@ -44,7 +44,7 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur de Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur de Canvas. Donnez à votre étape un nom clair et significatif.
-3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) et spécifiez un délai si nécessaire.
+3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) et spécifiez un délai si nécessaire.
 4. Filtrez votre audience pour cette étape, si nécessaire. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
 5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choisissez tout autre canal de communication que vous souhaitez associer à votre message.
@@ -63,7 +63,7 @@ Braze propose deux expériences d'édition lors de la création d'une campagne e
 
 ![Choix entre l'éditeur par glisser-déposer, l'éditeur HTML ou les modèles pour votre expérience d'édition d'e-mail.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-Ensuite, vous pouvez soit sélectionner un [modèle d'e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template) existant, [importer un modèle]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) depuis un fichier (éditeur HTML uniquement), soit utiliser un modèle vierge.
+Ensuite, vous pouvez soit sélectionner un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) existant, [importer un modèle]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) depuis un fichier (éditeur HTML uniquement), soit utiliser un modèle vierge.
 
 Si vous utilisez l'éditeur HTML et que vous souhaitez que les couleurs d'arrière-plan restent cohérentes dans l'application mobile Gmail lorsque l'appareil est en mode sombre, consultez [Application mobile Gmail et couleurs d'arrière-plan en mode sombre](#gmail-dark-mode).
 
@@ -111,7 +111,8 @@ Par exemple, pour conserver un arrière-plan blanc sur une cellule, utilisez cec
 Remplacez `#ffffff` par la couleur souhaitée.
 
 {% alert note %}
-Cette approche ne s'applique pas de manière fiable aux éléments `<table>` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
+Cette approche ne s'applique pas de manière fiable aux éléments `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
+  <caption>Application mobile Gmail et mode sombre</caption>
 {% endalert %}
 
 Pour plus d'informations sur la syntaxe des dégradés, consultez [Les dégradés CSS sur W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -123,7 +124,7 @@ Après avoir terminé la conception et la création de votre e-mail, ajoutez vos
 1. Sous **Sending Info**, sélectionnez un e-mail comme **From Display Name + Address**. Vous pouvez également personnaliser cela en sélectionnant **Customize From Display Name + Address**.
 2. Sélectionnez un e-mail comme **Reply-To Address**. Vous pouvez également personnaliser cela en sélectionnant **Customize Reply-To Address**.
 3. Ensuite, sélectionnez un e-mail comme **BCC Address** pour rendre votre e-mail visible à cette adresse.
-4. Ajoutez une ligne d'objet à votre e-mail. Vous pouvez également ajouter une accroche et un espace blanc après l'accroche.
+4. Ajoutez une ligne d'objet à votre e-mail. Vous pouvez également ajouter une accroche. Pour ajouter un espace blanc après l'accroche, cochez la case **Add whitespace after preheader**.
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -149,7 +150,7 @@ Consultez les [bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/ch
 
 Pour ajouter des en-têtes d'e-mail, sélectionnez **Add New Header**. Les en-têtes d'e-mail contiennent des informations sur l'e-mail envoyé. Ces [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) incluent généralement l'expéditeur, le destinataire, le protocole d'authentification et les informations de routage. Braze ajoute automatiquement les informations d'en-tête requises par la RFC pour que les e-mails atteignent les fournisseurs de boîtes de réception.
 
-Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentaires selon vos besoins pour des cas d'utilisation avancés. Il existe quelques champs réservés que la plateforme Braze écrasera lors de l'envoi.
+Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentaires selon vos besoins pour des cas d'usage avancés. Il existe quelques champs réservés que la plateforme Braze écrasera lors de l'envoi.
 
 Évitez d'utiliser les clés suivantes :
 
@@ -200,7 +201,7 @@ Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentair
 
 ##### Ajouter des extras d'e-mail {#adding-email-extras}
 
-Les extras d'e-mail vous permettent de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. Cela ne s'applique qu'aux cas d'utilisation avancés ; n'utilisez donc les extras d'e-mail que si votre entreprise a déjà mis cela en place.
+Les extras d'e-mail vous permettent de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. Cela ne s'applique qu'aux cas d'usage avancés ; n'utilisez donc les extras d'e-mail que si votre entreprise a déjà mis cela en place.
 
 Pour ajouter des extras d'e-mail, accédez à **Sending Info** et sélectionnez **Add New Extra**.
 
@@ -232,7 +233,7 @@ Si vous constatez des problèmes avec votre e-mail ou souhaitez apporter des mod
 
 {% alert tip %}
 Les clients de messagerie qui prennent en charge le texte d'aperçu récupèrent toujours suffisamment de caractères pour remplir tout l'espace disponible. Cependant, cela peut vous laisser dans des situations où le texte d'aperçu est incomplet ou non optimisé.
-<br><br>Pour éviter cela, vous pouvez créer un espace blanc après le texte d'aperçu souhaité afin que les clients de messagerie ne récupèrent pas d'autres textes ou caractères distrayants dans le contenu de l'enveloppe. Pour ce faire, ajoutez une chaîne de caractères de non-jointure de largeur nulle (‌`&zwnj;`) et d'espaces insécables (`&nbsp;`) après le texte d'aperçu que vous souhaitez afficher. <br><br>Lorsqu'il est ajouté à la fin de votre texte d'aperçu dans la section d'accroche, le code suivant pour l'éditeur HTML ajoutera l'espace blanc recherché :<br><br>
+<br><br>Pour éviter cela, vous pouvez créer un espace blanc après le texte d'aperçu souhaité afin que les clients de messagerie ne récupèrent pas d'autres textes ou caractères distrayants dans le contenu de l'enveloppe. Dans la section **Sending Settings**, vous pouvez cocher la case **Add whitespace after preheader** pour ajouter automatiquement un espace blanc. <br><br>Sinon, si vous avez besoin de plus de contrôle, vous pouvez ajouter manuellement une chaîne de caractères de non-jointure de largeur nulle (‌`&zwnj;`) et d'espaces insécables (`&nbsp;`) après le texte d'aperçu que vous souhaitez afficher. <br><br>Lorsqu'il est ajouté à la fin de votre texte d'aperçu dans la section d'accroche, le code suivant pour l'éditeur HTML ajoutera l'espace blanc recherché :<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
@@ -274,7 +275,7 @@ Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un 
 Pour les campagnes déclenchées par API, lorsque l'action de déclenchement est définie sur **Interact With Campaign**, la sélection d'une option **Receive** comme interaction entraînera le déclenchement de votre nouvelle campagne dès que Braze marquera la campagne sélectionnée comme envoyée, même si ce message rebondit ou n'est pas distribué.
 {% endalert %}
 
-Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
@@ -313,11 +314,11 @@ Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuen
 - Effectue un événement personnalisé spécifique
 - Ouvre l'e-mail
 
-Vous pouvez autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle Braze comptabilise une conversion si l'utilisateur effectue l'action spécifiée. Bien que Braze suive automatiquement les ouvertures et les clics, vous pouvez définir l'événement de conversion sur une ouverture ou un clic pour utiliser la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
+Vous pouvez autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle Braze comptabilise une conversion si l'utilisateur effectue l'action spécifiée. Bien que Braze suive automatiquement les ouvertures et les clics, vous pouvez définir l'événement de conversion sur une ouverture ou un clic pour utiliser la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 {% endtab %}
 
 {% tab Canvas %}
-Si ce n'est pas déjà fait, complétez les sections restantes de vos composants Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, de mettre en œuvre les tests multivariés et la Sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de vos composants Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, de mettre en œuvre les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 {% endtab %}
 {% endtabs %}
 

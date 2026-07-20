@@ -15,9 +15,9 @@ Las sincronizaciones de eliminación de usuarios son compatibles con todos los o
 
 ## Configurar la integración {#configure-the-integration}
 
-Sigue el proceso estándar para [crear una nueva integración en el panel de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) para el almacén de datos al que quieras conectarte. Asegúrate de incluir un rol que pueda acceder a la tabla de eliminación. En la página **Create import sync**, configura el **Data Type** en **Delete Users** para que se realicen las acciones adecuadas durante la ejecución de la integración para eliminar usuarios.
+Sigue el proceso estándar para [crear una nueva integración en el panel de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) para el almacén de datos al que quieras conectarte. Asegúrate de incluir un rol que pueda acceder a la tabla de eliminación. En la página **Create import sync**, configura el **Data Type** en **Delete Users** para que se realicen las acciones adecuadas durante la ejecución de la integración para eliminar usuarios.
 
-![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
+![Sigue el proceso estándar para crear una nueva integración en el panel de Braze para el almacén de datos al que quieras conectarte. Asegúrate de incluir un rol que pueda acceder a la tabla de eliminación. En la página Create import sync, configura el Data Type en Delete Users para que se realicen las acciones adecuadas durante la ejecución de la integración para eliminar usuarios.]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
 ## Configurar los datos de origen {#configure-source-data}
 
@@ -78,7 +78,7 @@ Crea una tabla con los siguientes campos:
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Columnas de identificación de usuarios" }
 {% endtab %}
 
 {% tab Databricks %}
@@ -91,7 +91,7 @@ Crea una tabla con los siguientes campos:
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Columnas de identificación de usuarios" }
 {% endtab %}
 {% tab Microsoft Fabric %}
 ```sql
@@ -120,7 +120,7 @@ Con la Ingesta de datos de Cloud de Braze, configuras una integración entre tu 
 Cuando se ejecuta una sincronización, Braze se conecta directamente a tu instancia de almacén de datos, recupera todos los datos nuevos de la tabla especificada y elimina los perfiles de usuario correspondientes en tu panel de Braze.
 
 {% alert warning %}
-La eliminación de perfiles de usuario no se puede deshacer. La acción de eliminación borra permanentemente a los usuarios, lo que puede causar discrepancias en tus datos. Para más detalles, consulta [Efectos de eliminar perfiles de usuario]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles).
+La eliminación de perfiles de usuario no se puede deshacer. La acción de eliminación borra permanentemente a los usuarios, lo que puede causar discrepancias en tus datos. Para más detalles, consulta [Efectos de eliminar perfiles de usuario]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#effects-of-deleting-user-profiles).
 {% endalert %}
 
 <br><br>

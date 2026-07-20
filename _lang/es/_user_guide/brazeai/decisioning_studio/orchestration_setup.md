@@ -47,7 +47,7 @@ Antes de configurar la orquestación, reúne los siguientes elementos según la 
 | Requisito | Descripción |
 |-----------|-------------|
 | **Clave de API REST** | Una nueva clave de API con permisos para datos de usuario, mensajes, Campaigns, Canvas, Segments y plantillas. |
-| **URL del dashboard de Braze** | La URL de tu instancia de Braze (por ejemplo, `https://dashboard-01.braze.com`). |
+| **URL del panel de Braze** | La URL de tu instancia de Braze (por ejemplo, `https://dashboard-01.braze.com`). |
 | **ID de la aplicación** | La clave de API asociada con la aplicación que deseas rastrear (se encuentra en **Configuración** > **Configuración de la aplicación**). |
 | **Nombre y dirección del remitente de correo electrónico** | La información del remitente que se usará para tus campañas (se encuentra en **Configuración** > **Preferencias de correo electrónico**). |
 | **Plantillas base** | Las plantillas de mensaje que tu agente usará para la orquestación. Crearás Campaigns activadas por API para cada plantilla. |
@@ -118,7 +118,7 @@ Para integraciones con Braze, planifica qué dimensiones optimizará tu agente. 
 
 ## Configuración de la integración {#integration-setup}
 
-Selecciona tu CEP a continuación para comenzar con la configuración de la integración.
+Selecciona tu CEP de esta lista para comenzar con la configuración de la integración.
 
 {% tabs %}
 {% tab Braze %}
@@ -194,7 +194,7 @@ Resultando en el siguiente mensaje:
 
 Decisioning Studio admite integración nativa con Salesforce Marketing Cloud. Decisioning Studio desencadena eventos de API en un journey con los datos necesarios para poblar los elementos dinámicos.
 
-Para conocer los pasos detallados para configurar la integración con SFMC, sigue las [instrucciones de SFMC]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration) en la documentación de Decisioning Studio Go.
+Para conocer los pasos detallados para configurar la integración con SFMC, consulta [Requisitos de datos de SFMC]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources#sfmc-data-requirements) en la documentación de Decisioning Studio Go.
 
 {% endtab %}
 {% tab Otras CEP %}
@@ -220,11 +220,11 @@ Podría usarse para optimizar una Campaign de correo electrónico que se vea as�
 
 Ten en cuenta estas mejores prácticas mientras te preparas para la orquestación:
 
-1. **Comienza con un alcance reducido.** Usa un canal y una o dos plantillas al principio. Puedes expandir después a medida que aprendas qué funciona.
-2. **Prueba a fondo.** Antes de lanzar, prueba tu integración con un conjunto pequeño de usuarios para verificar que el contenido dinámico se rellena correctamente.
-3. **Documenta tu configuración.** Lleva un registro de los ID de Campaign, ID de plantilla, claves de API y otros identificadores. Necesitarás consultarlos en el portal de Decisioning Studio.
-4. **Coordina con tu equipo.** La configuración de la orquestación puede involucrar a los equipos de marketing, ingeniería y datos. Asegúrate de que todos entiendan su rol en el proceso.
-5. **Planifica para los datos de retroalimentación.** La orquestación incluye enviar mensajes y recopilar los datos de interacción y conversión que ayudan a tu agente a aprender. Consulta [Prepara tus datos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) para más detalles.
+1. **Comienza con un alcance reducido:** usa un canal y una o dos plantillas al principio. Puedes expandir después a medida que aprendas qué funciona.
+2. **Prueba a fondo:** antes de lanzar, prueba tu integración con un conjunto pequeño de usuarios para verificar que el contenido dinámico se rellena correctamente.
+3. **Documenta tu configuración:** lleva un registro de los ID de Campaign, ID de plantilla, claves de API y otros identificadores. Necesitarás consultarlos en el portal de Decisioning Studio.
+4. **Coordina con tu equipo:** la configuración de la orquestación puede involucrar a los equipos de marketing, ingeniería y datos. Asegúrate de que todos entiendan su rol en el proceso.
+5. **Planifica para los datos de retroalimentación:** la orquestación incluye enviar mensajes y recopilar los datos de interacción y conversión que ayudan a tu agente a aprender. Consulta [Prepara tus datos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) para más detalles.
 
 ## Próximos pasos {#next-steps}
 

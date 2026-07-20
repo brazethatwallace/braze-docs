@@ -38,9 +38,9 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 
 ## 사용 사례 {#use-cases}
 
-고객 프로필은 사용자의 참여 이력, Segment 멤버십, 기기 및 운영체제에 대한 정보에 쉽게 액세스할 수 있으므로 문제 해결 및 테스트에 유용한 리소스입니다.
+고객 프로필은 사용자의 참여 이력, Segment 멤버십, 기기 및 운영 체제에 대한 정보에 쉽게 액세스할 수 있으므로 문제 해결 및 테스트에 유용한 리소스입니다.
 
-예를 들어, 사용자가 문제를 보고했는데 어떤 기기와 운영체제를 사용하는지 확실하지 않은 경우 [개요 탭](#overview-tab)을 사용하여 이 정보를 찾을 수 있습니다(이메일 또는 사용자 ID가 있는 경우). 또한 사용자의 언어를 확인할 수 있으며, 이는 예상대로 작동하지 않는 [다국어 Campaign]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)의 문제를 해결할 때 도움이 될 수 있습니다.
+예를 들어, 사용자가 문제를 보고했는데 어떤 기기와 운영 체제를 사용하는지 확실하지 않은 경우 [개요 탭](#overview-tab)을 사용하여 이 정보를 찾을 수 있습니다(이메일 또는 사용자 ID가 있는 경우). 또한 사용자의 언어를 확인할 수 있으며, 이는 예상대로 작동하지 않는 [다국어 Campaign]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)의 문제를 해결할 때 도움이 될 수 있습니다.
 
 [참여 탭](#engagement-tab)을 사용하여 특정 사용자가 Campaign을 수신했는지 확인할 수 있습니다. 또한 해당 사용자가 Campaign을 수신한 경우 언제 수신했는지 확인할 수 있습니다. 사용자가 특정 Segment에 포함되어 있는지, 푸시, 이메일 또는 둘 다에 옵트인했는지도 확인할 수 있습니다. 이 정보는 문제 해결 목적으로 유용합니다. 예를 들어, 사용자가 수신해야 할 Campaign을 수신하지 못하거나 수신하지 않아야 할 Campaign을 수신하는 경우 이 정보를 확인해야 합니다.
 
@@ -50,7 +50,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 
 - **개요:** 사용자에 대한 기본 정보, 세션 데이터, 커스텀 속성, 커스텀 이벤트, 구매, 사용자가 마지막으로 로그인한 최근 기기.
 - **참여:** 사용자의 연락처 설정, 수신한 Campaigns, Segments, 커뮤니케이션 통계, 설치 경로, 무작위 버킷 번호에 대한 정보.
-- **이벤트 이력:** 지난 30일 동안의 커스텀 이벤트 및 구매 내역으로, 전체 이벤트 속성이 JSON으로 표시됩니다.
+- **이벤트 이력:** 지난 30일 동안의 커스텀 이벤트 및 구매 내역으로, 전체 이벤트 속성정보가 JSON으로 표시됩니다.
 - **메시징 이력:** 지난 30일 동안 이 사용자에 대한 최근 메시징 관련 이벤트.
 - **기능 플래그 자격:** 롤아웃, 캔버스 단계 및 실험 전반에서 사용자가 현재 자격이 있는 기능 플래그를 확인합니다.
 
@@ -100,7 +100,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 ### 이벤트 이력 탭 {#event-history-tab}
 
 {% alert note %}
-**이벤트 이력** 탭을 보려면 **Search Users** 및 **View PII** [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다. 이벤트 속성에 개인 데이터가 포함될 수 있기 때문입니다.
+**이벤트 이력** 탭을 보려면 **Search Users**, **View User Event Properties**, **View PII** [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다. 이벤트 속성정보에 개인 데이터가 포함될 수 있기 때문입니다.
 {% endalert %}
 
 **이벤트 이력** 탭에는 사용자가 기록한 커스텀 이벤트와 구매가 표시됩니다. 이벤트 데이터가 올바르게 수신되고 있는지 확인하고 사용자 수준의 문제를 대시보드에서 직접 해결하는 데 사용할 수 있으며, 데이터 내보내기나 외부 도구가 필요하지 않습니다.
@@ -111,7 +111,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | 이벤트 유형 | 해당 행이 **커스텀 이벤트**인지 **구매**인지 여부. |
 | 타임스탬프 | 이벤트가 기록된 시점. |
 | 이벤트 이름 | 커스텀 이벤트 또는 구매의 이름. |
-| 이벤트 속성 | 이벤트의 전체 이벤트 속성으로, JSON으로 표시됩니다. |
+| 이벤트 속성정보 | 이벤트의 전체 이벤트 속성정보로, JSON으로 표시됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이벤트 이력 탭" }
 
 {% endtab %}
@@ -137,8 +137,10 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 
 고객 프로필의 **메시지 이력** 탭에는 지난 30일 동안 개별 사용자에 대한 최근 메시징 관련 이벤트(약 40개)가 표시됩니다. 이러한 이벤트에는 사용자에게 전송된 메시지, 수신한 메시지, 상호작용한 메시지 등이 포함됩니다.
 
-{% alert note %}
 이 탭의 데이터는 사용자가 병합된 후에는 업데이트되지 않습니다. 또한 API를 통해 전송된 메시지와 관련된 이벤트(예: [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends))는 해당 전송에 Campaign ID가 지정되지 않은 경우 이 탭에 표시되지 않습니다.
+
+{% alert important %}
+RCS 이벤트는 현재 **메시징 이력** 탭에서 지원되지 않습니다.
 {% endalert %}
 
 ![사용자가 수신한 Campaigns와 Canvases를 보여주는 메시징 이력 탭.]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
@@ -164,7 +166,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 
 ##### 메시지 중단 이벤트 {#message-abort-events}
 
-메시지 중단 이벤트는 사용자에게 전송된 메시지가 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) 또는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages)의 조건 로직이나 Liquid 렌더링 시간 초과로 인해 중단된 경우 발생합니다.
+메시지 중단 이벤트는 사용자에게 전송된 메시지가 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) 또는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)의 조건 로직이나 Liquid 렌더링 시간 초과로 인해 중단된 경우 발생합니다.
 
 중단 이벤트는 다음 채널에서 사용할 수 있습니다:
 
@@ -177,7 +179,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 
 ##### 최대 게재빈도 설정 이벤트 {#frequency-cap-events}
 
-최대 게재빈도 설정 이벤트는 사용자가 메시지를 수신할 자격이 있지만 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) 설정으로 인해 실제로 수신하지 못하는 경우 발생합니다. **설정** > **최대 게재빈도 설정 규칙**에서 최대 게재빈도 설정을 커스터마이즈할 수 있습니다.
+최대 게재빈도 설정 이벤트는 사용자가 메시지를 수신할 자격이 있지만 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 설정으로 인해 실제로 수신하지 못하는 경우 발생합니다. **설정** > **최대 게재빈도 설정 규칙**에서 최대 게재빈도 설정을 커스터마이즈할 수 있습니다.
 
 ##### 빈 대상 {#blank-destinations}
 
@@ -203,6 +205,6 @@ Content Cards 전송은 카드를 볼 수 있게 되었을 때 기록됩니다. 
 
 ## 관련 문서 {#related-articles}
 
-- [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [사용자 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 - [POST: 식별자로 고객 프로필 내보내기]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
 - [POST: 사용자 삭제]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)

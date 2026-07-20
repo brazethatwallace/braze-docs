@@ -20,29 +20,29 @@ description: "Braze SDKでユーザー IDを設定する方法を学習します
 
 ### 匿名ユーザーのトラッキングを防止する {#preventing-anonymous-user-tracking}
 
-ユーザーが識別される前にデータを収集しないユースケースの場合、ユーザーがログインして `external_id` が利用可能になるまでBraze SDKの初期化を遅延させることができます。コード内にフラグを設定し、ユーザーがサインインしたときに `true` に切り替え、そのフラグが設定されている場合にのみSDKを初期化します。
+ユーザーが識別される前にデータを収集しないユースケースの場合、ユーザーがログインして`external_id`が利用可能になるまでBraze SDKの初期化を遅延させることができます。コード内にフラグを設定し、ユーザーがサインインしたときに`true`に切り替え、そのフラグが設定されている場合にのみSDKを初期化します。
 
 {% alert warning %}
-初期化の遅延は、ユーザーがアプリを**初めて**ダウンロードしたとき（`external_id` が設定される前）にのみ行ってください。ユーザーがサインアウトしたり新しいセッションを開始したりするたびにSDKの初期化を妨げると、アプリ内メッセージやコンテンツカードアセットのプリフェッチに干渉し、それらのCampaignsの配信エラーにつながる可能性があります。
+初期化の遅延は、ユーザーがアプリを**初めて**ダウンロードしたとき（`external_id`が設定される前）にのみ行ってください。ユーザーがサインアウトしたり新しいセッションを開始したりするたびにSDKの初期化を妨げると、アプリ内メッセージやContent Cardsアセットのプリフェッチに干渉し、それらのキャンペーンの配信エラーにつながる可能性があります。
 {% endalert %}
 
 ## ユーザー IDの設定 {#setting-a-user-id}
 
-ユーザー IDを設定するには、ユーザーが最初にログインした後に `changeUser()` メソッドを呼び出します。IDは一意であり、[命名のベストプラクティス](#naming-best-practices)に従っている必要があります。
+ユーザー IDを設定するには、ユーザーが最初にログインした後に`changeUser()`メソッドを呼び出します。IDは一意であり、[命名のベストプラクティス](#naming-best-practices)に従っている必要があります。
 
 代わりに一意な識別子をハッシュする場合は、ハッシュ関数の入力を正規化してください。たとえば、メールアドレスをハッシュする場合は、先頭または末尾のスペースを削除し、ローカライゼーションを考慮します。
 
 {% tabs local %}
 {% tab WEB %}
-標準のWeb SDK実装では、以下の方法を使用できます。
+標準のWeb SDK実装では、以下のメソッドを使用できます。
 
 ```javascript
 braze.changeUser(YOUR_USER_ID_STRING);
 ```
 
-代わりにGoogle Tag Managerを使いたい場合は、**Change User** タグタイプを使って[`changeUser` メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)を呼び出すことができます。ユーザーがログインするとき、あるいは一意の `external_id` 識別子で識別されるときは、必ずこれを使用してください。
+代わりにGoogle Tag Managerを使いたい場合は、**Change User**タグタイプを使って[`changeUser`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)を呼び出すことができます。ユーザーがログインするとき、あるいは一意の`external_id`識別子で識別されるときは、必ずこれを使用してください。
 
-現在のユーザーの一意のIDを**External User ID** フィールドに入力してください。通常は、Webサイトから送信されたデータレイヤー変数を使用して入力します。
+現在のユーザーの一意のIDを**External User ID**フィールドに入力してください。通常は、Webサイトから送信されたデータレイヤー変数を使用して入力します。
 
 ![Brazeアクションタグの設定を示すダイアログボックス。設定項目には「tag type」と「external user ID」が含まれます。]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
 {% endtab %}
@@ -75,6 +75,32 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% endsubtabs %}
+
+{% alert note %}
+`changeUser`はユーザー切り替えをキューに入れ、呼び出しスレッドで即座に返します。その後`braze.user`で呼び出された属性セッターは、`changeUser`によって開始された操作の後に自動的にシリアライズされます。`braze.user.id`を読み取ると、ユーザー切り替えが完全に完了するまで呼び出しスレッドがブロックされます。メインスレッドやレイテンシに敏感なコンテキストでは、代わりにノンブロッキングの代替手段を使用してください。
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.user.getId { userId in
+  print("User ID:", userId ?? "anonymous")
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let userId = await AppDelegate.braze?.user.getId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze.user getIdWithCompletion:^(NSString * _Nullable userId) {
+  NSLog(@"User ID: %@", userId ?: @"anonymous");
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 {% endtab %}
 
 {% tab CORDOVA %}
@@ -102,21 +128,21 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 {% endtab %}
 {% endtabs %}
 
-### `changeUser()` の仕組み {#how-changeuser-works}
+### `changeUser()`の仕組み {#how-changeuser-works}
 
-`changeUser()` を呼び出すと、以下の動作が適用されます。
+`changeUser()`を呼び出すと、以下の動作が適用されます。
 
-- すでに設定されている**同じ**ユーザー IDで `changeUser()` を呼び出しても、セッション数には影響しません。
-- **異なる**ユーザー IDで `changeUser()` を呼び出すと、現在のセッションが自動的に終了し、新しいセッションが開始されます。
-- 匿名ユーザーが**新しい**ユーザー ID（Brazeにまだ存在しないもの）で `changeUser()` を呼び出すと、匿名プロファイルのデータが新しい識別済みプロファイルにマージされます。
-- 匿名ユーザーが**既存の**ユーザー IDで `changeUser()` を呼び出すと、匿名プロファイルのデータは識別済みプロファイルにマージされません。
+- すでに設定されている**同じ**ユーザー IDで`changeUser()`を呼び出しても、セッション数には影響しません。
+- **異なる**ユーザー IDで`changeUser()`を呼び出すと、現在のセッションが自動的に終了し、新しいセッションが開始されます。
+- 匿名ユーザーが**新しい**ユーザー ID（Brazeにまだ存在しないもの）で`changeUser()`を呼び出すと、匿名プロファイルのデータが新しい識別済みプロファイルにマージされます。
+- 匿名ユーザーが**既存の**ユーザー IDで`changeUser()`を呼び出すと、匿名プロファイルのデータは識別済みプロファイルにマージされません。
 
 {% alert note %}
-`changeUser()` を呼び出すと、現在のユーザーのセッションを閉じる過程でデータフラッシュがトリガーされます。SDKは新しいユーザーに切り替える前に、前のユーザーの保留中のデータを自動的にフラッシュするため、`changeUser()` を呼び出す前に手動でデータフラッシュをリクエストする必要はありません。
+`changeUser()`を呼び出すと、現在のユーザーのセッションを閉じる過程でデータフラッシュがトリガーされます。SDKは新しいユーザーに切り替える前に、前のユーザーの保留中のデータを自動的にフラッシュするため、`changeUser()`を呼び出す前に手動でデータフラッシュをリクエストする必要はありません。
 {% endalert %}
 
 {% alert warning %}
-単一の共有ユーザー ID（たとえば、静的なデフォルトのexternal ID）を割り当てたり、ユーザーがログアウトしたときに `changeUser()` を呼び出したりしないでください。そうすると、共有デバイスで以前ログインしたユーザーに再度エンゲージすることができなくなり、すべてのデータが単一のユーザー IDに対して記録されるため、他の機能が期待どおりに動作しなくなる可能性があります。代わりに、すべてのユーザー IDを個別に管理し、アプリのログアウトプロセスで以前にログインしたユーザーに切り替えられるようにしてください。新しいセッションが始まると、Brazeは新しくアクティブになったプロファイルのデータを自動的に更新します。
+単一の共有ユーザー ID（たとえば、静的なデフォルトのexternal ID）を割り当てたり、ユーザーがログアウトしたときに`changeUser()`を呼び出したりしないでください。そうすると、共有デバイスで以前ログインしたユーザーに再度エンゲージすることができなくなり、すべてのデータが単一のユーザー IDに対して記録されるため、他の機能が期待どおりに動作しなくなる可能性があります。代わりに、すべてのユーザー IDを個別に管理し、アプリのログアウトプロセスで以前にログインしたユーザーに切り替えられるようにしてください。新しいセッションが始まると、Brazeは新しくアクティブになったプロファイルのデータを自動的に更新します。
 {% endalert %}
 
 ## ユーザーエイリアス {#user-aliases}
@@ -127,7 +153,7 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 
 ### ユーザーエイリアスの設定 {#setting-a-user-alias}
 
-ユーザーエイリアスは、名前とラベルの2つの部分で構成されます。名前は識別子そのものを指し、ラベルはその識別子が属するタイプを指します。たとえば、サードパーティのカスタマーサポートプラットフォームにexternal ID `987654` を持つユーザーがいる場合、Brazeでそのユーザーに `987654` という名前と `support_id` というラベルのエイリアスを割り当てることで、プラットフォーム間でそのユーザーを追跡できます。
+ユーザーエイリアスは、名前とラベルの2つの部分で構成されます。名前は識別子そのものを指し、ラベルはその識別子が属するタイプを指します。たとえば、サードパーティのカスタマーサポートプラットフォームにexternal ID `987654`を持つユーザーがいる場合、Brazeでそのユーザーに`987654`という名前と`support_id`というラベルのエイリアスを割り当てることで、プラットフォーム間でそのユーザーを追跡できます。
 
 {% tabs local %}
 {% tab web %}

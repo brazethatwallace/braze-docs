@@ -2,71 +2,20 @@
 nav_title: "Additional channels and extensions"
 article_title: 추가 채널 및 확장
 page_order: 11
-
 page_type: landing
-description: "이 페이지에는 채널 및 확장 서비스를 제공하는 Braze 파트너(Alloys)가 나열되어 있습니다."
-layout: partner_page
+description: "다이렉트 메일, 채팅, 광고, 설문조사, 리워드 등 추가 채널 및 확장을 위한 Braze 기술 파트너를 살펴보세요."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "추가 채널 및 확장"
+guide_top_header: "추가 채널 및 확장"
+guide_top_text: "이 파트너들은 추가 메시징 채널과 지원 도구로 Braze를 확장합니다. 카테고리를 탐색하여 통합 가이드를 찾아보세요. 모든 Braze 기술 파트너의 전체 검색 및 필터링 가능한 목록은 <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze 마켓플레이스</a> 를 방문하세요."
 
-valid_partner_list:
-- name: LiveRamp
-  url: /docs/partners/liveramp/
-- name: Inkit
-  url: /docs/partners/inkit/
-- name: Lob
-  url: /docs/partners/lob/
-- name: optilyz
-  url: /docs/partners/optilyz/
-- name: Dixa
-  url: /docs/partners/dixa/
-- name: Front
-  url: /docs/partners/front/
-- name: Messenger
-  url: /docs/partners/messenger/
-- name: Pypestream
-  url: /docs/partners/pypestream/
-- name: Regal
-  url: /docs/partners/regal/
-- name: Sendbird
-  url: /docs/partners/sendbird/
-- name: Shopgate
-  url: /docs/partners/shopgate/
-- name: Zendesk
-  url: /docs/partners/zendesk/
-- name: PassKit
-  url: /docs/partners/passkit/
-- name: Future Anthem
-  url: /docs/partners/future_anthem/
-- name: Komo
-  url: /docs/partners/komo/
-- name: Odicci
-  url: /docs/partners/odicci/
-- name: CataBoom
-  url: /docs/partners/cataboom/
-- name: DailyPlay
-  url: /docs/partners/dailyplay/
-- name: Digioh
-  url: /docs/partners/digioh/
-- name: Knak
-  url: /docs/partners/knak/
-- name: eduMe
-  url: /docs/partners/edume/
-- name: Nift
-  url: /docs/partners/nift/
-- name: Punchh
-  url: /docs/partners/punchh/
-- name: Iterate
-  url: /docs/partners/iterate/
-- name: Jebbit
-  url: /docs/partners/jebbit/
-- name: Survicate
-  url: /docs/partners/survicate/
-- name: Typeform
-  url: /docs/partners/typeform/
-- name: Oppizi
-  url: /docs/partners/oppizi/
-- name: StackAdapt
-  url: /docs/partners/stackadapt/
+guide_featured_title: "카테고리"
+guide_featured_list:
+  - name: "Additional Channels"
+    link: /docs/partners/additional_channels_and_extensions/additional_channels
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Extensions"
+    link: /docs/partners/additional_channels_and_extensions/extensions
+    image: /assets/img/braze_icons/layers-three-01.svg
 ---

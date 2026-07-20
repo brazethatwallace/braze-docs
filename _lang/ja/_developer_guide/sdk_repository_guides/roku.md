@@ -6,14 +6,16 @@ description: "GitHubからミラーリングされたBraze Roku SDK READMEリフ
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Roku SDKリポジトリガイド {#roku-sdk-repository-guide}
+
 ## Braze Roku SDKについて {#about-the-braze-roku-sdk}
 
 Braze Roku SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction)
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=roku)
+- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
 ## 初期SDK統合 {#initial-sdk-integration}
 
@@ -63,7 +65,7 @@ m.Braze = getBrazeInstance(m.BrazeTask)
 m.BrazeTask.observeField("BrazeInAppMessage", "onInAppMessageReceived")
 ```
 
-次に、ハンドラ内で、Campaignによってトリガーされた最も優先度の高いアプリ内メッセージにアクセスできます。
+次に、ハンドラ内で、キャンペーンによってトリガーされた最も優先度の高いアプリ内メッセージにアクセスできます。
 
 ``` text
 in_app_message = m.BrazeTask.BrazeInAppMessage

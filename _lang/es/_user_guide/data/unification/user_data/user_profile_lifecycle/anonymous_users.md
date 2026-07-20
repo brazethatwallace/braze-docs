@@ -9,7 +9,7 @@ description: "Este artículo ofrece un resumen de los usuarios anónimos y los a
 
 # Usuarios anónimos {#anonymous-users}
 
-> Los usuarios que visitan tu sitio web o aplicación sin iniciar sesión, como un visitante invitado, son reconocidos como usuarios anónimos. Estos usuarios no tienen `external_ids`, que se utilizan para actualizar los perfiles de usuario con la API de Braze, pero siguen teniendo [puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) asignados y pueden ser incluidos en tus segmentos.
+> Los usuarios que visitan tu sitio web o aplicación sin iniciar sesión, como un visitante invitado, son reconocidos como usuarios anónimos. Estos usuarios no tienen `external_ids`, que se utilizan para actualizar los perfiles de usuario con la API de Braze, pero siguen teniendo [puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points) asignados y pueden ser incluidos en tus segmentos.
 
 Cuando un usuario anónimo visita tu sitio web o aplicación, el SDK de Braze crea y le asigna un perfil de usuario "anónimo". Mientras el usuario navega, el SDK captura automáticamente datos para su perfil de usuario anónimo, como información de uso, información del dispositivo y más, si has configurado atributos personalizados y eventos personalizados.
 
@@ -31,7 +31,7 @@ Puedes hacer lo siguiente con los usuarios anónimos capturados:
 
 ## Fusionar usuarios anónimos {#merging-anonymous-users}
 
-A veces, los perfiles de usuario anónimos son duplicados que tienen el mismo número de teléfono o dirección de correo electrónico que otros perfiles de usuario. Uno de los duplicados puede ser incluso un perfil de usuario identificado. Estos duplicados pueden fusionarse en un solo perfil de usuario utilizando el [punto de conexión POST: Fusionar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) o una de las herramientas de fusión de la plataforma Braze, como la [fusión basada en reglas]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#rules-based-merging).
+A veces, los perfiles de usuario anónimos son duplicados que tienen el mismo número de teléfono o dirección de correo electrónico que otros perfiles de usuario. Uno de los duplicados puede ser incluso un perfil de usuario identificado. Estos duplicados pueden fusionarse en un solo perfil de usuario utilizando el [punto de conexión POST: Fusionar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) o una de las herramientas de fusión de la plataforma Braze, como la [fusión basada en reglas]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#rules-based-merging).
 
 ## Buscar un usuario anónimo {#looking-up-an-anonymous-user}
 
@@ -45,7 +45,7 @@ console.log(braze.getDeviceId());
 ```
 
 {:start="3"}
-3. En el dashboard de Braze, utiliza la [Búsqueda de usuarios]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/) para buscar el ID de dispositivo devuelto.
+3. En el dashboard de Braze, utiliza la [Búsqueda de usuarios]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search) para buscar el ID de dispositivo devuelto.
 
 ## Casos de uso {#use-cases}
 

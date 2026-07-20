@@ -6,14 +6,16 @@ description: "GitHub에서 미러링된 Braze .NET MAUI (Xamarin) SDK README 참
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# .NET MAUI (Xamarin) SDK 리포지토리 가이드 {#net-maui-xamarin-sdk-repository-guide}
+
 ## Braze .NET MAUI (Xamarin) SDK 소개 {#about-the-braze-net-maui-xamarin-sdk}
 
-Braze .NET MAUI (Xamarin) SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애플리케이션에 통합하는 데 도움을 줍니다.
+Braze .NET MAUI (Xamarin) SDK는 Braze 메시징, 분석 및 사용자 인게이지먼트 기능을 애플리케이션에 통합하는 데 도움을 줍니다.
 
 시작하려면 다음 리소스를 참조하세요:
 
-- [Braze 사용자 가이드]({{site.baseurl}}/user_guide/introduction)
-- [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=xamarin)
+- [Braze 사용자 가이드](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=xamarin)
 
 ## 구성요소 {#components}
 

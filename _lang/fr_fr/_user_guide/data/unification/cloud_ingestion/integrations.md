@@ -65,10 +65,10 @@ Il peut y avoir un temps de préchauffage de deux à cinq minutes lorsque Braze 
 
 ### Étape 1 : Configurer les tables ou les vues {#step-1-set-up-tables-or-views}
 
-Avant de commencer, consultez [Configuration des tables pour l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) pour comprendre les exigences des tables sources par rapport aux exigences de formatage de `payload`.
+Avant de commencer, consultez [Configuration des tables pour l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) pour comprendre les exigences des tables sources par rapport aux exigences de formatage de `payload`.
 
 {% alert note %}
-Votre table ou vue source peut inclure des colonnes qui ne sont pas répertoriées pour votre entrepôt dans les onglets ci-dessous (par exemple, des colonnes d'audit ou de hachage). Braze ne lit que les colonnes décrites dans ces onglets ; les autres colonnes ne sont pas utilisées lors des synchronisations d'Ingestion de données cloud.
+Votre table ou vue source peut inclure des colonnes qui ne sont pas répertoriées pour votre entrepôt dans les onglets de la section suivante (par exemple, des colonnes d'audit ou de hachage). Braze ne lit que les colonnes décrites dans ces onglets ; les autres colonnes ne sont pas utilisées lors des synchronisations d'Ingestion de données cloud.
 {% endalert %}
 
 {% tabs %}
@@ -469,7 +469,7 @@ Selon la configuration de votre compte Microsoft Fabric, vous devrez peut-être 
 {% tabs %}
 {% tab Snowflake %}
 
-Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Snowflake**.
+Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Snowflake**.
 
 #### Étape 2.1 : Ajouter les informations de connexion Snowflake {#step-21-add-snowflake-connection-information}
 
@@ -498,7 +498,7 @@ ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 {% endtab %}
 {% tab Redshift %}
 
-Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Amazon Redshift**.
+Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Amazon Redshift**.
 
 #### Étape 2.1 : Ajouter les informations de connexion Redshift et la table source {#step-21-add-redshift-connection-information-and-source-table}
 
@@ -511,10 +511,39 @@ Dans le tableau de bord de Braze, le champ **Database name** n'accepte que les l
 #### Étape 2.2 : Tester la connexion et se connecter à la source {#step-22-test-connection-and-connect-to-source}
 
 Sélectionnez ensuite **Test connection**. En cas de succès, finalisez les paramètres restants et cliquez sur **Connect to Source**. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
+
+#### Résolution des problèmes : identifiant de snapshot invalide {#troubleshooting-invalid-snapshot-identifier}
+
+Si Braze renvoie une erreur `Invalid snapshot identifier` lors du **Test connection** ou de la configuration de la synchronisation, Redshift ne parvient pas à résoudre la référence de snapshot utilisée lorsque votre objet source est interrogé.
+
+Dans Redshift, un snapshot est une sauvegarde ponctuelle d'un cluster. Chaque snapshot possède un identifiant unique utilisé par Redshift pour référencer cet état de sauvegarde. Pour plus d'informations, consultez [Snapshots et sauvegardes Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html).
+
+Cette erreur peut survenir lorsque des métadonnées changent pendant que Braze valide l'objet source, par exemple lors d'opérations de copie, de restauration ou de réplication de snapshots. Pour plus d'informations, consultez [Copier des snapshots vers une autre région AWS](https://docs.aws.amazon.com/redshift/latest/mgmt/cross-region-snapshot-copy.html) et [Restaurer un cluster à partir d'un snapshot](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshot-restore-cluster-from-snapshot.html).
+
+Pour résoudre le problème :
+
+1. Vérifiez les paramètres de la source dans Braze, y compris l'endpoint du cluster, la base de données, le schéma et le nom de l'objet.
+2. Exécutez la même requête directement dans Redshift pour confirmer que la table ou la vue est lisible et stable.
+3. Réessayez une fois que les opérations de snapshot, de restauration, de redimensionnement ou de réplication en cours sont terminées.
+4. Si le problème persiste, interrogez une vue matérialisée au lieu d'une table de base qui change fréquemment.
+
+Une vue matérialisée stocke des résultats de requête précalculés que vous pouvez actualiser selon un calendrier, ce qui peut rendre les lectures plus stables pour les synchronisations CDI. Pour plus d'informations, consultez [Vues matérialisées dans Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html).
+
+Exemple :
+
+```sql
+CREATE MATERIALIZED VIEW ingestion.users_attributes_mv AS
+SELECT updated_at, external_id, alias_label, alias_name, braze_id, email, phone, payload
+FROM ingestion.users_attributes_sync;
+
+REFRESH MATERIALIZED VIEW ingestion.users_attributes_mv;
+```
+
+Après avoir créé la vue matérialisée, utilisez le nom de la vue matérialisée comme objet source dans votre synchronisation CDI Braze au lieu de la table de base.
 {% endtab %}
 {% tab BigQuery %}
 
-Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Google BigQuery**.
+Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Google BigQuery**.
 
 #### Étape 2.1 : Ajouter les informations de connexion BigQuery et la table source {#step-21-add-bigquery-connection-information-and-source-table}
 
@@ -527,7 +556,7 @@ Sélectionnez ensuite **Test connection**. En cas de succès, finalisez les para
 {% endtab %}
 {% tab Databricks %}
 
-Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Databricks**.
+Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Databricks**.
 
 #### Étape 2.1 : Ajouter les informations de connexion Databricks et la table source {#step-21-add-databricks-connection-information-and-source-table}
 
@@ -544,7 +573,7 @@ Vous devez tester une source avec succès avant de pouvoir la créer. Si vous fe
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Microsoft Fabric**.
+Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**, sélectionnez **Add data source**, puis sélectionnez **Microsoft Fabric**.
 
 #### Étape 2.1 : Configurer une synchronisation d'Ingestion de données cloud {#step-21-set-up-a-cloud-data-ingestion-sync}
 
@@ -565,7 +594,7 @@ Vous devez tester une source avec succès avant de pouvoir la créer. Si vous fe
 {% endtabs %}
 
 ### Étape 3 : Créer une nouvelle synchronisation dans le tableau de bord de Braze {#step-3-create-a-new-sync-in-the-braze-dashboard}
-Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Syncs**, et sélectionnez **Create data sync**.
+Accédez à **Data Settings** > **Cloud Data Ingestion** > **Syncs**, et sélectionnez **Create data sync**.
 
 {% tabs %}
 {% tab Snowflake %}
@@ -576,7 +605,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification {#step-32-add-notification-preferences}
@@ -608,7 +637,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification
@@ -641,7 +670,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification
@@ -672,7 +701,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification
@@ -704,7 +733,7 @@ Choisissez un nom pour votre synchronisation. Sélectionnez ensuite une source a
 En cas de succès, un aperçu des données s'affiche. Sélectionnez **Next: Notifications** pour continuer. Si la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
 {% alert note %}
-Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Enregistrer en tant que brouillon** pour conserver votre travail en cours.
+Vous devez tester une synchronisation avec succès avant de passer aux étapes suivantes. Si vous devez fermer la page de création de la synchronisation, cliquez sur **Save as draft** pour conserver votre travail en cours.
 {% endalert %}
 
 #### Étape 3.2 : Ajouter les préférences de notification

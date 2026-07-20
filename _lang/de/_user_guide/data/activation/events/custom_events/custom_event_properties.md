@@ -20,9 +20,9 @@ Jedes angepasste Event oder jeder Kauf kann bis zu 256 verschiedene angepasste E
 
 ## Erwartetes Format {#expected-format}
 
-Eigenschaftswerte müssen ein Objekt sein: Schlüssel sind die Eigenschaftsnamen (nicht-leere Strings, 255 Zeichen oder weniger, kein führendes `$`), und Werte sind die Eigenschaftswerte. Informationen zu unterstützten Datentypen, Formatanforderungen und Payload-Limits finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#event-property-data-types).
+Eigenschaftswerte müssen ein Objekt sein: Schlüssel sind die Eigenschaftsnamen (nicht-leere Strings, 255 Zeichen oder weniger, kein führendes `$`), und Werte sind die Eigenschaftswerte. Informationen zu unterstützten Datentypen, Formatanforderungen und Payload-Limits finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#event-property-data-types).
 
-Sie können den Datentyp Ihrer angepassten Event-Eigenschaft ändern, sollten sich aber der Auswirkungen bewusst sein, die das [Ändern von Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#changing-custom-attribute-or-event-data-type) nach der Datenerfassung mit sich bringt.
+Sie können den Datentyp Ihrer angepassten Event-Eigenschaft ändern, sollten sich aber der Auswirkungen bewusst sein, die das [Ändern von Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#changing-custom-attribute-or-event-data-type) nach der Datenerfassung mit sich bringt.
 
 ### Reservierte Schlüssel {#reserved-keys}
 
@@ -32,7 +32,7 @@ Sie können keine reservierten Schlüssel als Event-Eigenschaftsnamen verwenden.
 | --- | --- |
 | Angepasste Events | `time` und `event_name` |
 | Kauf-Events | `time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Reserved keys" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reservierte Schlüssel" }
 
 ## Verwendung angepasster Event-Eigenschaften {#using-custom-event-properties}
 
@@ -44,15 +44,15 @@ Verwenden Sie angepasste Event-Eigenschaften, um Ihre Zielgruppe für eine besti
 
 ![Filter für angepasste Event-Eigenschaften für einen Warenkorb-Abbruch. Zwei Filter werden mit einem UND-Operator kombiniert, um diese Campaign an Nutzer:innen zu senden, die ihren Warenkorb mit einem Preis zwischen 100 und 200 Dollar abgebrochen haben]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
-Verschachtelte angepasste Event-Eigenschaften werden auch bei der [aktionsbasierten Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) unterstützt.
+Verschachtelte angepasste Event-Eigenschaften werden auch bei der [aktionsbasierten Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) unterstützt.
 
 ![Filter für angepasste Event-Eigenschaften für einen Warenkorb-Abbruch. Ein Filter ist ausgewählt, wenn ein Artikel im Warenkorb einen Preis von mehr als 100 Dollar hat.]({% image_buster /assets/img_archive/customEventPropertiesNested.png %} "customEventPropertiesNested.png"){: style="max-width:70%;"}
 
 ### Nachrichten personalisieren {#personalize-messages}
 
-Sie können angepasste Event-Eigenschaften auch zur Personalisierung innerhalb des Messaging-Templates verwenden. Jede Campaign, die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) mit einem Trigger-Event verwendet, kann angepasste Event-Eigenschaften dieses Events für die Personalisierung des Messagings nutzen.
+Sie können angepasste Event-Eigenschaften auch zur Personalisierung innerhalb des Messaging-Templates verwenden. Jede Campaign, die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit einem Trigger-Event verwendet, kann angepasste Event-Eigenschaften dieses Events für die Personalisierung des Messagings nutzen.
 
-Wenn Sie beispielsweise eine Gaming-App haben und eine Nachricht an Nutzer:innen senden möchten, die ein Level abgeschlossen haben, könnten Sie Ihre Nachricht mit einer Eigenschaft für die Zeit, die die Nutzer:innen zum Abschließen des Levels benötigt haben, weiter personalisieren. In diesem Beispiel wird die Nachricht für drei verschiedene Segmente mithilfe von [bedingter Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/) personalisiert. Die angepasste Event-Eigenschaft `time_spent` kann in die Nachricht eingefügt werden, indem Sie ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` aufrufen.
+Wenn Sie beispielsweise eine Gaming-App haben und eine Nachricht an Nutzer:innen senden möchten, die ein Level abgeschlossen haben, könnten Sie Ihre Nachricht mit einer Eigenschaft für die Zeit, die die Nutzer:innen zum Abschließen des Levels benötigt haben, weiter personalisieren. In diesem Beispiel wird die Nachricht für drei verschiedene Segmente mithilfe von [bedingter Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic) personalisiert. Die angepasste Event-Eigenschaft `time_spent` kann in die Nachricht eingefügt werden, indem Sie ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` aufrufen.
 
 {% raw %}
 ```liquid
@@ -70,7 +70,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 Wenn die Nutzer:innen keine Internetverbindung haben, werden getriggerte In-App-Nachrichten mit vorlagenbasierten angepassten Event-Eigenschaften (z. B. {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) fehlschlagen und nicht angezeigt.
 {% endalert %}
 
-Eine vollständige Liste der Liquid-Tags, die dazu führen, dass In-App-Nachrichten als vorlagenbasierte In-App-Nachrichten zugestellt werden, finden Sie unter [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages/).
+Eine vollständige Liste der Liquid-Tags, die dazu führen, dass In-App-Nachrichten als vorlagenbasierte In-App-Nachrichten zugestellt werden, finden Sie unter [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages).
 
 #### Hinweise zu Filtern {#considerations-with-filters}
 
@@ -85,7 +85,7 @@ Event-Eigenschaften für angepasste Events werden in Realtime für jedes Segment
 
 #### Event-Eigenschaften für die Segmentierung hinzufügen {#adding-event-properties-for-segmentation}
 
-Sie benötigen die Nutzerberechtigung „Edit Custom Event Property Segmentation“ ([Nutzerberechtigung]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage)), um Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften zu erstellen.
+Sie benötigen die Nutzerberechtigung „Edit Custom Event Property Segmentation“ ([Nutzerberechtigung]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage)), um Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften zu erstellen.
 
 Standardmäßig können Sie 20 segmentierbare Event-Eigenschaften pro Workspace haben. Kontaktieren Sie Ihren Braze Account Manager, um dieses Limit zu erhöhen.
 
@@ -119,7 +119,7 @@ In Bezug auf die Abo-Nutzung werden angepasste Event-Eigenschaften, die für die
 
 Sie können verschachtelte Objekte (Objekte innerhalb eines anderen Objekts) verwenden, um verschachtelte JSON-Daten als Eigenschaften von angepassten Events und Käufen zu senden. Diese verschachtelten Daten können für die Personalisierung von Nachrichten mit Templates, das Triggern von Nachrichtenversand und die Segmentierung von Nutzer:innen verwendet werden.
 
-Weitere Informationen finden Sie auf unserer speziellen Seite zu [verschachtelten Objekten]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+Weitere Informationen finden Sie auf unserer speziellen Seite zu [verschachtelten Objekten]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ## Speicherung angepasster Event-Eigenschaften {#custom-event-property-storage}
 
@@ -128,6 +128,6 @@ Angepasste Event-Eigenschaften sind darauf ausgelegt, Ihnen zu helfen, die Targe
 Sie können auf zwei Arten basierend auf den Werten von Event-Eigenschaften segmentieren:
 
 1. **Innerhalb von 30 Tagen:** Sie können die Event-Eigenschafts-Segmentierung basierend auf der Häufigkeit und Aktualität bestimmter Event-Eigenschaftswerte innerhalb von Braze Segments verwenden. Diese Option wirkt sich auf die Datennutzung aus.<br><br>
-2. **Innerhalb und über 30 Tage hinaus:** Um sowohl die kurz- als auch die langfristige Event-Eigenschafts-Segmentierung abzudecken, können Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) verwenden. Dieses Feature segmentiert Nutzer:innen basierend auf angepassten Events und Event-Eigenschaften, die in den letzten zwei Jahren getrackt wurden. Diese Option wirkt sich nicht auf die Datennutzung aus.
+2. **Innerhalb und über 30 Tage hinaus:** Um sowohl die kurz- als auch die langfristige Event-Eigenschafts-Segmentierung abzudecken, können Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) verwenden. Dieses Feature segmentiert Nutzer:innen basierend auf angepassten Events und Event-Eigenschaften, die in den letzten zwei Jahren getrackt wurden. Diese Option wirkt sich nicht auf die Datennutzung aus.
 
 Kontaktieren Sie Ihren Braze Customer-Success-Manager für Empfehlungen zum besten Ansatz je nach Ihren spezifischen Anforderungen.

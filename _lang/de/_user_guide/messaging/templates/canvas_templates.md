@@ -24,10 +24,9 @@ Gehen Sie im Braze-Dashboard zu **Messaging** > **Canvas** und wählen Sie ein b
 
 Wählen Sie im Canvas-Editor **Canvas bearbeiten** oder **Entwurf bearbeiten**, je nachdem, ob Ihr Canvas aktiv ist oder sich im Entwurf befindet. Erweitern Sie das Dropdown **Als Entwurf speichern** in der Fußzeile und wählen Sie **Als Template speichern**.
 
-
 ### 3. Schritt: Speichern Sie Ihr Template {#step-3-save-your-template}
 
-Geben Sie Ihrem Template als Nächstes einen Namen und fügen Sie relevante Tags hinzu. Wählen Sie dann **Save**. Ihr Template ist jetzt einsatzbereit, um ein Canvas zu erstellen, und gibt Ihnen einen Vorsprung, da die grundlegenden Einstellungen und Schritte bereits vorhanden sind.
+Geben Sie Ihrem Template als Nächstes einen Namen und fügen Sie relevante Tags hinzu. Wählen Sie dann **Speichern**. Ihr Template ist jetzt einsatzbereit, um ein Canvas zu erstellen, und gibt Ihnen einen Vorsprung, da die grundlegenden Einstellungen und Schritte bereits vorhanden sind.
 
 ## Methode 2: Über den Canvas-Template-Editor erstellen {#method-2-create-via-canvas-template-editor}
 
@@ -43,7 +42,7 @@ Wählen Sie **Template erstellen** und beginnen Sie mit der Einrichtung Ihrer Ca
 
 ### 3. Schritt: Passen Sie Ihr Template an {#step-3-customize-your-template}
 
-Passen Sie als Nächstes Ihr Template an, indem Sie [Ihr Canvas einrichten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2-build-your-canvas). Sie können entscheiden, wann Nutzer:innen das Canvas betreten sollen, festlegen, welche Nutzer:innen dieses Canvas betreten können, Ihre Sendeeinstellungen anpassen und die User-Journey für das Template erstellen.
+Passen Sie als Nächstes Ihr Template an, indem Sie [Ihr Canvas einrichten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas). Sie können entscheiden, wann Nutzer:innen das Canvas betreten sollen, festlegen, welche Nutzer:innen dieses Canvas betreten können, Ihre Sendeeinstellungen anpassen und die User-Journey für das Template erstellen.
 
 ### 4. Schritt: Speichern Sie Ihr Template {#step-4-save-your-template}
 
@@ -58,7 +57,7 @@ Es gibt zwei Möglichkeiten, Ihr Template beim Erstellen eines Canvas zu verwend
 
 ### Verfügbare Braze-Templates {#available-braze-templates}
 
-Eine Liste der verfügbaren Canvas-Templates finden Sie unter [Braze-Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Details zur Verwendung von E-Commerce-Canvas-Templates finden Sie unter [So verwenden Sie empfohlene E-Commerce-Events]({{site.baseurl}}/ecommerce_use_cases/).
+Eine Liste der verfügbaren Canvas-Templates finden Sie unter [Braze-Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates). Details zur Verwendung von E-Commerce-Canvas-Templates finden Sie unter [So verwenden Sie empfohlene E-Commerce-Events]({{site.baseurl}}/ecommerce_use_cases).
 
 ## Canvas-Templates verwalten {#managing-canvas-templates}
 
@@ -68,7 +67,7 @@ Auf Workspace-Ebene können Sie Berechtigungen für Nutzer:innen aktualisieren, 
 
 ### Berechtigungen für Teams und Workspaces {#permissions-for-teams-and-workspaces}
 
-Um nur bestimmten Nutzer:innen den Zugriff auf und die Verwendung bestimmter Canvas-Templates zu ermöglichen, [fügen Sie ein Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) zu den Templates hinzu und weisen Sie dann die Team-Berechtigung „Zugriff auf Campaigns, Canvases, Content Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek und Präferenzzentrum“ zu.
+Um nur bestimmten Nutzer:innen den Zugriff auf und die Verwendung bestimmter Canvas-Templates zu ermöglichen, [fügen Sie ein Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) zu den Templates hinzu und weisen Sie dann die Team-Berechtigung „Zugriff auf Campaigns, Canvases, Content Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek und Präferenzzentrum“ zu.
 
 Wenn Sie eine der folgenden Berechtigungen auf Team-Ebene, aber nicht auf Workspace-Ebene zuweisen, können Sie nur Folgendes tun, das Ihrem Team zugewiesen ist:
 

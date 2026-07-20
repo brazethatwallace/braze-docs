@@ -33,7 +33,7 @@ Vous ne savez pas si votre message in-app doit être envoyé via une Campaign ou
 
 {% details Plus d'informations sur les SDK minimaux %}
 
-Les messages créés avec l'éditeur par glisser-déposer ne peuvent être envoyés qu'aux utilisateurs disposant des versions minimales du SDK (voir le tableau ci-dessus). Si un utilisateur n'a pas mis à jour son application (c'est-à-dire qu'il utilise une version plus ancienne du SDK), il ne recevra pas le message in-app.
+Les messages créés avec l'éditeur par glisser-déposer ne peuvent être envoyés qu'aux utilisateurs disposant des versions minimales du SDK (voir le tableau de la section précédente). Si un utilisateur n'a pas mis à jour son application (c'est-à-dire qu'il utilise une version plus ancienne du SDK), il ne recevra pas le message in-app.
 
 Pour profiter de toutes les fonctionnalités disponibles dans l'éditeur par glisser-déposer, mettez à jour vos SDK vers les versions recommandées. Cela vous permet de bénéficier des fonctionnalités supplémentaires suivantes :
 
@@ -132,7 +132,7 @@ Les utilisateurs peuvent sélectionner le bouton de fermeture X pour quitter le 
 
 ## Étape 4 : Construire et concevoir votre message in-app {#step-4-build-and-design-your-in-app-message}
 
-C'est ici que votre message prend vie, habillé du style signature de votre marque. En utilisant une combinaison de blocs éditeur et de paramètres de style, vous pouvez personnaliser et concevoir votre message in-app.
+C'est ici que votre message prend vie, habillé du style signature de votre marque. En combinant blocs éditeur et paramètres de style, vous pouvez personnaliser et concevoir votre message in-app.
 
 - Pour une liste des blocs éditeur disponibles et de leurs propriétés, consultez les [Blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 - Pour obtenir de l'aide sur la personnalisation de l'apparence de votre message, consultez les [Paramètres de style]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
@@ -180,7 +180,7 @@ Oui, vous pouvez segmenter en fonction des clics sur les boutons pour un maximum
 
 ### Puis-je personnaliser mon message in-app en utilisant du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc de code personnalisé. Vous pouvez utiliser les blocs de code personnalisé pour intégrer des vidéos tierces et du Liquid avancé, comme le Contenu connecté ou les instructions conditionnelles.
+Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc de code personnalisé. Vous pouvez utiliser les blocs de code personnalisé pour intégrer des vidéos tierces et du Liquid avancé, comme le contenu connecté ou les instructions conditionnelles.
 
 ### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
 

@@ -69,6 +69,10 @@ Note that the following tables cover campaign and Canvas fields, and are not a c
 
 Landing pages are copied as drafts. Before publishing a copied landing page, review its page URL, custom domain settings, form submission handling, and any Liquid or workspace-specific references.
 
+{% alert note %}
+Translations are not copied when copying email campaigns, Canvases, or templates across workspaces. After copying, re-enter or re-upload translations in the destination workspace.
+{% endalert %}
+
 ### Details
 
 {% tabs local %}

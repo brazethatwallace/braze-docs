@@ -16,7 +16,7 @@ toc_headers: h2
 Brazeクラウドデータ取り込み（CDI）では、データウェアハウスインスタンスとBrazeワークスペースとの統合を設定して、定期的にデータを同期します。この同期は設定したスケジュールで実行され、統合ごとに異なるスケジュールを設定できます。同期は最大頻度で15分ごと、最小頻度で月に1回実行できます。同期を15分より高い頻度で実行する必要がある場合は、カスタマーサクセスマネージャーに連絡するか、リアルタイムデータ取り込みにREST APIコールを使用することを検討してください。
 
 {% alert note %}
-ダッシュボードの同期頻度は、Brazeが同期を実行する頻度を制御します（例えば、1時間ごとや1時間以内のより頻繁な実行などのオプション）。実行間に1時間を超えるカスタム間隔を設定するものではありません。スケジュールされたケイデンス外で同期を実行するには（例えば、ウェアハウスの読み込み完了後にオンデマンドで実行する場合）、統合IDを指定して[同期をトリガーする]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/)エンドポイントを使用してください。
+ダッシュボードの同期頻度は、Brazeが同期を実行する頻度を制御します（例えば、1時間ごとや1時間以内のより頻繁な実行などのオプション）。実行間に1時間を超えるカスタム間隔を設定するものではありません。スケジュールされたケイデンス外で同期を実行するには（例えば、ウェアハウスの読み込み完了後にオンデマンドで実行する場合）、統合IDを指定して[同期をトリガーする]({{site.baseurl}}/api/endpoints/cdi/post_job_sync)エンドポイントを使用してください。
 {% endalert %}
 
 同期が実行されると、Brazeはデータウェアハウスインスタンスに直接接続し、指定されたテーブルからすべての新しいデータを取得し、Brazeダッシュボードの対応するデータを更新します。同期が実行されるたびに、更新されたデータはすべてBrazeに反映されます。
@@ -33,7 +33,7 @@ Brazeクラウドデータ取り込み機能を使用すると、以下のこと
 - データウェアハウスからBrazeへ、属性、イベント、購入履歴を含むユーザーデータを安全に同期できます。
 - クラウドデータ取り込みをCurrentsまたはSnowflakeデータ共有と組み合わせることで、Brazeでデータループを閉じることができます。
 
-さらに、[接続されたソース]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/)はゼロコピーの代替手段です。Brazeがデータウェアハウスやファイルストレージソリューションに直接クエリを実行してCDIセグメントを構築できます。基盤となるデータをBrazeにコピーする必要は一切ありません。
+さらに、[接続されたソース]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources)はゼロコピーの代替手段です。Brazeがデータウェアハウスやファイルストレージソリューションに直接クエリを実行してCDIセグメントを構築できます&#8212;基盤となるデータをBrazeにコピーする必要は一切ありません。
 
 ## サポートされるデータソース {#supported-data-sources}
 
@@ -76,15 +76,15 @@ Brazeクラウドデータ取り込み機能を使用すると、以下のこと
 | `BRAZE_ID` | Braze SDKによって生成されるBrazeユーザー識別子です。クラウドデータ取り込みを通じてBraze IDを使用して新規ユーザーを作成することはできません。新規ユーザーを作成するには、外部ユーザーIDまたはユーザーエイリアスを指定してください。 |
 | `EMAIL` | ユーザーのメールアドレスです。同じメールアドレスを持つ複数のプロファイルが存在する場合、最も最近更新されたプロファイルが優先されます。メールと電話番号の両方を含める場合、メールが主要な識別子として使用されます。 |
 | `PHONE` | ユーザーの電話番号です。同じ電話番号を持つ複数のプロファイルが存在する場合、最も最近更新されたプロファイルが優先されます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers for data ingestion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="データ取り込み用のユーザー識別子" }
 
-テーブル列の設定やペイロードのフォーマット要件の詳細については、[クラウドデータ取り込みのテーブル設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/)を参照してください。
+テーブル列の設定やペイロードのフォーマット要件の詳細については、[クラウドデータ取り込みのテーブル設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)を参照してください。
 
-ソース固有の設定手順やSQLの例については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)を参照してください。
+ソース固有の設定手順やSQLの例については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)を参照してください。
 
 ## データポイント使用量 {#data-point-usage}
 
-データポイントベースの課金をご利用の場合、クラウドデータ取り込みのデータポイント課金は、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track)経由の更新に対する課金と同等です。詳細については、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)を参照してください。
+データポイントベースの課金をご利用の場合、クラウドデータ取り込みのデータポイント課金は、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)経由の更新に対する課金と同等です。詳細については、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)を参照してください。
 
 {% alert important %}
 Brazeクラウドデータ取り込みは利用可能なレート制限にカウントされるため、別の方法でデータを送信している場合、レート制限はBraze APIとクラウドデータ取り込みの合計になります。
@@ -101,4 +101,4 @@ Brazeクラウドデータ取り込みは利用可能なレート制限にカウ
 | データタイプ | クラウドデータ取り込みを通じて、ユーザー属性、イベント、および購入を同期できます。 |
 | Brazeリージョン | この製品はすべてのBrazeリージョンで利用可能です。任意のBrazeリージョンを任意のソースデータリージョンに接続できます。 |
 | ソースリージョン | Brazeは、どのリージョンやクラウドプロバイダーであっても、データウェアハウスやクラウド環境に接続します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Product limitations" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="製品の制限事項" }

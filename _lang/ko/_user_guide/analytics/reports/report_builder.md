@@ -67,7 +67,8 @@ page_order: 3
 8. 그런 다음, 3단계에서의 선택에 따라 Campaign, Canvas 또는 둘 다를 수동 또는 자동으로 보고서에 추가합니다.
     - **수동 추가:** **마지막 발송** 날짜 및 태그 또는 채널 필터를 사용하거나 Campaign 또는 Canvas 이름을 검색하여 보고서에 포함할 각 Campaign 또는 Canvas를 선택합니다.<br><br>![선택할 수 있는 Campaign 목록이 있는 "수동으로 Campaign 및 Canvas 추가" 섹션.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **자동 추가:** 보고서에 포함할 Campaign 또는 Canvas에 대한 규칙을 설정합니다. 이 페이지에서 하나의 필드만 선택하면 됩니다.
-        - 추가 Campaign 또는 Canvases가 이 화면에서 설정한 조건을 충족하면 향후 보고서 실행 시 자동으로 추가됩니다.<br><br>![보고서에 추가할 Campaign 및 Canvases에 대한 규칙을 설정하는 필드가 있는 "자동으로 Campaign 및 Canvas 추가" 섹션.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - 추가 Campaign 또는 Canvases가 이 화면에서 설정한 조건을 충족하면 향후 보고서 실행 시 자동으로 추가됩니다.
+        - 배너는 **채널** 드롭다운에 옵션으로 제공되지 않으므로, 채널 규칙을 사용하여 배너 Campaign 또는 Canvases를 자동으로 추가할 수 없습니다. 그래도 보고서 측정기준에 배너 핵심 성과 지표(KPI)를 포함할 수 있습니다.<br><br>![보고서에 추가할 Campaign 및 Canvases에 대한 규칙을 설정하는 필드가 있는 "자동으로 Campaign 및 Canvas 추가" 섹션.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. **저장 및 실행**을 선택하여 보고서를 실행합니다.
 
 {% alert note %}
@@ -79,7 +80,7 @@ page_order: 3
 **행** 선택에 따라 선택할 수 있는 측정기준이 달라집니다.
 
 {% alert tip %}
-캔버스 배리언트 또는 단계에 대해 보고하려면 행에서 **Canvases**를 선택하고 드릴다운 필드를 비워 두거나 **날짜**를 선택합니다. 그러면 Canvas 전용 측정기준을 조회하거나 배리언트, 단계 또는 메시지별로 측정기준을 그룹화할 수 있는 **Canvas 보기** 드롭다운이 생성됩니다.
+캔버스 배리언트 또는 단계에 대해 보고하려면 행에서 **Canvases**를 선택하고 드릴다운 필드를 비워 두거나 **날짜**를 선택합니다. 그러면 Canvas 전용 측정기준을 조회하거나 배리언트, 단계 또는 메시지별로 측정기준을 그룹화할 수 있는 **Canvas 보기** 드롭다운이 생성됩니다.<br><br> 단계별로 그룹화하면 보고서 구성 중 미리보기 테이블에 최대 50개의 행이 표시됩니다. 모든 행을 보려면 보고서를 실행하거나 CSV로 내보내세요.
 
 ![열린 "Canvas 보기" 드롭다운.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}

@@ -59,11 +59,20 @@ If your email provider doesn't support `+` aliasing, you can still create separa
 
 ### Use multi-company developers
 
-The multi-company developers feature allows sharing of a single user account across multiple companies. Users can toggle between different company dashboards from their user profile menu.
+The multi-company developers feature allows sharing of a single user account across multiple companies. Dashboard users can toggle between different company dashboards from their user profile menu.
 
 If you have SSO and want to set up multi-company developers, you need to enable a SAML Custom Entity ID by setting up a custom SAML SSO integration. Follow the steps in [Service Provider (SP) initiated login]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), but apply these changes:
 - Change **Entity ID** to `braze_dashboard_<companyID>` for each dashboard integration.
 - Contact your customer success manager or account manager to enable the `saml_sso_custom_entity_id` feature flipper for each dashboard.
+
+#### Two-factor authentication (2FA)
+
+How 2FA works for multi-company developers depends on your 2FA method:
+
+- **Email and SMS:** Your 2FA settings are copied to all linked developer accounts. After you set up email or SMS 2FA on one account, the same method applies across your company dashboards.
+- **Time-based one-time password (TOTP):** TOTP settings are not synced across accounts. If you use an authenticator app, you must set up a separate code for each dashboard you sign into directly.
+
+When you switch between accounts from within the dashboard, you only need to complete 2FA once—the first time you sign in to any linked account during that session.
 
 ### Considerations for Single Sign-On (SSO)
 
@@ -155,7 +164,7 @@ This reset process also applies to users who have been locked out of their accou
 
 ### Locked out of account
 
-If you're locked out of your Braze account, you can get back in by following the steps below.
+If you're locked out of your Braze account, you can get back in by following these steps.
 
 You can tell what kind of lock out you're experiencing by the error message you receive:
 

@@ -48,7 +48,7 @@ Les [fonctionnalités Braze Intelligence]({{site.baseurl}}/user_guide/brazeai/in
     - Variante personnalisée
 - Taux d'ouverture réel estimé
 
-Les désabonnements résultant de clics de robots suspectés ne seront pas affectés. Braze continuera à traiter toutes les demandes de désabonnement comme d'habitude. Si vous souhaitez que Braze bloque ces désabonnements, soumettez un [retour produit]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Les désabonnements résultant de clics de robots suspectés ne seront pas affectés. Braze continuera à traiter toutes les demandes de désabonnement comme d'habitude. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Filtres de segmentation affectés par le filtrage des robots {#segmentation-filters-affected-by-bot-filtering}
 

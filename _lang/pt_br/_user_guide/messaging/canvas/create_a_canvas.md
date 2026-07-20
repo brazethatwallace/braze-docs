@@ -19,7 +19,7 @@ Não é mais possível criar ou duplicar Canvas usando a experiência original d
 
 Primeiro, acesse **Messaging** > **Canvas** e selecione **Create Canvas**.
 
-O criador de Canvas vai guiar você passo a passo pela configuração do seu Canvas — desde dar um nome até definir eventos de conversão e trazer os usuários certos para sua jornada. Selecione cada uma das abas a seguir para ver quais configurações você pode ajustar em cada etapa do criador.
+O criador de Canvas vai guiar você passo a passo pela configuração do seu Canvas — desde dar um nome até definir eventos de conversão e trazer os usuários certos para sua jornada do cliente. Selecione cada uma das abas a seguir para ver quais configurações você pode ajustar em cada etapa do criador.
 
 {% tabs local %}
   {% tab Dados básicos %}
@@ -68,7 +68,7 @@ O criador de Canvas vai guiar você passo a passo pela configuração do seu Can
 
 ### Etapa 1.1: Comece com os dados básicos do Canvas {#step-11-start-with-your-canvas-basics}
 
-Aqui, você vai dar um nome ao Canvas, atribuir [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams) e criar ou adicionar [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags). Você também pode atribuir eventos de conversão para o Canvas.
+Aqui, você vai dar um nome ao Canvas, atribuir [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e criar ou adicionar [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags). Você também pode atribuir eventos de conversão para o Canvas.
 
 {% alert tip %}
 Adicione tags aos seus Canvas para facilitar a busca e a criação de relatórios. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
@@ -155,9 +155,9 @@ Os controles de entrada determinam se os usuários podem reentrar em um Canvas. 
 - **Baseado em ação:** Por hora, diariamente ou tempo de vida do Canvas
 - **Disparado por API:** Por hora, diariamente ou tempo de vida do Canvas
 
-Por exemplo, se você tem um Canvas baseado em ação e seleciona **Limitar volume de entrada** e define o campo **Máximo de entradas** como 5.000 usuários com **Diariamente** como cadência limite, então o Canvas envia para apenas 5.000 usuários por dia.
+Por exemplo, se você tem um Canvas agendado e seleciona **Limitar volume de entrada** e define o campo **Máximo de entradas** como 500.000 usuários com **Toda vez que o Canvas for agendado** como cadência limite, então o Canvas envia para apenas 500.000 usuários por envio agendado.
 
-![A página "Controles de entrada" exibindo caixas de seleção para "Permitir que usuários reentrem no Canvas" e "Limitar volume de entrada". A última permite definir o máximo de entradas e escolher uma cadência que depende do tipo de cronograma de entrada (por exemplo, tempo de vida do Canvas ou toda vez que o Canvas for agendado para entrada agendada, e por hora, diariamente ou tempo de vida do Canvas para entrada baseada em ação e disparada por API).]({% image_buster /assets/img_archive/entry_controls.png %})
+![A página "Controles de entrada" exibindo caixas de seleção para "Permitir que usuários reentrem no Canvas" e "Limitar volume de entrada".]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
 A Braze não recomenda selecionar **Toda vez que o Canvas for agendado** para aquecimento de IP, pois isso pode levar a volumes de envio aumentados.
@@ -169,7 +169,7 @@ Definir os [critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/c
 
 #### Calculando o público-alvo {#calculating-target-population}
 
-Na seção **Público-alvo**, você pode ver um resumo do seu público, como os segmentos selecionados e filtros adicionais, além de um detalhamento de quantos usuários são contatáveis por canal de envio de mensagens. Para calcular o número exato de usuários contatáveis no seu público-alvo em vez da estimativa padrão, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics).
+Na seção **Público-alvo**, você pode ver um resumo do seu público, como os segmentos selecionados e filtros adicionais, além de um detalhamento de quantos usuários são contatáveis por canal de envio de mensagens. Para calcular o número exato de usuários contatáveis no seu público-alvo em vez da estimativa padrão, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 
 Observe que:
 
@@ -187,7 +187,7 @@ Para ver estatísticas adicionais, como a receita média de tempo de vida dos us
 
 ### Etapa 1.4: Selecione suas configurações de envio {#step-14-select-your-send-settings}
 
-Selecione **Configurações de envio** para editar suas configurações de inscrição, ativar o limite de taxa e ativar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). Ao ativar o [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components) ou o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping), você pode aliviar a pressão de marketing sobre seus usuários e garantir que não está enviando mensagens em excesso.
+Selecione **Configurações de envio** para editar suas configurações de inscrição, ativar o limite de taxa e ativar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). Ao ativar o [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) ou o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping), você pode aliviar a pressão de marketing sobre seus usuários e garantir que não está enviando mensagens em excesso.
 
 Para Canvas direcionados a canais de e-mail e push, você pode querer limitar seu Canvas para que apenas os usuários que fizeram opt-in explicitamente recebam a mensagem (excluindo usuários inscritos ou que cancelaram a inscrição). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
 
@@ -204,6 +204,8 @@ Com essa configuração, não inclua nenhum filtro na etapa **Público-alvo** qu
 {% endalert %}
 
 Se desejar, especifique o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) (o período durante o qual suas mensagens não serão enviadas) para o Canvas. Marque **Ativar horário de silêncio** nas **Configurações de envio**. Em seguida, selecione o horário de silêncio no fuso horário local do usuário e qual ação será tomada se a mensagem for disparada durante esse período.
+
+Quando **Enviar no próximo horário disponível** estiver selecionado, o horário de silêncio suprime a mensagem e a envia no próximo horário disponível fora do horário de silêncio. Por exemplo, digamos que o horário de silêncio esteja configurado para impedir o envio de mensagens entre 11h30 e 14h30 no fuso horário local do usuário, e um usuário entre em uma etapa de mensagem às 11h35. Como esse horário está dentro do horário de silêncio, a mensagem não é enviada ainda, e o usuário recebe a etapa de mensagem às 14h30, que é após o horário de silêncio.
 
 ![A página "Horário de silêncio" exibindo uma caixa de seleção para ativar o horário de silêncio. Se ativado, o horário de início, horário de término e comportamento de fallback podem ser definidos.]({% image_buster /assets/img/quiet_hours.png %})
 
@@ -298,7 +300,7 @@ O componente de mensagem gerencia as mensagens enviadas aos usuários. Você pod
 
 ![A etapa "Configurar mensagens", com "Canais de envio de mensagens" selecionado, exibindo a lista de canais de envio de mensagens disponíveis, como push para Android, Content Cards, e-mail e mais.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
-Selecione **Concluir** após terminar de configurar o componente do Canvas.
+Selecione **Concluído** após terminar de configurar o componente do Canvas.
 
 {% tabs local %}
 {% tab Propriedades de entrada do Canvas %}
@@ -343,15 +345,15 @@ Neste exemplo, temos nosso Canvas dividido em duas variantes. A Variante 1 tem 7
 
 ### Seleção inteligente para Canvas {#intelligent-selection-for-canvas}
 
-Os recursos de Seleção inteligente agora estão disponíveis em Canvas multivariantes. De forma semelhante ao recurso de [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) para Campaigns multivariantes, a Seleção inteligente para Canvas analisa o desempenho de cada variante do Canvas e ajusta a porcentagem de usuários direcionados para cada variante. Essa distribuição é baseada nas métricas de desempenho de cada variante para maximizar o número total esperado de conversões.
+Os recursos de seleção inteligente agora estão disponíveis em Canvas multivariantes. De forma semelhante ao recurso de [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) para Campaigns multivariantes, a seleção inteligente para Canvas analisa o desempenho de cada variante do Canvas e ajusta a porcentagem de usuários direcionados para cada variante. Essa distribuição é baseada nas métricas de desempenho de cada variante para maximizar o número total esperado de conversões.
 
-Lembre-se de que Canvas multivariantes permitem testar não apenas o texto, mas também o timing e os canais. Por meio da Seleção inteligente, você pode testar Canvas de forma mais eficiente e ter confiança de que seus usuários serão enviados na melhor jornada possível do Canvas.
+Lembre-se de que Canvas multivariantes permitem testar não apenas o texto, mas também o timing e os canais. Por meio da seleção inteligente, você pode testar Canvas de forma mais eficiente e ter confiança de que seus usuários serão enviados na melhor jornada possível do Canvas.
 
 ![A opção "Seleção inteligente" está ativada na página "Editar distribuição de variantes". Conforme analisa e otimiza o Canvas, exibe uma barra horizontal na página dividida em várias seções, cada uma variando em cor e tamanho. Esta é apenas uma representação visual e não corresponde a nenhuma análise de dados específica.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
 
-A Seleção inteligente para Canvas otimiza os resultados do Canvas fazendo ajustes graduais em tempo real na distribuição de usuários direcionados para cada variante. Quando o algoritmo estatístico determina um vencedor decisivo entre suas variantes, ele descartará as variantes com desempenho inferior e direcionará todos os futuros destinatários elegíveis do Canvas para as variantes vencedoras.
+A seleção inteligente para Canvas otimiza os resultados do Canvas fazendo ajustes graduais em tempo real na distribuição de usuários direcionados para cada variante. Quando o algoritmo estatístico determina um vencedor decisivo entre suas variantes, ele descartará as variantes com desempenho inferior e direcionará todos os futuros destinatários elegíveis do Canvas para as variantes vencedoras.
 
-Por esse motivo, a Seleção inteligente funciona melhor em Canvas que têm novos usuários entrando com frequência.
+Por esse motivo, a seleção inteligente funciona melhor em Canvas que têm novos usuários entrando com frequência.
 
 ## Etapa 4: Salve e lance {#step-4-save-and-launch}
 

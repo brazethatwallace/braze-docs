@@ -87,6 +87,14 @@ Optional styling: `{: style="max-width:60%"}`
 
 Alt text: plain language, complete sentence, sentence case. Do not use "image of" or "picture of". Use "and" not "&".
 
+### Parameterized includes
+
+Invoke shared snippets with `{% multi_lang_include filename.md param="value" %}`.
+
+**Liquid whitespace control:** When an include may sit inline on the same line as preceding text, use whitespace-stripping delimiters (`{%-` and `-%}`) on every `assign`, `if`, `elsif`, and `endif` tag in the include file. Unstripped tags emit leading newlines that Markdown renders as a paragraph break.
+
+**Product feedback CTAs:** `_includes/product_feedback_cta.md` — see `docs/contributing/style_guide/product_feedback_ctas.md` for `context`, `channel`, placement, and reviewer checklist.
+
 ## Page anatomy
 
 ### Introduction

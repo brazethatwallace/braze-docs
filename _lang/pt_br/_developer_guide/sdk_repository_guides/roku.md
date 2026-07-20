@@ -6,14 +6,16 @@ description: "Referência do README do Braze Roku SDK espelhada do GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guia do repositório do Roku SDK {#roku-sdk-repository-guide}
+
 ## Sobre o Braze Roku SDK {#about-the-braze-roku-sdk}
 
 O Braze Roku SDK ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
 
 Para começar, consulte os seguintes recursos:
 
-- [Guia do Usuário da Braze]({{site.baseurl}}/user_guide/introduction)
-- [Guia do Desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=roku)
+- [Guia do Usuário da Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guia do Desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
 ## Integração inicial do SDK {#initial-sdk-integration}
 
@@ -129,7 +131,7 @@ m.BrazeTask.BrazeInAppMessage = invalid
 
 A Braze agora deve estar coletando dados do seu aplicativo. Consulte nossa documentação pública sobre como registrar atributos, eventos e compras no nosso SDK. A cena `MainScene.brs` do nosso app de exemplo também contém exemplos de uso da API.
 
-`BrazeInAppMessage.brs` e `CustomSideBySideInAppMessage.brs` mostram exemplos de tratamento de mensagens no app. `onInAppMessageTriggered()` em `MainScene.brs` mostra como oferecer suporte a múltiplos layouts.
+`BrazeInAppMessage.brs` e `CustomSideBySideInAppMessage.brs` mostram exemplos de tratamento de In-App Messages. `onInAppMessageTriggered()` em `MainScene.brs` mostra como oferecer suporte a múltiplos layouts.
 
 ## Referência adicional {#additional-reference}
 

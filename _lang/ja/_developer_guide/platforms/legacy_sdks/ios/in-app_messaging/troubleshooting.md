@@ -22,7 +22,7 @@ noindex: true
 
 #### インプレッションが予想より低い {#impressions-are-lower-than-expected}
 
-トリガーはセッション開始時にデバイスへの同期に時間がかかるため、ユーザーがセッション開始直後にイベントや購入を記録すると競合が発生する可能性があります。考えられる回避策の1つは、Campaignをセッション開始時にトリガーするよう変更し、目的のイベントまたは購入でセグメント化することです。なお、イベント発生後の次回セッション開始時にアプリ内メッセージが配信されることに注意してください。
+トリガーはセッション開始時にデバイスへの同期に時間がかかるため、ユーザーがセッション開始直後にイベントや購入を記録すると競合が発生する可能性があります。考えられる回避策の1つは、キャンペーンをセッション開始時にトリガーするよう変更し、目的のイベントまたは購入でセグメント化することです。なお、イベント発生後の次回セッション開始時にアプリ内メッセージが配信されることに注意してください。
 
 ## 予期したアプリ内メッセージが表示されなかった {#expected-in-app-message-did-not-display}
 
@@ -35,7 +35,7 @@ SDKはセッション開始時にBrazeサーバーからアプリ内メッセー
 #### メッセージがリクエストされ、返されたかどうかを確認する {#check-if-messages-are-requested-and-returned}
 
 1. ダッシュボードで自分自身を[テストユーザー]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users)として追加します。
-2. ユーザーを対象としたアプリ内メッセージCampaignを設定します。
+2. ユーザーを対象としたアプリ内メッセージキャンペーンを設定します。
 3. アプリケーションで新しいセッションが発生することを確認します。
 4. [イベントユーザーログ]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)を使用して、セッション開始時にデバイスがアプリ内メッセージをリクエストしていることを確認します。テストユーザーのセッション開始イベントに関連付けられたSDKリクエストを見つけます。
   - トリガーされたアプリ内メッセージをリクエストするためのアプリであれば、**Response Data**の**Requested Responses**フィールドに `trigger` が表示されます。
@@ -50,17 +50,17 @@ SDKはセッション開始時にBrazeサーバーからアプリ内メッセー
 
 ### メッセージが返されない問題のトラブルシューティング {#troubleshoot-messages-not-being-returned}
 
-アプリ内メッセージが返されない場合、Campaignターゲティングの問題が発生している可能性があります。
+アプリ内メッセージが返されない場合、キャンペーンターゲティングの問題が発生している可能性があります。
 
-- Segmentにユーザーが含まれていない。
-  - ユーザーの[**エンゲージメント**]({{ site.baseurl }}/user_guide/audience/manage_audience/user_profiles/#engagement-tab)タブを確認し、**Segments**欄に正しいSegmentが表示されているか確認します。
+- セグメントにユーザーが含まれていない。
+  - ユーザーの[**エンゲージメント**]({{ site.baseurl }}/user_guide/audience/manage_audience/user_profiles/#engagement-tab)タブを確認し、**セグメント**欄に正しいセグメントが表示されているか確認します。
 - ユーザーが以前にアプリ内メッセージを受け取ったことがあり、再度受け取る資格がなかった。
-  - **Campaign Composer**の**配信**ステップにある[Campaignの再適格性設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/)を確認し、再適格性設定がテスト設定と一致していることを確認します。
-- ユーザーがCampaignのフリークエンシーキャップに達した。
-  - Campaignの[フリークエンシーキャップ設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping)を確認し、テスト設定と一致していることを確認します。
-- Campaignにコントロールグループが存在した場合、ユーザーがコントロールグループに分類された可能性があります。
-  - Campaignバリアントが**コントロール**に設定されている受信Campaignバリアントフィルターでセグメントを作成し、ユーザーがそのSegmentに分類されたかどうかを確認することで、これが発生したかどうかを確認できます。
-  - 統合テスト目的でCampaignを作成する場合は、コントロールグループの追加をオプトアウトしてください。
+  - **キャンペーン Composer**の**配信**ステップにある[キャンペーンの再適格性設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/)を確認し、再適格性設定がテスト設定と一致していることを確認します。
+- ユーザーがキャンペーンのフリークエンシーキャップに達した。
+  - キャンペーンの[フリークエンシーキャップ設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping)を確認し、テスト設定と一致していることを確認します。
+- キャンペーンにコントロールグループが存在した場合、ユーザーがコントロールグループに分類された可能性があります。
+  - キャンペーンバリアントが**コントロール**に設定されている受信キャンペーンバリアントフィルターでセグメントを作成し、ユーザーがそのセグメントに分類されたかどうかを確認することで、これが発生したかどうかを確認できます。
+  - 統合テスト目的でキャンペーンを作成する場合は、コントロールグループの追加をオプトアウトしてください。
 
 ### アプリ内メッセージ表示 {#troubleshooting-in-app-message-display}
 

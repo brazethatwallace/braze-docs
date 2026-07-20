@@ -3,7 +3,7 @@ nav_title: Blocs de contenu
 article_title: Blocs de contenu
 alias: "/dnd/content_blocks/"
 page_order: 4
-description: "Découvrez comment créer, utiliser et gérer des blocs de contenu réutilisables dans vos campagnes et Canvas Braze."
+description: "Découvrez comment créer, utiliser et gérer des blocs de contenu réutilisables dans vos Campaigns et Canvas Braze."
 page_type: reference
 tool:
   - Templates
@@ -13,7 +13,7 @@ tool:
 
 # Blocs de contenu {#content-blocks}
 
-> Les blocs de contenu vous permettent de gérer du contenu réutilisable et cross-canal depuis un emplacement unique et centralisé. Utilisez-les pour créer une apparence cohérente dans vos campagnes, distribuer les mêmes codes promotionnels sur différents canaux, ou créer des ressources prédéfinies pour un envoi de messages cohérent à grande échelle. Vous pouvez également créer et gérer vos blocs de contenu [via l'API]({{site.baseurl}}/api/endpoints/templates).
+> Les blocs de contenu vous permettent de gérer du contenu réutilisable et cross-canal depuis un emplacement unique et centralisé. Utilisez-les pour créer une apparence cohérente dans vos Campaigns, distribuer les mêmes codes promotionnels sur différents canaux, ou créer des ressources prédéfinies pour un envoi de messages cohérent à grande échelle. Vous pouvez également créer et gérer vos blocs de contenu [via l'API]({{site.baseurl}}/api/endpoints/templates).
 
 ## Créer un bloc de contenu {#create-a-content-block}
 
@@ -40,7 +40,7 @@ Chaque bloc de contenu glisser-déposer est limité à une seule ligne. Cependan
 
 | Attribut du bloc de contenu | Spécifications |
 |---|---|
-| Nom | Champ requis avec un maximum de 100 caractères. Il ne peut pas être renommé après l'enregistrement du bloc de contenu. De plus, vous ne pouvez pas donner à un nouveau bloc de contenu le même nom qu'un bloc de contenu précédent, même si ce dernier a été archivé. |
+| Nom | Champ requis avec un maximum de 100 caractères. Les noms de blocs de contenu ne peuvent contenir que des lettres (A-Z), des chiffres (0-9), des tirets (`-`) et des underscores (`_`). Les espaces et autres caractères spéciaux ne sont pas autorisés et sont automatiquement convertis (par exemple, les espaces sont remplacés par des underscores). Les noms ne peuvent pas être modifiés après l'enregistrement du bloc de contenu, et vous ne pouvez pas réutiliser le nom d'un bloc de contenu précédent, même s'il a été archivé. |
 | Description | (facultatif) Maximum de 250 caractères. Décrivez le bloc de contenu afin que les autres utilisateurs de Braze sachent à quoi il sert et où il est utilisé. |
 | Taille du contenu | Maximum de 50 Ko. |
 | Emplacement | Les blocs de contenu ne peuvent pas être utilisés dans un pied de page d'e-mail, mais vous pouvez [créer un bloc de contenu qui inclut un pied de page](#email-footers) pour l'utiliser dans vos e-mails. |
@@ -85,8 +85,8 @@ Pour insérer un bloc de contenu à l'aide de Liquid :
 
 Dans l'éditeur glisser-déposer, vous pouvez également ajouter un bloc de contenu via le panneau **Personalization** :
 
-1. Accédez à votre campagne e-mail et sélectionnez **Edit Email Body**.
-2. Cliquez sur <i class="fas fa-plus" aria-label="Ajouter une personnalisation"></i> **Personalization**.
+1. Accédez à votre Campaign e-mail et sélectionnez **Edit Email Body**.
+2. Cliquez sur <i class="fas fa-plus"></i> **Personalization**.
 3. Sélectionnez **Content Blocks** dans le menu déroulant **Personalization Type**.
 4. Sélectionnez le nom de votre bloc de contenu dans le champ **Attribute**.
 5. Copiez et collez l'extrait de code Liquid dans un bloc éditeur de texte. <br>![L'onglet Add Personalization avec ses options.]({% image_buster /assets/img_archive/dnd_content_block_personalization.png %}){: style="max-width:30%;"}
@@ -99,11 +99,11 @@ Les blocs de contenu insérés via Liquid **sont liés** au bloc de contenu d'or
 
 - L'utilisation de blocs de contenu HTML dans des e-mails glisser-déposer **ou** de blocs de contenu glisser-déposer dans des e-mails HTML peut entraîner des problèmes de rendu inattendus. En effet, l'éditeur glisser-déposer génère du HTML et du CSS qui rendent le contenu de manière dynamique, tandis que l'éditeur HTML est plus statique.
 - Si vous insérez un bloc de contenu glisser-déposer à l'aide de Liquid, Braze n'inclut pas les styles provenant du `<head>` HTML du bloc. Les styles responsifs, tels que le CSS spécifique aux appareils mobiles, peuvent ne pas s'afficher comme prévu. Si le bloc repose sur du CSS responsif, ajoutez ce CSS au message ou au modèle qui inclut le bloc de contenu.
-- Les propriétés d'événement Canvas ne sont prises en charge que dans un Canvas. Si vous référencez un bloc de contenu avec des propriétés d'entrée Canvas dans une campagne, elles ne seront pas renseignées.
+- Les propriétés d'événement Canvas ne sont prises en charge que dans un Canvas. Si vous référencez un bloc de contenu avec des propriétés d'entrée Canvas dans une Campaign, elles ne seront pas renseignées.
 
 ## Prévisualiser les blocs de contenu {#preview-content-blocks}
 
-Après avoir ajouté un bloc de contenu dans une campagne ou un Canvas actif, vous pouvez le prévisualiser depuis la bibliothèque de blocs de contenu en survolant le bloc de contenu et en sélectionnant l'icône <i class="fa fa-eye preview-icon" aria-label="Prévisualiser"></i> **Preview**.
+Après avoir ajouté un bloc de contenu dans une Campaign ou un Canvas actif, vous pouvez le prévisualiser depuis la bibliothèque de blocs de contenu en survolant le bloc de contenu et en sélectionnant l'icône <i class="fa fa-eye preview-icon"></i> **Preview**.
 
 Cette prévisualisation inclut des informations sur le bloc de contenu telles que son créateur, les étiquettes, la date de création, la date de dernière modification, la description, le type d'éditeur, le nombre d'inclusions avec les détails (une liste cliquable des messages ou blocs de contenu qui utilisent ce bloc de contenu), ainsi qu'un aperçu réel du bloc de contenu.
 

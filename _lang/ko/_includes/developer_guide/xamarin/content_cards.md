@@ -4,17 +4,17 @@ Braze .NET MAUI(구 Xamarin) SDK에는 Content Cards를 시작하는 데 도움�
 
 {% multi_lang_include developer_guide/prerequisites/xamarin.md %}
 
-## 카드 유형 및 등록정보 {#card-types-and-properties}
+## 카드 유형 및 속성정보 {#card-types-and-properties}
 
-Braze .NET MAUI SDK에는 기본 모델을 공유하는 세 가지 고유한 Content Cards 카드 유형이 있습니다: [배너](#xamarin_banner), [캡션 이미지](#xamarin_captioned-image), [클래식](#xamarin_classic). 각 유형은 기본 모델에서 공통 등록정보를 상속하며 다음과 같은 추가 등록정보가 있습니다.
+Braze .NET MAUI SDK에는 기본 모델을 공유하는 세 가지 고유한 Content Cards 카드 유형이 있습니다: [배너](#xamarin_banner), [캡션 이미지](#xamarin_captioned-image), [클래식](#xamarin_classic). 각 유형은 기본 모델에서 공통 속성정보를 상속하며 다음과 같은 추가 속성정보가 있습니다.
 
 ### 기본 카드 모델 {#base-card-model}
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |-------------------|------------------------------------------------------------------------------------------------------------------------|
 | `idString` | Braze에서 설정한 카드의 ID입니다. |
-| `created` | Braze에서 카드가 생성된 시간의 Unix 타임스탬프입니다. |
-| `expiresAt` | 카드 만료 시간의 Unix 타임스탬프입니다. 값이 0보다 작으면 카드가 만료되지 않는다는 의미입니다. |
+| `created` | Braze에서 카드가 생성된 시간의 UNIX 타임스탬프입니다. |
+| `expiresAt` | 카드 만료 시간의 UNIX 타임스탬프입니다. 값이 0보다 작으면 카드가 만료되지 않는다는 의미입니다. |
 | `viewed` | 사용자가 카드를 읽었는지 또는 읽지 않았는지 여부입니다. 이는 분석을 기록하지 않습니다. |
 | `clicked` | 사용자가 카드를 클릭했는지 여부입니다. |
 | `pinned` | 카드가 고정되어 있는지 여부입니다. |
@@ -33,10 +33,10 @@ Braze .NET MAUI SDK에는 기본 모델을 공유하는 세 가지 고유한 Con
 
 배너 카드는 클릭 가능한 전체 크기 이미지입니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
 | `image` | 카드 이미지의 URL입니다. |
-| `imageAspectRatio` | 카드 이미지의 종횡비입니다. 이미지 로드가 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 등록정보가 제공되지 않을 수 있습니다. |
+| `imageAspectRatio` | 카드 이미지의 종횡비입니다. 이미지 로드가 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 속성정보가 제공되지 않을 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Banner" }
 
 배너 카드에 대한 전체 참조는 [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html) 및 [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct) 설명서(현재 이미지 전용으로 이름이 변경됨)를 참조하세요.
@@ -45,27 +45,27 @@ Braze .NET MAUI SDK에는 기본 모델을 공유하는 세 가지 고유한 Con
 
 캡션 이미지 카드는 클릭 가능한 전체 크기 이미지로, 설명 텍스트가 함께 제공됩니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
 | `image` | 카드 이미지의 URL입니다. |
-| `imageAspectRatio` | 카드 이미지의 종횡비입니다. 이미지 로드가 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 등록정보가 제공되지 않을 수 있습니다. |
+| `imageAspectRatio` | 카드 이미지의 종횡비입니다. 이미지 로드가 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 속성정보가 제공되지 않을 수 있습니다. |
 | `title` | 카드의 제목 텍스트입니다. |
 | `cardDescription` | 카드의 설명 텍스트입니다. |
-| `domain` | (선택 사항) 등록정보 URL의 링크 텍스트(예: `"braze.com/resources/"`). 카드의 UI에 표시되어 카드를 클릭할 때의 동작과 방향을 나타낼 수 있습니다. |
+| `domain` | (선택 사항) 속성정보 URL의 링크 텍스트(예: `"braze.com/resources/"`). 카드의 UI에 표시되어 카드를 클릭할 때의 동작과 방향을 나타낼 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
 
 캡션 이미지 카드에 대한 전체 참조는 [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) 및 [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct) 설명서를 참조하세요.
 
 ### 클래식 {#xamarin_classic}
 
-클래식 카드에는 텍스트 왼쪽에 제목, 설명, 이미지(선택 사항)가 있습니다.
+클래식 카드에는 텍스트 앞에 제목, 설명, 이미지(선택 사항)가 있습니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
 | `image` | (선택 사항) 카드 이미지의 URL입니다. |
 | `title` | 카드의 제목 텍스트입니다. |
 | `cardDescription` | 카드의 설명 텍스트입니다. |
-| `domain` | (선택 사항) 등록정보 URL의 링크 텍스트(예: `"braze.com/resources/"`). 카드의 UI에 표시되어 카드를 클릭할 때의 동작과 방향을 나타낼 수 있습니다. |
+| `domain` | (선택 사항) 속성정보 URL의 링크 텍스트(예: `"braze.com/resources/"`). 카드의 UI에 표시되어 카드를 클릭할 때의 동작과 방향을 나타낼 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
 
 클래식(텍스트 알림) Content Card에 대한 전체 참조는 [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) 및 [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct) 설명서를 참조하세요. 클래식 이미지(짧은 뉴스) 카드에 대한 전체 참조는 [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) 및 [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct) 설명서를 참조하세요.

@@ -18,7 +18,7 @@ channel:
 | --- | --- |
 | Cuenta de Infobip | Se requiere una cuenta de Infobip para usar el conector BYO WhatsApp.
 | Créditos de mensaje o acción | Consumes créditos de acción de Braze cuando envías mensajes de WhatsApp. |
-| Requisitos de WhatsApp | Completa todos los [requisitos de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites). |
+| Requisitos de WhatsApp | Completa todos los [requisitos de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#prerequisites). |
 | Número de teléfono | Te sugerimos [adquirir un número de teléfono a través de Infobip](https://www.infobip.com/docs/numbers/getting-started) por conveniencia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
@@ -30,9 +30,9 @@ Antes de configurar el conector BYO WhatsApp, confirma que los envíos anteriore
 
 - La cuenta de WhatsApp Business y el número de teléfono nunca se han conectado a un socio antes.
 - La cuenta de WhatsApp Business está conectada directamente a Braze a través de la integración nativa.
-    - Sigue los pasos en [Migración de número de teléfono de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number/) para migrar tus números de teléfono a una nueva cuenta de WhatsApp Business, un número de teléfono a la vez.
+    - Sigue los pasos en [Migración de número de teléfono de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) para migrar tus números de teléfono a una nueva cuenta de WhatsApp Business, un número de teléfono a la vez.
 - La cuenta de WhatsApp Business está conectada a un proveedor de soluciones diferente de Braze e Infobip.
-    - Sigue los pasos en [Migración de número de teléfono de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number/) para migrar tus números de teléfono a una nueva cuenta de WhatsApp Business, un número de teléfono a la vez.
+    - Sigue los pasos en [Migración de número de teléfono de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) para migrar tus números de teléfono a una nueva cuenta de WhatsApp Business, un número de teléfono a la vez.
 
 ## Paso 1: Recuperar la información de la cuenta de Infobip {#step-1}
 
@@ -72,7 +72,7 @@ Antes de configurar el conector BYO WhatsApp, confirma que los envíos anteriore
 {: start="3"}
 3. Ingresa la clave de API y la URL base del [Paso 1](#step-1).
 4. Selecciona **Connect**.
-5. Continúa con el [flujo de trabajo de registro integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/#whatsapp-embedded-signup-workflow) con estas consideraciones:
+5. Continúa con el [flujo de trabajo de registro integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup#whatsapp-embedded-signup-workflow) con estas consideraciones:
 - No puedes seleccionar el mismo portafolio de negocios que utiliza un proveedor de soluciones de negocio diferente.
 - No puedes seleccionar un número de teléfono que esté siendo utilizado por otro proveedor de soluciones de negocio.
 - Debes crear un nuevo WABA, no seleccionar uno existente.
@@ -92,8 +92,8 @@ Conecta cada cuenta de WhatsApp Business a una sola cuenta de Infobip. Cada vez 
 ## Paso 3: Envío de mensajes {#step-3-sending-messages}
 
 Sigue el proceso de envío de la integración nativa, incluyendo:
-- [Suscribir usuarios al grupo de suscripción]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)
-- [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)
+- [Suscribir usuarios al grupo de suscripción]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)
+- [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)
 
 ## Solución de problemas de configuración {#troubleshooting-setup}
 

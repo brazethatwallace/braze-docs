@@ -18,7 +18,7 @@ platform:
 
 アプリ内メッセージは、SDKが以下のカスタムイベントタイプのいずれかをログに記録したときにトリガーされます: `Session Start`、`Push Click`、`Any Purchase`、`Specific Purchase`、`Custom Event`（最後の2つは堅牢なプロパティフィルターを含みます）。
 
-ユーザーのセッション開始時に、Brazeは対象となるすべてのアプリ内メッセージをユーザーのデバイスに配信し、同時にアセットをプリフェッチして表示レイテンシーを最小化します。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。詳しくは[セッションライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle)を参照してください。
+ユーザーのセッション開始時に、Brazeは対象となるすべてのアプリ内メッセージをユーザーのデバイスに配信し、同時にアセットをプリフェッチして表示レイテンシーを最小化します。トリガーイベントに複数の適格なアプリ内メッセージがある場合、最も優先度の高いメッセージのみが配信されます。詳しくは[セッションライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions)を参照してください。
 
 {% alert note %}
 アプリ内メッセージは、APIまたはAPIイベントによってトリガーすることはできません&#8212;SDKによってログに記録されるカスタムイベントによってのみトリガーされます。ロギングの詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events)を参照してください。
@@ -26,7 +26,7 @@ platform:
 
 ## アプリ内メッセージのタイプ {#types-of-in-app-messages}
 
-Brazeは、セッション開始時にユーザーのデバイスに以下のタイプのアプリ内メッセージを送信します: `inapp`と`templated_iam`。ダッシュボードユーザーとしては異なるタイプを目にすることはありませんが、Brazeはセットアップとコンテンツに応じてそれらを異なる方法で処理します。
+Brazeは、セッション開始時にユーザーのデバイスに以下のタイプのアプリ内メッセージを送信します: `inapp`と`templated_iam`。ダッシュボードユーザーとしては異なるタイプを目にすることはありませんが、Brazeは設定とコンテンツに応じてそれらを異なる方法で処理します。
 
 ### `inapp`（標準） {#inapp-standard}
 
@@ -40,7 +40,7 @@ Brazeは、セッション開始時にユーザーのデバイスに以下のタ
 
 ## キーと値のペア {#key-value-pairs}
 
-BrazeでCampaignを作成する際、キーと値のペアを`extras`として設定できます。アプリ内メッセージングオブジェクトはこれを使用してアプリにデータを送信できます。
+Brazeでキャンペーンを作成する際、キーと値のペアを`extras`として設定できます。アプリ内メッセージングオブジェクトはこれを使用してアプリにデータを送信できます。
 
 {% tabs %}
 {% tab web %}
@@ -385,7 +385,7 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 
 以下の例では、イベントプロパティを最初のサイレントプッシュの一部として送信することで、トリガーされる特定のアプリ内メッセージが設定されています。
 
-![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースのアプリ内メッセージキャンペーン。「campaign_name」が「IAM Campaign Name Example」と等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースのアプリ内メッセージキャンペーン。「campaign_name」が「IAM キャンペーン Name Example」と等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
 これらのアプリ内メッセージは、アプリケーションがフォアグラウンドにある間にサイレントプッシュが受信された場合にのみトリガーされます。

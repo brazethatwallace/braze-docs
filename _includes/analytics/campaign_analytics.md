@@ -14,7 +14,7 @@ Looking for definitions for the terms and metrics listed in your report? Refer t
   {% elsif include.channel == "webhook" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) and filter by Webhook.{% endif %}
 {% endalert %}
 
-From the **Campaign Analytics** tab, you can view your reports in a series of panels. You may see more or less than those listed in the sections below, but each has its own useful purpose.
+From the **Campaign Analytics** tab, you can view your reports in a series of panels. You may see more or less than those listed in the following sections, but each has its own useful purpose.
 
 ### Time range
 
@@ -185,6 +185,13 @@ The **Webhook Performance** panel outlines how well your message has performed a
 The **WhatsApp Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 
 ![WhatsApp performance panel that includes a table of metrics for Variant 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
+
+#### Credits versus send counts
+
+WhatsApp send counts in campaign analytics reflect delivery attempts. Credits consumed may differ when Meta bills by message category (marketing, utility, authentication, service).
+
+- Response messages composed in Braze don't consume Braze WhatsApp credits.
+- Use **Analytics** > **Daily Stats** for directional send volume. Credit breakdowns per campaign or Canvas aren't available.
 
 {% endif %}
 
@@ -365,6 +372,12 @@ As another example, suppose you see five _Unique Impressions_ on a Banner campai
 
 _Unique Daily Impressions_ refers to the Banners that were actually seen.
 
+#### Discrepancies between control groups and variants
+
+When a Banner campaign uses a control group, control group impressions can be higher than variant impressions, even when the audience split between groups is even. This discrepancy is caused by a difference in how impressions are logged for control and variant Banners.
+
+Both control and variant impressions require the Banner placement to enter the viewport. Variant impressions are logged only when the full Banner is visible on screen. Control impressions can be logged as soon as the placement enters the viewport, before the full Banner would be visible for a variant.
+
 {% elsif include.channel == "email" %}
 
 #### Email metrics
@@ -455,10 +468,10 @@ _Deliveries_ can rise during your email service provider (ESP) retry window whil
 
 When reviewing your email analytics, keep these patterns in mind:
 
-- **Gap between _Sends_ and (_Deliveries_ + _Hard Bounces_):** During the ESP retry window after a one-time send, this gap often reflects soft bounces or deferrals still being retried. After retries finish, any remaining gap usually means messages that soft bounced and were never delivered—those sends are not counted toward campaign _Deliveries_ or _Bounces_. Use the formula above to approximate in-flight soft bounces.
+- **Gap between _Sends_ and (_Deliveries_ + _Hard Bounces_):** During the ESP retry window after a one-time send, this gap often reflects soft bounces or deferrals still being retried. After retries finish, any remaining gap usually means messages that soft bounced and were never delivered—those sends are not counted toward campaign _Deliveries_ or _Bounces_. Use the formula in [Deliveries and bounces](#deliveries-and-bounces) to approximate in-flight soft bounces.
 - **Low _Deliveries_ after retries finish:** If delivery rates stay low once retries have finished, compare this send's volume to your typical patterns. Mailbox providers may defer, throttle, or soft bounce mail when volume spikes relative to your sender reputation. You may see messages such as `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Use [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) to pace large sends, and refer to [Throttled IPs]({{site.baseurl}}/user_guide/channels/email/reporting/#throttled-ips) for additional troubleshooting steps.
-- **Soft bounces and deferrals not shown in campaign analytics:** Campaign analytics highlight _Hard Bounces_ but do not include _Soft Bounces_ or _Deferrals_ as separate columns. Monitor these events in the Message Activity Log, with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced), or through Currents deferral events. For how retries work, see [Deferrals](#deferrals) below.
-- **Delivery percentages that may not add up to 100%:** _Deliveries %_, _Bounce %_, and _Spam Rate %_ may not sum to 100% of _Sends_. Messages that soft bounce and are never delivered after the ESP retry window are not counted in campaign _Deliveries_ or _Bounces_, so they can leave a portion of _Sends_ unaccounted for in those rates. Wait until retries finish before judging final delivery performance, or use the formula above to estimate how many sends are still in retry.
+- **Soft bounces and deferrals not shown in campaign analytics:** Campaign analytics highlight _Hard Bounces_ but do not include _Soft Bounces_ or _Deferrals_ as separate columns. Monitor these events in the Message Activity Log, with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced), or through Currents deferral events. For how retries work, see [Deferrals](#deferrals).
+- **Delivery percentages that may not add up to 100%:** _Deliveries %_, _Bounce %_, and _Spam Rate %_ may not sum to 100% of _Sends_. Messages that soft bounce and are never delivered after the ESP retry window are not counted in campaign _Deliveries_ or _Bounces_, so they can leave a portion of _Sends_ unaccounted for in those rates. Wait until retries finish before judging final delivery performance, or use the formula in [Deliveries and bounces](#deliveries-and-bounces) to estimate how many sends are still in retry.
 
 ##### Clicks without an open event
 
@@ -496,11 +509,11 @@ Deferred or deferral is when an email was not immediately delivered, but Braze r
 
 _Deferrals_ differ from _Soft Bounces_. If no email was successfully delivered during this retry period, Braze will send one soft bounce event per attempted campaign sent. Before February 25, 2025, these retries were counted as multiple soft bounces for 1 campaign send.
 
-Note that _Deferrals_ are currently only available using Currents or Braze Snowflake features (such as Query Builder, SQL Segment, Snowflake Data Sharing). If you’d like to include this in campaign or Canvas analytics, please [submit product feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Note that _Deferrals_ are currently only available using Currents or Braze Snowflake features (such as Query Builder, SQL Segment, Snowflake Data Sharing). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Estimated real open rate {#estimated-real-open-rate}
 
-This statistic uses a proprietary analytical model created by Braze to reconstruct an estimate of the campaign's unique open rate as if machine opens did not exist. While we receive labels of *Machine Opens* on some open events from email senders (see above), these labels can often label actual opens as machine opens. In other words, the *Other Opens* are likely an underestimate of real opens (by actual users). Instead, Braze uses click data from each campaign to infer the rate at which actual humans opened the message. This compensates for various machine opening mechanisms, including Apple’s MPP.
+This statistic uses a proprietary analytical model created by Braze to reconstruct an estimate of the campaign's unique open rate as if machine opens did not exist. While we receive labels of *Machine Opens* on some open events from email senders, these labels can often label actual opens as machine opens. In other words, the *Other Opens* are likely an underestimate of real opens (by actual users). Instead, Braze uses click data from each campaign to infer the rate at which actual humans opened the message. This compensates for various machine opening mechanisms, including Apple’s MPP.
 
 _Estimated Real Open Rate_ is calculated 24 hours after email sending has begun and is recalculated every 72 hours thereafter.
 
@@ -593,9 +606,9 @@ Reporting for _Button 1 Clicks_ and _Button 2 Clicks_ only works when you specif
     </tbody>
 </table>
 
-#### Discrepancies between control groups and variants
+#### Discrepancies between control groups and variants {#discrepancies-between-control-groups-and-variants}
 
-When an in-app message campaign has a 50-50 variant split, sometimes the control group will have a slightly higher percentage than the variant (such as 51% for the control group and 49% for the variant). This discrepancy is caused by a difference in rendering time.
+When an in-app message campaign has a 50-50 variant split, sometimes the control group has a slightly higher percentage than the variant (such as 51% for the control group and 49% for the variant). This discrepancy is caused by a difference in rendering time—for example, when variant messages use large images or templated Connected Content and users leave before rendering completes, while the control group logs impressions without displaying a message.
 
 The distribution between control and variant groups is intended to be roughly even, but assignment to a variant occurs when the in-app message is actually sent to the device. Some users may never trigger the in-app message (for example, they never perform the action that triggers the required custom event), which can cause differences in group sizes.
 
@@ -690,7 +703,7 @@ For a different workaround, we also recommend creating a custom event for push u
 
 ##### Understanding opens
 
-Even though _Direct Opens_ and _Influenced Opens_ include the word "opens", they're actually different metrics. _Direct Opens_ refers to the direct opening of a push notification, as stated in the table above. _Influenced Opens_ refers to the opening of an app, without opening a push notification within a specific time frame after receiving it. So, _Influenced Opens_ refers to the app opens, not push notification opens.
+Even though _Direct Opens_ and _Influenced Opens_ include the word "opens", they're actually different metrics. _Direct Opens_ refers to the direct opening of a push notification. _Influenced Opens_ refers to the opening of an app, without opening a push notification within a specific time frame after receiving it. So, _Influenced Opens_ refers to the app opens, not push notification opens.
 
 ##### Push action buttons and reporting {#push-action-buttons-and-reporting}
 
@@ -867,6 +880,8 @@ Here are some key WhatsApp metrics you may see in your analytics. To see the ful
     </tbody>
 </table>
 
+If failures are elevated, see [Investigate WhatsApp send failures]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### End-user blocking and reporting metrics
 
 Additional metrics may be accessed via the [WhatsApp Manager dashboard](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), though [confirmation of your access](https://www.facebook.com/business/help/218116047387456) is necessary to access all available insights. 
@@ -899,7 +914,7 @@ The **Keyword Responses** panel shows you a timeline of the inbound keywords use
 
 Here, you can also view the response distribution of each keyword category to determine next steps for [retargeting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) and to conveniently [create a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
-![The table below the line graph that has columns for Keyword Category, Response Distribution, and Retargeting, where you are given the option to create a segment with the keyword category.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![A table that has columns for Keyword Category, Response Distribution, and Retargeting, where you are given the option to create a segment with the keyword category.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 
@@ -935,7 +950,7 @@ In addition to Braze analytics, template-level analytics can be accessed in the 
 
 ### SMS Currents events
 
-Like email, Braze receives user-level events related to an SMS message as it makes its journey to a user. Any inbound SMS event will also be sent as a Currents event through the [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) event. This allows you to perform additional actions or reporting on the messages your users are texting in outside of the Braze platform. 
+Like email, Braze receives user-level events related to an SMS message as it makes its journey to a user. Any inbound SMS event will also be sent as a Currents event through the [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) event. This allows you to perform additional actions or reporting on the messages your users are texting in outside of the Braze platform. 
 
 {% alert note %}
 Inbound messages are truncated past 1,600 characters.

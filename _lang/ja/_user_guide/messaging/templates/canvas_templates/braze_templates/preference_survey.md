@@ -3,7 +3,7 @@ nav_title: プリファレンス調査によるオンボーディング
 article_title: プリファレンス調査によるオンボーディング
 page_order: 5.5
 page_type: reference
-description: "この記事では、Braze キャンバステンプレートを使用して、新規ユーザーにブランドを紹介し、プリファレンスを収集して長期的なエンゲージメントを維持するガイド付きオンボーディングフローで早期導入を促進する方法について説明します。"
+description: "この記事では、Braze Canvasテンプレートを使用して、新規ユーザーにブランドを紹介し、プリファレンスを収集して長期的なエンゲージメントを維持するガイド付きオンボーディングフローで早期導入を促進する方法について説明します。"
 tool: Canvas
 ---
 
@@ -20,11 +20,11 @@ tool: Canvas
 - ユーザーにオンボーディングの開始を促すウェルカムメール。
 - オンボーディングを完了したユーザー向けに、アプリの使い始めのヒントを含むフォローアップメール。
 - ユーザーにオンボーディングの完了を促すフォローアップメール。
-- ユーザーのプリファレンスを判断するための複数の質問を含む[調査]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey/)。
+- ユーザーのプリファレンスを判断するための複数の質問を含む[調査]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey)。
 
 ## テンプレートをニーズに合わせてカスタマイズする {#tailoring-the-template-to-your-needs}
 
-ここでは、StyleRydeというオンデマンドのライドシェアリングアプリで作業しているとしましょう。このアプリは、ユーザーを目的地まで届けるサービスです。キャンバスを作成する前に、アプリでの初回乗車の体験とインプレッションを判断するための一連の質問を含む[シンプルな調査を設定]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)します。
+ここでは、StyleRydeというオンデマンドのライドシェアリングアプリで作業しているとしましょう。このアプリは、ユーザーを目的地まで届けるサービスです。キャンバスを作成する前に、アプリでの初回乗車の体験とインプレッションを判断するための一連の質問を含む[シンプルな調査を設定]({{site.baseurl}}/user_guide/data/activation/catalogs/create)します。
 
 テンプレートにアクセスするには、新しいキャンバスを作成する際に、**キャンバステンプレートを使用** > **Brazeテンプレート**を選択します。次に、**プリファレンス調査によるオンボーディング**の横にある**テンプレートを適用**を選択します。これで、テンプレートをニーズに合わせて調整できます。
 
@@ -32,14 +32,14 @@ tool: Canvas
 
 目標を反映するようにキャンバスの詳細を調整しましょう。
 
-1. テンプレート名の横にある**Edit**を選択します。
+1. テンプレート名の横にある**編集**を選択します。
 
 ![キャンバスの現在のタイトルと説明。]({% image_buster /assets/img/canvas_templates/preference_survey1.png %}){: style="max-width:50%;"}
 
 {:start="2"}
 2. キャンバス名を更新して、このキャンバスが初めてアプリを使用する新規ユーザーをターゲットにしていることを明示します。
 3. 説明を更新して、このキャンバスにパーソナライズされたメッセージングが含まれていることを説明します。
-4. **Onboarding**タグを追加して、キャンバスホームページでフィルタリングできるようにします。
+4. **オンボーディング**タグを追加して、キャンバスホームページでフィルタリングできるようにします。
 
 ![キャンバスの新しい名前、説明、タグ。]({% image_buster /assets/img/canvas_templates/preference_survey2.png %}){: style="max-width:90%;"}
 
@@ -101,8 +101,8 @@ tool: Canvas
 
 ### ステップ 7: キャンバスをテストして起動する {#step-7-test-and-launch-your-canvas}
 
-キャンバスをテストして確認し、期待どおりに動作することを確認したら、**Launch キャンバス**を選択して起動します。
+キャンバスをテストして確認し、期待どおりに動作することを確認したら、**キャンバスを起動**を選択して起動します。
 
 {% alert tip %}
-キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)をご覧ください。
+キャンバスの起動前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)をご覧ください。
 {% endalert %}

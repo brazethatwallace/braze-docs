@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## Wie erstelle ich eine Multichannel-Kampagne? {#how-do-i-create-a-multichannel-campaign}
 
-Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Kampagnen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Campaign erstellen**.
+Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Kampagnen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) in **Campaign erstellen**.
 
 ### Kann ich meiner Multichannel-Kampagne eine Kontrollgruppe hinzufügen? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
@@ -52,7 +52,7 @@ Informationen dazu finden Sie unter [Conversions und Berichterstattung]({{site.b
 
 ### Warum hat meine Campaign eine kleinere erreichbare Nutzerbasis als das Segment, das ich für die Campaign verwende? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
-Wenn Sie eine [Globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) eingerichtet haben, verhindert diese, dass ein Prozentsatz Ihrer erreichbaren Zielgruppe Campaigns erhält. Das bedeutet, dass die Anzahl der erreichbaren Nutzer:innen für Ihr Segment manchmal größer sein kann als die Anzahl der erreichbaren Nutzer:innen für Ihre Campaign, selbst wenn die Campaign dasselbe Segment verwendet.
+Wenn Sie eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) eingerichtet haben, verhindert diese, dass ein Prozentsatz Ihrer erreichbaren Zielgruppe Campaigns erhält. Das bedeutet, dass die Anzahl der erreichbaren Nutzer:innen für Ihr Segment manchmal größer sein kann als die Anzahl der erreichbaren Nutzer:innen für Ihre Campaign, selbst wenn die Campaign dasselbe Segment verwendet.
 
 ### Was bietet die Zustellung nach Ortszeit? {#what-does-local-time-zone-delivery-offer}
 
@@ -162,7 +162,7 @@ Um dies zu vermeiden, stellen Sie sicher, dass Ihre Updates angepasster Attribut
 
 ### Warum stimmt die Anzahl der Nutzer:innen, die in eine Campaign eintreten, nicht mit der erwarteten Anzahl überein? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-Die Anzahl der Nutzer:innen, die in eine Campaign eintreten, kann von Ihrer erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (es sei denn, es wird ein [Änderung eines Attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)-Trigger verwendet). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie nicht zunächst Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die in eine Campaign eintreten, kann von Ihrer erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (es sei denn, es wird ein Trigger vom Typ [Änderung eines Attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value) verwendet). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie nicht zunächst Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 {% alert tip %}
 Für weitere Unterstützung bei der Fehlerbehebung von Campaigns wenden Sie sich bitte innerhalb von 30 Tagen nach Auftreten Ihres Problems an den Braze-Support, da uns nur die Diagnoseprotokolle der letzten 30 Tage zur Verfügung stehen.
@@ -258,14 +258,14 @@ Mehrere Faktoren können dazu führen, dass die Anzahl der Sendungen niedriger i
 - **Aktionsbasierte Zustellung:** Nutzer:innen generieren Sendungen erst, nachdem sie den Trigger ausgeführt haben, sodass sich Sendungen über die Zeit ansammeln und hinter der anfänglichen Schätzung zurückbleiben können, die beim Erstellen der Campaign angezeigt wurde.
 - **Zielgruppenänderungen nach dem Start:** Das Ändern von Eintritts- oder Zielfiltern nach dem Start kann dazu führen, dass der Snapshot der **geschätzten Zielgruppe** nicht mehr mit den Nutzer:innen übereinstimmt, die bei späteren Sendungen noch qualifiziert sind (z. B. wenn Nutzer:innen nicht erneut eintreten können).
 - **Zielgruppenpfade-Schritt:** Bei Canvas sendet ein [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)-Schritt Nachrichten nur an Nutzer:innen, die dem Branch mit der höchsten Priorität entsprechen, für den sie qualifiziert sind, was die Sendungen im Vergleich zu einer flachen Segment-Zählung reduzieren kann.
-- **Kontrollgruppen:** Wenn eine [Globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) oder eine Kontrollgruppe auf Campaign-Ebene verwendet wird, wird ein Teil der Zielgruppe von der Zustellung ausgeschlossen.
+- **Kontrollgruppen:** Wenn eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) oder eine Kontrollgruppe auf Campaign-Ebene verwendet wird, wird ein Teil der Zielgruppe von der Zustellung ausgeschlossen.
 - **Zustellzeitpunkt und -fenster:** Bei Ortszeit- oder geplanten Campaigns müssen Nutzer:innen sowohl zum Eintritts- als auch zum Sendezeitpunkt qualifiziert sein; Nutzer:innen in bestimmten Zeitzonen können außerhalb des Zustellfensters liegen.
 - **E-Mail-Deduplizierung:** Ihre Campaign oder Ihr Canvas spricht mehrere Nutzer:innen mit übereinstimmenden E-Mail-Adressen an, sodass zum Sendezeitpunkt eine zufällige Nutzerin oder ein zufälliger Nutzer mit dieser E-Mail-Adresse ausgewählt wird. Die Nachricht wird nur einmal gesendet und dedupliziert, sodass sie nicht mehrfach an dieselbe E-Mail-Adresse zugestellt wird, aber Ihre geschätzte Zielgruppengröße alle Nutzer:innen umfasst.
 - **E-Mail-Zustellbarkeitsfilter:** Bei E-Mail-Campaigns schließt Braze Nutzer:innen aus, die einen Hard-Bounce hatten, sich von E-Mails abgemeldet haben, als Spam markiert wurden, keine E-Mail-Adresse in ihrem Profil haben oder nicht bei einer erforderlichen Abo-Gruppe angemeldet sind. Diese Prüfungen werden zum Sendezeitpunkt durchgeführt, sodass eine Nutzerin oder ein Nutzer, die oder der in Ihrem Segment vorhanden ist, trotzdem von der tatsächlichen Sendezählung ausgeschlossen werden kann.
 - **Globales Frequency-Capping:** Workspace-weite Obergrenzen können verhindern, dass berechtigte Nutzer:innen eine weitere Nachricht im selben Zeitfenster erhalten, was die tatsächlichen Sendungen verringert.
 - **Neu importierte Nutzer:innen:** Profile, die gerade erst berechtigt wurden, erhalten die Nachricht möglicherweise erst bei der nächsten Auswertung oder dem nächsten Sendevorgang, sodass die Zahlen bei einem späteren Durchlauf aufholen.
 - **Push-Erreichbarkeit:** Bei Push-Campaigns stellen Sie sicher, dass die Zielgruppe für die richtige App Push-aktiviert ist. Wenn Sie nicht nach Push-aktivierten Nutzer:innen filtern, kann die geschätzte Zielgruppe Profile enthalten, die keinen Push empfangen können. Prüfen Sie **Erreichbare Nutzer:innen** im Schritt **Zielgruppe** für eine genauere operative Schätzung.
-- **Rate-Limiting:** Wenn Rate-Limiting angewendet wird, werden Nachrichten über die Zeit verteilt und einige Sendungen können verzögert werden oder noch nicht in der Zählung berücksichtigt sein.
+- **Rate-Limiting:** Ein [Rate-Limit für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) begrenzt, wie viele Nachrichten Braze pro Minute während eines einzelnen Sendevorgangs versendet. Braze verteilt die Zustellung über ein längeres Zeitfenster, sodass einige Sendungen verzögert werden, noch nicht in der Zählung berücksichtigt sind oder nicht abgeschlossen werden, wenn das Limit im Verhältnis zur berechtigten Zielgruppe niedrig ist.
 - **Fenster für erneute Berechtigung:** Nutzer:innen, die noch nicht erneut berechtigt sind, erhalten die Nachricht während der Abklingzeit nicht erneut, sodass die Sendungen für diesen Zeitraum unter der geschätzten Zielgruppengröße liegen.
 - **Berichtszeitraum:** Der Analytics-Zeitraum umfasst möglicherweise nicht jeden Versand.
 - **Segment-Neubewertung:** Bei aktionsbasierten oder geplanten Campaigns, die zum Sendezeitpunkt neu ausgewertet werden, sind Nutzer:innen, die beim Einreihen der Campaign im Segment waren, möglicherweise nicht mehr qualifiziert, wenn die Nachricht tatsächlich gesendet wird.
@@ -276,6 +276,14 @@ Mehrere Faktoren können dazu führen, dass die Anzahl der Sendungen niedriger i
 
 Für Fragen zu Kalendertagen, stillen Push-Benachrichtigungen, Webhooks, Canvas-Verhalten und verwandten Themen lesen Sie die [Häufig gestellten Fragen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) zu [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 
+### Warum verzeichnet meine Campaign niedrigere Senderaten? {#why-is-my-campaign-experiencing-lower-send-rates}
+
+Wenn Sie feststellen, dass Ihre täglich geplanten Campaigns im Laufe der Zeit an weniger Nutzer:innen senden, prüfen Sie Folgendes:
+
+- **Prüfen Sie, ob die erneute Berechtigung aktiviert ist:** Ohne erneute Berechtigung sendet Braze jeder Nutzerin und jedem Nutzer die Nachricht nur einmal. Bei täglich geplanten Campaigns sind nur Nutzer:innen berechtigt, die der Zielgruppe entsprechen und die Nachricht noch nicht erhalten haben. Da immer mehr Nutzer:innen die Nachricht erhalten, hat jeder spätere Versand weniger berechtigte Nutzer:innen, sodass das Sendevolumen sinkt.
+- **Prüfen Sie, ob die Zielgruppe eine feste Mitgliedschaft hat:** Zielgruppen, die auf einer festen Nutzerliste basieren (z. B. ein [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import), der als Segment-Filter verwendet wird), gewinnen nicht automatisch neue Mitglieder. Ohne neue Eintritte kann sich das Sendevolumen nicht erholen, wenn Nutzer:innen bereits angeschrieben wurden.
+
+Informationen zu [Rate-Limits für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) und anderen Faktoren, die die Sendungen für einen einzelnen Vorgang verringern, finden Sie unter [Warum sind die Sendungen niedriger als die geschätzte Zielgruppengröße?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ### Warum können eindeutige Empfänger:innen die Sendungen bei E-Mail und SMS übersteigen? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 

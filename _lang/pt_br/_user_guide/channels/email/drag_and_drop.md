@@ -144,7 +144,7 @@ Depois de terminar de projetar e construir sua mensagem de e-mail, é hora de ad
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
-Uma pré-visualização no painel à direita será preenchida com as informações de envio que você adicionou. Essas informações também podem ser atualizadas acessando **Settings** > **Email Preferences** > **Sending Configuration**.
+Uma prévia no painel à direita será preenchida com as informações de envio que você adicionou. Essas informações também podem ser atualizadas acessando **Settings** > **Email Preferences** > **Sending Configuration**.
 
 #### Adicionando anexos de e-mail {#add-email-attachments}
 
@@ -158,7 +158,7 @@ Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/be
 
 #### Personalizando o cabeçalho do e-mail (avançado) {#personalize-your-email-header-advanced}
 
-Em **Sending Settings**, você pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail, o que permite enviar dados adicionais de volta para outros prestadores de serviço de e-mail. Personalizar um cabeçalho de e-mail, como incluir o nome do destinatário, também pode contribuir para a probabilidade de seu e-mail ser aberto.
+Em **Sending Settings**, você pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail, o que permite enviar dados adicionais de volta para outros provedores de serviços de e-mail. Personalizar um cabeçalho de e-mail, como incluir o nome do destinatário, também pode contribuir para a probabilidade de seu e-mail ser aberto.
 
 {% alert note %}
 A funcionalidade avançada aparecerá no criador de Campaign ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir pares de chave-valor de cabeçalho ou extras (se configurados).
@@ -169,34 +169,34 @@ A funcionalidade avançada aparecerá no criador de Campaign ou Canvas. Na funci
 Depois de adicionar suas informações de envio, é hora de finalmente testar seu e-mail.
 
 {% alert tip %}
-Se o e-mail parecer diferente no editor do que na pré-visualização ou no envio de teste, confirme que todas as tags estão fechadas, os atributos de imagem têm valores e as imagens de fundo não estão borradas nas bordas.
+Se o e-mail parecer diferente no editor do que na prévia ou no envio de teste, confirme que todas as tags estão fechadas, os atributos de imagem têm valores e as imagens de fundo não estão borradas nas bordas.
 {% endalert %}
 
 Acesse a seção **Preview and Test**. Aqui, você tem a opção de pré-visualizar seu e-mail como um usuário ou enviar uma mensagem de teste. Esta seção também inclui o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), que permite verificar se seu e-mail foi renderizado corretamente em diferentes clientes de e-mail para celular e web.
 
 {% alert tip %}
-Você também pode usar o botão **Dark Mode Preview** no painel de pré-visualização para ver o corpo do e-mail no modo escuro e ajustar seu e-mail conforme necessário.
+Você também pode usar o botão **Dark Mode Preview** no painel de prévia para ver o corpo do e-mail no modo escuro e ajustar seu e-mail conforme necessário.
 {% endalert %}
 
 Como você pode visualizar três versões diferentes do mesmo e-mail no editor, no Inbox Vision e como um e-mail de teste real, é importante alinhar os detalhes em todas as suas plataformas.
 
-#### Pré-visualização e envio de teste {#preview-and-test-send}
+#### Prévia e envio de teste {#preview-and-test-send}
 
 Na guia **Preview as a User**, você pode selecionar os seguintes tipos de usuário para pré-visualizar sua mensagem.
 
 - **Random User:** a Braze selecionará aleatoriamente um usuário do banco de dados e pré-visualizará o e-mail com base nos atributos ou informações de eventos desse usuário.
 - **Select User:** você pode selecionar um usuário específico com base no endereço de e-mail ou ID externo. O e-mail será pré-visualizado com base nos atributos e informações de eventos desse usuário.
-- **Custom User:** você pode personalizar um usuário. A Braze oferecerá campos para todos os atributos e eventos disponíveis. Você pode inserir qualquer informação que deseja ver no e-mail de pré-visualização.
+- **Custom User:** você pode personalizar um usuário. A Braze oferecerá campos para todos os atributos e eventos disponíveis. Você pode inserir qualquer informação que deseja ver no e-mail de prévia.
 
 {% alert note %}
 O usuário aleatório pode ou não fazer parte dos seus critérios de segmentação. A segmentação é selecionada depois, então a Braze não tem conhecimento do seu público-alvo neste momento.
 {% endalert %}
 
-Você também pode selecionar **Copy preview link** para gerar e copiar um link de pré-visualização compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link durará sete dias antes de precisar ser regenerado.
+Você também pode selecionar **Copy preview link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link durará sete dias antes de precisar ser regenerado.
 
-Observe que quaisquer edições feitas em um modelo de e-mail não serão refletidas em um link gerado anteriormente. Você precisará gerar um novo link de pré-visualização para ver as edições.
+Observe que quaisquer edições feitas em um modelo de e-mail não serão refletidas em um link gerado anteriormente. Você precisará gerar um novo link de prévia para ver as edições.
 
-![Pré-visualização de e-mail com um botão para "Copy preview link" e copiar o link gerado.]({% image_buster /assets/img/dnd_email_link_preview.png %})
+![Prévia de e-mail com um botão para "Copy preview link" e copiar o link gerado.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
 #### Usar o Inbox Vision {#use-inbox-vision}
 
@@ -271,7 +271,7 @@ A personalização com Liquid não é suportada para blocos de imagem e campos d
 
 #### Imagens dinâmicas {#dynamic-images}
 
-Você pode optar por incluir imagens dinâmicas nas suas mensagens de e-mail incluindo [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) no atributo de origem da imagem. Por exemplo, em vez de uma imagem estática, você pode inserir {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} como a URL da imagem para incluir o nome do usuário na imagem. Isso ajuda a personalizar seus e-mails para cada usuário.
+Você pode optar por incluir imagens dinâmicas nas suas mensagens de e-mail incluindo [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) no atributo de origem da imagem. Por exemplo, em vez de uma imagem estática, você pode inserir {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} como a URL da imagem para incluir o nome do usuário na imagem. Isso ajuda a personalizar seus e-mails para cada usuário.
 
 {% alert important %}
 A URL da sua imagem deve começar com `https://`. Usar `http://` causa falha no app.
@@ -283,7 +283,7 @@ Ao redigir sua mensagem, você pode alternar a direção do texto entre da esque
 
 ![Menu do editor de arrastar e soltar de e-mail com botão para alternar o alinhamento do texto entre da direita para a esquerda e da esquerda para a direita.]({% image_buster /assets/img/dnd/dnd_template1.png %}){: style="max-width:50%;"}
 
-A aparência final das mensagens da direita para a esquerda depende em grande parte de como os prestadores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+A aparência final das mensagens da direita para a esquerda depende em grande parte de como os provedores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### HTML
 

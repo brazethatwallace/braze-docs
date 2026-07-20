@@ -30,7 +30,7 @@ Braze 내에서 이 네 가지 오브젝트는 고객 프로필과 비즈니스 
 
 | Braze B2B 오브젝트 | 설명 | 원본 B2B 오브젝트 |
 | --- | --- | --- |
-| 고객 프로필 | 영업 CRM 시스템의 리드와 연락처에 직접 매핑됩니다. 리드는 Braze에서 캡처되므로 영업 CRM 시스템에서 자동으로 리드로 생성됩니다. 연락처로 전환되면 연락처 ID와 세부 정보가 다시 Braze에 동기화됩니다. | 리드<br> 연락처 |
+| 고객 프로필 | 영업 고객 관계 관리 시스템의 리드와 연락처에 직접 매핑됩니다. 리드는 Braze에서 캡처되므로 영업 CRM 시스템에서 자동으로 리드로 생성됩니다. 연락처로 전환되면 연락처 ID와 세부 정보가 다시 Braze에 동기화됩니다. | 리드<br> 연락처 |
 | 비즈니스 오브젝트 | 영업 CRM 시스템의 모든 비사용자 오브젝트에 매핑됩니다. 여기에는 계정 오브젝트 및 기회 오브젝트와 같은 영업 관련 오브젝트가 포함됩니다. | 계정<br> 기회 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="B2B 데이터 모델 만들기" }
 
@@ -42,8 +42,8 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 
 | 방법 | 설명 |
 | --- | --- |
-| [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/) | Braze의 기본 고객 프로필에 있는 독립 데이터 오브젝트(보조 데이터 오브젝트)입니다. B2B 환경에서는 계정과 기회에 대한 카탈로그가 있을 것입니다. |
-| [연결된 소스]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) | Braze가 데이터 웨어하우스에 직접 쿼리할 수 있도록 합니다. 이미 리드, 연락처, 기회, 계정 오브젝트를 데이터 웨어하우스에 정기적으로 동기화하고 있을 가능성이 높으므로 Braze 세분화를 해당 웨어하우스에 직접 지정하고 제로 카피 환경에서 활성화할 수 있습니다. |
+| [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) | Braze의 기본 고객 프로필에 있는 독립 데이터 오브젝트(보조 데이터 오브젝트)입니다. B2B 환경에서는 계정과 기회에 대한 카탈로그가 있을 것입니다. |
+| [연결된 소스]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) | Braze가 데이터 웨어하우스에 직접 쿼리할 수 있도록 합니다. 이미 리드, 연락처, 기회, 계정 오브젝트를 데이터 웨어하우스에 정기적으로 동기화하고 있을 가능성이 높으므로 Braze 세분화를 해당 웨어하우스에 직접 지정하고 제로 카피 환경에서 활성화할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="1단계: Braze에서 비즈니스 오브젝트 만들기" }
 
 {% tabs %}
@@ -53,7 +53,7 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 
 카탈로그는 Braze에서 호스팅 및 관리되는 데이터 테이블입니다. 계정 및 기회 데이터는 선택한 영업 CRM 시스템에서 생성되지만, 계정 기반 세분화, 계정 기반 마케팅, 리드 관리 등 마케팅 목적으로 사용하기 위해 Braze에서 이를 복제하게 됩니다.
 
-이 옵션의 경우, 계정용 카탈로그와 기회용 카탈로그를 각각 하나씩 생성하고 [카탈로그 API]({{site.baseurl}}/api/endpoints/catalogs/) 또는 [카탈로그 클라우드 데이터 수집(CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)을 통해 Braze 업데이트를 전송하여 자주 업데이트하는 것을 권장합니다. 이러한 카탈로그를 생성할 때 카탈로그의 `id`(첫 번째 열)이 영업 CRM 시스템의 `id`와 일치하는지 확인하세요.
+이 옵션의 경우, 계정용 카탈로그와 기회용 카탈로그를 각각 하나씩 생성하고 [카탈로그 API]({{site.baseurl}}/api/endpoints/catalogs) 또는 [카탈로그 클라우드 데이터 수집(CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)을 통해 Braze 업데이트를 전송하여 자주 업데이트하는 것을 권장합니다. 이러한 카탈로그를 생성할 때 카탈로그의 `id`(첫 번째 열)이 영업 CRM 시스템의 `id`와 일치하는지 확인하세요.
 
 #### CRM 필드 매핑 {#map-over-your-crm-fields}
 
@@ -146,16 +146,16 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 
 ### 옵션 2: 계정 및 기회에 연결된 소스 사용 {#option-2-use-connected-sources-for-accounts-and-opportunities}
 
-연결된 소스는 사용자의 데이터 웨어하우스에 호스팅되고 Braze [CDI 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/)에 의해 쿼리되는 데이터 테이블입니다. 카탈로그와 달리, 비즈니스 오브젝트(계정 및 기회)를 Braze에 복제하는 대신 데이터 웨어하우스에 보관하고 웨어하우스를 신뢰할 수 있는 소스로 사용하게 됩니다.
+연결된 소스는 사용자의 데이터 웨어하우스에 호스팅되고 Braze [CDI 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)에 의해 쿼리되는 데이터 테이블입니다. 카탈로그와 달리, 비즈니스 오브젝트(계정 및 기회)를 Braze에 복제하는 대신 데이터 웨어하우스에 보관하고 웨어하우스를 신뢰할 수 있는 소스로 사용하게 됩니다.
 
-연결된 소스를 설정하려면 [연결된 소스 통합하기]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/#integrating-connected-sources)를 참조하세요.
+연결된 소스를 설정하려면 [연결된 소스 통합하기]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources#integrating-connected-sources)를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
 
 ## 2단계: 비즈니스 오브젝트를 고객 프로필과 연결 {#step-2-relate-your-business-objects-to-user-profiles}
 
-고객 프로필은 대부분의 인구통계학적 세분화, 트리거링 및 개인화를 지원하는 Braze의 주요 오브젝트입니다. 고객 프로필에는 SDK 및 기타 소스에서 수집한 [기본 사용자 데이터]({{site.baseurl}}/user_guide/data/unification/user_data/)와 속성(인구통계 데이터), 이벤트(행동 데이터) 또는 구매(트랜잭션 데이터)의 형태를 취하는 [커스텀 데이터]({{site.baseurl}}/user_guide/data/activation/)가 포함됩니다.
+고객 프로필은 대부분의 인구통계학적 세분화, 트리거링 및 개인화를 지원하는 Braze의 주요 오브젝트입니다. 고객 프로필에는 SDK 및 기타 소스에서 수집한 [기본 사용자 데이터]({{site.baseurl}}/user_guide/data/unification/user_data)와 속성(인구통계 데이터), 이벤트(행동 데이터) 또는 구매(트랜잭션 데이터)의 형태를 취하는 [커스텀 데이터]({{site.baseurl}}/user_guide/data/activation)가 포함됩니다.
 
 ### 2.1단계: 영업 CRM ID를 Braze에 매핑 {#step-21-map-sales-crm-ids-to-braze}
 
@@ -172,7 +172,7 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze 오브젝트: User" }
 
 {% alert note %}
-`external_id` 대신 [별칭]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases)을 사용하여 Salesforce 리드 및 연락처 식별자를 Braze에 다시 매핑하는 것을 권장합니다. 제품 주도 성장 스타일 이니셔티브를 식별하고 실행할 때 필요한 조회 횟수를 줄일 수 있기 때문입니다.
+`external_id` 대신 [별칭]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)을 사용하여 Salesforce 리드 및 연락처 식별자를 Braze에 다시 매핑하는 것을 권장합니다. 제품 주도 성장 스타일 이니셔티브를 식별하고 실행할 때 필요한 조회 횟수를 줄일 수 있기 때문입니다.
 {% endalert %}
 
 ID를 동기화한 후에는 Braze 고객 프로필을 비즈니스 오브젝트와 연결해야 합니다.

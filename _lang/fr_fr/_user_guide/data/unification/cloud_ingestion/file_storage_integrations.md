@@ -221,10 +221,10 @@ Donnez un nom et une description au rôle, puis sélectionnez **Create Role**.
 
 L'Ingestion de données cloud prend en charge les fichiers JSON, CSV et Parquet. Les colonnes requises dépendent du type de données :
 
-- Les données utilisateur (attributs, événements personnalisés, événements d'achat) utilisent des identifiants utilisateur et un `payload`
+- Les données utilisateur (attributs, événements personnalisés, événements d'achat) utilisent des identifiants utilisateur et un payload
 - Les données de catalogue utilisent des identifiants de catalogue
 
-Si vous utilisez S3 pour les données de catalogue, consultez cette page ainsi que [Synchroniser et supprimer les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) pour les exigences et le comportement spécifiques aux catalogues.
+Si vous utilisez S3 pour les données de catalogue, consultez cette page ainsi que [Synchroniser et supprimer les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) pour les exigences et le comportement spécifiques aux catalogues.
 
 Braze n'impose pas d'exigences supplémentaires en matière de noms de fichiers au-delà de celles imposées par AWS. Les noms de fichiers doivent être uniques. Nous vous recommandons d'ajouter un horodatage pour garantir l'unicité.
 
@@ -310,7 +310,7 @@ ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-Incluez une colonne `DELETED` facultative. Lorsque `DELETED` est `true`, cet élément de catalogue est supprimé du catalogue dans Braze. Pour la liste complète des colonnes requises, consultez [Identifiants de catalogue](#catalog-identifiers). Pour le comportement de suppression, consultez [Suppression d'éléments de catalogue](#deleting-catalog-items). Pour un flux de configuration de catalogue de bout en bout (y compris la création du catalogue cible et le comportement de synchronisation), consultez [Synchroniser et supprimer les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Incluez une colonne `DELETED` facultative. Lorsque `DELETED` est `true`, cet élément de catalogue est supprimé du catalogue dans Braze. Pour la liste complète des colonnes requises, consultez [Identifiants de catalogue](#catalog-identifiers). Pour le comportement de suppression, consultez [Suppression d'éléments de catalogue](#deleting-catalog-items). Pour un flux de configuration de catalogue de bout en bout (y compris la création du catalogue cible et le comportement de synchronisation), consultez [Synchroniser et supprimer les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 {% endtab %}
 
 {% endtabs %}
@@ -340,7 +340,7 @@ Chaque ligne du fichier doit identifier exactement un utilisateur à l'aide de l
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Suppression d'utilisateurs" }
 
 {% alert important %}
-La suppression d'utilisateurs est définitive et irréversible. N'incluez que les utilisateurs que vous avez l'intention de supprimer. Pour plus d'informations, consultez [Supprimer des utilisateurs avec l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).
+La suppression d'utilisateurs est définitive et irréversible. N'incluez que les utilisateurs que vous avez l'intention de supprimer. Pour plus d'informations, consultez [Supprimer des utilisateurs avec l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users).
 {% endalert %}
 
 **Exemple – JSON (suppression d'utilisateurs) :**
@@ -363,7 +363,7 @@ Lorsque la synchronisation s'exécute, Braze traite les nouveaux fichiers dans l
 
 Pour supprimer des éléments d'un catalogue à l'aide du stockage de fichiers :
 
-1. Utilisez la même synchronisation S3 que celle utilisée pour [synchroniser les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) (type de données **Catalogues**).
+1. Utilisez la même synchronisation S3 que celle utilisée pour [synchroniser les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) (type de données **Catalogues**).
 2. Dans vos fichiers CSV ou JSON, ajoutez une colonne facultative **`deleted`** (ou **`DELETED`**).
 3. Définissez `deleted` sur `true` pour tout élément de catalogue que vous souhaitez supprimer du catalogue dans Braze.
 
@@ -382,7 +382,7 @@ ID,PAYLOAD,DELETED
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 
-Lorsque la synchronisation s'exécute, les lignes contenant `deleted: true` entraînent la suppression de l'élément de catalogue correspondant dans Braze. Pour en savoir plus sur le comportement de synchronisation et de suppression des catalogues, consultez [Synchroniser et supprimer les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Lorsque la synchronisation s'exécute, les lignes contenant `deleted: true` entraînent la suppression de l'élément de catalogue correspondant dans Braze. Pour en savoir plus sur le comportement de synchronisation et de suppression des catalogues, consultez [Synchroniser et supprimer les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 
 ## Bon à savoir {#things-to-know}
 

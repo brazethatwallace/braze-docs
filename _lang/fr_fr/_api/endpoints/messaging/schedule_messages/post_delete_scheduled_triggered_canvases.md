@@ -22,7 +22,7 @@ Les messages planifiés ou les déclencheurs qui sont supprimés à proximité o
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.trigger.schedule.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `canvas.trigger.schedule.delete`.
 
 ## Limite de débit {#rate-limit}
 

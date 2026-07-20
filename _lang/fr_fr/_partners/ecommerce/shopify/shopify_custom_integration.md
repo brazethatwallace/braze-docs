@@ -51,13 +51,13 @@ La boutique doit être nommée « Shopify », sinon l'intégration risque de ne 
 La première étape consiste à initialiser le SDK Web de Braze. Nous vous recommandons de le faire en installant notre package NPM :
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
 
 {% alert important %}
-La version du SDK Web de Braze doit être 5.4.0.
+La version du SDK Web de Braze doit être 5.4.0 ou ultérieure.
 {% endalert %}
 
 Ensuite, [incluez ce paramètre]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) en tant que clé de premier niveau dans votre fichier `vite.config.js` :
@@ -138,7 +138,7 @@ Les politiques de sécurité du contenu (généralement situées dans le fichier
 Suivez le moment où un acheteur se connecte à son compte et synchronise ses informations utilisateur avec Braze. Cela inclut l'appel à notre méthode `changeUser` pour identifier les clients avec un ID externe Braze.
 
 {% alert note %}
-Nous ne disposons pas actuellement de recommandations pour la prise en charge d'un ID externe Braze personnalisé. Si vous en avez besoin pour votre intégration, contactez votre gestionnaire de la satisfaction client.
+Nous ne disposons pas actuellement de recommandations pour la prise en charge d'un ID externe Braze personnalisé. Si vous en avez besoin pour votre intégration, contactez votre gestionnaire du succès des clients.
 {% endalert %}
 
 Avant de commencer, assurez-vous d'avoir configuré les URI de rappel pour que la connexion client fonctionne dans Hydrogen. Pour plus d'informations, consultez [Utilisation de l'API de compte client avec Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
@@ -750,11 +750,11 @@ Vous pouvez synchroniser tous les produits de votre boutique Shopify vers un cat
 
 ### Étape 8 : Activer les canaux {#step-8-activate-channels}
 
-Pour activer les messages in-app, Content Cards et les indicateurs de fonctionnalité via l'intégration directe de Shopify, ajoutez chaque canal à votre SDK. Suivez les liens de documentation fournis pour chaque canal ci-dessous :
+Pour activer les messages in-app, Content Cards et les Feature Flags via l'intégration directe de Shopify, ajoutez chaque canal à votre SDK. Suivez les liens de documentation fournis pour chaque canal :
 
-- **Messages in-app :** Pour activer les messages in-app dans les cas d'utilisation de formulaires de capture de prospects, consultez [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
-- **Content Cards :** Pour activer Content Cards dans les cas d'utilisation de boîte de réception ou de bannières de site web, consultez [Content Cards]({{site.baseurl}}/developer_guide/content_cards).
-- **Indicateurs de fonctionnalité :** Pour activer les indicateurs de fonctionnalité dans les cas d'utilisation d'expérimentation sur site, consultez [Indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags).
+- **Messages in-app :** Pour activer les messages in-app dans les cas d'usage de formulaires de capture de prospects, consultez [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
+- **Content Cards :** Pour activer Content Cards dans les cas d'usage de boîte de réception ou de bannières de site web, consultez [Content Cards]({{site.baseurl}}/developer_guide/content_cards).
+- **Feature Flags :** Pour activer les Feature Flags dans les cas d'usage d'expérimentation sur site, consultez [Feature Flags]({{site.baseurl}}/developer_guide/feature_flags).
 
 ### Étape 9 : Terminer la configuration {#step-9-finish-setup}
 

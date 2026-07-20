@@ -24,8 +24,8 @@ A integração da Adobe Experience Platform atualmente não oferece suporte à a
 | ----------- | ----------- |
 | Conta Adobe | Uma [conta da Adobe](https://account.adobe.com/) é necessária para aproveitar esta parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Instância da Braze | Sua instância da Braze pode ser obtida com o seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics/#endpoints). |
-| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints). |
+| Instância da Braze | Sua instância da Braze pode ser obtida com o seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints). |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% alert important %}
@@ -38,7 +38,7 @@ O envio de atributos personalizados adicionais aumentará o uso de seus pontos d
 
 Na página de **Settings** da Adobe, selecione **Destinations** em **Collections**. Em seguida, localize o bloco da **Braze** e selecione **Configure**.
 
-![]({% image_buster /assets/img/adobe/braze-destination-configure.png %})
+![Catálogo de destinos da Adobe com o bloco de destino da Braze e a ação Configure.]({% image_buster /assets/img/adobe/braze-destination-configure.png %})
 
 {% alert note %}
 Se já existir uma conexão com a Braze, você verá um botão **Activate** no cartão de destino. Para saber mais sobre a diferença entre ativar e configurar, consulte a seção de catálogo da [documentação](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/destinations/destinations-interface/destinations-workspace.html?lang=en#catalog) do espaço de trabalho de destinos da Adobe.
@@ -48,7 +48,7 @@ Se já existir uma conexão com a Braze, você verá um botão **Activate** no c
 
 Na etapa **Account**, forneça sua chave de API da Braze e selecione **Connect to destination**.
 
-![]({% image_buster /assets/img/adobe/braze-destination-account.png %}){: style="max-width:60%"}
+![Etapa de conta do destino Adobe Braze com campo de entrada da chave de API e ação de conexão.]({% image_buster /assets/img/adobe/braze-destination-account.png %}){: style="max-width:60%"}
 
 ### Etapa 3: Autenticação {#step-3-authentication}
 
@@ -58,7 +58,7 @@ Em seguida, na etapa **Authentication**, insira seus detalhes de conexão da Bra
 - **Endpoint instance**: Insira sua instância de endpoint da Braze.
 - **Marketing use case**: Os casos de uso de marketing indicam a intenção para a qual os dados serão exportados para o destino. Você pode selecionar um dos casos de uso de marketing definidos pela Adobe ou criar seu próprio caso de uso de marketing. Para saber mais sobre os casos de uso de marketing da Adobe, visite [Governança de dados na Adobe Experience Platform](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en#destinations).
 
-![]({% image_buster /assets/img/adobe/braze-destination-authentication.png %}){: style="max-width:60%;"}
+![Etapa de autenticação do destino Adobe com campos de nome, destino e endpoint.]({% image_buster /assets/img/adobe/braze-destination-authentication.png %}){: style="max-width:60%;"}
 
 ### Etapa 4: Criar destino {#step-4-create-destination}
 Selecione **Create destination**. Seu destino foi criado. Você pode selecionar **Save & Exit** para ativar segmentos mais tarde ou **Next** para continuar o fluxo de trabalho e selecionar segmentos para ativar.
@@ -78,12 +78,12 @@ A lista a seguir destaca as etapas gerais necessárias para ativar um segmento. 
 
 Para enviar corretamente os dados do seu público da Adobe Experience Platform para a Braze, complete a etapa de mapeamento de campo. O mapeamento cria um link entre os campos do modelo de dados da Adobe Experience e os campos correspondentes da plataforma Braze.
 
-1. Na etapa de mapeamento, selecione **Add new mapping**.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping.png %}){: style="max-width:50%;"}<br><br>
-2. Na seção do campo de origem, selecione o botão de seta ao lado do campo vazio para abrir a janela de seleção do campo de origem.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-source.png %})<br><br>
-3. Na janela, selecione os atributos da Adobe para mapear para seus atributos da Braze. <br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-attributes.png %}){: style="max-width:70%;"}<br><br>Em seguida, selecione o namespace de identidade. Esta opção é usada para mapear um namespace de identidade da plataforma para um namespace da Braze.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-namespaces.png %}){: style="max-width:80%;"}<br> Escolha seus campos de origem e selecione **Select**.<br><br>
-4. Na seção do campo de destino, selecione o ícone de mapeamento ao lado do campo.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-target.png %}){: style="max-width:90%;"} <br><br>
-5. Na janela de seleção de campo de destino, você pode escolher entre três categorias de campos de destino:<br><br>• **Select identity namespace**: Use esta opção para mapear namespaces de identidade da plataforma para namespaces de identidade da Braze.<br>• **Select custom attributes**: Use esta opção para mapear atributos da Adobe XDM para os atributos personalizados da Braze que você definiu na sua conta da Braze. <br><br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-target-fields.png %}){: style="max-width:60%;"}<br><br>**Você também pode usar esta opção para renomear atributos XDM existentes na Braze.** Por exemplo, o mapeamento de um atributo XDM `lastname` para um atributo personalizado `Last_Name` na Braze criará o atributo `Last_Name` na Braze caso ele ainda não exista e mapeará o atributo XDM `lastname` para ele. <br><br> Escolha seus campos de destino e selecione **Select**.<br><br>
-6. Seu mapeamento de campo deve aparecer na lista.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-complete.png %})<br><br>
+1. Na etapa de mapeamento, selecione **Add new mapping**.<br>![Página de mapeamento de campo da Adobe com o botão Add new mapping.]({% image_buster /assets/img/adobe/braze-destination-mapping.png %}){: style="max-width:50%;"}<br><br>
+2. Na seção do campo de origem, selecione o botão de seta ao lado do campo vazio para abrir a janela de seleção do campo de origem.<br>![Seletor de campo de origem da Adobe para mapeamento de destino.]({% image_buster /assets/img/adobe/braze-destination-mapping-source.png %})<br><br>
+3. Na janela, selecione os atributos da Adobe para mapear para seus atributos da Braze. <br>![Seletor de atributos da Adobe mostrando atributos de origem para mapeamento.]({% image_buster /assets/img/adobe/braze-destination-mapping-attributes.png %}){: style="max-width:70%;"}<br><br>Em seguida, selecione o namespace de identidade. Esta opção é usada para mapear um namespace de identidade da plataforma para um namespace da Braze.<br>![Seletor de namespace de identidade da Adobe usado para mapeamento da Braze.]({% image_buster /assets/img/adobe/braze-destination-mapping-namespaces.png %}){: style="max-width:80%;"}<br> Escolha seus campos de origem e selecione **Select**.<br><br>
+4. Na seção do campo de destino, selecione o ícone de mapeamento ao lado do campo.<br>![Painel de mapeamento de campo de destino da Adobe com o ícone de mapeamento selecionado.]({% image_buster /assets/img/adobe/braze-destination-mapping-target.png %}){: style="max-width:90%;"} <br><br>
+5. Na janela de seleção de campo de destino, você pode escolher entre três categorias de campos de destino:<br><br>• **Select identity namespace**: Use esta opção para mapear namespaces de identidade da plataforma para namespaces de identidade da Braze.<br>• **Select custom attributes**: Use esta opção para mapear atributos da Adobe XDM para os atributos personalizados da Braze que você definiu na sua conta da Braze. <br><br>![Seletor de campo de destino da Adobe com opções de namespace de identidade e atributo personalizado.]({% image_buster /assets/img/adobe/braze-destination-mapping-target-fields.png %}){: style="max-width:60%;"}<br><br>**Você também pode usar esta opção para renomear atributos XDM existentes na Braze.** Por exemplo, o mapeamento de um atributo XDM `lastname` para um atributo personalizado `Last_Name` na Braze criará o atributo `Last_Name` na Braze caso ele ainda não exista e mapeará o atributo XDM `lastname` para ele. <br><br> Escolha seus campos de destino e selecione **Select**.<br><br>
+6. Seu mapeamento de campo deve aparecer na lista.<br>![Mapeamentos de campo Adobe-para-Braze concluídos listados na etapa de mapeamento de destino.]({% image_buster /assets/img/adobe/braze-destination-mapping-complete.png %})<br><br>
 7. Para adicionar mais mapeamentos, repita as etapas de 1 a 6, conforme necessário.
 
 ## Caso de uso {#use-case}

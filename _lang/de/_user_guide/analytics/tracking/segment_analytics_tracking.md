@@ -29,31 +29,31 @@ Nach der Aktivierung des Analytics Trackings kann es zu einer Verzögerung komme
 
 ## Anzeigen von Umsätzen und Käufen im Zeitverlauf {#viewing-revenue-and-purchases-over-time}
 
-Gehen Sie zu **Analytics** > **Umsatzbericht**, um Daten zu [Umsatz und Käufen im Zeitverlauf für dieses Segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) anzuzeigen.
+Gehen Sie zu **Analytics** > **Revenue Report**, um Daten zu [Umsatz und Käufen im Zeitverlauf für dieses Segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) anzuzeigen.
 
 Umsatz- und Kauf-Charts spiegeln die Aktivitäten wider, die nach der Aktivierung des Analytics Trackings für dieses Segment erfasst wurden. Das Einschalten des Trackings füllt frühere Käufe nicht rückwirkend in diese Berichte ein. Verwenden Sie beim Vergleich von Segmenten nur Zeiträume, in denen das Tracking für jedes ausgewählte Segment aktiviert war.
 
 ![Umsatzdaten nach Segment]({% image_buster /assets/img_archive/Revenue.png %})
 
-Um die Segment-Daten für einen beliebigen angepassten Zeitraum visuell zu vergleichen, fügen Sie dem Diagramm Segmente hinzu oder entfernen Sie sie. Wählen Sie in der Dropdown-Liste **Aufschlüsselung** die Option **By Segment** und wählen Sie dann Ihre Segmente unter **Breakdown values** aus.
+Um die Segment-Daten für einen beliebigen angepassten Zeitraum visuell zu vergleichen, fügen Sie dem Diagramm Segmente hinzu oder entfernen Sie sie. Wählen Sie in der **Aufschlüsselung**-Dropdown-Liste die Option **By Segment** und wählen Sie dann Ihre Segmente unter **Breakdown values** aus.
 
-Wählen Sie einen beliebigen Segmentnamen oberhalb des Diagramms aus, um die Sichtbarkeit der Metriken für dieses Segment ein- oder auszuschalten.
+Wählen Sie einen beliebigen Segmentnamen in der Diagrammlegende aus, um die Sichtbarkeit der Metriken für dieses Segment ein- oder auszuschalten.
 
 ![Umsätze für mehrere Segmente]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
 ## Sitzungen im Zeitverlauf {#sessions-over-time}
 
-Auf ähnliche Weise finden Sie auf der **Home**-Seite Daten über [Sitzungen im Zeitverlauf für dieses bestimmte Segment]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data).
+Auf ähnliche Weise finden Sie auf der **Home**-Seite Daten über [Sitzungen im Zeitverlauf für dieses bestimmte Segment]({{site.baseurl}}/user_guide/analytics/dashboards/home).
 
 ![Sitzungsdaten nach Segment]({% image_buster /assets/img_archive/events_over_time2.png %})
 
 ## Angepasste Events im Zeitverlauf anzeigen {#view-custom-events-over-time}
 
-Sehen Sie sich Daten über [angepasste Events im Zeitverlauf für Segmente]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) an, indem Sie zu **Analytics** > **Bericht zu angepassten Events** gehen.
+Sehen Sie sich Daten über [angepasste Events im Zeitverlauf für Segmente]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) an, indem Sie zu **Analytics** > **Custom Events Report** gehen.
 
-## Verwendung von Abfrage-Builder-Templates {#using-query-builder-templates}
+## Verwendung von Query-Builder-Templates {#using-query-builder-templates}
 
-Wenn das Analytics Tracking aktiviert ist, können Sie mit den Berichts-Templates des Abfrage-Builders die Performance-Metriken für Campaigns, Canvas, Varianten und Schritte nach Segmenten aufschlüsseln. Mehr erfahren Sie unter [Segment-Daten]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment).
+Wenn das Analytics Tracking aktiviert ist, können Sie mit den Berichts-Templates des Query Builders die Performance-Metriken für Campaigns, Canvas, Varianten und Schritte nach Segmenten aufschlüsseln. Mehr erfahren Sie unter [Segment-Daten]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

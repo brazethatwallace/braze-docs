@@ -36,19 +36,19 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 独自のキーワードを定義するには、以下の手順に従ってください。
 
-1. Brazeダッシュボードで、**Audience** > **Subscription Group Management**に移動し、**SMS/MMS/RCS**サブスクリプショングループを選択します。
-2. **Global Keywords**の下で、キーワードを追加したいキーワードカテゴリの横にある鉛筆アイコンを選択します。![鉛筆アイコンが表示されたオプトインキーワード。]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. 開いたタブで、このキーワードカテゴリをトリガーするキーワードを追加します。キーワードは大文字と小文字を区別せず、`START`、`YES`、`UNSTOP`などのユニバーサルキーワードは変更できません。![「オプトイン」カテゴリのキーワード編集画面。追加されたキーワードは「START」、「UNSTOP」、「YES」。返信メッセージフィールドには「この番号からのメッセージの配信を停止しました。ヘルプが必要な場合はHELPと返信してください。配信停止するにはSTOPと返信してください。メッセージおよびデータ料金が適用される場合があります。」と表示されています。]({% image_buster /assets/img/sms/keyword_edit2.png %})
+1. Brazeダッシュボードで、**オーディエンス** > **サブスクリプショングループ管理**に移動し、**SMS/MMS/RCS**購読グループを選択します。
+2. **グローバルキーワード**の下で、キーワードを追加したいキーワードカテゴリの横にある鉛筆アイコンを選択します。![鉛筆アイコンが表示されたオプトインキーワード。]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
+3. 開いたタブで、このキーワードカテゴリをトリガーするキーワードを追加します。キーワードは大文字と小文字を区別せず、`START`、`YES`、`UNSTOP`などのユニバーサルキーワードは変更できません。![「オプトイン」カテゴリのキーワード編集画面。追加されたキーワードは「START」、「UNSTOP」、「YES」。返信メッセージフィールドには「この番号からのメッセージの購読が解除されました。ヘルプが必要な場合はHELPと返信してください。購読解除するにはSTOPと返信してください。メッセージおよびデータ料金が適用される場合があります。」と表示されています。]({% image_buster /assets/img/sms/keyword_edit2.png %})
 
 キーワードとキーワード応答には以下のルールが適用されます。
 
 | キーワード | キーワード応答 |
 | -------- | ----------------- |
-| - 有効なUTF-8エンコード文字<br>- カテゴリごとに最大20キーワード<br>- 最大34文字<br>- 最小1文字<br>- スペースを含めることはできない<br>- サブスクリプショングループ全体で大文字小文字を区別せず一意である必要がある | - 空白にはできない<br>- 最大300文字<br>- 有効なUTF-8文字 |
+| - 有効なUTF-8エンコード文字<br>- カテゴリごとに最大20キーワード<br>- 最大34文字<br>- 最小1文字<br>- スペースを含めることはできない<br>- 購読グループ全体で大文字小文字を区別せず一意である必要がある | - 空白にはできない<br>- 最大300文字<br>- 有効なUTF-8文字 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="キーワードトリガーの追加" }
 
 {% alert tip %}
-これらのキーワードをCampaignsやCanvasesでリターゲティングやメッセージのトリガーにどのように使用できるか知りたい場合は、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)をご覧ください。
+これらのキーワードをキャンペーンやキャンバスでリターゲティングやメッセージのトリガーにどのように使用できるか知りたい場合は、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)をご覧ください。
 {% endalert %}
 {% endtab %}
 
@@ -58,41 +58,41 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 特定のキーワードカテゴリにキーワードをテキスト送信したユーザーに送信される応答を管理できます。
 
-1. Brazeダッシュボードで、**Audience** > **Subscription Group Management**に移動し、**SMS/MMS/RCS**サブスクリプショングループを選択します。<br><br>
-2. **Global Keywords**の下で、鉛筆アイコンを選択して応答を編集するキーワードカテゴリを選択します。![鉛筆アイコンが表示されたオプトインキーワード。]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. 開いたタブで応答を編集します。応答を作成する際は、[コンプライアンスを正しく守るための6つのルール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right)に留意し、キーワードとキーワード応答に適用される以下のルールをお読みください。<br><br>
-4. 応答内の静的URLを自動的に短縮するには、**Link Shortening**トグルを選択します。文字カウンターが更新され、短縮URLの予想される長さが表示されます。![「Link Shortening」トグルがオンのときに文字カウンターが更新される様子を示すGIF。]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
+1. Brazeダッシュボードで、**オーディエンス** > **サブスクリプショングループ管理**に移動し、**SMS/MMS/RCS**購読グループを選択します。<br><br>
+2. **グローバルキーワード**の下で、鉛筆アイコンを選択して応答を編集するキーワードカテゴリを選択します。![鉛筆アイコンが表示されたオプトインキーワード。]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
+3. 開いたタブで応答を編集します。応答を作成する際は、[コンプライアンスを正しく守るための6つのルール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-seven-rules-to-get-compliance-right)に留意し、キーワードとキーワード応答に適用される以下のルールをお読みください。<br><br>
+4. 応答内の静的URLを自動的に短縮するには、**リンク短縮**トグルを選択します。文字カウンターが更新され、短縮URLの予想される長さが表示されます。![「リンク短縮」トグルがオンのときに文字カウンターが更新される様子を示すGIF。]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 #### 考慮事項 {#considerations}
 
 | キーワード | キーワード応答 |
 | -------- | ----------------- |
-| - 有効なUTF-8エンコード文字<br>- カテゴリごとに最大20キーワード<br>- 最大34文字<br>- 最小1文字<br>- スペースを含めることはできない<br>- サブスクリプショングループ全体で大文字小文字を区別せず一意である必要がある | - 空白にはできない<br>- 最大300文字<br>- 有効なUTF-8文字 |
+| - 有効なUTF-8エンコード文字<br>- カテゴリごとに最大20キーワード<br>- 最大34文字<br>- 最小1文字<br>- スペースを含めることはできない<br>- 購読グループ全体で大文字小文字を区別せず一意である必要がある | - 空白にはできない<br>- 最大300文字<br>- 有効なUTF-8文字 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="考慮事項" }
 
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-アクションベースのCanvasが受信SMS、MMS、またはRCSメッセージによってトリガーされた場合、Canvasの最初の[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)でSMS、MMS、またはRCSのプロパティを参照できます。
+アクションベースのキャンバスが受信SMS、MMS、またはRCSメッセージによってトリガーされた場合、キャンバスの最初の[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)でSMS、MMS、またはRCSのプロパティを参照できます。
 {% endalert %}
 
 ## 多言語サポート {#multi-language-support}
 
-特定の国に送信する場合、送信者は現地の言語で受信キーワードと送信返信をサポートする必要がある場合があります。これをサポートするために、Brazeでは言語固有のキーワード設定を作成できます。作成すると、言語固有のキーワード設定はサブスクリプショングループ内のすべての送信番号に適用されます。
+特定の国に送信する場合、送信者は現地の言語で受信キーワードと送信返信をサポートする必要がある場合があります。これをサポートするために、Brazeでは言語固有のキーワード設定を作成できます。作成すると、言語固有のキーワード設定は購読グループ内のすべての送信番号に適用されます。
 ![キーワード設定として追加する言語を表示するドロップダウン。]({% image_buster /assets/img/sms/multi-language.png %}){: style="float:right;max-width:50%;margin-left:10px;"}
 
 ### 言語固有のキーワードの作成 {#creating-language-specific-keywords}
 
-**Add a Language**を選択し、ターゲット言語を選択するか、ドロップダウン内で言語を検索します。
+**言語を追加**を選択し、ターゲット言語を選択するか、ドロップダウン内で言語を検索します。
 
 {% alert important %}
 英語以外の言語にはプリセットのキーワードと応答が付属していないため、送信者はマーケティングチームおよび法務チームと協力して、必要なキーワードをこのセットに追加する必要があります。そうしないと、Brazeはそれらの言語のローカライズされた受信メッセージを処理しません。
 {% endalert %}
 
-言語を削除する必要がある場合は、右下の**Delete Language**ボタンを選択します。
+言語を削除する必要がある場合は、ページ下部の**言語を削除**ボタンを選択します。
 
-![「イタリア語」タブが選択されたGlobal Keywordsページ。追加された各言語のタブが表示されています。]({% image_buster /assets/img/sms/multi-language2.png %})
+![「イタリア語」タブが選択されたグローバルキーワードページ。追加された各言語のタブが表示されています。]({% image_buster /assets/img/sms/multi-language2.png %})
 
 ## カスタムキーワードカテゴリ {#custom-keyword-categories}
 
@@ -106,27 +106,27 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 カスタムキーワードカテゴリを作成するには、以下の手順に従ってください。
 
-1. 適切なサブスクリプショングループを編集します。
-2. **Add custom keyword**を選択します。![新しいキーワードを追加するフィールド。]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
+1. 適切な購読グループを編集します。
+2. **カスタムキーワードを追加**を選択します。![新しいキーワードを追加するフィールド。]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
 3. キーワードカテゴリ名を入力し、ユーザーが返信メッセージを受け取るためにテキスト送信できるキーワードを定義します。
 
-このキーワードカテゴリが作成されると、CampaignsやCanvasesで[フィルターおよびトリガー]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)として利用できるようになります。
+このキーワードカテゴリが作成されると、キャンペーンやキャンバスで[フィルターおよびトリガー]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)として利用できるようになります。
 
 カスタムキーワードカテゴリで作成されたキーワードは、新しいキーワード作成のすべてのルールとバリデーションに準拠します。
 
 ### ライフサイクル固有のキーワード {#lifecycle-specific-keywords}
 
-ライフサイクル中の特定の時点（例えば、最初のオンボーディング中）で顧客が特定のキーワードを送信して応答を受け取ることを制限したいユースケースがある場合は、CampaignまたはCanvasでトリガー**サブスクリプショングループ内のキーワードカテゴリOTHERへの受信SMS送信**を使用し、ユーザーが特定の時点で送信できるキーワードを定義できます。
+ライフサイクル中の特定の時点（例えば、最初のオンボーディング中）で顧客が特定のキーワードを送信して応答を受け取ることを制限したいユースケースがある場合は、キャンペーンまたはキャンバスでトリガー**購読グループ内のキーワードカテゴリOTHERへの受信SMS送信**を使用し、ユーザーが特定の時点で送信できるキーワードを定義できます。
 
 このトリガーは、メッセージの「一致する」または「一致しない」比較、および正規表現の「マッチする」または「マッチしない」ルールを使用して、特定の受信メッセージのフィルタリングをサポートし、ユーザーの入力を検証します。
 
-#### Canvas
+#### キャンバス {#canvas}
 
-![アクションベースのキャンバスステップ。トリガーはサブスクリプショングループ「Messaging Service」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が正規表現「キャレット記号skip」にマッチします。]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
+![アクションベースのキャンバスステップ。トリガーは購読グループ「Messaging Service」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が正規表現「キャレット記号skip」にマッチします。]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
-#### Campaign
+#### キャンペーン {#campaign}
 
-![アクションベースのCampaign。トリガーはサブスクリプショングループ「Marketing Message Service A」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が「Keyword1」または「Keyword2」であるか、「Keyword A」ではない場合です。]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
+![アクションベースのキャンペーン。トリガーは購読グループ「Marketing Message Service A」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が「Keyword1」または「Keyword2」であるか、「Keyword A」ではない場合です。]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
 
 ### 不明なキーワードへの対応 {#dealing-with-unknown-keywords}
 
@@ -136,12 +136,12 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 1. [SMSキャンペーン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)を作成します。
 2. **ターゲットオーディエンス**で、**すべてのユーザー**を選択します（トリガーによってメッセージを受信するユーザーは制限されます）。
-3. **スケジュール**で、**アクションベースの配信**を選択します。
-4. トリガーを、適切なサブスクリプショングループの**キーワードカテゴリOTHER内への受信SMS送信**に設定します。
-5. **Messaging**ステップで、ユーザーに受信させたい応答本文を入力します。
+3. **スケジュール**で、**アクションベース配信**を選択します。
+4. トリガーを、適切な購読グループの**キーワードカテゴリOTHER内への受信SMS送信**に設定します。
+5. **メッセージング**ステップで、ユーザーに受信させたい応答本文を入力します。
 
 Brazeが**不明な**電話番号（プロファイルが存在する前）からの受信メッセージをどのように処理するかについては、[不明な電話番号の処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers)をご覧ください。
 
 {% alert tip %}
-これらのキーワードとキーワードカテゴリをCampaignsやCanvasesでリターゲティングやメッセージのトリガーにどのように使用できるか知りたい場合は、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)をご覧ください。
+これらのキーワードとキーワードカテゴリをキャンペーンやキャンバスでリターゲティングやメッセージのトリガーにどのように使用できるか知りたい場合は、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)をご覧ください。
 {% endalert %}

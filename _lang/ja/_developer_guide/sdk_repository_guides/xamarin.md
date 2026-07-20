@@ -6,14 +6,16 @@ description: "Braze .NET MAUI (Xamarin) SDK READMEリファレンス（GitHubか
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# .NET MAUI (Xamarin) SDK リポジトリガイド {#net-maui-xamarin-sdk-repository-guide}
+
 ## Braze .NET MAUI (Xamarin) SDKについて {#about-the-braze-net-maui-xamarin-sdk}
 
 Braze .NET MAUI (Xamarin) SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
 
 開始するには、以下のリソースを参照してください：
 
-- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction)
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=xamarin)
+- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=xamarin)
 
 ## コンポーネント {#components}
 
@@ -42,7 +44,7 @@ Braze .NET MAUI (Xamarin) SDKは、Brazeのメッセージング、分析、ユ�
 
 Braze SDKはバージョン`4.0.0`からXamarinおよびXamarin.Formsのサポートを終了し、[.NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui)のサポートを追加しました。
 
-## ご質問がありますか？ {#questions}
+## ご質問はありますか？ {#questions}
 
 ご質問がある場合は、[support@braze.com](mailto:support@braze.com)までお問い合わせください。
 <!-- END GENERATED README CONTENT -->

@@ -2,7 +2,7 @@
 nav_title: Cargar una plantilla de correo electrónico HTML
 article_title: Cargar una plantilla de correo electrónico HTML
 page_order: 2
-description: "Este artículo de referencia explica cómo crear, administrar y solucionar problemas de una plantilla de correo electrónico HTML usando el dashboard de Braze."
+description: "Este artículo de referencia explica cómo crear, administrar y solucionar problemas de una plantilla de correo electrónico HTML usando el panel de Braze."
 tool:
   - Templates
 channel:
@@ -12,7 +12,7 @@ channel:
 
 # Cargar una plantilla de correo electrónico HTML {#upload-an-html-email-template}
 
-> El dashboard de Braze te permite cargar tus propias plantillas de correo electrónico HTML y guardarlas para usarlas más adelante en campañas. También puedes [crear una plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) usando nuestro editor.
+> El panel de Braze te permite cargar tus propias plantillas de correo electrónico HTML y guardarlas para usarlas más adelante en Campaigns. También puedes [crear una plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) usando nuestro editor.
 
 ## Requisitos {#upload-requirements}
 
@@ -35,25 +35,25 @@ Proporciona un nombre para la plantilla. Opcionalmente, agrega una descripción,
 
 ### Paso 3: Carga tu plantilla {#step-3-upload-your-template}
 
-En la sección **Template content**, selecciona **Upload file** debajo del mosaico **HTML code editor**. Selecciona tu plantilla desde tu computadora. Consulta la sección [Requisitos](#upload-requirements) para asegurarte de que tu plantilla cumple con los requisitos de carga.
+En la sección **Template content**, selecciona **Upload file**. Selecciona tu plantilla desde tu computadora. Consulta la sección [Requisitos](#upload-requirements) para asegurarte de que tu plantilla cumple con los requisitos de carga.
 
 ### Paso 4: Finaliza y guarda tu plantilla {#step-4-finish-and-save-your-template}
 
-Asegúrate de guardar tu plantilla seleccionando **Save template**. ¡Ya puedes usar esta plantilla en cualquier campaña o Canvas que elijas!
+Asegúrate de guardar tu plantilla seleccionando **Save template**. ¡Ya puedes usar esta plantilla en cualquier Campaign o Canvas que elijas!
 
 {% alert note %}
-Si realizas alguna edición en una plantilla existente, esos cambios no se reflejarán en las campañas que se crearon usando versiones anteriores de esa plantilla.
+Si realizas alguna edición en una plantilla existente, esos cambios no se reflejarán en las Campaigns que se crearon usando versiones anteriores de esa plantilla.
 {% endalert %}
 
-## Usar tus plantillas en campañas de API {#api_for_upload_email_templates}
+## Usar tus plantillas en Campaigns de API {#api_for_upload_email_templates}
 
-Para usar tu correo electrónico en una campaña de API, necesitas el `email_template_id`, que se encuentra en la parte inferior de cualquier plantilla de correo electrónico creada en Braze.
+Para usar tu correo electrónico en una Campaign de API, necesitas el `email_template_id`, que se encuentra en la parte inferior de cualquier plantilla de correo electrónico creada en Braze.
 
 ![Sección del identificador de API de una plantilla de correo electrónico HTML.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:50%;"}
 
 ## Administrar plantillas de correo electrónico {#managing-email-templates}
 
-Puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) y [archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) plantillas de correo electrónico. Obtén más información sobre cómo crear y administrar plantillas y contenido creativo en [Plantillas]({{site.baseurl}}/user_guide/messaging/templates/).
+Puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) y [archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) plantillas de correo electrónico. Obtén más información sobre cómo crear y administrar plantillas y contenido creativo en [Plantillas]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Solución de problemas {#troubleshooting}
 
@@ -70,8 +70,8 @@ Hay varios mensajes de error de correo electrónico que puedes recibir al cargar
 | `Missing Images` | Si hay imágenes referenciadas en tu archivo HTML, pero esas imágenes no están incluidas en la carpeta de imágenes del archivo ZIP, recibirás un error de archivo. Inspecciona tu archivo y corrige cualquier error (como errores ortográficos), o agrega las imágenes faltantes a tu archivo ZIP e intenta cargarlo de nuevo.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
-Ten en cuenta que al descargar los archivos de campañas HTML, pasos en Canvas con mensajes de correo electrónico o plantillas en una máquina Windows, el carácter `|` (barra vertical) no es compatible, por lo que es posible que necesites usar una aplicación diferente para extraer el contenido descargado del archivo ZIP.
+Ten en cuenta que al descargar los archivos de Campaigns HTML, pasos en Canvas con mensajes de correo electrónico o plantillas en una máquina Windows, el carácter `|` (barra vertical) no es compatible, por lo que es posible que necesites usar una aplicación diferente para extraer el contenido descargado del archivo ZIP.
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-Para obtener respuestas a preguntas frecuentes sobre plantillas de correo electrónico, consulta nuestra página de [preguntas frecuentes sobre plantillas de correo electrónico y enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Para obtener respuestas a preguntas frecuentes sobre plantillas de correo electrónico, consulta nuestra página de [preguntas frecuentes sobre plantillas de correo electrónico y enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

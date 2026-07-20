@@ -1,6 +1,6 @@
 ## 前提条件 {#prerequisites}
 
-コンテンツカードを使用するには、[Braze Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) をアプリに統合する必要があります。ただし、追加のセットアップは必要ありません。
+コンテンツカードを使用するには、[Braze Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift)をアプリに統合する必要があります。ただし、追加のセットアップは必要ありません。
 
 ## ビューコントローラーコンテキスト {#view-controller-contexts}
 
@@ -36,7 +36,7 @@ func pushViewController() {
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (void)pushViewController {
   BRZContentCardUIViewController *contentCardsController = [[BRZContentCardUIViewController alloc] initWithBraze:self.braze];
   // Implement and set `BrazeContentCardUIViewControllerDelegate` if you wish to intercept click actions.
@@ -55,7 +55,7 @@ func pushViewController() {
 {% tabs %}
 {% tab swift %}
 
-`````````swift
+```swift
 func presentModalViewController() {
   guard let braze = AppDelegate.braze else { return }
   let contentCardsModal = BrazeContentCardUI.ModalViewController(braze: braze)
@@ -68,7 +68,7 @@ func presentModalViewController() {
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 - (void)presentModalViewController {
   BRZContentCardUIModalViewController *contentCardsModal = [[BRZContentCardUIModalViewController alloc] initWithBraze:AppDelegate.braze];
   // Implement and set `BrazeContentCardUIViewControllerDelegate` if you wish to intercept click actions.
@@ -92,7 +92,11 @@ func presentModalViewController() {
 - クラシック画像
 - コントロール
 
-コンテンツカードデータモデルにアクセスするには、`braze`インスタンスで`contentCards.cards`を呼び出します。カードデータのサブスクライブの詳細については、[分析のロギング]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)を参照してください。
+コンテンツカードデータモデルにアクセスするには、`braze`インスタンスで`contentCards.cards`を呼び出します。カードデータのサブスクライブの詳細については、[分析のロギング]({{site.baseurl}}/developer_guide/content_cards/logging_analytics)を参照してください。
+
+{% alert note %}
+`contentCards.cards`、`contentCards.unviewedCards`、または`contentCards.lastUpdate`の読み取りは、SDKが初期化後の処理を完了するまで呼び出しスレッドをブロックします。メインスレッドやレイテンシーに敏感なコンテキストでは、代わりにノンブロッキングの[`getCachedContentCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getcachedcontentcards(_:))、[`getUnviewedCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getunviewedcards(_:))、または[`getLastUpdate(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getlastupdate(_:))を使用してください。
+{% endalert %}
 
 {% alert note %}
 `BrazeKit`には、Objective-C互換のための代替[`ContentCardRaw`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcardraw)クラスが用意されています。
@@ -110,6 +114,6 @@ func presentModalViewController() {
 | `card.context?.logDismissed()` | コンテンツカードの非表示イベントを記録します。 |
 | `card.context?.logError()` | コンテンツカードに関連するエラーを記録します。 |
 | `card.context?.loadImage()` | 指定されたコンテンツカードの画像をURLから読み込みます。コンテンツカードに画像がない場合、このメソッドはnilになります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カードメソッド" }
 
 詳細については、[`Context`クラスのドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcardraw/context-swift.class)を参照してください。

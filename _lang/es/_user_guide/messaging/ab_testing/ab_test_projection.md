@@ -28,7 +28,7 @@ Se abrirá un modal con las líneas del asunto de cualquier variante de mensaje 
 La línea del asunto que nuestra IA predice como la mejor se resaltará con una etiqueta de **Projected Winner**.
 
 {% alert note %}
-Para las [campañas push de múltiples plataformas]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), las pruebas A/B son compatibles cuando seleccionas múltiples plataformas.
+Para las [campañas push de múltiples plataformas]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push), las pruebas A/B son compatibles cuando seleccionas múltiples plataformas.
 {% endalert %}
 
 ### ¿Qué tan precisas son las proyecciones? {#how-accurate-are-the-projections}

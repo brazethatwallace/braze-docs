@@ -13,7 +13,7 @@ description: "이 참조 문서에서는 Braze 수신자 오브젝트의 다양�
 
 이 오브젝트에는 `external_user_id`, `user_alias`, `braze_id` 또는 `email` 중 하나를 반드시 포함해야 합니다. **요청에는 하나만 지정해야 합니다.**
 
-수신자 오브젝트를 사용하면 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object), [트리거 등록정보 오브젝트]({{site.baseurl}}/api/objects_filters/trigger_properties_object), [Canvas 진입 등록정보 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) 및 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)를 결합할 수 있습니다.
+수신자 오브젝트를 사용하면 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object), [트리거 속성 오브젝트]({{site.baseurl}}/api/objects_filters/trigger_properties_object), [Canvas 진입 속성 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) 및 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)를 결합할 수 있습니다.
 
 ## 오브젝트 본문 {#object-body}
 
@@ -40,8 +40,8 @@ description: "이 참조 문서에서는 Braze 수신자 오브젝트의 다양�
 - [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 - [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
 - [외부 사용자 ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
-- [우선순위 지정]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)
-- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
+- [우선순위 지정]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
+- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)
 
 ## 수신자 오브젝트 중복 제거 {#recipient-object-deduping}
 
@@ -49,7 +49,7 @@ description: "이 참조 문서에서는 Braze 수신자 오브젝트의 다양�
 
 예를 들어, 동일한 `external_user_id`를 사용하면 사용자는 하나의 메시지만 수신합니다. 이 동작에 대한 해결 방법이 필요한 경우 여러 번 API를 호출하는 것을 고려하세요.
 
-동일한 `external_user_id`가 수신자 배열에 여러 번 나타나는 경우, Braze는 메시지를 한 번만 전송하며 배열에서 마지막에 나타나는 항목의 트리거 등록정보를 사용합니다. 이 동작은 결정적이며 배열 순서에 기반합니다.
+동일한 `external_user_id`가 수신자 배열에 여러 번 나타나는 경우, Braze는 메시지를 한 번만 전송하며 배열에서 마지막에 나타나는 항목의 트리거 속성을 사용합니다. 이 동작은 결정적이며 배열 순서에 기반합니다.
 
 다음 예시에서 `userid1`은 배열의 마지막에 해당 항목이 나타나므로 `"name": "Beth Test 2"`를 사용하여 하나의 메시지를 수신합니다.
 

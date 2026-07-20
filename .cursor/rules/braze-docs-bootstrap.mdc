@@ -27,6 +27,7 @@ For work under `_docs/` or root `_includes/`:
 - **Writing, links, merge conflicts, review:** Follow [`.github/skills/braze-docs/SKILL.md`](.github/skills/braze-docs/SKILL.md).
 - **Verifying product, API, or SDK behavior:** Follow [`.github/skills/reference-repos/SKILL.md`](.github/skills/reference-repos/SKILL.md). Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so sibling SDK and `platform` repos are available.
 - **Screenshot PII audit:** Follow [`.github/skills/screenshot-pii-audit/SKILL.md`](.github/skills/screenshot-pii-audit/SKILL.md) when adding or updating `assets/img/` screenshots.
+- **Redundant image cleanup:** Follow [`.github/skills/image-curator/SKILL.md`](.github/skills/image-curator/SKILL.md) when removing low-value screenshots from English docs.
 
 **Canonical human style guide:** [`docs/contributing/style_guide/`](docs/contributing/style_guide/) — defer to those files over summaries in skills.
 
@@ -42,5 +43,5 @@ When the contributor has **not** already invoked a skill in the session (no chat
 | Drafting or revising `_docs/` or root `_includes/` without naming a skill | Note that describing the task is enough for routine edits ([braze-docs](.github/skills/braze-docs/SKILL.md) loads via the routing above). |
 | Current branch name suggests a merge (`merge/*`, `*-merge`, etc.) or edited files contain conflict markers | Suggest conflict-resolution help through [braze-docs](.github/skills/braze-docs/SKILL.md) Conflict mode — a written plan before bulk resolution keeps the contributor in control. |
 | Editing `assets/js/broken_redirect_list.js` or adding/validating redirects | Point to [redirect-management](.github/skills/redirect-management/SKILL.md) for redirect entries, scripts, and verification. Use [braze-docs](.github/skills/braze-docs/SKILL.md) Links mode for general cross-reference fixes. |
-| About to open a PR that touches markdown under `_docs/`, root `_includes/`, or other site-facing files | Mention [check-accessibility](.github/skills/check-accessibility/SKILL.md) as an optional pre-PR WCAG 2.2 AA check, then [create-pr](.github/skills/create-pr/SKILL.md) to open the draft PR. |
+| About to open a PR that touches markdown under `_docs/` or root `_includes/` | Mention [check-accessibility](.github/skills/check-accessibility/SKILL.md) and [spell-check](.github/skills/spell-check/SKILL.md) as pre-PR checks, and call out that Style QA via [create-pr](.github/skills/create-pr/SKILL.md) / [style-qa-changed-files](.github/skills/braze-docs/workflows/style-qa-changed-files.md) is required when prose diffs exist before opening the draft PR. |
 | Branch has commits ready for review and the user wants to submit changes | Suggest [create-pr](.github/skills/create-pr/SKILL.md) — `/create-pr` produces a repo-aligned draft PR description and runs pre-PR gates. |

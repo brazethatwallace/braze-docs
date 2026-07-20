@@ -15,7 +15,7 @@ platform: API
 
 ## API トリガーキャンペーンの設定 {#setting-up-an-api-triggered-campaign}
 
-API トリガーキャンペーンの設定にはいくつかのステップが必要です。まず、マルチチャネルまたは単一チャネルのCampaign（多変量テスト付き）を新規作成します。
+API トリガーキャンペーンの設定にはいくつかのステップが必要です。まず、マルチチャネルまたは単一チャネルのキャンペーン（多変量テスト付き）を新規作成します。
 
 {% alert note %}
 API トリガーキャンペーンは[API キャンペーン]({{site.baseurl}}/developer_guide/rest_api/api_campaigns#api-campaigns)とは異なります。

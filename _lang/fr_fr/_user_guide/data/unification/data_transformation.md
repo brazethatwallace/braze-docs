@@ -4,9 +4,9 @@ article_title: Transformation des données
 page_order: 2
 layout: dev_guide
 guide_top_header: "Transformation des données"
-guide_top_text: "La Transformation des données Braze vous permet de créer et de gérer des intégrations webhook pour automatiser le flux de données depuis des plateformes externes vers Braze. Ces données utilisateur nouvellement intégrées peuvent ensuite servir à des cas d'utilisation marketing encore plus sophistiqués. La Transformation des données Braze peut accélérer l'intégration de vos données, même si vous n'avez que très peu d'expérience en matière de codage, et peut aider à remplacer la dépendance de votre équipe à l'égard des appels d'API manuels, des outils d'intégration tiers, ou même des plateformes de données client."
+guide_top_text: "La Transformation des données Braze vous permet de créer et de gérer des intégrations webhook pour automatiser le flux de données depuis des plateformes externes vers Braze. Ces données utilisateur nouvellement intégrées peuvent ensuite servir à des cas d'usage marketing encore plus sophistiqués. La Transformation des données Braze peut accélérer l'intégration de vos données, même si vous n'avez que très peu d'expérience en matière de codage, et peut aider à remplacer la dépendance de votre équipe à l'égard des appels d'API manuels, des outils d'intégration tiers, ou même des plateformes de données client."
 page_type: landing
-description: "Cette page d'accueil regroupe des articles sur la Transformation des données Braze, notamment sur la façon de créer une transformation et sur les cas d'utilisation."
+description: "Cette page d'accueil regroupe des articles sur la Transformation des données Braze, notamment sur la façon de créer une transformation et sur les cas d'usage."
 alias: /data_transformation/
 
 guide_featured_title: "Articles de la section"
@@ -65,18 +65,18 @@ Bien que nous serions ravis que les développeurs utilisent également cette fon
 
 ### Puis-je quand même utiliser la Transformation des données Braze si ma plateforme externe ne fournit qu'une adresse e-mail ou un numéro de téléphone comme identifiant ? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
-Oui. Vous pouvez faire en sorte que vos transformations mettent à jour l'endpoint `/users/track` avec l'[adresse e-mail ou le numéro de téléphone comme identifiant]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#example-request-for-updating-a-user-profile-by-email-address).
+Oui. Vous pouvez faire en sorte que vos transformations mettent à jour l'endpoint `/users/track` avec l'[adresse e-mail ou le numéro de téléphone comme identifiant]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-email-address).
 
-Pour ce faire, utilisez `email` ou `phone` comme propriété d'identification dans le code de transformation au lieu de `external_id` ou `braze_id`. L'exemple de [code de transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases/#example-transformation-code) utilise cette fonctionnalité.
+Pour ce faire, utilisez `email` ou `phone` comme propriété d'identification dans le code de transformation au lieu de `external_id` ou `braze_id`. L'exemple de [code de transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases#example-transformation-code) utilise cette fonctionnalité.
 
 {% alert note %}
-Les utilisateurs de l'accès anticipé de la Transformation des données Braze ayant commencé avant avril 2023 connaissent peut-être la fonction `get_user_by_email` qui aidait dans ce cas d'utilisation. Cette fonction est désormais obsolète.
+Les utilisateurs de l'accès anticipé de la Transformation des données Braze ayant commencé avant avril 2023 connaissent peut-être la fonction `get_user_by_email` qui aidait dans ce cas d'usage. Cette fonction est désormais obsolète.
 {% endalert %}
 
 ### La Transformation des données Braze enregistre-t-elle des points de données ? {#does-braze-data-transformation-log-data-points}
 
 Oui, dans la plupart des cas. La Transformation des données Braze finit par créer un appel `/users/track` qui écrit les attributs, les événements et les achats que vous souhaitez. Ces derniers enregistrent des points de données de la même manière que si l'appel `/users/track` était effectué de manière indépendante. Vous contrôlez le nombre de points de données enregistrés en fonction de la façon dont vous écrivez votre transformation.
 
-### Comment puis-je obtenir de l'aide pour la mise en place de mon cas d'utilisation ou pour mon code de transformation ? {#how-can-i-get-help-setting-up-my-use-case-or-with-my-transformation-code}
+### Comment puis-je obtenir de l'aide pour la mise en place de mon cas d'usage ou pour mon code de transformation ? {#how-can-i-get-help-setting-up-my-use-case-or-with-my-transformation-code}
 
 Contactez votre gestionnaire de compte Braze pour toute assistance supplémentaire.

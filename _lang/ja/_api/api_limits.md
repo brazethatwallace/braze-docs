@@ -11,7 +11,7 @@ page_type: reference
 
 > BrazeのAPIインフラは、顧客ベース全体で大量のデータを処理できるように設計されています。このため、ワークスペースごとにAPIレート制限を設けています。
 
-レート制限とは、APIが一定時間内に受け取れるリクエスト数のことです。大規模システムにおける負荷ベースのサービス拒否インシデントの多くは、悪意のある攻撃ではなく、ソフトウェアや設定のエラーによって引き起こされる意図しないものです。レート制限は、このようなエラーによってBraze APIのリソースがお客様に提供できなくなることを防ぎます。一定時間内に多くのリクエストが送信された場合、ステータスコード `429` のエラー応答が返されることがあります。これは、レート制限に達したことを示します。
+レート制限とは、APIが一定時間内に受け取れるリクエスト数のことです。大規模システムにおける負荷ベースのサービス拒否インシデントの多くは、悪意のある攻撃ではなく、ソフトウェアや設定のエラーによって引き起こされる意図しないものです。レート制限は、このようなエラーによってBraze APIのリソースがお客様に提供できなくなることを防ぎます。一定時間内に多くのリクエストが送信された場合、ステータスコード`429`のエラー応答が返されることがあります。これは、レート制限に達したことを示します。
 
 {% alert warning %}
 APIレート制限は、システムの適切な使用状況に応じて変更される場合があります。損害や悪用を防ぐため、APIコールを行う際には適切な制限を設けることを推奨します。
@@ -25,7 +25,7 @@ APIレート制限は、システムの適切な使用状況に応じて変更�
 
 | リクエストのタイプ | デフォルトのAPIレート制限 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **リクエスト:** 3秒あたり3,000リクエスト。<br><br>**バッチ処理:** 1件のAPIリクエストあたり、`attributes`、`events`、`purchases`を合わせて最大75個のオブジェクト。レガシーレート制限が適用されているお客様は、各配列ごとに最大75個のオブジェクトを独立して含めることができます。詳細については、「[ユーザー追跡リクエストのバッチ処理](#batch-user-track)」を参照してください。<br><br>**月間アクティブユーザー数（CY 24-25）、ユニバーサルMAU、Web MAU、モバイルMAUの制限:** [こちらの制限に関するガイダンス]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25)を参照してください。 |
+| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **リクエスト:** レート制限はご契約内容によって異なります。料金体系にデータポイントが含まれるお客様の場合、Brazeは3秒あたり3,000リクエストのバースト制限を適用します。その他すべてのお客様の場合、制限はご契約条件に基づいて設定されます。制限に関するご質問は、Brazeサポートまたはカスタマーサクセスマネージャーにお問い合わせください。<br><br>**バッチ処理:** 1件のAPIリクエストあたり、`attributes`、`events`、`purchases`を合わせて最大75個のオブジェクト。レガシーレート制限が適用されているお客様は、各配列ごとに最大75個のオブジェクトを独立して含めることができます。詳細については、[ユーザー追跡リクエストのバッチ処理](#batch-user-track)を参照してください。<br><br>**月間アクティブユーザー数（CY 24-25）、ユニバーサルMAU、Web MAU、モバイルMAUの制限:** [月間アクティブユーザー数CY 24-25の制限]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)を参照してください。 |
 | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) | **2024年8月22日以降にオンボーディングした場合:** 毎分250リクエスト。<br><br> **2024年8月22日以前にオンボーディングした場合:** 毎分2,500リクエスト。 |
 | [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)<br>[`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias)<br>[`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update)<br>[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)<br>[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) | 1分あたり20,000件のリクエストをエンドポイント間で共有します。 |
 | [`/users/external_id/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename) | 1分あたり1,000件のリクエスト。 |
@@ -33,7 +33,7 @@ APIレート制限は、システムの適切な使用状況に応じて変更�
 | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) | 1時間あたり1,000件のリクエスト、`/purchases/product_list`エンドポイントと共有されます。 |
 | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) | 1時間あたり1,000件のリクエスト、`/events/list`エンドポイントと共有されます。 |
 | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | 1分あたり50,000件のリクエスト。 |
-| [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)<br>[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)<br>[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)<br>[`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns)<br>[`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases) | ブロードキャストコール（Segment、フィルター、接続済みオーディエンスを広く対象とする場合）では、全オーディエンス合計で毎分250リクエスト、かつ[ユニークオーディエンス]({{site.baseurl}}/api/api_limits#what-counts-as-the-same-unique-audience)ごとに毎分10リクエスト（いずれか先に達した方が上限）。<br><br>それ以外の場合、個々の受信者を対象とするリクエストは、1時間あたり250,000リクエストの[共有レート制限]({{site.baseurl}}/api/api_limits#requests-with-shared-rate-limits)に含まれます。 |
+| [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)<br>[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)<br>[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)<br>[`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns)<br>[`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases) | ブロードキャストコール（セグメント、フィルター、接続済みオーディエンスを広く対象とする場合）では、全オーディエンス合計で毎分250リクエスト、かつ[ユニークオーディエンス]({{site.baseurl}}/api/api_limits#what-counts-as-the-same-unique-audience)ごとに毎分10リクエスト（いずれか先に達した方が上限）。<br><br>それ以外の場合、個々の受信者を対象とするリクエストは、1時間あたり250,000リクエストの[共有レート制限]({{site.baseurl}}/api/api_limits#requests-with-shared-rate-limits)に含まれます。 |
 | [`/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids) | 1日あたり100件のリクエスト。 |
 | [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) | 毎分5,000リクエスト。 |
 | [`/preference_center/v1/{preferenceCenterExternalId}/url/{userId}`]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center)<br>[`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center)<br>[`/preference_center/v1/{preferenceCenterExternalId}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) | 1分あたり1,000件のリクエスト。 |
@@ -117,8 +117,8 @@ APIレート制限は、システムの適切な使用状況に応じて変更�
 
 これらのエンドポイントにおいて、以下の条件がすべて一致する場合、ブロードキャストリクエストは同一のユニークオーディエンスを対象としていると見なされます：
 
-- トリガーされるCampaignまたはCanvas（APIリクエスト内の`campaign_id`または`canvas_id`（指定されている場合））
-- 対象とするオーディエンス（Segmentやフィルター、あるいはAPIキャンペーンの場合はAPIリクエスト内の`segment_id`）
+- トリガーされるキャンペーンまたはキャンバス（APIリクエスト内の`campaign_id`または`canvas_id`（指定されている場合））
+- 対象とするオーディエンス（セグメントやフィルター、あるいはAPIキャンペーンの場合はAPIリクエスト内の`segment_id`）
 - 接続されたオーディエンスフィルター（APIリクエスト内の`audience`オブジェクト（指定されている場合））
 
 これらの属性のユニークな組み合わせはそれぞれが独立したオーディエンスとしてカウントされるため、各ユニークオーディエンスに対する追加のレート制限は、それぞれの組み合わせに対して個別に適用されます。
@@ -131,7 +131,7 @@ BrazeのAPIは、バッチ処理をサポートするように構築されてい
 REST APIのレート制限の増加は、APIバッチ処理機能を利用しているお客様のニーズに基づいて検討されます。
 {% endalert %}
 
-### ユーザー追跡エンドポイントへのリクエストのバッチ処理 {#batch-user-track}
+### ユーザー作成・更新エンドポイントへのリクエストのバッチ処理 {#batch-user-track}
 
 `/users/track`の各リクエストには、`attributes`、`events`、`purchases`を合わせて最大75個のオブジェクトを含めることができます。各オブジェクトは1人のユーザーを更新できます。単一のユーザープロファイルを複数のオブジェクトによって更新することもできます。
 
@@ -152,7 +152,7 @@ REST APIのレート制限の増加は、APIバッチ処理機能を利用して
 [メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)への単一のリクエストは、次のいずれかに到達できます：
 
 - それぞれに個別のメッセージパラメーターを持つ、最大50個の特定の`external_ids`
-- `segment_id`で指定される、Brazeダッシュボードで作成された任意のサイズのSegment
+- `segment_id`で指定される、Brazeダッシュボードで作成された任意のサイズのセグメント
 - リクエストの中で[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)オブジェクトとして定義された、任意のサイズの追加オーディエンスフィルターに一致するユーザー
 
 ### バッチリクエストの例 {#example-batch-request}

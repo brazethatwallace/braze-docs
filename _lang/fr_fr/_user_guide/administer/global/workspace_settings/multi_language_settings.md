@@ -49,13 +49,14 @@ Pour savoir comment utiliser ces paramètres régionaux dans vos messages, consu
 - Vous pouvez sélectionner jusqu'à deux attributs personnalisés dans un seul paramètre régional, ou jusqu'à deux langues d'attributs utilisateur par défaut. Dans les deux cas, le second attribut est facultatif.
 - Lorsque vous modifiez les valeurs traduites dans le fichier CSV, évitez de modifier les valeurs par défaut du fichier.
 - La clé du paramètre régional dans votre fichier importé doit correspondre à celle de vos paramètres multilingues.
+- Pour mettre à jour `device_locale` vers `zh_CN` (chinois simplifié utilisé en Chine continentale), vous devez ajouter un fichier de localisation `zh_CN` à votre projet, car iOS utilise nativement `zh-Hans`.
 
-### Assistance et priorisation {#support-and-prioritization}
+### Prise en charge et priorisation {#support-and-prioritization}
 
 - Si un utilisateur correspond à la fois à un paramètre régional défini par des attributs personnalisés et à un paramètre régional défini par des attributs utilisateur par défaut, le paramètre régional basé sur les attributs personnalisés est prioritaire.
 - Les attributs personnalisés prennent en charge les valeurs textuelles (chaînes de caractères) avec correspondance exacte.
 - Si un attribut personnalisé est supprimé ou si son type est modifié, l'utilisateur ne peut plus correspondre à ce paramètre régional et sera soit redirigé vers le paramètre régional suivant dans la liste de priorité, soit recevra les traductions marketing par défaut.
-- Si un paramètre régional est invalide (l'attribut personnalisé a été modifié ou supprimé), l'erreur apparaîtra sur la page **Prise en charge multilingue**.
+- Si un paramètre régional est invalide (l'attribut personnalisé a été modifié ou supprimé), l'erreur apparaîtra sur la page **Multi-Language Support**.
 
 ## Foire aux questions {#frequently-asked-questions}
 
@@ -65,7 +66,7 @@ Vous pouvez ajouter jusqu'à 200 paramètres régionaux.
 
 ### Où les fichiers de traduction sont-ils stockés dans Braze ? {#where-are-the-translation-files-stored-in-braze}
 
-Les fichiers de traduction sont stockés au niveau de la campagne, ce qui signifie que chaque variante de message doit disposer de traductions importées. Les traductions peuvent également être stockées dans des Content Blocks. Lorsqu'un bloc est ajouté à un message, ses traductions sont automatiquement incluses.
+Les fichiers de traduction sont stockés au niveau de la Campaign, ce qui signifie que chaque variante de message doit disposer de traductions importées. Les traductions peuvent également être stockées dans des Content Blocks. Lorsqu'un bloc est ajouté à un message, ses traductions sont automatiquement incluses.
 
 ### Le nom du paramètre régional doit-il suivre un format ou un modèle spécifique ? {#does-the-locale-name-have-to-follow-a-specific-pattern-or-format}
 

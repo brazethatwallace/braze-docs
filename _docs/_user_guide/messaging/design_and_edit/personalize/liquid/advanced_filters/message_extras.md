@@ -50,7 +50,7 @@ The `message_extras` tag is supported for all message types with a send event, a
 
 ## Checking syntax
 
-Any other input that doesn't match the tag standard discussed above may fail to pass to Currents or Snowflake. Check that your syntax or formatting doesn't include any of the following:
+Any other input that doesn't match the tag standard discussed earlier in this section may fail to pass to Currents or Snowflake. Check that your syntax or formatting doesn't include any of the following:
 
 - Non-existent, empty, or mistyped delimiters
 - Duplicate keys (Braze will default to sending the key-value pair that is encountered first)

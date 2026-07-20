@@ -1,6 +1,6 @@
 ---
 nav_title: Recommandations générées par l'IA
-article_title: "Créer des recommandations d'articles basées sur l'intelligence artificielle"
+article_title: Créer des recommandations d'articles basées sur l'intelligence artificielle
 description: "Cet article de référence explique comment créer une recommandation d'article par intelligence artificielle pour les articles d'un catalogue."
 page_order: 1
 ---
@@ -25,8 +25,8 @@ Les [recommandations personnalisées par intelligence artificielle](#recommendat
 
 Avant de commencer, vous devez disposer des éléments suivants :
 
-- Au moins un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs) pour utiliser l'un des types de recommandation décrits ci-dessous.
-- Des données d'achat ou d'événement dans Braze (événements personnalisés, l'événement de commande passée ou l'objet d'achat) qui incluent une référence à l'article et correspondent aux ID d'articles du catalogue.
+- Au moins un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs) pour utiliser l'un des types de recommandation décrits dans la section suivante.
+- Des données d'achat ou d'événement dans Braze (événements personnalisés, l'événement de commande passée ou l'objet d'achat) qui incluent une référence à l'article et doivent correspondre aux ID d'articles du catalogue.
 
 ### Étape 1 : Créer une nouvelle recommandation {#step-1-create-a-new-recommendation}
 
@@ -84,6 +84,10 @@ Si vous ne trouvez pas votre sélection, vérifiez qu'elle est bien configurée 
 ### Étape 4 : Sélectionner l'interaction à l'origine des recommandations {#step-4-select-the-interaction-to-drive-recommendations}
 
 Sélectionnez l'événement pour lequel vous souhaitez optimiser cette recommandation. Il s'agit généralement d'un achat, mais cela peut aussi être n'importe quelle interaction avec un article.
+
+{% alert tip %}
+Lors de la configuration des recommandations d'articles par intelligence artificielle, le choix de l'événement est important. Votre événement déclencheur détermine qui reçoit une recommandation générée par l'IA : les recommandations d'articles par intelligence artificielle sont générées pour les utilisateurs ayant effectué l'événement que vous configurez, ce choix détermine donc directement qui reçoit des recommandations. Sélectionnez un événement qui couvre l'ensemble du segment d'audience que vous souhaitez atteindre.<br><br> En même temps, trouvez un équilibre entre couverture et pertinence. Les événements en haut de l'entonnoir (comme « Produit consulté ») tendent à capter une audience plus large mais sont moins liés aux résultats commerciaux, tandis que les événements en bas de l'entonnoir (comme « Acheté ») tendent à produire des recommandations plus ciblées et pertinentes pour l'activité. Le meilleur événement est celui qui équilibre la couverture avec l'impact sur les résultats.
+{% endalert %}
 
 Vous pouvez optimiser pour :
 
@@ -216,7 +220,7 @@ Si les propriétés de votre événement contiennent plusieurs produits dans un 
 
 ##### Exemple d'objet d'événement personnalisé avec un objet imbriqué contenant un tableau d'ID de produit {#example-custom-event-object-with-a-nested-object-containing-a-product-id-array}
 
-Si vos ID de produits sont des valeurs dans un tableau plutôt que des objets, vous pouvez utiliser la même notation et chaque ID de produit sera traité comme un événement distinct et séquentiel. Cette approche peut être combinée de manière flexible avec des objets imbriqués dans l'événement suivant en configurant la propriété comme `purchase.product_skus` pour correspondre aux premier et troisième articles du catalogue d'exemple.
+Si vos ID de produit sont des valeurs dans un tableau plutôt que des objets, vous pouvez utiliser la même notation et chaque ID de produit sera traité comme un événement distinct et séquentiel. Cette approche peut être combinée de manière flexible avec des objets imbriqués dans l'événement suivant en configurant la propriété comme `purchase.product_skus` pour correspondre aux premier et troisième articles du catalogue d'exemple.
 
 ```json
 {

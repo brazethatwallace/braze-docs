@@ -3,7 +3,7 @@ nav_title: ダブルオプトインによるメール登録
 article_title: ダブルオプトインによるメール登録
 page_order: 2
 page_type: reference
-description: "この記事では、Braze キャンバステンプレートを使用して、確認済みのメール登録でリーチを拡大する方法について説明します。"
+description: "この記事では、Braze Canvasテンプレートを使用して、確認済みのメール登録でリーチを拡大する方法について説明します。"
 tool: Canvas
 ---
 
@@ -17,17 +17,17 @@ tool: Canvas
 
 このテンプレートを正しく使用するには、以下が必要です。
 
-- ユーザーのメールを取得するページと成功メッセージを伝えるページを含む[マルチページアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page)。
+- ユーザーのメールを取得するページと成功メッセージを伝えるページを含む[マルチページアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page)。
 - ユーザーがメールアドレスを確認するための確認メール。
 - ダブルオプトインしたユーザー向けの限定プロモーションコードを含むウェルカムメール。
 
 ## テンプレートをニーズに合わせてカスタマイズする {#tailoring-the-template-to-your-needs}
 
-カロリートラッキング、デジタルエクササイズクラス、フラッシュモブマラソンなどの機能で知られるヘルスアプリ、Steppingtonで働いているとしましょう。キャンバスを作成する前に、アプリでの初回体験とインプレッションを判断するための一連の魅力的な質問を含む[マルチページアプリ内およびブラウザ内メッセージを設定]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page)します。
+カロリートラッキング、デジタルエクササイズクラス、フラッシュモブマラソンなどの機能で知られるヘルスアプリ、Steppingtonで働いているとしましょう。キャンバスを作成する前に、アプリでの初回体験とインプレッションを判断するための一連の魅力的な質問を含む[マルチページアプリ内およびブラウザ内メッセージを設定]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page)します。
 
 テンプレートにアクセスするには、新しいキャンバスを作成する際に、**キャンバステンプレートを使用** > **Brazeテンプレート**を選択します。次に、**ダブルオプトインによるメール登録**の横にある**テンプレートを適用**を選択します。これで、テンプレートをニーズに合わせて調整できます。
 
-### ステップ 1:詳細を設定する {#step-1-set-up-the-details}
+### ステップ 1: 詳細を設定する {#step-1-set-up-the-details}
 
 目標に合わせてキャンバスの詳細を調整します。
 
@@ -42,7 +42,7 @@ tool: Canvas
 
 ![キャンバスの新しい名前、説明、タグ。]({% image_buster /assets/img/canvas_templates/email_signup2.png %}){: style="max-width:90%;"}
 
-### ステップ 2:コンバージョンイベントを割り当てる {#step-2-assign-conversion-events}
+### ステップ 2: コンバージョンイベントを割り当てる {#step-2-assign-conversion-events}
 
 次に、コンバージョンイベントを割り当てます。コンバージョンイベントは、キャンバスの成功を測定するために使用できる指標の一種です。**コンバージョンイベントタイプ**で、**カスタムイベントを実行**を選択します。次に、**カスタムイベント名**で**email_opt_in**を選択します。
 
@@ -50,7 +50,7 @@ tool: Canvas
 
 最新のユーザーをターゲットにしたいため、テンプレートのコンバージョン期限である3日間をそのまま維持します。
 
-### ステップ 3:エントリスケジュールをカスタマイズする {#step-3-tailor-the-entry-schedule}
+### ステップ 3: エントリスケジュールをカスタマイズする {#step-3-tailor-the-entry-schedule}
 
 エントリスケジュールを**アクションベース**のままにして、ユーザーがアプリでセッションを開始したときにキャンバスに入るようにします。これにより、タイムリーなエンゲージメントで関係構築を始めることができます。
 
@@ -62,19 +62,19 @@ tool: Canvas
 
 ![開始時刻が2025年1月16日午後12時30分のエントリ時間枠。ユーザーはローカルタイムゾーンでこのメッセージに入ります。]({% image_buster /assets/img/canvas_templates/email_signup5.png %}){: style="max-width:90%;"}
 
-### ステップ 4:ターゲットオーディエンスを選択する {#step-4-select-the-target-audience}
+### ステップ 4: ターゲットオーディエンスを選択する {#step-4-select-the-target-audience}
 
-テンプレートのデフォルトの[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) `Email Available is false`を維持して、ユーザープロファイルにメールアドレスがないSteppingtonユーザーをターゲットオーディエンスとして定義します。
+テンプレートのデフォルトの[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) `Email Available is false`を維持して、ユーザープロファイルにメールアドレスがないSteppingtonユーザーをターゲットオーディエンスとして定義します。
 
 ![「Email Available is false」フィルターを使用したエントリオーディエンス。]({% image_buster /assets/img/canvas_templates/email_signup6.png %}){: style="max-width:90%;"}
 
-### ステップ 5:送信設定を選択する {#step-5-select-your-send-settings}
+### ステップ 5: 送信設定を選択する {#step-5-select-your-send-settings}
 
 デフォルトのサブスクリプション設定を維持して、メッセージや通知の受信を購読またはオプトインしたユーザーにのみ送信し、その他の設定（フリークエンシーキャップ、クワイエットアワー、シードグループ）はスキップします。
 
 ![購読中またはオプトインしたユーザーにのみ送信するデフォルトの送信オプション。]({% image_buster /assets/img/canvas_templates/email_signup7.png %}){: style="max-width:90%;"}
 
-### ステップ 6:キャンバスをカスタマイズする {#step-6-customize-your-canvas}
+### ステップ 6: キャンバスをカスタマイズする {#step-6-customize-your-canvas}
 
 次に、ユーザーに送信するチャネルとコンテンツをカスタマイズしてキャンバスを構築します。メール登録の確認に焦点を当てているため、テンプレートのキャンバスステップやチャネルを追加または削除する必要はありません。
 
@@ -100,10 +100,10 @@ tool: Canvas
 **Verify Email**メッセージステップは、ユーザーの2回目のセッションでトリガーされます。これは、最初のセッション開始イベントがキャンバスをトリガーしますが、ユーザーが最初の**Email Sign-up**メッセージステップに到達した後の2回目のセッション開始が、2番目のアプリ内メッセージをトリガーする資格を得るために必要だからです。
 {% endalert %}
 
-### ステップ 7:キャンバスをテストして起動する {#step-7-test-and-launch-your-canvas}
+### ステップ 7: キャンバスをテストして起動する {#step-7-test-and-launch-your-canvas}
 
 キャンバスをテストおよび確認して、期待どおりに動作することを確認したら、**キャンバスを起動**を選択して起動します。
 
 {% alert tip %}
-キャンバスを起動する前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)をご覧ください。
+キャンバスを起動する前後に考慮すべき事項については、[起動前後のチェックリスト]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)をご覧ください。
 {% endalert %}

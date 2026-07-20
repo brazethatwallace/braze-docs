@@ -17,13 +17,13 @@ Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **E-Mail-
 
 Um dieses Template erfolgreich zu verwenden, benötigen Sie Folgendes:
 
-- Eine [mehrseitige In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page) mit einer Seite zur Erfassung der E-Mail-Adressen Ihrer Nutzer:innen und einer weiteren Seite für eine Erfolgsmeldung.
+- Eine [mehrseitige In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page) mit einer Seite zur Erfassung der E-Mail-Adressen Ihrer Nutzer:innen und einer weiteren Seite für eine Erfolgsmeldung.
 - Eine Bestätigungs-E-Mail, damit Nutzer:innen ihre E-Mail-Adresse verifizieren können.
 - Eine Willkommens-E-Mail mit einem exklusiven Aktionscode für Nutzer:innen, die das Double-Opt-in abschließen.
 
 ## Das Template an Ihre Bedürfnisse anpassen {#tailoring-the-template-to-your-needs}
 
-Nehmen wir an, Sie arbeiten für Steppington, eine Gesundheits-App, die für Features wie Kalorienverfolgung, digitale Fitnesskurse und Flashmob-Marathons bekannt ist. Bevor Sie das Canvas erstellen, [richten Sie mehrseitige In-App- und In-Browser-Nachrichten ein]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page), die eine Reihe ansprechender Fragen enthalten, um die Erfahrung und den Eindruck der ersten Nutzung der App zu ermitteln.
+Nehmen wir an, Sie arbeiten für Steppington, eine Gesundheits-App, die für Features wie Kalorienverfolgung, digitale Fitnesskurse und Flashmob-Marathons bekannt ist. Bevor Sie das Canvas erstellen, [richten Sie mehrseitige In-App- und In-Browser-Nachrichten ein]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page), die eine Reihe ansprechender Fragen enthalten, um die Erfahrung und den Eindruck der ersten Nutzung der App zu ermitteln.
 
 Um auf das Template zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Email sign-up with double opt-in** die Option **Apply Template**. Nun können wir das Template an unsere Bedürfnisse anpassen.
 
@@ -64,7 +64,7 @@ Aktualisieren Sie für das **Entry Window** die **Started Time (Required)** auf 
 
 ### 4. Schritt: Zielgruppe auswählen {#step-4-select-the-target-audience}
 
-Definieren Sie Ihre Zielgruppe als Steppington-Nutzer:innen, die keine E-Mail-Adresse in ihrem Nutzerprofil haben, indem Sie den Standard-[Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) des Templates `Email Available is false` beibehalten.
+Definieren Sie Ihre Zielgruppe als Steppington-Nutzer:innen, die keine E-Mail-Adresse in ihrem Nutzerprofil haben, indem Sie den Standard-[Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) des Templates `Email Available is false` beibehalten.
 
 ![Entry-Zielgruppe mit dem Filter „Email Available is false“.]({% image_buster /assets/img/canvas_templates/email_signup6.png %}){: style="max-width:90%;"}
 
@@ -105,5 +105,5 @@ Der Nachrichtenschritt **Verify Email** wird bei der zweiten Sitzung der Nutzer:
 Nachdem Sie Ihr Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, starten Sie es, indem Sie **Launch Canvas** auswählen.
 
 {% alert tip %}
-Sehen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) an, um Dinge zu berücksichtigen, bevor und nachdem Sie ein Canvas starten.
+Sehen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) an, um Dinge zu berücksichtigen, bevor und nachdem Sie ein Canvas starten.
 {% endalert %}

@@ -31,7 +31,7 @@
 {% endif %}
 
 {% if include.metric == "Deferral" %}
-<i>延期</i>は、メールがすぐに配信されなかった場合です。ただし、Brazeはこの一時的な配信失敗の後、最大72時間までメールの再送信を試行し、特定のCampaignの試行が停止される前に配信成功の可能性を最大化します。
+<i>延期</i>は、メールがすぐに配信されなかった場合です。ただし、Brazeはこの一時的な配信失敗の後、最大72時間までメールの再送信を試行し、特定のキャンペーンの試行が停止される前に配信成功の可能性を最大化します。
 {% endif %}
 
 {% if include.metric == "Body Click" %}
@@ -79,7 +79,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
-<i>コンバージョン率</i>は、メッセージの全受信者と比較して、定義されたイベントが発生した回数の割合です。このイベントは、Campaignを作成するときに決定します。
+<i>コンバージョン率</i>は、メッセージの全受信者と比較して、定義されたイベントが発生した回数の割合です。このイベントは、キャンペーンを作成するときに決定します。
 {% endif %}
 
 {% if include.metric == "Conversion Window" %}
@@ -87,11 +87,11 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Conversions (B, C, D)" %}
-<i>コンバージョン (B, C, D)</i>は、1次コンバージョンイベントの後に追加されるコンバージョンイベントです。これは、Braze Campaignから受信したメッセージと対話または閲覧した後に、定義されたイベントが発生した回数です。
+<i>コンバージョン (B, C, D)</i>は、1次コンバージョンイベントの後に追加されるコンバージョンイベントです。これは、Braze キャンペーンから受信したメッセージと対話または閲覧した後に、定義されたイベントが発生した回数です。
 {% endif %}
 
 {% if include.metric == "Total Conversions" %}
-<i>合計コンバージョン数</i>は、ユーザーがアプリ内メッセージCampaignを閲覧した後、特定のコンバージョンイベントを完了した合計回数です。
+<i>合計コンバージョン数</i>は、ユーザーがアプリ内メッセージキャンペーンを閲覧した後、特定のコンバージョンイベントを完了した合計回数です。
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
@@ -143,7 +143,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
-<i>日次平均収益</i>は、指定された日のCampaignとCanvasの収益の合計の平均です。
+<i>日次平均収益</i>は、指定された日のキャンペーンとキャンバスの収益の合計の平均です。
 {% endif %}
 
 {% if include.metric == "Daily Purchases" %}
@@ -175,7 +175,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
-<i>1次コンバージョン (A)</i>または<i>1次コンバージョンイベント</i>は、Braze Campaignから受信したメッセージの操作後または表示後に、定義されたイベントが発生した回数です。この定義されたイベントは、Campaignを作成するときに決定します。
+<i>1次コンバージョン (A)</i>または<i>1次コンバージョンイベント</i>は、Braze キャンペーンから受信したメッセージの操作後または表示後に、定義されたイベントが発生した回数です。この定義されたイベントは、キャンペーンを作成するときに決定します。
 {% endif %}
 
 {% if include.metric == "Reads" %}
@@ -195,19 +195,19 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Revenue" %}
-<i>収益</i>は、設定された<a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>1次コンバージョン期間</a> 内のCampaign受信者からのドル単位の総収益です。
+<i>収益</i>は、設定された<a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>1次コンバージョン期間</a> 内のキャンペーン受信者からのドル単位の総収益です。
 {% endif %}
 
 {% if include.metric == "Messages Sent" %}
-<i>送信済みメッセージ数</i>は、Campaignで送信されたメッセージの合計数です。スケジュールされたCampaignを開始した後、この指標には、レート制限のためにまだ送信されていないものも含め、送信されたすべてのメッセージが含まれます。これは、メッセージが受信されたりデバイスに配信されたことを意味するのではなく、メッセージが送信されたことのみを意味します。
+<i>送信済みメッセージ数</i>は、キャンペーンで送信されたメッセージの合計数です。スケジュールされたキャンペーンを開始した後、この指標には、レート制限のためにまだ送信されていないものも含め、送信されたすべてのメッセージが含まれます。これは、メッセージが受信されたりデバイスに配信されたことを意味するのではなく、メッセージが送信されたことのみを意味します。
 {% endif %}
 
 {% if include.metric == "Sent" %}
-<i>送信済み</i>は、CampaignまたはCanvasステップが開始またはトリガーされ、BrazeからSMSまたはRCSが送信されたことを意味します。エラーによってSMSまたはRCSがユーザーの端末に届かなかった可能性もあります。
+<i>送信済み</i>は、キャンペーンまたはキャンバスステップが開始またはトリガーされ、BrazeからSMSまたはRCSが送信されたことを意味します。エラーによってSMSまたはRCSがユーザーの端末に届かなかった可能性もあります。
 {% endif %}
 
 {% if include.metric == "Sends" %}
-<i>送信数</i>は、1つのCampaignで送信されたメッセージの総数です。スケジュールされたCampaignを開始した後、この指標には、レート制限のためにまだ送信されていないものも含め、送信されたすべてのメッセージが含まれます。これは、メッセージが受信されたりデバイスに配信されたことを意味するのではなく、メッセージが送信されたことのみを意味します。
+<i>送信数</i>は、1つのキャンペーンで送信されたメッセージの総数です。スケジュールされたキャンペーンを開始した後、この指標には、レート制限のためにまだ送信されていないものも含め、送信されたすべてのメッセージが含まれます。これは、メッセージが受信されたりデバイスに配信されたことを意味するのではなく、メッセージが送信されたことのみを意味します。
 {% endif %}
 
 {% if include.metric == "Sends to Carrier" %}
@@ -235,7 +235,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>却下数の合計</i>は、ユーザーがCampaignのメッセージを却下した回数です。Content Cardsの場合、各カードの却下がカウントされます。バナーの場合、却下動作が有効になっているときにユーザーがバナーを却下するたびにカウントされます。
+<i>却下数の合計</i>は、ユーザーがキャンペーンのメッセージを却下した回数です。Content Cardsの場合、各カードの却下がカウントされます。バナーの場合、却下動作が有効になっているときにユーザーがバナーを却下するたびにカウントされます。
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -247,7 +247,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Total Revenue" %}
-<i>総収益</i>は、設定された1次コンバージョン期間内のCampaign受信者からのドル単位の総収益です。
+<i>総収益</i>は、設定された1次コンバージョン期間内のキャンペーン受信者からのドル単位の総収益です。
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
@@ -255,13 +255,13 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
-<i>ユニーク却下数</i>は、CampaignからContent Cardsを却下したユニーク受信者の数です。あるユーザーがCampaignからContent Cardsを複数回却下した場合、ユニーク却下1回としてカウントされます。
+<i>ユニーク却下数</i>は、キャンペーンからContent Cardsを却下したユニーク受信者の数です。あるユーザーがキャンペーンからContent Cardsを複数回却下した場合、ユニーク却下1回としてカウントされます。
 {% endif %}
 
 <!-- Unique Impressions & Unique Recipients have a dedicated section in campaign_analytics.md -->
 
 {% if include.metric == "Unique Impressions" %}
-<i>ユニークインプレッション数</i>は、特定のCampaignから送信されたメッセージを閲覧したユーザーの総数です。インプレッションは、メッセージがユーザーの画面に表示されたときのみ記録されます。
+<i>ユニークインプレッション数</i>は、特定のキャンペーンから送信されたメッセージを閲覧したユーザーの総数です。インプレッションは、メッセージがユーザーの画面に表示されたときのみ記録されます。
 {% endif %}
 
 {% if include.metric == "Unique Daily Impressions" %}
@@ -285,5 +285,5 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Variation" %}
-<i>バリエーション数</i>は、Campaignのバリエーションの数で、作成者の定義によって異なります。
+<i>バリエーション数</i>は、キャンペーンのバリエーションの数で、作成者の定義によって異なります。
 {% endif %}

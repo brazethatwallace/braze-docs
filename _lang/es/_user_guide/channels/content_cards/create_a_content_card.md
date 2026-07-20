@@ -23,15 +23,15 @@ Usa Campaigns para mensajes simples y únicos (como informar a los usuarios sobr
 {% tabs %}
 {% tab Campaign %}
 
-1. Ve a **Messaging** > **Campaigns** y selecciona **Create Campaign**.
-2. Selecciona **Content Cards** o, para Campaigns dirigidas a múltiples canales, selecciona **Multichannel**.
+1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear Campaign**.
+2. Selecciona **Content Cards** o, para Campaigns dirigidas a múltiples canales, selecciona **Multicanal**.
 3. Dale a tu Campaign un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario.
-   * Las etiquetas facilitan encontrar tus Campaigns y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por las etiquetas relevantes.
+   * Las etiquetas facilitan encontrar tus Campaigns y generar informes a partir de ellas. Por ejemplo, al usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por las etiquetas relevantes.
 5. Añade y nombra tantas variantes como desees para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre variantes, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes seleccionar **Copy from Variant** en el desplegable **Add Variant**.
+Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes seleccionar **Copiar de variante** en el desplegable **Añadir variante**.
 {% endalert %}
 
 {% endtab %}
@@ -57,9 +57,9 @@ Para obtener más información sobre el comportamiento esperado y la apariencia 
 
 | Tipo de mensaje | Ejemplo | Descripción |
 |---|---|---|
-| [Clásica]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Una Content Card clásica con un icono pequeño y texto para animar a reservar una clase de entrenamiento.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La tarjeta clásica tiene un diseño sencillo con un título en negrita, texto del mensaje y una imagen opcional que se sitúa a la izquierda del título y el texto. Es mejor usar una imagen cuadrada o un icono con la tarjeta clásica. |
-| [Imagen con subtítulo]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![Una Content Card con subtítulo con la imagen de un levantador de pesas y texto para animar a reservar una clase de entrenamiento.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | La tarjeta de imagen con subtítulo muestra tu contenido con texto y una imagen llamativa. |
-| [Solo imagen]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![Una Content Card de solo imagen con solo texto.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | La tarjeta de solo imagen capta la atención con espacio para imágenes, GIF y otro contenido creativo no textual. |
+| [Clásica]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Una Content Card clásica con un icono pequeño y texto para animar a reservar una clase de entrenamiento.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La tarjeta clásica tiene un diseño sencillo con un título en negrita, texto del mensaje y una imagen opcional que se sitúa al inicio del título y el texto. Es mejor usar una imagen cuadrada o un icono con la tarjeta clásica. |
+| [Imagen con subtítulo]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Una Content Card con subtítulo con la imagen de un levantador de pesas y texto para animar a reservar una clase de entrenamiento.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | La tarjeta de imagen con subtítulo muestra tu contenido con texto y una imagen llamativa. |
+| [Solo imagen]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Una Content Card de solo imagen con solo texto.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | La tarjeta de solo imagen capta la atención con espacio para imágenes, GIF y otro contenido creativo no textual. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2: Especifica tus tipos de mensaje" }
 
 ## Paso 3: Redacta una Content Card {#step-3-compose-a-content-card}
@@ -72,7 +72,7 @@ El contenido aquí varía según el **Tipo de tarjeta** elegido en el paso anter
 
 ### Idioma {#language}
 
-Selecciona **Add Languages** para agregar los idiomas deseados de la lista proporcionada. Esto inserta [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) en tu mensaje. Te recomendamos seleccionar tus idiomas antes de escribir tu contenido para que puedas completar tu texto donde corresponda en el Liquid. Para nuestra lista completa de idiomas disponibles que puedes usar, consulta [Idiomas compatibles]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
+Selecciona **Añadir idiomas** para agregar los idiomas deseados de la lista proporcionada. Esto inserta [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) en tu mensaje. Te recomendamos seleccionar tus idiomas antes de escribir tu contenido para que puedas completar tu texto donde corresponda en el Liquid. Para nuestra lista completa de idiomas disponibles que puedes usar, consulta [Idiomas compatibles]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
 ![Una ventana con inglés, español y francés seleccionados como idiomas, y título, descripción y texto del enlace seleccionados como campos a internacionalizar.]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
@@ -86,7 +86,7 @@ Escribe lo que quieras. No hay límites, pero cuanto más rápido puedas transmi
 
 #### Imagen {#image}
 
-Para añadir una imagen a tu Content Card, puedes seleccionar **Add Image** o proporcionar una URL de imagen. Al seleccionar **Add Image** se abre la **Biblioteca de medios**, donde puedes seleccionar una imagen cargada previamente o añadir una nueva.
+Para añadir una imagen a tu Content Card, puedes seleccionar **Añadir imagen** o proporcionar una URL de imagen. Al seleccionar **Añadir imagen** se abre la **Biblioteca de medios**, donde puedes seleccionar una imagen cargada previamente o añadir una nueva.
 
 Cada tipo de mensaje y plataforma puede tener sus propias proporciones y requisitos sugeridos, así que asegúrate de verificarlos antes de encargar o crear una imagen desde cero. Ten en cuenta que los campos de mensaje de las Content Cards están limitados a un tamaño total de 2&nbsp;KB.
 
@@ -120,7 +120,7 @@ Las opciones **Registrar evento personalizado** y **Registrar atributo personali
 
 Puedes usar [pares clave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) para crear categorías para tus tarjetas, crear [múltiples feeds de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds) y personalizar cómo se ordenan las tarjetas.
 
-Para añadir pares clave-valor a tu mensaje, ve a la pestaña **Configuración** y selecciona **Add New Pair**.
+Para añadir pares clave-valor a tu mensaje, ve a la pestaña **Configuración** y selecciona **Añadir nuevo par**.
 
 ## Paso 5: Construye el resto de tu Campaign o Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -135,7 +135,12 @@ Las Content Cards pueden entregarse según un horario planificado, una acción o
 
 También puedes establecer la duración de la Campaign y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours), y determinar la expiración de la Content Card. Establece una fecha de expiración específica o los días hasta que una tarjeta expire, hasta 30 días. Todas las variantes tienen fechas de expiración idénticas.
 
-Si eliges que una tarjeta expire después de un período establecido (por ejemplo, después de dos semanas), la expiración se calcula desde el momento de envío de la tarjeta. Para Campaigns planificadas, este es el horario de lanzamiento planificado. Para Campaigns basadas en acciones, este es el momento en que el usuario realiza la acción desencadenante. Por ejemplo, si una tarjeta basada en acciones se envía a las 2 pm de hoy con una expiración de 1 día, expira a las 2 pm del día siguiente.
+La cuenta regresiva de expiración comienza desde el momento de envío de la tarjeta:
+
+- **Campaigns planificadas:** La cuenta regresiva comienza en el horario de lanzamiento planificado.
+- **Campaigns basadas en acciones:** La cuenta regresiva comienza cuando el usuario realiza la acción desencadenante.
+
+Por ejemplo, si una Content Card basada en acciones se envía a las 2 pm de hoy con una expiración de 1 día, expira a las 2 pm del día siguiente.
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
@@ -159,7 +164,7 @@ Braze te permite rastrear con qué frecuencia los usuarios realizan acciones esp
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) e [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) y [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
 
 {% endtab %}
 {% endtabs %}
@@ -193,7 +198,7 @@ La carga útil total de datos para una sola Content Card no puede exceder 2 KB *
 
 Usar Liquid para extraer cadenas largas de texto (como de atributos personalizados) puede hacer que excedas el límite.
 
-El compositor de Campaigns muestra una advertencia si tu contenido estático excede el límite. (No predecimos el tamaño del contenido dinámico que usa Liquid.) **Si el tamaño del mensaje excede 2 KB, se cancela en el momento del envío.** Puedes ver estas cancelaciones en el Registro de actividad de mensajes con la razón `Content card maximum size exceeded`.
+El creador de Campaigns muestra una advertencia si tu contenido estático excede el límite. No predecimos el tamaño del contenido dinámico que usa Liquid. Si el tamaño del mensaje excede 2 KB, se cancela en el momento del envío. Puedes ver estas cancelaciones en el Registro de actividad de mensajes con la razón `Content card maximum size exceeded`.
 
 {% alert important %}
 Durante los envíos de prueba, las Content Cards que excedan 2 KB aún pueden entregarse y mostrarse correctamente.
@@ -228,7 +233,7 @@ La reelegibilidad determina si un usuario puede recibir un mensaje de la misma C
 
 Si activas la reelegibilidad, la cuenta regresiva para que un usuario pueda «reingresar» a una Campaign comienza después de que se le envía el mensaje. El momento específico en que comienza esta cuenta regresiva depende de la configuración de creación de tu tarjeta:
 
-- Las Content Cards que usan [primera impresión]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usan el momento de la impresión para calcular la reelegibilidad.
+- Las Content Cards que usan [primera impresión]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) usan el momento de la impresión para calcular la reelegibilidad.
 - Las Content Cards creadas al lanzamiento de la Campaign, en Campaigns multicanal, o al entrar en el paso en Canvas usan el momento de envío o el momento de impresión, el que sea más reciente.
 
 #### La expiración de 30 días y la reelegibilidad {#the-30-day-expiration-and-re-eligibility}
@@ -241,7 +246,7 @@ Para que los usuarios solo reciban un mensaje de una Campaign específica una ve
 
 ### Gestionar Content Cards activas {#managing-live-content-cards}
 
-Después de que las Content Cards se han enviado, permanecen esperando en un «buzón de entrada» listas para ser entregadas al usuario (similar a lo que sucede con los correos electrónicos). Después de que el contenido se extrae en la Content Card (en el momento de la visualización), no se puede cambiar durante su vida útil. Esto aplica incluso si estás llamando a una API a través de contenido conectado y los datos del punto de conexión cambian. Estos datos no se actualizarán. Solo se puede detener el envío a nuevos usuarios y eliminarla de los feeds de los usuarios. Si modificas una Campaign, solo las tarjetas futuras que se envíen tendrán la actualización.
+Después de que las Content Cards se han enviado, permanecen esperando en un «buzón de entrada» listas para ser entregadas al usuario (similar a lo que sucede con los correos electrónicos). Después de que el contenido se extrae en la Content Card (en el momento de la visualización), no se puede cambiar durante su vida útil. Esto aplica incluso si estás llamando a una API a través de contenido conectado y los datos del endpoint cambian. Estos datos no se actualizarán. Solo se puede detener el envío a nuevos usuarios y eliminarla de los feeds de los usuarios. Si modificas una Campaign, solo las tarjetas futuras que se envíen tendrán la actualización.
 
 #### Actualizar tarjetas lanzadas {#updating-launched-cards}
 
@@ -264,8 +269,8 @@ Cuando duplicas la Campaign, necesitas definir la audiencia para la nueva versi�
 
 ###### Impacto {#impact}
 
-* **Destinatarios existentes:** Los destinatarios nuevos y existentes verían la tarjeta actualizada en la próxima actualización del feed si son elegibles.
-* **Informes:** Cada versión de la tarjeta tendría análisis separados.
+- **Destinatarios existentes:** Los destinatarios nuevos y existentes verían la tarjeta actualizada en la próxima actualización del feed si son elegibles.
+- **Informes:** Cada versión de la tarjeta tendría análisis separados.
 
 Digamos que has configurado una Campaign para que se desencadene al inicio de sesión, y tiene la reelegibilidad establecida en 30 días. Un usuario recibió la Campaign hace dos días y quieres cambiar el texto. Primero, archivarías la Campaign y eliminarías las tarjetas del feed. Segundo, duplicarías la Campaign y la relanzarías con el nuevo texto. Si el usuario tiene otra sesión, recibirá inmediatamente la nueva tarjeta.
 

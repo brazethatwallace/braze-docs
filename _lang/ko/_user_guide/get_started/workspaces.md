@@ -77,15 +77,15 @@ description: "Braze 플랫폼에서 하는 모든 작업은 워크스페이스 �
 
 #### Teams {#teams}
 
-[Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 있으므로 팀 멤버와 비팀 멤버가 메시징 기능 및 고객 데이터에 대해 서로 다른 액세스 권한을 가질 수 있습니다.
+[Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 있으므로 팀 멤버와 비팀 멤버가 메시징 기능 및 고객 데이터에 대해 서로 다른 액세스 권한을 가질 수 있습니다.
 
 #### 회사 사용자 권한 {#company-user-permissions}
 
-워크스페이스에는 독립적인 액세스 및 사용자 권한 정의가 있습니다. [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 사용하면 개별 대시보드 사용자 또는 팀이 단일 워크스페이스 내에서 액세스할 수 있는 항목에 대해 세분화된 제어를 만들 수 있습니다.
+워크스페이스에는 독립적인 액세스 및 사용자 권한 정의가 있습니다. [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 사용하면 개별 대시보드 사용자 또는 팀이 단일 워크스페이스 내에서 액세스할 수 있는 항목에 대해 세분화된 제어를 만들 수 있습니다.
 
 #### Currents 커넥터 {#currents-connectors}
 
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 도구는 참여 이벤트의 실시간 데이터 스트림으로, Braze 플랫폼에서 가장 강력하면서도 세분화된 내보내기입니다. Currents 커넥터는 특정 Braze 패키지에 포함되어 있으며, 단일 워크스페이스를 가정할 때 처음에 하나를 받았을 수도 있습니다.
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 도구는 인게이지먼트 이벤트의 실시간 데이터 스트림으로, Braze 플랫폼에서 가장 강력하면서도 세분화된 내보내기입니다. Currents 커넥터는 특정 Braze 패키지에 포함되어 있으며, 단일 워크스페이스를 가정할 때 처음에 하나를 받았을 수도 있습니다.
 
 별도의 워크스페이스를 만들지 아니면 결합된 워크스페이스를 만들지 결정할 때는 Currents 커넥터가 워크스페이스 간에 공유되지 않으므로 보유하고 있는 Currents 커넥터의 수를 고려하는 것이 중요합니다.
 
@@ -93,7 +93,7 @@ description: "Braze 플랫폼에서 하는 모든 작업은 워크스페이스 �
 
 #### 고객 프로필 {#user-profiles}
 
-사용자와 관련된 모든 영구 데이터는 해당 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)에 저장됩니다. 그러나 고객 프로필은 사용자의 참여 기록, Segment 멤버십, 기기 및 운영체제에 대한 정보에 쉽게 액세스할 수 있으므로 문제 해결 및 테스트에 유용한 리소스이기도 합니다.
+사용자와 관련된 모든 영구 데이터는 해당 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)에 저장됩니다. 그러나 고객 프로필은 사용자의 인게이지먼트 기록, Segment 멤버십, 기기 및 운영 체제에 대한 정보에 쉽게 액세스할 수 있으므로 문제 해결 및 테스트에 유용한 리소스이기도 합니다.
 
 #### Segments, Campaigns, Canvases {#segments-campaigns-and-canvases}
 
@@ -209,7 +209,7 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
         <th scope="row">콘텐츠 복제</th>
         <td>N/A</td>
         <td>Segments 및 콘텐츠 카드 캠페인 등 일부 콘텐츠는 워크스페이스 간에 복사할 수 없습니다.</td>
-        <td><a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>워크스페이스 간에 Campaigns, Canvases, 랜딩 페이지를 복사</a> 할 수 있습니다. 지원되는 콘텐츠에는 적격 채널의 Campaigns 및 Canvases, 랜딩 페이지, 이메일 템플릿, 기능 플래그, Content Blocks가 포함됩니다.<br><br>Segments, Campaigns, Canvases, 랜딩 페이지를 복제하여 한 앱 인스턴스에서 다른 앱 인스턴스로 콘텐츠를 재사용할 수 있습니다.</td>
+        <td><a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>워크스페이스 간에 Campaigns, Canvases, 랜딩 페이지를 복사</a> 할 수 있습니다. 지원되는 콘텐츠에는 적격 채널의 Campaigns 및 Canvases, 랜딩 페이지, 이메일 템플릿, 기능 플래그, Content Blocks가 포함됩니다.<br><br>Segments, Campaigns, Canvases, 랜딩 페이지를 복제하여 한 앱 인스턴스에서 다른 앱 인스턴스로 콘텐츠를 재사용할 수 있습니다.</td>
         <td>N/A</td>
     </tr>
     <tr>
@@ -221,6 +221,10 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
     </tr>
     </tbody>
 </table>
+
+{% alert note %}
+모든 앱을 볼 때와 단일 앱을 볼 때 MAU가 어떻게 다른지에 대해서는 [월간 활성 사용자]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users)를 참조하세요.
+{% endalert %}
 
 ## 모범 사례 {#best-practices}
 
@@ -245,4 +249,4 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
 
 ## 다음 단계 {#next-steps}
 
-워크스페이스 계획을 결정했으면 이제 워크스페이스를 만들고 앱 인스턴스를 추가할 차례입니다. 단계에 대한 내용은 [워크스페이스 만들기 및 관리]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)를 확인하세요.
+워크스페이스 계획을 결정했으면 이제 워크스페이스를 만들고 앱 인스턴스를 추가할 차례입니다. 단계에 대한 내용은 [워크스페이스 만들기 및 관리]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)를 확인하세요.

@@ -1,12 +1,12 @@
 # Extensions de segments SQL {#sql-segment-extensions}
 
-> Vous pouvez générer une extension de segment à l'aide de requêtes SQL Snowflake sur des données [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Le SQL vous aide à exploiter de nouveaux cas d'utilisation de segments, car il offre la flexibilité nécessaire pour décrire les relations entre les données d'une manière qui n'est pas réalisable avec les autres fonctionnalités de segmentation.
+> Vous pouvez générer une extension de segment à l'aide de requêtes SQL Snowflake sur des données [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Le SQL vous aide à exploiter de nouveaux cas d'usage de segments, car il offre la flexibilité nécessaire pour décrire les relations entre les données d'une manière qui n'est pas réalisable avec les autres fonctionnalités de segmentation.
 >
 > Comme les extensions de segments standard, vous pouvez interroger les événements des deux dernières années (730 jours) dans votre extension de segment SQL. Contrairement aux extensions de segments standard, les extensions de segments SQL [consomment des crédits](#credits).
 
 ## Conditions préalables {#prerequisites}
 
-Étant donné qu'il est possible d'accéder à des données PII via cette fonctionnalité, vous devez disposer des autorisations PII pour exécuter des requêtes de segments SQL.
+Étant donné qu'il est possible d'accéder à des données d'identification via cette fonctionnalité, vous devez disposer des autorisations PII pour exécuter des requêtes de segments SQL.
 
 ## Création d'une extension de segment {#creating-a-segment-extension}
 
@@ -16,7 +16,7 @@ Vous avez le choix entre deux types d'éditeurs SQL lors de la création de votr
 
 - **Actualisation complète :** À chaque actualisation de votre segment, Braze interroge toutes les données disponibles pour mettre à jour votre segment, ce qui consomme plus de crédits que les actualisations incrémentielles. Les extensions à actualisation complète peuvent régénérer automatiquement l'appartenance chaque jour, mais ne peuvent pas être actualisées de manière incrémentielle.
 - **Actualisation incrémentielle :** L'actualisation incrémentielle est un moyen plus économique de configurer votre requête, bien que la configuration nécessite quelques [étapes](#step-2-write-your-sql) supplémentaires. Si vous pouvez effectuer ces étapes supplémentaires lors de la construction de votre segment, il est recommandé de choisir cette option, car votre requête s'exécutera en utilisant moins de crédits.
-- **Générateur SQL par intelligence artificielle :** Le générateur SQL par intelligence artificielle vous permet de rédiger une invite en langage courant et la transforme en requête SQL pour votre segment. C'est un moyen rapide de démarrer sans avoir à écrire le SQL vous-même.
+- **Générateur SQL par IA :** Le générateur SQL par IA vous permet de rédiger une invite en langage courant et la transforme en requête SQL pour votre segment. C'est un moyen rapide de démarrer sans avoir à écrire le SQL vous-même.
 
 {% alert tip %}
 Vous pouvez effectuer une actualisation complète manuelle sur tous les segments SQL créés dans l'un ou l'autre des éditeurs SQL.
@@ -29,7 +29,7 @@ Pour créer une extension de segment SQL à actualisation complète :
 
 1. Accédez à **Audience** > **Segment Extensions**.
 2. Sélectionnez **Create New Extension**, puis sélectionnez **Full refresh**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Fenêtre modale de création d'une nouvelle extension avec les options d'actualisation complète et d'actualisation incrémentielle.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Ajoutez un nom pour votre extension de segment et saisissez votre SQL. Reportez-vous à l'[étape 2](#step-2-write-your-sql) pour les exigences et les ressources.<br><br>
    ![Éditeur SQL présentant un exemple d'extension de segment SQL.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
 4. Enregistrez votre extension de segment.
@@ -41,7 +41,7 @@ Pour créer une extension de segment SQL à actualisation incrémentielle :
 
 1. Accédez à **Audience** > **Segment Extensions**.
 2. Sélectionnez **Create New Extension**, puis sélectionnez **Incremental refresh**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Fenêtre modale de création d'une nouvelle extension avec les options d'actualisation complète et d'actualisation incrémentielle.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Ajoutez un nom pour votre extension de segment et saisissez votre SQL. Reportez-vous à la section [Écriture de code SQL](#writing-sql) pour les exigences et les ressources.<br><br>
    ![Éditeur SQL présentant un exemple d'extension de segment SQL incrémentielle.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
 4. Si vous le souhaitez, sélectionnez **Regenerate Extension Daily**.<br><br>
@@ -54,16 +54,16 @@ Pour créer une extension de segment SQL à actualisation incrémentielle :
 {% tab AI SQL Generator %}
 
 {% alert note %}
-Le générateur SQL par intelligence artificielle est actuellement disponible en tant que fonctionnalité bêta. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à cet essai bêta.
+Le générateur SQL par IA est actuellement disponible en tant que fonctionnalité bêta. Contactez votre gestionnaire du succès des clients si vous souhaitez participer à cet essai bêta.
 {% endalert %}
 
-Le générateur SQL par intelligence artificielle s'appuie sur [GPT](https://openai.com/gpt-4) d'OpenAI pour recommander du code SQL pour votre segment SQL.
+Le générateur SQL par IA s'appuie sur [GPT](https://openai.com/gpt-4) d'OpenAI pour recommander du code SQL pour votre segment SQL.
 
-![Générateur SQL par intelligence artificielle avec l'invite « Utilisateurs ayant reçu une notification le mois dernier »]({% image_buster /assets/img/ai_sql_generator.png %}){: style="max-width:70%;"}
+![Générateur SQL par IA avec l'invite « Utilisateurs ayant reçu une notification le mois dernier »]({% image_buster /assets/img/ai_sql_generator.png %}){: style="max-width:70%;"}
 
-Pour utiliser le générateur SQL par intelligence artificielle, procédez comme suit :
+Pour utiliser le générateur SQL par IA, procédez comme suit :
 
-1. Sélectionnez **Launch AI SQL Generator** après avoir créé un [segment SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) en utilisant l'actualisation complète ou incrémentielle.
+1. Sélectionnez **Launch AI SQL Generator** après avoir créé un [segment SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) en utilisant l'actualisation complète ou incrémentielle.
 2. Saisissez votre invite et sélectionnez **Generate** pour la convertir en SQL.
 3. Vérifiez le code SQL généré pour vous assurer qu'il est correct, puis enregistrez votre segment.
 
@@ -74,9 +74,9 @@ Pour utiliser le générateur SQL par intelligence artificielle, procédez comme
 
 #### Conseils {#tips}
 
-- Familiarisez-vous avec les [tables de données Snowflake]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) disponibles. Si vous demandez des données qui n'existent pas dans ces tables, ChatGPT risque d'inventer une fausse table.
+- Familiarisez-vous avec les [tables de données Snowflake]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables) disponibles. Si vous demandez des données qui n'existent pas dans ces tables, ChatGPT risque d'inventer une fausse table.
 - Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql) pour cette fonctionnalité. Le non-respect de ces règles entraînera une erreur. Par exemple, votre code SQL doit sélectionner la colonne `user_id`. Commencer votre invite par « Utilisateurs qui » peut être utile.
-- Vous pouvez envoyer jusqu'à 20 invites par minute avec le générateur SQL par intelligence artificielle.
+- Vous pouvez envoyer jusqu'à 20 invites par minute avec le générateur SQL par IA.
 
 ##{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -87,14 +87,14 @@ Pour utiliser le générateur SQL par intelligence artificielle, procédez comme
 Les requêtes SQL dont l'exécution dépasse 20 minutes expireront.
 {% endalert %}
 
-Une fois le traitement de l'extension terminé, vous pouvez [créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/#step-5-use-your-extension-in-a-segment) à l'aide de votre extension de segment et cibler ce nouveau segment avec vos Campaigns et Canvas.
+Une fois le traitement de l'extension terminé, vous pouvez [créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension#step-5-use-your-extension-in-a-segment) à l'aide de votre extension de segment et cibler ce nouveau segment avec vos Campaigns et Canvas.
 
 ### Étape 2 : Rédiger votre requête SQL {#step-2-write-your-sql}
 
-Votre requête SQL doit être écrite en utilisant la [syntaxe Snowflake](https://docs.snowflake.com/en/sql-reference.html). Consultez la [référence des tables]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) pour obtenir la liste complète des tables et colonnes disponibles.
+Votre requête SQL doit être écrite en utilisant la [syntaxe Snowflake](https://docs.snowflake.com/en/sql-reference.html). Consultez la [référence des tables]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables) pour obtenir la liste complète des tables et colonnes disponibles.
 
 {% alert important %}
-Notez que les tables disponibles ne contiennent que des données d'événements. Si vous souhaitez interroger des attributs utilisateur, vous devez combiner votre segment SQL avec des filtres d'attributs personnalisés du [segmenteur classique]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Notez que les tables disponibles ne contiennent que des données d'événements. Si vous souhaitez interroger des attributs utilisateur, vous devez combiner votre segment SQL avec des filtres d'attributs personnalisés du [segmenteur classique]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 {% endalert %}
 
 {% tabs %}
@@ -174,7 +174,7 @@ Pour les extensions de segments SQL incrémentielles, l'aperçu n'inclut pas les
 Ensuite, déterminez si vous devez inverser le SQL. Bien qu'il ne soit pas possible d'interroger directement les utilisateurs n'ayant aucun événement, vous pouvez utiliser **Invert SQL** pour cibler ces utilisateurs.
 
 {% alert note %}
-Par défaut, **Invert SQL** n'est pas activé. Toutefois, si vous utilisez le générateur SQL par intelligence artificielle pour créer une instruction SQL qui doit être niée, ChatGPT pourrait renvoyer un résultat qui active automatiquement cette fonctionnalité.
+Par défaut, **Invert SQL** n'est pas activé. Toutefois, si vous utilisez le générateur SQL par IA pour créer une instruction SQL qui doit être niée, ChatGPT pourrait renvoyer un résultat qui active automatiquement cette fonctionnalité.
 {% endalert %}
 
 Par exemple, pour cibler les utilisateurs ayant effectué moins de trois achats, rédigez d'abord une requête pour sélectionner les utilisateurs ayant effectué trois achats ou plus. Ensuite, sélectionnez **Invert SQL** pour cibler les utilisateurs ayant effectué moins de trois achats (y compris ceux n'ayant effectué aucun achat).
@@ -195,11 +195,11 @@ Si vous avez créé un segment dans lequel vous vous attendez à ce que les util
 
 ## Gestion de vos extensions de segments {#managing-your-segment-extensions}
 
-Sur la page **Segment Extensions**, les segments générés à l'aide de SQL sont signalés par <i class="fas fa-code" alt="SQL Segment Extension"></i> à côté de leur nom.
+Sur la page **Segment Extensions**, les segments générés à l'aide de SQL sont signalés par <i class="fas fa-code" alt="Extension de segment SQL"></i> à côté de leur nom.
 
 Sélectionnez une extension de segment SQL pour voir où l'extension est utilisée, archiver l'extension ou [actualiser manuellement l'appartenance au segment](#refreshing-segment-membership).
 
-![Section « Utilisation de l'envoi de messages » de l'éditeur SQL indiquant où le segment SQL est utilisé.]({% image_buster /assets/img_archive/sql_segments_usage.png %}){: style="max-width:70%;"}
+![Section « Utilisation de la communication » de l'éditeur SQL indiquant où le segment SQL est utilisé.]({% image_buster /assets/img_archive/sql_segments_usage.png %}){: style="max-width:70%;"}
 
 ### Définir les paramètres d'actualisation {#designating-refresh-settings}
 
@@ -210,7 +210,7 @@ Sélectionnez une extension de segment SQL pour voir où l'extension est utilis�
 Chaque espace de travail Braze dispose de 5 crédits Snowflake par mois. Si vous avez besoin de crédits supplémentaires, contactez votre gestionnaire de compte. Les crédits sont consommés chaque fois que vous actualisez, ou enregistrez et actualisez, l'appartenance d'un segment SQL. Les crédits ne sont pas utilisés lorsque vous exécutez des aperçus dans un segment SQL ou lorsque vous enregistrez ou actualisez une extension de segment classique.
 
 {% alert note %}
-Les crédits Snowflake ne sont pas partagés entre les fonctionnalités. Par exemple, les crédits des extensions de segments SQL et du Générateur de requêtes sont indépendants les uns des autres.
+Les crédits Snowflake ne sont pas partagés entre les fonctionnalités. Par exemple, les crédits des extensions de segments SQL et du générateur de requêtes sont indépendants les uns des autres.
 {% endalert %}
 
 La consommation de crédits est corrélée à la durée d'exécution de votre requête SQL. Plus la durée d'exécution est longue, plus la requête coûtera de crédits. La durée d'exécution peut varier en fonction de la complexité et de la taille de vos requêtes au fil du temps. Plus vous exécutez des requêtes complexes et fréquentes, plus votre allocation de ressources est importante et plus votre temps d'exécution diminue.
