@@ -110,7 +110,7 @@ You can control other aspects of the Canvas behavior from the **Entry Audience**
 ![An example of action-based delivery. Users will enter the Canvas if they make a purchase with an entry window beginning at 1:30 pm on June 10, 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
 {% alert note %}
-**Interact with Canvas Step** is not available as an action-based entry trigger for canvases. It can only be used as a trigger for campaigns. To trigger one Canvas from another, use the [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) Canvas component, or create a [Braze-to-Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) that calls the `/canvas/trigger/send` endpoint.
+**Interact with Canvas Step** is not available as an action-based entry trigger for Canvases. It can only be used as a trigger for campaigns. To trigger one Canvas from another, use the [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) Canvas component, or create a [Braze-to-Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) that calls the `/canvas/trigger/send` endpoint.
 {% endalert %}
 
 {% alert important %}
