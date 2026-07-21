@@ -189,6 +189,50 @@ class TestIncrementalH2Translation:
         if target.parent.exists() and not any(target.parent.iterdir()):
             target.parent.rmdir()
 
+    def test_new_file_falls_back_to_full_translate_with_review(self, monkeypatch):
+        english = (
+            "Intro\n\n## One {#one}\n\nAlpha.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        review_calls = []
+
+        monkeypatch.setattr(at, "load_english_at_git_ref", lambda fpath, ref: None)
+        monkeypatch.setattr(
+            at,
+            "translate_file",
+            lambda *a, **k: "## Un {#one}\n\nAlpha FR.\n\n## Deux {#two}\n\nBeta FR.\n",
+        )
+        monkeypatch.setattr(
+            at,
+            "review_file",
+            lambda *a, **k: review_calls.append(1) or a[2],
+        )
+
+        target = at.REPO_ROOT / "_lang/fr_fr/_user_guide/test_new_file.md"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if target.exists():
+            target.unlink()
+
+        result = at.translate_one(
+            client=None,
+            prompt="",
+            fpath="_docs/_user_guide/test_new_file.md",
+            relative="_user_guide/test_new_file.md",
+            english_content=english,
+            lang_key="fr",
+            lang_info=at.LANGUAGES["fr"],
+            glossary={},
+            styleguide="",
+            english_base_ref="abc123",
+        )
+
+        assert result["ok"]
+        assert review_calls == [1]
+        assert "incremental" not in result
+        if target.exists():
+            target.unlink()
+        if target.parent.exists() and not any(target.parent.iterdir()):
+            target.parent.rmdir()
+
 
 class TestLiquidSafeChunkSplits:
     def test_does_not_split_inside_details_block(self):

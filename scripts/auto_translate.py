@@ -1743,7 +1743,7 @@ def translate_one(client, prompt, fpath, relative, english_content,
                   english_base_ref=None):
     """Translate + review a single file into one language. Returns a result dict."""
     previous_english = load_english_at_git_ref(fpath, english_base_ref)
-    if english_base_ref:
+    if previous_english is not None:
         return translate_one_incremental(
             client,
             prompt,
@@ -1886,7 +1886,7 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
     reassembling.  Skips the second-pass review (chunks are self-contained and
     the review would require the full file which exceeds context limits)."""
     previous_english = load_english_at_git_ref(fpath, english_base_ref)
-    if english_base_ref:
+    if previous_english is not None:
         return translate_one_incremental(
             client,
             prompt,
