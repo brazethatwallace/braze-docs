@@ -16,10 +16,7 @@ Mit Braze Audience Sync to Pinterest können Marken wahlweise Nutzerdaten aus ih
 
 **Zu den üblichen Anwendungsfällen für die Zielgruppensynchronisierung gehören:**
 
-- Targeting von hochwertigen Nutzer:innen über mehrere Kanäle, um Käufe oder Engagement zu fördern
-- Retargeting von Nutzer:innen, die auf andere Marketing-Kanäle weniger responsiv sind
-- Erstellen von Unterdrückungszielgruppen, um zu verhindern, dass Nutzer:innen Werbung erhalten, wenn sie bereits treue Verbraucher:innen Ihrer Marke sind
-- Erstellen von Actalike Audiences zur effizienteren Gewinnung neuer Nutzer:innen
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Mit diesem Feature können Marken kontrollieren, welche spezifischen First-Party-Daten mit Pinterest geteilt werden. Bei Braze werden die Integrationen, mit denen Sie Ihre First-Party-Daten teilen können und nicht teilen können, genauestens berücksichtigt. Weitere Informationen finden Sie in unserer [Datenschutzrichtlinie](https://www.braze.com/privacy).
 
@@ -110,7 +107,7 @@ Sie können die Zielgruppe auf Pinterest einsehen, indem Sie sich in Ihrem Ads-M
 
 ![Zielgruppendetails für eine bestimmte Pinterest-Zielgruppe, einschließlich Zielgruppenname, Zielgruppen-ID, Zielgruppentyp und Zielgruppengröße.]({% image_buster /assets/img/pinterest/pinterest11.png %})
 
-## Überlegungen zur Nutzersynchronisierung und Rate-Limits {#user-syncing-and-rate-limit-considerations}
+## Überlegungen zur Nutzersynchronisierung und zu Rate-Limits {#user-syncing-and-rate-limit-considerations}
 
 Wenn Nutzer:innen den Audience Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Realtime und respektiert dabei die Rate-Limits der Pinterest Marketing API. Braze bündelt und verarbeitet so viele Nutzer:innen wie möglich alle 5 Sekunden, bevor sie an Pinterest gesendet werden.
 

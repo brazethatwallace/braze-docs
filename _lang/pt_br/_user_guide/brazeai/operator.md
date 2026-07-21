@@ -39,7 +39,7 @@ Descreva o que você está tentando realizar usando linguagem natural. As solici
 - **Simples:** Por que meu Liquid não está sendo renderizado?
 - **Complexo:** Como posso fazer com que a tag `abort_message` da minha mensagem inclua o atributo do usuário que causou a interrupção?
 
-O Operator pode fornecer instruções passo a passo, links para a documentação da Braze e explicações em linguagem simples. Perguntas claras e específicas levam a respostas mais úteis. O Operator usa o [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), que oferece raciocínio avançado e é adequado para tarefas complexas e de múltiplas etapas. Para exemplos prontos para uso, consulte a [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
+O Operator pode fornecer instruções passo a passo, links para a documentação da Braze e explicações em linguagem simples. Perguntas claras e específicas levam a respostas mais úteis. O Operator usa o [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), que é adequado para tarefas complexas e de múltiplas etapas. Para exemplos prontos para uso, consulte a [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Melhores práticas {#best-practices}
 

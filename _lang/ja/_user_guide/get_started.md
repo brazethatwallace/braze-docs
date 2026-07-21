@@ -12,7 +12,7 @@ description: "Brazeを使用する際に知っておくべきコアコンセプ�
 > Brazeへようこそ！この一連の記事は、プラットフォームの使い方を学ぶのに役立つとともに、Brazeの主要な用語、特徴、機能を紹介します。このページでは、Brazeで作業する際に知っておくべきコアコンセプトを紹介します。
 
 {% alert tip %}
-これらの記事と合わせて、無料の[実践者向け学習パス](https://learning.braze.com/page/practitioner)もぜひご確認ください。特別なログインやアカウントは必要ありません。Brazeの技術的な概要を知りたい開発者の方は、[開発者向け入門]({{site.baseurl}}/developer_guide/getting_started/platform_overview)もご覧ください。
+これらの記事と合わせて、無料の[実践者向け学習パス](https://learning.braze.com/page/practitioner)もぜひご確認ください。特別なログインやアカウントは必要ありません。Brazeの技術的な概要を知りたい開発者の方は、<a href="/docs/developer_guide/getting_started/platform_overview">開発者向け入門</a> もご覧ください。
 {% endalert %}
 
 「はじめに」セクションでは、Brazeの一般的な実装に焦点を当てています。しかし、Brazeは非常に柔軟性が高く、さまざまな方法で組織に価値をもたらすようカスタマイズできます。わかりやすく簡潔にするために、厳密な手順を示すのではなく、デフォルトのセットアップの概要を説明しています。すべての組織にはそれぞれ固有のニーズがあることを認識しており、Brazeはお客様の特定の要件に合わせてカスタマイズできる多様なオプションに対応するよう構築されています。

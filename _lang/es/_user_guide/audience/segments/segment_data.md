@@ -16,7 +16,7 @@ tool:
 
 ## Acceder a los datos de tus Segments y membresía {#accessing-data-about-your-segments-and-membership}
 
-La página **Segments** de tu panel de Braze contiene un resumen de todos tus Segments y te permite examinar datos detallados de cada uno. En esta página, busca y selecciona el nombre de un Segment para editarlo y ver sus datos. Para aprender a crear un Segment, consulta [Crear un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#creating-a-segment).
+La página **Segments** de tu panel de Braze contiene un resumen de todos tus Segments y te permite examinar datos detallados de cada uno. En esta página, busca y selecciona el nombre de un Segment para editarlo y ver sus datos. Para aprender a crear un Segment, consulta [Crear un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![Página de Segments]({% image_buster /assets/img_archive/segments.png %})
 
@@ -70,7 +70,7 @@ Puedes ver las siguientes estadísticas de Segment, que se actualizan en tiempo 
 
 ### Información del segmento {#segment-insights}
 
-Puedes ver cómo se desempeña un Segment en comparación con otro a través de un conjunto de KPI preseleccionados visitando la página [Información del segmento]({{site.baseurl}}/user_guide/audience/segments/segment_insights) de tu dashboard.
+Puedes ver cómo se desempeña un Segment en comparación con otro a través de un conjunto de KPI preseleccionados visitando la página [Información del segmento]({{site.baseurl}}/user_guide/audience/segments/segment_insights) de tu panel.
 
 ### Uso de mensajería {#messaging-use}
 La sección **Messaging Use** muestra qué Segments, Campaigns actualmente habilitadas y Canvas actualmente habilitados están dirigidos a tu Segment.
@@ -93,11 +93,11 @@ Ten en cuenta que en los casos en que tu Segment sea muy pequeño en relación c
 
 ## Ver datos de rendimiento por Segment {#viewing-performance-data-by-segment}
 
-Usa las [plantillas de informes del Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments) para desglosar las métricas de rendimiento de Campaigns, Canvas, variantes y pasos por Segments.
+Usa las [plantillas de informes del generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments) para desglosar las métricas de rendimiento de Campaigns, Canvas, variantes y pasos por Segments.
 
-## Crear un informe de desglose por Segment usando el Generador de consultas {#creating-a-segment-breakdown-report-using-query-builder}
+## Crear un informe de desglose por Segment usando el generador de consultas {#creating-a-segment-breakdown-report-using-query-builder}
 
-Para crear un informe a partir de una plantilla del [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), ve a **Query Builder** y haz lo siguiente:
+Para crear un informe a partir de una plantilla del [generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), ve a **Query Builder** y haz lo siguiente:
 
 1. Selecciona **Create SQL Query** > **Query Template**.
 2. Filtra las plantillas por aquellas que tengan métricas que incluyan "segment breakdowns".
@@ -108,18 +108,18 @@ Para crear un informe a partir de una plantilla del [Generador de consultas]({{s
 
 ## Variables {#variables}
 
-Antes de generar tu informe, ve a la pestaña **Variables** para proporcionar información para la plantilla del Generador de informes, incluidas las variables obligatorias que variarán según el informe.
+Antes de generar tu informe, ve a la pestaña **Variables** para proporcionar información para la plantilla del generador de informes, incluidas las variables obligatorias que variarán según el informe.
 
 Las variables incluyen:
 
-- **Campaña o Canvas:** puedes incluir una o varias campañas o Canvas (no hay un máximo para cuántas campañas o Canvas puedes especificar). Si no especificas ninguna campaña o Canvas, el informe incluirá todas las campañas o Canvas de tu período de tiempo elegido.
-- **Variante:** si usas una plantilla que ofrece desgloses a nivel de variante, después de seleccionar una campaña o Canvas, puedes seleccionar variantes dentro de esa campaña o Canvas. Si seleccionas múltiples variantes, tus resultados se agruparán por variante.
+- **Campaign o Canvas:** puedes incluir una o varias Campaigns o Canvas (no hay un máximo para cuántas Campaigns o Canvas puedes especificar). Si no especificas ninguna Campaign o Canvas, el informe incluirá todas las Campaigns o Canvas de tu período de tiempo elegido.
+- **Variante:** si usas una plantilla que ofrece desgloses a nivel de variante, después de seleccionar una Campaign o Canvas, puedes seleccionar variantes dentro de esa Campaign o Canvas. Si seleccionas múltiples variantes, tus resultados se agruparán por variante.
 - **Paso:** si seleccionas una variante en Canvas, puedes seleccionar un paso en Canvas. No puedes seleccionar un paso sin antes seleccionar una variante en Canvas.
 - **Rango de tiempo:** identifica el período de tiempo del que deseas extraer datos. Si no se especifica un rango de tiempo, el rango de tiempo será por defecto los últimos 30 días.
 - **Nombre del producto:** si ejecutas un informe para datos de compras, puedes identificar un producto específico del que extraer datos.
 - **Ventana de conversión:** siempre obligatoria para informes con datos de ingresos y compras. El número de días después de la recepción o clic del correo electrónico en los que Braze debe atribuir compras o ingresos.
 - **Segments:** identifica los Segments por los que deseas desglosar los datos. Si no se especifica, el informe se ejecutará para todos los Segments que tengan activado el seguimiento de análisis.
-- **Etiquetas:** especifica etiquetas en **Variables** para ejecutar tu informe para todas las campañas o Canvas con ciertas etiquetas. Puedes incluir múltiples etiquetas. Si añades tanto etiquetas como campañas o Canvas específicos a un informe, tu informe incluirá datos de tus etiquetas y las campañas o Canvas especificados.
+- **Etiquetas:** especifica etiquetas en **Variables** para ejecutar tu informe para todas las Campaigns o Canvas con ciertas etiquetas. Puedes incluir múltiples etiquetas. Si añades tanto etiquetas como Campaigns o Canvas específicos a un informe, tu informe incluirá datos de tus etiquetas y las Campaigns o Canvas especificados.
 
 ## Disponibilidad de datos {#data-availability}
 
@@ -128,6 +128,6 @@ Los datos están disponibles para períodos de tiempo en los que se cumplen amba
 1. El [seguimiento de análisis de Segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) está activado para los Segments de los que deseas ver datos.
 2. La función de datos de rendimiento por Segment está activada.
 
-No puedes acceder a datos de períodos de tiempo anteriores a cuando esta función se activó para tu empresa. Por ejemplo, si el seguimiento de análisis se activa para el Segment A el 1 de octubre y esta función se activa para tu empresa el 2 de octubre, entonces solo puedes ver datos del Segment A para las campañas y Canvas que registraron métricas después del 2 de octubre.
+No puedes acceder a datos de períodos de tiempo anteriores a cuando esta función se activó para tu empresa. Por ejemplo, si el seguimiento de análisis se activa para el Segment A el 1 de octubre y esta función se activa para tu empresa el 2 de octubre, entonces solo puedes ver datos del Segment A para las Campaigns y Canvas que registraron métricas después del 2 de octubre.
 
-Si tu empresa activó esta función el 2 de octubre y activó el seguimiento de análisis para el Segment B el 3 de octubre, entonces solo puedes ver datos del Segment B para las campañas y Canvas que registraron métricas después del 3 de octubre.
+Si tu empresa activó esta función el 2 de octubre y activó el seguimiento de análisis para el Segment B el 3 de octubre, entonces solo puedes ver datos del Segment B para las Campaigns y Canvas que registraron métricas después del 3 de octubre.

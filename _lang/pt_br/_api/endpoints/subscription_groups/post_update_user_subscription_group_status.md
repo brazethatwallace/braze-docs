@@ -28,7 +28,7 @@ Se você quiser ver exemplos ou testar esse endpoint para **grupos de inscriçõ
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `subscription.status.set`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `subscription.status.set`.
 
 {% alert note %}
 Se você estiver interessado em usar esse endpoint com [grupos de inscrição LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), entre em contato com seu gerente de sucesso do cliente.
@@ -92,15 +92,15 @@ Essa propriedade não deve ser usada para atualizar as informações de perfil d
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Obrigatória | String | O `id` do seu grupo de inscrições. |
-| `subscription_state` | Obrigatória | String | Os valores disponíveis são `unsubscribed` (não está no grupo de inscrições) ou `subscribed` (está no grupo de inscrições). |
-| `external_id` | Obrigatória* | Matriz de strings | O `external_id` do usuário ou dos usuários, pode incluir até 50 `id`s. |
-| `email` | Obrigatória* | String ou array de strings | O endereço de e-mail do usuário, pode ser passado como um array de strings. Deve incluir pelo menos um endereço de e-mail (com um máximo de 50). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo endereço de e-mail, a Braze atualizará todos os usuários que compartilham o endereço de e-mail com as alterações do grupo de inscrições. |
-| `phone` | Obrigatória* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | O número de telefone do usuário, pode ser passado como um array de strings. Deve incluir pelo menos um número de telefone (até 50). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo número de telefone, a Braze atualizará todos os usuários que compartilham o número de telefone com as mesmas alterações do grupo de inscrições. |
-| `use_double_opt_in_logic` | Opcional | booleano | Aplica-se apenas a grupos de inscrição SMS; é ignorado para e-mail e outros tipos de grupo de inscrições. O padrão é `false` se omitido. Para grupos de inscrição SMS, defina como `true` para inserir o usuário no fluxo de trabalho de [double opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) quando o status de inscrição for definido como `subscribed`. Os usuários inseridos no fluxo de trabalho de double opt-in dessa forma recebem no máximo uma mensagem de resposta de pedido de aceitação por dia, independentemente do número de vezes que são inseridos no fluxo de trabalho. Se esse parâmetro for omitido ou definido como `false`, os usuários serão inscritos sem entrar no fluxo de trabalho de double opt-in. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Obrigatório | String | O `id` do seu grupo de inscrições. |
+| `subscription_state` | Obrigatório | String | Os valores disponíveis são `unsubscribed` (não está no grupo de inscrições) ou `subscribed` (está no grupo de inscrições). |
+| `external_id` | Obrigatório* | Matriz de strings | O `external_id` do usuário ou dos usuários, pode incluir até 50 `id`s. |
+| `email` | Obrigatório* | String ou array de strings | O endereço de e-mail do usuário, pode ser passado como um array de strings. Deve incluir pelo menos um endereço de e-mail (com um máximo de 50). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo endereço de e-mail, a Braze atualizará todos os usuários que compartilham o endereço de e-mail com as alterações do grupo de inscrições. |
+| `phone` | Obrigatório* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | O número de telefone do usuário, pode ser passado como um array de strings. Deve incluir pelo menos um número de telefone (até 50). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo número de telefone, a Braze atualizará todos os usuários que compartilham o número de telefone com as mesmas alterações do grupo de inscrições. |
+| `use_double_opt_in_logic` | Opcional | Booleano | Aplica-se apenas a grupos de inscrição SMS; é ignorado para e-mail e outros tipos de grupo de inscrições. O padrão é `false` se omitido. Para grupos de inscrição SMS, defina como `true` para inserir o usuário no fluxo de trabalho de [double opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) quando o status de inscrição for definido como `subscribed`. Os usuários inseridos no fluxo de trabalho de double opt-in dessa forma recebem no máximo uma mensagem de resposta de pedido de aceitação por dia, independentemente do número de vezes que são inseridos no fluxo de trabalho. Se esse parâmetro for omitido ou definido como `false`, os usuários serão inscritos sem entrar no fluxo de trabalho de double opt-in. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplos de solicitações {#example-requests}
 

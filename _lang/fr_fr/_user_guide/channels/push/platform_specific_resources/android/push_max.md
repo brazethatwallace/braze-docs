@@ -25,7 +25,7 @@ Certains appareils Android fabriqués par des fabricants d'équipements d'origin
 
 - Disponible uniquement pour les notifications push Android
 - Non pris en charge pour les messages déclenchés par une action ou par l'API
-- Non pris en charge lorsque l'option [envoyer uniquement au dernier appareil utilisé par l'utilisateur]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#device-options) est sélectionnée
+- Non pris en charge lorsque l'option [envoyer uniquement au dernier appareil utilisé par l'utilisateur]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#most-recently-used-device) est sélectionnée
 
 ## Conditions préalables {#prerequisites}
 
@@ -72,7 +72,7 @@ Push Max fonctionne de manière optimale lorsque le [timing intelligent]({{site.
 
 La durée de vie (TTL) peut suivre les notifications push échouées vers Firebase Cloud Messaging (FCM) et réessayer l'envoi de la notification lorsque l'utilisateur est susceptible de la recevoir.
 
-Par défaut, la durée de vie est définie sur 28 jours, ce qui correspond au maximum. Vous pouvez diminuer la durée de vie par défaut pour tous les nouveaux messages push Android depuis **Paramètres** > **Paramètres de l'espace de travail** > **Paramètres de notifications push**, ou vous pouvez configurer le nombre de jours par message dans l'onglet **Paramètres** lors de la composition d'une notification push Android.
+Par défaut, la durée de vie est définie sur 28 jours, ce qui correspond au maximum. Vous pouvez diminuer la durée de vie par défaut pour tous les nouveaux messages push Android depuis **Settings** > **Workspace Settings** > **Push Settings**, ou vous pouvez configurer le nombre de jours par message dans l'onglet **Settings** lors de la composition d'une notification push Android.
 
 ![Champ Durée de vie défini sur 28 jours.]({% image_buster /assets/img_archive/time_to_live.png %}){: style="max-width:60%"}
 

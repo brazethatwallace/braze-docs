@@ -4,6 +4,7 @@ article_title: Effectuer un appel API de contenu connecté
 page_order: 0
 description: "Cet article de référence explique comment effectuer un appel API de contenu connecté, avec des exemples utiles et des cas d'usage avancés du contenu connecté."
 search_rank: 2
+toc_headers: h2
 ---
 
 # [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}Effectuer un appel API de contenu connecté {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomconnected-content-stylefloatrightwidth120pxborder0-classnoimgbordermake-a-connected-content-api-call}
@@ -24,7 +25,7 @@ Braze peut effectuer le même appel API de contenu connecté plus d'une fois par
 
 Si vous constatez plus d'appels de contenu connecté dans vos journaux que d'envois ou de destinataires, ce comportement est attendu. Pour des conseils sur la réduction de la charge et la planification de la montée en charge, consultez [Bonnes pratiques pour les endpoints à haut volume](#best-practices-for-high-volume-endpoints).
 
-## Envoyer un appel de contenu connecté {#sending-a-connected-content-call}
+## Envoyer un appel de contenu connecté {#send-a-connected-content-call}
 
 {% raw %}
 
@@ -37,7 +38,7 @@ Par exemple, le corps de message suivant accède à l'URL `http://numbersapi.com
 Hi there, here is some fun trivia for you!: {{result.text}}
 ```
 
-### Ajouter des variables {#adding-variables}
+### Ajouter des variables {#add-variables}
 
 Vous pouvez également inclure des attributs de profil utilisateur comme variables dans la chaîne d'URL lors des requêtes de contenu connecté.
 
@@ -162,13 +163,13 @@ Vous pouvez ensuite utiliser cet identifiant dans vos appels API en référença
 ```
 {% endraw %}
 
-### Utiliser Open Authentication (OAuth) {#using-open-authentication-oauth}
+### Utiliser Open Authentication (OAuth) {#use-open-authentication-oauth}
 
 Certaines configurations d'API nécessitent la récupération d'un jeton d'accès qui peut ensuite être utilisé pour authentifier l'endpoint API auquel vous souhaitez accéder.
 
 #### Étape 1 : Récupérer le jeton d'accès {#step-1-retrieve-the-access-token}
 
-L'exemple suivant illustre la récupération et l'enregistrement d'un jeton d'accès dans une variable locale, qui peut ensuite être utilisée pour authentifier l'appel API suivant. Un paramètre `:cache_max_age` peut être ajouté pour correspondre à la durée de validité du jeton d'accès et réduire le nombre d'appels sortants de contenu connecté. Consultez [Mise en cache configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) pour plus d'informations.
+L'exemple suivant illustre la récupération et l'enregistrement d'un jeton d'accès dans une variable locale, qui peut ensuite être utilisée pour authentifier l'appel API suivant. Un paramètre `:cache_max_age` peut être ajouté pour correspondre à la durée de validité du jeton d'accès et réduire le nombre d'appels sortants de contenu connecté. Consultez [Mise en cache configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) pour plus d'informations.
 
 {% raw %}
 ```
@@ -184,6 +185,10 @@ L'exemple suivant illustre la récupération et l'enregistrement d'un jeton d'ac
 %}
 ```
 {% endraw %}
+
+{% alert note %}
+Lorsque l'endpoint de jeton attend `application/x-www-form-urlencoded` et que vous transmettez des identifiants dans `:body`, encodez en URL les caractères spéciaux dans les valeurs des paramètres. Par exemple, les barres obliques (`/`) deviennent `%2F` et les signes plus (`+`) deviennent `%2B`. Les caractères spéciaux non encodés peuvent entraîner l'échec des requêtes de jeton OAuth.
+{% endalert %}
 
 #### Étape 2 : Autoriser l'API en utilisant le jeton d'accès récupéré {#step-2-authorize-the-api-using-the-retrieved-access-token}
 
@@ -235,7 +240,16 @@ Gardez à l'esprit que la valeur de hachage change régulièrement. Si vous filt
 
 ## Résolution des problèmes {#troubleshooting}
 
-Utilisez [Webhook.site](https://webhook.site/) pour résoudre les problèmes de vos appels de contenu connecté et diagnostiquer les problèmes liés aux en-têtes de requête, au corps de requête et aux autres informations envoyées dans l'appel.
+Si votre appel de contenu connecté ne s'affiche pas correctement ou pas du tout, vérifiez les points suivants :
+
+- **Confirmez qu'un appel de contenu connecté a été effectué :** Vous pouvez vérifier qu'un appel a été effectué dans l'[onglet Historique des messages]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab). Vous pouvez également envoyer un test avec une seule requête de contenu connecté.
+- **Vérifiez via Postman ou une requête CURL que la requête idéale aboutit :** Si la requête fonctionne et renvoie une réponse, comparez la requête en détail (y compris les en-têtes). Confirmez que les en-têtes sont capturés dans des paires clé-valeur avec des guillemets doubles.
+- **Validez que l'autorisation est gérée correctement :** Confirmez que l'option `:basic_auth`/`:auth_credentials` est utilisée et que l'autorisation de contenu connecté a été ajoutée aux paramètres de l'espace de travail du contenu connecté. Parfois, l'URL de contenu connecté nécessite des en-têtes au-delà de l'authentification qui doivent être saisis.
+- **Vérifiez que les données sont dans un format attendu :** Pour le corps de la réponse, Braze analyse le JSON valide en un objet Liquid ; sinon, la réponse est traitée comme du texte brut (y compris le HTML). L'option `:content_type` définit les en-têtes sortants `Content-Type` et `Accept` de votre requête et n'affecte pas l'analyse de la réponse. Pour le `:body` de la requête, si votre JSON contient des espaces, suivez les instructions de la section [Fournir un corps JSON]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body).
+- **Confirmez que les données ont été analysées correctement :** Vérifiez que le Liquid référence correctement le champ attendu. Pour le JSON imbriqué, utilisez {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %} pour pointer vers le champ imbriqué souhaité. Vous pouvez vérifier les propriétés JSON imbriquées en affichant le résultat attendu avec {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}.
+- **Vérifiez le code de statut de la réponse :** Le code de statut de la réponse doit être un code `2XX`. Le contenu connecté ne peut pas consommer la réponse lorsque le code n'est pas `2XX`.
+
+Vous pouvez également utiliser [Webhook.site](https://webhook.site/) pour résoudre les problèmes de vos appels de contenu connecté et diagnostiquer les problèmes liés aux en-têtes de requête, au corps de requête et aux autres informations envoyées dans l'appel.
 
 1. Remplacez l'URL dans votre appel de contenu connecté par l'URL unique générée sur le site.
 2. Prévisualisez et testez votre Campaign ou étape du Canvas pour voir les requêtes arriver sur ce site web.

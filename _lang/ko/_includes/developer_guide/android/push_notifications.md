@@ -357,7 +357,7 @@ Braze.configure(this, brazeConfig)
 {% endtabs %}
 
 {% alert tip %}
-FCM 토큰을 수동으로 등록하려면 앱의 [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()) 메서드 내에서 Braze 인스턴스의 [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) 속성을 설정하면 됩니다.
+FCM 토큰을 수동으로 등록하려면 앱의 [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()) 메서드 내에서 Braze 인스턴스의 [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) 속성정보를 설정하면 됩니다.
 
 ```kotlin
 // Kotlin
@@ -454,7 +454,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-또는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 통해 설정합니다:
+또는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 통해 설정합니다:
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -540,7 +540,7 @@ Braze를 사용하면 `braze.xml`에서 drawable 리소스를 지정하여 알�
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-이 플래그는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 통해서도 설정할 수 있습니다:
+이 플래그는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 통해서도 설정할 수 있습니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -649,7 +649,7 @@ Braze 대시보드는 푸시 알림 Campaign과 Canvases에서 알림을 클릭�
 
 기본적으로 Android SDK는 푸시 딥링크를 따라갈 때 호스트 앱의 기본 런처 액티비티를 백 스택에 배치합니다. Braze를 사용하면 기본 런처 액티비티 대신 백 스택에서 열릴 커스텀 액티비티를 설정하거나 백 스택을 완전히 비활성화할 수 있습니다.
 
-예를 들어 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 사용하여 `YourMainActivity`라는 액티비티를 백 스택 액티비티로 설정하려면:
+예를 들어 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 사용하여 `YourMainActivity`라는 액티비티를 백 스택 액티비티로 설정하려면:
 
 {% tabs %}
 {% tab JAVA %}

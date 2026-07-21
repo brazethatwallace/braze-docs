@@ -20,7 +20,7 @@ description: "この記事では、「セグメントの詳細をエクスポー
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`segments.details` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`segments.details` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -30,7 +30,7 @@ description: "この記事では、「セグメントの詳細をエクスポー
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | ------------ | -------- | --------- | ---------------------- |
-| `segment_id` | 必須 | 文字列 | [セグメント API 識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br> 特定のセグメントの `segment_id` は、Brazeアカウントの[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページで確認できます。または、[セグメント一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment)を使用できます。 |
+| `segment_id` | 必須 | 文字列 | [セグメントAPI識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br> 特定のセグメントの `segment_id` は、Brazeアカウントの[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページで確認できます。または、[セグメント一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment)を使用できます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
@@ -41,7 +41,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
 ```
 {% endraw %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {

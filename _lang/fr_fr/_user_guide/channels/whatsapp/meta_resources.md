@@ -135,12 +135,12 @@ Meta limitera le nombre de messages de modèles marketing qu'un utilisateur peut
 
 Une exception : si une personne répond à un message marketing, cela ouvrira une fenêtre de service client de 24 heures. Les messages marketing envoyés dans cette fenêtre ne seront pas comptabilisés dans la limite de la personne.
 
-La limite spécifique varie selon l'utilisateur, en fonction de son niveau d'engagement. Pour en savoir plus, consultez la [documentation de WhatsApp sur les limites de messages de modèles marketing par utilisateur](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
+La limite spécifique varie selon l'utilisateur, en fonction de son niveau d'engagement. Pour en savoir plus sur les limites de messages de modèles marketing par utilisateur de WhatsApp, consultez la [documentation de WhatsApp sur les limites de messages de modèles marketing par utilisateur](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
 
 ### Janvier 2025 : WhatsApp suspend l'envoi de messages marketing aux utilisateurs américains à partir du 1er avril {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Dernière mise à jour : janvier 2025*
 
-WhatsApp suspendra l'envoi de messages marketing aux utilisateurs américains (personnes disposant de numéros de téléphone américains) à partir du 1er avril 2025. Les [messages utilitaires, de service et d'authentification](https://developers.facebook.com/docs/whatsapp/pricing/) ainsi que les [messages de réponse]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) resteront autorisés aux États-Unis.
+WhatsApp suspendra l'envoi de messages marketing aux utilisateurs américains (personnes disposant de numéros de téléphone américains) à partir du 1er avril 2025. Les [messages utilitaires, de service et d'authentification](https://developers.facebook.com/docs/whatsapp/pricing/) ainsi que les [messages de réponse]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) resteront autorisés aux États-Unis.
 
 L'envoi de messages marketing (ainsi que tous les autres types de messages) vers tous les autres pays ou régions reste autorisé et ne sera pas affecté.
 

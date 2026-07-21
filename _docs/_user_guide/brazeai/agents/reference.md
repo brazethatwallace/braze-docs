@@ -80,11 +80,25 @@ The following invocation flow controls apply per workspace:
 
 When many users enter an Agent step at once, Braze queues invocations according to these limits, so processing may take longer during high-volume sends.
 
+### Daily invocation and credit limits
+
+Each agent has a daily invocation limit (default 250,000; maximum 1,000,000 unless your contract allows higher). Every invocation—including Agent Console previews and Test Canvas runs that use **Simulate response**—counts toward this limit.
+
+In Agent Console, the **Daily action credit cost limit** estimates the maximum credits an agent can consume per day. Braze multiplies your workspace's per-invocation **credit ratio** for the selected model by the daily invocation limit. 
+
+### Monitor credit usage
+
+Go to **Settings** > **Billing** > **Credits Usage** > **Agent Console** to see credit consumption, invocation counts, and per-agent credit ratios. 
+
+Credit ratios come from your contract and appear on the [Credits Usage]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) dashboard (**Credit Ratios** tab and **Agent Console** tab). The estimate updates when you change the model or invocation limit.
+
+To manage spend, lower the daily invocation limit. For [bring-your-own (BYO)](#option-2-bring-your-own-api-key) models, you can also choose a lower-cost model or reduce the [thinking level](#thinking-levels) to lower provider token costs. **Braze Auto** does not support adjusting the thinking level. 
+
 ### Rate limit errors
 
-If the LLM provider returns a rate limit error during a **Canvas Agent step**, Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed. **Catalog agents** do not retry rate-limited invocations.
+If the LLM provider returns a rate limit error during a Canvas Step Agent or Catalog Agent invocation, Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed.
 
-When Canvas retries are exhausted, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Retries are visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
+When Canvas or catalog retries are exhausted, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Retries are visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
 
 ![Agent Console log details showing a rate limit exceeded error in the Output field.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -139,9 +153,22 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 In the **Logs** section of the **Agent Console**, you can review the details for the agent's input and output to understand what value is rendered from the Liquid.
 
+### What data agents receive {#what-data-agents-receive}
+
+Agent context is not open-ended conversational memory. Unlike a chat assistant, an agent only sees the data you explicitly pass in at invocation time—it does not browse user profiles, infer missing fields, or tell you when required information is absent.
+
+Design each agent as a deliberate input-to-output pipeline. Wire every data point the agent needs using one or more of the following:
+
+1. **Liquid in instructions:** Template user attributes ({% raw %}`{{${first_name}}}`{% endraw %}) and [Canvas context variables]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) ({% raw %}`{{context.${variable_name}}}`{% endraw %}) directly in the agent prompt.
+2. **+ Agent context:** Select catalogs, segment membership, brand guidelines, **All Canvas Context**, or user interaction data in Agent Console.
+3. [Context steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context): Set or update `context.*` variables upstream in the Canvas before an Agent step runs.
+4. **Additional context on the Agent step:** Pass any additional Liquid-templated values not already specified using the other methods to the agent at send time from the step configuration.
+
+Make sure to either Liquid template these context variables in the agent instructions or select **Add All Canvas Context**. If a value is not passed through one of these channels, the agent does not receive it. List required inputs in your instructions or in [use case prerequisites]({{site.baseurl}}/user_guide/brazeai/agents/use_cases), and verify inputs in **Agent Console** > **Logs** after testing.
+
 ![The details for an agent that has Liquid in its instructions.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-For catalog agents, use **Fields** in the **Output** section rather than JSON schema; you can still write instructions that ask the model for key-value output matching those field names.
+For Catalog Agents, use **Fields** in the **Output** section rather than JSON schema; you can still write instructions that ask the model for key-value output matching those field names.
 
 For more details on prompting best practices, refer to guides from the following model providers:
 
@@ -160,7 +187,7 @@ Basic schemas are a simple output that an agent returns. This can be a string, a
 For example, if you want to collect user sentiment scores from a simple feedback survey to determine how satisfied your customers are after receiving a product, you can select **Number** as a basic schema to structure the output format.
 
 {% alert important %}
-Arrays are only available for Canvas agents, not catalog agents.
+Arrays are only available for Canvas Step Agents, not Catalog Agents.
 {% endalert %}
 
 ![Agent Console with number selected as a basic schema.]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
@@ -170,15 +197,15 @@ Arrays are only available for Canvas agents, not catalog agents.
 Advanced schema options include manually structuring fields or using JSON.
 
 - **Fields:** A no-code way to enforce an agent output that you can use consistently.
-- **JSON:** A code approach to creating a precise output format, where you can nest variables and objects within the JSON schema. Only available for Canvas agents, not catalog agents.
+- **JSON:** A code approach to creating a precise output format, where you can nest variables and objects within the JSON schema. Only available for Canvas Step Agents, not Catalog Agents.
 
 We recommend using advanced schemas when you want the agent to return a data structure with multiple values defined in a structured manner, rather than a single-value output. This allows the output to be better formatted as a consistent context variable.
 
 ### Fallback output
 
-Fallback values are available for **Canvas step agents** only. In the **Output** section of Agent Console for a Canvas agent, you can define values that Braze uses when an invocation fails.
+Fallback values are available for Canvas Step Agents only. In the **Output** section of Agent Console for a Canvas Step Agent, you can define values that Braze uses when an invocation fails.
 
-For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. For basic schemas, you enter a single fallback value. Canvas agents support Liquid in fallback values.
+For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. For basic schemas, you enter a single fallback value. Canvas Step Agents support Liquid in fallback values.
 
 For setup steps, see [Configure fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). For runtime behavior in Canvas, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
@@ -230,11 +257,11 @@ Choose specific catalogs for an agent to reference and to give your agent the co
 
 ![The "restaurants" catalog and "Loyalty_Program" column selected for the agent to search.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-When you deploy a catalog agent to a catalog field, enable the required-input control and choose which selected columns are **required to run** before the agent invokes. The agent skips a row only when one of those required columns is blank or missing—for example, a `gender` field that has not been filled in yet. Selected columns start as required by default, but you can remove columns that may be empty without blocking the run. This prevents wasted tokens on incomplete data.
+When you deploy a Catalog Agent to a catalog field, enable the required-input control and choose which selected columns are required to run before the agent invokes. The agent skips a row only when one of those required columns is blank or missing—for example, a `gender` field that has not been filled in yet. Selected columns start as required by default, but you can remove columns that may be empty without blocking the run. This prevents wasted tokens on incomplete data.
 
-Catalog agents also respect column order when input fields depend on each other. If column D should be generated from columns B and C, the agent does not run on column D until B and C contain values for that row.
+Catalog Agents also respect column order when input fields depend on each other. If column D should be generated from columns B and C, the agent does not run on column D until B and C contain values for that row.
 
-For deployment scenarios and examples, see [Use catalog agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) and [Catalog agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
+For deployment scenarios and examples, see [Use Catalog Agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) and [Catalog Agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ## Segment membership context
 

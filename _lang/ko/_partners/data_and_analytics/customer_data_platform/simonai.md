@@ -82,8 +82,8 @@ Simon AI에서 Braze 계정을 인증한 후 [플로우][4] 및 [여정][5]에 B
 ![Simon AI에서 동기화 특성 선택.][10]
 
 [1]: https://www.simon.ai/
-[2]: {{site.baseurl}}/api/basics/#creating-and-managing-rest-api-keys
-[3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
+[2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
+[3]: {{site.baseurl}}/user_guide/administer/personal/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two
 [6]: https://docs.simondata.com

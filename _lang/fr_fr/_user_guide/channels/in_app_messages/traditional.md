@@ -38,7 +38,7 @@ Si tous les messages de votre Campaign sont similaires ou ont le même contenu, 
 
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur Canvas. Donnez à votre étape un nom clair et significatif.
-3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) et spécifiez un délai si nécessaire. Notez que les étapes contenant des messages in-app ne peuvent pas être basées sur une action.
+3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) et spécifiez un délai si nécessaire. Notez que les étapes contenant des messages in-app ne peuvent pas être basées sur une action.
 4. Filtrez votre audience pour cette étape, si nécessaire. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des Segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
 5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choisissez les autres canaux de communication que vous souhaitez associer à votre message.
@@ -147,14 +147,14 @@ Ces messages in-app sont personnalisables selon vos besoins.
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#custom-html-messages'>Message HTML personnalisé</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Message HTML personnalisé</a></td>
     <td>Messages personnalisés qui fonctionnent selon votre code personnalisé (HTML, CSS et/ou JavaScript).</td>
     <td>N/A</td>
     <td>Vous devez définir l'option d'initialisation <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> sur <code>true</code> pour que votre message in-app fonctionne.</td>
     <td>C'est une bonne option si vous souhaitez tous les avantages des messages in-app mais avez besoin de fonctionnalités supplémentaires ou que l'apparence reste « fidèle à votre marque ». Vous pouvez modifier chaque détail du message — police, couleur, forme, taille, boutons, etc. <br><br>Exemples de cas d'usage : demander aux utilisateurs leur avis sur l'application, formulaires de capture d'e-mail ou messages paginés</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>Formulaire de capture d'e-mail</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>Formulaire de capture d'e-mail</a></td>
     <td>Généralement utilisé pour capturer l'adresse e-mail du visiteur.</td>
     <td>N/A</td>
     <td>Vous devez définir l'option d'initialisation <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> sur <code>true</code> pour que votre message in-app fonctionne.</td>
@@ -397,7 +397,7 @@ Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuen
 {% endtab %}
 {% tab Canvas %}
 
-Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 
 Pour des informations sur les options de messages in-app spécifiques à Canvas, consultez [Messages in-app dans Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 

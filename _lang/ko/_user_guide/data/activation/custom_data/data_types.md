@@ -109,8 +109,8 @@ toc_headers: h2
 
 고객 프로필에서 커스텀 속성을 제거하는 방법은 두 가지입니다:
 
-* [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
-* [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track)에 대한 API 요청에서 `null` 값을 설정합니다.
+- [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
+- [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에 대한 API 요청에서 `null` 값을 설정합니다.
 
 #### `null` 값 설정 {#setting-the-null-value}
 
@@ -147,10 +147,10 @@ toc_headers: h2
 
 - [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [웹]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
 - [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
-- [.NET MAUI (이전 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [.NET MAUI(이전 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
@@ -173,7 +173,7 @@ toc_headers: h2
 - [오브젝트]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
 - [오브젝트 배열]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
-### 부울 (참/거짓) {#booleans}
+### 부울(참/거짓) {#booleans}
 
 부울 속성은 구독 상태와 같은 사용자에 대한 간단한 이진 데이터를 저장하는 데 유용합니다. 변수가 명시적으로 참 또는 거짓 값으로 설정된 사용자뿐만 아니라, 해당 속성이 아직 기록되지 않은 사용자도 찾을 수 있습니다.
 
@@ -265,6 +265,7 @@ toc_headers: h2
 
 {% alert tip %}
 정규표현식(regex) 사용 방법에 대한 자세한 내용은 다음 리소스를 참조하세요:
+
 - [Perl 호환 정규표현식(PCRE)](https://www.regextester.com/pregsyntax.html)
 - [Braze에서의 정규식]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [정규식 디버거 및 테스터](https://www.regex101.com/)
@@ -300,11 +301,7 @@ toc_headers: h2
 
 #### 시간 속성 세부 정보 {#time-attribute-details}
 
-- 반복 이벤트의 날짜
-  - "반복 이벤트의 날짜" 필터를 사용하고 "반복 이벤트의 캘린더 날짜"를 선택하라는 메시지가 표시되면, `IS LESS THAN` 또는 `IS MORE THAN`을 선택한 경우 현재 날짜가 해당 세분화 필터에 포함됩니다.
-  - 예를 들어, 2020년 3월 10일에 속성 날짜를 `LESS THAN ... March 10, 2020`으로 선택한 경우, 2020년 3월 10일을 포함하여 그 이전 날짜의 속성이 고려됩니다.
-- X일 전 미만: "X일 전 미만" 필터에는 X일 전부터 현재 날짜/시간 사이의 날짜가 포함됩니다.
-- 미래 X일 이내: 현재 날짜/시간부터 미래 X일 사이의 날짜가 포함됩니다.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab 오브젝트 %}
@@ -343,7 +340,7 @@ toc_headers: h2
 
 이벤트 속성정보 관련 규칙:
 
-- **시간 (Datetime):** [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식을 사용합니다. 배열 내에서는 지원되지 않습니다.
+- **시간(Datetime):** [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식을 사용합니다. 배열 내에서는 지원되지 않습니다.
 - **배열:** 배열 내에서는 날짜/시간이 지원되지 않습니다.
 - **중첩 오브젝트:** [중첩 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 참조하세요.
 - **페이로드:** 배열 또는 오브젝트 값을 포함하는 이벤트 속성정보 오브젝트는 최대 102,400바이트(100&nbsp;KiB)까지 가능합니다.
@@ -374,10 +371,10 @@ toc_headers: h2
 
 커스텀 속성 또는 이벤트의 데이터 유형을 변경하려면:
 
-1. **데이터 설정**으로 이동하여 **커스텀 속성** 또는 **커스텀 이벤트**를 선택합니다.
-2. 목록에서 속성 또는 이벤트를 찾고 <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **추가 동작**을 선택합니다.
-3. 드롭다운에서 새 **데이터 유형**을 선택합니다.
-4. **저장**을 선택합니다.
+1. **Data Settings**로 이동하여 **Custom Attributes** 또는 **Custom Events**를 선택합니다.
+2. 목록에서 속성 또는 이벤트를 찾고 <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **More actions**를 선택합니다.
+3. 드롭다운에서 새 **Data type**을 선택합니다.
+4. **Save**를 선택합니다.
 
 커스텀 속성 또는 이벤트의 데이터 유형을 변경하는 경우(예: `time`을 `string`으로 변경), 다음 사항을 고려하세요:
 
@@ -399,8 +396,8 @@ toc_headers: h2
 | 숫자 | 정수 또는 플로트 숫자 값(예: 가격, 수량, 평점). | ✅ 예 | ✅ 예 |
 | 부울 | `true` 또는 `false` 값. | ✅ 예 | ✅ 예 |
 | 시간 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 또는 초 단위 Unix 타임스탬프의 날짜 및 시간. | ✅ 예 | ✅ 예 |
-| JSON 오브젝트 (오브젝트) | 키-값 페어가 있는 중첩 오브젝트. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. | ❌ 아니요 | ✅ 예 |
-| 문자열 배열 (배열) | 문자열 목록. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. 최대 100개 요소. | ❌ 아니요 | ✅ 예 |
+| JSON 오브젝트(오브젝트) | 키-값 페어가 있는 중첩 오브젝트. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. | ❌ 아니요 | ✅ 예 |
+| 문자열 배열(배열) | 문자열 목록. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. 최대 100개 요소. | ❌ 아니요 | ✅ 예 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
 
 ### 형식 및 예시 {#format-and-examples}

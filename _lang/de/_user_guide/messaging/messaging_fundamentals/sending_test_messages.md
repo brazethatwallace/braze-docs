@@ -91,7 +91,7 @@ Im Tab **Vorschau** Ihres Composers stimmt die Ansicht Ihrer Nachricht mögliche
 
 - Haben Ihre Testnutzer:innen Push mit einem gültigen Push-Token aktiviert?
 - Werden die Bilder und Medien wie erwartet angezeigt und verhalten sich wie erwartet?
-- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
+- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
 - Ist Ihr Text klar, prägnant und korrekt?
 - Leiten Ihre Links die Nutzer:innen dorthin, wo sie hingelangen sollen?
 - Haben Ihre Testnutzer:innen Push mit einem gültigen Push-Token aktiviert?
@@ -198,7 +198,7 @@ In der **Vorschau** stimmt die Ansicht Ihrer Nachricht möglicherweise nicht mit
 ### Test-Checkliste
 
 - Werden die Bilder und Medien wie erwartet angezeigt und verhalten sich wie erwartet?
-- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
+- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
 - Ist Ihr Text klar, prägnant und korrekt?
 - Leiten Ihre Buttons die Nutzer:innen dorthin, wo sie hingelangen sollen?
 

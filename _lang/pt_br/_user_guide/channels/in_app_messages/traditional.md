@@ -38,7 +38,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) e especifique uma postergação conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
+3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) e especifique uma postergação conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
 4. Filtre seu público para esta etapa, conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
@@ -147,14 +147,14 @@ Essas mensagens no app são personalizáveis de acordo com suas necessidades.
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#custom-html-messages'>Mensagem HTML personalizada</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Mensagem HTML personalizada</a></td>
     <td>Mensagens personalizadas que funcionam conforme definido no seu código personalizado (HTML, CSS e/ou JavaScript).</td>
     <td>N/D</td>
     <td>É necessário definir a opção de inicialização <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> como <code>true</code> para que sua mensagem no app funcione.</td>
     <td>Essa é uma boa opção se você quer todas as vantagens das mensagens no app, mas precisa de funcionalidades adicionais ou que a aparência permaneça "dentro da marca". Você pode alterar cada detalhe da mensagem — fonte, cor, forma, tamanho, botões, etc. <br><br>Exemplos de casos de uso incluem pedir feedback sobre o app, formulários de captura de e-mail ou mensagens paginadas</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>Formulário de captura de e-mail</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>Formulário de captura de e-mail</a></td>
     <td>Normalmente usado para capturar o e-mail do visualizador.</td>
     <td>N/D</td>
     <td>É necessário definir a opção de inicialização <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> como <code>true</code> para que sua mensagem no app funcione.</td>
@@ -397,7 +397,7 @@ A Braze permite que você rastreie com que frequência os usuários realizam aç
 {% endtab %}
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) da nossa documentação de Canvas.
 
 Para informações sobre opções de mensagens no app específicas do Canvas, consulte [Mensagens no app no Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 

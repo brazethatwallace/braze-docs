@@ -25,7 +25,7 @@ channel:
 | インプレッションやクリックが正しくない | [インプレッションと分析](#impressions-and-analytics) |
 | イベントユーザーログで`triggers`が欠落または空 | [配信のトラブルシューティング](#delivery-troubleshooting) |
 | トリガーは返されたがデバイスに何も表示されない | [プラットフォーム固有の表示トラブルシューティング](#platform-specific-display-troubleshooting) |
-| アプリ内メッセージのアセットの読み込みに失敗する（iOS、`NSURLError` -1008） | [アセットの読み込み（Swiftタブ）]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| アプリ内メッセージのアセットの読み込みに失敗する（iOS、`NSURLError` -1008） | [アセットの読み込み（Swiftタブ）](?sdktab=swift#swift_asset-loading) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アプリ内メッセージの症状" }
 
 ## 標準的な調査パス {#standard-investigation-path}
@@ -145,13 +145,13 @@ SDKはセッション開始時にBrazeサーバーにアプリ内メッセージ
    - 各トリガーペイロードには`type`が含まれます：`inapp`（標準）または`templated_iam`（表示前にテンプレートリクエストが必要）。[アプリ内メッセージの種類]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#types-of-in-app-messages)を参照してください。
 5. レスポンスデータに正しいアプリ内メッセージが表示されていることを確認します。
 
-![SDKリクエストとレスポンスデータを含むイベントユーザーログ。]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+![SDKリクエストとレスポンスデータを含むイベントユーザーログ]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 ##### メッセージがリクエストされない場合のトラブルシューティング {#troubleshoot-messages-not-being-requested}
 
 アプリ内メッセージがリクエストされていない場合、アプリがセッションを正しくトラッキングしていない可能性があります。アプリ内メッセージはセッション開始時に更新されます。セッションタイムアウトのセマンティクスに基づいて、アプリがセッションを開始していることを確認してください。
 
-![セッション開始イベントの成功を表示するイベントユーザーログのSDKリクエスト。]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
+![セッション開始イベントの成功を表示するイベントユーザーログのSDKリクエスト]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
 
 ##### メッセージが返されない場合のトラブルシューティング {#troubleshoot-messages-not-being-returned}
 

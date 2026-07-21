@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Zendesk
 
-> [Zendesk Support Suite](https://www.zendesk.com/support-suite/)（ZSS）は、メール、ウェブチャット、音声、ソーシャルメッセージングアプリを使ったオムニチャネルサポートを通じて、顧客との自然な会話を可能にします。Zendeskは対応の追跡と優先順位付けを重視する効率的なチケット発行システムを提供し、企業が顧客の履歴を一元的に把握できるようにしています。
+> [Zendesk Support Suite](https://www.zendesk.com/support-suite/)（ZSS）は、メール、ウェブチャット、音声、ソーシャルメッセージングアプリを使ったオムニチャネルサポートを通じて、顧客との自然な会話を可能にします。Zendeskは対応のトラッキングと優先順位付けを重視する効率的なチケット発行システムを提供し、企業が顧客の履歴を一元的に把握できるようにしています。
 
 BrazeとZendeskのサーバー間統合により、以下を利用できます。
 - Braze webhookを使用して、Brazeのユーザージャーニーでのメッセージエンゲージメントに基づくZendeskでのサポートチケット作成を自動化します。例えば、統合の実装とテストに成功した後、Brazeは「Enjoying our App?」というアプリ内メッセージに否定的な回答をしたユーザーからサポートチケットを作成し、サポートチームが顧客をフォローアップできるようにします。
@@ -28,7 +28,7 @@ BrazeとZendeskのサーバー間統合により、以下を利用できます�
 
 ## BrazeからZendeskへの統合 {#braze-to-zendesk-integration}
 
-### ステップ1:BrazeのWebhookを作成する {#step-1-create-your-braze-webhook}
+### ステップ1：BrazeのWebhookを作成する {#step-1-create-your-braze-webhook}
 
 Webhookを作成するには：
 
@@ -36,10 +36,10 @@ Webhookを作成するには：
 - **キャンバス：** 新しいキャンバスまたは既存のキャンバスから、キャンバスビルダーでフルステップまたはメッセージステップを作成します。次に、**メッセージ**をクリックし、メッセージオプションから**Webhook**を選択します。
 
 Webhookに以下のフィールドを記入します：
-- **Webhook URL**: `<your-zendesk-instance>.zendesk.com/api/v2/tickets.json`
+- **Webhook URL**：`<your-zendesk-instance>.zendesk.com/api/v2/tickets.json`
 - **リクエスト本文**：Raw Text
 
-その他のユースケースは、[Zendesk support API](https://developer.zendesk.com/rest_api/docs/support/introduction)を使用して対処できます。これにより、Webhook URLの末尾の `/api/v2/` エンドポイントが適宜変更されます。
+その他のユースケースは、[Zendesk support API](https://developer.zendesk.com/rest_api/docs/support/introduction)を使用して対処できます。これにより、Webhook URLの末尾の`/api/v2/`エンドポイントが適宜変更されます。
 
 #### リクエストヘッダーとメソッド {#request-header-and-method}
 
@@ -80,7 +80,7 @@ Webhookペイロードで、タイプ、サブジェクト、ステータスな�
 ```
 {% endraw %}
 
-### ステップ2:リクエストをプレビューする {#step-2-preview-your-request}
+### ステップ2：リクエストをプレビューする {#step-2-preview-your-request}
 
 テキストがBrazeタグであれば、自動的にハイライトされます。
 
@@ -90,25 +90,25 @@ Webhookペイロードで、タイプ、サブジェクト、ステータスな�
 
 ## 共通識別子 {#common-identifier}
 
-BrazeとZendeskの間に共通の識別子がある場合は、それを `requester_id` として使用することをお勧めします。これにより、2つのユーザーセットを統一できます。それ以外の場合は、名前、メールアドレス、電話番号などの一連の識別属性を渡すことをお勧めします。
+BrazeとZendeskの間に共通の識別子がある場合は、それを`requester_id`として使用することをお勧めします。これにより、2つのユーザーセットを統一できます。それ以外の場合は、名前、メールアドレス、電話番号などの一連の識別属性を渡すことをお勧めします。
 
 ## ZendeskからBrazeへの統合 {#zendesk-to-braze-integration}
 
-### ステップ1:Webhookを作成する {#step-1-create-a-webhook}
+### ステップ1：Webhookを作成する {#step-1-create-a-webhook}
 
 1. [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb)で、サイドバーの**Apps and integrations**をクリックし、**Webhooks > Webhooks**を選択します。<br><br>
 2. **Create webhook**をクリックします。<br><br>
 3. **Trigger**または**Automation**を選択し、**Next**をクリックします。<br>![トリガーとオートメーションのオプションが表示されたZendesk webhook作成画面。]({% image_buster /assets/img_archive/zendesk2.png %}){: style="max-width:70%;"}<br><br>
 4. Webhookに以下の情報を指定します。
 - Webhookの名前と説明を入力します。
-- Webhookが使用するBrazeエンドポイントURLを入力します。{% raw %}この例では `https://{{instance_url}}/users/track` を使用します。{% endraw %}
+- Webhookが使用するBrazeエンドポイントURLを入力します。{% raw %}この例では`https://{{instance_url}}/users/track`を使用します。{% endraw %}
 - Webhookのリクエストメソッドとして POST を選択し、リクエストフォーマットを JSON に設定します。
-- Webhookにベアラートークン認証方式を選択し、[Braze APIキー]({{site.baseurl}}/api/basics#creating-and-managing-rest-api-keys)を入力します。
+- Webhookにベアラートークン認証方式を選択し、[Braze APIキー]({{site.baseurl}}/api/basics#creating-rest-api-keys)を入力します。
   - 使用するAPIキーに、Webhookが使用するBrazeエンドポイントに対して[正しい権限]({{site.baseurl}}/api/basics#rest-api-key-permissions)があることを確認してください。<br><br>
 5. （推奨）Webhookをテストし、正しく動作していることを確認します。<br><br>
-6. トリガーとオートメーションのWebhookについては、セットアップを終了する前に、Webhookをトリガーまたはオートメーションに接続する必要があります。Webhookのトリガーを作成する例については、次のステップを参照してください。トリガーが作成されたら、このページに戻り、**Finish setup**を選択します。
+6. トリガーとオートメーションのWebhookについては、設定を終了する前に、Webhookをトリガーまたはオートメーションに接続する必要があります。Webhookのトリガーを作成する例については、次のステップを参照してください。トリガーが作成されたら、このページに戻り、**Finish setup**を選択します。
 
-### ステップ2:トリガーまたはオートメーションを作成する {#step-2-create-a-trigger-or-automation}
+### ステップ2：トリガーまたはオートメーションを作成する {#step-2-create-a-trigger-or-automation}
 
 [Zendeskの指示に従って](https://support.zendesk.com/hc/en-us/articles/4408839108378#topic_bwm_1tv_dpb)、Webhookをトリガーまたはオートメーションに接続します。
 

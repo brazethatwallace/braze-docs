@@ -452,3 +452,15 @@ In einigen Fällen kann Ihre Klick-Tracking-Domain die erforderlichen `.well-kno
 
 - **Klick-Tracking für Deeplink-URLs selektiv deaktivieren:** Sie können das Klick-Tracking für bestimmte Universal Links deaktivieren, sodass diese direkt auf Ihre Hauptdomain verweisen (auf der Sie die AASA- oder Digital Asset Links-Datei hosten können). Beachten Sie, dass diese Methode zum Verlust von Klick-Analytics für diese bestimmten Links führen kann. Anweisungen finden Sie unter [Klick-Tracking auf Link-Ebene deaktivieren](#turning-off-click-tracking-on-a-link-to-link-basis).
 - **CDN vor die Tracking-Subdomain schalten:** Wenn Sie vollständige Klick-Tracking-Abdeckung und Deeplinking benötigen, können Sie ein CDN (wie Cloudflare oder CloudFront) vor Ihre Tracking-Subdomain schalten. Konfigurieren Sie das CDN so, dass es die `.well-known`-Dateien lokal bereitstellt und den gesamten übrigen Datenverkehr an Ihren ESP weiterleitet. Dieser Ansatz ist aufwendiger, gibt Ihnen aber die volle Kontrolle über Klick-Tracking und Universal Links.
+
+#### Links funktionieren in einem Workspace, aber nicht in einem anderen {#links-working-in-one-workspace-but-not-another}
+
+Wenn Universal Links oder App Links in Ihrem Produktions-Workspace korrekt funktionieren, aber in Ihrem Entwicklungs- oder Test-Workspace fehlschlagen, überprüfen Sie, ob die sendende E-Mail-Adressdomain mit der Tracking-Domain übereinstimmt, die in den E-Mail-Einstellungen des jeweiligen Workspace konfiguriert ist. Inkonsistente Konfigurationen zwischen Workspaces können dazu führen, dass sich Links unterschiedlich verhalten, selbst wenn dieselben E-Mail-Templates und AASA- oder Digital Asset Links-Dateien verwendet werden.
+
+So überprüfen Sie Ihre E-Mail-Konfiguration:
+
+1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **E-Mail-Einstellungen**.
+2. Überprüfen Sie die **Einstellungen für ausgehende E-Mails** unter **Versandkonfiguration**.
+3. Bestätigen Sie, dass Ihre Versanddomain und Tracking-Domain für den Workspace, in dem die Links nicht funktionieren, korrekt aufeinander abgestimmt sind.
+
+Wenn sich Ihre Versanddomain zwischen Workspaces unterscheidet, stellen Sie sicher, dass für jeden Workspace die entsprechenden DNS-Einträge konfiguriert sind und dass Ihre AASA- (iOS) oder Digital Asset Links- (Android) Dateien von jeder Tracking-Domain aus erreichbar sind.

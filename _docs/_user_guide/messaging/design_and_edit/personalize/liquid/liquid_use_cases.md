@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### Format currency for European number conventions {#european-currency-format}
 
-For locales that use a comma as the decimal separator and a period as the thousands separator (for example, Germany or Italy), use the [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) and [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) filters with `replace` to swap separators. Use `#` as a temporary placeholder so periods and commas aren't swapped in the same pass.
+For locales that use a comma as the decimal separator and a period as the thousands separator (for example, Germany or Italy), use the [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters) and [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) filters with `replace` to swap separators. Use `#` as a temporary placeholder so periods and commas aren't swapped in the same pass.
 
 {% raw %}
 ```liquid

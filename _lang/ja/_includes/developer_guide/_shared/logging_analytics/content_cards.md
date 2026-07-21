@@ -222,14 +222,6 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 
 {% tab react native %}
 
-コンテンツカードのデータを取得するには、`getContentCards`メソッドを使用します。
-
-```javascript
-import Braze from "@braze/react-native-sdk";
-
-const cards = await Braze.getContentCards();
-```
-
 更新を監視するには、コンテンツカードの更新イベントをサブスクライブします。
 
 ```javascript
@@ -245,16 +237,18 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
 });
 ```
 
-Brazeサーバーからコンテンツカードを手動で更新するには：
+最新のキャッシュ済みContent Cardsデータを取得するには：
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+const cachedCards = await Braze.getCachedContentCards();
+```
+
+BrazeサーバーからContent Cardsを手動で更新するには：
 
 ```javascript
 Braze.requestContentCardsRefresh();
-```
-
-ネットワークリクエストなしでキャッシュされたコンテンツカードを取得するには：
-
-```javascript
-const cachedCards = await Braze.getCachedContentCards();
 ```
 
 {% endtab %}

@@ -17,16 +17,16 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 **이름은 정확히 일치해야 합니다.** 커스텀 속성 키는 **대소문자를 구분합니다**. 예를 들어 `Home_City`와 `home_city`는 서로 다른 속성입니다. [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 SDK를 통해 데이터를 전송하면 Braze는 속성 이름에서 **앞뒤 공백을 제거**하므로 `greeting`과 ` greeting `은 동일한 키로 처리됩니다. 속성을 참조하는 모든 곳(**데이터 설정** > **커스텀 속성**, API 및 SDK 페이로드, CSV 가져오기)에서 동일한 철자와 대소문자를 사용하세요. [데이터 유형을 강제 지정]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#data-type-coercion)할 때 Braze가 수신 값을 변환하는 방법에 대해서는 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data)를 참조하세요.
 {% endalert %}
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
-일반적인 커스텀 속성 활용 사례는 다음과 같습니다:
+일반적인 커스텀 속성 사용 사례는 다음과 같습니다:
 
 - 로열티 등급, 구독 상태, 선호 언어, 요금제 유형 등의 특성을 기반으로 사용자를 세분화하여 오디언스를 타겟팅하거나 제외
 - 사용자의 이름, 리워드 포인트, 선호 카테고리 등의 속성을 참조하여 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)로 메시지 개인화
 - 온보딩 단계, 계정 상태, 체험판 종료일 등 라이프사이클 단계 및 사용자 상태 추적
-- 사용자가 기능을 볼 때마다 `feature_views_count` 속성을 증가시키는 것처럼 [숫자 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#numbers)으로 가치가 낮은 동작 횟수 기록
-- `last_support_ticket_at` 또는 `last_password_reset_at`처럼 [시간 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#time)을 사용하여 가치가 낮은 동작이 마지막으로 발생한 시점 기록
-- 선호 장르나 최근 조회한 콘텐츠 등을 [배열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays)로 저장하여 관심사 기반 타겟팅에 활용
+- 사용자가 기능을 볼 때마다 `feature_views_count` 속성을 증가시키는 것처럼 [숫자 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)으로 가치가 낮은 동작 횟수 기록
+- `last_support_ticket_at` 또는 `last_password_reset_at`처럼 [시간 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 사용하여 가치가 낮은 동작이 마지막으로 발생한 시점 기록
+- 선호 장르나 최근 조회한 콘텐츠 등을 [배열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)로 저장하여 관심사 기반 타겟팅에 활용
 - 구조화된 선호도나 여러 저장된 주소 등 더 풍부한 프로필 데이터를 [오브젝트]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) 또는 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)로 저장
 - 사용자의 `rewards_tier`가 변경될 때 등급 상승 알림을 보내는 것처럼 [속성 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers)를 사용하여 속성 값이 변경될 때 액션 기반 메시지 트리거
 
@@ -75,7 +75,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 고객 프로필에서 커스텀 속성을 제거하는 방법은 두 가지가 있습니다:
 
 * [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
-* [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track)에 대한 API 요청에서 `null` 값을 설정합니다.
+* [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에 대한 API 요청에서 `null` 값을 설정합니다.
 
 ### 데이터 내보내기 {#export-data}
 
@@ -121,7 +121,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 
 - [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [웹]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
 - [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
 - [.NET MAUI(이전 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
@@ -131,7 +131,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 
 ## 커스텀 속성 저장 {#custom-attribute-storage}
 
-**고객 프로필**에 저장된 모든 데이터(커스텀 속성 데이터 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_archival#active-users) 상태인 한 무기한 보존됩니다.
+**고객 프로필**에 저장된 모든 데이터(커스텀 속성 데이터 포함)는 각 프로필이 <a href="/docs/user_archival#active-users">활성</a> 상태인 한 무기한 보존됩니다.
 
 부울, 숫자, 문자열, 배열, 시간, 오브젝트, 오브젝트 배열 등 커스텀 속성으로 저장할 수 있는 모든 데이터 유형에 대한 전체 참조는 [커스텀 속성 데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types)을 확인하세요.
 

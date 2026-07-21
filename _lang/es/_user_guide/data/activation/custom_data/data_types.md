@@ -95,7 +95,7 @@ Puedes bloquear atributos personalizados individualmente en el menú de acciones
 
 ### Marcar como información de identificación personal (PII) {#marking-as-personally-identifiable-information-pii}
 
-Los administradores también pueden crear atributos personalizados y marcarlos como PII desde esta página. Estos atributos solo son visibles para administradores y usuarios del dashboard con el permiso "View Custom Attributes Marked as PII".
+Los administradores también pueden crear atributos personalizados y marcarlos como PII desde esta página. Estos atributos solo son visibles para administradores y usuarios del panel con el permiso "View Custom Attributes Marked as PII".
 
 ### Añadir descripciones {#adding-descriptions}
 
@@ -109,8 +109,8 @@ Puedes añadir etiquetas a un atributo personalizado después de crearlo si tien
 
 Hay dos formas de eliminar atributos personalizados de los perfiles de usuario:
 
-* Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
-* Establece el valor `null` en tu solicitud de API al [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+- Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
+- Establece el valor `null` en tu solicitud de API al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 #### Establecer el valor `null` {#setting-the-null-value}
 
@@ -121,7 +121,7 @@ Establecer un atributo como `null` y establecerlo como `""` (cadena vacía) no e
 - `null` elimina el atributo del perfil de usuario por completo. No aparece en el perfil ni coincide con ningún filtro **IS NOT BLANK**.
 - `""` establece el atributo como un valor de cadena vacía. El atributo aparece en el perfil con un valor de cadena vacía, pero no coincide con los filtros **IS NOT BLANK** (se trata como vacío).
 
-Además, `""` solo es válido para atributos de tipo cadena. Si el tipo de datos del atributo está configurado como un tipo que no es cadena (como booleano, número u hora) en el dashboard, enviar `""` no borra el valor; usa `null` en su lugar.
+Además, `""` solo es válido para atributos de tipo cadena. Si el tipo de datos del atributo está configurado como un tipo que no es cadena (como booleano, número u hora) en el panel, enviar `""` no borra el valor; usa `null` en su lugar.
 
 ### Exportar datos {#exporting-data}
 
@@ -240,7 +240,7 @@ Al segmentar usando el filtro **DOES NOT MATCH REGEX**, ya debes tener un atribu
 
 Las matrices tienen un tamaño máximo de 100&nbsp;KB. La longitud predeterminada de un atributo es de hasta 500 elementos (por ejemplo, si envías un atributo como "Películas vistas" configurado en 500, cuando un usuario vea una película número 501, la primera película se elimina y se añade la más reciente). Ten en cuenta que si introduces valores con espacios entre, antes o después de las palabras, Braze también comprobará esos mismos espacios.
 
-Los atributos personalizados de tipo matriz no se pueden importar mediante [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para cargar valores de matriz, usa el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/cloud_ingestion).
+Los atributos personalizados de tipo matriz no se pueden importar mediante [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para cargar valores de matriz, usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/cloud_ingestion).
 
 {% alert note %}
 La opción de aumentar la longitud máxima no estará disponible si el atributo está configurado para detectar automáticamente el tipo de datos; el tipo de datos debe establecerse como matriz.
@@ -265,6 +265,7 @@ Para los atributos de **matriz**, están disponibles las siguientes opciones de 
 
 {% alert tip %}
 Para más información sobre cómo usar expresiones regulares (regex), consulta estos recursos:
+
 - [Expresiones regulares compatibles con Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
 - [Regex con Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Depurador y probador de regex](https://www.regex101.com/)
@@ -274,7 +275,7 @@ Para más información sobre cómo usar expresiones regulares (regex), consulta 
 {% endtab %}
 {% tab Hora %}
 
-Los atributos de hora son útiles para almacenar la última vez que se realizó una acción específica, de modo que puedas ofrecer mensajería de reactivación de la interacción con contenido específico a tus usuarios.
+Los atributos de hora son útiles para almacenar la última vez que se realizó una acción específica, de modo que puedas ofrecer mensajería de reactivación con contenido específico a tus usuarios.
 
 Los filtros de hora que usan fechas relativas (por ejemplo, hace más de 1 día, hace menos de 2 días) miden 1 día como 24 horas. Cualquier campaña que ejecutes usando estos filtros incluirá a todos los usuarios en incrementos de 24 horas. Por ejemplo, `last used app more than 1 day ago` capturará a todos los usuarios que "usaron la aplicación por última vez hace más de 24 horas" desde el momento exacto en que se ejecuta la campaña. Lo mismo se aplica a campañas configuradas con rangos de fechas más largos, por lo que cinco días desde la activación significarán las 120 horas anteriores.
 
@@ -300,11 +301,7 @@ Para los atributos de **hora**, están disponibles las siguientes opciones de se
 
 #### Detalles de atributos de hora {#time-attribute-details}
 
-- Día de evento recurrente
-  - Al usar el filtro "Día de evento recurrente" y luego se te solicita seleccionar el "Día del calendario del evento recurrente", si seleccionas `IS LESS THAN` o `IS MORE THAN`, la fecha actual se contará para ese filtro de segmentación.
-  - Por ejemplo, si el 10 de marzo de 2020 seleccionaste la fecha del atributo como `LESS THAN ... March 10, 2020`, los atributos se considerarán para los días hasta e incluyendo el 10 de marzo de 2020.
-- Hace menos de X días: el filtro "Hace menos de X días" incluye fechas entre hace X días y la fecha/hora actual.
-- En menos de X días en el futuro: incluye fechas entre la fecha/hora actual y X días en el futuro.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab Objetos %}
@@ -374,19 +371,19 @@ Para el esquema completo del objeto de compra y ejemplos, consulta [Objeto de co
 
 Para cambiar el tipo de datos de un atributo personalizado o evento:
 
-1. Ve a **Configuración de datos** y selecciona **Atributos personalizados** o **Eventos personalizados**.
+1. Ve a **Data Settings** y selecciona **Custom Attributes** o **Custom Events**.
 2. Busca tu atributo o evento en la lista y selecciona <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **Más acciones**.
 3. Selecciona un nuevo **Tipo de datos** en el desplegable.
 4. Selecciona **Guardar**.
 
 Si cambias el tipo de datos de un atributo personalizado o evento (por ejemplo, cambiar `time` a `string`), ten en cuenta lo siguiente:
 
-- **Los filtros no se actualizan automáticamente.** Los Segments, Campaigns, Canvas u otras ubicaciones que usen el atributo o evento modificado no se actualizan. Antes de cambiar el tipo de datos, detén cualquier campaña o Canvas que use el atributo en Segments o filtros, y elimina el atributo de los filtros que lo referencian.
-- **Los datos de usuario existentes no se actualizan retroactivamente.** Si el atributo modificado estaba en un perfil de usuario antes del cambio, ese valor permanece con el tipo de datos anterior. Los usuarios pueden salir de Segments que contienen el atributo modificado porque el filtro busca el nuevo tipo de datos. Actualiza esos perfiles de usuario (por ejemplo, con el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que coincidan con el nuevo tipo y vuelvan a entrar en el Segment si es necesario.
+- **Los filtros no se actualizan automáticamente.** Los segmentos, las campañas, los Canvas u otras ubicaciones que usen el atributo o evento modificado no se actualizan. Antes de cambiar el tipo de datos, detén cualquier campaña o Canvas que use el atributo en segmentos o filtros, y elimina el atributo de los filtros que lo referencian.
+- **Los datos de usuario existentes no se actualizan retroactivamente.** Si el atributo modificado estaba en un perfil de usuario antes del cambio, ese valor permanece con el tipo de datos anterior. Los usuarios pueden salir de segmentos que contienen el atributo modificado porque el filtro busca el nuevo tipo de datos. Actualiza esos perfiles de usuario (por ejemplo, con el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que coincidan con el nuevo tipo y vuelvan a entrar en el segmento si es necesario.
 - **Los nuevos datos deben coincidir con el nuevo tipo.** Las llamadas a la API que envíen el tipo de datos anterior para el atributo modificado no se aceptan. Envía el nuevo tipo de datos.
 
 {% alert important %}
-La capacidad de evitar que la detección automática actualice el tipo de datos del atributo personalizado está actualmente en acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar.
+La capacidad de evitar que la detección automática actualice el tipo de datos del atributo personalizado está actualmente en acceso anticipado. Ponte en contacto con tu administrador de éxito de cliente si te interesa participar.
 {% endalert %}
 
 ## Tipos de datos de catálogos {#catalog-data-types}
@@ -395,7 +392,7 @@ Los catálogos admiten los tipos enumerados en la tabla de [Definiciones](#defin
 
 | Tipo de datos | Descripción | Disponible mediante carga CSV | Disponible mediante API y CDI |
 | --- | --- | --- | --- |
-| Cadena | Una secuencia de caracteres (por ejemplo, nombres, descripciones, IDs). | ✅ Sí | ✅ Sí |
+| Cadena | Una secuencia de caracteres (por ejemplo, nombres, descripciones, ID). | ✅ Sí | ✅ Sí |
 | Número | Un valor numérico, ya sea entero o decimal (por ejemplo, precios, cantidades, calificaciones). | ✅ Sí | ✅ Sí |
 | Booleano | Un valor `true` o `false`. | ✅ Sí | ✅ Sí |
 | Hora | Fecha y hora en formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) o marca de tiempo Unix en segundos. | ✅ Sí | ✅ Sí |

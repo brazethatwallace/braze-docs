@@ -42,7 +42,7 @@ Si todos los mensajes en tu campaña van a ser similares o tener el mismo conten
 {% tab Canvas %}
 1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el compositor de Canvas.
 2. Después de configurar tu Canvas, añade un paso en el constructor de Canvas. Ponle a tu paso un nombre claro y significativo.
-3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) y especifica un retraso según sea necesario.
+3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) y especifica un retraso según sea necesario.
 4. Filtra tu audiencia para este paso según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando segmentos y añadiendo filtros adicionales. Las opciones de audiencia se verificarán después del retraso en el momento en que se envíen los mensajes.
 5. Elige tu [comportamiento de avance]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Elige cualquier otro canal de mensajería que desees emparejar con tu mensaje.
@@ -186,7 +186,7 @@ Los mensajes push pueden entregarse según un horario planificado, una acción o
 
 Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Elige los usuarios objetivo {#choose-users-to-target}
 
@@ -212,9 +212,7 @@ Opcionalmente, también puedes limitar la entrega a un número específico de us
 
 Para campañas multicanal dirigidas tanto a canales de correo electrónico como de push, es posible que desees limitar tu campaña para que solo los usuarios que hayan optado explícitamente reciban el mensaje (excluyendo a los usuarios suscritos o que cancelaron su suscripción). Por ejemplo, supongamos que tienes tres usuarios con diferentes estados de adhesión:
 
-- **Usuario A** está suscrito al correo electrónico y tiene push habilitado. Este usuario no recibe el correo electrónico pero recibirá el push.
-- **Usuario B** ha optado por recibir correo electrónico pero no tiene push habilitado. Este usuario recibirá el correo electrónico pero no recibirá el push.
-- **Usuario C** ha optado por recibir correo electrónico y tiene push habilitado. Este usuario recibirá tanto el correo electrónico como el push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Para hacerlo, en **Resumen de audiencia**, selecciona enviar esta campaña a "solo usuarios que han optado por recibir". Esta opción asegurará que solo los usuarios que han optado recibirán tu correo electrónico, y Braze solo enviará tu push a los usuarios que tienen push habilitado de forma predeterminada.
 
@@ -230,7 +228,7 @@ Braze te permite rastrear con qué frecuencia los usuarios realizan acciones esp
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
 
 {% endtab %}
 {% endtabs %}

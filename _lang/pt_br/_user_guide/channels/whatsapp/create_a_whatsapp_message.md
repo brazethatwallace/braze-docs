@@ -27,10 +27,10 @@ Antes de criar mensagens de WhatsApp, você precisa revisar e concluir o seguint
 ### Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
 {% alert note %}
-O WhatsApp cria diferentes [modelos de mensagem](#template-messages) para cada idioma. Crie uma campanha para cada idioma com segmentação para enviar o modelo correto aos usuários, ou use o Canvas.
+O WhatsApp cria diferentes [modelos de mensagem](#template-messages) para cada idioma. Crie uma Campaign para cada idioma com segmentação para enviar o modelo correto aos usuários, ou use o Canvas.
 {% endalert %}
 
-Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canvas? Campaigns são melhores para campanhas de envio de mensagens únicas e direcionadas, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
+Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para campanhas de envio de mensagens únicas e direcionadas, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
 
 {% tabs %}
 {% tab Campaign %}
@@ -39,13 +39,13 @@ Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canv
 
 1. Acesse a página **Campaigns** e clique em <i class="fas fa-plus"></i> **Create Campaign**.
 2. Selecione **WhatsApp** ou, para campanhas direcionadas a múltiplos canais, selecione **Multichannel Campaign**.
-3. Dê à sua campanha um nome claro e significativo.
+3. Dê à sua Campaign um nome claro e significativo.
 4. Adicione [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
    * Tags facilitam a busca e a criação de relatórios das suas campanhas. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
-5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada variante adicionada. Para saber mais sobre este tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Adicione e nomeie quantas variantes forem necessárias para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada variante adicionada. Para saber mais sobre este tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conteúdo, crie sua mensagem antes de adicionar variantes extras. Em seguida, escolha **Copy from Variant** no menu suspenso **Add Variant**.
+Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, crie sua mensagem antes de adicionar variantes extras. Em seguida, escolha **Copy from Variant** no menu suspenso **Add Variant**.
 {% endalert %}
 
 {% endtab %}
@@ -55,7 +55,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) e especifique uma postergação conforme necessário.
+3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) e especifique uma postergação conforme necessário.
 4. Filtre seu público para esta etapa conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Escolha quaisquer outros canais de envio de mensagens que deseja combinar com sua mensagem.
@@ -83,7 +83,7 @@ Campos de texto desabilitados (destacados em cinza) não podem ser editados, poi
 
 #### Idiomas {#languages}
 
-Cada modelo tem um idioma atribuído, então você precisa criar uma campanha ou etapa do Canvas para cada idioma para configurar corretamente a correspondência de usuários. Por exemplo, se você está criando um Canvas que usa modelos atribuídos com indonésio e inglês, precisa criar uma etapa do Canvas para o modelo em indonésio e uma etapa do Canvas para o modelo em inglês.
+Cada modelo tem um idioma atribuído, então você precisa criar uma Campaign ou etapa do Canvas para cada idioma para configurar corretamente a correspondência de usuários. Por exemplo, se você está criando um Canvas que usa modelos atribuídos com indonésio e inglês, precisa criar uma etapa do Canvas para o modelo em indonésio e uma etapa do Canvas para o modelo em inglês.
 
 ![Lista de modelos incluindo pré-visualizações de suas mensagens, seus idiomas atribuídos e seus status de aprovação.]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
@@ -146,14 +146,14 @@ Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guid
 
 Após enviar uma mensagem de teste do WhatsApp, você pode visualizar um relatório detalhado de entrega diretamente no criador de mensagens. Isso ajuda a confirmar que sua mensagem chegou ao destinatário pretendido e a solucionar falhas antes do lançamento.
 
-O botão **View test results** aparece quando há dados de envio de teste disponíveis para a campanha ou etapa do Canvas atual. Selecione-o para abrir o painel de resultados.
+O botão **View test results** aparece quando há dados de envio de teste disponíveis para a Campaign ou etapa do Canvas atual. Selecione-o para abrir o painel de resultados.
 
 O painel de resultados mostra cada estágio pelo qual sua mensagem passou até chegar ao destinatário:
 - **Braze:** Se a Braze processou e despachou a mensagem com sucesso
 - **Meta:** Se o Meta aceitou a mensagem para entrega
 - **Dispositivo do usuário:** Se a mensagem foi entregue ao dispositivo do destinatário
 
-Cada estágio exibe seu status atual. Se um estágio falhou, o painel mostra o erro encontrado e orientações sobre como resolvê-lo. Os resultados persistem se você fechar e reabrir a mesma campanha ou Canvas.
+Cada estágio exibe seu status atual. Se um estágio falhou, o painel mostra o erro encontrado e orientações sobre como resolvê-lo. Os resultados persistem se você fechar e reabrir a mesma Campaign ou Canvas.
 
 ![Painel de resultados de teste mostrando dois envios de teste bem-sucedidos e um envio de teste com falha.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
 
@@ -180,20 +180,20 @@ Se um estágio mostrar uma falha, o painel exibe o erro e as próximas etapas su
 
 Para problemas persistentes, verifique o status do seu modelo no Meta Business Manager ou confirme que o destinatário do teste possui os atributos de usuário necessários preenchidos na Braze.
 
-### Etapa 5: Crie o restante da sua campanha ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+### Etapa 5: Crie o restante da sua Campaign ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Em seguida, crie o restante da sua campanha. Consulte as seções a seguir para mais detalhes sobre como usar nossas ferramentas da melhor forma para criar mensagens de WhatsApp.
+Em seguida, crie o restante da sua Campaign. Consulte as seções a seguir para mais detalhes sobre como usar nossas ferramentas da melhor forma para criar mensagens de WhatsApp.
 
 #### Escolha um agendamento de entrega ou gatilho {#choose-a-delivery-schedule-or-trigger}
 
 Mensagens de WhatsApp podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
+Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) para receber a campanha, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para receber a Campaign, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 #### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
@@ -203,15 +203,15 @@ Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messag
 
 #### Escolha eventos de conversão {#choose-conversion-events}
 
-A Braze permite que você rastreie com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma campanha. Você pode permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
+A Braze permite que você rastreie com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma Campaign. Você pode permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
 
-Você também pode definir eventos de conversão personalizados com base no seu caso de uso específico. Seja criativo e pense em como você realmente deseja medir o sucesso desta campanha.
+Você também pode definir eventos de conversão personalizados com base no seu caso de uso específico. Seja criativo e pense em como você realmente deseja medir o sucesso desta Campaign.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e Seleção inteligente, e mais, consulte a etapa [Construir seu Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) da nossa documentação de Canvas.
+Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construir seu Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) da nossa documentação de Canvas.
 
 Como as janelas de conversa só podem durar 24 horas por mensagem recebida, a Braze verificará se não há postergações superiores a 24 horas entre uma mensagem recebida e uma mensagem de resposta.
 
@@ -220,9 +220,9 @@ Como as janelas de conversa só podem durar 24 horas por mensagem recebida, a Br
 
 ### Etapa 5: Revise e implante {#step-5-review-and-deploy}
 
-Depois de terminar de construir a última parte da sua campanha ou Canvas, revise os detalhes, teste e envie!
+Depois de terminar de construir a última parte da sua Campaign ou Canvas, revise os detalhes, teste e envie!
 
-Em seguida, confira os [Relatórios do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) para saber como acessar os resultados das suas campanhas de WhatsApp.
+Em seguida, confira os [Relatórios do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) para saber como acessar os resultados das suas Campaigns de WhatsApp.
 
 ## Recursos suportados do WhatsApp {#supported-whatsapp-features}
 
@@ -230,7 +230,7 @@ Em seguida, confira os [Relatórios do WhatsApp]({{site.baseurl}}/user_guide/cha
 
 Os seguintes recursos são suportados para mensagens de saída do WhatsApp que você envia pela Braze:
 
-| Recurso | Informações | Tamanho máximo | Formatos suportados |
+| Recurso | Detalhes | Tamanho máximo | Formatos suportados |
 | ------- | ------- | ------------- | ---------------------- |
 | Texto do cabeçalho | Strings e parâmetros variáveis são suportados. | — | —
 | Texto do corpo | Strings e parâmetros variáveis são suportados. | — | — |
@@ -248,7 +248,7 @@ Os seguintes recursos são suportados para mensagens de saída do WhatsApp que v
 
 Os seguintes recursos são suportados para mensagens de entrada do WhatsApp que você recebe pela Braze:
 
-| Recurso | Informações | Formatos suportados |
+| Recurso | Detalhes | Formatos suportados |
 | ------- | ------- | ------------------ |
 | Texto do corpo | Apenas strings padrão são suportadas. | — |
 | Imagens | As imagens devem ser de 8 bits e usar o modelo de cores RGB ou RGBA. Os arquivos devem ter menos de 5 MB. | `.jpg`, `.png` |
@@ -262,7 +262,7 @@ Os seguintes recursos são suportados para mensagens de entrada do WhatsApp que 
 
 Os seguintes tipos de chamada para ação são suportados para mensagens de WhatsApp que você envia pela Braze:
 
-| Tipo de CTA | Informações |
+| Tipo de CTA | Detalhes |
 | ----------- | ---------------- |
 | Visitar site | Máximo de um botão (incluindo parâmetros variáveis). |
 | Ligar para número de telefone | Disponível apenas para modelos de mensagem. <br>Máximo de um botão. |

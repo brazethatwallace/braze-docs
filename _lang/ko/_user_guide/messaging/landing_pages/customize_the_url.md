@@ -91,13 +91,13 @@ CAA 레코드는 도메인에 대해 SSL 인증서를 발급할 수 있는 인�
 - **레코드 유형:** CAA
 - **값:** `0 issue "letsencrypt.org"`
 
-자세한 내용은 [LetsEncrypt의 CAA 문서](https://letsencrypt.org/docs/caa/)를 참조하세요.
+자세한 내용은 [LetsEncrypt의 CAA 설명서](https://letsencrypt.org/docs/caa/)를 참조하세요.
 
 #### Cloudflare 존 홀드 {#cloudflare-zone-holds}
 
 조직에서 Cloudflare를 사용하는 경우, 존 홀드 보안 기능이 Braze가 커스텀 도메인을 생성하는 것을 방지할 수 있습니다.
 
-이를 해결하려면 IT 팀에 존 홀드를 일시적으로 해제하도록 요청하세요. 자세한 내용은 [Cloudflare의 존 홀드 문서](https://developers.cloudflare.com/fundamentals/account/account-security/zone-holds/#release-zone-holds)를 참조하세요.
+이를 해결하려면 IT 팀에 존 홀드를 일시적으로 해제하도록 요청하세요. 자세한 내용은 [Cloudflare의 존 홀드 설명서](https://developers.cloudflare.com/fundamentals/account/account-security/zone-holds/#release-zone-holds)를 참조하세요.
 
 #### 검증 프로세스 재시작 {#restarting-the-validation-process}
 

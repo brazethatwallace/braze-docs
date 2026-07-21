@@ -22,7 +22,7 @@ Create a new `manifest.json` file in your website's root directory, with the fol
 }
 ```
 
-The full list of supported fields can be found [here](https://developer.mozilla.org/en-US/docs/Web/Manifest).
+The full list of supported fields can be found in [MDN's Web App Manifest documentation](https://developer.mozilla.org/en-US/docs/Web/Manifest).
 
 ### Step 2: Link the manifest file {#manifest-link}
 

@@ -23,7 +23,7 @@ Campaign은 단순한 단일 메시징(예: 하나의 메시지로 사용자에�
 {% tabs %}
 {% tab Campaign %}
 
-1. **메시징** > **캠페인**으로 이동하여 **캠페인 만들기**를 선택합니다.
+1. **메시징** > **Campaigns**로 이동하여 **캠페인 만들기**를 선택합니다.
 2. **Content Cards**를 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **멀티채널**을 선택합니다.
 3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
 4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)와 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 추가합니다.
@@ -57,9 +57,9 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 | 메시지 유형 | 예시 | 설명 |
 |---|---|---|
-| [클래식]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![운동 수업 예약을 권장하는 작은 아이콘과 텍스트가 있는 클래식 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | 클래식 카드는 굵은 제목, 메시지 텍스트, 그리고 제목과 텍스트 왼쪽에 위치하는 선택적 이미지로 구성된 간단한 레이아웃입니다. 클래식 카드에는 정사각형 이미지나 아이콘을 사용하는 것이 좋습니다. |
-| [자막 이미지]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![역도 선수 이미지와 운동 수업 예약을 권장하는 텍스트가 있는 자막 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | 자막 이미지 카드는 문구와 시선을 끄는 이미지로 콘텐츠를 보여줍니다. |
-| [이미지 전용]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![텍스트만 있는 이미지 전용 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 이미지 전용 카드는 이미지, GIF 및 기타 텍스트가 아닌 크리에이티브 콘텐츠를 위한 공간으로 주목을 끕니다. |
+| [클래식]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![운동 수업 예약을 권장하는 작은 아이콘과 텍스트가 있는 클래식 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | 클래식 카드는 굵은 제목, 메시지 텍스트, 그리고 제목과 텍스트 시작 부분에 위치하는 선택적 이미지로 구성된 간단한 레이아웃입니다. 클래식 카드에는 정사각형 이미지나 아이콘을 사용하는 것이 좋습니다. |
+| [자막 이미지]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![역도 선수 이미지와 운동 수업 예약을 권장하는 텍스트가 있는 자막 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | 자막 이미지 카드는 문구와 시선을 끄는 이미지로 콘텐츠를 보여줍니다. |
+| [이미지 전용]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![텍스트만 있는 이미지 전용 콘텐츠 카드.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 이미지 전용 카드는 이미지, GIF 및 기타 텍스트가 아닌 크리에이티브 콘텐츠를 위한 공간으로 주목을 끕니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 메시지 유형 지정" }
 
 ## 3단계: 콘텐츠 카드 작성 {#step-3-compose-a-content-card}
@@ -135,7 +135,12 @@ Content Cards는 스케줄된 시간, 동작 또는 API 트리거를 기반으�
 
 Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 설정하고 Content Cards의 만료를 결정할 수도 있습니다. 특정 만료 날짜 또는 카드가 만료될 때까지의 일수를 최대 30일까지 설정할 수 있습니다. 모든 배리언트의 만료 날짜는 동일합니다.
 
-설정된 기간 후에 카드를 만료시키도록 선택한 경우(예: 2주 후), 만료는 카드의 전송 시간부터 계산됩니다. 스케줄된 Campaign의 경우 스케줄된 시작 시간이 기준이 됩니다. 실행 기반 Campaign의 경우 사용자가 트리거 동작을 수행한 시간이 기준이 됩니다. 예를 들어, 실행 기반 카드가 오늘 오후 2시에 전송되고 만료 기간이 1일인 경우, 다음 날 오후 2시에 만료됩니다.
+만료 카운트다운은 카드의 전송 시간부터 시작됩니다:
+
+- **스케줄 기반 Campaign:** 스케줄된 시작 시간부터 카운트다운이 시작됩니다.
+- **실행 기반 Campaign:** 사용자가 트리거 동작을 수행한 시간부터 카운트다운이 시작됩니다.
+
+예를 들어, 실행 기반 콘텐츠 카드가 오늘 오후 2시에 전송되고 만료 기간이 1일인 경우, 다음 날 오후 2시에 만료됩니다.
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
@@ -159,7 +164,7 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 행동인 [�
 
 {% tab Canvas %}
 
-아직 완료하지 않았다면 Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, [다변량 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing) 및 [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) 단계를 참조하세요.
+아직 완료하지 않았다면 Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, [다변량 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing) 및 [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) 단계를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -193,7 +198,7 @@ Content Cards가 시작된 후에는 편집할 수 없습니다. 새 사용자�
 
 Liquid를 사용하여 긴 텍스트 문자열(예: 커스텀 속성에서)을 가져오면 제한을 초과할 수 있습니다.
 
-Campaign 작성기는 정적 콘텐츠가 제한을 초과하면 경고를 표시합니다. (Liquid를 사용하는 동적 콘텐츠의 크기는 예측하지 않습니다.) **메시지 크기가 2KB를 초과하면 전송 시 중단됩니다.** 이러한 중단은 메시지 활동 로그에서 `Content card maximum size exceeded` 사유로 확인할 수 있습니다.
+Campaign 작성기는 정적 콘텐츠가 제한을 초과하면 경고를 표시합니다. Liquid를 사용하는 동적 콘텐츠의 크기는 예측하지 않습니다. 메시지 크기가 2KB를 초과하면 전송 시 중단됩니다. 이러한 중단은 메시지 활동 로그에서 `Content card maximum size exceeded` 사유로 확인할 수 있습니다.
 
 {% alert important %}
 테스트 전송 시에는 2KB를 초과하는 Content Cards도 정상적으로 전달되고 표시될 수 있습니다.
@@ -228,7 +233,7 @@ Content Cards 페이로드 크기를 관리하기 위한 모범 사례는 다음
 
 재자격을 활성화하면, 사용자가 Campaign에 "재진입"할 수 있는 시점의 카운트다운은 메시지가 전송된 후 시작됩니다. 이 카운트다운이 시작되는 구체적인 시점은 카드 생성 설정에 따라 달라집니다:
 
-- [첫 노출 시]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)를 사용하는 Content Cards는 노출 시간을 기준으로 재자격을 계산합니다.
+- [첫 노출 시]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences)를 사용하는 Content Cards는 노출 시간을 기준으로 재자격을 계산합니다.
 - Campaign 시작 시, 멀티채널 Campaign에서, 또는 캔버스 단계 진입 시 생성된 Content Cards는 전송 시간 또는 노출 시간 중 더 늦은 시간을 기준으로 합니다.
 
 #### 30일 만료와 재자격 {#the-30-day-expiration-and-re-eligibility}
@@ -264,8 +269,8 @@ Campaign을 복제할 때 새 버전의 오디언스를 정의해야 합니다. 
 
 ###### 영향 {#impact}
 
-* **기존 수신자:** 자격이 있는 경우 새 수신자와 기존 수신자 모두 다음 피드 새로고침 시 업데이트된 카드를 볼 수 있습니다.
-* **보고:** 각 버전의 카드에는 별도의 분석이 있습니다.
+- **기존 수신자:** 자격이 있는 경우 새 수신자와 기존 수신자 모두 다음 피드 새로고침 시 업데이트된 카드를 볼 수 있습니다.
+- **보고:** 각 버전의 카드에는 별도의 분석이 있습니다.
 
 예를 들어, 세션 시작 시 트리거되도록 설정된 Campaign이 있고 재자격이 30일로 설정되어 있다고 가정합니다. 사용자가 2일 전에 Campaign을 받았고 문구를 변경하고 싶습니다. 먼저 Campaign을 아카이브하고 피드에서 카드를 제거합니다. 그런 다음 Campaign을 복제하고 새 문구로 다시 시작합니다. 사용자가 다른 세션을 시작하면 즉시 새 카드를 받게 됩니다.
 

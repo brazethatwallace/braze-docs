@@ -18,7 +18,7 @@ description: "Cet article présente les détails de l'endpoint Braze Définir la
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `sdk_authentication.primary`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `sdk_authentication.primary`.
 
 ## Limite de débit {#rate-limit}
 
@@ -83,7 +83,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 | `keys[].id` | Chaîne de caractères | L'ID de la clé d'authentification SDK. |
 | `keys[].rsa_public_key` | Chaîne de caractères | La chaîne de caractères de la clé publique RSA. |
 | `keys[].description` | Chaîne de caractères | Description de la clé d'authentification SDK. |
-| `keys[].is_primary` | Valeur booléenne | Indique si cette clé est la clé d'authentification SDK principale. |
+| `keys[].is_primary` | Booléen | Indique si cette clé est la clé d'authentification SDK principale. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres de réponse" }
 
 ### Règles de validation {#validation-rules}

@@ -10,12 +10,12 @@ search_tag: Partner
 
 # [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Uso compartido de datos con Snowflake {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
-> [Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html) de Snowflake permite a Braze darte acceso seguro a los datos en nuestro portal de Snowflake sin preocuparte por fricciones o ralentizaciones en el flujo de trabajo, puntos de fallo y costes innecesarios que vienen con las relaciones típicas con proveedores de datos. El uso compartido de datos se puede configurar a través de la siguiente integración o a través de [cuentas de lectura de Snowflake]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts).
+> [Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html) de Snowflake permite a Braze darte acceso seguro a los datos en nuestro portal de Snowflake sin preocuparte por fricciones o ralentizaciones en el flujo de trabajo, puntos de fallo y costes innecesarios que vienen con las relaciones típicas con proveedores de datos. El uso compartido de datos se puede configurar a través de la siguiente integración o a través de [cuentas de lectura de Snowflake]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents#snowflake-reader-accounts).
 
-El uso compartido de datos de Snowflake forma parte de la distribución de datos de Braze. Para un resumen completo de las opciones de distribución de datos, consulta [Distribución de datos]({{site.baseurl}}/user_guide/data/distribution/).
+El uso compartido de datos de Snowflake forma parte de la distribución de datos de Braze. Para un resumen completo de las opciones de distribución de datos, consulta [Distribución de datos]({{site.baseurl}}/user_guide/data/distribution).
 
 {% alert tip %}
-**¿Te interesa tener acceso a datos a nivel de Snowflake sin necesidad de una cuenta de Snowflake?**<br>Consulta las [cuentas de lectura de Snowflake]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts). Con las cuentas de lectura, Braze creará y compartirá tus datos en una cuenta y te proporcionará credenciales para iniciar sesión y acceder a tus datos. Esto hará que toda la facturación del uso compartido de datos y del uso sea gestionada íntegramente por Braze.
+**¿Te interesa tener acceso a datos a nivel de Snowflake sin necesidad de una cuenta de Snowflake?**<br>Consulta las [cuentas de lectura de Snowflake]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents#snowflake-reader-accounts). Con las cuentas de lectura, Braze creará y compartirá tus datos en una cuenta y te proporcionará credenciales para iniciar sesión y acceder a tus datos. Esto hará que toda la facturación del uso compartido de datos y del uso sea gestionada íntegramente por Braze.
 {% endalert %}
 
 ## Acerca de Secure Data Sharing {#about-secure-data-sharing}
@@ -34,7 +34,7 @@ Para obtener más información sobre el uso compartido de datos de Snowflake, co
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Acceso a Braze | Ponte en contacto con tu administrador de cuenta o administrador del éxito del cliente de Braze para configurar el uso compartido de datos. |
+| Acceso a Braze | Ponte en contacto con tu administrador de cuenta o administrador de éxito de cliente de Braze para configurar el uso compartido de datos. |
 | Cuenta de Snowflake | Una cuenta de Snowflake con permisos de `admin`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -44,10 +44,7 @@ En Snowflake, el uso compartido de datos se realiza entre un [proveedor de datos
 
 ### Paso 1: Enviar el datashare desde Braze {#step-1-send-the-datashare-from-braze}
 
-1. En Braze, ve a **Integraciones de socios** > **Uso compartido de datos**.
-2. Introduce los detalles y el localizador de tu cuenta de Snowflake. Para obtener tu localizador de cuenta, ejecuta `SELECT CURRENT_ACCOUNT()` en la cuenta de destino.
-3. Si estás utilizando un recurso compartido CRR, especifica el proveedor de nube y la región.
-4. Cuando hayas terminado, selecciona **Create Datashare**. Esto enviará el datashare a tu cuenta de Snowflake.
+{% multi_lang_include partners/snowflake/data_sharing_account_steps.md %}
 
 ### Paso 2: Crear la base de datos en Snowflake {#step-2-create-the-database-in-snowflake}
 
@@ -62,7 +59,7 @@ En Snowflake, el uso compartido de datos se realiza entre un [proveedor de datos
 
 {% alert warning %}
 Si eliminas y recreas un recurso compartido en el panel de Braze, debes eliminar la base de datos creada previamente y recrearla usando `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` para consultar el recurso compartido de entrada.
-Si tienes múltiples espacios de trabajo compartiendo datos a la misma cuenta de Snowflake, consulta las [preguntas frecuentes sobre Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/) para obtener orientación sobre la gestión de configuraciones con múltiples espacios de trabajo.
+Si tienes múltiples espacios de trabajo compartiendo datos a la misma cuenta de Snowflake, consulta las [preguntas frecuentes sobre Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs) para obtener orientación sobre la gestión de configuraciones con múltiples espacios de trabajo.
 {% endalert %}
 
 ## Uso y visualización {#usage-and-visualization}
@@ -71,11 +68,7 @@ Una vez que el recurso compartido de datos esté aprovisionado, crea una base de
 
 De forma similar a Currents, puedes usar Snowflake Secure Data Sharing para:
 
-- Crear informes complejos
-- Realizar modelado de atribución
-- Compartir de forma segura dentro de tu propia empresa
-- Mapear datos de eventos sin procesar o datos de usuario a un CRM (como Salesforce)
-- Y más
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
 [Descarga los esquemas de tablas sin procesar.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
@@ -95,9 +88,7 @@ Ten en cuenta las siguientes diferencias entre las convenciones de nomenclatura 
 
 #### Cambios sin interrupción {#non-breaking-changes}
 
-Los cambios sin interrupción pueden ocurrir en cualquier momento y generalmente proporcionan funcionalidad adicional. Ejemplos de cambios sin interrupción:
-- Añadir una nueva tabla o vista
-- Añadir una columna a una tabla o vista existente
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Dado que las nuevas columnas se consideran cambios sin interrupción, Braze recomienda encarecidamente listar explícitamente las columnas de interés en cada consulta en lugar de usar consultas `SELECT *`. Alternativamente, podrías crear vistas que nombren explícitamente las columnas y luego consultar esas vistas en lugar de las tablas directamente.
@@ -105,10 +96,7 @@ Dado que las nuevas columnas se consideran cambios sin interrupción, Braze reco
 
 #### Cambios con interrupción {#breaking-changes}
 
-Cuando sea posible, los cambios con interrupción irán precedidos de un anuncio y un período de migración. Ejemplos de cambios con interrupción incluyen:
-- Eliminar una tabla o vista
-- Eliminar una columna de una tabla o vista existente
-- Cambiar el tipo o la nulabilidad de una columna existente
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Regiones de Snowflake {#snowflake-regions}
 
@@ -143,5 +131,5 @@ El archivo de datos históricos de eventos en Snowflake se remonta a abril de 20
 La velocidad, el rendimiento y el coste de cualquier consulta ejecutada sobre los datos están determinados por el tamaño del almacén que utilices para consultar los datos. En algunos casos, dependiendo de la cantidad de datos a los que accedas para análisis, puede que necesites usar un tamaño de almacén más grande para que la consulta sea exitosa. Snowflake tiene excelentes recursos disponibles sobre cómo determinar mejor qué tamaño usar, incluyendo [Resumen de almacenes](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) y [Consideraciones sobre almacenes](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 
 {% alert tip %}
-Para un conjunto de consultas de ejemplo como referencia al configurar Snowflake, consulta nuestros ejemplos de [consultas de muestra]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) y [configuración de pipeline de eventos ETL]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/).
+Para un conjunto de consultas de ejemplo como referencia al configurar Snowflake, consulta nuestros ejemplos de [consultas de muestra]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) y [configuración de pipeline de eventos ETL]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
 {% endalert %}

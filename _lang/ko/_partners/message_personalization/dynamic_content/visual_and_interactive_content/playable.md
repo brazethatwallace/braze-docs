@@ -22,10 +22,10 @@ Braze와 Playable 통합을 사용하면 최고의 콘텐츠(고품질 비디오
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Playable 계정 | 이 파트너십을 활용하려면 Playable 계정이 필요합니다. 아직 Playable 계정이 없다면 [여기](https://signup.playable.video)에서 가입하세요.
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Playable 계정 | 이 파트너십을 활용하려면 Playable 계정이 필요합니다. 아직 Playable 계정이 없다면 [Playable 계정에 가입](https://signup.playable.video)하세요.
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 | 비디오 콘텐츠 | Playable에 비디오 파일을 업로드하거나 Facebook, Instagram, YouTube, X(구 Twitter), TikTok 등의 웹사이트에서 비디오 URL을 제공하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 구현 {#implementation}
 

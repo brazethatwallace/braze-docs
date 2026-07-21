@@ -91,7 +91,7 @@ Content Cardsを作成した後、テストContent Cardsをアプリに送信し
 
 - テストユーザーは有効なプッシュトークンでプッシュにオプトインしていますか？
 - 画像やメディアは期待通りに表示・動作しますか？
-- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)を設定していますか？
+- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values)を設定していますか？
 - コピーは明確で、簡潔で、正確ですか？
 - リンクはユーザーを正しい場所に誘導しますか？
 - テストユーザーは有効なプッシュトークンでプッシュにオプトインしていますか？
@@ -197,7 +197,7 @@ Brazeには3世代のアプリ内メッセージがあります。サポート�
 ### テストチェックリスト
 
 - 画像やメディアは期待通りに表示・動作しますか？
-- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)を設定していますか？
+- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values)を設定していますか？
 - コピーは明確で、簡潔で、正確ですか？
 - ボタンはユーザーを正しい場所に誘導しますか？
 
@@ -313,7 +313,7 @@ Webhookを作成した後、テスト送信を行ってWebhookのレスポンス
 
 #### 既存のユーザーをカスタマイズする {#customizing-an-existing-user}
 
-ランダムまたは既存のユーザーから個別のフィールドを編集して、メッセージ内のダイナミックコンテンツをテストできます。**編集**を選択すると、選択したユーザーが変更可能なカスタムユーザーに変換されます。
+ランダムまたは既存のユーザーから個別のフィールドを編集して、メッセージ内のダイナミックなコンテンツをテストできます。**編集**を選択すると、選択したユーザーが変更可能なカスタムユーザーに変換されます。
 
 ![「ユーザーとしてプレビュー」タブと「編集」ボタン。]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
 

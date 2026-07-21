@@ -93,7 +93,7 @@ You only get one chance to ask a user for push permission, and after they declin
 
 ### Add push subscription controls
 
-To avoid users turning off notifications at the device level, which completely removes their foreground push token, let users control their push subscription directly within your app. See [Updating push subscription states]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state) for more details.
+To avoid users turning off notifications at the device level, which completely removes their foreground push token, let users control their push subscription directly within your app. See [Updating push subscription states]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) for more details.
 
 ### Use advanced scheduling or add delays
 

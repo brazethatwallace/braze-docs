@@ -45,9 +45,9 @@ In der Agent-Liste ist jeder Agent mit seinem [täglichen Aufruf-Limit]({{site.b
 
 ### Schritt 3: Ausgabe des Agents festlegen {#define-the-output-variable}
 
-Agent-Ausgaben werden als „Ausgabevariablen“ bezeichnet und in einer [Kontextvariable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) für einfachen Zugriff gespeichert. Um die Ausgabevariable zu definieren, geben Sie der Variable einen Namen.
+Agent-Ausgaben werden als „Ausgabevariablen“ bezeichnet und in einer [Kontextvariable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters) für einfachen Zugriff gespeichert. Um die Ausgabevariable zu definieren, geben Sie der Variable einen Namen.
 
-Beachten Sie, dass der Datentyp der Ausgabevariable in der [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents) festgelegt wird. Agent-Ausgaben können als Strings, Zahlen, Boolesche Werte oder Objekte gespeichert werden. Das macht sie flexibel sowohl für Text-Personalisierung als auch für bedingte Logik in Ihrem Canvas. Hier sind einige gängige Verwendungszwecke für jeden Typ:
+Beachten Sie, dass der Datentyp der Ausgabevariable in der [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents) festgelegt wird. Agent-Ausgaben können als Strings, Zahlen, boolesche Werte oder Objekte gespeichert werden. Das macht sie flexibel sowohl für Text-Personalisierung als auch für bedingte Logik in Ihrem Canvas. Hier sind einige gängige Verwendungszwecke für jeden Typ:
 
 | Datentyp | Gängige Verwendungszwecke |
 | --- | --- |
@@ -75,7 +75,16 @@ Beachten Sie, dass der Agent bereits automatisch den Kontext erhält, der im Abs
 
 ### Schritt 5: Agent testen {#step-5-test-the-agent}
 
-Nachdem Sie Ihren Agent-Schritt eingerichtet haben, können Sie die Ausgabe dieses Schritts testen und in der Vorschau anzeigen.
+Sie können einen Agent-Schritt auf zwei Arten testen:
+
+**In-Step-Vorschau (Canvas-Builder):** Nachdem Sie den Schritt konfiguriert haben, verwenden Sie die Schritt-Vorschau, um die Agent-Ausgabe für zufällige Nutzer:innen, bestehende Nutzer:innen oder benutzerdefinierte Nutzer:innen anzuzeigen. Dies testet den Schritt isoliert, ohne den vollständigen Canvas-Pfad zu durchlaufen.
+
+**Canvas testen (vollständige Journey):** Wählen Sie **Test Canvas** in der Canvas-Fußzeile, um den Nutzerpfad End-to-End in der Vorschau anzuzeigen. Wenn der Test Ihren Agent-Schritt erreicht, fragt Braze: **Möchten Sie den Agent „{agentName}“ ausführen?**
+
+- Wählen Sie **Ja**, um optional Kontext hinzuzufügen, und wählen Sie dann **Antwort simulieren**, um den Agent für die Vorschau-Nutzer:innen aufzurufen. Sie können Beispiel-Eingaben in natürlicher Sprache beschreiben (z. B. Warenkorbinhalte oder Nachrichtentext), um das Profil der Testnutzer:innen und jeden bereits vorgelagert festgelegten Canvas-Kontext zu ergänzen.
+- Wählen Sie **Nein**, um den Live-Aufruf zu überspringen und stattdessen die konfigurierte **Fallback-Ausgabe** des Agents aus der Agent Console zu verwenden.
+
+Aufrufe über **Antwort simulieren** zählen zum täglichen Aufruf-Limit des Agents und erscheinen unter **Agent Console** > **Logs**. Für das vollständige Verhalten von „Canvas testen“ siehe [Nutzerpfade in der Vorschau anzeigen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps).
 
 ![Vorschau der Agent-Ausgabe als zufällige:r Nutzer:in.]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 
@@ -110,10 +119,10 @@ Wenn Sie feststellen, dass ein Agent mit der Komplexität der Aufgaben, die Sie 
 Das folgende Muster verwendet drei Agents für ein Reisebeispiel: Jemand hat kürzlich in Ihrer App gesucht, aber nicht gebucht, und Sie möchten Retargeting-Texte, die zum Checkout anregen.
 
 - Agent 1 fasst den Canvas-Kontext zusammen. Er liest Felder wie Treuestufe, zuletzt gesuchte Stadt und Suchverhalten mit hoher Kaufabsicht und gibt eine kurze strukturierte Zusammenfassung als Ausgabevariable zurück, die spätere Schritte wiederverwenden können.
-- Agent 2 gibt einen Routing-Wert zurück, auf dem Ihr Canvas verzweigen kann. Verwenden Sie eine Zahl, einen Booleschen Wert oder ein strukturiertes Objekt, damit die Ausgabe zu Ihrer Verzweigungslogik passt. Ordnen Sie diesen Wert einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)- oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Schritt zu. Erwägen Sie beispielsweise separate Pfade für Treue-basiertes Messaging im Vergleich zu Angebots-basiertem Messaging.
+- Agent 2 gibt einen Routing-Wert zurück, auf dem Ihr Canvas verzweigen kann. Verwenden Sie eine Zahl, einen booleschen Wert oder ein strukturiertes Objekt, damit die Ausgabe zu Ihrer Verzweigungslogik passt. Ordnen Sie diesen Wert einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)- oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Schritt zu. Erwägen Sie beispielsweise separate Pfade für Treue-basiertes Messaging im Vergleich zu Angebots-basiertem Messaging.
 - Agent 3 verfasst generierten Nachrichtentext nur in Branches, in denen Sie dies wünschen. Übergeben Sie die Zusammenfassung von Agent 1 (und jeden Branch-spezifischen Kontext), damit sich dieser Agent auf Tonalität und Kanallimits konzentriert, anstatt im selben Prompt Eingaben zu normalisieren und eine Strategie zu wählen.
 
-### Den Experimentpfad-Schritt verwenden, um agentische Journeys im kleinen Maßstab zu testen {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
+### Den Experimentpfade-Schritt verwenden, um agentische Journeys im kleinen Maßstab zu testen {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 
 Um die Performance und den Credit-Verbrauch Ihres Agents im Vergleich zu Ihren bestehenden Journeys zu testen, fügen Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt hinzu, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
 

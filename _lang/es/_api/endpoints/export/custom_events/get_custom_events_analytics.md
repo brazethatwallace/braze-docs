@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar análisis de eventos personalizados de Braze."
+description: "En este artículo se describen los detalles del endpoint de Braze Exportar análisis de eventos personalizados."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /events/data_series
 {% endapimethod %}
 
-> Utiliza este punto de conexión para recuperar una serie del número de ocurrencias de un evento personalizado en tu aplicación durante un periodo de tiempo designado.
+> Utiliza este endpoint para recuperar una serie del número de ocurrencias de un evento personalizado en tu aplicación durante un periodo de tiempo designado.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0bd1ab63-d1a5-4301-8d17-246cf24a178c {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `events.data_series`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `events.data_series`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -35,7 +35,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `unit` | Opcional | Cadena | Unidad de tiempo entre puntos de datos. Puede ser `day` o `hour`, de forma predeterminada, `day`. |
 | `ending_at` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la serie de datos. De forma predeterminada, la hora de la solicitud. |
 | `app_id` | Opcional | Cadena | Identificador de API de la aplicación recuperado de la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) para limitar los análisis a una aplicación concreta. |
-| `segment_id` | Opcional | Cadena | Ver [Identificador de API del segmento]({{site.baseurl}}/api/identifier_types). ID del segmento que indica el segmento habilitado para análisis para el que deben devolverse los análisis de eventos. |
+| `segment_id` | Opcional | Cadena | Ver [Identificador de API de segmento]({{site.baseurl}}/api/identifier_types). ID de segmento que indica el segmento habilitado para análisis para el que deben devolverse los análisis de eventos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 

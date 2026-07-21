@@ -232,7 +232,7 @@ Las cadenas y los arreglos requieren apóstrofos rectos a su alrededor, mientras
 
 ### Booleano {#boolean}
 
-Los [booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) son valores binarios y pueden configurarse como `true` o `false`, como `registration_complete: true`. Los valores booleanos no llevan apóstrofos a su alrededor.
+Los [booleanos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans) son valores binarios y pueden configurarse como `true` o `false`, como `registration_complete: true`. Los valores booleanos no llevan apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -244,7 +244,7 @@ Los [booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_at
 
 ### Número {#number}
 
-Los [números]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) son valores numéricos, que pueden ser enteros o flotantes. Por ejemplo, un usuario puede tener `shoe_size: 10` o `levels_completed: 287`. Los valores numéricos no llevan apóstrofos a su alrededor.
+Los [números]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) son valores numéricos, que pueden ser enteros o flotantes. Por ejemplo, un usuario puede tener `shoe_size: 10` o `levels_completed: 287`. Los valores numéricos no llevan apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ También puedes usar otros [operadores básicos](https://shopify.dev/docs/themes
 
 ### Cadena {#string}
 
-Una [cadena]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) está compuesta por caracteres alfanuméricos y almacena un dato sobre tu usuario. Por ejemplo, puedes tener `favorite_color: red` o `phone_number: 3025981329`. Los valores de cadena deben llevar apóstrofos a su alrededor.
+Una [cadena]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) está compuesta por caracteres alfanuméricos y almacena un dato sobre tu usuario. Por ejemplo, puedes tener `favorite_color: red` o `phone_number: 3025981329`. Los valores de cadena deben llevar apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -280,7 +280,7 @@ Para cadenas, puedes usar tanto "==" como "contains" en tu Liquid.
 
 ### Arreglo {#array}
 
-Un [arreglo]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) es una lista de información sobre tu usuario. Por ejemplo, un usuario puede tener `last_viewed_shows: stranger things, planet earth, westworld`. Los valores de arreglo deben llevar apóstrofos a su alrededor.
+Un [arreglo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) es una lista de información sobre tu usuario. Por ejemplo, un usuario puede tener `last_viewed_shows: stranger things, planet earth, westworld`. Los valores de arreglo deben llevar apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -290,11 +290,47 @@ Un [arreglo]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 {% endraw %}
 
-Para arreglos, debes usar "contains" y no puedes usar "==".
+Para arreglos, debes usar `contains` y no puedes usar `==`.
+
+#### Cómo funciona `contains` con cadenas versus arreglos {#how-contains-works-with-strings-versus-arrays}
+
+El operador `contains` se comporta de manera diferente dependiendo de si está evaluando una cadena o un arreglo:
+
+- **Cadenas:** `contains` busca una subcadena en cualquier parte del texto.
+- **Arreglos:** `contains` busca una coincidencia exacta con un elemento completo dentro del arreglo.
+
+{% alert important %}
+Si un atributo está almacenado como un arreglo (por ejemplo, `["med1", "med2", "abc"]`), buscar `contains "ab"` se evaluará como `false` porque ningún elemento individual en esa lista es exactamente `"ab"`.
+{% endalert %}
+
+##### Coincidencia de subcadenas en arreglos {#substring-matching-on-arrays}
+
+Si necesitas buscar una coincidencia parcial (subcadena) dentro de un atributo de arreglo, primero debes convertir el arreglo en una sola cadena usando el filtro `join`.
+
+Dado que Braze no admite filtros en línea directamente dentro de bloques condicionales {% raw %}`{% if %}`{% endraw %}, debes seguir un proceso de dos pasos: primero, asigna el valor unido a una variable y luego ejecuta tu verificación condicional.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Dado que `join` combina los elementos del arreglo en una sola cadena (separador predeterminado: un solo espacio), las verificaciones de subcadenas pueden coincidir a través de los límites de los elementos (por ejemplo, `["Napa", "boulevard"]` se convierte en `Napa boulevard`, donde `contains "a b"` es `true`). Usa un separador explícito como "," para hacer los límites más claros y reducir las coincidencias accidentales entre elementos.
+{% endalert %}
 
 ### Hora {#time}
 
-Una marca de tiempo de cuándo ocurrió un evento. Los valores de [hora]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) deben tener un [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) aplicado para poder usarse en lógica condicional.
+Una marca de tiempo de cuándo ocurrió un evento. Los valores de [hora]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) deben tener un [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) aplicado para poder usarse en lógica condicional.
 
 {% raw %}
 

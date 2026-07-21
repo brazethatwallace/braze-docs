@@ -89,7 +89,7 @@ Você pode fazer o seguinte no [Console do agente]({{site.baseurl}}/user_guide/b
 - Duplicar agentes existentes a partir da lista de agentes.
 - Salvar agentes como rascunhos durante a criação e concluir as configurações posteriormente.
 - Definir valores de saída de fallback para agentes de Canvas para evitar que variáveis de saída sejam definidas como nulas se o agente apresentar erro.
-- Definir campos de entrada obrigatórios para um campo agêntico de Catálogo, para que o agente não seja executado se um valor de campo de entrada obrigatório estiver vazio ou ausente.
+- Definir campos de entrada obrigatórios para um campo agêntico de catálogo, para que o agente não seja executado se um valor de campo de entrada obrigatório estiver vazio ou ausente.
 - Reexecutar um agente para todas as células vazias de uma coluna agêntica para preencher quaisquer valores ausentes sem reexecutar a coluna inteira.
 
 #### Editar uma etapa do Otimizador de Conteúdo já lançada {#edit-a-launched-content-optimizer-step}
@@ -226,7 +226,7 @@ O [dashboard de desempenho de push]({{site.baseurl}}/user_guide/analytics/dashbo
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Os catálogos agora suportam filtragem baseada em distância com o novo tipo de campo de geolocalização e operadores de seleção de catálogo. Isso ajuda você a criar experiências mais relevantes e baseadas em localização, como mostrar a cada usuário o restaurante mais próximo, filtrar propriedades abertas dentro de 50 km para uma campanha imobiliária ou direcionar lojas próximas a um evento específico. Em vez de aproximar o direcionamento geográfico com códigos de cidade ou região, você pode filtrar itens do catálogo por proximidade a um ponto central, incluindo um atributo Liquid do usuário, como a localização mais recente do usuário. Para saber mais, consulte [Seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#how-it-works).
+Os catálogos agora suportam filtragem baseada em distância com o novo tipo de campo de geolocalização e operadores de seleção de catálogo. Isso ajuda você a criar experiências mais relevantes e baseadas em localização, como mostrar a cada usuário o restaurante mais próximo, filtrar propriedades abertas dentro de 50 km para uma campanha imobiliária ou direcionar lojas próximas a um evento específico. Em vez de aproximar o direcionamento geográfico com códigos de cidade ou região, você pode filtrar itens do catálogo por proximidade a um ponto central, incluindo um atributo Liquid do usuário, como a localização mais recente do usuário. Para saber mais, consulte [Seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 #### Banner e RCS para o Criador de relatórios {#banner-and-rcs-for-report-builder}
 
@@ -242,7 +242,7 @@ O [evento `ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-Você pode usar o [Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer) para otimizar ganchos, corpos e CTAs para mensagens SMS, MMS e RCS. O Otimizador de Conteúdo é um agente que ajuda você a testar e otimizar o conteúdo das mensagens em escala, usando IA para gerar e avaliar grandes volumes de variantes de conteúdo automaticamente.
+Você pode usar o [Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer) para otimizar ganchos, corpos e CTAs para mensagens SMS, MMS e RCS. O Otimizador de Conteúdo ajuda você a testar e otimizar o conteúdo das mensagens em escala, usando IA para gerar e avaliar grandes volumes de variantes de conteúdo automaticamente.
 
 ### Orquestração {#orchestration}
 
@@ -422,7 +422,7 @@ Agora você pode [sincronizar tags de produto, coleções e metafields da Shopif
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-O [GRAVTY®](https://www.lji.io/) é uma plataforma de fidelidade de nível empresarial da Loyalty Juggernaut Inc. (LJI) que permite que marcas de varejo, viagens, restaurantes (incluindo restaurantes de serviço rápido) e serviços financeiros projetem, gerenciem e escalem programas de próxima geração — impulsionando crescimento mensurável em engajamento, retenção e lifetime value do cliente por meio de experiências personalizadas e orientadas por dados.
+O [GRAVTY®](https://www.lji.io/) é uma plataforma de fidelidade de nível empresarial da Loyalty Juggernaut Inc. (LJI) que permite que marcas de varejo, viagens, restaurantes (incluindo restaurantes de serviço rápido) e serviços financeiros projetem, gerenciem e escalem programas de próxima geração — impulsionando crescimento mensurável em engajamento, retenção e valor do tempo de vida do cliente por meio de experiências personalizadas e orientadas por dados.
 
 <!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK
@@ -438,7 +438,7 @@ As seguintes atualizações do SDK foram lançadas. As atualizações significat
 - [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
     - Suporte à inicialização atrasada.
 - [Android SDK 42.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.0.0)
-    - Correções de bugs para mensagens no app e Banners.
+    - Correções de bugs para In-App Messages e Banners.
 - [Swift SDK 14.1.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.1.0)
     - Suporte a dispensas de Banner.
 - [Web SDK 6.7.0](https://github.com/braze-inc/braze-web-sdk/releases/tag/v6.7.0)
@@ -603,7 +603,7 @@ Os [eventos do Currents e Data Share]({{site.baseurl}}/user_guide/data/distribut
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-O [Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-for-data-sharing-3) agora inclui campos adicionais refletindo informações de Campaign e Canvas em 66 tabelas existentes, incluindo:
+O [Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) agora inclui campos adicionais refletindo informações de Campaign e Canvas em 66 tabelas existentes, incluindo:
 
 - `campaign_name`
 - `canvas_name`
@@ -769,7 +769,7 @@ Criado com base em um otimizador de bandido multiarmado não contextual, o Otimi
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Para combinar os eventos recomendados de eCommerce com o evento de compra existente, adicionamos o [evento de conversão "Places Order"]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-report), que é semelhante a "Makes Purchase".
+Para combinar os eventos recomendados de eCommerce com o evento de compra existente, adicionamos o [evento de conversão "Places Order"]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-dashboard), que é semelhante a "Makes Purchase".
 
 ### Canais e pontos de contato
 
@@ -777,11 +777,11 @@ Para combinar os eventos recomendados de eCommerce com o evento de compra existe
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Depois de adicionar localidades ao seu espaço de trabalho, [direcione usuários em diferentes idiomas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#translating-locales) tudo dentro de um único banner.
+Depois de adicionar localidades ao seu espaço de trabalho, [direcione usuários em diferentes idiomas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#use-locales) tudo dentro de um único banner.
 
 #### Configurar largura para Content Blocks de arrastar e soltar {#configure-width-for-drag-and-drop-content-blocks}
 
-[Ajuste a largura do seu Content Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks#using-the-editor-to-add-a-content-block) selecionando o botão no menu de navegação. A largura padrão é 100% quando não especificada nas configurações globais de estilo do seu e-mail; caso contrário, as configurações globais serão respeitadas.
+[Ajuste a largura do seu Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) selecionando o botão no menu de navegação. A largura padrão é 100% quando não especificada nas configurações globais de estilo do seu e-mail; caso contrário, as configurações globais serão respeitadas.
 
 ![Uma seta de dois lados com uma opção para editar a largura.]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }
 
@@ -811,7 +811,7 @@ O [Open Loyalty]({{site.baseurl}}/partners/openloyalty) é uma plataforma de pro
 
 #### DOTS.ECO - Extensões {#dotseco-extensions}
 
-O [DOTS.ECO]({{site.baseurl}}/partners/docs.eco) permite recompensar os usuários com impacto ambiental real por meio de certificados digitais rastreáveis. Cada certificado pode incluir metadados como um URL de certificado compartilhável e URL de imagem, para que os usuários possam visualizar (e revisitar) sua prova de impacto.
+O [DOTS.ECO]({{site.baseurl}}/partners/dots.eco) permite recompensar os usuários com impacto ambiental real por meio de certificados digitais rastreáveis. Cada certificado pode incluir metadados como um URL de certificado compartilhável e URL de imagem, para que os usuários possam visualizar (e revisitar) sua prova de impacto.
 
 #### Mailizio - Orquestração de mensagens {#mailizio-message-orchestration}
 
@@ -849,7 +849,7 @@ Um novo campo `time_ms` foi adicionado ao evento [`users.behaviors.pushnotificat
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Os eventos que não têm um ID de usuário externo definido agora podem ser transmitidos para destinos do [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents). Ao marcar a caixa de seleção "Include events from anonymous users" na integração do Currents, os eventos sem um ID de usuário externo serão enviados ao destino em vez de serem suprimidos. Esse recurso é essencial para análises downstream e casos de uso que envolvem usuários não identificados e anônimos.
+Os eventos que não têm um ID de usuário externo definido agora podem ser transmitidos para destinos do [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1). Ao marcar a caixa de seleção "Include events from anonymous users" na integração do Currents, os eventos sem um ID de usuário externo serão enviados ao destino em vez de serem suprimidos. Esse recurso é essencial para análises downstream e casos de uso que envolvem usuários não identificados e anônimos.
 
 ##### Enviar usuário anônimo para destinos CustomHTTP {#send-anonymous-user-to-customhttp-destinations}
 

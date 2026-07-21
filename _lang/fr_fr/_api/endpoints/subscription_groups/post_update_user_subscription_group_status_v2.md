@@ -34,10 +34,10 @@ Pour consulter des exemples ou tester cet endpoint pour **les groupes WhatsApp**
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `subscription.status.set`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `subscription.status.set`.
 
 {% alert note %}
-Si vous souhaitez utiliser cet endpoint avec [les groupes d'abonnement LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), contactez votre gestionnaire de la satisfaction client. <br><br>Pour les groupes d'abonnement LINE, nous recommandons d'utiliser un attribut personnalisé pour suivre séparément le consentement sur le site web ou l'application, puis de cibler les Campaigns en utilisant cet attribut personnalisé en combinaison avec l'état d'abonnement LINE. Cette approche garantit que votre état d'abonnement reflète fidèlement les utilisateurs qui se sont réellement abonnés dans l'application LINE. L'ajout manuel d'utilisateurs aux groupes d'abonnement LINE via l'API peut entraîner des états désynchronisés et des envois échoués, car Braze ne peut pas réabonner les utilisateurs dans l'application LINE ni envoyer de messages aux utilisateurs qui ont bloqué un compte dans LINE.
+Si vous souhaitez utiliser cet endpoint avec [les groupes d'abonnement LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), contactez votre gestionnaire du succès des clients. <br><br>Pour les groupes d'abonnement LINE, nous recommandons d'utiliser un attribut personnalisé pour suivre séparément le consentement sur le site web ou l'application, puis de cibler les campagnes en utilisant cet attribut personnalisé en combinaison avec l'état d'abonnement LINE. Cette approche garantit que votre état d'abonnement reflète fidèlement les utilisateurs qui se sont réellement abonnés dans l'application LINE. L'ajout manuel d'utilisateurs aux groupes d'abonnement LINE via l'API peut entraîner des états désynchronisés et des envois échoués, car Braze ne peut pas réabonner les utilisateurs dans l'application LINE ni envoyer de messages aux utilisateurs qui ont bloqué un compte dans LINE.
 {% endalert %}
 
 ## Différences par rapport à la V1 {#differences-from-v1}

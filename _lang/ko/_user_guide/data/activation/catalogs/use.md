@@ -56,7 +56,7 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 
 내보내기를 시작하면 CSV 파일을 다운로드할 수 있는 이메일이 전송됩니다. 이 파일은 최대 4시간 이내에 다운로드할 수 있습니다.
 
-## 추가 활용 사례 {#additional-use-cases}
+## 추가 사용 사례 {#additional-use-cases}
 
 ### 다중 항목 {#multiple-items}
 
@@ -174,7 +174,7 @@ Liquid가 렌더링되었을 때의 모습은 다음과 같습니다:
 카탈로그의 JSON 오브젝트는 API를 통해서만 수집됩니다. CSV 파일을 사용하여 JSON 오브젝트를 업로드할 수 없습니다.
 {% endalert %}
 
-Liquid 템플릿을 사용하면 위시리스트 ID를 동적으로 가져와서 메시지에서 사용할 수 있습니다. 이렇게 하려면 커스텀 속성에 [변수를 할당]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables)한 다음 **Add Personalization** 모달을 사용하여 배열에서 특정 항목을 가져옵니다. 카탈로그 항목 ID로 참조되는 변수는 올바르게 참조되려면 중괄호로 감싸야 합니다(예: `{{result}}`).
+Liquid 템플릿을 사용하면 위시리스트 ID를 동적으로 가져와서 메시지에서 사용할 수 있습니다. 이렇게 하려면 커스텀 속성에 [변수를 할당]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables)한 다음 **Add Personalization** 모달을 사용하여 배열에서 특정 항목을 가져옵니다. 카탈로그 항목 ID로 참조되는 변수는 올바르게 참조되려면 중괄호로 감싸야 합니다(예: `{{result}}`).
 
 {% alert tip %}
 배열은 `1`이 아닌 `0`에서 시작한다는 점을 기억하세요.
@@ -251,7 +251,7 @@ Welcome to our store, Peter!
 | `:rerender` 또는 템플릿 전달이 올바르지 않음 | 카탈로그 필드 내 중첩된 Liquid의 경우 `:rerender`와 올바른 변수 순서가 필요합니다—[Liquid를 포함한 카탈로그 항목 템플릿](#templating-catalog-items-including-liquid)을 참조하세요. 템플릿 인앱 메시지는 트리거 시점에 확인됩니다. [템플릿 인앱 메시지란?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages)을 참조하세요. 일부 채널에서는 카탈로그 태그가 제한됩니다(예: 배너에서의 특정 **:rerender** 사용)—배너 FAQ의 [모든 Liquid 태그가 지원되나요?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="카탈로그 개인화 문제 해결" }
 
-일반적인 Liquid 동작에 대해서는 [Liquid 활용 사례]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) 및 [Liquid 사용]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)을 참조하세요.
+일반적인 Liquid 동작에 대해서는 [Liquid 사용 사례]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) 및 [Liquid 사용]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)을 참조하세요.
 
 ## 카탈로그 데이터 구조화
 
@@ -274,7 +274,7 @@ Welcome to our store, Peter!
 
 - 카테고리가 사용자의 선호도와 일치하는 항목
 - 사용자가 선호하는 브랜드, 요리 또는 크기와 일치하는 항목
-- 구독 유형 또는 로열티 등급 콘텐츠
+- 가입 유형 또는 로열티 등급 콘텐츠
 - 사용자의 평균 주문 금액 범위 내의 제품
 
 핵심 차이점은 표준 카탈로그 호출은 `id`로 알려진 단일 항목을 조회하는 반면, 카탈로그 선택 항목은 카탈로그 전체를 쿼리하여 필터 기준에 일치하는 여러 항목을 반환한다는 것입니다.

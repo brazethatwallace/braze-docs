@@ -4,13 +4,14 @@ article_title: Realizar una llamada a la API de contenido conectado
 page_order: 0
 description: "Este artículo de referencia cubre cómo realizar una llamada a la API de contenido conectado, así como ejemplos útiles y casos de uso avanzados de contenido conectado."
 search_rank: 2
+toc_headers: h2
 ---
 
 # [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}Realizar una llamada a la API de contenido conectado {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomconnected-content-stylefloatrightwidth120pxborder0-classnoimgbordermake-a-connected-content-api-call}
 
 > Usa contenido conectado para insertar cualquier información accesible por API directamente en los mensajes que envías a los usuarios. Puedes extraer contenido directamente desde tu servidor web o desde API de acceso público.<br><br>Esta página cubre cómo realizar llamadas a la API de contenido conectado, casos de uso avanzados de contenido conectado, manejo de errores y más.
 
-## Comprender el volumen de llamadas de contenido conectado {#understanding-connected-content-call-volume}
+## Acerca del volumen de llamadas de contenido conectado {#understanding-connected-content-call-volume}
 
 {% alert important %}
 Un envío no equivale a una llamada de contenido conectado. Braze no garantiza una proporción 1:1 entre envíos de mensajes y solicitudes de contenido conectado. El sistema está diseñado para priorizar la representación y entrega correcta de mensajes por encima de minimizar el número de llamadas. Tus endpoints deben estar preparados para manejar más solicitudes que el número de destinatarios o mensajes enviados.
@@ -24,7 +25,7 @@ Braze puede realizar la misma llamada a la API de contenido conectado más de un
 
 Si ves más llamadas de contenido conectado en tus registros que envíos o destinatarios, ese comportamiento es esperado. Para orientación sobre cómo reducir la carga y planificar la escalabilidad, consulta [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints).
 
-## Enviar una llamada de contenido conectado {#sending-a-connected-content-call}
+## Enviar una llamada de contenido conectado {#send-a-connected-content-call}
 
 {% raw %}
 
@@ -37,7 +38,7 @@ Por ejemplo, el siguiente cuerpo de mensaje accederá a la URL `http://numbersap
 Hi there, here is some fun trivia for you!: {{result.text}}
 ```
 
-### Agregar variables {#adding-variables}
+### Agregar variables {#add-variables}
 
 También puedes incluir atributos del perfil de usuario como variables en la cadena de URL al realizar solicitudes de contenido conectado.
 
@@ -84,7 +85,7 @@ Para más información sobre códigos de error comunes, consulta [Solución de p
 Los siguientes son mecanismos diferentes:
 
 - **429 Too Many Requests:** Tu endpoint (o un servicio upstream) está devolviendo esta respuesta. Significa que tu servidor o middleware está rechazando tráfico, a menudo porque tiene su propio límite de velocidad. Braze no aplica un límite de velocidad separado al contenido conectado; el volumen de solicitudes de contenido conectado escala directamente con tu [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Debido a que los mensajes pueden representarse múltiples veces por destinatario (por ejemplo, para HTML de correo electrónico, texto plano y AMP), el número de solicitudes de contenido conectado puede exceder ese límite de velocidad; no asumas que será menor o igual a los mensajes por minuto que configuraste. Si ves errores 429, escala tu endpoint o middleware para manejar el volumen de solicitudes esperado, o reduce el límite de velocidad de la campaña o del paso en Canvas para que se envíen menos mensajes (y por lo tanto menos llamadas de contenido conectado) por minuto.
-- **Detección de host no saludable:** Una protección del lado de Braze que se activa después de una alta tasa y volumen de *fallos* en una ventana de un minuto. El conteo de fallos incluye los códigos de estado `408`, `429`, `502`, `503`, `504` y `529`. Cuando se activa, Braze detiene temporalmente las solicitudes a ese host y simula una respuesta de fallo. Esto es independiente de tu propio límite de velocidad. Para los umbrales de detección y más detalles, consulta [Solución de problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Para evitar activar la detección de host no saludable, asegúrate de que tu endpoint pueda manejar el volumen de llamadas descrito en [Comprender el volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints).
+- **Detección de host no saludable:** Una protección del lado de Braze que se activa después de una alta tasa y volumen de *fallos* en una ventana de un minuto. El conteo de fallos incluye los códigos de estado `408`, `429`, `502`, `503`, `504` y `529`. Cuando se activa, Braze detiene temporalmente las solicitudes a ese host y simula una respuesta de fallo. Esto es independiente de tu propio límite de velocidad. Para los umbrales de detección y más detalles, consulta [Solución de problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Para evitar activar la detección de host no saludable, asegúrate de que tu endpoint pueda manejar el volumen de llamadas descrito en [Acerca del volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints).
 
 ## Permitir un rendimiento eficiente {#allowing-for-efficient-performance}
 
@@ -162,13 +163,13 @@ Luego puedes usar esta credencial en tus llamadas a la API haciendo referencia a
 ```
 {% endraw %}
 
-### Usar Open Authentication (OAuth) {#using-open-authentication-oauth}
+### Usar Open Authentication (OAuth) {#use-open-authentication-oauth}
 
 Algunas configuraciones de API requieren la recuperación de un token de acceso que luego puede usarse para autenticar el endpoint de la API al que deseas acceder.
 
 #### Paso 1: Recuperar el token de acceso {#step-1-retrieve-the-access-token}
 
-El siguiente ejemplo ilustra la recuperación y el almacenamiento de un token de acceso en una variable local, que luego puede usarse para autenticar la llamada a la API subsiguiente. Se puede agregar un parámetro `:cache_max_age` para que coincida con el tiempo de validez del token de acceso y reducir el número de llamadas salientes de contenido conectado. Consulta [Caché configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) para más información.
+El siguiente ejemplo ilustra la recuperación y el almacenamiento de un token de acceso en una variable local, que luego puede usarse para autenticar la llamada a la API subsiguiente. Se puede agregar un parámetro `:cache_max_age` para que coincida con el tiempo de validez del token de acceso y reducir el número de llamadas salientes de contenido conectado. Consulta [Caché configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) para más información.
 
 {% raw %}
 ```
@@ -184,6 +185,10 @@ El siguiente ejemplo ilustra la recuperación y el almacenamiento de un token de
 %}
 ```
 {% endraw %}
+
+{% alert note %}
+Cuando el endpoint de token espera `application/x-www-form-urlencoded` y pasas credenciales en `:body`, codifica en URL cualquier carácter especial en los valores de los parámetros. Por ejemplo, las barras diagonales (`/`) se convierten en `%2F` y los signos de suma (`+`) se convierten en `%2B`. Los caracteres especiales sin codificar pueden causar que las solicitudes de token OAuth fallen.
+{% endalert %}
 
 #### Paso 2: Autorizar la API usando el token de acceso recuperado {#step-2-authorize-the-api-using-the-retrieved-access-token}
 
@@ -235,7 +240,16 @@ Ten en cuenta que el valor hash cambia regularmente. Si estás filtrando tráfic
 
 ## Solución de problemas {#troubleshooting}
 
-Usa [Webhook.site](https://webhook.site/) para solucionar problemas con tus llamadas de contenido conectado y para diagnosticar problemas con los encabezados de solicitud, el cuerpo de la solicitud y otra información que se envía en la llamada.
+Si tu llamada de contenido conectado no se representa correctamente o no se representa en absoluto, verifica los siguientes detalles:
+
+- **Confirma que se realizó una llamada de contenido conectado:** Puedes verificar que se realizó una llamada en la [pestaña Historial de mensajes]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab). También puedes enviar una prueba de una sola solicitud de contenido conectado.
+- **Verifica a través de Postman o una solicitud CURL que la solicitud ideal tiene éxito:** Si la solicitud funciona y devuelve una respuesta, compara la solicitud en detalle (incluidos los encabezados). Confirma que los encabezados están capturados en pares clave-valor con comillas dobles.
+- **Valida que la autorización se maneja correctamente:** Confirma que se usa la opción `:basic_auth`/`:auth_credentials` y que se ha agregado la autorización de contenido conectado a la configuración del espacio de trabajo de contenido conectado. A veces la URL de contenido conectado requiere encabezados más allá de la autenticación que deben ingresarse.
+- **Verifica que los datos están en un formato esperado:** Para el cuerpo de la respuesta, Braze analiza JSON válido en un objeto Liquid; de lo contrario, la respuesta se trata como texto plano (incluido HTML). La opción `:content_type` establece los encabezados `Content-Type` y `Accept` de salida en tu solicitud y no afecta el análisis de la respuesta. Para el `:body` de la solicitud, si tu JSON contiene espacios, sigue la guía en la sección [Proporcionar cuerpo JSON]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body).
+- **Confirma que los datos se han analizado correctamente:** Verifica que Liquid hace referencia correctamente al campo esperado. Para JSON anidado, usa {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %} para apuntar al campo anidado deseado. Puedes verificar las propiedades del JSON anidado imprimiendo el resultado esperado con {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}.
+- **Verifica el código de estado de la respuesta:** El código de estado de la respuesta debe ser un código `2XX`. El contenido conectado no tiene forma de consumir la respuesta cuando el código no es `2XX`.
+
+También puedes usar [Webhook.site](https://webhook.site/) para solucionar problemas con tus llamadas de contenido conectado y para diagnosticar problemas con los encabezados de solicitud, el cuerpo de la solicitud y otra información que se envía en la llamada.
 
 1. Cambia la URL en tu llamada de contenido conectado por la URL única generada en el sitio.
 2. Previsualiza y prueba tu campaña o paso en Canvas para ver las solicitudes llegar a este sitio web.
@@ -252,7 +266,7 @@ Braze puede realizar la misma llamada a la API de contenido conectado más de un
 
 Es esperado que una llamada a la API de contenido conectado pueda realizarse más de una vez por destinatario, incluso si la lógica de reintentos no se usa en la llamada. Recomendamos configurar el límite de velocidad de cualquier mensaje que contenga contenido conectado o configurar tus servidores para que puedan manejar mejor el volumen esperado que tiene en cuenta múltiples llamadas de contenido conectado realizadas por envío de mensaje.
 
-Consulta [Comprender el volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints) para detalles y mitigación.
+Consulta [Acerca del volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints) para detalles y mitigación.
 
 ### ¿Cómo funciona el límite de velocidad con contenido conectado? {#how-does-rate-limiting-work-with-connected-content}
 

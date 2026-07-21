@@ -22,7 +22,7 @@ Jede URL des Präferenzzentrums ist für jede:n Nutzer:in eindeutig.
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `preference_center.user.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `preference_center.user.get`.
 
 ## Rate-Limit
 
@@ -33,16 +33,16 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
 | `preferenceCenterExternalID` | Erforderlich | String | Die ID für Ihr Präferenzzentrum. |
-| `userID` | Erforderlich | String | Die Nutzer-ID. |
+| `userID` | Erforderlich | String | Die Nutzer:innen-ID. |
 {: aria-label="Pfad-Parameter" }
 
-## Anfrage-Parameter {#request-parameters}
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
 | `preference_center_api_id` | Erforderlich | String | Die ID für Ihr Präferenzzentrum. |
 | `external_id` | Erforderlich | String | Die externe ID für eine:n Nutzer:in. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrage-Parameter" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 

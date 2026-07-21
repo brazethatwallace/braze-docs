@@ -38,7 +38,7 @@ Nach der Implementierung der Events kann StyleRyde Campaigns wie die folgenden d
 3. Entschuldigungen und Aktionsguthaben an Nutzer:innen senden, die erfolglose Taxirufe hatten, auf die nicht innerhalb einer bestimmten Zeitspanne ein erfolgreicher Taxiruf folgte.
 4. Aktionen an besonders aktive Nutzer:innen mit vielen erfolgreichen Taxirufen senden, um ihnen für ihre Treue zu danken.
 
-## Fallfrage 3: Welche anderen Nutzerinformationen könnten wir sammeln und für unser Messaging verwenden? {#case-question-3-what-other-user-information-could-we-collect-and-use-to-inform-our-messaging}
+## Fallfrage 3: Welche anderen Nutzerinfos könnten wir sammeln und für unser Messaging verwenden? {#case-question-3-what-other-user-information-could-we-collect-and-use-to-inform-our-messaging}
 
 - Haben die Nutzer:innen ein Aktionsguthaben?
 - Welche durchschnittliche Bewertung geben Nutzer:innen ihren Fahrer:innen?
@@ -53,7 +53,7 @@ Diese Merkmale könnten dann als die folgenden angepassten Attribute getaggt wer
 Diese Attribute ermöglichen es Ihnen, Campaigns an Nutzer:innen zu senden, wie zum Beispiel:
 
 1. Nutzer:innen, die die App sieben Tage lang nicht benutzt haben und über ein Aktionsguthaben verfügen, daran erinnern, zur App zurückzukehren und das Guthaben einzulösen.
-2. Unsere Nachrichten-Templates und [Personalisierungs-Features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/#personalized-messaging) nutzen, um das eindeutige Aktionscode-Attribut in Nachrichten an Nutzer:innen einzufügen.
+2. Unsere Nachrichten-Templates und [Personalisierungs-Features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) nutzen, um das eindeutige Aktionscode-Attribut in Nachrichten an Nutzer:innen einzufügen.
 
 {% alert important %}
 Braze sperrt Nutzer:innen („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen und nimmt ihre SDK-Events nicht mehr auf, da sie in der Regel das Ergebnis einer Fehlintegration sind. Wenn Sie feststellen, dass dies bei einer oder einem rechtmäßigen Nutzer:in passiert ist, wenden Sie sich an Ihren Braze Account Manager.

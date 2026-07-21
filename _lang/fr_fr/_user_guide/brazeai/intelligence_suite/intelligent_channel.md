@@ -10,53 +10,75 @@ search_rank: 11
 
 > Le filtre `Intelligent Channel` (précédemment `Most Engaged`) sélectionne la partie de votre audience pour laquelle le canal de communication sélectionné est leur « meilleur » canal.
 
-## À propos du filtre de canal {#about-the-channel-filter}
+## À propos du filtre {#about-the-filter}
 
 ![Le filtre de canal intelligent avec une liste déroulante pour les différents canaux pouvant être sélectionnés.]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
 
 Dans ce cas, « le meilleur » signifie le canal qui a la plus forte probabilité d'engagement, compte tenu de l'historique de l'utilisateur. Vous pouvez sélectionner l'e-mail, le SMS, WhatsApp, les notifications push Web ou les notifications push mobiles (incluant tout système d'exploitation ou appareil mobile disponible) en tant que canal.
 
-Le canal intelligent calcule le taux d'engagement de chaque utilisateur pour chacun des canaux disponibles en prenant le rapport entre les interactions avec les messages (ouvertures ou clics) et le nombre de messages reçus au cours des six derniers mois d'activité. Les canaux disponibles sont classés selon leurs taux d'engagement respectifs et le canal ayant le rapport le plus élevé est considéré comme celui avec « Le plus d'interactions » pour cet utilisateur.
+Le canal intelligent calcule un taux d'engagement pour chaque utilisateur sur chaque canal pris en charge, classe ces canaux, et considère le canal le mieux classé comme le meilleur canal de cet utilisateur.
+
+Pour activer le filtre de canal intelligent, sélectionnez le filtre **Intelligent Channel** sur la page **Target Audiences** lors de la création d'une Campaign ou d'un Canvas.
+
+## Comment l'engagement est calculé par canal {#how-engagement-is-calculated-by-channel}
+
+Le canal intelligent compare les canaux à l'aide d'un taux d'engagement : le nombre d'interactions avec les messages divisé par le nombre de messages reçus. Braze évalue jusqu'aux 100 derniers messages reçus par canal au cours des six derniers mois.
 
 Chaque fois qu'un message est envoyé à un utilisateur ou qu'un utilisateur interagit avec un message, le taux d'engagement est recalculé en quelques secondes. Un utilisateur ne peut être compté comme ayant interagi avec un message qu'une seule fois (par exemple, une ouverture et un clic sur le même e-mail feront que ce message sera marqué comme ayant généré une interaction une seule fois, et non deux).
 
-Pour activer le filtre de canal intelligent, sélectionnez le filtre **Intelligent Channel** sur la page **Audiences cibles** lors de la création d'une campagne d'e-mail, de notification push Web ou de notification push mobile.
+### Données d'interaction par canal {#interaction-data-by-channel}
+
+Braze suit les événements suivants lors du calcul des taux d'engagement :
+
+- **E-mail :** ouvertures (les [ouvertures automatiques]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) sont exclues). Les clics sur les e-mails ne sont pas inclus.
+- **Notification push mobile :** ouvertures directes. Chaque plateforme mobile (comme iOS, Android et Kindle) est évaluée séparément. Les ouvertures influencées par les notifications push ne sont pas incluses.
+- **Notification push Web :** ouvertures
+- **SMS :** clics sur les liens raccourcis
+- **WhatsApp :** lectures de messages ou clics sur les liens suivis
+
+Les ouvertures influencées par les notifications push, les clics sur les e-mails et l'activité de session ne sont pas utilisés par le canal intelligent. L'activité de session est utilisée par le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#about-intelligent-timing).
+
+Le canal intelligent ne prend pas en charge les webhooks, LINE, Kakao Talk, les In-App Messages ou les Content Cards.
 
 {% alert important %}
-Pour calculer le taux d'engagement du canal SMS, activez le [raccourcissement des liens SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview) avec suivi avancé et suivi des clics. Sans ce suivi, le SMS peut être sélectionné comme canal intelligent avec un taux d'engagement de 0 % en raison de notre [comportement de départage]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
+Pour calculer le taux d'engagement du canal SMS, activez le [raccourcissement des liens SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) avec suivi avancé et suivi des clics. Sans ce suivi, le SMS peut être sélectionné comme canal intelligent avec un taux d'engagement de 0 % en raison de notre [comportement de départage]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
 {% endalert %}
 
-## Option « Données insuffisantes » {#the-not-enough-data-option}
+## Données insuffisantes {#not-enough-data}
 
-Pour que Braze détermine quel canal est « le meilleur », il doit disposer de suffisamment de données. Cela signifie qu'un utilisateur doit avoir reçu au moins trois messages ou plus par canal sur au moins deux des trois canaux disponibles. Les messages n'ont pas nécessairement besoin d'avoir été ouverts.
+Pour que Braze détermine quel canal est « le meilleur », il doit disposer de suffisamment de données. Cela signifie qu'un utilisateur doit avoir reçu au moins trois messages ou plus sur un canal avant que ce canal puisse être classé, et doit disposer de données suffisantes sur au moins deux canaux pris en charge.
 
-Si les utilisateurs n'ont pas reçu suffisamment de messages sur les différents canaux, ils basculeront dans l'option « Not Enough Data » de ce filtre. Cela vous permet d'utiliser n'importe lequel des trois canaux de communication disponibles pour cibler ces utilisateurs.
+Si les utilisateurs n'ont pas reçu suffisamment de messages sur les différents canaux, ils basculeront dans l'option « Not Enough Data » de ce filtre. Cela vous permet d'utiliser n'importe quel canal de communication pris en charge pour cibler ces utilisateurs.
 
-Supposons par exemple que vous souhaitiez que les utilisateurs qui préfèrent les notifications push en reçoivent et que les utilisateurs ne disposant pas de données suffisantes reçoivent le même message push. Dans ce cas, vous pourriez définir le filtre de canal intelligent sur **Mobile push** et utiliser **OR** pour ajouter un second filtre de canal intelligent défini sur **Not Enough Data**. Une campagne séparée avec le filtre de canal intelligent réglé sur l'e-mail pourrait cibler les utilisateurs qui préfèrent ce canal.
+Supposons par exemple que vous souhaitiez que les utilisateurs qui préfèrent les notifications push en reçoivent et que les utilisateurs ne disposant pas de données suffisantes reçoivent le même message push. Dans ce cas, vous pourriez définir le filtre de canal intelligent sur **Mobile push** et utiliser **OR** pour ajouter un second filtre de canal intelligent défini sur **Not Enough Data**. Une Campaign séparée avec le filtre de canal intelligent réglé sur l'e-mail pourrait cibler les utilisateurs qui préfèrent ce canal.
 
 ![Filtres de canal intelligents pour les notifications push mobiles ou en cas de données insuffisantes.]({% image_buster /assets/img/intelligent_example.png %}){:style="border:none"}
 
 {% alert note %}
-Les Campaigns et les étapes du Canvas qui ignorent la [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules) ne seront pas prises en compte par le canal intelligent et ne pourront pas contribuer aux exigences en matière de données.
+Les Campaigns et les étapes du Canvas qui ignorent la [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules) ne sont pas prises en compte par le canal intelligent et ne peuvent pas contribuer aux exigences en matière de données.
 {% endalert %}
 
-## Option « Notification push mobile » {#the-mobile-push-option}
+## Notification push mobile {#mobile-push}
 
-La notification push mobile intègre Android, iOS, Kindle ainsi que les autres canaux d'appareils mobiles disponibles sur Braze. Lors du calcul du canal intelligent, Braze examine chaque type d'appareil mobile séparément, puis choisit le taux d'engagement le plus élevé parmi eux pour représenter la catégorie « Mobile Push » lors de la comparaison avec l'e-mail et la notification push Web.
+La notification push mobile intègre Android, iOS, Kindle ainsi que les autres canaux d'appareils mobiles disponibles sur Braze. Braze évalue chaque plateforme mobile séparément lors du calcul des taux d'engagement.
 
-Par exemple, si un utilisateur dispose de plusieurs appareils mobiles, son taux d'engagement mobile sera représenté par le taux le plus élevé constaté parmi les appareils. Cela ne forcera toutefois pas l'utilisateur à recevoir des notifications push exclusivement sur cet appareil. Ce taux est uniquement utilisé lors de la comparaison avec l'e-mail et la notification push Web.
+Lorsque vous utilisez le filtre de canal intelligent défini sur **Mobile push**, un utilisateur correspond si la notification push iOS ou Android est son canal le mieux classé. Cela ne force pas l'utilisateur à recevoir des notifications push sur un appareil spécifique. Le classement est uniquement utilisé pour déterminer si la notification push mobile est le meilleur canal de cet utilisateur par rapport à l'e-mail, la notification push Web, le SMS et WhatsApp.
 
 ## Filtre de probabilité d'ouverture des messages pour chaque canal {#individual-channels}
 
-Plutôt que de laisser Braze sélectionner le canal le plus approprié pour un utilisateur, vous pouvez utiliser le [filtre de segmentation « Message Open Likelihood »]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) pour filtrer les utilisateurs en fonction de leur probabilité d'ouvrir un message sur un canal spécifique de votre choix. Ce filtre est calculé en divisant le pourcentage d'interactions par le nombre total de messages reçus pour les 100 derniers messages envoyés par canal.
+Plutôt que de laisser Braze sélectionner le meilleur canal pour un utilisateur, vous pouvez utiliser le [filtre de segmentation « Message Open Likelihood »]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) pour filtrer les utilisateurs en fonction de leur probabilité d'ouvrir un message sur un canal spécifique de votre choix. Ce filtre est calculé en divisant le pourcentage d'interactions par le nombre total de messages reçus pour les 100 derniers messages envoyés par canal.
+
+Le filtre Message Open Likelihood utilise les mêmes données d'engagement sous-jacentes que le canal intelligent, mais vous permet de définir un seuil pour un canal unique au lieu de sélectionner le meilleur canal de l'utilisateur. Il est disponible pour l'e-mail, la notification push mobile, le SMS et la notification push Web.
 
 Notez qu'un utilisateur doit avoir reçu au moins trois messages sur un canal spécifique avant de pouvoir obtenir un score de probabilité pour ce canal. Les utilisateurs sans données suffisantes pour mesurer une probabilité pour un canal peuvent être sélectionnés en utilisant « is blank ».
 
 ## Bonnes pratiques et stratégie d'utilisation efficace {#best-practices-and-effective-use-strategy}
 
-### Départager les égalités {#tie-breaking}
+### Départage {#tie-breaking}
 
-Comme certains utilisateurs recevront peu de messages, il n'est pas rare d'observer des taux d'engagement identiques entre les canaux disponibles pour un utilisateur donné (par exemple, un utilisateur ayant un taux d'engagement de 0,2 à la **fois** pour l'e-mail et le push mobile). Dans ce cas, les égalités seront départagées en priorisant (en attribuant un classement plus élevé à) le canal avec les événements d'ouverture les plus récents.
+Comme certains utilisateurs reçoivent peu de messages, il n'est pas rare d'observer des taux d'engagement identiques entre les canaux disponibles pour un utilisateur donné (par exemple, un utilisateur ayant un taux d'engagement de 20 % à la fois pour l'e-mail et la notification push mobile). Dans ce cas, les égalités sont départagées en priorisant (en attribuant un classement plus élevé à) le canal avec les événements d'interaction les plus récents.
+
+Si les canaux à égalité ont tous un taux d'engagement de 0 %, Braze départage en utilisant le canal ayant reçu le message le plus récent.
 
 ### Canaux inaccessibles {#unreachable-channels}
 

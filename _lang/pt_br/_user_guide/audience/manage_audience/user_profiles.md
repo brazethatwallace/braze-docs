@@ -166,7 +166,7 @@ Os seguintes eventos de engajamento com mensagem estão disponíveis para e-mail
 
 ##### Eventos de interrupção de mensagem {#message-abort-events}
 
-Eventos de interrupção de mensagem ocorrem quando uma mensagem enviada a um usuário foi interrompida devido à lógica condicional em [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) ou [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages), ou por timeouts de renderização do Liquid.
+Eventos de interrupção de mensagem ocorrem quando uma mensagem enviada a um usuário foi interrompida devido à lógica condicional em [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) ou [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content), ou por timeouts de renderização do Liquid.
 
 Eventos de interrupção estão disponíveis para os seguintes canais:
 
@@ -179,7 +179,7 @@ Eventos de interrupção não estão disponíveis atualmente para mensagens no a
 
 ##### Eventos de limite de frequência {#frequency-cap-events}
 
-Um evento de limite de frequência ocorre quando um usuário é qualificado para receber uma mensagem, mas não a recebe de fato devido às configurações de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping). Você pode personalizar as configurações de limite de frequência em **Configurações** > **Regras do limite de frequência**.
+Um evento de limite de frequência ocorre quando um usuário é qualificado para receber uma mensagem, mas não a recebe de fato devido às configurações de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Você pode personalizar as configurações de limite de frequência em **Configurações** > **Regras do limite de frequência**.
 
 ##### Destinos em branco {#blank-destinations}
 

@@ -10,7 +10,7 @@ description: "This article contains release notes for May 2017."
 
 ## Update to Internal Groups
 
-We've added new functionality to Internal Groups for Seed groups, making it easy for you to test your email. Now, you can add a bulk upload of users, send test emails in real-time with personalized user data, and use message templates. Learn more about Internal Groups [here]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/#content-test-groups).
+We've added new functionality to Internal Groups for Seed groups, making it easy for you to test your email. Now, you can add a bulk upload of users, send test emails in real-time with personalized user data, and use message templates. Learn more about [Internal Groups]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/#content-test-groups).
 
 ## Update to tags
 

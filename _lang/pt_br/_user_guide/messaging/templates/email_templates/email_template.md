@@ -33,7 +33,7 @@ Qualquer modelo HTML personalizado existente deve ser recriado usando o editor d
 
 ## Etapa 3: Personalize seu modelo {#step-3-customize-your-template}
 
-Após selecionar sua experiência de edição, esta é a sua oportunidade de ser criativo ao personalizar seu modelo de e-mail. Você pode usar HTML para criar e reproduzir sua identidade visual no editor de HTML, ou incluir uma variedade de [detalhes criativos]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#creative-details) no editor de arrastar e soltar.
+Após selecionar sua experiência de edição, esta é a sua oportunidade de ser criativo ao personalizar seu modelo de e-mail. Você pode usar HTML para criar e reproduzir sua identidade visual no editor de HTML, ou incluir uma variedade de [detalhes criativos]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) no editor de arrastar e soltar.
 
 ### Incluir um link de cancelamento de inscrição {#include-an-unsubscribe-link}
 
@@ -85,7 +85,7 @@ Se você fizer edições em um modelo existente, essas alterações não serão 
 
 Você pode visualizar modelos de e-mail em **Modelos** > **Modelos de e-mail**, filtrando por status, tipo, tags, o usuário que o criou, ou pesquisando pelo nome do modelo. Você precisa das permissões de usuário relevantes, como **View Email Templates**, para visualizar esses modelos. Para mais detalhes, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
-À medida que você cria mais modelos de e-mail, pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates) modelos de e-mail. Saiba mais sobre como criar e gerenciar sua biblioteca de modelos e conteúdo criativo em [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates).
+À medida que você cria mais modelos de e-mail, pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates) modelos de e-mail. Saiba mais sobre como criar e gerenciar sua biblioteca de modelos e conteúdo criativo em [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates).
 
 ### Use seus modelos em Campaigns da API {#use-your-templates-in-api-campaigns}
 

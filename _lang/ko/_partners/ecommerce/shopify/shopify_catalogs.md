@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-[가격 인하 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) 및 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)도 설정할 수 있습니다!<br><br> 각 사용 사례에 대해 카탈로그에서 사용자의 가입 상태를 캡처하는 커스텀 이벤트를 생성해야 합니다. 커스텀 이벤트에는 Shopify 제품 동기화의 일부로 선택한 [SKU 또는 Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier)에 매핑되는 이벤트 속성정보가 필요합니다.
+[가격 인하 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) 및 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)도 설정할 수 있습니다!<br><br> 각 사용 사례에 대해 카탈로그에서 사용자의 가입 상태를 캡처하는 커스텀 이벤트를 생성해야 합니다. 커스텀 이벤트에는 Shopify 제품 동기화의 일부로 선택한 <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKU 또는 Shopify Variant ID</a> 에 매핑되는 이벤트 속성정보가 필요합니다.
 {% endalert %}
 
 ## 제품 동기화 비활성화 {#deactivate}

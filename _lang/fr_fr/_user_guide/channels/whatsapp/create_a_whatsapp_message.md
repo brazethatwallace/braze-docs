@@ -40,8 +40,8 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 1. Accédez à la page **Campaigns** et cliquez sur <i class="fas fa-plus"></i> **Créer une campagne**.
 2. Sélectionnez **WhatsApp** ou, pour les Campaigns ciblant plusieurs canaux, sélectionnez **Campagne multicanale**.
 3. Donnez à votre campagne un nom clair et significatif.
-4. Ajoutez des [Équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [Étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
-   * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
+4. Ajoutez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
+   * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
 5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes ajoutées. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
@@ -55,7 +55,7 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur Canvas. Donnez à votre étape un nom clair et significatif.
-3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) et spécifiez un délai si nécessaire.
+3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) et spécifiez un délai si nécessaire.
 4. Filtrez votre audience pour cette étape selon vos besoins. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
 5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choisissez tout autre canal de communication que vous souhaitez associer à votre message.
@@ -69,7 +69,7 @@ Si un Canvas basé sur une action est déclenché par un message WhatsApp entran
 
 ### Étape 2 : Composer votre message WhatsApp {#step-2-compose-your-whatsapp-message}
 
-Choisissez si vous souhaitez créer un [message modèle](#template-messages) WhatsApp ou un message de réponse, selon votre cas d'utilisation. Toute conversation initiée par l'entreprise doit commencer par un modèle approuvé, tandis que les messages de réponse peuvent être utilisés pour répondre aux messages entrants des utilisateurs dans une fenêtre de 24 heures.
+Choisissez si vous souhaitez créer un [message modèle](#template-messages) WhatsApp ou un message de réponse, selon votre cas d'usage. Toute conversation initiée par l'entreprise doit commencer par un modèle approuvé, tandis que les messages de réponse peuvent être utilisés pour répondre aux messages entrants des utilisateurs dans une fenêtre de 24 heures.
 
 ![La section Variantes de message vous permet de sélectionner un groupe d'abonnement et l'un des deux types de messages : Message modèle WhatsApp et Message de réponse.]({% image_buster /assets/img/whatsapp/whatsapp_message_variants.png %}){: style="max-width:80%;"}
 
@@ -193,7 +193,7 @@ Les messages WhatsApp peuvent être envoyés selon un horaire planifié, une act
 
 Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-Cette étape vous permet également de spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+Cette étape vous permet également de spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 #### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
@@ -205,13 +205,13 @@ Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messag
 
 Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), après avoir reçu une campagne. Vous pouvez définir une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion sera comptabilisée si l'utilisateur effectue l'action spécifiée.
 
-Vous pouvez également définir des événements de conversion personnalisés en fonction de votre cas d'utilisation spécifique. Soyez créatif et réfléchissez à la manière dont vous souhaitez véritablement mesurer le succès de cette campagne.
+Vous pouvez également définir des événements de conversion personnalisés en fonction de votre cas d'usage spécifique. Soyez créatif et réfléchissez à la manière dont vous souhaitez véritablement mesurer le succès de cette campagne.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la Sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) de notre documentation Canvas.
 
 Étant donné que les fenêtres de conversation ne peuvent durer que 24 heures par message entrant, Braze vérifiera qu'il n'y a pas de délais dépassant 24 heures entre un message entrant et un message de réponse.
 

@@ -14,11 +14,11 @@ Antes de crear un cuestionario, debes:
 - Tener acceso a los mensajes dentro de la aplicación en tu espacio de trabajo de Braze
 - Estar familiarizado con la [creación de mensajes dentro de la aplicación en el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% elsif include.channel == 'landing_page' %}
-- Tener acceso a las páginas de inicio en tu espacio de trabajo de Braze
-- Estar familiarizado con la [creación de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
+- Tener acceso a las páginas de destino en tu espacio de trabajo de Braze
+- Estar familiarizado con la [creación de páginas de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
-- Tener acceso a las páginas de inicio, los mensajes dentro de la aplicación, o ambos en tu espacio de trabajo de Braze
-- Estar familiarizado con la [creación de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) y la [creación de mensajes dentro de la aplicación en el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- Tener acceso a las páginas de destino, los mensajes dentro de la aplicación, o ambos en tu espacio de trabajo de Braze
+- Estar familiarizado con la [creación de páginas de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) y la [creación de mensajes dentro de la aplicación en el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 {% endif %}
 
 ## Crear un cuestionario {#create-a-survey}
@@ -29,11 +29,11 @@ Durante el acceso anticipado, los cuestionarios se crean dentro de tu flujo de c
 1. Crea un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) en una Campaign o Canvas.
 2. Selecciona **Survey** como tu tipo de mensaje.
 {% elsif include.channel == 'landing_page' %}
-1. Ve a **Mensajería** > **Páginas de inicio**.
-2. Crea una nueva página de inicio.
+1. Ve a **Mensajería** > **Páginas de destino**.
+2. Crea una nueva página de destino.
 3. Selecciona **Survey** como tu tipo de mensaje.
 {% else %}
-1. Ve a **Mensajería** > **Páginas de inicio**, o crea un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) en una Campaign o Canvas.
+1. Ve a **Mensajería** > **Páginas de destino**, o crea un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) en una Campaign o Canvas.
 2. Crea un nuevo mensaje.
 3. Selecciona **Survey** como tu tipo de mensaje.
 {% endif %}
@@ -60,10 +60,10 @@ Para controles compartidos de estilo y composición, consulta:
 {% if include.channel == 'in_app_message' %}
 - [Bloques del editor de arrastrar y soltar de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Bloques de formulario de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [Bloques de formulario de páginas de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - [Bloques del editor de arrastrar y soltar de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Bloques de formulario de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [Bloques de formulario de páginas de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% endif %}
 
 Puedes añadir los siguientes bloques de formulario a los cuestionarios:
@@ -117,22 +117,22 @@ Después del lanzamiento, revisa los resultados en:
 {% if include.channel == 'in_app_message' %}
 - La pestaña **Responses** para cuestionarios de mensajes dentro de la aplicación
 {% elsif include.channel == 'landing_page' %}
-- La vista de análisis de la página de inicio para cuestionarios de páginas de inicio
+- La vista de análisis de la página de destino para cuestionarios de páginas de destino
 {% else %}
 - La pestaña **Responses** para cuestionarios de mensajes dentro de la aplicación
-- La vista de análisis de la página de inicio para cuestionarios de páginas de inicio
+- La vista de análisis de la página de destino para cuestionarios de páginas de destino
 {% endif %}
 
 Los análisis de nivel superior incluyen:
 
-- **Todas las respuestas:** Total de respuestas completas e incompletas
-- **Completadas:** Usuarios que completaron todas las preguntas obligatorias
-- **Parcialmente completadas:** Usuarios que enviaron algunos datos, pero no completaron todas las preguntas obligatorias
-- **Impresiones únicas:** Total de vistas de página
+- **Todas las respuestas:** total de respuestas completas e incompletas
+- **Completadas:** usuarios que completaron todas las preguntas obligatorias
+- **Parcialmente completadas:** usuarios que enviaron algunos datos, pero no completaron todas las preguntas obligatorias
+- **Impresiones únicas:** total de vistas de página
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
-Los cuestionarios de páginas de inicio no rastrean las respuestas parcialmente completadas durante el acceso anticipado.
+Los cuestionarios de páginas de destino no rastrean las respuestas parcialmente completadas durante el acceso anticipado.
 {% endalert %}
 {% endif %}
 
@@ -170,17 +170,17 @@ Durante el acceso anticipado, puedes:
 
 {% elsif include.channel == 'landing_page' %}
 
-![Configuración de desencadenadores y filtros de segmentación para seguimiento de cuestionarios de páginas de inicio.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
+![Configuración de desencadenadores y filtros de segmentación para seguimiento de cuestionarios de páginas de destino.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-- Desencadenar Campaigns y Canvas cuando un usuario completa un cuestionario en una página de inicio.
+- Desencadenar Campaigns y Canvas cuando un usuario completa un cuestionario en una página de destino.
 
 {% else %}
 
 ![Configuración de desencadenadores y filtros de segmentación para seguimiento de cuestionarios.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Desencadenar Campaigns y Canvas cuando un usuario completa un cuestionario en una página de inicio o en una Campaign de mensaje dentro de la aplicación.
+- Desencadenar Campaigns y Canvas cuando un usuario completa un cuestionario en una página de destino o en una Campaign de mensaje dentro de la aplicación.
 
-![Configuración de desencadenadores y filtros de segmentación para seguimiento de cuestionarios de páginas de inicio.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
+![Configuración de desencadenadores y filtros de segmentación para seguimiento de cuestionarios de páginas de destino.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
 ![Configuración de desencadenadores y filtros de segmentación para seguimiento de cuestionarios de Campaigns de mensajes dentro de la aplicación.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 

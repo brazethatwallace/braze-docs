@@ -14,7 +14,7 @@ alias: /landing_pages/
 Utilisez les pages d'accueil pour développer votre audience, capturer des données utilisateur, promouvoir des offres spéciales et soutenir des campagnes multicanales. Pour une référence des blocs glisser-déposer des pages d'accueil, consultez [Blocs éditeur (pages d'accueil)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
-La disponibilité des pages d'accueil et des domaines personnalisés dépend de votre offre Braze. Contactez votre gestionnaire de compte ou votre gestionnaire de la satisfaction client pour commencer.
+La disponibilité des pages d'accueil et des domaines personnalisés dépend de votre offre Braze. Contactez votre gestionnaire de compte ou votre gestionnaire du succès des clients pour commencer.
 {% endalert %}
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}
@@ -80,6 +80,12 @@ Non, il n'y a aucune exigence technique.
 
 Oui. Utilisez le bloc **Custom Code** dans l'éditeur par glisser-déposer pour ajouter ou modifier du HTML.
 
+### Puis-je utiliser des iframes sur les pages d'accueil ? {#can-i-use-iframes-on-landing-pages}
+
+Oui. Ajoutez un bloc **Custom Code** dans l'éditeur par glisser-déposer et incluez un élément iframe avec l'URL du contenu que vous souhaitez intégrer.
+
+Si le site web intégré restreint l'encadrement via `frame-ancestors` dans sa politique de sécurité du contenu (CSP) ou `X-Frame-Options`, la page peut ne pas se charger dans l'iframe. Braze ne peut pas contourner ces paramètres — le site intégré doit être configuré pour autoriser le domaine de votre page d'accueil.
+
 ### Puis-je créer un webhook à l'intérieur d'une page d'accueil ? {#can-i-create-a-webhook-inside-a-landing-page}
 
 Non, mais l'événement **Submitted a Landing Page form** peut servir de déclencheur pour des Canvas ou des campagnes webhook :
@@ -89,4 +95,4 @@ Non, mais l'événement **Submitted a Landing Page form** peut servir de déclen
 
 Lorsque la page n'est pas envoyée via un canal Braze (par exemple via un site web ou une publicité), un nouveau profil utilisateur peut être créé lors de la soumission, même si cette personne existe déjà dans Braze. Pour gérer ce cas, configurez un Canvas déclenché par **Submitted a Landing Page form** et ajoutez une étape webhook Braze-to-Braze qui appelle l'endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) pour fusionner le nouveau profil avec le profil existant.
 
-Lorsque vous utilisez l'étiquette Liquid `landing_page_url` pour partager la page, les soumissions de formulaire sont automatiquement associées au profil utilisateur existant. Vous pouvez ensuite référencer les attributs utilisateur soumis sur la page d'accueil via Liquid pour les modèles suivants.
+Lorsque vous utilisez l'étiquette Liquid `landing_page_url` pour partager la page, les soumissions de formulaire sont automatiquement associées au profil utilisateur existant. Vous pouvez ensuite référencer les attributs utilisateur soumis sur la page d'accueil via Liquid pour la personnalisation de vos messages suivants.

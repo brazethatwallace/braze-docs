@@ -25,7 +25,7 @@ Before you debug, add yourself as a [test user]({{site.baseurl}}/user_guide/admi
 | Impressions or clicks look wrong | [Impressions and analytics](#impressions-and-analytics) |
 | `triggers` missing or empty in event user logs | [Delivery troubleshooting](#delivery-troubleshooting) |
 | Triggers returned but nothing displays on the device | [Platform-specific display troubleshooting](#platform-specific-display-troubleshooting) |
-| In-app message assets fail to load (iOS, `NSURLError` -1008) | [Asset loading (Swift tab)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| In-app message assets fail to load (iOS, `NSURLError` -1008) | [Asset loading (Swift tab)](?sdktab=swift#swift_asset-loading) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="In-app message symptom" }
 
 ## Standard investigation path

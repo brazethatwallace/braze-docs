@@ -19,7 +19,7 @@ To add a new user:
 1. Go to **Settings** > **User Management** > **Company Users**.
 2. Select **+ Add New User**.
 3. Enter their information as prompted, including their email, department, and [user role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role).
-4. For users that aren't administrators, select the company-level and workspace-level [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions) you want this user to have.
+4. For users that aren't administrators, select the company-level and workspace-level [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions) you want this user to have.
 
 ![Workspace-level permissions with a section for custom permissions fields.]({% image_buster /assets/img/add_new_user_3.png %})
 

@@ -2,7 +2,7 @@
 
 ### Résolution des problèmes de chargement des ressources (`NSURLError` code `-1008`) {#asset-loading}
 
-Lors de l'intégration de Braze avec des bibliothèques tierces de journalisation réseau, les développeurs peuvent fréquemment rencontrer une `NSURLError` avec le code de domaine `-1008`. Cette erreur indique que des ressources telles que des images et des polices n'ont pas pu être récupérées ou que leur mise en cache a échoué. Pour contourner ces cas, vous devez enregistrer les URL du CDN de Braze dans la liste des domaines à ignorer par ces bibliothèques.
+Lors de l'intégration de Braze avec des bibliothèques tierces de journalisation réseau, les développeurs peuvent fréquemment rencontrer une `NSURLError` avec le code de domaine `-1008`. Cette erreur indique que des ressources telles que des images et des polices n'ont pas pu être récupérées ou que leur mise en cache a échoué. Pour contourner ces cas, vous devez enregistrer les URL du CDN de Braze dans la liste des domaines que ces bibliothèques doivent ignorer.
 
 #### Domaines {#domains}
 
@@ -62,6 +62,21 @@ XNLogger.shared.addFilters([brazeAssetsHostFilter])
 ```objc
 XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"https://cdn.braze.com"];
 [XNLogger.shared addFilters:@[brazeAssetsHostFilter]];
+```
+{% endtab %}
+{% endtabs %}
+
+##### Wormholy
+
+{% tabs %}
+{% tab Swift %}
+```swift
+Wormholy.ignoredHosts = ["cdn.braze.com"]
+```
+{% endtab %}
+{% tab Objective-C %}
+```objc
+Wormholy.ignoredHosts = @[@"cdn.braze.com"];
 ```
 {% endtab %}
 {% endtabs %}

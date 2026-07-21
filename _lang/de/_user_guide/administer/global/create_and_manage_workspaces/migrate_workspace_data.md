@@ -22,7 +22,7 @@ Folgendes wird nicht automatisch migriert, wenn Sie SDKs oder APIs auf einen neu
 | --- | --- |
 | **Nutzerprofile** | Profile werden nicht als Paket übertragen. Erstellen oder importieren Sie Nutzer:innen im Ziel-Workspace neu (siehe [Nutzerprofildaten](#user-profile-data)). |
 | **Segmente und Filter** | Segmentdefinitionen verbleiben im Quell-Workspace. Bauen Sie Segmente im Ziel-Workspace mit derselben Logik neu auf, wo dies möglich ist. |
-| **Messaging-Verlauf** | Der Campaign- und Canvas-Empfangsverlauf eines Profils ist an den Quell-Workspace gebunden. Er erscheint nicht auf einem neuen Profil in einem anderen Workspace, es sei denn, Sie modellieren ihn selbst (z. B. über angepasste Attribute), wie in den [Braze-Onboarding-FAQs]({{site.baseurl}}/user_guide/onboarding_faq) beschrieben. |
+| **Messaging-Verlauf** | Der Campaign- und Canvas-Empfangsverlauf eines Profils ist an den Quell-Workspace gebunden. Er erscheint nicht auf einem neuen Profil in einem anderen Workspace, es sei denn, Sie modellieren ihn selbst (z. B. über angepasste Attribute), wie in den [Braze-Onboarding-FAQs]({{site.baseurl}}/onboarding_faq) beschrieben. |
 | **Kanalspezifische Konfiguration** | Versanddomains, SMS-Abos, WhatsApp-Nummern und ähnliche Einstellungen sind Workspace-bezogen. Konfigurieren Sie sie im Ziel-Workspace neu, wo zutreffend. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Was Braze nicht automatisch zwischen Workspaces migriert" }
 
@@ -81,7 +81,7 @@ Attributionsfelder aus Partnerintegrationen (die `attributed_*`-Felder in einem 
 
 ### Push-Token {#push-tokens}
 
-Wenn Nutzer:innen bereits Push-Token von einem früheren Anbieter oder einer früheren App-Version haben, können Sie Token für mobile Apps über die API importieren oder sich nach der Integration auf das SDK verlassen. Web-Push-Token haben API-Einschränkungen. Vollständige Details und Beispiele finden Sie unter [Push-Token migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Wenn Nutzer:innen bereits Push-Token von einem früheren Anbieter oder einer früheren App-Version haben, können Sie Token für mobile Apps über die API importieren oder sich nach der Integration auf das SDK verlassen. Web-Push-Token haben API-Einschränkungen. Vollständige Details und Beispiele finden Sie unter [Push-Token migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ### WhatsApp
 

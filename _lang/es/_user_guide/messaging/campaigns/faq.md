@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## ¿Cómo creo una campaña multicanal? {#how-do-i-create-a-multichannel-campaign}
 
-Consulta [Campañas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) en **Crear una campaña** para los pasos de configuración y los canales compatibles.
+Consulta [Campañas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) en **Crear una campaña** para los pasos de configuración y los canales compatibles.
 
 ### ¿Puedo añadir un grupo de control a mi campaña multicanal? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
@@ -219,7 +219,7 @@ Las campañas de entrega basada en acciones o campañas activadas por eventos so
 
 | Ventajas | Desventajas |
 | ---- | ---- |
-| • Visibilidad de las cargas útiles JSON entrantes en la plataforma (si el evento es activado por un usuario de prueba) a través del **Registro de actividad de mensajes**<br><br>• Los elementos de personalización se incluyen en las propiedades del evento personalizado<br><br>• El evento personalizado se puede usar para crear Segments de usuarios elegibles para el mensaje | • Consume puntos de datos |
+| • Visibilidad de las cargas útiles JSON entrantes en la plataforma (si el evento es activado por un usuario de prueba) a través del **Registro de actividad de mensajes**<br><br>• Los elementos de personalización se incluyen en las propiedades del evento personalizado<br><br>• El evento personalizado se puede usar para crear segmentos de usuarios elegibles para el mensaje | • Consume puntos de datos |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Basadas en acciones" }
 
 #### Activadas por API {#api-triggered}

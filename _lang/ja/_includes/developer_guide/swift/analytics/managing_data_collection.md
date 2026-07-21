@@ -36,7 +36,7 @@ Braze以外のSDKがトラッキングデータを収集する場合は、それ
 
 ### ステップ2：プライバシーマニフェストを作成する {#step-2-create-a-privacy-manifest}
 
-まず、Xcodeプロジェクトで`PrivacyInfo.xcprivacy`ファイルを検索して、プライバシーマニフェストがすでに存在するかどうかを確認します。すでにこのファイルがある場合は、次のステップに進んでください。ない場合は、[Apple: Create a privacy manifest](sdk-tracking.iad-01.braze.com)を参照してください。
+まず、Xcodeプロジェクトで`PrivacyInfo.xcprivacy`ファイルを検索して、プライバシーマニフェストがすでに存在するかどうかを確認します。すでにこのファイルがある場合は、次のステップに進んでください。ない場合は、[Apple: Create a privacy manifest](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files)を参照してください。
 
 ### ステップ3：エンドポイントをプライバシーマニフェストに追加する {#step-3-add-your-endpoint-to-the-privacy-manifest}
 

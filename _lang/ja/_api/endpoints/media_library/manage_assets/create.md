@@ -23,7 +23,7 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`media_library.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`media_library.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -106,7 +106,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 --data '{"asset_file":<BINARY FILE DATA>, "name":"Cat Graphic"}'
 ```
 
-### エラー応答 {#error-responses}
+### エラーレスポンス {#error-responses}
 
 このセクションでは、発生する可能性のあるエラーとその対応するメッセージおよび説明を一覧にしています。
 
@@ -131,7 +131,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 
 #### 処理エラー {#processing-errors}
 
-処理エラーはエラーコード付きの異なる応答を返します。
+処理エラーはエラーコード付きの異なるレスポンスを返します。
 
 ```json
 {
@@ -158,11 +158,11 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="処理エラー" }
 
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには5つのステータスコード応答があります：`200`、`400`、`403`、`429`、および`500`。
+このエンドポイントには5つのステータスコードレスポンスがあります：`200`、`400`、`403`、`429`、および`500`。
 
-以下のJSONは、応答の想定される形式を示しています。
+以下のJSONは、レスポンスの想定される形式を示しています。
 
 ```json
 {

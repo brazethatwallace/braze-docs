@@ -34,7 +34,7 @@ Durante la configuración, se te pedirá que proporciones una URL de Assertion C
 1. En tu centro de administración de Microsoft Entra, ve a la página de integración de la aplicación Braze y selecciona **Single sign-on**.
 2. En la página **Select a single sign-on method**, selecciona **SAML** como tu método.
 3. En la página **Set up Single Sign-On with SAML**, selecciona el icono de edición para **Basic SAML Configuration**.
-4. Configura la aplicación en modo iniciado por IdP introduciendo una **Reply URL** que combine tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints#braze-instances) con el siguiente patrón: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
+4. Configura la aplicación en modo iniciado por IdP introduciendo una **Reply URL** que combine tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) con el siguiente patrón: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
 5. Configura RelayState introduciendo tu clave de API de Relay State generada en el campo **Relay State**.
 
 {% alert important %}

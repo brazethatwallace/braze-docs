@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Exportieren der A
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `purchases.quantity_series`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `purchases.quantity_series`.
 
 ## Rate-Limit
 

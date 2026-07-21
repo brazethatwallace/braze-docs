@@ -18,7 +18,7 @@ description: "This article outlines details about the Export custom events Braze
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `events.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `events.get` permission.
 
 ## Rate limit
 

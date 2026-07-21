@@ -21,13 +21,13 @@ description: "이 문서에서는 예약된 API 트리거 캠페인 업데이트
 
 모든 스케줄은 스케줄 생성 요청 또는 이전 스케줄 업데이트 요청에서 제공한 스케줄을 완전히 덮어씁니다. 예를 들어, 원래 스케줄을 `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}`로 설정했다가 나중에 `"schedule" : {"time" : "2015-02-20T14:14:47"}`로 업데이트하면, Braze는 사용자의 현지 시간이 아닌 UTC 기준 지정된 시간에 메시지를 보냅니다.
 
-예약된 트리거가 전송 예정 시간에 가까워지거나 해당 시간에 업데이트되는 경우, Braze는 타겟팅된 사용자 전체, 일부 또는 아무에게도 마지막 변경 사항을 적용하지 못할 수 있으며, 최선을 다해 업데이트를 적용합니다. 원래 스케줄이 현지 시간을 사용했고 어떤 시간대에서든 원래 시간이 이미 지난 경우에는 업데이트가 적용되지 않습니다.
+예약된 트리거가 전송 예정 시간에 가까워지거나 해당 시간에 업데이트되는 경우, Braze는 최선을 다해 업데이트를 적용하지만 타겟팅된 사용자 전체, 일부 또는 아무에게도 마지막 변경 사항을 적용하지 못할 수 있습니다. 원래 스케줄이 현지 시간을 사용했고 어떤 시간대에서든 원래 시간이 이미 지난 경우에는 업데이트가 적용되지 않습니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d2a6e66-9d6f-4ae1-965a-79fa52b86b1d {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `campaigns.trigger.schedule.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `campaigns.trigger.schedule.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

@@ -14,7 +14,7 @@ description: "This reference article provides steps to create a transformation u
 
 | Requirement | Description |
 | --- | --- |
-| Two-factor authentication or SSO | You must have [two-factor authentication]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication) (2FA) or [single sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) enabled for your account. |
+| Two-factor authentication or SSO | You must have [two-factor authentication]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa) (2FA) or [single sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) enabled for your account. |
 | Correct permissions | You must be either an account admin or a workspace admin, or have "Manage Transformations" user permissions. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
@@ -200,13 +200,7 @@ Your webhook integration is now complete!
 
 In this step, you'll transform the webhook payload from the source platform to a JavaScript object return value. This return value must follow the `/users/track` endpoint request body format:
 
-- Transformation code is accepted in the JavaScript programming language. Any standard JavaScript control flow, such as if/else logic, is supported.
-- Transformation code accesses the webhook request body via the `payload` variable. This variable is an object populated by parsing the request body JSON.
-- Any feature supported in our `/users/track` endpoint is supported, including:
-  - User attributes objects, event objects, and purchase objects
-  - Nested attributes and nested custom event properties
-  - Subscription group updates
-  - Email address as an identifier
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 Select **Validate** to return a preview of your code's output and to check if it's an acceptable `/users/track` request.
 

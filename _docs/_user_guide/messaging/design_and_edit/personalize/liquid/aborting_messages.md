@@ -83,6 +83,40 @@ Abort logic is evaluated at send time, when Braze processes the message for deli
 
 Abort logic is evaluated for [templated in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) only at the time the in-app message is triggered (for example, when the user performs the trigger event or starts a session), not when the message is initially sent to the device. In-app messages are delivered to the SDK on session start and cached locally; the Liquid—including any `abort_message()` calls—is executed when the trigger condition is met.
 
+## Troubleshooting high abort rates
+
+If a campaign or Canvas step shows many users entered but few sends, or deliveries look lower than expected, abort logic is a common cause—especially when Liquid requires attributes, catalog data, or list values that are missing at evaluation time.
+
+### Check the Message Activity Log
+
+1. In the Braze dashboard, open the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) for the campaign or Canvas message step.
+2. Filter for abort-related entries. By default, Braze logs {% raw %}`{% abort_message %}`{% endraw %} called. If you passed a reason string to `abort_message()`, that text appears instead.
+3. Note whether aborts cluster on one channel (for example email only) or across channels in the same Canvas.
+
+### Verify attributes and Liquid at send time
+
+For push, email, SMS, webhooks, and Content Cards, abort logic runs when Braze processes the message for delivery—not when the user entered a Canvas or when a trigger event fired earlier.
+
+- Confirm required [custom attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/), event properties, or [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) fields are set on the user before the Message step runs.
+- Add explicit nil or empty checks before calling `abort_message()`. An `else` branch that aborts when a value is missing stops the send for any user without that data.
+- If personalization depends on a list, segment, or Connected Content response, confirm that data is available when the Message step executes. A user can enter a Canvas before list membership or downstream data is ready.
+
+### Canvas-specific behavior
+
+If a Message step is aborted in a Canvas, the user does not exit the Canvas. Instead, they proceed to the next step. Aborts affect only the send count for that Message step.
+
+When diagnosing Canvas aborts:
+
+- Compare entered users on the Message step to sent users on the same step.
+- If only one channel aborts, review channel-specific Liquid or subscription status for that step.
+- If aborts spike after a list or catalog update, check whether the Message step ran before the update completed.
+
+### Validate with preview and test sends
+
+Preview as a user in the message composer whose profile matches an affected recipient. For test sends, enable **Override recipients' attributes with current preview user's attributes** when your abort logic depends on profile data.
+
+For more abort examples, see [Query for abort messages](#query-for-abort-messages).
+
 ## Considerations
 
 The `abort_message()` Liquid message tag prevents messages from sending to users, meaning the message won't display on user profiles, and won't count toward deliveries or frequency capping.

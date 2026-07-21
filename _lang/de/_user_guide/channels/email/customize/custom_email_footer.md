@@ -94,4 +94,11 @@ Wenn Sie keine Nur-Text-Fußzeile angeben, erstellt Braze automatisch eine aus d
 
 ## Hinweise {#considerations}
 
+
+### BrazeAI Decisioning Studio™
+
 Wenn Sie [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) verwenden, beachten Sie, dass {% raw %}`{{${email_footer}}}`{% endraw %} kein Standard-Liquid-Tag ist. Es wird vorverarbeitet, bevor Liquid ausgeführt wird. Die Verwendung von {% raw %}`{{${email_footer}}}`{% endraw %} als Wert einer Kontextvariablen und der Aufruf des `:rerender`-Flags schlägt daher stillschweigend fehl. Verwenden Sie stattdessen einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) für eine E-Mail-Fußzeile.
+
+### Link-Templates und UTM-Parameter {#link-templates-and-utm-parameters}
+
+Link-Templates werden bei Verwendung von {% raw %}`{{${email_footer}}}`{% endraw %} nicht automatisch an Links in angepassten E-Mail-Fußzeilen angehängt. Wenn Sie Link-Templates wie UTM-Parameter in Ihren Fußzeilen-Links benötigen, verwenden Sie stattdessen einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) oder hängen Sie die UTM-Parameter manuell an die jeweiligen Links in Ihrer angepassten Fußzeile an.

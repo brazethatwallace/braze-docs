@@ -16,7 +16,7 @@ channel: email
 
 A linha de assunto é uma das primeiras coisas que os destinatários veem ao receber sua mensagem. O uso de 6 a 10 palavras produz as taxas de abertura mais altas.
 
-Há também diferentes abordagens para criar uma boa linha de assunto, desde fazer uma pergunta para despertar o interesse do leitor ou ser mais direto, até personalizá-la para engajar sua clientela. Não se limite a uma única linha de assunto, aproveite os [testes A/B]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing) para experimentar novas linhas e avaliar sua eficácia. As linhas de assunto não devem ter mais de 35 caracteres para serem exibidas adequadamente no celular.
+Há também diferentes abordagens para criar uma boa linha de assunto, desde fazer uma pergunta para despertar o interesse do leitor ou ser mais direto, até personalizá-la para engajar sua clientela. Não se limite a uma única linha de assunto, aproveite os [testes A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/faq#what-is-the-difference-between-ab-testing-and-multivariate-testing) para experimentar novas linhas e avaliar sua eficácia. As linhas de assunto não devem ter mais de 35 caracteres para serem exibidas adequadamente no celular.
 
 O campo "De" deve mostrar claramente quem é o remetente. Tente não usar o nome de uma pessoa ou uma abreviação incomum. Em vez disso, use um nome reconhecível, como o nome da sua marca. Se o uso do nome de uma pessoa for adequado aos métodos de personalização de e-mail da sua marca, mantenha a consistência para desenvolver um relacionamento com o destinatário. O nome "De" não deve ter mais de 25 caracteres para ser exibido adequadamente no celular.
 
@@ -28,7 +28,7 @@ Receber respostas automáticas de ausência pode fornecer informações valiosas
 
 ## Pré-cabeçalho {#preheader-text}
 
-O pré-cabeçalho de um e-mail comunica o ponto principal da mensagem de forma eficiente para captar o interesse do leitor e incentivar a abertura. O pré-cabeçalho também é frequentemente usado por profissionais de marketing para fornecer informações adicionais sobre o conteúdo do e-mail. O pré-cabeçalho é o texto de pré-visualização exibido imediatamente após o assunto do e-mail. No exemplo a seguir, o pré-cabeçalho é `- Brand. New. Lounge Shorts`.
+O pré-cabeçalho de um e-mail comunica o ponto principal da mensagem de forma eficiente para captar o interesse do leitor e incentivar a abertura. O pré-cabeçalho também é frequentemente usado por profissionais de marketing para fornecer informações adicionais sobre o conteúdo do e-mail. O pré-cabeçalho é o texto de prévia exibido imediatamente após o assunto do e-mail. No exemplo a seguir, o pré-cabeçalho é `- Brand. New. Lounge Shorts`.
 
 ![Pré-cabeçalho em uma caixa de entrada do Gmail com o texto "Brand. New. Lounge Shorts".]({% image_buster /assets/img_archive/preheader_example.png %})
 

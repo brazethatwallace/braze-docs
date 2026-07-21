@@ -117,7 +117,7 @@ Whether using one of our [technology partners]({{site.baseurl}}/partners/home), 
 
 ### External partners
 
-Check out [Technology partners]({{site.baseurl}}/partners/home) to learn about our B2B partners that offer lead-scoring capabilities. Don’t see your tool there? You can integrate by calling our [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) API endpoint. 
+Check out [Technology partners]({{site.baseurl}}/partners/home) to learn about our B2B partners that offer lead-scoring capabilities. Don’t see your tool there? You can integrate by calling our [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) API endpoint. 
 
 ### Internal lead scoring data models
 

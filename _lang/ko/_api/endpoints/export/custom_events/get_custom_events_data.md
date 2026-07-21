@@ -1,15 +1,15 @@
 ---
-nav_title: "GET: 사용자 지정 이벤트 내보내기"
-article_title: "GET: 사용자 지정 이벤트 내보내기"
+nav_title: "GET: 커스텀 이벤트 내보내기"
+article_title: "GET: 커스텀 이벤트 내보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "이 문서에서는 사용자 지정 이벤트 내보내기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 커스텀 이벤트 내보내기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
 
 ---
 {% api %}
-# 사용자 지정 이벤트 내보내기 {#export-custom-events}
+# 커스텀 이벤트 내보내기 {#export-custom-events}
 {% apimethod get %}
 /events
 {% endapimethod %}
@@ -18,7 +18,7 @@ description: "이 문서에서는 사용자 지정 이벤트 내보내기 Braze 
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `events.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `events.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

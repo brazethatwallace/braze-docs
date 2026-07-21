@@ -14,27 +14,27 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze para co
 /email/hard_bounces
 {% endapimethod %}
 
-> Use esse endpoint para obter uma lista de endereços de e-mail que sofreram "hard bounce" nas suas mensagens de e-mail dentro de um determinado período de tempo.
+> Use esse endpoint para obter uma lista de endereços de e-mail que sofreram "hard bounce" nas suas mensagens de e-mail dentro de um determinado período.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7c2ef84f-ddf5-451a-a72c-beeabc06ad9d {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.hard_bounces`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.hard_bounces`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ----------|-----------| ----------|----- |
-| `start_date` | Opcional* | String no formato YYYY-MM-DD | *É necessário `start_date` ou `email`. Essa é a data de início do intervalo para recuperar hard bounces e deve ser anterior a `end_date`. Isso é tratado como meia-noite no horário UTC pela API. |
-| `end_date` | Obrigatória | String no formato YYYY-MM-DD | Data final do intervalo para recuperar hard bounces. Isso é tratado como meia-noite no horário UTC pela API. |
+| `start_date` | Opcional* | String no formato YYYY-MM-DD | *É necessário informar `start_date` ou `email`. Essa é a data de início do intervalo para recuperar hard bounces e deve ser anterior a `end_date`. Isso é tratado como meia-noite no horário UTC pela API. |
+| `end_date` | Obrigatório | String no formato YYYY-MM-DD | Data final do intervalo para recuperar hard bounces. Isso é tratado como meia-noite no horário UTC pela API. |
 | `limit` | Opcional | Inteiro | Campo opcional para limitar o número de resultados retornados. O padrão é 100, o máximo é 500. |
 | `offset` | Opcional | Inteiro | Ponto inicial opcional na lista a ser recuperado. |
-| `email` | Opcional* | String | *É necessário `start_date` ou `email`. Se fornecido, retornaremos se o usuário sofreu hard bounce ou não. Verifique se as strings de e-mail estão formatadas corretamente. |
+| `email` | Opcional* | String | *É necessário informar `start_date` ou `email`. Se fornecido, retornaremos se o usuário sofreu hard bounce ou não. Verifique se as strings de e-mail estão formatadas corretamente. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert important %}

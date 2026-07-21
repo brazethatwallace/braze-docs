@@ -38,7 +38,7 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt habe
 
 1. [Erstellen Sie Ihr Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) mit dem Canvas-Composer.
 2. Nachdem Sie Ihr Canvas eingerichtet haben, fügen Sie im Canvas-Builder einen Schritt hinzu. Geben Sie Ihrem Schritt einen klaren und aussagekräftigen Namen.
-3. Wählen Sie einen [Schritt-Zeitplan]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) und legen Sie bei Bedarf eine Verzögerung fest. Beachten Sie, dass Schritte mit In-App-Nachrichten nicht aktionsbasiert sein können.
+3. Wählen Sie einen [Schritt-Zeitplan]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) und legen Sie bei Bedarf eine Verzögerung fest. Beachten Sie, dass Schritte mit In-App-Nachrichten nicht aktionsbasiert sein können.
 4. Filtern Sie bei Bedarf Ihre Zielgruppe für diesen Schritt. Sie können die Empfänger:innen dieses Schritts weiter eingrenzen, indem Sie Segmente angeben und zusätzliche Filter hinzufügen. Die Zielgruppenoptionen werden nach der Verzögerung zum Zeitpunkt des Nachrichtenversands überprüft.
 5. Wählen Sie Ihr [Fortschrittsverhalten]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Wählen Sie alle weiteren Messaging-Kanäle, die Sie mit Ihrer Nachricht kombinieren möchten.
@@ -147,14 +147,14 @@ Diese In-App-Nachrichten sind an Ihre Bedürfnisse anpassbar.
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#custom-html-messages'>Benutzerdefinierte HTML-Nachricht</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Benutzerdefinierte HTML-Nachricht</a></td>
     <td>Benutzerdefinierte Nachrichten, die wie in Ihrem benutzerdefinierten Code (HTML, CSS und/oder JavaScript) definiert funktionieren.</td>
     <td>N/A</td>
     <td>Die Initialisierungsoption <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> muss auf <code>true</code> gesetzt werden, damit Ihre In-App-Nachricht funktioniert.</td>
     <td>Dies ist eine gute Option, wenn Sie alle Vorteile von In-App-Nachrichten nutzen möchten, aber zusätzliche Funktionalität benötigen oder das Erscheinungsbild „markenkonform“ bleiben soll. Sie können jedes Detail der Nachricht anpassen – Schriftart, Farbe, Form, Größe, Buttons usw. <br><br>Beispielhafte Anwendungsfälle umfassen das Einholen von App-Feedback, E-Mail-Erfassungsformulare oder paginierte Nachrichten.</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>E-Mail-Erfassungsformular</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>E-Mail-Erfassungsformular</a></td>
     <td>Wird typischerweise verwendet, um die E-Mail-Adresse der Betrachter:innen zu erfassen.</td>
     <td>N/A</td>
     <td>Die Initialisierungsoption <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> muss auf <code>true</code> gesetzt werden, damit Ihre In-App-Nachricht funktioniert.</td>
@@ -356,7 +356,7 @@ Die Optionen für hohe, mittlere und niedrige Priorität bei getriggerten Nachri
 - **Standard-Prioritäts-Bucket:** Wenn zwei Campaigns denselben Trigger teilen und die Standard-Priorität (mittel) verwenden, erhält die zuletzt erstellte Campaign den Trigger.
 - **Spezifischer Prioritäts-Bucket:** Wenn mehrere Campaigns denselben Trigger teilen und einem bestimmten Prioritäts-Bucket zugewiesen sind, erhält die Campaign, die diesem Bucket zuletzt zugewiesen wurde, den Trigger.
 
-Um Prioritäten innerhalb dieser Buckets festzulegen, klicken Sie auf **Exakte Priorität festlegen**, und Sie können Campaigns per Drag-and-Drop in die richtige Reihenfolge bringen.
+Um Prioritäten innerhalb dieser Buckets festzulegen, klicken Sie auf **Genaue Priorität festlegen**, und Sie können Campaigns per Drag-and-Drop in die richtige Reihenfolge bringen.
 
 ![Ein Beispiel, wie die Priorität für eine In-App-Nachrichten-Campaign und ein Canvas festgelegt wird.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
@@ -397,7 +397,7 @@ Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen
 {% endtab %}
 {% tab Canvas %}
 
-Wenn Sie es noch nicht getan haben, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) unserer Canvas-Dokumentation.
+Wenn Sie es noch nicht getan haben, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) unserer Canvas-Dokumentation.
 
 Informationen zu Canvas-spezifischen In-App-Nachrichten-Optionen finden Sie unter [In-App-Nachrichten in Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 

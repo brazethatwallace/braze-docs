@@ -16,10 +16,7 @@ Usando o Braze Audience Sync com o Pinterest, as marcas podem optar por adiciona
 
 **Os casos de uso comuns para sincronização de público incluem:**
 
-- Direcionamento a usuários de alto valor por meio de vários canais para impulsionar compras ou engajamento
-- Redirecionamento de usuários menos responsivos a outros canais de marketing
-- Criação de públicos de supressão para evitar que os usuários recebam anúncios quando já são consumidores fiéis da sua marca
-- Criação de públicos Actalike para adquirir novos usuários com mais eficiência
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Este recurso permite que as marcas controlem quais dados primários específicos são compartilhados com o Pinterest. Na Braze, as integrações com as quais você pode e não pode compartilhar seus dados primários recebem a máxima consideração. Para saber mais, consulte nossa [política de privacidade](https://www.braze.com/privacy).
 
@@ -29,10 +26,9 @@ O Braze Audience Sync com o Pinterest é uma integração do Audience Sync Pro. 
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
-
 É necessário garantir que os itens a seguir sejam criados, concluídos e/ou aceitos antes de configurar a etapa do público do Pinterest no Canvas.
 
-| Requisito | Origin | Descrição |
+| Requisito | Origem | Descrição |
 | --- | --- | --- |
 | Pinterest Business Hub | [Pinterest](https://www.pinterest.com/business/hub/) | Uma ferramenta centralizada para gerenciar os ativos do Pinterest da sua marca (como contas de anúncios, páginas, apps). |
 | Conta de anúncios do Pinterest | [Pinterest](https://ads.pinterest.com/) | Uma conta ativa de anúncios do Pinterest vinculada ao Pinterest Business Hub da sua marca.<br><br>Certifique-se de que o administrador do Pinterest Business Hub lhe concedeu permissões de administrador para as contas de anúncios do Pinterest que você planeja usar com a Braze. |

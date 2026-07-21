@@ -333,7 +333,7 @@ Promouvons le produit favori d'un utilisateur si son dernier achat remonte à pl
 {% endraw %}
 
 {: start="6"}
-6. Comme la dernière date d'achat et la date du jour sont en secondes, nous devrons calculer combien de secondes représentent six mois. Créons une équation (environ 6 mois × 30,44 jours × 24 heures × 60 minutes × 60 secondes) et assignons-la à la variable `six_months`. Nous utiliserons `times` pour spécifier la multiplication des unités de temps.
+6. Comme la dernière date d'achat et la date du jour sont en secondes, nous devrons calculer combien de secondes représentent six mois. Créons une équation (environ 6 mois \* 30,44 jours \* 24 heures \* 60 minutes \* 60 secondes) et assignons-la à la variable `six_months`. Nous utiliserons `times` pour spécifier la multiplication des unités de temps.
 
 {% raw %}
 ```liquid

@@ -35,7 +35,7 @@ Im Folgenden finden Sie eine Liste der Methoden, die auf verschiedenen Plattform
 
 ## Kaufdaten anzeigen {#view-purchase-data}
 
-Nachdem Sie Kauf-Events eingerichtet und mit der Protokollierung begonnen haben, können Sie diese Kaufdaten im Profil einer Nutzerin oder eines Nutzers im [Übersicht-Tab]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab) einsehen.
+Nachdem Sie Kauf-Events eingerichtet und mit der Protokollierung begonnen haben, können Sie diese Kaufdaten im Profil einer Nutzerin oder eines Nutzers im [Tab „Übersicht“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab) einsehen.
 
 ## Kaufdaten verwenden {#use-purchase-data}
 
@@ -113,7 +113,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 Zusätzlich zum Tracking von Kauf-Metriken für die Segmentierung erfasst Braze auch die Anzahl der Käufe für jedes Produkt und den im Laufe der Zeit generierten Umsatz. Dies kann hilfreich sein, um die beliebtesten Produkte zu identifizieren oder die Auswirkungen einer Werbekampagne auf den Umsatz zu messen.
 
-Sie finden diese Daten auf der Seite [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data).
+Sie finden diese Daten auf der Seite [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 
 ### Umsatzberechnungen {#revenue-calculations}
 
@@ -167,7 +167,7 @@ $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Tot
 
 Es gibt zwei Hauptstellen in Braze, an denen Sie den LTV Ihrer Nutzer:innen einsehen können:
 
-- Für Gesamtmetriken wie *Lifetime Revenue* und den *Lifetime Value per User* für jede App und Website lesen Sie Ihren [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data).
+- Für Gesamtmetriken wie *Lifetime Revenue* und den *Lifetime Value per User* für jede App und Website lesen Sie Ihren [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 - Um den Lifetime Revenue einer bestimmten Nutzerin oder eines bestimmten Nutzers einzusehen, sehen Sie sich das [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab) an.
 
 ##### Auswirkungen von Rückerstattungen auf den Lifetime Revenue {#impact-of-refunds-on-lifetime-revenue}
@@ -221,7 +221,7 @@ Nach der Genehmigung können zusätzliche Eigenschaften im Dashboard unter **Dat
 
 ### Käufe auf Bestellebene protokollieren {#log-purchases-at-the-order-level}
 
-Um Käufe auf Bestellebene statt auf Produktebene zu protokollieren, verwenden Sie den Bestellnamen oder die Bestellkategorie als `product_id`. Weitere Informationen finden Sie in unserer [Kauf-Objekt-Spezifikation]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions).
+Um Käufe auf Bestellebene statt auf Produktebene zu protokollieren, verwenden Sie den Bestellnamen oder die Bestellkategorie als `product_id`. Weitere Informationen finden Sie in unserer [Kauf-Objekt-Spezifikation]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
 
 ### Namenskonventionen für Produkt-IDs {#product-id-naming-conventions}
 

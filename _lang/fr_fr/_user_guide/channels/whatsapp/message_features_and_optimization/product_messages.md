@@ -173,7 +173,7 @@ Lorsque les utilisateurs interagissent avec vos messages produit WhatsApp, ils p
 
 - **Pas de paiement intégré :** les utilisateurs ne peuvent pas finaliser leurs achats directement dans WhatsApp. Toutes les transactions doivent être redirigées vers votre site web ou application.
 - **Lien personnalisé requis :** vous devez créer un lien personnalisé qui dirige les utilisateurs vers leur panier sur votre plateforme.
-- **Configuration manuelle :** le processus de configuration nécessite une configuration manuelle de votre panier et de vos workflows d'envoi de messages.
+- **Configuration manuelle :** le processus de configuration nécessite une configuration manuelle de votre panier et de vos workflows de communication.
 
 {% alert note %}
 Nous ne prenons actuellement pas en charge les paiements directement dans WhatsApp, et la prise en charge future sera spécifique à chaque pays (actuellement, Meta ne le propose qu'aux entreprises basées en Inde, au Brésil et à Singapour et travaillant directement avec des utilisateurs dans ces pays).
@@ -196,7 +196,7 @@ L'événement de panier inclut :
 - **Source :** marquée comme « whats_app »
 - **Métadonnées :** données supplémentaires comme l'ID du catalogue et le texte du message
 
-Vous pouvez trouver des informations supplémentaires sur les événements de panier Braze dans [Types d'événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events).
+Vous pouvez trouver des informations supplémentaires sur les événements de panier Braze dans [Types d'événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 ### Configuration d'une réponse déclenchée {#setting-up-a-triggered-response}
 

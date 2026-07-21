@@ -2,6 +2,8 @@ O encurtamento de links e o rastreamento de cliques permitem que você encurte a
 
 O encurtamento de links e o rastreamento de cliques podem ser ativados no [nível da variante de mensagem]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) tanto em Campaigns quanto em Canvas.
 
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+
 O comprimento da URL é determinado pelo tipo de rastreamento que está ativado:
 - **Rastreamento básico** ativa o rastreamento de cliques no nível da Campaign. URLs estáticas terão um comprimento de 20 caracteres, e URLs personalizadas terão um comprimento de 25 caracteres.
 - **Rastreamento avançado** ativa o rastreamento de cliques no nível da Campaign e no nível do usuário, e permite o uso de recursos de segmentação e redirecionamento que dependem de cliques. Os cliques também gerarão um [evento de clique de SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) enviado pelo Currents. URLs estáticas com rastreamento avançado terão um comprimento de 27-28 caracteres, permitindo que você crie segmentos de usuários que clicaram em URLs. URLs personalizadas terão um comprimento de 32-33 caracteres.
@@ -46,7 +48,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-Também oferecemos suporte ao encurtamento de variáveis Liquid definidas de forma personalizada. Vários exemplos são mostrados na seção a seguir:
+Também oferecemos suporte ao encurtamento de variáveis Liquid definidas de forma personalizada, como nos exemplos a seguir:
 
 ### Criar uma URL usando variáveis Liquid {#create-a-url-using-liquid-variables}
 

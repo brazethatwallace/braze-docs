@@ -44,7 +44,7 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur de Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur de Canvas. Donnez à votre étape un nom clair et significatif.
-3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) et spécifiez un délai si nécessaire.
+3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) et spécifiez un délai si nécessaire.
 4. Filtrez votre audience pour cette étape, si nécessaire. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
 5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choisissez tout autre canal de communication que vous souhaitez associer à votre message.
@@ -63,7 +63,7 @@ Braze propose deux expériences d'édition lors de la création d'une campagne e
 
 ![Choix entre l'éditeur par glisser-déposer, l'éditeur HTML ou les modèles pour votre expérience d'édition d'e-mail.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-Ensuite, vous pouvez soit sélectionner un [modèle d'e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template) existant, [importer un modèle]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) depuis un fichier (éditeur HTML uniquement), soit utiliser un modèle vierge.
+Ensuite, vous pouvez soit sélectionner un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) existant, [importer un modèle]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) depuis un fichier (éditeur HTML uniquement), soit utiliser un modèle vierge.
 
 Si vous utilisez l'éditeur HTML et que vous souhaitez que les couleurs d'arrière-plan restent cohérentes dans l'application mobile Gmail lorsque l'appareil est en mode sombre, consultez [Application mobile Gmail et couleurs d'arrière-plan en mode sombre](#gmail-dark-mode).
 
@@ -111,7 +111,7 @@ Par exemple, pour conserver un arrière-plan blanc sur une cellule, utilisez cec
 Remplacez `#ffffff` par la couleur souhaitée.
 
 {% alert note %}
-Cette approche ne s'applique pas de manière fiable aux éléments `<table>` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
+Cette approche ne s'applique pas de manière fiable aux éléments `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
   <caption>Application mobile Gmail et mode sombre</caption>
 {% endalert %}
 
@@ -140,9 +140,7 @@ Vous pouvez également ajouter de la personnalisation pour les en-têtes d'e-mai
 
 Vous pouvez également ajouter des pièces jointes à vos e-mails par les méthodes suivantes :
 
-- **Importer un fichier :** Glissez-déposez ou parcourez pour importer un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant l'importation, puis ces fichiers sont importés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être importés.
-- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
-- **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des fichiers à partir d'URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Consultez les [bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) pour les recommandations spécifiques à prendre en compte.
 
@@ -222,7 +220,7 @@ Ensuite, vous pouvez utiliser **Copy preview link** pour générer et copier un 
 Vous pouvez également basculer entre les vues ordinateur de bureau, appareil mobile et texte brut pour avoir une idée de l'apparence de votre message dans différents contextes.
 
 {% alert tip %}
-Vous souhaitez voir à quoi ressemble votre e-mail pour les utilisateurs en mode sombre ? Activez le bouton **Dark Mode Preview** situé dans la section **Preview and Test** (éditeur par glisser-déposer uniquement). Si vous utilisez l'éditeur HTML, vous pouvez toujours gérer le rendu en mode sombre de Gmail mobile avec [Application mobile Gmail et mode sombre](#gmail-dark-mode).
+Vous souhaitez voir à quoi ressemble votre e-mail pour les utilisateurs en mode sombre ? Activez la bascule **Dark Mode Preview** située dans la section **Preview and Test** (éditeur par glisser-déposer uniquement). Si vous utilisez l'éditeur HTML, vous pouvez toujours gérer le rendu en mode sombre de Gmail mobile avec [Application mobile Gmail et mode sombre](#gmail-dark-mode).
 {% endalert %}
 
 Lorsque vous êtes prêt pour une vérification finale, sélectionnez **Test Send** et envoyez un message de test à vous-même ou à un groupe de testeurs pour confirmer que l'e-mail s'affiche correctement sur tous les appareils et clients.
@@ -275,7 +273,7 @@ Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un 
 Pour les campagnes déclenchées par API, lorsque l'action de déclenchement est définie sur **Interact With Campaign**, la sélection d'une option **Receive** comme interaction entraînera le déclenchement de votre nouvelle campagne dès que Braze marquera la campagne sélectionnée comme envoyée, même si ce message rebondit ou n'est pas distribué.
 {% endalert %}
 
-Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
@@ -295,9 +293,7 @@ Lors de la création d'une nouvelle campagne e-mail, le groupe de contrôle est 
 
 Pour les campagnes multicanales ciblant à la fois les canaux e-mail et push, vous pouvez souhaiter limiter votre campagne afin que seuls les utilisateurs ayant explicitement accepté reçoivent le message (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
 
-- **L'utilisateur A** est abonné aux e-mails et a les notifications push activées. Cet utilisateur ne reçoit pas l'e-mail mais recevra la notification push.
-- **L'utilisateur B** a accepté les e-mails mais n'a pas les notifications push activées. Cet utilisateur recevra l'e-mail mais ne recevra pas la notification push.
-- **L'utilisateur C** a accepté les e-mails et a les notifications push activées. Cet utilisateur recevra à la fois l'e-mail et la notification push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Pour ce faire, sous **Audience Summary**, sélectionnez l'envoi de cette campagne aux « utilisateurs ayant accepté uniquement ». Cette option garantira que seuls les utilisateurs ayant accepté recevront votre e-mail, et Braze n'enverra vos notifications push qu'aux utilisateurs ayant les notifications push activées par défaut.
 
@@ -318,7 +314,7 @@ Vous pouvez autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle Bra
 {% endtab %}
 
 {% tab Canvas %}
-Si ce n'est pas déjà fait, complétez les sections restantes de vos composants Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, de mettre en œuvre les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de vos composants Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, de mettre en œuvre les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 {% endtab %}
 {% endtabs %}
 

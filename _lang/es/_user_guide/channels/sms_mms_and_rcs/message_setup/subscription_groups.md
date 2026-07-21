@@ -36,11 +36,11 @@ Por ejemplo, si el Usuario A tiene un número de teléfono que está suscrito a 
 
 Para establecer el estado del grupo de suscripción de un usuario, utiliza uno de los siguientes métodos:
 
-- **REST API:** Los perfiles de usuario se pueden configurar programáticamente mediante el [punto de conexión `/subscription/status/set`]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) usando la REST API de Braze.
+- **REST API:** Los perfiles de usuario se pueden configurar programáticamente mediante el [endpoint `/subscription/status/set`]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) usando la REST API de Braze.
 - **Integración de SDK:** Los usuarios se pueden agregar a un grupo de suscripción de correo electrónico o SMS y RCS usando el método `addToSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) o [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
 - **Formulario de captura de número de teléfono en IAM:** Los números de teléfono de los usuarios se pueden recopilar a través de la plantilla de captura de número de teléfono en el editor de arrastrar y soltar de mensajes dentro de la aplicación.
 - **Gestionado automáticamente al adherirse o cancelar la suscripción del usuario:** Cuando los usuarios envían un mensaje de texto con una [palabra clave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) predeterminada de adhesión o cancelación, Braze configura y actualiza automáticamente el estado de suscripción de los usuarios.
-- **Importación de usuarios:** Los usuarios se pueden agregar a grupos de suscripción de correo electrónico o SMS y RCS a través de **Importar usuarios**. Al actualizar el estado del grupo de suscripción, debes tener estas dos columnas en tu CSV: `subscription_group_id` y `subscription_state`. Consulta [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status) para más información.
+- **Importación de usuarios:** Los usuarios se pueden agregar a grupos de suscripción de correo electrónico o SMS y RCS a través de **Importar usuarios**. Al actualizar el estado del grupo de suscripción, debes tener estas dos columnas en tu CSV: `subscription_group_id` y `subscription_state`. Consulta [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) para más información.
 
 #### Actualizar el estado de un usuario en un Canvas {#update-a-users-state-in-a-canvas}
 
@@ -55,17 +55,17 @@ Si usas un webhook para actualizar los grupos de suscripción, el usuario avanza
 Para verificar el grupo de suscripción de un usuario, utiliza uno de los siguientes métodos:
 
 - **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del panel de Braze seleccionando **Búsqueda de usuarios** en la barra lateral. Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. Dentro de un perfil de usuario, en la pestaña Interacción, puedes ver los grupos de suscripción de SMS y RCS de un usuario.
-- **REST API:** El grupo de suscripción de perfiles de usuario individuales se puede consultar mediante el [punto de conexión Lista de grupos de suscripción de usuarios]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [punto de conexión Listar el estado del grupo de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) usando la REST API de Braze.
+- **REST API:** El grupo de suscripción de perfiles de usuario individuales se puede consultar mediante el [endpoint Lista de grupos de suscripción de usuarios]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint Listar el estado del grupo de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) usando la REST API de Braze.
 
 ## Enviar mensajes con un grupo de suscripción {#send-messages-with-a-subscription-group}
 
-Para lanzar una campaña de SMS o RCS a través de Braze, selecciona un grupo de suscripción en el menú desplegable **SMS/MMS/RCS Variants**. Una vez seleccionado, se agregará automáticamente un filtro de audiencia a tu campaña o Canvas, asegurando que solo los usuarios `subscribed` al grupo de suscripción seleccionado estén en la audiencia objetivo.
+Para lanzar una campaña de SMS o RCS a través de Braze, selecciona un grupo de suscripción en el menú desplegable **SMS/MMS/RCS Variants**. Una vez seleccionado, se agregará automáticamente un filtro de audiencia a tu campaña o Canvas, asegurando que solo los usuarios `subscribed` al grupo de suscripción seleccionado estén en el público objetivo.
 
 {% alert important %}
 De acuerdo con las [normativas y directrices internacionales de telecomunicaciones]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations), Braze nunca enviará SMS o RCS a usuarios que no se hayan suscrito al grupo de suscripción seleccionado.
 {% endalert %}
 
-![Compositor de SMS con el menú desplegable del grupo de suscripción abierto y "Messaging Service A for SMS" resaltado por el usuario.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
+![Creador de SMS con el menú desplegable del grupo de suscripción abierto y "Messaging Service A for SMS" resaltado por el usuario.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
 
 ## Mejores prácticas para grupos de suscripción de SMS {#sms-subscription-group-best-practices}
 
@@ -77,7 +77,7 @@ Para habilitar grupos de suscripción para SMS, MMS o RCS, consulta lo siguiente
 
 {% tabs local %}
 {% tab SMS %}
-Durante tu proceso de incorporación de SMS, un administrador de incorporación de Braze configurará los grupos de suscripción para tu cuenta del dashboard. Trabajará contigo para determinar cuántos grupos de suscripción necesitas y agregará los números de teléfono de envío apropiados a tus grupos de suscripción. Los plazos para configurar un grupo de suscripción dependerán del tipo de números de teléfono que estés agregando. Por ejemplo, las solicitudes de códigos abreviados pueden tardar entre 8 y 12 semanas, mientras que los códigos largos se pueden configurar en un día. Si tienes preguntas sobre la configuración de tu panel de Braze, ponte en contacto con tu representante de Braze para obtener soporte.
+Durante tu proceso de incorporación de SMS, un administrador de incorporación de Braze configurará los grupos de suscripción para tu cuenta del panel. Trabajará contigo para determinar cuántos grupos de suscripción necesitas y agregará los números de teléfono de envío apropiados a tus grupos de suscripción. Los plazos para configurar un grupo de suscripción dependerán del tipo de números de teléfono que estés agregando. Por ejemplo, las solicitudes de códigos abreviados pueden tardar entre 8 y 12 semanas, mientras que los códigos largos se pueden configurar en un día. Si tienes preguntas sobre la configuración de tu panel de Braze, ponte en contacto con tu representante de Braze para obtener soporte.
 {% endtab %}
 
 {% tab MMS %}
@@ -94,7 +94,7 @@ Hay dos formas de agregar un remitente verificado de RCS:
 - Crear un nuevo grupo de suscripción de RCS
 La elección depende en gran medida de los casos de uso de RCS que te interesen.
 
-Dependiendo de tu integración, Braze puede agregar remitentes verificados de RCS a tus grupos de suscripción de SMS existentes o configurar nuevos grupos de suscripción para ti. En cualquier caso, tu administrador del éxito del cliente te guiará a través de una actualización de tráfico SMS fluida y eficiente.
+Dependiendo de tu integración, Braze puede agregar remitentes verificados de RCS a tus grupos de suscripción de SMS existentes o configurar nuevos grupos de suscripción para ti. En cualquier caso, tu administrador de éxito de cliente te guiará a través de una actualización de tráfico SMS fluida y eficiente.
 {% endtab %}
 {% endtabs %}
 
@@ -107,14 +107,14 @@ Para una gestión integral de suscripciones, puedes capturar la intención de ca
 1. En la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents), crea un "Agente de análisis de sentimiento de SMS".
 
 {% alert tip %}
-Usa [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples) para ayudarte con la configuración inicial del agente.
+Usa [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator) para ayudarte con la configuración inicial del agente.
 {% endalert %}
 
 {: start="2"}
 2. Crea un Canvas basado en acciones desencadenado por **Send an SMS inbound message**, dentro de la categoría de palabras clave **Other**.
 3. Agrega el [paso de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) al Canvas para identificar la intención de cancelación.
 4. Agrega un [paso de Mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) de SMS posterior para confirmar la solicitud: "Parece que estás intentando cancelar la suscripción de SMS, así que vamos a darte de baja. Si esto es un error, envía START para volver a suscribirte."
-5. Agrega un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) para cambiar el estado del usuario en el grupo de suscripción de SMS específico a "Dado de baja".
+5. Agrega un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) para cambiar el estado del usuario en el grupo de suscripción de SMS específico a "Dado de baja".
 
 {% alert note %}
 El uso de la Consola de Agente consume créditos de mensaje o de acción.
@@ -133,7 +133,7 @@ Crea un Canvas y nómbralo con algo fácilmente identificable (como "Transferenc
 ### Paso 2: Definir tu audiencia {#step-2-define-your-audience}
 {: #step-2-define-your-audience}
 
-Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Users who are subscribed or opted-in**.
+Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Usuarios suscritos o con adhesión voluntaria**.
 
 | Método | Descripción |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

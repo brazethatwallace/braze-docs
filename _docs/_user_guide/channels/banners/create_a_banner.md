@@ -159,9 +159,7 @@ For the full JavaScript bridge reference, see [Custom code and JavaScript bridge
 
 You can add custom properties to a Banner to attach structured metadata, such as strings or JSON objects. These properties don’t affect how the Banner is displayed but can be [accessed through the Braze SDK]({{site.baseurl}}/developer_guide/banners/placements) to modify your app’s behavior or appearance. For example, you could:
 
-- Send metadata for your third-party analytics or integrations.
-- Use metadata such as a `timestamp` or JSON object to trigger conditional logic.
-- Control the behavior of a Banner based on included metadata like `ratio` or `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 Custom properties work the same way in both the drag-and-drop editor and the HTML editor. To add a custom property, select **Settings** > **Properties** > **Add property**.
 
@@ -220,7 +218,7 @@ Braze allows you to track [conversion events]({{site.baseurl}}/user_guide/messag
 
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
 
 To control re-eligibility for Canvas Banner steps, use the Canvas re-entry settings. For more information, see [Re-eligibility for campaigns and Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 

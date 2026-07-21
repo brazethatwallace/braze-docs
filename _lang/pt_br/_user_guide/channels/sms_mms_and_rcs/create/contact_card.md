@@ -18,7 +18,7 @@ channel:
 O envio de um cartão de contato é cobrado como MMS. Revise o volume esperado de MMS e o uso de créditos de mensagem ou de ação ao criar cartões de contato, e confirme os custos na [página de Faturamento]({{site.baseurl}}/user_guide/administer/global/billing) da Braze.
 {% endalert %}
 
-Os cartões de contato podem ser criados [programaticamente](https://www.twilio.com/blog/send-vcard-twilio-sms) e enviados para a [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) da Braze, ou criados por meio do nosso gerador de cartões de contato integrado. Esses cartões podem receber propriedades comuns, como o nome da sua empresa, número de telefone, endereço, e-mail e uma pequena foto. Para começar a criar cartões de contato, primeiro certifique-se de que o MMS está configurado na Braze.
+Os cartões de contato podem ser criados [programaticamente](https://www.twilio.com/blog/send-vcard-twilio-sms) e enviados para a [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) da Braze, ou criados por meio do nosso gerador de cartões de contato integrado. Esses cartões podem receber propriedades comuns, como o nome da sua empresa, número de telefone, endereço, e-mail e uma pequena foto. Para começar a criar cartões de contato, primeiro certifique-se de que o MMS está configurado na Braze.
 
 ## Gerador de cartões de contato {#contact-card-generator}
 
@@ -58,8 +58,8 @@ O campo **Full Name** determina as iniciais que aparecem na miniatura do chat de
 
 Depois de preencher todos os campos necessários, selecione **Generate Contact Card**, e ele será automaticamente anexado à sua Campaign ou Canvas. A partir daqui, você pode adicionar uma mensagem, testar seu cartão de contato e lançar sua Campaign ou Canvas.
 
-O cartão de contato também será salvo na [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) para reutilização fácil em futuras Campaigns e Canvas.
+O cartão de contato também será salvo na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para reutilização fácil em futuras Campaigns e Canvas.
 
 ## Adicionando um cartão de contato existente {#adding-an-existing-contact-card}
 
-Para adicionar um cartão de contato existente, crie uma Campaign ou Canvas e selecione o grupo de inscrições desejado. Em seguida, uma opção **Add Media** aparecerá na janela do criador de mensagens. Aqui, você pode fazer upload de um arquivo de cartão de contato existente ou localizar um pela Biblioteca de mídia.
+Para adicionar um cartão de contato existente, crie uma Campaign ou Canvas e selecione o grupo de inscrições desejado. Em seguida, uma opção **Add Media** aparecerá na janela do criador de mensagens. Aqui, você pode fazer upload de um arquivo de cartão de contato existente ou localizar um pela biblioteca de mídia.

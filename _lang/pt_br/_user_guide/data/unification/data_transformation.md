@@ -49,9 +49,9 @@ A tabela a seguir descreve as diferenças entre a versão gratuita e a versão p
 Para solicitar um upgrade para o Data Transformation Pro, entre em contato com o seu gerente de conta da Braze ou selecione o botão **Request Upgrade** no dashboard da Braze.
 {% endalert %}
 
-### Limites de taxa {#rate-limits}
+### Limites de frequência {#rate-limits}
 
-O limite de taxa para as Transformações de Dados da Braze é de 1.000 solicitações de entrada por minuto por espaço de trabalho. Se você tem o Data Transformation Pro e precisa de um limite de taxa maior, entre em contato com o seu gerente de conta da Braze.
+O limite de frequência para as Transformações de Dados da Braze é de 1.000 solicitações de entrada por minuto por espaço de trabalho. Se você tem o Data Transformation Pro e precisa de um limite de frequência maior, entre em contato com o seu gerente de conta da Braze.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
@@ -65,7 +65,7 @@ Embora adoraríamos que os desenvolvedores usassem esse recurso também, você n
 
 ### Ainda posso usar a Transformação de Dados da Braze se minha plataforma externa fornecer apenas um endereço de e-mail ou número de telefone como identificador? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
-Sim. Você pode ter suas transformações atualizando o endpoint `/users/track` com o [endereço de e-mail ou número de telefone como identificador]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-email-address).
+Sim. Você pode ter suas transformações atualizando o endpoint `/users/track` com o [endereço de e-mail ou número de telefone como identificador]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-email-address).
 
 Isso funciona usando `email` ou `phone` como sua propriedade identificadora no código de transformação em vez de `external_id` ou `braze_id`. O exemplo de [código de transformação]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases#example-transformation-code) usa essa funcionalidade.
 

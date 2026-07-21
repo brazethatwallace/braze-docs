@@ -85,6 +85,10 @@ Wenn Sie Ihre Auswahl nicht finden können, vergewissern Sie sich zunächst, das
 
 Wählen Sie das Event aus, für das diese Empfehlung optimiert werden soll. Bei diesem Event handelt es sich in der Regel um einen Kauf, es kann aber auch jede andere Interaktion mit einem Artikel sein.
 
+{% alert tip %}
+Bei der Konfiguration von KI-Artikelempfehlungen ist die Wahl des Events wichtig. Ihr auslösendes Event bestimmt, wer eine KI-generierte Empfehlung erhält – KI-Artikelempfehlungen werden für Nutzer:innen generiert, die das von Ihnen konfigurierte Event abgeschlossen haben, sodass diese Wahl direkt bestimmt, wer Empfehlungen erhält. Wählen Sie ein Event, das das gesamte Zielgruppensegment abdeckt, das Sie erreichen möchten.<br><br> Gleichzeitig sollten Sie Abdeckung und Relevanz gegeneinander abwägen. Events am oberen Ende des Funnels (wie „Produkt angesehen“) erfassen tendenziell eine breitere Zielgruppe, sind aber weniger mit Geschäftsergebnissen verknüpft, während Events am unteren Ende des Funnels (wie „Gekauft“) gezieltere, geschäftsrelevantere Empfehlungen liefern. Das beste Event ist eines, das Abdeckung und Einfluss auf das Geschäftsergebnis in Einklang bringt.
+{% endalert %}
+
 Sie können optimieren für:
 
 - Kauf-Events mit dem [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object)
@@ -118,7 +122,7 @@ Für die Auswahl Ihrer Eigenschaft gelten einige Anforderungen:
 - **Wenn Sie das Event „Bestellung aufgegeben“ ausgewählt haben oder [E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) zum Trainieren von Artikelempfehlungen verwenden:** Geben Sie `products.product_id` für die Produkt-ID ein.
   - Das Feld kann sich innerhalb eines Arrays von Produkten befinden oder mit einem Array von IDs enden. In beiden Fällen wird jede Produkt-ID als separates, aufeinanderfolgendes Event mit demselben Zeitstempel behandelt.
 - **Wenn Sie Kauf-Objekt ausgewählt haben:** Muss die `product_id` oder ein Feld der `properties` Ihres Interaktions-Events sein.
-- **Wenn Sie Angepasstes Event ausgewählt haben:** Muss ein Feld der `properties` Ihres angepassten Events sein.
+- **Wenn Sie angepasstes Event ausgewählt haben:** Muss ein Feld der `properties` Ihres angepassten Events sein.
 - Verschachtelte Felder müssen in der Dropdown-Liste **Property Name** in Punktnotation im Format `event_property.nested_property` eingegeben werden. Wenn Sie zum Beispiel die verschachtelte Eigenschaft `district_name` innerhalb der Event-Eigenschaft `location` auswählen möchten, geben Sie `location.district_name` ein.
 
 #### Beispielzuordnungen {#example-mappings}

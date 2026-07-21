@@ -3,7 +3,7 @@ nav_title: Einkäufe protokollieren
 article_title: Käufe für iOS protokollieren
 platform: iOS
 page_order: 4
-description: "Dieser referenzierte Artikel zeigt, wie Sie In-App-Käufe und Umsätze tracken und Kauf-Details in Ihrer iOS-Anwendung zuweisen können."
+description: "Dieser Referenzartikel zeigt, wie Sie In-App-Käufe und Umsätze tracken und Kauf-Details in Ihrer iOS-Anwendung zuweisen können."
 
 noindex: true
 ---
@@ -53,7 +53,6 @@ Sie können Metadaten über Käufe hinzufügen, indem Sie entweder ein [Array mi
 Weitere Einzelheiten finden Sie in der [Dokumentation zur iOS-Klasse](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aaca4b885a8f61ac9fad3936b091448cc).
 
 ### Menge hinzufügen {#adding-quantity}
-
 Sie können eine Menge zu Ihren Einkäufen hinzufügen, wenn Kund:innen denselben Einkauf mehrmals in einem einzigen Bezahlvorgang tätigen. Sie können dies erreichen, indem Sie eine `NSUInteger` für die Menge übergeben.
 
 * Die eingegebene Menge muss im Bereich von [0, 100] liegen, damit das SDK einen Kauf protokollieren kann.
@@ -87,8 +86,7 @@ Wenn Sie einen Wert von 10 USD und eine Menge von 3 übergeben, wird dies im Pro
 {% endalert %}
 
 ### Käufe auf Bestellebene protokollieren {#log-purchases-at-the-order-level}
-
-Wenn Sie Einkäufe auf der Bestellebene statt auf der Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden. Weitere Informationen finden Sie in unserer [Spezifikation für Kauf-Objekte]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions).
+Wenn Sie Einkäufe auf der Bestellebene statt auf der Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden. Weitere Informationen finden Sie in unserer [Spezifikation für Kauf-Objekte]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
 
 ### Reservierte Schlüssel {#reserved-keys}
 

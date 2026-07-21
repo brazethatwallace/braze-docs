@@ -1,0 +1,3 @@
+- **Braze Account:** A Braze account with API access
+- **API Key:** Your app's API key from the Braze dashboard
+- **SDK Endpoint:** Your Braze SDK endpoint URL (for example, `sdk.iad-01.braze.com`)

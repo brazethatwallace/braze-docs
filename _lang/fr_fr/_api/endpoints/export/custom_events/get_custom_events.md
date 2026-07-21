@@ -20,7 +20,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter la list
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `events.list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `events.list`.
 
 ## Limite de débit {#rate-limit}
 

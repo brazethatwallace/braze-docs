@@ -31,7 +31,7 @@ Braze에서는 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_m
 
 사용자가 가입한 후 다음을 수행하세요:
 
-1. [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status)를 사용하여 사용자를 생성하고 속성을 저장합니다.
+1. [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)를 사용하여 사용자를 생성하고 속성을 저장합니다.
 
 {% raw %}
 ```http

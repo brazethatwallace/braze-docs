@@ -28,7 +28,7 @@ description: "This article outlines details about the List link alias for Canvas
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `canvas_step_id` | Required | String | See [Canvas step API identifier]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier). |
+| `canvas_step_id` | Required | String | See [Canvas step API identifier]({{site.baseurl}}/api/identifier_types#canvas-identifier). |
 | `message_variation_id ` | Required | String | Message variant API identifier (for the email message variant in that step). You can find this by clicking **Analyze Variants** on the **Canvas Details** page. |
 | `includes_link_id` | Optional | String | A specific link identifier (as assigned by Braze) or `null`. This is used to filter the results by a specific `link_id`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

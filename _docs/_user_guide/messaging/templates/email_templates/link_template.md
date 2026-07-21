@@ -85,7 +85,11 @@ To access the **Link Management** tab in the updated HTML editor or the drag-and
 Link templates aren't applied to plain text. This means Currents may show clicks that don't include the parameters from the link templates as those clicks may come from the plain text version of the email.
 {% endalert %}
 
-As you add link templates in the **Link Management** tab, scroll to the right to view the templates you've added. If existing links within an email already have a link template added, newly added links will also have the link template added by default.
+As you add link templates in the **Link Management** tab, each template appears as an additional column in the table. If existing links within an email already have a link template added, newly added links also have the link template added by default.
+
+{% alert tip %}
+When including links in your message, be sure to start the URLs with `http://` or `https://`.
+{% endalert %}
 
 ## Managing link templates
 
@@ -94,6 +98,29 @@ You can also [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managin
 {% alert important %}
 Archiving templates is not currently available for link templates.
 {% endalert %}
+
+## Troubleshooting
+
+### Missing UTM parameters
+
+Link templates aren't applied to links in standard HTML comments (`<!-- ... -->`). For Outlook conditional comments (for example, `<!--[if mso]>`), link templates are applied when link aliasing is enabled for your workspace. Workspaces without link aliasing enabled still skip conditional comments.
+
+### UTM parameters present in browser but missing from links
+
+This can happen when the URL path in your email doesn't match the full path you intend (for example, a shortened or different path than the website's full URL).
+
+- **What to check:** The `href` in the email includes the complete path to the page (not only a partial path that relies on redirects).
+- **What to expect:** If the path in the email is incomplete or different, UTM parameters from your link template may not be applied to that link when it's clicked, even though the website might still redirect the visitor to the correct page.
+
+For example, if the full link is `https://www.somewebsite.com/women/designer/johnjane` but the email uses `https://www.somewebsite.com/designer/johnjane`, it is expected that UTM parameters won't be added to the email link.
+
+### UTM parameters missing from Liquid-rendered links
+
+When applying link templates, Braze parses each URL to determine where to append parameters. If a Liquid tag renders a URL that cannot be parsed as a valid URI, the link template is silently skipped. Check that your Liquid output produces a well-formed URL. Test by previewing the message for a specific user and verifying the rendered URL is valid. If the URL includes Liquid variables in the path or query string, confirm the output doesn't contain invalid characters or broken encoding.
+
+### UTM values missing in test sends
+
+When test sending link templates, {% raw %}`{{${user_id}}}`{% endraw %} does not get rendered. Instead, duplicate the campaign and set it to target your internal users' email or `external_id` and launch the campaign to verify that all UTM parameters from the link template are populated.
 
 ## Frequently asked questions
 

@@ -49,12 +49,12 @@ platform:
 ### Campaign 계획 {#campaign-planning}
 
 CRM 팀은 가까운 시일 내에 출시할 메시징 사용 사례를 계획합니다. 여기에는 다음이 포함됩니다:
-* [채널]({{site.baseurl}}/user_guide/channels) (예: 푸시 알림 또는 인앱 메시지)
-* [전달 방법]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) (예: 예약 전달 또는 실행 기반 전달)
+* [채널]({{site.baseurl}}/user_guide/channels)(예: 푸시 알림 또는 인앱 메시지)
+* [전달 방법]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)(예: 예약 전달 또는 실행 기반 전달)
 * [타겟 오디언스]({{site.baseurl}}/user_guide/audience/segments)
 * [성공 측정기준]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
-예를 들어, 어제 첫 세션을 기록한 고객 세그먼트에 매일 오전 10시에 이메일을 보내는 신규 고객 Campaign이 있을 수 있습니다. 전환 이벤트(성공 측정기준)는 세션을 기록하는 것입니다.
+예를 들어, 어제 첫 세션을 기록한 고객 Segment에 매일 오전 10시에 이메일을 보내는 신규 고객 Campaign이 있을 수 있습니다. 전환 이벤트(성공 측정기준)는 세션을 기록하는 것입니다.
 
 <br>
 {% alert important %}
@@ -89,7 +89,7 @@ Braze 대시보드는 웹 UI 인터페이스입니다. 마케터는 대시보드
 
 팀 관리자는 다른 [워크스페이스]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)도 만들 수 있습니다. 워크스페이스는 사용자, Segments, API 키와 같은 데이터를 한 곳에 그룹화합니다. 모범 사례로 동일한 앱의 서로 다른 버전 또는 매우 유사한 앱만 하나의 워크스페이스에 모으는 것을 권장합니다.
 
-중요한 점은 워크스페이스가 여러 플랫폼(예: iOS 및 Android)에 대한 API 키를 제공한다는 것입니다. 연관된 API 키를 사용하여 SDK 데이터를 특정 워크스페이스에 연결할 수 있습니다. 워크스페이스로 이동하여 각 앱의 API 키에 액세스합니다. 각 API 키에 범위를 지정한 작업을 수행할 수 있는 올바른 권한이 있는지 확인합니다. 자세한 내용은 [API 프로비저닝 문서]({{site.baseurl}}/api/basics#rest-api-key)를 참조하세요.
+중요한 점은 워크스페이스가 여러 플랫폼(예: iOS 및 Android)에 대한 API 키를 제공한다는 것입니다. 연관된 API 키를 사용하여 SDK 데이터를 특정 워크스페이스에 연결할 수 있습니다. 워크스페이스로 이동하여 각 앱의 API 키에 액세스합니다. 각 API 키에 범위를 지정한 작업을 수행할 수 있는 올바른 권한이 있는지 확인합니다. 자세한 내용은 [API 프로비저닝 문서]({{site.baseurl}}/api/basics#rest-api-key-permissions)를 참조하세요.
 
 {% alert important %}
 개발과 프로덕션을 위해 서로 다른 환경을 설정하는 것이 중요합니다. 테스트 환경을 설정하면 온보딩 및 QA 과정에서 실제 비용의 지출을 방지할 수 있습니다. 테스트 환경을 구축하려면 테스트 워크스페이스를 설정하고 프로덕션 워크스페이스에 테스트 데이터를 채우지 않도록 해당 API 키를 사용해야 합니다.
@@ -194,7 +194,7 @@ QA를 시작하기 전에 프로덕션 및 테스트 환경이 설정되어 있�
 | 세션 시작과 종료가 기록되고 있는지 확인합니다. | 올바른 Campaigns가 올바른 사용자 Segments에 표시되고 있는지 확인합니다. |
 | 사용자 속성 정보가 사용자 프로필에 대해 올바르게 기록되었는지 확인합니다. | 푸시 토큰이 올바르게 등록되었는지 확인합니다. |
 | 사용자 프로필에 대해 커스텀 데이터가 올바르게 기록되고 있는지 테스트합니다. | 푸시 토큰이 올바르게 제거되었는지 확인합니다. |
-| 익명 사용자 프로필을 만듭니다. | 푸시 Campaigns가 기기에 올바르게 전송되고 참여가 기록되는지 테스트합니다. |
+| 익명 사용자 프로필을 만듭니다. | 푸시 Campaigns가 기기에 올바르게 전송되고 인게이지먼트가 기록되는지 테스트합니다. |
 | `changeUser()` 메서드가 호출될 때 익명 사용자 프로필이 알려진 사용자 프로필이 되는지 확인합니다. | In-App Messages가 전달되고 측정기준이 기록되는지 테스트합니다. |
 |                           | Content Cards가 전달되고 측정기준이 기록되는지 테스트합니다. |
 |                           | 연결된 콘텐츠를 활성화합니다(예: AccuWeather). |
@@ -223,7 +223,7 @@ Braze를 온보딩할 때 데이터, 사용자 프로필, 범위 내 통합과 �
 
 ## 유지 관리 {#maintenance}
 
-마케터에게 인계한 후에도 유지 관리를 위한 리소스 역할을 계속 수행합니다. Braze SDK에 영향을 줄 수 있는 iOS 및 Android 업데이트에 주의를 기울이고 서드파티 공급자가 최신 상태인지 확인해야 합니다.
+마케터에게 인계한 후에도 유지 관리를 위한 리소스 역할을 계속 수행합니다. Braze SDK에 영향을 줄 수 있는 iOS 및 Android 업데이트에 주의를 기울이고 타사 공급업체가 최신 상태인지 확인해야 합니다.
 
 Braze [GitHub](https://github.com/braze-inc/)를 통해 Braze 플랫폼의 업데이트를 추적합니다. 때때로 관리자가 긴급 업데이트 및 버그 수정에 대한 이메일을 Braze에서 직접 받기도 합니다.
 
@@ -243,9 +243,9 @@ Braze [GitHub](https://github.com/braze-inc/)를 통해 Braze 플랫폼의 업�
 
 ### 사용량 제한 확인하기 {#finding-your-rate-limits}
 
-예상 SDK 처리량을 기준으로 현재 제한을 확인하려면 **설정** > **API 키** > **API 및 SDK 제한**으로 이동하세요.
+예상 SDK 처리량을 기준으로 현재 제한을 확인하려면 **설정** > **API 및 식별자** > **API 및 SDK 제한**으로 이동하세요.
 
-사용 내역을 보려면 **설정** > **API 키** > **API 및 SDK 대시보드**로 이동하세요.
+사용 내역을 보려면 **설정** > **API 및 식별자** > **API 및 SDK 대시보드**로 이동하세요.
 
 ### 더 높은 사용량 제한 요청하기 {#requesting-higher-rate-limits}
 

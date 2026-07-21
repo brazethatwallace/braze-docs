@@ -35,7 +35,7 @@ Provide a template name. Optionally, add a description, teams, and tags.
 
 ### Step 3: Upload your template
 
-In the **Template content** section, select **Upload file** below the **HTML code editor** tile. Select your template from your computer. Refer to the [Requirements](#upload-requirements) section to ensure your template meets the upload requirements.
+In the **Template content** section, select **Upload file**. Select your template from your computer. Refer to the [Requirements](#upload-requirements) section to ensure your template meets the upload requirements.
 
 ### Step 4: Finish and save your template
 

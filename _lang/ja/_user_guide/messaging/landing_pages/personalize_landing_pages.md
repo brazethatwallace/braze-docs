@@ -15,7 +15,7 @@ page_order: 4
 
 ## Liquidの挿入 {#inserting-liquid}
 
-ドラッグ＆ドロップエディターでは、エディター内および右側パネルのページまたはブロック設定の両方でLiquidパーソナライゼーションを挿入できます。Liquidの実装手順については、専用の[Liquidドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid)をご確認ください。
+ドラッグ＆ドロップエディターでは、エディター内および右側パネルのページまたはブロック設定の両方でLiquidパーソナライゼーションを挿入できます。Liquidの実装手順については、専用の[Liquidドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)をご確認ください。
 
 ![Liquidパーソナライゼーションが追加されたランディングページエディター。]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 

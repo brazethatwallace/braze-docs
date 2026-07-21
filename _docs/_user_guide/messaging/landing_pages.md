@@ -80,6 +80,12 @@ No, there aren't any technical requirements.
 
 Yes. Use the **Custom Code** block in the drag-and-drop editor to add or edit HTML.
 
+### Can I use iframes on landing pages?
+
+Yes. Add a **Custom Code** block in the drag-and-drop editor and include an iframe element with the URL of the content you want to embed.
+
+If the embedded website restricts framing through `frame-ancestors` in its Content Security Policy (CSP) or `X-Frame-Options`, the page may not load in the iframe. Braze can't override those settings—the embedded site must be configured to allow your landing page domain.
+
 ### Can I create a webhook inside a landing page?
 
 No, but the **Submitted a Landing Page form** event can act as a trigger for Canvases or webhook campaigns:

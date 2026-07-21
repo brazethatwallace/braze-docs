@@ -54,7 +54,7 @@ Wrap text you want to translate with the Liquid translation tags {% raw %}`{% tr
 Here is an example message marked for translation: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Highlight the text you want to translate and use the keyboard shortcut **Cmd + Alt + L** (macOS) or **Ctrl + Alt + L** (Windows) to wrap in translation tags.<br><br> This shortcut works in all channels that support multi-language messaging except for the drag-and-drop editors for email and Content Blocks. For those, use the **Add personalization** button in the left sidebar to add translation tags.
+Highlight the text you want to translate and use the keyboard shortcut **Cmd + Alt + L** (macOS) or **Ctrl + Alt + L** (Windows) to wrap in translation tags.<br><br> This shortcut works in all channels that support multi-language messaging except for the drag-and-drop editors for email and Content Blocks. For those, use the **Add personalization** button to add translation tags.
 {% endalert %}
 
 #### Localize URLs

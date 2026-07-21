@@ -14,14 +14,14 @@ description: "Cette page donne un aperçu de la manière de synchroniser les don
 ## Étape 1 : Créer un nouveau catalogue {#step-1-create-a-new-catalog}
 
 Avant de créer une nouvelle intégration d'ingestion de données cloud (CDI) pour les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs), vous devez créer un nouveau catalogue ou identifier un catalogue existant que vous souhaitez utiliser pour l'intégration. Il existe plusieurs façons de créer un nouveau catalogue, et chacune d'entre elles fonctionnera pour l'intégration CDI :
-- Télécharger un [fichier CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv)
-- Créer un catalogue dans le [tableau de bord de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) ou lors de la configuration du CDI.
+- Télécharger un [fichier CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog)
+- Créer un catalogue dans le [tableau de bord de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) ou lors de la configuration du CDI.
 - Créer un catalogue à l'aide de l'[endpoint Créer un catalogue]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)
 
 Toute modification du schéma du catalogue (par exemple, l'ajout de nouveaux champs ou la modification du type de champ) doit être effectuée via le tableau de bord du catalogue avant que les données mises à jour ne soient synchronisées via CDI. Nous vous recommandons d'effectuer ces mises à jour lorsque la synchronisation est en pause ou n'est pas planifiée afin d'éviter les conflits entre les données de votre entrepôt de données et le schéma dans Braze.
 
 ## Étape 2 : Intégrer l'ingestion de données cloud avec les données du catalogue {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-La configuration d'une synchronisation de catalogue suit de près le processus des [intégrations CDI de données utilisateur]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup).
+La configuration d'une synchronisation de catalogue suit de près le processus des [intégrations CDI de données utilisateur]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 {% tabs %}
 {% tab Snowflake %}

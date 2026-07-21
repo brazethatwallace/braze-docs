@@ -1,0 +1,3 @@
+- **Merge implications:** If the endpoint fails (returns non-`200` or times out), Braze cannot retrieve the external ID. Consequently, the merge between the Shopify user and the Braze user profile does not happen at that time.
+- **Retry logic:** Braze may attempt standard immediate network retries, but if the failure persists, the merge is deferred until the next qualifying event (for example, the next time the user updates their profile or completes a checkout).
+- **Supportability:** To support timely user merging, ensure your endpoint is highly available and handles the optional `email_address` field gracefully.

@@ -376,9 +376,7 @@ Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu insta
 #### Paso 1.1: Configurar el principal de servicio y conceder acceso {#step-11-set-up-the-service-principal-and-grant-access}
 Braze se conecta a tu almacén de Fabric utilizando un principal de servicio con autenticación Entra ID. Crea un nuevo principal de servicio para que lo utilice Braze y concede acceso a los recursos de Fabric según sea necesario. Braze necesita los siguientes datos para conectarse:
 
-* Tenant ID (también llamado directorio) de tu cuenta de Azure
-* Principal ID (también llamado ID de aplicación) del principal de servicio
-* Secreto de cliente para que Braze se autentique
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
 1. En el portal de Azure, ve al centro de administración de Microsoft Entra y, a continuación, a App Registrations.
 2. Selecciona **+ New registration** en **Identity** > **Applications** > **App registrations**.

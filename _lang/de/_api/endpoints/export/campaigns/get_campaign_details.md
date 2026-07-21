@@ -22,7 +22,7 @@ Wenn Sie Canvas-Daten abrufen möchten, lesen Sie den Endpunkt [Canvas-Details e
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `campaigns.details`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `campaigns.details`.
 
 ## Rate-Limit
 
@@ -305,7 +305,7 @@ Das Array `conversion_behaviors` enthält Informationen zu jedem für die Kampag
 
 
 {% endtab %}
-{% tab App upgraden %}
+{% tab App-Upgrade %}
 
 ```json
 {

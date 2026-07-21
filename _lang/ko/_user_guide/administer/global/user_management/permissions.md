@@ -90,6 +90,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 - **워크스페이스 관리자 vs 회사 관리자:** 워크스페이스 관리자는 할당된 워크스페이스 내에서 권한을 관리합니다. 회사 관리자는 다른 대시보드 사용자를 삭제하는 것을 포함하여 회사 전체에 대한 권한을 가집니다.
 - **제한된 사용자:** "Edit Dashboard Users" 권한이 있는 제한된 사용자는 다른 제한된 사용자를 관리할 수 있지만, 회사 관리자 계정을 생성하거나 관리할 수는 없습니다.
 - **대시보드 사용자 관리 범위:** 사용자 세부 정보 페이지에서는 편집자가 접근할 수 있는 워크스페이스의 권한만 표시됩니다. 하나의 워크스페이스에서 사용자를 편집할 수 있는 제한된 사용자는 다른 워크스페이스의 권한 체크박스를 볼 수 없을 수 있습니다.
+- **권한 할당 버튼:** 사용자를 편집할 때 해당 사용자가 관리할 수 있는 모든 워크스페이스에 대해 이미 워크스페이스 수준 권한 또는 권한 세트를 가지고 있는 경우, **권한 할당** 버튼이 사라집니다. 이는 워크스페이스 수준에서 할당할 추가 워크스페이스가 남아 있지 않기 때문입니다.
 - **사용자 데이터 내보내기:** 사용자 데이터를 내보내려면 내보내기 권한 외에 워크스페이스 수준 접근 권한이 필요합니다.
 - **복합 권한:** 일부 영역에는 여러 권한이 필요합니다. 예를 들어, [기술 파트너]({{site.baseurl}}/partners)를 구성하려면 일반적으로 파트너 접근 권한과 관련 워크스페이스 기능에 대한 기본 읽기 권한이 모두 필요합니다.
 - **사용자 데이터 가져오기 및 업데이트:** 이 권한에는 대시보드 사용자 레코드뿐만 아니라 가져오기 플로우를 통해 앱 사용자 프로필을 편집하는 기능도 포함됩니다.
@@ -135,12 +136,12 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 ### 워크스페이스 {#workspace}
 
-Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **Select workspaces and permissions**를 선택한 다음 수동으로 권한을 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당합니다. 서로 다른 워크스페이스에 대해 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
+Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 권한을 부여할 수 있습니다. 워크스페이스 수준 권한을 관리하려면 **워크스페이스 및 권한 선택**을 선택한 다음 수동으로 권한을 선택하거나 이전에 생성한 [권한 세트 또는 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set)을 할당합니다. 서로 다른 워크스페이스에 대해 다른 권한을 부여해야 하는 경우 필요한 만큼 이 과정을 반복합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions)을 참조하세요.
 
 {% subtabs %}
 {% subtab 수동 선택 %}
 
-**Workspaces**에서 드롭다운으로 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **Permissions**에서 하나 이상의 권한을 선택합니다. 선택한 워크스페이스에 대해서만 이 권한이 할당됩니다. 선택적으로, 이 워크스페이스에 대한 전체 권한을 부여하려면 **Assign workspace admin access**를 선택할 수 있습니다.
+**워크스페이스**에서 드롭다운으로 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **권한**에서 하나 이상의 권한을 선택합니다. 선택한 워크스페이스에 대해서만 이 권한이 할당됩니다. 선택적으로, 이 워크스페이스에 대한 전체 권한을 부여하려면 **워크스페이스 관리자 접근 권한 할당**을 선택할 수 있습니다.
 
 완료되면 **Update user**를 선택합니다.
 
@@ -149,7 +150,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 {% endsubtab %}
 {% subtab 권한 세트 할당 %}
 
-**Workspaces**에서 드롭다운으로 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **Permission Sets**에서 하나의 권한 세트를 선택합니다. 선택한 워크스페이스에 대해서만 이 권한이 할당됩니다.
+**워크스페이스**에서 드롭다운으로 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **권한 세트**에서 하나의 권한 세트를 선택합니다. 선택한 워크스페이스에 대해서만 이 권한이 할당됩니다.
 
 완료되면 **Update user**를 선택합니다.
 
@@ -158,7 +159,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 {% endsubtab %}
 {% subtab 역할 할당 %}
 
-**Workspaces**에서 드롭다운으로 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **Role**에서 하나의 역할을 선택합니다. 선택한 워크스페이스에 대해서만 이 권한이 할당됩니다.
+**워크스페이스**에서 드롭다운으로 하나 이상의 워크스페이스를 선택합니다. 그런 다음 **역할**에서 하나의 역할을 선택합니다. 선택한 워크스페이스에 대해서만 이 권한이 할당됩니다.
 
 완료되면 **Update user**를 선택합니다.
 
@@ -171,7 +172,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 ## 사용자 권한 내보내기 {#exporting-user-permissions}
 
-사용자 및 권한 목록을 다운로드하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동한 다음 **Export Users**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
+사용자 및 권한 목록을 다운로드하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동한 다음 **사용자 내보내기**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
 
 ## 권한 목록 {#list-of-permissions}
 
@@ -221,7 +222,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 사용자 데이터 | Edit User Data | 사용자 데이터 생성 및 업데이트 |
 | 사용자 데이터 | Export User Data | 대시보드에서 사용자 다운로드 |
 | 중복 사용자 | View User Merge Records | 사용자 병합 기록 목록 보기 |
-| 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기. "View Custom Attributes Marked as PII" 권한이 없는 경우, PII로 표시된 커스텀 속성을 참조하는 Campaign을 저장하거나 실행할 수 없습니다. |
+| 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기. 이 권한이 있는 사용자는 "View Custom Attributes Marked as PII" 권한도 가지고 있지 않으면 PII로 표시된 커스텀 속성을 참조하는 Campaign을 저장하거나 실행할 수 없습니다.<br><br>"View User Profiles (PII Redacted)" 권한은 사용하기 전에 활성화해야 합니다. 워크스페이스에서 이 권한을 활성화하려면 고객 성공 매니저에게 문의하세요. |
 | 사용자 | View User Event Properties | 고객 프로필의 **이벤트 기록** 탭에서 이벤트 속성정보 보기 |
 | 중복 사용자 | Merge Duplicate Users | 중복 사용자를 하나의 사용자로 결합. 병합 후 중복 항목은 제거됩니다 |
 | 사용자 삭제 | View User Deletion Records | 사용자 삭제 기록 목록 보기 |

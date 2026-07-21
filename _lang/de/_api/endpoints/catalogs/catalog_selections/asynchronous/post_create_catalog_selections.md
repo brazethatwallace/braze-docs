@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Katal
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.create_selection`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `catalogs.create_selection`.
 
 ## Rate-Limit
 

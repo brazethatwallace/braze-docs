@@ -7,7 +7,7 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Editar varios elementos del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Editar varios elementos del catálogo de Braze."
 
 ---
 {% api %}
@@ -16,15 +16,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> Utiliza este punto de conexión para editar varios elementos existentes en tu catálogo.
+> Utiliza este endpoint para editar varios elementos existentes en tu catálogo.
 
-Cada solicitud puede admitir hasta 50 elementos. Este punto de conexión es asíncrono.
+Cada solicitud puede admitir hasta 50 elementos. Este endpoint es asíncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#03f3548e-4139-4f60-812d-7e1a695a738a {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.update_items`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.update_items`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -87,12 +87,12 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 {% alert note %}
 - El campo `Location` utiliza el tipo de datos `geo`, que espera una matriz con el formato `[longitude, latitude]`.
-- Los operadores `$add` y `$remove` solo son aplicables a campos de tipo matriz y solo son compatibles con los puntos de conexión PATCH.
+- Los operadores `$add` y `$remove` solo son aplicables a campos de tipo matriz y solo son compatibles con los endpoints PATCH.
 {% endalert %}
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `202`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

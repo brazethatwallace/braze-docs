@@ -16,9 +16,20 @@ alias: /line/subscription_groups/
 | Status | Definition |
 | --- | --- |
 | Abonniert | Die Nutzer:in ist dem LINE-Kanal innerhalb ihrer LINE-App gefolgt. Nutzer:innen werden automatisch abonniert, wenn sie nach Abschluss der Integrationsschritte folgen. |
-| Abgemeldet | Die Nutzer:in ist dem LINE-Kanal innerhalb ihrer LINE-App nicht gefolgt, oder hat den LINE-Kanal explizit entfolgt. <br><br> Nutzer:innen, die sich von einer LINE-Abo-Gruppe abmelden, erhalten keine LINE-Nachrichten mehr von Sendekanälen, die zu dieser Abo-Gruppe gehören. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE subscription groups" }
+| Abgemeldet | Die Nutzer:in ist dem LINE-Kanal innerhalb ihrer LINE-App nicht gefolgt oder hat den LINE-Kanal explizit entfolgt. <br><br> Nutzer:innen, die sich von einer LINE-Abo-Gruppe abmelden, erhalten keine LINE-Nachrichten mehr von Sendekanälen, die zu dieser Abo-Gruppe gehören. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE-Abo-Gruppen" }
 
-## LINE-Abo-Gruppe von Nutzer:innen festlegen {#setting-a-users-line-subscription-group}
+## LINE-Abo-Gruppe von Nutzer:innen festlegen {#set-a-users-line-subscription-group}
 
 LINE hostet den Abo-Status der Nutzer:innen. Braze verarbeitet die Follow- und Unfollow-Ereignisse, die den Abo-Status aktualisieren.
+
+{% alert important %}
+LINE-Abo-Gruppen können nicht zwischen Workspaces verschoben werden. Wenn Sie einen LINE-Kanal in einem anderen Workspace erneut integrieren, nachdem dessen Abo-Gruppe archiviert wurde, erstellt Braze eine neue Abo-Gruppe im Ziel-Workspace – die ursprüngliche verbleibt im ersten Workspace.
+{% endalert %}
+
+## Archivierungsverhalten {#archive-behavior}
+
+- **Standardarchivierung:** Wenn Sie eine LINE-Abo-Gruppe archivieren und den Kanal nicht in einem anderen Workspace erneut integrieren, können Sie die Abo-Gruppe später wieder dearchivieren.
+- **Permanente Archivierung:** Wenn Sie den LINE-Kanal nach der Archivierung seiner Abo-Gruppe in einem anderen Workspace erneut integrieren, wird die ursprüngliche Abo-Gruppe dauerhaft archiviert und kann nicht über das Dashboard dearchiviert werden.
+
+Informationen zu den Schritten für die erneute Kanal-Integration finden Sie unter [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup#re-integrate-a-line-channel-in-another-workspace).

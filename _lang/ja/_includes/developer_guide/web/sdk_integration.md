@@ -94,7 +94,7 @@ braze.openSession();
 ```
 
 {% alert important %}
-**アプリ内メッセージの表示：** アプリ内メッセージがトリガーされた際に自動的に表示するには、`braze.automaticallyShowInAppMessages()`を呼び出す必要があります。この呼び出しがないと、アプリ内メッセージは自動的に表示されません。メッセージ表示を手動で管理したい場合は、この呼び出しを削除し、代わりに`braze.subscribeToInAppMessage()`を使用してください。詳細については、[アプリ内メッセージ配信]({{site.baseurl}}/developer_guide/in_app_messages/delivery)を参照してください。
+**アプリ内メッセージの表示：** アプリ内メッセージがトリガーされた際に自動的に表示するには、`braze.automaticallyShowInAppMessages()`を呼び出す必要があります。この呼び出しがないと、アプリ内メッセージは自動的に表示されません。メッセージ表示を手動で管理したい場合は、この呼び出しを削除し、代わりに`braze.subscribeToInAppMessage()`を使用してください。詳細については、[自動トリガーの無効化]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#disabling-automatic-triggers)を参照してください。
 {% endalert %}
 
 #### 匿名ユーザーにおけるセッション消失のトラブルシューティング {#troubleshooting-missing-sessions-for-anonymous-users}

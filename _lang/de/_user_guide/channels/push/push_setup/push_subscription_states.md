@@ -57,7 +57,7 @@ Die folgende Tabelle zeigt, wie verschiedene Nutzer:innenaktionen die iOS-Push-A
 
 <sup>* Wenn die App kein provisorisches Push verwendet, ist `Foreground Push Enabled` `false`, bis Nutzer:innen Push-Benachrichtigungen erlauben. Wenn die App provisorisches Push verwendet, ist `Foreground Push Enabled` zu Beginn der ersten Sitzung `true`. Weitere Informationen finden Sie unter [Provisorische Autorisierung und stilles Push](#provisional-push).</sup>
 
-<sup>** Ab [Braze Swift SDK Version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0) steuert die Konfigurationseigenschaft `optInWhenPushAuthorized`, ob der Push-Abo-Status automatisch auf `Opted-In` gesetzt wird, wenn die Push-Berechtigung autorisiert wird. Weitere Informationen finden Sie unter [Push-Abo-Status aktualisieren](#update-push-subscription-state).</sup>
+<sup>** Ab [Braze Swift SDK Version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0) steuert die Konfigurationseigenschaft `optInWhenPushAuthorized`, ob der Push-Abo-Status automatisch auf `Opted-In` gesetzt wird, wenn die Push-Berechtigung autorisiert wird. Weitere Informationen finden Sie unter [Push-Token](#push-tokens).</sup>
 
 ## Push-Berechtigung {#push-permission}
 
@@ -92,7 +92,7 @@ Autorisiertes Push erfordert eine explizite Genehmigung der Nutzer:innen, bevor 
 
 Vor iOS 12 (veröffentlicht 2018) mussten alle Nutzer:innen explizit dem Empfang von Push-Benachrichtigungen zustimmen.
 
-In iOS 12 führte Apple die [provisorische Autorisierung](https://www.braze.com/resources/articles/mastering-provisional-push) ein, die es Marken ermöglicht, stille Push-Benachrichtigungen an das Benachrichtigungscenter ihrer Nutzer:innen zu senden, bevor diese explizit zustimmen, und Ihnen so die Möglichkeit gibt, den Wert Ihrer Nachrichten frühzeitig zu demonstrieren. Weitere Informationen finden Sie unter [Provisorische Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications).
+In iOS 12 führte Apple die [provisorische Autorisierung](https://www.braze.com/resources/articles/mastering-provisional-push) ein, die es Marken ermöglicht, stille Push-Benachrichtigungen an das Benachrichtigungscenter ihrer Nutzer:innen zu senden, bevor diese explizit zustimmen, und Ihnen so die Möglichkeit gibt, den Wert Ihrer Nachrichten frühzeitig zu demonstrieren. Weitere Informationen finden Sie unter [Provisorische Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push).
 
 ### Web {#web}
 
@@ -180,7 +180,7 @@ Um Abos zu verwalten, können Sie die Nutzer:innenmethode [`setPushNotificationS
 
 Wenn Nutzer:innen Benachrichtigungen in ihrem Browser deaktivieren, wird die nächste an diese Nutzer:innen gesendete Push-Benachrichtigung bouncen, und Braze wird das Push-Token der Nutzer:innen entsprechend aktualisieren. Dies wird verwendet, um die Berechtigung für die Push-aktivierten Filter (`Background or Foreground Push Enabled`, `Foreground Push Enabled` und `Foreground Push Enabled for App`) zu verwalten. Der im Nutzerprofil gesetzte Abo-Status ist eine Einstellung auf Nutzer:innenebene und ändert sich nicht, wenn ein Push bounct.
 
-### 410 Web-Push-Token-Fehler {#410-web-push-token-errors}
+### 410 Web-Push-Token-Fehler {#410-web-push-token-errors} {#410-web-push-token-errors}
 
 Wenn Sie einen `410: Gone`-Fehler erhalten, kann dies auftreten, wenn Nutzer:innen Web-Push-Benachrichtigungen über die Browsereinstellungen in ihrem Betriebssystem deaktivieren, sich als andere Nutzer:innen auf demselben Gerät einloggen oder die Website seit einiger Zeit nicht mehr besucht haben.
 

@@ -38,9 +38,9 @@ Dans cette approche, la localisation est appliquée à un seul modèle dans Braz
 
 ### Un modèle par pays {#one-template-per-country}
 
-Cette approche sépare les modèles en différentes localisations d'envoi. Après l'envoi, le tableau de bord affiche les analyses d'envoi pour chaque pays séparément, et tous les événements [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents) en aval au niveau de l'utilisateur seront également liés à une Campaign spécifique.
+Cette approche sépare les modèles en différentes localisations d'envoi. Après l'envoi, le tableau de bord affiche les analyses d'envoi pour chaque pays séparément, et tous les événements [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) en aval au niveau de l'utilisateur seront également liés à une Campaign spécifique.
 
-- Les modèles bénéficient de l'implémentation d'[étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags) à des fins de maintenance et de suivi.
+- Les modèles bénéficient de l'implémentation d'[étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) à des fins de maintenance et de suivi.
 - Les Campaigns peuvent hériter des configurations du même [modèle Braze]({{site.baseurl}}/user_guide/messaging/templates) et des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) (tels que les [modèles d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates) contenant du Liquid).
 - Les Campaigns et modèles préexistants peuvent être [dupliqués]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating) pour accélérer la mise en œuvre.
 
@@ -55,7 +55,7 @@ Cette approche sépare les modèles en différentes localisations d'envoi. Aprè
 
 Dans cette approche, la localisation est gérée au sein des [bases de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey) et du Liquid pour définir les messages pour chaque utilisateur.
 
-Après l'envoi d'un Canvas, le tableau de bord fournit des [analyses Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) agrégées, tandis que l'engagement au niveau de l'utilisateur peut être mesuré via des [entonnoirs de Segments]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size) personnalisés, par exemple en combinant les filtres [**Pays**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) et [**Étape Canvas reçue**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-canvas-step).
+Après l'envoi d'un Canvas, le tableau de bord fournit des [analyses Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) agrégées, tandis que l'engagement au niveau de l'utilisateur peut être mesuré via des [entonnoirs de Segments]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size) personnalisés, par exemple en combinant les filtres [**Pays**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) et [**Étape Canvas reçue**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step).
 
 | Avantages | Considérations |
 | --- | --- |
@@ -69,9 +69,9 @@ Dans cette approche, le générateur de parcours [Canvas]({{site.baseurl}}/user_
 La localisation peut être réalisée avec les méthodes suivantes :
 
 - Des Canvas distincts par pays, ce qui garantit que les parcours utilisateur complexes sont définis en haut de l'entonnoir à l'aide de filtres d'audience
-- Des parcours utilisateur personnalisés par pays, grâce à l'implémentation de [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) pour segmenter intuitivement les utilisateurs à grande échelle pour chaque parcours en créant des fils de messages distincts pour chaque pays dans un seul Canvas
+- Des parcours utilisateur personnalisés par pays, grâce à l'implémentation de [parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) pour segmenter intuitivement les utilisateurs à grande échelle pour chaque parcours en créant des fils de messages distincts pour chaque pays dans un seul Canvas
 
-Une fois envoyé, le tableau de bord fournit des analyses dynamiques par pays et au sein des événements [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents) au niveau de l'utilisateur en fonction de la localisation actuelle du client.
+Une fois envoyé, le tableau de bord fournit des analyses dynamiques par pays et au sein des événements [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) au niveau de l'utilisateur en fonction de la localisation actuelle du client.
 
 | Avantages | Considérations |
 | --- | --- |
@@ -122,7 +122,7 @@ Nous recommandons toujours d'inclure une instruction {% raw %}`{% else %}`{% end
 {% endtab %}
 
 {% tab Content Blocks %}
-Les [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) de Braze sont des blocs de contenu réutilisables. Lorsqu'un bloc est modifié, toutes les références à ce bloc sont mises à jour. Par exemple, les mises à jour d'un en-tête ou d'un pied de page d'e-mail seront reflétées dans tous les e-mails, ou pour héberger des traductions. Ces blocs peuvent également être [créés]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block#create-content-block) et [mis à jour]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) via la REST API, et les utilisateurs peuvent télécharger des traductions de manière programmatique.
+Les [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) de Braze sont des blocs de contenu réutilisables. Lorsqu'un bloc est modifié, toutes les références à ce bloc sont mises à jour. Par exemple, les mises à jour d'un en-tête ou d'un pied de page d'e-mail seront reflétées dans tous les e-mails, ou pour héberger des traductions. Ces blocs peuvent également être [créés]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) et [mis à jour]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) via la REST API, et les utilisateurs peuvent télécharger des traductions de manière programmatique.
 
 Lors de la création d'une Campaign dans le tableau de bord, les Content Blocks peuvent être référencés à l'aide de l'étiquette {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}. Ces blocs peuvent contenir toutes les traductions hébergées dans une logique conditionnelle pour chaque langue, comme indiqué dans l'option 1, ou un bloc distinct pour chaque langue peut être utilisé.
 
@@ -135,7 +135,7 @@ Les Content Blocks peuvent également être utilisés comme processus de gestion
 {% endtab %}
 
 {% tab Catalogues %}
-Les [Catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs) vous permettent d'accéder à des données provenant d'objets JSON importés via API et fichiers CSV pour enrichir vos messages, de manière similaire aux attributs personnalisés ou aux propriétés d'événement personnalisées via Liquid. Par exemple :
+Les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs) vous permettent d'accéder à des données provenant d'objets JSON importés via API et fichiers CSV pour enrichir vos messages, de manière similaire aux attributs personnalisés ou aux propriétés d'événement personnalisées via Liquid. Par exemple :
 
 {% subtabs local %}
 {% subtab API %}
@@ -230,7 +230,7 @@ Créez un fichier CSV au format suivant :
 {% endsubtab %}
 {% endsubtabs %}
 
-Ces éléments de catalogue peuvent ensuite être référencés à l'aide de la [personnalisation]({{site.baseurl}}/user_guide/data/activation/catalogs/create#using-catalogs-in-a-message), comme illustré ci-dessous, ou des [sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) qui vous permettent de créer des groupes de données.
+Ces éléments de catalogue peuvent ensuite être référencés à l'aide de la [personnalisation]({{site.baseurl}}/user_guide/data/activation/catalogs/create), comme illustré dans l'exemple suivant, ou des [sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) qui vous permettent de créer des groupes de données.
 
 {% raw %}
 ```liquid
@@ -242,9 +242,9 @@ Ces éléments de catalogue peuvent ensuite être référencés à l'aide de la 
 {% endtab %}
 
 {% tab Partenaires Braze %}
-De nombreux partenaires Braze proposent des solutions de localisation, notamment [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-transifex) et [Crowdin](https://crowdin.com/). En général, les utilisateurs utilisent la plateforme en complément d'une équipe interne et d'une agence de traduction. Ces traductions sont ensuite téléchargées et deviennent accessibles via la REST API. Ces services exploitent également souvent le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), permettant aux utilisateurs de récupérer les traductions via API.
+De nombreux partenaires Braze proposent des solutions de localisation, notamment [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) et [Crowdin](https://crowdin.com/). En général, les utilisateurs utilisent la plateforme en complément d'une équipe interne et d'une agence de traduction. Ces traductions sont ensuite téléchargées et deviennent accessibles via la REST API. Ces services exploitent également souvent le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), permettant aux utilisateurs de récupérer les traductions via API.
 
-Par exemple, les appels de Contenu connecté suivants appellent Transifex et Crowdin pour récupérer une traduction, en utilisant {% raw %}`{{${language}}}`{% endraw %} pour identifier la traduction correcte pour un utilisateur donné. Cette traduction est ensuite enregistrée dans le bloc JSON « strings » et référencée.
+Par exemple, les appels de contenu connecté suivants appellent Transifex et Crowdin pour récupérer une traduction, en utilisant {% raw %}`{{${language}}}`{% endraw %} pour identifier la traduction correcte pour un utilisateur donné. Cette traduction est ensuite enregistrée dans le bloc JSON « strings » et référencée.
 
 {% subtabs local %}
 {% subtab Exemple Transifex %}
@@ -271,15 +271,15 @@ Hébergez les traductions dans un tableur, puis utilisez l'une des méthodes sui
 
 {% subtabs local %}
 {% subtab Contenu connecté %}
-Vous pouvez travailler avec une agence de traduction pour stocker les traductions dans un tableur Google Sheets, puis interroger ce contenu à l'aide du [Contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Lorsque vous envoyez un message, la traduction correspondante pour chaque utilisateur sera intégrée dans le corps de votre Campaign en fonction de la langue sélectionnée.
+Vous pouvez travailler avec une agence de traduction pour stocker les traductions dans un tableur Google Sheets, puis interroger ce contenu à l'aide du [contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Lorsque vous envoyez un message, la traduction correspondante pour chaque utilisateur sera intégrée dans le corps de votre Campaign en fonction de la langue sélectionnée.
 
 {% alert note %}
-L'API Google Sheets a une limite de 500 requêtes par 100 secondes par projet. Les appels de Contenu connecté peuvent être mis en cache, mais cette solution n'est pas adaptée à une Campaign à fort trafic.
+L'API Google Sheets a une limite de 500 requêtes par 100 secondes par projet. Les appels de contenu connecté peuvent être mis en cache, mais cette solution n'est pas adaptée à une Campaign à fort trafic.
 {% endalert %}
 {% endsubtab %}
 
 {% subtab API JSON via SheetDB %}
-Cette option fournit une méthode alternative pour transformer des Google Sheets en objets JSON interrogés via le Contenu connecté. En transformant un tableur en API JSON via SheetDB, vous pouvez choisir parmi [plusieurs niveaux d'abonnement](https://sheetdb.io/pricing) en fonction de la fréquence des appels API.
+Cette option fournit une méthode alternative pour transformer des Google Sheets en objets JSON interrogés via le contenu connecté. En transformant un tableur en API JSON via SheetDB, vous pouvez choisir parmi [plusieurs niveaux d'abonnement](https://sheetdb.io/pricing) en fonction de la fréquence des appels API.
 
 La structure du tableur suit les étapes de l'option 4, mais SheetDB fournit également des [filtres supplémentaires](https://docs.sheetdb.io/#sheetdb-api) pour interroger les objets.
 
@@ -296,9 +296,9 @@ Tout d'abord, construisez le tableur Google de sorte que les langues soient des 
 | de | Hallo | 4 | Hallo2 | 8 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Étape 1 : Formater le tableur Google" }
 
-#### Étape 2 : Utiliser l'étiquette Liquid de langue dans un appel de Contenu connecté {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
+#### Étape 2 : Utiliser l'étiquette Liquid de langue dans un appel de contenu connecté {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 
-Ensuite, implémentez l'étiquette Liquid {% raw %}`{{${language}}}`{% endraw %} dans un appel de Contenu connecté. Notez que SheetDB générera automatiquement le `sheet_id` lors de la création du tableur.
+Ensuite, implémentez l'étiquette Liquid {% raw %}`{{${language}}}`{% endraw %} dans un appel de contenu connecté. Notez que SheetDB générera automatiquement le `sheet_id` lors de la création du tableur.
 
 {% raw %}
 ```liquid
@@ -322,7 +322,7 @@ Enfin, utilisez Liquid pour modéliser vos messages :
 - Le champ {% raw %}`{{${language}}}`{% endraw %} doit être défini pour tous les utilisateurs ; sinon, un bloc conditionnel Liquid doit être prévu comme gestionnaire de secours pour les utilisateurs sans langue définie.
 - La modélisation des données dans Google Sheets doit suivre une structure verticale orientée par langue, par opposition à des objets de message.
 - SheetDB propose un compte gratuit limité et plusieurs options payantes qui doivent être évaluées en fonction de votre stratégie de Campaign.
-- Les appels de Contenu connecté peuvent être mis en cache. Nous recommandons de mesurer la fréquence projetée des appels API et d'envisager une approche alternative consistant à appeler l'endpoint principal de SheetDB au lieu d'utiliser la méthode de recherche.
+- Les appels de contenu connecté peuvent être mis en cache. Nous recommandons de mesurer la fréquence projetée des appels API et d'envisager une approche alternative consistant à appeler l'endpoint principal de SheetDB au lieu d'utiliser la méthode de recherche.
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

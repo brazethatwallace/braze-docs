@@ -19,7 +19,7 @@ description: "Cet article décrit en détail l'endpoint source de traduction des
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec la permission `content_blocks.translations.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec la permission `content_blocks.translations.get`.
 
 ## Limite de débit {#rate-limit}
 

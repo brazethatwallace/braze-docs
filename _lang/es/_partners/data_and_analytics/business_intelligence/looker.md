@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Looker](https://looker.com/), una plataforma de análisis de inteligencia empresarial y big data, te permite explorar, analizar y compartir análisis empresariales en tiempo real fácilmente.
 
-La integración de Braze y Looker permite a los usuarios de la empresa aprovechar los [bloques de Looker](#looker-blocks) de origen y las [acciones de Looker](#looker-actions) para marcar usuarios a través de la REST API. Estos usuarios marcados pueden añadirse a segmentos para [segmentar](#segment-users) futuras Campaigns o Canvas de Braze. Para utilizar Looker con Braze, te recomendamos que envíes tus datos de Braze a un [almacén de datos utilizando Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y que después utilices los bloques de Looker de Braze para modelar y visualizar rápidamente tus datos de Braze en Looker.
+La integración de Braze y Looker permite a los usuarios de la empresa aprovechar los [Bloques de Looker](#looker-blocks) de origen y las [Acciones de Looker](#looker-actions) para marcar usuarios a través de la REST API. Estos usuarios marcados pueden añadirse a segmentos para [segmentar](#segment-users) futuras campañas o Canvas de Braze. Para utilizar Looker con Braze, te recomendamos que envíes tus datos de Braze a un [almacén de datos utilizando Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y que después utilices los Bloques de Looker de Braze para modelar y visualizar rápidamente tus datos de Braze en Looker.
 
 ## Requisitos previos {#prerequisites}
 
@@ -33,9 +33,9 @@ La integración de Braze y Looker permite a los usuarios de la empresa aprovecha
 
 ### Bloques de Looker {#looker-blocks}
 
-Nuestros bloques de Looker ayudan a los clientes de Braze a acceder rápidamente a una vista de los datos granulares que ofrecemos a través de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents). Nuestros bloques proporcionan visualizaciones y modelos prediseñados para los datos de Currents, de modo que los clientes de Braze puedan implementar fácilmente patrones analíticos como la retención, evaluar la capacidad de entrega de mensajes, echar un vistazo más detallado al comportamiento del usuario y mucho más.
+Nuestros Bloques de Looker ayudan a los clientes de Braze a acceder rápidamente a una vista de los datos granulares que ofrecemos a través de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents). Nuestros bloques proporcionan visualizaciones y modelos prediseñados para los datos de Currents, de modo que los clientes de Braze puedan implementar fácilmente patrones analíticos como la retención, evaluar la capacidad de entrega de mensajes, echar un vistazo más detallado al comportamiento del usuario y mucho más.
 
-Para implementar los bloques de Looker, sigue las instrucciones de los archivos README del código de GitHub.
+Para implementar los Bloques de Looker, sigue las instrucciones de los archivos README del código de GitHub.
 - [README del bloque de análisis de interacción de mensajes](https://github.com/llooker/braze_message_engagement_block/blob/master/README.md)
 - [README del bloque de análisis del comportamiento del usuario](https://github.com/llooker/braze_retention_block/blob/master/README.md)
 
@@ -43,7 +43,7 @@ Ambas integraciones suponen que tu [integración inicial de Braze]({{site.baseur
 
 
 {% alert important %}
-Braze ha construido nuestros bloques de Looker utilizando [Snowflake](https://www.snowflake.com/) como almacén de datos. Aunque nuestro objetivo es que nuestros bloques funcionen con el mayor número posible de almacenes de datos, algunas funciones SQL pueden diferir en disponibilidad, sintaxis o comportamiento entre dialectos.
+Braze ha construido nuestros Bloques de Looker utilizando [Snowflake](https://www.snowflake.com/) como almacén de datos. Aunque nuestro objetivo es que nuestros bloques funcionen con el mayor número posible de almacenes de datos, algunas funciones SQL pueden diferir en disponibilidad, sintaxis o comportamiento entre dialectos.
 {% endalert %}
 
 {% alert warning %}
@@ -54,13 +54,13 @@ Braze ha construido nuestros bloques de Looker utilizando [Snowflake](https://ww
 
 | Bloque | Descripción |
 |---|---|
-| Bloque de análisis de interacción de mensajes | Este bloque incluye datos sobre push, correo electrónico, mensajes dentro de la aplicación, webhook, conversión, entrada en Canvas y eventos de inscripción en el grupo de control de Campaign. <br><br>Obtén más información sobre este [bloque de Looker](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct) o consulta el [código de GitHub](https://github.com/llooker/braze_message_engagement_block). |
-| Bloque de análisis del comportamiento del usuario | Este bloque incluye datos sobre eventos personalizados, compras, sesiones, eventos de ubicación y desinstalaciones.<br><br>Obtén más información sobre este [bloque de Looker](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct) o consulta el [código de GitHub](https://github.com/llooker/braze_retention_block). |
+| Bloque de análisis de interacción de mensajes | Este bloque incluye datos sobre push, correo electrónico, mensajes dentro de la aplicación, webhook, conversión, entrada en Canvas y eventos de inscripción en el grupo de control de Campaign. <br><br>Obtén más información sobre este [Bloque de Looker](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct) o consulta el [código de GitHub](https://github.com/llooker/braze_message_engagement_block). |
+| Bloque de análisis del comportamiento del usuario | Este bloque incluye datos sobre eventos personalizados, compras, sesiones, eventos de ubicación y desinstalaciones.<br><br>Obtén más información sobre este [Bloque de Looker](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct) o consulta el [código de GitHub](https://github.com/llooker/braze_retention_block). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Bloques disponibles" }
 
 ### Acciones de Looker {#looker-actions}
 
-Las acciones de Looker te permiten marcar usuarios dentro de Braze a través del endpoint de la REST API desde un Look de Looker. Las acciones requieren que una dimensión esté etiquetada con `braze_id`. La acción añadirá el valor marcado al atributo personalizado `looker_export` del usuario.
+Las Acciones de Looker te permiten marcar usuarios dentro de Braze a través del endpoint de la REST API desde un Look de Looker. Las acciones requieren que una dimensión esté etiquetada con `braze_id`. La acción añadirá el valor marcado al atributo personalizado `looker_export` del usuario.
 
 {% alert important %}
 Solo se marcarán los usuarios existentes. No puedes utilizar Looks pivotados al marcar datos en Braze.
@@ -86,7 +86,7 @@ dimension: external_id {
 }
 ```
 
-**Asegúrate de confirmar los cambios. Las acciones de Looker solo funcionarán con la configuración de producción.**
+**Asegúrate de confirmar los cambios. Las Acciones de Looker solo funcionarán con la configuración de producción.**
 
 #### Paso 3: Establecer atributos de usuario en etiquetas {#step-3-set-user-attributes-in-tags}
 
@@ -96,13 +96,13 @@ Ten en cuenta las siguientes limitaciones:
 - Los atributos solo se enviarán si se **incluyen como campo dentro del Look**.
 - Los tipos admitidos son `Strings`, `Boolean`, `Numbers` y `Dates`.
 - Los nombres de los atributos distinguen entre mayúsculas y minúsculas.
-- También se pueden establecer atributos estándar, siempre que coincidan exactamente con los nombres de [perfil de usuario estándar]({{site.baseurl}}/api/endpoints/user_data#braze-user-profile-fields).
+- También se pueden establecer atributos estándar, siempre que coincidan exactamente con los nombres de [perfil de usuario estándar]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields).
 - La etiqueta completa debe ir entre comillas. Por ejemplo, `tags: ["braze[first_name]"]`. También se pueden asignar otras etiquetas, pero se ignorarán.
 - Puedes encontrar información adicional en [GitHub](https://github.com/looker/actions/tree/master/src/actions/braze).
 
 #### Paso 4: Enviar la acción Looker {#step-4-send-the-looker-action}
 
-1. Dentro de un Look con una dimensión `braze_id` seleccionada, haz clic en el engranaje de configuración (<i class="fas fa-cog"></i>) en la barra de herramientas y selecciona **Send...**.
+1. Dentro de un Look con una dimensión `braze_id` seleccionada, haz clic en el engranaje de configuración (<i class="fas fa-cog" aria-label="Configuración"></i>) en la barra de herramientas y selecciona **Send...**.
 2. Selecciona la acción Braze personalizada.
 3. En **Unique Key**, proporciona la clave de mapeado de usuario principal para la cuenta de Braze (`external_id` o `braze_id`).
 4. Dale un nombre a la exportación. Si no se indica ninguno, se utilizará `LOOKER_EXPORT`.
@@ -147,7 +147,7 @@ En Braze, para crear un segmento de estos usuarios marcados, ve a **Segments** e
 
 ![En el constructor de segmentos de Braze, el filtro "looker_export" está configurado en "includes_value" y "Looker".]({% image_buster /assets/img/braze_segments.png %})
 
-Una vez guardado, puedes hacer referencia a este segmento durante la creación de Canvas o Campaigns en el paso de segmentación de usuarios.
+Una vez guardado, puedes hacer referencia a este segmento durante la creación de Canvas o campañas en el paso de segmentación de usuarios.
 
 ## Solución de problemas {#troubleshooting}
 Si tienes problemas con la acción Looker, añade un usuario de prueba a [los grupos internos]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) y comprueba lo siguiente:
@@ -161,4 +161,4 @@ Si tienes problemas con la acción Looker, añade un usuario de prueba a [los gr
 * `braze_id` en la dimensión es diferente de `braze_id` en la API. `braze_id` en la dimensión se utiliza para indicar que es el campo `id` para la API de Braze. Para la mayoría de los propósitos, al enviar, `external_id` es la clave primaria.
 * El usuario `external_id` existe en la plataforma Braze.
 * El campo `looker_export` está configurado como `Automatically Detect` en `Braze Platform > Settings > Manage Settings > Custom Attributes`.
-* Los cambios se confirman en producción. Las acciones de Looker funcionan con la configuración de producción.
+* Los cambios se confirman en producción. Las Acciones de Looker funcionan con la configuración de producción.

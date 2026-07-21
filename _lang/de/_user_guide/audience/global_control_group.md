@@ -16,7 +16,7 @@ toc_headers: h2
 
 > Verwenden Sie die globale Kontrollgruppe, um einen Prozentsatz aller Nutzer:innen festzulegen, die keine Campaigns oder Canvases erhalten sollen. So können Sie die Gesamtwirkung Ihrer Messaging-Maßnahmen im Zeitverlauf analysieren.
 
-Indem Sie das Verhalten von Nutzer:innen, die Nachrichten erhalten, mit dem Verhalten derjenigen vergleichen, die keine erhalten, können Sie besser nachvollziehen, wie Ihre Marketing-Campaigns und Canvases zu einer Steigerung von Sitzungen und angepassten Events beitragen.
+Indem Sie das Verhalten von Nutzer:innen, die Nachrichten erhalten, mit dem Verhalten derjenigen vergleichen, die keine erhalten, können Sie besser nachvollziehen, wie Ihre Marketing-Kampagnen und Canvases zu einer Steigerung von Sitzungen und angepassten Events beitragen.
 
 ## So funktioniert die globale Kontrollgruppe {#how-the-global-control-group-works}
 
@@ -28,7 +28,7 @@ Ihre globale Kontrollgruppe gilt für alle Kanäle, Campaigns und Canvases, mit 
 
 ### Nutzer:innen zufällig der globalen Kontrollgruppe zuweisen {#assign-users-randomly-to-the-global-control-group}
 
-Braze wählt zufällig mehrere Bereiche von [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute) aus und nimmt Nutzer:innen aus diesen ausgewählten Buckets auf. Wenn Sie derzeit zufällige Bucket-Nummern für andere Zwecke verwenden, lesen Sie den Abschnitt [Worauf Sie achten sollten](#things-to-watch-for).
+Braze wählt zufällig mehrere Bereiche von [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#create-segments-using-random-bucket-numbers) aus und nimmt Nutzer:innen aus diesen ausgewählten Buckets auf. Wenn Sie derzeit zufällige Bucket-Nummern für andere Zwecke verwenden, lesen Sie den Abschnitt [Worauf Sie achten sollten](#things-to-watch-for).
 
 Wenn Ihre globale Kontrollgruppe generiert wird, gehören alle Nutzer:innen mit zufälligen Bucket-Nummern zur Gruppe. Darüber hinaus werden auch neue Nutzer:innen, die nach diesem Zeitpunkt hinzukommen (also nach der Generierung der globalen Kontrollgruppe gewonnen wurden) und diese zufälligen Bucket-Nummern haben, ebenfalls der globalen Kontrollgruppe hinzugefügt. Ebenso können Sie erwarten, dass die Größe Ihrer globalen Kontrollgruppe schrumpft, wenn viele Nutzer:innen gelöscht werden, da ein Prozentsatz dieser gelöschten Nutzer:innen in diese Gruppe gefallen ist. Dadurch bleibt die Größe Ihrer Gruppe als konstanter Prozentsatz relativ zu Ihrer gesamten Nutzerbasis erhalten.
 
@@ -48,11 +48,11 @@ Sie können bestimmte Nutzer:innen nicht aus der globalen Kontrollgruppe entfern
 
 ## Eine globale Kontrollgruppe erstellen {#create-a-global-control-group}
 
-### 1. Schritt: Zu den Einstellungen der globalen Kontrollgruppe navigieren {#step-1-navigate-to-the-global-control-group-settings}
+### Schritt 1: Zu den Einstellungen der globalen Kontrollgruppe navigieren {#step-1-navigate-to-the-global-control-group-settings}
 
 Gehen Sie im Dashboard zu **Audience** > **Global Control Group**.
 
-### 2. Schritt: Einen Prozentsatz aller Nutzer:innen dieser Kontrollgruppe zuweisen {#step-2-assign-a-percentage-of-all-users-to-this-control-group}
+### Schritt 2: Einen Prozentsatz aller Nutzer:innen dieser Kontrollgruppe zuweisen {#step-2-assign-a-percentage-of-all-users-to-this-control-group}
 
 Geben Sie einen Prozentsatz für Ihre Kontrollgruppe ein und wählen Sie **Save**. Nach der Eingabe zeigt Ihnen Braze eine Schätzung, wie viele Nutzer:innen in Ihre globale Kontrollgruppe, Treatment-Gruppe und Treatment-Stichprobe fallen. Beachten Sie, dass diese Schätzung umso genauer ist, je mehr Nutzer:innen Sie in Ihrem Workspace haben.
 
@@ -62,7 +62,7 @@ Richtlinien zum Prozentsatz finden Sie unter [Best Practices für Tests](#percen
 
 ![Die Einstellungen der globalen Kontrollgruppe mit der Zielgruppeneinstellung „Fünf Prozent aller Nutzer:innen der globalen Kontrollgruppe zuweisen“.]({% image_buster /assets/img/control_group/control_group4.png %})
 
-### 3. Schritt: Ausschlusseinstellungen zuweisen {#step-3-assign-exclusion-settings}
+### Schritt 3: Ausschlusseinstellungen zuweisen {#step-3-assign-exclusion-settings}
 
 Verwenden Sie Tags, um Ausschlusseinstellungen zu Ihrer globalen Kontrollgruppe hinzuzufügen. Alle Campaigns oder Canvases, die die in den Ausschlusseinstellungen enthaltenen Tags verwenden, nutzen Ihre globale Kontrollgruppe nicht. Diese Campaigns und Canvases werden weiterhin an alle Nutzer:innen in der Zielgruppe gesendet, einschließlich derjenigen in Ihrer globalen Kontrollgruppe.
 
@@ -72,7 +72,7 @@ Sie möchten möglicherweise Ausschlusseinstellungen hinzufügen, wenn Sie trans
 
 ![Der Abschnitt zum Hinzufügen oder Bearbeiten von Ausschlusseinstellungen für Ihre globale Kontrollgruppe.]({% image_buster /assets/img/control_group/control_group5.png %})
 
-### 4. Schritt: Ihre Kontrollgruppe speichern {#step-4-save-your-control-group}
+### Schritt 4: Ihre Kontrollgruppe speichern {#step-4-save-your-control-group}
 
 An diesem Punkt generiert Braze eine zufällig ausgewählte Gruppe von Nutzer:innen, die den ausgewählten Prozentsatz Ihrer gesamten Nutzerbasis umfasst. Nach dem Speichern senden alle derzeit aktiven und zukünftigen Campaigns und Canvases nicht mehr an Nutzer:innen in dieser Gruppe, mit Ausnahme von Campaigns oder Canvases, die eines der Tags in Ihren Ausschlusseinstellungen enthalten.
 
@@ -136,7 +136,7 @@ Jeder Workspace hat maximal eine globale Kontrollgruppe und eine Treatment-Stich
 
 | Metrik | Definition | Berechnung |
 | -- | -- | -- |
-| Veränderung gegenüber der Kontrollgruppe | Berechnet den Uplift zwischen der Konversionsrate Ihrer Treatment- und Kontrollgruppe. | ((Konversionsrate Treatment – Konversionsrate Kontrollgruppe) ÷ Konversionsrate Kontrollgruppe) * 100 |
+| Veränderung gegenüber der Kontrollgruppe | Berechnet den Uplift zwischen der Konversionsrate Ihrer Treatment- und Kontrollgruppe. | ((Konversionsrate Treatment – Konversionsrate Kontrollgruppe) ÷ Konversionsrate Kontrollgruppe) \* 100 |
 | Inkrementeller Uplift | Die Differenz der Gesamtereignisse zwischen Ihrer Treatment- und Kontrollgruppe. Diese Metrik versucht die Frage zu beantworten: „Wie viele zusätzliche Konversions-Events hat die Treatment-Gruppe erzielt?“ | Gesamtereignisse Treatment – Gesamtereignisse Kontrollgruppe |
 | Inkrementeller Uplift in Prozent | Der Prozentsatz der Gesamtereignisse Ihrer Treatment-Gruppe, der Ihrem Treatment zugeschrieben werden kann (im Gegensatz zu natürlichem Nutzerverhalten). Wird berechnet, indem der inkrementelle Uplift (Zahl) durch die Gesamtzahl der Ereignisse Ihrer Treatment-Gruppe geteilt wird. | Inkrementeller Uplift (Zahl) ÷ Gesamtereignisse der Treatment-Gruppe |
 | Konversionsrate | Der geschätzte Prozentsatz der Nutzer:innen in Ihrer Kontroll- oder Treatment-Gruppe, die das ausgewählte Event im gewählten Zeitraum abschließen. Wird berechnet, indem die Anzahl der Ereignisse aus dem Zeitraum addiert und durch die Summe der Nutzer:innen in der Gruppe pro Tag geteilt wird. Dies kann nur angenähert werden, da die Gruppengröße regelmäßig schwankt, wenn neue Nutzer:innen Ihrer globalen Kontrollgruppe beitreten, und die Ereignisse Gesamtereignisse – nicht eindeutige Ereignisse – sind. Wenn die Anzahl der Conversions sehr gering und Ihre Kontroll- oder Treatment-Gruppe sehr groß ist, kann die Konversionsrate auf 0 % gerundet werden. Wenn die Anzahl der Ereignisse sehr hoch ist – zum Beispiel wenn eine Nutzer:in mehr als ein Event pro Tag auslöst – kann die Konversionsrate über 100 % liegen. | Summe der Anzahl der Ereignisse für diese Nutzer:innen über diesen Zeitraum ÷ Summe der Nutzer:innen in der Gruppe pro Tag |
@@ -194,7 +194,7 @@ Zwei wichtige Regeln, die Sie beachten sollten:
 
 Wenn Ihre Gesamtzielgruppe kleiner als 10.000 ist, sollten Sie Ihren Prozentsatz erhöhen, um eine Gruppe von über 1.000 Nutzer:innen zu erstellen. In diesem Fall sollten Sie Ihren Prozentsatz jedoch nicht über 15 % erhöhen. Beachten Sie, dass es umso schwieriger ist, einen statistisch belastbaren Test durchzuführen, je kleiner Ihr gesamter Workspace ist.
 
-- Einige Abwägungen, die Sie bei der Größe Ihrer Kontrollgruppe berücksichtigen sollten: Sie benötigen eine ausreichend große Anzahl von Kund:innen in Ihrer Kontrollgruppe, damit jede erstellte Verhaltensanalyse vertrauenswürdig ist. Je größer Ihre Kontrollgruppe jedoch ist, desto weniger Kund:innen erhalten Ihre Campaigns, was ein Nachteil ist, wenn Sie Ihre Campaigns nutzen, um Engagement und Conversions zu steigern.
+- Einige Abwägungen, die Sie bei der Größe Ihrer Kontrollgruppe berücksichtigen sollten: Sie benötigen eine ausreichend große Anzahl von Kund:innen in Ihrer Kontrollgruppe, damit jede erstellte Verhaltensanalyse vertrauenswürdig ist. Je größer Ihre Kontrollgruppe jedoch ist, desto weniger Kund:innen erhalten Ihre Kampagnen, was ein Nachteil ist, wenn Sie Ihre Kampagnen nutzen, um Engagement und Conversions zu steigern.
 - Der ideale Prozentsatz Ihrer Gesamtzielgruppe hängt davon ab, wie groß Ihre Gesamtzielgruppe ist. Je größer Ihre Gesamtzielgruppe ist, desto kleiner kann Ihr Prozentsatz sein. Wenn Sie jedoch eine kleine Zielgruppe haben, benötigen Sie einen größeren Prozentsatz für Ihre Kontrollgruppe.
 
 ### Experimentdauer {#experiment-duration}

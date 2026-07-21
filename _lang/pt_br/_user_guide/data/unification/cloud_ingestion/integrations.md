@@ -376,9 +376,7 @@ Se você tiver políticas de rede em vigor, deverá conceder à Braze acesso de 
 #### Etapa 1.1: Configurar a entidade de serviço e conceder acesso {#step-11-set-up-the-service-principal-and-grant-access}
 A Braze se conecta ao seu warehouse do Fabric usando uma entidade de serviço com autenticação Entra ID. Crie uma nova entidade de serviço para a Braze usar e conceda acesso aos recursos do Fabric conforme necessário. A Braze precisa dos seguintes dados para se conectar:
 
-* ID do locatário (também chamado de diretório) da sua conta do Azure
-* ID da entidade principal (também chamada de ID do aplicativo) da entidade de serviço
-* Segredo do cliente para autenticação da Braze
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
 1. No portal do Azure, navegue até o centro de administração do Microsoft Entra e, em seguida, Registros de app
 2. Selecione **+ New registration** em **Identity** > **Applications** > **App registrations**.

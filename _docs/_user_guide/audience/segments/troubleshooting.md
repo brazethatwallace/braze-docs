@@ -113,7 +113,7 @@ Users can have multiple apps, so selecting a specific app in the **Apps Used** s
 
 Your filter options are related to the format (data type) that you're passing to Braze for your custom attribute. To review the data type that Braze is recognizing for your custom attributes, navigate to **Data Settings** > **Custom Attributes**.
 
-If your filter options have changed, this is an indication that your data is being passed to Braze in a different format (data type) than before. For detailed descriptions of different data types and their filtering options, refer to [custom attribute data types]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types).
+If your filter options have changed, this is an indication that your data is being passed to Braze in a different format (data type) than before. For detailed descriptions of different data types and their filtering options, refer to [custom attribute data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 Keep in mind that changing the data type of a custom attribute in the dashboard rejects data that is sent to Braze in a different format. You can't change a custom attribute's data type while that attribute is referenced in active campaigns, Canvases, or segments; the dashboard displays an error and blocks the change.
 
@@ -123,7 +123,7 @@ The **Values** tab on a custom attribute shows results from a sample of approxim
 
 If your segment looks much larger than you expect despite restrictive-looking filters, check whether you're using negative filters (`is not`, `does not equal`, `does not match regex`, or `not included`) with the **OR** operator on the same attribute more than once. That combination can target users with all values for the attribute.
 
-For guidance on when to use **AND** instead of **OR**, see [When to avoid the OR operator]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator) in Create a segment.
+For guidance on when to use **AND** instead of **OR**, see [When to avoid the OR operator]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#segmentation-logic-using-and-and-or) in Create a segment.
 
 ## Analytics and reporting
 

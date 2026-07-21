@@ -19,7 +19,7 @@ description: "Cet article présente les détails de l'endpoint Mise à jour des 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `templates.translations.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `templates.translations.update`.
 
 ## Limite de débit {#rate-limit}
 
@@ -39,7 +39,7 @@ Cet endpoint ne comporte pas de paramètres de chemin.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
-Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), qui peuvent être trouvés dans la réponse de l'endpoint GET.
+Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), disponibles dans la réponse de l'endpoint GET.
 {% endalert %}
 
 ## Exemple de requête {#example-request}

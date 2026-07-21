@@ -67,6 +67,8 @@ Type **DELETE** to confirm your request, then select **Delete users**.
 
 The users in this segment won't be deleted immediately. Instead, they'll be marked as pending deletion for the next 7 days. After this time, they'll be deleted and we'll email you to let you know.
 
+During the 7-day waiting period, users pending deletion can still receive campaigns and Canvases unless you explicitly exclude them. To prevent pending users from receiving messages, add a segment filter to exclude users with the **Pending Deletion** status from your campaigns and Canvases.
+
 {% alert tip %}
 To ensure that these exact users are deleted regardless of segment changes, a segment filter called **Pending Deletion** is automatically created. You can [use this filter]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) to check the status of pending deletions.
 {% endalert %}
@@ -161,7 +163,7 @@ Yes. However, you can add a segment inclusion filter to exclude all users with t
 
 ### Can I recover deleted user profiles?
 
-Deleting individual users are permanent.
+Deleting individual users is permanent.
 
 You can [cancel segment deletions](#cancel) within the first 7 days after. However, any users already deleted before cancelling cannot be restored.
 

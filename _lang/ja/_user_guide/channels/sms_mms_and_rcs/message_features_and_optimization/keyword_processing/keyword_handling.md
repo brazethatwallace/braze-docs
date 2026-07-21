@@ -60,7 +60,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 1. Brazeダッシュボードで、**オーディエンス** > **サブスクリプショングループ管理**に移動し、**SMS/MMS/RCS**購読グループを選択します。<br><br>
 2. **グローバルキーワード**の下で、鉛筆アイコンを選択して応答を編集するキーワードカテゴリを選択します。![鉛筆アイコンが表示されたオプトインキーワード。]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. 開いたタブで応答を編集します。応答を作成する際は、[コンプライアンスを正しく守るための6つのルール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right)に留意し、キーワードとキーワード応答に適用される以下のルールをお読みください。<br><br>
+3. 開いたタブで応答を編集します。応答を作成する際は、[コンプライアンスを正しく守るための6つのルール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-seven-rules-to-get-compliance-right)に留意し、キーワードとキーワード応答に適用される以下のルールをお読みください。<br><br>
 4. 応答内の静的URLを自動的に短縮するには、**リンク短縮**トグルを選択します。文字カウンターが更新され、短縮URLの予想される長さが表示されます。![「リンク短縮」トグルがオンのときに文字カウンターが更新される様子を示すGIF。]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 #### 考慮事項 {#considerations}
@@ -136,7 +136,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 1. [SMSキャンペーン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)を作成します。
 2. **ターゲットオーディエンス**で、**すべてのユーザー**を選択します（トリガーによってメッセージを受信するユーザーは制限されます）。
-3. **スケジュール**で、**アクションベースの配信**を選択します。
+3. **スケジュール**で、**アクションベース配信**を選択します。
 4. トリガーを、適切な購読グループの**キーワードカテゴリOTHER内への受信SMS送信**に設定します。
 5. **メッセージング**ステップで、ユーザーに受信させたい応答本文を入力します。
 

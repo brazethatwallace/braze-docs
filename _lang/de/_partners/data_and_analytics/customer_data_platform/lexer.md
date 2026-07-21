@@ -58,7 +58,7 @@ Lexer Activate aktualisiert automatisch Ihre Braze-Profile und fügt Attribute h
 2. Wählen Sie die entsprechende Braze-Aktivierung für diese Campaign aus.
 3. Fügen Sie Ihr Segment hinzu.
 4. Aktualisieren Sie den Namen Ihrer Zielgruppe; dieser wird in Braze zu Ihrem Attributwert.
-5. Dies ist das angepasste Attribut, das wir in Braze aktualisieren werden. Wenden Sie sich zum Update an den [Lexer-Support](support@lexer.io).
+5. Dies ist das angepasste Attribut, das wir in Braze aktualisieren werden. Wenden Sie sich zum Update an den [Lexer-Support](mailto:support@lexer.io).
 6. Markieren Sie die entsprechende Listenaktion – in den meisten Fällen werden Sie Ihre Liste pflegen wollen.
 7. Überprüfen Sie die Bedingungen und klicken Sie auf **SEND AUDIENCE**.
 
@@ -68,10 +68,10 @@ Lexer Activate aktualisiert automatisch Ihre Braze-Profile und fügt Attribute h
 
 Sobald Ihre Aktivierung in Activate als gesendet bestätigt wurde, werden Sie sehen, dass die Datensätze in Braze aktualisiert werden. Ihre Profile werden in Braze erst dann vollständig aktualisiert, wenn Sie eine Bestätigungs-E-Mail von Lexer erhalten haben.
 
-### Schritt 3: Erstellen Sie Ihr Braze-Segment {#step-3-create-your-braze-segment}
+### Schritt 3: Braze-Segment erstellen {#step-3-create-your-braze-segment}
 
 In Braze sehen Sie, dass der Name Ihrer Zielgruppe in Lexer jetzt ein Wert in Ihrem angepassten Attribut `lexer_audience` ist. Braze hat ein Limit von 100 Werten pro Attribut.
 
-Um Ihr Segment zu erstellen, navigieren Sie zu **Segment > + Create Segment** und wählen Sie **Custom Attribute** als Filter. Wählen Sie als Nächstes `lexer_audience` als Attribut und den Namen der gewünschten Lexer-Zielgruppe aus. Wenn Sie fertig sind, **speichern** Sie Ihre Zielgruppe.
+Um Ihr Segment zu erstellen, navigieren Sie zu **Segments** > **+ Create Segment** und wählen Sie **Custom Attribute** als Filter. Wählen Sie als Nächstes `lexer_audience` als Attribut und den Namen der gewünschten Lexer-Zielgruppe aus. Wenn Sie fertig sind, **speichern** Sie Ihre Zielgruppe.
 
 Sie können dieses neu erstellte Segment nun zu zukünftigen Campaigns und Canvases in Braze hinzufügen, um diese Endnutzer:innen anzusprechen.

@@ -9,11 +9,11 @@ description: "この参照記事では、開封ピクセルとクリックトラ
 
 # メールの開封ピクセルとクリックトラッキング {#email-open-pixel-and-click-tracking}
 
-> [開封ピクセルトラッキング]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel)とクリックトラッキングは、各ユーザープロファイルごとにオンまたはオフにできます。この柔軟性により、地域のプライバシー法に準拠できます。個々のユーザープロファイルがトラッキングを望まないことを示している場合にも対応できます。
+> [開封ピクセルトラッキング]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement)とクリックトラッキングは、各ユーザープロファイルごとにオンまたはオフにできます。この柔軟性により、地域のプライバシー法に準拠できます。個々のユーザープロファイルがトラッキングを望まないことを示している場合にも対応できます。
 
 ## 開封ピクセルまたはクリックトラッキングをオンにする {#turning-on-open-pixel-or-click-tracking}
 
-[API]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)、[CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)、または[クラウドデータ取り込み (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を通じてユーザープロファイルをインポートまたは更新する際に、変更可能な2つのフィールドがあります。
+[API]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)、[CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)、または[クラウドデータ取り込み（CDI）]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を通じてユーザープロファイルをインポートまたは更新する際に、変更可能な2つのフィールドがあります。
 
 - `email_open_tracking_disabled`:`true` または `false` を受け入れます。`false` に設定すると、このユーザーに送信されるすべての今後のメールに開封トラッキングピクセルが追加されます。SparkPostおよびSendGridでのみ利用可能です。
 - `email_click_tracking_disabled`:`true` または `false` を受け入れます。`false` に設定すると、このユーザーに送信される今後のメール内のすべてのリンクにクリックトラッキングが追加されます。SparkPostおよびSendGridでのみ利用可能です。

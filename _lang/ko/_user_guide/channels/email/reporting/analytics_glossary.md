@@ -265,6 +265,8 @@ Count, Percentage
 
 [이메일 히트맵]({{site.baseurl}}/user_guide/channels/email/reporting)에 예상치 못한 링크가 표시되면, 메시지 HTML에서 추적 URL을 생성하는 [콘텐츠 블록]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks) 또는 단어 사이의 간격을 확인하세요. 히트맵 보기에서 **총 클릭 수 기준 링크 테이블**을 사용하여 표시된 텍스트와 일치하지 않는 URL을 식별하세요.
 
+Braze는 메시지 미리보기에서 Liquid 태그를 확장하지 않으므로, 히트맵 렌더러는 미리보기에서 클릭된 링크를 매칭할 수 없습니다. 이는 예상된 동작입니다. 히트맵 렌더러는 클릭된 URL을 메시지의 URL과 매칭하려고 시도합니다. 전체 URL이 이벤트 속성정보로 전달되는 경우처럼 URL이 크게 다르면, 히트맵이 이를 식별할 수 없습니다.
+
 {% endapi %}
 
 {% api %}
@@ -420,7 +422,7 @@ Percentage
 
 ### 구독취소 링크와 고유 클릭 {#unsubscribe-links-and-unique-clicks}
 
-수신자가 구독취소 링크를 클릭하면, Braze는 해당 동작이 URL을 사용하기 때문에 클릭으로 집계합니다. 이는 Braze에서 제공하는 구독취소 링크와 메시지 본문의 커스텀 구독취소 링크 모두에 적용됩니다. 이러한 클릭은 다른 링크 클릭과 함께 *고유 클릭* 및 *총 클릭 수*에 기여합니다. 측정기준 정의는 위의 [고유 클릭](#unique-clicks) 및 [구독취소 수와 구독취소 링크 클릭 수가 다른 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)를 참조하세요.
+수신자가 구독취소 링크를 클릭하면, Braze는 해당 동작이 URL을 사용하기 때문에 클릭으로 집계합니다. 이는 Braze에서 제공하는 구독취소 링크와 메시지 본문의 커스텀 구독취소 링크 모두에 적용됩니다. 이러한 클릭은 다른 링크 클릭과 함께 *고유 클릭* 및 *총 클릭 수*에 기여합니다. 측정기준 정의는 [고유 클릭](#unique-clicks) 및 [구독취소 수와 구독취소 링크 클릭 수가 다른 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)를 참조하세요.
 
 ### 브라우저에서 보기 {#view-in-browser}
 

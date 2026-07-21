@@ -1,6 +1,6 @@
 ## Integration des Android SDK {#integrating-the-android-sdk}
 
-### 1. Schritt: Aktualisieren Sie Ihre Gradle-Build-Konfiguration {#step-1-update-your-gradle-build-configuration}
+### Schritt 1: Aktualisieren Sie Ihre Gradle-Build-Konfiguration {#step-1-update-your-gradle-build-configuration}
 
 Fügen Sie in der Repository-Konfiguration Ihres Projekts (z. B. `settings.gradle`, `settings.gradle.kts` oder `build.gradle` auf oberster Ebene) [`mavenCentral()`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.artifacts.dsl/-repository-handler/maven-central.html) zu Ihrer Liste der Repositorys hinzu. Diese Syntax ist sowohl für Groovy als auch für Kotlin DSL identisch.
 
@@ -108,15 +108,15 @@ dependencies {
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Konfigurieren Sie Ihre `braze.xml` {#step-2-configure-your-brazexml}
+### Schritt 2: Konfigurieren Sie Ihre `braze.xml` {#step-2-configure-your-brazexml}
 
 {% alert note %}
-Ab Dezember 2019 werden keine benutzerdefinierten Endpunkte mehr vergeben. Wenn Sie einen bereits bestehenden benutzerdefinierten Endpunkt haben, können Sie diesen weiterhin verwenden. Weitere Einzelheiten finden Sie in unserer <a href="{{site.baseurl}}/api/basics/#endpoints">Liste der verfügbaren Endpunkte</a>.
+Ab Dezember 2019 werden keine angepassten Endpunkte mehr vergeben. Wenn Sie einen bereits bestehenden angepassten Endpunkt haben, können Sie diesen weiterhin verwenden. Weitere Einzelheiten finden Sie in unserer <a href="{{site.baseurl}}/api/basics/#endpoints">Liste der verfügbaren Endpunkte</a>.
 {% endalert %}
 
 Erstellen Sie eine Datei `braze.xml` im Ordner `res/values` Ihres Projekts. Wenn Sie mit einem bestimmten Daten-Cluster arbeiten oder einen zuvor angepassten Endpunkt verwenden, müssen Sie den Endpunkt ebenfalls in Ihrer Datei `braze.xml` angeben.
 
-Der Inhalt dieser Datei sollte dem folgenden Code-Snippet ähneln. Stellen Sie sicher, dass Sie `YOUR_APP_IDENTIFIER_API_KEY` durch den Bezeichner ersetzen, den Sie auf der Seite **Einstellungen verwalten** des Braze-Dashboards finden. Melden Sie sich unter [dashboard.braze.com](https://dashboard.braze.com) an, um Ihre [Cluster-Adresse]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/) zu finden.
+Der Inhalt dieser Datei sollte dem folgenden Code-Snippet ähneln. Stellen Sie sicher, dass Sie `YOUR_APP_IDENTIFIER_API_KEY` durch den Bezeichner ersetzen, den Sie auf der Seite **Einstellungen verwalten** des Braze-Dashboards finden. Melden Sie sich unter [dashboard.braze.com](https://dashboard.braze.com) an, um Ihre [Cluster-Adresse]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints) zu finden.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -126,7 +126,7 @@ Der Inhalt dieser Datei sollte dem folgenden Code-Snippet ähneln. Stellen Sie s
 </resources>
 ```
 
-### 3. Schritt: Berechtigungen zu `AndroidManifest.xml` hinzufügen {#step-3-add-permissions-to-androidmanifestxml}
+### Schritt 3: Berechtigungen zu `AndroidManifest.xml` hinzufügen {#step-3-add-permissions-to-androidmanifestxml}
 
 Fügen Sie als Nächstes die folgenden Berechtigungen zu Ihrer `AndroidManifest.xml` hinzu:
 
@@ -139,7 +139,7 @@ Fügen Sie als Nächstes die folgenden Berechtigungen zu Ihrer `AndroidManifest.
 Mit der Veröffentlichung von Android M wechselte Android von einem Installationszeit- zu einem Laufzeit-Berechtigungsmodell. Diese beiden Berechtigungen sind jedoch normale Berechtigungen und werden automatisch gewährt, wenn sie im App-Manifest aufgeführt sind. Weitere Informationen finden Sie in der [Dokumentation zu den Berechtigungen](https://developer.android.com/training/permissions/index.html) von Android.
 {% endalert %}
 
-### 4. Schritt: Verzögerte Initialisierung aktivieren (optional) {#step-4-enable-delayed-initialization-optional}
+### Schritt 4: Verzögerte Initialisierung aktivieren (optional) {#step-4-enable-delayed-initialization-optional}
 
 Um die verzögerte Initialisierung zu verwenden, ist die folgende Mindestversion des Braze SDK erforderlich:
 
@@ -283,7 +283,7 @@ Braze.disableDelayedInitialization(context)
 {% endtab %}
 {% endtabs %}
 
-### 5. Schritt: Tracking von Nutzer:innen-Sitzungen aktivieren {#step-5-enable-user-session-tracking}
+### Schritt 5: Tracking von Nutzer:innen-Sitzungen aktivieren {#step-5-enable-user-session-tracking}
 
 Wenn Sie das Tracking von Nutzer:innen-Sitzungen aktivieren, können Aufrufe von `openSession()`, `closeSession()`, [`ensureSubscribedToInAppMessageEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-braze-in-app-message-manager/ensure-subscribed-to-in-app-message-events.html) und die `InAppMessageManager`-Registrierung automatisch verarbeitet werden.
 
@@ -322,7 +322,7 @@ Die Liste der verfügbaren Parameter finden Sie unter [`BrazeActivityLifecycleCa
 ## Testen des Sitzungs-Trackings {#testing-session-tracking}
 
 {% alert tip %}
-Sie können auch den [SDK-Debugger]({{site.baseurl}}/developer_guide/debugging/) verwenden, um Probleme mit dem SDK zu diagnostizieren.
+Sie können auch den [SDK-Debugger]({{site.baseurl}}/developer_guide/debugging) verwenden, um Probleme mit dem SDK zu diagnostizieren.
 {% endalert %}
 
 Wenn Sie beim Testen auf Probleme stoßen, aktivieren Sie die [ausführliche Protokollierung](#android_enabling-logs) und verwenden Sie dann logcat, um fehlende `openSession`- und `closeSession`-Aufrufe in Ihren Aktivitäten zu erkennen.
@@ -447,7 +447,7 @@ Standardmäßig ist die Protokollstufe des Braze Android SDK auf `INFO` eingeste
 
 #### Protokolle aktivieren {#enabling-logs}
 
-Um Fehler in Ihrer App zu beheben oder die Bearbeitungszeiten mit dem Braze-Support zu verkürzen, können Sie ausführliche Protokolle für das SDK aktivieren. Wenn Sie ausführliche Protokolle an den Braze-Support senden, stellen Sie sicher, dass diese beginnen, sobald Sie Ihre Anwendung starten, und weit nach dem Auftreten des Problems enden. Eine zentralisierte Übersicht finden Sie unter [Ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Informationen zum Interpretieren der Protokollausgabe finden Sie unter [Ausführliche Protokolle lesen]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/).
+Um Fehler in Ihrer App zu beheben oder die Bearbeitungszeiten mit dem Braze-Support zu verkürzen, können Sie ausführliche Protokolle für das SDK aktivieren. Wenn Sie ausführliche Protokolle an den Braze-Support senden, stellen Sie sicher, dass diese beginnen, sobald Sie Ihre Anwendung starten, und weit nach dem Auftreten des Problems enden. Eine zentralisierte Übersicht finden Sie unter [Ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Informationen zum Interpretieren der Protokollausgabe finden Sie unter [Ausführliche Protokolle lesen]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 Beachten Sie, dass ausführliche Protokolle nur für Ihre Entwicklungsumgebung gedacht sind. Sie sollten sie daher deaktivieren, bevor Sie Ihre App veröffentlichen.
 
@@ -483,7 +483,7 @@ Ersetzen Sie `MIN_LOG_LEVEL` durch die **Konstante** der Protokollstufe, die Sie
 | `WARN`      | 5              | Protokolliert Warnmeldungen zur Identifizierung potenziell schädlicher Situationen.     |
 | `ERROR`     | 6              | Protokolliert Fehlermeldungen, die auf Anwendungsfehler oder schwerwiegende Probleme hinweisen. |
 | `ASSERT`    | 7              | Protokolliert Assertion-Nachrichten, wenn Bedingungen während der Entwicklung falsch sind.     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enabling logs" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Protokolle aktivieren" }
 
 Der folgende Code leitet zum Beispiel die Protokollstufen `2`, `3`, `4`, `5`, `6` und `7` an die Methode `Log` weiter.
 
@@ -519,7 +519,7 @@ Ersetzen Sie `MIN_LOG_LEVEL` durch den **Wert** der Protokollstufe, die Sie als 
 | `WARN`      | 5              | Protokolliert Warnmeldungen zur Identifizierung potenziell schädlicher Situationen.     |
 | `ERROR`     | 6              | Protokolliert Fehlermeldungen, die auf Anwendungsfehler oder schwerwiegende Probleme hinweisen. |
 | `ASSERT`    | 7              | Protokolliert Assertion-Nachrichten, wenn Bedingungen während der Entwicklung falsch sind.     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enabling logs" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Protokolle aktivieren" }
 
 Der folgende Code leitet zum Beispiel die Protokollstufen `2`, `3`, `4`, `5`, `6` und `7` an die Methode `Log` weiter.
 
@@ -571,7 +571,7 @@ Erstellen Sie für jede relevante Build-Variante eine neue Datei `braze.xml` im 
 ```
 
 {% alert tip %}
-Wie Sie den API-Schlüssel in Ihrem Code einrichten können, erfahren Sie unter [Laufzeitkonfiguration]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android).
+Wie Sie den API-Schlüssel in Ihrem Code einrichten können, erfahren Sie unter [Laufzeitkonfiguration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration).
 {% endalert %}
 
 ### Exklusiver TalkBack für In-App-Nachrichten {#exclusive-in-app-message-talkback}

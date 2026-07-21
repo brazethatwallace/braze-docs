@@ -80,6 +80,12 @@ Google Tag Managerの実装の詳細については、[Googleのドキュメン�
 
 はい。ドラッグ＆ドロップエディターの**Custom Code**ブロックを使用して、HTMLを追加または編集できます。
 
+### ランディングページでiframeを使用できますか？ {#can-i-use-iframes-on-landing-pages}
+
+はい。ドラッグ＆ドロップエディターで**Custom Code**ブロックを追加し、埋め込みたいコンテンツのURLを含むiframe要素を記述してください。
+
+埋め込み先のWebサイトがContent Security Policy（CSP）の`frame-ancestors`や`X-Frame-Options`でフレーミングを制限している場合、iframe内にページが読み込まれないことがあります。Brazeはこれらの設定を上書きできません。埋め込み先のサイト側で、ランディングページのドメインを許可するよう設定する必要があります。
+
 ### ランディングページ内にWebhookを作成できますか？ {#can-i-create-a-webhook-inside-a-landing-page}
 
 いいえ。ただし、**Submitted a Landing Page form**イベントをキャンバスやWebhookキャンペーンのトリガーとして使用できます。

@@ -9,9 +9,9 @@ description: "Cet article aide à clarifier les différentes méthodes et bonnes
 
 # Bonnes pratiques de collecte {#collection-best-practices}
 
-> Savoir quand et comment collecter les données des utilisateurs connus et inconnus peut s'avérer difficile lorsque vous envisagez le cycle de vie du profil utilisateur de vos clients. Cet article aide à clarifier les différentes méthodes et bonnes pratiques pour la collecte de données d'utilisateurs nouveaux et existants en vous guidant à travers un cas d'utilisation.
+> Savoir quand et comment collecter les données des utilisateurs connus et inconnus peut s'avérer difficile lorsque vous envisagez le cycle de vie du profil utilisateur de vos clients. Cet article aide à clarifier les différentes méthodes et bonnes pratiques pour la collecte de données d'utilisateurs nouveaux et existants en vous guidant à travers un cas d'usage.
 
-L'exemple suivant est un cas d'utilisation de la collecte d'e-mails, mais la logique s'applique à de nombreux scénarios de collecte de données différents. Dans cet exemple, nous supposons que vous avez déjà intégré un formulaire d'inscription ou une autre façon de recueillir des informations sur l'utilisateur.
+L'exemple suivant est un cas d'usage de collecte d'e-mails, mais la logique s'applique à de nombreux scénarios de collecte de données différents. Dans cet exemple, nous supposons que vous avez déjà intégré un formulaire d'inscription ou une autre façon de recueillir des informations sur l'utilisateur.
 
 Lorsqu'un utilisateur vous fournit des informations à enregistrer, nous vous recommandons de vérifier si les données existent déjà dans votre base de données et, le cas échéant, de créer un profil d'alias utilisateur ou de mettre à jour le profil utilisateur existant.
 
@@ -51,11 +51,11 @@ Pour vérifier si un utilisateur est avec alias uniquement, [vérifiez si l'util
 
 ## Capturer les données de l'utilisateur lorsque des informations avec alias uniquement sont déjà présentes {#capturing-user-data-when-alias-only-user-information-is-already-present}
 
-Lorsqu'un utilisateur crée un compte ou s'identifie par le biais d'une inscription par e-mail, vous pouvez fusionner les profils. Pour obtenir la liste des champs qui peuvent être fusionnés, reportez-vous à la section [Comportement de fusion des mises à jour]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior).
+Lorsqu'un utilisateur crée un compte ou s'identifie par le biais d'une inscription par e-mail, vous pouvez fusionner les profils. Pour obtenir la liste des champs qui peuvent être fusionnés, reportez-vous à la section [Comportement de fusion des mises à jour]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 ### Fusion de profils utilisateurs dupliqués {#merging-duplicate-user-profiles}
 
-Au fur et à mesure que vos données utilisateurs s'étoffent, vous pouvez fusionner les profils utilisateurs en double depuis le tableau de bord de Braze. Ces profils dupliqués doivent être trouvés à l'aide de la même requête de recherche. Pour plus d'informations sur la fusion de profils utilisateurs, consultez la rubrique [Fusionner les profils]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#merge-profiles).
+Au fur et à mesure que vos données utilisateurs s'étoffent, vous pouvez fusionner les profils utilisateurs en double depuis le tableau de bord de Braze. Ces profils dupliqués doivent être trouvés à l'aide de la même requête de recherche. Pour plus d'informations sur la fusion de profils utilisateurs, consultez la rubrique [Fusionner les utilisateurs en double]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
 Vous pouvez également utiliser l'[endpoint Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) pour fusionner un profil utilisateur dans un autre.
 

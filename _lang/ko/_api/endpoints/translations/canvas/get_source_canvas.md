@@ -19,7 +19,7 @@ description: "이 문서에서는 Canvas 번역 소스 엔드포인트에 대한
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.translations.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.translations.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -33,7 +33,7 @@ description: "이 문서에서는 Canvas 번역 소스 엔드포인트에 대한
 | `step_id` | 필수 | 문자열 | 캔버스 단계의 ID입니다. |
 | `message_variation_id` | 필수 | 문자열 | 메시지 변형의 ID입니다. |
 | `locale_id` | 선택 사항 | 문자열 | 로케일의 ID(UUID)입니다. |
-| `post_launch_draft_version` | 선택 사항 | 부울 | `true`인 경우 최신 라이브 게시 버전 대신 최신 초안 버전을 반환합니다. 기본값은 `false`이며 최신 라이브 버전을 반환합니다.
+| `post_launch_draft_version` | 선택 사항 | 부울 | `true`인 경우 최신 실시간 게시 버전 대신 최신 초안 버전을 반환합니다. 기본값은 `false`이며 최신 실시간 버전을 반환합니다.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="쿼리 매개변수" }
 
 {% alert note %}

@@ -18,7 +18,7 @@ description: "Cet article présente les détails de l'endpoint Braze Annuler les
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `segments.list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `segments.list`.
 
 ## Limite de débit {#rate-limit}
 

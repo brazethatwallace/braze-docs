@@ -43,7 +43,7 @@ Wherever you already have marketing consent for email or texting, include an add
 
 #### Externally built opt-in list
 
-If you have used WhatsApp previously, you may have already built a user list with opt-ins per the WhatsApp requirements. In this case, upload a CSV or use the API with the [following information]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) into Braze.
+If you have used WhatsApp previously, you may have already built a user list with opt-ins per the WhatsApp requirements. In this case, upload a CSV or use the API with the [following information]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) into Braze.
 
 #### Outbound message in customer support WhatsApp channel
 
@@ -63,7 +63,7 @@ Have customers send an inbound message to the WhatsApp number.
 This can be set up as a Canvas or a campaign, depending on whether you'd like the user to receive a confirmation message on the new channel.
 
 1. Create a campaign with the action-based delivery trigger of an inbound message.
-2. Create a webhook campaign. For an example webhook, see [Subscription groups]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#update-subscription-status).
+2. Create a webhook campaign. For an example webhook, see [Subscription groups]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#step-2-update-the-users-profile).
 
 {% alert tip %}
 Note that you can build a URL or QR code to join a WhatsApp channel from within the [WhatsApp manager](https://business.facebook.com/wa/manage/phone-numbers/) under **Phone Number** > **Message Links**.<br>![WhatsApp QR code composer.]({% image_buster /assets/img/whatsapp/whatsapp115.png %}){: style="max-width:55%;"}

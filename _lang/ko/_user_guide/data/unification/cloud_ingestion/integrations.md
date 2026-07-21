@@ -376,9 +376,7 @@ Braze가 Databricks에 액세스하려면 개인 액세스 토큰을 생성해�
 #### 1.1단계: 서비스 주체 설정 및 액세스 권한 부여 {#step-11-set-up-the-service-principal-and-grant-access}
 Braze는 Entra ID 인증을 사용하는 서비스 주체를 통해 Fabric 웨어하우스에 연결합니다. Braze가 사용할 새 서비스 주체를 생성하고 필요에 따라 Fabric 리소스에 대한 액세스 권한을 부여합니다. Braze에 연결하려면 다음 세부 정보가 필요합니다:
 
-* Azure 계정의 테넌트 ID(디렉터리 ID라고도 함)
-* 서비스 주체의 주체 ID(애플리케이션 ID라고도 함)
-* Braze 인증을 위한 클라이언트 비밀
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
 1. Azure 포털에서 Microsoft Entra 관리 센터로 이동한 다음 앱 등록으로 이동합니다.
 2. **Identity** > **Applications** > **App registrations**에서 **+ New registration**을 선택합니다.

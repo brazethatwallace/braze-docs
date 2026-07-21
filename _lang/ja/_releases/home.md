@@ -146,7 +146,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 #### Copy Pastd - メッセージオーケストレーション - テンプレート {#copy-pastd-message-orchestration-templates}
 
-[Copy Pastd]({{site.baseurl}}/partners/copy_pastd) Building Blocksは、Liquid対応のContent Blocksと完全なテンプレートをBrazeワークスペースに直接プッシュするドラッグアンドドロップメールビルダーです。一度デザインし、Brazeに同期して、毎回HTMLを再構築することなく、キャンペーン、キャンバス、トリガーフロー全体で同じコンポーネントを再利用できます。
+[Copy Pastd]({{site.baseurl}}/partners/copy_pastd) Building Blocksは、Liquid対応のContent Blocksと完全なテンプレートをBrazeワークスペースに直接プッシュするドラッグ＆ドロップメールビルダーです。一度デザインし、Brazeに同期して、毎回HTMLを再構築することなく、キャンペーン、キャンバス、トリガーフロー全体で同じコンポーネントを再利用できます。
 
 #### Databricks Mosaic - AIモデルプロバイダー {#databricks-mosaic-ai-model-providers}
 
@@ -226,7 +226,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-カタログが、新しいジオロケーションフィールドタイプとカタログセレクション演算子による距離ベースのフィルタリングをサポートするようになりました。これにより、各ユーザーに最寄りのレストランを表示したり、不動産キャンペーンで50km以内の物件をフィルタリングしたり、特定のイベント近くの店舗をターゲットにしたりするなど、よりロケーションに関連したエクスペリエンスを作成できます。都市やリージョンコードで地理的ターゲティングを近似する代わりに、ユーザーの最新のロケーションなどのLiquidユーザー属性を含む中心点への近接度でカタログアイテムをフィルタリングできます。詳細については、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#how-it-works)を参照してください。
+カタログが、新しいジオロケーションフィールドタイプとカタログセレクション演算子による距離ベースのフィルタリングをサポートするようになりました。これにより、各ユーザーに最寄りのレストランを表示したり、不動産キャンペーンで50km以内の物件をフィルタリングしたり、特定のイベント近くの店舗をターゲットにしたりするなど、よりロケーションに関連したエクスペリエンスを作成できます。都市やリージョンコードで地理的ターゲティングを近似する代わりに、ユーザーの最新のロケーションなどのLiquidユーザー属性を含む中心点への近接度でカタログアイテムをフィルタリングできます。詳細については、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を参照してください。
 
 #### レポートビルダーのバナーとRCS {#banner-and-rcs-for-report-builder}
 
@@ -242,7 +242,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)を使用して、SMS、MMS、RCSメッセージのフック、本文、CTAを最適化できます。コンテンツオプティマイザーは、AIを使用して大量のコンテンツバリアントを自動的に生成・評価し、メッセージコンテンツを大規模にテスト・最適化するのに役立つエージェントです。
+[コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)を使用して、SMS、MMS、RCSメッセージのフック、本文、CTAを最適化できます。コンテンツオプティマイザーは、AIを使用して大量のコンテンツバリアントを自動的に生成・評価し、メッセージコンテンツを大規模にテスト・最適化するのに役立ちます。
 
 ### オーケストレーション {#orchestration}
 
@@ -603,7 +603,7 @@ Brazeは新しい[データセンター]({{site.baseurl}}/user_guide/data/infras
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Snowflakeデータシェア]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-for-data-sharing-3)に、66の既存テーブルにわたるキャンペーンおよびキャンバス情報を反映する追加フィールドが含まれるようになりました。
+[Snowflakeデータシェア]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)に、66の既存テーブルにわたるキャンペーンおよびキャンバス情報を反映する追加フィールドが含まれるようになりました。
 
 - `campaign_name`
 - `canvas_name`
@@ -759,7 +759,7 @@ Radius Networksの[Flybuy]({{site.baseurl}}/partners/message_personalization/loc
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)は、継続的で高バリアントなコンテンツテストのキャンバスステップで、自動エンゲージメント最適化を実現します。メッセージステップと同様のドラッグアンドドロップ可能なインターフェイスを使用して、テストするコンポーネントを定義し、AIを使用してバリアントを生成し（または手動で入力）、Liquidタグを使用してこれらのコンポーネントをメッセージコンテンツにマッピングできます。
+[コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)は、継続的で高バリアントなコンテンツテストのキャンバスステップで、自動エンゲージメント最適化を実現します。メッセージステップと同様のドラッグ＆ドロップ可能なインターフェイスを使用して、テストするコンポーネントを定義し、AIを使用してバリアントを生成し（または手動で入力）、Liquidタグを使用してこれらのコンポーネントをメッセージコンテンツにマッピングできます。
 
 非コンテキストのマルチアームバンディットオプティマイザに基づいて構築されたコンテンツオプティマイザーは、ユーザーごとに1つのメッセージを送信し、予測推奨に基づいて配信するコンポーネントバリアントの組み合わせを決定します。ステップが時間の経過とともにデータを収集すると、パフォーマンスの高いバリアントは送信割り当てが自然に増え、パフォーマンスの低いバリアントは減ります。コンテンツオプティマイザーは、継続的な最適化を可能にするために、一貫した日次ユーザーボリューム（1日あたり少なくとも数千ユーザー）を持つ繰り返し送信キャンバスで最適に動作します。
 
@@ -769,7 +769,7 @@ Radius Networksの[Flybuy]({{site.baseurl}}/partners/message_personalization/loc
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-eコマース推奨イベントと既存の購入イベントを照合するために、[「Places Order」コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-report)を追加しました。これは「Makes Purchase」に似ています。
+eコマース推奨イベントと既存の購入イベントを照合するために、[「Places Order」コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-dashboard)を追加しました。これは「Makes Purchase」に似ています。
 
 ### チャネルとタッチポイント
 
@@ -777,11 +777,11 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-ワークスペースにロケールを追加した後、1つのバナー内で[異なる言語のユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#translating-locales)にできます。
+ワークスペースにロケールを追加した後、1つのバナー内で[異なる言語のユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#use-locales)にできます。
 
-#### ドラッグアンドドロップContent Blocksの幅設定 {#configure-width-for-drag-and-drop-content-blocks}
+#### ドラッグ＆ドロップContent Blocksの幅設定 {#configure-width-for-drag-and-drop-content-blocks}
 
-ナビゲーションメニューのボタンを選択して、[Content Blockの幅を調整]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks#using-the-editor-to-add-a-content-block)できます。メールのグローバルスタイル設定で指定されていない場合、デフォルトの幅は100%です。指定されている場合は、グローバル設定が適用されます。
+ナビゲーションメニューのボタンを選択して、[Content Blockの幅を調整]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)できます。メールのグローバルスタイル設定で指定されていない場合、デフォルトの幅は100%です。指定されている場合は、グローバル設定が適用されます。
 
 ![幅を編集するオプションを持つ両面矢印。]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }
 
@@ -811,7 +811,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 #### DOTS.ECO - エクステンション {#dotseco-extensions}
 
-[DOTS.ECO]({{site.baseurl}}/partners/docs.eco)は、追跡可能なデジタル証明書を通じて、現実世界の環境影響でユーザーに報酬を与えることができます。各証明書には、共有可能な証明書URLや画像URLなどのメタデータを含めることができるため、ユーザーは影響の証明を表示（再訪問）できます。
+[DOTS.ECO]({{site.baseurl}}/partners/dots.eco)は、追跡可能なデジタル証明書を通じて、現実世界の環境影響でユーザーに報酬を与えることができます。各証明書には、共有可能な証明書URLや画像URLなどのメタデータを含めることができるため、ユーザーは影響の証明を表示（再訪問）できます。
 
 #### Mailizio - メッセージオーケストレーション {#mailizio-message-orchestration}
 
@@ -831,7 +831,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-2つの新しい[イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)が、ストレージ送信先（AWS S3、GCS、Azure Blob Storage）とSnowflakeデータ共有で利用可能になりました：`agentconsole.AgentExecuted`および`agentconsole.ToolInvocation`。これらのイベントにより、ダウンストリームシステムでエージェントコンソールの使用状況と詳細を分析でき、エージェントの使用状況を理解し最大限に活用するのに役立ちます。エージェントを使用すると、キャンバスやカタログでのコンテンツ生成、インテリジェントな意思決定に基づくユーザーの異なるパスへのルーティングなど、Braze全体で特定のタスクを実行できるインテリジェントエージェントを作成・デプロイできます。詳細については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)を参照してください。
+2つの新しい[イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)が、ストレージ送信先（AWS S3、Google Cloud Storage、Azure Blob Storage）とSnowflakeデータ共有で利用可能になりました：`agentconsole.AgentExecuted`および`agentconsole.ToolInvocation`。これらのイベントにより、ダウンストリームシステムでエージェントコンソールの使用状況と詳細を分析でき、エージェントの使用状況を理解し最大限に活用するのに役立ちます。エージェントを使用すると、キャンバスやカタログでのコンテンツ生成、インテリジェントな意思決定に基づくユーザーの異なるパスへのルーティングなど、Braze全体で特定のタスクを実行できるインテリジェントエージェントを作成・デプロイできます。詳細については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)を参照してください。
 
 #### 各チャネルの新しい「再試行」イベント {#new-retry-events-for-individual-channels}
 
@@ -849,7 +849,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-外部ユーザーIDが定義されていないイベントを[Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents)送信先にストリーミングできるようになりました。Currentsインテグレーションで「匿名ユーザーのイベントを含める」チェックボックスを選択すると、外部ユーザーIDのないイベントが抑制されずに送信先に送信されます。この機能は、ダウンストリーム分析や、識別されていない匿名ユーザーを含むユースケースに不可欠です。
+外部ユーザーIDが定義されていないイベントを[Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1)送信先にストリーミングできるようになりました。Currentsインテグレーションで「匿名ユーザーのイベントを含める」チェックボックスを選択すると、外部ユーザーIDのないイベントが抑制されずに送信先に送信されます。この機能は、ダウンストリーム分析や、識別されていない匿名ユーザーを含むユースケースに不可欠です。
 
 ##### カスタムHTTP送信先への匿名ユーザーの送信 {#send-anonymous-user-to-customhttp-destinations}
 
@@ -925,7 +925,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-キャンバスの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)のメッセージングチャネルとして**バナー**を選択できます。ドラッグアンドドロップエディタを使用してパーソナライズされたインラインメッセージを作成し、各ユーザーセッションの開始時に自動的に更新される、非侵入的でコンテキストに関連するエクスペリエンスを提供します。
+キャンバスの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)のメッセージングチャネルとして**バナー**を選択できます。ドラッグ＆ドロップエディタを使用してパーソナライズされたインラインメッセージを作成し、各ユーザーセッションの開始時に自動的に更新される、非侵入的でコンテキストに関連するエクスペリエンスを提供します。
 
 #### ダイナミックBCC {#dynamic-bcc}
 
@@ -964,7 +964,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 #### ランディングページへのGoogle Tag Managerの追加 {#adding-google-tag-manager-to-a-landing-page}
 
-ランディングページにGoogle Tag Managerを追加するには、ドラッグアンドドロップエディタでランディングページにカスタムコードブロックを追加し、[Tag Managerコード]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page)をブロックに挿入します。
+ランディングページにGoogle Tag Managerを追加するには、ドラッグ＆ドロップエディタでランディングページにカスタムコードブロックを追加し、[Tag Managerコード]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page)をブロックに挿入します。
 
 ### オーケストレーション
 

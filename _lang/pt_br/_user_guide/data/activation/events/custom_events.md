@@ -17,13 +17,7 @@ Os eventos personalizados são ações realizadas por seus usuários ou atualiza
 
 Alguns casos de uso comuns de eventos personalizados incluem:
 
-- Disparar uma Campaign ou Canvas com base em um evento personalizado usando a [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
-- Segmentar usuários pela quantidade de vezes que realizaram um evento personalizado, quando foi a última vez que o evento ocorreu, e similares
-- Usar a [análise de dados de eventos personalizados](#analytics) do dashboard para visualizar um agregado de quantas vezes cada evento ocorreu
-- Encontrar análises de dados adicionais usando relatórios de [funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) e [retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)
-- Aproveitar [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) para usar metadados do seu evento personalizado para personalização nas etapas do Canvas
-- Gerar análises de dados mais sofisticadas com o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
-- Configurar [critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) para definir quando os usuários devem sair do seu Canvas
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Gerenciando eventos personalizados {#managing-custom-events}
 
@@ -37,9 +31,7 @@ Você pode bloquear eventos personalizados individuais pelo menu de ações, ou 
 
 Quando você bloqueia um evento personalizado:
 
-- Dados futuros não serão coletados para esse evento.
-- Dados existentes não estarão disponíveis a menos que o evento seja desbloqueado.
-- Esse evento não aparecerá em filtros ou gráficos.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 Além disso, se um evento personalizado bloqueado estiver sendo referenciado por filtros ou gatilhos em outras áreas da Braze, um modal de aviso aparecerá explicando que todas as instâncias dos filtros ou gatilhos que o referenciam serão removidas e arquivadas.
 
@@ -85,7 +77,7 @@ Eventos personalizados requerem configuração adicional. Consulte a documentaç
 
 ## Armazenamento de eventos personalizados {#custom-event-storage}
 
-Todos os dados armazenados no **Perfil de usuário**, incluindo metadados de eventos personalizados (primeira ou última ocorrência, contagem total e X em Y ao longo de 30 dias), são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_archival#active-users).
+Todos os dados armazenados no **Perfil de usuário**, incluindo metadados de eventos personalizados (primeira ou última ocorrência, contagem total e X em Y ao longo de 30 dias), são retidos indefinidamente enquanto cada perfil estiver <a href="/docs/user_archival#active-users">ativo</a>.
 
 ## Visualizar o histórico de eventos de um usuário {#view-a-users-event-history}
 
@@ -141,7 +133,7 @@ A tabela a seguir mostra os filtros disponíveis para segmentar usuários por ev
 
 A Braze registra o número de vezes que eventos personalizados ocorreram e a última vez que foram realizados por cada usuário para segmentação. Visualize essas análises de dados acessando **Analytics** > **Relatório de eventos personalizados**.
 
-Na página **Relatório de eventos personalizados** no dashboard, você pode visualizar de forma agregada a frequência com que cada evento personalizado ocorre. As linhas cinzas sobrepostas na série temporal indicam a última vez que uma Campaign foi enviada, o que é útil para ver como suas Campaigns afetaram a atividade de eventos personalizados.
+Na página **Relatório de eventos personalizados** no dashboard, você pode visualizar de forma agregada a frequência com que cada evento personalizado ocorre. As linhas cinzas sobrepostas na série temporal indicam a última vez que uma Campaign foi enviada, o que é útil para ver como suas campanhas afetaram a atividade de eventos personalizados.
 
 ![Gráfico de contagem de eventos personalizados na página de Eventos personalizados no dashboard mostrando tendências para um evento personalizado]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
@@ -150,7 +142,7 @@ Você também pode usar **Filtros** para detalhar seus eventos personalizados po
 ![Filtros do gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Incremente atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers) para manter um contador de ações do usuário semelhante a um evento personalizado. No entanto, você não pode visualizar dados de atributos personalizados em uma série temporal. Ações do usuário que não precisam ser analisadas em uma série temporal devem ser registradas usando este método.
+[Incremente atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) para manter um contador de ações do usuário semelhante a um evento personalizado. No entanto, você não pode visualizar dados de atributos personalizados em uma série temporal. Ações do usuário que não precisam ser analisadas em uma série temporal devem ser registradas usando este método.
 {% endalert %}
 
 ### Por que a análise de dados de eventos personalizados não está aparecendo {#why-custom-events-analytics-arent-showing}

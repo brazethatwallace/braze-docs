@@ -43,7 +43,7 @@ tool:
 - キャンペーンとキャンバスを手動で選択する
 - 特定のルールに基づいてキャンペーンとキャンバスを自動的に選択する
 
-![エンゲージメントレポートのメッセージ選択画面]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### キャンペーンまたはキャンバスを手動で選択する {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ tool:
 
 **Add Stats** ステップでは、選択したキャンペーンまたはキャンバスの種類に応じた統計が表示されます。例えば、メールメッセージを選択した場合、関連するメール統計のみが表示されます。メールとプッシュの組み合わせを選択した場合、それら2つのチャネルの統計が表示されます。
 
-![エンゲージメントレポートの統計追加画面]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 エンゲージメントレポートはキャンペーンまたはキャンバスごとにデータを集計しますが、ワークスペースレベルでは集計しません。すべてのアクティブなキャンペーンおよびキャンバスにわたる合計送信数やインプレッション数（ワークスペース全体のチャネルごとの送信数やインプレッション数など）を監視するには、[レポートビルダー]({{site.baseurl}}/report_builder)を使用してください。
 
@@ -100,7 +100,7 @@ tool:
 
 デフォルトでは、エンゲージメントレポートに表示されるデータは日次（1日単位）です。異なる間隔でデータを表示するには、レポートのデータを集計する明示的な日数または週数を選択します。日次指標の代わりに、週次、月次、四半期ごと、または同様の単位でエンゲージメントを表示できます。時間ベースの集計では不十分な場合は、キャンペーンまたはキャンバスレベルでデータをエクスポートすることもできます。
 
-![エンゲージメントレポートのデータカバレッジ画面]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 ##### キャンペーンまたはキャンバス全体でデータを表示する {#show-data-by-entire-campaign-or-canvas}
 
@@ -117,7 +117,7 @@ tool:
 - **すぐに送信:** レポートが起動された後、Brazeはこのレポートをすぐに送信します。
 - **指定した時間に送信:** このオプションでは、レポートを受け取る頻度を柔軟に選択できます。設定した日数、週数、または月数ごとにレポートを送信するよう選択できます。レポートの送信を停止する時期も定義できます。
 
-![エンゲージメントレポートのスケジュール設定画面]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### ステップ5: 確認して起動する {#step-5-review-and-launch}
 
@@ -133,7 +133,7 @@ tool:
 
 ### エンゲージメントレポートの指標がメールパフォーマンスダッシュボードと異なる {#engagement-report-metrics-differ-from-the-email-performance-dashboard}
 
-エンゲージメントレポートと[メールパフォーマンスダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance)は、同じメール指標の定義を使用しています。どちらも開封とクリックを各イベントが**発生した**日に帰属させ、*ユニーク開封数*と*ユニーククリック数*を1日あたりの7日間ユニークカウントとして計算し、選択した日付範囲全体で合計します。定義については、[メール指標]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#email-metrics)およびチャネルパフォーマンスダッシュボードページの[指標の計算方法]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#how-metrics-are-calculated)を参照してください。
+エンゲージメントレポートと[メールパフォーマンスダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance)は、同じメール指標の定義を使用しています。どちらも開封とクリックを各イベントが**発生した**日に帰属させ、*ユニーク開封数*と*ユニーククリック数*を1日あたりの7日間ユニークカウントとして計算し、選択した日付範囲全体で合計します。定義については、[メール指標]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary)およびチャネルパフォーマンスダッシュボードページの[指標の計算方法]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#how-metrics-are-calculated)を参照してください。
 
 同じキャンペーンと期間で合計が異なる場合は、以下を確認してください。
 

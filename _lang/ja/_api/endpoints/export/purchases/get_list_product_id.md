@@ -20,7 +20,7 @@ description: "この記事では、「製品IDをエクスポートする」Braz
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`purchases.product_list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`purchases.product_list` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -41,7 +41,7 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
 ```
 {% endraw %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {

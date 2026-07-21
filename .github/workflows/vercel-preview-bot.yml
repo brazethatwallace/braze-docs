@@ -46,7 +46,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 24
 
@@ -251,6 +251,30 @@ jobs:
           if [[ "${any_failure}" -ne 0 ]]; then
             exit 1
           fi
+
+      - name: Remove redundant native Vercel deployments
+        if: always()
+        run: |
+          set -uo pipefail
+
+          # The native Vercel GitHub integration creates one GitHub Deployment per
+          # locale project (Preview – braze-docs-de, -ko, and so on). For non-docs
+          # contributors without Vercel access these records fail, so the PR shows a
+          # misleading "This branch had an error being deployed / N failed" banner.
+          # The docs bot already publishes a single consolidated preview deployment
+          # (Preview – braze-docs (docs bot)), so delete the native per-locale
+          # records and leave only the bot's deployment. This does not touch the
+          # bot deployment or any commit statuses; it only cleans the environments box.
+          native_ids="$(gh api "repos/${GITHUB_REPOSITORY}/deployments?sha=${HEAD_SHA}&per_page=100" \
+            --jq '.[] | select(.creator.login == "vercel[bot]") | .id' || true)"
+
+          for deployment_id in ${native_ids}; do
+            # A deployment must be marked inactive before GitHub allows deleting it.
+            gh api "repos/${GITHUB_REPOSITORY}/deployments/${deployment_id}/statuses" \
+              --method POST -f state="inactive" >/dev/null 2>&1 || true
+            gh api --method DELETE \
+              "repos/${GITHUB_REPOSITORY}/deployments/${deployment_id}" >/dev/null 2>&1 || true
+          done
 
       - name: Comment preview URL on pull request
         if: always()

@@ -266,7 +266,7 @@ A permissão **Visualizar IPI** é acessível apenas a alguns usuários selecion
 Você precisa da permissão **Visualizar IPI** para usar o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), pois ele permite acesso direto a alguns dados de clientes.
 {% endalert %}
 
-Para as capacidades existentes de permissão de equipe, consulte [Definição de permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
+Para as capacidades existentes de permissão de equipe, consulte [Definição de permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### Definição de IPI {#defining-pii}
 

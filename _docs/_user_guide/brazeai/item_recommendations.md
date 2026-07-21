@@ -265,7 +265,7 @@ Highlight items that your users have recently purchased with increased frequency
 {% enddetails %}
 
 {% details Setting it up %}
-1. Create an [AI item recommendation]({{site.baseurl}}/ai_item_recommendations).
+1. Create an [AI item recommendation]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Set the **Type** to **Trending**.
 3. Select your catalog.
 4. (Optional) Add a selection to filter your recommendation to only relevant items.
@@ -285,7 +285,7 @@ Highlight items that your users have recently liked with increased frequency. Fo
 {% enddetails %}
 
 {% details Setting it up %}
-1. Create an [AI item recommendation]({{site.baseurl}}/ai_item_recommendations).
+1. Create an [AI item recommendation]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Set the **Type** to **Trending**.
 3. Select your catalog.
 4. (Optional) Add a selection to filter your recommendation to only relevant items.
@@ -351,7 +351,7 @@ For example, an online bookstore could offer a "Surprise Me" feature, recommendi
 
 ### Rules-based {#rules-based}
 
-A [rules-based recommendation]({{site.baseurl}}/rules_based_recommendations) engine uses user data and product information to suggest relevant items to users within messages. It uses Liquid and either Braze catalogs or Connected Content to dynamically personalize content based on user behavior and attributes.
+A [rules-based recommendation]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based) engine uses user data and product information to suggest relevant items to users within messages. It uses Liquid and either Braze catalogs or Connected Content to dynamically personalize content based on user behavior and attributes.
 
 Rules-based recommendations are based on fixed logic that you must manually set. This means your recommendations won’t adjust to a user's individual purchase history and tastes unless you update the logic; therefore, this method is best for recommendations that don’t need frequent updates.
 

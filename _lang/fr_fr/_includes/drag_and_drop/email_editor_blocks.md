@@ -132,6 +132,19 @@ Pour la **largeur automatique**, le redimensionnement automatique choisit la mei
 - Les images plus petites que l'espace disponible utilisent leur taille naturelle pour éviter les effets de distorsion ou les images floues.
 {% endalert %}
 
+#### Comportement du bouton de téléchargement Gmail {#gmail-download-button-behavior}
+
+Gmail ajoute automatiquement un bouton de téléchargement aux images qui n'ont pas de lien hypertexte (`href`) associé. Cependant, si le rapport hauteur/largeur de l'image est de 299 × 524 px ou moins, Gmail n'affiche pas le bouton de téléchargement.
+
+Pour empêcher le bouton de téléchargement d'apparaître sur les images plus grandes, vous pouvez appliquer la solution de contournement avec le lien « # » :
+
+1. Sélectionnez le bloc **Image**.
+2. Dans le panneau **Options du bloc**, accédez à la section **Lien**.
+3. Définissez le **Type de lien** sur **Open web page**.
+4. Saisissez un signe dièse (`#`) dans le champ **URL**.
+
+L'ajout de ce lien empêche Gmail d'afficher le bouton de téléchargement sans affecter l'expérience utilisateur.
+
 ### Vidéo {#video}
 
 Crée un lien vers du contenu vidéo. Seuls YouTube et Vimeo sont pris en charge.

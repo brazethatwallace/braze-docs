@@ -131,7 +131,7 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 
 이전에 커넥터를 생성한 적이 있다면 사용 가능한 커넥터 목록에서 기존 커넥터를 선택적으로 사용하고 연필 아이콘으로 수정하거나 휴지통 아이콘으로 삭제할 수 있습니다.
 
-이 오디언스를 연결할 커넥터를 생성하거나 선택한 후 Done을 클릭하여 계속합니다.
+이 오디언스를 연결할 커넥터를 생성하거나 선택한 후 **Done**을 클릭하여 계속합니다.
 
 #### 동작 {#action}
 
@@ -151,7 +151,7 @@ Tealium 홈 페이지에서 사이드바 내비게이션의 **AudienceStream** �
 | 매개변수 | 설명 |
 | ---------- | ----------- |
 | 사용자 ID | 이 필드를 사용하여 Tealium 사용자 ID 필드를 Braze에 해당하는 필드에 매핑합니다. 하나 이상의 사용자 ID 속성을 매핑합니다. 여러 ID가 지정된 경우 다음 우선순위에 따라 첫 번째 비어 있지 않은 값이 선택됩니다: 외부 ID, Braze ID, 별칭 이름, 별칭 라벨.<br><br>- 푸시 토큰을 가져오는 경우 외부 ID와 Braze ID를 지정하면 안 됩니다.<br>- 사용자 별칭을 지정하는 경우 별칭 이름과 별칭 라벨을 설정해야 합니다. <br><br>자세한 내용은 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 확인하세요. |
-| 사용자 속성 | 기존 Braze 고객 프로필 필드 이름을 사용하여 Braze 대시보드에서 고객 프로필 값을 업데이트하거나 고객 프로필에 자체 커스텀 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) 데이터를 추가합니다.<br><br>- 기본적으로 존재하지 않는 경우 새 사용자가 생성됩니다.<br>- **Update Existing Only**를 `true`로 설정하면 기존 사용자만 업데이트되며 새 사용자는 생성되지 않습니다.<br>- Tealium 속성이 비어 있으면 null로 변환되어 Braze 고객 프로필에서 제거됩니다. 사용자 속성을 제거하기 위해 null 값을 Braze에 보내지 않으려면 보강을 사용해야 합니다. |
+| 사용자 속성 | 기존 Braze 고객 프로필 필드 이름을 사용하여 Braze 대시보드에서 고객 프로필 값을 업데이트하거나 고객 프로필에 자체 커스텀 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object) 데이터를 추가합니다.<br><br>- 기본적으로 존재하지 않는 경우 새 사용자가 생성됩니다.<br>- **Update Existing Only**를 `true`로 설정하면 기존 사용자만 업데이트되며 새 사용자는 생성되지 않습니다.<br>- Tealium 속성이 비어 있으면 null로 변환되어 Braze 고객 프로필에서 제거됩니다. 사용자 속성을 제거하기 위해 null 값을 Braze에 보내지 않으려면 보강을 사용해야 합니다. |
 | 사용자 속성 수정 | 이 필드를 사용하여 특정 사용자 속성을 증가 또는 감소시킵니다.<br><br>- 정수 속성은 양의 정수 또는 음의 정수로 증가시킬 수 있습니다.<br>- 배열 속성은 기존 배열에서 값을 추가하거나 제거하여 수정할 수 있습니다. |
 | 이벤트 | 이벤트는 특정 사용자가 특정 타임스탬프에 수행한 커스텀 이벤트의 단일 발생을 나타냅니다. 이 필드를 사용하여 Braze [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object)와 같은 이벤트 속성을 추적하고 매핑합니다. <br><br>- 이벤트 속성 `Name`은 매핑된 모든 이벤트에 필수입니다.<br>- 이벤트 속성 `Time`은 명시적으로 매핑되지 않는 한 자동으로 현재 시간으로 설정됩니다. <br>- 기본적으로 존재하지 않는 경우 새 이벤트가 생성됩니다. `Update Existing Only`를 `true`로 설정하면 기존 이벤트만 업데이트되며 새 이벤트는 생성되지 않습니다.<br>- 배열 유형 속성을 매핑하여 여러 이벤트를 추가합니다. 배열 유형 속성은 동일한 길이여야 합니다.<br>- 단일 값 속성을 사용할 수 있으며 각 이벤트에 적용됩니다. |
 | 이벤트 템플릿 | 본문 데이터에서 참조할 이벤트 템플릿을 제공합니다. 템플릿을 사용하여 Braze로 보내기 전에 데이터를 변환할 수 있습니다. 자세한 내용은 Tealium의 [템플릿 가이드](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/)를 참조하세요. |
@@ -219,7 +219,7 @@ Tealium의 Trace 도구 구현에 대한 자세한 지침은 Tealium의 [Trace �
   <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Tealium AudienceStream 통합 데모" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-## 잠재적 데이터 포인트 초과 {#potential-data-point-overages}
+## 잠재적 데이터 포인트 초과량 {#potential-data-point-overages}
 
 Tealium을 통해 Braze를 통합할 때 실수로 데이터 초과가 발생할 수 있는 세 가지 주요 방법이 있습니다:
 

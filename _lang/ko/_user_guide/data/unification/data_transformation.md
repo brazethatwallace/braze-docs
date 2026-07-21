@@ -46,7 +46,7 @@ guide_featured_list:
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="데이터 변환 계층" }
 
 {% alert important %}
-데이터 변환 프로로 업그레이드를 요청하려면 Braze 계정 매니저에게 문의하거나 Braze 대시보드에서 **Request Upgrade** 버튼을 선택하세요.
+데이터 변환 프로로 업그레이드를 요청하려면 Braze 계정 매니저에게 문의하거나 Braze 대시보드에서 **업그레이드 요청** 버튼을 선택하세요.
 {% endalert %}
 
 ### 사용량 제한 {#rate-limits}
@@ -65,7 +65,7 @@ Braze 데이터 변환의 사용량 제한은 워크스페이스당 분당 1,000
 
 ### 외부 플랫폼에서 이메일 주소나 전화번호만 식별자로 제공하는 경우에도 Braze 데이터 변환을 사용할 수 있나요? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
-예. [이메일 주소 또는 전화번호를 식별자로]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-email-address) 사용하여 `/users/track` 엔드포인트를 업데이트하도록 변환을 설정할 수 있습니다.
+예. [이메일 주소 또는 전화번호를 식별자로]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-email-address) 사용하여 `/users/track` 엔드포인트를 업데이트하도록 변환을 설정할 수 있습니다.
 
 변환 코드에서 `external_id` 또는 `braze_id` 대신 `email` 또는 `phone`을 식별자 속성으로 사용하면 됩니다. 예제 [변환 코드]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases#example-transformation-code)에서 이 기능을 사용합니다.
 

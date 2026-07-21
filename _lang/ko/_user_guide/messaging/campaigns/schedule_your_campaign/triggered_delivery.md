@@ -160,7 +160,7 @@ Campaign에 특정 기간도 할당한 경우, 사용자는 메시지를 수신�
 
 예를 들어, 방금 등록한 남성 사용자에게 이벤트 트리거 Campaign을 발송하려 한다고 가정해 보겠습니다. 사용자가 등록할 때 커스텀 이벤트 `registration`을 기록하고 동시에 사용자의 `gender` 속성을 설정합니다. Braze가 사용자의 성별을 처리하기 전에 이벤트가 Campaign을 트리거하여 사용자가 Campaign을 수신하지 못할 수 있습니다.
 
-모범 사례로, Campaign이 세분화하는 속성이 이벤트 전에 Braze 서버로 플러시되도록 하세요. 이것이 불가능한 경우, 전달을 보장하는 가장 좋은 방법은 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties)를 사용하여 관련 사용자 속성정보를 이벤트에 첨부하고 세분화 필터 대신 특정 이벤트 속성정보에 대한 속성정보 필터를 적용하는 것입니다. 위 예시의 경우, 커스텀 이벤트 `registration`에 `gender` 속성정보를 추가하면 Campaign이 트리거될 때 Braze가 필요한 데이터를 확보할 수 있습니다.
+모범 사례로, Campaign이 세분화하는 속성이 이벤트 전에 Braze 서버로 플러시되도록 하세요. 이것이 불가능한 경우, 전달을 보장하는 가장 좋은 방법은 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)를 사용하여 관련 사용자 속성정보를 이벤트에 첨부하고 세분화 필터 대신 특정 이벤트 속성정보에 대한 속성정보 필터를 적용하는 것입니다. 위 예시의 경우, 커스텀 이벤트 `registration`에 `gender` 속성정보를 추가하면 Campaign이 트리거될 때 Braze가 필요한 데이터를 확보할 수 있습니다.
 
 또한, Campaign이 실행 기반이고 지연이 있는 경우, **발송 시 Segment 멤버십 재평가** 옵션을 선택하여 메시지가 발송될 때 사용자가 여전히 타겟 오디언스에 속하는지 확인할 수 있습니다.
 

@@ -6,16 +6,71 @@ description: "Braze SDK를 통해 제거를 추적하는 방법을 알아보세�
 
 ---
 
-# 제거 추적
+# 제거 추적 {#track-uninstalls}
 
-> Braze SDK를 통해 제거 추적을 설정하는 방법을 알아보세요. 일반적인 정보는 [사용자 가이드를 참조하세요: 추적 제거]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
+> Braze SDK를 통해 제거 추적을 설정하는 방법을 알아보세요. 일반적인 정보는 [사용자 가이드: 제거 추적]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking)을 참조하세요.
 
 {% sdktabs %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/android/analytics/tracking_uninstalls.md %}
+## 제거 추적 설정하기 {#setting-up-uninstall-tracking}
+
+### 1단계: FCM 설정하기 {#step-1-set-up-fcm}
+
+Android Braze SDK는 FCM(Firebase 클라우드 메시징)을 사용하여 제거 추적 분석을 수집하는 데 사용되는 무음 푸시 알림을 전송합니다. 아직 설정하지 않았다면 푸시 알림을 위해 Firebase Cloud 메시징 API를 [설정하거나]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#android_setting-up-push-notifications) [마이그레이션하세요]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
+
+### 2단계: 수동으로 제거 추적 감지(선택 사항) {#step-2-manually-detect-uninstall-tracking-optional}
+
+기본값으로 Android Braze SDK는 제거 추적과 관련된 무음 푸시 알림을 자동으로 감지하고 무시합니다. 그러나 제거 추적을 수동으로 감지하려면 [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html) 메서드를 사용할 수 있습니다.
+
+{% alert important %}
+제거 추적을 위한 무음 알림은 어떤 Braze 푸시 콜백에도 전달되지 않으므로 이 메서드는 푸시 알림을 Braze에 전달하기 전에만 사용할 수 있습니다.
+{% endalert %}
+
+### 3단계: 자동 서버 핑 제거하기 {#step-3-remove-automatic-server-pings}
+
+무음 푸시 알림은 앱이 아직 실행되고 있지 않은 경우 앱을 깨우고 `Application` 컴포넌트를 인스턴스화합니다. 따라서 커스텀 [`Application`](https://developer.android.com/reference/android/app/Application) 서브클래스가 있다면, [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application#onCreate()) 라이프사이클 메서드에서 자동으로 서버를 핑하는 로직을 모두 제거하세요.
+
+### 4단계: 제거 추적 활성화 {#step-4-enable-uninstall-tracking}
+
+마지막으로 Braze에서 제거 추적을 활성화합니다. 전체 안내는 [제거 추적 사용]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking#turning-on-uninstall-tracking)을 참조하세요.
+
+{% alert important %}
+제거 추적은 정확하지 않을 수 있습니다. Braze에 표시되는 측정기준은 지연되거나 부정확할 수 있습니다.
+{% endalert %}
+
 {% endsdktab %}
 
 {% sdktab swift %}
-{% multi_lang_include developer_guide/swift/analytics/tracking_uninstalls.md %}
+## 제거 추적 설정하기
+
+### 1단계: 백그라운드 푸시 사용 {#step-1-enable-background-push}
+
+Xcode 프로젝트에서 **Capabilities**로 이동하여 **Background Modes**가 활성화되어 있는지 확인합니다. 자세한 내용은 [무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)을 참조하세요.
+
+### 2단계: 내부 푸시 알림 무시하기 {#step-2-ignore-internal-push-notifications}
+
+Swift Braze SDK는 백그라운드 푸시 알림을 사용하여 제거 추적 분석을 수집합니다. 이러한 알림이 전송될 때 앱이 원치 않는 작업을 수행하지 않도록 [내부 푸시 알림을 무시하도록]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications) 설정해야 합니다.
+
+### 3단계: 테스트 푸시 보내기(선택 사항) {#step-3-send-a-test-push-optional}
+
+그런 다음, Braze 대시보드에서 테스트 푸시 알림을 보내세요(고객 프로필이 업데이트되지는 않으니 걱정하지 마세요).
+
+1. **메시징** > **캠페인**으로 이동하여 해당 플랫폼을 사용하여 푸시 알림 캠페인을 만듭니다.
+2. **설정** > **앱 설정**으로 이동하여 `appboy_uninstall_tracking` 키에 관련 `true` 값을 추가한 다음 **콘텐츠 사용 가능 플래그 추가**에 체크합니다.
+3. **미리보기** 페이지를 사용하여 테스트 제거 추적 푸시를 직접 전송합니다.
+4. 앱이 푸시 알림을 받을 때 원치 않는 자동 동작을 수행하지 않는지 확인하세요.
+
+{% alert note %}
+테스트 푸시 알림과 함께 배지 번호가 전송되지만, 실제 제거 추적 푸시에는 배지 번호가 전송되지 않습니다.
+{% endalert %}
+
+### 4단계: 제거 추적 활성화
+
+마지막으로 Braze에서 제거 추적을 활성화합니다. 전체 안내는 [제거 추적 사용]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking#turning-on-uninstall-tracking)을 참조하세요.
+
+{% alert important %}
+제거 추적은 정확하지 않을 수 있습니다. Braze에 표시되는 측정기준은 지연되거나 부정확할 수 있습니다.
+{% endalert %}
+
 {% endsdktab %}
 {% endsdktabs %}

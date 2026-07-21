@@ -76,16 +76,16 @@ Die Ergebnisse von In-App-Nachrichten-Campaigns enthalten Diagramme für die fol
 Sie können Nutzerdaten für alle Empfänger:innen einer Campaign als CSV-Datei exportieren. Wählen Sie dazu den Button **User Data** im Abschnitt **Campaign Details** aus.
 
 {% alert note %}
-Sie können den Button **User Data** nicht sehen? Um Nutzerdaten zu exportieren, benötigen Sie die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions) **Export User Data** für diesen Workspace.
+Sie können den Button **User Data** nicht sehen? Um Nutzerdaten zu exportieren, benötigen Sie die [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) **Export User Data** für diesen Workspace.
 {% endalert %}
 
 ![User-Data-Dropdown auf der Seite „Campaign Details“]({% image_buster /assets/img/campaign_export_example.png %})
 
 Die CSV-Ausgabe enthält Nutzerprofil-Daten für alle Empfänger:innen der Campaign. Braze erstellt den Bericht im Hintergrund und sendet ihn per E-Mail an die aktuell angemeldete Person.
 
-Wenn Sie Ihre [Amazon S3-Anmeldedaten]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) mit Braze verknüpft haben, wird die CSV-Datei auch in Ihren S3-Bucket hochgeladen. Andernfalls läuft der Ihnen per E-Mail zugesandte Link nach einigen Stunden ab.
+Wenn Sie Ihre [Amazon S3-Zugangsdaten]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) mit Braze verknüpft haben, wird die CSV-Datei auch in Ihren S3-Bucket hochgeladen. Andernfalls läuft der Ihnen per E-Mail zugesandte Link nach einigen Stunden ab.
 
-Die exportierte Datei enthält dieselben Nutzerdatenfelder, die auch beim [Export von Nutzerdaten für ein Segment]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data) enthalten sind. Wenn Sie zusätzlich zu diesen Datenfeldern die Option „Export All Recipient Data“ wählen, enthält die exportierte Datei außerdem die folgenden Daten für jede:n Nutzer:in:
+Die exportierte Datei enthält dieselben Nutzerdatenfelder, die auch beim [Export von Nutzerdaten für ein Segment]({{site.baseurl}}/user_guide/analytics/dashboards/home) enthalten sind. Wenn Sie zusätzlich zu diesen Datenfeldern die Option „Export All Recipient Data“ wählen, enthält die exportierte Datei außerdem die folgenden Daten für jede:n Nutzer:in:
 
 - Name der erhaltenen Campaign-Variante
 - API-ID der erhaltenen Campaign-Variante

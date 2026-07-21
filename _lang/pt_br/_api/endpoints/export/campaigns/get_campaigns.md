@@ -15,7 +15,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 /campaigns/list
 {% endapimethod %}
 
-> Use esse endpoint para exportar uma lista de campanhas, cada uma das quais incluirá seu nome, o identificador de API da Campaign, se é uma Campanha da API e as tags associadas à campanha.
+> Use esse endpoint para exportar uma lista de campanhas, cada uma das quais incluirá seu nome, o identificador de API da campanha, se é uma campanha de API e as tags associadas à campanha.
 
 As campanhas são retornadas em grupos de 100, classificadas por hora de criação (da mais antiga para a mais recente, por padrão).
 
@@ -23,18 +23,18 @@ As campanhas são retornadas em grupos de 100, classificadas por hora de criaç�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `campaigns.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.list`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
 | `page` | Opcional | Inteiro | A página de campanhas a ser retornada; o padrão é 0 (retorna o primeiro conjunto de até 100). |
-| `include_archived` | Opcional | booleano | Se deve ou não incluir campanhas arquivadas; o padrão é false. |
+| `include_archived` | Opcional | Booleano | Se deve ou não incluir campanhas arquivadas; o padrão é false. |
 | `sort_direction` | Opcional | String | - Classifique o tempo de criação do mais novo para o mais antigo: passe o valor `desc`.<br> - Classifique o tempo de criação do mais antigo para o mais recente: passe o valor `asc`. <br><br>Se `sort_direction` não estiver incluído, a ordem padrão será da mais antiga para a mais recente. |
 | `last_edit.time[gt]` | Opcional | Horário | Filtra os resultados e retorna apenas as campanhas que foram editadas após o horário fornecido até o momento atual. O formato é `yyyy-MM-DDTHH:mm:ss`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }

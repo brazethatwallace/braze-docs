@@ -90,7 +90,7 @@ Les GIF aux proportions très allongées (par exemple, 3000 × 2 pixels) ou comp
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-Avant d'utiliser cette fonctionnalité, consultez [comment vos données sont utilisées et envoyées à OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy).
+Avant d'utiliser cette fonctionnalité, consultez [comment vos données sont utilisées et envoyées à OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).
 {% endalert %}
 
-Si vous ne voyez pas **AI Image Generator** sur la page **Bibliothèque multimédia**, vérifiez que vous disposez de l'autorisation **Edit Media Library Assets**. Si l'option est toujours absente, contactez votre équipe Braze pour confirmer que votre espace de travail a accès à la génération d'images BrazeAI. Si la génération échoue, consultez la [politique de contenu d'OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy).
+Si vous ne voyez pas **AI Image Generator** sur la page **Bibliothèque multimédia**, vérifiez que vous disposez de l'autorisation **Edit Media Library Assets**. Si l'option est toujours absente, contactez votre équipe Braze pour confirmer que votre espace de travail a accès à la génération d'images BrazeAI. Si la génération échoue, consultez la [politique de contenu d'OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).

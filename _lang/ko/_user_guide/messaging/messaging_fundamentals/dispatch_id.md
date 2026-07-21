@@ -3,7 +3,7 @@ nav_title: 디스패치 ID
 article_title: 디스패치 ID 동작
 page_order: 5.2
 page_type: reference
-description: "이 참조 문서에서는 Campaign(캠페인), Canvas, Liquid 및 Currents에 대한 디스패치 ID 동작에 대해 설명합니다."
+description: "이 참조 문서에서는 Campaign, Canvas, Liquid 및 Currents에 대한 디스패치 ID 동작에 대해 설명합니다."
 ---
 
 # 디스패치 ID 동작 {#dispatch-id-behavior}
@@ -36,4 +36,4 @@ description: "이 참조 문서에서는 Campaign(캠페인), Canvas, Liquid 및
 
 예약된 메시지를 받은 모든 고객은 동일한 `dispatch_id`를 받지만, 액션 기반 또는 API 트리거된 메시지를 받은 고객은 메시지당 고유한 `dispatch_id`를 받습니다. `dispatch_id` 필드를 사용하면 반복 Campaign의 어떤 인스턴스가 전환에 기여했는지 식별할 수 있으므로, 어떤 유형의 Campaign이 결과를 이끌어내는지 확인할 수 있습니다.
 
-`dispatch_id`는 [개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#supported-personalization-tags), [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 또는 Currents용 [Segment]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment_for_currents#integration-details), [Mixpanel]({{site.baseurl}}/partners/insights/behavioral_analytics/mixpanel_for_currents#email-events), [Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_for_currents)를 사용할 때 활용할 수 있습니다.
+`dispatch_id`는 [개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 또는 Currents용 [Segment]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment_for_currents#integration-details), [Mixpanel]({{site.baseurl}}/partners/insights/behavioral_analytics/mixpanel_for_currents#email-events), [Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_for_currents)를 사용할 때 활용할 수 있습니다.

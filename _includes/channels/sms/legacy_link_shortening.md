@@ -2,6 +2,8 @@ Link shortening and click tracking allow you to automatically shorten URLs conta
 
 Link shortening and click tracking can be turned on at the [message variant-level]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) in both campaigns and Canvases. 
 
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+
 The length of the URL is determined by the type of tracking that is turned on:
 - **Basic tracking** enables campaign-level click tracking. Static URLs will have a length of 20 characters, and personalized URLs will have a length of 25 characters.
 - **Advanced tracking** enables campaign-level and user-level click tracking, and enables use of segmentation and retargeting capabilities which rely on clicks. Clicks will also generate an [SMS click event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) sent through Currents. Static URLs with advanced tracking will have a length of 27-28 characters, allowing you to create segments of users who have clicked on URLs. Personalized URLs will have a length of 32-33 characters.
@@ -46,7 +48,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-We also support the shortening of custom-defined Liquid variables. Several examples are shown in the following section:
+We also support the shortening of custom-defined Liquid variables, such as in the following examples:
 
 ### Create a URL using Liquid variables
 

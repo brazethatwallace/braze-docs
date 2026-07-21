@@ -43,7 +43,7 @@ search_rank: 1
 1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. キャンバスを設定したら、キャンバスビルダーで**SMS/MMS/RCS**メッセージステップを追加します。
 3. ステップにわかりやすく意味のある名前を付けます。
-4. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)を選択し、必要に応じて遅延を指定します。
+4. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)を選択し、必要に応じて遅延を指定します。
 5. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、メッセージが送信される時点で遅延後にチェックされます。
 6. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)を選択します。
 7. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
@@ -219,7 +219,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 #### 会話型メッセージワークフローの作成（RCS） {#create-conversational-message-workflows-rcs}
 
-会話型メッセージワークフローでは、ユーザーに動的に応答し、双方向のメッセージング体験を作成できます。ワークフローを構築するには、キャンバスを作成し、候補返信と[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を組み合わせて、ユーザーが選択した返信に基づいてワークフローを誘導します。
+会話型メッセージワークフローでは、ユーザーにダイナミックに応答し、双方向のメッセージング体験を作成できます。ワークフローを構築するには、キャンバスを作成し、候補返信と[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を組み合わせて、ユーザーが選択した返信に基づいてワークフローを誘導します。
 
 1. キャンバスビルダーで、複数の候補返信を含むRCSメッセージステップを作成します。
 
@@ -228,7 +228,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 {: start="2"}
 2. そのメッセージを、各候補返信に対応するアクショングループを持つアクションパスに接続します。
 3. 各アクショングループについて:
-   - トリガーとして**SMSインバウンドメッセージを送信する**を選択します。
+   - トリガーとして**SMS インバウンドメッセージを送信**を選択します。
    - メッセージ本文を、対応する候補返信と同じに設定します。
 
 ![3つのアクショングループ（各候補返信に1つずつ）で構成されたアクションパスステップ。]({% image_buster /assets/img/rcs/quick_reply.png %})
@@ -273,7 +273,7 @@ RCSのレンダリングはユーザーのオペレーティングシステム�
 
 アクションベースの配信の場合、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)も設定できます。
 
-このステップでは、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)ルールを有効にするなどの配信コントロールも指定できます。
+このステップでは、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)ルールを有効にするなどの配信コントロールも指定できます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
@@ -301,7 +301,7 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 {% endtab %}
 {% tab キャンバス %}
 
-まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas)ステップを参照してください。
 
 {% endtab %}
 {% endtabs %}

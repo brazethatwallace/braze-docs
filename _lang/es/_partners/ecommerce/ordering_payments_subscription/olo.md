@@ -68,13 +68,7 @@ En este paso, transformarás la carga útil del webhook que se enviará desde la
 
 Este valor de retorno debe ajustarse al formato del cuerpo de la solicitud `/users/track` de Braze:
 
-- El código de transformación se acepta en el lenguaje de programación JavaScript. Se admite cualquier flujo de control estándar de JavaScript, como la lógica if/else.
-- El código de transformación accede al cuerpo de la solicitud del webhook a través de la variable payload. Esta variable es un objeto poblado por el análisis del cuerpo de la solicitud JSON.
-- Se admite cualquier característica de nuestro endpoint `/users/track`, incluidos:
-    - Objetos de atributos de usuario, objetos de evento y objetos de compra
-    - Atributos anidados y propiedades anidadas de eventos personalizados
-    - Actualizaciones de grupos de suscripción
-    - Dirección de correo electrónico como identificador
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Ejemplo de transformaciones de datos para webhooks de Olo {#example-data-transformations-for-olo-webhooks}
 

@@ -4,7 +4,7 @@ article_title: Vorbereitungsleitfaden für In-App-Nachrichten
 page_order: 0.5
 
 page_type: reference
-description: "Dieser Artikel behandelt Fragen und Best Practices, die Sie vor dem Erstellen von In-App-Nachrichten berücksichtigen sollten, einschließlich Targeting, Zeitplanung, Inhalt und Conversions."
+description: "Dieser Artikel behandelt Fragen und Best Practices, die Sie vor dem Erstellen von In-App-Nachrichten berücksichtigen sollten, einschließlich Targeting, Zeitplanung, Inhalt und Konversionen."
 channel: in-app messages
 toc_headers: h2
 ---
@@ -15,7 +15,7 @@ toc_headers: h2
 
 ## Allgemeine Überlegungen {#general-considerations}
 
-- Wenn Sie eine Campaign erstellen, wie viele Varianten dieser Nachricht möchten Sie anzeigen? Ideen für Variantentests finden Sie unter [Tipps für verschiedene Kanäle]({{site.baseurl}}/user_guide/messaging/ab_testing#tips-different-channels).
+- Wenn Sie eine Campaign erstellen, wie viele Varianten dieser Nachricht möchten Sie anzeigen? Ideen für Variantentests finden Sie unter [Tipps für verschiedene Kanäle]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#tips-different-channels).
 - Wenn Sie einen Canvas erstellen, wird diese Nachricht in diesem Schritt mit anderen Messaging-Kanälen kombiniert?
 - Wann soll [Ihre Nachricht ablaufen]({{site.baseurl}}/canvas_in-app_messages)?
 
@@ -40,12 +40,12 @@ Beispielsweise könnte ein:e Nutzer:in eine In-App-Nachricht mit einem acht Seku
 - Welche Sprachen werden Sie in dieser Nachricht verwenden?
 - Was ist Ihr Header- und Body-Text? Sind sie auffällig und relevant für Ihre Nutzer:innen?
 - In-App-Nachrichten werden nur für eine festgelegte Zeitspanne angezeigt. Ist Ihr Text prägnant und einprägsam?
-- Werden Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) verwenden, um benutzerdefinierten Text hinzuzufügen?
+- Werden Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) verwenden, um angepassten Text hinzuzufügen?
 - Müssen Nutzer:innen Nachrichtentext kopieren (z. B. einen Rabatt- oder Gutscheincode)? Auf iOS und Android können Nutzer:innen Text oder Texteingabefelder durch langes Drücken kopieren. Langes Drücken funktioniert nicht bei Bildern – verwenden Sie daher Text oder Texteingabefelder anstelle von Bildern, die Codes oder andere Inhalte enthalten, die Nutzer:innen möglicherweise kopieren müssen.
 - Befindet sich Ihr Bild oder anderes Medium bei Vollbild-In-App-Nachrichten innerhalb der [sicheren Zone]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
 - Möchten Sie bei Umfrage-In-App-Nachrichten Attribute oder Einreichungen protokollieren? Haben Sie Ihre Bestätigungsseite eingerichtet?
 
-## Überlegungen zu Conversions {#conversion-considerations}
+## Überlegungen zu Konversionen {#conversion-considerations}
 
 - Was ist Ihr Ziel für diese Nachricht? Wie können Sie das in Ihrer Nachricht darstellen?
 - Bieten Ihre Buttons Optionen, die für Ihre Nutzer:innen sinnvoll sind? Was ist Ihr [primärer Call-to-Action]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#buttons)?

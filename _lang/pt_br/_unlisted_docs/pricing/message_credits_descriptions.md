@@ -16,23 +16,22 @@ Observe que a "Proporção de Créditos" referenciada nesta página é definida 
 
 ## Sumário {#table-of-contents}
 
-- [Descrições dos Créditos de Ação da Braze](#braze-action-credits-descriptions)
-  - [Detalhes do canal de e-mail](#email-channel-details)
-  - [Detalhes dos canais SMS, MMS e RCS](#sms-mms-and-rcs-channel-details)
-    - [Segmentos de SMS](#sms-segments)
-    - [Mensagens MMS](#mms-messages)
-    - [Tipos de RCS](#rcs-types)
-  - [Detalhes do canal WhatsApp](#whatsapp-channel-details)
-    - [Detalhamento por região de cobrança](#billing-region-breakdown)
-  - [Detalhes do Agent Console](#agent-console-details)
-  - [Detalhes de canais adicionais](#additional-channel-details)
-    - [LINE](#line)
-    - [KakaoTalk](#kakaotalk)
-    - [Content Cards](#content-cards)
-    - [Banners](#banners)
-    - [Audience Sync](#audience-sync)
-    - [Arquivamento de mensagem](#message-archiving)
-    - [Webhooks](#webhooks)
+- [Detalhes do canal de e-mail](#email-channel-details)
+- [Detalhes dos canais SMS, MMS e RCS](#sms-mms-and-rcs-channel-details)
+  - [Segmentos de SMS](#sms-segments)
+  - [Mensagens MMS](#mms-messages)
+  - [Tipos de RCS](#rcs-types)
+- [Detalhes do canal WhatsApp](#whatsapp-channel-details)
+  - [Detalhamento por região de cobrança](#billing-region-breakdown)
+- [Detalhes do Agent Console](#agent-console-details)
+- [Detalhes de canais adicionais](#additional-channel-details)
+  - [LINE](#line)
+  - [KakaoTalk](#kakaotalk)
+  - [Content Cards](#content-cards)
+  - [Banners](#banners)
+  - [Audience Sync](#audience-sync)
+  - [Arquivamento de mensagem](#message-archiving)
+  - [Webhooks](#webhooks)
 
 ## Detalhes do canal de e-mail {#email-channel-details}
 
@@ -62,11 +61,7 @@ Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o t
 
 O RCS é a próxima geração de SMS e MMS. Ele oferece os benefícios de um canal direto e de alto engajamento como o SMS, com recursos mais ricos que os consumidores modernos esperam, como conteúdo rico (imagens, vídeos, documentos), envio verificado e com marca, recursos interativos como respostas e ações sugeridas, e muito mais.
 
-- A cobrança do RCS é baseada em dois tipos diferentes de mensagem (com distinções para os EUA):
-    - **RCS Basic:** Somente texto, até 160 caracteres
-    - **RCS Single:** Mensagens contendo conteúdo rico, ou mensagens somente texto com mais de 160 caracteres
-    - **RCS Rich (somente EUA):** Somente texto, pode incluir sugestões/botões limitados (quickReply, dialPhone, openURL sem webview), segmentado a cada 160 bytes UTF-8
-    - **RCS Rich Media (somente EUA):** Qualquer mídia OU texto com sugestões/botões mais ricos (webview, localização, calendário, etc.), contado como uma mensagem
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
 Consulte nossa [documentação de SMS e MMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms) para saber mais sobre nossas ofertas da família SMS.
@@ -178,5 +173,5 @@ Consulte nossa [documentação de arquivamento de mensagem]({{site.baseurl}}/use
 As proporções de créditos de webhooks são denominadas em incrementos de mil webhooks enviados a partir da plataforma Braze. Por padrão, seu contrato inclui cem mil webhooks para cada Período do seu Prazo de Assinatura. Webhooks adicionais serão cobrados conforme seu Formulário de Pedido.
 
 {% alert note %}
-Consulte nossa [documentação de webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) para saber mais sobre Webhooks da Braze.
+Consulte nossa [documentação de webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) para saber mais sobre webhooks da Braze.
 {% endalert %}

@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Ungü
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `sms.invalid_phone_numbers`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `sms.invalid_phone_numbers`.
 
 ## Rate-Limit
 

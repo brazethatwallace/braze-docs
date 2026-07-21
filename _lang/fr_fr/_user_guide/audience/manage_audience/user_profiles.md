@@ -166,7 +166,7 @@ Les événements d'engagement liés aux messages suivants sont disponibles pour 
 
 ##### Événements d'abandon de message {#message-abort-events}
 
-Les événements d'abandon de message se produisent lorsqu'un message envoyé à un utilisateur a été abandonné en raison d'une logique conditionnelle dans [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) ou le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages), ou en raison de délais d'expiration du rendu Liquid.
+Les événements d'abandon de message se produisent lorsqu'un message envoyé à un utilisateur a été abandonné en raison d'une logique conditionnelle dans [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) ou le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content), ou en raison de délais d'expiration du rendu Liquid.
 
 Les événements d'abandon sont disponibles pour les canaux suivants :
 
@@ -179,7 +179,7 @@ Les événements d'abandon ne sont actuellement pas disponibles pour les In-App 
 
 ##### Événements de limite de fréquence {#frequency-cap-events}
 
-Un événement de limite de fréquence se produit lorsqu'un utilisateur est qualifié pour recevoir un message, mais ne le reçoit pas en raison des paramètres de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping). Vous pouvez personnaliser les paramètres de limite de fréquence depuis **Paramètres** > **Règles de limite de fréquence**.
+Un événement de limite de fréquence se produit lorsqu'un utilisateur est qualifié pour recevoir un message, mais ne le reçoit pas en raison des paramètres de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Vous pouvez personnaliser les paramètres de limite de fréquence depuis **Paramètres** > **Règles de limite de fréquence**.
 
 ##### Destinations vides {#blank-destinations}
 

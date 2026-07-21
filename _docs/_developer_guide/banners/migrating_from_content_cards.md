@@ -780,6 +780,7 @@ Banners only support scheduled delivery campaigns. To migrate a message that was
 | Drag-and-drop editor | ❌ Requires developer for customization | ✅ Marketers can create/update without engineering |
 | Custom HTML/CSS | ❌ Limited to card structure | ✅ Full HTML/CSS support |
 | Key-value pairs for customization | ✅ Required for advanced customization | ✅ Strongly-typed key-value pairs called "properties" for advanced customization |
+| Message extras | ✅ Supported | ❌ Not currently supported |
 | **Persistence & Expiration** |
 | Card expiration | ✅ Supported (30-day limit) | ✅ Supported (no expiration limit) |
 | True persistence | ❌ 30-day maximum | ✅ Unlimited persistence |

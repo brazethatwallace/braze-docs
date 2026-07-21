@@ -16,23 +16,22 @@ Notez que le « ratio de crédits » référencé sur cette page correspond au n
 
 ## Table des matières {#table-of-contents}
 
-- [Descriptions des Action Credits Braze](#braze-action-credits-descriptions)
-  - [Détails du canal e-mail](#email-channel-details)
-  - [Détails des canaux SMS, MMS et RCS](#sms-mms-and-rcs-channel-details)
-    - [Segments SMS](#sms-segments)
-    - [Messages MMS](#mms-messages)
-    - [Types RCS](#rcs-types)
-  - [Détails du canal WhatsApp](#whatsapp-channel-details)
-    - [Répartition par région de facturation](#billing-region-breakdown)
-  - [Détails de la Console des agents](#agent-console-details)
-  - [Détails des canaux supplémentaires](#additional-channel-details)
-    - [LINE](#line)
-    - [KakaoTalk](#kakaotalk)
-    - [Content Cards](#content-cards)
-    - [Bannières](#banners)
-    - [Audience Sync](#audience-sync)
-    - [Archivage des messages](#message-archiving)
-    - [Webhooks](#webhooks)
+- [Détails du canal e-mail](#email-channel-details)
+- [Détails des canaux SMS, MMS et RCS](#sms-mms-and-rcs-channel-details)
+  - [Segments SMS](#sms-segments)
+  - [Messages MMS](#mms-messages)
+  - [Types RCS](#rcs-types)
+- [Détails du canal WhatsApp](#whatsapp-channel-details)
+  - [Répartition par région de facturation](#billing-region-breakdown)
+- [Détails de la Console des agents](#agent-console-details)
+- [Détails des canaux supplémentaires](#additional-channel-details)
+  - [LINE](#line)
+  - [KakaoTalk](#kakaotalk)
+  - [Content Cards](#content-cards)
+  - [Bannières](#banners)
+  - [Audience Sync](#audience-sync)
+  - [Archivage des messages](#message-archiving)
+  - [Webhooks](#webhooks)
 
 ## Détails du canal e-mail {#email-channel-details}
 
@@ -60,13 +59,9 @@ Pour les MMS, la limite de taille du message est de 5 Mo (cela inclut la ressour
 
 ### Types RCS {#rcs-types}
 
-Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct à fort engagement comme le SMS, avec des fonctionnalités plus riches auxquelles les consommateurs modernes s'attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
+Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct à fort engagement comme le SMS, avec des fonctionnalités plus riches auxquelles les consommateurs modernes s'attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et identifié à la marque, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
 
-- La facturation RCS repose sur deux types de messages différents (avec des distinctions pour les États-Unis) :
-    - **RCS Basic :** Texte uniquement, jusqu'à 160 caractères
-    - **RCS Single :** Messages contenant du contenu enrichi, ou messages texte uniquement de plus de 160 caractères
-    - **RCS Rich (États-Unis uniquement) :** Texte uniquement, peut inclure des suggestions/boutons limités (quickReply, dialPhone, openURL sans webview), segmenté par tranches de 160 octets UTF-8
-    - **RCS Rich Media (États-Unis uniquement) :** Tout média OU texte avec des suggestions/boutons plus riches (webview, localisation, calendrier, etc.), comptabilisé comme un seul message
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
 Consultez notre [documentation SMS et MMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms) pour en savoir plus sur nos offres de la famille SMS.

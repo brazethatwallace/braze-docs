@@ -100,7 +100,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 ### イベント履歴タブ {#event-history-tab}
 
 {% alert note %}
-**イベント履歴**タブを表示するには、**ユーザーを検索**、**ユーザーイベントプロパティを表示**、および**PIIを表示**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
+**イベント履歴**タブを表示するには、**ユーザーを検索**、**ユーザーイベントプロパティを表示**、および**View PII**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
 {% endalert %}
 
 **イベント履歴**タブには、ユーザーが記録したカスタムイベントと購入が表示されます。イベントデータが正しく到着しているかを確認し、ダッシュボード上で直接ユーザーレベルの問題をトラブルシューティングするために使用します。データのエクスポートや外部ツールは不要です。
@@ -124,7 +124,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 - **メール:** Brazeは、メッセージがメールサービスプロバイダー（ESP）に引き渡された時点で送信を記録します。その引き渡し後、Liquidロジック、レート制限、またはユーザーが到達不能としてマークされたことによるメッセージの中止は行われません。次のイベントは通常、配信またはバウンスです。
 - **プッシュ:** Brazeは、メッセージがプッシュプロバイダー（例えば、Apple Push Notification service（APNs）やFirebase Cloud Messaging（FCM））に引き渡された時点で送信を記録します。プロバイダーは通常、即座に配信を試みます。デバイスが利用できない場合（例えば、オフラインの場合）、プロバイダーはメッセージの有効期限が切れるまで再試行する場合があります。
 - **アプリ内メッセージ:** Brazeは、キャンペーンが起動された時点で送信を記録します。
-- **Content Cards:** Brazeが*送信済み*イベントを記録するタイミングは、配信タイプと**カード作成**設定によって異なります。Content Cardsキャンペーンがユーザープロファイルの**受信したキャンペーン**に表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。詳細については、Content Cardsレポートの記事の[送信が記録されるタイミング]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged)および[受信したキャンペーンとリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters)を参照してください。
+- **Content Cards:** Brazeが_送信済み_イベントを記録するタイミングは、配信タイプと**カード作成**設定によって異なります。Content Cardsキャンペーンがユーザープロファイルの**受信したキャンペーン**に表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。詳細については、Content Cardsレポートの記事の[送信が記録されるタイミング]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged)および[受信したキャンペーンとリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters)を参照してください。
 - **SMS、WhatsApp、Webhook:** Brazeは、メッセージがそのチャネルの配信パス（例えば、SMSまたはWhatsAppプロバイダー、またはWebhookエンドポイント）に入った時点で送信を記録します。
 
 {% alert note %}
@@ -147,7 +147,7 @@ RCSイベントは現在、**メッセージ履歴**タブではサポートさ�
 
 #### イベントの表示と理解 {#viewing-and-understanding-events}
 
-**メッセージ履歴**テーブルの各イベントについて、メッセージングチャネル、イベントタイプ、イベント発生のタイムスタンプ、関連するキャンペーンまたはキャンバスメッセージ、およびユーザーのデバイスデータを確認できます。特定のイベントでフィルタリングするには、**Filters**をクリックしてリストからイベントを選択します。
+**メッセージ履歴**テーブルの各イベントについて、メッセージングチャネル、イベントタイプ、イベント発生のタイムスタンプ、関連するキャンペーンまたはキャンバスメッセージ、およびユーザーのデバイスデータを確認できます。特定のイベントでフィルタリングするには、**フィルター**をクリックしてリストからイベントを選択します。
 
 ##### メッセージエンゲージメントイベント {#message-engagement-events}
 
@@ -166,7 +166,7 @@ RCSイベントは現在、**メッセージ履歴**タブではサポートさ�
 
 ##### メッセージ中止イベント {#message-abort-events}
 
-メッセージ中止イベントは、ユーザーに送信されたメッセージが[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)または[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages)の条件ロジック、またはLiquidレンダリングのタイムアウトにより中止された場合に発生します。
+メッセージ中止イベントは、ユーザーに送信されたメッセージが[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)または[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)の条件ロジック、またはLiquidレンダリングのタイムアウトにより中止された場合に発生します。
 
 中止イベントは以下のチャネルで利用できます。
 
@@ -179,7 +179,7 @@ RCSイベントは現在、**メッセージ履歴**タブではサポートさ�
 
 ##### フリークエンシーキャップイベント {#frequency-cap-events}
 
-フリークエンシーキャップイベントは、ユーザーがメッセージの受信対象となったものの、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)設定により実際にはメッセージを受信しなかった場合に発生します。フリークエンシーキャップの設定は、**Settings** > **Frequency Capping Rules**からカスタマイズできます。
+フリークエンシーキャップイベントは、ユーザーがメッセージの受信対象となったものの、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)設定により実際にはメッセージを受信しなかった場合に発生します。フリークエンシーキャップの設定は、**設定** > **フリークエンシーキャップルール**からカスタマイズできます。
 
 ##### 空白の送信先 {#blank-destinations}
 

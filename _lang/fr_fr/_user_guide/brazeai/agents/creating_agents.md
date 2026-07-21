@@ -23,7 +23,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 ## Fonctionnement {#how-it-works}
 
-Lorsque vous créez un agent, vous définissez son objectif et établissez des garde-fous quant à son comportement. Une fois en production, l'agent peut être déployé dans Braze pour générer des textes personnalisés, prendre des décisions en temps réel ou mettre à jour les champs du catalogue. Pendant la création de votre agent, vous pouvez l'enregistrer en tant que brouillon, et vous pouvez suspendre ou mettre à jour un agent à tout moment depuis le tableau de bord.
+Lorsque vous créez un agent, vous définissez son objectif et établissez des garde-fous quant à son comportement. Une fois en production, l'agent peut être déployé dans Braze pour générer des textes personnalisés, prendre des décisions en temps réel ou mettre à jour les champs du catalogue. Pendant la création de votre agent, vous pouvez l'enregistrer en tant que brouillon, et vous pouvez suspendre ou mettre à jour un agent à tout moment depuis le tableau de bord. Chaque enregistrement crée une nouvelle version que vous pouvez consulter dans l'onglet [Historique des versions]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history).
 
 Les cas d'usage suivants illustrent quelques façons de tirer parti des agents personnalisés.
 
@@ -62,6 +62,10 @@ Configurez ensuite les détails de votre agent :
 4. Si vous n'utilisez pas le modèle **Braze Auto**, sélectionnez le [niveau de réflexion]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) du modèle. Vous avez le choix entre minimal, faible, moyen ou élevé. Nous vous recommandons de commencer par **Minimal**, de tester les réponses de votre agent, puis d'ajuster ce paramètre si nécessaire.
 5. Définissez une limite d'invocations quotidienne. Par défaut, cette valeur est fixée à 250 000, mais elle peut être augmentée jusqu'à 1 000 000. Si vous souhaitez dépasser 1 000 000, contactez votre gestionnaire du succès des clients pour en savoir plus.
 
+Le champ **Limite quotidienne de coût en crédits d'action** indique le nombre maximal de crédits que cet agent peut consommer par jour. Braze le calcule à partir du ratio de crédits par invocation de votre espace de travail pour le modèle sélectionné (défini dans votre contrat et affiché sur la page [Ratios de crédits]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage)), multiplié par la limite d'invocations quotidienne. L'estimation se met à jour lorsque vous modifiez le modèle ou la limite d'invocations.
+
+Pour maîtriser les coûts, réduisez la limite d'invocations quotidienne. Pour les modèles [BYO (Bring Your Own)]({{site.baseurl}}/user_guide/brazeai/agents/reference#option-2-bring-your-own-api-key), vous pouvez également passer à un modèle moins coûteux ou réduire le [niveau de réflexion]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels). **Braze Auto** ne permet pas d'ajuster le niveau de réflexion. Suivez votre consommation réelle dans **Paramètres** > **Facturation** > **Utilisation des crédits** > **Console des agents**.
+
 ![Interface de la Console des agents pour la création d'un agent personnalisé dans Braze. L'écran affiche des champs permettant de saisir le nom et la description de l'agent, de sélectionner un modèle et de définir une limite d'invocations quotidienne.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### Étape 4 : Rédiger les instructions {#agent-instructions}
@@ -70,21 +74,26 @@ Donnez des instructions à l'agent. Si vous avez utilisé un modèle Operator, v
 
 Incluez des consignes sur la conduite à tenir dans des situations imprévues ou ambiguës. Cela minimise le risque que la confusion de l'agent entraîne des erreurs. Par exemple, plutôt que de demander à l'agent uniquement des valeurs de sentiment « positives » ou « négatives », demandez-lui de renvoyer « incertain » s'il ne parvient pas à se prononcer.
 
-Consultez la section [Rédaction des instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions) pour les bonnes pratiques et les [Exemples]({{site.baseurl}}/user_guide/brazeai/agents/reference#examples) pour trouver l'inspiration sur la manière de guider votre agent.
-
-{% alert tip %}
-Pour les agents Canvas, vous pouvez utiliser Liquid dans vos instructions afin de faire référence aux attributs utilisateur, tels que le prénom et le nom, ou à des attributs personnalisés. Toute variable Liquid présente dans les instructions de l'agent est automatiquement transmise à l'étape Agent lorsqu'un utilisateur y accède.
-{% endalert %}
+Consultez la section [Rédaction des instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions) pour les bonnes pratiques et les [Exemples d'agents Canvas]({{site.baseurl}}/user_guide/brazeai/agents/reference#examples) pour trouver l'inspiration sur la manière de guider votre agent.
 
 #### Ajouter du contexte {#add-resources}
+
+{% alert important %}
+Les agents ne reçoivent que les données que vous leur transmettez explicitement — ils ne parcourent pas les profils utilisateur et ne vous avertissent pas lorsque des données requises sont manquantes. Utilisez Liquid dans vos instructions, sélectionnez **+ Contexte de l'agent**, ajoutez des [étapes de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) en amont dans Canvas, ou transmettez du contexte supplémentaire dans l'étape Agent. Pour une liste complète des sources de données et des recommandations de conception, consultez [Données reçues par les agents]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
+{% endalert %}
 
 Sélectionnez **+ Contexte de l'agent** pour choisir les éléments auxquels votre agent peut se référer. Cela inclut :
 
 - [Champs du catalogue]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields) : Donnez à l'agent accès aux données de votre catalogue pour des réponses plus précises.
+- [Sources de connaissances]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) : Donnez à l'agent accès aux données du catalogue via une source de connaissances pour une récupération plus précise que l'attachement direct d'un catalogue.
 - [Appartenance à un segment]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context) : Permettez à l'agent de personnaliser les réponses en fonction des segments auxquels appartient l'utilisateur. Vous pouvez sélectionner jusqu'à cinq segments.
 - [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) : Référencez les directives relatives au ton et au style de la marque que l'agent doit respecter. Par exemple, si vous souhaitez que votre agent génère un SMS pour encourager les utilisateurs à s'inscrire à une salle de sport, vous pouvez utiliser ce champ pour faire référence à votre directive prédéfinie, audacieuse et motivante.
 - [Contexte Canvas complet]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) : Analysez toutes les données de contexte Canvas pour un utilisateur lorsque cet agent est invoqué, y compris les variables qui ne sont pas référencées dans la section **Instructions**.
 - [Données d'interaction utilisateur]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history) : Fournissez à l'agent les données récentes d'ouvertures, de clics et de conversions des Campaigns et Canvas de chaque utilisateur.
+
+{% alert tip %}
+Pour les agents Canvas, vous pouvez utiliser Liquid dans vos instructions afin de faire référence aux attributs utilisateur, tels que le prénom et le nom, ou à des attributs personnalisés. Toute variable Liquid présente dans les instructions de l'agent est automatiquement transmise à l'étape Agent lorsqu'un utilisateur y accède. Consultez [Données reçues par les agents]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive) pour savoir comment transmettre délibérément le contexte Canvas et les données de profil.
+{% endalert %}
 
 ### Étape 5 : Sélectionner la sortie {#select-output}
 
@@ -98,15 +107,15 @@ Lorsque vous utilisez un [schéma de sortie avancé]({{site.baseurl}}/user_guide
 
 #### Configurer les valeurs de repli {#configure-fallback-values}
 
-Les valeurs de repli sont disponibles uniquement pour les **agents d'étape Canvas**. Dans la section **Sortie** d'un agent Canvas, vous pouvez définir les valeurs que Braze utilise lorsqu'une invocation de l'agent échoue, par exemple lorsque le LLM expire ou renvoie une erreur de clé API non valide. Les valeurs de repli fonctionnent comme des valeurs par défaut de personnalisation. Vous pouvez définir une ligne d'objet statique ou un court message qui fournit tout de même un résultat utile aux utilisateurs lorsque l'agent ne peut pas s'exécuter.
+Les valeurs de repli sont disponibles uniquement pour les agents d'étape Canvas. Dans la section **Sortie** d'un agent d'étape Canvas, vous pouvez définir les valeurs que Braze utilise lorsqu'une invocation de l'agent échoue, par exemple lorsque le LLM expire ou renvoie une erreur de clé API non valide. Les valeurs de repli fonctionnent comme des valeurs par défaut de personnalisation. Vous pouvez définir une ligne d'objet statique ou un court message qui fournit tout de même un résultat utile aux utilisateurs lorsque l'agent ne peut pas s'exécuter.
 
-Les **agents de catalogue** ne prennent pas en charge la configuration de valeurs de repli dans la Console des agents.
+Les agents de catalogue ne prennent pas en charge la configuration de valeurs de repli dans la Console des agents.
 
 ![Configuration de la sortie dans la Console des agents, affichant le champ de sortie de repli pour un schéma de type nombre.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 Pour les agents Canvas, les valeurs de repli prennent en charge le templating [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) afin que vous puissiez faire référence aux attributs utilisateur ou aux variables de contexte dans le texte de repli.
 
-Les champs de repli s'adaptent au format de sortie de votre agent Canvas :
+Les champs de repli s'adaptent au format de sortie de votre agent d'étape Canvas :
 
 | Format de sortie | Configuration du repli |
 | --- | --- |
@@ -115,7 +124,7 @@ Les champs de repli s'adaptent au format de sortie de votre agent Canvas :
 | Schéma JSON (schéma avancé) | Braze lit votre schéma JSON et génère un champ de saisie pour chaque propriété afin que vous puissiez définir une valeur de repli par clé. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer les valeurs de repli" }
 
-Lorsqu'un agent Canvas avec des valeurs de repli s'exécute dans une [étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze effectue le rendu du repli par utilisateur et le stocke dans la variable de sortie au lieu de `null`. Si vous ne configurez pas de valeurs de repli, les invocations échouées laissent la sortie Canvas non définie (`null`).
+Lorsqu'un agent d'étape Canvas avec des valeurs de repli s'exécute dans une [étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze effectue le rendu du repli par utilisateur et le stocke dans la variable de sortie au lieu de `null`. Si vous ne configurez pas de valeurs de repli, les invocations échouées laissent la sortie Canvas non définie (`null`).
 
 Pour le comportement à l'exécution, consultez [Gestion des erreurs et comportement de repli]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
@@ -173,6 +182,6 @@ Operator peut préconfigurer les instructions, les champs de sortie et le contex
 
 ## Ressources connexes {#related-resources}
 
-- [Article de référence pour les agents]({{site.baseurl}}/user_guide/brazeai/agents/reference)
+- [Référence pour les agents]({{site.baseurl}}/user_guide/brazeai/agents/reference)
 - [Questions fréquentes]({{site.baseurl}}/user_guide/brazeai/agents/faq)
 - [Webinaire Braze sur l'IA en action : 3 nouveaux cas d'usage pour la personnalisation 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

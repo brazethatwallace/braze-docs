@@ -102,7 +102,7 @@ Nach dem Import verschiebt Braze automatisch das importierte Push-Token in das B
 
 Braze überprüft einmal im Monat, ob es anonyme Profile mit dem `push_token_import`-Flag gibt, die keinen Push-Token haben. Wenn das anonyme Profil keinen Push-Token mehr aufweist, wird das Profil von Braze gelöscht. Wenn das anonyme Profil jedoch weiterhin über einen Push-Token verfügt – was darauf hindeutet, dass sich die tatsächliche Nutzer:in noch nicht mit diesem Push-Token beim Gerät angemeldet hat –, unternimmt Braze keine Maßnahmen.
 
-Weitere Informationen finden Sie unter [Migration von Push-Tokens](#migrating-push-tokens).
+Weitere Informationen finden Sie unter [Migration von Push-Tokens](#migrate-push-tokens).
 
 #### Angepasste Attribut-Datentypen {#custom-attribute-data-types}
 
@@ -347,7 +347,7 @@ Die folgenden Überlegungen gelten nur für Android-Apps. iOS-Apps erfordern die
 
 Wenn Sie Android-Push-Benachrichtigungen an Ihre Nutzer:innen senden müssen, bevor die Braze-SDK-Integration abgeschlossen ist, verwenden Sie Schlüssel-Wert-Paare, um Push-Benachrichtigungen zu validieren.
 
-Sie müssen über einen Empfänger verfügen, der Push-Payloads verarbeiten und anzeigen kann. Um den Empfänger über den Push-Payload zu benachrichtigen, fügen Sie der Push-Campaign die erforderlichen Schlüssel-Wert-Paare hinzu. Die Werte dieser Paare hängen von dem Push-Partner ab, den Sie vor Braze verwendet haben.
+Sie müssen über einen Empfänger verfügen, der Push-Payloads verarbeiten und anzeigen kann. Um den Empfänger über den Push-Payload zu benachrichtigen, fügen Sie der Push-Kampagne die erforderlichen Schlüssel-Wert-Paare hinzu. Die Werte dieser Paare hängen von dem Push-Partner ab, den Sie vor Braze verwendet haben.
 
 {% alert note %}
 Bei einigen Anbietern von Push-Benachrichtigungen muss Braze die Schlüssel-Wert-Paare vereinfachen, damit sie korrekt interpretiert werden können. Um Schlüssel-Wert-Paare für eine bestimmte Android-App zu vereinfachen, wenden Sie sich bitte an Ihren Customer-Success-Manager.

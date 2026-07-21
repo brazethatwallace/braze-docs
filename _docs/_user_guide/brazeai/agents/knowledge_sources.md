@@ -73,7 +73,7 @@ Converting a catalog into a knowledge source helps Braze Agents understand the t
 
 ### When should I create a knowledge source?
 
-Create a knowledge source when you're setting up a custom agent (Canvas agent or catalog agent) that needs catalog data as context. Knowledge sources help agents retrieve catalog data more accurately than referencing the catalog directly in the agent's instructions.
+Create a knowledge source when you're setting up a custom agent (Canvas Step Agent or Catalog Agent) that needs catalog data as context. Knowledge sources help agents retrieve catalog data more accurately than referencing the catalog directly in the agent's instructions.
 
 ### If an agent has been given a knowledge source as context, do I also need to assign the original catalog as context?
 

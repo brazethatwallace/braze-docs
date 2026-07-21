@@ -332,9 +332,9 @@ reviewer, and label rules below. For shared create-pr workflow details
 this step overrides only the PR description format and automation-specific
 metadata.
 
-**PR title format:** `[<ticket_id>] - <descriptive title>` (for example,
-`[BD-1234] - Clarify segment export limits`). Put the ticket ID in
-brackets, then a space, a dash, a space, then the descriptive title.
+**PR title format:** `<ticket_id>: <descriptive title>` (for example,
+`BD-1234: Clarify segment export limits`). Put the ticket ID first,
+then a colon, a space, then the descriptive title.
 
 **Assign the PR to the Jira ticket assignee:**
 Look up the Jira ticket assignee's display name in
@@ -348,7 +348,7 @@ section: "Could not map Jira assignee to a GitHub user for assignee —
 requested review from docs team (`gh pr edit --add-reviewer braze-inc/docs-team`)."
 
 gh pr create --draft --base develop \
-  --title "[<ticket_id>] - <descriptive title>" \
+  --title "<ticket_id>: <descriptive title>" \
   --body "<PR description>"
 
 **Request a GitHub review (after the PR exists):**
@@ -429,46 +429,73 @@ not fire — see the branch naming requirement in Step 4.
 
 ## Edge cases
 
-When leaving a comment on a Jira ticket for any reason, always
-begin the comment with:
+When leaving a comment on a Jira ticket, post it via the Jira REST
+API using the service account credentials already available as
+`JIRA_USER_EMAIL` and `JIRA_API_TOKEN` in the agent environment. Do
+not use the Atlassian MCP `addCommentToJiraIssue` tool. Replace
+`${TICKET_ID}` with the Jira ticket ID for this run, and put the
+comment text in the ADF `text` field:
 
-🤖 **Cursor Agent:**
+```bash
+AUTH_B64=$(printf '%s:%s' "${JIRA_USER_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w0)
 
-For example:
-"🤖 **Cursor Agent:** This ticket contains a Salesforce link but
-the content has not been pasted in. Please add the relevant content
-directly to the ticket description and move back to To Do to
-re-trigger the workflow."
+HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' \
+  --request POST \
+  --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}/comment" \
+  --header "Authorization: Basic ${AUTH_B64}" \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "body": {
+      "version": 1,
+      "type": "doc",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "<COMMENT_TEXT>"
+            }
+          ]
+        }
+      ]
+    }
+  }')
+```
+
+If the curl call fails (non-zero exit or HTTP status outside 2xx),
+log a warning and continue — do not treat it as a blocker.
 
 **The ticket contains a Salesforce link but the content has not
 been pasted in:**
-Use the Atlassian MCP to leave a comment on the ticket reminding
-the writer to paste the relevant Salesforce content directly into
-the ticket before re-triggering the workflow. Close this run
-without making an edit.
+Post a comment with this text, then close this run without making
+an edit:
+
+> This ticket contains a Salesforce link but the content has not been pasted in. Please add the relevant content directly to the ticket description and move back to To Do to re-trigger the workflow.
 
 **The ticket describes a bug or requests documenting a workaround:**
 Do not make the edit. Documentation must describe how the product
 works, not temporary workarounds for issues that should be fixed.
 Workaround content creates maintenance burden and misleads customers
-once the underlying issue is resolved. Use the Atlassian MCP to
-leave a comment on the ticket flagging it as a likely bug and close
-this run without making an edit.
+once the underlying issue is resolved. Post a comment flagging the
+ticket as a likely bug (for example: "This ticket appears to describe
+a product bug rather than a documentation gap. Please investigate
+whether this should be filed as a Product Question instead."), then
+close this run without making an edit.
 
 **The ticket asks you to document deprecated, removed-from-UI, or
 retired product behavior:**
 Do not add documentation that presents that behavior as current or
-recommended. Use the Atlassian MCP to leave a comment on the ticket
-summarizing what you verified (deprecated, removed UI, retired API,
-and so on) and close this run without a how-to edit, unless the ticket
-is strictly about **removing** inaccurate legacy copy — in that case,
-make only the minimal reductive/corrective edit allowed elsewhere in
-this file.
+recommended. Post a comment summarizing what you verified
+(deprecated, removed UI, retired API, and so on) and close this run
+without a how-to edit, unless the ticket is strictly about
+**removing** inaccurate legacy copy — in that case, make only the
+minimal reductive/corrective edit allowed elsewhere in this file.
 
 **The ticket does not contain enough information to identify the
 correct fix:**
-Use the Atlassian MCP to leave a comment on the ticket with specific
-questions for the assigned writer. Do not make speculative edits.
+Post a comment with specific questions for the assigned writer. Do
+not make speculative edits.
 
 **The fix would require editing more than one page, or requires a
 structural rewrite:**

@@ -18,10 +18,10 @@ lazy_partner_tabs: true
 Os esquemas de armazenamento se aplicam aos dados de eventos em arquivo simples que enviamos para parceiros de armazenamento em data warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Para esquemas que se aplicam a outros parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e verifique as respectivas páginas.
 
 {% alert tip %}
-Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Entre em contato com seu gerente de conta ou abra um [ticket de suporte]({{site.baseurl}}/braze_support) se precisar de acesso a direitos de eventos adicionais. Se não encontrar o que precisa neste artigo, confira nossa [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Entre em contato com seu gerente de conta ou abra um [ticket de suporte]({{site.baseurl}}/braze_support) se precisar de acesso a direitos de eventos adicionais. Se você não encontrar o que precisa neste artigo, confira nossa [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -35,7 +35,7 @@ Esta análise de eventos mostra que tipo de informação geralmente está inclu�
 
 Os eventos de engajamento com mensagem são compostos por propriedades **específicas do usuário**, propriedades de **rastreamento de Campaign/Canvas** e propriedades **específicas do evento**.
 
-### Esquema de ID de usuário {#user-id-schema}
+### Esquema de ID do usuário {#user-id-schema}
 
 Observe as convenções de nomenclatura para IDs de usuário.
 
@@ -43,7 +43,7 @@ Observe as convenções de nomenclatura para IDs de usuário.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | O identificador exclusivo atribuído automaticamente pela Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | O identificador exclusivo do perfil de um usuário definido pelo cliente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID de usuário" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID do usuário" }
 
 ### Valores de plataforma {#platform-values}
 
@@ -911,7 +911,28 @@ Grupos de inscrições estão disponíveis apenas para canais de e-mail, SMS, RC
 {% endtabs %}
 
 ### Detalhes da propriedade
-{% multi_lang_include currents/property_details_dispatch_state_source.md %}
+<ul>
+<li><code>dispatch_id</code> é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push originados do mesmo envio incluem o mesmo <code>dispatch_id</code>. Use <code>dispatch_id</code> para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push para esse envio (como envio, bounce e abertura).</li>
+<li><code>state_change_source</code> retorna uma string com o nome completo da fonte. Por exemplo, a importação de CSV retorna a string <code>CSV import</code>. As fontes disponíveis estão listadas a seguir:</li>
+</ul>
+<table class="reset-td-br-1 reset-td-br-2" role="presentation">
+<thead>
+<tr><th>Origem</th><th>Descrição</th></tr>
+</thead>
+<tbody>
+<tr><td>SDK</td><td>Endpoints de SDK</td></tr>
+<tr><td>Dashboard</td><td>Quando o estado da inscrição de um usuário é atualizado na página Perfil de usuário no dashboard</td></tr>
+<tr><td>Página de inscrição</td><td>Quando um usuário cancela a inscrição por meio de um link de e-mail que não seja a Central de Preferências</td></tr>
+<tr><td>REST API</td><td>Endpoints da REST API</td></tr>
+<tr><td>Importação de CSV</td><td>Importação de usuários via CSV</td></tr>
+<tr><td>Central de Preferências</td><td>Quando um usuário é atualizado a partir da Central de Preferências</td></tr>
+<tr><td>Mensagem recebida</td><td>Quando um usuário é atualizado por mensagens recebidas de usuários finais por meio de canais como SMS</td></tr>
+<tr><td>Migração</td><td>Quando um usuário é atualizado por migrações internas ou scripts de manutenção</td></tr>
+<tr><td>Mesclagem de usuários</td><td>Quando um usuário é atualizado pelo processo de mesclagem de usuários</td></tr>
+<tr><td>Etapa de atualização de usuário do Canvas</td><td>Quando um usuário é atualizado pela etapa de atualização de usuário do Canvas</td></tr>
+</tbody>
+</table>
+
 
 
 {% endapi %}
@@ -17902,7 +17923,7 @@ Esse evento ocorre quando uma mensagem do WhatsApp enviada chega com sucesso ao 
 
 ### Detalhes da propriedade
 
-- `dispatch_id` é um ID para um envio de mensagem específico, como o envio de uma Campaign. Todos os eventos de push originados do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push desse envio (como Enviar, Bounce e Abrir).
+- `dispatch_id` é um ID para um envio de mensagem específico, como o envio de uma Campaign. Todos os eventos de push originados do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push desse envio (como Envio, Bounce e Abertura).
 
 {% endapi %}
 
@@ -18179,7 +18200,7 @@ Esse evento ocorre quando o WhatsApp não consegue entregar a mensagem ao usuár
 
 ### Detalhes da propriedade
 
-- `dispatch_id` é um ID para um envio de mensagem específico, como o envio de uma Campaign. Todos os eventos de push originados do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push desse envio (como Enviar, Bounce e Abrir).
+- `dispatch_id` é um ID para um envio de mensagem específico, como o envio de uma Campaign. Todos os eventos de push originados do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push desse envio (como Envio, Bounce e Abertura).
 
 {% endapi %}
 

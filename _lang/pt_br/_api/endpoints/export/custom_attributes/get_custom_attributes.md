@@ -18,9 +18,9 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `custom_attributes.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `custom_attributes.get`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='custom_attributes' %}
 
@@ -28,7 +28,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 Note que cada chamada a esse endpoint retornará 50 atributos. Para mais de 50 atributos, use o cabeçalho `Link` para recuperar os dados na próxima página, conforme mostrado no exemplo de resposta a seguir.
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
 | `cursor` | Opcional | String | Determina a paginação dos atributos personalizados. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de consulta" }

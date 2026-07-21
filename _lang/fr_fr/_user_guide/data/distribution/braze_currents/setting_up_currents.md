@@ -16,12 +16,16 @@ search_rank: 8
 Currents est inclus dans certaines offres Braze. Contactez votre conseiller Braze si vous avez des questions ou souhaitez y accéder.
 {% endalert %}
 
-Si vous voyez le message « You do not have any remaining Currents integrations » lors de l'ajout d'une nouvelle intégration, les causes courantes sont les suivantes :
+## Résolution des problèmes {#troubleshooting}
+
+### Impossible d'ajouter une nouvelle intégration Currents {#cannot-add-a-new-currents-integration}
+
+Si vous voyez le message « You do not have any remaining Currents integrations » lors de l'ajout d'une nouvelle intégration, ou si le bouton pour ajouter un nouveau connecteur Currents est grisé, les causes courantes sont les suivantes :
 
 - Aucun droit d'accès à Currents n'a été acheté pour cet espace de travail.
 - Le droit d'accès à Currents est disponible dans un autre espace de travail de votre société.
 
-Contactez votre gestionnaire de compte Braze pour demander un droit d'accès ou ajuster votre configuration.
+Pour résoudre ce problème, vérifiez les autres espaces de travail au sein de votre société. Un autre espace de travail peut disposer d'un droit d'accès à Currents. Si vous devez demander un droit d'accès ou ajuster votre configuration, contactez votre gestionnaire de compte Braze.
 
 ## Conditions requises {#requirements}
 

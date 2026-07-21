@@ -57,7 +57,7 @@ Segment 빌더에서 **`Foreground Push Enabled`**, **`Foreground Push Enabled f
 
 <sup>* 앱이 임시 푸시를 사용하지 않는 경우, 사용자가 푸시 알림을 허용할 때까지 `Foreground Push Enabled`는 `false`입니다. 앱이 임시 푸시를 사용하는 경우, 첫 번째 세션 시작 시 `Foreground Push Enabled`는 `true`입니다. 자세한 내용은 [임시 승인 및 조용한 푸시](#provisional-push)를 참조하세요.</sup>
 
-<sup>** [Braze Swift SDK 버전 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)부터 `optInWhenPushAuthorized` 구성 속성이 푸시 권한이 승인될 때 푸시 구독 상태를 자동으로 `Opted-In`으로 설정할지 여부를 제어합니다. 자세한 내용은 [푸시 구독 상태 업데이트](#update-push-subscription-state)를 참조하세요.</sup>
+<sup>** [Braze Swift SDK 버전 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)부터 `optInWhenPushAuthorized` 구성 속성이 푸시 권한이 승인될 때 푸시 구독 상태를 자동으로 `Opted-In`으로 설정할지 여부를 제어합니다. 자세한 내용은 [푸시 토큰](#push-tokens)을 참조하세요.</sup>
 
 ## 푸시 권한 {#push-permission}
 
@@ -92,7 +92,7 @@ Android 13 이전에는 푸시 알림을 보내는 데 권한이 필요하지 �
 
 iOS 12(2018년 출시) 이전에는 모든 사용자가 푸시 알림을 받으려면 명시적으로 옵트인해야 했습니다.
 
-iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/mastering-provisional-push)을 도입하여, 브랜드가 사용자가 명시적으로 옵트인하기 전에 사용자의 알림 센터에 조용한 푸시 알림을 보낼 수 있게 했으며, 이를 통해 메시지의 가치를 일찍 보여줄 수 있는 기회를 제공합니다. 자세한 내용은 [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications)을 참조하세요.
+iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/mastering-provisional-push)을 도입하여, 브랜드가 사용자가 명시적으로 옵트인하기 전에 사용자의 알림 센터에 조용한 푸시 알림을 보낼 수 있게 했으며, 이를 통해 메시지의 가치를 일찍 보여줄 수 있는 기회를 제공합니다. 자세한 내용은 [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)을 참조하세요.
 
 ### 웹 {#web}
 

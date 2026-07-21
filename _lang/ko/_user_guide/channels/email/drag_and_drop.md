@@ -108,7 +108,7 @@ tool:
 
 그런 다음 **Edit Email Body**를 선택하여 드래그 앤 드롭 편집기에서 이메일 구조를 디자인하기 시작합니다.
 
-![예시 이메일 본문이 포함된 "Email Variants" 섹션.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
+![예시 이메일 본문이 포함된 'Email Variants' 섹션.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
 
 ### 2단계: 이메일 작성 {#step-2-build-your-email}
 
@@ -125,7 +125,7 @@ tool:
 
 드래그 앤 드롭 이메일을 추가로 커스터마이징하는 다른 방법은 [기타 커스터마이징](#other-customizations)을 확인하세요.
 
-이메일을 작성하면서 데스크탑과 모바일 보기를 전환하여 사용자 그룹에게 이메일 메시지가 어떻게 보일지 미리 볼 수 있습니다. 이를 통해 콘텐츠가 반응형인지 확인하고 필요한 조정을 할 수 있습니다.
+이메일을 작성하면서 데스크탑과 모바일 보기를 전환하여 사용자 그룹에게 이메일 메시지가 어떻게 보일지 미리 볼 수 있습니다. 이를 통해 콘텐츠가 응답형인지 확인하고 필요한 조정을 할 수 있습니다.
 
 {% alert tip %}
 멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
@@ -150,9 +150,7 @@ tool:
 
 **Sending Settings** > **Advanced**에서 다음 방법으로 이메일 첨부 파일을 추가할 수 있습니다:
 
-- **파일 업로드:** 컴퓨터에서 직접 파일을 드래그 앤 드롭하거나 찾아보기하여 이메일에 업로드합니다. Braze는 업로드 전에 파일 유형과 크기(기본값 최대 2&nbsp;MB)를 검증한 후 미디어 라이브러리에 업로드합니다. 2&nbsp;MB 제한을 초과하는 파일은 업로드할 수 없습니다.
-- **미디어 라이브러리 사용:** [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에 이미 저장된 자산을 찾아보고 선택합니다. PDF, Word 문서, Excel 파일, PowerPoint 프레젠테이션이 모두 지원됩니다.
-- **URL에서 추가:** 파일을 가리키는 URL을 입력하고 표시 파일 이름을 제공합니다. Braze는 이메일 작성 중에 임의의 URL의 크기를 확인할 수 없으므로 파일 크기는 발송 시 적용됩니다. 이 필드에서는 Liquid가 지원되지 않습니다.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 고려해야 할 구체적인 모범 사례는 [이메일 가이드라인]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines)을 참조하세요.
 
@@ -196,7 +194,7 @@ tool:
 
 이메일 템플릿에 대한 편집 사항은 이전에 생성된 링크에 반영되지 않습니다. 편집 사항을 확인하려면 새 링크 미리보기를 생성해야 합니다.
 
-!["Copy preview link" 버튼과 생성된 링크를 복사하는 이메일 미리보기.]({% image_buster /assets/img/dnd_email_link_preview.png %})
+!['Copy preview link' 버튼과 생성된 링크를 복사하는 이메일 미리보기.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
 #### Inbox Vision 사용 {#use-inbox-vision}
 
@@ -255,7 +253,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 **Settings** 탭으로 이동하여 원하는 언어를 선택하면 언어 속성을 설정할 수 있습니다. 메시지가 동적 언어 값을 가진 사용자를 대상으로 하는 경우 사용자 속성 {%raw%} `{{${language}}}` {%endraw%}를 타겟팅할 수도 있습니다.
 
-![이메일의 "Language" 값 설정.]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
+![이메일의 'Language' 값 설정.]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
 
 ### 개인화 {#personalization}
 
@@ -272,7 +270,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 #### 동적 이미지 {#dynamic-images}
 
-이미지 소스 속성에 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content) 또는 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 포함하여 이메일 메시징에 동적 이미지를 포함할 수 있습니다. 예를 들어, 정적 이미지 대신 {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %}를 이미지 URL로 삽입하여 이미지에 사용자의 이름을 포함할 수 있습니다. 이를 통해 각 사용자에게 이메일을 개인화할 수 있습니다.
+이미지 소스 속성에 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) 또는 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 포함하여 이메일 메시징에 동적 이미지를 포함할 수 있습니다. 예를 들어, 정적 이미지 대신 {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %}를 이미지 URL로 삽입하여 이미지에 사용자의 이름을 포함할 수 있습니다. 이를 통해 각 사용자에게 이메일을 개인화할 수 있습니다.
 
 {% alert important %}
 이미지 URL은 `https://`로 시작해야 합니다. `http://`를 사용하면 앱이 충돌합니다.
@@ -290,7 +288,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 
 #### 링크에 대한 HTML 속성 {#html-attributes-to-links}
 
-![링크에 대해 "clicktracking" 속성이 꺼진 "Attributes" 섹션.]({% image_buster /assets/img/dnd_custom_attributes.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![링크에 대해 'clicktracking' 속성이 꺼진 'Attributes' 섹션.]({% image_buster /assets/img/dnd_custom_attributes.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 드래그 앤 드롭 편집기에서 링크, 버튼, 이미지, 동영상을 사용할 때 **Content** 섹션의 **Attributes**에서 **Add new attribute**를 선택하여 이메일의 HTML 태그에 추가 정보를 첨부할 수 있습니다. 이는 메시지 개인화, 세분화, 스타일링에 특히 유용할 수 있습니다.
 

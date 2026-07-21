@@ -4,7 +4,7 @@ nav_title: Segmentation filters
 article_title: Segmentation Filters
 layout: glossary_page
 glossary_top_header: "Segmentation Filters"
-glossary_top_text: The Braze SDK provides you with a powerful arsenal of filters to segment and target your users based off of specific features and attributes. You can search or narrow these filters by filter category.<br><br>To learn about the different custom attribute data types you can use to segment users, view <a href="/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types">Custom attribute data types</a>. Note that interval filters are limited to 100 years.
+glossary_top_text: The Braze SDK provides you with a powerful arsenal of filters to segment and target your users based off of specific features and attributes. You can search or narrow these filters by filter category.<br><br>To learn about the different custom attribute data types you can use to segment users, view <a href="/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types">Custom attribute data types</a>. Note that interval filters are limited to 100 years.
 
 page_type: glossary
 tool: Segments
@@ -315,7 +315,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
-    description: Segments your users by their <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">subscription status</a> for push.
+    description: Segments your users by their <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">subscription status</a> for push.
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
@@ -615,7 +615,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: Segments your users by the E.164 formatted phone number field.<br><br> When a phone number is sent to Braze, Braze tries to coerce it into the <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">e.164 format</a> that is used to send across SMS, RCS, and WhatsApp channels. The coercion process can fail if the number isn't formatted properly, which results in the user profile having an unformatted phone number but not a sending phone number. This segment filter returns users by their e.164 formatted phone number (when available).<br><br>Use cases:<br> - Use this filter to understand the most accurate target audience size when sending SMS, RCS, or WhatsApp messages.  <br>- Use regular expressions (regex) with this filter to segment by phone numbers with a specific country code. <br>- Use this filter to segment users by phone numbers that failed the e.164 coercion process.
+    description: Segments your users by the E.164 formatted phone number field.<br><br> When a phone number is sent to Braze, Braze tries to coerce it into the <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">e.164 format</a> that is used to send across SMS, RCS, and WhatsApp channels. The coercion process can fail if the number isn't formatted properly, which results in the user profile having an unformatted phone number but not a sending phone number. This segment filter returns users by their e.164 formatted phone number (when available).<br><br>Use cases:<br> - Use this filter to understand the most accurate target audience size when sending SMS, RCS, or WhatsApp messages.  <br>- Use regular expressions (regex) with this filter to segment by phone numbers with a specific country code. <br>- Use this filter to segment users by phone numbers that failed the e.164 coercion process.
     tags:
       - Other Filters
 ---

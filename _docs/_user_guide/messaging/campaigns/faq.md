@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## How do I create a multichannel campaign?
 
-See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Create a campaign** for setup steps and supported channels.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) in **Create a campaign** for setup steps and supported channels.
 
 ### Can I add a control group to my multichannel campaign?
 

@@ -57,9 +57,9 @@ Um mehr über das erwartete Verhalten und Aussehen jedes Typs zu erfahren, lesen
 
 | Nachrichtentyp | Beispiel | Beschreibung |
 |---|---|---|
-| [Klassisch]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Eine klassische Content-Card mit einem kleinen Symbol und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | Die klassische Karte hat ein einfaches Layout mit einem fettgedruckten Titel, Nachrichtentext und einem optionalen Bild links neben Titel und Text. Am besten verwenden Sie ein quadratisches Bild oder Symbol für die klassische Karte. |
-| [Hervorgehobenes Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![Eine hervorgehobene Content-Card mit dem Bild eines Gewichthebers und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | Die hervorgehobene Content-Card präsentiert Ihren Inhalt mit Text und einem aufmerksamkeitsstarken Bild. |
-| [Nur Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![Eine Content-Card vom Typ „Nur Bild“ mit ausschließlich Text.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | Die Karte „Nur Bild“ zieht die Aufmerksamkeit auf sich und bietet Platz für Bilder, GIFs und andere kreative, nicht-textliche Inhalte. |
+| [Klassisch]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Eine klassische Content-Card mit einem kleinen Symbol und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | Die klassische Karte hat ein einfaches Layout mit einem fettgedruckten Titel, Nachrichtentext und einem optionalen Bild links neben Titel und Text. Am besten verwenden Sie ein quadratisches Bild oder Symbol für die klassische Karte. |
+| [Hervorgehobenes Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Eine hervorgehobene Content-Card mit dem Bild eines Gewichthebers und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | Die hervorgehobene Content-Card präsentiert Ihren Inhalt mit Text und einem aufmerksamkeitsstarken Bild. |
+| [Nur Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Eine Content-Card vom Typ „Nur Bild“ mit ausschließlich Text.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | Die Karte „Nur Bild“ zieht die Aufmerksamkeit auf sich und bietet Platz für Bilder, GIFs und andere kreative, nicht-textliche Inhalte. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Nachrichtentypen angeben" }
 
 ## Schritt 3: Content-Card verfassen {#step-3-compose-a-content-card}
@@ -135,7 +135,12 @@ Content Cards können basierend auf einem geplanten Zeitpunkt, einer Aktion oder
 
 Sie können auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen sowie die Ablaufzeit der Content-Card bestimmen. Legen Sie ein bestimmtes Ablaufdatum oder die Anzahl der Tage bis zum Ablauf einer Karte fest – bis zu maximal 30 Tage. Alle Varianten haben identische Ablaufdaten.
 
-Wenn Sie festlegen, dass eine Karte nach einer bestimmten Dauer abläuft (z. B. nach zwei Wochen), wird die Ablaufzeit ab dem Sendezeitpunkt der Karte berechnet. Bei geplanten Kampagnen ist dies der geplante Startzeitpunkt. Bei aktionsbasierten Kampagnen ist dies der Zeitpunkt, zu dem die Nutzerin oder der Nutzer die auslösende Aktion ausführt. Wenn beispielsweise eine aktionsbasierte Karte heute um 14 Uhr gesendet wird und eine Ablaufzeit von 1 Tag hat, läuft sie am nächsten Tag um 14 Uhr ab.
+Der Ablauf-Countdown beginnt ab dem Sendezeitpunkt der Karte:
+
+- **Geplante Kampagnen:** Der Countdown beginnt zum geplanten Startzeitpunkt.
+- **Aktionsbasierte Kampagnen:** Der Countdown beginnt, wenn die Nutzerin oder der Nutzer die auslösende Aktion ausführt.
+
+Wenn beispielsweise eine aktionsbasierte Content-Card heute um 14 Uhr gesendet wird und eine Ablaufzeit von 1 Tag hat, läuft sie am nächsten Tag um 14 Uhr ab.
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
@@ -159,7 +164,7 @@ Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen
 
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von [Multivariate-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing) und [intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von [Multivariate-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing) und [intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) unserer Canvas-Dokumentation.
 
 {% endtab %}
 {% endtabs %}
@@ -193,7 +198,7 @@ Die gesamte Daten-Payload einer einzelnen Content-Card darf 2 KB **nach** dem Re
 
 Die Verwendung von Liquid zum Abrufen langer Textstrings (z. B. aus angepassten Attributen) kann dazu führen, dass Sie das Limit überschreiten.
 
-Der Kampagnen-Composer zeigt eine Warnung an, wenn Ihr statischer Inhalt das Limit überschreitet. (Für dynamischen Content mit Liquid wird die Größe nicht vorhergesagt.) **Wenn die Nachrichtengröße 2 KB überschreitet, wird der Versand abgebrochen.** Sie können diese Abbrüche im Nachrichten-Aktivitätsprotokoll mit dem Grund `Content card maximum size exceeded` einsehen.
+Der Kampagnen-Composer zeigt eine Warnung an, wenn Ihr statischer Inhalt das Limit überschreitet. Für dynamischen Content mit Liquid wird die Größe nicht vorhergesagt. Wenn die Nachrichtengröße 2 KB überschreitet, wird der Versand abgebrochen. Sie können diese Abbrüche im Nachrichten-Aktivitätsprotokoll mit dem Grund `Content card maximum size exceeded` einsehen.
 
 {% alert important %}
 Während Testsendungen können Content Cards, die 2 KB überschreiten, dennoch zugestellt und korrekt angezeigt werden.
@@ -228,7 +233,7 @@ Möchten Sie, dass Ihr Inhalt länger als 30 Tage bestehen bleibt? Probieren Sie
 
 Wenn Sie Re-Eligibility aktivieren, beginnt der Countdown, wann eine Nutzerin oder ein Nutzer erneut in eine Kampagne „eintreten“ kann, nachdem die Nachricht gesendet wurde. Der genaue Zeitpunkt, an dem dieser Countdown beginnt, hängt von Ihren Kartenerstellungseinstellungen ab:
 
-- Content Cards, die [bei der ersten Impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) erstellt werden, verwenden den Impressionszeitpunkt zur Berechnung der Re-Eligibility.
+- Content Cards, die [bei der ersten Impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) erstellt werden, verwenden den Impressionszeitpunkt zur Berechnung der Re-Eligibility.
 - Content Cards, die beim Kampagnenstart, in Multichannel-Kampagnen oder beim Canvas-Schritt-Eintritt erstellt werden, verwenden den jeweils späteren Zeitpunkt von Sendezeitpunkt oder Impressionszeitpunkt.
 
 #### Die 30-Tage-Ablaufzeit und Re-Eligibility {#the-30-day-expiration-and-re-eligibility}
@@ -264,8 +269,8 @@ Wenn Sie die Kampagne duplizieren, müssen Sie die Zielgruppe für die neue Vers
 
 ###### Auswirkungen {#impact}
 
-* **Bestehende Empfänger:innen:** Neue und bestehende Empfänger:innen würden die aktualisierte Karte bei der nächsten Feed-Aktualisierung sehen, sofern sie berechtigt sind.
-* **Reporting:** Jede Version der Karte hätte separate Analytics.
+- **Bestehende Empfänger:innen:** Neue und bestehende Empfänger:innen würden die aktualisierte Karte bei der nächsten Feed-Aktualisierung sehen, sofern sie berechtigt sind.
+- **Reporting:** Jede Version der Karte hätte separate Analytics.
 
 Nehmen wir an, Sie haben eine Kampagne eingerichtet, die bei Sitzungsstart getriggert wird und eine Re-Eligibility von 30 Tagen hat. Eine Nutzerin oder ein Nutzer hat die Kampagne vor zwei Tagen erhalten, und Sie möchten den Text ändern. Zuerst archivieren Sie die Kampagne und entfernen die Karten aus dem Feed. Zweitens duplizieren Sie die Kampagne und starten sie mit dem neuen Text neu. Wenn die Person eine weitere Sitzung hat, erhält sie sofort die neue Karte.
 
@@ -283,8 +288,8 @@ Dieser Ansatz hält alle Ihre Analytics in einer einzigen Kampagne vereint. Neu 
 
 ###### Auswirkungen
 
-* **Bestehende Empfänger:innen:** Nutzer:innen, die die Karte bereits erhalten haben, würden die aktualisierten Karten erst erhalten, wenn sie erneut berechtigt werden. Wenn Re-Eligibility deaktiviert ist, würden sie die neue Karte nie erhalten.
-* **Reporting:** Eine Kampagne enthält alle Reporting-Analytics für die gestarteten Kartenversionen. Braze unterscheidet nicht zwischen den gestarteten Versionen.
+- **Bestehende Empfänger:innen:** Nutzer:innen, die die Karte bereits erhalten haben, würden die aktualisierten Karten erst erhalten, wenn sie erneut berechtigt werden. Wenn Re-Eligibility deaktiviert ist, würden sie die neue Karte nie erhalten.
+- **Reporting:** Eine Kampagne enthält alle Reporting-Analytics für die gestarteten Kartenversionen. Braze unterscheidet nicht zwischen den gestarteten Versionen.
 
 Nehmen wir an, Sie haben eine Kampagne, die bei Sitzungsstart getriggert wird und eine Re-Eligibility von 30 Tagen hat. Eine Nutzerin oder ein Nutzer hat die Kampagne vor zwei Tagen erhalten, und Sie möchten den Text ändern. Zuerst stoppen Sie die Kampagne und entfernen die Karte aus dem Feed. Zweitens veröffentlichen Sie die Kampagne mit dem neuen Text erneut. Wenn die Person eine weitere Sitzung hat, erhält sie die neue Karte in 28 Tagen.
 

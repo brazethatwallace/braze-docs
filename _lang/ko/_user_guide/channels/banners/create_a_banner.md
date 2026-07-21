@@ -159,9 +159,7 @@ HTML 편집기에서는 HTML 내에서 `brazeBridge.closeMessage()`를 사용하
 
 배너에 커스텀 속성정보를 추가하여 문자열이나 JSON 오브젝트와 같은 구조화된 메타데이터를 첨부할 수 있습니다. 이러한 속성정보는 배너 표시 방식에 영향을 미치지 않지만, [Braze SDK를 통해 액세스]({{site.baseurl}}/developer_guide/banners/placements)하여 앱의 동작이나 외관을 수정할 수 있습니다. 예를 들어 다음과 같은 작업이 가능합니다:
 
-- 서드파티 분석 또는 통합을 위한 메타데이터 전송.
-- `timestamp`나 JSON 오브젝트와 같은 메타데이터를 사용하여 조건 로직 트리거.
-- `ratio`나 `format`과 같은 포함된 메타데이터를 기반으로 배너 동작 제어.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 커스텀 속성정보는 드래그 앤 드롭 편집기와 HTML 편집기 모두에서 동일하게 작동합니다. 커스텀 속성정보를 추가하려면 **설정** > **속성정보** > **속성정보 추가**를 선택합니다.
 
@@ -220,7 +218,7 @@ Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 행동을 �
 
 {% tab Canvas %}
 
-아직 완료하지 않았다면 Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, [다변량 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing) 및 [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) 단계를 참조하세요.
+아직 완료하지 않았다면 Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, [다변량 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing) 및 [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) 단계를 참조하세요.
 
 Canvas 배너 단계의 재적격성을 제어하려면 Canvas 재진입 설정을 사용하세요. 자세한 내용은 [Campaigns 및 Canvas의 재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)을 참조하세요.
 

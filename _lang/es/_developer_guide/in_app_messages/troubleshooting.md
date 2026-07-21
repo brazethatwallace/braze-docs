@@ -25,7 +25,7 @@ Antes de depurar, añádete como [usuario de prueba]({{site.baseurl}}/user_guide
 | Las impresiones o los clics parecen incorrectos | [Impresiones y análisis](#impressions-and-analytics) |
 | `triggers` faltantes o vacíos en los registros de eventos de usuario | [Solución de problemas de entrega](#delivery-troubleshooting) |
 | Los desencadenantes se devolvieron pero nada se muestra en el dispositivo | [Solución de problemas de visualización específica por plataforma](#platform-specific-display-troubleshooting) |
-| Los activos del mensaje dentro de la aplicación no se cargan (iOS, `NSURLError` -1008) | [Carga de activos (pestaña Swift)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| Los activos del mensaje dentro de la aplicación no se cargan (iOS, `NSURLError` -1008) | [Carga de activos (pestaña Swift)](?sdktab=swift#swift_asset-loading) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de mensaje dentro de la aplicación" }
 
 ## Ruta de investigación estándar {#standard-investigation-path}
@@ -112,7 +112,7 @@ Causas comunes:
 - **Precarga en el inicio de sesión de la Campaign:** Los mensajes dentro de la aplicación se almacenan en caché al inicio de sesión y se muestran cuando se activa el desencadenante. Un desencadenante que ocurre antes del siguiente inicio de sesión no se mostrará hasta esa sesión. Consulta [Desencadenar mensajes]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages).
 - **Comportamiento de siguiente sesión en Canvas:** Consulta [Mensajes dentro de la aplicación en Canvas](#canvas-in-app-messages).
 - **Retraso planificado en el panel:** Confirma si hay un retraso configurado en la Campaign o el paso.
-- **Condición de carrera en la sincronización de desencadenantes:** Si los usuarios registran un evento inmediatamente después del inicio de sesión, es posible que los desencadenantes aún no se hayan sincronizado. Considera desencadenar a partir del inicio de sesión y segmentar por el evento deseado para que la entrega ocurra en la siguiente sesión después del evento.
+- **Condiciones de carrera en la sincronización de desencadenantes:** Si los usuarios registran un evento inmediatamente después del inicio de sesión, es posible que los desencadenantes aún no se hayan sincronizado. Considera desencadenar a partir del inicio de sesión y segmentar por el evento deseado para que la entrega ocurra en la siguiente sesión después del evento.
 - **Mensajes dentro de la aplicación secuenciales:** Si estás aplazando o restaurando mensajes en un recorrido, consulta [Aplazar mensajes dentro de la aplicación desencadenados]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
 - **Activos grandes o CDN lento:** Optimiza las imágenes y el video para mensajes dentro de la aplicación HTML. En dispositivos móviles, las imágenes pueden descargarse antes de mostrarse en redes lentas; selecciona la pestaña de tu SDK para notas específicas de la plataforma.
 

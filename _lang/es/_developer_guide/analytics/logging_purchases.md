@@ -8,7 +8,7 @@ description: "Aprende a registrar compras a través del SDK de Braze."
 
 # Registrar compras {#log-purchases}
 
-> Aprende a registrar las compras dentro de la aplicación a través del SDK de Braze, para que puedas determinar tus ingresos a lo largo del tiempo y de las distintas fuentes. Esto te permitirá segmentar a los usuarios [en función de su valor de duración del ciclo de vida]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking) utilizando eventos personalizados, atributos personalizados y eventos de compra.
+> Aprende a registrar las compras dentro de la aplicación a través del SDK de Braze, para que puedas determinar tus ingresos a lo largo del tiempo y de las distintas fuentes. Esto te permitirá segmentar a los usuarios [en función de su valor de duración del ciclo de vida]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) utilizando eventos personalizados, atributos personalizados y eventos de compra.
 
 {% alert note %}
 Para los SDK envolventes que no aparecen en la lista, utiliza el método nativo de Android o Swift correspondiente.
@@ -28,12 +28,12 @@ Para una implementación estándar del SDK Web, puedes utilizar el siguiente mé
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Si prefieres utilizar Google Tag Manager, puedes usar el tipo de etiqueta **Compra** para llamar al [método `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Utiliza esta etiqueta para hacer un seguimiento de las compras en Braze, incluyendo opcionalmente las propiedades de la compra. Para hacerlo:
+Si prefieres utilizar Google Tag Manager, puedes usar el tipo de etiqueta **Purchase** para llamar al [método `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Utiliza esta etiqueta para hacer un seguimiento de las compras en Braze, incluyendo opcionalmente las propiedades de la compra. Para hacerlo:
 
-1. Los campos **ID de producto** y **Precio** son obligatorios.
-2. Utiliza el botón **Añadir fila** para añadir propiedades de la compra.
+1. Los campos **Product ID** y **Price** son obligatorios.
+2. Utiliza el botón **Add Row** para añadir propiedades de la compra.
 
-![Un cuadro de diálogo que muestra los ajustes de configuración de la etiqueta de acción de Braze. Los ajustes incluidos son "tipo de etiqueta", "ID externo", "precio", "código de moneda", "cantidad" y "propiedades de la compra".]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
+![Un cuadro de diálogo que muestra los ajustes de configuración de la etiqueta de acción de Braze. Los ajustes incluidos son "tag type", "external ID", "price", "currency code", "quantity" y "purchase properties".]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
 {% endtab %}
 
 {% tab android %}
@@ -145,7 +145,7 @@ Para una implementación estándar del SDK Web, puedes utilizar el siguiente mé
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-Si tu sitio registra las compras utilizando el elemento estándar de la capa de datos de [eventos de comercio electrónico](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) en Google Tag Manager, puedes utilizar el tipo de etiqueta **Compra de comercio electrónico**. Este tipo de acción registrará una "compra" separada en Braze para cada artículo enviado en la lista de `items`.
+Si tu sitio registra las compras utilizando el elemento estándar de la capa de datos de [eventos de comercio electrónico](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) en Google Tag Manager, puedes utilizar el tipo de etiqueta **E-commerce Purchase**. Este tipo de acción registrará una "compra" separada en Braze para cada artículo enviado en la lista de `items`.
 
 También puedes especificar nombres de propiedades adicionales que quieras incluir como propiedades de la compra indicando sus claves en la lista de propiedades de la compra. Ten en cuenta que Braze buscará en el `item` individual que se está registrando cualquier propiedad de la compra que añadas a la lista.
 
@@ -264,11 +264,11 @@ De forma predeterminada, `quantity` está configurado en `1`. Sin embargo, puede
 
 ### Uso de la REST API {#using-the-rest-api}
 
-También puedes utilizar nuestra REST API para registrar las compras. Para obtener más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+También puedes utilizar nuestra REST API para registrar las compras. Para obtener más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Registro de pedidos {#logging-orders}
 
-Si quieres registrar las compras a nivel de pedido en lugar de a nivel de producto, puedes utilizar el nombre del pedido o la categoría del pedido como `product_id`. Consulta nuestra [especificación del objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions) para obtener más información.
+Si quieres registrar las compras a nivel de pedido en lugar de a nivel de producto, puedes utilizar el nombre del pedido o la categoría del pedido como `product_id`. Consulta nuestra [especificación del objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) para obtener más información.
 
 ## Claves reservadas {#reserved-keys}
 

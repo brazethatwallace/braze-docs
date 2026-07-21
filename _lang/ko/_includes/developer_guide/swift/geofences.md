@@ -254,7 +254,7 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ### 내 기기에서 지오펜스를 수신하지 못하는 이유는 무엇인가요? {#why-am-i-not-receiving-geofences-on-my-device}
 
-기기에서 지오펜스가 수신되고 있는지 확인하려면 먼저 [SDK 디버거 도구]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk)를 사용하여 SDK의 로그를 확인하세요. 그러면 서버에서 지오펜스가 성공적으로 수신되고 있는지와 주목할 만한 오류가 있는지 확인할 수 있습니다.
+기기에서 지오펜스가 수신되고 있는지 확인하려면 먼저 [SDK 디버거 도구]({{site.baseurl}}/developer_guide/sdk_integration/debugging)를 사용하여 SDK의 로그를 확인하세요. 그러면 서버에서 지오펜스가 성공적으로 수신되고 있는지와 주목할 만한 오류가 있는지 확인할 수 있습니다.
 
 아래는 기기에서 지오펜스가 수신되지 않을 수 있는 다른 가능한 이유입니다:
 

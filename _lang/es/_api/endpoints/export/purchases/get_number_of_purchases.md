@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar cantidad de compras de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar cantidad de compras de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /purchases/quantity_series
 {% endapimethod %}
 
-> Utiliza este punto de conexión para devolver el número total de compras en tu aplicación durante un intervalo de tiempo.
+> Utiliza este endpoint para devolver el número total de compras en tu aplicación durante un intervalo de tiempo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6ac59282-d231-4317-88df-f7f12169b94e{% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `purchases.quantity_series`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `purchases.quantity_series`.
 
 ## Límite de velocidad {#rate-limit}
 

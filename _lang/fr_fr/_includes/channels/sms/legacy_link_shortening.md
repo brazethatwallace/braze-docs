@@ -2,6 +2,8 @@ Le raccourcissement de liens et le suivi des clics vous permettent de raccourcir
 
 Le raccourcissement de liens et le suivi des clics peuvent être activés au [niveau de la variante du message]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) dans les Campaigns comme dans les Canvas.
 
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+
 La longueur de l'URL dépend du type de suivi activé :
 - **Le suivi basique** permet le suivi des clics au niveau de la campagne. Les URL statiques auront une longueur de 20 caractères, et les URL personnalisées auront une longueur de 25 caractères.
 - **Le suivi avancé** permet le suivi des clics au niveau de la campagne et de l'utilisateur, et active les fonctionnalités de segmentation et de reciblage basées sur les clics. Les clics génèrent également un [événement de clic SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) envoyé via Currents. Les URL statiques avec suivi avancé auront une longueur de 27 à 28 caractères, vous permettant de créer des segments d'utilisateurs ayant cliqué sur des URL. Les URL personnalisées auront une longueur de 32 à 33 caractères.
@@ -46,7 +48,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-Nous prenons également en charge le raccourcissement de variables Liquid personnalisées. Voici quelques exemples :
+Nous prenons également en charge le raccourcissement de variables Liquid personnalisées, comme dans les exemples suivants :
 
 ### Créer une URL à l'aide de variables Liquid {#create-a-url-using-liquid-variables}
 
