@@ -2,6 +2,6 @@
 - **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported.
 - **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. 
 
-{% alert important %}
+{% alert note %}
 Liquid is not supported in the **Add from URL** field.
 {% endalert %}
