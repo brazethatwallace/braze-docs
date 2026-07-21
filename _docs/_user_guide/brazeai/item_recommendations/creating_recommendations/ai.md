@@ -51,7 +51,7 @@ Give your recommendation a name and optional description.
 
 ### Step 3: Define your recommendation {#recommendation-type}
 
-Select a recommendation type. Each type uses the last six months of item interaction data, such as a purchase, an order placed, or custom event data. For more detailed information and uses cases for each, see [Types and Uses Cases]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
+Select a recommendation type. Each type uses the last six months of item interaction data, such as a purchase, an order placed, or custom event data. For more detailed information and use cases for each, see [Types and use cases]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
 When using **Most Recent** or **AI Personalized**, users with insufficient data to create individualized recommendations receive **Most Popular** items as a fallback. The **Most Popular** fallback only returns items that exist in the linked catalog.<br><br>For **AI Personalized** recommendations, view the **Personalization rate** on the **Analytics** page to see what percentage of users who performed the configured event in the past 24 months have personalized recommendations stored on their profile. For **Most Recent** recommendations, the **Analytics** page shows the share of users receiving **Most Recent** recommendations versus the **Most Popular** fallback.
@@ -110,7 +110,7 @@ To create a recommendation, you need to tell Braze which field of your interacti
 
 Select this field for the **Property Name**.
 
-The **Property Name** field will pre-populate with a list of fields sent through the SDK to Braze. If enough data is provided, these properties will also be ranked in order of probability to be the correct property. Select the one that corresponds to the `id` field of the catalog.
+The **Property Name** field pre-populates with a list of fields sent through the SDK to Braze. If enough data is provided, these properties are also ranked in order of probability to be the correct property. Select the one that corresponds to the `id` field of the catalog.
 
 ![The property name "purchase_item" selected that corresponds to the item IDs in the catalog.]({% image_buster /assets/img/item_recs_4.png %})
 
