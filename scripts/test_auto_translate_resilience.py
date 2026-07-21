@@ -65,6 +65,131 @@ class TestChunkedTranslationRouting:
         assert at._uses_chunked_translation("_docs/_user_guide/foo.md", 200)
 
 
+class TestIncrementalH2Translation:
+    def test_split_into_h2_chunks_at_headings(self):
+        content = (
+            "---\nlayout: page\n---\n\n"
+            "Intro.\n\n"
+            "## Section one {#one}\n\nBody one.\n\n"
+            "## Section two {#two}\n\nBody two.\n"
+        )
+        chunks = at.split_into_h2_chunks(content)
+        assert len(chunks) == 3
+        assert chunks[0].startswith("---")
+        assert "## Section one {#one}" in chunks[1]
+        assert "## Section two {#two}" in chunks[2]
+
+    def test_split_into_h2_chunks_skips_headings_inside_liquid(self):
+        content = (
+            "## Outer {#outer}\n\n"
+            "{% details More %}\n\n"
+            "## Inner heading\n\n"
+            "Details body.\n\n"
+            "{% enddetails %}\n"
+        )
+        chunks = at.split_into_h2_chunks(content)
+        assert len(chunks) == 1
+        assert "## Inner heading" in chunks[0]
+
+    def test_chunks_requiring_translation_detects_changes(self):
+        prev = at.split_into_h2_chunks(
+            "Intro\n\n## One {#one}\n\nAlpha.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        curr = at.split_into_h2_chunks(
+            "Intro\n\n## One {#one}\n\nAlpha changed.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        needs = at.chunks_requiring_translation(curr, prev)
+        assert needs == [False, True, False]
+
+    def test_chunks_requiring_translation_marks_new_sections(self):
+        prev = at.split_into_h2_chunks("## One {#one}\n\nAlpha.\n")
+        curr = at.split_into_h2_chunks(
+            "## One {#one}\n\nAlpha.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        needs = at.chunks_requiring_translation(curr, prev)
+        assert needs == [False, True]
+
+    def test_incremental_skips_unchanged_chunks(self, monkeypatch):
+        english = (
+            "Intro\n\n## One {#one}\n\nAlpha.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        previous = english
+        existing = (
+            "Intro FR\n\n## Un {#one}\n\nAlpha FR.\n\n## Deux {#two}\n\nBeta FR.\n"
+        )
+        calls = []
+
+        def fake_translate_file(*args, **kwargs):
+            calls.append(kwargs.get("english") or args[2])
+            return "## Deux {#two}\n\nBeta FR mis à jour.\n"
+
+        monkeypatch.setattr(at, "translate_file", fake_translate_file)
+        monkeypatch.setattr(at, "review_file", lambda *a, **k: a[2])
+
+        target = at.REPO_ROOT / "_lang/fr_fr/_user_guide/test_incremental.md"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(existing)
+
+        result = at.translate_one_incremental(
+            client=None,
+            prompt="",
+            fpath="_docs/_user_guide/test_incremental.md",
+            relative="_user_guide/test_incremental.md",
+            english_content=english.replace("Beta.", "Beta updated."),
+            previous_english_content=previous,
+            lang_key="fr",
+            lang_info=at.LANGUAGES["fr"],
+            glossary={},
+            styleguide="",
+        )
+
+        assert result["ok"]
+        assert result["chunks_skipped"] == 2
+        assert result["chunks_translated"] == 1
+        assert len(calls) == 1
+        assert "Beta updated." in calls[0]
+        written = target.read_text()
+        assert "Alpha FR." in written
+        assert "Beta FR mis à jour." in written
+        target.unlink()
+        if target.parent.exists() and not any(target.parent.iterdir()):
+            target.parent.rmdir()
+
+    def test_incremental_all_unchanged_skips_api(self, monkeypatch):
+        english = "Intro\n\n## One {#one}\n\nAlpha.\n"
+        calls = []
+
+        def fake_translate_file(*args, **kwargs):
+            calls.append(1)
+            return "should not run"
+
+        monkeypatch.setattr(at, "translate_file", fake_translate_file)
+
+        target = at.REPO_ROOT / "_lang/fr_fr/_user_guide/test_skip.md"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("Intro FR\n\n## Un {#one}\n\nAlpha FR.\n")
+
+        result = at.translate_one_incremental(
+            client=None,
+            prompt="",
+            fpath="_docs/_user_guide/test_skip.md",
+            relative="_user_guide/test_skip.md",
+            english_content=english,
+            previous_english_content=english,
+            lang_key="fr",
+            lang_info=at.LANGUAGES["fr"],
+            glossary={},
+            styleguide="",
+        )
+
+        assert result["ok"]
+        assert result["chunks_translated"] == 0
+        assert calls == []
+        target.unlink()
+        if target.parent.exists() and not any(target.parent.iterdir()):
+            target.parent.rmdir()
+
+
 class TestLiquidSafeChunkSplits:
     def test_does_not_split_inside_details_block(self):
         content = (

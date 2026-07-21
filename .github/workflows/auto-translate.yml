@@ -115,6 +115,7 @@ jobs:
       count: ${{ steps.changes.outputs.count }}
       languages: ${{ steps.changes.outputs.languages }}
       matrix_include: ${{ steps.changes.outputs.matrix_include }}
+      english_base_ref: ${{ steps.changes.outputs.english_base_ref }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -132,6 +133,7 @@ jobs:
         id: changes
         run: |
           LANGS=""
+          ENGLISH_BASE_REF=""
           if [ "${{ inputs.orphan_cleanup_only }}" = "true" ]; then
             if [ -n "${{ inputs.files }}" ] || [ -n "${{ inputs.since_commit }}" ] || [ -n "${{ inputs.languages }}" ]; then
               echo "::error::orphan_cleanup_only must be used with empty files, since_commit, and languages inputs."
@@ -182,6 +184,7 @@ jobs:
             python3 scripts/auto_translate.py stale-english-sources > changed_files.txt
           elif [ -n "${{ inputs.since_commit }}" ]; then
             echo "Using since_commit=${{ inputs.since_commit }}..${{ github.sha }}"
+            ENGLISH_BASE_REF="${{ inputs.since_commit }}"
             git diff --find-renames --name-only --diff-filter=ACMR \
               "${{ inputs.since_commit }}" "${{ github.sha }}" \
               -- '_docs/' '_includes/' > changed_files.txt
@@ -194,6 +197,7 @@ jobs:
               exit 1
             fi
             PARENT="${MERGE}^"
+            ENGLISH_BASE_REF="${PARENT}"
             echo "Merged nightly deploy PR (${{ github.event.pull_request.head.ref }} → main): git diff ${PARENT}..${MERGE} filtered to _docs/_includes/"
             git diff --find-renames --name-only --diff-filter=ACMR \
               "$PARENT" "$MERGE" \
@@ -214,6 +218,7 @@ jobs:
           echo "count=${count}" >> "$GITHUB_OUTPUT"
           echo "languages=${LANGS}" >> "$GITHUB_OUTPUT"
           echo "matrix_include=${matrix_include}" >> "$GITHUB_OUTPUT"
+          echo "english_base_ref=${ENGLISH_BASE_REF}" >> "$GITHUB_OUTPUT"
 
       - name: Note when there is nothing to translate
         if: steps.changes.outputs.count == '0'
@@ -281,6 +286,8 @@ jobs:
       - name: Translate changed files (this locale only)
         id: translate
         timeout-minutes: 165
+        env:
+          TRANSLATION_ENGLISH_BASE_REF: ${{ needs.prepare.outputs.english_base_ref }}
         run: >-
           python scripts/auto_translate.py translate
           --changed-files changed_files.txt
