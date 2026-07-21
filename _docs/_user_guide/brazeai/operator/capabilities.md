@@ -41,20 +41,20 @@ Operator can help you go from an idea to a drafted campaign or audience, and ref
 
 To get started, look for the **Create with Operator** option when you create a campaign or segment.
 
-![The Create campaign and Create Segment menus, each showing the Create with Operator option.]({% image_buster /assets/img/operator/operator_create_with_operator.png %})
+![The Create campaign and Create Segment menus, each showing the Create with Operator option.]({% image_buster /assets/img/operator/operator_create_with_operator.png %}){:style="max-width:90%"}
 
 - **Create and edit campaigns:** When you start a campaign, Operator can help you draft it end-to-end from a single natural-language brief. This includes audience, content, and delivery settings. You can also ask Operator to help you edit an existing campaign, such as adjusting targeting or refreshing the message content.
 - **Go from brief to campaign:** Describe a full campaign brief, and Operator helps you build a draft that includes copy, images, personalization, targeting, and send-time recommendations. Review the draft in the campaign composer and refine it with follow-up prompts before you launch it.
-- **Create and edit segments:** When you start a segment, describe the audience you want and Operator helps you build the filter logic—attribute conditions, event history, and catalog lookups included. Operator can also help you edit an existing segment's filters when your targeting needs change.
+- **Create and edit segments:** When you start a segment, describe the audience you want and Operator helps you build the filter logic, including attribute conditions, event history, and catalog lookups. Operator can also help you edit an existing segment's filters when your targeting strategy needs changes.
 - **Create Segment Extensions:** Operator can help you build a SQL-defined [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension) by writing the query that defines it. Describe the audience logic you want, and Operator drafts the query for you to review before you save it. For more on Operator and SQL, see [Write SQL queries](#write-sql-queries).
 
 ## Agents {#agents}
 
+![The Create agent menu, showing the Custom agent option and Operator-built agent templates.]({% image_buster /assets/img/operator/operator_create_agent.png %}){: style="float:right;max-width:45%;margin-left:15px;"}
+
 Operator can help you build and refine agents in [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents). Any changes Operator proposes to an agent appear as an action card you review before they're saved.
 
-![The Create agent menu, showing the Custom agent option and Operator-built agent templates.]({% image_buster /assets/img/operator/operator_create_agent.png %})
-
-- **Create an agent from scratch:** Operator has access to every field in Agent Console, so you can describe the agent you want and Operator helps you configure it—instructions, output settings, and other agent fields included.
+- **Create an agent from scratch:** Operator has access to every field in Agent Console, so you can describe the agent you want and Operator helps you configure it. This includes instructions, output settings, and other agent fields.
 - **Start from template:** Agent Console offers a **Create agent with Operator** option that loads a pre-written prompt for a common use case, such as copywriting, sentiment analysis, journey routing, or catalog enrichment. Select a category, and Operator helps you draft an agent you can refine. For the full list of templates, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
 - **Refine an existing agent:** When you're editing an agent, select **Generate with Operator** or **Refine with Operator** near the agent's instructions field to get Operator's help writing or revising the agent's prompt and output settings.
 
@@ -93,7 +93,7 @@ Operator can generate a full message design for any channel or editor with an HT
 - Push
 - Webhook
 
-Drag-and-drop editors don't support direct design generation, though Operator can still help with copy or other content you add manually. Describe the message you want in natural language, review the output, and insert it into your composer. Keep the conversation going to refine the result. For example, you can ask for a different layout, shorter copy, or updated button styling before you insert the HTML into the editor. 
+Drag-and-drop editors don't support direct design generation, though Operator can still help with copy or other content you add manually. Describe the message you want in natural language, review the output, and insert it into your composer. Keep the conversation going to refine the result. For example, you can ask for a different layout, shorter copy, or updated button styling before you insert the HTML into the editor.
 
 You get the best results when you use Operator in the composer you're building, where it has [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) for the channel and message type. When brand guidelines are configured, Operator applies them automatically.
 
@@ -180,14 +180,14 @@ Operator can act as a reference for your workspace data and Braze documentation,
 Operator can reference the following to answer questions or ground the content it generates, including but not limited to:
 
 - Braze documentation
-- Existing [campaign]({{site.baseurl}}/user_guide/messaging/campaigns) and [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) configuration, such as targeting and delivery settings
 - [Segments]({{site.baseurl}}/user_guide/audience/segments)
 - [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) and [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
 - [Catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) data
-- [Agents]({{site.baseurl}}/user_guide/brazeai/agents)
+- Existing [campaign]({{site.baseurl}}/user_guide/messaging/campaigns) and [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) configuration, such as targeting and delivery settings
 - [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)
 - [Promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes)
 - [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) responses
+- [Agents]({{site.baseurl}}/user_guide/brazeai/agents)
 
 Ask Operator directly if you're not sure whether it can look up a specific piece of information.
 
@@ -207,7 +207,7 @@ Operator's coverage changes frequently. If you're not sure whether a specific sc
 
 Operator's dashboard support is broad, but it has boundaries.
 
-- **Canvases:** Operator can't create or edit [Canvases]({{site.baseurl}}/user_guide/messaging/canvas) yet, though this support is coming soon. Operator can still read an existing Canvas's configuration to answer questions and ground its output.
+- **Canvases:** Operator can't create or edit [Canvases]({{site.baseurl}}/user_guide/messaging/canvas), but it can reference an existing Canvas's configuration, such as targeting and delivery settings, to answer questions and ground its output.
 - **Drag-and-drop editors:** Operator can't generate or insert a message design directly in a drag-and-drop editor, such as the ones for [email]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), and [in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Switch to the corresponding HTML editor to use Operator, or ask Operator to generate content, such as copy, that you can paste in manually. See [Generate messages](#generate-messages) for supported channels and editors.
 - **Screen visibility:** Operator uses page-aware context to understand what you're looking at, including content inside supported previews and editors. When part of a page falls outside what Operator can read, it tells you instead of guessing, so you know to describe that content yourself.
 - **Usage limits:** Operator has a company-wide daily usage limit that resets every 24 hours. Image generations count toward this limit. If the limit is reached, a "Daily usage limit exceeded" message appears and no further requests can be made until it resets. For troubleshooting steps, see [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
