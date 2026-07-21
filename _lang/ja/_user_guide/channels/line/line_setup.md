@@ -71,7 +71,7 @@ BrazeからLINEメッセージを送信すると、アカウントのメッセ�
 
 ## ステップ1:既存のLINEユーザーをインポートまたは更新する {#step-1-import-or-update-existing-line-users}
 
-このステップは、既存の識別済みLINEユーザーがいる場合に必要です。Brazeが後でサブスクリプション状態を自動的に取得し、正しいユーザープロファイルを更新するためです。以前にユーザーとLINE IDを照合していない場合は、このステップをスキップしてください。
+このステップは、既存の識別済みLINEユーザーがいる場合に必要です。Brazeが後で購読状態を自動的に取得し、正しいユーザープロファイルを更新するためです。以前にユーザーとLINE IDを照合していない場合は、このステップをスキップしてください。
 
 Brazeがサポートする任意の方法を使用してユーザーをインポートまたは更新できます。[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイント、[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)、または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)が利用可能です。
 
@@ -83,7 +83,7 @@ Brazeがサポートする任意の方法を使用してユーザーをインポ
 
 ## ステップ2:LINEチャネルを統合する {#step-2-integrate-line-channel}
 
-統合プロセスが完了すると、Brazeはそのチャネルの LINE フォロワーを自動的にBrazeに取り込みます。すでにBrazeユーザープロファイルに関連付けられているLINE IDについては、各プロファイルが「購読中」ステータスに更新され、残りのLINE IDについては匿名ユーザーが生成されます。さらに、LINEチャネルの新しいフォロワーは、チャネルをフォローした際に未識別のユーザープロファイルが作成されます。
+統合プロセスが完了すると、Brazeはそのチャネルの LINEフォロワーを自動的にBrazeに取り込みます。すでにBrazeユーザープロファイルに関連付けられているLINE IDについては、各プロファイルが「購読中」ステータスに更新され、残りのLINE IDについては匿名ユーザーが生成されます。さらに、LINEチャネルの新しいフォロワーは、チャネルをフォローした際に未識別のユーザープロファイルが作成されます。
 
 ### ステップ2.1:Webhook設定を編集する {#step-21-edit-webhook-settings}
 
@@ -233,9 +233,20 @@ LINEはユーザーの購読状態の信頼できるソースです。ユーザ�
 {: start="2"}
 2. **イベント更新:** ユーザーの購読ステータスの更新に使用されます。Brazeが統合されたLINEチャネルのユーザーイベント更新を受信し、そのイベントがフォローの場合、ユーザープロファイルの購読グループのステータスは`subscribed`になります。イベントがフォロー解除の場合、ユーザープロファイルの購読グループのステータスは`unsubscribed`になります。<br><br>- 一致する`native_line_id`を持つすべてのBrazeユーザープロファイルが自動的に更新されます。<br>- イベントに一致するユーザープロファイルが存在しない場合、Brazeは[匿名ユーザーを作成]({{site.baseurl}}/line/user_management)します。
 
+## 別のワークスペースでLINEチャネルを再統合する {#re-integrate-a-line-channel-in-another-workspace}
+
+LINEチャネルを別のBrazeワークスペースで使用するには：
+
+1. 元のワークスペースで、そのチャネルの購読グループをアーカイブします。
+2. ターゲットのワークスペースで、[ステップ2:LINEチャネルを統合する](#step-2-integrate-line-channel)を使用してチャネルを統合します。
+
+両方のワークスペースで[購読グループの管理]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)権限があることを確認してください。両方のワークスペースで権限がない場合、チャネルがすでに接続されていることを示すエラーで統合が失敗します。
+
+アーカイブが購読グループに与える影響については、[LINE購読グループ]({{site.baseurl}}/line/subscription_groups#archive-behavior)を参照してください。
+
 ## ユースケース {#use-cases}
 
-上記のセットアップ手順に従った後、ユーザーがどのように更新されるかのユースケースです。
+セットアップ手順に従った後、ユーザーがどのように更新されるかのユースケースです。
 
 ### 既存のBrazeユーザープロファイルがすでにLINEチャネルをフォローしている場合 {#existing-braze-user-profile-already-follows-line-channel}
 
@@ -243,13 +254,13 @@ LINEはユーザーの購読状態の信頼できるソースです。ユーザ�
 2. 購読同期ツールが実行され、ユーザーがLINEチャネルをフォローしていることを検出し、ユーザープロファイルを購読ステータス`subscribed`で更新します。
 3. 購読ステータスの変更が発生した場合（ユーザーがブロック、友だち解除、または再フォローした場合など）、BrazeはLINEから更新を受信し、`native_line_id`に応じてユーザープロファイルを更新します。
 
-#### 既存のユーザープロファイルがLINEチャネルをブロック、友だち解除、またはフォロー解除している場合 {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
+### 既存のユーザープロファイルがLINEチャネルをブロック、友だち解除、またはフォロー解除している場合 {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
 
 1. Brazeユーザープロファイルが`native_line_id`属性で更新されます。デフォルトの購読ステータスは`unsubscribed`です。
 2. 購読同期ツールはユーザーがLINEチャネルをフォローしていることを検出せず、ユーザーの購読ステータスは`unsubscribed`のままです。
 3. ユーザーが後でチャネルをフォローした場合、BrazeはLINEから更新を受信し、ユーザープロファイルを購読ステータス`subscribed`で更新します。
 
-##### LINEフォロー後にユーザープロファイルが作成される場合 {#user-profile-creation-occurs-after-line-follow}
+### LINEフォロー後にユーザープロファイルが作成される場合 {#user-profile-creation-occurs-after-line-follow}
 
 1. チャネルに新しいLINEフォロワーが追加されます。
 2. Brazeは、フォロワーのLINE IDに`native_line_id`属性が設定され、フォロワーのLINE IDにユーザーエイリアス`line_id`が設定された匿名ユーザープロファイルを作成します。プロファイルの購読ステータスは`subscribed`です。
@@ -274,7 +285,7 @@ LINEはユーザーの購読状態の信頼できるソースです。ユーザ�
 
   - 新しいユーザープロファイルは、`native_line_id`を設定することで（[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイント、[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)、または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を通じて）作成できます。この新しいプロファイルは、既存の匿名ユーザープロファイルの購読状態を継承します。これにより、同じ`native_line_id`を共有する複数のプロファイルが存在することになります。これらは、[ステップ5](#step-5-merge-profiles-optional)で説明されているプロセスで`/users/merge`エンドポイントを使用していつでもマージできます。
 
-##### LINEフォロー前にユーザープロファイルが作成される場合 {#user-profile-creation-occurs-before-line-follow}
+### LINEフォロー前にユーザープロファイルが作成される場合 {#user-profile-creation-occurs-before-line-follow}
 
 1. 新しいユーザーを獲得し、情報をBrazeに送信します。新しいユーザープロファイルが作成されます（プロファイル1）。
 2. ユーザーがLINEアカウントをフォローします。
@@ -384,7 +395,7 @@ if (user && isLoggedIn && lineUserId) {
 **シナリオ:** Brazeの既存ユーザーがLINEでチャネルをフォローします。
 
 1. LINEがBrazeにフォローイベントを送信します。
-2. Brazeは LINE ID、`line_id`ユーザーエイリアス、およびLINE購読グループのステータス`subscribed`を持つ匿名ユーザープロファイルを作成します。
+2. BrazeはLINE ID、`line_id`ユーザーエイリアス、およびLINE購読グループのステータス`subscribed`を持つ匿名ユーザープロファイルを作成します。
 3. ユーザーがWebサイトやアプリへのリンクを含むLINEメッセージを受信し、ログインします。ユーザープロファイルが既知になります。
 4. 作成された匿名ユーザープロファイルが識別され、[/users/identifyエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)を通じてユーザーの既知のユーザープロファイルにマージされます。既知のユーザープロファイルにLINE IDが含まれ、購読ステータスが`subscribed`になります。
 5. （オプション）ユーザーがクーポンコードを含むLINEメッセージを受信し、BrazeがBrazeユーザープロファイルに送信を記録します。

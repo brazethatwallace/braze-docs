@@ -29,7 +29,7 @@ Sie können nach den folgenden Inhalten filtern, die im **Nachrichten-Aktivität
 - E-Mail-Fehler
 - API-Nachrichtendatensätze
 - Connected-Content-Fehler
-- REST API-Connected-Audience-Fehler
+- REST-API-Connected-Audience-Fehler
 - User-Aliasing-Fehler
 - A/B-Test-Fehler
 - SMS/MMS-Fehler
@@ -45,7 +45,7 @@ Diese Nachrichten können von unserem eigenen System, Ihren Apps oder Plattforme
 
 Um zu bestimmen, was Ihre Nachrichten bedeuten, achten Sie auf den Wortlaut jeder Nachricht und die zugehörigen Spalten, da Ihnen dies bei der Fehlerbehebung durch Kontexthinweise helfen kann.
 
-Zum Beispiel können Einträge vom Typ **Aborted Message Error** aus vielen Gründen auftreten, nicht nur durch [Liquid-Abbruchnachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages). Lesen Sie die Spalte **Nachricht**, um den konkreten Grund zu erfahren:
+Zum Beispiel können Einträge vom Typ **Aborted Message Error** aus vielen Gründen auftreten, nicht nur durch [Liquid-Abbruchnachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages). Lesen Sie die Spalte **Nachricht**, um den konkreten Grund zu erfahren:
 
 - Wenn die Sendung durch ein Liquid-Tag `abort_message` abgebrochen wurde, zeigt die Spalte **Nachricht** das genaue Liquid-Snippet an, das aufgerufen wurde, zum Beispiel {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
 - Bei anderen Abbruchgründen erklärt die Spalte **Nachricht**, warum die Sendung abgebrochen wurde.

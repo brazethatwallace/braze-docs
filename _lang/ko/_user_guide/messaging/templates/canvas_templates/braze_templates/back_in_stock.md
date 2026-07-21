@@ -18,7 +18,7 @@ tool: Canvas
 이 템플릿을 성공적으로 사용하려면 다음이 필요합니다:
 
 - 상품 정보가 포함된 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/create)
-- 메시지를 보내려는 상품에 대해 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#back-in-stock-notifications)이 설정되어 있어야 합니다
+- 메시지를 보내려는 상품에 대해 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)이 설정되어 있어야 합니다
 
 ## 필요에 맞게 템플릿 맞춤 설정하기 {#tailoring-the-template-to-your-needs}
 

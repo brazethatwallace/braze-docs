@@ -133,7 +133,7 @@ Das Öffnungs-Tracking setzt voraus, dass die/der Empfänger:in die E-Mail mit a
 
 Einige Unternehmens-E-Mail-Sicherheitstools (wie Barracuda, Proofpoint und ähnliche Dienste) scannen eingehende E-Mails, indem sie automatisch alle Links in der Nachricht anklicken, um zu überprüfen, ob sie sicher sind. Dies kann dazu führen, dass Klickereignisse innerhalb von Sekunden nach dem Versand erscheinen, oft mit jedem Link in der E-Mail in schneller Folge angeklickt.
 
-Dieses Verhalten tritt häufiger bei institutionellen E-Mail-Domains auf (wie Schulen, Universitäten und Unternehmensumgebungen) und ist wahrscheinlicher, wenn sich Ihre Absenderdomain erheblich von Ihrer Tracking-Domain unterscheidet. Das Einrichten einer [benutzerdefinierten gebrandeten Tracking-Domain]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) kann die Häufigkeit dieser automatisierten Klicks reduzieren.
+Dieses Verhalten tritt häufiger bei institutionellen E-Mail-Domains auf (wie Schulen, Universitäten und Unternehmensumgebungen) und ist wahrscheinlicher, wenn sich Ihre Absenderdomain erheblich von Ihrer Tracking-Domain unterscheidet. Das Einrichten einer [angepassten gebrandeten Tracking-Domain]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) kann die Häufigkeit dieser automatisierten Klicks reduzieren.
 
 **So erkennen Sie es:** Suchen Sie die IP-Adresse des Klickereignisses (verfügbar in Currents-Daten) in einer Suchmaschine. Wenn die IP mit einem bekannten Sicherheitsanbieter (wie Barracuda Networks) verknüpft ist, sind die Klicks wahrscheinlich automatisiert. Möglicherweise sehen Sie auch einen konsistenten User-Agent-Header über mehrere automatisierte Klicks hinweg.
 
@@ -195,13 +195,13 @@ Machine-Open-Prozentsätze sind kein zuverlässiges Maß für das tatsächliche 
 
 ### Warum funktionieren meine Deeplinks in Gmail nicht? {#why-are-my-deep-links-not-working-in-gmail}
 
-Gmail entfernt alle Nicht-HTTP/HTTPS-Links aus E-Mail-Nachrichten. Wenn Ihr Deeplink ein benutzerdefiniertes Schema verwendet (wie `myapp://path/to/content`), entfernt Gmail ihn, und der Link funktioniert nicht für Empfänger:innen, die die E-Mail in Gmail lesen. Dies ist eine Gmail-Einschränkung, keine Braze-Einschränkung.
+Gmail entfernt alle Nicht-HTTP/HTTPS-Links aus E-Mail-Nachrichten. Wenn Ihr Deeplink ein angepasstes Schema verwendet (wie `myapp://path/to/content`), entfernt Gmail ihn, und der Link funktioniert nicht für Empfänger:innen, die die E-Mail in Gmail lesen. Dies ist eine Gmail-Einschränkung, keine Braze-Einschränkung.
 
 Um dies zu umgehen:
 
 - **Verwenden Sie Universal Links (iOS) oder App Links (Android).** Diese verwenden Standard-`https://`-URLs, die Ihre App öffnen, wenn sie installiert ist, und andernfalls auf eine Webseite zurückfallen. Einrichtungsanweisungen finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 - **Verwenden Sie einen Deeplinking-Anbieter.** Dienste wie [Branch](https://www.branch.io/) generieren HTTP-formatierte Deeplinks, die mit E-Mail-Clients einschließlich Gmail kompatibel sind.
-- **Richten Sie einen Redirect-Endpunkt ein.** Hosten Sie einen `https://`-Endpunkt auf Ihrem Server, der auf die benutzerdefinierte Schema-URL Ihrer App weiterleitet. E-Mail-Clients behalten den `https://`-Link bei, und die Weiterleitung übernimmt das Öffnen der App.
+- **Richten Sie einen Redirect-Endpunkt ein.** Hosten Sie einen `https://`-Endpunkt auf Ihrem Server, der auf die angepasste Schema-URL Ihrer App weiterleitet. E-Mail-Clients behalten den `https://`-Link bei, und die Weiterleitung übernimmt das Öffnen der App.
 
 ### Enthält die Metrik *Eindeutige Öffnungen* auch *Machine Opens*? {#does-the-unique-opens-metric-include-machine-opens}
 
@@ -251,7 +251,7 @@ Verwenden Sie die folgenden Tabellen, um die Ursache einzugrenzen.
 
 | Mögliche Ursache | Was zu prüfen ist |
 |---|---|
-| Die/der Nutzer:in war nicht für die Campaign oder das Canvas berechtigt | Überprüfen Sie die **Target Audiences** (für Campaigns) oder **Target Audience** (für Canvas) [Einstellungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), um zu bestätigen, dass die/der Nutzer:in zum Sendezeitpunkt alle Zielgruppenfilter, Segment-Kriterien und Zustellregeln erfüllt hat. |
+| Die/der Nutzer:in war nicht für die Campaign oder das Canvas berechtigt | Überprüfen Sie die [Einstellungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) unter **Target Audiences** (für Campaigns) oder **Target Audience** (für Canvas), um zu bestätigen, dass die/der Nutzer:in zum Sendezeitpunkt alle Zielgruppenfilter, Segment-Kriterien und Zustellregeln erfüllt hat. |
 | Die Nachricht wurde abgebrochen | Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) auf Abbruchgründe, wie Liquid-Fehler oder fehlende Pflichtfelder. |
 | Die E-Mail-Adresse der/des Nutzers:in war ungültig oder fehlte | Überprüfen Sie in der **Nutzersuche** das Profil der/des Nutzers:in, um sicherzustellen, dass zum Sendezeitpunkt eine gültige E-Mail-Adresse hinterlegt war. |
 | Die E-Mail-Adresse der/des Nutzers:in hatte zuvor einen Hard Bounce | Ein Hard Bounce markiert die E-Mail-Adresse als ungültig und verhindert zukünftige Sendungen an diese Adresse. Ebenso sendet Braze, wenn ein:e Empfänger:in Ihre E-Mail als Spam markiert, nur Transaktions-E-Mails an diese:n Nutzer:in, keine Standard-Campaigns. Überprüfen Sie den Tab **Engagement** im Profil der/des Nutzers:in. Weitere Informationen finden Sie unter [Abgemeldete E-Mail-Adressen]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) und [Bounces und ungültige E-Mails]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
@@ -266,7 +266,7 @@ Verwenden Sie die folgenden Tabellen, um die Ursache einzugrenzen.
 | Der MBP hat die E-Mail zurückgewiesen | Der Mailserver der/des Empfängers:in hat die E-Mail abgelehnt. Überprüfen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) auf Bounce-Details. |
 | Der MBP hat die E-Mail stillschweigend verworfen | Der MBP hat die E-Mail akzeptiert, sie aber der/dem Nutzer:in nicht angezeigt und keinen Bounce zurückgegeben. Dies liegt außerhalb der Kontrolle von Braze und kann in den Braze-Protokollen nicht erkannt werden. |
 | Die E-Mail ist im Spam-Ordner gelandet | Der MBP hat die Nachricht als Spam identifiziert und in den Spam- oder Junk-Ordner der/des Nutzers:in geleitet. Bitten Sie die/den Nutzer:in, den Spam-Ordner zu überprüfen. |
-| Die/der Empfänger:in hat benutzerdefinierte E-Mail-Filterung | Die/der Nutzer:in oder ihr/sein IT-Administrator hat möglicherweise Postfachregeln konfiguriert, die eingehende Nachrichten filtern, umleiten oder löschen. |
+| Die/der Empfänger:in hat angepasste E-Mail-Filterung | Die/der Nutzer:in oder ihr/sein IT-Administrator hat möglicherweise Postfachregeln konfiguriert, die eingehende Nachrichten filtern, umleiten oder löschen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ursache für E-Mail nicht im Posteingang" }
 
 ### Wie kann ich Bilder in Outlook optimieren? {#how-can-i-optimize-images-in-outlook}
@@ -298,6 +298,12 @@ Sie können Inhalte auch so umschließen, dass sie in Outlook Desktop ausgeblend
 SVG-Bilder werden für E-Mails nicht empfohlen, da die Unterstützung über E-Mail-Clients hinweg eingeschränkt ist. Gmail und mehrere andere große E-Mail-Anbieter rendern SVG-Bilder nicht, was zu fehlerhaften oder fehlenden Bildern für Empfänger:innen führen kann. WebP wird nicht konsistent über alle Clients hinweg unterstützt.
 
 Verwenden Sie stattdessen weit verbreitete Formate wie PNG oder JPEG, damit Bilder zuverlässig gerendert werden.
+
+### Kann ich Videos in E-Mails einbetten? {#can-i-embed-videos-in-emails}
+
+Eingebettete Videos werden von vielen gängigen E-Mail-Clients wie Gmail, Outlook und Yahoo nicht nativ unterstützt. Daher werden eingebettete Videoelemente möglicherweise nicht wie beabsichtigt angezeigt oder erscheinen gar nicht. Darüber hinaus kann das direkte Einbetten von Videos in eine E-Mail die E-Mail-Größe erheblich erhöhen, was die Wahrscheinlichkeit erhöht, dass die Nachricht als Spam markiert wird.
+
+Stattdessen können Sie ein GIF oder ein statisches Bild erstellen, das einem Video in einem Videoplayer ähnelt, und dieses Bild dann mit Ihrem Video verlinken. Wenn Nutzer:innen auf das Bild klicken, werden sie zum Video weitergeleitet, das auf Ihrer Website oder einer Videoplattform gehostet wird.
 
 ### Können Liquid-Variablen, die in einem Teil des Nachrichten-Editors zugewiesen wurden, in einem anderen verwendet werden? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 

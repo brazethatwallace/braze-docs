@@ -20,13 +20,13 @@ description: "この記事では、「APIトリガーキャンバスのスケジ
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-このエンドポイントを使用してメッセージを送信するには、キャンバスを構築するときに作成される[キャンバス ID]({{site.baseurl}}/api/identifier_types#canvas-api-identifier)が必要です。
+このエンドポイントを使用してメッセージを送信するには、キャンバスを構築するときに作成される[キャンバスID]({{site.baseurl}}/api/identifier_types#canvas-identifier)が必要です。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.trigger.schedule.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`canvas.trigger.schedule.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 

@@ -70,7 +70,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 Random Bucket Number
 {% endapitags %}
 
-Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos Campaigns et de leurs variantes.
+Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos campagnes et de leurs variantes.
 
 {% alert important %}
 Cet événement Currents n'est disponible que pour les clients qui ont acheté un « connecteur tous événements » et n'est disponible que pour les connecteurs d'événements de stockage (tels que Amazon S3, Microsoft Azure et Google Cloud Storage).
@@ -159,7 +159,7 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.CustomEvent
 
@@ -248,7 +248,7 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 
 ### Détails des propriétés {#property-details}
 
-- Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) associées à l'événement.
+- Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) associées à l'événement.
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte afin d'activer la fonctionnalité permettant l'envoi de `ad_id`.
 
@@ -298,7 +298,7 @@ Cet événement se produit lorsqu'une installation d'application est attribuée 
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.InstallAttribution
 
@@ -435,7 +435,7 @@ Cet événement est déclenché lorsqu'un utilisateur se rend à un emplacement 
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.Location
 
@@ -611,7 +611,7 @@ Les achats sont des événements personnalisés spéciaux et sont accompagnés d
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.Purchase
 
@@ -774,7 +774,7 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.app.FirstSession
 
@@ -910,7 +910,7 @@ Cet événement se produit lorsqu'un utilisateur quitte votre application, metta
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.app.SessionEnd
 
@@ -1050,7 +1050,7 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.app.SessionStart
 
@@ -1184,7 +1184,7 @@ Cet événement se produit lorsque Braze synchronise le jeton Push To Start de l
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.liveactivity.PushToStartTokenChange
 
@@ -1322,7 +1322,7 @@ Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.liveactivity.UpdateTokenChange
 
@@ -1472,7 +1472,7 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.behaviors.pushnotification.TokenStateChange
 

@@ -36,7 +36,7 @@ Les étapes suivantes sont prises en charge :
 - Agent
 - Mise à jour utilisateur (uniquement dans l'éditeur d'interface, ce qui signifie que les étapes utilisant l'éditeur JSON sont ignorées)
 
-Si le test rencontre un type d'étape qui n'est pas listé ci-dessus, l'étape non prise en charge est ignorée et l'utilisateur test continue vers l'étape prise en charge suivante.
+Si le test rencontre un type d'étape qui n'est pas listé dans cette section, l'étape non prise en charge est ignorée et l'utilisateur test continue vers l'étape prise en charge suivante.
 
 ### Étapes Agent {#agent-steps}
 
@@ -57,7 +57,7 @@ Pour afficher plus de détails sur les critères d'entrée, sélectionnez **See 
 
 ### Liquid
 
-Braze traite la logique Liquid pendant un test, même si vous n'envoyez pas de message test réel. Cela signifie que la [logique d'abandon de message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) et les autres logiques Liquid sont prises en compte et peuvent impacter le parcours utilisateur dans le Canvas.
+Braze traite la logique Liquid pendant un test, même si vous n'envoyez pas de message test réel. Cela signifie que la [logique d'abandon de message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) et les autres logiques Liquid sont prises en compte et peuvent impacter le parcours utilisateur dans le Canvas.
 
 Si votre prévisualisation envoie la dernière étape de votre parcours utilisateur au lieu d'abandonner, la prévisualisation utilise peut-être l'heure actuelle comme heure testée pour l'évaluation Liquid, et non l'heure réelle à laquelle l'utilisateur se trouverait dans l'étape en fonction de l'heure d'entrée dans le Canvas.
 

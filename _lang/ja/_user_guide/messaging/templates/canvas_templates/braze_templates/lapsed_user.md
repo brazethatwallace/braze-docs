@@ -15,13 +15,13 @@ tool: Canvas
 
 ## 前提条件 {#prerequisites}
 
-離脱ユーザーテンプレートを正しく使用するには、使用するパートナーとオーディエンスで [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) を設定する必要があります。
+離脱ユーザーテンプレートを正しく使用するには、使用するパートナーとオーディエンスで[Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync)を設定する必要があります。
 
 ## テンプレートをニーズに合わせてカスタマイズする {#tailoring-the-template-to-your-needs}
 
 ここでは、映画やドラマの独占コンテンツを提供するストリーミングサービス「MovieCanon」で作業しているとしましょう。離脱ユーザーテンプレートを使用して、30日間アプリを訪問していないユーザーに特典やプレミアムコンテンツをプロモーションできます。
 
-キャンバスを作成する前に、[Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) インテグレーションを設定し、BrazeのユーザーデータをGoogle Audiencesに追加して、行動トリガーやセグメンテーションなどに基づいた広告を配信できるようにします。
+キャンバスを作成する前に、[Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)インテグレーションを設定し、BrazeのユーザーデータをGoogleオーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいた広告を配信できるようにします。
 
 離脱ユーザーテンプレートにアクセスするには、新しいキャンバスを作成する際に、**キャンバステンプレートを使用** > **Brazeテンプレート**を選択します。次に、**離脱ユーザー**の横にある**テンプレートを適用**を選択します。これで、テンプレートをニーズに合わせてカスタマイズできます。
 
@@ -76,7 +76,7 @@ tool: Canvas
 3. 「Sessions?」という条件分岐ステップのデフォルトを維持します。これは、「>1 Session」グループを、過去1暦日にアプリを1回以上使用したユーザーとして定義します。
 4. 「>1 Session」グループに該当するユーザー向けのメッセージステップをカスタマイズします。このユースケースでは、アプリを訪問してくれたことに感謝し、アンロックされた特典をハイライトします。
 5. 最初のメールを受信した後に複数のセッションを行ったユーザーのユーザーデータを更新・同期するために、Ad Audience UpdateステップでGoogle Audience Syncが設定されていることを確認します。
-6. 「A/B Test」という[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths)コンポーネントのデフォルトを維持します。これにより、2回未満のセッションを行ったユーザーに、2つのプロモーション（次のステップでカスタマイズします）のいずれかがランダムに送信されます。
+6. 「A/B Test」という[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)コンポーネントのデフォルトを維持します。これにより、2回未満のセッションを行ったユーザーに、2つのプロモーション（次のステップでカスタマイズします）のいずれかがランダムに送信されます。
 7. 実験パスの一部としてユーザーに送信される2つのプロモーションをカスタマイズします。このユースケースでは、1つを3か月購読の20%割引プロモーション、もう1つを1か月購読の10%割引プロモーションにします。
 
 ![ユーザーのセッション数に基づいて分岐するパスを持つキャンバスステップ。]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}

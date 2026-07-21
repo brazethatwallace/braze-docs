@@ -2,14 +2,14 @@
 nav_title: Content Optimizer
 article_title: Content Optimizer
 alias: "/content_optimizer/"
-description: "Der Content Optimizer ist ein Agent, der Ihnen dabei hilft, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten."
+description: "Der Content Optimizer hilft Ihnen dabei, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten."
 page_type: reference
 page_order: 3
 ---
 
 # Content Optimizer {#content-optimizer}
 
-> Der Content Optimizer ist ein Agent, der Ihnen dabei hilft, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
+> Der Content Optimizer hilft Ihnen dabei, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
 
 {% alert important %}
 Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für folgende Kanäle verfügbar: E-Mail, Push-Benachrichtigungen und SMS-/MMS-/RCS-Nachrichten. Für Unterstützung beim Einstieg wenden Sie sich bitte an Ihren Customer-Success-Manager.
@@ -17,7 +17,7 @@ Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für f
 
 ## Über den Content Optimizer {#about-content-optimizer}
 
-Der Content Optimizer ist ein Agent, der in einem Canvas-Schritt ausgeführt wird. Er unterstützt Sie dabei, zu testende Nachrichtenkomponenten zu definieren, Varianten mithilfe generativer KI oder manueller Eingaben zu erstellen und automatisch zu optimieren, welche Inhaltskombinationen an Nutzer:innen gesendet werden. Dieses Feature hilft Ihnen dabei:
+Der Content Optimizer wird in einem Canvas-Schritt ausgeführt. Er unterstützt Sie dabei, zu testende Nachrichtenkomponenten zu definieren, Varianten mithilfe generativer KI oder manueller Eingaben zu erstellen und automatisch zu optimieren, welche Inhaltskombinationen an Nutzer:innen gesendet werden. Dieses Feature hilft Ihnen dabei:
 
 - Betreffzeilen, Kopfzeilen, Textinhalte oder primäre CTAs für E-Mails zu optimieren.
 - Titel und Nachrichten für Push-Benachrichtigungen zu optimieren.
@@ -84,7 +84,7 @@ Jede:r Nutzer:in erhält eine Nachricht pro Eintritt in den Content Optimizer-Sc
 
 ## Canvas-Eintritts-Setup {#canvas-entry-setup}
 
-Für optimale Ergebnisse verwenden Sie den Content Optimizer in Canvases, in denen Nutzer:innen den Schritt schrittweise und regelmäßig über einen längeren Zeitraum hinweg erreichen – beispielsweise in wiederkehrenden oder dauerhaft aktiven Canvases mit konstantem täglichem Volumen. Wenn alle Nutzer:innen gleichzeitig in den Schritt eintreten, hat der Agent keine Zeit, aus den ersten Ergebnissen zu lernen. Der Schritt verhält sich dann eher wie ein statischer A/B-Test als wie eine Live-Optimierungs-Engine.
+Für optimale Ergebnisse verwenden Sie den Content Optimizer in Canvases, in denen Nutzer:innen den Schritt schrittweise und regelmäßig über einen längeren Zeitraum hinweg erreichen – beispielsweise in wiederkehrenden oder dauerhaft aktiven Canvases mit konstantem täglichem Volumen. Wenn alle Nutzer:innen gleichzeitig in den Schritt eintreten, hat der Content Optimizer keine Zeit, aus den ersten Ergebnissen zu lernen. Der Schritt verhält sich dann eher wie ein statischer A/B-Test als wie eine Live-Optimierungs-Engine.
 
 Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintritts-Canvases sowie für Event-getriggerte und API-getriggerte Canvases mit relativ konstantem täglichem Nutzer:innen-Eintritt. Wenn Sie den Content Optimizer in Einmal-Sende-Canvases oder Canvases mit unregelmäßigem Eintritt (z. B. monatlich wiederkehrend) verwenden, sollten Sie [Eintrittskontrollen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) nutzen, um die Nutzer:innen-Eintritte über mehrere Tage zu verteilen.
 
@@ -102,13 +102,13 @@ Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintrit
 ## Hinweise {#considerations}
 
 - Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für folgende Kanäle verfügbar: E-Mail, Push-Benachrichtigungen und SMS-/MMS-/RCS-Nachrichten.
-- Für E-Mails kann der Agent bis zu 125 Kombinationen pro Schritt generieren:
+- Für E-Mails kann der Content Optimizer bis zu 125 Kombinationen pro Schritt generieren:
    - Bis zu 3 Komponenten pro Schritt
    - Bis zu 5 Varianten für jede Komponente
-- Für Push-Benachrichtigungen kann der Agent bis zu 25 Kombinationen pro Schritt generieren:
+- Für Push-Benachrichtigungen kann der Content Optimizer bis zu 25 Kombinationen pro Schritt generieren:
    - Bis zu 2 Komponenten pro Schritt
    - Bis zu 5 Varianten für jede Komponente
-- Für SMS-, MMS- und RCS-Nachrichten kann der Agent bis zu 25 Kombinationen pro Schritt generieren:
+- Für SMS-, MMS- und RCS-Nachrichten kann der Content Optimizer bis zu 25 Kombinationen pro Schritt generieren:
    - Bis zu 2 Komponenten pro Schritt
    - Bis zu 5 Varianten für jede Komponente
 - Pro Nutzer:in und Eintritt wird nur eine Nachricht gesendet. Es gibt keine Speicherung früherer Sendungen bei Wiedereintritten.

@@ -150,7 +150,7 @@ Brazeは、各ユーザーについてカスタムイベントの発生回数と
 ![カスタムイベントグラフのフィルター]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[カスタム属性のインクリメント]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers)を使用すると、カスタムイベントと同様にユーザーアクションのカウンターを保持できます。ただし、カスタム属性データを時系列で表示することはできません。時系列で分析する必要のないユーザーアクションは、この方法で記録してください。
+[カスタム属性のインクリメント]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)を使用すると、カスタムイベントと同様にユーザーアクションのカウンターを保持できます。ただし、カスタム属性データを時系列で表示することはできません。時系列で分析する必要のないユーザーアクションは、この方法で記録してください。
 {% endalert %}
 
 ### カスタムイベント分析が表示されない理由 {#why-custom-events-analytics-arent-showing}

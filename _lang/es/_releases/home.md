@@ -226,7 +226,7 @@ El [dashboard de rendimiento de push]({{site.baseurl}}/user_guide/analytics/dash
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Los catálogos ahora admiten el filtrado basado en distancia con el nuevo tipo de campo de geolocalización y los operadores de selección de catálogo. Esto te ayuda a crear experiencias más relevantes basadas en la ubicación, como mostrar a cada usuario su restaurante más cercano, filtrar propiedades abiertas dentro de 50 km para una campaña inmobiliaria o dirigirte a tiendas cercanas a un evento específico. En lugar de aproximar la segmentación geográfica con códigos de ciudad o región, puedes filtrar elementos del catálogo por proximidad a un punto central, incluyendo un atributo de usuario de Liquid como la ubicación más reciente del usuario. Para más información, consulta [Selecciones]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#how-it-works).
+Los catálogos ahora admiten el filtrado basado en distancia con el nuevo tipo de campo de geolocalización y los operadores de selección de catálogo. Esto te ayuda a crear experiencias más relevantes basadas en la ubicación, como mostrar a cada usuario su restaurante más cercano, filtrar propiedades abiertas dentro de 50 km para una campaña inmobiliaria o dirigirte a tiendas cercanas a un evento específico. En lugar de aproximar la segmentación geográfica con códigos de ciudad o región, puedes filtrar elementos del catálogo por proximidad a un punto central, incluyendo un atributo de usuario de Liquid como la ubicación más reciente del usuario. Para más información, consulta [Selecciones]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 #### Banner y RCS para el generador de informes {#banner-and-rcs-for-report-builder}
 
@@ -242,7 +242,7 @@ El [evento `ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-Puedes usar el [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer) para optimizar ganchos, cuerpos y CTA para mensajes SMS, MMS y RCS. El Optimizador de contenidos es un agente que te ayuda a probar y optimizar el contenido de los mensajes a escala, utilizando IA para generar y evaluar grandes volúmenes de variantes de contenido automáticamente.
+Puedes usar el [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer) para optimizar ganchos, cuerpos y CTA para mensajes SMS, MMS y RCS. El Optimizador de contenidos te ayuda a probar y optimizar el contenido de los mensajes a escala, utilizando IA para generar y evaluar grandes volúmenes de variantes de contenido automáticamente.
 
 ### Orquestación {#orchestration}
 
@@ -603,7 +603,7 @@ Los [eventos de Currents y Data Share]({{site.baseurl}}/user_guide/data/distribu
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-for-data-sharing-3) ahora incluye campos adicionales que reflejan información de Campaign y Canvas en 66 tablas existentes, incluyendo:
+[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) ahora incluye campos adicionales que reflejan información de Campaign y Canvas en 66 tablas existentes, incluyendo:
 
 - `campaign_name`
 - `canvas_name`
@@ -759,7 +759,7 @@ Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de 
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-El [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer) es un paso en Canvas de pruebas de contenido continuo y altamente variante que entrega una optimización automatizada de la participación. Utilizando una interfaz de arrastrar y soltar similar al paso de mensajes, puedes definir los componentes que quieres probar, generar variantes utilizando IA (o introducirlas manualmente), y utilizar etiquetas de Liquid para mapear estos componentes al contenido de tu mensaje.
+El [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer) es un paso en Canvas de pruebas de contenido continuo y altamente variante que entrega una optimización automatizada de la participación. Utilizando una interfaz de arrastrar y soltar similar al paso de mensajes, puedes definir los componentes que quieres probar, generar variantes utilizando IA (o introducirlas manualmente) y utilizar etiquetas de Liquid para mapear estos componentes al contenido de tu mensaje.
 
 Basado en un optimizador bandido de brazos múltiples no contextual, el Optimizador de contenidos envía un único mensaje por usuario, determinando qué combinación de variantes de componentes entregar basándose en recomendaciones predictivas. A medida que el paso recopila datos con el tiempo, las variantes de alto rendimiento aumentan de forma natural la asignación de envíos, mientras que las variantes de bajo rendimiento disminuyen. El Optimizador de contenidos funciona mejor con Canvas de envío repetido que tengan un volumen de usuarios diario constante (al menos unos miles de usuarios al día) para habilitar la optimización continua.
 
@@ -769,7 +769,7 @@ Basado en un optimizador bandido de brazos múltiples no contextual, el Optimiza
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Para hacer coincidir los eventos recomendados de comercio electrónico con el evento de compra existente, añadimos el [evento de conversión "Realiza pedido"]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-report), que es similar a "Realiza compra".
+Para hacer coincidir los eventos recomendados de comercio electrónico con el evento de compra existente, añadimos el [evento de conversión "Realiza pedido"]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-dashboard), que es similar a "Realiza compra".
 
 ### Canales y puntos de intervención
 
@@ -777,11 +777,11 @@ Para hacer coincidir los eventos recomendados de comercio electrónico con el ev
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Después de añadir locales a tu espacio de trabajo, puedes [dirigirte a usuarios en diferentes idiomas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#translating-locales), todo dentro de un mismo banner.
+Después de añadir locales a tu espacio de trabajo, puedes [dirigirte a usuarios en diferentes idiomas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#use-locales), todo dentro de un mismo banner.
 
 #### Configurar la anchura de los Content Blocks de arrastrar y soltar {#configure-width-for-drag-and-drop-content-blocks}
 
-[Ajusta la anchura de tu Content Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks#using-the-editor-to-add-a-content-block) seleccionando el botón en el menú de navegación. La anchura predeterminada es del 100% cuando no se especifica en la configuración global de estilo de tu correo electrónico; de lo contrario, se respetará la configuración global.
+[Ajusta la anchura de tu Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) seleccionando el botón en el menú de navegación. La anchura predeterminada es del 100% cuando no se especifica en la configuración global de estilo de tu correo electrónico; de lo contrario, se respetará la configuración global.
 
 ![Una flecha de doble cara con una opción para editar la anchura.]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }
 
@@ -849,7 +849,7 @@ Se ha añadido un nuevo campo `time_ms` al evento [`users.behaviors.pushnotifica
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Los eventos que no tienen definido un ID externo de usuario ahora se pueden transmitir a los destinos de [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents). Cuando seleccionas la casilla "Include events from anonymous users" en tu integración de Currents, los eventos sin ID externo de usuario se enviarán al destino en lugar de suprimirse. Esta capacidad es fundamental para los análisis posteriores y los casos de uso que implican a usuarios no identificados y anónimos.
+Los eventos que no tienen definido un ID externo de usuario ahora se pueden transmitir a los destinos de [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1). Cuando seleccionas la casilla "Include events from anonymous users" en tu integración de Currents, los eventos sin ID externo de usuario se enviarán al destino en lugar de suprimirse. Esta capacidad es fundamental para los análisis posteriores y los casos de uso que implican a usuarios no identificados y anónimos.
 
 ##### Enviar usuario anónimo a destinos CustomHTTP {#send-anonymous-user-to-customhttp-destinations}
 

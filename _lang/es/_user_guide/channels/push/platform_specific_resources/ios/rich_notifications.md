@@ -123,9 +123,9 @@ Los siguientes detalles también pueden afectar el truncamiento de texto:
 
 ## Configurar tu notificación enriquecida de iOS {#setting-up-your-ios-rich-notification}
 
-### Paso 1: Crear una Campaign push {#step-1-create-a-push-campaign}
+### Paso 1: Crear una campaña push {#step-1-create-a-push-campaign}
 
-Sigue los [pasos de la Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) para redactar una notificación push para iOS. Usarás el mismo creador que utilizas para configurar notificaciones push que no contienen contenido enriquecido.
+Sigue los [pasos de la campaña]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) para redactar una notificación push para iOS. Usarás el mismo creador que utilizas para configurar notificaciones push que no contienen contenido enriquecido.
 
 ### Paso 2: Añadir medios {#step-2-add-media}
 
@@ -137,9 +137,9 @@ También puedes limitar este mensaje para que solo se envíe a usuarios que teng
 
 ![La sección de imagen de notificación expandida donde puedes añadir una imagen o introducir una URL de imagen.]({% image_buster /assets/img_archive/rich_notification_ios10_select.png %}){: style="max-width:70%;" }
 
-### Paso 3: Continuar creando tu Campaign {#step-3-continue-creating-your-campaign}
+### Paso 3: Continuar creando tu campaña {#step-3-continue-creating-your-campaign}
 
-Una vez que el contenido de tu notificación enriquecida se haya cargado en el panel, puedes continuar [planificando tu Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger).
+Una vez que el contenido de tu notificación enriquecida se haya cargado en el panel, puedes continuar [planificando tu campaña]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger).
 
 Cuando un usuario reciba la notificación push, puede presionar con fuerza el mensaje push para expandir la imagen.
 

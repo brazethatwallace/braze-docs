@@ -15,7 +15,7 @@ tool:
 
 ## Disponibilidad de la característica {#feature-availability}
 
-Todos los clientes de Braze tienen acceso inmediato a Audience Sync con Google y Facebook, pero los clientes con Action Credits pueden acceder a todos los socios de Audience Sync. Para desbloquear destinos adicionales de Audience Sync para clientes que no utilizan Action Credits, compra Audience Sync Pro. Ponte en contacto con tu director de cuentas de Braze para obtener más información.
+Todos los clientes de Braze tienen acceso inmediato a Audience Sync con Google y Facebook, pero los clientes con Action Credits pueden acceder a todos los partners de Audience Sync. Para desbloquear destinos adicionales de Audience Sync para clientes que no utilizan Action Credits, compra Audience Sync Pro. Ponte en contacto con tu director de cuentas de Braze para obtener más información.
 
 ## Casos de uso {#use-cases}
 
@@ -34,7 +34,7 @@ table td {
 
 | Destino | Tiempo para que el destino coincida con los miembros de la audiencia | Límite de velocidad | Similitud o semejanza | Consejos |
 | --- | --- | --- | --- | --- |
-| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync) | Hasta 24 horas | 250.000 solicitudes por minuto. Por lotes cada 5 segundos con un reintento automático basado en la respuesta de Google. | Sí | {::nomarkdown}<ul><li>Criteo admite hasta 1.000 audiencias de anuncios.</li><li>La audiencia mínima es de 500 personas, y la recomendada es de más de 20.000.</li></ul>{:/} |
+| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync) | Hasta 24 horas | 250.000 solicitudes por minuto. Por lotes cada 5 segundos con un reintento automático. | Sí | {::nomarkdown}<ul><li>Criteo admite hasta 1.000 audiencias de anuncios.</li><li>La audiencia mínima es de 500 personas, y la recomendada es de más de 20.000.</li></ul>{:/} |
 | [Facebook o Instagram]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) | Hasta 24 horas | 190.000 cuentas de anuncios por hora | Sí | {::nomarkdown}<ul><li>Facebook admite hasta 500 audiencias de anuncios.</li><li>Facebook requiere audiencias de al menos 1.000 usuarios.</li></ul>{:/} |
 | [Google Ads o YouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) | Entre 6 y 12 horas | Por lotes cada 5 segundos con un reintento automático basado en la respuesta de Google | No | {::nomarkdown}<ul><li><b>Customer match:</b> Utiliza el identificador de anuncio del móvil, la dirección de correo electrónico o el número de teléfono.</li><li>Google Audiences requiere al menos 5.000 usuarios para empezar a publicar anuncios.</li><li>El tamaño de la audiencia se mostrará como cero hasta que haya al menos 1.000 usuarios.</li></ul>{:/} |
 | [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync) | 48 horas | LinkedIn procesa 10 consultas por segundo y 100.000 usuarios por solicitud. Braze agrupa a los usuarios cada 5 segundos. | Audiencias predictivas con IA | {::nomarkdown}<ul><li>El tamaño mínimo de la audiencia es de 300 miembros, teniendo en cuenta la segmentación por ubicación.</li><li>LinkedIn muestra la tasa de coincidencia en el panel de Braze.</li></ul>{:/} |
@@ -110,7 +110,7 @@ Si el error está relacionado con la integración general del partner (como un p
 
 Si el error está relacionado con problemas con el componente de Audience Sync (como "La audiencia no existe") en Canvas, se envía un correo electrónico al usuario que configuró el Canvas. Si ese usuario ya no existe, entonces recae en el administrador de la empresa.
 
-Para configurar quién recibirá estos correos electrónicos, ponte en contacto con tu administrador de éxito de cliente para añadir destinatarios en **Preferencias de notificación**. Dado que esta característica cambiará el comportamiento actual, tendrás que añadir inmediatamente destinatarios a esta nueva preferencia de notificación, ya que Braze no incluye a nadie de forma predeterminada mediante adhesión voluntaria, y así asegurarte de que no se pierda ningún correo electrónico de error.
+Para configurar quién recibirá estos correos electrónicos, ponte en contacto con tu administrador de éxito de cliente para añadir destinatarios en **Preferencias de notificación**. Dado que esta característica cambiará el comportamiento actual, tendrás que añadir inmediatamente destinatarios a esta nueva preferencia de notificación, ya que Braze no incluye a nadie de forma predeterminada, y así asegurarte de que no se pierda ningún correo electrónico de error.
 
 ## Consideraciones sobre la privacidad de datos {#data-privacy-considerations}
 

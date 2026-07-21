@@ -14,14 +14,14 @@ description: "Esta página ofrece un resumen de cómo sincronizar los datos del 
 ## Paso 1: Crear un nuevo catálogo {#step-1-create-a-new-catalog}
 
 Antes de crear una nueva integración de ingesta de datos en la nube (CDI) para [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs), tienes que crear un nuevo catálogo o identificar un catálogo existente que quieras utilizar para la integración. Existen varias formas de crear un nuevo catálogo y cualquiera de ellas funcionará para la integración CDI:
-- Cargar un [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv)
-- Crear un catálogo en el [panel de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) o durante la configuración de CDI.
+- Cargar un [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog)
+- Crear un catálogo en el [panel de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) o durante la configuración de CDI.
 - Crear un catálogo utilizando el [endpoint Crear catálogo]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)
 
 Cualquier cambio en el esquema del catálogo (por ejemplo, añadir nuevos campos o cambiar el tipo de campo) debe realizarse a través del panel del catálogo antes de que los datos actualizados se sincronicen a través de CDI. Recomendamos realizar estas actualizaciones cuando la sincronización esté en pausa o no esté programada para ejecutarse, a fin de evitar conflictos entre los datos de tu almacén de datos y el esquema en Braze.
 
 ## Paso 2: Integrar la ingesta de datos en la nube con los datos del catálogo {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-La configuración de una sincronización de catálogos sigue de cerca el proceso de [las integraciones CDI de datos de usuario]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup).
+La configuración de una sincronización de catálogos sigue de cerca el proceso de [las integraciones CDI de datos de usuario]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 {% tabs %}
 {% tab Snowflake %}
@@ -60,7 +60,7 @@ La configuración de una sincronización de catálogos sigue de cerca el proceso
 6. Continúa con el paso 2 del flujo de configuración, selecciona el tipo de sincronización "Catalogs" e introduce el nombre de la integración y la planificación. Ten en cuenta que el nombre de la integración debe **coincidir exactamente** con el nombre del catálogo que creaste anteriormente.
 7. Elige una frecuencia de sincronización y continúa con el siguiente paso.
 8. Añade la clave pública que se muestra en el panel al usuario que creaste para que Braze se conecte a Snowflake. Para completar este paso, necesitarás a alguien con acceso `SECURITYADMIN` o superior en Snowflake.
-9. Selecciona **Test Connection** para verificar que todo funciona como se espera.
+9. Selecciona **Probar conexión** para verificar que todo funciona como se espera.
 10. Guarda la sincronización y utiliza los datos del catálogo sincronizados para todos tus casos de uso de personalización.
 {% endtab %}
 {% tab Redshift %}
@@ -87,7 +87,7 @@ La configuración de una sincronización de catálogos sigue de cerca el proceso
     GRANT SELECT ON TABLE CATALOGS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Si tienes un firewall u otras políticas de red, debes dar acceso de red a Braze a tu instancia de Redshift. Permite el acceso desde las IP que se indican a continuación, correspondientes a la región de tu panel de Braze. Para ver una lista de IP, consulta la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Si tienes un firewall u otras políticas de red, debes dar acceso de red a Braze a tu instancia de Redshift. Permite el acceso desde las IP correspondientes a la región de tu panel de Braze. Para ver una lista de IP, consulta la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab BigQuery %}

@@ -268,7 +268,7 @@ jobs:
           path: .
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -345,7 +345,7 @@ jobs:
       # Same toolchain as translate-locale: merge + check-aliases + summary run
       # auto_translate.py (PyYAML + lazy Anthropic import paths).
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -431,7 +431,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 

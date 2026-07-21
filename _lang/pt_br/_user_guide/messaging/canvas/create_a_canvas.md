@@ -68,7 +68,7 @@ O criador de Canvas vai guiar você passo a passo pela configuração do seu Can
 
 ### Etapa 1.1: Comece com os dados básicos do Canvas {#step-11-start-with-your-canvas-basics}
 
-Aqui, você vai dar um nome ao Canvas, atribuir [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams) e criar ou adicionar [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags). Você também pode atribuir eventos de conversão para o Canvas.
+Aqui, você vai dar um nome ao Canvas, atribuir [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e criar ou adicionar [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags). Você também pode atribuir eventos de conversão para o Canvas.
 
 {% alert tip %}
 Adicione tags aos seus Canvas para facilitar a busca e a criação de relatórios. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.

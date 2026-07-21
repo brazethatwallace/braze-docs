@@ -131,7 +131,7 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 Braze 대시보드에서는 Swift 코드에서 로컬로 생성할 수 없는 동작에 대해서만 실행 버튼을 정의하면 됩니다. 예를 들어, 앱으로의 딥링킹이나 웹 URL로의 리디렉션과 같은 동작입니다. 이러한 동작은 대시보드에서 구성해야 하며, 어떤 URL 또는 딥링크를 열지 정의할 수 있습니다. 앱을 열지 않고 알림을 단순히 해제하는 실행 버튼의 경우, 대시보드에서 구성할 필요가 없습니다. 해제 동작은 iOS에 의해 자동으로 처리됩니다. 커스텀 카테고리와 해당 동작을 앱 코드에 등록한 후, 대시보드에서 일치하는 카테고리 이름을 입력하면 됩니다.
 {% endalert %}
 
-1. Braze 대시보드에서 **메시징** > **푸시 알림**을 선택한 다음, iOS [푸시 캠페인(Campaign)]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message)을 선택합니다.
+1. Braze 대시보드에서 **메시징** > **푸시 알림**을 선택한 다음, iOS [푸시 Campaign]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message)을 선택합니다.
 2. **푸시 알림 작성**에서 **실행 버튼**을 켭니다.
 3. **iOS 알림 카테고리** 드롭다운에서 **미리 등록한 커스텀 iOS 카테고리 입력**을 선택합니다.
 4. 마지막으로 앞서 만든 카테고리 중 하나를 입력합니다. 다음 예에서는 커스텀 카테고리 `LIKE_CATEGORY`를 사용합니다.
@@ -241,7 +241,7 @@ QuickTime Player에서 사운드를 열고 **동영상** 메뉴에서 **동영�
 
 앱에서 사운드 파일의 위치로 연결되는 프로토콜 URL을 지정해야 합니다. 이를 수행하는 방법에는 두 가지가 있습니다:
 
-* [Apple 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object)의 `sound` 매개변수를 사용하여 URL을 Braze에 전달합니다.
+* [Apple 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/apple_object)의 `sound` 매개변수를 사용하여 URL을 Braze에 전달합니다.
 * 대시보드에서 URL을 지정합니다. [푸시 작성기]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android)에서 **설정**을 선택하고 **사운드** 필드에 프로토콜 URL을 입력합니다.
 
 ![Braze 대시보드의 푸시 작성기]({% image_buster /assets/img_archive/sound_push_ios.png %})

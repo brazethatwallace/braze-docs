@@ -26,7 +26,7 @@ Wenn ein verschachteltes angepasstes Attribut in Ihrer Anfrage ungültige Werte 
 {% endalert %}
 
 {% alert tip %}
-Weitere Informationen zur Verwendung von Arrays von Objekten für Nutzer:innen-Attribut-Objekte finden Sie unter [Nutzer:innen-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Weitere Informationen zur Verwendung von Arrays von Objekten für Nutzerattribut-Objekte finden Sie unter [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 {% endalert %}
 
 ## API-Beispiel {#api-example}
@@ -228,7 +228,7 @@ Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{s
 {% tabs local %}
 {% tab Android SDK %}
 {% subtabs %}
-{% subtab Create %}
+{% subtab Erstellen %}
 ```kotlin
 val json = JSONArray()
     .put(JSONObject()
@@ -249,7 +249,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Add %}
+{% subtab Hinzufügen %}
 ```kotlin
 val json = JSONObject()
     .put("\$add", JSONArray()
@@ -277,7 +277,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Update %}
+{% subtab Aktualisieren %}
 ```kotlin
 val json = JSONObject()
     .put("\$update", JSONArray()
@@ -303,7 +303,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Delete %}
+{% subtab Löschen %}
 ```kotlin
 val json = JSONObject()
     .put("\$remove", JSONArray()
@@ -331,7 +331,7 @@ braze.getCurrentUser { user ->
 
 {% tab Swift SDK %}
 {% subtabs %}
-{% subtab Create %}
+{% subtab Erstellen %}
 ```swift
 let json: [[String: Any?]] = [
   [
@@ -352,7 +352,7 @@ braze.user.setCustomAttribute(key: "pets", array: json)
 ```
 {% endsubtab %}
 
-{% subtab Add %}
+{% subtab Hinzufügen %}
 ```swift
 let json: [String: Any?] = [
   "$add": [
@@ -381,7 +381,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 ```
 {% endsubtab %}
 
-{% subtab Update %}
+{% subtab Aktualisieren %}
 ```swift
 let json: [String: Any?] = [
   "$update": [
@@ -406,7 +406,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 ```
 {% endsubtab %}
 
-{% subtab Delete %}
+{% subtab Löschen %}
 ```swift
 let json: [String: Any?] = [
   "$remove": [
@@ -437,7 +437,7 @@ Verschachtelte angepasste Attribute werden für AppboyKit nicht unterstützt.
 
 {% tab Web SDK %}
 {% subtabs local %}
-{% subtab Create %}
+{% subtab Erstellen %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = [{
@@ -455,7 +455,7 @@ braze.getUser().setCustomUserAttribute("pets", json);
 ```
 {% endsubtab %}
 
-{% subtab Add %}
+{% subtab Hinzufügen %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -480,7 +480,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 ```
 {% endsubtab %}
 
-{% subtab Update %}
+{% subtab Aktualisieren %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -505,7 +505,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 ```
 {% endsubtab %}
 
-{% subtab Delete %}
+{% subtab Löschen %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-In diesem Szenario können Sie Liquid verwenden, um das `pets`-Array zu durchlaufen und für jedes Haustier eine Aussage auszugeben. [Weisen Sie eine Variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) dem angepassten Attribut `pets` zu und verwenden Sie die Punkt-Notation, um auf Eigenschaften eines Objekts zuzugreifen. Geben Sie den Namen des Objekts an, gefolgt von einem Punkt `.`, gefolgt vom Eigenschaftsnamen.
+In diesem Szenario können Sie Liquid verwenden, um das `pets`-Array zu durchlaufen und für jedes Haustier eine Aussage auszugeben. [Weisen Sie eine Variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) dem angepassten Attribut `pets` zu und verwenden Sie die Punkt-Notation, um auf Eigenschaften eines Objekts zuzugreifen. Geben Sie den Namen des Objekts an, gefolgt von einem Punkt `.`, gefolgt vom Eigenschaftsnamen.
 
 ## Segmentierung {#segmentation}
 

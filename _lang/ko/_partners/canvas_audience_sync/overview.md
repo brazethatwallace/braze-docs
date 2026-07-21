@@ -34,7 +34,7 @@ table td {
 
 | 대상 | 대상이 오디언스 멤버를 매칭하는 데 걸리는 시간 | 사용량 제한 | 유사 또는 유사 행동 오디언스 | 팁 |
 | --- | --- | --- | --- | --- |
-| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync) | 최대 24시간 | 분당 250,000건의 요청. Google 피드백에 기반한 자동 재시도로 5초마다 배치 처리됩니다. | 예 | {::nomarkdown}<ul><li>Criteo는 최대 1,000개의 광고 오디언스를 지원합니다.</li><li>최소 오디언스 크기는 500이며, 20,000 이상을 권장합니다.</li></ul>{:/} |
+| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync) | 최대 24시간 | 분당 250,000건의 요청. 자동 재시도로 5초마다 배치 처리됩니다. | 예 | {::nomarkdown}<ul><li>Criteo는 최대 1,000개의 광고 오디언스를 지원합니다.</li><li>최소 오디언스 크기는 500이며, 20,000 이상을 권장합니다.</li></ul>{:/} |
 | [Facebook 또는 Instagram]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) | 최대 24시간 | 시간당 190,000개의 광고 계정 | 예 | {::nomarkdown}<ul><li>Facebook은 최대 500개의 광고 오디언스를 지원합니다.</li><li>Facebook은 오디언스가 최소 1,000명의 사용자여야 합니다.</li></ul>{:/} |
 | [Google Ads 또는 YouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) | 6~12시간 | Google 피드백에 기반한 자동 재시도로 5초마다 배치 처리됩니다 | 아니요 | {::nomarkdown}<ul><li><b>고객 매칭:</b> 모바일 광고 ID, 이메일 주소 또는 전화번호를 사용합니다.</li><li>Google 오디언스는 광고 게재를 시작하려면 최소 5,000명의 사용자가 필요합니다.</li><li>오디언스 크기는 최소 1,000명의 사용자가 될 때까지 0으로 표시됩니다.</li></ul>{:/} |
 | [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync) | 48시간 | LinkedIn은 초당 10개의 쿼리를 처리하고 요청당 100,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | AI 예측 오디언스 | {::nomarkdown}<ul><li>최소 오디언스 크기는 위치 타겟팅을 고려하여 300명입니다.</li><li>LinkedIn은 Braze 대시보드에서 매칭률을 표시합니다.</li></ul>{:/} |

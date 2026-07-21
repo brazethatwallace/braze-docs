@@ -147,14 +147,14 @@ These in-app messages are customizable to your needs.
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html#custom-html-messages'>Custom HTML Message</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Custom HTML Message</a></td>
     <td>Custom messages that perform as defined in your custom code (HTML, CSS, and/or JavaScript).</td>
     <td>N/A</td>
     <td>Must set <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> initialization option to <code>true</code> for your in-app message to work.</td>
     <td>This is a good option if you want all the advantages of IAMs but need additional functionality or for the appearance to stay "on brand". You can alter every little detail of the message—font, color, shape, size, buttons, etc. <br><br>Example use cases include asking users for app feedback, email capture forms, or paginated messages</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form#email-capture-form'>Email Capture Form</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>Email Capture Form</a></td>
     <td>Typically used to capture the viewer's email.</td>
     <td>N/A</td>
     <td>Must set <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> initialization option to <code>true</code> for your in-app message to work.</td>

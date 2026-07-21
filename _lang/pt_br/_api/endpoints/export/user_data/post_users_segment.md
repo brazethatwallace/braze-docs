@@ -32,7 +32,7 @@ Note que uma empresa pode executar no máximo uma exportação por segmento usan
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `users.export.segment`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `users.export.segment`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -88,12 +88,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ----------------------------- | ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `segment_id` | Obrigatória | String | Identificador do segmento a ser exportado. Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types).<br><br>O `segment_id` para um determinado segmento pode ser encontrado na página de [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) na sua conta Braze ou você pode usar o [endpoint da lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment). |
+| `segment_id` | Obrigatório | String | Identificador do segmento a ser exportado. Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types).<br><br>O `segment_id` para um determinado segmento pode ser encontrado na página de [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) na sua conta Braze ou você pode usar o [endpoint da lista de Segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment). |
 | `callback_endpoint` | Opcional | String | Endpoint para postar uma URL de download quando a exportação estiver disponível. |
-| `fields_to_export` | Obrigatória* | Matriz de strings | Nome dos campos de dados de usuários a serem exportados. Você também pode exportar todos os atributos personalizados incluindo `custom_attributes` nesse parâmetro. Consulte [Campos a serem exportados](#fields-to-export) para uma lista completa dos campos que você pode exportar. |
-| `custom_attributes_to_export` | Opcional | Matriz de strings | Nomes de atributos personalizados específicos a serem exportados (até 500). Omita `custom_attributes` de `fields_to_export` ao usar esse parâmetro, caso contrário a Braze exportará todos os atributos personalizados independentemente dessa lista. Para criar e gerenciar atributos personalizados no dashboard, acesse **Configurações de dados** > **Atributos personalizados**. |
+| `fields_to_export` | Obrigatório* | Matriz de strings | Nome dos campos de dados de usuários a serem exportados. Você também pode exportar todos os atributos personalizados incluindo `custom_attributes` nesse parâmetro. Consulte [Campos a serem exportados](#fields-to-export) para uma lista completa dos campos que você pode exportar. |
+| `custom_attributes_to_export` | Opcional | Matriz de strings | Nomes de atributos personalizados específicos a serem exportados (até 500). Omita `custom_attributes` de `fields_to_export` ao usar esse parâmetro, caso contrário a Braze exportará todos os atributos personalizados independentemente dessa lista. Para criar e gerenciar atributos personalizados no dashboard, acesse **Data Settings** > **Custom Attributes**. |
 | `output_format` | Opcional | String | O formato de saída do seu arquivo. O padrão é o formato de arquivo `zip`. Se estiver usando seu próprio bucket S3, você poderá especificar `zip` ou `gzip`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
@@ -164,7 +164,7 @@ A seguir, uma lista de `fields_to_export` válidos. O uso de `fields_to_export` 
 | `time_zone` | String | Fuso horário do usuário no mesmo formato do banco de dados de fuso horário da IANA. |
 | `total_revenue` | Float | Receita total atribuída a esse usuário. A receita total é calculada com base nas compras que o usuário fez durante as janelas de conversão das Campaigns e Canvas que recebeu. |
 | `uninstalled_at` | Data e hora | Data e hora em que o usuário desinstala o app. Omitido se o app não tiver sido desinstalado. |
-| `user_aliases` | Objeto | [Objeto de aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) contendo `alias_name` e `alias_label`, se houver. |
+| `user_aliases` | Objeto | [Objeto de aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) contendo `alias_name` e `alias_label`, se houver. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos a serem exportados" }
 
 ## Lembretes importantes {#important-reminders}

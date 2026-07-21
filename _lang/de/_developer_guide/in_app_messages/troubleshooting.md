@@ -25,7 +25,7 @@ Bevor Sie mit dem Debugging beginnen, fügen Sie sich als [Testnutzer:in]({{site
 | Impressionen oder Klicks sehen falsch aus | [Impressionen und Analytics](#impressions-and-analytics) |
 | `triggers` fehlen oder sind leer in den Event-Nutzerprotokollen | [Fehlerbehebung bei der Zustellung](#delivery-troubleshooting) |
 | Trigger wurden zurückgegeben, aber nichts wird auf dem Gerät angezeigt | [Plattformspezifische Fehlerbehebung bei der Anzeige](#platform-specific-display-troubleshooting) |
-| In-App-Nachrichten-Assets können nicht geladen werden (iOS, `NSURLError` -1008) | [Asset-Laden (Swift-Tab)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| In-App-Nachrichten-Assets können nicht geladen werden (iOS, `NSURLError` -1008) | [Asset-Laden (Swift-Tab)](?sdktab=swift#swift_asset-loading) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptom für In-App-Nachrichten" }
 
 ## Standardisierter Untersuchungspfad {#standard-investigation-path}

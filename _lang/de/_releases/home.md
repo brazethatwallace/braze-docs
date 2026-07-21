@@ -168,7 +168,7 @@ Nach dem Senden einer WhatsApp-Testnachricht können Sie einen [detaillierten Zu
 
 #### Grundlegende SDK-Updates {#sdk-breaking-updates}
 
-Die folgenden SDK-Updates wurden veröffentlicht. Grundlegende Updates sind unten aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
+Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Abschnitt SDK-Updates aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
 
 - [Swift SDK 14.2.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
 - [Android SDK 42.3.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.3.0)
@@ -226,7 +226,7 @@ Das [Push-Performance-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboard
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Kataloge unterstützen jetzt entfernungsbasierte Filterung mit dem neuen Geolocation-Feldtyp und Katalogselektions-Operatoren. Dies hilft Ihnen, relevantere standortbezogene Erlebnisse zu schaffen, z. B. jedem/jeder Nutzer:in das nächstgelegene Restaurant anzuzeigen, offene Immobilien innerhalb von 50 km für eine Immobilienkampagne zu filtern oder Geschäfte in der Nähe eines bestimmten Events zu targetieren. Anstatt geografisches Targeting mit Stadt- oder Regionscodes zu approximieren, können Sie Katalogelemente nach Nähe zu einem Mittelpunkt filtern, einschließlich eines Liquid-Nutzerattributs wie dem letzten Standort eines Nutzers bzw. einer Nutzerin. Weitere Informationen finden Sie unter [Selektionen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#how-it-works).
+Kataloge unterstützen jetzt entfernungsbasierte Filterung mit dem neuen Geolocation-Feldtyp und Katalogselektions-Operatoren. Dies hilft Ihnen, relevantere standortbezogene Erlebnisse zu schaffen, z. B. jedem/jeder Nutzer:in das nächstgelegene Restaurant anzuzeigen, offene Immobilien innerhalb von 50 km für eine Immobilienkampagne zu filtern oder Geschäfte in der Nähe eines bestimmten Events zu targetieren. Anstatt geografisches Targeting mit Stadt- oder Regionscodes zu approximieren, können Sie Katalogelemente nach Nähe zu einem Mittelpunkt filtern, einschließlich eines Liquid-Nutzerattributs wie dem letzten Standort eines Nutzers bzw. einer Nutzerin. Weitere Informationen finden Sie unter [Selektionen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 #### Banner und RCS für den Berichts-Builder {#banner-and-rcs-for-report-builder}
 
@@ -242,7 +242,7 @@ Das [`ecommerce.cart_updated`-Event]({{site.baseurl}}/user_guide/data/activation
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-Sie können den [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) verwenden, um Hooks, Textkörper und CTAs für SMS-, MMS- und RCS-Nachrichten zu optimieren. Content Optimizer ist ein Agent, der Ihnen hilft, Nachrichteninhalte im großen Maßstab zu testen und zu optimieren, indem er KI nutzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
+Sie können den [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) verwenden, um Hooks, Textkörper und CTAs für SMS-, MMS- und RCS-Nachrichten zu optimieren. Content Optimizer hilft Ihnen, Nachrichteninhalte im großen Maßstab zu testen und zu optimieren, indem er KI nutzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
 
 ### Orchestrierung {#orchestration}
 
@@ -288,7 +288,7 @@ Weitere Informationen finden Sie unter [DailyPlay]({{site.baseurl}}/partners/dai
 
 #### Grundlegende SDK-Updates
 
-Die folgenden SDK-Updates wurden veröffentlicht. Grundlegende Updates sind unten aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
+Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Abschnitt SDK-Updates aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
 
 - [Flutter SDK 19.0.0](https://pub.dev/packages/braze_plugin/changelog#1900)
     - Die minimal unterstützte Dart-Version ist `2.17.0`.
@@ -433,7 +433,7 @@ Die folgenden SDK-Updates wurden veröffentlicht. Weitere Details finden Sie in 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Die folgenden SDK-Updates wurden veröffentlicht. Grundlegende Updates sind unten aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
+Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Abschnitt SDK-Updates aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
 
 - [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
     - Unterstützung für verzögerte Initialisierung.
@@ -541,7 +541,7 @@ Verwenden Sie KI-Codierungsassistenten, um Ihren Braze-Integrations-Workflow zu 
 
 #### Grundlegende SDK-Updates
 
-Die folgenden SDK-Updates wurden veröffentlicht. Grundlegende Updates sind unten aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
+Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Abschnitt SDK-Updates aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
 
 - [Cordova 15.0.0](https://github.com/braze-inc/braze-cordova-sdk/releases/tag/15.0.0)
     - Update der nativen Android-Bridge [von Braze Android SDK 39.0.0 auf 41.1.1](https://github.com/braze-inc/braze-android-sdk/compare/v39.0.0...v41.1.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
@@ -603,7 +603,7 @@ Die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ing
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-for-data-sharing-3) enthält jetzt zusätzliche Felder mit Campaign- und Canvas-Informationen in 66 bestehenden Tabellen, darunter:
+[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) enthält jetzt zusätzliche Felder mit Campaign- und Canvas-Informationen in 66 bestehenden Tabellen, darunter:
 
 - `campaign_name`
 - `canvas_name`
@@ -723,7 +723,7 @@ Nachdem Sie Ihrem Workspace Gebietsschemata hinzugefügt haben, können Sie [Nut
 
 #### Grundlegende SDK-Updates
 
-Die folgenden SDK-Updates wurden veröffentlicht. Grundlegende Updates sind unten aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
+Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Abschnitt SDK-Updates aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
 
 - [Android SDK 41.1.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md)
 - [Flutter SDK 17.1.0](https://pub.dev/packages/braze_plugin/changelog)
@@ -769,7 +769,7 @@ Basierend auf einem kontextlosen Multi-Armed-Bandit-Optimierer sendet Content Op
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Um die empfohlenen E-Commerce-Events mit dem bestehenden Kauf-Event abzustimmen, haben wir das [Konversions-Event „Places Order“]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-report) hinzugefügt, das dem Event „Makes Purchase“ ähnelt.
+Um die empfohlenen E-Commerce-Events mit dem bestehenden Kauf-Event abzustimmen, haben wir das [Konversions-Event „Places Order“]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-dashboard) hinzugefügt, das dem Event „Makes Purchase“ ähnelt.
 
 ### Kanäle und Touchpoints
 
@@ -777,11 +777,11 @@ Um die empfohlenen E-Commerce-Events mit dem bestehenden Kauf-Event abzustimmen,
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Nachdem Sie Ihrem Workspace Gebietsschemata hinzugefügt haben, können Sie [Nutzer:innen in verschiedenen Sprachen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#translating-locales) innerhalb eines einzigen Banners ansprechen.
+Nachdem Sie Ihrem Workspace Gebietsschemata hinzugefügt haben, können Sie [Nutzer:innen in verschiedenen Sprachen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#use-locales) innerhalb eines einzigen Banners ansprechen.
 
 #### Breite für Drag-and-Drop Content Blocks konfigurieren {#configure-width-for-drag-and-drop-content-blocks}
 
-[Passen Sie die Breite Ihres Content Blocks an]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks#using-the-editor-to-add-a-content-block), indem Sie den Button im Navigationsmenü auswählen. Die Standardbreite beträgt 100 %, wenn in Ihren globalen E-Mail-Stileinstellungen nichts angegeben ist; andernfalls werden die globalen Einstellungen beachtet.
+[Passen Sie die Breite Ihres Content Blocks an]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email), indem Sie den Button im Navigationsmenü auswählen. Die Standardbreite beträgt 100 %, wenn in Ihren globalen E-Mail-Stileinstellungen nichts angegeben ist; andernfalls werden die globalen Einstellungen beachtet.
 
 ![Ein doppelseitiger Pfeil mit einer Option zur Bearbeitung der Breite.]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }
 
@@ -849,7 +849,7 @@ Dem Event [`users.behaviors.pushnotification.TokenStateChange`]({{site.baseurl}}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Events, für die keine externe Nutzer-ID definiert wurde, können jetzt zu [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents)-Zielen gestreamt werden. Wenn Sie in Ihrer Currents-Integration das Kontrollkästchen „Events von anonymen Nutzer:innen einschließen“ auswählen, werden Events ohne externe Nutzer-ID an das Ziel gesendet, anstatt unterdrückt zu werden. Diese Fähigkeit ist entscheidend für nachgelagerte Analytics und Anwendungsfälle mit nicht identifizierten und anonymen Nutzer:innen.
+Events, für die keine externe Nutzer-ID definiert wurde, können jetzt zu [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1)-Zielen gestreamt werden. Wenn Sie in Ihrer Currents-Integration das Kontrollkästchen „Events von anonymen Nutzer:innen einschließen“ auswählen, werden Events ohne externe Nutzer-ID an das Ziel gesendet, anstatt unterdrückt zu werden. Diese Fähigkeit ist entscheidend für nachgelagerte Analytics und Anwendungsfälle mit nicht identifizierten und anonymen Nutzer:innen.
 
 ##### Anonyme Nutzer:innen an CustomHTTP-Ziele senden {#send-anonymous-user-to-customhttp-destinations}
 
@@ -867,7 +867,7 @@ Die folgenden SDK-Updates wurden veröffentlicht. Swift SDK v14.0.1 behebt ein P
 
 #### Grundlegende SDK-Updates
 
-Die folgenden SDK-Updates wurden veröffentlicht. Grundlegende Updates sind unten aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
+Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Abschnitt SDK-Updates aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
 
 - [Android SDK 41.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v41.0.0)
     - `BrazeConfig.Builder.setIsLocationCollectionEnabled()` wurde in `setIsAutomaticLocationCollectionEnabled()` umbenannt.
@@ -945,7 +945,7 @@ Als Alternative zu einem Rate-Limit, das für die gesamte Multichannel-Campaign 
 
 ### Grundlegende SDK-Updates
 
-Die folgenden SDK-Updates wurden veröffentlicht. Grundlegende Updates sind unten aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
+Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Abschnitt SDK-Updates aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
 
 - [Android 40.1.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4011)
 - [Android SDK 40.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4010)
@@ -1000,7 +1000,7 @@ Für das Retargeting von Nutzer:innen empfehlen wir die Erstellung eines Segment
 
 #### Grundlegende SDK-Updates
 
-Die folgenden SDK-Updates wurden veröffentlicht. Grundlegende Updates sind unten aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
+Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Abschnitt SDK-Updates aufgeführt; alle anderen Updates finden Sie in den entsprechenden SDK Changelogs.
 
 - [Web SDK 6.3.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
 

@@ -12,7 +12,7 @@ toc_headers: h2
 > El dashboard de **diagnóstico de mensajería** proporciona un desglose de alto nivel de los resultados del envío de mensajes, lo que te permite detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus campañas o Canvas pueden no haberse enviado como se esperaba.
 
 {% alert important %}
-El dashboard de **diagnóstico de mensajería** se encuentra actualmente en acceso anticipado. Ponte en contacto con tu administrador de éxito de cliente si te interesa participar en el acceso anticipado.
+El dashboard de **diagnóstico de mensajería** está disponible de forma general. Ponte en contacto con tu administrador de éxito de cliente si te interesa obtener acceso a esta característica.
 {% endalert %}
 
 ## Conceptos clave {#key-concepts}
@@ -29,7 +29,7 @@ Cuando Braze "envía" un mensaje, la entrega final puede depender de servicios e
 | --- | --- |
 | Content Cards | La tarjeta fue enviada y es elegible para ser vista. |
 | Correo electrónico | Braze entrega el mensaje a un proveedor de servicios de correo electrónico (ESP). El ESP es entonces responsable de la entrega final. Ese ESP, por ejemplo, puede reportar un "rebote" si la dirección de correo electrónico no es válida o el buzón de entrada está lleno. |
-| In-App Messages | El mensaje fue mostrado al usuario. |
+| In-App Messages | El mensaje fue visto por el usuario y se registró una impresión. |
 | LINE | El mensaje fue entregado con éxito a un partner de envío. |
 | Push | Braze entrega el mensaje al servicio de notificaciones push correspondiente (como Apple Push Notification service para iOS o Firebase Cloud Messaging para Android). Ese servicio es responsable de la entrega final de la notificación al dispositivo. |
 | SMS/MMS/RCS | Braze entrega el mensaje a una pasarela SMS (como Twilio). Esa pasarela es responsable de la entrega final al operador móvil. |
@@ -157,7 +157,7 @@ Los resultados de cancelación en el diagnóstico de mensajería son etiquetas l
 | Credenciales push no válidas | Las [credenciales push]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) para esta aplicación faltan o no son válidas, por lo que el envío fue cancelado. Actualiza tus credenciales en **Configuración de la aplicación**. |
 | Fallo del grupo de suscripción | El mensaje no pudo ser enviado debido a problemas de configuración del grupo de suscripción o del servicio de mensajería. Las razones comunes incluyen números de envío faltantes para SMS o WhatsApp, o MMS no compatible en el servicio de mensajería configurado. |
 | El usuario no es elegible para el canal | El usuario no es elegible para recibir este mensaje en el canal seleccionado. Las razones comunes incluyen identificadores de canal faltantes o no válidos, ausencia de tokens de notificaciones push elegibles, restricciones de estado de suscripción, capacidad de canal no compatible o países bloqueados para canales basados en teléfono. |
-| Fallo del webhook | El webhook recibió un código de respuesta no exitoso (no `2xx`). Consulta el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) para más detalles. Los registros con más de 60 horas de antigüedad se limpian y ya no son accesibles; los errores de webhook se muestrean hasta 20 registros por hora. |
+| Fallo del webhook | El webhook recibió un código de respuesta no exitoso (no `2xx`). Los códigos de error comunes pueden ser errores de cliente `4XX`, errores de servidor o tiempo de espera `5XX`, o `598 Host Unhealthy` o solicitudes detenidas brevemente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canal y entrega" }
 
 ## Preguntas frecuentes {#frequently-asked-questions}

@@ -166,7 +166,7 @@ Os seguintes eventos de engajamento com mensagem estão disponíveis para e-mail
 
 ##### Eventos de interrupção de mensagem {#message-abort-events}
 
-Eventos de interrupção de mensagem ocorrem quando uma mensagem enviada a um usuário foi interrompida devido à lógica condicional em [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) ou [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-connected-content), ou por timeouts de renderização do Liquid.
+Eventos de interrupção de mensagem ocorrem quando uma mensagem enviada a um usuário foi interrompida devido à lógica condicional em [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) ou [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content), ou por timeouts de renderização do Liquid.
 
 Eventos de interrupção estão disponíveis para os seguintes canais:
 

@@ -66,7 +66,7 @@ Braze에는 메시지에서 사용할 수 있는 Segments용 Liquid 코드를 �
 
 자세한 내용은 [다중 기준 세분화]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects)를 확인하세요.
 
-### 이벤트가 트리거하는 메시지를 개인화하기 위해 이벤트 속성을 어떻게 사용하나요? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
+### 이벤트가 트리거하는 메시지를 개인화하기 위해 이벤트 속성정보를 어떻게 사용하나요? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
 {% raw %}
 `api_triggered_property` 태그를 사용하여 API 트리거 이벤트의 속성정보에 접근할 수 있습니다: `{{api_trigger_properties.${attribute_key}}}`.
@@ -148,6 +148,41 @@ Braze에서는 배열 커스텀 속성의 항목을 확인하거나, [카탈로�
 ### `abort_message` 태그 안에서 Liquid를 사용할 수 있나요? {#can-i-use-liquid-inside-the-abort_message-tag}
 
 {% raw %}아니요. `{% abort_message %}` 태그는 따옴표로 묶인 정적 문자열만 허용하며, Liquid 개인화는 지원하지 않습니다.{% endraw %} 조건부 중단 동작이 필요한 경우 태그 앞에서 다른 Liquid 로직을 사용하세요.
+
+### Liquid로 전화번호를 마스킹하려면 어떻게 하나요? {#how-do-i-mask-phone-numbers-with-liquid}
+
+`slice` 필터를 사용하여 특정 숫자를 추출하고 `append` 필터를 사용하여 마스킹 문자와 결합하면 전화번호를 마스킹할 수 있습니다.
+
+#### 마지막 네 자리를 제외한 모든 숫자 마스킹 {#mask-all-but-the-last-four-digits}
+
+10자리 전화번호를 `******7890`으로 표시하려면:
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### 처음 세 자리와 마지막 네 자리 표시 {#show-the-first-three-and-last-four-digits}
+
+10자리 전화번호를 `123***7890`으로 표시하려면:
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
 
 ## Canvas, 카탈로그 및 트리거 속성정보 {#canvas-catalogs-and-trigger-properties}
 

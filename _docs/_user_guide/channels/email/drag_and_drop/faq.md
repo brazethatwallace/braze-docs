@@ -98,3 +98,7 @@ When you stack multiple Content Blocks, use a separate row for each block instea
 ## Why is the drag-and-drop editor ignoring alignment settings?
 
 If the drag-and-drop editor ignores alignment settings, remove custom CSS or HTML blocks, remove custom fonts, check for CSS conflicts, and avoid duplicating row blocks. Contact Braze Support if the issue persists.
+
+## Why does my chosen hex color code not match the font in my email?
+
+If you're using a Content Block, the block may have its own font color setting. Select the text block inside the Content Block and clear any local **Font color** override so your hex color from global or paragraph styling can apply.

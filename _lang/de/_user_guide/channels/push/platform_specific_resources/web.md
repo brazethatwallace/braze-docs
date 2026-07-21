@@ -36,7 +36,7 @@ Web-Push-Benachrichtigungen liefern dringende, handlungsrelevante Updates, die s
 - Nutzer:innen mit klaren Call-to-Action-Buttons zurück auf Ihre Website bringen
 - Ihre Push-Benachrichtigungen mit Produkt- und Kundeninformationen personalisieren, um Ihre Nachricht relevant zu gestalten
 
-Web-Push funktioniert genauso wie App-Push-Benachrichtigungen auf Ihrem Telefon. Weitere Informationen zum Erstellen einer Web-Push-Benachrichtigung finden Sie unter [Push-Benachrichtigung erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message).
+Web-Push funktioniert genauso wie App-Push-Benachrichtigungen auf Ihrem Telefon. Weitere Informationen zum Erstellen einer Web-Push-Benachrichtigung finden Sie unter [Push-Benachrichtigung erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
 ![Web-Push-Beispiel mit derselben Push-Nachricht auf einem Laptop und einem Telefon.]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 

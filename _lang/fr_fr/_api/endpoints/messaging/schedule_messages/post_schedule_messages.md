@@ -26,7 +26,7 @@ Si vous souhaitez envoyer des messages immédiatement à des utilisateurs désig
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `messages.schedule.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `messages.schedule.create`.
 
 ## Limite de débit {#rate-limit}
 
@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `override_messaging_limits` | Facultatif | Valeur booléenne | Ignorer les règles de limite de fréquence pour les campagnes, la valeur par défaut est false. |
 | `recipient_subscription_state` | Facultatif | Chaîne de caractères | Utilisez cette option pour envoyer des messages uniquement aux utilisateurs qui ont confirmé l'abonnement (`opted_in`), aux utilisateurs qui sont abonnés ou ont confirmé l'abonnement (`subscribed`) ou à tous les utilisateurs, y compris les utilisateurs désabonnés (`all`). <br><br>L'option `all` est utile pour les e-mails transactionnels. Par défaut, `subscribed`. |
 | `schedule` | Requis | Objet planification | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object). |
-| `messages` | Facultatif | Objet d'envoi de messages | Voir [les objets d'envoi de messages disponibles]({{site.baseurl}}/api/objects_filters#messaging-objects). |
+| `messages` | Facultatif | Objet de messaging | Voir [les objets de messaging disponibles]({{site.baseurl}}/api/objects_filters#messaging-objects). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 ## Exemple de demande {#example-request}

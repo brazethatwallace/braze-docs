@@ -140,9 +140,7 @@ You can also add personalization for email headers and email extras to send addi
 
 You can also add email attachments by the following methods:
 
-- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
-- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported.
-- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
 
@@ -295,9 +293,7 @@ When creating a new email campaign, the Control Group defaults to 20% and can be
 
 For multichannel campaigns targeting both email and push channels, you may want to limit your campaign so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in statuses:
 
-- **User A** is subscribed to email and is push enabled. This user doesn't receive the email but will receive the push.
-- **User B** is opted-in to email but is not push enabled. This user will receive the email but doesn't receive the push.
-- **User C** is opted-in to email and is push enabled. This user will receive both the email and the push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 To do so, under **Audience Summary**, select to send this campaign to "opted-in users only". This option will check that only opted-in users will receive your email, and Braze will only send your push to users who are push enabled by default.
 

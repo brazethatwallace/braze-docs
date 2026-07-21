@@ -34,9 +34,9 @@ Decisioning Studioを設定するには、以下の手順を実行します。
 - 意思決定エージェントを設計し、最大化したい結果と、そのためにエージェントが取れるアクションを定義します
 - 意思決定エージェントを起動し、ビジネス成果に向けて継続的に学習と最適化を行わせます
 
-Decisioning Studio Goはセルフサービス型プラットフォームですが、Decisioning Studio ProにはBrazeの専任データサイエンスチームによるAI意思決定サービスのサポートが含まれています。これにより、ビジネス成果を最大化するためのエージェント設計と設定の支援を受けられます。詳細については、[Decisioning Studio GoとDecisioning Studio Proの比較]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro)をご覧ください。
+Decisioning Studio Goはセルフサービス型プラットフォームですが、Decisioning Studio ProにはBrazeの専任データサイエンスチームによるAI意思決定サービスのサポートが含まれています。これにより、ビジネス成果を最大化するためのエージェント設計と設定の支援を受けられます。詳細については、[Decisioning Studio GoとDecisioning Studio Proの比較]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro)をご覧ください。
 
-詳細については、[Decisioning Studioの始め方]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/)をご覧ください。
+詳細については、[Decisioning Studioの始め方]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started)をご覧ください。
 
 ### 意思決定エージェントとBrazeエージェントの違い {#decisioning-agents-vs-brazeai-agents}
 
@@ -58,7 +58,7 @@ Decisioning Studio Goはセルフサービス型プラットフォームです�
 
 ## 次のステップ {#next-steps}
 
-1. [Decisioning Studioの始め方]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/)
-2. [Decisioning Studio Goの設定]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/)
-3. [Decisioning Studioの始め方]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/)
-4. [レポートとインサイトの閲覧]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/)
+1. [Decisioning Studioの始め方]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started)
+2. [Decisioning Studio Goの設定]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go)
+3. [Decisioning Studioの始め方]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started)
+4. [レポートとインサイトの閲覧]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting)

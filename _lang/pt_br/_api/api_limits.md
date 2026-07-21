@@ -25,7 +25,7 @@ Consulte a seguir os limites de taxa padrão da API para diferentes tipos de sol
 
 | Tipo de solicitação | Limite de taxa padrão da API |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Solicitações:** 3.000 solicitações a cada três segundos.<br><br>**Lotes:** Até 75 objetos no total combinados entre `attributes`, `events` e `purchases` por solicitação de API. Clientes com limites de taxa legados podem incluir até 75 objetos por array de forma independente. Para saber mais, consulte [Agrupamento de solicitações de rastreamento de usuários](#batch-user-track).<br><br>**Limites para Usuários Ativos Mensais CY 24-25, MAU Universal, MAU Web e MAU Celular:** veja [orientações sobre limites aqui]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
+| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Solicitações:** Os limites de taxa variam dependendo do seu contrato. Para clientes com pontos de dados em seus preços, a Braze aplica um limite de burst de 3.000 solicitações a cada três segundos. Para todos os outros clientes, os limites são configurados de acordo com os termos do seu contrato. Entre em contato com o suporte da Braze ou seu gerente de sucesso do cliente para dúvidas sobre seus limites.<br><br>**Lotes:** Até 75 objetos no total combinados entre `attributes`, `events` e `purchases` por solicitação de API. Clientes com limites de taxa legados podem incluir até 75 objetos por array de forma independente. Para saber mais, consulte [Agrupamento de solicitações de rastreamento de usuários](#batch-user-track).<br><br>**Limites para Usuários Ativos Mensais CY 24-25, MAU Universal, MAU Web e MAU Celular:** Consulte [Limites de Usuários Ativos Mensais CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
 | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) | **Se você fez a integração em 22 de agosto de 2024 ou após essa data:** 250 solicitações por minuto. <br><br> **Se você fez a integração antes de 22 de agosto de 2024:** 2.500 solicitações por minuto. |
 | [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)<br>[`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias)<br>[`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update)<br>[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)<br>[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) | 20.000 solicitações por minuto, compartilhadas entre os endpoints. |
 | [`/users/external_id/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename) | 1.000 solicitações por minuto. |
@@ -131,7 +131,7 @@ As APIs da Braze foram criadas para oferecer suporte a lotes. Com os lotes, a Br
 Os aumentos do limite de taxa da REST API são considerados com base na necessidade dos clientes que estão usando os recursos de lote da API.
 {% endalert %}
 
-### Agrupando solicitações para o endpoint de rastreamento de usuários {#batch-user-track}
+### Agrupando solicitações para o endpoint de criação e atualização de usuários {#batch-user-track}
 
 Cada solicitação `/users/track` pode conter até 75 objetos no total combinados entre `attributes`, `events` e `purchases`. Cada objeto pode atualizar um usuário. Um único perfil de usuário pode ser atualizado por vários objetos.
 
@@ -141,7 +141,7 @@ Para clientes com limites de taxa legados, cada array (`attributes`, `events` e 
 
 Para saber mais sobre os limites de taxa do `/users/track`, consulte [POST: Criar e atualizar usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
-As solicitações feitas a esse endpoint geralmente começarão a ser processadas nesta ordem:
+As solicitações feitas a esse endpoint geralmente começam a ser processadas nesta ordem:
 
 1. Atributos
 2. Eventos

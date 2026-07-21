@@ -68,7 +68,7 @@ Canvas 빌더가 Canvas 설정을 단계별로 안내합니다. 이름 지정부
 
 ### 1.1단계: Canvas 기본 사항부터 시작하기 {#step-11-start-with-your-canvas-basics}
 
-여기에서 Canvas 이름을 지정하고, [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams)를 할당하고, [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags)를 만들거나 추가합니다. Canvas에 전환 이벤트를 할당할 수도 있습니다.
+여기에서 Canvas 이름을 지정하고, [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)를 할당하고, [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 만들거나 추가합니다. Canvas에 전환 이벤트를 할당할 수도 있습니다.
 
 {% alert tip %}
 Canvas에 태그를 지정하면 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)를 사용할 때 특정 태그로 필터링할 수 있습니다.

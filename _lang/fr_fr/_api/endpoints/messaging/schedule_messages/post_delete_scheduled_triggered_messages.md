@@ -22,7 +22,7 @@ Les messages planifiés ou les déclencheurs supprimés peu avant ou pendant leu
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `campaigns.trigger.schedule.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `campaigns.trigger.schedule.delete`.
 
 ## Limite de débit {#rate-limit}
 

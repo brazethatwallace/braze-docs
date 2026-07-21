@@ -30,13 +30,13 @@ Il existe deux états d'abonnement pour les utilisateurs WhatsApp : `subscribed`
 
 - **REST API :** Les profils utilisateur peuvent être définis de manière programmatique via l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) en utilisant la REST API de Braze.
 - **SDK Web :** Les utilisateurs peuvent être ajoutés à un groupe d'abonnement e-mail, SMS ou WhatsApp en utilisant la méthode `addToSubscriptionGroup` pour [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) ou [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
-- **Importation d'utilisateurs :** Les utilisateurs peuvent être ajoutés à des groupes d'abonnement e-mail ou SMS via **Importer des utilisateurs**. Lors de la mise à jour du statut du groupe d'abonnement, vous devez disposer de ces deux colonnes dans votre CSV : `subscription_group_id` et `subscription_state`. Consultez [Importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status) pour plus d'informations.
+- **Importation d'utilisateurs :** Les utilisateurs peuvent être ajoutés à des groupes d'abonnement e-mail ou SMS via **Import Users**. Lors de la mise à jour du statut du groupe d'abonnement, vous devez disposer de ces deux colonnes dans votre CSV : `subscription_group_id` et `subscription_state`. Consultez [Importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) pour plus d'informations.
 
 ### Vérifier le groupe d'abonnement WhatsApp d'un utilisateur {#checking-a-users-whatsapp-subscription-group}
 
 - **Profil utilisateur :** Les profils utilisateur individuels sont accessibles via le tableau de bord de Braze depuis **Audience** > **Search Users**. Vous pouvez rechercher des profils utilisateur par adresse e-mail, numéro de téléphone ou ID utilisateur externe. Lorsque vous êtes dans un profil utilisateur, sous l'onglet **Engagement**, vous pouvez consulter le groupe d'abonnement WhatsApp d'un utilisateur et son statut.
 
-- **REST API :** Le groupe d'abonnement d'un profil utilisateur individuel peut être consulté via l'[endpoint Répertorier les Groupes d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou l'[endpoint Afficher le statut du groupe d'abonnement des utilisateurs]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) en utilisant la REST API de Braze.
+- **REST API :** Le groupe d'abonnement d'un profil utilisateur individuel peut être consulté via l'[endpoint Répertorier les groupes d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou l'[endpoint Afficher le statut du groupe d'abonnement des utilisateurs]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) en utilisant la REST API de Braze.
 
 ## Archiver les groupes d'abonnement {#archive-subscription-groups}
 
@@ -60,7 +60,7 @@ Les mots-clés d'abonnement ne sont actuellement pas pris en charge pour le cana
 
 Quelles que soient les méthodes d'abonnement et de désabonnement que vous utilisez, vous pouvez mettre à jour le statut d'abonnement des profils utilisateur avec l'une des méthodes de mise à jour suivantes :
 
-- Créez un [webhook Braze-à-Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#things-to-know) qui met à jour le statut d'abonnement via la REST API, comme dans l'exemple suivant :
+- Créez un [webhook Braze-à-Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#considerations) qui met à jour le statut d'abonnement via la REST API, comme dans l'exemple suivant :
 
 ![Composeur de webhook avec un message utilisant la méthode POST.]({% image_buster /assets/img/whatsapp/whatsapp118.png %}){: style="max-width:90%;"}
 

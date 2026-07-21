@@ -2,7 +2,7 @@
 nav_title: Annuler des messages
 article_title: Annuler des messages Liquid
 page_order: 7
-description: "Cet article de référence traite de l'annulation de messages Liquid et présente quelques exemples de cas d'utilisation."
+description: "Cet article de référence traite de l'annulation de messages Liquid et présente quelques exemples de cas d'usage."
 
 ---
 
@@ -82,6 +82,40 @@ La logique d'annulation est évaluée au moment de l'envoi, lorsque Braze traite
 ### Messages in-app {#in-app-messages}
 
 La logique d'annulation est évaluée pour les [messages in-app modélisés]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) uniquement au moment où le message in-app est déclenché (par exemple, lorsque l'utilisateur effectue l'événement déclencheur ou démarre une session), et non lorsque le message est initialement envoyé à l'appareil. Les messages in-app sont transmis au SDK au démarrage de la session et mis en cache localement ; le Liquid — y compris les appels `abort_message()` — est exécuté lorsque la condition de déclenchement est remplie.
+
+## Résolution des problèmes liés à un taux d'annulation élevé {#troubleshooting-high-abort-rates}
+
+Si une Campaign ou une étape Canvas affiche de nombreux utilisateurs entrés mais peu d'envois, ou si les réceptions semblent inférieures aux attentes, la logique d'annulation en est souvent la cause — en particulier lorsque le Liquid nécessite des attributs, des données de catalogue ou des valeurs de liste absentes au moment de l'évaluation.
+
+### Consulter le Journal d'activité des messages {#check-the-message-activity-log}
+
+1. Dans le tableau de bord de Braze, ouvrez le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) pour la Campaign ou l'étape de message Canvas.
+2. Filtrez les entrées liées aux annulations. Par défaut, Braze enregistre {% raw %}`{% abort_message %}`{% endraw %} called. Si vous avez transmis une chaîne de raison à `abort_message()`, ce texte apparaît à la place.
+3. Notez si les annulations se concentrent sur un seul canal (par exemple l'e-mail uniquement) ou sur plusieurs canaux dans le même Canvas.
+
+### Vérifier les attributs et le Liquid au moment de l'envoi {#verify-attributes-and-liquid-at-send-time}
+
+Pour les notifications push, les e-mails, les SMS, les webhooks et les Content Cards, la logique d'annulation s'exécute lorsque Braze traite le message pour la distribution — et non lorsque l'utilisateur est entré dans un Canvas ou lorsqu'un événement déclencheur s'est produit plus tôt.
+
+- Confirmez que les [attributs personnalisés]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes) requis, les propriétés d'événement ou les champs de [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs) sont définis sur l'utilisateur avant l'exécution de l'étape de message.
+- Ajoutez des vérifications explicites de valeur nil ou vide avant d'appeler `abort_message()`. Une branche `else` qui annule lorsqu'une valeur est manquante interrompt l'envoi pour tout utilisateur ne disposant pas de cette donnée.
+- Si la personnalisation dépend d'une liste, d'un segment ou d'une réponse de contenu connecté, confirmez que les données sont disponibles au moment de l'exécution de l'étape de message. Un utilisateur peut entrer dans un Canvas avant que l'appartenance à une liste ou les données en aval ne soient prêtes.
+
+### Comportement spécifique à Canvas {#canvas-specific-behavior}
+
+Si une étape de message est annulée dans un Canvas, l'utilisateur ne quitte pas le Canvas. Il passe à l'étape suivante. Les annulations n'affectent que le nombre d'envois de cette étape de message.
+
+Lors du diagnostic des annulations dans un Canvas :
+
+- Comparez les utilisateurs entrés dans l'étape de message aux utilisateurs ayant reçu un envoi dans la même étape.
+- Si un seul canal est annulé, examinez le Liquid spécifique au canal ou le statut d'abonnement pour cette étape.
+- Si les annulations augmentent après une mise à jour de liste ou de catalogue, vérifiez si l'étape de message s'est exécutée avant la fin de la mise à jour.
+
+### Valider avec la prévisualisation et les envois de test {#validate-with-preview-and-test-sends}
+
+Prévisualisez en tant qu'utilisateur dans le composeur de messages dont le profil correspond à un destinataire concerné. Pour les envois de test, activez **Remplacer les attributs des destinataires par ceux de l'utilisateur de prévisualisation actuel** lorsque votre logique d'annulation dépend des données du profil.
+
+Pour d'autres exemples d'annulation, consultez [Rechercher des messages d'annulation](#query-for-abort-messages).
 
 ## Remarques {#considerations}
 

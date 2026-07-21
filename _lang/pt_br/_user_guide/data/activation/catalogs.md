@@ -66,7 +66,7 @@ Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os da
 
 Os catálogos são um recurso de armazenamento de dados. Eles contêm grandes conjuntos de dados que podem ser referenciados nas suas mensagens para personalização. Para referenciar os dados, você usará o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) como linguagem de template. Em outras palavras, os catálogos são o armazenamento onde os dados ficam guardados, e o Liquid é a linguagem que extrai os dados relevantes desse armazenamento.
 
-Para exemplos de como usar o Liquid para extrair informações do catálogo, consulte os casos de uso adicionais em [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases).
+Para exemplos de como usar o Liquid para extrair informações do catálogo, consulte os casos de uso adicionais em [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases).
 
 ## Limitações de armazenamento de dados {#data-storage-limitations}
 

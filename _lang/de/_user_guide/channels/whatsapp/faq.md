@@ -84,7 +84,7 @@ Sie benötigen die Telefonnummer der Endnutzer:innen im Braze-Profil, um ihnen N
 Das Abo-Management des WhatsApp-Kanals funktioniert ähnlich wie bei anderen Braze-Kanälen. Weitere Informationen finden Sie unter [Nutzer-Abos verwalten]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 #### Wenn ich bereits eine Liste von Nutzer:innen habe, die dem Empfang von Marketing-Nachrichten auf WhatsApp zugestimmt haben, wie aktualisiere ich deren Abo-Status in Braze? {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-Sie können deren Abo-Status über den [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data) aktualisieren.
+Sie können deren Abo-Status über den [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional) aktualisieren.
 
 #### Welche Methoden sollte ich verwenden, um Opt-ins einzuholen? {#what-methods-should-i-use-to-collect-opt-ins}
 Braze empfiehlt, sich an [Metas Richtlinien für Opt-in-Methoden](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) zu halten, um die Compliance sicherzustellen. Weitere Informationen finden Sie in der folgenden Ressource zu [Kanal- und Opt-in-Ideen und -Vorschlägen](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit).
@@ -170,6 +170,15 @@ Wenn Sie Templates mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_gui
 
 Um dies zu beheben, bearbeiten Sie Ihr Template im WhatsApp Manager von Meta, sodass es sequenzielle Platzhalterformatierung verwendet, und importieren Sie es dann erneut in Braze. Bestätigen Sie in Braze, dass jedes erforderliche Variablenfeld mit einem gültigen Liquid-Wert befüllt ist.
 
+#### Warum wird meine WhatsApp-Campaign trotz korrekter Template-Vorschau nicht gesendet? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
+Wenn Ihr Template korrekt in der Vorschau angezeigt wird, aber das Verarbeitungsprotokoll **Abbruch** mit dem Detail „Param text cannot have new-line/tab characters or more than 4 consecutive spaces“ anzeigt, überprüfen Sie die per Liquid befüllten Parameterwerte in Ihrer Nachricht. WhatsApp verlangt, dass Parametertext-Werte Folgendes nicht enthalten:
+
+- Zeilenumbrüche
+- Tabulatorzeichen
+- Mehr als 4 aufeinanderfolgende Leerzeichen
+
+Stellen Sie sicher, dass jede Liquid-Logik, die Template-Parameter befüllt, diese Zeichen entfernt oder den Text vor dem Versand entsprechend formatiert.
+
 ### Zustellbarkeit und Abrechnung {#deliverability-and-billing}
 
 #### Warum wird eine Nachricht möglicherweise nicht zugestellt? {#why-would-a-message-not-be-delivered}
@@ -178,14 +187,41 @@ Es gibt verschiedene Gründe, warum eine Nachricht nicht zugestellt werden kann,
 #### Wenn eine Nachricht nicht zugestellt wird, werden mir Kosten berechnet? {#if-a-message-is-not-delivered-will-i-be-billed}
 Nein. Wenn eine Nachricht nicht zugestellt wird, werden Ihnen keine Kosten berechnet.
 
-#### Was passiert, wenn ein:e Endnutzer:in mein Unternehmen blockiert? {#what-happens-if-an-end-user-blocks-my-business}
+#### Was passiert, wenn ein:e Endnutzer:in mein Unternehmen blockiert? {#what-happens-if-a-user-blocks-my-business}
 Wenn ein:e Endnutzer:in Ihr Unternehmen blockiert, werden nachfolgende Nachrichten, die Sie zu senden versuchen, nicht zugestellt, und Ihnen werden keine Kosten berechnet.
 
-#### Was passiert, wenn ein:e Endnutzer:in eine Nachricht meldet? {#what-happens-if-an-end-user-reports-a-message}
+#### Was passiert, wenn ein:e Endnutzer:in eine Nachricht meldet? {#what-happens-if-a-user-reports-a-message}
 Wenn ein:e Endnutzer:in eine Nachricht meldet, können Sie weiterhin nachfolgende Nachrichten an diese:n Nutzer:in senden. Allerdings kann die Meldung Ihre Qualitätsbewertung auf dem Kanal beeinflussen.
 
-#### Wenn ein:e Endnutzer:in mein Unternehmen blockiert oder meldet, wird deren Abo-Status in Braze aktualisiert? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### Wenn ein:e Endnutzer:in mein Unternehmen blockiert oder meldet, wird deren Abo-Status in Braze aktualisiert? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 Nein. Deren Braze-Abo-Status wird nicht aktualisiert.
+
+#### Wie kann ich Nutzer:innen, die mein WhatsApp-Konto melden, von zukünftigen Sendungen ausschließen? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
+Braze erhält keine Benachrichtigungen von WhatsApp, wenn Ihr Konto markiert oder gemeldet wird. Daher können Sie diese Nutzer:innen in Braze nicht automatisch identifizieren oder ausschließen. Nutzer:innen, die Ihr Konto melden, können in Ihrer WhatsApp-Abo-Gruppe verbleiben und weiterhin für zukünftige Nachrichten berechtigt sein.
+
+Sie können jedoch eine Campaign einrichten, die ausgelöst wird, wenn ein:e Nutzer:in mit einem Abmelde-Schlüsselwort antwortet, wodurch die Abmeldung automatisch über den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) erfolgt. Weitere Informationen finden Sie unter [WhatsApp-Opt-in- und Opt-out-Prozess]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+
+#### Sind WhatsApp-Antwortnachrichten kostenlos? {#are-whatsapp-response-messages-free}
+
+Antwortnachrichten, die im Braze-Campaign- oder Canvas-Editor verfasst werden (keine genehmigten WhatsApp-Templates), werden von Meta als Servicenachrichten behandelt. Servicenachrichten, die über die native WhatsApp-Integration von Braze gesendet werden, verbrauchen keine Action Credits, wenn sie als [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) innerhalb eines offenen Kundenservice-Fensters gesendet werden.
+
+| Nachrichtentyp | Action Credits | Hinweise |
+|---|---|---|
+| Antwortnachricht (eingehende Antwort) | Werden nicht verbraucht | In Braze verfasst; kein von Meta genehmigtes Template. |
+| Template-Nachricht | Werden verbraucht | Marketing-, Utility-, Authentifizierungs- und zeitlich begrenzte Angebots-Templates werden pro Versand abgerechnet. |
+| Utility-Template im Servicefenster | Werden von Meta nicht berechnet | Meta berechnet keine Kosten für Utility-Templates, die innerhalb von 24 Stunden nach einer nutzerinitierten Nachricht gesendet werden. Der Action-Credit-Verbrauch richtet sich nach Ihrem Vertrag. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Action Credits für Antwortnachrichten" }
+
+Für Canvas-Flows, in denen Nutzer:innen nach dem ursprünglichen 24-Stunden-Fenster auf Schnellantworten tippen, siehe [Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Was passiert, wenn ein:e Nutzer:in nach Ablauf des 24-Stunden-Fensters antwortet oder auf eine Schnellantwort tippt? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
+Es öffnet sich ein neues 24-Stunden-Kundenservice-Fenster. Siehe [Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Muss ich meinen Canvas-Aktionspfad für WhatsApp-Schnellantworten auf 31 Tage einstellen? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+Nein. Die Standard-Aktionspfad-Dauer ist ausreichend. Siehe [Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Kann ich sehen, wie viele WhatsApp-Credits eine bestimmte Campaign oder ein Canvas verbraucht hat? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
+Derzeit nicht im Braze-Dashboard. Campaign- und Canvas-Analytics zeigen Sendungen, Zustellungen und Fehler an, aber nicht den Credit-Verbrauch pro Nachricht. Die Sendezahlen stimmen nicht eins zu eins mit dem Credit-Verbrauch überein, da Template-Kategorie und Nachrichtentyp die Abrechnung unterschiedlich beeinflussen. Weitere Informationen zur Abrechnung finden Sie unter [Sind WhatsApp-Antwortnachrichten kostenlos?](#are-whatsapp-response-messages-free).
 
 ### Integrationen, Daten und Reporting {#integrations-data-and-reporting}
 

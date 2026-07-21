@@ -40,7 +40,7 @@ Bei diesem Ansatz wird die Lokalisierung mithilfe von [Liquid]({{site.baseurl}}/
 
 Bei diesem Ansatz werden Templates in verschiedene Versand-Locales aufgeteilt. Nach dem Versand zeigt das Dashboard die Versandanalysen für jedes Land separat an, und alle nachgelagerten [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents)-Events auf Nutzer:innenebene werden ebenfalls einer bestimmten Campaign zugeordnet.
 
-- Templates profitieren von der Implementierung von [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags) für Wartungs- und Tracking-Zwecke.
+- Templates profitieren von der Implementierung von [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) für Wartungs- und Tracking-Zwecke.
 - Campaigns können die Konfigurationen desselben [Braze-Templates]({{site.baseurl}}/user_guide/messaging/templates) und derselben [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) übernehmen (z. B. [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates), die Liquid enthalten).
 - Bereits vorhandene Campaigns und Templates können [dupliziert]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating) werden, um eine schnellere Wertschöpfung zu ermöglichen.
 
@@ -122,7 +122,7 @@ Wir empfehlen immer, eine {% raw %}`{% else %}`{% endraw %}-Anweisung in Ihr Mes
 {% endtab %}
 
 {% tab Content Blocks %}
-Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) sind wiederverwendbare Inhaltsblöcke. Wenn ein Block geändert wird, ändern sich alle Referenzen auf diesen Block. Zum Beispiel werden Aktualisierungen an einem E-Mail-Header oder -Footer in allen E-Mails widergespiegelt, oder sie können Übersetzungen beherbergen. Diese Blöcke können auch über die REST API [erstellt]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block#create-content-block) und [aktualisiert]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) werden, und Nutzer:innen können Übersetzungen programmatisch hochladen.
+Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) sind wiederverwendbare Inhaltsblöcke. Wenn ein Block geändert wird, ändern sich alle Referenzen auf diesen Block. Zum Beispiel werden Aktualisierungen an einem E-Mail-Header oder -Footer in allen E-Mails widergespiegelt, oder sie können Übersetzungen beherbergen. Diese Blöcke können auch über die REST API [erstellt]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) und [aktualisiert]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) werden, und Nutzer:innen können Übersetzungen programmatisch hochladen.
 
 Beim Erstellen einer Campaign im Dashboard können Content Blocks mit dem Tag {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %} referenziert werden. Diese Blöcke können alle Übersetzungen innerhalb bedingter Logik für jede Sprache enthalten, wie in Option 1 gezeigt, oder es kann ein separater Block für jede Sprache verwendet werden.
 
@@ -285,7 +285,7 @@ Die Tabellenstruktur folgt den Schritten in Option 4, aber SheetDB bietet auch [
 
 Einige Nutzer:innen bevorzugen möglicherweise die Implementierung von SheetDB mit weniger Liquid- und Connected-Block-Abhängigkeiten, indem sie die [Suchmethode](https://docs.sheetdb.io/#get-search-in-document) von SheetDB in GET-Anfragen verwenden, um die JSON-Objekte basierend auf dem {% raw %}`{{${language}}}`{% endraw %} Liquid-Tag zu filtern und automatisch die Ergebnisse für eine einzelne Sprache zurückzugeben, anstatt große bedingte Blöcke zu erstellen.
 
-#### 1. Schritt: Google-Tabelle formatieren {#step-1-format-the-google-sheet}
+#### Schritt 1: Google-Tabelle formatieren {#step-1-format-the-google-sheet}
 
 Erstellen Sie zunächst die Google-Tabelle so, dass die Sprachen verschiedene Objekte sind:
 
@@ -296,7 +296,7 @@ Erstellen Sie zunächst die Google-Tabelle so, dass die Sprachen verschiedene Ob
 | de | Hallo | 4 | Hallo2 | 8 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Schritt 1: Google-Tabelle formatieren" }
 
-#### 2. Schritt: Sprach-Liquid-Tag in einem Connected-Content-Aufruf verwenden {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
+#### Schritt 2: Sprach-Liquid-Tag in einem Connected-Content-Aufruf verwenden {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 
 Implementieren Sie als Nächstes den {% raw %}`{{${language}}}`{% endraw %} Liquid-Tag innerhalb eines Connected-Content-Aufrufs. Beachten Sie, dass SheetDB die `sheet_id` automatisch beim Erstellen der Tabellenkalkulation generiert.
 
@@ -306,7 +306,7 @@ Implementieren Sie als Nächstes den {% raw %}`{{${language}}}`{% endraw %} Liqu
 ```
 {% endraw %}
 
-#### 3. Schritt: Nachrichten mit Templates erstellen {#step-3-template-your-messages}
+#### Schritt 3: Nachrichten mit Templates erstellen {#step-3-template-your-messages}
 
 Verwenden Sie abschließend Liquid für das Templating Ihrer Nachrichten:
 

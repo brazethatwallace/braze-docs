@@ -40,7 +40,7 @@ Para definir o estado do grupo de inscrições de um usuário, use um dos seguin
 - **Integração de SDK:** Os usuários podem ser adicionados a um grupo de inscrições de e-mail ou SMS e RCS usando o método `addToSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) ou [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
 - **Formulário IAM de captura de número de telefone:** Os números de telefone dos usuários podem ser coletados pelo modelo de captura de número de telefone no editor de arrastar e soltar de mensagens no app.
 - **Tratamento automático ao opt-in/descadastramento do usuário:** Quando os usuários enviam uma [palavra-chave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) padrão de opt-in ou descadastramento, a Braze define e atualiza automaticamente o estado de inscrição dos usuários.
-- **Importação de usuários:** Os usuários podem ser adicionados a grupos de inscrições de e-mail ou SMS e RCS por meio de **Importar usuários**. Ao atualizar o status do grupo de inscrições, você deve ter estas duas colunas no seu CSV: `subscription_group_id` e `subscription_state`. Consulte [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status) para saber mais.
+- **Importação de usuários:** Os usuários podem ser adicionados a grupos de inscrições de e-mail ou SMS e RCS por meio de **Importar usuários**. Ao atualizar o status do grupo de inscrições, você deve ter estas duas colunas no seu CSV: `subscription_group_id` e `subscription_state`. Consulte [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) para saber mais.
 
 #### Atualizar o estado de um usuário em um Canvas {#update-a-users-state-in-a-canvas}
 
@@ -107,14 +107,14 @@ Para um gerenciamento abrangente de inscrições, você pode capturar intençõe
 1. No [Console do agente]({{site.baseurl}}/user_guide/brazeai/agents), crie um "Agente de Análise de Sentimento de SMS".
 
 {% alert tip %}
-Use o [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples) para auxiliar na configuração inicial do agente.
+Use o [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator) para auxiliar na configuração inicial do agente.
 {% endalert %}
 
 {: start="2"}
 2. Crie um Canvas baseado em ação disparado por **Send an SMS inbound message**, dentro da categoria de palavra-chave **Other**.
 3. Adicione a [etapa de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) ao Canvas para identificar a intenção de descadastramento.
 4. Adicione uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) de SMS subsequente para confirmar a solicitação: "Parece que você está tentando cancelar a inscrição de SMS, então vamos cancelar sua inscrição. Se isso foi um engano, envie START para se inscrever novamente."
-5. Adicione uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) para alterar o status do usuário no grupo de inscrições de SMS específico para "Cancelou inscrição".
+5. Adicione uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) para alterar o status do usuário no grupo de inscrições de SMS específico para "Cancelou inscrição".
 
 {% alert note %}
 O uso do Console do agente consome créditos de mensagem ou de ação.
@@ -128,7 +128,7 @@ A Braze recomenda que você teste o envio de RCS para volumes menores de usuári
 
 ### Etapa 1: Criar um Canvas e preencher o cronograma de entrada {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de Usuários do Grupo de Inscrições SMS-RCS"). Em seguida, programe a campanha para quando for conveniente para você.
+Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de Usuários do Grupo de Inscrições SMS-RCS"). Em seguida, agende a campanha para quando for conveniente para você.
 
 ### Etapa 2: Definir seu público {#step-2-define-your-audience}
 {: #step-2-define-your-audience}

@@ -40,7 +40,7 @@ Dans cette approche, la localisation est appliquée à un seul modèle dans Braz
 
 Cette approche sépare les modèles en différentes localisations d'envoi. Après l'envoi, le tableau de bord affiche les analyses d'envoi pour chaque pays séparément, et tous les événements [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) en aval au niveau de l'utilisateur seront également liés à une Campaign spécifique.
 
-- Les modèles bénéficient de l'implémentation d'[étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags) à des fins de maintenance et de suivi.
+- Les modèles bénéficient de l'implémentation d'[étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) à des fins de maintenance et de suivi.
 - Les Campaigns peuvent hériter des configurations du même [modèle Braze]({{site.baseurl}}/user_guide/messaging/templates) et des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) (tels que les [modèles d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates) contenant du Liquid).
 - Les Campaigns et modèles préexistants peuvent être [dupliqués]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating) pour accélérer la mise en œuvre.
 
@@ -122,7 +122,7 @@ Nous recommandons toujours d'inclure une instruction {% raw %}`{% else %}`{% end
 {% endtab %}
 
 {% tab Content Blocks %}
-Les [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) de Braze sont des blocs de contenu réutilisables. Lorsqu'un bloc est modifié, toutes les références à ce bloc sont mises à jour. Par exemple, les mises à jour d'un en-tête ou d'un pied de page d'e-mail seront reflétées dans tous les e-mails, ou pour héberger des traductions. Ces blocs peuvent également être [créés]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block#create-content-block) et [mis à jour]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) via la REST API, et les utilisateurs peuvent télécharger des traductions de manière programmatique.
+Les [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) de Braze sont des blocs de contenu réutilisables. Lorsqu'un bloc est modifié, toutes les références à ce bloc sont mises à jour. Par exemple, les mises à jour d'un en-tête ou d'un pied de page d'e-mail seront reflétées dans tous les e-mails, ou pour héberger des traductions. Ces blocs peuvent également être [créés]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) et [mis à jour]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) via la REST API, et les utilisateurs peuvent télécharger des traductions de manière programmatique.
 
 Lors de la création d'une Campaign dans le tableau de bord, les Content Blocks peuvent être référencés à l'aide de l'étiquette {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}. Ces blocs peuvent contenir toutes les traductions hébergées dans une logique conditionnelle pour chaque langue, comme indiqué dans l'option 1, ou un bloc distinct pour chaque langue peut être utilisé.
 

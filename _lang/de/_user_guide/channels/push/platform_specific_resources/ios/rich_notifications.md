@@ -125,7 +125,7 @@ Die folgenden Details können ebenfalls die Textkürzung beeinflussen:
 
 ### Schritt 1: Push-Campaign erstellen {#step-1-create-a-push-campaign}
 
-Folgen Sie den [Campaign-Schritten]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message), um eine Push-Benachrichtigung für iOS zu verfassen. Sie verwenden denselben Composer, den Sie auch zum Einrichten von Push-Benachrichtigungen ohne Rich-Inhalte nutzen.
+Folgen Sie den [Campaign-Schritten]({{site.baseurl}}/user_guide/channels/push/create_a_push_message), um eine Push-Benachrichtigung für iOS zu verfassen. Sie verwenden denselben Composer, den Sie auch zum Einrichten von Push-Benachrichtigungen ohne Rich-Inhalte nutzen.
 
 ### Schritt 2: Medien hinzufügen {#step-2-add-media}
 

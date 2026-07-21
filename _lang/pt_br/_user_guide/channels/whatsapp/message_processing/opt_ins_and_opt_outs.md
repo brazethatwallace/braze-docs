@@ -43,7 +43,7 @@ Onde quer que você já tenha consentimento de marketing para e-mail ou mensagen
 
 #### Lista de opt-in criada externamente {#externally-built-opt-in-list}
 
-Se você já usou o WhatsApp anteriormente, pode já ter criado uma lista de usuários com opt-ins conforme os requisitos do WhatsApp. Nesse caso, faça upload de um CSV ou use a API com as [seguintes informações]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) na Braze.
+Se você já usou o WhatsApp anteriormente, pode já ter criado uma lista de usuários com opt-ins conforme os requisitos do WhatsApp. Nesse caso, faça upload de um CSV ou use a API com as [seguintes informações]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) na Braze.
 
 #### Mensagem de saída no canal de suporte ao cliente do WhatsApp {#outbound-message-in-customer-support-whatsapp-channel}
 
@@ -63,7 +63,7 @@ Faça com que os clientes enviem uma mensagem de entrada para o número do Whats
 Isso pode ser configurado como um Canvas ou uma Campaign, dependendo se você deseja que o usuário receba uma mensagem de confirmação no novo canal.
 
 1. Crie uma Campaign com o gatilho de entrega baseada em ação de uma mensagem de entrada.
-2. Crie uma Campaign de webhook. Para um exemplo de webhook, consulte [Grupos de inscrições]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#update-subscription-status).
+2. Crie uma Campaign de webhook. Para um exemplo de webhook, consulte [Grupos de inscrições]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#step-2-update-the-users-profile).
 
 {% alert tip %}
 Você pode criar uma URL ou código QR para entrar em um canal do WhatsApp dentro do [gerenciador do WhatsApp](https://business.facebook.com/wa/manage/phone-numbers/) em **Phone Number** > **Message Links**.<br>![Criador de código QR do WhatsApp.]({% image_buster /assets/img/whatsapp/whatsapp115.png %}){: style="max-width:55%;"}

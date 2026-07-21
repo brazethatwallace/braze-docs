@@ -18,7 +18,7 @@ Este artigo vai guiar você por um caso de uso do modelo **De volta ao estoque**
 Para usar este modelo com sucesso, você precisará do seguinte:
 
 - Um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create) contendo informações sobre seu item
-- [Notificações de volta ao estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#back-in-stock-notifications) devem estar configuradas para o item sobre o qual você deseja enviar mensagens aos usuários
+- [Notificações de volta ao estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) devem estar configuradas para o item sobre o qual você deseja enviar mensagens aos usuários
 
 ## Adaptando o modelo às suas necessidades {#tailoring-the-template-to-your-needs}
 
@@ -102,7 +102,7 @@ Vamos começar nossa personalização percorrendo cada etapa de mensagem para at
 1. Substitua `!!YOURCATALOGHERE!!` pelo nome do nosso catálogo ("Straight_Leg_Pants").
 2. Substitua `[0]` pelo número de índice do jeans Classic Straight Leg, que é "9" porque o jeans é o décimo item no array `items` do nosso catálogo. (Os arrays são indexados a partir de zero em Liquid, então o primeiro item é `0` e não `1`.)
 3. Repita as etapas 1 e 2 para todas as etapas de mensagem restantes, incluindo:
-    - A mensagem "In-Product Msg & Email" que é enviada após um delay de um dia
+    - A mensagem "In-Product Msg & Email" que é enviada após a postergação de um dia
     - As mensagens "Push+Email Alert" que são enviadas para usuários que não realizaram uma compra
 4. Atualize a etapa de jornadas de ação selecionando o grupo de ação **Purchase**. Em seguida, selecione **Make a specific purchase** e escolha o jeans Classic Straight Leg como produto.
 

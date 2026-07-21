@@ -6,7 +6,7 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto de conexión `POST /media_library/create`."
+description: "Este artículo describe los detalles sobre el endpoint `POST /media_library/create`."
 ---
 
 {% api %}
@@ -15,15 +15,15 @@ description: "Este artículo describe los detalles sobre el punto de conexión `
 /media_library/create
 {% endapimethod %}
 
-> Utiliza este punto de conexión para añadir un activo a la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) utilizando una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`). Este punto de conexión admite imágenes y archivos ZIP que contienen imágenes.
+> Utiliza este endpoint para añadir un activo a la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) utilizando una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`). Este endpoint admite imágenes y archivos ZIP que contienen imágenes.
 
 {% alert tip %}
-También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Esto permite que herramientas de IA como Claude y Cursor carguen activos en tu biblioteca de medios mediante indicaciones en lenguaje natural.
+También puedes llamar a este endpoint a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Esto permite que herramientas de IA como Claude y Cursor carguen activos en tu biblioteca de medios mediante indicaciones en lenguaje natural.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `media_library.create`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `media_library.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -31,7 +31,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Cuerpo de la solicitud {#request-body}
 
-Cuando incluyes `asset_url`, el punto de conexión descarga el archivo desde la URL. Cuando incluyes `asset_file`, el punto de conexión utiliza los datos binarios del cuerpo de la solicitud.
+Cuando incluyes `asset_url`, el endpoint descarga el archivo desde la URL. Cuando incluyes `asset_file`, el endpoint utiliza los datos binarios del cuerpo de la solicitud.
 
 Ejemplo de cuerpo de solicitud para `asset_url`:
 
@@ -66,7 +66,7 @@ El cuerpo de la solicitud incluye los siguientes parámetros:
 
 ### Nombres de los archivos cargados {#uploaded-file-names}
 
-En esta sección se explica cómo el punto de conexión asigna nombres a los archivos cargados en función de si incluyes el parámetro `name`.
+En esta sección se explica cómo el endpoint asigna nombres a los archivos cargados en función de si incluyes el parámetro `name`.
 
 #### Cargas de archivos individuales {#single-file-uploads}
 
@@ -160,7 +160,7 @@ Esta tabla enumera los posibles errores de procesamiento.
 
 ## Respuesta {#response}
 
-Hay cinco respuestas de código de estado para este punto de conexión: `200`, `400`, `403`, `429` y `500`.
+Hay cinco respuestas de código de estado para este endpoint: `200`, `400`, `403`, `429` y `500`.
 
 El siguiente JSON muestra el formato esperado de la respuesta.
 

@@ -39,7 +39,7 @@ Si todos los mensajes de tu Campaign van a ser similares o tener el mismo conten
 1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el creador de Canvas.
 2. Después de configurar tu Canvas, añade un paso en el constructor de Canvas. Ponle a tu paso un nombre claro y significativo.
 3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) y especifica un retraso según sea necesario. Ten en cuenta que los pasos que contienen mensajes dentro de la aplicación no pueden estar basados en acciones.
-4. Filtra tu audiencia para este paso, según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando Segments y añadiendo filtros adicionales. Las opciones de audiencia se comprobarán después del retraso, en el momento en que se envíen los mensajes.
+4. Filtra tu audiencia para este paso, según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando segmentos y añadiendo filtros adicionales. Las opciones de audiencia se comprobarán después del retraso, en el momento en que se envíen los mensajes.
 5. Elige tu [comportamiento de avance]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Elige cualquier otro canal de mensajería que desees combinar con tu mensaje.
 
@@ -147,14 +147,14 @@ Estos mensajes dentro de la aplicación son personalizables según tus necesidad
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html#custom-html-messages'>Mensaje HTML personalizado</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Mensaje HTML personalizado</a></td>
     <td>Mensajes personalizados que funcionan según lo definido en tu código personalizado (HTML, CSS y/o JavaScript).</td>
     <td>N/A</td>
     <td>Debes establecer la opción de inicialización <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> en <code>true</code> para que tu mensaje dentro de la aplicación funcione.</td>
     <td>Esta es una buena opción si quieres todas las ventajas de los mensajes dentro de la aplicación pero necesitas funcionalidad adicional o que la apariencia se mantenga acorde a tu marca. Puedes modificar cada pequeño detalle del mensaje: fuente, color, forma, tamaño, botones, etc. <br><br>Ejemplos de casos de uso incluyen pedir a los usuarios comentarios sobre la aplicación, formularios de captura de correo electrónico o mensajes paginados</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form#email-capture-form'>Formulario de captura de correo electrónico</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>Formulario de captura de correo electrónico</a></td>
     <td>Normalmente se usa para capturar el correo electrónico del espectador.</td>
     <td>N/A</td>
     <td>Debes establecer la opción de inicialización <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> en <code>true</code> para que tu mensaje dentro de la aplicación funcione.</td>
@@ -362,10 +362,10 @@ Para establecer prioridades dentro de estos contenedores, haz clic en **Set Exac
 
 ### Elige los usuarios objetivo {#choose-users-to-target}
 
-A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo Segments o filtros para delimitar tu audiencia. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese Segment. Ten en cuenta que la pertenencia exacta al Segment siempre se calcula antes de que se envíe el mensaje.
+A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para delimitar tu audiencia. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de que se envíe el mensaje.
 
 {% alert note %}
-Si hay un retraso en el paso del mensaje dentro de la aplicación, la pertenencia al Segment se evaluará después del retraso. Si el usuario es elegible, el mensaje dentro de la aplicación se sincronizará en la siguiente sesión disponible.
+Si hay un retraso en el paso del mensaje dentro de la aplicación, la pertenencia al segmento se evaluará después del retraso. Si el usuario es elegible, el mensaje dentro de la aplicación se sincronizará en la siguiente sesión disponible.
 {% endalert %}
 
 #### Reevaluar la elegibilidad de la Campaign y Liquid {#re-evaluate-campaign-eligibility-and-liquid}

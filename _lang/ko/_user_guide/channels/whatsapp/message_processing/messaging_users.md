@@ -39,7 +39,7 @@ Campaigns와 Canvases 모두 트리거 단어와 같은 인바운드 WhatsApp �
 
 ## 인식되지 않는 응답 {#unrecognized-responses}
 
-인터랙티브 Canvases에 인식되지 않는 응답에 대한 옵션을 포함하는 것을 권장합니다. 이를 통해 사용자가 사용 가능한 프롬프트를 이해하고 채널에 대한 기대치를 설정할 수 있습니다. 기대치 관리는 라이브 상담원 채팅이 있는 WhatsApp 채널이 있는 경우 특히 유용할 수 있습니다.
+인터랙티브 Canvases에 인식되지 않는 응답에 대한 옵션을 포함하는 것을 권장합니다. 이를 통해 사용자가 사용 가능한 프롬프트를 이해하고 채널에 대한 기대치를 설정할 수 있습니다. 기대치 관리는 실시간 상담원 채팅이 있는 WhatsApp 채널이 있는 경우 특히 유용할 수 있습니다.
 - 동작 단계에서 커스텀 필터 문구에 대한 동작 그룹을 생성한 후, "WhatsApp 메시지 보내기"에 대한 추가 동작 그룹을 추가하되 **메시지 본문이 다음인 경우**를 체크하지 마세요. 이렇게 하면 "else" 절과 유사하게 인식되지 않는 모든 사용자 응답을 포착합니다.
 - 이 채널에 담당자가 없음을 사용자에게 알리고 필요한 경우 고객지원 채널로 안내하는 WhatsApp 메시지로 후속 조치를 취하는 것을 권장합니다.
 
@@ -155,6 +155,31 @@ Canvas를 계속 구축하세요.
   - [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated) 이벤트
 
 ![수행된 커스텀 이벤트 `ecommerce.cart_updated` 트리거가 있는 행동 경로.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
+
+### 빠른 답장 및 24시간 창 밖의 인바운드 메시지 {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+사용자가 WhatsApp에서 비즈니스와 상호작용할 때(이전 템플릿 메시지의 빠른 답장 버튼을 탭하는 것 포함), 해당 동작은 인바운드 메시지로 간주됩니다. 이 인바운드 메시지는 원래 템플릿이 24시간 이전에 전송되었더라도 새로운 24시간 고객 서비스 창을 엽니다.
+
+빠른 답장 버튼이 있는 Canvas에서 사용자는 환영 템플릿을 받은 후 며칠이 지나서 버튼을 탭해도 올바른 행동 경로에 진입할 수 있습니다. Braze는 인바운드 메시지가 도착할 때 행동 경로를 평가하므로, 늦은 답장을 캡처하기 위해 행동 경로 기간을 기본값 이상으로 연장할 필요가 없습니다.
+
+다음 다이어그램은 일반적인 빠른 답장 흐름을 보여줍니다:
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### 알아두어야 할 사항 {#things-to-know}
+
+- 응답 메시지 단계는 여전히 사용자의 인바운드 메시지로부터 24시간 이내에 이루어져야 합니다. 대부분의 Canvas 흐름에서 응답은 행동 경로 평가 직후 즉시 전송되므로 이는 문제가 되지 않습니다.
+- 24시간 고객 서비스 창을 Canvas [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)와 혼동하지 마세요. 전환 이벤트는 최대 30일의 기간을 사용할 수 있습니다. 전환 기간은 기여도를 제어하며, 응답 메시지 전송 가능 여부에는 영향을 미치지 않습니다.
+- 과금에 대해서는 [WhatsApp 응답 메시지는 무료인가요?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free)를 참조하세요.
 
 ### 커스텀 시간 속성으로 필터링 {#filtering-by-a-custom-time-attribute}
 

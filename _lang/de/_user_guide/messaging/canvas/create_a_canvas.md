@@ -68,7 +68,7 @@ Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres C
 
 ### Schritt 1.1: Beginnen Sie mit den Canvas-Grundlagen {#step-11-start-with-your-canvas-basics}
 
-Hier benennen Sie Ihr Canvas, weisen [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams) zu und erstellen oder fügen [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags) hinzu. Sie können auch Konversions-Events für das Canvas zuweisen.
+Hier benennen Sie Ihr Canvas, weisen [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) zu und erstellen oder fügen [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu. Sie können auch Konversions-Events für das Canvas zuweisen.
 
 {% alert tip %}
 Versehen Sie Ihre Canvases mit Tags, damit sie leicht zu finden sind und Sie Berichte daraus erstellen können. Wenn Sie beispielsweise den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) verwenden, können Sie nach bestimmten Tags filtern.
@@ -203,7 +203,7 @@ Diese Abo-Einstellungen werden pro Schritt angewendet, was bedeutet, dass sie ke
 Mit dieser Konfiguration sollten Sie im Schritt **Zielgruppe** keine Filter einschließen, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
 {% endalert %}
 
-Falls gewünscht, legen Sie [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Ruhezeiten aktivieren** in Ihren **Sendeeinstellungen**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
+Falls gewünscht, legen Sie [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Ruhezeiten aktivieren** in Ihren **Sendeeinstellungen**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und ob die Nachricht abgebrochen oder zur nächsten verfügbaren Zeit gesendet werden soll.
 
 Wenn **Zur nächsten verfügbaren Zeit senden** ausgewählt ist, unterdrücken die Ruhezeiten die Nachricht und senden sie zur nächsten verfügbaren Zeit außerhalb der Ruhezeiten. Angenommen, die Ruhezeiten sind so eingerichtet, dass Nachrichten zwischen 11:30 Uhr und 14:30 Uhr in der Ortszeit der Nutzer:innen nicht gesendet werden, und ein:e Nutzer:in erreicht einen Nachrichtenschritt um 11:35 Uhr. Da diese Zeit innerhalb der Ruhezeiten liegt, wird die Nachricht noch nicht gesendet, und die Person erhält den Nachrichtenschritt um 14:30 Uhr, also nach den Ruhezeiten.
 
@@ -327,7 +327,7 @@ Im ersten Nachrichtenschritt nach einem Aktionspfad können Sie `event_propertie
 
 ### Schritt 2.3: Verbindungen bearbeiten {#step-23-edit-connections}
 
-Um eine Verbindung zwischen Schritten zu verschieben, wählen Sie den Pfeil aus, der die beiden Komponenten verbindet, und wählen Sie eine andere Komponente aus. Um die Verbindung zu entfernen, wählen Sie den Pfeil und dann **Cancel Connection** in der Fußzeile des Canvas-Composers.
+Um eine Verbindung zwischen Schritten zu verschieben, wählen Sie den Pfeil aus, der die beiden Komponenten verbindet, und wählen Sie eine andere Komponente aus. Um die Verbindung zu entfernen, wählen Sie den Pfeil und dann **Verbindung aufheben** in der Fußzeile des Canvas-Composers.
 
 Wenn eine einzelne Variante mehrere Verzweigungen mit derselben Zielgruppe und Sendezeit hat, garantiert Braze keine gleichmäßige Aufteilung auf diese Verzweigungen. Die Verteilung kann die zuerst erstellte Verzweigung bevorzugen. Für eine gleichmäßige Aufteilung verwenden Sie Filter mit [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) in jeder Verzweigung. Weitere Informationen finden Sie unter [Was passiert, wenn Zielgruppe und Sendezeit für ein Canvas mit einer Variante, aber mehreren Verzweigungen identisch sind?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
@@ -337,7 +337,7 @@ Sie können eine Kontrollgruppe zu Ihrem Canvas hinzufügen, indem Sie den <i cl
 
 Braze verfolgt die Conversions für Nutzer:innen, die in die Kontrollgruppe eingeteilt werden, obwohl sie keine Nachrichten erhalten. Um einen genauen Test zu gewährleisten, verfolgen wir die Anzahl der Conversions für Ihre Varianten und die Kontrollgruppe über exakt denselben Zeitraum, wie auf dem Bildschirm zur Auswahl der Konversions-Events angezeigt.
 
-Sie können die Verteilung zwischen Ihren Nachrichten anpassen, indem Sie auf die **Variant Name**-Überschriften doppelklicken.
+Sie können die Verteilung zwischen Ihren Nachrichten anpassen, indem Sie auf die **Variantenname**-Überschriften doppelklicken.
 
 In diesem Beispiel haben wir unser Canvas in zwei Varianten aufgeteilt. Variante 1 hat 70 % der Nutzer:innen. Die zweite Variante ist eine Kontrollgruppe mit den verbleibenden 30 % der Nutzer:innen.
 

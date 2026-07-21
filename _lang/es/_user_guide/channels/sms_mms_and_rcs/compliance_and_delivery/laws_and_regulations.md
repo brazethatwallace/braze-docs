@@ -69,7 +69,7 @@ Aquí tienes algunos enlaces que podrías necesitar consultar mientras desarroll
 
 La privacidad de un cliente es clave para una relación significativa y respetuosa. Respetar la privacidad y la información de un cliente es simplemente otra oportunidad para crear un vínculo entre ellos y tu marca. A veces, el uso de herramientas de marketing puede relegar los datos y la privacidad a un segundo plano.
 
-Afortunadamente, Braze sigue las directrices de muchas [regulaciones de seguridad]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications), incluyendo el [RGPD]({{site.baseurl}}/dp-technical-assistance).
+Afortunadamente, Braze sigue las directrices de muchas [regulaciones de seguridad]({{site.baseurl}}/developer_guide/disclosures/security_qualifications), incluyendo el [RGPD]({{site.baseurl}}/dp-technical-assistance).
 
 La [CTIA](https://www.ctia.org/) (una asociación comercial que representa a la industria de comunicaciones inalámbricas en Estados Unidos) recomienda que mantengas y muestres de forma visible una política de privacidad clara y fácil de entender.
 
@@ -81,7 +81,7 @@ La Ley de Protección al Consumidor Telefónico ([TCPA](https://en.wikipedia.org
 
 Recuerda cumplir con el [Registro Nacional de No Llamar](https://www.donotcall.gov/).
 
-Braze utiliza [Grupos de suscripción]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing) para administrar grupos de usuarios según su nivel de consentimiento.
+Braze utiliza [grupos de suscripción]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing) para administrar grupos de usuarios según su nivel de consentimiento.
 
 #### Cumplimiento mediante cancelación de suscripción difusa {#compliance-through-fuzzy-opt-out}
 
@@ -112,7 +112,7 @@ Para más información sobre este tema, consulta los [Principios y mejores prác
 
 ### Programación {#scheduling}
 
-Asegúrate de cumplir con la [TCPA](https://en.wikipedia.org/wiki/telephone_consumer_protection_act_of_1991), que establece que no debes enviar mensajes durante horas tardías. Consulta el contenido de la regulación para conocer las horas exactas. Sin embargo, de todos modos no deberías enviar mensajes tan tarde: ¿acaso no quieres una alta interacción?
+Asegúrate de cumplir con la [TCPA](https://en.wikipedia.org/wiki/telephone_consumer_protection_act_of_1991), que establece que no debes enviar mensajes durante horas tardías. Consulta el contenido de la regulación para conocer las horas exactas. Sin embargo, de todos modos no deberías enviar mensajes tan tarde: ¿acaso no quieres una alta participación?
 
 ### Internacional {#international}
 

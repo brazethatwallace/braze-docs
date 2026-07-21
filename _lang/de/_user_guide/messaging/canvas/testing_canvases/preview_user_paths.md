@@ -57,7 +57,7 @@ Um weitere Details zu den Eingangskriterien anzuzeigen, wählen Sie **See more**
 
 ### Liquid
 
-Braze verarbeitet Liquid-Logik während eines Testlaufs, auch wenn Sie keine tatsächliche Testnachricht senden. Das bedeutet, dass die [Nachricht-abbrechen-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) und andere Liquid-Logik berücksichtigt werden und die Canvas-User-Journey beeinflussen können.
+Braze verarbeitet Liquid-Logik während eines Testlaufs, auch wenn Sie keine tatsächliche Testnachricht senden. Das bedeutet, dass die [Nachricht-abbrechen-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) und andere Liquid-Logik berücksichtigt werden und die Canvas-User-Journey beeinflussen können.
 
 Wenn Ihre Vorschau den letzten Schritt Ihrer User Journey sendet, anstatt abzubrechen, verwendet die Vorschau möglicherweise die aktuelle Uhrzeit als Testzeitpunkt für die Liquid-Auswertung und nicht die tatsächliche Zeit, zu der sich die/der Nutzer:in basierend auf der Canvas-Eintrittszeit im Schritt befinden würde.
 

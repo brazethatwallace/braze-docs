@@ -54,20 +54,20 @@ Brazeとの統合において、Decisioning Studio Goには以下が必要です
 Salesforce Marketing Cloudとの統合において、Decisioning Studio Goには以下が必要です：
 
 1. **データエクステンション：** オーディエンスは、Decisioning Studio Goがアクセス可能なデータエクステンションで定義されている必要があります。SubscriberKeyをプライマリユーザー識別子として使用してください。
-2. **トラッキングイベントへのアクセス：** インストール済みアプリパッケージがエンドツーエンドの自動セットアップをサポートしている限り、追加の設定は不要です。
+2. **トラッキングイベントへのアクセス：** インストール済みアプリパッケージがエンドツーエンドの自動設定をサポートしている限り、追加の設定は不要です。
 
-データエクステンションとSQLクエリは、[オーケストレーション設定]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)の一部として構成されます。
+データエクステンションとSQLクエリは、[Decisioning Studio Goエージェントの設定]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)の一部として構成されます。
 
 {% endtab %}
 {% endtabs %}
 
 ## ベストプラクティス {#best-practices}
 
-- **データを最新の状態に保つ：** オーディエンスのセグメントと顧客データが定期的に（最低でも毎日）更新されるようにしてください。これにより、エージェントは常に最新の情報を使用して動作できます。
+- **データを最新の状態に保つ：** オーディエンスのセグメントと顧客データを定期的に（最低でも毎日）更新し、エージェントが常に最新の情報で動作できるようにしてください。
 - **関連する属性を含める：** どの顧客特性がメッセージの効果に影響を与えるかを考えてみてください。デモグラフィック、エンゲージメント履歴、購買行動、ライフサイクルステージはすべて貴重なシグナルです。
 
 ## 次のステップ {#next-steps}
 
-Goがデータに接続する仕組みを理解したところで、CEP統合の設定に進みましょう：
+Goがデータに接続する仕組みを理解したところで、Brazeダッシュボードでエージェントを設定しましょう：
 
-- [オーケストレーションを設定する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)
+- [Decisioning Studio Goエージェントを設定する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)

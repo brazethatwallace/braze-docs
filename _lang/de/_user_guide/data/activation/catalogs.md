@@ -66,7 +66,7 @@ Sie können jede Art von Daten in einen Katalog einbringen. In der Regel handelt
 
 Kataloge sind ein Feature zur Datenspeicherung. Sie enthalten große Datenmengen, auf die Sie in Ihren Nachrichten zur Personalisierung verweisen können. Um die Daten tatsächlich zu referenzieren, verwenden Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) als Templating-Sprache. Anders gesagt: Kataloge sind der Speicher, in dem die Daten vorgehalten werden, und Liquid ist die Sprache, die die relevanten Daten aus dem Speicher abruft.
 
-Beispiele dafür, wie Sie Liquid zum Abrufen von Kataloginformationen verwenden können, finden Sie in den zusätzlichen Anwendungsfällen unter [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases).
+Beispiele dafür, wie Sie Liquid zum Abrufen von Kataloginformationen verwenden können, finden Sie in den zusätzlichen Anwendungsfällen unter [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases).
 
 ## Einschränkungen beim Datenspeicher {#data-storage-limitations}
 

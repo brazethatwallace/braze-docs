@@ -149,6 +149,41 @@ A lógica de interrupção permite que você interrompa o envio de uma mensagem 
 
 Não. A tag {% raw %}`{% abort_message %}`{% endraw %} aceita uma string estática entre aspas, não personalização com Liquid. Use outra lógica de Liquid antes da tag se precisar de um comportamento condicional de interrupção.
 
+### Como mascaro números de telefone com Liquid? {#how-do-i-mask-phone-numbers-with-liquid}
+
+Você pode mascarar números de telefone usando o filtro `slice` para extrair dígitos específicos e o filtro `append` para combiná-los com caracteres de mascaramento.
+
+#### Mascarar todos os dígitos exceto os quatro últimos {#mask-all-but-the-last-four-digits}
+
+Para exibir um número de telefone de 10 dígitos como `******7890`:
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### Mostrar os três primeiros e os quatro últimos dígitos {#show-the-first-three-and-last-four-digits}
+
+Para exibir um número de telefone de 10 dígitos como `123***7890`:
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
+
 ## Canvas, catálogos e propriedades de gatilho {#canvas-catalogs-and-trigger-properties}
 
 ### Por que meu Liquid disparado por API está falhando na Braze? {#why-is-my-api-triggered-liquid-failing-in-braze}

@@ -34,7 +34,7 @@ tool:
 
 - **ユーザーごとの最新エントリ：** [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)エンドポイントを使用して、[`canvases_received`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)フィールドを含むセグメントをエクスポートします。各キャンバスについて、エクスポートにはそのユーザーの`last_entered`と`last_exited`のタイムスタンプが含まれます。`canvases_received`フィールドには過去90日間のデータが含まれます。
 - **再エントリを含むすべてのエントリ：** Braze CurrentsまたはSnowflake Data Sharingの[キャンバスエントリイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#canvas-entry-events)を使用します。各`users.canvas.Entry`イベントは1回のキャンバスエントリを表し、`time`タイムスタンプが含まれます。ユーザーごとのイベント数をカウントして、エントリ回数を確認します。
-- **ダッシュボードでユーザーリストを作成する：** **キャンバスバリエーションにエントリ済み**フィルターを使用してセグメントを作成し、そのセグメントをCSVにエクスポートします。[キャンバスのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#user-didnt-enter-a-canvas)を参照してください。
+- **ダッシュボードでユーザーリストを作成する：** **キャンバスバリエーションにエントリ済み**フィルターを使用してセグメントを作成し、そのセグメントをCSVにエクスポートします。[キャンバスのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#user-didnt-enter-the-canvas)を参照してください。
 
 {% alert note %}
 Currentsを統合しておらず、過去のすべてのエントリタイムスタンプが必要な場合は、Brazeのカスタマーサクセスマネージャーにお問い合わせください。

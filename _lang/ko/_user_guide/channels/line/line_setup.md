@@ -233,9 +233,20 @@ LINE은 사용자 구독 상태의 정보 소스입니다. 사용자의 LINE ID(
 {: start="2"}
 2. **이벤트 업데이트:** 사용자의 구독 상태를 업데이트하는 데 사용됩니다. Braze가 통합된 LINE 채널에 대한 사용자 이벤트 업데이트를 수신하고 이벤트가 팔로우인 경우, 고객 프로필의 구독 그룹 상태가 `subscribed`로 설정됩니다. 이벤트가 언팔로우인 경우, 고객 프로필의 구독 그룹 상태가 `unsubscribed`로 설정됩니다.<br><br>- 일치하는 `native_line_id`가 있는 모든 Braze 고객 프로필이 자동으로 업데이트됩니다. <br>- 이벤트에 대해 일치하는 고객 프로필이 없으면 Braze가 [익명 사용자를 생성]({{site.baseurl}}/line/user_management)합니다.
 
+## 다른 워크스페이스에서 LINE 채널 재통합 {#re-integrate-a-line-channel-in-another-workspace}
+
+다른 Braze 워크스페이스에서 LINE 채널을 사용하려면:
+
+1. 원래 워크스페이스에서 해당 채널의 구독 그룹을 아카이브합니다.
+2. 대상 워크스페이스에서 [2단계: LINE 채널 통합](#step-2-integrate-line-channel)을 사용하여 채널을 통합합니다.
+
+두 워크스페이스 모두에서 [구독 그룹 관리]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) 권한이 있는지 확인하세요. 두 워크스페이스 모두에 권한이 없으면 채널이 이미 연결되어 있다는 오류와 함께 통합이 실패합니다.
+
+아카이브가 구독 그룹에 미치는 영향에 대해서는 [LINE 구독 그룹]({{site.baseurl}}/line/subscription_groups#archive-behavior)을 참조하세요.
+
 ## 사용 사례 {#use-cases}
 
-위의 설정 단계를 따른 후 사용자가 업데이트될 수 있는 사용 사례입니다.
+설정 단계를 따른 후 사용자가 업데이트될 수 있는 사용 사례입니다.
 
 ### 기존 Braze 고객 프로필이 이미 LINE 채널을 팔로우하는 경우 {#existing-braze-user-profile-already-follows-line-channel}
 
@@ -243,13 +254,13 @@ LINE은 사용자 구독 상태의 정보 소스입니다. 사용자의 LINE ID(
 2. 구독 동기화 도구가 실행되어 사용자가 LINE 채널을 팔로우하고 있음을 확인하고, 고객 프로필을 구독 상태 `subscribed`로 업데이트합니다.
 3. 구독 상태 변경이 발생하면(예: 사용자가 차단, 친구 삭제 또는 재팔로우하는 경우) Braze가 LINE에서 업데이트를 수신하고 `native_line_id`에 따라 고객 프로필을 업데이트합니다.
 
-#### 기존 고객 프로필이 LINE 채널을 차단, 친구 삭제 또는 언팔로우한 경우 {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
+### 기존 고객 프로필이 LINE 채널을 차단, 친구 삭제 또는 언팔로우한 경우 {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
 
 1. Braze 고객 프로필이 `native_line_id` 속성으로 업데이트됩니다. 기본 구독 상태는 `unsubscribed`입니다.
 2. 구독 동기화 도구가 사용자가 LINE 채널을 팔로우하고 있지 않음을 확인하고 사용자의 구독 상태는 `unsubscribed`로 유지됩니다.
 3. 사용자가 나중에 채널을 팔로우하면 Braze가 LINE에서 업데이트를 수신하고 고객 프로필을 구독 상태 `subscribed`로 업데이트합니다.
 
-##### LINE 팔로우 후 고객 프로필이 생성되는 경우 {#user-profile-creation-occurs-after-line-follow}
+### LINE 팔로우 후 고객 프로필이 생성되는 경우 {#user-profile-creation-occurs-after-line-follow}
 
 1. 채널에 새 LINE 팔로워가 생깁니다.
 2. Braze가 팔로워의 LINE ID로 `native_line_id` 속성이 설정되고, 팔로워의 LINE ID로 사용자 별칭 `line_id`가 설정된 익명 고객 프로필을 생성합니다. 프로필의 구독 상태는 `subscribed`입니다.
@@ -274,7 +285,7 @@ LINE은 사용자 구독 상태의 정보 소스입니다. 사용자의 LINE ID(
 
   - `native_line_id`를 설정하여 새 고객 프로필을 생성할 수 있습니다([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) 사용). 이 새 프로필은 기존 익명 고객 프로필의 구독 상태를 상속합니다. 이로 인해 동일한 `native_line_id`를 공유하는 여러 프로필이 생길 수 있습니다. 이는 [5단계](#step-5-merge-profiles-optional)에 설명된 프로세스에서 `/users/merge` 엔드포인트를 사용하여 언제든지 병합할 수 있습니다.
 
-##### LINE 팔로우 전에 고객 프로필이 생성되는 경우 {#user-profile-creation-occurs-before-line-follow}
+### LINE 팔로우 전에 고객 프로필이 생성되는 경우 {#user-profile-creation-occurs-before-line-follow}
 
 1. 새 사용자를 확보하고 정보를 Braze에 전송합니다. 새 고객 프로필이 생성됩니다(프로필 1).
 2. 사용자가 LINE 계정을 팔로우합니다.

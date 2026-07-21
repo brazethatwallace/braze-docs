@@ -36,7 +36,7 @@ Das folgende Video bietet einen Überblick darüber, wie Sie Berichte im Bericht
     - Kanäle
     - Tags
 
-    Beachten Sie, dass Ihre Auswahl bei **Zeilen** beeinflusst, [welche Metriken Sie anzeigen können](#metrics-availability). Beispielsweise können Sie Multivarianten-Metriken nur anzeigen, wenn Sie über **Canvases** oder **Campaigns** mit einem **Varianten**-Drilldown berichten. Sie können diese Metriken nicht anzeigen, wenn Sie über **Campaigns und Canvases** berichten, selbst wenn diese Campaigns und Canvases Multivarianten-Tests enthalten.
+    Beachten Sie, dass Ihre Auswahl bei **Zeilen** beeinflusst, [welche Metriken Sie anzeigen können](#metrics-availability). Beispielsweise können Sie multivariate Metriken nur anzeigen, wenn Sie über **Canvases** oder **Campaigns** mit einem **Varianten**-Drilldown berichten. Sie können diese Metriken nicht anzeigen, wenn Sie über **Campaigns und Canvases** berichten, selbst wenn diese Campaigns und Canvases multivariate Tests enthalten.
 
 ![Der Abschnitt „Zeilen und Spalten“ mit Feldern zur Auswahl der Zeilen und Gruppierungen für Ihren Bericht.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -67,7 +67,8 @@ Probieren Sie verschiedene Konfigurationen der Drilldown-Optionen aus, um die [v
 8. Wählen Sie dann, abhängig von Ihrer Auswahl in Schritt 3, ob Sie Campaigns, Canvases oder beides manuell oder automatisch zu Ihrem Bericht hinzufügen möchten.
     - **Manuell hinzufügen:** Wählen Sie jede Campaign oder jeden Canvas, die/der in den Bericht aufgenommen werden soll, indem Sie die Filter für **Zuletzt gesendet**-Daten und Tags oder Kanäle verwenden oder nach dem Campaign- oder Canvas-Namen suchen.<br><br>![Der Abschnitt „Campaigns und Canvases manuell hinzufügen“ mit einer Liste von Campaigns zur Auswahl.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Automatisch hinzufügen:** Legen Sie Regeln fest, welche Campaigns oder Canvases in den Bericht aufgenommen werden sollen. Sie müssen nur ein Feld auf dieser Seite auswählen.
-        - Beachten Sie, dass zusätzliche Campaigns oder Canvases, die die von Ihnen festgelegten Bedingungen erfüllen, automatisch zu zukünftigen Ausführungen Ihres Berichts hinzugefügt werden.<br><br>![Der Abschnitt „Campaigns und Canvases automatisch hinzufügen“ mit Feldern zum Festlegen von Regeln, welche Campaigns und Canvases zum Bericht hinzugefügt werden sollen.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - Beachten Sie, dass zusätzliche Campaigns oder Canvases, die die von Ihnen festgelegten Bedingungen erfüllen, automatisch zu zukünftigen Ausführungen Ihres Berichts hinzugefügt werden.
+        - Banner ist keine Option im Dropdown **Kanal**, sodass Sie keine Kanalregeln verwenden können, um Banner-Campaigns oder -Canvases automatisch hinzuzufügen. Sie können Banner-KPIs dennoch in Ihre Berichtsmetriken aufnehmen.<br><br>![Der Abschnitt „Campaigns und Canvases automatisch hinzufügen“ mit Feldern zum Festlegen von Regeln, welche Campaigns und Canvases zum Bericht hinzugefügt werden sollen.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Führen Sie den Bericht aus, indem Sie **Speichern und ausführen** wählen.
 
 {% alert note %}

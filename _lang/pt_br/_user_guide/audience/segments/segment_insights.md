@@ -50,9 +50,9 @@ Os insights de segmento também foram integrados diretamente à visualização *
 Um dos melhores usos dos insights de segmento é responder perguntas sobre o impacto da demografia dos usuários no uso do app e na eficácia das campanhas, como:
 
 - Determinados grupos demográficos de usuários estão tendo um desempenho significativamente melhor ou pior do que a média?
-- Devo repensar a localização de uma Campaign específica?
-- Uma Campaign está engajando um determinado grupo demográfico?
-- Quais metas devo definir para uma Campaign direcionada a um determinado grupo demográfico?
+- Devo repensar a localização de uma campanha específica?
+- Uma campanha está engajando um determinado grupo demográfico?
+- Quais metas devo definir para uma campanha direcionada a um determinado grupo demográfico?
 
 Os insights de segmento podem ajudar a revelar diferenças entre grupos demográficos de usuários. O exemplo a seguir mostra uma comparação da base de usuários de um app por idioma, ilustrando como falantes de inglês tendem a ter LTV e níveis de atividade mais altos do que falantes de outros idiomas.
 
@@ -60,7 +60,7 @@ Os insights de segmento podem ajudar a revelar diferenças entre grupos demográ
 
 Neste exemplo, os falantes de alemão se inscreveram há mais tempo em média, o que pode explicar por que não são mais tão ativos. Isso pode ser devido a vários fatores. Por exemplo, se o app foi lançado primeiro na Europa, mas agora é mais popular nos EUA, onde a maioria das pessoas fala inglês ou espanhol. Para resultados mais robustos, ao analisar KPIs entre grupos demográficos, é sensato testar as descobertas de um estudo geral de demografia (por exemplo, se o idioma impacta o LTV em todos os usuários) analisando uma população menor e mais semelhante para verificar se as descobertas persistem.
 
-Para melhorar as conversões entre falantes de idiomas que não sejam inglês, um bom primeiro passo seria [localizar as campanhas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) para o idioma do dispositivo do usuário e garantir que o texto dessas mensagens esteja engajando os usuários usando uma [Campaign multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) para testar diferentes versões do texto em idioma estrangeiro.
+Para melhorar as conversões entre falantes de idiomas que não sejam inglês, um bom primeiro passo seria [localizar as campanhas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) para o idioma do dispositivo do usuário e garantir que o texto dessas mensagens esteja engajando os usuários usando uma [campanha multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) para testar diferentes versões do texto em idioma estrangeiro.
 
 ### Entendendo indicadores de maior receita {#understanding-indicators-of-higher-revenue}
 
@@ -68,4 +68,4 @@ Converter usuários em compradores pode ser difícil, e tentar empurrar usuário
 
 ![Detalhamento dos insights de segmento para usuários que compartilharam em redes sociais, se inscreveram para promoções e se inscreveram para newsletter.]({% image_buster /assets/img_archive/Segment_Insights_Events1.png %})
 
-Neste caso, relativamente poucos usuários estão atualmente inscritos para mensagens promocionais e não são tão ativos, mas esses usuários geram uma receita vitalícia mais alta. Para aumentar a receita, pode ser uma boa ideia incluir um convite para se inscrever em mensagens promocionais nas campanhas de integração. Para reengajar usuários inativos, um bom plano seria enviar uma [Campaign típica para usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) e redirecionar [usuários que converteram]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#converted-from-campaign) com uma Campaign subsequente para se inscrever em mensagens promocionais.
+Neste caso, relativamente poucos usuários estão atualmente inscritos para mensagens promocionais e não são tão ativos, mas esses usuários geram uma receita vitalícia mais alta. Para aumentar a receita, pode ser uma boa ideia incluir um convite para se inscrever em mensagens promocionais nas campanhas de integração. Para reengajar usuários inativos, um bom plano seria enviar uma [campanha típica para usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users) e redirecionar [usuários que converteram]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#converted-from-campaign) com uma campanha subsequente para se inscrever em mensagens promocionais.

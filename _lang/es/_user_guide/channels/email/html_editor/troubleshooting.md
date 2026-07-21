@@ -29,7 +29,7 @@ Usa este flujo de trabajo cuando el renderizado del correo electrónico HTML o e
 
 1. Valida tu marcado HTML en el editor o en un validador externo.
 2. Envía un [correo electrónico de prueba]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) y anota qué clientes de correo electrónico o navegadores muestran el problema.
-3. Previsualiza con [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision) para comparar el renderizado en distintos clientes.
+3. Previsualiza con [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para comparar el renderizado en distintos clientes.
 4. Descarta [conflictos de extensiones del navegador](#extension-conflicts) si el propio editor se comporta de forma incorrecta.
 5. Si el problema persiste, abre un [ticket de soporte]({{site.baseurl}}/braze_support) con capturas de pantalla de Inbox Vision y de los clientes afectados.
 
@@ -52,7 +52,7 @@ La vista de texto plano elimina tu editor `WYSIWYG` (lo que ves es lo que obtien
 
 Los correos electrónicos se renderizan de forma diferente según los navegadores y los clientes de correo electrónico, así que toma nota de con qué navegadores y clientes de correo electrónico estás experimentando problemas.
 
-- Previsualiza tus correos electrónicos usando [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision) para ver cómo se ven en diferentes navegadores y clientes de correo electrónico.
+- Previsualiza tus correos electrónicos usando [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para ver cómo se ven en diferentes navegadores y clientes de correo electrónico.
 - Una vez que hayas identificado qué navegadores o clientes de correo electrónico están causando problemas, informa a tu equipo de desarrolladores de que necesitarán modificar su HTML y hacer ajustes para adaptarse a esos navegadores o clientes de correo electrónico.
 
 ### Inlining de CSS {#css-inlining}
@@ -63,7 +63,7 @@ Hay ocasiones en las que las vistas previas en Inbox Vision aún no coinciden co
 
 **Síntoma:** Aparecen espacios en blanco o líneas después de las imágenes en los correos electrónicos de prueba.
 
-Si notas espacios en blanco o líneas que aparecen después de las imágenes en tus correos electrónicos de prueba, esto suele deberse a cómo los clientes de correo electrónico renderizan los elementos de nivel inline. Las imágenes son de nivel inline de forma predeterminada y se alinean con la línea base, lo que permite a los navegadores acomodar los descendentes (la parte de letras como "g" o "y" que se extiende por debajo de la línea base). Esto crea un pequeño espacio que aparece como espacio en blanco.
+Si notas espacios en blanco o líneas que aparecen después de las imágenes en tus correos electrónicos de prueba, esto suele deberse a cómo los clientes de correo electrónico renderizan los elementos de nivel inline. Las imágenes son de nivel inline de forma predeterminada y se alinean con la línea base, lo que permite a los navegadores acomodar los descendentes (la parte de letras como «g» o «y» que se extiende por debajo de la línea base). Esto crea un pequeño espacio que aparece como espacio en blanco.
 
 Para solucionarlo, añade `display: block;` al CSS de tu imagen:
 

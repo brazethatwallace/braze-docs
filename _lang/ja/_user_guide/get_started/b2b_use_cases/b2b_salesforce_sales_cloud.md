@@ -187,7 +187,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ## トラブルシューティング {#troubleshooting}
 
-これらのワークフローはSalesforce内でのデバッグ機能が限られているため、Webhookが失敗した理由やエラーが発生したかどうかを調べるには、Brazeの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting)を参照することをおすすめします。
+これらのワークフローはSalesforce内でのデバッグ機能が限られているため、Webhookが失敗した理由やエラーが発生したかどうかを調べるには、Brazeの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)を参照することをおすすめします。
 
 例えば、OAuthトークンの取得に使用された無効なURLによるエラーは、`https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL` と表示されます。
 

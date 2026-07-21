@@ -25,7 +25,7 @@ channel:
 | 노출 횟수 또는 클릭 수가 잘못 보임 | [노출 횟수 및 분석](#impressions-and-analytics) |
 | 이벤트 사용자 로그에서 `triggers`가 누락되거나 비어 있음 | [전달 문제 해결](#delivery-troubleshooting) |
 | 트리거가 반환되었지만 기기에 아무것도 표시되지 않음 | [플랫폼별 표시 문제 해결](#platform-specific-display-troubleshooting) |
-| 인앱 메시지 자산 로드 실패(iOS, `NSURLError` -1008) | [자산 로드(Swift 탭)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| 인앱 메시지 자산 로드 실패(iOS, `NSURLError` -1008) | [자산 로드(Swift 탭)](?sdktab=swift#swift_asset-loading) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="인앱 메시지 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
@@ -67,7 +67,7 @@ Canvas의 인앱 메시지는 REST API가 아닌 SDK를 통해 전송된 이벤�
 다음 항목을 확인하세요:
 
 - SDK가 새 인앱 메시지를 요청하는 **세션 시작** 시점에 사용자가 Segment에 포함되어 있었나요?
-- Campaign(캠페인) 또는 Canvas 타겟팅 규칙에 따라 사용자가 자격이 있거나 재자격이 있었나요? [Campaign 및 Canvas 재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)을 참조하세요.
+- Campaign 또는 Canvas 타겟팅 규칙에 따라 사용자가 자격이 있거나 재자격이 있었나요? [Campaign(캠페인) 및 Canvas 재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)을 참조하세요.
 - [빈도 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)이 적용되었나요?
 - 사용자가 Campaign 대조군에 포함되었나요? Campaign이 A/B 테스트로 구성되어 있는지 확인하세요.
 - 더 높은 우선순위의 인앱 메시지가 대신 표시되었나요? 인앱 메시지 FAQ의 [같은 세션에서 여러 인앱 메시지가 표시될 수 있나요?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#can-multiple-in-app-messages-display-in-the-same-session)를 참조하세요.
@@ -173,7 +173,7 @@ SDK는 세션 시작 시 Braze 서버에 인앱 메시지를 요청합니다. SD
 
 **증상:** 노출 횟수 또는 클릭 수가 예상과 일치하지 않습니다.
 
-- **_노출 횟수_가 _고유 노출 횟수_보다 큼:** 사용자가 여러 기기를 사용하거나 스케줄된 지연으로 인해 동일한 사용자가 두 번 이상 자격을 얻는 경우 예상되는 결과입니다. [Campaign 및 Canvas 재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)을 참조하세요.
+- **_노출 횟수_가 _고유 노출 횟수_보다 큼:** 사용자가 여러 기기를 사용하거나 스케줄된 지연으로 인해 동일한 사용자가 두 번 이상 자격을 얻는 경우 예상되는 결과입니다. [Campaign(캠페인) 및 Canvas 재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)을 참조하세요.
 - **노출 횟수가 예상보다 낮음:** 사용자가 메시지를 보지 않았을 수 있고(노출 횟수는 표시 시 기록됨), 여러 높은 우선순위 메시지가 서로를 가로챌 수 있으며, 트리거 동기화 경합이 적용될 수 있습니다. Canvas 인앱 메시지에 대해서는 [Canvas 인앱 메시지](#canvas-in-app-messages)를 참조하세요. 전체 측정기준 정의는 [인앱 메시지 보고]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) 및 [인앱 메시지 FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq)를 참조하세요.
 - **노출 횟수가 이전보다 낮음:** Segment 및 Campaign 변경 로그를 검토하세요. 더 높은 우선순위의 Campaign에서 동일한 트리거 이벤트를 재사용하지 않았는지 확인하세요.
 

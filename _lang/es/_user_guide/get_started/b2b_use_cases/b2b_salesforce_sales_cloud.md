@@ -187,7 +187,7 @@ Añade un paso posterior a tu actualización de usuario para comprobar si un usu
 
 ## Solución de problemas {#troubleshooting}
 
-Estos flujos de trabajo tienen una capacidad de depuración limitada dentro de Salesforce, por lo que recomendamos consultar el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) de Braze para averiguar por qué falló un webhook y si se produjo algún error.
+Estos flujos de trabajo tienen una capacidad de depuración limitada dentro de Salesforce, por lo que recomendamos consultar el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) de Braze para averiguar por qué falló un webhook y si se produjo algún error.
 
 Por ejemplo, un error causado por una URL no válida utilizada para la recuperación del token OAuth se mostraría como `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`.
 

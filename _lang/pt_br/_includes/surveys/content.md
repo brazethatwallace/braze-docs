@@ -60,10 +60,10 @@ Para controles compartilhados de estilo e composição, consulte:
 {% if include.channel == 'in_app_message' %}
 - [Blocos do editor de arrastar e soltar de mensagens no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Blocos de formulário de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [Blocos de formulário de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - [Blocos do editor de arrastar e soltar de mensagens no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Blocos de formulário de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [Blocos de formulário de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% endif %}
 
 Você pode adicionar os seguintes blocos de formulário às pesquisas:
@@ -153,7 +153,7 @@ Cada gráfico é atualizado em tempo real conforme as respostas chegam. Você po
 
 ![Detalhamento por pergunta da pesquisa usando um gráfico de barras.]({% image_buster /assets/img/surveys/bar-charts-1.png %})
 
-## Redirecionar e acionar {#retarget-and-trigger}
+## Redirecionar e disparar {#retarget-and-trigger}
 
 Durante o acesso antecipado, você pode:
 
@@ -162,27 +162,27 @@ Durante o acesso antecipado, você pode:
 
 {% if include.channel == 'in_app_message' %}
 
-![Configuração de gatilho e filtros de segmentação para acompanhamento de pesquisa.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
+![Configuração de disparo e filtros de segmentação para acompanhamento de pesquisa.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Acionar Campaigns e Canvas quando um usuário conclui uma pesquisa em uma Campaign de mensagem no app.
+- Disparar Campaigns e Canvas quando um usuário conclui uma pesquisa em uma Campaign de mensagem no app.
 
-![Configuração de gatilho e filtro de segmentação para acompanhamento de pesquisa de Campaign de mensagem no app.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![Configuração de disparo e filtro de segmentação para acompanhamento de pesquisa de Campaign de mensagem no app.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% elsif include.channel == 'landing_page' %}
 
-![Configuração de gatilho e filtro de segmentação para acompanhamento de pesquisa de landing page.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
+![Configuração de disparo e filtro de segmentação para acompanhamento de pesquisa de landing page.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-- Acionar Campaigns e Canvas quando um usuário conclui uma pesquisa em uma landing page.
+- Disparar Campaigns e Canvas quando um usuário conclui uma pesquisa em uma landing page.
 
 {% else %}
 
-![Configuração de gatilho e filtros de segmentação para acompanhamento de pesquisa.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
+![Configuração de disparo e filtros de segmentação para acompanhamento de pesquisa.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Acionar Campaigns e Canvas quando um usuário conclui uma pesquisa em uma landing page ou em uma Campaign de mensagem no app.
+- Disparar Campaigns e Canvas quando um usuário conclui uma pesquisa em uma landing page ou em uma Campaign de mensagem no app.
 
-![Configuração de gatilho e filtro de segmentação para acompanhamento de pesquisa de landing page.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
+![Configuração de disparo e filtro de segmentação para acompanhamento de pesquisa de landing page.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-![Configuração de gatilho e filtro de segmentação para acompanhamento de pesquisa de Campaign de mensagem no app.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![Configuração de disparo e filtro de segmentação para acompanhamento de pesquisa de Campaign de mensagem no app.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% endif %}
 
@@ -191,4 +191,4 @@ Durante o acesso antecipado, você pode:
 Durante o acesso antecipado, você está restrito pelo seguinte:
 
 - Não é possível segmentar usuários por respostas de texto longo.
-- O acionamento por pergunta e resposta que não depende de atributos de usuário registrados não está disponível.
+- O disparo por pergunta e resposta que não depende de atributos de usuário registrados não está disponível.

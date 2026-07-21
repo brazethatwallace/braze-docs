@@ -187,7 +187,7 @@ Votre flux Canvas mettra désormais à jour les utilisateurs ayant franchi votre
 
 ## Résolution des problèmes {#troubleshooting}
 
-Ces flux de travail offrent des capacités de débogage limitées dans Salesforce. Nous vous recommandons donc de consulter le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) de Braze pour comprendre pourquoi un webhook a échoué et si des erreurs se sont produites.
+Ces flux de travail offrent des capacités de débogage limitées dans Salesforce. Nous vous recommandons donc de consulter le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) de Braze pour comprendre pourquoi un webhook a échoué et si des erreurs se sont produites.
 
 Par exemple, une erreur causée par une URL invalide utilisée pour la récupération du jeton OAuth s'affichera sous la forme `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`.
 

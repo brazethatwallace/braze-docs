@@ -16,10 +16,7 @@ Using the Braze Audience Sync to Pinterest, brands can elect to add user data fr
 
 **Common use cases for audience syncing include:**
 
-- Targeting high-value users via multiple channels to drive purchases or engagement
-- Retargeting users who are less responsive to other marketing channels
-- Creating suppression audiences to prevent users from receiving advertisements when they're already loyal consumers of your brand
-- Creating Actalike Audiences to acquire new users more efficiently
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 This feature allows brands to control what specific first-party data is shared with Pinterest. At Braze, the integrations you can and cannot share your first-party data with are given the utmost consideration. For more information, refer to our [privacy policy](https://www.braze.com/privacy).
 

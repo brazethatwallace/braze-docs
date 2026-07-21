@@ -254,7 +254,7 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ### Pourquoi est-ce que je ne reçois pas de géorepérages sur mon appareil ? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Pour vérifier si les géorepérages sont bien reçus sur votre appareil, commencez par utiliser l'[outil de débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk) afin de consulter les journaux du SDK. Vous pourrez alors vérifier si les géorepérages sont correctement reçus depuis le serveur et s'il existe des erreurs notables.
+Pour vérifier si les géorepérages sont bien reçus sur votre appareil, commencez par utiliser l'[outil de débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) afin de consulter les journaux du SDK. Vous pourrez alors vérifier si les géorepérages sont correctement reçus depuis le serveur et s'il existe des erreurs notables.
 
 Voici d'autres raisons possibles pour lesquelles les géorepérages peuvent ne pas être reçus sur votre appareil :
 

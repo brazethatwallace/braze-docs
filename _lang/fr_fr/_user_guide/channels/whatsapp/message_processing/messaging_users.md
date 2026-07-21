@@ -156,6 +156,31 @@ Les événements suivants débloquent les messages de réponse :
 
 ![Un parcours d'action avec le déclencheur d'un événement personnalisé effectué `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
 
+### Réponses rapides et messages entrants en dehors de la fenêtre de 24 heures {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+Lorsqu'un utilisateur interagit avec votre entreprise sur WhatsApp — y compris en appuyant sur un bouton de réponse rapide d'un ancien modèle de message — son action compte comme un message entrant. Ce message entrant ouvre une nouvelle fenêtre de service client de 24 heures, même si le modèle d'origine a été envoyé il y a plus de 24 heures.
+
+Dans un Canvas avec des boutons de réponse rapide, les utilisateurs peuvent appuyer sur un bouton plusieurs jours après avoir reçu le modèle de bienvenue et entrer quand même dans le bon parcours d'action. Braze évalue le parcours d'action lorsque le message entrant arrive ; vous n'avez pas besoin d'étendre la durée du parcours d'action au-delà de la valeur par défaut pour capturer les réponses tardives.
+
+Le diagramme suivant illustre un flux de réponse rapide courant :
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### Points importants {#things-to-know}
+
+- L'étape de message de réponse doit toujours se situer dans les 24 heures suivant le message entrant de l'utilisateur. Dans la plupart des flux Canvas, la réponse est envoyée immédiatement après l'évaluation du parcours d'action, ce qui ne pose donc pas de problème.
+- Ne confondez pas la fenêtre de service client de 24 heures avec les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) de Canvas, qui peuvent utiliser une fenêtre allant jusqu'à 30 jours. Les fenêtres de conversion contrôlent l'attribution ; elles n'affectent pas la possibilité d'envoyer un message de réponse.
+- Pour la facturation, consultez [Les messages de réponse WhatsApp sont-ils gratuits ?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
+
 ### Filtrage par un attribut de temps personnalisé {#filtering-by-a-custom-time-attribute}
 
 Si l'audience de votre Campaign ou Canvas WhatsApp basé sur l'action dépend d'un attribut de temps personnalisé se situant dans une fenêtre relative (par exemple, entre maintenant et les prochaines 24 heures), combinez deux filtres comme décrit dans [Temps]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).

@@ -113,7 +113,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 Además de hacer seguimiento de las métricas de compra para segmentación, Braze también registra el número de compras de cada producto y los ingresos generados a lo largo del tiempo. Esto puede ser útil para identificar los productos más populares o medir el impacto de una campaña promocional en las ventas.
 
-Puedes encontrar estos datos en la página del [Informe de ingresos]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data).
+Puedes encontrar estos datos en la página del [Informe de ingresos]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 
 ### Cálculos de ingresos {#revenue-calculations}
 
@@ -167,7 +167,7 @@ $$\text{Valor promedio de compra} = \frac{\text{Gasto total en dólares}}{\text{
 
 Hay dos lugares principales en Braze donde puedes consultar el LTV de tus usuarios:
 
-- Para métricas generales como *Ingresos de por vida* y el *Valor de por vida por usuario* para cada aplicación y sitio, consulta tu [Informe de ingresos]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data).
+- Para métricas generales como *Ingresos de por vida* y el *Valor de por vida por usuario* para cada aplicación y sitio, consulta tu [Informe de ingresos]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 - Para entender los ingresos de por vida de un usuario específico, consulta su [perfil de usuario]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
 
 ##### Impacto de los reembolsos en los ingresos de por vida {#impact-of-refunds-on-lifetime-revenue}
@@ -221,7 +221,7 @@ Una vez aprobado, se pueden añadir propiedades adicionales en el panel en **Con
 
 ### Registrar compras a nivel de pedido {#log-purchases-at-the-order-level}
 
-Para registrar compras a nivel de pedido en lugar de a nivel de producto, usa el nombre del pedido o la categoría del pedido como `product_id`. Consulta nuestra [especificación del objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions) para más información.
+Para registrar compras a nivel de pedido en lugar de a nivel de producto, usa el nombre del pedido o la categoría del pedido como `product_id`. Consulta nuestra [especificación del objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) para más información.
 
 ### Convenciones de nomenclatura de ID de producto {#product-id-naming-conventions}
 

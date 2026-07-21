@@ -125,7 +125,7 @@ Les détails suivants peuvent également affecter la troncature du texte :
 
 ### Étape 1 : Créer une campagne push {#step-1-create-a-push-campaign}
 
-Suivez les [étapes de la campagne]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) pour composer une notification push pour iOS. Vous utiliserez le même composeur que celui que vous utilisez pour configurer des notifications push qui ne contiennent pas de contenu enrichi.
+Suivez les [étapes de la campagne]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) pour composer une notification push pour iOS. Vous utiliserez le même composeur que celui que vous utilisez pour configurer des notifications push qui ne contiennent pas de contenu enrichi.
 
 ### Étape 2 : Ajouter des médias {#step-2-add-media}
 

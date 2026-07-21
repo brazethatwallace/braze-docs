@@ -49,6 +49,8 @@ npm install --save @braze/web-sdk
 
 ## Schnellstart {#quick-start}
 
+Das folgende Snippet zeigt die Mindestkonfiguration, die zur Initialisierung des Braze Web SDK erforderlich ist.
+
 ``` typescript
 import * as braze from "@braze/web-sdk";
 
@@ -521,7 +523,7 @@ if (banner) {
 #### Banner-Updates abonnieren {#subscribe-to-banner-updates}
 
 ``` typescript
-import { subscribeToBannersUpdates } from "@braze/web-sdk";
+import { insertBanner, subscribeToBannersUpdates } from "@braze/web-sdk";
 
 subscribeToBannersUpdates((banners) => {
     Object.entries(banners).forEach(([placementId, banner]) => {
@@ -535,6 +537,39 @@ subscribeToBannersUpdates((banners) => {
     });
 });
 ```
+
+#### Banner in einer benutzerdefinierten UI schließen {#dismiss-banners-in-a-custom-ui}
+
+``` typescript
+import { dismissBanner, getBanner, subscribeToBannersUpdates } from "@braze/web-sdk";
+
+subscribeToBannersUpdates((banners) => {
+    const banner = getBanner("homepage_banner");
+    const container = document.getElementById("custom-banner-container");
+    if (!container) {
+        return;
+    }
+
+    if (!banner) {
+        container.replaceChildren();
+        return;
+    }
+
+    banner.subscribeToDismissedEvent(() => {
+        console.log("Dismissed banner:", banner);
+    });
+
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Close";
+    closeButton.addEventListener("click", () => {
+        dismissBanner(banner);
+    });
+
+    // Render your custom UI here and include the close button.
+});
+```
+
+Wenn Sie `dismissBanner(banner)` aufrufen, übernimmt das SDK die Verwaltung des Banner-Schließstatus, entfernt das Banner aus den aktiven Banner-Updates, benachrichtigt die Abonnent:innen des Schließ-Events des Banners und synchronisiert das Schließen mit Braze. Benutzerdefinierte UIs sollten `subscribeToBannersUpdates` verwenden, um auf das Entfernen des geschlossenen Banners zu reagieren, anstatt `dismissBanner` nur als lokale UI-Änderung oder reine Analytics-Protokollierungsmethode zu behandeln.
 
 #### Banner-Aktualisierung anfordern {#request-banner-refresh}
 
@@ -787,7 +822,8 @@ Electron unterstützt Web-Push-Benachrichtigungen nicht offiziell (siehe: dieses
 ### Service Worker (Push-Benachrichtigungen) {#service-worker-push-notifications}
 
 - **Erforderlich**: Der Braze-Service-Worker muss eingebunden werden, damit Push-Benachrichtigungen funktionieren
-- **Registrierung**: Registrieren Sie den Service Worker in Ihrem Website-Code mit `navigator.serviceWorker.register()`
+- **Standardregistrierung**: Standardmäßig registriert und verwaltet das Braze Web SDK Ihren Service Worker automatisch, wenn `requestPushPermission()` aufgerufen wird, sowie zu Beginn jeder neuen Sitzung für Nutzer:innen, die bereits die Push-Berechtigung erteilt haben. Sie müssen dennoch eine Service-Worker-Datei am erwarteten Speicherort hosten, die den Braze-Service-Worker-Code enthält.
+- **Eigenen Service Worker verwalten**: Wenn Sie bereits einen Service Worker in Ihrer Anwendung verwalten, setzen Sie die Initialisierungsoption `manageServiceWorkerExternally` auf `true`, fügen Sie den Braze-Service-Worker-Code in Ihre Service-Worker-Datei ein und registrieren Sie ihn selbst mit `navigator.serviceWorker.register()`
 - **Push-Berechtigungen**: Rufen Sie `braze.requestPushPermission()` als Reaktion auf Nutzerinteraktionen auf (z. B. Button-Klicks). Verwenden Sie Soft-Push-Prompts (benutzerdefinierte UI), bevor Sie die Browser-Berechtigung anfordern
 
 ### Tag-Manager {#tag-managers}
@@ -795,6 +831,10 @@ Electron unterstützt Web-Push-Benachrichtigungen nicht offiziell (siehe: dieses
 #### Tealium iQ
 
 Tealium iQ bietet eine grundlegende schlüsselfertige Braze-Integration. Um die Integration zu konfigurieren, suchen Sie in der Tealium Tag-Management-Oberfläche nach Braze und geben Sie den Web SDK API-Schlüssel aus Ihrem Dashboard an. Weitere Details oder ausführliche Unterstützung bei der Tealium-Konfiguration finden Sie in unserer [Integrationsdokumentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager.
+
+#### Google Tag Manager
+
+Das Web SDK kann über ein benutzerdefiniertes HTML-Tag in Ihrem Google Tag Manager-Container initialisiert und aufgerufen werden. Sehen Sie sich unsere [Google Tag Manager-Beispiel-App](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager) an, um ein Beispiel für das Senden von Events an Braze über GTM zu erhalten, oder lesen Sie unsere [Integrationsdokumentation](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager) für weitere Details.
 
 #### Andere Tag-Manager {#other-tag-managers}
 
@@ -804,11 +844,13 @@ Braze kann auch mit anderen Tag-Management-Lösungen kompatibel sein, indem Sie 
 
 ## Bibliotheken {#libraries}
 
+Die folgende Tabelle beschreibt die verfügbaren Braze Web SDK-Distributionen.
+
 | Name | Beschreibung | npm | CDN-URL |
 | ---- | ------------ | --- | ------- |
-| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code einschließlich der UI. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js |
-| Core | Enthält das SDK ohne UI. Sie müssen Ihre eigene UI für In-App Messages und Content Cards implementieren, wenn Sie diese Version des SDK verwenden. Unsere UI-Elemente sind vollständig über CSS anpassbar, daher empfehlen wir generell die Integration der vollständigen Bibliothek. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js |
-| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js |
+| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code, einschließlich UI-Code. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.9/braze.min.js |
+| Core | Enthält das SDK ohne UI. Implementieren Sie Ihre eigene UI für In-App Messages und Content Cards, wenn Sie diese Version des SDK verwenden. Verwenden Sie die vollständige Bibliothek für die meisten Integrationen, da sie anpassbare UI-Elemente über CSS bereitstellt. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.core.min.js |
+| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.no-amd.min.js |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliotheken" }
 
 ## Unterstützte Browser {#supported-browsers}
@@ -819,7 +861,7 @@ Braze kann auch mit anderen Tag-Management-Lösungen kompatibel sein, indem Sie 
 
 ## Debugging und Fehlerbehebung {#debugging-troubleshooting}
 
-Übergeben Sie die Option `enableLogging: true` an die Initialisierungsfunktion (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`), damit Braze in die JavaScript-Konsole loggt. Dies ist wertvoll für die Entwicklung, aber für alle Nutzer:innen sichtbar. Entfernen Sie diese Option daher oder [stellen Sie einen alternativen Logger bereit](https://js.appboycdn.com/web-sdk/6.8/doc/modules/braze.html#setlogger), bevor Sie Ihre Seite in Produktion bringen.
+Übergeben Sie die Option `enableLogging: true` an die Initialisierungsfunktion (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`), damit Braze in die JavaScript-Konsole loggt. Dies ist wertvoll für die Entwicklung, aber für alle Nutzer:innen sichtbar. Entfernen Sie diese Option daher oder [stellen Sie einen alternativen Logger bereit](https://js.appboycdn.com/web-sdk/6.9/doc/modules/braze.html#setlogger), bevor Sie Ihre Seite in Produktion bringen.
 
 ## Font Awesome
 
@@ -833,7 +875,7 @@ Braze verwendet [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.7.0
 
 ## Kontakt {#contact}
 
-Wenn Sie Fragen haben, kontaktieren Sie bitte [support@braze.com](mailto:support@braze.com).
+Wenn Sie Fragen haben, wenden Sie sich an den technischen Support von Braze.
 <!-- END GENERATED README CONTENT -->
 
 Für Repository-Details und Beispielprojekte siehe [https://github.com/braze-inc/braze-web-sdk](https://github.com/braze-inc/braze-web-sdk).

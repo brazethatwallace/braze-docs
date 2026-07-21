@@ -43,18 +43,18 @@ Sehen Sie sich das folgende Video an, um einen optionalen Überblick über die E
 
 ## Locales verwenden {#use-locales}
 
-### 1. Schritt: Locales einrichten {#step-1-set-up-locales}
+### Schritt 1: Locales einrichten {#step-1-set-up-locales}
 
 Bevor Sie Übersetzungen zu einer Nachricht hinzufügen können, müssen Sie zunächst [die Locales erstellen, die Sie unterstützen möchten]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings). Locales definieren die Sprach- (und optional Regions-)Varianten, die für das Messaging verfügbar sind.
 
-### 2. Schritt: Inhalte für die Übersetzung markieren {#step-2-mark-content-for-translation}
+### Schritt 2: Inhalte für die Übersetzung markieren {#step-2-mark-content-for-translation}
 
 Umschließen Sie Text, den Sie übersetzen möchten, mit den Liquid-Übersetzungs-Tags {% raw %}`{% translation your_id_here %}` und `{% endtranslation %}`{% endraw %} und weisen Sie eine Tag-ID zu. Übersetzungs-Tag-IDs müssen innerhalb einer Nachricht eindeutig sein. Verwenden Sie semantische ID-Namen, die den Text klar beschreiben, wie z. B. {% raw %}`{% translation header %}`{% endraw %}.
 
 Hier ist ein Beispiel für eine zur Übersetzung markierte Nachricht: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Markieren Sie den Text, den Sie übersetzen möchten, und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn in Übersetzungs-Tags einzuschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Personalisierung hinzufügen** in der linken Seitenleiste, um Übersetzungs-Tags hinzuzufügen.
+Markieren Sie den Text, den Sie übersetzen möchten, und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn in Übersetzungs-Tags einzuschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Personalisierung hinzufügen**, um Übersetzungs-Tags hinzuzufügen.
 {% endalert %}
 
 #### URLs lokalisieren {#localize-urls}
@@ -131,7 +131,7 @@ Dieser Text ist **falsch** eingeschlossen:
 
 {% enddetails %}
 
-### 3. Schritt: Locales zu Ihrer Nachricht hinzufügen {#step-3-add-locales-to-your-message}
+### Schritt 3: Locales zu Ihrer Nachricht hinzufügen {#step-3-add-locales-to-your-message}
 
 Nachdem Sie Übersetzungs-Tags zu Ihrer Nachricht hinzugefügt haben, wählen Sie im Editor **Sprachen verwalten** (in den Drag-and-Drop-Editoren für E-Mail und Content Blocks: **Sprachen**) und wählen Sie mindestens ein Locale aus, für das Sie Übersetzungen hinzufügen möchten.
 
@@ -149,7 +149,7 @@ Im Modal **Sprachen verwalten** erscheinen Content Blocks mit gespeicherten Übe
 Stellen Sie sicher, dass jeder Content-Block Übersetzungen für jedes Locale enthält, das zu Ihrer Nachricht hinzugefügt wurde. Wenn einem Content-Block Übersetzungen für eines der hinzugefügten Locales fehlen, wird er für Nutzer:innen in diesem Locale in seiner Originalsprache angezeigt.
 {% endalert %}
 
-### 4. Schritt: Übersetzungen hinzufügen {#step-4-add-translations}
+### Schritt 4: Übersetzungen hinzufügen {#step-4-add-translations}
 
 Nachdem Sie Locales ausgewählt haben, fügen Sie Übersetzungen zu Ihrer Nachricht mit einer der folgenden Methoden hinzu:
 
@@ -183,7 +183,7 @@ Wenn Sie die Übersetzungs-API mit Canvas-Schritten verwenden, die nach dem Star
 {% endtab %}
 {% endtabs %}
 
-### 5. Schritt: Übersetzungen in der Vorschau anzeigen {#step-5-preview-translations}
+### Schritt 5: Übersetzungen in der Vorschau anzeigen {#step-5-preview-translations}
 
 Um eine Vorschau Ihrer Nachricht anzuzeigen, wählen Sie die Option **Mehrsprachige:r Nutzer:in** aus dem Dropdown **Vorschau als Nutzer:in**. So können Sie zwischen verschiedenen Locale-Definitionen wechseln, um alle Übersetzungen Ihrer Nachricht in der Vorschau anzuzeigen.
 
@@ -245,7 +245,7 @@ Auf Nachrichtenebene legen Sie die Barrierefreiheitssprache im Abschnitt **Barri
 
 ##### Locale-Ebene {#locale-level}
 
-Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Einstellungen für die Lokalisierung** fest. Sie können {% raw %}`{{accessibility_language}}`{% endraw %} im Abschnitt **Barrierefreiheit** verwenden, damit die Dokument- oder Card-Sprache diesen Locale-Werten zugeordnet wird.
+Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Lokalisierungseinstellungen** fest. Sie können {% raw %}`{{accessibility_language}}`{% endraw %} im Abschnitt **Barrierefreiheit** verwenden, damit die Dokument- oder Card-Sprache diesen Locale-Werten zugeordnet wird.
 
 Ob dieses Token bei neuen Nachrichten standardmäßig angezeigt wird, hängt vom Kanal und Editor ab. Beispielsweise verhalten sich In-App Messages und Banner anders als Landing-Pages und Drag-and-Drop-E-Mails. Weitere Informationen finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
 

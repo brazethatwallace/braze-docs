@@ -47,7 +47,7 @@ No caso de uma propriedade de entrada do Canvas ser nula ou estar em branco, voc
 ```
 {%endraw%}
 
-Para saber mais sobre como interromper mensagens com Liquid, confira nossa [documentação de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages).
+Para saber mais sobre como interromper mensagens com Liquid, confira nossa [documentação de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ## Propriedades de entrada globais do Canvas {#global-canvas-entry-properties}
 

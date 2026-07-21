@@ -29,7 +29,7 @@ Verwenden Sie diesen Workflow, wenn das Rendering oder das Verhalten des Editors
 
 1. Validieren Sie Ihr HTML-Markup im Editor oder einem externen Validator.
 2. Senden Sie eine [Test-E-Mail]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) und notieren Sie, welche E-Mail-Clients oder Browser das Problem zeigen.
-3. Nutzen Sie die Vorschau mit [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision), um das Rendering über verschiedene Clients hinweg zu vergleichen.
+3. Nutzen Sie die Vorschau mit [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), um das Rendering über verschiedene Clients hinweg zu vergleichen.
 4. Schließen Sie [Erweiterungskonflikte](#extension-conflicts) aus, wenn sich der Editor selbst ungewöhnlich verhält.
 5. Wenn das Problem weiterhin besteht, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support) mit Screenshots aus Inbox Vision und den betroffenen Clients.
 
@@ -46,13 +46,13 @@ Bestimmte Browser-Erweiterungen können Probleme mit dem E-Mail-Editor verursach
 - Braze-E-Mails in einem Browser bearbeiten, in dem Grammarly nicht als Browser-Erweiterung installiert ist
 - Ihren Braze Account Manager kontaktieren und darum bitten, Ihre E-Mail-Editoren auf reines HTML oder Nur-Text umzustellen.
 
-Die Nur-Text-Ansicht entfernt Ihren `WYSIWYG`-Editor (What You See Is What You Get), daher sollten Sie zunächst sicherstellen, dass alle Team-Mitglieder mit HTML vertraut sind, bevor Sie diese Änderung anfordern.
+Die Nur-Text-Ansicht entfernt Ihren `WYSIWYG`-Editor (What You See Is What You Get), daher sollten Sie zunächst sicherstellen, dass alle Teammitglieder mit HTML vertraut sind, bevor Sie diese Änderung anfordern.
 
 ### E-Mail-Rendering {#email-rendering}
 
 E-Mails werden je nach Browser und E-Mail-Client unterschiedlich dargestellt. Notieren Sie sich daher, bei welchen Browsern und E-Mail-Clients Probleme auftreten.
 
-- Nutzen Sie die Vorschau Ihrer E-Mails mit [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision), um zu sehen, wie Ihre E-Mails in verschiedenen Browsern und E-Mail-Clients aussehen.
+- Nutzen Sie die Vorschau Ihrer E-Mails mit [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), um zu sehen, wie Ihre E-Mails in verschiedenen Browsern und E-Mail-Clients aussehen.
 - Nachdem Sie festgestellt haben, welche Browser oder E-Mail-Clients Probleme verursachen, informieren Sie Ihr Entwickler:innen-Team, damit es das HTML anpassen und Änderungen für diese Browser oder E-Mail-Clients vornehmen kann.
 
 ### CSS-Inlining {#css-inlining}

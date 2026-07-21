@@ -296,27 +296,27 @@
   },
   {
     "source": "/docs/assets/download_file/braze_entitlements_handbook_25.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/assets/download_file/braze_success_and_support_services_handbook_21.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/assets/download_file/braze_success_and_support_services_handbook_22.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/assets/download_file/braze_success_and_support_services_handbook_23v17.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/assets/download_file/braze_success_and_support_services_handbook_24_2.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
@@ -6326,7 +6326,7 @@
   },
   {
     "source": "/docs/es/user_guide/brazeai/decisioning_studio/building_agents",
-    "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent",
+    "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {
@@ -6341,7 +6341,7 @@
   },
   {
     "source": "/docs/es/user_guide/brazeai/decisioning_studio/go/configuring_braze",
-    "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {
@@ -7136,7 +7136,7 @@
   },
   {
     "source": "/docs/fr/user_guide/brazeai/decisioning_studio/integration",
-    "destination": "/docs/fr/user_guide/brazeai/decisioning_studio/get_started",
+    "destination": "/docs/fr/user_guide/brazeai/decisioning_studio",
     "permanent": true
   },
   {
@@ -7597,11 +7597,6 @@
   {
     "source": "/docs/granular_permissions_migration",
     "destination": "/docs/user_guide/administer/global/user_management/permissions",
-    "permanent": true
-  },
-  {
-    "source": "/docs/handbooks",
-    "destination": "https://braze.com/unlisted_docs/handbooks",
     "permanent": true
   },
   {
@@ -10752,11 +10747,6 @@
   {
     "source": "/docs/message_usage_dashboard",
     "destination": "/docs/credits_usage_dashboard",
-    "permanent": true
-  },
-  {
-    "source": "/docs/messaging_interaction_data",
-    "destination": "https://braze.com/unlisted_docs/messaging_interaction_data",
     "permanent": true
   },
   {
@@ -13931,27 +13921,22 @@
   },
   {
     "source": "/docs/services_handbook",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/services_handbook_21",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/services_handbook_22",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/setting_up_shopify_legacy",
     "destination": "/docs/partners/ecommerce/shopify/shopify_overview",
-    "permanent": true
-  },
-  {
-    "source": "/docs/shopify_collections_sync",
-    "destination": "/docs/docs_pages/redirects/shopify_collections_sync",
     "permanent": true
   },
   {
@@ -13962,11 +13947,6 @@
   {
     "source": "/docs/shopify_historical_backfill_legacy",
     "destination": "/docs/partners/ecommerce/shopify/shopify_data_features#historical-backfill",
-    "permanent": true
-  },
-  {
-    "source": "/docs/shopify_multiple_store",
-    "destination": "/docs/docs_pages/redirects/multiple_stores",
     "permanent": true
   },
   {
@@ -13982,11 +13962,6 @@
   {
     "source": "/docs/shopify_user_identity",
     "destination": "/docs/partners/ecommerce/shopify/shopify_overview",
-    "permanent": true
-  },
-  {
-    "source": "/docs/shopify_user_reconciliation",
-    "destination": "/docs/docs_pages/redirects/shopify_user_reconciliation",
     "permanent": true
   },
   {
@@ -14012,11 +13987,6 @@
   {
     "source": "/docs/sql_segments_tables",
     "destination": "/docs/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables",
-    "permanent": true
-  },
-  {
-    "source": "/docs/target_approvals",
-    "destination": "/docs/docs_pages/redirects/target_approvals",
     "permanent": true
   },
   {
@@ -14901,7 +14871,32 @@
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/building_agents",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/use_cases",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples",
     "permanent": true
   },
   {
@@ -14971,17 +14966,17 @@
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {

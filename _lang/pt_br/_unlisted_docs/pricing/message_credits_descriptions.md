@@ -16,23 +16,22 @@ Observe que a "Proporção de Créditos" referenciada nesta página é definida 
 
 ## Sumário {#table-of-contents}
 
-- [Descrições dos Créditos de Ação da Braze](#braze-action-credits-descriptions)
-  - [Detalhes do canal de e-mail](#email-channel-details)
-  - [Detalhes dos canais SMS, MMS e RCS](#sms-mms-and-rcs-channel-details)
-    - [Segmentos de SMS](#sms-segments)
-    - [Mensagens MMS](#mms-messages)
-    - [Tipos de RCS](#rcs-types)
-  - [Detalhes do canal WhatsApp](#whatsapp-channel-details)
-    - [Detalhamento por região de cobrança](#billing-region-breakdown)
-  - [Detalhes do Agent Console](#agent-console-details)
-  - [Detalhes de canais adicionais](#additional-channel-details)
-    - [LINE](#line)
-    - [KakaoTalk](#kakaotalk)
-    - [Content Cards](#content-cards)
-    - [Banners](#banners)
-    - [Audience Sync](#audience-sync)
-    - [Arquivamento de mensagem](#message-archiving)
-    - [Webhooks](#webhooks)
+- [Detalhes do canal de e-mail](#email-channel-details)
+- [Detalhes dos canais SMS, MMS e RCS](#sms-mms-and-rcs-channel-details)
+  - [Segmentos de SMS](#sms-segments)
+  - [Mensagens MMS](#mms-messages)
+  - [Tipos de RCS](#rcs-types)
+- [Detalhes do canal WhatsApp](#whatsapp-channel-details)
+  - [Detalhamento por região de cobrança](#billing-region-breakdown)
+- [Detalhes do Agent Console](#agent-console-details)
+- [Detalhes de canais adicionais](#additional-channel-details)
+  - [LINE](#line)
+  - [KakaoTalk](#kakaotalk)
+  - [Content Cards](#content-cards)
+  - [Banners](#banners)
+  - [Audience Sync](#audience-sync)
+  - [Arquivamento de mensagem](#message-archiving)
+  - [Webhooks](#webhooks)
 
 ## Detalhes do canal de e-mail {#email-channel-details}
 
@@ -178,5 +177,5 @@ Consulte nossa [documentação de arquivamento de mensagem]({{site.baseurl}}/use
 As proporções de créditos de webhooks são denominadas em incrementos de mil webhooks enviados a partir da plataforma Braze. Por padrão, seu contrato inclui cem mil webhooks para cada Período do seu Prazo de Assinatura. Webhooks adicionais serão cobrados conforme seu Formulário de Pedido.
 
 {% alert note %}
-Consulte nossa [documentação de webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) para saber mais sobre Webhooks da Braze.
+Consulte nossa [documentação de webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) para saber mais sobre webhooks da Braze.
 {% endalert %}

@@ -37,7 +37,7 @@ While Braze provides instructions on how to set up rich push, the actual renderi
 
 ### Step 1: Create a push campaign
 
-Follow the steps to [create a campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) to compose a push notification for Android. You will be using the same composer for setting up push notifications that don't contain rich content.
+Follow the steps to [create a campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) to compose a push notification for Android. You will be using the same composer for setting up push notifications that don't contain rich content.
 
 ### Step 2: Add captioning
 

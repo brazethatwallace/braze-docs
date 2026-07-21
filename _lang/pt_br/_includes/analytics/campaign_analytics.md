@@ -186,6 +186,13 @@ O painel **WhatsApp Performance** descreve o desempenho da sua mensagem em vári
 
 ![Painel de desempenho do WhatsApp que inclui uma tabela de métricas para a Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Créditos versus contagens de envio {#credits-versus-send-counts}
+
+As contagens de envio do WhatsApp na análise de dados da campanha refletem tentativas de entrega. Os créditos consumidos podem diferir quando o Meta cobra por categoria de mensagem (marketing, utilidade, autenticação, serviço).
+
+- Mensagens de resposta compostas na Braze não consomem créditos de WhatsApp da Braze.
+- Use **Analytics** > **Daily Stats** para volume direcional de envio. Detalhamentos de créditos por campanha ou Canvas não estão disponíveis.
+
 {% endif %}
 
 Se você quiser simplificar sua visualização, clique em <i class="fas fa-plus"></i> **Add/Remove Columns** e desmarque quaisquer métricas conforme desejado. Por padrão, todas as métricas são exibidas.
@@ -872,6 +879,8 @@ Aqui estão algumas métricas importantes do WhatsApp que você pode ver na aná
         </tr>
     </tbody>
 </table>
+
+Se as falhas estiverem elevadas, consulte [Investigar falhas de envio do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
 
 #### Métricas de bloqueio e denúncia pelo usuário final {#end-user-blocking-and-reporting-metrics}
 

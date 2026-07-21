@@ -36,7 +36,7 @@ En este método, tienes que realizar las siguientes tareas:
 2. Integra Braze con Zeotap a través de Symphony.
 
 - `User traits` deben asignarse a los respectivos campos de Braze en la pestaña **Data To Send**. Si asignas los atributos `Event` y `Purchase`, se producirá una duplicación de eventos dentro de Braze.
-- Asigna `External ID` a `User ID` configurado al configurar el SDK de Braze.
+- Asigna `External ID` al `User ID` configurado al configurar el SDK de Braze.
 
 Cuando la integración se haya configurado correctamente, podrás crear campañas de correo electrónico y notificaciones push basadas en atributos personalizados enviados a Braze a través de Symphony.
 
@@ -88,7 +88,7 @@ En esta sección puedes encontrar información detallada sobre todos los campos 
 
 | Campo de Braze | Tipo de asignación | Descripción |
 | --- | --- | --- |
-| ID externo | Selección desplegable | Este es el `User ID` persistente definido por Braze para rastrear a los usuarios a través de dispositivos y plataformas. Te recomendamos que asignes `User ID` a `External ID`; de lo contrario, Zeotap puede enviar el correo electrónico como alias de usuario.<br><br>Zeotap te recomienda que asignes el `hashed email` disponible en el catálogo de Zeotap al `External ID`. |
+| ID externo | Selección desplegable | Este es el `User ID` persistente definido por Braze para rastrear a los usuarios a través de dispositivos y plataformas. Te recomendamos que asignes `User ID` a `External ID`; de lo contrario, Zeotap puede enviar el correo electrónico como alias de usuario.<br><br>Zeotap recomienda que asignes el `hashed email` disponible en el catálogo de Zeotap al `External ID`. |
 | Correo electrónico | Asignación estática | Está asignado a `Email Raw` en el catálogo de Zeotap. |
 | Teléfono | Asignación estática | Está asignado a `Mobile Raw` en el catálogo de Zeotap.<br><br>• Braze acepta números de teléfono en formato `E.164`. Zeotap no realiza ninguna transformación. Por lo tanto, debes introducir los números de teléfono en el formato prescrito. Para más información, consulta [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers). |
 | Nombre | Asignación estática | Está asignado a `First Name` en el catálogo de Zeotap. |
@@ -100,13 +100,13 @@ En esta sección puedes encontrar información detallada sobre todos los campos 
 | Suscripción push | Selección desplegable | Incorpora un campo `Push Marketing Preference` y asígnalo.<br><br>Zeotap envía los tres valores siguientes:<br>• `opted_in` - Indica que el usuario se ha registrado explícitamente para la preferencia de marketing push.<br>• `unsubscribed` - Indica que el usuario ha optado explícitamente por no recibir mensajes push.<br>• `subscribed` - Indica que el usuario no ha optado ni por la adhesión ni por la exclusión voluntaria. |
 | Habilitar el seguimiento de aperturas de correo electrónico | Selección desplegable | Asigna el campo `Marketing Preference` correspondiente.<br><br>Cuando se establece en true, permite añadir un píxel de seguimiento de apertura a todos los futuros correos electrónicos enviados a este usuario. |
 | Habilitar el seguimiento de clics de correo electrónico | Selección desplegable | Asigna el campo `Marketing Preference` correspondiente.<br><br>Cuando se establece en true, habilita el seguimiento de clics para todos los enlaces dentro de todos los futuros correos electrónicos enviados a este usuario. |
-| ID de producto | Selección desplegable | • Identificador de una acción de compra `(Product Name/Product Category)`. Para más detalles, consulta el [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object).<br>• Incorpora el atributo correspondiente al catálogo de Zeotap y asígnalo.<br><br>`Product ID`, `Currency` y `Price` deben asignarse obligatoriamente para capturar eventos de compra en Braze. El evento de compra no puede llevarse a cabo si falta alguno de los tres. Para más información, consulta el [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-object). |
+| ID de producto | Selección desplegable | • Identificador de una acción de compra `(Product Name/Product Category)`. Para más detalles, consulta el [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object).<br>• Incorpora el atributo correspondiente al catálogo de Zeotap y asígnalo.<br><br>`Product ID`, `Currency` y `Price` deben asignarse obligatoriamente para capturar eventos de compra en Braze. El evento de compra no puede llevarse a cabo si falta alguno de los tres. Para más información, consulta el [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object). |
 | Divisa | Selección desplegable | • Atributo de moneda para la acción de compra.<br>• El formato compatible es `ISO 4217 Alphabetic Currency Code`.<br>• Incorpora al catálogo de Zeotap los datos de divisa correctamente formateados y asígnalo.<br><br>`Product ID`, `Currency` y `Price` deben asignarse obligatoriamente para capturar eventos de compra en Braze. El evento de compra no puede llevarse a cabo si falta alguno de los tres. |
 | Precio | Selección desplegable | • Atributo de precio para la acción de compra.<br>• Incorpora el atributo correspondiente al catálogo de Zeotap y asígnalo.<br><br>`Product ID`, `Currency` y `Price` deben asignarse obligatoriamente para capturar eventos de compra en Braze. El evento de compra no puede llevarse a cabo si falta alguno de los tres. |
 | Cantidad | Selección desplegable | • Atributo de cantidad para la acción de compra.<br>• Incorpora el atributo correspondiente al catálogo de Zeotap y asígnalo. |
 | País | Selección desplegable | Asígnalo al campo del catálogo `Country` que estás incorporando. |
 | Ciudad | Selección desplegable | Asígnalo al campo del catálogo `City` que estás incorporando. |
-| Idioma | Selección desplegable | • El formato aceptado es `ISO-639-1` estándar (por ejemplo, en).<br>• Incorpora el idioma correctamente formateado y asígnalo. |
+| Idioma | Selección desplegable | • El formato aceptado es el estándar `ISO-639-1` (por ejemplo, en).<br>• Incorpora el idioma correctamente formateado y asígnalo. |
 | Fecha de nacimiento | Selección desplegable | Asígnalo al campo `Date of Birth` que estás incorporando. |
 | Atributo personalizado | Entrada de datos personalizados | Asigna cualquier atributo de usuario a una entrada de datos personalizada, que luego se envía a Braze. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Atributos admitidos" }

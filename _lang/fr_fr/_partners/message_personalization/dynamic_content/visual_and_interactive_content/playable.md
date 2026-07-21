@@ -22,11 +22,12 @@ L'intégration de Braze et Playable vous permet de diffuser votre meilleur conte
 
 | Condition | Description |
 | ----------- | ----------- |
-| Compte Playable | Un compte Playable est nécessaire pour bénéficier de ce partenariat. Si vous n'avez pas encore de compte Playable, inscrivez-vous [ici](https://signup.playable.video). |
+| Compte Playable | Un compte Playable est nécessaire pour bénéficier de ce partenariat. Si vous n'avez pas encore de compte Playable, [inscrivez-vous pour obtenir un compte Playable](https://signup.playable.video). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 | Contenu vidéo | Téléchargez des fichiers vidéo sur Playable ou fournissez des URL vidéo à partir de sites tels que Facebook, Instagram, YouTube, X (anciennement Twitter), TikTok, et bien d'autres. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Mise en œuvre {#implementation}
+## Déploiement {#implementation}
 
 ### Étape 1 : Ajoutez votre vidéo à Playable {#step-1-add-your-video-to-playable}
 

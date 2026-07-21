@@ -54,7 +54,7 @@ WhatsApp 템플릿 메시지는 비즈니스에서 시작하는 아웃리치에 
 | 버튼 유형 | 동작 | 참고 |
 |---|---|---|
 | 빠른 답장 | 대화에서 버튼 레이블 텍스트를 답장으로 전송 | |
-| URL | 사용자의 기본 브라우저에서 URL을 열며, URL 끝에 1개의 변수를 추가할 수 있음(최대 2,000자) | |
+| URL | 사용자의 기본 브라우저에서 URL을 열며, URL 끝에 1개의 변수를 추가할 수 있음(최대 2,000자) | 특수 문자(`&`, `%`, `<`, `>` 등)가 포함된 URL은 메시지 발송 실패를 유발할 수 있습니다. 특수 문자가 포함된 URL을 올바르게 인코딩하려면 [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) 또는 [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) Liquid 필터를 사용하세요. |
 | 전화번호 | 지정된 전화번호로 통화를 시작 | |
 | 쿠폰 코드 복사 | 사용자의 클립보드에 쿠폰 코드를 복사 | 항상 Meta 승인 필요 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="버튼 유형" }

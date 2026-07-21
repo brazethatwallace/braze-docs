@@ -16,7 +16,7 @@ tool: Campaign
 A Braze recomenda que você envie apenas dados de clientes que pretende utilizar na plataforma. Considere a filosofia dos "Quatro T's da Braze" para garantir que você envie apenas dados que serão usados para:
 
 - **Target (Direcionar)** seus públicos criando [segmentos de público]({{site.baseurl}}/user_guide/audience/segments).
-- **Trigger (Disparar)** suas mensagens com entrega [baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#action-based-delivery) ou [disparada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
+- **Trigger (Disparar)** suas mensagens com entrega [baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) ou [disparada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 - **Template (Modelar)** e personalizar suas mensagens com [lógica condicional Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 - **Track (Rastrear)** a eficácia das suas campanhas com [rastreamento de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 

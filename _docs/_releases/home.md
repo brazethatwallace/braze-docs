@@ -242,7 +242,7 @@ The [`ecommerce.cart_updated` event]({{site.baseurl}}/user_guide/data/activation
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-You can use [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) to optimize hooks, bodies, and CTAs for SMS, MMS, and RCS messages. Content Optimizer is an agent that helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically.
+You can use [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) to optimize hooks, bodies, and CTAs for SMS, MMS, and RCS messages. Content Optimizer helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically.
 
 ### Orchestration
 
@@ -849,7 +849,7 @@ A new `time_ms` field has been added to the [`users.behaviors.pushnotification.T
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Events that do not have an external user ID defined can now be streamed to [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents) destinations. When you select the "Include events from anonymous users" checkbox on your Currents integration, events without an external user ID will be sent to the destination instead of being suppressed. This capability is critical for downstream analytics and use cases involving non-identified and anonymous users.
+Events that do not have an external user ID defined can now be streamed to [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1) destinations. When you select the "Include events from anonymous users" checkbox on your Currents integration, events without an external user ID will be sent to the destination instead of being suppressed. This capability is critical for downstream analytics and use cases involving non-identified and anonymous users.
 
 ##### Send Anonymous user to CustomHTTP Destinations
 

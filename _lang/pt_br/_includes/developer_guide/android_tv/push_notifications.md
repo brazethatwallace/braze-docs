@@ -16,8 +16,8 @@ Para usar esse recurso, você precisará concluir o seguinte:
 Para configurar notificações por push para a Android TV:
 
 1. Crie uma exibição personalizada em seu app para exibir suas notificações.
-2. Crie uma [fábrica de notificações personalizada]({{site.baseurl}}/developer_guide/push_notifications/customization#customization-display). Isso substituirá o comportamento padrão do SDK e permitirá que você exiba manualmente as notificações. Ao retornar `null`, isso impedirá o processamento do SDK e exigirá um código personalizado para exibir a notificação. Depois que essas etapas forem concluídas, você poderá começar a enviar push para a Android TV!<br><br>
-3. (Opcional) Para rastrear a análise de dados de cliques de forma eficaz, configure o rastreamento de análise de cliques. Isso pode ser obtido com a criação de um [retorno de chamada de push]({{site.baseurl}}/developer_guide/push_notifications/customization#push-callback) para ouvir as intents de abertura e recebimento de push da Braze.
+2. Crie uma [fábrica de notificações personalizada]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display). Isso substituirá o comportamento padrão do SDK e permitirá que você exiba manualmente as notificações. Ao retornar `null`, isso impedirá o processamento do SDK e exigirá um código personalizado para exibir a notificação. Depois que essas etapas forem concluídas, você poderá começar a enviar push para a Android TV!<br><br>
+3. (Opcional) Para rastrear a análise de dados de cliques de forma eficaz, configure o rastreamento de análise de cliques. Isso pode ser obtido com a criação de um [retorno de chamada de push]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_push-callback) para ouvir as intents de abertura e recebimento de push da Braze.
 
 {% alert note %}
 Essas notificações **não persistirão** e só ficarão visíveis para o usuário quando o dispositivo as exibir. Isso se deve ao fato de a central de notificações da Android TV não oferecer suporte a notificações históricas.

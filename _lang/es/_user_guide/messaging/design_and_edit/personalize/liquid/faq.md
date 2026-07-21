@@ -55,7 +55,7 @@ Existe un atributo predeterminado para la ubicación del usuario: `{{${most_rece
 {% raw %}
 ### ¿Cuál es la diferencia entre {{campaign.${name}}} y {{campaign.${message_name}}}? {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
-Tanto `{{campaign.${name}}}` como `{{campaign.${message_name}}}` son etiquetas de personalización de Liquid compatibles. Ambas etiquetas hacen referencia a atributos de la campaña. `{{campaign.${name}}}` indica el nombre de tu campaña, y `{{campaign.${message_name}}}` es el nombre de tu variante de mensaje.
+Tanto `{{campaign.${name}}}` como `{{campaign.${message_name}}}` son etiquetas de personalización de Liquid compatibles. Ambas etiquetas hacen referencia a atributos de la Campaign. `{{campaign.${name}}}` indica el nombre de tu Campaign, y `{{campaign.${message_name}}}` es el nombre de tu variante de mensaje.
 {% endraw %}
 
 Para el uso en URL y cadenas de consulta (por ejemplo, cuando un nombre contiene `%` o espacios), consulta [Nombres de Campaign en URL]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
@@ -148,6 +148,41 @@ La lógica de cancelación te permite detener el envío de un mensaje si se cump
 ### ¿Puedo usar Liquid dentro de la etiqueta `abort_message`? {#can-i-use-liquid-inside-the-abort_message-tag}
 
 No. La etiqueta {% raw %}`{% abort_message %}`{% endraw %} acepta una cadena estática entre comillas, no personalización de Liquid. Usa otra lógica de Liquid antes de la etiqueta si necesitas un comportamiento de cancelación condicional.
+
+### ¿Cómo enmascaro números de teléfono con Liquid? {#how-do-i-mask-phone-numbers-with-liquid}
+
+Puedes enmascarar números de teléfono usando el filtro `slice` para extraer dígitos específicos y el filtro `append` para combinarlos con caracteres de enmascaramiento.
+
+#### Enmascarar todos los dígitos excepto los últimos cuatro {#mask-all-but-the-last-four-digits}
+
+Para mostrar un número de teléfono de 10 dígitos como `******7890`:
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### Mostrar los primeros tres y los últimos cuatro dígitos {#show-the-first-three-and-last-four-digits}
+
+Para mostrar un número de teléfono de 10 dígitos como `123***7890`:
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
 
 ## Canvas, catálogos y propiedades de desencadenamiento {#canvas-catalogs-and-trigger-properties}
 

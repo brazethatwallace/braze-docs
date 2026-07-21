@@ -30,7 +30,7 @@ Ordene os segmentos na lista ajustando os seguintes filtros:
 - **Estimated Size:** Faixa aproximada de quantos usuários estão nos segmentos
 - **Tags:** Tags associadas aos segmentos
 - **Teams:** Equipes associadas aos segmentos
-- **Advanced Tracking Segments Only:** Visualize apenas os segmentos que têm o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) ativado.
+- **Advanced Tracking Segments Only:** Visualize apenas os segmentos que têm o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ativado.
 
 ### Colunas {#columns}
 

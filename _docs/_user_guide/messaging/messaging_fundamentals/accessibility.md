@@ -504,7 +504,10 @@ Include closed captions with your videos so users can follow along with the dial
 
 Closed captions can be toggled on or off, allowing users to choose what works best for them.
 
-{% multi_lang_include accessibility/video.md %}
+{% alert note %}
+Braze doesn't automatically generate captions for your videos. It’s your responsibility to add accurate captions to your video files before including them in your message.
+{% endalert %}
+
 
 #### Provide playback controls {#playback-controls}
 
@@ -533,7 +536,10 @@ Sufficient color contrast helps ensure your messages are easy to read for everyo
 
 You can test your color choices using the [WebAim Contrast Checker Tool](https://webaim.org/resources/contrastchecker/).
 
-{% multi_lang_include accessibility/color.md %}
+{% alert note %}
+Braze editors allow you to select custom color combinations. Keep in mind that certain color choices can negatively affect accessibility. Choose your colors carefully to make sure your content is readable and compliant with accessibility standards.
+{% endalert %}
+
 
 ### Custom HTML
 

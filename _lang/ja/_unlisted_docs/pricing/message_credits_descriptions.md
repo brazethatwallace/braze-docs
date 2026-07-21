@@ -16,23 +16,22 @@ hide_toc: true
 
 ## 目次 {#table-of-contents}
 
-- [Braze アクションクレジットの説明](#braze-action-credits-descriptions)
-  - [メールチャネルの詳細](#email-channel-details)
-  - [SMS、MMS、RCSチャネルの詳細](#sms-mms-and-rcs-channel-details)
-    - [SMSセグメント](#sms-segments)
-    - [MMSメッセージ](#mms-messages)
-    - [RCSタイプ](#rcs-types)
-  - [WhatsAppチャネルの詳細](#whatsapp-channel-details)
-    - [課金リージョンの内訳](#billing-region-breakdown)
-  - [エージェントコンソールの詳細](#agent-console-details)
-  - [その他のチャネルの詳細](#additional-channel-details)
-    - [LINE](#line)
-    - [KakaoTalk](#kakaotalk)
-    - [Content Cards](#content-cards)
-    - [バナー](#banners)
-    - [Audience Sync](#audience-sync)
-    - [メッセージのアーカイブ](#message-archiving)
-    - [Webhook](#webhooks)
+- [メールチャネルの詳細](#email-channel-details)
+- [SMS、MMS、RCSチャネルの詳細](#sms-mms-and-rcs-channel-details)
+  - [SMSセグメント](#sms-segments)
+  - [MMSメッセージ](#mms-messages)
+  - [RCSタイプ](#rcs-types)
+- [WhatsAppチャネルの詳細](#whatsapp-channel-details)
+  - [課金リージョンの内訳](#billing-region-breakdown)
+- [エージェントコンソールの詳細](#agent-console-details)
+- [その他のチャネルの詳細](#additional-channel-details)
+  - [LINE](#line)
+  - [KakaoTalk](#kakaotalk)
+  - [Content Cards](#content-cards)
+  - [バナー](#banners)
+  - [Audience Sync](#audience-sync)
+  - [メッセージのアーカイブ](#message-archiving)
+  - [Webhook](#webhooks)
 
 ## メールチャネルの詳細 {#email-channel-details}
 
@@ -162,7 +161,7 @@ Brazeバナーの詳細については、[バナードキュメント]({{site.ba
 Audience Syncのクレジット比率は、合計ユーザー同期1,000回単位で計算されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに500万回のユーザー同期が含まれています。追加のユーザー同期は、注文書に従って課金されます。
 
 {% alert note %}
-キャンバスAudience Syncと利用可能なパートナーの詳細については、[キャンバスドキュメント]({{site.baseurl}}/partners/canvas_steps)を参照してください。
+キャンバスのAudience Syncと利用可能なパートナーの詳細については、[キャンバスドキュメント]({{site.baseurl}}/partners/canvas_steps)を参照してください。
 {% endalert %}
 
 ### メッセージのアーカイブ {#message-archiving}

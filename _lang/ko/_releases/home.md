@@ -85,7 +85,7 @@ Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [�
 
 [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents)에서 다음을 수행할 수 있습니다:
 
-- **에이전트 생성** 버튼 드롭다운을 통해 Operator로 사전 설정된 활용 사례를 구성합니다.
+- **에이전트 생성** 버튼 드롭다운을 통해 Operator로 사전 설정된 사용 사례를 구성합니다.
 - 에이전트 목록에서 기존 에이전트를 복제합니다.
 - 생성 중에 에이전트를 초안으로 저장하고 나중에 구성을 완료합니다.
 - Canvas 에이전트에 대한 대체 출력 값을 설정하여 에이전트 오류 발생 시 출력 변수가 null로 설정되는 것을 방지합니다.
@@ -226,7 +226,7 @@ BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-카탈로그는 이제 새로운 지리 위치 필드 유형과 카탈로그 선택 연산자를 사용한 거리 기반 필터링을 지원합니다. 이를 통해 각 사용자에게 가장 가까운 레스토랑을 표시하거나, 부동산 캠페인을 위해 50km 이내의 매물을 필터링하거나, 특정 이벤트 근처의 매장을 타겟팅하는 등 더 관련성 높은 위치 인식 경험을 만들 수 있습니다. 도시 또는 지역 코드로 지리적 타겟팅을 근사하는 대신, 사용자의 가장 최근 위치와 같은 Liquid 사용자 속성을 포함하여 중심점에 대한 근접성으로 카탈로그 항목을 필터링할 수 있습니다. 자세한 내용은 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#how-it-works)을 참조하세요.
+카탈로그는 이제 새로운 지리 위치 필드 유형과 카탈로그 선택 연산자를 사용한 거리 기반 필터링을 지원합니다. 이를 통해 각 사용자에게 가장 가까운 레스토랑을 표시하거나, 부동산 캠페인을 위해 50km 이내의 매물을 필터링하거나, 특정 이벤트 근처의 매장을 타겟팅하는 등 더 관련성 높은 위치 인식 경험을 만들 수 있습니다. 도시 또는 지역 코드로 지리적 타겟팅을 근사하는 대신, 사용자의 가장 최근 위치와 같은 Liquid 사용자 속성을 포함하여 중심점에 대한 근접성으로 카탈로그 항목을 필터링할 수 있습니다. 자세한 내용은 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)을 참조하세요.
 
 #### 보고서 빌더에 배너 및 RCS 추가 {#banner-and-rcs-for-report-builder}
 
@@ -242,7 +242,7 @@ BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)을 사용하여 SMS, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. 콘텐츠 최적화 프로그램은 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 되는 에이전트입니다.
+[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)을 사용하여 SMS, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. 콘텐츠 최적화 프로그램은 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 됩니다.
 
 ### 오케스트레이션 {#orchestration}
 
@@ -603,7 +603,7 @@ Braze가 새로운 [데이터 센터]({{site.baseurl}}/user_guide/data/infrastru
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Snowflake 데이터 공유]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-for-data-sharing-3)에 66개의 기존 테이블에 걸쳐 Campaign 및 Canvas 정보를 반영하는 추가 필드가 포함되었습니다:
+[Snowflake 데이터 공유]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)에 66개의 기존 테이블에 걸쳐 Campaign 및 Canvas 정보를 반영하는 추가 필드가 포함되었습니다:
 
 - `campaign_name`
 - `canvas_name`
@@ -769,7 +769,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-이커머스 추천 이벤트와 기존 구매 이벤트를 일치시키기 위해 "구매하기"와 유사한 ["주문하기" 전환 이벤트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-report)를 추가했습니다.
+이커머스 추천 이벤트와 기존 구매 이벤트를 일치시키기 위해 "구매하기"와 유사한 ["주문하기" 전환 이벤트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-dashboard)를 추가했습니다.
 
 ### 채널 및 터치포인트
 
@@ -777,11 +777,11 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-워크스페이스에 로캘을 추가한 후 단일 배너 내에서 [다양한 언어의 사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#translating-locales)할 수 있습니다.
+워크스페이스에 로캘을 추가한 후 단일 배너 내에서 [다양한 언어의 사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#use-locales)할 수 있습니다.
 
 #### 드래그 앤 드롭 Content Blocks의 너비 구성 {#configure-width-for-drag-and-drop-content-blocks}
 
-탐색 메뉴에서 버튼을 선택하여 [Content Block의 너비를 조정]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks#using-the-editor-to-add-a-content-block)합니다. 이메일 글로벌 스타일 설정에서 지정하지 않은 경우 기본 너비는 100%이며, 그렇지 않은 경우 글로벌 설정이 적용됩니다.
+탐색 메뉴에서 버튼을 선택하여 [Content Block의 너비를 조정]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)합니다. 이메일 글로벌 스타일 설정에서 지정하지 않은 경우 기본 너비는 100%이며, 그렇지 않은 경우 글로벌 설정이 적용됩니다.
 
 ![너비를 편집할 수 있는 양면 화살표.]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }
 
@@ -849,13 +849,13 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 외부 사용자 ID가 정의되지 않은 이벤트도 [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents) 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 활용 사례에 매우 중요합니다.
+이제 외부 사용자 ID가 정의되지 않은 이벤트도 [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1) 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
 
 ##### CustomHTTP 대상으로 익명 사용자 보내기 {#send-anonymous-user-to-customhttp-destinations}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-이제 외부 사용자 ID가 정의되지 않은 이벤트도 CustomHTTP 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 활용 사례에 매우 중요합니다.
+이제 외부 사용자 ID가 정의되지 않은 이벤트도 CustomHTTP 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
 
 #### 이메일 열기 이벤트 — "machine_open" 필드 {#email-open-event-machine_open-field}
 
@@ -968,9 +968,9 @@ Canvas의 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas
 
 ### 오케스트레이션
 
-#### SMS Liquid 활용 사례 {#sms-liquid-use-case}
+#### SMS Liquid 사용 사례 {#sms-liquid-use-case}
 
-[인바운드 SMS 키워드에 따라 다른 메시지로 응답]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases#sms-keyword-response) 활용 사례는 동적 SMS 키워드 처리를 통합하여 특정 인바운드 메시지에 다른 메시지 카피로 응답합니다. 예를 들어, 누군가 "START" 문자를 보낼 때와 "JOIN" 문자를 보낼 때 다른 응답을 보낼 수 있습니다.
+[인바운드 SMS 키워드에 따라 다른 메시지로 응답]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases#sms-keyword-response) 사용 사례는 동적 SMS 키워드 처리를 통합하여 특정 인바운드 메시지에 다른 메시지 카피로 응답합니다. 예를 들어, 누군가 "START" 문자를 보낼 때와 "JOIN" 문자를 보낼 때 다른 응답을 보낼 수 있습니다.
 
 #### 연결된 콘텐츠에 대한 허용 목록 {#allowlisting-for-connected-content}
 

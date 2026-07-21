@@ -150,7 +150,7 @@ Você também pode usar **Filtros** para detalhar seus eventos personalizados po
 ![Filtros do gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Incremente atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers) para manter um contador de ações do usuário semelhante a um evento personalizado. No entanto, você não pode visualizar dados de atributos personalizados em uma série temporal. Ações do usuário que não precisam ser analisadas em uma série temporal devem ser registradas usando este método.
+[Incremente atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) para manter um contador de ações do usuário semelhante a um evento personalizado. No entanto, você não pode visualizar dados de atributos personalizados em uma série temporal. Ações do usuário que não precisam ser analisadas em uma série temporal devem ser registradas usando este método.
 {% endalert %}
 
 ### Por que a análise de dados de eventos personalizados não está aparecendo {#why-custom-events-analytics-arent-showing}

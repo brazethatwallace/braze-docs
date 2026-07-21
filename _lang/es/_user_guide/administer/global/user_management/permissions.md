@@ -180,11 +180,11 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Campaigns | View Campaigns | Ver campañas |
-| Campaigns | Launch Campaigns | Iniciar, detener, pausar o reanudar campañas existentes |
-| Campaigns | Archive Campaigns | Mover campañas al archivo |
-| Campaigns | Edit Campaigns | Crear y actualizar campañas |
-| Campaigns | Approve and Deny Campaigns | Aprobar o rechazar campañas. El [flujo de trabajo de aprobación para campañas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) debe estar activado para que este permiso se aplique. Esta configuración se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
+| Campaigns | View Campaigns | Ver Campaigns |
+| Campaigns | Launch Campaigns | Iniciar, detener, pausar o reanudar Campaigns existentes |
+| Campaigns | Archive Campaigns | Mover Campaigns al archivo |
+| Campaigns | Edit Campaigns | Crear y actualizar Campaigns |
+| Campaigns | Approve and Deny Campaigns | Aprobar o rechazar Campaigns. El [flujo de trabajo de aprobación para Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) debe estar activado para que este permiso se aplique. Esta configuración se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
 | Canvas | View Canvases | Ver Canvas |
 | Canvas | Archive Canvases | Mover Canvas al archivo |
 | Canvas | Edit Canvases | Crear y actualizar Canvas |
@@ -214,15 +214,15 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Ubicaciones | Archive Locations | Mover ubicaciones al archivo |
 | Ubicaciones | View Locations | Ver ubicaciones |
 | Ubicaciones | Edit Locations | Crear y editar ubicaciones |
-| Segments | View Segments | Ver segmentos. Los usuarios deben tener el permiso "View Segments" para tener el permiso "Edit Segments" o "Archive Segments" |
-| Segments | Archive Segments | Archivar y desarchivar segmentos. Los usuarios con el permiso "Archive Segments" también deben tener el permiso "View Segments" |
-| Segments | Edit Segments | Crear y actualizar segmentos. Los usuarios con el permiso "Edit Segments" también deben tener el permiso "View Segments" |
+| Segments | View Segments | Ver Segments. Los usuarios deben tener el permiso "View Segments" para tener el permiso "Edit Segments" o "Archive Segments" |
+| Segments | Archive Segments | Archivar y desarchivar Segments. Los usuarios con el permiso "Archive Segments" también deben tener el permiso "View Segments" |
+| Segments | Edit Segments | Crear y actualizar Segments. Los usuarios con el permiso "Edit Segments" también deben tener el permiso "View Segments" |
 | Datos de usuario | View Import Users | Ver importaciones de usuarios en CSV sin realizar cambios |
 | Datos de usuario | Import Users | Cargar usuarios al panel |
 | Datos de usuario | Edit User Data | Crear y actualizar datos de usuario |
 | Datos de usuario | Export User Data | Descargar usuarios del panel |
 | Usuarios duplicados | View User Merge Records | Ver una lista de registros de fusión de usuarios |
-| Usuarios | View User Profiles (PII Redacted) | Ver perfiles de usuario de manera compatible con PII. Los usuarios con este permiso no pueden guardar ni lanzar campañas que hagan referencia a atributos personalizados marcados como PII a menos que también tengan el permiso "View Custom Attributes Marked as PII". |
+| Usuarios | View User Profiles (PII Redacted) | Ver perfiles de usuario de manera compatible con PII. Los usuarios con este permiso no pueden guardar ni lanzar Campaigns que hagan referencia a atributos personalizados marcados como PII a menos que también tengan el permiso "View Custom Attributes Marked as PII".<br><br>El permiso "View User Profiles (PII Redacted)" debe habilitarse antes de su uso. Ponte en contacto con tu administrador de éxito de cliente para habilitarlo en tu espacio de trabajo. |
 | Usuarios | View User Event Properties | Ver propiedades de eventos en la pestaña **Historial de eventos** de los perfiles de usuario |
 | Usuarios duplicados | Merge Duplicate Users | Combinar usuarios duplicados en uno solo. Los duplicados se eliminan después de la fusión |
 | Eliminar usuarios | View User Deletion Records | Ver una lista de registros de eliminación de usuarios |
