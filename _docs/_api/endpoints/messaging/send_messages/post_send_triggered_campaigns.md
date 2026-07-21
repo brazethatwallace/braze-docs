@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 This section discusses how Braze picks a user profile for sending and what happens when one profile is not selected.
 
-A user's subscription group status can be updated using the inclusion of a `subscription_groups` parameter within the `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+A user's subscription group status can be updated using the inclusion of a `subscription_groups` parameter within the `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 #### Recipient limits and profile creation
 

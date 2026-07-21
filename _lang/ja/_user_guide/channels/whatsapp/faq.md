@@ -48,6 +48,7 @@ Brazeダッシュボードの埋め込みサインアップフローを通じて
 OBA（公式ビジネスアカウント）は、表示名の横に緑色のチェックマークが付き、任意で取得できます。ビジネス認証の完了後に公式ビジネスアカウントを申請できます。ビジネス認証と公式ビジネスアカウントは異なるWhatsAppの概念であることに注意してください。
 
 ### WhatsAppビジネスアカウントの電話番号 {#whatsapp-business-account-phone-numbers}
+
 #### WhatsAppビジネスアカウントに電話番号は必要ですか？ {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 はい、アクセスできる番号が必要です。埋め込みサインアップフローを進める際に、2要素認証で電話番号を確認するよう求められます。この電話番号は、他のWhatsAppアカウント（ビジネスまたは個人）で使用することはできません。
 
@@ -186,14 +187,19 @@ Metaがテンプレートを誤ってフラグ付けしたと思われる場合�
 #### メッセージが配信されなかった場合、課金されますか？ {#if-a-message-is-not-delivered-will-i-be-billed}
 いいえ。メッセージが配信されなかった場合、課金されません。
 
-#### エンドユーザーが私のビジネスをブロックした場合はどうなりますか？ {#what-happens-if-an-end-user-blocks-my-business}
-エンドユーザーがあなたのビジネスをブロックした場合、その後送信しようとするメッセージは配信されず、課金もされません。
+#### ユーザーが私のビジネスをブロックした場合はどうなりますか？ {#what-happens-if-a-user-blocks-my-business}
+ユーザーがあなたのビジネスをブロックした場合、その後送信しようとするメッセージは配信されず、課金もされません。
 
-#### エンドユーザーがメッセージを報告した場合はどうなりますか？ {#what-happens-if-an-end-user-reports-a-message}
-エンドユーザーがメッセージを報告した場合でも、そのユーザーに後続のメッセージを送信できます。ただし、報告はチャネル上の品質評価に影響を与える可能性があります。
+#### ユーザーがメッセージを報告した場合はどうなりますか？ {#what-happens-if-a-user-reports-a-message}
+ユーザーがメッセージを報告した場合でも、そのユーザーに後続のメッセージを送信できます。ただし、報告はチャネル上の品質評価に影響を与える可能性があります。
 
-#### エンドユーザーが私のビジネスをブロックまたは報告した場合、Brazeで購読ステータスは更新されますか？ {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### ユーザーが私のビジネスをブロックまたは報告した場合、Brazeで購読ステータスは更新されますか？ {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 いいえ。Brazeの購読ステータスは更新されません。
+
+#### WhatsAppアカウントを報告したユーザーを今後の配信から除外するにはどうすればよいですか？ {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
+Brazeは、アカウントがフラグ付けまたは報告された際にWhatsAppから通知を受け取らないため、Brazeでそれらのユーザーを自動的に特定または除外することはできません。アカウントを報告したユーザーは、WhatsApp購読グループに残り、今後のメッセージの対象となり続ける可能性があります。
+
+ただし、ユーザーがオプトアウトキーワードで返信した際にトリガーされるキャンペーンを設定し、[`/subscription/status/set`エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)を使用して自動的に購読解除することができます。詳細については、[WhatsAppのオプトインとオプトアウトプロセス]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process)を参照してください。
 
 #### WhatsAppの応答メッセージは無料ですか？ {#are-whatsapp-response-messages-free}
 
@@ -233,7 +239,7 @@ Brazeに情報を送信するには、たとえばユーザーがアクティブ
 メッセージは処理に必要な時間のみ保存されます。ユーザーメッセージにアクセスするには、Currentsを使用してください。
 
 #### Brazeダッシュボードではどのような指標が利用できますか？ {#what-metrics-are-available-in-the-braze-dashboard}
-Brazeダッシュボードでは、ユニーク受信者数、送信数、配信数、既読数、失敗数を確認できます。Brazeが既読を追跡するには、エンドユーザーの既読確認が「オン」になっている必要があります。他のチャネルと同様に、キャンペーンのパフォーマンスを監視するためにコンバージョンイベントを設定することもできます。
+Brazeダッシュボードでは、ユニーク受信者数、送信数、配信数、既読数、失敗数を確認できます。Brazeが既読を追跡するには、ユーザーの既読確認が「オン」になっている必要があります。他のチャネルと同様に、キャンペーンのパフォーマンスを監視するためにコンバージョンイベントを設定することもできます。
 
 #### WhatsApp会話とは何ですか？ {#what-is-a-whatsapp-conversation}
 WhatsAppは双方向メッセージングに焦点を当てたチャネルであるため、（個々のメッセージ数ではなく）会話を基準としています。会話とは、ビジネスとエンドユーザー間の24時間のスレッドです。

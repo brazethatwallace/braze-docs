@@ -376,9 +376,7 @@ If you have network policies in place, you must give Braze network access to you
 #### Step 1.1: Set up the service principal and grant access
 Braze connects to your Fabric warehouse using a service principal with Entra ID authentication. Create a new service principal for Braze to use, and grant access to Fabric resources as needed. Braze needs the following details to connect:    
 
-* Tenant ID (also called directory) for your Azure account 
-* Principal ID (also called application ID) for the service principal 
-* Client secret for Braze to authenticate
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
 1. In the Azure portal, navigate to Microsoft Entra admin center, and then App Registrations 
 2. Select **+ New registration** under **Identity** > **Applications** > **App registrations**.

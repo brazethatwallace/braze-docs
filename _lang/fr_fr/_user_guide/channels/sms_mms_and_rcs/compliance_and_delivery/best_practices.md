@@ -31,7 +31,7 @@ Lors de la configuration des SMS et MMS dans Braze pour gérer les abonnements e
 
 ### Points à prendre en compte {#considerations}
 
-Lorsque les SMS et MMS ont été configurés sur plusieurs instances et qu'en raison d'une mauvaise configuration, les désinscriptions d'une campagne ou d'un Canvas sont envoyées au mauvais espace de travail :
+Lorsque les SMS et MMS ont été configurés sur plusieurs instances et qu'en raison d'une mauvaise configuration, les désinscriptions d'une Campaign ou d'un Canvas sont envoyées au mauvais espace de travail :
 
 * Braze dispose d'un système de surveillance pour identifier de tels cas. Si ce comportement est signalé, Braze redirigera les désinscriptions vers l'instance correcte et rattrapera toutes les désinscriptions survenues pendant la période concernée.
 * Nous recommandons vivement aux clients de tester les désinscriptions pour chaque groupe d'abonnement qu'ils ont dans Braze. Identifier ce problème avant de lancer un message est préférable à devoir le corriger après qu'un problème a été identifié.
@@ -60,7 +60,7 @@ Le traffic pumping est une forme de fraude qui se produit lorsqu'un acteur malve
 
 * Les numéros surtaxés utilisés pour ce type de fraude sont souvent, mais pas toujours, configurés dans des pays en dehors de vos zones géographiques d'envoi habituelles.
 * Des pics inhabituels dans l'envoi de messages depuis des formulaires en ligne peuvent indiquer du traffic pumping.
-    * Nous recommandons de configurer des [alertes de campagne]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts) pour plafonner et notifier si un nombre anormalement élevé de messages est envoyé.
+    * Nous recommandons de configurer des [alertes de Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts) pour plafonner et notifier si un nombre anormalement élevé de messages est envoyé.
 * Des formulaires en ligne incomplets peuvent indiquer un remplissage programmatique de formulaires.
 * Lors de la création de formulaires en ligne, nous recommandons de définir des règles pour s'assurer que les formulaires sont entièrement remplis et d'utiliser des outils tels que le CAPTCHA pour minimiser les risques.
 
@@ -72,14 +72,14 @@ Les clients sont responsables de la surveillance du trafic qu'ils envoient et se
 
 Certaines marques peuvent souhaiter envoyer des messages à un groupe d'utilisateurs dont les numéros de téléphone proviennent de différents pays. Pour envoyer un message SMS à un numéro de téléphone dans un pays donné, la bonne pratique consiste à utiliser un code long ou un code court provenant du même pays. En effet, les codes courts ne peuvent envoyer des SMS qu'aux numéros de téléphone du même pays que celui dans lequel le code court a été créé.
 
-Pour surmonter cette limitation, lors du [processus de configuration]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) des groupes d'abonnement, les groupes peuvent être configurés pour contenir des codes longs et courts de plusieurs pays différents. Une fois cette configuration terminée, les numéros d'envoi ayant le même indicatif pays que le numéro de téléphone de l'utilisateur cible seront automatiquement utilisés lors du lancement d'une campagne. Vous n'aurez pas besoin de créer des campagnes distinctes pour les utilisateurs ayant des numéros de téléphone avec des indicatifs pays différents, ce qui vous permet de lancer une seule campagne ou d'utiliser un seul composant Canvas pour cibler les utilisateurs concernés.
+Pour surmonter cette limitation, lors du [processus de configuration]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) des groupes d'abonnement, les groupes peuvent être configurés pour contenir des codes longs et courts de plusieurs pays différents. Une fois cette configuration terminée, les numéros d'envoi ayant le même indicatif pays que le numéro de téléphone de l'utilisateur cible seront automatiquement utilisés lors du lancement d'une Campaign. Vous n'aurez pas besoin de créer des Campaigns distinctes pour les utilisateurs ayant des numéros de téléphone avec des indicatifs pays différents, ce qui vous permet de lancer une seule Campaign ou d'utiliser un seul composant Canvas pour cibler les utilisateurs concernés.
 
 ![Les payloads SMS sont envoyés en utilisant le même indicatif pays que le numéro de téléphone de l'utilisateur cible.]({% image_buster /assets/img/sms/multi_country_subgroups.png %})
 
 ### Bonnes pratiques générales d'envoi {#general-sending-best-practices}
 
 1. **Obtenez le consentement.** L'une des règles les plus importantes pour l'utilisation des SMS en entreprise est d'obtenir au préalable l'autorisation des clients pour les contacter. Ne pas le faire peut nuire à votre marque et entraîner des frais juridiques importants.
-2. **Choisissez le bon numéro pour votre cas d'utilisation.** Trois principaux types de numéros de téléphone peuvent envoyer et recevoir des messages SMS : les codes longs, les codes courts et les identifiants d'expéditeur alphanumériques, et leurs capacités et disponibilités varient selon les régions. Réfléchissez à l'avance si votre entreprise serait mieux servie par un code personnalisé.
+2. **Choisissez le bon numéro pour votre cas d'usage.** Trois principaux types de numéros de téléphone peuvent envoyer et recevoir des messages SMS : les codes longs, les codes courts et les identifiants d'expéditeur alphanumériques, et leurs capacités et disponibilités varient selon les régions. Réfléchissez à l'avance si votre entreprise serait mieux servie par un code personnalisé.
 3. **Faites attention au timing.** Gardez à l'esprit que les clients sont plus réceptifs aux contenus qui leur sont directement adressés. Un peu de personnalisation fait beaucoup, comme utiliser le prénom du destinataire ou ajouter une touche conversationnelle qui reflète les intérêts de vos clients.
 4. **Engagez des conversations bidirectionnelles.** Le SMS est un canal si efficace pour interagir avec les clients qu'il est important d'anticiper et de gérer efficacement les réponses à vos messages. 85 % des consommateurs ne veulent pas seulement recevoir des informations, mais aussi répondre aux entreprises ou engager une conversation.
 5. **Mesurez ce qui fonctionne.** Atteignez-vous les clients au bon moment, avec la bonne fréquence, et en utilisant les appels à l'action les plus efficaces ? L'utilisation des bons outils de suivi peut offrir des indicateurs directs et mesurables qui prouvent leur ROI.
@@ -88,7 +88,7 @@ Pour surmonter cette limitation, lors du [processus de configuration]({{site.bas
 
 Vous prévoyez d'effectuer des envois en grand volume ? Voici quelques bonnes pratiques pour que tout se passe bien.
 
-- Ajustez la limite de débit de la vitesse de distribution pour votre campagne ou vos Canvas selon les besoins, en fonction de la taille de l'audience cible. Cela garantit que vous atteignez le volume d'envoi nécessaire et que Braze envoie les messages au rythme que Twilio attend et peut gérer.
+- Ajustez la limitation du débit de distribution pour votre Campaign ou vos Canvas selon les besoins, en fonction de la taille de l'audience cible. Cela garantit que vous atteignez le volume d'envoi nécessaire et que Braze envoie les messages au rythme que Twilio attend et peut gérer.
 - Assurez-vous de respecter la limite de 160 caractères et soyez conscient que les caractères spéciaux comptent double (par exemple, les barres obliques inversées `\`, les accents circonflexes `^` et les tildes `~`).
 
 ## Recommandations pour les heures calmes {#quiet-hours-recommendations}
@@ -99,7 +99,7 @@ Vous prévoyez d'effectuer des envois en grand volume ? Voici quelques bonnes pr
 
 ### Heures calmes natives de Braze {#braze-native-quiet-hours}
 
-Nous recommandons vivement d'activer les [heures calmes]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#quiet-hours) pour toutes les campagnes et Canvas SMS afin de respecter les réglementations régionales et les bonnes pratiques.
+Nous recommandons vivement d'activer les [heures calmes]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#quiet-hours) pour toutes les Campaigns et Canvas SMS afin de respecter les réglementations régionales et les bonnes pratiques.
 
 ### Protection supplémentaire via les Content Blocks {#additional-safeguard-through-content-blocks}
 
@@ -121,6 +121,6 @@ Incluez l'extrait de code suivant en haut du corps de votre message SMS. Cet exe
 
 #### Points à prendre en compte
 
-- {% raw %}`time_zone: ${time_zone}`{% endraw %} permet d'évaluer la fenêtre par rapport au fuseau horaire local de chaque utilisateur, et non par rapport à un fuseau horaire global fixe, comme expliqué dans [cette FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} permet d'évaluer la fenêtre par rapport au fuseau horaire local de chaque utilisateur, et non par rapport à un fuseau horaire global fixe, comme expliqué dans la [FAQ Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
 - Les messages supprimés par {% raw %}`abort_message()`{% endraw %} ne sont pas reprogrammés pour le lendemain ; ils sont annulés.
-- {% raw %} Par défaut, les messages annulés ne sont pas visibles dans les rapports standard de campagne. Cependant, lorsque Liquid annule un envoi avec `{% abort_message %}`, Braze l'enregistre dans le Journal d'activité des messages comme une erreur de message (par défaut, il affiche `{% abort_message %}` appelé). Si vous passez une chaîne de caractères, cette raison est ce qui apparaît dans le journal, par exemple `{% abort_message('language was nil') %}`{% endraw %}. Pour avoir de la visibilité sur ces suppressions dans le tableau de bord, contactez votre gestionnaire de la satisfaction client pour accéder au [tableau de bord de diagnostic de l'envoi de messages]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).
+- {% raw %} Par défaut, les messages annulés ne sont pas visibles dans les rapports standard de Campaign. Cependant, lorsque Liquid annule un envoi avec `{% abort_message %}`, Braze l'enregistre dans le journal d'activité des messages comme une erreur de message (par défaut, il affiche `{% abort_message %}` appelé). Si vous passez une chaîne de caractères, cette raison est ce qui apparaît dans le journal, par exemple `{% abort_message('language was nil') %}`{% endraw %}. Pour avoir de la visibilité sur ces suppressions dans le tableau de bord, contactez votre CSM pour accéder au [tableau de bord de diagnostic de l'envoi de messages]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).

@@ -48,6 +48,7 @@ Braze 대시보드의 임베디드 가입 플로우를 통해 WhatsApp 비즈니
 OBA는 표시 이름 옆에 녹색 체크 표시를 제공하며 선택 사항입니다. 비즈니스 인증을 완료한 후 공식 비즈니스 계정을 신청할 수 있습니다. 비즈니스 인증과 공식 비즈니스 계정은 서로 다른 WhatsApp 개념입니다.
 
 ### WhatsApp 비즈니스 계정 전화번호 {#whatsapp-business-account-phone-numbers}
+
 #### WhatsApp 비즈니스 계정에 전화번호가 필요한가요? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 네, 접근 가능한 번호가 필요합니다. 임베디드 가입 플로우를 진행할 때 2단계 인증으로 전화번호를 확인하게 됩니다. 이 전화번호는 다른 WhatsApp 계정(비즈니스 또는 개인)에서 사용할 수 없습니다.
 
@@ -186,14 +187,19 @@ Meta가 템플릿을 잘못 플래그했다고 판단되면 WhatsApp에서 보�
 #### 메시지가 전달되지 않으면 요금이 청구되나요? {#if-a-message-is-not-delivered-will-i-be-billed}
 아니요. 메시지가 전달되지 않으면 요금이 청구되지 않습니다.
 
-#### 최종 사용자가 내 비즈니스를 차단하면 어떻게 되나요? {#what-happens-if-an-end-user-blocks-my-business}
-최종 사용자가 귀하의 비즈니스를 차단하면 이후 보내려는 메시지가 전달되지 않으며 요금도 청구되지 않습니다.
+#### 사용자가 내 비즈니스를 차단하면 어떻게 되나요? {#what-happens-if-a-user-blocks-my-business}
+사용자가 귀하의 비즈니스를 차단하면 이후 보내려는 메시지가 전달되지 않으며 요금도 청구되지 않습니다.
 
-#### 최종 사용자가 메시지를 신고하면 어떻게 되나요? {#what-happens-if-an-end-user-reports-a-message}
-최종 사용자가 메시지를 신고해도 이후 해당 사용자에게 메시지를 보낼 수 있습니다. 그러나 신고는 채널에서의 품질 등급에 영향을 줄 수 있습니다.
+#### 사용자가 메시지를 신고하면 어떻게 되나요? {#what-happens-if-a-user-reports-a-message}
+사용자가 메시지를 신고해도 이후 해당 사용자에게 메시지를 보낼 수 있습니다. 그러나 신고는 채널에서의 품질 등급에 영향을 줄 수 있습니다.
 
-#### 최종 사용자가 내 비즈니스를 차단하거나 신고하면 Braze에서 구독 상태가 업데이트되나요? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### 사용자가 내 비즈니스를 차단하거나 신고하면 Braze에서 구독 상태가 업데이트되나요? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 아니요. Braze 구독 상태는 업데이트되지 않습니다.
+
+#### 내 WhatsApp 계정을 신고한 사용자를 향후 발송에서 제외하려면 어떻게 하나요? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
+Braze는 계정이 플래그되거나 신고될 때 WhatsApp으로부터 알림을 받지 않으므로, Braze에서 해당 사용자를 자동으로 식별하거나 제외할 수 없습니다. 계정을 신고한 사용자는 WhatsApp 구독 그룹에 남아 있을 수 있으며 향후 메시지 수신 자격을 유지할 수 있습니다.
+
+그러나 사용자가 수신 거부 키워드로 응답할 때 트리거되는 Campaign을 설정하여 [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)를 사용해 자동으로 구독을 해제할 수 있습니다. 자세한 내용은 [WhatsApp 옵트인 및 수신 거부 프로세스]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process)를 참조하세요.
 
 #### WhatsApp 응답 메시지는 무료인가요? {#are-whatsapp-response-messages-free}
 
@@ -233,7 +239,7 @@ Braze로 정보를 보내려면, 예를 들어 사용자가 활성 지원 대화
 메시지는 처리하는 데 필요한 시간 동안만 저장됩니다. 사용자 메시지에 접근하려면 Currents를 사용하세요.
 
 #### Braze 대시보드에서 어떤 측정기준을 사용할 수 있나요? {#what-metrics-are-available-in-the-braze-dashboard}
-Braze 대시보드에서 고유 수신자, 발송, 전달, 읽음, 실패를 확인할 수 있습니다. Braze가 읽음을 추적하려면 최종 사용자의 읽음 확인이 "켜짐"으로 설정되어 있어야 합니다. 다른 채널과 유사하게 전환 이벤트를 설정하여 Campaign 성과를 모니터링할 수도 있습니다.
+Braze 대시보드에서 고유 수신자, 발송, 전달, 읽음, 실패를 확인할 수 있습니다. Braze가 읽음을 추적하려면 사용자의 읽음 확인이 "켜짐"으로 설정되어 있어야 합니다. 다른 채널과 유사하게 전환 이벤트를 설정하여 Campaign 성과를 모니터링할 수도 있습니다.
 
 #### WhatsApp 대화란 무엇인가요? {#what-is-a-whatsapp-conversation}
 WhatsApp은 양방향 메시징에 중점을 둔 채널이므로 개별 메시지 수가 아닌 대화를 기준으로 합니다. 대화는 비즈니스와 최종 사용자 간의 24시간 스레드입니다.

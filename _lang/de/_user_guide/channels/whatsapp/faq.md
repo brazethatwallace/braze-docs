@@ -187,14 +187,19 @@ Es gibt verschiedene Gründe, warum eine Nachricht nicht zugestellt werden kann,
 #### Wenn eine Nachricht nicht zugestellt wird, werden mir Kosten berechnet? {#if-a-message-is-not-delivered-will-i-be-billed}
 Nein. Wenn eine Nachricht nicht zugestellt wird, werden Ihnen keine Kosten berechnet.
 
-#### Was passiert, wenn ein:e Endnutzer:in mein Unternehmen blockiert? {#what-happens-if-an-end-user-blocks-my-business}
+#### Was passiert, wenn ein:e Endnutzer:in mein Unternehmen blockiert? {#what-happens-if-a-user-blocks-my-business}
 Wenn ein:e Endnutzer:in Ihr Unternehmen blockiert, werden nachfolgende Nachrichten, die Sie zu senden versuchen, nicht zugestellt, und Ihnen werden keine Kosten berechnet.
 
-#### Was passiert, wenn ein:e Endnutzer:in eine Nachricht meldet? {#what-happens-if-an-end-user-reports-a-message}
+#### Was passiert, wenn ein:e Endnutzer:in eine Nachricht meldet? {#what-happens-if-a-user-reports-a-message}
 Wenn ein:e Endnutzer:in eine Nachricht meldet, können Sie weiterhin nachfolgende Nachrichten an diese:n Nutzer:in senden. Allerdings kann die Meldung Ihre Qualitätsbewertung auf dem Kanal beeinflussen.
 
-#### Wenn ein:e Endnutzer:in mein Unternehmen blockiert oder meldet, wird deren Abo-Status in Braze aktualisiert? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### Wenn ein:e Endnutzer:in mein Unternehmen blockiert oder meldet, wird deren Abo-Status in Braze aktualisiert? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 Nein. Deren Braze-Abo-Status wird nicht aktualisiert.
+
+#### Wie kann ich Nutzer:innen, die mein WhatsApp-Konto melden, von zukünftigen Sendungen ausschließen? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
+Braze erhält keine Benachrichtigungen von WhatsApp, wenn Ihr Konto markiert oder gemeldet wird. Daher können Sie diese Nutzer:innen in Braze nicht automatisch identifizieren oder ausschließen. Nutzer:innen, die Ihr Konto melden, können in Ihrer WhatsApp-Abo-Gruppe verbleiben und weiterhin für zukünftige Nachrichten berechtigt sein.
+
+Sie können jedoch eine Campaign einrichten, die ausgelöst wird, wenn ein:e Nutzer:in mit einem Abmelde-Schlüsselwort antwortet, wodurch die Abmeldung automatisch über den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) erfolgt. Weitere Informationen finden Sie unter [WhatsApp-Opt-in- und Opt-out-Prozess]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 #### Sind WhatsApp-Antwortnachrichten kostenlos? {#are-whatsapp-response-messages-free}
 

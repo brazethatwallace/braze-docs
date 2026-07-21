@@ -32,7 +32,9 @@ Nous appliquons une limite de débit de 1 000 requêtes par minute à cet endpoi
 <!---/users/track-->
 
 {% elsif include.endpoint == "users track" %}
-Braze applique une limite de vitesse de base de 3 000 requêtes toutes les trois secondes à cet endpoint. Chaque requête `/users/track` peut contenir jusqu'à 75 objets au total, répartis entre `attributes`, `events` et `purchases`. Chaque objet peut mettre à jour un utilisateur. Un même profil utilisateur peut être mis à jour par plusieurs objets.
+Les limites de débit de cet endpoint varient en fonction de votre contrat. Pour les clients dont la tarification inclut des points de donnée, Braze applique une limite de rafale de 3 000 requêtes toutes les trois secondes. Pour tous les autres clients, les limites sont configurées selon les termes de votre contrat. Les limites actuelles de votre compte sont disponibles dans le tableau de bord sous **Paramètres** > **API et identifiants** > **Tableau de bord d'utilisation de l'API**.
+
+Chaque requête `/users/track` peut contenir jusqu'à 75 objets au total, répartis entre `attributes`, `events` et `purchases`. Chaque objet peut mettre à jour un utilisateur. Un même profil utilisateur peut être mis à jour par plusieurs objets.
 
 Pour les clients ayant acheté le forfait Monthly Active Users CY 24-25, Universal MAU, Web MAU ou Mobile MAU, des limites de débit supplémentaires s'appliquent. Pour plus d'informations, consultez [Limites Monthly Active Users CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau).
 

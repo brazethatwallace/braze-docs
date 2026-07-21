@@ -329,6 +329,8 @@ GLOBALCONTROLGROUP
 GLOBALSTATECHANGE
 granularization
 granularized
+granularscimapi
+legacyscimapi
 GRAVTY
 Grindr
 Grotesk

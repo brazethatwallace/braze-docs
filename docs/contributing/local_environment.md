@@ -137,6 +137,20 @@ Next, install the dependencies for Braze Docs. These dependencies are small prog
 bundle install && asdf install
 ```
 
+For Node tooling used by local spell-check (cspell) and other npm scripts:
+
+```bash
+npm ci --ignore-scripts
+```
+
+Optional but recommended — install the repo git hooks so accessibility, spell-check (cspell), and screenshot PII checks run on every commit:
+
+```bash
+bash scripts/install_hooks.sh
+```
+
+Emergency skips: `SKIP_A11Y=1`, `SKIP_SPELL=1`, or `SKIP_PII=1` before `git commit`. CI still runs the blocking Spellcheck and accessibility checks on pull requests.
+
 ### Step 6: Start your local server
 
 To verify your installation and start your local docs server on localhost `http://127.0.0.1:4000`, run:

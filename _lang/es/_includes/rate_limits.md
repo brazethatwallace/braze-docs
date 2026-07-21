@@ -32,7 +32,9 @@ Aplicamos un límite de velocidad de 1000 solicitudes por minuto a este endpoint
 <!---/users/track-->
 
 {% elsif include.endpoint == "users track" %}
-Braze aplica un límite de velocidad base de 3000 solicitudes por cada tres segundos a este endpoint. Cada solicitud `/users/track` puede contener hasta 75 objetos en total combinados entre `attributes`, `events` y `purchases`. Cada objeto puede actualizar un usuario. Un único perfil de usuario puede ser actualizado por varios objetos.
+Los límites de velocidad de este endpoint varían en función de tu contrato. Para los clientes con puntos de datos en su modelo de precios, Braze aplica un límite de ráfaga de 3000 solicitudes por cada tres segundos. Para el resto de clientes, los límites se configuran de acuerdo con los términos de tu contrato. Los límites actuales de tu cuenta se pueden consultar en el panel en **Configuración** > **API e identificadores** > **Panel de uso de la API**.
+
+Cada solicitud `/users/track` puede contener hasta 75 objetos en total combinados entre `attributes`, `events` y `purchases`. Cada objeto puede actualizar un usuario. Un único perfil de usuario puede ser actualizado por varios objetos.
 
 Para los clientes que han adquirido Monthly Active Users CY 24-25, Universal MAU, Web MAU o Mobile MAU, se aplican límites de velocidad adicionales. Para más información, consulta [Límites de Monthly Active Users CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau).
 

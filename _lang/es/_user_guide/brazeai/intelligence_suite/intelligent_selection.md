@@ -2,25 +2,25 @@
 nav_title: Intelligent Selection
 article_title: Intelligent Selection
 page_order: 1.0
-description: "Este artículo trata sobre Intelligent Selection, una característica que analiza el rendimiento de una campaña recurrente o Canvas dos veces al día y ajusta automáticamente el porcentaje de usuarios que reciben cada variante de mensaje."
+description: "Este artículo trata sobre Intelligent Selection, una característica que analiza el rendimiento de una Campaign recurrente o Canvas dos veces al día y ajusta automáticamente el porcentaje de usuarios que reciben cada variante de mensaje."
 search_rank: 10
 toc_headers: h2
 ---
 
 # Intelligent Selection {#intelligent-selection}
 
-> Intelligent Selection es una característica que analiza el rendimiento de una campaña recurrente o Canvas dos veces al día y ajusta automáticamente el porcentaje de usuarios que reciben cada variante de mensaje.
+> Intelligent Selection es una característica que analiza el rendimiento de una Campaign recurrente o Canvas dos veces al día y ajusta automáticamente el porcentaje de usuarios que reciben cada variante de mensaje.
 
 ## Requisitos previos {#prerequisites}
 
 {% tabs %}
 {% tab Campaign %}
-Antes de añadir Intelligent Selection a tu campaña, asegúrate de haberlo configurado todo correctamente:
+Antes de añadir Intelligent Selection a tu Campaign, asegúrate de haberlo configurado todo correctamente:
 
-- Tu campaña se envía según un calendario periódico. No se admiten las campañas de envío único.
+- Tu Campaign se envía según un calendario periódico. No se admiten las Campaigns de envío único.
 - Has añadido al menos dos variantes de mensaje.
 - Has definido un evento de conversión para medir el rendimiento entre las distintas variantes.
-- La ventana de reelegibilidad se ha fijado en 24 horas o más. No se admiten ventanas más cortas, ya que afectarían a la integridad de la variante de control. Para obtener más información, consulta [estas preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+- La ventana de reelegibilidad se ha fijado en 24 horas o más. No se admiten ventanas más cortas, ya que afectarían a la integridad de la variante de control. Para obtener más información, consulta [Preguntas frecuentes sobre Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
 {% endtab %}
 
 {% tab Canvas %}
@@ -34,7 +34,7 @@ Para utilizar Intelligent Selection en un Canvas, confirma lo siguiente:
 
 Una variante que parezca rendir más que las demás se enviará a más usuarios, mientras que las variantes de bajo rendimiento se dirigirán a menos usuarios. Cada ajuste se realiza mediante un [algoritmo estadístico](https://en.wikipedia.org/wiki/Multi-armed_bandit) que garantiza que Braze se adapta a las diferencias reales de rendimiento y no solo al azar.
 
-![Sección de pruebas A/B de una campaña con Intelligent Selection habilitada.]({% image_buster /assets/img/intelligent_selection1.png %})
+![Sección de pruebas A/B de una Campaign con Intelligent Selection habilitada.]({% image_buster /assets/img/intelligent_selection1.png %})
 
 Intelligent Selection:
 - Observa repetidamente los datos de rendimiento y desplaza gradualmente el tráfico de la campaña hacia las variantes ganadoras.
@@ -48,7 +48,7 @@ Puedes añadir Intelligent Selection a tus campañas y Canvas.
 
 {% tabs %}
 {% tab Campaign %}
-Intelligent Selection puede añadirse a cualquier campaña multienvío en el paso **Target Audiences** del compositor de campañas de Braze. Las campañas que solo se envían una vez no pueden aprovechar esta característica.
+Intelligent Selection puede añadirse a cualquier Campaign multienvío en el paso **Públicos objetivo** del creador de campañas de Braze. Las campañas que solo se envían una vez no pueden aprovechar esta característica.
 
 {% alert note %}
 Intelligent Selection no se puede utilizar en campañas con un periodo de reelegibilidad inferior a 24 horas, ya que afectaría a la integridad de la variante de control. Para obtener más información, consulta las [preguntas frecuentes sobre inteligencia]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
@@ -118,12 +118,12 @@ Intelligent Selection asigna variantes de envío en función del estado actual d
 
 Intelligent Selection dejará de optimizar cuando tenga un 95 % de confianza en que continuar el experimento no mejorará la tasa de conversión en más de un 1 % de su tasa actual.
 
-### ¿Por qué no puedo habilitar Intelligent Selection en mi Canvas o campaña (aparece en gris)? {#why-cant-i-enable-intelligent-selection-in-my-canvas-or-campaign-grayed-out}
+### ¿Por qué no puedo habilitar Intelligent Selection en mi Canvas o Campaign (aparece en gris)? {#why-cant-i-enable-intelligent-selection-in-my-canvas-or-campaign-grayed-out}
 
 Intelligent Selection no estará disponible si:
 
-- No has añadido eventos de conversión a tu campaña o Canvas
-- Estás creando una campaña de envío único
-- Tu campaña tiene habilitada la reelegibilidad con una ventana inferior a 24 horas
+- No has añadido eventos de conversión a tu Campaign o Canvas
+- Estás creando una Campaign de envío único
+- Tu Campaign tiene habilitada la reelegibilidad con una ventana inferior a 24 horas
 - Tu Canvas está compuesto por una única variante sin variantes adicionales ni grupos de control añadidos
 - Tu Canvas está compuesto por un único grupo de control, sin variantes añadidas

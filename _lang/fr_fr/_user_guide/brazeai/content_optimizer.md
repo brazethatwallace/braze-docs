@@ -2,14 +2,14 @@
 nav_title: Optimiseur de contenu
 article_title: Optimiseur de contenu
 alias: "/content_optimizer/"
-description: "L'Optimiseur de contenu est un agent qui vous aide à tester et à optimiser le contenu de vos messages à grande échelle, en utilisant l'IA pour générer et évaluer automatiquement de grands volumes de variantes de contenu."
+description: "L'Optimiseur de contenu vous aide à tester et à optimiser le contenu de vos messages à grande échelle, en utilisant l'IA pour générer et évaluer automatiquement de grands volumes de variantes de contenu."
 page_type: reference
 page_order: 3
 ---
 
 # Optimiseur de contenu {#content-optimizer}
 
-> L'Optimiseur de contenu est un agent qui vous aide à tester et à optimiser le contenu de vos messages à grande échelle, en utilisant l'IA pour générer et évaluer automatiquement de grands volumes de variantes de contenu.
+> L'Optimiseur de contenu vous aide à tester et à optimiser le contenu de vos messages à grande échelle, en utilisant l'IA pour générer et évaluer automatiquement de grands volumes de variantes de contenu.
 
 {% alert important %}
 L'Optimiseur de contenu est actuellement en version bêta et n'est disponible que pour les canaux suivants : e-mail, notifications push et messages SMS/MMS/RCS. Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire du succès des clients.
@@ -17,7 +17,7 @@ L'Optimiseur de contenu est actuellement en version bêta et n'est disponible qu
 
 ## À propos de l'Optimiseur de contenu {#about-content-optimizer}
 
-L'Optimiseur de contenu est un agent qui s'exécute dans une étape du Canvas. Il vous aide à définir les composants du message à tester, à générer des variantes à l'aide de l'IA générative ou d'une saisie manuelle, et à optimiser automatiquement les combinaisons de contenu envoyées aux utilisateurs. Cette fonctionnalité vous permet de :
+L'Optimiseur de contenu s'exécute dans une étape du Canvas. Il vous aide à définir les composants du message à tester, à générer des variantes à l'aide de l'IA générative ou d'une saisie manuelle, et à optimiser automatiquement les combinaisons de contenu envoyées aux utilisateurs. Cette fonctionnalité vous permet de :
 
 - Optimiser les lignes d'objet, l'en-tête, le contenu du corps ou l'appel à l'action principal des e-mails.
 - Optimiser les titres et les messages des notifications push.
@@ -84,7 +84,7 @@ Chaque utilisateur reçoit un seul message par entrée dans l'étape d'Optimiseu
 
 ## Configuration de l'entrée dans le Canvas {#canvas-entry-setup}
 
-Pour obtenir les meilleurs résultats, utilisez l'Optimiseur de contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement et régulièrement au fil du temps, par exemple dans des Canvas récurrents ou toujours actifs avec un volume quotidien constant. Si tous les utilisateurs entrent dans l'étape en même temps, l'agent n'aura pas le temps de tirer des enseignements des premiers résultats. L'étape se comportera alors davantage comme un test A/B statique que comme un moteur d'optimisation en temps réel.
+Pour obtenir les meilleurs résultats, utilisez l'Optimiseur de contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement et régulièrement au fil du temps, par exemple dans des Canvas récurrents ou toujours actifs avec un volume quotidien constant. Si tous les utilisateurs entrent dans l'étape en même temps, l'Optimiseur de contenu n'aura pas le temps de tirer des enseignements des premiers résultats. L'étape se comportera alors davantage comme un test A/B statique que comme un moteur d'optimisation en direct.
 
 L'Optimiseur de contenu est particulièrement adapté aux Canvas à entrée récurrente quotidienne, ainsi qu'aux Canvas déclenchés par événement ou par API avec un volume d'entrées quotidien relativement constant. Si vous utilisez l'Optimiseur de contenu dans des Canvas à envoi unique ou à entrées « en pic » (comme les envois mensuels récurrents), envisagez d'utiliser les [contrôles d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) pour lisser les entrées des utilisateurs sur plusieurs jours.
 
@@ -102,13 +102,13 @@ L'Optimiseur de contenu est particulièrement adapté aux Canvas à entrée réc
 ## Points à prendre en compte {#considerations}
 
 - L'Optimiseur de contenu est actuellement en version bêta et n'est disponible que pour les canaux suivants : e-mail, notifications push et messages SMS/MMS/RCS.
-- Pour les e-mails, l'agent peut générer jusqu'à 125 combinaisons par étape :
+- Pour les e-mails, l'Optimiseur de contenu peut générer jusqu'à 125 combinaisons par étape :
    - Jusqu'à 3 composants par étape
    - Jusqu'à 5 variantes pour chaque composant
-- Pour les notifications push, l'agent peut générer jusqu'à 25 combinaisons par étape :
+- Pour les notifications push, l'Optimiseur de contenu peut générer jusqu'à 25 combinaisons par étape :
    - Jusqu'à 2 composants par étape
    - Jusqu'à 5 variantes pour chaque composant
-- Pour les messages SMS, MMS et RCS, l'agent peut générer jusqu'à 25 combinaisons par étape :
+- Pour les messages SMS, MMS et RCS, l'Optimiseur de contenu peut générer jusqu'à 25 combinaisons par étape :
    - Jusqu'à 2 composants par étape
    - Jusqu'à 5 variantes pour chaque composant
 - Un seul message est envoyé par utilisateur et par entrée. Les réentrées ne conservent aucune mémoire des envois précédents.

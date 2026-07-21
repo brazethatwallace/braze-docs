@@ -6326,7 +6326,7 @@
   },
   {
     "source": "/docs/es/user_guide/brazeai/decisioning_studio/building_agents",
-    "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent",
+    "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {
@@ -6341,7 +6341,7 @@
   },
   {
     "source": "/docs/es/user_guide/brazeai/decisioning_studio/go/configuring_braze",
-    "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {
@@ -7136,7 +7136,7 @@
   },
   {
     "source": "/docs/fr/user_guide/brazeai/decisioning_studio/integration",
-    "destination": "/docs/fr/user_guide/brazeai/decisioning_studio/get_started",
+    "destination": "/docs/fr/user_guide/brazeai/decisioning_studio",
     "permanent": true
   },
   {
@@ -14871,7 +14871,32 @@
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/building_agents",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/use_cases",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples",
     "permanent": true
   },
   {
@@ -14941,17 +14966,17 @@
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
     "permanent": true
   },
   {

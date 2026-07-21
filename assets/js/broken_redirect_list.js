@@ -614,9 +614,9 @@ validurls['/docs/es/user_guide/data/activation/report_metrics'] = '/docs/es/user
 validurls['/docs/es/user_guide/data/activation/custom_data/recommended_events/ecommerce_events'] = '/docs/es/user_guide/data/activation/events/recommended_events/ecommerce_events';
 validurls['/docs/ko/user_guide/data/activation/custom_data/recommended_events/ecommerce_events'] = '/docs/ko/user_guide/data/activation/events/recommended_events/ecommerce_events';
 validurls['/docs/fr/user_guide/data/activation/custom_data/recommended_events/ecommerce_events'] = '/docs/fr/user_guide/data/activation/events/recommended_events/ecommerce_events';
-validurls['/docs/es/user_guide/brazeai/decisioning_studio/building_agents'] = '/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent';
-validurls['/docs/fr/user_guide/brazeai/decisioning_studio/integration'] = '/docs/fr/user_guide/brazeai/decisioning_studio/get_started';
-validurls['/docs/es/user_guide/brazeai/decisioning_studio/go/configuring_braze'] = '/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
+validurls['/docs/es/user_guide/brazeai/decisioning_studio/building_agents'] = '/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/fr/user_guide/brazeai/decisioning_studio/integration'] = '/docs/fr/user_guide/brazeai/decisioning_studio/';
+validurls['/docs/es/user_guide/brazeai/decisioning_studio/go/configuring_braze'] = '/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 validurls['/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_pro/connect_data_sources'] = '/docs/es/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources';
 validurls['/docs/ja/user_guide/brazeai/decisioning_studio/decisioning_studio_pro'] = '/docs/ja/user_guide/brazeai/decisioning_studio/get_started';
 validurls['/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_pro/set_up_orchestration'] = '/docs/es/user_guide/brazeai/decisioning_studio/orchestration_setup';
@@ -3897,9 +3897,9 @@ validurls['/docs/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/com
 validurls['/docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push#ignoring-braze-internal-push-notifications'] = '/docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push#ignore-braze-internal-push-notifications';
 
 // User Guide - BrazeAI
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze#configuring-with-braze'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources#braze-data-requirements';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc#configuring-with-salesforce'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources#sfmc-data-requirements';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo#configuring-with-klaviyo'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze#configuring-with-braze'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc#configuring-with-salesforce'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo#configuring-with-klaviyo'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 validurls['/docs/user_guide/brazeai/recommendations/using_recommendations#using-item-recommendations'] = '/docs/user_guide/brazeai/item_recommendations/using_recommendations#use-item-recommendations';
 validurls['/docs/user_guide/brazeai/recommendations/creating_recommendations/rules_based#creating-rules-based-item-recommendations'] = '/docs/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based#create-rules-based-item-recommendations';
 validurls['/docs/user_guide/brazeai/recommendations/creating_recommendations/ai#creating-ai-item-recommendations'] = '/docs/user_guide/brazeai/item_recommendations/creating_recommendations/ai#create-ai-item-recommendations';
@@ -4045,11 +4045,11 @@ validurls['/docs/user_guide/brazeai/predictive_events/prediction_analytics#purch
 validurls['/docs/user_guide/administrative/access_braze/navigation'] = '/docs/user_guide/administer/personal/the_braze_dashboard';
 validurls['/docs/user_guide/administrative/access_braze/global_search'] = '/docs/user_guide/administer/personal/the_braze_dashboard';
 
-validurls['/docs/user_guide/brazeai/decisioning_studio/building_agents'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent';
+validurls['/docs/user_guide/brazeai/decisioning_studio/building_agents'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 validurls['/docs/user_guide/brazeai/decisioning_studio/go'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/use_cases'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples';
@@ -5530,5 +5530,8 @@ validurls['/docs/partners/partners'] = '/docs/partners/home';
 validurls['/docs/partners/alpaco'] = '/docs/partners/message_orchestration/templates/alpaco';
 
 validurls['/docs/knowledge_sources/'] = '/docs/user_guide/brazeai/agents/knowledge_sources/';
+
+validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 
 // validurls['OLD'] = 'NEW';

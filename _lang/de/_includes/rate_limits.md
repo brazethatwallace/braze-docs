@@ -32,7 +32,9 @@ Für diesen Endpunkt gilt ein Rate-Limit von 1.000 Anfragen pro Minute, wie in [
 <!---/users/track-->
 
 {% elsif include.endpoint == "users track" %}
-Braze wendet auf diesen Endpunkt ein Basis-Rate-Limit von 3.000 Anfragen pro drei Sekunden an. Jede `/users/track`-Anfrage kann insgesamt bis zu 75 Objekte enthalten, verteilt auf `attributes`, `events` und `purchases`. Jedes Objekt kann eine:n Nutzer:in aktualisieren. Ein einzelnes Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
+Die Rate-Limits für diesen Endpunkt variieren je nach Ihrem Vertrag. Für Kund:innen mit Datenpunkten in ihrem Preismodell wendet Braze ein Burst-Limit von 3.000 Anfragen pro drei Sekunden an. Für alle anderen Kund:innen werden die Limits gemäß Ihren Vertragsbedingungen konfiguriert. Die aktuellen Limits für Ihr Konto finden Sie im Dashboard unter **Einstellungen** > **APIs und Bezeichner** > **API-Nutzungs-Dashboard**.
+
+Jede `/users/track`-Anfrage kann insgesamt bis zu 75 Objekte enthalten, verteilt auf `attributes`, `events` und `purchases`. Jedes Objekt kann eine:n Nutzer:in aktualisieren. Ein einzelnes Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
 
 Für Kund:innen, die Monthly Active Users CY 24-25, Universal MAU, Web MAU oder Mobile MAU erworben haben, gelten zusätzliche Rate-Limits. Weitere Informationen finden Sie unter [Monthly Active Users CY 24-25 Limits]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau).
 

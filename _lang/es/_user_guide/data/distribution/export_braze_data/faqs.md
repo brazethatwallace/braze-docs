@@ -39,6 +39,6 @@ Se trata de un caso muy poco frecuente causado por la arquitectura subyacente de
 
 Aunque los archivos CSV suelen abrirse automáticamente en Excel de forma predeterminada, puede que no siempre sea así. Consulta los artículos de solución de problemas de [Windows](https://support.microsoft.com/en-us/windows/change-which-programs-windows-7-uses-by-default-62fd162f-8c82-0436-806f-c60d69dcf495) y [Apple](https://support.apple.com/guide/mac-help/choose-an-app-to-open-a-file-on-mac-mh35597/mac) para conocer los pasos para establecer Excel como tu programa predeterminado.
 
-Para convertir un CSV a XLSX o XLS, o eliminar la coma entre los valores de datos, consulta [esta guía](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard) para importar archivos CSV en Excel.
+Para convertir un CSV a XLSX o XLS, o eliminar la coma entre los valores de datos, consulta [esta guía para importar archivos CSV en Excel](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard).
 
 Si notas que los ceros iniciales se eliminan de los ID de usuario en tu exportación CSV, esto ocurre porque Excel trata los números de un CSV como datos en lugar de texto. Para resolverlo, ejecuta el [Asistente de importación de texto de Excel](https://www.ablebits.com/office-addins-blog/converting-csv-excel-issues/#leading-zeros).

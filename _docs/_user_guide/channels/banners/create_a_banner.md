@@ -159,9 +159,7 @@ For the full JavaScript bridge reference, see [Custom code and JavaScript bridge
 
 You can add custom properties to a Banner to attach structured metadata, such as strings or JSON objects. These properties don’t affect how the Banner is displayed but can be [accessed through the Braze SDK]({{site.baseurl}}/developer_guide/banners/placements) to modify your app’s behavior or appearance. For example, you could:
 
-- Send metadata for your third-party analytics or integrations.
-- Use metadata such as a `timestamp` or JSON object to trigger conditional logic.
-- Control the behavior of a Banner based on included metadata like `ratio` or `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 Custom properties work the same way in both the drag-and-drop editor and the HTML editor. To add a custom property, select **Settings** > **Properties** > **Add property**.
 

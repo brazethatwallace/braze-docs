@@ -15,7 +15,7 @@ channel:
 
 ## Tópicos do FAQ {#faq-topics}
 - [Contas comerciais do WhatsApp](#whatsapp-business-accounts)
-- [Número de telefone da conta comercial do WhatsApp](#whatsapp-business-account-phone-numbers)
+- [Números de telefone da conta comercial do WhatsApp](#whatsapp-business-account-phone-numbers)
 - [Opt-in e gerenciamento de inscrições](#opt-in-and-subscription-management)
 - [Limites de envio de mensagens e classificação de qualidade](#messaging-limits-and-quality-rating)
 - [Modelos e criador do WhatsApp](#whatsapp-templates-and-composer)
@@ -187,14 +187,19 @@ Existem vários motivos pelos quais uma mensagem pode não ser entregue, incluin
 #### Se uma mensagem não for entregue, serei cobrado? {#if-a-message-is-not-delivered-will-i-be-billed}
 Não. Se uma mensagem não for entregue, você não será cobrado.
 
-#### O que acontece se um usuário final bloquear minha empresa? {#what-happens-if-an-end-user-blocks-my-business}
-Se um usuário final bloquear sua empresa, as mensagens subsequentes que você tentar enviar não serão entregues, e você não será cobrado.
+#### O que acontece se um usuário bloquear minha empresa? {#what-happens-if-a-user-blocks-my-business}
+Se um usuário bloquear sua empresa, as mensagens subsequentes que você tentar enviar não serão entregues, e você não será cobrado.
 
-#### O que acontece se um usuário final denunciar uma mensagem? {#what-happens-if-an-end-user-reports-a-message}
-Se um usuário final denunciar uma mensagem, você ainda poderá enviar mensagens subsequentes para esse usuário. No entanto, a denúncia pode afetar sua classificação de qualidade no canal.
+#### O que acontece se um usuário denunciar uma mensagem? {#what-happens-if-a-user-reports-a-message}
+Se um usuário denunciar uma mensagem, você ainda poderá enviar mensagens subsequentes para esse usuário. No entanto, a denúncia pode afetar sua classificação de qualidade no canal.
 
-#### Se um usuário final bloquear ou denunciar minha empresa, o status de inscrição dele será atualizado na Braze? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### Se um usuário bloquear ou denunciar minha empresa, o status de inscrição dele será atualizado na Braze? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 Não. O status de inscrição na Braze não será atualizado.
+
+#### Como posso excluir usuários que denunciaram minha conta do WhatsApp de próximos envios? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
+A Braze não recebe notificações do WhatsApp quando sua conta é sinalizada ou denunciada, então você não pode identificar ou excluir automaticamente esses usuários na Braze. Usuários que denunciam sua conta podem permanecer no seu grupo de inscrições do WhatsApp e continuar elegíveis para mensagens futuras.
+
+No entanto, você pode configurar uma Campaign que é disparada quando um usuário responde com uma palavra-chave de descadastramento, o que cancela automaticamente a inscrição dele usando o [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Para saber mais, consulte [Processo de opt-in e opt-out do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 #### As mensagens de resposta do WhatsApp são gratuitas? {#are-whatsapp-response-messages-free}
 
@@ -234,7 +239,7 @@ Para enviar informações para a Braze, por exemplo, para indicar que um usuári
 As mensagens são armazenadas apenas pelo tempo necessário para processá-las. Para acessar as mensagens dos usuários, use Currents.
 
 #### Quais métricas estão disponíveis no dashboard da Braze? {#what-metrics-are-available-in-the-braze-dashboard}
-Você pode ver destinatários únicos, envios, entregas, leituras e falhas no dashboard da Braze. Observe que os recibos de leitura dos usuários finais devem estar "Ativados" para que a Braze rastreie as leituras. Você também pode configurar eventos de conversão para monitorar o desempenho da Campaign, de forma semelhante a outros canais.
+Você pode ver destinatários únicos, envios, entregas, leituras e falhas no dashboard da Braze. Observe que os recibos de leitura do usuário devem estar "Ativados" para que a Braze rastreie as leituras. Você também pode configurar eventos de conversão para monitorar o desempenho da Campaign, de forma semelhante a outros canais.
 
 #### O que é uma conversa do WhatsApp? {#what-is-a-whatsapp-conversation}
 O WhatsApp é um canal focado em mensagens bidirecionais e, portanto, se baseia em conversas (em vez do número de mensagens individuais). Uma conversa é um thread de 24 horas entre uma empresa e um usuário final.

@@ -9,7 +9,7 @@ description: "Cet article contient les notes de version de juillet 2019."
 # Juillet 2019 {#july-2019}
 
 {% alert update %}
-Braze a eu deux (vous avez bien lu — **deux**) cycles de lancement de produits ce mois-ci ! La dernière version est indiquée en haut de page, la version précédente [commence plus bas sur cette page](#earlier-this-month) !
+Braze a eu deux (vous avez bien lu — **deux**) cycles de lancement de produits ce mois-ci ! La dernière version est indiquée en haut de page, la version précédente est couverte dans la section [Plus tôt ce mois-ci](#earlier-this-month) !
 {% endalert %}
 
 ## SAML/SSO
@@ -40,7 +40,7 @@ Les détails étendus de campagne sont désormais affichés dans la section… a
 
 ## Afficher uniquement les miennes dans Segments et Canvas {#show-only-mine-in-segments-canvas}
 
-Le filtre « Afficher uniquement les mien(ne)s » sur la page **Campaigns** s'est avéré extrêmement populaire. Par conséquent, nous ajoutons également cette option aux listes Canvas et Segments !
+Le filtre « Afficher uniquement les miennes » sur la page **Campaigns** s'est avéré extrêmement populaire. Par conséquent, nous ajoutons également cette option aux listes Canvas et Segments !
 
 ### Comportement d'avancement {#advancement-behavior}
 
@@ -88,7 +88,7 @@ Le templating Liquid de `dispatch_id_for_unsent_campaign` ne fonctionne pas avec
 
 ## Le paramètre « Afficher uniquement les miennes » est persistant {#show-only-mine-setting-persists}
 
-Le filtre « Afficher uniquement les mien(ne)s » de la grille de campagnes restera activé chaque fois que vous visiterez la page **Campaigns**.
+Le filtre « Afficher uniquement les miennes » de la grille de campagnes restera activé chaque fois que vous visiterez la page **Campaigns**.
 
 ## Mises à jour des tests A/B {#ab-testing-updates}
 

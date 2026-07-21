@@ -121,6 +121,6 @@ Fügen Sie das folgende Snippet am Anfang Ihres SMS-Nachrichtentexts ein. Dieses
 
 #### Hinweise
 
-- {% raw %}`time_zone: ${time_zone}`{% endraw %} ermöglicht es, das Zeitfenster anhand der Ortszeit jeder/jedes Nutzer:in zu bewerten, nicht anhand einer festen globalen Zeit, wie in [dieser FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer) erläutert.
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} ermöglicht es, das Zeitfenster anhand der Ortszeit jeder/jedes Nutzer:in zu bewerten, nicht anhand einer festen globalen Zeit, wie in den [Campaign-FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer) erläutert.
 - Nachrichten, die durch {% raw %}`abort_message()`{% endraw %} unterdrückt werden, werden nicht für den nächsten Tag neu geplant; sie werden abgebrochen.
 - {% raw %} Standardmäßig sind abgebrochene Nachrichten im Standard-Campaign-Reporting nicht sichtbar. Wenn Liquid jedoch einen Versand mit `{% abort_message %}` abbricht, protokolliert Braze dies im Nachrichten-Aktivitätsprotokoll als Nachrichtenfehler (standardmäßig wird `{% abort_message %}` aufgerufen angezeigt). Wenn Sie einen String übergeben, wird dieser Grund im Protokoll angezeigt, z. B. `{% abort_message('language was nil') %}`{% endraw %}. Für Einblicke in diese Unterdrückungen im Dashboard wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zum [Messaging-Diagnose-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) zu erhalten.
