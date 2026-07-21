@@ -15,10 +15,7 @@ Usando o Braze Audience Sync com o TikTok, as marcas podem optar por adicionar d
 
 **Os casos de uso comuns para a sincronização do público incluem**:
 
-- Direcionamento a usuários de alto valor por meio de vários canais para impulsionar compras ou engajamento
-- Redirecionamento de usuários menos responsivos a outros canais de marketing
-- Criação de públicos de supressão para evitar que os usuários recebam anúncios quando já são consumidores fiéis da sua marca
-- Criação de públicos Actalike para adquirir novos usuários com mais eficiência
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Esse recurso permite que as marcas controlem quais dados primários específicos são compartilhados com o TikTok. Na Braze, as integrações com as quais você pode e não pode compartilhar seus dados primários recebem a máxima consideração. Para saber mais, consulte nossa [política de privacidade](https://www.braze.com/privacy).
 

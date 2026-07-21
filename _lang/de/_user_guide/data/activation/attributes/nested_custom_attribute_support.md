@@ -11,7 +11,20 @@ description: "Dieser Referenzartikel behandelt die Verwendung verschachtelter an
 
 > Diese Seite behandelt verschachtelte angepasste Attribute, die es Ihnen ermöglichen, eine Reihe von Attributen als Eigenschaft eines anderen Attributs zu definieren. Mit anderen Worten: Wenn Sie ein angepasstes Attribut-Objekt definieren, können Sie eine Reihe von zusätzlichen Attributen für dieses Objekt festlegen.
 
-{% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
+## Über verschachtelte Attribute {#about-nested-attributes}
+
+Verschachtelte Attribute ermöglichen es Ihnen, reichhaltigere Segmente zu erstellen und Nachrichten mit Daten aus einem einzelnen angepassten Attribut-Objekt zu personalisieren.
+
+Im folgenden Beispiel enthält das angepasste Attribut `favorite_book` die verschachtelten Attribute `title`, `author` und `publishing_date`. Dieses Objekt kann verwendet werden, um Nutzer:innen nach Autor anzusprechen, nach Veröffentlichungsdatum zu filtern oder den Buchtitel direkt in eine Nachricht einzufügen:
+
+```json
+"favorite_book": {
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "publishing_date": "1937"
+}
+```
+
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -253,7 +266,7 @@ Wenn Sie Datumsangaben nicht von Anfang an als Objekt-Eigenschaften erfasst habe
 Bei verschachtelten angepassten Attributen speichert Braze keine Werte, wenn das Jahr kleiner als 0 oder größer als 3000 ist.
 {% endalert %}
 
-## Liquid-Templating {#liquid-templating}
+## Liquid-Templating
 
 Das folgende Liquid-Templating-Beispiel zeigt, wie Sie die angepassten Attribut-Objekt-Eigenschaften referenzieren, die aus der vorherigen API-Anfrage gespeichert wurden, und sie in Ihrem Messaging verwenden können.
 

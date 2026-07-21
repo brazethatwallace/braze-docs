@@ -11,7 +11,7 @@ page_type: reference
 > Generieren und iterieren Sie HTML-E-Mail-Templates mit Operator. Beschreiben Sie das gewünschte Template in natürlicher Sprache, und Operator erstellt oder modifiziert es anhand Ihrer Markenrichtlinien und globalen Stileinstellungen.
 
 {% alert important %}
-Die Generierung von HTML-E-Mail-Templates mit Operator befindet sich im Early Access. Kontaktieren Sie Ihren Account Manager, wenn Sie an diesem Early Access teilnehmen möchten.
+Die Generierung von HTML-E-Mail-Templates mit Operator befindet sich im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an diesem Early Access teilnehmen möchten.
 
 Diese Funktionalität wird nur für den E-Mail-Kanal im HTML-Editor unterstützt, nicht in anderen Editoren (wie Drag-and-Drop oder AMP).
 {% endalert %}
@@ -20,11 +20,12 @@ Diese Funktionalität wird nur für den E-Mail-Kanal im HTML-Editor unterstützt
 
 ## Zugriff {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_html_template.md %}
+Im HTML-E-Mail-Template-Editor enthält die Seitenleistengruppe **Generieren** die Option **Template**. Wählen Sie diese aus, um ein markenkonformes HTML-E-Mail-Template zu generieren oder zu iterieren. Operator wendet Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) an, damit das Ergebnis zu Ihrer Stimme und Ihrem Stil passt.
+
 
 ## Funktionsweise {#how-it-works}
 
-Operator verwendet Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) und [globalen Stileinstellungen]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/), um den Nachrichteninhalt und -stil an Ihre Marke anzupassen.
+Operator verwendet Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) und [globalen Stileinstellungen]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings), um den Nachrichteninhalt und -stil an Ihre Marke anzupassen.
 
 Wenn Sie beispielsweise globale Stileinstellungen eingerichtet haben, bezieht Operator die Farben und Stile Ihrer Marke ein. Wenn Sie Markenrichtlinien in Braze definiert haben, referenziert Operator diese ebenfalls, um Texte im Ton und in der Persönlichkeit Ihrer Marke zu erstellen.
 

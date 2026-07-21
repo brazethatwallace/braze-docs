@@ -410,6 +410,11 @@ A integração da Shopify usa [eventos recomendados de eCommerce]({{site.baseurl
 {% endsubtabs %}
 {% endtab %}
 {% tab Shopify events %}
+
+{% alert note %}
+A Braze depende da Shopify para fornecer as propriedades de evento obrigatórias (como `cart_id` ou `cart_token`) para eventos de eCommerce. Em casos raros, problemas temporários com a Shopify podem fazer com que essas propriedades não sejam recebidas, o que pode causar a perda dos eventos afetados.
+{% endalert %}
+
 {% subtabs global %}
 {% subtab Product viewed %}
 **Evento**: `ecommerce.product_viewed`<br>

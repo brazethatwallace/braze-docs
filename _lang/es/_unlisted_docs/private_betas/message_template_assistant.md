@@ -20,11 +20,12 @@ Esta funcionalidad solo es compatible con el canal de correo electrónico en el 
 
 ## Cómo acceder {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_html_template.md %}
+En el editor de plantillas de correo electrónico HTML, el grupo de la barra lateral **Generar** contiene la opción **Plantilla**. Selecciónala para generar o iterar una plantilla de correo electrónico HTML acorde con tu marca. Operator aplica tus [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) para que el resultado coincida con tu voz y estilo.
+
 
 ## Cómo funciona {#how-it-works}
 
-Operator utiliza tus [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) y la [configuración de estilo global]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/) para adaptar el contenido y el estilo del mensaje a tu marca.
+Operator utiliza tus [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) y la [configuración de estilo global]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings) para adaptar el contenido y el estilo del mensaje a tu marca.
 
 Por ejemplo, si tienes configurados los ajustes de estilo global, Operator incorpora los colores y estilos de tu marca. Si tienes directrices de marca definidas en Braze, Operator también hace referencia a ellas para crear textos con el tono y la personalidad de tu marca.
 

@@ -150,9 +150,7 @@ Una vista previa en el panel derecho se completará con la información de enví
 
 En **Sending Settings** > **Advanced**, puedes añadir archivos adjuntos al correo electrónico mediante los siguientes métodos:
 
-- **Cargar un archivo:** Arrastra y suelta o examina para cargar un archivo directamente desde tu computadora al correo electrónico. Braze valida el tipo y tamaño del archivo (hasta 2&nbsp;MB de forma predeterminada) antes de cargarlo, y luego estos archivos se cargan en la biblioteca de medios. Los archivos que superen el límite de 2&nbsp;MB no se pueden cargar.
-- **Usar la biblioteca de medios:** Examina y selecciona entre los activos ya almacenados en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Se admiten archivos PDF, documentos de Word, archivos de Excel y presentaciones de PowerPoint.
-- **Añadir desde URL:** Introduce una URL que apunte al archivo y proporciona un nombre de archivo para mostrar. Dado que Braze no puede verificar el tamaño de URL arbitrarias durante la composición del correo electrónico, el tamaño del archivo se aplica en el momento del envío. Ten en cuenta que Liquid no es compatible en este campo.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Consulta las [Directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) para conocer las mejores prácticas específicas a considerar.
 

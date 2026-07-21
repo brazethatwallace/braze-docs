@@ -11,7 +11,7 @@ search_tag: Partner
 
 > La plateforme de marketing agentique [Simon AI][1] aide les équipes marketing à atteindre une véritable personnalisation individuelle. Elle combine un CDP composable avec des agents d'intelligence artificielle qui opèrent directement dans le Snowflake AI Data Cloud pour agir en tant qu'équipe de données et d'exécution du marketeur.
 
-Utilisez l'intégration de Braze et Simon AI pour créer et synchroniser des audiences avancées vers Braze pour une orchestration en temps réel et sans code. Grâce à cette intégration, vous pouvez tirer parti de la résolution d'identité, de l'unification des données client et de la segmentation pilotée par l'IA de Simon AI pour alimenter des campagnes Braze plus personnalisées et plus percutantes en aval.
+Utilisez l'intégration de Braze et Simon AI pour créer et synchroniser des audiences avancées vers Braze pour une orchestration en temps réel et sans code. Grâce à cette intégration, vous pouvez tirer parti de la résolution d'identité, de l'unification des données client et de la segmentation pilotée par l'IA de Simon AI pour alimenter des Campaigns Braze plus personnalisées et plus percutantes en aval.
 
 ## Conditions préalables {#prerequisites}
 
@@ -27,7 +27,7 @@ Pour commencer, vous devez authentifier votre compte Braze dans votre compte Sim
 ## Cas d'usage {#use-cases}
 
 - Déclencher un Canvas ou un e-mail Braze
-- Transmettre et maintenir les propriétés de segment
+- Transmettre et maintenir les propriétés de Segment
 - Synchroniser les traits et les propriétés de contact
 
 {% alert note %}
@@ -56,7 +56,7 @@ Trois actions sont disponibles :
 
 - **Sync Simon segment attribute** : synchronisez les détails de votre segment avec un attribut personnalisé nouveau ou existant dans Braze.
 - **Trigger a Braze Canvas** : déclenchez un Canvas Braze qui exploite les données de votre segment Simon.
-- **Send a Braze campaign** : lancez une campagne Braze complète depuis Simon.
+- **Send a Braze campaign** : lancez une Campaign Braze complète depuis Simon.
 
 ![Liste déroulante affichant les actions Braze disponibles dans Simon AI.][9]{: style="max-width:60%"}
 
@@ -83,7 +83,7 @@ Une fois que les traits de contact ont été activés par votre gestionnaire de 
 
 [1]: https://www.simon.ai/
 [2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
-[3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
+[3]: {{site.baseurl}}/user_guide/administer/personal/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two
 [6]: https://docs.simondata.com

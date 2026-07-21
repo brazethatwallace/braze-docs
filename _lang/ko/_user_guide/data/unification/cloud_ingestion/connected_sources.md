@@ -234,9 +234,7 @@ Braze가 CDI 세그먼트 확장 쿼리 결과로 테이블을 생성한 후 Bra
 #### 2.1단계: Fabric 리소스에 대한 접근 권한 부여 {#step-21-grant-access-to-fabric-resources}
 Braze는 Entra ID 인증을 사용하는 서비스 주체를 통해 Fabric 웨어하우스에 연결합니다. Braze가 사용할 새 서비스 주체를 생성하고 필요에 따라 Fabric 리소스에 대한 접근 권한을 부여합니다. Braze가 연결하려면 다음 세부 정보가 필요합니다:
 
-* Azure 계정의 테넌트 ID(디렉터리라고도 함)
-* 서비스 주체의 주체 ID(애플리케이션 ID라고도 함)
-* Braze 인증을 위한 클라이언트 시크릿
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
 1. Azure 포털에서 Microsoft Entra 관리 센터로 이동한 다음 **앱 등록**으로 이동합니다.
 2. **ID > 애플리케이션 > 앱 등록**에서 **+ 새 등록**을 선택합니다.

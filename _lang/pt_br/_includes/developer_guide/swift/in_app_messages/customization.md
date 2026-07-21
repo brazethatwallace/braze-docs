@@ -72,7 +72,7 @@ A propriedade `clickAction` em seu `Braze.InAppMessage` tem como padrão `.none`
 | -------------------------- | -------- |
 | `.url(URL, useWebView: Bool)` | Abre o URL fornecido em um navegador externo. Se `useWebView` estiver definido como `true`, ele será aberto em uma visualização da web. |
 | `.none` | A mensagem será descartada quando for clicada. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Click action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de ação de clique" }
 
 {% alert important %}
 Para mensagens no app contendo botões, a mensagem `clickAction` também será incluída na carga útil final se a ação de clique for adicionada antes de adicionar o texto do botão.
@@ -241,7 +241,7 @@ O valor padrão é `false`. Isso determina se a mensagem modal no app será desc
 |----------|-------------|
 | `true`         | As mensagens modais no app serão descartadas com um toque externo.     |
 | `false`        | Padrão, as mensagens modais no app não serão descartadas com um toque externo. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing modal dismissals" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizando descartes modais" }
 
 Para mais detalhes sobre a personalização de mensagens no app, consulte este [artigo](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization).
 
@@ -358,7 +358,7 @@ Configure `BrazeInAppMessageUI.DisplayChoice` para retornar um dos seguintes val
 | `.reenqueue`                        | A mensagem não será exibida e será colocada de volta no topo da pilha.                                       |
 | `.later`                            | A mensagem não será exibida e será colocada de volta no topo da pilha. (Descontinuado, use `.reenqueue`) |
 | `.discard`                          | A mensagem será descartada e não será exibida.                                                                    |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing display timing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizando o tempo de exibição" }
 
 {% alert tip %}
 Para um exemplo de `InAppMessageUI`, confira nosso repositório [Swift Braze SDK](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) e [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
@@ -373,7 +373,7 @@ Para mensagens no app `Full`, `FullImage` e `HTML`, o SDK ocultará a barra de s
 | `.auto`                             | A visualização da mensagem decide o estado oculto da barra de status.                                 |
 | `.hidden`                           | Sempre ocultar a barra de status.                                                           |
 | `.visible`                          | Sempre exibir a barra de status.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Hiding the status bar" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ocultando a barra de status" }
 
 ## Desativando o modo escuro {#disabling-dark-mode}
 
@@ -533,17 +533,18 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 
 ### Etapa 3: Criar um deep link {#step-3-create-a-deep-link}
 
-No código de tratamento do deep link, adicione o seguinte código para processar o deep link `{YOUR-APP-SCHEME}:app-store-review`. Note que você precisará importar `StoreKit` para usar `SKStoreReviewController`:
+No handler [`scene:openURLContexts:`]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#swift_step-3-implement-a-handler), adicione o seguinte código para processar o deep link `{YOUR-APP-SCHEME}:app-store-review`. Note que você precisará importar `StoreKit` para usar `SKStoreReviewController`:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
     SKStoreReviewController.requestReview()
-    return true;
+    return;
   }
   // Other deep link handling code…
 }
@@ -553,11 +554,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
     [SKStoreReviewController requestReview];
-    return YES;
+    return;
   }
   // Other deep link handling code…
 }

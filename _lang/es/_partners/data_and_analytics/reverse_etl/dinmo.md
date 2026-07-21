@@ -22,19 +22,19 @@ La integración de Braze y DinMo envía segmentos y modelos de datos desde tu al
 | --- | --- |
 | Cuenta de DinMo | Se requiere una [cuenta de DinMo](https://www.dinmo.com/) con permiso para crear destinos para aprovechar esta asociación. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con los [permisos](#api-key-permissions) necesarios para los servicios de destino que planeas utilizar. Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión depende de la [URL de Braze para tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-| URL del dashboard de Braze | La URL del dashboard de Braze para tu instancia (por ejemplo, `https://dashboard.iad-01.braze.com`). Para más información, consulta [Puntos finales de SDK disponibles]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/). |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint depende de la [URL de Braze para tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+| URL del panel de Braze | La URL del panel de Braze para tu instancia (por ejemplo, `https://dashboard.iad-01.braze.com`). Para más información, consulta [Puntos finales de SDK disponibles]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
 | Almacén de datos y modelo de datos | Antes de comenzar la integración, conecta tu almacén de datos en DinMo y define un modelo o segmento para los datos que deseas sincronizar con Braze. Para más información, consulta la [guía de integración de DinMo con Braze](https://docs.dinmo.io/integrations/destination-platforms/braze). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Con esta integración, puedes:
 
 * Sincronizar atributos de usuario desde tu almacén de datos en Braze para personalizar Campaigns y Canvas.
 * Enviar eventos personalizados y eventos de compra desde datos del almacén a Braze para segmentación por comportamiento.
 * Mantener la pertenencia a grupos de suscripción de Braze alineada con los segmentos de audiencia definidos en DinMo.
-* Exportar segmentos de DinMo como atributos de usuario de Braze y crear Segments de Braze a partir de esos atributos.
+* Exportar segmentos de DinMo como atributos de usuario de Braze y crear segmentos de Braze a partir de esos atributos.
 
 ## Permisos de la clave de API {#api-key-permissions}
 
@@ -57,18 +57,18 @@ Otorga los siguientes permisos en tu clave de API REST de Braze según los servi
 2. Selecciona **Add a new destination** > **Connect a new platform** > **Braze**.
 3. En el formulario de conexión, introduce los siguientes datos:
    * **Platform Name**: Por ejemplo, `Braze – Your Company`
-   * **REST API URL**: La URL del punto de conexión REST de tu instancia (por ejemplo, `https://rest.eu-01.braze.com`)
-   * **Dashboard URL**: La URL del dashboard de tu instancia (por ejemplo, `https://dashboard.eu-01.braze.com`)
+   * **REST API URL**: La URL del endpoint REST de tu instancia (por ejemplo, `https://rest.eu-01.braze.com`)
+   * **Dashboard URL**: La URL del panel de tu instancia (por ejemplo, `https://dashboard.eu-01.braze.com`)
    * **API Key**: La clave que copiaste de Braze
 4. Selecciona **Connect** para validar tus credenciales.
 
 {% alert note %}
-Debes especificar tanto la URL de la REST API como la URL del dashboard. No incluyas una barra diagonal al final de la URL de la REST API.
+Debes especificar tanto la URL de la REST API como la URL del panel. No incluyas una barra diagonal al final de la URL de la REST API.
 {% endalert %}
 
 ### Paso 2: Verificar la conexión {#step-2-verify-the-connection}
 
-Después de guardar el destino, DinMo realiza una llamada de prueba (por ejemplo, `users.track`) para confirmar que tu clave de API y punto de conexión funcionan.
+Después de guardar el destino, DinMo realiza una llamada de prueba (por ejemplo, `users.track`) para confirmar que tu clave de API y endpoint funcionan.
 
 Si la validación falla, confirma lo siguiente:
 
@@ -101,7 +101,7 @@ Cuando ejecutas una activación:
 
 Si no habilitas el modo de inserción, DinMo solo actualiza los usuarios que ya existen en Braze y tienen un ID externo coincidente.
 
-Durante la configuración de la activación, mapea el campo de tu modelo de DinMo que corresponde al [ID externo]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/) del usuario o al ID de Braze. Mapea cada campo de DinMo al nombre exacto del atributo en Braze. Si un atributo no existe en Braze, DinMo lo crea.
+Durante la configuración de la activación, mapea el campo de tu modelo de DinMo que corresponde al [ID externo]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids) del usuario o al ID de Braze. Mapea cada campo de DinMo al nombre exacto del atributo en Braze. Si un atributo no existe en Braze, DinMo lo crea.
 
 Los siguientes modos de sincronización están disponibles para las activaciones de atributos de usuario:
 
@@ -155,6 +155,6 @@ Utiliza este servicio de destino para representar un segmento de DinMo como un a
 
 Durante la configuración de la activación, especifica el nombre de la audiencia. DinMo utiliza este nombre como el atributo de Braze (los espacios se reemplazan con guiones bajos). Confirma que no exista ya un atributo con el mismo nombre en Braze. Mapea el campo de DinMo que corresponde al ID externo del usuario.
 
-Después de que se ejecute la activación, crea un Segment de Braze que filtre a los usuarios donde el atributo sincronizado sea igual a `true`.
+Después de que se ejecute la activación, crea un segmento de Braze que filtre a los usuarios donde el atributo sincronizado sea igual a `true`.
 
 Solo se actualizan los usuarios con un ID externo que coincida con un usuario existente de Braze. Este servicio de destino no crea nuevos usuarios.

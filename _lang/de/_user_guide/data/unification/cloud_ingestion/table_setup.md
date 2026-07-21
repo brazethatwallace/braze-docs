@@ -56,7 +56,7 @@ Der `PAYLOAD`-Wert folgt denselben Objektformaten, die vom Braze-Endpunkt `/user
 
 | Datentyp | Formatierungsreferenz |
 | --- | --- |
-| `attributes` | [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `attributes` | [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | [Ereignis-Objekt]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOAD-Spalte einrichten" }

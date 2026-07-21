@@ -44,7 +44,7 @@ Consulte [Direcionamento por localização]({{site.baseurl}}/user_guide/audience
 
 ## Definição fixa do atributo de localização padrão {#hard-setting-the-default-location-attribute}
 
-Você também pode usar o [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) na nossa API para atualizar o atributo padrão [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens). Um exemplo:
+Você também pode usar o [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) na nossa API para atualizar o atributo padrão [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). Um exemplo:
 
 ```
 https://[your_braze_rest_endpoint]/users/track

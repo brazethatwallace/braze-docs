@@ -20,15 +20,16 @@ Operator를 사용한 HTML 이메일 템플릿 생성은 얼리 액세스 단계
 
 ## 접근 방법 {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_html_template.md %}
+HTML 이메일 템플릿 편집기에서 **Generate** 사이드바 그룹에 **Template** 옵션이 있습니다. 이 옵션을 선택하면 브랜드에 맞는 HTML 이메일 템플릿을 생성하거나 반복 개선할 수 있습니다. Operator는 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)을 적용하여 결과물이 브랜드의 보이스와 스타일에 맞도록 합니다.
+
 
 ## 작동 방식 {#how-it-works}
 
-Operator는 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)과 [글로벌 스타일 설정]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/)을 사용하여 메시지 콘텐츠와 스타일을 브랜드에 맞게 조정합니다.
+Operator는 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)과 [글로벌 스타일 설정]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings)을 사용하여 메시지 콘텐츠와 스타일을 브랜드에 맞게 조정합니다.
 
 예를 들어, 글로벌 스타일 설정이 구성되어 있으면 Operator가 브랜드의 색상과 스타일을 반영합니다. Braze에서 브랜드 가이드라인을 정의한 경우, Operator는 이를 참조하여 브랜드의 톤과 개성에 맞는 카피를 작성합니다.
 
-Operator는 모바일 반응형에 맞게 템플릿을 반복 개선합니다.
+또한 Operator는 모바일 응답형에 맞게 템플릿을 반복 개선합니다.
 
 ## 예시 프롬프트 {#example-prompts}
 

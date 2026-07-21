@@ -203,7 +203,7 @@ Para los atributos **numéricos**, están disponibles las siguientes opciones de
 | Comprobar si el atributo numérico **es menor que** un **número**| **LESS THAN** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene un valor menor que `10`, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo numérico **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK** | **N/A** | Si un perfil de usuario contiene el atributo numérico especificado, independientemente del valor, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo numérico **no existe** en el perfil de un usuario o es nulo | **IS BLANK** | **N/A** | Si un perfil de usuario no contiene el atributo numérico especificado o el valor del atributo es nulo, el usuario coincidirá con este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 #### Detalles de atributos numéricos {#number-attribute-details}
 
@@ -301,11 +301,7 @@ Para los atributos de **hora**, están disponibles las siguientes opciones de se
 
 #### Detalles de atributos de hora {#time-attribute-details}
 
-- Día de evento recurrente
-  - Al usar el filtro "Día de evento recurrente" y luego se te solicita seleccionar el "Día del calendario del evento recurrente", si seleccionas `IS LESS THAN` o `IS MORE THAN`, la fecha actual se contará para ese filtro de segmentación.
-  - Por ejemplo, si el 10 de marzo de 2020 seleccionaste la fecha del atributo como `LESS THAN ... March 10, 2020`, los atributos se considerarán para los días hasta e incluyendo el 10 de marzo de 2020.
-- Hace menos de X días: el filtro "Hace menos de X días" incluye fechas entre hace X días y la fecha/hora actual.
-- En menos de X días en el futuro: incluye fechas entre la fecha/hora actual y X días en el futuro.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab Objetos %}
@@ -382,8 +378,8 @@ Para cambiar el tipo de datos de un atributo personalizado o evento:
 
 Si cambias el tipo de datos de un atributo personalizado o evento (por ejemplo, cambiar `time` a `string`), ten en cuenta lo siguiente:
 
-- **Los filtros no se actualizan automáticamente.** Los Segments, las campañas, los Canvas u otras ubicaciones que usen el atributo o evento modificado no se actualizan. Antes de cambiar el tipo de datos, detén cualquier campaña o Canvas que use el atributo en Segments o filtros, y elimina el atributo de los filtros que lo referencian.
-- **Los datos de usuario existentes no se actualizan retroactivamente.** Si el atributo modificado estaba en un perfil de usuario antes del cambio, ese valor permanece con el tipo de datos anterior. Los usuarios pueden salir de Segments que contienen el atributo modificado porque el filtro busca el nuevo tipo de datos. Actualiza esos perfiles de usuario (por ejemplo, con el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que coincidan con el nuevo tipo y vuelvan a entrar en el Segment si es necesario.
+- **Los filtros no se actualizan automáticamente.** Los segmentos, las campañas, los Canvas u otras ubicaciones que usen el atributo o evento modificado no se actualizan. Antes de cambiar el tipo de datos, detén cualquier campaña o Canvas que use el atributo en segmentos o filtros, y elimina el atributo de los filtros que lo referencian.
+- **Los datos de usuario existentes no se actualizan retroactivamente.** Si el atributo modificado estaba en un perfil de usuario antes del cambio, ese valor permanece con el tipo de datos anterior. Los usuarios pueden salir de segmentos que contienen el atributo modificado porque el filtro busca el nuevo tipo de datos. Actualiza esos perfiles de usuario (por ejemplo, con el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que coincidan con el nuevo tipo y vuelvan a entrar en el segmento si es necesario.
 - **Los nuevos datos deben coincidir con el nuevo tipo.** Las llamadas a la API que envíen el tipo de datos anterior para el atributo modificado no se aceptan. Envía el nuevo tipo de datos.
 
 {% alert important %}
@@ -402,7 +398,7 @@ Los catálogos admiten los tipos enumerados en la tabla de [Definiciones](#defin
 | Hora | Fecha y hora en formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) o marca de tiempo Unix en segundos. | ✅ Sí | ✅ Sí |
 | Objeto JSON (Objeto) | Objeto anidado con pares clave-valor. Se muestra en la plataforma pero solo se puede crear o actualizar a través de la API o CDI. | ❌ No | ✅ Sí |
 | Matriz de cadenas (Matriz) | Una lista de cadenas. Se muestra en la plataforma pero solo se puede crear o actualizar a través de la API o CDI. Máximo de 100 elementos. | ❌ No | ✅ Sí |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de datos de catálogos #catalog-data-types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de datos de catálogos" }
 
 ### Formato y ejemplos {#format-and-examples}
 

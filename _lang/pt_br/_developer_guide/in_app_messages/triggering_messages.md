@@ -36,7 +36,21 @@ Uma mensagem no app `inapp` (ou "[padrão]({{site.baseurl}}/user_guide/message_b
 
 Uma mensagem no app `templated_iam` (ou "com modelo") ainda não tem o modelo preenchido com as informações necessárias. A Braze precisa fazer outra solicitação para obter as informações antes que a mensagem possa aparecer.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+As mensagens no app são entregues como mensagens no app com modelo quando **Reavaliar a elegibilidade da campanha antes de exibir** está selecionado ou se alguma das seguintes Liquid tags existir na mensagem:
+
+- `canvas_entry_properties`
+- `connected_content`
+- Variáveis de SMS como {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+Isso significa que, durante o início da sessão, o dispositivo recebe o gatilho dessa mensagem no app em vez da mensagem inteira. Quando o usuário dispara a mensagem no app, o dispositivo do usuário faz uma solicitação de rede para buscar a mensagem real.
+
+{% alert note %}
+A mensagem não será entregue se o dispositivo não tiver acesso à internet. A mensagem pode não ser entregue se a lógica Liquid demorar muito para ser resolvida.
+{% endalert %}
+
 
 ## Pares de chave-valor {#key-value-pairs}
 

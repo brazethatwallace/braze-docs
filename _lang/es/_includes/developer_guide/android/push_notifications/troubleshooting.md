@@ -37,8 +37,7 @@ sequenceDiagram
 
 ```
 
-
-### Paso 1: Configurar tu clave de API de Google Cloud {#step-1-configuring-your-google-cloud-api-key}
+### Paso 1: Configurar tu clave de API de Google Cloud {#step-1-configure-your-google-cloud-api-key}
 
 Al desarrollar tu aplicación, tendrás que proporcionar al SDK de Android de Braze tu ID de remitente de Firebase. Además, tendrás que proporcionar al panel de Braze una clave de API para aplicaciones de servidor. Braze utilizará esta clave de API para enviar mensajes a tus dispositivos. También tendrás que comprobar que el servicio FCM está habilitado en la consola para desarrolladores de Google.
 
@@ -50,23 +49,23 @@ Un error común durante este paso es utilizar la clave de API del identificador 
 
 En las integraciones típicas, el SDK de Android de Braze se encargará de registrar los dispositivos para la función FCM. Esto suele ocurrir inmediatamente después de abrir la aplicación por primera vez. Tras el registro, Braze recibirá un ID de registro de FCM, que se utiliza para enviar mensajes a ese dispositivo en concreto. Almacenaremos el ID de registro de ese usuario, y ese usuario se convertirá en "registrado push" si antes no tenía un token de notificaciones push para ninguna de tus aplicaciones.
 
-### Paso 3: Lanzamiento de una Campaign push de Braze {#step-3-launching-a-braze-push-campaign}
+### Paso 3: Lanzamiento de una Campaign push de Braze {#step-3-launch-a-braze-push-campaign}
 
 Cuando se lance una Campaign push, Braze hará solicitudes a FCM para que entregue tu mensaje. Braze utilizará la clave de API copiada en el panel para autenticar y verificar que podemos enviar notificaciones push a los tokens de notificaciones push proporcionados.
 
-### Paso 4: Eliminar tokens no válidos {#step-4-removing-invalid-tokens}
+### Paso 4: Eliminar tokens no válidos {#step-4-remove-invalid-tokens}
 
 Si FCM nos informa de que alguno de los tokens de notificaciones push a los que intentábamos enviar un mensaje no es válido, eliminamos esos tokens de los perfiles de usuario a los que estaban asociados. Si los usuarios no tienen otros tokens de notificaciones push, ya no aparecerán como "Registrados push" en la página **Segments**.
 
 Para más detalles sobre FCM, visita [Mensajería en la nube](https://firebase.google.com/docs/cloud-messaging/).
 
-## Utilizar los registros de errores push {#utilizing-the-push-error-logs}
+## Utilizar los registros de errores push {#use-the-push-error-logs}
 
-Braze proporciona errores de notificación push dentro del registro de actividad de mensajes. Este registro de errores proporciona una serie de advertencias que pueden ser muy útiles para identificar por qué tus campañas no funcionan como esperabas. Si haces clic en un mensaje de error, se te redirigirá a la documentación pertinente para ayudarte a solucionar una incidencia concreta.
+Braze proporciona errores de notificación push dentro del registro de actividad de mensajes. Este registro de errores proporciona una serie de advertencias que pueden ser muy útiles para identificar por qué tus campañas no funcionan como esperabas. Si seleccionas un mensaje de error, se te redirigirá a la documentación pertinente para ayudarte a solucionar una incidencia concreta.
 
 ![Registro de actividad de mensajes de Braze mostrando entradas de errores de notificaciones push.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-## Escenarios de solución de problemas {#troubleshooting-scenarios}
+## Solución de problemas {#troubleshooting}
 
 ### Push no se envía {#push-isnt-sending}
 
@@ -99,7 +98,9 @@ Recomendamos establecer un punto de interrupción o de registro para confirmar q
 
 Para que FCM push funcione, Google Play Services debe estar presente en el dispositivo. Si Google Play Services no está en un dispositivo, no se producirá el registro push.
 
-**Nota:** Los servicios de Google Play no se instalan en emuladores de Android que no tengan instaladas las API de Google.
+{% alert note %}
+Los servicios de Google Play no se instalan en emuladores de Android que no tengan instaladas las API de Google.
+{% endalert %}
 
 #### Dispositivo no conectado a Internet {#device-not-connected-to-the-internet}
 
@@ -126,8 +127,6 @@ Si no se entrega una notificación push, asegúrate de que no ha rebotado consul
 1. Asegúrate de pasar un token de notificaciones push válido a Braze desde [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token).
 
 #### Error: NotRegistered
-
-1. `NotRegistered` suele ocurrir cuando se elimina una aplicación de un dispositivo. Braze utiliza `NotRegistered` internamente para indicar que se ha desinstalado una aplicación de un dispositivo.
 
 2. `NotRegistered` también puede ocurrir cuando se producen varios registros y un segundo registro invalida el primer token.
 
@@ -176,9 +175,11 @@ La clave del servidor de Firebase Cloud Messaging proporcionada en el panel de B
 
 ### Los clics push no se registran {#push-clicks-not-logged}
 
-Braze registra automáticamente los clics push, por lo que esta situación debería ser relativamente rara.
+Si no se registran los clics push, es posible que los datos de los clics push aún no se hayan enviado a nuestros servidores. El SDK de Android de Braze puede regular la frecuencia de los envíos.
 
-Si no se registran los clics push, es posible que los datos de los clics push aún no se hayan enviado a nuestros servidores. Braze regula la frecuencia de sus descargas en función de la potencia de la conexión a la red. Con una buena conexión de red, los datos de clics push deberían llegar al servidor en menos de un minuto en la mayoría de los casos.
+Si implementaste un controlador push personalizado, asegúrate de que estás [preservando correctamente los análisis push nativos]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling).
+
+El registro de clics push es una operación de red y está sujeto a las limitaciones de la red. Por ello, aunque el SDK de Android de Braze intenta adaptarse a los fallos de red y reintenta las solicitudes fallidas, es de esperar cierta pérdida de eventos.
 
 ### Los vínculos profundos no funcionan {#deep-links-not-working}
 

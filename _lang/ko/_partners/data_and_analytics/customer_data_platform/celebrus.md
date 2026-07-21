@@ -54,7 +54,7 @@ Braze 커스텀 속성용 Celebrus 커넥터는 Braze가 수신할 것으로 예
 
 Celebrus는 이메일, 전화번호, `external_id` 또는 사용자 별칭과 같은 고유 식별자를 개인에게 캡처하고 할당한 후 CDI를 통해 Braze로 전송합니다. 이를 통해 동일한 개인에 대한 데이터를 Braze와 동기화할 수 있습니다.
 
-Celebrus는 정의된 식별자를 사용하여 Celebrus 프로필 빌더에 정의된 고객 속성을 전송하지만, 속성 값이 변경된 경우에만 전송합니다. Celebrus 프로필 빌더에 정의된 속성 이름은 기본적으로 Braze에서 사용됩니다. 따라서 [Braze 명명 규칙]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)을 준수하도록 이러한 이름을 업데이트해야 합니다.
+Celebrus는 정의된 식별자를 사용하여 Celebrus 프로필 빌더에 정의된 고객 속성을 전송하지만, 속성 값이 변경된 경우에만 전송합니다. Celebrus 프로필 빌더에 정의된 속성 이름은 기본적으로 Braze에서 사용됩니다. 따라서 [Braze 명명 규칙]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)을 준수하도록 이러한 이름을 업데이트해야 합니다.
 
 {% alert important %}
 현재 이 릴리스는 이벤트와 구매를 지원하지 않습니다.<br><br> 이 통합은 속성을 문자열 값으로 전송하므로 일부 속성은 리스트(예: signals)입니다. 현재 리스트를 배열로 변환할 수 없습니다. 중첩된 속성은 없습니다.

@@ -1,0 +1,2 @@
+## Détails de la console Agent {#agent-console-details}
+Braze facture des crédits de message pour les invocations de la console Agent envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un Agent initie un appel à un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.

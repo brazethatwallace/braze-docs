@@ -140,9 +140,7 @@ También puedes añadir personalización para encabezados de correo electrónico
 
 También puedes añadir archivos adjuntos de correo electrónico mediante los siguientes métodos:
 
-- **Cargar un archivo:** Arrastra y suelta o busca para cargar un archivo directamente desde tu computadora al correo electrónico. Braze valida el tipo y tamaño del archivo (hasta 2&nbsp;MB de forma predeterminada) antes de cargarlo, y luego estos archivos se cargan en la biblioteca de medios. Los archivos que superen el límite de 2&nbsp;MB no se pueden cargar.
-- **Usar la biblioteca de medios:** Busca y selecciona entre los activos ya almacenados en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Se admiten archivos PDF, documentos de Word, archivos de Excel y presentaciones de PowerPoint.
-- **Añadir desde URL:** Introduce una URL que apunte al archivo y proporciona un nombre de archivo para mostrar. Dado que Braze no puede verificar el tamaño de URLs arbitrarias durante la composición del correo electrónico, el tamaño del archivo se aplica en el momento del envío. Ten en cuenta que Liquid no es compatible en este campo.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Consulta las [directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) para conocer las buenas prácticas específicas a considerar.
 
@@ -295,9 +293,7 @@ Al crear una nueva Campaign de correo electrónico, el grupo de control se estab
 
 Para Campaigns multicanal dirigidas tanto a canales de correo electrónico como push, es posible que desees limitar tu Campaign para que solo los usuarios que hayan optado explícitamente reciban el mensaje (excluyendo a los usuarios suscritos o que cancelaron su suscripción). Por ejemplo, supongamos que tienes tres usuarios con diferentes estados de adhesión voluntaria:
 
-- **Usuario A** está suscrito a correo electrónico y tiene push habilitado. Este usuario no recibe el correo electrónico pero recibirá el push.
-- **Usuario B** ha optado por recibir correo electrónico pero no tiene push habilitado. Este usuario recibirá el correo electrónico pero no recibe el push.
-- **Usuario C** ha optado por recibir correo electrónico y tiene push habilitado. Este usuario recibirá tanto el correo electrónico como el push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Para hacerlo, en **Audience Summary**, selecciona enviar esta Campaign a «opted-in users only». Esta opción verificará que solo los usuarios que hayan optado recibirán tu correo electrónico, y Braze solo enviará tu push a los usuarios que tengan push habilitado de forma predeterminada.
 

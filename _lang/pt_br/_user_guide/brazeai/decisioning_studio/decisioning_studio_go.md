@@ -21,7 +21,7 @@ Isso é diferente de testes A/B no nível da Campaign ou da [seleção inteligen
 
 O agente divide um Segment da Braze em dois grupos: um grupo do Decisioning Studio que recebe conteúdo de e-mail otimizado por IA e um grupo de controle aleatório (mínimo de 5%) que recebe combinações aleatórias das mesmas opções. O controle aleatório oferece uma medição contínua e comparável do aumento gerado pelo agente; você sempre pode ver como a experiência personalizada se compara ao mesmo conteúdo enviado sem personalização.
 
-Para cada usuário no grupo do Decisioning Studio, o agente escolhe entre as opções que você forneceu: qual criativo enviar (incluindo a linha de assunto, CTA e imagem específicos dentro dele) e quando enviar (dia da semana e horário do dia, respeitando o horário de silêncio e o fuso local do usuário). [Configurar seu agente Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) aborda cada um desses itens em detalhes.
+Para cada usuário no grupo do Decisioning Studio, o agente escolhe entre as opções que você forneceu: qual criativo enviar (incluindo a linha de assunto, CTA e imagem específicos dentro dele) e quando enviar (dia da semana e horário do dia, respeitando o horário de silêncio e o fuso local do usuário). [Configure seu agente do Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) aborda cada um desses itens em detalhes.
 
 À medida que os usuários interagem — ou não — o agente aprende. Os relatórios indicam quando o agente ainda está no período de treinamento versus quando está personalizando ativamente, para que você sempre saiba em qual estágio o agente se encontra.
 
@@ -55,6 +55,6 @@ O Decisioning Studio Pro adiciona:
 
 ## Próximas etapas {#next-steps}
 
-- [Configurar seu agente Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) — configure público, cronograma, criativos e restrições
-- [Revisar exemplos para o Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples) — confirme se o seu programa é adequado
+- [Configure seu agente do Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) — configure público, cronograma, criativos e restrições
+- [Revise exemplos para o Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples) para confirmar se o seu programa é adequado
 - Consulte as [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq) para dúvidas comuns
