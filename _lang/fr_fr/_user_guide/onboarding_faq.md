@@ -51,7 +51,7 @@ Avant de commencer votre importation CSV, il est important de vérifier avec vot
 
 Lorsque vous fournissez un `external_id` dans votre importation, Braze met à jour tout utilisateur existant avec le même `external_id` ou crée un nouvel utilisateur identifié avec cet `external_id` s'il n'en trouve pas.
 
-Pour plus d'informations et pour télécharger des modèles d'importation CSV, consultez la rubrique [Importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv).
+Pour plus d'informations et pour télécharger des modèles d'importation CSV, consultez la rubrique [importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 #### API
 
@@ -129,7 +129,7 @@ Le panneau **Import CSV** contient les instructions d'importation et un bouton p
 
 Sélectionnez **Import Users in this CSV and also make it possible to retarget this specific batch of users as a group**, puis sélectionnez **Automatically generate a segment from the users who are imported from this CSV**. Après avoir cliqué sur **Start Import**, Braze charge votre fichier, vérifie les en-têtes de colonne et les types de données de chaque colonne, et crée un segment.
 
-Pour télécharger un modèle CSV, consultez la rubrique [Importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv).
+Pour télécharger un modèle CSV, consultez la rubrique [importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 {% endapi %}
 {% api %}
@@ -218,7 +218,7 @@ Enfin, après avoir créé une extension, vous pouvez l'utiliser comme filtre lo
 Campaigns
 {% endapitags %}
 
-Consultez [Campaigns multicanales]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) dans **Créer une campagne** pour les étapes de configuration, les canaux pris en charge et la façon de basculer entre les composeurs.
+Consultez [Campaigns multicanales]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) dans **Créer une campagne** pour les étapes de configuration, les canaux pris en charge et la façon de basculer entre les composeurs.
 
 {% endapi %}
 {% api %}
@@ -468,9 +468,9 @@ Un utilisateur ne peut effectuer qu'une seule conversion par entrée dans un Can
 
 Les conversions sont attribuées au message le plus récent reçu par l'utilisateur pour cette entrée. Le bloc de synthèse au début d'un Canvas reflète toutes les conversions effectuées par les utilisateurs dans ce parcours, qu'ils aient reçu un message ou non. Chaque étape suivante n'affichera que les conversions qui se sont produites lorsque c'était l'étape la plus récente reçue par l'utilisateur.
 
-{% details Cas d'utilisation %}
+{% details Cas d'usage %}
 
-#### Cas d'utilisation 1 {#use-case-1}
+#### Cas d'usage 1 {#use-case-1}
 
 Il existe un parcours Canvas avec 10 notifications push et l'événement de conversion est « lancement de session » (« Ouvre l'application ») :
 
@@ -484,7 +484,7 @@ La synthèse affichera deux conversions tandis que les étapes individuelles aff
 Si les heures calmes sont actives lorsque l'événement de conversion se produit, les mêmes règles s'appliquent.
 {% endalert %}
 
-#### Cas d'utilisation 2 {#use-case-2}
+#### Cas d'usage 2 {#use-case-2}
 
 Il existe un Canvas d'une seule étape avec des heures calmes :
 
@@ -571,13 +571,13 @@ Pour planifier un rapport d'engagement récurrent, procédez comme suit :
 
 1. Dans votre tableau de bord, accédez à **Engagement Reports**, sous **Data**.
 2. Cliquez sur **+ Create New Report**.
-3. Ajoutez les [Campaigns et messages Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#manually-select-campaigns-or-canvases) (individuellement ou [par tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)) que vous souhaitez compiler dans votre rapport.
-4. [Ajoutez des statistiques]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-report) à votre rapport.
+3. Ajoutez les [Campaigns et messages Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#manually-select-campaigns-or-canvases) (individuellement ou [par étiquette]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)) que vous souhaitez compiler dans votre rapport.
+4. [Ajoutez des statistiques]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-reports) à votre rapport.
 5. Sélectionnez la compression et le délimiteur pour votre rapport.
 6. Saisissez les adresses e-mail des utilisateurs de l'entreprise qui doivent recevoir ce rapport.
-7. Sélectionnez la [période]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#time-frame) sur laquelle vous souhaitez que votre rapport analyse les données.
-8. Sélectionnez les [intervalles (quotidien, hebdomadaire, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#data-display) auxquels vous souhaitez voir la ventilation de vos données.
-9. Planifiez votre rapport pour un [envoi immédiat]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-immediately) ou à une [date future spécifiée]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-at-designated-time).
+7. Sélectionnez la [période]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-time-frame) sur laquelle vous souhaitez que votre rapport analyse les données.
+8. Sélectionnez les [intervalles (quotidien, hebdomadaire, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-data-display) auxquels vous souhaitez voir la ventilation de vos données.
+9. Planifiez votre rapport pour un [envoi immédiat]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report) ou à une [date future spécifiée]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report).
 10. Exécutez le rapport, puis ouvrez-le dans votre e-mail quand il arrive !
 
 {% endapi %}

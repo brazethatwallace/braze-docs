@@ -1,15 +1,15 @@
 ---
 nav_title: Preguntas frecuentes
-article_title: Preguntas frecuentes sobre la Ingesta de datos de Cloud
+article_title: Preguntas frecuentes sobre la ingesta de datos en la nube
 page_order: 10
 page_type: FAQ
-description: "Esta página responde a las preguntas más frecuentes sobre la Ingesta de datos de Cloud."
+description: "Esta página responde a las preguntas más frecuentes sobre la ingesta de datos en la nube."
 toc_headers: h2
 ---
 
 # Preguntas más frecuentes {#frequently-asked-questions}
 
-> Esta página contiene respuestas a algunas preguntas frecuentes sobre la Ingesta de datos de Cloud.
+> Esta página contiene respuestas a algunas preguntas frecuentes sobre la ingesta de datos en la nube.
 
 ## ¿Por qué me enviaron un correo electrónico: "Error in CDI Sync"? {#why-was-i-emailed-error-in-cdi-sync}
 
@@ -80,7 +80,7 @@ Si recibes este error:
 
 ### Error al crear conexión {#create-connection-error}
 
-Si recibes este error, comprueba que el punto de conexión y el puerto de Redshift son correctos.
+Si recibes este error, comprueba que el endpoint y el puerto de Redshift son correctos.
 
 ### Error al crear túnel SSH {#create-ssh-tunnel-error}
 
@@ -130,7 +130,7 @@ Si recibes este error, consulta [Databricks: Forbidden error while accessing S3 
 
 ## ¿Cómo actualizo mis preferencias de alertas por correo electrónico para las integraciones CDI? {#how-do-i-update-my-email-alert-preferences-for-cdi-integrations}
 
-Cada integración tiene sus propias preferencias de notificación. Ve a la página CDI y selecciona el nombre de la integración que deseas actualizar. En la sección **Preferencias de notificación** puedes actualizar cómo recibes las alertas relativas a la integración seleccionada.
+Cada integración tiene sus propias preferencias de notificación. Ve a la página CDI y selecciona el nombre de la integración que deseas actualizar. En la sección **Notification preferences** puedes actualizar cómo recibes las alertas relativas a la integración seleccionada.
 
 ## ¿Qué sucede si un `UPDATED_AT` futuro se sincroniza con una integración? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
@@ -142,7 +142,7 @@ CDI utiliza `UPDATED_AT` para decidir qué datos son nuevos. Después de sincron
 
 ## ¿Por qué "Rows Synced" no coincide con el número de mi almacén? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-CDI utiliza `UPDATED_AT` para decidir qué registros recoger durante una sincronización. Mira [esta ilustración]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced) para ver cómo funciona. Al inicio de una sincronización, CDI realiza una consulta en tu almacén para obtener todos los registros con `UPDATED_AT` posterior al valor `UPDATED_AT` procesado anteriormente. Los registros que se encuentren exactamente en la marca de tiempo límite también pueden volver a sincronizarse si nuevas filas comparten esa marca de tiempo. Cualquier registro recogido en el momento en que se ejecuta la consulta se sincroniza en Braze. Estos son los casos habituales en los que un registro puede no sincronizarse:
+CDI utiliza `UPDATED_AT` para decidir qué registros recoger durante una sincronización. Mira [esta ilustración]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#how-it-works) para ver cómo funciona. Al inicio de una sincronización, CDI realiza una consulta en tu almacén para obtener todos los registros con `UPDATED_AT` posterior al valor `UPDATED_AT` procesado anteriormente. Los registros que se encuentren exactamente en la marca de tiempo límite también pueden volver a sincronizarse si nuevas filas comparten esa marca de tiempo. Cualquier registro recogido en el momento en que se ejecuta la consulta se sincroniza en Braze. Estos son los casos habituales en los que un registro puede no sincronizarse:
 
 - Estás añadiendo registros a la tabla con un valor `UPDATED_AT` que ya ha sido procesado.
 - Estás actualizando los valores de los registros después de que hayan sido procesados por una sincronización, pero dejando `UPDATED_AT` sin cambios.
@@ -226,7 +226,7 @@ Braze cuenta con las siguientes medidas para CDI:
 
 - Todas las credenciales están cifradas dentro de nuestra base de datos, y solo determinados empleados tienen acceso autenticado a ellas.
 - Utilizamos conexiones cifradas para obtener los datos de los almacenes de los clientes.
-- Realizamos solicitudes a los puntos finales de la API de Braze utilizando las mismas claves de API y conexiones TLS que recomendamos utilizar a nuestros clientes.
+- Realizamos solicitudes a los endpoints de la API de Braze utilizando las mismas claves de API y conexiones TLS que recomendamos utilizar a nuestros clientes.
 - Actualizamos regularmente nuestras bibliotecas y aplicamos todos los parches de seguridad.
 
 ### Tus medidas {#your-measures}

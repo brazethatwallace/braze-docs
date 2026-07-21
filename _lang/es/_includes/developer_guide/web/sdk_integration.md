@@ -94,7 +94,7 @@ braze.openSession();
 ```
 
 {% alert important %}
-**Visualización de mensajes dentro de la aplicación**: Para mostrar automáticamente los mensajes dentro de la aplicación cuando se desencadenan, debes llamar a `braze.automaticallyShowInAppMessages()`. Sin esta llamada, los mensajes dentro de la aplicación no se muestran automáticamente. Si deseas administrar manualmente la visualización de mensajes, elimina esta llamada y utiliza `braze.subscribeToInAppMessage()` en su lugar. Para obtener más información, consulta [Entrega de mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/in_app_messages/delivery).
+**Visualización de mensajes dentro de la aplicación**: Para mostrar automáticamente los mensajes dentro de la aplicación cuando se desencadenan, debes llamar a `braze.automaticallyShowInAppMessages()`. Sin esta llamada, los mensajes dentro de la aplicación no se muestran automáticamente. Si deseas administrar manualmente la visualización de mensajes, elimina esta llamada y utiliza `braze.subscribeToInAppMessage()` en su lugar. Para obtener más información, consulta [Desactivar desencadenantes automáticos]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#disabling-automatic-triggers).
 {% endalert %}
 
 #### Solución de problemas relacionados con sesiones perdidas para usuarios anónimos {#troubleshooting-missing-sessions-for-anonymous-users}

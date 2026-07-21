@@ -84,11 +84,11 @@ Le tableau suivant résume la signification de chaque libellé.
 
 | Libellé | Quand il est utilisé |
 | --- | --- |
-| **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Utilisateurs pouvant être atteints** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
+| **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Reachable users** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
 | **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience estimée et audience actuelle" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
-Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **Reachable users**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 {% if include.channel == "Content Card" %}
 
@@ -118,7 +118,7 @@ Pour mesurer l'impact d'un message webhook individuel, vous pouvez ajouter un [g
 
 #### Modifications depuis la dernière consultation {#changes-since-last-viewed}
 
-Le nombre de mises à jour de la campagne effectuées par d'autres membres de votre équipe est suivi par l'indicateur *Modifications depuis la dernière consultation* sur la page d'aperçu de la campagne. Sélectionnez **Changes Since Last Viewed** pour afficher un journal des modifications apportées au nom de la campagne, à sa planification, à ses étiquettes, à son message, à son audience, à son statut d'approbation ou à la configuration de l'accès de l'équipe. Pour chaque mise à jour, vous pouvez voir qui a effectué la modification et quand. Ce journal des modifications vous permet d'auditer les changements apportés à votre campagne.
+Le nombre de mises à jour de la campagne effectuées par d'autres membres de votre équipe est suivi par l'indicateur *Changes Since Last Viewed* sur la page d'aperçu de la campagne. Sélectionnez **Changes Since Last Viewed** pour afficher un journal des modifications apportées au nom de la campagne, à sa planification, à ses étiquettes, à son message, à son audience, à son statut d'approbation ou à la configuration de l'accès de l'équipe. Pour chaque mise à jour, vous pouvez voir qui a effectué la modification et quand. Ce journal des modifications vous permet d'auditer les changements apportés à votre campagne.
 
 <!--
 ### Message Performance
@@ -185,6 +185,13 @@ Le panneau **Webhook Performance** donne un aperçu de l'efficacité de votre me
 Le panneau **WhatsApp Performance** présente les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 ![Panneau de performances WhatsApp comprenant un tableau d'indicateurs pour la variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
+
+#### Crédits et nombre d'envois {#credits-versus-send-counts}
+
+Les compteurs d'envois WhatsApp dans l'analytique de campagne reflètent les tentatives de distribution. Les crédits consommés peuvent différer lorsque Meta facture par catégorie de message (marketing, utilitaire, authentification, service).
+
+- Les messages de réponse composés dans Braze ne consomment pas de crédits WhatsApp Braze.
+- Utilisez **Analytics** > **Daily Stats** pour le volume d'envoi directionnel. Les ventilations de crédits par campagne ou Canvas ne sont pas disponibles.
 
 {% endif %}
 
@@ -365,6 +372,12 @@ Autre exemple : supposons que vous observiez cinq _impressions uniques_ sur une 
 
 Les _impressions quotidiennes uniques_ désignent les bannières qui ont été effectivement vues.
 
+#### Écarts entre les groupes de contrôle et les variantes {#discrepancies-between-control-groups-and-variants}
+
+Lorsqu'une campagne de bannières utilise un groupe de contrôle, les impressions du groupe de contrôle peuvent être supérieures à celles des variantes, même lorsque la répartition de l'audience entre les groupes est égale. Cet écart est dû à une différence dans la manière dont les impressions sont enregistrées pour les bannières de contrôle et les variantes.
+
+Les impressions de contrôle et de variante nécessitent toutes deux que l'emplacement de la bannière entre dans la zone visible. Les impressions de variante ne sont enregistrées que lorsque la bannière complète est visible à l'écran. Les impressions de contrôle peuvent être enregistrées dès que l'emplacement entre dans la zone visible, avant que la bannière complète ne soit visible pour une variante.
+
 {% elsif include.channel == "email" %}
 
 #### Indicateurs des e-mails {#email-metrics}
@@ -500,7 +513,7 @@ Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fon
 
 ##### Taux d'ouverture réel estimé {#estimated-real-open-rate}
 
-Cette statistique utilise un modèle analytique propriétaire créé par Braze pour reconstruire une estimation du taux d'ouverture unique de la campagne comme si les ouvertures automatiques n'existaient pas. Bien que nous recevions des étiquettes *Ouvertures automatiques* pour certains événements d'ouverture provenant d'expéditeurs d'e-mails, ces étiquettes peuvent souvent classer les ouvertures réelles comme des ouvertures automatiques. Autrement dit, les *autres ouvertures* sont probablement une sous-estimation des ouvertures réelles (par des utilisateurs réels). Braze utilise plutôt les données de clics de chaque campagne pour déduire le taux d'ouverture du message par des humains réels. Cela permet de compenser les divers mécanismes d'ouverture automatique, y compris la protection de la confidentialité dans Mail d'Apple.
+Cette statistique utilise un modèle analytique propriétaire créé par Braze pour reconstruire une estimation du taux d'ouverture unique de la campagne comme si les ouvertures automatiques n'existaient pas. Bien que nous recevions des étiquettes *Machine Opens* pour certains événements d'ouverture provenant d'expéditeurs d'e-mails, ces étiquettes peuvent souvent classer les ouvertures réelles comme des ouvertures automatiques. Autrement dit, les *Other Opens* sont probablement une sous-estimation des ouvertures réelles (par des utilisateurs réels). Braze utilise plutôt les données de clics de chaque campagne pour déduire le taux d'ouverture du message par des humains réels. Cela permet de compenser les divers mécanismes d'ouverture automatique, y compris la protection de la confidentialité dans Mail d'Apple.
 
 Le _taux d'ouverture réel estimé_ est calculé 24 heures après le début de l'envoi de l'e-mail et est ensuite recalculé toutes les 72 heures.
 
@@ -593,7 +606,7 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
     </tbody>
 </table>
 
-#### Écarts entre les groupes de contrôle et les variantes {#discrepancies-between-control-groups-and-variants}
+#### Écarts entre les groupes de contrôle et les variantes
 
 Lorsqu'une campagne de messages in-app a une répartition 50-50 entre les variantes, il arrive que le groupe de contrôle ait un pourcentage légèrement supérieur à celui de la variante (par exemple 51 % pour le groupe de contrôle et 49 % pour la variante). Cet écart est dû à une différence dans le temps de rendu — par exemple, lorsque les messages de la variante utilisent des images volumineuses ou du contenu connecté avec modèle et que les utilisateurs quittent avant la fin du rendu, tandis que le groupe de contrôle enregistre les impressions sans afficher de message.
 
@@ -867,6 +880,8 @@ Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos an
     </tbody>
 </table>
 
+Si les échecs sont élevés, consultez [Analyser les échecs d'envoi WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### Indicateurs de blocage et de signalement par l'utilisateur final {#end-user-blocking-and-reporting-metrics}
 
 D'autres indicateurs peuvent être consultés via le [tableau de bord du gestionnaire WhatsApp](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), bien qu'une [confirmation de votre accès](https://www.facebook.com/business/help/218116047387456) soit nécessaire pour accéder à toutes les informations disponibles.
@@ -919,7 +934,7 @@ Le panneau **Conversion Correlation** vous donne des informations sur les attrib
 
 ## Générateur de rapports {#report-builder}
 
-Vous pouvez également utiliser le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Canaux**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
+Vous pouvez également utiliser le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Channels**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
 
 {% endif %}
 
@@ -935,7 +950,7 @@ En plus des analyses de Braze, des analyses au niveau des modèles sont accessib
 
 ### Événements SMS Currents {#sms-currents-events}
 
-Comme pour les e-mails, Braze reçoit des événements au niveau utilisateur liés à un message SMS à mesure qu'il effectue son parcours vers un utilisateur. Tout événement SMS entrant sera également envoyé en tant qu'événement Currents par le biais de l'événement [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Cela vous permet d'effectuer des actions supplémentaires ou des rapports sur les messages que vos utilisateurs envoient en dehors de la plateforme Braze.
+Comme pour les e-mails, Braze reçoit des événements au niveau utilisateur liés à un message SMS à mesure qu'il effectue son parcours vers un utilisateur. Tout événement SMS entrant sera également envoyé en tant qu'événement Currents par le biais de l'événement [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Cela vous permet d'effectuer des actions supplémentaires ou des rapports sur les messages que vos utilisateurs envoient en dehors de la plateforme Braze.
 
 {% alert note %}
 Les messages entrants sont tronqués au-delà de 1 600 caractères.

@@ -263,7 +263,7 @@ for card in cards {
 Braze.launchContentCards();
 
 // Or manually render cards
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 cards.forEach(card => {
   if (card.type === 'CLASSIC') {
     // Render classic card
@@ -353,7 +353,7 @@ braze.banners.requestBannersRefresh(placementIds: ["sample_placement_id"])
 ```javascript
 // Using BrazeBannerView component
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 
 // Or get banner data
@@ -742,7 +742,7 @@ let bannerView = BrazeBannerUI.BannerUIView(
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 ```
 {% endtab %}
@@ -780,6 +780,7 @@ Les bannières ne prennent en charge que les Campaigns avec planification. Pour 
 | Éditeur par glisser-déposer | ❌ Nécessite l'intervention d'un développeur pour la personnalisation | ✅ Les marketeurs peuvent créer et mettre à jour sans intervention technique |
 | HTML/CSS personnalisé | ❌ Limité à la structure de la carte | ✅ Prise en charge complète HTML/CSS |
 | Paires clé-valeur pour la personnalisation | ✅ Nécessaire pour une personnalisation avancée | ✅ Paires clé-valeur fortement typées appelées « propriétés » pour une personnalisation avancée |
+| Extras de message | ✅ Pris en charge | ❌ Non pris en charge actuellement |
 | **Persistance et expiration** |
 | Expiration de la carte | ✅ Pris en charge (limite de 30 jours) | ✅ Pris en charge (sans limite d'expiration) |
 | Véritable persistance | ❌ Maximum de 30 jours | ✅ Persistance illimitée |

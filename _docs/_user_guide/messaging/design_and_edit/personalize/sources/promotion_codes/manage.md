@@ -40,7 +40,7 @@ If no promotion codes are available, test or live messages that rely on codes do
 
 ### In-app message campaigns {#promotion-codes-iam-campaigns}
 
-After creating an [in-app message campaign]({{site.baseurl}}/user_guide/channels/in_app_messages), you can insert a [promotion code list snippet]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes-1) into your in-app message message body. Promotion codes in in-app messages are deducted and used only when a user triggers the display of the in-app message.
+After creating an [in-app message campaign]({{site.baseurl}}/user_guide/channels/in_app_messages), you can insert a [promotion code list snippet]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes) into your in-app message message body. Promotion codes in in-app messages are deducted and used only when a user triggers the display of the in-app message.
 
 ### Test messages
 

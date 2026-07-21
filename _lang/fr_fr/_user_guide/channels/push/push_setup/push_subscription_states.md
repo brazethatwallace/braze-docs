@@ -57,7 +57,7 @@ Le tableau suivant montre comment différentes actions utilisateur affectent l'a
 
 <sup>* Si l'application n'utilise pas le push provisoire, `Foreground Push Enabled` est `false` jusqu'à ce que l'utilisateur autorise les notifications push. Si l'application utilise le push provisoire, `Foreground Push Enabled` est `true` au début de la première session. Pour plus d'informations, consultez [Autorisation provisoire et push silencieux](#provisional-push).</sup>
 
-<sup>** À partir de la [version 7.5.0 du SDK Swift de Braze](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), la propriété de configuration `optInWhenPushAuthorized` contrôle si l'état d'abonnement push est automatiquement défini sur `Opted-In` lorsque l'autorisation push est accordée. Pour plus d'informations, consultez [Mise à jour des états d'abonnement push](#update-push-subscription-state).</sup>
+<sup>** À partir de la [version 7.5.0 du SDK Swift de Braze](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), la propriété de configuration `optInWhenPushAuthorized` contrôle si l'état d'abonnement push est automatiquement défini sur `Opted-In` lorsque l'autorisation push est accordée. Pour plus d'informations, consultez [Jetons push](#push-tokens).</sup>
 
 ## Autorisation push {#push-permission}
 
@@ -92,7 +92,7 @@ Le push autorisé nécessite une autorisation explicite de l'utilisateur avant d
 
 Avant iOS 12 (sorti en 2018), tous les utilisateurs devaient explicitement s'abonner pour recevoir des notifications push.
 
-Avec iOS 12, Apple a introduit l'[autorisation provisoire](https://www.braze.com/resources/articles/mastering-provisional-push), permettant aux marques d'envoyer des notifications push silencieuses dans le centre de notifications de leurs utilisateurs avant qu'ils ne s'abonnent explicitement, vous donnant ainsi la possibilité de démontrer la valeur de vos messages en amont. Consultez [autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications) pour en savoir plus.
+Avec iOS 12, Apple a introduit l'[autorisation provisoire](https://www.braze.com/resources/articles/mastering-provisional-push), permettant aux marques d'envoyer des notifications push silencieuses dans le centre de notifications de leurs utilisateurs avant qu'ils ne s'abonnent explicitement, vous donnant ainsi la possibilité de démontrer la valeur de vos messages en amont. Consultez [autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) pour en savoir plus.
 
 ### Web {#web}
 
@@ -180,7 +180,7 @@ Pour gérer les abonnements, vous pouvez utiliser la méthode utilisateur [`setP
 
 Si un utilisateur désactive les notifications dans son navigateur, la prochaine notification push envoyée à cet utilisateur rebondira, et Braze mettra à jour le jeton push de l'utilisateur en conséquence. Cela est utilisé pour gérer l'éligibilité aux filtres d'activation push (`Background or Foreground Push Enabled`, `Foreground Push Enabled` et `Foreground Push Enabled for App`). Le statut d'abonnement défini sur le profil de l'utilisateur est un paramètre au niveau de l'utilisateur et ne change pas lorsqu'un push rebondit.
 
-### Erreurs de jeton push Web 410 {#410-web-push-token-errors}
+### Erreurs de jeton push Web 410 {#410-web-push-token-errors} {#410-web-push-token-errors}
 
 Si vous recevez une erreur `410: Gone`, cela peut se produire lorsqu'un utilisateur désactive les notifications push web depuis le navigateur dans les paramètres de son OS, ou s'il se connecte en tant qu'utilisateur différent sur le même appareil, ou si l'utilisateur n'a pas visité le site web depuis un certain temps.
 

@@ -10,7 +10,7 @@ search_rank: 3
 
 # [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}세그먼트 생성 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
 
-> 세분화를 사용하면 인구통계학적, 행동적 또는 기술적 특성과 행동을 기반으로 사용자를 타겟팅할 수 있습니다. 세분화와 메시징 자동화를 창의적이고 지능적으로 활용하면 사용자를 첫 접점에서 장기 고객으로 원활하게 전환할 수 있습니다. Segments는 데이터가 변경될 때 실시간으로 업데이트되며, 타겟팅 및 메시징 목적에 필요한 만큼 세그먼트를 생성할 수 있습니다.
+> 세분화를 사용하면 인구통계학적, 행동적 또는 기술적 특성과 행동을 기반으로 사용자를 타겟팅할 수 있습니다. 세분화와 메시징 자동화를 창의적이고 지능적으로 활용하면 사용자를 첫 접점에서 장기 고객으로 원활하게 전환할 수 있습니다. 세그먼트는 데이터가 변경될 때 실시간으로 업데이트되며, 타겟팅 및 메시징 목적에 필요한 만큼 세그먼트를 생성할 수 있습니다.
 
 ## 1단계: Segments 섹션으로 이동 {#step-1-navigate-to-the-segments-section}
 
@@ -82,7 +82,7 @@ search_rank: 3
 
 ### 필터 연산자 {#filter-operators}
 
-선택한 특정 필터에 따라 필터 값을 식별하기 위한 다양한 연산자가 제공됩니다. 다양한 유형의 커스텀 속성에 사용할 수 있는 연산자에 대해 자세히 알아보려면 [커스텀 속성 저장]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes)을 참조하세요. "is any of" 연산자를 사용할 때 해당 필드에 포함할 수 있는 최대 항목 수는 256개입니다.
+선택한 특정 필터에 따라 필터 값을 식별하기 위한 다양한 연산자가 제공됩니다. 다양한 유형의 커스텀 속성에 사용할 수 있는 연산자에 대해 자세히 알아보려면 [커스텀 속성 저장]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes)을 참조하세요. "is any of" 연산자를 사용할 때 해당 필드에 포함할 수 있는 최대 항목 수는 256개입니다.
 
 {% alert note %}
 Braze는 사용자가 앱을 처음 사용할 때까지 프로필을 생성하지 않으므로, 아직 앱을 열지 않은 사용자를 타겟팅할 수 없습니다.

@@ -59,7 +59,7 @@ LinkedIn 연결은 Braze 워크스페이스 수준에서 적용됩니다. Linked
 
 광고 추적을 위한 오디언스를 구축할 때 사용자의 선호도에 따라 특정 사용자를 포함하거나 제외하고, [CCPA](https://oag.ca.gov/privacy/ccpa)의 "판매 또는 공유 금지" 권리와 같은 개인정보 보호법을 준수할 수 있습니다. 마케터는 Canvas 진입 기준 내에서 사용자 자격에 대한 관련 필터를 구현해야 합니다. 다음 옵션이 도움이 될 수 있습니다.
 
-[Braze SDK를 통해 iOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection)를 수집한 경우 **Ads Tracking Enabled** 필터를 사용할 수 있습니다. 값을 `true`로 선택하면 옵트인한 사용자만 오디언스 동기화 대상으로 보냅니다.
+[Braze SDK를 통해 iOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)를 수집한 경우 **Ads Tracking Enabled** 필터를 사용할 수 있습니다. 값을 `true`로 선택하면 옵트인한 사용자만 오디언스 동기화 대상으로 보냅니다.
 
 !["Ads Tracking Enabled is true" 필터가 적용된 진입 오디언스.]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -79,7 +79,7 @@ Canvas에 구성요소를 추가하고 Audience Sync를 선택합니다. **Custo
 
 원하는 Audience Sync 파트너로 **LinkedIn**을 선택합니다.
 
-![여러 파트너를 선택할 수 있는 "오디언스 동기화 설정" 세부 정보.]({% image_buster /assets/img/linkedin/linkedin.png %}){: style="max-width:70%;"}
+![여러 파트너를 선택할 수 있는 오디언스 동기화 설정 세부 정보.]({% image_buster /assets/img/linkedin/linkedin.png %}){: style="max-width:70%;"}
 
 그런 다음 원하는 LinkedIn 광고 계정을 선택합니다. **Choose a New or Existing Audience** 드롭다운에서 새 오디언스 또는 기존 오디언스의 이름을 입력합니다.
 
@@ -117,7 +117,7 @@ Braze는 기존 LinkedIn 오디언스에 사용자를 추가하여 해당 오디
 
 ### 5단계: Canvas 시작 {#step-5-launch-canvas}
 
-LinkedIn으로의 오디언스 동기화를 구성한 후 Canvas를 시작하면 됩니다! 새 오디언스가 생성되고, Audience Sync 단계를 통과하는 사용자가 LinkedIn의 이 오디언스에 전달됩니다. Canvas에 후속 구성요소가 포함되어 있으면 사용자는 사용자 여정의 다음 단계로 진행합니다.
+LinkedIn으로의 오디언스 동기화를 구성한 후 Canvas를 시작하세요! 새 오디언스가 생성되고, Audience Sync 단계를 통과하는 사용자가 LinkedIn의 이 오디언스에 전달됩니다. Canvas에 후속 구성요소가 포함되어 있으면 사용자는 사용자 여정의 다음 단계로 진행합니다.
 
 광고 계정으로 이동하여 내비게이션의 **Assets** 섹션에서 **Audiences**를 선택하면 LinkedIn에서 오디언스를 볼 수 있습니다. **Audiences** 페이지에서 300명 이상의 회원에 도달한 후 각 오디언스의 규모를 확인할 수 있습니다.
 

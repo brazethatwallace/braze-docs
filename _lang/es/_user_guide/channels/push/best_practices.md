@@ -18,7 +18,7 @@ Tus mensajes push deben cumplir con las directrices de la App Store de Apple y l
 
 ## Redacta tu mensaje push {#compose-your-push-message}
 
-Como buena práctica, Braze recomienda mantener cada línea de texto tanto del título opcional como del cuerpo del mensaje en aproximadamente 30-40 caracteres en una notificación push móvil. Ten en cuenta que el contador de caracteres del compositor no tiene en cuenta los caracteres de Liquid. Esto significa que el recuento final de caracteres de un mensaje depende de cómo se renderice Liquid para cada usuario. En caso de duda, sé breve y conciso.
+Como buena práctica, Braze recomienda mantener cada línea de texto tanto del título opcional como del cuerpo del mensaje en aproximadamente 30-40 caracteres en una notificación push móvil. Ten en cuenta que el contador de caracteres del creador no tiene en cuenta los caracteres de Liquid. Esto significa que el recuento final de caracteres de un mensaje depende de cómo se renderice Liquid para cada usuario. En caso de duda, sé breve y conciso.
 
 ## Reduce el tamaño de la carga útil de las notificaciones push {#reduce-push-notification-payload-size}
 
@@ -38,7 +38,7 @@ Si tu push supera el tamaño máximo de la carga útil, es posible que el mensaj
 
 Los proveedores de servicios push calculan si tu notificación push puede mostrarse a un usuario observando el tamaño en bytes de toda la carga útil push. La carga útil está limitada a **4 KB (4096 bytes)** para la mayoría de los servicios push, incluyendo:
 
-- Servicio de notificaciones push de Apple (APNs)
+- Servicio de notificaciones push de Apple (APN)
 - Firebase Cloud Messaging (FCM) de Android
 - Notificación push web
 - Push de Huawei
@@ -75,7 +75,7 @@ Las notificaciones push deben tratarse con cuidado para dirigirse a los usuarios
 
 Puedes crear una página de configuración en tu aplicación que permita a los usuarios indicar qué notificaciones desean recibir. Un enfoque común es crear un atributo personalizado booleano en Braze que corresponda al estado de configuración de la aplicación. Por ejemplo, una aplicación de noticias podría tener configuraciones de suscripción para noticias de última hora, deportes o política.
 
-Cuando la aplicación de noticias quiere crear una Campaign dirigida solo a usuarios interesados en política, añade el filtro de atributo `Subscribes to Politics` al Segment. Cuando se establece como verdadero, solo los usuarios que se suscriban a las notificaciones las recibirán.
+Cuando la aplicación de noticias quiere crear una Campaign dirigida solo a usuarios interesados en política, añade el filtro de atributo `Subscribes to Politics` al segmento. Cuando se establece como verdadero, solo los usuarios que se suscriban a las notificaciones las recibirán.
 
 Para más información sobre cómo establecer atributos personalizados, consulta los siguientes artículos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes#setting-custom-attributes) o [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-attributes-object-specification).
 
@@ -93,7 +93,7 @@ Solo tienes una oportunidad de pedir permiso de push a un usuario, y después de
 
 ### Añade controles de suscripción push {#add-push-subscription-controls}
 
-Para evitar que los usuarios desactiven las notificaciones a nivel de dispositivo, lo que elimina completamente su token de notificaciones push en primer plano, permite que los usuarios controlen su suscripción push directamente dentro de tu aplicación. Consulta [Actualización de los estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state) para más detalles.
+Para evitar que los usuarios desactiven las notificaciones a nivel de dispositivo, lo que elimina completamente su token de notificaciones push en primer plano, permite que los usuarios controlen su suscripción push directamente dentro de tu aplicación. Consulta [Actualización de los estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) para más detalles.
 
 ### Usa la planificación avanzada o añade retrasos {#use-advanced-scheduling-or-add-delays}
 

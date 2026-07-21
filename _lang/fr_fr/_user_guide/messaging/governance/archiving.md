@@ -11,7 +11,7 @@ tool:
 
 # Archiver des Campaigns et des Canvas {#archive-campaigns-and-canvases}
 
-> L'archivage de vos Campaigns et Canvas est un moyen efficace d'organiser votre espace de travail. À mesure que vous créez de nouveaux messages, l'archivage peut vous aider à vous concentrer sur les efforts d'envoi de messages actifs et pertinents.
+> L'archivage de vos Campaigns et Canvas est un moyen efficace d'organiser votre espace de travail. À mesure que vous créez de nouveaux messages, l'archivage peut vous aider à vous concentrer sur les efforts de communication actifs et pertinents.
 
 {% alert important %}
 Vous ne pouvez pas supprimer des Campaigns et des Canvas depuis le tableau de bord, mais vous pouvez les archiver.
@@ -19,7 +19,7 @@ Vous ne pouvez pas supprimer des Campaigns et des Canvas depuis le tableau de bo
 
 ## Archivage {#archiving}
 
-Lorsque vous archivez une campagne ou un Canvas, aucun message supplémentaire ne sera envoyé et vos messages in-app ne seront plus affichés. Vous pouvez toujours consulter les résultats après l'archivage, mais vous ne pourrez pas modifier la campagne ou le Canvas. Pour ce faire, vous devrez d'abord [les désarchiver](#unarchiving-campaigns-and-canvases).
+Lorsque vous archivez une campagne ou un Canvas, aucun message supplémentaire ne sera envoyé et vos messages in-app ne seront plus affichés. Vous pouvez toujours consulter les résultats après l'archivage, mais vous ne pourrez pas modifier la campagne ou le Canvas. Pour ce faire, vous devrez d'abord [les désarchiver](#unarchiving).
 
 {% alert note %}
 **Archiver** ne supprime pas votre campagne ou Canvas. Braze arrête la distribution, masque le message des listes quotidiennes et le conserve pour les rapports et l'historique de l'espace de travail.
@@ -45,7 +45,7 @@ Pour archiver un Canvas :
 
 ## Désarchivage {#unarchiving}
 
-Lorsque vous désarchivez une campagne ou un Canvas, le message ne sera pas remis en production — son statut sera simplement changé en **Actif**. Après le désarchivage, vous pouvez modifier et vérifier la configuration du message sans qu'aucun message ne soit envoyé.
+Lorsque vous désarchivez une campagne ou un Canvas, le message ne sera pas remis en production&mdash;son statut sera simplement changé en **Active**. Après le désarchivage, vous pouvez modifier et vérifier la configuration du message sans qu'aucun message ne soit envoyé.
 
 Pour reprendre la campagne ou le Canvas et commencer à envoyer des messages, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i> de la ligne correspondante et sélectionnez **Resume**.
 

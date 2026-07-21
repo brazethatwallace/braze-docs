@@ -30,7 +30,7 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 
 ## メディアライブラリへのアクセス {#accessing-the-media-library}
 
-メディアライブラリでは、アセットの種類、サイズ、寸法、URL、ライブラリに追加された日付、その他の情報を確認できます。Brazeのメディアライブラリにアクセスするには、**Content** > **Media Library**に移動します。ここでは、以下の操作が可能です。
+メディアライブラリでは、アセットの種類、サイズ、寸法、URL、ライブラリに追加された日付、その他の情報を確認できます。Brazeのメディアライブラリにアクセスするには、**コンテンツ** > **メディアライブラリ**に移動します。ここでは、以下の操作が可能です。
 
 * 複数の画像を一度にアップロード
 * バーチャルコンタクトファイル（.vcf）のアップロード
@@ -58,7 +58,7 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 
 アセットを置換するには、「Replace Media Library Assets」権限が必要です。
 
-1. **Content** > **Media Library**に移動します。
+1. **コンテンツ** > **メディアライブラリ**に移動します。
 2. 置換したいアセットを選択します。
 3. モーダルで**Replace file**を選択します。
 4. 置換ファイルをアップロードします。
@@ -90,7 +90,7 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-この機能を使用する前に、[データがどのように使用され、OpenAIに送信されるか]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy)を確認してください。
+この機能を使用する前に、[データがどのように使用され、OpenAIに送信されるか]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security)を確認してください。
 {% endalert %}
 
-**Media Library**ページに**AI Image Generator**が表示されない場合は、**Edit Media Library Assets**権限があることを確認してください。それでもオプションが表示されない場合は、Brazeカスタマーチームに連絡して、ワークスペースがBrazeAI画像生成にアクセスできることを確認してください。生成に失敗した場合は、[OpenAIコンテンツポリシー]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy)を確認してください。
+**メディアライブラリ**ページに**AI Image Generator**が表示されない場合は、**Edit Media Library Assets**権限があることを確認してください。それでもオプションが表示されない場合は、Brazeカスタマーチームに連絡して、ワークスペースがBrazeAI画像生成にアクセスできることを確認してください。生成に失敗した場合は、[OpenAIコンテンツポリシー]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security)を確認してください。

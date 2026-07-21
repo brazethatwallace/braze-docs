@@ -14,7 +14,7 @@ channel: email
 
 ## Estados del suscriptor {#subscriber-states}
 
-Existen tres estados de suscripción de correo electrónico para un usuario: **adhesión voluntaria**, **suscrito** y **cancelado**. Para cambiar el estado de suscripción de un usuario, consulta nuestro artículo sobre [cambiar suscripciones]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-subscriptions) o usa nuestras [API de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
+Existen tres estados de suscripción de correo electrónico para un usuario: **adhesión voluntaria**, **suscrito** y **cancelado**. Para cambiar el estado de suscripción de un usuario, consulta nuestro artículo sobre [cambiar suscripciones]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions) o usa nuestras [API de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
 | Estado del suscriptor | Descripción |
 |---|---|
@@ -37,7 +37,7 @@ El corregistro se refiere a un acuerdo entre empresas para recopilar informació
 
 ### Adhesión voluntaria preseleccionada o forzada {#pre-selected-or-forced-opt-in}
 
-La adhesión voluntaria preseleccionada es un método de registro de correo electrónico en el que la casilla de registrarse para correo electrónico ya está marcada para que los suscriptores reciban tu correo electrónico. Al dejar la casilla marcada, los suscriptores están optando por recibir y dando su consentimiento para recibir tu correo electrónico. Este método tiende a molestar a las personas (y también es ilegal para correos enviados hacia o dentro de Canadá). Puede que termines con una lista de correo electrónico de tamaño considerable, pero realmente no puedes estar seguro de que estos usuarios quieran tus correos electrónicos de marketing.
+La adhesión voluntaria preseleccionada es un método de registro de correo electrónico en el que la casilla de suscripción ya está marcada para que los suscriptores reciban tu correo electrónico. Al dejar la casilla marcada, los suscriptores están optando por recibir y dando su consentimiento para recibir tu correo electrónico. Este método tiende a molestar a las personas (y también es ilegal para correos enviados hacia o dentro de Canadá). Puede que termines con una lista de correo electrónico de tamaño considerable, pero realmente no puedes estar seguro de que estos usuarios quieran tus correos electrónicos de marketing.
 
 ### Adhesión voluntaria simple {#single-opt-in}
 
@@ -45,6 +45,6 @@ La adhesión voluntaria simple ocurre cuando los suscriptores se registran a tra
 
 ### Adhesión voluntaria confirmada {#confirmed-opt-in}
 
-Una adhesión voluntaria confirmada ocurre cuando un usuario marca una casilla solicitando comunicación por correo electrónico y se envía un mensaje de confirmación como respuesta. Este método permite a los usuarios elegir el tipo y la frecuencia del contenido, lo que mejora la interacción.
+Una adhesión voluntaria confirmada ocurre cuando un usuario marca una casilla solicitando comunicación por correo electrónico y se envía un mensaje de confirmación como respuesta. Este método permite a los usuarios elegir el tipo y la frecuencia del contenido, lo que mejora la participación.
 
 Para confirmar que te diriges solo a los usuarios más comprometidos, también puedes usar el método de adhesión voluntaria con doble confirmación. Este enfoque añade un paso adicional en el que el usuario debe hacer clic en un botón o enlace en el correo electrónico de confirmación para ser añadido a la lista de correo electrónico.

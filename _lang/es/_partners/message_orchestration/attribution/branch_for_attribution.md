@@ -17,7 +17,7 @@ _Esta integración está mantenida por Branch._
 
 ## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Branch te ayudará a comprender exactamente cuándo y dónde fueron adquiridos los usuarios, así como a personalizar sus recorridos mediante una sólida atribución y [vinculación en profundidad]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/).
+La integración de Braze y Branch te ayudará a comprender exactamente cuándo y dónde fueron adquiridos los usuarios, así como a personalizar sus recorridos mediante una sólida atribución y [vinculación en profundidad]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking).
 
 ## Requisitos previos {#prerequisites}
 
@@ -84,14 +84,14 @@ braze.deviceId { deviceId in
 
 En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Branch**.
 
-Aquí encontrarás el punto de conexión REST y generarás tu clave de importación de datos de Braze. Una vez generada la clave, puedes crear una nueva o invalidar una existente. La clave de importación de datos y el punto de conexión REST se utilizan en el siguiente paso al configurar un postback en el dashboard de Branch.<br><br>![Esta imagen muestra el cuadro "Importación de datos para la atribución de instalación" que se encuentra en la página de tecnología de Branch. En este cuadro, se te muestra la clave de importación de datos y el punto de conexión REST.]({% image_buster /assets/img/attribution/branch.png %}){: style="max-width:90%;"}
+Aquí encontrarás el endpoint REST y generarás tu clave de importación de datos de Braze. Una vez generada la clave, puedes crear una nueva o invalidar una existente. La clave de importación de datos y el endpoint REST se utilizan en el siguiente paso al configurar un postback en el panel de Branch.<br><br>![Esta imagen muestra el cuadro "Importación de datos para la atribución de instalación" que se encuentra en la página de tecnología de Branch. En este cuadro, se te muestra la clave de importación de datos y el endpoint REST.]({% image_buster /assets/img/attribution/branch.png %}){: style="max-width:90%;"}
 
 ### Paso 3: Configurar fuentes de datos {#step-3-set-up-data-feeds}
 
 1. En Branch, en la sección **Exports**, selecciona **Data Feeds**.
 2. En la página **Data Feeds Manager**, selecciona la pestaña **Data Integrations** en la parte superior de la página.
-3. Selecciona Braze de la lista de socios de datos disponibles.
-4. En la página de exportación de Braze, proporciona la clave de importación de datos y el punto de conexión REST que encontraste en el dashboard de Braze y selecciona **Enable**.
+3. Selecciona Braze de la lista de partners de datos disponibles.
+4. En la página de exportación de Braze, proporciona la clave de importación de datos y el endpoint REST que encontraste en el panel de Braze y selecciona **Enable**.
 
 ### Paso 4: Confirmar la integración {#step-4-confirm-the-integration}
 
@@ -99,19 +99,31 @@ Después de que Braze reciba los datos de atribución de Branch, el indicador de
 
 Este estado solo cambia cuando Braze recibe datos sobre una instalación atribuida. Braze ignora las instalaciones orgánicas (las excluye del postback de Branch) y no las cuenta a la hora de determinar si la conexión se ha realizado correctamente.
 
+## Mapeado de campos {#field-mapping}
+
+Los campos de atribución de Branch se mapean a Braze de la siguiente manera:
+
+| Campo de Branch | Campo de Braze |
+| --- | --- |
+| Campaign | `campaign` |
+| Channel | `source` |
+| Ad Set Name | `adgroup` |
+| Ad Name | `ad` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mapeado de campos de Branch" }
+
 ## Datos de atribución de Facebook y X (antes Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 
-Los datos de atribución de las campañas de Facebook y X (antes Twitter) no están disponibles a través de nuestros socios. Estas fuentes de medios no permiten a sus socios compartir datos de atribución con terceros y, por lo tanto, nuestros socios no pueden enviar esos datos a Braze.
+Los datos de atribución de las campañas de Facebook y X (antes Twitter) no están disponibles a través de nuestros partners. Estas fuentes de medios no permiten a sus partners compartir datos de atribución con terceros y, por lo tanto, nuestros partners no pueden enviar esos datos a Braze.
 
 ## URL de seguimiento de clics de Branch en Braze (opcional) {#branch-click-tracking-urls-in-braze-optional}
 
-El uso de enlaces de seguimiento de clics en tus campañas de Braze te permitirá ver fácilmente qué campañas están impulsando la instalación de aplicaciones y la reactivación de la interacción. Como resultado, podrás medir tus esfuerzos de marketing con mayor eficacia y tomar decisiones basadas en datos sobre dónde invertir más recursos para obtener el máximo ROI.
+El uso de enlaces de seguimiento de clics en tus campañas de Braze te permitirá ver fácilmente qué campañas están impulsando la instalación de aplicaciones y la reactivación. Como resultado, podrás medir tus esfuerzos de marketing con mayor eficacia y tomar decisiones basadas en datos sobre dónde invertir más recursos para obtener el máximo ROI.
 
 Para empezar a utilizar los enlaces de seguimiento de clics de Branch, visita su [documentación](https://help.branch.io/using-branch/docs/ad-links). Puedes insertar directamente los enlaces de seguimiento de clics de Branch en tus campañas de Braze. A continuación, Branch utilizará sus [metodologías de atribución probabilística](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings) para atribuir al usuario que ha hecho clic en el enlace. Te recomendamos que añadas a tus enlaces de seguimiento de Branch un identificador de dispositivo para mejorar la precisión de las atribuciones de tus campañas de Braze. Esto atribuirá de forma determinista al usuario que ha hecho clic en el enlace.
 
 {% tabs local %}
 {% tab Android %}
-Para Android, Braze permite a los clientes la adhesión voluntaria a la [recopilación de ID de publicidad de Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id). El GAID también se recoge de forma nativa a través de la integración del SDK de Branch. Puedes incluir el GAID en tus enlaces de seguimiento de clics de Branch utilizando la siguiente lógica de Liquid:
+Para Android, Braze permite a los clientes la adhesión voluntaria a la [recopilación de ID de publicidad de Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id). El GAID también se recoge de forma nativa a través de la integración del SDK de Branch. Puedes incluir el GAID en tus enlaces de seguimiento de clics de Branch utilizando la siguiente lógica de Liquid:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

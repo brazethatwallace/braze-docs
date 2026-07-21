@@ -24,13 +24,13 @@ description: "この記事では、「グローバルコントロールグルー
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.export.global_control_group` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`users.export.global_control_group` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 認証情報ベースの応答の詳細 {#credentials-based-response-details}
+## 認証情報ベースのレスポンスの詳細 {#credentials-based-response-details}
 
 それぞれの**テクノロジーパートナー**ページを通じてBrazeに[S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)または[Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents)の認証情報を追加した場合、各ファイルはバケットにZIPファイルとしてアップロードされ、キー形式は `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip` のようになります。Azureを使用している場合は、BrazeのAzureパートナー概要ページで**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認してください。
 
@@ -52,7 +52,7 @@ description: "この記事では、「グローバルコントロールグルー
 | `RANDOM_UUID` | リクエスト時にBrazeによって生成されるランダムUUID。 | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
 | `TIMESTAMP_WHEN_EXPORT_STARTED` | UTCでエクスポートが要求されたUnix時間（2017-01-01:00:00:00Zからの秒数）。 | `1556044807` |
 | `filename` | ファイルごとにランダム。 | `114f0226319130e1a4770f2602b5639a` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Credentials-based response details" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="認証情報ベースのレスポンスの詳細" }
 
 {% enddetails %}
 
@@ -94,7 +94,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `callback_endpoint` | オプション | 文字列 | エクスポートが利用可能になったときにダウンロードURLをPOSTするエンドポイント。 |
 | `fields_to_export` | 必須* | 文字列の配列 | エクスポートするユーザーデータフィールドの名前。カスタム属性もエクスポートできます。<br><br>*2021年4月以降、新しいアカウントではエクスポートする特定のフィールドを指定する必要があります。 |
 | `output_format` | オプション | 文字列 | 独自のS3バケットを使用する場合、ファイル形式を `zip` または `gzip` に指定できます。デフォルトはZIPファイル形式です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -140,8 +140,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、ユーザーが受信したキャンペーンおよびキャンバスのコンバージョン期間中に行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
-| `user_aliases` | オブジェクト | `alias_name` および `alias_label` を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)（存在する場合）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
+| `user_aliases` | オブジェクト | `alias_name` および `alias_label` を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)（存在する場合）。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="エクスポートするフィールド" }
 
 ## レスポンス {#response}
 

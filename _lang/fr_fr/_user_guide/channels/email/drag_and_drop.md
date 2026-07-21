@@ -128,7 +128,7 @@ Consultez [Autres personnalisations](#other-customizations) pour découvrir d'au
 Pendant la création de votre e-mail, vous pouvez basculer entre une vue bureau et mobile pour prévisualiser l'apparence de votre e-mail pour vos groupes d'utilisateurs. Cela vous permet de vérifier que votre contenu est responsive et d'effectuer les ajustements nécessaires au fur et à mesure.
 
 {% alert tip %}
-Besoin d'aide pour rédiger un texte percutant ? Essayez l'[assistant de rédaction par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité professionnelle à utiliser dans vos messages.
+Besoin d'aide pour rédiger un texte percutant ? Essayez l'[assistant de rédaction par IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité professionnelle à utiliser dans vos messages.
 
 ![Bouton de l'assistant de rédaction, situé dans le panneau Content à côté des paramètres de style dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -150,9 +150,7 @@ Un aperçu dans le panneau de droite se remplira avec les informations d'envoi q
 
 Dans **Sending Settings** > **Advanced**, vous pouvez ajouter des pièces jointes à l'e-mail par les méthodes suivantes :
 
-- **Télécharger un fichier :** Glissez-déposez ou parcourez pour télécharger un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant le téléchargement, puis ces fichiers sont téléchargés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être téléchargés.
-- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
-- **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Consultez les [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) pour les recommandations spécifiques à prendre en compte.
 
@@ -211,7 +209,7 @@ Après avoir utilisé l'éditeur par glisser-déposer pour concevoir et créer v
 {% details À propos du moteur HTML mis à jour %}
 Le moteur sous-jacent qui produit le HTML à partir de l'éditeur par glisser-déposer a été optimisé et mis à jour, offrant des avantages en termes de compression et de rendu des fichiers HTML.
 
-La taille moyenne de nos données HTML exportées a été réduite, ce qui entraîne un chargement et un rendu plus rapides, une réduction du rognage sur mobile et une consommation de bande passante réduite.
+La taille moyenne des données HTML exportées a été réduite, ce qui entraîne un chargement et un rendu plus rapides, une réduction du rognage sur mobile et une consommation de bande passante réduite.
 
 Le rendu HTML a été amélioré grâce aux mises à jour suivantes qui minimisent le nombre de commentaires conditionnels et de requêtes média CSS. En conséquence, les fichiers HTML sont plus petits et codés plus efficacement.
 - Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table aria-label="Utiliser Inbox Vision">` standard
@@ -272,7 +270,7 @@ La personnalisation Liquid n'est pas prise en charge pour les blocs d'image et l
 
 #### Images dynamiques {#dynamic-images}
 
-Vous pouvez choisir d'inclure des images dynamiques dans vos e-mails en utilisant le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dans l'attribut source de votre image. Par exemple, au lieu d'une image statique, vous pouvez insérer {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} comme URL d'image pour inclure le prénom d'un utilisateur dans l'image. Cela permet de personnaliser vos e-mails pour chaque utilisateur.
+Vous pouvez choisir d'inclure des images dynamiques dans vos e-mails en utilisant le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ou [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dans l'attribut source de votre image. Par exemple, au lieu d'une image statique, vous pouvez insérer {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} comme URL d'image pour inclure le prénom d'un utilisateur dans l'image. Cela permet de personnaliser vos e-mails pour chaque utilisateur.
 
 {% alert important %}
 L'URL de votre image doit commencer par `https://`. L'utilisation de `http://` provoque un plantage de votre application.
@@ -294,12 +292,12 @@ L'apparence finale des messages de droite à gauche dépend en grande partie de 
 
 Lorsque vous utilisez des liens, des boutons, des images et des vidéos dans l'éditeur par glisser-déposer, sélectionnez **Add new attribute** sous **Attributes** dans la section **Content** pour ajouter des informations supplémentaires aux balises HTML dans les e-mails. Cela peut être particulièrement utile pour la personnalisation des messages, la segmentation et le style.
 
-Un cas d'utilisation courant consiste à insérer un attribut dans votre balise d'ancrage pour désactiver le suivi des clics lors de l'envoi via Braze.
+Un cas d'usage courant consiste à insérer un attribut dans votre balise d'ancrage pour désactiver le suivi des clics lors de l'envoi via Braze.
 
 * **SendGrid :** `clicktracking = "off"`
 * **SparkPost :** `data-msys-clicktrack = "0"`
 
-Un autre cas d'utilisation courant consiste à marquer des liens spécifiques comme liens universels. Les liens universels sont des liens qui redirigent vers votre application, offrant à vos utilisateurs une expérience intégrée.
+Un autre cas d'usage courant consiste à marquer des liens spécifiques comme liens universels. Les liens universels sont des liens qui redirigent vers votre application, offrant à vos utilisateurs une expérience intégrée.
 
 * **SendGrid :** `universal = "true"`
 * **SparkPost :** `data-msys-sublink = "open-in-app"` (un [sous-chemin personnalisé](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#custom-link-sub-paths) doit être configuré)

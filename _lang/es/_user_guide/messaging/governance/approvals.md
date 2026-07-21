@@ -26,13 +26,13 @@ Para lanzar una Campaign, debes aprobar estos componentes:
 - **Messages:** Este es el mensaje de la Campaign.
 - **Delivery:** Este es el tipo de entrega y determina cuándo los usuarios reciben la Campaign.
 - **Target Audience:** Esto determina quién recibirá la Campaign.
-- **Conversion Events:** Esta es la métrica que estás rastreando con fines de interacción e informes.
+- **Conversion Events:** Esta es la métrica que estás rastreando con fines de participación e informes.
 {% endtab %}
 
 {% tab canvas %}
 Para lanzar un Canvas, debes aprobar estos componentes clave:
 
-- **Conversion Events:** Esta es la métrica que estás rastreando con fines de interacción e informes.
+- **Conversion Events:** Esta es la métrica que estás rastreando con fines de participación e informes.
 - **Entry Schedule:** Esto incluye el tipo de horario de entrada y cuándo los usuarios entran al Canvas.
 - **Target Audience:** Esto determina quién entrará en este Canvas.
 - **Send Settings:** Estas son las opciones de envío para todos los pasos del Canvas.
@@ -48,16 +48,16 @@ De forma predeterminada, la configuración del flujo de trabajo de aprobación e
 - **Usar el flujo de trabajo de aprobación para todos los Canvas en [tu espacio de trabajo]**
 
 {% alert important %}
-La aprobación de Campaigns no es compatible con las [campañas de API]({{site.baseurl}}/api/api_campaigns) ni con las [campañas de correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+La aprobación de Campaigns no es compatible con las [campañas de API]({{site.baseurl}}/api/api_campaigns) ni con las [campañas de correo transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {% endalert %}
 
 ## Configurar permisos de usuario {#setting-user-permissions}
 
-Después de activar el flujo de trabajo de aprobación, debes configurar los permisos de usuario para que los usuarios de tu empresa puedan aprobar o rechazar Campaigns y Canvas. Ambos permisos también se pueden aplicar a espacios de trabajo o [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams), o añadirse a un [conjunto de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#permission-sets).
+Después de activar el flujo de trabajo de aprobación, debes configurar los permisos de usuario para que los usuarios de tu empresa puedan aprobar o rechazar Campaigns y Canvas. Ambos permisos también se pueden aplicar a espacios de trabajo o [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams), o añadirse a un [conjunto de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set).
 
 {% tabs %}
 {% tab campaign %}
-Debes tener el [permiso "Approve and Deny Campaigns"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions). Este permiso controla quién puede actualizar el estado de aprobación de una Campaign. Con este permiso, puedes hacer lo siguiente:
+Debes tener el [permiso "Approve and Deny Campaigns"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Este permiso controla quién puede actualizar el estado de aprobación de una Campaign. Con este permiso, puedes hacer lo siguiente:
 
 - Autoaprobar la Campaign
 - Aprobar y lanzar la Campaign
@@ -69,14 +69,14 @@ Después de que los estados de aprobación se establezcan en el paso **Summary**
 {% endtab %}
 
 {% tab canvas %}
-Debes tener el [permiso "Approve and Deny Canvases"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions). Este permiso controla quién puede actualizar el estado de aprobación de un Canvas. Con este permiso, puedes hacer lo siguiente:
+Debes tener el [permiso "Approve and Deny Canvases"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Este permiso controla quién puede actualizar el estado de aprobación de un Canvas. Con este permiso, puedes hacer lo siguiente:
 
 - Autoaprobar el Canvas
 - Aprobar y lanzar el Canvas
 - Aprobar pero no lanzar el Canvas (un usuario diferente con el permiso "Send Campaigns, Canvases" puede lanzar el Canvas)
 - No aprobar ni lanzar el Canvas
 
-Después de que los estados de aprobación se establezcan en el paso **Summary**, cualquier cambio posterior realizado en el Canvas restablece todos los estados de aprobación al guardar. Esto se aplica a cualquier cambio realizado tanto en un borrador de Canvas como en un Canvas posterior al lanzamiento. Por ejemplo, si solo realizas cambios en la audiencia objetivo, el paso **Summary** revierte los estados de aprobación de todas las secciones al estado predeterminado, **Pending Approval**.
+Después de que los estados de aprobación se establezcan en el paso **Summary**, cualquier cambio posterior realizado en el Canvas restablece todos los estados de aprobación al guardar. Esto se aplica a cualquier cambio realizado tanto en un borrador de Canvas como en un Canvas posterior al lanzamiento. Por ejemplo, si solo realizas cambios en el público objetivo, el paso **Summary** revierte los estados de aprobación de todas las secciones al estado predeterminado, **Pending Approval**.
 
 {% alert note %}
 **Estado de aprobación y guardado**

@@ -22,11 +22,11 @@ Dans de nombreux cas, vous pouvez intégrer des extraits de code Liquid en accé
 
 #### Où puis-je en savoir plus ? {#where-can-i-learn-more}
 
-Pour en savoir plus sur Liquid, consultez notre parcours guidé [Personnalisation dynamique avec Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) sur Braze Learning. Vous pouvez également consulter la [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) pour trouver de l'inspiration et une variété d'exemples de personnalisation utilisant Liquid.
+Pour en savoir plus sur Liquid, consultez notre parcours guidé [Personnalisation dynamique avec Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) sur Braze Learning. Vous pouvez également consulter la [bibliothèque de cas d'usage Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) pour trouver de l'inspiration et une variété d'exemples de personnalisation utilisant Liquid.
 
-### Quelle est la différence entre l'utilisation de Liquid et du Contenu connecté pour la personnalisation ? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
+### Quelle est la différence entre l'utilisation de Liquid et du contenu connecté pour la personnalisation ? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
-Le Contenu connecté de Braze est un exemple d'étiquette Liquid. Il est également utilisé pour la personnalisation, mais les données proviennent d'un endpoint externe plutôt que de données stockées dans Braze. Consultez notre section dédiée au [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) pour en savoir plus sur les possibilités de personnalisation de vos messages.
+Le contenu connecté de Braze est un exemple d'étiquette Liquid. Il est également utilisé pour la personnalisation, mais les données proviennent d'un endpoint externe plutôt que de données stockées dans Braze. Consultez notre section dédiée au [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) pour en savoir plus sur les possibilités de personnalisation de vos messages.
 
 ### Qu'est-ce que le templating Liquid ? {#what-is-liquid-templating}
 
@@ -62,9 +62,9 @@ Pour l'utilisation dans les URL et les chaînes de requête (par exemple, lorsqu
 
 ### Comment utiliser Liquid avec des objets imbriqués ? {#how-do-i-use-liquid-with-nested-objects}
 
-Braze dispose d'une fonctionnalité intégrée qui génère du code Liquid pour les Segments pouvant être utilisés dans un message. Plus précisément, vous pouvez créer un Segment correspondant à plusieurs critères au sein d'un objet.
+Braze dispose d'une fonctionnalité intégrée qui génère du code Liquid pour les Segments pouvant être utilisés dans un message. Plus précisément, vous pouvez créer un segment correspondant à plusieurs critères au sein d'un objet.
 
-Pour plus d'informations, consultez [Segmentation multicritères]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation).
+Pour plus d'informations, consultez [Segmentation multicritères]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
 ### Comment utiliser les propriétés d'événement pour personnaliser un message déclenché par un événement ? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -89,7 +89,7 @@ Vous pouvez créer et affecter des variables en utilisant l'étiquette `assign`.
 - `assign` est destiné aux variables simples qui stockent une seule valeur, comme une valeur booléenne, un nombre ou une chaîne de caractères simple. Vous pouvez également appliquer un seul filtre sur la même ligne.
 - `capture` est destiné au stockage d'un bloc de texte pouvant inclure plusieurs variables, chaînes de caractères ou expressions complexes.
 
-Utilisez `capture` lorsque la valeur est trop complexe pour une seule instruction `assign`, comme des URL utilisant d'autres variables Liquid ou des attributs personnalisés en tant que paramètres. `capture` est également préféré lors de l'implémentation de variables Liquid dans le corps des appels de Contenu connecté.
+Utilisez `capture` lorsque la valeur est trop complexe pour une seule instruction `assign`, comme des URL utilisant d'autres variables Liquid ou des attributs personnalisés en tant que paramètres. `capture` est également préféré lors de l'implémentation de variables Liquid dans le corps des appels de contenu connecté.
 
 #### Exemples {#examples}
 
@@ -120,13 +120,13 @@ Join our VIP program to unlock free shipping.
 
 ### Les variables Liquid sont-elles partagées entre la ligne d'objet et le corps du message ? {#do-liquid-variables-carry-between-subject-line-and-body}
 
-Non. Braze effectue le rendu de chaque composant du message séparément (ligne d'objet, corps HTML, accroche, titre push, etc.). Les affectations ou captures que vous effectuez dans un champ ne sont pas disponibles dans un autre. Répétez l'appel Liquid ou de Contenu connecté dans chaque champ qui nécessite la valeur.
+Non. Braze effectue le rendu de chaque composant du message séparément (ligne d'objet, corps HTML, accroche, titre push, etc.). Les affectations ou captures que vous effectuez dans un champ ne sont pas disponibles dans un autre. Répétez l'appel Liquid ou de contenu connecté dans chaque champ qui nécessite la valeur.
 
 ### Qu'est-ce que la logique de boucle for et comment l'utiliser ? {#what-is-for-loop-logic-and-how-can-i-use-it}
 
 Les boucles for sont également connues sous le nom d'[étiquettes d'itération](https://shopify.github.io/liquid/tags/iteration/). L'utilisation de la logique de boucle for dans vos extraits de code Liquid vous permet de parcourir des blocs Liquid jusqu'à ce qu'une condition soit remplie.
 
-Dans Braze, cela peut être utilisé pour vérifier des éléments dans un attribut personnalisé de type tableau, ou une liste de valeurs et d'objets renvoyés par un appel de [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs), de [sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) ou de [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Plus précisément, vous pouvez utiliser la logique de boucle for dans vos messages pour vérifier si un produit est en stock ou s'il a une note minimale.
+Dans Braze, cela peut être utilisé pour vérifier des éléments dans un attribut personnalisé de type tableau, ou une liste de valeurs et d'objets renvoyés par un appel de [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs), de [sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) ou de [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Plus précisément, vous pouvez utiliser la logique de boucle for dans vos messages pour vérifier si un produit est en stock ou s'il a une note minimale.
 
 Par exemple, supposons que vous ayez un catalogue appelé « Games » avec une sélection appelée « cheap_games ». Pour extraire les titres des jeux dans « cheap_games », vous pouvez utiliser cet extrait de code Liquid :
 
@@ -148,6 +148,41 @@ La logique d'abandon vous permet d'empêcher l'envoi d'un message si les conditi
 ### Puis-je utiliser Liquid à l'intérieur de l'étiquette `abort_message` ? {#can-i-use-liquid-inside-the-abort_message-tag}
 
 Non. L'étiquette {% raw %}`{% abort_message %}`{% endraw %} accepte une chaîne de caractères statique entre guillemets, pas de personnalisation Liquid. Utilisez d'autres logiques Liquid avant l'étiquette si vous avez besoin d'un comportement d'abandon conditionnel.
+
+### Comment masquer des numéros de téléphone avec Liquid ? {#how-do-i-mask-phone-numbers-with-liquid}
+
+Vous pouvez masquer des numéros de téléphone en utilisant le filtre `slice` pour extraire des chiffres spécifiques et le filtre `append` pour les combiner avec des caractères de masquage.
+
+#### Masquer tous les chiffres sauf les quatre derniers {#mask-all-but-the-last-four-digits}
+
+Pour afficher un numéro de téléphone à 10 chiffres sous la forme `******7890` :
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### Afficher les trois premiers et les quatre derniers chiffres {#show-the-first-three-and-last-four-digits}
+
+Pour afficher un numéro de téléphone à 10 chiffres sous la forme `123***7890` :
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
 
 ## Canvas, catalogues et propriétés de déclenchement {#canvas-catalogs-and-trigger-properties}
 
@@ -217,8 +252,8 @@ Utilisez Liquid dans le champ **Reply-To** lorsque votre espace de travail prend
 
 Cette erreur indique généralement des accolades en trop ou manquantes. N'imbriquez pas {% raw %}`{{ }}`{% endraw %} à l'intérieur d'une autre expression d'étiquette Liquid. Par exemple, utilisez {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} plutôt que d'envelopper la référence d'attribut dans une paire d'accolades supplémentaire.
 
-### Pourquoi la relance du Contenu connecté n'est-elle pas disponible pour mon message in-app ? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+### Pourquoi la relance du contenu connecté n'est-elle pas disponible pour mon message in-app ? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
 
 {% raw %}
-L'étiquette `{% connected_content %}` avec relance n'est pas prise en charge pour tous les types de messages, y compris certains formats de messages in-app. Supprimez les paramètres de relance ou utilisez un canal pris en charge pour les appels de Contenu connecté avec relance.
+L'étiquette `{% connected_content %}` avec relance n'est pas prise en charge pour tous les types de messages, y compris certains formats de messages in-app. Supprimez les paramètres de relance ou utilisez un canal pris en charge pour les appels de contenu connecté avec relance.
 {% endraw %}

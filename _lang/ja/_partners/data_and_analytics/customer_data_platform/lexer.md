@@ -32,7 +32,7 @@ Braze と Lexer の統合により、この2つのプラットフォーム間で
 Lexer で **Manage > Integration** に移動し、**Braze** タイルを選択し、**Integrate Braze** をクリックします。次の情報を入力します。
 - **Braze REST エンドポイント**
 - **Braze REST APIキー**
-- **AWS 認証情報**
+- **AWS認証情報**
   - **AWS S3 バケット名**
   - **AWS S3 [バケットリージョン](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**
   - **AWS S3 バケットのパス**：このパスは、[S3 バケットを Braze に接続する]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)ときに指定したパスと一致している必要があります。Braze に何も指定しなかった場合は空白にしてください。
@@ -46,7 +46,7 @@ Braze を Lexer ハブに接続する方法として、Lexer マネージドバ�
 
 すでに S3 バケットを Braze に接続し、他の目的で使用している場合は、代わりに、前述の手順に従って、Lexer にこのセルフマネージドバケットへのアクセスを提供する必要があります。
 
-この統合は、既存のAPIトークンとシークレットを Lexer に提供し、Lexer がお客様に代わってこれらのエクスポートを行うことで機能します。また、これらの認証情報と S3 設定を使用して Braze データが Lexer にインポートされ、両方のプラットフォームのデータが自動的に同期されます。
+この統合は、既存のAPIトークンとシークレットを Lexer に提供し、Lexer がお客様に代わってこれらのエクスポートを行うことで機能します。また、これらの認証情報とS3設定を使用して Braze データが Lexer にインポートされ、両方のプラットフォームのデータが自動的に同期されます。
 
 ## Braze にセグメントを送信する {#sending-segments-to-braze}
 
@@ -58,7 +58,7 @@ Lexer Activate により Braze プロファイルが自動的に更新され、�
 2. このキャンペーンに適切な Braze のアクティベーションを選択します。
 3. セグメントを追加します。
 4. オーディエンス名を更新します。これは Braze での属性値となります。
-5. これが Braze で更新するカスタム属性です。更新については [Lexer サポート](support@lexer.io)に連絡してください。
+5. これが Braze で更新するカスタム属性です。更新については [Lexer サポート](mailto:support@lexer.io)に連絡してください。
 6. 適切なリストアクションを確認します。ほとんどの場合、リストを維持します。
 7. 規約を確認し、**SEND AUDIENCE** をクリックします。
 

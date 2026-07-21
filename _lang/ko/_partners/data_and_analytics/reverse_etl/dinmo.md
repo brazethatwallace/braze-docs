@@ -22,16 +22,16 @@ Braze와 DinMo 통합은 Braze REST API를 통해 데이터 웨어하우스의 �
 | --- | --- |
 | DinMo 계정 | 이 파트너십을 활용하려면 대상을 생성할 수 있는 권한이 있는 [DinMo 계정](https://www.dinmo.com/)이 필요합니다. |
 | Braze REST API 키 | 사용하려는 대상 서비스에 [필요한 권한](#api-key-permissions)이 있는 Braze REST API 키. Braze 대시보드에서 **설정** > **API 키**로 이동하여 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)에 따라 달라집니다. |
-| Braze 대시보드 URL | 인스턴스의 Braze 대시보드 URL(예: `https://dashboard.iad-01.braze.com`). 자세한 내용은 [사용 가능한 SDK 엔드포인트]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/)를 참조하세요. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)에 따라 달라집니다. |
+| Braze 대시보드 URL | 인스턴스의 Braze 대시보드 URL(예: `https://dashboard.iad-01.braze.com`). 자세한 내용은 [사용 가능한 SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)를 참조하세요. |
 | 데이터 웨어하우스 및 데이터 모델 | 통합을 시작하기 전에 DinMo에서 데이터 웨어하우스를 연결하고 Braze로 동기화할 데이터에 대한 모델 또는 세그먼트를 정의하세요. 자세한 내용은 [DinMo Braze 통합 가이드](https://docs.dinmo.io/integrations/destination-platforms/braze)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 이 통합을 통해 다음을 수행할 수 있습니다.
 
-* 데이터 웨어하우스의 사용자 속성을 Braze로 동기화하여 Campaign 및 Canvases를 개인화합니다.
+* 데이터 웨어하우스의 사용자 속성을 Braze로 동기화하여 Campaign(캠페인) 및 Canvas를 개인화합니다.
 * 데이터 웨어하우스 데이터의 커스텀 이벤트 및 구매 이벤트를 Braze로 전송하여 행동 기반 타겟팅에 활용합니다.
 * Braze 구독 그룹 멤버십을 DinMo에서 정의한 오디언스 세그먼트와 일치시킵니다.
 * DinMo 세그먼트를 Braze 사용자 속성으로 내보내고 해당 속성에서 Braze Segments를 구축합니다.
@@ -101,7 +101,7 @@ DinMo의 각 대상 서비스는 동일한 일반 워크플로를 따릅니다. 
 
 삽입 모드를 활성화하지 않으면 DinMo는 Braze에 이미 존재하고 일치하는 외부 ID가 있는 사용자만 업데이트합니다.
 
-활성화 설정 중에 DinMo 모델에서 사용자의 [외부 ID]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/) 또는 Braze ID에 해당하는 필드를 매핑합니다. 각 DinMo 필드를 Braze의 정확한 속성 이름에 매핑하세요. Braze에 속성이 존재하지 않으면 DinMo가 해당 속성을 생성합니다.
+활성화 설정 중에 DinMo 모델에서 사용자의 [외부 ID]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids) 또는 Braze ID에 해당하는 필드를 매핑합니다. 각 DinMo 필드를 Braze의 정확한 속성 이름에 매핑하세요. Braze에 속성이 존재하지 않으면 DinMo가 해당 속성을 생성합니다.
 
 사용자 속성 활성화에 사용할 수 있는 동기화 모드는 다음과 같습니다.
 
@@ -128,7 +128,7 @@ DinMo의 각 대상 서비스는 동일한 일반 워크플로를 따릅니다. 
 2. 필수 필드를 매핑합니다.
    * **이벤트 시간**: 이벤트가 발생한 타임스탬프
    * **외부 ID**: 이벤트와 연결된 사용자의 외부 ID
-3. 선택적 이벤트 속성을 Braze 속성 이름에 매핑합니다.
+3. 선택적 이벤트 속성정보를 Braze 속성 이름에 매핑합니다.
 4. 새 이벤트가 Braze로 전송되는 빈도에 대한 스케줄을 설정합니다.
 
 ### 구독 상태 동기화 {#synchronize-subscription-statuses}
@@ -155,6 +155,6 @@ DinMo는 세그먼트에 한 번도 포함되지 않은 사용자를 수정하�
 
 활성화 설정 중에 오디언스 이름을 지정합니다. DinMo는 이 이름을 Braze 속성으로 사용합니다(공백은 밑줄로 대체됩니다). 동일한 이름의 속성이 Braze에 이미 존재하지 않는지 확인하세요. 사용자의 외부 ID에 해당하는 DinMo 필드를 매핑합니다.
 
-활성화가 실행된 후 동기화된 속성이 `true`인 사용자를 필터링하는 Braze Segments를 생성합니다.
+활성화가 실행된 후 동기화된 속성이 `true`인 사용자를 필터링하는 Braze Segment를 생성합니다.
 
 기존 Braze 사용자와 일치하는 외부 ID가 있는 사용자만 업데이트됩니다. 이 대상 서비스는 새 사용자를 생성하지 않습니다.

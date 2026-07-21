@@ -158,7 +158,7 @@ In dieser Tabelle erfahren Sie, welcher Prozentsatz Ihres eingehenden und ausgeh
 | TLS ausgehend | Zeigt den Prozentsatz der ausgehenden E-Mails (von Gmail), die über TLS akzeptiert wurden, im Verhältnis zu allen an diese Domain gesendeten E-Mails. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verschlüsselung" }
 
-Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices), um zu erfahren, was Sie vor dem Versand einer E-Mail-Campaign überprüfen sollten.
+Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices), um zu erfahren, was Sie vor dem Versand einer E-Mail-Kampagne überprüfen sollten.
 
 ## Microsoft Smart Network Data Services (SNDS) einrichten {#set-up-microsoft-smart-network-data-services-snds}
 

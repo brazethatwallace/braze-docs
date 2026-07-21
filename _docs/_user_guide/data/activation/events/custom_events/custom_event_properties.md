@@ -96,9 +96,7 @@ To add event properties for segmentation, do the following:
 
 The event property segmentation filters include:
 
-- Has done a custom event with property A with value B, X times in the last Y days.
-- Has made any purchases with property A with value B, X times in the last Y days.
-- Adds the ability to segment within 1 to 30 days.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
 ![A filter group that has 'Abandoned Cart' with property 'number of items' and value 2 more than 1 time in the last 30 calendar days.]({% image_buster /assets/img/nested_object3.png %})
 

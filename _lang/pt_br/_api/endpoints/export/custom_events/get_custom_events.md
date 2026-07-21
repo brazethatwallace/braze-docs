@@ -20,7 +20,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `events.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `events.list`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -28,7 +28,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | -------- | -------- | --------- | ----------- |
 | `page` | Opcional | Inteiro | A página de nomes de eventos a ser retornada; o padrão é 0 (retorna o primeiro conjunto de até 250). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }

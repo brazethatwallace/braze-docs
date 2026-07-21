@@ -241,7 +241,7 @@ QuickTime Playerでサウンドを開き、**ムービー**メニューから**�
 
 アプリ内のサウンドファイルの場所を指すプロトコルURLを指定する必要があります。これには2つの方法があります。
 
-* [Appleプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object)の`sound`パラメータを使用して、URLをBrazeに渡します。
+* [Appleプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object)の`sound`パラメータを使用して、URLをBrazeに渡します。
 * ダッシュボードでURLを指定します。[プッシュコンポーザー]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android)で**設定**を選択し、**サウンド**フィールドにプロトコルURLを入力します。
 
 ![Brazeダッシュボードのプッシュコンポーザー]({% image_buster /assets/img_archive/sound_push_ios.png %})

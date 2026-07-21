@@ -2,14 +2,14 @@
 nav_title: Content Optimizer
 article_title: Content Optimizer
 alias: "/content_optimizer/"
-description: "Der Content Optimizer ist ein Agent, der Ihnen dabei hilft, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten."
+description: "Der Content Optimizer hilft Ihnen dabei, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten."
 page_type: reference
 page_order: 3
 ---
 
 # Content Optimizer {#content-optimizer}
 
-> Der Content Optimizer ist ein Agent, der Ihnen dabei hilft, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
+> Der Content Optimizer hilft Ihnen dabei, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
 
 {% alert important %}
 Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für folgende Kanäle verfügbar: E-Mail, Push-Benachrichtigungen und SMS-/MMS-/RCS-Nachrichten. Für Unterstützung beim Einstieg wenden Sie sich bitte an Ihren Customer-Success-Manager.
@@ -17,7 +17,7 @@ Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für f
 
 ## Über den Content Optimizer {#about-content-optimizer}
 
-Der Content Optimizer ist ein Agent, der in einem Canvas-Schritt ausgeführt wird. Er unterstützt Sie dabei, zu testende Nachrichtenkomponenten zu definieren, Varianten mithilfe generativer KI oder manueller Eingaben zu erstellen und automatisch zu optimieren, welche Inhaltskombinationen an Nutzer:innen gesendet werden. Dieses Feature hilft Ihnen dabei:
+Der Content Optimizer wird in einem Canvas-Schritt ausgeführt. Er unterstützt Sie dabei, zu testende Nachrichtenkomponenten zu definieren, Varianten mithilfe generativer KI oder manueller Eingaben zu erstellen und automatisch zu optimieren, welche Inhaltskombinationen an Nutzer:innen gesendet werden. Dieses Feature hilft Ihnen dabei:
 
 - Betreffzeilen, Kopfzeilen, Textinhalte oder primäre CTAs für E-Mails zu optimieren.
 - Titel und Nachrichten für Push-Benachrichtigungen zu optimieren.
@@ -27,6 +27,16 @@ Der Content Optimizer ist ein Agent, der in einem Canvas-Schritt ausgeführt wir
 - Leistungsschwache Inhalte automatisch auszumustern und erfolgreiche Inhalte auszubauen.
 
 Erfahren Sie, wie Sie einen [Content Optimizer-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step) erstellen.
+
+{% multi_lang_include brazeai/generative_ai/policy.md %}
+
+### OpenAI und Content Optimizer {#openai-and-content-optimizer}
+
+Der Content Optimizer verwendet OpenAI nur dann, wenn Sie explizit KI-generierte Variantenvorschläge anfordern. OpenAI wird nicht verwendet, um zu entscheiden, welche Variante einzelne Nutzer:innen erhalten, oder um den Sendeverkehr zuzuweisen.
+
+- **Verwendet OpenAI:** Wenn Sie **Generate AI suggestions** für eine Inhaltskomponente auswählen, sendet Braze Ihre Ausgangsvariante, Anweisungen, optionale [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) und (bei gestarteten Schritten mit ausreichenden Sendedaten) aggregierten Performance-Kontext an OpenAI, um Variantenideen zu generieren.
+- **Bandit-Optimierung:** Der proprietäre Multi-Armed-Bandit-Algorithmus von Braze übernimmt die Traffic-Zuweisung, die Variantenauswahl zum Sendezeitpunkt und die Performance-basierte Optimierung. Siehe [Funktionsweise](#how-it-works).
+- **Manuelle Eingabe:** Sie können Varianten selbst eingeben, ohne Inhalte an OpenAI zu senden.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -60,6 +70,8 @@ Erfahren Sie, wie Sie einen [Content Optimizer-Schritt]({{site.baseurl}}/user_gu
 
 ## Funktionsweise {#how-it-works}
 
+Der Bandit-Algorithmus von Braze übernimmt die in diesem Abschnitt beschriebene Optimierung.
+
 Der Content Optimizer verwendet einen nicht-kontextuellen [Multi-Armed-Bandit](https://en.wikipedia.org/wiki/Multi-armed_bandit)-Algorithmus, um leistungsstarken Varianten mehr Sendungen zuzuweisen und die Zuweisung an leistungsschwache Varianten zu reduzieren. Im Laufe der Zeit führt dies zu einer kontinuierlichen Verbesserung Ihrer Nachrichteninhalte bei minimalem manuellem Aufwand.
 
 Der proprietäre Bandit-Optimierungsalgorithmus von Braze wurde speziell für die kombinatorische Natur des Content Optimizer-Schritts entwickelt. Da jede Nachricht aus mehreren Komponenten besteht, lernt der Algorithmus gleichzeitig über die Performance jeder einzelnen Komponente (wie Betreffzeile, Textkörper, CTA) sowie über deren Wechselwirkungen, wenn sie zu einer Nachricht kombiniert werden. Konkret bedeutet dies: Wenn eine bestimmte Kombination gesendet wird, profitieren alle Kombinationen, die dieselben Komponenten enthalten, von den Daten dieser Sendung. Dadurch kann der Bandit im Vergleich zu einem Standard-Bandit-Algorithmus mit derselben Datenmenge wesentlich schneller lernen.
@@ -72,7 +84,7 @@ Jede:r Nutzer:in erhält eine Nachricht pro Eintritt in den Content Optimizer-Sc
 
 ## Canvas-Eintritts-Setup {#canvas-entry-setup}
 
-Für optimale Ergebnisse verwenden Sie den Content Optimizer in Canvases, in denen Nutzer:innen den Schritt schrittweise und regelmäßig über einen längeren Zeitraum hinweg erreichen – beispielsweise in wiederkehrenden oder dauerhaft aktiven Canvases mit konstantem täglichem Volumen. Wenn alle Nutzer:innen gleichzeitig in den Schritt eintreten, hat der Agent keine Zeit, aus den ersten Ergebnissen zu lernen. Der Schritt verhält sich dann eher wie ein statischer A/B-Test als wie eine Live-Optimierungs-Engine.
+Für optimale Ergebnisse verwenden Sie den Content Optimizer in Canvases, in denen Nutzer:innen den Schritt schrittweise und regelmäßig über einen längeren Zeitraum hinweg erreichen – beispielsweise in wiederkehrenden oder dauerhaft aktiven Canvases mit konstantem täglichem Volumen. Wenn alle Nutzer:innen gleichzeitig in den Schritt eintreten, hat der Content Optimizer keine Zeit, aus den ersten Ergebnissen zu lernen. Der Schritt verhält sich dann eher wie ein statischer A/B-Test als wie eine Live-Optimierungs-Engine.
 
 Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintritts-Canvases sowie für Event-getriggerte und API-getriggerte Canvases mit relativ konstantem täglichem Nutzer:innen-Eintritt. Wenn Sie den Content Optimizer in Einmal-Sende-Canvases oder Canvases mit unregelmäßigem Eintritt (z. B. monatlich wiederkehrend) verwenden, sollten Sie [Eintrittskontrollen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) nutzen, um die Nutzer:innen-Eintritte über mehrere Tage zu verteilen.
 
@@ -84,25 +96,23 @@ Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintrit
 | Inhaltskomponenten | Elemente innerhalb einer Nachricht (z. B. Betreffzeile oder primärer CTA), die getestet und optimiert werden können. Marketer müssen den entsprechenden Liquid-Tag an der Stelle in die Nachricht einfügen, an der die Komponente erscheinen soll. |
 | Inhaltsvarianten | Die verschiedenen Werte, die eine Inhaltskomponente annehmen kann. |
 | Inhaltskombinationen | Eindeutige Nachrichten, die durch die Kombination verschiedener Inhaltsvarianten erstellt werden. |
-| Optimierungs-Event | Legt fest, wie der Content Optimizer die Performance bewertet und den Traffic im Laufe der Zeit auf Inhaltskombinationen verteilt – beispielsweise Klicks oder Öffnungen für E-Mails. Gilt für alle Inhaltskomponenten in einem Schritt. Der Content Optimizer lernt kontinuierlich aus diesem Event und verschiebt die Zustellung automatisch hin zu leistungsstärkeren Inhaltskombinationen. |
+| Optimierungs-Event | Legt fest, wie der Content Optimizer die Performance bewertet und den Traffic im Laufe der Zeit auf Inhaltskombinationen verteilt – beispielsweise Klicks oder Öffnungen für E-Mails. Gilt für alle Inhaltskomponenten in einem Schritt. Der Content Optimizer lernt kontinuierlich aus diesem Ereignis und verschiebt die Zustellung automatisch hin zu leistungsstärkeren Inhaltskombinationen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Wichtige Konzepte" }
 
 ## Hinweise {#considerations}
 
 - Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für folgende Kanäle verfügbar: E-Mail, Push-Benachrichtigungen und SMS-/MMS-/RCS-Nachrichten.
-- Für E-Mails kann der Agent bis zu 125 Kombinationen pro Schritt generieren:
+- Für E-Mails kann der Content Optimizer bis zu 125 Kombinationen pro Schritt generieren:
    - Bis zu 3 Komponenten pro Schritt
    - Bis zu 5 Varianten für jede Komponente
-- Für Push-Benachrichtigungen kann der Agent bis zu 25 Kombinationen pro Schritt generieren:
+- Für Push-Benachrichtigungen kann der Content Optimizer bis zu 25 Kombinationen pro Schritt generieren:
    - Bis zu 2 Komponenten pro Schritt
    - Bis zu 5 Varianten für jede Komponente
-- Für SMS-, MMS- und RCS-Nachrichten kann der Agent bis zu 25 Kombinationen pro Schritt generieren:
+- Für SMS-, MMS- und RCS-Nachrichten kann der Content Optimizer bis zu 25 Kombinationen pro Schritt generieren:
    - Bis zu 2 Komponenten pro Schritt
    - Bis zu 5 Varianten für jede Komponente
 - Pro Nutzer:in und Eintritt wird nur eine Nachricht gesendet. Es gibt keine Speicherung früherer Sendungen bei Wiedereintritten.
 - Marketer müssen Liquid-Tags manuell für jede Komponente im Nachrichten-Editor einfügen, an der Stelle, an der die definierten Inhaltsvarianten gerendert werden sollen.
-
-{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Nächste Schritte {#next-steps}
 

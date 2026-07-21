@@ -24,13 +24,13 @@ Um jederzeit zum Tab **Message Styles** zurückzukehren:
 - Klicken Sie auf die Schließen-X-Schaltfläche bei den einzelnen Blockeigenschaften
 - Wählen Sie den Nachrichtencontainer, die Schließen-X-Schaltfläche der Nachricht oder den Editor-Hintergrund aus
 
-### Benutzerdefinierte Schriftarten {#custom-fonts}
+### Angepasste Schriftarten {#custom-fonts}
 
 Wir akzeptieren die folgenden Dateitypen für Schriftarten: `.ttf`, `.woff`, `.otf` und `.woff2`. Weitere Informationen finden Sie unter [Asset-Dateien]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files).
 
-Sie können mehrere Varianten einer Schriftfamilie hinzufügen, da einige Stiloptionen für benutzerdefinierte Schriftarten möglicherweise nicht verfügbar sind. Derzeit unterstützen wir das Hinzufügen von Schriftarten über URL nicht.
+Sie können mehrere Varianten einer Schriftfamilie hinzufügen, da einige Stiloptionen für angepasste Schriftarten möglicherweise nicht verfügbar sind. Derzeit unterstützen wir das Hinzufügen von Schriftarten über URL nicht.
 
-So fügen Sie eine benutzerdefinierte Schriftart hinzu:
+So fügen Sie eine angepasste Schriftart hinzu:
 
 1. Gehen Sie zum Abschnitt **Content** im Tab **Message styles**.
 2. Klicken Sie auf **Add custom font**.
@@ -113,6 +113,31 @@ Sie können ein Bild zum Hintergrund Ihrer Nachricht über den Tab **Message sty
 {% alert tip %}
 Wenn Sie Schwierigkeiten haben, einen bestimmten Block auszuwählen, können Sie den Aufwärtspfeil in der Inline-Symbolleiste des Blocks verwenden, um den Fokus auf den jeweils übergeordneten Block zu verschieben.
 {% endalert %}
+
+#### Hintergrundbilder mit Liquid austauschen {#swap-background-images-with-liquid}
+
+Um Hintergrundbilder dynamisch basierend auf Nutzerdaten (wie angepassten Attributen oder Nutzereigenschaften) auszutauschen, verwenden Sie Liquid-{% raw %}`{% capture %}`{% endraw %}-Blöcke, um die richtige Bild-URL einer Variablen zuzuweisen, bevor HTML und CSS geladen werden.
+
+Platzieren Sie Ihre Liquid-Logik am Anfang Ihrer Nachricht und referenzieren Sie dann die erfasste Variable im URL-Feld des Hintergrundbilds. So wird das richtige Bild basierend auf den Daten der jeweiligen Nutzer:innen ausgewählt.
+
+Nachdem Sie die Bild-URL erfasst haben, verwenden Sie {% raw %}`{{ image_url | strip }}`{% endraw %}, um die URL ohne zusätzliche Leerzeichen auszugeben. Sie können dieses Liquid dann in das URL-Feld des Hintergrundbilds einfügen, um verschiedenen Nutzer:innen dynamisch unterschiedliche Bilder anzuzeigen.
+
+##### Beispiel {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
 
 ### Liquid hinzufügen {#adding-liquid}
 

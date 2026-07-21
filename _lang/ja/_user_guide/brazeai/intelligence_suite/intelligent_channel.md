@@ -6,7 +6,7 @@ description: "この記事では、インテリジェントチャネルフィル
 search_rank: 11
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}インテリジェントチャネルフィルター {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
+# [![Braze Learning コース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}インテリジェントチャネルフィルター {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
 
 > `Intelligent Channel` フィルター（旧称 `Most Engaged`）は、選択されたメッセージングチャネルが「最適な」チャネルであるオーディエンスの一部を選択します。
 
@@ -23,7 +23,7 @@ search_rank: 11
 インテリジェントチャネルフィルターを有効にするには、メール、Webプッシュ、またはモバイルプッシュのキャンペーン作成時に、**ターゲットオーディエンス**ページで**インテリジェントチャネル**フィルターを選択します。
 
 {% alert important %}
-SMSチャネルのエンゲージメント率を計算するには、高度なトラッキングとクリックトラッキングで[SMSリンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview)をオンにします。このトラッキングを行わない場合、[優先判定動作]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking)のためにエンゲージメント率が0%のインテリジェントチャネルとしてSMSが選択されることがあります。
+SMSチャネルのエンゲージメント率を計算するには、高度なトラッキングとクリックトラッキングで[SMSリンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)をオンにします。このトラッキングを行わない場合、[優先判定動作]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking)のためにエンゲージメント率が0%のインテリジェントチャネルとしてSMSが選択されることがあります。
 {% endalert %}
 
 ## 「データ不足」オプション {#the-not-enough-data-option}
@@ -60,7 +60,7 @@ Brazeが「最良」のチャネルを判定するには、十分なデータが
 
 ### 到達不能なチャネル {#unreachable-channels}
 
-ユーザーのチャネルランク付けを決定するのに十分なデータがあっても、最もランクの高いチャネルでそのユーザーに到達できなくなる場合があります。例えば、履歴上の最良チャネルがメールであるユーザーが、最近メールの配信停止を行った場合です。そのチャネルでメッセージを送信しても、そのユーザーには配信されません。特定のチャネルで到達不能なユーザーについては、個別にターゲットにするか、別のルートで対応する必要があります。
+ユーザーのチャネルランク付けを決定するのに十分なデータがあっても、最もランクの高いチャネルでそのユーザーに到達できなくなる場合があります。例えば、履歴上の最良チャネルがメールであるユーザーが、最近メールの購読解除を行った場合です。そのチャネルでメッセージを送信しても、そのユーザーには配信されません。特定のチャネルで到達不能なユーザーについては、個別にターゲットにするか、別のルートで対応する必要があります。
 
 ### オーディエンスのサイズ {#audience-sizing}
 

@@ -44,22 +44,22 @@ Trabalhe com a equipe de AI Decisioning Services para tomar as seguintes decisõ
 
 | Decisão | Descrição | Exemplos |
 |---------|-----------|----------|
-| **Métrica de sucesso** | O que o agente vai maximizar ao personalizar o engajamento do cliente? | Receita, LTV, ARPU, conversões, retenção |
-| **Público** | Para quem o agente do Decisioning Studio tomará decisões de engajamento do cliente? | Todos os clientes, membros de fidelidade, assinantes em risco |
+| **Métrica de sucesso** | O resultado de negócios que o agente maximiza ao personalizar o engajamento do cliente. | Receita, LTV, ARPU, conversões, retenção |
+| **Público** | Os clientes para os quais o agente do Decisioning Studio toma decisões de engajamento. | Todos os clientes, membros de fidelidade, assinantes em risco |
 | **Grupos de experimento** | Como os testes controlados randomizados do Decisioning Studio devem ser estruturados? | Decisioning Studio, Controle aleatório, BAU, Holdout |
-| **Dimensões** | Quais decisões o agente deve personalizar? | Horário do dia, linha de assunto, frequência, ofertas, canal |
-| **Opções** | Quais opções o agente tem para trabalhar? | Modelos específicos, ofertas, períodos |
-| **Restrições** | Quais decisões o agente nunca deve tomar? | Restrições geográficas, limites de orçamento, regras de elegibilidade |
+| **Dimensões** | As decisões de engajamento que o agente personaliza para cada cliente. | Horário do dia, linha de assunto, frequência, ofertas, canal |
+| **Opções** | As variantes específicas que o agente pode selecionar dentro de cada dimensão. | Modelos específicos, ofertas, períodos |
+| **Restrições** | As regras de negócios e limites que restringem as decisões do agente. | Restrições geográficas, limites de orçamento, regras de elegibilidade |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Principais decisões de design" }
 
-Cada uma dessas decisões tem implicações sobre quanto incremento adicional o agente pode gerar e com que rapidez. Nossa equipe de AI Decisioning Services trabalhará com você para projetar um agente que gere o máximo de valor, respeitando todas as suas regras de negócios.
+Cada uma dessas decisões tem implicações sobre quanto incremento adicional o agente pode gerar e com que rapidez. Nossa equipe de AI Decisioning Services trabalha com você para projetar um agente que gere o máximo de valor, respeitando todas as suas regras de negócios.
 
 ![Diagrama mostrando como métricas de sucesso, público, grupos de experimento, dimensões, opções e restrições alimentam o design de um agente do Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_pro_agent_design.png %})
 
 ## Capacidades do Decisioning Studio {#decisioning-studio-capabilities}
 
-| Capacidade | Informações |
-|------------|-------------|
+| Capacidade | Detalhes |
+|------------|----------|
 | **Qualquer métrica de sucesso** | Otimize para receita, conversões, ARPU, LTV ou qualquer KPI de negócios |
 | **Dimensões ilimitadas** | Personalize por oferta, canal, timing, frequência, criativo e muito mais |
 | **Qualquer CEP** | Integrações nativas com a Braze, Salesforce Marketing Cloud ou integrações personalizadas para qualquer plataforma |

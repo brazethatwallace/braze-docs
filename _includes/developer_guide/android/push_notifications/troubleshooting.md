@@ -37,8 +37,7 @@ sequenceDiagram
 
 ```
 
-
-### Step 1: Configuring your Google Cloud API key
+### Step 1: Configure your Google Cloud API key
 
 In developing your app, you'll need to provide the Braze Android SDK with your Firebase sender ID. Additionally, you'll need to provide an API Key for server applications to the Braze dashboard. Braze will use this API key to send messages to your devices. You will also need to check that FCM service is enabled in Google Developer's console. 
 
@@ -50,23 +49,23 @@ A common mistake during this step is using the app identifier API key instead of
 
 In typical integrations, the Braze Android SDK will handle registering devices for FCM capability. This will usually happen immediately upon opening the app for the first time. After registration, Braze will be provided with an FCM Registration ID, which is used to send messages to that device specifically. We will store the Registration ID for that user, and that user will become "push registered" if they previously did not have a push token for any of your apps.
 
-### Step 3: Launching a Braze push campaign
+### Step 3: Launch a Braze push campaign
 
-When a push campaign is launched, Braze will make requests to FCM to deliver your message. Braze will use the API key copied in the dashboard to authenticate and verify that we can send push notifications to the push tokens provided.
+When a push campaign is launched, Braze makes requests to FCM to deliver your message. Braze uses the API key copied in the dashboard to authenticate and verify that we can send push notifications to the push tokens provided.
 
-### Step 4: Removing invalid tokens
+### Step 4: Remove invalid tokens
 
 If FCM informs us that any of the push tokens we were attempting to send a message to are invalid, we remove those tokens from the user profiles they were associated with. If users have no other push tokens, they will no longer show up as "Push Registered" under the **Segments** page.
 
 For more details about FCM, visit [Cloud messaging](https://firebase.google.com/docs/cloud-messaging/).
 
-## Utilizing the push error logs
+## Use the push error logs
 
-Braze provides push notification errors within the message activity log. This error log provides a variety of warnings which can be very helpful for identifying why your campaigns aren't working as expected. Clicking on an error message will redirect you to relevant documentation to help you troubleshoot a particular incident.
+Braze provides push notification errors within the message activity log. This error log provides a variety of warnings which can be very helpful for identifying why your campaigns aren't working as expected. Selecting an error message redirects you to relevant documentation to help you troubleshoot a particular incident.
 
 ![Braze message activity log showing push notification error entries.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-## Troubleshooting scenarios
+## Troubleshooting
 
 ### Push isn't sending
 
@@ -99,7 +98,9 @@ We recommend setting a breakpoint or logging to confirm that the FCM-generated p
 
 For FCM push to work, Google Play Services must be present on the device. If Google Play Services isn't on a device, push registration will not occur.
 
-**Note:** Google Play Services is not installed on Android emulators without Google APIs installed.
+{% alert note %}
+Google Play Services is not installed on Android emulators without Google APIs installed.
+{% endalert %}
 
 #### Device not connected to the internet
 
@@ -126,8 +127,6 @@ If a push notification isn't delivered, make sure it didn't bounce by looking in
 1. Make sure to pass a valid push token to Braze from [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token).
 
 #### Error: NotRegistered
-
-1. `NotRegistered` typically occurs when an app has been deleted from a device. Braze uses `NotRegistered` internally to signal that an app has been uninstalled from a device.
 
 2. `NotRegistered` may also occur when multiple registrations occur and a second registration invalidates the first token.
 
@@ -176,9 +175,11 @@ The Firebase Cloud Messaging server key provided in the Braze dashboard is inval
 
 ### Push clicks not logged
 
-Braze logs push clicks automatically, so this scenario should be comparatively rare.
+If push clicks are not being logged, it is possible that push click data has not been flushed to our servers yet. The Braze Android SDK may throttle flushes.
 
-If push clicks are not being logged, it is possible that push click data has not been flushed to our servers yet. Braze throttles the frequency of its flushes based on the strength of the network connection. With a good network connection, push click-data should arrive at the server within a minute in most circumstances.
+If you implemented a custom push handler, ensure that you are appropriately [preserving native push analytics]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling)
+
+Logging push clicks is a network operation and is bound by networking limitations. As such, while the Braze Android SDK attempts to accommodate for network failures and will retry failed requests, some event loss is to be expected.
 
 ### Deep links not working
 

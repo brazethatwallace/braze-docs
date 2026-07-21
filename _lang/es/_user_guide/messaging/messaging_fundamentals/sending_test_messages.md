@@ -91,7 +91,7 @@ En la pestaña **Preview** de tu creador, la vista de tu mensaje puede no ser id
 
 - ¿Tu usuario de prueba ha optado por recibir notificaciones push con un token de push válido?
 - ¿Las imágenes y los medios se muestran y funcionan como se espera?
-- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) en caso de que Liquid no devuelva información?
+- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) en caso de que Liquid no devuelva información?
 - ¿Tu texto es claro, conciso y correcto?
 - ¿Tus enlaces dirigen al usuario a donde deben ir?
 - ¿Tu usuario de prueba ha optado por recibir notificaciones push con un token de push válido?
@@ -197,7 +197,7 @@ En **Preview**, la vista de tu mensaje puede no ser idéntica a su representaci�
 ### Lista de verificación de prueba
 
 - ¿Las imágenes y los medios se muestran y funcionan como se espera?
-- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) en caso de que Liquid no devuelva información?
+- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) en caso de que Liquid no devuelva información?
 - ¿Tu texto es claro, conciso y correcto?
 - ¿Tus botones dirigen al usuario a donde deben ir?
 

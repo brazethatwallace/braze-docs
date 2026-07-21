@@ -182,7 +182,7 @@ Within a Braze workspace, members are uniquely identified by `convercus_account_
 
 #### Purchases
 
-Convercus transactions of type `EARNTRANSACTION` (points earned from customer spend) are reported to Braze as [purchases]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#purchase-object-specification) and counted in Braze revenue analytics, RFM segmentation, and predictive features—using the transaction ID as the product identifier and the transaction amount and currency as price and currency.
+Convercus transactions of type `EARNTRANSACTION` (points earned from customer spend) are reported to Braze as [purchases]({{site.baseurl}}/api/objects_filters/purchase_object) and counted in Braze revenue analytics, RFM segmentation, and predictive features—using the transaction ID as the product identifier and the transaction amount and currency as price and currency.
 
 Transactions of type `PAYWITHPOINTSTRANSACTION` (points burn) are **not** reported as purchases—they flow as the `convercus_account_transaction` custom event so they remain available for segmentation. Reversals and cancellations of earn transactions are reported as negative-price purchases, keeping Braze revenue aligned with Convercus.
 

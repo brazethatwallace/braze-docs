@@ -14,9 +14,9 @@ channel: email
 
 ## Style de l'adresse {#address-styling}
 
-La ligne d'objet est l'une des premières choses que les destinataires verront en recevant votre message. Les lignes d'objet de 6 à 10 mots génèrent les meilleurs taux d'ouverture.
+La ligne d'objet est l'une des premières choses que les destinataires voient en recevant votre message. Les lignes d'objet de 6 à 10 mots génèrent les meilleurs taux d'ouverture.
 
-Il existe différentes approches pour créer une bonne ligne d'objet : poser une question pour susciter l'intérêt du lecteur, être plus direct, la personnaliser pour mieux engager votre clientèle… Ne vous contentez pas d'une seule ligne d'objet, tirez parti des [tests A/B]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing) pour en essayer de nouvelles et évaluer leur efficacité. Pour s'afficher correctement sur mobile, les lignes d'objet ne doivent pas dépasser 35 caractères.
+Il existe différentes approches pour créer une bonne ligne d'objet : poser une question pour susciter l'intérêt du lecteur, être plus direct, ou la personnaliser pour mieux engager votre clientèle. Ne vous contentez pas d'une seule ligne d'objet, tirez parti des [tests A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/faq#what-is-the-difference-between-ab-testing-and-multivariate-testing) pour en essayer de nouvelles et évaluer leur efficacité. Pour s'afficher correctement sur mobile, les lignes d'objet ne doivent pas dépasser 35 caractères.
 
 Le champ « De » doit indiquer clairement qui est l'expéditeur. Évitez d'utiliser le nom d'une personne ou une abréviation peu courante. Privilégiez plutôt un nom reconnaissable, comme celui de votre marque. Si l'utilisation du nom d'une personne correspond aux méthodes de personnalisation des e-mails de votre marque, restez cohérent afin de développer une relation avec les destinataires. Pour s'afficher correctement sur mobile, le nom du champ « De » ne doit pas comporter plus de 25 caractères.
 
@@ -111,7 +111,7 @@ Ces fonctionnalités augmentent légèrement la taille du message rendu :
 
 - Pixel de suivi d'ouverture : ajoute une balise image de 1 x 1&nbsp;px au corps du message
 - Accroche : ajoute un `<div>` masqué en haut du corps
-- Aliasage de lien : ajoute un paramètre de requête de 16 caractères (`lid=`) à chaque URL suivie
+- Aliasing de lien : ajoute un paramètre de requête de 16 caractères (`lid=`) à chaque URL suivie
 - Modèles de lien : ajoutent les paramètres de requête configurés dans le tableau de bord aux URL correspondantes
 - Insertion CSS (facultatif) : applique les règles de la feuille de style intégrée directement aux éléments HTML, ce qui peut ajouter du CSS redondant selon la complexité de la feuille de style
 
@@ -141,11 +141,11 @@ Consultez le tableau suivant pour connaître les tailles d'images recommandées.
 Les applications web et mobile de Gmail ne rendent généralement pas les SVG (et la prise en charge du WEBP est incohérente). Utilisez le format PNG ou JPEG pour les images qui doivent s'afficher de manière fiable dans Gmail.
 {% endalert %}
 
-## Liens profonds {#deep-linking}
+## Deep linking {#deep-linking}
 
-Avec les notifications push et les messages in-app, un [lien profond]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) dirige les utilisateurs directement vers une destination spécifique au sein d'une application. Cependant, les liens profonds nécessitent que l'application soit installée, et les e-mails ne permettent pas de savoir si les destinataires disposent de l'application. Cela signifie que les liens profonds dans les e-mails peuvent entraîner des erreurs pour les destinataires qui n'ont pas l'application installée.
+Avec les notifications push et les messages in-app, un [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) dirige les utilisateurs directement vers une destination spécifique au sein d'une application. Cependant, les deep links nécessitent que l'application soit installée, et les e-mails ne permettent pas de savoir si les destinataires disposent de l'application. Cela signifie que les deep links dans les e-mails peuvent entraîner des erreurs pour les destinataires qui n'ont pas l'application installée.
 
-Utilisez plutôt les [liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links), qui fonctionnent comme des URL standard. Vous pouvez les configurer pour ouvrir l'application ou diriger les utilisateurs vers une page spécifique. Ils peuvent également rediriger vers l'app store ou afficher une page web de secours lorsque l'application n'est pas installée.
+Utilisez plutôt les [liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links), qui fonctionnent comme des URL standard. Vous pouvez les configurer pour ouvrir l'application ou diriger les utilisateurs vers une page spécifique. Ils peuvent également rediriger vers la boutique d'applications ou afficher une page web de secours lorsque l'application n'est pas installée.
 
 ## Content Blocks avec images transparentes {#content-blocks-with-transparent-images}
 

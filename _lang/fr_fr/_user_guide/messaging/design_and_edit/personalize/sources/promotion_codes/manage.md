@@ -2,12 +2,12 @@
 nav_title: Utiliser les codes
 article_title: Utiliser les codes de promotion
 page_order: 0.2
-description: "Découvrez comment utiliser les codes de promotion et consulter leur utilisation pour vos campagnes et Canvas."
+description: "Découvrez comment utiliser les codes de promotion et consulter leur utilisation pour vos Campaigns et Canvas."
 ---
 
 # Utiliser les codes de promotion {#use-promotion-codes}
 
-> Découvrez comment utiliser les codes de promotion et consulter leur utilisation pour vos campagnes et Canvas.
+> Découvrez comment utiliser les codes de promotion et consulter leur utilisation pour vos Campaigns et Canvas.
 
 ## Conditions préalables {#prerequisites}
 
@@ -25,7 +25,7 @@ Collez les extraits de code dans l'un de vos messages dans Braze, puis utilisez 
 
 ### Entre les étapes du Canvas {#across-canvas-steps}
 
-Lorsqu'un extrait de code est utilisé dans une campagne ou un Canvas avec des messages multicanaux, chaque utilisateur reçoit un code unique. Dans un Canvas comportant plusieurs étapes qui font référence à des codes de promotion, un utilisateur obtient un nouveau code pour chaque étape dans laquelle il entre.
+Lorsqu'un extrait de code est utilisé dans une Campaign ou un Canvas avec des messages multicanaux, chaque utilisateur reçoit un code unique. Dans un Canvas comportant plusieurs étapes qui font référence à des codes de promotion, un utilisateur obtient un nouveau code pour chaque étape dans laquelle il entre.
 
 Pour attribuer un code de promotion dans un Canvas et le réutiliser entre les étapes :
 
@@ -38,9 +38,9 @@ Lorsqu'un utilisateur est éligible à un code sur plusieurs canaux, il reçoit 
 Si aucun code de promotion n'est disponible, les messages de test ou en production qui dépendent de codes ne sont pas envoyés.
 {% endalert %}
 
-### Campagnes de messages in-app {#promotion-codes-iam-campaigns}
+### Campaigns de messages in-app {#promotion-codes-iam-campaigns}
 
-Après avoir créé une [campagne de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages), vous pouvez insérer un [extrait de code de liste de codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes-1) dans le corps de votre message in-app. Les codes de promotion dans les messages in-app sont déduits et utilisés uniquement lorsqu'un utilisateur déclenche l'affichage du message in-app.
+Après avoir créé une [Campaign de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages), vous pouvez insérer un [extrait de code de liste de codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes) dans le corps de votre message in-app. Les codes de promotion dans les messages in-app sont déduits et utilisés uniquement lorsqu'un utilisateur déclenche l'affichage du message in-app.
 
 ### Messages de test {#test-messages}
 
@@ -52,9 +52,9 @@ Les envois de test et les envois d'e-mails au groupe initiateur consomment des c
 
 ## Enregistrer les codes de promotion dans les profils utilisateur {#save-to-profile}
 
-Pour faire référence au même code de promotion dans les messages suivants, le code doit être enregistré dans le profil utilisateur en tant qu'attribut personnalisé. Cela peut être fait via une [étape de Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) qui attribue le code de réduction à un attribut personnalisé, comme « Code promo », directement avant une étape de message.
+Pour faire référence au même code de promotion dans les messages suivants, le code doit être enregistré dans le profil utilisateur en tant qu'attribut personnalisé. Cela peut être fait via une [étape de mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) qui attribue le code de réduction à un attribut personnalisé, comme « Code promo », directement avant une étape de message.
 
-Tout d'abord, sélectionnez les éléments suivants pour chaque champ de l'étape de Mise à jour utilisateur :
+Tout d'abord, sélectionnez les éléments suivants pour chaque champ de l'étape de mise à jour utilisateur :
 
 - **Nom de l'attribut :** Code promo
 - **Action :** Mettre à jour
@@ -74,7 +74,7 @@ Ce nombre de codes peut également être consulté en revisitant une page de lis
 
 ## Envois multicanaux et monocanaux {#multichannel-and-single-channel-sends}
 
-Pour les campagnes et Canvas multicanaux et à envoi unique, tous les codes de promotion référencés dans le Liquid d'un message sont déduits pour être utilisés **avant** l'envoi du message afin de garantir les points suivants :
+Pour les Campaigns et Canvas multicanaux et à envoi unique, tous les codes de promotion référencés dans le Liquid d'un message sont déduits pour être utilisés **avant** l'envoi du message afin de garantir les points suivants :
 
 - Les mêmes codes de promotion sont utilisés sur tous les canaux dans un message multicanal.
 - Les codes de promotion supplémentaires ne sont pas utilisés si un message échoue ou est abandonné.

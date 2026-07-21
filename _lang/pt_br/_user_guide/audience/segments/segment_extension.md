@@ -20,7 +20,7 @@ Os segmentos da Braze oferecem ferramentas poderosas de direcionamento para cria
 Por exemplo, a segmentação padrão da Braze encontra usuários que atendem a critérios específicos que você define, como identificar um usuário que comprou recentemente um dos seus produtos. As extensões de segmento permitem ir mais fundo — como identificar usuários que compraram uma cor específica de um produto específico pelo menos duas vezes entre 18 e 24 meses atrás. As extensões de segmento são um aprimoramento, não um requisito. Se você precisa de filtros mais avançados ou uma janela de retrospectiva mais longa, elas são uma ótima ferramenta para ajudar, mantendo o uso de dados otimizado.
 
 {% alert note %}
-Há uma alocação padrão de 25 extensões de segmento ativas por espaço de trabalho em um determinado momento. Se você precisar aumentar esse limite, entre em contato com seu gerente de sucesso do cliente da Braze para discutir seu caso de uso.
+Há uma alocação padrão de 50 extensões de segmento ativas por espaço de trabalho em um determinado momento. Se você precisar aumentar esse limite, entre em contato com seu gerente de sucesso do cliente da Braze para discutir seu caso de uso.
 {% endalert %}
 
 ## Criando uma extensão de segmento {#creating-a-segment-extension}
@@ -87,7 +87,7 @@ Se você estiver usando eventos recomendados de eCommerce e adicionar uma propri
 
 ![Detalhes da extensão de segmento com um menu suspenso de propriedades disponíveis.]({% image_buster /assets/img/segment/ecommerce_recommended_event_properties.png %})
 
-Também oferecemos suporte à segmentação baseada em [propriedades de eventos aninhadas]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). No menu suspenso de comparação, selecione a comparação que corresponde ao tipo de dados da sua propriedade aninhada. Você pode usar a mesma sintaxe de propriedade de evento aninhada para adicionar propriedades aninhadas para qualquer evento recomendado de eCommerce que contenha propriedades aninhadas. Para informações sobre as diferentes propriedades aninhadas disponíveis, consulte [Tipos de eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events). Para gerar o esquema necessário para o nome da propriedade da sua extensão de segmento, siga as etapas em [Objetos aninhados em eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
+Também oferecemos suporte à segmentação baseada em [propriedades de eventos aninhadas]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). No menu suspenso de comparação, selecione a comparação que corresponde ao tipo de dados da sua propriedade aninhada. Você pode usar a mesma sintaxe de propriedade de evento aninhada para adicionar propriedades aninhadas para qualquer evento recomendado de eCommerce que contenha propriedades aninhadas. Para informações sobre as diferentes propriedades aninhadas disponíveis, consulte [Tipos de eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Para gerar o esquema necessário para o nome da propriedade da sua extensão de segmento, siga as etapas em [Objetos aninhados em eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ![Segmentação baseada em propriedades de eventos aninhadas.]({% image_buster /assets/img/segment/nested_segment_extensions.png %})
 

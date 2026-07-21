@@ -26,7 +26,7 @@ When a nested custom attribute in your request contains any invalid values (such
 {% endalert %}
 
 {% alert tip %}
-For more information on using arrays of objects for user attributes objects, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+For more information on using arrays of objects for user attributes objects, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## API example
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-In this scenario, you can use Liquid to loop through the `pets` array and print out a statement for each pet. [Assign a variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) to the `pets` custom attribute and use dot notation to access properties on an object. Specify the name of the object, followed by a period `.`, followed by the property name.
+In this scenario, you can use Liquid to loop through the `pets` array and print out a statement for each pet. [Assign a variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) to the `pets` custom attribute and use dot notation to access properties on an object. Specify the name of the object, followed by a period `.`, followed by the property name.
 
 ## Segmentation
 

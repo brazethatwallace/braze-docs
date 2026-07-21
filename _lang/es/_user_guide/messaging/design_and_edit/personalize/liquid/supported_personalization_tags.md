@@ -20,7 +20,7 @@ A modo de referencia, se proporciona un resumen de las etiquetas de personalizac
 | -------------  | ---- |
 | Atributos estándar (predeterminados) | `{{${city}}}` <br> `{{${country}}}` <br> `{{${date_of_birth}}}` <br> `{{${email_address}}}` <br> `{{${first_name}}}` <br> `{{${gender}}}` <br> `{{${language}}}` <br> `{{${last_name}}}` <br> `{{${last_used_app_date}}}` <br> `{{${most_recent_app_version}}}` <br> `{{${most_recent_locale}}}` <br> `{{${most_recent_location}}}` <br> `{{${phone_number}}}` <br> `{{${time_zone}}}` <br> `{{${user_id}}}` <br> `{{${braze_id}}}` <br> `{{${random_bucket_number}}}` <br> `{{subscribed_state.${email_global}}}` <br> `{{subscribed_state.${subscription_group_id}}}` |
 | Atributos de dispositivo | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
-| <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>Atributos de lista de correo electrónico</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Esta etiqueta reemplaza a la anterior `{{${unsubscribe_url}}}`. Aunque la etiqueta antigua sigue funcionando en correos electrónicos creados previamente, te recomendamos que uses la nueva en su lugar. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
+| <a href='/docs/user_guide/channels/email/subscriptions#changing-email-subscriptions'>Atributos de lista de correo electrónico</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Esta etiqueta reemplaza a la anterior `{{${unsubscribe_url}}}`. Aunque la etiqueta antigua sigue funcionando en correos electrónicos creados previamente, te recomendamos que uses la nueva en su lugar. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>Atributos de SMS</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>Atributos de WhatsApp</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
 | Atributos de Campaign y atributos de paso en Canvas | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
@@ -51,7 +51,7 @@ Para más detalles, consulta [Atributos de Campaign y Canvas en distintas fuente
 El comportamiento de las siguientes etiquetas difiere entre Canvas y Campaigns:
 {% raw %}
 - `dispatch_id` se comporta de manera diferente porque Braze trata los pasos de Canvas como eventos desencadenados, incluso cuando están "planificados" (excepto los pasos de entrada, que pueden planificarse). Para obtener más información, consulta [Comportamiento de dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
-- Usar la etiqueta `{{campaign.${name}}}` con Canvas muestra el nombre del componente de Canvas. Cuando se usa esta etiqueta con Campaigns, muestra el nombre de la Campaign.
+- Usar la etiqueta `{{campaign.${name}}}` con Canvas muestra el nombre del componente de Canvas. Cuando se usa esta etiqueta con Campaigns, muestra el nombre de la campaña.
 {% endraw %}
 
 #### Nombres de Campaign en URLs {#campaign-names-in-urls}
@@ -176,7 +176,7 @@ En este caso de uso, un usuario con un nombre en blanco o nulo recibe el mensaje
 
 Puedes usar la etiqueta `assign` para crear una variable en el creador de mensajes. Te recomendamos usar un nombre único para tu variable. Si creas una variable con un nombre similar a las etiquetas de personalización compatibles (como `language`), esto puede afectar tu lógica de mensajería.
 
-Después de crear una variable, puedes hacer referencia a ella en tu lógica de mensajería o mensaje. Esta etiqueta es útil cuando quieres reformatear contenido que se devuelve desde nuestra función de [Contenido conectado]({% image_buster /assets/img_archive/personalized_firstname_.png %}). Puedes leer más en la documentación de Shopify sobre [etiquetas de variable](https://docs.shopify.com/themes/liquid/tags/variable-tags).
+Después de crear una variable, puedes hacer referencia a ella en tu lógica de mensajería o mensaje. Esta etiqueta es útil cuando quieres reformatear contenido que se devuelve desde nuestra función de [contenido conectado]({% image_buster /assets/img_archive/personalized_firstname_.png %}). Puedes leer más en la documentación de Shopify sobre [etiquetas de variable](https://docs.shopify.com/themes/liquid/tags/variable-tags).
 
 {% alert tip %}
 ¿Te encuentras asignando las mismas variables en cada mensaje? En lugar de escribir la etiqueta `assign` una y otra vez, puedes guardar esa etiqueta como un bloque de contenido y colocarla al inicio de tu mensaje.
@@ -240,7 +240,7 @@ Con el [control de espacios en blanco](https://shopify.github.io/liquid/basics/w
 
 ## Códigos de estado HTTP {#http-personalization}
 
-Puedes utilizar el estado HTTP de una llamada de [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) guardándolo primero como una variable local y luego usando la clave `__http_status_code__`. Por ejemplo:
+Puedes utilizar el estado HTTP de una llamada de [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) guardándolo primero como una variable local y luego usando la clave `__http_status_code__`. Por ejemplo:
 
 ```html
 {% connected_content https://example.com/api/endpoint :save connected %}
@@ -251,7 +251,7 @@ Puedes utilizar el estado HTTP de una llamada de [Contenido conectado]({{site.ba
 {% endraw %}
 
 {% alert note %}
-Esta clave solo se agrega automáticamente al objeto de Contenido conectado si el punto de conexión devuelve un objeto JSON. Si el punto de conexión devuelve un array u otro tipo, esa clave no se puede establecer automáticamente en la respuesta.
+Esta clave solo se agrega automáticamente al objeto de contenido conectado si el endpoint devuelve un objeto JSON. Si el endpoint devuelve un array u otro tipo, esa clave no se puede establecer automáticamente en la respuesta.
 {% endalert %}
 
 ## Enviar mensajes según el idioma, la configuración regional más reciente y la zona horaria {#send-messages-based-on-language-most-recent-locale-and-time-zone}
@@ -290,7 +290,7 @@ En este caso de uso, los clientes con una configuración regional más reciente 
 
 ### Caso de uso: dirigirse a usuarios por zona horaria {#use-case-target-users-by-time-zone}
 
-También puedes dirigirte a los usuarios por su zona horaria. Por ejemplo, enviar un mensaje si están en EST y otro si están en PST. Para hacer esto, guarda la hora actual en UTC y compara una declaración if/else con la hora actual del usuario para enviar el mensaje correcto para la zona horaria correcta. Deberías configurar la Campaign para que se envíe en la zona horaria local del usuario, para que reciban la Campaign en el momento adecuado.
+También puedes dirigirte a los usuarios por su zona horaria. Por ejemplo, enviar un mensaje si están en EST y otro si están en PST. Para hacer esto, guarda la hora actual en UTC y compara una declaración if/else con la hora actual del usuario para enviar el mensaje correcto para la zona horaria correcta. Deberías configurar la campaña para que se envíe en la zona horaria local del usuario, para que la reciban en el momento adecuado.
 
 Consulta el siguiente caso de uso sobre cómo escribir un mensaje que se entrega entre las 2 pm y las 3 pm con un mensaje específico para cada zona horaria.
 

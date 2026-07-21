@@ -91,7 +91,7 @@ Dans l'onglet **Preview** de votre compositeur, l'affichage de votre message peu
 
 - Votre utilisateur test est-il inscrit aux notifications push avec un jeton de notification push valide ?
 - Les images et médias s'affichent-ils et fonctionnent-ils comme prévu ?
-- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une [valeur d'attribut par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) si le Liquid ne renvoie aucune information ?
+- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une [valeur d'attribut par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) si le Liquid ne renvoie aucune information ?
 - Votre texte est-il clair, concis et correct ?
 - Vos liens dirigent-ils l'utilisateur vers la bonne destination ?
 - Votre utilisateur test est-il inscrit aux notifications push avec un jeton de notification push valide ?
@@ -107,9 +107,9 @@ Si une image de Content Card ne s'affiche pas ou apparaît cassée :
 
 ### Débogage {#debug}
 
-Après l'envoi de vos Content Cards, vous pouvez analyser ou déboguer tout problème depuis le [journal des événements utilisateur]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) dans la console de développement.
+Après l'envoi de vos Content Cards, vous pouvez analyser ou déboguer tout problème depuis le [journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) dans la console de développement.
 
-Un cas d'usage courant consiste à essayer de déboguer pourquoi un utilisateur ne peut pas voir une Content Card particulière. Pour ce faire, vous pouvez consulter les **journaux des événements utilisateur** pour les Content Cards envoyées au SDK au démarrage de la session, mais avant une impression, et les relier à une campagne spécifique :
+Un cas d'usage courant consiste à essayer de déboguer pourquoi un utilisateur ne peut pas voir une Content Card particulière. Pour ce faire, vous pouvez consulter les **journaux des événements utilisateurs** pour les Content Cards envoyées au SDK au démarrage de la session, mais avant une impression, et les relier à une campagne spécifique :
 
 1. Allez dans **Settings** > **Event User Log**.
 2. Localisez et développez la requête SDK pour votre utilisateur test.
@@ -197,7 +197,7 @@ Dans la **prévisualisation**, l'affichage de votre message peut ne pas être id
 ### Liste de vérification du test
 
 - Les images et médias s'affichent-ils et fonctionnent-ils comme prévu ?
-- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une [valeur d'attribut par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) si le Liquid ne renvoie aucune information ?
+- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une [valeur d'attribut par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) si le Liquid ne renvoie aucune information ?
 - Votre texte est-il clair, concis et correct ?
 - Vos boutons dirigent-ils l'utilisateur vers la bonne destination ?
 
@@ -307,7 +307,7 @@ Si vous sélectionnez un utilisateur existant, saisissez l'ID utilisateur ou l'a
 
 #### Sélectionner un utilisateur personnalisé {#selecting-a-custom-user}
 
-Si vous prévisualisez en tant qu'utilisateur personnalisé, saisissez du texte pour les différents champs disponibles pour la personnalisation, tels que le prénom de l'utilisateur et les attributs personnalisés. Encore une fois, vous pouvez saisir votre propre adresse e-mail pour envoyer un test à votre appareil.
+Si vous prévisualisez en tant qu'utilisateur personnalisé, saisissez du texte pour les différents champs disponibles pour la personnalisation, tels que le prénom de l'utilisateur et les attributs personnalisés. Vous pouvez également saisir votre propre adresse e-mail pour envoyer un test à votre appareil.
 
 ![Utilisateur personnalisé]({% image_buster /assets/img_archive/personalized_testing_custom.png %})
 

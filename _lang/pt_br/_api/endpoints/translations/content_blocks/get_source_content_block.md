@@ -19,17 +19,17 @@ description: "Este artigo descreve detalhes sobre o endpoint de origem de tradu�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `content_blocks.translations.get`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `content_blocks.translations.get`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
 ## Parâmetros de consulta {#query-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `content_block_id` | Obrigatória | String | O ID do seu bloco de conteúdo. |
+| `content_block_id` | Obrigatório | String | O ID do seu bloco de conteúdo. |
 | `locale_id` | Opcional | String | Um UUID de locale para filtrar as respostas. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de consulta" }
 

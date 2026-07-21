@@ -33,10 +33,10 @@ Snowplow의 풍부한 행동 데이터를 활용하여 Braze에서 강력한 고
 | Snowplow 파이프라인       | Snowplow 파이프라인이 가동 및 실행 중이어야 합니다.                                                                                                                                                                                                                                          |
 | Snowplow 콘솔 액세스 | 이벤트 전달자를 구성하려면 Snowplow 콘솔에 액세스할 수 있어야 합니다.                                                                                                                                                                                                                                |
 | Braze REST API 키      | 다음 권한이 있는 Braze REST API 키: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename`, `users.alias.update`. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트     | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다.                                                                                                                                     |
+| Braze REST 엔드포인트     | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다.                                                                                                                                     |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 ### 개인화된 실행 기반 전달 {#personalized-action-based-delivery}
 Snowplow가 기본적으로 수집하는 다양한 풍부한 이벤트를 사용하거나, 커스텀 이벤트를 정의하여 비즈니스에 적합한 더욱 세분화된 고객 여정을 설계하세요. Snowplow의 풍부한 행동 데이터를 활용하여 고객 퍼널을 설계하고 마케팅 및 제품 팀의 가치를 극대화하여 Braze를 통해 전환율과 제품 사용량을 높이세요.
@@ -59,9 +59,9 @@ Snowplow의 고품질 행동 데이터를 기반으로 Braze에서 동적 오디
 
 전달자를 구성할 때 전달할 Snowplow 이벤트를 선택하고 이를 Braze 오브젝트 유형에 매핑할 수 있습니다:
 
-1. **[사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)**: 고객 프로필 데이터 및 커스텀 사용자 속성을 업데이트합니다.
-2. **[커스텀 이벤트]({{site.baseurl}}/api/objects_filters/event_object/)**: 사용자 행동 및 동작을 전송합니다.
-3. **[구매]({{site.baseurl}}/api/objects_filters/purchase_object/)**: 제품 세부 정보가 포함된 트랜잭션 데이터를 전송합니다.
+1. **[사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object)**: 고객 프로필 데이터 및 커스텀 사용자 속성을 업데이트합니다.
+2. **[커스텀 이벤트]({{site.baseurl}}/api/objects_filters/event_object)**: 사용자 행동 및 동작을 전송합니다.
+3. **[구매]({{site.baseurl}}/api/objects_filters/purchase_object)**: 제품 세부 정보가 포함된 트랜잭션 데이터를 전송합니다.
 
 각 오브젝트 유형에 대해 필드 매핑을 구성하여 Snowplow 이벤트 데이터가 Braze 필드에 매핑되는 방식을 지정할 수 있습니다. 자세한 설정 지침 및 필드 매핑 구성은 Snowplow의 [전달자 만들기 설명서](https://docs.snowplow.io/docs/destinations/forwarding-events/creating-forwarders/)를 참조하세요.
 
@@ -70,19 +70,19 @@ Snowplow의 고품질 행동 데이터를 기반으로 Braze에서 동적 오디
 Braze 계정에서 다음 페이지를 확인하여 이벤트가 정상적으로 도달하고 있는지 확인하세요:
 
 1. **쿼리 빌더**: Braze에서 **Analytics** > **쿼리 빌더**로 이동합니다. 다음 테이블에 쿼리를 작성하여 Snowplow에서 전달된 데이터를 미리 볼 수 있습니다: `USER_BEHAVIORS_CUSTOMEVENT_SHARED` 및 `USERS_BEHAVIORS_PURCHASE_SHARED`.
-2. **API 사용 대시보드**: Braze에서 **설정** > **API 키**로 이동하여 시간별 API 사용량 차트를 확인합니다. Snowplow가 사용하는 API 키로 필터링하여 성공과 실패를 모두 확인할 수 있습니다.
+2. **API 사용 대시보드**: Braze에서 **설정** > **API 및 식별자**로 이동하여 시간별 API 사용량 차트를 확인합니다. Snowplow가 사용하는 API 키로 필터링하여 성공과 실패를 모두 확인할 수 있습니다.
 
-## 커스텀 등록정보 보내기 {#sending-custom-properties}
+## 커스텀 속성정보 보내기 {#sending-custom-properties}
 
-표준 필드 외에 커스텀 등록정보를 보낼 수 있습니다. 구조는 사용 중인 Braze 오브젝트 유형에 따라 다릅니다:
+표준 필드 외에 커스텀 속성정보를 보낼 수 있습니다. 구조는 사용 중인 Braze 오브젝트 유형에 따라 다릅니다:
 
 - **사용자 속성**: 최상위 필드로 추가합니다(예: `subscription_tier`, `loyalty_points`).
-- **이벤트 등록정보**: `properties` 오브젝트 아래에 중첩합니다(예: `properties.plan_type`, `properties.feature_flag`).
+- **이벤트 속성정보**: `properties` 오브젝트 아래에 중첩합니다(예: `properties.plan_type`, `properties.feature_flag`).
 - **구매 속성정보**: `properties` 오브젝트 아래에 중첩합니다(예: `properties.color`, `properties.size`).
 
-공백이 포함된 등록정보 이름의 경우 대괄호 표기법을 사용합니다(예: `["account type"]` 또는 `properties["campaign source"]`).
+공백이 포함된 속성정보 이름의 경우 대괄호 표기법을 사용합니다(예: `["account type"]` 또는 `properties["campaign source"]`).
 
-지원되는 데이터 유형, 등록정보 명명 요구 사항 및 페이로드 크기 제한에 대한 자세한 내용은 [이벤트 오브젝트 설명서]({{site.baseurl}}/api/objects_filters/event_object/)를 참조하세요.
+지원되는 데이터 유형, 속성정보 명명 요구 사항 및 페이로드 크기 제한에 대한 자세한 내용은 [이벤트 오브젝트 설명서]({{site.baseurl}}/api/objects_filters/event_object)를 참조하세요.
 
 ## 제한 사항 {#limitations}
 

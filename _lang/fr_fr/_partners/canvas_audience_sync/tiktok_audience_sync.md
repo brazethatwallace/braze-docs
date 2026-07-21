@@ -15,10 +15,7 @@ Grâce à Braze Audience Sync to TikTok, les marques peuvent ajouter les donnée
 
 **Les cas d'usage courants de la synchronisation d'audience sont les suivants** :
 
-- Cibler des utilisateurs à forte valeur ajoutée via plusieurs canaux pour favoriser les achats ou l'engagement
-- Recibler des utilisateurs qui réagissent moins aux autres canaux marketing
-- Créer des audiences de suppression pour éviter que les utilisateurs ne reçoivent des publicités alors qu'ils sont déjà des consommateurs fidèles de votre marque
-- Créer des audiences Actalike pour acquérir de nouveaux utilisateurs plus efficacement
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Cette fonctionnalité permet aux marques de contrôler quelles données first-party spécifiques sont partagées avec TikTok. Chez Braze, les intégrations avec lesquelles vous pouvez ou non partager vos données first-party font l'objet de la plus grande attention. Pour plus d'informations, consultez notre [politique de confidentialité](https://www.braze.com/privacy).
 
@@ -95,7 +92,7 @@ Lorsque vous lancez un Canvas avec une nouvelle audience, Braze synchronise les 
 {% endtab %}
 {% tab Synchroniser avec une audience existante %}
 
-**Synchronisation avec une audience existante**<br>
+**Synchroniser avec une audience existante**<br>
 Braze offre également la possibilité d'ajouter des utilisateurs à des audiences TikTok existantes afin de les maintenir à jour. Pour effectuer une synchronisation avec une audience existante, saisissez le nom de l'audience dans le menu déroulant et sélectionnez **Add to the Audience**. Braze ajoutera ensuite les utilisateurs quasiment en temps réel dès qu'ils entreront dans l'étape TikTok Audience.
 
 ![Vue élargie de l'étape du Canvas Custom Audience. Le compte publicitaire souhaité et l'audience existante sont sélectionnés ici.]({% image_buster /assets/img/audience_sync/tiktok.png %})
@@ -161,7 +158,7 @@ Vous pouvez avoir jusqu'à 400 audiences par compte publicitaire TikTok.
 
 Dans TikTok, un même ID peut être associé à plusieurs utilisateurs TikTok. Cela se produit le plus souvent lorsque les clients utilisent des identifiants publicitaires mobiles (IDFA iOS et GAID Android), car un même appareil peut avoir plusieurs utilisateurs TikTok connectés.
 
-De plus, TikTok comptabilise également les utilisateurs de Pangle parmi les utilisateurs appariés, ce qui peut dans certains cas entraîner un taux d'appariement élevé. Cependant, lorsque vous utilisez l'audience pour la diffusion de publicités, la taille réelle de l'audience livrable peut être inférieure au nombre d'utilisateurs appariés, car elle dépend du placement et d'autres facteurs.
+De plus, TikTok comptabilise également les utilisateurs de Pangle parmi les utilisateurs appariés, ce qui peut dans certains cas entraîner un taux de correspondance élevé. Cependant, lorsque vous utilisez l'audience pour la diffusion de publicités, la taille réelle de l'audience livrable peut être inférieure au nombre d'utilisateurs appariés, car elle dépend du placement et d'autres facteurs.
 
 ### Pourquoi est-ce que je reçois un e-mail dont l'objet est « Audience Does Not Exist For Canvas » ? {#why-am-i-receiving-an-email-with-the-subject-audience-does-not-exist-for-canvas}
 

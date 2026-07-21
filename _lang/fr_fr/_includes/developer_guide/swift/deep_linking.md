@@ -1,14 +1,14 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
 {% alert tip %}
-Pour obtenir de l'aide afin de choisir entre les liens profonds à schéma personnalisé, les liens universels et « Ouvrir l'URL Web dans l'application », consultez le [guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/). Pour la résolution des problèmes, consultez [Résolution des problèmes de création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+Pour obtenir de l'aide afin de choisir entre les deep links à schéma personnalisé, les liens universels et « Ouvrir l'URL Web dans l'application », consultez le [guide de création de liens profonds iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Pour la résolution des problèmes, consultez [Résolution des problèmes de création de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
-## Gestion des liens profonds {#handling-deep-links}
+## Gestion des deep links {#handling-deep-links}
 
 ### Étape 1 : Enregistrer un schéma {#register-a-scheme}
 
-Pour gérer les liens profonds, un schéma personnalisé doit être déclaré dans votre fichier `Info.plist`. La structure de navigation est définie par un tableau de dictionnaires. Chacun de ces dictionnaires contient un tableau de chaînes de caractères.
+Pour gérer les deep links, un schéma personnalisé doit être déclaré dans votre fichier `Info.plist`. La structure de navigation est définie par un tableau de dictionnaires. Chacun de ces dictionnaires contient un tableau de chaînes de caractères.
 
 Utilisez Xcode pour modifier votre fichier `Info.plist` :
 
@@ -35,13 +35,13 @@ Sinon, si vous souhaitez modifier votre fichier `Info.plist` directement, vous p
 
 ### Étape 2 : Ajouter une liste d'autorisations de schémas {#step-2-add-a-scheme-allowlist}
 
-Vous devez déclarer les schémas d'URL que vous souhaitez transmettre à `canOpenURL(_:)` en ajoutant la clé `LSApplicationQueriesSchemes` au fichier Info.plist de votre application. Toute tentative d'appel de schémas en dehors de cette liste d'autorisations entraînera l'enregistrement d'une erreur dans les journaux de l'appareil, et le lien profond ne s'ouvrira pas. Un exemple de cette erreur ressemblera à ceci :
+Vous devez déclarer les schémas d'URL que vous souhaitez transmettre à `canOpenURL(_:)` en ajoutant la clé `LSApplicationQueriesSchemes` au fichier Info.plist de votre application. Toute tentative d'appel de schémas en dehors de cette liste d'autorisations entraînera l'enregistrement d'une erreur dans les journaux de l'appareil, et le deep link ne s'ouvrira pas. Un exemple de cette erreur ressemblera à ceci :
 
 ```
 <Warning>: -canOpenURL: failed for URL: "yourapp://deeplink" – error: "This app is not allowed to query for scheme yourapp"
 ```
 
-Par exemple, si un message in-app doit ouvrir l'application Facebook lorsqu'on appuie dessus, l'application doit avoir le schéma personnalisé de Facebook (`fb`) dans votre liste d'autorisations. Sinon, le système rejettera le lien profond. Les liens profonds qui dirigent vers une page ou une vue au sein de votre propre application nécessitent toujours que le schéma personnalisé de votre application soit répertorié dans le fichier `Info.plist` de votre application.
+Par exemple, si un message in-app doit ouvrir l'application Facebook lorsqu'on appuie dessus, l'application doit avoir le schéma personnalisé de Facebook (`fb`) dans votre liste d'autorisations. Sinon, le système rejettera le deep link. Les deep links qui dirigent vers une page ou une vue au sein de votre propre application nécessitent toujours que le schéma personnalisé de votre application soit répertorié dans le fichier `Info.plist` de votre application.
 
 Votre liste d'autorisations pourrait ressembler à ceci :
 
@@ -58,10 +58,37 @@ Pour plus d'informations, reportez-vous à la [documentation d'Apple](https://de
 
 ### Étape 3 : Implémenter un gestionnaire {#step-3-implement-a-handler}
 
-Après l'activation de votre application, iOS appellera la méthode [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc). L'argument important est l'objet [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL).
+Les applications compilées avec Xcode 27 et versions ultérieures doivent adopter le [cycle de vie `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle), de sorte qu'iOS transmet les URL à schéma personnalisé à votre `SceneDelegate` via [`scene:openURLContexts:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:openurlcontexts:)) plutôt qu'à votre `AppDelegate`. L'argument important est l'objet [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL).
 
 {% tabs %}
 {% tab swift %}
+
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
+  let path = url.path
+  let query = url.query
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% tab OBJECTIVE-C %}
+
+```objc
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
+  NSString *path  = [url path];
+  NSString *query = [url query];
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
+Si votre application n'a pas encore adopté le cycle de vie `UIScene`, iOS appelle à la place [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc) sur votre `AppDelegate` :
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -71,21 +98,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
   return true
 }
 ```
-
-{% endtab %}
-{% tab OBJECTIVE-C %}
-
-```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-  NSString *path  = [url path];
-  NSString *query = [url query];
-  // Insert your code here to take some action based upon the path and query.
-  return YES;
-}
-```
-
-{% endtab %}
-{% endtabs %}
+{% endalert %}
 
 ## App Transport Security (ATS)
 
@@ -116,7 +129,7 @@ Vous pouvez gérer l'ATS de l'une des manières suivantes, mais nous vous recomm
 
 {% tabs local %}
 {% tab Se conformer %}
-Votre intégration Braze peut satisfaire aux exigences ATS en s'assurant que tous les liens existants vers lesquels vous dirigez les utilisateurs (par exemple, via des messages in-app et des campagnes de notifications push) satisfont aux exigences ATS. Bien qu'il existe des moyens de contourner les restrictions ATS, nous vous recommandons de vous assurer que toutes les URL liées sont conformes à l'ATS. Compte tenu de l'importance croissante accordée par Apple à la sécurité des applications, il n'est pas garanti que les approches suivantes pour autoriser les exceptions ATS soient prises en charge par Apple.
+Votre intégration Braze peut satisfaire aux exigences ATS en s'assurant que tous les liens existants vers lesquels vous dirigez les utilisateurs (par exemple, via des messages in-app et des Campaigns de notifications push) satisfont aux exigences ATS. Bien qu'il existe des moyens de contourner les restrictions ATS, nous vous recommandons de vous assurer que toutes les URL liées sont conformes à l'ATS. Compte tenu de l'importance croissante accordée par Apple à la sécurité des applications, il n'est pas garanti que les approches suivantes pour autoriser les exceptions ATS soient prises en charge par Apple.
 {% endtab %}
 
 {% tab Désactiver partiellement %}
@@ -162,16 +175,16 @@ Vous pouvez désactiver complètement l'ATS. Notez que ce n'est pas une pratique
 
 Le SDK encode les liens en pourcentage pour créer des `URL` valides. Tous les caractères de lien qui ne sont pas autorisés dans une URL correctement formée, tels que les caractères Unicode, seront échappés en pourcentage.
 
-Pour décoder un lien encodé, utilisez la propriété `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). Vous devez également renvoyer `true` dans `BrazeDelegate.braze(_:shouldOpenURL:)`. Un appel à l'action est nécessaire pour déclencher le traitement de l'URL par votre application. Par exemple :
+Pour décoder un lien encodé, utilisez la propriété `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). Vous devez également renvoyer `true` dans `BrazeDelegate.braze(_:shouldOpenURL:)`. Un appel à l'action est nécessaire pour déclencher le traitement de l'URL par votre application. Par exemple, dans votre gestionnaire [`scene:openURLContexts:`](#step-3-implement-a-handler) de l'étape 3 :
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    guard let url = URLContexts.first?.url else { return }
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
-    return true
   }
 ```
 
@@ -179,10 +192,10 @@ Pour décoder un lien encodé, utilisez la propriété `String` [`removingPercen
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = [url.absoluteString stringByRemovingPercentEncoding];
   // Handle urlString
-  return YES;
 }
 ```
 
@@ -191,23 +204,22 @@ Pour décoder un lien encodé, utilisez la propriété `String` [`removingPercen
 
 ## Création de liens profonds vers les paramètres de l'application {#deep-linking-to-app-settings}
 
-Vous pouvez utiliser `UIApplicationOpenSettingsURLString` pour créer des liens profonds redirigeant les utilisateurs vers les paramètres de votre application à partir des notifications push Braze et des messages in-app.
+Vous pouvez utiliser `UIApplicationOpenSettingsURLString` pour créer des deep links redirigeant les utilisateurs vers les paramètres de votre application à partir des notifications push Braze et des messages in-app.
 
 Pour diriger les utilisateurs de votre application vers les paramètres iOS :
-1. Tout d'abord, assurez-vous que votre application est configurée pour les [liens profonds basés sur un schéma](#swift_register-a-scheme) ou les [liens universels](#swift_universal-links).
-2. Choisissez un URI pour le lien profond vers la page **Paramètres** (par exemple, `myapp://settings` ou `https://www.braze.com/settings`).
-3. Si vous utilisez des liens profonds basés sur un schéma personnalisé, ajoutez le code suivant à votre méthode `application:openURL:options:` :
+1. Tout d'abord, assurez-vous que votre application est configurée pour les [deep links basés sur un schéma](#swift_register-a-scheme) ou les [liens universels](#swift_universal-links).
+2. Choisissez un URI pour le deep link vers la page **Paramètres** (par exemple, `myapp://settings` ou `https://www.braze.com/settings`).
+3. Si vous utilisez des deep links basés sur un schéma personnalisé, ajoutez le code suivant à votre gestionnaire `scene:openURLContexts:` :
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-  let path = url.path
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let path = URLContexts.first?.url.path else { return }
   if (path == "settings") {
     UIApplication.shared.openURL(URL(string:UIApplication.openSettingsURLString)!)
   }
-  return true
 }
 ```
 
@@ -215,15 +227,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-  NSString *path  = [url path];
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSString *path  = [URLContexts.allObjects.firstObject.URL path];
   if ([path isEqualToString:@"settings"]) {
     NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     [[UIApplication sharedApplication] openURL:settingsURL];
   }
-  return YES;
 }
 ```
 
@@ -234,21 +243,21 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 ### Personnalisation de la WebView par défaut {#default-webview-customization}
 
-La classe `Braze.WebViewController` affiche les URL web ouvertes par le SDK, généralement lorsque l'option « Ouvrir l'URL Web dans l'application » est sélectionnée pour un lien profond web.
+La classe `Braze.WebViewController` affiche les URL web ouvertes par le SDK, généralement lorsque l'option « Ouvrir l'URL Web dans l'application » est sélectionnée pour un deep link web.
 
 Vous pouvez personnaliser le `Braze.WebViewController` via la méthode de délégué [`BrazeDelegate.braze(_:willPresentModalWithContext:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:willpresentmodalwithcontext:)-12sqy/).
 
 ### Personnalisation de la gestion des liens {#linking-handling-customization}
 
-Le protocole `BrazeDelegate` peut être utilisé pour personnaliser la gestion des URL telles que les liens profonds, les URL web et les liens universels. Pour définir le délégué lors de l'initialisation de Braze, définissez un objet délégué sur l'instance `Braze`. Braze appellera ensuite l'implémentation de `shouldOpenURL` de votre délégué avant de gérer les URI.
+Le protocole `BrazeDelegate` peut être utilisé pour personnaliser la gestion des URL telles que les deep links, les URL web et les liens universels. Pour définir le délégué lors de l'initialisation de Braze, définissez un objet délégué sur l'instance `Braze`. Braze appellera ensuite l'implémentation de `shouldOpenURL` de votre délégué avant de gérer les URI.
 
-Lorsqu'une notification push ou un message in-app utilise **Ouvrir l'URL web dans l'application mobile**, Braze transmet `context.useWebView == true` sur [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext). Lorsque le message ouvre l'URL dans le navigateur système, `useWebView` est `false`. Inspectez `context.useWebView` dans `braze(_:shouldOpenURL:)` pour adapter votre gestion personnalisée — par exemple, pour ouvrir un `WebViewController` in-app uniquement lorsque la campagne a demandé un affichage in-app.
+Lorsqu'une notification push ou un message in-app utilise **Ouvrir l'URL web dans l'application mobile**, Braze transmet `context.useWebView == true` sur [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext). Lorsque le message ouvre l'URL dans le navigateur système, `useWebView` est `false`. Inspectez `context.useWebView` dans `braze(_:shouldOpenURL:)` pour adapter votre gestion personnalisée — par exemple, pour ouvrir un `WebViewController` in-app uniquement lorsque la Campaign a demandé un affichage in-app.
 
 #### Liens universels {#universal-links}
 
 Braze prend en charge les liens universels dans les notifications push, les messages in-app et les Content Cards. Pour activer la prise en charge des liens universels, [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) doit être défini sur `true`.
 
-Lorsque cette option est activée, Braze transmet les liens universels à l'`AppDelegate` de votre application via la méthode [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application).
+Lorsque cette option est activée, Braze transmet les liens universels à votre `SceneDelegate` via la méthode [`scene:continue:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:continue:)) pour les applications ayant adopté le cycle de vie `UIScene` (requis pour les applications compilées avec Xcode 27 et versions ultérieures), ou à votre `AppDelegate` via [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application) dans le cas contraire.
 
 Votre application doit également être configurée pour gérer les liens universels. Reportez-vous à la [documentation d'Apple](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app) pour vous assurer que votre application est configurée correctement pour les liens universels.
 

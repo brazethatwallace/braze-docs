@@ -40,7 +40,7 @@ Um den Abo-Gruppenstatus einer Nutzer:in festzulegen, verwenden Sie eine der fol
 - **SDK-Integration:** Nutzer:innen können über die Methode `addToSubscriptionGroup` für [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) oder [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup) zu einer E-Mail- oder SMS- und RCS-Abo-Gruppe hinzugefügt werden.
 - **Telefonnummernerfassung per IAM-Formular:** Nutzertelefonnummern können über das Telefonnummernerfassungs-Template im Drag-and-Drop-Editor für In-App-Nachrichten erfasst werden.
 - **Automatische Verarbeitung bei Opt-in/Opt-out:** Wenn Nutzer:innen ein Standard-Opt-in- oder Opt-out-[Schlüsselwort]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) per SMS senden, setzt und aktualisiert Braze den Abo-Status der Nutzer:innen automatisch.
-- **Nutzerimport:** Nutzer:innen können über **Nutzer:innen importieren** zu E-Mail- oder SMS- und RCS-Abo-Gruppen hinzugefügt werden. Beim Aktualisieren des Abo-Gruppenstatus müssen diese zwei Spalten in Ihrer CSV-Datei vorhanden sein: `subscription_group_id` und `subscription_state`. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status).
+- **Nutzerimport:** Nutzer:innen können über **Nutzer:innen importieren** zu E-Mail- oder SMS- und RCS-Abo-Gruppen hinzugefügt werden. Beim Aktualisieren des Abo-Gruppenstatus müssen diese zwei Spalten in Ihrer CSV-Datei vorhanden sein: `subscription_group_id` und `subscription_state`. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 #### Status einer Nutzer:in in einem Canvas aktualisieren {#update-a-users-state-in-a-canvas}
 
@@ -59,7 +59,7 @@ Um die Abo-Gruppe einer Nutzer:in zu prüfen, verwenden Sie eine der folgenden M
 
 ## Nachrichten mit einer Abo-Gruppe senden {#send-messages-with-a-subscription-group}
 
-Um eine SMS- oder RCS-Campaign über Braze zu starten, wählen Sie eine Abo-Gruppe aus dem Dropdown-Menü **SMS/MMS/RCS Variants** aus. Nach der Auswahl wird automatisch ein Zielgruppen-Filter zu Ihrer Campaign oder Ihrem Canvas hinzugefügt, der sicherstellt, dass nur Nutzer:innen, die bei der ausgewählten Abo-Gruppe `subscribed` sind, zur Zielgruppe gehören.
+Um eine SMS- oder RCS-Campaign über Braze zu starten, wählen Sie eine Abo-Gruppe aus dem Dropdown-Menü **SMS/MMS/RCS Variants** aus. Nach der Auswahl wird automatisch ein Zielgruppenfilter zu Ihrer Campaign oder Ihrem Canvas hinzugefügt, der sicherstellt, dass nur Nutzer:innen, die bei der ausgewählten Abo-Gruppe `subscribed` sind, zur Zielgruppe gehören.
 
 {% alert important %}
 In Übereinstimmung mit internationalen [Telekommunikations-Compliance-Richtlinien und -Vorschriften]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) wird Braze niemals SMS oder RCS an Nutzer:innen senden, die nicht bei der ausgewählten Abo-Gruppe abonniert sind.
@@ -100,21 +100,21 @@ Je nach Ihrer Integration kann Braze RCS-verifizierte Absender zu Ihren bestehen
 
 ## Opt-outs in natürlicher Sprache in der Agentenkonsole verarbeiten {#handle-natural-language-opt-outs-in-the-agent-console}
 
-Für ein umfassendes Abo-Management können Sie Opt-out-Absichten erfassen, die außerhalb von Standard- oder benutzerdefinierten Schlüsselwörtern liegen (z. B. „Bitte schreiben Sie mir nicht mehr“). Durch das Erstellen eines KI-Agenten können Sie Sentimentanalyse nutzen, um diese Anfragen automatisch zu erkennen und darauf zu reagieren.
+Für ein umfassendes Abo-Management können Sie Opt-out-Absichten erfassen, die außerhalb von Standard- oder angepassten Schlüsselwörtern liegen (z. B. „Bitte schreiben Sie mir nicht mehr“). Durch das Erstellen eines KI-Agenten können Sie Sentimentanalyse nutzen, um diese Anfragen automatisch zu erkennen und darauf zu reagieren.
 
 ### Einrichtung {#setup}
 
 1. Erstellen Sie in der [Agentenkonsole]({{site.baseurl}}/user_guide/brazeai/agents) einen „SMS-Sentimentanalyse-Agenten“.
 
 {% alert tip %}
-Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples), um bei der anfänglichen Agentenkonfiguration zu unterstützen.
+Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator), um bei der anfänglichen Agentenkonfiguration zu unterstützen.
 {% endalert %}
 
 {: start="2"}
 2. Erstellen Sie einen aktionsbasierten Canvas, der durch **Send an SMS inbound message** ausgelöst wird, innerhalb der Schlüsselwortkategorie **Other**.
 3. Fügen Sie den [Agentenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) zum Canvas hinzu, um die Opt-out-Absicht zu erkennen.
 4. Fügen Sie einen nachfolgenden SMS-[Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu, um die Anfrage zu bestätigen: „Es sieht so aus, als möchten Sie sich von SMS abmelden, daher werden wir Sie abmelden. Falls dies ein Fehler war, senden Sie START, um sich wieder anzumelden.“
-5. Fügen Sie einen [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) hinzu, um den Status der Nutzer:in in der jeweiligen SMS-Abo-Gruppe auf „Abgemeldet“ zu ändern.
+5. Fügen Sie einen [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) hinzu, um den Status der Nutzer:in in der jeweiligen SMS-Abo-Gruppe auf „Abgemeldet“ zu ändern.
 
 {% alert note %}
 Die Nutzung der Agentenkonsole verbraucht Message oder Action Credits.
@@ -126,11 +126,11 @@ Wenn Sie separate SMS- und RCS-Abo-Gruppen haben, können Sie Nutzer:innen mithi
 
 Braze empfiehlt, zunächst RCS an kleinere Nutzervolumen zu testen und im Laufe der Zeit mehr Nutzer:innen in die RCS-Abo-Gruppe zu migrieren. Wenn Sie beispielsweise 1.000.000 Nutzer:innen haben, die bei einer SMS-Abo-Gruppe abonniert sind, könnte dies so aussehen: Zuerst alle Nutzer:innen in die neue Abo-Gruppe migrieren und dann ein kleineres Segment von 50.000 bis 100.000 (5–10 %) zum Testen der RCS-Nachrichten auswählen.
 
-### 1. Schritt: Canvas erstellen und den Entry-Zeitplan ausfüllen {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
+### Schritt 1: Canvas erstellen und den Entry-Zeitplan ausfüllen {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
 Erstellen Sie einen Canvas und geben Sie ihm einen leicht erkennbaren Namen (z. B. „SMS-RCS Abo-Gruppen-Nutzertransfer“). Planen Sie die Campaign dann zu einem für Sie passenden Zeitpunkt.
 
-### 2. Schritt: Zielgruppe definieren {#step-2-define-your-audience}
+### Schritt 2: Zielgruppe definieren {#step-2-define-your-audience}
 {: #step-2-define-your-audience}
 
 Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann zum Schritt **Sendeeinstellungen** und wählen Sie **Nutzer:innen, die abonniert oder angemeldet sind**.
@@ -139,9 +139,9 @@ Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann 
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Segment erstellen** | Erstellen Sie ein Segment, das alle Nutzer:innen in einer Abo-Gruppe oder eine Teilmenge mithilfe von Segmentierungsfiltern enthält (z. B. zufällige 5–10 %). Segmente werden vor jedem Versand aktualisiert, um Ihre aktuelle Nutzerbasis widerzuspiegeln. |
 | **Campaign- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Campaign oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Zielgruppe definieren" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Zielgruppe definieren" }
 
-### 3. Schritt: Nutzeraktualisierung-Schritt konfigurieren {#step-3-configure-a-user-update-step}
+### Schritt 3: Nutzeraktualisierung-Schritt konfigurieren {#step-3-configure-a-user-update-step}
 
 Fügen Sie Ihrem Canvas einen Nutzeraktualisierung-Schritt hinzu. Öffnen Sie im Schritt den **Advanced JSON Editor** und geben Sie Folgendes ein (für das Feld zur eindeutigen Nutzeridentifikation empfehlen wir die Verwendung des Feldes `braze_id`):
 
@@ -166,11 +166,11 @@ Fügen Sie Ihrem Canvas einen Nutzeraktualisierung-Schritt hinzu. Öffnen Sie im
 
 ![„Nutzeraktualisierung-Objekt“ mit dem zuvor genannten JSON-Code.]({% image_buster /assets/img/sms/user_update_object.png %})
 
-### 4. Schritt: Canvas testen {#step-4-test-the-canvas}
+### Schritt 4: Canvas testen {#step-4-test-the-canvas}
 
 Wir empfehlen dringend, [Ihren Canvas zu testen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases), um sicherzustellen, dass er wie erwartet funktioniert, bevor Sie ihn an Ihre breitere Zielgruppe senden.
 
-### 5. Schritt: Canvas starten {#step-5-launch-your-canvas}
+### Schritt 5: Canvas starten {#step-5-launch-your-canvas}
 
 Nachdem Sie Ihren Canvas erfolgreich getestet haben, starten Sie ihn für Ihre Teilmenge von Nutzer:innen!
 

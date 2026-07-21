@@ -4,7 +4,7 @@ nav_title: セグメンテーションフィルター
 article_title: セグメンテーションフィルター
 layout: glossary_page
 glossary_top_header: "セグメンテーションフィルター"
-glossary_top_text: "Braze SDKは、特定の機能や属性に基づいてユーザーをセグメント化し、ターゲティングするための強力なフィルターを提供します。フィルターカテゴリーでこれらのフィルターを検索または絞り込むことができます。<br><br>ユーザーのセグメント化に使用できるさまざまなカスタム属性データタイプについては、<a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">カスタム属性データタイプ</a> をご覧ください。なお、間隔フィルターは100年に制限されています。"
+glossary_top_text: "Braze SDKは、特定の機能や属性に基づいてユーザーをセグメント化し、ターゲティングするための強力なフィルターを提供します。フィルターカテゴリーでこれらのフィルターを検索または絞り込むことができます。<br><br>ユーザーのセグメント化に使用できるさまざまなカスタム属性データタイプについては、<a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">カスタム属性データタイプ</a> をご覧ください。なお、間隔フィルターは100年に制限されています。"
 
 page_type: glossary
 tool: Segments
@@ -383,7 +383,7 @@ glossaries:
       - Channel subscription behavior
   - name: Push Subscription Status
     display_name: "プッシュ購読ステータス"
-    description: プッシュの<a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">購読ステータス</a> でユーザーをセグメント化します。
+    description: プッシュの<a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">購読ステータス</a> でユーザーをセグメント化します。
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date

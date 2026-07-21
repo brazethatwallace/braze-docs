@@ -334,7 +334,7 @@ Promocionemos el producto favorito de un usuario si su última fecha de compra f
 {% endraw %}
 
 {: start="6"}
-6. Como la fecha de última compra y la fecha de hoy están en segundos, necesitaremos calcular cuántos segundos hay en seis meses. Hagamos una ecuación (aproximadamente 6 meses * 30,44 días * 24 horas * 60 minutos * 60 segundos) y asignémosla a la variable `six_months`. Usaremos `times` para especificar la multiplicación de las unidades de tiempo.
+6. Como la fecha de última compra y la fecha de hoy están en segundos, necesitaremos calcular cuántos segundos hay en seis meses. Hagamos una ecuación (aproximadamente 6 meses \* 30,44 días \* 24 horas \* 60 minutos \* 60 segundos) y asignémosla a la variable `six_months`. Usaremos `times` para especificar la multiplicación de las unidades de tiempo.
 
 {% raw %}
 ```liquid

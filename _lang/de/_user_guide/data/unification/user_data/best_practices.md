@@ -19,14 +19,14 @@ Wenn ein:e unbekannte:r Nutzer:in Ihre Website besucht und zu einem späteren Ze
 
 ## Erfassen von Nutzerdaten über ein Webformular {#capturing-user-data-through-a-web-form}
 
-### 1. Schritt: Prüfen Sie, ob der oder die Nutzer:in existiert {#step-1-check-if-the-user-exists}
+### Schritt 1: Prüfen Sie, ob der oder die Nutzer:in existiert {#step-1-check-if-the-user-exists}
 
 Wenn ein:e Nutzer:in Inhalte über ein Webformular eingibt, prüfen Sie, ob in Ihrer Datenbank bereits ein:e Nutzer:in mit dieser E-Mail existiert. Es gibt zwei Möglichkeiten, dies zu tun:
 
 - **Interne Datenbank prüfen (empfohlen):** Wenn Sie über einen externen Datensatz oder eine externe Datenbank verfügen, der/die die angegebenen Nutzerinformationen enthält und außerhalb von Braze existiert, referenzieren Sie diesen/diese zum Zeitpunkt der E-Mail-Übermittlung oder der Kontoerstellung, um zu bestätigen, dass die Informationen nicht bereits erfasst wurden.
 - **[`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track):** Verwenden Sie `email` als Bezeichner, und ein neues Nutzerprofil wird erstellt, falls die E-Mail-Adresse noch nicht vorhanden ist.
 
-### 2. Schritt: Nutzer:innen protokollieren oder aktualisieren {#step-2-log-or-update-user}
+### Schritt 2: Nutzer:innen protokollieren oder aktualisieren {#step-2-log-or-update-user}
 
 - **Wenn ein:e Nutzer:in vorhanden ist:**
   - Legen Sie kein neues Profil an.
@@ -51,11 +51,11 @@ Um zu überprüfen, ob ein:e Nutzer:in nur über einen Alias verfügt, [prüfen 
 
 ## Erfassen von Nutzerdaten, wenn bereits Alias-Nutzerinformationen vorhanden sind {#capturing-user-data-when-alias-only-user-information-is-already-present}
 
-Wenn ein:e Nutzer:in ein Konto erstellt oder sich per E-Mail-Registrierung identifiziert, können Sie die Profile zusammenführen. Eine Liste der Felder, die zusammengeführt werden können, finden Sie unter [Verhalten bei der Zusammenführung von Updates]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior).
+Wenn ein:e Nutzer:in ein Konto erstellt oder sich per E-Mail-Registrierung identifiziert, können Sie die Profile zusammenführen. Eine Liste der Felder, die zusammengeführt werden können, finden Sie unter [Verhalten bei der Zusammenführung von Updates]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 ### Zusammenführen von doppelten Nutzerprofilen {#merging-duplicate-user-profiles}
 
-Wenn Ihre Nutzerdaten immer umfangreicher werden, können Sie doppelte Nutzerprofile über das Braze-Dashboard zusammenführen. Diese doppelten Profile müssen mit der gleichen Suchanfrage gefunden werden. Weitere Informationen zum Zusammenführen von Nutzerprofilen finden Sie unter [Profile zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#merge-profiles).
+Wenn Ihre Nutzerdaten immer umfangreicher werden, können Sie doppelte Nutzerprofile über das Braze-Dashboard zusammenführen. Diese doppelten Profile müssen mit der gleichen Suchanfrage gefunden werden. Weitere Informationen zum Zusammenführen von doppelten Nutzerprofilen finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
 Sie können auch den [Endpunkt „Nutzer:innen zusammenführen“]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) verwenden, um ein Nutzerprofil mit einem anderen zusammenzuführen.
 

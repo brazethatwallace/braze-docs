@@ -54,8 +54,8 @@ Après avoir authentifié votre compte Braze dans Simon AI, vous pouvez ajouter 
 
 Trois actions sont disponibles :
 
-- **Sync Simon segment attribute** : synchronisez les détails de votre Segment avec un attribut personnalisé nouveau ou existant dans Braze.
-- **Trigger a Braze Canvas** : déclenchez un Canvas Braze qui exploite les données de votre Segment Simon.
+- **Sync Simon segment attribute** : synchronisez les détails de votre segment avec un attribut personnalisé nouveau ou existant dans Braze.
+- **Trigger a Braze Canvas** : déclenchez un Canvas Braze qui exploite les données de votre segment Simon.
 - **Send a Braze campaign** : lancez une Campaign Braze complète depuis Simon.
 
 ![Liste déroulante affichant les actions Braze disponibles dans Simon AI.][9]{: style="max-width:60%"}
@@ -64,7 +64,7 @@ Certaines actions ne sont disponibles que pour des types de Flows spécifiques o
 
 ### Synchroniser les traits et les propriétés de contact {#sync-traits-and-contact-properties}
 
-Pour minimiser la consommation de données, vous pouvez choisir des traits spécifiques à synchroniser par défaut, plutôt que de mettre à jour chaque champ pour tous les clients d'un Segment.
+Pour minimiser la consommation de données, vous pouvez choisir des traits spécifiques à synchroniser par défaut, plutôt que de mettre à jour chaque champ pour tous les clients d'un segment.
 
 {% alert note %}
 Pour commencer avec la synchronisation des traits, soumettez une demande dans le [centre d'assistance Simon](https://docs.simondata.com/docs/support-center). Votre gestionnaire de compte vous informera lorsque vous pourrez procéder aux étapes suivantes.
@@ -82,8 +82,8 @@ Une fois que les traits de contact ont été activés par votre gestionnaire de 
 ![Sélection des traits à synchroniser dans Simon AI.][10]
 
 [1]: https://www.simon.ai/
-[2]: {{site.baseurl}}/api/basics/#creating-and-managing-rest-api-keys
-[3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
+[2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
+[3]: {{site.baseurl}}/user_guide/administer/personal/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two
 [6]: https://docs.simondata.com

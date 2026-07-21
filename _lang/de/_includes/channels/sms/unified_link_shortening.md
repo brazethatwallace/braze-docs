@@ -2,6 +2,8 @@ Link-Shortening ermöglicht es Ihnen, URLs in SMS- oder RCS-Nachrichten automati
 
 Link-Shortening kann auf [Nachrichtenvarianten-Ebene]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) sowohl in Campaigns als auch in Canvases aktiviert werden. Wenn Link-Shortening aktiviert ist, werden Klicks als [SMS-Klick-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) generiert und über Currents gesendet.
 
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+
 Links werden über unsere gemeinsame Short-Domain (`brz.ai`) oder Ihre angepasste Link-Shortening-Domain gekürzt und sind ab dem Erstellungsdatum 9 Wochen lang gültig. Eine Beispiel-URL könnte etwa so aussehen: `https://brz.ai/8jshX2dj`.
 
 ## Link-Shortening verwenden {#using-link-shortening}
@@ -53,11 +55,11 @@ Liquid-Personalisierung und gekürzte URLs werden im Tab **Test** erst nach Ausw
 
 ## Klick-Tracking {#click-tracking}
 
-Wenn Link-Shortening aktiviert ist, enthält die Tabelle **SMS/MMS/RCS Performance** eine Spalte mit dem Titel **Klicks gesamt**, die eine Anzahl der Klick-Events pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Wenn Link-Shortening aktiviert ist, enthält die Tabelle **SMS/MMS/RCS Performance** eine Spalte mit dem Titel **Total Clicks**, die eine Anzahl der Klick-Events pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 
 ![Tabelle mit SMS- und MMS-Performance-Metriken.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 
-Die Tabellen **Historische Performance** und **SMS/MMS/RCS Performance** bieten auch eine Option für **Klicks gesamt** und zeigen eine tägliche Zeitreihe der Klick-Events an. Klicks werden bei der Weiterleitung gezählt (z. B. wenn ein:e Nutzer:in einen Link besucht) und können pro Nutzer:in mehrfach gezählt werden.
+Die Tabellen **Historical Performance** und **SMS/MMS/RCS Performance** bieten auch eine Option für **Total Clicks** und zeigen eine tägliche Zeitreihe der Klick-Events an. Klicks werden bei der Weiterleitung gezählt (z. B. wenn ein:e Nutzer:in einen Link besucht) und können pro Nutzer:in mehrfach gezählt werden.
 
 ## Retargeting von Nutzer:innen {#retargeting-users}
 

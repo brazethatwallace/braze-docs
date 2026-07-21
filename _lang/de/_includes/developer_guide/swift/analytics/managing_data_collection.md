@@ -26,7 +26,7 @@ Die folgende Braze-SDK-Version ist erforderlich, um dieses Feature zu implementi
 
 {% sdk_min_versions swift:9.0.0 %}
 
-### 1. Schritt: Überprüfen Sie Ihre aktuellen Richtlinien {#step-1-review-your-current-policies}
+### Schritt 1: Überprüfen Sie Ihre aktuellen Richtlinien {#step-1-review-your-current-policies}
 
 Lassen Sie die aktuellen Datenerfassungsrichtlinien Ihres Braze SDK von Ihrer Rechtsabteilung prüfen, um festzustellen, ob Ihre App Tracking-Daten [gemäß der Definition von Apple](#what-is-tracking-data) erfasst. Wenn Sie keine Tracking-Daten sammeln, müssen Sie Ihr Datenschutzmanifest für das Braze SDK zu diesem Zeitpunkt nicht anpassen. Weitere Informationen zu den Datenerfassungsrichtlinien des Braze SDK finden Sie unter [Datenerfassung im SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection).
 
@@ -34,11 +34,11 @@ Lassen Sie die aktuellen Datenerfassungsrichtlinien Ihres Braze SDK von Ihrer Re
 Wenn eines Ihrer SDKs, das nicht von Braze stammt, Tracking-Daten sammelt, müssen Sie diese Richtlinien separat prüfen.
 {% endalert %}
 
-### 2. Schritt: Erstellen Sie ein Datenschutzmanifest {#step-2-create-a-privacy-manifest}
+### Schritt 2: Erstellen Sie ein Datenschutzmanifest {#step-2-create-a-privacy-manifest}
 
-Prüfen Sie zunächst, ob Sie bereits ein Datenschutzmanifest haben, indem Sie in Ihrem Xcode-Projekt nach einer `PrivacyInfo.xcprivacy`-Datei suchen. Wenn Sie diese Datei bereits haben, können Sie mit dem nächsten Schritt fortfahren. Andernfalls siehe [Apple: Datenschutzmanifest erstellen](sdk-tracking.iad-01.braze.com).
+Prüfen Sie zunächst, ob Sie bereits ein Datenschutzmanifest haben, indem Sie in Ihrem Xcode-Projekt nach einer `PrivacyInfo.xcprivacy`-Datei suchen. Wenn Sie diese Datei bereits haben, können Sie mit dem nächsten Schritt fortfahren. Andernfalls siehe [Apple: Datenschutzmanifest erstellen](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files).
 
-### 3. Schritt: Fügen Sie Ihren Endpunkt zum Datenschutzmanifest hinzu {#step-3-add-your-endpoint-to-the-privacy-manifest}
+### Schritt 3: Fügen Sie Ihren Endpunkt zum Datenschutzmanifest hinzu {#step-3-add-your-endpoint-to-the-privacy-manifest}
 
 Öffnen Sie in Ihrem Xcode-Projekt die Datei `PrivacyInfo.xcprivacy` Ihrer App, rechtsklicken Sie dann auf die Tabelle und aktivieren Sie **Raw Keys and Values**.
 
@@ -56,7 +56,7 @@ Wählen Sie unter **App Privacy Configuration** den Eintrag **NSPrivacyTrackingD
 
 ![Die geöffnete Datei „PrivacyInfo.xcprivacy“ mit einem Braze-Tracking-Endpunkt unter „NSPrivacyTrackingDomains“.]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
 
-### 4. Schritt: Deklarieren Sie Ihre Tracking-Daten {#step-4-declare-your-tracking-data}
+### Schritt 4: Deklarieren Sie Ihre Tracking-Daten {#step-4-declare-your-tracking-data}
 
 Öffnen Sie als Nächstes `AppDelegate.swift` und listen Sie alle [Tracking-Eigenschaften](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/) auf, die Sie deklarieren möchten, indem Sie eine statische oder dynamische Tracking-Liste erstellen. Beachten Sie, dass Apple diese Eigenschaften blockiert, bis die:der Endnutzer:in die ATT-Aufforderung akzeptiert. Listen Sie daher nur die Eigenschaften auf, die Sie und Ihre Rechtsabteilung als Tracking betrachten. Zum Beispiel:
 
@@ -93,10 +93,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab Dynamisches Beispiel %}
-Im folgenden Beispiel wird die Tracking-Liste automatisch aktualisiert, nachdem die:der Endnutzer:in die ATT-Aufforderung akzeptiert hat.
+Im folgenden Beispiel wird die Tracking-Liste automatisch aktualisiert, nachdem die:der Endnutzer:in die [App-Tracking-Transparenz-Aufforderung (ATT)](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)) akzeptiert hat. Die Autorisierungsanfrage bei App-Aktivierung ist ein szenenspezifisches Ereignis, daher gehört dieser Code in die Methode `sceneDidBecomeActive(_:)` Ihrer `SceneDelegate.swift`-Datei und nicht in `applicationDidBecomeActive(_:)` von `AppDelegate.swift` (erforderlich für Apps, die den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen haben). Ihre Braze-Instanz bleibt über die statische Eigenschaft `AppDelegate.braze`, die in Schritt 1 konfiguriert wurde, aus `SceneDelegate` erreichbar.
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
   // Request and check your user's tracking authorization status.
   ATTrackingManager.requestTrackingAuthorization { status in
     // Let Braze know whether user data is allowed to be collected for tracking.
@@ -104,7 +104,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
     AppDelegate.braze?.set(adTrackingEnabled: enableAdTracking)
 
     // Add the `.firstName` and `.lastName` properties, while removing the `.everything` configuration.
-    AppDelegate.braze.updateTrackingAllowList(
+    AppDelegate.braze?.updateTrackingAllowList(
       adding: [.firstName, .lastName],
       removing: [.everything]
     )
@@ -114,12 +114,12 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 {% endtab %}
 {% endtabs %}
 
-### 5. Schritt: Verhindern Sie unendliche Wiederholungsschleifen {#step-5-prevent-infinite-retry-loops}
+### Schritt 5: Verhindern Sie unendliche Wiederholungsschleifen {#step-5-prevent-infinite-retry-loops}
 
-Um zu verhindern, dass das SDK in eine unendliche Wiederholungsschleife gerät, verwenden Sie die Methode `set(adTrackingEnabled: enableAdTracking)` zur Behandlung von ATT-Berechtigungen. Die Eigenschaft `adTrackingEnabled` in Ihrer Methode sollte ähnlich wie folgt behandelt werden:
+Um zu verhindern, dass das SDK in eine unendliche Wiederholungsschleife gerät, verwenden Sie die Methode `set(adTrackingEnabled: enableAdTracking)` zur Behandlung von ATT-Berechtigungen. Die Eigenschaft `adTrackingEnabled` in Ihrer `SceneDelegate.swift`-Methode sollte ähnlich wie folgt behandelt werden:
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
     // Request and check your user's tracking authorization status.
     ATTrackingManager.requestTrackingAuthorization { status in
       // Let Braze know whether user data is allowed to be collected for tracking.
@@ -203,6 +203,6 @@ Nein. Wenn dieses Feature aktiviert ist, werden keine Nutzerdaten in Braze über
 
 Ja, dieses Feature kann nach Ihrem Ermessen ein- und ausgeschaltet werden. Zuvor gespeicherte Geräte-IDs werden niemals überschrieben.
 
-#### Kann ich den IDFV-Wert auch anderweitig über Braze erfassen? {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
+#### Kann ich den IDFV-Wert auch anderweitig über Braze erfassen? {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
 
 Ja, Sie können den IDFV weiterhin optional über das Swift SDK erfassen (die Erfassung ist standardmäßig deaktiviert).

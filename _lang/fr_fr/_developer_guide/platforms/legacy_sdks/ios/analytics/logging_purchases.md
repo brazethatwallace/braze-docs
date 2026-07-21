@@ -59,7 +59,7 @@ Vous pouvez ajouter une quantité à vos achats si les clients effectuent le mê
 * Les méthodes sans entrée de quantité auront une valeur de quantité égale à 1 par défaut.
 * Les méthodes avec une entrée de quantité n'ont pas de valeur par défaut et **doivent** recevoir une entrée de quantité pour que le SDK puisse enregistrer un achat.
 
-Reportez-vous à la [documentation de la classe iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ab50403068be47c0acba9943583e259fa) pour plus de détails.
+Consultez la [documentation de la classe iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ab50403068be47c0acba9943583e259fa) pour plus de détails.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -86,7 +86,7 @@ Si vous transmettez une valeur de 10 USD et une quantité de 3, cela s'enregistr
 {% endalert %}
 
 ### Enregistrer les achats au niveau de la commande {#log-purchases-at-the-order-level}
-Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id`. Pour en savoir plus, reportez-vous aux [spécifications de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions).
+Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id`. Pour en savoir plus, reportez-vous aux [spécifications de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
 
 ### Clés réservées {#reserved-keys}
 

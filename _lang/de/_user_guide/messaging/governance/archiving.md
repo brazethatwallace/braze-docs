@@ -19,7 +19,7 @@ Sie können Campaigns und Canvases nicht aus dem Dashboard löschen, aber Sie k�
 
 ## Archivieren {#archiving}
 
-Wenn Sie eine Campaign oder ein Canvas archivieren, werden keine weiteren Nachrichten mehr zugestellt und Ihre In-App-Nachrichten werden nicht mehr angezeigt. Sie können die Ergebnisse auch nach der Archivierung weiterhin einsehen, aber Sie können die Campaign oder das Canvas nicht bearbeiten. Dazu müssen Sie es zunächst [aus dem Archiv wiederherstellen](#unarchiving-campaigns-and-canvases).
+Wenn Sie eine Campaign oder ein Canvas archivieren, werden keine weiteren Nachrichten mehr zugestellt und Ihre In-App-Nachrichten werden nicht mehr angezeigt. Sie können die Ergebnisse auch nach der Archivierung weiterhin einsehen, aber Sie können die Campaign oder das Canvas nicht bearbeiten. Dazu müssen Sie es zunächst [aus dem Archiv wiederherstellen](#unarchiving).
 
 {% alert note %}
 **Archivieren** löscht Ihre Campaign oder Ihr Canvas nicht. Braze stoppt die Zustellung, blendet die Nachricht in den täglichen Listen aus und bewahrt sie für Berichte und den Workspace-Verlauf auf.

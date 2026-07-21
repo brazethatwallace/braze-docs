@@ -376,11 +376,9 @@ Si vous avez des politiques réseau en place, vous devez donner à Braze un acc�
 #### Étape 1.1 : Configurer le principal de service et accorder l'accès {#step-11-set-up-the-service-principal-and-grant-access}
 Braze se connecte à votre entrepôt Fabric à l'aide d'un principal de service avec une authentification Entra ID. Créez un nouveau principal de service dédié à Braze et accordez l'accès aux ressources Fabric selon les besoins. Braze a besoin des informations suivantes pour se connecter :
 
-* ID de locataire (également appelé répertoire) de votre compte Azure
-* ID du principal (également appelé ID d'application) pour le principal de service
-* Secret client pour l'authentification de Braze
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
-1. Dans le portail Azure, accédez au centre d'administration Microsoft Entra, puis à App registrations.
+1. Dans le portail Azure, accédez au centre d'administration Microsoft Entra, puis à App Registrations.
 2. Sélectionnez **+ New registration** sous **Identity** > **Applications** > **App registrations**.
 3. Saisissez un nom, puis sélectionnez `Accounts in this organizational directory only` comme type de compte pris en charge. Sélectionnez ensuite **Register**.
 4. Sélectionnez l'application (principal de service) que vous venez de créer, puis accédez à **Certificates & secrets** > **+ New client secret**.

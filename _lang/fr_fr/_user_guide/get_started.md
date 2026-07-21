@@ -12,7 +12,7 @@ description: "Familiarisez-vous avec les concepts fondamentaux à connaître pou
 > Bienvenue dans Braze ! Cette collection d'articles vous aidera à prendre en main notre plateforme et vous présentera les termes clés, les fonctionnalités et les caractéristiques de Braze. Cette page présente les concepts fondamentaux que vous devrez connaître pour travailler avec Braze.
 
 {% alert tip %}
-Nous vous recommandons vivement de suivre notre cours gratuit [Parcours d'apprentissage pour les praticiens](https://learning.braze.com/page/practitioner) en complément de ces articles. Aucun identifiant ou compte spécial n'est nécessaire. Si vous êtes développeur et que vous recherchez une présentation technique de Braze, consultez également la rubrique [Démarrage pour les développeurs]({{site.baseurl}}/developer_guide/getting_started/platform_overview).
+Nous vous recommandons vivement de suivre notre cours gratuit [Parcours d'apprentissage pour les praticiens](https://learning.braze.com/page/practitioner) en complément de ces articles. Aucun identifiant ou compte spécial n'est nécessaire. Si vous êtes développeur et que vous recherchez une présentation technique de Braze, consultez également la rubrique <a href="/docs/developer_guide/getting_started/platform_overview">Démarrage pour les développeurs</a>.
 {% endalert %}
 
 Dans les sections Démarrage, nous nous concentrons sur les déploiements courants de Braze. Cependant, Braze est extrêmement flexible et peut être personnalisé pour apporter de la valeur à votre organisation de multiples façons. Par souci de clarté et de concision, nous avons fourni un aperçu descriptif de la configuration par défaut plutôt que des instructions rigides. Nous savons que chaque organisation a des besoins distincts, et Braze est conçu pour offrir une large gamme d'options de personnalisation adaptables à vos exigences spécifiques.
@@ -45,7 +45,7 @@ Pour en savoir plus, consultez : [Pour commencer : Utilisateurs et segments]({{s
 
 Les Campaigns et les Canvas vous permettent d'envoyer des messages à vos utilisateurs.
 
-Les Campaigns sont idéales pour les messages uniques envoyés à un segment d'audience spécifique sur différents canaux. Vous pouvez exploiter tous les canaux de communication pris en charge dans votre Campaign (e-mail, notification push, messages in-app, SMS, et plus encore).
+Les Campaigns sont idéales pour les messages uniques envoyés à un segment d'audience spécifique sur différents canaux. Vous pouvez tirer parti de tous les canaux de communication pris en charge dans votre Campaign (e-mail, notification push, messages in-app, SMS, et plus encore).
 
 Les Canvas sont des workflows avancés qui vous permettent d'automatiser et d'orchestrer des parcours clients personnalisés sur plusieurs canaux. Dans un Canvas, vous pouvez mettre en place une logique de branchement, des délais, des points de décision et des événements de conversion pour guider les clients à travers une série d'interactions. Les Canvas assurent une communication cohérente et fluide sur différents points de contact, augmentant ainsi les chances d'engagement et de conversion des clients.
 

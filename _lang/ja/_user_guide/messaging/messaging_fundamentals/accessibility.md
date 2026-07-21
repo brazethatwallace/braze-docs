@@ -160,7 +160,7 @@ description: "このリファレンス記事では、マーケティングコン
 | アプリ内メッセージ（ドラッグ＆ドロップ） | **アクセシビリティ**で言語を選択すると、Brazeはメッセージの外側のHTMLにその言語を追加し、スクリーンリーダーがメッセージ全体をその言語として扱います。多言語メッセージがオンの場合、新しいメッセージはロケール言語がデフォルトになる場合があります。**プレビュー**では、**設定**で言語を選択するまで言語が表示されない場合があります。 |
 | バナー | アプリ内メッセージと同じ動作です。 |
 | ランディングページ | ライブページで言語を設定できます。1つの言語を選択するか、アカウントでランディングページにLiquidが許可されている場合はLiquidを使用してください。デフォルトもアプリ内メッセージやバナーとは異なります。公開されたページを確認してください。 |
-| Content Cards | Cardsは明示的なアクセシビリティ言語の代わりに、アプリ用の**Language**フィールドを使用します。 |
+| Content Cards | カードは明示的なアクセシビリティ言語の代わりに、アプリ用の**Language**フィールドを使用します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="チャネルとエディターのサポート" }
 
 HTMLを自分で記述する場合でも、メッセージの一部に言語タグを追加できます（例えば、別の言語の1つのフレーズ）。詳しいパターンについては、[カスタムHTML](#custom-html)をご覧ください。
@@ -451,7 +451,7 @@ Brazeのドラッグ＆ドロップエディターはデフォルトでセマン
     </tr>
     <tr>
       <td>「75°Fが表示された天気予報アプリを表示しているスマートフォン」</td>
-      <td>「ゲームチェンジャーとなるリアルタイムの天気追跡イノベーションを体験しましょう」（視覚的に表示されているものを反映していない）</td>
+      <td>「ゲームチェンジャーとなるリアルタイムの天気トラッキングイノベーションを体験しましょう」（視覚的に表示されているものを反映していない）</td>
     </tr>
   </tbody>
 </table>
@@ -634,7 +634,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 アクセシビリティの問題を早期に特定して修正するために、Brazeは以下の領域で自動アクセシビリティテストを提供しています：
 
 - メール用の[Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing)
-- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)（例：HTMLのアプリ内メッセージ、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)）
+- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)（例：HTMLのアプリ内メッセージ、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)）
 
 これらのテストは、Webコンテンツアクセシビリティガイドライン（[WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)）標準（アクセシブルなコンテンツのための国際的に認められた技術標準のセット）に基づいてメッセージをチェックします。自動的に検出できる問題はフラグが立てられ、優先順位付けに役立つように重大度別に分類されます。
 

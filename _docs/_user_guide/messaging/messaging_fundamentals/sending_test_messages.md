@@ -91,7 +91,7 @@ In the **Preview** tab of your composer, the view of your message might not be i
 
 - Is your test user opted in to push with a valid push token?
 - Do the images and media show up and act as expected?
-- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) if the Liquid returns no information?
+- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your links direct the user to where they should go?
 - Is your test user opted into push with a valid push token?
@@ -197,7 +197,7 @@ In **Preview**, the view of your message might not be identical to its actual re
 ### Test checklist
 
 - Do the images and media show up and act as expected?
-- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) if the Liquid returns no information?
+- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your buttons direct the user where they should go?
 

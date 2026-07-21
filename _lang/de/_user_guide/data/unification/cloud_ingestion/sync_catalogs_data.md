@@ -14,14 +14,14 @@ description: "Diese Seite bietet eine Übersicht darüber, wie Sie Katalogdaten 
 ## Schritt 1: Einen neuen Katalog erstellen {#step-1-create-a-new-catalog}
 
 Bevor Sie eine neue Cloud-Datenaufnahme-Integration (CDI) für [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) erstellen, müssen Sie einen neuen Katalog erstellen oder einen vorhandenen Katalog identifizieren, den Sie für die Integration verwenden möchten. Es gibt mehrere Möglichkeiten, einen neuen Katalog zu erstellen. Sie alle eignen sich für die CDI-Integration:
-- Eine [CSV-Datei]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv) hochladen
-- Einen Katalog im [Braze-Dashboard]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) oder bei der CDI-Einrichtung erstellen
+- Eine [CSV-Datei]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) hochladen
+- Einen Katalog im [Braze-Dashboard]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) oder bei der CDI-Einrichtung erstellen
 - Einen Katalog mithilfe des [Endpunkts „Katalog erstellen“]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog) erstellen
 
 Änderungen am Katalogschema (z. B. das Hinzufügen neuer Felder oder Änderungen am Feldtyp) müssen über das Katalog-Dashboard vorgenommen werden, bevor aktualisierte Daten über CDI synchronisiert werden. Wir empfehlen, diese Aktualisierungen vorzunehmen, wenn die Synchronisierung pausiert ist oder keine Ausführung geplant ist, um Konflikte zwischen den Daten aus Ihrem Data Warehouse und dem Schema in Braze zu vermeiden.
 
 ## Schritt 2: Cloud-Datenaufnahme mit Katalogdaten integrieren {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für [Nutzerdaten-CDI-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup).
+Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für [Nutzerdaten-CDI-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 {% tabs %}
 {% tab Snowflake %}

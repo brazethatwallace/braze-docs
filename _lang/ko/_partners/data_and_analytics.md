@@ -2,175 +2,53 @@
 nav_title: "데이터 및 분석"
 article_title: 데이터 및 분석 파트너
 page_order: 5
-
 page_type: landing
-description: "이 페이지에서는 다양한 도구와 제공업체 간에 데이터를 전송, 저장 및 조정할 수 있도록 지원하는 Braze 파트너(Alloys)를 소개합니다."
-layout: partner_page
+description: "CDP, 데이터 웨어하우스, 분석, 프라이버시, 워크플로 도구 전반에서 데이터를 전송, 저장, 조정할 수 있도록 지원하는 Braze 기술 파트너를 살펴보세요."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "데이터 및 분석"
+guide_top_header: "데이터 및 분석"
+guide_top_text: "이 파트너들은 스택 전반에서 데이터를 전송, 저장, 조정하는 데 도움을 줍니다. 카테고리를 탐색하여 통합 가이드를 찾아보세요. 모든 Braze 기술 파트너의 전체 검색 및 필터 가능한 목록은 <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze 마켓플레이스</a> 를 방문하세요."
 
-valid_partner_list:
-- name: Optimizely
-  url: /docs/partners/optimizely/
-- name: VWO
-  url: /docs/partners/vwo/
-- name: Adjust
-  url: /docs/partners/adjust/
-- name: Airbridge
-  url: /docs/partners/airbridge/
-- name: AppsFlyer
-  url: /docs/partners/appsflyer/
-- name: Branch
-  url: /docs/partners/branch_for_deeplinking/
-- name: Apteligent
-  url: /docs/partners/apteligent/
-- name: Amplitude
-  url: /docs/partners/amplitude/
-- name: Mixpanel
-  url: /docs/partners/mixpanel/
-- name: Looker
-  url: /docs/partners/looker/
-- name: Kubit
-  url: /docs/partners/kubit/
-- name: NPAW
-  url: /docs/partners/npaw/
-- name: Clarisights
-  url: /docs/partners/clarisights/
-- name: Heap
-  url: /docs/partners/heap/
-- name: Datadog
-  url: /docs/partners/datadog/
-- name: ThoughtSpot
-  url: /docs/partners/thoughtspot//
-- name: Tellius
-  url: /docs/partners/tellius/
-- name: Contentsquare
-  url: /docs/partners/contentsquare/
-- name: Sisu
-  url: /docs/partners/sisu_data/
-- name: Mozart Data
-  url: /docs/partners/mozart_data/
-- name: SalesWings
-  url: /docs/partners/saleswings/
-- name: Inbox Monster
-  url: /docs/partners/inbox_monster/
-- name: Kickbox
-  url: /docs/partners/kickbox/
-- name: Amazon S3
-  url: /docs/partners/amazon_s3/
-- name: Google Cloud Storage
-  url: /docs/partners/google_cloud_storage_for_currents/
-- name: Microsoft Azure Blob Storage
-  url: /docs/partners/microsoft_azure_blob_storage_for_currents/
-- name: Tiny Clues
-  url: /docs/partners/tinyclues/
-- name: Treasure Data
-  url: /docs/partners/treasure_data/
-- name: Adobe
-  url: /docs/partners/adobe/
-- name: ActionIQ
-  url: /docs/partners/actioniq/
-- name: Amperity
-  url: /docs/partners/amperity/
-- name: Blueconic
-  url: /docs/partners/blueconic/
-- name: Celebrus
-  url: /docs/partners/celebrus/
-- name: Chord
-  url: /docs/partners/chord/
-- name: Dynamics 365 Customer Insights
-  url: /docs/partners/dynamics_365_customer_insights
-- name: GrowthLoop
-  url: /docs/partners/growthloop/
-- name: Hightouch
-  url: /docs/partners/hightouch/
-- name: Lexer
-  url: /docs/partners/lexer/
-- name: Lytics
-  url: /docs/partners/lytics/
-- name: Merkury
-  url: /docs/partners/merkury/
-- name: mParticle
-  url: /docs/partners/mparticle_overview/
-- name: Octolis
-  url: /docs/partners/octolis/
-- name: Redpoint
-  url: /docs/partners/redpoint/
-- name: Rudderstack
-  url: /docs/partners/rudderstack/
-- name: Segment
-  url: /docs/partners/segment/
-- name: Simon Data
-  url: /docs/partners/simon_data/
-- name: Snowplow
-  url: /docs/partners/snowplow/
-- name: Tealium
-  url: /docs/partners/tealium/
-- name: Toovio
-  url: /docs/partners/toovio/
-- name: Zeotap
-  url: /docs/partners/zeotap/
-- name: actionable.me
-  url: /docs/partners/actionableme/
-- name: DataGrail
-  url: /docs/partners/datagrail/
-- name: Ketch
-  url: /docs/partners/ketch/
-- name: OneTrust
-  url: /docs/partners/onetrust/
-- name: Snowflake
-  url: /docs/partners/snowflake/
-- name: Facebook Lead Ads via Zapier
-  url: /docs/partners/facebook_via_zapier/
-- name: Zapier
-  url: /docs/partners/zapier/
-- name: Jebbit
-  url: /docs/partners/jebbit/
-- name: Justuno
-  url: /docs/partners/justuno/
-- name: Outgrow
-  url: /docs/partners/outgrow/
-- name: Quikly
-  url: /docs/partners/quikly/
-- name: ViralSweep
-  url: /docs/partners/viralsweep/
-- name: Wunderkind
-  url: /docs/partners/wunderkind/
-- name: Wyng
-  url: /docs/partners/wyng/
-- name: Antavo
-  url: /docs/partners/antavo/
-- name: Talon.One
-  url: /docs/partners/talonone/
-- name: FriendBuy
-  url: /docs/partners/friendbuy/
-- name: GRAVTY®
-  url: /docs/partners/lji/
-- name: Kognitiv Inspire
-  url: /docs/partners/kognitiv/
-- name: Punchh
-  url: /docs/partners/punchh/
-- name: SessionM
-  url: /docs/partners/sessionm/
-- name: Voucherify
-  url: /docs/partners/voucherify/
-- name: Census
-  url: /docs/partners/census/
-- name: DinMo
-  url: /docs/partners/dinmo/
-- name: Airbyte
-  url: /docs/partners/airbyte/
-- name: Fivetran
-  url: /docs/partners/fivetran/
-- name: MetaRouter
-  url: /docs/partners/metarouter/
-- name: Nexla
-  url: /docs/partners/nexla/
-- name: Eagle Eye
-  url: /docs/partners/eagle_eye/
-- name: Eppo
-  url: /docs/partners/eppo/
-- name: Lemnisk
-  url: /docs/partners/lemnisk/
+guide_featured_title: "카테고리"
+guide_featured_list:
+  - name: "A/B Testing"
+    link: /docs/partners/data_and_analytics/ab_testing
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Analytics"
+    link: /docs/partners/data_and_analytics/analytics
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Business Intelligence"
+    link: /docs/partners/data_and_analytics/business_intelligence
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Cloud Storage"
+    link: /docs/partners/data_and_analytics/cloud_storage
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "Cohort Import"
+    link: /docs/partners/data_and_analytics/cohort_import
+    image: /assets/img/braze_icons/users-01.svg
+  - name: "고객 데이터 플랫폼"
+    link: /docs/partners/data_and_analytics/customer_data_platform
+    image: /assets/img/braze_icons/target-05.svg
+  - name: "고객 관계 관리"
+    link: /docs/partners/data_and_analytics/customer_relationship_management
+    image: /assets/img/braze_icons/globe-02.svg
+  - name: "데이터 프라이버시 및 규정 준수"
+    link: /docs/partners/data_and_analytics/data_privacy
+    image: /assets/img/braze_icons/puzzle-piece-01.svg
+  - name: "데이터 웨어하우스"
+    link: /docs/partners/data_and_analytics/data_warehouses
+    image: /assets/img/braze_icons/shopping-cart-03.svg
+  - name: "리드 캡처"
+    link: /docs/partners/data_and_analytics/leads_capture
+    image: /assets/img/braze_icons/message-chat-circle.svg
+  - name: "로열티"
+    link: /docs/partners/data_and_analytics/loyalty
+    image: /assets/img/braze_icons/stars-01.svg
+  - name: "리버스 ETL"
+    link: /docs/partners/data_and_analytics/reverse_etl
+    image: /assets/img/braze_icons/magic-wand-02.svg
+  - name: "워크플로 자동화"
+    link: /docs/partners/data_and_analytics/workflow_automation
+    image: /assets/img/braze_icons/send-01.svg
 ---

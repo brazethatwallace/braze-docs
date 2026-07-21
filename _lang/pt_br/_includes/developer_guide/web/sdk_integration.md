@@ -94,7 +94,7 @@ braze.openSession();
 ```
 
 {% alert important %}
-**Exibição de mensagens no app**: Para exibir mensagens no app automaticamente quando forem acionadas, você deve chamar `braze.automaticallyShowInAppMessages()`. Sem essa chamada, as mensagens no app não são exibidas automaticamente. Se você quiser gerenciar a exibição das mensagens manualmente, remova essa chamada e use `braze.subscribeToInAppMessage()` em vez disso. Para saber mais, veja [Entrega de mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/delivery).
+**Exibição de In-App Messages**: Para exibir In-App Messages automaticamente quando forem disparadas, você deve chamar `braze.automaticallyShowInAppMessages()`. Sem essa chamada, as In-App Messages não são exibidas automaticamente. Se você quiser gerenciar a exibição das mensagens manualmente, remova essa chamada e use `braze.subscribeToInAppMessage()` em vez disso. Para saber mais, veja [Desativando disparos automáticos]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#disabling-automatic-triggers).
 {% endalert %}
 
 #### Solução de problemas de sessões ausentes para usuários anônimos {#troubleshooting-missing-sessions-for-anonymous-users}

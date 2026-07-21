@@ -226,7 +226,7 @@ Le [tableau de bord des performances push]({{site.baseurl}}/user_guide/analytics
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Les catalogues prennent désormais en charge le filtrage basé sur la distance grâce au nouveau type de champ de géolocalisation et aux opérateurs de sélection de catalogue. Cela vous aide à créer des expériences plus pertinentes et sensibles à la localisation, comme montrer à chaque utilisateur le restaurant le plus proche, filtrer les propriétés disponibles dans un rayon de 50 km pour une Campaign immobilière, ou cibler les magasins proches d'un événement spécifique. Au lieu d'approximer le ciblage géographique avec des codes de ville ou de région, vous pouvez filtrer les éléments du catalogue par proximité à un point central, y compris un attribut utilisateur Liquid tel que la localisation la plus récente d'un utilisateur. Pour plus d'informations, consultez [Sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#how-it-works).
+Les catalogues prennent désormais en charge le filtrage basé sur la distance grâce au nouveau type de champ de géolocalisation et aux opérateurs de sélection de catalogue. Cela vous aide à créer des expériences plus pertinentes et sensibles à la localisation, comme montrer à chaque utilisateur le restaurant le plus proche, filtrer les propriétés disponibles dans un rayon de 50 km pour une Campaign immobilière, ou cibler les magasins proches d'un événement spécifique. Au lieu d'approximer le ciblage géographique avec des codes de ville ou de région, vous pouvez filtrer les éléments du catalogue par proximité à un point central, y compris un attribut utilisateur Liquid tel que la localisation la plus récente d'un utilisateur. Pour plus d'informations, consultez [Sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 #### Banner et RCS pour le générateur de rapports {#banner-and-rcs-for-report-builder}
 
@@ -242,7 +242,7 @@ L'[événement `ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activa
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-Vous pouvez utiliser l'[Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer) pour optimiser les accroches, les corps de message et les CTA pour les messages SMS, MMS et RCS. L'Optimiseur de contenu est un agent qui vous aide à tester et optimiser le contenu des messages à grande échelle, en utilisant l'intelligence artificielle pour générer et évaluer automatiquement de grands volumes de variantes de contenu.
+Vous pouvez utiliser l'[Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer) pour optimiser les accroches, les corps de message et les CTA pour les messages SMS, MMS et RCS. L'Optimiseur de contenu vous aide à tester et optimiser le contenu des messages à grande échelle, en utilisant l'intelligence artificielle pour générer et évaluer automatiquement de grands volumes de variantes de contenu.
 
 ### Orchestration
 
@@ -495,7 +495,7 @@ Après avoir ajouté des locales à votre espace de travail, utilisez les [tradu
 Dans Canvas, vous pouvez désormais référencer des variables de contexte pour définir :
 
 - Une [expiration]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#set-an-expiration) pour les bannières et les messages in-app dans une étape Message
-- Des [délais personnalisés]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays) pour les étapes Parcours d'actions
+- Des [délais personnalisés]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays) pour les étapes Parcours d'action
 
 Dans le champ du nom de la variable de contexte, vous pouvez également saisir le nom de la variable de contexte ou le sélectionner dans le menu déroulant de l'éditeur d'étape. Pour plus de détails, consultez [Contexte]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context) et [Variables de contexte]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables).
 
@@ -603,7 +603,7 @@ Les [événements Currents et Data Share]({{site.baseurl}}/user_guide/data/distr
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-for-data-sharing-3) inclut désormais des champs supplémentaires reflétant les informations de Campaign et Canvas dans 66 tables existantes, notamment :
+[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) inclut désormais des champs supplémentaires reflétant les informations de Campaign et Canvas dans 66 tables existantes, notamment :
 
 - `campaign_name`
 - `canvas_name`
@@ -769,7 +769,7 @@ Créé à partir d'un optimiseur de bandits multi-bras non contextuel, l'Optimis
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Pour faire correspondre les événements recommandés pour le commerce électronique avec l'événement d'achat existant, nous avons ajouté l'[événement de conversion « Passe une commande »]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-report), qui est similaire à « Effectue un achat ».
+Pour faire correspondre les événements recommandés pour le commerce électronique avec l'événement d'achat existant, nous avons ajouté l'[événement de conversion « Passe une commande »]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-dashboard), qui est similaire à « Effectue un achat ».
 
 ### Canaux et points de contact
 
@@ -777,11 +777,11 @@ Pour faire correspondre les événements recommandés pour le commerce électron
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Après avoir ajouté des locales à votre espace de travail, [ciblez des utilisateurs dans différentes langues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#translating-locales) au sein d'une même bannière.
+Après avoir ajouté des locales à votre espace de travail, [ciblez des utilisateurs dans différentes langues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#use-locales) au sein d'une même bannière.
 
 #### Configurer la largeur des Content Blocks en glisser-déposer {#configure-width-for-drag-and-drop-content-blocks}
 
-[Ajustez la largeur de votre Content Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks#using-the-editor-to-add-a-content-block) en sélectionnant le bouton dans le menu de navigation. La largeur par défaut est de 100 % si elle n'est pas spécifiée dans les paramètres de style globaux de votre e-mail ; dans le cas contraire, les paramètres globaux seront respectés.
+[Ajustez la largeur de votre Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) en sélectionnant le bouton dans le menu de navigation. La largeur par défaut est de 100 % si elle n'est pas spécifiée dans les paramètres de style globaux de votre e-mail ; dans le cas contraire, les paramètres globaux seront respectés.
 
 ![Une flèche double face avec une option permettant de modifier la largeur.]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }
 
@@ -811,7 +811,7 @@ La plateforme de données comportementales de [Fullstory]({{site.baseurl}}/partn
 
 #### DOTS.ECO - Extensions
 
-[DOTS.ECO]({{site.baseurl}}/partners/docs.eco) vous permet de récompenser les utilisateurs avec un impact environnemental réel grâce à des certificats numériques traçables. Chaque certificat peut inclure des métadonnées telles qu'une URL de certificat et une URL d'image partageables, afin que les utilisateurs puissent voir (et revoir) leur preuve d'impact.
+[DOTS.ECO]({{site.baseurl}}/partners/dots.eco) vous permet de récompenser les utilisateurs avec un impact environnemental réel grâce à des certificats numériques traçables. Chaque certificat peut inclure des métadonnées telles qu'une URL de certificat et une URL d'image partageables, afin que les utilisateurs puissent voir (et revoir) leur preuve d'impact.
 
 #### Mailizio - Orchestration des messages {#mailizio-message-orchestration}
 
@@ -849,7 +849,7 @@ Un nouveau champ `time_ms` a été ajouté à l'événement [`users.behaviors.pu
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Les événements pour lesquels aucun ID utilisateur externe n'a été défini peuvent désormais être diffusés vers les destinations [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents). Lorsque vous cochez la case « Inclure les événements des utilisateurs anonymes » dans votre intégration Currents, les événements sans ID utilisateur externe seront envoyés à la destination au lieu d'être supprimés. Cette capacité est essentielle pour les analyses en aval et les cas d'utilisation impliquant des utilisateurs non identifiés et anonymes.
+Les événements pour lesquels aucun ID utilisateur externe n'a été défini peuvent désormais être diffusés vers les destinations [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1). Lorsque vous cochez la case « Inclure les événements des utilisateurs anonymes » dans votre intégration Currents, les événements sans ID utilisateur externe seront envoyés à la destination au lieu d'être supprimés. Cette capacité est essentielle pour les analyses en aval et les cas d'utilisation impliquant des utilisateurs non identifiés et anonymes.
 
 ##### Envoyer un utilisateur anonyme vers des destinations CustomHTTP {#send-anonymous-user-to-customhttp-destinations}
 

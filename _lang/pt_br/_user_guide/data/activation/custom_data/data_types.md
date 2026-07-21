@@ -109,8 +109,8 @@ Você pode adicionar tags a um atributo personalizado após sua criação, se ti
 
 Existem duas formas de remover atributos personalizados dos perfis de usuário:
 
-* Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
-* Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+- Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
+- Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 #### Definindo o valor `null` {#setting-the-null-value}
 
@@ -265,6 +265,7 @@ Para atributos de **array**, as seguintes opções de segmentação estão dispo
 
 {% alert tip %}
 Para saber mais sobre como usar expressões regulares (regex), confira estes recursos:
+
 - [Expressões regulares compatíveis com Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
 - [Regex com a Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Depurador e testador de regex](https://www.regex101.com/)
@@ -276,7 +277,7 @@ Para saber mais sobre como usar expressões regulares (regex), confira estes rec
 
 Atributos de hora são úteis para armazenar a última vez que uma ação específica foi realizada, permitindo que você ofereça mensagens de reengajamento específicas aos seus usuários.
 
-Filtros de hora que usam datas relativas (por exemplo, mais de 1 dia atrás, menos de 2 dias atrás) medem 1 dia como 24 horas. Qualquer Campaign que você executar usando esses filtros incluirá todos os usuários em incrementos de 24 horas. Por exemplo, `last used app more than 1 day ago` capturará todos os usuários que "usaram o app pela última vez há mais de 24 horas" a partir do momento exato em que a Campaign é executada. O mesmo vale para Campaigns com intervalos de datas mais longos — cinco dias a partir da ativação significam as 120 horas anteriores.
+Filtros de hora que usam datas relativas (por exemplo, mais de 1 dia atrás, menos de 2 dias atrás) medem 1 dia como 24 horas. Qualquer campanha que você executar usando esses filtros incluirá todos os usuários em incrementos de 24 horas. Por exemplo, `last used app more than 1 day ago` capturará todos os usuários que "usaram o app pela última vez há mais de 24 horas" a partir do momento exato em que a campanha é executada. O mesmo vale para campanhas com intervalos de datas mais longos — cinco dias a partir da ativação significam as 120 horas anteriores.
 
 Para direcionar usuários que têm um atributo de hora dentro de um intervalo de tempo, use dois filtros de público: `in more than` para o limite inferior e `in less than` para o limite superior. Um único filtro não consegue expressar ambos os lados desse intervalo. Por exemplo, para direcionar usuários com um atributo de hora nas próximas 24 horas (entre agora e um dia a partir de agora), aplique `in more than 0 days` e `in less than 1 day`.
 
@@ -300,11 +301,7 @@ Para atributos de **hora**, as seguintes opções de segmentação estão dispon
 
 #### Detalhes de atributos de hora {#time-attribute-details}
 
-- Dia de evento recorrente
-  - Ao usar o filtro "Dia de evento recorrente" e ser solicitado a selecionar o "Dia do calendário do evento recorrente", se você selecionar `IS LESS THAN` ou `IS MORE THAN`, a data atual será contada para esse filtro de segmentação.
-  - Por exemplo, se em 10 de março de 2020 você selecionou a data do atributo como `LESS THAN ... March 10, 2020`, os atributos serão considerados para os dias até, e incluindo, 10 de março de 2020.
-- Menos de X dias atrás: O filtro "Menos de X dias atrás" inclui datas entre X dias atrás e a data/hora atual.
-- Menos de X dias no futuro: Inclui datas entre a data/hora atual e X dias no futuro.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab Objetos %}
@@ -374,15 +371,15 @@ Para o esquema completo do objeto de compra e exemplos, consulte [Objeto de comp
 
 Para alterar o tipo de dado de um atributo personalizado ou evento:
 
-1. Acesse **Configurações de dados** e selecione **Custom Attributes** ou **Custom Events**.
-2. Encontre seu atributo ou evento na lista e selecione <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **More actions**.
+1. Acesse **Data Settings** e selecione **Custom Attributes** ou **Custom Events**.
+2. Encontre seu atributo ou evento na lista e selecione <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **Mais ações**.
 3. Selecione um novo **Data type** no dropdown.
 4. Selecione **Save**.
 
 Se você alterar o tipo de dado de um atributo personalizado ou evento (por exemplo, alterando `time` para `string`), considere o seguinte:
 
 - **Os filtros não são atualizados automaticamente.** Segments, Campaigns, Canvas ou outros locais que usam o atributo ou evento alterado não são atualizados. Antes de alterar o tipo de dado, pare quaisquer Campaigns ou Canvas que usem o atributo em Segments ou filtros, e remova o atributo dos filtros que o referenciam.
-- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de Segments que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que correspondam ao novo tipo e reentrem no Segment, se necessário.
+- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de segmentos que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que correspondam ao novo tipo e reentrem no segmento, se necessário.
 - **Os novos dados devem corresponder ao novo tipo.** Chamadas de API que enviam o tipo de dado anterior para o atributo alterado não são aceitas. Envie o novo tipo de dado.
 
 {% alert important %}

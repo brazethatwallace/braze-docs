@@ -100,7 +100,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-カスタム定義の Liquid 変数の短縮もサポートしています。以下のセクションにいくつかの例を示します。
+カスタム定義の Liquid 変数の短縮もサポートしています。以下の例をご覧ください。
 
 ### Liquid 変数を使用して URL を作成する {#create-a-url-using-liquid-variables}
 

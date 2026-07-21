@@ -17,11 +17,11 @@ description: "この記事では、「キャンバス内の翻訳を更新」エ
 
 > このエンドポイントを使用して、キャンバスの複数の翻訳を更新します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
-キャンバスを起動した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/post-launch_edits)する必要があります。
+キャンバスの起動後に翻訳を更新する場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/post-launch_edits)する必要があります。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.translations.update` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`canvas.translations.update` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -39,11 +39,11 @@ description: "この記事では、「キャンバス内の翻訳を更新」エ
 | `step_id` | 必須 | 文字列 | キャンバスステップのID。 |
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
 | `locale_id` | 必須 | 文字列 | ロケールの識別子（UUID）。 |
-| `translation_map` | 必須 | オブジェクト | 新しい翻訳を収めるオブジェクト。 |
+| `translation_map` | 必須 | オブジェクト | 新しい翻訳を含むオブジェクト。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert note %}
-すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できます。
+すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントのレスポンスで確認できます。
 {% endalert %}
 
 ## リクエスト例 {#example-request}
@@ -60,11 +60,11 @@ description: "この記事では、「キャンバス内の翻訳を更新」エ
 }
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコード応答があります。
+このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
 ```json
 {
@@ -72,9 +72,9 @@ description: "この記事では、「キャンバス内の翻訳を更新」エ
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンスボディを返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {

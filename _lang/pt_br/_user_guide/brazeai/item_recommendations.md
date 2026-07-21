@@ -3,12 +3,12 @@ nav_title: Recomendações de itens
 article_title: Recomendações de itens na Braze
 page_order: 10
 search_rank: 1
-description: "Aprenda tudo sobre motores de recomendação de itens na Braze."
+description: "Aprenda tudo sobre mecanismos de recomendação de itens na Braze."
 ---
 
 # Recomendações de itens {#item-recommendations}
 
-> Aprimore suas recomendações com a Braze criando um motor de recomendação que pode sugerir itens e conteúdos que seus usuários realmente desejam. Desde a personalização de experiências com IA até a criação de seus próprios mecanismos com Liquid ou Conteúdo conectado, você encontrará tudo o que precisa para fazer com que cada recomendação conte.
+> Aprimore suas recomendações com a Braze criando um mecanismo de recomendação que pode sugerir itens e conteúdos que seus usuários realmente desejam. Desde a personalização de experiências com IA até a criação de seus próprios mecanismos com Liquid ou Connected Content, você encontrará tudo o que precisa para fazer com que cada recomendação conte.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -265,7 +265,7 @@ Destaque os itens que seus usuários compraram recentemente com maior frequênci
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/ai_item_recommendations).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Em alta**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
@@ -285,7 +285,7 @@ Destaque itens que seus usuários curtiram recentemente com maior frequência. P
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/ai_item_recommendations).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Em alta**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
@@ -351,7 +351,7 @@ Por exemplo, uma livraria on-line poderia oferecer o recurso "Surpreenda-me", re
 
 ### Baseado em regras {#rules-based}
 
-Um mecanismo de [recomendação baseado em regras]({{site.baseurl}}/rules_based_recommendations) usa dados de usuários e informações de produtos para sugerir itens relevantes aos usuários dentro das mensagens. Ele usa o Liquid e os catálogos da Braze ou o Conteúdo conectado para personalizar dinamicamente o conteúdo com base no comportamento e nos atributos do usuário.
+Um mecanismo de [recomendação baseado em regras]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based) usa dados de usuários e informações de produtos para sugerir itens relevantes aos usuários dentro das mensagens. Ele usa Liquid e os catálogos da Braze ou Connected Content para personalizar dinamicamente o conteúdo com base no comportamento e nos atributos do usuário.
 
 As recomendações baseadas em regras são fundamentadas em uma lógica fixa que você deve definir manualmente. Isso significa que suas recomendações não se ajustarão ao histórico de compras e gostos individuais de um usuário, a menos que você atualize a lógica; portanto, esse método é mais indicado para recomendações que não precisam de atualizações frequentes.
 

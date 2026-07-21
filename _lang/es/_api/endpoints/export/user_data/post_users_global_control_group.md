@@ -5,26 +5,26 @@ search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión de Braze Exportar usuarios en grupos de control global."
+description: "En este artículo se describen los detalles del endpoint Exportar usuarios en grupos de control global de Braze."
 
 ---
 {% api %}
-# Exportar perfil de usuario por Grupo de control global {#export-user-profile-by-global-control-group}
+# Exportar perfil de usuario por grupo de control global {#export-user-profile-by-global-control-group}
 {% apimethod post %}
 /users/export/global_control_group
 {% endapimethod %}
 
-> Utiliza este punto de conexión para exportar todos los usuarios de un Grupo de control global.
+> Utiliza este endpoint para exportar todos los usuarios de un grupo de control global.
 
-Los datos de usuario se exportan como varios archivos de objetos JSON de usuario separados por nuevas líneas (como un objeto JSON por línea). Todos los usuarios de un Grupo de control global se incluyen cada vez que se generan los archivos. Braze no almacena un historial de cuándo se añaden y eliminan usuarios de un Grupo de control global.
+Los datos de usuario se exportan como varios archivos de objetos JSON de usuario separados por nuevas líneas (como un objeto JSON por línea). Todos los usuarios de un grupo de control global se incluyen cada vez que se generan los archivos. Braze no almacena un historial de cuándo se añaden y eliminan usuarios de un grupo de control global.
 
-Para localizar el identificador de segmento de tu Grupo de control global, consulta [los tipos de identificadores de API]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier).
+Para localizar el identificador de segmento de tu grupo de control global, consulta [los tipos de identificadores de API]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aa3d8b90-d984-48f0-9287-57aa30469de2 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `users.export.global_control_group`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `users.export.global_control_group`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -32,7 +32,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Detalles de la respuesta basados en credenciales {#credentials-based-response-details}
 
-Si has añadido tus credenciales de [S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) o [Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) a Braze a través de la página correspondiente de **Socios tecnológicos**, cada archivo se cargará en tu contenedor como un archivo ZIP con un formato de clave similar a `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Si utilizas Azure, asegúrate de que tienes marcada la casilla **Make this the default data export destination** en la página de resumen del socio de Azure en Braze.
+Si has añadido tus credenciales de [S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) o [Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) a Braze a través de la página correspondiente de **Socios tecnológicos**, cada archivo se cargará en tu contenedor como un archivo ZIP con un formato de clave similar a `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Si utilizas Azure, asegúrate de que tienes marcada la casilla **Make this the default data export destination** en la página de resumen del partner de Azure en Braze.
 
 Por lo general, creamos un archivo por cada 5000 usuarios para optimizar el procesamiento. Exportar segmentos más pequeños dentro de un espacio de trabajo grande puede dar lugar a varios archivos. A continuación, puedes extraer los archivos y concatenar todos los archivos `json` en un único archivo si es necesario. Si especificas un `output_format` de `gzip`, entonces la extensión del archivo será `.gz` en lugar de `.zip`.
 
@@ -56,15 +56,15 @@ Por lo general, creamos un archivo por cada 5000 usuarios para optimizar el proc
 
 {% enddetails %}
 
-Te recomendamos encarecidamente que configures tus propias credenciales de S3 o Azure (en **Integraciones de socios** > **Socios tecnológicos** > página del socio) cuando utilices este punto de conexión para aplicar tus propias políticas de contenedor en la exportación.
+Te recomendamos encarecidamente que configures tus propias credenciales de S3 o Azure (en **Integraciones de socios** > **Socios tecnológicos** > página del partner) cuando utilices este endpoint para aplicar tus propias políticas de contenedor en la exportación.
 
 ![La página de Socios tecnológicos de Azure, con una pestaña para Amazon S3.]({% image_buster /assets/img/technology_partners_page.png %})
 
-Si no proporcionas tus credenciales de almacenamiento en la nube, la respuesta a la solicitud proporciona la URL donde se puede descargar un ZIP que contiene todos los archivos del usuario. La URL solo será una ubicación válida una vez que la exportación esté lista.
+Si no proporcionas tus credenciales de almacenamiento en el cloud, la respuesta a la solicitud proporciona la URL donde se puede descargar un ZIP que contiene todos los archivos del usuario. La URL solo será una ubicación válida una vez que la exportación esté lista.
 
-Ten en cuenta que si no proporcionas tus credenciales de almacenamiento en la nube, existe una limitación en la cantidad de datos que puedes exportar desde este punto de conexión. Dependiendo de los campos que estés exportando y del número de usuarios, la transferencia del archivo puede fallar si es demasiado grande. Una práctica recomendada es especificar qué campos quieres exportar utilizando `fields_to_export` y especificando solo los campos que necesitas para que el tamaño de la transferencia sea menor. Si obtienes errores al generar el archivo, considera la posibilidad de dividir tu base de usuarios en más segmentos basándote en un número de contenedor aleatorio (por ejemplo, crea un segmento en el que el número de contenedor aleatorio sea inferior a 1000 o esté comprendido entre 1000 y 2000).
+Ten en cuenta que si no proporcionas tus credenciales de almacenamiento en el cloud, existe una limitación en la cantidad de datos que puedes exportar desde este endpoint. Dependiendo de los campos que estés exportando y del número de usuarios, la transferencia del archivo puede fallar si es demasiado grande. Una práctica recomendada es especificar qué campos quieres exportar utilizando `fields_to_export` y especificando solo los campos que necesitas para que el tamaño de la transferencia sea menor. Si obtienes errores al generar el archivo, considera la posibilidad de dividir tu base de usuarios en más segmentos basándote en un número de contenedor aleatorio (por ejemplo, crea un segmento en el que el número de contenedor aleatorio sea inferior a 1000 o esté comprendido entre 1000 y 2000).
 
-En cualquiera de los dos casos, puedes proporcionar opcionalmente un `callback_endpoint` para que se te notifique cuando la exportación esté lista. Si se proporciona el `callback_endpoint`, realizamos una solicitud POST a la dirección proporcionada cuando la descarga esté lista. El cuerpo de la publicación es `"success":true`. Si no has añadido tus credenciales de almacenamiento en la nube a Braze, el cuerpo de la publicación tiene además el atributo `url` con la URL de descarga como valor.
+En cualquiera de los dos casos, puedes proporcionar opcionalmente un `callback_endpoint` para que se te notifique cuando la exportación esté lista. Si se proporciona el `callback_endpoint`, realizamos una solicitud POST a la dirección proporcionada cuando la descarga esté lista. El cuerpo de la publicación es `"success":true`. Si no has añadido tus credenciales de almacenamiento en el cloud a Braze, el cuerpo de la publicación tiene además el atributo `url` con la URL de descarga como valor.
 
 Las bases de usuarios más grandes darán lugar a tiempos de exportación más largos. Por ejemplo, una aplicación con 20 millones de usuarios podría tardar una hora o más.
 
@@ -91,7 +91,7 @@ Los atributos personalizados individuales no se pueden exportar. Sin embargo, to
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ------------------- | ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `callback_endpoint` | Opcional | Cadena | Punto de conexión en el que publicar una URL de descarga cuando la exportación esté disponible. |
+| `callback_endpoint` | Opcional | Cadena | Endpoint en el que publicar una URL de descarga cuando la exportación esté disponible. |
 | `fields_to_export` | Obligatorio* | Matriz de cadenas | Nombre de los campos de datos de usuario a exportar; también puedes exportar atributos personalizados. <br><br>*A partir de abril de 2021, en las cuentas nuevas se deben especificar los campos concretos que se exportarán. |
 | `output_format` | Opcional | Cadena | Cuando utilices tu propio contenedor de S3, permite especificar el formato de archivo como `zip` o `gzip`. De forma predeterminada se usa el formato de archivo ZIP. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
@@ -110,7 +110,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 
 ## Campos a exportar {#fields-to-export}
 
-La siguiente es una lista de valores `fields_to_export` válidos. Usar `fields_to_export` para minimizar los datos devueltos puede mejorar el tiempo de respuesta de este punto de conexión de la API:
+La siguiente es una lista de valores `fields_to_export` válidos. Usar `fields_to_export` para minimizar los datos devueltos puede mejorar el tiempo de respuesta de este endpoint de la API:
 
 | Campo a exportar | Tipo de datos | Descripción |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -140,7 +140,7 @@ La siguiente es una lista de valores `fields_to_export` válidos. Usar `fields_t
 | `time_zone` | Cadena | Zona horaria del usuario en el mismo formato que la base de datos de zonas horarias de IANA. |
 | `total_revenue` | Flotante | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las Campaigns y los Canvas que recibió. |
 | `uninstalled_at` | Marca de tiempo | Fecha y hora en que el usuario desinstala la aplicación. Se omite si no se ha desinstalado la aplicación. |
-| `user_aliases` | Objeto | [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) que contiene `alias_name` y `alias_label`, si existe. |
+| `user_aliases` | Objeto | [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object) que contiene `alias_name` y `alias_label`, si existe. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos a exportar" }
 
 ## Respuesta {#response}

@@ -15,10 +15,7 @@ Mit Braze Audience Sync to TikTok können Marken wahlweise Nutzerdaten aus ihrer
 
 **Zu den häufigen Anwendungsfällen für Audience Syncing gehören**:
 
-- Targeting von hochwertigen Nutzer:innen über mehrere Kanäle, um Käufe oder Engagement zu fördern
-- Retargeting von Nutzer:innen, die auf andere Marketing-Kanäle weniger responsiv sind
-- Erstellen von Unterdrückungs-Zielgruppen, um zu verhindern, dass Nutzer:innen, die bereits treue Verbraucher:innen Ihrer Marke sind, Werbung erhalten
-- Erstellen von Actalike Audiences zur effizienteren Gewinnung neuer Nutzer:innen
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Mit diesem Feature können Marken kontrollieren, welche spezifischen First-Party-Daten mit TikTok geteilt werden. Bei Braze werden die Integrationen, mit denen Sie Ihre First-Party-Daten teilen können und nicht teilen können, genauestens berücksichtigt. Weitere Informationen finden Sie in unserer [Datenschutzrichtlinie](https://www.braze.com/privacy).
 

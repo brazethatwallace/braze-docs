@@ -94,7 +94,7 @@ braze.openSession();
 ```
 
 {% alert important %}
-**Anzeige von In-App-Nachrichten**: Um In-App-Nachrichten automatisch anzuzeigen, wenn sie getriggert werden, müssen Sie `braze.automaticallyShowInAppMessages()` aufrufen. Ohne diesen Aufruf werden In-App-Nachrichten nicht automatisch angezeigt. Wenn Sie die Anzeige von Nachrichten manuell verwalten möchten, entfernen Sie diesen Aufruf und verwenden Sie stattdessen `braze.subscribeToInAppMessage()`. Weitere Informationen finden Sie unter [Zustellung von In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/delivery).
+**Anzeige von In-App-Nachrichten**: Um In-App-Nachrichten automatisch anzuzeigen, wenn sie getriggert werden, müssen Sie `braze.automaticallyShowInAppMessages()` aufrufen. Ohne diesen Aufruf werden In-App-Nachrichten nicht automatisch angezeigt. Wenn Sie die Anzeige von Nachrichten manuell verwalten möchten, entfernen Sie diesen Aufruf und verwenden Sie stattdessen `braze.subscribeToInAppMessage()`. Weitere Informationen finden Sie unter [Automatische Trigger deaktivieren]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#disabling-automatic-triggers).
 {% endalert %}
 
 #### Fehlerbehebung bei fehlenden Sitzungen für anonyme Nutzer:innen {#troubleshooting-missing-sessions-for-anonymous-users}

@@ -31,7 +31,7 @@ Wenn sich neue Nutzer:innen auf der Website oder in der App registrieren oder an
 
 Nachdem sich die Nutzer:innen registriert haben, gehen Sie wie folgt vor:
 
-1. Verwenden Sie den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status), um die Nutzer:innen zu erstellen und ihre Attribute zu speichern.
+1. Verwenden Sie den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status), um die Nutzer:innen zu erstellen und ihre Attribute zu speichern.
 
 {% raw %}
 ```http

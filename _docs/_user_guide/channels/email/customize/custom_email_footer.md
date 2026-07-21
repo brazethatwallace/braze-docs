@@ -94,4 +94,11 @@ If you don't include a plaintext footer, Braze will automatically build one from
 
 ## Considerations
 
+
+### BrazeAI Decisioning Studio™
+
 If you're using [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), note that {% raw %}`{{${email_footer}}}`{% endraw %} is not a standard Liquid tag. It's pre-processed before Liquid runs, so using {% raw %}`{{${email_footer}}}`{% endraw %} as a context variable value and calling the `:rerender` flag silently fails. Instead, use a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) for an email footer.
+
+### Link templates and UTM parameters
+
+Link templates are not automatically appended to links in custom email footers when using {% raw %}`{{${email_footer}}}`{% endraw %}. If you need link templates like UTM parameters in your footer links, use a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) instead, or manually append the UTM parameters to the specific links in your custom footer.

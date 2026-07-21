@@ -55,7 +55,7 @@ En la misma página, introduce lo siguiente:
 | Requisito | Detalles |
 |---|---|
 | Nombre SAML | Aparecerá como el texto del botón en la pantalla de inicio de sesión.<br>Normalmente es el nombre de tu proveedor de identidad, como "Okta". |
-| URL de destino | Se proporciona después de configurar Braze en tu IdP.<br> Algunos IdP lo denominan URL de SSO o punto de conexión SAML 2.0. |
+| URL de destino | Se proporciona después de configurar Braze en tu IdP.<br> Algunos IdP lo denominan URL de SSO o endpoint SAML 2.0. |
 | Certificado | El certificado `x.509` proporcionado por tu proveedor de identidad.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configura Braze" }
 
@@ -203,5 +203,5 @@ Si algunos usuarios no pueden iniciar sesión con Google SSO, verifica lo siguie
 
 Después de configurar SAML SSO, puedes:
 
-- [Forzar el inicio de sesión solo con SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) en tu configuración de seguridad para restringir a los usuarios de iniciar sesión con una contraseña.
+- [Forzar el inicio de sesión solo con SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) en tu configuración de seguridad para restringir a los usuarios de iniciar sesión con una contraseña.
 - [Configurar el aprovisionamiento justo a tiempo de SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) para que los nuevos usuarios creen automáticamente cuentas de Braze en su primer inicio de sesión con SSO.

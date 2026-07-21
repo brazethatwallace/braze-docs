@@ -1,0 +1,5 @@
+- RCS billing centers on two different message types (with distinctions for the USA):
+    - **Basic RCS:** Text-only, up to 160 characters
+    - **Single RCS:** Messages containing rich content, or text-only messages > 160 characters
+    - **Rich RCS (USA Only):** Text only, may include limited suggestions/buttons (quickReply, dialPhone, openURL w/o webview), segmented per 160 UTF-8 bytes
+    - **Rich Media RCS (USA Only):** Any media OR text with richer suggestions/buttons (webview, location, calendar, etc.), counted as one message

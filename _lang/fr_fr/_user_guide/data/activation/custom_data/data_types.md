@@ -109,8 +109,8 @@ Vous pouvez ajouter des étiquettes à un attribut personnalisé après sa créa
 
 Il existe deux façons de supprimer des attributs personnalisés des profils utilisateur :
 
-* Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape de Mise à jour utilisateur]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
-* Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+- Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape de mise à jour utilisateur]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
+- Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 #### Définir la valeur `null` {#setting-the-null-value}
 
@@ -135,7 +135,7 @@ Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant 
 
 ### Onglet Values {#values-tab}
 
-Lorsque vous consultez un rapport d'utilisation, sélectionnez l'onglet **Values** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Comme les résultats sont échantillonnés à partir d'un sous-ensemble d'utilisateurs, l'échantillon n'inclut pas toutes les valeurs existantes. L'onglet **Values** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'utilisation nécessitant l'intégration des données de tous les utilisateurs.
+Lorsque vous consultez un rapport d'utilisation, sélectionnez l'onglet **Values** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Comme les résultats sont échantillonnés à partir d'un sous-ensemble d'utilisateurs, l'échantillon n'inclut pas toutes les valeurs existantes. L'onglet **Values** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'usage nécessitant l'intégration des données de tous les utilisateurs.
 
 ![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Values » ouvert montrant un graphique circulaire des valeurs d'attribut de pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
@@ -240,7 +240,7 @@ Lors de la segmentation avec le filtre **DOES NOT MATCH REGEX**, vous devez déj
 
 Les tableaux ont une taille maximale de 100&nbsp;Ko. La longueur par défaut d'un attribut est de 500 éléments maximum (par exemple, si vous envoyez un attribut tel que « Films regardés » défini à 500, lorsqu'un utilisateur regarde un 501e film, le premier film est supprimé et le plus récent est ajouté). Notez que si vous saisissez des valeurs avec des espaces entre, avant ou après les mots, Braze vérifiera également ces mêmes espaces.
 
-Les attributs personnalisés de type tableau ne peuvent pas être importés via l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Pour charger des valeurs de tableau, utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/cloud_ingestion).
+Les attributs personnalisés de type tableau ne peuvent pas être importés via l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Pour charger des valeurs de tableau, utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/cloud_ingestion).
 
 {% alert note %}
 L'option d'augmenter la longueur maximale ne sera pas disponible si l'attribut est configuré pour détecter automatiquement le type de données ; le type de données doit être défini sur tableau.
@@ -265,6 +265,7 @@ Pour les attributs de type **tableau**, les options de segmentation suivantes so
 
 {% alert tip %}
 Pour en savoir plus sur l'utilisation des expressions régulières (regex), consultez ces ressources :
+
 - [Expressions régulières compatibles Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
 - [Regex avec Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Débogueur et testeur de regex](https://www.regex101.com/)
@@ -300,11 +301,7 @@ Pour les attributs de type **heure**, les options de segmentation suivantes sont
 
 #### Détails des attributs de type heure {#time-attribute-details}
 
-- Jour d'événement récurrent
-  - Lorsque vous utilisez le filtre « Jour d'événement récurrent » et que vous êtes invité à sélectionner le « Jour calendaire de l'événement récurrent », si vous sélectionnez `IS LESS THAN` ou `IS MORE THAN`, la date actuelle sera comptabilisée pour ce filtre de segmentation.
-  - Par exemple, si le 10 mars 2020, vous avez sélectionné la date de l'attribut comme `LESS THAN ... March 10, 2020`, les attributs seront pris en compte pour les jours allant jusqu'au 10 mars 2020 inclus.
-- Il y a moins de X jours : le filtre « Il y a moins de X jours » inclut les dates entre il y a X jours et la date/heure actuelle.
-- Dans moins de X jours dans le futur : inclut les dates entre la date/heure actuelle et X jours dans le futur.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab Objets %}
@@ -401,7 +398,7 @@ Les catalogues prennent en charge les types répertoriés dans le tableau [Défi
 | Heure | Date et heure au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou horodatage Unix en secondes. | ✅ Oui | ✅ Oui |
 | Objet JSON (Objet) | Objet imbriqué avec des paires clé-valeur. Affiché dans la plateforme mais ne peut être créé ou mis à jour que via l'API ou CDI. | ❌ Non | ✅ Oui |
 | Tableau de chaînes (Tableau) | Une liste de chaînes de caractères. Affiché dans la plateforme mais ne peut être créé ou mis à jour que via l'API ou CDI. Maximum de 100 éléments. | ❌ Non | ✅ Oui |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types de données des catalogues" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types de données des catalogues #catalog-data-types" }
 
 ### Format et exemples {#format-and-examples}
 

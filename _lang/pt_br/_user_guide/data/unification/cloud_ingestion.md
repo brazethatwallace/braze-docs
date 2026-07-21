@@ -33,7 +33,7 @@ Com as capacidades de Ingestão de Dados na Nuvem da Braze, você pode:
 - Sincronizar de forma segura dados de usuários, incluindo atributos, eventos e compras do seu data warehouse para a Braze.
 - Fechar o ciclo de dados com a Braze combinando a Ingestão de Dados na Nuvem com Currents ou Compartilhamento de Dados do Snowflake.
 
-Além disso, [Fontes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) são uma alternativa de cópia zero. Você pode fazer com que a Braze consulte diretamente seu data warehouse ou solução de armazenamento de arquivos para construir **Segments** CDI &#8212; tudo isso sem copiar os dados subjacentes para a Braze.
+Além disso, [Fontes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) são uma alternativa de cópia zero. Você pode fazer com que a Braze consulte diretamente seu data warehouse ou solução de armazenamento de arquivos para construir segmentos CDI &#8212; tudo isso sem copiar os dados subjacentes para a Braze.
 
 ## Fontes de dados suportadas {#supported-data-sources}
 
@@ -84,10 +84,10 @@ Para instruções de configuração específicas por fonte e exemplos de SQL, co
 
 ## Uso de pontos de dados {#data-point-usage}
 
-Para clientes com faturamento baseado em pontos de dados, o faturamento por pontos de dados para a Ingestão de Dados na Nuvem é equivalente ao faturamento por atualizações através do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track). Para saber mais, consulte [Pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
+Para clientes com faturamento baseado em pontos de dados, o faturamento por pontos de dados para a Ingestão de Dados na Nuvem é equivalente ao faturamento por atualizações através do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Para saber mais, consulte [Pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
 {% alert important %}
-A Ingestão de Dados na Nuvem da Braze conta para o limite de taxa disponível, então se você estiver enviando dados usando outro método, o limite de taxa é combinado entre a API da Braze e a Ingestão de Dados na Nuvem.
+A Ingestão de Dados na Nuvem da Braze conta para o limite de frequência disponível, então se você estiver enviando dados usando outro método, o limite de frequência é combinado entre a API da Braze e a Ingestão de Dados na Nuvem.
 {% endalert %}
 
 ## Limitações do produto {#product-limitations}

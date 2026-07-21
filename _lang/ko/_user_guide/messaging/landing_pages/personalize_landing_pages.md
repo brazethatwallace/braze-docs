@@ -15,7 +15,7 @@ page_order: 4
 
 ## Liquid 삽입 {#inserting-liquid}
 
-드래그 앤 드롭 에디터에서 에디터 내부와 오른쪽 패널의 페이지 또는 블록 설정 모두에서 Liquid 개인화를 삽입할 수 있습니다. Liquid 구현에 대한 자세한 내용은 전용 [Liquid 설명서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid)를 참조하세요.
+드래그 앤 드롭 에디터에서 에디터 내부와 오른쪽 패널의 페이지 또는 블록 설정 모두에서 Liquid 개인화를 삽입할 수 있습니다. Liquid 구현에 대한 자세한 내용은 전용 [Liquid 설명서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 참조하세요.
 
 ![Liquid 개인화가 추가된 랜딩 페이지 에디터.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
@@ -128,7 +128,7 @@ window.onload = () => {
 
 랜딩 페이지에서 외부 데이터를 가져올 때 다음 사항을 고려하세요.
 
-- **로딩 상태:** 엔드포인트가 응답할 때까지 사용자에게 플레이스홀더 텍스트가 표시됩니다. 로딩 인디케이터나 스켈레톤 화면을 추가하는 것을 고려하세요.
+- **로딩 상태:** 엔드포인트가 응답할 때까지 사용자에게 입력 안내 텍스트가 표시됩니다. 로딩 인디케이터나 스켈레톤 화면을 추가하는 것을 고려하세요.
 - **오류 처리:** 엔드포인트가 실패하거나 응답이 느리면 페이지가 깨져 보일 수 있습니다. 적절한 오류 메시지와 대체 콘텐츠를 구현하세요.
 - **성능:** 페이지는 즉시 로드되지만 데이터는 외부 요청이 완료된 후에 표시됩니다. 최상의 사용자 경험을 위해 API 응답을 빠르게 유지하세요.
 - **보안:** API 엔드포인트가 식별자를 검증하고 사용자가 볼 수 있도록 승인된 데이터만 반환하는지 확인하세요. 남용을 방지하기 위해 사용량 제한을 구현하세요. 안전한 식별자 선택에 대한 지침은 [사용자 ID 명명 모범 사례]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices)를 참조하세요.

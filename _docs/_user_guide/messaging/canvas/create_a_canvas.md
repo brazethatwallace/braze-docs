@@ -68,7 +68,7 @@ The Canvas builder will guide you step-by-step through setting up your Canvas—
 
 ### Step 1.1: Start with your Canvas basics
 
-Here, you'll name your Canvas, assign [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams), and create or add [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags). You can also assign conversion events for the Canvas.
+Here, you'll name your Canvas, assign [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams), and create or add [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags). You can also assign conversion events for the Canvas.
 
 {% alert tip %}
 Tag your Canvases so they're easy to find and build reports out of. For instance, when using [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), you can filter by particular tags.
@@ -169,7 +169,7 @@ Setting the [exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/create_
 
 #### Calculating target population
 
-In the **Target Population** section, you can view a summary of your audience, such as your selected segments and additional filters, and a breakdown of how many users are reachable per messaging channel. To calculate the exact number of reachable users in your target audience instead of the default estimation, select [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics).
+In the **Target Population** section, you can view a summary of your audience, such as your selected segments and additional filters, and a breakdown of how many users are reachable per messaging channel. To calculate the exact number of reachable users in your target audience instead of the default estimation, select [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 
 Note that:
 
@@ -187,13 +187,11 @@ To view additional statistics, such as the average lifetime revenue for targeted
 
 ### Step 1.4: Select your send settings
 
-Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over-messaging them.
+Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over-messaging them.
 
 For Canvases targeting email and push channels, you may want to limit your Canvas so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in status:
 
-- **User A** is subscribed to email and is push enabled. This user doesn't receive the email but will receive the push.
-- **User B** is opted-in to email but is not push enabled. This user will receive the email but doesn't receive the push.
-- **User C** is opted-in to email and is push enabled. This user will receive both the email and the push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 To do so, set the **Subscription Settings** to send this Canvas to "opted-in users only". This option will ensure that only opted-in users will receive your email, and Braze will only send your push to users who are push enabled by default. 
 

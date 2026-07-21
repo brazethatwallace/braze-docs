@@ -28,7 +28,7 @@ Esse endpoint atualiza o estado global da inscrição de e-mail do usuário, que
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.status`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.status`.
 
 ## Limite de frequência {#rate-limit}
 

@@ -12,7 +12,7 @@ channel:
 
 > Puedes configurar un pie de página de correo electrónico personalizado para todo el espacio de trabajo, que puedes incluir como plantilla en cada correo electrónico usando el atributo Liquid {% raw %}`{{${email_footer}}}`{% endraw %}.
 
-Al usar pies de página de correo electrónico personalizados, ya no necesitas crear un nuevo pie de página para cada plantilla de correo electrónico o Campaign que utilices. Todas las Campaigns de correo electrónico nuevas y existentes reflejan los cambios que realices en tu pie de página personalizado. Recuerda que el cumplimiento de la [Ley CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) requiere que incluyas una dirección física de tu empresa y un enlace para cancelar suscripción en tus correos electrónicos.
+Al usar pies de página de correo electrónico personalizados, ya no necesitas crear un nuevo pie de página para cada plantilla de correo electrónico o campaña de correo electrónico que utilices. Todas las campañas de correo electrónico nuevas y existentes reflejan los cambios que realices en tu pie de página personalizado. Recuerda que el cumplimiento de la [Ley CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) requiere que incluyas una dirección física de tu empresa y un enlace para cancelar suscripción en tus correos electrónicos.
 
 {% alert warning %}
 Es tu responsabilidad asegurarte de que tu pie de página personalizado cumpla con los requisitos mencionados anteriormente.
@@ -23,7 +23,7 @@ Es tu responsabilidad asegurarte de que tu pie de página personalizado cumpla c
 Para crear o editar tu pie de página personalizado, haz lo siguiente:
 
 1. Ve a **Configuración** > **Preferencias de correo electrónico** > **Páginas de suscripción y pies de página**.
-2. Ve a la sección **Personalizar pie de página** y activa los pies de página personalizados.
+2. Ve a la sección **Pie de página personalizado** y activa los pies de página personalizados.
 3. Selecciona **Editar** y luego edita tu pie de página en la sección **Redactar**.
 4. Selecciona **Vista previa** para previsualizar cómo aparecerá tu pie de página de correo electrónico en el buzón de entrada de un cliente. Opcionalmente, puedes seleccionar **Copiar enlace de vista previa** para generar y copiar un enlace de vista previa que se puede compartir y que muestra cómo se verá el correo electrónico para un usuario aleatorio. El enlace durará siete días antes de que sea necesario regenerarlo.
 5. Envía un mensaje de prueba.
@@ -42,13 +42,13 @@ Para cumplir con las regulaciones CAN-SPAM, tu pie de página personalizado debe
 
 Ten mucho cuidado al usar una plantilla con el pie de página personalizado {% raw %}`{{${email_footer}}}` pero sin la etiqueta de enlace para cancelar suscripción `{{${set_user_to_unsubscribed_url}}}`{% endraw %}. Aparecerá una advertencia, pero será tu decisión enviar un correo electrónico con o sin un enlace para cancelar suscripción.
 
-Aquí hay una advertencia en el compositor de correo electrónico:
+Aquí hay una advertencia en el creador de correo electrónico:
 
 ![Ejemplo de correo electrónico redactado sin pie de página.]({% image_buster /assets/img_archive/no_unsub_link_warning.png %})
 
-Aquí hay una advertencia en el compositor de Campaign:
+Aquí hay una advertencia en el creador de campañas:
 
-![Composición de Campaign sin pie de página.]({% image_buster /assets/img_archive/no_footer_test.png %})
+![Composición de campaña sin pie de página.]({% image_buster /assets/img_archive/no_footer_test.png %})
 
 ### Agregar un enlace personalizado para cancelar suscripción {#adding-a-custom-unsubscribe-link}
 
@@ -57,7 +57,7 @@ Para agregar un enlace personalizado para cancelar suscripción, puedes cambiar 
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-A continuación, llama al [punto de conexión `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) para actualizar el estado de suscripción del usuario. Para más detalles, consulta nuestra documentación sobre [cambiar las suscripciones de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
+A continuación, llama al [endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) para actualizar el estado de suscripción del usuario. Para más detalles, consulta nuestra documentación sobre [cambiar las suscripciones de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Luego, guarda este nuevo enlace. La etiqueta predeterminada de cancelación de suscripción de Braze {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} debe estar en el pie de página. Esto significa que necesitas incluir el enlace predeterminado "ocultándolo", ya sea colocando la etiqueta en un comentario o en una etiqueta `<div>` oculta.
 
@@ -94,4 +94,11 @@ Si no incluyes un pie de página de texto sin formato, Braze creará uno automá
 
 ## Consideraciones {#considerations}
 
+
+### BrazeAI Decisioning Studio™
+
 Si estás usando [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), ten en cuenta que {% raw %}`{{${email_footer}}}`{% endraw %} no es una etiqueta de Liquid estándar. Se procesa previamente antes de que Liquid se ejecute, por lo que usar {% raw %}`{{${email_footer}}}`{% endraw %} como valor de variable de contexto y llamar a la marca `:rerender` falla silenciosamente. En su lugar, usa un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) para un pie de página de correo electrónico.
+
+### Plantillas de enlaces y parámetros UTM {#link-templates-and-utm-parameters}
+
+Las plantillas de enlaces no se agregan automáticamente a los enlaces en los pies de página de correo electrónico personalizados cuando se usa {% raw %}`{{${email_footer}}}`{% endraw %}. Si necesitas plantillas de enlaces como parámetros UTM en los enlaces de tu pie de página, usa un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) en su lugar, o agrega manualmente los parámetros UTM a los enlaces específicos en tu pie de página personalizado.

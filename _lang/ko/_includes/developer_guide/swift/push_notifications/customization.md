@@ -1,6 +1,6 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %} 또한 [푸시 알림을 설정]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)해야 합니다.
 
-## 실행 버튼 사용자 정의 {#push-action-buttons-integration}
+## 실행 버튼 사용자 지정 {#push-action-buttons-integration}
 
 Braze Swift SDK는 푸시 실행 버튼에 대한 URL 처리 지원을 제공합니다. Braze 기본 푸시 카테고리에는 네 가지 기본 푸시 실행 버튼 세트(`Accept/Decline`, `Yes/No`, `Confirm/Cancel`, `More`)가 있습니다.
 
@@ -65,7 +65,7 @@ AppDelegate.braze?.notifications.handleUserNotification(response: response, with
 
 `UNNotification` 프레임워크를 사용하고 Braze [알림 메서드]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling)를 구현한 경우, 이 메서드가 이미 통합되어 있을 것입니다.
 
-## 푸시 카테고리 사용자 정의 {#customizing-push-categories}
+## 푸시 카테고리 사용자 지정 {#customizing-push-categories}
 
 Braze는 기본 푸시 카테고리 세트를 제공할 뿐만 아니라 커스텀 알림 카테고리 및 동작을 지원합니다. 애플리케이션에 카테고리를 등록한 후 Braze 대시보드를 사용하여 이러한 커스텀 알림 카테고리를 사용자에게 보낼 수 있습니다.
 
@@ -120,7 +120,7 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 {% endtabs %}
 
 {% alert note %}
-`UNNotificationAction`을 생성할 때 동작 옵션 목록을 지정할 수 있습니다. 예를 들어, `.foreground`는 사용자가 실행 버튼을 탭한 후 앱을 열 수 있게 합니다. 이는 "앱 열기" 및 "애플리케이션으로 딥링크"와 같은 탐색 관련 클릭 시 동작에 필요합니다. 앱을 열지 않고 알림을 단순히 해제하는 실행 버튼이 필요하다면, `.foreground`를 동작의 `options` 배열에서 제외하세요. 자세한 내용은 [`UNNotificationActionOptions`](https://developer.apple.com/documentation/usernotifications/unnotificationactionoptions)를 참조하세요.
+`UNNotificationAction`을 생성할 때 동작 옵션 목록을 지정할 수 있습니다. 예를 들어, `.foreground`는 사용자가 실행 버튼을 탭한 후 앱을 열 수 있게 합니다. 이는 "앱 열기" 및 "애플리케이션으로 딥링크"와 같은 탐색 관련 클릭 시 동작에 필요합니다. 앱을 열지 않고 알림을 해제하는 실행 버튼이 필요하다면, `.foreground`를 동작의 `options` 배열에서 제외하세요. 자세한 내용은 [`UNNotificationActionOptions`](https://developer.apple.com/documentation/usernotifications/unnotificationactionoptions)를 참조하세요.
 {% endalert %}
 
 ### 2단계: 카테고리 선택 {#step-2-select-your-categories}
@@ -128,10 +128,10 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 카테고리를 등록한 후 Braze 대시보드를 사용하여 해당 유형의 알림을 사용자에게 발송합니다.
 
 {% alert tip %}
-Braze 대시보드에서는 Swift 코드에서 로컬로 생성할 수 없는 동작에 대해서만 실행 버튼을 정의하면 됩니다. 예를 들어, 앱으로의 딥링킹이나 웹 URL로의 리디렉션과 같은 동작입니다. 이러한 동작은 대시보드에서 구성해야 하며, 어떤 URL 또는 딥링크를 열지 정의할 수 있습니다. 앱을 열지 않고 알림을 단순히 해제하는 실행 버튼의 경우, 대시보드에서 구성할 필요가 없습니다. 해제 동작은 iOS에 의해 자동으로 처리됩니다. 커스텀 카테고리와 해당 동작을 앱 코드에 등록한 후, 대시보드에서 일치하는 카테고리 이름을 입력하면 됩니다.
+Braze 대시보드에서는 Swift 코드에서 로컬로 생성할 수 없는 동작에 대해서만 실행 버튼을 정의하면 됩니다. 예를 들어, 앱으로의 딥링킹이나 웹 URL로의 리디렉션과 같은 동작입니다. 이러한 동작은 대시보드에서 구성해야 하며, 어떤 URL 또는 딥링크를 열지 정의할 수 있습니다. 앱을 열지 않고 알림을 해제하는 실행 버튼의 경우, 대시보드에서 구성할 필요가 없습니다. 해제 동작은 iOS에 의해 자동으로 처리됩니다. 커스텀 카테고리와 해당 동작을 앱 코드에 등록한 후, 대시보드에서 일치하는 카테고리 이름을 입력하면 됩니다.
 {% endalert %}
 
-1. Braze 대시보드에서 **메시징** > **푸시 알림**을 선택한 다음, iOS [푸시 캠페인(Campaign)]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message)을 선택합니다.
+1. Braze 대시보드에서 **메시징** > **푸시 알림**을 선택한 다음, iOS [푸시 Campaign]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message)을 선택합니다.
 2. **푸시 알림 작성**에서 **실행 버튼**을 켭니다.
 3. **iOS 알림 카테고리** 드롭다운에서 **미리 등록한 커스텀 iOS 카테고리 입력**을 선택합니다.
 4. 마지막으로 앞서 만든 카테고리 중 하나를 입력합니다. 다음 예에서는 커스텀 카테고리 `LIKE_CATEGORY`를 사용합니다.
@@ -140,7 +140,7 @@ Braze 대시보드에서는 Swift 코드에서 로컬로 생성할 수 없는 �
 
 ### 예시: 커스텀 푸시 카테고리 {#example-custom-push-category}
 
-두 개의 실행 버튼이 있는 푸시 알림을 만들고 싶다고 가정해 보겠습니다: 앱으로 딥링크하는 **관리**와 알림을 단순히 해제하는 **유지**.
+두 개의 실행 버튼이 있는 푸시 알림을 만들고 싶다고 가정해 보겠습니다: 앱으로 딥링크하는 **관리**와 알림을 해제하는 **유지**.
 
 다음 예제에서 `MANAGE_IDENTIFIER` 동작은 탭할 때 앱을 여는 `.foreground` 옵션을 포함합니다. 이는 앱의 특정 부분으로 딥링크하기 때문에 필요합니다. `KEEP_IDENTIFIER` 동작은 빈 옵션 배열을 사용하므로, 앱을 열지 않고 알림을 해제합니다.
 
@@ -165,13 +165,13 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 
 `MANAGE_IDENTIFIER`가 앱으로 딥링크하므로, 해당 실행 버튼을 Braze 대시보드에서 관련 딥링크 URL과 함께 설정해야 합니다. 하지만 `KEEP_IDENTIFIER`에 대한 버튼은 대시보드에서 정의할 필요가 없습니다. 알림을 해제하는 것뿐이기 때문입니다. 대시보드에서 앱 코드에 등록한 내용과 일치하도록 카테고리 이름(예: `YOUR_CATEGORY`)만 입력하면 됩니다.
 
-## 배지 사용자 정의 {#customizing-badges}
+## 배지 사용자 지정 {#customizing-badges}
 
 배지는 사용자의 관심을 끌기에 적합한 작은 아이콘입니다. Braze 대시보드를 사용하여 푸시 알림을 작성할 때 [**설정**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) 탭에서 배지 수를 지정할 수 있습니다. 애플리케이션의 [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) 속성정보 또는 [원격 알림 페이로드](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1)를 통해 배지 수를 수동으로 업데이트할 수도 있습니다.
 
 Braze는 앱이 포그라운드에 있는 상태에서 Braze 알림을 받으면 배지 수를 자동으로 지웁니다. 배지 수를 0으로 수동 설정하면 알림 센터의 알림도 지워집니다.
 
-정상적인 앱 작동의 일부로 배지를 지우거나 배지를 지우는 푸시를 전송할 계획이 없는 경우, 앱의 `applicationDidBecomeActive:` 델리게이트 메서드에 다음 코드를 추가하여 앱이 활성화되면 배지를 지워야 합니다:
+정상적인 앱 작동의 일부로 배지를 지우거나 배지를 지우는 푸시를 전송할 계획이 없는 경우, `SceneDelegate.swift` 파일의 `sceneDidBecomeActive(_:)` 메서드(또는 앱이 아직 [`UIScene` 생명 주기](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)를 채택하지 않은 경우 앱의 `applicationDidBecomeActive:` 델리게이트 메서드)에 다음 코드를 추가하여 앱이 활성화되면 배지를 지워야 합니다:
 
 {% tabs %}
 {% tab swift %}
@@ -208,7 +208,7 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 {% endtab %}
 {% endtabs %}
 
-## 사운드 사용자 정의 {#customizing-sounds}
+## 사운드 사용자 지정 {#customizing-sounds}
 
 ### 1단계: 앱에서 사운드 호스팅 {#step-1-host-the-sound-in-your-app}
 
@@ -241,7 +241,7 @@ QuickTime Player에서 사운드를 열고 **동영상** 메뉴에서 **동영�
 
 앱에서 사운드 파일의 위치로 연결되는 프로토콜 URL을 지정해야 합니다. 이를 수행하는 방법에는 두 가지가 있습니다:
 
-* [Apple 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object)의 `sound` 매개변수를 사용하여 URL을 Braze에 전달합니다.
+* [Apple 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/apple_object)의 `sound` 매개변수를 사용하여 URL을 Braze에 전달합니다.
 * 대시보드에서 URL을 지정합니다. [푸시 작성기]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android)에서 **설정**을 선택하고 **사운드** 필드에 프로토콜 URL을 입력합니다.
 
 ![Braze 대시보드의 푸시 작성기]({% image_buster /assets/img_archive/sound_push_ios.png %})
@@ -270,7 +270,7 @@ Braze에서는 커스텀 정의 문자열 키-값 페어(`extras`)를 푸시 알
 
 ### 변경 가능한 콘텐츠 플래그 추가 {#adding-mutable-content-flag}
 
-고급 수신기 사용자 정의를 활성화하려면 **변경 가능한 콘텐츠 플래그 추가** 확인란을 선택합니다. 이 플래그는 이 확인란의 값에 관계없이 [리치 알림]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift)을 작성할 때 자동으로 전송됩니다.
+고급 수신기 사용자 지정을 활성화하려면 **변경 가능한 콘텐츠 플래그 추가** 확인란을 선택합니다. 이 플래그는 이 확인란의 값에 관계없이 [리치 알림]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift)을 작성할 때 자동으로 전송됩니다.
 
 ### 축소 ID {#collapse-id}
 

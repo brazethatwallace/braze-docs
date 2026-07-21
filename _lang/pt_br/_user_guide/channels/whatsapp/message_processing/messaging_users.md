@@ -12,7 +12,7 @@ alias: /whatsapp_quick_replies/
 
 # Mensagens de usuários {#user-messages}
 
-> O WhatsApp é um canal de comunicação bidirecional. Sua marca não apenas pode enviar mensagens aos usuários, mas eles também podem participar de conversas usando Campaigns e Canvas com modelos. Existem várias maneiras de fazer isso, incluindo respostas rápidas do WhatsApp, mensagens de lista e palavras-gatilho. As chamadas para ação (CTAs) de respostas rápidas e mensagens de lista são uma ótima maneira de incentivar o engajamento dos usuários com suas mensagens do WhatsApp.
+> O WhatsApp é um canal de comunicação de mão dupla. Sua marca não apenas pode enviar mensagens aos usuários, mas eles também podem participar de conversas usando Campaigns e Canvas com modelos. Existem várias maneiras de fazer isso, incluindo respostas rápidas do WhatsApp, mensagens de lista e palavras-gatilho. As chamadas para ação (CTAs) de respostas rápidas e mensagens de lista são uma ótima maneira de incentivar o engajamento dos usuários com suas mensagens do WhatsApp.
 
 ## Gatilhos baseados em ação {#action-based-triggers}
 
@@ -40,7 +40,7 @@ Certifique-se de que sua palavra-gatilho corresponda ao que você espera dos usu
 ## Respostas não reconhecidas {#unrecognized-responses}
 
 Recomendamos que você inclua uma opção para respostas não reconhecidas em Canvas interativos. Isso orienta os usuários a entender quais são os comandos disponíveis e define expectativas para o canal. O gerenciamento de expectativas pode ser especialmente útil se você tiver canais do WhatsApp com chat de agente ao vivo.
-- Na etapa de ação, após criar os grupos de ação para as frases de filtro personalizadas, adicione um grupo de ação adicional para "Enviar mensagem do WhatsApp", mas **não marque Onde o corpo da mensagem**. Isso capturará todas as respostas não reconhecidas dos usuários, semelhante a uma cláusula "else".
+- Na etapa de ação, após criar os grupos de ação para as frases de filtro personalizadas, adicione um grupo de ação adicional para "Enviar mensagem do WhatsApp", mas **não marque Where the message body**. Isso capturará todas as respostas não reconhecidas dos usuários, semelhante a uma cláusula "else".
 - Recomendamos enviar uma mensagem do WhatsApp informando ao usuário que este canal não é monitorado e direcionando-o a um canal de suporte, se necessário.
 
 ## Respostas rápidas {#quick-replies}
@@ -155,6 +155,31 @@ Os seguintes eventos desbloqueiam mensagens de resposta:
   - Evento [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)
 
 ![Uma jornada de ação com o gatilho de um evento personalizado realizado `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
+
+### Respostas rápidas e mensagens de entrada fora da janela de 24 horas {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+Quando um usuário interage com sua empresa no WhatsApp — incluindo ao tocar em um botão de resposta rápida em um modelo de mensagem mais antigo — essa ação conta como uma mensagem de entrada. Essa mensagem de entrada abre uma nova janela de atendimento ao cliente de 24 horas, mesmo que o modelo original tenha sido enviado há mais de 24 horas.
+
+Em um Canvas com botões de resposta rápida, os usuários podem tocar em um botão dias após receber o modelo de boas-vindas e ainda entrar na jornada de ação correta. A Braze avalia a jornada de ação quando a mensagem de entrada chega; você não precisa estender a duração da jornada de ação além do padrão para capturar respostas tardias.
+
+O diagrama a seguir mostra um fluxo comum de resposta rápida:
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### Informações importantes {#things-to-know}
+
+- A etapa de mensagem de resposta ainda deve ocorrer dentro de 24 horas após a mensagem de entrada do usuário. Na maioria dos fluxos de Canvas, a resposta é enviada imediatamente após a avaliação da jornada de ação, então isso não é um problema.
+- Não confunda a janela de atendimento ao cliente de 24 horas com os [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) do Canvas, que podem usar uma janela de até 30 dias. As janelas de conversão controlam a atribuição; elas não afetam se uma mensagem de resposta pode ser enviada.
+- Para informações sobre cobrança, consulte [As mensagens de resposta do WhatsApp são gratuitas?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
 
 ### Filtrando por um atributo de tempo personalizado {#filtering-by-a-custom-time-attribute}
 

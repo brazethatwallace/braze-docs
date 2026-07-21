@@ -30,7 +30,7 @@ description: "この記事では、新規および既存のユーザーデータ
 
 - **ユーザーが存在する場合：**
   - 新しいプロファイルを作成しないでください。
-  - ユーザーのプロファイルにカスタム属性（例：`newsletter_subscribed: true`）を記録して、ユーザーがニュースレターのサブスクリプションを通じてメールを送信したことを示します。同じメールアドレスを持つ複数のBrazeユーザープロファイルが存在する場合、すべてのプロファイルがエクスポートされます。<br><br>
+  - ユーザーのプロファイルにカスタム属性（例：`newsletter_subscribed: true`）を記録して、ユーザーがニュースレターの購読を通じてメールを送信したことを示します。同じメールアドレスを持つ複数のBrazeユーザープロファイルが存在する場合、すべてのプロファイルがエクスポートされます。<br><br>
 - **ユーザーが存在しない場合：**
   - [`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用してエイリアスのみのプロファイルを作成します。このエンドポイントは[`user_alias`オブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)を受け入れ、`update_existing_only`が`false`に設定されている場合にエイリアスのみのプロファイルを作成します。ユーザーのメールアドレスをユーザーエイリアスとして設定し、今後そのユーザーを参照できるようにします（ユーザーには`external_id`がないため）。
 
@@ -51,11 +51,11 @@ description: "この記事では、新規および既存のユーザーデータ
 
 ## エイリアスのみのユーザー情報がすでに存在する場合のユーザーデータのキャプチャ {#capturing-user-data-when-alias-only-user-information-is-already-present}
 
-ユーザーがアカウントを作成したり、メールサインアップで身元を明らかにしたりした場合、プロファイルをマージできます。マージできるフィールドのリストについては、[マージ更新の動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior)を参照してください。
+ユーザーがアカウントを作成したり、メールサインアップで身元を明らかにしたりした場合、プロファイルをマージできます。マージできるフィールドのリストについては、[マージ更新の動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)を参照してください。
 
 ### 重複するユーザープロファイルのマージ {#merging-duplicate-user-profiles}
 
-ユーザーデータが増加するにつれて、Brazeダッシュボードから重複するユーザープロファイルをマージできます。これらの重複するプロファイルは、同じ検索クエリを使用して検出する必要があります。ユーザープロファイルの重複をマージする方法の詳細については、[プロファイルのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#merge-profiles)を参照してください。
+ユーザーデータが増加するにつれて、Brazeダッシュボードから重複するユーザープロファイルをマージできます。これらの重複するプロファイルは、同じ検索クエリを使用して検出する必要があります。ユーザープロファイルの重複をマージする方法の詳細については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を参照してください。
 
 また、[ユーザーマージエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)を使用して、あるユーザープロファイルを別のユーザープロファイルにマージすることもできます。
 

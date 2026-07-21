@@ -22,7 +22,7 @@ Lo siguiente no se migra de forma masiva cuando apuntas los SDK o las API a un n
 | --- | --- |
 | **Perfiles de usuario** | Los perfiles no se transfieren como una unidad empaquetada. Recrea o importa usuarios en el espacio de trabajo de destino (consulta [Datos del perfil de usuario](#user-profile-data)). |
 | **Segmentos y filtros** | Las definiciones de segmentos permanecen en el espacio de trabajo de origen. Reconstruye los segmentos en el espacio de trabajo de destino utilizando la misma lógica cuando sea posible. |
-| **Historial de mensajes** | El historial de recepción de Campaigns y Canvas en un perfil está vinculado al espacio de trabajo de origen. No aparece en un nuevo perfil en otro espacio de trabajo a menos que lo modeles tú mismo (por ejemplo, mediante atributos personalizados), como se indica en las [Preguntas frecuentes de incorporación a Braze]({{site.baseurl}}/user_guide/onboarding_faq). |
+| **Historial de mensajes** | El historial de recepción de Campaigns y Canvas en un perfil está vinculado al espacio de trabajo de origen. No aparece en un nuevo perfil en otro espacio de trabajo a menos que lo modeles tú mismo (por ejemplo, mediante atributos personalizados), como se indica en las [Preguntas frecuentes de incorporación a Braze]({{site.baseurl}}/onboarding_faq). |
 | **Configuración específica del canal** | Los dominios de envío, las suscripciones de SMS, los números de WhatsApp y configuraciones similares tienen alcance de espacio de trabajo. Reconfigúralos en el espacio de trabajo de destino cuando corresponda. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Lo que Braze no migra automáticamente entre espacios de trabajo" }
 
@@ -81,7 +81,7 @@ Los campos de atribución de integraciones de partners (los campos `attributed_*
 
 ### Tokens de notificaciones push {#push-tokens}
 
-Cuando los usuarios ya tienen tokens de notificaciones push de un proveedor anterior o una versión anterior de la aplicación, puedes importar tokens para aplicaciones móviles a través de la API, o confiar en el SDK después de la integración. Los tokens de notificaciones push web tienen limitaciones de API. Para detalles completos y ejemplos, consulta [Migrar tokens de notificaciones push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Cuando los usuarios ya tienen tokens de notificaciones push de un proveedor anterior o una versión anterior de la aplicación, puedes importar tokens para aplicaciones móviles a través de la API, o confiar en el SDK después de la integración. Los tokens de notificaciones push web tienen limitaciones de API. Para detalles completos y ejemplos, consulta [Migrar tokens de notificaciones push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ### WhatsApp
 

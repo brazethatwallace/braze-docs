@@ -171,7 +171,7 @@ Las señales son pequeños iconos ideales para llamar la atención del usuario. 
 
 Braze borrará automáticamente el recuento de señales cuando se reciba una notificación de Braze mientras la aplicación esté en primer plano. Si estableces manualmente el número de la señal en 0, también se borrarán las notificaciones del centro de notificaciones.
 
-Si no tienes un plan para borrar las señales como parte del funcionamiento normal de la aplicación o mediante el envío de push que borren la señal, debes borrar la señal cuando la aplicación se active añadiendo el siguiente código al método delegado `applicationDidBecomeActive:` de tu aplicación:
+Si no tienes un plan para borrar las señales como parte del funcionamiento normal de la aplicación o mediante el envío de push que borren la señal, debes borrar la señal cuando la aplicación se active añadiendo el siguiente código al método `sceneDidBecomeActive(_:)` del archivo `SceneDelegate.swift` de tu aplicación (o al método delegado `applicationDidBecomeActive:` de tu aplicación, si tu aplicación aún no ha adoptado el [ciclo de vida de `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)):
 
 {% tabs %}
 {% tab swift %}
@@ -241,7 +241,7 @@ Puedes inspeccionar un sonido para determinar su formato de datos abriéndolo en
 
 Debes especificar una URL de protocolo que dirija a la ubicación del archivo de sonido en tu aplicación. Hay dos métodos para hacerlo:
 
-* Utiliza el parámetro `sound` del [objeto push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object) para pasar la URL a Braze.
+* Utiliza el parámetro `sound` del [objeto push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para pasar la URL a Braze.
 * Especifica la URL en el panel. En el [creador push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), selecciona **Configuración** e introduce la URL del protocolo en el campo **Sonido**.
 
 ![El creador push en el panel de Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
@@ -254,7 +254,7 @@ Consulta la documentación para desarrolladores de Apple relativa a la [preparac
 
 Al crear una campaña push a través del panel, haz clic en la pestaña **Configuración** del paso **Redactar** para ver la configuración avanzada disponible.
 
-![Pestaña de configuración avanzada del creador de Campaign push de Braze para iOS.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Pestaña de configuración avanzada del creador de campaña push de Braze para iOS.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ### Pares clave-valor {#key-value-pairs}
 

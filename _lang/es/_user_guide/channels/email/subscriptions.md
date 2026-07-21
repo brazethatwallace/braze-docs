@@ -55,7 +55,7 @@ Usa el SDK de Braze para actualizar el estado de suscripción de un usuario.
 
 #### REST API
 
-Usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar el [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) de un usuario. Por ejemplo, para establecer el estado de suscripción de correo electrónico de un usuario como cancelado cuando utiliza un enlace de cancelación de suscripción personalizado, incluye `email_subscribe: "unsubscribed"` en los atributos de usuario de tu solicitud.
+Usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar el [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) de un usuario. Por ejemplo, para establecer el estado de suscripción de correo electrónico de un usuario como cancelado cuando utiliza un enlace de cancelación de suscripción personalizado, incluye `email_subscribe: "unsubscribed"` en los atributos de usuario de tu solicitud.
 
 #### Perfil de usuario {#user-profile}
 
@@ -171,7 +171,7 @@ Cuando un usuario selecciona "Cancelar suscripción de todos los tipos de correo
 
 Si no deseas usar el pie de página predeterminado, crea un pie de página de correo electrónico personalizado a nivel de espacio de trabajo y úsalo como plantilla en cada correo electrónico usando {% raw %}`{{${email_footer}}}`{% endraw %}.
 
-Esto te evita crear un nuevo pie de página para cada plantilla de correo electrónico o campaña de correo electrónico. Para ver los pasos, consulta [Pie de página de correo electrónico personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer).
+Esto te evita crear un nuevo pie de página para cada plantilla de correo electrónico o Campaign de correo electrónico. Para ver los pasos, consulta [Pie de página de correo electrónico personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer).
 
 #### Administración de estados de suscripción para direcciones IP chinas {#managing-subscription-states-for-chinese-ip-addresses}
 

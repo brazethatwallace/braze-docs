@@ -6,7 +6,7 @@ page_order: 4
 
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles del punto de conexión Actualizar traducciones de una plantilla de correo electrónico."
+description: "Este artículo describe los detalles del endpoint Actualizar traducciones de una plantilla de correo electrónico."
 ---
 
 {% api %}
@@ -15,11 +15,11 @@ description: "Este artículo describe los detalles del punto de conexión Actual
 /templates/email/translations/
 {% endapimethod %}
 
-> Usa este punto de conexión para actualizar las traducciones de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
+> Usa este endpoint para actualizar las traducciones de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `templates.translations.update`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `templates.translations.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -27,7 +27,7 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 
 ## Parámetros de ruta {#path-parameters}
 
-No hay parámetros de ruta para este punto de conexión.
+No hay parámetros de ruta para este endpoint.
 
 ## Parámetros de la solicitud {#request-parameters}
 
@@ -39,7 +39,7 @@ No hay parámetros de ruta para este punto de conexión.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert note %}
-Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.
+Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del endpoint GET.
 {% endalert %}
 
 ## Ejemplo de solicitud {#example-request}
@@ -58,7 +58,7 @@ Todos los ID de traducción se consideran identificadores únicos universales (U
 
 ## Respuesta {#response}
 
-Hay cuatro respuestas de código de estado para este punto de conexión: `200`, `400`, `404` y `429`.
+Hay cuatro respuestas de código de estado para este endpoint: `200`, `400`, `404` y `429`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

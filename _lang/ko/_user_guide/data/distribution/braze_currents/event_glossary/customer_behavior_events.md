@@ -70,7 +70,7 @@ search_rank: 7
 Random Bucket Number
 {% endapitags %}
 
-이 사용자 이벤트는 워크스페이스 내에서 새 사용자가 생성될 때마다 발생합니다. 이 이벤트 동안 각 신규 사용자에게 무작위 버킷 번호가 할당되며, 이를 사용하여 무작위 사용자의 균일하게 분포된 세그먼트를 생성할 수 있습니다. 이를 사용하여 무작위 버킷 번호 값의 범위를 그룹화하고 Campaigns 및 캠페인 배리언트 간의 성능을 비교할 수 있습니다.
+이 사용자 이벤트는 워크스페이스 내에서 새 사용자가 생성될 때마다 발생합니다. 이 이벤트 동안 각 신규 사용자에게 무작위 버킷 번호가 할당되며, 이를 사용하여 무작위 사용자의 균일하게 분포된 세그먼트를 생성할 수 있습니다. 이를 사용하여 무작위 버킷 번호 값의 범위를 그룹화하고 캠페인 및 캠페인 배리언트 간의 성능을 비교할 수 있습니다.
 
 {% alert important %}
 이 Currents 이벤트는 "모든 이벤트 커넥터"를 구매한 고객만 사용할 수 있으며, Amazon S3, Microsoft Azure 및 Google Cloud Storage와 같은 저장 이벤트 커넥터에만 사용할 수 있습니다.
@@ -248,7 +248,7 @@ Custom Events
 
 ### 속성정보 세부 정보 {#property-details}
 
-- 커스텀 이벤트의 경우, 페이로드에는 해당 이벤트와 연결된 모든 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties)도 포함됩니다.
+- 커스텀 이벤트의 경우, 페이로드에는 해당 이벤트와 연결된 모든 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)도 포함됩니다.
 - `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우, 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. 자세한 내용은 여기에서 확인하세요: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터를 수집하는 경우, 고객 성공 매니저 또는 계정 매니저에게 연락하여 `ad_id` 전송을 위한 기능 플리퍼를 활성화하세요.
 
@@ -1608,7 +1608,7 @@ iOS Swift SDK 13.3.0 이상 및 Android SDK 40.0.0 이상에서는 푸시 권한
 Braze는 또한 익명 사용자가 동일한 프로필에서 식별되고 기존 푸시 토큰이 해당 프로필에 유지될 때 `push_token_state_change_type`이 `"update"`로 설정된 "update" 이벤트를 발생시킵니다. 이 경우 `user_id`는 변경되지 않으며, `external_user_id`는 식별된 사용자의 외부 ID로 설정됩니다. 여기에는 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 엔드포인트를 통한 식별과 SDK `changeUser`가 기기의 익명 프로필에 외부 ID를 할당하는 경우가 포함됩니다.
 
 {% alert note %}
-대부분의 경우, 앱 재설치 또는 백업 복원은 새로운 `push_token`과 새로운 `device_id`를 가진 새로운 "add" 이벤트를 발생시킵니다(SDK가 새로운 `device_id`를 생성하고 OS가 새로운 푸시 토큰 문자열을 제공하기 때문입니다). 이로 인해 사용자 프로필에 두 개의 별도 토큰 및 기기 항목이 생성되며, 이전 항목은 제거 추적 또는 Campaign 전송을 통해 나중에 정리됩니다.<br><br>
+대부분의 경우, 앱 재설치 또는 백업 복원은 새로운 `push_token`과 새로운 `device_id`를 가진 새로운 "add" 이벤트를 발생시킵니다(SDK가 새로운 `device_id`를 생성하고 OS가 새로운 푸시 토큰 문자열을 제공하기 때문입니다). 이로 인해 사용자 프로필에 두 개의 별도 토큰 및 기기 항목이 생성되며, 이전 항목은 제거 추적 또는 캠페인 전송을 통해 나중에 정리됩니다.<br><br>
 
 `push_token`은 변경되지 않고 `device_id`만 변경되는 경우는 극히 드뭅니다(이 경우 OS가 재설치 후 동일한 토큰 문자열을 반환해야 합니다).
 {% endalert %}
@@ -1643,7 +1643,10 @@ Braze가 토큰을 제거할 때 독립적인 "remove" 이벤트가 수집됩니
 - [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) 엔드포인트 또는 중복 사용자 정리가 고아 사용자의 토큰을 생존 사용자에게 이동시킵니다.
 
 {% alert note %}
-REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 또는 SDK `changeUser`를 통해 익명 프로필에 외부 ID를 할당하는 동일 프로필 식별은 `user_id`를 변경하지 않으며 추가 및 제거 쌍 이벤트를 발생시키지 않습니다. 대신 Braze는 기존 각 푸시 토큰에 대해 "update" 이벤트를 발생시키고 `external_user_id`를 식별된 사용자의 외부 ID로 설정합니다. `changeUser`가 토큰을 한 사용자 프로필에서 다른 프로필로 이동시키는 경우, Braze는 위에서 설명한 추가 및 제거 쌍 이벤트를 여전히 발생시킵니다.
+REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 또는 SDK [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles)를 통한 동일 프로필 식별은 `user_id`를 변경하지 않고 익명 프로필에 외부 ID를 할당할 수 있습니다.
+이 경우 Braze는 [추가 및 제거 쌍 이벤트](#add-and-remove-pairs)를 발생시키지 않습니다.
+대신 Braze는 기존 각 푸시 토큰에 대해 "update" 이벤트를 발생시키고 `external_user_id`를 식별된 사용자의 외부 ID로 설정합니다.
+`changeUser`가 토큰을 한 사용자 프로필에서 다른 프로필로 이동시키는 경우, Braze는 [추가 및 제거 쌍](#add-and-remove-pairs) 섹션에서 설명한 [추가 및 제거 쌍 이벤트](#add-and-remove-pairs)를 여전히 발생시킵니다.
 {% endalert %}
 
 #### 최신 활성 토큰 상태 쿼리 {#querying-for-the-latest-active-token-state}

@@ -22,7 +22,7 @@ If you want to retrieve Canvas data, refer to the [Export Canvas details]({{site
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.details` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `campaigns.details` permission.
 
 ## Rate limit
 

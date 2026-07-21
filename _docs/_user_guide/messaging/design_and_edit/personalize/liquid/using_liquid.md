@@ -84,7 +84,7 @@ Operators (such as `==`, `!=`, `>`, `and`, `or`) and filters (such as `| size`, 
 | Array access (`[ ]`) | Not supported | Not supported |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Where to use operators and filters" }
 
-[^case_when_ops]: In `case` and `when` tags, Liquid compares the `case` expression to each `when` value using equality (similar to chaining `if` and `elsif` with `==`). You can't use arbitrary comparison or logical operators inside a `when` clause the way you do with `if` and `elsif`. For examples, see [Conditional messaging logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags).
+[^case_when_ops]: In `case` and `when` tags, Liquid compares the `case` expression to each `when` value using equality (similar to chaining `if` and `elsif` with `==`). You can't use arbitrary comparison or logical operators inside a `when` clause the way you do with `if` and `elsif`. For examples, see [Conditional messaging logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
 
 When you need a filtered value in a context that doesn't support filters, assign the result to a variable first.
 

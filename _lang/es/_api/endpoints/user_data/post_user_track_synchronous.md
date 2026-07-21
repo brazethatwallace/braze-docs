@@ -65,7 +65,7 @@ Para cada componente de solicitud que se indica en la tabla siguiente, debes inc
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Opcional | Un objeto de atributos | Ver [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | Opcional | Un objeto de atributos | Ver [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | Opcional | Un objeto de evento | Ver [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | Opcional | Un objeto de compra | Ver [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }

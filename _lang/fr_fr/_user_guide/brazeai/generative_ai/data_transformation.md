@@ -14,6 +14,7 @@ description: "Cet article de référence explique comment générer du code de T
 
 ## Comment y accéder {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
+Dans l'éditeur de [Transformation des données]({{site.baseurl}}/user_guide/data/unification/data_transformation), sélectionnez **Insert Code** pour générer du code de transformation qui convertit un payload de webhook entrant en requêtes valides de l'API Braze.
+
 
 Pour plus d'informations, y compris des exemples de prompts, consultez [Générer du code de transformation des données dans les fonctionnalités d'Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).

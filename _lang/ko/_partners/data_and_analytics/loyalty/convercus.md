@@ -8,7 +8,7 @@ search_tag: Partner
 
 # Convercus
 
-> [Convercus](https://www.convercus.com/en)는 옴니채널 로열티 프로그램과 개인화된 쿠폰 캠페인을 통해 브랜드와 리테일러가 고객 방문 빈도, 장바구니 가치, 재구매율을 높일 수 있도록 돕는 SaaS 로열티 및 쿠폰 플랫폼입니다.
+> [Convercus](https://www.convercus.com/en)는 옴니채널 로열티 프로그램과 개인화된 쿠폰 캠페인을 통해 브랜드와 소매업체가 고객 방문 빈도, 장바구니 가치, 재구매율을 높일 수 있도록 돕는 SaaS 로열티 및 쿠폰 플랫폼입니다.
 
 _이 통합은 Convercus에서 유지 관리합니다._
 
@@ -22,7 +22,7 @@ Convercus가 통합을 호스팅하므로 추가 인프라를 설치할 필요�
 
 1. **등급 승급 축하:** 멤버가 Convercus에서 로열티 등급이 올라가면, 환영 메시지, 등급 전용 혜택, 멤버의 새 등급 및 포인트 잔액이 포함된 개인화된 Braze Canvas를 트리거합니다.
 2. **생일 및 마일스톤 보너스:** Braze 여정에서 멤버의 생일이나 기념일에 Convercus에 보너스 포인트를 적립한 다음, 새 잔액을 확인하는 축하 메시지를 보냅니다.
-3. **이탈 멤버 재참여:** 비활성 멤버의 경우, Braze가 웹훅을 통해 Convercus에서 개인화된 쿠폰을 할당하고 이메일, 푸시, 인앱 메시지를 통해 전달합니다.
+3. **이탈 멤버 윈백:** 비활성 멤버의 경우, Braze가 웹훅을 통해 Convercus에서 개인화된 쿠폰을 할당하고 이메일, 푸시, 인앱 메시지를 통해 전달합니다.
 4. **메시지 내 실시간 포인트 잔액:** 연결된 콘텐츠를 사용하여 멤버의 실시간 포인트 잔액을 Braze Liquid로 가져와 "다음 보상까지 X 포인트 남았습니다"와 같은 메시지를 구현합니다.
 
 ## 필수 조건 {#prerequisites}
@@ -33,7 +33,7 @@ Convercus가 통합을 호스팅하므로 추가 인프라를 설치할 필요�
 | --- | --- |
 | Convercus 계정 | 활성 Convercus 프로그램이 필요합니다. 아직 고객이 아닌 경우 Convercus 계정 매니저에게 문의하세요. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키가 필요합니다. Braze 대시보드에서 **설정** > **API 키**로 이동하여 이 키를 생성하세요. |
-| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/api/basics#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 시스템 간에 일관된 사용자 식별자가 필요합니다. Braze에서 `external_id`(또는 선택한 식별자 유형)로 사용되는 값이 Convercus의 해당 멤버 식별자와 일치해야 합니다. 그렇지 않으면 이벤트가 올바른 프로필에 귀속되지 않습니다.
@@ -121,7 +121,7 @@ Content-Type: application/json
 
 ### 1단계: 동기화된 로열티 데이터로 메시지 개인화 {#step-1-personalize-messages-with-synced-loyalty-data}
 
-통합이 활성화되면 Convercus 이벤트가 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 통해 Braze의 각 사용자 프로필에 도착하며, 다른 네이티브 데이터와 동일하게 사용할 수 있습니다.
+통합이 활성화되면 Convercus 이벤트가 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 통해 Braze의 각 사용자 프로필에 도착하며, 다른 네이티브 데이터와 동일하게 사용할 수 있습니다.
 
 1. 로열티 커스텀 속성(예: `convercus_status_level`, `convercus_balance`)을 **Segments**에서 사용하여 등급 보유자, 높은 잔액 멤버 또는 최근 등급이 하락한 사용자를 타겟팅합니다.
 2. 커스텀 이벤트(예: `convercus_status_level_changed`, 쿠폰 및 멤버십 이벤트)를 Canvas의 **트리거 단계**로 사용하거나 재참여 Campaigns의 필터로 사용합니다.
@@ -182,13 +182,13 @@ Braze 워크스페이스 내에서 멤버는 `convercus_account_id`로 고유하
 
 #### 구매 {#purchases}
 
-`EARNTRANSACTION` 유형의 Convercus 트랜잭션(고객 지출로 적립된 포인트)은 Braze에 [구매]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#purchase-object-specification)로 보고되며, 트랜잭션 ID를 제품 식별자로, 트랜잭션 금액과 통화를 가격과 통화로 사용하여 Braze 매출 분석, RFM 세분화, 예측 기능에 반영됩니다.
+`EARNTRANSACTION` 유형의 Convercus 트랜잭션(고객 지출로 적립된 포인트)은 Braze에 [구매]({{site.baseurl}}/api/objects_filters/purchase_object)로 보고되며, 트랜잭션 ID를 제품 식별자로, 트랜잭션 금액과 통화를 가격과 통화로 사용하여 Braze 매출 분석, RFM 세분화, 예측 기능에 반영됩니다.
 
 `PAYWITHPOINTSTRANSACTION` 유형의 트랜잭션(포인트 차감)은 구매로 보고되지 **않습니다**—이러한 트랜잭션은 `convercus_account_transaction` 커스텀 이벤트로 전달되어 세분화에 활용할 수 있습니다. 적립 트랜잭션의 취소 및 환불은 음수 가격의 구매로 보고되어 Braze 매출이 Convercus와 일치하도록 유지됩니다.
 
 ### 2단계: 연결된 콘텐츠로 실시간 로열티 데이터 가져오기 {#step-2-fetch-live-loyalty-data-with-connected-content}
 
-전송 시점에 최신이어야 하는 값(현재 포인트 잔액, 활성 쿠폰, 최신 등급)의 경우, 가장 최근에 동기화된 속성에 의존하는 대신 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용하여 Braze에서 Convercus를 호출합니다. 두 엔드포인트 모두 웹훅과 동일한 기본 URL 아래에 있으며 `X-Convercus-Key` 헤더가 필요합니다.
+전송 시점에 최신이어야 하는 값(현재 포인트 잔액, 활성 쿠폰, 최신 등급)의 경우, 가장 최근에 동기화된 속성에 의존하는 대신 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 사용하여 Braze에서 Convercus를 호출합니다. 두 엔드포인트 모두 웹훅과 동일한 기본 URL 아래에 있으며 `X-Convercus-Key` 헤더가 필요합니다.
 
 | 데이터 | 엔드포인트 | 반환값 |
 | --- | --- | --- |

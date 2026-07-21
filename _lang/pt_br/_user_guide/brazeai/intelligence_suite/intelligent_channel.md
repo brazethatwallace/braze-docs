@@ -10,45 +10,65 @@ search_rank: 11
 
 > O filtro `Intelligent Channel` (anteriormente `Most Engaged`) seleciona a parte do seu público para quem o canal de envio de mensagens selecionado é o "melhor" canal.
 
-## Sobre o filtro de canal {#about-the-channel-filter}
+## Sobre o filtro {#about-the-filter}
 
 ![O filtro Intelligent Channel com um menu suspenso para os diferentes canais que podem ser selecionados.]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
 
-Neste caso, "melhor" significa que o canal tem a maior probabilidade de engajamento, dado o histórico do usuário. Você pode selecionar e-mail, SMS, WhatsApp, push para a web ou mobile push (incluindo qualquer sistema operacional ou dispositivo móvel disponível) como canal.
+Neste caso, "melhor" significa que o canal tem a maior probabilidade de engajamento, dado o histórico do usuário. Você pode selecionar e-mail, SMS, WhatsApp, web push ou mobile push (incluindo qualquer sistema operacional ou dispositivo móvel disponível) como canal.
 
-O Canal Inteligente calcula a taxa de engajamento para cada usuário em cada um dos canais disponíveis, levando em conta a razão entre interações com mensagens (aberturas ou cliques) e o número de mensagens recebidas nos últimos seis meses de atividade. Os canais disponíveis são classificados de acordo com suas respectivas taxas de engajamento, e o canal com a maior taxa é o "Mais engajado" para esse usuário.
+O Canal Inteligente calcula uma taxa de engajamento para cada usuário em cada canal compatível, classifica esses canais e trata o canal com a classificação mais alta como o melhor canal daquele usuário.
 
-Toda vez que uma mensagem é enviada a um usuário, ou que um usuário interage com uma mensagem, a taxa de engajamento é recalculada em segundos. Um usuário só pode ser contado como tendo interagido com uma mensagem uma vez (por exemplo, uma abertura e um clique no mesmo e-mail farão com que essa mensagem seja marcada como tendo sido engajada apenas uma vez, não duas).
+Para ativar o filtro Canal Inteligente, selecione o filtro **Intelligent Channel** na página **Público-alvo** ao criar uma Campaign ou Canvas.
 
-Para ativar o filtro Canal Inteligente, selecione o filtro **Intelligent Channel** na página **Público-alvo** ao criar uma Campaign de e-mail, push para a web ou mobile push.
+## Como o engajamento é calculado por canal {#how-engagement-is-calculated-by-channel}
+
+O Canal Inteligente compara canais usando uma taxa de engajamento: o número de interações com mensagens dividido pelo número de mensagens recebidas. A Braze avalia até as últimas 100 mensagens recebidas por canal nos últimos seis meses.
+
+Toda vez que uma mensagem é enviada a um usuário ou que um usuário interage com uma mensagem, a taxa de engajamento é recalculada em segundos. Um usuário só pode ser contado como tendo interagido com uma mensagem uma vez (por exemplo, uma abertura e um clique no mesmo e-mail fazem com que essa mensagem seja marcada como tendo sido engajada apenas uma vez, não duas).
+
+### Dados de interação por canal {#interaction-data-by-channel}
+
+A Braze rastreia os seguintes eventos ao calcular as taxas de engajamento:
+
+- **E-mail:** Aberturas ([aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) excluídas). Cliques em e-mail não são incluídos.
+- **Mobile push:** Aberturas Diretas. Cada plataforma móvel (como iOS, Android e Kindle) é pontuada separadamente. Aberturas por Influência de push não são incluídas.
+- **Web push:** Aberturas
+- **SMS:** Cliques em links encurtados
+- **WhatsApp:** Leituras de mensagens ou cliques em links rastreados
+
+Aberturas por Influência de push, cliques em e-mail e atividade de sessão não são usados pelo Canal Inteligente. A atividade de sessão é usada pelo [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#about-intelligent-timing).
+
+O Canal Inteligente não oferece suporte a webhooks, LINE, Kakao Talk, In-App Messages ou Content Cards.
 
 {% alert important %}
-Para calcular a taxa de engajamento do canal de SMS, ative o [encurtamento de links de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview) com rastreamento avançado e rastreamento de cliques. Sem esse rastreamento, o SMS pode ser selecionado como o Canal Inteligente com uma taxa de engajamento de 0% devido ao nosso [comportamento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
+Para calcular a taxa de engajamento do canal de SMS, ative o [encurtamento de links de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) com rastreamento avançado e rastreamento de cliques. Sem esse rastreamento, o SMS pode ser selecionado como o Canal Inteligente com uma taxa de engajamento de 0% devido ao nosso [comportamento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
 {% endalert %}
 
-## A opção "Dados insuficientes" {#the-not-enough-data-option}
+## Dados insuficientes {#not-enough-data}
 
-Para que a Braze determine qual é o "melhor" canal, é necessário que haja dados suficientes. Isso significa que um usuário deve ter recebido pelo menos três ou mais mensagens por canal em pelo menos dois dos três canais disponíveis. As mensagens não precisam necessariamente ter sido abertas.
+Para que a Braze determine qual canal é o "melhor", é necessário que haja dados suficientes. Isso significa que um usuário deve ter recebido pelo menos três ou mais mensagens em um canal antes que esse canal possa ser classificado, e deve ter dados suficientes em pelo menos dois canais compatíveis.
 
-Se os usuários não tiverem recebido mensagens suficientes nos canais, eles serão enquadrados na opção "Dados insuficientes" desse filtro. Isso permite que você use qualquer um dos três canais de envio de mensagens disponíveis para direcionar esses usuários.
+Se os usuários não tiverem recebido mensagens suficientes nos canais, eles serão enquadrados na opção "Dados insuficientes" desse filtro. Isso permite que você use qualquer canal de envio de mensagens compatível para direcionar esses usuários.
 
 Por exemplo, suponha que você queira que os usuários que preferem push recebam um push e que os usuários que não têm dados suficientes recebam a mesma mensagem push. Nesse caso, você poderia definir o filtro do Canal Inteligente como **Mobile push** e usar **OR** para adicionar um segundo filtro de Canal Inteligente definido como **Not Enough Data**. Uma Campaign separada com o filtro de Canal Inteligente definido como e-mail poderia abordar os usuários que preferem e-mail.
 
 ![Filtros de Canal Inteligente para mobile push ou dados insuficientes.]({% image_buster /assets/img/intelligent_example.png %}){:style="border:none"}
 
 {% alert note %}
-Campaigns e etapas do Canvas que ignoram o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules) não serão contabilizadas pelo Canal Inteligente e não poderão contribuir para os requisitos de dados.
+Campaigns e etapas do Canvas que ignoram o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules) não são contabilizadas pelo Canal Inteligente e não podem contribuir para os requisitos de dados.
 {% endalert %}
 
-## A opção "Mobile push" {#the-mobile-push-option}
+## Mobile push
 
-O mobile push incorpora Android, iOS, Kindle e outros canais de dispositivos móveis disponíveis na Braze. Ao calcular o Canal Inteligente, a Braze analisa cada tipo de dispositivo móvel separadamente e, em seguida, escolhe a taxa de engajamento mais alta entre eles para representar a categoria "Mobile Push" na comparação com e-mail e push para a web.
+O mobile push incorpora Android, iOS, Kindle e outros canais de dispositivos móveis disponíveis na Braze. A Braze pontua cada plataforma móvel separadamente ao calcular as taxas de engajamento.
 
-Por exemplo, se um usuário tiver vários dispositivos móveis, sua taxa de engajamento móvel será representada pela taxa mais alta exibida entre os dispositivos. Isso, no entanto, não forçaria o usuário a receber notificações por push exclusivamente nesse dispositivo. Essa taxa é usada somente na comparação de taxas com e-mail e push para a web.
+Quando você usa o filtro Canal Inteligente definido como **Mobile push**, um usuário corresponde se iOS push ou Android push for o canal com a classificação mais alta. Isso não força o usuário a receber notificações por push em um dispositivo específico. A classificação é usada apenas para determinar se o mobile push é o melhor canal daquele usuário em comparação com e-mail, web push, SMS e WhatsApp.
 
 ## Filtro de probabilidade de abertura de mensagem para canais individuais {#individual-channels}
 
 Em vez de deixar a Braze escolher o único melhor canal para um usuário, você pode usar o [filtro de segmentação "Probabilidade de abertura de mensagem"]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) para filtrar usuários com base na probabilidade de abrirem uma mensagem em um canal específico que você escolher. Esse filtro é calculado pela porcentagem de interações dividida pelo total de mensagens recebidas nas últimas 100 mensagens enviadas por canal.
+
+A Probabilidade de abertura de mensagem usa os mesmos dados de engajamento subjacentes do Canal Inteligente, mas permite que você defina um limite para um único canal em vez de selecionar o melhor canal do usuário. Está disponível para e-mail, mobile push, SMS e web push.
 
 Observe que um usuário deve ter recebido pelo menos três mensagens em um canal específico antes de poder ter uma pontuação de probabilidade para esse canal. Usuários sem dados suficientes para medir a probabilidade de um canal podem ser selecionados usando "está em branco."
 
@@ -56,7 +76,9 @@ Observe que um usuário deve ter recebido pelo menos três mensagens em um canal
 
 ### Desempate {#tie-breaking}
 
-Como alguns usuários terão um baixo número de mensagens recebidas, não é incomum haver empates nas taxas de engajamento entre os canais disponíveis para um determinado usuário (por exemplo, um único usuário tem uma taxa de engajamento de 0,2 **tanto** para e-mail quanto para mobile push). Nesses casos, os empates serão desfeitos priorizando (dando uma classificação mais alta) o canal com os eventos de abertura mais recentes.
+Como alguns usuários recebem um número baixo de mensagens, não é incomum haver empates nas taxas de engajamento entre os canais disponíveis para um determinado usuário (por exemplo, um único usuário pode ter uma taxa de engajamento de 20% tanto para e-mail quanto para mobile push). Nesses casos, os empates são desfeitos priorizando (dando uma classificação mais alta) o canal com os eventos de interação mais recentes.
+
+Se os canais empatados tiverem uma taxa de engajamento de 0%, a Braze desfaz o empate usando o canal com a mensagem recebida mais recente.
 
 ### Canais inacessíveis {#unreachable-channels}
 

@@ -1,23 +1,31 @@
 ---
-nav_title: Referrals
+nav_title: "Referrals"
 article_title: Referrals
 page_order: 5
 page_type: landing
-description: "This page lists Braze partners (Alloys) who provide referral marketing integrations."
-layout: partner_page
+description: "Browse technology partner integrations for Referrals."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "Referral Partners"
+guide_top_header: "Referrals"
+guide_top_text: "Browse technology partner integrations for Referrals. For a full searchable and filterable list of all Braze technology partners, visit the <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
-valid_partner_list:
-- name: Extole
-  url: /docs/partners/extole/
-- name: Friendbuy
-  url: /docs/partners/friendbuy/
-- name: Mention Me
-  url: /docs/partners/mention_me/
-- name: Talkable
-  url: /docs/partners/talkable/
-- name: ViralSweep
-  url: /docs/partners/viralsweep/
+guide_featured_title: "Partners"
+guide_featured_list:
+  - name: "Extole"
+    link: /docs/partners/message_personalization/referrals/extole
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Friendbuy"
+    link: /docs/partners/message_personalization/referrals/friendbuy
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Mention Me"
+    link: /docs/partners/message_personalization/referrals/mention_me
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Talkable"
+    link: /docs/partners/message_personalization/referrals/talkable
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "ViralSweep"
+    link: /docs/partners/message_personalization/referrals/viralsweep
+    image: /assets/img/braze_icons/users-01.svg
 ---
+

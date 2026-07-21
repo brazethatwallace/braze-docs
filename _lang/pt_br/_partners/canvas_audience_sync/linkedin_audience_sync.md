@@ -59,7 +59,7 @@ Sua conexão com o LinkedIn será aplicada no nível do espaço de trabalho da B
 
 Ao criar públicos para rastreamento de anúncios, talvez seja necessário incluir ou excluir determinados usuários com base em suas preferências e para cumprir as leis de privacidade, como o direito de "Não vender ou compartilhar" de acordo com a [CCPA](https://oag.ca.gov/privacy/ccpa). Os profissionais de marketing devem implementar os filtros relevantes para a elegibilidade dos usuários em seus critérios de entrada no Canvas. Abaixo, listamos algumas opções.
 
-Se você coletou o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection), poderá usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar os usuários apenas para destinos do Audience Sync nos quais eles aceitaram participar.
+Se você coletou o [IDFA do iOS por meio do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), poderá usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar os usuários apenas para destinos do Audience Sync nos quais eles aceitaram participar.
 
 ![Um público de entrada com o filtro "Ad Tracking Enabled is true".]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 

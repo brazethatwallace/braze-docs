@@ -3,7 +3,7 @@ nav_title: Utilisateurs de l'entreprise
 article_title: Gérer les utilisateurs de l'entreprise
 page_order: 0
 page_type: reference
-description: "Cette page explique comment gérer les utilisateurs de votre entreprise, notamment ajouter et supprimer des utilisateurs, définir les autorisations, créer des équipes et gérer les paramètres de l'entreprise."
+description: "Cette page explique comment gérer les utilisateurs de votre entreprise, notamment ajouter et supprimer des utilisateurs, définir les autorisations, créer des Teams et gérer les paramètres de l'entreprise."
 ---
 
 # Gérer les utilisateurs de l'entreprise {#manage-company-users}
@@ -19,7 +19,7 @@ Pour ajouter un nouvel utilisateur :
 1. Accédez à **Paramètres** > **Gestion des utilisateurs** > **Utilisateurs de l'entreprise**.
 2. Sélectionnez **+ Ajouter un nouvel utilisateur**.
 3. Saisissez les informations demandées, notamment l'adresse e-mail, le département et le [rôle utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role).
-4. Pour les utilisateurs qui ne sont pas administrateurs, sélectionnez les [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions) au niveau de l'entreprise et au niveau de l'espace de travail que vous souhaitez accorder à cet utilisateur.
+4. Pour les utilisateurs qui ne sont pas administrateurs, sélectionnez les [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions) au niveau de l'entreprise et au niveau de l'espace de travail que vous souhaitez accorder à cet utilisateur.
 
 ![Autorisations au niveau de l'espace de travail avec une section pour les champs d'autorisations personnalisées.]({% image_buster /assets/img/add_new_user_3.png %})
 
@@ -73,11 +73,11 @@ Après la suppression d'un utilisateur, Braze ne conserve aucune des données de
 Braze conservera les données de compte suivantes :
 
 - Les attributs personnalisés ou les données de test associés à leur compte
-- Les Campaigns ou Canvas qu'ils ont créés (mais le nom de l'utilisateur n'y apparaîtra plus, par exemple dans la colonne **Dernière modification**)
+- Les Campaigns ou Canvas qu'ils ont créés (mais le nom de l'utilisateur n'y apparaîtra plus, par exemple dans la colonne **Dernière modification par**)
 
 ### Impact de la suppression d'un utilisateur du tableau de bord {#impact-of-deleting-a-dashboard-user}
 
-Lorsqu'un utilisateur du tableau de bord est supprimé, il n'y a pas d'impact significatif sur les ressources qu'il a créées dans le tableau de bord, telles que les campagnes, les Segments et les Canvas. Cependant, le champ **Créé par** de ces ressources affichera une valeur « null » au lieu de l'adresse e-mail de l'utilisateur supprimé.
+Lorsqu'un utilisateur du tableau de bord est supprimé, il n'y a pas d'impact significatif sur les ressources qu'il a créées dans le tableau de bord, telles que les Campaigns, les Segments et les Canvas. Cependant, le champ **Créé par** de ces ressources affichera une valeur « null » au lieu de l'adresse e-mail de l'utilisateur supprimé.
 
 Si un nouvel utilisateur du tableau de bord est ensuite créé avec la même adresse e-mail que l'utilisateur supprimé, Braze ne réassociera pas les ressources créées par l'utilisateur supprimé au nouvel utilisateur. Le nouvel utilisateur du tableau de bord repartira de zéro et ne sera pas crédité comme créateur des ressources existantes dans le tableau de bord.
 
@@ -107,4 +107,4 @@ Si vous ne recevez pas le message d'activation dans votre boîte de réception l
 Après avoir ajouté des utilisateurs, gérez leur accès :
 
 - [Autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) pour configurer ce que chaque utilisateur peut faire dans le tableau de bord.
-- [Équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) pour organiser les utilisateurs en groupes avec un accès partagé à des objets spécifiques du tableau de bord.
+- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) pour organiser les utilisateurs en groupes avec un accès partagé à des objets spécifiques du tableau de bord.

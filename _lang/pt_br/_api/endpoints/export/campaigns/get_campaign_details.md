@@ -22,7 +22,7 @@ Se quiser recuperar dados de Canvas, consulte o endpoint [Exportar detalhes do C
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `campaigns.details`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.details`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -30,11 +30,11 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obrigatória | String | Consulte [identificador de API da campanha]({{site.baseurl}}/api/identifier_types).<br><br> O `campaign_id` para campanhas de API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) e na página **Campaign Details** dentro do seu dashboard; ou você pode usar o [endpoint Exportar lista de campanhas](#campaign-list-endpoint). |
-| `post_launch_draft_version` | Opcional | booleano | Para mensagens que têm um rascunho pós-lançamento, definir isso como `true` mostrará quaisquer alterações de rascunho disponíveis. Padrão: `false`. |
-| `include_has_translatable_content` | Opcional | booleano | Quando definido como `true`, a resposta da API inclui um campo `has_translatable_content` para cada mensagem. Padrão: `false`. |
+| `campaign_id` | Obrigatório | String | Consulte [identificador de API da campanha]({{site.baseurl}}/api/identifier_types).<br><br> O `campaign_id` para campanhas de API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) e na página **Campaign Details** dentro do seu dashboard; ou você pode usar o [endpoint Exportar lista de campanhas](#campaign-list-endpoint). |
+| `post_launch_draft_version` | Opcional | Booleano | Para mensagens que têm um rascunho pós-lançamento, definir isso como `true` mostrará quaisquer alterações de rascunho disponíveis. Padrão: `false`. |
+| `include_has_translatable_content` | Opcional | Booleano | Quando definido como `true`, a resposta da API inclui um campo `has_translatable_content` para cada mensagem. Padrão: `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

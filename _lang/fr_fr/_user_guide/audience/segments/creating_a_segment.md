@@ -18,12 +18,12 @@ Allez dans **Audience** > **Segments**.
 
 ## Étape 2 : Nommer votre segment {#step-2-name-your-segment}
 
-Sélectionnez **Créer un segment** pour commencer à construire votre segment. Nommez votre segment en décrivant le type d'utilisateur que vous souhaitez filtrer. Cela vous aidera à identifier le segment lorsque vous voudrez le cibler pour vos Campaigns ou Canvas. Des titres de segment vagues peuvent prêter à confusion.
+Sélectionnez **Create Segment** pour commencer à construire votre segment. Nommez votre segment en décrivant le type d'utilisateur que vous souhaitez filtrer. Cela vous aidera à identifier le segment lorsque vous voudrez le cibler pour vos Campaigns ou Canvas. Des titres de segment vagues peuvent prêter à confusion.
 
 Vous pouvez également effectuer les actions suivantes :
 - Ajouter une description au segment pour fournir plus de détails sur l'intention de cette audience et laisser des notes auxquelles les autres membres de l'équipe pourront se référer.
 - Ajouter une [équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) à votre segment.
-- Ajouter des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) à votre segment pour une meilleure organisation.
+- Ajouter des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) à votre segment pour une meilleure organisation.
 
 ![Fenêtre modale de création de segment où le segment est nommé « Lapsed Users » avec la description du segment « This is our main Lapsed User segment to target non-actives within the past fourteen days. » et deux boutons : Cancel et Create Segment.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
 
@@ -82,7 +82,7 @@ Si `not included`, `is not`, `does not equal` ou `does not match regex` sont uti
 
 ### Opérateurs de filtre {#filter-operators}
 
-Selon le filtre spécifique que vous sélectionnez, vous disposerez de différents opérateurs pour identifier les valeurs de filtre. Pour approfondir les opérateurs disponibles pour les différents types d'attributs personnalisés, consultez [Stockage des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes). Notez que lorsque vous utilisez l'opérateur « is any of », le nombre maximum d'éléments que vous pouvez inclure dans ce champ est de 256.
+Selon le filtre spécifique que vous sélectionnez, vous disposerez de différents opérateurs pour identifier les valeurs de filtre. Pour approfondir les opérateurs disponibles pour les différents types d'attributs personnalisés, consultez [Stockage des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes). Notez que lorsque vous utilisez l'opérateur « is any of », le nombre maximum d'éléments que vous pouvez inclure dans ce champ est de 256.
 
 {% alert note %}
 Braze ne génère pas de profils pour les utilisateurs tant qu'ils n'ont pas utilisé l'application pour la première fois, vous ne pouvez donc pas cibler les utilisateurs qui n'ont pas encore ouvert votre application.
@@ -91,7 +91,7 @@ Braze ne génère pas de profils pour les utilisateurs tant qu'ils n'ont pas uti
 ![Groupes de filtres du segmenteur avec l'opérateur AND.]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
 {% alert important %}
-Les segments utilisant déjà le filtre **Segment Membership** ne peuvent pas être davantage inclus ou imbriqués dans d'autres segments. Cela empêche un cycle où le segment A inclut le segment B, qui tente ensuite d'inclure le segment A à nouveau. Si cela se produisait, le segment continuerait à se référencer lui-même, rendant impossible le calcul de qui appartient réellement au segment.
+Les segments utilisant déjà le filtre **Segment Membership** ne peuvent pas être davantage inclus ou imbriqués dans d'autres segments. Cela empêche un cycle où le Segment A inclut le Segment B, qui tente ensuite d'inclure le Segment A à nouveau. Si cela se produisait, le segment continuerait à se référencer lui-même, rendant impossible le calcul de qui appartient réellement au segment.
 
 De plus, l'imbrication de segments de cette manière ajoute de la complexité et peut ralentir les choses. À la place, recréez le segment que vous essayez d'inclure en utilisant les mêmes filtres.
 {% endalert %}
@@ -116,7 +116,7 @@ Gardez à l'esprit que si vous utilisez AND entre vos filtres, les statistiques 
 
 ![Deux filtres avec les statistiques de l'entonnoir du segment.]({% image_buster /assets/img_archive/segment_funnel_statistics.png %})
 
-En ajoutant des filtres qui documentent votre flux d'utilisateurs, vous pouvez voir les points où les utilisateurs décrochent. Par exemple, si vous êtes une application de réseau social et que vous souhaitez voir où vous pourriez perdre des utilisateurs pendant votre processus d'onboarding, vous pouvez ajouter des filtres de données personnalisées pour l'inscription, l'ajout d'amis et l'envoi du premier message. Si vous constatez que 85 % des utilisateurs s'inscrivent et ajoutent des amis, mais que seulement 45 % ont envoyé le premier message, alors vous saurez qu'il faut vous concentrer sur l'encouragement à envoyer plus de messages pendant vos Campaigns d'onboarding et de marketing.
+En ajoutant des filtres qui documentent votre flux d'utilisateurs, vous pouvez voir les points où les utilisateurs décrochent. Par exemple, si vous êtes une application de réseau social et que vous souhaitez voir où vous pourriez perdre des utilisateurs pendant votre processus d'onboarding, vous pouvez ajouter des filtres de données personnalisées pour l'inscription, l'ajout d'amis et l'envoi du premier message. Si vous constatez que 85 % des utilisateurs s'inscrivent et ajoutent des amis, mais que seulement 45 % ont envoyé le premier message, alors vous saurez qu'il faut vous concentrer sur l'encouragement à envoyer plus de messages pendant vos campagnes d'onboarding et de marketing.
 
 ### Tester les segments {#testing-segments}
 
@@ -159,7 +159,7 @@ Pour en savoir plus sur le suivi de l'appartenance et de la taille de votre segm
 
 ## Archiver des segments {#archiving-segments}
 
-Si vous n'avez plus besoin d'un segment spécifique ou souhaitez le retirer, vous pouvez l'archiver en accédant à la page **Segments** et en sélectionnant **Archiver** dans le menu de la ligne de ce segment.
+Si vous n'avez plus besoin d'un segment spécifique ou souhaitez le retirer, vous pouvez l'archiver en accédant à la page **Segments** et en sélectionnant **Archive** dans le menu de la ligne de ce segment.
 
 {% alert warning %}
 Lorsque vous archivez un segment, toutes les Campaigns ou Canvas qui l'utilisent (même si le segment n'est utilisé que dans un seul composant Canvas) seront également archivés. Cela inclut également les segments imbriqués où les deux segments et toutes les Campaigns ou Canvas qui les utilisent seront également archivés.

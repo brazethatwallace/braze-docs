@@ -24,7 +24,7 @@ guide_featured_list:
 Muchas plataformas actuales disponen de "webhooks", o notificaciones de API en tiempo real, para enviar información sobre un nuevo evento o nuevos datos de una plataforma a otra. Transformación de datos proporciona:
 
 * Una dirección URL de Braze para recibir dichos webhooks.
-* Capacidades para transformar la carga útil del webhook con código JavaScript para crear solicitudes válidas a varios puntos finales de la API de Braze, incluidos `/users/track` o `/catalogs` de Braze. Por ejemplo, para el destino `/users/track`, puedes elegir qué información utilizar del webhook y cómo deseas que se representen los datos en los perfiles de usuario de Braze como atributos de usuario, eventos o compras.
+* Capacidades para transformar la carga útil del webhook con código JavaScript para crear solicitudes válidas a varios endpoints de la API de Braze, incluidos `/users/track` o `/catalogs` de Braze. Por ejemplo, para el destino `/users/track`, puedes elegir qué información utilizar del webhook y cómo deseas que se representen los datos en los perfiles de usuario de Braze como atributos de usuario, eventos o compras.
 * Registro para realizar el control de calidad, solucionar problemas y supervisar el rendimiento de tus transformaciones.
 
 El resultado final es una integración de webhook que conecta una plataforma fuente de tu elección convirtiendo sus webhooks en actualizaciones de Braze.
@@ -32,7 +32,7 @@ El resultado final es una integración de webhook que conecta una plataforma fue
 {% details Más sobre webhooks %}
 Los webhooks son notificaciones en tiempo real enviadas a través de una solicitud HTTP POST a un destino específico. Los webhooks se utilizan a menudo para enviar datos de un punto a otro, en el que el webhook puede pasar datos sobre una acción que se ha producido y quién estaba involucrado en esa acción.
 
-Por ejemplo, una plataforma de encuestas puede enviar un webhook a un destino de tu elección cada vez que se reciba una respuesta a un formulario en línea. O bien, una plataforma de atención al cliente puede enviar un webhook a un destino de su elección cada vez que se cree un ticket de atención al cliente.
+Por ejemplo, una plataforma de cuestionarios puede enviar un webhook a un destino de tu elección cada vez que se reciba una respuesta a un formulario en línea. O bien, una plataforma de atención al cliente puede enviar un webhook a un destino de su elección cada vez que se cree un ticket de atención al cliente.
 {% enddetails %}
 
 ## Niveles de Transformación de datos {#data-transformation-tiers}
@@ -46,7 +46,7 @@ La siguiente tabla describe las diferencias entre la versión gratuita y la vers
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveles de Transformación de datos" }
 
 {% alert important %}
-Para solicitar una actualización a Transformación de datos Pro, ponte en contacto con tu director de cuentas de Braze o selecciona el botón **Request Upgrade** en el dashboard de Braze.
+Para solicitar una actualización a Transformación de datos Pro, ponte en contacto con tu director de cuentas de Braze o selecciona el botón **Request Upgrade** en el panel de Braze.
 {% endalert %}
 
 ### Límites de velocidad {#rate-limits}
@@ -65,7 +65,7 @@ Aunque nos encantaría que los desarrolladores también utilizaran esta caracter
 
 ### ¿Puedo seguir utilizando Transformación de datos de Braze si mi plataforma externa solo proporciona una dirección de correo electrónico o un número de teléfono como identificador? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
-Sí. Puedes hacer que tus transformaciones actualicen el punto de conexión `/users/track` con la [dirección de correo electrónico o el número de teléfono como identificador]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-email-address).
+Sí. Puedes hacer que tus transformaciones actualicen el endpoint `/users/track` con la [dirección de correo electrónico o el número de teléfono como identificador]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-email-address).
 
 Esto funciona utilizando `email` o `phone` como tu propiedad identificadora en el código de transformación en lugar de `external_id` o `braze_id`. El [código de transformación]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases#example-transformation-code) de ejemplo utiliza esta funcionalidad.
 

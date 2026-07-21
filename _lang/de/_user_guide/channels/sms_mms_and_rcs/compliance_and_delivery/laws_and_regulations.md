@@ -69,7 +69,7 @@ Hier sind einige Links, die Sie beim Aufbau Ihrer SMS-, MMS- oder RCS-Kampagne k
 
 Die Privatsphäre von Kund:innen ist der Schlüssel zu einer bedeutungsvollen und respektvollen Beziehung. Die Privatsphäre und die Informationen von Kund:innen zu respektieren, ist eine weitere Gelegenheit, eine Bindung zwischen ihnen und Ihrer Marke aufzubauen. Manchmal können Marketing-Tools dazu führen, dass Daten und Datenschutz in den Hintergrund rücken.
 
-Glücklicherweise befolgt Braze die Richtlinien vieler [Sicherheitsvorschriften]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications), einschließlich der [DSGVO]({{site.baseurl}}/dp-technical-assistance).
+Glücklicherweise befolgt Braze die Richtlinien vieler [Sicherheitsvorschriften]({{site.baseurl}}/developer_guide/disclosures/security_qualifications), einschließlich der [DSGVO]({{site.baseurl}}/dp-technical-assistance).
 
 Die [CTIA](https://www.ctia.org/) (ein Branchenverband, der die Mobilfunkindustrie in den Vereinigten Staaten vertritt) empfiehlt, eine klare und leicht verständliche Datenschutzrichtlinie zu pflegen und gut sichtbar anzuzeigen.
 
@@ -77,7 +77,7 @@ Die [CTIA](https://www.ctia.org/) (ein Branchenverband, der die Mobilfunkindustr
 
 Opt-in-, Hilfe- und Opt-out-Optionen sind beim Erstellen von SMS-, MMS- oder RCS-Kampagnen ein absolutes Muss.
 
-Der Telephone Consumer Protection Act ([TCPA](https://en.wikipedia.org/wiki/Telephone_Consumer_Protection_Act_of_1991)) schreibt vor, dass ein Unternehmen eine „ausdrückliche schriftliche Zustimmung“ einholen muss, um Kund:innen Nachrichten zu senden – dies kann auf verschiedene Weisen geschehen, einschließlich über Web oder Mobilgeräte. Sie müssen gegenüber den Kund:innen klar kommunizieren, wie Sie SMS zur Kommunikation mit ihnen nutzen möchten.
+Der Telephone Consumer Protection Act ([TCPA](https://en.wikipedia.org/wiki/Telephone_Consumer_Protection_Act_of_1991)) schreibt vor, dass ein Unternehmen eine „ausdrückliche schriftliche Zustimmung“ einholen muss, um Kund:innen Nachrichten zu senden – dies kann auf verschiedene Weisen geschehen, einschließlich über Internet oder Mobilgeräte. Sie müssen gegenüber den Kund:innen klar kommunizieren, wie Sie SMS zur Kommunikation mit ihnen nutzen möchten.
 
 Denken Sie daran, das [National Do Not Call Registry](https://www.donotcall.gov/) einzuhalten.
 

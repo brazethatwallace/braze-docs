@@ -266,7 +266,7 @@ The **View PII** permission is only accessible to a few select company users. By
 You need the **View PII** permission to use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), because it allows direct access to some customer data.
 {% endalert %}
 
-For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
+For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### Defining PII
 

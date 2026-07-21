@@ -18,15 +18,15 @@ BrazeはAppleのiOS用デバイストークンを使用します。
 
 #### プッシュトークンの移行 {#push-token-migration}
 
-[APIを通じてプッシュトークンを移行する]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)必要があります。リンク先のドキュメントには具体的な手順とペイロードの例が記載されていますが、全体的な流れは以下のとおりです。
+[APIを通じてプッシュトークンを移行する]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)必要があります。リンク先のドキュメントには具体的な手順とペイロードの例が記載されていますが、全体的な流れは以下のとおりです。
 
-1. [`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)経由でトークンをインポートします。大規模なバッチインポートについては、プロセスを迅速化するためのリソースをご用意しています。詳細はCOMまたはSAにお問い合わせください！
+1. [`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)経由でトークンをインポートします。大規模なバッチインポートについては、プロセスを迅速化するためのリソースをご用意しています。詳細はCOMまたはSAにお問い合わせください！
 2. トークンがすでにBrazeに存在する場合は無視され、存在しない場合は匿名プロファイルが生成されます。
 3. プッシュ統合の品質保証を行います。[プッシュを設定する]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)手順が完了していることを確認してください。
 
 ユーザープロファイルとプッシュトークンが別々の場所に保存されている場合は、プッシュトークンを匿名でインポートし、その後で既存のユーザープロファイルを移行することをお勧めします。Braze iOS SDKが統合成功時にトークンの解決を処理するため、これらを一緒にマッピングする必要はありません。
 
-- API経由でユーザーを移行することをお勧めしますが、静的なユーザーリストをインポートする必要がある場合はCSV経由で行うことができます。なお、**プッシュトークンはCSVではインポートできません**。「push_token」オブジェクトをCSVで指定できないためです。インポートテンプレートやダッシュボードへのデータインポートの詳細については、[CSVドキュメント]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv)を参照してください。
+- API経由でユーザーを移行することをお勧めしますが、静的なユーザーリストをインポートする必要がある場合はCSV経由で行うことができます。なお、**プッシュトークンはCSVではインポートできません**。「push_token」オブジェクトをCSVで指定できないためです。インポートテンプレートやダッシュボードへのデータインポートの詳細については、[CSVドキュメント]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#csv)を参照してください。
 
 {% alert note %}
 プッシュトークンはBrazeのダッシュボードでは`subscribed`と表示される場合がありますが、ユーザーがBraze SDKでセッションを開始すると`opted-in`に変わります。
@@ -46,30 +46,30 @@ Brazeはプッシュのために別々のチャネルを必要とします（iOS
 | **Brazeの観点:**<br>当社は、顧客が妥協することなく両方のメリットを得られるようにしています。個々のチャネルをフルに活用できることで、マーケターにとっては柔軟性が増し、ユーザーエクスペリエンスも向上します。これにより、各OSの最新機能を採用することができます。例えば、AndroidはiOSより先にリッチ通知をサポートしていました。 |
 {: .reset-td-br-1 aria-label="Push notifications" }
 
-Brazeは、Braze SDKがインストールされたアプリケーションをアップデートしていないユーザーにもプッシュ通知を送信できます。Brazeに有効なプッシュトークンがある場合、APNsが残りを処理するため、Braze SDKなしでプッシュ通知を送信できます。プッシュメッセージの**分析はBraze SDKを使用しないビルドでは利用できない**ことに注意してください。
+Brazeは、Braze SDKがインストールされたアプリケーションを更新していないユーザーにもプッシュ通知を送信できます。Brazeに有効なプッシュトークンがある場合、APNsが残りを処理するため、Braze SDKなしでプッシュ通知を送信できます。プッシュメッセージの**分析はBraze SDKを使用しないビルドでは利用できない**ことに注意してください。
 
 ##### トークンの共有 {#sharing-tokens}
 
 Braze SDKへの移行プロセス中も継続する必要があるライフサイクル固有のキャンペーンの場合、Brazeが有効なプッシュトークンを受け取っていれば、ユーザーはBrazeとAirshipの両方から通知を受け取ることができます。
 
 #### メッセージセンター {#message-center}
-Airshipのメッセージセンター機能を置き換えるには、プッシュ通知と[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)で構成されるマルチチャネルキャンペーンを作成することをお勧めします。Content Cardsをメッセージセンター形式で使用する方法については、[iOS Content Cards実装ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/implementation_guide/#content-cards-in-a-message-center)を参照してください。
+Airshipのメッセージセンターキャンペーン機能を置き換えるには、プッシュ通知と[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)で構成されるマルチチャネルキャンペーンを作成することをお勧めします。Content Cardsをメッセージセンター形式で使用する方法については、[iOS Content Cards実装ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/implementation_guide#content-cards-in-a-message-center)を参照してください。
 
 ### セグメンテーション {#segmentation}
-Brazeは、顧客に豊かなユーザー体験を提供するために、複数の[セグメンテーション]({{site.baseurl}}/user_guide/audience/segments/)フィルターを提供しています。
+Brazeは、顧客に豊かなユーザー体験を提供するために、複数の[セグメンテーション]({{site.baseurl}}/user_guide/audience/segments)フィルターを提供しています。
 
 | **Brazeの観点**:<br>Brazeのセグメントは完全に動的であるため、定義された条件の変化に応じてユーザーはセグメントに入ったり出たりします。 |
-{: .reset-td-br-1 aria-label="セグメントation" }
+{: .reset-td-br-1 aria-label="Segmentation" }
 
 #### ユーザーセグメントの移行 {#user-segment-migration}
 
 静的なAirshipのセグメントをBrazeで直接再現するには、2つの選択肢があります。
 - **API経由でインポートする - カスタム属性を割り当てる**（推奨）<br>
-[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)経由でユーザーをインポートし、同時にそのインポートしたユーザーにカスタム属性を割り当てることをお勧めします。例えば、`true`に設定されたカスタム属性`セグメント_Group_1`をそれぞれ持つユーザーのセグメントを作成できます。これらのユーザーを後でセグメント化するには、`セグメント_Group_1`が`true`であるすべてのユーザーの[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)します。<br><br>
+[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)経由でユーザーをインポートし、同時にそのインポートしたユーザーにカスタム属性を割り当てることをお勧めします。例えば、`true`に設定されたカスタム属性`Segment_Group_1`をそれぞれ持つユーザーのセグメントを作成できます。これらのユーザーを後でセグメント化するには、`Segment_Group_1`が`true`であるすべてのユーザーの[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)します。<br><br>
 - **CSVユーザーインポートに基づくフィルタリング**<br>
-Brazeには、特定のCSVインポートに含まれるユーザーを具体的にフィルターするオプションがあります。このフィルターオプションは、エンゲージメントツールのターゲットユーザーのステップの「ユーザーを`Updated/Imported via CSV`でフィルターする」の下にあります。
+Brazeには、特定のCSVインポートに含まれるユーザーを具体的にフィルターするオプションがあります。このフィルターオプションは、エンゲージメントツールのターゲットユーザーステップの「ユーザーを`Updated/Imported via CSV`でフィルターする」の下にあります。
 ![CSVインポートフィルター]({% image_buster /assets/img/csv_filter.png %}){: style="max-width:90%;border:0;"}
-CSVインポートでは、インポートされる各ユーザーにexternal IDが必要であり、**匿名またはエイリアスのみのユーザーを持つセグメントはインポートできない**ことに注意してください。インポートテンプレートやダッシュボードへのデータインポートの詳細については、[CSVドキュメント]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv)を参照してください。
+CSVインポートでは、インポートされる各ユーザーにexternal IDが必要であり、**匿名またはエイリアスのみのユーザーを持つセグメントはインポートできない**ことに注意してください。インポートテンプレートやダッシュボードへのデータインポートの詳細については、[CSVドキュメント]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#csv)を参照してください。
 
 ## SDKコードスニペットを置き換える {#replace-sdk-code-snippets}
 移行を簡単にするために、コード内に存在する以下のAirship SDKスニペットを強調表示し、それらを置き換えるために必要な対応するBraze SDKスニペットを提供しています。以下のトピックから始めてください。
@@ -101,7 +101,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 **Braze**
-`````````swift
+```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
 
     Appboy.start(withApiKey: apiKey, in: application, withLaunchOptions: launchOptions, withAppboyOptions: appboyOptions)
@@ -122,7 +122,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
-`````````objc
+```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
   [UAirship takeOff:[UAConfig defaultConfig]];
@@ -141,7 +141,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 **Braze**
-`````````objc
+```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
   [Appboy startWithApiKey:self.apiKey inApplication:application withLaunchOptions:launchOptions withAppboyOptions:self.appboyOptions];
@@ -170,7 +170,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 {% tabs %}
 {% tab Swift %}
 **Airship**
-`````````swift
+```swift
 extension AirshipManager {
   var userId: String? {
     return UAirship.namedUser()?.identifier
@@ -182,7 +182,7 @@ extension AirshipManager {
 }
 ```
 **Braze**
-`````````swift
+```swift
 extension AppboyManager {
   var userId: String? {
      return Appboy.sharedInstance()?.user.userID
@@ -196,7 +196,7 @@ extension AppboyManager {
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
-`````````objc
+```objc
 
 - (NSString *)userId {
   return [UAirship namedUser].identifier
@@ -207,7 +207,7 @@ extension AppboyManager {
 }
 ```
 **Braze**
-`````````objc
+```objc
 - (NSString *)userId {
   return [Appboy sharedInstance].user.userID;
 }
@@ -223,7 +223,7 @@ extension AppboyManager {
 {% tabs %}
 {% tab Swift %}
 **Airship**
-`````````swift
+```swift
 extension AirshipManager: UAPushNotificationDelegate {
   func receivedBackgroundNotification(_ notificationContent: UANotificationContent, completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
     completionHandler(.noData)
@@ -239,7 +239,7 @@ extension AirshipManager: UAPushNotificationDelegate {
 }
 ```
 **Braze**
-`````````swift
+```swift
 extension AppboyManager {
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     Appboy.sharedInstance()?.registerDeviceToken(deviceToken)
@@ -257,7 +257,7 @@ extension AppboyManager {
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
-`````````objc
+```objc
 - (void)receivedBackgroundNotification:(UANotificationContent *)notificationContent completionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
   completionHandler(UIBackgroundFetchResultNoData);
 }
@@ -271,7 +271,7 @@ extension AppboyManager {
 }
 ```
 **Braze**
-`````````objc
+```objc
 - (void)application:(UIApplication *)application didRegisterForRemoteNotifications
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     Appboy.sharedInstance()?.registerDeviceToken(deviceToken)
@@ -300,7 +300,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 {% tabs %}
 {% tab Swift %}
 **Airship**
-`````````swift
+```swift
 extension AirshipManager {
   func trackEvent(with name: String, value: NSDecimalNumber? = nil, eventProperties: [String: Any]? = nil) {
     let event = UACustomEvent(name: name, value: value)
@@ -320,7 +320,7 @@ extension AirshipManager {
 }
 ```
 **Braze**
-`````````swift
+```swift
 extension AppboyManager {
   func logCustomEvent(_ eventName: String, withProperties properties: [AnyHashable: Any]? = nil) {
     Appboy.sharedInstance()?.logCustomEvent(eventName, withProperties: properties)
@@ -338,7 +338,7 @@ extension AppboyManager {
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
-`````````objc
+```objc
 - (void)trackEventWith:(NSString *)name value:(NSDecimalNumber *)value eventProperties:(NSDictionary *)eventProperties {
   UACustomEvent *event = [[UACustomEvent alloc] init];
   event.eventName = name;
@@ -355,7 +355,7 @@ extension AppboyManager {
 }
 ```
 **Braze**
-`````````objc
+```objc
 - (void)logCustomEvent:(NSString *)eventName withProperties:(NSDictionary *)properties {
   [[Appboy sharedInstance] logCustomEvent:eventName withProperties: properties];
 }
@@ -375,7 +375,7 @@ extension AppboyManager {
 {% tabs %}
 {% tab Swift %}
 **Airship**
-`````````swift
+```swift
 
 extension AirshipManager: UAInAppMessagingDelegate {
   func extend(_ message: UAInAppMessage) -> UAInAppMessage {
@@ -390,7 +390,7 @@ extension AirshipManager: UAInAppMessagingDelegate {
 }
 ```
 **Braze**
-`````````swift
+```swift
 extension AppboyManager: ABKInAppMessageControllerDelegate {
   func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage) -> ABKInAppMessageDisplayChoice {
     // This delegate method defines whether the in-app message will be displayed now, displayed later, or discarded.
@@ -427,7 +427,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
-`````````objc
+```objc
 - (UAInAppMessage *)extendMessage:(UAInAppMessage *)message {
 
   return message;
@@ -442,7 +442,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 }
 ```
 **Braze**
-`````````objc
+```objc
 - (ABKInAppMessageDisplayChoice) beforeInAppMessageDisplayed:(ABKInAppMessage *)inAppMessage {
   return ABKDisplayInAppMessageNow;
 }
@@ -478,7 +478,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 {% tabs %}
 {% tab Swift %}
 **Airship**
-`````````swift
+```swift
 extension AirshipManager {
   func displayMessageCenter() {
     UAMessageCenter.shared()?.defaultUI.title = "My Message Center"
@@ -494,7 +494,7 @@ extension AirshipManager {
 }
 ```
 **Braze**
-`````````swift
+```swift
 extension AppboyManager {
   func displayContentCards(navigationController: UINavigationController?) {
     let contentCardsVc = ABKContentCardsTableViewController()
@@ -507,14 +507,14 @@ extension AppboyManager {
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
-`````````objc
+```objc
 - (void)displayMessageCenter {
   [UAMessageCenter shared].defaultUI.title = @"My Message Center";
   [[UAMessageCenter shared] display];
 }
 ```
 **Braze**
-`````````objc
+```objc
 - (void)displayContentCards:(UINavigationController *)navigationController {
   ABKContentCardsTableViewController *contentCards = [[ABKContentCardsTableViewController alloc] init];
   contentCards.title = @"My Message Center";

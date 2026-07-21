@@ -15,10 +15,7 @@ Braze Audience Sync to Criteo를 사용하면 브랜드는 자체 Braze 통합�
 
 **오디언스 동기화의 일반적인 사용 사례는 다음과 같습니다:**
 
-- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 인게이지먼트 유도
-- 다른 마케팅 채널에 반응이 적은 사용자를 리타겟팅
-- 이미 브랜드의 충성 소비자인 사용자가 광고를 받지 않도록 억제 오디언스 생성
-- 유사 오디언스를 생성하여 신규 사용자를 더 효율적으로 확보
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 이 기능을 통해 브랜드는 Criteo와 공유하는 특정 퍼스트파티 데이터를 제어할 수 있습니다. Braze에서는 퍼스트파티 데이터를 공유할 수 있는 통합과 공유할 수 없는 통합에 대해 최대한 신중하게 고려합니다. 자세한 내용은 [개인정보 보호정책](https://www.braze.com/privacy)을 참조하세요.
 
@@ -34,7 +31,7 @@ Criteo에 오디언스 동기화를 설정하기 전에 다음 항목을 생성 
 | 요구 사항 | 출처 | 설명 |
 | --- | --- | --- |
 | Criteo 광고 계정 | [Criteo](https://marketing.criteo.com/) | 브랜드에 연결된 활성 Criteo 광고 계정.<br><br>Criteo 관리자가 오디언스에 접근할 수 있는 적절한 권한을 부여했는지 확인하세요. |
-| [Criteo 광고 가이드라인](https://www.criteo.com/advertising-guidelines/)<br>및<br>[Criteo 브랜드 안전 가이드라인](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | 활성 Criteo 고객으로서 Criteo Campaign을 시작하기 전에 Criteo의 광고 및 브랜드 안전 가이드라인을 준수할 수 있는지 확인해야 합니다. |
+| [Criteo 광고 가이드라인](https://www.criteo.com/advertising-guidelines/)<br>및<br>[Criteo 브랜드 안전 가이드라인](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | 활성 Criteo 고객으로서 Criteo 캠페인을 시작하기 전에 Criteo의 광고 및 브랜드 안전 가이드라인을 준수할 수 있는지 확인해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ## 통합 {#integration}
@@ -63,7 +60,7 @@ Criteo 연결은 Braze 워크스페이스 수준에서 적용됩니다. Criteo �
 
 ### 2단계: Canvas 진입 기준 구성 {#step-2-configure-your-canvas-entry-criteria}
 
-광고 추적을 위한 오디언스를 구축할 때 사용자의 선호도에 따라 특정 사용자를 포함하거나 제외하고, [CCPA](https://oag.ca.gov/privacy/ccpa)에 따른 "판매 또는 공유 금지" 권리와 같은 개인정보 보호법을 준수하기 위해 관련 필터를 구현해야 할 수 있습니다. 마케터는 Canvas 진입 기준 내에서 사용자 자격에 대한 관련 필터를 구현해야 합니다. 아래에 몇 가지 옵션을 나열합니다.
+광고 추적을 위한 오디언스를 구축할 때 사용자의 선호도에 따라 특정 사용자를 포함하거나 제외하고, [CCPA](https://oag.ca.gov/privacy/ccpa)에 따른 "판매 또는 공유 금지" 권리와 같은 개인정보 보호법을 준수하기 위해 관련 필터를 구현해야 할 수 있습니다. 마케터는 Canvas 진입 기준 내에서 사용자 자격에 대한 관련 필터를 구현해야 합니다. 다음 옵션이 도움이 될 수 있습니다.
 
 [Braze SDK를 통해 iOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)를 수집한 경우 광고 추적 활성화 필터를 사용할 수 있습니다. 값을 true로 선택하면 옵트인한 사용자만 오디언스 동기화 대상으로 전송됩니다.
 
@@ -96,7 +93,7 @@ Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 **새 오디언스 생성**<br>
 새 오디언스의 이름을 입력하고 **Add Users to Audience**를 선택한 다음 Criteo와 동기화할 필드를 선택합니다. 그런 다음 단계 편집기 하단의 **Create Audience** 버튼을 클릭하여 오디언스를 저장합니다.
 
-![Custom Audience Canvas 단계의 확장된 보기. 여기에서 원하는 광고 계정을 선택하면 새 오디언스가 생성됩니다.]({% image_buster /assets/img/criteo/criteo3.png %})
+![Custom Audience Canvas 단계의 확장된 보기. 여기에서 원하는 광고 계정을 선택하고 새 오디언스가 생성됩니다.]({% image_buster /assets/img/criteo/criteo3.png %})
 
 오디언스가 성공적으로 생성되거나 오류가 발생하면 Braze는 단계 편집기 상단에 알림을 표시합니다. 오디언스가 초안 모드로 생성되었으므로 사용자는 나중에 Canvas 여정에서 사용자 제거를 위해 이 오디언스를 참조할 수 있습니다.
 

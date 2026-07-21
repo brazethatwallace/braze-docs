@@ -58,7 +58,7 @@ Esses campos capturam dados demográficos, de contato e de localidade dos seus u
 
 ## Inscrição e consentimento {#subscription-and-consent}
 
-Esses campos gerenciam como um usuário recebe mensagens em diferentes canais. Atualizá-los não conta para o consumo de pontos de dados.
+Esses campos gerenciam como um usuário recebe mensagens em diferentes canais. Atualizá-los não conta para o uso de pontos de dados.
 
 | Campo | Tipo de dados | Formato e observações |
 |---|---|---|
@@ -67,7 +67,7 @@ Esses campos gerenciam como um usuário recebe mensagens em diferentes canais. A
 | `subscription_groups` | Array de objetos | Um array em que cada objeto possui um `subscription_group_id` (string) e um `subscription_state` (`subscribed` ou `unsubscribed`). Por exemplo: `[{"subscription_group_id": "abc-123", "subscription_state": "subscribed"}]`. |
 | `email_open_tracking_disabled` | Booleano | `true` ou `false`. Defina como `true` para desativar o pixel de rastreamento de abertura de e-mail para este usuário. Disponível apenas para SparkPost e SendGrid. |
 | `email_click_tracking_disabled` | Booleano | `true` ou `false`. Defina como `true` para desativar o rastreamento de cliques em e-mail para este usuário. Disponível apenas para SparkPost e SendGrid. |
-| `marked_email_as_spam_at` | String | Timestamp em que o e-mail do usuário foi marcado como spam. Use o formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
+| `marked_email_as_spam_at` | String | Timestamp em que o e-mail do usuário foi marcado como SPAM. Use o formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 Para saber mais sobre a configuração de grupos de inscrições, consulte [Grupos de inscrições]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
@@ -84,7 +84,7 @@ Esses campos registram quando o usuário interagiu com o seu app pela primeira o
 
 ## Tokens por push {#push-tokens}
 
-Use esses campos ao migrar tokens por push de outra plataforma. Após integrar o SDK da Braze, os tokens por push são capturados automaticamente. Para orientações sobre migração, consulte [Migração de tokens por push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Use esses campos ao migrar tokens por push de outra plataforma. Após integrar o SDK da Braze, os tokens por push são capturados automaticamente. Para orientações sobre migração, consulte [Migração de tokens por push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 | Campo | Tipo de dados | Formato e observações |
 |---|---|---|

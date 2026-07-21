@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-You can also set up [price drop notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) and [back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)!<br><br> Note that for each use case, you must create a custom event that captures a user's subscription status in your catalog. The custom event requires an event property that maps to either the [SKU or Shopify variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) that you have selected as part of your Shopify product sync. 
+You can also set up [price drop notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) and [back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)!<br><br> Note that for each use case, you must create a custom event that captures a user's subscription status in your catalog. The custom event requires an event property that maps to either the <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKU or Shopify variant ID</a> that you have selected as part of your Shopify product sync. 
 {% endalert %}
 
 ## Deactivate your product sync {#deactivate}

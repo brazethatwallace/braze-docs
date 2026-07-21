@@ -35,7 +35,7 @@ Les versions suivantes du SDK sont requises pour recevoir les contenus push :
 
 Pour utiliser les contenus push, procédez comme suit :
 
-1. Créez une [campagne push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
+1. Créez une [Campaign push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 2. Pour votre **Notification Type**, sélectionnez **Push Stories**.
 3. Sélectionnez **iOS** ou **Android**. Notez que si vous sélectionnez les deux pour un message push, l'option de création d'un contenu push n'apparaîtra pas.
 
@@ -52,7 +52,7 @@ Les prévisualisations sont reflétées et interactives.
 ![Éditeur de contenu push]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-Si vous intégrez des images avec le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content), assurez-vous que l'URL de votre image commence par `https://`. L'utilisation de `http://` provoquera un plantage de votre application.
+Si vous intégrez des images avec le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), assurez-vous que l'URL de votre image commence par `https://`. L'utilisation de `http://` provoquera un plantage de votre application.
 {% endalert %}
 
 ### Spécifications des images et du texte {#image-and-text-specifications}
@@ -82,7 +82,7 @@ Bien qu'il puisse y avoir des variations de longueur de caractères d'un apparei
 
 ### Segmentation des contenus push {#push-story-segmentation}
 
-Lorsque vous créez une campagne ou un Canvas, vous pouvez filtrer les utilisateurs que vous souhaitez cibler en fonction de leur interaction avec une page de contenu push. Sélectionnez ensuite la campagne et la page que vous souhaitez utiliser pour cibler vos utilisateurs.
+Lorsque vous créez une Campaign ou un Canvas, vous pouvez filtrer les utilisateurs que vous souhaitez cibler en fonction de leur interaction avec une page de contenu push. Sélectionnez ensuite la Campaign et la page que vous souhaitez utiliser pour cibler vos utilisateurs.
 
 ### Analyse des contenus push {#push-stories-analytics}
 

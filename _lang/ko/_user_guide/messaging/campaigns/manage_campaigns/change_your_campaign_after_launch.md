@@ -46,7 +46,7 @@ Braze는 라이브 상태에서 편집하는 대신, 변경하기 전에 캠페�
 
 ## 인앱 메시지 캠페인 {#in-app-message-campaigns}
 
-푸시나 이메일과 달리, 인앱 메시지는 세션 시작 시 기기에 전달되고 트리거가 실행될 때까지 로컬에 캐시됩니다. 라이브 인앱 메시지 캠페인을 편집하면(예: 중지, [종료 날짜]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger) 설정, **표시 전 캠페인 자격 재평가** 활성화, 콘텐츠 업데이트, 메시지 트리거 변경, 타겟 오디언스 업데이트 등) 업데이트된 구성은 기기가 다음 세션 시작 시 트리거를 가져올 때 전파됩니다.
+푸시나 이메일과 달리, 인앱 메시지는 세션 시작 시 기기에 전달되고 트리거가 실행될 때까지 로컬에 캐시됩니다. 라이브 인앱 메시지 캠페인을 편집하면(예: 중지, [종료 날짜]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger) 설정, **표시 전 캠페인 자격 재평가** 활성화, 콘텐츠 업데이트, 메시지 트리거 변경, 타겟 오디언스 업데이트 등) 업데이트된 구성은 기기가 다음 세션 시작 시 트리거를 가져올 때 전파됩니다.
 
 다음 사항을 예상하세요:
 
@@ -63,7 +63,7 @@ Braze는 라이브 상태에서 편집하는 대신, 변경하기 전에 캠페�
 
 캠페인의 전달 설정에서 **표시 전 캠페인 자격 재평가**를 선택하면, Braze가 각 표시 직전에 오디언스 멤버십과 캠페인 상태를 확인합니다. 이를 통해 캠페인이 중지, 아카이브되었거나 종료 날짜가 지난 후의 노출 횟수를 방지할 수 있습니다. 이 설정은 시작 후에도 켜거나 끌 수 있지만, 다른 변경 사항과 동일한 전파 규칙을 따릅니다. 기기는 다음 트리거 동기화까지 업데이트된 구성을 수신하지 않습니다.
 
-자세한 내용은 [타겟 사용자 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target) 및 [아카이브된 인앱 메시지 캠페인이 여전히 인앱 메시지 노출 횟수를 전달하는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions)를 참조하세요.
+자세한 내용은 [타겟 사용자 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target) 및 [아카이브된 인앱 메시지 캠페인이 여전히 인앱 메시지 노출 횟수를 전달하는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions)를 참조하세요.
 
 ## 트리거된 캠페인 {#triggered-campaigns}
 
@@ -134,4 +134,4 @@ Braze는 라이브 상태에서 편집하는 대신, 변경하기 전에 캠페�
 
 ### 인앱 메시지 우선순위 지정 {#in-app-message-prioritization}
 
-인앱 메시지 우선순위는 **정확한 우선순위 설정**을 선택하고 다른 Campaigns 또는 Canvases와의 관계에서 우선순위를 지정하면 임시저장본이 시작되기 전에 즉시 업데이트됩니다.
+인앱 메시지 우선순위는 **정확한 우선순위 설정**을 선택하고 다른 Campaign 또는 Canvas와의 관계에서 우선순위를 지정하면 임시저장본이 시작되기 전에 즉시 업데이트됩니다.

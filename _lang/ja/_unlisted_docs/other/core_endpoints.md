@@ -5,7 +5,7 @@ hidden: true
 layout: dev_guide
 ---
 
-# Braze コアAPIエンドポイント {#braze-core-api-endpoints}
+# BrazeコアAPIエンドポイント {#braze-core-api-endpoints}
 
 <!-- This article is linked in our standard credits SLA exhibit, and was created to clarify what endpoints that are covered for SLA purposes. -->
 
@@ -30,20 +30,20 @@ BrazeのAPIコアエンドポイントは、BrazeのREST APIにおける特定�
 - [`/canvas/trigger/schedule/delete`][16]
 - [`/subscription/status/set`][17]
 
-[1]: {{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track
+[1]: {{site.baseurl}}/api/endpoints/user_data/post_user_track
 [2]: {{site.baseurl}}/api/endpoints/user_data/post_user_delete
-[3]: {{site.baseurl}}/api/endpoints/email/post_email_subscription_status/#change-users-email-subscription-status
+[3]: {{site.baseurl}}/api/endpoints/email/post_email_subscription_status
 [4]: {{site.baseurl}}/api/endpoints/email/post_blocklist/
-[5]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#sending-messages-immediately-via-api-only
-[6]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/#create-scheduled-messages
+[5]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages
+[6]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/
 [7]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages/
 [8]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages/
 [9]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/
 [10]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/
 [11]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns/
 [12]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/
-[13]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#sending-canvas-messages-via-api-triggered-delivery
-[14]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/#schedule-api-triggered-canvases
+[13]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases
+[14]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/
 [15]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/
 [16]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/
-[17]: {{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/#update-users-subscription-group-status
+[17]: {{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/

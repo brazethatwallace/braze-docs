@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint da Braze \"Listar Centrais de Preferências\"."
+description: "Este artigo traz detalhes sobre o endpoint da Braze \"Listar Centrais de Preferências\"."
 
 ---
 {% api %}
@@ -20,15 +20,15 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Listar 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `preference_center.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.list`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
-## Parâmetros de jornada e de solicitação {#path-and-request-parameters}
+## Parâmetros de caminho e de solicitação {#path-and-request-parameters}
 
-Não há parâmetros de jornada ou de solicitação para esse endpoint.
+Não há parâmetros de caminho ou de solicitação para esse endpoint.
 
 ## Exemplo de solicitação {#example-request}
 

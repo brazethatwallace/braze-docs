@@ -65,11 +65,11 @@ Canvas에서 전송된 인앱 메시지의 경우, 사용자가 메시지를 다
 
 ## 동일한 세션에서 여러 인앱 메시지가 표시될 수 있나요? {#can-multiple-in-app-messages-display-in-the-same-session}
 
-예, 하지만 [트리거 이벤트]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger) 발생당 하나의 인앱 메시지만 표시될 수 있습니다. 여러 인앱 메시지 Campaign이 동일한 트리거(예: 세션 시작)를 공유하는 경우, 해당 트리거가 발생할 때마다 가장 높은 우선순위의 메시지만 표시됩니다. 세션 시작 트리거의 경우, 세션당 하나의 메시지만 표시될 수 있으며, 다른 적격 메시지를 표시할 다음 기회는 다음 세션입니다.
+예, 하지만 [트리거 이벤트]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger) 발생당 하나의 인앱 메시지만 표시될 수 있습니다. 여러 인앱 메시지 Campaign이 동일한 트리거(예: 세션 시작)를 공유하는 경우, 해당 트리거가 발생할 때마다 가장 높은 우선순위의 메시지만 표시됩니다. 세션 시작 트리거의 경우, 세션당 하나의 메시지만 표시될 수 있으며, 다른 적격 메시지를 표시할 다음 기회는 다음 세션입니다.
 
 여러 메시지가 동일한 우선순위 수준을 공유하는 경우, 가장 최근에 생성된 메시지가 먼저 표시됩니다. 세션 시작 트리거의 경우, 다음으로 최근에 생성된 메시지가 후속 세션에서 표시됩니다. 다른 트리거 유형의 경우, 다음으로 최근에 생성된 메시지가 해당 트리거 이벤트가 다음에 발생할 때 표시되며, 이는 동일한 세션 내이거나 이후 세션일 수 있습니다.
 
-우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **정확한 우선순위 설정**을 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority)을 참조하세요.
+우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **정확한 우선순위 설정**을 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority)을 참조하세요.
 
 ## Braze는 "1일 후" 만료로 설정된 인앱 메시지 만료를 어떻게 계산하나요? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -149,7 +149,7 @@ HTML이 연결된 콘텐츠에서 반환된 REST 데이터를 참조하는 경�
 
 표준 인앱 메시지는 트리거 이벤트 후 캐시된 페이로드가 준비되는 즉시 표시됩니다. Android 및 iOS에서는 메시지에 참조된 대용량 이미지 또는 기타 CDN 호스팅 자산이 다운로드를 완료하는 동안 인앱 메시지가 나타나기 전에 짧은 지연이 추가될 수 있습니다.
 
-[템플릿 인앱 메시지](#what-are-templated-in-app-messages) 및 **표시 전 Campaign 적격성 재평가**가 선택된 Campaign은 트리거 후 메시지가 나타나기 전에 추가 네트워크 요청이 필요합니다. 이로 인해 짧은 지연이 추가될 수 있습니다(안정적인 연결에서 일반적으로 100ms 미만). 자세한 내용은 [타겟 사용자 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target)을 참조하세요.
+[템플릿 인앱 메시지](#what-are-templated-in-app-messages) 및 **표시 전 Campaign 적격성 재평가**가 선택된 Campaign은 트리거 후 메시지가 나타나기 전에 추가 네트워크 요청이 필요합니다. 이로 인해 짧은 지연이 추가될 수 있습니다(안정적인 연결에서 일반적으로 100ms 미만). 자세한 내용은 [타겟 사용자 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target)을 참조하세요.
 
 ### 인앱 메시지가 대시보드 미리보기와 다르게 보이는 이유는 무엇인가요? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 

@@ -19,34 +19,34 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar s
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.create_selection`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create_selection`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog selections' %}
 
 ## Parâmetros de jornada {#path-parameters}
 
-| Parâmetro      | Obrigatória | Tipo de dados | Descrição          |
+| Parâmetro      | Obrigatório | Tipo de dados | Descrição          |
 | -------------- | -------- | --------- | -------------------- |
-| `catalog_name` | Obrigatória | String    | Nome do catálogo. |
+| `catalog_name` | Obrigatório | String    | Nome do catálogo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro   | Obrigatória | Tipo de dados | Descrição                                                                                                                                                        |
+| Parâmetro   | Obrigatório | Tipo de dados | Descrição                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Obrigatória | Objeto    | Um objeto que contém critérios de seleção. Consulte o [objeto de seleção de catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object) para uma descrição completa do objeto e seus campos. |
+| `selection` | Obrigatório | Objeto    | Um objeto que contém critérios de seleção. Consulte o [objeto de seleção de catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object) para uma descrição completa do objeto e seus campos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Parâmetros do objeto de seleção {#selection-object-parameters}
 
-| Parâmetro        | Obrigatória | Tipo de dados | Descrição                                                                                                                                                        |
+| Parâmetro        | Obrigatório | Tipo de dados | Descrição                                                                                                                                                        |
 | ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `name`           | Obrigatória | String    | O nome da seleção de catálogo. |
+| `name`           | Obrigatório | String    | O nome da seleção de catálogo. |
 | `description`    | Opcional | String    | Uma descrição da seleção de catálogo. |
-| `external_id`    | Obrigatória | String    | Um identificador único para a seleção. |
-| `source`         | Obrigatória | String    | A origem dos dados do catálogo. Para catálogos do Shopify, use `"Shopify"`. Para catálogos personalizados, use `"custom"`. |
+| `external_id`    | Obrigatório | String    | Um identificador único para a seleção. |
+| `source`         | Obrigatório | String    | A origem dos dados do catálogo. Para catálogos do Shopify, use `"Shopify"`. Para catálogos personalizados, use `"custom"`. |
 | `filters`        | Opcional | Array    | Um array de objetos de filtro a serem aplicados aos itens do catálogo. Você pode especificar até quatro filtros por solicitação. Se nenhum filtro for fornecido, todos os itens do catálogo são incluídos. |
 | `results_limit`  | Opcional | Inteiro   | O número máximo de resultados a retornar. Deve ser um número entre 1 e 50. |
 | `sort_field`     | Opcional | String    | O campo para ordenar os resultados. Deve ser usado em conjunto com `sort_order`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados são randomizados. |

@@ -68,7 +68,7 @@ jobs:
           git show "origin/${{ github.ref_name }}:scripts/export_support_cases_from_looker.py" \
             > scripts/export_support_cases_from_looker.py
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -108,7 +108,7 @@ jobs:
           git show "origin/support-analyzer-data:_data/support_cases_latest.csv" > "$RUNNER_TEMP/support_cases_latest.csv"
           test -s "$RUNNER_TEMP/support_cases_latest.csv" || (echo "CSV empty or missing on support-analyzer-data"; exit 1)
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -176,7 +176,7 @@ jobs:
           git show "origin/support-analyzer-data:_data/support_cases_latest.csv" > "$RUNNER_TEMP/support_cases_latest.csv"
           test -s "$RUNNER_TEMP/support_cases_latest.csv" || (echo "CSV empty or missing on support-analyzer-data"; exit 1)
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 

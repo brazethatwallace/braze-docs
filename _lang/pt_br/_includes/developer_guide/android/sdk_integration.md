@@ -116,7 +116,7 @@ A partir de dezembro de 2019, os endpoints personalizados não são mais forneci
 
 Crie um arquivo `braze.xml` na pasta `res/values` do seu projeto. Se estiver em um cluster de dados específico ou tiver um endpoint personalizado pré-existente, também será necessário especificar o endpoint no arquivo `braze.xml`.
 
-O conteúdo desse arquivo deve se parecer com o seguinte trecho de código. Certifique-se de substituir `YOUR_APP_IDENTIFIER_API_KEY` pelo identificador encontrado na página **Gerenciar configurações** do dashboard da Braze. Faça login em [dashboard.braze.com](https://dashboard.braze.com) para encontrar seu [endereço de cluster]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/).
+O conteúdo desse arquivo deve se parecer com o seguinte trecho de código. Certifique-se de substituir `YOUR_APP_IDENTIFIER_API_KEY` pelo identificador encontrado na página **Manage Settings** do dashboard da Braze. Faça login em [dashboard.braze.com](https://dashboard.braze.com) para encontrar seu [endereço de cluster]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -322,13 +322,13 @@ Para a lista de parâmetros disponíveis, veja [`BrazeActivityLifecycleCallbackL
 ## Teste de rastreamento de sessão {#testing-session-tracking}
 
 {% alert tip %}
-Você também pode usar o [Depurador do SDK]({{site.baseurl}}/developer_guide/debugging/) para diagnosticar problemas do SDK.
+Você também pode usar o [Depurador do SDK]({{site.baseurl}}/developer_guide/debugging) para diagnosticar problemas do SDK.
 {% endalert %}
 
 Se você encontrar problemas durante os testes, ative o [registro detalhado](#android_enabling-logs) e use o logcat para detectar chamadas ausentes de `openSession` e `closeSession` em suas atividades.
 
-1. Na Braze, acesse **Visão Geral**, selecione seu app e, no dropdown **Exibir Dados Para**, escolha **Hoje**.
-    ![A página "Visão Geral" na Braze, com o campo "Exibir Dados Para" definido como "Hoje".]({% image_buster /assets/img_archive/android_sessions.png %})
+1. Na Braze, acesse **Overview**, selecione seu app e, no dropdown **Display Data For**, escolha **Today**.
+    ![A página "Overview" na Braze, com o campo "Display Data For" definido como "Today".]({% image_buster /assets/img_archive/android_sessions.png %})
 2. Abra seu app e atualize o dashboard da Braze. Verifique se suas métricas aumentaram em 1.
 3. Navegue pelo seu app e verifique se apenas uma sessão foi registrada na Braze.
 4. Envie o app para o segundo plano por pelo menos 10 segundos e, em seguida, traga-o para o primeiro plano. Verifique se uma nova sessão foi registrada.
@@ -447,7 +447,7 @@ Por padrão, o nível de registro do SDK Android da Braze é definido como `INFO
 
 #### Ativando registros {#enabling-logs}
 
-Para ajudar a solucionar problemas no seu app ou reduzir os tempos de resposta com o suporte da Braze, você pode ativar registros detalhados para o SDK. Quando você enviar registros detalhados para o suporte da Braze, certifique-se de que eles comecem assim que você iniciar seu aplicativo e terminem bem depois que o problema ocorrer. Para uma visão centralizada, veja [Registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Para aprender a interpretar a saída do registro, veja [Lendo registros detalhados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/).
+Para ajudar a solucionar problemas no seu app ou reduzir os tempos de resposta com o suporte da Braze, você pode ativar registros detalhados para o SDK. Quando você enviar registros detalhados para o suporte da Braze, certifique-se de que eles comecem assim que você iniciar seu aplicativo e terminem bem depois que o problema ocorrer. Para uma visão centralizada, veja [Registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Para aprender a interpretar a saída do registro, veja [Lendo registros detalhados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 Lembre-se de que registros detalhados são destinados apenas ao seu ambiente de desenvolvimento, então é importante desativá-los antes de lançar seu app.
 
@@ -475,7 +475,7 @@ BrazeLogger.logLevel = Log.MIN_LOG_LEVEL
 
 Substitua `MIN_LOG_LEVEL` pela **Constante** do nível de registro que você deseja definir como seu nível mínimo. Quaisquer registros em um nível `>=` ao seu `MIN_LOG_LEVEL` definido serão encaminhados para o método padrão do Android [`Log`](https://developer.android.com/reference/android/util/Log). Quaisquer registros `<` ao seu `MIN_LOG_LEVEL` definido serão descartados.
 
-| Constante   | Valor          | Descrição                                                               |
+| Constante | Valor | Descrição |
 |-------------|----------------|---------------------------------------------------------------------------|
 | `VERBOSE`   | 2              | Registra as mensagens mais detalhadas para depuração e desenvolvimento.            |
 | `DEBUG`     | 3              | Registra mensagens descritivas para depuração e desenvolvimento.                  |
@@ -511,7 +511,7 @@ Para ativar registros no `braze.xml`, adicione o seguinte ao seu arquivo:
 
 Substitua `MIN_LOG_LEVEL` pelo **Valor** do nível de registro que você deseja definir como seu nível mínimo. Quaisquer registros em um nível `>=` ao seu `MIN_LOG_LEVEL` definido serão encaminhados para o método padrão do Android [`Log`](https://developer.android.com/reference/android/util/Log). Quaisquer registros `<` ao seu `MIN_LOG_LEVEL` definido serão descartados.
 
-| Constante   | Valor          | Descrição                                                               |
+| Constante | Valor | Descrição |
 |-------------|----------------|---------------------------------------------------------------------------|
 | `VERBOSE`   | 2              | Registra as mensagens mais detalhadas para depuração e desenvolvimento.            |
 | `DEBUG`     | 3              | Registra mensagens descritivas para depuração e desenvolvimento.                  |
@@ -571,7 +571,7 @@ Para cada variante de build relevante, crie um novo `braze.xml` no diretório `s
 ```
 
 {% alert tip %}
-Para aprender a configurar a chave de API no seu código, veja [Configuração em tempo de execução]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android).
+Para aprender a configurar a chave de API no seu código, veja [Configuração em tempo de execução]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration).
 {% endalert %}
 
 ### Mensagem no app exclusiva com TalkBack {#exclusive-in-app-message-talkback}

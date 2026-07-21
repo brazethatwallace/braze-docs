@@ -91,21 +91,21 @@ Brazeでリードスコアリングワークフローを作成するには、次
 
 ![「任意のアプリでセッションを開始」と「カスタムイベントを実行」のトリガーで1ポイント加算するアクショングループ。]({% image_buster /assets/img/b2b/action_groups_simple.png %}){: style="max-width:80%;"}
 
-#### ステップ4d: ユーザーの更新ステップを追加する {#step-4d-add-user-update-steps}
+#### ステップ4d: ユーザー更新ステップを追加する {#step-4d-add-user-update-steps}
 
-アクションパスで作成された各キャンバスパスに、ユーザーの更新ステップを追加します。
+アクションパスで作成された各キャンバスパスに、ユーザー更新ステップを追加します。
 
-![アクションパスと、各アクショングループに分岐したユーザーの更新パスが表示されたキャンバス。]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
+![アクションパスと、各アクショングループに分岐したユーザー更新パスが表示されたキャンバス。]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
 {: start="2"}
-各ユーザーの更新ステップの**作成**タブで、対応するフィールドに対して次の操作を行います。
+各ユーザー更新ステップの**作成**タブで、対応するフィールドに対して次の操作を行います。
 
 | フィールド | アクション |
 | --- | --- |
 | **属性名** | ステップ2で選択したリードスコア属性（`lead score`）を選択します。|
 | **アクション** | パスがスコアを上げる場合は**Increment By**に、パスがスコアを下げる場合は**Decrement By**にアクションを変更します。|
 | **Increment By**または**Decrement By** | リードスコアから増減するポイント数を入力します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ4d: ユーザーの更新ステップを追加する" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
 
 ### ステップ5: キャンバスを起動する {#step-5-launch-your-canvas}
 
@@ -117,11 +117,11 @@ Brazeでリードスコアリングワークフローを作成するには、次
 
 ### 外部パートナー {#external-partners}
 
-リードスコアリング機能を提供するB2Bパートナーについては、[テクノロジーパートナー]({{site.baseurl}}/partners/home)をご覧ください。お使いのツールが見つからない場合は、[`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) APIエンドポイントを呼び出すことで連携できます。
+リードスコアリング機能を提供するB2Bパートナーについては、[テクノロジーパートナー]({{site.baseurl}}/partners/home)をご覧ください。お使いのツールが見つからない場合は、[`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) APIエンドポイントを呼び出すことで連携できます。
 
 ### 内部リードスコアリングデータモデル {#internal-lead-scoring-data-models}
 
-Brazeは、リードスコアリングモデルを含む内部データモデルとさまざまな方法で連携できます。お客様がBrazeと連携している一般的な例については、以下をご覧ください。
+Brazeは、リードスコアリングモデルを含む内部データモデルとさまざまな方法で連携できます。お客様がBrazeと連携している一般的な例については、以下のセクションをご覧ください。
 
 #### 統合クラウドデータウェアハウス {#integrated-cloud-data-warehouse}
 
@@ -184,7 +184,7 @@ BrazeのリードステータスでSalesforceのリードレコードを更新�
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>トークンを取得するには、OAuth 2.0クライアント認証情報フローの[接続アプリを設定](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)してから、Connected Contentを使用してSalesforceからベアラートークンを取得します。<br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2a: Webhookを作成する" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
 
 ![SalesforceのWebhook URL、PATCH HTTPメソッド、生テキストのリクエストボディ、およびリクエストヘッダーを含む作成中のWebhook。]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

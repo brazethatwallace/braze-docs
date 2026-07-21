@@ -36,7 +36,7 @@ CDN(Content Delivery Network) 대신 미디어 라이브러리를 사용하면 �
 * 가상 연락처 파일(.vcf) 업로드
 * WhatsApp 메시지에 사용할 동영상 파일 업로드
 * 이미지가 포함된 폴더 업로드(최대 50개 이미지)
-* [AI를 사용하여 이미지 생성](#generate-ai) 후 미디어 라이브러리에 저장
+* [인공지능을 사용하여 이미지 생성](#generate-ai) 후 미디어 라이브러리에 저장
 * 기존 이미지를 잘라서 메시지에 적합한 비율 만들기
 * URL을 유지하면서 기존 자산의 파일 교체
 * 태그 또는 팀을 추가하여 이미지를 더 잘 정리
@@ -54,7 +54,7 @@ CDN(Content Delivery Network) 대신 미디어 라이브러리를 사용하면 �
 
 ## 파일 교체 {#replace-a-file}
 
-URL과 자산 ID를 유지하면서 미디어 라이브러리의 기존 자산 파일을 교체할 수 있습니다. URL이 변경되지 않으므로 해당 자산을 참조하는 모든 메시지 또는 Campaign(이미 발송된 이메일 포함)에 업데이트된 파일이 자동으로 반영됩니다. 이 기능은 각 Campaign을 개별적으로 업데이트하는 대신 공유 자산(예: 로고)을 한 곳에서 업데이트하려는 경우에 유용합니다.
+URL과 자산 ID를 유지하면서 미디어 라이브러리의 기존 자산 파일을 교체할 수 있습니다. URL이 변경되지 않으므로 해당 자산을 참조하는 모든 메시지 또는 Campaign(캠페인)(이미 발송된 이메일 포함)에 업데이트된 파일이 자동으로 반영됩니다. 이 기능은 각 캠페인을 개별적으로 업데이트하는 대신 공유 자산(예: 로고)을 한 곳에서 업데이트하려는 경우에 유용합니다.
 
 자산을 교체하려면 "Replace Media Library Assets" 권한이 필요합니다:
 
@@ -90,7 +90,7 @@ URL과 자산 ID를 유지하면서 미디어 라이브러리의 기존 자산 �
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-이 기능을 사용하기 전에 [데이터가 OpenAI로 어떻게 사용되고 전송되는지]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy) 검토하세요.
+이 기능을 사용하기 전에 [데이터가 OpenAI로 어떻게 사용되고 전송되는지]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security) 검토하세요.
 {% endalert %}
 
-**미디어 라이브러리** 페이지에 **AI Image Generator**가 표시되지 않는 경우, **Edit Media Library Assets** 권한이 있는지 확인하세요. 옵션이 여전히 표시되지 않으면 Braze 고객 팀에 문의하여 워크스페이스에서 BrazeAI 이미지 생성에 액세스할 수 있는지 확인하세요. 생성에 실패하면 [OpenAI 콘텐츠 정책]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy)을 검토하세요.
+**미디어 라이브러리** 페이지에 **AI Image Generator**가 표시되지 않는 경우, **Edit Media Library Assets** 권한이 있는지 확인하세요. 옵션이 여전히 표시되지 않으면 Braze 고객 팀에 문의하여 워크스페이스에서 BrazeAI 이미지 생성에 액세스할 수 있는지 확인하세요. 생성에 실패하면 [OpenAI 콘텐츠 정책]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security)을 검토하세요.

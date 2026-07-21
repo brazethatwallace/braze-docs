@@ -34,13 +34,13 @@ L'application WSC Sports gère le processus de bout en bout, de la sélection de
 
 ![Panneau des paramètres d'envoi WSC Sports avec la sélection de la campagne et du segment Braze.]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
 
-Avant de commencer l'intégration, assurez-vous que la campagne et les segments d'utilisateurs souhaités sont créés dans Braze. Une fois cette étape terminée, sur la plateforme WSC Sports, sélectionnez la vidéo de votre choix, puis dans les paramètres d'envoi, sélectionnez le segment d'utilisateurs Braze et l'ID de campagne que vous souhaitez utiliser. Enfin, choisissez l'heure à laquelle vous souhaitez que votre message push soit envoyé.
+Avant de commencer l'intégration, assurez-vous que la campagne et les segments d'utilisateurs souhaités sont créés dans Braze. Une fois cette étape terminée, sur la plateforme WSC Sports, sélectionnez la vidéo de votre choix, puis dans les paramètres d'envoi, sélectionnez le segment d'utilisateurs Braze et l'ID de campagne que vous souhaitez utiliser. Enfin, choisissez l'heure à laquelle vous souhaitez que votre notification push soit envoyée.
 
 #### Appel d'API {#api-call}
 
 Une fois l'envoi effectué, WSC Sports transmettra la notification push aux segments d'utilisateurs sélectionnés, en utilisant les endpoints Braze suivants, en fonction des options choisies :
-- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#sending-messages-immediately-via-api-only)
+- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 
 Le corps du message qui en résulte est le suivant :
 ```

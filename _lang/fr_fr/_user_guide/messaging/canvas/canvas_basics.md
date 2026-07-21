@@ -18,7 +18,7 @@ Avant d'entrer dans les détails de la [configuration d'un Canvas]({{site.baseur
 
 {% tabs %}
   {% tab Canvas %}
-  Canvas est une interface unifiée dans laquelle les marketeurs conçoivent des campagnes comportant plusieurs messages. C'est un peu comme un outil de programmation visuelle qui vous permet de construire un parcours utilisateur cohérent à partir d'une série d'étapes.
+  Canvas est une interface unifiée dans laquelle les marketeurs conçoivent des Campaigns comportant plusieurs messages. C'est un peu comme un outil de programmation visuelle qui vous permet de construire un parcours utilisateur cohérent à partir d'une série d'étapes.
 
   ![Exemple de Canvas avec une étape d'arbre décisionnel menant à deux parcours utilisateur différents selon que l'utilisateur a activé les notifications push ou non.]({% image_buster /assets/img/canvas_intro/canvas_intro.gif %})
 
@@ -31,7 +31,7 @@ Avant d'entrer dans les détails de la [configuration d'un Canvas]({{site.baseur
   {% endtab %}
 
   {% tab Générateur de Canvas %}
-  Le générateur de Canvas décrit les étapes à suivre lors de la création de votre Canvas. Cela inclut les éléments de base comme nommer votre Canvas et ajouter des équipes. Le générateur de Canvas est essentiellement la configuration indispensable avant de commencer à construire votre Canvas. Vous pouvez y contrôler la manière dont vos utilisateurs commencent et accomplissent leur parcours client, avec des options pour modifier la [planification d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2b-set-your-canvas-entry-schedule), l'[audience cible]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2c-set-your-target-entry-audience) et les [paramètres d'envoi]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2d-select-your-send-settings).<br><br> ![Le générateur de Canvas dans la section Principes de base pour un Canvas nommé « New Canvas ».]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  Le générateur de Canvas décrit les étapes à suivre lors de la création de votre Canvas. Cela inclut les éléments de base comme nommer votre Canvas et ajouter des Teams. Le générateur de Canvas est essentiellement la configuration indispensable avant de commencer à construire votre Canvas. Vous pouvez y contrôler la manière dont vos utilisateurs commencent et accomplissent leur parcours client, avec des options pour modifier la [planification d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule), l'[audience cible]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-13-set-your-target-entry-audience) et les [paramètres d'envoi]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings).<br><br> ![Le générateur de Canvas dans la section Principes de base pour un Canvas nommé « New Canvas ».]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -41,7 +41,7 @@ Avant d'entrer dans les détails de la [configuration d'un Canvas]({{site.baseur
   {% endtab %}
 
   {% tab Étapes %}
-  Une étape dans Canvas est un point de décision marketing : « si ceci, alors cela ». Utilisez les [composants Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components#about-canvas-components) pour construire les étapes d'un parcours utilisateur.<br><br> ![Exemple d'ajout d'une étape de délai à un Canvas.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> Lorsqu'un utilisateur entre dans un Canvas, il commence à la première étape. Chaque étape comporte des conditions qui déterminent si un utilisateur peut passer à l'étape suivante. Au sein d'une étape, vous pouvez définir des déclencheurs ou planifier la distribution, affiner le ciblage en ajoutant des filtres ou en marquant des événements d'exception, et spécifier différents canaux comme les notifications push ou les événements webhook. Dans Canvas, les étapes se déroulent de manière séquentielle, ce qui signifie que la première étape doit avoir lieu avant que la deuxième puisse se produire. Prenons l'exemple d'un Canvas avec les étapes suivantes : une étape de délai A avec un délai de 24 heures, une étape de message A avec une notification push et une étape de message B avec un message in-app. L'utilisateur A est maintenu dans un délai de 24 heures, puis, après ces 24 heures, il recevra une notification push, suivie d'un message in-app.
+  Une étape dans Canvas est un point de décision marketing : « si ceci, alors cela ». Tirez parti des [composants Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components) pour construire les étapes d'un parcours utilisateur.<br><br> ![Exemple d'ajout d'une étape de délai à un Canvas.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> Lorsqu'un utilisateur entre dans un Canvas, il commence à la première étape. Chaque étape comporte des conditions qui déterminent si un utilisateur peut passer à l'étape suivante. Au sein d'une étape, vous pouvez définir des déclencheurs ou planifier la distribution, affiner le ciblage en ajoutant des filtres ou en marquant des événements d'exception, et spécifier différents canaux comme les notifications push ou les événements webhook. Dans Canvas, les étapes se déroulent de manière séquentielle, ce qui signifie que la première étape doit avoir lieu avant que la deuxième puisse se produire. Prenons l'exemple d'un Canvas avec les étapes suivantes : une étape de délai A avec un délai de 24 heures, une étape de message A avec une notification push et une étape de message B avec un message in-app. L'utilisateur A est maintenu dans un délai de 24 heures, puis, après ces 24 heures, il recevra une notification push, suivie d'un message in-app.
 
   {% endtab %}
 {% endtabs %}
@@ -56,7 +56,7 @@ Utiliser les cinq questions clés (quoi, quand, qui, pourquoi et où) de la visu
 
 Ne sous-estimez jamais le pouvoir d'un nom. Braze est conçu pour la collaboration, c'est donc le bon moment pour clarifier la manière dont vous communiquerez vos objectifs à votre équipe.
 
-Vous pouvez ajouter des étiquettes et nommer les étapes et les variantes d'un Canvas. Pour en savoir plus sur les parcours clients, consultez notre cours d'apprentissage Braze sur le [mappage des cycles de vie des utilisateurs](https://learning.braze.com/mapping-customer-lifecycles).
+Vous pouvez ajouter des tags et nommer les étapes et les variantes d'un Canvas. Pour en savoir plus sur les parcours clients, consultez notre cours d'apprentissage Braze sur le [mappage des cycles de vie des utilisateurs](https://learning.braze.com/mapping-customer-lifecycles).
 
 ### Le « pourquoi » : identifiez les événements de conversion {#the-why-identify-conversion-events}
 
@@ -87,7 +87,7 @@ La distribution planifiée vous permet d'envoyer un Canvas immédiatement à vot
 
 *Qui essayez-vous d'atteindre ?*
 
-Pour définir votre « qui », vous pouvez utiliser les segments prédéfinis disponibles dans Canvas. Vous pouvez également ajouter des filtres supplémentaires pour affiner davantage le ciblage et vous connecter à votre audience cible. Après avoir construit ces segments, seuls les utilisateurs correspondant aux critères de l'audience cible pourront entrer dans le parcours Canvas, ce qui permet une expérience plus personnalisée. Consultez ce tableau pour découvrir les filtres disponibles et comment ils segmentent vos utilisateurs en fonction de votre cas d'utilisation.
+Pour définir votre « qui », vous pouvez utiliser les Segments prédéfinis disponibles dans Canvas. Vous pouvez également ajouter des filtres supplémentaires pour affiner davantage le ciblage et vous connecter à votre audience cible. Après avoir construit ces Segments, seuls les utilisateurs correspondant aux critères de l'audience cible pourront entrer dans le parcours Canvas, ce qui permet une expérience plus personnalisée. Consultez ce tableau pour découvrir les filtres disponibles et comment ils segmentent vos utilisateurs en fonction de votre cas d'usage.
 
 | Filtre | Description |
 |---------------------|-----------------------------------------------------------------------------------------------------|
@@ -119,7 +119,7 @@ Le « comment » résume la manière dont vous allez créer votre Canvas et atte
 
 Répondre au « comment » détermine également la cadence d'envoi d'un Canvas à votre audience (par exemple une fois par semaine ou toutes les deux semaines), ainsi que les canaux de communication à exploiter pour chaque Canvas que vous créez, comme décrit dans le « où ».
 
-## Cas d'utilisation : flux d'onboarding client {#use-case-customer-onboarding-flow}
+## Cas d'usage : flux d'onboarding client {#use-case-customer-onboarding-flow}
 
 Prenons un exemple : vous êtes marketeur chez MovieCanon, une société de streaming en ligne, et vous êtes chargé de créer un flux d'onboarding pour les nouveaux utilisateurs de votre application. En vous appuyant sur les cinq questions clés, vous pourriez construire le Canvas de la manière suivante.
 

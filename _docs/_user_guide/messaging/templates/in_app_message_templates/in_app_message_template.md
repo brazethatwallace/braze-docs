@@ -35,7 +35,7 @@ Color profiles and CSS templates apply to the traditional editor. If you use the
 
 ## Step 3: Manage your templates
 
-On **Content** > **In-App Message**, filter, search, or open a template to edit. You can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates) templates like other template types. For an overview of template and media workflows, see [Templates]({{site.baseurl}}/user_guide/messaging/templates).
+On **Content** > **In-App Message**, filter, search, or open a template to edit. You can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates) templates like other template types. For an overview of template and media workflows, see [Templates]({{site.baseurl}}/user_guide/messaging/templates).
 
 To access in-app message templates, you need [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to view or edit in-app message templates.
 

@@ -60,5 +60,5 @@ Um mehrere Templates zu archivieren, aktivieren Sie das Kontrollkästchen neben 
 ![Abschnitt „Gespeicherte Drag-&-Drop-E-Mail-Templates“ mit zwei ausgewählten Templates und einer Symbolleiste mit der Option zum Archivieren.]({% image_buster /assets/img/archive_multiple_template.png %}){: style="max-width:60%;"}
 
 {% alert important %}
-Das Archivieren ist derzeit nicht für [Link-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-templates) verfügbar.
+Das Archivieren ist derzeit nicht für [Link-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) verfügbar.
 {% endalert %}

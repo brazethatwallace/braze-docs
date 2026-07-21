@@ -20,10 +20,10 @@ El SDK de React Native de Braze conecta tus aplicaciones iOS y Android con Braze
 - **Mensajes dentro de la aplicación**: interfaz predeterminada de Braze o gestión personalizada mediante suscripciones y API de registro
 - **Content Cards**: interfaz de fuente predeterminada, u obtén tarjetas y construye tu propia interfaz
 - **Banners**: banners HTML basados en ubicación, incluyendo `BrazeBannerView`
-- **Notificaciones push**: solicitudes de permiso, registro de tokens, listeners de carga útil (consulta [Notificaciones push](#push-notifications))
+- **Notificaciones push**: solicitudes de permiso, registro de tokens, listeners de carga útil (consulta las notas de plataforma a continuación)
 - **Conmutadores de características**: actualizar, leer propiedades, registrar impresiones
 - **Análisis**: eventos personalizados, compras, envío inmediato
-- **Controles del SDK**: habilitar/deshabilitar el SDK, borrar datos locales, firmas de Autenticación SDK
+- **Controles del SDK**: habilitar/deshabilitar el SDK, borrar datos locales, firmas de autenticación del SDK
 
 ## Requisitos previos {#prerequisites}
 
@@ -49,7 +49,7 @@ npm install @braze/react-native-sdk
 
 Esta sección muestra la configuración mínima necesaria para inicializar el SDK de React Native de Braze.
 
-1. Instala el paquete npm en [Instalación](#installation).
+1. Instala el paquete npm (arriba).
 2. Completa la **configuración nativa** para Android e iOS (configuración, permisos, push si es necesario).
 3. Inicializa el SDK desde JavaScript y comienza a usarlo:
 
@@ -160,7 +160,7 @@ Entradas de uso común:
 | `com_braze_firebase_cloud_messaging_sender_id` | `string` | ID de remitente de FCM cuando el registro automático está habilitado. |
 | `com_braze_handle_push_deep_links_automatically` | `bool` | Permite que Braze abra vínculos profundos de push automáticamente. |
 | `com_braze_trigger_action_minimum_time_interval_seconds` | `integer` | Segundos mínimos entre acciones desencadenantes de mensajes dentro de la aplicación. |
-| **Otros** | *varios* | Claves adicionales no mostradas aquí (tiempo de espera de sesión, geovallas, ubicación, valores predeterminados de notificación, listas de dispositivos permitidos, inicialización diferida, Autenticación SDK, etc.). Consulta [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) y la [guía de integración del SDK de Android](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/). |
+| **Otros** | *varios* | Claves adicionales no mostradas aquí (tiempo de espera de sesión, geovallas, ubicación, valores predeterminados de notificación, listas de dispositivos permitidos, inicialización diferida, autenticación del SDK, etc.). Consulta [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) y la [guía de integración del SDK de Android](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android (braze.xml)" }
 
 ### iOS (`Braze.Configuration`)
@@ -174,7 +174,7 @@ Establece las propiedades de configuración nativa en el closure `configure` pas
 | **Push** | `push.automation`, `push.appGroup`, … | La automatización simplifica el registro; `appGroup` es necesario para Push Stories / extensiones cuando se usan. |
 | **Mensajes dentro de la aplicación** | `triggerMinimumTimeInterval` | **30** segundos predeterminados entre desencadenantes. |
 | **Sesiones** | `sessionTimeout` | Inactividad antes de una nueva sesión (consulta la documentación de sesiones de Braze). |
-| **Privacidad / datos** | `api.trackingPropertyAllowList`, `devicePropertyAllowList`, `api.sdkAuthentication` | Alinea con el [manifiesto de privacidad](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/) y la configuración del producto de Autenticación SDK. |
+| **Privacidad / datos** | `api.trackingPropertyAllowList`, `devicePropertyAllowList`, `api.sdkAuthentication` | Alinea con el [manifiesto de privacidad](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/) y la configuración del producto de autenticación del SDK. |
 | **Red** | `api.requestPolicy`, `api.flushInterval` | Política de reintentos de solicitudes y cadencia de envío. |
 | **Suscripción push** | `optInWhenPushAuthorized` | Cuando es `true`, la suscripción puede pasar a opted-in después de que el usuario autorice las notificaciones. |
 | **IAM y cambios de usuario** | `preventInAppMessageDisplayForDifferentUser` | Reduce los IAM no coincidentes si cambia el ID de usuario. |
@@ -205,7 +205,7 @@ Braze.addAlias("external_id", "marketing_id");
 Braze.addToSubscriptionGroup("NEWSLETTER_GROUP_UUID");
 ```
 
-**Autenticación SDK** opcional: pasa una firma como segundo argumento a `changeUser`, o llama a `Braze.setSdkAuthenticationSignature(signature)` cuando esté habilitada en el panel.
+**Autenticación del SDK** opcional: pasa una firma como segundo argumento a `changeUser`, o llama a `Braze.setSdkAuthenticationSignature(signature)` cuando esté habilitada en el panel.
 
 ### Mensajes dentro de la aplicación {#in-app-messages}
 

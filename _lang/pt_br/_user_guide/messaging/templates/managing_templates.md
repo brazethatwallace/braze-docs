@@ -60,5 +60,5 @@ Para arquivar múltiplos modelos, selecione a caixa de seleção ao lado de cada
 ![Seção de modelos de e-mail de arrastar e soltar salvos que mostra dois modelos selecionados e uma barra de ferramentas com a opção de arquivar.]({% image_buster /assets/img/archive_multiple_template.png %}){: style="max-width:60%;"}
 
 {% alert important %}
-O arquivamento não está disponível atualmente para [modelos de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-templates).
+O arquivamento não está disponível atualmente para [modelos de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 {% endalert %}

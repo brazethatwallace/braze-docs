@@ -41,7 +41,7 @@ Com base em quando os atributos foram atualizados, uma seleção é realizada pa
 
 ### Etapa 2: Atualizar a Braze {#step-2-update-braze}
 
-Com os clientes atualizados e os atributos associados, a Peak enviará esses dados para a Braze usando o [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), com o cabeçalho [em massa]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#making-bulk-updates).
+Com os clientes atualizados e os atributos associados, a Peak enviará esses dados para a Braze usando o [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), com o cabeçalho [em massa]({{site.baseurl}}/api/endpoints/user_data/post_user_track#need-to-update-users-in-bulk).
 
 Após o recebimento de códigos de status bem-sucedidos da API, a Peak registrará a sincronização bem-sucedida entre a Peak e a Braze.
 

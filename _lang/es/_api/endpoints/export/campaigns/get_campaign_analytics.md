@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar análisis de campaña de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar análisis de campaña de Braze."
 
 ---
 {% api %}
@@ -14,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /campaigns/data_series
 {% endapimethod %}
 
-> Utiliza este punto de conexión para recuperar una serie diaria de diversas estadísticas de una campaña a lo largo del tiempo.
+> Utiliza este endpoint para recuperar una serie diaria de diversas estadísticas de una campaña a lo largo del tiempo.
 
 Los datos devueltos incluyen cuántos mensajes se enviaron, abrieron, recibieron clics o generaron conversiones por canal de mensajería.
 
@@ -24,7 +24,7 @@ Los datos devueltos incluyen cuántos mensajes se enviaron, abrieron, recibieron
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `campaigns.data_series`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `campaigns.data_series`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -34,7 +34,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obligatorio | Cadena | Consulta [identificador de API de la campaña]({{site.baseurl}}/api/identifier_types).<br><br> El `campaign_id` para Campaigns de API se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) y en la página **Campaign Details** dentro de tu dashboard, o puedes utilizar el [punto de conexión Listar Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns). |
+| `campaign_id` | Obligatorio | Cadena | Consulta [identificador de API de la campaña]({{site.baseurl}}/api/identifier_types).<br><br> El `campaign_id` para campañas de API se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) y en la página **Campaign Details** dentro de tu panel, o puedes utilizar el [endpoint Listar campañas]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns). |
 | `length` | Obligatorio | Entero | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 100 (ambos inclusive). |
 | `ending_at` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la serie de datos. De forma predeterminada, la hora de la solicitud. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
@@ -234,8 +234,8 @@ Para obtener ayuda con las exportaciones CSV y de API, visita [Solución de prob
 
 ## Solución de problemas {#troubleshooting}
 
-### Ver fallos de entrega para Campaigns desencadenadas por API {#viewing-delivery-failures-for-api-triggered-campaigns}
+### Ver fallos de entrega para campañas desencadenadas por API {#viewing-delivery-failures-for-api-triggered-campaigns}
 
-El punto de conexión [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) devuelve estadísticas diarias agregadas (por ejemplo, `delivery_failed` para SMS o `errors` para webhooks). No devuelve motivos de fallo por destinatario.
+El endpoint [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) devuelve estadísticas diarias agregadas (por ejemplo, `delivery_failed` para SMS o `errors` para webhooks). No devuelve motivos de fallo por destinatario.
 
-Para fallos de envío, rebotes y cancelaciones por mensaje de Campaigns desencadenadas por API o Campaigns de API, utiliza el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) en el dashboard. Para informes personalizados sobre eventos de envío y entrega, utiliza el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) con [plantillas de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) o SQL personalizado. También puedes transmitir eventos de fallo a través de Currents o Snowflake Data Sharing si tu espacio de trabajo tiene esos productos habilitados.
+Para fallos de envío, rebotes y cancelaciones por mensaje de campañas desencadenadas por API o campañas de API, utiliza el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) en el panel. Para informes personalizados sobre eventos de envío y entrega, utiliza el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) con [plantillas de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) o SQL personalizado. También puedes transmitir eventos de fallo a través de Currents o Snowflake Data Sharing si tu espacio de trabajo tiene esos productos habilitados.

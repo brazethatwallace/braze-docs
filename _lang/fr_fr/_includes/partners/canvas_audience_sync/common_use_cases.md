@@ -1,0 +1,4 @@
+- Cibler les utilisateurs à forte valeur via plusieurs canaux pour stimuler les achats ou l'engagement
+- Recibler les utilisateurs qui sont moins réceptifs aux autres canaux marketing
+- Créer des audiences de suppression pour empêcher les utilisateurs de recevoir des publicités lorsqu'ils sont déjà des consommateurs fidèles de votre marque
+- Créer des audiences similaires pour acquérir de nouveaux utilisateurs plus efficacement

@@ -19,7 +19,7 @@ glossaries:
   - name: API campaigns
     description: "<a href=\"/docs/api/api_campaigns\">API-Kampagnen</a> verwenden das Braze-Dashboard, um eine <code>campaign_id</code> (und Varianten-IDs) zu generieren, während Sie Text, Zielgruppe, Zeitplan und Assets über die <a href=\"/docs/api/endpoints/messaging\">Messaging-APIs</a> bereitstellen. Sie unterscheiden sich von <a href=\"/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery\">API-getriggerten Campaigns</a>, bei denen Sie eine vollständig konfigurierte Campaign aus dem Dashboard per API triggern."
   - name: Application program interface (API)
-    description: "Die <a href=\"/docs/api/basics#api-overview\">Braze API</a> bietet einen Webdienst, mit dem Sie die Aktionen Ihrer Nutzer:innen direkt über HTTP aufzeichnen können, anstatt über die mobilen SDKs. So können Sie zum Beispiel Nutzerdaten an Braze weitergeben, die in Ihrer App oder Website nicht erfasst werden."
+    description: "Die <a href=\"/docs/api/basics\">Braze API</a> bietet einen Webdienst, mit dem Sie die Aktionen Ihrer Nutzer:innen direkt über HTTP aufzeichnen können, anstatt über die mobilen SDKs. So können Sie zum Beispiel Nutzerdaten an Braze weitergeben, die in Ihrer App oder Website nicht erfasst werden."
   - name: App instance
     description: "App-Instanzen beziehen sich auf die verschiedenen Websites und Apps, die in einem Workspace gesammelt werden."
   - name: Braze (the product)

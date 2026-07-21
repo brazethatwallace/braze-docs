@@ -80,11 +80,25 @@ Os seguintes controles de fluxo de invocação se aplicam por espaço de trabalh
 
 Quando muitos usuários entram em uma etapa de agente ao mesmo tempo, a Braze enfileira as invocações de acordo com esses limites, então o processamento pode levar mais tempo durante envios de alto volume.
 
+### Limites diários de invocação e créditos {#daily-invocation-and-credit-limits}
+
+Cada agente tem um limite diário de invocações (padrão 250.000; máximo 1.000.000, a menos que seu contrato permita mais). Toda invocação — incluindo prévias do Console do agente e execuções de Canvas de teste que usam **Simulate response** — conta para esse limite.
+
+No Console do agente, o **Limite diário de custo de créditos de ação** estima o máximo de créditos que um agente pode consumir por dia. A Braze multiplica a **taxa de crédito** por invocação do seu espaço de trabalho para o modelo selecionado pelo limite diário de invocações.
+
+### Monitorar uso de créditos {#monitor-credit-usage}
+
+Acesse **Configurações** > **Faturamento** > **Uso de créditos** > **Agent Console** para ver o consumo de créditos, contagens de invocações e taxas de crédito por agente.
+
+As taxas de crédito vêm do seu contrato e aparecem no dashboard de [Uso de créditos]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) (guia **Credit Ratios** e guia **Agent Console**). A estimativa é atualizada quando você altera o modelo ou o limite de invocações.
+
+Para gerenciar gastos, reduza o limite diário de invocações. Para modelos [BYO (traga o seu próprio)](#option-2-bring-your-own-api-key), você também pode escolher um modelo de menor custo ou reduzir o [nível de raciocínio](#thinking-levels) para diminuir os custos de token do provedor. O **Braze Auto** não suporta ajuste do nível de raciocínio.
+
 ### Erros de limite de frequência {#rate-limit-errors}
 
-Se o provedor de LLM retornar um erro de limite de frequência durante uma **etapa de agente no Canvas**, a Braze tenta novamente a solicitação continuamente usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que ela não pode ser concluída. **Agentes de catálogo** não tentam novamente invocações com limite de frequência.
+Se o provedor de LLM retornar um erro de limite de frequência durante uma invocação de agente de etapa do Canvas ou de agente de catálogo, a Braze tenta novamente a solicitação continuamente usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que ela não pode ser concluída.
 
-Quando as tentativas do Canvas se esgotam, o painel de detalhes de **Logs** mostra **Error** e a mensagem do provedor (como `Rate limit exceeded`) em **Output**. As tentativas são visíveis nos logs, incluindo a primeira invocação, independentemente do seu eventual sucesso ou falha. Para um determinado usuário, se forem necessárias quatro novas tentativas para finalmente obter sucesso, você pode pesquisar o ID do usuário e ver todas as cinco (original mais quatro novas tentativas) nos **Logs**, e a original mais as três primeiras novas tentativas mostrarão **Error** com `Rate limit exceeded`.
+Quando as tentativas do Canvas ou catálogo se esgotam, o painel de detalhes de **Logs** mostra **Error** e a mensagem do provedor (como `Rate limit exceeded`) em **Output**. As tentativas são visíveis nos logs, incluindo a primeira invocação, independentemente do seu eventual sucesso ou falha. Para um determinado usuário, se forem necessárias quatro novas tentativas para finalmente obter sucesso, você pode pesquisar o ID do usuário e ver todas as cinco (original mais quatro novas tentativas) nos **Logs**, e a original mais as três primeiras novas tentativas mostrarão **Error** com `Rate limit exceeded`.
 
 ![Detalhes do log do Console do agente mostrando um erro de limite de frequência excedido no campo Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -137,7 +151,20 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 ```
 {% endraw %}
 
-Na seção **Logs** do **Console do agente**, você pode revisar os detalhes da entrada e saída do agente para entender qual valor é renderizado a partir do Liquid.
+Na seção **Logs** do **Agent Console**, você pode revisar os detalhes da entrada e saída do agente para entender qual valor é renderizado a partir do Liquid.
+
+### Quais dados os agentes recebem {#what-data-agents-receive}
+
+O contexto do agente não é uma memória conversacional aberta. Diferente de um assistente de chat, um agente só vê os dados que você passa explicitamente no momento da invocação — ele não navega por perfis de usuário, não infere campos ausentes e não avisa quando informações obrigatórias estão faltando.
+
+Projete cada agente como um pipeline deliberado de entrada para saída. Conecte cada ponto de dados que o agente precisa usando um ou mais dos seguintes métodos:
+
+1. **Liquid nas instruções:** Insira atributos de usuário ({% raw %}`{{${first_name}}}`{% endraw %}) e [variáveis de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) ({% raw %}`{{context.${variable_name}}}`{% endraw %}) diretamente no prompt do agente.
+2. **+ Contexto do agente:** Selecione catálogos, associação a segmentos, diretrizes da marca, **All Canvas Context** ou dados de interação do usuário no Console do agente.
+3. [Etapas de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context): Defina ou atualize variáveis `context.*` antes da execução de uma etapa de agente no Canvas.
+4. **Contexto adicional na etapa de agente:** Passe quaisquer valores adicionais com template Liquid que não foram especificados pelos outros métodos para o agente no momento do envio a partir da configuração da etapa.
+
+Certifique-se de inserir essas variáveis de contexto via template Liquid nas instruções do agente ou selecione **Add All Canvas Context**. Se um valor não for passado por um desses canais, o agente não o recebe. Liste as entradas obrigatórias nas suas instruções ou nos [pré-requisitos do caso de uso]({{site.baseurl}}/user_guide/brazeai/agents/use_cases), e verifique as entradas em **Agent Console** > **Logs** após os testes.
 
 ![Detalhes de um agente que tem Liquid em suas instruções.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
@@ -160,7 +187,7 @@ Esquemas básicos são uma saída simples que um agente retorna. Pode ser uma st
 Por exemplo, se você quiser coletar pontuações de sentimento dos usuários a partir de uma pesquisa de feedback simples para determinar o nível de satisfação dos seus clientes após receberem um produto, você pode selecionar **Number** como esquema básico para estruturar o formato de saída.
 
 {% alert important %}
-Arrays estão disponíveis apenas para agentes de Canvas, não para agentes de catálogo.
+Arrays estão disponíveis apenas para agentes de etapa do Canvas, não para agentes de catálogo.
 {% endalert %}
 
 ![Console do agente com número selecionado como esquema básico.]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
@@ -170,15 +197,15 @@ Arrays estão disponíveis apenas para agentes de Canvas, não para agentes de c
 As opções de esquema avançado incluem estruturar campos manualmente ou usar JSON.
 
 - **Fields:** Uma forma sem código de definir uma saída de agente que você pode usar de forma consistente.
-- **JSON:** Uma abordagem com código para criar um formato de saída preciso, onde você pode aninhar variáveis e objetos dentro do esquema JSON. Disponível apenas para agentes de Canvas, não para agentes de catálogo.
+- **JSON:** Uma abordagem com código para criar um formato de saída preciso, onde você pode aninhar variáveis e objetos dentro do esquema JSON. Disponível apenas para agentes de etapa do Canvas, não para agentes de catálogo.
 
 Recomendamos usar esquemas avançados quando você quiser que o agente retorne uma estrutura de dados com múltiplos valores definidos de forma estruturada, em vez de uma saída de valor único. Isso permite que a saída seja melhor formatada como uma variável de contexto consistente.
 
 ### Saída de fallback {#fallback-output}
 
-Valores de fallback estão disponíveis apenas para **agentes de etapa do Canvas**. Na seção **Output** do Console do agente para um agente de Canvas, você pode definir valores que a Braze usa quando uma invocação falha.
+Valores de fallback estão disponíveis apenas para agentes de etapa do Canvas. Na seção **Output** do Console do agente para um agente de etapa do Canvas, você pode definir valores que a Braze usa quando uma invocação falha.
 
-Para esquemas **JSON**, a Braze lê o esquema e gera um campo de entrada para cada propriedade, para que você possa definir um valor de fallback por chave. Para esquemas de **Fields**, você insere um valor de fallback para cada campo. Para esquemas básicos, você insere um único valor de fallback. Agentes de Canvas suportam Liquid em valores de fallback.
+Para esquemas **JSON**, a Braze lê o esquema e gera um campo de entrada para cada propriedade, para que você possa definir um valor de fallback por chave. Para esquemas de **Fields**, você insere um valor de fallback para cada campo. Para esquemas básicos, você insere um único valor de fallback. Agentes de etapa do Canvas suportam Liquid em valores de fallback.
 
 Para as etapas de configuração, veja [Configurar valores de fallback]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). Para o comportamento em tempo de execução no Canvas, veja [Tratamento de erros e comportamento de fallback]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
@@ -226,11 +253,11 @@ Se você quiser coletar feedback dos usuários sobre a experiência gastronômic
 
 ## Catálogos e campos {#catalogs-and-fields}
 
-Escolha catálogos específicos para um agente referenciar e forneça ao seu agente o contexto necessário para entender seus produtos e outros dados não relacionados ao usuário quando relevante. Os agentes usam ferramentas para encontrar apenas os itens relevantes e enviá-los ao LLM para minimizar o uso de tokens.
+Escolha catálogos específicos para um agente referenciar e forneça ao seu agente o contexto necessário para entender seus produtos e outros dados não relacionados ao usuário quando relevante. Os agentes usam ferramentas para encontrar apenas os itens relevantes e enviá-los ao LLM para minimizar o uso de tokens. Para uma melhor recuperação de catálogo, crie uma [fonte de conhecimento]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) e adicione-a como contexto do agente em vez de anexar o catálogo diretamente.
 
 ![O catálogo "restaurants" e a coluna "Loyalty_Program" selecionados para o agente pesquisar.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-Quando você implanta um agente de catálogo em um campo de catálogo, ative o controle de entrada obrigatória e escolha quais colunas selecionadas são **obrigatórias para execução** antes que o agente seja invocado. O agente pula uma linha somente quando uma dessas colunas obrigatórias está em branco ou ausente — por exemplo, um campo `gender` que ainda não foi preenchido. As colunas selecionadas começam como obrigatórias por padrão, mas você pode remover colunas que podem estar vazias sem bloquear a execução. Isso evita desperdício de tokens com dados incompletos.
+Quando você implanta um agente de catálogo em um campo de catálogo, ative o controle de entrada obrigatória e escolha quais colunas selecionadas são obrigatórias para execução antes que o agente seja invocado. O agente pula uma linha somente quando uma dessas colunas obrigatórias está em branco ou ausente — por exemplo, um campo `gender` que ainda não foi preenchido. As colunas selecionadas começam como obrigatórias por padrão, mas você pode remover colunas que podem estar vazias sem bloquear a execução. Isso evita desperdício de tokens com dados incompletos.
 
 Agentes de catálogo também respeitam a ordem das colunas quando os campos de entrada dependem uns dos outros. Se a coluna D deve ser gerada a partir das colunas B e C, o agente não executa na coluna D até que B e C contenham valores para aquela linha.
 
@@ -250,9 +277,25 @@ Você pode selecionar [diretrizes da marca]({{site.baseurl}}/user_guide/administ
 
 Os dados de interação de um usuário incluem aberturas, cliques e dados de conversão recentes de Campaigns e Canvas. Por exemplo, você pode incluir esse contexto para um agente referenciar quando ele é avaliado em um Canvas. O histórico de interação específico do usuário também pode ajudar a influenciar um agente quando sua função é escrever textos de mensagens personalizadas.
 
+## Histórico de versões {#version-history}
+
+O Console do agente registra uma nova versão cada vez que você salva alterações no agente. A guia **Histórico de versões** lista todas as versões salvas e as edições entre os salvamentos.
+
+1. Abra o agente no Console do agente.
+2. Selecione a guia **Histórico de versões**.
+3. Selecione uma versão para revisar sua configuração.
+
+Para inspecionar o que mudou em uma versão, selecione **View**. A Braze exibe um diff inline no estilo de código que destaca adições e exclusões. O conteúdo excluído aparece com estilo de tachado em vermelho.
+
+Se você precisar recuperar instruções de uma versão anterior, abra **View** para essa versão, copie o texto da instrução e cole no campo **Instructions** atual.
+
+{% alert tip %}
+Na visualização de diff inline, pressione <kbd>⌘</kbd> + <kbd>A</kbd> (macOS) ou <kbd>Ctrl</kbd> + <kbd>A</kbd> (Windows) para selecionar todas as instruções sem a marcação de exclusão em vermelho, para que você possa copiar e recuperar o texto limpo.
+{% endalert %}
+
 ## Duplicar agentes {#duplicate-agents}
 
-Para testar melhorias ou iterações de um agente, você pode duplicar um agente e aplicar alterações para comparar com o original. Você também pode tratar a duplicação de agentes como controle de versão para rastrear variações nos detalhes do agente e quaisquer impactos no seu envio de mensagens. Para duplicar um agente:
+Duplique um agente para testar melhorias ou iterações lado a lado com o original. Use o [histórico de versões](#version-history) para revisar ou recuperar configurações anteriores. Para duplicar um agente:
 
 1. Passe o mouse sobre a linha do agente e selecione o menu <i class="fas fa-ellipsis-vertical"></i>.
 2. Selecione **Duplicar**.

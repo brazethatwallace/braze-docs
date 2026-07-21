@@ -37,7 +37,7 @@ table td {
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Cuenta Mozart Data | Se necesita una cuenta de Mozart Data para beneficiarse de esta asociación. [Regístrate aquí.](https://app.mozartdata.com/signup)|
+| Cuenta Mozart Data | Se necesita una cuenta de Mozart Data para beneficiarse de esta asociación. [Regístrate para obtener una cuenta de Mozart Data.](https://app.mozartdata.com/signup)|
 | Cuenta Snowflake<br>Opción 1: Cuenta nueva | Selecciona **Create a New Snowflake Account** durante el proceso de creación de la cuenta de Mozart Data para que Mozart Data te facilite una nueva cuenta de Snowflake. |
 | Cuenta Snowflake<br>Opción 2: Cuenta existente | Si tu organización ya tiene una cuenta Snowflake, puedes utilizar la opción Mozart Data Connected.<br><br>Selecciona la opción **Already Have a Snowflake Account** para conectar una cuenta Snowflake existente. Para seguir esta opción, un usuario con permisos a nivel de cuenta debe [seguir estos pasos](https://help.mozartdata.com/docs/setting-up-data-warehouse#existingsnowflakeaccount). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -65,7 +65,7 @@ Fivetran comenzará a sincronizar los datos de tu cuenta de Braze con tu almacé
 
 #### Paso 1: Configurar un almacén de datos de Snowflake {#step-1-set-up-a-snowflake-data-warehouse}
 
-Sigue las instrucciones de [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/?tab=snowflake) para configurar una tabla, un usuario y un permiso desde la interfaz de Snowflake. Ten en cuenta que este paso requiere acceso a Snowflake a nivel de administrador.
+Sigue las instrucciones de [Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/?tab=snowflake) para configurar una tabla, un usuario y un permiso desde la interfaz de Snowflake. Ten en cuenta que este paso requiere acceso a Snowflake a nivel de administrador.
 
 #### Paso 2: Configurar tu integración de Snowflake en Braze {#step-2-set-up-your-snowflake-integration-in-braze}
 
@@ -75,7 +75,7 @@ Después de configurar tu almacén de Snowflake, en Mozart Data, ve a la página
 
 A continuación, mientras estás conectado a Braze, ve a **Integrations > Technology Partners > Snowflake** para iniciar el proceso de integración. Copia las credenciales de Mozart Data y añádelas a la página de importación de datos de Snowflake. Selecciona **Set up sync details** e introduce tu cuenta de Snowflake y la información de la tabla de origen.
 
-![Formulario de integración del socio Snowflake en Braze con los campos de cuenta, almacén, base de datos y esquema completados con las credenciales de Mozart Data.]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
+![Formulario de integración del partner Snowflake en Braze con los campos de cuenta, almacén, base de datos y esquema completados con las credenciales de Mozart Data.]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
 A continuación, en la pantalla de configuración de importación de Snowflake en Braze, elige un nombre para la sincronización, proporciona las direcciones de correo electrónico de contacto y selecciona un tipo de datos y una frecuencia de sincronización.
 

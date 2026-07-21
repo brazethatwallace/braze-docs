@@ -9,7 +9,7 @@ tool: Canvas
 
 # Clonar Canvas a Canvas Flow {#clone-canvases-to-canvas-flow}
 
-> Si tienes un Canvas existente del editor original, puedes clonar este Canvas para crear una copia en Canvas Flow. Al cambiar al flujo de trabajo actual de Canvas, obtienes acceso a [componentes de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components) ligeros, [propiedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#canvas-entry-properties) y [edición posterior al lanzamiento]({{site.baseurl}}/post-launch_edits). Tu Canvas original no se modificará ni eliminará.
+> Si tienes un Canvas existente del editor original, puedes clonar este Canvas para crear una copia en Canvas Flow. Al cambiar al flujo de trabajo actual de Canvas, obtienes acceso a [componentes de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components) ligeros, [propiedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) y [edición posterior al lanzamiento]({{site.baseurl}}/post-launch_edits). Tu Canvas original no se modificará ni eliminará.
 
 {% alert important %}
 Ya no puedes crear ni duplicar Canvas con la experiencia original de Canvas. Braze recomienda que los clientes que usan la experiencia original de Canvas migren a Canvas Flow, la experiencia actual de Canvas.
@@ -17,7 +17,7 @@ Ya no puedes crear ni duplicar Canvas con la experiencia original de Canvas. Bra
 
 Para clonar tu Canvas, haz lo siguiente:
 
-1. Ve al dashboard de Canvas.
+1. Ve al panel de Canvas.
 2. Identifica el Canvas del que quieres crear una copia en el flujo de trabajo de Canvas Flow. Puedes clonar Canvas con estado **Borrador**, **Activo** o **Detenido**.
 3. Haz clic en <i class="fas fa-ellipsis-vertical"></i> **Más acciones** y selecciona **Clonar a Canvas Flow**.
 
@@ -36,7 +36,7 @@ Anteriormente, algunos Canvas con ramificaciones no se podían clonar. Ahora pue
 Si clonas un Canvas activo, Braze seguirá enviando usuarios a través del Canvas original. Recomendamos detener un Canvas antes de clonarlo para evitar enviar mensajes duplicados a los usuarios desde ambos Canvas.
 {% endalert %}
 
-![Dashboard de Canvas con dos Canvas listados: V2 Copy of Canvas V1 y Canvas V1. La copia V2 de Canvas V1 tiene un icono que indica que está usando el flujo de trabajo de Canvas Flow.]({% image_buster /assets/img_archive/clone_to_v2_dashboard.png %})
+![Panel de Canvas con dos Canvas listados: V2 Copy of Canvas V1 y Canvas V1. La copia V2 de Canvas V1 tiene un icono que indica que está usando el flujo de trabajo de Canvas Flow.]({% image_buster /assets/img_archive/clone_to_v2_dashboard.png %})
 
 ¡Has completado la clonación de tu Canvas al flujo de trabajo de Canvas Flow! Ahora puedes seguir construyendo tus Canvas en esta experiencia actualizada.
 
@@ -50,4 +50,4 @@ Si la reelegibilidad está desactivada, añade el filtro "Entered Canvas Variati
 
 Para Canvas desencadenados por API, coordina con tu equipo de ingeniería para asegurarte de que estos Canvas estén usando el nuevo ID de Canvas cuando los nuevos Canvas estén listos para lanzar.
 
-Para más información sobre las diferencias entre el editor original de Canvas y la experiencia de Canvas Flow, consulta las [preguntas frecuentes de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-canvas-flow-and-the-original-canvas-editor).
+Para más información sobre las diferencias entre el editor original de Canvas y la experiencia de Canvas Flow, consulta las [preguntas frecuentes de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-the-current-and-original-canvas-editors).

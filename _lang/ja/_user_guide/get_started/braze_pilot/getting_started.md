@@ -77,7 +77,7 @@ Brazeダッシュボードの**アプリ設定**ページから、ダッシュ�
 {% endtab %}
 {% tab プッシュプライマーメッセージを送信する %}
 
-Brazeのアプリ内メッセージを使用して、アプリのプッシュ通知権限をリクエストできます。これは自社の消費者向けに行う場合と同じです。このタイプのメッセージをBrazeで作成する方法については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages)を参照してください。
+Brazeのアプリ内メッセージを使用して、アプリのプッシュ通知権限をリクエストできます。これは自社の消費者向けに行う場合と同じです。このタイプのメッセージをBrazeで作成する方法については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)を参照してください。
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">

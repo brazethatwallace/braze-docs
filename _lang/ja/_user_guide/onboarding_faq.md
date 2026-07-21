@@ -47,11 +47,11 @@ Users
 
 **オーディエンス** > **ユーザーをインポートする**から、CSVファイルを使用してユーザープロファイルをアップロードおよび更新できます。顧客データをインポートする際には、各顧客の一意の識別子（`external_id`とも呼ばれます）を指定する必要があります。
 
-CSVインポートを開始する前に、Brazeでユーザーをどのように識別するかをエンジニアリングチームから理解しておくことが重要です。一般的に、これは内部で使用されるデータベースIDです。これは、モバイルとWebでBraze SDKがユーザーを識別する方法と一致する必要があります。これにより、各顧客がデバイスを問わずBraze内で単一のユーザープロファイルを持つようになります。Brazeの[ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)の詳細をご覧ください。
+CSVインポートを開始する前に、Brazeでユーザーをどのように識別するかを開発チームから理解しておくことが重要です。一般的に、これは内部で使用されるデータベースIDです。これは、モバイルとWebでBraze SDKがユーザーを識別する方法と一致する必要があります。これにより、各顧客がデバイスを問わずBraze内で単一のユーザープロファイルを持つようになります。Brazeの[ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)の詳細をご覧ください。
 
 インポートで`external_id`を指定すると、Brazeは同じ`external_id`を持つ既存のユーザーを更新します。見つからない場合は、その`external_id`を持つ新しい識別済みユーザーを作成します。
 
-CSVインポートテンプレートの詳細およびダウンロードについては、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)を参照してください。
+CSVインポートテンプレートの詳細およびダウンロードについては、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)を参照してください。
 
 #### API
 
@@ -120,16 +120,16 @@ Users
 ### CSVでユーザーグループをインポートする際にセグメントを作成するにはどうすればよいですか？ {#how-do-i-create-a-segment-when-i-import-a-group-of-users-through-csv}
 
 {% apitags %}
-セグメント
+Segments
 {% endapitags %}
 
-CSVファイルをインポートするには、[ユーザー]セクションの**ユーザーインポート**ページに移動します。**最近のインポート**テーブルには、最近のインポートが最大20件まで表示され、ファイル名、ファイル内の行数、正常にインポートされた行数、各ファイルの合計行数、各インポートのステータスが確認できます。
+CSVファイルをインポートするには、ユーザーセクションの**ユーザーインポート**ページに移動します。**最近のインポート**テーブルには、最近のインポートが最大20件まで表示され、ファイル名、ファイル内の行数、正常にインポートされた行数、各ファイルの合計行数、各インポートのステータスが確認できます。
 
 **CSVインポート**パネルには、インポートの手順とインポートを開始するボタンがあります。**Select CSV File**をクリックし、目的のファイルを選択します。次に、**Start Import**をクリックする前に、「What do you want us to do with the users in this CSV」の下で、このリストの処理方法をBrazeに指定するオプションがあります。
 
 **Import Users in this CSV and also make it possible to retarget this specific batch of users as a group**を選択し、次に**Automatically generate a segment from the users who are imported from this CSV**を選択します。**Start Import**をクリックすると、Brazeがファイルをアップロードし、列ヘッダーと各列のデータタイプをチェックし、セグメントを作成します。
 
-CSVテンプレートをダウンロードするには、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)を参照してください。
+CSVテンプレートをダウンロードするには、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)を参照してください。
 
 {% endapi %}
 {% api %}
@@ -137,7 +137,7 @@ CSVテンプレートをダウンロードするには、[ユーザーインポ�
 ### セグメントを作成する際にどのような種類のフィルターを使用できますか？ {#what-types-of-filters-can-i-use-when-creating-a-segment}
 
 {% apitags %}
-セグメント
+Segments
 {% endapitags %}
 
 Braze SDKは、特定の機能や属性に基づいてユーザーをセグメント化し、ターゲットを絞るための強力なフィルター群を提供します。[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)用語集を使用して、フィルターカテゴリ（カスタムデータ、ユーザーアクティビティ、リターゲティング、マーケティングアクティビティ、ユーザー属性、インストールアトリビューション、ソーシャルアクティビティ、テスト、その他）でこれらのフィルターを検索したり絞り込んだりすることができます。
@@ -148,7 +148,7 @@ Braze SDKは、特定の機能や属性に基づいてユーザーをセグメ�
 ### ロケーションターゲティングを設定して、直近のロケーションでユーザーをセグメント化し、ロケーションベースのキャンペーンや戦略に活用するにはどうすればよいですか？ {#how-do-i-set-up-location-targeting-so-that-i-can-segment-users-by-their-most-recent-location-and-use-it-in-my-location-based-campaigns-and-strategies}
 
 {% apitags %}
-セグメント
+Segments
 {% endapitags %}
 
 エンゲージメントの下にある**セグメント**ページに移動し、現在のユーザーセグメントをすべて表示します。このページでは、新しいセグメントを作成して名前を付けることができます。開始するには、**セグメントを作成**をクリックし、セグメントに名前を付けます。
@@ -168,7 +168,7 @@ Brazeパートナーの支援を受けながらロケーションターゲティ
 ### 過去365日間のカスタムイベントや購入行動に基づいて、ユーザーの正確なリストをターゲットにするにはどうすればよいですか？ {#how-can-i-target-precise-lists-of-users-based-on-their-custom-event-and-purchase-behavior-in-the-past-365-days}
 
 {% apitags %}
-セグメント
+Segments
 {% endapitags %}
 
 [セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用できます！セグメントエクステンションを使えば、通常のセグメントでは不可能な、より正確なユーザーリストをターゲットにすることができます。
@@ -198,14 +198,14 @@ Brazeパートナーの支援を受けながらロケーションターゲティ
 #### セグメントエクステンションを常に最新の状態に保つ {#keeping-segment-extensions-up-to-date}
 
 {% apitags %}
-セグメント
+Segments
 {% endapitags %}
 
 このエクステンションで特定の時点の1つのスナップショットを表すか、毎日再生成するかを指定できます。エクステンションは常に最初の保存後に処理を開始します。エクステンションを毎日再生成する場合は、**Regenerate Extension Daily**を選択すると、会社のタイムゾーンで毎日午前0時頃に再生成の処理が開始されます。
 
 完了したら、**Save**をクリックします。エクステンションの処理が開始されます。エクステンションの生成にかかる時間は、ユーザーの数、キャプチャするカスタムイベントまたは購入イベントの数、履歴をさかのぼる日数によって異なります。
 
-最後に、エクステンションを作成した後、セグメントを作成したり、キャンペーンやキャンバスのオーディエンスを定義する際にフィルターとして使用できます。まず、**User Attributes**セクションのフィルターリストから`Braze セグメント Extension`を選択します。Brazeセグメントエクステンションフィルターリストから、このセグメントに含めるまたは除外したいエクステンションを選択します。エクステンションの基準を表示するには、**View Extension Details**をクリックします。これで、通常どおりセグメントの作成を進めることができます。
+最後に、エクステンションを作成した後、セグメントを作成したり、キャンペーンやキャンバスのオーディエンスを定義する際にフィルターとして使用できます。まず、**User Attributes**セクションのフィルターリストから`Braze セグメントエクステンション`を選択します。Brazeセグメントエクステンションフィルターリストから、このセグメントに含めるまたは除外したいエクステンションを選択します。エクステンションの基準を表示するには、**View Extension Details**をクリックします。これで、通常どおりセグメントの作成を進めることができます。
 
 {% endapi %}
 {% api %}
@@ -215,10 +215,10 @@ Brazeパートナーの支援を受けながらロケーションターゲティ
 ### マルチチャネルキャンペーンはどのように作成しますか？ {#how-do-you-create-a-multichannel-campaign}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
-セットアップ手順、サポートされるチャネル、コンポーザーの切り替え方法については、**キャンペーンを作成する**の[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns)を参照してください。
+セットアップ手順、サポートされるチャネル、コンポーザーの切り替え方法については、**キャンペーンを作成する**の[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign)を参照してください。
 
 {% endapi %}
 {% api %}
@@ -226,10 +226,10 @@ Brazeパートナーの支援を受けながらロケーションターゲティ
 ### キャンペーンのテストと最適化を開始するにはどのような方法がありますか？ {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
-多変量キャンペーンを作成し、複数のバリアントでキャンバスを実行することから始めるのがおすすめです。例えば、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing)を実行して、コピーや件名が異なる1つのメッセージをテストできます。複数のバリアントを持つキャンバスは、ワークフロー全体のテストに役立ちます。
+多変量キャンペーンを作成し、複数のバリアントでキャンバスを実行することから始めるのがおすすめです！例えば、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing)を実行して、コピーや件名が異なる1つのメッセージをテストできます。複数のバリアントを持つキャンバスは、ワークフロー全体のテストに役立ちます。
 
 {% endapi %}
 {% api %}
@@ -237,7 +237,7 @@ Brazeパートナーの支援を受けながらロケーションターゲティ
 ### 特定のキャンペーンまたはキャンバスのユニーク受信者数と送信数に差があるのはなぜですか？ {#why-is-there-a-difference-between-the-number-of-unique-recipients-and-the-number-of-sends-for-a-given-campaign-or-canvas}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 この違いの原因として考えられるのは、キャンペーンまたはキャンバスの再適格性がオンになっていることです。これがオンの場合、セグメントと配信設定に該当するユーザーがメッセージを複数回受信できるようになります。再適格性がオンになっていない場合、送信数とユニーク受信者数の違いは、ユーザーがプラットフォームをまたぐ複数のデバイスをプロファイルに関連付けていることが原因と考えられます。
@@ -250,12 +250,12 @@ Brazeパートナーの支援を受けながらロケーションターゲティ
 ### ローカルタイムゾーン配信で何が可能になりますか？ {#what-does-local-time-zone-delivery-offer}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 ローカルタイムゾーン配信では、ユーザーの個々のタイムゾーンに基づいてセグメントにメッセージングキャンペーンを配信できます。ローカルタイムゾーン配信がない場合、キャンペーンはBrazeの貴社のタイムゾーン設定に基づいてスケジュールされます。
 
-例えば、ロンドンに拠点を置く企業が午後12時にキャンペーンを送信すると、アメリカ西海岸のユーザーには午前4時に届きます。アプリが特定の国でのみ提供されている場合はこれが問題にならないかもしれませんが、そうでない場合は、早朝にプッシュ通知をユーザー群に送信することは極力避けることをお勧めします。
+例えば、ロンドンに拠点を置く企業が午後12時にキャンペーンを送信すると、アメリカ西海岸のユーザーには午前4時に届きます。アプリが特定の国でのみ提供されている場合はこれが問題にならないかもしれませんが、そうでない場合は、早朝にプッシュ通知をユーザー群に送信することは極力避けることをお勧めします！
 
 {% endapi %}
 {% api %}
@@ -263,7 +263,7 @@ Brazeパートナーの支援を受けながらロケーションターゲティ
 ### Brazeはユーザーのタイムゾーンをどのように認識しますか？ {#how-does-braze-recognize-a-users-time-zone}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 Brazeはユーザーのタイムゾーンをデバイスから自動的に判別します。これは、タイムゾーンの正確さとユーザーの完全なカバレッジをサポートするように設計されています。ユーザーAPIを通じて作成されたユーザーや、タイムゾーンなしで作成されたユーザーは、SDKによってアプリで認識されるまで、デフォルトのタイムゾーンとして貴社のタイムゾーンが使用されます。
@@ -276,7 +276,7 @@ Brazeはユーザーのタイムゾーンをデバイスから自動的に判別
 ### ローカルタイムゾーンのキャンペーンをスケジュールするにはどうすればよいですか？ {#how-do-i-schedule-a-local-time-zone-campaign}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 キャンペーンをスケジュールする際は、指定した時刻に送信することを選択してから、**Send campaign to users in their local time zone**を選択する必要があります。
@@ -299,7 +299,7 @@ Brazeでは、すべてのローカルタイムゾーンキャンペーンを24�
 ### ローカルタイムゾーンのキャンペーンの変更はいつ有効になりますか？ {#when-do-changes-to-local-time-zone-campaigns-take-effect}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 ローカルタイムゾーンキャンペーンのターゲットセグメントには、セグメント全体への配信を保証するために、時間ベースのフィルターに少なくとも48時間の期間を含める必要があります。例えば、次のフィルターで2日目のユーザーをターゲットにするセグメントを考えてみましょう。
@@ -315,7 +315,7 @@ Brazeでは、すべてのローカルタイムゾーンキャンペーンを24�
 ### 開始前のスケジュールされたキャンペーンにどのような変更を加えることができますか？ {#what-changes-can-i-make-to-scheduled-campaigns-ahead-of-launch}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 キャンペーンがスケジュールされている場合、メッセージを送信するためにキューに入れる前に、メッセージの構成以外の編集を行う必要があります。すべてのキャンペーンと同様に、キャンペーン開始後にコンバージョンイベントを編集することはできません。
@@ -326,7 +326,7 @@ Brazeでは、すべてのローカルタイムゾーンキャンペーンを24�
 ### スケジュールされたキャンペーンのメッセージがキューに入る前の「セーフゾーン」とは何ですか？ {#what-is-the-safe-zone-before-messages-on-a-scheduled-campaign-are-queued}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 - 1回限りのスケジュールキャンペーンは、送信予定時刻まで編集できます。
@@ -340,7 +340,7 @@ Brazeでは、すべてのローカルタイムゾーンキャンペーンを24�
 ### 「セーフゾーン」内で編集を行った場合はどうなりますか？ {#what-if-i-make-an-edit-within-the-safe-zone}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 この時間内にキャンペーンの送信時刻を変更すると、次のような望ましくない動作につながる可能性があります。
@@ -354,7 +354,7 @@ Brazeでは、すべてのローカルタイムゾーンキャンペーンを24�
 ### 「セーフゾーン」が既に経過している場合はどうすればよいですか？ {#what-should-i-do-if-the-safe-zone-has-already-passed}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 キャンペーンが意図どおりに動作するように、現在のキャンペーンを停止することをお勧めします（これにより、キューに入っているメッセージがすべて停止します）。その後、キャンペーンを複製し、必要に応じて変更を加え、新しいキャンペーンを開始します。既に最初のキャンペーンを受信したユーザーは、必要に応じてこのキャンペーンから除外してください。
@@ -367,7 +367,7 @@ Brazeでは、すべてのローカルタイムゾーンキャンペーンを24�
 ### Brazeはローカルタイムゾーン配信のユーザーをいつ評価しますか？ {#when-does-braze-evaluate-users-for-local-time-zone-delivery}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 Brazeは次のタイミングでユーザーのエントリ適格性を評価します。
@@ -382,7 +382,7 @@ Brazeは次のタイミングでユーザーのエントリ適格性を評価し
 
 エントリするには、ユーザーは両方の評価時点でオーディエンスとフィルターに一致している必要があります。ユーザーが最初のチェックで不適格となった場合、Brazeは2回目のチェックを実行しません。ユーザーが開始前にセグメントに一定期間いる必要はなく、各チェック時点での適格性のみが重要です。
 
-この評価動作は、[ダッシュボードでキャンペーンをどのくらい前にスケジュールするか]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign)とは別のものです。詳しい説明、例、スケジュールのガイダンスについては、キャンペーンのFAQの[Brazeはローカルタイムゾーン配信のユーザーをいつ評価しますか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery)と[ローカルタイムゾーンのキャンペーンをスケジュールするにはどうすればよいですか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign)を参照してください。
+この評価動作は、[ダッシュボードでキャンペーンをどのくらい前にスケジュールするか]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign)とは別のものです。詳しい説明、例、スケジュールのガイダンスについては、キャンペーンFAQの[Brazeはローカルタイムゾーン配信のユーザーをいつ評価しますか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery)と[ローカルタイムゾーンのキャンペーンをスケジュールするにはどうすればよいですか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign)を参照してください。
 
 {% endapi %}
 {% api %}
@@ -390,7 +390,7 @@ Brazeは次のタイミングでユーザーのエントリ適格性を評価し
 ### キャンペーンに入るユーザー数が予想数と一致しないのはなぜですか？ {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
 {% apitags %}
-キャンペーン
+Campaigns
 {% endapitags %}
 
 キャンペーンに入るユーザー数は、オーディエンスやトリガーの評価方法によって予想数と異なる場合があります。Brazeでは、オーディエンスはトリガーの前に評価されます（[属性の変更トリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)を使用する場合を除きます）。これにより、トリガーアクションが評価される前に、ユーザーが選択したオーディエンスに含まれていない場合、キャンペーンから脱落する原因となります。
@@ -403,7 +403,7 @@ Brazeは次のタイミングでユーザーのエントリ適格性を評価し
 ### バリアントが1つで分岐が複数あるキャンバスで、オーディエンスと送信時刻が同一の場合はどうなりますか？ {#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches}
 
 {% apitags %}
-キャンバス
+Canvases
 {% endapitags %}
 
 各ステップのジョブをキューに入れ、ほぼ同時に実行し、どちらかが「勝ちます」。実際には、ほぼ均等に分配される可能性がありますが、最初に作成されたステップが若干有利になる傾向があります。
@@ -416,7 +416,7 @@ Brazeは次のタイミングでユーザーのエントリ適格性を評価し
 ### キャンバスを停止するとどうなりますか？ {#what-happens-when-you-stop-a-canvas}
 
 {% apitags %}
-キャンバス
+Canvases
 {% endapitags %}
 
 キャンバスを停止すると、以下が適用されます。
@@ -435,7 +435,7 @@ Brazeは次のタイミングでユーザーのエントリ適格性を評価し
 ### 例外イベントはいつトリガーされますか？ {#when-does-an-exception-event-trigger}
 
 {% apitags %}
-キャンバス
+Canvases
 {% endapitags %}
 
 例外イベントがトリガーされるのは、ユーザーがそのイベントに関連するキャンバスコンポーネントの受信を待機している間だけです。ユーザーが事前にアクションを実行した場合、例外イベントはトリガーされません。
@@ -448,7 +448,7 @@ Brazeは次のタイミングでユーザーのエントリ適格性を評価し
 ### キャンバスの編集は、既にキャンバスに入っているユーザーにどのような影響を与えますか？ {#how-does-editing-a-canvas-affect-users-already-in-the-canvas}
 
 {% apitags %}
-キャンバス
+Canvases
 {% endapitags %}
 
 マルチステップキャンバスの一部のステップを編集した場合、既にオーディエンスに含まれているがステップをまだ受け取っていないユーザーは、更新後のバージョンのメッセージを受け取ります。これは、まだそのステップで評価されていない場合にのみ該当することに注意してください。
@@ -461,7 +461,7 @@ Brazeは次のタイミングでユーザーのエントリ適格性を評価し
 ### キャンバスでユーザーのコンバージョンはどのように追跡されますか？ {#how-are-user-conversions-tracked-in-a-canvas}
 
 {% apitags %}
-キャンバス
+Canvases
 {% endapitags %}
 
 ユーザーがコンバージョンできるのは、キャンバスのエントリごとに1回のみです。
@@ -503,7 +503,7 @@ Brazeは次のタイミングでユーザーのエントリ適格性を評価し
 ### ユニークユーザー数を見る場合、キャンバス分析とセグメンターのどちらがより正確ですか？ {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
 {% apitags %}
-キャンバス
+Canvases
 {% endapitags %}
 
 セグメンターは、キャンバスやキャンペーンの統計と比較して、より正確なユニークユーザーデータの統計を提供します。これは、キャンバスやキャンペーンの統計値は、何かが起こるとBrazeによってインクリメントされる数値であるためです。そのため、変数によってはこの数値がセグメンターの数値と異なる可能性があります。例えば、ユーザーは1つのキャンバスやキャンペーンで複数回コンバージョンする可能性があります。
@@ -514,7 +514,7 @@ Brazeは次のタイミングでユーザーのエントリ適格性を評価し
 ### キャンバスに入るユーザー数が予想数と一致しないのはなぜですか？ {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
 
 {% apitags %}
-キャンバス
+Canvases
 {% endapitags %}
 
 キャンバスに入るユーザー数は、オーディエンスやトリガーの評価方法によって予想数と異なる場合があります。Brazeでは、オーディエンスはトリガーの前に評価されます（[属性の変更]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)トリガーを使用する場合を除きます）。そのため、選択したオーディエンスに含まれない場合、ユーザーはトリガーアクションが評価される前にキャンバスから脱落します。
@@ -572,12 +572,12 @@ Analytics
 1. ダッシュボードアカウントで、**Data**の下にある**Engagement Reports**に移動します。
 2. **+ Create New Report**をクリックします。
 3. レポートにまとめたい[キャンペーンとキャンバスメッセージ]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#manually-select-campaigns-or-canvases)を（個別または[タグごとに]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)）追加します。
-4. レポートに[統計を追加]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-report)します。
+4. レポートに[統計を追加]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-reports)します。
 5. レポートの圧縮とデリミタを選択します。
 6. このレポートを受け取る会社ユーザーのメールアドレスを入力します。
-7. レポートでデータを実行する[期間]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#time-frame)を選択します。
-8. データの内訳を確認したい[間隔（毎日、毎週など）]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#data-display)を選択します。
-9. レポートを[すぐに送信]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-immediately)するか、[将来の指定時刻]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-at-designated-time)に送信するかを設定します。
+7. レポートでデータを実行する[期間]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-time-frame)を選択します。
+8. データの内訳を確認したい[間隔（毎日、毎週など）]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-data-display)を選択します。
+9. レポートを[すぐに送信]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report)するか、[将来の指定時刻]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report)に送信するかを設定します。
 10. レポートを実行し、メールが届いたら開きましょう！
 
 {% endapi %}

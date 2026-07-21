@@ -38,9 +38,9 @@ SDK에서 로케일을 수집하는 방법에 대한 기술적 세부 사항은 
 
 ### 국가별 하나의 템플릿 {#one-template-per-country}
 
-이 접근 방식에서는 템플릿을 서로 다른 발송 로케일로 분리합니다. 발송 후 대시보드에서 각 국가별로 발송 분석을 별도로 보고하며, 다운스트림 사용자 수준의 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents) 이벤트도 특정 Campaign에 연결됩니다.
+이 접근 방식에서는 템플릿을 서로 다른 발송 로케일로 분리합니다. 발송 후 대시보드에서 각 국가별로 발송 분석을 별도로 보고하며, 다운스트림 사용자 수준의 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) 이벤트도 특정 Campaign에 연결됩니다.
 
-- 템플릿은 유지 관리 및 추적 목적으로 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags)를 구현하면 유용합니다.
+- 템플릿은 유지 관리 및 추적 목적으로 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 구현하면 유용합니다.
 - Campaigns는 동일한 [Braze 템플릿]({{site.baseurl}}/user_guide/messaging/templates) 및 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)(Liquid을 포함하는 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates) 등)의 구성을 상속받을 수 있습니다.
 - 기존 Campaigns와 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating)하여 더 빠르게 가치를 실현할 수 있습니다.
 
@@ -55,7 +55,7 @@ SDK에서 로케일을 수집하는 방법에 대한 기술적 세부 사항은 
 
 이 접근 방식에서는 [Canvas 기본 사항]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey)과 Liquid을 활용하여 각 사용자에 대한 메시징을 정의합니다.
 
-Canvas가 발송된 후 대시보드에서 집계된 [Canvas 분석]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)을 제공하며, 사용자 수준의 참여는 커스텀 [Segment 퍼널]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)을 통해 측정할 수 있습니다. 예를 들어 [**국가**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country)와 [**수신한 캔버스 단계**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-canvas-step) 필터를 결합하는 방식입니다.
+Canvas가 발송된 후 대시보드에서 집계된 [Canvas 분석]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)을 제공하며, 사용자 수준의 참여는 커스텀 [Segment 퍼널]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)을 통해 측정할 수 있습니다. 예를 들어 [**국가**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country)와 [**수신한 캔버스 단계**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step) 필터를 결합하는 방식입니다.
 
 | 장점 | 고려 사항 |
 | --- | --- |
@@ -71,7 +71,7 @@ Canvas가 발송된 후 대시보드에서 집계된 [Canvas 분석]({{site.base
 - 국가별 별도 Canvases - 오디언스 필터를 사용하여 퍼널 상단에서 복잡한 사용자 여정을 정의합니다.
 - 국가별 맞춤 사용자 여정 - [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)를 구현하여 각 여정에 대해 대규모로 사용자를 직관적으로 세분화하고, 단일 Canvas 내에서 각 국가별로 별도의 메시지 스레드를 생성합니다.
 
-발송 후 대시보드에서 국가별 동적 분석을 제공하며, 사용자 수준의 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents) 이벤트에서도 고객의 현재 위치를 기반으로 분석할 수 있습니다.
+발송 후 대시보드에서 국가별 동적 분석을 제공하며, 사용자 수준의 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) 이벤트에서도 고객의 현재 위치를 기반으로 분석할 수 있습니다.
 
 | 장점 | 고려 사항 |
 | --- | --- |
@@ -122,7 +122,7 @@ Braze는 {% raw %}`{% translation salutation %}Hello!{% endtranslation %}`{% end
 {% endtab %}
 
 {% tab Content Blocks %}
-Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)는 재사용 가능한 콘텐츠 블록입니다. 블록이 변경되면 해당 블록에 대한 모든 참조가 변경됩니다. 예를 들어, 이메일 헤더나 푸터에 대한 업데이트가 모든 이메일에 반영되거나 번역을 보관하는 데 사용할 수 있습니다. 이러한 블록은 REST API를 사용하여 [생성]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block#create-content-block) 및 [업데이트]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block)할 수도 있으며, 사용자가 프로그래밍 방식으로 번역을 업로드할 수 있습니다.
+Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)는 재사용 가능한 콘텐츠 블록입니다. 블록이 변경되면 해당 블록에 대한 모든 참조가 변경됩니다. 예를 들어, 이메일 헤더나 푸터에 대한 업데이트가 모든 이메일에 반영되거나 번역을 보관하는 데 사용할 수 있습니다. 이러한 블록은 REST API를 사용하여 [생성]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) 및 [업데이트]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block)할 수도 있으며, 사용자가 프로그래밍 방식으로 번역을 업로드할 수 있습니다.
 
 대시보드에서 Campaign을 구축할 때 {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %} 태그를 사용하여 Content Blocks를 참조할 수 있습니다. 이러한 블록에는 옵션 1에서 보여준 것처럼 각 언어에 대한 조건 로직 내에 모든 번역을 포함하거나, 각 언어별로 별도의 블록을 사용할 수 있습니다.
 
@@ -135,7 +135,7 @@ Content Blocks는 번역 관리 프로세스로도 활용할 수 있습니다. �
 {% endtab %}
 
 {% tab 카탈로그 %}
-[카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)를 사용하면 API 및 CSV 파일을 통해 가져온 JSON 오브젝트의 데이터에 액세스하여 커스텀 속성이나 커스텀 이벤트 등록정보와 유사하게 Liquid을 통해 메시지를 보강할 수 있습니다. 예를 들어:
+[카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)를 사용하면 API 및 CSV 파일을 통해 가져온 JSON 오브젝트의 데이터에 액세스하여 커스텀 속성이나 커스텀 이벤트 속성정보와 유사하게 Liquid을 통해 메시지를 보강할 수 있습니다. 예를 들어:
 
 {% subtabs local %}
 {% subtab API %}
@@ -230,7 +230,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 {% endsubtab %}
 {% endsubtabs %}
 
-이러한 카탈로그 항목은 아래에 표시된 [개인화]({{site.baseurl}}/user_guide/data/activation/catalogs/create#using-catalogs-in-a-message) 또는 데이터 그룹을 생성할 수 있는 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)을 사용하여 참조할 수 있습니다.
+이러한 카탈로그 항목은 다음 예시에 표시된 [개인화]({{site.baseurl}}/user_guide/data/activation/catalogs/create) 또는 데이터 그룹을 생성할 수 있는 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)을 사용하여 참조할 수 있습니다.
 
 {% raw %}
 ```liquid
@@ -242,7 +242,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 {% endtab %}
 
 {% tab Braze 파트너 %}
-많은 Braze 파트너가 [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-transifex) 및 [Crowdin](https://crowdin.com/)을 포함한 현지화 솔루션을 제공합니다. 일반적으로 사용자는 내부 팀 및 번역 에이전시와 함께 플랫폼을 사용합니다. 이러한 번역은 업로드된 후 REST API를 통해 액세스할 수 있습니다. 이러한 서비스는 종종 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 활용하여 사용자가 API를 통해 번역을 가져올 수 있도록 합니다.
+많은 Braze 파트너가 [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) 및 [Crowdin](https://crowdin.com/)을 포함한 현지화 솔루션을 제공합니다. 일반적으로 사용자는 내부 팀 및 번역 에이전시와 함께 플랫폼을 사용합니다. 이러한 번역은 업로드된 후 REST API를 통해 액세스할 수 있습니다. 이러한 서비스는 종종 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 활용하여 사용자가 API를 통해 번역을 가져올 수 있도록 합니다.
 
 예를 들어, 다음 연결된 콘텐츠 호출은 Transifex와 Crowdin을 호출하여 번역을 가져오며, {% raw %}`{{${language}}}`{% endraw %}를 활용하여 특정 사용자에 대한 올바른 번역을 식별합니다. 이 번역은 JSON 블록 "strings"에 저장되고 참조됩니다.
 

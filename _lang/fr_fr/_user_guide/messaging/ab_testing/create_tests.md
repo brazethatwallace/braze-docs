@@ -89,7 +89,7 @@ Selon le canal que vous sélectionnez, vous pouvez tester différents composants
 | ---------------------| --------------- | ------------- |
 | Push | Texte <br> Utilisation d'images et d'emojis <br> Deep links <br> Présentation des chiffres (par exemple, « triple » versus « augmentation de 200 % ») <br> Présentation du temps (par exemple, « se termine à minuit » versus « se termine dans 6 heures ») | Ouvertures <br> Taux de conversion |
 | E-mail | Objet <br> Nom d'affichage <br> Formule de salutation <br> Corps du texte <br> Utilisation d'images et d'emojis <br> Présentation des chiffres (par exemple, « triple » versus « augmentation de 200 % ») <br> Présentation du temps (par exemple, « se termine à minuit » versus « se termine dans 6 heures ») | Ouvertures <br> Taux de conversion |
-| Message in-app | Aspects listés pour « push » <br> [Spécifications des images de messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Clics <br> Taux de conversion |
+| Message in-app | Aspects listés pour « push » <br> [Spécifications des images de messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications) | Clics <br> Taux de conversion |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conseils pour les différents canaux" }
 
 {% alert tip %}

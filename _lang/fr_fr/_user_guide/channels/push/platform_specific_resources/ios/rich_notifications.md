@@ -125,7 +125,7 @@ Les détails suivants peuvent également affecter la troncature du texte :
 
 ### Étape 1 : Créer une campagne push {#step-1-create-a-push-campaign}
 
-Suivez les [étapes de la campagne]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) pour composer une notification push pour iOS. Vous utiliserez le même composeur que celui que vous utilisez pour configurer des notifications push qui ne contiennent pas de contenu enrichi.
+Suivez les [étapes de la campagne]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) pour composer une notification push pour iOS. Vous utiliserez le même composeur que celui que vous utilisez pour configurer des notifications push qui ne contiennent pas de contenu enrichi.
 
 ### Étape 2 : Ajouter des médias {#step-2-add-media}
 
@@ -139,7 +139,7 @@ Vous pouvez également limiter ce message aux seuls utilisateurs disposant d'un 
 
 ### Étape 3 : Continuer la création de votre campagne {#step-3-continue-creating-your-campaign}
 
-Une fois votre contenu de notification enrichie téléchargé dans le tableau de bord, vous pouvez continuer à [planifier votre campagne]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign).
+Une fois votre contenu de notification enrichie téléchargé dans le tableau de bord, vous pouvez continuer à [planifier votre campagne]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger).
 
 Lorsqu'un utilisateur reçoit la notification push, il peut appuyer fermement sur le message pour agrandir l'image.
 

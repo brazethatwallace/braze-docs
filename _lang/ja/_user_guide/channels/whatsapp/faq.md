@@ -48,6 +48,7 @@ Brazeダッシュボードの埋め込みサインアップフローを通じて
 OBA（公式ビジネスアカウント）は、表示名の横に緑色のチェックマークが付き、任意で取得できます。ビジネス認証の完了後に公式ビジネスアカウントを申請できます。ビジネス認証と公式ビジネスアカウントは異なるWhatsAppの概念であることに注意してください。
 
 ### WhatsAppビジネスアカウントの電話番号 {#whatsapp-business-account-phone-numbers}
+
 #### WhatsAppビジネスアカウントに電話番号は必要ですか？ {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 はい、アクセスできる番号が必要です。埋め込みサインアップフローを進める際に、2要素認証で電話番号を確認するよう求められます。この電話番号は、他のWhatsAppアカウント（ビジネスまたは個人）で使用することはできません。
 
@@ -83,7 +84,7 @@ OBA（公式ビジネスアカウント）は、表示名の横に緑色のチ�
 WhatsAppチャネルの購読管理は、他のBrazeチャネルと同様に機能します。詳細については、[ユーザー購読の管理]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)を参照してください。
 
 #### WhatsAppでマーケティングメッセージの受信にオプトインしたユーザーのリストがすでにある場合、Brazeで購読ステータスを更新するにはどうすればよいですか？ {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data)を通じて購読ステータスを更新できます。
+[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional)を通じて購読ステータスを更新できます。
 
 #### オプトインを収集するためにどのような方法を使用すべきですか？ {#what-methods-should-i-use-to-collect-opt-ins}
 コンプライアンスを維持するために、[Metaのオプトイン方法に関するガイドライン](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/)を参照することをBrazeは推奨しています。Brazeの[チャネルとオプトインのアイデアと提案](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit)も参照してください。
@@ -169,6 +170,15 @@ Metaがテンプレートを誤ってフラグ付けしたと思われる場合�
 
 これを解決するには、MetaのWhatsApp Managerでテンプレートを編集して連番のプレースホルダー形式を使用し、Brazeに再インポートしてください。Brazeで、各必須変数フィールドに有効なLiquid値が入力されていることを確認してください。
 
+#### テンプレートのプレビューは正常に表示されるのに、WhatsAppキャンペーンが送信されないのはなぜですか？ {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
+テンプレートのプレビューは正常に表示されるのに、処理台帳に**Abort**と「Param text cannot have new-line/tab characters or more than 4 consecutive spaces」という詳細が表示される場合は、メッセージ内のLiquidテンプレートパラメーター値を確認してください。WhatsAppでは、パラメーターテキスト値に以下を含めることができません：
+
+- 改行文字
+- タブ文字
+- 4つ以上の連続するスペース
+
+テンプレートパラメーターを入力するLiquidロジックが、送信前にこれらの文字を削除するか、テキストを適切にフォーマットしていることを確認してください。
+
 ### 配信到達性と課金 {#deliverability-and-billing}
 
 #### メッセージが配信されない理由は何ですか？ {#why-would-a-message-not-be-delivered}
@@ -177,14 +187,41 @@ Metaがテンプレートを誤ってフラグ付けしたと思われる場合�
 #### メッセージが配信されなかった場合、課金されますか？ {#if-a-message-is-not-delivered-will-i-be-billed}
 いいえ。メッセージが配信されなかった場合、課金されません。
 
-#### エンドユーザーが私のビジネスをブロックした場合はどうなりますか？ {#what-happens-if-an-end-user-blocks-my-business}
-エンドユーザーがあなたのビジネスをブロックした場合、その後送信しようとするメッセージは配信されず、課金もされません。
+#### ユーザーが私のビジネスをブロックした場合はどうなりますか？ {#what-happens-if-a-user-blocks-my-business}
+ユーザーがあなたのビジネスをブロックした場合、その後送信しようとするメッセージは配信されず、課金もされません。
 
-#### エンドユーザーがメッセージを報告した場合はどうなりますか？ {#what-happens-if-an-end-user-reports-a-message}
-エンドユーザーがメッセージを報告した場合でも、そのユーザーに後続のメッセージを送信できます。ただし、報告はチャネル上の品質評価に影響を与える可能性があります。
+#### ユーザーがメッセージを報告した場合はどうなりますか？ {#what-happens-if-a-user-reports-a-message}
+ユーザーがメッセージを報告した場合でも、そのユーザーに後続のメッセージを送信できます。ただし、報告はチャネル上の品質評価に影響を与える可能性があります。
 
-#### エンドユーザーが私のビジネスをブロックまたは報告した場合、Brazeで購読ステータスは更新されますか？ {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### ユーザーが私のビジネスをブロックまたは報告した場合、Brazeで購読ステータスは更新されますか？ {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 いいえ。Brazeの購読ステータスは更新されません。
+
+#### WhatsAppアカウントを報告したユーザーを今後の配信から除外するにはどうすればよいですか？ {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
+Brazeは、アカウントがフラグ付けまたは報告された際にWhatsAppから通知を受け取らないため、Brazeでそれらのユーザーを自動的に特定または除外することはできません。アカウントを報告したユーザーは、WhatsApp購読グループに残り、今後のメッセージの対象となり続ける可能性があります。
+
+ただし、ユーザーがオプトアウトキーワードで返信した際にトリガーされるキャンペーンを設定し、[`/subscription/status/set`エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)を使用して自動的に購読解除することができます。詳細については、[WhatsAppのオプトインとオプトアウトプロセス]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process)を参照してください。
+
+#### WhatsAppの応答メッセージは無料ですか？ {#are-whatsapp-response-messages-free}
+
+Brazeのキャンペーンまたはキャンバスエディターで作成された応答メッセージ（承認済みWhatsAppテンプレートではないもの）は、Metaによってサービスメッセージとして扱われます。BrazeのネイティブWhatsAppインテグレーションを通じて送信されるサービスメッセージは、オープンなカスタマーサービスウィンドウ内で[応答メッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages)として送信される場合、アクションクレジットを消費しません。
+
+| メッセージタイプ | アクションクレジット | 備考 |
+|---|---|---|
+| 応答メッセージ（受信返信） | 消費しない | Brazeで作成。Meta承認済みテンプレートではない。 |
+| テンプレートメッセージ | 消費する | マーケティング、ユーティリティ、認証、期間限定オファーテンプレートは送信ごとに課金されます。 |
+| サービスウィンドウ内のユーティリティテンプレート | Metaは課金しない | Metaは、ユーザー発信メッセージから24時間以内に送信されたユーティリティテンプレートに対して課金しません。アクションクレジットの消費は契約に従います。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="応答メッセージのアクションクレジット" }
+
+元の24時間ウィンドウの後にユーザーがクイック返信をタップするキャンバスフローについては、[24時間ウィンドウ外のクイック返信と受信メッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window)を参照してください。
+
+#### 24時間ウィンドウが閉じた後にユーザーが返信またはクイック返信をタップした場合はどうなりますか？ {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
+新しい24時間のカスタマーサービスウィンドウが開きます。[24時間ウィンドウ外のクイック返信と受信メッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window)を参照してください。
+
+#### WhatsAppのクイック返信のためにキャンバスのアクションパスを31日に設定する必要がありますか？ {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+いいえ。デフォルトのアクションパス期間で十分です。[24時間ウィンドウ外のクイック返信と受信メッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window)を参照してください。
+
+#### 特定のキャンペーンまたはキャンバスが消費したWhatsAppクレジット数を確認できますか？ {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
+現在、Brazeダッシュボードでは確認できません。キャンペーンおよびキャンバスの分析では送信数、配信数、失敗数が表示されますが、メッセージごとのクレジット消費量は表示されません。テンプレートカテゴリーやメッセージタイプによって課金が異なるため、送信数はクレジット使用量と1対1で一致しません。課金の詳細については、[WhatsAppの応答メッセージは無料ですか？](#are-whatsapp-response-messages-free)を参照してください。
 
 ### インテグレーション、データ、レポート {#integrations-data-and-reporting}
 
@@ -202,10 +239,10 @@ Brazeに情報を送信するには、たとえばユーザーがアクティブ
 メッセージは処理に必要な時間のみ保存されます。ユーザーメッセージにアクセスするには、Currentsを使用してください。
 
 #### Brazeダッシュボードではどのような指標が利用できますか？ {#what-metrics-are-available-in-the-braze-dashboard}
-Brazeダッシュボードでは、ユニーク受信者数、送信数、配信数、既読数、失敗数を確認できます。Brazeが既読を追跡するには、エンドユーザーの既読確認が「オン」になっている必要があります。他のチャネルと同様に、キャンペーンのパフォーマンスを監視するためにコンバージョンイベントを設定することもできます。
+Brazeダッシュボードでは、ユニーク受信者数、送信数、配信数、既読数、失敗数を確認できます。Brazeが既読を追跡するには、ユーザーの既読確認が「オン」になっている必要があります。他のチャネルと同様に、キャンペーンのパフォーマンスを監視するためにコンバージョンイベントを設定することもできます。
 
 #### WhatsApp会話とは何ですか？ {#what-is-a-whatsapp-conversation}
 WhatsAppは双方向メッセージングに焦点を当てたチャネルであるため、（個々のメッセージ数ではなく）会話を基準としています。会話とは、ビジネスとエンドユーザー間の24時間のスレッドです。
 
-- **ビジネス発信会話**：ビジネスが承認済みテンプレートメッセージをエンドユーザーに送信して開始する会話です。ビジネスがメッセージを送信すると同時に、24時間の時間枠が始まります。
-- **ユーザー発信会話**：エンドユーザーがビジネスにメッセージを送信する会話です。ビジネスが応答メッセージを送信すると、24時間の時間枠が始まります。
+- **ビジネス発信会話**：ビジネスが承認済みテンプレートメッセージをエンドユーザーに送信して開始する会話です。ビジネスがメッセージを送信すると同時に、24時間のウィンドウが始まります。
+- **ユーザー発信会話**：エンドユーザーがビジネスにメッセージを送信する会話です。ビジネスが応答メッセージを送信すると、24時間のウィンドウが始まります。

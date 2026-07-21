@@ -15,9 +15,9 @@ Los atributos estándar (a veces llamados *atributos predeterminados* o *claves 
 Puedes establecer atributos estándar a través de cualquiera de estos métodos:
 
 - El [SDK de Braze]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
-- El [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object) en el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
+- El [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object) en el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 - [Importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
-- [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)
+- [Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)
 
 {% alert important %}
 Los nombres de los atributos estándar distinguen entre mayúsculas y minúsculas. Utiliza siempre minúsculas (por ejemplo, `first_name`, no `First_Name`). Si la ortografía o las mayúsculas no coinciden exactamente, Braze almacena el valor como un [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
@@ -84,7 +84,7 @@ Estos campos capturan cuándo el usuario interactuó por primera o última vez c
 
 ## Tokens de notificaciones push {#push-tokens}
 
-Usa estos campos cuando migres tokens de notificaciones push desde otra plataforma. Después de integrar el SDK de Braze, los tokens de notificaciones push se capturan automáticamente. Para orientación sobre la migración, consulta [Migración de tokens de notificaciones push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Usa estos campos cuando migres tokens de notificaciones push desde otra plataforma. Después de integrar el SDK de Braze, los tokens de notificaciones push se capturan automáticamente. Para orientación sobre la migración, consulta [Migración de tokens de notificaciones push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 | Campo | Tipo de datos | Formato y notas |
 |---|---|---|
@@ -104,7 +104,7 @@ Estos campos almacenan datos de integraciones con redes sociales.
 
 ## Ejemplo de API {#api-example}
 
-La siguiente solicitud establece atributos estándar en dos usuarios a través del [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+La siguiente solicitud establece atributos estándar en dos usuarios a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ```http
 POST https://YOUR_REST_API_URL/users/track
@@ -154,7 +154,7 @@ user1,Jane,Doe,jane.doe@example.com,US,en,1988-02-14,opted_in
 user2,Alex,Smith,alex.smith@example.com,GB,en,1992-09-30,subscribed
 ```
 
-No puedes establecer algunos atributos estándar a través de la importación CSV. Debes enviar matrices, tokens de notificaciones push y objetos anidados a través de la API o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion). Para la lista completa de campos compatibles con CSV y los pasos de importación, consulta [Atributos predeterminados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
+No puedes establecer algunos atributos estándar a través de la importación CSV. Debes enviar matrices, tokens de notificaciones push y objetos anidados a través de la API o la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion). Para la lista completa de campos compatibles con CSV y los pasos de importación, consulta [Atributos predeterminados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
 
 ## Consideraciones {#considerations}
 
@@ -169,7 +169,7 @@ Ten en cuenta estos puntos al trabajar con atributos estándar:
 ## Páginas relacionadas {#related-pages}
 
 - [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object) — Contrato completo de la API para el objeto de atributos.
-- [Punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) — Punto de conexión REST para crear y actualizar perfiles de usuario.
+- [Endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) — Endpoint REST para crear y actualizar perfiles de usuario.
 - [Establecer atributos de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes) — Métodos del SDK para establecer atributos estándar y personalizados.
 - [Importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) — Carga atributos estándar a través de un archivo CSV.
 - [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) — Define atributos exclusivos de tu empresa.

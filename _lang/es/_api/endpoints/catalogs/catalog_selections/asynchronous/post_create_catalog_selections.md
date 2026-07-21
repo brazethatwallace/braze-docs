@@ -6,7 +6,7 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear selección de catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Crear selección de catálogo de Braze."
 
 ---
 {% api %}
@@ -15,11 +15,11 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/selections
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear una selección en tu catálogo.
+> Utiliza este endpoint para crear una selección en tu catálogo.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.create_selection`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.create_selection`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -36,7 +36,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro   | Obligatorio | Tipo de datos | Descripción                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Obligatorio | Objeto    | Un objeto que contiene criterios de selección. Consulta [el objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object) para obtener un desglose completo del objeto y sus campos. |
+| `selection` | Obligatorio | Objeto    | Un objeto que contiene criterios de selección. Consulta el [objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object) para obtener un desglose completo del objeto y sus campos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Parámetros del objeto de selección {#selection-object-parameters}
@@ -110,7 +110,7 @@ Cuando aplicas un filtro `geo`, el sistema ordena automáticamente los resultado
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `202`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

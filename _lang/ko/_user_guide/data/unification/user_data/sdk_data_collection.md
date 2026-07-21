@@ -14,8 +14,8 @@ description: "이 참조 문서는 개인화된 통합, 자동 수집 통합 및
 Braze는 유연한 데이터 수집이 가능하도록 설계되었으므로 다음과 같은 방법으로 Braze SDK를 통합할 수 있습니다:
 
 - **[최소 통합](#minimum-integration):** Braze는 Braze 서비스와의 통신에 필요한 데이터를 자동으로 수집합니다.
-- **[기본적으로 수집되는 선택적 데이터](#optional-data-collected-by-default):** Braze는 대부분의 활용 사례에 광범위하게 유용한 일부 데이터를 자동으로 캡처합니다. Braze 서비스와의 통신에 필수적이지 않은 경우 이 데이터의 자동 수집을 비활성화할 수 있습니다.
-- **[기본적으로 수집되지 않는 선택적 데이터](#data-not-collected-by-default):** Braze는 특정 활용 사례에 유용한 일부 데이터를 캡처하며, 광범위한 규정 준수를 위해 자동으로 수집을 활성화하지는 않습니다. 활용 사례에 적합한 경우 이 데이터를 수집하도록 선택할 수 있습니다.
+- **[기본적으로 수집되는 선택적 데이터](#optional-data-collected-by-default):** Braze는 대부분의 사용 사례에 광범위하게 유용한 일부 데이터를 자동으로 캡처합니다. Braze 서비스와의 통신에 필수적이지 않은 경우 이 데이터의 자동 수집을 비활성화할 수 있습니다.
+- **[기본적으로 수집되지 않는 선택적 데이터](#data-not-collected-by-default):** Braze는 특정 사용 사례에 유용한 일부 데이터를 캡처하며, 광범위한 규정 준수를 위해 자동으로 수집을 활성화하지는 않습니다. 사용 사례에 적합한 경우 이 데이터를 수집하도록 선택할 수 있습니다.
 - **[개인화된 통합](#personalized-integration):** Braze는 기본 선택적 데이터 외에도 추가 데이터를 유연하게 수집할 수 있는 기능을 제공합니다.
 
 ## 최소 통합 {#minimum-integration}
@@ -28,8 +28,8 @@ Braze는 유연한 데이터 수집이 가능하도록 설계되었으므로 다
 | 국가 | IP 주소 지리 위치로 식별된 국가. IP 주소 지리 위치를 사용할 수 없는 경우 [기기 로캘](#optional-data-collected-by-default)로 식별됩니다. 해당 값은 SDK가 `setCountry`로 직접 설정하는 값으로 대체될 수 있으나, SDK나 API를 통해 속성 값을 전달할 경우 데이터 포인트가 기록된다는 점에 유의하세요. **국가가 수동으로 설정된 후(SDK 메서드, REST API 또는 CSV 업로드를 통해)에는 SDK가 더 이상 이 값을 자동으로 업데이트하지 않습니다.** | 이 속성은 위치를 기준으로 메시지를 타겟팅하는 데 사용됩니다. |
 | 기기 ID | 기기 식별자, 무작위로 생성된 문자열 | 이 속성은 사용자의 기기를 구분하고 올바른 기기로 메시지를 전송하는 데 사용됩니다. |
 | OS 및 OS 버전 | 현재 보고된 기기 또는 브라우저 및 기기 또는 브라우저 버전 | 이 속성은 호환되는 기기로만 메시지를 보내는 데 사용됩니다. 세분화 내에서 사용자가 앱 버전을 업그레이드하도록 타겟팅하는 데도 사용할 수 있습니다. |
-| 세션 시작 및 세션 종료 | 사용자가 통합된 앱 또는 사이트를 사용하기 시작할 때 | Braze SDK는 사용자 참여를 계산하기 위해 Braze 대시보드에서 사용하는 세션 데이터 및 사용자를 이해하는 데 핵심적인 기타 분석을 보고합니다. 앱 또는 사이트에서 세션 시작 및 세션 종료가 호출되는 정확한 시점은 개발자가 구성할 수 있습니다([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)). |
-| SDK 메시지 상호작용 데이터 | 푸시 직접 열기, 인앱 메시지 상호작용, 콘텐츠 카드 상호작용 | 이 속성은 메시지가 수신되었는지 확인하고 전송이 중복되지 않도록 하는 등 품질 관리 목적으로 사용됩니다. |
+| 세션 시작 및 세션 종료 | 사용자가 통합된 앱 또는 사이트를 사용하기 시작할 때 | Braze SDK는 사용자 인게이지먼트를 계산하기 위해 Braze 대시보드에서 사용하는 세션 데이터 및 사용자를 이해하는 데 핵심적인 기타 분석을 보고합니다. 앱 또는 사이트에서 세션 시작 및 세션 종료가 호출되는 정확한 시점은 개발자가 구성할 수 있습니다([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)). |
+| SDK 메시지 상호작용 데이터 | 푸시 직접 열기, 인앱 메시지 상호작용, Content Cards 상호작용 | 이 속성은 메시지가 수신되었는지 확인하고 전송이 중복되지 않도록 하는 등 품질 관리 목적으로 사용됩니다. |
 | SDK 버전 | 현재 SDK 버전 | 이 속성은 호환되는 기기로만 메시지를 전송하고 서비스 중단을 방지하는 데 사용됩니다. |
 | 세션 ID 및 세션 타임스탬프 | 세션 식별자, 무작위로 생성된 문자열 및 세션 타임스탬프 | 사용자가 새 세션을 시작하는지 기존 세션을 이어가는지 여부를 판별하고, 이 사용자에게 의도된 메시지의 재수신 자격을 결정하는 데 사용됩니다.<br><br>인앱 메시지 및 Content Cards와 같은 일부 메시징 채널은 세션 시작 시 기기와 동기화됩니다. 그런 다음 백엔드는 기기가 저장하고 다시 전송하는 Braze 서버 마지막 접속 시점 관련 데이터를 사용하여 사용자가 새로운 메시지를 받을 자격이 있는지 확인합니다.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="최소 통합" }
@@ -82,7 +82,7 @@ Braze는 SDK 데이터, 비 SDK 메시지와 관련된 메시지 상호작용 �
 | 사용자 에이전트 | 웹 | [사용자 에이전트](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) | 이 속성은 호환되는 기기로만 메시지를 보내는 데 사용됩니다. 세분화 내에서도 사용할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="기본적으로 수집되는 선택적 데이터" }
 
-기기 수준 속성(기기 이동통신사, 시간대, 해상도 등) 추적에 대해 자세히 알아보려면 플랫폼별 설명서를 참조하세요: [Android]({{site.baseurl}}/developer_guide/storage?tab=android), [iOS]({{site.baseurl}}/developer_guide/storage?tab=swift), [Web]({{site.baseurl}}/developer_guide/storage#cookies).
+기기 수준 속성(기기 이동통신사, 시간대, 해상도 등) 추적에 대해 자세히 알아보려면 플랫폼별 설명서를 참조하세요: [Android]({{site.baseurl}}/developer_guide/storage?tab=android), [iOS]({{site.baseurl}}/developer_guide/storage?tab=swift), [웹]({{site.baseurl}}/developer_guide/storage#cookies).
 
 ## 기본적으로 수집되지 않는 데이터 {#data-not-collected-by-default}
 
@@ -91,7 +91,7 @@ Braze는 SDK 데이터, 비 SDK 메시지와 관련된 메시지 상호작용 �
 | 속성 | 플랫폼 | 설명 | 수집되지 않는 이유 |
 |----------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 기기 광고 추적 활성화 | Android, iOS | iOS에서:<br>[`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:))<br><br>Android에서:<br>[`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html) | 이 속성은 추가적인 앱 수준 권한이 필요하며, 통합자가 부여해야 합니다. |
-| 기기 IDFA | iOS | 광고주를 위한 기기 식별자 | 이는 앱 추적 투명성 프레임워크를 필요로 하며, App Store에서 추가적인 개인정보 검토가 트리거됩니다. 자세한 내용은 [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:))를 참조하세요. |
+| 기기 IDFA | iOS | 광고주를 위한 기기 식별자 | 이는 앱 추적 투명성 프레임워크를 필요로 하며, 앱 스토어에서 추가적인 개인정보 검토가 트리거됩니다. 자세한 내용은 [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:))를 참조하세요. |
 | Google 광고 ID | Android | Google Play 앱 내 광고를 위한 식별자 | 이를 위해 앱이 GAID를 검색하여 Braze에 전달해야 합니다. 자세한 내용은 [선택적 Google 광고 ID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/sdk_integration#google-advertising-id)를 참조하세요. |
 | 가장 최근 위치 | Android, iOS | 사용자 기기의 마지막으로 알려진 GPS 위치입니다. 세션 시작 시 업데이트되며 사용자의 프로필에 저장됩니다. | 이를 위해서는 사용자가 앱에 위치 권한을 부여해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="기본적으로 수집되지 않는 데이터" }
@@ -102,10 +102,10 @@ Braze SDK는 IP 주소를 로컬에 저장하지 않습니다.
 
 ## 개인화된 통합 {#personalized-integration}
 
-Braze를 최대한 활용하기 위해 SDK 통합자는 종종 Braze SDK를 구현하고 자동으로 수집된 데이터 외에 비즈니스와 관련된 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes), [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) 및 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#logging-purchase-events)를 기록합니다.
+Braze를 최대한 활용하기 위해 SDK 통합자는 종종 Braze SDK를 구현하고 자동으로 수집된 데이터 외에 비즈니스와 관련된 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes), [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) 및 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#log-purchase-events)를 기록합니다.
 
 개인화된 통합은 사용자 경험과 관련된 맞춤형 커뮤니케이션을 가능하게 합니다.
 
 {% alert important %}
-Braze는 세션 수가 5,000,000개가 넘는 사용자("더미 사용자")를 금지 또는 차단하고 더 이상 해당 사용자의 SDK 이벤트를 수집하지 않습니다. 자세한 내용은 [스팸 차단]({{site.baseurl}}/user_archival#spam-blocking)을 참조하세요.
+Braze는 세션 수가 5,000,000개가 넘는 사용자("더미 사용자")를 금지 또는 차단하고 더 이상 해당 사용자의 SDK 이벤트를 수집하지 않습니다. 자세한 내용은 <a href="/docs/user_archival#spam-blocking">스팸 차단</a> 을 참조하세요.
 {% endalert %}

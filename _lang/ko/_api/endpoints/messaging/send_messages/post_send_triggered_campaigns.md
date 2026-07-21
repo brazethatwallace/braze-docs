@@ -74,10 +74,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | ---------| --------- | ----------- |
 | `campaign_id` | 필수 | 문자열 | [Campaign 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `send_id` | 선택 사항 | 문자열 | [전송 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
-| `trigger_properties` | 선택 사항 | 오브젝트 | [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object)를 참조하세요. 개인화 키-값 페어는 이 요청의 모든 사용자에게 적용됩니다. |
+| `trigger_properties` | 선택 사항 | 오브젝트 | [트리거 속성]({{site.baseurl}}/api/objects_filters/trigger_properties_object)을 참조하세요. 개인화 키-값 페어는 이 요청의 모든 사용자에게 적용됩니다. |
 | `broadcast` | 선택 사항 | 부울 | Braze 대시보드에서 Campaign의 타겟 오디언스로 구성된 전체 Segment에 메시지를 전송할 때 `broadcast`를 true로 설정해야 합니다. 이 매개변수는 기본적으로 false로 설정됩니다(2017년 8월 31일 기준). <br><br> `broadcast`가 true로 설정되면 `recipients` 목록을 포함할 수 없습니다. 그러나 이 플래그를 실수로 설정하면 예상보다 많은 오디언스에게 메시지를 보낼 수 있으므로 `broadcast: true`를 설정할 때는 주의하세요. |
 | `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience)를 참조하세요. `audience`를 포함하면, 커스텀 속성 및 구독 상태와 같은 정의된 필터와 일치하는 사용자에게만 메시지가 전송됩니다. |
-| `recipients` | 선택 사항 | 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object)를 참조하세요.<br><br>`send_to_existing_only`가 `false`인 경우 `attributes` 오브젝트를 포함해야 합니다.<br><br>중첩된 `attributes` 오브젝트에 `subscription_groups`를 포함하여 사용자의 구독 그룹 상태를 업데이트할 수 있습니다. 자세한 내용은 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)를 참조하세요.<br><br>`recipients`가 제공되지 않고 `broadcast`가 true로 설정된 경우, Braze 대시보드에서 Campaign의 타겟 오디언스로 구성된 전체 Segment에 메시지가 전송됩니다.<br><br>`email`이 식별자인 경우 수신자 오브젝트에 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)을 포함해야 합니다. |
+| `recipients` | 선택 사항 | 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object)를 참조하세요.<br><br>`send_to_existing_only`가 `false`인 경우 `attributes` 오브젝트를 포함해야 합니다.<br><br>중첩된 `attributes` 오브젝트에 `subscription_groups`를 포함하여 사용자의 구독 그룹 상태를 업데이트할 수 있습니다. 자세한 내용은 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)를 참조하세요.<br><br>`recipients`가 제공되지 않고 `broadcast`가 true로 설정된 경우, Braze 대시보드에서 Campaign의 타겟 오디언스로 구성된 전체 Segment에 메시지가 전송됩니다.<br><br>`email`이 식별자인 경우 수신자 오브젝트에 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)을 포함해야 합니다. |
 | `attachments` | 선택 사항 | 배열 | `broadcast`가 true로 설정되어 있으면 `attachments` 목록을 포함할 수 없습니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 이 섹션에서는 Braze가 전송할 고객 프로필을 선택하는 방법과 프로필이 선택되지 않을 때 어떤 일이 발생하는지 설명합니다.
 
-사용자의 구독 그룹 상태는 `attributes` 오브젝트 내에 `subscription_groups` 매개변수를 포함하여 업데이트할 수 있습니다. 자세한 내용은 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)를 참조하세요.
+사용자의 구독 그룹 상태는 `attributes` 오브젝트 내에 `subscription_groups` 매개변수를 포함하여 업데이트할 수 있습니다. 자세한 내용은 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)를 참조하세요.
 
 #### 수신자 제한 및 프로필 생성 {#recipient-limits-and-profile-creation}
 
@@ -212,7 +212,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 Braze에는 `attributes`라는 메시징 오브젝트가 있어, API 트리거 Campaign을 전송하기 전에 사용자의 속성과 값을 추가, 생성 또는 업데이트할 수 있습니다. `campaign/trigger/send` 엔드포인트를 사용하면 이 API 호출이 사용자 속성 오브젝트를 먼저 처리한 후 Campaign을 처리하고 전송합니다. 이를 통해 [경합 조건]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)으로 인해 발생할 수 있는 문제의 위험을 최소화할 수 있습니다.
 
 {% alert tip %}
-이 엔드포인트의 Canvas 버전을 찾고 계신가요? [API 트리거 전송을 사용하여 Canvas 메시지 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#create-send-endpoint)를 확인하세요.
+이 엔드포인트의 Canvas 버전을 찾고 계신가요? [API 트리거 전송을 사용하여 Canvas 메시지 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)를 확인하세요.
 {% endalert %}
 
 ### JSON 본문에 Liquid를 직접 넣으면 왜 렌더링되지 않나요? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}

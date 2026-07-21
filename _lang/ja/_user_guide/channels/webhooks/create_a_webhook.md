@@ -46,9 +46,9 @@ Webhookとは何か、またBrazeでどのように使用できるかについ�
 
 1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. キャンバスを設定したら、キャンバスビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
-3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#schedule-your-canvas-step)を選択し、必要に応じて遅延を指定します。
+3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings)を選択し、必要に応じて遅延を指定します。
 4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
-5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#advancement-behavior)を選択します。
+5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#advancement-behavior)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 
 {% endtab %}
@@ -69,7 +69,7 @@ Webhookをゼロから作成するか、既存のテンプレートを使用す�
 
 ### 言語 {#internationalization}
 
-[国際化]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages)はURLとリクエストボディでサポートされています。メッセージを国際化するには、**言語を追加**を選択し、必要なフィールドに入力します。
+[国際化]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)はURLとリクエストボディでサポートされています。メッセージを国際化するには、**言語を追加**を選択し、必要なフィールドに入力します。
 
 コンテンツを作成する前に言語を選択することをお勧めします。これにより、Liquid内の適切な場所にテキストを入力できます。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported)を参照してください。
 
@@ -115,7 +115,7 @@ Liquidを使用してキーと値のペアをパーソナライズできます�
 
 Rawテキストオプションを使用すると、任意の形式のボディを期待するエンドポイント向けのリクエストを柔軟に作成できます。たとえば、XML形式のリクエストを期待するエンドポイント向けのリクエストを作成する場合に使用できます。
 
-Rawテキストでは、Liquidを使用した[パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)と[国際化]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages)の両方がサポートされています。
+Rawテキストでは、Liquidを使用した[パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)と[国際化]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)の両方がサポートされています。
 
 ![Liquidを使用したRawテキストのリクエストボディの例。]({% image_buster /assets/img_archive/webhook_rawtext.png %})
 
@@ -178,7 +178,7 @@ Webhookは、スケジュールされた時間、アクション、またはAPI�
 
 アクションベースの配信では、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を設定することもできます。
 
-このステップでは、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)ルールを有効にするなどの配信コントロールを指定することもできます。
+このステップでは、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)ルールを有効にするなどの配信コントロールを指定することもできます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
@@ -194,7 +194,7 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 
 {% tab キャンバス %}
 
-まだ完了していない場合は、キャンバスステップの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装方法などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、キャンバスステップの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装方法などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas)ステップを参照してください。
 
 {% endtab %}
 {% endtabs %}

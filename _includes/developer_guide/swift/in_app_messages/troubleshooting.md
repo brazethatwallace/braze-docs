@@ -66,4 +66,19 @@ XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"http
 {% endtab %}
 {% endtabs %}
 
+##### Wormholy
+
+{% tabs %}
+{% tab Swift %}
+```swift
+Wormholy.ignoredHosts = ["cdn.braze.com"]
+```
+{% endtab %}
+{% tab Objective-C %}
+```objc
+Wormholy.ignoredHosts = @[@"cdn.braze.com"];
+```
+{% endtab %}
+{% endtabs %}
+
 

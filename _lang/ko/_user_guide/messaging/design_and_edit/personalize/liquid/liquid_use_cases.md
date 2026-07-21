@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### 유럽식 숫자 표기법에 맞게 통화 포맷하기 {#european-currency-format}
 
-소수점 구분 기호로 쉼표를, 천 단위 구분 기호로 마침표를 사용하는 로케일(예: 독일 또는 이탈리아)의 경우, [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) 및 [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) 필터와 `replace`를 함께 사용하여 구분 기호를 교체합니다. 마침표와 쉼표가 같은 패스에서 교체되지 않도록 `#`을 임시 플레이스홀더로 사용합니다.
+소수점 구분 기호로 쉼표를, 천 단위 구분 기호로 마침표를 사용하는 로케일(예: 독일 또는 이탈리아)의 경우, [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters) 및 [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) 필터와 `replace`를 함께 사용하여 구분 기호를 교체합니다. 마침표와 쉼표가 같은 패스에서 교체되지 않도록 `#`을 임시 플레이스홀더로 사용합니다.
 
 {% raw %}
 ```liquid

@@ -36,6 +36,7 @@ validurls['/docs/user_guide/old_section/old_page'] = '/docs/user_guide/new_secti
 - Never include locale prefixes in redirect paths. Strip `/docs/en/`, `/docs/es/`, `/docs/ko/`, and any other language tag down to `/docs/`. Redirects only map canonical English paths.
 - Collapse redirect chains (old to new directly, not old to intermediate to new).
 - Other mechanisms: `layout: redirect` in frontmatter, `local_redirect` for heading-level redirects.
+- After a bulk batch of URL changes or redirects, run `gh workflow run nightly-sitemap-update.yml` to refresh the sitemap's `lastmod` dates ahead of the nightly schedule (it opens a PR that still needs a manual merge — see [redirect-management](../../redirect-management/SKILL.md#7-refresh-the-sitemap-after-a-bulk-renameredirect-batch)).
 
 ## Links in YAML frontmatter values
 

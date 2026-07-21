@@ -17,7 +17,7 @@ Vous pouvez définir les attributs standard via l'une de ces méthodes :
 - Le [SDK Braze]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 - L'[objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object) sur l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 - L'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
-- L'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)
+- L'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)
 
 {% alert important %}
 Les noms des attributs standard sont sensibles à la casse. Utilisez toujours des minuscules (par exemple, `first_name`, et non `First_Name`). Si l'orthographe ou la casse ne correspond pas exactement, Braze stocke la valeur en tant qu'[attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
@@ -65,8 +65,8 @@ Ces champs gèrent la manière dont un utilisateur reçoit des messages sur les 
 | `email_subscribe` | Chaîne de caractères | L'une des valeurs suivantes : `opted_in` (inscrit explicitement pour recevoir des e-mails), `unsubscribed` (désabonné explicitement des e-mails) ou `subscribed` (ni inscrit ni désabonné). |
 | `push_subscribe` | Chaîne de caractères | L'une des valeurs suivantes : `opted_in`, `unsubscribed` ou `subscribed`. Mêmes définitions que pour `email_subscribe`. |
 | `subscription_groups` | Tableau d'objets | Un tableau où chaque objet contient un `subscription_group_id` (chaîne de caractères) et un `subscription_state` (`subscribed` ou `unsubscribed`). Par exemple : `[{"subscription_group_id": "abc-123", "subscription_state": "subscribed"}]`. |
-| `email_open_tracking_disabled` | Valeur booléenne | `true` ou `false`. Définissez sur `true` pour désactiver le pixel de suivi d'ouverture des e-mails pour cet utilisateur. Disponible uniquement pour SparkPost et SendGrid. |
-| `email_click_tracking_disabled` | Valeur booléenne | `true` ou `false`. Définissez sur `true` pour désactiver le suivi des clics dans les e-mails pour cet utilisateur. Disponible uniquement pour SparkPost et SendGrid. |
+| `email_open_tracking_disabled` | Valeur booléenne | `true` ou `false`. Définissez sur `true` pour désactiver le pixel de suivi d'ouverture des e-mails pour cet utilisateur. Disponible uniquement pour SparkPost et Sendgrid. |
+| `email_click_tracking_disabled` | Valeur booléenne | `true` ou `false`. Définissez sur `true` pour désactiver le suivi des clics dans les e-mails pour cet utilisateur. Disponible uniquement pour SparkPost et Sendgrid. |
 | `marked_email_as_spam_at` | Chaîne de caractères | Horodatage auquel l'e-mail de l'utilisateur a été marqué comme spam. Utilisez le format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -84,7 +84,7 @@ Ces champs capturent la date à laquelle l'utilisateur a interagi pour la premi�
 
 ## Jetons de notification push {#push-tokens}
 
-Utilisez ces champs lors de la migration de jetons de notification push depuis une autre plateforme. Après l'intégration du SDK Braze, les jetons de notification push sont capturés automatiquement. Pour des conseils de migration, consultez [Migration des jetons de notification push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Utilisez ces champs lors de la migration de jetons de notification push depuis une autre plateforme. Après l'intégration du SDK Braze, les jetons de notification push sont capturés automatiquement. Pour des conseils de migration, consultez [Migration des jetons de notification push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 | Champ | Type de données | Format et notes |
 |---|---|---|
@@ -154,7 +154,7 @@ user1,Jane,Doe,jane.doe@example.com,US,en,1988-02-14,opted_in
 user2,Alex,Smith,alex.smith@example.com,GB,en,1992-09-30,subscribed
 ```
 
-Certains attributs standard ne peuvent pas être définis via un import CSV. Vous devez envoyer les tableaux, les jetons de notification push et les objets imbriqués via l'API ou l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion). Pour la liste complète des champs pris en charge par le CSV et les étapes d'import, consultez [Attributs par défaut]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
+Certains attributs standard ne peuvent pas être définis via un import CSV. Vous devez envoyer les tableaux, les jetons de notification push et les objets imbriqués via l'API ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion). Pour la liste complète des champs pris en charge par le CSV et les étapes d'import, consultez [Attributs par défaut]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
 
 ## Considérations {#considerations}
 

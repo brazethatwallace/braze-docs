@@ -24,9 +24,23 @@ Si un usuario cumple los requisitos para varias Campaigns de Banners que compart
 
 Los Banners son diferentes de las Content Cards, lo que significa que no puedes usar Banners y Content Cards en la misma fuente. Para sustituir las fuentes de Content Cards existentes por Banners, tendrás que [crear ubicaciones en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements).
 
+## ¿En qué se diferencian los Banners de los mensajes dentro de la aplicación? {#how-are-banners-different-from-in-app-messages}
+
+Los Banners y los [mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages) llegan a los usuarios dentro de tu aplicación o sitio web, pero utilizan modelos de entrega diferentes. Si estás comparando los Banners con una configuración existente de mensajes dentro de la aplicación, espera diferencias en los desencadenantes, los tiempos de actualización y las pruebas, no un intercambio directo.
+
+| Tema | Banners | Mensajes dentro de la aplicación |
+| --- | --- | --- |
+| Dónde aparecen los mensajes | En línea en las [ubicaciones]({{site.baseurl}}/developer_guide/banners/placements) que defines en tu aplicación o sitio | Superposiciones de pantalla completa, modal o deslizantes administradas por el SDK |
+| Cuándo se actualiza el contenido | Cuando tu aplicación o sitio llama a una actualización de Banner (por ejemplo, al inicio de la sesión o durante la sesión) | Los mensajes con plantilla evalúan Liquid cuando se desencadena el mensaje dentro de la aplicación (por ejemplo, con un evento personalizado o al inicio de la sesión), después de que la carga útil se almacena en caché en el dispositivo |
+| Desencadenantes basados en acciones | Sin [entrega basada en acciones]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery); usa segmentos, prioridad y tiempos de actualización en su lugar | Admite entrega basada en acciones y desencadenada por API |
+| Pruebas | Previsualiza un usuario y luego confirma que la actualización de la ubicación en tu aplicación o sitio muestra el Banner esperado | Usa **Envío de prueba** o flujos de vista previa dentro de la aplicación para la visualización basada en desencadenantes |
+| Informes | Las visualizaciones y los clics de Banners siguen los análisis de Banners | Las impresiones y los clics dentro de la aplicación siguen los análisis de mensajes dentro de la aplicación |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="¿En qué se diferencian los Banners de los mensajes dentro de la aplicación?" }
+
+
 ## ¿Pueden los Banners incluir video? {#can-banners-include-video}
 
-El compositor estándar de Banners admite imágenes, texto y botones. Para incluir un video en un Banner, puedes usar un bloque de **Custom Code** en el compositor, o construir el Banner completo con el editor HTML e incrustar un reproductor de video directamente en tu HTML.
+El compositor estándar de Banners admite imágenes, texto y botones. Para incluir un video en un Banner, puedes usar un bloque de **código personalizado** en el compositor, o construir el Banner completo con el editor HTML e incrustar un reproductor de video directamente en tu HTML.
 
 ## ¿Puedo desencadenar un Banner en función de las acciones del usuario? {#can-i-trigger-a-banner-based-on-user-actions}
 
@@ -34,7 +48,7 @@ Aunque los Banners no admiten la [entrega basada en acciones]({{site.baseurl}}/u
 
 Por ejemplo, para mostrar un Banner especial solo a los usuarios que hayan completado un evento `purchase`:
 1. **Segmentación:** En tu Campaign, dirígete a un segmento de usuarios que hayan realizado el evento personalizado `purchase` al menos una vez.
-2. **Prioridad:** Si tienes un Banner general para todos los usuarios y este Banner específico para compradores dirigido a la misma ubicación, establece la prioridad del Banner específico en **High** y la del Banner general en **Medium** o **Low**.
+2. **Prioridad:** Si tienes un Banner general para todos los usuarios y este Banner específico para compradores dirigido a la misma ubicación, establece la prioridad del Banner específico en **Alta** y la del Banner general en **Media** o **Baja**.
 
 Cuando el usuario inicia una nueva sesión o actualiza los Banners después de realizar la acción, Braze evalúa su elegibilidad. Si coincide con el segmento "Compra", se mostrará el Banner de alta prioridad.
 
@@ -70,7 +84,7 @@ No. Sin embargo, la mayoría de las etiquetas de Liquid son compatibles con los 
 Sí. La forma en que se capturan los eventos de clic depende de cómo se renderiza tu Banner:
 
 - **Compositor — componentes estándar:** Si tu Banner utiliza componentes de editor estándar (imágenes, botones, texto), el seguimiento de los clics se realiza automáticamente cuando se utilizan los métodos de inserción del SDK.
-- **Compositor — bloques de Custom Code:** Si deseas realizar el seguimiento de los clics en elementos dentro de un bloque de editor de Custom Code, debes llamar a `brazeBridge.logClick()` desde tu HTML personalizado. Esto se aplica incluso cuando se utilizan los métodos del SDK para insertar y renderizar el Banner.
+- **Compositor — bloques de código personalizado:** Si deseas realizar el seguimiento de los clics en elementos dentro de un bloque de editor de código personalizado, debes llamar a `brazeBridge.logClick()` desde tu HTML personalizado. Esto se aplica incluso cuando se utilizan los métodos del SDK para insertar y renderizar el Banner.
 - **Editor HTML:** El seguimiento de clics no es automático. Debes llamar a `brazeBridge.logClick()` para cada elemento en el que desees realizar el seguimiento de clics. Para obtener la referencia completa, consulta [Código personalizado y puente JavaScript para Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
 - **Interfaz de usuario personalizada (headless):** Si estás creando una interfaz de usuario totalmente personalizada utilizando las propiedades personalizadas del Banner en lugar de renderizar el HTML del Banner, llama a `logClick()` en el objeto Banner desde el código de tu aplicación.
 

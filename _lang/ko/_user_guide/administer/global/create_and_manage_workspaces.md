@@ -23,13 +23,18 @@ guide_featured_list:
 
 ## 워크스페이스란? {#what-is-a-workspace}
 
-Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니다. 워크스페이스는 관련 모바일 앱이나 웹사이트의 참여를 추적하고 관리하기 위한 공유 환경입니다. 워크스페이스는 동일하거나 매우 유사한 앱을 함께 그룹화합니다. 예를 들어, 모바일 앱의 Android 버전과 iOS 버전을 하나의 워크스페이스에 묶을 수 있습니다.
+Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니다. 워크스페이스는 관련 모바일 앱이나 웹사이트의 인게이지먼트를 추적하고 관리하기 위한 공유 환경입니다. 워크스페이스는 동일하거나 매우 유사한 앱을 함께 그룹화합니다. 예를 들어, 모바일 앱의 Android 버전과 iOS 버전을 하나의 워크스페이스에 묶을 수 있습니다.
 
 ## 워크스페이스 생성 {#creating-a-workspace}
 
 ### 1단계: 계획 수립 {#step-1-have-a-plan}
 
 시작하기 전에 팀 및 Braze 온보딩 매니저와 함께 사용 사례에 가장 적합한 워크스페이스 구성을 결정하세요. Braze에서 워크스페이스를 계획하는 방법에 대해 자세히 알아보려면 [시작하기: 워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces) 가이드를 확인하세요.
+
+{% alert warning %}
+**모범 사례: 워크스페이스별 전용 Firebase 프로젝트 사용**<br>
+Braze에서는 동일한 Firebase 서비스 계정 JSON을 여러 워크스페이스에 업로드할 수 있지만, 동일한 Google 프로젝트 ID를 사용하는 모든 워크스페이스는 Firebase Cloud Messaging의 기본 사용량 제한인 분당 600,000건의 메시지를 공유합니다. 대량 발송자는 여러 워크스페이스에서 동시에 Campaign을 실행할 때 "Quota Exceeded" 오류가 발생할 수 있습니다.<br><br>전달 가능성과 할당량을 독립적으로 관리하려면 각 Braze 워크스페이스에 별도의 전용 Firebase 프로젝트를 사용하세요.
+{% endalert %}
 
 ### 2단계: 워크스페이스 추가 {#step-2-add-your-workspace}
 
@@ -158,18 +163,18 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 기본적으로 Segment는 워크스페이스의 모든 앱과 웹사이트를 타겟팅합니다. 하나의 앱이나 웹사이트만 타겟팅하는 Segment를 설정하려면:
 
 1. 의미 있는 이름으로 Segment를 생성합니다. Braze에서는 "All Users ({이름} {플랫폼})" 형식을 사용합니다. 예: "All Users (Upon Voyage iOS)".
-2. **Apps and websites targeted**에서 **Users from specific apps**를 선택합니다.
-3. **Specific apps** 드롭다운에서 앱이나 사이트를 선택합니다.
+2. **타겟팅할 앱 및 웹사이트**에서 **특정 앱의 사용자**를 선택합니다.
+3. **특정 앱** 드롭다운에서 앱이나 사이트를 선택합니다.
 
 ![특정 앱의 사용자를 타겟팅하는 Segment.]({% image_buster /assets/img/workspaces/users_from_specific_apps_filter.png %})
 
 그런 다음 이 Segment를 메시지에 추가하고 필요에 따라 추가 Segment 및 필터로 오디언스를 더 세분화할 수 있습니다.
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
 Campaigns의 경우, 작성기의 **타겟 오디언스** 단계에서 Segment를 추가합니다.
 
-#### Canvas
+#### Canvas {#canvas}
 
 Canvas에서는 메시지 단계의 **전달 유효성 검사** 섹션에서 Segment를 추가합니다. 전달 유효성 검사는 메시지 전송 시 오디언스가 전달 기준을 충족하는지 다시 한번 확인합니다. 올바른 앱에 전달되도록 각 메시지 단계에 대해 전달 유효성 검사를 지정하세요. 진입 수준에서 세분화할 필요는 없습니다.
 

@@ -23,7 +23,7 @@ Wenn ein Katalogartikel nicht vorhanden ist, erstellt dieser Endpunkt den Artike
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.replace_items`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `catalogs.replace_items`.
 
 ## Rate-Limit
 
@@ -88,7 +88,7 @@ Das Feld `Location` verwendet den Datentyp `geo`, der ein Array im Format `[long
 Es gibt drei Statuscode-Antworten für diesen Endpunkt: `202`, `400` und `404`.
 
 {% alert note %}
-Das System kann auch eine `400`-Antwort zurückgeben, wenn Ihr Unternehmen das Speicherlimit für Kataloge erreicht hat. Die kostenlose Version der Kataloge ist auf 100&nbsp;MB begrenzt. Weitere Informationen zu Speicherstufen und zum Upgraden finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+Das System kann auch eine `400`-Antwort zurückgeben, wenn Ihr Unternehmen das Speicherlimit für Kataloge erreicht hat. Die kostenlose Version der Kataloge ist auf 500&nbsp;MB begrenzt. Weitere Informationen zu Speicherstufen und zum Upgrade finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Beispiel für eine erfolgreiche Antwort {#example-success-response}

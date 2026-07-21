@@ -84,7 +84,7 @@ For source-specific setup instructions and SQL examples, see [Data Warehouse int
 
 ## Data point usage
 
-For customers on data points-based billing, data point billing for Cloud Data Ingestion is equivalent to billing for updates through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track). Refer to [Data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points) for more information. 
+For customers on data points-based billing, data point billing for Cloud Data Ingestion is equivalent to billing for updates through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Refer to [Data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points) for more information. 
 
 {% alert important %}
 Braze Cloud Data Ingestion counts toward the available rate limit, so if you're sending data using another method, the rate limit is combined between the Braze API and Cloud Data Ingestion.

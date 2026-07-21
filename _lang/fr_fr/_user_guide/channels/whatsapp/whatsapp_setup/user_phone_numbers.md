@@ -17,7 +17,7 @@ Les numéros de téléphone sont affichés dans le profil utilisateur au format 
 
 ## Importation des numéros de téléphone {#importing-phone-numbers}
 
-Vous pouvez importer des numéros de téléphone en [chargeant un fichier CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) ou [via l'API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) pour créer un utilisateur.
+Vous pouvez importer des numéros de téléphone en [chargeant un fichier CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [via l'API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour créer un utilisateur.
 
 ### Formatage {#formatting}
 

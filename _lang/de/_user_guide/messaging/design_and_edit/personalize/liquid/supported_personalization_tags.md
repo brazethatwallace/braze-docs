@@ -20,7 +20,7 @@ Zur besseren Übersicht finden Sie hier eine Zusammenfassung der unterstützten 
 | -------------  | ---- |
 | Standard-Attribute (Voreinstellung) | `{{${city}}}` <br> `{{${country}}}` <br> `{{${date_of_birth}}}` <br> `{{${email_address}}}` <br> `{{${first_name}}}` <br> `{{${gender}}}` <br> `{{${language}}}` <br> `{{${last_name}}}` <br> `{{${last_used_app_date}}}` <br> `{{${most_recent_app_version}}}` <br> `{{${most_recent_locale}}}` <br> `{{${most_recent_location}}}` <br> `{{${phone_number}}}` <br> `{{${time_zone}}}` <br> `{{${user_id}}}` <br> `{{${braze_id}}}` <br> `{{${random_bucket_number}}}` <br> `{{subscribed_state.${email_global}}}` <br> `{{subscribed_state.${subscription_group_id}}}` |
 | Geräte-Attribute | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
-| <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>E-Mail-Listen-Attribute</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Dieses Tag ersetzt das frühere Tag `{{${unsubscribe_url}}}`. Obwohl das ältere Tag in zuvor erstellten E-Mails weiterhin funktioniert, empfehlen wir, stattdessen das neuere Tag zu verwenden. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
+| <a href='/docs/user_guide/channels/email/subscriptions#changing-email-subscriptions'>E-Mail-Listen-Attribute</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Dieses Tag ersetzt das frühere Tag `{{${unsubscribe_url}}}`. Obwohl das ältere Tag in zuvor erstellten E-Mails weiterhin funktioniert, empfehlen wir, stattdessen das neuere Tag zu verwenden. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>SMS-Attribute</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>WhatsApp-Attribute</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
 | Campaign-Attribute und Canvas-Schritt-Attribute | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
@@ -31,7 +31,7 @@ Zur besseren Übersicht finden Sie hier eine Zusammenfassung der unterstützten 
 | Canvas-Kontextvariablen | `{{context.${your_context_variable}}}` |
 | Angepasste Attribute <br> (Diese sind spezifisch für Ihren Workspace.) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object'>API-Trigger-Eigenschaften</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
-| Canvas-Eingangs-Eigenschaften | `{{context.${property_name}}}` |
+| Canvas-Entry-Eigenschaften | `{{context.${property_name}}}` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Zusammenfassung der unterstützten Tags" }
 
 {% endraw %}
@@ -50,7 +50,7 @@ Weitere Details finden Sie unter [Campaign- und Canvas-Attribute über verschied
 
 Das Verhalten der folgenden Tags unterscheidet sich zwischen Canvas und Campaigns:
 {% raw %}
-- Das Verhalten von `dispatch_id` unterscheidet sich, da Braze Canvas-Schritte als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind (mit Ausnahme von Eingangs-Schritten, die geplant werden können). Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+- Das Verhalten von `dispatch_id` unterscheidet sich, da Braze Canvas-Schritte als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind (mit Ausnahme von Entry-Schritten, die geplant werden können). Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 - Die Verwendung des Tags `{{campaign.${name}}}` mit Canvas zeigt den Namen der Canvas-Komponente an. Bei Verwendung dieses Tags mit Campaigns wird der Campaign-Name angezeigt.
 {% endraw %}
 

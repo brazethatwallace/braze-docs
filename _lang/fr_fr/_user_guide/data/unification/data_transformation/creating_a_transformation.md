@@ -14,7 +14,7 @@ description: "Cet article de référence décrit les étapes pour créer une tra
 
 | Condition | Description |
 | --- | --- |
-| Authentification à deux facteurs ou SSO | Vous devez avoir activé l'[authentification à deux facteurs]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication) (2FA) ou l'[authentification unique]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) pour votre compte. |
+| Authentification à deux facteurs ou SSO | Vous devez avoir activé l'[authentification à deux facteurs]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa) (2FA) ou l'[authentification unique]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) pour votre compte. |
 | Autorisations correctes | Vous devez être administrateur de compte ou d'espace de travail, ou disposer de l'autorisation utilisateur « Gérer les transformations ». |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
@@ -200,13 +200,7 @@ L'intégration de votre webhook est maintenant terminée !
 
 Dans cette étape, vous transformerez le payload du webhook de la plateforme source en une valeur de retour d'objet JavaScript. Cette valeur de retour doit respecter le format du corps de la requête de l'endpoint `/users/track` :
 
-- Le code de transformation est accepté dans le langage de programmation JavaScript. Tout flux de contrôle JavaScript standard, tel que la logique if/else, est pris en charge.
-- Le code de transformation accède au corps de la requête webhook via la variable `payload`. Cette variable est un objet rempli en analysant le JSON du corps de la requête.
-- Toutes les fonctionnalités prises en charge dans notre endpoint `/users/track` sont prises en charge, y compris :
-  - Objets d'attributs utilisateur, objets d'événements et objets d'achat
-  - Attributs imbriqués et propriétés d'événements personnalisés imbriquées
-  - Mises à jour des groupes d'abonnement
-  - L'adresse e-mail comme identifiant
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 Sélectionnez **Validate** pour obtenir un aperçu du résultat de votre code et vérifier s'il s'agit d'une requête `/users/track` acceptable.
 

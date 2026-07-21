@@ -166,7 +166,7 @@ Die folgenden Nachrichten-Engagement-Ereignisse sind für E-Mail, SMS, Push, In-
 
 ##### Nachrichtenabbruch-Ereignisse {#message-abort-events}
 
-Nachrichtenabbruch-Ereignisse treten auf, wenn eine an eine Nutzerin oder einen Nutzer gesendete Nachricht aufgrund bedingter Logik in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages) oder durch Liquid-Rendering-Timeouts abgebrochen wurde.
+Nachrichtenabbruch-Ereignisse treten auf, wenn eine an eine Nutzerin oder einen Nutzer gesendete Nachricht aufgrund bedingter Logik in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) oder durch Liquid-Rendering-Timeouts abgebrochen wurde.
 
 Abbruch-Ereignisse sind für die folgenden Kanäle verfügbar:
 
@@ -179,7 +179,7 @@ Abbruch-Ereignisse sind derzeit nicht für In-App-Nachrichten und Content Cards 
 
 ##### Frequency-Capping-Ereignisse {#frequency-cap-events}
 
-Ein Frequency-Capping-Ereignis tritt auf, wenn eine Nutzerin oder ein Nutzer für den Empfang einer Nachricht qualifiziert ist, diese aber aufgrund von [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)-Einstellungen nicht tatsächlich erhält. Sie können die Frequency-Capping-Einstellungen unter **Einstellungen** > **Frequency-Capping-Regeln** anpassen.
+Ein Frequency-Capping-Ereignis tritt auf, wenn eine Nutzerin oder ein Nutzer für den Empfang einer Nachricht qualifiziert ist, diese aber aufgrund von [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Einstellungen nicht tatsächlich erhält. Sie können die Frequency-Capping-Einstellungen unter **Einstellungen** > **Frequency-Capping-Regeln** anpassen.
 
 ##### Leere Ziele {#blank-destinations}
 

@@ -22,7 +22,7 @@ Geplante Nachrichten oder Trigger, die kurz vor oder während des vorgesehenen S
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `canvas.trigger.schedule.delete`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `canvas.trigger.schedule.delete`.
 
 ## Rate-Limit
 

@@ -34,7 +34,7 @@ Por ejemplo, si un cliente tiene dos vuelos próximos, tendrá dos estados de re
 
 Puedes definir hasta 10 variables de contexto por [paso de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). Cada nombre de variable puede tener hasta 100 caracteres y solo debe usar letras, números o guiones bajos.
 
-Las definiciones de variables de contexto pueden tener hasta 10 240 caracteres. Si pasas variables de contexto a un Canvas desencadenado por API, comparten el mismo espacio de nombres que las variables creadas en un paso de contexto. Por ejemplo, si envías una variable `purchased_item` en el [punto de conexión `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) dentro del objeto de contexto, puedes hacer referencia a ella como {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Si redefines esa variable en un paso de contexto, el nuevo valor sobrescribirá el valor de la API para el recorrido de ese usuario.
+Las definiciones de variables de contexto pueden tener hasta 10 240 caracteres. Si pasas variables de contexto a un Canvas desencadenado por API, comparten el mismo espacio de nombres que las variables creadas en un paso de contexto. Por ejemplo, si envías una variable `purchased_item` en el [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) dentro del objeto de contexto, puedes hacer referencia a ella como {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Si redefines esa variable en un paso de contexto, el nuevo valor sobrescribirá el valor de la API para el recorrido de ese usuario.
 
 Puedes almacenar hasta 50 KB por paso de contexto, distribuidos en un máximo de 10 variables. Si el tamaño total de todas las variables en un paso supera los 50 KB, las variables que excedan el límite no se evaluarán ni almacenarán. Por ejemplo, si tienes tres variables en un paso de contexto:
 
@@ -104,32 +104,32 @@ A continuación, crearemos un paso de mensaje para dirigirnos a los usuarios don
 Puedes añadir [opciones de retraso personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) con la información del paso de contexto, lo que significa que puedes seleccionar la variable que retrasa a los usuarios.
 {% endalert %}
 
-### Para Rutas de acción y criterios de salida {#for-action-paths-and-exit-criteria}
+### Para Rutas de Acción y criterios de salida {#for-action-paths-and-exit-criteria}
 
 Puedes aprovechar la comparación de filtros de propiedades con variables de contexto o atributos personalizados en estas acciones desencadenantes: **Realizar evento personalizado** y **Realizar compra**. Estos desencadenadores de acción también admiten filtros de propiedades tanto para propiedades básicas como anidadas.
 
 - Al comparar con propiedades básicas, las comparaciones disponibles coincidirán con el tipo de propiedad definido por el evento personalizado. Por ejemplo, las propiedades de cadena tendrán coincidencia exacta y coincidencia regex. Las propiedades booleanas serán verdadero o falso.
-- Al comparar con propiedades anidadas, los tipos no están predefinidos, por lo que puedes seleccionar comparaciones entre múltiples tipos de datos para booleanos, números, cadenas, hora y día del año, de forma similar a las comparaciones para atributos personalizados anidados. Si seleccionas un tipo de datos que no coincide con el tipo de datos real de la propiedad anidada en el momento de la comparación, el usuario no coincidirá con la ruta de acción o los criterios de salida.
+- Al comparar con propiedades anidadas, los tipos no están predefinidos, por lo que puedes seleccionar comparaciones entre múltiples tipos de datos para booleanos, números, cadenas, hora y día del año, de forma similar a las comparaciones para atributos personalizados anidados. Si seleccionas un tipo de datos que no coincide con el tipo de datos real de la propiedad anidada en el momento de la comparación, el usuario no coincidirá con la Ruta de Acción o los criterios de salida.
 
-#### Ejemplos de Rutas de acción {#action-path-examples}
+#### Ejemplos de Rutas de Acción {#action-path-examples}
 
 {% alert important %}
-Para las comparaciones de atributos personalizados, se usará el valor del atributo personalizado en el momento en que se realiza la acción. Esto significa que un usuario no coincidirá con el grupo de la ruta de acción si no tiene este atributo personalizado rellenado en el momento de la comparación, o si el valor del atributo personalizado no coincide con las comparaciones de propiedades definidas. Esto aplica incluso si el usuario habría coincidido cuando entró en el paso de ruta de acción.
+Para las comparaciones de atributos personalizados, se usará el valor del atributo personalizado en el momento en que se realiza la acción. Esto significa que un usuario no coincidirá con el grupo de la Ruta de Acción si no tiene este atributo personalizado rellenado en el momento de la comparación, o si el valor del atributo personalizado no coincide con las comparaciones de propiedades definidas. Esto aplica incluso si el usuario habría coincidido cuando entró en el paso de Ruta de Acción.
 {% endalert %}
 
 {% tabs %}
 {% tab Realizar evento personalizado %}
 
-La siguiente ruta de acción está configurada para clasificar a los usuarios que realizaron el evento personalizado `Account_Created` con la propiedad básica `source` respecto a la variable de contexto `app_source_variable`.
+La siguiente Ruta de Acción está configurada para clasificar a los usuarios que realizaron el evento personalizado `Account_Created` con la propiedad básica `source` respecto a la variable de contexto `app_source_variable`.
 
-![Un ejemplo de ruta de acción que hace referencia a una variable de contexto al realizar un evento personalizado.]({% image_buster /assets/img/context_action_path1.png %})
+![Un ejemplo de Ruta de Acción que hace referencia a una variable de contexto al realizar un evento personalizado.]({% image_buster /assets/img/context_action_path1.png %})
 
 {% endtab %}
 {% tab Realizar compra %}
 
-La siguiente ruta de acción está configurada para hacer coincidir la propiedad básica `brand` para el nombre de producto específico `shoes` con una variable de contexto `promoted_shoe_brand`.
+La siguiente Ruta de Acción está configurada para hacer coincidir la propiedad básica `brand` para el nombre de producto específico `shoes` con una variable de contexto `promoted_shoe_brand`.
 
-![Un ejemplo de ruta de acción que hace referencia a una variable de contexto al realizar una compra.]({% image_buster /assets/img/context_action_path2.png %})
+![Un ejemplo de Ruta de Acción que hace referencia a una variable de contexto al realizar una compra.]({% image_buster /assets/img/context_action_path2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -165,23 +165,23 @@ Para [Banners]({{site.baseurl}}/user_guide/channels/banners) y [mensajes dentro 
 
 **Personalize duration** se aplica a esa opción de expiración basada en duración. Si en su lugar eliges **On a specific date and time**, configura la expiración usando los controles de fecha y hora.
 
-### Retrasos en Rutas de acción {#action-path-delays}
+### Retrasos en Rutas de Acción {#action-path-delays}
 
-En un paso de [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), en **Evaluation Window**, activa **Personalize delay** para establecer cuánto tiempo se retiene a los usuarios en el paso a partir de una variable de contexto. Usa esto cuando el período de espera deba diferir por usuario según detalles como el nivel o la región.
+En un paso de [Rutas de Acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), en **Evaluation Window**, activa **Personalize delay** para establecer cuánto tiempo se retiene a los usuarios en el paso a partir de una variable de contexto. Usa esto cuando el período de espera deba diferir por usuario según detalles como el nivel o la región.
 
 ### Filtros de variables de contexto {#context-variable-filters}
 
 Puedes crear filtros que usen variables de contexto declaradas previamente en los pasos de [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) y [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split).
 
 {% alert note %}
-Los filtros de variables de contexto solo están disponibles para los pasos de Rutas de audiencia y División de decisiones.
+Los filtros de variables de contexto solo están disponibles para los pasos de rutas de audiencia y división de decisiones.
 {% endalert %}
 
-Las variables de contexto se declaran y solo son accesibles dentro del alcance de un Canvas, lo que significa que no se pueden referenciar en Segments. Los filtros de variables de contexto funcionan de manera similar en los pasos de Rutas de audiencia y División de decisiones: los pasos de Rutas de audiencia representan múltiples grupos, mientras que los pasos de División de decisiones representan decisiones binarias.
+Las variables de contexto se declaran y solo son accesibles dentro del alcance de un Canvas, lo que significa que no se pueden referenciar en segmentos. Los filtros de variables de contexto funcionan de manera similar en los pasos de rutas de audiencia y división de decisiones: los pasos de rutas de audiencia representan múltiples grupos, mientras que los pasos de división de decisiones representan decisiones binarias.
 
-![Ejemplo de paso de División de decisiones con la opción de crear un filtro con una variable de contexto.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
+![Ejemplo de paso de división de decisiones con la opción de crear un filtro con una variable de contexto.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-De manera similar a cómo las variables de contexto de Canvas tienen tipos predefinidos, las comparaciones entre variables de contexto y valores estáticos deben tener [tipos de datos coincidentes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types). El filtro de variable de contexto permite comparaciones entre múltiples tipos de datos para booleanos, números, cadenas, hora y día del año, de forma similar a las comparaciones para [atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+De manera similar a cómo las variables de contexto de Canvas tienen tipos predefinidos, las comparaciones entre variables de contexto y valores estáticos deben tener [tipos de datos coincidentes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). El filtro de variable de contexto permite comparaciones entre múltiples tipos de datos para booleanos, números, cadenas, hora y día del año, de forma similar a las comparaciones para [atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% alert note %}
 Usa el mismo tipo de datos para tu variable de contexto y la comparación. Por ejemplo, si tu variable de contexto es un tipo de datos de hora, usa comparaciones de hora (como "antes" o "después"). Usar tipos de datos que no coinciden (como comparaciones de cadena con una variable de contexto de hora) puede causar un comportamiento inesperado.
@@ -209,7 +209,7 @@ Tienes una variable de contexto `re_engagement_date` que se define como {% raw %
 {% endtab %}
 {% tab Ejemplo 2 %}
 
-El siguiente filtro compara la variable de contexto `reminder_date` para que sea anterior a la variable de contexto `appointment_deadline`. Esto puede ayudar a agrupar usuarios en un paso de Rutas de audiencia para determinar si deben recibir recordatorios adicionales antes de la fecha límite de su cita.
+El siguiente filtro compara la variable de contexto `reminder_date` para que sea anterior a la variable de contexto `appointment_deadline`. Esto puede ayudar a agrupar usuarios en un paso de rutas de audiencia para determinar si deben recibir recordatorios adicionales antes de la fecha límite de su cita.
 
 ![Una configuración de filtro con variables de contexto como tipo de personalización para la variable de contexto "reminder_date" sobre la variable de contexto "appointment_deadline".]({% image_buster /assets/img/context_variable_filter3.png %})
 

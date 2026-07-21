@@ -39,6 +39,6 @@ Essa é uma ocorrência muito rara causada pela arquitetura subjacente do proved
 
 Embora arquivos CSV geralmente sejam abertos automaticamente no Excel por padrão, isso nem sempre acontece. Consulte os artigos de solução de problemas para [Windows](https://support.microsoft.com/en-us/windows/change-which-programs-windows-7-uses-by-default-62fd162f-8c82-0436-806f-c60d69dcf495) e [Apple](https://support.apple.com/guide/mac-help/choose-an-app-to-open-a-file-on-mac-mh35597/mac) para saber como definir o Excel como programa padrão.
 
-Para converter um CSV em XLSX ou XLS, ou remover a vírgula entre os valores de dados, consulte [este guia](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard) sobre como importar CSVs no Excel.
+Para converter um CSV em XLSX ou XLS, ou remover a vírgula entre os valores de dados, consulte [este guia sobre como importar CSVs no Excel](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard).
 
 Se você perceber que os zeros à esquerda estão sendo removidos dos IDs de usuário na sua exportação CSV, isso acontece porque o Excel trata os números em um CSV como dados numéricos em vez de texto. Para resolver isso, execute o [Assistente de Importação de Texto do Excel](https://www.ablebits.com/office-addins-blog/converting-csv-excel-issues/#leading-zeros).

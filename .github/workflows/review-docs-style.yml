@@ -3,6 +3,8 @@
 # Skips draft PRs; runs when a draft is marked ready for review (ready_for_review).
 #
 # Posts inline review comments with ```suggestion blocks where possible (Commit suggestion).
+# PR-level notes and non-diff findings go in one summary issue comment per run.
+# Commit-able single-line fixes should land in inline suggestions when possible.
 # Each run replaces prior automated inline comments and the summary issue comment.
 # Requires: ANTHROPIC_API_KEY repository secret.
 #
@@ -57,7 +59,7 @@ jobs:
         run: git fetch --no-tags origin "${{ github.base_ref }}"
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 

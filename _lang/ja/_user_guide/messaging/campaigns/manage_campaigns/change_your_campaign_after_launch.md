@@ -46,7 +46,7 @@ Brazeでは、ライブ状態のまま編集するのではなく、変更を加
 
 ## アプリ内メッセージキャンペーン {#in-app-message-campaigns}
 
-プッシュやメールとは異なり、アプリ内メッセージはセッション開始時にデバイスに配信され、トリガーが発動するまでローカルにキャッシュされます。ライブのアプリ内メッセージキャンペーンを編集する場合（停止、[終了日]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger)の設定、**表示前にキャンペーン適格性を再評価**の有効化、コンテンツの更新、メッセージトリガーの変更、ターゲットオーディエンスの更新など）、更新された設定はデバイスが次のセッション開始時にトリガーを取得した際に反映されます。
+プッシュやメールとは異なり、アプリ内メッセージはセッション開始時にデバイスに配信され、トリガーが発動するまでローカルにキャッシュされます。ライブのアプリ内メッセージキャンペーンを編集する場合（停止、[終了日]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger)の設定、**表示前にキャンペーン適格性を再評価**の有効化、コンテンツの更新、メッセージトリガーの変更、ターゲットオーディエンスの更新など）、更新された設定はデバイスが次のセッション開始時にトリガーを取得した際に反映されます。
 
 以下の動作が想定されます。
 
@@ -63,7 +63,7 @@ Brazeでは、ライブ状態のまま編集するのではなく、変更を加
 
 キャンペーンの配信設定で**表示前にキャンペーン適格性を再評価**を選択すると、Brazeは各表示の直前にオーディエンスメンバーシップとキャンペーンステータスを確認します。これにより、キャンペーンが停止、アーカイブ、または終了日を過ぎた後のインプレッションを防ぐことができます。この設定は起動後にオンまたはオフにできますが、他の変更と同じ反映ルールに従います。デバイスは次のトリガー同期まで更新された設定を受信しません。
 
-詳細については、[ターゲットユーザーの選択]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target)および[アーカイブしたアプリ内メッセージキャンペーンがまだアプリ内メッセージのインプレッションを配信しているのはなぜですか？]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions)を参照してください。
+詳細については、[ターゲットユーザーの選択]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target)および[アーカイブしたアプリ内メッセージキャンペーンがまだアプリ内メッセージのインプレッションを配信しているのはなぜですか？]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions)を参照してください。
 
 ## トリガーキャンペーン {#triggered-campaigns}
 

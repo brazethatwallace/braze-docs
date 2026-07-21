@@ -39,7 +39,7 @@ Describe lo que intentas lograr utilizando lenguaje natural. Los prompts pueden 
 - **Simple:** ¿Por qué no se renderiza mi Liquid?
 - **Complejo:** ¿Cómo puedo hacer que la etiqueta `abort_message` de mi mensaje incluya el atributo de usuario que provocó la interrupción?
 
-Operator puede proporcionar instrucciones paso a paso, enlaces a la documentación de Braze y explicaciones en lenguaje sencillo. Las preguntas claras y específicas dan lugar a respuestas más útiles. Operator utiliza [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), que ofrece un razonamiento sólido y es adecuado para tareas complejas de varios pasos. Para ver ejemplos listos para usar, consulta la [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
+Operator puede proporcionar instrucciones paso a paso, enlaces a la documentación de Braze y explicaciones en lenguaje sencillo. Las preguntas claras y específicas dan lugar a respuestas más útiles. Operator utiliza [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), que es adecuado para tareas complejas de varios pasos. Para ver ejemplos listos para usar, consulta la [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Mejores prácticas {#best-practices}
 
@@ -83,7 +83,7 @@ Operator puede proponer y ejecutar cambios directamente en el panel de Braze, co
 
 ### Copiar respuestas a otras herramientas {#copy-responses-to-other-tools}
 
-Las respuestas de Operator están formateadas en Markdown. Cuando recibas una respuesta, selecciona **Copy** en la barra de herramientas que aparece para copiar la respuesta completa al portapapeles. La mayoría de las herramientas renderizan Markdown de forma nativa o lo aceptan con ajustes menores. Selecciona una pestaña según tu destino:
+Las respuestas de Operator están formateadas en Markdown. Cuando recibas una respuesta, selecciona **Copiar** en la barra de herramientas que aparece para copiar la respuesta completa al portapapeles. La mayoría de las herramientas renderizan Markdown de forma nativa o lo aceptan con ajustes menores. Selecciona una pestaña según tu destino:
 
 {% tabs %}
 {% tab Google Docs %}
@@ -120,11 +120,11 @@ Si quieres trabajar en un archivo o usar herramientas de conversión, también p
 
 ### Detener una respuesta {#stop-a-response}
 
-Mientras Operator genera una respuesta, el botón **Send** se convierte en un botón **Stop**. Selecciona **Stop** para finalizar la respuesta antes de tiempo si necesitas reformular tu pregunta o si la respuesta va por mal camino.
+Mientras Operator genera una respuesta, el botón **Enviar** se convierte en un botón **Detener**. Selecciona **Detener** para finalizar la respuesta antes de tiempo si necesitas reformular tu pregunta o si la respuesta va por mal camino.
 
 ### Borrar tu historial {#clear-your-history}
 
-Para empezar de cero o eliminar información confidencial de la conversación, selecciona **Clear chat history**. Esto elimina todo el contenido actual y restablece el contexto de la conversación.
+Para empezar de cero o eliminar información confidencial de la conversación, selecciona **Borrar historial de chat**. Esto elimina todo el contenido actual y restablece el contexto de la conversación.
 
 ### Enviar comentarios {#provide-feedback}
 

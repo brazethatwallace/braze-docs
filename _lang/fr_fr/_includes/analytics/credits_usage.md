@@ -206,6 +206,8 @@ Utilisez **Export** pour télécharger les données du tableau.
 
 **Agent Console Credits Usage** affiche l'utilisation des crédits de la console des agents sur tous les comptes. Les tuiles montrent le total des crédits consommés et le total des invocations. Le tableau **Usage by account** inclut **Braze workspace**, **Agent name**, **Model owner**, **Total invocations**, **Credit ratio** et **Credits**. Lorsque des données sont disponibles, **Last updated** indique quand le tableau a été actualisé.
 
+Pour planifier les dépenses quotidiennes avant le lancement, comparez ces ratios avec la **limite quotidienne de crédits d'action** de chaque agent dans la console des agents (limite d'invocations quotidiennes × ratio de crédits). Consultez [Limites d'invocations et de crédits quotidiennes]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+
 #### Filtres
 
 Vous pouvez filtrer vos données par :

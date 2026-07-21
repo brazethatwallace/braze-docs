@@ -1,6 +1,6 @@
 ---
-nav_title: "GET:日次アプリアンインストールKPIを日付別にエクスポート"
-article_title: "GET:日次アプリアンインストールKPIを日付別にエクスポート"
+nav_title: "GET:日次アプリアンインストールKPIsを日付別にエクスポート"
+article_title: "GET:日次アプリアンインストールKPIsを日付別にエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -9,7 +9,7 @@ description: "この記事では、「日付別にアプリの日次アンイン
 
 ---
 {% api %}
-# 日次アプリアンインストールKPIを日付別にエクスポート {#export-kpis-for-daily-app-uninstalls-by-date}
+# 日次アプリアンインストールKPIsを日付別にエクスポート {#export-kpis-for-daily-app-uninstalls-by-date}
 {% apimethod get %}
 /kpi/uninstalls/data_series
 {% endapimethod %}
@@ -20,7 +20,7 @@ description: "この記事では、「日付別にアプリの日次アンイン
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`kpi.uninstalls.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`kpi.uninstalls.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -43,7 +43,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/uninstalls/d
 ```
 {% endraw %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {

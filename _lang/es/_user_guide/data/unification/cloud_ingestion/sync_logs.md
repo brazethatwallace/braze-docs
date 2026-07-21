@@ -8,9 +8,9 @@ description: "Esta página ofrece un resumen de las características de observab
 
 # Registros de sincronización y observabilidad {#sync-logs-and-observability}
 
-> El panel de **Sync Log** de la Ingesta de datos de Cloud (CDI) te permite supervisar todos los datos procesados por CDI, verificar si los datos se sincronizaron correctamente y diagnosticar cualquier problema con datos «incorrectos» o faltantes.
+> El panel de **Sync Log** de la ingesta de datos en la nube (CDI) te permite supervisar todos los datos procesados por CDI, verificar si los datos se sincronizaron correctamente y diagnosticar cualquier problema con datos «incorrectos» o faltantes.
 
-Para acceder a los registros de sincronización, ve a **Configuración de datos** > **Ingesta de datos de Cloud** y selecciona la pestaña **Sync Log**.
+Para acceder a los registros de sincronización, ve a **Configuración de datos** > **Ingesta de datos en la nube** y selecciona la pestaña **Sync Log**.
 
 ## Comprender el panel de Sync Log {#understanding-the-sync-log-dashboard}
 
@@ -27,7 +27,7 @@ La página principal de **Sync Log** ofrece un resumen de alto nivel de todas tu
 Los registros de sincronización también proporcionan los siguientes detalles para cada sincronización:
 
 * **Nombre de sincronización:** El nombre de la configuración de sincronización.
-* **ID de ejecución:** Un identificador único para una ejecución específica de la sincronización. Selecciona este ID para ver más detalles. También se puede utilizar en los [puntos finales de la API de CDI]({{site.baseurl}}/api/endpoints/cdi) o para hacer referencia a una ejecución de sincronización con el soporte de Braze.
+* **ID de ejecución:** Un identificador único para una ejecución específica de la sincronización. Selecciona este ID para ver más detalles o para hacer referencia a una ejecución de sincronización con el soporte de Braze.
 * **Estado:** El estado de la ejecución (éxito, éxito parcial, error, en ejecución).
 * **Nuevas filas leídas desde la fuente:** El número de filas nuevas extraídas de tu almacén de datos para esta ejecución.
 * **Resultados:** Un desglose de cuántas filas se procesaron correctamente o fallaron durante la ejecución.
@@ -80,7 +80,7 @@ Selecciona **Export rows** para exportar los registros a nivel de fila de una ej
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
-Los registros no se pueden exportar directamente desde el dashboard. Una vez generada la exportación, recibirás un correo electrónico con un enlace para descargar el archivo de exportación del registro.
+Los registros no se pueden exportar directamente desde el panel. Una vez generada la exportación, recibirás un correo electrónico con un enlace para descargar el archivo de exportación del registro.
 
 ## Notificaciones {#notifications}
 

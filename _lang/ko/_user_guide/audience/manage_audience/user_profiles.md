@@ -166,7 +166,7 @@ RCS 이벤트는 현재 **메시징 이력** 탭에서 지원되지 않습니다
 
 ##### 메시지 중단 이벤트 {#message-abort-events}
 
-메시지 중단 이벤트는 사용자에게 전송된 메시지가 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) 또는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages)의 조건 로직이나 Liquid 렌더링 시간 초과로 인해 중단된 경우 발생합니다.
+메시지 중단 이벤트는 사용자에게 전송된 메시지가 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) 또는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)의 조건 로직이나 Liquid 렌더링 시간 초과로 인해 중단된 경우 발생합니다.
 
 중단 이벤트는 다음 채널에서 사용할 수 있습니다:
 
@@ -179,7 +179,7 @@ RCS 이벤트는 현재 **메시징 이력** 탭에서 지원되지 않습니다
 
 ##### 최대 게재빈도 설정 이벤트 {#frequency-cap-events}
 
-최대 게재빈도 설정 이벤트는 사용자가 메시지를 수신할 자격이 있지만 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) 설정으로 인해 실제로 수신하지 못하는 경우 발생합니다. **설정** > **최대 게재빈도 설정 규칙**에서 최대 게재빈도 설정을 커스터마이즈할 수 있습니다.
+최대 게재빈도 설정 이벤트는 사용자가 메시지를 수신할 자격이 있지만 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 설정으로 인해 실제로 수신하지 못하는 경우 발생합니다. **설정** > **최대 게재빈도 설정 규칙**에서 최대 게재빈도 설정을 커스터마이즈할 수 있습니다.
 
 ##### 빈 대상 {#blank-destinations}
 

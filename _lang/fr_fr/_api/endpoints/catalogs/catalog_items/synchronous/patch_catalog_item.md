@@ -21,7 +21,7 @@ description: "Cet article présente en détail l'endpoint Braze Modifier un él�
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `catalogs.update_item`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.update_item`.
 
 ## Limite de débit {#rate-limit}
 
@@ -80,7 +80,7 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 ## Réponse {#response}
 
-Trois codes de statut de réponse existent pour cet endpoint : `200`, `400` et `404`.
+Trois codes de statut existent pour cet endpoint : `200`, `400` et `404`.
 
 ### Exemple de réponse réussie {#example-success-response}
 
@@ -94,7 +94,7 @@ Le code de statut `200` pourrait renvoyer le corps de réponse suivant.
 
 ### Exemple de réponse échouée {#example-error-response}
 
-Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la [résolution des problèmes](#troubleshooting) pour plus d'informations concernant les erreurs que vous pourriez rencontrer.
+Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la section [Résolution des problèmes](#troubleshooting) pour plus d'informations concernant les erreurs que vous pourriez rencontrer.
 
 ```json
 {

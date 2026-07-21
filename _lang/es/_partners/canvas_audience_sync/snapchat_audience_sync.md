@@ -16,10 +16,7 @@ Con Braze Audience Sync to Snapchat, las marcas pueden añadir datos de usuarios
 
 **Entre los casos de uso habituales de la sincronización de audiencias se incluyen:**
 
-- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la interacción
-- Reorientar a los usuarios menos receptivos a otros canales de marketing
-- Crear audiencias de supresión para evitar que los usuarios reciban anuncios cuando ya son consumidores fieles de tu marca
-- Crear audiencias similares para captar nuevos usuarios de forma más eficaz
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Esta característica permite a los usuarios controlar qué datos propios específicos se comparten con Snapchat. En Braze, se presta la máxima atención a las integraciones con las que puedes y no puedes compartir tus datos propios. Para más información, consulta nuestra [política de privacidad](https://www.braze.com/privacy).
 
@@ -32,7 +29,7 @@ Braze Audience Sync to Snapchat es una integración de Audience Sync Pro. Para m
 
 Debes asegurarte de que los siguientes elementos estén creados, completados o aceptados antes de configurar tu paso de audiencia de Snapchat en Canvas.
 
-| Requisito | Origin | Descripción |
+| Requisito | Origen | Descripción |
 | --- | --- | --- |
 | Administrador de negocios de Snapchat | Snapchat | Una herramienta centralizada para administrar los activos de Snapchat de tu marca (como cuentas de anuncios, páginas, aplicaciones). |
 | Cuenta publicitaria de Snapchat | Snapchat | Una cuenta de anuncios de Snapchat activa vinculada al administrador de negocios de Snapchat de tu marca.<br><br>Asegúrate de que el administrador de tu Snapchat Business Manager te haya concedido permisos de administrador para las cuentas de anuncios de Snapchat que planeas utilizar con Braze. |

@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## 멀티채널 캠페인은 어떻게 만드나요? {#how-do-i-create-a-multichannel-campaign}
 
-설정 단계와 지원되는 채널에 대해서는 **캠페인 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns)을 참조하세요.
+설정 단계와 지원되는 채널에 대해서는 **캠페인 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign)을 참조하세요.
 
 ### 멀티채널 캠페인에 대조군을 추가할 수 있나요? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 

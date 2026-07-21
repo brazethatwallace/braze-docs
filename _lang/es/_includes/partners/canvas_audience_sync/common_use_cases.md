@@ -1,0 +1,4 @@
+- Segmentación de usuarios de alto valor a través de múltiples canales para impulsar compras o participación
+- Reorientación de usuarios que son menos receptivos a otros canales de marketing
+- Creación de audiencias de supresión para evitar que los usuarios reciban anuncios cuando ya son consumidores leales de tu marca
+- Creación de audiencias similares para adquirir nuevos usuarios de manera más eficiente

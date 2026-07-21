@@ -22,7 +22,7 @@ platform:
 ![Ein Venn-Diagramm mit vier Kreisen – Identifizierung, Integration, Qualitätssicherung und Wartung – mit dem Schwerpunkt „Time to Value“.]({% image_buster /assets/img/getting-started/getting-started-integrate-flower.png %}){: style="max-width:50%;float:right;margin-left:15px;border:none;"}
 
 Als technische Ressource stärken Sie Ihr Team durch die Integration von Braze in Ihren Tech-Stack. Das Onboarding gliedert sich im Wesentlichen in vier Schritte:
-* [Identifizierung und Planung](#discovery): Arbeiten Sie mit Ihrem Team zusammen, um den Projektumfang abzustimmen, eine Struktur für Daten und Kampagnen zu planen und eine geeignete Workspace-Struktur zu erstellen.
+* [Identifizierung und Planung](#discovery): Arbeiten Sie mit Ihrem Team zusammen, um den Projektumfang abzustimmen, eine Struktur für Daten und Campaigns zu planen und eine geeignete Workspace-Struktur zu erstellen.
 * [Integration](#integration): Führen Sie Ihren Plan aus, indem Sie das SDK und die API integrieren, Messaging-Kanäle aktivieren und den Import und Export von Daten einrichten.
 * [Qualitätssicherung](#qa): Bestätigen Sie, dass der Daten- und Nachrichtenaustausch zwischen der Braze-Plattform und Ihrer App oder Website wie erwartet funktioniert.
 * [Wartung](#maintenance): Nachdem Sie Braze an Ihr Marketingteam übergeben haben, sorgen Sie weiterhin dafür, dass alles reibungslos läuft.
@@ -63,7 +63,7 @@ Mit der Integration kann erst begonnen werden, wenn der Schritt der Kampagnenpla
 
 ### Erstellen von Datenanforderungen {#creating-data-requirements}
 
-Ihr CRM-Team sollte dann festlegen, welche Daten benötigt werden, um die geplanten Kampagnen einzuführen, indem es Datenanforderungen erstellt.
+Ihr CRM-Team sollte dann festlegen, welche Daten benötigt werden, um die geplanten Campaigns einzuführen, indem es Datenanforderungen erstellt.
 
 Viele gängige Arten von Nutzerattributen, wie Name, E-Mail-Adresse, Geburtsdatum, Land und Ähnliches, werden nach der Integration des Braze SDK automatisch getrackt. Andere Arten von Daten müssen als angepasste Daten definiert werden.
 
@@ -89,7 +89,7 @@ Ihr Teamadministrator sollte Sie (und alle anderen Teammitglieder, die Zugriff a
 
 Ihr Teamadministrator wird auch verschiedene [Workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces) erstellen. Workspaces fassen Ihre Daten – Nutzer:innen, Segmente, API-Schlüssel – an einem Ort zusammen. Es empfiehlt sich, lediglich verschiedene Versionen derselben App oder sehr ähnlicher Apps in einem Workspace zusammenzufassen.
 
-Ein wichtiger Aspekt ist, dass Workspaces API-Schlüssel für mehrere Plattformen (z. B. iOS und Android) bereitstellen. Sie verwenden die korrelierten API-Schlüssel, um SDK-Daten mit einem bestimmten Workspace zu verknüpfen. Navigieren Sie zu Ihren Workspaces, um auf den API-Schlüssel für Ihre einzelnen Apps zuzugreifen. Vergewissern Sie sich, dass jeder API-Schlüssel über die erforderlichen Berechtigungen verfügt, um die von Ihnen vorgesehenen Aufgaben auszuführen. Weitere Informationen finden Sie im [Artikel über die API-Bereitstellung]({{site.baseurl}}/api/basics#rest-api-key).
+Ein wichtiger Aspekt ist, dass Workspaces API-Schlüssel für mehrere Plattformen (z. B. iOS und Android) bereitstellen. Sie verwenden die korrelierten API-Schlüssel, um SDK-Daten mit einem bestimmten Workspace zu verknüpfen. Navigieren Sie zu Ihren Workspaces, um auf den API-Schlüssel für Ihre einzelnen Apps zuzugreifen. Vergewissern Sie sich, dass jeder API-Schlüssel über die erforderlichen Berechtigungen verfügt, um die von Ihnen vorgesehenen Aufgaben auszuführen. Weitere Informationen finden Sie im [Artikel über die API-Bereitstellung]({{site.baseurl}}/api/basics#rest-api-key-permissions).
 
 {% alert important %}
 Wichtig ist, dass Sie unterschiedliche Umgebungen für die Entwicklung und die Produktion einrichten. Die Einrichtung einer Testumgebung verhindert, dass Sie während des Onboardings und der QA echtes Geld ausgeben. Um eine Testumgebung zu erstellen, richten Sie einen Test-Workspace ein und stellen Sie sicher, dass Sie dessen API-Schlüssel verwenden, damit nicht der Produktions-Workspace mit Testdaten gefüllt wird.
@@ -99,7 +99,7 @@ Wichtig ist, dass Sie unterschiedliche Umgebungen für die Entwicklung und die P
 
 ![Abstrakte Pyramidengrafik, die den Informationsfluss von einer Datenquelle zu einem Gerät darstellt.]({% image_buster /assets/img/getting-started/data-graphic.png %}){: style="max-width:45%;float:right;margin-left:15px;"}
 
-Braze unterstützt iOS-Apps, Android-Apps, Web-Apps und mehr. Sie können sich auch für ein plattformübergreifendes Wrapper-SDK entscheiden, wie z. B. React Native oder Unity. In der Regel dauert eine Integration bei unseren Kunden zwischen 1 und 6 Wochen. Viele Kunden haben für die Braze-Integration nur eine:n einzige:n Entwickler:in benötigt – abhängig von der Breite der technischen Fähigkeiten und der verfügbaren Kapazität. Letztlich kommt es darauf an, welchen Umfang Ihre spezifische Integration hat und wie viel Zeit Ihr Team dem Braze-Projekt widmet.
+Braze unterstützt iOS-Apps, Android-Apps, Web-Apps und mehr. Sie können sich auch für ein plattformübergreifendes Wrapper-SDK entscheiden, wie z. B. React Native oder Unity. In der Regel dauert eine Integration bei unseren Kund:innen zwischen 1 und 6 Wochen. Viele Kund:innen haben für die Braze-Integration nur eine:n einzige:n Entwickler:in benötigt – abhängig von der Breite der technischen Fähigkeiten und der verfügbaren Kapazität. Letztlich kommt es darauf an, welchen Umfang Ihre spezifische Integration hat und wie viel Zeit Ihr Team dem Braze-Projekt widmet.
 
 Sie brauchen Entwickler:innen, die sich mit Folgendem auskennen:
 * Arbeiten in der nativen Schicht Ihrer App oder Website
@@ -111,7 +111,7 @@ Sie brauchen Entwickler:innen, die sich mit Folgendem auskennen:
 
 ### CDP-Integrationspartner {#cdp-integration-partners}
 
-Viele Kunden sehen im Onboarding von Braze eine Gelegenheit, auch eine Customer Data Platform (CDP) als Integrationspartner einzubinden. Braze bietet Daten-Tracking und Analytics, während eine CDP zusätzlich Daten-Routing und Orchestrierung bieten kann. Braze unterstützt die nahtlose Integration mit vielen CDPs, darunter u. a. [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) und [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
+Viele Kund:innen sehen im Onboarding von Braze eine Gelegenheit, auch eine Customer Data Platform (CDP) als Integrationspartner einzubinden. Braze bietet Daten-Tracking und Analytics, während eine CDP zusätzlich Daten-Routing und Orchestrierung bieten kann. Braze unterstützt die nahtlose Integration mit vielen CDPs, darunter u. a. [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) und [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
 Wenn Sie eine Side-by-Side-Integration mit einer CDP durchführen, werden die Aufrufe aus dem SDK der CDP dem Braze SDK zugeordnet. Im Wesentlichen ist Folgendes zu beachten:
 * Identifizierungsaufrufe auf `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) zuordnen und Attribute festlegen.
@@ -230,7 +230,7 @@ Aktualisierungen an der Braze-Plattform können Sie über das Braze [GitHub](htt
 
 ## SDK-Rate-Limits {#sdk-rate-limits}
 
-### Monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
+### Monthly Active Users CY 24-25, Universal MAU, Web MAU und Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
 Für Kund:innen, die Monthly Active Users CY 24-25, Universal MAU, Web MAU und Mobile MAU erworben haben, setzt Braze serverseitige Rate-Limits für API-Anfragen durch, die von unseren SDKs zur Aktualisierung von Sitzungen, Nutzerattributen, Events und anderen Nutzerprofildaten verwendet werden. Dies dient der Stabilität der Plattform und der Aufrechterhaltung eines schnellen, zuverlässigen Dienstes.
 

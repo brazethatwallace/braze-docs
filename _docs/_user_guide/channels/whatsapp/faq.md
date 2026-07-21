@@ -47,6 +47,13 @@ Business verification is a WhatsApp concept used to ensure that the brand is a l
 #### What is an official business account? 
 OBA gives you the green check mark next to your display name and is optional. You can apply for an official business account after completing business verification. Note that business verification and an official business account are different WhatsApp concepts. 
 
+#### Why might my WhatsApp Business display name be rejected?
+WhatsApp Business display name rejections are governed by Meta. If your display name is rejected, refer to [WhatsApp's display name guidelines](https://faq.whatsapp.com/793641088597363) for their guidelines.
+
+If your display name meets the guidelines and is still being rejected, Braze can't view the specific reasons. However, the most common reason for rejection is that a business's online presence is too low, or the business is marketing [regulated or restricted products](https://business.whatsapp.com/policy#further-guidance).
+
+For further guidance on display name rejections, refer to [Meta resources]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
+
 ### WhatsApp business account phone numbers 
 #### Do I need a phone number for my WhatsApp business account? 
 Yes, you need a number that you have access to. You will be asked to verify your phone number with 2-factor authentication when you go through the embedded sign-up flow. The phone number cannot be used for other WhatsApp accounts (business or personal).
@@ -83,7 +90,7 @@ You need to have the end-users phone number on the Braze profile to message them
 Subscription management of the WhatsApp Channel functions similarly to how it functions in other Braze channels. Refer to [Managing user subscriptions]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) for more information.  
 
 #### If I already have a list of users who have opted-in to receive marketing messages on WhatsApp, how do I update their subscription status in Braze? 
-You can update their subscription status via [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data). 
+You can update their subscription status via [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional). 
 
 #### What methods should I use to collect opt-ins? 
 Braze recommends referring to [Meta's guidelines for opt-in methods](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) to maintain compliance. Refer to the following resource for Braze [channel and opt-in ideas and suggestions](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit).
@@ -169,6 +176,15 @@ When you create templates using the [WhatsApp Template Builder]({{site.baseurl}}
 
 To resolve this, edit your template in Meta's WhatsApp Manager to use sequential placeholder formatting, then re-import it into Braze. In Braze, confirm each required variable field is populated with a valid Liquid value.
 
+#### Why is my WhatsApp campaign not sending despite template previewing?
+If your template previews correctly but the processing ledger shows **Abort** with details "Param text cannot have new-line/tab characters or more than 4 consecutive spaces", check the Liquid-templated parameter values in your message. WhatsApp requires that parameter text values don't contain:
+
+- New-line characters
+- Tab characters
+- More than 4 consecutive spaces
+
+Confirm that any Liquid logic that populates template parameters removes these characters or formats the text accordingly before sending.
+
 ### Deliverability and billing
 
 #### Why would a message not be delivered? 
@@ -177,14 +193,41 @@ There are various reasons a message would fail to be delivered, including networ
 #### If a message is not delivered, will I be billed? 
 No. If a message is not delivered, you will not be billed. 
 
-#### What happens if an end-user blocks my business? 
-If an end-user blocks your business, subsequent messages you attempt to send will not be delivered, and you will not be billed. 
+#### What happens if a user blocks my business? 
+If a user blocks your business, subsequent messages you attempt to send will not be delivered, and you will not be billed. 
 
-#### What happens if an end-user reports a message? 
-If an end-user reports a message, you can still send subsequent messages to this user. However, reporting may affect your quality rating on the channel. 
+#### What happens if a user reports a message? 
+If a user reports a message, you can still send subsequent messages to them. However, reporting may affect your quality rating on the channel. 
 
-#### If an end-user blocks or reports my business, will their subscription status be updated in Braze? 
-No. Their Braze subscription status will not be updated. 
+#### If a user blocks or reports my business, will their subscription status be updated in Braze? 
+No. Their Braze subscription status won't be updated.
+
+#### How can I exclude users who report my WhatsApp account from upcoming launches?
+Braze doesn't receive notifications from WhatsApp when your account is flagged or reported, so you can't automatically identify or exclude those users in Braze. Users who report your account may remain in your WhatsApp subscription group and continue to be eligible for future messages. 
+
+You can, however, set up a campaign that triggers when a user responds with an opt-out keyword, which automatically unsubscribes them using the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). For more information, see [WhatsApp opt-in and opt-out process]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+
+#### Are WhatsApp response messages free? {#are-whatsapp-response-messages-free}
+
+Response messages composed in the Braze campaign or Canvas editor (not approved WhatsApp templates) are treated as service messages by Meta. Service messages sent through Braze's native WhatsApp integration don't consume Action Credits when they are sent as [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) within an open customer service window.
+
+| Message type | Action Credits | Notes |
+|---|---|---|
+| Response message (inbound reply) | Not consumed | Composed in Braze; not a Meta-approved template. |
+| Template message | Consumed | Marketing, utility, authentication, and limited time offer templates are billed per send. |
+| Utility template in service window | Not consumed by Meta | Meta doesn't charge for utility templates sent within 24 hours of a user-initiated message. Action Credit consumption follows your contract. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response message Action Credits" }
+
+For Canvas flows where users tap quick replies after the original 24-hour window, see [Quick replies and inbound messages outside the 24-hour window]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### What happens if a user replies or taps a quick reply after the 24-hour window closes?
+A new 24-hour customer service window opens. See [Quick replies and inbound messages outside the 24-hour window]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Do I need to set my Canvas Action Path to 31 days for WhatsApp quick replies?
+No. The default Action Path duration is sufficient. See [Quick replies and inbound messages outside the 24-hour window]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Can I see how many WhatsApp credits a specific campaign or Canvas consumed?
+Not in the Braze dashboard today. Campaign and Canvas analytics show sends, deliveries, and failures, but not credit consumption per message. Send counts do not align one-to-one with credit usage because template category and message type affect billing differently. For billing details, see [Are WhatsApp response messages free?](#are-whatsapp-response-messages-free).
 
 ### Integrations, data, and reporting
 
@@ -202,7 +245,7 @@ To send information into Braze, for example, to indicate that a user is in an ac
 Messages are only stored long enough to process them. To access user messages, use Currents. 
 
 #### What metrics are available in the Braze dashboard? 
-You can see unique recipients, sends, deliveries, reads, and failures in the Braze dashboard. Note that the end-users read receipts must be "On" for Braze to track reads. You can also set up conversion events to monitor campaign performance, similar to other channels. 
+You can see unique recipients, sends, deliveries, reads, and failures in the Braze dashboard. Note that a user's read receipts must be "On" for Braze to track reads. You can also set up conversion events to monitor campaign performance, similar to other channels.
 
 #### What is a WhatsApp conversation? 
 WhatsApp is a channel focused on 2-way messaging and thus anchors on conversations (instead of the number of individual messages). A conversation is a 24-hour thread between a business and an end-user.

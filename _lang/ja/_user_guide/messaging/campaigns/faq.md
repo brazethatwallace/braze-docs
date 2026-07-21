@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## マルチチャネルキャンペーンを作成するにはどうすればよいですか？ {#how-do-i-create-a-multichannel-campaign}
 
-セットアップ手順とサポートされているチャネルについては、**キャンペーンを作成**の[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns)を参照してください。
+セットアップ手順とサポートされているチャネルについては、**キャンペーンを作成**の[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign)を参照してください。
 
 ### マルチチャネルキャンペーンにコントロールグループを追加できますか？ {#can-i-add-a-control-group-to-my-multichannel-campaign}
 

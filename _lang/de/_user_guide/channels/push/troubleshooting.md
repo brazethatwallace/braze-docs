@@ -55,14 +55,14 @@ Wenn in Ihrem Workspace globales Frequency-Capping aktiv ist, haben Sie möglich
 
 ### Rate-Limits {#rate-limits}
 
-Wenn Sie ein Rate-Limit für Ihre Campaign oder Ihren Canvas festgelegt haben, kann es sein, dass Sie nach Überschreitung dieses Limits keine Nachrichten mehr erhalten. Weitere Informationen finden Sie unter [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting).
+Wenn Sie ein Rate-Limit für Ihre Campaign oder Ihren Canvas festgelegt haben, kann es sein, dass Sie nach Überschreitung dieses Limits keine Nachrichten mehr erhalten. Weitere Informationen finden Sie unter [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting).
 
 ### Kontrollgruppen-Status {#control-group-status}
 
 Wenn es sich um eine Einkanal-Campaign oder einen Canvas mit einer Kontrollgruppe handelt, befinden Sie sich möglicherweise in der Kontrollgruppe.
 
-  1. Überprüfen Sie die [Variantenverteilung]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants), um festzustellen, ob es eine Kontrollgruppe gibt.
-  2. Falls ja, erstellen Sie ein Segment, das nach [In Campaign-Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) filtert, und [exportieren Sie das Segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv), um zu prüfen, ob Ihre Nutzer-ID auf der Liste steht.
+  1. Überprüfen Sie die [Variantenverteilung]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants), um festzustellen, ob es eine Kontrollgruppe gibt.
+  2. Falls ja, erstellen Sie ein Segment, das nach [In Campaign-Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) filtert, und [exportieren Sie das Segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details), um zu prüfen, ob Ihre Nutzer-ID auf der Liste steht.
 
 ### Gültiges Push-Token {#valid-push-token}
 

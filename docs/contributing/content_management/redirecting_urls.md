@@ -165,6 +165,11 @@ Use this order for bulk or automation-assisted edits so audits match the file on
 3. Generate a Jekyll URL map, then run `bundle exec ruby scripts/audit_validurls_targets_vs_jekyll.rb` and/or `bundle exec ruby scripts/verify_redirect_targets_in_jekyll.rb --audit-stale MAP.json` **after** any normalize pass.
 4. CSV apply scripts: always `--dry-run` first, triage the CSV, then `--apply`.
 5. Run `node --check assets/js/broken_redirect_list.js` again, then your usual redirect cycle check and `./bdocs fblinks` (or `ts-node` link workflow).
+6. Regenerate Vercel bulk redirects for production edge 308s:
+   ```bash
+   npm run generate-bulk-redirects
+   ```
+   Commit the updated `assets/redirects/bulk-redirects.json` with your redirect list changes. CI runs `python3 scripts/generate_bulk_redirects.py --check` on pull requests and fails if the JSON is stale. Source URLs with `#` fragments stay in `broken_redirect_list.js` only (HTTP requests do not include the fragment, so those entries are omitted from the bulk file).
 
 **Compare normalization** (`normalize_url_for_compare` in the Ruby helpers, used against the Jekyll map) and **file canonicalization** (`normalize_broken_redirect_list.rb`, which lowercases internal paths and fragments) answer different questions; do not expect identical strings from both.
 
