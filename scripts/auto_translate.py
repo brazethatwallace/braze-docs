@@ -630,6 +630,18 @@ def _uses_chunked_translation(fpath, size_kb):
     return False
 
 
+class MaxTokensTruncatedError(RuntimeError):
+    """Raised when Claude stops because the output hit max_tokens."""
+
+
+def _is_max_tokens_truncation_error(exc):
+    """Return True when a single-pass translation/review hit the output token cap."""
+    if isinstance(exc, MaxTokensTruncatedError):
+        return True
+    msg = str(exc).lower()
+    return "output truncated" in msg and "token limit" in msg
+
+
 def _is_retryable_api_error(exc):
     """Return True when another Claude API attempt may succeed."""
     msg = str(exc).lower()
@@ -686,7 +698,7 @@ def call_claude(client, system_prompt, user_message, retries=None):
             raise
 
         if stop_reason == "max_tokens":
-            raise RuntimeError(
+            raise MaxTokensTruncatedError(
                 f"Output truncated (hit {MAX_TOKENS} token limit). "
                 "Increase TRANSLATION_MAX_TOKENS or use chunked translation."
             )
@@ -1464,6 +1476,23 @@ def translate_one(client, prompt, fpath, relative, english_content,
             "lang": lang_key,
         }
     except Exception as exc:
+        if _is_max_tokens_truncation_error(exc):
+            print(
+                f"    [{lang_key}] single-pass output hit token limit "
+                f"({relative}) — falling back to chunked translation..."
+            )
+            return translate_one_chunked(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                lang_key,
+                lang_info,
+                glossary,
+                styleguide,
+                api_retries=api_retries,
+            )
         return {
             "ok": False,
             "source": fpath,

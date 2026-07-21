@@ -39,6 +39,100 @@ class TestRetryableTranslationErrors:
         )
 
 
+class TestMaxTokensChunkedFallback:
+    def test_max_tokens_truncation_error_is_detected(self):
+        exc = at.MaxTokensTruncatedError(
+            "Output truncated (hit 128000 token limit). "
+            "Increase TRANSLATION_MAX_TOKENS or use chunked translation."
+        )
+        assert at._is_max_tokens_truncation_error(exc)
+
+    def test_translate_one_falls_back_to_chunked_on_max_tokens(self, monkeypatch):
+        calls = {"chunked": 0, "translate_file": 0}
+
+        def fake_translate_file(*_args, **_kwargs):
+            calls["translate_file"] += 1
+            raise at.MaxTokensTruncatedError(
+                "Output truncated (hit 128000 token limit). "
+                "Increase TRANSLATION_MAX_TOKENS or use chunked translation."
+            )
+
+        def fake_translate_one_chunked(*_args, **_kwargs):
+            calls["chunked"] += 1
+            return {
+                "ok": True,
+                "source": "_docs/_developer_guide/content_cards.md",
+                "target": "_lang/ja/_developer_guide/content_cards.md",
+                "lang": "ja",
+                "chunked": True,
+                "chunks": 2,
+            }
+
+        monkeypatch.setattr(at, "translate_file", fake_translate_file)
+        monkeypatch.setattr(at, "translate_one_chunked", fake_translate_one_chunked)
+
+        result = at.translate_one(
+            client=None,
+            prompt="prompt",
+            fpath="_docs/_developer_guide/content_cards.md",
+            relative="_developer_guide/content_cards.md",
+            english_content="## Hello\n\nBody.",
+            lang_key="ja",
+            lang_info={"name": "Japanese", "dir": "ja"},
+            glossary={},
+            styleguide="",
+        )
+
+        assert result["ok"] is True
+        assert result.get("chunked") is True
+        assert calls["translate_file"] == 1
+        assert calls["chunked"] == 1
+
+    def test_translate_one_review_max_tokens_falls_back_to_chunked(self, monkeypatch):
+        calls = {"review_file": 0, "chunked": 0}
+
+        def fake_translate_file(*_args, **_kwargs):
+            return "## Hola\n\nCuerpo."
+
+        def fake_review_file(*_args, **_kwargs):
+            calls["review_file"] += 1
+            raise at.MaxTokensTruncatedError(
+                "Output truncated (hit 128000 token limit). "
+                "Increase TRANSLATION_MAX_TOKENS or use chunked translation."
+            )
+
+        def fake_translate_one_chunked(*_args, **_kwargs):
+            calls["chunked"] += 1
+            return {
+                "ok": True,
+                "source": "_docs/_user_guide/foo.md",
+                "target": "_lang/es/_user_guide/foo.md",
+                "lang": "es",
+                "chunked": True,
+                "chunks": 1,
+            }
+
+        monkeypatch.setattr(at, "translate_file", fake_translate_file)
+        monkeypatch.setattr(at, "review_file", fake_review_file)
+        monkeypatch.setattr(at, "translate_one_chunked", fake_translate_one_chunked)
+
+        result = at.translate_one(
+            client=None,
+            prompt="prompt",
+            fpath="_docs/_user_guide/foo.md",
+            relative="_user_guide/foo.md",
+            english_content="## Hello\n\nBody.",
+            lang_key="es",
+            lang_info={"name": "Spanish", "dir": "es"},
+            glossary={},
+            styleguide="",
+        )
+
+        assert result["ok"] is True
+        assert calls["review_file"] == 1
+        assert calls["chunked"] == 1
+
+
 class TestExtractErrorFiles:
     def test_matches_lang_prefixed_path(self):
         output = "Liquid error in _lang/fr_fr/_user_guide/foo/bar.md: unclosed tag"
