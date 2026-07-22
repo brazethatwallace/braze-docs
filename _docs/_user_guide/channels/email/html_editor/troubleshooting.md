@@ -19,6 +19,7 @@ Match your symptom in the table to navigate to the relevant section.
 | Test email HTML looks wrong | [HTML renders incorrectly in test emails](#html-renders-incorrectly-in-test-emails) |
 | Editor behaves oddly in Chrome | [Extension conflicts](#extension-conflicts) |
 | Email looks different across clients | [Email rendering](#email-rendering) |
+| Email HTML modified in user inbox | [Unbalanced HTML in Liquid templates](#unbalanced-html-in-liquid-templates) |
 | Inbox Vision preview doesn't match sent email | [CSS inlining](#css-inlining) |
 | White space or lines after images in test emails | [White space under images](#white-space-under-images) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML email symptom" }
@@ -54,6 +55,40 @@ Emails render differently depending on browsers and email clients, so take note 
 
 - Preview your emails using [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to see what your emails look like in different browsers and email clients.
 - After you've identified which browsers or email clients are causing issues, let your developer team know that they'll need to modify their HTML and make edits to accommodate those browsers or email clients.
+
+#### Unbalanced HTML in Liquid templates {#unbalanced-html-in-liquid-templates}
+
+**Symptom:** Email HTML renders differently in the end user's inbox than expected, with missing elements or broken layouts.
+
+This can occur when HTML tags are not balanced within their corresponding Liquid logic blocks or content blocks. Braze's HTML parser may modify the underlying HTML if it detects tags that span across Liquid logic boundaries in unexpected ways.
+
+To avoid this, ensure that all HTML tags open and close within the same Liquid block or content block. Do not split HTML tags across Liquid conditionals or loops.
+
+**Example of unbalanced HTML/Liquid:**
+
+```liquid
+{% raw %}{% if user.premium %}
+<div class="premium-content">
+{% endif %}
+  <p>Your content here</p>
+{% if user.premium %}
+</div>
+{% endif %}{% endraw %}
+```
+
+In this example, the opening `<div>` tag is inside the conditional, but the content and closing tag are split across the logic boundary.
+
+**Correct approach:**
+
+```liquid
+{% raw %}{% if user.premium %}
+<div class="premium-content">
+  <p>Your content here</p>
+</div>
+{% endif %}{% endraw %}
+```
+
+Ensure all HTML tags are fully contained within their Liquid blocks so that the parser can properly validate the HTML structure.
 
 ### CSS inlining {#css-inlining}
 
