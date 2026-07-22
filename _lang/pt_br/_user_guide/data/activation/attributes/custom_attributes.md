@@ -21,14 +21,14 @@ Quando armazenados na Braze, os atributos personalizados podem ser usados para c
 
 Alguns casos de uso comuns de atributos personalizados incluem:
 
-- Direcionamento e supressão de públicos por meio da segmentação de usuários com base em características como nível de fidelidade, status de inscrição, idioma preferido ou tipo de plano
-- Personalização de mensagens com [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) referenciando atributos como o nome do usuário, pontos de recompensas ou categoria favorita
-- Rastreamento de estágios do ciclo de vida e estados do usuário, como estágio de integração, status da conta ou data de término do período de teste
-- Contagem de ações de baixo valor com [atributos numéricos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como incrementar um atributo `feature_views_count` cada vez que um usuário visualiza um recurso
-- Registro de quando ações de baixo valor ocorreram pela última vez usando [atributos de tempo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como `last_support_ticket_at` ou `last_password_reset_at`
-- Armazenamento de interesses e histórico do usuário como [arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como gêneros favoritos ou conteúdo visualizado recentemente, para direcionamento baseado em interesses
-- Armazenamento de dados de perfil mais ricos como [objetos]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) ou [arrays de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), como preferências estruturadas ou múltiplos endereços salvos
-- Disparo de mensagens baseadas em ação quando o valor de um atributo muda usando [gatilhos de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), como enviar uma notificação de upgrade de nível quando o `rewards_tier` de um usuário muda
+- Direcionar e suprimir públicos segmentando usuários com base em características como nível de fidelidade, status de inscrição, idioma preferido ou tipo de plano
+- Personalizar mensagens com [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) referenciando atributos como o nome do usuário, pontos de recompensas ou categoria favorita
+- Rastrear estágios do ciclo de vida e estados do usuário, como estágio de integração, status da conta ou data de término do período de teste
+- Contar ações de baixo valor com [atributos numéricos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como incrementar um atributo `feature_views_count` cada vez que um usuário visualiza um recurso
+- Registrar quando ações de baixo valor ocorreram pela última vez usando [atributos de tempo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como `last_support_ticket_at` ou `last_password_reset_at`
+- Armazenar interesses e histórico do usuário como [arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como gêneros favoritos ou conteúdo visualizado recentemente, para direcionamento baseado em interesses
+- Armazenar dados de perfil mais ricos como [objetos]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) ou [arrays de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), como preferências estruturadas ou múltiplos endereços salvos
+- Disparar mensagens baseadas em ação quando o valor de um atributo muda usando [gatilhos de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), como enviar uma notificação de upgrade de nível quando o `rewards_tier` de um usuário muda
 
 ## Gerenciar atributos personalizados {#managing-custom-attributes}
 
@@ -37,6 +37,10 @@ Para criar e gerenciar atributos personalizados no dashboard, acesse **Data Sett
 ![Quatro atributos personalizados que são booleanos.]({% image_buster /assets/img/export_custom_attributes.png %})
 
 A coluna **Last updated** lista a última vez que o atributo personalizado foi editado, por exemplo, quando foi definido pela última vez como lista de bloqueio ou ativo.
+
+{% alert note %}
+Se um atributo personalizado de array aparecer em um perfil de usuário sem valores, verifique se o **Max Length** do atributo é maior que `0`. Para solução de problemas passo a passo, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
+{% endalert %}
 
 {% alert important %}
 Para o direcionamento adequado de mensagens, certifique-se de que o tipo de dados do seu atributo personalizado corresponda ao atributo personalizado real. <br><br>Por exemplo, se `newsletter_subscribed` for definido como uma string, sua sintaxe Liquid deve ser {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}`{% endraw %}. Se `newsletter_subscribed` for definido como booleano, a sintaxe Liquid não deve ter aspas simples: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == true %}`{% endraw %}.
@@ -85,37 +89,37 @@ Para exportar a lista de atributos personalizados como um arquivo CSV, selecione
 
 ### Pré-requisitos {#prerequisites}
 
-O atributo personalizado não pode estar em uso em nenhuma Campaign, Canvas ou segmento ativo. Se você tentar alterar o tipo de dados enquanto o atributo ainda estiver sendo referenciado, o dashboard exibirá um erro e bloqueará a alteração.
+O atributo personalizado não pode estar em uso em nenhuma Campaign, Canvas ou Segment ativo. Se você tentar alterar o tipo de dados enquanto o atributo ainda estiver referenciado, o dashboard exibirá um erro e bloqueará a alteração.
 
 ### Alterando o tipo de dados {#changing-the-data-type}
 
-1. Interrompa quaisquer Campaigns ou Canvas ativos que usem o atributo em segmentos ou filtros.
-2. Remova o atributo de todos os filtros de segmento, Campaign e Canvas.
-3. Acesse **Data Settings** > **Custom Attributes** (ou **Custom Events**), encontre o atributo e atualize-o para o tipo de dados desejado.
+1. Interrompa quaisquer Campaigns ou Canvas ativos que usem o atributo em Segments ou filtros.
+2. Remova o atributo de todos os filtros de Segment, Campaign e Canvas.
+3. Acesse **Configurações de dados** > **Atributos personalizados** (ou **Eventos personalizados**), encontre o atributo e atualize-o para o tipo de dados desejado.
 4. Atualize os valores do atributo nos perfis de usuário existentes para corresponder ao novo tipo de dados (por exemplo, usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)).
-5. Reaplique o atributo aos segmentos, Campaigns e Canvas relevantes e reative quaisquer Campaigns ou Canvas interrompidos.
+5. Reaplique o atributo aos Segments, Campaigns e Canvas relevantes e, em seguida, reative quaisquer Campaigns ou Canvas interrompidos.
 
-### Informações importantes {#things-to-know}
+### O que você precisa saber {#things-to-know}
 
-- **Os dados de usuários não são atualizados retroativamente.** Se um perfil de usuário tinha o atributo com o tipo de dados antigo, esse valor permanece inalterado. O filtro de segmentação procura o novo tipo de dados, então usuários com o valor antigo são excluídos dos segmentos correspondentes até que seu perfil seja atualizado.
-- **Novos dados devem corresponder ao novo tipo de dados.** Após a alteração, chamadas de API ou eventos do SDK que enviem o tipo de dados anterior para esse atributo não serão aceitos. Apenas valores que correspondam ao novo tipo de dados serão processados.
-- **Os filtros não são atualizados automaticamente.** Segmentos e filtros de Campaign que referenciam o atributo alterado não são atualizados retroativamente. Você deve removê-los e adicioná-los novamente após a alteração.
+- **Os dados de usuários não são atualizados retroativamente.** Se um perfil de usuário tinha o atributo com o tipo de dados antigo, esse valor permanece inalterado. O filtro de segmentação procura o novo tipo de dados, então os usuários com o valor antigo são excluídos dos Segments correspondentes até que o perfil seja atualizado.
+- **Os novos dados devem corresponder ao novo tipo de dados.** Após a alteração, chamadas de API ou eventos do SDK que enviem o tipo de dados anterior para esse atributo não serão aceitos. Somente valores que correspondam ao novo tipo de dados serão ingeridos.
+- **Os filtros não são atualizados automaticamente.** Segments e filtros de Campaign que fazem referência ao atributo alterado não são atualizados retroativamente. Você deve removê-los e adicioná-los novamente após a alteração.
 
 ## Visualizar relatórios de uso {#view-usage-reports}
 
-O relatório de uso lista todos os Canvas, Campaigns e segmentos que usam um atributo personalizado específico. Esta lista não inclui usos de Liquid.
+O relatório de uso lista todos os Canvas, Campaigns e Segments que utilizam um atributo personalizado específico. Essa lista não inclui usos de Liquid.
 
-Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção ao lado dos respectivos atributos personalizados e depois selecionando **View usage report**.
+Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção ao lado dos respectivos atributos personalizados e, em seguida, selecionando **Visualizar relatório de uso**.
 
 ### Guia Valores {#values-tab}
 
-Ao visualizar um relatório de uso, selecione a guia **Values** para ver os principais valores dos atributos personalizados selecionados com base em uma amostra de aproximadamente 250.000 usuários. Como os resultados são amostrados de um subconjunto de usuários, a amostra não incluirá todos os valores existentes. Isso significa que a guia **Values** não deve ser usada para solução de problemas ou para casos de uso que exijam a incorporação de dados de todos os usuários.
+Ao visualizar um relatório de uso, selecione a guia **Valores** para ver os principais valores dos atributos personalizados selecionados com base em uma amostra de aproximadamente 250.000 usuários. Como os resultados são amostrados a partir de um subconjunto de usuários, a amostra não incluirá todos os valores existentes. Isso significa que a guia **Valores** não deve ser usada para solução de problemas ou para casos de uso que exigem a incorporação de dados de todos os usuários.
 
-![Relatório de uso para atributos personalizados selecionados com a guia "Values" aberta mostrando um gráfico de pizza dos valores do atributo de país, como "US" e "PR".]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
+![Relatório de uso para atributos personalizados selecionados com a guia "Valores" aberta, mostrando um gráfico de pizza dos valores do atributo de país, como "US" e "PR".]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## Definir atributos personalizados {#set-custom-attributes}
 
-A seguir estão listados os métodos em várias plataformas usados para definir atributos personalizados.
+A seguir estão os métodos em várias plataformas usados para definir atributos personalizados.
 
 {% details Expandir para documentação por plataforma %}
 
@@ -131,24 +135,24 @@ A seguir estão listados os métodos em várias plataformas usados para definir 
 
 ## Armazenamento de atributos personalizados {#custom-attribute-storage}
 
-Todos os dados armazenados no **Perfil de usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver <a href="/docs/user_archival#active-users">ativo</a>.
+Todos os dados armazenados no **Perfil de Usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver <a href="/docs/user_archival#active-users">ativo</a>.
 
-Para uma referência completa de todos os tipos de dados que podem ser armazenados como atributos personalizados — incluindo booleanos, números, strings, arrays, tempo, objetos e arrays de objetos — consulte [Tipos de dados de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
+Para uma referência completa de todos os tipos de dados que você pode armazenar como atributos personalizados — incluindo booleanos, números, strings, arrays, tempo, objetos e arrays de objetos — consulte [Tipos de dados de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 
-### Strings vazias versus valores nulos {#blank-strings-versus-null-values}
+### Strings em branco versus valores nulos {#blank-strings-versus-null-values}
 
-Ao limpar ou remover um atributo personalizado, o comportamento difere dependendo de você passar uma string vazia (`""`) ou `null`:
+Ao limpar ou remover a definição de um atributo personalizado, o comportamento difere dependendo de você passar uma string em branco (`""`) ou `null`:
 
 | Valor | Comportamento |
 | --- | --- |
-| `""` (string vazia) | O atributo é definido como um valor vazio e permanece visível no perfil de usuário. |
+| `""` (string em branco) | O atributo é definido como um valor vazio e permanece visível no perfil de usuário. |
 | `null` | O atributo é removido completamente do perfil de usuário. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings vazias versus valores nulos" }
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings vazias versus valores nulos" }
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings vazias versus valores nulos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings em branco versus valores nulos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings em branco versus valores nulos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings em branco versus valores nulos" }
 
 {% alert important %}
-Para tipos de dados que não são string, em que o tipo de dados é definido manualmente no dashboard da Braze (não detectado automaticamente), você deve usar `null` para remover o valor. Passar `""` é válido apenas para atributos do tipo string — por exemplo, definir um atributo booleano como `""` é tratado como uma string vazia, que é um valor inválido para esse tipo. Para remover um booleano, passe `null`.
+Para tipos de dados que não são string, em que o tipo de dado é definido manualmente no dashboard da Braze (não detectado automaticamente), você deve usar `null` para remover a definição do valor. Passar `""` é válido apenas para atributos do tipo string — por exemplo, definir um atributo booleano como `""` é tratado como uma string vazia, que é um valor inválido para esse tipo. Para remover a definição de um booleano, passe `null`.
 
-Observe que a importação de CSV não suporta `null` — valores booleanos em importações de CSV devem ser `TRUE` ou `FALSE`.
+Note que a importação de CSV não oferece suporte a `null` — valores booleanos em importações de CSV devem ser `TRUE` ou `FALSE`.
 {% endalert %}

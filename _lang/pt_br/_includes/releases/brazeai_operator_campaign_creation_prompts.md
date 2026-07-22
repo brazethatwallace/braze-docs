@@ -1,0 +1,3 @@
+- Responder a prompts como "Quero enviar aos nossos usuários inativos uma notificação por push com um código promocional de 20% de desconto na próxima vez que abrirem o app ou registrarem um evento personalizado que cancele a inscrição".
+- Auxiliar você em cada etapa individual do assistente de Campaign, com total visibilidade sobre o que você está trabalhando e a capacidade de alterar os campos do formulário na página.
+- Navegar até a etapa correta no assistente para começar a agir, seja partindo de uma Campaign aberta ou da página de **Campaigns**.
