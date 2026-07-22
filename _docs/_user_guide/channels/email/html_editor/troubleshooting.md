@@ -60,9 +60,9 @@ Emails render differently depending on browsers and email clients, so take note 
 
 **Symptom:** Email HTML renders differently in the end user's inbox than expected, with missing elements or broken layouts.
 
-This can occur when HTML tags are not balanced within their corresponding Liquid logic blocks or content blocks. Braze's HTML parser may modify the underlying HTML if it detects tags that span across Liquid logic boundaries in unexpected ways.
+This can occur when HTML tags are not balanced within their corresponding Liquid logic blocks. Braze's HTML parser may modify the underlying HTML if it detects tags that span across Liquid logic boundaries in unexpected ways.
 
-To avoid this, ensure that all HTML tags open and close within the same Liquid block or content block. Do not split HTML tags across Liquid conditionals or loops.
+To avoid this, ensure that all HTML tags open and close within the same Liquid block. Do not split HTML tags across Liquid conditionals or loops.
 
 **Example of unbalanced HTML/Liquid:**
 
