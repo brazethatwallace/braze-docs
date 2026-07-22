@@ -18,7 +18,7 @@ Go to **Audience** > **Segments**.
 
 ## Step 2: Name your segment
 
-Select **Create Segment** to begin building your segment. Name your segment by describing the type of user you intend to filter for. This will help you identify the segment when you want to target it for your campaigns or Canvases. Vague segment titles can be confusing.
+Select **Create Segment** to begin building your segment. Name your segment by describing the type of user you intend to filter for. This helps you identify the segment when you want to target it for your campaigns or Canvases. Vague segment titles can be confusing.
 
 You can also ask Operator to help build your segment's filter logic from a description of your target audience. For details, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
