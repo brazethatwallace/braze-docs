@@ -16,11 +16,11 @@ channel:
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Canvas threshold alerts' %}
 
-<!-- TODO: add a screenshot of the Configure Alert panel before publishing (PM-provided reference is internal-only) -->
-
 ## Configure an alert
 
-Alerts are set at the Canvas level, and you can configure them for both active and draft Canvases. From your **Canvas** or **Canvas Analytics** page, select **Configure alert** to get started, then give your alert a name and confirm the Canvas it applies to.
+Alerts are set at the Canvas level, and you can configure them for both active and draft Canvases. Open **Manage alerts** from a Canvas's context menu on the **Canvas** page, or from within the Canvas builder, then select **Configure alert** to create a new one. Give your alert a name and confirm the Canvas it applies to.
+
+![The Configure Alert panel showing the alert name and Canvas name fields, an empty rule group, and a summary sidebar for alert rules, schedule, and notifications.]({% image_buster /assets/img/canvas_threshold_alerts/configure_alert.png %})
 
 You can create multiple alerts for the same Canvas. For example, you might add one alert for user entries and another for messages sent.
 
@@ -47,18 +47,20 @@ Define how often your alert rules are checked. You can choose a check frequency 
 
 Choose who should be notified when an alert rule is met, and how they're notified:
 
-- **Email:** Enter the email address of each recipient
-- **Webhook:** Enter the webhook URL to notify
+- **Email:** Add one or more recipient email addresses
+- **Webhook:** Enter the webhook URL to notify, and optionally add custom request headers required by your webhook destination
 
-You can enable one or both notification methods for a single alert. Enter a valid email address or webhook URL.
+You can enable one or both notification methods for a single alert.
 
-Webhook alerts are useful for routing notifications to external platforms. For more, see Slack's documentation for [sending messages using incoming webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/).
+![The Notifications section of the Configure Alert panel, showing Email and Webhook toggles, an email recipients field, a webhook URL field, a note about payload contents, and optional request header fields.]({% image_buster /assets/img/canvas_threshold_alerts/notifications.png %})
+
+Webhook alerts are useful for routing notifications to external platforms, such as a Slack channel—for more, see Slack's documentation for [sending messages using incoming webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/). Each webhook notification includes a payload with the Canvas name, the alert's metric, the threshold direction, the value that triggered the alert, and a direct link to the Canvas.
 
 ## Save and activate an alert
 
 Before saving, review your alert rules, schedule, and notification settings in the summary panel, then select **Save alert**.
 
-Saving an alert doesn't activate it. To turn it on, go to the **Manage Alerts** page and use the **Status** toggle for your alert. An alert stays active until you deactivate it or until its associated Canvas is no longer active.
+Saving an alert doesn't activate it. To turn it on, go to the **Manage Alerts** page and use the **Status** toggle for your alert. An alert stays active until you deactivate it or until its associated Canvas is no longer active. The **Alerts Configured** column on the **Canvas** page shows a bell icon for any Canvas with at least one saved alert.
 
 ### Draft Canvases
 
