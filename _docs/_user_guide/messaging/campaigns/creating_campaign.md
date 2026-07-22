@@ -20,6 +20,7 @@ To create and launch a campaign, you need "Edit Campaigns" and "Launch Campaigns
 - Build or choose the [segments]({{site.baseurl}}/user_guide/audience/segments) that define who should receive your messages.
 - Review [Campaign basics]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics) so messaging channels, delivery types, and conversion goals align with your use case.
 - For a guided walkthrough of delivery, targeting, and conversions, take the [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze Learning course.
+- Ask Operator to help draft your campaign from a brief, or refine targeting and delivery choices. For details, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 ## Campaign composer
 

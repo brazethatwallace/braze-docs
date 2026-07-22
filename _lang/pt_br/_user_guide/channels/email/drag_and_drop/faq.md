@@ -25,9 +25,9 @@ Os e-mails não precisam ser enviados em layouts separados para claro e escuro, 
 
 Alguns clientes de e-mail substituem imagens de fundo ou invertem texto de baixo contraste no modo escuro, então o corpo do texto pode parecer ausente ou renderizar de forma diferente entre clientes (por exemplo, Gmail no iOS versus Android). Defina `background-color` no contêiner externo e nas seções principais em vez de depender apenas de imagens de fundo para fundos claros.
 
-## Por que minha fonte personalizada não aparece na pré-visualização do e-mail de arrastar e soltar? {#why-doesnt-my-custom-font-appear-in-drag-and-drop-email-preview}
+## Por que minha fonte personalizada não aparece na prévia do e-mail de arrastar e soltar? {#why-doesnt-my-custom-font-appear-in-drag-and-drop-email-preview}
 
-As fontes personalizadas são carregadas na pré-visualização do editor quando um bloco de **Text** na mensagem faz referência à fonte. Se a pré-visualização ainda mostrar uma fonte de fallback após você configurar uma fonte personalizada nas configurações do **editor de e-mail de arrastar e soltar**, adicione um bloco de **Text** que use essa fonte para que o editor a carregue na pré-visualização. Confirme que o compartilhamento de recursos entre origens (CORS) está ativado no arquivo da sua fonte. Verifique novamente em **Preview and Test** e nos clientes de e-mail de destino antes de enviar. Para etapas de configuração, consulte [Fonte personalizada]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings#custom-font).
+As fontes personalizadas são carregadas na prévia do editor quando um bloco de **Text** na mensagem faz referência à fonte. Se a prévia ainda mostrar uma fonte de fallback após você configurar uma fonte personalizada nas configurações do **editor de e-mail de arrastar e soltar**, adicione um bloco de **Text** que use essa fonte para que o editor a carregue na prévia. Confirme que o compartilhamento de recursos entre origens (CORS) está ativado no arquivo da sua fonte. Verifique novamente em **Preview and Test** e nos clientes de e-mail de destino antes de enviar. Para etapas de configuração, consulte [Fonte personalizada]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings#custom-font).
 
 ## Como posso alterar o padding do e-mail no celular sem atualizar o padding na visualização web? {#how-can-i-change-the-email-padding-on-mobile-without-updating-the-padding-in-the-web-view}
 
@@ -52,7 +52,7 @@ O editor de arrastar e soltar atualmente suporta duas camadas. Você pode defini
 
 ## Posso salvar meu e-mail de arrastar e soltar como modelo depois de criá-lo na minha Campaign ou Canvas? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Não. Não é possível salvar um e-mail de arrastar e soltar de uma Campaign ou Canvas como um **Modelo de e-mail** de arrastar e soltar em **Templates** > **Email Templates**. Recrie o layout em **Templates** > **Email Templates** ou comece a partir de um modelo salvo na próxima vez. Para instruções, consulte [Criar um modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template).
+Não. Não é possível salvar um e-mail de arrastar e soltar de uma Campaign ou Canvas como um **modelo de e-mail** de arrastar e soltar em **Templates** > **Email Templates**. Recrie o layout em **Templates** > **Email Templates** ou comece a partir de um modelo salvo na próxima vez. Para instruções, consulte [Criar um modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template).
 
 Se você precisar de um modelo HTML reutilizável, selecione **Download file** enquanto edita o corpo de arrastar e soltar, abra o HTML do ZIP e cole a marcação em um [modelo de e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) usando o editor de código HTML. Verifique novamente o Liquid, os links e os ativos hospedados depois.
 
@@ -85,9 +85,9 @@ Problemas de layout geralmente são causados por **HTML ou CSS personalizado** q
 3. Em **Row Properties**, revise o padding e as larguras das colunas.
 4. Ao adicionar HTML personalizado, prefira layouts baseados em tabelas, imagens fluidas e larguras totais de tabela que se ajustem à largura do seu e-mail — imagens com pixels fixos ou estruturas que não usam tabelas frequentemente quebram no Outlook e em outros clientes.
 
-## Por que meu bloco de conteúdo não renderiza na pré-visualização do e-mail? {#why-doesnt-my-content-block-render-in-email-preview}
+## Por que meu bloco de conteúdo não renderiza na prévia do e-mail? {#why-doesnt-my-content-block-render-in-email-preview}
 
-Se um bloco de conteúdo não renderizar na pré-visualização do e-mail, verifique se há tags de âncora não fechadas. Para URLs de Conteúdo conectado, use o filtro `replace` para converter e-comerciais duplamente codificados (`&amp;amp;`) em um único e-comercial codificado (`&amp;`). Limite o aninhamento de blocos de conteúdo a dois níveis.
+Se um bloco de conteúdo não renderizar na prévia do e-mail, verifique se há tags de âncora não fechadas. Para URLs de Connected Content, use o filtro `replace` para converter e-comerciais duplamente codificados (`&amp;amp;`) em um único e-comercial codificado (`&amp;`). Limite o aninhamento de blocos de conteúdo a dois níveis.
 
 ## Por que um Content Block de arrastar e soltar perde a estilização mobile dentro de um bloco de código personalizado? {#why-does-a-drag-and-drop-content-block-lose-mobile-styling-inside-a-custom-code-block}
 
@@ -98,3 +98,7 @@ Quando você empilha vários Content Blocks, use uma linha separada para cada bl
 ## Por que o editor de arrastar e soltar está ignorando as configurações de alinhamento? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
 
 Se o editor de arrastar e soltar ignorar as configurações de alinhamento, remova CSS ou blocos HTML personalizados, remova fontes personalizadas, verifique conflitos de CSS e evite duplicar blocos de linha. Entre em contato com o suporte da Braze se o problema persistir.
+
+## Por que o código hexadecimal de cor escolhido não corresponde à fonte no meu e-mail? {#why-does-my-chosen-hex-color-code-not-match-the-font-in-my-email}
+
+Se você estiver usando um Content Block, o bloco pode ter sua própria configuração de cor de fonte. Selecione o bloco de texto dentro do Content Block e limpe qualquer substituição local de **Font color** para que a cor hexadecimal do estilo global ou de parágrafo possa ser aplicada.

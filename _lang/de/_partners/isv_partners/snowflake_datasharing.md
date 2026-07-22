@@ -33,9 +33,7 @@ Duplikate sind zu erwarten, aber alle Ereignisse haben einen eindeutigen Bezeich
 
 ### Abwärtskompatible Änderungen {#non-breaking-changes}
 
-Abwärtskompatible Änderungen können jederzeit vorgenommen werden und bieten im Allgemeinen zusätzliche Funktionen. Beispiele für abwärtskompatible Änderungen:
-- Hinzufügen einer neuen Tabelle oder Ansicht
-- Hinzufügen einer Spalte zu einer bestehenden Tabelle oder Ansicht
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Da neue Spalten als abwärtskompatibel gelten, empfiehlt Braze dringend, die gewünschten Spalten in jeder Abfrage explizit aufzuführen, anstatt `SELECT *`-Abfragen zu verwenden. Alternativ können Sie auch Ansichten erstellen, die Spalten explizit benennen, und diese Ansichten dann anstelle der Tabellen direkt abfragen.
@@ -43,10 +41,7 @@ Da neue Spalten als abwärtskompatibel gelten, empfiehlt Braze dringend, die gew
 
 ### Nicht abwärtskompatible Änderungen {#breaking-changes}
 
-Wenn möglich, werden nicht abwärtskompatible Änderungen durch eine Ankündigung und einen Migrationszeitraum eingeleitet. Beispiele für nicht abwärtskompatible Änderungen:
-- Entfernen einer Tabelle oder Ansicht
-- Entfernen einer Spalte aus einer bestehenden Tabelle oder Ansicht
-- Ändern des Typs oder der Nullfähigkeit einer vorhandenen Spalte
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ## Wann die Tabellen SNAPSHOTS und CHANGELOGS aktualisiert werden {#when-snapshots-and-changelogs-tables-are-updated}
 

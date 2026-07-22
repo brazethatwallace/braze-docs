@@ -34,9 +34,7 @@ Esse tipo de mensagem está disponível tanto no [editor de arrastar e soltar]({
 
 As mensagens no app em tela inteira preenchem toda a altura do dispositivo e cortam horizontalmente (lados esquerdo e direito) conforme necessário. Mensagens em tela inteira com imagem e texto preenchem 50% da altura do dispositivo. Todas as mensagens no app em tela inteira preenchem a barra de status em dispositivos com "notch".
 
-- Todas as imagens devem ter menos de 5&nbsp;MB.
-- Aceitamos apenas os formatos PNG, JPEG e [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs).
-- Recomendamos que suas imagens tenham 500&nbsp;KB.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Crie ativos com confiança! Nossos modelos de imagem para mensagens no app e sobreposições de zona segura foram projetados para funcionar bem em dispositivos de todos os tamanhos. [Baixar ZIP de modelos de design]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
@@ -60,7 +58,7 @@ As mensagens no app em tela inteira preenchem toda a altura do dispositivo e cor
 
 Ao pré-visualizar uma mensagem no app em tela inteira na plataforma da Braze, você pode ativar a zona segura da imagem para a área da mensagem que está protegida contra cortes quando exibida em diferentes dispositivos. Além de testar a zona segura da imagem no painel de pré-visualização, recomendamos que você sempre [teste sua mensagem]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
-![Pré-visualização de uma mensagem no app na Braze com "Mostrar zona segura da imagem" ativado. A zona segura da imagem é uma sobreposição sobre a imagem que mostra quais partes da imagem estarão protegidas contra cortes.]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
+![Prévia de uma mensagem no app na Braze com "Mostrar zona segura da imagem" ativado. A zona segura da imagem é uma sobreposição sobre a imagem que mostra quais partes da imagem estarão protegidas contra cortes.]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
 
 ## Telas maiores {#larger-screens}
 

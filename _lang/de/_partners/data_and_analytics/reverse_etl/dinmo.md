@@ -22,8 +22,8 @@ Die Integration von Braze und DinMo überträgt Segmente und Datenmodelle aus Ih
 | --- | --- |
 | DinMo-Konto | Ein [DinMo-Konto](https://www.dinmo.com/) mit der Berechtigung, Ziele zu erstellen, ist erforderlich, um diese Partnerschaft zu nutzen. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den [Berechtigungen](#api-key-permissions), die für die Ziel-Dienste erforderlich sind, die Sie nutzen möchten. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab. |
-| Braze-Dashboard-URL | Ihre Braze-Dashboard-URL für Ihre Instanz (zum Beispiel `https://dashboard.iad-01.braze.com`). Weitere Informationen finden Sie unter [Verfügbare SDK-Endpunkte]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/). |
+| Braze REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) ab. |
+| Braze-Dashboard-URL | Ihre Braze-Dashboard-URL für Ihre Instanz (zum Beispiel `https://dashboard.iad-01.braze.com`). Weitere Informationen finden Sie unter [Verfügbare SDK-Endpunkte]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
 | Data Warehouse und Datenmodell | Bevor Sie mit der Integration beginnen, verbinden Sie Ihr Data Warehouse in DinMo und definieren Sie ein Modell oder Segment für die Daten, die Sie mit Braze synchronisieren möchten. Weitere Informationen finden Sie im [DinMo Braze-Integrationsleitfaden](https://docs.dinmo.io/integrations/destination-platforms/braze). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -51,7 +51,7 @@ Gewähren Sie die folgenden Berechtigungen für Ihren Braze REST-API-Schlüssel,
 
 ## Integration
 
-### 1. Schritt: Braze-Ziel in DinMo konfigurieren {#step-1-configure-the-braze-destination-in-dinmo}
+### Schritt 1: Braze-Ziel in DinMo konfigurieren {#step-1-configure-the-braze-destination-in-dinmo}
 
 1. Navigieren Sie in DinMo zu **Destinations** in der Seitennavigation.
 2. Wählen Sie **Add a new destination** > **Connect a new platform** > **Braze**.
@@ -66,7 +66,7 @@ Gewähren Sie die folgenden Berechtigungen für Ihren Braze REST-API-Schlüssel,
 Sie müssen sowohl die REST-API-URL als auch die Dashboard-URL angeben. Fügen Sie keinen abschließenden Schrägstrich an die REST-API-URL an.
 {% endalert %}
 
-### 2. Schritt: Verbindung überprüfen {#step-2-verify-the-connection}
+### Schritt 2: Verbindung überprüfen {#step-2-verify-the-connection}
 
 Nachdem Sie das Ziel gespeichert haben, führt DinMo einen Testaufruf durch (zum Beispiel `users.track`), um zu bestätigen, dass Ihr API-Schlüssel und Endpunkt funktionieren.
 
@@ -101,7 +101,7 @@ Wenn Sie eine Aktivierung ausführen:
 
 Wenn Sie den Einfügemodus nicht aktivieren, aktualisiert DinMo nur Nutzer:innen, die bereits in Braze existieren und eine übereinstimmende externe ID haben.
 
-Ordnen Sie während der Aktivierungseinrichtung das Feld in Ihrem DinMo-Modell zu, das der [externen ID]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/) oder Braze-ID der Nutzer:innen entspricht. Ordnen Sie jedes DinMo-Feld dem exakten Attributnamen in Braze zu. Wenn ein Attribut in Braze nicht existiert, erstellt DinMo es.
+Ordnen Sie während der Aktivierungseinrichtung das Feld in Ihrem DinMo-Modell zu, das der [externen ID]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids) oder Braze-ID der Nutzer:innen entspricht. Ordnen Sie jedes DinMo-Feld dem exakten Attributnamen in Braze zu. Wenn ein Attribut in Braze nicht existiert, erstellt DinMo es.
 
 Die folgenden Sync-Modi sind für Nutzerattribut-Aktivierungen verfügbar:
 

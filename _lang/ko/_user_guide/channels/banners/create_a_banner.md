@@ -159,9 +159,7 @@ HTML 편집기에서는 HTML 내에서 `brazeBridge.closeMessage()`를 사용하
 
 배너에 커스텀 속성정보를 추가하여 문자열이나 JSON 오브젝트와 같은 구조화된 메타데이터를 첨부할 수 있습니다. 이러한 속성정보는 배너 표시 방식에 영향을 미치지 않지만, [Braze SDK를 통해 액세스]({{site.baseurl}}/developer_guide/banners/placements)하여 앱의 동작이나 외관을 수정할 수 있습니다. 예를 들어 다음과 같은 작업이 가능합니다:
 
-- 서드파티 분석 또는 통합을 위한 메타데이터 전송.
-- `timestamp`나 JSON 오브젝트와 같은 메타데이터를 사용하여 조건 로직 트리거.
-- `ratio`나 `format`과 같은 포함된 메타데이터를 기반으로 배너 동작 제어.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 커스텀 속성정보는 드래그 앤 드롭 편집기와 HTML 편집기 모두에서 동일하게 작동합니다. 커스텀 속성정보를 추가하려면 **설정** > **속성정보** > **속성정보 추가**를 선택합니다.
 

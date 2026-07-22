@@ -11,7 +11,7 @@ description: "BrazeAI Decisioning Studio<sup>TM</sup> Go를 Braze에 설정하�
 
 ## Decisioning Studio Go 소개 {#about-decisioning-studio-go}
 
-Decisioning Studio Go는 반복적인 이메일 프로그램을 위한 인공지능 의사결정 에이전트입니다. 전체 오디언스에 대해 하나의 우승 제목란, 발송 시간 또는 이미지를 선택하는 대신, 에이전트가 각 수신자의 과거 참여 데이터를 기반으로 최적의 조합을 선택합니다.
+Decisioning Studio Go는 반복적인 이메일 프로그램을 위한 AI 의사결정 에이전트입니다. 전체 오디언스에 대해 하나의 우승 제목란, 발송 시간 또는 이미지를 선택하는 대신, 에이전트가 각 수신자의 과거 참여 데이터를 기반으로 최적의 조합을 선택합니다.
 
 에이전트가 선택할 수 있는 배리언트(제목란, CTA, 이미지, 발송 요일, 발송 시간 등)를 정의합니다. Segment 내 각 사용자에 대해 에이전트는 설정한 제약 조건과 스케줄 내에서 참여를 유도할 가능성이 가장 높은 옵션을 선택합니다.
 
@@ -19,7 +19,7 @@ Decisioning Studio Go는 반복적인 이메일 프로그램을 위한 인공지
 
 ### 작동 방식 {#how-it-works}
 
-에이전트는 Braze Segment를 두 그룹으로 나눕니다: 인공지능으로 최적화된 이메일 콘텐츠를 받는 Decisioning Studio 그룹과, 동일한 옵션의 무작위 조합을 받는 무작위 대조군(최소 5%)입니다. 무작위 대조군은 에이전트의 성과 향상을 지속적으로 동일 조건에서 측정할 수 있게 해주므로, 개인화된 경험이 개인화 없이 발송된 동일 콘텐츠 대비 어떤 성과를 보이는지 항상 확인할 수 있습니다.
+에이전트는 Braze Segment를 두 그룹으로 나눕니다: AI로 최적화된 이메일 콘텐츠를 받는 Decisioning Studio 그룹과, 동일한 옵션의 무작위 조합을 받는 무작위 대조군(최소 5%)입니다. 무작위 대조군은 에이전트의 성과 향상을 지속적으로 동일 조건에서 측정할 수 있게 해주므로, 개인화된 경험이 개인화 없이 발송된 동일 콘텐츠 대비 어떤 성과를 보이는지 항상 확인할 수 있습니다.
 
 Decisioning Studio 그룹의 각 사용자에 대해 에이전트는 제공된 옵션 중에서 선택합니다: 어떤 크리에이티브를 발송할지(해당 크리에이티브 내의 특정 제목란, CTA, 이미지 포함), 그리고 언제 발송할지(요일 및 시간, 방해금지 시간과 사용자의 현지 시간대 준수). [Decisioning Studio Go 에이전트 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)에서 각 항목을 자세히 다룹니다.
 
@@ -40,7 +40,7 @@ Decisioning Studio 그룹의 각 사용자에 대해 에이전트는 제공된 �
 
 가장 적합한 경우는 안정적인 오디언스와 클릭 가능한 콘텐츠가 있는 반복적인 이메일 프로그램입니다. 예를 들어 상시 운영 캘린더(리워드, 콘텐츠 드롭, 라이프사이클 넛지), 에버그린 프로그램(윈백, 재참여), 다중 이메일 프로모션 등이 있습니다. 이러한 프로그램은 에이전트가 의미 있게 학습할 수 있는 충분한 볼륨과 다양성을 제공합니다.
 
-프로그램 유형별 상세한 적합성 가이드는 [Decisioning Studio Go 예시]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples)를 참조하세요.
+프로그램 유형별 상세한 적합성 가이드는 [Decisioning Studio Go 예제]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples)를 참조하세요.
 
 ### Decisioning Studio 스위트에서의 위치 {#where-decisioning-studio-go-sits-in-the-decisioning-studio-suite}
 
@@ -51,10 +51,10 @@ Decisioning Studio Pro에서 추가되는 기능:
 - 모든 퍼스트파티 데이터 소스에 연결
 - 멀티채널 의사결정
 - 확장된 오케스트레이션 패턴
-- Braze 인공지능 의사결정 서비스 팀의 전담 지원
+- Braze AI Decisioning 서비스 팀의 전담 지원
 
 ## 다음 단계 {#next-steps}
 
 - [Decisioning Studio Go 에이전트 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) — 오디언스, 스케줄, 크리에이티브, 제약 조건 구성
-- [Decisioning Studio Go 예시 검토]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples) — 프로그램이 적합한지 확인
+- [Decisioning Studio Go 예제 검토]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples) — 프로그램이 적합한지 확인
 - 자주 묻는 질문은 [FAQ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq)를 참조하세요

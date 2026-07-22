@@ -999,9 +999,7 @@ BrazeBannerView(
 
 배너 Campaign의 커스텀 속성을 사용하여 SDK를 통해 키-값 데이터를 검색하고 앱의 동작이나 외관을 수정할 수 있습니다. 예를 들어 다음과 같은 작업을 수행할 수 있습니다:
 
-- 서드파티 분석 또는 통합을 위한 메타데이터를 전송합니다.
-- `timestamp` 또는 JSON 객체와 같은 메타데이터를 사용하여 조건 로직을 트리거합니다.
-- `ratio` 또는 `format`과 같은 포함된 메타데이터를 기반으로 배너의 동작을 제어합니다.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 ### 필수 조건
 

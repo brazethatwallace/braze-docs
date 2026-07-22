@@ -27,7 +27,7 @@ Antes de comenzar, revisa lo siguiente:
 | **Cambios críticos** | Asegúrate de haber revisado todos los cambios importantes del conector heredado al nuevo conector en [Resumen de la actualización de Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection). |
 | **Requisitos previos de actualización** | Asegúrate de haber completado todos los [requisitos previos de actualización]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) necesarios con tus equipos de ingeniería y marketing. Para actualizar tu tienda Shopify headless con Braze, necesitas completar dos pasos críticos:<br><br>- Inicializar y cargar el SDK web de Braze para habilitar el seguimiento en el sitio<br>- Actualizar tu tienda existente a través de la experiencia de actualización dentro del producto |
 | **Cambios con ruptura** | Revisa y corrige todos los cambios con ruptura señalados en Braze. Para un recorrido completo, continúa a [Corregir cambios con ruptura](#fixing-breaking-changes-fixing-breaking-changes). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  role="presentation"}
 
 ## Corregir cambios con ruptura {#fixing-breaking-changes}
 
@@ -45,17 +45,13 @@ Para la mayoría de los eventos, recomendamos incluir los nuevos eventos y atrib
 {% tab Carrito abandonado %}
 Para la mensajería de carrito abandonado, necesitarás usar las nuevas plantillas de Canvas de carrito abandonado que incluyen:
 
-- Un nuevo desencadenador basado en la acción "Performed cart updated"
-- Criterios de salida predefinidos para eliminar a los clientes que han avanzado en su proceso de compra
-- Una nueva etiqueta de Liquid de carrito de compras para soportar la personalización de productos
+{% multi_lang_include partners/shopify/abandoned_cart_template_features.md %}
 {% endtab %}
 
 {% tab Pago abandonado %}
 Para la mensajería de pago abandonado, necesitarás usar la nueva plantilla de Canvas de pago abandonado que incluye:
 
-- El evento ecommerce.checkout_started predefinido en tus criterios de entrada
-- Criterios de salida predefinidos para eliminar a los clientes que han avanzado en su proceso de compra
-- Una nueva etiqueta de Liquid de carrito de compras para soportar la personalización de productos
+{% multi_lang_include partners/shopify/abandoned_checkout_template_features.md %}
 
 Para una lista completa de las nuevas plantillas de Canvas de comercio electrónico y bloques HTML predefinidos para la personalización de productos disponibles a través de la integración, consulta [Crear los recorridos de usuario en Canvas]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys).
 
@@ -140,21 +136,18 @@ Si seleccionaste un tipo de ID externo personalizado, continúa con los pasos 4.
 
 #### Paso 4.1: Crear el metacampo `braze.external_id` {#step-41-create-the-brazeexternal_id-metafield}
 
-1. En tu panel de administración de Shopify, ve a **Configuración** > **Metacampos**.
-2. Selecciona **Clientes** > **Agregar definición**.
-3. En **Espacio de nombres y clave**, ingresa `braze.external_id`.
-4. En **Tipo**, selecciona **Tipo de ID**.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 Después de crear el metacampo, rellénalo para tus clientes. Recomendamos los siguientes enfoques:
 
 - **Escuchar webhooks de creación de clientes:** Configura un webhook para escuchar [eventos `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Esto te permite escribir el metacampo cuando se crea un nuevo cliente.
 - **Rellenar clientes existentes:** Usa la [API de administración](https://shopify.dev/docs/api/admin-graphql) o la [API de clientes](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para rellenar el metacampo de los clientes creados anteriormente.
 
-#### Paso 4.2: Crear un punto de conexión para recuperar tu ID externo {#step-42-create-an-endpoint-to-retrieve-your-external-id}
+#### Paso 4.2: Crear un endpoint para recuperar tu ID externo {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
-Necesitas crear un punto de conexión público al que Braze pueda llamar para recuperar el ID externo. Esto es necesario para escenarios en los que Shopify no puede proporcionar el metacampo `braze.external_id`.
+Necesitas crear un endpoint público al que Braze pueda llamar para recuperar el ID externo. Esto es necesario para escenarios en los que Shopify no puede proporcionar el metacampo `braze.external_id`.
 
-##### Especificaciones del punto de conexión {#endpoint-specifications}
+##### Especificaciones del endpoint {#endpoint-specifications}
 
 **Método:** `GET`
 
@@ -165,7 +158,7 @@ Necesitas crear un punto de conexión público al que Braze pueda llamar para re
 | `shopify_storefront` | La tienda para la solicitud. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-##### Ejemplo de punto de conexión {#example-endpoint}
+##### Ejemplo de endpoint {#example-endpoint}
 
 ```
 GET
@@ -188,13 +181,11 @@ Es importante validar que `shopify_customer_id` y `email_address` coincidan con 
 
 #### Paso 4.3: Ingresar tu ID externo {#step-43-input-your-external-id}
 
-Repite el [Paso 4](#step-4-choose-an-external-id-type) e ingresa la URL de tu punto de conexión después de seleccionar ID externo personalizado como tu tipo de ID externo de Braze.
+Repite el [Paso 4](#step-4-choose-an-external-id-type) e ingresa la URL de tu endpoint después de seleccionar ID externo personalizado como tu tipo de ID externo de Braze.
 
 ##### Consideraciones {#considerations}
 
-- Si tu ID externo no se genera cuando Braze envía una solicitud a tu punto de conexión, la integración usará de forma predeterminada el ID de cliente de Shopify cuando se llame a la función `changeUser`. Este paso es crucial para fusionar el perfil de usuario anónimo con el perfil de usuario identificado. Como resultado, puede haber un período temporal durante el cual existan diferentes tipos de ID externos dentro de tu espacio de trabajo.
-- Cuando el ID externo esté disponible en el metacampo `braze.external_id`, la integración priorizará y asignará este ID externo.
-    - Si el ID de cliente de Shopify se estableció previamente como el ID externo de Braze, se reemplazará con el valor del metacampo `braze.external_id`.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### Paso 5: Habilitar la inserción de la aplicación de Braze {#step-5-enable-the-braze-app-embed}
 
@@ -214,9 +205,6 @@ De vuelta en Braze, se te notificará cuando tu integración de Shopify haya ter
 
 Para verificar que tu nuevo conector de Shopify esté en vivo, prueba lo siguiente:
 
-- **Canvas, Campaigns y Segments activos:** Confirma que estén funcionando correctamente.
-- **Procesos de gestión de identidad:** Confirma que estos procesos estén funcionando como se espera.
-- **Personalizaciones del SDK (opcional):** Si realizaste personalizaciones en tu integración de Braze y Shopify (como registrar eventos personalizados o atributos), verifica que estén funcionando correctamente después de la actualización.
-- **Recopilación de suscriptores de correo electrónico o SMS (opcional):** Si habilitaste previamente la recopilación de suscriptores de correo electrónico o SMS, se crearán nuevos grupos de suscripción predeterminados para reflejar el estado más reciente de tus suscriptores durante la actualización. Los grupos de suscripción predeterminados tendrán el nombre de tu tienda de Shopify. Estos nuevos grupos de suscripción predeterminados estarán disponibles aproximadamente 5 horas después de la actualización, y necesitarás agregarlos a tus mensajes activos.
+{% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
 Si tienes alguna pregunta, [ponte en contacto con Soporte]({{site.baseurl}}/user_guide/administrative/access_braze/support).

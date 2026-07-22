@@ -17,13 +17,7 @@ Os eventos personalizados são ações realizadas por seus usuários ou atualiza
 
 Alguns casos de uso comuns de eventos personalizados incluem:
 
-- Disparar uma Campaign ou Canvas com base em um evento personalizado usando a [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
-- Segmentar usuários pela quantidade de vezes que realizaram um evento personalizado, quando foi a última vez que o evento ocorreu, e similares
-- Usar a [análise de dados de eventos personalizados](#analytics) do dashboard para visualizar um agregado de quantas vezes cada evento ocorreu
-- Encontrar análises de dados adicionais usando relatórios de [funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) e [retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)
-- Aproveitar [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) para usar metadados do seu evento personalizado para personalização nas etapas do Canvas
-- Gerar análises de dados mais sofisticadas com o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
-- Configurar [critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) para definir quando os usuários devem sair do seu Canvas
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Gerenciando eventos personalizados {#managing-custom-events}
 
@@ -37,9 +31,7 @@ Você pode bloquear eventos personalizados individuais pelo menu de ações, ou 
 
 Quando você bloqueia um evento personalizado:
 
-- Dados futuros não serão coletados para esse evento.
-- Dados existentes não estarão disponíveis a menos que o evento seja desbloqueado.
-- Esse evento não aparecerá em filtros ou gráficos.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 Além disso, se um evento personalizado bloqueado estiver sendo referenciado por filtros ou gatilhos em outras áreas da Braze, um modal de aviso aparecerá explicando que todas as instâncias dos filtros ou gatilhos que o referenciam serão removidas e arquivadas.
 

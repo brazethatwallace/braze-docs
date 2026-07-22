@@ -29,15 +29,15 @@ Use Campaigns para envio de mensagens simples e únicas. Use Canvas para jornada
 {% tabs %}
 {% tab Campaign %}
 
-1. Acesse **Messaging** > **Campaigns** e selecione **Create Campaign**.
-2. Selecione **Email** ou, para campanhas direcionadas a múltiplos canais, selecione **Multichannel**.
+1. Acesse **Envio de mensagens** > **Campaigns** e selecione **Criar Campaign**.
+2. Selecione **E-mail** ou, para campanhas direcionadas a múltiplos canais, selecione **Multicanal**.
 3. Dê à sua campanha um nome claro e significativo.
 4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
    * Tags facilitam encontrar suas campanhas e criar relatórios a partir delas. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
 5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Para saber mais sobre este tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes extras. Depois, escolha **Copy from Variant** no menu suspenso **Add Variant**.
+Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes extras. Depois, escolha **Copiar da variante** no menu suspenso **Adicionar variante**.
 {% endalert %}
 {% endtab %}
 {% tab Canvas %}
@@ -111,7 +111,7 @@ Por exemplo, para manter um fundo branco em uma célula, use isto:
 Substitua `#ffffff` pela cor desejada.
 
 {% alert note %}
-Essa abordagem não se aplica de forma confiável apenas a elementos `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`, então defina o gradiente na célula em vez de apenas na tabela.
+Essa abordagem não se aplica de forma confiável apenas a elementos `<table aria-label="App móvel do Gmail e modo escuro #gmail-dark-mode">`, então defina o gradiente na célula em vez de apenas na tabela.
   <caption>App móvel do Gmail e modo escuro</caption>
 {% endalert %}
 
@@ -140,9 +140,7 @@ Você também pode adicionar personalização para cabeçalhos de e-mail e extra
 
 Você também pode adicionar anexos de e-mail pelos seguintes métodos:
 
-- **Fazer upload de um arquivo:** Arraste e solte ou navegue para fazer upload de um arquivo diretamente do seu computador para o e-mail. A Braze valida o tipo e o tamanho do arquivo (até 2&nbsp;MB por padrão) antes do upload, e então esses arquivos são enviados para a biblioteca de mídia. Arquivos maiores que o limite de 2&nbsp;MB não podem ser enviados.
-- **Usar a biblioteca de mídia:** Navegue e selecione entre os ativos já armazenados na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, documentos Word, arquivos Excel e apresentações PowerPoint são todos suportados.
-- **Adicionar a partir de URL:** Insira uma URL apontando para o arquivo e forneça um nome de exibição para o arquivo. Como a Braze não pode verificar URLs arbitrárias quanto ao tamanho durante a composição do e-mail, o tamanho do arquivo é aplicado no momento do envio. Observe que Liquid não é suportado neste campo.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) para práticas recomendadas específicas a considerar.
 
@@ -215,7 +213,7 @@ Os valores de extras de e-mail não são publicados no Currents ou Snowflake. Se
 
 Depois de terminar de redigir seu e-mail, teste-o antes de enviar. Na parte inferior da tela de visão geral, selecione **Preview and Test**.
 
-Aqui, você pode pré-visualizar como seu e-mail aparecerá na caixa de entrada de um cliente. Com **Preview as User** selecionado, você pode pré-visualizar seu e-mail como um usuário aleatório, selecionar um usuário específico ou criar um usuário personalizado. Isso permite testar se suas chamadas de Conteúdo conectado e personalização estão funcionando como esperado.
+Aqui, você pode pré-visualizar como seu e-mail aparecerá na caixa de entrada de um cliente. Com **Preview as User** selecionado, você pode pré-visualizar seu e-mail como um usuário aleatório, selecionar um usuário específico ou criar um usuário personalizado. Isso permite testar se suas chamadas de Connected Content e personalização estão funcionando como esperado.
 
 Depois, você pode usar **Copy preview link** para gerar e copiar um link de pré-visualização compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link durará sete dias antes de precisar ser regenerado.
 
@@ -295,9 +293,7 @@ Ao criar uma nova campanha de e-mail, o grupo de controle é definido como 20% p
 
 Para Campaigns multicanal direcionadas a canais de e-mail e push, você pode querer limitar sua campanha para que apenas os usuários que explicitamente optaram por receber a mensagem (excluindo usuários inscritos ou com inscrição cancelada). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
 
-- **Usuário A** está inscrito em e-mail e tem push ativado. Este usuário não recebe o e-mail, mas receberá o push.
-- **Usuário B** optou por receber e-mail, mas não tem push ativado. Este usuário receberá o e-mail, mas não receberá o push.
-- **Usuário C** optou por receber e-mail e tem push ativado. Este usuário receberá tanto o e-mail quanto o push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Para fazer isso, em **Audience Summary**, selecione enviar esta campanha para "opted-in users only". Esta opção garantirá que apenas usuários que optaram por receber receberão seu e-mail, e a Braze enviará seu push apenas para usuários que têm push ativado por padrão.
 

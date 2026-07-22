@@ -14,7 +14,7 @@ page_order: 4
 
 ## Événements Shopify suivis {#tracked-shopify-events}
 
-L'intégration Shopify utilise les [événements recommandés pour l'eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) pour capturer les principaux comportements d'achat. Pour des exemples de mise en œuvre et des stratégies marketing utilisant ces événements, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases).
+L'intégration Shopify utilise les [événements recommandés pour l'eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) pour capturer les principaux comportements d'achat. Pour des exemples de mise en œuvre et des stratégies marketing utilisant ces événements, consultez les [cas d'usage eCommerce]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases).
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -410,13 +410,18 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 {% endsubtabs %}
 {% endtab %}
 {% tab Événements Shopify %}
+
+{% alert note %}
+Braze s'appuie sur Shopify pour fournir les propriétés d'événement requises (telles que `cart_id` ou `cart_token`) pour les événements eCommerce. Dans de rares cas, des problèmes temporaires côté Shopify peuvent entraîner l'absence de ces propriétés, ce qui peut provoquer la suppression des événements concernés.
+{% endalert %}
+
 {% subtabs global %}
 {% subtab Product viewed %}
 **Événement** : `ecommerce.product_viewed`<br>
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un client consulte une page produit<br>
 **Source de données** : SDK Braze<br>
-**Cas d'utilisation** : Abandon de navigation
+**Cas d'usage** : Abandon de navigation
 
 {% raw %}
 | Variable | Modèle Liquid |
@@ -441,7 +446,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un client ajoute, supprime ou met à jour un article dans son panier<br>
 **Source de données** : SDK Braze<br>
-**Cas d'utilisation** : Abandon de panier
+**Cas d'usage** : Abandon de panier
 
 Pour les Canvas d'abandon de panier, vous devez d'abord ajouter l'étiquette Liquid du panier d'achat initial afin de disposer du contexte du panier dans votre message.
 
@@ -482,7 +487,7 @@ Pour en savoir plus sur la création d'une boucle Liquid `for` permettant d'ajou
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un utilisateur accède à la page de paiement<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : Abandon de paiement
+**Cas d'usage** : Abandon de paiement
 
 {% alert important %}
 Si un client utilise Shop Pay comme option de paiement accéléré, Shopify peut contourner certains événements de paiement standard (comme le webhook Shopify checkout started). Braze risque alors de ne pas recevoir les données nécessaires pour ajouter l'alias du jeton de paiement, ce qui peut impacter le suivi de l'abandon de paiement et la réconciliation des profils utilisateurs.
@@ -524,7 +529,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un utilisateur finalise le processus de paiement et passe une commande<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : Confirmation de commande, reciblage post-achat, ventes incitatives ou croisées
+**Cas d'usage** : Confirmation de commande, reciblage post-achat, ventes incitatives ou croisées
 
 {% raw %}
 | Variable                | Modèle Liquid                                   |
@@ -557,7 +562,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est exécutée et prête à être expédiée<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
+**Cas d'usage** : (Transactionnel) Mise à jour de l'exécution
 
 {% raw %}
 | Variable | Modèle Liquid |
@@ -608,7 +613,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsqu'une partie de la commande d'un utilisateur est exécutée et prête à être expédiée<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
+**Cas d'usage** : (Transactionnel) Mise à jour de l'exécution
 
 {% raw %}
 | Variable | Modèle Liquid |
@@ -659,7 +664,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est marquée comme payée dans Shopify<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Confirmation de paiement
+**Cas d'usage** : (Transactionnel) Confirmation de paiement
 
 {% raw %}
 | Variable | Modèle Liquid |
@@ -693,7 +698,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est annulée<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Confirmation d'annulation de commande
+**Cas d'usage** : (Transactionnel) Confirmation d'annulation de commande
 
 {% raw %}
 | Variable | Modèle Liquid |
@@ -729,7 +734,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est remboursée<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Confirmation de remboursement
+**Cas d'usage** : (Transactionnel) Confirmation de remboursement
 
 {% raw %}
 | Variable | Modèle Liquid |
@@ -756,7 +761,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsqu'un utilisateur se connecte à son compte<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : Série de bienvenue
+**Cas d'usage** : Série de bienvenue
 
 {% raw %}
 | Variable | Modèle Liquid |

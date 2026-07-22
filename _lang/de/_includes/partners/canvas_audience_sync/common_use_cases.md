@@ -1,0 +1,4 @@
+- Targeting von hochwertigen Nutzer:innen über mehrere Kanäle, um Käufe oder Engagement zu steigern
+- Retargeting von Nutzer:innen, die auf andere Marketing-Kanäle weniger responsiv reagieren
+- Erstellen von Suppressions-Zielgruppen, um zu verhindern, dass Nutzer:innen Werbung erhalten, wenn sie bereits loyale Verbraucher:innen Ihrer Marke sind
+- Erstellen von Lookalike-Zielgruppen, um neue Nutzer:innen effizienter zu gewinnen

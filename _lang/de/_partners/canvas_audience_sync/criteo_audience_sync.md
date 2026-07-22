@@ -15,10 +15,7 @@ Mit Braze Audience Sync to Criteo können Marken wahlweise Nutzerdaten aus ihrer
 
 **Zu den üblichen Anwendungsfällen für die Zielgruppen-Synchronisation gehören:**
 
-- Targeting von hochwertigen Nutzer:innen über mehrere Kanäle, um Käufe oder Engagement zu fördern
-- Retargeting von Nutzer:innen, die auf andere Marketing-Kanäle weniger responsiv sind
-- Erstellen von Unterdrückungszielgruppen, um zu verhindern, dass Nutzer:innen, die bereits treue Verbraucher:innen Ihrer Marke sind, Werbung erhalten
-- Erstellen von Lookalike Audiences zur effizienteren Gewinnung neuer Nutzer:innen
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Dieses Feature gibt Marken die Möglichkeit zu kontrollieren, welche spezifischen First-Party-Daten mit Criteo geteilt werden. Bei Braze werden die Integrationen, mit denen Sie Ihre First-Party-Daten teilen können und nicht teilen können, genauestens berücksichtigt. Weitere Informationen finden Sie in unserer [Datenschutzrichtlinie](https://www.braze.com/privacy).
 
@@ -34,7 +31,7 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt und/oder abgeschlo
 | Anforderung | Herkunft | Beschreibung |
 | --- | --- | --- |
 | Criteo-Werbekonto | [Criteo](https://marketing.criteo.com/) | Ein aktives Criteo-Werbekonto, das mit Ihrer Marke verknüpft ist.<br><br>Vergewissern Sie sich, dass Ihr Criteo-Administrator Ihnen die entsprechenden Berechtigungen für den Zugriff auf Zielgruppen erteilt hat. |
-| [Criteo-Werberichtlinien](https://www.criteo.com/advertising-guidelines/)<br>und<br>[Criteo-Richtlinien zur Markensicherheit](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Als aktive Criteo-Kund:in müssen Sie sicherstellen, dass Sie die Criteo-Richtlinien für Werbung und Markensicherheit einhalten können, bevor Sie Criteo-Campaigns starten. |
+| [Criteo-Werberichtlinien](https://www.criteo.com/advertising-guidelines/)<br>und<br>[Criteo-Richtlinien zur Markensicherheit](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Als aktive Criteo-Kund:in müssen Sie sicherstellen, dass Sie die Criteo-Richtlinien für Werbung und Markensicherheit einhalten können, bevor Sie Criteo-Kampagnen starten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration

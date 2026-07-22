@@ -191,9 +191,7 @@ Selecciona **Ajustes de envío** para editar tu configuración de suscripción, 
 
 Para Canvas dirigidos a canales de correo electrónico y push, es posible que quieras limitar tu Canvas para que solo los usuarios que hayan optado explícitamente por recibir mensajes los reciban (excluyendo a los usuarios suscritos o que cancelaron su suscripción). Por ejemplo, supongamos que tienes tres usuarios con diferentes estados de adhesión voluntaria:
 
-- **Usuario A** está suscrito a correo electrónico y tiene push habilitado. Este usuario no recibe el correo electrónico pero recibirá el push.
-- **Usuario B** ha optado por recibir correo electrónico pero no tiene push habilitado. Este usuario recibirá el correo electrónico pero no recibe el push.
-- **Usuario C** ha optado por recibir correo electrónico y tiene push habilitado. Este usuario recibirá tanto el correo electrónico como el push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Para hacerlo, configura los **Ajustes de suscripción** para enviar este Canvas a "solo usuarios con adhesión voluntaria". Esta opción asegurará que solo los usuarios con adhesión voluntaria reciban tu correo electrónico, y Braze solo enviará tu push a los usuarios que tengan push habilitado de forma predeterminada.
 
@@ -289,7 +287,7 @@ Los componentes ligeros en Canvas permiten una experiencia de edición simple, p
 
 #### Mensajes en Canvas {#messages-in-canvas}
 
-Edita los mensajes en un componente de Canvas para controlar los mensajes que un paso particular enviará. Canvas puede enviar mensajes de correo electrónico, push móvil y notificación push web, y webhooks para integrarse con otros sistemas. De manera similar a Campaigns, puedes usar ciertas plantillas de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) para personalizar tus mensajes.
+Edita los mensajes en un componente de Canvas para controlar los mensajes que un paso particular enviará. Canvas puede enviar mensajes de correo electrónico, push móvil y notificación push web, y webhooks para integrarse con otros sistemas. De manera similar a las campañas, puedes usar ciertas plantillas de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) para personalizar tus mensajes.
 
 {% alert tip %}
 ¿Sabías que puedes incluir nombres de componentes de Canvas en tus mensajes y plantillas de enlaces?<br>
@@ -316,11 +314,11 @@ Por ejemplo, considera la siguiente solicitud: `"context" : {"product_name" : "s
 {% endtab %}
 
 {% tab Propiedades del evento %}
-Las propiedades del evento son las propiedades que tú estableces en eventos personalizados y compras. Estas `event_properties` se pueden usar en Campaigns con entrega basada en acciones así como en Canvas.
+Las propiedades del evento son las propiedades que tú estableces en eventos personalizados y compras. Estas `event_properties` se pueden usar en campañas con entrega basada en acciones así como en Canvas.
 
 En Canvas, las propiedades de eventos personalizados y eventos de compra se pueden usar en Liquid en cualquier paso de mensaje que siga a un paso de Rutas de Acción. Usa este Liquid {% raw %} ``{{event_properties.${property_name}}}`` {% endraw %} al hacer referencia a estas `event_properties`. Estos eventos deben ser eventos personalizados o eventos de compra para usarse de esta manera en el componente de mensaje.
 
-En el primer paso de mensaje que sigue a una Ruta de Acción, puedes usar `event_properties` relacionadas con el evento referenciado en esa Ruta de Acción. Puedes tener otros pasos (que no sean otro paso de Rutas de Acción o de mensaje) entre este paso de Rutas de Acción y el paso de mensaje. Ten en cuenta que solo tendrás acceso a `event_properties` si tu paso de mensaje puede rastrearse hasta una ruta que no sea El resto en un paso de Ruta de Acción.
+En el primer paso de mensaje que sigue a una Ruta de Acción, puedes usar `event_properties` relacionadas con el evento referenciado en esa Ruta de Acción. Puedes tener otros pasos (que no sean otro paso de Rutas de Acción o de mensaje) entre este paso de Rutas de Acción y el paso de mensaje. Ten en cuenta que solo tendrás acceso a `event_properties` si tu paso de mensaje puede rastrearse hasta una ruta que no sea "El resto" en un paso de Ruta de Acción.
 
 {% endtab %}
 {% endtabs %}

@@ -3,7 +3,7 @@ nav_title: Intelligent Timing
 article_title: Intelligent Timing
 page_order: 1.3
 description: "Este artigo fornece uma visão geral do Intelligent Timing (anteriormente Entrega Inteligente) e como você pode aproveitar esse recurso em suas campanhas e Canvas."
-
+toc_headers: h2
 ---
 
 # [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
@@ -12,7 +12,7 @@ description: "Este artigo fornece uma visão geral do Intelligent Timing (anteri
 
 ## Sobre o Intelligent Timing {#about-intelligent-timing}
 
-A Braze calcula o momento ideal para o envio com base em uma análise estatística das interações anteriores dos usuários com seu app e suas interações com cada canal de envio de mensagens. São usados os seguintes dados de interação:
+A Braze calcula o horário ideal de envio com base em uma análise estatística das interações anteriores dos usuários com seu app e suas interações com cada canal de envio de mensagens. Os seguintes dados de interação são usados:
 
 - Horários das sessões
 - Aberturas Diretas de push
@@ -25,7 +25,7 @@ Por exemplo, Sam pode abrir seus e-mails pela manhã regularmente, mas ela abre 
 
 Se um usuário não tiver dados de engajamento relevantes para que a Braze calcule o horário ideal de envio, você pode especificar um horário de fallback.
 
-## Casos de uso {#use-cases}
+## Exemplos {#examples}
 
 - Enviar campanhas recorrentes que não são sensíveis ao tempo
 - Automatizar campanhas com usuários de vários fusos horários
@@ -46,7 +46,7 @@ Esta seção descreve como configurar o Intelligent Timing para suas campanhas e
 5. Opcionalmente, configure o [horário de silêncio](#quiet-hours).
 6. Especifique um [horário de fallback](#campaign-fallback). É quando a mensagem é enviada se o perfil do usuário não tiver nenhum evento relevante para calcular o horário ideal.
 
-![Tela de programação da campanha mostrando o Intelligent Timing com configurações de tempo de fallback e horário de silêncio]({% image_buster /assets/img/intelligent_timing/campaign_scheduling.png %})
+![Tela de programação da campanha mostrando o Intelligent Timing com configurações de horário de fallback e horário de silêncio]({% image_buster /assets/img/intelligent_timing/campaign_scheduling.png %})
 
 #### Horário de silêncio {#quiet-hours}
 
@@ -101,11 +101,11 @@ Para saber mais, consulte as [Perguntas frequentes: Intelligent Timing](#when-do
 
 #### Agende variantes vencedoras 2 dias após os testes A/B {#schedule-winning-variants-2-days-after-ab-test}
 
-Se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations), como o envio automático da **Variante Vencedora** ou o uso de uma **Variante Personalizada**, o Intelligent Timing poderá afetar a duração e o timing da sua campanha.
+Se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations), como o envio automático da **variante vencedora** ou o uso de uma **variante personalizada**, o Intelligent Timing poderá afetar a duração e o timing da sua campanha.
 
-Ao usar o Intelligent Timing, recomendamos programar o envio da Variante Vencedora pelo menos **dois dias após** o início dos testes A/B. Por exemplo, se o seu teste A/B começar em 16 de abril às 16h, programe a Variante Vencedora para ser enviada não antes de 18 de abril às 16h. Isso dá à Braze tempo suficiente para avaliar o comportamento do usuário e enviar mensagens no momento ideal.
+Ao usar o Intelligent Timing, recomendamos programar o envio da variante vencedora pelo menos **dois dias após** o início dos testes A/B. Por exemplo, se o seu teste A/B começar em 16 de abril às 16h, programe a variante vencedora para ser enviada não antes de 18 de abril às 16h. Isso dá à Braze tempo suficiente para avaliar o comportamento do usuário e enviar mensagens no momento ideal.
 
-![Seções de testes A/B mostrando o teste A/B com a Variante Vencedora selecionada, com os critérios vencedores, a data de envio e a hora local de envio selecionados]({% image_buster /assets/img/intelligent_timing/ab_testing_intelligent_timing.png %})
+![Seções de testes A/B mostrando o teste A/B com a variante vencedora selecionada, com os critérios vencedores, a data de envio e a hora local de envio selecionados]({% image_buster /assets/img/intelligent_timing/ab_testing_intelligent_timing.png %})
 
 ### Etapa 3: Configurar o horário de silêncio (opcional) {#step-3-configure-quiet-hours-optional}
 
@@ -149,7 +149,7 @@ O gráfico mostra em azul os usuários que tiveram eventos relevantes para calcu
 
 No seu Canvas, adicione uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), acesse as **Delivery Settings** e selecione **Using Intelligent Timing**.
 
-As mensagens serão enviadas aos usuários que entraram na etapa naquele dia, no horário local ideal. No entanto, se o horário ideal já tiver passado nesse dia, a entrega será feita nesse horário no dia seguinte. Etapas de mensagem que direcionam vários canais podem enviar ou tentar enviar mensagens em horários diferentes para canais diferentes. Quando a primeira mensagem em uma etapa de Mensagem tenta ser enviada, todos os usuários são avançados automaticamente.
+As mensagens serão enviadas aos usuários que entraram na etapa naquele dia, no horário local ideal. No entanto, se o horário ideal já tiver passado nesse dia, a entrega será feita no horário ideal do dia seguinte. Etapas de mensagem que direcionam vários canais podem enviar ou tentar enviar mensagens em horários diferentes para canais diferentes. Quando a primeira mensagem em uma etapa de Mensagem tenta ser enviada, todos os usuários são avançados automaticamente.
 
 ### Etapa 2: Escolher um horário de fallback {#step-2-choose-a-fallback-time}
 
@@ -205,9 +205,9 @@ Se os usuários não receberem as mensagens como esperado, verifique se o campo 
 
 ### Envio além da data agendada {#sending-past-the-scheduled-date}
 
-Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Campanhas usando otimizações de testes A/B podem enviar automaticamente a Variante Vencedora após o teste inicial, aumentando a duração da campanha. Por padrão, campanhas com uma otimização enviarão a Variante Vencedora para os usuários restantes no dia seguinte ao teste inicial, mas você pode alterar essa data de envio.
+Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Campanhas usando otimizações de testes A/B podem enviar automaticamente a variante vencedora após o teste inicial, aumentando a duração da campanha. Por padrão, campanhas com uma otimização enviarão a variante vencedora para os usuários restantes no dia seguinte ao teste inicial, mas você pode alterar essa data de envio.
 
-Se você usar o Intelligent Timing, recomendamos deixar mais tempo para o teste A/B terminar e agendar a Variante Vencedora para ser enviada 2 dias após o teste inicial, em vez de 1 dia.
+Se você usar o Intelligent Timing, recomendamos deixar mais tempo para o teste A/B terminar e agendar a variante vencedora para ser enviada 2 dias após o teste inicial, em vez de 1 dia.
 
 ## Perguntas frequentes (FAQ) {#faq}
 
@@ -259,9 +259,9 @@ Se não houver eventos de engajamento relevantes para um usuário (por exemplo, 
 
 #### Por que minha campanha com Intelligent Timing está sendo enviada após a data programada? {#why-is-my-intelligent-timing-campaign-sending-past-the-scheduled-date}
 
-Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada porque você está usando testes A/B. Campanhas que usam testes A/B podem enviar automaticamente a Variante Vencedora após o término do teste A/B, aumentando a duração do envio da campanha. Por padrão, as campanhas com Intelligent Timing serão programadas para enviar a Variante Vencedora para os usuários restantes no dia seguinte, mas você pode alterar essa data de envio.
+Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada porque você está usando testes A/B. Campanhas que usam testes A/B podem enviar automaticamente a variante vencedora após o término do teste A/B, aumentando a duração do envio da campanha. Por padrão, as campanhas com Intelligent Timing serão programadas para enviar a variante vencedora para os usuários restantes no dia seguinte, mas você pode alterar essa data de envio.
 
-Recomendamos que, se você tiver campanhas com Intelligent Timing, deixe mais tempo para o teste A/B terminar e programe a Variante Vencedora para ser enviada em dois dias, em vez de um.
+Recomendamos que, se você tiver campanhas com Intelligent Timing, deixe mais tempo para o teste A/B terminar e programe a variante vencedora para ser enviada em dois dias, em vez de um.
 
 ### Funcionalidade {#functionality}
 

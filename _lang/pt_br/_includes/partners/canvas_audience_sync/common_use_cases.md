@@ -1,0 +1,4 @@
+- Direcionar usuários de alto valor por meio de múltiplos canais para impulsionar compras ou engajamento
+- Redirecionar usuários que são menos responsivos a outros canais de marketing
+- Criar públicos de supressão para evitar que usuários recebam anúncios quando já são consumidores fiéis da sua marca
+- Criar públicos semelhantes para adquirir novos usuários de forma mais eficiente

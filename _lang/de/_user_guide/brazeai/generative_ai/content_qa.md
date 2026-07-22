@@ -14,6 +14,7 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie eine Qualitätssic
 
 ## Zugriff {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_content_qa.md %}
+Wählen Sie auf dem Tab **Test** für SMS, Android-Push, iOS-Push und traditionelle In-App-Nachrichten die Option **Review with Operator** aus, um Ihre Inhalte vor dem Senden zu überprüfen. Operator prüft auf Rechtschreib- und Grammatikfehler, markenfremden oder unangemessenen Tonfall, beleidigende Sprache sowie fehlerhaften Code oder nicht gerendertes Liquid. Jedes Problem wird mit dem betroffenen Text und einem Korrekturvorschlag markiert – oder es wird bestätigt, dass der Inhalt einwandfrei ist.
+
 
 Weitere Informationen, einschließlich unterstützter Features, Best Practices und Beispiel-Prompts, finden Sie unter [Inhaltsqualität überprüfen in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality).

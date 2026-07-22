@@ -22,19 +22,19 @@ L'intégration de Braze et DinMo envoie des segments et des modèles de données
 | --- | --- |
 | Compte DinMo | Un [compte DinMo](https://www.dinmo.com/) avec l'autorisation de créer des destinations est requis pour bénéficier de ce partenariat. |
 | Clé API REST de Braze | Une clé API REST de Braze avec les [autorisations](#api-key-permissions) requises pour les services de destination que vous prévoyez d'utiliser. Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| Endpoint REST de Braze | L'URL de votre endpoint REST. Votre endpoint dépend de l'[URL Braze de votre instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-| URL du tableau de bord de Braze | L'URL du tableau de bord de Braze pour votre instance (par exemple, `https://dashboard.iad-01.braze.com`). Pour plus d'informations, consultez [Endpoints SDK disponibles]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/). |
+| Endpoint REST de Braze | L'URL de votre endpoint REST. Votre endpoint dépend de l'[URL Braze de votre instance]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+| URL du tableau de bord de Braze | L'URL du tableau de bord de Braze pour votre instance (par exemple, `https://dashboard.iad-01.braze.com`). Pour plus d'informations, consultez [Endpoints SDK disponibles]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
 | Entrepôt de données et modèle de données | Avant de commencer l'intégration, connectez votre entrepôt de données dans DinMo et définissez un modèle ou un segment pour les données que vous souhaitez synchroniser vers Braze. Pour plus d'informations, consultez le [guide d'intégration DinMo Braze](https://docs.dinmo.io/integrations/destination-platforms/braze). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 Avec cette intégration, vous pouvez :
 
 * Synchroniser les attributs utilisateur depuis votre entrepôt vers Braze pour personnaliser les Campaigns et les Canvas.
 * Envoyer des événements personnalisés et des événements d'achat depuis les données de l'entrepôt vers Braze pour le ciblage comportemental.
 * Maintenir l'appartenance aux groupes d'abonnement Braze alignée avec les segments d'audience définis dans DinMo.
-* Exporter les segments DinMo en tant qu'attributs utilisateur Braze et créer des segments Braze à partir de ces attributs.
+* Exporter les segments DinMo en tant qu'attributs utilisateur Braze et créer des Segments Braze à partir de ces attributs.
 
 ## Autorisations de la clé API {#api-key-permissions}
 
@@ -101,7 +101,7 @@ Lorsque vous exécutez une activation :
 
 Si vous n'activez pas le mode insertion, DinMo met à jour uniquement les utilisateurs qui existent déjà dans Braze et qui possèdent un ID externe correspondant.
 
-Lors de la configuration de l'activation, mappez le champ de votre modèle DinMo qui correspond à l'[ID externe]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/) ou à l'ID Braze de l'utilisateur. Mappez chaque champ DinMo au nom exact de l'attribut dans Braze. Si un attribut n'existe pas dans Braze, DinMo le crée.
+Lors de la configuration de l'activation, mappez le champ de votre modèle DinMo qui correspond à l'[ID externe]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids) ou à l'ID Braze de l'utilisateur. Mappez chaque champ DinMo au nom exact de l'attribut dans Braze. Si un attribut n'existe pas dans Braze, DinMo le crée.
 
 Les modes de synchronisation suivants sont disponibles pour les activations d'attributs utilisateur :
 
@@ -155,6 +155,6 @@ Utilisez ce service de destination pour représenter un segment DinMo sous forme
 
 Lors de la configuration de l'activation, spécifiez le nom de l'audience. DinMo utilise ce nom comme attribut Braze (les espaces sont remplacés par des underscores). Vérifiez qu'un attribut portant le même nom n'existe pas déjà dans Braze. Mappez le champ DinMo qui correspond à l'ID externe de l'utilisateur.
 
-Après l'exécution de l'activation, créez un segment Braze qui filtre les utilisateurs dont l'attribut synchronisé est égal à `true`.
+Après l'exécution de l'activation, créez un Segment Braze qui filtre les utilisateurs dont l'attribut synchronisé est égal à `true`.
 
 Seuls les utilisateurs possédant un ID externe correspondant à un utilisateur Braze existant sont mis à jour. Ce service de destination ne crée pas de nouveaux utilisateurs.

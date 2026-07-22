@@ -11,7 +11,20 @@ description: "Cet article de référence explique comment utiliser les attributs
 
 > Cette page traite des attributs personnalisés imbriqués, qui vous permettent de définir un ensemble d'attributs en tant que propriété d'un autre attribut. En d'autres termes, lorsque vous définissez un objet d'attribut personnalisé, vous pouvez définir un ensemble d'attributs supplémentaires pour cet objet.
 
-{% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
+## À propos des attributs imbriqués {#about-nested-attributes}
+
+Les attributs imbriqués vous permettent de créer des segments plus riches et de personnaliser vos messages avec les données d'un seul objet d'attribut personnalisé.
+
+Dans l'exemple suivant, l'attribut personnalisé `favorite_book` contient les attributs imbriqués `title`, `author` et `publishing_date`. Cet objet peut être utilisé pour cibler des utilisateurs par auteur, filtrer par date de publication ou insérer le titre du livre directement dans un message :
+
+```json
+"favorite_book": {
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "publishing_date": "1937"
+}
+```
+
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -24,7 +37,7 @@ description: "Cet article de référence explique comment utiliser les attributs
 - Les points (`.`) et les signes dollar (`$`) ne sont pas des caractères pris en charge dans un payload API si vous tentez d'envoyer un attribut personnalisé imbriqué à un profil utilisateur.
 - Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Reportez-vous à la [documentation du partenaire]({{site.baseurl}}/partners/home) pour savoir si les intégrations spécifiques du partenaire prennent en charge cette fonctionnalité.
 - Les attributs personnalisés imbriqués ne peuvent pas être utilisés comme filtre lors d'un appel API Connected Audience.
-- Par défaut, le filtre de Segment **Attributs personnalisés imbriqués** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriété inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez l'[assistance Braze]({{site.baseurl}}/braze_support).
+- Par défaut, le filtre de segment **Attributs personnalisés imbriqués** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriété inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez l'[assistance Braze]({{site.baseurl}}/braze_support).
 - Lors de la prévisualisation de messages dans le tableau de bord à l'aide de **Prévisualiser en tant qu'utilisateur personnalisé**, vous ne pouvez saisir des données fictives que sous forme de chaîne de caractères ou de tableau de chaînes de caractères — les objets imbriqués ne sont pas pris en charge. Pour prévisualiser un message qui fait référence à des attributs personnalisés imbriqués, sélectionnez un utilisateur existant qui possède déjà l'attribut imbriqué dans son profil. Pour les propriétés d'événements personnalisés imbriqués, vous devez lancer une Campaign en production ciblant un utilisateur test pour vérifier le rendu.
 
 ## Exemple d'API {#api-example}
@@ -232,7 +245,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 Pour capturer des dates en tant que propriétés d'objet, vous devez utiliser la clé `$time`. Dans l'exemple suivant, un objet « Important Dates » est utilisé pour capturer l'ensemble des propriétés d'objet `birthday` et `wedding_anniversary`. La valeur de ces dates est un objet avec une clé `$time`, qui ne peut pas être une valeur nulle.
 
 {% alert note %}
-Si vous n'avez pas capturé les dates en tant que propriétés d'objet initialement, nous vous recommandons de renvoyer ces données en utilisant la clé `$time` pour tous les utilisateurs. Sinon, cela pourrait entraîner des Segments incomplets lors de l'utilisation de l'attribut `$time`. Cependant, si la valeur de `$time` dans un attribut personnalisé imbriqué n'est pas correctement formatée, l'ensemble de l'attribut personnalisé imbriqué ne sera pas mis à jour.
+Si vous n'avez pas capturé les dates en tant que propriétés d'objet initialement, nous vous recommandons de renvoyer ces données en utilisant la clé `$time` pour tous les utilisateurs. Sinon, cela pourrait entraîner des segments incomplets lors de l'utilisation de l'attribut `$time`. Cependant, si la valeur de `$time` dans un attribut personnalisé imbriqué n'est pas correctement formatée, l'ensemble de l'attribut personnalisé imbriqué ne sera pas mis à jour.
 {% endalert %}
 
 ```json
@@ -303,7 +316,7 @@ Pour régénérer le schéma de votre attribut personnalisé imbriqué :
 
 1. Accédez à **Paramètres des données** > **Attributs personnalisés**.
 2. Recherchez votre attribut personnalisé imbriqué.
-3. Dans la colonne **Nom de l'attribut** correspondant à votre attribut, sélectionnez <i class="fas fa-plus" aria-label="Gérer le schéma"></i> **Gérer le schéma** pour gérer le schéma.
+3. Dans la colonne **Nom de l'attribut** correspondant à votre attribut, sélectionnez <i class="fas fa-plus"></i> **Gérer le schéma** pour gérer le schéma.
 4. Une fenêtre modale apparaîtra. Sélectionnez **Régénérer le schéma**.
 
 L'action **Régénérer le schéma** est limitée à **une fois par jour calendaire** dans le fuseau horaire de votre entreprise. Vous ne pouvez pas lancer une autre régénération tant qu'une tâche de schéma est déjà **en cours** (l'option est indisponible tant que le statut est **En cours de génération**). La régénération du schéma ne détecte que les nouveaux objets et ne supprime pas les objets qui existent déjà dans le schéma.
@@ -353,7 +366,7 @@ Si vous constatez que le type de données ne correspond pas au format prévu sur
 
 ## Comportement de segmentation avec les tableaux d'objets {#segmentation-behavior-with-arrays-of-objects}
 
-Lorsque vous utilisez plusieurs filtres `Nested Custom Attribute` avec une logique ET pour segmenter un tableau d'objets, chaque filtre est évalué indépendamment sur tous les éléments du tableau. Un utilisateur est qualifié pour le Segment si _n'importe quel_ élément du tableau satisfait chaque filtre individuel — les filtres n'ont pas besoin de correspondre au _même_ élément.
+Lorsque vous utilisez plusieurs filtres `Nested Custom Attribute` avec une logique ET pour segmenter un tableau d'objets, chaque filtre est évalué indépendamment sur tous les éléments du tableau. Un utilisateur est qualifié pour le segment si _n'importe quel_ élément du tableau satisfait chaque filtre individuel — les filtres n'ont pas besoin de correspondre au _même_ élément.
 
 Par exemple, supposons qu'un utilisateur possède le tableau suivant :
 
@@ -366,12 +379,12 @@ Par exemple, supposons qu'un utilisateur possède le tableau suivant :
 }
 ```
 
-Un Segment avec les filtres ET suivants :
+Un segment avec les filtres ET suivants :
 
 - `orders[].price` est supérieur à 50
 - `orders[].price` est inférieur à 30
 
-Cet utilisateur serait qualifié car le premier filtre correspond à l'élément « Shoes » (80 > 50) et le second filtre correspond à l'élément « Hat » (25 < 30). Même si aucun élément unique ne satisfait les deux conditions, l'utilisateur entre quand même dans le Segment.
+Cet utilisateur serait qualifié car le premier filtre correspond à l'élément « Shoes » (80 > 50) et le second filtre correspond à l'élément « Hat » (25 < 30). Même si aucun élément unique ne satisfait les deux conditions, l'utilisateur entre quand même dans le segment.
 
 Si vous avez besoin que toutes les conditions correspondent au même élément dans un tableau, utilisez la [segmentation multi-critères]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
 

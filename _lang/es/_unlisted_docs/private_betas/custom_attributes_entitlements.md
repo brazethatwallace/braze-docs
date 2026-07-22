@@ -228,11 +228,7 @@ La última fecha en que ocurrió un evento personalizado o un evento de compra s
 
 #### Detalles de atributos de tiempo {#time-attribute-details}
 
-- Día de evento recurrente
-  - Al usar el filtro "Día de evento recurrente" y luego se te solicita seleccionar el "Día del calendario del evento recurrente", si seleccionas `IS LESS THAN` o `IS MORE THAN`, la fecha actual se contará para ese filtro de segmentación.
-  - Por ejemplo, si el 10 de marzo de 2020 seleccionaste la fecha del atributo como `LESS THAN ... March 10, 2020`, los atributos se considerarán para los días hasta e incluyendo el 10 de marzo de 2020.
-- Hace menos de X días: el filtro "Hace menos de X días" incluye fechas entre hace X días y la fecha/hora actual.
-- En menos de X días en el futuro: incluye fechas entre la fecha/hora actual y X días en el futuro.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 ### Objetos {#objects}
 

@@ -11,9 +11,6 @@ guide_top_text: "Parcourez les intégrations de partenaires technologiques pour 
 
 guide_featured_title: "Partenaires"
 guide_featured_list:
-  - name: "Databricks"
-    link: /docs/partners/data_and_analytics/data_warehouses/databricks
-    image: /assets/img/braze_icons/database-01.svg
   - name: "Snowflake"
     link: /docs/partners/data_and_analytics/data_warehouses/snowflake
     image: /assets/img/braze_icons/dataflow-01.svg

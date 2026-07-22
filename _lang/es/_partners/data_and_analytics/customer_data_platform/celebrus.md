@@ -54,7 +54,7 @@ Esta integración utiliza la ingesta de datos en la nube de Braze. Sigue las ins
 
 Celebrus captura y asigna identificadores únicos a un individuo, como correo electrónico, teléfono, `external_id` o alias de usuario, y los envía a Braze a través de CDI. Esto permite sincronizar con Braze los datos de un mismo individuo.
 
-Celebrus utilizará los identificadores definidos para enviar los atributos del cliente definidos en el generador de perfiles de Celebrus, pero solo cuando cambien los valores de los atributos. Ten en cuenta que los nombres de atributos definidos en el generador de perfiles de Celebrus se utilizarán en Braze de forma predeterminada. Así que asegúrate de actualizar estos nombres para que se adhieran a las [convenciones de nomenclatura de Braze]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Celebrus utiliza los identificadores definidos para enviar los atributos del cliente definidos en el generador de perfiles de Celebrus, pero solo cuando cambian los valores de los atributos. Ten en cuenta que los nombres de atributos definidos en el generador de perfiles de Celebrus se utilizan en Braze de forma predeterminada. Así que asegúrate de actualizar estos nombres para que se adhieran a las [convenciones de nomenclatura de Braze]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
 {% alert important %}
 Por ahora, esta versión no admite eventos ni compras.<br><br> Esta integración envía atributos como valores de cadena, por lo que algunos atributos son listas (como las señales). Por ahora, las listas no pueden convertirse en arrays. No hay atributos anidados.

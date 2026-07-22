@@ -47,6 +47,13 @@ A verificação de empresa é um conceito do WhatsApp usado para garantir que a 
 #### O que é uma conta comercial oficial? {#what-is-an-official-business-account}
 A OBA (conta comercial oficial) dá a você a marca de verificação verde ao lado do seu nome de exibição e é opcional. Você pode solicitar uma conta comercial oficial após concluir a verificação de empresa. Observe que a verificação de empresa e uma conta comercial oficial são conceitos diferentes do WhatsApp.
 
+#### Por que meu nome de exibição do WhatsApp Business pode ser rejeitado? {#why-might-my-whatsapp-business-display-name-be-rejected}
+As rejeições de nomes de exibição do WhatsApp Business são controladas pela Meta. Se seu nome de exibição for rejeitado, consulte as [diretrizes de nome de exibição do WhatsApp](https://faq.whatsapp.com/793641088597363) para mais informações.
+
+Se seu nome de exibição atende às diretrizes e ainda está sendo rejeitado, a Braze não consegue visualizar os motivos específicos. No entanto, o motivo mais comum para rejeição é que a presença online da empresa é muito baixa, ou a empresa está comercializando [produtos regulamentados ou restritos](https://business.whatsapp.com/policy#further-guidance).
+
+Para mais orientações sobre rejeições de nomes de exibição, consulte [Recursos da Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
+
 ### Números de telefone da conta comercial do WhatsApp {#whatsapp-business-account-phone-numbers}
 
 #### Preciso de um número de telefone para minha conta comercial do WhatsApp? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}

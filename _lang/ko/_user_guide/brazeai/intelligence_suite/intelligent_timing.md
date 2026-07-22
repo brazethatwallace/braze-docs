@@ -3,7 +3,7 @@ nav_title: Intelligent Timing
 article_title: Intelligent Timing
 page_order: 1.3
 description: "이 문서에서는 Intelligent Timing(이전의 지능형 전달)에 대한 개요와 Campaigns 및 Canvases에서 이 기능을 활용하는 방법을 설명합니다."
-
+toc_headers: h2
 ---
 
 # [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
@@ -25,7 +25,7 @@ Braze는 사용자의 앱 과거 상호작용 및 각 메시징 채널과의 상
 
 사용자에게 Braze가 최적 발송 시간을 계산할 수 있는 관련 참여 데이터가 없는 경우, 대체 발송 시간을 지정할 수 있습니다.
 
-## 사용 사례 {#use-cases}
+## 사용 사례 {#examples}
 
 - 시간에 민감하지 않은 반복 Campaign 보내기
 - 여러 시간대의 사용자를 대상으로 Campaign 자동화하기
@@ -40,7 +40,7 @@ Braze는 사용자의 앱 과거 상호작용 및 각 메시징 채널과의 상
 ### 1단계: Intelligent Timing 추가 {#step-1-add-intelligent-timing}
 
 1. Campaign을 만들고 메시지를 작성합니다.
-2. 전달 유형으로 **Scheduled Delivery**를 선택합니다.
+2. 전달 유형으로 **예약 전달**을 선택합니다.
 3. **시간 기반 예약 옵션**에서 **Intelligent Timing**을 선택합니다.
 4. 진입 빈도를 설정합니다. 일회성 발송의 경우 **Once**를 선택하고 발송 날짜를 선택합니다. 반복 발송의 경우 **Daily**, **Weekly** 또는 **Monthly**를 선택하고 반복 옵션을 구성합니다. 자세한 안내는 [고려 사항](#considerations)을 참조하세요.
 5. 선택적으로 [방해금지 시간](#quiet-hours)을 구성합니다.
@@ -56,7 +56,7 @@ Braze는 사용자의 앱 과거 상호작용 및 각 메시징 채널과의 상
 방해금지 시간은 **특정 시간 내에만 보내기** 설정을 대체합니다. 메시지를 보낼 수 있는 시간을 선택하는 대신, 이제 메시지를 보내지 않을 시간을 선택합니다. 예를 들어, 오후 4시에서 오후 6시 사이에 메시지를 보내려면 방해금지 시간을 오후 6시부터 다음 날 오후 4시까지로 설정하세요.
 {% endalert %}
 
-1. **Enable Quiet Hours**를 선택합니다.
+1. **방해금지 시간 활성화**를 선택합니다.
 2. 메시지를 보내지 **않을** 시작 및 종료 시간을 선택합니다.
 
 ![방해금지 시간 토글이 켜져 있으며 시작 및 종료 시간이 설정되어 밤새 메시지 전달을 차단하는 화면]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
@@ -71,9 +71,9 @@ Braze는 사용자의 앱 과거 상호작용 및 각 메시징 채널과의 상
 
 하루 중 시간대별로 얼마나 많은 사용자가 메시지를 받을지 예상하려면 미리보기 차트(Campaign만 해당)를 사용하세요.
 
-1. 타겟 오디언스 단계에서 Segments 또는 필터를 추가합니다.
-2. **전달 시간 미리보기** 섹션(타겟 오디언스 및 전달 예약 단계 모두에 표시됨)에서 채널을 선택합니다.
-3. **Refresh Data**를 클릭합니다.
+1. **타겟 오디언스** 단계에서 Segments 또는 필터를 추가합니다.
+2. **전달 시간 미리보기** 섹션(**타겟 오디언스** 및 **전달 예약** 단계 모두에 표시됨)에서 채널을 선택합니다.
+3. **데이터 새로고침**을 클릭합니다.
 
 ![Android 푸시의 전달 미리보기 차트에 따르면, 최대 참여 시간대는 오후 12시부터 2시 사이이며, 가장 인기 있는 앱 사용 시간은 오후 2시입니다.]({% image_buster /assets/img/intel-timing-preview.png %})
 
@@ -115,7 +115,7 @@ Intelligent Timing을 사용할 때는 위닝 배리언트 발송 시간을 A/B 
 
 방해금지 시간을 구성하려면:
 
-1. Intelligent Timing을 구성할 때 **Enable Quiet Hours**를 선택합니다.
+1. Intelligent Timing을 구성할 때 **방해금지 시간 활성화**를 선택합니다.
 2. 방해금지 시간대의 시작 및 종료 시간을 입력합니다.
 
 ### 4단계: 대체 시간 선택 {#campaign-fallback}
@@ -132,7 +132,7 @@ Intelligent Timing을 사용할 때는 위닝 배리언트 발송 시간을 A/B 
 
 1. **타겟 오디언스** 단계에서 Segments 또는 필터를 추가합니다.
 2. **전달 시간 미리보기** 섹션(**타겟 오디언스** 및 **전달 예약** 단계 모두에 표시됨)에서 채널을 선택합니다.
-3. **Refresh Data**를 선택합니다.
+3. **데이터 새로고침**을 선택합니다.
 
 미리보기 차트는 현지 시간을 기준으로 하루의 각 시간대를 표시합니다. 레이블은 하나의 글로벌 시간대로 설정되지 않습니다.
 
@@ -147,7 +147,7 @@ Intelligent Timing 또는 Campaign 오디언스에 대한 설정을 변경할 �
 
 ### 1단계: Intelligent Timing 추가
 
-Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가한 다음 **Delivery Settings**로 이동하여 **Using Intelligent Timing**을 선택합니다.
+Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가한 다음 **전달 설정**으로 이동하여 **Intelligent Timing 사용**을 선택합니다.
 
 해당 날짜에 단계에 진입한 사용자에게 최적의 현지 시간에 메시지가 전송됩니다. 그러나 해당 날짜에 최적 시간이 이미 지난 경우, 다음 날 최적 시간에 전달됩니다. 여러 채널을 대상으로 하는 메시지 단계는 채널별로 서로 다른 시간에 메시지를 보내거나 보내려고 시도할 수 있습니다. 메시지 단계의 첫 번째 메시지가 전송을 시도하면 모든 사용자가 자동으로 다음 단계로 이동합니다.
 
@@ -247,7 +247,7 @@ Intelligent Timing은 세션 시작 및 메시지 열람 이벤트를 기반으�
 
 사용자에게 관련 이벤트가 없는 경우, Intelligent Timing은 메시지 설정에서 구성된 대체 설정을 사용합니다. 이는 커스텀 대체 시간 또는 모든 사용자 중 앱 사용이 가장 활발한 시간입니다.
 
-### Campaigns {#campaigns}
+### Campaigns
 
 #### 모든 시간대의 모든 사용자에게 성공적으로 전달하려면 Intelligent Timing Campaign을 얼마나 미리 시작해야 하나요? {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
 
@@ -308,4 +308,4 @@ Intelligent Timing은 각 사용자가 메시지를 수신한 시간에 대한 �
 
 #### Canvas 단계에서 Intelligent Timing을 활성화하려면 어떻게 해야 하나요? {#how-do-i-enable-intelligent-timing-on-a-canvas-step}
 
-Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가하거나 열고, **Delivery Settings**로 이동한 다음 **Using Intelligent Timing**을 선택합니다. 이 문서의 Canvas 설정 안내에 따라, Canvas 진입과 해당 메시지 사이에 최소 2일 이상의 캘린더 일수를 [지연 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)로 추가하여 Intelligent Timing이 평가할 충분한 참여 이력을 확보하세요.
+Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가하거나 열고, **전달 설정**으로 이동한 다음 **Intelligent Timing 사용**을 선택합니다. 이 문서의 Canvas 설정 안내에 따라, Canvas 진입과 해당 메시지 사이에 최소 2일 이상의 캘린더 일수를 [지연 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)로 추가하여 Intelligent Timing이 평가할 충분한 참여 이력을 확보하세요.

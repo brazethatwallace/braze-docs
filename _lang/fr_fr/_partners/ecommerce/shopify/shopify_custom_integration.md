@@ -16,7 +16,7 @@ Ce guide utilise le framework Hydrogen de Shopify comme exemple. Cependant, vous
 
 Pour intégrer votre boutique Shopify headless à Braze, vous devez remplir ces deux objectifs :
 
-1. **Initialiser et charger le SDK Web de Braze pour permettre le suivi sur site**<br><br> Ajoutez manuellement du code dans votre site Shopify pour activer le suivi sur site de Braze. En implémentant le SDK de Braze sur votre boutique Shopify headless, vous pouvez suivre les activités sur site, notamment les sessions, le comportement des utilisateurs anonymes, les actions des acheteurs avant le passage en caisse, ainsi que tout [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que vous choisissez d'inclure avec votre équipe de développement. Vous pouvez également ajouter tous les canaux pris en charge par les SDK, tels que les messages in-app ou Content Cards.
+1. **Initialiser et charger le SDK Web de Braze pour permettre le suivi sur site**<br><br> Ajoutez manuellement du code dans votre site Shopify pour activer le suivi sur site de Braze. En implémentant le SDK de Braze sur votre boutique Shopify headless, vous pouvez suivre les activités sur site, notamment les sessions, le comportement des utilisateurs anonymes, les actions des acheteurs avant le passage en caisse, ainsi que tout [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que vous choisissez d'inclure avec votre équipe de développement. Vous pouvez également ajouter tous les canaux pris en charge par les SDK, tels que les In-App Messages ou Content Cards.
 
 {: start="2"}
 2. **Installer l'intégration Braze pour Shopify**<br><br> Après avoir connecté votre boutique Shopify à Braze, vous aurez accès aux données des clients, des paiements, des commandes et des produits grâce aux webhooks de Shopify.
@@ -138,7 +138,7 @@ Les politiques de sécurité du contenu (généralement situées dans le fichier
 Suivez le moment où un acheteur se connecte à son compte et synchronise ses informations utilisateur avec Braze. Cela inclut l'appel à notre méthode `changeUser` pour identifier les clients avec un ID externe Braze.
 
 {% alert note %}
-Nous ne disposons pas actuellement de recommandations pour la prise en charge d'un ID externe Braze personnalisé. Si vous en avez besoin pour votre intégration, contactez votre gestionnaire du succès des clients.
+Nous ne disposons pas actuellement de recommandations pour la prise en charge d'un ID externe Braze personnalisé. Si vous en avez besoin pour votre intégration, contactez votre CSM.
 {% endalert %}
 
 Avant de commencer, assurez-vous d'avoir configuré les URI de rappel pour que la connexion client fonctionne dans Hydrogen. Pour plus d'informations, consultez [Utilisation de l'API de compte client avec Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
@@ -665,10 +665,7 @@ Les étapes suivantes dépendent de votre sélection d'ID externe :<br><br>
 
 #### Étape 6.1 : Créer le métafield `braze.external_id` {#step-61-create-the-brazeexternal_id-metafield}
 
-1. Dans le panneau d'administration de Shopify, accédez à **Settings** > **Metafields**.
-2. Sélectionnez **Customers** > **Add definition**.
-3. Pour **Namespace and key**, saisissez `braze.external_id`.
-4. Pour **Type**, sélectionnez **ID Type**.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 Une fois le métafield créé, renseignez-le pour vos clients. Nous recommandons les approches suivantes :
 
@@ -714,9 +711,7 @@ Il est essentiel de valider que `shopify_customer_id` et `email_address` (le cas
 ##### Comportement en cas d'échec et fusion {#failure-behavior-and-merging}
 Tout code de statut autre que `200` est considéré comme un échec.
 
-- **Implications pour la fusion :** Si l'endpoint échoue (renvoie un code autre que `200` ou expire), Braze ne peut pas récupérer l'ID externe. Par conséquent, la fusion entre l'utilisateur Shopify et le profil utilisateur Braze ne se produira pas à ce moment-là.
-- **Logique de nouvelle tentative :** Braze peut effectuer des tentatives réseau immédiates standard, mais si l'échec persiste, la fusion sera reportée jusqu'au prochain événement éligible (par exemple, la prochaine fois que l'utilisateur met à jour son profil ou effectue un paiement).
-- **Disponibilité :** Pour permettre la fusion des utilisateurs en temps voulu, assurez-vous que votre endpoint est hautement disponible et gère le champ facultatif `email_address` de manière appropriée.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 #### Étape 6.3 : Saisir votre ID externe {#step-63-input-your-external-id}
 
@@ -724,9 +719,7 @@ Répétez l'[étape 6](#step-6) et saisissez l'URL de votre endpoint après avoi
 
 ##### Considérations {#considerations}
 
-- Si votre ID externe n'est pas généré lorsque Braze envoie une requête à votre endpoint, l'intégration utilisera par défaut l'ID client Shopify lorsque la fonction `changeUser` est appelée. Cette étape est cruciale pour fusionner le profil de l'utilisateur anonyme avec le profil de l'utilisateur identifié. Par conséquent, il peut y avoir une période temporaire pendant laquelle différents types d'ID externes coexistent dans votre espace de travail.
-- Lorsque l'ID externe est disponible dans le métafield `braze.external_id`, l'intégration donnera la priorité à cet ID externe et l'attribuera.
-    - Si l'ID client Shopify était précédemment défini comme ID externe Braze, il sera remplacé par la valeur du métafield `braze.external_id`.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 #### Étape 6.4 : Collecter vos abonnements e-mail ou SMS depuis Shopify (facultatif) {#step-64-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -736,11 +729,7 @@ Si vous utilisez les canaux e-mail ou SMS, vous pouvez synchroniser vos états d
 
 ![Section « Collecter les abonnés » avec option de collecte des abonnements marketing par e-mail ou SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-Comme indiqué dans l'[aperçu de Shopify]({{site.baseurl}}/shopify_overview), si vous souhaitez utiliser un formulaire de capture tiers, vos développeurs doivent intégrer le code du SDK de Braze. Cela vous permettra de capturer l'adresse e-mail et l'état global d'abonnement e-mail à partir des soumissions de formulaire. Plus précisément, vous devez implémenter et tester ces méthodes dans votre fichier `theme.liquid` :<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail) : Définit l'adresse e-mail sur le profil utilisateur
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) : Met à jour l'état global d'abonnement e-mail
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ### Étape 7 : Synchroniser les produits (facultatif) {#step-7-sync-products-optional}
 
@@ -750,9 +739,9 @@ Vous pouvez synchroniser tous les produits de votre boutique Shopify vers un cat
 
 ### Étape 8 : Activer les canaux {#step-8-activate-channels}
 
-Pour activer les messages in-app, Content Cards et les Feature Flags via l'intégration directe de Shopify, ajoutez chaque canal à votre SDK. Suivez les liens de documentation fournis pour chaque canal :
+Pour activer les In-App Messages, Content Cards et les Feature Flags via l'intégration directe de Shopify, ajoutez chaque canal à votre SDK. Suivez les liens de documentation fournis pour chaque canal :
 
-- **Messages in-app :** Pour activer les messages in-app dans les cas d'usage de formulaires de capture de prospects, consultez [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
+- **In-App Messages :** Pour activer les In-App Messages dans les cas d'usage de formulaires de capture de prospects, consultez [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
 - **Content Cards :** Pour activer Content Cards dans les cas d'usage de boîte de réception ou de bannières de site web, consultez [Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 - **Feature Flags :** Pour activer les Feature Flags dans les cas d'usage d'expérimentation sur site, consultez [Feature Flags]({{site.baseurl}}/developer_guide/feature_flags).
 

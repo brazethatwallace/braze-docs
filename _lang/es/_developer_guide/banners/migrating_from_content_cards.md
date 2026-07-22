@@ -39,7 +39,7 @@ Los banners ofrecen varias ventajas con respecto a Content Cards para la mensaje
 
 ### Persistencia {#persistence}
 
-- **Sin límite de caducidad**: Las campañas con banners no tienen un límite de caducidad de 30 días como Content Cards, lo que permite una verdadera persistencia de los mensajes.
+- **Sin límite de caducidad**: Las Campaigns con banners no tienen un límite de caducidad de 30 días como Content Cards, lo que permite una verdadera persistencia de los mensajes.
 
 ## Cuándo realizar la migración {#when-to-migrate}
 
@@ -763,7 +763,7 @@ Al realizar la migración de Content Cards a banners, ten en cuenta las siguient
 
 ### Migración de mensajes desencadenados {#migrating-triggered-messages}
 
-Los banners solo admiten campañas de entrega planificada. Para realizar la migración de un mensaje que anteriormente se desencadenaba mediante API o se basaba en acciones, conviértelo en una segmentación basada en segmentos:
+Los banners solo admiten Campaigns de entrega planificada. Para realizar la migración de un mensaje que anteriormente se desencadenaba mediante API o se basaba en acciones, conviértelo en una segmentación basada en segmentos:
 
 - **Ejemplo:** En lugar de desencadenar una tarjeta «Completar perfil» con la API, crea un segmento para los usuarios que se hayan registrado en los últimos 7 días pero que no hayan completado su perfil.
 - **Elegibilidad en tiempo real:** Los usuarios se clasifican o descalifican para el banner instantáneamente en cada actualización en función de su pertenencia al segmento.
@@ -780,6 +780,7 @@ Los banners solo admiten campañas de entrega planificada. Para realizar la migr
 | Editor de arrastrar y soltar | ❌ Requiere desarrollador para personalización | ✅ Los especialistas en marketing pueden crear/actualizar sin necesidad de ingeniería |
 | HTML/CSS personalizado | ❌ Limitado a la estructura de la tarjeta | ✅ Compatibilidad total con HTML/CSS |
 | Pares clave-valor para personalización | ✅ Necesario para la personalización avanzada | ✅ Pares clave-valor fuertemente tipados denominados «propiedades» para una personalización avanzada |
+| Extras de mensaje | ✅ Compatible | ❌ No compatible actualmente |
 | **Persistencia y caducidad** |
 | Caducidad de la tarjeta | ✅ Compatible (límite de 30 días) | ✅ Compatible (sin límite de caducidad) |
 | Verdadera persistencia | ❌ Máximo 30 días | ✅ Persistencia ilimitada |

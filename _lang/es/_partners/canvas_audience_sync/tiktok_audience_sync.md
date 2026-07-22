@@ -15,10 +15,7 @@ Con Braze Audience Sync to TikTok, las marcas pueden optar por añadir los datos
 
 **Entre los casos de uso más comunes para la sincronización de audiencias se incluyen**:
 
-- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la participación
-- Reorientar a los usuarios menos receptivos a otros canales de marketing
-- Crear audiencias de supresión para evitar que los usuarios reciban anuncios cuando ya son consumidores fieles de tu marca
-- Crear Actalike Audiences para captar nuevos usuarios de forma más eficaz
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Esta función permite a las marcas controlar qué datos propios específicos se comparten con TikTok. En Braze, las integraciones con las que puedes y no puedes compartir tus datos propios se tienen muy en cuenta. Para más información, consulta nuestra [política de privacidad](https://www.braze.com/privacy).
 
@@ -29,7 +26,7 @@ Braze Audience Sync to TikTok es una integración de Audience Sync Pro. Para má
 
 ## Requisitos previos {#prerequisites}
 
-Debes asegurarte de que los siguientes elementos están creados, completados y/o aceptados antes de configurar tu paso de audiencia de TikTok en Canvas.
+Debes asegurarte de que los siguientes elementos están creados, completados o aceptados antes de configurar tu paso de audiencia de TikTok en Canvas.
 
 | Requisito | Origen | Descripción |
 | ----------- | ------ | ----------- |
@@ -104,6 +101,7 @@ Braze también ofrece la posibilidad de añadir usuarios a las audiencias de Tik
 {% endtabs %}
 
 ### Paso 4: Lanzar Canvas {#step-4-launch-canvas}
+
 Una vez que hayas configurado tu componente de TikTok Audience, ¡simplemente lanza el Canvas! Se creará una nueva audiencia, y los usuarios que fluyan a través del componente de TikTok Audience pasarán a esta audiencia en TikTok. Si tu Canvas contiene componentes subsiguientes, tus usuarios avanzarán al siguiente paso en su recorrido de usuario.
 
 Puedes ver la audiencia en TikTok entrando en tu cuenta de **Ads Manager** y seleccionando **Audiences** en el desplegable de **Assets**. En la página **Audience**, puedes ver el tamaño de cada audiencia cuando alcance aproximadamente &#126;1000.
@@ -114,7 +112,7 @@ Puedes ver la audiencia en TikTok entrando en tu cuenta de **Ads Manager** y sel
 
 A medida que los usuarios alcanzan el paso de Audience Sync, Braze los sincroniza casi en tiempo real respetando los límites de velocidad de la API de marketing de TikTok. Braze agrupa y procesa el mayor número posible de usuarios cada 5 segundos antes de enviarlos a TikTok.
 
-El límite de velocidad de la API de Segment de TikTok no permite más de 50 consultas por segundo y 10.000 usuarios por solicitud. Si un cliente alcanza este límite, Braze reintenta la sincronización durante un máximo de &#126;13 horas. Si la sincronización sigue sin ser posible, Braze lista a estos usuarios en la métrica de usuarios con errores.
+El límite de velocidad de la API de Segment de TikTok no permite más de 50 consultas por segundo y 10 000 usuarios por solicitud. Si un cliente alcanza este límite, Braze reintenta la sincronización durante un máximo de &#126;13 horas. Si la sincronización sigue sin ser posible, Braze lista a estos usuarios en la métrica de usuarios con errores.
 
 ## Comprender los análisis {#understanding-analytics}
 
@@ -143,7 +141,7 @@ Puedes desconectar y volver a conectar tu cuenta de TikTok en la página del par
 
 ### ¿Por qué no se puede lanzar mi Canvas? {#why-is-my-canvas-not-allowed-to-launch}
 
-Confirma que tu cuenta de TikTok se conecta correctamente a Braze en la página del partner de TikTok. A continuación, asegúrate de haber seleccionado una cuenta publicitaria, introducido un nombre para la nueva audiencia y seleccionado los campos que coincidan.
+Confirma que tu cuenta de TikTok se conecta correctamente a Braze en la página del partner de TikTok. A continuación, asegúrate de haber seleccionado una cuenta publicitaria, introducido un nombre para la nueva audiencia y seleccionado los campos de coincidencia.
 
 ### ¿Cómo sé si los usuarios han coincidido después de pasar usuarios a TikTok? {#how-do-i-know-if-users-have-matched-after-passing-users-to-tiktok}
 

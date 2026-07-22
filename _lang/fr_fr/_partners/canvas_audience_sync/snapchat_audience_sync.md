@@ -16,10 +16,7 @@ Grâce à la synchronisation de l'audience Braze avec Snapchat, les marques peuv
 
 **Les cas d'usage courants pour la synchronisation de l'audience incluent :**
 
-- Cibler des utilisateurs à forte valeur via plusieurs canaux pour stimuler les achats ou l'engagement
-- Recibler les utilisateurs qui réagissent moins aux autres canaux de marketing
-- Créer des audiences de suppression pour empêcher les utilisateurs de recevoir des publicités lorsqu'ils sont déjà des consommateurs fidèles de votre marque
-- Créer des audiences similaires pour acquérir de nouveaux utilisateurs plus efficacement
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Cette fonctionnalité permet aux utilisateurs de contrôler quelles données first-party spécifiques sont partagées avec Snapchat. Chez Braze, les intégrations avec lesquelles vous pouvez et ne pouvez pas partager vos données first-party sont prises en compte avec la plus grande attention. Pour plus d'informations, consultez notre [politique de confidentialité](https://www.braze.com/privacy).
 
@@ -57,7 +54,7 @@ Une fois que vous aurez confirmé, vous serez redirigé vers Braze pour sélecti
 
 ![Liste des comptes publicitaires disponibles que vous pouvez connecter à Snapchat.]({% image_buster /assets/img/snapchat/snapchat2.png %}){: style="max-width:80%;"}
 
-Une fois connecté avec succès, vous serez renvoyé à la page partenaire, où vous pourrez voir quels comptes sont connectés et déconnecter les comptes existants.
+Une fois la connexion établie, vous serez renvoyé à la page partenaire, où vous pourrez voir quels comptes sont connectés et déconnecter les comptes existants.
 
 ![Version mise à jour de la page des partenaires technologiques Snapchat montrant les comptes publicitaires connectés avec succès.]({% image_buster /assets/img/snapchat/snapchat3.png %}){: style="max-width:80%;"}
 
@@ -119,12 +116,12 @@ La limite de débit de l'API de Snapchat n'autorise pas plus de dix requêtes pa
 
 ### Comprendre les analyses {#understanding-analytics}
 
-Le tableau suivant comprend des indicateurs et des descriptions pour vous aider à mieux comprendre les analyses de votre composant de synchronisation des audiences.
+Le tableau suivant comprend des indicateurs et des descriptions pour vous aider à mieux comprendre les analyses de votre composant de synchronisation d'audience.
 
 | Indicateur | Description |
 | --- | --- |
 | Entrés | Nombre d'utilisateurs qui sont entrés dans ce composant pour être synchronisés avec Snapchat. |
-| Passés à l'étape suivante | Combien d'utilisateurs sont passés au composant suivant s'il y en a un ? Tous les utilisateurs avanceront automatiquement si c'est la dernière étape de la branche Canvas. |
+| Passés à l'étape suivante | Nombre d'utilisateurs passés au composant suivant, s'il y en a un. Tous les utilisateurs avanceront automatiquement s'il s'agit de la dernière étape de la branche Canvas. |
 | Utilisateurs synchronisés | Nombre d'utilisateurs qui ont été synchronisés avec succès sur Snapchat. |
 | Utilisateurs non synchronisés | Nombre d'utilisateurs qui n'ont pas été synchronisés en raison de champs manquants à faire correspondre. |
 | Utilisateurs en attente | Nombre d'utilisateurs actuellement traités par Braze en vue d'une synchronisation avec Snapchat. |

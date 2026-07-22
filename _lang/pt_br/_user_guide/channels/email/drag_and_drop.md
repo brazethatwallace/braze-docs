@@ -150,9 +150,7 @@ Uma prévia no painel à direita será preenchida com as informações de envio 
 
 Em **Sending Settings** > **Advanced**, você pode adicionar anexos de e-mail pelos seguintes métodos:
 
-- **Fazer upload de um arquivo:** Arraste e solte ou navegue para fazer upload de um arquivo diretamente do seu computador para o e-mail. A Braze valida o tipo e o tamanho do arquivo (até 2&nbsp;MB por padrão) antes do upload, e esses arquivos são enviados para a biblioteca de mídia. Arquivos maiores que o limite de 2&nbsp;MB não podem ser enviados.
-- **Usar a biblioteca de mídia:** Navegue e selecione entre os ativos já armazenados na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, documentos Word, arquivos Excel e apresentações PowerPoint são todos suportados.
-- **Adicionar a partir de URL:** Insira uma URL apontando para o arquivo e forneça um nome de exibição para o arquivo. Como a Braze não pode verificar URLs arbitrárias quanto ao tamanho durante a composição do e-mail, o tamanho do arquivo é verificado no momento do envio. Observe que Liquid não é suportado neste campo.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) para práticas recomendadas específicas a serem consideradas.
 

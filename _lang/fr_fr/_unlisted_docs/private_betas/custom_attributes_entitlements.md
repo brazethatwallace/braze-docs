@@ -171,7 +171,7 @@ Les attributs de type tableau sont adaptés pour stocker des listes d'informatio
 
 Par défaut, la longueur maximale d'un tableau pour un attribut est fixée à 25 et peut être augmentée jusqu'à 100 pour un tableau individuel. Par exemple, si vous envoyez un attribut tel que « Films regardés » et qu'il est défini à 100, lorsqu'un utilisateur regarde un 101e film, le premier film sera supprimé du tableau et le film le plus récent sera ajouté.
 
-Si vous souhaitez augmenter ce maximum, contactez votre CSM. Votre administrateur de tableau de bord peut ensuite augmenter la longueur maximale des tableaux individuels au-delà de 100 depuis l'onglet **Attributs personnalisés** de la page **Gérer les paramètres**.
+Si vous souhaitez augmenter ce maximum, contactez votre gestionnaire du succès des clients. Votre administrateur de tableau de bord peut ensuite augmenter la longueur maximale des tableaux individuels au-delà de 100 depuis l'onglet **Attributs personnalisés** de la page **Gérer les paramètres**.
 
 Notez que si vous saisissez des valeurs avec des espaces entre, avant ou après les mots, Braze vérifiera également ces mêmes espaces.
 
@@ -228,11 +228,7 @@ La dernière date à laquelle un événement personnalisé ou un événement d'a
 
 #### Détails des attributs de type horodatage {#time-attribute-details}
 
-- Jour d'événement récurrent
-  - Lorsque vous utilisez le filtre « Jour d'événement récurrent » et que vous êtes invité à sélectionner le « Jour calendaire de l'événement récurrent », si vous sélectionnez `IS LESS THAN` ou `IS MORE THAN`, la date actuelle sera comptée pour ce filtre de segmentation.
-  - Par exemple, si le 10 mars 2020, vous avez sélectionné la date de l'attribut comme `LESS THAN ... March 10, 2020`, les attributs seront pris en compte pour les jours jusqu'au 10 mars 2020 inclus.
-- Il y a moins de X jours : le filtre « Il y a moins de X jours » inclut les dates entre il y a X jours et la date/heure actuelle.
-- Dans moins de X jours dans le futur : inclut les dates entre la date/heure actuelle et X jours dans le futur.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 ### Objets {#objects}
 

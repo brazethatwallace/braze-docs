@@ -1,0 +1,2 @@
+- **Recommendations blocks**: Set algorithms and filtering to source users' personalized content that propagates when the email is opened.
+- **Dynamic Content Blocks**: Target different promotions and messages to different users. Targeting can be based on either affinity or audience. Dynamic Yield determines which personalized experience to serve when the email is opened.

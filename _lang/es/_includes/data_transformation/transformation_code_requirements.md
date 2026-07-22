@@ -1,0 +1,7 @@
+- El código de transformación se acepta en el lenguaje de programación JavaScript. Se admite cualquier flujo de control estándar de JavaScript, como la lógica if/else.
+- El código de transformación accede al cuerpo de la solicitud del webhook a través de la variable `payload`. Esta variable es un objeto que se completa al analizar el JSON del cuerpo de la solicitud.
+- Se admite cualquier característica compatible con nuestro endpoint `/users/track`, incluyendo:
+  - Objetos de atributos de usuario, objetos de eventos y objetos de compra
+  - Atributos anidados y propiedades de eventos personalizados anidadas
+  - Actualizaciones de grupos de suscripción
+  - Dirección de correo electrónico como identificador

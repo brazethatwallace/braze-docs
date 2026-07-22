@@ -85,6 +85,10 @@ Cada bloque tiene su propia configuración, como control granular del relleno. E
 
 Si estás usando el bloque de código personalizado en tu centro de preferencias, es posible que los marcos en línea no se generen en el código personalizado cuando se entregue a tus usuarios.
 
+{% alert note %}
+Los Content Blocks con enlaces no se pueden usar en el centro de preferencias de arrastrar y soltar. Los enlaces dentro de los Content Blocks no son clicables.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 

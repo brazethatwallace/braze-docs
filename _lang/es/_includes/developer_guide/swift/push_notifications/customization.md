@@ -136,7 +136,7 @@ Solo necesitas definir botones de acción en el panel de Braze para comportamien
 3. En el desplegable **Categoría de notificación de iOS**, selecciona **Introducir categoría personalizada de iOS previamente registrada**.
 4. Por último, introduce una de las categorías que creaste anteriormente. El siguiente ejemplo utiliza la categoría personalizada: `LIKE_CATEGORY`.
 
-![El panel de campaña de notificaciones push con la configuración de categorías personalizadas.]({% image_buster /assets/img_archive/ios-notification-category.png %})
+![El panel de Campaign de notificaciones push con la configuración de categorías personalizadas.]({% image_buster /assets/img_archive/ios-notification-category.png %})
 
 ### Ejemplo: categoría push personalizada {#example-custom-push-category}
 
@@ -171,7 +171,7 @@ Las señales son pequeños iconos ideales para llamar la atención del usuario. 
 
 Braze borrará automáticamente el recuento de señales cuando se reciba una notificación de Braze mientras la aplicación esté en primer plano. Si estableces manualmente el número de la señal en 0, también se borrarán las notificaciones del centro de notificaciones.
 
-Si no tienes un plan para borrar las señales como parte del funcionamiento normal de la aplicación o mediante el envío de push que borren la señal, debes borrar la señal cuando la aplicación se active añadiendo el siguiente código al método delegado `applicationDidBecomeActive:` de tu aplicación:
+Si no tienes un plan para borrar las señales como parte del funcionamiento normal de la aplicación o mediante el envío de push que borren la señal, debes borrar la señal cuando la aplicación se active añadiendo el siguiente código al método `sceneDidBecomeActive(_:)` del archivo `SceneDelegate.swift` de tu aplicación (o al método delegado `applicationDidBecomeActive:` de tu aplicación, si tu aplicación aún no ha adoptado el [ciclo de vida de `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)):
 
 {% tabs %}
 {% tab swift %}

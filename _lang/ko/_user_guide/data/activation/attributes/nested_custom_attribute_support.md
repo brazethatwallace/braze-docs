@@ -11,7 +11,20 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 
 > 이 페이지에서는 중첩 커스텀 속성에 대해 설명하며, 이를 통해 속성 집합을 다른 속성의 속성정보로 정의할 수 있습니다. 즉, 커스텀 속성 오브젝트를 정의할 때 해당 오브젝트에 대한 추가 속성 집합을 정의할 수 있습니다.
 
-{% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
+## 중첩 속성 소개 {#about-nested-attributes}
+
+중첩 속성을 사용하면 단일 커스텀 속성 오브젝트의 데이터를 활용하여 더 풍부한 Segment를 구축하고 메시지를 개인화할 수 있습니다.
+
+다음 예시에서 커스텀 속성 `favorite_book`에는 중첩 속성 `title`, `author`, `publishing_date`가 포함되어 있습니다. 이 오브젝트를 사용하여 저자별로 사용자를 타겟팅하거나, 출판일로 필터링하거나, 메시지에 책 제목을 직접 삽입할 수 있습니다:
+
+```json
+"favorite_book": {
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "publishing_date": "1937"
+}
+```
+
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -353,7 +366,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 ## 오브젝트 배열에서의 세분화 동작 {#segmentation-behavior-with-arrays-of-objects}
 
-오브젝트 배열에 대해 여러 `Nested Custom Attribute` 필터를 AND 로직으로 사용하여 세분화할 때, 각 필터는 배열의 모든 항목에 대해 독립적으로 평가됩니다. 배열의 _어떤_ 항목이든 각 개별 필터를 충족하면 사용자가 Segment에 해당됩니다. 필터가 _동일한_ 항목과 일치할 필요는 없습니다.
+오브젝트 배열에 대해 여러 `Nested Custom Attribute` 필터를 AND 로직으로 사용하여 세분화할 때, 각 필터는 배열의 모든 항목에 대해 독립적으로 평가됩니다. 배열의 *어떤* 항목이든 각 개별 필터를 충족하면 사용자가 Segment에 해당됩니다. 필터가 *동일한* 항목과 일치할 필요는 없습니다.
 
 예를 들어, 사용자에게 다음과 같은 배열이 있다고 가정합니다:
 

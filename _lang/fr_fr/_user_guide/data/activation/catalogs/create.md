@@ -43,7 +43,7 @@ Le tableau suivant répertorie les types de données de catalogue pris en charge
 Pour créer un catalogue, rendez-vous dans **Paramètres des données** > **Catalogues**, puis sélectionnez **Créer un nouveau catalogue** et choisissez l'une des options suivantes :
 
 {% tabs local %}
-{% tab Upload CSV %}
+{% tab Import CSV %}
 ### Étape 1 : Vérifiez votre fichier CSV {#step-1-review-your-csv-file}
 
 Avant de télécharger votre fichier CSV, assurez-vous qu'il répond aux exigences suivantes :
@@ -145,6 +145,10 @@ Ensuite, nous nommerons ce catalogue « games_catalog » et sélectionnerons le 
 Notez que vous ne pourrez pas modifier ce nom après la création du catalogue. Vous pouvez toutefois supprimer un catalogue et en télécharger une version mise à jour en utilisant le même nom.
 
 Après avoir créé le catalogue, vous pouvez commencer à y faire référence [dans une campagne]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
+
+{% alert important %}
+Les fichiers CSV précédemment téléchargés sont disponibles au téléchargement depuis la page **Catalogues** pendant 30 jours après la date d'import. Passé ce délai, le fichier est définitivement supprimé et ne peut plus être consulté.
+{% endalert %}
 {% endtab %}
 
 {% tab Créer dans le navigateur %}
