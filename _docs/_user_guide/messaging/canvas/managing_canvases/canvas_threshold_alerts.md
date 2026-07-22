@@ -35,7 +35,7 @@ Alert rules define the threshold that triggers a notification. You can build rul
 - **User entries:** Number of users who entered the Canvas
 - **Messages sent:** Number of messages sent from the Canvas
 
-For each rule, choose a comparison (**less than** or **more than**) and a volume threshold. For example, a rule for **User entries less than 3,000** flags a Canvas that's normally reaching thousands of users but has suddenly stalled—a sign of an upstream audience or entry issue worth investigating.
+For each rule, choose a comparison (**less than** or **more than**) and a volume threshold. For example, a rule for "User entries less than 3,000" flags a Canvas that's normally reaching thousands of users but has suddenly stalled—a sign of an upstream audience or entry issue worth investigating.
 
 You can group multiple rules together and combine rule groups with **AND** or **OR** logic to build more specific alert conditions.
 
