@@ -24,6 +24,10 @@ Here's an example of the standard Liquid tag format for `message_extras`:
 
 You can add these tags as needed for your key-value pairs in the message body. However, the length of all keys and values should not exceed 1,000 bytes (1&nbsp;KB). In Currents and Snowflake Data Sharing, you can see a new event field called `message_extras` for your send events. This generates a JSON-serialized string in one field.
 
+{% alert note %}
+Email extras send metadata to email service providers and are not published to Currents or Snowflake. To add metadata or dynamic values to Currents or Snowflake send events, use the `message_extras` Liquid tag.
+{% endalert %}
+
 ## How message extras data is sent using Currents
 
 **Message extras** are key-value pairs attached at send time. Configuration depends on the channel. For email, they are added using headers. For iOS push, they are included in the push payload. All supported send events surface the same `message_extras` field in Currents (and Snowflake) once the message is sent.
