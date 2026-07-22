@@ -16,6 +16,8 @@ channel:
 
 > We want to alert you when something doesn't seem quite as expected and give you peace of mind that the ship is sailing smoothly. Campaign threshold alerts provide peace of mind—be the first to know if an important campaign sends more or fewer messages than you expect.
 
+Looking for the same capability on a Canvas? Refer to [Canvas threshold alerts]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts).
+
 Campaign alerts are available for the following campaigns:
 
 - Recurring scheduled campaigns
