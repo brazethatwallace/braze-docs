@@ -80,7 +80,6 @@ If your email doesn't render properly, check each content block to make sure the
 
 If there is a doctype header in the HTML template itself along with an HTML doctype in one of the content blocks, the email doesn't render properly. Treat content blocks as additional HTML being added to the email template—not a brand new HTML doctype. This means the content block shouldn't contain extra body tags or any of the template HTML code.
 
-In some instances, you may use Emailify to import pre-written code blocks of content blocks, resulting in extra code. Also confirm any duplicated tags and class names.
 
 ## Frequently asked questions
 
