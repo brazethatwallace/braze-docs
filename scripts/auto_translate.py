@@ -264,6 +264,10 @@ def strip_code_fences(text):
 
 
 _LIQUID_TAG_RE = re.compile(r"\{%[-\s]*(.*?)[-\s]*%\}", re.DOTALL)
+_RAW_BLOCK_RE = re.compile(
+    r"\{%[-\s]*raw[-\s]*%\}.*?\{%[-\s]*endraw[-\s]*%\}",
+    re.DOTALL | re.IGNORECASE,
+)
 _LIQUID_BLOCK_PAIRS = {
     "api": "endapi",
     "details": "enddetails",
@@ -293,10 +297,27 @@ def _liquid_tag_token(inner):
     return None, None
 
 
+def _raw_block_spans(content):
+    """Return (start, end) spans for each ``{% raw %}...{% endraw %}`` region."""
+    return [(m.start(), m.end()) for m in _RAW_BLOCK_RE.finditer(content)]
+
+
+def _inside_raw_block(spans, position):
+    return any(start <= position < end for start, end in spans)
+
+
+def _liquid_content_for_qc(content):
+    """Return *content* with ``{% raw %}`` regions removed for Liquid QC."""
+    return _RAW_BLOCK_RE.sub("", content)
+
+
 def _liquid_block_stack_at(content, position):
     """Return open Liquid block tag names at *position* in *content*."""
+    raw_spans = _raw_block_spans(content)
     stack = []
     for match in _LIQUID_TAG_RE.finditer(content[:position]):
+        if _inside_raw_block(raw_spans, match.start()):
+            continue
         kind, name = _liquid_tag_token(match.group(1))
         if kind == "open":
             stack.append(name)
@@ -307,9 +328,12 @@ def _liquid_block_stack_at(content, position):
 
 def _liquid_safe_split_offsets(content):
     """Byte offsets where a chunk boundary will not split an open Liquid block."""
+    raw_spans = _raw_block_spans(content)
     offsets = [0]
     stack = []
     for match in _LIQUID_TAG_RE.finditer(content):
+        if _inside_raw_block(raw_spans, match.start()):
+            continue
         kind, name = _liquid_tag_token(match.group(1))
         if kind == "open":
             stack.append(name)
@@ -323,7 +347,8 @@ def _liquid_safe_split_offsets(content):
 
 
 def _count_liquid_tag(content, tag_name):
-    return len(re.findall(rf"\{{%[-\s]*{re.escape(tag_name)}\b", content))
+    countable = _liquid_content_for_qc(content)
+    return len(re.findall(rf"\{{%[-\s]*{re.escape(tag_name)}\b", countable))
 
 
 def validate_liquid_paired_tags(content, label="translation"):
@@ -348,11 +373,14 @@ def _liquid_tag_line_pattern(tag_name):
 
 def _unmatched_open_tag_matches(content, open_tag, close_tag):
     """Return open-tag line matches that remain unmatched at end of *content*."""
+    raw_spans = _raw_block_spans(content)
     events = []
     for match in _liquid_tag_line_pattern(open_tag).finditer(content):
-        events.append((match.start(), 0, match))
+        if not _inside_raw_block(raw_spans, match.start()):
+            events.append((match.start(), 0, match))
     for match in _liquid_tag_line_pattern(close_tag).finditer(content):
-        events.append((match.start(), 1, match))
+        if not _inside_raw_block(raw_spans, match.start()):
+            events.append((match.start(), 1, match))
     events.sort(key=lambda item: (item[0], item[1]))
     stack = []
     for _, kind, match in events:
