@@ -406,7 +406,12 @@ def _remove_one_liquid_tag_line(
     """
     if skip_first:
         preserve_first_n = max(preserve_first_n, 1)
-    matches = list(_liquid_tag_line_pattern(tag_name).finditer(content))
+    raw_spans = _raw_block_spans(content)
+    matches = [
+        match
+        for match in _liquid_tag_line_pattern(tag_name).finditer(content)
+        if not _inside_raw_block(raw_spans, match.start())
+    ]
     if not matches:
         raise ValueError(f"No standalone {{% {tag_name} %}} line found")
     if preserve_first_n < 0:
