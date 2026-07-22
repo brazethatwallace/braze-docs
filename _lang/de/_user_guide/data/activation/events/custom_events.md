@@ -17,13 +17,7 @@ Angepasste Events sind Aktionen oder Updates, die von Ihren Nutzer:innen durchge
 
 Einige häufige Anwendungsfälle für angepasste Events sind:
 
-- Auslösen einer Campaign oder eines Canvas auf der Grundlage eines angepassten Events mit [aktionsbasierter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
-- Segmentierung der Nutzer:innen danach, wie oft sie ein angepasstes Event durchgeführt haben, wann das Event zuletzt aufgetreten ist und Ähnliches
-- Nutzung der Dashboard-[Analytics für angepasste Events](#analytics), um eine aggregierte Ansicht darüber zu erhalten, wie oft jedes Event aufgetreten ist
-- Zusätzliche Analytics mithilfe von [Funnel]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps)- und [Bindungs]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)-Berichten gewinnen
-- Nutzung von [persistenten Entry-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties), um Metadaten aus Ihrem Kund:innen-Event für die Personalisierung in Ihren Canvas-Schritten zu verwenden
-- Generierung anspruchsvollerer Analytics mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
-- Einrichten von [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria), um festzulegen, wann Nutzer:innen Ihren Canvas verlassen sollen
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Angepasste Events verwalten {#managing-custom-events}
 
@@ -37,9 +31,7 @@ Sie können einzelne angepasste Events über das Aktionsmenü auf die Blocklist 
 
 Wenn Sie ein angepasstes Event blockieren:
 
-- Werden für dieses Event keine zukünftigen Daten mehr erfasst.
-- Sind vorhandene Daten nicht verfügbar, es sei denn, das Event wird wieder von der Blocklist entfernt.
-- Wird dieses Event nicht in Filtern oder Grafiken angezeigt.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 Wenn ein blockiertes angepasstes Event derzeit von Filtern oder Triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warnhinweis-Modal, das erklärt, dass alle Instanzen der Filter oder Trigger, die darauf verweisen, entfernt und archiviert werden.
 

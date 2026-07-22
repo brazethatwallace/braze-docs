@@ -14,6 +14,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie mit dem Operator Code f
 
 ## Zugriff {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
+Wählen Sie im [Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation)-Editor **Insert Code** aus, um Transformationscode zu generieren, der eine eingehende Webhook-Nutzlast in gültige Braze-API-Anfragen umwandelt.
+
 
 Weitere Informationen, einschließlich Beispiel-Prompts, finden Sie unter [Code für die Datentransformation generieren in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).

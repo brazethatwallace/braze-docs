@@ -376,9 +376,7 @@ Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugri
 #### Schritt 1.1: Dienstprinzipal einrichten und Zugriff gewähren {#step-11-set-up-the-service-principal-and-grant-access}
 Braze stellt die Verbindung zu Ihrem Fabric-Warehouse über einen Dienstprinzipal mit Entra-ID-Authentifizierung her. Erstellen Sie einen neuen Dienstprinzipal, den Braze verwenden kann, und gewähren Sie bei Bedarf Zugriff auf Fabric-Ressourcen. Braze benötigt für die Verbindung die folgenden Angaben:
 
-* Tenant-ID (auch Verzeichnis-ID genannt) für Ihr Azure-Konto
-* Principal-ID (auch Anwendungs-ID genannt) für den Dienstprinzipal
-* Client-Geheimnis für die Authentifizierung von Braze
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
 1. Navigieren Sie im Azure-Portal zum Microsoft Entra Admin Center und dann zu „App-Registrierungen“.
 2. Wählen Sie **+ New registration** unter **Identity** > **Applications** > **App registrations**.

@@ -1,27 +1,16 @@
 ---
-nav_title: Créditos de mensagem - Lambda
+nav_title: Message Credits - Lambda
 permalink: "/message_credits_lambda_k5gh/"
 hidden: true
 noindex: true
 hide_toc: true
 ---
 
-# Créditos de mensagem - Lambda (Confidencial) {#message-credits-lambda-confidential}
+# Message Credits - Lambda (Confidencial) {#message-credits-lambda-confidential}
 
-> Créditos de mensagem é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os créditos de mensagem proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
+> Message Credits é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os Message Credits proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
 
-{% alert note %}
-Produtos diferentes terão unidades de medida diferentes nos relatórios.<br><br>
-<b>Agent Console:</b> Invocações<br>
-<b>SMS:</b> Segmentos<br>
-<b>MMS:</b> Envios<br>
-<b>WhatsApp:</b> Mensagens entregues<br>
-<b>RCS:</b> Segmentos entregues, Envios entregues<br>
-<b>LINE:</b> Envios<br>
-<b>KakaoTalk:</b> Envios<br>
-
-Por fim, as taxas de operadora relacionadas a SMS, MMS e RCS são cobradas separadamente (após o uso) e não são consideradas parte deste SKU de créditos de mensagem.
-{% endalert %}
+{% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
 ## Definições {#definitions}
 
@@ -29,14 +18,14 @@ As definições das colunas são as seguintes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Região final específica, país ou tipo de ação enviada pela plataforma Braze |
-| **Créditos por 1 envio** | Número exato de créditos de mensagem para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
+| **Créditos por 1 envio** | Número exato de Message Credits para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabela de proporção de créditos para créditos de mensagem - Lambda {#credit-ratio-table-for-message-credits-lambda}
+## Tabela de proporção de créditos para Message Credits - Lambda {#credit-ratio-table-for-message-credits-lambda}
 
 {% details Clique para expandir %}
-<table class="credits-table" aria-label="Tabela de proporção de créditos para créditos de mensagem - Lambda">
+<table class="credits-table" aria-label="Tabela de proporção de créditos para Message Credits - Lambda">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -286,7 +275,7 @@ As definições das colunas são as seguintes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Caribe Neerlandês</td>
+        <td>Países Baixos Caribenhos</td>
         <td>21.70</td>
     </tr>
     <tr>
@@ -646,7 +635,7 @@ As definições das colunas são as seguintes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kiribati</td>
+        <td>Quiribati</td>
         <td>3.10</td>
     </tr>
     <tr>
@@ -1905,28 +1894,28 @@ As definições das colunas são as seguintes:
         <td>5.80</td>
     </tr>
     <tr>
-        <td>LINE</td>
-        <td>Todas as regiões</td>
+        <td>Line</td>
+        <td>All Regions</td>
         <td>0.15</td>
     </tr>
     <tr>
         <td>KakaoTalk</td>
-        <td>Todas as regiões</td>
+        <td>All Regions</td>
         <td>0.20</td>
     </tr>
     <tr>
         <td>Webhooks</td>
-        <td>Padrão</td>
+        <td>Standard</td>
         <td>0.08</td>
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Infobip - Todas as regiões</td>
+        <td>Infobip - All Regions</td>
         <td>0.30</td>
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Twilio - Todas as regiões</td>
+        <td>Twilio - All Regions</td>
         <td>0.30</td>
     </tr>
     <tr>
@@ -2052,7 +2041,7 @@ As definições das colunas são as seguintes:
 ------
 
 ## Detalhes do Agent Console {#agent-console-details}
-A Braze cobrará créditos de mensagem pelas invocações do Agent Console enviadas pela plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de inscrição.
+A Braze cobrará Message Credits por invocações do Agent Console enviadas pela plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de assinatura.
 
 ## Detalhes do canal SMS/MMS {#smsmms-channel-details}
 
@@ -2062,17 +2051,13 @@ Os segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as men
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia e também incluir um corpo de mensagem.
+Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia, incluindo também o corpo da mensagem.
 
 ### Tipos de RCS {#rcs-types}
 
 O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um canal direto e de alto engajamento como o SMS, com recursos mais ricos que os consumidores modernos esperam, como conteúdo rico (imagens, vídeos, documentos), envio verificado e com marca, recursos interativos como respostas e ações sugeridas, e muito mais.
 
-- A cobrança do RCS é baseada em dois tipos diferentes de mensagem (com distinções para os EUA):
-    - **RCS Basic:** Somente texto, até 160 caracteres
-    - **RCS Single:** Mensagens contendo conteúdo rico, ou mensagens somente texto com mais de 160 caracteres
-    - **RCS Rich (somente EUA):** Somente texto, pode incluir sugestões/botões limitados (quickReply, dialPhone, openURL sem webview), segmentado a cada 160 bytes UTF-8
-    - **RCS Rich Media (somente EUA):** Qualquer mídia OU texto com sugestões/botões mais ricos (webview, localização, calendário, etc.), contado como uma mensagem
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 ## Detalhes do canal WhatsApp {#whatsapp-channel-details}
 
@@ -2082,15 +2067,15 @@ O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um can
 
 ### Webhooks
 
-Os webhooks passaram a fazer parte dos créditos de mensagem em 9 de dezembro de 2024. A Braze cobrará créditos de mensagem por quaisquer webhooks enviados pela plataforma Braze. Por padrão, seu contrato inclui cem mil webhooks por cada período do seu prazo de inscrição. Webhooks adicionais serão cobrados conforme seu formulário de pedido.
+Os webhooks passaram a fazer parte dos Message Credits em 9 de dezembro de 2024. A Braze cobrará Message Credits por quaisquer webhooks enviados pela plataforma Braze. Por padrão, seu contrato inclui cem mil webhooks por cada período do seu prazo de assinatura. Webhooks adicionais serão cobrados conforme o seu formulário de pedido.
 
 ### Conectores SMS próprios (BYO) {#bring-your-own-byo-sms-connectors}
 
-A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo "BYO SMS connector". A Braze cobrará créditos de mensagem por cada mensagem enviada pela plataforma Braze por meio dos conectores BYO SMS.
+A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo de "conector SMS BYO". A Braze cobrará Message Credits por cada mensagem enviada pela plataforma Braze por meio de conectores SMS BYO.
 
 ### LINE
 
-A Braze cobrará créditos de mensagem por quaisquer mensagens LINE enviadas pela plataforma Braze.
+A Braze cobrará Message Credits por quaisquer mensagens LINE enviadas pela plataforma Braze.
 
 ## Detalhamento por região de cobrança {#billing-region-breakdown}
 
@@ -2100,7 +2085,7 @@ Estados Unidos, Canadá
 
 ### Restante da África {#rest-of-africa}
 
-Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia, Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
+Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia, Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Suazilândia, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
 
 ### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
 

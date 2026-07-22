@@ -140,9 +140,7 @@ Gmail 모바일 앱(Android 및 iOS)은 기기가 다크 모드일 때 배경색
 
 다음 방법으로 이메일 첨부 파일을 추가할 수도 있습니다:
 
-- **파일 업로드:** 컴퓨터에서 직접 파일을 드래그 앤 드롭하거나 찾아보기로 이메일에 업로드합니다. Braze는 업로드 전에 파일 유형과 크기(기본적으로 최대 2&nbsp;MB)를 검증한 후 미디어 라이브러리에 업로드합니다. 2&nbsp;MB 제한을 초과하는 파일은 업로드할 수 없습니다.
-- **미디어 라이브러리 사용:** [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에 이미 저장된 자산을 찾아보고 선택합니다. PDF, Word 문서, Excel 파일, PowerPoint 프레젠테이션이 모두 지원됩니다.
-- **URL에서 추가:** 파일을 가리키는 URL을 입력하고 표시 파일 이름을 제공합니다. Braze는 이메일 작성 중에 임의의 URL의 크기를 확인할 수 없으므로, 파일 크기는 발송 시점에 적용됩니다. 이 필드에서는 Liquid가 지원되지 않습니다.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 구체적인 모범 사례는 [이메일 가이드라인]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines)을 참조하세요.
 
@@ -295,9 +293,7 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 
 이메일과 푸시 채널을 모두 타겟팅하는 멀티채널 Campaign의 경우, 명시적으로 옵트인한 사용자만 메시지를 받도록 Campaign을 제한할 수 있습니다(가입됨 또는 가입 취소된 사용자 제외). 예를 들어, 서로 다른 옵트인 상태를 가진 세 명의 사용자가 있다고 가정해 보겠습니다:
 
-- **사용자 A**는 이메일에 가입되어 있고 푸시가 활성화되어 있습니다. 이 사용자는 이메일을 받지 않지만 푸시를 받습니다.
-- **사용자 B**는 이메일에 옵트인했지만 푸시가 활성화되어 있지 않습니다. 이 사용자는 이메일을 받지만 푸시를 받지 않습니다.
-- **사용자 C**는 이메일에 옵트인했고 푸시가 활성화되어 있습니다. 이 사용자는 이메일과 푸시를 모두 받습니다.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 이를 위해 **오디언스 요약**에서 이 Campaign을 "옵트인한 사용자에게만" 보내도록 선택합니다. 이 옵션은 옵트인한 사용자만 이메일을 받도록 하며, Braze는 기본적으로 푸시가 활성화된 사용자에게만 푸시를 보냅니다.
 
@@ -314,7 +310,7 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [�
 - 특정 커스텀 이벤트 수행
 - 이메일 열기
 
-사용자가 지정된 동작을 수행하면 Braze가 전환을 카운트하는 최대 30일의 기간을 허용할 수 있습니다. Braze는 열기와 클릭을 자동으로 추적하지만, [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 사용하려면 전환 이벤트를 열기 또는 클릭으로 설정할 수 있습니다.
+사용자가 지정된 동작을 수행하면 Braze가 전환을 카운트하는 최대 30일의 기간을 허용할 수 있습니다. Braze는 열람과 클릭을 자동으로 추적하지만, [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 사용하려면 전환 이벤트를 열람 또는 클릭으로 설정할 수 있습니다.
 {% endtab %}
 
 {% tab Canvas %}

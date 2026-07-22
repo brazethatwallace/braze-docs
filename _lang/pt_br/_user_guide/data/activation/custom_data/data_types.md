@@ -301,11 +301,7 @@ Para atributos de **hora**, as seguintes opções de segmentação estão dispon
 
 #### Detalhes de atributos de hora {#time-attribute-details}
 
-- Dia de evento recorrente
-  - Ao usar o filtro "Dia de evento recorrente" e ser solicitado a selecionar o "Dia do calendário do evento recorrente", se você selecionar `IS LESS THAN` ou `IS MORE THAN`, a data atual será contada para esse filtro de segmentação.
-  - Por exemplo, se em 10 de março de 2020 você selecionou a data do atributo como `LESS THAN ... March 10, 2020`, os atributos serão considerados para os dias até, e incluindo, 10 de março de 2020.
-- Menos de X dias atrás: O filtro "Menos de X dias atrás" inclui datas entre X dias atrás e a data/hora atual.
-- Menos de X dias no futuro: Inclui datas entre a data/hora atual e X dias no futuro.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab Objetos %}
@@ -376,14 +372,14 @@ Para o esquema completo do objeto de compra e exemplos, consulte [Objeto de comp
 Para alterar o tipo de dado de um atributo personalizado ou evento:
 
 1. Acesse **Data Settings** e selecione **Custom Attributes** ou **Custom Events**.
-2. Encontre seu atributo ou evento na lista e selecione <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **More actions**.
+2. Encontre seu atributo ou evento na lista e selecione <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **Mais ações**.
 3. Selecione um novo **Data type** no dropdown.
 4. Selecione **Save**.
 
 Se você alterar o tipo de dado de um atributo personalizado ou evento (por exemplo, alterando `time` para `string`), considere o seguinte:
 
 - **Os filtros não são atualizados automaticamente.** Segments, Campaigns, Canvas ou outros locais que usam o atributo ou evento alterado não são atualizados. Antes de alterar o tipo de dado, pare quaisquer Campaigns ou Canvas que usem o atributo em Segments ou filtros, e remova o atributo dos filtros que o referenciam.
-- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de Segments que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que correspondam ao novo tipo e reentrem no Segment, se necessário.
+- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de segmentos que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que correspondam ao novo tipo e reentrem no segmento, se necessário.
 - **Os novos dados devem corresponder ao novo tipo.** Chamadas de API que enviam o tipo de dado anterior para o atributo alterado não são aceitas. Envie o novo tipo de dado.
 
 {% alert important %}

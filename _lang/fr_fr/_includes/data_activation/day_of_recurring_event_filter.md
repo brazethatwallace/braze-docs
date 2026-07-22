@@ -1,0 +1,5 @@
+- Jour d'événement récurrent
+  - Lorsque vous utilisez le filtre « Jour d'événement récurrent » et que vous êtes invité à sélectionner le « Jour calendaire d'événement récurrent », si vous sélectionnez `IS LESS THAN` ou `IS MORE THAN`, la date actuelle sera prise en compte pour ce filtre de segmentation.
+  - Par exemple, si le 10 mars 2020, vous avez sélectionné la date de l'attribut comme étant `LESS THAN ... March 10, 2020`, les attributs seront pris en compte pour les jours allant jusqu'au 10 mars 2020 inclus.
+- Il y a moins de X jours : le filtre « Il y a moins de X jours » inclut les dates comprises entre il y a X jours et la date/heure actuelle.
+- Dans moins de X jours : inclut les dates comprises entre la date/heure actuelle et X jours dans le futur.

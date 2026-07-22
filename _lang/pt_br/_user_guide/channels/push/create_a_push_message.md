@@ -212,9 +212,7 @@ Opcionalmente, você também pode limitar a entrega a um número específico de 
 
 Para Campaigns multicanal direcionadas a canais de e-mail e push, você pode querer limitar sua Campaign para que apenas os usuários que fizeram opt-in explicitamente recebam a mensagem (excluindo usuários inscritos ou que cancelaram a inscrição). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
 
-- **Usuário A** está inscrito em e-mail e está habilitado para push. Este usuário não recebe o e-mail, mas receberá o push.
-- **Usuário B** fez opt-in para e-mail, mas não está habilitado para push. Este usuário receberá o e-mail, mas não receberá o push.
-- **Usuário C** fez opt-in para e-mail e está habilitado para push. Este usuário receberá tanto o e-mail quanto o push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Para fazer isso, em **Resumo do público**, selecione enviar esta Campaign para "somente usuários com opt-in". Essa opção garantirá que apenas usuários que fizeram opt-in receberão seu e-mail, e a Braze enviará seu push apenas para usuários que estão habilitados para push por padrão.
 

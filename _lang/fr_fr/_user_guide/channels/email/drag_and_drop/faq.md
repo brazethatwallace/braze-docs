@@ -17,7 +17,7 @@ tool:
 
 ## Puis-je prévisualiser l'apparence de mon e-mail en mode sombre ? {#can-i-preview-how-my-email-appears-in-dark-mode}
 
-Oui. Accédez à la section **Preview and Test** de l'éditeur par glisser-déposer et activez le **mode sombre**. Nous vous recommandons également de prévisualiser et de tester vos e-mails sur différentes plateformes utilisateur et d'utiliser des images transparentes pour les images d'arrière-plan des lignes lorsque cela est possible.
+Oui. Accédez à la section **Prévisualisation et test** de l'éditeur par glisser-déposer et activez le **mode sombre**. Nous vous recommandons également de prévisualiser et de tester vos e-mails sur différentes plateformes utilisateur et d'utiliser des images transparentes pour les images d'arrière-plan des lignes lorsque cela est possible.
 
 ## Comment concevoir des e-mails pour le mode sombre et le mode clair ? {#how-should-i-design-emails-for-dark-mode-and-light-mode}
 
@@ -27,7 +27,7 @@ Certains clients de messagerie remplacent les images d'arrière-plan ou inversen
 
 ## Pourquoi ma police personnalisée n'apparaît-elle pas dans la prévisualisation de l'e-mail par glisser-déposer ? {#why-doesnt-my-custom-font-appear-in-drag-and-drop-email-preview}
 
-Les polices personnalisées se chargent dans la prévisualisation de l'éditeur lorsqu'un bloc **Text** du message fait référence à la police. Si la prévisualisation affiche toujours une police de substitution après avoir configuré une police personnalisée dans les paramètres de l'**éditeur d'e-mail par glisser-déposer**, ajoutez un bloc **Text** qui utilise cette police afin que l'éditeur la charge pour la prévisualisation. Vérifiez que le partage de ressources entre origines (CORS) est activé sur votre fichier de police. Revérifiez **Preview and Test** et vos clients de messagerie cibles avant l'envoi. Pour les étapes de configuration, consultez [Police personnalisée]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings#custom-font).
+Les polices personnalisées se chargent dans la prévisualisation de l'éditeur lorsqu'un bloc **Text** du message fait référence à la police. Si la prévisualisation affiche toujours une police de substitution après avoir configuré une police personnalisée dans les paramètres de l'**éditeur d'e-mail par glisser-déposer**, ajoutez un bloc **Text** qui utilise cette police afin que l'éditeur la charge pour la prévisualisation. Vérifiez que le partage de ressources entre origines (CORS) est activé sur votre fichier de police. Revérifiez **Prévisualisation et test** et vos clients de messagerie cibles avant l'envoi. Pour les étapes de configuration, consultez [Police personnalisée]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings#custom-font).
 
 ## Comment modifier le padding de l'e-mail sur mobile sans mettre à jour le padding dans la vue web ? {#how-can-i-change-the-email-padding-on-mobile-without-updating-the-padding-in-the-web-view}
 
@@ -50,29 +50,29 @@ La hauteur des lignes s'ajuste automatiquement au contenu. Comme alternative, no
 
 L'éditeur par glisser-déposer prend actuellement en charge deux calques. Vous pouvez définir une image d'arrière-plan de ligne et personnaliser les couleurs d'arrière-plan.
 
-## Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma campagne ou mon Canvas ? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+## Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Non. Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une campagne ou un Canvas en tant que **modèle d'e-mail** par glisser-déposer dans **Templates** > **Email Templates**. Recréez la mise en page dans **Templates** > **Email Templates**, ou partez d'un modèle enregistré la prochaine fois. Pour les instructions, consultez [Créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template).
+Non. Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une Campaign ou un Canvas en tant que **modèle d'e-mail** par glisser-déposer dans **Templates** > **Email Templates**. Recréez la mise en page dans **Templates** > **Email Templates**, ou partez d'un modèle enregistré la prochaine fois. Pour les instructions, consultez [Créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template).
 
-Si vous avez besoin d'un modèle HTML réutilisable, sélectionnez **Download file** lors de la modification du corps par glisser-déposer, ouvrez le fichier HTML depuis le ZIP, puis collez le balisage dans un [modèle d'e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) à l'aide de l'éditeur de code HTML. Vérifiez à nouveau le Liquid, les liens et les ressources hébergées par la suite.
+Si vous avez besoin d'un modèle HTML réutilisable, sélectionnez **Télécharger le fichier** lors de la modification du corps par glisser-déposer, ouvrez le fichier HTML depuis le ZIP, puis collez le balisage dans un [modèle d'e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) à l'aide de l'éditeur de code HTML. Vérifiez à nouveau le Liquid, les liens et les ressources hébergées par la suite.
 
 Pour plus d'informations sur l'emplacement des modèles, consultez [Modèles et médias]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Pourquoi ne puis-je pas modifier la couleur de remplissage d'un bouton dans l'éditeur par glisser-déposer ? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
 
 Les styles au niveau de la page peuvent remplacer les styles au niveau du message. Si la modification du **remplissage** d'un bouton ou d'un bloc n'a aucun effet, essayez ce qui suit :
-1. Ouvrez les [paramètres de style global des e-mails]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) et sélectionnez **Reset to default** sur le style de page en conflit afin que la couleur définie au niveau du message puisse s'appliquer.
+1. Ouvrez les [paramètres de style global des e-mails]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) et sélectionnez **Réinitialiser par défaut** sur le style de page en conflit afin que la couleur définie au niveau du message puisse s'appliquer.
 2. Définissez à nouveau la couleur sur le bloc.
 
 ## Puis-je ajouter des pièces jointes aux e-mails dans l'éditeur par glisser-déposer ? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
-Oui. Vous pouvez ajouter des pièces jointes à votre e-mail en accédant à **Sending Settings** > **Advanced**.
+Oui. Vous pouvez ajouter des pièces jointes à votre e-mail en accédant à **Paramètres d'envoi** > **Avancé**.
 
 ## Comment télécharger le HTML brut d'un e-mail par glisser-déposer ? {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
 
-1. Ouvrez votre campagne ou Canvas et modifiez le message e-mail.
-2. Sélectionnez **Edit email body** pour ouvrir l'éditeur par glisser-déposer.
-3. Sélectionnez **Download file** (en bas de l'éditeur). Extrayez l'archive pour accéder au HTML généré.
+1. Ouvrez votre Campaign ou Canvas et modifiez le message e-mail.
+2. Sélectionnez **Modifier le corps de l'e-mail** pour ouvrir l'éditeur par glisser-déposer.
+3. Sélectionnez **Télécharger le fichier** (en bas de l'éditeur). Extrayez l'archive pour accéder au HTML généré.
 
 Vous pouvez coller ce HTML dans un [bloc HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) ou dans l'éditeur HTML lorsque vous avez besoin de modifications de bas niveau, par exemple pour [désactiver le suivi des clics sur des liens spécifiques]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
 
@@ -82,7 +82,7 @@ Les problèmes de mise en page sont souvent causés par du **HTML ou CSS personn
 
 1. Supprimez ou isolez les blocs HTML personnalisés pour voir si le problème disparaît.
 2. Vérifiez les paramètres de l'**éditeur d'e-mail par glisser-déposer** pour les polices personnalisées qui pourraient ne pas se charger dans tous les clients.
-3. Dans **Row Properties**, vérifiez le padding et la largeur des colonnes.
+3. Dans **Propriétés de la ligne**, vérifiez le padding et la largeur des colonnes.
 4. Lorsque vous ajoutez du HTML personnalisé, privilégiez les mises en page basées sur des tableaux, les images fluides et des largeurs de tableau totales adaptées à la largeur de votre e-mail. Les images en pixels fixes ou les structures non tabulaires cassent souvent dans Outlook et d'autres clients.
 
 ## Pourquoi mon Content Block ne s'affiche-t-il pas dans la prévisualisation de l'e-mail ? {#why-doesnt-my-content-block-render-in-email-preview}
@@ -98,3 +98,7 @@ Lorsque vous empilez plusieurs Content Blocks, utilisez une ligne distincte pour
 ## Pourquoi l'éditeur par glisser-déposer ignore-t-il les paramètres d'alignement ? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
 
 Si l'éditeur par glisser-déposer ignore les paramètres d'alignement, supprimez le CSS ou les blocs HTML personnalisés, supprimez les polices personnalisées, vérifiez les conflits CSS et évitez de dupliquer les blocs de lignes. Contactez l'assistance Braze si le problème persiste.
+
+## Pourquoi le code couleur hexadécimal choisi ne correspond-il pas à la police dans mon e-mail ? {#why-does-my-chosen-hex-color-code-not-match-the-font-in-my-email}
+
+Si vous utilisez un Content Block, celui-ci peut avoir son propre paramètre de couleur de police. Sélectionnez le bloc de texte à l'intérieur du Content Block et supprimez tout remplacement local de **couleur de police** afin que votre code hexadécimal issu du style global ou du paragraphe puisse s'appliquer.

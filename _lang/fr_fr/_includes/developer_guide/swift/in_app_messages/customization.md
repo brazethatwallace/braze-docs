@@ -533,17 +533,18 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 
 ### Étape 3 : Créer un deep link {#step-3-create-a-deep-link}
 
-Dans votre code de gestion des deep links, ajoutez le code suivant pour traiter le deep link `{YOUR-APP-SCHEME}:app-store-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
+Dans votre gestionnaire [`scene:openURLContexts:`]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#swift_step-3-implement-a-handler), ajoutez le code suivant pour traiter le deep link `{YOUR-APP-SCHEME}:app-store-review`. Notez que vous devrez importer `StoreKit` pour utiliser `SKStoreReviewController` :
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
     SKStoreReviewController.requestReview()
-    return true;
+    return;
   }
   // Other deep link handling code…
 }
@@ -553,11 +554,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
     [SKStoreReviewController requestReview];
-    return YES;
+    return;
   }
   // Other deep link handling code…
 }

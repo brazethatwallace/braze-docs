@@ -150,9 +150,7 @@ Un aperçu dans le panneau de droite se remplira avec les informations d'envoi q
 
 Dans **Sending Settings** > **Advanced**, vous pouvez ajouter des pièces jointes à l'e-mail par les méthodes suivantes :
 
-- **Télécharger un fichier :** Glissez-déposez ou parcourez pour télécharger un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant le téléchargement, puis ces fichiers sont téléchargés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être téléchargés.
-- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
-- **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Consultez les [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) pour les recommandations spécifiques à prendre en compte.
 
@@ -211,7 +209,7 @@ Après avoir utilisé l'éditeur par glisser-déposer pour concevoir et créer v
 {% details À propos du moteur HTML mis à jour %}
 Le moteur sous-jacent qui produit le HTML à partir de l'éditeur par glisser-déposer a été optimisé et mis à jour, offrant des avantages en termes de compression et de rendu des fichiers HTML.
 
-La taille moyenne de nos données HTML exportées a été réduite, ce qui entraîne un chargement et un rendu plus rapides, une réduction du rognage sur mobile et une consommation de bande passante réduite.
+La taille moyenne des données HTML exportées a été réduite, ce qui entraîne un chargement et un rendu plus rapides, une réduction du rognage sur mobile et une consommation de bande passante réduite.
 
 Le rendu HTML a été amélioré grâce aux mises à jour suivantes qui minimisent le nombre de commentaires conditionnels et de requêtes média CSS. En conséquence, les fichiers HTML sont plus petits et codés plus efficacement.
 - Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table aria-label="Utiliser Inbox Vision">` standard

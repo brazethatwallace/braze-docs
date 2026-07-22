@@ -31,7 +31,7 @@ tool:
 
 ## 웹 뷰의 패딩을 변경하지 않고 모바일에서만 이메일 패딩을 변경하려면 어떻게 해야 하나요? {#how-can-i-change-the-email-padding-on-mobile-without-updating-the-padding-in-the-web-view}
 
-모바일과 웹 뷰의 패딩을 개별적으로 편집할 수 없으므로 모든 편집 내용이 두 뷰 모두에 반영됩니다. 그러나 HTML 편집기에서 화면 크기에 따라 패딩을 설정하는 CSS 로직을 추가할 수 있습니다. 이 기능은 드래그 앤 드롭 편집기에서는 지원되지 않으므로 HTML 파일을 내보내기한 후 HTML 편집기를 사용하세요.
+모바일과 웹 뷰의 패딩을 개별적으로 편집할 수 없으므로 모든 편집 내용이 두 뷰 모두에 반영됩니다. 그러나 HTML 편집기에서 화면 크기에 따라 패딩을 설정하는 CSS 로직을 추가할 수 있습니다. 이 기능은 드래그 앤 드롭 편집기에서는 지원되지 않으므로 HTML 파일을 내보낸 후 HTML 편집기를 사용하세요.
 
 ## 데스크탑과 모바일에서 버튼 행이 가로로 유지되도록 최적화하려면 어떻게 해야 하나요? {#how-can-i-optimize-a-row-of-buttons-to-remain-horizontal-on-desktop-and-mobile}
 
@@ -48,7 +48,7 @@ tool:
 
 ## 편집기에서 레이어를 구축할 수 있나요? 배경 이미지를 추가하고, 그 위에 이미지를 겹치고, 그 위에 텍스트 레이어를 추가할 수 있나요? {#is-it-possible-to-build-layers-in-the-editor-can-i-add-a-background-image-layer-on-an-image-and-add-a-text-layer-over-that}
 
-드래그 앤 드롭 편집기는 현재 두 개의 레이어를 지원합니다. 행 배경 이미지를 설정하고 배경색을 커스텀할 수 있습니다.
+드래그 앤 드롭 편집기는 현재 두 개의 레이어를 지원합니다. 행 배경 이미지를 설정하고 배경색을 커스터마이즈할 수 있습니다.
 
 ## Campaign이나 Canvas에서 작성한 드래그 앤 드롭 이메일을 템플릿으로 저장할 수 있나요? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
@@ -98,3 +98,7 @@ Content Block이 이메일 미리보기에서 렌더링되지 않는 경우, 닫
 ## 드래그 앤 드롭 편집기가 정렬 설정을 무시하는 이유는 무엇인가요? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
 
 드래그 앤 드롭 편집기가 정렬 설정을 무시하는 경우, 커스텀 CSS 또는 HTML 블록을 제거하고, 커스텀 폰트를 제거하고, CSS 충돌을 확인하고, 행 블록 복제를 피하세요. 문제가 지속되면 Braze 고객지원에 문의하세요.
+
+## 선택한 16진수 색상 코드가 이메일의 폰트와 일치하지 않는 이유는 무엇인가요? {#why-does-my-chosen-hex-color-code-not-match-the-font-in-my-email}
+
+Content Block을 사용하는 경우, 해당 블록에 자체 폰트 색상 설정이 있을 수 있습니다. Content Block 내의 텍스트 블록을 선택하고 로컬 **폰트 색상** 재정의를 해제하여 글로벌 또는 단락 스타일의 16진수 색상이 적용되도록 하세요.

@@ -171,7 +171,7 @@ Badges sind kleine Symbole, die ideal dazu geeignet sind, die Aufmerksamkeit von
 
 Braze löscht die Badge-Anzahl automatisch, wenn eine Braze-Benachrichtigung empfangen wird, während die App im Vordergrund ist. Wenn Sie die Badge-Nummer manuell auf 0 setzen, werden auch die Benachrichtigungen in der Benachrichtigungszentrale gelöscht.
 
-Wenn Sie nicht vorhaben, Badges im Rahmen des normalen App-Betriebs oder durch das Senden von Push-Nachrichten zu löschen, sollten Sie die Badges löschen, wenn die App aktiv wird, indem Sie den folgenden Code in die Delegate-Methode `applicationDidBecomeActive:` Ihrer App einfügen:
+Wenn Sie nicht vorhaben, Badges im Rahmen des normalen App-Betriebs oder durch das Senden von Push-Nachrichten zu löschen, sollten Sie die Badges löschen, wenn die App aktiv wird, indem Sie den folgenden Code in die Methode `sceneDidBecomeActive(_:)` Ihrer `SceneDelegate.swift`-Datei einfügen (oder in die Delegate-Methode `applicationDidBecomeActive:` Ihrer App, falls Ihre App noch nicht den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen hat):
 
 {% tabs %}
 {% tab swift %}

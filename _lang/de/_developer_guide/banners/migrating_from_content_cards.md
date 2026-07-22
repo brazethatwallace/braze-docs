@@ -780,6 +780,7 @@ Banner unterstützen ausschließlich geplante Zustellungs-Campaigns. Um eine Nac
 | Drag-and-Drop-Editor | ❌ Erfordert Entwickler:innen für die Anpassung | ✅ Marketer können ohne technische Unterstützung Inhalte erstellen und aktualisieren |
 | Angepasstes HTML/CSS | ❌ Beschränkt auf die Kartenstruktur | ✅ Vollständige HTML/CSS-Unterstützung |
 | Schlüssel-Wert-Paare für die Anpassung | ✅ Für erweiterte Anpassungen erforderlich | ✅ Stark typisierte Schlüssel-Wert-Paare, die als „Eigenschaften“ bezeichnet werden, ermöglichen eine erweiterte Anpassung |
+| Message Extras | ✅ Unterstützt | ❌ Derzeit nicht unterstützt |
 | **Persistenz und Ablauf** |
 | Ablauf der Karte | ✅ Unterstützt (30-Tage-Limit) | ✅ Unterstützt (ohne Ablauflimit) |
 | Wahre Persistenz | ❌ Maximal 30 Tage | ✅ Unbegrenzte Persistenz |

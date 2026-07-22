@@ -42,7 +42,7 @@ Aproveite os ricos dados comportamentais da Snowplow para promover interações 
 Use qualquer um dos inúmeros eventos avançados que a Snowplow coleta por padrão ou defina seus eventos personalizados para moldar jornadas de clientes ainda mais granulares que façam sentido para sua empresa. Aproveite os ricos dados comportamentais da Snowplow para projetar funis de clientes e gerar valor para suas equipes de marketing e de produtos, ajudando-as a maximizar a conversão e o uso do produto por meio da Braze.
 
 ### Segmentação dinâmica {#dynamic-segmentation}
-Crie públicos dinâmicos na Braze com base nos dados comportamentais de alta qualidade da Snowplow: à medida que os usuários realizam ações em seu produto, app ou website, é possível aproveitar os dados comportamentais em tempo real coletados pela Snowplow para adicionar ou remover automaticamente usuários de segmentos relevantes na Braze.
+Crie públicos dinâmicos na Braze com base nos dados comportamentais de alta qualidade da Snowplow: à medida que os usuários realizam ações em seu produto, app ou website, é possível aproveitar os dados comportamentais em tempo real coletados pela Snowplow para adicionar ou remover automaticamente usuários de Segments relevantes na Braze.
 
 ## Integração {#integration}
 
@@ -59,7 +59,7 @@ Para criar o encaminhador de eventos:
 
 Ao configurar o encaminhador, você pode escolher quais eventos da Snowplow serão encaminhados e mapeá-los para os tipos de objetos da Braze:
 
-1. **[Atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)**: Atualize os dados do perfil do usuário e as propriedades personalizadas do usuário.
+1. **[Atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object)**: Atualize os dados do perfil do usuário e as propriedades personalizadas do usuário.
 2. **[Eventos personalizados]({{site.baseurl}}/api/objects_filters/event_object)**: Envie ações e comportamentos do usuário.
 3. **[Compras]({{site.baseurl}}/api/objects_filters/purchase_object)**: Envie dados de transação com detalhes do produto.
 

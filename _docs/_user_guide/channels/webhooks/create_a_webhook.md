@@ -44,12 +44,7 @@ If all of the messages in your campaign are going to be similar or have the same
 
 **Steps:**
 
-1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
-2. After you've set up your Canvas, add a step in the Canvas builder. Name your step something clear and meaningful.
-3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) and specify a delay as needed.
-4. Filter your audience for this step as necessary. You can further refine the recipients of this step by specifying segments and adding additional filters. Audience options will be checked after the delay at the time messages are sent.
-5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#advancement-behavior).
-6. Choose any other messaging channels which you would like to pair with your message.
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 
 {% endtab %}
 {% endtabs %}

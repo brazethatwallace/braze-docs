@@ -212,9 +212,7 @@ Facultativement, vous pouvez également limiter la livraison à un nombre spéci
 
 Pour les campagnes multicanal ciblant à la fois les canaux e-mail et push, vous pouvez souhaiter limiter votre campagne afin que seuls les utilisateurs ayant explicitement opté reçoivent le message (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'opt-in différents :
 
-- **L'utilisateur A** est abonné aux e-mails et est activé pour le push. Cet utilisateur ne reçoit pas l'e-mail mais recevra le push.
-- **L'utilisateur B** a opté pour les e-mails mais n'est pas activé pour le push. Cet utilisateur recevra l'e-mail mais ne recevra pas le push.
-- **L'utilisateur C** a opté pour les e-mails et est activé pour le push. Cet utilisateur recevra à la fois l'e-mail et le push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Pour ce faire, sous **Résumé de l'audience**, sélectionnez l'envoi de cette campagne aux « utilisateurs ayant opté uniquement ». Cette option garantira que seuls les utilisateurs ayant opté recevront votre e-mail, et Braze n'enverra votre push qu'aux utilisateurs activés pour le push par défaut.
 

@@ -16,10 +16,7 @@ Mediante Braze Audience Sync con Pinterest, las marcas pueden optar por añadir 
 
 **Entre los casos de uso habituales de la sincronización de audiencias se incluyen:**
 
-- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la participación
-- Reorientar a los usuarios menos receptivos a otros canales de marketing
-- Crear audiencias de supresión para evitar que los usuarios reciban anuncios cuando ya son consumidores fieles de tu marca
-- Crear audiencias Actalike para captar nuevos usuarios de forma más eficaz
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Esta característica permite a las marcas controlar qué datos propios específicos se comparten con Pinterest. En Braze, se presta la máxima atención a las integraciones con las que puedes y no puedes compartir tus datos propios. Para más información, consulta nuestra [política de privacidad](https://www.braze.com/privacy).
 

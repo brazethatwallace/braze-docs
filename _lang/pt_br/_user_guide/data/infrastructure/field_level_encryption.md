@@ -87,7 +87,7 @@ Esses recursos não são compatíveis com a criptografia em nível de campo do i
 
 ### Objeto de atributos do usuário {#user-attributes-object}
 
-Ao usar a criptografia em nível de campo do identificador com o endpoint `/users/track`, observe estes detalhes de campo para o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens):
+Ao usar a criptografia em nível de campo do identificador com o endpoint `/users/track`, observe estes detalhes de campo para o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object):
 
 - O campo `email` deve ser o valor com hash do e-mail.
 - O campo `email_encrypted` deve ser o valor criptografado do e-mail.

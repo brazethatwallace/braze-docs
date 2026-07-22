@@ -44,7 +44,7 @@ Consulta [Segmentación por ubicación]({{site.baseurl}}/user_guide/audience/seg
 
 ## Establecer manualmente el atributo de ubicación predeterminado {#hard-setting-the-default-location-attribute}
 
-También puedes utilizar el [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) en nuestra API para actualizar el atributo estándar [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens). Un ejemplo es:
+También puedes utilizar el [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) en nuestra API para actualizar el atributo estándar [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). Un ejemplo es:
 
 ```
 https://[your_braze_rest_endpoint]/users/track

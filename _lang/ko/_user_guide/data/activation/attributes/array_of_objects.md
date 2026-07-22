@@ -26,7 +26,7 @@ description: "이 참조 문서에서는 객체 배열을 커스텀 속성의 �
 {% endalert %}
 
 {% alert tip %}
-사용자 속성 객체에 대한 객체 배열 사용 방법에 대해 자세히 알아보려면 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)를 참조하세요.
+사용자 속성 객체에 대한 객체 배열 사용 방법에 대해 자세히 알아보려면 [사용자 속성 객체]({{site.baseurl}}/api/objects_filters/user_attributes_object)를 참조하세요.
 {% endalert %}
 
 ## API 예제 {#api-example}

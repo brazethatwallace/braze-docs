@@ -15,10 +15,7 @@ Mediante la Sincronización de audiencias de Braze con Criteo, las marcas pueden
 
 **Entre los casos de uso más comunes para la sincronización de audiencias se incluyen:**
 
-- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la participación
-- Reorientar a los usuarios menos receptivos a otros canales de marketing
-- Crear audiencias de supresión para evitar que los usuarios reciban anuncios cuando ya son consumidores fieles de tu marca
-- Crear audiencias similares para captar nuevos usuarios de forma más eficaz
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Esta función ofrece a las marcas la opción de controlar qué datos propios específicos se comparten con Criteo. En Braze, las integraciones con las que puedes y no puedes compartir tus datos propios se tienen muy en cuenta. Para más información, consulta nuestra [política de privacidad](https://www.braze.com/privacy).
 
@@ -47,7 +44,7 @@ Debes tener el [permiso "Admin"]({{site.baseurl}}/user_guide/administrative/app_
 
 En el panel de Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Criteo**. En Exportar audiencia de Criteo, selecciona **Connect Criteo**.
 
-![Página de tecnología de Criteo en Braze que incluye una sección de Resumen y otra de Criteo con el botón Connect Criteo.]({% image_buster /assets/img/criteo/criteo5.png %}){: style="max-width:80%;"}
+![Página de tecnología de Criteo en Braze que incluye una sección de resumen y otra de Criteo con el botón Connect Criteo.]({% image_buster /assets/img/criteo/criteo5.png %}){: style="max-width:80%;"}
 
 Aparecerá una página de oAuth de Criteo para autorizar a Braze los permisos relacionados con tu integración de Audience Sync.
 

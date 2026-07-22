@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Événements personnalisés {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Cet article décrit les événements et propriétés personnalisés, l'historique des événements du profil utilisateur, les filtres de segmentation associés, les propriétés d'entrée dans Canvas, les analyses pertinentes, etc. Pour en savoir plus sur les événements de Braze en général, consultez la rubrique [Événements]({{site.baseurl}}/user_guide/data/activation/events).
+> Cet article décrit les événements et propriétés personnalisés, l'historique des événements du profil utilisateur, les filtres de segmentation associés, les propriétés d'entrée dans Canvas, les analyses pertinentes, et plus encore. Pour en savoir plus sur les événements de Braze en général, consultez la rubrique [Événements]({{site.baseurl}}/user_guide/data/activation/events).
 
 Les événements personnalisés sont des actions effectuées par vos utilisateurs, ou des mises à jour les concernant. Lorsque des événements personnalisés sont enregistrés, ils peuvent déclencher un nombre et un type quelconque de campagnes de suivi. Vous pouvez ensuite utiliser des [filtres de segmentation](#segmentation-filters) pour segmenter les utilisateurs en fonction de la fréquence et du caractère récent de ces événements personnalisés. Les événements personnalisés sont donc les mieux adaptés au suivi des interactions utilisateur de grande valeur au sein de votre application.
 
@@ -17,13 +17,7 @@ Les événements personnalisés sont des actions effectuées par vos utilisateur
 
 Parmi les cas d'usage courants d'événements personnalisés figurent les situations suivantes :
 
-- Déclenchement d'une Campaign ou d'un Canvas sur la base d'un événement personnalisé à l'aide de la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
-- Segmentation des utilisateurs selon le nombre de fois qu'ils ont effectué un événement personnalisé, la date de la dernière occurrence, et d'autres critères similaires
-- Utilisation des [analyses d'événements personnalisés](#analytics) du tableau de bord pour visualiser de manière agrégée la fréquence de chaque événement
-- Obtention d'analyses complémentaires grâce aux rapports d'[entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) et de [rétention]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)
-- Exploitation des [propriétés d'entrée persistantes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) pour utiliser les métadonnées de vos événements personnalisés à des fins de personnalisation dans les étapes de votre Canvas
-- Génération d'analyses plus avancées avec [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
-- Configuration de [critères de sortie]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) pour définir quand les utilisateurs doivent quitter votre Canvas
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Gérer les événements personnalisés {#managing-custom-events}
 
@@ -37,9 +31,7 @@ Vous pouvez bloquer des événements personnalisés individuellement via le menu
 
 Lorsque vous bloquez un événement personnalisé :
 
-- Les données futures ne seront plus collectées pour cet événement.
-- Les données existantes ne seront pas disponibles tant que l'événement n'est pas débloqué.
-- Cet événement n'apparaîtra pas dans les filtres ni les graphiques.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 De plus, si un événement personnalisé bloqué est actuellement référencé par des filtres ou des déclencheurs dans d'autres zones de Braze, une fenêtre modale d'avertissement apparaîtra pour expliquer que toutes les instances de filtres ou de déclencheurs qui le référencent seront supprimées et archivées.
 
@@ -112,7 +104,7 @@ Chaque événement comprend :
 Parmi les cas d'usage courants :
 
 - Vérifier que votre intégration SDK ou API envoie les événements comme prévu pendant le développement ou après une mise en production.
-- Résoudre un problème lié au fait qu'un utilisateur est entré ou non dans une Campaign ou un Canvas déclenché par un événement.
+- Résoudre un problème lié au fait qu'un utilisateur est entré ou non dans une campagne ou un Canvas déclenché par un événement.
 - Investiguer un problème d'assistance pour un utilisateur spécifique sans avoir à configurer une exportation de données.
 
 {% alert note %}
@@ -141,7 +133,7 @@ Le tableau suivant présente les filtres disponibles pour segmenter les utilisat
 
 Braze enregistre le nombre de fois que chaque événement personnalisé s'est produit ainsi que la date de sa dernière occurrence pour chaque utilisateur, à des fins de segmentation. Consultez ces analyses en accédant à **Analytics** > **Rapport d'événements personnalisés**.
 
-Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous pouvez visualiser de manière agrégée la fréquence de chaque événement personnalisé. Les lignes grises superposées sur la série temporelle indiquent la dernière fois qu'une Campaign a été envoyée, ce qui est utile pour observer l'impact de vos campagnes sur l'activité des événements personnalisés.
+Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous pouvez visualiser de manière agrégée la fréquence de chaque événement personnalisé. Les lignes grises superposées sur la série temporelle indiquent la dernière fois qu'une campagne a été envoyée, ce qui est utile pour observer l'impact de vos campagnes sur l'activité des événements personnalisés.
 
 ![Graphique du nombre d'événements personnalisés sur la page Événements personnalisés du tableau de bord montrant les tendances d'un événement personnalisé]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
@@ -159,6 +151,6 @@ Les Segments créés à partir de données d'événements personnalisés ne peuv
 
 ## Propriétés d'événement personnalisé {#custom-event-properties}
 
-Les propriétés d'événement personnalisé sont des métadonnées ou des attributs d'événement personnalisé qui décrivent une occurrence spécifique d'un événement. Ces propriétés peuvent être utilisées pour affiner les conditions de déclenchement, augmenter la personnalisation des messages, suivre les conversions et générer des analyses plus avancées via l'exportation de données brutes.
+Les propriétés d'événement personnalisé sont des métadonnées ou des attributs d'événement personnalisé qui décrivent une occurrence spécifique d'un événement. Ces propriétés peuvent être utilisées pour affiner les conditions de déclenchement, augmenter la personnalisation des messages, suivre les conversions et générer des analyses plus sophistiquées via l'exportation de données brutes.
 
 Pour en savoir plus, consultez [Propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).

@@ -1,0 +1,3 @@
+- L'événement ecommerce.checkout_started prédéfini dans vos critères d'entrée
+- Des critères de sortie prédéfinis pour retirer les clients qui ont avancé dans leur parcours d'achat
+- Une nouvelle étiquette Liquid de panier d'achat pour prendre en charge la personnalisation des produits

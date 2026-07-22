@@ -301,11 +301,7 @@ toc_headers: h2
 
 #### 시간 속성 세부 정보 {#time-attribute-details}
 
-- 반복 이벤트의 날짜
-  - "반복 이벤트의 날짜" 필터를 사용하고 "반복 이벤트의 캘린더 날짜"를 선택하라는 메시지가 표시되면, `IS LESS THAN` 또는 `IS MORE THAN`을 선택한 경우 현재 날짜가 해당 세분화 필터에 포함됩니다.
-  - 예를 들어, 2020년 3월 10일에 속성 날짜를 `LESS THAN ... March 10, 2020`으로 선택한 경우, 2020년 3월 10일을 포함하여 그 이전 날짜의 속성이 고려됩니다.
-- X일 전 미만: "X일 전 미만" 필터에는 X일 전부터 현재 날짜/시간 사이의 날짜가 포함됩니다.
-- 미래 X일 이내: 현재 날짜/시간부터 미래 X일 사이의 날짜가 포함됩니다.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab 오브젝트 %}
@@ -375,10 +371,10 @@ toc_headers: h2
 
 커스텀 속성 또는 이벤트의 데이터 유형을 변경하려면:
 
-1. **데이터 설정**으로 이동하여 **커스텀 속성** 또는 **커스텀 이벤트**를 선택합니다.
-2. 목록에서 속성 또는 이벤트를 찾고 <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **추가 동작**을 선택합니다.
-3. 드롭다운에서 새 **데이터 유형**을 선택합니다.
-4. **저장**을 선택합니다.
+1. **Data Settings**로 이동하여 **Custom Attributes** 또는 **Custom Events**를 선택합니다.
+2. 목록에서 속성 또는 이벤트를 찾고 <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **More actions**를 선택합니다.
+3. 드롭다운에서 새 **Data type**을 선택합니다.
+4. **Save**를 선택합니다.
 
 커스텀 속성 또는 이벤트의 데이터 유형을 변경하는 경우(예: `time`을 `string`으로 변경), 다음 사항을 고려하세요:
 

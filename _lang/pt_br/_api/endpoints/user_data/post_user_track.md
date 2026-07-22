@@ -59,10 +59,10 @@ Para cada componente de solicitação listado na tabela a seguir, você deve inc
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Opcional | Vetor de objetos de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `attributes` | Opcional | Vetor de objetos de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | Opcional | Vetor de objetos de eventos | Consulte o [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | Opcional | Vetor de objetos de compra | Consulte o [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Resolução de identificadores {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Cada objeto de solicitação deve incluir pelo menos um identificador. A tabela 
 | --------------- | ----------- | -------- |
 | Primário | `external_id`, `user_alias`, `braze_id` | Usado para busca do perfil de usuário. Apenas um identificador primário é permitido por objeto de solicitação — incluir mais de um faz com que o objeto seja rejeitado. |
 | Secundário | `email`, `phone` | Usado para busca do perfil de usuário **somente** quando nenhum identificador primário está presente. Se tanto `email` quanto `phone` forem incluídos sem um identificador primário, `email` tem precedência. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Resolução de identificadores" }
 
 Quando um identificador primário está presente, quaisquer valores de `email` ou `phone` no mesmo objeto de solicitação são tratados como atributos do perfil — não como identificadores para busca de usuário. Por exemplo, se uma solicitação inclui tanto um `external_id` quanto um `email`:
 
@@ -324,7 +324,7 @@ Os erros a seguir são específicos do endpoint `/users/track` e são retornados
 | `EMAIL_BAD_FORMAT` | O valor fornecido para `email` não é um endereço de e-mail válido. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | O `external_id` excede o comprimento máximo permitido de 987 bytes. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info` não é um atributo válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erros específicos do endpoint" }
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
@@ -367,8 +367,8 @@ Por exemplo, se você enviar várias solicitações de atualização para o mesm
 Para evitar condições de corrida ao atualizar dados de usuários:
 
 - **Agrupe atualizações em uma única solicitação:** inclua todas as atualizações de atributos de um usuário em uma única chamada de API, em vez de fazer chamadas consecutivas separadas.
-- **Adicione atrasos entre solicitações:** se você precisar fazer chamadas separadas para o mesmo usuário, adicione um atraso (alguns segundos) entre as solicitações para permitir que a primeira seja processada antes de enviar a próxima.
-- **Evite atualizações sobrepostas para o mesmo campo:** se duas solicitações atualizam o mesmo atributo com valores diferentes, envie essas atualizações em uma única solicitação ou separe-as com um atraso para reduzir a chance de resultados fora de ordem.
+- **Adicione intervalos entre solicitações:** se você precisar fazer chamadas separadas para o mesmo usuário, adicione um intervalo (alguns segundos) entre as solicitações para permitir que a primeira seja processada antes de enviar a próxima.
+- **Evite atualizações sobrepostas para o mesmo campo:** se duas solicitações atualizam o mesmo atributo com valores diferentes, envie essas atualizações em uma única solicitação ou separe-as com um intervalo para reduzir a chance de resultados fora de ordem.
 
 Para saber mais sobre condições de corrida e práticas recomendadas, consulte [Condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
@@ -404,7 +404,7 @@ Todas as respostas sem limite de taxa (ou seja, que não retornam `429`) contêm
 | `X-RateLimit-Limit`     | O número de solicitações permitidas por período de tempo |
 | `X-RateLimit-Remaining` | O número aproximado de solicitações restantes na janela atual |
 | `X-RateLimit-Reset`     | O número de segundos restantes antes da reinicialização da janela atual |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cabeçalhos de limite de taxa para Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU" }
 
 Observe que os cabeçalhos `RateLimit-Limit`, `RateLimit-Remaining` e `RateLimit-Reset` não são retornados quando você recebe um erro HTTP `429`. Quando o erro ocorre, esses cabeçalhos são substituídos por um cabeçalho `X-Ratelimit-Retry-After` que retorna um número inteiro indicando o número de segundos antes que você possa voltar a fazer solicitações.
 

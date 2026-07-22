@@ -1,0 +1,5 @@
+- O faturamento de RCS é baseado em dois tipos diferentes de mensagem (com distinções para os EUA):
+    - **RCS Básico:** Somente texto, até 160 caracteres
+    - **RCS Único:** Mensagens com conteúdo rico, ou mensagens somente texto com mais de 160 caracteres
+    - **RCS Rico (somente EUA):** Somente texto, pode incluir sugestões/botões limitados (quickReply, dialPhone, openURL sem webview), segmentado a cada 160 bytes UTF-8
+    - **RCS de Mídia Rica (somente EUA):** Qualquer mídia OU texto com sugestões/botões mais ricos (webview, local, calendário, etc.), contado como uma mensagem

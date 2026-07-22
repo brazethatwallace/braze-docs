@@ -29,9 +29,7 @@ Ya sea que estés creando una aplicación de página única, un sitio de comerci
 
 Antes de integrar el SDK web de Braze, necesitarás:
 
-- **Cuenta de Braze**: una cuenta de Braze con acceso a la API
-- **Clave de API**: la clave de API de tu aplicación desde el panel de Braze
-- **Punto final de SDK**: la URL de tu punto final de SDK de Braze (por ejemplo, `sdk.iad-01.braze.com`)
+{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
 
 ### Obtener tus credenciales {#getting-your-credentials}
 
@@ -70,7 +68,7 @@ La función `initialize` acepta un objeto de opciones con las siguientes propied
 
 | Opción | Tipo | Predeterminado | Descripción |
 |--------|------|----------------|-------------|
-| `baseUrl` | `string` | **Obligatorio** | Esta opción es obligatoria para configurar el SDK web de Braze para que utilice el punto de conexión adecuado para tu integración; por ejemplo: `braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'sdk.iad-03.braze.com' })` |
+| `baseUrl` | `string` | **Obligatorio** | Esta opción es obligatoria para configurar el SDK web de Braze para que utilice el endpoint adecuado para tu integración; por ejemplo: `braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'sdk.iad-03.braze.com' })` |
 | `enableLogging` | `boolean` | `false` | Establécelo en true para habilitar el registro de forma predeterminada. Ten en cuenta que esto hará que Braze registre en la consola de JavaScript, que es visible para todos los usuarios. Probablemente deberías eliminar esto o proporcionar un registrador alternativo con setLogger antes de publicar tu página en producción. |
 | `allowUserSuppliedJavascript` | `boolean` | `false` | De forma predeterminada, el SDK web de Braze no permite acciones de clic de JavaScript proporcionadas por el usuario, ni habilita mensajes dentro de la aplicación HTML ni Banners, ya que permiten a los usuarios del panel de Braze ejecutar JavaScript en tu sitio. Para indicar que confías en los usuarios del panel de Braze para escribir acciones de clic de JavaScript no maliciosas, establece esta propiedad en true. |
 | `doNotLoadFontAwesome` | `boolean` | `false` | Braze utiliza Font Awesome para los iconos de los mensajes dentro de la aplicación. De forma predeterminada, Braze cargará automáticamente FontAwesome 4.7.0 desde el CDN de FontAwesome. Para deshabilitar este comportamiento (por ejemplo, porque tu sitio utiliza una versión personalizada de FontAwesome), establece esta opción en `true`. Ten en cuenta que si haces esto, eres responsable de asegurar que FontAwesome esté cargado en tu sitio; de lo contrario, los mensajes dentro de la aplicación podrían no renderizarse correctamente. |
@@ -848,9 +846,9 @@ La siguiente tabla describe las distribuciones disponibles del SDK web de Braze.
 
 | Nombre | Descripción | npm | URL del CDN |
 | ---- | ----------- | --- | ------- |
-| Full | SDK completo con interfaz de usuario. Al usar la versión npm, los empaquetadores de JavaScript eliminan el código no utilizado, incluido el código de la interfaz de usuario. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.9/braze.min.js |
-| Core | Contiene el SDK sin interfaz de usuario. Implementa tu propia interfaz de usuario para In-App Messages y Content Cards al usar esta versión del SDK. Utiliza la biblioteca completa para la mayoría de las integraciones, ya que proporciona elementos de interfaz de usuario personalizables a través de CSS. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.core.min.js |
-| No-AMD | Contiene el SDK completo sin compatibilidad con AMD. Esto es útil si tu sitio utiliza RequireJS u otro cargador de módulos AMD, pero prefieres cargar el SDK a través del CDN. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.no-amd.min.js |
+| Full | SDK completo con interfaz de usuario. Al usar la versión npm, los empaquetadores de JavaScript eliminan el código no utilizado, incluido el código de la interfaz de usuario. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.10/braze.min.js |
+| Core | Contiene el SDK sin interfaz de usuario. Implementa tu propia interfaz de usuario para In-App Messages y Content Cards al usar esta versión del SDK. Utiliza la biblioteca completa para la mayoría de las integraciones, ya que proporciona elementos de interfaz de usuario personalizables a través de CSS. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.core.min.js |
+| No-AMD | Contiene el SDK completo sin compatibilidad con AMD. Esto es útil si tu sitio utiliza RequireJS u otro cargador de módulos AMD, pero prefieres cargar el SDK a través del CDN. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.no-amd.min.js |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliotecas" }
 
 ## Navegadores compatibles {#supported-browsers}
@@ -861,7 +859,7 @@ La siguiente tabla describe las distribuciones disponibles del SDK web de Braze.
 
 ## Depuración y solución de problemas {#debugging-troubleshooting}
 
-Pasa la opción `enableLogging: true` a la función de inicialización (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) para que Braze registre en la consola de JavaScript. Esto es valioso para el desarrollo, pero es visible para todos los usuarios, así que elimina esta opción o [proporciona un registrador alternativo](https://js.appboycdn.com/web-sdk/6.9/doc/modules/braze.html#setlogger) antes de publicar tu página en producción.
+Pasa la opción `enableLogging: true` a la función de inicialización (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) para que Braze registre en la consola de JavaScript. Esto es valioso para el desarrollo, pero es visible para todos los usuarios, así que elimina esta opción o [proporciona un registrador alternativo](https://js.appboycdn.com/web-sdk/6.10/doc/modules/braze.html#setlogger) antes de publicar tu página en producción.
 
 ## Font Awesome
 

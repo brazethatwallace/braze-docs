@@ -29,14 +29,12 @@ Ob Sie eine Single-Page-Anwendung, eine E-Commerce-Website oder eine Content-Pla
 
 Bevor Sie das Braze Web SDK integrieren, benötigen Sie:
 
-- **Braze-Konto**: Ein Braze-Konto mit API-Zugang
-- **API-Schlüssel**: Den API-Schlüssel Ihrer App aus dem Braze-Dashboard
-- **SDK-Endpunkt**: Ihre Braze SDK-Endpunkt-URL (z. B. `sdk.iad-01.braze.com`)
+{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
 
 ### Ihre Zugangsdaten abrufen {#getting-your-credentials}
 
-1. **API-Schlüssel**: Zu finden in Ihrem Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**
-2. **SDK-Endpunkt**: Zu finden unter **Einstellungen** > **SDK-Authentifizierung** > **Endpunkte**
+1. **API-Schlüssel**: Zu finden in Ihrem Braze-Dashboard unter Einstellungen → API-Schlüssel
+2. **SDK-Endpunkt**: Zu finden unter Einstellungen → SDK-Authentifizierung → Endpunkte
 3. **Service Worker**: Erforderlich für Push-Benachrichtigungen (siehe Abschnitt Push-Benachrichtigungen)
 
 ## Installation {#installation}
@@ -848,9 +846,9 @@ Die folgende Tabelle beschreibt die verfügbaren Braze Web SDK-Distributionen.
 
 | Name | Beschreibung | npm | CDN-URL |
 | ---- | ------------ | --- | ------- |
-| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code, einschließlich UI-Code. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.9/braze.min.js |
-| Core | Enthält das SDK ohne UI. Implementieren Sie Ihre eigene UI für In-App Messages und Content Cards, wenn Sie diese Version des SDK verwenden. Verwenden Sie die vollständige Bibliothek für die meisten Integrationen, da sie anpassbare UI-Elemente über CSS bereitstellt. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.core.min.js |
-| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.no-amd.min.js |
+| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code, einschließlich UI-Code. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.10/braze.min.js |
+| Core | Enthält das SDK ohne UI. Implementieren Sie Ihre eigene UI für In-App Messages und Content Cards, wenn Sie diese Version des SDK verwenden. Verwenden Sie die vollständige Bibliothek für die meisten Integrationen, da sie anpassbare UI-Elemente über CSS bereitstellt. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.core.min.js |
+| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.no-amd.min.js |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliotheken" }
 
 ## Unterstützte Browser {#supported-browsers}
@@ -861,7 +859,7 @@ Die folgende Tabelle beschreibt die verfügbaren Braze Web SDK-Distributionen.
 
 ## Debugging und Fehlerbehebung {#debugging-troubleshooting}
 
-Übergeben Sie die Option `enableLogging: true` an die Initialisierungsfunktion (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`), damit Braze in die JavaScript-Konsole loggt. Dies ist wertvoll für die Entwicklung, aber für alle Nutzer:innen sichtbar. Entfernen Sie diese Option daher oder [stellen Sie einen alternativen Logger bereit](https://js.appboycdn.com/web-sdk/6.9/doc/modules/braze.html#setlogger), bevor Sie Ihre Seite in Produktion bringen.
+Übergeben Sie die Option `enableLogging: true` an die Initialisierungsfunktion (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`), damit Braze in die JavaScript-Konsole loggt. Dies ist wertvoll für die Entwicklung, aber für alle Nutzer:innen sichtbar. Entfernen Sie diese Option daher oder [stellen Sie einen alternativen Logger bereit](https://js.appboycdn.com/web-sdk/6.10/doc/modules/braze.html#setlogger), bevor Sie Ihre Seite in Produktion bringen.
 
 ## Font Awesome
 

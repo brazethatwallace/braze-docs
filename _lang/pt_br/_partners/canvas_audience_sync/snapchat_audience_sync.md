@@ -12,14 +12,11 @@ tool:
 
 # Sincronização de público com o Snapchat {#audience-sync-to-snapchat}
 
-Usando o Braze Audience Sync to Snapchat, as marcas podem adicionar dados de usuários de sua integração Braze às listas de clientes do Snapchat para entregar anúncios com base em disparadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook etc.) em um Canvas da Braze com base nos dados de seu usuário agora pode ser usado para disparar um anúncio para esse usuário em suas listas de clientes do Snapchat.
+Usando o Braze Audience Sync to Snapchat, as marcas podem adicionar dados de usuários de sua integração Braze às listas de clientes do Snapchat para entregar anúncios com base em disparadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS, webhook etc.) em um Canvas da Braze com base nos dados do seu usuário agora pode ser usado para disparar um anúncio para esse usuário em suas listas de clientes do Snapchat.
 
 **Os casos de uso comuns para sincronização de público incluem:**
 
-- Direcionamento a usuários de alto valor por meio de vários canais para impulsionar compras ou engajamento
-- Redirecionamento de usuários menos responsivos a outros canais de marketing
-- Criação de públicos de supressão para evitar que os usuários recebam anúncios quando já são consumidores fiéis da sua marca
-- Criação de públicos semelhantes para adquirir novos usuários com mais eficiência
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Esse recurso permite que os usuários controlem quais dados primários específicos são compartilhados com o Snapchat. Na Braze, as integrações com as quais você pode e não pode compartilhar seus dados primários recebem a máxima consideração. Para saber mais, consulte nossa [política de privacidade](https://www.braze.com/privacy).
 

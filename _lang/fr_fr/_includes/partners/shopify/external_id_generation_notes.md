@@ -1,0 +1,3 @@
+- Si votre ID externe n'est pas généré lorsque Braze envoie une requête à votre endpoint, l'intégration utilisera par défaut l'ID client Shopify lorsque la fonction `changeUser` est appelée. Cette étape est essentielle pour fusionner le profil utilisateur anonyme avec le profil utilisateur identifié. Par conséquent, il peut y avoir une période temporaire pendant laquelle différents types d'ID externes coexistent dans votre espace de travail.
+- Lorsque l'ID externe est disponible dans le métachamp `braze.external_id`, l'intégration donnera la priorité à cet ID externe et l'attribuera.
+    - Si l'ID client Shopify a été précédemment défini comme ID externe Braze, il sera remplacé par la valeur du métachamp `braze.external_id`.

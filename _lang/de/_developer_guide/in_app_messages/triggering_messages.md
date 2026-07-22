@@ -36,7 +36,21 @@ Eine `inapp`- (oder „[Standard]({{site.baseurl}}/user_guide/message_building_b
 
 Eine `templated_iam`- (oder „Templated“-) In-App-Nachricht ist noch nicht mit den erforderlichen Informationen vorausgefüllt. Braze muss eine weitere Anfrage stellen, um die Informationen abzurufen, bevor die Nachricht angezeigt werden kann.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+In-App-Nachrichten werden als Templated-In-App-Nachrichten zugestellt, wenn **Kampagnenberechtigung vor der Anzeige erneut prüfen** ausgewählt ist oder wenn einer der folgenden Liquid-Tags in der Nachricht vorhanden ist:
+
+- `canvas_entry_properties`
+- `connected_content`
+- SMS-Variablen wie {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+Das bedeutet, dass das Gerät beim Sitzungsstart den Trigger dieser In-App-Nachricht anstelle der gesamten Nachricht erhält. Wenn die Nutzerin oder der Nutzer die In-App-Nachricht triggert, stellt das Gerät eine Netzwerkanfrage, um die eigentliche Nachricht abzurufen.
+
+{% alert note %}
+Die Nachricht wird nicht zugestellt, wenn das Gerät keinen Internetzugang hat. Die Nachricht wird möglicherweise nicht zugestellt, wenn die Liquid-Logik zu lange für die Auflösung benötigt.
+{% endalert %}
+
 
 ## Schlüssel-Wert-Paare {#key-value-pairs}
 

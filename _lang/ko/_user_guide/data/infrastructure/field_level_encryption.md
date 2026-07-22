@@ -87,7 +87,7 @@ Braze에서 이메일 주소를 업데이트할 때 `email`이 포함되는 모�
 
 ### 사용자 속성 오브젝트 {#user-attributes-object}
 
-`/users/track` 엔드포인트에서 식별자 필드 수준 암호화를 사용하는 경우 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)에 대한 다음 필드 세부 정보에 유의하세요:
+`/users/track` 엔드포인트에서 식별자 필드 수준 암호화를 사용하는 경우 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)에 대한 다음 필드 세부 정보에 유의하세요:
 
 - `email` 필드는 이메일의 해시값이어야 합니다.
 - `email_encrypted` 필드는 이메일의 암호화된 값이어야 합니다.
@@ -106,7 +106,7 @@ Braze에서 이메일 주소를 업데이트할 때 `email`이 포함되는 모�
 2. **Test Send**에서 **Override recipients attributes with current preview user's attributes**를 선택합니다.
 
 {%raw%}
-### Braze에서 이 이메일 주소 Liquid `{{${email_address}}}`를 추가하면 어떻게 되나요? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
+### Braze에서 이메일 주소 Liquid `{{${email_address}}}`를 추가하면 어떻게 되나요? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
 Braze는 이메일을 보낼 때 일반 텍스트 이메일 주소를 렌더링합니다. 미리보기에서는 이메일의 암호화된 버전이 표시됩니다. 커스텀 원클릭 URL에서 사용자를 참조하는 경우 해당 사용자의 외부 ID를 사용하는 것이 좋습니다.
 

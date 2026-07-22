@@ -26,7 +26,7 @@ Wenn ein verschachteltes angepasstes Attribut in Ihrer Anfrage ungültige Werte 
 {% endalert %}
 
 {% alert tip %}
-Weitere Informationen zur Verwendung von Arrays von Objekten für Nutzerattribut-Objekte finden Sie unter [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Weitere Informationen zur Verwendung von Arrays von Objekten für Nutzerattribut-Objekte finden Sie unter [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## API-Beispiel {#api-example}

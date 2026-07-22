@@ -19,7 +19,7 @@ Você pode gerenciar as Centrais de Preferências de arrastar e soltar existente
 
 ## Etapa 1: Criar uma Central de Preferências de e-mail {#step-1-create-an-email-preference-center}
 
-Crie uma Central de Preferências navegando até **Público** > **Central de Preferências de e-mail**. Aqui, uma lista de Centrais de Preferências personalizadas será exibida. Selecione **Criar nova** para criar uma nova Central de Preferências ou selecione o nome de uma existente para fazer alterações.
+Crie uma Central de Preferências navegando até **Público** > **Central de Preferências de e-mail**. Aqui, uma lista de Centrais de Preferências personalizadas será exibida. Selecione **Create New** para criar uma nova Central de Preferências ou selecione o nome de uma existente para fazer alterações.
 
 ## Etapa 2: Nomear a Central de Preferências de e-mail {#step-2-name-the-email-preference-center}
 
@@ -29,7 +29,7 @@ Essa Liquid tag pode ser incluída em qualquer Campaign de e-mail de saída ou e
 
 ## Etapa 3: Adicionar grupos de inscrições à Central de Preferências {#step-3-add-subscription-groups-to-the-preference-center}
 
-Selecione **Abrir editor** para começar a projetar sua Central de Preferências no editor de arrastar e soltar.
+Selecione **Launch Editor** para começar a projetar sua Central de Preferências no editor de arrastar e soltar.
 
 ### Definir os grupos de inscrições disponíveis {#define-available-subscription-groups}
 
@@ -85,20 +85,24 @@ Cada bloco tem suas próprias configurações, como controle granular de preench
 
 Se você estiver usando o bloco de código personalizado na sua Central de Preferências, os iframes podem não ser gerados no código personalizado quando entregues aos seus usuários.
 
+{% alert note %}
+Content Blocks com links não podem ser usados na Central de Preferências de arrastar e soltar. Links dentro de Content Blocks não são clicáveis.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
 ## Etapa 5: Personalizar sua página de confirmação {#step-5-customize-your-confirmation-page}
 
-Em seguida, personalize a página de confirmação selecionando **Página de confirmação**. Essa página é exibida aos usuários após atualizarem suas preferências usando a Central de Preferências. Os mesmos recursos de estilo de [Definir estilos comuns](#set-common-styles) e [Componentes da Central de Preferências de arrastar e soltar](#drag-and-drop-preference-center-components) também se aplicam a essa página.
+Em seguida, personalize a página de confirmação selecionando **Confirmation Page**. Essa página é exibida aos usuários após atualizarem suas preferências usando a Central de Preferências. Os mesmos recursos de estilo de [Definir estilos comuns](#set-common-styles) e [Componentes da Central de Preferências de arrastar e soltar](#drag-and-drop-preference-center-components) também se aplicam a essa página.
 
 ![Um exemplo de página de confirmação para comunicar que as preferências do usuário foram atualizadas.]({% image_buster /assets/img/preference_center/preference_center9.png %}){: style="max-width:65%;"}
 
 ## Etapa 6: Pré-visualizar e lançar sua Central de Preferências {#step-6-preview-and-launch-your-preference-center}
 
-Você pode pré-visualizar sua Central de Preferências selecionando a guia **Prévia** dentro do editor. No entanto, a funcionalidade de teste está desativada. Além disso, envios de teste de Campaigns ou etapas do Canvas que incluem a Liquid tag da Central de Preferências não geram um link válido. Para testar a funcionalidade completa da sua Central de Preferências, envie uma Campaign ou um Canvas ativo. Após editar sua Central de Preferências, você pode fechar o editor selecionando **Done**.
+Você pode pré-visualizar sua Central de Preferências selecionando a guia **Preview** dentro do editor. No entanto, a funcionalidade de teste está desativada. Além disso, envios de teste de Campaigns ou etapas do Canvas que incluem a Liquid tag da Central de Preferências não geram um link válido. Para testar a funcionalidade completa da sua Central de Preferências, envie uma Campaign ou um Canvas ativo. Após editar sua Central de Preferências, você pode fechar o editor selecionando **Done**.
 
-A prévia mostra tanto a Central de Preferências quanto a página de confirmação. Selecione **Salvar como rascunho** para retornar a essa Central de Preferências mais tarde, ou, se estiver satisfeito, selecione **Launch Preference Center**.
+A prévia mostra tanto a Central de Preferências quanto a página de confirmação. Selecione **Save as Draft** para retornar a essa Central de Preferências mais tarde, ou, se estiver satisfeito, selecione **Launch Preference Center**.
 
 Ao lançar a Central de Preferências, você será solicitado a confirmar o nome, pois ele não pode ser editado após o lançamento. Depois de confirmar o nome, a Central de Preferências será lançada e estará pronta para uso.
 
@@ -106,9 +110,9 @@ Ao lançar a Central de Preferências, você será solicitado a confirmar o nome
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
-Para inserir um link para a Central de Preferências nos seus e-mails, copie a Liquid tag da Central de Preferências desejada selecionando o ícone **Copiar Liquid**.
+Para inserir um link para a Central de Preferências nos seus e-mails, copie a Liquid tag da Central de Preferências desejada selecionando o ícone **Copy Liquid**.
 
-![A opção Copiar Liquid na linha de uma Central de Preferências.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
+![A opção Copy Liquid na linha de uma Central de Preferências.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
 Adicione a Liquid tag no local desejado do seu e-mail, de forma semelhante a como as [URLs de cancelamento de inscrição]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) são inseridas.
 

@@ -238,6 +238,8 @@ When segmenting using the **DOES NOT MATCH REGEX** filter, you must already have
 {% endtab %}
 {% tab Arrays %}
 
+### Arrays {#arrays}
+
 Arrays have a maximum size of 100&nbsp;KB. The default length for an attribute is up to 500 items (for example, if you're sending an attribute such as "Movies Watched" set to 500, when a user watches a 501st movie, the first movie is removed and the most recent is added). Note that if you input any values with spaces in between, before, or after words, Braze will also check for the same spaces.
 
 Array-type custom attributes cannot be imported via [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). To upload array values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion).
@@ -245,6 +247,19 @@ Array-type custom attributes cannot be imported via [CSV import]({{site.baseurl}
 {% alert note %}
 The option to increase the maximum length will not be available if the attribute is set to automatically detect the data type; the data type must be set to array.
 {% endalert %}
+
+#### Troubleshooting: Array custom attribute shows no value on a user profile
+
+If an array custom attribute appears on a user profile but shows no values, check whether the attribute's **Max Length** is set to `0` in the dashboard.
+
+1. Go to **Data Settings** > **Custom Attributes**.
+2. Filter the list by **Array**.
+3. Find the attribute and review its **Max Length**.
+4. If **Max Length** is `0`, update it to a value greater than `0`.
+
+Setting **Max Length** to `0` prevents values from displaying on the user profile.
+
+For SDK-focused array behavior examples, see [Analytics overview]({{site.baseurl}}/developer_guide/analytics#arrays).
 
 For **Array** attributes, the following segmentation options are available.
 

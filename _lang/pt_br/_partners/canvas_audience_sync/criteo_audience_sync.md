@@ -15,10 +15,7 @@ Usando o Braze Audience Sync com a Criteo, as marcas podem optar por adicionar d
 
 **Os casos de uso comuns para sincronização de público incluem:**
 
-- Direcionamento a usuários de alto valor por meio de vários canais para impulsionar compras ou engajamento
-- Redirecionamento de usuários que são menos responsivos a outros canais de marketing
-- Criação de públicos de supressão para evitar que os usuários recebam anúncios quando já são consumidores fiéis da sua marca
-- Criação de públicos semelhantes para adquirir novos usuários com mais eficiência
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Este recurso oferece às marcas a opção de controlar quais dados primários específicos são compartilhados com a Criteo. Na Braze, as integrações com as quais você pode e não pode compartilhar seus dados primários recebem a máxima consideração. Para saber mais, consulte nossa [política de privacidade](https://www.braze.com/privacy).
 
