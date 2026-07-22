@@ -39,6 +39,12 @@ Note the difference between how "days" and "calendar days" are calculated.
 - A "day" is 24 hours and is calculated from the time the user enters the Delay step. 
 - A "calendar day" defines the time to wait until the next specified time, which could be less than 24 hours. You can choose to delay at company time or at a user's local time. If a time isn't specified, the user will be delayed until midnight the next day in company time.
 
+#### Delay behavior: "In X days at [time]" vs "Send after X days"
+
+When you configure a delay with a specific time (such as **In 1 Day at 9 AM**), Canvas calculates the target day first, then applies the scheduled time. For example, if a Canvas step sends at 9 PM on Monday and the next step is set to **In 1 Day at 9 AM**, the message sends at 9 AM on Tuesday. Canvas calculates Monday + 1 day = Tuesday, then applies the 9 AM time.
+
+By contrast, **Send after X days** (or selecting a duration without specifying a time) waits a full 24-hour period from the time the user enters the Delay step. For example, if a step sends at 9:35 AM on October 13 and the next step is **Send after 1 day**, the next step sends at 9:35 AM on October 14.
+
 You can also select **At a specific time** to specify when the users will advance in the Canvas. This option takes into account the time the user entered the Delay step. If this time is beyond the time configured in the settings, we'll append more hours to the delay. 
 
 As an example, let's say today is December 11, and our Delay step is set to **Duration** of one week at 8 am UTC. If a user enters the Delay step on December 4, they would be released from the Delay step to continue their journey today if they originally entered the Delay step at a time before 8 am UTC. If they entered the Delay step after this time, the user will be delayed until the next day (the next occurrence of this time). 
