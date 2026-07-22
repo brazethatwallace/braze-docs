@@ -165,6 +165,10 @@ To learn more about how to add or customize a preference center, refer to [Prefe
 
 In most cases, users manage their email subscription through links included in the emails they receive. Insert a legally compliant footer with an unsubscribe link at the bottom of every email. When users select the unsubscribe URL, Braze unsubscribes them and shows a landing page confirming the change. Include this Liquid tag: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
 
+{% alert note %}
+The {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} Liquid tag can only be used in email campaigns. It cannot be used in other messaging channels.
+{% endalert %}
+
 When a user selects "Unsubscribe from all of the listed types of emails" in the preference center, Braze sets their global email subscription status to `unsubscribed` and unsubscribes them from all groups.
 
 ### Creating custom footers {#custom-footer}
