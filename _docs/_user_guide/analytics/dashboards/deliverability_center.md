@@ -130,8 +130,8 @@ To help understand the ratings for IP reputation, refer to this table:
 The spam complaint data shown in Braze is based on feedback loop (FBL) reports from email providers who share them, such as Microsoft, Yahoo, and Comcast. When users at these providers report mail as spam, those complaints are sent back to Braze.<br><br>
 However, Gmail and iCloud do not operate traditional feedback loops and do not report spam complaints back to Braze. This means:<br>
 - Spam complaints from Gmail users are not included in Braze metrics or available in Snowflake or Currents data.<br>
-- Gmail spam data can only be viewed as aggregate percentages in [Gmail Postmaster Tools](https://www.gmail.com/postmaster/), not as individual addresses.<br>
-- If you see high spam rates in Gmail Postmaster Tools, those numbers will not match your Braze spam complaint metrics because Gmail doesn't share that data with senders.
+- You can view Gmail spam data only as aggregate percentages in [Gmail Postmaster Tools](https://www.gmail.com/postmaster/), not as individual addresses.<br>
+- If you see high spam rates in Gmail Postmaster Tools, those numbers do not match your Braze spam complaint metrics because Gmail doesn't share that data with senders.
 {% endalert %}
 
 #### Domain reputation 
