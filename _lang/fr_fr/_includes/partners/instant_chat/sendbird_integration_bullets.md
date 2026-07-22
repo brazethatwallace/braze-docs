@@ -1,0 +1,2 @@
+- Utilisez les fonctionnalités de segmentation et de déclenchement de Braze pour envoyer des notifications in-app personnalisées.
+- Créez des notifications in-app sur mesure sur la plateforme Sendbird Notifications, qui sont ensuite diffusées dans l'environnement de l'application, renforçant ainsi l'engagement des utilisateurs.

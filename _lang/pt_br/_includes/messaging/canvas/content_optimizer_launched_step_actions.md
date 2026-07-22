@@ -1,0 +1,3 @@
+- Adicionar novas variantes a qualquer componente existente, seja manualmente ou usando sugestões geradas por IA, até o limite de cinco variantes por componente.
+- Desativar variantes para parar de enviá-las aos usuários.
+- Reativar variantes desativadas anteriormente, desde que isso mantenha o componente dentro do limite de cinco variantes.

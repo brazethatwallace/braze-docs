@@ -1,3 +1,7 @@
 - **Datei hochladen:** Ziehen Sie eine Datei per Drag-and-Drop oder durchsuchen Sie Ihren Computer, um eine Datei direkt in die E-Mail hochzuladen. Braze überprüft den Dateityp und die Dateigröße (standardmäßig bis zu 2&nbsp;MB) vor dem Hochladen. Anschließend werden diese Dateien in die Medienbibliothek hochgeladen. Dateien, die das Limit von 2&nbsp;MB überschreiten, können nicht hochgeladen werden.
 - **Medienbibliothek verwenden:** Durchsuchen und wählen Sie Assets aus, die bereits in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) gespeichert sind. PDFs, Word-Dokumente, Excel-Dateien und PowerPoint-Präsentationen werden unterstützt.
-- **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und legen Sie einen Anzeigenamen für die Datei fest. Da Braze bei der E-Mail-Erstellung keine beliebigen URLs auf ihre Größe prüfen kann, wird die Dateigröße erst beim Versand überprüft. Beachten Sie, dass Liquid in diesem Feld nicht unterstützt wird.
+- **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und legen Sie einen Anzeigenamen für die Datei fest. Da Braze bei der E-Mail-Erstellung keine beliebigen URLs auf ihre Größe prüfen kann, wird die Dateigröße erst beim Versand überprüft.
+
+{% alert note %}
+Liquid wird im Feld **Von URL hinzufügen** nicht unterstützt.
+{% endalert %}
