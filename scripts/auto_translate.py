@@ -273,6 +273,8 @@ _LIQUID_BLOCK_PAIRS = {
     "details": "enddetails",
     "tabs": "endtabs",
     "tab": "endtab",
+    "sdktabs": "endsdktabs",
+    "sdktab": "endsdktab",
     "alert": "endalert",
     "apitags": "endapitags",
     "capture": "endcapture",
@@ -663,6 +665,23 @@ def chunks_requiring_translation(en_chunks, prev_en_chunks):
         else:
             needs.append(False)
     return needs
+
+
+def _h2_chunk_keys(content):
+    return [_chunk_translation_key(chunk) for chunk in split_into_h2_chunks(content)]
+
+
+def incremental_h2_requires_full_file(english_content, previous_english_content):
+    """Return True when incremental H2 reassembly is unsafe across sdktabs boundaries.
+
+    When English gains or loses top-level H2 chunk boundaries inside ``{% sdktabs %}``,
+    reusing unchanged locale chunks can leave translated ``sdktab`` structure broken.
+    """
+    if not previous_english_content:
+        return False
+    if "{% sdktabs" not in english_content and "{% sdktabs" not in previous_english_content:
+        return False
+    return _h2_chunk_keys(english_content) != _h2_chunk_keys(previous_english_content)
 
 
 def load_english_at_git_ref(fpath, ref):
@@ -1788,7 +1807,9 @@ def translate_one(client, prompt, fpath, relative, english_content,
                   english_base_ref=None):
     """Translate + review a single file into one language. Returns a result dict."""
     previous_english = load_english_at_git_ref(fpath, english_base_ref)
-    if previous_english is not None:
+    if previous_english is not None and not incremental_h2_requires_full_file(
+        english_content, previous_english
+    ):
         return translate_one_incremental(
             client,
             prompt,
@@ -1802,6 +1823,13 @@ def translate_one(client, prompt, fpath, relative, english_content,
             styleguide,
             api_retries=api_retries,
             uses_size_chunking=False,
+        )
+    if previous_english is not None and incremental_h2_requires_full_file(
+        english_content, previous_english
+    ):
+        print(
+            f"    [{lang_key}] incremental H2 unsafe for sdktabs topology in "
+            f"{relative} — full-file translation"
         )
 
     target = translation_path(relative, lang_info["dir"])
@@ -1948,7 +1976,9 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
     reassembling.  Skips the second-pass review (chunks are self-contained and
     the review would require the full file which exceeds context limits)."""
     previous_english = load_english_at_git_ref(fpath, english_base_ref)
-    if previous_english is not None:
+    if previous_english is not None and not incremental_h2_requires_full_file(
+        english_content, previous_english
+    ):
         return translate_one_incremental(
             client,
             prompt,
@@ -1962,6 +1992,13 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
             styleguide,
             api_retries=api_retries,
             uses_size_chunking=True,
+        )
+    if previous_english is not None and incremental_h2_requires_full_file(
+        english_content, previous_english
+    ):
+        print(
+            f"    [{lang_key}] incremental H2 unsafe for sdktabs topology in "
+            f"{relative} — chunked full-file translation"
         )
 
     target = translation_path(relative, lang_info["dir"])
