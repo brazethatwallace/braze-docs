@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 Esta seção explica como a Braze seleciona um perfil de usuário para envio e o que acontece quando um perfil não é selecionado.
 
-O status do grupo de inscrições de um usuário pode ser atualizado com a inclusão de um parâmetro `subscription_groups` no objeto `attributes`. Para saber mais, consulte [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+O status do grupo de inscrições de um usuário pode ser atualizado com a inclusão de um parâmetro `subscription_groups` no objeto `attributes`. Para saber mais, consulte [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 #### Limites de destinatários e criação de perfis {#recipient-limits-and-profile-creation}
 

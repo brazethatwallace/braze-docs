@@ -11,7 +11,20 @@ description: "Este artigo de referência aborda o uso de atributos personalizado
 
 > Esta página aborda os atributos personalizados aninhados, que permitem definir um conjunto de atributos como uma propriedade de outro atributo. Em outras palavras, quando você define um objeto de atributo personalizado, pode definir um conjunto de atributos adicionais para esse objeto.
 
-{% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
+## Sobre atributos aninhados {#about-nested-attributes}
+
+Os atributos aninhados permitem criar segmentos mais ricos e personalizar mensagens com dados de um único objeto de atributo personalizado.
+
+No exemplo a seguir, o atributo personalizado `favorite_book` contém os atributos aninhados `title`, `author` e `publishing_date`. Esse objeto pode ser usado para direcionar usuários por autor, filtrar por data de publicação ou inserir o título do livro diretamente em uma mensagem:
+
+```json
+"favorite_book": {
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "publishing_date": "1937"
+}
+```
+
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 

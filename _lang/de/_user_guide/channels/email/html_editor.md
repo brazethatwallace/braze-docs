@@ -111,8 +111,7 @@ Um beispielsweise einen weißen Hintergrund auf einer Zelle beizubehalten, verwe
 Ersetzen Sie `#ffffff` durch Ihre gewünschte Farbe.
 
 {% alert note %}
-Dieser Ansatz funktioniert nicht zuverlässig allein auf `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`-Elementen. Setzen Sie den Gradienten daher auf die Zelle statt nur auf die Tabelle.
-  <caption>Gmail mobile app and dark mode</caption>
+Dieser Ansatz funktioniert nicht zuverlässig allein auf `<table>`-Elementen. Setzen Sie den Gradienten daher auf die Zelle statt nur auf die Tabelle.
 {% endalert %}
 
 Weitere Informationen zur Gradient-Syntax finden Sie unter [CSS-Gradienten auf W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -140,9 +139,7 @@ Sie können auch Personalisierung für E-Mail-Header und E-Mail-Extras hinzufüg
 
 Sie können E-Mail-Anhänge auch mit den folgenden Methoden hinzufügen:
 
-- **Datei hochladen:** Ziehen Sie eine Datei per Drag-and-Drop oder durchsuchen Sie Ihren Computer, um eine Datei direkt hochzuladen. Braze validiert den Dateityp und die Größe (standardmäßig bis zu 2&nbsp;MB) vor dem Hochladen, anschließend werden diese Dateien in die Medienbibliothek hochgeladen. Dateien, die das Limit von 2&nbsp;MB überschreiten, können nicht hochgeladen werden.
-- **Medienbibliothek verwenden:** Durchsuchen und wählen Sie aus bereits in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) gespeicherten Assets. PDFs, Word-Dokumente, Excel-Dateien und PowerPoint-Präsentationen werden unterstützt.
-- **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und geben Sie einen Anzeige-Dateinamen an. Da Braze beliebige URLs während der E-Mail-Erstellung nicht auf ihre Größe prüfen kann, wird die Dateigröße zum Sendezeitpunkt erzwungen. Beachten Sie, dass Liquid in diesem Feld nicht unterstützt wird.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Spezifische Best Practices finden Sie unter [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines).
 
@@ -295,9 +292,7 @@ Beim Erstellen einer neuen E-Mail-Campaign ist die Kontrollgruppe standardmäßi
 
 Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen, möchten Sie Ihre Campaign möglicherweise so einschränken, dass nur Nutzer:innen die Nachricht erhalten, die ausdrücklich angemeldet sind (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Nehmen wir beispielsweise an, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
-- **Nutzer:in A** ist für E-Mail abonniert und Push-aktiviert. Diese Person erhält die E-Mail nicht, wird aber den Push erhalten.
-- **Nutzer:in B** ist für E-Mail angemeldet, aber nicht Push-aktiviert. Diese Person wird die E-Mail erhalten, erhält aber nicht den Push.
-- **Nutzer:in C** ist für E-Mail angemeldet und Push-aktiviert. Diese Person wird sowohl die E-Mail als auch den Push erhalten.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Wählen Sie dazu unter **Zielgruppen-Zusammenfassung** aus, diese Campaign nur an „nur angemeldete Nutzer:innen“ zu senden. Diese Option stellt sicher, dass nur angemeldete Nutzer:innen Ihre E-Mail erhalten, und Braze sendet Ihren Push standardmäßig nur an Nutzer:innen, die Push-aktiviert sind.
 

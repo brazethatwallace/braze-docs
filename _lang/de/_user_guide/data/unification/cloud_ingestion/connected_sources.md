@@ -21,7 +21,7 @@ Da verbundene Quellen direkt auf Ihrem Data Warehouse laufen, entstehen Ihnen al
 
 ## Integration verbundener Quellen {#integrating-connected-sources}
 
-### 1. Schritt: Verbinden Sie Ihre Ressourcen {#step-1-connect-your-resources}
+### Schritt 1: Verbinden Sie Ihre Ressourcen {#step-1-connect-your-resources}
 
 Verbundene Quellen für die Cloud-Datenaufnahme erfordern einige Einstellungen in Braze und in Ihrer Instanz. Folgen Sie diesen Schritten, um die Integration einzurichten&#8722;einige Schritte werden in Ihrem Data Warehouse und einige im Braze-Dashboard durchgeführt.
 
@@ -84,7 +84,7 @@ Es kann zu einer Aufwärmzeit von zwei bis fünf Minuten kommen, wenn Braze eine
 
 {% endtabs %}
 
-### 2. Schritt: Richten Sie Ihr Data Warehouse ein {#step-2-set-up-your-data-warehouse}
+### Schritt 2: Richten Sie Ihr Data Warehouse ein {#step-2-set-up-your-data-warehouse}
 
 Richten Sie die Quelldaten und die erforderlichen Ressourcen in Ihrer Data-Warehouse-Umgebung ein. Die verbundene Quelle kann auf eine oder mehrere Tabellen verweisen. Stellen Sie daher sicher, dass Ihre Braze-Nutzer:in die Berechtigung hat, auf alle Tabellen zuzugreifen, die Sie in der verbundenen Quelle verwenden möchten.
 
@@ -234,16 +234,14 @@ Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugri
 #### Schritt 2.1: Zugriff auf Fabric-Ressourcen gewähren {#step-21-grant-access-to-fabric-resources}
 Braze stellt die Verbindung zu Ihrem Fabric-Warehouse über einen Dienstprinzipal mit Entra-ID-Authentifizierung her. Sie erstellen einen neuen Dienstprinzipal, den Braze verwenden kann, und gewähren bei Bedarf Zugriff auf Fabric-Ressourcen. Braze benötigt für die Verbindung die folgenden Angaben:
 
-* Tenant-ID (auch Verzeichnis-ID genannt) für Ihr Azure-Konto
-* Principal-ID (auch Anwendungs-ID genannt) für den Dienstprinzipal
-* Client-Secret für die Authentifizierung von Braze
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
 1. Navigieren Sie im Azure-Portal zum Microsoft Entra Admin Center und dann zu **App Registrations**.
 2. Wählen Sie **+ New registration** unter **Identity > Applications > App registrations**.
 3. Geben Sie einen Namen ein und wählen Sie `Accounts in this organizational directory only` als unterstützten Kontotyp aus. Wählen Sie dann **Register**.
 4. Wählen Sie die soeben erstellte Anwendung (Dienstprinzipal) aus und navigieren Sie zu **Certificates & secrets > + New client secret**.
 5. Geben Sie eine Beschreibung für das Secret ein und legen Sie einen Ablaufzeitraum fest. Wählen Sie dann **Add**.
-6. Notieren Sie sich das erstellte Client-Secret für die Einrichtung von Braze.
+6. Notieren Sie sich das erstellte Client-Secret für die Einrichtung in Braze.
 
 {% alert note %}
 Azure erlaubt keinen unbegrenzten Ablauf von Dienstprinzipal-Secrets. Denken Sie daran, die Zugangsdaten zu aktualisieren, bevor sie ablaufen, damit der Datenfluss zu Braze aufrechterhalten wird.
@@ -258,7 +256,7 @@ Sie gewähren Braze den Zugriff auf Ihre Fabric-Instanz. Navigieren Sie in Ihrem
 #### Schritt 2.3: Warehouse-Verbindungszeichenfolge abrufen {#step-23-get-warehouse-connection-string}
 
 Sie benötigen den SQL-Endpunkt für Ihr Warehouse, damit Braze eine Verbindung herstellen kann. Um den SQL-Endpunkt abzurufen, rufen Sie den **Workspace** in Fabric auf. Bewegen Sie in der Liste der Elemente den Mauszeiger über den Warehouse-Namen und wählen Sie **Copy SQL connection string**.
-Halten Sie diesen Wert für die Einrichtung der Zugangsdaten in Schritt 3 bereit.
+Halten Sie diesen Wert für die Einrichtung der Zugangsdaten in [Schritt 3](#step-3-create-a-connected-source-in-the-braze-dashboard) bereit.
 
 #### Schritt 2.4: Braze-IPs in der Firewall zulassen (optional) {#step-24-allow-braze-ips-in-firewall-optional}
 
@@ -270,7 +268,7 @@ Je nach Konfiguration Ihres Microsoft-Fabric-Kontos müssen Sie möglicherweise 
 
 {% endtabs %}
 
-### 3. Schritt: Erstellen Sie eine verbundene Quelle im Braze-Dashboard {#step-3-create-a-connected-source-in-the-braze-dashboard}
+### Schritt 3: Erstellen Sie eine verbundene Quelle im Braze-Dashboard {#step-3-create-a-connected-source-in-the-braze-dashboard}
 
 {% tabs %}
 {% tab Snowflake %}
@@ -402,7 +400,7 @@ Wählen Sie **Test Connection**, um zu überprüfen, ob die Liste der für die N
 {% endtab %}
 {% endtabs %}
 
-### 4. Schritt: Data-Warehouse-Konfiguration abschließen {#step-4-finalize-the-data-warehouse-configuration}
+### Schritt 4: Data-Warehouse-Konfiguration abschließen {#step-4-finalize-the-data-warehouse-configuration}
 
 {% tabs %}
 {% tab Snowflake %}

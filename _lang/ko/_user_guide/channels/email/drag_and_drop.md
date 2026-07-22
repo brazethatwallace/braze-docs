@@ -125,7 +125,7 @@ tool:
 
 드래그 앤 드롭 이메일을 추가로 커스터마이징하는 다른 방법은 [기타 커스터마이징](#other-customizations)을 확인하세요.
 
-이메일을 작성하면서 데스크탑과 모바일 보기를 전환하여 사용자 그룹에게 이메일 메시지가 어떻게 보일지 미리 볼 수 있습니다. 이를 통해 콘텐츠가 반응형인지 확인하고 필요한 조정을 할 수 있습니다.
+이메일을 작성하면서 데스크탑과 모바일 보기를 전환하여 사용자 그룹에게 이메일 메시지가 어떻게 보일지 미리 볼 수 있습니다. 이를 통해 콘텐츠가 응답형인지 확인하고 필요한 조정을 할 수 있습니다.
 
 {% alert tip %}
 멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
@@ -150,9 +150,7 @@ tool:
 
 **Sending Settings** > **Advanced**에서 다음 방법으로 이메일 첨부 파일을 추가할 수 있습니다:
 
-- **파일 업로드:** 컴퓨터에서 직접 파일을 드래그 앤 드롭하거나 찾아보기하여 이메일에 업로드합니다. Braze는 업로드 전에 파일 유형과 크기(기본값 최대 2&nbsp;MB)를 검증한 후 미디어 라이브러리에 업로드합니다. 2&nbsp;MB 제한을 초과하는 파일은 업로드할 수 없습니다.
-- **미디어 라이브러리 사용:** [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에 이미 저장된 자산을 찾아보고 선택합니다. PDF, Word 문서, Excel 파일, PowerPoint 프레젠테이션이 모두 지원됩니다.
-- **URL에서 추가:** 파일을 가리키는 URL을 입력하고 표시 파일 이름을 제공합니다. Braze는 이메일 작성 중에 임의의 URL의 크기를 확인할 수 없으므로 파일 크기는 발송 시 적용됩니다. 이 필드에서는 Liquid가 지원되지 않습니다.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 고려해야 할 구체적인 모범 사례는 [이메일 가이드라인]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines)을 참조하세요.
 

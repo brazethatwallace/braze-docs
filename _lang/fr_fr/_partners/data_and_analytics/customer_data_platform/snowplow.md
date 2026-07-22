@@ -24,7 +24,7 @@ L'intégration entre Braze et Snowplow vous permet de transmettre les événemen
 
 L'[Event Forwarding](https://docs.snowplow.io/docs/destinations/forwarding-events/) de Snowplow est une fonctionnalité supplémentaire payante disponible pour les clients Snowplow. Pour transmettre des événements à Braze sans ce module complémentaire, utilisez l'intégration [Google Tag Manager Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/) de Snowplow.
 
-Exploitez les riches données comportementales de Snowplow pour favoriser de puissantes interactions centrées sur le client dans Braze et diffuser des messages personnalisés en temps réel.
+Tirez parti des riches données comportementales de Snowplow pour favoriser de puissantes interactions centrées sur le client dans Braze et diffuser des messages personnalisés en temps réel.
 
 ## Conditions préalables {#prerequisites}
 
@@ -39,7 +39,7 @@ Exploitez les riches données comportementales de Snowplow pour favoriser de pui
 ## Cas d'usage {#use-cases}
 
 ### Livraison personnalisée par événement {#personalized-action-based-delivery}
-Utilisez l'un des nombreux événements riches que Snowplow collecte par défaut, ou définissez vos propres événements personnalisés pour façonner des parcours clients encore plus précis, adaptés à votre entreprise. Exploitez les données comportementales de Snowplow pour concevoir des entonnoirs clients et créer de la valeur pour vos équipes marketing et produit, en les aidant à maximiser la conversion et l'utilisation des produits via Braze.
+Utilisez l'un des nombreux événements riches que Snowplow collecte par défaut, ou définissez vos propres événements personnalisés pour façonner des parcours clients encore plus précis, adaptés à votre entreprise. Tirez parti des données comportementales de Snowplow pour concevoir des entonnoirs clients et créer de la valeur pour vos équipes marketing et produit, en les aidant à maximiser la conversion et l'utilisation des produits via Braze.
 
 ### Segmentation dynamique {#dynamic-segmentation}
 Créez des audiences dynamiques dans Braze à partir des données comportementales de haute qualité de Snowplow : lorsque les utilisateurs effectuent des actions dans votre produit, application ou site web, vous pouvez exploiter les données comportementales en temps réel collectées par Snowplow pour ajouter ou supprimer automatiquement des utilisateurs des Segments pertinents dans Braze.
@@ -59,7 +59,7 @@ Pour créer le transfert d'événements :
 
 Lors de la configuration du transfert, vous pouvez choisir les événements Snowplow à transmettre et les mapper à des types d'objets Braze :
 
-1. **[Attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)** : mettez à jour les données du profil utilisateur et les propriétés personnalisées.
+1. **[Attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object)** : mettez à jour les données du profil utilisateur et les propriétés personnalisées.
 2. **[Événements personnalisés]({{site.baseurl}}/api/objects_filters/event_object)** : envoyez les actions et les comportements des utilisateurs.
 3. **[Achats]({{site.baseurl}}/api/objects_filters/purchase_object)** : envoyez les données de transaction avec les détails du produit.
 

@@ -1,0 +1,3 @@
+- Envoyer des métadonnées pour vos analyses tierces ou intégrations.
+- Utiliser des métadonnées telles qu'un `timestamp` ou un objet JSON pour déclencher une logique conditionnelle.
+- Contrôler le comportement d'un Banner en fonction de métadonnées incluses comme `ratio` ou `format`.

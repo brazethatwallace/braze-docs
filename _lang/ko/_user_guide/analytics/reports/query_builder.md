@@ -166,9 +166,7 @@ LIMIT 100
 
 변수가 생성되면 쿼리 빌더 보고서의 **변수** 탭에 표시됩니다. SQL 변수를 사용하면 다음과 같은 이점이 있습니다:
 
-- Campaign ID를 붙여넣는 대신 보고서를 생성할 때 목록에서 선택할 수 있는 Campaign 변수를 만들어 시간을 절약합니다.
-- 향후 약간 다른 사용 사례(예: 다른 커스텀 이벤트)에 대해 보고서를 재사용할 수 있도록 변수를 추가하여 값을 교체합니다.
-- 각 보고서에 필요한 편집량을 줄여 SQL 편집 시 사용자 오류를 줄입니다. SQL에 더 익숙한 팀원이 보고서를 만들면 기술적 지식이 적은 팀원이 사용할 수 있습니다.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### 가이드라인 {#guidelines}
 
@@ -233,7 +231,7 @@ LIMIT 100
 - **대체 값:** Canvas BSON ID
 - **사용 예시:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
-##### Canvases
+##### Canvases {#canvases}
 
 여러 Canvases를 선택하기 위한 변수입니다. Campaign과 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택하는 라디오 버튼이 표시됩니다.
 
@@ -247,7 +245,7 @@ LIMIT 100
 - **대체 값:** Campaign BSON ID
 - **사용 예시:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
-##### Campaigns
+##### Campaigns {#campaigns}
 
 여러 Campaigns를 다중 선택하기 위한 변수입니다. Canvas와 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택하는 라디오 버튼이 표시됩니다.
 

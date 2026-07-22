@@ -38,13 +38,13 @@ Braze는 첫 번째 SDK 세션 시작 시 IP 주소에서 지리적으로 위치
 
 ## 위치 타겟팅 {#location-targeting}
 
-위치 추적 데이터와 Segments를 사용하여 위치 기반 Campaign과 전략을 설정할 수 있습니다. 예를 들어, 특정 지역에 거주하는 사용자를 대상으로 프로모션 Campaign을 실행하거나 더 엄격한 규정이 있는 지역의 사용자를 제외할 수 있습니다.
+위치 추적 데이터와 세그먼트를 사용하여 위치 기반 Campaign과 전략을 설정할 수 있습니다. 예를 들어, 특정 지역에 거주하는 사용자를 대상으로 프로모션 Campaign을 실행하거나 더 엄격한 규정이 있는 지역의 사용자를 제외할 수 있습니다.
 
-위치 Segment 생성에 대한 자세한 내용은 [위치 타겟팅]({{site.baseurl}}/user_guide/audience/segments/location_targeting)을 참조하세요.
+위치 세그먼트 생성에 대한 자세한 내용은 [위치 타겟팅]({{site.baseurl}}/user_guide/audience/segments/location_targeting)을 참조하세요.
 
 ## 기본 위치 속성 하드 설정 {#hard-setting-the-default-location-attribute}
 
-API의 [`users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) 표준 속성을 업데이트할 수도 있습니다. 예시는 다음과 같습니다:
+API의 [`users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) 표준 속성을 업데이트할 수도 있습니다. 예시는 다음과 같습니다:
 
 ```
 https://[your_braze_rest_endpoint]/users/track

@@ -59,7 +59,7 @@ Pour chaque composant de la requête listé dans le tableau suivant, vous devez 
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Facultatif | Tableau d'objets Attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `attributes` | Facultatif | Tableau d'objets Attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | Facultatif | Tableau d'objets Événement | Voir l'[objet événements]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | Facultatif | Tableau d'objets Achat | Voir l'[objet achats]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la requête" }

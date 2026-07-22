@@ -157,9 +157,9 @@ Campaigns와 Canvases는 워크스페이스에서 기능을 사용할 수 없는
 | --- | --- |
 | 이메일(드래그 앤 드롭, 전체 템플릿) | 에디터에서 언어를 설정합니다. 다국어 메시지를 사용하면 전체 이메일 템플릿이 각 로케일의 언어에 맞출 수 있습니다. Content Blocks만 사용하는 경우(단일 행) 이러한 단축키가 동일하게 작동하지 않습니다. 에디터에서 허용하는 곳에서 직접 언어를 선택하세요. |
 | 이메일(HTML 코드) | Braze는 언어 태그를 자동으로 추가하지 않습니다. 필요한 경우 HTML에 직접 추가하세요. |
-| 인앱 메시지(드래그 앤 드롭) | **접근성**에서 언어를 선택하면 Braze가 메시지의 외부 HTML에 해당 언어를 추가하여 스크린 리더가 전체 메시지를 해당 언어로 처리합니다. 다국어 메시지가 켜져 있으면 새 메시지가 로케일 언어로 기본 설정될 수 있습니다. **미리보기**에서는 **설정**에서 언어를 선택할 때까지 언어가 표시되지 않을 수 있습니다. |
-| 배너 | 인앱 메시지와 동일한 동작입니다. |
-| 랜딩 페이지 | 라이브 페이지에서 언어를 설정할 수 있습니다. 하나의 언어를 선택하거나, 계정에서 랜딩 페이지에 Liquid를 허용하는 경우 Liquid를 사용하세요. 기본값도 인앱 메시지 및 배너와 다릅니다. 게시된 페이지를 확인하세요. |
+| In-App Messages(드래그 앤 드롭) | **접근성**에서 언어를 선택하면 Braze가 메시지의 외부 HTML에 해당 언어를 추가하여 스크린 리더가 전체 메시지를 해당 언어로 처리합니다. 다국어 메시지가 켜져 있으면 새 메시지가 로케일 언어로 기본 설정될 수 있습니다. **미리보기**에서는 **설정**에서 언어를 선택할 때까지 언어가 표시되지 않을 수 있습니다. |
+| 배너 | In-App Messages와 동일한 동작입니다. |
+| 랜딩 페이지 | 라이브 페이지에서 언어를 설정할 수 있습니다. 하나의 언어를 선택하거나, 계정에서 랜딩 페이지에 Liquid를 허용하는 경우 Liquid를 사용하세요. 기본값도 In-App Messages 및 배너와 다릅니다. 게시된 페이지를 확인하세요. |
 | Content Cards | Cards는 명시적인 접근성 언어 대신 앱용 **언어** 필드를 사용합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="채널 및 에디터 지원" }
 
@@ -506,6 +506,7 @@ Braze 드래그 앤 드롭 에디터는 기본적으로 시맨틱 HTML을 출력
 
 {% multi_lang_include accessibility/video.md %}
 
+
 #### 재생 컨트롤 제공 {#playback-controls}
 
 임베디드 동영상에 재생, 일시 정지, 음소거 및 탐색과 같은 접근 가능한 재생 컨트롤이 포함되어 있는지 확인하여 사용자가 자신에게 가장 적합한 방식으로 상호작용할 수 있도록 하세요.
@@ -634,7 +635,7 @@ ARIA는 웹 콘텐츠를 더 접근 가능하게 만들기 위해 설계되었�
 접근성 문제를 조기에 식별하고 수정할 수 있도록 Braze는 다음 영역에서 자동화된 접근성 테스트를 제공합니다:
 
 - 이메일용 [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing)
-- HTML 에디터를 사용하여 생성된 메시지(예: HTML 인앱 메시지, HTML Content Blocks, [커스텀 이메일 푸터]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page), [이메일 옵트인 페이지]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [이메일 수신 거부 페이지]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page))용 [접근성 스캐너]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)
+- HTML 에디터를 사용하여 생성된 메시지(예: HTML In-App Messages, HTML Content Blocks, [커스텀 이메일 푸터]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page), [이메일 옵트인 페이지]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [이메일 수신 거부 페이지]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page))용 [접근성 스캐너]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)
 
 이러한 테스트는 접근 가능한 콘텐츠에 대한 국제적으로 인정된 기술 표준 세트인 웹 콘텐츠 접근성 지침([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) 표준에 따라 메시지를 검사합니다. 자동으로 감지할 수 있는 모든 문제는 우선순위를 정하는 데 도움이 되도록 심각도별로 플래그가 지정되고 분류됩니다.
 

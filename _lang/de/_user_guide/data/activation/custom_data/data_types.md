@@ -170,7 +170,7 @@ Die folgenden Datentypen können als angepasste Attribute gespeichert werden:
 - [Strings](#strings)
 - [Arrays](#arrays)
 - [Zeit](#time)
-- [Objekte]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)
+- [Objekte]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
 - [Arrays von Objekten]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### Boolesche Werte (true/false) {#booleans}
@@ -301,16 +301,12 @@ Für **Zeit**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfügu
 
 #### Details zu Zeitattributen {#time-attribute-details}
 
-- Tag eines wiederkehrenden Events
-  - Wenn Sie den Filter „Tag eines wiederkehrenden Events“ verwenden und dann aufgefordert werden, den „Kalendertag des wiederkehrenden Events“ auszuwählen, wird bei Auswahl von `IS LESS THAN` oder `IS MORE THAN` das aktuelle Datum für diesen Segmentierungsfilter mitgezählt.
-  - Wenn Sie beispielsweise am 10. März 2020 das Datum des Attributs auf `LESS THAN ... March 10, 2020` setzen, werden Attribute für die Tage bis einschließlich 10. März 2020 berücksichtigt.
-- Weniger als X Tage her: Der Filter „Weniger als X Tage her“ umfasst Daten zwischen X Tagen in der Vergangenheit und dem aktuellen Datum/der aktuellen Uhrzeit.
-- Weniger als X Tage in der Zukunft: Umfasst Daten zwischen dem aktuellen Datum/der aktuellen Uhrzeit und X Tagen in der Zukunft.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab Objekte %}
 
-Sie können verschachtelte angepasste Attribute verwenden, um Objekte als Datentyp für angepasste Attribute zu senden. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support).
+Sie können verschachtelte angepasste Attribute verwenden, um Objekte als Datentyp für angepasste Attribute zu senden. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% endtab %}
 {% tab Arrays von Objekten %}

@@ -1,0 +1,3 @@
+- A effectué un événement personnalisé avec la propriété A ayant la valeur B, X fois au cours des Y derniers jours.
+- A réalisé un achat quelconque avec la propriété A ayant la valeur B, X fois au cours des Y derniers jours.
+- Permet de segmenter sur une période de 1 à 30 jours.

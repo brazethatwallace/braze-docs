@@ -15,10 +15,7 @@ Braze Audience Sync to TikTok을 사용하면 브랜드는 자체 Braze 통합�
 
 **Audience Sync의 일반적인 사용 사례는 다음과 같습니다**:
 
-- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 인게이지먼트를 유도
-- 다른 마케팅 채널에 반응이 적은 사용자를 리타겟팅
-- 이미 브랜드의 충성 소비자인 사용자가 광고를 받지 않도록 억제 오디언스 생성
-- 신규 사용자를 더 효율적으로 확보하기 위한 유사 오디언스(Actalike Audiences) 생성
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 이 기능을 통해 브랜드는 TikTok과 공유되는 특정 퍼스트파티 데이터를 제어할 수 있습니다. Braze에서는 퍼스트파티 데이터를 공유할 수 있는 통합과 공유할 수 없는 통합에 대해 최대한 신중하게 고려합니다. 자세한 내용은 [개인정보 보호정책](https://www.braze.com/privacy)을 참조하세요.
 

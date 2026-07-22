@@ -26,7 +26,7 @@ Cuando un atributo personalizado anidado en tu solicitud contiene valores no vá
 {% endalert %}
 
 {% alert tip %}
-Para más información sobre el uso de conjuntos de objetos para objetos de atributos de usuario, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Para más información sobre el uso de conjuntos de objetos para objetos de atributos de usuario, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## Ejemplo de API {#api-example}

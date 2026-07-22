@@ -96,9 +96,7 @@ Para adicionar propriedades de eventos para segmentação, faça o seguinte:
 
 Os filtros de segmentação por propriedades de eventos incluem:
 
-- Realizou um evento personalizado com propriedade A com valor B, X vezes nos últimos Y dias.
-- Fez qualquer compra com propriedade A com valor B, X vezes nos últimos Y dias.
-- Adiciona a capacidade de segmentar dentro de 1 a 30 dias.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
 ![Um grupo de filtros com "Abandoned Cart" com propriedade "number of items" e valor 2 mais de 1 vez nos últimos 30 dias corridos.]({% image_buster /assets/img/nested_object3.png %})
 
@@ -128,6 +126,6 @@ As propriedades de eventos personalizados são projetadas para ajudar você a au
 Você pode segmentar com base nos valores das propriedades de eventos de duas maneiras:
 
 1. **Dentro de 30 dias:** Você pode usar a segmentação por propriedades de eventos com base na frequência e recência de valores específicos de propriedades de eventos dentro dos Segments da Braze. Essa opção impacta o uso de dados.<br><br>
-2. **Dentro e além de 30 dias:** Para cobrir tanto a segmentação de propriedades de eventos de curto quanto de longo prazo, você pode usar [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esse recurso segmenta usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Essa opção não impacta o uso de dados.
+2. **Dentro e além de 30 dias:** Para cobrir tanto a segmentação de propriedades de eventos de curto quanto de longo prazo, você pode usar [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esse recurso segmenta usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Essa opção não impacta o uso de dados.
 
 Entre em contato com o gerente de sucesso do cliente da Braze para recomendações sobre a melhor abordagem, dependendo das suas necessidades específicas.

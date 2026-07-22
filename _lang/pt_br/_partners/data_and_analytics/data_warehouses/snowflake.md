@@ -18,19 +18,19 @@ A Braze oferece duas integrações com o Snowflake. Juntas, elas fornecem um pip
 
 ### Compartilhamento de dados (da Braze para o Snowflake) {#data-sharing-braze-to-snowflake}
 
-O [Compartilhamento Seguro de Dados]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) do Snowflake oferece acesso seguro e em tempo real aos dados de engajamento e campanhas da Braze diretamente na sua instância do Snowflake. Nenhum dado é copiado ou transferido entre contas — todo o compartilhamento é realizado por meio da camada de serviços e do armazenamento de metadados exclusivos do Snowflake.
+O [Compartilhamento Seguro de Dados]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing) do Snowflake oferece acesso seguro e em tempo real aos dados de engajamento e de Campaigns da Braze diretamente na sua instância do Snowflake. Nenhum dado é copiado ou transferido entre contas — todo o compartilhamento é realizado por meio da camada de serviços e do armazenamento de metadados exclusivos do Snowflake.
 
 **Use o compartilhamento de dados quando quiser:**
-- Consultar dados de eventos e campanhas da Braze usando SQL do Snowflake
+- Consultar dados de eventos e de Campaigns da Braze usando SQL do Snowflake
 - Criar relatórios complexos e realizar modelagem de atribuição
 - Unir dados da Braze com outros dados no seu data warehouse do Snowflake
 - Comparar seus dados de engajamento entre canais, setores e plataformas de dispositivos
 
-Para instruções de configuração, consulte [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/).
+Para instruções de configuração, consulte [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing).
 
 ### Ingestão de dados na nuvem (do Snowflake para a Braze) {#cloud-data-ingestion-snowflake-to-braze}
 
-A [Ingestão de dados na nuvem (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) permite sincronizar dados da sua instância do Snowflake diretamente para a Braze. Isso permite manter atributos de usuários, eventos e compras na Braze atualizados com os dados do seu data warehouse como fonte da verdade.
+A [Ingestão de dados na nuvem (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) permite sincronizar dados da sua instância do Snowflake diretamente para a Braze. Isso permite manter atributos de usuários, eventos e compras na Braze atualizados com os dados do seu data warehouse como fonte da verdade.
 
 **Use a ingestão de dados na nuvem quando quiser:**
 - Sincronizar atributos de usuários do Snowflake para perfis de usuários na Braze
@@ -56,10 +56,7 @@ Para o Snowflake, o compartilhamento de dados acontece entre um [fornecedor de d
 
 ### Etapa 1: Envie o datashare da Braze {#step-1-send-the-datashare-from-braze}
 
-1. Na Braze, acesse **Integrações de parceiros** > **Compartilhamento de dados**.
-2. Insira os detalhes da sua conta Snowflake e o localizador. Para obter seu localizador de conta, execute `SELECT CURRENT_ACCOUNT()` na conta de destino.
-3. Se estiver usando um compartilhamento CRR, especifique o provedor de nuvem e a região.
-4. Quando terminar, selecione **Create Datashare**. Isso enviará o datashare para sua conta Snowflake.
+{% multi_lang_include partners/snowflake/data_sharing_account_steps.md %}
 
 ### Etapa 2: Crie o banco de dados no Snowflake {#step-2-create-the-database-in-snowflake}
 
@@ -72,7 +69,7 @@ Para o Snowflake, o compartilhamento de dados acontece entre um [fornecedor de d
 
 {% alert warning %}
 Se você excluir e recriar um compartilhamento no dashboard da Braze, deve descartar o banco de dados criado anteriormente e recriá-lo usando `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` para consultar o compartilhamento de entrada.
-Se você tiver vários espaços de trabalho compartilhando dados para a mesma conta Snowflake, consulte as [Perguntas frequentes sobre compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/) para orientações sobre como gerenciar configurações de múltiplos espaços de trabalho.
+Se você tiver vários espaços de trabalho compartilhando dados para a mesma conta Snowflake, consulte as [Perguntas frequentes sobre compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs) para orientações sobre como gerenciar configurações de múltiplos espaços de trabalho.
 {% endalert %}
 
 ## Uso e visualização {#usage-and-visualization}
@@ -81,13 +78,9 @@ Após o compartilhamento de dados ser provisionado, você precisará criar um ba
 
 Semelhante ao Currents, você pode usar o Compartilhamento Seguro de Dados do Snowflake para:
 
-- Criar relatórios complexos
-- Realizar modelagem de atribuição
-- Compartilhamento seguro dentro da sua própria empresa
-- Mapear dados brutos de eventos ou de usuários para um CRM (como o Salesforce)
-- E mais
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-Para uma lista completa de tabelas e colunas disponíveis, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). O Compartilhamento de Dados do Snowflake inclui todas as tabelas dessa referência, além de tabelas exclusivas do Snowflake para snapshots, changelogs de campanhas e Canvas, eventos do console de agentes e eventos de reenvio de mensagens.
+Para uma lista completa de tabelas e colunas disponíveis, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). O Compartilhamento de Dados do Snowflake inclui todas as tabelas dessa referência, além de tabelas exclusivas do Snowflake para snapshots, changelogs de Campaigns e Canvas, eventos do console de agentes e eventos de reenvio de mensagens.
 
 Você também pode [baixar os esquemas de tabela brutos](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) como um arquivo de texto.
 
@@ -107,9 +100,7 @@ Note as seguintes diferenças entre as convenções de nomenclatura da Braze e d
 
 #### Alterações não interruptivas {#non-breaking-changes}
 
-Alterações não interruptivas podem ocorrer a qualquer momento e geralmente trazem funcionalidades adicionais. Exemplos de alterações não interruptivas:
-- Adição de uma nova tabela ou visualização
-- Adição de uma coluna a uma tabela ou visualização existente
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Como novas colunas são consideradas não interruptivas, a Braze recomenda enfaticamente listar de modo explícito as colunas de interesse em cada consulta, em vez de usar consultas `SELECT *`. Como alternativa, você pode criar visualizações que nomeiem explicitamente as colunas e, em seguida, consultar essas visualizações em vez das tabelas diretamente.
@@ -117,10 +108,7 @@ Como novas colunas são consideradas não interruptivas, a Braze recomenda enfat
 
 #### Alterações interruptivas {#breaking-changes}
 
-Quando possível, as alterações interruptivas serão precedidas de um anúncio e de um período de migração. Exemplos de alterações interruptivas incluem:
-- Remoção de uma tabela ou visualização
-- Remoção de uma coluna de uma tabela ou visualização existente
-- Alteração do tipo ou da nulabilidade de uma coluna existente
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Regiões do Snowflake {#snowflake-regions}
 
@@ -154,8 +142,8 @@ Os dados de eventos nas visualizações de compartilhamento de dados (por exempl
 
 ### Velocidade, desempenho e custo das consultas {#speed-performance-cost-of-queries}
 
-A velocidade, o desempenho e o custo de qualquer consulta executada nos dados são determinados pelo tamanho do warehouse que você usa para consultar os dados. Em alguns casos, dependendo da quantidade de dados que estiver acessando para análise de dados, talvez seja necessário usar um tamanho de warehouse maior para que a consulta seja bem-sucedida. O Snowflake tem excelentes recursos disponíveis sobre a melhor forma de determinar o tamanho a ser usado, incluindo [Visão geral dos warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) e [Considerações sobre warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
+A velocidade, o desempenho e o custo de qualquer consulta executada nos dados são determinados pelo tamanho do warehouse que você usa para consultar os dados. Em alguns casos, dependendo da quantidade de dados que estiver acessando para análise, talvez seja necessário usar um tamanho de warehouse maior para que a consulta seja bem-sucedida. O Snowflake tem excelentes recursos disponíveis sobre a melhor forma de determinar o tamanho a ser usado, incluindo [Visão geral dos warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) e [Considerações sobre warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 
-> Para obter um conjunto de exemplos de consultas como referência ao configurar o Snowflake, confira nossos exemplos de [consultas]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) e de [configuração do pipeline de eventos ETL]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/).
+> Para obter um conjunto de exemplos de consultas como referência ao configurar o Snowflake, confira nossos exemplos de [consultas]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) e de [configuração do pipeline de eventos ETL]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
 
-Para instruções de configuração, consulte [Ingestão de dados na nuvem: integrações com data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Para instruções de configuração, consulte [Ingestão de dados na nuvem: integrações com data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).

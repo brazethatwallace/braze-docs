@@ -15,9 +15,7 @@ tool: Reports
 
 Los beneficios de usar variables SQL incluyen:
 
-- Ahorrar tiempo creando una variable de Campaign para seleccionar de una lista al crear tu informe, en lugar de pegar ID de Campaign.
-- Intercambiar valores añadiendo variables que te permitan reutilizar el informe para casos de uso ligeramente diferentes en el futuro (como un evento personalizado diferente).
-- Reducir errores de usuario al editar tu SQL disminuyendo la cantidad de edición necesaria para cada informe. Los compañeros de equipo que se sientan más cómodos con SQL pueden crear informes que luego pueden usar compañeros menos técnicos.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ## Uso de variables {#using-variables}
 
@@ -307,7 +305,7 @@ canvas_step_api_id = '{{canvas_step.${custom_label}}}'
 {% endtab %}
 
 {% tab múltiples pasos en Canvas %}
-Para seleccionar pasos en Canvas que pertenezcan a Canvas elegidos. Debe usarse con una variable de Canvas.
+Para seleccionar pasos en Canvas que pertenezcan a los Canvas elegidos. Debe usarse con una variable de Canvas.
 
 {% subtabs %}
 {% subtab uso %}

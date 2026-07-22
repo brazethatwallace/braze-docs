@@ -98,3 +98,7 @@ Wenn Sie mehrere Content-Blöcke stapeln, verwenden Sie für jeden Block eine se
 ## Warum ignoriert der Drag-and-Drop-Editor die Ausrichtungseinstellungen? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
 
 Wenn der Drag-and-Drop-Editor Ausrichtungseinstellungen ignoriert, entfernen Sie benutzerdefiniertes CSS oder HTML-Blöcke, entfernen Sie benutzerdefinierte Schriftarten, prüfen Sie auf CSS-Konflikte und vermeiden Sie das Duplizieren von Zeilenblöcken. Kontaktieren Sie den Braze-Support, wenn das Problem weiterhin besteht.
+
+## Warum stimmt mein gewählter Hex-Farbcode nicht mit der Schriftart in meiner E-Mail überein? {#why-does-my-chosen-hex-color-code-not-match-the-font-in-my-email}
+
+Wenn Sie einen Content-Block verwenden, hat der Block möglicherweise eine eigene Schriftfarbeneinstellung. Wählen Sie den Textblock innerhalb des Content-Blocks aus und entfernen Sie alle lokalen Überschreibungen der **Schriftfarbe**, damit Ihr Hex-Farbcode aus den globalen oder Absatzstilen angewendet werden kann.

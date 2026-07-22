@@ -56,7 +56,7 @@ L'exemple ci-contre montre un flux avec une liste hybride d'éléments alimenté
 
 ### Paires clé-valeur déclenchées par l'API {#api-triggered-key-value-pairs}
 
-Les [campagnes déclenchées par l'API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) sont une bonne stratégie à employer lorsque les valeurs d'une carte dépendent de facteurs externes pour déterminer le contenu à afficher à l'utilisateur. Par exemple, pour afficher du contenu supplémentaire, définissez des paires clé-valeur à l'aide de Liquid. Notez que `class_type` doit être connu au moment de la configuration.
+Les [Campaigns déclenchées par l'API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) sont une bonne stratégie à employer lorsque les valeurs d'une carte dépendent de facteurs externes pour déterminer le contenu à afficher à l'utilisateur. Par exemple, pour afficher du contenu supplémentaire, définissez des paires clé-valeur à l'aide de Liquid. Notez que `class_type` doit être connu au moment de la configuration.
 
 ![Les paires clé-valeur pour le cas d'usage des Content Cards supplémentaires. Dans cet exemple, différents aspects de la carte, tels que « tile_id », « tile_deeplink » et « tile_title », sont définis à l'aide de Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -122,11 +122,13 @@ Vous pouvez ensuite utiliser ces informations pour afficher un badge indiquant l
 
 L'exemple suivant utilise `braze.contentCards` pour demander et afficher le nombre de Content Cards non lues. Après la fermeture de l'application et la fin de la session de l'utilisateur, ce code demande un décompte des cartes, en filtrant le nombre de cartes en fonction de la propriété `viewed`.
 
+Les applications ayant adopté le [cycle de vie `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) (requis pour les applications compilées avec [Xcode 27 et versions ultérieures](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)) doivent implémenter cela dans `sceneDidEnterBackground(_:)` de `SceneDelegate.swift` plutôt que dans `applicationDidEnterBackground(_:)` de `AppDelegate.swift`.
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 Dans cette méthode, implémentez le code suivant, qui actualise activement le nombre de badges pendant que l'utilisateur consulte les cartes au cours d'une session donnée :
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 Dans cette méthode, implémentez le code suivant, qui actualise activement le nombre de badges pendant que l'utilisateur consulte les cartes au cours d'une session donnée :

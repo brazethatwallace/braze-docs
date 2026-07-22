@@ -212,9 +212,7 @@ Opcionalmente, también puedes limitar la entrega a un número específico de us
 
 Para campañas multicanal dirigidas tanto a canales de correo electrónico como de push, es posible que desees limitar tu campaña para que solo los usuarios que hayan optado explícitamente reciban el mensaje (excluyendo a los usuarios suscritos o que cancelaron su suscripción). Por ejemplo, supongamos que tienes tres usuarios con diferentes estados de adhesión:
 
-- **Usuario A** está suscrito al correo electrónico y tiene push habilitado. Este usuario no recibe el correo electrónico pero recibirá el push.
-- **Usuario B** ha optado por recibir correo electrónico pero no tiene push habilitado. Este usuario recibirá el correo electrónico pero no recibirá el push.
-- **Usuario C** ha optado por recibir correo electrónico y tiene push habilitado. Este usuario recibirá tanto el correo electrónico como el push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Para hacerlo, en **Resumen de audiencia**, selecciona enviar esta campaña a "solo usuarios que han optado por recibir". Esta opción asegurará que solo los usuarios que han optado recibirán tu correo electrónico, y Braze solo enviará tu push a los usuarios que tienen push habilitado de forma predeterminada.
 

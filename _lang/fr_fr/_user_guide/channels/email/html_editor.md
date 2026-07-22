@@ -140,9 +140,7 @@ Vous pouvez également ajouter de la personnalisation pour les en-têtes d'e-mai
 
 Vous pouvez également ajouter des pièces jointes à vos e-mails par les méthodes suivantes :
 
-- **Importer un fichier :** Glissez-déposez ou parcourez pour importer un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant l'importation, puis ces fichiers sont importés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être importés.
-- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
-- **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des fichiers à partir d'URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Consultez les [bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) pour les recommandations spécifiques à prendre en compte.
 
@@ -222,7 +220,7 @@ Ensuite, vous pouvez utiliser **Copy preview link** pour générer et copier un 
 Vous pouvez également basculer entre les vues ordinateur de bureau, appareil mobile et texte brut pour avoir une idée de l'apparence de votre message dans différents contextes.
 
 {% alert tip %}
-Vous souhaitez voir à quoi ressemble votre e-mail pour les utilisateurs en mode sombre ? Activez le bouton **Dark Mode Preview** situé dans la section **Preview and Test** (éditeur par glisser-déposer uniquement). Si vous utilisez l'éditeur HTML, vous pouvez toujours gérer le rendu en mode sombre de Gmail mobile avec [Application mobile Gmail et mode sombre](#gmail-dark-mode).
+Vous souhaitez voir à quoi ressemble votre e-mail pour les utilisateurs en mode sombre ? Activez la bascule **Dark Mode Preview** située dans la section **Preview and Test** (éditeur par glisser-déposer uniquement). Si vous utilisez l'éditeur HTML, vous pouvez toujours gérer le rendu en mode sombre de Gmail mobile avec [Application mobile Gmail et mode sombre](#gmail-dark-mode).
 {% endalert %}
 
 Lorsque vous êtes prêt pour une vérification finale, sélectionnez **Test Send** et envoyez un message de test à vous-même ou à un groupe de testeurs pour confirmer que l'e-mail s'affiche correctement sur tous les appareils et clients.
@@ -295,9 +293,7 @@ Lors de la création d'une nouvelle campagne e-mail, le groupe de contrôle est 
 
 Pour les campagnes multicanales ciblant à la fois les canaux e-mail et push, vous pouvez souhaiter limiter votre campagne afin que seuls les utilisateurs ayant explicitement accepté reçoivent le message (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
 
-- **L'utilisateur A** est abonné aux e-mails et a les notifications push activées. Cet utilisateur ne reçoit pas l'e-mail mais recevra la notification push.
-- **L'utilisateur B** a accepté les e-mails mais n'a pas les notifications push activées. Cet utilisateur recevra l'e-mail mais ne recevra pas la notification push.
-- **L'utilisateur C** a accepté les e-mails et a les notifications push activées. Cet utilisateur recevra à la fois l'e-mail et la notification push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Pour ce faire, sous **Audience Summary**, sélectionnez l'envoi de cette campagne aux « utilisateurs ayant accepté uniquement ». Cette option garantira que seuls les utilisateurs ayant accepté recevront votre e-mail, et Braze n'enverra vos notifications push qu'aux utilisateurs ayant les notifications push activées par défaut.
 

@@ -15,10 +15,7 @@ Grâce à la synchronisation d'audience Braze avec Criteo, les marques peuvent c
 
 **Les cas d'usage courants pour la synchronisation d'audience incluent :**
 
-- Cibler des utilisateurs à forte valeur via plusieurs canaux pour stimuler les achats ou l'engagement
-- Recibler des utilisateurs qui sont moins réactifs aux autres canaux marketing
-- Créer des audiences de suppression pour empêcher les utilisateurs de recevoir des publicités lorsqu'ils sont déjà des consommateurs fidèles de votre marque
-- Créer des audiences similaires pour acquérir de nouveaux utilisateurs plus efficacement
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Cette fonctionnalité donne aux marques la possibilité de contrôler quelles données first-party spécifiques sont partagées avec Criteo. Chez Braze, les intégrations avec lesquelles vous pouvez et ne pouvez pas partager vos données first-party sont prises en compte avec la plus grande attention. Pour plus d'informations, consultez notre [politique de confidentialité](https://www.braze.com/privacy).
 

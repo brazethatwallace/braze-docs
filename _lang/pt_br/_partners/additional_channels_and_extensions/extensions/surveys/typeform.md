@@ -58,13 +58,7 @@ Nesta etapa, você transforma a carga útil do webhook enviada pelo Typeform em 
 
 Este valor de retorno deve seguir o formato do corpo da solicitação `/users/track` da Braze:
 
-- O código de transformação é aceito na linguagem de programação JavaScript. Qualquer fluxo de controle JavaScript padrão, como a lógica if/else, é suportado.
-- O código de transformação acessa o corpo da solicitação do webhook por meio da variável payload. Essa variável é um objeto preenchido pela análise do JSON do corpo da solicitação.
-- Qualquer recurso aceito no nosso endpoint `/users/track` é suportado, incluindo:
-    - Objetos de atributos de usuário, objetos de eventos e objetos de compra
-    - Atributos aninhados e propriedades de evento personalizado aninhadas
-    - Atualizações do grupo de inscrições
-    - Endereço de e-mail como identificador
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Exemplo de carga útil do webhook do Typeform {#example-typeform-webhook-payload}
 

@@ -1,0 +1,3 @@
+- Les données futures ne seront pas collectées pour cet événement.
+- Les données existantes ne seront pas disponibles à moins que cet événement ne soit débloqué.
+- Cet événement n'apparaîtra pas dans les filtres ni dans les graphiques.

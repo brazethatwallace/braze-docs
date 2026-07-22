@@ -212,9 +212,7 @@ Optional können Sie die Zustellung auch auf eine bestimmte Anzahl von Nutzer:in
 
 Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen, möchten Sie Ihre Campaign möglicherweise so einschränken, dass nur Nutzer:innen, die ausdrücklich angemeldet sind, die Nachricht erhalten (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Nehmen wir beispielsweise an, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
-- **Nutzer:in A** hat E-Mail abonniert und ist Push-fähig. Diese Person erhält die E-Mail nicht, wird aber den Push erhalten.
-- **Nutzer:in B** hat sich für E-Mail angemeldet, ist aber nicht Push-fähig. Diese Person wird die E-Mail erhalten, erhält aber nicht den Push.
-- **Nutzer:in C** hat sich für E-Mail angemeldet und ist Push-fähig. Diese Person wird sowohl die E-Mail als auch den Push erhalten.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Wählen Sie dazu unter **Zielgruppen-Zusammenfassung** aus, diese Campaign nur an „nur angemeldete Nutzer:innen“ zu senden. Diese Option stellt sicher, dass nur angemeldete Nutzer:innen Ihre E-Mail erhalten, und Braze sendet Ihren Push standardmäßig nur an Nutzer:innen, die Push-fähig sind.
 

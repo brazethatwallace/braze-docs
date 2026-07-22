@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 Cette section explique comment Braze sélectionne un profil utilisateur pour l'envoi et ce qui se passe lorsqu'aucun profil n'est sélectionné.
 
-Le statut du groupe d'abonnement d'un utilisateur peut être mis à jour en incluant un paramètre `subscription_groups` dans l'objet `attributes`. Pour plus de détails, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Le statut du groupe d'abonnement d'un utilisateur peut être mis à jour en incluant un paramètre `subscription_groups` dans l'objet `attributes`. Pour plus de détails, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 #### Limites de destinataires et création de profils {#recipient-limits-and-profile-creation}
 
