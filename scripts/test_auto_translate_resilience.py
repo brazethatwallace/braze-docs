@@ -352,13 +352,13 @@ class TestLiquidRawBlockQc:
 
     def test_remove_tag_line_skips_matches_inside_raw_blocks(self):
         content = (
-            "{% alert important %}\n"
-            "{% raw %}{% endif %}{% endraw %}\n"
-            "{% endalert %}\n"
             "{% endif %}\n"
+            "{% raw %}\n"
+            "{% endif %}\n"
+            "{% endraw %}\n"
         )
         updated = at._remove_one_liquid_tag_line(content, "endif", prefer_last=True)
-        assert "{% raw %}{% endif %}{% endraw %}" in updated
+        assert "{% raw %}\n{% endif %}\n{% endraw %}" in updated
         assert updated.count("{% endif %}") == 1
 
     def test_repair_does_not_strip_close_tags_inside_raw_blocks(self):
