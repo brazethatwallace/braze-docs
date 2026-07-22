@@ -19,7 +19,4 @@ description: "Common issues and solutions for BrazeAI Operator<sup>TM</sup>."
 | Daily usage limit exceeded | The company-wide usage limit has been reached. Wait for the limit to reset (resets every 24 hours). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Common issues" }
 
-## Limitations
-
-- **Data access:** Operator can see the contents of the active page, except for content inside drag-and-drop editors. It can also look up some company-specific data, such as past campaigns, catalogs, and custom attributes. However, it cannot currently generate new reports or run reporting queries.
-- **Usage limits:** Operator has a company-wide daily usage limit that resets every 24 hours. If the limit is reached, a "Daily usage limit exceeded" banner will appear in the chat, and no further requests can be made until the limit resets.
+For what Operator can and can't do across the dashboard, see [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#limitations).

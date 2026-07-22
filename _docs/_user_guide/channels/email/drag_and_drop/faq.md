@@ -29,6 +29,15 @@ Some email clients replace background images or invert low-contrast text in dark
 
 Custom fonts load in the editor preview when a **Text** block in the message references the font. If the preview still shows a fallback font after you configure a custom font in **Drag-and-Drop Email Editor** settings, add a **Text** block that uses that font so the editor loads it for preview. Confirm that cross-origin resource sharing (CORS) is enabled on your font file. Recheck **Preview and Test** and your target email clients before you send. For setup steps, see [Custom font]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/#custom-font).
 
+## How can I carry over text formatting when I copy and paste from another application?
+
+Different text editors and applications have their own ways of handling text formatting that may not be universally recognized. When you copy and paste formatted text from outside Braze into the drag-and-drop editor, the rich formatting may not carry over.
+
+To paste text without rich formatting, use one of these methods:
+- On Mac: Press <kbd>cmd</kbd>+<kbd>shift</kbd>+<kbd>V</kbd> instead of <kbd>cmd</kbd>+<kbd>V</kbd>
+- On Windows: Press <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>V</kbd> instead of <kbd>ctrl</kbd>+<kbd>V</kbd>
+- Right-click within the editor and select **Paste and Match Style**
+
 ## How can I change the email padding on mobile without updating the padding in the web view?
 
 You cannot edit the padding for mobile and web views exclusively, so any edits are reflected in both views. However, you can add CSS logic in the HTML editor that sets the padding based on different screen sizes. This isn't supported in the drag-and-drop editor, so you can export the HTML file and use the HTML editor instead.
