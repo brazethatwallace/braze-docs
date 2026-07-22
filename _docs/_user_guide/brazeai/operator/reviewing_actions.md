@@ -20,7 +20,7 @@ When Operator proposes changes in the dashboard (such as filling in form fields,
 3. **Review and approve:** Review each card and either approve or decline it.
 4. **Action executes:** Approved actions are executed in Braze. Declined actions are not applied.
 
-If an action fails after approval, Operator will notify with details about the failure.
+If an action fails after approval, Operator notifies you with details about the failure.
 
 ### Availability
 
