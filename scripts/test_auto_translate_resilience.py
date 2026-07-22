@@ -350,6 +350,36 @@ class TestLiquidRawBlockQc:
         assert len(chunks) >= 3
         at.validate_liquid_paired_tags(chunks[2], label="custom_attributes chunk 3")
 
+    def test_remove_tag_line_skips_matches_inside_raw_blocks(self):
+        content = (
+            "{% endif %}\n"
+            "{% raw %}\n"
+            "{% endif %}\n"
+            "{% endraw %}\n"
+        )
+        updated = at._remove_one_liquid_tag_line(content, "endif", prefer_last=True)
+        assert "{% raw %}\n{% endif %}\n{% endraw %}" in updated
+        assert updated.count("{% endif %}") == 1
+
+    def test_repair_does_not_strip_close_tags_inside_raw_blocks(self):
+        english = (
+            "{% alert important %}\n"
+            "Example: {% raw %}{% if x %}{% endraw %}\n"
+            "{% endalert %}\n"
+        )
+        translated = (
+            "{% alert important %}\n"
+            "Example: {% raw %}{% if x %}{% endraw %}\n"
+            "{% endalert %}\n"
+            "{% endif %}\n"
+        )
+        repaired = at.repair_liquid_paired_tags_from_english(
+            english, translated, label="raw close repair"
+        )
+        assert "{% if x %}" in repaired
+        assert repaired.count("{% endif %}") == 0
+        at.validate_liquid_paired_tags(repaired, label="raw close repair")
+
 
 class TestLiquidSafeChunkSplits:
     def test_does_not_split_inside_details_block(self):
