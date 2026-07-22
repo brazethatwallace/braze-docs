@@ -76,9 +76,9 @@ Note that when downloading the files for HTML campaigns, Canvas steps with email
 
 ### Email not rendering properly
 
-If your email doesn't render properly, check each content block to make sure there are no additional doctype headers.
+If your email doesn't render properly, check each content block to make sure there are no additional `<!doctype>` headers.
 
-If there is a doctype header in the HTML template itself along with an HTML doctype in one of the content blocks, the email doesn't render properly. Treat content blocks as additional HTML being added to the email template—not a brand new HTML doctype. This means the content block shouldn't contain extra body tags or any of the template HTML code.
+If there is a `<!doctype>` header in the HTML template itself along with an HTML doctype in one of the content blocks, the email doesn't render properly. Treat content blocks as additional HTML being added to the email template, not a brand new HTML doctype. This means the content block shouldn't contain extra body tags or any of the template HTML code.
 
 
 ## Frequently asked questions
