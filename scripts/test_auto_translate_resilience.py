@@ -327,6 +327,133 @@ class TestIncrementalH2Translation:
         if target.parent.exists() and not any(target.parent.iterdir()):
             target.parent.rmdir()
 
+    def test_split_into_h2_chunks_skips_headings_inside_sdktabs(self):
+        content = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "## Inner {#inner}\n\n"
+            "Tab body.\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After tabs {#after}\n\n"
+            "Tail.\n"
+        )
+        chunks = at.split_into_h2_chunks(content)
+        assert len(chunks) == 2
+        assert "## Inner {#inner}" in chunks[0]
+        assert "## After tabs {#after}" in chunks[1]
+
+    def test_incremental_h2_requires_full_file_when_sdktabs_topology_changes(self):
+        previous = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "{% multi_lang_include example.md %}\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After {#after}\n\n"
+            "Tail.\n"
+        )
+        current = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "## Inner {#inner}\n\n"
+            "Tab body.\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After {#after}\n\n"
+            "Tail.\n"
+        )
+        assert at.incremental_h2_requires_full_file(current, previous)
+
+    def test_incremental_h2_allows_sdktabs_when_topology_unchanged(self):
+        english = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "## Inner {#inner}\n\n"
+            "Tab body.\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After {#after}\n\n"
+            "Tail.\n"
+        )
+        assert not at.incremental_h2_requires_full_file(english, english)
+
+    def test_sdktabs_topology_change_falls_back_to_full_translate(self, monkeypatch):
+        previous = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "{% multi_lang_include example.md %}\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After {#after}\n\n"
+            "Tail.\n"
+        )
+        current = previous.replace(
+            "{% multi_lang_include example.md %}",
+            "## Inner {#inner}\n\nTab body.\n",
+        )
+        incremental_calls = []
+        full_calls = []
+
+        monkeypatch.setattr(
+            at,
+            "load_english_at_git_ref",
+            lambda fpath, ref: previous,
+        )
+        monkeypatch.setattr(
+            at,
+            "translate_one_incremental",
+            lambda *a, **k: incremental_calls.append(1) or {"ok": True},
+        )
+        monkeypatch.setattr(
+            at,
+            "translate_file",
+            lambda *a, **k: full_calls.append(1) or "FULL",
+        )
+        monkeypatch.setattr(at, "review_file", lambda *a, **k: a[2])
+
+        target = at.REPO_ROOT / "_lang/fr_fr/_developer_guide/test_sdktabs.md"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("existing")
+
+        result = at.translate_one(
+            client=None,
+            prompt="",
+            fpath="_docs/_developer_guide/test_sdktabs.md",
+            relative="_developer_guide/test_sdktabs.md",
+            english_content=current,
+            lang_key="fr",
+            lang_info=at.LANGUAGES["fr"],
+            glossary={},
+            styleguide="",
+            english_base_ref="abc123",
+        )
+
+        assert result["ok"]
+        assert incremental_calls == []
+        assert full_calls == [1]
+        assert target.read_text() == "FULL"
+        target.unlink()
+        if target.parent.exists() and not any(target.parent.iterdir()):
+            target.parent.rmdir()
+
+    def test_push_notifications_troubleshooting_keeps_sdktabs_in_one_chunk(self):
+        from pathlib import Path
+
+        path = Path("_docs/_developer_guide/push_notifications/troubleshooting.md")
+        if not path.exists():
+            return
+        chunks = at.split_into_h2_chunks(path.read_text())
+        sdktabs_chunks = [i for i, chunk in enumerate(chunks) if "{% sdktabs" in chunk]
+        assert len(sdktabs_chunks) == 1
+        assert "{% endsdktabs" in chunks[sdktabs_chunks[0]]
+        at.validate_liquid_paired_tags(chunks[sdktabs_chunks[0]], label="sdktabs chunk")
+
 
 class TestLiquidRawBlockQc:
     def test_raw_blocks_exclude_liquid_tags_from_counts(self):
