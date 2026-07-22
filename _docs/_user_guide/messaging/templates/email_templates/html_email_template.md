@@ -82,7 +82,6 @@ If there is a `<!doctype>` header in the HTML template itself along with an HTML
 
 Also check for duplicated tags and class names across your template and content blocks, as these can cause rendering issues.
 
-
 ## Frequently asked questions
 
 For answers to frequently asked questions about email templates, see our [email and link templates FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq) page.
