@@ -1,0 +1,5 @@
+{
+  "reason": "Braze OAuth consent screen for the MCP remote server. 'Claude' is the product name of the Claude Desktop MCP client, not a person, and 'example@email.com' is a placeholder address, not real PII.",
+  "dismiss_all": false,
+  "dismiss_ids": ["f4a9b0b0", "683c8e37"]
+}
