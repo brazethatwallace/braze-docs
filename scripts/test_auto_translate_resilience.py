@@ -328,6 +328,29 @@ class TestIncrementalH2Translation:
             target.parent.rmdir()
 
 
+class TestLiquidRawBlockQc:
+    def test_raw_blocks_exclude_liquid_tags_from_counts(self):
+        content = (
+            "{% alert important %}\n"
+            "Example: {% raw %}{% if x %}{% endraw %}\n"
+            "{% endalert %}\n"
+        )
+        assert at._count_liquid_tag(content, "if") == 0
+        at.validate_liquid_paired_tags(content, label="raw example")
+
+    def test_custom_attributes_h2_chunk_three_is_liquid_balanced(self):
+        from pathlib import Path
+
+        path = Path(
+            "_docs/_user_guide/data/activation/attributes/custom_attributes.md"
+        )
+        if not path.exists():
+            return
+        chunks = at.split_into_h2_chunks(path.read_text())
+        assert len(chunks) >= 3
+        at.validate_liquid_paired_tags(chunks[2], label="custom_attributes chunk 3")
+
+
 class TestLiquidSafeChunkSplits:
     def test_does_not_split_inside_details_block(self):
         content = (

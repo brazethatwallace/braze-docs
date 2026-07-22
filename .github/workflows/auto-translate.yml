@@ -77,6 +77,14 @@ on:
         required: false
         type: string
         default: ""
+      english_base_ref:
+        description: >
+          Optional git ref for the previous English version (incremental H2
+          diff). Use with workflow_dispatch `files` for targeted recovery.
+          `since_commit` sets this automatically to the same SHA.
+        required: false
+        type: string
+        default: ""
       orphan_cleanup_only:
         description: >
           If true, skip translation: run repo-wide orphan deletion +
@@ -190,6 +198,10 @@ jobs:
               -- '_docs/' '_includes/' > changed_files.txt
           elif [ -n "${{ inputs.files }}" ]; then
             echo "${{ inputs.files }}" | tr ' ' '\n' > changed_files.txt
+            if [ -n "${{ inputs.english_base_ref }}" ]; then
+              ENGLISH_BASE_REF="${{ inputs.english_base_ref }}"
+              echo "Incremental English base (files dispatch): ${ENGLISH_BASE_REF}"
+            fi
           elif [ "${{ github.event_name }}" = "pull_request" ]; then
             MERGE="${{ github.event.pull_request.merge_commit_sha }}"
             if [ -z "$MERGE" ]; then
