@@ -190,7 +190,7 @@ To use a custom landing page instead:
 1. Go to **Email Preferences** > **Subscription Pages and Footers**.
 2. Add the HTML for your custom page.
 
-Include a resubscribe link (for example {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) so users can undo an accidental unsubscribe. Like {% raw %}`${set_user_to_unsubscribed_url}`{% endraw %}, this tag can only be used in email campaigns and Canvases.
+Include a resubscribe link (for example {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) so users can undo an accidental unsubscribe. Like {% raw %}`${set_user_to_unsubscribed_url}`{% endraw %}, you can use this tag in only email campaigns and Canvases.
 
 You can also send users to your site and update status with the Braze REST API (for example link with {% raw %}`?user_id={{${user_id}}}`{% endraw %} and then call [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status).
 
