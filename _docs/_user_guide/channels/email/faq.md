@@ -124,7 +124,7 @@ When an email is clipped by the recipient's email provider (such as Gmail clippi
 
 #### Tracking pixel causes white gap at top of email
 
-When the open tracking pixel is positioned at the top of an email, a visible white line or gap may appear at the top of the email body, particularly on mobile devices.
+When the open tracking pixel is positioned at the top of an email, a visible white line or gap can appear at the top of the email body, particularly on mobile devices.
 
 **How to identify:** Check your **Email Settings** to see if **Add open tracking pixel to top of email** is enabled. If you notice a white gap or line appearing at the top of your rendered email, this setting may be the cause.
 
