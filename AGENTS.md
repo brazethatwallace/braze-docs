@@ -15,6 +15,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`braze-docs`](.github/skills/braze-docs/SKILL.md) | Drafting, editing, reviewing docs; broken links; merge conflicts |
 | [`check-accessibility`](.github/skills/check-accessibility/SKILL.md) | Pre-PR WCAG 2.2 AA gate for docs and site files |
 | [`create-pr`](.github/skills/create-pr/SKILL.md) | Opening draft pull requests with repo-aligned descriptions and pre-PR gates |
+| [`currents-glossary`](.github/skills/currents-glossary/SKILL.md) | Editing the generated Currents event glossary pages, the Currents changelog, or `currents_events.yml` |
 | [`redirect-management`](.github/skills/redirect-management/SKILL.md) | Adding, updating, and validating redirects in `broken_redirect_list.js` |
 | [`reference-repos`](.github/skills/reference-repos/SKILL.md) | Verifying product, API, or SDK behavior against source repos |
 | [`docs-discrepancies`](.github/skills/docs-discrepancies/SKILL.md) | Page-by-page doc vs platform audits and discrepancy PRs |
