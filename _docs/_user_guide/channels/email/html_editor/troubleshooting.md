@@ -76,7 +76,7 @@ Ensure that all HTML tags open and close within their corresponding Liquid logic
 **Unbalanced example:**
 
 ```liquid
-<img src={% if {{custom_attribute.${app_language}}} == "en" %}"https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" style="width: 100%"{% elsif {{custom_attribute.${app_language}}} == "de" %}"https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387"{% else  %}"https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" {% endif %} />
+<img src={% if ${language} == 'en' %}"https://example.com/images/banner-en.png" style="width: 100%"{% elsif ${language} == 'de' %}"https://example.com/images/banner-de.png"{% else %}"https://example.com/images/banner-default.png" {% endif %} />
 ```
 
 In this example, the opening `<img` tag starts outside of any Liquid block, and different parts of the tag's attributes are split across Liquid conditional statements. This confuses the parser.
@@ -84,12 +84,12 @@ In this example, the opening `<img` tag starts outside of any Liquid block, and 
 **Balanced example:**
 
 ```liquid
-{% if {{custom_attribute.${app_language}}} == "en" %}
-  <img src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" style="width: 100%;" />
-{% elsif {{custom_attribute.${app_language}}} == "de" %}
-  <img src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" style="width: 100%;" />
-{% else  %}
-  <img src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" style="width: 100%;" />
+{% if ${language} == 'en' %}
+  <img src="https://example.com/images/banner-en.png" style="width: 100%;" />
+{% elsif ${language} == 'de' %}
+  <img src="https://example.com/images/banner-de.png" style="width: 100%;" />
+{% else %}
+  <img src="https://example.com/images/banner-default.png" style="width: 100%;" />
 {% endif %}
 ```
 
