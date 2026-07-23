@@ -133,6 +133,10 @@ When fetching external data in landing pages:
 - **Performance:** The page loads immediately, but data appears after the external request completes. Keep your API responses fast for the best user experience.
 - **Security:** Ensure your API endpoint validates the identifier and only returns data the user is authorized to see. Implement rate limiting to prevent abuse. For guidance on choosing secure identifiers, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
+{% alert warning %}
+Braze's Liquid scanner processes {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} delimiters anywhere they appear in Custom Code blocks—including inside JavaScript strings, comments, and regular expressions. If these sequences appear without matching closing tags (for example, {% raw %}`/* version {{ 2.0 */`{% endraw %}), Braze treats them as open Liquid tags, which can cause valid Liquid tags elsewhere in the same block to fail silently. To avoid this, escape or remove {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} from all non-Liquid contexts in Custom Code, or split the sequences (for example, {% raw %}`'{' + '{'`{% endraw %}).
+{% endalert %}
+
 ## Fallback pages
 
 If your users attempt to access a page that has been unpublished, they'll see a message indicating that the page cannot currently be loaded. Reasons that a page has been unpublished include:
