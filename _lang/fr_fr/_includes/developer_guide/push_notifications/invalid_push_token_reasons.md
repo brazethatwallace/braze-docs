@@ -1,0 +1,6 @@
+- L'application a reçu un jeton push qui n'était pas valide pour les identifiants téléchargés sur le tableau de bord.
+- Les notifications push ont été désactivées pour cet espace de travail.
+- L'utilisateur a refusé les notifications push.
+- L'application a été désinstallée.
+- Apple a actualisé le jeton push, ce qui a invalidé l'ancien jeton.
+- L'application a été compilée pour un environnement de production, mais les identifiants push téléchargés sur Braze sont configurés pour un environnement de développement (ou inversement).

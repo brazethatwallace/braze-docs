@@ -1,0 +1,3 @@
+- `agentconsole.AgentExecuted`: `error`（文字列）を追加しました。発生したエラーの説明です。
+- `agentconsole.ToolInvocation`: `request_id`（文字列）を追加しました。LLMリクエスト全体と完全な実行のための一意のIDです。
+- `users.messages.rcs.InboundReceive`: `canvas_variation_name`（文字列）を追加しました。ユーザーが受信したキャンバスバリエーションの名前です。

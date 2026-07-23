@@ -15,7 +15,7 @@ Mit Braze Audience Sync to Criteo können Marken wahlweise Nutzerdaten aus ihrer
 
 **Zu den üblichen Anwendungsfällen für die Zielgruppen-Synchronisation gehören:**
 
-{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md lookalike=true %}
 
 Dieses Feature gibt Marken die Möglichkeit zu kontrollieren, welche spezifischen First-Party-Daten mit Criteo geteilt werden. Bei Braze werden die Integrationen, mit denen Sie Ihre First-Party-Daten teilen können und nicht teilen können, genauestens berücksichtigt. Weitere Informationen finden Sie in unserer [Datenschutzrichtlinie](https://www.braze.com/privacy).
 
@@ -26,12 +26,12 @@ Braze Audience Sync to Criteo ist eine Audience Sync Pro-Integration. Für weite
 
 ## Voraussetzungen {#prerequisites}
 
-Sie müssen sicherstellen, dass die folgenden Punkte erstellt und/oder abgeschlossen sind, bevor Sie Ihre Zielgruppen-Synchronisation mit Criteo einrichten.
+Sie müssen sicherstellen, dass die folgenden Punkte erstellt und/oder abgeschlossen sind, bevor Sie Ihre Zielgruppensynchronisierung mit Criteo einrichten.
 
 | Anforderung | Herkunft | Beschreibung |
 | --- | --- | --- |
-| Criteo-Werbekonto | [Criteo](https://marketing.criteo.com/) | Ein aktives Criteo-Werbekonto, das mit Ihrer Marke verknüpft ist.<br><br>Vergewissern Sie sich, dass Ihr Criteo-Administrator Ihnen die entsprechenden Berechtigungen für den Zugriff auf Zielgruppen erteilt hat. |
-| [Criteo-Werberichtlinien](https://www.criteo.com/advertising-guidelines/)<br>und<br>[Criteo-Richtlinien zur Markensicherheit](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Als aktive Criteo-Kund:in müssen Sie sicherstellen, dass Sie die Criteo-Richtlinien für Werbung und Markensicherheit einhalten können, bevor Sie Criteo-Kampagnen starten. |
+| Criteo-Werbekonto | [Criteo](https://marketing.criteo.com/) | Ein aktives Criteo-Werbekonto, das mit Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Ihr Criteo-Administrator Ihnen die entsprechenden Berechtigungen für den Zugriff auf Zielgruppen erteilt hat. |
+| [Criteo-Werberichtlinien](https://www.criteo.com/advertising-guidelines/)<br>und<br>[Criteo-Markensicherheitsrichtlinien](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Als aktive:r Criteo-Kund:in müssen Sie sicherstellen, dass Sie die Werbe- und Markensicherheitsrichtlinien von Criteo einhalten können, bevor Sie Criteo-Campaigns starten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -112,50 +112,50 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Criteo-Zielgrupp
 
 ### Schritt 5: Canvas starten {#step-5-launch-canvas}
 
-Sobald Sie Ihre Zielgruppen-Synchronisation mit Criteo konfiguriert haben, starten Sie einfach das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf Criteo übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
+Sobald Sie Ihre Zielgruppen-Synchronisation mit Criteo konfiguriert haben, starten Sie das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf Criteo übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
 Sie können die Zielgruppe in Criteo ansehen, indem Sie in Ihr Ads-Manager-Konto gehen und dann Segmente aus der **Audience Library** in der Navigation auswählen. Auf der Seite **Segments** sehen Sie die Größe der einzelnen Zielgruppen, nachdem sie ~1.000 erreicht haben.
 
 ![Die Audience Library mit Segment, ID, Quelle, Typ, Größe, aktueller Verwendung und letztem Update.]({% image_buster /assets/img/criteo/criteo.png %})
 
-## Überlegungen zur Synchronisierung von Nutzer:innen und Rate-Limits {#user-syncing-and-rate-limit-considerations}
+## Überlegungen zur Nutzersynchronisierung und zu Rate-Limits {#user-syncing-and-rate-limit-considerations}
 
-Wenn Nutzer:innen den Audience Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Realtime und respektiert dabei die Rate-Limits der Criteo-API. Braze verarbeitet alle fünf Sekunden so viele Nutzer:innen wie möglich, bevor sie an Criteo gesendet werden.
+Wenn Nutzer:innen den Audience-Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Echtzeit und berücksichtigt dabei die API-Rate-Limits von Criteo. Braze fasst so viele Nutzer:innen wie möglich in Batches zusammen und verarbeitet sie alle fünf Sekunden, bevor sie an Criteo gesendet werden.
 
-Das Rate-Limit der Criteo-API erlaubt nicht mehr als 250 Anfragen pro Minute. Erreicht eine Kund:in dieses Limit, wiederholt Braze die Synchronisierung für bis zu ~13 Stunden. Wenn die Synchronisierung immer noch nicht möglich ist, listet Braze diese Nutzer:innen in der Metrik „Fehler bei Nutzer:innen“ auf.
+Das API-Rate-Limit von Criteo erlaubt nicht mehr als 250 Anfragen pro Minute. Wenn ein:e Kund:in dieses Limit erreicht, versucht Braze die Synchronisierung bis zu ca. 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
 
 ## Analytics verstehen {#understanding-analytics}
 
-Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die Analytics Ihrer Audience Sync-Komponente besser zu verstehen.
+Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die Analytics Ihrer Audience-Sync-Komponente besser zu verstehen.
 
 | Metrik | Beschreibung |
 | --- | --- |
-| Eingetreten | Anzahl der Nutzer:innen, die diese Komponente betreten haben, um mit Criteo synchronisiert zu werden. |
-| Zum nächsten Schritt fortgefahren | Wie viele Nutzer:innen zum nächsten Schritt vorangebracht wurden, falls einer vorhanden ist. Alle Nutzer:innen werden automatisch vorangebracht, wenn dies der letzte Schritt im Canvas-Zweig ist. |
-| Nutzer:innen synchronisiert | Anzahl der Nutzer:innen, die erfolgreich mit Criteo synchronisiert wurden. |
-| Nutzer:innen nicht synchronisiert | Anzahl der Nutzer:innen, die nicht synchronisiert wurden, weil Felder zum Abgleich fehlen. |
-| Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit Criteo verarbeitet werden. |
-| Fehler bei Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Criteo synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Criteo-Token oder eine auf Criteo gelöschte Zielgruppe sein. |
-| Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies geschieht, wenn der letzte Schritt in einem Canvas eine Audience Sync-Komponente ist. |
+| Entered | Anzahl der Nutzer:innen, die diese Komponente betreten haben, um mit Criteo synchronisiert zu werden. |
+| Proceeded to Next Step | Wie viele Nutzer:innen zur nächsten Komponente weitergegangen sind, falls eine vorhanden ist. Alle Nutzer:innen gehen automatisch weiter, wenn dies der letzte Schritt im Canvas-Branch ist. |
+| Users Synced | Anzahl der Nutzer:innen, die erfolgreich mit Criteo synchronisiert wurden. |
+| Users Not Synced | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichsfelder nicht synchronisiert wurden. |
+| Users Pending | Anzahl der Nutzer:innen, die derzeit von Braze verarbeitet werden, um mit Criteo synchronisiert zu werden. |
+| Users Errored | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Criteo synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Criteo-Token oder eine auf Criteo gelöschte Zielgruppe sein. |
+| Exited Canvas | Anzahl der Nutzer:innen, die den Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
-Denken Sie daran, dass es bei den Metriken „Nutzer:innen synchronisiert“ und „Fehler bei Nutzer:innen“ aufgrund des Bulk-Flush und der 13-stündigen Wiederholung zu einer Verzögerung bei der Berichterstattung kommt.
+Beachten Sie, dass es bei den Metriken für synchronisierte Nutzer:innen und fehlerhafte Nutzer:innen zu Verzögerungen bei der Berichterstattung kommt – aufgrund des Bulk-Flushers bzw. der 13-stündigen Wiederholungsversuche.
 {% endalert %}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Was sollte ich als Nächstes tun, wenn ich einen Fehler wegen eines ungültigen Tokens erhalte? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
-Sie können die Verbindung zu Ihrem Criteo-Konto auf der Criteo-Partnerseite einfach trennen und wiederherstellen. Vergewissern Sie sich bei Ihrem Criteo-Administrator, dass Sie die entsprechenden Berechtigungen für das Werbekonto haben, mit dem Sie synchronisieren möchten.
+### Was sollte ich tun, wenn ich einen Fehler wegen eines ungültigen Tokens erhalte? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
+Sie können Ihr Criteo-Konto einfach auf der Criteo-Partnerseite trennen und erneut verbinden. Stellen Sie mit Ihrem Criteo-Admin sicher, dass Sie über die entsprechenden Berechtigungen für das Werbekonto verfügen, mit dem Sie synchronisieren möchten.
 
-### Warum kann mein Canvas nicht gestartet werden? {#why-is-my-canvas-not-allowed-to-launch}
+### Warum darf mein Canvas nicht gestartet werden? {#why-is-my-canvas-not-allowed-to-launch}
 
-Bestätigen Sie auf der Criteo-Partnerseite, dass Ihr Criteo-Werbekonto erfolgreich mit Braze verbunden wurde. Überprüfen Sie als Nächstes, ob Sie ein Werbekonto ausgewählt, einen Namen für die neue Zielgruppe eingegeben und passende Felder ausgewählt haben.
+Vergewissern Sie sich, dass Ihr Criteo-Werbekonto auf der Criteo-Partnerseite erfolgreich mit Braze verbunden wurde. Überprüfen Sie anschließend, ob Sie ein Werbekonto ausgewählt, einen Namen für die neue Zielgruppe eingegeben und Felder zum Abgleich ausgewählt haben.
 
-### Woher weiß ich, ob Nutzer:innen übereinstimmen, nachdem ich Nutzer:innen an Criteo weitergegeben habe? {#how-do-i-know-if-users-have-matched-after-passing-users-to-criteo}
+### Wie erfahre ich, ob Nutzer:innen nach der Übergabe an Criteo abgeglichen wurden? {#how-do-i-know-if-users-have-matched-after-passing-users-to-criteo}
 
 Criteo stellt diese Informationen aufgrund eigener Datenschutzrichtlinien nicht zur Verfügung.
 
 ### Wie viele Zielgruppen kann Criteo unterstützen? {#how-many-audiences-can-criteo-support}
 
-Zurzeit können Sie nur 1.000 Zielgruppen in Ihrem Criteo-Konto haben. Wenn Sie dieses Limit überschreiten, benachrichtigt Braze Sie, dass keine neuen Zielgruppen erstellt werden können. Sie müssen Zielgruppen, die Sie nicht mehr verwenden, aus Ihrem Criteo-Werbekonto entfernen.
+Derzeit können Sie nur 1.000 Zielgruppen in Ihrem Criteo-Konto haben. Wenn Sie dieses Limit überschreiten, wird Braze Sie darüber informieren, dass keine neuen Zielgruppen erstellt werden können. Sie müssen Zielgruppen entfernen, die Sie in Ihrem Criteo-Werbekonto nicht mehr verwenden.

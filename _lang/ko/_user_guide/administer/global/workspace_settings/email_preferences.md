@@ -19,7 +19,7 @@ toc_headers: h2
 
 ## 발송 구성 {#sending-configuration}
 
-**발송 구성** 섹션의 이메일 설정은 이메일 Campaign에 포함되는 세부 정보를 결정합니다. 특히 이 설정은 사용자가 Braze에서 보낸 이메일을 수신할 때 보게 되는 내용과 주로 관련됩니다.
+**발송 구성** 섹션의 이메일 설정은 이메일 Campaign에 포함되는 세부 정보를 결정합니다. 특히 이 설정은 사용자가 Braze에서 보낸 이메일을 수신할 때 표시되는 내용과 주로 관련됩니다.
 
 ### 발신 이메일 설정 {#outbound-email-settings}
 
@@ -28,15 +28,19 @@ toc_headers: h2
 {% tabs local %}
 {% tab 표시 이름 주소 %}
 
-이 섹션에서는 Braze가 사용자에게 이메일을 보낼 때 사용할 수 있는 이름과 이메일 주소를 추가할 수 있습니다. 표시 이름과 이메일 주소는 이메일 Campaign을 작성할 때 **Sending Info** 옵션에서 사용할 수 있습니다. 발신 이메일 설정에 대한 업데이트는 기존 발송에 소급 적용되지 않습니다.
+이 섹션에서는 Braze가 사용자에게 이메일을 보낼 때 사용할 수 있는 이름과 이메일 주소를 추가할 수 있습니다. 표시 이름과 이메일 주소는 이메일 Campaign을 작성할 때 **발송 정보** 옵션에서 사용할 수 있습니다. 발신 이메일 설정에 대한 업데이트는 기존 발송에 소급 적용되지 않습니다.
 
 ![다양한 표시 이름과 도메인 필드가 있는 발신 이메일 설정 섹션.]({% image_buster /assets/img/email_settings/display_name_address.png %})
 
-#### Liquid로 개인화하기 {#personalize-with-liquid}
+{% alert note %}
+Apple Mail 클라이언트는 커스텀 표시 이름에 `@` 기호가 사용된 경우 이를 인식하지 못합니다. 메일함 제공업체마다 사용자에게 표시 이름 주소를 표시하는 방식이 다르므로, 이메일 클라이언트에 따라 표시 이름이 다르게 나타날 수 있습니다.
+{% endalert %}
 
-**From Display Name**, **Local Part**, **Domain** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 사용하여 커스텀 속성을 기반으로 발신자 이름과 이메일 주소를 동적으로 템플릿화할 수 있습니다. **Domain** 필드에서 Liquid를 사용하려면 이메일 Campaign의 **Sending Info** 옵션으로 이동하여 **Customize from display name + address** 체크박스를 선택해야 합니다.
+#### Liquid으로 개인화하기 {#personalize-with-liquid}
 
-![보낸 사람 표시 이름, 주소, 도메인을 커스터마이즈하는 필드가 있는 발송 설정.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
+**발신 표시 이름**, **로컬 파트**, **도메인** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)을 사용하여 커스텀 속성을 기반으로 발신자 이름과 이메일 주소를 동적으로 템플릿화할 수도 있습니다. **도메인** 필드에서 Liquid을 사용하려면 이메일 Campaign의 **발송 정보** 옵션으로 이동하여 **발신 표시 이름 + 주소 커스터마이즈** 체크박스를 선택해야 합니다.
+
+![발신 표시 이름, 주소, 도메인을 커스터마이즈하기 위한 필드가 있는 발송 설정.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
 예를 들어, 조건 로직을 사용하여 다른 브랜드나 지역에서 발송할 수 있습니다:
 
@@ -55,17 +59,17 @@ Default to English Display Name
 {% endtab %}
 {% tab 회신 주소 %}
 
-이 섹션에서 이메일 주소를 추가하면 이메일 Campaign의 회신 주소로 선택할 수 있습니다. **Make Default**를 선택하여 이메일 주소를 기본 주소로 만들 수도 있습니다. 이러한 이메일 주소는 이메일 Campaign을 작성할 때 **Sending Info** 옵션에서 사용할 수 있습니다.
+이 섹션에서 이메일 주소를 추가하면 이메일 Campaign의 회신 주소로 선택할 수 있습니다. **기본값으로 설정**을 선택하여 이메일 주소를 기본 주소로 설정할 수도 있습니다. 이러한 이메일 주소는 이메일 Campaign을 작성할 때 **발송 정보** 옵션에서 사용할 수 있습니다.
 
-![여러 회신 주소를 입력하는 필드가 있는 회신 주소 섹션.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
+![여러 회신 주소를 입력할 수 있는 필드가 있는 회신 주소 섹션.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
 {% alert note %}
-Braze 발송 도메인은 수신 이메일을 수락하지 않습니다. 수신자가 Braze에서 구성한 발송 도메인에서 보낸 이메일에 회신하면 `550 5.7.1 relaying denied` 오류와 함께 회신이 반송됩니다. 회신 주소는 보낸 사람 주소와 동일한 도메인을 공유할 필요가 없습니다. 회신을 수신해야 하는 경우(예: 캘린더 초대 확인을 수집하기 위해) 발송용으로 구성되지 않고 메일을 수신할 수 있는 받은편지함이 설정된 하위 도메인을 사용하세요.
+Braze 발송 도메인은 수신 이메일을 수락하지 않습니다. 수신자가 Braze에서 구성된 발송 도메인으로 보낸 이메일에 회신하면, 해당 회신은 `550 5.7.1 relaying denied` 오류와 함께 반송됩니다. 회신 주소는 발신 주소와 동일한 도메인을 공유할 필요가 없습니다. 회신을 수신해야 하는 경우(예: 캘린더 초대 확인을 수집하기 위해) 발송용으로 구성되지 않았으며 메일을 수신할 수 있는 받은편지함이 설정된 하위 도메인을 사용하세요.
 {% endalert %}
 
-#### Liquid로 개인화하기
+#### Liquid으로 개인화하기
 
-**Reply-To Address** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 사용하여 커스텀 속성을 기반으로 회신 주소를 동적으로 템플릿화할 수도 있습니다. 예를 들어, 조건 로직을 사용하여 다른 지역이나 부서로 회신을 보낼 수 있습니다:
+**회신 주소** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)을 사용하여 커스텀 속성을 기반으로 회신 주소를 동적으로 템플릿화할 수도 있습니다. 예를 들어, 조건 로직을 사용하여 다른 지역이나 부서로 회신을 보낼 수 있습니다:
 
 {% raw %}
 ```liquid
@@ -81,23 +85,23 @@ Braze 발송 도메인은 수신 이메일을 수락하지 않습니다. 수신�
 {% endtab %}
 {% tab BCC 주소 %}
 
-이 섹션에서는 Braze에서 발송하는 발신 이메일 메시지에 추가할 수 있는 BCC 주소를 관리할 수 있습니다. 이메일 메시지에 BCC 주소를 추가하면 사용자가 수신하는 메시지의 동일한 사본이 BCC 받은편지함으로 전송됩니다. 이는 규정 준수 요구 사항이나 고객지원 문제를 위해 사용자에게 보낸 메시지의 사본을 보관하는 데 유용한 도구입니다. BCC 이메일은 이메일 보고서 및 분석에 포함되지 않습니다.
+이 섹션에서는 Braze에서 발송되는 아웃바운드 이메일 메시지에 추가할 수 있는 BCC 주소를 관리할 수 있습니다. 이메일 메시지에 BCC 주소를 추가하면 사용자가 수신하는 메시지의 동일한 사본이 BCC 받은편지함으로 전송됩니다. 이는 규정 준수 요구 사항이나 고객 지원 문제를 위해 사용자에게 보낸 메시지의 사본을 보관하는 데 유용한 도구입니다. BCC 이메일은 이메일 보고 및 분석에 포함되지 않습니다.
 
-BCC 주소는 Amazon SES, SendGrid, SparkPost에서 사용할 수 있습니다. BCC 주소의 대안으로, 아카이브 또는 규정 준수 목적으로 사용자에게 보낸 메시지의 사본을 저장하려면 [메시지 아카이빙]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving)을 사용하는 것을 권장합니다.
+BCC 주소는 Amazon SES, SendGrid, SparkPost에서 사용할 수 있습니다. BCC 주소의 대안으로, 보관 또는 규정 준수 목적으로 사용자에게 보낸 메시지의 사본을 저장하려면 [메시지 아카이빙]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving)을 사용하는 것을 권장합니다.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-주소를 추가한 후에는 Campaign 또는 캔버스 단계에서 이메일을 작성할 때 해당 주소를 선택할 수 있습니다. 주소 옆의 **Make Default**를 선택하면 새 이메일 Campaign 또는 Canvas 구성요소를 시작할 때 이 주소가 기본으로 선택됩니다. 메시지 수준에서 이를 재정의하려면 메시지를 설정할 때 **No BCC**를 선택하면 됩니다.
+주소를 추가하면 Campaign 또는 캔버스 단계에서 이메일을 작성할 때 해당 주소를 선택할 수 있습니다. 주소 옆의 **기본값으로 설정**을 선택하면 새 이메일 Campaign 또는 Canvas 구성 요소를 시작할 때 기본적으로 해당 주소가 선택됩니다. 메시지 수준에서 이를 재정의하려면 메시지를 설정할 때 **BCC 없음**을 선택할 수 있습니다.
 
-Braze에서 보내는 모든 이메일 메시지에 BCC 주소를 포함해야 하는 경우, **Require a BCC address for all your email campaigns** 토글을 선택할 수 있습니다. 이렇게 하면 기본 주소를 선택해야 하며, 새 이메일 Campaign 또는 캔버스 단계에서 자동으로 선택됩니다. 기본 주소는 REST API를 통해 트리거되는 모든 메시지에도 자동으로 추가됩니다. 주소를 포함하기 위해 기존 API 요청을 변경할 필요가 없습니다.
+Braze에서 발송되는 모든 이메일 메시지에 BCC 주소를 포함해야 하는 경우, **모든 이메일 Campaign에 BCC 주소 필수** 토글을 선택할 수 있습니다. 이 경우 기본 주소를 선택해야 하며, 새 이메일 Campaign 또는 캔버스 단계에서 자동으로 선택됩니다. 기본 주소는 REST API를 통해 트리거되는 모든 메시지에도 자동으로 추가됩니다. 주소를 포함하기 위해 기존 API 요청을 변경할 필요는 없습니다.
 
 #### 동적 BCC {#dynamic-bcc}
 
-동적 BCC를 사용하면 BCC 주소에 Liquid를 사용할 수 있습니다. 이 기능은 **이메일 환경설정**에서만 사용할 수 있으며 Campaign 자체에서는 설정할 수 없습니다. 이메일 수신자당 하나의 BCC 주소만 허용됩니다.
+동적 BCC를 사용하면 BCC 주소에 Liquid을 사용할 수 있습니다. 이 기능은 **이메일 환경설정**에서만 사용할 수 있으며 Campaign 자체에서는 설정할 수 없습니다. 이메일 수신자당 하나의 BCC 주소만 허용됩니다.
 
-예를 들어, 고객지원 팀의 이메일에 대한 BCC 주소로 {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %}를 추가할 수 있습니다.
+예를 들어, 지원팀에서 보내는 이메일의 BCC 주소로 {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %}를 추가할 수 있습니다.
 
-![Liquid를 사용하는 BCC 주소가 있는 이메일 설정 탭의 BCC 주소 섹션.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
+![Liquid을 사용하는 BCC 주소가 있는 이메일 설정 탭의 BCC 주소 섹션.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
 
 {% endtab %}
 {% endtabs %}
@@ -106,21 +110,21 @@ Braze에서 보내는 모든 이메일 메시지에 BCC 주소를 포함해야 �
 
 [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-open-tracking-pixel/){: style="float:right;width:120px;border:0;" class="noimgborder"}
 
-이메일 열람 추적 픽셀은 보이지 않는 1 x 1&nbsp;px 이미지로, 이메일 HTML에 자동으로 삽입됩니다. 이 픽셀은 Braze가 사용자가 이메일을 열었는지 감지하는 데 도움을 줍니다. 사용자의 이메일 클라이언트가 추적 픽셀에 요청을 보내면, 해당 요청에는 IP 주소, 사용자 에이전트, 타임스탬프 등의 정보가 포함될 수 있습니다. 이메일 열람 정보는 해당 열람율을 파악하여 효과적인 마케팅 전략을 결정하는 데 매우 유용합니다.
+이메일 열람 추적 픽셀은 보이지 않는 1 x 1&nbsp;px 이미지로, 이메일 HTML에 자동으로 삽입됩니다. 이 픽셀은 Braze가 사용자가 이메일을 열었는지 감지하는 데 도움을 줍니다. 사용자의 이메일 클라이언트가 추적 픽셀에 요청을 보내면, 해당 요청에는 IP 주소, 사용자 에이전트, 타임스탬프 등의 정보가 포함될 수 있습니다. 이메일 열람 정보는 해당 열람율을 파악하여 효과적인 마케팅 전략을 수립하는 데 매우 유용합니다.
 
 ### 배치 {#placement}
 
-Braze의 기본 동작은 이메일 하단, 일반적으로 `<body>` 태그에 추적 픽셀을 추가하는 것입니다. 대부분의 사용자에게 이것이 픽셀을 배치하기에 이상적인 위치입니다.
+Braze의 기본 동작은 이메일 하단, 일반적으로 `<body>` 태그 안에 추적 픽셀을 추가하는 것입니다. 대부분의 사용자에게 이 위치가 픽셀을 배치하기에 가장 이상적인 곳입니다.
 
-픽셀은 시각적 변화를 최소화하도록 이미 스타일이 적용되어 있지만, 의도하지 않은 시각적 변화가 있더라도 이메일 하단에서 가장 눈에 띄지 않습니다. 이는 SendGrid 및 SparkPost와 같은 이메일 서비스 공급자의 기본값이기도 합니다.
+픽셀은 이미 시각적 변화를 최소화하도록 스타일이 적용되어 있지만, 의도하지 않은 시각적 변화가 발생하더라도 이메일 하단에서 가장 눈에 띄지 않습니다. 이는 SendGrid 및 SparkPost와 같은 이메일 공급자의 기본 설정이기도 합니다.
 
-예기치 않은 동작을 줄이려면 Liquid를 `<html>` 태그 안에 유지하세요. 중첩되거나 중복된 문서 수준 태그는 이메일이 구문 분석되는 방식과 픽셀이 배치되는 위치를 변경하여 열람 추적 및 레이아웃에 영향을 줄 수 있습니다. 자세한 내용은 [Liquid 사용하기]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid)를 참조하세요.
+예기치 않은 동작을 줄이려면 Liquid를 `<html>` 태그 안에 유지하세요. 중첩되거나 중복된 문서 수준 태그는 이메일이 파싱되는 방식과 픽셀이 배치되는 위치를 변경하여 열람 추적 및 레이아웃에 영향을 줄 수 있습니다. 자세한 내용은 [Liquid 사용하기]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid)를 참조하세요.
 
 ### 배치 업데이트 {#update-the-placement}
 
-Braze는 현재 이메일 서비스 공급자의 기본 열람 추적 픽셀 위치(이메일 `<body>`의 마지막 태그)를 `<body>`의 첫 번째 태그로 이동하는 것을 지원합니다.
+Braze는 현재 ESP의 기본 열람 추적 픽셀 위치(이메일 `<body>`의 마지막 태그)를 `<body>`의 첫 번째 태그로 이동하도록 재정의하는 기능을 지원합니다.
 
-![SendGrid, SparkPost 또는 Amazon SES에 대해 이동 옵션이 있는 열람 추적 픽셀 섹션.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
+!["열람 추적 픽셀" 섹션에서 SendGrid, SparkPost 또는 Amazon SES에 대해 이동 옵션을 선택할 수 있습니다.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
 
 위치를 변경하려면:
 
@@ -128,10 +132,10 @@ Braze는 현재 이메일 서비스 공급자의 기본 열람 추적 픽셀 위
 2. 다음 옵션 중 하나를 선택합니다: **Move for SendGrid**, **Move for SparkPost** 또는 **Move for Amazon SES**
 3. **저장**을 선택합니다.
 
-저장하면 Braze가 이메일 서비스 공급자에 모든 HTML 이메일의 상단에 열람 추적 픽셀을 배치하도록 특별 지침을 보냅니다.
+저장하면 Braze가 ESP에 특별한 지침을 전송하여 모든 HTML 이메일의 상단에 열람 추적 픽셀을 배치합니다.
 
 {% alert important %}
-SSL 활성화는 추적 픽셀의 URL을 HTTP 대신 HTTPS로 래핑합니다. SSL이 잘못 구성된 경우 추적 픽셀의 효과에 영향을 줄 수 있습니다.
+SSL을 활성화하면 추적 픽셀의 URL이 HTTP 대신 HTTPS로 래핑됩니다. SSL이 잘못 구성된 경우 추적 픽셀의 효과에 영향을 줄 수 있습니다.
 {% endalert %}
 
 {% alert important %}
@@ -263,52 +267,52 @@ Braze가 [기본 목록 탈퇴 헤더](#default-list-unsubscribe-header) 방법 
 
 ![원클릭 탈퇴 URL 및 선택적 mailto를 위한 커스텀 목록 탈퇴 헤더 필드가 있는 이메일 환경설정.]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
 
-## 이메일 제목란에 추가 {#append-email-subject-lines}
+## 이메일 제목란에 접두사 추가 {#append-email-subject-lines}
 
-토글을 사용하여 테스트 및 시드 이메일 제목란에 "[TEST]" 및 "[SEED]"를 포함합니다. 이를 통해 테스트로 발송된 이메일 Campaign을 식별하는 데 도움이 됩니다.
+토글을 사용하여 테스트 및 시드 이메일 제목란에 "[TEST]" 및 "[SEED]"를 포함할 수 있습니다. 이를 통해 테스트로 발송된 이메일 Campaign을 쉽게 식별할 수 있습니다.
 
-![테스트 및 시드 이메일 제목란에 TEST 및 SEED 접두사를 추가하는 워크스페이스 이메일 환경설정 토글.]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
+![테스트 및 시드 이메일 제목란에 TEST와 SEED 접두사를 추가하는 워크스페이스 이메일 환경설정 토글.]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
-## 새 이메일에 기본적으로 CSS 인라인 적용 {#inline-css-on-new-emails-by-default}
+## 새 이메일에 대한 기본 인라인 CSS {#inline-css-on-new-emails-by-default}
 
-CSS 인라인은 이메일 및 새 이메일의 CSS 스타일을 자동으로 인라인하는 기술입니다. 일부 이메일 클라이언트의 경우 이메일 렌더링 방식을 개선할 수 있습니다.
+CSS 인라이닝은 이메일 및 새 이메일의 CSS 스타일을 자동으로 인라인 처리하는 기술입니다. 일부 이메일 클라이언트에서는 이 기능을 통해 이메일 렌더링이 개선될 수 있습니다.
 
-이 설정을 변경해도 기존 이메일 메시지나 템플릿에는 영향을 미치지 않습니다. 메시지나 템플릿을 작성하는 동안 언제든지 이 기본값을 재정의할 수 있습니다. 자세한 내용은 [CSS 인라인]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline)을 참조하세요.
+이 설정을 변경해도 기존 이메일 메시지나 템플릿에는 영향을 미치지 않습니다. 메시지나 템플릿을 작성하는 동안 언제든지 이 기본값을 재정의할 수 있습니다. 자세한 내용은 [CSS 인라이닝]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline)을 참조하세요.
 
-## 이메일 변경 시 사용자 재가입 {#resubscribe-users-when-their-email-changes}
+## 이메일 주소 변경 시 사용자 재구독 {#resubscribe-users-when-their-email-changes}
 
-이메일 주소를 변경할 때 사용자를 자동으로 재가입시킬 수 있습니다. 예를 들어, 이전에 탈퇴한 워크스페이스 사용자가 이메일 주소를 Braze의 탈퇴 목록에 없는 주소로 변경하면 자동으로 재가입됩니다.
+사용자가 이메일 주소를 변경할 때 자동으로 재구독되도록 설정할 수 있습니다. 예를 들어, 이전에 구독을 취소한 워크스페이스 사용자가 Braze의 구독 취소 목록에 없는 이메일 주소로 변경하면 자동으로 재구독됩니다.
 
-![이메일 주소가 변경될 때 사용자를 자동으로 재가입시키는 워크스페이스 설정.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
+![이메일 주소 변경 시 사용자를 자동으로 재구독하는 워크스페이스 설정.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
-## 가입 페이지 및 바닥글 {#subscription-pages-and-footers}
+## 구독 페이지 및 푸터 {#subscription-pages-and-footers}
 
 {% tabs local %}
-{% tab 커스텀 바닥글 %}
+{% tab 커스텀 푸터 %}
 
-상업 이메일의 경우, [CAN-SPAM 법](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003)은 모든 상업 이메일에 탈퇴 옵션을 포함하도록 요구합니다. 커스텀 바닥글 설정을 사용하면 CAN-SPAM을 준수하면서 이메일 옵트아웃 바닥글을 커스터마이즈할 수 있습니다. 규정을 준수하려면 이 워크스페이스의 Campaign으로 발송되는 모든 이메일에 커스텀 바닥글을 추가해야 합니다.
+상업용 이메일의 경우, [CAN-SPAM법](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003)에 따라 모든 상업용 이메일에 탈퇴 옵션을 포함해야 합니다. 커스텀 푸터 설정을 사용하면 이메일 옵트아웃 푸터를 커스터마이징하면서도 CAN-SPAM 규정을 준수할 수 있습니다. 규정을 준수하려면 이 워크스페이스의 Campaigns 일부로 발송되는 모든 이메일에 커스텀 푸터를 추가해야 합니다.
 
-이메일 메시징을 위한 커스텀 바닥글을 만들 때 다음 요구 사항에 유의하세요:
+이메일 메시징용 커스텀 푸터를 만들 때 다음 요구 사항에 유의하세요:
 - 탈퇴 URL과 실제 우편 주소를 포함해야 합니다.
-- 100 KB 미만이어야 합니다.
+- 100KB 미만이어야 합니다.
 
-![CAN-SPAM 준수를 위한 탈퇴 링크 및 우편 주소 필드가 있는 커스텀 이메일 바닥글 편집기.]({% image_buster /assets/img/email_settings/custom_footer.png %})
+![CAN-SPAM 규정 준수를 위한 탈퇴 링크 및 우편 주소 필드가 포함된 커스텀 이메일 푸터 편집기.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-커스텀 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [커스텀 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)을 참조하세요.
+커스텀 푸터 Liquid 템플릿에 대한 자세한 내용은 [커스텀 푸터]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)를 참조하세요.
 
 {% endtab %}
-{% tab 커스텀 구독취소 페이지 %}
+{% tab 커스텀 탈퇴 페이지 %}
 
-Braze에서는 자체 HTML로 **커스텀 구독취소 페이지**를 설정할 수 있습니다. 이 페이지는 사용자가 이메일 하단에서 탈퇴를 선택한 후 표시됩니다. 이 페이지는 750 KB 미만이어야 합니다.
+Braze에서는 자체 HTML을 사용하여 **커스텀 탈퇴 페이지**를 설정할 수 있습니다. 이 페이지는 사용자가 이메일 하단에서 탈퇴를 선택한 후에 표시됩니다. 이 페이지는 750KB 미만이어야 합니다.
 
-![사용자가 이메일에서 탈퇴한 후 표시되는 페이지의 커스텀 구독취소 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
+![사용자가 이메일 탈퇴 후 표시되는 페이지의 커스텀 탈퇴 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
 {% multi_lang_include email/external_font_domains.md page_type='unsubscribe' %}
 
 {% endtab %}
 {% tab 커스텀 옵트인 페이지 %}
 
-자체 HTML을 사용하여 커스텀 옵트인 페이지를 만들 수 있습니다. 이를 이메일에 포함하면 사용자 라이프사이클 전반에 걸쳐 브랜딩과 메시지를 일관되게 유지하려는 경우 특히 유용합니다. 이 페이지는 750 KB 미만이어야 합니다.
+자체 HTML을 사용하여 커스텀 옵트인 페이지를 만들 수 있습니다. 이메일에 이 페이지를 포함하면 사용자 라이프사이클 전반에 걸쳐 브랜딩과 메시지의 일관성을 유지하는 데 특히 유용합니다. 이 페이지는 750KB 미만이어야 합니다.
 
 ![브랜드 이메일 구독 확인을 위한 커스텀 옵트인 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
@@ -318,59 +322,59 @@ Braze에서는 자체 HTML로 **커스텀 구독취소 페이지**를 설정할 
 {% endtabs %}
 
 {% alert tip %}
-가입 페이지 또는 바닥글의 **미리보기** 섹션에서 **미리보기 링크 복사**를 선택하면 임의의 사용자에 대해 이메일 바닥글, 구독취소 페이지 또는 옵트인 페이지가 어떻게 보이는지 보여주는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 이 링크는 7일 후에 재생성해야 합니다.
+구독 페이지 또는 푸터의 **미리보기** 섹션에서 **미리보기 링크 복사**를 선택하면 임의의 사용자에게 이메일 푸터, 탈퇴 페이지 또는 옵트인 페이지가 어떻게 보이는지 확인할 수 있는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 이 링크는 7일 동안 유효하며, 이후 다시 생성해야 합니다.
 {% endalert %}
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-### 원클릭 탈퇴
+### 원클릭 수신 거부
 
-{% details 원클릭 탈퇴 URL(목록 탈퇴 헤더를 통한)이 환경설정 센터로 연결될 수 있나요? %}
-아니요, RFC 8058을 준수하지 않으므로 Yahoo 및 Gmail의 원클릭 탈퇴 요구 사항을 충족하지 못합니다.
+{% details 원클릭 수신 거부 URL(list-unsubscribe 헤더를 통한)을 환경설정 센터에 연결할 수 있나요? %}
+아니요, 이는 RFC 8058을 준수하지 않으므로 Yahoo 및 Gmail의 원클릭 수신 거부 요구 사항을 충족하지 못합니다.
 {% enddetails %}
 
-{% details 환경설정 센터를 작성할 때 "이메일 본문에 탈퇴 링크가 포함되어 있지 않습니다"라는 오류 메시지가 표시되는 이유는 무엇인가요? %}
-환경설정 센터는 탈퇴 링크로 간주되지 않습니다. 이메일 수신자는 CAN-SPAM을 준수하기 위해 모든 상업 이메일에서 탈퇴할 수 있는 옵션이 있어야 합니다.
+{% details 환경설정 센터를 작성할 때 "이메일 본문에 수신 거부 링크가 포함되어 있지 않습니다"라는 오류 메시지가 표시되는 이유는 무엇인가요? %}
+환경설정 센터는 수신 거부 링크로 간주되지 않습니다. CAN-SPAM을 준수하려면 이메일 수신자에게 모든 상업용 이메일의 수신을 거부할 수 있는 옵션이 제공되어야 합니다.
 {% enddetails %}
 
-{% details 원클릭 탈퇴 설정을 활성화한 후 과거 이메일 Campaign 및 Canvases를 편집해야 하나요? %}
-메시지 수준 원클릭 목록 탈퇴 설정에 대한 사용 사례가 없는 경우, **이메일 환경설정**에서 설정이 켜져 있는 한 필요한 조치가 없습니다. Braze는 모든 발신 마케팅 및 프로모션 메시지에 원클릭 탈퇴 헤더를 자동으로 추가합니다. 그러나 메시지별로 원클릭 탈퇴 동작을 구성해야 하는 경우 이전 이메일 Campaign 및 캔버스 단계를 그에 맞게 업데이트해야 합니다.
+{% details 원클릭 수신 거부 설정을 활성화한 후 이전 이메일 Campaigns 및 Canvases를 수정해야 하나요? %}
+메시지 수준의 원클릭 list-unsubscribe 설정에 해당하는 사용 사례가 없다면, **이메일 환경설정**에서 설정이 켜져 있는 한 별도의 조치가 필요하지 않습니다. Braze는 모든 발신 마케팅 및 프로모션 메시지에 원클릭 수신 거부 헤더를 자동으로 추가합니다. 그러나 메시지별로 원클릭 수신 거부 동작을 구성해야 하는 경우에는 이전 이메일 Campaigns 및 캔버스 단계를 적절히 업데이트해야 합니다.
 {% enddetails %}
 
-{% details 원본 메시지나 원시 데이터에서 목록 탈퇴 및 원클릭 탈퇴 헤더를 볼 수 있는데, Gmail이나 Yahoo에서 탈퇴 버튼이 보이지 않는 이유는 무엇인가요? %}
-Gmail과 Yahoo는 궁극적으로 목록 탈퇴 또는 원클릭 탈퇴 헤더를 표시할지 여부를 결정합니다. 신규 발신자이거나 발송자 평판이 낮은 경우 탈퇴 버튼이 표시되지 않을 수 있습니다.
+{% details 원본 메시지 또는 원시 데이터에서 list-unsubscribe 및 원클릭 수신 거부 헤더를 확인할 수 있는데, Gmail이나 Yahoo에서 수신 거부 버튼이 표시되지 않는 이유는 무엇인가요? %}
+Gmail과 Yahoo는 list-unsubscribe 또는 원클릭 수신 거부 헤더를 표시할지 여부를 최종적으로 결정합니다. 신규 발송자이거나 발송자 평판이 낮은 발송자의 경우, 수신 거부 버튼이 표시되지 않을 수 있습니다.
 {% enddetails %}
 
-{% details 커스텀 원클릭 탈퇴 헤더는 Liquid를 지원하나요? %}
-예, Liquid 및 조건 로직이 지원되어 헤더에 대한 동적 원클릭 탈퇴 URL을 사용할 수 있습니다.
+{% details 커스텀 원클릭 수신 거부 헤더는 Liquid를 지원하나요? %}
+네, Liquid 및 조건 로직이 지원되어 헤더에 동적 원클릭 수신 거부 URL을 사용할 수 있습니다.
 {% enddetails %}
 
 {% alert tip %}
-조건 로직을 추가하는 경우 URL에 공백을 추가하는 출력 값을 피하세요. Braze는 이러한 공백을 제거하지 않습니다.
+조건 로직을 추가하는 경우, URL에 공백을 추가하는 출력 값이 없도록 주의하세요. Braze는 이러한 공백을 제거하지 않습니다.
 {% endalert %}
 
-### 메시지 수준 원클릭 목록 탈퇴
+### 메시지 수준 원클릭 list-unsubscribe
 
-{% details 원클릭에 대한 이메일 헤더를 수동으로 추가하고 이메일 탈퇴 헤더가 켜져 있는 경우 예상되는 동작은 무엇인가요? %}
-원클릭 목록 탈퇴를 위해 추가된 이메일 헤더는 이 Campaign의 모든 향후 발송에 적용됩니다.
+{% details 원클릭용 이메일 헤더를 수동으로 추가하고 이메일 수신 거부 헤더가 켜져 있는 경우, 예상되는 동작은 무엇인가요? %}
+원클릭 list-unsubscribe를 위해 추가된 이메일 헤더는 이 Campaign의 모든 향후 발송에 적용됩니다.
 {% enddetails %}
 
-{% details 시작하려면 메시지 배리언트 간에 구독 그룹이 일치해야 하는 이유는 무엇인가요? %}
-A/B 테스트가 있는 Campaign의 경우, Braze는 사용자에게 배리언트 중 하나를 무작위로 보냅니다. 동일한 Campaign에 두 개의 다른 구독 그룹이 설정된 경우(배리언트 A는 구독 그룹 A로 설정, 배리언트 B는 구독 그룹 B로 설정), 구독 그룹 B에만 가입한 사용자가 배리언트 B를 수신한다고 보장할 수 없습니다. 사용자가 이미 옵트아웃한 구독 그룹에서 탈퇴하는 시나리오가 발생할 수 있습니다.
+{% details 발송하려면 메시지 배리언트 간에 구독 그룹이 일치해야 하는 이유는 무엇인가요? %}
+A/B 테스트가 포함된 Campaign의 경우, Braze는 사용자에게 배리언트 중 하나를 무작위로 발송합니다. 동일한 Campaign에 두 개의 서로 다른 구독 그룹이 설정되어 있으면(배리언트 A는 구독 그룹 A로, 배리언트 B는 구독 그룹 B로 설정), 구독 그룹 B에만 가입한 사용자가 배리언트 B를 수신한다고 보장할 수 없습니다. 사용자가 이미 옵트아웃한 구독 그룹에서 수신 거부하는 시나리오가 발생할 수 있습니다.
 {% enddetails %}
 
-{% details 이메일 환경설정에서 이메일 탈퇴 헤더 설정이 꺼져 있지만, Campaign의 발송 정보에서 원클릭 목록 탈퇴 설정이 "Use workspace default"로 되어 있습니다. 이것은 버그인가요? %}
-아니요. 워크스페이스 설정이 꺼져 있고 메시지 설정이 **Use workspace default**로 설정된 경우, Braze는 **이메일 환경설정**에 구성된 내용을 따릅니다. 즉, Campaign에 원클릭 탈퇴 헤더를 추가하지 않습니다.
+{% details 이메일 환경설정에서 이메일 수신 거부 헤더 설정이 꺼져 있지만, Campaign의 발송 정보에서 원클릭 list-unsubscribe 설정이 "워크스페이스 기본값 사용"으로 되어 있습니다. 이것은 버그인가요? %}
+아니요. 워크스페이스 설정이 꺼져 있고 메시지 설정이 **워크스페이스 기본값 사용**으로 설정되어 있으면, Braze는 **이메일 환경설정**에서 구성된 내용을 따릅니다. 즉, 해당 Campaign에 원클릭 수신 거부 헤더를 추가하지 않습니다.
 {% enddetails %}
 
-{% details 구독 그룹이 아카이브되면 어떻게 되나요? 발송된 이메일의 원클릭 탈퇴가 중단되나요? %}
-원클릭에 대한 **Sending Info**에서 참조된 구독 그룹이 아카이브된 경우, Braze는 여전히 원클릭에서의 탈퇴를 처리합니다. 구독 그룹은 더 이상 대시보드(Segment 필터, 고객 프로필 및 유사 영역)에 표시되지 않습니다.
+{% details 구독 그룹이 보관되면 어떻게 되나요? 발송된 이메일의 원클릭 수신 거부가 중단되나요? %}
+원클릭용 **발송 정보**에서 참조된 구독 그룹이 보관되더라도, Braze는 원클릭을 통한 수신 거부를 계속 처리합니다. 해당 구독 그룹은 대시보드(Segment 필터, 고객 프로필 및 유사 영역)에 더 이상 표시되지 않습니다.
 {% enddetails %}
 
-{% details 원클릭 탈퇴 설정은 이메일 템플릿에서 사용할 수 있나요? %}
+{% details 원클릭 수신 거부 설정을 이메일 템플릿에서 사용할 수 있나요? %}
 아니요, 현재 이메일 템플릿에 이 기능을 추가할 계획은 없습니다. 이러한 템플릿은 발송 도메인에 할당되지 않기 때문입니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
-{% details 이 기능은 커스텀 옵션에 추가된 원클릭 탈퇴 URL이 유효한지 확인하나요? %}
-아니요, Braze 대시보드에서 링크를 확인하거나 검증하지 않습니다. 시작 전에 URL을 올바르게 테스트하세요.
+{% details 이 기능은 커스텀 옵션에 추가된 원클릭 수신 거부 URL이 유효한지 확인하나요? %}
+아니요, Braze 대시보드에서 링크를 확인하거나 검증하지 않습니다. 발송 전에 URL을 적절히 테스트하세요.
 {% enddetails %}
