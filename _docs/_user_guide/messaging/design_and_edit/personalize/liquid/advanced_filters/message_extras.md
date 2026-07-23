@@ -50,7 +50,7 @@ The `message_extras` tag is supported for all message types with a send event, a
 
 {: start="3"}
 
-3. After your campaign or Canvas has been sent, Braze will attach the dynamic data at the send time via the Currents or Snowflake Data Sharing send events to the `message_extras` field.
+3. After your campaign or Canvas has been sent, Braze attaches the dynamic data at send time to the `message_extras` field in Currents or Snowflake Data Sharing send events.
 
 ## Checking syntax
 
