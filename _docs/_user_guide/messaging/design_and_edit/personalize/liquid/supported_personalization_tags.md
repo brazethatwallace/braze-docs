@@ -179,7 +179,7 @@ You can use the `assign` tag to create a variable in the message composer. We re
 After you create a variable, you can reference that variable in your messaging logic or message. This tag comes in handy when you want to reformat content that is returned from our [Connected Content]({% image_buster /assets/img_archive/personalized_firstname_.png %}) feature. You can read more in Shopify's documentation on [variable tags](https://docs.shopify.com/themes/liquid/tags/variable-tags).
 
 {% alert important %}
-When using the `assign` tag, strings wrapped in single quotes are treated as literal strings. Liquid personalization tags inside single quotes will not be interpolated. For example:
+When using the `assign` tag, strings wrapped in single quotes are treated as literal strings. Liquid personalization tags inside single quotes are not interpolated. For example:
 
 {% raw %}
 ```liquid
@@ -190,7 +190,7 @@ When using the `assign` tag, strings wrapped in single quotes are treated as lit
 
 This outputs the literal text `My name is {{${first_name}}}` instead of the user's first name.
 
-To include personalization in a string variable, use double quotes or concatenate variables outside the quotes. For URL templating with personalization, refer to [link templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
+To include personalization, use variables or concatenate strings with the [`append`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#append) filter. For URL templating with personalization, refer to [link templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 {% endalert %}
 
 {% alert tip %}
