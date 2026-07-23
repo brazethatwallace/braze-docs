@@ -10,7 +10,14 @@ page_type: reference
 
 > Braze는 플랫폼에 사용자 데이터를 가져오는 다양한 방법을 제공합니다: SDK, API, 클라우드 데이터 수집, 기술 파트너 통합, CSV 파일 등이 있습니다. 이 문서에서는 [CSV 파일을 통한 커스텀 이벤트 가져오기(얼리 액세스)](#importing-custom-events)를 포함하여 사용자 데이터를 가져오는 방법에 대한 자세한 안내를 제공합니다.
 
-{% multi_lang_include channels/sms/email_via_sms_warning.md %}
+{% alert important %}
+법적으로 필수인 트랜잭션 이메일을 SMS 게이트웨이로 보내지 마세요. 해당 이메일이 전달되지 않을 가능성이 높습니다.
+
+전화번호와 통신사의 이메일-SMS 게이트웨이 도메인(MM3)을 사용하여 보내는 이메일은 SMS(문자) 메시지로 수신될 수 있지만, 일부 이메일 제공업체는 이 동작을 지원하지 않습니다. 예를 들어 T-Mobile 전화번호(예: "9999999999@tmomail.net")로 이메일을 보내면 T-Mobile 네트워크에서 해당 전화번호를 소유한 사람에게 SMS 메시지가 전송됩니다.
+
+이러한 이메일이 SMS 게이트웨이로 전달되지 않더라도 이메일 요금 청구에는 포함됩니다. 지원되지 않는 게이트웨이로 이메일을 보내지 않으려면 [지원되지 않는 게이트웨이 도메인 이름 목록](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads)을 검토하세요.
+{% endalert %}
+
 
 진행하기 전에, Braze는 가져오기 중에 HTML 데이터를 정제(유효성 검사 또는 올바른 형식 지정)하지 않는다는 점에 유의하세요. 이는 웹 개인화를 위한 모든 가져오기 데이터에서 스크립트 태그를 제거해야 함을 의미합니다.
 
@@ -34,7 +41,7 @@ CSV 파일을 사용한 사용자 데이터 가져오기는 이름, 이메일 �
 
 ### 외부 ID로 가져오기 {#importing-with-external-id}
 
-고객 데이터를 가져올 때 각 고객의 고유 식별자(`external_id`라고도 함)를 지정해야 합니다. CSV 가져오기를 시작하기 전에 엔지니어링 팀에서 Braze에서 사용자를 어떻게 식별할지 이해하는 것이 중요합니다. 일반적으로 이는 내부 데이터베이스 ID입니다. 이는 모바일 및 웹에서 Braze SDK가 사용자를 식별하는 방식과 일치해야 하며, 각 고객이 기기 전체에서 Braze 내에 단일 사용자 프로필을 갖도록 설계되었습니다. Braze [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle)에 대해 자세히 알아보세요.
+고객 데이터를 가져올 때 각 고객의 고유 식별자(`external_id`라고도 함)를 지정해야 합니다. CSV 가져오기를 시작하기 전에 엔지니어링 팀에서 Braze에서 사용자를 어떻게 식별할지 이해하는 것이 중요합니다. 일반적으로 이는 내부 데이터베이스 ID입니다. 이는 모바일 및 웹에서 Braze SDK가 사용자를 식별하는 방식과 일치해야 하며, 각 고객이 기기 전체에서 Braze 내에 단일 사용자 프로필을 갖도록 설계되었습니다. Braze [사용자 프로필 수명주기]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle)에 대해 자세히 알아보세요.
 
 가져오기에서 `external_id`를 제공하면 Braze는 동일한 `external_id`를 가진 기존 사용자를 업데이트하거나, 해당 `external_id`가 발견되지 않으면 해당 `external_id`가 설정된 새로 식별된 사용자를 생성합니다.
 

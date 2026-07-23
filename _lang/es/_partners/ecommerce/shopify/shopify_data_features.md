@@ -410,6 +410,11 @@ La integración con Shopify utiliza [eventos recomendados de comercio electróni
 {% endsubtabs %}
 {% endtab %}
 {% tab Shopify events %}
+
+{% alert note %}
+Braze depende de Shopify para proporcionar las propiedades de evento requeridas (como `cart_id` o `cart_token`) para los eventos de comercio electrónico. En casos excepcionales, problemas temporales con Shopify pueden hacer que estas propiedades no se reciban, lo que puede provocar que los eventos afectados se descarten.
+{% endalert %}
+
 {% subtabs global %}
 {% subtab Product viewed %}
 **Evento**: `ecommerce.product_viewed`<br>
@@ -548,7 +553,7 @@ A continuación, puedes añadir las siguientes etiquetas Liquid en tu mensaje pa
 {% endraw %}
 
 {% alert tip %}
-El webhook de pago completado de Shopify no contiene URL de productos ni URL de imágenes. Como resultado, tienes que utilizar la personalización de Catálogos con Liquid, como se menciona en [Personalización de productos de carritos abandonados para correos electrónicos]({{site.baseurl}}/ecommerce_use_cases#order-confirmation-and-feedback-survey).
+El webhook de pago completado de Shopify no contiene URL de productos ni URL de imágenes. Como resultado, tienes que utilizar la personalización de catálogos con Liquid, como se menciona en [Personalización de productos de carritos abandonados para correos electrónicos]({{site.baseurl}}/ecommerce_use_cases#order-confirmation-and-feedback-survey).
 {% endalert %}
 
 {% endsubtab %}

@@ -29,9 +29,7 @@ Que vous développiez une application monopage, un site e-commerce ou une platef
 
 Avant d'intégrer le SDK Web de Braze, vous aurez besoin de :
 
-- **Compte Braze** : un compte Braze avec accès à l'API
-- **Clé API** : la clé API de votre application depuis le tableau de bord de Braze
-- **Endpoint du SDK** : l'URL de votre endpoint du SDK Braze (par exemple, `sdk.iad-01.braze.com`)
+{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
 
 ### Obtenir vos identifiants {#getting-your-credentials}
 
@@ -646,7 +644,7 @@ if (isInitialized()) {
 }
 ```
 
-#### Activer/Désactiver le SDK {#enabledisable-sdk}
+#### Activer/désactiver le SDK {#enabledisable-sdk}
 
 ``` typescript
 import { enableSDK, disableSDK } from "@braze/web-sdk";
@@ -848,9 +846,9 @@ Le tableau suivant décrit les distributions disponibles du SDK Web de Braze.
 
 | Nom | Description | npm | URL CDN
 | --- | ----------- | --- | -------
-| Complète | SDK complet avec interface utilisateur. Lorsque vous utilisez la version npm, les bundlers JavaScript suppriment le code inutilisé, y compris le code d'interface utilisateur. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.9/braze.min.js
-| Core | Contient le SDK sans interface utilisateur. Implémentez votre propre interface utilisateur pour les In-App Messages et les Content Cards lorsque vous utilisez cette version du SDK. Utilisez la bibliothèque complète pour la plupart des intégrations, car elle fournit des éléments d'interface utilisateur personnalisables via CSS. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.core.min.js
-| No-AMD | Contient le SDK complet sans prise en charge AMD. Cela est utile si votre site utilise RequireJS ou un autre chargeur de modules AMD, mais que vous préférez charger le SDK via le CDN. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.no-amd.min.js
+| Complète | SDK complet avec interface utilisateur. Lorsque vous utilisez la version npm, les bundlers JavaScript suppriment le code inutilisé, y compris le code d'interface utilisateur. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.10/braze.min.js
+| Core | Contient le SDK sans interface utilisateur. Implémentez votre propre interface utilisateur pour les In-App Messages et les Content Cards lorsque vous utilisez cette version du SDK. Utilisez la bibliothèque complète pour la plupart des intégrations, car elle fournit des éléments d'interface utilisateur personnalisables via CSS. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.core.min.js
+| No-AMD | Contient le SDK complet sans prise en charge AMD. Cela est utile si votre site utilise RequireJS ou un autre chargeur de modules AMD, mais que vous préférez charger le SDK via le CDN. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.no-amd.min.js
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliothèques" }
 
 ## Navigateurs pris en charge {#supported-browsers}
@@ -861,7 +859,7 @@ Le tableau suivant décrit les distributions disponibles du SDK Web de Braze.
 
 ## Débogage et résolution des problèmes {#debugging-troubleshooting}
 
-Passez l'option `enableLogging: true` à la fonction d'initialisation (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) pour que Braze écrive dans la console JavaScript. Cela est utile pour le développement mais est visible par tous les utilisateurs, donc supprimez cette option ou [fournissez un logger alternatif](https://js.appboycdn.com/web-sdk/6.9/doc/modules/braze.html#setlogger) avant de mettre votre page en production.
+Passez l'option `enableLogging: true` à la fonction d'initialisation (`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) pour que Braze écrive dans la console JavaScript. Cela est utile pour le développement mais est visible par tous les utilisateurs, donc supprimez cette option ou [fournissez un logger alternatif](https://js.appboycdn.com/web-sdk/6.10/doc/modules/braze.html#setlogger) avant de mettre votre page en production.
 
 ## Font Awesome
 

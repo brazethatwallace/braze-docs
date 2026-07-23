@@ -1,0 +1,3 @@
+- Zukünftige Daten werden für dieses Ereignis nicht mehr erfasst.
+- Vorhandene Daten sind nicht verfügbar, es sei denn, das Ereignis wird wieder freigegeben.
+- Dieses Ereignis wird nicht in Filtern oder Diagrammen angezeigt.

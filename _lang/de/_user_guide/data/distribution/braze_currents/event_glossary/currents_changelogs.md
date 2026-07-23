@@ -5,11 +5,51 @@ description: "Diese Seite enthält die Event-Änderungen für jede Currents-Vers
 tool: Currents
 ---
 
-# Currents-Changelog {#currents-changelog}
+# Currents-Changelog
+
+## Änderungen in Version 11 (Veröffentlichungsdatum: 05.08.2026) {#changes-in-version-11-release-date-2026-08-05}
+
+### Änderungen für Storage: {#changes-for-storage}
+
+* Neuer Event-Typ `contentoptimizer.ComponentStore` hinzugefügt.
+
+* Neuer Event-Typ `users.canvas.costep.Conversion` hinzugefügt.
+
+* Neuer Event-Typ `users.messages.landingpage.Click` hinzugefügt.
+
+* Neuer Event-Typ `users.messages.landingpage.FormSubmission` hinzugefügt.
+
+* Neuer Event-Typ `users.messages.landingpage.Impression` hinzugefügt.
+
+* Neuer Event-Typ `users.messages.survey.Response` hinzugefügt.
+
+* Feldänderungen am Event-Typ `agentconsole.AgentExecuted`:
+    * Neues `string`-Feld `thinking_level` hinzugefügt: Die für die Anfrage verwendete Denk- bzw. Reasoning-Stufe
+
+* Feldänderungen am Event-Typ `users.messages.banner.Click`:
+    * Neues `boolean`-Feld `is_unique` hinzugefügt: Ob dies der erste Klick der Nutzer:in auf die Nachrichtenvariante war, der für die Statistik eindeutiger Klicks gezählt wird
+
+* Feldänderungen am Event-Typ `users.messages.banner.Dismiss`:
+    * Neues `boolean`-Feld `is_unique` hinzugefügt: Ob dies das erste Schließen der Nachrichtenvariante durch die Nutzer:in war, das für die Statistik eindeutiger Schließungen gezählt wird
+
+* Feldänderungen am Event-Typ `users.messages.banner.Impression`:
+    * Neues `boolean`-Feld `is_unique` hinzugefügt: Ob dies die erste Impression der Nachrichtenvariante für die Nutzer:in war, die für die Statistik eindeutiger Impressions gezählt wird
+
+* Feldänderungen am Event-Typ `users.messages.contentcard.Click`:
+    * Neues `boolean`-Feld `is_unique` hinzugefügt: Ob dies der erste Klick der Nutzer:in auf die Nachrichtenvariante war, der für die Statistik eindeutiger Klicks gezählt wird
+
+* Feldänderungen am Event-Typ `users.messages.contentcard.Dismiss`:
+    * Neues `boolean`-Feld `is_unique` hinzugefügt: Ob dies das erste Schließen der Nachrichtenvariante durch die Nutzer:in war, das für die Statistik eindeutiger Schließungen gezählt wird
+
+* Feldänderungen am Event-Typ `users.messages.contentcard.Impression`:
+    * Neues `boolean`-Feld `is_unique` hinzugefügt: Ob dies die erste Impression der Nachrichtenvariante für die Nutzer:in war, die für die Statistik eindeutiger Impressions gezählt wird
+
+* Feldänderungen am Event-Typ `users.messages.featureflag.Impression`:
+    * Neues `boolean`-Feld `is_unique` hinzugefügt: Ob dies die erste Impression für dieses Feature-Flag für die Nutzer:in war, die für die Statistik eindeutiger Impressions gezählt wird
 
 ## Änderungen in Version 10 (Veröffentlichungsdatum: 01.07.2026) {#changes-in-version-10-release-date-2026-07-01}
 
-### Änderungen für Storage: {#changes-for-storage}
+### Änderungen für Storage:
 
 * Neuer Event-Typ `users.canvas.costep.Send` hinzugefügt.
 
@@ -61,7 +101,7 @@ tool: Currents
     * Neues `string`-Feld `bsuid` hinzugefügt: Die WhatsApp Business-Scoped User ID der Empfängerin bzw. des Empfängers, die bzw. der mit diesem Event verknüpft ist.
 
 * Feldänderungen am Event-Typ `users.messages.whatsapp.InboundReceive`:
-    * Neues `string`-Feld `bsuid` hinzugefügt: Die WhatsApp Business-Scoped User ID der Nutzer:innen, von denen die Nachricht empfangen wurde.
+    * Neues `string`-Feld `bsuid` hinzugefügt: Die WhatsApp Business-Scoped User ID der Nutzer:in, von der die Nachricht empfangen wurde.
     * Das Feld `user_phone_number` ist jetzt *optional*.
 
 * Feldänderungen am Event-Typ `users.messages.whatsapp.Read`:

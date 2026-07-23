@@ -1,0 +1,2 @@
+- Use Braze segmentation and triggering capabilities to initiate personalized in-app notifications.
+- Create tailored in-app notifications on the Sendbird Notifications platform, which are then delivered within the app environment, enhancing user engagement.

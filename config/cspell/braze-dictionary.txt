@@ -100,6 +100,7 @@ Bandsintown
 Barchart
 BASA
 bdocs
+Beefree
 behaviour
 BENA
 BIMI
@@ -247,6 +248,7 @@ ecommerce
 edume
 EKUGUSII
 Emailable
+Emailify
 emailnotification
 EMEA
 emea

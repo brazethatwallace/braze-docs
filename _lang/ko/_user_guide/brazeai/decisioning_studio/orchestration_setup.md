@@ -49,9 +49,9 @@ toc_headers: h2
 | **REST API 키** | 사용자 데이터, 메시지, Campaigns, Canvas, Segments, 템플릿에 대한 권한이 있는 새 API 키. |
 | **Braze 대시보드 URL** | Braze 인스턴스 URL (예: `https://dashboard-01.braze.com`). |
 | **앱 ID** | 추적하려는 앱과 연결된 API 키 (**설정** > **앱 설정**에서 확인). |
-| **이메일 표시 이름 및 주소** | Campaign에 사용할 발신자 정보 (**설정** > **이메일 환경설정**에서 확인). |
-| **기본 템플릿** | 에이전트가 오케스트레이션에 사용할 메시지 템플릿. 각 템플릿에 대해 API 트리거 Campaign을 생성합니다. |
-| **테스트 사용자 ID** | 시작 전 통합을 테스트하기 위한 사용자 ID. |
+| **이메일 표시 이름 및 주소** | Campaigns에 사용할 발신자 정보 (**설정** > **이메일 환경설정**에서 확인). |
+| **기본 템플릿** | 에이전트가 오케스트레이션에 사용할 메시지 템플릿. 각 템플릿에 대해 API 트리거 Campaigns를 생성합니다. |
+| **테스트 사용자 ID** | 출시 전 통합을 테스트하기 위한 사용자 ID. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 {% endtab %}
@@ -74,7 +74,7 @@ Braze 또는 Salesforce Marketing Cloud 이외의 CEP를 사용하는 경우, De
 | 항목 | 설명 |
 |------|------|
 | **데이터 수집 기능** | CEP가 각 고객에 대한 개인화된 결정이 포함된 추천 파일(일반적으로 CSV 또는 JSON)을 수집할 수 있어야 합니다. |
-| **동적 콘텐츠 지원** | Campaign이 추천 데이터를 기반으로 필드를 동적으로 채울 수 있어야 합니다. |
+| **동적 콘텐츠 지원** | Campaigns가 추천 데이터를 기반으로 필드를 동적으로 채울 수 있어야 합니다. |
 | **커스텀 엔지니어링 리소스** | 팀에서 추천 파일을 읽고 커뮤니케이션을 트리거하는 통합을 구축해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
@@ -194,8 +194,6 @@ Decisioning Studio 에이전트가 SMS Campaign의 필드를 최적화한다고 
 
 Decisioning Studio는 Salesforce Marketing Cloud와의 네이티브 통합을 지원합니다. Decisioning Studio는 동적 요소를 채우는 데 필요한 데이터와 함께 여정에 API 이벤트를 트리거합니다.
 
-SFMC 통합을 구성하는 자세한 단계는 Decisioning Studio Go 설명서의 [SFMC 데이터 요구 사항]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources#sfmc-data-requirements)을 참조하세요.
-
 {% endtab %}
 {% tab 기타 CEP %}
 
@@ -207,11 +205,11 @@ Decisioning Studio는 모든 고객 인게이지먼트 플랫폼과 통합할 �
 
 예를 들어, 다음 추천 파일은:
 
-![Decisioning Studio 커스텀 예시 2]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_2.png %})
+![Decisioning Studio 커스텀 예시 - 추천 파일]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_2.png %})
 
 다음과 같은 이메일 Campaign을 최적화하는 데 사용될 수 있습니다:
 
-![Decisioning Studio 커스텀 예시 1]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_1.png %})
+![Decisioning Studio 커스텀 예시 - 이메일 Campaign]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_1.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -221,7 +219,7 @@ Decisioning Studio는 모든 고객 인게이지먼트 플랫폼과 통합할 �
 오케스트레이션을 준비할 때 다음 모범 사례를 염두에 두세요:
 
 1. **좁은 범위로 시작하세요:** 처음에는 하나의 채널과 하나 또는 두 개의 템플릿을 사용하세요. 효과적인 방법을 파악한 후 나중에 확장할 수 있습니다.
-2. **철저히 테스트하세요:** 시작하기 전에 소규모 사용자 세트로 통합을 테스트하여 동적 콘텐츠가 올바르게 채워지는지 확인하세요.
+2. **철저히 테스트하세요:** 출시 전에 소규모 사용자 세트로 통합을 테스트하여 동적 콘텐츠가 올바르게 채워지는지 확인하세요.
 3. **설정을 문서화하세요:** Campaign ID, 템플릿 ID, API 키 및 기타 식별자를 기록해 두세요. Decisioning Studio 포털에서 이를 참조해야 합니다.
 4. **팀과 협력하세요:** 오케스트레이션 설정에는 마케팅, 엔지니어링, 데이터 팀이 관여할 수 있습니다. 모든 사람이 프로세스에서 자신의 역할을 이해하도록 하세요.
 5. **피드백 데이터를 계획하세요:** 오케스트레이션은 메시지를 발송하고 에이전트가 학습하는 데 도움이 되는 인게이지먼트 및 전환 데이터를 수집합니다. 자세한 내용은 [데이터 준비]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data)를 참조하세요.

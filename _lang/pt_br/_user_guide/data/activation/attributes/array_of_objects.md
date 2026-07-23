@@ -26,7 +26,7 @@ Quando um atributo personalizado aninhado na sua requisição contém valores in
 {% endalert %}
 
 {% alert tip %}
-Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## Exemplo de API {#api-example}

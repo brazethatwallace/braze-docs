@@ -59,7 +59,7 @@ Snowplow의 고품질 행동 데이터를 기반으로 Braze에서 동적 오디
 
 전달자를 구성할 때 전달할 Snowplow 이벤트를 선택하고 이를 Braze 오브젝트 유형에 매핑할 수 있습니다:
 
-1. **[사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)**: 고객 프로필 데이터 및 커스텀 사용자 속성을 업데이트합니다.
+1. **[사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object)**: 고객 프로필 데이터 및 커스텀 사용자 속성을 업데이트합니다.
 2. **[커스텀 이벤트]({{site.baseurl}}/api/objects_filters/event_object)**: 사용자 행동 및 동작을 전송합니다.
 3. **[구매]({{site.baseurl}}/api/objects_filters/purchase_object)**: 제품 세부 정보가 포함된 트랜잭션 데이터를 전송합니다.
 

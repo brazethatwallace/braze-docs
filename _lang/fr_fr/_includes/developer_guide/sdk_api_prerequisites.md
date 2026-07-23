@@ -1,0 +1,3 @@
+- **Compte Braze :** un compte Braze avec accès à l'API
+- **Clé API :** la clé API de votre application depuis le tableau de bord de Braze
+- **Endpoint SDK :** l'URL de votre endpoint SDK Braze (par exemple, `sdk.iad-01.braze.com`)

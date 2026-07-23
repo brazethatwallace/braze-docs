@@ -1,0 +1,6 @@
+- Configura ejemplos preestablecidos con Operator a través del menú desplegable del botón **Crear agente**.
+- Duplica agentes existentes desde la lista de agentes.
+- Guarda agentes como borradores durante la creación y completa las configuraciones más tarde.
+- Establece valores de salida alternativos para agentes de Canvas a fin de evitar que las variables de salida se establezcan como nulas si el agente presenta un error.
+- Establece campos de entrada obligatorios para un campo agéntico de catálogo, de modo que el agente no se ejecute si el valor de un campo de entrada obligatorio está vacío o falta.
+- Vuelve a ejecutar un agente para todas las celdas vacías de una columna agéntica a fin de completar los valores faltantes sin volver a ejecutar la columna completa.

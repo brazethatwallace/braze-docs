@@ -7,9 +7,49 @@ tool: Currents
 
 # Registro de cambios de Currents {#currents-changelog}
 
-## Cambios en la versión 10 (fecha de lanzamiento: 01-07-2026) {#changes-in-version-10-release-date-2026-07-01}
+## Cambios en la versión 11 (fecha de lanzamiento: 05-08-2026) {#changes-in-version-11-release-date-2026-08-05}
 
 ### Cambios en el almacenamiento: {#changes-for-storage}
+
+* Se añadió un nuevo tipo de evento `contentoptimizer.ComponentStore`.
+
+* Se añadió un nuevo tipo de evento `users.canvas.costep.Conversion`.
+
+* Se añadió un nuevo tipo de evento `users.messages.landingpage.Click`.
+
+* Se añadió un nuevo tipo de evento `users.messages.landingpage.FormSubmission`.
+
+* Se añadió un nuevo tipo de evento `users.messages.landingpage.Impression`.
+
+* Se añadió un nuevo tipo de evento `users.messages.survey.Response`.
+
+* Cambios de campo en el tipo de evento `agentconsole.AgentExecuted`:
+    * Se añadió un nuevo campo `string` `thinking_level`: el nivel de pensamiento o razonamiento utilizado para la solicitud
+
+* Cambios de campo en el tipo de evento `users.messages.banner.Click`:
+    * Se añadió un nuevo campo `boolean` `is_unique`: si este fue el primer clic del usuario en la variación del mensaje, contabilizándose en las estadísticas de clics únicos
+
+* Cambios de campo en el tipo de evento `users.messages.banner.Dismiss`:
+    * Se añadió un nuevo campo `boolean` `is_unique`: si este fue el primer descarte del usuario de la variación del mensaje, contabilizándose en las estadísticas de descartes únicos
+
+* Cambios de campo en el tipo de evento `users.messages.banner.Impression`:
+    * Se añadió un nuevo campo `boolean` `is_unique`: si esta fue la primera impresión del usuario de la variación del mensaje, contabilizándose en las estadísticas de impresiones únicas
+
+* Cambios de campo en el tipo de evento `users.messages.contentcard.Click`:
+    * Se añadió un nuevo campo `boolean` `is_unique`: si este fue el primer clic del usuario en la variación del mensaje, contabilizándose en las estadísticas de clics únicos
+
+* Cambios de campo en el tipo de evento `users.messages.contentcard.Dismiss`:
+    * Se añadió un nuevo campo `boolean` `is_unique`: si este fue el primer descarte del usuario de la variación del mensaje, contabilizándose en las estadísticas de descartes únicos
+
+* Cambios de campo en el tipo de evento `users.messages.contentcard.Impression`:
+    * Se añadió un nuevo campo `boolean` `is_unique`: si esta fue la primera impresión del usuario de la variación del mensaje, contabilizándose en las estadísticas de impresiones únicas
+
+* Cambios de campo en el tipo de evento `users.messages.featureflag.Impression`:
+    * Se añadió un nuevo campo `boolean` `is_unique`: si esta fue la primera impresión del usuario para este conmutador de características, contabilizándose en las estadísticas de impresiones únicas
+
+## Cambios en la versión 10 (fecha de lanzamiento: 01-07-2026) {#changes-in-version-10-release-date-2026-07-01}
+
+### Cambios en el almacenamiento:
 
 * Se añadió un nuevo tipo de evento `users.canvas.costep.Send`.
 

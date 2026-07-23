@@ -55,7 +55,7 @@ Utilisez le SDK Braze pour mettre à jour l'état d'abonnement d'un utilisateur.
 
 #### REST API
 
-Utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour mettre à jour l'[attribut `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) d'un utilisateur. Par exemple, pour définir l'état d'abonnement e-mail d'un utilisateur comme désabonné lorsqu'il utilise un lien de désabonnement personnalisé, incluez `email_subscribe: "unsubscribed"` dans les attributs utilisateur de votre requête.
+Utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour mettre à jour l'[attribut `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) d'un utilisateur. Par exemple, pour définir l'état d'abonnement e-mail d'un utilisateur comme désabonné lorsqu'il utilise un lien de désabonnement personnalisé, incluez `email_subscribe: "unsubscribed"` dans les attributs utilisateur de votre requête.
 
 #### Profil utilisateur {#user-profile}
 
@@ -110,7 +110,7 @@ Utilisez les [endpoints des groupes d'abonnement]({{site.baseurl}}/api/endpoints
 1. Accédez à **Audience** > **Subscription Group Management**.
 2. Sélectionnez **Create email subscription group**.
 3. Donnez un nom et une description à votre groupe d'abonnement.
-4. Sélectionnez **Save**.
+4. Sélectionnez **Enregistrer**.
 
 Tous les groupes d'abonnement sont automatiquement ajoutés à votre centre de préférences.
 

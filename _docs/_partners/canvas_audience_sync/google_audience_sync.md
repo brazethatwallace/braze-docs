@@ -24,9 +24,7 @@ The Braze Audience Sync to Google integration is supported for Google Ads, not G
 Google Ads no longer generates similar audiences, also known as "lookalike audiences," for targeting and reporting. Refer to [Google Ads documentation](https://support.google.com/google-ads/answer/12463119?) to learn more.
 
 **Common use cases for syncing Custom Audiences include:**
-- Targeting high-value users via multiple channels to drive purchases or engagement.
-- Retargeting users who are less responsive to other marketing channels.
-- Creating suppression audiences to prevent users from receiving advertisements when they're already loyal consumers of your brand.
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 {% alert note %}
 This feature lets brands control what specific first-party data is shared with Google. At Braze, the integrations with which you can and cannot share your first-party data are given the utmost consideration. Learn more about our [Braze data privacy policy](https://www.braze.com/privacy).

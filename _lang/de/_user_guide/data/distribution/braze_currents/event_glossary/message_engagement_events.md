@@ -29,7 +29,7 @@ Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]
 
 ## Ereignisstruktur {#event-structure}
 
-Diese Aufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichten-Engagement-Ereignis enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Datenmetriken zu nutzen.
+Diese Ereignisaufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichten-Engagement-Ereignis enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und andere wertvolle Datenmetriken zu nutzen.
 
 ![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses, das ein E-Mail-Abmeldeereignis zeigt, mit den aufgelisteten Eigenschaften gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
 
@@ -66,7 +66,7 @@ Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des 
 {% details Hinweise zu Nachrichten-Engagement-Ereignissen %}
 
 - Currents verwirft Ereignisse mit Payloads größer als 900&nbsp;KB.
-- Objekte im Zusammenhang mit Canvas Flow haben IDs, die Sie zur Gruppierung verwenden und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) in lesbare Namen übersetzen können.
+- Objekte im Zusammenhang mit Canvas Flow haben IDs, die Sie zum Gruppieren verwenden und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) in lesbare Namen übersetzen können.
 - Bestimmte Felder zeigen möglicherweise nicht sofort ihren aktuellsten Status an, nachdem Sie eine Campaign oder ein Canvas aktualisiert haben:
   - `campaign_name`
   - `canvas_name`
@@ -911,7 +911,28 @@ Abo-Gruppen sind derzeit nur für E-Mail-, SMS-, RCS- und WhatsApp-Kanäle verf�
 {% endtabs %}
 
 ### Eigenschaftsdetails
-{% multi_lang_include currents/property_details_dispatch_state_source.md %}
+<ul>
+<li><code>dispatch_id</code> ist eine ID für einen bestimmten Nachrichtenversand, z. B. einen Campaign-Versand. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe <code>dispatch_id</code>. Verwenden Sie <code>dispatch_id</code>, um Ereignisse zu gruppieren, die zum selben Versand gehören, sodass Sie den Lebenszyklus der Push-Nachricht für diesen Versand gruppieren und korrelieren können (z. B. Senden, Bounce und Öffnen).</li>
+<li><code>state_change_source</code> gibt einen String mit dem vollständigen Quellnamen zurück. Der Quell-CSV-Import gibt beispielsweise den String <code>CSV import</code> zurück. Die verfügbaren Quellen sind wie folgt aufgeführt:</li>
+</ul>
+<table class="reset-td-br-1 reset-td-br-2" role="presentation">
+<thead>
+<tr><th>Quelle</th><th>Beschreibung</th></tr>
+</thead>
+<tbody>
+<tr><td>SDK</td><td>SDK-Endpunkte</td></tr>
+<tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzer:in auf der Seite „Nutzerprofil“ im Dashboard aktualisiert wird</td></tr>
+<tr><td>Abo-Seite</td><td>Wenn sich eine Nutzer:in über einen E-Mail-Link abmeldet, der nicht das Präferenzzentrum ist</td></tr>
+<tr><td>REST API</td><td>REST API-Endpunkte</td></tr>
+<tr><td>CSV-Import</td><td>CSV-Nutzerimport</td></tr>
+<tr><td>Präferenzzentrum</td><td>Wenn eine Nutzer:in über das Präferenzzentrum aktualisiert wird</td></tr>
+<tr><td>Eingehende Nachricht</td><td>Wenn eine Nutzer:in durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie z. B. SMS aktualisiert wird</td></tr>
+<tr><td>Migration</td><td>Wenn eine Nutzer:in durch interne Migrationen oder Wartungsskripte aktualisiert wird</td></tr>
+<tr><td>Nutzer:innen zusammenführen</td><td>Wenn eine Nutzer:in durch den Prozess der Nutzerzusammenführung aktualisiert wird</td></tr>
+<tr><td>Canvas-Schritt „Nutzeraktualisierung“</td><td>Wenn eine Nutzer:in durch den Canvas-Schritt „Nutzeraktualisierung“ aktualisiert wird</td></tr>
+</tbody>
+</table>
+
 
 
 {% endapi %}
@@ -4183,7 +4204,7 @@ Dieses Ereignis tritt ein, wenn eine Content-Card-Nachricht aufgrund von Liquid-
 
 ### Eigenschaftsdetails
 
-- `dispatch_id` ist eine ID für eine bestimmte Nachrichtenübermittlung, beispielsweise den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zu demselben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
+- `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, beispielsweise den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zu demselben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 - Das Feld `abort_type` beschreibt den Grund, warum die Nachricht abgebrochen wurde. Eine vollständige Liste der Werte finden Sie unter [Abbruchtypen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` hat den Wert `frequency_capped`, wenn die Nachricht aufgrund einer globalen Frequenzbegrenzungsregel abgebrochen wurde.
 - `abort_log` enthält Informationen über die spezifische Regel, die den Abbruch ausgelöst hat. Ein Beispiel hierfür ist: `Frequency cap rule: 5 Content Card messages every 1 week`
@@ -14956,7 +14977,7 @@ Dieses Ereignis tritt ein, wenn bei einer SMS die Zustellung fehlschlägt. Verwe
 
 ### Eigenschaftsdetails
 
-- `dispatch_id` ist eine ID für eine bestimmte Nachrichtenübermittlung, beispielsweise den Versand einer Campaign. Alle Push-Ereignisse, die aus derselben Versandaktion stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zu derselben Versandaktion gehören. Auf diese Weise können Sie den Lebenszyklus der Push-Nachrichten für diese Versandaktion (z. B. Senden, Bounce und Öffnung) gruppieren und miteinander in Beziehung setzen.
+- `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, beispielsweise den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
 
@@ -15206,7 +15227,7 @@ SMS, Rejection
 Dieses Ereignis tritt ein, wenn eine SMS-Sendung vom Netzbetreiber abgelehnt wird. Dies kann aus verschiedenen Gründen geschehen. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der SMS-Zustellung zu beheben.
 
 {% alert note %}
-Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake-Datenfreigabe und zugehörige Exporte aus, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für die Protokollierung noch im Workspace vorhanden ist. Wurde dieses Profil zuvor gelöscht, wird dieses Ereignis nicht in Ihrem Data Warehouse oder Currents-Export angezeigt. Dieselbe Verarbeitungsregel gilt für andere ausgehende `users.messages.sms.*`-Ereignisse, die Braze über dieselbe Pipeline protokolliert (z. B. Zustellung, Zustellungsfehler und Gesendet-an-Netzbetreiber). SMS-Metriken auf Workspace-Ebene können weiterhin aggregierte Zählungen enthalten, die nicht eins-zu-eins den Zeilen in Snowflake entsprechen.
+Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake-Datenfreigabe und zugehörige Exporte aus, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für die Protokollierung noch im Workspace vorhanden ist. Wurde dieses Profil zuvor gelöscht, wird dieses Ereignis nicht in Ihrem Data Warehouse oder Currents-Export angezeigt. Dieselbe Verarbeitungsregel gilt für andere ausgehende `users.messages.sms.*`-Ereignisse, die Braze über dieselbe Pipeline protokolliert (z. B. Zustellung, Zustellungsfehler und Gesendet-an-Netzbetreiber). SMS-Metriken auf Workspace-Ebene können weiterhin aggregierte Zählungen enthalten, die nicht eins zu eins den Zeilen in Snowflake entsprechen.
 {% endalert %}
 
 {% tabs %}

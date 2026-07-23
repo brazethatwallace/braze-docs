@@ -11,7 +11,20 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 
 > Esta página trata de los atributos personalizados anidados, que te permiten definir un conjunto de atributos como propiedad de otro atributo. En otras palabras, cuando defines un objeto de atributo personalizado, puedes definir un conjunto de atributos adicionales para ese objeto.
 
-{% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
+## Acerca de los atributos anidados {#about-nested-attributes}
+
+Los atributos anidados te permiten crear segmentos más ricos y personalizar mensajes con datos de un único objeto de atributo personalizado.
+
+En el siguiente ejemplo, el atributo personalizado `favorite_book` contiene los atributos anidados `title`, `author` y `publishing_date`. Este objeto se puede usar para dirigirte a usuarios por autor, filtrar por fecha de publicación o insertar el título del libro directamente en un mensaje:
+
+```json
+"favorite_book": {
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "publishing_date": "1937"
+}
+```
+
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -24,8 +37,8 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
 - No todos los partners de Braze admiten atributos personalizados anidados. Consulta la [documentación del partner]({{site.baseurl}}/partners/home) para confirmar si determinadas integraciones de partners admiten esta característica.
 - Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
-- De forma predeterminada, el filtro de segmentación **Atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support).
-- Al previsualizar mensajes en el panel usando **Preview as a Custom User**, solo puedes introducir datos simulados como cadena o matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
+- De forma predeterminada, el filtro de Segment **Atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support).
+- Al previsualizar mensajes en el panel usando **Vista previa como usuario personalizado**, solo puedes introducir datos simulados como cadena o matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
 
 ## Ejemplo de API {#api-example}
 
@@ -269,25 +282,25 @@ Para usar Liquid de atributos personalizados anidados en tu mensaje:
 
 1. Ve a una Campaign o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
 2. En el creador de mensajes, inserta el fragmento de código Liquid donde quieras que aparezca el valor.
-3. Usa **Preview & Test** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
+3. Usa **Vista previa y prueba** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
 
 ### Personalización {#personalization}
 
-Puedes usar **Add Personalization** para insertar un atributo personalizado anidado en tu mensaje.
+Puedes usar **Añadir personalización** para insertar un atributo personalizado anidado en tu mensaje.
 
-Para abrir **Add Personalization**:
+Para abrir **Añadir personalización**:
 
 1. Ve a una Campaign o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
-2. En el creador de mensajes, selecciona **Personalization** para abrir la barra lateral **Add Personalization**, donde puedes elegir opciones de personalización.
+2. En el creador de mensajes, selecciona **Personalización** para abrir la barra lateral **Añadir personalización**, donde puedes elegir opciones de personalización.
 
 Para configurar la personalización de atributos personalizados anidados:
 
-1. En **Personalization Type**, selecciona **Nested Custom Attributes**.
-2. En **Top Level Attribute**, selecciona la ruta del atributo personalizado anidado que quieras insertar.
+1. En **Tipo de personalización**, selecciona **Atributos personalizados anidados**.
+2. En **Atributo de nivel superior**, selecciona la ruta del atributo personalizado anidado que quieras insertar.
    Por ejemplo, selecciona `preferences.neighborhood_office`.
-3. Opcional: En **Default value**, introduce un valor alternativo para los usuarios que no tengan su propio valor para ese atributo.
-4. Revisa el **Liquid Snippet** generado para confirmar que coincide con la ruta esperada.
-5. Selecciona **Insert**.
+3. Opcional: En **Valor predeterminado**, introduce un valor alternativo para los usuarios que no tengan su propio valor para ese atributo.
+4. Revisa el **fragmento de código Liquid** generado para confirmar que coincide con la ruta esperada.
+5. Selecciona **Insertar**.
 
 En este ejemplo, Braze inserta el valor anidado de `preferences.neighborhood_office` en tu mensaje. Los valores predeterminados son alternativas que tu mensaje incluye para los usuarios que no tienen su propio valor para un atributo.
 
@@ -303,10 +316,10 @@ Para regenerar el esquema de tu atributo personalizado anidado:
 
 1. Ve a **Configuración de datos** > **Atributos personalizados**.
 2. Busca tu atributo personalizado anidado.
-3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> **Administrar esquema** para administrar el esquema.
+3. En la columna **Nombre del atributo** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> **Administrar esquema** para administrar el esquema.
 4. Aparecerá un modal. Selecciona **Regenerar esquema**.
 
-La acción **Regenerar esquema** está limitada a **una vez por día calendario** en la zona horaria de tu empresa. No puedes iniciar otra regeneración mientras un trabajo de esquema ya está **en progreso** (la opción no está disponible mientras el estado es **Generating**). Regenerar el esquema solo detecta nuevos objetos y no elimina objetos que actualmente existen en el esquema.
+La acción **Regenerar esquema** está limitada a **una vez por día calendario** en la zona horaria de tu empresa. No puedes iniciar otra regeneración mientras un trabajo de esquema ya está **en progreso** (la opción no está disponible mientras el estado es **Generando**). Regenerar el esquema solo detecta nuevos objetos y no elimina objetos que actualmente existen en el esquema.
 
 {% alert important %}
 Para restablecer el esquema de una matriz de objetos con un objeto existente, necesitas crear un nuevo atributo personalizado. La regeneración del esquema no elimina objetos existentes.
@@ -318,15 +331,15 @@ Si los datos no aparecen como se esperaba después de regenerar el esquema, es p
 
 Puedes desencadenar acciones cuando un objeto de atributo personalizado anidado cambia. Esta opción no está disponible para cambios en matrices de objetos. Si no ves una opción para ver el explorador de rutas, verifica que hayas generado un esquema.
 
-Por ejemplo, en una campaña basada en acciones, puedes añadir una nueva acción desencadenante para **Change Custom Attribute Value** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
+Por ejemplo, en una campaña basada en acciones, puedes añadir una nueva acción desencadenante para **Cambiar valor de atributo personalizado** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
 
 Para configurar este desencadenador en una campaña basada en acciones:
 
 1. Crea o edita una campaña, luego establece el tipo de entrega en **Entrega basada en acciones**.
-2. En la configuración de desencadenadores, selecciona **Change Custom Attribute Value**.
+2. En la configuración de desencadenadores, selecciona **Cambiar valor de atributo personalizado**.
 3. Selecciona la ruta del atributo personalizado anidado que quieras monitorear.
    Por ejemplo, selecciona `preferences.neighborhood_office`.
-4. Selecciona la condición de desencadenamiento que desees, como **any new value**.
+4. Selecciona la condición de desencadenamiento que desees, como **cualquier valor nuevo**.
 5. Termina de configurar el mensaje y la audiencia de tu campaña, luego lánzala.
 
 ## Solución de problemas {#troubleshooting}
@@ -345,15 +358,15 @@ Para diagnosticar y resolver este problema:
 4. **Verifica el tipo de datos:** Para identificar el tipo de datos de un atributo personalizado:
    - Ve a **Configuración de datos** > **Atributos personalizados**.
    - Busca el atributo personalizado de nivel superior que contiene el atributo anidado que quieras verificar.
-   - Si la fila muestra **Generate Schema**, selecciónalo para generar el esquema primero.
-   - Después de que se genere el esquema, selecciona el ícono de más en la columna **Attribute Name** de ese atributo.
-   - En el modal **Edit schema**, revisa los atributos anidados y sus valores correspondientes en la columna **Data type**.
+   - Si la fila muestra **Generar esquema**, selecciónalo para generar el esquema primero.
+   - Después de que se genere el esquema, selecciona el ícono de más en la columna **Nombre del atributo** de ese atributo.
+   - En el modal **Editar esquema**, revisa los atributos anidados y sus valores correspondientes en la columna **Tipo de datos**.
 
 Si encuentras que el tipo de datos no coincide con el formato previsto en los perfiles de usuario, elimina el valor con formato incorrecto de los perfiles de usuario afectados y reenvía el atributo en el formato correcto usando la solicitud de API o el método de SDK apropiado.
 
 ## Comportamiento de segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Cuando usas múltiples filtros de `Nested Custom Attribute` con lógica AND para segmentar en una matriz de objetos, cada filtro se evalúa de forma independiente en todos los elementos de la matriz. Un usuario califica para el segmento si _cualquier_ elemento de la matriz satisface cada filtro individual; los filtros no tienen que coincidir con el _mismo_ elemento.
+Cuando usas múltiples filtros de `Nested Custom Attribute` con lógica AND para segmentar en una matriz de objetos, cada filtro se evalúa de forma independiente en todos los elementos de la matriz. Un usuario califica para el Segment si _cualquier_ elemento de la matriz satisface cada filtro individual; los filtros no tienen que coincidir con el _mismo_ elemento.
 
 Por ejemplo, supongamos que un usuario tiene la siguiente matriz:
 
@@ -366,12 +379,12 @@ Por ejemplo, supongamos que un usuario tiene la siguiente matriz:
 }
 ```
 
-Un segmento con los siguientes filtros AND:
+Un Segment con los siguientes filtros AND:
 
 - `orders[].price` es mayor que 50
 - `orders[].price` es menor que 30
 
-Este usuario calificaría porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el segmento.
+Este usuario calificaría porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el Segment.
 
 Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, usa [segmentación multicriterio]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
 

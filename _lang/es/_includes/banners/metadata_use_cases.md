@@ -1,0 +1,3 @@
+- Envía metadatos para tus análisis o integraciones de terceros.
+- Usa metadatos como un `timestamp` u objeto JSON para desencadenar lógica condicional.
+- Controla el comportamiento de un Banner basándote en metadatos incluidos como `ratio` o `format`.

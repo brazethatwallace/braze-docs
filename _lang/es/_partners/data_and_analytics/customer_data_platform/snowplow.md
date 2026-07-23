@@ -59,7 +59,7 @@ Para crear el reenviador de eventos:
 
 Al configurar el reenviador, puedes elegir qué eventos de Snowplow reenviar y mapearlos a tipos de objetos de Braze:
 
-1. **[Atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)**: Actualiza los datos del perfil de usuario y las propiedades personalizadas de usuario.
+1. **[Atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object)**: Actualiza los datos del perfil de usuario y las propiedades personalizadas de usuario.
 2. **[Eventos personalizados]({{site.baseurl}}/api/objects_filters/event_object)**: Envía acciones y comportamientos de los usuarios.
 3. **[Compras]({{site.baseurl}}/api/objects_filters/purchase_object)**: Envía los datos de la transacción con los detalles del producto.
 

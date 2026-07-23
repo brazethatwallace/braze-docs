@@ -3,7 +3,7 @@ nav_title: Timing intelligent
 article_title: Timing intelligent
 page_order: 1.3
 description: "Cet article propose un aperçu du timing intelligent (appelé auparavant Livraison intelligente) et explique comment tirer parti de cette fonctionnalité dans vos campagnes et vos Canvas."
-
+toc_headers: h2
 ---
 
 # [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"} Timing intelligent {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
@@ -25,7 +25,7 @@ Par exemple, Sam peut ouvrir régulièrement vos e-mails le matin, mais elle pr�
 
 Si un utilisateur ne dispose d'aucune donnée d'engagement pertinente permettant à Braze de calculer l'heure d'envoi optimale, vous pouvez définir une heure de secours.
 
-## Cas d'usage {#use-cases}
+## Exemples {#examples}
 
 - Envoyer des campagnes récurrentes qui ne sont pas sensibles au facteur temps
 - Automatiser des campagnes avec des utilisateurs dans plusieurs fuseaux horaires
