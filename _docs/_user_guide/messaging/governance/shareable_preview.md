@@ -83,5 +83,5 @@ Seven days from when it was generated or last regenerated.
 {% enddetails %}
 
 {% details Can I revoke a link early? %}
-Not directly. Regenerating the link invalidates the previous one, or you can wait for it to expire after seven days.
+No, you cannot revoke a link. However, regenerating the link invalidates the previous one, or you can wait for it to expire after seven days.
 {% enddetails %}

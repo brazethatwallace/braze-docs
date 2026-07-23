@@ -81,7 +81,7 @@ When creating a custom footer, Braze suggests using [attributes for personalizat
 ### Including an unsubscribe link and opt-in link
 
 {% raw  %}
-As a best practice, Braze recommends including both an unsubscribe link (such as ``{{${set_user_to_unsubscribed_url}}}``) and an opt-in link (such as ``{{${set_user_to_opted_in_url}}}``) in your custom footer. This way, users will be able to both unsubscribe or opt-in, and you can passively collect opt-in data for a portion of your users.
+As a best practice, Braze recommends including both an unsubscribe link (such as ``{{${set_user_to_unsubscribed_url}}}``) and an opt-in link (such as ``{{${set_user_to_opted_in_url}}}``) in your custom footer. This way, users can unsubscribe or opt-in, and you can passively collect opt-in data for a portion of your users.
 {% endraw %}
 
 ### Setting custom footers for plaintext emails
