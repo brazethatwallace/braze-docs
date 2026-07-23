@@ -1,20 +1,20 @@
-## Integration des Cordova SDK {#integrating-the-cordova-sdk}
+## Das Cordova SDK integrieren {#integrating-the-cordova-sdk}
 
 ### Voraussetzungen {#prerequisites}
 
-Bevor Sie beginnen, überprüfen Sie, ob Ihre Umgebung von der [neuesten Braze Cordova SDK Version](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements) unterstützt wird.
+Bevor Sie beginnen, stellen Sie sicher, dass Ihre Umgebung von der [neuesten Version des Braze Cordova SDK](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements) unterstützt wird.
 
-### Schritt 1: Fügen Sie das SDK zu Ihrem Projekt hinzu {#step-1-add-the-sdk-to-your-project}
+### Schritt 1: Das SDK zu Ihrem Projekt hinzufügen {#step-1-add-the-sdk-to-your-project}
 
 {% alert warning %}
-Fügen Sie das Braze Cordova SDK nur mit den folgenden Methoden hinzu. Versuchen Sie nicht, die Installation mit anderen Methoden durchzuführen, da dies zu einer Sicherheitsverletzung führen könnte.
+Fügen Sie das Braze Cordova SDK nur mit den folgenden Methoden hinzu. Versuchen Sie nicht, es auf andere Weise zu installieren, da dies zu einer Sicherheitslücke führen könnte.
 {% endalert %}
 
 Wenn Sie Cordova 6 oder höher verwenden, können Sie das SDK direkt von GitHub hinzufügen. Alternativ können Sie eine ZIP-Datei des [GitHub-Repositorys](https://github.com/braze-inc/braze-cordova-sdk) herunterladen und das SDK manuell hinzufügen.
 
 {% tabs local %}
 {% tab Geofence deaktiviert %}
-Wenn Sie nicht vorhaben, Standorterfassung und Geofences zu nutzen, verwenden Sie den Branch `master` von GitHub.
+Wenn Sie keine Standorterfassung und Geofences verwenden möchten, nutzen Sie den `master`-Branch von GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
@@ -22,7 +22,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
 {% endtab %}
 
 {% tab Geofence aktiviert %}
-Wenn Sie vorhaben, Standorterfassung und Geofences zu nutzen, verwenden Sie den `geofence-branch` von GitHub.
+Wenn Sie Standorterfassung und Geofences verwenden möchten, nutzen Sie den `geofence-branch` von GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branch
@@ -34,9 +34,9 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 Sie können jederzeit zwischen `master` und `geofence-branch` wechseln, indem Sie diesen Schritt wiederholen.
 {% endalert %}
 
-### Schritt 2: Konfigurieren Sie Ihr Projekt {#step-2-configure-your-project}
+### Schritt 2: Ihr Projekt konfigurieren {#step-2-configure-your-project}
 
-Als Nächstes fügen Sie die folgenden Einstellungen zum Element `platform` in der Datei `config.xml` Ihres Projekts hinzu.
+Fügen Sie als Nächstes die folgenden Einstellungen zum `platform`-Element in der `config.xml`-Datei Ihres Projekts hinzu.
 
 {% tabs %}
 {% tab ios %}
@@ -56,13 +56,13 @@ Als Nächstes fügen Sie die folgenden Einstellungen zum Element `platform` in d
 
 Ersetzen Sie Folgendes:
 
-| Wert                  | Beschreibung                                                                                                                     |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `BRAZE_API_KEY`       | Ihr [Braze REST-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys).         |
-| `CUSTOM_API_ENDPOINT` | Ein angepasster API-Endpunkt. Dieser Endpunkt wird verwendet, um Ihre Braze-Instanzdaten an die richtige App-Gruppe in Ihrem Braze-Dashboard weiterzuleiten. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Konfigurieren Sie Ihr Projekt" }
+| Wert                  | Beschreibung                                                                                                                                  |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BRAZE_API_KEY`       | Ihr [Braze REST-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys).                      |
+| `CUSTOM_API_ENDPOINT` | Ein angepasster API-Endpunkt. Dieser Endpunkt wird verwendet, um die Daten Ihrer Braze-Instanz an die richtige App-Gruppe in Ihrem Braze-Dashboard weiterzuleiten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Ihr Projekt konfigurieren" }
 
-Das Element `platform` in Ihrer Datei `config.xml` sollte etwa so aussehen:
+Das `platform`-Element in Ihrer `config.xml`-Datei sollte in etwa wie folgt aussehen:
 
 {% tabs %}
 {% tab ios %}
@@ -88,11 +88,11 @@ Das Element `platform` in Ihrer Datei `config.xml` sollte etwa so aussehen:
 
 Der folgende Abschnitt behandelt die plattformspezifische Syntax bei der Verwendung von Cordova mit iOS oder Android.
 
-### Ganze Zahlen {#integers}
+### Ganzzahlen {#integers}
 
 {% tabs %}
 {% tab ios %}
-Präferenzen mit ganzen Zahlen werden wie im folgenden Beispiel als String gelesen:
+Ganzzahl-Einstellungen werden als String-Darstellungen gelesen, wie im folgenden Beispiel:
 
 ```xml
 <platform name="ios">
@@ -103,7 +103,7 @@ Präferenzen mit ganzen Zahlen werden wie im folgenden Beispiel als String geles
 {% endtab %}
 
 {% tab android %}
-Aufgrund der Art und Weise, wie das Cordova 8.0.0+ Framework Präferenzen verarbeitet, müssen Präferenzen, die nur ganze Zahlen enthalten (z. B. Sender-IDs), wie im folgenden Beispiel als Strings mit vorangestelltem `str_` festgelegt werden:
+Aufgrund der Art und Weise, wie das Cordova 8.0.0+ Framework Einstellungen verarbeitet, müssen reine Ganzzahl-Einstellungen (wie z. B. Sender-IDs) als Strings mit dem Präfix `str_` festgelegt werden, wie im folgenden Beispiel:
 
 ```xml
 <platform name="android">
@@ -118,7 +118,7 @@ Aufgrund der Art und Weise, wie das Cordova 8.0.0+ Framework Präferenzen verarb
 
 {% tabs %}
 {% tab ios %}
-Boolesche Präferenzen werden vom SDK wie im folgenden Beispiel mit den Schlüsselwörtern `YES` und `NO` als String-Darstellung gelesen:
+Boolesche Einstellungen werden vom SDK mithilfe der Schlüsselwörter `YES` und `NO` als String-Darstellung gelesen, wie im folgenden Beispiel:
 
 ```xml
 <platform name="ios">
@@ -129,7 +129,7 @@ Boolesche Präferenzen werden vom SDK wie im folgenden Beispiel mit den Schlüss
 {% endtab %}
 
 {% tab android %}
-Boolesche Präferenzen werden vom SDK wie im folgenden Beispiel mit den Schlüsselwörtern `true` und `false` als String-Darstellung gelesen:
+Boolesche Einstellungen werden vom SDK mithilfe der Schlüsselwörter `true` und `false` als String-Darstellung gelesen, wie im folgenden Beispiel:
 
 ```xml
 <platform name="android">
@@ -281,3 +281,69 @@ Standardmäßig verfolgt das Android Cordova Plugin Sitzungen automatisch. Um da
 ```
 
 Um das Session-Tracking erneut zu starten, rufen Sie `BrazePlugin.startSessionTracking()` auf. Beachten Sie, dass nur Sitzungen verfolgt werden, die nach dem nächsten `Activity.onStart()` gestartet werden.
+
+## Benachrichtigungskanäle für Heads-up-Benachrichtigungen konfigurieren (nur Android) {#configuring-notification-channels-for-heads-up-notifications-android-only}
+
+Ab Android 8.0 (API-Level 26) wird das Benachrichtigungsverhalten über Benachrichtigungskanäle gesteuert. Um Heads-up-Benachrichtigungen anzuzeigen – Hinweise, die kurz am oberen Bildschirmrand erscheinen, während Nutzer:innen ihr Gerät verwenden – müssen Sie in Ihrem Android-Anwendungscode einen Benachrichtigungskanal mit `NotificationManager.IMPORTANCE_HIGH` erstellen.
+
+Das Cordova SDK ermöglicht es Ihnen zwar, den Standard-Benachrichtigungskanalnamen und die Beschreibung über `config.xml`-Einstellungen (`default_notification_channel_name` und `default_notification_channel_description`) festzulegen, die Wichtigkeitsstufe muss jedoch programmatisch in Ihrem nativen Android-Code konfiguriert werden.
+
+### Beispiel: Einen Benachrichtigungskanal mit hoher Wichtigkeit erstellen {#example-creating-a-high-importance-notification-channel}
+
+Fügen Sie den folgenden Code zur `onCreate()`-Methode der `Application`-Klasse Ihrer Android-Anwendung hinzu:
+
+{% subtabs local %}
+{% subtab Kotlin %}
+```kotlin
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
+
+override fun onCreate() {
+    super.onCreate()
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val channelId = "high_priority_channel"
+        val channelName = "High Priority Notifications"
+        val importance = NotificationManager.IMPORTANCE_HIGH
+
+        val channel = NotificationChannel(channelId, channelName, importance).apply {
+            description = "Notifications that require immediate attention"
+        }
+
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+    }
+}
+```
+{% endsubtab %}
+
+{% subtab Java %}
+```java
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+
+@Override
+public void onCreate() {
+    super.onCreate();
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        String channelId = "high_priority_channel";
+        String channelName = "High Priority Notifications";
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+        channel.setDescription("Notifications that require immediate attention");
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.createNotificationChannel(channel);
+    }
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
+
+Nachdem Sie den Kanal in Ihrem Android-Code erstellt haben, verwenden Sie die Kanal-ID beim Senden von Push-Benachrichtigungen über das Braze-Dashboard. Weitere Informationen zu Benachrichtigungskanälen finden Sie unter [Android-Benachrichtigungskanäle]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels).

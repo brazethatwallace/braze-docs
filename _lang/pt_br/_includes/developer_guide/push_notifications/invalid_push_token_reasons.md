@@ -1,0 +1,6 @@
+- O app recebeu um token por push que era inválido para as credenciais carregadas no dashboard.
+- O push foi desativado para este espaço de trabalho.
+- O usuário optou por não receber push.
+- O app foi desinstalado.
+- A Apple atualizou o token por push, o que invalidou o token antigo.
+- O app foi criado para um ambiente de produção, mas as credenciais de push carregadas na Braze estão configuradas para um ambiente de desenvolvimento (ou vice-versa).

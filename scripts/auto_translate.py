@@ -264,11 +264,17 @@ def strip_code_fences(text):
 
 
 _LIQUID_TAG_RE = re.compile(r"\{%[-\s]*(.*?)[-\s]*%\}", re.DOTALL)
+_RAW_BLOCK_RE = re.compile(
+    r"\{%[-\s]*raw[-\s]*%\}.*?\{%[-\s]*endraw[-\s]*%\}",
+    re.DOTALL | re.IGNORECASE,
+)
 _LIQUID_BLOCK_PAIRS = {
     "api": "endapi",
     "details": "enddetails",
     "tabs": "endtabs",
     "tab": "endtab",
+    "sdktabs": "endsdktabs",
+    "sdktab": "endsdktab",
     "alert": "endalert",
     "apitags": "endapitags",
     "capture": "endcapture",
@@ -293,10 +299,27 @@ def _liquid_tag_token(inner):
     return None, None
 
 
+def _raw_block_spans(content):
+    """Return (start, end) spans for each ``{% raw %}...{% endraw %}`` region."""
+    return [(m.start(), m.end()) for m in _RAW_BLOCK_RE.finditer(content)]
+
+
+def _inside_raw_block(spans, position):
+    return any(start <= position < end for start, end in spans)
+
+
+def _liquid_content_for_qc(content):
+    """Return *content* with ``{% raw %}`` regions removed for Liquid QC."""
+    return _RAW_BLOCK_RE.sub("", content)
+
+
 def _liquid_block_stack_at(content, position):
     """Return open Liquid block tag names at *position* in *content*."""
+    raw_spans = _raw_block_spans(content)
     stack = []
     for match in _LIQUID_TAG_RE.finditer(content[:position]):
+        if _inside_raw_block(raw_spans, match.start()):
+            continue
         kind, name = _liquid_tag_token(match.group(1))
         if kind == "open":
             stack.append(name)
@@ -307,9 +330,12 @@ def _liquid_block_stack_at(content, position):
 
 def _liquid_safe_split_offsets(content):
     """Byte offsets where a chunk boundary will not split an open Liquid block."""
+    raw_spans = _raw_block_spans(content)
     offsets = [0]
     stack = []
     for match in _LIQUID_TAG_RE.finditer(content):
+        if _inside_raw_block(raw_spans, match.start()):
+            continue
         kind, name = _liquid_tag_token(match.group(1))
         if kind == "open":
             stack.append(name)
@@ -323,7 +349,8 @@ def _liquid_safe_split_offsets(content):
 
 
 def _count_liquid_tag(content, tag_name):
-    return len(re.findall(rf"\{{%[-\s]*{re.escape(tag_name)}\b", content))
+    countable = _liquid_content_for_qc(content)
+    return len(re.findall(rf"\{{%[-\s]*{re.escape(tag_name)}\b", countable))
 
 
 def validate_liquid_paired_tags(content, label="translation"):
@@ -348,11 +375,14 @@ def _liquid_tag_line_pattern(tag_name):
 
 def _unmatched_open_tag_matches(content, open_tag, close_tag):
     """Return open-tag line matches that remain unmatched at end of *content*."""
+    raw_spans = _raw_block_spans(content)
     events = []
     for match in _liquid_tag_line_pattern(open_tag).finditer(content):
-        events.append((match.start(), 0, match))
+        if not _inside_raw_block(raw_spans, match.start()):
+            events.append((match.start(), 0, match))
     for match in _liquid_tag_line_pattern(close_tag).finditer(content):
-        events.append((match.start(), 1, match))
+        if not _inside_raw_block(raw_spans, match.start()):
+            events.append((match.start(), 1, match))
     events.sort(key=lambda item: (item[0], item[1]))
     stack = []
     for _, kind, match in events:
@@ -378,7 +408,12 @@ def _remove_one_liquid_tag_line(
     """
     if skip_first:
         preserve_first_n = max(preserve_first_n, 1)
-    matches = list(_liquid_tag_line_pattern(tag_name).finditer(content))
+    raw_spans = _raw_block_spans(content)
+    matches = [
+        match
+        for match in _liquid_tag_line_pattern(tag_name).finditer(content)
+        if not _inside_raw_block(raw_spans, match.start())
+    ]
     if not matches:
         raise ValueError(f"No standalone {{% {tag_name} %}} line found")
     if preserve_first_n < 0:
@@ -630,6 +665,23 @@ def chunks_requiring_translation(en_chunks, prev_en_chunks):
         else:
             needs.append(False)
     return needs
+
+
+def _h2_chunk_keys(content):
+    return [_chunk_translation_key(chunk) for chunk in split_into_h2_chunks(content)]
+
+
+def incremental_h2_requires_full_file(english_content, previous_english_content):
+    """Return True when incremental H2 reassembly is unsafe across sdktabs boundaries.
+
+    When English gains or loses top-level H2 chunk boundaries inside ``{% sdktabs %}``,
+    reusing unchanged locale chunks can leave translated ``sdktab`` structure broken.
+    """
+    if not previous_english_content:
+        return False
+    if "{% sdktabs" not in english_content and "{% sdktabs" not in previous_english_content:
+        return False
+    return _h2_chunk_keys(english_content) != _h2_chunk_keys(previous_english_content)
 
 
 def load_english_at_git_ref(fpath, ref):
@@ -1756,19 +1808,24 @@ def translate_one(client, prompt, fpath, relative, english_content,
     """Translate + review a single file into one language. Returns a result dict."""
     previous_english = load_english_at_git_ref(fpath, english_base_ref)
     if previous_english is not None:
-        return translate_one_incremental(
-            client,
-            prompt,
-            fpath,
-            relative,
-            english_content,
-            previous_english,
-            lang_key,
-            lang_info,
-            glossary,
-            styleguide,
-            api_retries=api_retries,
-            uses_size_chunking=False,
+        if not incremental_h2_requires_full_file(english_content, previous_english):
+            return translate_one_incremental(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                previous_english,
+                lang_key,
+                lang_info,
+                glossary,
+                styleguide,
+                api_retries=api_retries,
+                uses_size_chunking=False,
+            )
+        print(
+            f"    [{lang_key}] incremental H2 unsafe for sdktabs topology in "
+            f"{relative} — full-file translation"
         )
 
     target = translation_path(relative, lang_info["dir"])
@@ -1916,19 +1973,24 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
     the review would require the full file which exceeds context limits)."""
     previous_english = load_english_at_git_ref(fpath, english_base_ref)
     if previous_english is not None:
-        return translate_one_incremental(
-            client,
-            prompt,
-            fpath,
-            relative,
-            english_content,
-            previous_english,
-            lang_key,
-            lang_info,
-            glossary,
-            styleguide,
-            api_retries=api_retries,
-            uses_size_chunking=True,
+        if not incremental_h2_requires_full_file(english_content, previous_english):
+            return translate_one_incremental(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                previous_english,
+                lang_key,
+                lang_info,
+                glossary,
+                styleguide,
+                api_retries=api_retries,
+                uses_size_chunking=True,
+            )
+        print(
+            f"    [{lang_key}] incremental H2 unsafe for sdktabs topology in "
+            f"{relative} — chunked full-file translation"
         )
 
     target = translation_path(relative, lang_info["dir"])

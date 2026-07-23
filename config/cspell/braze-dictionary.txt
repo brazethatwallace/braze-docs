@@ -248,6 +248,7 @@ ecommerce
 edume
 EKUGUSII
 Emailable
+Emailify
 emailnotification
 EMEA
 emea

@@ -1,0 +1,2 @@
+- **Blocos de recomendações**: Defina algoritmos e filtragem para fornecer conteúdo personalizado aos usuários, que é propagado quando o e-mail é aberto.
+- **Content Blocks dinâmicos**: Direcione diferentes promoções e mensagens para diferentes usuários. O direcionamento pode ser baseado em afinidade ou público. O Dynamic Yield determina qual experiência personalizada exibir quando o e-mail é aberto.
