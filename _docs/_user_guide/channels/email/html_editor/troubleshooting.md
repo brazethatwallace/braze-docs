@@ -58,9 +58,9 @@ Emails render differently depending on browsers and email clients, so take note 
 - Preview your emails using [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to see what your emails look like in different browsers and email clients.
 - After you've identified which browsers or email clients are causing issues, let your developer team know that they'll need to modify their HTML and make edits to accommodate those browsers or email clients.
 
-#### Unbalanced HTML in Liquid templates {#unbalanced-html-in-liquid-templates}
+### Unbalanced HTML in Liquid templates {#unbalanced-html-in-liquid-templates}
 
-##### Symptom
+#### Symptom
 
 Some users receive a modified version of the email where Liquid code displays in the message, links are broken, or spacing looks incorrect.
 
@@ -73,20 +73,23 @@ Braze uses an internal HTML parser to prepare emails before sending. This parser
 - AMP-specific code removed from AMP email bodies, causing validation failures
 - Broken links when many different query parameters or media queries are used
 
-##### Balance HTML within Liquid blocks {#balance-html-within-liquid-blocks}
+#### Balance HTML within Liquid blocks {#balance-html-within-liquid-blocks}
 
 Ensure that all HTML tags open and close within their corresponding Liquid logic block or content block. This prevents the internal parser from interpreting the HTML as invalid and modifying it.
 
-##### Unbalanced example {#unbalanced-example}
+#### Unbalanced example {#unbalanced-example}
 
+{% raw %}
 ```liquid
 <img src={% if ${language} == 'en' %}"https://example.com/images/banner-en.png" style="width: 100%"{% elsif ${language} == 'de' %}"https://example.com/images/banner-de.png"{% else %}"https://example.com/images/banner-default.png" {% endif %} />
 ```
+{% endraw %}
 
 In this example, the opening `<img` tag starts outside of any Liquid block, and different parts of the tag's attributes are split across Liquid conditional statements. This structure confuses the parser, which cannot determine where the tag begins or ends.
 
-##### Balanced example {#balanced-example}
+#### Balanced example {#balanced-example}
 
+{% raw %}
 ```liquid
 {% if ${language} == 'en' %}
   <img src="https://example.com/images/banner-en.png" style="width: 100%;" />
@@ -96,10 +99,11 @@ In this example, the opening `<img` tag starts outside of any Liquid block, and 
   <img src="https://example.com/images/banner-default.png" style="width: 100%;" />
 {% endif %}
 ```
+{% endraw %}
 
 In the balanced version, each Liquid branch contains a complete, self-contained `<img>` tag. This approach ensures the parser processes each branch correctly.
 
-##### Additional fixes {#additional-fixes}
+#### Additional fixes {#additional-fixes}
 
 If you're experiencing rendering issues with media queries or many query parameters, try turning off CSS inlining in your email settings. This can resolve conflicts between the HTML parser and complex CSS rules.
 
