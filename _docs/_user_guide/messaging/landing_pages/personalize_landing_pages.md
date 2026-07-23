@@ -134,7 +134,11 @@ When fetching external data in landing pages:
 - **Security:** Ensure your API endpoint validates the identifier and only returns data the user is authorized to see. Implement rate limiting to prevent abuse. For guidance on choosing secure identifiers, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
 {% alert warning %}
-Braze's Liquid scanner processes {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} delimiters anywhere they appear in Custom Code blocks—including inside JavaScript strings, comments, and regular expressions. If these sequences appear without matching closing tags (for example, {% raw %}`/* version {{ 2.0 */`{% endraw %}), Braze treats them as open Liquid tags, which can cause valid Liquid tags elsewhere in the same block to fail silently. To avoid this, escape or remove {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} from all non-Liquid contexts in Custom Code, or split the sequences (for example, {% raw %}`'{' + '{'`{% endraw %}).
+For Liquid-personalized landing pages, Braze processes {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} delimiters anywhere they appear in the landing page HTML—including inside JavaScript strings, comments, and regular expressions. This applies to the entire page, but **Custom Code** blocks are the most likely place to include these sequences accidentally.
+
+If these sequences appear without matching closing tags (for example, {% raw %}`/* version {{ 2.0 */`{% endraw %}), Braze treats them as open Liquid tags. Other valid Liquid tags on the page may fail to render, or Liquid rendering may break elsewhere in the same block. In severe cases, broken Liquid can prevent the page from publishing or cause it to be unpublished (see [Fallback pages](#fallback-pages)).
+
+To avoid this, escape or remove {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} from non-Liquid contexts, split the sequences in JavaScript (for example, {% raw %}`'{' + '{'`{% endraw %}—Liquid runs server-side before the script executes), or wrap larger non-Liquid sections in {% raw %}`{% raw %}...{% endraw %}`{% endraw %} tags.
 {% endalert %}
 
 ## Fallback pages
