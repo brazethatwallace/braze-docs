@@ -19,7 +19,7 @@ Match your symptom in the table to navigate to the relevant section.
 | Test email HTML looks wrong | [HTML renders incorrectly in test emails](#html-renders-incorrectly-in-test-emails) |
 | Editor behaves oddly in Chrome | [Extension conflicts](#extension-conflicts) |
 | Email looks different across clients | [Email rendering](#email-rendering) |
-| Email HTML modified in user inbox | [Unbalanced HTML in Liquid templates](#unbalanced-html-in-liquid-templates) |
+| Email displays Liquid code or broken links | [Unbalanced HTML in Liquid templates](#unbalanced-html-in-liquid-templates) |
 | Inbox Vision preview doesn't match sent email | [CSS inlining](#css-inlining) |
 | White space or lines after images in test emails | [White space under images](#white-space-under-images) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML email symptom" }
@@ -58,37 +58,46 @@ Emails render differently depending on browsers and email clients, so take note 
 
 #### Unbalanced HTML in Liquid templates {#unbalanced-html-in-liquid-templates}
 
-**Symptom:** Email HTML renders differently in the end user's inbox than expected, with missing elements or broken layouts.
+**Symptom:** Some users receive a modified version of the email where Liquid code displays in the message, links are broken, or spacing looks incorrect.
 
-This can occur when HTML tags are not balanced within their corresponding Liquid logic blocks. Braze's HTML parser may modify the underlying HTML if it detects tags that span across Liquid logic boundaries in unexpected ways.
+Braze uses an internal HTML parser to prepare emails before sending. This parser supports features like preheader generation, tracking pixel placement, link templating, and link aliasing. When HTML tags are not balanced within their corresponding Liquid logic blocks or content blocks, the parser may modify the underlying HTML in unexpected ways. This can result in:
 
-To avoid this, ensure that all HTML tags open and close within the same Liquid block. Do not split HTML tags across Liquid conditionals or loops.
+- Newlines from Liquid rendering in some mail clients
+- Odd spacing from `<p>` tags added to the email body
+- `<head>` tag content moved to the preheader
+- Inconsistent rendering across mobile operating systems
+- AMP-specific code removed from AMP email bodies, causing validation failures
+- Broken links when many different query parameters or media queries are used
 
-**Example of unbalanced HTML/Liquid:**
+**Balance HTML within Liquid blocks**
+
+Ensure that all HTML tags open and close within their corresponding Liquid logic block or content block. This prevents the internal parser from interpreting the HTML as invalid and modifying it.
+
+**Unbalanced example:**
 
 ```liquid
-{% raw %}{% if user.premium %}
-<div class="premium-content">
+<img src={% if {{custom_attribute.${app_language}}} == "en" %}"https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" style="width: 100%"{% elsif {{custom_attribute.${app_language}}} == "de" %}"https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387"{% else  %}"https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" {% endif %} />
+```
+
+In this example, the opening `<img` tag starts outside of any Liquid block, and different parts of the tag's attributes are split across Liquid conditional statements. This confuses the parser.
+
+**Balanced example:**
+
+```liquid
+{% if {{custom_attribute.${app_language}}} == "en" %}
+  <img src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" style="width: 100%;" />
+{% elsif {{custom_attribute.${app_language}}} == "de" %}
+  <img src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" style="width: 100%;" />
+{% else  %}
+  <img src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/643e216b3bc8ce09810008a3/original.png?1681793387" style="width: 100%;" />
 {% endif %}
-  <p>Your content here</p>
-{% if user.premium %}
-</div>
-{% endif %}{% endraw %}
 ```
 
-In this example, the opening `<div>` tag is inside the conditional, but the content and closing tag are split across the logic boundary.
+In the balanced version, each Liquid branch contains a complete, self-contained `<img>` tag. This approach ensures the parser processes each branch correctly.
 
-**Correct approach:**
+**Additional fixes**
 
-```liquid
-{% raw %}{% if user.premium %}
-<div class="premium-content">
-  <p>Your content here</p>
-</div>
-{% endif %}{% endraw %}
-```
-
-Ensure all HTML tags are fully contained within their Liquid blocks so that the parser can properly validate the HTML structure.
+If you're experiencing rendering issues with media queries or many query parameters, try turning off CSS inlining in your email settings. This can resolve conflicts between the HTML parser and complex CSS rules.
 
 ### CSS inlining {#css-inlining}
 
