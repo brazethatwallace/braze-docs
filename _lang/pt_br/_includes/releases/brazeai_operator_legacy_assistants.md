@@ -1,0 +1,6 @@
+- AI Liquid Agent
+- AI Copywriter
+- AI HTML Email Template Agent
+- Gerador de imagens com IA
+- QA de conteúdo com IA
+- AI Copilot para transformações de dados

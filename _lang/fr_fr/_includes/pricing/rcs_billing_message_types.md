@@ -1,0 +1,5 @@
+- La facturation RCS repose sur deux types de messages différents (avec des distinctions pour les États-Unis) :
+    - **Basic RCS :** Texte uniquement, jusqu'à 160 caractères
+    - **Single RCS :** Messages contenant du contenu enrichi, ou messages texte uniquement > 160 caractères
+    - **Rich RCS (États-Unis uniquement) :** Texte uniquement, peut inclure des suggestions/boutons limités (quickReply, dialPhone, openURL sans webview), segmenté par tranches de 160 octets UTF-8
+    - **Rich Media RCS (États-Unis uniquement) :** Tout média OU texte avec des suggestions/boutons plus riches (webview, emplacement, calendrier, etc.), comptabilisé comme un seul message

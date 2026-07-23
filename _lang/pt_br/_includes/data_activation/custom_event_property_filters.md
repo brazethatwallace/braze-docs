@@ -1,0 +1,3 @@
+- Realizou um evento personalizado com a propriedade A com o valor B, X vezes nos últimos Y dias.
+- Fez qualquer compra com a propriedade A com o valor B, X vezes nos últimos Y dias.
+- Adiciona a capacidade de segmentar dentro de 1 a 30 dias.

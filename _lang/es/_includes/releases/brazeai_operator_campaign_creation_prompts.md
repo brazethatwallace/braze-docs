@@ -1,0 +1,3 @@
+- Responder a indicaciones como "Quiero enviar a nuestros usuarios inactivos una notificación push con un código de promoción del 20 % de descuento la próxima vez que abran la aplicación o registren un evento personalizado que cancele su suscripción".
+- Asistirte en cada paso individual del asistente de campaña, con total visibilidad de lo que estás trabajando y la capacidad de cambiar las entradas del formulario en la página.
+- Navegar al paso correcto en el asistente para comenzar a tomar acción, ya sea que empieces desde una Campaign abierta o desde la página de **Campaigns**.

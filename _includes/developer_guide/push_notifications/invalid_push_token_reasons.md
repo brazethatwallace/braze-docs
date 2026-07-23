@@ -1,0 +1,6 @@
+- The app received a push token that was invalid for the credentials uploaded to the dashboard.
+- Push was disabled for this workspace.
+- The user has opted out of push.
+- The app was uninstalled.
+- Apple refreshed the push token, which invalidated the old token.
+- The app was built for a production environment, but the push credentials uploaded to Braze are set for a development environment (or the other way around).

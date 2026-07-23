@@ -47,8 +47,14 @@ La verificación de empresa es un concepto de WhatsApp utilizado para asegurar q
 #### ¿Qué es una cuenta de empresa oficial? {#what-is-an-official-business-account}
 OBA te da la marca de verificación verde junto a tu nombre de visualización y es opcional. Puedes solicitar una cuenta de empresa oficial después de completar la verificación de empresa. Ten en cuenta que la verificación de empresa y una cuenta de empresa oficial son conceptos diferentes de WhatsApp.
 
-### Números de teléfono de la cuenta de WhatsApp Business {#whatsapp-business-account-phone-numbers}
+#### ¿Por qué podría rechazarse mi nombre de visualización de WhatsApp Business? {#why-might-my-whatsapp-business-display-name-be-rejected}
+Los rechazos de nombres de visualización de WhatsApp Business son gestionados por Meta. Si tu nombre de visualización es rechazado, consulta las [directrices de nombres de visualización de WhatsApp](https://faq.whatsapp.com/793641088597363) para conocer sus pautas.
 
+Si tu nombre de visualización cumple con las directrices y sigue siendo rechazado, Braze no puede ver las razones específicas. Sin embargo, la razón más común de rechazo es que la presencia en línea de la empresa es demasiado baja, o que la empresa comercializa [productos regulados o restringidos](https://business.whatsapp.com/policy#further-guidance).
+
+Para más orientación sobre rechazos de nombres de visualización, consulta [Recursos de Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
+
+### Números de teléfono de la cuenta de WhatsApp Business {#whatsapp-business-account-phone-numbers}
 #### ¿Necesito un número de teléfono para mi cuenta de WhatsApp Business? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 Sí, necesitas un número al que tengas acceso. Se te pedirá que verifiques tu número de teléfono con autenticación de 2 factores cuando pases por el flujo de registro integrado. El número de teléfono no puede usarse para otras cuentas de WhatsApp (de negocio o personales).
 

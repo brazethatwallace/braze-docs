@@ -194,8 +194,6 @@ Ce qui donne le message suivant :
 
 Decisioning Studio prend en charge l'intégration native avec Salesforce Marketing Cloud. Decisioning Studio déclenche des événements API dans un parcours avec les données nécessaires pour remplir les éléments dynamiques.
 
-Pour les étapes détaillées de configuration de l'intégration SFMC, consultez [Exigences de données SFMC]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources#sfmc-data-requirements) dans la documentation Decisioning Studio Go.
-
 {% endtab %}
 {% tab Autres CEP %}
 

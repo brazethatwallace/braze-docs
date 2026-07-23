@@ -102,7 +102,7 @@ Escreva sua consulta SQL usando a [sintaxe do Snowflake](https://docs.snowflake.
 
 Para visualizar detalhes das tabelas dentro do Criador de consultas:
 
-1. Na página do **Query Builder**, abra o painel **Reference** e selecione **Available Data Tables** para visualizar as tabelas de dados disponíveis e seus nomes.
+1. Na página do **Criador de consultas**, abra o painel **Reference** e selecione **Available Data Tables** para visualizar as tabelas de dados disponíveis e seus nomes.
 3. Selecione <i class="fas fa-chevron-down" alt=""></i> **See Details** para visualizar a descrição da tabela e informações sobre as colunas, como tipos de dados.
 4. Para inserir o nome da tabela no seu SQL, selecione <i class="fas fa-copy" title="Copiar nome da tabela para o editor SQL"></i> **Copy table name to SQL editor**.
 
@@ -166,9 +166,7 @@ Use variáveis para utilizar tipos de variáveis predefinidos em SQL para refere
 
 Após uma variável ser criada, ela aparecerá na guia **Variables** do seu relatório no Criador de consultas. Os benefícios de usar variáveis SQL incluem:
 
-- Economizar tempo criando uma variável de Campaign para selecionar de uma lista ao criar seu relatório, em vez de colar IDs de Campaign.
-- Trocar valores adicionando variáveis que permitem reutilizar o relatório para casos de uso ligeiramente diferentes no futuro (como um evento personalizado diferente).
-- Reduzir erros do usuário ao editar seu SQL, diminuindo a quantidade de edição necessária para cada relatório. Colegas mais familiarizados com SQL podem criar relatórios que colegas menos técnicos podem usar.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### Diretrizes {#guidelines}
 

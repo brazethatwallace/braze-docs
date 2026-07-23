@@ -59,7 +59,7 @@ So erstellen Sie den Event Forwarder:
 
 Bei der Konfiguration des Forwarders können Sie auswählen, welche Snowplow-Events weitergeleitet werden sollen, und sie auf Braze-Objekttypen abbilden:
 
-1. **[Nutzerattribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)**: Aktualisieren Sie die Daten des Nutzerprofils und angepasste Nutzereigenschaften.
+1. **[Nutzerattribute]({{site.baseurl}}/api/objects_filters/user_attributes_object)**: Aktualisieren Sie die Daten des Nutzerprofils und angepasste Nutzereigenschaften.
 2. **[Angepasste Events]({{site.baseurl}}/api/objects_filters/event_object)**: Senden Sie Nutzeraktionen und Verhaltensweisen.
 3. **[Käufe]({{site.baseurl}}/api/objects_filters/purchase_object)**: Senden Sie Transaktionsdaten mit Produktdetails.
 
@@ -76,9 +76,9 @@ Für jeden Objekttyp können Sie Feldzuordnungen konfigurieren, um festzulegen, 
 
 Sie können angepasste Eigenschaften über die Standardfelder hinaus senden. Die Struktur hängt davon ab, welchen Braze-Objekttyp Sie verwenden:
 
-- **Nutzerattribute**: Fügen Sie sie als Top-Level-Felder hinzu (zum Beispiel `subscription_tier`, `loyalty_points`)
-- **Event-Eigenschaften**: Verschachteln Sie sie unter dem `properties`-Objekt (zum Beispiel `properties.plan_type`, `properties.feature_flag`)
-- **Kauf-Eigenschaften**: Verschachteln Sie sie unter dem `properties`-Objekt (zum Beispiel `properties.color`, `properties.size`)
+- **Nutzerattribute**: Fügen Sie sie als Top-Level-Felder hinzu (zum Beispiel `subscription_tier`, `loyalty_points`).
+- **Event-Eigenschaften**: Verschachteln Sie sie unter dem `properties`-Objekt (zum Beispiel `properties.plan_type`, `properties.feature_flag`).
+- **Kauf-Eigenschaften**: Verschachteln Sie sie unter dem `properties`-Objekt (zum Beispiel `properties.color`, `properties.size`).
 
 Für Eigenschaftsnamen, die Leerzeichen enthalten, verwenden Sie die Klammerschreibweise (zum Beispiel `["account type"]` oder `properties["campaign source"]`).
 

@@ -1,0 +1,3 @@
+- Add new variants to any existing component, either manually or using AI-generated suggestions, up to the five-variant limit per component.
+- Deactivate variants to stop sending them to users.
+- Re-activate previously deactivated variants, as long as doing so keeps the component at or below the five-variant limit.

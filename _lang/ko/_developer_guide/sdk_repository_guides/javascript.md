@@ -71,9 +71,7 @@ await openSession();
 
 Braze JavaScript SDK를 통합하기 전에 다음이 필요합니다:
 
-- **Braze 계정**: API 접근 권한이 있는 Braze 계정
-- **API 키**: Braze 대시보드에서 확인할 수 있는 앱의 API 키
-- **SDK 엔드포인트**: Braze SDK 엔드포인트 URL(예: `sdk.iad-01.braze.com`)
+{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
 
 ### 자격 증명 확인하기 {#getting-your-credentials}
 
@@ -628,7 +626,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 **SDK가 초기화되지 않은 경우:**
 - 대부분의 메서드는 SDK가 초기화되지 않은 경우 throw하지 않고 `undefined`를 반환합니다
 - `initialize()`는 이미 초기화되었거나 유효성 검사에 실패한 경우 `false`를 반환합니다
-- `changeUser()`는 SDK가 초기화되지 않은 경우 아무 작업도 수행하지 않으며 Promise가 해결됩니다
+- `changeUser()`는 SDK가 초기화되지 않은 경우 아무 작업도 수행하지 않으며 Promise가 resolve됩니다
 - 반환 값을 사용하기 전에 항상 `undefined`를 확인하세요
 
 **유효성 검사 실패:**
@@ -639,7 +637,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 - 잘못된 구매 수량: 1-100이어야 하며, 그렇지 않으면 무시됩니다
 
 **네트워크 오류:**
-- NetworkManager `postRequest()`는 오류를 처리하고 Promise를 적절히 거부해야 합니다
+- NetworkManager `postRequest()`는 오류를 처리하고 Promise를 적절히 reject해야 합니다
 - 데이터 플러시 컨트롤러는 실패한 요청을 자동으로 재시도합니다
 - `requestImmediateDataFlush()` 콜백을 사용하여 플러시 실패를 감지합니다
 

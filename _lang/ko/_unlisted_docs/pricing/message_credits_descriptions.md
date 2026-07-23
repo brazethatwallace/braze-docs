@@ -29,7 +29,7 @@ hide_toc: true
   - [KakaoTalk](#kakaotalk)
   - [Content Cards](#content-cards)
   - [배너](#banners)
-  - [오디언스 싱크](#audience-sync)
+  - [Audience Sync](#audience-sync)
   - [메시지 아카이브](#message-archiving)
   - [웹훅](#webhooks)
 
@@ -61,11 +61,7 @@ MMS의 경우 메시지 제한은 5MB입니다(멀티미디어 자산과 메시�
 
 RCS는 SMS와 MMS의 차세대 기술입니다. SMS와 같은 직접적이고 높은 참여도의 채널 장점을 제공하면서, 리치 콘텐츠(이미지, 비디오, 문서), 인증 및 브랜드 발송, 추천 답장 및 동작과 같은 인터랙티브 기능 등 현대 소비자가 기대하는 더 풍부한 기능을 갖추고 있습니다.
 
-- RCS 청구는 두 가지 메시지 유형을 중심으로 합니다(미국의 경우 구분이 있음):
-    - **Basic RCS:** 텍스트 전용, 최대 160자
-    - **Single RCS:** 리치 콘텐츠를 포함하는 메시지 또는 160자를 초과하는 텍스트 전용 메시지
-    - **Rich RCS(미국 전용):** 텍스트 전용, 제한된 제안/버튼(quickReply, dialPhone, 웹뷰 없는 openURL) 포함 가능, 160 UTF-8 바이트 단위로 세그먼트 분할
-    - **Rich Media RCS(미국 전용):** 모든 미디어 또는 더 풍부한 제안/버튼(웹뷰, 위치, 캘린더 등)이 포함된 텍스트, 하나의 메시지로 계산
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
 SMS 제품군 오퍼링에 대해 자세히 알아보려면 [SMS 및 MMS 설명서]({{site.baseurl}}/user_guide/message_building_by_channel/sms)를 참조하세요.
@@ -156,12 +152,12 @@ Braze Content Cards에 대해 자세히 알아보려면 [Content Cards 설명서
 Braze 배너에 대해 자세히 알아보려면 [배너 설명서]({{site.baseurl}}/developer_guide/banner_cards)를 참조하세요.
 {% endalert %}
 
-### 오디언스 싱크 {#audience-sync}
+### Audience Sync {#audience-sync}
 
-오디언스 싱크 크레딧 비율은 총 사용자 동기화 1,000건 단위로 산정됩니다. 기본적으로 계약에는 구독 기간의 각 기간별로 5,000,000건의 사용자 동기화가 포함됩니다. 추가 사용자 동기화는 주문서에 따라 청구됩니다.
+Audience Sync 크레딧 비율은 총 사용자 동기화 1,000건 단위로 산정됩니다. 기본적으로 계약에는 구독 기간의 각 기간별로 5,000,000건의 사용자 동기화가 포함됩니다. 추가 사용자 동기화는 주문서에 따라 청구됩니다.
 
 {% alert note %}
-Canvas 오디언스 싱크 및 사용 가능한 파트너에 대해 자세히 알아보려면 [Canvas 설명서]({{site.baseurl}}/partners/canvas_steps)를 참조하세요.
+Canvas Audience Sync 및 사용 가능한 파트너에 대해 자세히 알아보려면 [Canvas 설명서]({{site.baseurl}}/partners/canvas_steps)를 참조하세요.
 {% endalert %}
 
 ### 메시지 아카이브 {#message-archiving}

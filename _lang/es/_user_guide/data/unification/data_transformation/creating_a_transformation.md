@@ -200,13 +200,7 @@ return brazecall;
 
 En este paso, transformarás la carga útil del webhook de la plataforma de origen en un valor de retorno de objeto JavaScript. Este valor de retorno debe seguir el formato del cuerpo de la solicitud del endpoint `/users/track`:
 
-- El código de transformación se acepta en el lenguaje de programación JavaScript. Se admite cualquier flujo de control estándar de JavaScript, como la lógica if/else.
-- El código de transformación accede al cuerpo de la solicitud del webhook a través de la variable `payload`. Esta variable es un objeto que se rellena al analizar el cuerpo de la solicitud JSON.
-- Se admite cualquier característica de nuestro endpoint `/users/track`, incluidos:
-  - Objetos de atributos de usuario, objetos de eventos y objetos de compra
-  - Atributos anidados y propiedades anidadas de eventos personalizados
-  - Actualizaciones de grupos de suscripción
-  - Dirección de correo electrónico como identificador
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 Selecciona **Validate** para obtener una vista previa de la salida de tu código y comprobar si se trata de una solicitud aceptable de `/users/track`.
 

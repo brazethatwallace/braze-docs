@@ -13,7 +13,7 @@ description: "이 참조 문서에서는 Braze 수신자 오브젝트의 다양�
 
 이 오브젝트에는 `external_user_id`, `user_alias`, `braze_id` 또는 `email` 중 하나를 반드시 포함해야 합니다. **요청에는 하나만 지정해야 합니다.**
 
-수신자 오브젝트를 사용하면 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object), [트리거 속성 오브젝트]({{site.baseurl}}/api/objects_filters/trigger_properties_object), [Canvas 진입 속성 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) 및 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)를 결합할 수 있습니다.
+수신자 오브젝트를 사용하면 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object), [트리거 속성 오브젝트]({{site.baseurl}}/api/objects_filters/trigger_properties_object), [Canvas 진입 속성 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) 및 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)를 결합할 수 있습니다.
 
 ## 오브젝트 본문 {#object-body}
 
@@ -41,7 +41,7 @@ description: "이 참조 문서에서는 Braze 수신자 오브젝트의 다양�
 - [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
 - [외부 사용자 ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
 - [우선순위 지정]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
-- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)
+- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 
 ## 수신자 오브젝트 중복 제거 {#recipient-object-deduping}
 

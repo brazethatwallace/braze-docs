@@ -231,9 +231,7 @@ If your step enters the Action Recommended state, consider the following:
 
 After your Canvas is launched, you can update a running Content Optimizer step by opening it in the Canvas editor. You can:
 
-- Add new variants to any existing component, either manually or using AI-generated suggestions, up to the five-variant limit per component.
-- Deactivate variants to stop sending them to users.
-- Re-activate previously deactivated variants, as long as doing so keeps the component at or below the five-variant limit.
+{% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
 When you publish changes, the optimizer resets and begins reallocating traffic from scratch across all active variants and combinations. Avoid updating variants while the step is in the Learning state. Historical data from before the edit is retained and viewable in the **Content Analytics** tab.
 

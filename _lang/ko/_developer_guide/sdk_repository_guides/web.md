@@ -29,9 +29,7 @@ Braze Web SDK를 사용하면 Braze의 고객 인게이지먼트 플랫폼을 �
 
 Braze Web SDK를 통합하기 전에 다음이 필요합니다:
 
-- **Braze 계정**: API 접근 권한이 있는 Braze 계정
-- **API 키**: Braze 대시보드에서 확인할 수 있는 앱의 API 키
-- **SDK 엔드포인트**: Braze SDK 엔드포인트 URL (예: `sdk.iad-01.braze.com`)
+{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
 
 ### 자격 증명 확인하기 {#getting-your-credentials}
 
@@ -848,9 +846,9 @@ Braze는 커스텀 HTML 태그 내에서 통합 지침을 따르면 다른 태�
 
 | 이름 | 설명 | npm | CDN URL
 | ---- | ----------- | --- | -------
-| Full | UI가 포함된 전체 SDK입니다. npm 버전을 사용할 때 JavaScript 번들러는 UI 코드를 포함하여 사용하지 않는 코드를 제거합니다. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.9/braze.min.js
-| Core | UI가 없는 SDK입니다. 이 버전의 SDK를 사용할 때는 In-App Messages 및 Content Cards에 대한 자체 UI를 구현해야 합니다. CSS를 통해 사용자 정의 가능한 UI 요소를 제공하므로 대부분의 통합에는 전체 라이브러리를 사용하는 것을 권장합니다. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.core.min.js
-| No-AMD | AMD 지원이 없는 전체 SDK입니다. 사이트에서 RequireJS 또는 다른 AMD 모듈 로더를 사용하지만 CDN을 통해 SDK를 로드하려는 경우에 유용합니다. | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.no-amd.min.js
+| Full | UI가 포함된 전체 SDK입니다. npm 버전을 사용할 때 JavaScript 번들러는 UI 코드를 포함하여 사용하지 않는 코드를 제거합니다. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.10/braze.min.js
+| Core | UI가 없는 SDK입니다. 이 버전의 SDK를 사용할 때는 In-App Messages 및 Content Cards에 대한 자체 UI를 구현해야 합니다. CSS를 통해 사용자 정의 가능한 UI 요소를 제공하므로 대부분의 통합에는 전체 라이브러리를 사용하는 것을 권장합니다. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.core.min.js
+| No-AMD | AMD 지원이 없는 전체 SDK입니다. 사이트에서 RequireJS 또는 다른 AMD 모듈 로더를 사용하지만 CDN을 통해 SDK를 로드하려는 경우에 유용합니다. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.no-amd.min.js
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="라이브러리" }
 
 ## 지원 브라우저 {#supported-browsers}
@@ -861,7 +859,7 @@ Braze는 커스텀 HTML 태그 내에서 통합 지침을 따르면 다른 태�
 
 ## 디버깅 및 문제 해결 {#debugging-troubleshooting}
 
-initialize 함수에 `enableLogging: true` 옵션을 전달하면(`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) Braze가 JavaScript 콘솔에 로그를 기록합니다. 이는 개발에 유용하지만 모든 사용자에게 표시되므로, 프로덕션에 페이지를 릴리스하기 전에 이 옵션을 제거하거나 [대체 로거를 제공](https://js.appboycdn.com/web-sdk/6.9/doc/modules/braze.html#setlogger)해야 합니다.
+initialize 함수에 `enableLogging: true` 옵션을 전달하면(`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`) Braze가 JavaScript 콘솔에 로그를 기록합니다. 이는 개발에 유용하지만 모든 사용자에게 표시되므로, 프로덕션에 페이지를 릴리스하기 전에 이 옵션을 제거하거나 [대체 로거를 제공](https://js.appboycdn.com/web-sdk/6.10/doc/modules/braze.html#setlogger)해야 합니다.
 
 ## Font Awesome
 

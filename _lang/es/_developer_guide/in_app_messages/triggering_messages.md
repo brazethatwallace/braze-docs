@@ -36,7 +36,21 @@ Un mensaje dentro de la aplicación `inapp` (o "[estándar]({{site.baseurl}}/use
 
 Un mensaje dentro de la aplicación `templated_iam` (o "plantillado") aún no está plantillado con la información necesaria. Braze debe realizar otra solicitud para obtener la información antes de que el mensaje pueda aparecer.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+Los mensajes dentro de la aplicación se entregan como mensajes dentro de la aplicación plantillados cuando se selecciona **Reevaluar la elegibilidad de la campaña antes de mostrar** o si alguna de las siguientes etiquetas de Liquid existe en el mensaje:
+
+- `canvas_entry_properties`
+- `connected_content`
+- Variables de SMS como {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+Esto significa que durante el inicio de la sesión, el dispositivo recibe el desencadenante de ese mensaje dentro de la aplicación en lugar del mensaje completo. Cuando el usuario desencadena el mensaje dentro de la aplicación, el dispositivo del usuario realiza una solicitud de red para obtener el mensaje real.
+
+{% alert note %}
+El mensaje no se entregará si el dispositivo no tiene acceso a internet. El mensaje podría no entregarse si la lógica de Liquid tarda demasiado en resolverse.
+{% endalert %}
+
 
 ## Pares clave-valor {#key-value-pairs}
 

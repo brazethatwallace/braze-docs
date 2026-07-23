@@ -264,11 +264,17 @@ def strip_code_fences(text):
 
 
 _LIQUID_TAG_RE = re.compile(r"\{%[-\s]*(.*?)[-\s]*%\}", re.DOTALL)
+_RAW_BLOCK_RE = re.compile(
+    r"\{%[-\s]*raw[-\s]*%\}.*?\{%[-\s]*endraw[-\s]*%\}",
+    re.DOTALL | re.IGNORECASE,
+)
 _LIQUID_BLOCK_PAIRS = {
     "api": "endapi",
     "details": "enddetails",
     "tabs": "endtabs",
     "tab": "endtab",
+    "sdktabs": "endsdktabs",
+    "sdktab": "endsdktab",
     "alert": "endalert",
     "apitags": "endapitags",
     "capture": "endcapture",
@@ -293,10 +299,27 @@ def _liquid_tag_token(inner):
     return None, None
 
 
+def _raw_block_spans(content):
+    """Return (start, end) spans for each ``{% raw %}...{% endraw %}`` region."""
+    return [(m.start(), m.end()) for m in _RAW_BLOCK_RE.finditer(content)]
+
+
+def _inside_raw_block(spans, position):
+    return any(start <= position < end for start, end in spans)
+
+
+def _liquid_content_for_qc(content):
+    """Return *content* with ``{% raw %}`` regions removed for Liquid QC."""
+    return _RAW_BLOCK_RE.sub("", content)
+
+
 def _liquid_block_stack_at(content, position):
     """Return open Liquid block tag names at *position* in *content*."""
+    raw_spans = _raw_block_spans(content)
     stack = []
     for match in _LIQUID_TAG_RE.finditer(content[:position]):
+        if _inside_raw_block(raw_spans, match.start()):
+            continue
         kind, name = _liquid_tag_token(match.group(1))
         if kind == "open":
             stack.append(name)
@@ -307,9 +330,12 @@ def _liquid_block_stack_at(content, position):
 
 def _liquid_safe_split_offsets(content):
     """Byte offsets where a chunk boundary will not split an open Liquid block."""
+    raw_spans = _raw_block_spans(content)
     offsets = [0]
     stack = []
     for match in _LIQUID_TAG_RE.finditer(content):
+        if _inside_raw_block(raw_spans, match.start()):
+            continue
         kind, name = _liquid_tag_token(match.group(1))
         if kind == "open":
             stack.append(name)
@@ -323,7 +349,8 @@ def _liquid_safe_split_offsets(content):
 
 
 def _count_liquid_tag(content, tag_name):
-    return len(re.findall(rf"\{{%[-\s]*{re.escape(tag_name)}\b", content))
+    countable = _liquid_content_for_qc(content)
+    return len(re.findall(rf"\{{%[-\s]*{re.escape(tag_name)}\b", countable))
 
 
 def validate_liquid_paired_tags(content, label="translation"):
@@ -348,11 +375,14 @@ def _liquid_tag_line_pattern(tag_name):
 
 def _unmatched_open_tag_matches(content, open_tag, close_tag):
     """Return open-tag line matches that remain unmatched at end of *content*."""
+    raw_spans = _raw_block_spans(content)
     events = []
     for match in _liquid_tag_line_pattern(open_tag).finditer(content):
-        events.append((match.start(), 0, match))
+        if not _inside_raw_block(raw_spans, match.start()):
+            events.append((match.start(), 0, match))
     for match in _liquid_tag_line_pattern(close_tag).finditer(content):
-        events.append((match.start(), 1, match))
+        if not _inside_raw_block(raw_spans, match.start()):
+            events.append((match.start(), 1, match))
     events.sort(key=lambda item: (item[0], item[1]))
     stack = []
     for _, kind, match in events:
@@ -378,7 +408,12 @@ def _remove_one_liquid_tag_line(
     """
     if skip_first:
         preserve_first_n = max(preserve_first_n, 1)
-    matches = list(_liquid_tag_line_pattern(tag_name).finditer(content))
+    raw_spans = _raw_block_spans(content)
+    matches = [
+        match
+        for match in _liquid_tag_line_pattern(tag_name).finditer(content)
+        if not _inside_raw_block(raw_spans, match.start())
+    ]
     if not matches:
         raise ValueError(f"No standalone {{% {tag_name} %}} line found")
     if preserve_first_n < 0:
@@ -546,7 +581,7 @@ def match_existing_chunks(english_chunks, existing_translation):
     tr_by_anchor = {}
     tr_by_text = {}
     for part in tr_parts:
-        m = re.match(r'\n## (.+)', part)
+        m = re.search(r"(?m)^## (.+)", part)
         if m:
             heading = m.group(1).strip()
             anchor = _extract_heading_anchor(heading)
@@ -573,6 +608,107 @@ def match_existing_chunks(english_chunks, existing_translation):
             result.append("")
 
     return result
+
+
+_H2_HEADING_RE = re.compile(r"(?m)^## ")
+
+
+def split_into_h2_chunks(content):
+    """Split markdown at top-level H2 headings without merging segments.
+
+    Boundaries are skipped inside open Liquid blocks so ``##`` lines within
+    ``{% details %}`` / ``{% api %}`` regions stay with their parent section.
+    """
+    offsets = [0]
+    for match in _H2_HEADING_RE.finditer(content):
+        pos = match.start()
+        if pos > 0 and not _liquid_block_stack_at(content, pos):
+            offsets.append(pos)
+    if len(offsets) == 1:
+        return [content]
+    offsets.append(len(content))
+    return [
+        content[offsets[i]: offsets[i + 1]]
+        for i in range(len(offsets) - 1)
+    ]
+
+
+def _chunk_translation_key(chunk):
+    """Stable key for an H2 chunk (anchor ID preferred, else heading text)."""
+    headings = re.findall(r"^## (.+)", chunk, re.MULTILINE)
+    if not headings:
+        return "__preamble__"
+    first = headings[0].strip()
+    anchor = _extract_heading_anchor(first)
+    if anchor:
+        return f"#{anchor}"
+    return first
+
+
+def _normalize_chunk_for_diff(chunk):
+    return chunk.strip().replace("\r\n", "\n")
+
+
+def chunks_requiring_translation(en_chunks, prev_en_chunks):
+    """Return a bool per *en_chunks* entry: True when re-translation is needed."""
+    if not prev_en_chunks:
+        return [True] * len(en_chunks)
+    prev_by_key = {}
+    for chunk in prev_en_chunks:
+        prev_by_key[_chunk_translation_key(chunk)] = _normalize_chunk_for_diff(chunk)
+    needs = []
+    for chunk in en_chunks:
+        key = _chunk_translation_key(chunk)
+        prev = prev_by_key.get(key)
+        if prev is None or prev != _normalize_chunk_for_diff(chunk):
+            needs.append(True)
+        else:
+            needs.append(False)
+    return needs
+
+
+def _h2_chunk_keys(content):
+    return [_chunk_translation_key(chunk) for chunk in split_into_h2_chunks(content)]
+
+
+def incremental_h2_requires_full_file(english_content, previous_english_content):
+    """Return True when incremental H2 reassembly is unsafe across sdktabs boundaries.
+
+    When English gains or loses top-level H2 chunk boundaries inside ``{% sdktabs %}``,
+    reusing unchanged locale chunks can leave translated ``sdktab`` structure broken.
+    """
+    if not previous_english_content:
+        return False
+    if "{% sdktabs" not in english_content and "{% sdktabs" not in previous_english_content:
+        return False
+    return _h2_chunk_keys(english_content) != _h2_chunk_keys(previous_english_content)
+
+
+def load_english_at_git_ref(fpath, ref):
+    """Return English file contents at git *ref*, or None if unavailable."""
+    if not ref:
+        return None
+    try:
+        result = subprocess.run(
+            ["git", "show", f"{ref}:{fpath}"],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if result.returncode != 0:
+            return None
+        return result.stdout
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+def _resolve_english_base_ref(cli_ref=None):
+    """CLI flag wins over TRANSLATION_ENGLISH_BASE_REF env (empty → disabled)."""
+    if cli_ref:
+        return cli_ref
+    env_ref = os.environ.get("TRANSLATION_ENGLISH_BASE_REF", "").strip()
+    return env_ref or None
 
 
 def _build_system_blocks(system_prompt):
@@ -628,6 +764,18 @@ def _uses_chunked_translation(fpath, size_kb):
         if any(norm.startswith(prefix) for prefix in _FORCE_CHUNK_PATH_PREFIXES):
             return True
     return False
+
+
+class MaxTokensTruncatedError(RuntimeError):
+    """Raised when Claude stops because the output hit max_tokens."""
+
+
+def _is_max_tokens_truncation_error(exc):
+    """Return True when a single-pass translation/review hit the output token cap."""
+    if isinstance(exc, MaxTokensTruncatedError):
+        return True
+    msg = str(exc).lower()
+    return "output truncated" in msg and "token limit" in msg
 
 
 def _is_retryable_api_error(exc):
@@ -686,7 +834,7 @@ def call_claude(client, system_prompt, user_message, retries=None):
             raise
 
         if stop_reason == "max_tokens":
-            raise RuntimeError(
+            raise MaxTokensTruncatedError(
                 f"Output truncated (hit {MAX_TOKENS} token limit). "
                 "Increase TRANSLATION_MAX_TOKENS or use chunked translation."
             )
@@ -1433,9 +1581,253 @@ def save_results(results):
 # translate
 # ---------------------------------------------------------------------------
 
+def _translate_one_chunk_with_retries(
+    client,
+    prompt,
+    en_chunk,
+    tr_chunk,
+    lang_name,
+    extra_context,
+    chunk_label,
+    *,
+    api_retries=None,
+    chunk_liquid_attempts=None,
+):
+    """Translate one chunk with Liquid validation/repair and retries."""
+    attempts = chunk_liquid_attempts or max(3, (api_retries or API_RETRIES) // 2)
+    last_exc = None
+    for attempt in range(1, attempts + 1):
+        try:
+            candidate = translate_file(
+                client,
+                prompt,
+                en_chunk,
+                tr_chunk or None,
+                lang_name,
+                extra_context,
+                api_retries=api_retries,
+            )
+            return _validate_or_repair_chunk_liquid(en_chunk, candidate, chunk_label)
+        except ValueError as exc:
+            last_exc = exc
+            if attempt < attempts:
+                print(
+                    f"    Liquid check failed for {chunk_label} "
+                    f"(attempt {attempt}/{attempts}): {exc}; retrying chunk..."
+                )
+                time.sleep(min(30, 5 * attempt))
+            else:
+                raise
+    raise last_exc or ValueError(f"No translation for {chunk_label}")
+
+
+def translate_one_incremental(
+    client,
+    prompt,
+    fpath,
+    relative,
+    english_content,
+    previous_english_content,
+    lang_key,
+    lang_info,
+    glossary,
+    styleguide,
+    *,
+    api_retries=None,
+    uses_size_chunking=False,
+):
+    """Translate only H2 sections whose English changed since *previous_english_content*."""
+    target = translation_path(relative, lang_info["dir"])
+    existing = target.read_text() if target.exists() else None
+
+    filtered = filter_glossary(glossary, english_content)
+    glossary_section = format_glossary_for_prompt(filtered)
+    sibling_section = _build_sibling_context(fpath, lang_info["dir"], target)
+    extra_context = styleguide + glossary_section
+    if sibling_section:
+        extra_context = extra_context + "\n\n" + sibling_section
+
+    en_chunks = split_into_h2_chunks(english_content)
+    prev_chunks = (
+        split_into_h2_chunks(previous_english_content)
+        if previous_english_content
+        else []
+    )
+    tr_chunks = match_existing_chunks(en_chunks, existing)
+    needs = chunks_requiring_translation(en_chunks, prev_chunks)
+
+    for i, (need, tr_chunk) in enumerate(zip(needs, tr_chunks)):
+        if not need and not (tr_chunk or "").strip():
+            needs[i] = True
+
+    skipped = sum(1 for need in needs if not need)
+    to_translate = sum(1 for need in needs if need)
+
+    if to_translate == 0:
+        print(
+            f"    [{lang_key}] incremental: all {len(en_chunks)} H2 chunk(s) "
+            f"unchanged — skipping"
+        )
+        return {
+            "ok": True,
+            "source": fpath,
+            "target": str(target.relative_to(REPO_ROOT)),
+            "lang": lang_key,
+            "incremental": True,
+            "chunks_skipped": skipped,
+            "chunks_translated": 0,
+        }
+
+    print(
+        f"    [{lang_key}] incremental: {to_translate}/{len(en_chunks)} H2 chunk(s) "
+        f"to translate ({skipped} unchanged)"
+    )
+
+    chunk_liquid_attempts = max(3, (api_retries or API_RETRIES) // 2)
+    max_bytes = CHUNK_TARGET_KB * 1024
+
+    try:
+        if len(en_chunks) == 1 and needs[0] and not uses_size_chunking:
+            translated = translate_file(
+                client,
+                prompt,
+                english_content,
+                existing,
+                lang_info["name"],
+                extra_context,
+                api_retries=api_retries,
+            )
+            translated = review_file(
+                client,
+                english_content,
+                translated,
+                lang_info["name"],
+                extra_context,
+                api_retries=api_retries,
+            )
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(translated)
+            return {
+                "ok": True,
+                "source": fpath,
+                "target": str(target.relative_to(REPO_ROOT)),
+                "lang": lang_key,
+                "incremental": True,
+                "chunks_skipped": 0,
+                "chunks_translated": 1,
+            }
+
+        output_chunks = []
+        for i, (en_chunk, tr_chunk, need) in enumerate(
+            zip(en_chunks, tr_chunks, needs)
+        ):
+            chunk_label = (
+                f"{target.relative_to(REPO_ROOT)} H2 chunk {i + 1}/{len(en_chunks)}"
+            )
+            if not need:
+                output_chunks.append(tr_chunk)
+                continue
+
+            print(
+                f"    [{lang_key}] translating H2 chunk {i + 1}/{len(en_chunks)} "
+                f"({len(en_chunk) // 1024}KB)..."
+            )
+
+            if uses_size_chunking and len(en_chunk.encode()) > max_bytes:
+                sub_en = split_into_chunks(en_chunk)
+                sub_tr = match_existing_chunks(sub_en, tr_chunk or "")
+                sub_out = []
+                for j, (sub_en_chunk, sub_tr_chunk) in enumerate(
+                    zip(sub_en, sub_tr)
+                ):
+                    sub_label = f"{chunk_label} sub-chunk {j + 1}/{len(sub_en)}"
+                    sub_out.append(
+                        _translate_one_chunk_with_retries(
+                            client,
+                            prompt,
+                            sub_en_chunk,
+                            sub_tr_chunk,
+                            lang_info["name"],
+                            extra_context,
+                            sub_label,
+                            api_retries=api_retries,
+                            chunk_liquid_attempts=chunk_liquid_attempts,
+                        )
+                    )
+                output_chunks.append(
+                    "\n\n".join(c.strip() for c in sub_out)
+                )
+            else:
+                output_chunks.append(
+                    _translate_one_chunk_with_retries(
+                        client,
+                        prompt,
+                        en_chunk,
+                        tr_chunk,
+                        lang_info["name"],
+                        extra_context,
+                        chunk_label,
+                        api_retries=api_retries,
+                        chunk_liquid_attempts=chunk_liquid_attempts,
+                    )
+                )
+
+        full_translation = "\n\n".join(c.strip() for c in output_chunks)
+        validate_liquid_paired_tags(
+            full_translation,
+            label=str(target.relative_to(REPO_ROOT)),
+        )
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(full_translation)
+        return {
+            "ok": True,
+            "source": fpath,
+            "target": str(target.relative_to(REPO_ROOT)),
+            "lang": lang_key,
+            "incremental": True,
+            "chunked": uses_size_chunking,
+            "chunks": len(en_chunks),
+            "chunks_skipped": skipped,
+            "chunks_translated": to_translate,
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "source": fpath,
+            "target": str(target.relative_to(REPO_ROOT)),
+            "lang": lang_key,
+            "error": str(exc),
+            "incremental": True,
+            "chunked": uses_size_chunking,
+        }
+
+
 def translate_one(client, prompt, fpath, relative, english_content,
-                  lang_key, lang_info, glossary, styleguide, api_retries=None):
+                  lang_key, lang_info, glossary, styleguide, api_retries=None,
+                  english_base_ref=None):
     """Translate + review a single file into one language. Returns a result dict."""
+    previous_english = load_english_at_git_ref(fpath, english_base_ref)
+    if previous_english is not None:
+        if not incremental_h2_requires_full_file(english_content, previous_english):
+            return translate_one_incremental(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                previous_english,
+                lang_key,
+                lang_info,
+                glossary,
+                styleguide,
+                api_retries=api_retries,
+                uses_size_chunking=False,
+            )
+        print(
+            f"    [{lang_key}] incremental H2 unsafe for sdktabs topology in "
+            f"{relative} — full-file translation"
+        )
+
     target = translation_path(relative, lang_info["dir"])
     existing = target.read_text() if target.exists() else None
 
@@ -1464,6 +1856,23 @@ def translate_one(client, prompt, fpath, relative, english_content,
             "lang": lang_key,
         }
     except Exception as exc:
+        if _is_max_tokens_truncation_error(exc):
+            print(
+                f"    [{lang_key}] single-pass output hit token limit "
+                f"({relative}) — falling back to chunked translation..."
+            )
+            return translate_one_chunked(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                lang_key,
+                lang_info,
+                glossary,
+                styleguide,
+                api_retries=api_retries,
+            )
         return {
             "ok": False,
             "source": fpath,
@@ -1481,6 +1890,7 @@ def _retry_failed_translations(
     glossaries,
     styleguides,
     round_num=1,
+    english_base_ref=None,
 ):
     """Re-run failed translations sequentially (normal and chunked paths)."""
     retriable = [
@@ -1525,6 +1935,7 @@ def _retry_failed_translations(
                 glossaries[lang_key],
                 styleguides[lang_key],
                 api_retries=FAILED_PASS_RETRIES,
+                english_base_ref=english_base_ref,
             )
         else:
             result = translate_one(
@@ -1538,6 +1949,7 @@ def _retry_failed_translations(
                 glossaries[lang_key],
                 styleguides[lang_key],
                 api_retries=FAILED_PASS_RETRIES,
+                english_base_ref=english_base_ref,
             )
 
         if result["ok"]:
@@ -1555,10 +1967,32 @@ def _retry_failed_translations(
 
 def translate_one_chunked(client, prompt, fpath, relative, english_content,
                           lang_key, lang_info, glossary, styleguide,
-                          api_retries=None):
+                          api_retries=None, english_base_ref=None):
     """Translate a large file by splitting into chunks, translating each, and
     reassembling.  Skips the second-pass review (chunks are self-contained and
     the review would require the full file which exceeds context limits)."""
+    previous_english = load_english_at_git_ref(fpath, english_base_ref)
+    if previous_english is not None:
+        if not incremental_h2_requires_full_file(english_content, previous_english):
+            return translate_one_incremental(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                previous_english,
+                lang_key,
+                lang_info,
+                glossary,
+                styleguide,
+                api_retries=api_retries,
+                uses_size_chunking=True,
+            )
+        print(
+            f"    [{lang_key}] incremental H2 unsafe for sdktabs topology in "
+            f"{relative} — chunked full-file translation"
+        )
+
     target = translation_path(relative, lang_info["dir"])
     existing = target.read_text() if target.exists() else None
 
@@ -1647,6 +2081,11 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
 def cmd_translate(args):
     """Translate changed English docs into every supported language (or ``--languages`` subset)."""
     active_langs = languages_from_cli_arg(getattr(args, "languages", None))
+    english_base_ref = _resolve_english_base_ref(
+        getattr(args, "english_base_ref", None)
+    )
+    if english_base_ref:
+        print(f"Incremental H2 translation enabled (English base: {english_base_ref})")
     changed_path = REPO_ROOT / args.changed_files
     if not changed_path.exists():
         print("No changed-files list found. Nothing to translate.")
@@ -1721,6 +2160,7 @@ def cmd_translate(args):
                         translate_one, client, prompt, fpath, relative,
                         english_content, lang_key, lang_info,
                         glossaries[lang_key], styleguides[lang_key],
+                        english_base_ref=english_base_ref,
                     )
                     futures[future] = (relative, lang_info["name"])
 
@@ -1760,6 +2200,7 @@ def cmd_translate(args):
                     client, prompt, fpath, relative, english_content,
                     lang_key, lang_info,
                     glossaries[lang_key], styleguides[lang_key],
+                    english_base_ref=english_base_ref,
                 )
                 if result["ok"]:
                     results["translated"].append({
@@ -1788,6 +2229,7 @@ def cmd_translate(args):
             glossaries,
             styleguides,
             round_num=round_num,
+            english_base_ref=english_base_ref,
         )
         results["translated"].extend(recovered)
         results["failed"] = still_failed
@@ -8014,6 +8456,17 @@ def main():
         help=(
             "Comma-separated language keys to translate (subset of: fr, ja, ko, "
             "pt-br, es, de). Default: all. Used by CI matrix jobs (one key per job)."
+        ),
+    )
+    tp.add_argument(
+        "--english-base-ref",
+        default=None,
+        metavar="REF",
+        help=(
+            "Git ref for the previous English version of changed files. When set, "
+            "only H2 sections whose English changed are re-translated; unchanged "
+            "sections are reused from the existing locale file. Also read from "
+            "TRANSLATION_ENGLISH_BASE_REF."
         ),
     )
     tp.set_defaults(func=cmd_translate)

@@ -780,6 +780,7 @@ Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem 
 | Editor de arrastar e soltar | ❌ Requer desenvolvedor para personalização | ✅ Profissionais de marketing podem criar/atualizar sem engenharia |
 | HTML/CSS personalizado | ❌ Limitado à estrutura do cartão | ✅ Suporte total a HTML/CSS |
 | Pares chave-valor para personalização | ✅ Necessário para personalização avançada | ✅ Pares chave-valor fortemente tipados chamados "propriedades" para personalização avançada |
+| Extras de mensagem | ✅ Suportado | ❌ Não suportado atualmente |
 | **Persistência e expiração** |
 | Expiração do cartão | ✅ Suportado (limite de 30 dias) | ✅ Suportado (sem limite de expiração) |
 | Persistência verdadeira | ❌ Máximo de 30 dias | ✅ Persistência ilimitada |

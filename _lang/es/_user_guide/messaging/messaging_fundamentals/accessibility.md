@@ -506,6 +506,7 @@ Los subtítulos se pueden activar o desactivar, permitiendo a los usuarios elegi
 
 {% multi_lang_include accessibility/video.md %}
 
+
 #### Proporciona controles de reproducción {#playback-controls}
 
 Asegúrate de que tu video incrustado incluya controles de reproducción accesibles, como reproducir, pausar, silenciar y buscar, para que los usuarios puedan interactuar con él de la forma que mejor les funcione.

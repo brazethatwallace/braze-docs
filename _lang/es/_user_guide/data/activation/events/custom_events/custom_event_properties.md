@@ -36,13 +36,13 @@ No puedes usar claves reservadas como nombres de propiedades de eventos. Usar un
 
 ## Uso de propiedades de eventos personalizados {#using-custom-event-properties}
 
-Las propiedades de eventos personalizados pueden utilizarse para cualificar desencadenantes de campañas, hacer seguimiento de conversiones y personalizar la mensajería.
+Las propiedades de eventos personalizados pueden utilizarse para cualificar desencadenantes de Campaigns, hacer seguimiento de conversiones y personalizar la mensajería.
 
 ### Desencadenar mensajes {#trigger-messages}
 
-Usa las propiedades de eventos personalizados para delimitar aún más tu audiencia para una campaña o Canvas en particular. Por ejemplo, si tienes una aplicación de comercio electrónico y quieres enviar un mensaje a un usuario cuando abandona su carrito, puedes añadir una propiedad de evento personalizado de `price` para mejorar tu audiencia objetivo y permitir una mayor personalización de la campaña.
+Usa las propiedades de eventos personalizados para delimitar aún más tu audiencia para una Campaign o Canvas en particular. Por ejemplo, si tienes una aplicación de comercio electrónico y quieres enviar un mensaje a un usuario cuando abandona su carrito, puedes añadir una propiedad de evento personalizado de `price` para mejorar tu público objetivo y permitir una mayor personalización de la Campaign.
 
-![Filtros de propiedades de eventos personalizados para un carrito abandonado. Dos filtros se combinan con un operador AND para enviar esta campaña a usuarios que abandonaron su carrito con un precio entre 100 y 200 dólares]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
+![Filtros de propiedades de eventos personalizados para un carrito abandonado. Dos filtros se combinan con un operador AND para enviar esta Campaign a usuarios que abandonaron su carrito con un precio entre 100 y 200 dólares]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
 Las propiedades de eventos personalizados anidadas también son compatibles con la [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
@@ -50,7 +50,7 @@ Las propiedades de eventos personalizados anidadas también son compatibles con 
 
 ### Personalizar mensajes {#personalize-messages}
 
-También puedes usar propiedades de eventos personalizados para la personalización dentro de la plantilla de mensajería. Cualquier campaña que utilice [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) con un evento desencadenante puede usar propiedades de eventos personalizados de ese evento para la personalización de la mensajería.
+También puedes usar propiedades de eventos personalizados para la personalización dentro de la plantilla de mensajería. Cualquier Campaign que utilice [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) con un evento desencadenante puede usar propiedades de eventos personalizados de ese evento para la personalización de la mensajería.
 
 Por ejemplo, si tienes una aplicación de juegos y quieres enviar un mensaje a los usuarios que completaron un nivel, podrías personalizar aún más tu mensaje con una propiedad para el tiempo que les tomó a los usuarios completar ese nivel. En este ejemplo, el mensaje se personaliza para tres segmentos diferentes usando [lógica condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). La propiedad de evento personalizado llamada `time_spent` puede incluirse en el mensaje llamando a ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
@@ -96,9 +96,7 @@ Para añadir propiedades de eventos para segmentación, haz lo siguiente:
 
 Los filtros de segmentación por propiedades de eventos incluyen:
 
-- Ha realizado un evento personalizado con la propiedad A con valor B, X veces en los últimos Y días.
-- Ha realizado cualquier compra con la propiedad A con valor B, X veces en los últimos Y días.
-- Añade la capacidad de segmentar dentro de 1 a 30 días.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
 ![Un grupo de filtros que tiene "Carrito abandonado" con la propiedad "número de artículos" y valor 2 más de 1 vez en los últimos 30 días calendario.]({% image_buster /assets/img/nested_object3.png %})
 
@@ -127,7 +125,7 @@ Las propiedades de eventos personalizados están diseñadas para ayudarte a aume
 
 Puedes segmentar basándote en los valores de las propiedades de eventos de dos maneras:
 
-1. **Dentro de 30 días:** Puedes usar la segmentación por propiedades de eventos basada en la frecuencia y recencia de valores específicos de propiedades de eventos dentro de los segmentos de Braze. Esta opción afecta al uso de datos.<br><br>
-2. **Dentro y más allá de 30 días:** Para cubrir tanto la segmentación por propiedades de eventos a corto como a largo plazo, puedes usar [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esta característica segmenta a los usuarios basándose en eventos personalizados y propiedades de eventos registrados en los últimos dos años. Esta opción no afecta al uso de datos.
+1. **Dentro de 30 días:** Puedes usar la segmentación por propiedades de eventos basada en la frecuencia y recencia de valores específicos de propiedades de eventos dentro de Segments de Braze. Esta opción afecta al uso de datos.<br><br>
+2. **Dentro y más allá de 30 días:** Para cubrir tanto la segmentación por propiedades de eventos a corto como a largo plazo, puedes usar [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esta característica segmenta a los usuarios basándose en eventos personalizados y propiedades de eventos registrados en los últimos dos años. Esta opción no afecta al uso de datos.
 
-Ponte en contacto con tu administrador del éxito del cliente de Braze para obtener recomendaciones sobre el mejor enfoque según tus necesidades específicas.
+Ponte en contacto con tu administrador de éxito de cliente de Braze para obtener recomendaciones sobre el mejor enfoque según tus necesidades específicas.

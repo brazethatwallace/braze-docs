@@ -18,10 +18,7 @@ _This integration is maintained by Komo._
 
 The Braze and Komo integration allows you to gather first and zero-party data through Komo Engagement Hubs. These hubs are dynamic microsites that offer interactive content and gamification features. The user data collected from these hubs are then transmitted to the Braze API.
 
-- Ingest first and zero-party user data gather from Komo to Braze in real-time
-- Ingest market research and user preference data when they answer surveys, polls, and quiz questions
-- Progressively build user profiles in Braze over time as the user continues to engage and share more data about themselves
-- Standardize the look and feel of transactional emails sent through Braze
+{% multi_lang_include partners/extensions/landing_pages/komo_integration_bullets.md %}
 
 ## Prerequisites
 
