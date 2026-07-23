@@ -4,12 +4,12 @@ article_title: Governance
 layout: dev_guide
 page_order: 2
 guide_top_header: "Governance"
-guide_top_text: "Manage the lifecycle and organization of your campaigns, Canvases, and landing pages. Refer to the articles in the following section to set up approval workflows, archive or duplicate items, copy them across workspaces, and use statuses and tags to keep your workspace organized."
+guide_top_text: "Manage the lifecycle and organization of your campaigns, Canvases, and landing pages. Refer to the articles in the following section to set up approval workflows, archive or duplicate items, copy them across workspaces, share previews with stakeholders, and use statuses and tags to keep your workspace organized."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Approvals, archive, duplicate, copy across workspaces, statuses, and tags for campaigns, Canvases, and landing pages."
+description: "Approvals, archive, duplicate, copy across workspaces, shareable preview, statuses, and tags for campaigns, Canvases, and landing pages."
 
 guide_featured_title: "Section articles"
 guide_featured_list:
@@ -25,6 +25,9 @@ guide_featured_list:
   - name: Duplicate
     link: /docs/user_guide/messaging/governance/duplicating
     image: /assets/img/braze_icons/copy-04.svg
+  - name: Shareable preview
+    link: /docs/user_guide/messaging/governance/shareable_preview
+    image: /assets/img/braze_icons/share-01.svg
   - name: Statuses
     link: /docs/user_guide/messaging/governance/statuses
     image: /assets/img/braze_icons/book-closed.svg
