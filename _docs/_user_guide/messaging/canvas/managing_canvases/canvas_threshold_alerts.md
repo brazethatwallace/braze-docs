@@ -42,13 +42,13 @@ Alert rules define the threshold that triggers a notification. You can build rul
 - **User entries:** Number of users who entered the Canvas
 - **Messages sent:** Number of messages sent from the Canvas
 
-For each rule, choose a comparison (**less than** or **more than**) and a volume threshold. For example, a rule for **User entries less than 3,000** flags a Canvas that's normally reaching thousands of users but has suddenly stalled—a sign of an upstream audience or entry issue worth investigating.
+For each rule, choose a comparison (less than or more than) and a volume threshold. For example, a rule for "User entries less than 3,000" flags a Canvas that's normally reaching thousands of users but has suddenly stalled—a sign of an upstream audience or entry issue worth investigating.
 
-You can group multiple rules together and combine rule groups with **AND** or **OR** logic to build more specific alert conditions.
+You can group multiple rules together and combine rule groups with AND or OR logic to build more specific alert conditions.
 
 ## Step 4: Set the alert schedule
 
-Define how often your alert rules are checked. You can choose a check frequency of every 3, 6, 9, or 12 hours, or once every 24 hours. Once activated, an alert continues checking on this schedule for as long as its associated Canvas is active.
+Define how often your alert rules are checked. You can set the check frequency anywhere from 3 to 12 hours (in 1-hour increments), or every 24 hours. Once activated, an alert continues checking on this schedule for as long as the alert and its associated Canvas is active.
 
 ## Step 5: Set up notifications
 
