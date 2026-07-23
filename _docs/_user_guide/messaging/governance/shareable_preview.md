@@ -1,7 +1,7 @@
 ---
 nav_title: Shareable preview
 article_title: Share a message preview with stakeholders
-page_order: 7
+page_order: 5
 page_type: reference
 description: "This reference article covers how to generate and share a preview link for a message or content, so that stakeholders without dashboard access can review it before it's sent."
 ---
@@ -14,16 +14,15 @@ description: "This reference article covers how to generate and share a preview 
 
 You can generate a shareable preview link for the following channels and content types:
 
-- Email
-- Email footer
-- Subscription pages
-- Content Blocks
 - Banners
+- Content Blocks
+- Content Cards
+- Email and email footer
+- LINE
+- Push notifications
+- Subscription pages
 - SMS and RCS
 - WhatsApp
-- Push notifications
-- Content Cards
-- LINE
 
 {% alert note %}
 Shareable preview is rolling out gradually and may not yet be available for every channel in your workspace. Contact your Braze account manager if you don't see the option for a channel listed in this section.
@@ -65,8 +64,8 @@ While the core experience is the same everywhere, a few channels have small diff
 | Content Blocks, email footers, and subscription pages | These generate a preview of the standalone content, independent of any specific campaign or Canvas it's used in. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Per-channel nuances" }
 
-{% alert important %}
-Shareable preview isn't currently available for in-app messages.
+{% alert note %}
+Shareable preview is not available for in-app messages.
 {% endalert %}
 
 ## Frequently asked questions
