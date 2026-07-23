@@ -39,13 +39,13 @@ Note the difference between how "days" and "calendar days" are calculated.
 - A "day" is 24 hours and is calculated from the time the user enters the Delay step. 
 - A "calendar day" defines the time to wait until the next specified time, which could be less than 24 hours. You can choose to delay at company time or at a user's local time. If a time isn't specified, the user will be delayed until midnight the next day in company time.
 
-### Delay behavior: "calendar days" at a specific time vs "days"
+### Delay behavior: "calendar days" at a specific time versus "days"
 
 When you select **calendar days** as the unit and enable **At a specific time** (for example, **1 calendar day at 9 AM**), Canvas calculates the target calendar date first, then applies the scheduled time. For example, if a Canvas step sends at 9 PM on Monday and the Delay step is set to **1 calendar day at 9 AM**, the next step sends at 9 AM on Tuesday. Canvas calculates Monday + 1 calendar day = Tuesday, then applies the 9 AM time.
 
 By contrast, when you select **days** as the unit without **At a specific time** (for example, **After 1 day**), Canvas waits a full 24-hour period from the time the user enters the Delay step. For example, if a step sends at 9:35 AM on October 13 and the Delay step is **After 1 day**, the next step sends at 9:35 AM on October 14.
 
-You can also select **At a specific time** to specify when the users will advance in the Canvas. This option takes into account the time the user entered the Delay step. If this time is beyond the time configured in the settings, we'll append more hours to the delay. 
+You can also select **At a specific time** to specify when the users will advance in the Canvas. This option takes into account the time the user entered the Delay step. If this time is beyond the time configured in the settings, Braze appends more hours to the delay. 
 
 As an example, let's say today is December 11, and our Delay step is set to **Duration** of one week at 8 am UTC. If a user enters the Delay step on December 4, they would be released from the Delay step to continue their journey today if they originally entered the Delay step at a time before 8 am UTC. If they entered the Delay step after this time, the user will be delayed until the next day (the next occurrence of this time). 
 
