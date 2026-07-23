@@ -190,7 +190,7 @@ Strings wrapped in single quotes inside an `assign` tag are treated as literal s
 
 This outputs the literal text `My name is {{${first_name}}}` instead of the user's first name.
 
-To include personalization, use variables or concatenate strings with the [`append`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#append) filter. For URL templating with personalization, refer to [link templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
+To include personalization, use variables or concatenate strings with the [`append`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#string-filters) filter. For URL templating with personalization, refer to [link templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 {% endalert %}
 
 {% alert tip %}
