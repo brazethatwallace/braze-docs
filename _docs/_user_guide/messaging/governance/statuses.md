@@ -63,14 +63,14 @@ If your Canvas is configured to **Enter users into this Canvas in their local ti
 
 #### Common scenarios
 
-**Scenario 1: Mistake in message content**<br>
+**Scenario 1: Mistake in message content**
 You launch a Canvas but notice a typo in one of the messages. Stop the Canvas, edit the message in draft mode, then resume. Users who haven't received the message yet get the corrected version. Users who already received it won't receive it again.
 
-**Scenario 2: Targeting issue**<br>
+**Scenario 2: Targeting issue**
 You realize the Canvas is targeting the wrong segment. Stop the Canvas immediately to prevent more users from entering. Any users currently in delay steps will exit when their delay period ends. You can then create a new Canvas with the correct targeting.
 
-**Scenario 3: Extended delay scenario**<br>
-You have a Canvas with a 7-day delay step. You stop the Canvas 3 days in. Users who were in the delay step continue waiting, but when their delay period ends while the Canvas is still stopped, they exit the Canvas. If you resume the Canvas before their delay ends, they continue through the journey.
+**Scenario 3: Extended delay scenario**
+You have a Canvas with a seven-day delay step. You stop the Canvas three days in. Users who were in the delay step continue waiting, but when their delay period ends while the Canvas is still stopped, they exit the Canvas. If you resume the Canvas before their delay ends, they continue through the journey.
 
 ## Best practices
 
