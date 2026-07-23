@@ -50,7 +50,7 @@ Designated time schedules are best suited for messages scheduled in advance and 
 
 ### Delivery rules
 
-Because a user's optimal time can be any time over the course of 24 hours across all global time zones, all Intelligent Timing campaigns must be scheduled 48 hours in advance. This ensures delivery to all users worldwide, as a single day spans approximately 48 hours across all time zones. In addition, similar to designated time campaigns, messages with a 1-day window will miss users who fall out of the segment before their optimal time in their time zone is reached. Segments for Intelligent Timing campaigns should incorporate at minimum a 3-day window to account for this.
+Because a user's optimal time can be any time over the course of 24 hours across all global time zones, all Intelligent Timing campaigns must be scheduled 48 hours in advance. Scheduling 48 hours ahead accounts for delivery to all users worldwide, as a single day spans approximately 48 hours across all time zones. In addition, similar to designated time campaigns, messages with a 1-day window miss users who fall out of the segment before their optimal time in their time zone is reached. Segments for Intelligent Timing campaigns should incorporate at minimum a 3-day window to account for this.
 
 If a user's profile does not have enough data to calculate an optimal time, you can choose a backup method to either send during the most popular time to use the app among all users or a set custom fallback time. 
 
