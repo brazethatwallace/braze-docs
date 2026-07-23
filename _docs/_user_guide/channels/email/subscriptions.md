@@ -208,7 +208,7 @@ Use a custom opt-in page to let users acknowledge and control notification prefe
 2. Select **Subscription Pages and Footers**.
 3. Customize the styling in the **Custom opt-in page** section to see how that indicates to your users that they've been subscribed.
 
-Users reach this page through the {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} tag. Like other email subscription Liquid tags, this can only be used in email campaigns and Canvases.
+Users reach this page through the {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} tag. Like other email subscription Liquid tags, you can use this tag in only email campaigns and Canvases.
 
 {% alert tip %}
 Use a double opt-in process to improve outreach. Braze sends an additional confirmation email where a user confirms notification preferences via a link. After confirmation, the user is opted in.
