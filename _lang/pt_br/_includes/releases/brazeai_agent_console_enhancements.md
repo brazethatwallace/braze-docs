@@ -1,0 +1,6 @@
+- Configure casos de uso pré-definidos com o Operator por meio do menu suspenso do botão **Criar agente**.
+- Duplique agentes existentes a partir da lista de agentes.
+- Salve agentes como rascunhos durante a criação e conclua as configurações depois.
+- Defina valores de fallback de saída para agentes de Canvas, evitando que as variáveis de saída sejam definidas como nulas caso o agente apresente erro.
+- Defina campos de entrada obrigatórios para um campo de agente de catálogo, de modo que o agente não seja executado se o valor de um campo de entrada obrigatório estiver vazio ou ausente.
+- Execute novamente um agente para todas as células vazias de uma coluna de agente, preenchendo valores ausentes sem precisar reexecutar a coluna inteira.

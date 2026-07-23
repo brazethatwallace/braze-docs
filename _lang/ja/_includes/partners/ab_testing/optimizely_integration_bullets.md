@@ -1,0 +1,3 @@
+- Brazeの顧客セグメントとイベントをOptimizely Data Platform（ODP）に毎晩同期し、Optimizelyの顧客プロファイル、レポート、セグメンテーションを充実させます。
+- Braze CurrentsイベントをBrazeからOptimizelyのレポートツールに送信します。
+- ODPの顧客データとイベントをBrazeに同期し、Brazeの顧客データを充実させるとともに、ODPの顧客イベントに基づいてBrazeのメッセージングをトリガーします。
