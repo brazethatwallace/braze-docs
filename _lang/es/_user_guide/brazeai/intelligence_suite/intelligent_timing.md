@@ -3,7 +3,7 @@ nav_title: Intelligent Timing
 article_title: Intelligent Timing
 page_order: 1.3
 description: "Este artículo ofrece un resumen de Intelligent Timing (antes Entrega Inteligente) y de cómo puedes aprovechar esta característica en tus Campaigns y Canvas."
-
+toc_headers: h2
 ---
 
 # [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
@@ -25,7 +25,7 @@ Por ejemplo, Sam puede abrir tus correos electrónicos por la mañana con regula
 
 Si un usuario no tiene datos de interacción relevantes para que Braze calcule la hora de envío óptima, puedes especificar una hora alternativa.
 
-## Ejemplos {#use-cases}
+## Ejemplos {#examples}
 
 - Enviar Campaigns recurrentes que no sean urgentes en cuanto a tiempo
 - Automatizar Campaigns con usuarios de múltiples zonas horarias
@@ -211,7 +211,7 @@ Si utilizas Intelligent Timing, te recomendamos dejar más tiempo para que final
 
 ## Preguntas más frecuentes (FAQ) {#faq}
 
-### General {#general}
+### General
 
 #### ¿Qué predice Intelligent Timing? {#what-does-intelligent-timing-predict}
 
@@ -247,7 +247,7 @@ Intelligent Timing programa mensajes durante la «hora de mayor interacción» d
 
 Si no hay eventos relevantes para un usuario, Intelligent Timing utiliza la configuración alternativa de los ajustes de tu mensaje, ya sea una hora alternativa personalizada o la hora más popular para utilizar la aplicación entre todos los usuarios.
 
-### Campaigns {#campaigns}
+### Campaigns
 
 #### ¿Con cuánta antelación debo lanzar una Campaign de Intelligent Timing para entregarla con éxito a todos los usuarios de todas las zonas horarias? {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
 

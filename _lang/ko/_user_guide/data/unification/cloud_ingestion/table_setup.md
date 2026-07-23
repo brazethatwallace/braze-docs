@@ -56,7 +56,7 @@ Braze는 먼저 소스 테이블에서 행을 읽은 다음, 선택한 데이터
 
 | 데이터 유형 | 형식 참조 |
 | --- | --- |
-| `attributes` | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `attributes` | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOAD 열 설정" }

@@ -47,6 +47,14 @@ Braze 대시보드의 임베디드 가입 플로우를 통해 WhatsApp 비즈니
 #### 공식 비즈니스 계정이란 무엇인가요? {#what-is-an-official-business-account}
 OBA는 표시 이름 옆에 녹색 체크 표시를 제공하며 선택 사항입니다. 비즈니스 인증을 완료한 후 공식 비즈니스 계정을 신청할 수 있습니다. 비즈니스 인증과 공식 비즈니스 계정은 서로 다른 WhatsApp 개념입니다.
 
+#### WhatsApp Business 표시 이름이 거부되는 이유는 무엇인가요? {#why-might-my-whatsapp-business-display-name-be-rejected}
+
+WhatsApp Business 표시 이름 거부는 Meta에 의해 관리됩니다. 표시 이름이 거부된 경우 [WhatsApp의 표시 이름 가이드라인](https://faq.whatsapp.com/793641088597363)을 참조하세요.
+
+표시 이름이 가이드라인을 충족하는데도 여전히 거부되는 경우, Braze는 구체적인 거부 사유를 확인할 수 없습니다. 그러나 가장 일반적인 거부 사유는 비즈니스의 온라인 존재감이 너무 낮거나, 비즈니스가 [규제 또는 제한 제품](https://business.whatsapp.com/policy#further-guidance)을 마케팅하고 있는 경우입니다.
+
+표시 이름 거부에 대한 추가 안내는 [Meta 리소스]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources)를 참조하세요.
+
 ### WhatsApp 비즈니스 계정 전화번호 {#whatsapp-business-account-phone-numbers}
 
 #### WhatsApp 비즈니스 계정에 전화번호가 필요한가요? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}

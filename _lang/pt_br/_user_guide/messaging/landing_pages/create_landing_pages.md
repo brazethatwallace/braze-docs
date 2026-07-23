@@ -29,21 +29,21 @@ Insira um nome e uma descrição para a landing page. Esses detalhes são usados
 
 #### Detalhes do site {#site-details}
 
-Configure metatags para personalizar como sua página aparece na aba do navegador e otimizar para resultados de mecanismos de busca. Elas serão visíveis para seus clientes.
+Configure metatags para personalizar como sua página aparece na guia do navegador e otimizar para resultados de mecanismos de busca. Elas serão visíveis para seus clientes.
 
 Sugerimos seguir estas práticas recomendadas:
 
 | Campo | Descrição | Recomendações |
 | --- | --- | --- |
-| Título do site | O título exibido na aba do navegador. | Use até 60 caracteres. |
+| Título do site | O título exibido na guia do navegador. | Use até 60 caracteres. |
 | Meta descrição | Um trecho de texto exibido nos resultados de busca. | Use entre 140 e 160 caracteres. |
-| Favicon | O ícone que aparece ao lado do título do site na aba do navegador. | Use uma proporção de 1:1 e um tipo de arquivo compatível: PNG, JPEG ou ICO. |
+| Favicon | O ícone que aparece ao lado do título do site na guia do navegador. | Use uma proporção de 1:1 e um tipo de arquivo compatível: PNG, JPEG ou ICO. |
 | URL da página | Este é o caminho da URL para sua landing page. Esse valor também é referenciado ao usar [Liquid tags de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que você pode incorporar em uma mensagem para identificar automaticamente quando os usuários enviam seu formulário. | Esse valor deve ser único em todo o seu espaço de trabalho. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalhes do site" }
 
 ### Etapa 3: Personalizar a página {#step-3-customize-the-page}
 
-Se ainda não fez isso, selecione **Salvar como rascunho**. Para começar a personalizar sua página, selecione **Edit landing page**. O editor de arrastar e soltar carregará um modelo padrão que você pode personalizar para se adequar ao seu caso de uso.
+Se ainda não fez isso, selecione **Save as draft**. Para começar a personalizar sua página, selecione **Edit landing page**. O editor de arrastar e soltar carregará um modelo padrão que você pode personalizar para se adequar ao seu caso de uso.
 
 ![Um exemplo de landing page sendo criada no editor de arrastar e soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
@@ -70,7 +70,20 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 
 #### Span text {#span-text}
 
-{% multi_lang_include drag_and_drop/span_text.md %}
+Para aplicar estilos específicos a blocos de texto sem código personalizado, destaque o texto que deseja estilizar e selecione **Wrap with span for style**.
+
+![Caixa de texto com diferentes seções de texto estilizadas, como tamanhos e cores de fonte diferentes, e uma seção destacada que exibe uma barra de ferramentas com a opção "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+
+Ajuste as propriedades do span para atualizar o estilo do texto, incluindo:
+
+- Família, peso e tamanho da fonte
+- Altura da linha
+- Espaçamento entre letras
+- Alinhamento e cor do texto
+- Preenchimento do bloco
+
+![Painel de propriedades do span com diferentes opções para atualizar.]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}
+
 
 {% endtab %}
 {% tab Blocos de formulário %}
@@ -133,7 +146,7 @@ Para vincular a página de confirmação:
 Se você não incluir uma página de confirmação, os usuários podem não saber que o formulário foi enviado com sucesso. Sempre inclua uma experiência de confirmação para completar a jornada.
 
 {% alert note %}
-Se sua página de confirmação abrir em uma nova aba, um usuário que retornar à landing page original e reenviar com informações atualizadas pode sobrescrever o envio anterior, resultando em dados inconsistentes.
+Se sua página de confirmação abrir em uma nova guia, um usuário que retornar à landing page original e reenviar com informações atualizadas pode sobrescrever o envio anterior, resultando em dados inconsistentes.
 {% endalert %}
 
 ### Etapa 5: Pré-visualizar a página {#step-5-preview-the-page}
@@ -151,12 +164,12 @@ Antes de publicar, certifique-se de que:
 Quando estiver pronto, selecione **Publish Landing Page**.
 
 {% alert note %}
-Bloqueadores de pop-up e de anúncios agressivos no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando o botão **Submit** de um formulário também abre outra URL, seja na mesma aba ou em uma nova aba.
+Bloqueadores de pop-up e de anúncios agressivos no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando o botão **Submit** de um formulário também abre outra URL, seja na mesma guia ou em uma nova guia.
 {% endalert %}
 
 ## Usando modelos {#using-templates}
 
-Use modelos de landing page para criar templates para suas próximas Campaigns. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na página **Modelos de landing page** (**Content** > **Landing Page**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
+Use modelos de landing page para criar templates para suas próximas campanhas. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na página **Landing Page Templates** (**Content** > **Landing Page**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
 
 ## Gerenciando modelos {#managing-templates}
 

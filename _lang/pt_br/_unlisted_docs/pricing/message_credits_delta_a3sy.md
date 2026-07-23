@@ -1,27 +1,16 @@
 ---
-nav_title: Créditos de mensagem - Delta
+nav_title: Message Credits - Delta
 permalink: "/message_credits_delta_a3sy/"
 hidden: true
 noindex: true
 hide_toc: true
 ---
 
-# Créditos de mensagem - Delta (Confidencial) {#message-credits-delta-confidential}
+# Message Credits - Delta (Confidencial) {#message-credits-delta-confidential}
 
-> Créditos de mensagem é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os créditos de mensagem proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
+> Message Credits é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os Message Credits proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
 
-{% alert note %}
-Produtos diferentes terão unidades de medida diferentes nos relatórios.<br><br>
-<b>Agent Console:</b> Invocações<br>
-<b>SMS:</b> Segmentos<br>
-<b>MMS:</b> Envios<br>
-<b>WhatsApp:</b> Mensagens entregues<br>
-<b>RCS:</b> Segmentos entregues, Envios entregues<br>
-<b>LINE:</b> Envios<br>
-<b>KakaoTalk:</b> Envios<br>
-
-Por fim, as taxas de operadora relacionadas a SMS, MMS e RCS são cobradas separadamente (após o uso) e não são consideradas parte deste SKU de créditos de mensagem.
-{% endalert %}
+{% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
 ## Definições {#definitions}
 
@@ -29,14 +18,14 @@ As definições das colunas são as seguintes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Região final específica, país ou tipo de ação enviada pela plataforma Braze |
-| **Créditos por 1 envio** | Número exato de créditos de mensagem para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
+| **Créditos por 1 envio** | Número exato de Message Credits para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabela de proporção de créditos para créditos de mensagem - Delta {#credit-ratio-table-for-message-credits-delta}
+## Tabela de proporção de créditos para Message Credits - Delta {#credit-ratio-table-for-message-credits-delta}
 
 {% details Clique para expandir %}
-<table class="credits-table" aria-label="Tabela de proporção de créditos para créditos de mensagem - Delta">
+<table class="credits-table" aria-label="Tabela de proporção de créditos para Message Credits - Delta">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -2279,35 +2268,29 @@ As definições das colunas são as seguintes:
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
 
-------
-## Detalhes do Agent Console {#agent-console-details}
-A Braze cobrará Créditos de Mensagem por Invocações do Agent Console enviadas a partir da plataforma Braze. Uma Invocação é registrada quando um Agent inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil Invocações por cada Período do seu Prazo de Inscrição.
+{% multi_lang_include pricing/agent_console_details.md %}
 
 ## Detalhes do canal SMS/MMS {#smsmms-channel-details}
 
 ### Segmentos de SMS {#sms-segments}
 
-Segmentos de mensagem SMS são a forma como o setor de SMS contabiliza mensagens. Um segmento de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
+Os segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensagens. Um segmento de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para seu ativo multimídia e também incluir um corpo de mensagem.
+Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não ultrapassar 600 KB para o seu ativo multimídia, incluindo também o corpo da mensagem.
 
 ### Tipos de RCS {#rcs-types}
 
 O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um canal direto e de alto engajamento como o SMS, com recursos mais avançados que os consumidores modernos esperam, como conteúdo rico (imagens, vídeos, documentos), envio verificado e com marca, recursos interativos como respostas e ações sugeridas, e muito mais.
 
-- A cobrança do RCS é baseada em dois tipos diferentes de mensagem (com distinções para os EUA):
-    - **RCS Básico:** Somente texto, até 160 caracteres
-    - **RCS Único:** Mensagens contendo conteúdo rico, ou mensagens somente texto com mais de 160 caracteres
-    - **RCS Rico (somente EUA):** Somente texto, pode incluir sugestões/botões limitados (quickReply, dialPhone, openURL sem webview), segmentado a cada 160 bytes UTF-8
-    - **RCS Rich Media (somente EUA):** Qualquer mídia OU texto com sugestões/botões mais avançados (webview, localização, calendário, etc.), contado como uma mensagem
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 ## Detalhes do canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Detalhes adicionais de canais {#additional-channel-details}
+### Detalhes adicionais do canal {#additional-channel-details}
 
 ### Webhooks
 
@@ -2315,7 +2298,7 @@ Os webhooks passaram a fazer parte dos Créditos de Mensagem em 9 de dezembro de
 
 ### Conectores SMS próprios (BYO) {#bring-your-own-byo-sms-connectors}
 
-A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo "conector SMS BYO". A Braze cobrará Créditos de Mensagem por cada mensagem enviada a partir da plataforma Braze por meio de conectores SMS BYO.
+A Braze permite que os clientes integrem provedores terceirizados para enviar mensagens SMS por meio do modelo "conector SMS BYO". A Braze cobrará Créditos de Mensagem por cada mensagem enviada a partir da plataforma Braze por meio de conectores SMS BYO.
 
 ### LINE
 
@@ -2330,7 +2313,7 @@ Estados Unidos, Canadá
 ### Restante da África {#rest-of-africa}
 
 Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia,
-Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
+Madagascar, Malauí, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
 
 ### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
 
@@ -2339,7 +2322,7 @@ Turcomenistão, Uzbequistão, Vietnã
 
 ### Restante da Europa Central e Oriental {#rest-of-central-eastern-europe}
 
-Albânia, Armênia, Azerbaijão, Belarus, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Letônia, Lituânia, Macedônia, Moldávia, Sérvia, Eslováquia, Eslovênia, Ucrânia
+Albânia, Armênia, Azerbaijão, Bielorrússia, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Letônia, Lituânia, Macedônia, Moldávia, Sérvia, Eslováquia, Eslovênia, Ucrânia
 
 ### Restante da América Latina {#rest-of-latin-america}
 

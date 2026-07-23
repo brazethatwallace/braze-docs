@@ -32,10 +32,7 @@ If you're experiencing issues after setting up push notifications, consider the 
 
 The Apple Push Notification service (APNs) is the infrastructure for sending push notifications to applications running on Apple's platforms. Here is the simplified structure of how push notifications are enabled for your users' devices and how Braze can send push notifications to them:
 
-1. You configure the push certificate and provisioning profile
-2. Devices register for APNs and provide Braze with push tokens
-3. You launch a Braze push campaign
-4. Braze removes invalid tokens
+{% multi_lang_include developer_guide/push_notifications/push_registration_flow_steps.md %}
 
 ### Step 1: Configuring the push certificate and provisioning profile
 
@@ -117,12 +114,7 @@ Prefer `.p8` authentication keys when possible. For credential types and dashboa
 
 The `BadDeviceToken` is an APNs error code and does not originate from Braze. There could be a number of reasons for this response being returned, including the following:
 
-- The app received a push token that was invalid for the credentials uploaded to the dashboard.
-- Push was disabled for this workspace.
-- The user has opted out of push.
-- The app was uninstalled.
-- Apple refreshed the push token, which invalidated the old token.
-- The app was built for a production environment, but the push credentials uploaded to Braze are set for a development environment (or the other way around).
+{% multi_lang_include developer_guide/push_notifications/invalid_push_token_reasons.md %}
 
 ## Push registration issues
 

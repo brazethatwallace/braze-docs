@@ -26,49 +26,49 @@ Besprechen Sie während der Implementierung von Braze unbedingt die Marketingzie
 
 ## Automatisch erfasste Daten {#automatically-collected-data}
 
-Bestimmte Nutzerdaten werden von unserem SDK automatisch erfasst, z. B. die zuerst verwendete App, die zuletzt verwendete App, die Gesamtzahl der Sitzungen, das Betriebssystem des Geräts usw. Wenn Sie unseren Integrationsleitfäden folgen, um unsere SDKs zu implementieren, können Sie die Vorteile dieser [Standard-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) nutzen. Wenn Sie diese Liste überprüfen, können Sie vermeiden, die gleichen Informationen über Nutzer:innen mehrfach zu speichern. Mit Ausnahme des Beginns und Endes einer Sitzung werden alle anderen automatisch erfassten Daten nicht auf Ihre Datenpunkt-Nutzung angerechnet.
+Bestimmte Nutzerdaten werden automatisch von unserem SDK erfasst – zum Beispiel „App erstmals verwendet“, „App zuletzt verwendet“, Gesamtanzahl der Sitzungen, Geräte-Betriebssystem usw. Wenn Sie unsere Integrationsleitfäden zur Implementierung unserer SDKs befolgen, können Sie diese [standardmäßige Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) nutzen. Ein Blick auf diese Liste kann Ihnen helfen, dieselben Informationen über Nutzer:innen nicht mehrfach zu speichern. Mit Ausnahme von Sitzungsstart und -ende zählen alle anderen automatisch erfassten Daten nicht zur Datenpunkt-Nutzung.
 
-In unserem Artikel zum [SDK-Primer]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) können Sie Prozesse auf eine Zulassungsliste setzen, die die standardmäßige Datenerfassung bestimmter Elemente blockieren.
+Lesen Sie unseren Artikel [SDK-Überblick]({{site.baseurl}}/developer_guide/getting_started/sdk_overview), um Prozesse auf eine Zulassungsliste zu setzen, die die standardmäßige Erfassung bestimmter Datenelemente blockieren.
 
 ## Angepasste Events {#custom-events}
 
-Angepasste Events sind Aktionen, die von Ihren Nutzer:innen ausgeführt werden. Sie eignen sich am besten für das Tracking hochwertiger Nutzer:innen-Interaktionen mit Ihrer Anwendung. Die Protokollierung eines angepassten Events kann eine beliebige Anzahl von Folgekampagnen mit konfigurierbaren Verzögerungen triggern und ermöglicht die folgenden Segmentierungsfilter in Bezug auf die Aktualität und Häufigkeit dieses Events:
+Angepasste Events sind Aktionen, die Ihre Nutzer:innen ausführen. Sie eignen sich am besten für das Tracking von besonders wertvollen Nutzer:innen-Interaktionen mit Ihrer Anwendung. Das Protokollieren eines angepassten Events kann eine beliebige Anzahl von Folgekampagnen mit konfigurierbaren Verzögerungen auslösen und ermöglicht die folgenden Segmentierungsfilter rund um die Aktualität und Häufigkeit dieses Events:
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
-| Prüfen, ob das angepasste Event **mehr als X-mal** aufgetreten ist | **MORE THAN** | **NUMBER** |
-| Prüfen, ob das angepasste Event **weniger als X-mal** aufgetreten ist | **LESS THAN** | **NUMBER** |
-| Prüfen, ob das angepasste Event **genau X-mal** aufgetreten ist | **EXACTLY** | **NUMBER** |
+| Prüfen, ob das angepasste Event **mehr als X Mal** aufgetreten ist | **MORE THAN** | **NUMBER** |
+| Prüfen, ob das angepasste Event **weniger als X Mal** aufgetreten ist | **LESS THAN** | **NUMBER** |
+| Prüfen, ob das angepasste Event **genau X Mal** aufgetreten ist | **EXACTLY** | **NUMBER** |
 | Prüfen, ob das angepasste Event zuletzt **nach dem Datum X** aufgetreten ist | **AFTER** | **TIME** |
 | Prüfen, ob das angepasste Event zuletzt **vor dem Datum X** aufgetreten ist | **BEFORE** | **TIME** |
-| Prüfen, ob das angepasste Event zuletzt **vor mehr als X Tagen** stattgefunden hat | **MORE THAN** | **NUMBER OF DAYS AGO** (positive Zahl) |
-| Prüfen, ob das angepasste Event zuletzt **vor weniger als X Tagen** stattgefunden hat | **LESS THAN** | **NUMBER OF DAYS AGO** (positive Zahl) |
-| Prüfen, ob das angepasste Event **mehr als X (Max = 50) Mal** aufgetreten ist | **MORE THAN** | in den letzten **Y Days (Y = 1,3,7,14,21,30)** |
-| Prüfen, ob das angepasste Event **weniger als X (Max = 50) Mal** aufgetreten ist | **LESS THAN** | in den letzten **Y Days (Y = 1,3,7,14,21,30)** |
-| Prüfen, ob das angepasste Event **genau X (Max = 50) Mal** aufgetreten ist | **EXACTLY** | in den letzten **Y Days (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob das angepasste Event zuletzt **vor mehr als X Tagen** aufgetreten ist | **MORE THAN** | **NUMBER OF DAYS AGO** (positive Zahl) |
+| Prüfen, ob das angepasste Event zuletzt **vor weniger als X Tagen** aufgetreten ist | **LESS THAN** | **NUMBER OF DAYS AGO** (positive Zahl) |
+| Prüfen, ob das angepasste Event **mehr als X (Max = 50) Mal** aufgetreten ist | **MORE THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob das angepasste Event **weniger als X (Max = 50) Mal** aufgetreten ist | **LESS THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob das angepasste Event **genau X (Max = 50) Mal** aufgetreten ist | **EXACTLY** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angepasste Events" }
 
-Braze merkt sich für die Segmentierung, wie oft diese Events aufgetreten sind und wann sie von den einzelnen Nutzer:innen zuletzt ausgeführt wurden. Auf der Analytics-Seite für **Custom Events** können Sie sich ansehen, wie oft die einzelnen angepassten Events insgesamt auftreten, und für eine detailliertere Analyse auch nach Segmenten im Zeitverlauf. Dies ist besonders nützlich, um zu sehen, wie sich Ihre Campaigns auf die Aktivität angepasster Events ausgewirkt haben. Dazu sehen Sie sich die grauen Linien an, die Braze über die Zeitreihe legt, um anzuzeigen, wann zuletzt eine Campaign gesendet wurde.
+Braze erfasst, wie oft diese Events aufgetreten sind und wann sie zuletzt von den einzelnen Nutzer:innen ausgeführt wurden, um sie für die Segmentierung zu nutzen. Auf der Analytics-Seite **Custom Events** können Sie aggregiert sehen, wie oft jedes angepasste Event auftritt, sowie nach Segment über die Zeit für eine detailliertere Analyse. Dies ist besonders nützlich, um zu sehen, wie Ihre Campaigns die Aktivität angepasster Events beeinflusst haben, indem Sie die grauen Linien betrachten, die Braze über die Zeitreihe legt, um den letzten Versandzeitpunkt einer Campaign anzuzeigen.
 
-![Ein Diagramm zur Analyse angepasster Events, das Statistiken zu Nutzer:innen anzeigt, die eine Kreditkarte hinzugefügt und innerhalb eines Zeitraums von dreißig Tagen eine Suche durchgeführt haben.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
+![Ein Analytics-Diagramm für angepasste Events, das Statistiken zu Nutzer:innen zeigt, die eine Kreditkarte hinzugefügt und eine Suche durchgeführt haben, über einen Zeitraum von dreißig Tagen.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
 {% alert note %}
-[Das Inkrementieren angepasster Attribute]({{site.baseurl}}/api/endpoints/messaging) kann verwendet werden, um einen Zähler für eine Nutzer:innen-Aktion zu führen, ähnlich wie bei einem angepassten Event. Sie können jedoch keine angepassten Attribut-Daten in einer Zeitreihe anzeigen. Nutzer:innen-Aktionen, die nicht in Zeitreihen analysiert werden müssen, sollten mit dieser Methode erfasst werden.
+[Inkrementierende angepasste Attribute]({{site.baseurl}}/api/endpoints/messaging) können verwendet werden, um einen Zähler für eine Nutzer:innen-Aktion ähnlich einem angepassten Event zu führen. Allerdings können Sie angepasste Attributdaten nicht in einer Zeitreihe anzeigen. Nutzer:innen-Aktionen, die nicht in Zeitreihen analysiert werden müssen, sollten über diese Methode erfasst werden.
 {% endalert %}
 
 ### Speicherung angepasster Events {#custom-event-storage}
 
 Alle Nutzerprofildaten (angepasste Events, angepasste Attribute, angepasste Daten) werden gespeichert, solange diese Profile aktiv sind.
 
-### Angepasste Event-Eigenschaften {#custom-event-properties}
+### Eigenschaften angepasster Events {#custom-event-properties}
 
-Mit angepassten Event-Eigenschaften ermöglicht Braze Ihnen, Eigenschaften für angepasste Events und Käufe festzulegen. Diese Eigenschaften können dann zur weiteren Qualifizierung von Trigger-Bedingungen, zur stärkeren Personalisierung des Messagings und zur Erstellung ausgefeilterer Analytics durch den Export von Rohdaten verwendet werden. Eigenschaftswerte können Strings, Zahlen, boolesche Werte oder Zeitobjekte sein. Eigenschaftswerte können jedoch keine Array-Objekte sein.
+Mit Eigenschaften angepasster Events ermöglicht Braze Ihnen, Eigenschaften für angepasste Events und Käufe festzulegen. Diese Eigenschaften können dann verwendet werden, um Trigger-Bedingungen weiter zu qualifizieren, die Personalisierung im Messaging zu verbessern und durch den Rohdatenexport anspruchsvollere Analysen zu erstellen. Eigenschaftswerte können String, Zahl, boolescher Wert oder Zeitobjekte sein. Eigenschaftswerte können jedoch keine Array-Objekte sein.
 
-Wenn eine E-Commerce-Anwendung beispielsweise eine Nachricht an Nutzer:innen senden möchte, wenn diese ihren Warenkorb abbrechen, könnte sie zusätzlich ihre Zielgruppe verbessern und eine stärkere Personalisierung der Campaign ermöglichen, indem sie eine angepasste Event-Eigenschaft für den `cart_value` der Warenkörbe der Nutzer:innen hinzufügt.
+Wenn beispielsweise eine E-Commerce-Anwendung eine Nachricht an Nutzer:innen senden möchte, die ihren Warenkorb abgebrochen haben, könnte sie zusätzlich ihre Zielgruppe verbessern und eine stärkere Campaign-Personalisierung ermöglichen, indem sie eine angepasste Event-Eigenschaft für den `cart_value` der Warenkörbe der Nutzer:innen hinzufügt.
 
-![Ein Beispiel für ein angepasstes Event, das eine Campaign an Nutzer:innen sendet, die ihren Warenkorb verlassen haben und deren Warenkorbwert zwischen 100 und 200 liegt.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png")
+![Ein Beispiel für ein angepasstes Event, das eine Campaign an Nutzer:innen sendet, die ihren Warenkorb abgebrochen haben und deren Warenkorbwert zwischen 100 und 200 liegt.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png")
 
-Angepasste Event-Eigenschaften können auch zur Personalisierung im Messaging-Template verwendet werden. Jede Campaign, die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit einem triggernden Event verwendet, kann angepasste Event-Eigenschaften aus diesem Event für die Personalisierung von Nachrichten nutzen. Wenn eine Spielanwendung eine Nachricht an Nutzer:innen senden möchte, die ein Level abgeschlossen haben, kann sie die Nachricht mit einer Eigenschaft für die Zeit personalisieren, die Nutzer:innen für den Abschluss dieses Levels benötigt haben. In diesem Beispiel wird die Nachricht mithilfe [bedingter Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic) für drei verschiedene Segmente personalisiert. Die angepasste Event-Eigenschaft namens ``time_spent`` kann durch den Aufruf von ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` in die Nachricht aufgenommen werden.
+Eigenschaften angepasster Events können auch für die Personalisierung innerhalb des Messaging-Templates verwendet werden. Jede Campaign, die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit einem Trigger-Event nutzt, kann Eigenschaften angepasster Events aus diesem Event für die Messaging-Personalisierung verwenden. Wenn eine Gaming-Anwendung eine Nachricht an Nutzer:innen senden möchte, die ein Level abgeschlossen haben, könnte sie die Nachricht zusätzlich mit einer Eigenschaft für die Zeit personalisieren, die die Nutzer:innen zum Abschließen dieses Levels benötigt haben. In diesem Beispiel wird die Nachricht für drei verschiedene Segmente mithilfe von [bedingter Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic) personalisiert. Die angepasste Event-Eigenschaft namens ``time_spent`` kann in die Nachricht eingefügt werden, indem ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` aufgerufen wird.
 
 {% raw %}
 ```liquid
@@ -82,11 +82,11 @@ Talk to villagers for essential tips on how to beat levels!
 ```
 {% endraw %}
 
-Angepasste Event-Eigenschaften helfen Ihnen dabei, Ihr Messaging anzupassen oder granulare aktionsbasierte Zustellungskampagnen zu erstellen. Wenn Sie Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften erstellen möchten, wenden Sie sich bitte an Ihren Customer-Success-Manager oder unser Support-Team.
+Eigenschaften angepasster Events sind dafür konzipiert, Ihnen bei der Personalisierung Ihres Messagings oder beim Aufbau granularer aktionsbasierter Zustellungskampagnen zu helfen. Wenn Sie Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften erstellen möchten, wenden Sie sich an Ihren Customer-Success-Manager oder unser Support-Team.
 
 ## Angepasste Attribute {#custom-attributes}
 
-Angepasste Attribute sind außerordentlich flexible Werkzeuge, mit denen Sie Nutzer:innen noch gezielter ansprechen können als mit Standardattributen. Angepasste Attribute eignen sich hervorragend, um markenspezifische Informationen über Ihre Nutzer:innen zu speichern. Sie sollten bedenken, dass wir für angepasste Attribute keine Zeitreiheninformationen speichern. Sie erhalten also keine darauf basierenden Diagramme wie im vorangegangenen Beispiel für angepasste Events.
+Angepasste Attribute sind außerordentlich flexible Werkzeuge, mit denen Sie Nutzer:innen gezielter ansprechen können als mit Standardattributen. Angepasste Attribute eignen sich hervorragend zum Speichern markenspezifischer Informationen über Ihre Nutzer:innen. Beachten Sie, dass wir keine Zeitreihendaten für angepasste Attribute speichern, sodass Sie keine Diagramme auf deren Basis erhalten – anders als im vorherigen Beispiel für angepasste Events.
 
 ### Speicherung angepasster Attribute {#custom-attribute-storage}
 
@@ -98,40 +98,40 @@ Die folgenden Datentypen können als angepasste Attribute gespeichert werden:
 
 #### Strings (alphanumerische Zeichen) {#strings-alphanumeric-characters}
 
-String-Attribute sind nützlich, um Nutzereingaben zu speichern, z. B. eine Lieblingsmarke, eine Telefonnummer oder einen letzten Suchstring in Ihrer Anwendung. String-Attribute unterliegen den [Längenbeschränkungen](#length-constraints) für angepasste Daten (479 Byte; ca. 479 Einzelbyte-Zeichen oder ca. 160 Zeichen für Mehrbyte-Schriften wie Japanisch).
+String-Attribute eignen sich zum Speichern von Nutzereingaben, wie z. B. einer Lieblingsmarke, einer Telefonnummer oder eines letzten Suchbegriffs innerhalb Ihrer Anwendung. String-Attribute unterliegen den [Längenbeschränkungen](#length-constraints) für angepasste Daten (479 Bytes; ca. 479 Einzelbyte-Zeichen oder ca. 160 Zeichen für Mehrbyte-Schriften wie Japanisch).
 
 Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für String-Attribute.
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
-| Prüfen, ob das String-Attribut mit einem eingegebenen String **exakt übereinstimmt** | **EQUALS** | **STRING** |
-| Prüfen, ob das String-Attribut mit einem eingegebenen String **ODER** einem regulären Ausdruck **teilweise übereinstimmt** | **MATCHES REGEX** | **STRING** **OR** **REGULAR EXPRESSION** |
-| Prüfen, ob das String-Attribut mit einem eingegebenen String **ODER** regulären Ausdruck **nicht teilweise übereinstimmt** | **DOES NOT MATCH REGEX** | **STRING** **OR** **REGULAR EXPRESSION** |
-| Prüfen, ob das String-Attribut mit einem eingegebenen String **nicht übereinstimmt** | **DOES NOT EQUAL** | **STRING** |
-| Prüfen, ob das String-Attribut in einem Nutzerprofil **vorhanden ist** | **IS BLANK** | **N/A** |
-| Prüfen, ob das String-Attribut in einem Nutzerprofil **nicht vorhanden ist** | **IS NOT BLANK** | **N/A** |
+| Prüfen, ob das String-Attribut **exakt mit** einem eingegebenen String **übereinstimmt** | **EQUALS** | **STRING** |
+| Prüfen, ob das String-Attribut **teilweise mit** einem eingegebenen String **ODER** regulären Ausdruck **übereinstimmt** | **MATCHES REGEX** | **STRING** **ODER** **REGULAR EXPRESSION** |
+| Prüfen, ob das String-Attribut **nicht teilweise mit** einem eingegebenen String **ODER** regulären Ausdruck **übereinstimmt** | **DOES NOT MATCH REGEX** | **STRING** **ODER** **REGULAR EXPRESSION** |
+| Prüfen, ob das String-Attribut **nicht mit** einem eingegebenen String **übereinstimmt** | **DOES NOT EQUAL** | **STRING** |
+| Prüfen, ob das String-Attribut im Nutzerprofil **vorhanden ist** | **IS BLANK** | **N/A** |
+| Prüfen, ob das String-Attribut im Nutzerprofil **nicht vorhanden ist** | **IS NOT BLANK** | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Strings (alphanumerische Zeichen)" }
 
 {% alert important %}
-Bei der Segmentierung mit dem Filter **DOES NOT MATCH REGEX** ist es erforderlich, dass bereits ein angepasstes Attribut mit einem zugewiesenen Wert in diesem Nutzerprofil existiert. Braze empfiehlt, mit ODER-Logik zu prüfen, ob ein angepasstes Attribut leer ist, um die Zielgruppe richtig zusammenzustellen.
+Bei der Segmentierung mit dem Filter **DOES NOT MATCH REGEX** muss bereits ein angepasstes Attribut mit einem zugewiesenen Wert in diesem Nutzerprofil vorhanden sein. Braze empfiehlt, „ODER“-Logik zu verwenden, um zu prüfen, ob ein angepasstes Attribut leer ist, damit Nutzer:innen korrekt angesprochen werden.
 {% endalert %}
 
 {% alert tip %}
-Wenn Sie mehr über die Verwendung unseres Filters für reguläre Ausdrücke erfahren möchten, lesen Sie diese Dokumentation über [Perl-kompatible reguläre Ausdrücke (PCRE)](http://www.regextester.com/pregsyntax.html).
+Weitere Informationen zur Verwendung unseres Regex-Filters finden Sie in dieser Dokumentation zu [Perl-kompatiblen regulären Ausdrücken (PCRE)](http://www.regextester.com/pregsyntax.html).
 <br>
 Weitere Ressourcen zu Regex:
 - [Regex mit Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
-- [Regex Debugger und Tester](https://regex101.com/)
+- [Regex-Debugger und -Tester](https://regex101.com/)
 - [Regex-Tutorial](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
 
 #### Arrays {#arrays}
 
-Array-Attribute sind gut geeignet, um zusammenhängende Listen mit Informationen über Ihre Nutzer:innen zu speichern. Wenn Sie zum Beispiel die letzten 100 Inhalte, die Nutzer:innen gesehen haben, in einem Array speichern, ist eine Segmentierung nach Interessen möglich.
+Array-Attribute eignen sich gut zum Speichern zusammengehöriger Informationslisten über Ihre Nutzer:innen. Wenn Sie beispielsweise die letzten 100 Inhalte, die ein:e Nutzer:in angesehen hat, in einem Array speichern, ermöglicht dies eine spezifische Interessensegmentierung.
 
-Angepasste Attribut-Arrays sind eindimensionale Sets; mehrdimensionale Arrays werden nicht unterstützt. **Wenn Sie ein Element zu einem angepassten Attribut-Array hinzufügen, wird das Element an das Ende des Arrays angehängt, es sei denn, es ist bereits vorhanden. In diesem Fall wird es von seiner aktuellen Position an das Ende des Arrays verschoben.** Wenn zum Beispiel das Array `['hotdog','hotdog','hotdog','pizza']` importiert wurde, wird es im Array-Attribut als `['hotdog', 'pizza']` angezeigt, da nur eindeutige Werte unterstützt werden.
+Angepasste Attribut-Arrays sind eindimensionale Mengen; mehrdimensionale Arrays werden nicht unterstützt. **Wenn ein Element zu einem angepassten Attribut-Array hinzugefügt wird, wird es am Ende des Arrays angefügt – es sei denn, es ist bereits vorhanden. In diesem Fall wird es von seiner aktuellen Position an das Ende des Arrays verschoben.** Wenn beispielsweise ein Array `['hotdog','hotdog','hotdog','pizza']` importiert wird, erscheint es im Array-Attribut als `['hotdog', 'pizza']`, da nur eindeutige Werte unterstützt werden.
 
-Wenn das Array seine Höchstzahl an Elementen enthält, wird das erste Element verworfen und das neue Element am Ende hinzugefügt. Im Folgenden finden Sie einige Beispiele für Code, der das Array-Verhalten im Web SDK zeigt:
+Wenn das Array seine Höchstzahl an Elementen enthält, wird das erste Element verworfen und das neue Element am Ende hinzugefügt. Der folgende Beispielcode zeigt das Array-Verhalten im Web-SDK:
 
 ```js
 var abUser = appboy.getUser();
@@ -142,15 +142,19 @@ abUser.addToCustomAttributeArray('favorite_foods', 'pizza'); // => ['wings', 'pa
 abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta', 'fries', 'pizza', 'ice cream']
 ```
 
-Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl der Arrays im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden gekürzt, sodass nur die Höchstzahl an Elementen erhalten bleibt.
+Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl der Arrays im Braze-Dashboard unter **Data Settings** > **Custom Attributes** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl gekürzt.
+
+{% alert note %}
+Wenn ein angepasstes Array-Attribut in einem Nutzerprofil angezeigt wird, aber keine Werte enthält, überprüfen Sie die **Max Length** des Attributs unter **Data Settings** > **Custom Attributes**. Eine **Max Length** von `0` verhindert, dass Werte im Profil angezeigt werden. Schritte zur Fehlerbehebung finden Sie unter [Datentypen angepasster Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
+{% endalert %}
 
 Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Array-Attribute.
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
-| Prüfen, ob das Array-Attribut einen Wert enthält, der mit einem eingegebenen Wert **exakt übereinstimmt** | **INCLUDES VALUE** | **STRING** |
-| Prüfen, ob das Array-Attribut einen Wert enthält, der mit einem eingegebenen Wert **nicht exakt übereinstimmt** | **DOESN'T INCLUDE VALUE** | **STRING** |
-| Prüfen, ob das Array-Attribut einen Wert enthält, der mit einem eingegebenen Wert **ODER** regulären Ausdruck **teilweise übereinstimmt** | **MATCHES REGEX** | **STRING** **OR** **REGULAR EXPRESSION** |
+| Prüfen, ob das Array-Attribut **einen Wert enthält, der exakt mit** einem eingegebenen Wert **übereinstimmt** | **INCLUDES VALUE** | **STRING** |
+| Prüfen, ob das Array-Attribut **keinen Wert enthält, der exakt mit** einem eingegebenen Wert **übereinstimmt** | **DOESN'T INCLUDE VALUE** | **STRING** |
+| Prüfen, ob das Array-Attribut **einen Wert enthält, der teilweise mit** einem eingegebenen Wert **ODER** regulären Ausdruck **übereinstimmt** | **MATCHES REGEX** | **STRING** **ODER** **REGULAR EXPRESSION** |
 | Prüfen, ob das Array-Attribut **einen Wert hat** | **HAS A VALUE** | **N/A** |
 | Prüfen, ob das Array-Attribut **leer ist** | **IS EMPTY** | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Arrays" }
@@ -159,15 +163,15 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Arr
 Wir verwenden [Perl-kompatible reguläre Ausdrücke (PCRE)](http://www.regextester.com/pregsyntax.html).
 {% endalert %}
 
-#### Daten {#dates}
+#### Datumsangaben {#dates}
 
-Zeitattribute sind nützlich, um zu speichern, wann eine bestimmte Aktion das letzte Mal durchgeführt wurde, damit Sie Ihren Nutzer:innen inhaltsspezifische Nachrichten zur erneuten Interaktion anbieten können.
+Zeitattribute eignen sich zum Speichern des letzten Zeitpunkts, an dem eine bestimmte Aktion durchgeführt wurde, sodass Sie Ihren Nutzer:innen inhaltsspezifische Nachrichten zur erneuten Interaktion senden können.
 
 {% alert note %}
-Das letzte Datum, an dem ein angepasstes Event oder Kauf-Event stattgefunden hat, wird automatisch aufgezeichnet und darf nicht über ein angepasstes Zeitattribut doppelt erfasst werden.
+Das letzte Datum, an dem ein angepasstes Event oder Kauf-Event aufgetreten ist, wird automatisch erfasst und sollte nicht zusätzlich über ein angepasstes Zeitattribut aufgezeichnet werden.
 {% endalert %}
 
-Datumsfilter mit relativen Daten (z. B. vor mehr als 1 Tag, vor weniger als 2 Tagen) messen 1 Tag als 24 Stunden. Jede Campaign, die Sie mit diesen Filtern durchführen, schließt alle Nutzer:innen in einem 24-Stunden-Inkrement ein. Ein Beispiel: „Letzte Nutzung der App vor mehr als 1 Tag“ erfasst alle Nutzer:innen, die „die App zuletzt vor mehr als 24 Stunden genutzt haben“, genau ab dem Zeitpunkt, an dem die Campaign läuft. Dasselbe gilt für Campaigns mit längeren Datumsbereichen – fünf Tage nach der Aktivierung sind also die vorherigen 120 Stunden.
+Datumsfilter mit relativen Datumsangaben (z. B. vor mehr als 1 Tag, vor weniger als 2 Tagen) messen 1 Tag als 24 Stunden. Jede Campaign, die Sie mit diesen Filtern ausführen, erfasst alle Nutzer:innen in 24-Stunden-Schritten. Beispielsweise erfasst „App zuletzt vor mehr als 1 Tag verwendet“ alle Nutzer:innen, die die App „vor mehr als 24 Stunden“ ab dem genauen Zeitpunkt der Campaign-Ausführung zuletzt verwendet haben. Dasselbe gilt für Campaigns mit längeren Zeiträumen – fünf Tage ab Aktivierung bedeuten die vorherigen 120 Stunden.
 
 Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Zeitattribute.
 
@@ -177,35 +181,35 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Zei
 | Prüfen, ob das Zeitattribut **nach** einem **ausgewählten Datum** liegt | **AFTER** | **CALENDAR DATE SELECTOR** |
 | Prüfen, ob das Zeitattribut **mehr als X Tage** zurückliegt | **MORE THAN** | **NUMBER OF DAYS AGO** |
 | Prüfen, ob das Zeitattribut **weniger als X Tage** zurückliegt | **LESS THAN** | **NUMBER OF DAYS AGO** |
-| Prüfen, ob das Zeitattribut **mehr als X Tage** in der Zukunft liegt | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** |
-| Prüfen, ob das Zeitattribut **weniger als X Tage** in der Zukunft liegt | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  |
-| Prüfen, ob das Zeitattribut in einem Nutzerprofil **vorhanden ist** | **BLANK** | **N/A** |
-| Prüfen, ob das Zeitattribut in einem Nutzerprofil **nicht vorhanden ist** | **IS NOT BLANK** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Daten" }
+| Prüfen, ob das Zeitattribut **in mehr als X Tagen** in der Zukunft liegt | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** |
+| Prüfen, ob das Zeitattribut **in weniger als X Tagen** in der Zukunft liegt | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  |
+| Prüfen, ob das Zeitattribut im Nutzerprofil **vorhanden ist** | **BLANK** | **N/A** |
+| Prüfen, ob das Zeitattribut im Nutzerprofil **nicht vorhanden ist** | **IS NOT BLANK** | **N/A** |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Datumsangaben" }
 
 #### Zahlen {#integers}
 
-Für numerische Attribute gibt es eine Vielzahl von Anwendungsfällen. Angepasste Attribute mit inkrementeller Zahl sind nützlich, um zu speichern, wie oft eine bestimmte Aktion oder ein bestimmtes Ereignis stattgefunden hat. Standardzahlen haben alle möglichen Verwendungszwecke, wie z. B. die Erfassung der Schuhgröße, des Taillenumfangs oder der Anzahl, wie oft Nutzer:innen ein bestimmtes Produkt-Feature oder eine Kategorie angesehen haben.
+Numerische Attribute haben eine Vielzahl von Anwendungsfällen. Inkrementierende numerische angepasste Attribute eignen sich zum Speichern der Häufigkeit, mit der eine bestimmte Aktion oder ein bestimmtes Ereignis aufgetreten ist. Standardzahlen haben vielfältige Einsatzmöglichkeiten, wie z. B. das Erfassen von Schuhgröße, Taillenumfang oder der Anzahl, wie oft ein:e Nutzer:in ein bestimmtes Produkt-Feature oder eine Kategorie angesehen hat.
 
 {% alert note %}
-Das ausgegebene Geld sollte nicht auf diese Weise erfasst werden. Vielmehr sollte es über unsere [Kaufmethoden]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#purchase-events--revenue-tracking) erfasst werden.
+Ausgaben sollten nicht über diese Methode erfasst werden. Verwenden Sie stattdessen unsere [Kaufmethoden]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#purchase-events--revenue-tracking).
 {% endalert %}
 
 Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für numerische Attribute.
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
-| Prüfen, ob das numerische Attribut **mehr als** eine **Zahl** beträgt | **MORE THAN** | **NUMBER** |
-| Prüfen, ob das numerische Attribut **weniger als** eine **Zahl** beträgt | **LESS THAN** | **NUMBER** |
-| Prüfen, ob das numerische Attribut **exakt** einer **Zahl** entspricht | **EXACTLY** | **NUMBER** |
-| Prüfen, ob das numerische Attribut **nicht** einer **Zahl** entspricht | **DOES NOT EQUAL** | **NUMBER** |
-| Prüfen, ob das numerische Attribut in einem Nutzerprofil **vorhanden ist** | **EXISTS** | **N/A** |
-| Prüfen, ob das numerische Attribut in einem Nutzerprofil **nicht vorhanden ist** | **DOES NOT EXIST** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zahlen" }
+| Prüfen, ob das numerische Attribut **größer als** eine **Zahl** ist | **MORE THAN** | **NUMBER** |
+| Prüfen, ob das numerische Attribut **kleiner als** eine **Zahl** ist | **LESS THAN** | **NUMBER** |
+| Prüfen, ob das numerische Attribut **genau** einer **Zahl** entspricht | **EXACTLY** | **NUMBER** |
+| Prüfen, ob das numerische Attribut **nicht gleich** einer **Zahl** ist | **DOES NOT EQUAL** | **NUMBER** |
+| Prüfen, ob das numerische Attribut im Nutzerprofil **vorhanden ist** | **EXISTS** | **N/A** |
+| Prüfen, ob das numerische Attribut im Nutzerprofil **nicht vorhanden ist** | **DOES NOT EXIST** | **N/A** |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zahlen #integers" }
 
 #### Boolesche Werte (wahr/falsch) {#booleans-truefalse}
 
-Boolesche Attribute sind nützlich, um den Status von Abos und andere einfache binäre Daten über Ihre Nutzer:innen zu speichern. Die Eingabeoptionen, die wir Ihnen zur Verfügung stellen, erlauben es Ihnen, sowohl Nutzer:innen zu finden, bei denen eine Variable explizit auf einen booleschen Wert gesetzt wurde, als auch Nutzer:innen, bei denen dieses Attribut noch nicht aufgezeichnet wurde.
+Boolesche Attribute eignen sich zum Speichern von Abo-Status und anderen einfachen binären Daten über Ihre Nutzer:innen. Die bereitgestellten Eingabeoptionen ermöglichen es Ihnen, Nutzer:innen zu finden, bei denen eine Variable explizit auf einen booleschen Wert gesetzt wurde, sowie solche, bei denen dieses Attribut noch nicht erfasst wurde.
 
 Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für boolesche Attribute.
 
@@ -213,31 +217,31 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für boo
 | ---------------------| --------------- | ------------- |
 | Prüfen, ob der boolesche Wert **ist** | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** oder **FALSE OR NOT SET** |
 | Prüfen, ob der boolesche Wert im Nutzerprofil **vorhanden ist** | **EXISTS**  | **N/A** |
-| Prüfen, ob der boolesche Wert in einem Nutzerprofil **nicht vorhanden ist** | **DOES NOT EXIST**  | **N/A** |
+| Prüfen, ob der boolesche Wert im Nutzerprofil **nicht vorhanden ist** | **DOES NOT EXIST**  | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Boolesche Werte (wahr/falsch)" }
 
 ## Kauf-Events / Umsatz-Tracking {#purchase-events-revenue-tracking}
 
-Durch die Verwendung unserer Kaufmethoden zur Erfassung von In-App-Käufen wird der Life-time Value (LTV) für jedes einzelne Nutzerprofil ermittelt. Diese Daten können Sie auf unserer Umsatzseite in Zeitreihendiagrammen einsehen.
+Die Verwendung unserer Kaufmethoden zur Erfassung von In-App-Käufen legt den Lifetime Value (LTV) für jedes einzelne Nutzerprofil fest. Diese Daten sind auf unserer Umsatzseite in Zeitreihendiagrammen einsehbar.
 
 Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Kauf-Events.
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
-| Prüfen, ob die Gesamtsumme der Ausgaben **größer als** eine **Zahl** ist | **GREATER THAN** | **NUMBER** |
-| Prüfen, ob die Gesamtsumme der Ausgaben **weniger als** eine **Zahl** ist | **LESS THAN** | **NUMBER** |
-| Prüfen, ob die Gesamtsumme der Ausgaben **exakt** einer **Zahl** entspricht | **EXACTLY** | **NUMBER** |
-| Prüfen, ob der letzte Kauf **nach dem Datum X** stattgefunden hat | **AFTER** | **TIME** |
-| Prüfen, ob der letzte Kauf **vor dem Datum X** stattgefunden hat | **BEFORE** | **TIME** |
-| Prüfen, ob der letzte Kauf **mehr als X Tage** zurückliegt | **MORE THAN** | **TIME** |
-| Prüfen, ob der letzte Kauf **weniger als X Tage** zurückliegt | **LESS THAN** | **TIME** |
-| Prüfen, ob der Kauf **mehr als X (Max = 50) Mal** stattgefunden hat | **MORE THAN** | in den letzten **Y Days (Y = 1,3,7,14,21,30)** |
-| Prüfen, ob der Kauf **weniger als X (Max = 50) Mal** stattgefunden hat | **LESS THAN** | in den letzten **Y Days (Y = 1,3,7,14,21,30)** |
-| Prüfen, ob der Kauf **exakt X (Max = 50) Mal** stattgefunden hat | **EXACTLY** | in den letzten **Y Days (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob der ausgegebene Gesamtbetrag in Dollar **größer als** eine **Zahl** ist | **GREATER THAN** | **NUMBER** |
+| Prüfen, ob der ausgegebene Gesamtbetrag in Dollar **kleiner als** eine **Zahl** ist | **LESS THAN** | **NUMBER** |
+| Prüfen, ob der ausgegebene Gesamtbetrag in Dollar **genau** einer **Zahl** entspricht | **EXACTLY** | **NUMBER** |
+| Prüfen, ob der letzte Kauf **nach Datum X** stattfand | **AFTER** | **TIME** |
+| Prüfen, ob der letzte Kauf **vor Datum X** stattfand | **BEFORE** | **TIME** |
+| Prüfen, ob der letzte Kauf **vor mehr als X Tagen** stattfand | **MORE THAN** | **TIME** |
+| Prüfen, ob der letzte Kauf **vor weniger als X Tagen** stattfand | **LESS THAN** | **TIME** |
+| Prüfen, ob der Kauf **mehr als X-mal (Max = 50)** stattfand | **MORE THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob der Kauf **weniger als X-mal (Max = 50)** stattfand | **LESS THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob der Kauf **genau X-mal (Max = 50)** stattfand | **EXACTLY** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kauf-Events / Umsatz-Tracking" }
 
 {% alert note %}
-Wenn Sie nach der Häufigkeit eines bestimmten Kaufs segmentieren möchten, sollten Sie diesen Kauf auch einzeln als [inkrementelles angepasstes Attribut](#integers) erfassen.
+Wenn Sie nach der Anzahl der Vorkommen eines bestimmten Kaufs segmentieren möchten, sollten Sie diesen Kauf zusätzlich einzeln als [inkrementierendes angepasstes Attribut](#integers) erfassen.
 {% endalert %}
 
 ## Anwendungsfall Taxi-/Mitfahr-App {#example-case}
@@ -295,77 +299,77 @@ Wenn Sie diese Attribute hinzufügen, haben Sie die Möglichkeit, Campaigns an N
 
 #### Event-Eigenschaften verwenden {#use-event-properties}
 
-- Benennen Sie ein angepasstes Event so, dass es eine Aktion beschreibt, die Nutzer:innen ausführen.
-- Machen Sie großzügigen Gebrauch von angepassten Event-Eigenschaften, um wichtige Daten zu einem Event darzustellen.
-- Anstatt z. B. für jeden von 50 verschiedenen Filmen ein eigenes angepasstes Event zu erfassen, wäre es effektiver, einfach das Ansehen eines Films als Event zu erfassen und eine Event-Eigenschaft zu haben, die den Namen des Films enthält.
+- Benennen Sie ein angepasstes Event so, dass es eine Aktion beschreibt, die ein:e Nutzer:in ausführt.
+- Nutzen Sie angepasste Event-Eigenschaften großzügig, um wichtige Daten über ein Event darzustellen.
+- Anstatt beispielsweise für jeden der 50 verschiedenen Filme ein separates angepasstes Event zu erfassen, wäre es effektiver, einfach das Ansehen eines Films als Event zu erfassen und eine Event-Eigenschaft zu verwenden, die den Namen des Films enthält.
 
 ### Best Practices für die Entwicklung {#development-best-practices}
 
 #### Nutzer-IDs für alle Nutzer:innen festlegen {#set-user-ids-for-every-user}
 
-Für alle Ihre Nutzer:innen sollten Nutzer-IDs festgelegt werden. Diese sollten unveränderlich und zugänglich sein, wenn Nutzer:innen die App öffnen. Wir **empfehlen dringend**, diesen Bezeichner anzugeben, da Sie damit folgende Möglichkeiten haben:
+Nutzer-IDs sollten für alle Ihre Nutzer:innen festgelegt werden. Diese sollten unveränderlich und zugänglich sein, wenn ein:e Nutzer:in die App öffnet. Wir **empfehlen dringend**, diesen Bezeichner bereitzustellen, da er Ihnen Folgendes ermöglicht:
 
-- Verfolgen Sie Ihre Nutzer:innen geräte- und plattformübergreifend und verbessern Sie so die Qualität Ihrer verhaltensbezogenen und demografischen Daten.
-- Importieren Sie Daten über Ihre Nutzer:innen mit unserer [Nutzerdaten-API]({{site.baseurl}}/api/endpoints/user_data).
-- Sprechen Sie bestimmte Nutzer:innen mit unserer [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) für allgemeine und transaktionsbezogene Nachrichten an.
+- Ihre Nutzer:innen geräte- und plattformübergreifend zu verfolgen und so die Qualität Ihrer Verhaltens- und demografischen Daten zu verbessern.
+- Daten über Ihre Nutzer:innen mithilfe unserer [Nutzerdaten-API]({{site.baseurl}}/api/endpoints/user_data) zu importieren.
+- Bestimmte Nutzer:innen mit unserer [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) sowohl für allgemeine als auch für transaktionale Nachrichten anzusprechen.
 
-Nutzer-IDs müssen weniger als 512 Zeichen lang sein und sollten privat und nicht leicht erhältlich sein (z. B. keine einfache E-Mail-Adresse oder kein Benutzername). Wenn ein solcher Bezeichner nicht verfügbar ist, weist Braze Ihren Nutzer:innen einen eindeutigen Bezeichner zu, aber Ihnen fehlen dann die für Nutzer-IDs aufgeführten Möglichkeiten. Sie sollten es vermeiden, Nutzer-IDs für Nutzer:innen festzulegen, für die Sie keinen eindeutigen Bezeichner haben, der mit ihnen als Individuum verbunden ist. Die Übergabe eines Gerätebezeichners bietet keinen Vorteil gegenüber dem automatischen anonymen Tracking, das Braze standardmäßig anbietet. Im Folgenden finden Sie einige Beispiele für geeignete und ungeeignete Nutzer-IDs.
+Nutzer-IDs müssen weniger als 512 Zeichen lang sein und sollten privat und nicht leicht zu ermitteln sein (z. B. keine einfache E-Mail-Adresse oder kein Nutzername). Wenn ein solcher Bezeichner nicht verfügbar ist, weist Braze Ihren Nutzer:innen einen eindeutigen Bezeichner zu, aber Ihnen fehlen die für Nutzer-IDs aufgeführten Funktionen. Sie sollten es vermeiden, Nutzer-IDs für Nutzer:innen festzulegen, für die Sie keinen eindeutigen Bezeichner haben, der an sie als Individuum gebunden ist. Die Übergabe eines Gerätebezeichners bietet keinen Vorteil gegenüber dem automatischen anonymen Nutzer:innen-Tracking, das Braze standardmäßig anbietet. Im Folgenden finden Sie einige Beispiele für geeignete und ungeeignete Nutzer-IDs.
 
 Gute Optionen für Nutzer-IDs:
 
-- Gehashte E-Mail-Adresse oder eindeutiger Benutzername
+- Gehashte E-Mail-Adresse oder eindeutiger Nutzername
 - Eindeutiger Datenbankbezeichner
 
 Diese sollten nicht als Nutzer-IDs verwendet werden:
 
 - Geräte-ID
 - Zufallszahl oder Sitzungs-ID
-- Jede nicht eindeutige ID
+- Jede nicht-eindeutige ID
 - E-Mail-Adresse
 - Nutzer-ID eines anderen Drittanbieters
 
 {% multi_lang_include alerts/important_alerts.md alert='SDK auth' %}
 
-#### Geben Sie angepassten Events und Attributen lesbare Namen {#give-custom-events-and-attributes-readable-names}
+#### Angepassten Events und Attributen lesbare Namen geben {#give-custom-events-and-attributes-readable-names}
 
-Stellen Sie sich vor, Sie sind ein Marketer, der ein oder zwei Jahre nach der Implementierung mit der Nutzung von Braze beginnt. Eine Dropdown-Liste voller Namen wie „usr_no_acct“ ohne weiteren Kontext kann einschüchternd wirken. Wenn Sie Ihren Events und Attributen identifizierbare und lesbare Namen geben, wird es für alle Nutzer:innen Ihrer Plattform einfacher. Beachten Sie die folgenden Best Practices:
+Stellen Sie sich vor, Sie sind ein:e Marketer, der/die ein oder zwei Jahre nach der Implementierung mit der Nutzung von Braze beginnt. Eine Dropdown-Liste voller Namen wie „usr_no_acct“ ohne weiteren Kontext zu lesen, kann einschüchternd sein. Wenn Sie Ihren Events und Attributen identifizierbare und lesbare Namen geben, wird es für alle Nutzer:innen Ihrer Plattform einfacher. Beachten Sie die folgenden Best Practices:
 
-- Beginnen Sie ein angepasstes Event nicht mit einem numerischen Zeichen. Die Dropdown-Liste ist alphabetisch sortiert, und ein numerisches Zeichen am Anfang erschwert die Segmentierung nach dem gewünschten Filter.
-- Versuchen Sie, möglichst keine obskuren Abkürzungen oder Fachausdrücke zu verwenden.
-  - Beispiel: `usr_ctry` mag als Variablenname für das Land von Nutzer:innen innerhalb eines Codes in Ordnung sein, aber das angepasste Attribut sollte als `user_country` an Braze gesendet werden, um Marketern, die das Dashboard später verwenden, mehr Klarheit zu verschaffen.
+- Beginnen Sie ein angepasstes Event nicht mit einem numerischen Zeichen. Die Dropdown-Liste ist alphabetisch sortiert, und ein Anfang mit einem numerischen Zeichen erschwert die Segmentierung nach dem gewünschten Filter.
+- Versuchen Sie, nach Möglichkeit keine unverständlichen Abkürzungen oder Fachjargon zu verwenden.
+  - Beispiel: `usr_ctry` mag als Variablenname für das Land eines Nutzers/einer Nutzerin in einem Stück Code in Ordnung sein, aber das angepasste Attribut sollte als etwas wie `user_country` an Braze gesendet werden, um einem/einer Marketer, der/die das Dashboard später nutzt, mehr Klarheit zu bieten.
 
-#### Nur Attribute protokollieren, wenn sie sich ändern {#only-log-attributes-when-they-change}
+#### Attribute nur protokollieren, wenn sie sich ändern {#only-log-attributes-when-they-change}
 
-Wir zählen jedes an Braze übergebene Attribut als Datenpunkt, auch wenn das übergebene Attribut denselben Wert enthält wie zuvor gespeichert. Wenn Sie Daten nur dann protokollieren, wenn sie sich ändern, vermeiden Sie die redundante Verwendung von Datenpunkten und sorgen durch die Vermeidung unnötiger API-Aufrufe für eine reibungslosere Nutzung.
+Wir zählen jedes an Braze übergebene Attribut als Datenpunkt, auch wenn das übergebene Attribut denselben Wert wie der zuvor gespeicherte enthält. Daten nur bei Änderungen zu protokollieren hilft, redundante Datenpunkt-Nutzung zu vermeiden, und unterstützt ein reibungsloseres Erlebnis, indem unnötige API-Aufrufe vermieden werden.
 
-#### Vermeiden Sie die programmatische Erzeugung von Event-Namen {#avoid-programmatically-generating-event-names}
+#### Programmatisches Generieren von Event-Namen vermeiden {#avoid-programmatically-generating-event-names}
 
-Wenn Sie ständig neue Event-Namen erstellen, wird es unmöglich sein, Ihre Nutzer:innen sinnvoll zu segmentieren. Sie sollten in der Regel allgemeine Events erfassen („Video angesehen“ oder „Artikel gelesen“) und keine hochspezifischen Events wie „Gangnam Style angesehen“ oder „Artikel gelesen: Die 10 besten Orte zum Mittagessen in Midtown Manhattan“. Die spezifischen Daten zum Event sollten als Event-Eigenschaft und nicht als Teil des Event-Namens enthalten sein.
+Wenn Sie ständig neue Event-Namen erstellen, wird es unmöglich sein, Ihre Nutzer:innen sinnvoll zu segmentieren. Sie sollten generell generische Events erfassen (z. B. „Video angesehen“ oder „Artikel gelesen“) anstelle von hochspezifischen Events wie „Gangnam Style angesehen“ oder „Artikel gelesen: Die 10 besten Mittagslokale in Midtown Manhattan“. Die spezifischen Daten über das Event sollten als Event-Eigenschaft und nicht als Teil des Event-Namens enthalten sein.
 
-### Technische Beschränkungen und Bedingungen {#technical-limitations-and-constraints}
+### Technische Einschränkungen und Beschränkungen {#technical-limitations-and-constraints}
 
-Beachten Sie bei der Implementierung angepasster Events die folgenden Beschränkungen und Bedingungen:
+Beachten Sie die folgenden Einschränkungen und Beschränkungen bei der Implementierung angepasster Events:
 
 #### Längenbeschränkungen {#length-constraints}
 
-Braze legt eine Längenbeschränkung in Bytes (479 Bytes) für Namen angepasster Events, Namen angepasster Attribute (Schlüssel) und String-Werte angepasster Events fest. Werte, die diesen Grenzwert überschreiten, werden abgeschnitten. In Zeichen ausgedrückt entspricht dies etwa 479 Einzelbyte-Zeichen (z. B. ASCII) oder etwa 160 Zeichen für Mehrbyte-Schriften wie Japanisch (unter der Annahme von etwa 3 Bytes pro Zeichen in UTF-8). Idealerweise sollten Namen und Werte so kurz wie möglich gehalten werden, um die Netzwerk- und Batterie-Performance Ihrer App zu verbessern – wenn möglich, beschränken Sie sie auf 50 Zeichen.
+Braze erzwingt eine Längenbegrenzung in Bytes (479 Bytes) für Namen angepasster Events, Namen angepasster Attribute (Schlüssel) und String-Werte angepasster Events. Werte, die dieses Limit überschreiten, werden abgeschnitten. In Zeichen ausgedrückt entspricht dies ungefähr 479 Einzelbyte-Zeichen (z. B. ASCII) oder ungefähr 160 Zeichen für Mehrbyte-Schriften wie Japanisch (bei etwa 3 Bytes pro Zeichen in UTF-8). Idealerweise sollten Namen und Werte so kurz wie möglich gehalten werden, um die Netzwerk- und Akku-Performance Ihrer App zu verbessern – begrenzen Sie sie nach Möglichkeit auf 50 Zeichen.
 
-#### Inhaltliche Beschränkungen {#content-constraints}
+#### Inhaltsbeschränkungen {#content-constraints}
 
-Die folgenden Inhalte werden programmgesteuert aus Ihren Attributen und Events entfernt. Achten Sie darauf, Folgendes nicht zu verwenden:
+Die folgenden Inhalte werden programmatisch aus Ihren Attributen und Events entfernt. Achten Sie darauf, Folgendes nicht zu verwenden:
 
 - Führende und nachgestellte Leerzeichen
 - Zeilenumbrüche
-- Zeichen, die keine Ziffern sind, in Telefonnummern
-  - Beispiel: „(732) 178-1038“ wird zu „7321781038“ verkürzt
-- Zeichen ohne Leerzeichen müssen in Leerzeichen umgewandelt werden
+- Alle Nicht-Ziffern in Telefonnummern
+  - Beispiel: „(732) 178-1038“ wird zu „7321781038“ zusammengefasst
+- Nicht-Leerzeichen müssen in Leerzeichen umgewandelt werden
 - $ sollte nicht als Präfix für angepasste Events verwendet werden
 - Alle ungültigen UTF-8-Kodierungswerte
-  -  „Mein \x80 Feld“ würde zu „Mein Feld“ verkürzt werden
+  - „My \x80 Field“ wird zu „My Field“ zusammengefasst
 
 #### Reservierte Schlüssel {#reserved-keys}
 
-Die folgenden Schlüssel sind reserviert und können nicht als angepasste Event-Eigenschaften verwendet werden:
+Die folgenden Schlüssel sind reserviert und können nicht als Eigenschaften angepasster Events verwendet werden:
 
 - `time`
 - `product_id`
@@ -376,9 +380,9 @@ Die folgenden Schlüssel sind reserviert und können nicht als angepasste Event-
 
 #### Wertdefinitionen {#value-definitions}
 
-- Ganzzahlige Werte sind 64 Bit
+- Ganzzahlwerte sind 64 Bit
 - Dezimalzahlen haben standardmäßig 15 Dezimalstellen
 
-### Parsen eines generischen Namensfeldes {#parsing-a-generic-name-field}
+### Parsen eines generischen Namensfelds {#parsing-a-generic-name-field}
 
-Wenn für Nutzer:innen nur ein einziges generisches Namensfeld existiert (z. B. „JohnDoe“), können Sie diesen gesamten Titel dem Vornamen-Attribut zuordnen. Sie können auch versuchen, sowohl den Vor- als auch den Nachnamen mithilfe von Leerzeichen zu parsen, aber diese Methode birgt das Risiko, dass einige Ihrer Nutzer:innen falsch benannt werden.
+Wenn für eine:n Nutzer:in nur ein einzelnes generisches Namensfeld vorhanden ist (z. B. „JohnDoe“), können Sie diesen gesamten Titel dem Vornamen-Attribut Ihres Nutzers/Ihrer Nutzerin zuweisen. Zusätzlich können Sie versuchen, sowohl den Vor- als auch den Nachnamen des Nutzers/der Nutzerin anhand von Leerzeichen zu parsen, aber diese letztere Methode birgt das potenzielle Risiko, einige Ihrer Nutzer:innen falsch zu benennen.

@@ -17,13 +17,7 @@ Los eventos personalizados son acciones realizadas por tus usuarios o actualizac
 
 Algunos casos habituales de uso de eventos personalizados incluyen:
 
-- Desencadenar una Campaign o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
-- Segmentar usuarios por cuántas veces realizaron un evento personalizado, cuándo fue la última vez que ocurrió el evento, y similares
-- Usar los [análisis de eventos personalizados](#analytics) del panel para ver un agregado de la frecuencia con la que ocurrió cada evento
-- Encontrar análisis adicionales usando informes de [embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) y [retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)
-- Aprovechar las [propiedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) para usar metadatos de tu evento de cliente para la personalización en tus pasos en Canvas
-- Generar análisis más sofisticados con [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
-- Configurar [criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) para definir cuándo los usuarios deben salir de tu Canvas
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Administrar eventos personalizados {#managing-custom-events}
 
@@ -37,9 +31,7 @@ Puedes bloquear eventos personalizados individuales a través del menú de accio
 
 Cuando bloqueas un evento personalizado:
 
-- No se recopilarán datos futuros para ese evento.
-- Los datos existentes no estarán disponibles a menos que se desbloquee ese evento.
-- Ese evento no aparecerá en filtros ni gráficos.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 Además, si un evento personalizado bloqueado está actualmente referenciado por filtros o desencadenadores en otras áreas de Braze, aparecerá un modal de advertencia explicando que todas las instancias de los filtros o desencadenadores que lo referencian serán eliminadas y archivadas.
 
@@ -63,7 +55,7 @@ No existe un límite fijo en el panel sobre cuántos **eventos personalizados** 
 
 ## Ver informes de uso {#viewing-usage-reports}
 
-El informe de uso enumera todos los Canvas, Campaigns y Segments que utilizan un evento personalizado específico. Esta lista no incluye usos de Liquid.
+El informe de uso enumera todos los Canvas, Campaigns y segmentos que utilizan un evento personalizado específico. Esta lista no incluye usos de Liquid.
 
 Puedes ver hasta 100 informes de uso a la vez seleccionando las casillas de verificación junto a los eventos personalizados correspondientes y luego seleccionando **Ver informe de uso**.
 

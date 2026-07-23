@@ -122,11 +122,13 @@ Em seguida, você pode usar essas informações para exibir um emblema que indic
 
 O exemplo a seguir usa `braze.contentCards` para solicitar e exibir o número de Content Cards não lidos. Depois que o app é fechado e a sessão do usuário termina, esse código solicita uma contagem de cartões, filtrando o número de cartões com base na propriedade `viewed`.
 
+Apps que adotaram o [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) (obrigatório para apps compilados com [Xcode 27 e posterior](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)) devem implementar isso em `sceneDidEnterBackground(_:)` do `SceneDelegate.swift` em vez de `applicationDidEnterBackground(_:)` do `AppDelegate.swift`.
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 Nesse método, implemente o seguinte código, que atualiza ativamente a contagem de emblemas enquanto o usuário visualiza os cartões durante uma determinada sessão:
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 Nesse método, implemente o seguinte código, que atualiza ativamente a contagem de emblemas enquanto o usuário visualiza os cartões durante uma determinada sessão:

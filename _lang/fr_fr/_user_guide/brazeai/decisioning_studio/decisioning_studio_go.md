@@ -11,11 +11,11 @@ description: "Découvrez comment configurer et intégrer BrazeAI Decisioning Stu
 
 ## À propos de Decisioning Studio Go {#about-decisioning-studio-go}
 
-Decisioning Studio Go est un agent décisionnel IA pour les programmes d'e-mails récurrents. Au lieu de choisir une seule ligne d'objet gagnante, un seul horaire d'envoi ou une seule image pour l'ensemble de l'audience, l'agent sélectionne la meilleure combinaison pour chaque destinataire en fonction de son engagement passé.
+Decisioning Studio Go est un agent décisionnel basé sur l'IA pour les programmes d'e-mails récurrents. Au lieu de choisir une seule ligne d'objet gagnante, un seul horaire d'envoi ou une seule image pour l'ensemble de l'audience, l'agent sélectionne la meilleure combinaison pour chaque destinataire en fonction de son engagement passé.
 
-Vous définissez les variantes parmi lesquelles l'agent peut choisir, telles que les lignes d'objet, les CTA, les images, les jours d'envoi et les horaires d'envoi. Pour chaque utilisateur de votre segment, l'agent sélectionne l'option la plus susceptible de générer de l'engagement, dans le cadre des contraintes et de la planification que vous configurez.
+Vous définissez les variantes parmi lesquelles l'agent peut choisir — lignes d'objet, CTA, images, jours d'envoi et horaires d'envoi. Pour chaque utilisateur de votre segment, l'agent sélectionne l'option la plus susceptible de générer de l'engagement, dans le cadre des contraintes et de la planification que vous configurez.
 
-Cela diffère du test A/B au niveau de la campagne ou de la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), qui optimisent une seule variante pour l'ensemble de l'audience. Decisioning Studio Go personnalise au niveau individuel pour chaque envoi du programme.
+Cela diffère du test A/B au niveau de la Campaign ou de la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), qui optimisent une seule variante pour l'ensemble de l'audience. Decisioning Studio Go personnalise au niveau individuel pour chaque envoi du programme.
 
 ### Comment ça fonctionne {#how-it-works}
 

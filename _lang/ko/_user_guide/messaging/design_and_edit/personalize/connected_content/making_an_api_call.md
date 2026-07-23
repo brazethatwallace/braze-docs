@@ -4,6 +4,7 @@ article_title: 연결된 콘텐츠 API 호출하기
 page_order: 0
 description: "이 참조 문서에서는 연결된 콘텐츠 API 호출 방법과 유용한 예제 및 고급 연결된 콘텐츠 사용 사례를 다룹니다."
 search_rank: 2
+toc_headers: h2
 ---
 
 # [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}연결된 콘텐츠 API 호출하기 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomconnected-content-stylefloatrightwidth120pxborder0-classnoimgbordermake-a-connected-content-api-call}
@@ -24,7 +25,7 @@ Braze는 수신자당 동일한 연결된 콘텐츠 API 호출을 두 번 이상
 
 로그에서 발송 수 또는 수신자 수보다 더 많은 연결된 콘텐츠 호출이 보인다면, 이는 예상되는 동작입니다. 부하를 줄이고 확장을 계획하는 방법에 대한 안내는 [대용량 엔드포인트 모범 사례](#best-practices-for-high-volume-endpoints)를 참조하세요.
 
-## 연결된 콘텐츠 호출 보내기 {#sending-a-connected-content-call}
+## 연결된 콘텐츠 호출 보내기 {#send-a-connected-content-call}
 
 {% raw %}
 
@@ -37,7 +38,7 @@ Braze는 수신자당 동일한 연결된 콘텐츠 API 호출을 두 번 이상
 Hi there, here is some fun trivia for you!: {{result.text}}
 ```
 
-### 변수 추가하기 {#adding-variables}
+### 변수 추가하기 {#add-variables}
 
 연결된 콘텐츠 요청을 할 때 URL 문자열에 고객 프로필 속성을 변수로 포함할 수도 있습니다.
 
@@ -162,7 +163,7 @@ Braze 연결된 콘텐츠를 사용할 때, 특정 API가 사용자 이름과 �
 ```
 {% endraw %}
 
-### Open Authentication(OAuth) 사용 {#using-open-authentication-oauth}
+### Open Authentication(OAuth) 사용 {#use-open-authentication-oauth}
 
 일부 API 구성에서는 접근하려는 API 엔드포인트를 인증하는 데 사용할 수 있는 액세스 토큰을 검색해야 합니다.
 
@@ -239,7 +240,16 @@ Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
 
 ## 문제 해결 {#troubleshooting}
 
-[Webhook.site](https://webhook.site/)를 사용하여 연결된 콘텐츠 호출을 문제 해결하고 호출에서 전송되는 요청 헤더, 요청 본문 및 기타 정보와 관련된 문제를 진단하세요.
+연결된 콘텐츠 호출이 올바르게 렌더링되지 않거나 전혀 렌더링되지 않는 경우, 다음 사항을 확인하세요.
+
+- **연결된 콘텐츠 호출이 수행되었는지 확인:** [메시징 기록 탭]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab)에서 호출이 수행되었는지 확인할 수 있습니다. 단일 연결된 콘텐츠 요청을 테스트 발송할 수도 있습니다.
+- **Postman 또는 CURL 요청을 통해 이상적인 요청이 성공하는지 확인:** 요청이 작동하고 응답을 반환하면, 요청을 세부적으로(헤더 포함) 비교하세요. 헤더가 큰따옴표가 있는 키-값 페어로 캡처되었는지 확인하세요.
+- **인증이 올바르게 처리되는지 확인:** `:basic_auth`/`:auth_credentials` 옵션이 사용되었고 연결된 콘텐츠 워크스페이스 설정에 연결된 콘텐츠 인증이 추가되었는지 확인하세요. 때때로 연결된 콘텐츠 URL에는 인증 외에 입력해야 하는 헤더가 필요합니다.
+- **데이터가 예상 형식인지 확인:** 응답 본문의 경우, Braze는 유효한 JSON을 Liquid 오브젝트로 파싱합니다. 그렇지 않으면 응답은 일반 텍스트(HTML 포함)로 처리됩니다. `:content_type` 옵션은 요청의 아웃바운드 `Content-Type` 및 `Accept` 헤더를 설정하며 응답 파싱에는 영향을 미치지 않습니다. 요청 `:body`의 경우, JSON에 공백이 포함되어 있으면 [JSON 본문 제공]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body) 섹션의 안내를 따르세요.
+- **데이터가 올바르게 파싱되었는지 확인:** Liquid가 예상 필드를 올바르게 참조하고 있는지 확인하세요. 중첩된 JSON의 경우, {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %}를 사용하여 의도한 중첩 필드를 가리키세요. {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}로 예상 결과를 출력하여 중첩된 JSON 속성을 확인할 수 있습니다.
+- **응답 상태 코드 확인:** 응답 상태 코드는 `2XX` 코드여야 합니다. 연결된 콘텐츠는 코드가 `2XX`가 아닌 경우 응답을 소비할 방법이 없습니다.
+
+[Webhook.site](https://webhook.site/)를 사용하여 연결된 콘텐츠 호출을 문제 해결하고 호출에서 전송되는 요청 헤더, 요청 본문 및 기타 정보와 관련된 문제를 진단할 수도 있습니다.
 
 1. 연결된 콘텐츠 호출의 URL을 사이트에서 생성된 고유 URL로 전환합니다.
 2. Campaign 또는 캔버스 단계를 미리보기 및 테스트하여 이 웹사이트로 들어오는 요청을 확인합니다.

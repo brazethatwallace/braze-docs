@@ -4,6 +4,7 @@ article_title: Connected-Content-API-Aufruf durchführen
 page_order: 0
 description: "Dieser Referenzartikel behandelt, wie Sie einen Connected-Content-API-Aufruf durchführen, einschließlich hilfreicher Beispiele und fortgeschrittener Connected-Content-Anwendungsfälle."
 search_rank: 2
+toc_headers: h2
 ---
 
 # [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}Connected-Content-API-Aufruf durchführen {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomconnected-content-stylefloatrightwidth120pxborder0-classnoimgbordermake-a-connected-content-api-call}
@@ -24,7 +25,7 @@ Braze kann denselben Connected-Content-API-Aufruf pro Empfänger:in mehr als ein
 
 Wenn Sie in Ihren Logs mehr Connected-Content-Aufrufe als Versendungen oder Empfänger:innen sehen, ist dieses Verhalten erwartungsgemäß. Hinweise zur Reduzierung der Last und zur Skalierungsplanung finden Sie unter [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints).
 
-## Einen Connected-Content-Aufruf senden {#sending-a-connected-content-call}
+## Einen Connected-Content-Aufruf senden {#send-a-connected-content-call}
 
 {% raw %}
 
@@ -37,7 +38,7 @@ Zum Beispiel greift der folgende Nachrichtentext auf die URL `http://numbersapi.
 Hi there, here is some fun trivia for you!: {{result.text}}
 ```
 
-### Variablen hinzufügen {#adding-variables}
+### Variablen hinzufügen {#add-variables}
 
 Sie können auch Nutzerprofil-Attribute als Variablen in den URL-String einfügen, wenn Sie Connected-Content-Anfragen stellen.
 
@@ -162,7 +163,7 @@ Sie können diese Zugangsdaten dann in Ihren API-Aufrufen verwenden, indem Sie d
 ```
 {% endraw %}
 
-### Open Authentication (OAuth) verwenden {#using-open-authentication-oauth}
+### Open Authentication (OAuth) verwenden {#use-open-authentication-oauth}
 
 Einige API-Konfigurationen erfordern das Abrufen eines Zugriffstokens, das dann zur Authentifizierung des API-Endpunkts verwendet werden kann, auf den Sie zugreifen möchten.
 
@@ -215,7 +216,7 @@ Sie können den Namen der Zugangsdaten für Authentifizierungstypen bearbeiten.
 - Für die Token-Authentifizierung können Sie die Header-Schlüssel-Wert-Paare und die zulässige Domain aktualisieren. Beachten Sie, dass die zuvor festgelegten Header-Werte nicht sichtbar sein werden.
 
 
-## Connected-Content-IP-Allowlisting {#connected-content-ip-allowlisting}
+## Connected-Content-IP-Allowlisting
 
 Wenn eine Nachricht mit Connected-Content von Braze gesendet wird, stellen die Braze-Server automatisch Netzwerkanfragen an die Server unserer Kund:innen oder Drittanbieter, um Daten abzurufen. Mit IP-Allowlisting können Sie überprüfen, ob Connected-Content-Anfragen tatsächlich von Braze stammen, was eine zusätzliche Sicherheitsebene hinzufügt.
 
@@ -225,7 +226,7 @@ Braze verfügt über einen reservierten Satz von IPs, die für alle Dienste verw
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
-### `User-Agent`-Header {#user-agent-header}
+### `User-Agent`-Header
 
 Braze fügt allen Connected-Content- und Webhook-Anfragen einen `User-Agent`-Header hinzu, der dem folgenden ähnelt:
 
@@ -239,7 +240,16 @@ Beachten Sie, dass sich der Hash-Wert regelmäßig ändert. Wenn Sie den Datenve
 
 ## Fehlerbehebung {#troubleshooting}
 
-Verwenden Sie [Webhook.site](https://webhook.site/), um Ihre Connected-Content-Aufrufe zu debuggen und Probleme mit den Anfrage-Headern, dem Anfrage-Body und anderen Informationen zu diagnostizieren, die im Aufruf gesendet werden.
+Wenn Ihr Connected-Content-Aufruf nicht korrekt oder gar nicht gerendert wird, prüfen Sie die folgenden Details:
+
+- **Bestätigen Sie, dass ein Connected-Content-Aufruf durchgeführt wurde:** Sie können im [Tab „Messaging-Verlauf“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab) prüfen, ob ein Aufruf durchgeführt wurde. Sie können auch einen einzelnen Connected-Content-Aufruf als Testversand senden.
+- **Überprüfen Sie über Postman oder eine CURL-Anfrage, ob die gewünschte Anfrage erfolgreich ist:** Wenn die Anfrage funktioniert und eine Antwort zurückgibt, vergleichen Sie die Anfrage im Detail (einschließlich Header). Bestätigen Sie, dass die Header in Schlüssel-Wert-Paaren mit doppelten Anführungszeichen erfasst sind.
+- **Überprüfen Sie, ob die Autorisierung korrekt gehandhabt wird:** Bestätigen Sie, dass die Option `:basic_auth`/`:auth_credentials` verwendet wird und die Connected-Content-Autorisierung zu den Connected-Content-Workspace-Einstellungen hinzugefügt wurde. Manchmal erfordert die Connected-Content-URL Header über die Authentifizierung hinaus, die eingegeben werden müssen.
+- **Überprüfen Sie, ob die Daten im erwarteten Format vorliegen:** Für den Antwort-Body parst Braze gültiges JSON in ein Liquid-Objekt; andernfalls wird die Antwort als Nur-Text (einschließlich HTML) behandelt. Die Option `:content_type` setzt die ausgehenden `Content-Type`- und `Accept`-Header Ihrer Anfrage und beeinflusst nicht das Parsen der Antwort. Für den Anfrage-`:body`: Wenn Ihr JSON Leerzeichen enthält, folgen Sie der Anleitung im Abschnitt [JSON-Body bereitstellen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body).
+- **Bestätigen Sie, dass die Daten korrekt geparst wurden:** Prüfen Sie, ob das Liquid korrekt auf das erwartete Feld verweist. Für verschachteltes JSON verwenden Sie {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %}, um auf das beabsichtigte verschachtelte Feld zu verweisen. Sie können die verschachtelten JSON-Eigenschaften überprüfen, indem Sie das erwartete Ergebnis mit {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %} ausgeben.
+- **Prüfen Sie den Antwort-Statuscode:** Der Antwort-Statuscode muss ein `2XX`-Code sein. Connected-Content kann die Antwort nicht verarbeiten, wenn der Code nicht `2XX` ist.
+
+Sie können auch [Webhook.site](https://webhook.site/) verwenden, um Ihre Connected-Content-Aufrufe zu debuggen und Probleme mit den Anfrage-Headern, dem Anfrage-Body und anderen Informationen zu diagnostizieren, die im Aufruf gesendet werden.
 
 1. Ersetzen Sie die URL in Ihrem Connected-Content-Aufruf durch die eindeutige URL, die auf der Website generiert wurde.
 2. Zeigen Sie eine Vorschau an und testen Sie Ihre Campaign oder Ihren Canvas-Schritt, um die Anfragen auf dieser Website einzusehen.

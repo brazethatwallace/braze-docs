@@ -56,7 +56,7 @@ La valeur `payload` suit les mêmes formats d'objets utilisés par l'endpoint Br
 
 | Type de données | Référence de formatage |
 | --- | --- |
-| `attributes` | [Objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `attributes` | [Objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | [Objet d'événements]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | [Objet d'achats]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer la colonne payload" }

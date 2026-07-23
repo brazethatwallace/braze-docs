@@ -3,7 +3,7 @@ nav_title: Intelligentes Timing
 article_title: Intelligentes Timing
 page_order: 1.3
 description: "Dieser Artikel gibt Ihnen einen Überblick über intelligentes Timing (früher Intelligenter Versand) und wie Sie dieses Feature in Ihren Campaigns und Canvases nutzen können."
-
+toc_headers: h2
 ---
 
 # [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligentes Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
@@ -25,7 +25,7 @@ So öffnet Sam vielleicht morgens regelmäßig Ihre E-Mails, aber abends öffnet
 
 Wenn für eine:n Nutzer:in keine relevanten Engagement-Daten vorliegen, anhand derer Braze den optimalen Versandzeitpunkt berechnen kann, können Sie einen Fallback-Zeitpunkt festlegen.
 
-## Anwendungsfälle {#use-cases}
+## Anwendungsfälle {#examples}
 
 - Senden Sie wiederkehrende Campaigns, die nicht zeitkritisch sind
 - Automatisieren Sie Campaigns mit Nutzer:innen aus verschiedenen Zeitzonen
@@ -247,7 +247,7 @@ Intelligentes Timing plant Nachrichten während der „engagiertesten Stunde“ 
 
 Wenn für eine:n Nutzer:in keine relevanten Ereignisse vorliegen, verwendet intelligentes Timing die in Ihren Nachrichteneinstellungen konfigurierte Fallback-Einstellung – entweder eine benutzerdefinierte Fallback-Zeit oder die beliebteste Zeit für die Nutzung der App unter allen Nutzer:innen.
 
-### Campaigns {#campaigns}
+### Campaigns
 
 #### Wie weit im Voraus sollte ich eine Campaign mit intelligentem Timing starten, um sie erfolgreich an alle Nutzer:innen in allen Zeitzonen zuzustellen? {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
 

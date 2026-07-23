@@ -47,6 +47,13 @@ La vérification d'entreprise est un concept WhatsApp utilisé pour s'assurer qu
 #### Qu'est-ce qu'un compte professionnel officiel ? {#what-is-an-official-business-account}
 L'OBA (Official Business Account) vous donne la coche verte à côté de votre nom d'affichage et est optionnel. Vous pouvez demander un compte professionnel officiel après avoir complété la vérification d'entreprise. Notez que la vérification d'entreprise et le compte professionnel officiel sont des concepts WhatsApp différents.
 
+#### Pourquoi mon nom d'affichage WhatsApp Business pourrait-il être rejeté ? {#why-might-my-whatsapp-business-display-name-be-rejected}
+Les rejets de noms d'affichage WhatsApp Business sont régis par Meta. Si votre nom d'affichage est rejeté, consultez les [directives de WhatsApp sur les noms d'affichage](https://faq.whatsapp.com/793641088597363) pour connaître leurs recommandations.
+
+Si votre nom d'affichage respecte les directives et est toujours rejeté, Braze ne peut pas voir les raisons spécifiques. Cependant, la raison la plus courante de rejet est que la présence en ligne de l'entreprise est trop faible, ou que l'entreprise commercialise des [produits réglementés ou restreints](https://business.whatsapp.com/policy#further-guidance).
+
+Pour des conseils supplémentaires sur les rejets de noms d'affichage, consultez les [ressources Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
+
 ### Numéros de téléphone du compte WhatsApp Business {#whatsapp-business-account-phone-numbers}
 
 #### Ai-je besoin d'un numéro de téléphone pour mon compte WhatsApp Business ? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}

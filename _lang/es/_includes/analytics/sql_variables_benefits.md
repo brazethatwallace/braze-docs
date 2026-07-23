@@ -1,0 +1,3 @@
+- Ahorra tiempo creando una variable de Campaign para seleccionar de una lista al crear tu informe, en lugar de pegar ID de Campaign.
+- Intercambia valores agregando variables que te permitan reutilizar el informe para ejemplos ligeramente diferentes en el futuro (como un evento personalizado diferente).
+- Reduce los errores de usuario al editar tu SQL disminuyendo la cantidad de edición necesaria para cada informe. Los compañeros de equipo que se sientan más cómodos con SQL pueden crear informes que luego pueden usar los compañeros menos técnicos.

@@ -58,13 +58,7 @@ En este paso, transformas la carga útil del webhook que se envía desde Typefor
 
 Este valor de retorno debe ajustarse al formato del cuerpo de la solicitud `/users/track` de Braze:
 
-- El código de transformación se acepta en el lenguaje de programación JavaScript. Se admite cualquier flujo de control estándar de JavaScript, como la lógica if/else.
-- El código de transformación accede al cuerpo de la solicitud del webhook a través de la variable payload. Esta variable es un objeto que se rellena al analizar el JSON del cuerpo de la solicitud.
-- Se admite cualquier característica de nuestro punto de conexión `/users/track`, incluidos:
-    - Objetos de atributos de usuario, objetos de evento y objetos de compra
-    - Atributos anidados y propiedades anidadas de eventos personalizados
-    - Actualizaciones de grupos de suscripción
-    - Dirección de correo electrónico como identificador
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Ejemplo de carga útil de webhook de Typeform {#example-typeform-webhook-payload}
 
@@ -322,18 +316,18 @@ Content-Type: application/json
 }
 ```
 
-## Casos de uso de Transformación de datos {#data-transformation-use-cases}
+## Ejemplos de Transformación de datos {#data-transformation-use-cases}
 
-Las siguientes son plantillas de ejemplo creadas utilizando nuestro [ejemplo de carga útil de webhook de Typeform](#example-typeform-webhook-payload). Estas plantillas pueden servirte de punto de partida. Puedes empezar desde cero o eliminar componentes específicos según te convenga.
+Las siguientes son plantillas de ejemplo creadas a partir de nuestro [ejemplo de carga útil de webhook de Typeform](#example-typeform-webhook-payload). Estas plantillas pueden servirte de punto de partida. Puedes empezar desde cero o eliminar componentes específicos según te convenga.
 
 En estas plantillas de ejemplo, estamos registrando un evento personalizado en el perfil de Braze. El título del Typeform se pasa como nombre del evento personalizado, y los resultados del Typeform se pasan como propiedades del evento. Estas plantillas de ejemplo no tienen en cuenta los tipos de pregunta Calendly, carga de archivos o pago en Typeform.
 
-### Caso de uso: correo electrónico como identificador {#use-case-email-as-identifier}
+### Ejemplo: correo electrónico como identificador {#use-case-email-as-identifier}
 
 En esta plantilla de ejemplo, utilizamos una dirección de correo electrónico (capturada de una pregunta de dirección de correo electrónico dentro del typeform) como identificador.
 
 {% alert note %}
-Si tienes intención de utilizar una dirección de correo electrónico como identificador, consulta nuestras [preguntas frecuentes]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) sobre el punto de conexión `/users/track` para obtener más información sobre el comportamiento esperado.
+Si tienes intención de utilizar una dirección de correo electrónico como identificador, consulta nuestras [preguntas frecuentes]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) sobre el endpoint `/users/track` para obtener más información sobre el comportamiento esperado.
 {% endalert %}
 
 {% tabs local %}
@@ -470,7 +464,7 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Caso de uso: usar un identificador pasado en campos ocultos {#use-case-using-identifier-passed-in-hidden-fields}
+### Ejemplo: usar un identificador pasado en campos ocultos {#use-case-using-identifier-passed-in-hidden-fields}
 
 Puedes utilizar los campos ocultos de Typeform para pasar datos en la carga útil del webhook de Typeform, como el ID de un usuario, sin tener que pasar esta información en la respuesta de Typeform.
 

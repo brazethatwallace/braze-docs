@@ -35,7 +35,7 @@ Ten en cuenta que el "ratio de créditos" referenciado en esta página se define
 
 ## Detalles del canal de correo electrónico {#email-channel-details}
 
-Los ratios de créditos de correo electrónico se denominan en incrementos de mil correos electrónicos enviados (CPM) desde la plataforma Braze.
+Los ratios de créditos de correo electrónico se expresan en incrementos de mil correos electrónicos enviados (CPM) desde la plataforma Braze.
 
 {% alert note %}
 Consulta nuestra [documentación de correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email) para obtener más información sobre nuestro canal de correo electrónico.
@@ -43,7 +43,7 @@ Consulta nuestra [documentación de correo electrónico]({{site.baseurl}}/user_g
 
 ## Detalles de los canales SMS, MMS y RCS {#sms-mms-and-rcs-channel-details}
 
-Los ratios de créditos de SMS y MMS se denominan en incrementos de segmentos enviados desde la plataforma Braze. Los ratios de créditos de RCS se denominan en incrementos de tipos Basic y Rich Media, o tipos Single y Rich Media entregados desde la plataforma Braze. Tanto los tipos de entrada como los de salida se facturan.
+Los ratios de créditos de SMS y MMS se expresan en incrementos de segmentos enviados desde la plataforma Braze. Los ratios de créditos de RCS se expresan en incrementos de tipos Basic y Rich Media, o tipos Single y Rich Media entregados desde la plataforma Braze. Tanto los tipos de entrada como los de salida se facturan.
 
 {% alert note %}
 Cuando corresponda para estos canales, las tarifas del operador se facturan por separado (a mes vencido) y no se consideran parte de los Action Credits.
@@ -61,11 +61,7 @@ Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y
 
 RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
-- La facturación de RCS se centra en dos tipos de mensaje diferentes (con distinciones para EE. UU.):
-    - **Basic RCS:** Solo texto, hasta 160 caracteres
-    - **Single RCS:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto > 160 caracteres
-    - **Rich RCS (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
-    - **Rich Media RCS (solo EE. UU.):** Cualquier medio O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
 Consulta nuestra [documentación de SMS y MMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms) para obtener más información sobre nuestras ofertas de la familia SMS.
@@ -111,7 +107,7 @@ Consulta nuestra [documentación de WhatsApp]({{site.baseurl}}/user_guide/messag
 
 ## Detalles de la consola de agente {#agent-console-details}
 
-Los ratios de créditos de la consola de agente se denominan en incrementos de mil (1000) invocaciones realizadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye una asignación de invocaciones según lo especificado por tu edición de plataforma para cada período de tu plazo de suscripción. Las invocaciones adicionales se cobrarán según tu formulario de pedido.
+Los ratios de créditos de la consola de agente se expresan en incrementos de mil (1000) invocaciones realizadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye una asignación de invocaciones según lo especificado por tu edición de plataforma para cada período de tu plazo de suscripción. Las invocaciones adicionales se cobrarán según tu formulario de pedido.
 
 {% alert note %}
 Consulta nuestra [documentación de Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) para obtener más información sobre la consola de agente.
@@ -121,7 +117,7 @@ Consulta nuestra [documentación de Braze Agents]({{site.baseurl}}/user_guide/br
 
 ### LINE {#line}
 
-Los ratios de créditos de LINE se denominan en incrementos de mensajes de LINE enviados desde la plataforma Braze.
+Los ratios de créditos de LINE se expresan en incrementos de mensajes de LINE enviados desde la plataforma Braze.
 
 {% alert note %}
 Consulta nuestra [documentación de LINE]({{site.baseurl}}/user_guide/message_building_by_channel/line) para obtener más información sobre el uso de LINE con Braze.
@@ -129,7 +125,7 @@ Consulta nuestra [documentación de LINE]({{site.baseurl}}/user_guide/message_bu
 
 ### KakaoTalk {#kakaotalk}
 
-Los ratios de créditos de KakaoTalk se denominan en incrementos de mensajes de KakaoTalk enviados desde la plataforma Braze.
+Los ratios de créditos de KakaoTalk se expresan en incrementos de mensajes de KakaoTalk enviados desde la plataforma Braze.
 
 {% alert note %}
 Consulta nuestra [documentación de KakaoTalk]({{site.baseurl}}/kakaotalk) para obtener más información sobre el uso de KakaoTalk con Braze.
@@ -137,7 +133,7 @@ Consulta nuestra [documentación de KakaoTalk]({{site.baseurl}}/kakaotalk) para 
 
 ### Content Cards {#content-cards}
 
-Los ratios de créditos de Content Cards se denominan en incrementos de mil impresiones únicas diarias.
+Los ratios de créditos de Content Cards se expresan en incrementos de mil impresiones únicas diarias.
 
 Braze se reserva el derecho de cobrar créditos por Content Cards en función del número de Content Cards enviadas si el cliente no configura Content Cards para registrar impresiones únicas de acuerdo con las directrices de Braze. Esto se considerará aplicable si, dentro de los seis (6) meses posteriores al primer envío de Content Cards, el cliente ha:
 - Enviado más de cinco millones (5 000 000) de Content Cards, Y ADEMÁS
@@ -150,7 +146,7 @@ Consulta nuestra [documentación de Content Cards]({{site.baseurl}}/user_guide/m
 
 ### Banners {#banners}
 
-Los ratios de créditos de Banners se denominan en incrementos de mil impresiones únicas diarias.
+Los ratios de créditos de Banners se expresan en incrementos de mil impresiones únicas diarias.
 
 {% alert note %}
 Consulta nuestra [documentación de Banners]({{site.baseurl}}/developer_guide/banner_cards) para obtener más información sobre Banners de Braze.
@@ -158,7 +154,7 @@ Consulta nuestra [documentación de Banners]({{site.baseurl}}/developer_guide/ba
 
 ### Audience Sync {#audience-sync}
 
-Los ratios de créditos de Audience Sync se denominan en incrementos de mil sincronizaciones totales de usuarios. De forma predeterminada, tu contrato incluye cinco millones de sincronizaciones de usuarios por cada período de tu plazo de suscripción. Las sincronizaciones de usuarios adicionales se cobrarán según tu formulario de pedido.
+Los ratios de créditos de Audience Sync se expresan en incrementos de mil sincronizaciones totales de usuarios. De forma predeterminada, tu contrato incluye cinco millones de sincronizaciones de usuarios por cada período de tu plazo de suscripción. Las sincronizaciones de usuarios adicionales se cobrarán según tu formulario de pedido.
 
 {% alert note %}
 Consulta nuestra [documentación de Canvas]({{site.baseurl}}/partners/canvas_steps) para obtener más información sobre Canvas Audience Sync y los partners disponibles.
@@ -166,7 +162,7 @@ Consulta nuestra [documentación de Canvas]({{site.baseurl}}/partners/canvas_ste
 
 ### Archivado de mensajes {#message-archiving}
 
-Los ratios de créditos de archivado de mensajes se denominan en incrementos de mil mensajes archivados en los canales de push, correo electrónico y SMS/MMS.
+Los ratios de créditos de archivado de mensajes se expresan en incrementos de mil mensajes archivados en los canales de push, correo electrónico y SMS/MMS.
 
 {% alert note %}
 Consulta nuestra [documentación de archivado de mensajes]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving#message-archiving) para obtener más información sobre el archivado de mensajes.
@@ -174,7 +170,7 @@ Consulta nuestra [documentación de archivado de mensajes]({{site.baseurl}}/user
 
 ### Webhooks {#webhooks}
 
-Los ratios de créditos de webhooks se denominan en incrementos de mil webhooks enviados desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
+Los ratios de créditos de webhooks se expresan en incrementos de mil webhooks enviados desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
 
 {% alert note %}
 Consulta nuestra [documentación de webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) para obtener más información sobre webhooks de Braze.

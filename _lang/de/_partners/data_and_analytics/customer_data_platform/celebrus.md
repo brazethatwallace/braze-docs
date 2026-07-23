@@ -48,13 +48,13 @@ Der Celebrus-Konnektor für angepasste Attribute von Braze sendet angepasste Att
 
 #### Schritt 2: Cloud-Datenaufnahme in Ihrem Braze-Dashboard konfigurieren {#step-2-configure-cloud-data-ingestion-in-your-braze-dashboard}
 
-Diese Integration verwendet die Braze-Cloud-Datenaufnahme. Folgen Sie den Anweisungen unter [Data Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), um die [Einstellungen für die Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) je nach Art des von Ihnen verwendeten Data Warehouse einzurichten und zu konfigurieren.
+Diese Integration verwendet die Braze-Cloud-Datenaufnahme. Folgen Sie den Anweisungen unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), um die [Einstellungen für die Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) je nach Art des von Ihnen verwendeten Data Warehouse einzurichten und zu konfigurieren.
 
 #### Schritt 3: Daten von Celebrus mit Braze synchronisieren {#step-3-sync-data-from-celebrus-to-braze}
 
 Celebrus erfasst und weist einer Person eindeutige Bezeichner wie E-Mail, Telefon, `external_id` oder Nutzer-Alias zu und sendet diese über CDI an Braze. Dies ermöglicht die Synchronisierung von Daten mit Braze für dieselbe Person.
 
-Celebrus verwendet die definierten Bezeichner, um die Kundenattribute zu senden, die im Celebrus-Profil-Builder definiert sind, aber nur, wenn sich die Attributwerte ändern. Beachten Sie, dass die im Celebrus-Profil-Builder definierten Attributnamen standardmäßig in Braze verwendet werden. Stellen Sie also sicher, dass Sie diese Namen aktualisieren, um die [Braze-Namenskonventionen]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) einzuhalten.
+Celebrus verwendet die definierten Bezeichner, um die Kundenattribute zu senden, die im Celebrus-Profil-Builder definiert sind, aber nur, wenn sich die Attributwerte ändern. Beachten Sie, dass die im Celebrus-Profil-Builder definierten Attributnamen standardmäßig in Braze verwendet werden. Stellen Sie also sicher, dass Sie diese Namen aktualisieren, um die [Braze-Namenskonventionen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) einzuhalten.
 
 {% alert important %}
 Im Moment unterstützt diese Version noch keine Ereignisse und Käufe.<br><br> Diese Integration sendet Attribute als String-Werte, sodass einige Attribute Listen sind (z. B. Signale). Im Moment können Listen noch nicht in Arrays umgewandelt werden. Es gibt keine verschachtelten Attribute.

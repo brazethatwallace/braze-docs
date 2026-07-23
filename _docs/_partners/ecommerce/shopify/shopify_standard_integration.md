@@ -41,6 +41,10 @@ After you select the standard setup onboarding path, you’ll need to choose whe
     - Track only identified users
     - Starts tracking data when site visitors sign up or log into their accounts
 
+{% alert note %}
+New customers are provisioned on the latest Braze Web SDK and JavaScript SDK versions during setup. Existing customers can view their current SDK version in integration settings, get notified when a newer version is available, and self-serve upgrades from integration settings.
+{% endalert %}
+
 ## Step 3: Configure your Shopify data
 
 ### Standard data setup

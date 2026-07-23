@@ -15,7 +15,7 @@ alias: /query_builder/
 
 ## Tables de données disponibles {#available-data-tables}
 
-Le Générateur de requêtes utilise les mêmes tables SQL Snowflake que les [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour une liste complète des tables disponibles et de leurs colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Le Générateur de requêtes utilise les mêmes tables SQL Snowflake que les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour une liste complète des tables disponibles et de leurs colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ## Exécuter des rapports dans le Générateur de requêtes {#running-reports-in-the-query-builder}
 
@@ -76,7 +76,7 @@ La section **Query history** du Générateur de requêtes affiche vos requêtes 
 
 Si vous devez auditer l'utilisation des requêtes sur des périodes plus longues ou conserver des enregistrements au-delà de sept jours, nous vous recommandons d'exporter ou d'enregistrer les résultats de requêtes importants avant leur expiration.
 
-## Générer du SQL avec l'AI Query Builder {#ai-query-builder}
+## Générer du SQL avec l'AI Query Builder {#generating-sql-with-the-ai-query-builder}
 
 L'AI Query Builder s'appuie sur [GPT](https://openai.com/gpt-4), propulsé par OpenAI, pour recommander du SQL pour votre requête.
 
@@ -166,9 +166,7 @@ Utilisez des variables pour employer des types de variables prédéfinis en SQL 
 
 Une fois une variable créée, elle apparaîtra dans l'onglet **Variables** de votre rapport du Générateur de requêtes. Les avantages de l'utilisation de variables SQL incluent :
 
-- Gagner du temps en créant une variable Campaign à sélectionner dans une liste lors de la création de votre rapport, au lieu de coller des identifiants Campaign.
-- Permuter les valeurs en ajoutant des variables qui vous permettent de réutiliser le rapport pour des cas d'utilisation légèrement différents à l'avenir (comme un événement personnalisé différent).
-- Réduire les erreurs utilisateur lors de la modification de votre SQL en diminuant la quantité de modifications nécessaires pour chaque rapport. Les collègues plus à l'aise avec SQL peuvent créer des rapports que des collègues moins techniques peuvent ensuite utiliser.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### Directives {#guidelines}
 
@@ -192,7 +190,7 @@ Les types de variables suivants sont acceptés :
 - [Options](#options)
 - [Segments](#segments)
 - [Chaîne de caractères](#string)
-- [Étiquettes](#tags)
+- [Tags](#tags)
 
 #### Nombre {#number}
 
@@ -247,7 +245,7 @@ Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraîner
 - **Valeur de remplacement :** ID BSON de la Campaign
 - **Exemple d'utilisation :** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
-##### Campaigns
+##### Campaigns {#campaigns}
 
 Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 

@@ -20,7 +20,7 @@ description: "이 랜딩 페이지에는 Braze API 호출에 사용되는 Braze 
 - [오브젝트 식별을 위한 별칭]({{site.baseurl}}/api/objects_filters/aliases_to_identify)
 - [트리거 속성 오브젝트]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
 - [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)
-- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)
+- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 - [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object)
 - [카탈로그 선택 오브젝트]({{site.baseurl}}/api/objects_filters/catalog_selection_object)
 
