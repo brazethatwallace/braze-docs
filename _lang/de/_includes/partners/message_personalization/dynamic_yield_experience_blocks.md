@@ -1,0 +1,2 @@
+- **Empfehlungsblöcke**: Legen Sie Algorithmen und Filter fest, um personalisierte Inhalte für Nutzer:innen bereitzustellen, die beim Öffnen der E-Mail geladen werden.
+- **Dynamische Content Blocks**: Richten Sie verschiedene Aktionen und Nachrichten an verschiedene Nutzer:innen. Das Targeting kann auf Affinität oder Zielgruppe basieren. Dynamic Yield bestimmt, welches personalisierte Erlebnis beim Öffnen der E-Mail ausgespielt wird.

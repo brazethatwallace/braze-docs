@@ -1,0 +1,3 @@
+- Toutes les images doivent faire moins de 5&nbsp;Mo.
+- Nous acceptons uniquement les types de fichiers PNG, JPEG et [GIF]({{site.baseurl}}/developer_guide/in_app_messages/gifs?sdktab=android).
+- Nous recommandons que vos images fassent 500&nbsp;Ko.

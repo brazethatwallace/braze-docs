@@ -47,6 +47,13 @@ Die Geschäftsverifizierung ist ein WhatsApp-Konzept, das sicherstellt, dass die
 #### Was ist ein offizielles Business-Konto? {#what-is-an-official-business-account}
 OBA verleiht Ihnen das grüne Häkchen neben Ihrem Anzeigenamen und ist optional. Sie können sich für ein offizielles Business-Konto bewerben, nachdem Sie die Geschäftsverifizierung abgeschlossen haben. Beachten Sie, dass die Geschäftsverifizierung und ein offizielles Business-Konto unterschiedliche WhatsApp-Konzepte sind.
 
+#### Warum wurde mein WhatsApp-Business-Anzeigename möglicherweise abgelehnt? {#why-might-my-whatsapp-business-display-name-be-rejected}
+Ablehnungen von WhatsApp-Business-Anzeigenamen werden von Meta geregelt. Wenn Ihr Anzeigename abgelehnt wird, lesen Sie die [Richtlinien für Anzeigenamen von WhatsApp](https://faq.whatsapp.com/793641088597363).
+
+Wenn Ihr Anzeigename den Richtlinien entspricht und trotzdem abgelehnt wird, kann Braze die spezifischen Gründe nicht einsehen. Der häufigste Ablehnungsgrund ist jedoch, dass die Online-Präsenz eines Unternehmens zu gering ist oder das Unternehmen [regulierte oder eingeschränkte Produkte](https://business.whatsapp.com/policy#further-guidance) vermarktet.
+
+Weitere Hinweise zu Ablehnungen von Anzeigenamen finden Sie unter [Meta-Ressourcen]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
+
 ### Telefonnummern für WhatsApp-Business-Konten {#whatsapp-business-account-phone-numbers}
 
 #### Benötige ich eine Telefonnummer für mein WhatsApp-Business-Konto? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
@@ -187,13 +194,13 @@ Es gibt verschiedene Gründe, warum eine Nachricht nicht zugestellt werden kann,
 #### Wenn eine Nachricht nicht zugestellt wird, werden mir Kosten berechnet? {#if-a-message-is-not-delivered-will-i-be-billed}
 Nein. Wenn eine Nachricht nicht zugestellt wird, werden Ihnen keine Kosten berechnet.
 
-#### Was passiert, wenn ein:e Endnutzer:in mein Unternehmen blockiert? {#what-happens-if-a-user-blocks-my-business}
-Wenn ein:e Endnutzer:in Ihr Unternehmen blockiert, werden nachfolgende Nachrichten, die Sie zu senden versuchen, nicht zugestellt, und Ihnen werden keine Kosten berechnet.
+#### Was passiert, wenn ein:e Nutzer:in mein Unternehmen blockiert? {#what-happens-if-a-user-blocks-my-business}
+Wenn ein:e Nutzer:in Ihr Unternehmen blockiert, werden nachfolgende Nachrichten, die Sie zu senden versuchen, nicht zugestellt, und Ihnen werden keine Kosten berechnet.
 
-#### Was passiert, wenn ein:e Endnutzer:in eine Nachricht meldet? {#what-happens-if-a-user-reports-a-message}
-Wenn ein:e Endnutzer:in eine Nachricht meldet, können Sie weiterhin nachfolgende Nachrichten an diese:n Nutzer:in senden. Allerdings kann die Meldung Ihre Qualitätsbewertung auf dem Kanal beeinflussen.
+#### Was passiert, wenn ein:e Nutzer:in eine Nachricht meldet? {#what-happens-if-a-user-reports-a-message}
+Wenn ein:e Nutzer:in eine Nachricht meldet, können Sie weiterhin nachfolgende Nachrichten an diese:n Nutzer:in senden. Allerdings kann die Meldung Ihre Qualitätsbewertung auf dem Kanal beeinflussen.
 
-#### Wenn ein:e Endnutzer:in mein Unternehmen blockiert oder meldet, wird deren Abo-Status in Braze aktualisiert? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### Wenn ein:e Nutzer:in mein Unternehmen blockiert oder meldet, wird deren Abo-Status in Braze aktualisiert? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 Nein. Deren Braze-Abo-Status wird nicht aktualisiert.
 
 #### Wie kann ich Nutzer:innen, die mein WhatsApp-Konto melden, von zukünftigen Sendungen ausschließen? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
@@ -239,7 +246,7 @@ Um Informationen an Braze zu senden, beispielsweise um anzuzeigen, dass ein:e Nu
 Nachrichten werden nur so lange gespeichert, wie sie zur Verarbeitung benötigt werden. Um auf Nutzernachrichten zuzugreifen, verwenden Sie Currents.
 
 #### Welche Metriken sind im Braze-Dashboard verfügbar? {#what-metrics-are-available-in-the-braze-dashboard}
-Sie können eindeutige Empfänger:innen, Sendungen, Zustellungen, Lesevorgänge und Fehler im Braze-Dashboard einsehen. Beachten Sie, dass die Lesebestätigungen der Endnutzer:innen auf „Ein“ stehen müssen, damit Braze Lesevorgänge tracken kann. Sie können auch Konversions-Events einrichten, um die Campaign-Performance zu überwachen, ähnlich wie bei anderen Kanälen.
+Sie können eindeutige Empfänger:innen, Sendungen, Zustellungen, Lesevorgänge und Fehler im Braze-Dashboard einsehen. Beachten Sie, dass die Lesebestätigungen der Nutzer:innen auf „Ein“ stehen müssen, damit Braze Lesevorgänge tracken kann. Sie können auch Konversions-Events einrichten, um die Campaign-Performance zu überwachen, ähnlich wie bei anderen Kanälen.
 
 #### Was ist eine WhatsApp-Konversation? {#what-is-a-whatsapp-conversation}
 WhatsApp ist ein Kanal, der auf bidirektionales Messaging ausgerichtet ist und daher auf Konversationen basiert (anstatt auf der Anzahl einzelner Nachrichten). Eine Konversation ist ein 24-Stunden-Thread zwischen einem Unternehmen und einem:einer Endnutzer:in.

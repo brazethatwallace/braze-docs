@@ -1,0 +1,3 @@
+- `agentconsole.AgentExecuted` : ajout de `error` (chaîne de caractères) — une description de toute erreur survenue.
+- `agentconsole.ToolInvocation` : ajout de `request_id` (chaîne de caractères) — un ID unique pour l'ensemble de la requête LLM et l'exécution complète.
+- `users.messages.rcs.InboundReceive` : ajout de `canvas_variation_name` (chaîne de caractères) — le nom de la variation Canvas que l'utilisateur a reçue.

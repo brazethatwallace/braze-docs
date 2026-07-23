@@ -159,9 +159,7 @@ Para a referência completa da ponte JavaScript, consulte [Código personalizado
 
 Você pode adicionar propriedades personalizadas a um Banner para anexar metadados estruturados, como strings ou objetos JSON. Essas propriedades não afetam como o Banner é exibido, mas podem ser [acessadas pelo SDK da Braze]({{site.baseurl}}/developer_guide/banners/placements) para modificar o comportamento ou a aparência do seu app. Por exemplo, você poderia:
 
-- Enviar metadados para análise de dados de terceiros ou integrações.
-- Usar metadados como um `timestamp` ou objeto JSON para acionar lógica condicional.
-- Controlar o comportamento de um Banner com base em metadados incluídos como `ratio` ou `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 As propriedades personalizadas funcionam da mesma forma no editor de arrastar e soltar e no editor de HTML. Para adicionar uma propriedade personalizada, selecione **Settings** > **Properties** > **Add property**.
 
@@ -205,7 +203,7 @@ A contagem regressiva começa a partir do momento em que o usuário dispensa o B
 
 #### Escolher seu público {#choose-your-audience}
 
-1. Em **Target Audiences**, escolha Segments ou filtros para refinar seu público. Você recebe automaticamente uma prévia da população aproximada do Segment. A associação exata ao Segment é calculada antes do envio da mensagem.
+1. Em **Target Audiences**, escolha segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia da população aproximada do segmento. A associação exata ao segmento é calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 

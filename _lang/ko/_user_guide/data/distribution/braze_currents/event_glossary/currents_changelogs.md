@@ -7,9 +7,49 @@ tool: Currents
 
 # Currents 체인지로그 {#currents-changelog}
 
-## 버전 10의 변경 사항 (릴리스 날짜 2026-07-01) {#changes-in-version-10-release-date-2026-07-01}
+## 버전 11의 변경 사항 (릴리스 날짜 2026-08-05) {#changes-in-version-11-release-date-2026-08-05}
 
 ### 저장소에 대한 변경 사항: {#changes-for-storage}
+
+* 새로운 이벤트 유형 `contentoptimizer.ComponentStore`가 추가되었습니다.
+
+* 새로운 이벤트 유형 `users.canvas.costep.Conversion`이 추가되었습니다.
+
+* 새로운 이벤트 유형 `users.messages.landingpage.Click`이 추가되었습니다.
+
+* 새로운 이벤트 유형 `users.messages.landingpage.FormSubmission`이 추가되었습니다.
+
+* 새로운 이벤트 유형 `users.messages.landingpage.Impression`이 추가되었습니다.
+
+* 새로운 이벤트 유형 `users.messages.survey.Response`가 추가되었습니다.
+
+* 이벤트 유형 `agentconsole.AgentExecuted`에 대한 필드 변경 사항:
+    * 새로운 `string` 필드 `thinking_level` 추가: 요청에 사용된 사고 또는 추론 수준
+
+* 이벤트 유형 `users.messages.banner.Click`에 대한 필드 변경 사항:
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 클릭인지 여부로, 고유 클릭 통계에 집계됩니다
+
+* 이벤트 유형 `users.messages.banner.Dismiss`에 대한 필드 변경 사항:
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 닫기인지 여부로, 고유 닫기 통계에 집계됩니다
+
+* 이벤트 유형 `users.messages.banner.Impression`에 대한 필드 변경 사항:
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 노출인지 여부로, 고유 노출 통계에 집계됩니다
+
+* 이벤트 유형 `users.messages.contentcard.Click`에 대한 필드 변경 사항:
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 클릭인지 여부로, 고유 클릭 통계에 집계됩니다
+
+* 이벤트 유형 `users.messages.contentcard.Dismiss`에 대한 필드 변경 사항:
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 닫기인지 여부로, 고유 닫기 통계에 집계됩니다
+
+* 이벤트 유형 `users.messages.contentcard.Impression`에 대한 필드 변경 사항:
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 노출인지 여부로, 고유 노출 통계에 집계됩니다
+
+* 이벤트 유형 `users.messages.featureflag.Impression`에 대한 필드 변경 사항:
+    * 새로운 `boolean` 필드 `is_unique` 추가: 이 기능 플래그에 대한 사용자의 첫 번째 노출인지 여부로, 고유 노출 통계에 집계됩니다
+
+## 버전 10의 변경 사항 (릴리스 날짜 2026-07-01) {#changes-in-version-10-release-date-2026-07-01}
+
+### 저장소에 대한 변경 사항:
 
 * 새로운 이벤트 유형 `users.canvas.costep.Send`가 추가되었습니다.
 

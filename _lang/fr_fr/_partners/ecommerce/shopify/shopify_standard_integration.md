@@ -16,7 +16,7 @@ page_order: 1
 
 1. Dans Braze, allez dans **Intégrations partenaires** > **Partenaires technologiques**, puis recherchez « Shopify ».
 2. Sur la page partenaire de Shopify, sélectionnez **Begin setup** pour lancer le processus d'intégration.<br><br>![Page d'intégration de Shopify avec un bouton pour commencer la configuration.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
-3. Dans la boutique d'applications Shopify, installez l'application Braze.<br><br>![La page du magasin d'applications de Braze avec un bouton pour installer l'application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
+3. Dans la boutique d'applications Shopify, installez l'application Braze.<br><br>![La page de la boutique d'applications de Braze avec un bouton pour installer l'application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
 Si votre compte Shopify est associé à plusieurs boutiques, vous pouvez changer la boutique à laquelle vous êtes connecté en sélectionnant l'icône de la boutique dans l'en-tête et en sélectionnant **Switch stores**.
@@ -206,9 +206,7 @@ Il est essentiel de valider que `shopify_customer_id` et `email_address` (le cas
 #### Comportement en cas d'échec et fusion {#failure-behavior-and-merging}
 Tout code de statut autre que `200` est considéré comme un échec.
 
-- **Implications pour la fusion :** Si l'endpoint échoue (renvoie un code autre que `200` ou expire), Braze ne peut pas récupérer l'ID externe. Par conséquent, la fusion entre le profil utilisateur Shopify et le profil utilisateur Braze ne se fera pas à ce moment-là.
-- **Logique de nouvelle tentative :** Braze peut effectuer des tentatives immédiates standard sur le réseau, mais si l'échec persiste, la fusion sera reportée jusqu'au prochain événement éligible (par exemple, la prochaine fois que l'utilisateur mettra à jour son profil ou effectuera un paiement).
-- **Disponibilité :** Pour permettre la fusion des utilisateurs en temps voulu, assurez-vous que votre endpoint est hautement disponible et qu'il gère le champ facultatif `email_address` de manière appropriée.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 ### Étape 4.3 : Saisissez votre ID externe {#step-43-input-your-external-id}
 
@@ -216,9 +214,7 @@ Répétez l'[étape 4](#step-4) et saisissez l'URL de votre endpoint après avoi
 
 #### Considérations {#considerations}
 
-- Si votre ID externe n'est pas généré lorsque Braze envoie une requête à votre endpoint, l'intégration utilisera par défaut l'ID client Shopify lorsque la fonction `changeUser` est appelée. Cette étape est cruciale pour fusionner le profil de l'utilisateur anonyme avec le profil de l'utilisateur identifié. Par conséquent, il peut y avoir une période temporaire pendant laquelle différents types d'ID externes coexistent dans votre espace de travail.
-- Lorsque l'ID externe est disponible dans le méta-champ `braze.external_id`, l'intégration donnera la priorité à cet ID externe et l'attribuera.
-    - Si l'ID client Shopify était précédemment défini comme l'ID externe de Braze, il sera remplacé par la valeur du méta-champ `braze.external_id`.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### Étape 4.4 : Recueillir vos abonnements par e-mail ou SMS depuis Shopify (facultatif) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -228,11 +224,7 @@ Si vous utilisez les canaux e-mail ou SMS, vous pouvez synchroniser vos états d
 
 ![Section « Recueillir les abonnés » avec option de collecte des abonnements marketing par e-mail ou SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-Comme indiqué dans l'[aperçu de Shopify]({{site.baseurl}}/shopify_overview), si vous souhaitez utiliser un formulaire de capture tiers, vos développeurs doivent intégrer le code du SDK de Braze. Cela vous permettra de capturer l'adresse e-mail et l'état global de l'abonnement e-mail à partir des soumissions de formulaire. Plus précisément, vous devez implémenter et tester ces méthodes dans votre fichier `theme.liquid` :<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail) : Définit l'adresse e-mail dans le profil utilisateur
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) : Met à jour l'état global de l'abonnement e-mail
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ## Étape 5 : Synchroniser les produits (facultatif) {#step-5-sync-products-optional}
 
@@ -254,9 +246,9 @@ Braze recueille des informations sur les visiteurs, telles que les adresses e-ma
 
 Les SDK de Braze permettent d'utiliser différents canaux de communication, notamment les Content Cards.
 
-#### Content Cards et indicateurs de fonctionnalité {#content-cards-and-feature-flags}
+#### Content Cards et Feature Flags {#content-cards-and-feature-flags}
 
-Pour ajouter des Content Cards ou des indicateurs de fonctionnalité, vous devrez collaborer avec vos développeurs pour insérer le code SDK nécessaire directement dans votre fichier `theme.liquid`. Pour obtenir des instructions détaillées, reportez-vous à la section [Intégration du SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration).
+Pour ajouter des Content Cards ou des Feature Flags, vous devrez collaborer avec vos développeurs pour insérer le code SDK nécessaire directement dans votre fichier `theme.liquid`. Pour obtenir des instructions détaillées, reportez-vous à la section [Intégration du SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration).
 
 #### Notifications push web {#web-push-notifications}
 

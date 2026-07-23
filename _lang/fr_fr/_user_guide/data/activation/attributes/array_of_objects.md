@@ -26,7 +26,7 @@ Lorsqu'un attribut personnalisé imbriqué dans votre requête contient des vale
 {% endalert %}
 
 {% alert tip %}
-Pour en savoir plus sur l'utilisation des tableaux d'objets pour les objets d'attributs utilisateur, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Pour en savoir plus sur l'utilisation des tableaux d'objets pour les objets d'attributs utilisateur, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## Exemple d'API {#api-example}

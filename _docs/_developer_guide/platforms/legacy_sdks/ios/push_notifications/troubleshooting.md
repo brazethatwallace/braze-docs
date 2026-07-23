@@ -18,16 +18,13 @@ noindex: true
 
 The Apple Push Notification service (APNs) is Apple's infrastructure for push notifications sending to iOS and OS X applications. Here is the simplified structure of how push notifications are enabled for your users' devices and how Braze can send push notifications to them:
 
-1. You configure the push certificate and provisioning profile
-2. Devices register for APNs and provide Braze with push tokens
-3. You launch a Braze push campaign
-4. Braze removes invalid tokens
+{% multi_lang_include developer_guide/push_notifications/push_registration_flow_steps.md %}
 
 ### Step 1: Configuring the push certificate and provisioning profile
 
-In developing your app, you'll need to create an SSL certificate to enable push notifications. This certificate will be included in the provisioning profile your app is built with and will also need to be uploaded to the Braze dashboard. The certificate allows Braze to tell APNs that we are allowed to send push notifications on your behalf.
+When you develop your app, create an SSL certificate to enable push notifications. This certificate is included in the provisioning profile your app is built with and must also be uploaded to the Braze dashboard. The certificate allows Braze to tell APNs that we are allowed to send push notifications on your behalf.
 
-There are two types of [provisioning profiles](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) and certificates: development and distribution. We recommend just using distribution profiles and certificates to avoid any confusion. If you choose to use different profiles and certificates for development and distribution, ensure that the certificate uploaded to the dashboard matches the provisioning profile you are currently using.
+There are two types of [provisioning profiles](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) and certificates: development and distribution. We recommend using only distribution profiles and certificates to avoid any confusion. If you choose to use different profiles and certificates for development and distribution, ensure that the certificate uploaded to the dashboard matches the provisioning profile you are currently using.
 
 {% alert warning %}
 Do not change the push certificate environment (development versus production). Changing the push certificate to the wrong environment can lead to your users having their push token accidentally removed, making them unreachable by push. 
@@ -51,7 +48,7 @@ If [APNs](https://developer.apple.com/library/content/documentation/NetworkingIn
 
 ## Utilizing the push error logs
 
-Braze provides a log of push notification errors within the **Message Activity Log**. This error log provides a variety of warnings which can be very helpful for identifying why your campaigns aren't working as expected. Clicking on an error message will redirect you to relevant documentation to help you troubleshoot a particular incident.
+Braze provides a log of push notification errors within the **Message Activity Log**. This error log provides a variety of warnings which can be very helpful for identifying why your campaigns aren't working as expected. Selecting an error message redirects you to relevant documentation to help you troubleshoot a particular incident.
 
 ![Push error logs displaying the time the error occurred, the app name, the channel, error type, and error message.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
@@ -138,12 +135,7 @@ This error indicates that your app's push certificate and bundle ID are mismatch
 
 The `BadDeviceToken` is an APNs error code and does not originate from Braze. There could be a number of reasons for this response being returned, including the following:
 
-- The app received a push token that was invalid for the credentials uploaded to the dashboard.
-- Push was disabled for this workspace.
-- The user has opted out of push.
-- The app was uninstalled.
-- Apple refreshed the push token, which invalidated the old token.
-- The app was built for a production environment, but the push credentials uploaded to Braze are set for a development environment (or the other way around).
+{% multi_lang_include developer_guide/push_notifications/invalid_push_token_reasons.md %}
 
 ## Issues after push delivery
 

@@ -4,23 +4,17 @@ permalink: "/custom_events_entitlements/"
 hidden: true
 ---
 
-# [![Cours Braze Learning]({% image_buster /assets/unlisted_docs/img/logos/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Événements personnalisés {#braze-learning-course-image_buster-assetsunlisted_docsimglogosbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/unlisted_docs/img/logos/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Événements personnalisés {#braze-learning-course-image_buster-assetsunlisted_docsimglogosbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > Cet article décrit les événements personnalisés et leurs propriétés, les filtres de segmentation associés, les propriétés d'entrée Canvas, les analyses pertinentes, et plus encore. Pour en savoir plus sur les événements Braze en général, consultez [Événements]({{site.baseurl}}/user_guide/data/custom_data/events).
 
-Les événements personnalisés sont des actions effectuées par vos utilisateurs ou des mises à jour les concernant. Lorsque des événements personnalisés sont enregistrés, ils peuvent déclencher un nombre et un type quelconques de campagnes de suivi. Vous pouvez ensuite utiliser des [filtres de segmentation](#segmentation-filters) pour segmenter les utilisateurs en fonction de la récence et de la fréquence de ces événements personnalisés. Cela fait des événements personnalisés l'outil idéal pour suivre les interactions utilisateur à forte valeur au sein de votre application.
+Les événements personnalisés sont des actions effectuées par vos utilisateurs ou des mises à jour les concernant. Lorsque des événements personnalisés sont enregistrés, ils peuvent déclencher un nombre et un type quelconques de Campaigns de suivi. Vous pouvez ensuite utiliser des [filtres de segmentation](#segmentation-filters) pour segmenter les utilisateurs en fonction de la récence et de la fréquence de ces événements personnalisés. Cela fait des événements personnalisés l'outil idéal pour suivre les interactions utilisateur à forte valeur au sein de votre application.
 
 ## Cas d'usage {#use-cases}
 
 Voici quelques cas d'usage courants des événements personnalisés :
 
-- Déclencher une campagne ou un Canvas basé sur un événement personnalisé en utilisant la [livraison par événement]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)
-- Segmenter les utilisateurs en fonction du nombre de fois qu'ils ont effectué un événement personnalisé, de la dernière occurrence de l'événement, et autres critères similaires
-- Utiliser les [analyses d'événements personnalisés]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics) du tableau de bord pour visualiser un agrégat de la fréquence de chaque événement
-- Trouver des analyses supplémentaires à l'aide des rapports d'[entonnoir]({{site.baseurl}}/user_guide/data_and_analytics/reporting/funnel_reports#step-2-select-events-for-funnel-steps) et de [rétention]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports)
-- Exploiter les [propriétés d'entrée persistantes]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties) pour utiliser les métadonnées de votre événement client à des fins de personnalisation dans vos étapes Canvas
-- Générer des analyses plus sophistiquées avec [Currents]({{site.baseurl}}/user_guide/data/braze_currents)
-- Configurer des [critères de sortie]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria) pour définir quand les utilisateurs doivent quitter votre Canvas
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Droits d'utilisation {#entitlements}
 
@@ -42,9 +36,7 @@ Vous pouvez bloquer des événements personnalisés individuels via le menu d'ac
 
 Lorsque vous bloquez un événement personnalisé :
 
-- Les données futures ne seront plus collectées pour cet événement.
-- Les données existantes ne seront pas disponibles tant que cet événement n'est pas débloqué.
-- Cet événement n'apparaîtra pas dans les filtres ou les graphiques.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 De plus, si un événement personnalisé bloqué est actuellement référencé par des filtres ou des déclencheurs dans d'autres zones de Braze, une fenêtre modale d'avertissement apparaîtra pour expliquer que toutes les instances des filtres ou déclencheurs qui le référencent seront supprimées et archivées.
 
@@ -108,7 +100,7 @@ Le tableau suivant présente les filtres disponibles pour segmenter les utilisat
 
 Braze enregistre le nombre de fois que les événements personnalisés se sont produits et la dernière fois qu'ils ont été effectués par chaque utilisateur à des fins de segmentation. Consultez ces analyses en accédant à **Analytics** > **Rapport d'événements personnalisés**.
 
-Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous pouvez visualiser de manière agrégée la fréquence de chaque événement personnalisé. Les lignes grises superposées sur la série temporelle indiquent la dernière fois qu'une campagne a été envoyée, ce qui est utile pour voir comment vos campagnes ont affecté l'activité des événements personnalisés.
+Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous pouvez visualiser de manière agrégée la fréquence de chaque événement personnalisé. Les lignes grises superposées sur la série temporelle indiquent la dernière fois qu'une Campaign a été envoyée, ce qui est utile pour voir comment vos Campaigns ont affecté l'activité des événements personnalisés.
 
 ![Graphique du nombre d'événements personnalisés sur la page Événements personnalisés du tableau de bord montrant les tendances d'un événement personnalisé][8]
 
@@ -155,13 +147,13 @@ Vous pouvez modifier le type de données de votre propriété d'événement pers
 
 ### Utilisation des propriétés d'événement personnalisé {#using-custom-event-properties}
 
-Les propriétés d'événement personnalisé peuvent être utilisées pour qualifier les déclencheurs de campagne, suivre les conversions et personnaliser les messages.
+Les propriétés d'événement personnalisé peuvent être utilisées pour qualifier les déclencheurs de Campaign, suivre les conversions et personnaliser les messages.
 
 #### Déclencher des messages {#trigger-messages}
 
-Utilisez les propriétés d'événement personnalisé pour affiner davantage votre audience pour une campagne ou un Canvas particulier. Par exemple, si vous avez une application d'e-commerce et souhaitez envoyer un message à un utilisateur lorsqu'il abandonne son panier, vous pouvez ajouter une propriété d'événement personnalisé `cart value` pour améliorer votre audience cible et permettre une personnalisation accrue de la campagne.
+Utilisez les propriétés d'événement personnalisé pour affiner davantage votre audience pour une Campaign ou un Canvas particulier. Par exemple, si vous avez une application d'e-commerce et souhaitez envoyer un message à un utilisateur lorsqu'il abandonne son panier, vous pouvez ajouter une propriété d'événement personnalisé `cart value` pour améliorer votre audience cible et permettre une personnalisation accrue de la Campaign.
 
-![Filtres de propriétés d'événement personnalisé pour un panier abandonné. Deux filtres sont combinés avec un opérateur ET pour envoyer cette campagne aux utilisateurs qui ont abandonné leur panier avec une valeur comprise entre 100 et 200 dollars][16]
+![Filtres de propriétés d'événement personnalisé pour un panier abandonné. Deux filtres sont combinés avec un opérateur ET pour envoyer cette Campaign aux utilisateurs qui ont abandonné leur panier avec une valeur comprise entre 100 et 200 dollars][16]
 
 Les propriétés d'événement personnalisé imbriquées sont également prises en charge dans la [livraison par événement][19].
 
@@ -169,9 +161,9 @@ Les propriétés d'événement personnalisé imbriquées sont également prises 
 
 #### Personnaliser les messages {#personalize-messages}
 
-Vous pouvez également utiliser les propriétés d'événement personnalisé pour la personnalisation dans le modèle de message. Toute campagne utilisant la [livraison par événement][19] avec un événement déclencheur peut utiliser les propriétés d'événement personnalisé de cet événement pour la personnalisation des messages.
+Vous pouvez également utiliser les propriétés d'événement personnalisé pour la personnalisation dans le modèle de message. Toute Campaign utilisant la [livraison par événement][19] avec un événement déclencheur peut utiliser les propriétés d'événement personnalisé de cet événement pour la personnalisation des messages.
 
-Par exemple, si vous avez une application de jeu et souhaitez envoyer un message aux utilisateurs qui ont terminé un niveau, vous pourriez personnaliser davantage votre message avec une propriété indiquant le temps qu'il a fallu aux utilisateurs pour terminer ce niveau. Dans cet exemple, le message est personnalisé pour trois segments différents en utilisant la [logique conditionnelle][18]. La propriété d'événement personnalisé appelée `time_spent` peut être incluse dans le message en appelant ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+Par exemple, si vous avez une application de jeu et souhaitez envoyer un message aux utilisateurs qui ont terminé un niveau, vous pourriez personnaliser davantage votre message avec une propriété indiquant le temps qu'il a fallu aux utilisateurs pour terminer ce niveau. Dans cet exemple, le message est personnalisé pour trois Segments différents en utilisant la [logique conditionnelle][18]. La propriété d'événement personnalisé appelée `time_spent` peut être incluse dans le message en appelant ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
 {% raw %}
 ```liquid
@@ -200,11 +192,11 @@ Pour une liste complète des étiquettes Liquid qui entraîneront la livraison d
 
 Utilisez la segmentation par propriétés d'événement pour cibler les utilisateurs en fonction des événements personnalisés effectués et des propriétés associées à ces événements. Cela augmente vos options de filtrage lors de la segmentation par achat et événements personnalisés.
 
-Les propriétés d'événement pour les événements personnalisés sont mises à jour en temps réel pour tout segment qui les utilise. Vous pouvez gérer les propriétés en accédant à **Paramètres des données** > **Événements personnalisés** et en sélectionnant **Gérer les propriétés** pour l'événement personnalisé associé. Les propriétés d'événement personnalisé utilisées dans certains filtres de segment ont un historique de consultation maximal de 30 jours.
+Les propriétés d'événement pour les événements personnalisés sont mises à jour en temps réel pour tout Segment qui les utilise. Vous pouvez gérer les propriétés en accédant à **Paramètres des données** > **Événements personnalisés** et en sélectionnant **Gérer les propriétés** pour l'événement personnalisé associé. Les propriétés d'événement personnalisé utilisées dans certains filtres de Segment ont un historique de consultation maximal de 30 jours.
 
 ##### Ajout de propriétés d'événement pour la segmentation {#adding-event-properties-for-segmentation}
 
-Vous aurez besoin de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/data/data_points#viewing-data-point-usage) « Manage Custom Event Property Segmentation » pour créer des segments basés sur la récence et la fréquence des propriétés d'événement.
+Vous aurez besoin de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/data/data_points#viewing-data-point-usage) « Manage Custom Event Property Segmentation » pour créer des Segments basés sur la récence et la fréquence des propriétés d'événement.
 
 Par défaut, vous pouvez avoir 20 propriétés d'événement segmentables par espace de travail. Contactez votre gestionnaire de compte Braze pour augmenter cette limite.
 
@@ -215,11 +207,9 @@ Pour ajouter des propriétés d'événement pour la segmentation, procédez comm
 
 Les filtres de segmentation par propriétés d'événement incluent :
 
-- A effectué un événement personnalisé avec la propriété A ayant la valeur B, X fois au cours des Y derniers jours.
-- A effectué un achat avec la propriété A ayant la valeur B, X fois au cours des Y derniers jours.
-- Permet de segmenter sur une période de 1 à 30 jours.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
-![Un groupe de filtres qui « a effectué 'Panier abandonné' avec la propriété 'nombre d'articles' et la valeur '2' 'plus de' '1' fois au cours des '30' derniers jours calendaires.][3]
+![Un groupe de filtres qui « a effectué "Panier abandonné" avec la propriété "nombre d'articles" et la valeur "2" "plus de" "1" fois au cours des "30" derniers jours calendaires.][3]
 
 Les données ne sont enregistrées pour une propriété d'événement donnée qu'après son activation par votre gestionnaire du succès des clients, et les propriétés d'événement ne sont disponibles qu'à partir de cette date.
 
@@ -279,7 +269,7 @@ Pour les Canvas créés avec l'éditeur d'origine, `canvas_entry_properties` ne 
 Vous ne pouvez pas utiliser `event_properties` dans la première étape de message. Vous devez plutôt utiliser `canvas_entry_properties` ou ajouter une étape Parcours d'action avec l'événement correspondant **avant** l'étape de message qui inclut `event_properties`.
 {% endalert %}
 
-Les propriétés d'événement font référence aux propriétés que vous définissez pour les événements personnalisés et les achats. Ces `event_properties` peuvent être utilisées dans les campagnes avec livraison par événement et dans les Canvas.
+Les propriétés d'événement font référence aux propriétés que vous définissez pour les événements personnalisés et les achats. Ces `event_properties` peuvent être utilisées dans les Campaigns avec livraison par événement et dans les Canvas.
 
 Dans Canvas Flow, les propriétés d'événement personnalisé et d'événement d'achat peuvent être utilisées en Liquid dans n'importe quelle étape de message qui suit une étape Parcours d'action. Assurez-vous d'utiliser {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} si vous référencez ces `event_properties`. Ces événements doivent être des événements personnalisés ou des événements d'achat pour être utilisés de cette manière dans le composant de message.
 
@@ -308,7 +298,7 @@ Les propriétés d'événement personnalisé sont conçues pour vous aider à au
 
 Vous pouvez segmenter en fonction des valeurs des propriétés d'événement de deux manières :
 
-1. **Sur 30 jours :** Le personnel d'assistance Braze peut activer la segmentation par propriétés d'événement basée sur la fréquence et la récence de valeurs spécifiques de propriétés d'événement au sein des Segments Braze. Si vous souhaitez exploiter les propriétés d'événement au sein des Segments, contactez votre chargé de compte Braze ou votre gestionnaire du succès des clients. Cette option aura un impact sur l'utilisation des données.<br><br>
+1. **Sur 30 jours :** Le personnel d'assistance Braze peut activer la segmentation par propriétés d'événement basée sur la fréquence et la récence de valeurs spécifiques de propriétés d'événement au sein des Segments Braze. Si vous souhaitez tirer parti des propriétés d'événement au sein des Segments, contactez votre chargé de compte Braze ou votre gestionnaire du succès des clients. Cette option aura un impact sur l'utilisation des données.<br><br>
 2. **Sur 30 jours et au-delà :** Pour couvrir la segmentation par propriétés d'événement à court et à long terme, vous pouvez utiliser les [extensions de segments]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension). Cette fonctionnalité segmente les utilisateurs en fonction des événements personnalisés et des propriétés d'événement suivis au cours des deux dernières années. Cette option n'aura pas d'impact sur l'utilisation des données.
 
 Contactez votre gestionnaire du succès des clients Braze pour des recommandations sur la meilleure approche en fonction de vos besoins spécifiques.

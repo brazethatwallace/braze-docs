@@ -506,6 +506,7 @@ Legendas ocultas podem ser ativadas ou desativadas, permitindo que os usuários 
 
 {% multi_lang_include accessibility/video.md %}
 
+
 #### Forneça controles de reprodução {#playback-controls}
 
 Certifique-se de que seu vídeo incorporado inclua controles de reprodução acessíveis — como reproduzir, pausar, silenciar e avançar — para que os usuários possam interagir da forma que funciona melhor para eles.

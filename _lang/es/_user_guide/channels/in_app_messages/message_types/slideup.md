@@ -22,9 +22,7 @@ Este tipo de mensaje está disponible en el [editor tradicional]({{site.baseurl}
 
 Los mensajes de deslizamiento hacia arriba pueden contener hasta tres líneas de texto antes de truncarse con puntos suspensivos. Las imágenes en los deslizamientos hacia arriba nunca se recortarán ni se cortarán; siempre se reducirán para ajustarse dentro del contenedor de imagen de 50 x 50 píxeles.
 
-- Todas las imágenes deben pesar menos de 5&nbsp;MB.
-- Solo aceptamos archivos de tipo PNG, JPEG y GIF.
-- Recomendamos que tus imágenes pesen 500&nbsp;KB.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} ¡Crea activos con confianza! Nuestras plantillas de imágenes para mensajes dentro de la aplicación y las superposiciones de zona segura están diseñadas para funcionar correctamente con dispositivos de todos los tamaños. [Descargar ZIP de plantillas de diseño]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
@@ -33,7 +31,7 @@ Los mensajes de deslizamiento hacia arriba pueden contener hasta tres líneas de
 | Imagen + texto | Relación de aspecto 1:1<br>Alta resolución 150 x 150&nbsp;px<br> Mínimo 50 x 50&nbsp;px | Las imágenes de diversas relaciones de aspecto se ajustarán a un contenedor de imagen cuadrado, sin recorte. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comportamiento de imagen y texto" }
 
-Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) en una variedad de dispositivos para asegurarte de que las áreas más importantes de tu imagen y mensaje aparezcan como se espera. Ten en cuenta que al previsualizar tu mensaje en el compositor, la representación real en los dispositivos puede diferir.
+Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) en una variedad de dispositivos para asegurarte de que las áreas más importantes de tu imagen y mensaje aparezcan como se espera. Ten en cuenta que al previsualizar tu mensaje en el creador, la representación real en los dispositivos puede diferir.
 
 ## Hipervínculos y texto de anclaje {#hyperlinks-and-anchor-text}
 

@@ -45,17 +45,13 @@ Für die meisten Events empfehlen wir, die neuen erforderlichen Shopify-Events u
 {% tab Warenkorb-Abbruch %}
 Für Warenkorb-Abbruch-Nachrichten müssen Sie die neuen Warenkorb-Abbruch-Canvas-Templates verwenden, die Folgendes enthalten:
 
-- Einen neuen Trigger basierend auf der Aktion „Performed cart updated“
-- Vordefinierte Ausstiegskriterien, um Kund:innen zu entfernen, die in ihrer Kaufreise weitergegangen sind
-- Einen neuen Warenkorb-Liquid-Tag zur Unterstützung der Produktpersonalisierung
+{% multi_lang_include partners/shopify/abandoned_cart_template_features.md %}
 {% endtab %}
 
 {% tab Checkout-Abbruch %}
 Für Checkout-Abbruch-Nachrichten müssen Sie das neue Checkout-Abbruch-Canvas-Template verwenden, das Folgendes enthält:
 
-- Das Event ecommerce.checkout_started, vordefiniert in Ihren Eintrittskriterien
-- Vordefinierte Ausstiegskriterien, um Kund:innen zu entfernen, die in ihrer Kaufreise weitergegangen sind
-- Einen neuen Warenkorb-Liquid-Tag zur Unterstützung der Produktpersonalisierung
+{% multi_lang_include partners/shopify/abandoned_checkout_template_features.md %}
 
 Eine vollständige Liste der neuen E-Commerce-Canvas-Templates und vordefinierten HTML-Blöcke für die Produktpersonalisierung, die über die Integration verfügbar sind, finden Sie unter [Ihre Canvas-User-Journeys erstellen]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys).
 
@@ -140,10 +136,7 @@ Wenn Sie einen angepassten externen ID-Typ ausgewählt haben, fahren Sie mit den
 
 #### Schritt 4.1: Das Metafeld `braze.external_id` erstellen {#step-41-create-the-brazeexternal_id-metafield}
 
-1. Gehen Sie in Ihrem Shopify-Admin-Panel zu **Einstellungen** > **Metafelder**.
-2. Wählen Sie **Kunden** > **Definition hinzufügen**.
-3. Geben Sie für **Namespace und Schlüssel** `braze.external_id` ein.
-4. Wählen Sie für **Typ** die Option **ID-Typ**.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 Nachdem das Metafeld erstellt wurde, befüllen Sie es für Ihre Kund:innen. Wir empfehlen die folgenden Ansätze:
 
@@ -192,9 +185,7 @@ Wiederholen Sie [Schritt 4](#step-4-choose-an-external-id-type) und geben Sie Ih
 
 ##### Hinweise {#considerations}
 
-- Wenn Ihre externe ID nicht generiert wird, wenn Braze eine Anfrage an Ihren Endpunkt sendet, verwendet die Integration standardmäßig die Shopify-Kunden-ID, wenn die Funktion `changeUser` aufgerufen wird. Dieser Schritt ist entscheidend für das Zusammenführen des anonymen Nutzerprofils mit dem identifizierten Nutzerprofil. Daher kann es vorübergehend vorkommen, dass verschiedene Typen externer IDs in Ihrem Workspace existieren.
-- Wenn die externe ID im Metafeld `braze.external_id` verfügbar ist, priorisiert die Integration diese externe ID und weist sie zu.
-    - Wenn die Shopify-Kunden-ID zuvor als Braze-externe-ID festgelegt wurde, wird sie durch den Wert des Metafelds `braze.external_id` ersetzt.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### 5. Schritt: Das Braze-App-Embed aktivieren {#step-5-enable-the-braze-app-embed}
 
@@ -214,9 +205,6 @@ Zurück in Braze werden Sie benachrichtigt, wenn die Installation Ihrer Shopify-
 
 Um zu überprüfen, dass Ihr neuer Shopify-Konnektor aktiv ist, testen Sie Folgendes:
 
-- **Aktive Canvases, Campaigns und Segmente:** Bestätigen Sie, dass sie ordnungsgemäß funktionieren.
-- **Identitätsmanagement-Prozesse:** Bestätigen Sie, dass diese Prozesse wie erwartet funktionieren.
-- **SDK-Anpassungen (optional):** Wenn Sie Anpassungen an Ihrer Braze- und Shopify-Integration vorgenommen haben (z. B. das Protokollieren angepasster Events oder Attribute), überprüfen Sie, dass diese nach dem Upgrade korrekt funktionieren.
-- **E-Mail- oder SMS-Abonnent:innenerfassung (optional):** Wenn Sie zuvor die E-Mail- oder SMS-Abonnent:innenerfassung aktiviert haben, werden während des Upgrades neue Standard-Abo-Gruppen erstellt, die den aktuellen Status Ihrer Abonnent:innen widerspiegeln. Die Standard-Abo-Gruppen tragen den Namen Ihrer Shopify-Storefront. Diese neuen Standard-Abo-Gruppen sind ungefähr 5 Stunden nach dem Upgrade verfügbar, und Sie müssen sie zu Ihren aktiven Nachrichten hinzufügen.
+{% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
 Wenn Sie Fragen haben, [kontaktieren Sie den Support]({{site.baseurl}}/user_guide/administrative/access_braze/support).

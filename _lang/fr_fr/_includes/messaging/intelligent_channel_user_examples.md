@@ -1,0 +1,3 @@
+- **Utilisateur A** est abonné aux e-mails et a les notifications push activées. Cet utilisateur ne reçoit pas l'e-mail, mais recevra la notification push.
+- **Utilisateur B** a explicitement consenti aux e-mails, mais n'a pas les notifications push activées. Cet utilisateur recevra l'e-mail, mais ne reçoit pas la notification push.
+- **Utilisateur C** a explicitement consenti aux e-mails et a les notifications push activées. Cet utilisateur recevra à la fois l'e-mail et la notification push.

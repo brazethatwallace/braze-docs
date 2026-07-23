@@ -16,35 +16,32 @@ _Diese Integration wird von Komo gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Komo erlaubt es Ihnen, First-Party-Daten und Zero-Party-Daten über Komo Engagement Hubs zu sammeln. Diese Hubs sind dynamische Microsites, die interaktive Inhalte und Gamification-Features bieten. Die von diesen Hubs gesammelten Nutzerdaten werden dann an die Braze API übermittelt.
+Die Integration von Braze und Komo ermöglicht es Ihnen, First-Party- und Zero-Party-Daten über Komo Engagement Hubs zu sammeln. Diese Hubs sind dynamische Microsites, die interaktive Inhalte und Gamification-Features bieten. Die über diese Hubs gesammelten Nutzerdaten werden dann an die Braze-API übermittelt.
 
-- Erfassen Sie First-Party-Daten und Zero-Party-Daten von Nutzer:innen aus Komo in Braze in Realtime
-- Erfassen Sie Marktforschungs- und Nutzerpräferenzdaten, wenn Nutzer:innen Umfragen, Abstimmungen und Quizfragen beantworten
-- Erstellen Sie im Laufe der Zeit schrittweise Nutzerprofile in Braze, wenn Nutzer:innen sich weiter engagieren und mehr Daten über sich preisgeben
-- Standardisieren Sie das Erscheinungsbild von Transaktions-E-Mails, die über Braze versendet werden
+{% multi_lang_include partners/extensions/landing_pages/komo_integration_bullets.md %}
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Komo-Konto | Sie benötigen ein aktives Komo-Konto, um die Vorteile dieser Partnerschaft zu nutzen. Besuchen Sie [Komo](https://komo.tech/), um jetzt eine Testversion zu starten. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.<br><br>Es sollte zum Beispiel so aussehen: https://rest.iad-03.braze.com |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Komo-Konto | Sie benötigen ein aktives Komo-Konto, um diese Partnerschaft nutzen zu können. Besuchen Sie [Komo](https://komo.tech/), um jetzt eine Testversion zu starten. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab.<br><br>Zum Beispiel sollte er in etwa so aussehen: https://rest.iad-03.braze.com |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
 {% tabs local %}
-{% tab Data Capture - Form Submission %}
+{% tab Datenerfassung – Formularübermittlung %}
 
 Wenn Nutzer:innen ein anpassbares Datenerfassungsformular in Komo absenden, werden die in der Braze-Integration zugeordneten Komo-Felder über den `/users/track/`-API-Aufruf an Braze übergeben.
 
-Datenerfassungsformulare gibt es entweder am Anfang oder am Ende von Karten.
+Datenerfassungsformulare befinden sich entweder am Anfang oder am Ende von Cards.
 
 {% endtab %}
-{% tab Market Research - Coming soon %}
+{% tab Marktforschung – Demnächst verfügbar %}
 
-Komo ermöglicht auch die Weitergabe von Marktforschungsdaten, die erfasst werden, wenn Nutzer:innen eine Quizfrage, eine Umfrage, einen Persönlichkeitstest, einen Swiper und Ähnliches beantworten. Diese Daten ermöglichen es Ihnen, das Profil von Nutzer:innen über die in Formularen erfassten Daten hinaus zu erweitern.
+Komo ermöglicht es außerdem, Marktforschungsdaten weiterzuleiten, die erfasst werden, wenn Nutzer:innen eine Quizfrage, Umfrage, einen Persönlichkeitstest, Swiper oder Ähnliches beantworten. Diese Daten ermöglichen es Ihnen, das Profil von Nutzer:innen über die in Formularübermittlungen erfassten Daten hinaus zu erweitern.
 
 {% endtab %}
 {% endtabs %}
@@ -83,4 +80,4 @@ Von hier aus konfigurieren Sie die Ereignisse, Attribute und Abos, die Sie von K
 
 ## Verwendung der Integration {#using-the-integration}
 
-Jetzt ist Ihre Integration betriebsbereit, und Sie können jeden Lauf auf dem Tab „Workflow Runs“ überwachen.
+Ihre Integration ist nun eingerichtet und aktiv, und Sie können jeden Durchlauf im Tab „Workflow Runs“ überwachen.

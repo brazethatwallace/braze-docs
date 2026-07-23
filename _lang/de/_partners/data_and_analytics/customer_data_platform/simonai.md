@@ -11,7 +11,7 @@ search_tag: Partner
 
 > Die [Simon AI][1] Agentic Marketing Platform hilft Marketing-Teams, echte 1:1-Personalisierung zu erreichen. Sie kombiniert eine modulare CDP mit KI-Agenten, die direkt in der Snowflake AI Data Cloud arbeiten und als Daten- und Ausführungsteam für Marketer fungieren.
 
-Nutzen Sie die Integration von Braze und Simon AI, um fortschrittliche Zielgruppen zu erstellen und für Realtime-Orchestrierung ohne Code mit Braze zu synchronisieren. Mit dieser Integration können Sie die Identitätsauflösung, die Vereinheitlichung von Kundendaten und die KI-gestützte Segmentierung von Simon AI nutzen, um personalisiertere und wirkungsvollere Braze-Kampagnen nachgelagert zu unterstützen.
+Nutzen Sie die Integration von Braze und Simon AI, um fortschrittliche Zielgruppen zu erstellen und für Realtime-Orchestrierung ohne Code mit Braze zu synchronisieren. Mit dieser Integration können Sie die Identitätsauflösung, die Vereinheitlichung von Kundendaten und die KI-gestützte Segmentierung von Simon AI nutzen, um personalisiertere und wirkungsvollere Braze-Campaigns nachgelagert zu unterstützen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -83,7 +83,7 @@ Nachdem Contact Traits von Ihrem Account Manager aktiviert wurde:
 
 [1]: https://www.simon.ai/
 [2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
-[3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
+[3]: {{site.baseurl}}/user_guide/administer/personal/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two
 [6]: https://docs.simondata.com

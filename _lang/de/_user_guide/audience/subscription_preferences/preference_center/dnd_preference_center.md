@@ -85,6 +85,10 @@ Jeder Block hat seine eigenen Einstellungen, wie z. B. eine granulare Steuerung 
 
 Wenn Sie den Custom-Code-Block in Ihrem Präferenzzentrum verwenden, werden Inline-Frames möglicherweise nicht im benutzerdefinierten Code generiert, wenn er an Ihre Nutzer:innen zugestellt wird.
 
+{% alert note %}
+Content Blocks mit Links können nicht im Drag-and-Drop-Präferenzzentrum verwendet werden. Links innerhalb von Content Blocks sind nicht klickbar.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
