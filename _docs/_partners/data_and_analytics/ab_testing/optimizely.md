@@ -14,9 +14,7 @@ search_tag: Partner
 
 The Braze and Optimizely integration is a two-way integration that allows you to:
 
-- Sync your Braze customer segments and events to Optimizely Data Platform (ODP) nightly to enrich Optimizely customer profiles, reports, and segmentation.
-- Send Braze Currents events from Braze to Optimizely’s reporting tool.
-- Sync ODP customer data and events to Braze to enrich your Braze customer data and trigger Braze messaging based on customer events in ODP.
+{% multi_lang_include partners/ab_testing/optimizely_integration_bullets.md %}
 
 ## Prerequisites
 

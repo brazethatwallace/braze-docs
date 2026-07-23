@@ -206,9 +206,7 @@ Braze는 외부 ID JSON을 반환하는 `200` 상태 코드를 기대합니다:
 #### 실패 동작 및 병합 {#failure-behavior-and-merging}
 `200` 이외의 상태 코드는 모두 실패로 간주됩니다.
 
-- **병합 영향:** 엔드포인트가 실패하면(`200`이 아닌 값을 반환하거나 시간 초과) Braze는 외부 ID를 검색할 수 없습니다. 따라서 Shopify 사용자와 Braze 고객 프로필 간의 병합은 해당 시점에 이루어지지 않습니다.
-- **재시도 로직:** Braze는 표준 즉시 네트워크 재시도를 시도할 수 있지만, 실패가 지속되면 다음 적격 이벤트(예: 사용자가 프로필을 업데이트하거나 결제를 완료할 때)까지 병합이 연기됩니다.
-- **지원 가능성:** 적시에 사용자 병합을 지원하려면 엔드포인트의 가용성이 높고 선택 사항인 `email_address` 필드를 원활하게 처리할 수 있는지 확인하세요.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 ### 4.3단계: 외부 ID 입력 {#step-43-input-your-external-id}
 
@@ -216,9 +214,7 @@ Braze는 외부 ID JSON을 반환하는 `200` 상태 코드를 기대합니다:
 
 #### 고려 사항 {#considerations}
 
-- Braze가 엔드포인트에 요청을 보낼 때 외부 ID가 생성되지 않은 경우, 통합은 `changeUser` 함수가 호출될 때 기본적으로 Shopify 고객 ID를 사용합니다. 이 단계는 익명 사용자 프로필을 식별된 고객 프로필과 병합하는 데 매우 중요합니다. 따라서 일시적으로 워크스페이스 내에 여러 유형의 외부 ID가 존재할 수 있습니다.
-- `braze.external_id` 메타필드에서 외부 ID를 사용할 수 있으면 통합에서 이 외부 ID에 우선순위를 지정하여 할당합니다.
-    - 이전에 Shopify 고객 ID가 Braze 외부 ID로 설정된 경우 `braze.external_id` 메타필드 값으로 대체됩니다.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### 4.4단계: Shopify에서 이메일 또는 SMS 옵트인 수집(선택 사항) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -228,11 +224,7 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이
 
 ![이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이 있는 "Collect subscribers" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-[Shopify 개요]({{site.baseurl}}/shopify_overview)에서 언급한 바와 같이, 서드파티 캡처 양식을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 양식 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): 고객 프로필에 이메일 주소를 설정합니다
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): 글로벌 이메일 구독 상태를 업데이트합니다
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ## 5단계: 제품 동기화(선택 사항) {#step-5-sync-products-optional}
 

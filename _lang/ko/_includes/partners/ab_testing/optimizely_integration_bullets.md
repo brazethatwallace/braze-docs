@@ -1,0 +1,3 @@
+- Braze 고객 Segments와 이벤트를 Optimizely Data Platform(ODP)에 매일 밤 동기화하여 Optimizely 고객 프로필, 보고서 및 세분화를 강화할 수 있습니다.
+- Braze에서 Optimizely의 보고 도구로 Braze 커런츠 이벤트를 전송할 수 있습니다.
+- ODP 고객 데이터와 이벤트를 Braze에 동기화하여 Braze 고객 데이터를 강화하고, ODP의 고객 이벤트를 기반으로 Braze 메시징을 트리거할 수 있습니다.

@@ -26,18 +26,18 @@ You can sync your products to a Braze catalog through the Shopify install flow o
 
 ### Step 2: Select your product identifier
 
-Select what product identifier to use as the catalog ID:
-- Shopify Variant ID
-- SKU
+Select the primary product identifier to use as the Braze catalog ID:
 
-The ID and header values for the product identifier you choose can only include letters, numbers, hyphens, and underscores. If the product identifier doesn't follow this format, Braze will filter it out of your catalog sync.
+- **Shopify Variant ID** is a good default when your SKUs are missing, duplicated across variants, or may contain characters such as slashes, periods, spaces, or ampersands. Variant IDs are numeric and always meet these requirements.
+- **SKU** works well when every variant has a unique SKU that follows the same character rules as Shopify Variant ID, and you want messaging or analytics to use retail SKUs as the catalog key.
+  - You can use free-text SKUs that contain disallowed characters by using Shopify Variant ID instead of SKU.
 
-This will be the primary identifier you use to reference Braze catalog information. 
+The value you select becomes the catalog `item_id` and can only contain letters, numbers, hyphens, and underscores.
 
 {% alert note %}
-If you are selecting SKU as your catalog ID, make sure that all your products and variants in your store have a SKU set and they are unique.<br><br>  
-- If an item has a missing SKU, Braze cannot sync that product into the catalog.
-- If you have more than one product with the same SKU, this can cause unexpected behavior or result in product information being overridden unintentionally by the duplicate SKU.
+If using SKU as your catalog ID, make sure that all your products and variants in your store have a SKU set and they are unique.<br><br>  
+- If an item has a missing SKU, Braze can't sync that product into the catalog.
+- If you have more than one product with the same SKU, this can cause unexpected behavior or unintentionally override product information.
 {% endalert %}
 
 ### Step 3: Configure additional product data (optional) {#step-3}
@@ -725,7 +725,9 @@ If your Shopify product sync runs into an error, it could be a result of the fol
 | Error | Reason | Solution |
 | --- | --- | --- |
 | Server Error | This occurs if there is a server error on Shopify’s side when we attempt to sync your products. | [Deactivate sync](#deactivate) and re-sync your entire inventory of products again. |
-| Duplicate SKU | This occurs if you use a SKU as your catalog item ID and have products with the same SKU. Because the catalog item ID must be unique, all your products must have unique SKUs. | Audit your full list of products and variants in Shopify to make sure that there are no duplicate SKUs. If there are duplicate SKUs, update these to be unique SKUs only in your Shopify store account. After this is corrected, [deactivate sync](#deactivate) and re-sync your entire inventory of products again. |
+| Duplicate SKU | This occurs if you use SKU as your catalog item ID and multiple variants share the same SKU. Each catalog `item_id` must be unique, so affected items may fail to sync, accumulate error records, or have product information overridden unintentionally. | Audit your full list of products and variants in Shopify to make sure that there are no duplicate SKUs. If there are duplicate SKUs, update these to be unique SKUs only in your Shopify store account. After this is corrected, [deactivate sync](#deactivate) and re-sync your entire inventory of products again. |
 | Catalog Limit Exceeded | This occurs if you exceed your catalog limit. Braze will be unable to finish the sync or keep the syncing active due to no more storage availability. | There are two solutions to this issue:<br><br>1. Contact your account manager to upgrade your tier to increase your catalog limit. <br><br>2. Free up storage space by deleting any of the following:<br>- Catalog items from other catalogs<br>- Other catalogs<br>- Selections created<br><br> After using either of the solutions, the sync must be deactivated and then re-synced. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Troubleshooting" }
+
+For details on catalog item validation, see [Troubleshooting]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) in the catalog API documentation.
 

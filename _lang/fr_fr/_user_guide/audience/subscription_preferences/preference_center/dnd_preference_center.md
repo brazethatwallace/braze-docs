@@ -85,6 +85,10 @@ Chaque bloc possède ses propres paramètres, comme un contrôle granulaire du r
 
 Si vous utilisez le bloc de code personnalisé dans votre centre de préférences, les cadres intégrés (iframes) peuvent ne pas être générés dans le code personnalisé lors de la livraison à vos utilisateurs.
 
+{% alert note %}
+Les Content Blocks contenant des liens ne peuvent pas être utilisés dans le centre de préférences par glisser-déposer. Les liens au sein des Content Blocks ne sont pas cliquables.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 

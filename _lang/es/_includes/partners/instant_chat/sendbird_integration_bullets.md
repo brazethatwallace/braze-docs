@@ -1,0 +1,2 @@
+- Usa las capacidades de segmentación y desencadenamiento de Braze para iniciar notificaciones personalizadas dentro de la aplicación.
+- Crea notificaciones personalizadas dentro de la aplicación en la plataforma Sendbird Notifications, que luego se entregan dentro del entorno de la aplicación, mejorando la participación del usuario.

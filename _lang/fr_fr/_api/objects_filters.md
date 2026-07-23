@@ -20,7 +20,7 @@ description: "Cette page répertorie les objets et filtres de l'API Braze utilis
 - [Objet Alias d'identification]({{site.baseurl}}/api/objects_filters/aliases_to_identify)
 - [Objet propriétés du déclencheur]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
 - [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object)
-- [Objet attribut utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)
+- [Objet attribut utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 - [Objet planification]({{site.baseurl}}/api/objects_filters/schedule_object)
 - [Objet de sélection du catalogue]({{site.baseurl}}/api/objects_filters/catalog_selection_object)
 

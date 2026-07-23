@@ -1,0 +1,3 @@
+- Gagnez du temps en créant une variable de Campaign pour sélectionner dans une liste lors de la création de votre rapport, au lieu de coller des ID de Campaign.
+- Remplacez des valeurs en ajoutant des variables qui vous permettent de réutiliser le rapport pour des cas d'usage légèrement différents à l'avenir (comme un événement personnalisé différent).
+- Réduisez les erreurs utilisateur lors de la modification de votre SQL en limitant la quantité de modifications nécessaires pour chaque rapport. Les collègues plus à l'aise avec SQL peuvent créer des rapports que des collègues moins techniques peuvent ensuite utiliser.

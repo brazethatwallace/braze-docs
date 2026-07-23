@@ -1,0 +1,4 @@
+1. Em **Informações de envio**, selecione um e-mail como **Nome de exibição do remetente + Endereço**. Você também pode personalizar isso selecionando **Personalizar nome de exibição do remetente + Endereço**.
+2. Selecione um e-mail como **Endereço de resposta**. Você também pode personalizar isso selecionando **Personalizar endereço de resposta**.
+3. Em seguida, selecione um e-mail como **Endereço CCO** para tornar seu e-mail visível para esse endereço.
+4. Adicione uma linha de assunto ao seu e-mail. Opcionalmente, você também pode adicionar um pré-cabeçalho. Para adicionar espaço em branco após o pré-cabeçalho, marque a caixa de seleção **Adicionar espaço em branco após o pré-cabeçalho**.

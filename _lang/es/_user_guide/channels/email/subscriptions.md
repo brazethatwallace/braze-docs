@@ -55,7 +55,7 @@ Usa el SDK de Braze para actualizar el estado de suscripción de un usuario.
 
 #### REST API
 
-Usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar el [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) de un usuario. Por ejemplo, para establecer el estado de suscripción de correo electrónico de un usuario como cancelado cuando utiliza un enlace de cancelación de suscripción personalizado, incluye `email_subscribe: "unsubscribed"` en los atributos de usuario de tu solicitud.
+Usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar el [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) de un usuario. Por ejemplo, para establecer el estado de suscripción de correo electrónico de un usuario como cancelado cuando utiliza un enlace de cancelación de suscripción personalizado, incluye `email_subscribe: "unsubscribed"` en los atributos de usuario de tu solicitud.
 
 #### Perfil de usuario {#user-profile}
 
@@ -212,9 +212,9 @@ Usa un proceso de doble adhesión voluntaria para mejorar el alcance. Braze env�
 
 ![Correo electrónico personalizado de adhesión voluntaria con un mensaje "Nos alegra que sigas queriendo saber de nosotros".]({% image_buster /assets/img/custom_optin.png %})
 
-## Suscripciones y segmentación de campañas {#subscriptions-and-campaign-targeting}
+## Suscripciones y segmentación de Campaigns {#subscriptions-and-campaign-targeting}
 
-De forma predeterminada, Braze dirige las campañas con mensajes push o de correo electrónico a los usuarios que están suscritos o con adhesión voluntaria. Cambia esto en **Público objetivo** seleccionando el menú desplegable junto a **Enviar a estos usuarios:**.
+De forma predeterminada, Braze dirige las Campaigns con mensajes push o de correo electrónico a los usuarios que están suscritos o con adhesión voluntaria. Cambia esto en **Público objetivo** seleccionando el menú desplegable junto a **Enviar a estos usuarios:**.
 
 Braze admite tres estados de segmentación:
 
@@ -230,6 +230,6 @@ Es tu responsabilidad cumplir con todas las [leyes de correo no deseado]({{site.
 
 Usa los filtros "Estado de suscripción de correo electrónico" y "Estado de suscripción push" para segmentar usuarios por estado de suscripción.
 
-Usa esto para dirigirte a usuarios que no han optado ni por recibir ni por dejar de recibir mensajes, y fomenta una adhesión voluntaria explícita. Crea un segmento con el filtro "El estado de suscripción de correo electrónico/push es Suscrito" y envía campañas a usuarios que están suscritos pero no con adhesión voluntaria.
+Usa esto para dirigirte a usuarios que no han optado ni por recibir ni por dejar de recibir mensajes, y fomenta una adhesión voluntaria explícita. Crea un segmento con el filtro "El estado de suscripción de correo electrónico/push es Suscrito" y envía Campaigns a usuarios que están suscritos pero no con adhesión voluntaria.
 
 ![Estado de suscripción de correo electrónico utilizado como filtro de segmento.]({% image_buster /assets/img_archive/not_optin.png %})

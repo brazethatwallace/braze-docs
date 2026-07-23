@@ -2,7 +2,7 @@
 
 ### 추적 데이터란 무엇인가요? {#what-is-tracking-data}
 
-Apple은 "추적 데이터"를 서드파티 데이터(예: 타겟 광고) 또는 데이터 브로커에 연결된 최종 사용자 또는 기기에 대해 앱에서 수집한 데이터로 정의합니다. 예제와 함께 전체 정의는 [Apple: 추적](https://developer.apple.com/app-store/app-privacy-details/#user-tracking)을 참조하세요.
+Apple은 "추적 데이터"를 서드파티 데이터(예: 타겟 광고) 또는 데이터 브로커에 연결된 최종사용자 또는 기기에 대해 앱에서 수집한 데이터로 정의합니다. 예제와 함께 전체 정의는 [Apple: 추적](https://developer.apple.com/app-store/app-privacy-details/#user-tracking)을 참조하세요.
 
 기본적으로 Braze SDK는 추적 데이터를 수집하지 않습니다. 하지만 Braze SDK 구성에 따라 앱의 개인정보 보호 매니페스트에 Braze 관련 데이터를 나열해야 할 수도 있습니다.
 
@@ -12,7 +12,7 @@ Apple은 "추적 데이터"를 서드파티 데이터(예: 타겟 광고) 또는
 
 ### API 추적 데이터 도메인 {#api-tracking-data-domains}
 
-iOS 17.2부터 Apple은 최종 사용자가 [광고 추적 투명성(ATT) 프롬프트](https://support.apple.com/en-us/HT212025)를 수락할 때까지 앱에서 선언된 모든 추적 엔드포인트를 차단합니다. Braze는 추적 데이터를 라우팅할 수 있는 추적 엔드포인트를 제공하는 동시에, 추적하지 않는 퍼스트파티 데이터를 원래 엔드포인트로 라우팅할 수 있도록 합니다.
+iOS 17.2부터 Apple은 최종사용자가 [광고 추적 투명성(ATT) 프롬프트](https://support.apple.com/en-us/HT212025)를 수락할 때까지 앱에서 선언된 모든 추적 엔드포인트를 차단합니다. Braze는 추적 데이터를 라우팅할 수 있는 추적 엔드포인트를 제공하는 동시에, 추적하지 않는 퍼스트파티 데이터를 원래 엔드포인트로 라우팅할 수 있도록 합니다.
 
 ## Braze 추적 데이터 선언하기 {#declaring-braze-tracking-data}
 
@@ -58,7 +58,7 @@ Xcode 프로젝트에서 앱의 `PrivacyInfo.xcprivacy` 파일을 연 다음, �
 
 ### 4단계: 추적 데이터 선언하기 {#step-4-declare-your-tracking-data}
 
-다음으로, `AppDelegate.swift`를 열고 정적 또는 동적 추적 목록을 생성하여 선언하려는 각 [추적 속성정보](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/)를 나열합니다. 최종 사용자가 ATT 프롬프트를 수락할 때까지 Apple은 이러한 속성정보를 차단하므로, 귀하와 법무팀이 추적으로 간주하는 속성정보만 나열하세요. 예를 들어:
+다음으로, `AppDelegate.swift`를 열고 정적 또는 동적 추적 목록을 생성하여 선언하려는 각 [추적 속성정보](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/)를 나열합니다. 최종사용자가 ATT 프롬프트를 수락할 때까지 Apple은 이러한 속성정보를 차단하므로, 귀하와 법무팀이 추적으로 간주하는 속성정보만 나열하세요. 예를 들어:
 
 {% tabs %}
 {% tab 정적 예제 %}
@@ -93,10 +93,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab 동적 예제 %}
-다음 예제에서는 최종 사용자가 ATT 프롬프트를 수락한 후 추적 목록이 자동으로 업데이트됩니다.
+다음 예제에서는 최종사용자가 [앱 추적 투명성(ATT) 프롬프트](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:))를 수락한 후 추적 목록이 자동으로 업데이트됩니다. 앱 활성화 시 권한을 요청하는 것은 씬(scene) 단위 이벤트이므로, 이 코드는 `AppDelegate.swift`의 `applicationDidBecomeActive(_:)`가 아닌 `SceneDelegate.swift` 파일의 `sceneDidBecomeActive(_:)` 메서드에 위치해야 합니다([`UIScene` 생명주기](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)를 채택한 앱에 필요). Braze 인스턴스는 1단계에서 구성한 `AppDelegate.braze` 정적 속성정보를 통해 `SceneDelegate`에서 접근할 수 있습니다.
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
   // Request and check your user's tracking authorization status.
   ATTrackingManager.requestTrackingAuthorization { status in
     // Let Braze know whether user data is allowed to be collected for tracking.
@@ -104,7 +104,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
     AppDelegate.braze?.set(adTrackingEnabled: enableAdTracking)
 
     // Add the `.firstName` and `.lastName` properties, while removing the `.everything` configuration.
-    AppDelegate.braze.updateTrackingAllowList(
+    AppDelegate.braze?.updateTrackingAllowList(
       adding: [.firstName, .lastName],
       removing: [.everything]
     )
@@ -116,10 +116,10 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 
 ### 5단계: 무한 재시도 루프 방지 {#step-5-prevent-infinite-retry-loops}
 
-SDK가 무한 재시도 루프에 빠지지 않도록 `set(adTrackingEnabled: enableAdTracking)` 메서드를 사용하여 ATT 권한을 처리하세요. 메서드의 `adTrackingEnabled` 속성정보는 다음과 유사하게 처리해야 합니다:
+SDK가 무한 재시도 루프에 빠지지 않도록 `set(adTrackingEnabled: enableAdTracking)` 메서드를 사용하여 ATT 권한을 처리하세요. `SceneDelegate.swift` 메서드의 `adTrackingEnabled` 속성정보는 다음과 유사하게 처리해야 합니다:
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
     // Request and check your user's tracking authorization status.
     ATTrackingManager.requestTrackingAuthorization { status in
       // Let Braze know whether user data is allowed to be collected for tracking.
@@ -203,6 +203,6 @@ Swift SDK `v7.0.0+`에서 `useUUIDAsDeviceId`를 활성화(기본값)하면 새�
 
 예, 이 기능은 재량에 따라 켜고 끌 수 있습니다. 이전에 저장된 기기 ID는 덮어쓰지 않습니다.
 
-#### 다른 곳에서도 Braze를 통해 IDFV 값을 캡처할 수 있나요? {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
+#### 다른 곳에서도 Braze를 통해 IDFV 값을 캡처할 수 있나요? {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
 
 예, 선택적으로 Swift SDK를 통해 IDFV를 수집할 수 있습니다(기본적으로 수집은 비활성화되어 있습니다).

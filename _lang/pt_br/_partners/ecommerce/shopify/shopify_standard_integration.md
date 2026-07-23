@@ -14,7 +14,7 @@ page_order: 1
 
 ## Etapa 1: Conecte sua loja da Shopify {#step-1-connect-your-shopify-store}
 
-1. Na Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** e depois procure "Shopify".
+1. Na Braze, acesse **Partner Integrations** > **Technology Partners** e depois procure "Shopify".
 2. Na página do parceiro da Shopify, selecione **Begin setup** para iniciar o processo de integração.<br><br>![Página de integração da Shopify com botão para iniciar a configuração.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Na loja de aplicativos da Shopify, instale o aplicativo da Braze.<br><br>![A página da loja de aplicativos da Braze com um botão para instalar o aplicativo.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
@@ -206,9 +206,7 @@ A Braze espera um código de status `200` retornando o JSON do ID externo:
 #### Comportamento de falha e mesclagem {#failure-behavior-and-merging}
 Qualquer código de status diferente de `200` é considerado uma falha.
 
-- **Implicações da mesclagem:** Se o endpoint falhar (não retornar `200` ou atingir o tempo limite), a Braze não poderá recuperar o ID externo. Consequentemente, a mesclagem entre o usuário da Shopify e o perfil do usuário da Braze não ocorrerá nesse momento.
-- **Lógica de repetição:** A Braze poderá tentar novas tentativas de rede padrão imediatas, mas se a falha persistir, a mesclagem será adiada até o próximo evento de qualificação (por exemplo, a próxima vez que o usuário atualizar seu perfil ou concluir um checkout).
-- **Capacidade de suporte:** Para dar suporte à mesclagem de usuários em tempo hábil, certifique-se de que o seu endpoint esteja altamente disponível e lide com o campo opcional `email_address` de forma adequada.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 ### Etapa 4.3: Insira seu ID externo {#step-43-input-your-external-id}
 
@@ -216,9 +214,7 @@ Repita a [Etapa 4](#step-4) e insira a URL do endpoint depois de selecionar ID e
 
 #### Considerações {#considerations}
 
-- Se seu ID externo não for gerado quando a Braze enviar uma solicitação ao seu endpoint, a integração usará por padrão o ID do cliente da Shopify quando a função `changeUser` for chamada. Essa etapa é crucial para mesclar o perfil do usuário anônimo com o perfil do usuário identificado. Como resultado, pode haver um período temporário durante o qual diferentes tipos de IDs externos existam no seu espaço de trabalho.
-- Quando o ID externo estiver disponível no metacampo `braze.external_id`, a integração priorizará e atribuirá esse ID externo.
-    - Se o ID do cliente da Shopify tiver sido definido anteriormente como o ID externo da Braze, ele será substituído pelo valor do metacampo `braze.external_id`.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### Etapa 4.4: Colete suas aceitações de e-mail ou SMS da Shopify (opcional) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -228,11 +224,7 @@ Se você usar os canais de e-mail ou SMS, poderá sincronizar seus estados de ac
 
 ![Seção "Coletar assinantes" com a opção de coletar aceitação de marketing por e-mail ou SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-Conforme mencionado na [visão geral da Shopify]({{site.baseurl}}/shopify_overview), se você quiser usar um formulário de captura de terceiros, seus desenvolvedores precisarão integrar o código do Braze SDK. Isso permitirá que você capture o endereço de e-mail e o status global da inscrição de e-mail dos envios de formulários. Especificamente, você precisa implementar e testar esses métodos no seu arquivo `theme.liquid`:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Define o endereço de e-mail no perfil do usuário
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Atualiza o status da inscrição global de e-mail
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ## Etapa 5: Sincronizar produtos (opcional) {#step-5-sync-products-optional}
 

@@ -1,0 +1,3 @@
+- `agentconsole.AgentExecuted`: Se agregó `error` (cadena): una descripción de cualquier error que haya ocurrido.
+- `agentconsole.ToolInvocation`: Se agregó `request_id` (cadena): un ID único para la solicitud LLM general y la ejecución completa.
+- `users.messages.rcs.InboundReceive`: Se agregó `canvas_variation_name` (cadena): el nombre de la variación de Canvas que recibió el usuario.

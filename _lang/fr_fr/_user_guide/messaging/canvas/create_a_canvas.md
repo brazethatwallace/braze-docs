@@ -191,9 +191,7 @@ Sélectionnez **Paramètres d'envoi** pour modifier vos paramètres d'abonnement
 
 Pour les Canvas ciblant les canaux e-mail et push, vous pouvez souhaiter limiter votre Canvas aux seuls utilisateurs ayant explicitement donné leur accord (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
 
-- **L'utilisateur A** est abonné aux e-mails et a les notifications push activées. Cet utilisateur ne reçoit pas l'e-mail mais recevra la notification push.
-- **L'utilisateur B** a donné son accord explicite pour les e-mails mais n'a pas les notifications push activées. Cet utilisateur recevra l'e-mail mais ne recevra pas la notification push.
-- **L'utilisateur C** a donné son accord explicite pour les e-mails et a les notifications push activées. Cet utilisateur recevra à la fois l'e-mail et la notification push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Pour ce faire, définissez les **Paramètres d'abonnement** pour envoyer ce Canvas aux « utilisateurs ayant donné leur accord explicite uniquement ». Cette option garantit que seuls les utilisateurs ayant donné leur accord explicite recevront vos e-mails, et Braze n'enverra vos notifications push qu'aux utilisateurs ayant les notifications push activées par défaut.
 
@@ -300,7 +298,7 @@ Le composant Message gère les messages envoyés aux utilisateurs. Vous pouvez s
 
 ![L'étape « Configurer les messages », avec « Canaux de communication » sélectionné, affichant la liste des canaux de communication disponibles, tels que notification push Android, Content Cards, e-mail, et plus encore.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
-Sélectionnez **Done** après avoir fini de configurer votre composant Canvas.
+Sélectionnez **Terminé** après avoir fini de configurer votre composant Canvas.
 
 {% tabs local %}
 {% tab Propriétés d'entrée du Canvas %}
@@ -327,7 +325,7 @@ Dans la première étape de message suivant un parcours d'actions, vous pouvez u
 
 ### Étape 2.3 : Modifier les connexions {#step-23-edit-connections}
 
-Pour déplacer une connexion entre des étapes, sélectionnez la flèche reliant les deux composants, puis sélectionnez un composant différent. Pour supprimer la connexion, sélectionnez la flèche puis **Cancel Connection** dans le pied de page du compositeur de Canvas.
+Pour déplacer une connexion entre des étapes, sélectionnez la flèche reliant les deux composants, puis sélectionnez un composant différent. Pour supprimer la connexion, sélectionnez la flèche puis **Annuler la connexion** dans le pied de page du compositeur de Canvas.
 
 Si une seule variante comporte plusieurs branches avec la même audience et le même horaire d'envoi, Braze ne garantit pas une répartition égale entre ces branches. La répartition peut favoriser la branche créée en premier. Pour une répartition égale, utilisez des filtres de [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) sur chaque branche. Pour en savoir plus, consultez [Que se passe-t-il si l'audience et l'horaire d'envoi sont identiques pour un Canvas qui a une variante, mais plusieurs branches ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 

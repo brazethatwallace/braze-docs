@@ -604,7 +604,7 @@ Die vollständige Liste der Daten im initialen Ladevorgang, das Verhalten der Um
 
 ### Schritt 5: Angepasstes Daten-Tracking einrichten (erweitert) {#step-5-custom-data-tracking-setup-advanced}
 
-Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute tracken, die über die für diese Integration unterstützten Daten hinausgehen. Angepasste Events erfassen eindeutige Interaktionen in Ihrem Shop, wie zum Beispiel:
+Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute tracken, die über die für diese Integration unterstützten Daten hinausgehen. Angepasste Events erfassen einzigartige Interaktionen in Ihrem Shop, wie zum Beispiel:
 
 <style>
 #custom-data td {
@@ -665,10 +665,7 @@ Die nächsten Schritte hängen von Ihrer Auswahl der externen ID ab:<br><br>
 
 #### Schritt 6.1: Das Metafeld `braze.external_id` erstellen {#step-61-create-the-brazeexternal_id-metafield}
 
-1. Gehen Sie in Ihrem Shopify-Admin-Panel zu **Settings** > **Metafields**.
-2. Wählen Sie **Customers** > **Add definition**.
-3. Geben Sie für **Namespace and key** den Wert `braze.external_id` ein.
-4. Wählen Sie unter **Type** den **ID Type** aus.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 Nachdem das Metafeld erstellt wurde, befüllen Sie es für Ihre Kund:innen. Wir empfehlen die folgenden Ansätze:
 
@@ -714,9 +711,7 @@ Es ist entscheidend, dass `shopify_customer_id` und `email_address` (falls vorha
 ##### Fehlerverhalten und Zusammenführung {#failure-behavior-and-merging}
 Jeder andere Statuscode als `200` wird als Fehler betrachtet.
 
-- **Auswirkungen auf die Zusammenführung:** Wenn der Endpunkt fehlschlägt (nicht `200` zurückgibt oder ein Timeout auftritt), kann Braze die externe ID nicht abrufen. Folglich wird die Zusammenführung zwischen dem Shopify-Nutzer und dem Braze-Nutzerprofil zu diesem Zeitpunkt nicht stattfinden.
-- **Wiederholungslogik:** Braze kann standardmäßige sofortige Netzwerk-Wiederholungsversuche unternehmen. Wenn der Fehler jedoch weiterhin besteht, wird die Zusammenführung bis zum nächsten qualifizierenden Event aufgeschoben (z. B. wenn Nutzer:innen ihr Profil aktualisieren oder einen Checkout abschließen).
-- **Unterstützbarkeit:** Um eine zeitnahe Zusammenführung von Nutzer:innen zu gewährleisten, stellen Sie sicher, dass Ihr Endpunkt hochverfügbar ist und das optionale Feld `email_address` zuverlässig verarbeitet.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 #### Schritt 6.3: Ihre externe ID eingeben {#step-63-input-your-external-id}
 
@@ -724,9 +719,7 @@ Wiederholen Sie [Schritt 6](#step-6) und geben Sie Ihre Endpunkt-URL ein, nachde
 
 ##### Hinweise {#considerations}
 
-- Wenn Ihre externe ID zum Zeitpunkt der Braze-Anfrage an Ihren Endpunkt noch nicht generiert wurde, verwendet die Integration standardmäßig die Shopify-Kunden-ID, wenn die Funktion `changeUser` aufgerufen wird. Dieser Schritt ist entscheidend für die Zusammenführung des anonymen Nutzerprofils mit dem identifizierten Nutzerprofil. Daher kann es vorübergehend vorkommen, dass verschiedene Arten von externen IDs in Ihrem Workspace existieren.
-- Wenn die externe ID im Metafeld `braze.external_id` verfügbar ist, wird die Integration diese externe ID priorisieren und zuweisen.
-    - Wenn die Shopify-Kunden-ID zuvor als externe Braze-ID festgelegt wurde, wird sie durch den Wert des Metafelds `braze.external_id` ersetzt.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 #### Schritt 6.4: Ihre E-Mail- oder SMS-Opt-ins von Shopify sammeln (optional) {#step-64-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -736,11 +729,7 @@ Wenn Sie die E-Mail- oder SMS-Kanäle nutzen, können Sie Ihre E-Mail- und SMS-M
 
 ![Abschnitt „Abonnent:innen sammeln“ mit der Option, E-Mail- oder SMS-Marketing-Opt-ins zu sammeln.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-Wie in der [Shopify-Übersicht]({{site.baseurl}}/shopify_overview) erwähnt, müssen Ihre Entwickler:innen den Braze-SDK-Code integrieren, wenn Sie ein Erfassungsformular eines Drittanbieters verwenden möchten. So können Sie die E-Mail-Adresse und den globalen E-Mail-Abo-Status aus Formularübermittlungen erfassen. Konkret müssen Sie diese Methoden in Ihrer `theme.liquid`-Datei implementieren und testen:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Legt die E-Mail-Adresse im Nutzerprofil fest
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Aktualisiert den globalen E-Mail-Abo-Status
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ### Schritt 7: Produkte synchronisieren (optional) {#step-7-sync-products-optional}
 

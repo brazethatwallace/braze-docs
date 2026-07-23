@@ -1,0 +1,3 @@
+- O evento ecommerce.checkout_started pré-definido nos seus critérios de entrada
+- Critérios de saída pré-definidos para remover clientes que avançaram na jornada de compra
+- Uma nova Liquid tag de carrinho de compras para dar suporte à personalização de produtos

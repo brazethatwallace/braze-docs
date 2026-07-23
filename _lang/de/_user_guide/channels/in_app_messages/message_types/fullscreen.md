@@ -34,9 +34,7 @@ Dieser Nachrichtentyp ist sowohl im [Drag-and-Drop-Editor]({{site.baseurl}}/user
 
 Vollbild-In-App-Nachrichten füllen die gesamte Höhe eines Geräts aus und werden bei Bedarf horizontal (links und rechts) zugeschnitten. Bild-und-Text-Vollbildnachrichten füllen 50 % der Gerätehöhe aus. Alle Vollbild-In-App-Nachrichten füllen die Statusleiste auf Geräten mit „Notch“ aus.
 
-- Alle Bilder müssen kleiner als 5&nbsp;MB sein.
-- Wir akzeptieren nur die Dateitypen PNG, JPEG und [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs).
-- Wir empfehlen eine Bildgröße von 500&nbsp;KB.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Erstellen Sie Assets mit Zuversicht! Unsere Bildvorlagen und Safe-Zone-Overlays für In-App-Nachrichten sind so konzipiert, dass sie auf Geräten aller Größen gut funktionieren. [Design-Templates-ZIP herunterladen]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 

@@ -1,0 +1,3 @@
+- Respond to prompts such as "I want to send our lapsed users a push notification with a 20% off promo code the next time they open the app or log a custom event that cancels their subscription".
+- Assist you in each individual step of the campaign wizard, with full visibility into what you're working on and the ability to change form inputs on the page.
+- Navigate to the correct step in the wizard to begin taking action, whether you start from an open campaign or the **Campaigns** page.

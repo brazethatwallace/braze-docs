@@ -33,9 +33,7 @@ Braze는 현재 모든 사용자 수준 데이터를 Snowflake AWS US East-1 및
 
 ### 비파괴적 변경 {#non-breaking-changes}
 
-비파괴적 변경은 언제든지 발생할 수 있으며 일반적으로 추가 기능을 제공합니다. 비파괴적 변경의 예시:
-- 새 테이블 또는 뷰 추가
-- 기존 테이블 또는 뷰에 열 추가
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 새 열은 비파괴적 변경으로 간주되므로 Braze는 `SELECT *` 쿼리를 사용하는 대신 각 쿼리에서 관심 있는 열을 명시적으로 나열할 것을 적극 권장합니다. 또는 열 이름을 명시적으로 지정하는 뷰를 생성한 다음, 테이블을 직접 쿼리하는 대신 해당 뷰를 쿼리할 수 있습니다.
@@ -43,14 +41,11 @@ Braze는 현재 모든 사용자 수준 데이터를 Snowflake AWS US East-1 및
 
 ### 파괴적 변경 {#breaking-changes}
 
-가능한 경우, 파괴적 변경은 사전 공지 및 마이그레이션 기간이 선행됩니다. 파괴적 변경의 예시:
-- 테이블 또는 뷰 제거
-- 기존 테이블 또는 뷰에서 열 제거
-- 기존 열의 유형 또는 널 허용 여부 변경
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ## SNAPSHOTS 및 CHANGELOGS 테이블이 업데이트되는 시점 {#when-snapshots-and-changelogs-tables-are-updated}
 
-SNAPSHOTS 및 CHANGELOGS 테이블은 Campaign과 Canvases의 변경 사항을 추적합니다. 이 테이블이 업데이트되는 시점을 이해하는 것은 가장 최근의 메시지 변형 및 Canvas 구성을 쿼리하는 데 중요합니다.
+SNAPSHOTS 및 CHANGELOGS 테이블은 Campaigns과 Canvases의 변경 사항을 추적합니다. 이 테이블이 업데이트되는 시점을 이해하는 것은 가장 최근의 메시지 변형 및 Canvas 구성을 쿼리하는 데 중요합니다.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 
