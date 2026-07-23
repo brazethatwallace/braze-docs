@@ -88,7 +88,7 @@ As a best practice, Braze recommends including both an unsubscribe link (such as
 
 You can also choose to set a custom footer for plaintext emails from the **Subscription Pages and Footers** tab on the **Email Preferences** page, which follows the same rules as the custom footer for HTML emails. 
 
-If you don't include a plaintext footer, Braze will automatically build one from the HTML footer. When your custom footers are to your liking, select **Save**.
+If you don't include a plaintext footer, Braze automatically builds one from the HTML footer. When your custom footers are to your liking, select **Save**.
 
 ![Email with Set Custom Plaintext Footer option selected.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
 

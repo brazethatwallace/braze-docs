@@ -36,20 +36,23 @@ The following behavior is consistent across all supported channels.
 
 While composing your message or content, select **Copy preview link** (or a similar option depending on the channel) to generate a shareable link. Braze automatically copies the link to your clipboard.
 
-- The link opens a static, read-only snapshot of your message as it appeared at the moment you generated the link. It doesn't update automatically as you keep editing; generate a new link to capture your latest changes.
-- If your message includes personalization, such as Liquid or Connected Content that resolves against a test user, a custom user profile, or a random user, the preview reflects that same personalization, matching whatever you'd see in **Preview and Test**.
-- Selecting **Regenerate link** creates a new snapshot and a new expiration date. The previous link stops working once you create the new one.
+- The link opens a static, read-only snapshot of your message as it appeared at the moment you generated the link. It doesn't update automatically as you keep editing. Generate a new link to capture your latest changes.
+- If your message includes personalization, such as Liquid or Connected Content that resolves against a test user, a custom user profile, or a random user, the preview reflects that same personalization, matching what you see in **Preview and Test**.
+- Selecting **Regenerate link** creates a new snapshot with its own new expiration date. This doesn't invalidate the previous link. Both links continue to work independently until each expires.
 
 ### Viewing the link
 
-- Anyone with the link can view the preview. No Braze login or dashboard permissions are required.
-- Because the link doesn't require authentication, treat it like any other shareable document: only send it to people you intend to have access, and avoid posting it somewhere public.
+Anyone with the link can view the preview. No Braze login or dashboard permissions are required.
+
+{% alert important %}
+Shareable preview links don't require authentication, so anyone who has the link can view it. Treat a link like any other shareable document: only send it to people you intend to have access, and avoid posting it somewhere public.
+{% endalert %}
 
 ### Link expiration
 
 - Every shareable preview link expires seven days after it's generated.
 - Once a link expires, it no longer opens. Generate a new link from the composer to get a fresh one.
-- There's no way to manually revoke or deactivate a link before it expires; it either expires naturally or is replaced when you regenerate it.
+- There's no way to manually revoke or deactivate a link before it expires. Regenerating a link doesn't revoke the previous one; each link simply expires on its own seven-day schedule.
 
 ## Per-channel nuances
 
@@ -79,9 +82,9 @@ No. A shareable preview link is a snapshot at the time it was created. Select **
 {% enddetails %}
 
 {% details How long does the link stay active? %}
-Seven days from when it was generated or last regenerated.
+Seven days from when it was generated. If you regenerate the link, the new link gets its own seven-day expiration, separate from the original.
 {% enddetails %}
 
 {% details Can I revoke a link early? %}
-No, you cannot revoke a link. However, regenerating the link invalidates the previous one, or you can wait for it to expire after seven days.
+No, you cannot revoke a link. Regenerating the link doesn't invalidate the previous one. Either link works until it expires after seven days.
 {% enddetails %}
