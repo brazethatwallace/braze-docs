@@ -1,0 +1,6 @@
+- Konfigurieren Sie vorgefertigte Anwendungsfälle mit Operator über das Dropdown-Menü des Buttons **Agent erstellen**.
+- Duplizieren Sie vorhandene Agents aus der Agent-Liste.
+- Speichern Sie Agents während der Erstellung als Entwürfe und vervollständigen Sie die Konfigurationen später.
+- Legen Sie Fallback-Ausgabewerte für Canvas-Agents fest, um zu verhindern, dass Ausgabevariablen auf null gesetzt werden, wenn der Agent einen Fehler verursacht.
+- Legen Sie erforderliche Eingabefelder für ein agentenbasiertes Katalogfeld fest, damit der Agent nicht ausgeführt wird, wenn ein erforderlicher Eingabefeldwert leer ist oder fehlt.
+- Führen Sie einen Agent für alle leeren Zellen einer agentenbasierten Spalte erneut aus, um fehlende Werte zu ergänzen, ohne die gesamte Spalte erneut auszuführen.

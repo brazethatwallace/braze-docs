@@ -43,7 +43,7 @@ Nous vous recommandons de suivre ces bonnes pratiques :
 
 ### Étape 3 : Personnaliser la page {#step-3-customize-the-page}
 
-Si ce n'est pas déjà fait, sélectionnez **Enregistrer en tant que brouillon**. Pour commencer à personnaliser votre page, sélectionnez **Edit landing page**. L'éditeur par glisser-déposer préchargera un modèle par défaut que vous pouvez personnaliser selon votre cas d'utilisation.
+Si ce n'est pas déjà fait, sélectionnez **Enregistrer en tant que brouillon**. Pour commencer à personnaliser votre page, sélectionnez **Edit landing page**. L'éditeur par glisser-déposer préchargera un modèle par défaut que vous pouvez personnaliser selon votre cas d'usage.
 
 ![Un exemple de page d'accueil en cours de création dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/landing_pages/template.png %})
 
@@ -66,11 +66,24 @@ Vous pouvez utiliser ces blocs pour ajouter du contenu et personnaliser la dispo
 | Lien | Un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour accéder à une URL spécifiée. Peut être intégré dans du texte ou autonome. |
 | Espacement | Un bloc invisible qui ajoute un espacement vertical entre les éléments pour améliorer la disposition et la lisibilité. |
 | Code personnalisé | Un bloc qui vous permet d'insérer et d'exécuter du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Personnaliser la page" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personnaliser la page" }
 
 #### Span text {#span-text}
 
-{% multi_lang_include drag_and_drop/span_text.md %}
+Pour appliquer un style spécifique aux blocs de texte sans code personnalisé, surlignez le texte que vous souhaitez styliser, puis sélectionnez **Wrap with span for style**.
+
+![Zone de texte avec différentes sections de texte stylisées, comme des tailles et couleurs de police différentes, et une section surlignée affichant une barre d'outils avec l'option « Wrap with span for style ».]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+
+Ajustez les propriétés du span pour mettre à jour le style de votre texte, notamment :
+
+- Famille de police, graisse, taille
+- Hauteur de ligne
+- Espacement des lettres
+- Alignement et couleur du texte
+- Marge intérieure du bloc
+
+![Panneau des propriétés du span avec différentes options à modifier.]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}
+
 
 {% endtab %}
 {% tab Blocs de formulaire %}
@@ -87,7 +100,7 @@ Vous pouvez utiliser ces blocs pour créer un formulaire qui relie les données 
 | Menu déroulant | Les utilisateurs peuvent sélectionner un élément dans une liste prédéfinie. Vous pouvez ajouter n'importe quelle chaîne de caractères d'attribut personnalisé à la liste. |
 | Case à cocher | Si un utilisateur coche la case, l'attribut du bloc est défini sur `true`. Si elle n'est pas cochée, son attribut est défini sur `false`. |
 | Groupe de cases à cocher | Les utilisateurs peuvent sélectionner parmi plusieurs choix présentés. Les valeurs sont soit définies, soit ajoutées à un attribut personnalisé de type tableau défini. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Blocs de formulaire" }
 
 {% alert important %}
 Après avoir créé une page d'accueil avec un formulaire, assurez-vous d'intégrer son [étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) dans votre message. Grâce à cette étiquette, Braze peut automatiquement identifier et mettre à jour les profils utilisateurs existants lorsqu'ils soumettent le formulaire.
@@ -98,7 +111,7 @@ Après avoir créé une page d'accueil avec un formulaire, assurez-vous d'intég
 
 #### Styles du conteneur de page {#page-container-styles}
 
-Vous pouvez définir des styles à appliquer à tous les blocs de composants pertinents de votre page d'accueil depuis l'onglet **Page container**. Ces styles seront utilisés partout sur votre page, sauf là où vous les remplacez par un bloc spécifique.
+Vous pouvez définir des styles à appliquer à tous les blocs de composants pertinents de votre page d'accueil depuis l'onglet **Page container**. Ces styles s'appliquent partout sur votre page, sauf là où vous les remplacez par un bloc spécifique.
 
 Nous vous recommandons de configurer les styles au niveau du conteneur de page avant de personnaliser les styles au niveau des blocs. Vous pouvez également ajouter une image d'arrière-plan pour l'ensemble de la page.
 

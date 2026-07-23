@@ -602,7 +602,7 @@ Si prefieres realizar el relleno más tarde, puedes completar la configuración 
 
 Para consultar la lista completa de datos en la carga inicial, el comportamiento de los informes de ingresos y la monitorización de la sincronización, consulta [Relleno histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill).
 
-### Paso 5: Configuración personalizada de seguimiento de datos (avanzada) {#step-6}
+### Paso 5: Configuración personalizada de seguimiento de datos (avanzada) {#step-5-custom-data-tracking-setup-advanced}
 
 Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o atributos personalizados que vayan más allá de los datos admitidos para esta integración. Los eventos personalizados capturan interacciones únicas en tu tienda, como:
 
@@ -613,7 +613,7 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
 }
 </style>
 
-<table aria-label="Configuración personalizada de seguimiento de datos (avanzada)" style="width: 100%;">
+<table aria-label="Paso 5: Configuración personalizada de seguimiento de datos (avanzada)" style="width: 100%;">
   <caption>Paso 5: Configuración personalizada de seguimiento de datos (avanzada)</caption>
   <thead>
     <tr>
@@ -642,7 +642,7 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
 
 El SDK debe estar inicializado (a la escucha de la actividad) en el dispositivo del usuario para registrar eventos o atributos personalizados. Para saber más sobre el registro de datos personalizados, consulta [User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) y [logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
 
-### Paso 6: Configurar cómo administras a los usuarios (opcional)
+### Paso 6: Configurar cómo administras a los usuarios (opcional) {#step-6}
 
 Selecciona tu tipo de `external_id` en el desplegable.
 
@@ -665,10 +665,7 @@ Los siguientes pasos dependen de tu selección de ID externo:<br><br>
 
 #### Paso 6.1: Crear el metacampo `braze.external_id` {#step-61-create-the-brazeexternal_id-metafield}
 
-1. En tu panel de administración de Shopify, ve a **Settings** > **Metafields**.
-2. Selecciona **Customers** > **Add definition**.
-3. Para **Namespace and key**, introduce `braze.external_id`.
-4. En **Type**, selecciona **ID Type**.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 Una vez creado el metacampo, rellénalo para tus clientes. Recomendamos los siguientes enfoques:
 
@@ -714,9 +711,7 @@ Es fundamental validar que `shopify_customer_id` y `email_address` (si está pre
 ##### Comportamiento en caso de fallo y fusión {#failure-behavior-and-merging}
 Cualquier código de estado distinto de `200` se considera un fallo.
 
-- **Implicaciones de la fusión:** Si el endpoint falla (devuelve un código distinto de `200` o se agota el tiempo de espera), Braze no puede recuperar el ID externo. En consecuencia, la fusión entre el usuario de Shopify y el perfil de usuario de Braze no se producirá en ese momento.
-- **Lógica de reintento:** Braze puede intentar reintentos de red estándar inmediatos, pero si el fallo persiste, la fusión se aplazará hasta el siguiente evento que cumpla los requisitos (por ejemplo, la próxima vez que el usuario actualice su perfil o complete una compra).
-- **Compatibilidad:** Para poder fusionar usuarios a tiempo, asegúrate de que tu endpoint tiene una alta disponibilidad y gestiona el campo opcional `email_address` de forma adecuada.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 #### Paso 6.3: Introducir tu ID externo {#step-63-input-your-external-id}
 
@@ -724,9 +719,7 @@ Repite [el paso 6](#step-6) e introduce la URL de tu endpoint después de selecc
 
 ##### Consideraciones {#considerations}
 
-- Si tu ID externo no se genera cuando Braze envía una solicitud a tu endpoint, la integración utilizará de forma predeterminada el ID de cliente de Shopify cuando se llame a la función `changeUser`. Este paso es crucial para fusionar el perfil de usuario anónimo con el perfil de usuario identificado. Como resultado, puede haber un periodo temporal durante el cual existan diferentes tipos de ID externos dentro de tu espacio de trabajo.
-- Cuando el ID externo esté disponible en el metacampo `braze.external_id`, la integración priorizará y asignará este ID externo.
-    - Si el ID de cliente de Shopify estaba previamente configurado como ID externo de Braze, se sustituirá por el valor del metacampo `braze.external_id`.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 #### Paso 6.4: Recoger tus adhesiones voluntarias por correo electrónico o SMS desde Shopify (opcional) {#step-64-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -736,11 +729,7 @@ Si utilizas los canales de correo electrónico o SMS, puedes sincronizar tus est
 
 ![Sección "Recopilar suscriptores" con opción de recoger las adhesiones voluntarias de marketing por correo electrónico o SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-Como se menciona en el [resumen de Shopify]({{site.baseurl}}/shopify_overview), si quieres utilizar un formulario de captura de terceros, tus desarrolladores necesitan integrar el código del SDK de Braze. Esto te permitirá capturar la dirección de correo electrónico y el estado global de suscripción por correo electrónico de los envíos de formularios. Concretamente, necesitas implementar y probar estos métodos en tu archivo `theme.liquid`:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Establece la dirección de correo electrónico en el perfil de usuario
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Actualiza el estado de la suscripción global por correo electrónico
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ### Paso 7: Sincronizar productos (opcional) {#step-7-sync-products-optional}
 

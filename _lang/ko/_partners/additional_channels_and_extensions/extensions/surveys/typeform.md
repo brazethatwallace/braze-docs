@@ -13,7 +13,7 @@ search_tag: Partner
 
 Braze와 Typeform을 통합하면 다음을 수행할 수 있습니다.
 
-- Typeform 응답에서 수집한 데이터로 Braze의 고객 프로필을 업데이트합니다
+- Typeform 응답에서 수집한 데이터로 Braze의 사용자 프로필을 업데이트합니다
 - 사용자의 Typeform 참여를 기반으로 Braze에서 메시징을 트리거합니다
 - 사용자의 Typeform 응답을 기반으로 Braze 메시징을 개인화합니다
 
@@ -58,13 +58,7 @@ Braze와 Typeform을 통합하면 다음을 수행할 수 있습니다.
 
 이 반환 값은 Braze의 `/users/track` 요청 본문 형식을 준수해야 합니다.
 
-- 변환 코드는 JavaScript 프로그래밍 언어로 작성됩니다. if/else 로직과 같은 모든 표준 JavaScript 제어 흐름이 지원됩니다.
-- 변환 코드는 payload 변수를 통해 웹훅 요청 본문에 액세스합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워진 오브젝트입니다.
-- `/users/track` 엔드포인트에서 지원하는 모든 기능이 지원되며, 여기에는 다음이 포함됩니다.
-    - 사용자 속성 오브젝트, 이벤트 오브젝트 및 구매 오브젝트
-    - 중첩 속성 및 중첩 커스텀 이벤트 등록정보
-    - 구독 그룹 업데이트
-    - 식별자로서의 이메일 주소
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Typeform 웹훅 페이로드 예시 {#example-typeform-webhook-payload}
 
@@ -322,13 +316,13 @@ Content-Type: application/json
 }
 ```
 
-## 데이터 변환 활용 사례 {#data-transformation-use-cases}
+## 데이터 변환 사용 사례 {#data-transformation-use-cases}
 
 다음은 [Typeform 웹훅 페이로드 예시](#example-typeform-webhook-payload)를 사용하여 구축한 예시 템플릿입니다. 이 템플릿은 시작점으로 사용할 수 있습니다. 처음부터 시작하거나 필요에 따라 특정 구성요소를 삭제할 수 있습니다.
 
-이 예시 템플릿에서는 Braze 프로필에 커스텀 이벤트를 기록합니다. Typeform의 제목이 커스텀 이벤트 이름으로 전달되고, Typeform 결과가 이벤트 등록정보로 전달됩니다. 이 예시 템플릿은 Typeform의 Calendly, 파일 업로드 또는 결제 질문 유형을 지원하지 않습니다.
+이 예시 템플릿에서는 Braze 프로필에 커스텀 이벤트를 기록합니다. Typeform의 제목이 커스텀 이벤트 이름으로 전달되고, Typeform 결과가 이벤트 속성정보로 전달됩니다. 이 예시 템플릿은 Typeform의 Calendly, 파일 업로드 또는 결제 질문 유형을 지원하지 않습니다.
 
-### 활용 사례: 이메일을 식별자로 사용 {#use-case-email-as-identifier}
+### 사용 사례: 이메일을 식별자로 사용 {#use-case-email-as-identifier}
 
 이 예시 템플릿에서는 Typeform 내 이메일 주소 질문에서 캡처한 이메일 주소를 식별자로 사용합니다.
 
@@ -470,7 +464,7 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### 활용 사례: 숨겨진 필드에 전달된 식별자 사용 {#use-case-using-identifier-passed-in-hidden-fields}
+### 사용 사례: 숨겨진 필드에 전달된 식별자 사용 {#use-case-using-identifier-passed-in-hidden-fields}
 
 Typeform 숨겨진 필드를 사용하면 사용자의 ID와 같은 데이터를 Typeform 응답에 포함하지 않고도 Typeform 웹훅 페이로드에 전달할 수 있습니다.
 
@@ -616,7 +610,7 @@ return brazecall;
 
 활성화하면 사용자가 양식을 작성할 때 커스텀 이벤트 데이터가 사용자 프로필에 기록됩니다.
 
-![Typeform 제출 후 기록된 커스텀 이벤트가 표시된 고객 프로필.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
+![Typeform 제출 후 기록된 커스텀 이벤트가 표시된 사용자 프로필.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
 ## 모니터링 및 문제 해결 {#monitoring-and-troubleshooting}
 

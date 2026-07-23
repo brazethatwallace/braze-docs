@@ -1,0 +1,5 @@
+- Tag des wiederkehrenden Ereignisses
+  - Wenn Sie den Filter „Tag des wiederkehrenden Ereignisses“ verwenden und dann aufgefordert werden, den „Kalendertag des wiederkehrenden Ereignisses“ auszuwählen: Wenn Sie `IS LESS THAN` oder `IS MORE THAN` auswählen, wird das aktuelle Datum für diesen Segmentierungsfilter mitgezählt.
+  - Wenn Sie beispielsweise am 10. März 2020 das Datum des Attributs auf `LESS THAN ... March 10, 2020` gesetzt haben, werden Attribute für die Tage bis einschließlich 10. März 2020 berücksichtigt.
+- Weniger als X Tage her: Der Filter „Weniger als X Tage her“ umfasst Daten zwischen dem Zeitpunkt vor X Tagen und dem aktuellen Datum/der aktuellen Uhrzeit.
+- Weniger als X Tage in der Zukunft: Umfasst Daten zwischen dem aktuellen Datum/der aktuellen Uhrzeit und X Tagen in der Zukunft.

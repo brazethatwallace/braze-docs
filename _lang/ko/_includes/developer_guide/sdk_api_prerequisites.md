@@ -1,0 +1,3 @@
+- **Braze 계정:** API 접근 권한이 있는 Braze 계정
+- **API 키:** Braze 대시보드에서 확인할 수 있는 앱의 API 키
+- **SDK 엔드포인트:** Braze SDK 엔드포인트 URL(예: `sdk.iad-01.braze.com`)

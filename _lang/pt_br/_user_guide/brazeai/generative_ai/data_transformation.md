@@ -14,6 +14,7 @@ description: "Este artigo de referência aborda como gerar código de Transforma
 
 ## Como acessar {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
+No editor de [Transformação de Dados]({{site.baseurl}}/user_guide/data/unification/data_transformation), selecione **Inserir Código** para gerar código de transformação que converte uma carga útil de webhook recebida em solicitações válidas da API da Braze.
+
 
 Para saber mais, incluindo exemplos de prompts, consulte [Gerar código de transformação de dados nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).

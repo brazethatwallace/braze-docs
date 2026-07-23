@@ -10,37 +10,37 @@ search_tag: Partner
 
 # Snowflake
 
-> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html)는 SaaS(software-as-a-service)로 제공되는 전용 SQL 클라우드 데이터 웨어하우스입니다. Snowflake는 기존 데이터 웨어하우스 제품보다 더 빠르고, 사용하기 쉬우며, 훨씬 유연한 데이터 웨어하우스를 제공합니다. Snowflake의 고유하고 특허받은 아키텍처를 통해 모든 데이터를 쉽게 수집하고, 빠른 분석을 수행하며, 모든 사용자를 위한 데이터 중심 인사이트를 도출할 수 있습니다.
+> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html)는 SaaS(software-as-a-service)로 제공되는 전용 SQL 클라우드 데이터 웨어하우스입니다. Snowflake는 기존 데이터 웨어하우스 오퍼링보다 더 빠르고, 사용하기 쉬우며, 훨씬 유연한 데이터 웨어하우스를 제공합니다. Snowflake의 고유하고 특허받은 아키텍처를 통해 모든 데이터를 쉽게 수집하고, 빠른 분석을 수행하며, 모든 사용자를 위한 데이터 중심 인사이트를 도출할 수 있습니다.
 
 Braze는 Snowflake와 두 가지 통합을 제공합니다. 이 두 가지를 함께 사용하면 Braze와 Snowflake 환경 간에 완전한 양방향 데이터 파이프라인을 구축할 수 있습니다.
 
 ## 통합 선택 {#choosing-an-integration}
 
-### 데이터 공유 (Braze에서 Snowflake로) {#data-sharing-braze-to-snowflake}
+### 데이터 공유(Braze에서 Snowflake로) {#data-sharing-braze-to-snowflake}
 
-Snowflake [보안 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)를 사용하면 Snowflake 인스턴스에서 직접 Braze 참여 및 Campaign 데이터에 안전하게 실시간으로 접근할 수 있습니다. 계정 간에 데이터가 복사되거나 전송되지 않으며, 모든 공유는 Snowflake의 고유한 서비스 레이어와 메타데이터 저장소를 통해 이루어집니다.
+Snowflake [보안 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)를 사용하면 Snowflake 인스턴스에서 직접 Braze 인게이지먼트 및 Campaign 데이터에 안전하게 실시간으로 접근할 수 있습니다. 계정 간에 데이터가 복사되거나 전송되지 않으며, 모든 공유는 Snowflake의 고유한 서비스 레이어와 메타데이터 저장소를 통해 이루어집니다.
 
 **데이터 공유를 사용하면 좋은 경우:**
 - Snowflake SQL을 사용하여 Braze 이벤트 및 Campaign 데이터를 쿼리하고 싶을 때
 - 복잡한 보고서를 생성하고 기여도 모델링을 수행하고 싶을 때
-- Braze 데이터를 Snowflake 웨어하우스의 다른 데이터와 결합하고 싶을 때
-- 채널, 산업, 기기 플랫폼 전반에 걸쳐 참여 데이터를 벤치마크하고 싶을 때
+- Braze 데이터를 Snowflake 데이터 웨어하우스의 다른 데이터와 결합하고 싶을 때
+- 채널, 산업, 기기 플랫폼 전반에 걸쳐 인게이지먼트 데이터를 벤치마크하고 싶을 때
 
-설정 방법은 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)를 참조하세요.
+설정 방법은 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)를 참조하세요.
 
-### 클라우드 데이터 수집 (Snowflake에서 Braze로) {#cloud-data-ingestion-snowflake-to-braze}
+### 클라우드 데이터 수집(Snowflake에서 Braze로) {#cloud-data-ingestion-snowflake-to-braze}
 
-[클라우드 데이터 수집(CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)을 사용하면 Snowflake 인스턴스의 데이터를 Braze로 직접 동기화할 수 있습니다. 이를 통해 Braze의 사용자 속성, 이벤트, 구매 데이터를 신뢰할 수 있는 소스인 데이터 웨어하우스와 최신 상태로 유지할 수 있습니다.
+[클라우드 데이터 수집(CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용하면 Snowflake 인스턴스의 데이터를 Braze로 직접 동기화할 수 있습니다. 이를 통해 Braze의 사용자 속성, 이벤트, 구매 데이터를 신뢰할 수 있는 소스인 데이터 웨어하우스와 최신 상태로 유지할 수 있습니다.
 
 **클라우드 데이터 수집을 사용하면 좋은 경우:**
 - Snowflake의 사용자 속성을 Braze 고객 프로필에 동기화하고 싶을 때
 - Snowflake의 이벤트 또는 구매 데이터를 Braze로 전송하고 싶을 때
-- 웨어하우스에서 발생하는 데이터 변환과 Braze를 동기화 상태로 유지하고 싶을 때
+- 데이터 웨어하우스에서 발생하는 데이터 변환과 Braze를 동기화 상태로 유지하고 싶을 때
 - Snowflake에서 Braze로의 커스텀 ETL 파이프라인 구축 및 유지 관리를 피하고 싶을 때
 
 Snowflake의 데이터 공유에 대해 자세히 알아보려면 [보안 데이터 공유 소개](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work)를 참조하세요.
 
-## 필수 조건 {#prerequisites}
+## 전제 조건 {#prerequisites}
 
 이 기능을 사용하기 전에 다음을 완료해야 합니다:
 
@@ -48,7 +48,7 @@ Snowflake의 데이터 공유에 대해 자세히 알아보려면 [보안 데이
 | ----------- | ----------- |
 | Braze 접근 권한 | Braze에서 이 기능에 접근하려면 Braze 계정 매니저 또는 고객 성공 매니저에게 문의해야 합니다. |
 | Snowflake 계정 | `admin` 권한이 있는 Snowflake 계정이 필요합니다. HIPAA(미국의료정보보호법) 비대상 고객의 경우 Snowflake Standard 또는 Enterprise Edition이 지원됩니다. HIPAA(미국의료정보보호법) 준수 데이터 공유의 경우 Business Critical Edition이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="전제 조건" }
 
 ## 보안 데이터 공유 설정 {#setting-up-secure-data-sharing}
 
@@ -56,10 +56,7 @@ Snowflake에서 데이터 공유는 [데이터 공급자](https://docs.snowflake
 
 ### 1단계: Braze에서 데이터 공유 전송 {#step-1-send-the-datashare-from-braze}
 
-1. Braze에서 **파트너 통합** > **데이터 공유**로 이동합니다.
-2. Snowflake 계정 세부 정보와 로케이터를 입력합니다. 계정 로케이터를 얻으려면 대상 계정에서 `SELECT CURRENT_ACCOUNT()`를 실행하세요.
-3. CRR 공유를 사용하는 경우 클라우드 공급자와 리전을 지정합니다.
-4. 완료되면 **Create Datashare**를 선택합니다. 그러면 데이터 공유가 Snowflake 계정으로 전송됩니다.
+{% multi_lang_include partners/snowflake/data_sharing_account_steps.md %}
 
 ### 2단계: Snowflake에서 데이터베이스 생성 {#step-2-create-the-database-in-snowflake}
 
@@ -72,7 +69,7 @@ Snowflake에서 데이터 공유는 [데이터 공급자](https://docs.snowflake
 
 {% alert warning %}
 Braze 대시보드에서 공유를 삭제하고 다시 생성하는 경우, 이전에 생성한 데이터베이스를 삭제하고 `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>`을 사용하여 다시 생성해야 인바운드 공유를 쿼리할 수 있습니다.
-여러 워크스페이스가 동일한 Snowflake 계정으로 데이터를 공유하는 경우, 다중 워크스페이스 구성 관리에 대한 안내는 [Snowflake 데이터 공유 FAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/)를 참조하세요.
+여러 워크스페이스가 동일한 Snowflake 계정으로 데이터를 공유하는 경우, 다중 워크스페이스 구성 관리에 대한 안내는 [Snowflake 데이터 공유 FAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs)를 참조하세요.
 {% endalert %}
 
 ## 사용 및 시각화 {#usage-and-visualization}
@@ -81,13 +78,9 @@ Braze 대시보드에서 공유를 삭제하고 다시 생성하는 경우, 이�
 
 Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 다음을 수행할 수 있습니다:
 
-- 복잡한 보고서 생성
-- 기여도 모델링 수행
-- 회사 내 안전한 공유
-- 원시 이벤트 또는 사용자 데이터를 CRM(예: Salesforce)에 매핑
-- 기타 다양한 활용
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-사용 가능한 테이블 및 열의 전체 목록은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)를 참조하세요. Snowflake 데이터 공유에는 해당 참조의 모든 테이블과 스냅샷, Campaign 및 Canvas 체인지로그, 에이전트 콘솔 이벤트, 메시지 재시도 이벤트에 대한 추가 Snowflake 전용 테이블이 포함됩니다.
+사용 가능한 테이블 및 열의 전체 목록은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요. Snowflake 데이터 공유에는 해당 참조의 모든 테이블과 스냅샷, Campaign 및 Canvas 체인지로그, 에이전트 콘솔 이벤트, 메시지 재시도 이벤트에 대한 추가 Snowflake 전용 테이블이 포함됩니다.
 
 [원시 테이블 스키마를 다운로드](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)하여 텍스트 파일로 확인할 수도 있습니다.
 
@@ -107,9 +100,7 @@ Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 �
 
 #### 호환성을 깨지 않는 변경 {#non-breaking-changes}
 
-호환성을 깨지 않는 변경은 언제든지 발생할 수 있으며, 일반적으로 추가 기능을 제공합니다. 호환성을 깨지 않는 변경의 예시:
-- 새 테이블 또는 뷰 추가
-- 기존 테이블 또는 뷰에 열 추가
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 새 열은 호환성을 깨지 않는 변경으로 간주되므로, Braze는 `SELECT *` 쿼리를 사용하는 대신 각 쿼리에서 관심 있는 열을 명시적으로 나열할 것을 강력히 권장합니다. 또는 열을 명시적으로 지정하는 뷰를 생성한 다음 테이블 대신 해당 뷰를 쿼리하는 것도 좋은 방법입니다.
@@ -117,10 +108,7 @@ Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 �
 
 #### 호환성을 깨는 변경 {#breaking-changes}
 
-가능한 경우, 호환성을 깨는 변경은 사전 공지와 마이그레이션 기간이 선행됩니다. 호환성을 깨는 변경의 예시:
-- 테이블 또는 뷰 제거
-- 기존 테이블 또는 뷰에서 열 제거
-- 기존 열의 유형 또는 null 허용 여부 변경
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Snowflake 리전 {#snowflake-regions}
 
@@ -154,8 +142,8 @@ Snowflake의 과거 이벤트 데이터 아카이브는 2019년 4월까지 거�
 
 ### 쿼리 속도, 성능, 비용 {#speed-performance-cost-of-queries}
 
-데이터에 대해 실행하는 모든 쿼리의 속도, 성능 및 비용은 데이터를 쿼리하는 데 사용하는 웨어하우스 크기에 따라 결정됩니다. 경우에 따라 분석을 위해 접근하는 데이터 양에 따라 쿼리가 성공하려면 더 큰 웨어하우스 크기를 사용해야 할 수 있습니다. Snowflake는 [웨어하우스 개요](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) 및 [웨어하우스 고려 사항](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)을 포함하여 최적의 크기를 결정하는 방법에 대한 훌륭한 리소스를 제공합니다.
+데이터에 대해 실행하는 모든 쿼리의 속도, 성능 및 비용은 데이터를 쿼리하는 데 사용하는 데이터 웨어하우스 크기에 따라 결정됩니다. 경우에 따라 분석을 위해 접근하는 데이터 양에 따라 쿼리가 성공하려면 더 큰 데이터 웨어하우스 크기를 사용해야 할 수 있습니다. Snowflake는 [데이터 웨어하우스 개요](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) 및 [데이터 웨어하우스 고려 사항](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)을 포함하여 최적의 크기를 결정하는 방법에 대한 훌륭한 리소스를 제공합니다.
 
-> Snowflake 설정 시 참조할 수 있는 예시 쿼리 세트는 [샘플 쿼리]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) 및 [ETL 이벤트 파이프라인 설정]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/) 예시를 확인하세요.
+> Snowflake 설정 시 참조할 수 있는 예시 쿼리 세트는 [샘플 쿼리]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) 및 [ETL 이벤트 파이프라인 설정]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup) 예시를 확인하세요.
 
-설정 방법은 [클라우드 데이터 수집: 데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)을 참조하세요.
+설정 방법은 [클라우드 데이터 수집: 데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)을 참조하세요.

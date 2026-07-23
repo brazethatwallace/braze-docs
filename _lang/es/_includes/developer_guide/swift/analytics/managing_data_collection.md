@@ -61,7 +61,7 @@ En **App Privacy Configuration**, elige **NSPrivacyTrackingDomains**. En la matr
 A continuación, abre `AppDelegate.swift` y enumera cada [propiedad de seguimiento](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/) que quieras declarar creando una lista de seguimiento estática o dinámica. Ten en cuenta que Apple bloqueará estas propiedades hasta que el usuario final acepte su solicitud de ATT, así que enumera solo las propiedades que tú y tu equipo legal consideréis de seguimiento. Por ejemplo:
 
 {% tabs %}
-{% tab static example %}
+{% tab Ejemplo estático %}
 En el siguiente ejemplo, `dateOfBirth`, `customEvent` y `customAttribute` se declaran como datos de seguimiento dentro de una lista estática.
 
 ```swift
@@ -92,11 +92,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 {% endtab %}
 
-{% tab dynamic example %}
-En el siguiente ejemplo, la lista de seguimiento se actualiza automáticamente después de que el usuario final acepte el aviso de ATT.
+{% tab Ejemplo dinámico %}
+En el siguiente ejemplo, la lista de seguimiento se actualiza automáticamente después de que el usuario final acepte el [aviso de Transparencia de seguimiento de aplicaciones (ATT)](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)). Solicitar autorización al activar la aplicación es un evento por escena, por lo que este código pertenece al método `sceneDidBecomeActive(_:)` del archivo `SceneDelegate.swift` en lugar de `applicationDidBecomeActive(_:)` de `AppDelegate.swift` (necesario para aplicaciones que han adoptado el [ciclo de vida de `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)). Tu instancia de Braze sigue siendo accesible desde `SceneDelegate` a través de la propiedad estática `AppDelegate.braze` configurada en el paso 1.
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
   // Request and check your user's tracking authorization status.
   ATTrackingManager.requestTrackingAuthorization { status in
     // Let Braze know whether user data is allowed to be collected for tracking.
@@ -104,7 +104,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
     AppDelegate.braze?.set(adTrackingEnabled: enableAdTracking)
 
     // Add the `.firstName` and `.lastName` properties, while removing the `.everything` configuration.
-    AppDelegate.braze.updateTrackingAllowList(
+    AppDelegate.braze?.updateTrackingAllowList(
       adding: [.firstName, .lastName],
       removing: [.everything]
     )
@@ -116,10 +116,10 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 
 ### Paso 5: Evitar bucles de reintento infinitos {#step-5-prevent-infinite-retry-loops}
 
-Para evitar que el SDK entre en un bucle infinito de reintentos, utiliza el método `set(adTrackingEnabled: enableAdTracking)` para gestionar los permisos ATT. La propiedad `adTrackingEnabled` de tu método debe tratarse de forma similar a la siguiente:
+Para evitar que el SDK entre en un bucle infinito de reintentos, utiliza el método `set(adTrackingEnabled: enableAdTracking)` para gestionar los permisos ATT. La propiedad `adTrackingEnabled` en tu método de `SceneDelegate.swift` debe tratarse de forma similar a la siguiente:
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
     // Request and check your user's tracking authorization status.
     ATTrackingManager.requestTrackingAuthorization { status in
       // Let Braze know whether user data is allowed to be collected for tracking.
@@ -203,6 +203,6 @@ No. Cuando esté habilitada, esta característica no sobrescribirá ningún dato
 
 Sí, esta característica se puede alternar entre activarla y desactivarla a tu discreción. Los ID de dispositivo almacenados anteriormente nunca se sobrescribirán.
 
-#### ¿Puedo seguir recopilando el valor IDFV a través de Braze en otro lugar? {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
+#### ¿Puedo seguir recopilando el valor IDFV a través de Braze en otro lugar? {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
 
 Sí, aún puedes recopilar opcionalmente el IDFV a través del SDK de Swift (la recopilación está desactivada de forma predeterminada).

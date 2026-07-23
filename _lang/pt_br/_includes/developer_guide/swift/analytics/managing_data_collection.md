@@ -93,10 +93,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab Exemplo dinâmico %}
-No exemplo a seguir, a lista de rastreamento é atualizada automaticamente depois que o usuário final aceita o prompt de ATT.
+No exemplo a seguir, a lista de rastreamento é atualizada automaticamente depois que o usuário final aceita o [prompt de Transparência de Rastreamento de App (ATT)](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)). Solicitar autorização na ativação do app é um evento por cena, então esse código pertence ao método `sceneDidBecomeActive(_:)` do seu arquivo `SceneDelegate.swift`, e não ao `applicationDidBecomeActive(_:)` do `AppDelegate.swift` (necessário para apps que adotaram o [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)). Sua instância da Braze permanece acessível a partir do `SceneDelegate` por meio da propriedade estática `AppDelegate.braze` configurada na Etapa 1.
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
   // Request and check your user's tracking authorization status.
   ATTrackingManager.requestTrackingAuthorization { status in
     // Let Braze know whether user data is allowed to be collected for tracking.
@@ -104,7 +104,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
     AppDelegate.braze?.set(adTrackingEnabled: enableAdTracking)
 
     // Add the `.firstName` and `.lastName` properties, while removing the `.everything` configuration.
-    AppDelegate.braze.updateTrackingAllowList(
+    AppDelegate.braze?.updateTrackingAllowList(
       adding: [.firstName, .lastName],
       removing: [.everything]
     )
@@ -116,10 +116,10 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 
 ### Etapa 5: Evite loops de repetição infinitos {#step-5-prevent-infinite-retry-loops}
 
-Para evitar que o SDK entre em um loop infinito de repetição, use o método `set(adTrackingEnabled: enableAdTracking)` para lidar com as permissões de ATT. A propriedade `adTrackingEnabled` em seu método deve ser tratada de forma semelhante à seguinte:
+Para evitar que o SDK entre em um loop infinito de repetição, use o método `set(adTrackingEnabled: enableAdTracking)` para lidar com as permissões de ATT. A propriedade `adTrackingEnabled` no método do seu `SceneDelegate.swift` deve ser tratada de forma semelhante à seguinte:
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
     // Request and check your user's tracking authorization status.
     ATTrackingManager.requestTrackingAuthorization { status in
       // Let Braze know whether user data is allowed to be collected for tracking.
@@ -203,6 +203,6 @@ Não. Quando ativado, esse recurso não substituirá nenhum dado de usuário na 
 
 Sim, esse recurso pode ser ativado e desativado a seu critério. Os IDs de dispositivos armazenados anteriormente nunca serão substituídos.
 
-#### Ainda posso capturar o valor do IDFV pela Braze em outro lugar? {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
+#### Ainda posso capturar o valor do IDFV pela Braze em outro lugar? {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
 
 Sim, você ainda pode coletar opcionalmente o IDFV por meio do Swift SDK (a coleta está desativada por padrão).

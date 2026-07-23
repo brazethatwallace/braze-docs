@@ -20,11 +20,11 @@ Essa funcionalidade é compatível apenas com o canal de e-mail no editor de HTM
 
 ## Como acessar {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_html_template.md %}
+No editor de modelos de e-mail HTML, o grupo da barra lateral **Generate** contém a opção **Template**. Selecione-a para gerar ou iterar um modelo de e-mail HTML alinhado à sua marca. O Operator aplica suas [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) para que o resultado corresponda à sua voz e ao seu estilo.
 
 ## Como funciona {#how-it-works}
 
-O Operator usa suas [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) e [configurações de estilo global]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/) para adaptar o conteúdo e o estilo da mensagem à sua marca.
+O Operator usa suas [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) e [configurações de estilo global]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings) para adaptar o conteúdo e o estilo da mensagem à sua marca.
 
 Por exemplo, se você tiver configurações de estilo global definidas, o Operator incorpora as cores e os estilos da sua marca. Se você tiver diretrizes da marca definidas na Braze, o Operator também as consulta para criar textos no tom e na personalidade da sua marca.
 

@@ -1,0 +1,3 @@
+- **Implicações da mesclagem:** Se o endpoint falhar (retornar algo diferente de `200` ou expirar), a Braze não consegue recuperar o ID externo. Consequentemente, a mesclagem entre o usuário do Shopify e o perfil de usuário da Braze não acontece naquele momento.
+- **Lógica de nova tentativa:** A Braze pode tentar novas tentativas de rede imediatas padrão, mas se a falha persistir, a mesclagem é adiada até o próximo evento qualificado (por exemplo, a próxima vez que o usuário atualizar seu perfil ou concluir um checkout).
+- **Suportabilidade:** Para garantir a mesclagem de usuários em tempo hábil, certifique-se de que seu endpoint esteja altamente disponível e lide com o campo opcional `email_address` de forma adequada.

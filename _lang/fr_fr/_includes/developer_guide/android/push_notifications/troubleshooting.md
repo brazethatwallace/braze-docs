@@ -37,8 +37,7 @@ sequenceDiagram
 
 ```
 
-
-### Étape 1 : Configurer votre clé API Google Cloud {#step-1-configuring-your-google-cloud-api-key}
+### Étape 1 : Configurer votre clé API Google Cloud {#step-1-configure-your-google-cloud-api-key}
 
 Pour développer votre application, vous devrez fournir votre ID d'expéditeur Firebase au SDK Braze pour Android. De plus, vous devez fournir une clé API pour les applications serveur au tableau de bord de Braze. Braze utilisera cette clé API pour envoyer des messages à vos appareils. Vous devrez également vous assurer que le service FCM est activé dans la console de développement de Google.
 
@@ -50,33 +49,33 @@ Une erreur courante pendant cette étape est d'utiliser la clé API d'identifica
 
 Dans les intégrations typiques, le SDK Braze pour Android gère l'enregistrement des appareils pour la fonctionnalité FCM. Cela se produit généralement immédiatement après l'ouverture de l'application pour la première fois. Après l'inscription, Braze reçoit un ID d'enregistrement FCM, utilisé pour envoyer des messages spécifiquement à cet appareil. Nous stockons l'ID d'enregistrement pour cet utilisateur, et celui-ci devient « push registered » (enregistré pour les notifications push) s'il ne disposait pas au préalable d'un jeton de notification push pour l'une de vos applications.
 
-### Étape 3 : Lancer une campagne de notifications push Braze {#step-3-launching-a-braze-push-campaign}
+### Étape 3 : Lancer une Campaign de notifications push Braze {#step-3-launch-a-braze-push-campaign}
 
-Lorsqu'une campagne de notifications push est lancée, Braze effectue des requêtes à FCM pour transmettre votre message. Braze utilise la clé API copiée dans le tableau de bord pour authentifier et vérifier que nous pouvons envoyer des notifications push aux jetons de notification push fournis.
+Lorsqu'une Campaign de notifications push est lancée, Braze effectue des requêtes à FCM pour transmettre votre message. Braze utilise la clé API copiée dans le tableau de bord pour authentifier et vérifier que nous pouvons envoyer des notifications push aux jetons de notification push fournis.
 
-### Étape 4 : Supprimer les jetons non valides {#step-4-removing-invalid-tokens}
+### Étape 4 : Supprimer les jetons non valides {#step-4-remove-invalid-tokens}
 
 Si FCM nous informe que certains des jetons de notification push auxquels nous tentions d'envoyer un message ne sont pas valides, nous supprimons ces jetons des profils utilisateur auxquels ils étaient associés. Si des utilisateurs n'ont pas d'autres jetons de notification push, ils ne s'afficheront plus en tant que « Push Registered » dans la page **Segments**.
 
 Pour plus d'informations sur FCM, consultez [Messagerie cloud](https://firebase.google.com/docs/cloud-messaging/).
 
-## Utiliser les journaux d'erreur de notification push {#utilizing-the-push-error-logs}
+## Utiliser les journaux d'erreur de notification push {#use-the-push-error-logs}
 
-Braze fournit des erreurs de notification push dans le journal des activités de message. Ce journal d'erreurs fournit de nombreux avertissements qui peuvent être très utiles pour identifier les raisons pour lesquelles vos campagnes ne fonctionnent pas comme prévu. Cliquer sur un message d'erreur vous redirige vers la documentation pertinente pour vous aider à résoudre un incident particulier.
+Braze fournit des erreurs de notification push dans le journal des activités de message. Ce journal d'erreurs fournit de nombreux avertissements qui peuvent être très utiles pour identifier les raisons pour lesquelles vos Campaigns ne fonctionnent pas comme prévu. Cliquer sur un message d'erreur vous redirige vers la documentation pertinente pour vous aider à résoudre un incident particulier.
 
 ![Journal des activités de message de Braze affichant des entrées d'erreur de notification push.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-## Scénarios de résolution des problèmes {#troubleshooting-scenarios}
+## Résolution des problèmes {#troubleshooting}
 
 ### Les notifications push ne sont pas envoyées {#push-isnt-sending}
 
-Il se peut que vos messages push ne soient pas envoyés en raison des situations suivantes :
+Il se peut que vos notifications push ne soient pas envoyées en raison des situations suivantes :
 
 - Vos identifiants existent dans le mauvais ID de projet Google Cloud Platform (ID d'expéditeur incorrect).
 - Vos identifiants n'ont pas la bonne portée de permission.
 - Vous avez téléchargé des identifiants erronés dans le mauvais espace de travail de Braze (mauvais ID d'expéditeur).
 
-Pour toute autre question susceptible de vous empêcher d'envoyer un message push, consultez le [guide d'utilisation : résolution des problèmes des notifications push]({{site.baseurl}}/user_guide/message_building_by_channel/push/troubleshooting).
+Pour toute autre question susceptible de vous empêcher d'envoyer une notification push, consultez le [guide d'utilisation : résolution des problèmes des notifications push]({{site.baseurl}}/user_guide/message_building_by_channel/push/troubleshooting).
 
 ### Aucun utilisateur « push registered » ne s'affiche dans le tableau de bord de Braze (avant l'envoi de messages) {#no-push-registered-users-showing-in-the-braze-dashboard-prior-to-sending-messages}
 
@@ -99,7 +98,9 @@ Nous recommandons de définir un point d'arrêt ou une journalisation pour confi
 
 Pour que les notifications push FCM fonctionnent, les services Google Play doivent être présents sur l'appareil. Si les services Google Play ne sont pas présents sur un appareil, l'enregistrement des notifications push ne sera pas effectué.
 
-**Remarque :** Les services Google Play ne sont pas installés sur les émulateurs Android qui n'ont pas les API Google installées.
+{% alert note %}
+Les services Google Play ne sont pas installés sur les émulateurs Android qui n'ont pas les API Google installées.
+{% endalert %}
 
 #### L'appareil n'est pas connecté à Internet {#device-not-connected-to-the-internet}
 
@@ -126,8 +127,6 @@ Si une notification push n'est pas transmise, consultez la [console de développ
 1. Veillez à transmettre un jeton de notification push valide à Braze depuis [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token).
 
 #### Erreur : NotRegistered {#error-notregistered}
-
-1. `NotRegistered` se produit généralement lorsqu'une application a été supprimée d'un appareil. Braze utilise `NotRegistered` en interne pour signaler qu'une application a été désinstallée d'un appareil.
 
 2. `NotRegistered` peut également se produire lorsque plusieurs enregistrements se produisent et qu'un deuxième enregistrement invalide le premier jeton.
 
@@ -176,9 +175,11 @@ La clé du serveur Firebase Cloud Messaging fournie dans le tableau de bord de B
 
 ### Les clics de notification push ne sont pas enregistrés {#push-clicks-not-logged}
 
-Braze enregistre les clics de notification push automatiquement, ce scénario devrait donc être relativement rare.
+Si les clics push ne sont pas enregistrés, il est possible que les données de clics push n'aient pas encore été transférées vers nos serveurs. Le SDK Braze pour Android peut limiter la fréquence des transmissions.
 
-Si les clics push ne sont pas enregistrés, il est possible que les données de clics push n'aient pas encore été transférées vers nos serveurs. Braze limite la fréquence de ses transmissions en fonction de la qualité de la connexion réseau. Avec une bonne connexion réseau, les données de clics de notification push devraient arriver au serveur dans la minute, dans la plupart des cas.
+Si vous avez mis en place un gestionnaire de notifications push personnalisé, assurez-vous de [préserver correctement l'analyse native des notifications push]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling).
+
+L'enregistrement des clics push est une opération réseau et est soumis aux limitations réseau. Ainsi, bien que le SDK Braze pour Android tente de gérer les défaillances réseau et réessaie les requêtes échouées, une certaine perte d'événements est à prévoir.
 
 ### Les deep links ne fonctionnent pas {#deep-links-not-working}
 

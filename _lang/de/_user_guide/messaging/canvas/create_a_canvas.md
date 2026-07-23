@@ -191,9 +191,7 @@ Wählen Sie **Sendeeinstellungen**, um Ihre Abo-Einstellungen zu bearbeiten, Rat
 
 Für Canvases, die auf E-Mail- und Push-Kanäle abzielen, möchten Sie Ihr Canvas möglicherweise so einschränken, dass nur Nutzer:innen, die ausdrücklich zugestimmt haben, die Nachricht erhalten (ausgenommen abonnierte oder abgemeldete Nutzer:innen). Angenommen, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
-- **Nutzer:in A** hat E-Mail abonniert und Push ist aktiviert. Diese Person erhält die E-Mail nicht, wird aber den Push erhalten.
-- **Nutzer:in B** hat E-Mail-Opt-in, aber Push ist nicht aktiviert. Diese Person erhält die E-Mail, aber nicht den Push.
-- **Nutzer:in C** hat E-Mail-Opt-in und Push ist aktiviert. Diese Person erhält sowohl die E-Mail als auch den Push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Setzen Sie dazu die **Abo-Einstellungen** auf „Nur an Nutzer:innen mit Opt-in senden“. Diese Option stellt sicher, dass nur Nutzer:innen mit Opt-in Ihre E-Mail erhalten, und Braze sendet Ihren Push standardmäßig nur an Nutzer:innen, bei denen Push aktiviert ist.
 
@@ -230,7 +228,7 @@ Standardmäßig wird die Canvas-Variantenzuweisung durch einen deterministischen
 
 {% details Erweitern für die Schritte %}
 
-1. Erstellen Sie ein angepasstes Attribut vom Typ **Number**, um Ihre Zufallszahl zu speichern. Benennen Sie es so, dass es leicht zu finden ist, z. B. `lottery_number` oder `random_assignment`. Gehen Sie in Ihrem Dashboard zu **Dateneinstellungen** > **Angepasste Attribute**.<br><br>
+1. Erstellen Sie ein angepasstes Attribut vom Typ **Number**, um Ihre Zufallszahl zu speichern. Benennen Sie es so, dass es leicht zu finden ist, z. B. `lottery_number` oder `random_assignment`. Gehen Sie in Ihrem Dashboard zu **Data Settings** > **Custom Attributes**.<br><br>
 2. Verwenden Sie eine einzelne Canvas-Variante (oder fügen Sie denselben Nutzeraktualisierung-Schritt zu jeder Variante hinzu). Fügen Sie einen [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt am Anfang der Journey hinzu. Dieser Schritt generiert und speichert die Zufallszahl, bevor Nutzer:innen Ihren Zielgruppenpfade-Schritt erreichen.<br><br>
 3. Wählen Sie im Nutzeraktualisierung-Schritt den [erweiterten JSON-Editor]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Verwenden Sie den {% raw %}{% random %}{% endraw %}-Tag, um die Zahl zu generieren. Weitere Details finden Sie unter [Nachrichten mit einer Zufallszahl senden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#send-messages-with-a-random-number). Beispielsweise gibt {% raw %}`{% random 10 %}`{% endraw %} eine Ganzzahl von 0 bis 9 zurück. Setzen Sie das angepasste Attribut aus Schritt 1 mit JSON wie folgt:<br><br>{% raw %}
 ```json

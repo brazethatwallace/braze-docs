@@ -1,0 +1,5 @@
+- Crear informes complejos
+- Realizar modelos de atribución
+- Compartir de forma segura dentro de tu propia empresa
+- Asignar datos de eventos sin procesar o datos de usuario a un CRM (como Salesforce)
+- Y más

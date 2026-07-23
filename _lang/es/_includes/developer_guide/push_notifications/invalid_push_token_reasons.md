@@ -1,0 +1,6 @@
+- La aplicación recibió un token de notificaciones push que no era válido para las credenciales cargadas en el panel.
+- Las notificaciones push estaban desactivadas para este espacio de trabajo.
+- El usuario ha rechazado las notificaciones push.
+- La aplicación fue desinstalada.
+- Apple actualizó el token de notificaciones push, lo que invalidó el token anterior.
+- La aplicación se compiló para un entorno de producción, pero las credenciales push cargadas en Braze están configuradas para un entorno de desarrollo (o viceversa).

@@ -1,0 +1,5 @@
+- Dia de evento recorrente
+  - Ao usar o filtro "Dia de evento recorrente" e ser solicitado a selecionar o "Dia do calendário de evento recorrente", se você selecionar `IS LESS THAN` ou `IS MORE THAN`, a data atual será contada para esse filtro de segmentação.
+  - Por exemplo, se em 10 de março de 2020 você selecionou a data do atributo como `LESS THAN ... March 10, 2020`, os atributos serão considerados para os dias até, e incluindo, 10 de março de 2020.
+- Menos de X dias atrás: O filtro "Menos de X dias atrás" inclui datas entre X dias atrás e a data/hora atual.
+- Menos de X dias no futuro: Inclui datas entre a data/hora atual e X dias no futuro.

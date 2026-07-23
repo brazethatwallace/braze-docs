@@ -780,6 +780,7 @@ Les bannières ne prennent en charge que les Campaigns avec planification. Pour 
 | Éditeur par glisser-déposer | ❌ Nécessite l'intervention d'un développeur pour la personnalisation | ✅ Les marketeurs peuvent créer et mettre à jour sans intervention technique |
 | HTML/CSS personnalisé | ❌ Limité à la structure de la carte | ✅ Prise en charge complète HTML/CSS |
 | Paires clé-valeur pour la personnalisation | ✅ Nécessaire pour une personnalisation avancée | ✅ Paires clé-valeur fortement typées appelées « propriétés » pour une personnalisation avancée |
+| Extras de message | ✅ Pris en charge | ❌ Non pris en charge actuellement |
 | **Persistance et expiration** |
 | Expiration de la carte | ✅ Pris en charge (limite de 30 jours) | ✅ Pris en charge (sans limite d'expiration) |
 | Véritable persistance | ❌ Maximum de 30 jours | ✅ Persistance illimitée |

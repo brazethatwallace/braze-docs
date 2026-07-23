@@ -1643,7 +1643,10 @@ Los pares de añadir y eliminar se dividen en dos categorías:
 - El endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) o la limpieza de usuarios duplicados traslada los tokens del usuario huérfano al usuario superviviente.
 
 {% alert note %}
-La identificación en el mismo perfil a través del endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) o `changeUser` del SDK que asigna un ID externo al perfil anónimo no cambia el `user_id` y no emite eventos emparejados de añadir y eliminar. En su lugar, Braze emite un evento "update" para cada token de notificaciones push existente y establece `external_user_id` con el ID externo del usuario identificado. Cuando `changeUser` traslada tokens de un perfil de usuario a otro, Braze sigue emitiendo los eventos emparejados de añadir y eliminar descritos anteriormente.
+La identificación en el mismo perfil a través del endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) o [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) del SDK puede asignar un ID externo a un perfil anónimo sin cambiar el `user_id`.
+En este caso, Braze no emite [pares de eventos de añadir y eliminar](#add-and-remove-pairs).
+En su lugar, Braze emite un evento "update" para cada token de notificaciones push existente y establece `external_user_id` con el ID externo del usuario identificado.
+Cuando `changeUser` traslada tokens de un perfil de usuario a otro, Braze sigue emitiendo los [pares de eventos de añadir y eliminar](#add-and-remove-pairs) descritos en la sección [Pares de añadir y eliminar](#add-and-remove-pairs).
 {% endalert %}
 
 #### Consultar el último estado activo del token {#querying-for-the-latest-active-token-state}

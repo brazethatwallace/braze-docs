@@ -33,9 +33,7 @@ Baixe os [esquemas de tabelas brutas](/docs/assets/download_file/data-sharing-ra
 
 ### Alterações não interruptivas {#non-breaking-changes}
 
-Alterações não interruptivas podem ocorrer a qualquer momento e geralmente trazem funcionalidades adicionais. Exemplos de alterações não interruptivas:
-- Adição de uma nova tabela ou visualização
-- Adição de uma coluna a uma tabela ou visualização existente
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Como novas colunas são consideradas não interruptivas, a Braze recomenda enfaticamente listar de modo explícito as colunas de interesse em cada consulta, em vez de usar consultas `SELECT *`. Como alternativa, você pode criar visualizações que nomeiem explicitamente as colunas e, em seguida, consultar essas visualizações em vez das tabelas diretamente.
@@ -43,10 +41,7 @@ Como novas colunas são consideradas não interruptivas, a Braze recomenda enfat
 
 ### Alterações interruptivas {#breaking-changes}
 
-Quando possível, as alterações interruptivas serão precedidas de um anúncio e de um período de migração. Exemplos de alterações interruptivas incluem:
-- Remoção de uma tabela ou visualização
-- Remoção de uma coluna de uma tabela ou visualização existente
-- Alteração do tipo ou da nulabilidade de uma coluna existente
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ## Quando as tabelas SNAPSHOTS e CHANGELOGS são atualizadas {#when-snapshots-and-changelogs-tables-are-updated}
 

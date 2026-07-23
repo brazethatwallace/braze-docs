@@ -36,7 +36,21 @@ Un message in-app `inapp` (ou « [standard]({{site.baseurl}}/user_guide/message_
 
 Un message in-app `templated_iam` (ou « modélisé ») n'est pas encore modélisé avec les informations nécessaires. Braze doit effectuer une autre requête pour récupérer les informations avant que le message puisse apparaître.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+Les messages in-app sont livrés en tant que messages in-app modélisés lorsque l'option **Réévaluer l'éligibilité de la campagne avant l'affichage** est sélectionnée ou si l'une des étiquettes Liquid suivantes existe dans le message :
+
+- `canvas_entry_properties`
+- `connected_content`
+- Variables SMS telles que {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+Cela signifie que lors du démarrage de la session, l'appareil reçoit le déclencheur de ce message in-app au lieu du message entier. Lorsque l'utilisateur déclenche le message in-app, l'appareil de l'utilisateur effectue une requête réseau pour récupérer le message réel.
+
+{% alert note %}
+Le message ne sera pas livré si l'appareil n'a pas accès à Internet. Le message pourrait ne pas être livré si la logique Liquid prend trop de temps à se résoudre.
+{% endalert %}
+
 
 ## Paires clé-valeur {#key-value-pairs}
 

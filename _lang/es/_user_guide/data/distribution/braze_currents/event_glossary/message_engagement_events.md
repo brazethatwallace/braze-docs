@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Este glosario enumera los distintos eventos de interacción con mensajes que Braze puede rastrear y enviar a los almacenes de datos elegidos mediante Currents."
+description: "Este glosario enumera los diversos eventos de interacción con mensajes que Braze puede rastrear y enviar a los almacenes de datos elegidos mediante Currents."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -18,7 +18,7 @@ lazy_partner_tabs: true
 Los esquemas de almacenamiento se aplican a los datos de eventos en archivos planos que enviamos a los partners de almacenamiento en almacenes de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Para los esquemas que se aplican a los demás partners, consulta nuestra lista de [partners disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y revisa sus páginas respectivas.
 
 {% alert tip %}
-Estos eventos también están disponibles como tablas SQL en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y el [intercambio de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Estos eventos también están disponibles como tablas SQL en el [generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y el [intercambio de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
 Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/braze_support) si necesitas acceso a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
@@ -911,7 +911,28 @@ Los grupos de suscripción solo están disponibles para los canales de correo el
 {% endtabs %}
 
 ### Detalles de la propiedad
-{% multi_lang_include currents/property_details_dispatch_state_source.md %}
+<ul>
+<li><code>dispatch_id</code> es un ID para un envío de mensaje específico, como un envío de Campaign. Todos los eventos push que se originan del mismo envío incluyen el mismo <code>dispatch_id</code>. Usa <code>dispatch_id</code> para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida del mensaje push para ese envío (como envío, rebote y apertura).</li>
+<li><code>state_change_source</code> devuelve una cadena con el nombre completo de la fuente. Por ejemplo, la importación del CSV de origen devuelve la cadena <code>CSV import</code>. A continuación se enumeran las fuentes disponibles:</li>
+</ul>
+<table class="reset-td-br-1 reset-td-br-2" role="presentation">
+<thead>
+<tr><th>Fuente</th><th>Descripción</th></tr>
+</thead>
+<tbody>
+<tr><td>SDK</td><td>Endpoints del SDK</td></tr>
+<tr><td>Dashboard</td><td>Cuando se actualiza el estado de suscripción de un usuario desde la página Perfil de usuario del panel</td></tr>
+<tr><td>Subscription Page</td><td>Cuando un usuario cancela la suscripción a través de un enlace de correo electrónico que no es el centro de preferencias</td></tr>
+<tr><td>REST API</td><td>Endpoints de la REST API</td></tr>
+<tr><td>CSV import</td><td>Importación de usuarios en CSV</td></tr>
+<tr><td>Preference Center</td><td>Cuando se actualiza un usuario desde el centro de preferencias</td></tr>
+<tr><td>Inbound Message</td><td>Cuando un usuario es actualizado por mensajes entrantes de usuarios finales a través de canales como SMS</td></tr>
+<tr><td>Migration</td><td>Cuando un usuario se actualiza mediante migraciones internas o scripts de mantenimiento</td></tr>
+<tr><td>User Merge</td><td>Cuando se actualiza un usuario mediante el proceso de fusión de usuarios</td></tr>
+<tr><td>Canvas User Update Step</td><td>Cuando se actualiza un usuario mediante el paso de actualización de usuario en Canvas</td></tr>
+</tbody>
+</table>
+
 
 
 {% endapi %}
@@ -10474,7 +10495,7 @@ Este evento se produce cuando se envía un mensaje de LINE a LINE.
 Live Activity, Outcome
 {% endapitags %}
 
-Este evento se produce cuando Braze recibe una respuesta de un proveedor externo (por ejemplo, APNs) después del envío de la Live Activity.
+Este evento se produce cuando Braze recibe una respuesta de un proveedor externo (por ejemplo, APN) después del envío de la Live Activity.
 
 {% tabs %}
 {% tab Cloud Storage %}

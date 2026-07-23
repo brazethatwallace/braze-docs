@@ -144,7 +144,7 @@ The **Message History** tab of the user profile shows recent messaging-related e
 The data in this tab isn't updated after a user is merged. Additionally, any events associated with messages sent through API (for example, the [/messages/send endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)) do not appear in this tab if there is no campaign ID specified in those sends.
 
 {% alert important %}
-RCS events aren't currently supported in the **Messaging History** tab.
+In the **Messaging History** tab, RCS events are included with SMS events. RCS events don't appear separately.
 {% endalert %}
 
 ![The Messaging History tab showing which campaigns and Canvases a user has received.]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})

@@ -999,9 +999,7 @@ Aqui está o que você precisa saber sobre dimensões e tamanhos do Banner:
 
 Você pode usar propriedades personalizadas da sua campanha de Banner para recuperar dados chave-valor através do SDK e modificar o comportamento ou a aparência do seu app. Por exemplo, você poderia:
 
-- Enviar metadados para suas análises de terceiros ou integrações.
-- Usar metadados como um `timestamp` ou objeto JSON para acionar lógica condicional.
-- Controlar o comportamento de um banner com base em metadados incluídos como `ratio` ou `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 ### Pré-requisitos
 

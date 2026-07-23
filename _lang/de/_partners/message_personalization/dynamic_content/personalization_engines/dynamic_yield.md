@@ -16,15 +16,14 @@ _Diese Integration wird von Dynamic Yield gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Partnerschaft von Braze und Dynamic Yield erlaubt es Ihnen, die Empfehlungs- und Segmentierungs-Engine von Dynamic Yield zu nutzen, um Experience Blocks zu erstellen, die in Nachrichten von Braze eingebettet werden können. Experience Blocks können bestehen aus:
-- **Empfehlungsblöcke**: Legen Sie Algorithmen und Filter fest, um personalisierte Inhalte für Nutzer:innen bereitzustellen, die beim Öffnen der E-Mail geladen werden.
-- **Dynamische Content-Blöcke**: Richten Sie verschiedene Aktionen und Nachrichten an verschiedene Nutzer:innen. Das Targeting kann entweder auf Affinität oder auf Zielgruppe basieren. Dynamic Yield bestimmt, welches personalisierte Erlebnis beim Öffnen der E-Mail angezeigt werden soll.
+Die Partnerschaft zwischen Braze und Dynamic Yield ermöglicht es Ihnen, die Empfehlungs- und Segmentierungs-Engine von Dynamic Yield zu nutzen, um Experience Blocks zu erstellen, die in Braze-Nachrichten eingebettet werden können. Experience Blocks können bestehen aus:
+{% multi_lang_include partners/message_personalization/dynamic_yield_experience_blocks.md %}
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Dynamic Yield-Konto | Ein [Dynamic Yield](https://adm.dynamicyield.com/users/sign_in#/r/dashboard)-Konto ist erforderlich, um diese Partnerschaft zu nutzen. |
+| Dynamic Yield-Konto | Ein [Dynamic Yield](https://adm.dynamicyield.com/users/sign_in#/r/dashboard)-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

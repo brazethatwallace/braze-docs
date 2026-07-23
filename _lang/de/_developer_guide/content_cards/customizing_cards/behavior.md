@@ -122,11 +122,13 @@ Anhand dieser Informationen können Sie dann ein Badge anzeigen, das die Anzahl 
 
 Das folgende Beispiel verwendet `braze.contentCards`, um die Anzahl der ungelesenen Content Cards abzufragen und anzuzeigen. Nachdem die App geschlossen und die Sitzung der Nutzer:innen beendet wurde, fordert dieser Code eine Kartenzählung an und filtert die Anzahl der Karten anhand der Eigenschaft `viewed`.
 
+Apps, die den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen haben (erforderlich für Apps, die mit [Xcode 27 und höher](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) erstellt wurden), sollten dies in `sceneDidEnterBackground(_:)` von `SceneDelegate.swift` implementieren, anstatt in `applicationDidEnterBackground(_:)` von `AppDelegate.swift`.
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 Implementieren Sie innerhalb dieser Methode den folgenden Code, der den Badge-Zähler aktiv aktualisiert, wenn Nutzer:innen in einer bestimmten Sitzung Karten ansehen:
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 Implementieren Sie innerhalb dieser Methode den folgenden Code, der den Badge-Zähler aktiv aktualisiert, wenn Nutzer:innen in einer bestimmten Sitzung Karten ansehen:

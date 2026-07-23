@@ -37,8 +37,7 @@ sequenceDiagram
 
 ```
 
-
-### 1단계: Google Cloud API 키 구성 {#step-1-configuring-your-google-cloud-api-key}
+### 1단계: Google Cloud API 키 구성 {#step-1-configure-your-google-cloud-api-key}
 
 앱을 개발할 때 Braze Android SDK에 Firebase 발신자 ID를 제공해야 합니다. 또한 서버 애플리케이션용 API 키를 Braze 대시보드에 제공해야 합니다. Braze는 이 API 키를 사용하여 사용자 기기로 메시지를 전송합니다. Google 개발자 콘솔에서 FCM 서비스가 활성화되어 있는지도 확인해야 합니다.
 
@@ -50,23 +49,23 @@ sequenceDiagram
 
 일반적인 통합에서는 Braze Android SDK가 FCM 기능을 위한 기기 등록을 처리합니다. 보통 앱을 처음 열면 바로 이 과정이 진행됩니다. 등록 후 Braze에 FCM 등록 ID가 제공되며, 이 ID를 사용하여 해당 기기로만 메시지를 전송합니다. 해당 사용자의 등록 ID가 저장되며, 이전에 앱에 대한 푸시 토큰이 없었던 경우 해당 사용자는 "푸시 등록" 상태가 됩니다.
 
-### 3단계: Braze 푸시 Campaign 시작 {#step-3-launching-a-braze-push-campaign}
+### 3단계: Braze 푸시 Campaign 시작 {#step-3-launch-a-braze-push-campaign}
 
 푸시 Campaign이 시작되면 Braze는 FCM에 메시지 전달을 요청합니다. Braze는 대시보드에 복사된 API 키를 사용하여 인증하고 제공된 푸시 토큰으로 푸시 알림을 보낼 수 있는지 확인합니다.
 
-### 4단계: 유효하지 않은 토큰 제거 {#step-4-removing-invalid-tokens}
+### 4단계: 유효하지 않은 토큰 제거 {#step-4-remove-invalid-tokens}
 
 FCM에서 메시지를 보내려고 했던 푸시 토큰이 유효하지 않다고 알려주면, 해당 토큰이 연결된 고객 프로필에서 해당 토큰을 제거합니다. 사용자에게 다른 푸시 토큰이 없는 경우, **Segments** 페이지에서 더 이상 "푸시 등록됨"으로 표시되지 않습니다.
 
 FCM에 대한 자세한 내용은 [클라우드 메시징](https://firebase.google.com/docs/cloud-messaging/)을 참조하세요.
 
-## 푸시 오류 로그 활용하기 {#utilizing-the-push-error-logs}
+## 푸시 오류 로그 활용하기 {#use-the-push-error-logs}
 
-Braze는 메시지 활동 로그 내에서 푸시 알림 오류를 제공합니다. 이 오류 로그는 Campaign이 예상대로 작동하지 않는 이유를 파악하는 데 매우 유용한 다양한 경고를 제공합니다. 오류 메시지를 클릭하면 특정 인시던트 문제를 해결하는 데 도움이 되는 관련 설명서로 리디렉션됩니다.
+Braze는 메시지 활동 로그 내에서 푸시 알림 오류를 제공합니다. 이 오류 로그는 Campaign이 예상대로 작동하지 않는 이유를 파악하는 데 매우 유용한 다양한 경고를 제공합니다. 오류 메시지를 선택하면 특정 인시던트 문제를 해결하는 데 도움이 되는 관련 설명서로 리디렉션됩니다.
 
 ![푸시 알림 오류 항목이 표시된 Braze 메시지 활동 로그]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-## 문제 해결 시나리오 {#troubleshooting-scenarios}
+## 문제 해결 {#troubleshooting}
 
 ### 푸시가 전송되지 않음 {#push-isnt-sending}
 
@@ -99,7 +98,9 @@ FCM 등록은 Braze 외부에서 처리되므로 등록 실패는 두 경우에�
 
 FCM 푸시가 작동하려면 기기에 Google Play 서비스가 있어야 합니다. 기기에 Google Play 서비스가 설치되어 있지 않은 경우 푸시 등록이 이루어지지 않습니다.
 
-**참고:** Google API가 설치되지 않은 Android 에뮬레이터에는 Google Play 서비스가 설치되지 않습니다.
+{% alert note %}
+Google API가 설치되지 않은 Android 에뮬레이터에는 Google Play 서비스가 설치되지 않습니다.
+{% endalert %}
 
 #### 기기가 인터넷에 연결되지 않음 {#device-not-connected-to-the-internet}
 
@@ -109,7 +110,7 @@ FCM 푸시가 작동하려면 기기에 Google Play 서비스가 있어야 합�
 
 `com_braze_handle_push_deep_links_automatically`가 `true` 또는 `false`로 설정되어 있는지 확인합니다. 푸시 알림을 탭할 때 Braze가 앱과 딥링크를 자동으로 열도록 설정하려면 `braze.xml` 파일에서 `com_braze_handle_push_deep_links_automatically`를 `true`로 설정합니다.
 
-`com_braze_handle_push_deep_links_automatically`가 기본값인 `false`로 설정된 경우, Braze 푸시 콜백을 사용하여 푸시 수신 및 열람 의도를 수신 대기하고 처리해야 합니다.
+`com_braze_handle_push_deep_links_automatically`가 기본값인 `false`로 설정된 경우, Braze 푸시 콜백을 사용하여 푸시 수신 및 열람 인텐트를 수신 대기하고 처리해야 합니다.
 
 ### 푸시 알림 반송 {#push-notifications-bounced}
 
@@ -126,8 +127,6 @@ FCM 푸시가 작동하려면 기기에 Google Play 서비스가 있어야 합�
 1. [Firebase 클라우드 메시징](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token)에서 유효한 푸시 토큰을 Braze에 전달해야 합니다.
 
 #### 오류: NotRegistered {#error-notregistered}
-
-1. `NotRegistered`는 일반적으로 기기에서 앱이 삭제되었을 때 발생합니다. Braze는 내부적으로 `NotRegistered`를 사용하여 기기에서 앱이 제거되었음을 알립니다.
 
 2. `NotRegistered`는 여러 번의 등록이 발생하고 두 번째 등록이 첫 번째 토큰을 무효화할 때도 발생할 수 있습니다.
 
@@ -176,9 +175,11 @@ Braze 대시보드에 제공된 Firebase 클라우드 메시징 서버 키가 �
 
 ### 푸시 클릭이 기록되지 않음 {#push-clicks-not-logged}
 
-Braze는 푸시 클릭을 자동으로 기록하므로 이 시나리오는 비교적 드물게 발생합니다.
+푸시 클릭이 기록되지 않는다면 푸시 클릭 데이터가 아직 서버로 플러시되지 않았을 가능성이 있습니다. Braze Android SDK는 플러시를 조절할 수 있습니다.
 
-푸시 클릭이 기록되지 않는다면 푸시 클릭 데이터가 아직 서버로 플러시되지 않았을 가능성이 있습니다. Braze는 네트워크 연결 강도에 따라 플러시 빈도를 조절합니다. 네트워크 연결 상태가 양호하면 대부분의 경우 푸시 클릭 데이터는 1분 이내에 서버에 도달합니다.
+커스텀 푸시 핸들러를 구현한 경우, [네이티브 푸시 분석을 올바르게 보존]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling)하고 있는지 확인하세요.
+
+푸시 클릭 기록은 네트워크 작업이며 네트워크 제한의 영향을 받습니다. 따라서 Braze Android SDK는 네트워크 장애를 수용하고 실패한 요청을 재시도하지만, 일부 이벤트 손실이 발생할 수 있습니다.
 
 ### 딥링크가 작동하지 않음 {#deep-links-not-working}
 

@@ -1,0 +1,4 @@
+- Ingest first and zero-party user data gather from Komo to Braze in real-time
+- Ingest market research and user preference data when they answer surveys, polls, and quiz questions
+- Progressively build user profiles in Braze over time as the user continues to engage and share more data about themselves
+- Standardize the look and feel of transactional emails sent through Braze

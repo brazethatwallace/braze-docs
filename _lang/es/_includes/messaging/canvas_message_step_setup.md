@@ -1,0 +1,6 @@
+1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el creador de Canvas.
+2. Después de configurar tu Canvas, añade un paso en el constructor de Canvas. Asigna a tu paso un nombre claro y significativo.
+3. Elige un [horario de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) y especifica un retraso según sea necesario.{% if include.in_app_message %} Ten en cuenta que los pasos que contienen mensajes dentro de la aplicación no pueden estar basados en acciones.{% endif %}
+4. Filtra tu audiencia para este paso según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando segmentos y añadiendo filtros adicionales. Las opciones de audiencia se verificarán después del retraso en el momento en que se envíen los mensajes.
+5. Elige tu [comportamiento de avance]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
+6. Elige cualquier otro canal de mensajería que desees combinar con tu mensaje.
