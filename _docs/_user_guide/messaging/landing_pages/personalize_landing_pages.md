@@ -138,7 +138,7 @@ For Liquid-personalized landing pages, Braze processes {% raw %}`{{`{% endraw %}
 
 If these sequences appear without matching closing tags (for example, {% raw %}`/* version {{ 2.0 */`{% endraw %}), Braze treats them as open Liquid tags. Other valid Liquid tags on the page may fail to render, or Liquid rendering may break elsewhere in the same block. In severe cases, broken Liquid can prevent the page from publishing or cause it to be unpublished (see [Fallback pages](#fallback-pages)).
 
-To avoid this, escape or remove {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} from non-Liquid contexts, split the sequences in JavaScript (for example, {% raw %}`'{' + '{'`{% endraw %}). Liquid runs server-side before the script executes. You can also wrap larger non-Liquid sections in {% raw %}`{% raw %}...{% endraw %}`{% endraw %} tags.
+To avoid this, escape or remove {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} from non-Liquid contexts, split the sequences in JavaScript (for example, {% raw %}`'{' + '{'`{% endraw %}). Liquid runs server-side before the script executes. You can also wrap larger non-Liquid sections in {% raw %}`&#123;% raw %&#125;...&#123;% endraw %&#125;`{% endraw %} tags.
 {% endalert %}
 
 ## Fallback pages
