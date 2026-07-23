@@ -135,10 +135,6 @@ You can share a dashboard link to the report by selecting **Share** and one of t
 
 - **Send or schedule an email:** Send an email immediately or at a designated time that contains a download link that expires after one hour. You can select recipients from the company users listed in the **Email Recipients** dropdown or enter any other email address.
 
-{% alert note %}
-Only email addresses belonging to company users in Braze appear in the **Email Recipients** dropdown and persist across report schedules. External email addresses—including agency or partner contacts—must be manually entered each time you create a new report schedule. If you frequently send reports to the same external recipient, consider adding them as a company user with appropriate permissions so their address persists in the dropdown.
-{% endalert %}
-
 !["Schedule an email" window with fields to choose how the report is formatted, who should receive it, and when it should send.]({% image_buster /assets/img/report_builder_2/schedule_an_email.png %}){: style="max-width:70%;"}
 
 - **Download CSV:** Download a CSV of the report.
