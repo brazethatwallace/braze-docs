@@ -36,7 +36,9 @@ Use this workflow when HTML email rendering or editor behavior doesn't match wha
 
 ## HTML renders incorrectly in test emails {#html-renders-incorrectly-in-test-emails}
 
-**Symptom:** A [test email]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) doesn't match what you expect from the editor.
+### Symptom
+
+A [test email]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) doesn't match what you expect from the editor.
 
 Check your HTML setup first, then review [extension conflicts](#extension-conflicts), [email rendering](#email-rendering), [CSS inlining](#css-inlining), and [white space under images](#white-space-under-images).
 
@@ -58,7 +60,9 @@ Emails render differently depending on browsers and email clients, so take note 
 
 #### Unbalanced HTML in Liquid templates {#unbalanced-html-in-liquid-templates}
 
-**Symptom:** Some users receive a modified version of the email where Liquid code displays in the message, links are broken, or spacing looks incorrect.
+##### Symptom
+
+Some users receive a modified version of the email where Liquid code displays in the message, links are broken, or spacing looks incorrect.
 
 Braze uses an internal HTML parser to prepare emails before sending. This parser supports features like preheader generation, tracking pixel placement, link templating, and link aliasing. When HTML tags are not balanced within their corresponding Liquid logic blocks or content blocks, the parser may modify the underlying HTML in unexpected ways. This can result in:
 
@@ -69,19 +73,19 @@ Braze uses an internal HTML parser to prepare emails before sending. This parser
 - AMP-specific code removed from AMP email bodies, causing validation failures
 - Broken links when many different query parameters or media queries are used
 
-**Balance HTML within Liquid blocks**
+##### Balance HTML within Liquid blocks {#balance-html-within-liquid-blocks}
 
 Ensure that all HTML tags open and close within their corresponding Liquid logic block or content block. This prevents the internal parser from interpreting the HTML as invalid and modifying it.
 
-**Unbalanced example:**
+##### Unbalanced example {#unbalanced-example}
 
 ```liquid
 <img src={% if ${language} == 'en' %}"https://example.com/images/banner-en.png" style="width: 100%"{% elsif ${language} == 'de' %}"https://example.com/images/banner-de.png"{% else %}"https://example.com/images/banner-default.png" {% endif %} />
 ```
 
-In this example, the opening `<img` tag starts outside of any Liquid block, and different parts of the tag's attributes are split across Liquid conditional statements. This confuses the parser.
+In this example, the opening `<img` tag starts outside of any Liquid block, and different parts of the tag's attributes are split across Liquid conditional statements. This structure confuses the parser, which cannot determine where the tag begins or ends.
 
-**Balanced example:**
+##### Balanced example {#balanced-example}
 
 ```liquid
 {% if ${language} == 'en' %}
@@ -95,7 +99,7 @@ In this example, the opening `<img` tag starts outside of any Liquid block, and 
 
 In the balanced version, each Liquid branch contains a complete, self-contained `<img>` tag. This approach ensures the parser processes each branch correctly.
 
-**Additional fixes**
+##### Additional fixes {#additional-fixes}
 
 If you're experiencing rendering issues with media queries or many query parameters, try turning off CSS inlining in your email settings. This can resolve conflicts between the HTML parser and complex CSS rules.
 
@@ -105,7 +109,9 @@ There are times when the previews in Inbox Vision still don't match what is sent
 
 ### White space under images {#white-space-under-images}
 
-**Symptom:** White space or lines appear after images in test emails.
+#### Symptom
+
+White space or lines appear after images in test emails.
 
 If you notice white space or lines appearing after images in your test emails, this is typically caused by how email clients render inline-level elements. Images are inline-level by default and are aligned to the baseline, which allows browsers to accommodate descenders (the part of letters like "g" or "y" that extend beyond the baseline). This creates a small gap that appears as white space.
 
