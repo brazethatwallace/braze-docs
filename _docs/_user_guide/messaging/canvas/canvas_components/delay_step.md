@@ -47,7 +47,7 @@ By contrast, when you select **days** as the unit without **At a specific time**
 
 You can also select **At a specific time** to specify when the users advance in the Canvas. This option takes into account the time the user entered the Delay step. If this time is beyond the time configured in the settings, Braze appends more hours to the delay. 
 
-As an example, let's say today is December 11, and our Delay step is set to **Duration** of one week at 8 am UTC. If a user enters the Delay step on December 4, they would be released from the Delay step to continue their journey today if they originally entered the Delay step at a time before 8 am UTC. If they entered the Delay step after this time, the user is delayed until the next day (the next occurrence of this time). 
+As an example, let's say today is December 11, and our Delay step is set to **Duration** of one week at 8 am UTC. If a user enters the Delay step on December 4, they are released from the Delay step to continue their journey today if they originally entered the Delay step at a time before 8 am UTC. If they entered the Delay step after this time, the user is delayed until the next day (the next occurrence of this time).
 
 {% endtab %}
 {% tab Calendar date %}
