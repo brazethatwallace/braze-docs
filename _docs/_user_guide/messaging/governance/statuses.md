@@ -54,12 +54,12 @@ To resume the Canvas, go to the **Summary** step of the Canvas builder and selec
 - Users waiting for messages: Any scheduled messages that were pending when the Canvas was stopped are sent as scheduled when you resume the Canvas—as long as the scheduled time hasn't already passed.
 - Users who exited: Users who exited the Canvas during the stopped period (for example, users who were in delay steps and reached the end of their delay) won't re-enter the Canvas when you resume it.
 
-#### Local timezone behavior
+#### Local time zone behavior
 
 If your Canvas is configured to **Enter users into this Canvas in their local time zone**, keep these considerations in mind when stopping and resuming:
 
-- Entry windows: When you resume the Canvas, users enter based on their local timezone as originally configured. Braze continues evaluating entry eligibility according to each user's timezone.
-- Missed entry windows: If the Canvas was stopped during a scheduled entry window for users in certain timezones, those users won't enter retroactively when the Canvas is resumed. Entry evaluation resumes going forward.
+- Entry windows: When you resume the Canvas, users enter based on their local time zone as originally configured. Braze continues evaluating entry eligibility according to each user's time zone.
+- Missed entry windows: If the Canvas was stopped during a scheduled entry window for users in certain time zones, those users won't enter retroactively when the Canvas is resumed. Entry evaluation resumes going forward.
 
 #### Common scenarios
 
