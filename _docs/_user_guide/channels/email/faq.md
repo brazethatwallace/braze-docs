@@ -126,7 +126,7 @@ When an email is clipped by the recipient's email provider (such as Gmail clippi
 
 When the open tracking pixel is positioned at the top of an email, a visible white line or gap can appear at the top of the email body, particularly on mobile devices.
 
-**How to identify:** In Braze, go to **Settings** > **Email Preferences** and check the **Open Tracking Pixel** section. If **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES** is enabled for your sending provider, the pixel is positioned at the top of your email HTML. If you notice a white gap or line at the top of your rendered email, this setting can be the cause.
+**How to identify:** In Braze, go to **Settings** > **Email Preferences** and select the **Open Tracking Pixel** section. If **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES** is enabled for your sending provider, the pixel is positioned at the top of your email HTML. If you notice a white gap or line at the top of your rendered email, this setting may be the cause.
 
 **How to resolve:** Turn off the relevant **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES** toggle in the **Open Tracking Pixel** section for your sending provider. The tracking pixel is usually less visible at the bottom of an email. Test your emails in [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) after changing placement. For more information, see [Update the placement]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement).
 
