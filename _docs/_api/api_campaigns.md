@@ -47,8 +47,8 @@ After you save your API campaign, include the following in your API request:
 
 ### Adding email attachments
 
-To add attachments to API campaign emails, include an `attachments` array in the [email object]({{site.baseurl}}/api/objects_filters/messaging/email_object#email-object). You can reference an email template created in the drag-and-drop or HTML editor by providing its `email_template_id` in the email object, then add attachments through the API call.
+To add attachments to API campaign emails, include an `attachments` array in the [email object]({{site.baseurl}}/api/objects_filters/messaging/email_object). You can reference an email template created in the drag-and-drop or HTML editor by providing its `email_template_id` in the email object, then add attachments through the API call.
 
-For attachment details, size limits, and best practices, see the [email object]({{site.baseurl}}/api/objects_filters/messaging/email_object#email-object).
+For attachment details, size limits, and best practices, see [Example email object with attachment]({{site.baseurl}}/api/objects_filters/messaging/email_object#example-email-object-with-attachment).
 
 
