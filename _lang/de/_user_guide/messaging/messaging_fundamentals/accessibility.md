@@ -103,7 +103,7 @@ Je nach individuellen Bedürfnissen sind diese Nutzer:innen angewiesen auf:
 {% endtab %}
 {% endtabs %}
 
-## Best Practices {#best-practices}
+## Bewährte Praktiken {#best-practices}
 
 Barrierefreie Inhalte zu erstellen muss nicht überwältigend sein. Kleine, durchdachte Entscheidungen können einen großen Unterschied machen. Dieser Abschnitt führt Sie durch praktische Tipps, die mehr Menschen helfen, Ihre Nachrichten erfolgreich zu lesen, zu navigieren und mit ihnen zu interagieren. Ob Sie Ihren Text anpassen, Ihre Buttons gestalten oder Alt-Text zu Bildern hinzufügen – jede Verbesserung trägt zu einem inklusiveren Erlebnis bei. Legen wir los.
 
@@ -415,7 +415,7 @@ Wenn ein Bild wesentlichen Text enthält, fügen Sie diese Information in den Al
   </thead>
   <tbody>
     <tr>
-      <td>„Banner mit dem Text „Sommerschlussverkauf – 50 % Rabatt auf alle Bademode.“"</td>
+      <td>„Banner mit dem Text „Sommerschlussverkauf – 50 % Rabatt auf alle Bademode“"</td>
       <td>„Banner, das einen Verkauf bewirbt.“ (Erwähnt den tatsächlichen Rabatt nicht)</td>
     </tr>
     <tr>
@@ -505,6 +505,7 @@ Fügen Sie Ihren Videos Untertitel hinzu, damit Nutzer:innen den Dialogen, Sound
 Untertitel können ein- und ausgeschaltet werden, sodass Nutzer:innen wählen können, was für sie am besten funktioniert.
 
 {% multi_lang_include accessibility/video.md %}
+
 
 #### Stellen Sie Wiedergabesteuerungen bereit {#playback-controls}
 
@@ -667,4 +668,4 @@ Selbst wenn Ihre Nachricht jede automatisierte Prüfung besteht, ist es dennoch 
 - Wo möglich manuell zu testen, besonders bei Layout- und Interaktionsmustern.
 - Tools wie Screenreader, reine Tastaturnavigation und Browser-Zoom zu verwenden, um verschiedene Zugangsbedürfnisse zu simulieren.
 
-Indem Sie automatisierte Tests mit durchdachter manueller Überprüfung kombinieren, erkennen Sie mehr potenzielle Probleme und erstellen inklusivere, benutzerfreundlichere Campaigns für alle Empfänger:innen.
+Indem Sie automatisierte Tests mit durchdachter manueller Überprüfung kombinieren, erkennen Sie mehr potenzielle Probleme und erstellen inklusivere, benutzerfreundlichere Kampagnen für alle Empfänger:innen.

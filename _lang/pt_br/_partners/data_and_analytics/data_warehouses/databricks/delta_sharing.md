@@ -17,7 +17,7 @@ hidden: true
 O Databricks Delta Sharing com a Braze está em **beta fechado**. A disponibilidade, as regiões suportadas e o comportamento do produto podem mudar. Entre em contato com o seu gerente de sucesso do cliente da Braze para participar ou confirmar se esse recurso está ativado para o seu espaço de trabalho.
 {% endalert %}
 
-O Databricks Delta Sharing faz parte da Distribuição de Dados da Braze. Para uma visão geral completa das opções de Distribuição de Dados, consulte [Distribuição de dados]({{site.baseurl}}/user_guide/data/distribution/).
+O Databricks Delta Sharing faz parte da Distribuição de Dados da Braze. Para uma visão geral completa das opções de Distribuição de Dados, consulte [Distribuição de dados]({{site.baseurl}}/user_guide/data/distribution).
 
 ## Configurar o Delta Sharing {#set-up-delta-sharing}
 
@@ -50,13 +50,9 @@ Depois que o compartilhamento de dados for provisionado, crie um catálogo a par
 
 Assim como o Currents, você pode usar o Databricks Delta Sharing para:
 
-- Criar relatórios complexos
-- Realizar modelagem de atribuição
-- Compartilhar dados com segurança dentro da sua própria empresa
-- Mapear dados brutos de eventos ou de usuários para um CRM (como o Salesforce)
-- E muito mais
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-Para uma lista completa de tabelas e colunas disponíveis no Databricks, [baixe os esquemas de tabelas brutas do Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) como arquivo de texto. Esse arquivo reflete o esquema do Databricks Delta Sharing (por exemplo, `DB_CREATED_AT` para o horário de ingestão). Ele não é intercambiável com os [esquemas de tabelas brutas do Snowflake](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ou a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), que descrevem a nomenclatura e os campos do Snowflake.
+Para uma lista completa de tabelas e colunas disponíveis no Databricks, [baixe os esquemas de tabelas brutas do Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) como arquivo de texto. Esse arquivo reflete o esquema do Databricks Delta Sharing (por exemplo, `DB_CREATED_AT` para o horário de ingestão). Ele não é intercambiável com os [esquemas de tabelas brutas do Snowflake](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ou a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables), que descrevem a nomenclatura e os campos do Snowflake.
 
 {% alert note %}
 Durante o beta fechado, nem todas as tabelas listadas no arquivo de esquema do Databricks podem estar disponíveis no seu compartilhamento. Os nomes e tipos de colunas também podem diferir do Snowflake Data Sharing (por exemplo, `DB_CREATED_AT` em vez de `SF_CREATED_AT`). Entre em contato com o seu gerente de sucesso do cliente da Braze se precisar da lista de tabelas atual para o seu espaço de trabalho.

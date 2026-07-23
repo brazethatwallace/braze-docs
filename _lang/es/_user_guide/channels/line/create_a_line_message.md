@@ -17,24 +17,24 @@ alias: /line/create/
 
 ## Requisitos previos {#prerequisites}
 
-Antes de crear un mensaje LINE, haz lo siguiente:
+Antes de crear un mensaje de LINE, haz lo siguiente:
 
 1. Lee el resumen de LINE.
-2. Revisa las políticas, los límites y las reglas de contenido.
-3. [Configura tu conexión LINE]({{site.baseurl}}/user_guide/channels/line/line_setup).
+2. Reconoce las políticas, los límites y las reglas de contenido.
+3. [Configura tu conexión de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup).
 
-El envío de mensajes LINE desde Braze consumirá los créditos de mensajes o de acciones de tu cuenta.
+El envío de mensajes de LINE desde Braze consumirá créditos de mensajes o de acciones de tu cuenta.
 
 ## Paso 1: Elige dónde crear tu mensaje {#step-1-choose-where-to-build-your-message}
 
-¿No estás seguro de si tu mensaje debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para campañas de mensajería únicas y dirigidas, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
+¿No tienes claro si tu mensaje debe enviarse mediante una Campaign o un Canvas? Las Campaigns son mejores para campañas de mensajería únicas y segmentadas, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
 
 {% tabs %}
 {% tab Campaign %}
 
 **Pasos:**
 
-1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
+1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear Campaign**.
 2. Selecciona **LINE** o, para campañas dirigidas a múltiples canales, selecciona **Campaña multicanal**.
 3. Ponle a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario.
@@ -50,21 +50,16 @@ Si todos los mensajes de tu campaña van a ser similares o tener el mismo conten
 
 **Pasos:**
 
-1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el compositor de Canvas.
-2. Después de configurar tu Canvas, añade un paso en el constructor de Canvas. Ponle a tu paso un nombre claro y significativo.
-3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) y especifica un retraso según sea necesario.
-4. Filtra tu audiencia para este paso según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando segmentos y añadiendo filtros adicionales. Las opciones de audiencia se verificarán después del retraso, en el momento en que se envíen los mensajes.
-5. Elige tu [comportamiento de avance]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-6. Elige cualquier otro canal de mensajería que desees combinar con tu mensaje.
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 
 {% endtab %}
 {% endtabs %}
 
-## Paso 2: Redacta tu mensaje LINE {#step-2-compose-your-line-message}
+## Paso 2: Redacta tu mensaje de LINE {#step-2-compose-your-line-message}
 
 Escribe tu mensaje usando personalización (como Liquid o contenido conectado) según sea necesario. LINE permite hasta cinco burbujas de mensaje en cada mensaje, que pueden ser cualquiera de los diseños de mensaje disponibles: texto, imagen, enriquecido o basado en tarjetas.
 
-![Compositor de LINE con un mensaje mostrado en la vista previa.]({% image_buster /assets/img/line/line_composer.png %})
+![Creador de LINE con un mensaje mostrado en la vista previa.]({% image_buster /assets/img/line/line_composer.png %})
 
 ### Consejos {#tips}
 
@@ -76,11 +71,11 @@ Si planeas usar Liquid, asegúrate de incluir un valor predeterminado para tu pe
 
 #### Creación de mensajes de derecha a izquierda {#creating-right-to-left-messages}
 
-La apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los renderizan. Para conocer las mejores prácticas sobre cómo crear mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Creación de mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+La apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los renderizan. Para conocer las mejores prácticas sobre cómo redactar mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Creación de mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Paso 3: Previsualiza y prueba tu mensaje {#step-3-preview-and-test-your-message}
 
-Cambia a la pestaña **Test** para enviar un mensaje LINE de prueba a grupos de prueba de contenido o a usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
+Cambia a la pestaña **Test** para enviar un mensaje de prueba de LINE a grupos de prueba de contenido o a usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
 
 ![La pestaña "Tests" mostrando una vista previa de un mensaje de prueba.]({% image_buster /assets/img/line/test_preview.png %})
 
@@ -91,41 +86,41 @@ Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/us
 {% tabs %}
 {% tab Campaign %}
 
-Construye el resto de tu campaña. Consulta las siguientes secciones para más detalles sobre cómo usar mejor nuestras herramientas para crear mensajes LINE.
+Construye el resto de tu campaña. Consulta las siguientes secciones para obtener más detalles sobre cómo utilizar mejor nuestras herramientas para crear mensajes de LINE.
 
-### Elige la planificación de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
+### Elige el calendario de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
 
-Los mensajes LINE pueden entregarse según un horario planificado, una acción o un desencadenante de API. Para más información sobre las opciones de planificación y desencadenantes, consulta [Planificar tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Los mensajes de LINE se pueden entregar en función de un horario programado, una acción o un desencadenante de API. Para más información sobre las opciones de programación y desencadenantes, consulta [Programar tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para recibir la campaña, o activar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
+Puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para recibir la campaña, o activar las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-### Elige los usuarios objetivo {#choose-users-to-target}
+### Elige los usuarios a los que dirigirte {#choose-users-to-target}
 
-[Dirige a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para delimitar tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo.
+[Segmenta a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para acotar tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo.
 
-Selecciona la audiencia más amplia de tus segmentos y, opcionalmente, refina ese segmento aún más con nuestros [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de que se envíe el mensaje.
+Selecciona la audiencia más amplia de tus segmentos y, opcionalmente, acota aún más ese segmento con nuestros [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Recibirás automáticamente una vista previa de cómo se ve aproximadamente la población de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de que se envíe el mensaje.
 
-### Elige eventos de conversión {#choose-conversion-events}
+### Elige los eventos de conversión {#choose-conversion-events}
 
-Braze te permite rastrear con qué frecuencia los usuarios realizan acciones específicas, [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se contará una conversión si el usuario realiza la acción especificada.
+Braze te permite hacer un seguimiento de la frecuencia con la que los usuarios realizan acciones específicas, [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se contará una conversión si el usuario realiza la acción especificada.
 
 Los eventos de conversión te ayudan a medir el éxito de tu campaña. Por ejemplo:
 
-- Si estás usando geotargeting para desencadenar un mensaje LINE cuyo objetivo final es que el usuario realice una compra, establece el evento de conversión como `Purchase`.
-- Si estás intentando dirigir al usuario a tu aplicación, establece el evento de conversión como `Starts Session`.
+- Si estás utilizando geosegmentación para desencadenar un mensaje de LINE cuyo objetivo final es que el usuario realice una compra, establece el evento de conversión como `Purchase`.
+- Si intentas dirigir al usuario a tu aplicación, establece el evento de conversión como `Starts Session`.
 
 También puedes establecer eventos de conversión personalizados según tu caso de uso específico. Sé creativo y piensa en cómo quieres medir el éxito de esta campaña.
 
 {% endtab %}
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, usar pruebas multivariante y selección inteligente, y más, consulta [Crear un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
+Si aún no lo has hecho, completa las secciones restantes de tu Canvas. Para obtener más detalles sobre cómo construir el resto de tu Canvas, usar pruebas multivariante y selección inteligente, y más, consulta [Crear un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 
 {% endtab %}
 {% endtabs %}
 
-## Paso 5: Revisa y despliega {#step-5-review-and-deploy}
+## Paso 5: Revisar e implementar {#step-5-review-and-deploy}
 
-Después de terminar de construir tu campaña o Canvas, revisa sus detalles, pruébala y luego ¡envíala!
+Cuando hayas terminado de crear tu campaña o Canvas, revisa los detalles, pruébala y envíala.
 
-A continuación, consulta [Informes de LINE]({{site.baseurl}}/line/reporting) para aprender cómo puedes acceder a los resultados de tus campañas de LINE.
+A continuación, consulta [Informes de LINE]({{site.baseurl}}/line/reporting) para saber cómo puedes acceder a los resultados de tus campañas de LINE.

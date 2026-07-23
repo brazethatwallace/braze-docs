@@ -54,7 +54,7 @@ Cette intégration utilise l'ingestion de données cloud de Braze. Suivez les in
 
 Celebrus capture et attribue des identifiants uniques à une personne, tels qu'un e-mail, un numéro de téléphone, un `external_id` ou un alias d'utilisateur, et les envoie à Braze via le CDI. Cela permet de synchroniser les données avec Braze pour la même personne.
 
-Celebrus utilisera les identifiants définis pour envoyer les attributs clients définis dans le générateur de profils Celebrus, mais uniquement lorsque les valeurs des attributs changent. Notez que les noms d'attributs définis dans le générateur de profils Celebrus seront utilisés par défaut dans Braze. Veillez donc à mettre à jour ces noms pour respecter les [conventions de dénomination de Braze]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Celebrus utilise les identifiants définis pour envoyer les attributs clients définis dans le générateur de profils Celebrus, mais uniquement lorsque les valeurs des attributs changent. Notez que les noms d'attributs définis dans le générateur de profils Celebrus sont utilisés par défaut dans Braze. Veillez donc à mettre à jour ces noms pour respecter les [conventions de dénomination de Braze]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
 {% alert important %}
 Pour l'instant, cette version ne prend pas en charge les événements et les achats.<br><br> Cette intégration envoie les attributs sous forme de valeurs de chaîne de caractères. Certains attributs sont donc des listes (comme les signaux). Pour l'instant, les listes ne peuvent pas être converties en tableaux. Il n'existe aucun attribut imbriqué.

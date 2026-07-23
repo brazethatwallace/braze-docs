@@ -34,9 +34,7 @@ tool:
 
 전체화면 인앱 메시지는 기기의 전체 높이를 채우며 필요에 따라 가로(좌우)로 잘릴 수 있습니다. 이미지 및 텍스트 전체화면 메시지는 기기 높이의 50%를 채웁니다. 모든 전체화면 인앱 메시지는 "노치" 기기에서 상태 표시줄을 채웁니다.
 
-- 모든 이미지는 5&nbsp;MB 미만이어야 합니다.
-- PNG, JPEG 및 [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs) 파일 형식만 지원합니다.
-- 이미지 크기는 500&nbsp;KB를 권장합니다.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} 자신 있게 에셋을 만들어 보세요! 인앱 메시지 이미지 템플릿과 안전 영역 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 

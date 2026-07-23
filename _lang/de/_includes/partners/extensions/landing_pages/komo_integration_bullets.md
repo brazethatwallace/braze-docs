@@ -1,0 +1,4 @@
+- Erst- und Zero-Party-Nutzerdaten, die über Komo erfasst wurden, in Realtime in Braze aufnehmen
+- Marktforschungs- und Nutzerpräferenzdaten aufnehmen, wenn Nutzer:innen Umfragen, Abstimmungen und Quizfragen beantworten
+- Nutzerprofile in Braze im Laufe der Zeit schrittweise aufbauen, während Nutzer:innen weiterhin interagieren und mehr Daten über sich teilen
+- Das Erscheinungsbild von Transaktions-E-Mails, die über Braze versendet werden, standardisieren

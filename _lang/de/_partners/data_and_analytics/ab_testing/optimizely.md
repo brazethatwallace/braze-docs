@@ -14,19 +14,17 @@ search_tag: Partner
 
 Die Integration von Braze und Optimizely ist eine bidirektionale Integration, die es Ihnen ermöglicht:
 
-- Ihre Braze-Kundensegmente und -Ereignisse nächtlich mit der Optimizely Data Platform (ODP) zu synchronisieren, um Optimizely-Kundenprofile, -Berichte und -Segmentierung zu bereichern.
-- Braze-Currents-Ereignisse von Braze an das Berichtstool von Optimizely zu senden.
-- ODP-Kundendaten und -Ereignisse mit Braze zu synchronisieren, um Ihre Braze-Kundendaten anzureichern und Braze-Messaging auf Grundlage von Kundenereignissen in ODP zu triggern.
+{% multi_lang_include partners/ab_testing/optimizely_integration_bullets.md %}
 
 ## Voraussetzungen {#prerequisites}
 
-| Anforderung                      | Beschreibung |
+| Anforderung                     | Beschreibung |
 |----------------------------------|-------------|
-| Optimizely-Data-Platform-Konto   | Ein Optimizely-Data-Platform-Konto (ODP) ist erforderlich, um diese Partnerschaft nutzen zu können. |
-| Braze-REST-API-Schlüssel         | Ein Braze-REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` und `canvas.trigger.send`. |
-| Currents                         | Um Daten zurück nach Optimizely zu exportieren, müssen Sie Braze-Currents für Ihr Konto eingerichtet haben. |
-| Optimizely-URL und -Token        | Diese erhalten Sie, indem Sie zu Ihrem Optimizely-Dashboard navigieren und die Ingestion-URL und das Token kopieren. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Optimizely Data Platform-Konto | Ein Optimizely Data Platform (ODP)-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
+| Braze-REST-API-Schlüssel               | Ein Braze-REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` und `canvas.trigger.send`. |
+| Currents                         | Um Daten zurück nach Optimizely zu exportieren, müssen Braze-Currents für Ihr Konto eingerichtet sein. |
+| Optimizely-URL und -Token         | Diese können Sie abrufen, indem Sie zu Ihrem Optimizely-Dashboard navigieren und die Ingestion-URL und das Token kopieren. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -37,7 +35,7 @@ Die Integration von Braze und Optimizely ist eine bidirektionale Integration, di
     1. Geben Sie den Braze-**REST-API-Schlüssel** ein.
     2. Wählen Sie Ihre Braze-**Instanz-URL** aus.
     2. Wählen Sie **Verify API Key**.
-3. Gehen Sie in Braze zu **[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)**.
+3. Gehen Sie in Braze zu **[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)**.
 4. Wählen Sie **Create New Current** > **Custom Currents Export**.
 5. Konfigurieren Sie den Current mit dem Endpunkt und dem Token, die in ODP bereitgestellt werden. Dies ist erforderlich, um Braze-Ereignisse mit ODP zu synchronisieren.
 
@@ -113,20 +111,20 @@ Nachdem Sie die Integration konfiguriert haben, können Sie eine Aktivierung in 
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Ereignisse inspizieren {#inspect-events}
+### Ereignisse überprüfen {#inspect-events}
 
-Um zu überprüfen, ob die Daten ordnungsgemäß von ODP mit Braze synchronisiert werden, können Sie Ereignisse in ODP inspizieren.
+Um zu überprüfen, ob Daten ordnungsgemäß von ODP zu Braze synchronisiert werden, können Sie Ereignisse in ODP inspizieren.
 
 1. Gehen Sie in ODP zu **Account Settings** > **Event Inspector**.
-2. Wählen Sie **Start Inspector**.
-3. Wenn Daten im Inspektor verfügbar sind, wird neben **Refresh** eine Zahl angezeigt. Wählen Sie diese aus, um die Daten anzuzeigen.
-4. Die Rohdaten, die ODP und Braze hin und her senden, werden angezeigt. Wählen Sie **View Details**, um die formatierte Version dieser Rohdaten zu sehen.
+2. Wählen Sie **Start Inspector** aus.
+3. Wenn Daten im Inspector verfügbar sind, wird neben **Refresh** eine Zahl angezeigt. Wählen Sie diese aus, um die Daten anzuzeigen.
+4. Die Rohdaten, die ODP und Braze hin und her senden, werden angezeigt. Wählen Sie **View Details** aus, um die formatierte Version dieser Rohdaten zu sehen.
 5. Datenfelder, die von Braze zurück an ODP gesendet werden, beginnen mit `_braze`.
 
-### Aktivitätsprotokolle prüfen {#check-activity-logs}
+### Aktivitätsprotokolle überprüfen {#check-activity-logs}
 
-Jede Datensynchronisierung wird auch im [ODP-Aktivitätsprotokoll](https://www.google.com/url?q=https://support.optimizely.com/hc/en-us/articles/4407268804365-Use-the-Activity-Log&sa=D&source=editors&ust=1733948158385124&usg=AOvVaw2tMOxzcTKfL0-oYLT4IMpP) festgehalten:
+Jede Datensynchronisierung wird auch im [ODP-Aktivitätsprotokoll](https://www.google.com/url?q=https://support.optimizely.com/hc/en-us/articles/4407268804365-Use-the-Activity-Log&sa=D&source=editors&ust=1733948158385124&usg=AOvVaw2tMOxzcTKfL0-oYLT4IMpP) protokolliert:
 
 1. Gehen Sie zu **Account Settings** > **Activity Log**.
 2. Filtern Sie die Kategorien nach **braze**.
-3. Wählen Sie **View Details**, um eine formatierte Ansicht der Protokolldetails einschließlich der Anzahl der Treffer zu erhalten.
+3. Wählen Sie **View Details** aus, um eine formatierte Ansicht der Protokolldetails einschließlich der Anzahl der Übereinstimmungen zu sehen.

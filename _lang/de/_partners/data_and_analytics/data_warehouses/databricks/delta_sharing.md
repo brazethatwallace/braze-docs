@@ -17,19 +17,19 @@ hidden: true
 Databricks Delta Sharing mit Braze befindet sich in der **geschlossenen Beta**. Verfügbarkeit, unterstützte Regionen und Produktverhalten können sich ändern. Kontaktieren Sie Ihren Braze-Customer-Success-Manager, um teilzunehmen oder zu bestätigen, ob dieses Feature für Ihren Workspace aktiviert ist.
 {% endalert %}
 
-Databricks Delta Sharing ist Teil der Braze-Datenverteilung. Einen vollständigen Überblick über die Optionen der Datenverteilung finden Sie unter [Datenverteilung]({{site.baseurl}}/user_guide/data/distribution/).
+Databricks Delta Sharing ist Teil der Braze-Datenverteilung. Einen vollständigen Überblick über die Optionen der Datenverteilung finden Sie unter [Datenverteilung]({{site.baseurl}}/user_guide/data/distribution).
 
 ## Delta Sharing einrichten {#set-up-delta-sharing}
 
 Bei Databricks erfolgt die Datenfreigabe zwischen einem Datenanbieter und einem Datenempfänger. Ihr Braze-Konto ist der **Datenanbieter**, da es die Freigabe erstellt und sendet, und Ihr Databricks-Konto ist der **Datenempfänger**, da es die Freigabe nutzt, um einen Katalog zu erstellen, den Sie abfragen können. Weitere Details finden Sie in der Databricks-Dokumentation zum [Lesen von Daten, die über Databricks-zu-Databricks Delta Sharing geteilt werden (für Empfänger:innen)](https://docs.databricks.com/en/delta-sharing/read-data-databricks.html).
 
-### 1. Schritt: Freigabe in Braze konfigurieren {#step-1-configure-sharing-from-braze}
+### Schritt 1: Freigabe in Braze konfigurieren {#step-1-configure-sharing-from-braze}
 
 1. Gehen Sie in Braze zu **Partnerintegrationen** > **Datenfreigabe** > **Databricks Delta Sharing**.
 2. Geben Sie Ihren Databricks-Freigabebezeichner ein.
 3. Wenn Sie fertig sind, wählen Sie **Create Datashare**. Braze sendet die Freigabe an Ihr Databricks-Konto.
 
-### 2. Schritt: Katalog in Databricks erstellen {#step-2-create-a-catalog-in-databricks}
+### Schritt 2: Katalog in Databricks erstellen {#step-2-create-a-catalog-in-databricks}
 
 1. Nach einigen Minuten sollten Sie die eingehende Freigabe in Ihrem Databricks-Konto erhalten.
 2. Erstellen Sie mithilfe der eingehenden Freigabe einen Katalog, um die Tabellen anzuzeigen und abzufragen. Zum Beispiel:
@@ -50,13 +50,9 @@ Nachdem die Datenfreigabe bereitgestellt wurde, erstellen Sie einen Katalog aus 
 
 Ähnlich wie bei Currents können Sie Databricks Delta Sharing nutzen, um:
 
-- Komplexe Berichte zu erstellen
-- Attribution-Modellierung durchzuführen
-- Sichere Datenfreigabe innerhalb Ihres eigenen Unternehmens zu ermöglichen
-- Rohe Ereignis- oder Nutzerdaten einem CRM zuzuordnen (wie Salesforce)
-- Und mehr
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-Eine vollständige Liste der in Databricks verfügbaren Tabellen und Spalten finden Sie im Download der [Databricks-Rohtabellenschemata](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) als Textdatei. Diese Datei spiegelt das Databricks-Delta-Sharing-Schema wider (zum Beispiel `DB_CREATED_AT` für den Aufnahmezeitpunkt). Sie ist nicht austauschbar mit den [Snowflake-Rohtabellenschemata](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) oder der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), die Snowflake-Benennungen und -Felder beschreiben.
+Eine vollständige Liste der in Databricks verfügbaren Tabellen und Spalten finden Sie im Download der [Databricks-Rohtabellenschemata](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) als Textdatei. Diese Datei spiegelt das Databricks-Delta-Sharing-Schema wider (zum Beispiel `DB_CREATED_AT` für den Aufnahmezeitpunkt). Sie ist nicht austauschbar mit den [Snowflake-Rohtabellenschemata](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) oder der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables), die Snowflake-Benennungen und -Felder beschreiben.
 
 {% alert note %}
 Während der geschlossenen Beta ist möglicherweise nicht jede in der Databricks-Schemadatei aufgeführte Tabelle in Ihrer Freigabe verfügbar. Spaltennamen und -typen können sich ebenfalls von der Snowflake-Datenfreigabe unterscheiden (zum Beispiel `DB_CREATED_AT` statt `SF_CREATED_AT`). Kontaktieren Sie Ihren Braze-Customer-Success-Manager, wenn Sie die aktuelle Tabellenliste für Ihren Workspace benötigen.

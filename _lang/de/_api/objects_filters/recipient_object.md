@@ -13,7 +13,7 @@ description: "Dieser Referenzartikel erläutert die verschiedenen Komponenten de
 
 Sie müssen in diesem Objekt eines der folgenden Felder angeben: `external_user_id`, `user_alias`, `braze_id` oder `email`. **In der Anfrage darf nur eines angegeben werden.**
 
-Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object), das [Trigger-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/trigger_properties_object), das [Canvas-Entry-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) und das [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) kombinieren.
+Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object), das [Trigger-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/trigger_properties_object), das [Canvas-Entry-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) und das [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) kombinieren.
 
 ## Objektkörper {#object-body}
 
@@ -41,7 +41,7 @@ Das Profil muss weiterhin die Zielgruppen- und Kanalberechtigungsregeln der Nach
 - [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
 - [Externe Nutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
 - [Priorisierung]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
-- [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)
+- [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 
 ## Deduplizierung von Empfänger:innen-Objekten {#recipient-object-deduping}
 

@@ -14,7 +14,7 @@ page_order: 4
 
 ## 추적되는 Shopify 이벤트 {#tracked-shopify-events}
 
-Shopify 통합은 [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 사용하여 주요 쇼핑 동작을 캡처합니다. 이러한 이벤트를 활용한 구현 사례 및 마케팅 전략은 [이커머스 활용 사례]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)를 참조하세요.
+Shopify 통합은 [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 사용하여 주요 쇼핑 동작을 캡처합니다. 이러한 이벤트를 활용한 구현 사례 및 마케팅 전략은 [이커머스 사용 사례]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)를 참조하세요.
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -410,13 +410,18 @@ Shopify 통합은 [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/da
 {% endsubtabs %}
 {% endtab %}
 {% tab Shopify 이벤트 %}
+
+{% alert note %}
+Braze는 이커머스 이벤트에 필요한 이벤트 속성정보(예: `cart_id` 또는 `cart_token`)를 Shopify에 의존합니다. 드문 경우 Shopify의 일시적인 문제로 인해 이러한 속성정보가 누락될 수 있으며, 이로 인해 해당 이벤트가 삭제될 수 있습니다.
+{% endalert %}
+
 {% subtabs global %}
 {% subtab Product viewed %}
 **이벤트**: `ecommerce.product_viewed`<br>
 **유형**: 추천 이벤트<br>
 **트리거 조건**: 고객이 제품 페이지를 조회할 때<br>
 **데이터 소스**: Braze SDK<br>
-**활용 사례**: 탐색 이탈
+**사용 사례**: 탐색 이탈
 
 {% raw %}
 | 변수 | Liquid 템플릿 |
@@ -441,7 +446,7 @@ Shopify 통합은 [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/da
 **유형**: 추천 이벤트<br>
 **트리거 조건**: 고객이 장바구니에 상품을 추가, 제거 또는 업데이트할 때<br>
 **데이터 소스**: Braze SDK<br>
-**활용 사례**: 장바구니 유기
+**사용 사례**: 장바구니 유기
 
 유기한 장바구니 Canvas의 경우, 먼저 메시지에서 장바구니 컨텍스트를 얻기 위해 초기 장바구니 Liquid 태그를 추가해야 합니다.
 
@@ -482,7 +487,7 @@ Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 �
 **유형**: 추천 이벤트<br>
 **트리거 조건**: 사용자가 결제 페이지로 이동할 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: 결제 이탈
+**사용 사례**: 결제 이탈
 
 {% alert important %}
 고객이 Shop Pay를 빠른 결제 옵션으로 사용하는 경우, Shopify가 특정 표준 결제 이벤트(예: Shopify 결제 시작 웹훅)를 건너뛸 수 있습니다. 이 경우 Braze가 결제 토큰 별칭을 추가하는 데 필요한 데이터를 수신하지 못할 수 있으며, 결제 이탈 추적 및 사용자 프로필 조정에 영향을 줄 수 있습니다.
@@ -524,7 +529,7 @@ Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 �
 **유형**: 추천 이벤트<br>
 **트리거 조건**: 사용자가 결제 프로세스를 성공적으로 완료하고 주문할 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: 주문 확인, 구매 후 리타겟팅, 업셀 또는 크로스셀
+**사용 사례**: 주문 확인, 구매 후 리타겟팅, 업셀 또는 크로스셀
 
 {% raw %}
 | 변수                | Liquid 템플릿                                   |
@@ -557,7 +562,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 **유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **트리거 조건**: 사용자의 주문이 이행되어 배송 준비가 완료될 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: (트랜잭션) 이행 업데이트
+**사용 사례**: (트랜잭션) 이행 업데이트
 
 {% raw %}
 | 변수 | Liquid 템플릿 |
@@ -608,7 +613,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 **유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **트리거 조건**: 사용자 주문의 일부가 이행되어 배송 준비가 완료될 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: (트랜잭션) 이행 업데이트
+**사용 사례**: (트랜잭션) 이행 업데이트
 
 {% raw %}
 | 변수 | Liquid 템플릿 |
@@ -659,7 +664,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 **유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **트리거 조건**: Shopify에서 사용자의 주문이 결제 완료로 표시될 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: (트랜잭션) 결제 확인
+**사용 사례**: (트랜잭션) 결제 확인
 
 {% raw %}
 | 변수 | Liquid 템플릿 |
@@ -693,7 +698,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 **유형**: 추천 이벤트<br>
 **트리거 조건**: 사용자의 주문이 취소될 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: (트랜잭션) 주문 취소 확인
+**사용 사례**: (트랜잭션) 주문 취소 확인
 
 {% raw %}
 | 변수 | Liquid 템플릿 |
@@ -729,7 +734,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 **유형**: 추천 이벤트<br>
 **트리거 조건**: 사용자의 주문이 환불될 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: (트랜잭션) 환불 확인
+**사용 사례**: (트랜잭션) 환불 확인
 
 {% raw %}
 | 변수 | Liquid 템플릿 |
@@ -756,7 +761,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 **유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **트리거 조건**: 사용자가 계정에 로그인할 때<br>
 **데이터 소스**: Braze REST API<br>
-**활용 사례**: 웰컴 시리즈
+**사용 사례**: 웰컴 시리즈
 
 {% raw %}
 | 변수 | Liquid 템플릿 |

@@ -52,12 +52,7 @@ Para espaços de trabalho que enviam e-mail pelo Amazon SES, o [Centro de Entreg
 
 Os assistentes BrazeAI independentes encontrados em todo o dashboard estão unificados no [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator), estabelecendo o Operator como o assistente de IA único para assistência de IA generativa voltada para profissionais de marketing em todo o dashboard. Os seguintes assistentes agora passam pelo Operator:
 
-- AI Liquid Agent
-- AI Copywriter
-- AI HTML Email Template agent
-- AI Image generator
-- Content QA with AI
-- AI Copilot for Data Transformations
+{% multi_lang_include releases/brazeai_operator_legacy_assistants.md %}
 
 Os pontos de entrada existentes permanecem onde cada botão de assistente legado costumava estar. Em vez de abrir um assistente independente, esses pontos de entrada agora abrem o painel do Operator com prompts dinâmicos pré-configurados para sua tarefa. Esses pontos de entrada fornecem uma rota direta para o Operator para que você possa usar esses recursos sem ajustar seus fluxos de trabalho existentes.
 
@@ -67,9 +62,7 @@ O [Operator]({{site.baseurl}}/user_guide/brazeai/operator) agora pode criar e ed
 
 Essa funcionalidade está disponível na página **Campaigns** ou de dentro de qualquer Campaign existente. Como resultado, o Operator pode:
 
-- Responder a prompts como "Quero enviar aos nossos usuários inativos uma notificação por push com um código promocional de 20% de desconto na próxima vez que abrirem o app ou registrarem um evento personalizado que cancele sua inscrição".
-- Auxiliar você em cada etapa individual do assistente de Campaign, com visibilidade total do que você está trabalhando e a capacidade de alterar entradas de formulário na página.
-- Navegar até a etapa correta no assistente para começar a agir, seja a partir de uma Campaign aberta ou da página **Campaigns**.
+{% multi_lang_include releases/brazeai_operator_campaign_creation_prompts.md %}
 
 #### Suporte do Operator para Content Blocks {#operator-support-for-content-blocks}
 
@@ -85,12 +78,7 @@ Para mais detalhes, consulte [Criar agentes personalizados]({{site.baseurl}}/use
 
 Você pode fazer o seguinte no [Console do agente]({{site.baseurl}}/user_guide/brazeai/agents):
 
-- Configurar casos de uso pré-definidos com o Operator por meio do menu suspenso do botão **Create agent**.
-- Duplicar agentes existentes a partir da lista de agentes.
-- Salvar agentes como rascunhos durante a criação e concluir as configurações posteriormente.
-- Definir valores de saída de fallback para agentes de Canvas para evitar que variáveis de saída sejam definidas como nulas se o agente apresentar erro.
-- Definir campos de entrada obrigatórios para um campo agêntico de catálogo, para que o agente não seja executado se um valor de campo de entrada obrigatório estiver vazio ou ausente.
-- Reexecutar um agente para todas as células vazias de uma coluna agêntica para preencher quaisquer valores ausentes sem reexecutar a coluna inteira.
+{% multi_lang_include releases/brazeai_agent_console_enhancements.md %}
 
 #### Editar uma etapa do Otimizador de Conteúdo já lançada {#edit-a-launched-content-optimizer-step}
 
@@ -98,9 +86,7 @@ Você pode fazer o seguinte no [Console do agente]({{site.baseurl}}/user_guide/b
 
 Depois que seu Canvas for lançado, agora você pode [atualizar uma etapa do Otimizador de Conteúdo]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#edit-a-launched-step) para:
 
-- Adicionar novas variantes a qualquer componente existente, manualmente ou usando sugestões geradas por IA, até o limite de cinco variantes por componente.
-- Desativar variantes para parar de enviá-las aos usuários.
-- Reativar variantes previamente desativadas, desde que isso mantenha o componente no limite de cinco variantes ou abaixo dele.
+{% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
 ### Canais e pontos de contato {#channels-touchpoints}
 
@@ -168,47 +154,9 @@ O [Talkable]({{site.baseurl}}/partners/talkable) ajuda marcas de consumo a trans
 
 #### Atualizações significativas do SDK {#sdk-breaking-updates}
 
-As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas abaixo; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
+As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
 
-- [Swift SDK 14.2.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-- [Android SDK 42.3.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.3.0)
-    - `BannerView`: Os campos `BannerDismissSnapshot` passados para `onDismissCallback` agora são não nulos. Se o SDK não conseguir resolver `placementId`, `stableKey` ou `trackingId`, o retorno de chamada é ignorado e um aviso é registrado.
-- [Web SDK 6.8.0](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
-    - Adiciona suporte para novos métodos de eventos de eCommerce.
-- [Swift SDK 14.2.1](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1421)
-- [Swift SDK 15.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-    - Banners: `onDismiss` agora recebe `Braze/BannerDismissalEvent` em vez de `Braze/Banner`.
-    - Eleva a versão do Xcode para 26.0 (17A324).
-    - Eleva o alvo mínimo de implantação do Mac Catalyst de iOS 13 (macOS 10.15 Catalina) para iOS 16 (macOS 13 Ventura).
-        - Usuários do Mac Catalyst no macOS 12 Monterey ou anterior não são mais suportados.
-    - Remove a capacidade de controlar se o SDK impede a exibição de mensagens no app para diferentes usuários em certos casos extremos.
-        - Remove a opção de configurar por meio de `Braze.Configuration.preventInAppMessageDisplayForDifferentUser`.
-        - O SDK agora sempre se comportará como se essa opção de configuração estivesse definida como true.
-    - Atualiza o init de `Braze.WebViewBridge.ScriptMessageHandler` e `Braze.WebViewBridge.SchemeHandler` para ter o parâmetro `channel` não opcional.
-- [Android SDK 42.3.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4231)
-    - Adiciona suporte para novos métodos de eventos de eCommerce.
-    - Adiciona métodos de dispensa de Banner para implementações de UI personalizadas.
-    - Inclui correções de bugs de mensagens no app em HTML.
-- [Swift SDK 15.0.1](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1501)
-- [React Native 21.0.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/21.0.0)
-    - Atualiza as vinculações de versão nativa do Swift e Android SDK.
-    - Atualiza as vinculações de versão nativa do Swift SDK [do Braze Swift SDK 14.0.4 para 15.0.1](https://github.com/braze-inc/braze-swift-sdk/compare/14.0.4...15.0.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Corrige o JSDoc de Content Cards.
-        - Eleva a versão do Xcode para 26.0 (17A324).
-- [Swift SDK 15.1.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-    - Adiciona suporte para novos métodos de eventos de eCommerce.
-    - Adiciona métodos de dispensa de Banner para implementações de UI personalizadas.
-    - Adiciona implementações de exemplo para construir UI personalizada com Banners.
-    - Adiciona observabilidade de Live Activities pass-through, permitindo que erros e eventos de atualização sejam rastreados com mais precisão e granularidade.
-    - Adiciona getters assíncronos baseados em retorno de chamada para Content Cards e descontinua getters mais antigos.
-    - Melhora a estabilidade do gerenciamento de estado.
-- [Segment Swift 9.0.0](https://github.com/braze-inc/braze-segment-swift/releases/tag/9.0.0)
-    - Atualiza as vinculações do Braze Swift SDK para exigir versões da denominação `15.0.0+` SemVer.
-        - Isso permite compatibilidade com qualquer versão do Braze SDK de `15.0.0` até, mas não incluindo, `16.0.0`.
-        - Eleva a versão do Xcode para 26.0 (17A324).
-        - Consulte a entrada do changelog para [`15.0.0`](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1500) para mais informações sobre possíveis alterações significativas.
-- [React Native 21.1.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/21.1.0)
-- [Swift SDK 15.2.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+{% multi_lang_include releases/sdk/2026_6_25_26_updates.md %}
 
 {% enddetails %}
 
@@ -220,7 +168,7 @@ As seguintes atualizações do SDK foram lançadas. As atualizações significat
 
 #### Dashboard de desempenho de push {#push-performance-dashboard}
 
-O [dashboard de desempenho de push]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance?tab=push%20performance#push-performance-dashboard) oferece uma visão única e em nível de canal do engajamento com push, incluindo envios, bounces, entregas e taxas de abertura direta, influenciada e total em uma janela de tempo configurável. Use-o para entender a saúde geral do seu canal de push sem precisar consolidar dados de Campaigns ou Canvas individuais.
+O [dashboard de desempenho de push]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance?tab=push%20performance#push-performance-dashboard) oferece uma visão única e em nível de canal do engajamento com push, incluindo envios, bounces, entregas e taxas de abertura direta, influenciada e total em uma janela de tempo configurável. Use-o para entender a integridade geral do seu canal de push sem precisar consolidar dados de Campaigns ou Canvas individuais.
 
 #### Campos de geolocalização em seleções de catálogo {#geolocation-fields-in-catalog-selections}
 
@@ -288,31 +236,9 @@ Para saber mais, consulte [DailyPlay]({{site.baseurl}}/partners/dailyplay).
 
 #### Atualizações significativas do SDK
 
-As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas abaixo; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
+As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
 
-- [Flutter SDK 19.0.0](https://pub.dev/packages/braze_plugin/changelog#1900)
-    - A versão mínima suportada do Dart é `2.17.0`.
-    - O registro de log do SDK agora é controlado na camada Dart.
-    - Atualiza as vinculações nativas do SDK, incluindo a ponte nativa do Android do [Braze Android SDK 41.1.1 para 42.2.0](https://github.com/braze-inc/braze-android-sdk/compare/v41.1.1...v42.2.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Corrige uma falha.
-- [Cordova 16.0.1](https://github.com/braze-inc/braze-cordova-sdk/releases/tag/16.0.1)
-    - Corrige a inicialização do iOS ao usar `cordova-ios` 8 com o modelo `SwiftDelegate`.
-- [Unity SDK 11.0.0](https://github.com/braze-inc/braze-unity-sdk/blob/master/CHANGELOG.md)
-    - Atualiza as vinculações nativas do SDK, incluindo a ponte nativa do iOS do Braze [Swift SDK 13.2.0 para 14.1.0](https://github.com/braze-inc/braze-swift-sdk/compare/13.2.0...14.1.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Atualiza a ponte nativa do Android do [Braze Android SDK 36.0.0 para 42.2.0](https://github.com/braze-inc/braze-android-sdk/compare/v36.0.0...v42.2.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-        - A versão mínima exigida do Android SDK é 23. Para saber mais, consulte [Informações de versão do Braze Android SDK](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information).
-    - Atualizada a versão mínima exigida do Unity para Unity 6 ([6000.0.66f2](https://unity.com/releases/editor/whats-new/6000.0.66f2) ou posterior).
-    - Removido o News Feed.
-        - Removidos `RequestFeedRefresh()`, `RequestFeedRefreshFromCache()`, `LogFeedDisplayed()`, `LogCardImpression(string)`, `LogCardClicked(string)`.
-    - Corrige bugs menores.
-- [React Native 20.1.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/20.1.0)
-    - Atualiza as vinculações do Android SDK.
-    - Corrige um problema de deep linking em notificações por push.
-- [Segment Swift 8.0.0](https://github.com/braze-inc/braze-segment-swift/blob/main/CHANGELOG.md#800)
-    - Atualiza as vinculações do Braze Swift SDK para exigir versões da denominação `14.0.0+` SemVer.
-        - Isso permite compatibilidade com qualquer versão do Braze SDK de `14.0.0` até, mas não incluindo, `15.0.0`.
-        - Consulte a [entrada do changelog para `14.0.0`](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1400) para mais informações sobre possíveis alterações significativas.
-    - Adiciona suporte à autenticação do SDK.
+{% multi_lang_include releases/sdk/2026_5_28_26_updates.md %}
 
 {% enddetails %}
 {% details 30 de abril de 2026 %}
@@ -433,21 +359,9 @@ As seguintes atualizações do SDK foram lançadas. Para mais detalhes, consulte
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas abaixo; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
+As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
 
-- [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
-    - Suporte à inicialização atrasada.
-- [Android SDK 42.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.0.0)
-    - Correções de bugs para In-App Messages e Banners.
-- [Swift SDK 14.1.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.1.0)
-    - Suporte a dispensas de Banner.
-- [Web SDK 6.7.0](https://github.com/braze-inc/braze-web-sdk/releases/tag/v6.7.0)
-    - Suporte a dispensas de Banner.
-- [Android SDK 42.1.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.1.0)
-    - Suporte a dispensas de Banner.
-- [Braze Segment Android 17.0.0](https://github.com/braze-inc/braze-segment-android/releases/tag/v17.0.0)
-    - Esta é a versão final do plugin Braze Segment Android porque ele usa o Analytics-Android, que chegou ao fim do suporte em março de 2026. Migre para o [plugin Braze Segment Kotlin](https://github.com/braze-inc/braze-segment-kotlin), que usa o [Analytics-Kotlin](https://github.com/segmentio/analytics-kotlin).
-    - Atualiza as versões nativas do SDK.
+{% multi_lang_include releases/sdk/2026_4_30_26_updates.md %}
 
 {% enddetails %}
 {% details 2 de abril de 2026 %}
@@ -541,27 +455,9 @@ Use assistentes de codificação com IA para acelerar seu fluxo de trabalho de i
 
 #### Atualizações significativas do SDK
 
-As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas abaixo; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
+As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
 
-- [Cordova 15.0.0](https://github.com/braze-inc/braze-cordova-sdk/releases/tag/15.0.0)
-    - Atualizada a ponte nativa do Android [do Braze Android SDK 39.0.0 para 41.1.1](https://github.com/braze-inc/braze-android-sdk/compare/v39.0.0...v41.1.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Atualizada a ponte nativa do iOS [do Braze Swift SDK 13.2.0 para 14.0.1](https://github.com/braze-inc/braze-swift-sdk/compare/13.2.0...14.0.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Corrige um problema com `subscribeToInAppMessage` envolvendo o retorno de chamada de sucesso.
-- [Roku SDK 2.2.1](https://github.com/braze-inc/braze-roku-sdk/releases/tag/v2.2.1)
-    - Corrige uma falha ao processar uma solicitação HTTP com falha para mensagens no app com modelo enquanto o dispositivo tem conectividade intermitente ou nenhuma conectividade.
-- [Web SDK 6.6.0](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md#660)
-    - Adiciona a opção de inicialização `cookieExpiryInDays` para configurar a duração do cookie a partir do padrão de 400 dias.
-- [Flutter SDK 18.0.0](https://pub.dev/packages/braze_plugin/changelog#1800)
-    - Adiciona suporte à inicialização atrasada.
-    - Simplifica o processo de integração do iOS para não exigir a escrita de código nativo para encaminhar atualizações de Content Cards, Banners, Feature Flags, mensagens no app ou notificações por push do SDK nativo.
-        - O SDK agora configurará automaticamente essas assinaturas quando a instância da Braze for criada.
-        - Isso corresponde ao comportamento existente no Android.
-        - Para migrar, remova quaisquer chamadas manuais para `braze.contentCards.subscribeToUpdates()`, `braze.banners.subscribeToUpdates()`, `braze.notifications.subscribeToUpdates`, `braze.featureFlags.subscribeToUpdates` e `braze.inAppMessagePresenter` no `AppDelegate`.
-        - Por padrão, as mensagens no app serão apresentadas. Para substituir isso, defina um apresentador de mensagens no app personalizado usando o closure `postInitialization` em `BrazePlugin.configure(_:postInitialization:)`.
-- [Swift SDK 14.0.4](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1404)
-    - Corrige um bug com a automação de push na reinicialização do SDK.
-    - Corrige um problema em que imagens inválidas em Push Stories não eram filtradas.
-- [Swift SDK 14.0.3](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1403)
+{% multi_lang_include releases/sdk/2026_4_2_26_updates.md %}
 
 {% enddetails %}
 
@@ -595,9 +491,7 @@ A [Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/clo
 
 Os [eventos do Currents e Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04) agora incluem os seguintes novos campos para aprofundar os dados disponíveis para análise e sistemas downstream:
 
-- `agentconsole.AgentExecuted`: Adicionado `error` (string) — uma descrição de qualquer erro que ocorreu.
-- `agentconsole.ToolInvocation`: Adicionado `request_id` (string) — um ID único para a solicitação geral do LLM e execução completa.
-- `users.messages.rcs.InboundReceive`: Adicionado `canvas_variation_name` (string) — o nome da variação do Canvas que o usuário recebeu.
+{% multi_lang_include releases/currents/2026_3_5_26_field_changes.md %}
 
 #### Campos de Campaign e Canvas para Snowflake Data Share {#campaign-and-canvas-fields-for-snowflake-data-share}
 
@@ -723,29 +617,9 @@ O [Splio]({{site.baseurl}}/partners/data_and_analytics/cohort_import/splio) é u
 
 #### Atualizações significativas do SDK
 
-As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas abaixo; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
+As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
 
-- [Android SDK 41.1.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md)
-- [Flutter SDK 17.1.0](https://pub.dev/packages/braze_plugin/changelog)
-- [Swift SDK 14.0.2](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-- [Xamarin SDK 9.0.0](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/CHANGELOG.md)
-    - Atualizada a vinculação do Android do [Braze Android SDK 37.0.0 para 41.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v37.0.0...v41.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Atualizada a vinculação do iOS do [Braze Swift SDK 13.3.0 para 14.0.1](https://github.com/braze-inc/braze-swift-sdk/compare/13.3.0...14.0.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Adicionadas novas dependências transitivas do NuGet exigidas pelo Braze Android SDK:
-        - Xamarin.AndroidX.DataStore.Preferences (1.1.7.1)
-        - Xamarin.KotlinX.Serialization.Json.Jvm (1.9.0.2)
-        - Xamarin.Kotlin.StdLib foi atualizado de 2.0.21.3 para 2.3.0.1. Se o seu projeto fixa explicitamente este pacote em uma versão mais antiga, você precisará atualizá-lo para evitar erros de restauração.
-    - Removido o recurso News Feed.
-        - Este recurso foi removido do SDK nativo do Android na versão [38.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v38.0.0).
-        - Este recurso foi removido do SDK nativo do Swift na versão [14.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.0.0).
-    - O caso de enum BRZInAppMessageDismissalReason.BRZInAppMessageDismissalReasonWipeData foi renomeado para BRZInAppMessageDismissalReason.WipeData.
-- [Expo Plugin 4.0.0](https://github.com/braze-inc/braze-expo-plugin/releases/tag/4.0.0)
-    - Esta versão requer a versão 19.0.0 do Braze React Native SDK.
-    - (Android) Corrigido um vazamento de memória na camada de persistência de dados.
-    - (Android) Adicionado suporte para `Braze.getInitialPushPayload()` para lidar com deep links de notificações por push quando o app é iniciado a partir de um estado encerrado. Isso resolve um problema em que deep links de notificações por push não eram tratados no Android quando o app era iniciado a frio.
-- [React Native SDK 19.0.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.0.0)
-    - Atualiza as vinculações da versão nativa do Swift SDK do Braze Swift SDK 13.3.0 para 14.0.1.
-    - Atualiza as vinculações da versão nativa do Android SDK do Braze Android SDK 40.0.2 para 41.0.0.
+{% multi_lang_include releases/sdk/2026_3_5_26_updates.md %}
 
 {% enddetails %}
 
@@ -867,15 +741,9 @@ As seguintes atualizações do SDK foram lançadas. O Swift SDK v14.0.1 corrige 
 
 #### Atualizações significativas do SDK
 
-As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas abaixo; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
+As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
 
-- [Android SDK 41.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v41.0.0)
-    - Renomeado `BrazeConfig.Builder.setIsLocationCollectionEnabled()` para `setIsAutomaticLocationCollectionEnabled()`.
-    - Renomeado `BrazeConfig.isLocationCollectionEnabled` para `isAutomaticLocationCollectionEnabled`.
-    - Renomeado `BrazeConfigurationProvider.isLocationCollectionEnabled` para `isAutomaticLocationCollectionEnabled`.
-- [Android SDK 40.2.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4020)
-- [Expo Plugin 3.2.0](https://github.com/braze-inc/braze-expo-plugin/blob/main/CHANGELOG.md)
-- [Swift SDK 14.0.1](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+{% multi_lang_include releases/sdk/2026_2_5_26_updates.md %}
 
 {% enddetails %}
 
@@ -890,19 +758,7 @@ As seguintes atualizações do SDK foram lançadas. As atualizações significat
 
 As seguintes alterações foram feitas no Currents na Versão 4:
 
-* Alterações de campo para o tipo de evento `users.behaviors.pushnotification.TokenStateChange`:
-    * Adicionado novo campo `string` `push_token`: token por push do evento
-* Alterações de campo para o tipo de evento `users.messages.pushnotification.Bounce`:
-    * Adicionado novo campo `string` `push_token`: token por push do evento
-* Alterações de campo para o tipo de evento `users.messages.pushnotification.Send`:
-    * Adicionado novo campo `string` `push_token`: token por push do evento
-* Alterações de campo para o tipo de evento `users.messages.rcs.Click`:
-    * Adicionado novo campo `string` `canvas_variation_name`: nome da variação do Canvas que este usuário recebeu
-    * O campo `user_phone_number` agora é *opcional*.
-* Alterações de campo para o tipo de evento `users.messages.rcs.InboundReceive`:
-    * O campo `user_id` agora é *opcional*.
-* Alterações de campo para o tipo de evento `users.messages.rcs.Rejection`:
-    * Adicionado novo campo `string` `canvas_step_message_variation_id`: API ID da variação da mensagem da etapa do Canvas que este usuário recebeu
+{% multi_lang_include releases/currents/2026_1_8_26_field_changes.md %}
 
 Consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) para ver as alterações de eventos de cada versão.
 
@@ -945,14 +801,9 @@ O [LILT]({{site.baseurl}}/partners/lilt) é a solução completa de IA para trad
 
 ### Atualizações significativas do SDK
 
-As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas abaixo; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
+As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
 
-- [Android 40.1.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4011)
-- [Android SDK 40.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4010)
-- [Swift SDK 14.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-    - Remove o News Feed.
-        - Isso remove totalmente todos os elementos de interface, modelos de dados e ações associadas ao News Feed.
-- [Web SDK 6.4.0](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
+{% multi_lang_include releases/sdk/2026_1_8_26_updates.md %}
 
 {% enddetails %}
 
@@ -1000,7 +851,7 @@ O [OtherLevels]({{site.baseurl}}/partners/otherlevels) é uma plataforma de expe
 
 #### Atualizações significativas do SDK
 
-As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas abaixo; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
+As seguintes atualizações do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas verificando os changelogs correspondentes do SDK.
 
 - [Web SDK 6.3.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
 

@@ -15,11 +15,11 @@ Um auf den Landing-Page-Builder zugreifen zu können, benötigen Sie [bestimmte 
 
 ## Eine Landing-Page erstellen {#creating-a-landing-page}
 
-### 1. Schritt: Einen neuen Entwurf erstellen {#step-1-create-a-new-draft}
+### Schritt 1: Einen neuen Entwurf erstellen {#step-1-create-a-new-draft}
 
 Gehen Sie zu **Messaging** > **Landing Pages** und wählen Sie **Create landing page**. Sie können auch den Namen einer bestehenden Landing-Page auswählen, um diese zu duplizieren oder Änderungen vorzunehmen.
 
-### 2. Schritt: Seitendetails eingeben {#step-2-enter-the-page-details}
+### Schritt 2: Seitendetails eingeben {#step-2-enter-the-page-details}
 
 Fügen Sie interne und öffentlich sichtbare Details hinzu, die Ihnen helfen, Ihre Landing-Page zu organisieren, zu branden und zu teilen.
 
@@ -41,7 +41,7 @@ Wir empfehlen die folgenden Best Practices:
 | Seiten-URL | Dies ist der URL-Pfad zu Ihrer Landing-Page. Dieser Wert wird auch referenziert, wenn Sie [Landing-Page-Liquid-Tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) verwenden, die Sie in eine Nachricht einbetten können, um automatisch zu erkennen, wenn Nutzer:innen Ihr Formular absenden. | Dieser Wert muss innerhalb Ihres Workspace eindeutig sein. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Website-Details" }
 
-### 3. Schritt: Die Seite anpassen {#step-3-customize-the-page}
+### Schritt 3: Die Seite anpassen {#step-3-customize-the-page}
 
 Falls noch nicht geschehen, wählen Sie **Als Entwurf speichern**. Um mit der Anpassung Ihrer Seite zu beginnen, wählen Sie **Edit landing page**. Der Drag-and-Drop-Editor wird mit einem Standard-Template vorgeladen, das Sie an Ihren Anwendungsfall anpassen können.
 
@@ -70,7 +70,20 @@ Mit diesen Blöcken können Sie Inhalte hinzufügen und das Layout Ihrer Landing
 
 #### Span-Text {#span-text}
 
-{% multi_lang_include drag_and_drop/span_text.md %}
+Um bestimmte Stile auf Textblöcke ohne angepassten Code anzuwenden, markieren Sie den Text, den Sie gestalten möchten, und wählen Sie dann **Wrap with span for style**.
+
+![Textfeld mit verschiedenen stilisierten Textabschnitten, z. B. unterschiedlichen Schriftgrößen und Farben, und einem hervorgehobenen Abschnitt, der eine Symbolleiste mit der Option „Wrap with span for style“ anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+
+Passen Sie die Span-Eigenschaften an, um Ihre Textgestaltung zu aktualisieren. Dazu gehören:
+
+- Schriftfamilie, -stärke, -größe
+- Zeilenhöhe
+- Zeichenabstand
+- Textausrichtung und -farbe
+- Block-Padding
+
+![Panel mit Span-Eigenschaften und verschiedenen Optionen zur Aktualisierung.]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}
+
 
 {% endtab %}
 {% tab Formularblöcke %}
@@ -120,7 +133,7 @@ Um beispielsweise die Einwilligungserfassung vor dem Absenden des Formulars zu e
 
 ![Ein Kontrollkästchen-Formularfeld mit aktiviertem Schalter „Required input field“.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
 
-### 4. Schritt: Eine Bestätigungsseite erstellen (optional) {#step-4-create-a-confirmation-page-optional}
+### Schritt 4: Eine Bestätigungsseite erstellen (optional) {#step-4-create-a-confirmation-page-optional}
 
 Wenn Ihre Landing-Page kein Formular enthält, fahren Sie mit dem nächsten Schritt fort.
 
@@ -136,7 +149,7 @@ Wenn Sie keine Bestätigungsseite einbinden, wissen Nutzer:innen möglicherweise
 Wenn Ihre Bestätigungsseite in einem neuen Tab geöffnet wird, kann es vorkommen, dass Nutzer:innen, die zur ursprünglichen Landing-Page zurückkehren und das Formular mit aktualisierten Informationen erneut absenden, die vorherige Übermittlung überschreiben, was zu inkonsistenten Daten führen kann.
 {% endalert %}
 
-### 5. Schritt: Vorschau der Seite {#step-5-preview-the-page}
+### Schritt 5: Vorschau der Seite {#step-5-preview-the-page}
 
 Sie können eine Vorschau Ihrer Landing-Page im Tab **Preview** des Editors anzeigen. Nachdem Sie Ihre Landing-Page als Entwurf gespeichert haben, können Sie die URL aufrufen, indem Sie zu **Landing Pages** gehen und neben Ihrer Landing-Page **Copy URL** auswählen. Sie können die URL auch mit Kolleg:innen teilen.
 

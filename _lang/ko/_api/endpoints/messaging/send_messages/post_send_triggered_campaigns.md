@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 이 섹션에서는 Braze가 전송할 고객 프로필을 선택하는 방법과 프로필이 선택되지 않을 때 어떤 일이 발생하는지 설명합니다.
 
-사용자의 구독 그룹 상태는 `attributes` 오브젝트 내에 `subscription_groups` 매개변수를 포함하여 업데이트할 수 있습니다. 자세한 내용은 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)를 참조하세요.
+사용자의 구독 그룹 상태는 `attributes` 오브젝트 내에 `subscription_groups` 매개변수를 포함하여 업데이트할 수 있습니다. 자세한 내용은 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)를 참조하세요.
 
 #### 수신자 제한 및 프로필 생성 {#recipient-limits-and-profile-creation}
 

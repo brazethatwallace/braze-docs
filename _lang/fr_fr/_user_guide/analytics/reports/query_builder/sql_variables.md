@@ -15,9 +15,7 @@ tool: Reports
 
 Les avantages de l'utilisation de variables SQL incluent :
 
-- Gagner du temps en créant une variable Campaign à sélectionner dans une liste lors de la création de votre rapport, au lieu de coller des identifiants Campaign.
-- Remplacer des valeurs en ajoutant des variables qui vous permettent de réutiliser le rapport pour des cas d'utilisation légèrement différents à l'avenir (comme un événement personnalisé différent).
-- Réduire les erreurs utilisateur lors de la modification de votre SQL en diminuant la quantité de modifications nécessaires pour chaque rapport. Les collègues plus à l'aise avec SQL peuvent créer des rapports que des collègues moins techniques peuvent ensuite utiliser.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ## Utiliser des variables {#using-variables}
 
@@ -53,7 +51,7 @@ WHERE campaign_id = '{{campaign.${Campaign}}}'
 
 ### Étape 2 : Attribuer une valeur {#step-2-assign-a-value}
 
-Par défaut, l'onglet **Variables** n'est pas affiché dans le Générateur de requêtes. Il n'apparaît qu'après l'ajout de votre première variable à la requête. Vous pourrez alors lui attribuer une valeur. Les valeurs spécifiques que vous pouvez choisir dépendront du [type](#variable-types) de cette variable.
+Par défaut, l'onglet **Variables** n'est pas affiché dans le Générateur de requêtes. Il n'apparaît qu'après l'ajout de votre première variable à la requête. Vous pourrez alors lui attribuer une valeur. Les valeurs disponibles dépendront du [type](#variable-types) de la variable.
 
 Dans l'exemple suivant, la Campaign « Summer Feature Launch » est attribuée comme valeur, ainsi que le premier et le dernier jour de juin 2025.
 
@@ -455,9 +453,9 @@ Pour sélectionner des Segments dont le [suivi analytique]({{site.baseurl}}/user
 {% endtab %}
 {% endtabs %}
 
-### Étiquettes {#tags}
+### Tags {#tags}
 
-Pour sélectionner des étiquettes pour les Campaigns et Canvas. Défini sur les Campaigns et Canvas avec des identifiants BSON séparés par des virgules entre guillemets simples, associés aux étiquettes sélectionnées.
+Pour sélectionner des tags pour les Campaigns et Canvas. Défini sur les Campaigns et Canvas avec des identifiants BSON séparés par des virgules entre guillemets simples, associés aux tags sélectionnés.
 
 {% tabs %}
 {% tab utilisation %}

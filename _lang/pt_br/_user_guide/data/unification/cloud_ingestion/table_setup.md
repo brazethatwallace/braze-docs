@@ -56,7 +56,7 @@ O valor de `PAYLOAD` segue os mesmos formatos de objeto usados pelo endpoint `/u
 
 | Tipo de dados | Referência de formatação |
 | --- | --- |
-| `attributes` | [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `attributes` | [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | [Objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | [Objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configure a coluna PAYLOAD" }

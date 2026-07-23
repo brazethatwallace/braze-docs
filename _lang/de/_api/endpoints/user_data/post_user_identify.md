@@ -109,7 +109,7 @@ Eine der folgenden Angaben ist pro Anfrage erforderlich: `aliases_to_identify`, 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `aliases_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Siehe [Alias-zu-identifizieren-Objekt]({{site.baseurl}}/api/objects_filters/aliases_to_identify) und [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object). |
-| `emails_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Erforderlich, wenn `email` als Bezeichner angegeben ist. E-Mail-Adressen zur Identifizierung von Nutzer:innen. Siehe [Identifizierung von Nutzer:innen per E-Mail](#identifying-users-by-email-addresses-and-phone-numbers). |
+| `emails_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Erforderlich, wenn `email` als Bezeichner angegeben ist. E-Mail-Adressen zur Identifizierung von Nutzer:innen. Siehe [Identifizierung von Nutzer:innen anhand von E-Mail-Adressen und Telefonnummern](#identifying-users-by-email-addresses-and-phone-numbers). |
 | `phone_numbers_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Telefonnummern zur Identifizierung von Nutzer:innen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
@@ -171,7 +171,7 @@ Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Do
 
 ### Warum gibt meine Identifizierungsanfrage Erfolg zurück, aber das Profil wurde nicht zusammengeführt? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
 
-`201 Created` mit `message: success` bedeutet, dass wir die Anfrage akzeptiert haben. Es garantiert nicht, dass jeder Alias oder jede E-Mail im Payload einem bestehenden Profil zugeordnet wurde – Abweichungen in der Groß-/Kleinschreibung bei `alias_name`, doppelte Profile oder unsere Priorisierungsregeln können dazu führen, dass keine sichtbare Zusammenführung stattfindet, obwohl der Aufruf erfolgreich war. Überprüfen Sie, ob die Groß-/Kleinschreibung von `alias_name` exakt mit unseren gespeicherten Werten übereinstimmt, prüfen Sie auf doppelte Profile mit [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) und lesen Sie die Hinweise zu [`prioritization`](#identifying-users-by-email-addresses-and-phone-numbers), wenn Sie `emails_to_identify` verwenden.
+`201 Created` mit `message: success` bedeutet, dass Braze die Anfrage akzeptiert hat. Es garantiert nicht, dass jeder Alias oder jede E-Mail im Payload einem bestehenden Profil zugeordnet wurde – Abweichungen in der Groß-/Kleinschreibung bei `alias_name`, doppelte Profile oder Braze-Priorisierungsregeln können dazu führen, dass keine sichtbare Zusammenführung stattfindet, obwohl der Aufruf erfolgreich war. Überprüfen Sie, ob die Groß-/Kleinschreibung von `alias_name` exakt mit den gespeicherten Werten übereinstimmt, prüfen Sie auf doppelte Profile mit [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) und lesen Sie die Hinweise zu [`prioritization`](#identifying-users-by-email-addresses-and-phone-numbers), wenn Sie `emails_to_identify` verwenden.
 
 ## Antwort {#response}
 

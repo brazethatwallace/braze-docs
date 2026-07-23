@@ -85,7 +85,7 @@ Digite um nome e uma descrição opcional para seu catálogo. Tenha em mente os 
   - Só pode incluir números, letras, hífens e sublinhados
 
 {% alert tip %}
-Você também pode [usar modelos em um nome de catálogo](#template-catalog-names), permitindo gerar nomes de catálogo dinamicamente com base em variáveis como idioma ou campanha.
+Você também pode [usar modelos em um nome de catálogo](#template-catalog-names), permitindo gerar nomes de catálogo dinamicamente com base em variáveis como idioma ou Campaign.
 {% endalert %}
 
 ![Um catálogo chamado "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
@@ -144,7 +144,11 @@ Em seguida, nomearemos este catálogo como "games_catalog" e selecionaremos o bo
 
 Observe que você não poderá editar esse nome depois que o catálogo for criado. Você pode excluir um catálogo e fazer upload novamente de uma versão atualizada usando o mesmo nome de catálogo.
 
-Depois de criar o catálogo, você pode começar a fazer referência ao [catálogo em uma campanha]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
+Depois de criar o catálogo, você pode começar a fazer referência ao [catálogo em uma Campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
+
+{% alert important %}
+Arquivos CSV enviados anteriormente ficam disponíveis para download na página **Catálogos** por 30 dias após a data de upload. Após 30 dias, o arquivo é excluído permanentemente e não pode mais ser acessado.
+{% endalert %}
 {% endtab %}
 
 {% tab Criar no navegador %}
@@ -166,7 +170,7 @@ Digite um nome e uma descrição opcional para seu catálogo. Tenha em mente os 
 - Só pode incluir números, letras, hífens e sublinhados
 
 {% alert tip %}
-Você também pode [usar modelos em um nome de catálogo](#template-catalog-names), permitindo gerar nomes de catálogo dinamicamente com base em variáveis como idioma ou campanha.
+Você também pode [usar modelos em um nome de catálogo](#template-catalog-names), permitindo gerar nomes de catálogo dinamicamente com base em variáveis como idioma ou Campaign.
 {% endalert %}
 
 ![Um catálogo chamado "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
@@ -204,7 +208,7 @@ Os catálogos suportam vários tipos de dados para ajudar você a organizar e es
 
 ## Usando modelos em nomes de catálogo {#template-catalog-names}
 
-Ao nomear seu catálogo, você também pode usar modelos em um nome de catálogo. Isso permite gerar dinamicamente nomes de catálogo com base em variáveis como idioma ou campanha. Por exemplo, você pode usar o seguinte:
+Ao nomear seu catálogo, você também pode usar modelos em um nome de catálogo. Isso permite gerar dinamicamente nomes de catálogo com base em variáveis como idioma ou Campaign. Por exemplo, você pode usar o seguinte:
 
 {% raw %}
 ```liquid

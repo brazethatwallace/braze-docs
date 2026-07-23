@@ -55,7 +55,7 @@ Use o SDK da Braze para atualizar o estado de inscrição de um usuário.
 
 #### REST API
 
-Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para atualizar o [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) de um usuário. Por exemplo, para definir o estado de inscrição de e-mail de um usuário como cancelado quando ele usar um link de cancelamento de inscrição personalizado, inclua `email_subscribe: "unsubscribed"` nos atributos do usuário na sua requisição.
+Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para atualizar o [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) de um usuário. Por exemplo, para definir o estado de inscrição de e-mail de um usuário como cancelado quando ele usar um link de cancelamento de inscrição personalizado, inclua `email_subscribe: "unsubscribed"` nos atributos do usuário na sua requisição.
 
 #### Perfil de usuário {#user-profile}
 
@@ -90,7 +90,7 @@ Para solucionar problemas de alterações no estado de inscrição, consulte **E
 | Central de Preferências | Usuário atualizou sua preferência a partir de uma Central de Preferências hospedada pela Braze |
 | Página de inscrição | Usuário selecionou um link de cancelamento de inscrição em um e-mail e acessou a página de inscrição da Braze |
 | List-Unsubscribe | Usuário cancelou a inscrição por meio do cabeçalho nativo de list-unsubscribe do cliente de e-mail |
-| Etapa de Atualização de usuário no Canvas | Estado de inscrição atualizado por uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update) em um Canvas |
+| Etapa de atualização de usuário no Canvas | Estado de inscrição atualizado por uma [etapa de atualização de usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update) em um Canvas |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Origens de atualização do estado de inscrição de e-mail" }
 
 Quando o estado global de inscrição de e-mail de um usuário muda, a Braze propaga esse estado para outros perfis que compartilham o mesmo endereço de e-mail, até 100 perfis por alteração. A Braze não garante a propagação quando mais de 100 perfis compartilham o mesmo endereço de e-mail. Se usuários que compartilham um e-mail apresentarem estados de inscrição diferentes, entre em contato com o suporte da Braze.
@@ -101,7 +101,7 @@ Grupos de inscrições são filtros de segmento que podem refinar ainda mais seu
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-Por exemplo, suponha que você envie várias categorias de Campaigns de e-mail (promocionais, newsletter ou atualizações de produto). Nesse caso, você pode usar grupos de inscrições para permitir que seus clientes escolham de quais categorias de e-mail desejam se inscrever ou cancelar a inscrição em massa a partir de uma única página, usando uma [Central de Preferências de e-mail](#email-preference-center). Outra opção é usar grupos de inscrições para permitir que seus clientes escolham com que frequência desejam receber e-mails, criando grupos de inscrições para e-mails diários, semanais ou mensais.
+Por exemplo, suponha que você envie várias categorias de campanhas de e-mail (promocionais, newsletter ou atualizações de produto). Nesse caso, você pode usar grupos de inscrições para permitir que seus clientes escolham de quais categorias de e-mail desejam se inscrever ou cancelar a inscrição em massa a partir de uma única página, usando uma [Central de Preferências de e-mail](#email-preference-center). Outra opção é usar grupos de inscrições para permitir que seus clientes escolham com que frequência desejam receber e-mails, criando grupos de inscrições para e-mails diários, semanais ou mensais.
 
 Use os [endpoints de grupos de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups) para gerenciar programaticamente os grupos de inscrições que você armazenou no dashboard da Braze na página **Subscription Group**.
 
@@ -141,7 +141,7 @@ Você pode consultar o gráfico **Subscription Group Timeseries** na página **S
 
 Se a contagem da série temporal divergir significativamente de um segmento usando **Email Subscription Status is Unsubscribed**, lembre-se de que o gráfico conta a participação naquele **grupo de inscrições**, enquanto o filtro reflete o estado **global** de inscrição de e-mail — por exemplo, os usuários podem estar globalmente inscritos, mas com inscrição cancelada em um grupo específico.
 
-#### Visualizando grupos de inscrições na análise de dados de Campaigns {#viewing-subscription-groups-in-campaign-analytics}
+#### Visualizando grupos de inscrições na análise de dados de campanhas {#viewing-subscription-groups-in-campaign-analytics}
 
 Você pode ver a contagem de usuários que alteraram seu estado de inscrição (inscreveram-se ou cancelaram a inscrição) a partir de uma Campaign de e-mail específica na página de análise de dados dessa Campaign.
 
@@ -198,7 +198,7 @@ Se você usar o rodapé do dashboard em vez de apenas um bloco de conteúdo HTML
 
 ### Criando uma página de opt-in personalizada {#creating-a-custom-opt-in-page}
 
-Use uma página de opt-in personalizada para permitir que os usuários reconheçam e controlem as preferências de notificação antes da inscrição. Essa comunicação adicional pode ajudar as Campaigns de e-mail a não caírem em pastas de SPAM.
+Use uma página de opt-in personalizada para permitir que os usuários reconheçam e controlem as preferências de notificação antes da inscrição. Essa comunicação adicional pode ajudar as campanhas de e-mail a não caírem em pastas de SPAM.
 
 1. Acesse **Settings** > **Email Preferences**.
 2. Selecione **Subscription Pages and Footers**.
@@ -212,7 +212,7 @@ Use um processo de double opt-in para melhorar o alcance. A Braze envia um e-mai
 
 ![E-mail de opt-in personalizado com a mensagem "Glad to see you still want to hear from us".]({% image_buster /assets/img/custom_optin.png %})
 
-## Inscrições e direcionamento de Campaigns {#subscriptions-and-campaign-targeting}
+## Inscrições e direcionamento de campanhas {#subscriptions-and-campaign-targeting}
 
 Por padrão, a Braze direciona Campaigns com mensagens push ou de e-mail para usuários que estão inscritos ou com opt-in. Altere isso em **Target Audience** selecionando o menu suspenso ao lado de **Send to these users:**.
 

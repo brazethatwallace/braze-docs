@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@6.8.0
 ```
 
 {% alert important %}
-The Braze Web SDK version must be 5.4.0 or later.
+The minimum supported Braze Web SDK version is 5.4.0. For Shopify custom integrations (including headless storefronts), you receive notifications when new SDK versions are available, but you manage upgrades on your side by updating both your storefront code and the SDK version in integration settings.
 {% endalert %}
 
 Then, [include this setting]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) as a top-level key in your `vite.config.js` file:

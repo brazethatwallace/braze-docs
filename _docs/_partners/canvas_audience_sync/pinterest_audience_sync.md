@@ -16,7 +16,7 @@ Using the Braze Audience Sync to Pinterest, brands can elect to add user data fr
 
 **Common use cases for audience syncing include:**
 
-{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md lookalike=true %}
 
 This feature allows brands to control what specific first-party data is shared with Pinterest. At Braze, the integrations you can and cannot share your first-party data with are given the utmost consideration. For more information, refer to our [privacy policy](https://www.braze.com/privacy).
 
@@ -100,7 +100,7 @@ Braze also offers the ability to add users to existing Pinterest audiences to en
 
 ### Step 4: Launch Canvas
 
-Once you have configured your Audience Sync to Pinterest, launch the Canvas! The new audience will be created, and users who flow through the Audience Sync step will be passed into this audience on Pinterest. If your Canvas contains subsequent components, your users will advance to the next step in their user journey.
+After you configure your Audience Sync to Pinterest, launch the Canvas! The new audience is created, and users who flow through the Audience Sync step are passed into this audience on Pinterest. If your Canvas contains subsequent components, your users advance to the next step in their user journey.
 
 You can view the audience on Pinterest by entering your ads manager account and selecting Audiences from the Ads dropdown. From the Audience page, you can see the size of each audience after it reaches ~100.
 

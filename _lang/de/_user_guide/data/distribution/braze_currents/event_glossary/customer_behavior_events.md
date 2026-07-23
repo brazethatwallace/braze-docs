@@ -1643,7 +1643,10 @@ Hinzufügen- und Entfernen-Paare lassen sich in zwei Kategorien einteilen:
 - Der [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)-Endpunkt oder die Bereinigung doppelter Nutzer:innen verschiebt die Tokens des verwaisten Nutzerprofils zum überlebenden Profil.
 
 {% alert note %}
-Die Identifizierung auf demselben Profil über den REST-Endpunkt [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) oder SDK-`changeUser`, das dem anonymen Profil eine externe ID zuweist, ändert die `user_id` nicht und löst keine gepaarten Hinzufügen- und Entfernen-Events aus. Stattdessen löst Braze ein „update“-Event für jedes bestehende Push-Token aus und setzt `external_user_id` auf die externe ID des/der identifizierten Nutzer:in. Wenn `changeUser` Tokens von einem Nutzerprofil zu einem anderen verschiebt, löst Braze weiterhin die oben beschriebenen gepaarten Hinzufügen- und Entfernen-Events aus.
+Die Identifizierung auf demselben Profil über den REST-Endpunkt [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) oder SDK-[`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) kann einem anonymen Profil eine externe ID zuweisen, ohne die `user_id` zu ändern.
+In diesem Fall löst Braze keine [gepaarten Hinzufügen- und Entfernen-Events](#add-and-remove-pairs) aus.
+Stattdessen löst Braze ein „update“-Event für jedes bestehende Push-Token aus und setzt `external_user_id` auf die externe ID des/der identifizierten Nutzer:in.
+Wenn `changeUser` Tokens von einem Nutzerprofil zu einem anderen verschiebt, löst Braze weiterhin die im Abschnitt [Hinzufügen- und Entfernen-Paare](#add-and-remove-pairs) beschriebenen [gepaarten Hinzufügen- und Entfernen-Events](#add-and-remove-pairs) aus.
 {% endalert %}
 
 #### Abfrage des aktuellsten aktiven Token-Status {#querying-for-the-latest-active-token-state}

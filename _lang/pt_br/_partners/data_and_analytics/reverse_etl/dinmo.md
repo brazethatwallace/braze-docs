@@ -22,8 +22,8 @@ A integração entre a Braze e a DinMo envia segmentos e modelos de dados do seu
 | --- | --- |
 | Conta DinMo | Uma [conta DinMo](https://www.dinmo.com/) com permissão para criar destinos é necessária para aproveitar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com as [permissões](#api-key-permissions) necessárias para os serviços de destino que você planeja usar. Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | A URL do seu endpoint REST. Seu endpoint depende da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-| URL do dashboard da Braze | A URL do dashboard da Braze para sua instância (por exemplo, `https://dashboard.iad-01.braze.com`). Para saber mais, consulte [Endpoints de SDK disponíveis]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/). |
+| Endpoint REST da Braze | A URL do seu endpoint REST. Seu endpoint depende da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+| URL do dashboard da Braze | A URL do dashboard da Braze para sua instância (por exemplo, `https://dashboard.iad-01.braze.com`). Para saber mais, consulte [Endpoints de SDK disponíveis]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
 | Data warehouse e modelo de dados | Antes de iniciar a integração, conecte seu data warehouse na DinMo e defina um modelo ou segmento para os dados que deseja sincronizar com a Braze. Para saber mais, consulte o [guia de integração DinMo Braze](https://docs.dinmo.io/integrations/destination-platforms/braze). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -34,7 +34,7 @@ Com essa integração, você pode:
 * Sincronizar atributos de usuário do seu data warehouse na Braze para personalizar Campaigns e Canvas.
 * Enviar eventos personalizados e eventos de compra a partir de dados do data warehouse para a Braze para direcionamento comportamental.
 * Manter a associação a grupos de inscrições da Braze alinhada com segmentos de público definidos na DinMo.
-* Exportar segmentos da DinMo como atributos de usuário da Braze e criar segmentos da Braze a partir desses atributos.
+* Exportar segmentos da DinMo como atributos de usuário da Braze e criar Segments da Braze a partir desses atributos.
 
 ## Permissões da chave de API {#api-key-permissions}
 
@@ -101,7 +101,7 @@ Quando você executa uma ativação:
 
 Se você não ativar o modo de inserção, a DinMo atualiza apenas os usuários que já existem na Braze e possuem um ID externo correspondente.
 
-Durante a configuração da ativação, mapeie o campo no seu modelo DinMo que corresponde ao [ID externo]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/) ou ID da Braze do usuário. Mapeie cada campo da DinMo para o nome exato do atributo na Braze. Se um atributo não existir na Braze, a DinMo o cria.
+Durante a configuração da ativação, mapeie o campo no seu modelo DinMo que corresponde ao [ID externo]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids) ou ID da Braze do usuário. Mapeie cada campo da DinMo para o nome exato do atributo na Braze. Se um atributo não existir na Braze, a DinMo o cria.
 
 Os seguintes modos de sincronização estão disponíveis para ativações de atributos de usuário:
 
@@ -155,6 +155,6 @@ Use este serviço de destino para representar um segmento da DinMo como um atrib
 
 Durante a configuração da ativação, especifique o nome do público. A DinMo usa esse nome como o atributo da Braze (espaços são substituídos por underscores). Confirme que um atributo com o mesmo nome ainda não existe na Braze. Mapeie o campo da DinMo que corresponde ao ID externo do usuário.
 
-Após a execução da ativação, crie um segmento da Braze que filtre os usuários cujo atributo sincronizado seja igual a `true`.
+Após a execução da ativação, crie um Segment da Braze que filtre os usuários cujo atributo sincronizado seja igual a `true`.
 
 Somente usuários com um ID externo que corresponda a um usuário existente da Braze são atualizados. Este serviço de destino não cria novos usuários.

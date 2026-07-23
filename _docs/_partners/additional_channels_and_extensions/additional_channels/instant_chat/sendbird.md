@@ -17,8 +17,7 @@ _This integration is maintained by Sendbird._
 ## About the integration
 
 The Braze and Sendbird integration allows company users to:
-* Use Braze segmentation and triggering capabilities to initiate personalized in-app notifications.
-* Create tailored in-app notifications on the Sendbird Notifications platform, which are then delivered within the app environment, enhancing user engagement.
+{% multi_lang_include partners/instant_chat/sendbird_integration_bullets.md %}
 
 By harnessing the joint capabilities of Braze and Sendbird Notifications, businesses can elevate customer engagement and drive higher conversion rates through effective in-app notification strategies.
 

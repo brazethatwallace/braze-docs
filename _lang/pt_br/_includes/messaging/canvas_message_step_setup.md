@@ -1,0 +1,6 @@
+1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
+2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
+3. Escolha um [cronograma de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) e especifique um delay conforme necessário.{% if include.in_app_message %} Note que etapas contendo mensagens no app não podem ser baseadas em ação.{% endif %}
+4. Filtre seu público para esta etapa conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após o delay, no momento em que as mensagens forem enviadas.
+5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
+6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.

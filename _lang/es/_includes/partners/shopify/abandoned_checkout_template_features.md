@@ -1,0 +1,3 @@
+- El evento ecommerce.checkout_started predefinido en tus criterios de entrada
+- Criterios de salida predefinidos para eliminar a los clientes que han avanzado en su proceso de compra
+- Una nueva etiqueta de Liquid de carrito de compras para admitir la personalización de productos

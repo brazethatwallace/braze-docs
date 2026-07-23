@@ -159,9 +159,7 @@ Die vollständige JavaScript-Bridge-Referenz finden Sie unter [Angepasster Code 
 
 Sie können einem Banner angepasste Eigenschaften hinzufügen, um strukturierte Metadaten wie Strings oder JSON-Objekte anzuhängen. Diese Eigenschaften beeinflussen nicht die Darstellung des Banners, können aber [über das Braze SDK abgerufen werden]({{site.baseurl}}/developer_guide/banners/placements), um das Verhalten oder Erscheinungsbild Ihrer App zu ändern. Beispielsweise könnten Sie:
 
-- Metadaten für Ihre Drittanbieter-Analytics oder Integrationen senden.
-- Metadaten wie einen `timestamp` oder ein JSON-Objekt verwenden, um bedingte Logik auszulösen.
-- Das Verhalten eines Banners basierend auf enthaltenen Metadaten wie `ratio` oder `format` steuern.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 Angepasste Eigenschaften funktionieren im Drag-and-Drop-Editor und im HTML-Editor gleich. Um eine angepasste Eigenschaft hinzuzufügen, wählen Sie **Settings** > **Properties** > **Add property**.
 

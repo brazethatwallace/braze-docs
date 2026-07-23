@@ -26,6 +26,10 @@ You can customize your email messaging in a variety of ways, including:
 - [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [User subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 
+## Test your emails
+
+[Seed Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) automatically send copies of your email campaigns to internal users to perform quality assurance. Seed emails include `[SEED]` prepended to the subject line to help you identify them.
+
 ## Use cases
 
 | Use case | Explanation |
@@ -51,7 +55,7 @@ Braze offers two tiers of recurring email support:
 These services can include:
 
 - Audit of historical and current email sending practices with a review of targeting, cadence, and messaging strategies
-- Whitelabel configuration and customized IP warming plan created by an email deliverability expert
+- Allowlist configuration and customized IP warming plan created by an email deliverability expert
   - Regular check-in calls during your first month (three times per week for Deluxe and once per week for Standard)
 - Regular calls with deliverability expert (twice per month for Deluxe and monthly Standard) to provide:
   - Monitoring of deliverability performance by domain

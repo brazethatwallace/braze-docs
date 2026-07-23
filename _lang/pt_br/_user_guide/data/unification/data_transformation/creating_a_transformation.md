@@ -200,13 +200,7 @@ Sua integração de webhook está completa!
 
 Nesta etapa, você transformará a carga útil do webhook da plataforma de origem em um valor de retorno de objeto JavaScript. Esse valor de retorno deve seguir o formato do corpo da solicitação do endpoint `/users/track`:
 
-- O código de transformação é aceito na linguagem de programação JavaScript. Qualquer fluxo de controle JavaScript padrão, como a lógica if/else, é aceito.
-- O código de transformação acessa o corpo da solicitação do webhook por meio da variável `payload`. Essa variável é um objeto populado pela análise do corpo da solicitação JSON.
-- Qualquer recurso aceito em nosso endpoint `/users/track` é aceito, incluindo:
-  - Objetos de atributos de usuário, objetos de eventos e objetos de compra
-  - Atributos aninhados e propriedades de evento personalizado aninhadas
-  - Atualizações do grupo de inscrições
-  - Endereço de e-mail como identificador
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 Selecione **Validate** para retornar uma prévia da saída do seu código e verificar se é uma solicitação `/users/track` aceitável.
 

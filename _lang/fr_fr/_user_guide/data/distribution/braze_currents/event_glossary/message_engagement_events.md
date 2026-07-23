@@ -15,7 +15,7 @@ lazy_partner_tabs: true
 
 {% details Portée du schéma et ressources associées %}
 
-Les schémas de stockage s'appliquent aux données d'événements en fichiers plats que nous envoyons aux partenaires de stockage en entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas qui s'appliquent aux autres partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et vérifiez leurs pages respectives.
+Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons aux partenaires de stockage en entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas qui s'appliquent aux autres partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et vérifiez leurs pages respectives.
 
 {% alert tip %}
 Ces événements sont également disponibles sous forme de tables SQL dans le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
@@ -29,7 +29,7 @@ Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site
 
 ## Structure des événements {#event-structure}
 
-Cette décomposition des événements montre le type d'informations généralement incluses dans un événement d'engagement lié aux messages. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrantes pour créer des rapports et des graphiques basés sur les données, et tirer parti d'autres indicateurs précieux.
+Cette décomposition des événements montre le type d'informations généralement incluses dans un événement d'engagement lié aux messages. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe de stratégie d'aide à la décision peuvent utiliser les données d'événements Currents entrantes pour créer des rapports et des graphiques basés sur les données, et tirer parti d'autres indicateurs de données précieux.
 
 ![Décomposition d'un événement d'engagement lié aux messages montrant un événement de désabonnement par e-mail avec les propriétés répertoriées regroupées par propriétés spécifiques à l'utilisateur, propriétés de suivi de Campaign ou Canvas, et propriétés spécifiques à l'événement]({% image_buster /assets/img/message_engagement_event.png %})
 
@@ -67,7 +67,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 - Currents supprime les événements dont les payloads dépassent 900&nbsp;Ko.
 - Les objets liés à Canvas Flow possèdent des identifiants que vous pouvez utiliser pour le regroupement et traduire en noms lisibles via l'[endpoint d'exportation des détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Certains champs peuvent ne pas refléter leur état le plus récent immédiatement après la mise à jour d'une Campaign ou d'un Canvas :
+- Certains champs peuvent ne pas afficher leur état le plus récent immédiatement après la mise à jour d'une Campaign ou d'un Canvas :
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -911,7 +911,28 @@ Les groupes d'abonnement ne sont actuellement disponibles que pour les canaux e-
 {% endtabs %}
 
 ### Détails de la propriété
-{% multi_lang_include currents/property_details_dispatch_state_source.md %}
+<ul>
+<li><code>dispatch_id</code> est un identifiant pour un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements de notification push provenant du même envoi incluent le même <code>dispatch_id</code>. Utilisez <code>dispatch_id</code> pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (comme l'envoi, le rebond et l'ouverture).</li>
+<li><code>state_change_source</code> renvoie une chaîne de caractères contenant le nom complet de la source. Par exemple, l'importation CSV source renvoie la chaîne de caractères <code>CSV import</code>. Les sources disponibles sont répertoriées ci-dessous :</li>
+</ul>
+<table class="reset-td-br-1 reset-td-br-2" role="presentation">
+<thead>
+<tr><th>Source</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>SDK</td><td>Endpoints SDK</td></tr>
+<tr><td>Tableau de bord</td><td>Lorsque l'état de l'abonnement d'un utilisateur est mis à jour à partir de la page Profil utilisateur dans le tableau de bord</td></tr>
+<tr><td>Page d'abonnement</td><td>Lorsqu'un utilisateur se désabonne via un lien d'e-mail qui n'est pas le centre de préférences</td></tr>
+<tr><td>REST API</td><td>Endpoints REST API</td></tr>
+<tr><td>Importation CSV</td><td>Importation d'utilisateurs CSV</td></tr>
+<tr><td>Centre de préférences</td><td>Lorsqu'un utilisateur est mis à jour à partir du centre de préférences</td></tr>
+<tr><td>Message entrant</td><td>Lorsqu'un utilisateur est mis à jour par des messages entrants provenant d'utilisateurs finaux par le biais de canaux tels que les SMS</td></tr>
+<tr><td>Migration</td><td>Lorsqu'un utilisateur est mis à jour par des migrations internes ou des scripts de maintenance</td></tr>
+<tr><td>Fusion d'utilisateurs</td><td>Lorsqu'un utilisateur est mis à jour par le processus de fusion des utilisateurs</td></tr>
+<tr><td>Étape de mise à jour de l'utilisateur Canvas</td><td>Lorsqu'un utilisateur est mis à jour par l'étape de mise à jour de l'utilisateur Canvas</td></tr>
+</tbody>
+</table>
+
 
 
 {% endapi %}
@@ -7408,7 +7429,7 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
 Email, Sends
 {% endapitags %}
 
-Cet événement se produit lorsqu'une demande d'envoi d'e-mail a été transmise avec succès entre Braze et SendGrid. Cependant, cela ne signifie pas que l'e-mail a été reçu dans la boîte de réception de l'utilisateur. Braze n'enregistre pas les événements dans les profils utilisateur ou dans toute destination Currents (telle que Snowflake) si l'événement ne peut être associé à la fois à l'adresse e-mail et à l'ID utilisateur associés à l'événement e-mail.
+Cet événement se produit lorsqu'une demande d'envoi d'e-mail a été transmise avec succès entre Braze et Sendgrid. Cependant, cela ne signifie pas que l'e-mail a été reçu dans la boîte de réception de l'utilisateur. Braze n'enregistre pas les événements dans les profils utilisateur ni dans les destinations Currents (telles que Snowflake) si l'événement ne peut pas être associé à la fois à l'adresse e-mail et à l'ID utilisateur liés à l'événement e-mail.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -7660,7 +7681,7 @@ Cet événement se produit lorsqu'une demande d'envoi d'e-mail a été transmise
 ### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
-  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID de répartition]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID d'envoi]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 - `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques provenant du contenu connecté, des attributs personnalisés (tels que la langue, le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez [Suppléments de messages]({{site.baseurl}}/message_extras_tag).
 
 {% endapi %}
@@ -7914,7 +7935,7 @@ Cet événement se produit lorsqu'un fournisseur de services Internet renvoie un
 ### Détails de la propriété
 
 - `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (comme Envoi, Rebond et Ouverture).
-  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID de répartition]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+  - Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont planifiées. Pour en savoir plus, consultez [Comportement de l'ID d'envoi]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 {% endapi %}
 
@@ -11318,7 +11339,7 @@ Cet événement survient lorsqu'une erreur est reçue du service de notification
 ### Détails de la propriété
 
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire du succès des clients ou votre gestionnaire de compte pour activer la fonctionnalité permettant l'envoi de `ad_id`.
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une campagne. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
 {% endapi %}
 
@@ -11529,7 +11550,7 @@ Cet événement n'est pas pris en charge par notre [SDK Swift](https://github.co
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire du succès des clients pour activer l'envoi de `ad_id`.
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une campagne. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
 {% endapi %}
 
@@ -11540,7 +11561,7 @@ Cet événement n'est pas pris en charge par notre [SDK Swift](https://github.co
 Push, Opens
 {% endapitags %}
 
-Cet événement se produit lorsqu'un utilisateur clique directement sur la notification push pour ouvrir l'application. Actuellement, les événements d'ouverture push désignent spécifiquement les « ouvertures directes » et non le « total des ouvertures ». Cela n'inclut pas les statistiques d'« ouvertures influencées » affichées au niveau de la Campaign, car celles-ci ne sont pas attribuées au niveau de l'utilisateur.
+Cet événement se produit lorsqu'un utilisateur clique directement sur la notification push pour ouvrir l'application. Actuellement, les événements d'ouverture push désignent spécifiquement les « ouvertures directes » et non le « total des ouvertures ». Cela n'inclut pas les statistiques d'« ouvertures influencées » affichées au niveau de la campagne, car celles-ci ne sont pas attribuées au niveau de l'utilisateur.
 
 {% alert note %}
 Dans de rares cas, une ouverture push peut apparaître avant l'événement d'envoi push correspondant dans les données Currents pour les raisons suivantes :
@@ -11807,7 +11828,7 @@ Dans de rares cas, une ouverture push peut apparaître avant l'événement d'env
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire du succès des clients pour activer l'envoi de `ad_id`.
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, par exemple l'envoi d'une campagne. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
 {% endapi %}
 

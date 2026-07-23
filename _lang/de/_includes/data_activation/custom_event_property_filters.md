@@ -1,0 +1,3 @@
+- Hat ein angepasstes Event mit Eigenschaft A mit Wert B X Mal in den letzten Y Tagen ausgeführt.
+- Hat einen beliebigen Kauf mit Eigenschaft A mit Wert B X Mal in den letzten Y Tagen getätigt.
+- Fügt die Möglichkeit hinzu, innerhalb von 1 bis 30 Tagen zu segmentieren.

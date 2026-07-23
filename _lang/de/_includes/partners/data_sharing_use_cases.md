@@ -1,0 +1,5 @@
+- Komplexe Berichte erstellen
+- Attribution-Modellierung durchführen
+- Sicheres Teilen innerhalb Ihres eigenen Unternehmens
+- Rohe Event- oder Nutzerdaten einem CRM zuordnen (wie Salesforce)
+- Und mehr

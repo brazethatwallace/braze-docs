@@ -12,7 +12,7 @@ O Braze Swift SDK fornece suporte ao tratamento de URL para botões de ação po
 Registrar botões de ação por push manualmente não é recomendado.
 {% endalert %}
 
-Se você [configurar notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) usando a opção de configuração `configuration.push.automation`, a Braze registra automaticamente os botões de ação para as categorias de push padrão e gerencia a análise de cliques dos botões de ação por push e o roteamento de URL.
+Se você [configurar notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) usando a opção de configuração `configuration.push.automation`, a Braze registra automaticamente os botões de ação para as categorias de push padrão e gerencia a análise de dados de cliques dos botões de ação por push e o roteamento de URL.
 
 No entanto, você pode optar por registrar botões de ação por push manualmente.
 
@@ -171,7 +171,7 @@ Os emblemas são ícones pequenos, ideais para chamar a atenção do usuário. V
 
 A Braze limpará automaticamente a contagem de emblemas quando uma notificação da Braze for recebida enquanto o app estiver em primeiro plano. A configuração manual do número do emblema como 0 também limpará as notificações na central de notificações.
 
-Se você não tiver um plano para limpar os emblemas como parte da operação normal do aplicativo ou enviando pushes que limpem o emblema, deverá limpar o emblema quando o aplicativo se tornar ativo, adicionando o seguinte código ao método delegado `applicationDidBecomeActive:` do seu aplicativo:
+Se você não tiver um plano para limpar os emblemas como parte da operação normal do aplicativo ou enviando pushes que limpem o emblema, deverá limpar o emblema quando o aplicativo se tornar ativo, adicionando o seguinte código ao método `sceneDidBecomeActive(_:)` do arquivo `SceneDelegate.swift` (ou ao método delegado `applicationDidBecomeActive:` do seu app, caso ele ainda não tenha adotado o [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)):
 
 {% tabs %}
 {% tab swift %}

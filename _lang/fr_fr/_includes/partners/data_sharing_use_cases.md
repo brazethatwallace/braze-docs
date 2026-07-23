@@ -1,0 +1,5 @@
+- Créer des rapports complexes
+- Effectuer une modélisation d'attribution
+- Partager des données de manière sécurisée au sein de votre entreprise
+- Associer des données brutes d'événements ou d'utilisateurs à un CRM (comme Salesforce)
+- Et bien plus encore

@@ -96,9 +96,7 @@ Um Event-Eigenschaften für die Segmentierung hinzuzufügen, gehen Sie wie folgt
 
 Die Segment-Filter für Event-Eigenschaften umfassen:
 
-- Hat ein angepasstes Event mit Eigenschaft A mit Wert B, X Mal in den letzten Y Tagen durchgeführt.
-- Hat einen Kauf mit Eigenschaft A mit Wert B, X Mal in den letzten Y Tagen getätigt.
-- Ermöglicht die Segmentierung innerhalb von 1 bis 30 Tagen.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
 ![Eine Filtergruppe mit „Abandoned Cart“ mit der Eigenschaft „number of items“ und dem Wert 2, mehr als 1 Mal in den letzten 30 Kalendertagen.]({% image_buster /assets/img/nested_object3.png %})
 
@@ -111,7 +109,7 @@ In Bezug auf die Abo-Nutzung werden angepasste Event-Eigenschaften, die für die
 - `X Custom Event Property in Y Days`
 - `X Purchase Property in Y Days`
 
-### Canvas-Eingangs-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
+### Canvas-Entry-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
 
 {% multi_lang_include canvas/entry_event_properties.md %}
 
