@@ -103,7 +103,7 @@ The sequence of Canvas steps could look like the following:
 
 ### Delay components at the end of a Canvas {#delay-as-last-step}
 
-If you add a Delay component to your Canvas and there are no subsequent steps, any user who reaches the last step is automatically advanced out of the Canvas. This is true even if the time of the Delay step hasn't been reached yet. This means that users who have already reached the Delay step do not receive any messages you add after this step. However, if a user has not reached the Delay step and a message is added, then they would receive that message.
+If you add a Delay component to your Canvas and there are no subsequent steps, any user who reaches the last step is automatically advanced out of the Canvas. This is true even if the time of the Delay step hasn't been reached yet. This means that users who have already reached the Delay step do not receive any messages you add after this step. However, if a user has not reached the Delay step and a message is added, they receive that message.
 
 ### Personalized delays
 
