@@ -271,17 +271,17 @@ Use the following tables to narrow down the cause.
 
 ### How do I troubleshoot email deliverability issues?
 
-If your emails are delayed, deferred, or bouncing, start by identifying where the issue occurs in the delivery chain. Common deliverability problems fall into four categories:
+If your emails are delayed, deferred, or bouncing, review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) for bounce and deferral details, then identify where the issue occurs in the delivery chain. Common deliverability problems fall into four categories:
 
 #### Reading ESP rate-limit responses
 
-Your email service provider (ESP) such as SparkPost or SendGrid returns SMTP response codes when accepting or deferring messages. Rate-limit responses typically use 4xx codes, which indicate temporary failures:
+Your email service provider (ESP), such as Amazon SES, SparkPost, or SendGrid, returns SMTP response codes when accepting or deferring messages. Rate-limit responses typically use 4xx codes, which indicate temporary failures:
 
 - 421: Service temporarily unavailable, often due to high volume, connection limits, or server resource constraints. The message remains queued and your ESP retries delivery automatically.
 - 429: API rate limit exceeded. You've sent too many requests in a given time window.
 - 450 / 451: Temporary deferral due to volume or connections. The recipient server is asking you to slow down.
 
-When you see these codes in your bounce logs or ESP dashboard, reduce send volume to the affected domain and implement exponential backoff for retries. Continuing at full volume while rate-limited can escalate temporary deferrals to permanent rejections.
+When you see these codes in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) or your ESP dashboard, reduce send volume to the affected domain and implement exponential backoff for retries. Continuing at full volume while rate-limited can escalate temporary deferrals to permanent rejections.
 
 #### Mailbox provider rate limits
 
@@ -304,13 +304,13 @@ These delays occur because security systems queue messages for behavioral analys
 
 #### Google 421-4.7.28 rate-limit responses
 
-Gmail returns a `421-4.7.28` error when it detects an unusual rate of unsolicited email from your IP address, IP netblock, SPF domain, DKIM domain, or URL domain. This is a temporary throttle, not a permanent block, but it signals that your sending volume, velocity, or reputation does not meet Gmail's current expectations.
+Gmail returns a `421-4.7.28` error when it detects an unusual rate of unsolicited email from your IP address, sending IP range, SPF domain, DKIM domain, or URL domain. This is a temporary throttle, not a permanent block, but it signals that your sending volume, velocity, or reputation does not meet Gmail's current expectations.
 
 If you receive this error:
 
 1. Pause non-essential sends immediately for 24 to 48 hours. Continuing to send while throttled escalates the issue and can lead to permanent 550 rejections.
 2. Verify authentication: Confirm that SPF, DKIM, and DMARC are correctly configured and that your From: header aligns with your authentication.
-3. Check Google Postmaster Tools for your domain's compliance status and spam complaint rates. Your user-reported spam rate must stay below 0.1% (the hard ceiling is 0.3%).
+3. Check [Google Postmaster Tools](https://postmaster.google.com/) and the Braze [Deliverability Center]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center/) (after connecting Google Postmaster) for your domain's compliance status and spam complaint rates. Your user-reported spam rate must stay below 0.1% (the hard ceiling is 0.3%).
 4. Resume gradually: After the pause, resume sending at 10 to 20% of previous volume to your most engaged recipients only. Increase volume slowly over several weeks only if no further 4xx errors occur.
 
 For additional guidance, refer to [Google's Bulk Email Senders Guidelines](https://support.google.com/mail/answer/81126).
