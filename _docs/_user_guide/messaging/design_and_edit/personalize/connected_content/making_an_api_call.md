@@ -4,13 +4,14 @@ article_title: Make a Connected Content API call
 page_order: 0
 description: "This reference article covers how to make a Connected Content API call, as well as helpful examples and advanced Connected Content use cases."
 search_rank: 2
+toc_headers: h2
 ---
 
 # [![Braze Learning course]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}Make a Connected Content API call
 
 > Use Connected Content to insert any information accessible by API directly into messages you send to users. You can pull content either directly from your web server or from publicly accessible APIs.<br><br>This page covers how to make Connected Content API calls, advanced Connected Content use cases, error handling, and more.
 
-## Understanding Connected Content call volume
+## About Connected Content call volume {#understanding-connected-content-call-volume}
 
 {% alert important %}
 One send does not equal one Connected Content call. Braze does not guarantee a 1:1 ratio between message sends and Connected Content requests. The system is designed to favor correct message rendering and delivery over minimizing the number of calls. Your endpoints must be built to handle more requests than the number of recipients or messages sent.
@@ -24,7 +25,7 @@ Braze may make the same Connected Content API call more than once per recipient.
 
 If you see more Connected Content calls in your logs than sends or recipients, that behavior is expected. For guidance on reducing load and planning for scale, see [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints).
 
-## Sending a Connected Content call
+## Send a Connected Content call
 
 {% raw %}
 
@@ -37,7 +38,7 @@ For example, the following message body will access the URL `http://numbersapi.c
 Hi there, here is some fun trivia for you!: {{result.text}}
 ```
 
-### Adding variables
+### Add variables
 
 You can also include user profile attributes as variables in the URL string when making Connected Content requests. 
 
@@ -86,7 +87,7 @@ The following are different mechanisms:
 - **429 Too Many Requests:** Your endpoint (or an upstream service) is returning this response. It means your server or middleware is refusing traffic, often because it has its own rate limit. Braze does not apply a separate rate limit to Connected Content; Connected Content request volume scales directly with your [message delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Because messages can be rendered multiple times per recipient (for example, for email HTML, plain text, and AMP), the number of Connected Content requests can exceed that rate limit—do not assume it will be less than or equal to the messages per minute you set. If you see 429s, scale your endpoint or middleware to handle the expected request volume, or lower the campaign or Canvas step rate limit so that fewer messages (and thus fewer Connected Content calls) are sent per minute.
 - **Unhealthy host detection:** A Braze-side safeguard that triggers after a high rate and volume of *failures* in a one-minute window. The failure count includes `408`, `429`, `502`, `503`, `504`, and `529` status codes. When triggered, Braze temporarily halts requests to that host and simulates a failure response. This is independent of your own rate limiting. For detection thresholds and more detail, see [Troubleshoot webhook and Connected Content requests]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). To avoid hitting unhealthy host detection, ensure your endpoint can handle the call volume described in [Understanding Connected Content call volume](#understanding-connected-content-call-volume) and [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints).
 
-## Allowing for efficient performance
+## Allow for efficient performance {#allowing-for-efficient-performance}
 
 Because Braze delivers messages at a very fast rate, ensure your server can handle thousands of concurrent connections so it doesn't get overloaded when pulling down content. When using public APIs, confirm your usage won't violate any rate-limiting that the API provider may employ. Braze requires the server response time to be less than two seconds for performance reasons; if the server takes longer than two seconds to respond, the content is not inserted.
 
@@ -162,13 +163,13 @@ You can then use this credential in your API calls by referencing the credential
 ```
 {% endraw %}
 
-### Using Open Authentication (OAuth)
+### Use Open Authentication (OAuth)
 
 Some API configurations require the retrieval of an access token that can then be used to authenticate the API endpoint that you want to access.
 
 #### Step 1: Retrieve the access token
 
-The following example illustrates retrieving and saving an access token to a local variable, which can then be used to authenticate the subsequent API call. A `:cache_max_age` parameter can be added to match the time that the access token is valid for and reduce the number of outbound Connected Content calls. See [Configurable Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) for more information.
+The following example illustrates retrieving and saving an access token to a local variable, which can then be used to authenticate the subsequent API call. A `:cache_max_age` parameter can be added to match the time that the access token is valid for and reduce the number of outbound Connected Content calls. See [Configurable Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) for more information.
 
 {% raw %}
 ```
@@ -184,6 +185,10 @@ The following example illustrates retrieving and saving an access token to a loc
 %}
 ```
 {% endraw %}
+
+{% alert note %}
+When the token endpoint expects `application/x-www-form-urlencoded` and you pass credentials in `:body`, URL-encode any special characters in parameter values. For example, forward slashes (`/`) become `%2F` and plus signs (`+`) become `%2B`. Unencoded special characters may cause OAuth token requests to fail.
+{% endalert %}
 
 #### Step 2: Authorize the API using the retrieved access token
 
@@ -235,12 +240,21 @@ Keep in mind that the hash value changes regularly. If you're filtering traffic 
 
 ## Troubleshooting
 
-Use [Webhook.site](https://webhook.site/) to troubleshoot your Connected Content calls and to diagnose issues with the request headers, request body, and other information that is being sent in the call.
+If your Connected Content call is not rendering correctly or at all, check for the following details:
+
+- **Confirm that a Connected Content call was made:** You can check that a call was made at the [Messaging History tab]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#messaging-history-tab). You can also test send a single Connected Content request.
+- **Verify through Postman or a CURL request to check if the ideal request succeeds:** If the request works and returns a response, compare the request in detail (including headers). Confirm that the headers are captured in key-value pairs with double quotations.
+- **Validate authorization is handled correctly:** Confirm the `:basic_auth`/`:auth_credentials` option is used and has added the Connected Content authorization to the Connected Content workspace settings. Sometimes the Connected Content URL requires headers beyond authentication that need to be entered.
+- **Verify the data is in an expected format:** For the response body, Braze parses valid JSON into a Liquid object; otherwise, the response is treated as plain text (including HTML). The `:content_type` option sets outbound `Content-Type` and `Accept` headers on your request and doesn't affect response parsing. For the request `:body`, if your JSON contains spaces, follow the guidance in the [Providing JSON body]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables/#providing-json-body) section.
+- **Confirm the data has been parsed correctly:** Check that the Liquid is correctly referencing the expected field. For nested JSON, use {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %} to point at the intended nested field. You can check the nested JSON properties by printing out the expected outcome with {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}.
+- **Check the response status code:** The response status code must be a `2XX` code. Connected Content does not have a way to consume the response when the code is not `2XX`.
+
+You can also use [Webhook.site](https://webhook.site/) to troubleshoot your Connected Content calls and to diagnose issues with the request headers, request body, and other information that is being sent in the call.
 
 1. Switch the URL in your Connected Content call with the unique URL generated on the site.
 2. Preview and test your campaign or Canvas step to see the requests come through to this website.
 
-You can also verify the Liquid tag includes the parameters your endpoint expects (for example, `:method`, `:headers`, `:content_type`, `:body`, and `:basic_auth` when required). If you rely on the HTTP status code key in a saved JSON object, the endpoint must return a JSON object and a `2XX` status. 
+You can also verify the Liquid tag includes the parameters your endpoint expects (for example, `:method`, `:headers`, `:content_type`, `:body`, and `:basic_auth` when required). If you rely on the HTTP status code key in a saved JSON object, the endpoint must return a JSON object and a `2XX` status.
 
 For high error rates from your host, review [Unhealthy host detection]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) and [Connected Content call volume](#understanding-connected-content-call-volume).
 

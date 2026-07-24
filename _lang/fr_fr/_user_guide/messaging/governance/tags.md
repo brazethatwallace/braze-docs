@@ -11,7 +11,7 @@ tool:
 
 # Balises {#tags}
 
-> Braze suit les informations relatives à l'auteur, à l'éditeur, à la date et à l'état des segments, des campagnes et des Canvas, et vous permet de créer des balises pour organiser et trier davantage vos engagements.
+> Braze suit les informations relatives à l'auteur, à l'éditeur, à la date et au statut des segments, des campagnes et des Canvas, et vous permet de créer des balises pour organiser et trier davantage vos engagements.
 
 ## Balises de Campaign, Canvas et Segment {#campaign-canvas-and-segment-tags}
 
@@ -50,7 +50,7 @@ Les balises sont visibles dans la liste des campagnes, des Canvas ou des segment
 Des balises peuvent également être ajoutées aux données personnalisées lors de la gestion des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) et des [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags).
 
 {% alert important %}
-Cette fonctionnalité est actuellement en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à cet accès anticipé.
+Cette fonctionnalité est actuellement en accès anticipé. Contactez votre gestionnaire du succès des clients si vous souhaitez participer à cet accès anticipé.
 {% endalert %}
 
-Pour en savoir plus sur le renommage, la suppression ou l'imbrication des balises dans votre tableau de bord, consultez [Gestion des balises]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags).
+Pour en savoir plus sur le renommage, la suppression ou l'imbrication des balises dans votre tableau de bord, consultez [Gestion des balises]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

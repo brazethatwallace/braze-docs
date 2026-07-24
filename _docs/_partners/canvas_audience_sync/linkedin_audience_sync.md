@@ -15,9 +15,7 @@ Using the Braze Audience Sync to LinkedIn, brands can add user data from their B
 
 **Common use cases for Audience Syncing include**:
 
-- Targeting high-value users via multiple channels to drive purchases or engagement
-- Retargeting users who are less responsive to other marketing channels
-- Creating suppression audiences to prevent users from receiving advertisements when they’re already loyal consumers of your brand
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 This feature allows brands to control what specific first-party data is shared with LinkedIn. At Braze, the integrations you can and cannot share your first-party data with are given the utmost consideration. For more information, refer to our [privacy policy](https://www.braze.com/privacy).
 
@@ -117,7 +115,7 @@ Braze also offers the ability to add users to existing LinkedIn audiences to con
 
 ### Step 5: Launch Canvas
 
-Once you have configured your Audience Sync to LinkedIn, launch the Canvas! The new audience will be created, and users who flow through the Audience Sync step will be passed into this audience on LinkedIn. If your Canvas contains subsequent components, your users will advance to the next step in their user journey.
+After you configure your Audience Sync to LinkedIn, launch the Canvas! The new audience is created, and users who flow through the Audience Sync step are passed into this audience on LinkedIn. If your Canvas contains subsequent components, your users advance to the next step in their user journey.
 
 You can view the audience on LinkedIn by going into your ad account and selecting **Audiences** under the **Assets** section of the navigation. From the **Audiences** page, you can see each audience's size after reaching more than 300 members.
 

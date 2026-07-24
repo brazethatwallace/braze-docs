@@ -334,7 +334,7 @@ Bewerben wir das Lieblingsprodukt einer Nutzer:in, wenn ihr letzter Kauf mehr al
 {% endraw %}
 
 {: start="6"}
-6. Da das letzte Kaufdatum und das heutige Datum in Sekunden vorliegen, müssen wir berechnen, wie viele Sekunden sechs Monate entsprechen. Erstellen wir eine Gleichung (ungefähr 6 Monate * 30,44 Tage * 24 Stunden * 60 Minuten * 60 Sekunden) und weisen sie der Variablen `six_months` zu. Wir verwenden `times`, um die Multiplikation der Zeiteinheiten anzugeben.
+6. Da das letzte Kaufdatum und das heutige Datum in Sekunden vorliegen, müssen wir berechnen, wie viele Sekunden sechs Monate entsprechen. Erstellen wir eine Gleichung (ungefähr 6 Monate \* 30,44 Tage \* 24 Stunden \* 60 Minuten \* 60 Sekunden) und weisen sie der Variablen `six_months` zu. Wir verwenden `times`, um die Multiplikation der Zeiteinheiten anzugeben.
 
 {% raw %}
 ```liquid

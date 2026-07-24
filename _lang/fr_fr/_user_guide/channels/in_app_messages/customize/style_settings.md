@@ -114,6 +114,31 @@ Vous pouvez ajouter une image à l'arrière-plan de votre message depuis l'ongle
 Si vous avez du mal à sélectionner un bloc spécifique, vous pouvez utiliser la flèche vers le haut dans la barre d'outils intégrée du bloc pour déplacer le focus vers chaque bloc parent.
 {% endalert %}
 
+#### Permuter les images d'arrière-plan avec Liquid {#swap-background-images-with-liquid}
+
+Pour permuter dynamiquement les images d'arrière-plan en fonction des données utilisateur (comme les attributs personnalisés ou les propriétés utilisateur), utilisez des blocs Liquid {% raw %}`{% capture %}`{% endraw %} pour assigner l'URL d'image correcte à une variable avant le chargement du HTML et du CSS.
+
+Placez votre logique Liquid au début de votre message, puis référencez la variable capturée dans le champ URL de l'image d'arrière-plan. Cela sélectionne l'image correcte en fonction des données de chaque utilisateur.
+
+Après avoir capturé l'URL de l'image, utilisez {% raw %}`{{ image_url | strip }}`{% endraw %} pour afficher l'URL sans espaces superflus. Vous pouvez ensuite coller ce Liquid dans le champ URL de l'image d'arrière-plan pour afficher dynamiquement différentes images pour différents utilisateurs.
+
+##### Exemple {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
+
 ### Ajout de Liquid {#adding-liquid}
 
 ![Icône pour ajouter la personnalisation Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
@@ -124,7 +149,7 @@ Ensuite, prenez votre extrait de code Liquid généré et insérez-le dans votre
 
 ### Utilisation du rédacteur IA {#using-the-ai-copywriter}
 
-Lorsqu'un bloc de texte est sélectionné dans votre message in-app, sélectionnez <i class="fa-solid fa-wand-magic-sparkles" title="AI copywriter"></i> **AI copywriter** dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing semblable à celui d'un humain pour vos messages.
+Lorsqu'un bloc de texte est sélectionné dans votre message in-app, sélectionnez <i class="fa-solid fa-wand-magic-sparkles" title="Rédacteur IA"></i> **AI copywriter** dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing semblable à celui d'un humain pour vos messages.
 
 {% alert tip %}
 Vous pouvez gagner quelques clics en surlignant le texte à l'intérieur du bloc avant de cliquer sur l'icône. Le texte surligné sera ajouté à l'outil, et le texte sera généré immédiatement.

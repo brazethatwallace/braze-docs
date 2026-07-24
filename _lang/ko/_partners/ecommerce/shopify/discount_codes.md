@@ -8,7 +8,7 @@ description: "이 참조 문서에서는 Braze 프로모션 코드와 Shopify Bu
 
 # Shopify를 통해 고유 할인 코드 보내기 {#send-unique-discount-codes-through-shopify}
 
-> 이 커뮤니티 제출 사용 사례에서는 Braze [프로모션 코드]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/)와 Shopify Bulk Discount Code Bot을 사용하여 Campaigns 및 Canvases에 사용할 고유 할인 코드를 생성하는 방법을 보여줍니다. 고유 할인 코드는 일반 프로모션 코드의 악용을 방지하는 데 도움이 됩니다.
+> 이 커뮤니티 제출 사용 사례에서는 Braze [프로모션 코드]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes)와 Shopify Bulk Discount Code Bot을 사용하여 Campaigns 및 Canvases에 사용할 고유 할인 코드를 생성하는 방법을 보여줍니다. 고유 할인 코드는 일반 프로모션 코드의 악용을 방지하는 데 도움이 됩니다.
 
 {% alert important %}
 이것은 커뮤니티에서 제출한 통합이며 Braze에서 직접 지원하지 않습니다. Bulk Discount Code Bot은 Shopify에서 직접 지원합니다. Braze 프로모션 코드만 Braze에서 지원됩니다.
@@ -18,9 +18,9 @@ description: "이 참조 문서에서는 Braze 프로모션 코드와 Shopify Bu
 
 | 요구 사항 | 설명 |
 | --- | --- |
-| Shopify 스토어 설정 | [Braze와 Shopify 스토어를 설정]({{site.baseurl}}/shopify_overview/)했는지 확인합니다. |
+| Shopify 스토어 설정 | [Braze와 Shopify 스토어를 설정]({{site.baseurl}}/shopify_overview)했는지 확인합니다. |
 | Bulk Discount Code Bot 앱 설치 | Shopify 앱 스토어에서 [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) 앱을 다운로드합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
 ## 고유 할인 코드 생성하기 {#generating-unique-discount-codes}
 
@@ -42,9 +42,9 @@ CSV 파일에서 1행을 삭제하여 열 헤더 "Promo"를 제거합니다. 이
 
 ### 3단계: Braze에 할인 코드 추가하기 {#step-3-add-your-discount-codes-to-braze}
 
-Braze에서 **데이터 설정** > **프로모션 코드** > **프로모션 코드 목록 생성**으로 이동하여 [할인 코드 목록을 구성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list)합니다. Bulk Discount Code Bot에서 구성한 만료 날짜와 일치하는지 확인합니다.
+Braze에서 **데이터 설정** > **프로모션 코드** > **프로모션 코드 목록 생성**으로 이동하여 [할인 코드 목록을 구성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create)합니다. Bulk Discount Code Bot에서 구성한 만료 날짜와 일치하는지 확인합니다.
 
-그런 다음 CSV 파일을 업로드하고 **Save List**를 선택합니다.
+그런 다음 CSV 파일을 업로드하고 **목록 저장**을 선택합니다.
 
 ### 4단계: Braze Campaign 또는 캔버스 단계에 할인 코드 추가하기 {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
 
@@ -56,10 +56,10 @@ Liquid 스니펫을 Campaign 또는 캔버스 단계에 붙여넣습니다.
 
 ![Liquid 스니펫이 캔버스 단계에 추가되는 것을 보여주는 GIF.][5]
 
-Campaigns 또는 Canvases에서 할인 코드가 몇 번 참조되더라도 사용자가 하나의 고유 할인 코드만 받도록 하려면, 첫 번째 메시지 단계 바로 앞에 "Promo Code"와 같은 커스텀 속성에 할인 코드를 할당하는 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계를 생성합니다.
+Campaigns 또는 Canvases에서 할인 코드가 몇 번 참조되더라도 사용자가 하나의 고유 할인 코드만 받도록 하려면, 첫 번째 메시지 단계 바로 앞에 "Promo Code"와 같은 커스텀 속성에 할인 코드를 할당하는 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) 단계를 생성합니다.
 
 {% alert tip %}
-**데이터 설정** > **커스텀 속성**으로 이동하여 [커스텀 속성을 생성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)할 수도 있습니다.
+**데이터 설정** > **커스텀 속성**으로 이동하여 [커스텀 속성을 생성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)할 수도 있습니다.
 {% endalert %}
 
 사용자 업데이트 단계에서 각 필드에 대해 다음을 수행합니다:

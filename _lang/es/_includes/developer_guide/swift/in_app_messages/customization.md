@@ -239,7 +239,7 @@ El valor predeterminado es `false`. Determina si el mensaje modal dentro de la a
 
 | `DismissModalOnOutsideTap` | Descripción |
 |----------|-------------|
-| `true`         | Los mensajes modales dentro de la aplicación se descartarán al tocar fuera. |
+| `true`         | Los mensajes modales dentro de la aplicación se descartarán al tocar fuera.     |
 | `false`        | Predeterminado, los mensajes modales dentro de la aplicación no se descartarán al tocar fuera. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Personalización de cierres modales" }
 
@@ -352,12 +352,12 @@ func inAppMessage(
 
 Configura `BrazeInAppMessageUI.DisplayChoice` para que devuelva uno de los siguientes valores:
 
-| Opción de visualización | Comportamiento |
+| Opción de visualización                      | Comportamiento                                                                                                                    |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `.now`                              | El mensaje se mostrará inmediatamente. Este es el valor predeterminado. |
-| `.reenqueue`                        | El mensaje no se mostrará y volverá a colocarse en la parte superior de la pila. |
+| `.now`                              | El mensaje se mostrará inmediatamente. Este es el valor predeterminado.                                                       |
+| `.reenqueue`                        | El mensaje no se mostrará y volverá a colocarse en la parte superior de la pila.                                       |
 | `.later`                            | El mensaje no se mostrará y volverá a colocarse en la parte superior de la pila. (Obsoleto, utiliza `.reenqueue`) |
-| `.discard`                          | El mensaje se descartará y no se mostrará. |
+| `.discard`                          | El mensaje se descartará y no se mostrará.                                                                    |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizar el tiempo de visualización" }
 
 {% alert tip %}
@@ -368,11 +368,11 @@ Para ver un ejemplo de `InAppMessageUI`, consulta nuestro [repositorio Swift Bra
 
 Para los mensajes dentro de la aplicación `Full`, `FullImage` y `HTML`, el SDK ocultará la barra de estado de forma predeterminada. Para otros tipos de mensajes dentro de la aplicación, la barra de estado se deja intacta. Para configurar este comportamiento, utiliza el [método delegado](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)` para establecer la propiedad `statusBarHideBehavior` en `PresentationContext`. Este campo toma uno de los siguientes valores:
 
-| Comportamiento de ocultación de la barra de estado | Descripción |
+| Comportamiento de ocultación de la barra de estado            | Descripción                                                                           |
 | ----------------------------------- | ------------------------------------------------------------------------------------- |
-| `.auto`                             | La vista de mensajes decide el estado oculto de la barra de estado. |
-| `.hidden`                           | Oculta siempre la barra de estado. |
-| `.visible`                          | Muestra siempre la barra de estado. |
+| `.auto`                             | La vista de mensajes decide el estado oculto de la barra de estado.                                 |
+| `.hidden`                           | Oculta siempre la barra de estado.                                                           |
+| `.visible`                          | Muestra siempre la barra de estado.                                                        |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ocultar la barra de estado" }
 
 ## Desactivar el modo oscuro {#disabling-dark-mode}
@@ -533,17 +533,18 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 
 ### Paso 3: Crear un vínculo profundo {#step-3-create-a-deep-link}
 
-En tu código de gestión de vínculos profundos, añade el siguiente código para procesar el vínculo profundo `{YOUR-APP-SCHEME}:app-store-review`. Ten en cuenta que tendrás que importar `StoreKit` para utilizar `SKStoreReviewController`:
+En tu controlador [`scene:openURLContexts:`]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#swift_step-3-implement-a-handler), añade el siguiente código para procesar el vínculo profundo `{YOUR-APP-SCHEME}:app-store-review`. Ten en cuenta que tendrás que importar `StoreKit` para utilizar `SKStoreReviewController`:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
     SKStoreReviewController.requestReview()
-    return true;
+    return;
   }
   // Other deep link handling code…
 }
@@ -553,11 +554,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
     [SKStoreReviewController requestReview];
-    return YES;
+    return;
   }
   // Other deep link handling code…
 }

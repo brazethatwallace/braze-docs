@@ -15,7 +15,7 @@ A personalização com Liquid para landing pages está disponível apenas no pla
 
 ## Inserindo Liquid {#inserting-liquid}
 
-No editor de arrastar e soltar, você pode inserir personalização com Liquid tanto no editor quanto nas configurações da página ou do bloco no painel à direita. Para instruções sobre como implementar Liquid, confira nossa [documentação dedicada sobre Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid).
+No editor de arrastar e soltar, você pode inserir personalização com Liquid tanto no editor quanto nas configurações da página ou do bloco no painel à direita. Para instruções sobre como implementar Liquid, confira nossa [documentação dedicada sobre Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 
 ![Editor de landing page com personalização Liquid adicionada.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
@@ -41,7 +41,7 @@ Para evitar que sua página exceda os limites de tamanho ou tenha tempos de carr
 - Não faça loops contínuos nem referencie grandes conjuntos de dados.
 - Não dependa de lógica matemática ou condicional extensa dentro do bloco Liquid.
 
-Além disso, evite incorporar scripts grandes, folhas de estilo e ativos codificados em base64 diretamente no código da sua landing page. Esses ativos inline contam para o limite de tamanho da página e podem tornar a renderização mais lenta. Em vez disso, faça upload de fontes, imagens, folhas de estilo e scripts para a [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Os ativos servidos a partir da biblioteca de mídia são hospedados na CDN da Braze, portanto não são processados para renderização Liquid e não contam para o limite de tamanho da página.
+Além disso, evite incorporar scripts grandes, folhas de estilo e ativos codificados em base64 diretamente no código da sua landing page. Esses ativos inline contam para o limite de tamanho da página e podem tornar a renderização mais lenta. Em vez disso, faça upload de fontes, imagens, folhas de estilo e scripts para a [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Os ativos servidos a partir da biblioteca de mídia são hospedados na rede de distribuição de conteúdo (CDN) da Braze, portanto não são processados para renderização Liquid e não contam para o limite de tamanho da página.
 
 ### Usar Liquid para usuários identificados e anônimos {#use-liquid-for-identified-and-anonymous-users}
 

@@ -149,6 +149,10 @@ Melden Sie sich bei Ihrem Microsoft Entra Admin Center an.
 3. Überprüfen und konfigurieren Sie den Abschnitt **Attribute Mapping**, damit er mit den Attributen übereinstimmt, die in der Tabelle auf der Seite **Setup SCIM provisioning** angezeigt werden.
 4. Schließen Sie die Seite **Attribute Mapping**.
 
+{% alert important %}
+Das Attribut `userName` muss exakt mit der E-Mail-Adresse der Nutzer:innen in Braze übereinstimmen, damit SCIM Nutzer:innen korrekt identifizieren und verwalten kann. Nutzer:innen, die vor der Aktivierung von SCIM manuell in Braze bereitgestellt wurden, werden nicht automatisch in IdP-verwaltete Nutzer:innen umgewandelt, selbst wenn sie der SCIM-Anwendung hinzugefügt werden. Ihre Bereitstellungsmethode bleibt manuell.
+{% endalert %}
+
 ## Schritt 2: Nutzer:innen der App zuweisen
 
 1. Navigieren Sie zu **Manage** > **Users and Groups**.

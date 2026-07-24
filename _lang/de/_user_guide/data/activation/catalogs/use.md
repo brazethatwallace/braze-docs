@@ -174,7 +174,7 @@ Sie können auch Templates verwenden, um Katalogartikel auf der Grundlage angepa
 JSON-Objekte in Katalogen werden nur über die API aufgenommen. Sie können ein JSON-Objekt nicht über eine CSV-Datei hochladen.
 {% endalert %}
 
-Mit Liquid-Templates können Sie die Wunschlisten-IDs dynamisch abrufen und sie dann in Ihrer Nachricht verwenden. Dazu [weisen Sie Ihrem angepassten Attribut eine Variable zu]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) und verwenden dann das Modal **Add Personalization**, um einen bestimmten Artikel aus dem Array abzurufen. Variablen, die als ID eines Katalogartikels referenziert werden, müssen in geschweifte Klammern eingeschlossen werden, um korrekt referenziert zu werden, z. B. `{{result}}`.
+Mit Liquid-Templates können Sie die Wunschlisten-IDs dynamisch abrufen und sie dann in Ihrer Nachricht verwenden. Dazu [weisen Sie Ihrem angepassten Attribut eine Variable zu]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) und verwenden dann das Modal **Add Personalization**, um einen bestimmten Artikel aus dem Array abzurufen. Variablen, die als ID eines Katalogartikels referenziert werden, müssen in geschweifte Klammern eingeschlossen werden, um korrekt referenziert zu werden, z. B. `{{result}}`.
 
 {% alert tip %}
 Denken Sie daran, dass Arrays bei `0` beginnen, nicht bei `1`.

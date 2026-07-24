@@ -28,7 +28,7 @@ Adicione [Enviar para Destino]({{site.baseurl}}/user_guide/messaging/canvas/canv
 
 Para atualizar perfis de usuário de dentro de um Canvas, incluindo modificar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), registrar [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou registrar [compras]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), use a [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) em vez de um webhook Braze-para-Braze.
 
-A Atualização de usuário agrupa várias alterações e as envia em lotes, tornando-a mais rápida do que webhooks. É mais fácil de configurar do que um webhook e suporta atualizações complexas por meio do [criador avançado de JSON]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer). Por exemplo, para contar quantas vezes um usuário viu uma mensagem, use o [recurso de incremento e decremento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) da Atualização de usuário em vez de um webhook Braze-para-Braze.
+A Atualização de usuário agrupa várias alterações e as envia em lotes, tornando-a mais rápida do que webhooks. É mais fácil de configurar do que um webhook e suporta atualizações complexas por meio do [criador avançado de JSON]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Por exemplo, para contar quantas vezes um usuário viu uma mensagem, use o [recurso de incremento e decremento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) da Atualização de usuário em vez de um webhook Braze-para-Braze.
 
 {% alert tip %}
 Adicione a [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) ao seu Canvas para atualizar atributos, eventos e compras de um usuário usando um criador de JSON.
@@ -36,7 +36,7 @@ Adicione a [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/can
 
 ## Quando usar um webhook Braze-para-Braze {#when-to-use-a-braze-to-braze-webhook}
 
-A Atualização de usuário pode lidar com quase todas as mesmas tarefas que um webhook Braze-para-Braze para atualizar perfis de usuário. Para atualizações complexas além de atributos personalizados simples, você pode usar o [criador avançado de JSON]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer).
+A Atualização de usuário pode lidar com quase todas as mesmas tarefas que um webhook Braze-para-Braze para atualizar perfis de usuário. Para atualizações complexas além de atributos personalizados simples, você pode usar o [criador avançado de JSON]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor).
 
 Enviar para Destino oferece uma maneira mais simples de disparar um segundo Canvas de dentro do Canvas sem precisar de configuração de webhook.
 

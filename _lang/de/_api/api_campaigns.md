@@ -35,12 +35,12 @@ Eine [API-getriggerte Kampagne]({{site.baseurl}}/user_guide/messaging/campaigns/
 Um Ihre Kampagne zu konfigurieren, führen Sie die folgenden Schritte aus:
 
 1. Fügen Sie einen beschreibenden Titel hinzu, damit Sie die Ergebnisse auf der Kampagnenseite finden können, nachdem Sie Ihre Nachrichten versendet haben.
-2. Klicken Sie auf **Nachricht hinzufügen** und fügen Sie die Nachrichtentypen hinzu, die in Ihre API-Kampagne aufgenommen werden sollen. Damit können Sie eine `campaign_id` und eine Nachrichtenvarianten-ID generieren, die für jeden Kanal, den Sie einbeziehen, unterschiedlich ist.
-3. Optional können Sie ein Konversions-Event hinzufügen, um die Conversions der Nutzer:innen für eine bestimmte Aktion oder ein Kampagnenziel zu verfolgen.
-4. Klicken Sie auf **Kampagne speichern** und schon können Sie mit Ihrer API-Kampagne beginnen!
+2. Wählen Sie **Nachricht hinzufügen** und fügen Sie die Nachrichtentypen hinzu, die in Ihre API-Kampagne aufgenommen werden sollen. Damit können Sie eine `campaign_id` und eine Nachrichtenvarianten-ID generieren, die für jeden Kanal, den Sie einbeziehen, unterschiedlich ist.
+3. Optional können Sie ein Konversions-Event hinzufügen, um die Konversionen der Nutzer:innen für eine bestimmte Aktion oder ein Kampagnenziel zu verfolgen.
+4. Wählen Sie **Kampagne speichern** und schon können Sie mit Ihrer API-Kampagne beginnen!
 
 ## API-Aufrufe {#api-calls}
 
 Nachdem Sie Ihre API-Kampagne gespeichert haben, fügen Sie Folgendes in Ihre API-Anfrage ein:
-- Die generierten `campaign_id`-Felder in Ihrer API-Anfrage, wie in den [Endpunkten zum Senden von Nachrichten]({{site.baseurl}}/api/endpoints/messaging#send-endpoints) beschrieben.
+- Die generierten `campaign_id`-Felder in Ihrer API-Anfrage, wie in den [Endpunkten zum Senden von Nachrichten]({{site.baseurl}}/api/endpoints/messaging) beschrieben.
 - Ein [Nachrichten-Objekt]({{site.baseurl}}/api/objects_filters#messaging-objects) für jede in der Kampagne enthaltene Plattform. Geben Sie im Nachrichten-Objekt die Nachrichtenvarianten-ID an. Damit legen Sie fest, dass die Statistiken unter dieser Variante gesammelt und angezeigt werden. Die folgenden Nachrichten-Objekte werden unterstützt: Android, Content Cards, E-Mail, iOS, Kindle, SMS/MMS, Web-Push und Webhook.

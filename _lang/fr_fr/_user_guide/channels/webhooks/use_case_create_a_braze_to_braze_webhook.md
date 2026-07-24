@@ -28,7 +28,7 @@ Ajoutez [Envoyer à la destination]({{site.baseurl}}/user_guide/messaging/canvas
 
 Pour mettre à jour les profils utilisateur depuis un Canvas, y compris la modification des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), l'enregistrement d'[événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou l'enregistrement d'[achats]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), utilisez la [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) plutôt qu'un webhook Braze-à-Braze.
 
-La Mise à jour utilisateur regroupe plusieurs modifications et les envoie par lots, ce qui est plus rapide que les webhooks. Elle est plus facile à configurer qu'un webhook et prend en charge les mises à jour complexes grâce à son [compositeur JSON avancé]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer). Par exemple, pour compter le nombre de fois qu'un utilisateur a vu un message, utilisez la fonctionnalité [Incrémenter et décrémenter]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) de la Mise à jour utilisateur plutôt qu'un webhook Braze-à-Braze.
+La Mise à jour utilisateur regroupe plusieurs modifications et les envoie par lots, ce qui est plus rapide que les webhooks. Elle est plus facile à configurer qu'un webhook et prend en charge les mises à jour complexes grâce à son [compositeur JSON avancé]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Par exemple, pour compter le nombre de fois qu'un utilisateur a vu un message, utilisez la fonctionnalité [Incrémenter et décrémenter]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) de la Mise à jour utilisateur plutôt qu'un webhook Braze-à-Braze.
 
 {% alert tip %}
 Ajoutez une [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) à votre Canvas pour mettre à jour les attributs, événements et achats d'un utilisateur à l'aide d'un compositeur JSON.
@@ -36,7 +36,7 @@ Ajoutez une [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/can
 
 ## Quand utiliser un webhook Braze-à-Braze {#when-to-use-a-braze-to-braze-webhook}
 
-La Mise à jour utilisateur peut gérer presque toutes les mêmes tâches qu'un webhook Braze-à-Braze pour la mise à jour des profils utilisateur. Pour les mises à jour complexes allant au-delà des simples attributs personnalisés, vous pouvez utiliser le [compositeur JSON avancé]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer).
+La Mise à jour utilisateur peut gérer presque toutes les mêmes tâches qu'un webhook Braze-à-Braze pour la mise à jour des profils utilisateur. Pour les mises à jour complexes allant au-delà des simples attributs personnalisés, vous pouvez utiliser le [compositeur JSON avancé]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor).
 
 Envoyer à la destination offre un moyen plus simple de déclencher un second Canvas depuis un Canvas sans nécessiter de configuration de webhook.
 

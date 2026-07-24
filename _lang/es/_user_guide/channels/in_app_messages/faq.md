@@ -65,11 +65,11 @@ Para evitar esto, durante la configuración de tu campaña, selecciona **Re-eval
 
 ## ¿Pueden mostrarse varios mensajes dentro de la aplicación en la misma sesión? {#can-multiple-in-app-messages-display-in-the-same-session}
 
-Sí, pero solo se puede mostrar un mensaje dentro de la aplicación por cada ocurrencia de un [evento desencadenante]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger). Si varias campañas de mensajes dentro de la aplicación comparten el mismo desencadenante (por ejemplo, inicio de sesión), solo se muestra el mensaje de mayor prioridad cada vez que ocurre ese desencadenante. Para los desencadenantes de inicio de sesión, esto significa que solo se puede mostrar un mensaje por sesión, y la siguiente oportunidad para mostrar otro mensaje elegible es la siguiente sesión.
+Sí, pero solo se puede mostrar un mensaje dentro de la aplicación por cada ocurrencia de un [evento desencadenante]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger). Si varias campañas de mensajes dentro de la aplicación comparten el mismo desencadenante (por ejemplo, inicio de sesión), solo se muestra el mensaje de mayor prioridad cada vez que ocurre ese desencadenante. Para los desencadenantes de inicio de sesión, esto significa que solo se puede mostrar un mensaje por sesión, y la siguiente oportunidad para mostrar otro mensaje elegible es la siguiente sesión.
 
 Cuando varios mensajes comparten el mismo nivel de prioridad, se muestra primero el mensaje creado más recientemente. Para los desencadenantes de inicio de sesión, el siguiente mensaje más reciente se muestra en una sesión posterior; para otros tipos de desencadenantes, el siguiente mensaje más reciente se muestra la próxima vez que ocurra ese evento desencadenante, lo cual puede ser dentro de la misma sesión o en una sesión posterior.
 
-Para controlar el orden de visualización dentro de un grupo de prioridad, ve a la configuración de entrega de cualquiera de las campañas y selecciona **Set Exact Priority**, luego arrastra y suelta las campañas en el orden deseado. Para más detalles, consulta [Elegir una prioridad]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
+Para controlar el orden de visualización dentro de un grupo de prioridad, ve a la configuración de entrega de cualquiera de las campañas y selecciona **Set Exact Priority**, luego arrastra y suelta las campañas en el orden deseado. Para más detalles, consulta [Elegir una prioridad]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
 
 ## ¿Cómo calcula Braze la expiración de un mensaje dentro de la aplicación configurada como "después de 1 día(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -149,7 +149,7 @@ Si tu HTML hace referencia a datos REST devueltos por el contenido conectado, es
 
 Los mensajes dentro de la aplicación estándar se muestran tan pronto como la carga útil almacenada en caché está lista después del evento desencadenante. En Android e iOS, las imágenes grandes u otros activos alojados en CDN a los que hace referencia el mensaje pueden añadir un breve retraso mientras esos recursos terminan de descargarse antes de que aparezca el mensaje dentro de la aplicación.
 
-Los [mensajes dentro de la aplicación con plantilla](#what-are-templated-in-app-messages) y las campañas con **Re-evaluate campaign eligibility before displaying** seleccionado requieren una solicitud de red adicional después del desencadenante antes de que aparezca el mensaje. Esto puede añadir un breve retraso (normalmente menos de 100 ms en una conexión estable). Para más información, consulta [Elegir usuarios objetivo]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target).
+Los [mensajes dentro de la aplicación con plantilla](#what-are-templated-in-app-messages) y las campañas con **Re-evaluate campaign eligibility before displaying** seleccionado requieren una solicitud de red adicional después del desencadenante antes de que aparezca el mensaje. Esto puede añadir un breve retraso (normalmente menos de 100 ms en una conexión estable). Para más información, consulta [Elegir usuarios objetivo]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
 
 ### ¿Por qué mi mensaje dentro de la aplicación se ve diferente a la vista previa del panel? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 
@@ -163,7 +163,7 @@ Usa [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_
 
 ### ¿Por qué un mensaje dentro de la aplicación de varias páginas usa el mismo fondo en todas las páginas? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
 
-Cuando se habilita **Imagen de fondo** en una página de un mensaje dentro de la aplicación de varias páginas, ese fondo se aplica a todas las páginas del mensaje. Para usar fondos diferentes por página, usa un bloque HTML personalizado con JavaScript para intercambiar imágenes entre páginas.
+Cuando se habilita **Background Image** en una página de un mensaje dentro de la aplicación de varias páginas, ese fondo se aplica a todas las páginas del mensaje. Para usar fondos diferentes por página, usa un bloque HTML personalizado con JavaScript para intercambiar imágenes entre páginas.
 
 ### ¿Cómo pruebo los mensajes dentro de la aplicación en web? {#how-do-i-test-web-in-app-messages}
 
@@ -183,9 +183,9 @@ El [editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_me
 
 Ten en cuenta lo siguiente:
 
-- **Vínculos y vínculos profundos:** Cada acción de clic tiene un campo de URL de forma predeterminada. Usa Liquid en la URL para variar los vínculos según el dispositivo, el tipo de aplicación o los atributos del usuario. En el **Contenedor del mensaje**, también puedes activar el comportamiento de clic específico por plataforma para establecer vínculos diferentes por plataforma.
+- **Vínculos y vínculos profundos:** Cada acción de clic tiene un campo de URL de forma predeterminada. Usa Liquid en la URL para variar los vínculos según el dispositivo, el tipo de aplicación o los atributos del usuario. En el **contenedor del mensaje**, también puedes activar el comportamiento de clic específico por plataforma para establecer vínculos diferentes por plataforma.
 - **Opacidad y fondos:** La opacidad en el contenedor del mensaje afecta a todo el fondo del mensaje. Los bloques individuales pueden establecer sus propios colores de fondo. Para un control más preciso, añade CSS personalizado en un bloque de código personalizado.
-- **Ancho del mensaje:** El ancho máximo del **Contenedor del mensaje** no se puede establecer por debajo de 325 px en el editor, lo que mantiene el contenido legible en pantallas más pequeñas. Usa CSS personalizado si necesitas un diseño más estrecho.
+- **Ancho del mensaje:** El ancho máximo del **contenedor del mensaje** no se puede establecer por debajo de 325 px en el editor, lo que mantiene el contenido legible en pantallas más pequeñas. Usa CSS personalizado si necesitas un diseño más estrecho.
 - **Fondos específicos por plataforma:** Un solo mensaje usa la misma imagen de fondo y colores en web y móvil. No puedes establecer fondos diferentes por plataforma en el editor.
 - **Mensajes de varias páginas:** Las imágenes de fondo y las acciones de clic a nivel de mensaje se aplican a todas las páginas en un mensaje de varias páginas. Para usar imágenes completas diferentes en cada página, añade botones que enlacen a la página siguiente.
 - **Estilos a nivel de mensaje:** Los estilos a nivel de mensaje se aplican a todo el mensaje.

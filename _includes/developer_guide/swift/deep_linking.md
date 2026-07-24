@@ -58,10 +58,37 @@ For more information, refer to [Apple's documentation](https://developer.apple.c
 
 ### Step 3: Implement a handler
 
-After activating your app, iOS will call the method [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc). The important argument is the [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL) object.
+Apps built with Xcode 27 and later are required to adopt the [`UIScene` life cycle](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle), so iOS delivers custom scheme URLs to your `SceneDelegate` through [`scene:openURLContexts:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:openurlcontexts:)) rather than to your `AppDelegate`. The important argument is the [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL) object.
 
 {% tabs %}
 {% tab swift %}
+
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
+  let path = url.path
+  let query = url.query
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% tab OBJECTIVE-C %}
+
+```objc
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
+  NSString *path  = [url path];
+  NSString *query = [url query];
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
+If your app has not yet adopted the `UIScene` life cycle, iOS instead calls [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc) on your `AppDelegate`:
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -71,21 +98,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
   return true
 }
 ```
-
-{% endtab %}
-{% tab OBJECTIVE-C %}
-
-```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-  NSString *path  = [url path];
-  NSString *query = [url query];
-  // Insert your code here to take some action based upon the path and query.
-  return YES;
-}
-```
-
-{% endtab %}
-{% endtabs %}
+{% endalert %}
 
 ## App Transport Security (ATS)
 
@@ -108,7 +121,7 @@ Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secur
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
-ATS compliance is enforced for links opened within the mobile app (our default handling of clicked links) and does not apply to sites opened externally via a web browser.
+ATS compliance is enforced for links opened within the mobile app (our default handling of clicked links) and does not apply to sites opened externally through a web browser.
 
 ### Working with ATS
 
@@ -162,16 +175,16 @@ You can turn off ATS entirely. Note that this is not recommended practice, due t
 
 The SDK percent-encodes links to create valid `URL`s. All link characters that are not allowed in a properly formed URL, such as Unicode characters, will be percent escaped.
 
-To decode an encoded link, use the `String` property [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). You must also return `true` in the `BrazeDelegate.braze(_:shouldOpenURL:)`. A call to action is required to trigger the handling of the URL by your app. For example:
+To decode an encoded link, use the `String` property [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). You must also return `true` in the `BrazeDelegate.braze(_:shouldOpenURL:)`. A call to action is required to trigger the handling of the URL by your app. For example, in your [`scene:openURLContexts:`](#step-3-implement-a-handler) handler from Step 3:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    guard let url = URLContexts.first?.url else { return }
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
-    return true
   }
 ```
 
@@ -179,10 +192,10 @@ To decode an encoded link, use the `String` property [`removingPercentEncoding`]
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = [url.absoluteString stringByRemovingPercentEncoding];
   // Handle urlString
-  return YES;
 }
 ```
 
@@ -196,18 +209,17 @@ You can take advantage of `UIApplicationOpenSettingsURLString` to deep link user
 To take users from your app into the iOS settings:
 1. First, make sure your application is set up for either [scheme-based deep links](#swift_register-a-scheme) or [universal links](#swift_universal-links).
 2. Decide on a URI for deep linking to the **Settings** page (for example, `myapp://settings` or `https://www.braze.com/settings`).
-3. If you are using custom scheme-based deep links, add the following code to your `application:openURL:options:` method:
+3. If you are using custom scheme-based deep links, add the following code to your `scene:openURLContexts:` handler:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-  let path = url.path
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let path = URLContexts.first?.url.path else { return }
   if (path == "settings") {
     UIApplication.shared.openURL(URL(string:UIApplication.openSettingsURLString)!)
   }
-  return true
 }
 ```
 
@@ -215,15 +227,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-  NSString *path  = [url path];
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSString *path  = [URLContexts.allObjects.firstObject.URL path];
   if ([path isEqualToString:@"settings"]) {
     NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     [[UIApplication sharedApplication] openURL:settingsURL];
   }
-  return YES;
 }
 ```
 
@@ -236,7 +245,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 The `Braze.WebViewController` class displays web URLs opened by the SDK, typically when "Open Web URL Inside App" is selected for a web deep link.
 
-You can customize the `Braze.WebViewController` via the [`BrazeDelegate.braze(_:willPresentModalWithContext:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:willpresentmodalwithcontext:)-12sqy/) delegate method.
+You can customize the `Braze.WebViewController` through the [`BrazeDelegate.braze(_:willPresentModalWithContext:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:willpresentmodalwithcontext:)-12sqy/) delegate method.
 
 ### Linking handling customization
 
@@ -248,7 +257,7 @@ When a push notification or in-app message uses **Open web URL inside mobile app
 
 Braze supports universal links in push notifications, in-app messages, and Content Cards. To enable universal link support, [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) must be set to `true`.
 
-When enabled, Braze will forward universal links to your app's `AppDelegate` via the [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application) method. 
+When enabled, Braze will forward universal links to your `SceneDelegate` through the [`scene:continue:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:continue:)) method for apps that have adopted the `UIScene` life cycle (required for apps built with Xcode 27 and later), or to your `AppDelegate` through [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application) otherwise.
 
 Your application also needs to be set up to handle universal links. Refer to [Apple's documentation](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app) to ensure your application is configured correctly for universal links.
 

@@ -43,7 +43,7 @@ La siguiente tabla enumera los tipos de datos de catálogo compatibles y cómo s
 Para crear un catálogo, ve a **Configuración de datos** > **Catálogos**, selecciona **Crear nuevo catálogo** y elige una de las siguientes opciones:
 
 {% tabs local %}
-{% tab Upload CSV %}
+{% tab Cargar CSV %}
 ### Paso 1: Revisa tu archivo CSV {#step-1-review-your-csv-file}
 
 Antes de cargar tu archivo CSV, asegúrate de que cumple los siguientes requisitos:
@@ -52,7 +52,7 @@ Antes de cargar tu archivo CSV, asegúrate de que cumple los siguientes requisit
 |-----------------|---------|
 | Encabezados | La primera columna del archivo CSV debe llamarse `id`, y cada fila debe tener un valor `id` único. |
 | Columnas | Un archivo CSV puede tener un máximo de 1000 campos (columnas) y cada nombre de columna puede tener hasta 250 caracteres. |
-| Tamaño del archivo | En los planes gratuitos, el tamaño total de todos los archivos CSV de una empresa está limitado a 100 MB. Para los planes Pro, el tamaño máximo de un solo archivo CSV es de 2 GB. |
+| Tamaño del archivo | En los planes gratuitos, el tamaño total de todos los archivos CSV de una empresa está limitado a 500 MB. Para los planes Pro, el tamaño máximo de un solo archivo CSV es de 2 GB. |
 | Valores de campo | Cada celda (valor de campo) puede contener hasta 5000 caracteres. |
 | Caracteres válidos | La columna `id` y todos los valores del encabezado solo pueden contener letras, números, guiones y guiones bajos. |
 | Tipos de datos | Los tipos de datos compatibles para las cargas CSV incluyen cadenas, números, valores booleanos, horas y geolocalización. Para obtener la lista completa de tipos de datos, incluidos los que solo están disponibles a través de la API y CDI, consulta [Tipos de datos compatibles](#supported-data-types). |
@@ -145,6 +145,10 @@ A continuación, daremos a este catálogo el nombre "games_catalog" y selecciona
 Ten en cuenta que no podrás editar este nombre una vez creado el catálogo. Puedes eliminar un catálogo y volver a cargar una versión actualizada utilizando el mismo nombre de catálogo.
 
 Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en una campaña]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
+
+{% alert important %}
+Los archivos CSV cargados previamente están disponibles para su descarga en la página **Catálogos** durante 30 días a partir de la fecha de carga. Después de 30 días, el archivo se elimina permanentemente y ya no se puede acceder a él.
+{% endalert %}
 {% endtab %}
 
 {% tab Crear en el navegador %}
@@ -239,7 +243,7 @@ Por ejemplo, si quieres editar un elemento individual del catálogo, puedes util
 
 ## Almacenamiento de catálogos {#tiers}
 
-La versión gratuita de catálogos admite tamaños de archivo CSV de hasta 100 MB para todos los archivos CSV combinados de tu empresa, mientras que la versión Catalogs Pro admite tamaños de archivo CSV de hasta 2 GB para un único archivo CSV.
+La versión gratuita de catálogos admite tamaños de archivo CSV de hasta 500 MB para todos los archivos CSV combinados de tu empresa, mientras que la versión Catalogs Pro admite tamaños de archivo CSV de hasta 2 GB para un único archivo CSV.
 
 {% alert important %}
 El derecho a paquete que se muestra en el panel de Braze se redondea a la unidad más próxima por motivos visuales; sin embargo, sigues teniendo derecho a la totalidad del derecho adquirido. Para solicitar una actualización del almacenamiento de catálogos, ponte en contacto con tu director de cuentas de Braze.
@@ -247,11 +251,11 @@ El derecho a paquete que se muestra en el panel de Braze se redondea a la unidad
 
 ### Versión gratuita {#free-version}
 
-El tamaño de almacenamiento para la versión gratuita de los catálogos es de hasta 100&nbsp;MB. Puedes tener un número ilimitado de elementos, siempre que no superen los 100&nbsp;MB.
+El tamaño de almacenamiento para la versión gratuita de los catálogos es de hasta 500&nbsp;MB. Puedes tener un número ilimitado de elementos, siempre que no superen los 500&nbsp;MB.
 
 #### Catalogs Pro {#catalogs-pro}
 
-A nivel de empresa, el almacenamiento máximo para Catalogs Pro se basa en el tamaño de los datos del catálogo. Las opciones de tamaño de almacenamiento son: 5&nbsp;GB, 10&nbsp;GB o 15&nbsp;GB. Ten en cuenta que el almacenamiento de la versión gratuita (100&nbsp;MB) está incluido en cada uno de estos planes.
+A nivel de empresa, el almacenamiento máximo para Catalogs Pro se basa en el tamaño de los datos del catálogo. Las opciones de tamaño de almacenamiento son: 5&nbsp;GB, 10&nbsp;GB o 15&nbsp;GB. Ten en cuenta que el almacenamiento de la versión gratuita (500&nbsp;MB) está incluido en cada uno de estos planes.
 
 ## Especificaciones {#specifications}
 

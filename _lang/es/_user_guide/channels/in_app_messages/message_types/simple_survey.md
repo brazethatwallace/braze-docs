@@ -115,7 +115,7 @@ Las opciones de cuestionario eliminadas seguirán apareciendo en los análisis, 
 
 Puedes encontrar las métricas de rendimiento de tu cuestionario expandiendo el menú desplegable **Results** para una variante específica en la sección **In-App Message Performance** de los análisis. Aquí tienes un desglose de lo que verás:
 
-- **Interacción con el cuestionario** muestra cómo los usuarios interactuaron con el cuestionario en general, incluyendo envíos totales, descartes y clics dentro del cuerpo del mensaje.
+- **Participación en el cuestionario** muestra cómo los usuarios interactuaron con el cuestionario en general, incluyendo envíos totales, descartes y clics dentro del cuerpo del mensaje.
 - **Resultados del cuestionario** muestran un desglose de cuántos usuarios seleccionaron cada opción de respuesta, junto con el porcentaje del total de envíos que representa cada opción.
 - **Métricas de la página de confirmación** (si está habilitada) incluyen cuántos usuarios vieron la pantalla de confirmación, hicieron clic en su botón o la descartaron sin interactuar.
 
@@ -125,9 +125,9 @@ Consulta [Informes de mensajes dentro de la aplicación]({{site.baseurl}}/user_g
 
 ### Currents {#currents}
 
-Las opciones seleccionadas fluirán automáticamente a Currents, bajo el campo `button_id` de [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe). Cada opción se enviará con su identificador único universal (UUID).
+Las opciones seleccionadas fluirán automáticamente a Currents, bajo el campo `button_id` de [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events). Cada opción se enviará con su identificador único universal (UUID).
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 {% tabs %}
 {% tab Satisfacción del usuario %}

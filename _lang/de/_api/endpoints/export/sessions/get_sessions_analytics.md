@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Exportieren von A
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `sessions.data_series`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `sessions.data_series`.
 
 ## Rate-Limit
 

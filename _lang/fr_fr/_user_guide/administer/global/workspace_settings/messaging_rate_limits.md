@@ -74,6 +74,10 @@ Braze essaie de répartir uniformément la distribution des messages tout au lon
 
 Notez que vous pouvez toujours définir des limites de débit individuelles dans vos Campaigns et Canvas. Celles-ci sont appliquées indépendamment des limites de débit d'envoi de messages de l'espace de travail.
 
+### Capacité d'envoi des webhooks {#webhook-sending-capacity}
+
+Pour les Campaigns de webhooks sans limite de débit de vitesse de distribution, Braze n'applique pas de limite de débit par défaut au niveau du canal, de sorte que les envois peuvent s'effectuer à haut débit. Le volume réel dépend de plusieurs facteurs, notamment la latence du serveur, l'utilisation du contenu connecté et la vitesse d'envoi du système externe recevant les webhooks. Si votre Campaign de webhooks ne possède pas de limite de débit, préparez vos serveurs à un trafic à fort volume. Sinon, appliquez une limite de débit pour contrôler le flux de messages.
+
 ### Messages non inclus dans les limites de débit d'envoi de messages de l'espace de travail {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
 - Les messages envoyés via les [Campaigns d'e-mail transactionnel]({{site.baseurl}}/user_guide/channels/transactional_email) ne sont pas inclus dans les limites de débit d'envoi de messages de l'espace de travail. Cela signifie qu'ils sont soumis à leur propre limite de débit et ne sont pas comptabilisés dans les limites de débit d'envoi de messages de l'espace de travail définies.

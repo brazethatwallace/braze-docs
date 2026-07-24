@@ -22,7 +22,7 @@ Die Segmente werden in Gruppen von 100 zurückgegeben, sortiert nach dem Zeitpun
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `segments.list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `segments.list`.
 
 ## Rate-Limit
 

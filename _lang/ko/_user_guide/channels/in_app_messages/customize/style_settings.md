@@ -114,6 +114,31 @@ Modal 및 전체화면 인앱 메시지의 경우, 메시지 상단에 <i class=
 특정 블록을 선택하는 데 어려움이 있는 경우, 블록의 인라인 도구 모음에서 위쪽 화살표를 사용하여 각 상위 블록으로 포커스를 이동할 수 있습니다.
 {% endalert %}
 
+#### Liquid로 배경 이미지 동적 교체 {#swap-background-images-with-liquid}
+
+사용자 데이터(커스텀 속성이나 사용자 속성정보 등)를 기반으로 배경 이미지를 동적으로 교체하려면, Liquid {% raw %}`{% capture %}`{% endraw %} 블록을 사용하여 HTML과 CSS가 로드되기 전에 올바른 이미지 URL을 변수에 할당합니다.
+
+메시지 시작 부분에 Liquid 로직을 배치한 다음, 배경 이미지 URL 필드에서 캡처된 변수를 참조합니다. 이렇게 하면 각 사용자의 데이터를 기반으로 올바른 이미지가 선택됩니다.
+
+이미지 URL을 캡처한 후, {% raw %}`{{ image_url | strip }}`{% endraw %}을 사용하여 불필요한 공백이 제거된 URL을 출력합니다. 그런 다음 이 Liquid를 배경 이미지 URL 필드에 붙여넣어 사용자마다 다른 이미지를 동적으로 표시할 수 있습니다.
+
+##### 예시 {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
+
 ### Liquid 추가 {#adding-liquid}
 
 ![Liquid 개인화를 추가하는 아이콘.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}

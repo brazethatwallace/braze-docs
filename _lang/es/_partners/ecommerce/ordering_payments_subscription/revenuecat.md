@@ -33,7 +33,7 @@ Como mínimo, necesitarás habilitar la integración desde el panel de RevenueCa
 
 ## Ejemplos {#use-cases}
 
-- Activa una Campaign de incorporación que destaque tus funciones premium cuando un cliente inicie una prueba gratuita.
+- Activa una campaña de incorporación que destaque tus funciones premium cuando un cliente inicie una prueba gratuita.
 - Envía un recordatorio para actualizar la información de facturación cuando se reciba un evento de "Problema de facturación".
 - Envía un cuestionario de opinión después de que un cliente cancele una prueba gratuita.
 
@@ -142,4 +142,4 @@ Después de configurar los ajustes de Braze en RevenueCat, los eventos comenzar�
 
 ### Añadir una clave de API de sandbox para pruebas {#add-a-sandbox-api-key-for-testing}
 
-Si solo proporcionas una clave de API REST de Braze a RevenueCat, solo se enviarán los eventos de producción. Si también quieres enviar eventos de prueba de sandbox, [crea otra clave de API REST de Braze]({{site.baseurl}}/api/basics#app-group-rest-api-keys) y añádela a tu configuración de Braze en RevenueCat.
+Si solo proporcionas una clave de API REST de Braze a RevenueCat, solo se enviarán los eventos de producción. Si también quieres enviar eventos de prueba de sandbox, [crea otra clave de API REST de Braze]({{site.baseurl}}/api/basics#creating-rest-api-keys) y añádela a tu configuración de Braze en RevenueCat.

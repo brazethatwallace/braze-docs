@@ -1,0 +1,7 @@
+- Transformations-Code wird in der Programmiersprache JavaScript akzeptiert. Jede standardmäßige JavaScript-Kontrollflussstruktur, wie z. B. if/else-Logik, wird unterstützt.
+- Transformations-Code greift über die Variable `payload` auf den Body der Webhook-Anfrage zu. Diese Variable ist ein Objekt, das durch das Parsen des JSON-Anfrage-Bodys befüllt wird.
+- Jedes Feature, das in unserem `/users/track`-Endpunkt unterstützt wird, wird ebenfalls unterstützt, einschließlich:
+  - Nutzer:innen-Attribut-Objekte, Event-Objekte und Kauf-Objekte
+  - Verschachtelte Attribute und verschachtelte angepasste Event-Eigenschaften
+  - Abo-Gruppen-Aktualisierungen
+  - E-Mail-Adresse als Bezeichner

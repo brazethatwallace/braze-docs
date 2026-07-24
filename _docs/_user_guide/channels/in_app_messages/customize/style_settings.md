@@ -114,6 +114,31 @@ You can add an image to the background of your message from the **Message styles
 If you're having trouble selecting a certain block, you can use the up arrow in the block's inline toolbar to move focus up to each parent block.
 {% endalert %}
 
+#### Swap background images with Liquid
+
+To dynamically swap background images based on user data (such as custom attributes or user properties), use Liquid {% raw %}`{% capture %}`{% endraw %} blocks to assign the correct image URL to a variable before the HTML and CSS load.
+
+Place your Liquid logic at the beginning of your message, then reference the captured variable in the background image URL field. This selects the correct image based on each user's data.
+
+After capturing the image URL, use {% raw %}`{{ image_url | strip }}`{% endraw %} to output the URL with any extra whitespace removed. You can then paste this Liquid into the background image URL field to dynamically display different images for different users.
+
+##### Example
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
+
 ### Adding Liquid
 
 ![Icon to add Liquid personalization.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}

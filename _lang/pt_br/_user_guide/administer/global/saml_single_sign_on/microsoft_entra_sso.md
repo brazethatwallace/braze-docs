@@ -34,7 +34,7 @@ Durante a configuração, será solicitado que você forneça uma URL do Asserti
 1. No centro de administração do Microsoft Entra, acesse a página de integração do aplicativo da Braze e selecione **Single sign-on**.
 2. Na página **Select a single sign-on method**, selecione **SAML** como seu método.
 3. Na página **Set up Single Sign-On with SAML**, selecione o ícone de edição para **Basic SAML Configuration**.
-4. Configure o aplicativo no modo iniciado pelo IdP inserindo uma **Reply URL** que combine sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints#braze-instances) com o seguinte padrão: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
+4. Configure o aplicativo no modo iniciado pelo IdP inserindo uma **Reply URL** que combine sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) com o seguinte padrão: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
 5. Configure o RelayState inserindo sua chave de API gerada para o Relay State no campo **Relay State**.
 
 {% alert important %}

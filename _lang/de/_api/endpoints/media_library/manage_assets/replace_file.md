@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt `PUT /media_library
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `media_library.replace`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `media_library.replace`.
 
 ## Rate-Limits {#rate-limit}
 

@@ -128,7 +128,7 @@ Facebook 계정을 선택한 다음 **Continue**를 클릭합니다.
 
 ## 사용자 ID 관리 {#user-identity-management}
 
-이 통합을 통해 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number)를 사용하여 이메일로 Facebook 리드를 연결할 수 있습니다.
+이 통합을 통해 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number)를 사용하여 이메일로 Facebook 리드를 연결할 수 있습니다.
 
 * 이메일이 기존 고객 프로필과 일치하면 Braze는 Facebook 리드 데이터로 프로필을 업데이트합니다.
 * 동일한 이메일을 가진 고객 프로필이 여러 개 있는 경우, Braze는 업데이트를 위해 외부 ID가 있는 가장 최근에 업데이트된 프로필을 우선시합니다.
@@ -162,7 +162,7 @@ Zapier를 사용하지 않고 사용할 계획이 없는 경우, Facebook에서 
 
 Facebook에서 리드를 검색하려면 <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">웹훅</a> 을 사용하세요. Facebook에서 웹훅을 시작하려면 <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">웹훅 설명서</a> 를 참조하세요.
 
-Facebook에서 웹훅 URL을 설정한 후, 팀과 협력하여 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)로 데이터를 전달하는 최적의 경로를 결정하세요. Zapier 접근 방식과 유사하게, `users/track` 엔드포인트를 통해 [이메일로 요청]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number)하는 것을 권장합니다.
+Facebook에서 웹훅 URL을 설정한 후, 팀과 협력하여 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)로 데이터를 전달하는 최적의 경로를 결정하세요. Zapier 접근 방식과 유사하게, `users/track` 엔드포인트를 통해 [이메일로 요청]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number)하는 것을 권장합니다.
 {% enddetails %}
 
 {% alert tip %}

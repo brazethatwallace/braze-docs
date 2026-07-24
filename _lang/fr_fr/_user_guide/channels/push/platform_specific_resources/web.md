@@ -36,21 +36,21 @@ Les notifications push Web délivrent des mises à jour urgentes et exploitables
 - Ramener les utilisateurs sur votre site Web grâce à des boutons d'appel à l'action clairs
 - Personnaliser vos notifications push avec des informations sur les produits et les clients pour rendre votre message pertinent
 
-Les notifications push Web fonctionnent de la même manière que les notifications push d'application sur votre téléphone. Pour plus d'informations sur la composition d'une notification push Web, consultez [Créer une notification push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message).
+Les notifications push Web fonctionnent de la même manière que les notifications push d'application sur votre téléphone. Pour plus d'informations sur la composition d'une notification push Web, consultez [Créer une notification push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
 ![Exemple de notification push Web avec le même message affiché sur un ordinateur portable et un téléphone.]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 
-## Cas d'utilisation potentiels {#potential-use-cases}
+## Cas d'usage potentiels {#potential-use-cases}
 
-Voici quelques exemples de cas d'utilisation courants des notifications push Web.
+Voici quelques exemples de cas d'usage courants des notifications push Web.
 
-| Cas d'utilisation | Description |
+| Cas d'usage | Description |
 | --- | --- |
 | Essai gratuit | Encouragez les nouveaux visiteurs de votre site Web à s'inscrire pour des essais gratuits. En donnant aux utilisateurs la possibilité de découvrir ce qui vous rend unique, vous augmentez les chances qu'ils deviennent des clients payants. |
 | Téléchargement d'application | Attirez les utilisateurs Web vers votre application mobile pour les aider à tirer encore plus de valeur de vos produits. Envisagez d'exploiter la personnalisation pour mettre en avant les avantages de l'application en fonction de leurs habitudes d'engagement actuelles. |
-| Réductions et promotions | Augmentez la sensibilisation des clients aux événements et promotions à durée limitée. Envoyez des messages sur plusieurs canaux, y compris les notifications push Web, pour accroître la visibilité des promotions de votre marque. |
+| Réductions et promotions | Augmentez la visibilité des événements et promotions à durée limitée auprès de vos clients. Envoyez des messages sur plusieurs canaux, y compris les notifications push Web, pour accroître la visibilité des promotions de votre marque. |
 | Abandon de panier | Envoyez des rappels automatisés aux utilisateurs qui n'ont pas terminé leurs transactions pour les ramener vers le processus de paiement. <br><br>Une étude menée par Braze a révélé que les notifications push Web sont 53 % plus efficaces que l'e-mail et 23 % plus impactantes que les notifications push mobiles pour inciter les destinataires à revenir et finaliser un achat. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation potentiels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'usage potentiels" }
 
 ## Navigateurs pris en charge {#supported-browsers}
 
@@ -71,7 +71,7 @@ Pour plus d'informations sur les standards du protocole push et la prise en char
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
 
-## Endpoints push Web 410 (Gone) et invalides {#410-gone-and-invalid-web-push-endpoints}
+## Endpoints push Web 410 (Gone) et invalides {#410-gone-and-invalid-web-push-endpoints} {#410-gone-and-invalid-web-push-endpoints}
 
 Les navigateurs et les services push peuvent renvoyer une erreur **410 Gone** (ou des erreurs similaires de type « endpoint non valide ») lorsqu'un abonnement push Web n'est plus accepté. Les causes courantes incluent :
 

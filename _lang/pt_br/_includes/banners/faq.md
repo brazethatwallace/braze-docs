@@ -24,11 +24,25 @@ Se um usuário se qualificar para várias campanhas de Banner que compartilham o
 
 Os Banners são diferentes dos Content Cards, o que significa que você não pode usar Banners e Content Cards no mesmo feed. Para substituir feeds de Content Cards existentes por Banners, você precisará [criar posicionamentos no seu app ou site]({{site.baseurl}}/developer_guide/banners/placements).
 
+## Como os Banners são diferentes das mensagens no app? {#how-are-banners-different-from-in-app-messages}
+
+Os Banners e as [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages) alcançam os usuários dentro do seu app ou site, mas usam modelos de entrega diferentes. Se você estiver comparando Banners com uma configuração existente de mensagens no app, espere diferenças em disparadores, tempo de atualização e testes — não uma substituição direta.
+
+| Tópico | Banners | Mensagens no app |
+| --- | --- | --- |
+| Onde as mensagens aparecem | Inline nos [posicionamentos]({{site.baseurl}}/developer_guide/banners/placements) que você define no seu app ou site | Sobreposições em tela inteira, modal ou slide-up gerenciadas pelo SDK |
+| Quando o conteúdo é atualizado | Quando seu app ou site chama uma atualização de Banner (por exemplo, no início da sessão ou durante a sessão) | As mensagens com modelo avaliam o Liquid quando a mensagem no app é disparada (por exemplo, em um evento personalizado ou início de sessão), após a carga útil ser armazenada em cache no dispositivo |
+| Disparadores baseados em ação | Sem [entrega baseada em ação]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery); use segmentos, prioridade e tempo de atualização | Suporta entrega baseada em ação e disparada por API |
+| Testes | Visualize um usuário e confirme se a atualização do posicionamento no seu app ou site exibe o Banner esperado | Use **Test Send** ou fluxos de prévia no app para exibição baseada em disparadores |
+| Relatórios | Visualizações e cliques de Banner seguem a análise de dados de Banner | Impressões e cliques de mensagens no app seguem a análise de dados de mensagens no app |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Como os Banners são diferentes das mensagens no app?" }
+
+
 ## Os Banners podem incluir vídeo? {#can-banners-include-video}
 
-O criador padrão de Banners suporta imagens, texto e botões. Para incluir um vídeo em um Banner, você pode usar um bloco de **Custom Code** no criador, ou construir o Banner inteiro com o editor de HTML e incorporar um player de vídeo diretamente no seu HTML.
+O criador padrão de Banners suporta imagens, texto e botões. Para incluir um vídeo em um Banner, você pode usar um bloco de **Custom Code** no criador ou construir o Banner inteiro com o editor de HTML e incorporar um player de vídeo diretamente no seu HTML.
 
-## Posso disparar um banner com base nas ações do usuário? {#can-i-trigger-a-banner-based-on-user-actions}
+## Posso disparar um Banner com base nas ações do usuário? {#can-i-trigger-a-banner-based-on-user-actions}
 
 Embora os Banners não suportem [entrega baseada em ação]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery), você pode direcionar usuários com base em suas ações passadas usando segmentação e prioridade.
 
@@ -49,9 +63,9 @@ Quando um usuário dispensa um Banner, ele se torna inelegível para essa campan
 
 Por exemplo, se você exibir um Banner promocional até que um usuário faça uma compra, registrar um evento como `purchase_completed` pode remover esse usuário do segmento direcionado, ocultando efetivamente o Banner nas sessões seguintes.
 
-## Posso exportar a análise de dados de campanhas de Banners usando a API da Braze? {#can-i-export-banners-campaign-analytics-using-the-braze-api}
+## Posso exportar a análise de dados de campanhas de Banner usando a API da Braze? {#can-i-export-banners-campaign-analytics-using-the-braze-api}
 
-Sim. Você pode usar o [endpoint `/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) para obter dados sobre quantas campanhas de Banners foram visualizadas, clicadas ou convertidas.
+Sim. Você pode usar o [endpoint `/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) para obter dados sobre quantas campanhas de Banner foram visualizadas, clicadas ou convertidas.
 
 ## Quando os usuários são segmentados? {#when-are-users-segmented}
 

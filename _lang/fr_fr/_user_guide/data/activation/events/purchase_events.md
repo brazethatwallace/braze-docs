@@ -113,7 +113,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 En plus du suivi des indicateurs d'achat pour la segmentation, Braze enregistre également le nombre d'achats pour chaque produit et le chiffre d'affaires généré au fil du temps. Cela peut être utile pour identifier les produits les plus populaires ou mesurer l'impact d'une campagne promotionnelle sur les ventes.
 
-Vous pouvez trouver ces données sur la page [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data).
+Vous pouvez trouver ces données sur la page [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 
 ### Calculs du chiffre d'affaires {#revenue-calculations}
 
@@ -167,7 +167,7 @@ $$\text{Valeur moyenne d'achat} = \frac{\text{Dépenses totales en dollars}}{\te
 
 Il existe deux endroits principaux dans Braze où vous pouvez consulter la LTV de vos utilisateurs :
 
-- Pour des indicateurs globaux comme le *chiffre d'affaires sur la durée de vie* et la *valeur vie par utilisateur* pour chaque application et site, consultez votre [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data).
+- Pour des indicateurs globaux comme le *chiffre d'affaires sur la durée de vie* et la *valeur vie par utilisateur* pour chaque application et site, consultez votre [Rapport sur les revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 - Pour comprendre le chiffre d'affaires sur la durée de vie d'un utilisateur spécifique, consultez son [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
 
 ##### Impact des remboursements sur le chiffre d'affaires sur la durée de vie {#impact-of-refunds-on-lifetime-revenue}
@@ -190,11 +190,11 @@ Avec les propriétés d'événement d'achat, vous pouvez définir des propriét�
 Les clés suivantes sont réservées et ne peuvent pas être utilisées comme noms de propriété d'événement d'achat : `time`, `product_id`, `quantity`, `event_name`, `price` et `currency`. L'utilisation d'une clé réservée dans l'objet `properties` renverra l'erreur « Invalid 'properties' field ».
 {% endalert %}
 
-Par exemple, si vous avez une application e-commerce et souhaitez envoyer un message à un utilisateur après un achat, vous pourriez améliorer votre audience cible et permettre une personnalisation accrue de la campagne en ajoutant une propriété d'événement d'achat `brand_name`.
+Par exemple, si vous avez une application e-commerce et souhaitez envoyer un message à un utilisateur après un achat, vous pourriez améliorer votre audience cible et permettre une personnalisation accrue de la Campaign en ajoutant une propriété d'événement d'achat `brand_name`.
 
 **Exemple de déclenchement basé sur les propriétés d'événement d'achat :**
 
-![Paramètres de livraison par événement pour envoyer une campagne aux utilisateurs qui achètent des écouteurs avec un nom de marque égal à HeadphoneMart]({% image_buster /assets/img/purchase2.png %}){: style="max-width:80%;margin-left:15px;"}
+![Paramètres de livraison par événement pour envoyer une Campaign aux utilisateurs qui achètent des écouteurs avec un nom de marque égal à HeadphoneMart]({% image_buster /assets/img/purchase2.png %}){: style="max-width:80%;margin-left:15px;"}
 
 Consultez l'[objet de propriétés d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-properties-object) pour en savoir plus.
 
@@ -221,7 +221,7 @@ Une fois approuvées, des propriétés supplémentaires peuvent être ajoutées 
 
 ### Enregistrer les achats au niveau de la commande {#log-purchases-at-the-order-level}
 
-Pour enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, utilisez le nom de la commande ou la catégorie de commande comme `product_id`. Consultez notre [spécification de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions) pour en savoir plus.
+Pour enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, utilisez le nom de la commande ou la catégorie de commande comme `product_id`. Consultez notre [spécification de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) pour en savoir plus.
 
 ### Conventions de nommage des identifiants de produit {#product-id-naming-conventions}
 

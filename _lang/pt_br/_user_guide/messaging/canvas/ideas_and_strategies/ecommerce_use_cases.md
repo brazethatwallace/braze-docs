@@ -43,14 +43,14 @@ O [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liq
 
 Para começar a personalizar suas mensagens usando Liquid tags, consulte os seguintes recursos:
 
-- Referência de [dados do Shopify]({{site.baseurl}}/shopify_features#shopify-data) com Liquid tags pré-definidas
+- Referência de <a href="/docs/partners/ecommerce/shopify/shopify_data_features#tracked-shopify-events">dados do Shopify</a> com Liquid tags pré-definidas
 - [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)
 
 ## Segmentação {#segmentation}
 
-Use os segmentos da Braze para criar segmentos de clientes direcionados com base em atributos e comportamentos específicos, e entregue mensagens e Campaigns personalizadas. Com esse recurso poderoso, você pode engajar seus clientes de forma eficaz, alcançando o público certo com a mensagem certa no momento certo.
+Use os Segments da Braze para criar segmentos de clientes direcionados com base em atributos e comportamentos específicos, e entregue mensagens e Campaigns personalizadas. Com esse recurso poderoso, você pode engajar seus clientes de forma eficaz, alcançando o público certo com a mensagem certa no momento certo.
 
-Para saber mais sobre como começar com segmentos, confira [Sobre os segmentos da Braze]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments).
+Para saber mais sobre como começar com segmentos, confira [Sobre os Segments da Braze]({{site.baseurl}}/user_guide/audience/segments).
 
 ### Eventos recomendados {#recommended-events}
 
@@ -67,15 +67,15 @@ Para ver uma lista de filtros de eCommerce e suas definições, consulte [Filtro
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation for eCommerce filters' %}
 
-## Propriedades de eventos aninhados {#nested-event-properties}
+## Propriedades de evento aninhadas {#nested-event-properties}
 
-Para segmentar por propriedades de eventos aninhados, você pode usar as [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#why-use-segment-extensions). Por exemplo, você pode usar extensões de segmento para encontrar quem comprou o produto "SKU-123" nos últimos 90 dias.
+Para segmentar por propriedades de evento aninhadas, você pode usar as [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#why-use-segment-extensions). Por exemplo, você pode usar extensões de segmento para encontrar quem comprou o produto "SKU-123" nos últimos 90 dias.
 
 ## Análise de dados {#analytics}
 
 ### Relatório de eventos personalizados {#custom-events-report}
 
-Você pode acompanhar o volume de eventos recomendados de eCommerce no [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics). Filtre por **Perform Custom Event** e especifique o [nome do evento recomendado de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events) para visualizar seu desempenho ao longo do tempo.
+Você pode acompanhar o volume de eventos recomendados de eCommerce no [relatório de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics). Filtre por **Perform Custom Event** e especifique o [nome do evento recomendado de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) para visualizar seu desempenho ao longo do tempo.
 
 ![Gráfico de eventos personalizados exibindo resultados para seis eventos selecionados.]({% image_buster /assets/img/ecommerce/custom_events_chart.png %})
 
@@ -91,6 +91,6 @@ Depois de lançar uma Campaign ou Canvas usando o evento de conversão "Places O
 
 Para obter insights sobre a receita atribuída à última Campaign ou Canvas com que um usuário interagiu antes de fazer um pedido, use o [dashboard de receita de eCommerce]({{site.baseurl}}/ecommerce_revenue_dashboard) e selecione uma janela de conversão.
 
-### Relatório de receitas {#revenue-report}
+### Relatório de receita {#revenue-report}
 
 Para analisar dados desses novos eventos, acesse o [Criador de dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) e visualize o [dashboard **eCommerce Revenue - Last Touch Attribution**]({{site.baseurl}}/ecommerce_revenue_dashboard).

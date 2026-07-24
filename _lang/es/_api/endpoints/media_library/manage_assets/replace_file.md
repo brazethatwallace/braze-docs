@@ -6,7 +6,7 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles del punto de conexión `PUT /media_library/replace_file`."
+description: "Este artículo describe los detalles del endpoint `PUT /media_library/replace_file`."
 ---
 
 {% api %}
@@ -15,11 +15,11 @@ description: "Este artículo describe los detalles del punto de conexión `PUT /
 /media_library/replace_file
 {% endapimethod %}
 
-> Utiliza este punto de conexión para reemplazar el archivo de un activo existente en la [Biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) conservando su ID de activo y su URL. Puedes proporcionar el archivo de reemplazo mediante una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`).
+> Utiliza este endpoint para reemplazar el archivo de un activo existente en la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) conservando su ID de activo y su URL. Puedes proporcionar el archivo de reemplazo mediante una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`).
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `media_library.replace`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `media_library.replace`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -27,7 +27,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Cuerpo de la solicitud {#request-body}
 
-Cuando incluyes `asset_url`, el punto de conexión descarga el archivo desde la URL. Cuando incluyes `asset_file`, el punto de conexión utiliza los datos binarios del cuerpo de la solicitud.
+Cuando incluyes `asset_url`, el endpoint descarga el archivo desde la URL. Cuando incluyes `asset_file`, el endpoint utiliza los datos binarios del cuerpo de la solicitud.
 
 Ejemplo de cuerpo de solicitud para `asset_url`:
 
@@ -69,7 +69,7 @@ El cuerpo de la solicitud incluye los siguientes parámetros:
 
 Esta sección incluye dos ejemplos de solicitudes `curl`, una para reemplazar un activo mediante una URL y otra mediante datos de archivo binario.
 
-Esta solicitud muestra un ejemplo de reemplazo de un activo en la Biblioteca de medios mediante un `asset_url`.
+Esta solicitud muestra un ejemplo de reemplazo de un activo en la biblioteca de medios mediante un `asset_url`.
 
 ```
 curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file' \
@@ -78,7 +78,7 @@ curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file
 --data '{"asset_id": "your-asset-id", "asset_url": "https://cdn.example.com/assets/cat.jpg"}'
 ```
 
-Esta solicitud muestra un ejemplo de reemplazo de un activo en la Biblioteca de medios mediante un `asset_file`.
+Esta solicitud muestra un ejemplo de reemplazo de un activo en la biblioteca de medios mediante un `asset_file`.
 
 ```
 curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file' \
@@ -136,7 +136,7 @@ Esta tabla enumera los posibles errores de procesamiento.
 
 ## Respuesta {#response}
 
-Hay cinco respuestas de código de estado para este punto de conexión: `200`, `400`, `404`, `429` y `500`.
+Hay cinco respuestas de código de estado para este endpoint: `200`, `400`, `404`, `429` y `500`.
 
 El siguiente JSON muestra la estructura esperada de la respuesta.
 

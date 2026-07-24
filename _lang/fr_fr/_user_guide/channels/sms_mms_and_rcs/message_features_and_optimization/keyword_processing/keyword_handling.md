@@ -36,7 +36,7 @@ En plus des mots-clés d'abonnement et de désabonnement par défaut, vous pouve
 
 Pour définir vos propres mots-clés, procédez comme suit :
 
-1. Dans le tableau de bord de Braze, accédez à **Audience** > **Gestion des groupes d'abonnement** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**.
+1. Dans le tableau de bord de Braze, accédez à **Audience** > **Subscription Group Management** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**.
 2. Sous **Global Keywords**, sélectionnez l'icône de crayon à côté de la catégorie de mots-clés à laquelle vous souhaitez ajouter un mot-clé. ![Mots-clés d'abonnement avec l'icône de crayon affichée.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. Dans l'onglet qui s'ouvre, ajoutez un mot-clé que vous souhaitez utiliser pour déclencher cette catégorie de mots-clés. Notez que les mots-clés ne sont pas sensibles à la casse et que les mots-clés universels comme `START`, `YES` et `UNSTOP` ne peuvent pas être modifiés. ![Modification des mots-clés pour la catégorie « Opt-In ». Les mots-clés ajoutés sont « START », « UNSTOP » et « YES ». Le champ du message de réponse indique « You have been unsubscribed to messages from this number. Reply HELP for help. Reply STOP to unsubscribe. Message and data rates may apply. »]({% image_buster /assets/img/sms/keyword_edit2.png %})
 
@@ -58,9 +58,9 @@ Vous souhaitez voir comment ces mots-clés peuvent être utilisés dans vos Camp
 
 Vous pouvez gérer vos propres réponses envoyées aux utilisateurs après qu'ils ont envoyé un mot-clé correspondant à une catégorie de mots-clés spécifique.
 
-1. Dans le tableau de bord de Braze, accédez à **Audience** > **Gestion des groupes d'abonnement** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**. <br><br>
+1. Dans le tableau de bord de Braze, accédez à **Audience** > **Subscription Group Management** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**. <br><br>
 2. Sous **Global Keywords**, sélectionnez une catégorie de mots-clés pour modifier une réponse en sélectionnant l'icône de crayon. ![Mots-clés d'abonnement avec l'icône de crayon affichée.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. Dans l'onglet qui s'ouvre, modifiez votre réponse. Gardez à l'esprit nos [six règles pour assurer la conformité]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right) lors de la création de votre réponse, et lisez les règles suivantes qui s'appliquent aux mots-clés et aux réponses de mots-clés.<br><br>
+3. Dans l'onglet qui s'ouvre, modifiez votre réponse. Gardez à l'esprit nos [six règles pour assurer la conformité]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-seven-rules-to-get-compliance-right) lors de la création de votre réponse, et lisez les règles suivantes qui s'appliquent aux mots-clés et aux réponses de mots-clés.<br><br>
 4. Pour raccourcir automatiquement les URL statiques dans votre réponse, activez le bouton **Link Shortening**. Le compteur de caractères se mettra à jour pour afficher la longueur attendue de l'URL raccourcie. ![Un GIF montrant la mise à jour du compteur de caractères lorsque le bouton « Link Shortening » est activé.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 #### Considérations {#considerations}

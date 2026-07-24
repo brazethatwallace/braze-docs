@@ -16,7 +16,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Versa
 
 > Verwenden Sie diesen Endpunkt, um eine tägliche Reihe verschiedener Statistiken für eine getrackte `send_id` für API-Kampagnen abzurufen.
 
-Braze speichert Versand-Analytics für 14 Tage nach dem Versand. Campaign-Conversions werden der letzten `send_id` zugeschrieben, die ein:e bestimmte:r Nutzer:in von der Campaign erhalten hat.
+Braze speichert Versand-Analytics für 14 Tage nach dem Versand. Campaign-Konversionen werden der letzten `send_id` zugeschrieben, die ein:e bestimmte:r Nutzer:in von der Campaign erhalten hat.
 
 {% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
 
@@ -24,7 +24,7 @@ Braze speichert Versand-Analytics für 14 Tage nach dem Versand. Campaign-Conver
 
 ## Voraussetzungen {#prerequisites}
 
-Dieser Endpunkt ist nur für API-Kampagnen gedacht. Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `sends.data_series`.
+Dieser Endpunkt ist nur für API-Kampagnen gedacht. Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `sends.data_series`.
 
 ## Rate-Limit
 

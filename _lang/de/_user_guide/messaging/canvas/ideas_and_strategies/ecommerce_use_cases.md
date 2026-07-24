@@ -43,14 +43,14 @@ Braze bietet vier E-Commerce-Canvas-Templates.
 
 Um mit der Personalisierung Ihrer Nachrichten mithilfe von Liquid-Tags zu beginnen, können Sie die folgenden Ressourcen nutzen:
 
-- [Shopify-Daten]({{site.baseurl}}/shopify_features#shopify-data)-Referenz mit vordefinierten Liquid-Tags
+- <a href="/docs/partners/ecommerce/shopify/shopify_data_features#tracked-shopify-events">Shopify-Daten</a> – Referenz mit vordefinierten Liquid-Tags
 - [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)
 
 ## Segmentierung {#segmentation}
 
-Verwenden Sie Braze Segments, um gezielte Kundensegmente basierend auf bestimmten Attributen und Verhaltensweisen zu erstellen und personalisiertes Messaging und Kampagnen bereitzustellen. Mit diesem leistungsstarken Feature können Sie Ihre Kund:innen effektiv ansprechen, indem Sie die richtige Zielgruppe mit der richtigen Nachricht zur richtigen Zeit erreichen.
+Verwenden Sie Braze Segments, um gezielte Kundensegmente basierend auf bestimmten Attributen und Verhaltensweisen zu erstellen und personalisiertes Messaging und Campaigns bereitzustellen. Mit diesem leistungsstarken Feature können Sie Ihre Kund:innen effektiv ansprechen, indem Sie die richtige Zielgruppe mit der richtigen Nachricht zur richtigen Zeit erreichen.
 
-Weitere Informationen zu den ersten Schritten mit Segmenten finden Sie unter [Über Braze Segments]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments).
+Weitere Informationen zu den ersten Schritten mit Segmenten finden Sie unter [Über Braze Segments]({{site.baseurl}}/user_guide/audience/segments).
 
 ### Empfohlene Events {#recommended-events}
 
@@ -75,7 +75,7 @@ Um nach verschachtelten Event-Eigenschaften zu segmentieren, können Sie [Segmen
 
 ### Bericht zu angepassten Events {#custom-events-report}
 
-Sie können das Volumen empfohlener E-Commerce-Events im [Bericht zu angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) verfolgen. Filtern Sie nach **Perform Custom Event** und geben Sie dann den [Namen des empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events) an, um dessen Performance im Zeitverlauf anzuzeigen.
+Sie können das Volumen empfohlener E-Commerce-Events im [Bericht zu angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) verfolgen. Filtern Sie nach **Perform Custom Event** und geben Sie dann den [Namen des empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) an, um dessen Performance im Zeitverlauf anzuzeigen.
 
 ![Chart für angepasste Events mit Ergebnissen für sechs ausgewählte Events.]({% image_buster /assets/img/ecommerce/custom_events_chart.png %})
 
@@ -83,13 +83,13 @@ Sie können das Volumen empfohlener E-Commerce-Events im [Bericht zu angepassten
 
 #### Conversions-Dashboard {#conversions-dashboard}
 
-Nachdem Sie eine Kampagne oder ein Canvas mit dem Conversion-Event „Places Order“ gestartet haben, können Sie einen entsprechenden [Conversion-Bericht]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#setting-up-your-report) erstellen, um die Performance zu verfolgen.
+Nachdem Sie eine Campaign oder ein Canvas mit dem Konversions-Event „Places Order“ gestartet haben, können Sie einen entsprechenden [Conversion-Bericht]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#setting-up-your-report) erstellen, um die Performance zu verfolgen.
 
-![Tabelle mit Conversion-Details mit Kampagnen und Canvases sowie den zugehörigen Conversion-Statistiken.]({% image_buster /assets/img_archive/conversion_details_table.png %})
+![Tabelle mit Conversion-Details mit Campaigns und Canvases sowie den zugehörigen Conversion-Statistiken.]({% image_buster /assets/img_archive/conversion_details_table.png %})
 
 #### E-Commerce-Umsatz-Dashboard {#ecommerce-revenue-dashboard}
 
-Um Insights zum Umsatz zu erhalten, der der letzten Kampagne oder dem letzten Canvas zugeordnet wird, mit der bzw. dem ein:e Nutzer:in vor einer Bestellung interagiert hat, verwenden Sie das [E-Commerce-Umsatz-Dashboard]({{site.baseurl}}/ecommerce_revenue_dashboard) und wählen Sie ein Conversion-Fenster aus.
+Um Insights zum Umsatz zu erhalten, der der letzten Campaign oder dem letzten Canvas zugeordnet wird, mit der bzw. dem ein:e Nutzer:in vor einer Bestellung interagiert hat, verwenden Sie das [E-Commerce-Umsatz-Dashboard]({{site.baseurl}}/ecommerce_revenue_dashboard) und wählen Sie ein Conversion-Fenster aus.
 
 ### Umsatzbericht {#revenue-report}
 

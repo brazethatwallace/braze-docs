@@ -46,7 +46,7 @@ Wenn Sie beispielsweise eine E-Mail-Kampagne mit Rate-Limits starten, sie für e
 
 ## In-App-Nachrichten-Kampagnen {#in-app-message-campaigns}
 
-Im Gegensatz zu Push oder E-Mail werden In-App-Nachrichten bei Sitzungsbeginn an Geräte übermittelt und lokal zwischengespeichert, bis der Trigger ausgelöst wird. Wenn Sie eine laufende In-App-Nachrichten-Kampagne bearbeiten – z. B. anhalten, ein [Enddatum]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger) festlegen, **Kampagnenberechtigung vor der Anzeige erneut prüfen** aktivieren, Inhalte aktualisieren, den Nachrichten-Trigger ändern oder die Zielgruppe anpassen – wird die aktualisierte Konfiguration übernommen, wenn Geräte bei ihrem nächsten Sitzungsbeginn die Trigger abrufen.
+Im Gegensatz zu Push oder E-Mail werden In-App-Nachrichten bei Sitzungsbeginn an Geräte übermittelt und lokal zwischengespeichert, bis der Trigger ausgelöst wird. Wenn Sie eine laufende In-App-Nachrichten-Kampagne bearbeiten – z. B. anhalten, ein [Enddatum]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger) festlegen, **Kampagnenberechtigung vor der Anzeige erneut prüfen** aktivieren, Inhalte aktualisieren, den Nachrichten-Trigger ändern oder die Zielgruppe anpassen – wird die aktualisierte Konfiguration übernommen, wenn Geräte bei ihrem nächsten Sitzungsbeginn die Trigger abrufen.
 
 Erwarten Sie Folgendes:
 
@@ -63,7 +63,7 @@ Wenn Sie die falsche In-App-Nachrichten-Kampagne gestartet haben, wählen Sie **
 
 Wählen Sie **Kampagnenberechtigung vor der Anzeige erneut prüfen** in den Zustellungseinstellungen Ihrer Kampagne, damit Braze die Zielgruppenzugehörigkeit und den Kampagnenstatus direkt vor jeder Anzeige bestätigt. Dies hilft, Impressionen zu verhindern, nachdem eine Kampagne angehalten, archiviert oder ihr Enddatum überschritten wurde. Sie können diese Einstellung nach dem Start ein- oder ausschalten, aber sie folgt denselben Weitergaberegeln wie andere Änderungen: Geräte erhalten die aktualisierte Konfiguration erst bei ihrer nächsten Trigger-Synchronisierung.
 
-Weitere Informationen finden Sie unter [Zielnutzer:innen auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target) und [Warum liefert meine archivierte In-App-Nachrichten-Kampagne weiterhin In-App-Nachrichten-Impressionen?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
+Weitere Informationen finden Sie unter [Zielnutzer:innen auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target) und [Warum liefert meine archivierte In-App-Nachrichten-Kampagne weiterhin In-App-Nachrichten-Impressionen?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
 ## Getriggerte Kampagnen {#triggered-campaigns}
 

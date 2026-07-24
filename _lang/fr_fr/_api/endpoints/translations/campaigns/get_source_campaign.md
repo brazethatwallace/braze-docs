@@ -19,7 +19,7 @@ description: "Cet article présente les détails de l'endpoint source de traduct
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `campaigns.translations.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `campaigns.translations.get`.
 
 ## Limite de débit {#rate-limit}
 
@@ -32,7 +32,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `campaign_id` | Requis | Chaîne de caractères | L'ID de votre Campaign. |
 | `message_variation_id` | Requis | Chaîne de caractères | L'ID de la variation de votre message. |
 | `locale_id` | Facultatif | Chaîne de caractères | Un UUID de locale pour filtrer les réponses. |
-| `post_launch_draft_version` | Facultatif | Valeur booléenne | Lorsque la valeur est `true`, renvoie la dernière version brouillon au lieu de la dernière version publiée en production. La valeur par défaut est `false`, ce qui renvoie la dernière version en production. |
+| `post_launch_draft_version` | Facultatif | Booléen | Lorsque la valeur est `true`, renvoie la dernière version brouillon au lieu de la dernière version publiée en production. La valeur par défaut est `false`, ce qui renvoie la dernière version en production. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}

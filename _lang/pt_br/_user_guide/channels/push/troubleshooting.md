@@ -55,14 +55,14 @@ Se o seu espaço de trabalho usa limite de frequência global, é possível que 
 
 ### Limites de frequência {#rate-limits}
 
-Se você tiver um limite de frequência definido para sua Campaign ou Canvas, pode estar deixando de receber mensagens por ter excedido esse limite. Para saber mais, consulte [Limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting).
+Se você tiver um limite de frequência definido para sua Campaign ou Canvas, pode estar deixando de receber mensagens por ter excedido esse limite. Para saber mais, consulte [Limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting).
 
 ### Status do grupo de controle {#control-group-status}
 
 Se for uma Campaign de canal único ou um Canvas com grupo de controle, é possível que você esteja no grupo de controle.
 
-  1. Verifique a [distribuição de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants) para ver se há um grupo de controle.
-  2. Se houver, crie um segmento filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) e depois [exporte o segmento]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv) e verifique se o ID do seu usuário está nessa lista.
+  1. Verifique a [distribuição de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants) para ver se há um grupo de controle.
+  2. Se houver, crie um segmento filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) e depois [exporte o segmento]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) e verifique se o ID do seu usuário está nessa lista.
 
 ### Token por push válido {#valid-push-token}
 

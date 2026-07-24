@@ -22,13 +22,13 @@ La página **Inicio** tiene dos secciones principales:
 
 Puedes retomar donde lo dejaste en el dashboard de Braze con acceso directo a los archivos que editaste o creaste recientemente. Esta sección aparece en la parte superior de la página **Inicio** del dashboard de Braze.
 
-Puedes volver a visitar Campaigns, Canvas y Segments editados o creados recientemente. Cada tarjeta está acompañada de etiquetas que indican el tipo de contenido (Campaign, Canvas, Segment) y el estado (activo, borrador, archivado, detenido).
+Puedes volver a visitar campañas, Canvas y segmentos editados o creados recientemente. Cada tarjeta está acompañada de etiquetas que indican el tipo de contenido (Campaign, Canvas, Segment) y el estado (activo, borrador, archivado, detenido).
 
 {% alert note %}
 La sección **Retoma donde lo dejaste** aparece después de que hayas editado o creado una Campaign, un Canvas o un Segment.
 {% endalert %}
 
-![Un borrador de Canvas, un Segment activo y un borrador de Campaign en la sección "Retoma donde lo dejaste".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
+![Un borrador de Canvas, un segmento activo y un borrador de Campaign en la sección "Retoma donde lo dejaste".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
 ## Resumen de rendimiento {#performance-overview}
 
@@ -54,7 +54,7 @@ Puedes graficar estadísticas para:
 - Banners
 - Content Cards
 - Usuarios activos diarios
-  - (Opcional) Desglose por Segment
+  - (Opcional) Desglose por segmento
 - Correo electrónico
 - Mensajes dentro de la aplicación
 - Fórmulas de KPI
@@ -63,15 +63,15 @@ Puedes graficar estadísticas para:
 - Usuarios activos al mes (MAU)
 - Nuevos usuarios
 - Push
-  - (Opcional) Desglose por Segment
+  - (Opcional) Desglose por segmento
 - Sesiones
-  - (Opcional) Desglose por Segment o versión de la aplicación
+  - (Opcional) Desglose por segmento o versión de la aplicación
 - Sesiones por hora
 - Sesiones por MAU
 - SMS
 - Adherencia
 - Desinstalaciones
-  - (Opcional) Desglose por Segment
+  - (Opcional) Desglose por segmento
 - Usuarios
 - Webhooks
 - WhatsApp
@@ -84,7 +84,7 @@ A continuación se presentan las definiciones de las estadísticas disponibles, 
 
 *Usuarios* es el número total de usuarios creados en ese espacio de trabajo. Esto incluye a todos los usuarios registrados que han utilizado tu aplicación o sitio web en cualquier momento, y aquellos que podrían no estar asociados con una aplicación o sitio web específico. Este número es el porcentaje de cuántos de tus usuarios históricos están representados como *Usuarios activos al mes* (MAU), lo cual es útil para ver la retención de usuarios durante un largo período de tiempo.
 
-Una proporción baja de MAU respecto a usuarios puede indicar que necesitas diversificar tus canales de mensajería o aumentar tus esfuerzos para contactar a los usuarios inactivos. Consulta nuestra guía rápida sobre [captar usuarios inactivos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) para más información. En general, la proporción de MAU respecto a usuarios históricos inevitablemente disminuirá con el tiempo debido a la cancelación de usuarios, pero las herramientas de Braze pueden ayudarte a minimizar este efecto manteniendo a los usuarios comprometidos durante más tiempo.
+Una proporción baja de MAU respecto a usuarios puede indicar que necesitas diversificar tus canales de mensajería o aumentar tus esfuerzos para contactar a los usuarios inactivos. Consulta nuestra guía rápida sobre [captar usuarios inactivos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users) para más información. En general, la proporción de MAU respecto a usuarios históricos inevitablemente disminuirá con el tiempo debido a la cancelación de usuarios, pero las herramientas de Braze pueden ayudarte a minimizar este efecto manteniendo a los usuarios comprometidos durante más tiempo.
 
 ### Sesiones históricas {#lifetime-sessions}
 

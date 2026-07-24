@@ -25,7 +25,7 @@ Pega los fragmentos de código en uno de tus mensajes en Braze y luego usa [Liqu
 
 ### Entre pasos en Canvas {#across-canvas-steps}
 
-Cuando se usa un fragmento de código en una campaña o Canvas con mensajes multicanal, cada usuario recibe un código único. En un Canvas con múltiples pasos que hacen referencia a códigos promocionales, un usuario obtiene un nuevo código por cada paso en el que entra.
+Cuando se usa un fragmento de código en una Campaign o un Canvas con mensajes multicanal, cada usuario recibe un código único. En un Canvas con múltiples pasos que hacen referencia a códigos promocionales, un usuario obtiene un nuevo código por cada paso en el que entra.
 
 Para asignar un código promocional en un Canvas y reutilizarlo entre pasos:
 
@@ -40,7 +40,7 @@ Si no hay códigos promocionales disponibles, los mensajes de prueba o en vivo q
 
 ### Campañas de mensajes dentro de la aplicación {#promotion-codes-iam-campaigns}
 
-Después de crear una [campaña de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages), puedes insertar un [fragmento de código de lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes-1) en el cuerpo de tu mensaje dentro de la aplicación. Los códigos promocionales en mensajes dentro de la aplicación se deducen y se usan solo cuando un usuario desencadena la visualización del mensaje dentro de la aplicación.
+Después de crear una [Campaign de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages), puedes insertar un [fragmento de código de lista de códigos promocionales]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes) en el cuerpo de tu mensaje dentro de la aplicación. Los códigos promocionales en mensajes dentro de la aplicación se deducen y se usan solo cuando un usuario desencadena la visualización del mensaje dentro de la aplicación.
 
 ### Mensajes de prueba {#test-messages}
 
@@ -74,7 +74,7 @@ Este recuento de códigos también se puede encontrar al volver a visitar una p�
 
 ## Envíos multicanal y de canal único {#multichannel-and-single-channel-sends}
 
-Para campañas y Canvas multicanal y de envío único, todos los códigos promocionales referenciados en el Liquid de un mensaje se deducen para ser usados **antes** de que el mensaje se envíe, para garantizar lo siguiente:
+Para Campaigns y Canvas multicanal y de envío único, todos los códigos promocionales referenciados en el Liquid de un mensaje se deducen para ser usados **antes** de que el mensaje se envíe, para garantizar lo siguiente:
 
 - Los mismos códigos promocionales se usan en todos los canales en un mensaje multicanal.
 - Los códigos promocionales adicionales no se usan si un mensaje falla o se cancela.

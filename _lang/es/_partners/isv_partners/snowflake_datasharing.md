@@ -5,7 +5,7 @@ hidden: true
 
 # Integración de uso compartido de datos de Snowflake {#snowflake-data-sharing-integration}
 
-> Cuando se utiliza Snowflake Data Share como método de integración, Braze aprovisiona un recurso compartido en tu instancia de Snowflake en nombre del cliente. Este recurso compartido incluye automáticamente todos los eventos de interacción con mensajes y de comportamiento de los usuarios.
+> Cuando se utiliza Snowflake Data Share como método de integración, Braze aprovisiona un recurso compartido en tu instancia de Snowflake en nombre del cliente. Este recurso compartido incluye automáticamente todos los eventos de participación con mensajes y de comportamiento de los usuarios.
 
 Los recursos compartidos se aprovisionan por cliente después de que este haya adquirido un derecho de uso compartido de datos de Snowflake. Cuando un cliente solicita un uso compartido de datos, Braze añade un recurso compartido al espacio de trabajo del cliente, y este puede utilizar la interfaz de usuario de autoservicio para añadir los datos de la cuenta Snowflake del partner correspondiente.
 
@@ -33,9 +33,7 @@ Se esperan duplicados, pero todos los eventos tienen un identificador único, la
 
 ### Cambios sin ruptura {#non-breaking-changes}
 
-Los cambios sin ruptura pueden producirse en cualquier momento y generalmente proporcionan funcionalidad adicional. Ejemplos de cambios sin ruptura:
-- Añadir una nueva tabla o vista
-- Añadir una columna a una tabla o vista existente
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Dado que las columnas nuevas se consideran cambios sin ruptura, Braze recomienda encarecidamente enumerar explícitamente las columnas de interés en cada consulta en lugar de utilizar consultas `SELECT *`. Otra posibilidad es crear vistas que nombren explícitamente las columnas y, a continuación, consultar esas vistas en lugar de las tablas directamente.
@@ -43,10 +41,7 @@ Dado que las columnas nuevas se consideran cambios sin ruptura, Braze recomienda
 
 ### Cambios de ruptura {#breaking-changes}
 
-Siempre que sea posible, los cambios de ruptura irán precedidos de un anuncio y de un periodo de migración. Algunos ejemplos de cambios de ruptura son:
-- Eliminar una tabla o una vista
-- Eliminar una columna de una tabla o vista existente
-- Modificar el tipo o la nulabilidad de una columna existente
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ## Cuándo se actualizan las tablas SNAPSHOTS y CHANGELOGS {#when-snapshots-and-changelogs-tables-are-updated}
 

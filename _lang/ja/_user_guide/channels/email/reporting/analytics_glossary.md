@@ -265,6 +265,8 @@ Count, Percentage
 
 [メールヒートマップ]({{site.baseurl}}/user_guide/channels/email/reporting)に予期しないリンクが表示される場合は、メッセージのHTMLで[コンテンツブロック]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks)やトラッキングURLを生成する単語間のスペースを確認してください。ヒートマップビューの**リンクテーブル（合計クリック数別）**を使用して、表示されているコピーと一致しないURLを特定してください。
 
+BrazeはメッセージプレビューではLiquidタグを展開しないため、ヒートマップレンダラーはプレビュー内のクリックされたリンクと一致させることができません。これは想定される動作です。ヒートマップレンダラーは、クリックされたURLをメッセージ内のURLと照合しようとします。URL全体がイベントプロパティとして渡される場合など、URLが大幅に異なる場合、ヒートマップはそれを識別できません。
+
 {% endapi %}
 
 {% api %}
@@ -420,7 +422,7 @@ Percentage
 
 ### 購読解除リンクとユニーククリック数 {#unsubscribe-links-and-unique-clicks}
 
-受信者が購読解除リンクをクリックすると、そのアクションはURLを使用するため、Brazeはクリックとしてカウントします。これはBrazeが提供する購読解除リンクと、メッセージ本文内のカスタム購読解除リンクの両方に適用されます。これらのクリックは、他のリンクのクリックとともに*ユニーククリック数*と*合計クリック数*に加算されます。指標の定義については、上記の[ユニーククリック数](#unique-clicks)および[購読解除リンクのクリック数と購読解除数が異なるのはなぜですか？]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)を参照してください。
+受信者が購読解除リンクをクリックすると、そのアクションはURLを使用するため、Brazeはクリックとしてカウントします。これはBrazeが提供する購読解除リンクと、メッセージ本文内のカスタム購読解除リンクの両方に適用されます。これらのクリックは、他のリンクのクリックとともに*ユニーククリック数*と*合計クリック数*に加算されます。指標の定義については、[ユニーククリック数](#unique-clicks)および[購読解除リンクのクリック数と購読解除数が異なるのはなぜですか？]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link)を参照してください。
 
 ### ブラウザで表示 {#view-in-browser}
 

@@ -16,7 +16,7 @@ tool:
 
 Ce type de message est disponible dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
-Les cas d'utilisation courants des sondages incluent demander aux utilisateurs comment ils souhaitent utiliser votre application, en apprendre davantage sur leurs préférences personnelles, ou recueillir leur avis sur leur satisfaction concernant une fonctionnalité particulière.
+Les cas d'usage courants des sondages incluent demander aux utilisateurs comment ils souhaitent utiliser votre application, en apprendre davantage sur leurs préférences personnelles, ou recueillir leur avis sur leur satisfaction concernant une fonctionnalité particulière.
 
 ![Trois messages de sondage simple : préférences de notification, préférences alimentaires et un sondage de satisfaction client. Les options sélectionnées dans les sondages correspondent à des attributs personnalisés qui seront enregistrés pour cet utilisateur.]({% image_buster /assets/img/iam/iam-survey.png %})
 
@@ -64,8 +64,8 @@ Pour ajouter un attribut personnalisé à chaque choix, sélectionnez un nom d'a
 
 Le type de données de vos attributs personnalisés est important selon la façon dont vous avez configuré votre sondage.
 
-- **Sélection à choix multiples :** Le type de données de l'attribut personnalisé doit être un tableau. Si l'attribut personnalisé est défini sur un type de données différent, les réponses ne seront pas enregistrées.
-- **Sélection à choix unique :** Le type de données de l'attribut personnalisé doit être une chaîne de caractères. Les attributs personnalisés qui ne sont pas de type chaîne de caractères n'apparaîtront pas dans le menu déroulant, et les réponses ne seront pas enregistrées.
+- **Sélection à choix multiples :** le type de données de l'attribut personnalisé doit être un tableau. Si l'attribut personnalisé est défini sur un type de données différent, les réponses ne seront pas enregistrées.
+- **Sélection à choix unique :** le type de données de l'attribut personnalisé doit être une chaîne de caractères. Les attributs personnalisés qui ne sont pas de type chaîne de caractères n'apparaîtront pas dans le menu déroulant, et les réponses ne seront pas enregistrées.
 
 {% alert important %}
 Lorsque la collecte d'attributs personnalisés est activée, les choix qui partagent le même nom d'attribut personnalisé seront combinés dans un tableau.
@@ -79,7 +79,7 @@ Vous pouvez ensuite utiliser le filtre `Custom Attribute` pour créer un segment
 
 #### Enregistrer uniquement les réponses {#no-attributes}
 
-Alternativement, vous pouvez choisir **Log responses only (no attributes)**. Lorsque cette option est sélectionnée, les réponses au sondage sont enregistrées comme des clics sur des boutons, mais les attributs personnalisés ne sont pas enregistrés dans le profil de l'utilisateur. Cela signifie que vous pouvez toujours consulter les indicateurs de clics pour chaque option du sondage (voir [Analyse](#analytics)), mais ce choix ne sera pas reflété dans leur profil utilisateur.
+Vous pouvez aussi choisir **Log responses only (no attributes)**. Lorsque cette option est sélectionnée, les réponses au sondage sont enregistrées comme des clics sur des boutons, mais les attributs personnalisés ne sont pas enregistrés dans le profil de l'utilisateur. Cela signifie que vous pouvez toujours consulter les indicateurs de clics pour chaque option du sondage (voir [Analyser les résultats](#analytics)), mais ce choix ne sera pas reflété dans leur profil utilisateur.
 
 Ces indicateurs de clics ne sont pas disponibles pour le reciblage.
 
@@ -125,16 +125,16 @@ Consultez [Rapports des messages in-app]({{site.baseurl}}/user_guide/channels/in
 
 ### Currents {#currents}
 
-Les choix sélectionnés seront automatiquement transmis à Currents, sous le champ `button_id` des [**événements de clic de message in-app**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe). Chaque choix sera envoyé avec son identifiant universel unique (UUID).
+Les choix sélectionnés seront automatiquement transmis à Currents, sous le champ `button_id` des [**événements de clic de message in-app**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events). Chaque choix sera envoyé avec son identifiant universel unique (UUID).
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 {% tabs %}
 {% tab Satisfaction des utilisateurs %}
 
 ### Satisfaction des utilisateurs {#user-satisfaction}
 
-**Objectif :** Mesurer la satisfaction des clients et envoyer des campagnes de reconquête aux utilisateurs ayant attribué des scores faibles.
+**Objectif :** mesurer la satisfaction des clients et envoyer des campagnes de reconquête aux utilisateurs ayant attribué des scores faibles.
 
 Pour configurer cela, utilisez un sondage à choix unique avec cinq options allant de « 😡 Très insatisfait » à « 😍 Très satisfait ». Chaque choix est associé à l'attribut personnalisé `customer_satisfaction`, avec une valeur numérique de 1 à 5, où 1 indique le moins satisfait et 5 le plus satisfait. Notez que ces valeurs numériques sont stockées sous forme de chaînes de caractères, car les attributs personnalisés de type chaîne de caractères sont requis pour la sélection à choix unique.
 
@@ -154,7 +154,7 @@ Lorsqu'un utilisateur soumet le sondage, la valeur sélectionnée est enregistr�
 
 ### Préférences de notification {#notification-preferences}
 
-**Objectif :** Permettre aux utilisateurs de s'inscrire à des types de notifications spécifiques.
+**Objectif :** permettre aux utilisateurs de s'inscrire à des types de notifications spécifiques.
 
 Pour configurer cela, utilisez un sondage à choix multiples où chaque choix représente un sujet de notification. Au lieu d'attribuer le même attribut avec des valeurs différentes, chaque choix est associé à un attribut booléen distinct qui reflète l'intérêt de l'utilisateur pour ce sujet. Si un utilisateur sélectionne un choix, l'attribut correspondant est défini sur `true`. S'il n'est pas sélectionné, l'attribut reste inchangé.
 
@@ -162,7 +162,7 @@ Pour configurer cela, utilisez un sondage à choix multiples où chaque choix re
 |-------|----------|--------|
 | Mises à jour produit | `wants_product_updates` | `true` |
 | Promotions | `wants_promotions` | `true` |
-| Invitations événements | `wants_event_invites` | `true` |
+| Invitations à des événements | `wants_event_invites` | `true` |
 | Sondages et retours | `wants_surveys` | `true` |
 | Conseils et tutoriels | `wants_tips` | `true` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Préférences de notification" }
@@ -172,7 +172,7 @@ Pour configurer cela, utilisez un sondage à choix multiples où chaque choix re
 
 ### Identifier les objectifs des clients {#identify-customer-goals}
 
-**Objectif :** Identifier les principales raisons pour lesquelles les utilisateurs visitent votre application.
+**Objectif :** identifier les principales raisons pour lesquelles les utilisateurs visitent votre application.
 
 Pour configurer cela, utilisez un sondage à choix unique avec chaque option représentant un objectif ou une intention courante. Chaque choix est associé à l'attribut personnalisé `product_goal` avec une valeur correspondant à l'intention sélectionnée par l'utilisateur.
 
@@ -192,7 +192,7 @@ Lorsqu'un utilisateur soumet le sondage, la valeur sélectionnée est enregistr�
 
 ### Améliorer les taux de conversion {#improve-conversion-rates}
 
-**Objectif :** Comprendre pourquoi les clients ne passent pas à une version supérieure ou n'achètent pas.
+**Objectif :** comprendre pourquoi les clients ne passent pas à une version supérieure ou n'achètent pas.
 
 Pour configurer cela, utilisez un sondage à choix unique avec chaque option représentant un obstacle courant à la mise à niveau. Chaque choix est associé à l'attribut personnalisé `upgrade_reason` avec une valeur correspondante qui reflète la sélection de l'utilisateur.
 
@@ -212,7 +212,7 @@ Lorsqu'un utilisateur soumet le sondage, la valeur sélectionnée est enregistr�
 
 ### Fonctionnalités préférées {#favorite-features}
 
-**Objectif :** Comprendre quelles fonctionnalités les clients apprécient le plus.
+**Objectif :** comprendre quelles fonctionnalités les clients apprécient le plus.
 
 Pour configurer cela, utilisez un sondage à choix multiples où chaque option représente une fonctionnalité de votre application. Chaque choix est associé à l'attribut personnalisé `favorite_features`, et lorsque l'utilisateur soumet le sondage, l'attribut est défini sur un tableau des valeurs sélectionnées.
 
@@ -220,7 +220,7 @@ Pour configurer cela, utilisez un sondage à choix multiples où chaque option r
 |-------|----------|--------|
 | Favoris | `favorite_features` | `bookmarks` |
 | Application mobile | `favorite_features` | `mobile` |
-| Partage de posts | `favorite_features` | `sharing` |
+| Partage de publications | `favorite_features` | `sharing` |
 | Assistance client | `favorite_features` | `support` |
 | Personnalisation | `favorite_features` | `custom` |
 | Prix / Valeur | `favorite_features` | `value` |

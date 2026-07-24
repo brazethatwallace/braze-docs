@@ -54,7 +54,7 @@ Vous pouvez tracer des statistiques pour :
 - Bannières
 - Content Cards
 - Utilisateurs actifs quotidiens
-  - (Facultatif) Répartition par segment
+  - (Facultatif) Répartition par Segment
 - E-mail
 - Messages in-app
 - Formules d'indicateurs clés de performance
@@ -63,15 +63,15 @@ Vous pouvez tracer des statistiques pour :
 - Utilisateurs actifs par mois (MAU)
 - Nouveaux utilisateurs
 - Notifications push
-  - (Facultatif) Répartition par segment
+  - (Facultatif) Répartition par Segment
 - Sessions
-  - (Facultatif) Répartition par segment ou version de l'application
+  - (Facultatif) Répartition par Segment ou version de l'application
 - Sessions par heure
 - Sessions par MAU
 - SMS
 - Adhérence
 - Désinstallations
-  - (Facultatif) Répartition par segment
+  - (Facultatif) Répartition par Segment
 - Utilisateurs
 - Webhooks
 - WhatsApp
@@ -84,7 +84,7 @@ Voici les définitions des statistiques disponibles, leur mode de calcul et leur
 
 *Utilisateurs* correspond au nombre total d'utilisateurs créés dans cet espace de travail. Cela inclut tous les utilisateurs ayant utilisé votre application ou site web à un moment donné, ainsi que ceux qui ne sont pas nécessairement associés à une application ou un site web spécifique. Ce nombre représente le pourcentage de vos utilisateurs à vie qui sont des *utilisateurs actifs par mois* (MAU), ce qui est utile pour observer la rétention des utilisateurs sur une longue période.
 
-Un faible ratio MAU/utilisateurs peut indiquer que vous devez diversifier vos canaux de communication ou intensifier vos efforts pour atteindre les utilisateurs en perte d'engagement. Consultez notre guide rapide sur la [reconquête des utilisateurs en perte d'engagement]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) pour en savoir plus. De manière générale, le ratio MAU/utilisateurs à vie diminuera inévitablement au fil du temps en raison de l'attrition, mais les outils de Braze peuvent vous aider à minimiser cet effet en maintenant l'engagement de vos utilisateurs plus longtemps.
+Un faible ratio MAU/utilisateurs peut indiquer que vous devez diversifier vos canaux de communication ou intensifier vos efforts pour atteindre les utilisateurs en perte d'engagement. Consultez notre guide rapide sur la [reconquête des utilisateurs en perte d'engagement]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users) pour en savoir plus. De manière générale, le ratio MAU/utilisateurs à vie diminuera inévitablement au fil du temps en raison de l'attrition, mais les outils de Braze peuvent vous aider à minimiser cet effet en maintenant l'engagement de vos utilisateurs plus longtemps.
 
 ### Sessions à vie {#lifetime-sessions}
 
@@ -133,7 +133,7 @@ Les comptages de MAU dans Braze dépendent de l'endroit où vous les consultez. 
 
 ### Utilisateurs actifs quotidiens {#daily-active-users}
 
-*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
+*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos Campaigns pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
 
 ### Nouveaux utilisateurs {#new-users}
 

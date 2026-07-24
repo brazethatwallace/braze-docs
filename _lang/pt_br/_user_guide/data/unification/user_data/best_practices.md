@@ -15,7 +15,7 @@ O exemplo a seguir é um caso de uso de coleta de e-mail, mas a lógica se aplic
 
 Depois que um usuário fornecer informações para registro, recomendamos que você verifique se os dados já existem no seu banco de dados e, quando necessário, crie um perfil de alias de usuário ou atualize o perfil de usuário existente.
 
-Se um usuário desconhecido visualizar seu site e, posteriormente, criar uma conta ou se identificar por meio de envio de e-mail, a mesclagem de perfis deverá ser tratada com cuidado. Com base no método de mesclagem, as informações do usuário somente de alias ou os dados anônimos podem ser substituídos.
+Se um usuário desconhecido visualizar seu site e, posteriormente, criar uma conta ou se identificar por meio de inscrição por e-mail, a mesclagem de perfis deverá ser tratada com cuidado. Com base no método de mesclagem, as informações do usuário somente de alias ou os dados anônimos podem ser substituídos.
 
 ## Captura de dados de usuários por meio de um formulário da web {#capturing-user-data-through-a-web-form}
 
@@ -51,11 +51,11 @@ Para verificar se um usuário é somente de alias, [verifique se o usuário exis
 
 ## Captura de dados de usuários quando as informações de usuário somente de alias já estão presentes {#capturing-user-data-when-alias-only-user-information-is-already-present}
 
-Quando um usuário cria uma conta ou se identifica por meio do envio de e-mail, é possível mesclar os perfis. Para obter uma lista de campos que podem ser mesclados, consulte [Comportamento de mesclagem de atualizações]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior).
+Quando um usuário cria uma conta ou se identifica por meio de inscrição por e-mail, é possível mesclar os perfis. Para obter uma lista de campos que podem ser mesclados, consulte [Comportamento de mesclagem de atualizações]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 ### Mesclagem de perfis de usuário duplicados {#merging-duplicate-user-profiles}
 
-À medida que os dados de seus usuários aumentam, é possível mesclar perfis de usuários duplicados a partir do dashboard da Braze. Esses perfis duplicados devem ser encontrados usando a mesma consulta de pesquisa. Para saber mais sobre como mesclar perfis de usuário, consulte [Mesclar perfis]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#merge-profiles).
+À medida que os dados de seus usuários aumentam, é possível mesclar perfis de usuários duplicados a partir do dashboard da Braze. Esses perfis duplicados devem ser encontrados usando a mesma consulta de pesquisa. Para saber mais sobre como mesclar perfis de usuário duplicados, consulte [Mesclar usuários duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
 Você também pode usar o [endpoint Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) para mesclar um perfil de usuário em outro.
 

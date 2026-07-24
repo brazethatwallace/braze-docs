@@ -3,14 +3,14 @@ nav_title: Propriedades de entrada persistentes
 article_title: Propriedades de entrada persistentes
 alias: "/persistent_entry/"
 page_type: reference
-description: "Este artigo de referência descreve como usar propriedades de entrada persistentes no seu Canvas para enviar mensagens mais personalizadas e criar uma experiência refinada para o usuário final."
+description: "Este artigo de referência descreve como usar propriedades de entrada persistentes no seu Canvas para enviar mensagens mais curadas e criar uma experiência refinada para o usuário final."
 tool: Canvas
 page_order: 5
 ---
 
 # Propriedades de entrada persistentes {#persistent-entry-properties}
 
-> Quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API, você pode usar metadados da chamada de API, do evento personalizado ou do evento de compra para personalização em cada etapa do fluxo de trabalho do seu Canvas. Você pode usar essas propriedades para enviar mensagens mais direcionadas.
+> Quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API, você pode usar metadados da chamada de API, do evento personalizado ou do evento de compra para personalização em cada etapa do fluxo de trabalho do seu Canvas. Você pode usar essas propriedades para enviar mensagens mais curadas.
 
 {% alert important %}
 As propriedades de entrada persistentes são um artefato do editor original do Canvas, então existem referências depreciadas a termos como propriedades de entrada do Canvas que permanecem para referência histórica. Para o editor atual do Canvas, consulte [Propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).<br><br>Para usar propriedades de entrada persistentes no editor atual do Canvas, você deve criar um novo Canvas ou [clonar]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) um existente para o editor atual.
@@ -22,7 +22,7 @@ As propriedades de entrada podem ser usadas em Canvas baseados em ação e dispa
 
 - [Objeto de propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [Objeto de propriedades de evento]({{site.baseurl}}/api/objects_filters/event_object)
-- [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
+- [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product-id)
 
 As propriedades passadas a partir desses objetos podem ser referenciadas usando a Liquid tag `canvas_entry_properties`. Por exemplo, uma requisição com `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` poderia adicionar a palavra "shoes" a uma mensagem usando o Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
@@ -38,7 +38,7 @@ Se um Canvas ativo que anteriormente não incluía nenhuma mensagem usando `canv
 
 Por exemplo, se você lançou inicialmente um Canvas que não usava nenhuma propriedade de entrada em 3 de novembro e depois adicionou uma nova propriedade `product_name` ao Canvas em 11 de novembro, os valores de `product_name` seriam salvos apenas para usuários que entraram no Canvas a partir de 11 de novembro.
 
-No caso de uma propriedade de entrada do Canvas ser nula ou estar em branco, você pode cancelar mensagens usando condicionais. O trecho de código a seguir é um exemplo de como usar Liquid para cancelar uma mensagem.
+No caso de uma propriedade de entrada do Canvas ser nula ou estar em branco, você pode interromper mensagens usando condicionais. O trecho de código a seguir é um exemplo de como usar Liquid para interromper uma mensagem.
 {%raw%}
 ```
 {% if canvas_entry_properties.${product_name} == blank %}
@@ -47,7 +47,7 @@ No caso de uma propriedade de entrada do Canvas ser nula ou estar em branco, voc
 ```
 {%endraw%}
 
-Para saber mais sobre como cancelar mensagens com Liquid, confira nossa [documentação de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages).
+Para saber mais sobre como interromper mensagens com Liquid, confira nossa [documentação de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ## Propriedades de entrada globais do Canvas {#global-canvas-entry-properties}
 
@@ -85,7 +85,7 @@ Nesta requisição, o valor global para "food allergies" é "none". Para Custome
 
 Se você tem um Canvas que é disparado quando um usuário navega por um item no seu site de eCommerce, mas não o adiciona ao carrinho, a primeira etapa do Canvas pode ser uma notificação por push perguntando se ele tem interesse em comprar o item. Você pode referenciar o nome do produto usando {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}
 
-![Se você tem um Canvas que é disparado quando um usuário navega por um item no seu site de eCommerce, mas não o adiciona ao carrinho, a primeira etapa do Canvas pode ser uma notificação por push perguntando se ele tem interesse em comprar o item. Você pode referenciar o nome do produto usando {% raw %}{{canvas_entry_properties.${product_name}}}{% endraw %}.]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
+![Se você tem um Canvas que é disparado quando um usuário navega por um item no seu site de eCommerce, mas não o adiciona ao carrinho, a primeira etapa do Canvas pode ser uma notificação por push perguntando se ele tem interesse em comprar o item. Você pode referenciar o nome do produto usando canvas_entry_properties.product_name.]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
 
 A segunda etapa pode enviar outra notificação por push incentivando o usuário a finalizar a compra caso ele tenha adicionado o item ao carrinho, mas ainda não tenha concluído a compra. Você pode continuar referenciando a propriedade de entrada `product_name` usando {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 

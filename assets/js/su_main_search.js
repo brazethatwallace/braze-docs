@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const applyDefaultSearchInputLabel =
+    window.SuSearchA11y?.applyDefaultSearchInputLabel;
+
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
     "pt-br":{ form: "Pesquisa do site", search: "Pesquisar", clear: "Limpar pesquisa" },
@@ -72,19 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      const translations = {
-        en: "Search everything",
-        "pt-br": "Buscar tudo",
-        ko: "전체 검색",
-        fr: "Rechercher tout",
-        es: "Buscar todo",
-        de: "Alles durchsuchen",
-        ja: "すべて検索",
-      };
-
-      const placeholderText = translations[lang] || translations.en;
-      queryInput.setAttribute("placeholder", `${placeholderText}...`);
-      queryInput.setAttribute("aria-label", placeholderText);
+      if (applyDefaultSearchInputLabel) {
+        applyDefaultSearchInputLabel(queryInput);
+      }
 
       // Combobox ARIA — tells assistive technology this input controls a listbox
       queryInput.setAttribute("role", "combobox");

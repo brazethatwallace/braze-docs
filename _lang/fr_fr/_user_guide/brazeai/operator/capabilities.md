@@ -224,7 +224,7 @@ Tenez compte des éléments suivants pour tirer le meilleur parti de la vérific
 
 ## Confidentialité et sécurité des données {#data-privacy-and-security}
 
-Operator s'intègre à OpenAI pour générer des résultats. Pour en savoir plus sur les informations que Braze envoie à OpenAI, la façon dont ces données sont utilisées et vos droits de propriété intellectuelle, consultez [Comment les données sont utilisées avec OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai).
+Operator s'intègre à OpenAI pour générer des résultats. Pour en savoir plus sur les informations que Braze envoie à OpenAI, la façon dont ces données sont utilisées et vos droits de propriété intellectuelle, consultez [Comment les données sont utilisées avec OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security).
 
 ## Étapes suivantes {#next-steps}
 

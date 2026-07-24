@@ -8,15 +8,15 @@ tool: Segments
 search_rank: 3
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}セグメントを作成 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}セグメントを作成 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
 
 > セグメンテーションを使用すると、ユーザーの人口統計的、行動的、または技術的な特性やアクションに基づいてターゲティングできます。セグメンテーションとメッセージングオートメーションを創造的かつインテリジェントに活用することで、ユーザーを最初の接触から長期的な顧客へとシームレスに導くことができます。セグメントはデータの変更に応じてリアルタイムで更新され、ターゲティングやメッセージングの目的に必要な数だけセグメントを作成できます。
 
-## ステップ 1:セグメントセクションに移動する {#step-1-navigate-to-the-segments-section}
+## ステップ1:セグメントセクションに移動する {#step-1-navigate-to-the-segments-section}
 
-**オーディエンス** > **セグメント** に移動します。
+**オーディエンス** > **セグメント**に移動します。
 
-## ステップ 2:セグメントに名前を付ける {#step-2-name-your-segment}
+## ステップ2:セグメントに名前を付ける {#step-2-name-your-segment}
 
 **セグメントを作成**を選択してセグメントの構築を開始します。フィルタリングしたいユーザーのタイプを説明してセグメントに名前を付けます。これにより、キャンペーンやキャンバスでターゲティングする際にセグメントを識別しやすくなります。あいまいなセグメントタイトルは混乱の原因になります。
 
@@ -27,7 +27,7 @@ search_rank: 3
 
 ![「Lapsed Users」という名前のセグメントを作成するモーダル。セグメント説明は「This is our main Lapsed User segment to target non-actives within the past fourteen days.」で、「キャンセル」と「セグメントを作成」の2つのボタンがあります。]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
 
-## ステップ 3:アプリまたはプラットフォームを選択する {#step-3-choose-your-app-or-platform}
+## ステップ3:アプリまたはプラットフォームを選択する {#step-3-choose-your-app-or-platform}
 
 **すべてのアプリのユーザー**（デフォルト）または**特定のアプリのユーザー**を選択して、ターゲットにするアプリまたはプラットフォームを選びます。**特定のアプリのユーザー**は、指定されたアプリで少なくとも1回のセッションがあるユーザーをターゲットにします。
 
@@ -35,7 +35,7 @@ search_rank: 3
 
 ![「Apps Used」セクションで「すべてのアプリのユーザー」オプションが選択されたセグメント詳細パネル。]({% image_buster /assets/img_archive/Segment2.png %}){: style="max-width:80%;"}
 
-## ステップ 4:セグメントにフィルターを追加する {#step-4-add-filters-to-your-segment}
+## ステップ4:セグメントにフィルターを追加する {#step-4-add-filters-to-your-segment}
 
 セグメントに少なくとも1つのフィルターを追加します。フィルターを好きなだけ組み合わせて、セグメンテーションをより具体的にすることができます。
 
@@ -58,7 +58,7 @@ search_rank: 3
 フィルターに「OR」を選択すると、セグメントにはそれらのフィルターの1つ、一部、またはすべての任意の組み合わせを満たすユーザーが含まれます。「AND」を選択すると、そのフィルターを通過しないユーザーはセグメントに含まれません。
 
 {% alert tip %}
-「OR」を選択する際に、否定フィルター（サブスクリプショングループの「該当しない」など）を含むフィルターがある場合、ユーザーはセグメントに含まれるために「OR」フィルターの1つだけを満たせばよいことに注意してください。他のフィルターに関係なく否定フィルターを適用するには、[除外グループ](#exclusion)を使用してください。
+否定フィルター（購読グループの「該当しない」など）を含むフィルターに「OR」を選択する場合、ユーザーはセグメントに含まれるために「OR」フィルターの1つだけを満たせばよいことに注意してください。他のフィルターに関係なく否定フィルターを適用するには、[除外グループ](#exclusion)を使用してください。
 {% endalert %}
 
 {% details OR演算子を避けるべき場合 %}
@@ -82,7 +82,7 @@ search_rank: 3
 
 ### フィルター演算子 {#filter-operators}
 
-選択する特定のフィルターに応じて、フィルター値を識別するための異なる演算子が使用できます。さまざまなタイプのカスタム属性で使用可能な演算子の詳細については、[カスタム属性ストレージ]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes)を参照してください。「is any of」演算子を使用する場合、そのフィールドに含めることができるアイテムの最大数は256であることに注意してください。
+選択する特定のフィルターに応じて、フィルター値を識別するための異なる演算子が使用できます。さまざまなタイプのカスタム属性で使用可能な演算子の詳細については、[カスタム属性ストレージ]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes)を参照してください。「is any of」演算子を使用する場合、そのフィールドに含めることができるアイテムの最大数は256であることに注意してください。
 
 {% alert note %}
 Brazeは、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、まだアプリを開いていないユーザーをターゲットにすることはできません。
@@ -149,7 +149,7 @@ Brazeは、ユーザーが初めてアプリを使用するまでプロファイ
 
 Brazeには、ユーザーIDまたはメールアドレスで特定のユーザーをターゲットするためのテストフィルターがあります。
 
-## ステップ 5:セグメントを保存する {#step-5-save-your-segment}
+## ステップ5:セグメントを保存する {#step-5-save-your-segment}
 
 **保存**を選択します。これで、ユーザーへのメッセージ送信を開始する準備が整いました！
 

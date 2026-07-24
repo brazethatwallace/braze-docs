@@ -60,5 +60,5 @@ tool:
 ![保存済みのドラッグ＆ドロップメールテンプレートセクション。2つのテンプレートが選択され、ツールバーにアーカイブオプションが表示されています。]({% image_buster /assets/img/archive_multiple_template.png %}){: style="max-width:60%;"}
 
 {% alert important %}
-アーカイブは現在、[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-templates)では利用できません。
+アーカイブは現在、[リンクテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)では利用できません。
 {% endalert %}

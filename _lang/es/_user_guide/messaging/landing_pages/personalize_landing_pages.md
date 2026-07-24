@@ -15,7 +15,7 @@ La personalización con Liquid para páginas de inicio solo está disponible en 
 
 ## Insertar Liquid {#inserting-liquid}
 
-En el editor de arrastrar y soltar, puedes insertar personalización con Liquid tanto en el editor como en la configuración de la página o del bloque en el panel de la derecha. Para obtener instrucciones sobre cómo implementar Liquid, consulta nuestra [documentación dedicada de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid).
+En el editor de arrastrar y soltar, puedes insertar personalización con Liquid tanto en el editor como en la configuración de la página o del bloque en el panel de la derecha. Para obtener instrucciones sobre cómo implementar Liquid, consulta nuestra [documentación dedicada de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 
 ![Editor de páginas de inicio con personalización de Liquid añadida.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 

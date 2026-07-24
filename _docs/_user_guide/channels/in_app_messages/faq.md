@@ -65,11 +65,11 @@ To prevent this, during your campaign setup, select **Re-evaluate campaign eligi
 
 ## Can multiple in-app messages display in the same session?
 
-Yes, but only one in-app message can display per occurrence of a [trigger event]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger). If multiple in-app message campaigns share the same trigger (for example, session start), only the highest-priority message displays each time that trigger occurs. For session start triggers, this means only one message can display per session, and the next opportunity to show another eligible message is the next session.
+Yes, but only one in-app message can display per occurrence of a [trigger event]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger). If multiple in-app message campaigns share the same trigger (for example, session start), only the highest-priority message displays each time that trigger occurs. For session start triggers, this means only one message can display per session, and the next opportunity to show another eligible message is the next session.
 
 When multiple messages share the same priority level, the most recently created message displays first. For session start triggers, the next most recent message displays in a subsequent session; for other trigger types, the next most recent message displays the next time that trigger event occurs, which may be within the same session or a later session.
 
-To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
+To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
 
 ## How does Braze calculate an in-app message expiration set to "after 1 day(s)"?
 
@@ -149,7 +149,7 @@ If your HTML references REST data returned by Connected Content, that data is av
 
 Standard in-app messages display as soon as the cached payload is ready after the trigger event. On Android and iOS, large images or other CDN-hosted assets referenced in the message can add a short delay while those resources finish downloading before the in-app message appears.
 
-[Templated in-app messages](#what-are-templated-in-app-messages) and campaigns with **Re-evaluate campaign eligibility before displaying** selected require an additional network request after the trigger before the message appears. This can add a short delay (typically under 100 ms on a stable connection). For more information, see [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target).
+[Templated in-app messages](#what-are-templated-in-app-messages) and campaigns with **Re-evaluate campaign eligibility before displaying** selected require an additional network request after the trigger before the message appears. This can add a short delay (typically under 100 ms on a stable connection). For more information, see [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
 
 ### Why does my in-app message look different from the dashboard preview?
 

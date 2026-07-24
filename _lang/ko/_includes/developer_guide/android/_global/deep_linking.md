@@ -190,7 +190,7 @@ Braze.configure(this, brazeConfig)
 푸시 알림의 딥링크가 Android에서 작동하지 않는 경우 다음 단계를 시도해 보세요.
 
 1. **Braze 외부에서 딥링크를 테스트합니다.** 이메일이나 브라우저 등 다른 앱에서 딥링크 URL을 열어 보세요. 앱이 열리지 않으면 `AndroidManifest.xml`에서 딥링크가 올바르게 구성되지 않았을 수 있습니다. 자세한 내용은 Android의 [딥링크 만들기](https://developer.android.com/training/app-links/deep-linking) 설명서를 참조하세요.
-2. **자동 딥링크 처리가 활성화되어 있는지 확인합니다.** `braze.xml`에서 `com_braze_handle_push_deep_links_automatically`가 `true`로 설정되어 있는지 확인하거나, [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 통해 이 옵션을 설정하세요. 이 설정이 없으면 사용자가 푸시 알림을 탭할 때 Braze가 자동으로 앱을 열고 딥링크 대상으로 이동하지 않습니다.
+2. **자동 딥링크 처리가 활성화되어 있는지 확인합니다.** `braze.xml`에서 `com_braze_handle_push_deep_links_automatically`가 `true`로 설정되어 있는지 확인하거나, [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 통해 이 옵션을 설정하세요. 이 설정이 없으면 사용자가 푸시 알림을 탭할 때 Braze가 자동으로 앱을 열고 딥링크 대상으로 이동하지 않습니다.
 3. **딥링크 핸들러 델리게이트를 확인합니다.** 커스텀 `IBrazeDeeplinkHandler`를 설정한 경우, `gotoUri` 구현이 URI를 올바르게 처리하고 누락시키지 않는지 확인하세요.
 4. **채널 간 테스트를 수행합니다.** 동일한 딥링크가 인앱 메시지에서는 작동하지만 푸시에서는 작동하지 않는 경우, 문제는 딥링크 자체가 아니라 푸시 딥링크 처리에 있을 가능성이 높습니다.
 

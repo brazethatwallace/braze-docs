@@ -23,7 +23,7 @@ Sie können diesen Endpunkt auch über den [Braze-MCP-Server]({{site.baseurl}}/u
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `media_library.create`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `media_library.create`.
 
 ## Rate-Limit
 

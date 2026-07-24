@@ -86,7 +86,7 @@ An email feedback loop (FBL) allows senders to monitor their reputation by ident
 
 ### What are open tracking pixels?
 
-[Open tracking pixels]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel) leverage a sender's email click tracking domain to track email open events. The pixel is an image tag appended to the email's HTML. It is most commonly the last HTML element within the body tag. When a user loads their email, a request is made to populate the image from the branded tracking domain, which logs an open event.
+[Open tracking pixels]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) leverage a sender's email click tracking domain to track email open events. The pixel is an image tag appended to the email's HTML. It is most commonly the last HTML element within the body tag. When a user loads their email, a request is made to populate the image from the branded tracking domain, which logs an open event.
 
 ### What happens when an email campaign or Canvas is stopped?
 
@@ -133,11 +133,11 @@ Open tracking relies on the recipient loading the email with images enabled. In 
 
 Some corporate email security tools (such as Barracuda, Proofpoint, and similar services) scan incoming emails by automatically clicking all links in the message to verify they are safe. This can result in click events appearing within seconds of send, often with every link in the email clicked in rapid succession.
 
-This behavior is more common with institutional email domains (such as high schools, universities, and corporate environments) and is more likely when your sending domain differs significantly from your tracking domain. Setting up a [custom branded tracking domain]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) can reduce the frequency of these automated clicks.
+This behavior is more common with institutional email domains (such as high schools, universities, and corporate environments) and is more likely when your sending domain differs significantly from your tracking domain. Setting up a [custom branded tracking domain]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) can reduce the frequency of these automated clicks.
 
 **How to identify:** Look up the IP address of the click event (available in Currents data) in a search engine. If the IP is associated with a known security provider (such as Barracuda Networks), the clicks are likely automated. You may also see a consistent User-Agent header across multiple automated clicks.
 
-For additional context on how security scanning affects email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+For additional context on how security scanning affects email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### What are the potential risks of triggering server clicks?
 
@@ -181,7 +181,7 @@ To mitigate this:
 - **Use a preference center:** Instead of a direct unsubscribe link, use a [preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions) that requires user interaction to confirm the unsubscribe action. Security scanners typically won't complete multi-step forms.
 - **Review unsubscribe logs:** Check the `User-Agent` header and IP address in your Currents unsubscribe event data to identify patterns consistent with automated scanning (such as consistent `User-Agent` headers across multiple unsubscribes).
 
-For more details on how server-side scanning can affect email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+For more details on how server-side scanning can affect email metrics, refer to [Handling increases in click rates]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Why has my machine open rate changed unexpectedly?
 
@@ -298,6 +298,12 @@ You can also wrap content so it hides in Outlook desktop using conditional comme
 SVG images are not recommended for email due to limited support across email clients. Gmail and several other major email providers do not render SVG images, which can result in broken or missing images for recipients. WebP is not consistently supported across clients.
 
 Instead, use widely supported formats such as PNG or JPEG so images render reliably.
+
+### Can I embed videos in emails?
+
+Embedded videos are not natively supported by many popular email clients such as Gmail, Outlook, and Yahoo. As a result, embedded video elements may not display as intended or may not appear at all. Additionally, embedding video directly in an email can significantly increase the email size, which increases the chance that the message may be marked as spam.
+
+Instead, you can create a GIF or static image that resembles a video in a video player, then link that image to your video. When users click the image, they are directed to the video hosted on your website or a video platform.
 
 ### Can Liquid variables assigned in one part of the message composer be used in another?
 

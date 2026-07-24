@@ -20,13 +20,13 @@ You can pass in `context` that will be templated into the messages sent by the f
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Note that to send messages with this endpoint, you must have a [Canvas ID]({{site.baseurl}}/api/identifier_types#canvas-api-identifier), created when you build a Canvas.
+Note that to send messages with this endpoint, you must have a [Canvas ID]({{site.baseurl}}/api/identifier_types#canvas-identifier), created when you build a Canvas.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.trigger.schedule.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `canvas.trigger.schedule.create` permission.
 
 ## Rate limit
 

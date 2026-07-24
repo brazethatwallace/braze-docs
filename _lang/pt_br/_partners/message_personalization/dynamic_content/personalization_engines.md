@@ -1,4 +1,29 @@
 ---
-nav_title: Mecanismos de personalização
-config_only: true
+nav_title: "Mecanismos de personalização"
+article_title: "Mecanismos de personalização"
+page_type: landing
+description: "Explore integrações com parceiros de tecnologia para mecanismos de personalização."
+layout: dev_guide
+search_tag: Partner
+
+guide_top_header: "Mecanismos de personalização"
+guide_top_text: "Explore integrações com parceiros de tecnologia para mecanismos de personalização. Para uma lista completa e filtrável de todos os parceiros de tecnologia da Braze, acesse o <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
+
+guide_featured_title: "Parceiros"
+guide_featured_list:
+  - name: "Amazon Personalize"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/amazon_personalize
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Rendimento dinâmico"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/dynamic_yield
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Limbik"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/limbik
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Movable Ink"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/movable_ink
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "Sheetlabs"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/sheetlabs
+    image: /assets/img/braze_icons/users-01.svg
 ---

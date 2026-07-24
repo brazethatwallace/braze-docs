@@ -37,13 +37,13 @@ Hay dos pasos clave para crear un flujo de trabajo de evaluación de clientes po
 
 ![Paso 2 de la creación de un Canvas con el horario de entrada "Basado en acciones" y las opciones basadas en acciones de cambiar un atributo personalizado "lead score" y añadir una dirección de correo electrónico.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
 
-### Paso 3: Identifica tu audiencia objetivo {#step-3-identify-your-target-audience}
+### Paso 3: Identifica tu público objetivo {#step-3-identify-your-target-audience}
 
 #### Paso 3a: Seleccionar segmentos {#step-3a-select-segments}
 
 Todos los usuarios son elegibles para la evaluación de clientes potenciales, por lo que puedes añadir reglas específicas de la empresa sobre a quién evaluar seleccionando a qué [segmentos]({{site.baseurl}}/user_guide/audience/segments) de usuarios dirigirte y aplicando [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) adicionales. Por ejemplo, puedes excluir a empleados, usuarios que ya son clientes y similares.
 
-![Paso 3 de la creación de un Canvas con opciones para seleccionar segmentos y filtros para acotar la audiencia de entrada.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![Paso 3 de la creación de un Canvas con opciones para seleccionar segmentos y filtros para acotar el público de entrada.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
 #### Paso 3b: Establecer la reelegibilidad del Canvas {#step-3b-set-canvas-re-eligibility}
 
@@ -68,7 +68,7 @@ En **Configuración de suscripción**, en **Enviar a estos usuarios:** seleccion
 
 #### Paso 4a: Añadir una Ruta de Acción {#step-4a-add-an-action-path}
 
-Bajo tu variante, selecciona <i class="fas fa-plus"></i> **Añadir** y luego selecciona **Rutas de Acción**.
+Bajo tu variante, selecciona <i class="fas fa-plus" aria-label="Añadir"></i> **Añadir** y luego selecciona **Rutas de Acción**.
 
 ![Canvas con "Rutas de Acción" en el menú que se abre con el icono más.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
@@ -93,7 +93,7 @@ En cada grupo de acción, selecciona **Seleccionar activador** y elige el evento
 
 #### Paso 4d: Añadir pasos de actualización de usuario {#step-4d-add-user-update-steps}
 
-Añade un paso de Actualización de usuario a cada ruta del Canvas creada debajo de tu Ruta de Acción.
+Añade un paso de actualización de usuario a cada ruta del Canvas creada en tu Ruta de Acción.
 
 ![Canvas que muestra la Ruta de Acción con rutas de actualización de usuario ramificadas para cada grupo de acción.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
@@ -117,7 +117,7 @@ Ya sea utilizando uno de nuestros [partners tecnológicos]({{site.baseurl}}/part
 
 ### Partners externos {#external-partners}
 
-Consulta [Partners tecnológicos]({{site.baseurl}}/partners/home) para conocer a nuestros partners B2B que ofrecen funciones de evaluación de clientes potenciales. ¿No ves tu herramienta? Puedes realizar la integración llamando a nuestro endpoint de la API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users).
+Consulta [Partners tecnológicos]({{site.baseurl}}/partners/home) para conocer a nuestros partners B2B que ofrecen funciones de evaluación de clientes potenciales. ¿No ves tu herramienta? Puedes realizar la integración llamando a nuestro endpoint de la API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ### Modelos de datos internos de evaluación de clientes potenciales {#internal-lead-scoring-data-models}
 
@@ -196,7 +196,7 @@ En el paso **Programar entrega**, selecciona lo siguiente:
 - Un tipo de entrega **basado en acciones**
 - Una acción desencadenante de **Cambiar valor de atributo personalizado** con el nombre de tu atributo de evaluación de clientes potenciales y una acción de **cualquier nuevo valor**
 
-#### Paso 2c: Identificar la audiencia objetivo {#step-2c-identify-target-audience}
+#### Paso 2c: Identificar el público objetivo {#step-2c-identify-target-audience}
 
 En el paso **Público objetivo**, incluye un filtro que excluya a los usuarios cuyo estado de cliente potencial ya esté en MQL o más allá, como "`lead_status` `is none of` `MQL`".
 

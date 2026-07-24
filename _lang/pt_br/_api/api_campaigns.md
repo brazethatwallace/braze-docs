@@ -21,7 +21,7 @@ Em seguida, você enviará essas informações à sua equipe de desenvolvimento 
 Após o início da campanha, você pode visualizar os resultados no dashboard. As campanhas da API usam as [APIs de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) da Braze, que têm as mesmas opções detalhadas de relatórios e redirecionamento que as campanhas criadas completamente por meio do dashboard.
 
 {% alert warning %}
-Como as campanhas da API são normalmente transacionais, todos os usuários são elegíveis para campanhas da API, mesmo os do seu Grupo de controle global. Um cabeçalho de [cancelamento de inscrição na lista com um clique]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe) não é adicionado a esses envios. Se quiser adicionar um cabeçalho de cancelamento de inscrição com um clique a todas as campanhas da API, entre em contato com o gerente de sucesso do cliente.
+Como as campanhas da API são normalmente transacionais, todos os usuários são elegíveis para campanhas da API, mesmo os do seu grupo de controle global. Um cabeçalho de [cancelamento de inscrição na lista com um clique]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe) não é adicionado a esses envios. Se quiser adicionar um cabeçalho de cancelamento de inscrição com um clique a todas as campanhas da API, entre em contato com o gerente de sucesso do cliente.
 {% endalert %}
 
 ## Criar uma nova campanha {#create-a-new-campaign}
@@ -42,5 +42,5 @@ Para configurar sua campanha, execute as seguintes etapas:
 ## Chamadas de API {#api-calls}
 
 Depois de salvar sua campanha da API, inclua o seguinte na sua solicitação de API:
-- Os campos `campaign_id` gerados na sua solicitação de API, conforme indicado nos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging#send-endpoints).
-- Um [objeto de mensagem]({{site.baseurl}}/api/objects_filters#messaging-objects) para cada plataforma incluída na campanha. No objeto de mensagem, forneça o ID de variação da mensagem. Isso especificará que as estatísticas devem ser coletadas e exibidas nessa variante. Os seguintes objetos de mensagem são compatíveis: Android, Content Cards, e-mail, iOS, Kindle, SMS/MMS, push para a web e webhook.
+- Os campos `campaign_id` gerados na sua solicitação de API, conforme indicado nos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
+- Um [objeto de mensagem]({{site.baseurl}}/api/objects_filters#messaging-objects) para cada plataforma incluída na campanha. No objeto de mensagem, forneça o ID de variação da mensagem. Isso especificará que as estatísticas devem ser coletadas e exibidas nessa variante. Os seguintes objetos de mensagem são compatíveis: Android, Content Cards, e-mail, iOS, Kindle, SMS/MMS, web push e webhook.

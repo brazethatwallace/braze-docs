@@ -22,7 +22,7 @@ description: "この記事では、「スケジュールされた今後のキャ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`messages.schedule_broadcasts` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`messages.schedule_broadcasts` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -41,7 +41,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {

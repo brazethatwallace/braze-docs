@@ -33,11 +33,11 @@ Braze 대시보드에서 **콘텐츠** > **이메일**로 이동합니다.
 
 ## 3단계: 템플릿 커스텀하기 {#step-3-customize-your-template}
 
-편집기 환경을 선택한 후, 이메일 템플릿을 창의적으로 커스텀할 수 있습니다. HTML 편집기에서 HTML을 사용하여 브랜딩을 만들고 구현하거나, 드래그 앤 드롭 편집기에서 다양한 [크리에이티브 세부 사항]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#creative-details)을 포함할 수 있습니다.
+편집기 환경을 선택한 후, 이메일 템플릿을 창의적으로 커스텀할 수 있습니다. HTML 편집기에서 HTML을 사용하여 브랜딩을 만들고 구현하거나, 드래그 앤 드롭 편집기에서 다양한 [크리에이티브 세부 사항]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)을 포함할 수 있습니다.
 
-### 수신 거부 링크 포함하기 {#include-an-unsubscribe-link}
+### 탈퇴 링크 포함하기 {#include-an-unsubscribe-link}
 
-이메일 템플릿을 디자인할 때 수신 거부 링크를 포함하지 않으면, 모든 마케팅 이메일에 법적으로 필수이므로 Braze에서 이메일에 이 링크를 추가하라는 메시지를 표시합니다. Liquid 태그 {% raw %}``${email_footer}``{% endraw %}를 사용하여 이메일 하단에 푸터로 이 수신 거부 링크를 추가하거나, 템플릿에서 [푸터를 커스텀]({{site.baseurl}}/user_guide/channels/email/subscriptions#custom-footer)할 수 있습니다.
+이메일 템플릿을 디자인할 때 탈퇴 링크를 포함하지 않으면, 모든 마케팅 이메일에 법적으로 필수이므로 Braze에서 이메일에 이 링크를 추가하라는 메시지를 표시합니다. Liquid 태그 {% raw %}``${email_footer}``{% endraw %}를 사용하여 이메일 하단에 푸터로 이 탈퇴 링크를 추가하거나, 템플릿에서 [푸터를 커스텀]({{site.baseurl}}/user_guide/channels/email/subscriptions#custom-footer)할 수 있습니다.
 
 ## 4단계: 이메일 오류 확인하기 {#step-4-check-for-email-errors}
 
@@ -49,9 +49,9 @@ Braze 대시보드에서 **콘텐츠** > **이메일**로 이동합니다.
 
 - 잘못된 Liquid 구문
 - [400KB를 초과하는 이메일 본문; 본문은 102KB 미만을 강력히 권장합니다]({{site.baseurl}}/user_guide/channels/email/best_practices)
-- 수신 거부 링크가 없는 템플릿
+- 탈퇴 링크가 없는 템플릿
 - **본문** 또는 **제목**이 비어 있는 이메일
-- 수신 거부 링크가 없는 이메일
+- 탈퇴 링크가 없는 이메일
 
 ## 5단계: 메시지 미리보기 및 테스트하기 {#step-5-preview-and-test-your-message}
 
@@ -85,7 +85,7 @@ Braze 대시보드에서 **콘텐츠** > **이메일**로 이동합니다.
 
 **Templates** > **Email Templates**에서 이메일 템플릿을 확인할 수 있으며, 상태, 유형, 태그, 만든 사용자별로 필터링하거나 템플릿 이름으로 검색할 수 있습니다. 이 템플릿을 보려면 **View Email Templates**와 같은 관련 사용자 권한이 필요합니다. 자세한 내용은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
 
-이메일 템플릿을 더 많이 만들면 이메일 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates)하고 [아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates)할 수 있습니다. 템플릿 및 크리에이티브 콘텐츠 라이브러리를 만들고 관리하는 방법에 대해 [템플릿 및 미디어]({{site.baseurl}}/user_guide/messaging/templates)에서 자세히 알아보세요.
+이메일 템플릿을 더 많이 만들면 이메일 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates)하고 [아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates)할 수 있습니다. 템플릿 및 크리에이티브 콘텐츠 라이브러리를 만들고 관리하는 방법에 대해 [템플릿 및 미디어]({{site.baseurl}}/user_guide/messaging/templates)에서 자세히 알아보세요.
 
 ### API Campaign에서 템플릿 사용하기 {#use-your-templates-in-api-campaigns}
 

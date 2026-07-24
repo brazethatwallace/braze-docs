@@ -22,9 +22,7 @@ Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide
 
 Slideup-Nachrichten können bis zu drei Textzeilen enthalten, bevor sie mit Auslassungspunkten abgeschnitten werden. Bilder in Slideups werden niemals beschnitten oder abgeschnitten – sie werden immer so herunterskaliert, dass sie in den 50 x 50 Pixel großen Bildcontainer passen.
 
-- Alle Bilder müssen kleiner als 5&nbsp;MB sein.
-- Wir akzeptieren nur die Dateitypen PNG, JPEG und GIF.
-- Wir empfehlen, dass Ihre Bilder 500&nbsp;KB groß sind.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Erstellen Sie Assets mit Zuversicht! Unsere Bildvorlagen und Safe-Zone-Overlays für In-App-Nachrichten sind so konzipiert, dass sie auf Geräten aller Größen gut funktionieren. [Design-Vorlagen-ZIP herunterladen]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 

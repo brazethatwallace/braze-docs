@@ -20,7 +20,7 @@ The Braze React Native SDK connects your iOS and Android apps to Braze: user pro
 - **In-app messages**: Default Braze UI or custom handling via subscriptions and logging APIs
 - **Content Cards**: Default feed UI, or fetch cards and build your own UI
 - **Banners**: Placement-based HTML banners, including `BrazeBannerView`
-- **Push notifications**: Permission prompts, token registration, payload listeners (see [Push notifications](#push-notifications))
+- **Push notifications**: Permission prompts, token registration, payload listeners (see platform notes in [Native setup](#native-setup))
 - **Feature flags**: Refresh, read properties, log impressions
 - **Analytics**: Custom events, purchases, immediate flush
 - **SDK controls**: Enable/disable SDK, wipe local data, SDK Authentication signatures
@@ -73,7 +73,7 @@ Calling `Braze.initialize` again with different credentials tears down the curre
 
 ## Native setup
 
-> **Source of truth:** Step-by-step screens, Gradle/CocoaPods changes, and the full list of Android XML keys are in the [Braze React Native developer guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). The following snippets are minimal examples.
+> **Source of truth:** Step-by-step screens, Gradle/CocoaPods changes, and the full list of Android XML keys are in the [Braze React Native developer guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). The snippets in the Android and iOS sections are minimal examples.
 
 ### Android
 

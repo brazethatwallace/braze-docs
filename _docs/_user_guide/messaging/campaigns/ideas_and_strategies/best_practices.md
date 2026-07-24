@@ -16,7 +16,7 @@ tool: Campaign
 Braze recommends that you only send customer data that you intend to utilize on the Braze platform. Consider the philosophy of the "Four T's of Braze" to ensure you only send data that you will use to:
 
 - **Target** your audiences by building [audience segments]({{site.baseurl}}/user_guide/audience/segments).
-- **Trigger** your messages with [action-based]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#action-based-delivery) or [API-triggered]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) delivery.
+- **Trigger** your messages with [action-based]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) or [API-triggered]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) delivery.
 - **Template** and personalize your messages with [Liquid conditional logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 - **Track** the efficacy of your campaigns with [conversion tracking]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 
@@ -28,7 +28,7 @@ As you build out your campaigns over time, you may notice lapses in your audienc
 
 ### Identify your audience
 
-Leverage segments and filters to your advantage by defining your audience. Consider who your campaign and messages are targeting. With this key information, you can create [multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) that offer the flexibility of building your messages in different channels to match your audience's notification preferences.
+Leverage segments and filters to your advantage by defining your audience. Consider who your campaign and messages are targeting. With this key information, you can create [multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) that offer the flexibility of building your messages in different channels to match your audience's notification preferences.
 
 It's also important to understand your [active users]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns) to show your appreciation to your consistent users.
 

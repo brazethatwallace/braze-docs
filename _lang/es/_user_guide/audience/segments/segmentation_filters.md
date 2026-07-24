@@ -4,7 +4,7 @@ nav_title: Filtros de segmentación
 article_title: Filtros de segmentación
 layout: glossary_page
 glossary_top_header: "Filtros de segmentación"
-glossary_top_text: "El SDK de Braze te proporciona un potente arsenal de filtros para segmentar y dirigirte a tus usuarios en función de características y atributos específicos. Puedes buscar o acotar estos filtros por categoría de filtro.<br><br>Para conocer los diferentes tipos de datos de atributos personalizados que puedes utilizar para segmentar usuarios, consulta <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">Tipos de datos de atributos personalizados</a>. Ten en cuenta que los filtros de intervalo están limitados a 100 años."
+glossary_top_text: "El SDK de Braze te proporciona un potente arsenal de filtros para segmentar y dirigirte a tus usuarios en función de características y atributos específicos. Puedes buscar o acotar estos filtros por categoría de filtro.<br><br>Para conocer los diferentes tipos de datos de atributos personalizados que puedes utilizar para segmentar usuarios, consulta <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">Tipos de datos de atributos personalizados</a>. Ten en cuenta que los filtros de intervalo están limitados a 100 años."
 
 page_type: glossary
 tool: Segments
@@ -313,7 +313,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
-    description: Segmenta a tus usuarios por su <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">estado de suscripción</a> para push.
+    description: Segmenta a tus usuarios por su <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">estado de suscripción</a> para push.
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
@@ -377,7 +377,7 @@ glossaries:
     tags:
       - eCommerce
   - name: Total canceled orders count (last 730 days)
-    description: Segmenta a tus usuarios por el recuento total de pedidos que un usuario canceló en los últimos 2 años, basado en el <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de comercio electrónico</a> para pedido cancelado (los espacios de trabajo que no rastrean eventos de comercio electrónico no tienen datos para este filtro). Los usuarios se evalúan para este filtro una vez al día.<br><br>Este filtro está en beta. Ponte en contacto con tu director de cuentas de Braze si te interesa utilizar este filtro.
+    description: Segmenta a tus usuarios por el recuento total de pedidos que un usuario canceló en los últimos 2 años, basado en el <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de comercio electrónico</a> para pedido realizado (los espacios de trabajo que no rastrean eventos de comercio electrónico no tienen datos para este filtro). Los usuarios se evalúan para este filtro una vez al día.<br><br>Este filtro está en beta. Ponte en contacto con tu director de cuentas de Braze si te interesa utilizar este filtro.
     tags:
       - eCommerce
   - name: Customer lifetime value (last 730 days)
@@ -613,7 +613,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: Segmenta a tus usuarios por el campo de número de teléfono en formato E.164.<br><br> Cuando se envía un número de teléfono a Braze, Braze intenta convertirlo al <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">formato E.164</a> que se utiliza para enviar a través de los canales SMS, RCS y WhatsApp. El proceso de conversión puede fallar si el número no tiene el formato adecuado, lo que resulta en que el perfil del usuario tenga un número de teléfono sin formato pero no un número de teléfono de envío. Este filtro de segmento devuelve usuarios por su número de teléfono en formato E.164 (cuando está disponible).<br><br>Ejemplos:<br> - Utiliza este filtro para comprender el tamaño más preciso de la audiencia objetivo al enviar mensajes SMS, RCS o WhatsApp.  <br>- Utiliza expresiones regulares (regex) con este filtro para segmentar por números de teléfono con un código de país específico. <br>- Utiliza este filtro para segmentar usuarios por números de teléfono que fallaron en el proceso de conversión a E.164.
+    description: Segmenta a tus usuarios por el campo de número de teléfono en formato E.164.<br><br> Cuando se envía un número de teléfono a Braze, Braze intenta convertirlo al <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">formato E.164</a> que se utiliza para enviar a través de los canales SMS, RCS y WhatsApp. El proceso de conversión puede fallar si el número no tiene el formato adecuado, lo que resulta en que el perfil del usuario tenga un número de teléfono sin formato pero no un número de teléfono de envío. Este filtro de segmento devuelve usuarios por su número de teléfono en formato E.164 (cuando está disponible).<br><br>Ejemplos:<br> - Utiliza este filtro para comprender el tamaño más preciso de la audiencia objetivo al enviar mensajes SMS, RCS o WhatsApp.  <br>- Utiliza expresiones regulares (regex) con este filtro para segmentar por números de teléfono con un código de país específico. <br>- Utiliza este filtro para segmentar usuarios por números de teléfono que fallaron en el proceso de conversión a E.164.
     tags:
       - Other Filters
 ---

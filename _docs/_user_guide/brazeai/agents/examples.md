@@ -46,7 +46,7 @@ Agents that classify input against defined criteria and return values your journ
 
 ### Catalog enrichment
 
-Catalog agents that enhance catalog rows with localized copy, categories, tags, or other metadata you map back to catalog columns. Examples include locale-specific translations within character limits and generating descriptions, categories, and tags from existing item data.
+Catalog Agents that enhance catalog rows with localized copy, categories, tags, or other metadata you map back to catalog columns. Examples include locale-specific translations within character limits and generating descriptions, categories, and tags from existing item data.
 
 {% enddetails %}
 
@@ -66,7 +66,7 @@ Every example asks the model to return an `explanation` field alongside its outp
 Content generation, canvas step agent
 {% endapitags %}
 
-Use this Canvas agent to generate coordinated email subject lines, preheaders, and push notification title and body copy for users who searched in the app but did not book. The goal is to retarget them in a Canvas journey with localized, brand-safe messaging that drives checkout while respecting each channel's character limits.
+Use this Canvas Step Agent to generate coordinated email subject lines, preheaders, and push notification title and body copy for users who searched in the app but did not book. The goal is to retarget them in a Canvas journey with localized, brand-safe messaging that drives checkout while respecting each channel's character limits.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -147,7 +147,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 Data standardization, canvas step agent
 {% endapitags %}
 
-This example describes how a Canvas agent can analyze user feedback from post-trip surveys and categorize sentiment and topics. The goal of this agent is to determine the next steps for a separate CRM platform.
+This example describes how a Canvas Step Agent can analyze user feedback from post-trip surveys and categorize sentiment and topics. The goal of this agent is to determine the next steps for a separate CRM platform.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -215,7 +215,7 @@ Input & Output Example:
 Affinity agent, canvas step agent
 {% endapitags %}
 
-This example describes how a Canvas agent can classify users into specific interest buckets based on existing custom attributes and high-intent behavioral signals, then recommend the single best next experience or item. The goal is to route users to precisely targeted experiences—such as cart recovery or category-specific recommendations—grounded only in verified data, without hallucinating attributes that aren't present.
+This example describes how a Canvas Step Agent can classify users into specific interest buckets based on existing custom attributes and high-intent behavioral signals, then recommend the single best next experience or item. The goal is to route users to precisely targeted experiences—such as cart recovery or category-specific recommendations—grounded only in verified data, without hallucinating attributes that aren't present.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -294,7 +294,7 @@ Recent Search: "cordless drill"
 Affinity agent, canvas step agent
 {% endapitags %}
 
-This example describes how a Canvas agent can infer a user's current motivation from recent behavior and context—such as recent favorites or search history—and return the single best route key for their next step. The goal is to send each user down the most relevant Canvas path without manual segmentation.
+This example describes how a Canvas Step Agent can infer a user's current motivation from recent behavior and context—such as recent favorites or search history—and return the single best route key for their next step. The goal is to send each user down the most relevant Canvas path without manual segmentation.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -366,7 +366,7 @@ Recently Engaged Products: Drill bits
 Affinity agent, canvas step agent
 {% endapitags %}
 
-This example describes how a Canvas agent can assign users to one to three interest categories based on recent high-intent actions and behavioral context (passed through Canvas Context), then recommend the single best next experience or item. The goal is to personalize the next step of a customer journey in real time using verified behavioral signals rather than assumptions.
+This example describes how a Canvas Step Agent can assign users to one to three interest categories based on recent high-intent actions and behavioral context (passed through Canvas Context), then recommend the single best next experience or item. The goal is to personalize the next step of a customer journey in real time using verified behavioral signals rather than assumptions.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -448,7 +448,7 @@ Recent Search: "18v cordless drill"
 Classification and routing, canvas step agent
 {% endapitags %}
 
-This example describes how a Canvas agent can evaluate one inbound customer message at a time and return whether it should be treated as a request to opt out of future messaging (for example, STOP, unsubscribe, or revoke consent). The goal is to output a strict boolean so you can branch journeys conservatively, reducing the risk of messaging after revocation while avoiding false positives when the user is clearly asking a question or continuing to engage.
+This example describes how a Canvas Step Agent can evaluate one inbound customer message at a time and return whether it should be treated as a request to opt out of future messaging (for example, STOP, unsubscribe, or revoke consent). The goal is to output a strict boolean so you can branch journeys conservatively, reducing the risk of messaging after revocation while avoiding false positives when the user is clearly asking a question or continuing to engage.
 
 {% alert important %}
 Opt-out and consent handling carries legal obligations that vary by region and channel. Treat this example as a starting point and review your final logic against your own compliance requirements (such as TCPA and GDPR) before relying on it in production.
@@ -530,7 +530,7 @@ Input: “This sucks—what’s the promo code?” → false
 Data standardization, canvas step agent
 {% endapitags %}
 
-This example describes how a Canvas agent can normalize messy, unstructured inbound SMS or chat replies into a consistent structured format—classifying intent, extracting entities, and flagging compliance signals such as opt-outs and PII. The goal is to give downstream automation and internal notifications clean, machine-readable data for reliable routing.
+This example describes how a Canvas Step Agent can normalize messy, unstructured inbound SMS or chat replies into a consistent structured format—classifying intent, extracting entities, and flagging compliance signals such as opt-outs and PII. The goal is to give downstream automation and internal notifications clean, machine-readable data for reliable routing.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -606,7 +606,7 @@ Raw message: "STOP sending me these texts!!!"
 Content generation, catalog agent
 {% endapitags %}
 
-This example describes how a catalog agent can leverage user data and brand guidelines. The goal of this catalog agent is to use brand guidelines to generate short descriptions for each travel destination and explanations for how the agent generated them.
+This example describes how a Catalog Agent can leverage user data and brand guidelines. The goal of this Catalog Agent is to use brand guidelines to generate short descriptions for each travel destination and explanations for how the agent generated them.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -650,7 +650,7 @@ Final Output Specification:
 You must return an object with exactly two keys: "short_description" and "explanation".
 - short_description: Plain text for the catalog cell, maximum 150 characters. No markdown.
 - explanation: String. Brief note on how you combined Destination Name, Country, Primary Vibe, and Price Tier per the brand rules.
-Configure your agent's **Output** with **Fields** that match these key names (catalog agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
+Configure your agent's **Output** with **Fields** that match these key names (Catalog Agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
 
 Input & Output Example:
 <input_example>
@@ -674,7 +674,7 @@ Price Tier: $$$
 Catalog enrichment, catalog agent
 {% endapitags %}
 
-This example describes how a catalog agent can translate English UI and marketing strings into each region’s target language using catalog rows that define locale, UI placement, and character limits. The goal is to produce localized text you map back to your catalog columns, with explanations when shortening, locale choices, or manual review apply.
+This example describes how a Catalog Agent can translate English UI and marketing strings into each region’s target language using catalog rows that define locale, UI placement, and character limits. The goal is to produce localized text you map back to your catalog columns, with explanations when shortening, locale choices, or manual review apply.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -750,7 +750,7 @@ Max Characters: 20
 Catalog enrichment, catalog agent
 {% endapitags %}
 
-This example describes how a catalog agent can enhance existing catalog items by generating an improved product description (45–90 words), a standardized category, and a set of tags from the item's existing data. The goal is to scale on-brand catalog enrichment across many products without manual copywriting, while avoiding hallucinated facts or prohibited claims.
+This example describes how a Catalog Agent can enhance existing catalog items by generating an improved product description (45–90 words), a standardized category, and a set of tags from the item's existing data. The goal is to scale on-brand catalog enrichment across many products without manual copywriting, while avoiding hallucinated facts or prohibited claims.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -821,7 +821,7 @@ existing_category: "hydration"
 Data standardization, canvas step agent
 {% endapitags %}
 
-This example describes how a Canvas agent can process unstructured user input—such as manually typed text with typos or variations—and use LLM-assisted matching against catalog search results to standardize it against known catalog items. The goal is to identify what the user actually meant from their imperfect input, which is especially useful when Liquid lookups cannot handle approximate matches.
+This example describes how a Canvas Step Agent can process unstructured user input—such as manually typed text with typos or variations—and use LLM-assisted matching against catalog search results to standardize it against known catalog items. The goal is to identify what the user actually meant from their imperfect input, which is especially useful when Liquid lookups cannot handle approximate matches.
 
 {% tabs local %}
 {% tab Prerequisites %}
@@ -869,7 +869,7 @@ You must return an object containing exactly three keys: "standardized_destinati
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: Sarah
+{{${first_name}}}: Jane
 {{context.${user_entered_destination}}}: Parisss
 Catalog search for destinations similar to "Parisss" returns: {"destination_name": "Paris"}
 </input_example>

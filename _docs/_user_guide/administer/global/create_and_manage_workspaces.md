@@ -31,6 +31,11 @@ Everything you do in Braze happens within a workspace. Workspaces are a shared e
 
 Before you begin, make sure you've worked with your team and your Braze onboarding manager to determine the best workspace configuration for your use case. To learn more about planning your workspaces in Braze, check out our [Getting Started: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces) guide.
 
+{% alert warning %}
+**Best practice: Use dedicated Firebase projects per workspace**<br>
+While Braze allows uploading the same Firebase Service Account JSON to multiple workspaces, all workspaces using the same Google Project ID share Firebase Cloud Messaging's default rate limit of 600,000 messages per minute. High-volume senders may encounter "Quota Exceeded" errors during simultaneous campaign launches across workspaces.<br><br>For isolated deliverability and quota management, use separate, dedicated Firebase projects for each Braze workspace.
+{% endalert %}
+
 ### Step 2: Add your workspace
 
 You can create new workspaces or switch between existing workspaces from the workspace dropdown in the global header.

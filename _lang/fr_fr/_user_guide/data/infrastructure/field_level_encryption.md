@@ -43,7 +43,7 @@ Procédez comme suit pour configurer votre méthode d'authentification par clé 
 
 ## Étape 1 : Connectez vos clés AWS KMS {#step-1-connect-your-aws-kms-keys}
 
-Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Field-Level Encryption**. Pour vos paramètres AWS KMS, saisissez les éléments suivants :
+Dans le tableau de bord de Braze, accédez à **Data Settings** > **Field-Level Encryption**. Pour vos paramètres AWS KMS, saisissez les éléments suivants :
 
 - ID de la clé d'accès
 - Clé d'accès secrète
@@ -87,7 +87,7 @@ Ces fonctionnalités ne sont pas prises en charge avec le chiffrement au niveau 
 
 ### Objet attributs de l'utilisateur {#user-attributes-object}
 
-Lorsque vous utilisez le chiffrement au niveau du champ de l'identifiant avec l'endpoint `/users/track`, notez les détails de ces champs pour l'[objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) :
+Lorsque vous utilisez le chiffrement au niveau du champ de l'identifiant avec l'endpoint `/users/track`, notez les détails de ces champs pour l'[objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object) :
 
 - Le champ `email` doit être la valeur hachée de l'e-mail.
 - Le champ `email_encrypted` doit être la valeur chiffrée de l'e-mail.

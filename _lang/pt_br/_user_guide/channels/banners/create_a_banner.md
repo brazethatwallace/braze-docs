@@ -33,7 +33,7 @@ Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canv
 3. Dê à sua campanha um nome claro e significativo.
 4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário. Tags facilitam encontrar suas campanhas e criar relatórios. Por exemplo, ao usar o Criador de relatórios, você pode filtrar pelas tags relevantes.
 5. Selecione o posicionamento que você criou anteriormente para associá-lo à sua campanha.
-6. Adicione variantes conforme necessário. Você pode escolher um tipo de mensagem e disposição diferentes para cada uma. Para saber mais sobre variantes, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+6. Adicione variantes conforme necessário. Você pode escolher um tipo de mensagem e layout diferentes para cada uma. Para saber mais sobre variantes, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 7. Escolha uma data e hora de início para sua campanha de Banner. Por padrão, os Banners duram indefinidamente. Você pode alterar isso selecionando **End Time** e especificando uma data e hora de encerramento.
 
 {% alert tip %}
@@ -159,9 +159,7 @@ Para a referência completa da ponte JavaScript, consulte [Código personalizado
 
 Você pode adicionar propriedades personalizadas a um Banner para anexar metadados estruturados, como strings ou objetos JSON. Essas propriedades não afetam como o Banner é exibido, mas podem ser [acessadas pelo SDK da Braze]({{site.baseurl}}/developer_guide/banners/placements) para modificar o comportamento ou a aparência do seu app. Por exemplo, você poderia:
 
-- Enviar metadados para análise de dados de terceiros ou integrações.
-- Usar metadados como um `timestamp` ou objeto JSON para acionar lógica condicional.
-- Controlar o comportamento de um Banner com base em metadados incluídos como `ratio` ou `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 As propriedades personalizadas funcionam da mesma forma no editor de arrastar e soltar e no editor de HTML. Para adicionar uma propriedade personalizada, selecione **Settings** > **Properties** > **Add property**.
 
@@ -205,7 +203,7 @@ A contagem regressiva começa a partir do momento em que o usuário dispensa o B
 
 #### Escolher seu público {#choose-your-audience}
 
-1. Em **Target Audiences**, escolha Segments ou filtros para refinar seu público. Você recebe automaticamente uma prévia da população aproximada do Segment. A associação exata ao Segment é calculada antes do envio da mensagem.
+1. Em **Target Audiences**, escolha segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia da população aproximada do segmento. A associação exata ao segmento é calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -220,7 +218,7 @@ A Braze permite que você acompanhe [eventos de conversão]({{site.baseurl}}/use
 
 {% tab Canvas %}
 
-Se ainda não fez isso, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar [testes multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing) e [seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), e mais, consulte a etapa [Construir seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) da nossa documentação de Canvas.
+Se ainda não fez isso, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar [testes multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing) e [seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), e mais, consulte a etapa [Construir seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) da nossa documentação de Canvas.
 
 Para controlar a reelegibilidade em etapas de Banner no Canvas, use as configurações de reentrada do Canvas. Para saber mais, consulte [Reelegibilidade para Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 

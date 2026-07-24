@@ -107,7 +107,7 @@ Puedes crear un mensaje de producto usando una plantilla de mensaje de WhatsApp 
 
 1. En tu Meta Business Manager, ve a **Message Templates**.
 2. Selecciona **Catalog** como formato y luego elige entre **Catalog message** (muestra el catálogo completo) y **Multi-product catalog message** (destaca artículos específicos).
-3. En Braze, crea una campaña de WhatsApp o un paso de mensaje en Canvas.
+3. En Braze, crea una Campaign de WhatsApp o un paso de mensaje en Canvas.
 4. Selecciona el grupo de suscripción que coincida con donde enviaste la plantilla.
 5. Selecciona **WhatsApp Template Message**.
 6. Selecciona la plantilla que deseas usar.
@@ -123,7 +123,7 @@ Puedes crear un mensaje de producto usando una plantilla de mensaje de WhatsApp 
 {% endtab %}
 {% tab Mensaje de respuesta %}
 
-1. En Braze, crea una campaña de WhatsApp o un paso de mensaje en Canvas.
+1. En Braze, crea una Campaign de WhatsApp o un paso de mensaje en Canvas.
 2. Selecciona un grupo de suscripción.
 3. Selecciona **Response Message**.
 4. Selecciona **Meta Product Messages**.
@@ -189,14 +189,14 @@ Cuando un cliente realiza un pedido en WhatsApp, Braze automáticamente:
 El evento de comercio electrónico `ecommerce.cart_update` solo aparece listado en Braze después de que se haya enviado un evento, lo cual se puede hacer generando un mensaje de producto de prueba desde Braze y enviando un evento de carrito.
 El evento de carrito incluye:
 
-- **Cart ID:** identificador único del carrito
-- **Products:** lista de artículos con IDs de productos, cantidades y precios
-- **Total Value:** suma de todos los artículos
-- **Currency:** la moneda del carrito
-- **Source:** marcado como "whats_app"
-- **Metadata:** datos adicionales como el ID del catálogo y el texto del mensaje
+- **ID del carrito:** identificador único del carrito
+- **Productos:** lista de artículos con IDs de productos, cantidades y precios
+- **Valor total:** suma de todos los artículos
+- **Moneda:** la moneda del carrito
+- **Origen:** marcado como "whats_app"
+- **Metadatos:** datos adicionales como el ID del catálogo y el texto del mensaje
 
-Puedes encontrar información adicional sobre eventos de carrito de Braze en [Tipos de eventos de comercio electrónico recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events).
+Puedes encontrar información adicional sobre eventos de carrito de Braze en [Tipos de eventos de comercio electrónico recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 ### Configuración de una respuesta desencadenada {#setting-up-a-triggered-response}
 
@@ -235,7 +235,7 @@ Usa Liquid para crear URLs de carrito directamente en tu mensaje de respuesta. E
 
 #### Configuración {#setup}
 
-1. Crea una campaña de mensaje de respuesta de WhatsApp con el desencadenador de un evento de comercio electrónico `ecommerce.cart_update`.
+1. Crea una Campaign de mensaje de respuesta de WhatsApp con el desencadenador de un evento de comercio electrónico `ecommerce.cart_update`.
 2. Crea un mensaje posterior con la URL del carrito.
 3. Construye tu URL de carrito con Liquid. Si usas Shopify, puedes [crear un enlace permanente de carrito](https://shopify.dev/docs/apps/build/checkout/create-cart-permalinks) con el ejemplo de Liquid anterior.
 
@@ -248,10 +248,10 @@ Realiza una llamada API a tu sistema de comercio electrónico para generar una U
 
 #### Configuración
 
-1. Crea una campaña de webhook o un paso en Canvas desencadenado por el evento de comercio electrónico [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated), que enviará los datos del carrito a tu sistema de comercio electrónico.
-2. Crea una campaña de WhatsApp o un paso de mensaje en Canvas desencadenado por el mismo evento de comercio electrónico para enviar un mensaje de respuesta de WhatsApp con la URL del carrito al usuario. Sigue las instrucciones en el mensaje de respuesta posterior para usar [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
+1. Crea una Campaign de webhook o un paso en Canvas desencadenado por el evento de comercio electrónico [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated), que enviará los datos del carrito a tu sistema de comercio electrónico.
+2. Crea una Campaign de WhatsApp o un paso de mensaje en Canvas desencadenado por el mismo evento de comercio electrónico para enviar un mensaje de respuesta de WhatsApp con la URL del carrito al usuario. Sigue las instrucciones en el mensaje de respuesta posterior para usar [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
 
-![Diagrama que muestra el flujo de trabajo de la experiencia de pago para una llamada de Contenido conectado: Meta envía un mensaje de pedido recibido a Braze, que tiene llamadas de ida y vuelta con una plataforma de comercio electrónico, y luego envía un mensaje de WhatsApp.]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
+![Diagrama que muestra el flujo de trabajo de la experiencia de pago para una llamada de contenido conectado: Meta envía un mensaje de pedido recibido a Braze, que tiene llamadas de ida y vuelta con una plataforma de comercio electrónico, y luego envía un mensaje de WhatsApp.]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
 
 {% endtab %}
 {% tab Webhooks y eventos personalizados %}
@@ -260,7 +260,7 @@ Usa webhooks para enviar datos del carrito a tu sistema y luego desencadena mens
 
 #### Configuración
 
-Crea una campaña de webhook o un paso en Canvas desencadenado por el evento de comercio electrónico `ecommerce.cart_update`, que enviará los datos del carrito a tu sistema de comercio electrónico. Tu API entonces:
+Crea una Campaign de webhook o un paso en Canvas desencadenado por el evento de comercio electrónico `ecommerce.cart_update`, que enviará los datos del carrito a tu sistema de comercio electrónico. Tu API entonces:
 1. Recibirá los datos del carrito
 2. Creará un carrito en tu sistema
 3. Generará la URL de pago

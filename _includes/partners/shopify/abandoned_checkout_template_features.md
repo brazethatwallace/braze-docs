@@ -1,0 +1,3 @@
+- The ecommerce.checkout_started event pre-defined in your entry criteria 
+- Pre-defined exit criteria to remove customers who have moved on in their purchasing journey 
+- A new shopping cart liquid tag to support product personalization

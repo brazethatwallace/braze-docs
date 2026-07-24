@@ -23,6 +23,18 @@ channel:
 - **554 5.7.1 [internal] recipient address was suppressed due to customer policy:** Try another address, re-engage on another channel, or remove the address from the suppression list for your own test addresses only. Avoid removing real user suppressions as that can hurt reputation.
 - **Mailbox full / invalid account:** Often a list-quality signal. Prioritize users who recently opened or clicked (for example, the last 30–60 days) while you clean inactive or bad addresses.
 
+#### Soft bounce retry behavior
+
+When an email soft bounces due to temporary issues (such as mailbox full, server temporarily unavailable, or other transient deliverability failures), Braze automatically retries delivery for up to 72 hours. The number of retry attempts varies by receiver.
+
+If the email is not successfully delivered after the retry period, Braze logs one soft bounce event for that campaign send. These soft bounces don't appear in campaign analytics, but you can:
+- Monitor them in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) to see bounce reasons
+- Use the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) to exclude these users from future sends
+
+Because of this retry period, email delivery metrics (deliveries, bounces, and spam rate) may not add up to 100% for campaigns where soft-bounced emails ultimately fail to deliver.
+
+For more information on soft bounces, see the [Email analytics glossary]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
+
 ### Invalid domains
 
 Errors like `unable to get mx info` often mean many targets use bad domains (for example, typos). Segment, export, correct, and re-import those profiles.

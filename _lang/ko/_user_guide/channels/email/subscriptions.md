@@ -55,7 +55,7 @@ Braze SDK를 사용하여 사용자의 구독 상태를 업데이트합니다.
 
 #### REST API
 
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자의 [`email_subscribe` 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)을 업데이트합니다. 예를 들어, 사용자가 커스텀 탈퇴 링크를 사용할 때 이메일 구독 상태를 탈퇴됨으로 설정하려면 요청의 사용자 속성에 `email_subscribe: "unsubscribed"`를 포함합니다.
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자의 [`email_subscribe` 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)을 업데이트합니다. 예를 들어, 사용자가 커스텀 탈퇴 링크를 사용할 때 이메일 구독 상태를 탈퇴됨으로 설정하려면 요청의 사용자 속성에 `email_subscribe: "unsubscribed"`를 포함합니다.
 
 #### 고객 프로필 {#user-profile}
 
@@ -97,7 +97,7 @@ Braze SDK를 사용하여 사용자의 구독 상태를 업데이트합니다.
 
 ## 구독 그룹 {#subscription-groups}
 
-구독 그룹은 [글로벌 구독 상태](#subscription-states)에서 오디언스를 더 세분화할 수 있는 Segment 필터입니다. 이 그룹을 통해 최종 사용자에게 더 세분화된 구독 옵션을 제공할 수 있습니다.
+구독 그룹은 [글로벌 구독 상태](#subscription-states)에서 오디언스를 더 세분화할 수 있는 세그먼트 필터입니다. 이 그룹을 통해 최종 사용자에게 더 세분화된 구독 옵션을 제공할 수 있습니다.
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
@@ -118,13 +118,13 @@ Braze SDK를 사용하여 사용자의 구독 상태를 업데이트합니다.
 
 ### 구독 그룹으로 세그먼트하기 {#segmenting-with-a-subscription-group}
 
-Segment를 생성할 때 구독 그룹 이름을 필터로 설정하여 그룹에 옵트인한 사용자를 타겟팅합니다. 이는 월간 뉴스레터, 쿠폰, 멤버십 등급 등에 유용합니다.
+세그먼트를 생성할 때 구독 그룹 이름을 필터로 설정하여 그룹에 옵트인한 사용자를 타겟팅합니다. 이는 월간 뉴스레터, 쿠폰, 멤버십 등급 등에 유용합니다.
 
-!["이탈 사용자" Segment에서 "주간 이메일" 구독 그룹의 사용자를 필터로 타겟팅하는 예시.]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
+!["이탈 사용자" 세그먼트에서 "주간 이메일" 구독 그룹의 사용자를 필터로 타겟팅하는 예시.]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
 ### 구독 그룹 아카이브 {#archiving-subscription-groups}
 
-아카이브된 구독 그룹은 편집할 수 없으며 Segment 필터나 환경설정 센터에 더 이상 표시되지 않습니다. 이메일, Campaign 또는 Canvas에서 Segment 필터로 사용 중인 그룹을 아카이브하려고 하면 해당 그룹의 모든 사용을 제거할 때까지 아카이브를 방지하는 오류 메시지가 표시됩니다.
+아카이브된 구독 그룹은 편집할 수 없으며 세그먼트 필터나 환경설정 센터에 더 이상 표시되지 않습니다. 이메일, Campaign 또는 Canvas에서 세그먼트 필터로 사용 중인 그룹을 아카이브하려고 하면 해당 그룹의 모든 사용을 제거할 때까지 아카이브를 방지하는 오류 메시지가 표시됩니다.
 
 **구독 그룹** 페이지에서 그룹을 아카이브하려면 다음을 수행합니다:
 
@@ -135,11 +135,11 @@ Braze는 아카이브된 그룹의 사용자에 대한 상태 변경을 처리�
 
 #### 구독 그룹 크기 확인 {#viewing-subscription-group-sizes}
 
-**구독 그룹** 페이지의 **구독 그룹 시계열** 그래프를 참조하여 일정 기간 동안의 사용자 수를 기반으로 구독 그룹 크기를 확인할 수 있습니다. 이러한 구독 그룹 크기는 Segment 크기 계산 등 Braze의 다른 영역과도 일관됩니다.
+**구독 그룹** 페이지의 **구독 그룹 시계열** 그래프를 참조하여 일정 기간 동안의 사용자 수를 기반으로 구독 그룹 크기를 확인할 수 있습니다. 이러한 구독 그룹 크기는 세그먼트 크기 계산 등 Braze의 다른 영역과도 일관됩니다.
 
 ![12월 2일부터 11일까지의 "구독 그룹 시계열" 그래프 예시. 그래프는 6일에서 7일 사이에 사용자 수가 약 1,000만 명 증가한 것을 보여줍니다.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-시계열 수치가 **이메일 구독 상태가 탈퇴됨**을 사용하는 Segment와 크게 다른 경우, 그래프는 해당 **구독 그룹**의 멤버십을 집계하는 반면 해당 필터는 **글로벌** 이메일 구독 상태를 반영한다는 점을 기억하세요. 예를 들어, 사용자가 글로벌로는 가입됨 상태이지만 특정 그룹에서는 탈퇴한 상태일 수 있습니다.
+시계열 수치가 **이메일 구독 상태가 탈퇴됨**을 사용하는 세그먼트와 크게 다른 경우, 그래프는 해당 **구독 그룹**의 멤버십을 집계하는 반면 해당 필터는 **글로벌** 이메일 구독 상태를 반영한다는 점을 기억하세요. 예를 들어, 사용자가 글로벌로는 가입됨 상태이지만 특정 그룹에서는 탈퇴한 상태일 수 있습니다.
 
 #### Campaign 분석에서 구독 그룹 확인 {#viewing-subscription-groups-in-campaign-analytics}
 
@@ -230,6 +230,6 @@ Braze는 세 가지 타겟팅 상태를 지원합니다:
 
 "이메일 구독 상태" 및 "푸시 구독 상태" 필터를 사용하여 구독 상태별로 사용자를 세그먼트합니다.
 
-이를 사용하여 옵트인도 옵트아웃도 하지 않은 사용자를 타겟팅하고 명시적 옵트인을 유도합니다. "이메일/푸시 구독 상태가 가입됨" 필터로 Segment를 생성하고 가입됨 상태이지만 옵트인하지 않은 사용자에게 Campaign을 발송합니다.
+이를 사용하여 옵트인도 옵트아웃도 하지 않은 사용자를 타겟팅하고 명시적 옵트인을 유도합니다. "이메일/푸시 구독 상태가 가입됨" 필터로 세그먼트를 생성하고 가입됨 상태이지만 옵트인하지 않은 사용자에게 Campaign을 발송합니다.
 
-![Segment 필터로 사용된 이메일 구독 상태.]({% image_buster /assets/img_archive/not_optin.png %})
+![세그먼트 필터로 사용된 이메일 구독 상태.]({% image_buster /assets/img_archive/not_optin.png %})

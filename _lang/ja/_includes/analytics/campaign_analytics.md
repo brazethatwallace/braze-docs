@@ -85,7 +85,7 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 | フッターラベル | 使用される場合 |
 | --- | --- |
 | **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはセグメントビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいセグメントでは、誤差が生じることがあります。 |
-| **現在のオーディエンス** | Brazeがワークスペースプロファイルの完全スキャンでデフォルトの統計を計算できるため、表示されるオーディエンスサイズはサンプリングされていない現在のカウントです（ただし、チャネルの到達可能性、サブスクリプションルール、その他のターゲティングオプションの影響は受けます）。 |
+| **現在のオーディエンス** | Brazeがワークスペースプロファイルの完全スキャンでデフォルトの統計を計算できるため、表示されるオーディエンスサイズはサンプリングされていない現在のカウントです（ただし、チャネルの到達可能性、購読ルール、その他のターゲティングオプションの影響は受けます）。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="推定オーディエンスと現在のオーディエンス" }
 
 サンプリングの動作、**正確な統計を計算**、**到達可能なユーザー**のセグメンテーションの詳細については、[セグメントサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)を参照してください。
@@ -186,6 +186,13 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![バリアント1の指標テーブルを含むWhatsAppパフォーマンスパネル。]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### クレジットと送信数 {#credits-versus-send-counts}
+
+キャンペーン分析のWhatsApp送信数は配信試行を反映しています。Metaがメッセージカテゴリ（マーケティング、ユーティリティ、認証、サービス）ごとに課金する場合、消費されるクレジットは異なることがあります。
+
+- Brazeで作成された応答メッセージは、BrazeのWhatsAppクレジットを消費しません。
+- 方向性のある送信ボリュームについては、**Analytics** > **Daily Stats**を使用してください。キャンペーンまたはキャンバスごとのクレジット内訳は利用できません。
+
 {% endif %}
 
 表示を簡素化する場合は、<i class="fas fa-plus"></i>**列を追加/削除**をクリックし、必要に応じて指標をクリアします。デフォルトでは、すべての指標が表示されます。
@@ -262,7 +269,7 @@ The **Message Performance** panel outlines how well your message has performed a
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これにはBrazeが提供する配信停止リンクのクリックも含まれます。</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これにはBrazeが提供する購読解除リンクのクリックも含まれます。</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-dismissals">Unique Dismissals</a></td>
@@ -365,6 +372,12 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Daily Impressi
 
 _Unique Daily Impressions_は、実際に閲覧されたバナーを指します。
 
+#### コントロールグループとバリアント間の差異 {#discrepancies-between-control-groups-and-variants}
+
+バナーキャンペーンでコントロールグループを使用する場合、オーディエンスの分割がグループ間で均等であっても、コントロールグループのインプレッションがバリアントのインプレッションよりも高くなることがあります。この差異は、コントロールとバリアントのバナーでインプレッションが記録される方法の違いによって生じます。
+
+コントロールとバリアントの両方のインプレッションでは、バナーのプレースメントがビューポートに入る必要があります。バリアントのインプレッションは、バナー全体が画面に表示された場合にのみ記録されます。コントロールのインプレッションは、バリアントでバナー全体が表示される前に、プレースメントがビューポートに入った時点で記録される場合があります。
+
 {% elsif include.channel == "email" %}
 
 #### メール指標 {#email-metrics}
@@ -389,7 +402,7 @@ _Unique Daily Impressions_は、実際に閲覧されたバナーを指します
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールについて7日間の期間で追跡され、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> によって測定されます。これにはBrazeが提供する配信停止リンクのクリックも含まれます。この数値は5〜10%の範囲が目安です。10%を超える場合は非常に優秀です！
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールについて7日間の期間で追跡され、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> によって測定されます。これにはBrazeが提供する購読解除リンクのクリックも含まれます。この数値は5〜10%の範囲が目安です。10%を超える場合は非常に優秀です！
             </td>
         </tr>
         <tr>
@@ -523,7 +536,7 @@ _推定実質開封率_はメール送信開始から24時間後に算出され�
 1. この事象はすべての送信者とほぼすべての受信者に発生する可能性があることに注意してください。クリック数は開封数と同様に、メッセージに対する人間のインタラクションを示す完全に信頼できる指標ではないため、NHIを防ぐことはできません。
 2. より高いポジティブなエンゲージメントは、より低いNHIと相関する傾向があるため、メールメッセージングの[ベストプラクティス]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices)に従うことが重要です。これには、ユーザーからメール送信の明示的な許可を得ることや、エンゲージメントのないサブスクライバーを定期的にSunsetting（配信停止）することが含まれます。
 3. 可能な限り、メールにHTTPSリンクを使用してください。NHIは安全なリンクを使用する送信者に対してはそれほど一般的に発生しません。
-4. ワンクリックで配信停止できる仕組みを使用している場合は、ユーザーが通知設定を編集・管理できるページに誘導する[ユーザー設定センター]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview)の作成を検討してください。NHIによって誤ってユーザーの登録が解除される可能性があるため、これは有用です。
+4. ワンクリックで購読解除できる仕組みを使用している場合は、ユーザーが通知設定を編集・管理できるページに誘導する[ユーザー設定センター]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview)の作成を検討してください。NHIによって誤ってユーザーの登録が解除される可能性があるため、これは有用です。
 5. コンバージョン数、アプリセッション数、サイト訪問数など、メールマーケティングの成功を測定するために[他の指標]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance)の使用も検討してください。
 6. メールキャンペーンに隠しリンクを追加します。このリンクは、白地に白のテキストや句読点など、人間が気づかないようなものにします。ボットはすべてのリンクをクリックする傾向があるため、見えないリンクでクリックイベントを生成しているユーザーは実際にはNHIの結果であると結論付けることができます。つまり、その開封やクリックは必ずしもポジティブなエンゲージメントを示しているわけではありません。
 
@@ -593,7 +606,7 @@ _推定実質開封率_はメール送信開始から24時間後に算出され�
     </tbody>
 </table>
 
-#### コントロールグループとバリアント間の差異 {#discrepancies-between-control-groups-and-variants}
+#### コントロールグループとバリアント間の差異
 
 アプリ内メッセージキャンペーンでバリアントを50対50に分割した場合、コントロールグループがバリアントよりもわずかに高い割合になることがあります（例：コントロールグループが51%、バリアントが49%）。この差異はレンダリング時間の違いによって生じます。例えば、バリアントメッセージが大きな画像やテンプレート化されたConnected Contentを使用していて、レンダリングが完了する前にユーザーが離脱した場合、コントロールグループはメッセージを表示せずにインプレッションを記録します。
 
@@ -658,16 +671,16 @@ _推定実質開封率_はメール送信開始から24時間後に算出され�
 
 > 通知の配信は、Appleプッシュ通知サービス（APNs）による「ベストエフォート」です。アプリにデータを配信することを目的としておらず、新しいデータが利用可能であることをユーザーに通知することのみを目的としています。重要な違いは、APNsがデバイスに正常に配信した数ではなく、APNsに正常に配信されたメッセージの数が表示されることです。
 
-##### 配信停止の追跡 {#tracking-unsubscribes}
+##### 購読解除の追跡 {#tracking-unsubscribes}
 
-プッシュ通知の配信停止はキャンペーン分析の指標に含まれておらず、AppleやGoogleなどのプロバイダーによるユーザーのプッシュステータスの更新に依存します。これらの更新は頻度が低く、予測不可能な場合があります。そのため、プッシュの配信停止はプッシュキャンペーン分析の指標として含まれていません。
+プッシュ通知の購読解除はキャンペーン分析の指標に含まれておらず、AppleやGoogleなどのプロバイダーによるユーザーのプッシュステータスの更新に依存します。これらの更新は頻度が低く、予測不可能な場合があります。そのため、プッシュの購読解除はプッシュキャンペーン分析の指標として含まれていません。
 
-ただし、手動でプッシュの配信停止を追跡することで、通知の頻度やコンテンツの関連性に対するユーザーの反応について貴重なインサイトを得ることができます。プッシュの配信停止を追跡する方法は2つあります：セグメントフィルターまたはカスタムフィルターを使用する方法です。
+ただし、手動でプッシュの購読解除を追跡することで、通知の頻度やコンテンツの関連性に対するユーザーの反応について貴重なインサイトを得ることができます。プッシュの購読解除を追跡する方法は2つあります：セグメントフィルターまたはカスタムフィルターを使用する方法です。
 
 {% tabs local %}
 {% tab セグメントフィルター %}
 
-プッシュが有効になっていないユーザー、つまりサブスクライブまたはオプトインしておらず、[フォアグラウンドプッシュトークン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration#push-tokens)を持っていないユーザーを識別するセグメントを作成できます。例えば、アプリ内の配信停止数を確認するには、以下のセグメントを「OR」条件で組み合わせます：
+プッシュが有効になっていないユーザー、つまり購読またはオプトインしておらず、[フォアグラウンドプッシュトークン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration#push-tokens)を持っていないユーザーを識別するセグメントを作成できます。例えば、アプリ内の購読解除数を確認するには、以下のセグメントを「OR」条件で組み合わせます：
 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
@@ -680,10 +693,10 @@ _推定実質開封率_はメール送信開始から24時間後に算出され�
 {% tab カスタムフィルター %}
 
 {% alert important %}
-サブスクリプション変更のカスタムイベントをログに記録すると、[データポイント]({{site.baseurl}}/user_guide/data_and_analytics/data_points#consumption-count)が消費されます。または、セグメントフィルターを使用して、プッシュが有効になっていないユーザーを識別し、ターゲットにしてください。
+購読変更のカスタムイベントをログに記録すると、[データポイント]({{site.baseurl}}/user_guide/data_and_analytics/data_points#consumption-count)が消費されます。または、セグメントフィルターを使用して、プッシュが有効になっていないユーザーを識別し、ターゲットにしてください。
 {% endalert %}
 
-別の回避策として、この指標を追跡するために、ユーザーのプッシュ有効ステータスが`true`か`false`かに基づいて、プッシュの配信停止のカスタムイベントを作成することもお勧めします。
+別の回避策として、この指標を追跡するために、ユーザーのプッシュ有効ステータスが`true`か`false`かに基づいて、プッシュの購読解除のカスタムイベントを作成することもお勧めします。
 
 {% endtab %}
 {% endtabs %}
@@ -867,6 +880,8 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     </tbody>
 </table>
 
+失敗が多い場合は、[WhatsApp送信失敗の調査]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures)を参照してください。
+
 #### エンドユーザーのブロックとレポートの指標 {#end-user-blocking-and-reporting-metrics}
 
 追加の指標には[WhatsAppマネージャーダッシュボード](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx)からアクセスできますが、利用可能なすべてのインサイトにアクセスするには[アクセス権の確認](https://www.facebook.com/business/help/218116047387456)が必要です。
@@ -935,7 +950,7 @@ Brazeの分析に加えて、WhatsAppビジネスマネージャーでテンプ�
 
 ### SMS Currentsイベント {#sms-currents-events}
 
-メールと同様に、BrazeはSMSメッセージがユーザーに届く過程で、メッセージに関連するユーザーレベルのイベントを受信します。受信SMSイベントはすべて、[SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)イベントを通じてCurrentsイベントとしても送信されます。これにより、ユーザーがBrazeプラットフォーム外でテキスト入力したメッセージに対して、追加のアクションやレポートを実行できます。
+メールと同様に、BrazeはSMSメッセージがユーザーに届く過程で、メッセージに関連するユーザーレベルのイベントを受信します。受信SMSイベントはすべて、[SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)イベントを通じてCurrentsイベントとしても送信されます。これにより、ユーザーがBrazeプラットフォーム外でテキスト入力したメッセージに対して、追加のアクションやレポートを実行できます。
 
 {% alert note %}
 受信メッセージは1,600文字を超えると切り捨てられます。

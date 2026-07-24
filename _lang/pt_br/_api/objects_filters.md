@@ -2,7 +2,7 @@
 nav_title: Objetos e filtros
 article_title: Objetos e filtros
 page_order: 1.5
-description: "Essa landing page lista os objetos e filtros da API da Braze usados em suas chamadas à API da Braze."
+description: "Esta landing page lista os objetos e filtros da API da Braze usados em suas chamadas à API da Braze."
 
 ---
 
@@ -20,7 +20,7 @@ description: "Essa landing page lista os objetos e filtros da API da Braze usado
 - [Aliases para identificar o objeto]({{site.baseurl}}/api/objects_filters/aliases_to_identify)
 - [Objeto de propriedades do gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
 - [Objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object)
-- [Objeto de atributo de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
+- [Objeto de atributo de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 - [Objeto de programação]({{site.baseurl}}/api/objects_filters/schedule_object)
 - [Objeto de seleção de catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object)
 
@@ -31,6 +31,6 @@ description: "Essa landing page lista os objetos e filtros da API da Braze usado
   - [Objeto de e-mail]({{site.baseurl}}/api/objects_filters/messaging/email_object)
   - [Objeto push do Kindle e FireOS]({{site.baseurl}}/api/objects_filters/messaging/kindle_and_fireos_object)
   - [Objeto SMS]({{site.baseurl}}/api/objects_filters/messaging/sms_object)
-  - [Objeto Web]({{site.baseurl}}/api/objects_filters/messaging/web_objects)
+  - [Objeto web]({{site.baseurl}}/api/objects_filters/messaging/web_objects)
   - [Objeto de webhook]({{site.baseurl}}/api/objects_filters/messaging/webhook_object)
   - [Objeto WhatsApp]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object)

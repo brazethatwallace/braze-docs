@@ -15,7 +15,7 @@ lazy_partner_tabs: true
 
 {% details 스키마 범위 및 관련 리소스 %}
 
-스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 목록을 참조하고 해당 페이지를 확인하세요.
+스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)에 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 목록을 참조하고 해당 페이지를 확인하세요.
 
 {% alert tip %}
 이러한 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
@@ -31,7 +31,7 @@ lazy_partner_tabs: true
 
 이 이벤트 분석은 메시지 인게이지먼트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성 요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 만들고 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-![사용자별 속성, Campaign 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 속성이 나열된 이메일 수신 거부 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
+![사용자별 속성, Campaign 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 속성이 나열된 이메일 구독 취소 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
 
 메시지 인게이지먼트 이벤트는 **사용자별** 속성, **Campaign/Canvas 추적** 속성, **이벤트별** 속성으로 구성됩니다.
 
@@ -48,7 +48,7 @@ lazy_partner_tabs: true
 ### 플랫폼 값 {#platform-values}
 
 특정 이벤트는 사용자 기기의 플랫폼을 지정하는 `platform` 값을 반환합니다.
-<br>다음 표에는 반환될 수 있는 값이 나열되어 있습니다.
+<br>다음 표에는 반환 가능한 값이 나열되어 있습니다.
 
 | 사용자 기기 | 플랫폼 값 |
 | --- | --- |
@@ -65,7 +65,7 @@ lazy_partner_tabs: true
 
 {% details 메시지 인게이지먼트 이벤트 관련 고려 사항 %}
 
-- Currents는 페이로드가 900&nbsp;KB를 초과하는 이벤트를 삭제합니다.
+- Currents는 900&nbsp;KB보다 큰 페이로드를 가진 이벤트를 삭제합니다.
 - Canvas Flow와 관련된 객체에는 그룹화에 사용할 수 있는 ID가 있으며, [Canvas 세부정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
 - Campaign 또는 Canvas를 업데이트한 직후에는 특정 필드에 최신 상태가 즉시 표시되지 않을 수 있습니다.
   - `campaign_name`
@@ -75,7 +75,7 @@ lazy_partner_tabs: true
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- 이러한 필드에 대해 완전한 일관성이 필요한 경우, 마지막 업데이트 후 1시간을 기다린 다음 사용자에게 메시지를 보내세요.
+- 이러한 필드의 완전한 일관성이 필요한 경우, 마지막 업데이트 후 1시간을 기다린 다음 사용자에게 메시지를 보내세요.
 
 {% enddetails %}
 
@@ -625,7 +625,7 @@ Subscription
 
 ### 속성 세부정보 {#property-details}
 
-- `state_change_source`는 전체 소스 이름의 문자열을 반환합니다. 예를 들어, CSV 가져오기 소스는 `CSV Import`라는 문자열을 반환합니다. 사용 가능한 소스는 다음 표에 나열되어 있습니다.
+- `state_change_source`는 전체 소스 이름의 문자열을 반환합니다. 예를 들어, CSV 가져오기 소스는 `CSV Import` 문자열을 반환합니다. 사용 가능한 소스는 다음 표에 나열되어 있습니다.
 
 | 소스 | 설명 |
 | --- | --- |
@@ -911,7 +911,28 @@ Subscription
 {% endtabs %}
 
 ### 속성 세부정보
-{% multi_lang_include currents/property_details_dispatch_state_source.md %}
+<ul>
+<li><code>dispatch_id</code>는 Campaign 발송과 같은 특정 메시지 디스패치에 대한 ID입니다. 동일한 디스패치에서 발생한 모든 푸시 이벤트에는 동일한 <code>dispatch_id</code>가 포함됩니다. <code>dispatch_id</code>를 사용하여 동일한 디스패치에 속하는 이벤트를 그룹화하면 해당 디스패치의 푸시 메시지 수명 주기(예: 발송, 반송, 열람)를 그룹화하고 상관 관계를 분석할 수 있습니다.</li>
+<li><code>state_change_source</code>는 전체 소스 이름의 문자열을 반환합니다. 예를 들어, CSV 가져오기 소스는 <code>CSV import</code> 문자열을 반환합니다. 사용 가능한 소스는 다음과 같습니다.</li>
+</ul>
+<table class="reset-td-br-1 reset-td-br-2" role="presentation">
+<thead>
+<tr><th>소스</th><th>설명</th></tr>
+</thead>
+<tbody>
+<tr><td>SDK</td><td>SDK 엔드포인트</td></tr>
+<tr><td>대시보드</td><td>대시보드의 고객 프로필 페이지에서 사용자의 구독 상태가 업데이트되는 경우</td></tr>
+<tr><td>구독 페이지</td><td>사용자가 환경설정 센터가 아닌 이메일 링크를 통해 구독을 취소하는 경우</td></tr>
+<tr><td>REST API</td><td>REST API 엔드포인트</td></tr>
+<tr><td>CSV 가져오기</td><td>CSV 사용자 가져오기</td></tr>
+<tr><td>환경설정 센터</td><td>환경설정 센터에서 사용자가 업데이트되는 경우</td></tr>
+<tr><td>인바운드 메시지</td><td>최종 사용자가 SMS 등의 채널을 통해 보낸 인바운드 메시지로 사용자가 업데이트되는 경우</td></tr>
+<tr><td>마이그레이션</td><td>내부 마이그레이션 또는 유지 관리 스크립트에 의해 사용자가 업데이트되는 경우</td></tr>
+<tr><td>사용자 병합</td><td>사용자 병합 프로세스에 의해 사용자가 업데이트되는 경우</td></tr>
+<tr><td>Canvas 사용자 업데이트 단계</td><td>Canvas 사용자 업데이트 단계에 의해 사용자가 업데이트되는 경우</td></tr>
+</tbody>
+</table>
+
 
 
 {% endapi %}
@@ -1690,7 +1711,7 @@ Canvas, Entry
 Canvas, Content Optimizer, Sends
 {% endapitags %}
 
-콘텐츠 최적화 Canvas 단계에 대한 Canvas 발송입니다.
+콘텐츠 최적화 캔버스 단계에 대한 Canvas 발송입니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2592,7 +2613,7 @@ Canvas, Entry
 Canvas, Progression
 {% endapitags %}
 
-이 이벤트는 사용자가 Canvas의 단계를 진행하여 어떤 결과를 얻을 때 발생합니다. 이 이벤트는 단계에 진입하거나 퇴출할 때는 발생하지 않습니다. 현재는 분할 단계(오디언스 경로, 결정 분할, 작업 경로, 실험)와 진행 결과만 단계 진행 이벤트를 생성합니다.
+이 이벤트는 사용자가 Canvas의 단계를 진행하여 특정 결과를 얻을 때 발생합니다. 이 이벤트는 단계에 진입하거나 퇴출할 때는 발생하지 않습니다. 현재는 분할 단계(오디언스 경로, 결정 분할, 작업 경로, 실험)와 진행 결과만 단계 진행 이벤트를 생성합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15931,7 +15952,7 @@ SMS, Sends
 ### 속성 세부 정보
 
 - `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어, 국가) 및 Canvas 진입 속성으로 전송 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가 정보]({{site.baseurl}}/message_extras_tag)를 참조하세요.
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 

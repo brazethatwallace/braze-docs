@@ -18,7 +18,7 @@ channel:
 L'envoi d'une carte de contact est facturé comme un MMS. Vérifiez le volume de MMS prévu et l'utilisation des crédits de messages ou d'actions lorsque vous créez des cartes de contact, et confirmez les coûts sur votre [page de facturation]({{site.baseurl}}/user_guide/administer/global/billing) Braze.
 {% endalert %}
 
-Les cartes de contact peuvent être créées [par programmation](https://www.twilio.com/blog/send-vcard-twilio-sms) et importées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) de Braze, ou créées via notre générateur de cartes de contact intégré. Ces cartes peuvent se voir attribuer des propriétés courantes telles que le nom de votre entreprise, le numéro de téléphone, l'adresse, l'e-mail et une petite photo. Pour commencer à créer des cartes de contact, assurez-vous d'abord que vous êtes configuré pour utiliser les MMS dans Braze.
+Les cartes de contact peuvent être créées [par programmation](https://www.twilio.com/blog/send-vcard-twilio-sms) et importées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) de Braze, ou créées via notre générateur de cartes de contact intégré. Ces cartes peuvent se voir attribuer des propriétés courantes telles que le nom de votre entreprise, le numéro de téléphone, l'adresse, l'e-mail et une petite photo. Pour commencer à créer des cartes de contact, assurez-vous d'abord que vous êtes configuré pour utiliser les MMS dans Braze.
 
 ## Générateur de cartes de contact {#contact-card-generator}
 
@@ -56,10 +56,10 @@ Le champ **Full Name** détermine les initiales qui apparaissent dans la miniatu
 
 ### Étape 4 : Enregistrer votre carte de contact {#step-4-saving-your-contact-card}
 
-Une fois que vous avez rempli tous les champs nécessaires, sélectionnez **Generate Contact Card** pour que la carte soit automatiquement jointe à votre campagne ou Canvas. À partir de là, vous pouvez ajouter un message, tester votre carte de contact et lancer votre campagne ou Canvas.
+Une fois que vous avez rempli tous les champs nécessaires, sélectionnez **Generate Contact Card** pour que la carte soit automatiquement jointe à votre Campaign ou Canvas. À partir de là, vous pouvez ajouter un message, tester votre carte de contact et lancer votre Campaign ou Canvas.
 
-La carte de contact sera également enregistrée dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) pour être facilement réutilisée dans de futures campagnes et Canvas.
+La carte de contact sera également enregistrée dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) pour être facilement réutilisée dans de futures Campaigns et Canvas.
 
 ## Ajouter une carte de contact existante {#adding-an-existing-contact-card}
 
-Pour ajouter une carte de contact existante, créez une campagne ou un Canvas et sélectionnez le groupe d'abonnement souhaité. Ensuite, une option **Add Media** apparaîtra dans la fenêtre du compositeur de messages. Vous pouvez y importer un fichier de carte de contact existant ou en trouver un via la bibliothèque multimédia.
+Pour ajouter une carte de contact existante, créez une Campaign ou un Canvas et sélectionnez le groupe d'abonnement souhaité. Ensuite, une option **Add Media** apparaîtra dans la fenêtre du compositeur de messages. Vous pouvez y importer un fichier de carte de contact existant ou en trouver un via la bibliothèque multimédia.

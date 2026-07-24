@@ -54,7 +54,7 @@ Les modèles marketing sont le type le plus couramment utilisé dans Braze. Ils 
 | Type de bouton | Comportement | Notes |
 |---|---|---|
 | Réponse rapide | Envoie le texte du libellé du bouton comme réponse dans la conversation | |
-| URL | Ouvre une URL dans le navigateur par défaut de l'utilisateur ; prend en charge 1 variable ajoutée à la fin de l'URL (2 000 caractères maximum) | |
+| URL | Ouvre une URL dans le navigateur par défaut de l'utilisateur ; prend en charge 1 variable ajoutée à la fin de l'URL (2 000 caractères maximum) | Les URL contenant des caractères spéciaux (tels que `&`, `%`, `<`, `>`) peuvent provoquer des échecs d'envoi de messages. Utilisez le filtre Liquid [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) ou [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) pour encoder correctement les URL contenant des caractères spéciaux. |
 | Numéro de téléphone | Lance un appel vers le numéro de téléphone spécifié | |
 | Copier le code promo | Copie un code promo dans le presse-papiers de l'utilisateur | Nécessite toujours l'approbation de Meta |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types de boutons" }
@@ -62,6 +62,38 @@ Les modèles marketing sont le type le plus couramment utilisé dans Braze. Ils 
 #### Formatage des paramètres {#parameter-formatting}
 
 Les variables de modèle peuvent utiliser des paramètres nommés (tels que {% raw %}`{{first_name}}`{% endraw %}) ou des paramètres positionnels (tels que {% raw %}`{{1}}`{% endraw %}). Dans Braze, les variables peuvent être remplacées par du Liquid ou du texte brut. Incluez toujours des valeurs par défaut pour les variables Liquid ; les messages dont les valeurs de variables sont manquantes ne seront pas envoyés.
+
+### Modèles d'offre à durée limitée {#limited-time-offer-templates}
+
+Les modèles d'offre à durée limitée affichent une offre promotionnelle limitée dans le temps avec un compte à rebours optionnel à mesure que l'offre approche de son expiration. Utilisez cette mise en page pour les promotions à durée limitée, comme les soldes saisonnières ou les offres personnalisées en fonction d'un attribut utilisateur.
+
+| Composant | Requis | Notes |
+|---|---|---|
+| En-tête | Non | Sélectionnez **Aucun** ou ajoutez un média (image ou vidéo). Consultez les [spécifications média](#media-specifications) pour les exigences relatives aux types de fichiers, tailles et dimensions. |
+| Détails de l'offre | Oui | Titre de l'offre, code de l'offre et une expiration optionnelle. |
+| Corps | Oui | Le contenu principal du message. Prend en charge Liquid. |
+| Pied de page | Non | Texte complémentaire affiché après le corps. |
+| Boutons | Oui | **Copier le code de l'offre** est inclus automatiquement. Vous pouvez ajouter un bouton **Visiter le site web** ; aucun autre type de bouton n'est pris en charge pour ce type de modèle. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modèles d'offre à durée limitée" }
+
+#### Détails de l'offre {#offer-details}
+
+| Champ | Requis | Notes |
+|---|---|---|
+| Titre | Oui | Une courte ligne décrivant l'offre. |
+| Code | Oui | Le code de l'offre que les destinataires copieront. Celui-ci alimente automatiquement le bouton **Copier le code de l'offre**. |
+| Expiration | Non | Définissez une date et une heure fixes (par exemple, une date de fin pour des soldes d'été), ou personnalisez-la en fonction d'un attribut utilisateur (par exemple, la date d'anniversaire de chaque utilisateur). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Détails de l'offre" }
+
+Si vous définissez une expiration, les destinataires voient un compte à rebours dans le message qui se met à jour à mesure que l'offre approche de sa fin. Par exemple, le message pourrait initialement afficher la date de fin, puis passer à quelque chose comme « 5 jours restants » lorsque la date de fin est plus proche. Si vous ne définissez pas d'expiration, l'offre s'affiche sans compte à rebours. Braze empêche l'envoi des messages lorsque l'expiration est dans le passé (par exemple, si l'expiration est le 1er novembre 2026 mais que l'heure d'envoi est le 15 novembre 2026).
+
+#### Types de boutons
+
+| Type de bouton | Notes |
+|---|---|
+| Copier le code de l'offre | Inclus automatiquement. Le texte du bouton est « Copy offer code » et ne peut pas être modifié. |
+| Visiter le site web | Le seul autre bouton que vous pouvez ajouter. Maximum de 1. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types de boutons d'offre à durée limitée" }
 
 ### Modèles de carrousel de cartes média {#media-card-carousel-templates}
 

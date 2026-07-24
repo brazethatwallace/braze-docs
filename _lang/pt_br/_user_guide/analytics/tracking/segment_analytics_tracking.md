@@ -43,17 +43,17 @@ Selecione qualquer nome de segmento na legenda do gráfico para ativar ou desati
 
 ## Sessões ao longo do tempo {#sessions-over-time}
 
-Da mesma forma, você pode encontrar dados sobre [sessões ao longo do tempo para esse segmento específico]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data) na página **Home**.
+Da mesma forma, você pode encontrar dados sobre [sessões ao longo do tempo para esse segmento específico]({{site.baseurl}}/user_guide/analytics/dashboards/home) na página **Home**.
 
 ![Dados de sessão por segmento]({% image_buster /assets/img_archive/events_over_time2.png %})
 
 ## Visualizar eventos personalizados ao longo do tempo {#view-custom-events-over-time}
 
-Visualize dados sobre [eventos personalizados ao longo do tempo para segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) acessando **Analytics** > **Custom Events Report**.
+Visualize dados sobre [eventos personalizados ao longo do tempo para segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) acessando **Analytics** > **Custom events report**.
 
-## Uso de modelos do Criador de consultas {#using-query-builder-templates}
+## Uso de modelos do Query Builder {#using-query-builder-templates}
 
-Quando o rastreamento de análise de dados está ativado, você pode usar os modelos de relatório do Criador de consultas para detalhar métricas de desempenho de Campaigns, Canvas, variantes e etapas por segmentos. Para saber mais, confira [Dados do segmento]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment).
+Quando o rastreamento de análise de dados está ativado, você pode usar os modelos de relatório do Query Builder para detalhar métricas de desempenho de Campaigns, Canvas, variantes e etapas por segmentos. Para saber mais, confira [Dados do segmento]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment).
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

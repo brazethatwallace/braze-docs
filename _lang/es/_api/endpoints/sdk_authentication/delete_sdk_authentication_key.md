@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles del punto de conexión de Braze para eliminar una clave de autenticación SDK."
+description: "Este artículo describe los detalles del endpoint de Braze para eliminar una clave de autenticación SDK."
 ---
 
 {% api %}
@@ -14,15 +14,15 @@ description: "Este artículo describe los detalles del punto de conexión de Bra
 /app_group/sdk_authentication/delete
 {% endapimethod %}
 
-> Utiliza este punto de conexión para eliminar una clave de autenticación SDK de tu aplicación.
+> Utiliza este endpoint para eliminar una clave de autenticación SDK de tu aplicación.
 
 {% alert important %}
-La clave principal no se puede eliminar. Si intentas eliminar la clave principal, este punto de conexión devolverá un error.
+La clave principal no se puede eliminar. Si intentas eliminar la clave principal, este endpoint devolverá un error.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sdk_authentication.delete`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `sdk_authentication.delete`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -88,7 +88,7 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 
 ### Reglas de validación {#validation-rules}
 
-Este punto de conexión tiene las siguientes reglas de validación:
+Este endpoint tiene las siguientes reglas de validación:
 
 - El `key_id` debe ser un ID de clave de autenticación SDK válido.
 - El `app_id` debe ser un identificador de API de aplicación válido.

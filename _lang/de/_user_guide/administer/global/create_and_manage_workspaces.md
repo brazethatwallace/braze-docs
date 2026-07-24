@@ -31,6 +31,11 @@ Alles, was Sie in Braze tun, findet innerhalb eines Workspace statt. Workspaces 
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie mit Ihrem Team und Ihrer/Ihrem Braze-Onboarding-Manager:in die beste Workspace-Konfiguration für Ihren Anwendungsfall erarbeitet haben. Um mehr über die Planung Ihrer Workspaces in Braze zu erfahren, lesen Sie unseren Leitfaden [Erste Schritte: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces).
 
+{% alert warning %}
+**Best Practice: Verwenden Sie dedizierte Firebase-Projekte pro Workspace**<br>
+Braze erlaubt zwar das Hochladen derselben Firebase-Service-Account-JSON-Datei in mehrere Workspaces, aber alle Workspaces, die dieselbe Google-Projekt-ID verwenden, teilen sich das Standard-Rate-Limit von Firebase Cloud Messaging von 600.000 Nachrichten pro Minute. Absender mit hohem Volumen können bei gleichzeitigen Campaign-Starts über mehrere Workspaces hinweg auf „Quota Exceeded“-Fehler stoßen.<br><br>Verwenden Sie für eine isolierte Zustellbarkeit und Kontingent-Verwaltung separate, dedizierte Firebase-Projekte für jeden Braze-Workspace.
+{% endalert %}
+
 ### 2. Schritt: Ihren Workspace hinzufügen {#step-2-add-your-workspace}
 
 Sie können neue Workspaces erstellen oder zwischen bestehenden Workspaces wechseln, indem Sie das Workspace-Dropdown im globalen Header verwenden.
@@ -165,11 +170,11 @@ Standardmäßig zielt ein Segment auf alle Apps und Websites im Workspace ab. So
 
 Sie können dieses Segment dann zu Ihrer Nachricht hinzufügen und Ihre Zielgruppe bei Bedarf mit zusätzlichen Segmenten und Filtern weiter verfeinern.
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
 Fügen Sie bei Campaigns Ihr Segment im Schritt **Target Audiences** des Composers hinzu.
 
-#### Canvas
+#### Canvas {#canvas}
 
 Fügen Sie in Canvas Ihr Segment zu Ihren Nachrichtenschritten im Abschnitt **Delivery Validations** hinzu. Zustellungsvalidierungen überprüfen doppelt, ob Ihre Zielgruppe Ihre Zustellungskriterien zum Zeitpunkt des Nachrichtenversands erfüllt. Denken Sie daran, Zustellungsvalidierungen für jeden Nachrichtenschritt festzulegen, um sicherzustellen, dass die Nachricht an die richtige App zugestellt wird. Eine Segmentierung auf Eingangsebene ist nicht erforderlich.
 

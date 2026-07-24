@@ -68,9 +68,9 @@ Para entender melhor o comportamento esperado dos canais, consulte a tabela a se
 
 1. Abra ou crie qualquer Campaign ou Canvas que inclua um push para Android.
 2. Navegue até o criador de mensagens push para Android.
-3. Selecione **Gerenciar canais de notificação**. Quaisquer canais adicionados aqui estarão disponíveis globalmente para todas as Campaigns e Canvas. Você deve ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions) de "Gerenciar apps" para seu espaço de trabalho para gerenciar canais.
+3. Selecione **Gerenciar canais de notificação**. Quaisquer canais adicionados aqui estarão disponíveis globalmente para todas as Campaigns e Canvas. Você deve ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) de "Gerenciar apps" para seu espaço de trabalho para gerenciar canais.
 
-Quando você aplica um canal de notificação a uma Campaign ou etapa do Canvas específica, a contagem de **Usuários contatáveis** (localizada na etapa de Público-alvo) para push Android não parecerá mudar. No entanto, somente os usuários inscritos no canal de notificação selecionado verão a mensagem, e a análise de dados da sua campanha (como cliques) será medida com base nesse público.
+Quando você aplica um canal de notificação a uma Campaign ou etapa do Canvas específica, a contagem de **Usuários contatáveis** (localizada na etapa de público-alvo) para push Android não parecerá mudar. No entanto, somente os usuários inscritos no canal de notificação selecionado verão a mensagem, e a análise de dados da sua Campaign (como cliques) será medida com base nesse público.
 
 ![Criador de push para Android com Gerenciar canais de notificação e uma lista de canais configurados.]({% image_buster /assets/img_archive/push_notification_channels.png %})
 

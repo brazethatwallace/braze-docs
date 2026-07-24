@@ -15,9 +15,7 @@ Mit der Braze Audience Sync mit LinkedIn können Marken Nutzerdaten aus ihrer Br
 
 **Zu den häufigen Anwendungsfällen für Audience Syncing gehören**:
 
-- Targeting von hochwertigen Nutzer:innen über mehrere Kanäle, um Käufe oder Engagement zu fördern
-- Retargeting von Nutzer:innen, die auf andere Marketing-Kanäle weniger responsiv sind
-- Erstellen von Unterdrückungs-Zielgruppen, um zu verhindern, dass Nutzer:innen, die bereits treue Verbraucher:innen Ihrer Marke sind, Werbung erhalten
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 Mit diesem Feature können Marken kontrollieren, welche spezifischen First-Party-Daten mit LinkedIn geteilt werden. Bei Braze werden die Integrationen, mit denen Sie Ihre First-Party-Daten teilen können und nicht teilen können, genauestens berücksichtigt. Weitere Informationen finden Sie in unserer [Datenschutzrichtlinie](https://www.braze.com/privacy).
 
@@ -29,8 +27,8 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen ode
 
 | Anforderung | Herkunft | Beschreibung |
 | --- | --- | --- |
-| LinkedIn-Anzeigenkonto | [LinkedIn](https://www.linkedin.com/campaignmanager) | Ein aktives LinkedIn-Anzeigenkonto, das mit Ihrer Marke verknüpft ist.<br><br>Vergewissern Sie sich, dass Sie alle relevanten LinkedIn-Bedingungen für den Zugriff und die Nutzung dieses Kontos akzeptiert haben und dass Ihr LinkedIn-Administrator Ihnen die entsprechenden Berechtigungen zur Verwaltung von Zielgruppen erteilt hat. |
-| LinkedIn-Bedingungen und -Richtlinien | LinkedIn | Sie erklären sich damit einverstanden, alle von LinkedIn geforderten Bedingungen, Richtlinien, Leitlinien und Dokumentationen in Bezug auf Ihre Nutzung von LinkedIn Audience Sync einzuhalten, einschließlich aller darin durch Verweis einbezogenen Bedingungen, Richtlinien, Leitlinien und Dokumentationen, zu denen auch die folgenden von LinkedIn gehören können: Nutzungsbedingungen, Anzeigenvereinbarung, Datenverarbeitungsvereinbarung und Richtlinien der Professional Community. |
+| LinkedIn-Werbekonto | [LinkedIn](https://www.linkedin.com/campaignmanager) | Ein aktives LinkedIn-Werbekonto, das mit Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Sie alle relevanten LinkedIn-Geschäftsbedingungen akzeptiert haben, um auf dieses Konto zuzugreifen und es zu nutzen, und dass Ihr LinkedIn-Administrator Ihnen die entsprechenden Berechtigungen zur Verwaltung von Zielgruppen erteilt hat. |
+| LinkedIn-Nutzungsbedingungen und -Richtlinien | LinkedIn | Stimmen Sie zu, alle erforderlichen Nutzungsbedingungen, Richtlinien, Leitlinien und Dokumentationen von LinkedIn einzuhalten, die sich auf Ihre Nutzung des LinkedIn Audience Sync beziehen, einschließlich aller darin durch Verweis einbezogenen Nutzungsbedingungen, Richtlinien, Leitlinien und Dokumentationen, wie z. B. die LinkedIn-Servicebedingungen, die Werbevereinbarung, die Datenverarbeitungsvereinbarung und die Richtlinien für die professionelle Community. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -59,7 +57,7 @@ Ihre LinkedIn-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn
 
 Beim Aufbau von Zielgruppen für das Ad Tracking möchten Sie möglicherweise bestimmte Nutzer:innen auf der Grundlage ihrer Präferenzen ein- oder ausschließen und Datenschutzgesetze einhalten, wie z. B. das Recht „Nicht verkaufen oder weitergeben“ gemäß dem [CCPA](https://oag.ca.gov/privacy/ccpa). Marketer sollten die entsprechenden Filter für die Eignung der Nutzer:innen in ihre Canvas-Eingangskriterien aufnehmen. Nachfolgend finden Sie einige Optionen.
 
-Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection) erfasst haben, können Sie den Filter **Ads Tracking Enabled** verwenden. Wählen Sie den Wert `true` aus, um Nutzer:innen nur in Audience Sync-Ziele zu senden, für die sie ein Opt-in gesetzt haben.
+Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection) erfasst haben, können Sie den Filter **Ads Tracking Enabled** verwenden. Wählen Sie den Wert `true` aus, um Nutzer:innen nur in Audience Sync-Ziele zu senden, für die sie ein Opt-in gesetzt haben.
 
 ![Eine Entry-Zielgruppe mit dem Filter „Ad Tracking Enabled ist true“.]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -117,43 +115,43 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden LinkedIn-Zielgru
 
 ### Schritt 5: Canvas starten {#step-5-launch-canvas}
 
-Sobald Sie Ihre Audience Sync mit LinkedIn konfiguriert haben, starten Sie einfach das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf LinkedIn weitergeleitet. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
+Sobald Sie Ihre Audience Sync mit LinkedIn konfiguriert haben, starten Sie das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf LinkedIn weitergeleitet. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
 Sie können die Zielgruppe auf LinkedIn einsehen, indem Sie in Ihr Anzeigenkonto gehen und **Audiences** unter dem Abschnitt **Assets** in der Navigation auswählen. Auf der Seite **Audiences** können Sie die Größe jeder Zielgruppe sehen, sobald sie mehr als 300 Mitglieder erreicht hat.
 
 ![LinkedIn-Seite mit den folgenden Metriken für die angegebene Zielgruppe.]({% image_buster /assets/img/linkedin/linkedin8.png %})
 
-## Überlegungen zur Synchronisierung von Nutzer:innen und Rate-Limits {#user-syncing-and-rate-limit-considerations}
+## Synchronisierung von Nutzer:innen und Rate-Limit-Überlegungen {#user-syncing-and-rate-limit-considerations}
 
-Sobald Nutzer:innen den Audience Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Realtime und respektiert dabei die Rate-Limits der LinkedIn-API. Braze stapelt und verarbeitet alle 5 Sekunden so viele Nutzer:innen wie möglich, bevor es sie an LinkedIn sendet.
+Wenn Nutzer:innen den Audience-Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Echtzeit und berücksichtigt dabei die API-Rate-Limits von LinkedIn. Braze fasst so viele Nutzer:innen wie möglich in Batches zusammen und verarbeitet sie alle 5 Sekunden, bevor sie an LinkedIn gesendet werden.
 
-Die Rate-Limits der LinkedIn-API erlauben nicht mehr als zehn Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Erreicht eine Kund:in dieses Limit, wiederholt Braze die Synchronisierung für bis zu etwa 13 Stunden. Wenn die Synchronisierung immer noch nicht möglich ist, listet Braze diese Nutzer:innen in der Metrik „Fehlerhafte Nutzer:innen“ auf.
+Das API-Rate-Limit von LinkedIn erlaubt nicht mehr als zehn Anfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Wenn ein:e Kund:in dieses Limit erreicht, versucht Braze die Synchronisierung bis zu etwa 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
 
 ## Analytics verstehen {#understanding-analytics}
 
-Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die Analytics Ihrer Audience Sync-Komponente besser zu verstehen.
+Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die Analytics Ihrer Audience-Sync-Komponente besser zu verstehen.
 
-| Metrik | Beschreibung |
+| METRIK | BESCHREIBUNG |
 | ------ | ----------- |
 | Eingetreten | Anzahl der Nutzer:innen, die diese Komponente betreten haben, um mit LinkedIn synchronisiert zu werden. |
-| Zum nächsten Schritt fortgefahren | Wie viele Nutzer:innen sind zur nächsten Komponente weitergegangen, falls eine vorhanden ist? Alle Nutzer:innen werden automatisch weitergeleitet, wenn dies der letzte Schritt im Canvas-Zweig ist. |
-| Nutzer:innen synchronisiert | Anzahl der Nutzer:innen, die erfolgreich mit LinkedIn synchronisiert wurden. |
-| Nutzer:innen nicht synchronisiert | Anzahl der Nutzer:innen, die nicht synchronisiert wurden, weil Felder zum Abgleich fehlen. |
-| Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit LinkedIn verarbeitet werden. |
+| Zum nächsten Schritt fortgefahren | Wie viele Nutzer:innen sind zur nächsten Komponente weitergegangen, falls eine vorhanden ist? Alle Nutzer:innen werden automatisch weitergeleitet, wenn dies der letzte Schritt im Canvas-Branch ist. |
+| Synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die erfolgreich mit LinkedIn synchronisiert wurden. |
+| Nicht synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichfelder nicht synchronisiert wurden. |
+| Ausstehende Nutzer:innen | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit LinkedIn verarbeitet werden. |
 | Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit LinkedIn synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges LinkedIn-Token oder eine auf LinkedIn gelöschte Zielgruppe sein. |
-| Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies geschieht, wenn der letzte Schritt in einem Canvas eine Audience Sync-Komponente ist. |
+| Canvas verlassen | Anzahl der Nutzer:innen, die den Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
-Denken Sie daran, dass es bei den Metriken „Nutzer:innen synchronisiert“ und „Fehlerhafte Nutzer:innen“ aufgrund des Bulk-Flush und der 13-stündigen Wiederholung zu einer Verzögerung bei der Berichterstattung kommt.
+Beachten Sie, dass es bei den Metriken für synchronisierte Nutzer:innen und fehlerhafte Nutzer:innen zu Verzögerungen bei der Berichterstattung kommt, bedingt durch den Bulk-Flusher bzw. die 13-stündige Wiederholungsphase.
 {% endalert %}
 
 {% alert important %}
-LinkedIn bietet zusätzliche Metriken zu den Trefferquoten auf seiner Plattform. Um die Übereinstimmung Ihrer spezifischen Audience Sync zu überprüfen, wählen Sie die Metriken des Audience Sync-Schrittes aus, um die Seite **Canvas Step Details** aufzurufen.
+LinkedIn stellt zusätzliche Metriken zu Übereinstimmungsraten innerhalb ihrer Plattform bereit. Um die Übereinstimmung Ihrer spezifischen Audience Sync zu überprüfen, wählen Sie die Metriken des Audience-Sync-Schritts aus, um zur Seite **Canvas-Schrittdetails** zu gelangen.
 <br><br>
-Wählen Sie als Partner **LinkedIn**, Ihr Anzeigenkonto und die Zielgruppe aus, um die Größe der Zielgruppe und die Trefferquote von LinkedIn zu sehen.
+Wählen Sie den Partner als **LinkedIn**, Ihr Werbekonto und die Zielgruppe aus, um die Zielgruppengröße und Übereinstimmungsrate von LinkedIn zu sehen.
 
-![Ein Beispiel für die Metriken des Audience Sync-Schrittes mit 10.000 eingetretenen Nutzer:innen.]({% image_buster /assets/img/linkedin/linkedin11.png %})
+![Ein Beispiel für Audience-Sync-Schrittmetriken mit 10.000 eingetretenen Nutzer:innen.]({% image_buster /assets/img/linkedin/linkedin11.png %})
 {% endalert %}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
@@ -162,26 +160,26 @@ Wählen Sie als Partner **LinkedIn**, Ihr Anzeigenkonto und die Zielgruppe aus, 
 
 Es kann bis zu 48 Stunden dauern, bis die Zielgruppen in Ihrem LinkedIn-Konto angezeigt werden.
 
-### Wie groß muss die Zielgruppe mindestens sein, damit LinkedIn sie in Ihrem Anzeigenkonto anzeigt? {#what-is-the-minimum-audience-size-for-linkedin-to-populate-within-your-ad-account}
+### Welche Mindestzielgruppengröße ist erforderlich, damit LinkedIn die Zielgruppengröße in Ihrem Werbekonto anzeigt? {#what-is-the-minimum-audience-size-for-linkedin-to-populate-within-your-ad-account}
 
-Die Zielgruppe muss mindestens 300 Mitglieder umfassen, damit die Zielgruppengröße in Ihrem LinkedIn-Anzeigenkonto angezeigt wird.
+Die Zielgruppe muss mindestens 300 Mitglieder umfassen, damit die Zielgruppengröße in Ihrem LinkedIn-Konto angezeigt wird.
 
 ### Was sollte ich tun, wenn ich einen Fehler wegen eines ungültigen Tokens erhalte? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-Sie können die Verbindung zu Ihrem LinkedIn-Konto auf der LinkedIn-Partnerseite trennen und wiederherstellen. Vergewissern Sie sich bei Ihrem LinkedIn-Administrator, dass Sie die entsprechenden Berechtigungen für das Anzeigenkonto haben, mit dem Sie synchronisieren möchten.
+Sie können Ihr LinkedIn-Konto auf der LinkedIn-Partnerseite trennen und erneut verbinden. Bestätigen Sie mit Ihrem LinkedIn-Administrator, dass Sie über die entsprechenden Berechtigungen für das Werbekonto verfügen, mit dem Sie synchronisieren möchten.
 
-### Warum kann mein Canvas nicht gestartet werden? {#why-is-my-canvas-not-allowed-to-launch}
+### Warum darf mein Canvas nicht gestartet werden? {#why-is-my-canvas-not-allowed-to-launch}
 
-Bestätigen Sie, dass Ihr LinkedIn-Anzeigenkonto erfolgreich mit Braze auf der LinkedIn-Partnerseite verbunden wurde. Vergewissern Sie sich außerdem, dass Sie ein Anzeigenkonto ausgewählt, einen Namen für die neue Zielgruppe eingegeben und die abzugleichenden Felder ausgewählt haben.
+Vergewissern Sie sich, dass Ihr LinkedIn-Werbekonto auf der LinkedIn-Partnerseite erfolgreich mit Braze verbunden wurde. Stellen Sie außerdem sicher, dass Sie ein Werbekonto ausgewählt, einen Namen für die neue Zielgruppe eingegeben und Felder zum Abgleich ausgewählt haben.
 
-### Woher weiß ich, ob Nutzer:innen übereinstimmen, nachdem ich sie an LinkedIn weitergegeben habe? {#how-do-i-know-if-users-have-matched-after-passing-users-to-linkedin}
+### Wie erfahre ich, ob Nutzer:innen nach der Übergabe an LinkedIn abgeglichen wurden? {#how-do-i-know-if-users-have-matched-after-passing-users-to-linkedin}
 
-LinkedIn bietet in seinem Dashboard Informationen zu den Trefferquoten. Sie können diese auf LinkedIn unter dem Abschnitt **Audiences** einsehen. Sie können die Trefferquote für Ihre LinkedIn-Zielgruppe in den Canvas-Schritt-Details Ihres Audience Sync-Schrittes überprüfen.
+LinkedIn stellt Informationen zu Übereinstimmungsraten in ihrem Dashboard bereit. Sie können diese auf LinkedIn im Bereich **Audiences** einsehen. Sie können die Übereinstimmungsrate für Ihre LinkedIn-Zielgruppe in den Canvas-Schritt-Details Ihres Audience-Sync-Schritts überprüfen.
 
 ### Wie viele Zielgruppen kann LinkedIn unterstützen? {#how-many-audiences-can-linkedin-support}
 
-Derzeit gibt es keine Begrenzung für die Anzahl der Zielgruppen in Ihrem LinkedIn-Anzeigenkonto.
+Derzeit gibt es keine Begrenzung für die Anzahl der Zielgruppen in Ihrem LinkedIn-Werbekonto.
 
-### Warum bleibt ein Segment im Status BUILDING stecken und wird nicht aktualisiert? {#why-is-a-segment-stuck-in-building-status-and-not-updated}
+### Warum bleibt ein Segment im Status BUILDING hängen und wird nicht aktualisiert? {#why-is-a-segment-stuck-in-building-status-and-not-updated}
 
-Ein Segment gilt als ungenutzt und wird auf ARCHIVED gesetzt, wenn es 30 Tage lang nicht kontinuierlich in einer Entwurfs- oder aktiven Campaign verwendet wurde. Aus diesem Grund kann es vorkommen, dass ein Segment im Status BUILDING „feststeckt“, wenn Updates zu einem archivierten Segment gestreamt werden, wodurch es in den Status BUILDING versetzt wird, und kurz bevor es wieder archiviert wird, neue Updates zu dem ungenutzten Segment gestreamt werden.
+Ein Segment gilt als ungenutzt und wird auf ARCHIVED gesetzt, wenn es 30 Tage lang nicht kontinuierlich in einer Entwurfs- oder aktiven Campaign verwendet wird. Aus diesem Grund kann ein Segment im Status BUILDING „hängen bleiben“, wenn Aktualisierungen an ein archiviertes (ARCHIVED) Segment gestreamt werden, wodurch es in den Status BUILDING versetzt wird, und kurz bevor es erneut archiviert wird, neue Aktualisierungen an das ungenutzte Segment gestreamt werden.

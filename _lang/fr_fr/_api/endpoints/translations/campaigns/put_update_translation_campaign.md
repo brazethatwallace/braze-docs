@@ -19,9 +19,9 @@ description: "Cet article présente en détail l'endpoint Braze Mettre à jour l
 
 Si vous souhaitez mettre à jour les traductions après le lancement d'une campagne, vous devrez d'abord [enregistrer votre message en tant que brouillon]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch).
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `campaigns.translations.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `campaigns.translations.update`.
 
 ## Limite de débit {#rate-limit}
 

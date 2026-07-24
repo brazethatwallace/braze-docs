@@ -132,7 +132,7 @@ Geben Sie die Ereignisnamen ein, die RevenueCat senden soll, oder wählen Sie au
 | Abrechnungsproblem | Wenn es beim Versuch, Nutzer:innen zu belasten, ein Problem gegeben hat. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Ereignisnamen konfigurieren" }
 
-Bei Ereignissen, die Einnahmen beinhalten, zeichnet RevenueCat diesen Betrag automatisch zusammen mit dem Ereignis in Braze auf, z. B. bei Conversions von Testversionen und Verlängerungen.
+Bei Ereignissen, die Umsatz beinhalten, zeichnet RevenueCat diesen Betrag automatisch zusammen mit dem Ereignis in Braze auf, z. B. bei Conversions von Testversionen und Verlängerungen.
 
 ## Verwendung dieser Integration {#using-this-integration}
 
@@ -142,4 +142,4 @@ Nachdem Sie die Braze-Einstellungen in RevenueCat konfiguriert haben, fließen d
 
 ### Sandbox-API-Schlüssel zum Testen hinzufügen {#add-a-sandbox-api-key-for-testing}
 
-Wenn Sie RevenueCat nur einen Braze-REST-API-Schlüssel zur Verfügung stellen, werden nur Produktionsereignisse gesendet. Wenn Sie auch Sandbox-Testereignisse senden möchten, [erstellen Sie einen weiteren Braze-REST-API-Schlüssel]({{site.baseurl}}/api/basics#app-group-rest-api-keys) und fügen Sie ihn zu Ihren Braze-Einstellungen in RevenueCat hinzu.
+Wenn Sie RevenueCat nur einen Braze-REST-API-Schlüssel zur Verfügung stellen, werden nur Produktionsereignisse gesendet. Wenn Sie auch Sandbox-Testereignisse senden möchten, [erstellen Sie einen weiteren Braze-REST-API-Schlüssel]({{site.baseurl}}/api/basics#creating-rest-api-keys) und fügen Sie ihn zu Ihren Braze-Einstellungen in RevenueCat hinzu.

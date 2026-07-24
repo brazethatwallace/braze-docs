@@ -43,7 +43,7 @@ Sélectionnez un nom de segment dans la légende du graphique pour activer ou d�
 
 ## Sessions au fil du temps {#sessions-over-time}
 
-De même, vous pouvez trouver des données sur les [sessions au fil du temps pour ce segment particulier]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data) sur la page **Home**.
+De même, vous pouvez trouver des données sur les [sessions au fil du temps pour ce segment particulier]({{site.baseurl}}/user_guide/analytics/dashboards/home) sur la page **Home**.
 
 ![Données de session par segment]({% image_buster /assets/img_archive/events_over_time2.png %})
 
@@ -53,7 +53,7 @@ Consultez les données sur les [événements personnalisés au fil du temps pour
 
 ## Utilisation des modèles du générateur de requêtes {#using-query-builder-templates}
 
-Lorsque le suivi analytique est activé, vous pouvez utiliser les modèles de rapports du générateur de requêtes pour décomposer les indicateurs de performance des Campaigns, des Canvas, des variantes et des étapes par segment. Pour en savoir plus, consultez les [données de segment]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment).
+Lorsque le suivi analytique est activé, vous pouvez utiliser les modèles de rapports du générateur de requêtes pour décomposer les indicateurs de performance des Campaigns, des Canvas, des variantes et des étapes par segment. Pour en savoir plus, consultez les [données de segment]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment).
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 

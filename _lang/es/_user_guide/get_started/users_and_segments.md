@@ -78,7 +78,7 @@ Los eventos representan acciones o comportamientos específicos realizados por l
 
 #### Eventos estándar {#standard-events}
 
-[Los eventos estándar]({{site.baseurl}}/user_guide/data/activation/events#standard-events) son eventos predefinidos que Braze rastrea automáticamente después de integrar el SDK en tu aplicación o sitio. Algunos ejemplos de eventos estándar son:
+[Los eventos estándar]({{site.baseurl}}/user_guide/data/activation/events) son eventos predefinidos que Braze rastrea automáticamente después de integrar el SDK en tu aplicación o sitio. Algunos ejemplos de eventos estándar son:
 
 - **Inicio de sesión:** Este evento se activa cuando un usuario abre la aplicación.
 - **Fin de sesión:** Este evento se activa cuando un usuario cierra la aplicación.
@@ -111,16 +111,16 @@ Al considerar cuidadosamente qué información rastrear como puntos de datos, es
 
 Visita nuestro artículo dedicado para saber más sobre [los puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
-## Segments {#segments}
+## Segmentos {#segments}
 
 [La segmentación]({{site.baseurl}}/user_guide/audience/segments) te permite dirigirte a los usuarios en función de sus características y acciones demográficas, de comportamiento, sociales o técnicas (es decir, atributos y eventos). El uso creativo e inteligente de la segmentación y la automatización de la mensajería te permite mover fácilmente a tus usuarios a través de su recorrido en el ciclo de vida del cliente.
 
 Consejos para trabajar con segmentos:
 
-- Los segmentos en Braze son dinámicos: los usuarios siempre entran y salen de los segmentos, ya que no siempre se ajustan a los criterios. Los usuarios que se ajusten a los criterios de un segmento en el momento del envío serán los destinatarios de esa campaña o Canvas.
-    - Si deseas que tu segmento sea estático, puedes utilizar extensiones de segmento. Las extensiones de segmento (con [la regeneración desactivada]({{site.baseurl}}/user_guide/audience/segments/segment_extension#extension-regeneration)) representan a tu audiencia como una única instantánea en el tiempo.
+- Los segmentos en Braze son dinámicos: los usuarios siempre entran y salen de los segmentos, ya que no siempre se ajustan a los criterios. Los usuarios que se ajusten a los criterios de un segmento en el momento del envío serán los destinatarios de esa Campaign o Canvas.
+    - Si deseas que tu segmento sea estático, puedes utilizar extensiones de segmento. Las extensiones de segmento (con [la regeneración desactivada]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-4-designate-refresh-settings-optional)) representan a tu audiencia como una única instantánea en el tiempo.
 - No estás limitado a utilizar un filtro a la vez. Crea segmentos granulares finamente ajustados superponiendo varios filtros.
-- Puedes utilizar las acciones o inacciones de tus usuarios para saber cómo llegar a ellos allí donde quieren interactuar contigo. Estas acciones pueden ser eventos personalizados, interacción con una campaña o Canvas existente, o incluso un mensaje específico dentro de un Canvas.
+- Puedes utilizar las acciones o inacciones de tus usuarios para saber cómo llegar a ellos allí donde quieren interactuar contigo. Estas acciones pueden ser eventos personalizados, interacción con una Campaign o Canvas existente, o incluso un mensaje específico dentro de un Canvas.
 
 ### Caso de uso {#use-case}
 

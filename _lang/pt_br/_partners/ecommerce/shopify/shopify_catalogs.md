@@ -95,7 +95,7 @@ A Braze oferece suporte aos seguintes objetos de metacampos e alguns de seus res
 | `url`, `list.url` | String (URL), Array de Strings (URLs) |
 | `metaobject_reference`, `list.metaobject_reference` | String, Array de Strings |
 | `mixed_reference`, `list.mixed_reference` | String, Array de Strings |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configure dados adicionais de produtos (opcional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configure dados adicionais de produtos (opcional) #step-3" }
 
 {% endsubtab %}
 {% subtab Metacampos não compatíveis %}
@@ -168,28 +168,28 @@ Alterar suas seleções sincronizadas pode afetar Campaigns, Canvas ou seleçõe
 
 | Campo | Tipo de dado | Exemplos |
 |----------------------|----------------|-----------------------------------------------------------------------------------|
-| `id` | string | `45264808411274` quando o identificador de produto do catálogo é **Shopify Variant ID**<br><br>`12345` quando o identificador de produto do catálogo é **SKU** (corresponde ao valor que você selecionou na [Etapa 2](#step-2-select-your-product-identifier)) |
-| `store_name` | string | "your-store" (subdomínio da loja Shopify, sem `.myshopify.com`) |
-| `shopify_product_id` | number | `7939032613002` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
-| `shopify_variant_id` | number | `45264808411274` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
-| `product_title` | string | "Classic leather jacket" |
-| `variant_title` | string | "Large / Red", "Medium" ou "Default Title" para produtos com variante única |
-| `status` | string | "active", "draft", "archived" |
-| `product_image_url` | string | "https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760" |
-| `variant_image_url` | string | Mesma URL no estilo CDN da imagem do produto quando não existe imagem de variante; caso contrário, uma URL de imagem específica da variante |
-| `vendor` | string | "Flash and Thread", "PantsLabyrinth" |
-| `product_type` | string | "Outerwear", "T-Shirts" (do campo **Product type** do produto na Shopify) |
-| `product_url` | string | "https://your-store.myshopify.com/products/classic-leather-jacket" |
-| `product_handle` | string | "classic-leather-jacket" |
-| `published_scope` | string | "web", "global" |
-| `price` | number | `10.00`, `24.99`<br><br>A Shopify frequentemente retorna preços como strings (por exemplo, `"199.00"` na REST Admin API). A Braze os converte em números para este campo do catálogo. |
-| `compare_at_price` | number | `15.00` quando **Compare at price** está definido na Shopify<br><br>`0` quando a Shopify não possui um preço de comparação. As APIs da Shopify normalmente retornam `null` para um preço de comparação não definido; a Braze armazena `0` no catálogo para que o campo seja sempre numérico (esse é um padrão da Braze, não um valor que a Shopify envia como `0`). |
-| `inventory_quantity` | number | `20`, `0` ou um valor negativo quando a sobrevenda é permitida (por exemplo, `-18`) |
-| `options` | string | "Size,Color"<br><br>A Shopify permite até três tipos de opção por produto (por exemplo, Size, Color, Material). O valor de `options` é uma lista separada por vírgulas desses nomes. |
-| `option_values` | string | "Medium,Red", "Large,Red"<br><br>Cada valor corresponde à mesma ordem de `options` (até três valores). |
-| `sku` | string | "12345", "SKU-001-RED-L" |
-| `product_tags` | array | `["Summer", "Sale", "New"]`<br><br>Requer a sincronização de tags de produtos. |
-| `collection_ids` | array | `[123456789012, 987654321098]` (IDs de coleção da Shopify)<br><br>Requer a sincronização de coleções da Shopify. |
+| `id` | String | `45264808411274` quando o identificador de produto do catálogo é **Shopify Variant ID**<br><br>`12345` quando o identificador de produto do catálogo é **SKU** (corresponde ao valor que você selecionou na [Etapa 2](#step-2-select-your-product-identifier)) |
+| `store_name` | String | "your-store" (subdomínio da loja Shopify, sem `.myshopify.com`) |
+| `shopify_product_id` | Número | `7939032613002` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
+| `shopify_variant_id` | Número | `45264808411274` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
+| `product_title` | String | "Classic leather jacket" |
+| `variant_title` | String | "Large / Red", "Medium" ou "Default Title" para produtos com variante única |
+| `status` | String | "active", "draft", "archived" |
+| `product_image_url` | String | "https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760" |
+| `variant_image_url` | String | Mesma URL no estilo CDN da imagem do produto quando não existe imagem de variante; caso contrário, uma URL de imagem específica da variante |
+| `vendor` | String | "Flash and Thread", "PantsLabyrinth" |
+| `product_type` | String | "Outerwear", "T-Shirts" (do campo **Product type** do produto na Shopify) |
+| `product_url` | String | "https://your-store.myshopify.com/products/classic-leather-jacket" |
+| `product_handle` | String | "classic-leather-jacket" |
+| `published_scope` | String | "web", "global" |
+| `price` | Número | `10.00`, `24.99`<br><br>A Shopify frequentemente retorna preços como strings (por exemplo, `"199.00"` na REST Admin API). A Braze os converte em números para este campo do catálogo. |
+| `compare_at_price` | Número | `15.00` quando **Compare at price** está definido na Shopify<br><br>`0` quando a Shopify não possui um preço de comparação. As APIs da Shopify normalmente retornam `null` para um preço de comparação não definido; a Braze armazena `0` no catálogo para que o campo seja sempre numérico (esse é um padrão da Braze, não um valor que a Shopify envia como `0`). |
+| `inventory_quantity` | Número | `20`, `0` ou um valor negativo quando a sobrevenda é permitida (por exemplo, `-18`) |
+| `options` | String | "Size,Color"<br><br>A Shopify permite até três tipos de opção por produto (por exemplo, Size, Color, Material). O valor de `options` é uma lista separada por vírgulas desses nomes. |
+| `option_values` | String | "Medium,Red", "Large,Red"<br><br>Cada valor corresponde à mesma ordem de `options` (até três valores). |
+| `sku` | String | "12345", "SKU-001-RED-L" |
+| `product_tags` | Array | `["Summer", "Sale", "New"]`<br><br>Requer a sincronização de tags de produtos. |
+| `collection_ids` | Array | `[123456789012, 987654321098]` (IDs de coleção da Shopify)<br><br>Requer a sincronização de coleções da Shopify. |
 | `Metafield columns` | Varia por tipo | Cada metacampo sincronizado aparece como uma coluna separada nomeada pela sua chave. Consulte [Metacampos compatíveis](#step-3) na guia "Metacampos de produtos" da etapa 3 para mais informações. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dados de catálogo compatíveis com a Shopify" }
 
@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-Você também pode configurar [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) e [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)!<br><br> Note que, para cada caso de uso, você deve criar um evento personalizado que capture o status de inscrição de um usuário no seu catálogo. O evento personalizado requer uma propriedade de evento que mapeie o [SKU ou Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) que você selecionou como parte da sincronização de produtos da Shopify.
+Você também pode configurar [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) e [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)!<br><br> Note que, para cada caso de uso, você deve criar um evento personalizado que capture o status de inscrição de um usuário no seu catálogo. O evento personalizado requer uma propriedade de evento que mapeie o <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKU ou Shopify variant ID</a> que você selecionou como parte da sincronização de produtos da Shopify.
 {% endalert %}
 
 ## Desativar a sincronização de produtos {#deactivate}

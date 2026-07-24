@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar usuarios activos al mes de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar usuarios activos al mes de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /kpi/mau/data_series
 {% endapimethod %}
 
-> Utiliza este punto de conexión para recuperar una serie diaria del número total de usuarios activos únicos durante una ventana móvil de 30 días.
+> Utiliza este endpoint para recuperar una serie diaria del número total de usuarios activos únicos durante una ventana móvil de 30 días.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#68f45461-3bf1-425c-b918-f0bbf3f87149 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `kpi.mau.data_series`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `kpi.mau.data_series`.
 
 ## Límite de velocidad {#rate-limit}
 

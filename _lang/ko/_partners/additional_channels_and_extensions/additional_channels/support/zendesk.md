@@ -103,7 +103,7 @@ Braze와 Zendesk 간에 공통 식별자가 있는 경우, 이를 `requester_id`
 - 웹훅의 이름과 설명을 입력합니다.
 - 웹훅이 사용할 Braze 엔드포인트 URL을 입력합니다. {% raw %}이 예제에서는 `https://{{instance_url}}/users/track`을 사용합니다.{% endraw %}
 - 웹훅의 요청 메서드로 POST를 선택하고 요청 형식을 JSON으로 설정합니다.
-- 웹훅의 인증 메서드로 bearer 토큰 인증을 선택하고 [Braze API 키]({{site.baseurl}}/api/basics#creating-and-managing-rest-api-keys)를 제공합니다.
+- 웹훅의 인증 메서드로 bearer 토큰 인증을 선택하고 [Braze API 키]({{site.baseurl}}/api/basics#creating-rest-api-keys)를 제공합니다.
   - 사용하는 API 키가 웹훅이 사용하는 Braze 엔드포인트에 대한 [올바른 권한]({{site.baseurl}}/api/basics#rest-api-key-permissions)을 가지고 있는지 확인하세요.<br><br>
 5. (권장) 웹훅이 올바르게 작동하는지 테스트합니다.<br><br>
 6. 트리거 및 자동화 웹훅의 경우, 설정을 완료하기 전에 웹훅을 트리거 또는 자동화에 연결해야 합니다. 웹훅에 대한 트리거 생성 예제는 다음 단계를 참조하세요. 트리거가 생성된 후 이 페이지로 돌아와 **Finish setup**을 선택할 수 있습니다.

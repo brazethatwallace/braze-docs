@@ -43,7 +43,7 @@ Adicione as Campaigns e mensagens de Canvas que você deseja compilar no seu rel
 - Selecionar manualmente Campaigns e Canvas
 - Selecionar automaticamente Campaigns e Canvas com base em regras específicas
 
-![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![Seleção de mensagens no relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Selecionar manualmente Campaigns ou Canvas {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ As tags devem corresponder a pelo menos uma Campaign ou Canvas para que o relat�
 
 A etapa **Add Stats** mostra as estatísticas para os tipos de Campaigns ou Canvas que você selecionou. Por exemplo, se você selecionou mensagens de e-mail, poderá visualizar apenas as estatísticas relevantes de e-mail. Se você escolheu uma combinação de e-mail e push, poderá visualizar as estatísticas desses dois canais.
 
-![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![Adicionar estatísticas ao relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 Os relatórios de engajamento agregam dados por Campaign ou Canvas, não no nível do espaço de trabalho. Para monitorar o volume total de envios ou impressões em todas as Campaigns e Canvas ativos, como envios e impressões por canal em todo o espaço de trabalho, use o [Criador de relatórios]({{site.baseurl}}/report_builder).
 
@@ -100,7 +100,7 @@ Por padrão, o intervalo de dados exibido é baseado no fuso horário da sua emp
 
 Por padrão, os dados exibidos nos relatórios de engajamento são diários (um dia). Para visualizar esses dados em intervalos diferentes, escolha um número explícito de dias ou semanas para agregar os dados do relatório. Assim, em vez de ver métricas diárias, você pode visualizar seu engajamento por semana, mês, trimestre ou similar. Caso uma agregação baseada em tempo não seja suficiente, você também pode optar por exportar dados no nível de Campaign ou Canvas.
 
-![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![Cobertura de dados do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 ##### Exibir dados por Campaign ou Canvas completo {#show-data-by-entire-campaign-or-canvas}
 
@@ -117,7 +117,7 @@ Existem duas opções ao programar seu relatório:
 - **Send immediately:** Após o lançamento do relatório, a Braze enviará este relatório imediatamente.
 - **Send at a designated time:** Essa opção oferece flexibilidade para escolher com que frequência você recebe este relatório. Você pode optar por enviar este relatório a cada número definido de dias, semanas ou meses. Também é possível definir quando parar de enviar o relatório.
 
-![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![Programação do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Etapa 5: Revisar e lançar {#step-5-review-and-launch}
 
@@ -133,7 +133,7 @@ O relatório contém todas as estatísticas selecionadas na seção [Adicionar e
 
 ### As métricas do relatório de engajamento diferem do dashboard de desempenho de e-mail {#engagement-report-metrics-differ-from-the-email-performance-dashboard}
 
-Os relatórios de engajamento e o [dashboard de desempenho de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance) usam as mesmas definições de métricas de e-mail. Ambos atribuem aberturas e cliques ao dia em que cada evento **ocorreu**, e ambos calculam *Aberturas únicas* e *Cliques únicos* como contagens únicas de sete dias por dia, somadas ao longo do intervalo de datas selecionado. Para definições, consulte [Métricas de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#email-metrics) e [Como as métricas são calculadas]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#how-metrics-are-calculated) na página de dashboards de desempenho de canal.
+Os relatórios de engajamento e o [dashboard de desempenho de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance) usam as mesmas definições de métricas de e-mail. Ambos atribuem aberturas e cliques ao dia em que cada evento **ocorreu**, e ambos calculam *Aberturas únicas* e *Cliques únicos* como contagens únicas de sete dias por dia, somadas ao longo do intervalo de datas selecionado. Para definições, consulte [Métricas de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary) e [Como as métricas são calculadas]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#how-metrics-are-calculated) na página de dashboards de desempenho de canal.
 
 Se os totais ainda diferirem para as mesmas Campaigns e período, verifique o seguinte:
 
@@ -144,7 +144,7 @@ Se os totais ainda diferirem para as mesmas Campaigns e período, verifique o se
 | Linhas diárias versus totais do relatório | Se **Data Display** dividir a exportação em linhas diárias, some essas linhas para comparar com os totais do dashboard para o mesmo intervalo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verificações quando as métricas de e-mail do relatório de engajamento diferem do dashboard de desempenho de e-mail" }
 
-As diferenças são mais comuns quando os valores do relatório de engajamento são comparados com a análise de dados de **Campaign** ou **Canvas** em vez do dashboard de desempenho de e-mail. As páginas de Campaign e Canvas podem exibir métricas baseadas na data de envio (por exemplo, envios ou conversões atribuídas à data de envio) junto com aberturas e cliques baseados na data do evento. Consulte [O relatório de engajamento não corresponde às métricas do Canvas ou da Campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign) abaixo.
+As diferenças são mais comuns quando os valores do relatório de engajamento são comparados com a análise de dados de **Campaign** ou **Canvas** em vez do dashboard de desempenho de e-mail. As páginas de Campaign e Canvas podem exibir métricas baseadas na data de envio (por exemplo, envios ou conversões atribuídas à data de envio) junto com aberturas e cliques baseados na data do evento. Consulte [O relatório de engajamento não corresponde às métricas do Canvas ou da Campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign).
 
 ### O relatório de engajamento não corresponde às métricas do Canvas ou da Campaign {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
 

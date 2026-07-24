@@ -2,6 +2,8 @@ El acortamiento de enlaces y el seguimiento de clics te permiten acortar automá
 
 El acortamiento de enlaces y el seguimiento de clics se pueden activar a [nivel de variante del mensaje]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) tanto en Campaigns como en Canvas.
 
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+
 La longitud de la URL está determinada por el tipo de seguimiento que se active:
 - **Seguimiento básico** habilita el seguimiento de clics a nivel de campaña. Las URL estáticas tendrán una longitud de 20 caracteres, y las URL personalizadas tendrán una longitud de 25 caracteres.
 - **Seguimiento avanzado** habilita el seguimiento de clics a nivel de campaña y a nivel de usuario, y permite el uso de capacidades de segmentación y reorientación que dependen de los clics. Los clics también generarán un [evento de clic de SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) enviado a través de Currents. Las URL estáticas con seguimiento avanzado tendrán una longitud de 27-28 caracteres, lo que te permite crear segmentos de usuarios que han hecho clic en las URL. Las URL personalizadas tendrán una longitud de 32-33 caracteres.

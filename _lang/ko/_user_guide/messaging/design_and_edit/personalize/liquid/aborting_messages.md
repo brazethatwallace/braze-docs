@@ -8,7 +8,7 @@ description: "이 참조 문서에서는 Liquid 메시지 중단과 몇 가지 �
 
 # 메시지 중단 {#abort-messages}
 
-> 선택적으로 조건문 내에서 `abort_message("optional reason for aborting")` Liquid 메시지 태그를 사용하여 사용자에게 메시지가 발송되는 것을 방지할 수 있습니다. 이 참조 문서에서는 마케팅 Campaign(캠페인)에서 이 기능을 활용하는 몇 가지 예시를 소개합니다.
+> 선택적으로 조건문 내에서 `abort_message("optional reason for aborting")` Liquid 메시지 태그를 사용하여 사용자에게 메시지가 발송되는 것을 방지할 수 있습니다. 이 참조 문서에서는 마케팅 Campaign에서 이 기능을 활용하는 몇 가지 예시를 소개합니다.
 
 {% alert note %}
 Canvas에서 메시지 단계가 중단되면 사용자는 Canvas를 **종료하지 않으며** 다음 단계로 **계속 진행합니다**.
@@ -82,6 +82,40 @@ Send this message in English!
 ### 인앱 메시지 {#in-app-messages}
 
 중단 로직은 [템플릿 인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated)에 한해 메시지가 처음 기기로 전송되는 시점이 아니라, 인앱 메시지가 트리거되는 시점(예: 사용자가 트리거 이벤트를 수행하거나 세션을 시작할 때)에만 평가됩니다. 인앱 메시지는 세션 시작 시 SDK로 전달되어 로컬에 캐시되며, `abort_message()` 호출을 포함한 Liquid는 트리거 조건이 충족될 때 실행됩니다.
+
+## 높은 중단율 문제 해결 {#troubleshooting-high-abort-rates}
+
+Campaign 또는 캔버스 단계에서 많은 사용자가 진입했지만 발송 수가 적거나, 전달 수가 예상보다 낮은 경우 중단 로직이 일반적인 원인입니다. 특히 Liquid가 평가 시점에 누락된 속성, 카탈로그 데이터 또는 목록 값을 필요로 할 때 자주 발생합니다.
+
+### 메시지 활동 로그 확인 {#check-the-message-activity-log}
+
+1. Braze 대시보드에서 해당 Campaign 또는 캔버스 메시지 단계의 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 엽니다.
+2. 중단 관련 항목을 필터링합니다. 기본적으로 Braze는 {% raw %}`{% abort_message %}`{% endraw %} called를 기록합니다. `abort_message()`에 사유 문자열을 전달한 경우 해당 텍스트가 대신 표시됩니다.
+3. 중단이 하나의 채널(예: 이메일만)에 집중되는지 또는 동일한 Canvas 내 여러 채널에 걸쳐 발생하는지 확인합니다.
+
+### 발송 시점의 속성 및 Liquid 확인 {#verify-attributes-and-liquid-at-send-time}
+
+푸시, 이메일, SMS, 웹훅, Content Cards의 경우 중단 로직은 Braze가 전달을 위해 메시지를 처리할 때 실행됩니다. 사용자가 Canvas에 진입하거나 이전에 트리거 이벤트가 발생한 시점이 아닙니다.
+
+- 메시지 단계가 실행되기 전에 필요한 [커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes), 이벤트 속성정보 또는 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 필드가 사용자에게 설정되어 있는지 확인합니다.
+- `abort_message()`를 호출하기 전에 명시적인 nil 또는 빈 값 검사를 추가합니다. 값이 누락될 때 중단하는 `else` 분기는 해당 데이터가 없는 모든 사용자에 대한 발송을 중지합니다.
+- 개인화가 목록, Segment 또는 연결된 콘텐츠 응답에 의존하는 경우, 메시지 단계가 실행될 때 해당 데이터가 사용 가능한지 확인합니다. 사용자는 목록 멤버십이나 다운스트림 데이터가 준비되기 전에 Canvas에 진입할 수 있습니다.
+
+### Canvas 관련 동작 {#canvas-specific-behavior}
+
+Canvas에서 메시지 단계가 중단되면 사용자는 Canvas를 종료하지 않습니다. 대신 다음 단계로 진행합니다. 중단은 해당 메시지 단계의 발송 수에만 영향을 미칩니다.
+
+Canvas 중단을 진단할 때:
+
+- 메시지 단계의 진입 사용자 수와 동일 단계의 발송 사용자 수를 비교합니다.
+- 하나의 채널만 중단되는 경우, 해당 단계의 채널별 Liquid 또는 구독 상태를 검토합니다.
+- 목록 또는 카탈로그 업데이트 후 중단이 급증하는 경우, 업데이트가 완료되기 전에 메시지 단계가 실행되었는지 확인합니다.
+
+### 미리보기 및 테스트 발송으로 검증 {#validate-with-preview-and-test-sends}
+
+메시지 작성기에서 영향을 받는 수신자와 프로필이 일치하는 사용자로 미리보기합니다. 중단 로직이 프로필 데이터에 의존하는 경우, 테스트 발송 시 **현재 미리보기 사용자의 속성으로 수신자 속성 재정의**를 활성화하세요.
+
+더 많은 중단 예시는 [중단 메시지 쿼리](#query-for-abort-messages)를 참조하세요.
 
 ## 고려 사항 {#considerations}
 

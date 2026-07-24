@@ -102,7 +102,7 @@ After import, as each user launches the Braze-enabled version of your app, Braze
 
 Braze checks once a month to find any anonymous profile with the `push_token_import` flag that doesn't have a push token. If the anonymous profile no longer has a push token, Braze deletes the profile. However, if the anonymous profile still has a push token, suggesting that the actual user has yet to login to the device with said push token, Braze does nothing.
 
-For more information, refer to [Migrating push tokens](#migrating-push-tokens).
+For more information, refer to [Migrating push tokens](#migrate-push-tokens).
 
 #### Custom attribute data types
 

@@ -13,7 +13,7 @@ noindex: true
 # Integração manual {#manual-integration}
 
 {% alert tip %}
-Recomendamos fortemente que você implemente o SDK por meio de um gerenciador de pacotes, como [Swift Package Manager](../swift_package_manager/), [CocoaPods](../cocoapods/) ou [Carthage](../carthage_integration/). Isso vai te poupar muito tempo e automatizar grande parte do processo. No entanto, se não conseguir fazer isso, conclua a integração manualmente seguindo as instruções.
+Recomendamos fortemente que você implemente o SDK por meio de um gerenciador de pacotes, como [Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods) ou [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration). Isso vai te poupar muito tempo e automatizar grande parte do processo. No entanto, se não conseguir fazer isso, conclua a integração manualmente seguindo as instruções.
 {% endalert %}
 
 ## Etapa 1: Download do SDK da Braze {#step-1-downloading-the-braze-sdk}
@@ -43,7 +43,7 @@ Se você tentar usar a versão principal do SDK sem os recursos de UI da Braze, 
 ## Etapa 2: Adicionando bibliotecas iOS necessárias {#step-2-adding-required-ios-libraries}
 
 1. Clique no alvo do seu projeto (usando a navegação à esquerda) e selecione a guia **Build Phases**.<br><br>
-2. Clique no botão <i class="fas fa-plus" aria-label="Adicionar"></i> em **Link Binary With Libraries**.<br><br>
+2. Clique no botão <i class="fas fa-plus" title="Adicionar"></i> em **Link Binary With Libraries**.<br><br>
 3. No menu, selecione `SystemConfiguration.framework`.<br><br>
 4. Marque esta biblioteca como obrigatória usando o menu suspenso ao lado de `SystemConfiguration.framework`.<br><br>
 5. Repita para adicionar cada um dos seguintes frameworks necessários ao seu projeto, marcando cada um como "obrigatório".

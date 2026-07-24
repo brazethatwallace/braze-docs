@@ -4,7 +4,7 @@ article_title: 메시징 엔드포인트
 search_tag: Endpoint
 page_order: 3
 local_redirect: #app-group-rest-api-key #app-identifier #external-user-id #segment-identifier #campaign-identifier #canvas-identifier #trigger-properties #canvas-identifier #server-responses #fatal-errors #responses-for-tracked-send-ids #messaging-queued #canvas-entry-properties
-  app-group-rest-api-key: '/docs/api/basics/#rest-api-key'
+  app-group-rest-api-key: '/docs/api/basics/#rest-api-key-permissions'
   app-identifier: '/docs/api/identifier_types/'
   external-user-id: '/docs/api/objects_filters/user_attributes_object/#braze-user-profile-fields'
   segment-identifier: '/docs/api/identifier_types/'

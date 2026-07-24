@@ -21,25 +21,25 @@ Se você quiser atualizar as traduções depois que um Canvas for lançado, prec
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `canvas.translations.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.translations.update`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parâmetros de jornada {#path-parameters}
+## Parâmetros de caminho {#path-parameters}
 
-Não há parâmetros de jornada para este endpoint.
+Não há parâmetros de caminho para este endpoint.
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `workflow_id` | Obrigatória | String | O ID do Canvas. |
-| `step_id` | Obrigatória | String | O ID da sua etapa do Canvas. |
-| `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
-| `locale_id` | Obrigatória | String | O ID (UUID) do local. |
-| `translation_map` | Obrigatória | Objeto | Objeto contendo as novas traduções. |
+| `workflow_id` | Obrigatório | String | O ID do Canvas. |
+| `step_id` | Obrigatório | String | O ID da sua etapa do Canvas. |
+| `message_variation_id` | Obrigatório | String | O ID da sua variação de mensagem. |
+| `locale_id` | Obrigatório | String | O ID (UUID) do local. |
+| `translation_map` | Obrigatório | Objeto | Objeto contendo as novas traduções. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert note %}

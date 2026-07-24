@@ -15,7 +15,7 @@ toc_headers: h2
 
 ## Consideraciones generales {#general-considerations}
 
-- Si estás creando una Campaign, ¿cuántas variantes de este mensaje te gustaría mostrar? Para ideas sobre pruebas de variantes, consulta [Consejos para diferentes canales]({{site.baseurl}}/user_guide/messaging/ab_testing#tips-different-channels).
+- Si estás creando una Campaign, ¿cuántas variantes de este mensaje te gustaría mostrar? Para ideas sobre pruebas de variantes, consulta [Consejos para diferentes canales]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#tips-different-channels).
 - Si estás creando un Canvas, ¿este mensaje se combinará con otros canales de mensajería en ese paso?
 - ¿Cuándo te gustaría que [tu mensaje expire]({{site.baseurl}}/canvas_in-app_messages)?
 
@@ -31,7 +31,7 @@ toc_headers: h2
 
 Cuando una Campaign de mensaje dentro de la aplicación tiene **Schedule Delay** con un desencadenante en el inicio de sesión, un usuario que inicia una sesión y luego cierra la aplicación antes de que se muestre el mensaje dentro de la aplicación aún puede recibir ese mensaje en el siguiente inicio de sesión, después de que expire la demora.
 
-Ese comportamiento de temporización puede producir un comportamiento de visualización inesperado, especialmente si **Re-evaluate campaign eligibility before displaying** no está seleccionado en la Campaign.
+Ese comportamiento puede producir una visualización inesperada, especialmente si **Re-evaluate campaign eligibility before displaying** no está seleccionado en la Campaign.
 
 Por ejemplo, un usuario podría recibir un mensaje dentro de la aplicación con una demora de ocho segundos un mes después del lanzamiento de la Campaign. Esto puede ocurrir si inició una sesión, terminó la sesión inmediatamente, inició una sesión un mes después y luego, ocho segundos más tarde, recibió el mensaje dentro de la aplicación. Si navega fuera de la aplicación sin cerrarla, el mensaje dentro de la aplicación se muestra cuando regresa a la aplicación.
 
@@ -67,7 +67,7 @@ La configuración de opacidad no permite la transparencia completa de las imáge
 
 ### Configurar el ancho máximo {#setting-the-maximum-width}
 
-El ancho máximo en el editor de arrastrar y soltar está limitado a 325 px; esto está pensado principalmente para acomodar la vista previa del dashboard. Los mensajes pueden mostrarse correctamente en dispositivos con pantallas más pequeñas.
+El ancho máximo en el editor de arrastrar y soltar está limitado a 325 px; esto está pensado principalmente para acomodar la vista previa del panel. Los mensajes pueden mostrarse correctamente en dispositivos con pantallas más pequeñas.
 
 ### Seleccionar diferentes fondos para diferentes plataformas {#selecting-different-backgrounds-for-different-platforms}
 

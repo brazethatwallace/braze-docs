@@ -26,7 +26,7 @@ Der Dark Mode befindet sich im Tab **Entwerfen** beim [Erstellen einer In-App-Na
 
 ![Nutzer:in wechselt zwischen Light-Mode-Stil und Dark-Mode-Stil im Tab „Stil“ beim Erstellen einer In-App-Nachricht.]({% image_buster /assets/img_archive/iam-dark-mode.gif %})
 
-Wenn diese Option aktiviert ist, können Sie dunkle Themenfarben für Ihre In-App-Nachricht über den Farbwähler auswählen oder vorhandene [Farbprofile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#color-profile) verwenden, um bestehende dunkle oder helle Themes wiederzuverwenden.
+Wenn diese Option aktiviert ist, können Sie dunkle Themenfarben für Ihre In-App-Nachricht über den Farbwähler auswählen oder vorhandene [Farbprofile]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#color-profile) verwenden, um bestehende dunkle oder helle Themes wiederzuverwenden.
 
 {% alert note %}
 Sie können dieses Feature auch nutzen, wenn Ihre App kein eigenes dunkles Theme anbietet. Geräte, die den Dark Mode nicht unterstützen, zeigen jedoch standardmäßig das helle Theme an. Das Ändern des Geräte-Themes auf Android, während eine In-App-Nachricht angezeigt wird, ändert nicht das Theme, das für diese In-App-Nachricht verwendet wird.
@@ -37,7 +37,7 @@ Sie können dieses Feature auch nutzen, wenn Ihre App kein eigenes dunkles Theme
 Um den Dark Mode für alle In-App-Nachrichten zu verwenden, erstellen Sie zunächst ein Farbprofil, das zu Ihrem Dark-Mode-Theme passt.
 
 1. Gehen Sie zu **Inhalt** > **In-App Message**.
-2. Wählen Sie **Templates erstellen** und dann [Farbprofil]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#color-profile) aus dem Dropdown-Menü.
+2. Wählen Sie **Templates erstellen** und dann [Farbprofil]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#color-profile) aus dem Dropdown-Menü.
 3. Erstellen und speichern Sie Ihr Farbprofil.
 
 Wenn Sie eine Dark-Mode-Version einer In-App-Nachricht erstellen, können Sie dieses Farbprofil auswählen, um das Erscheinungsbild Ihrer In-App-Nachrichten konsistent zu halten.

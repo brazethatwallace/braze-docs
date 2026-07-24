@@ -187,7 +187,7 @@ Se a sua empresa não baixou o app da Braze na loja de apps do seu IdP, você pr
 
 ## Google SSO
 
-Se a sua empresa usa Google SSO em vez de SAML SSO personalizado, fale com o gerente da sua conta da Braze para ativar o Google SSO no seu espaço de trabalho. Depois de ativado, acesse **Configurações de segurança** e selecione **Enforce Google SSO only login** para exigir a autenticação do Google para todos os usuários da empresa.
+Se a sua empresa usa Google SSO em vez de SAML personalizado, fale com o gerente da sua conta da Braze para ativar o Google SSO no seu espaço de trabalho. Depois de ativado, acesse **Configurações de segurança** e selecione **Enforce Google SSO only login** para exigir a autenticação do Google para todos os usuários da empresa.
 
 Quando a exigência de Google SSO está ativada, os usuários devem fazer login com a autenticação do Google e não poderão mais usar uma senha da Braze. Cada usuário deve fazer login com a conta do Google que corresponde ao endereço de e-mail do dashboard da Braze. Se um usuário selecionar uma conta do Google diferente durante o login, a Braze rejeitará a tentativa de autenticação.
 
@@ -203,5 +203,5 @@ Se alguns usuários não conseguem fazer login com Google SSO, verifique o segui
 
 Após configurar o SAML SSO, você pode:
 
-- [Exigir login apenas por SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) nas suas configurações de segurança para restringir os usuários de fazerem login com uma senha.
+- [Exigir login apenas por SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) nas suas configurações de segurança para restringir os usuários de fazerem login com uma senha.
 - [Configurar o provisionamento just-in-time SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) para que novos usuários criem automaticamente contas na Braze no primeiro login por SSO.

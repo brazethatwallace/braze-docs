@@ -266,7 +266,7 @@ L'autorisation **Voir les PII** n'est accessible qu'à quelques utilisateurs sé
 Vous avez besoin de l'autorisation **Voir les PII** pour utiliser le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), car il permet un accès direct à certaines données client.
 {% endalert %}
 
-Pour les capacités existantes d'autorisations d'équipe, consultez [Définir les autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
+Pour les capacités existantes d'autorisations d'équipe, consultez [Définir les autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### Définition des PII {#defining-pii}
 

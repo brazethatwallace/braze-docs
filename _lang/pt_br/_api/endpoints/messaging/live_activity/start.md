@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint \"Iniciar atividade
 
 Depois de criar uma Live Activity, você pode fazer uma solicitação POST para iniciar remotamente sua atividade para um segmento, um público conectado ou IDs de usuário externo específicos. Para saber mais sobre as Live Activities da Apple, consulte [Como iniciar e atualizar Live Activities com notificações por push do ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
-Se `content-available` não estiver definido, a prioridade padrão do serviço de Notificações por Push da Apple (APNs) é 10. Se `content-available` estiver definido, essa prioridade é 5. Consulte [objeto de push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para mais detalhes.
+Se `content-available` não estiver definido, a prioridade padrão do serviço de Notificações por Push da Apple (APN) é 10. Se `content-available` estiver definido, essa prioridade é 5. Consulte [objeto de push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para mais detalhes.
 
 {% alert tip %}
 Para encerrar uma Live Activity, use o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) com `end_activity` definido como `true`.
@@ -46,7 +46,7 @@ Para usar este endpoint, você precisará concluir o seguinte:
 
 {% multi_lang_include api/payload_size_alert.md %}
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -70,15 +70,15 @@ Para usar este endpoint, você precisará concluir o seguinte:
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição  |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição  |
 |-----------|----------|----------|--------------|
-| `app_id` | Obrigatória | String | [Identificador de API]({{site.baseurl}}/api/identifier_types#the-app-identifier) do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers).  |
-| `activity_id` | Obrigatória | String  | Defina uma string personalizada como seu `activity_id`. Você usará esse ID quando desejar enviar eventos de atualização ou encerramento para sua Live Activity.  |
-| `activity_attributes_type`  | Obrigatória | String | O tipo de atributo de atividade que você define em `liveActivities.registerPushToStart` no seu app.  |
-| `activity_attributes` | Obrigatória | Objeto  | Os valores de atributo estáticos para o tipo de atividade (como os nomes das equipes esportivas, que não mudam). |
-| `content_state` | Obrigatória | Objeto  | Você define os parâmetros de `ContentState` quando cria sua Live Activity. Passe os valores atualizados para o seu `ContentState` usando este objeto.<br><br>O formato desta solicitação deve corresponder à estrutura que você definiu inicialmente. |
+| `app_id` | Obrigatório | String | [Identificador de API]({{site.baseurl}}/api/identifier_types#app-identifier) do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers).  |
+| `activity_id` | Obrigatório | String  | Defina uma string personalizada como seu `activity_id`. Você usará esse ID quando desejar enviar eventos de atualização ou encerramento para sua Live Activity.  |
+| `activity_attributes_type`  | Obrigatório | String | O tipo de atributo de atividade que você define em `liveActivities.registerPushToStart` no seu app.  |
+| `activity_attributes` | Obrigatório | Objeto  | Os valores de atributo estáticos para o tipo de atividade (como os nomes das equipes esportivas, que não mudam). |
+| `content_state` | Obrigatório | Objeto  | Você define os parâmetros de `ContentState` quando cria sua Live Activity. Passe os valores atualizados para o seu `ContentState` usando este objeto.<br><br>O formato desta solicitação deve corresponder à estrutura que você definiu inicialmente. |
 | `stale_date` | Opcional | Datetime <br>(string [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Este parâmetro informa ao sistema quando o conteúdo da Live Activity será marcado como desatualizado na interface do usuário. |
-| `notification` | Obrigatória | Objeto | Inclua um objeto [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para definir uma notificação por push. O comportamento desta notificação por push depende de o usuário estar ativo ou de estar usando um dispositivo proxy. {::nomarkdown}<ul><li>Se um <code>notification</code> está incluído e o usuário está ativo no iPhone quando a atualização é entregue, a interface da Live Activity atualizada deslizará para baixo e será exibida como uma notificação por push.</li><li>Se um <code>notification</code> está incluído e o usuário não está ativo no iPhone, a tela acenderá para exibir a interface da Live Activity atualizada na tela de bloqueio.</li><li>O <code>notification alert</code> não será exibido como uma notificação por push padrão. Além disso, se o usuário tiver um dispositivo proxy, como um Apple Watch, o <code>alert</code> será exibido nele.</li></ul>{:/} |
+| `notification` | Obrigatório | Objeto | Inclua um objeto [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para definir uma notificação por push. O comportamento desta notificação por push depende de o usuário estar ativo ou de estar usando um dispositivo proxy. {::nomarkdown}<ul><li>Se um <code>notification</code> está incluído e o usuário está ativo no iPhone quando a atualização é entregue, a interface da Live Activity atualizada deslizará para baixo e será exibida como uma notificação por push.</li><li>Se um <code>notification</code> está incluído e o usuário não está ativo no iPhone, a tela acenderá para exibir a interface da Live Activity atualizada na tela de bloqueio.</li><li>O <code>notification alert</code> não será exibido como uma notificação por push padrão. Além disso, se o usuário tiver um dispositivo proxy, como um Apple Watch, o <code>alert</code> será exibido nele.</li></ul>{:/} |
 | `external_user_ids` | Opcional se `segment_id` ou `custom_audience` for fornecido | Matriz de strings | Consulte [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). Máximo de 50 IDs de usuário externos.  |
 | `segment_id`  | Opcional se `external_user_ids` ou `custom_audience` for fornecido | String    | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types). |
 | `custom_audience` | Opcional se `external_user_ids` ou `segment_id` for fornecido | Objeto de público conectado  | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). |

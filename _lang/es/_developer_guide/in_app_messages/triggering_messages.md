@@ -18,7 +18,7 @@ platform:
 
 Los mensajes dentro de la aplicación se desencadenan cuando el SDK registra uno de los siguientes tipos de eventos personalizados: `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase` y `Custom Event` (los dos últimos contienen filtros de propiedades robustos).
 
-Al inicio de la sesión de un usuario, Braze entregará todos los mensajes dentro de la aplicación elegibles a su dispositivo, al tiempo que precargará los activos para minimizar la latencia de visualización. Si el evento desencadenante tiene más de un mensaje dentro de la aplicación elegible, solo se entregará el mensaje con la prioridad más alta. Para obtener más información, consulta [Ciclo de vida de la sesión]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle).
+Al inicio de la sesión de un usuario, Braze entrega todos los mensajes dentro de la aplicación elegibles a su dispositivo, al tiempo que precarga los activos para minimizar la latencia de visualización. Si el evento desencadenante tiene más de un mensaje dentro de la aplicación elegible, solo se entrega el mensaje con la prioridad más alta. Para obtener más información, consulta [Ciclo de vida de la sesión]({{site.baseurl}}/developer_guide/analytics/tracking_sessions).
 
 {% alert note %}
 Los mensajes dentro de la aplicación no se pueden desencadenar a través de la API ni mediante eventos de la API&#8212;solo mediante eventos personalizados registrados por el SDK. Para obtener más información sobre el registro, consulta [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events).
@@ -26,7 +26,7 @@ Los mensajes dentro de la aplicación no se pueden desencadenar a través de la 
 
 ## Tipos de mensajes dentro de la aplicación {#types-of-in-app-messages}
 
-Braze envía los siguientes tipos de mensajes dentro de la aplicación a los dispositivos de los usuarios al inicio de la sesión: `inapp` y `templated_iam`. Como usuario del dashboard, no ves los diferentes tipos, pero Braze los gestiona de forma diferente según la configuración y el contenido.
+Braze envía los siguientes tipos de mensajes dentro de la aplicación a los dispositivos de los usuarios al inicio de la sesión: `inapp` y `templated_iam`. Como usuario del panel, no ves los diferentes tipos, pero Braze los gestiona de forma diferente según la configuración y el contenido.
 
 ### `inapp` (estándar) {#inapp-standard}
 
@@ -36,11 +36,25 @@ Un mensaje dentro de la aplicación `inapp` (o "[estándar]({{site.baseurl}}/use
 
 Un mensaje dentro de la aplicación `templated_iam` (o "plantillado") aún no está plantillado con la información necesaria. Braze debe realizar otra solicitud para obtener la información antes de que el mensaje pueda aparecer.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+Los mensajes dentro de la aplicación se entregan como mensajes dentro de la aplicación plantillados cuando se selecciona **Reevaluar la elegibilidad de la campaña antes de mostrar** o si alguna de las siguientes etiquetas de Liquid existe en el mensaje:
+
+- `canvas_entry_properties`
+- `connected_content`
+- Variables de SMS como {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+Esto significa que durante el inicio de la sesión, el dispositivo recibe el desencadenante de ese mensaje dentro de la aplicación en lugar del mensaje completo. Cuando el usuario desencadena el mensaje dentro de la aplicación, el dispositivo del usuario realiza una solicitud de red para obtener el mensaje real.
+
+{% alert note %}
+El mensaje no se entregará si el dispositivo no tiene acceso a internet. El mensaje podría no entregarse si la lógica de Liquid tarda demasiado en resolverse.
+{% endalert %}
+
 
 ## Pares clave-valor {#key-value-pairs}
 
-Cuando creas una Campaign en Braze, puedes establecer pares clave-valor como `extras`, que el objeto de mensajería dentro de la aplicación puede utilizar para enviar datos a tu aplicación.
+Cuando creas una campaña en Braze, puedes establecer pares clave-valor como `extras`, que el objeto de mensajería dentro de la aplicación puede utilizar para enviar datos a tu aplicación.
 
 {% tabs %}
 {% tab web %}
@@ -369,11 +383,11 @@ Debido a que se utiliza un mensaje push para registrar un evento personalizado r
 
 Crea una [campaña push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) que se desencadene a través del evento enviado por el servidor.
 
-![Una campaña de mensajes dentro de la aplicación basada en acciones que se entregará a los usuarios cuyos perfiles de usuario tengan el evento personalizado "server_event".]({% image_buster /assets/img_archive/iosServerSentPush.png %})
+![Una campaña de mensajes dentro de la aplicación con entrega basada en acciones que se entregará a los usuarios cuyos perfiles de usuario tengan el evento personalizado "server_event".]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
-La campaña push debe incluir extras de par clave-valor, que indiquen que esta campaña push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
+La campaña push debe incluir extras de par clave-valor que indiquen que esta campaña push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
 
-![Una campaña de mensajes dentro de la aplicación basada en acciones que tiene dos pares clave-valor. "CAMPAIGN_NAME" establecido como "Ejemplo de nombre de mensaje dentro de la aplicación" e "IS_SERVER_EVENT" establecido en "true".]({% image_buster /assets/img_archive/iOSServerPush.png %})
+![Una campaña de mensajes dentro de la aplicación con entrega basada en acciones que tiene dos pares clave-valor. "CAMPAIGN_NAME" establecido como "Ejemplo de nombre de mensaje dentro de la aplicación" e "IS_SERVER_EVENT" establecido en "true".]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
 El código del método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` comprueba si hay una clave `IS_SERVER_EVENT` y registrará un evento personalizado del SDK si la hay.
 
@@ -385,7 +399,7 @@ Crea tu campaña de mensajes dentro de la aplicación visible para el usuario en
 
 En el siguiente ejemplo, el mensaje específico dentro de la aplicación que se va a desencadenar se ha configurado enviando la propiedad del evento como parte del push silencioso inicial.
 
-![Una campaña de mensajes dentro de la aplicación basada en acciones que se entregará a los usuarios que realicen el evento personalizado "Activador de mensajes dentro de la aplicación" donde "campaign_name" es igual a "Ejemplo de nombre de campaña IAM".]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![Una campaña de mensajes dentro de la aplicación con entrega basada en acciones que se entregará a los usuarios que realicen el evento personalizado "Activador de mensajes dentro de la aplicación" donde "campaign_name" es igual a "Ejemplo de nombre de campaña IAM".]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
 Ten en cuenta que estos mensajes dentro de la aplicación solo se desencadenarán si se recibe el push silencioso mientras la aplicación está en primer plano.
@@ -432,7 +446,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 
 ### Mostrar un mensaje en tiempo real {#displaying-a-message-in-real-time}
 
-También puedes crear y mostrar mensajes dentro de la aplicación locales en tiempo real, utilizando las mismas opciones de personalización disponibles en el dashboard. Para hacerlo:
+También puedes crear y mostrar mensajes dentro de la aplicación locales en tiempo real, utilizando las mismas opciones de personalización disponibles en el panel. Para hacerlo:
 
 {% tabs %}
 {% tab web %}

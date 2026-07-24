@@ -23,7 +23,7 @@ description: "이 문서에서는 여러 카탈로그 항목 만들기 Braze 엔
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.add_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.add_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -167,7 +167,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `items-too-large` | 항목 값은 5,000자를 초과할 수 없습니다. |
 | `request-includes-too-many-items` | 요청에 항목이 너무 많습니다. 요청당 항목 한도는 50개입니다. |
 | `too-deep-nesting-in-value-object` | 항목 오브젝트는 50단계 이상의 중첩을 가질 수 없습니다. |
-| `unable-to-coerce-value` | 항목 유형은 변환할 수 없습니다. |
+| `unable-to-coerce-value` | 항목 유형을 변환할 수 없습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

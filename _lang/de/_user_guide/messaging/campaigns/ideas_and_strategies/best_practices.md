@@ -16,7 +16,7 @@ tool: Campaign
 Braze empfiehlt, nur Kundendaten zu senden, die Sie tatsächlich auf der Braze-Plattform nutzen möchten. Orientieren Sie sich an der Philosophie der „Vier T's von Braze“, um sicherzustellen, dass Sie nur Daten senden, die Sie für folgende Zwecke verwenden:
 
 - **Target** – Ihre Zielgruppen durch die Erstellung von [Zielgruppen-Segmenten]({{site.baseurl}}/user_guide/audience/segments) ansprechen.
-- **Trigger** – Ihre Nachrichten mit [aktionsbasierter]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#action-based-delivery) oder [API-getriggerter]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) Zustellung triggern.
+- **Trigger** – Ihre Nachrichten mit [aktionsbasierter]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) oder [API-getriggerter]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) Zustellung triggern.
 - **Template** – Ihre Nachrichten mit [bedingter Liquid-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) gestalten und personalisieren.
 - **Track** – Die Wirksamkeit Ihrer Campaigns mit [Conversion-Tracking]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) verfolgen.
 
@@ -28,7 +28,7 @@ Wenn Sie Ihre Campaigns im Laufe der Zeit ausbauen, können Lücken in Ihrer Zie
 
 ### Identifizieren Sie Ihre Zielgruppe {#identify-your-audience}
 
-Nutzen Sie Segmente und Filter zu Ihrem Vorteil, indem Sie Ihre Zielgruppe definieren. Überlegen Sie, wen Ihre Campaign und Nachrichten ansprechen sollen. Mit diesen wichtigen Informationen können Sie [Multichannel-Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) erstellen, die Ihnen die Flexibilität bieten, Ihre Nachrichten in verschiedenen Kanälen zu gestalten, um den Präferenzen für Benachrichtigungen Ihrer Zielgruppe zu entsprechen.
+Nutzen Sie Segmente und Filter zu Ihrem Vorteil, indem Sie Ihre Zielgruppe definieren. Überlegen Sie, wen Ihre Campaign und Nachrichten ansprechen sollen. Mit diesen wichtigen Informationen können Sie [Multichannel-Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) erstellen, die Ihnen die Flexibilität bieten, Ihre Nachrichten in verschiedenen Kanälen zu gestalten, um den Benachrichtigungspräferenzen Ihrer Zielgruppe zu entsprechen.
 
 Es ist außerdem wichtig, Ihre [aktiven Nutzer:innen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns) zu verstehen, um Ihren treuen Nutzer:innen Ihre Wertschätzung zu zeigen.
 

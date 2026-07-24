@@ -3,7 +3,7 @@
 La taille de la population cible affichée dans une campagne ou un Canvas peut différer de la [taille de l'audience atteignable pour un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation), même si vous ajoutez directement ce segment dans votre campagne ou votre Canvas sans filtre supplémentaire.
 Cela peut se produire pour plusieurs raisons :
 
-- Lorsqu'un Groupe de contrôle global s'applique à une campagne ou à un Canvas, les utilisateurs de ce Groupe de contrôle global sont exclus du décompte des utilisateurs pouvant être atteints.
+- Lorsqu'un groupe de contrôle global s'applique à une campagne ou à un Canvas, les utilisateurs de ce groupe de contrôle global sont exclus du décompte des utilisateurs pouvant être atteints.
 - La taille de la population cible d'une campagne ou d'un Canvas exclut les utilisateurs qui ne sont pas joignables via les différents canaux de messages ; le comportement diffère d'un canal à l'autre. Par exemple, l'audience atteignable pour une campagne ou un Canvas exclut les utilisateurs qui sont désabonnés, marqués comme spam (pour les e-mails) ou qui ont fait l'objet d'un échec d'envoi définitif (pour les e-mails). Le segment lui-même, en revanche, n'exclut que les désinscriptions lorsqu'il affiche le nombre estimé d'utilisateurs atteignables par e-mail.
 - Braze n'envoie des messages SMS qu'aux utilisateurs faisant partie du groupe d'abonnement sélectionné. Par conséquent, la population cible SMS d'une campagne ou d'un Canvas exclura également tous les utilisateurs qui ne font pas partie du groupe d'abonnement sélectionné.
 
@@ -58,7 +58,7 @@ Les actualisations planifiées sont automatiquement désactivées lorsqu'une ext
 
 - Non utilisée dans des campagnes ou des Canvas actifs
 - Non utilisée dans un segment faisant partie d'une campagne ou d'un Canvas actif
-- Non utilisée dans un segment où le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) est activé
+- Non utilisée dans un segment où le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) est activé
 - Non modifiée depuis plus de sept jours
 - Non ajoutée à une campagne, un Canvas (y compris les brouillons) ou un segment depuis plus de sept jours
 
@@ -66,7 +66,7 @@ Si l'actualisation planifiée est désactivée pour une extension de segments, u
 
 ![Une notification indiquant « Les actualisations planifiées ont été désactivées pour cette extension car elle n'est utilisée dans aucune campagne, aucun Canvas ni aucun segment actif. L'extension de segments a été désactivée le 23 février 2025 à 0 h 00. »]({% image_buster /assets/img/segment/segment_extension_disabled.png %})
 
-Lorsque vous êtes prêt à utiliser une extension de segments périmée, passez en revue les paramètres d'actualisation, sélectionnez la planification d'actualisation qui correspond à votre cas d'utilisation, puis enregistrez les modifications.
+Lorsque vous êtes prêt à utiliser une extension de segments périmée, passez en revue les paramètres d'actualisation, sélectionnez la planification d'actualisation qui correspond à votre cas d'usage, puis enregistrez les modifications.
 
 {% endif %}
 

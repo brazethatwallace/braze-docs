@@ -42,17 +42,13 @@ Pour la plupart des événements, nous recommandons d'inclure les nouveaux évé
 {% tab Panier abandonné %}
 Pour les messages de panier abandonné, vous devrez utiliser les nouveaux modèles de Canvas de panier abandonné qui incluent :
 
-- Un nouveau déclencheur basé sur l'action « Performed cart updated »
-- Des critères de sortie prédéfinis pour retirer les clients qui ont avancé dans leur parcours d'achat
-- Une nouvelle étiquette Liquid de panier d'achat pour prendre en charge la personnalisation des produits
+{% multi_lang_include partners/shopify/abandoned_cart_template_features.md %}
 {% endtab %}
 
 {% tab Paiement abandonné %}
 Pour les messages de paiement abandonné, vous devrez utiliser le nouveau modèle de Canvas de paiement abandonné qui inclut :
 
-- L'événement ecommerce.checkout_started prédéfini dans vos critères d'entrée
-- Des critères de sortie prédéfinis pour retirer les clients qui ont avancé dans leur parcours d'achat
-- Une nouvelle étiquette Liquid de panier d'achat pour prendre en charge la personnalisation des produits
+{% multi_lang_include partners/shopify/abandoned_checkout_template_features.md %}
 
 Pour une liste complète des nouveaux modèles de Canvas eCommerce et des blocs HTML prédéfinis pour la personnalisation des produits disponibles via l'intégration, consultez [Créer vos parcours utilisateur Canvas]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys).
 
@@ -66,7 +62,7 @@ Pour en savoir plus, consultez [Événements Shopify pris en charge]({{site.base
 {% tab Listes d'abonnés %}
 Si vous collectez des abonnés e-mail ou SMS depuis Shopify via l'intégration, confirmez que vos messages actifs incluent les listes d'abonnés correspondantes pour votre boutique Shopify.
 
-Lorsque la mise à niveau sera terminée, de nouveaux groupes d'abonnement par défaut seront créés pour votre intégration, que vous devrez utiliser dans le cadre de vos messages actifs. Pour plus d'informations sur les changements, consultez [Collecte d'abonnés]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
+Lorsque la mise à niveau sera terminée, de nouveaux groupes d'abonnement par défaut seront créés pour votre intégration, que vous devrez exploiter dans le cadre de vos messages actifs. Pour plus d'informations sur les changements, consultez [Collecte d'abonnés]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
 {% endtab %}
 {% endtabs %}
 
@@ -131,10 +127,7 @@ Si vous avez sélectionné un type d'ID externe personnalisé, passez aux étape
 
 #### Étape 4.1 : Créer le métachamp `braze.external_id` {#step-41-create-the-brazeexternal_id-metafield}
 
-1. Dans votre panneau d'administration Shopify, accédez à **Settings** > **Metafields**.
-2. Sélectionnez **Customers** > **Add definition**.
-3. Pour **Namespace and key**, saisissez `braze.external_id`.
-4. Pour **Type**, sélectionnez **ID Type**.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 Une fois le métachamp créé, renseignez-le pour vos clients. Nous recommandons les approches suivantes :
 
@@ -185,9 +178,7 @@ Répétez l'[étape 4](#step-4-choose-an-external-id-type) et saisissez l'URL de
 
 ##### Considérations {#considerations}
 
-- Si votre ID externe n'est pas généré lorsque Braze envoie une requête à votre endpoint, l'intégration utilisera par défaut l'ID client Shopify lorsque la fonction `changeUser` est appelée. Cette étape est cruciale pour fusionner le profil utilisateur anonyme avec le profil utilisateur identifié. Par conséquent, il peut y avoir une période temporaire pendant laquelle différents types d'ID externes coexistent dans votre espace de travail.
-- Lorsque l'ID externe est disponible dans le métachamp `braze.external_id`, l'intégration donnera la priorité à cet ID externe et l'attribuera.
-    - Si l'ID client Shopify a été précédemment défini comme ID externe Braze, il sera remplacé par la valeur du métachamp `braze.external_id`.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### Étape 5 : Activer l'intégration de l'application Braze {#step-5-enable-the-braze-app-embed}
 
@@ -207,9 +198,6 @@ De retour dans Braze, vous serez alerté lorsque l'installation de votre intégr
 
 Pour vérifier que votre nouveau connecteur Shopify est en production, testez les éléments suivants :
 
-- **Canvas, Campaigns et Segments actifs :** Confirmez qu'ils fonctionnent correctement.
-- **Processus de gestion des identités :** Confirmez que ces processus fonctionnent comme prévu.
-- **Personnalisations du SDK (facultatif) :** Si vous avez effectué des personnalisations de votre intégration Braze et Shopify (comme la journalisation d'événements personnalisés ou d'attributs), vérifiez qu'elles fonctionnent correctement après la mise à niveau.
-- **Collecte d'abonnés e-mail ou SMS (facultatif) :** Si vous aviez précédemment activé la collecte d'abonnés e-mail ou SMS, de nouveaux groupes d'abonnement par défaut seront créés pour refléter le dernier statut de vos abonnés lors de la mise à niveau. Les groupes d'abonnement par défaut porteront le nom de votre vitrine Shopify. Ces nouveaux groupes d'abonnement par défaut seront disponibles environ 5 heures après la mise à niveau, et vous devrez les ajouter à vos messages actifs.
+{% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
 Si vous avez des questions, [contactez l'assistance]({{site.baseurl}}/user_guide/administrative/access_braze/support).

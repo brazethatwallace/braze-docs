@@ -35,7 +35,7 @@ channel:
 
 ### 3단계: 템플릿 업로드 {#step-3-upload-your-template}
 
-**템플릿 콘텐츠** 섹션에서 **HTML 코드 에디터** 타일 아래의 **파일 업로드**를 선택합니다. 컴퓨터에서 템플릿을 선택합니다. 템플릿이 업로드 요구 사항을 충족하는지 [요구 사항](#upload-requirements) 섹션을 참조하세요.
+**템플릿 콘텐츠** 섹션에서 **파일 업로드**를 선택합니다. 컴퓨터에서 템플릿을 선택합니다. 템플릿이 업로드 요구 사항을 충족하는지 [요구 사항](#upload-requirements) 섹션을 참조하세요.
 
 ### 4단계: 템플릿 완성 및 저장 {#step-4-finish-and-save-your-template}
 
@@ -45,9 +45,9 @@ channel:
 기존 템플릿을 편집하면 해당 템플릿의 이전 버전을 사용하여 생성된 Campaign에는 변경 사항이 반영되지 않습니다.
 {% endalert %}
 
-## API 캠페인에서 템플릿 사용 {#api_for_upload_email_templates}
+## API Campaign에서 템플릿 사용 {#api_for_upload_email_templates}
 
-API 캠페인에 이메일을 사용하려면 `email_template_id`가 필요하며, 이는 Braze에서 생성된 모든 이메일 템플릿 하단에서 확인할 수 있습니다.
+API Campaign에 이메일을 사용하려면 `email_template_id`가 필요하며, 이는 Braze에서 생성된 모든 이메일 템플릿 하단에서 확인할 수 있습니다.
 
 ![HTML 이메일 템플릿의 API 식별자 섹션.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:50%;"}
 

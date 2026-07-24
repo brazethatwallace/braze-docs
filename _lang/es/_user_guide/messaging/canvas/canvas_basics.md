@@ -31,7 +31,7 @@ Antes de entrar en los detalles más específicos de la [configuración de Canva
   {% endtab %}
 
   {% tab Constructor de Canvas %}
-  El constructor de Canvas traza los pasos a seguir al crear tu Canvas. Esto incluye aspectos básicos como nombrar tu Canvas y añadir equipos. Esencialmente, el constructor de Canvas es la configuración crucial requerida antes de comenzar a construir tu Canvas. Aquí puedes controlar la forma en que tus usuarios comienzan y completan su recorrido del cliente con opciones para editar el [horario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2b-set-your-canvas-entry-schedule), la [audiencia objetivo]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2c-set-your-target-entry-audience) y los [ajustes de envío]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2d-select-your-send-settings).<br><br> ![El constructor de Canvas en la sección Básicos para un Canvas llamado "New Canvas".]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  El constructor de Canvas traza los pasos a seguir al crear tu Canvas. Esto incluye aspectos básicos como nombrar tu Canvas y añadir equipos. Esencialmente, el constructor de Canvas es la configuración crucial requerida antes de comenzar a construir tu Canvas. Aquí puedes controlar la forma en que tus usuarios comienzan y completan su recorrido del cliente con opciones para editar el [horario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule), la [audiencia objetivo]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-13-set-your-target-entry-audience) y los [ajustes de envío]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings).<br><br> ![El constructor de Canvas en la sección Básicos para un Canvas llamado "New Canvas".]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -41,7 +41,7 @@ Antes de entrar en los detalles más específicos de la [configuración de Canva
   {% endtab %}
 
   {% tab Pasos %}
-  Un paso en Canvas es un punto de decisión de marketing: "si esto, entonces aquello." Aprovecha los [componentes de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components#about-canvas-components) para construir los pasos de un recorrido del usuario.<br><br> ![Ejemplo de cómo añadir un paso de retraso a un Canvas.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> Cuando un usuario entra en un Canvas, comienza en el primer paso. Cada paso tiene condiciones que determinan si un usuario puede avanzar al siguiente paso. Dentro de un paso, puedes configurar desencadenantes o planificar la entrega, refinar la segmentación añadiendo filtros o marcando eventos de excepción, y especificar diferentes canales como notificaciones push o eventos webhook. En Canvas, los pasos ocurren en secuencia, lo que significa que el primer paso ocurre antes de que pueda ocurrir el segundo. Digamos que tenemos un Canvas con los siguientes pasos: paso de retraso A con un retraso de 24 horas, paso de mensaje A con un mensaje push y paso de mensaje B con un mensaje dentro de la aplicación. El usuario A se mantiene en un retraso de 24 horas, luego, después de 24 horas, recibirá un mensaje push y después un mensaje dentro de la aplicación.
+  Un paso en Canvas es un punto de decisión de marketing: "si esto, entonces aquello." Aprovecha los [componentes de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components) para construir los pasos de un recorrido del usuario.<br><br> ![Ejemplo de cómo añadir un paso de retraso a un Canvas.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> Cuando un usuario entra en un Canvas, comienza en el primer paso. Cada paso tiene condiciones que determinan si un usuario puede avanzar al siguiente paso. Dentro de un paso, puedes configurar desencadenantes o planificar la entrega, refinar la segmentación añadiendo filtros o marcando eventos de excepción, y especificar diferentes canales como notificaciones push o eventos webhook. En Canvas, los pasos ocurren en secuencia, lo que significa que el primer paso ocurre antes de que pueda ocurrir el segundo. Digamos que tenemos un Canvas con los siguientes pasos: paso de retraso A con un retraso de 24 horas, paso de mensaje A con un mensaje push y paso de mensaje B con un mensaje dentro de la aplicación. El usuario A se mantiene en un retraso de 24 horas, luego, después de 24 horas, recibirá un mensaje push y después un mensaje dentro de la aplicación.
 
   {% endtab %}
 {% endtabs %}
@@ -62,9 +62,9 @@ Puedes añadir etiquetas y nombrar los pasos y variantes en un Canvas. Para más
 
 *Partiendo del "qué", ¿por qué estás construyendo este Canvas?*
 
-Siempre es importante tener un objetivo definido en mente, y Canvas te ayuda a entender cómo estás rindiendo en relación con KPI como la interacción en sesiones, compras y eventos personalizados.
+Siempre es importante tener un objetivo definido en mente, y Canvas te ayuda a entender cómo estás rindiendo en relación con KPI como la participación en sesiones, compras y eventos personalizados.
 
-Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) te dará la capacidad de entender cómo optimizar el rendimiento dentro del Canvas. Y si tu Canvas tiene múltiples variantes o un grupo de control, Braze usará el evento de conversión para determinar la mejor variación para alcanzar este objetivo.
+Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) te dará la capacidad de entender cómo optimizar el rendimiento dentro del Canvas. Y si tu Canvas tiene múltiples variantes o un grupo de control, Braze usará el evento de conversión para determinar la mejor variante para alcanzar este objetivo.
 
 * **Iniciar sesión**: Quiero que mis usuarios vuelvan e interactúen con la aplicación.
 * **Realizar compra**: Quiero que mis usuarios compren.
@@ -94,7 +94,7 @@ Para definir tu "quién", puedes usar segmentos predefinidos disponibles en Canv
 | Datos personalizados | Segmenta usuarios basándote en eventos y atributos que tú defines. Puede usar características específicas de tu producto. |
 | Actividad del usuario | Segmenta clientes basándote en sus acciones y compras. |
 | Reorientación | Segmenta clientes que han recibido, se les ha enviado o han interactuado con Canvas anteriores. |
-| Actividad de marketing | Segmenta clientes basándote en comportamientos universales como la última interacción. |
+| Actividad de marketing | Segmenta clientes basándote en comportamientos universales como la última participación. |
 | Atributos del usuario | Segmenta clientes por sus atributos y características constantes. |
 | Atribución de instalación | Segmenta clientes por su primera fuente, grupo de anuncios, Campaign o anuncio. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="El \"quién\": Selecciona una audiencia" }

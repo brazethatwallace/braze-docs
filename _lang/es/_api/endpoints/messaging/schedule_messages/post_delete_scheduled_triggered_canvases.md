@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar Canvas programados desencadenados por API de Braze."
+description: "En este artículo se describen los detalles del endpoint Eliminar Canvas programados desencadenados por API de Braze."
 
 ---
 {% api %}
@@ -14,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
-> El punto de conexión para eliminar la programación te permite cancelar un mensaje que hayas programado previamente a través de Canvas desencadenados por API antes de que se haya enviado.
+> El endpoint de eliminar programación te permite cancelar un mensaje que hayas programado previamente a través de Canvas desencadenados por API antes de que se haya enviado.
 
 Los mensajes programados o desencadenados que se eliminan cerca de la hora a la que debían enviarse o durante la misma se actualizan con el máximo esfuerzo, por lo que Braze puede aplicar eliminaciones de último momento a todos, a algunos o a ninguno de tus usuarios objetivo.
 
@@ -22,7 +22,7 @@ Los mensajes programados o desencadenados que se eliminan cerca de la hora a la 
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.trigger.schedule.delete`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `canvas.trigger.schedule.delete`.
 
 ## Límite de velocidad {#rate-limit}
 

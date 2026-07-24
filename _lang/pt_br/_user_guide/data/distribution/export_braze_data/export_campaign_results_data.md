@@ -35,12 +35,12 @@ Para campanhas multicanais, os dados que podem ser exportados dependem dos canai
 - Engajamento de push do iOS por data
     - Número de notificações por push do iOS enviadas
     - Total de aberturas
-    - Aberturas diretas
+    - Aberturas Diretas
     - Bounces
 - Engajamento de push do Android por data
     - Número de notificações por push do Android enviadas
     - Total de aberturas
-    - Aberturas diretas
+    - Aberturas Diretas
     - Bounces
 
 ## Campanhas multivariantes {#multivariate-campaigns}
@@ -76,7 +76,7 @@ Os resultados da campanha de mensagens no app contêm gráficos para as seguinte
 É possível exportar dados de usuários para todos os destinatários de uma campanha como um arquivo CSV. Para fazer isso, selecione o botão **User Data** na seção **Campaign Details**.
 
 {% alert note %}
-Não consegue ver o botão **User Data**? Para exportar dados de usuários, é necessário ter as [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions) **Export User Data** para esse espaço de trabalho.
+Não consegue ver o botão **User Data**? Para exportar dados de usuários, é necessário ter as [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) **Export User Data** para esse espaço de trabalho.
 {% endalert %}
 
 ![Menu suspenso de dados de usuários na página Campaign Details]({% image_buster /assets/img/campaign_export_example.png %})
@@ -85,7 +85,7 @@ A saída CSV contém dados de perfil de usuário para cada destinatário da camp
 
 Se você tiver vinculado suas [credenciais do Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) à Braze, o CSV também será enviado para o seu bucket S3. Caso contrário, o link enviado por e-mail expirará em algumas horas.
 
-O arquivo exportado inclui os mesmos campos de dados de usuários que são incluídos quando você [exporta dados de usuários para um segmento]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data). Além desses campos de dados, se você escolher "Exportar todos os dados do destinatário", o arquivo exportado também conterá os seguintes dados de cada usuário:
+O arquivo exportado inclui os mesmos campos de dados de usuários que são incluídos quando você [exporta dados de usuários para um segmento]({{site.baseurl}}/user_guide/analytics/dashboards/home). Além desses campos de dados, se você escolher "Exportar todos os dados do destinatário", o arquivo exportado também conterá os seguintes dados de cada usuário:
 
 - Nome da variação da campanha recebida
 - ID da API da variação da campanha recebida

@@ -18,13 +18,13 @@ description: "この記事では、「APIトリガーキャンペーンのスケ
 
 メッセージ自体にテンプレート化される `trigger_properties` を渡すことができます。
 
-このエンドポイントを使用してメッセージを送信するには、[APIトリガーキャンペーン]({{site.baseurl}}/api/identifier_types)を構築する際に作成した[キャンペーン ID]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)が必要です。
+このエンドポイントを使用してメッセージを送信するには、[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)を構築する際に作成した[キャンペーンID]({{site.baseurl}}/api/identifier_types)が必要です。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b7e61de7-f2c2-49c9-9e46-b85a0aa01bba {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.trigger.schedule.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`campaigns.trigger.schedule.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 

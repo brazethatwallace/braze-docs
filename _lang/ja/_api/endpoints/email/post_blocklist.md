@@ -14,13 +14,13 @@ description: "この記事では、メールのブロックリスト登録Braze�
 /email/blocklist
 {% endapimethod %}
 
-> このエンドポイントを使用して、ユーザーのメール配信を停止し、ハードバウンスとしてマークします。
+> このエンドポイントを使用して、ユーザーのメール購読解除を行い、ハードバウンスとしてマークします。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d51155a1-a6e8-4dcc-9f2b-88c54ab9e8c6 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.blacklist` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`email.blacklist` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 

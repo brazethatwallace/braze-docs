@@ -130,7 +130,7 @@ Se você receber esse erro, consulte [Databricks: Erro forbidden ao acessar dado
 
 ## Como faço para atualizar minhas preferências de alerta por e-mail para integrações CDI? {#how-do-i-update-my-email-alert-preferences-for-cdi-integrations}
 
-Cada integração tem sua própria preferência de notificação. Acesse a página do CDI e selecione o nome da integração que deseja atualizar. Na seção **Preferências de notificação**, é possível atualizar a forma como você recebe alertas referentes à integração selecionada.
+Cada integração tem sua própria preferência de notificação. Acesse a página do CDI e selecione o nome da integração que deseja atualizar. Na seção **Notification preferences**, é possível atualizar a forma como você recebe alertas referentes à integração selecionada.
 
 ## O que acontece se um `UPDATED_AT` futuro for sincronizado com uma integração? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
@@ -142,7 +142,7 @@ O CDI usa `UPDATED_AT` para decidir quais dados são novos. Depois que um `UPDAT
 
 ## Por que "Rows Synced" não corresponde ao número no meu data warehouse? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-O CDI usa `UPDATED_AT` para decidir quais registros devem ser coletados durante uma sincronização. Dê uma olhada [nesta ilustração]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced) para ver como funciona. No início de uma execução de sincronização, o CDI consulta seu data warehouse para obter todos os registros com `UPDATED_AT` posterior ao valor `UPDATED_AT` processado anteriormente. Registros no timestamp exato do limite também podem ser ressincronizados se novas linhas compartilharem esse timestamp. Qualquer registro coletado no momento em que a consulta for executada será sincronizado com a Braze. Aqui estão os casos comuns em que um registro pode não ser sincronizado:
+O CDI usa `UPDATED_AT` para decidir quais registros devem ser coletados durante uma sincronização. Dê uma olhada [nesta ilustração]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#how-it-works) para ver como funciona. No início de uma execução de sincronização, o CDI consulta seu data warehouse para obter todos os registros com `UPDATED_AT` posterior ao valor `UPDATED_AT` processado anteriormente. Registros no timestamp exato do limite também podem ser ressincronizados se novas linhas compartilharem esse timestamp. Qualquer registro coletado no momento em que a consulta for executada será sincronizado com a Braze. Aqui estão os casos comuns em que um registro pode não ser sincronizado:
 
 - Você está adicionando registros à tabela com um valor `UPDATED_AT` que já foi processado.
 - Você está atualizando os valores de registro depois que eles foram processados por uma sincronização, mas deixando `UPDATED_AT` inalterado.
@@ -214,9 +214,9 @@ A ordem de processamento não é 100% previsível. Por exemplo, se houver vária
 
 ## Por que novos usuários não estão sendo criados a partir da minha sincronização do CDI? {#why-are-new-users-not-being-created-from-my-cdi-sync}
 
-Se sua integração do CDI tiver a opção **Atualizar apenas usuários existentes** ativada, apenas os usuários que já existem na Braze são atualizados, e novos usuários não são criados. Isso significa que, se uma linha na sua tabela de sincronização referenciar um `EXTERNAL_ID` que não corresponda a nenhum usuário existente na Braze, essa linha será ignorada.
+Se sua integração do CDI tiver a opção **Update existing users only** ativada, apenas os usuários que já existem na Braze são atualizados, e novos usuários não são criados. Isso significa que, se uma linha na sua tabela de sincronização referenciar um `EXTERNAL_ID` que não corresponda a nenhum usuário existente na Braze, essa linha será ignorada.
 
-Para criar novos usuários através do CDI, desative o toggle **Atualizar apenas usuários existentes** nas configurações da sua integração. Acesse **Configurações de dados** > **Ingestão de dados na nuvem** e selecione uma integração.
+Para criar novos usuários através do CDI, desative o toggle **Update existing users only** nas configurações da sua integração. Acesse **Data Settings** > **Cloud Data Ingestion** e selecione uma integração.
 
 ## Quais são as medidas de segurança do CDI? {#what-are-the-security-measures-for-cdi}
 

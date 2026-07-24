@@ -44,7 +44,7 @@ Refer to [Location targeting]({{site.baseurl}}/user_guide/audience/segments/loca
 
 ## Hard setting the default location attribute
 
-You can also use the [`users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) in our API to update the [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) standard attribute. An example is:
+You can also use the [`users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) in our API to update the [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) standard attribute. An example is:
 
 ```
 https://[your_braze_rest_endpoint]/users/track

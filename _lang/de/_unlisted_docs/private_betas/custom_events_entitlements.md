@@ -14,13 +14,7 @@ Angepasste Events sind Aktionen, die von Ihren Nutzer:innen durchgeführt werden
 
 Einige gängige Anwendungsfälle für angepasste Events sind:
 
-- Auslösen einer Campaign oder eines Canvas basierend auf einem angepassten Event mithilfe der [aktionsbasierten Zustellung]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)
-- Segmentierung von Nutzer:innen danach, wie oft sie ein angepasstes Event ausgeführt haben, wann das Event zuletzt aufgetreten ist, und ähnliches
-- Nutzung der Dashboard-[Analytics für angepasste Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics), um eine aggregierte Ansicht darüber zu erhalten, wie oft jedes Event aufgetreten ist
-- Gewinnung zusätzlicher Analytics mithilfe von [Funnel]({{site.baseurl}}/user_guide/data_and_analytics/reporting/funnel_reports#step-2-select-events-for-funnel-steps)- und [Bindungs]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports)-Berichten
-- Nutzung von [persistenten Entry-Eigenschaften]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties), um Metadaten aus Ihrem Kund:innen-Event für die Personalisierung in Ihren Canvas-Schritten zu verwenden
-- Generierung anspruchsvollerer Analytics mit [Currents]({{site.baseurl}}/user_guide/data/braze_currents)
-- Einrichten von [Ausstiegskriterien]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria), um festzulegen, wann Nutzer:innen Ihren Canvas verlassen sollen
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Berechtigungen {#entitlements}
 
@@ -42,9 +36,7 @@ Sie können einzelne angepasste Events über das Aktionsmenü auf die Blockliste
 
 Wenn Sie ein angepasstes Event blockieren:
 
-- Werden zukünftige Daten für dieses Event nicht mehr erfasst.
-- Sind vorhandene Daten nicht verfügbar, es sei denn, das Event wird wieder freigegeben.
-- Wird dieses Event nicht in Filtern oder Grafiken angezeigt.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 Wenn ein blockiertes angepasstes Event derzeit von Filtern oder Triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warnhinweis, der erklärt, dass alle Instanzen der Filter oder Trigger, die darauf verweisen, entfernt und archiviert werden.
 
@@ -215,9 +207,7 @@ Um Event-Eigenschaften für die Segmentierung hinzuzufügen, gehen Sie wie folgt
 
 Die Segmentierungsfilter für Event-Eigenschaften umfassen:
 
-- Hat ein angepasstes Event mit Eigenschaft A mit Wert B, X Mal in den letzten Y Tagen durchgeführt.
-- Hat einen Kauf mit Eigenschaft A mit Wert B, X Mal in den letzten Y Tagen getätigt.
-- Ermöglicht die Segmentierung innerhalb von 1 bis 30 Tagen.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
 ![Eine Filtergruppe, die „hat ‚Warenkorb-Abbruch' mit Eigenschaft ‚Anzahl der Artikel' und Wert ‚2' ‚mehr als' ‚1' Mal in den letzten ‚30' Kalendertagen“ enthält.][3]
 

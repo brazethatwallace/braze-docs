@@ -24,7 +24,7 @@ Archived Canvases will not be included in the API response unless the `include_a
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.list` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `canvas.list` permission.
 
 ## Rate limit
 
@@ -60,7 +60,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
   	},
     ... (more Canvases)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

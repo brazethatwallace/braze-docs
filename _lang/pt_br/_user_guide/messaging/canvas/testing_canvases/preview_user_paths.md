@@ -33,9 +33,23 @@ As etapas a seguir são aceitas:
 - Postergação
 - Jornada de ação
 - Jornada experimental
+- Agente
 - Atualização do usuário (apenas no editor de UI, o que significa que etapas usando o editor JSON são puladas)
 
-Se o teste se sobrepuser a um tipo de etapa que não está listado acima, a etapa não aceita é pulada, e o usuário teste continua para a próxima etapa aceita.
+Se o teste se sobrepuser a um tipo de etapa que não está listado nesta seção, a etapa não aceita é pulada, e o usuário teste continua para a próxima etapa aceita.
+
+### Etapas de agente {#agent-steps}
+
+Quando uma execução de teste alcança uma [etapa de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), a Braze pausa e pergunta **Deseja executar o agente "{agentName}"?** Escolha como continuar:
+
+- **Sim:** Opcionalmente, adicione contexto no campo de texto (além do perfil do usuário teste e de qualquer contexto do Canvas já presente na jornada) e selecione **Simulate response** para invocar o agente. Você pode inserir valores de exemplo em linguagem natural — por exemplo, descrevendo o conteúdo do carrinho ou o texto de uma mensagem recebida — para simular o contexto de execução que o agente receberia em produção.
+- **Não:** A Braze não invoca o agente. A etapa usa o **fallback de saída** configurado do agente na seção **Output** do [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values).
+
+Quando você seleciona **Sim** e **Simulate response**, o agente é executado para o usuário de prévia, armazena sua saída na variável de saída da etapa de agente, e o teste continua pela jornada. Invocações de **Simulate response** contam para o limite diário de invocações do agente e aparecem em **Agent Console** > **Logs**.
+
+Para testar uma etapa de agente isoladamente (sem executar toda a jornada do Canvas), use a prévia dentro da etapa no construtor do Canvas. Para detalhes de configuração, consulte [Testar o agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#step-5-test-the-agent) em etapa de agente.
+
+Se a sua etapa de agente depende de dados de uma [etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) anterior, execute **Test Canvas** para que as variáveis de contexto sejam preenchidas ao longo da jornada. Os grupos de teste não avaliam etapas de Contexto nem variáveis de contexto para destinatários seed.
 
 ### Detalhes da etapa do Canvas {#canvas-step-details}
 
@@ -43,7 +57,7 @@ Para ver mais detalhes sobre os critérios de entrada, selecione **See more**. E
 
 ### Liquid
 
-A Braze processa a lógica Liquid durante uma execução de teste, mesmo que você não esteja enviando uma mensagem de teste real. Isso significa que a [lógica de interrupção de mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) e outras lógicas Liquid são refletidas e podem impactar a jornada do usuário no Canvas.
+A Braze processa a lógica Liquid durante uma execução de teste, mesmo que você não esteja enviando uma mensagem de teste real. Isso significa que a [lógica de interrupção de mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) e outras lógicas Liquid são refletidas e podem impactar a jornada do usuário no Canvas.
 
 Se a sua prévia enviar a última etapa da jornada do usuário em vez de interromper, a prévia pode estar usando o horário atual como o horário testado para a avaliação Liquid, e não o horário real em que o usuário estaria na etapa com base no horário de entrada no Canvas.
 

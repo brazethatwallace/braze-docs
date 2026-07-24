@@ -82,7 +82,7 @@ Se `not included`, `is not`, `does not equal` ou `does not match regex` forem us
 
 ### Operadores de filtro {#filter-operators}
 
-Dependendo do filtro específico que você selecionar, haverá diferentes operadores para identificar valores de filtro. Para se aprofundar nos operadores disponíveis para diferentes tipos de atributos personalizados, consulte [Armazenamento de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes). Observe que, ao usar o operador "is any of", o número máximo de itens que você pode incluir nesse campo é 256.
+Dependendo do filtro específico que você selecionar, haverá diferentes operadores para identificar valores de filtro. Para se aprofundar nos operadores disponíveis para diferentes tipos de atributos personalizados, consulte [Armazenamento de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes). Observe que, ao usar o operador "is any of", o número máximo de itens que você pode incluir nesse campo é 256.
 
 {% alert note %}
 A Braze não gera perfis para usuários até que eles usem o app pela primeira vez, então você não pode direcionar usuários que ainda não abriram seu app.
@@ -91,7 +91,7 @@ A Braze não gera perfis para usuários até que eles usem o app pela primeira v
 ![Grupos de filtros do segmentador com o operador AND.]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
 {% alert important %}
-Segments que já usam o filtro **Segment Membership** não podem ser incluídos ou aninhados em outros segmentos. Isso evita um ciclo em que o Segment A inclui o Segment B, que então tenta incluir o Segment A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele.
+Segmentos que já usam o filtro **Segment Membership** não podem ser incluídos ou aninhados em outros segmentos. Isso evita um ciclo em que o Segment A inclui o Segment B, que então tenta incluir o Segment A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele.
 
 Além disso, aninhar segmentos dessa forma adiciona complexidade e pode tornar as coisas mais lentas. Em vez disso, recrie o segmento que você está tentando incluir usando os mesmos filtros.
 {% endalert %}
@@ -131,7 +131,7 @@ A **Busca de usuário** aceita apenas `external_id` e `braze_id`. Não aceita en
 A busca de usuário está disponível quando:
 - Você está criando um segmento
 - Você está configurando o público de uma Campaign ou Canvas
-- Você está configurando uma etapa de Jornadas do público
+- Você está configurando uma etapa de jornada do público
 
 Quando um usuário corresponde aos critérios do segmento, filtro e app, um alerta indicará isso.
 
@@ -145,7 +145,7 @@ Quando um usuário não corresponde a parte ou a todos os critérios do segmento
 
 Você pode criar segmentos de usuário único (ou segmentos com poucos usuários) usando atributos únicos que identificam usuários, como um nome de usuário ou um ID de usuário.
 
-No entanto, as estatísticas de segmentação ou a pré-visualização podem não mostrar esse usuário individual porque as estatísticas de segmento são calculadas com base em uma amostra aleatória com um intervalo de confiança de 95% de que o resultado está dentro de +/- 1%. Quanto maior for sua base de usuários, mais provável é que o tamanho do seu segmento seja uma estimativa aproximada. Para garantir que seu segmento contenha o único usuário que você está direcionando, selecione **Calcular estatísticas exatas**. Isso calculará o número exato de usuários no seu segmento com precisão superior a 99,999%.
+No entanto, as estatísticas de segmentação ou a prévia podem não mostrar esse usuário individual porque as estatísticas de segmento são calculadas com base em uma amostra aleatória com um intervalo de confiança de 95% de que o resultado está dentro de +/- 1%. Quanto maior for sua base de usuários, mais provável é que o tamanho do seu segmento seja uma estimativa aproximada. Para garantir que seu segmento contenha o único usuário que você está direcionando, selecione **Calcular estatísticas exatas**. Isso calculará o número exato de usuários no seu segmento com precisão superior a 99,999%.
 
 A Braze possui filtros de teste para direcionar usuários específicos por ID de usuário ou endereço de e-mail.
 

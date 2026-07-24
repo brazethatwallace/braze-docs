@@ -18,7 +18,7 @@ platform:
 
 In-app messages are triggered when the SDK logs one of the following custom event types: `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase`,and `Custom Event` (the last two containing robust property filters).
 
-At the start of a user's session, Braze will deliver all eligible in-app messages to their device, while simultaneously prefetching assets to minimize display latency. If the trigger event has more than one eligible in-app message, only the message with the highest priority will be delivered. For more information, see [Session Lifecycle]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle).
+At the start of a user's session, Braze delivers all eligible in-app messages to their device, while simultaneously prefetching assets to minimize display latency. If the trigger event has more than one eligible in-app message, only the message with the highest priority is delivered. For more information, see [Session Lifecycle]({{site.baseurl}}/developer_guide/analytics/tracking_sessions).
 
 {% alert note %}
 In-app messages can't be triggered through the API or by API events&#8212;only custom events logged by the SDK. To learn more about logging, see [Logging Custom Events]({{site.baseurl}}/developer_guide/analytics/logging_events).
@@ -36,7 +36,21 @@ An `inapp` (or "[standard]({{site.baseurl}}/user_guide/message_building_by_chann
 
 A `templated_iam` (or "templated") in-app message isn't yet templated with the necessary information. Braze must make another request to pull in the information before the message can appear.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+In-app messages are delivered as templated in-app messages when **Re-evaluate campaign eligibility before displaying** is selected or if any of the following Liquid tags exist in the message:
+
+- `canvas_entry_properties`
+- `connected_content`
+- SMS variables such as {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+This means that during session start, the device receives the trigger of that in-app message instead of the entire message. When the user triggers the in-app message, the user's device makes a network request to fetch the actual message.
+
+{% alert note %}
+The message will not be delivered if the device doesn't have access to the internet. The message might not be delivered if the Liquid logic takes too long to resolve.
+{% endalert %}
+
 
 ## Key-value pairs
 

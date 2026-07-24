@@ -28,7 +28,7 @@ Puedes establecer el estado de suscripción por correo electrónico para una dir
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.status`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `email.status`.
 
 ## Límite de velocidad {#rate-limit}
 

@@ -20,7 +20,7 @@ description: "This article outlines details about the Update a preference center
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `preference_center.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `preference_center.update` permission.
 
 ## Rate limit
 

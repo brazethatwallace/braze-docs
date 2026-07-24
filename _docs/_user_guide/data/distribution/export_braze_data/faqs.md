@@ -39,6 +39,6 @@ This is a very rare occurrence caused by the underlying architecture of the data
 
 While CSV files are usually automatically opened in Excel by default, this may not always be the case. Refer to the [Windows](https://support.microsoft.com/en-us/windows/change-which-programs-windows-7-uses-by-default-62fd162f-8c82-0436-806f-c60d69dcf495) and [Apple](https://support.apple.com/guide/mac-help/choose-an-app-to-open-a-file-on-mac-mh35597/mac) troubleshooting articles for steps to set Excel as your default program.
 
-To convert a CSV to XLSX or XLS, or get rid of the comma between data values, refer to [this guide](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard) for importing CSVs into Excel.
+To convert a CSV to XLSX or XLS, or get rid of the comma between data values, refer to [this guide for importing CSVs into Excel](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard).
 
 If you find that leading zeroes are stripped from user IDs in your CSV export, this happens because Excel treats the numbers in a CSV as data instead of text. To resolve this, run the [Excel Text Import Wizard](https://www.ablebits.com/office-addins-blog/converting-csv-excel-issues/#leading-zeros).

@@ -265,6 +265,8 @@ Count, Percentage
 
 Quando o [mapa de calor de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting) mostrar links que você não espera, inspecione o HTML da mensagem em busca de [blocos de conteúdo]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks) ou espaçamentos entre palavras que criam URLs rastreadas. Use a **Tabela de links por total de cliques** na visualização do mapa de calor para identificar URLs que não correspondem ao texto visível.
 
+A Braze não expande tags Liquid na prévia da mensagem, então o renderizador do mapa de calor não consegue corresponder o link clicado na prévia. Esse é o comportamento esperado. O renderizador do mapa de calor tenta corresponder as URLs clicadas com aquelas na mensagem. Quando a URL é significativamente diferente, como quando a URL inteira é passada como uma propriedade de evento, o mapa de calor não consegue identificá-la.
+
 {% endapi %}
 
 {% api %}
@@ -420,7 +422,7 @@ O filtro de segmento [`Message Open Likelihood`]({{site.baseurl}}/user_guide/aud
 
 ### Links de cancelamento de inscrição e cliques únicos {#unsubscribe-links-and-unique-clicks}
 
-Quando um destinatário clica em um link de cancelamento de inscrição, a Braze contabiliza como um clique porque a ação usa uma URL. Isso se aplica tanto aos links de cancelamento de inscrição fornecidos pela Braze quanto aos links de cancelamento de inscrição personalizados no corpo da sua mensagem. Esses cliques contribuem para *Cliques únicos* e *Total de cliques* junto com outros cliques em links. Para definições de métricas, consulte [Cliques únicos](#unique-clicks) acima e [Por que estou vendo um número diferente de cancelamentos de inscrição em relação aos cliques no meu link de cancelamento de inscrição?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Quando um destinatário clica em um link de cancelamento de inscrição, a Braze contabiliza como um clique porque a ação usa uma URL. Isso se aplica tanto aos links de cancelamento de inscrição fornecidos pela Braze quanto aos links de cancelamento de inscrição personalizados no corpo da sua mensagem. Esses cliques contribuem para *Cliques únicos* e *Total de cliques* junto com outros cliques em links. Para definições de métricas, consulte [Cliques únicos](#unique-clicks) e [Por que estou vendo um número diferente de cancelamentos de inscrição em relação aos cliques no meu link de cancelamento de inscrição?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Visualizar no navegador {#view-in-browser}
 

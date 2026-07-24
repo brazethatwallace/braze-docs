@@ -1,0 +1,5 @@
+- Die RCS-Abrechnung basiert auf zwei verschiedenen Nachrichtentypen (mit Unterscheidungen für die USA):
+    - **Basic RCS:** Nur Text, bis zu 160 Zeichen
+    - **Single RCS:** Nachrichten mit Rich Content oder reine Textnachrichten > 160 Zeichen
+    - **Rich RCS (nur USA):** Nur Text, kann eingeschränkte Vorschläge/Buttons enthalten (quickReply, dialPhone, openURL ohne Webview), segmentiert pro 160 UTF-8 Bytes
+    - **Rich Media RCS (nur USA):** Beliebige Medien ODER Text mit umfangreicheren Vorschlägen/Buttons (Webview, Standort, Kalender usw.), wird als eine Nachricht gezählt

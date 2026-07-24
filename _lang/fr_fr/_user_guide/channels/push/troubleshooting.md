@@ -55,14 +55,14 @@ Si votre espace de travail utilise une limite de fréquence globale, il est poss
 
 ### Limites de débit {#rate-limits}
 
-Si vous avez défini une limite de débit pour votre campagne ou Canvas, il est possible que vous ne receviez plus de messages après avoir dépassé cette limite. Pour plus d'informations, consultez [Limitation du débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting).
+Si vous avez défini une limite de débit pour votre campagne ou Canvas, il est possible que vous ne receviez plus de messages après avoir dépassé cette limite. Pour plus d'informations, consultez [Limitation du débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting).
 
 ### Statut du groupe de contrôle {#control-group-status}
 
 S'il s'agit d'une campagne à canal unique ou d'un Canvas avec un groupe de contrôle, il est possible que vous fassiez partie du groupe de contrôle.
 
-  1. Vérifiez la [distribution des variantes]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants) pour voir s'il existe un groupe de contrôle.
-  2. Si c'est le cas, créez un segment filtrant par [dans le groupe de contrôle de la campagne]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter), puis [exportez le segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv) et vérifiez si votre ID utilisateur figure dans cette liste.
+  1. Vérifiez la [distribution des variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants) pour voir s'il existe un groupe de contrôle.
+  2. Si c'est le cas, créez un segment filtrant par [dans le groupe de contrôle de la campagne]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group), puis [exportez le segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) et vérifiez si votre ID utilisateur figure dans cette liste.
 
 ### Jeton de notification push valide {#valid-push-token}
 

@@ -45,7 +45,7 @@ Pour les campagnes multicanales, les données exportables dépendent des canaux 
 
 ## Campagnes multivariées {#multivariate-campaigns}
 
-Pour les campagnes multivariées, qui n'utilisent qu'un seul canal de communication, vous pouvez exporter des données montrant les performances de chaque variante sur l'analytique du canal concerné au fil du temps. Ces données peuvent être affichées groupées par statistique ou par variante de message.
+Pour les campagnes multivariées, qui n'utilisent qu'un seul canal de communication, vous pouvez exporter des données montrant les performances de chaque variante sur les analyses du canal concerné au fil du temps. Ces données peuvent être affichées groupées par statistique ou par variante de message.
 
 Les résultats de campagne de notifications push contiennent des graphiques pour les analyses suivantes :
 
@@ -76,7 +76,7 @@ Les résultats de campagne de messages in-app contiennent des graphiques pour le
 Vous pouvez exporter les données utilisateur de tous les destinataires d'une campagne sous forme de fichier CSV. Pour ce faire, sélectionnez le bouton **User Data** dans la section **Campaign Details**.
 
 {% alert note %}
-Le bouton **User Data** n'apparaît pas ? Pour exporter les données utilisateur, vous avez besoin des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions) **Export User Data** pour cet espace de travail.
+Le bouton **User Data** n'apparaît pas ? Pour exporter les données utilisateur, vous avez besoin des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) **Export User Data** pour cet espace de travail.
 {% endalert %}
 
 ![Menu déroulant User Data sur la page Campaign Details]({% image_buster /assets/img/campaign_export_example.png %})
@@ -85,10 +85,10 @@ Le fichier CSV généré contient les données de profil utilisateur de chaque d
 
 Si vous avez lié vos [identifiants Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) à Braze, le fichier CSV sera également téléchargé dans votre compartiment S3. Sinon, le lien envoyé par e-mail expirera au bout de quelques heures.
 
-Le fichier exporté comprend les mêmes champs de données utilisateur que ceux inclus lorsque vous [exportez les données utilisateur d'un segment]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data). En plus de ces champs, si vous choisissez « Export All Recipient Data », le fichier exporté contiendra également les données suivantes pour chaque utilisateur :
+Le fichier exporté comprend les mêmes champs de données utilisateur que ceux inclus lorsque vous [exportez les données utilisateur d'un segment]({{site.baseurl}}/user_guide/analytics/dashboards/home). En plus de ces champs, si vous choisissez « Export All Recipient Data », le fichier exporté contiendra également les données suivantes pour chaque utilisateur :
 
 - Nom de la variante de campagne reçue
-- ID de l'API de la variante de campagne reçue
+- ID d'API de la variante de campagne reçue
 - Si l'utilisateur fait partie du groupe de contrôle
 
 {% alert tip %}

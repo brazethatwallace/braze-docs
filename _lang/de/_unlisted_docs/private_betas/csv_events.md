@@ -10,7 +10,14 @@ page_type: reference
 
 > Braze bietet verschiedene Möglichkeiten, Nutzerdaten in die Plattform zu importieren: SDKs, APIs, Cloud-Datenaufnahme, Partnerintegrationen und CSV-Dateien. Dieser Artikel enthält detaillierte Anleitungen zum Import von Nutzerdaten, einschließlich des [Imports angepasster Events über CSV-Dateien (Early Access)](#importing-custom-events).
 
-{% multi_lang_include channels/sms/email_via_sms_warning.md %}
+{% alert important %}
+Senden Sie keine rechtlich vorgeschriebenen Transaktions-E-Mails an SMS-Gateways, da eine hohe Wahrscheinlichkeit besteht, dass diese E-Mails nicht zugestellt werden.
+
+Obwohl E-Mails, die Sie über eine Telefonnummer und die E-Mail-zu-SMS-Gateway-Domain des Anbieters (MM3) senden, dazu führen können, dass die E-Mail als SMS (Textnachricht) empfangen wird, unterstützen einige E-Mail-Anbieter dieses Verhalten nicht. Wenn Sie beispielsweise eine E-Mail an eine T-Mobile-Telefonnummer senden (z. B. „9999999999@tmomail.net“), würde Ihre SMS-Nachricht an die Person gesendet, die diese Telefonnummer im T-Mobile-Netz besitzt.
+
+Auch wenn diese E-Mails möglicherweise nicht an das SMS-Gateway zugestellt werden, zählen sie dennoch für Ihre E-Mail-Abrechnung. Um das Senden von E-Mails an nicht unterstützte Gateways zu vermeiden, überprüfen Sie die [Liste der nicht unterstützten Gateway-Domainnamen](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads).
+{% endalert %}
+
 
 Beachten Sie vor dem Fortfahren, dass Braze HTML-Daten beim Import nicht bereinigt (validiert oder korrekt formatiert). Das bedeutet, dass Script-Tags aus allen Importdaten entfernt werden müssen, die für die Web-Personalisierung vorgesehen sind.
 

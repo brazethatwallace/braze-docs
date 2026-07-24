@@ -60,7 +60,11 @@ Next, set up the details for your agent:
 2. (optional) Add tags to filter your agent.
 3. Choose the [model]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) for your agent to use.
 4. If you're not using the **Braze Auto** model, select the model's [thinking level]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels). You can choose from minimal, low, medium, or high. We recommend starting with **Minimal** and testing your agent's responses and adjusting this as needed.
-5. Set a daily invocation limit. By default, this value is set to 250,000, but can be raised to 1,000,000. If you're interested in increasing the limit over 1,000,000, contact your customer success manager to learn more.
+5. Set a daily invocation limit. By default, this value is set to 250,000, but can be raised to 1,000,000. If you're interested in increasing the limit higher than 1,000,000, contact your customer success manager to learn more.
+
+The **Daily action credit cost limit** field specifies the maximum number of credits this agent can consume per day. Braze calculates it from your workspace's per-invocation credit ratio for the selected model (from your contract, shown on the [Credit Ratios]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) page) multiplied by the daily invocation limit. The estimate updates when you change the model or invocation limit.
+
+To manage cost, lower the daily invocation limit. For [bring-your-own (BYO)]({{site.baseurl}}/user_guide/brazeai/agents/reference#option-2-bring-your-own-api-key) models, you can also switch to a lower-cost model or reduce the [thinking level]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels). **Braze Auto** does not support adjusting the thinking level. Track actual usage in **Settings** > **Billing** > **Credits Usage** > **Agent Console**.
 
 ![Agent Console interface for creating a custom agent in Braze. The screen displays fields for entering the agent name and description, and selecting a model, and setting a daily invocation limit.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
@@ -72,11 +76,11 @@ Include instructions for what the agent should do in unexpected or ambiguous sce
 
 Refer to the [Writing instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions) for best practices and [Examples]({{site.baseurl}}/user_guide/brazeai/agents/reference#examples) for inspiration on how to prompt your agent.
 
-{% alert tip %}
-For Canvas agents, you can use Liquid in your instructions to reference user attributes, such as their first and last name, or custom attributes. Any Liquid variable in the agent instructions is automatically passed to the Agent step when a user enters the step.
-{% endalert %}
-
 #### Add context {#add-resources}
+
+{% alert important %}
+Agents only receive data you explicitly pass in—they do not search user profiles or warn you when required data is missing. Use Liquid in your instructions, select **+ Agent context**, add upstream [Context steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) in Canvas, or pass additional context on the Agent step. For a full list of data sources and design guidance, see [What data agents receive]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
+{% endalert %}
 
 Select **+ Agent context** to choose what your agent can reference. This includes:
 
@@ -86,6 +90,10 @@ Select **+ Agent context** to choose what your agent can reference. This include
 - [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Reference the brand voice and style guidelines for the agent to follow. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
 - [All Canvas Context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analyze all Canvas context data for a user when this agent is invoked, including any variables that are not referenced in the **Instructions** section.
 - [User interaction data]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): Provide the agent with each user's recent campaign and Canvas opens, clicks, and conversion data.
+
+{% alert tip %}
+For Canvas agents, you can use Liquid in your instructions to reference user attributes, such as their first and last name, or custom attributes. Any Liquid variable in the agent instructions is automatically passed to the Agent step when a user enters the step. See [What data agents receive]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive) for how to pass Canvas context and profile data deliberately.
+{% endalert %}
 
 ### Step 5: Select the output {#select-output}
 
@@ -99,15 +107,15 @@ When you use an [advanced output schema]({{site.baseurl}}/user_guide/brazeai/age
 
 #### Configure fallback values {#configure-fallback-values}
 
-Fallback values are available for **Canvas step agents** only. In the **Output** section for a Canvas agent, you can define values that Braze uses when an agent invocation fails—for example, when the LLM times out or returns an invalid API key error. Fallback values work like personalization defaults. You might set a static subject line or short message that still gives users useful output when the agent cannot run.
+Fallback values are available for Canvas Step Agents only. In the **Output** section for a Canvas Step Agent, you can define values that Braze uses when an agent invocation fails—for example, when the LLM times out or returns an invalid API key error. Fallback values work like personalization defaults. You might set a static subject line or short message that still gives users useful output when the agent cannot run.
 
-**Catalog agents** do not support configuring fallback values in Agent Console.
+Catalog Agents do not support configuring fallback values in Agent Console.
 
 ![Agent Console Output configuration showing the Fallback output field for a Number schema.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 For Canvas agents, fallback values support [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) templating so you can reference user attributes or context variables in the fallback text.
 
-The fallback fields adapt to your Canvas agent's output format:
+The fallback fields adapt to your Canvas Step Agent's output format:
 
 | Output format | Fallback configuration |
 | --- | --- |
@@ -116,7 +124,7 @@ The fallback fields adapt to your Canvas agent's output format:
 | JSON schema (advanced schema) | Braze reads your JSON schema and generates an input field for each property so you can define a fallback value per key. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configure fallback values" }
 
-When a Canvas agent with fallback values runs in an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze renders the fallback per user and stores it in the output variable instead of `null`. If you do not configure fallback values, failed invocations leave the Canvas output unset (`null`).
+When a Canvas Step Agent with fallback values runs in an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze renders the fallback per user and stores it in the output variable instead of `null`. If you do not configure fallback values, failed invocations leave the Canvas output unset (`null`).
 
 For runtime behavior, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 

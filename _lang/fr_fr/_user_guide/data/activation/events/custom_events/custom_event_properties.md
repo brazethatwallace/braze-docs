@@ -36,13 +36,13 @@ Vous ne pouvez pas utiliser de clés réservées comme noms de propriétés d'é
 
 ## Utilisation des propriétés d'événement personnalisé {#using-custom-event-properties}
 
-Les propriétés d'événement personnalisé peuvent être utilisées pour qualifier les déclencheurs de campagne, suivre les conversions et personnaliser les messages.
+Les propriétés d'événement personnalisé peuvent être utilisées pour qualifier les déclencheurs de Campaign, suivre les conversions et personnaliser les messages.
 
 ### Déclencher des messages {#trigger-messages}
 
-Utilisez les propriétés d'événement personnalisé pour affiner davantage votre audience pour une campagne ou un Canvas particulier. Par exemple, si vous avez une application e-commerce et souhaitez envoyer un message à un utilisateur lorsqu'il abandonne son panier, vous pouvez ajouter une propriété d'événement personnalisé `price` pour améliorer votre audience cible et permettre une personnalisation accrue de la campagne.
+Utilisez les propriétés d'événement personnalisé pour affiner davantage votre audience pour une Campaign ou un Canvas particulier. Par exemple, si vous avez une application e-commerce et souhaitez envoyer un message à un utilisateur lorsqu'il abandonne son panier, vous pouvez ajouter une propriété d'événement personnalisé `price` pour améliorer votre audience cible et permettre une personnalisation accrue de la Campaign.
 
-![Filtres de propriétés d'événement personnalisé pour un panier abandonné. Deux filtres sont combinés avec un opérateur AND pour envoyer cette campagne aux utilisateurs qui ont abandonné leur panier avec un prix compris entre 100 et 200 dollars]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
+![Filtres de propriétés d'événement personnalisé pour un panier abandonné. Deux filtres sont combinés avec un opérateur AND pour envoyer cette Campaign aux utilisateurs qui ont abandonné leur panier avec un prix compris entre 100 et 200 dollars]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
 Les propriétés d'événement personnalisé imbriquées sont également prises en charge dans la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
@@ -50,7 +50,7 @@ Les propriétés d'événement personnalisé imbriquées sont également prises 
 
 ### Personnaliser les messages {#personalize-messages}
 
-Vous pouvez également utiliser les propriétés d'événement personnalisé pour la personnalisation dans le modèle de message. Toute campagne utilisant la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) avec un événement déclencheur peut utiliser les propriétés d'événement personnalisé de cet événement pour la personnalisation des messages.
+Vous pouvez également utiliser les propriétés d'événement personnalisé pour la personnalisation dans le modèle de message. Toute Campaign utilisant la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) avec un événement déclencheur peut utiliser les propriétés d'événement personnalisé de cet événement pour la personnalisation des messages.
 
 Par exemple, si vous avez une application de jeu et souhaitez envoyer un message aux utilisateurs qui ont terminé un niveau, vous pourriez personnaliser davantage votre message avec une propriété indiquant le temps qu'il a fallu aux utilisateurs pour terminer ce niveau. Dans cet exemple, le message est personnalisé pour trois segments différents en utilisant la [logique conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). La propriété d'événement personnalisé appelée `time_spent` peut être incluse dans le message en appelant ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
@@ -96,9 +96,7 @@ Pour ajouter des propriétés d'événement pour la segmentation, procédez comm
 
 Les filtres de segmentation par propriétés d'événement incluent :
 
-- A effectué un événement personnalisé avec la propriété A ayant la valeur B, X fois au cours des Y derniers jours.
-- A effectué un achat avec la propriété A ayant la valeur B, X fois au cours des Y derniers jours.
-- Permet de segmenter sur une période de 1 à 30 jours.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
 ![Un groupe de filtres avec « Abandoned Cart » ayant la propriété « number of items » et la valeur 2, plus d'une fois au cours des 30 derniers jours calendaires.]({% image_buster /assets/img/nested_object3.png %})
 
@@ -130,4 +128,4 @@ Vous pouvez segmenter en fonction des valeurs des propriétés d'événement de 
 1. **Sur 30 jours :** Vous pouvez utiliser la segmentation par propriétés d'événement basée sur la fréquence et la récence de valeurs spécifiques de propriétés d'événement dans les segments Braze. Cette option a un impact sur l'utilisation des données.<br><br>
 2. **Au-delà de 30 jours :** Pour couvrir la segmentation par propriétés d'événement à court et à long terme, vous pouvez utiliser les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Cette fonctionnalité segmente les utilisateurs en fonction des événements personnalisés et des propriétés d'événement suivis au cours des deux dernières années. Cette option n'a pas d'impact sur l'utilisation des données.
 
-Contactez votre gestionnaire de la satisfaction client Braze pour obtenir des recommandations sur la meilleure approche en fonction de vos besoins spécifiques.
+Contactez votre gestionnaire du succès des clients Braze pour obtenir des recommandations sur la meilleure approche en fonction de vos besoins spécifiques.

@@ -244,6 +244,18 @@ Four types: Important, Note, Tip, Warning. Use sparingly.
 Do not use alerts for essential article structure (intros, setup steps). Avoid
 stacking two or more alerts in a row. Keep alert content short and concise.
 
+### Tables
+
+- Default to plain text for status/comparison cells ("Supported", "Not supported"). Add an emoji alongside the text only when it adds real scanning value (for example, a wide support matrix).
+- Always mark decorative status emoji `aria-hidden="true"` — never rely on a screen reader announcing the raw emoji name.
+- Icon-only cells (dropping visible text) are acceptable only in wide tables (4+ columns) with tight space, and only when all three hold: `aria-hidden="true"` on the emoji, a `.sr-only` span per cell with the full text, and a visible legend near the table defining each symbol.
+
+Example pattern:
+
+```html
+<td><span aria-hidden="true">✅</span><span class="sr-only">Supported</span></td>
+```
+
 ## Procedures and instructions
 
 - Do not jump straight into steps. Provide context and list prerequisites first.

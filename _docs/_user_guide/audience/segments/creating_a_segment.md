@@ -18,7 +18,9 @@ Go to **Audience** > **Segments**.
 
 ## Step 2: Name your segment
 
-Select **Create Segment** to begin building your segment. Name your segment by describing the type of user you intend to filter for. This will help you identify the segment when you want to target it for your campaigns or Canvases. Vague segment titles can be confusing.
+Select **Create Segment** to begin building your segment. Name your segment by describing the type of user you intend to filter for. This helps you identify the segment when you want to target it for your campaigns or Canvases. Vague segment titles can be confusing.
+
+You can also ask Operator to help build your segment's filter logic from a description of your target audience. For details, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 Optionally, you can do the following:
 - Add a description to the segment to provide more details about the intention of this audience and leave notes for other team members to refer back to.
@@ -82,7 +84,7 @@ If `not included`, `is not`, `does not equal`, or `does not match regex` are use
 
 ### Filter operators
 
-Depending on the specific filter you select, you will have different operators for identifying filter values. To dive deeper into the operators available for different types of custom attributes, see [Custom attribute storage]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes). Note that when using the “is any of” operator, the maximum number of items you can include in that field is 256.
+Depending on the specific filter you select, you will have different operators for identifying filter values. To dive deeper into the operators available for different types of custom attributes, see [Custom attribute storage]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes). Note that when using the “is any of” operator, the maximum number of items you can include in that field is 256.
 
 {% alert note %}
 Braze doesn't generate profiles for users until they've used the app for the first time, so you can't target users who haven't opened your app yet.

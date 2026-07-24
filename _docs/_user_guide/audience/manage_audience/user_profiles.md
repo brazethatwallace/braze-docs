@@ -121,6 +121,10 @@ The **Event History** tab shows the custom events and purchases a user has logge
 
 In general, Braze lists a campaign under **Campaigns received** after it attempts to send the message. A delivery to the user's device or inbox is not required for a send to be logged. **Canvas messages received** follows the same channel-specific rules for each Canvas message type.
 
+{% alert tip %}
+When timestamps are displayed in relative format (such as "6 days ago"), hover over them to see the exact date and time.
+{% endalert %}
+
 - **Email:** Braze logs a send when the message is handed off to your email service provider (ESP). After that handoff, the message is not aborted because of Liquid logic, rate limiting, or the user being marked as unreachable. The next events are often a delivery or a bounce.
 - **Push:** Braze logs a send when the message is handed off to the push provider (for example, Apple Push Notification service (APNs) or Firebase Cloud Messaging (FCM)). The provider usually tries to deliver immediately; if the device is unavailable (for example, offline), the provider may retry until the message expires.
 - **In-app messages:** Braze logs a send when the campaign is launched.
@@ -140,7 +144,7 @@ The **Message History** tab of the user profile shows recent messaging-related e
 The data in this tab isn't updated after a user is merged. Additionally, any events associated with messages sent through API (for example, the [/messages/send endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)) do not appear in this tab if there is no campaign ID specified in those sends.
 
 {% alert important %}
-RCS events aren't currently supported in the **Messaging History** tab.
+In the **Messaging History** tab, RCS events are included with SMS events. RCS events don't appear separately.
 {% endalert %}
 
 ![The Messaging History tab showing which campaigns and Canvases a user has received.]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
@@ -166,7 +170,7 @@ The following message engagement events are available for email, SMS, push, in-a
 
 ##### Message abort events
 
-Message abort events occur when a message sent to a user was aborted due to conditional logic in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages), or from Liquid rendering timeouts.
+Message abort events occur when a message sent to a user was aborted due to conditional logic in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content), or from Liquid rendering timeouts.
 
 Abort events are available for the following channels:
 
@@ -179,7 +183,7 @@ Abort events are currently not available for in-app messages and Content Cards.
 
 ##### Frequency cap events
 
-A frequency cap event occurs when a user is qualified to receive a message, but doesn't actually receive it due to [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) settings. You can customize frequency capping settings from **Settings** > **Frequency Capping Rules**.
+A frequency cap event occurs when a user is qualified to receive a message, but doesn't actually receive it due to [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) settings. You can customize frequency capping settings from **Settings** > **Frequency Capping Rules**.
 
 ##### Blank destinations
 

@@ -55,7 +55,7 @@ Notez les points suivants concernant la manière dont Braze gère les conversion
 
 L'événement de conversion principal est le premier événement que vous ajoutez lors de la création d'une Campaign ou d'un Canvas. Cet événement a le plus d'impact sur votre engagement et vos rapports. Braze utilise votre événement de conversion principal pour :
 
-- Déterminer la variante gagnante dans les campagnes ou Canvas [multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing).
+- Déterminer la variante gagnante dans les campagnes ou Canvas [multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#winning-variant).
 - Définir la fenêtre de calcul du chiffre d'affaires pour la Campaign ou le Canvas.
 - Ajuster la distribution des messages pour les campagnes et Canvas utilisant la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 

@@ -5,7 +5,7 @@
 **ドラッグ＆ドロップエディター**でのメール作成の詳細については、[ドラッグ＆ドロップでメールを作成する]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)および同記事内の<a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">その他のカスタマイズ</a> を参照してください。
 
 {% alert tip %}
-`Image`、`Button`、または `Text` エディターブロック内の任意のURLに[カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes)を追加することもできます。
+`Image`、`Button`、または`Text`エディターブロック内の任意のURLに[カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes)を追加することもできます。
 {% endalert %}
 
 ### タイトル {#title}
@@ -132,6 +132,19 @@
 - 利用可能なスペースより小さい画像は、歪みやぼやけを避けるために、画像の自然なサイズを使用します。
 {% endalert %}
 
+#### Gmailのダウンロードボタンの動作 {#gmail-download-button-behavior}
+
+Gmailは、ハイパーリンク（`href`）が関連付けられていない画像に対して、自動的にダウンロードボタンを追加します。ただし、画像のアスペクト比が299 x 524 px以下の場合、Gmailはダウンロードボタンを表示しません。
+
+大きな画像にダウンロードボタンが表示されるのを防ぐには、「#」リンクの回避策を適用できます。
+
+1. **Image**ブロックを選択します。
+2. **Block Options**パネルで、**Link**セクションに移動します。
+3. **Link type**を**Open web page**に設定します。
+4. **URL**入力フィールドにポンド記号（`#`）を入力します。
+
+このリンクを追加すると、ユーザーエクスペリエンスに影響を与えることなく、Gmailがダウンロードボタンを表示するのを防ぐことができます。
+
 ### 動画 {#video}
 
 動画コンテンツへのリンクを作成します。YouTubeとVimeoのみサポートされています。
@@ -181,7 +194,7 @@ Vimeoでホストされている動画は、公開に設定されている場合
 
 ### HTML
 
-生のHTMLを挿入します。Connected Contentや条件文などの[Liquid]({{site.baseurl}}/liquid)に推奨されます。
+生のHTMLを挿入します。コネクテッドコンテンツや条件文などの[Liquid]({{site.baseurl}}/liquid)に推奨されます。
 
 | プロパティ | 説明 |
 |---|---|

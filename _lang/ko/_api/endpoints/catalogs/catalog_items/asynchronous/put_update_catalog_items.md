@@ -23,7 +23,7 @@ description: "이 문서에서는 여러 카탈로그 항목 교체 Braze 엔드
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.replace_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.replace_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -88,7 +88,7 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 이 엔드포인트에 대한 상태 코드 응답은 `202`, `400`, `404`의 세 가지가 있습니다.
 
 {% alert note %}
-회사가 카탈로그 스토리지 한도에 도달한 경우에도 시스템이 `400` 응답을 반환할 수 있습니다. 카탈로그 무료 버전은 100&nbsp;MB로 제한됩니다. 스토리지 티어 및 업그레이드 방법에 대한 자세한 내용은 [데이터 스토리지 제한]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)을 참조하세요.
+회사가 카탈로그 스토리지 한도에 도달한 경우에도 시스템이 `400` 응답을 반환할 수 있습니다. 카탈로그 무료 버전은 500&nbsp;MB로 제한됩니다. 스토리지 티어 및 업그레이드 방법에 대한 자세한 내용은 [데이터 스토리지 제한]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)을 참조하세요.
 {% endalert %}
 
 ### 성공 응답 예시 {#example-success-response}

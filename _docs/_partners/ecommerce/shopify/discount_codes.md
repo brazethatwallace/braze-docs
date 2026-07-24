@@ -42,7 +42,7 @@ In the CSV file, delete row 1 to remove the column header “Promo”. This will
 
 ### Step 3: Add your discount codes to Braze
 
-In Braze, go to **Data Settings** > **Promotion Codes** > **Create Promotion Code List** and [configure your discount codes list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list). Make sure you match the expiration date that was configured by the Bulk Discounts Code Bot.
+In Braze, go to **Data Settings** > **Promotion Codes** > **Create Promotion Code List** and [configure your discount codes list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create). Make sure you match the expiration date that was configured by the Bulk Discounts Code Bot.
 
 Then, upload your CSV file and select **Save List**.
 

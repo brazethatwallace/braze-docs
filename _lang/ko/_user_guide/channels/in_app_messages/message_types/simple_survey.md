@@ -125,7 +125,7 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 ### Currents {#currents}
 
-선택한 선택지는 [**인앱 메시지 클릭 이벤트**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe) `button_id` 필드 아래에서 Currents로 자동 전달됩니다. 각 선택지는 고유 식별자(UUID)와 함께 전송됩니다.
+선택한 선택지는 [**인앱 메시지 클릭 이벤트**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events) `button_id` 필드 아래에서 Currents로 자동 전달됩니다. 각 선택지는 고유 식별자(UUID)와 함께 전송됩니다.
 
 ## 사용 사례 {#use-cases}
 

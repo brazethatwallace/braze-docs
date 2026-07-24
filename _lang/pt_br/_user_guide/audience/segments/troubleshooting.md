@@ -112,7 +112,7 @@ Usuários podem ter múltiplos apps, então selecionar um app específico na se�
 
 Suas opções de filtro estão relacionadas ao formato (tipo de dado) que você está enviando para a Braze para seu atributo personalizado. Para revisar o tipo de dado que a Braze está reconhecendo para seus atributos personalizados, navegue até **Configurações de dados** > **Atributos personalizados**.
 
-Se suas opções de filtro mudaram, isso é uma indicação de que seus dados estão sendo enviados para a Braze em um formato (tipo de dado) diferente do anterior. Para descrições detalhadas dos diferentes tipos de dados e suas opções de filtragem, consulte [tipos de dados de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types).
+Se suas opções de filtro mudaram, isso é uma indicação de que seus dados estão sendo enviados para a Braze em um formato (tipo de dado) diferente do anterior. Para descrições detalhadas dos diferentes tipos de dados e suas opções de filtragem, consulte [tipos de dados de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 Tenha em mente que alterar o tipo de dado de um atributo personalizado no dashboard rejeitará dados que são enviados para a Braze em um formato diferente. Não é possível alterar o tipo de dado de um atributo personalizado enquanto esse atributo estiver referenciado em Campaigns, Canvas ou Segments ativos; o dashboard exibirá um erro e bloqueará a alteração.
 
@@ -122,7 +122,7 @@ A guia **Valores** em um atributo personalizado mostra resultados de uma amostra
 
 Se o seu Segment parece muito maior do que o esperado apesar de filtros aparentemente restritivos, verifique se você está usando filtros negativos (`não é`, `não é igual a`, `não corresponde ao regex` ou `não incluído`) com o operador **OR** no mesmo atributo mais de uma vez. Essa combinação pode segmentar usuários com todos os valores para o atributo.
 
-Para orientações sobre quando usar **AND** em vez de **OR**, consulte [Quando evitar o operador OR]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator) em Criar um Segment.
+Para orientações sobre quando usar **AND** em vez de **OR**, consulte [Quando evitar o operador OR]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#segmentation-logic-using-and-and-or) em Criar um Segment.
 
 ## Análise de dados e relatórios {#analytics-and-reporting}
 
@@ -155,7 +155,7 @@ O primeiro cenário é se o campo `app_id` é preenchido ao usar o endpoint `/us
 }
 ```
 
-O segundo cenário é se o campo `app_id` é preenchido ao usar o endpoint `/users/track` para migrar tokens de push, como neste exemplo:
+O segundo cenário é se o campo `app_id` é preenchido ao usar o endpoint `/users/track` para migrar tokens por push, como neste exemplo:
 
 ```json
 {

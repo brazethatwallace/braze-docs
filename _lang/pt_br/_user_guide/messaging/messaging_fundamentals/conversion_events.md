@@ -55,7 +55,7 @@ Observe o seguinte sobre como a Braze lida com múltiplas conversões:
 
 O evento de conversão primária é o primeiro evento que você adiciona durante a criação da Campaign ou Canvas. Esse evento tem o maior impacto no seu engajamento e relatórios. A Braze usa seu evento de conversão primária para:
 
-- Calcular a variante de mensagem vencedora em Campaigns ou Canvas [multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing).
+- Calcular a variante de mensagem vencedora em Campaigns ou Canvas [multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#winning-variant).
 - Determinar o período em que a receita é calculada para a Campaign ou Canvas.
 - Ajustar as distribuições de mensagens para Campaigns e Canvas usando a [seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 

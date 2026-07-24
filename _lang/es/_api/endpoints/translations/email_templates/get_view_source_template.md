@@ -6,7 +6,7 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto de conexión Ver traducciones de origen de una plantilla de correo electrónico."
+description: "Este artículo describe los detalles sobre el endpoint Ver traducciones de origen de una plantilla de correo electrónico."
 ---
 
 {% api %}
@@ -15,11 +15,11 @@ description: "Este artículo describe los detalles sobre el punto de conexión V
 /templates/email/translations/source
 {% endapimethod %}
 
-> Usa este punto de conexión para ver las traducciones de origen de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
+> Usa este endpoint para ver las traducciones de origen de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `templates.email.info`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `templates.email.info`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -44,7 +44,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 
 ## Respuesta {#response}
 
-Hay cuatro respuestas de código de estado para este punto de conexión: `200`, `400`, `404` y `429`.
+Hay cuatro respuestas de código de estado para este endpoint: `200`, `400`, `404` y `429`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

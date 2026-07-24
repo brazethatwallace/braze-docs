@@ -1,0 +1,3 @@
+- Sparen Sie Zeit, indem Sie eine Campaign-Variable erstellen, aus der Sie beim Erstellen Ihres Berichts auswählen können, anstatt Campaign-IDs manuell einzufügen.
+- Tauschen Sie Werte aus, indem Sie Variablen hinzufügen, mit denen Sie den Bericht in Zukunft für leicht abweichende Anwendungsfälle wiederverwenden können (z. B. ein anderes angepasstes Event).
+- Reduzieren Sie Fehler beim Bearbeiten Ihres SQL, indem Sie den Bearbeitungsaufwand für jeden Bericht verringern. Teammitglieder, die sich mit SQL besser auskennen, können Berichte erstellen, die weniger technisch versierte Teammitglieder dann nutzen können.

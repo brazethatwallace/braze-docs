@@ -22,7 +22,7 @@ Up to 50 `external_ids` or `user_aliases` can be included in a single request. S
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `users.export.ids` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `users.export.ids` permission.
 
 ## Rate limit
 
@@ -122,7 +122,7 @@ The following is a list of valid `fields_to_export`. Using `fields_to_export` to
 | `time_zone`           | String          | User's time zone in the same format as the IANA Time Zone Database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `total_revenue`       | Float           | Total revenue attributed to this user. Total revenue is calculated based on purchases the user made during conversion windows for the campaigns and Canvases they received.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `uninstalled_at`      | Timestamp       | Date and time the user uninstalls the app. Omitted if the app has not been uninstalled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `user_aliases`        | Object          | [User aliases object]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) containing the `alias_name` and `alias_label`, if exists.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `user_aliases`        | Object          | [User aliases object]({{site.baseurl}}/api/objects_filters/user_alias_object) containing the `alias_name` and `alias_label`, if exists.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
 Be aware that the `/users/export/ids` endpoint will pull together the entire user profile for this user, including data such as all campaigns and Canvases received, all custom events performed, all purchases made, and all custom attributes. As a result, this endpoint is slower than other REST API endpoints.
@@ -133,7 +133,7 @@ Depending on the data requested, this API endpoint may not be sufficient to meet
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }

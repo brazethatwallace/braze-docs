@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Lemnisk
 
-> [Lemnisk](https://www.lemnisk.co/)는 AI 기반의 고객 데이터 플랫폼(CDP) 및 마케팅 자동화 솔루션으로, 사일로화된 다양한 소스로부터 고객 데이터를 실시간으로 캡처, 통합, 활성화할 수 있도록 지원합니다. 이 통합 데이터는 다양한 마테크 및 비즈니스 플랫폼에 원활하게 전달되며, 고객 데이터 생애주기의 모든 단계를 추적할 수 있는 강력한 실시간 분석 기능을 제공합니다.
+> [Lemnisk](https://www.lemnisk.co/)는 인공지능 기반의 고객 데이터 플랫폼(CDP) 및 마케팅 자동화 솔루션으로, 사일로화된 다양한 소스로부터 고객 데이터를 실시간으로 캡처, 통합, 활성화할 수 있도록 지원합니다. 이 통합 데이터는 다양한 MarTech 및 비즈니스 플랫폼에 원활하게 전달되며, 고객 데이터 생애주기의 모든 단계를 추적할 수 있는 강력한 실시간 분석 기능을 제공합니다.
 
 _이 통합은 Lemnisk에서 유지 관리합니다._
 
@@ -25,14 +25,14 @@ Lemnisk와 Braze의 통합을 통해 브랜드와 기업은 여러 플랫폼에�
 | Lemnisk 계정 | 이 파트너십을 이용하려면 [Lemnisk](https://www.lemnisk.co/) 계정이 필요합니다. |
 | Lemnisk의 외부 API | Lemnisk 고객 성공 매니저에게 문의하여 계정에 **외부 API**를 활성화하세요. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [계정의 Braze URL]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/#api-and-sdk-endpoints)에 따라 달라집니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [계정의 Braze URL]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)에 따라 달라집니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## Lemnisk 통합하기 {#integrating-lemnisk}
 
 ### 1단계: Braze 외부 API 만들기 {#create-a-braze-external-api}
 
-Lemnisk에서 외부 API 채널로 이동합니다. **Add New External API**를 선택합니다. 이제 [사용자 추적]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 외부 API로 설정하겠습니다.
+Lemnisk에서 외부 API 채널로 이동합니다. **Add New External API**를 선택합니다. 이제 [사용자 추적]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 외부 API로 설정하겠습니다.
 
 ![Lemnisk에서 외부 API 생성 프로세스 시작하기]({% image_buster /assets/img/lemnisk/open_external_api.png %})
 
@@ -40,7 +40,7 @@ Lemnisk에서 외부 API 채널로 이동합니다. **Add New External API**를 
 
 ![Lemnisk에서 새 외부 API에 대한 기본 구성 세부 정보 입력하기]({% image_buster /assets/img/lemnisk/ext_api_basic_details.png %})
 
-**External API details**에서 `users.track` 엔드포인트에 대한 관련 세부 정보를 입력합니다. {% raw %}`{{}}`{% endraw %}을 사용하여 여러 참여 수준 필드를 정의할 수 있으며, 이를 통해 캠페인마다 다른 값을 설정할 수 있습니다.
+**External API details**에서 `users.track` 엔드포인트에 대한 관련 세부 정보를 입력합니다. {% raw %}`{{}}`{% endraw %}을 사용하여 여러 인게이지먼트 수준 필드를 정의할 수 있으며, 이를 통해 캠페인마다 다른 값을 설정할 수 있습니다.
 
 ![외부 API 엔드포인트 및 페이로드 세부 정보 작성하기]({% image_buster /assets/img/lemnisk/ext_api_ext_api_details.png %})
 
@@ -63,7 +63,7 @@ Lemnisk에서 외부 API 채널로 이동합니다. **Add New External API**를 
 1. Lemnisk에서 새 Segment를 만듭니다. 예를 들어, 사용자가 리드 양식을 제출하는 즉시 정보를 Braze에 전송하는 Segment를 만들 수 있습니다.
 2. 새 Segment에서 **External API** > **Add Engagement**로 이동합니다.
 3. **Engagement Creation**에서 기본 세부 정보를 입력하고 [이전에 만든](#create-a-braze-external-api) 구성을 선택합니다.
-4. **Configure Parameters**에서 참여 수준에서 노출하도록 선택한 Braze 매개변수에 대한 입력을 확인할 수 있습니다. 다음 예에서는 _Name of the User_, _Product ID_, _Event Time_이 표시됩니다.
-    ![사용자 데이터를 Braze로 전송하기 위한 참여 만들기]({% image_buster /assets/img/lemnisk/create_an_engagement.png %})
+4. **Configure Parameters**에서 인게이지먼트 수준에서 노출하도록 선택한 Braze 매개변수에 대한 입력을 확인할 수 있습니다. 다음 예에서는 _Name of the User_, _Product ID_, _Event Time_이 표시됩니다.
+    ![사용자 데이터를 Braze로 전송하기 위한 인게이지먼트 만들기]({% image_buster /assets/img/lemnisk/create_an_engagement.png %})
 5. 선택한 매개변수에 대한 관련 개인화 변수를 입력한 다음 **Save**를 선택합니다.
-6. 완료했으면 참여를 활성화합니다.
+6. 완료했으면 인게이지먼트를 활성화합니다.

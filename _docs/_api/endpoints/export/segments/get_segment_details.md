@@ -20,7 +20,7 @@ description: "This article outlines details about the Export segment details Bra
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `segments.details` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `segments.details` permission.
 
 ## Rate limit
 
@@ -45,7 +45,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
 
 ```json
 {
-      "message": (required, string) the status of the export, returns 'success' when completed without errors,
+      "message": (string) returns 'success' when the request completes without errors,
       "created_at" : (string) the date created as ISO 8601 date,
       "updated_at" : (string) the date last updated as ISO 8601 date,
       "name" : (string) the segment name,

@@ -49,6 +49,7 @@ Para saber como usar essas localidades nas suas mensagens, consulte [Usando loca
 - Você pode selecionar até dois atributos personalizados em uma única localidade, ou até dois idiomas de atributos padrão do usuário. Em ambos os casos, o segundo atributo é opcional.
 - Ao editar os valores traduzidos no arquivo CSV, evite modificar quaisquer valores padrão no arquivo.
 - A chave da localidade no arquivo enviado deve corresponder à chave nas suas configurações multilíngues.
+- Para atualizar `device_locale` para `zh_CN` (chinês simplificado usado na China Continental), você deve adicionar um arquivo de localização `zh_CN` ao seu projeto, pois o iOS usa nativamente `zh-Hans`.
 
 ### Suporte e priorização {#support-and-prioritization}
 

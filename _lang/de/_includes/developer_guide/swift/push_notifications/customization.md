@@ -171,7 +171,7 @@ Badges sind kleine Symbole, die ideal dazu geeignet sind, die Aufmerksamkeit von
 
 Braze löscht die Badge-Anzahl automatisch, wenn eine Braze-Benachrichtigung empfangen wird, während die App im Vordergrund ist. Wenn Sie die Badge-Nummer manuell auf 0 setzen, werden auch die Benachrichtigungen in der Benachrichtigungszentrale gelöscht.
 
-Wenn Sie nicht vorhaben, Badges im Rahmen des normalen App-Betriebs oder durch das Senden von Push-Nachrichten zu löschen, sollten Sie die Badges löschen, wenn die App aktiv wird, indem Sie den folgenden Code in die Delegate-Methode `applicationDidBecomeActive:` Ihrer App einfügen:
+Wenn Sie nicht vorhaben, Badges im Rahmen des normalen App-Betriebs oder durch das Senden von Push-Nachrichten zu löschen, sollten Sie die Badges löschen, wenn die App aktiv wird, indem Sie den folgenden Code in die Methode `sceneDidBecomeActive(_:)` Ihrer `SceneDelegate.swift`-Datei einfügen (oder in die Delegate-Methode `applicationDidBecomeActive:` Ihrer App, falls Ihre App noch nicht den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen hat):
 
 {% tabs %}
 {% tab swift %}
@@ -241,7 +241,7 @@ Sie können einen Sound untersuchen, um sein Datenformat zu bestimmen, indem Sie
 
 Sie müssen eine Protokoll-URL angeben, die auf den Speicherort der Sounddatei in Ihrer App verweist. Dafür gibt es zwei Methoden:
 
-* Verwenden Sie den Parameter `sound` des [Apple-Push-Objekts]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object), um die URL an Braze zu übergeben.
+* Verwenden Sie den Parameter `sound` des [Apple-Push-Objekts]({{site.baseurl}}/api/objects_filters/messaging/apple_object), um die URL an Braze zu übergeben.
 * Geben Sie die URL im Dashboard an. Wählen Sie im [Push-Composer]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android) **Einstellungen** und geben Sie die Protokoll-URL in das Feld **Sound** ein.
 
 ![Der Push-Composer im Braze-Dashboard]({% image_buster /assets/img_archive/sound_push_ios.png %})

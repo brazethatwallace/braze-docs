@@ -1,0 +1,3 @@
+- Synchronisez vos segments et événements clients Braze vers Optimizely Data Platform (ODP) chaque nuit pour enrichir les profils clients, les rapports et la segmentation Optimizely.
+- Envoyez des événements Braze Currents depuis Braze vers l'outil de reporting d'Optimizely.
+- Synchronisez les données et événements clients ODP vers Braze pour enrichir vos données clients Braze et déclencher des communications Braze en fonction des événements clients dans ODP.

@@ -45,7 +45,7 @@ Na lista de agentes, cada agente é identificado com seu [limite diário de invo
 
 ### Etapa 3: Definir a saída do agente {#define-the-output-variable}
 
-As saídas do agente são chamadas de "variáveis de saída" e são armazenadas em uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) para fácil acesso. Para definir a variável de saída, dê um nome à variável.
+As saídas do agente são chamadas de "variáveis de saída" e são armazenadas em uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters) para fácil acesso. Para definir a variável de saída, dê um nome à variável.
 
 O tipo de dado da variável de saída é definido no [Console do agente]({{site.baseurl}}/user_guide/brazeai/agents). As saídas do agente podem ser salvas como strings, números, booleanos ou objetos. Isso as torna flexíveis tanto para personalização de texto quanto para lógica condicional no seu Canvas. Veja alguns usos comuns para cada tipo:
 
@@ -75,7 +75,16 @@ O agente já recebe automaticamente o contexto configurado na seção **Instruct
 
 ### Etapa 5: Testar o agente {#step-5-test-the-agent}
 
-Após configurar sua etapa de agente, você pode testar e pré-visualizar a saída desta etapa.
+Você pode testar uma etapa de agente de duas formas:
+
+**Prévia na etapa (construtor do Canvas):** Após configurar a etapa, use a prévia da etapa para ver a saída do agente para um usuário aleatório, um usuário existente ou um usuário personalizado. Isso testa a etapa isoladamente, sem percorrer toda a jornada do Canvas.
+
+**Testar Canvas (jornada completa):** Selecione **Test Canvas** no rodapé do Canvas para pré-visualizar a jornada do usuário de ponta a ponta. Quando o teste chegar à sua etapa de agente, a Braze perguntará **Deseja executar o agente "{agentName}"?**
+
+- Selecione **Sim** para opcionalmente adicionar contexto e, em seguida, selecione **Simulate response** para invocar o agente para o usuário de prévia. Você pode descrever entradas de exemplo em linguagem natural (por exemplo, conteúdo do carrinho ou texto da mensagem) para complementar o perfil do usuário teste e qualquer contexto do Canvas já definido anteriormente.
+- Selecione **Não** para pular a invocação ao vivo e usar a **saída de fallback** configurada do agente no Console do agente.
+
+As invocações de **Simulate response** contam para o limite diário de invocações do agente e aparecem em **Console do agente** > **Logs**. Para o comportamento completo do Testar Canvas, consulte [Pré-visualizar jornadas de usuários]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps).
 
 ![Pré-visualizar a saída do agente como um usuário aleatório.]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 
@@ -90,7 +99,7 @@ Para saber como a Braze lida com falhas de agentes, erros de limite de frequênc
     - Respostas que usam valores em cache ainda contam para o total e as invocações diárias.
 - As etapas de agente podem levar tempo para processar um grande lote de usuários. A Braze enfileira as invocações de acordo com os [controles de fluxo de invocação]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls), então os usuários podem permanecer pendentes durante envios de alto volume. Verifique seus registros para confirmar que as invocações estão acontecendo.
 
-## Analytics {#analytics}
+## Análise de dados {#analytics}
 
 Consulte as métricas a seguir para acompanhar o desempenho das suas etapas de agente:
 
@@ -99,7 +108,7 @@ Consulte as métricas a seguir para acompanhar o desempenho das suas etapas de a
 | _Entered_ | O número de vezes que os usuários entraram na etapa de agente. |
 | _Proceeded to Next Step_ | O número de usuários que avançaram para a próxima etapa do fluxo após passar pela etapa de agente. |
 | _Exited Canvas_ | O número de usuários que saíram do Canvas após passar pela etapa de agente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análise de dados" }
 
 ## Práticas recomendadas {#best-practices}
 

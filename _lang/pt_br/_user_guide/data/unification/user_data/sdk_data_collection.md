@@ -78,7 +78,7 @@ Além dos dados mínimos de integração, os seguintes atributos são capturados
 | Idioma                | Android, iOS, Web | Idioma do dispositivo ou do navegador, obtido do local do dispositivo.                                                           | Esse atributo é usado para traduzir mensagens para o idioma preferido do usuário. É baseado no local do dispositivo.                                                                                            |
 | Configurações de notificação   | Android, iOS, Web | Se este app tem notificações por push ativadas.                                   | Esse atributo é usado para ativar notificações por push.                                                                                                                    |
 | Resolução              | Android, iOS, Web | Resolução do dispositivo ou do navegador                                                          | Opcionalmente usado para direcionamento de mensagens baseado em dispositivo. O formato deste valor é "`<width>`x`<height>`".                                                                 |
-| Fuso horário               | Android, iOS, Web | Fuso horário do dispositivo ou do navegador                                                           | Esse atributo é usado para enviar mensagens no horário apropriado, de acordo com o horário local de cada usuário.                                                   |
+| Fuso horário               | Android, iOS, Web | Fuso horário do dispositivo ou do navegador                                                           | Esse atributo é usado para enviar mensagens no horário apropriado, de acordo com o fuso local de cada usuário.                                                   |
 | Agente do usuário              | Web               | [Agente do usuário](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) | Esse atributo é usado para enviar mensagens apenas para dispositivos compatíveis. Também pode ser usado dentro da segmentação.                                                 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Dados opcionais coletados por padrão" }
 
@@ -102,10 +102,10 @@ O SDK da Braze não armazena endereços IP localmente.
 
 ## Integração personalizada {#personalized-integration}
 
-Para aproveitar ao máximo a Braze, nossos integradores de SDK geralmente implementam os SDKs da Braze e registram [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) e [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#logging-purchase-events) que são pertinentes aos seus negócios, além dos dados coletados automaticamente.
+Para aproveitar ao máximo a Braze, nossos integradores de SDK geralmente implementam os SDKs da Braze e registram [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) e [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#log-purchase-events) que são pertinentes aos seus negócios, além dos dados coletados automaticamente.
 
 Uma integração personalizada permite uma comunicação personalizada que é relevante para a experiência dos seus usuários.
 
 {% alert important %}
-A Braze banirá ou bloqueará os usuários com mais de 5.000.000 de sessões ("usuários fictícios") e não mais ingerirá seus eventos de SDK. Para saber mais, consulte [Bloqueio de spam]({{site.baseurl}}/user_archival#spam-blocking).
+A Braze banirá ou bloqueará os usuários com mais de 5.000.000 de sessões ("usuários fictícios") e não mais ingerirá seus eventos de SDK. Para saber mais, consulte <a href="/docs/user_archival#spam-blocking">Bloqueio de spam</a>.
 {% endalert %}

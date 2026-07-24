@@ -31,7 +31,7 @@ En haut du tableau de bord, vous choisissez :
 - **Segments :** tous les Segments appliqués. Ceux-ci sont configurés sur mesure avec votre équipe AI Expert Services.
 - **Timeline events :** permet de superposer des événements configurés sur le graphique pour vous aider à comprendre les changements ou événements susceptibles d'impacter la performance.
 
-![Rapport de performance montrant les groupes de comparaison, l'agrégation, les segments et les filtres d'événements de la chronologie en haut, ainsi que le sélecteur de plage de dates en haut à droite.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
+![Rapport de performance montrant les groupes de comparaison, l'agrégation, les Segments et les filtres d'événements de la chronologie en haut, ainsi que le sélecteur de plage de dates en haut à droite.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
 
 Ces sélections déterminent quels jours sont inclus, quels groupes sont comparés, comment la courbe de tendance est lissée et quelle population vous consultez.
 
@@ -155,7 +155,7 @@ Si votre rapport de performance ne correspond pas à un autre tableau de bord (c
 
 - **Règles d'attribution :** certains indicateurs appliquent une logique d'attribution, ce qui signifie que seule l'activité répondant à des critères définis est comptabilisée. Si un autre système comptabilise toute l'activité sans logique d'attribution, les totaux peuvent différer.
 - **Filtrage des engagements de machines et de bots :** les engagements connus provenant de machines ou de bots (comme les scans de sécurité automatisés ou les clics non humains) sont filtrés pour garantir que la performance reflète le comportement humain réel. Certaines plateformes incluent ces interactions dans leurs totaux.
-- **Définitions différentes de « unique » :** dans ce rapport, l'unicité est généralement appliquée par jour. Un autre système peut calculer l'unicité sur l'ensemble d'une fenêtre de campagne. Ce sont des questions métier différentes qui produisent des chiffres différents.
+- **Définitions différentes de « unique » :** dans ce rapport, l'unicité est généralement appliquée par jour. Un autre système peut calculer l'unicité sur l'ensemble d'une fenêtre de Campaign. Ce sont des questions métier différentes qui produisent des chiffres différents.
 - **Plage de dates et règles de disponibilité des données :** les rapports peuvent appliquer des délais d'activation, des délais de disponibilité des données ou des dates exclues. Un autre système peut inclure des données très récentes ou incomplètes, créant des écarts temporaires.
 - **Différences entre volume et taux :** un système peut afficher le volume total (comme le total des conversions), tandis qu'un autre affiche un taux (comme les conversions par client). Vérifiez toujours que vous comparez le même type d'indicateur.
 
@@ -186,4 +186,4 @@ Le graphique affiche 3 au Jour 1 et 3 au Jour 2. Sur les deux jours, vous obtene
 
 Cette configuration répond à la question : « Combien d'engagements clients uniques se sont produits sur l'ensemble des jours ? » Elle ne répond pas à : « Combien de clients individuels se sont engagés au moins une fois sur l'ensemble de la période ? »
 
-Si votre objectif est l'unicité au niveau de la fenêtre (individus uniques sur l'ensemble d'une campagne ou d'un trimestre), il s'agit d'une approche de modélisation différente. Contactez votre AI Success Manager pour obtenir des conseils sur sa conception.
+Si votre objectif est l'unicité au niveau de la fenêtre (individus uniques sur l'ensemble d'une Campaign ou d'un trimestre), il s'agit d'une approche de modélisation différente. Contactez votre AI Success Manager pour obtenir des conseils sur sa conception.

@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión de Braze para consultar o enumerar las direcciones de correo electrónico con rebote duro."
+description: "En este artículo se describen los detalles del endpoint de Braze para consultar o enumerar las direcciones de correo electrónico con rebote duro."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /email/hard_bounces
 {% endapimethod %}
 
-> Utiliza este punto de conexión para obtener una lista de direcciones de correo electrónico que han tenido un "rebote duro" en tus mensajes de correo electrónico dentro de un periodo de tiempo determinado.
+> Utiliza este endpoint para obtener una lista de direcciones de correo electrónico que han tenido un "rebote duro" en tus mensajes de correo electrónico dentro de un periodo de tiempo determinado.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7c2ef84f-ddf5-451a-a72c-beeabc06ad9d {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.hard_bounces`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `email.hard_bounces`.
 
 ## Límite de velocidad {#rate-limit}
 

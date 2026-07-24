@@ -16,12 +16,16 @@ search_rank: 8
 Currents는 특정 Braze 패키지에 포함되어 있습니다. 질문이 있거나 접근 권한을 얻고 싶으시면 Braze 담당자에게 문의하세요.
 {% endalert %}
 
-새 통합을 추가할 때 "남은 Currents 통합이 없습니다"라는 메시지가 표시되는 경우, 일반적인 원인은 다음과 같습니다:
+## 문제 해결 {#troubleshooting}
+
+### 새 Currents 통합을 추가할 수 없는 경우 {#cannot-add-a-new-currents-integration}
+
+새 통합을 추가할 때 "남은 Currents 통합이 없습니다"라는 메시지가 표시되거나, 새 커런츠 커넥터를 추가하는 버튼이 비활성화되어 있는 경우 일반적인 원인은 다음과 같습니다:
 
 - 이 워크스페이스에 대해 Currents 권한이 구매되지 않았습니다.
 - Currents 권한이 회사 내 다른 워크스페이스에서 사용 가능합니다.
 
-Braze 계정 매니저에게 연락하여 권한을 요청하거나 구성을 조정하세요.
+이 문제를 해결하려면 회사 내 다른 워크스페이스를 확인하세요. 다른 워크스페이스에서 사용 가능한 Currents 권한이 표시될 수 있습니다. 권한을 요청하거나 구성을 조정해야 하는 경우 Braze 계정 매니저에게 문의하세요.
 
 ## 요구 사항 {#requirements}
 
@@ -65,7 +69,7 @@ Braze Currents를 사용하면 플랫 파일을 사용하는 데이터 스토리
 
 ### 4단계: 이벤트 구성 {#step-4-configure-your-events}
 
-사용 가능한 옵션에서 체크하여 해당 파트너에게 전달할 이벤트를 선택하세요. 이러한 이벤트의 목록은 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리에서 확인할 수 있습니다.
+사용 가능한 옵션에서 체크하여 해당 파트너에게 전달할 이벤트를 선택하세요. 이러한 이벤트의 목록은 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리에서 확인할 수 있습니다.
 
 ![내보낼 파트너 이벤트가 선택된 Currents 구성 페이지]({% image_buster /assets/img/current4.png %})
 
@@ -92,7 +96,7 @@ Currents는 900&nbsp;KB를 초과하는 지나치게 큰 페이로드가 있는 
 
 #### 테스트 이벤트 전송 {#sending-test-events}
 
-통합을 테스트하려면 **테스트 이벤트 전송**을 선택하여 선택한 각 이벤트 유형에서 하나의 이벤트를 이 Current로 전송할 수 있습니다. 각 이벤트 유형에 대한 자세한 정보는 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리를 참조하세요.
+통합을 테스트하려면 **Send Test Events**를 선택하여 선택한 각 이벤트 유형에서 하나의 이벤트를 이 Current로 전송할 수 있습니다. 각 이벤트 유형에 대한 자세한 정보는 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리를 참조하세요.
 
 ![Braze 대시보드의 커런츠 테스트 페이지]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 
@@ -105,7 +109,7 @@ Currents는 900&nbsp;KB를 초과하는 지나치게 큰 페이로드가 있는 
 
 테스트 커런츠 커넥터가 전송 한도에 도달하면, 다음 날(자정 UTC)까지 커넥터가 이벤트를 전송하지 않습니다.
 
-테스트 커런츠 커넥터를 업그레이드하려면 대시보드에서 통합을 편집하고 **테스트 통합 업그레이드**를 선택하세요.
+테스트 커런츠 커넥터를 업그레이드하려면 대시보드에서 통합을 편집하고 **Upgrade Test Integration**을 선택하세요.
 
 ## 커런츠 업데이트 {#updating-currents}
 

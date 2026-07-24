@@ -125,7 +125,7 @@ iOS 15에서는 시간 민감 및 긴급 표시가 제목을 타임스탬프 없
 
 ### 1단계: 푸시 Campaign 생성 {#step-1-create-a-push-campaign}
 
-[Campaign 생성]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) 단계를 따라 iOS용 푸시 알림을 작성합니다. 리치 콘텐츠가 포함되지 않은 푸시 알림을 설정할 때 사용하는 것과 동일한 작성기를 사용합니다.
+[Campaign 생성]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) 단계를 따라 iOS용 푸시 알림을 작성합니다. 리치 콘텐츠가 포함되지 않은 푸시 알림을 설정할 때 사용하는 것과 동일한 작성기를 사용합니다.
 
 ### 2단계: 미디어 추가 {#step-2-add-media}
 
@@ -139,7 +139,7 @@ iOS 15에서는 시간 민감 및 긴급 표시가 제목을 타임스탬프 없
 
 ### 3단계: Campaign 생성 계속하기 {#step-3-continue-creating-your-campaign}
 
-리치 알림 콘텐츠가 대시보드에 업로드되면 [Campaign 스케줄링]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign)을 계속할 수 있습니다.
+리치 알림 콘텐츠가 대시보드에 업로드되면 [Campaign 스케줄링]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger)을 계속할 수 있습니다.
 
 사용자가 푸시 알림을 받으면 푸시 메시지를 세게 눌러 이미지를 확장할 수 있습니다.
 

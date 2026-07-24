@@ -38,7 +38,7 @@ Para más detalles sobre los filtros de segmentación disponibles para segmentar
 
 ### Agrupar múltiples solicitudes de API {#batch-multiple-api-requests}
 
-Realiza tus solicitudes en la misma llamada a la API, en lugar de múltiples llamadas, para confirmar que el perfil de usuario se crea o actualiza primero. Consulta [Uso de múltiples puntos de conexión]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#using-multiple-api-endpoints) para más ejemplos.
+Realiza tus solicitudes en la misma llamada a la API, en lugar de múltiples llamadas, para confirmar que el perfil de usuario se crea o actualiza primero. Consulta [Uso de múltiples endpoints]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints) para más ejemplos.
 
 ### Añadir un retraso {#add-a-delay}
 
@@ -48,7 +48,7 @@ Esto permite que los atributos, las direcciones de correo electrónico y los tok
 
 ## Tiempos de entrega {#delivery-times}
 
-Configurar un tiempo de entrega del Canvas en tiempo real puede aumentar las tasas de interacción y conversión. Toma nota del tiempo de entrega que has configurado para tu Canvas. Para ayudar a aumentar las tasas de interacción y conversión, es mejor desencadenar los Canvas en tiempo real en lugar de hacerlo de forma planificada y recurrente.
+Configurar un tiempo de entrega del Canvas en tiempo real puede aumentar las tasas de participación y conversión. Toma nota del tiempo de entrega que has configurado para tu Canvas. Para ayudar a aumentar las tasas de participación y conversión, es mejor desencadenar los Canvas en tiempo real en lugar de hacerlo de forma planificada y recurrente.
 
 Si seleccionaste una entrega planificada para tu Canvas, Braze recomienda planificar tu Canvas al menos 24 horas antes de que quieras lanzarlo para permitir cualquier ajuste.
 
@@ -60,24 +60,24 @@ Hay cuatro componentes principales que puedes usar para segmentar a tus usuarios
 
 * [Rutas de audiencia](#audience-paths)
 * [División de decisiones](#decision-split)
-* [Rutas de acción](#action-paths)
+* [Rutas de Acción](#action-paths)
 * [Recorridos de experimentos](#experiment-paths)
 
 ### Rutas de audiencia {#audience-paths}
 
-Usa los pasos de [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) para segmentar usuarios dentro del Canvas basándote en atributos personalizados, eventos personalizados y datos de interacción con mensajes anteriores de los perfiles de usuario.
+Usa los pasos de [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) para segmentar usuarios dentro del Canvas basándote en atributos personalizados, eventos personalizados y datos de participación con mensajes anteriores de los perfiles de usuario.
 
 ### División de decisiones {#decision-split}
 
 El paso de [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) te permite enviar a tus usuarios por diferentes recorridos basándote en sus respuestas a una pregunta polar.
 
-### Rutas de acción {#action-paths}
+### Rutas de Acción {#action-paths}
 
-Las [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) se centran en segmentar usuarios basándose en comportamientos en tiempo real, como eventos personalizados, eventos de compra y cambios en atributos personalizados.
+Las [Rutas de Acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) se centran en segmentar usuarios basándose en comportamientos en tiempo real, como eventos personalizados, eventos de compra y cambios en atributos personalizados.
 
 ### Recorridos de experimentos {#experiment-paths}
 
-De manera similar a las Rutas de acción, puedes aprovechar los pasos de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) en tu Canvas para probar múltiples rutas de Canvas entre sí, junto con un grupo de control. Esto rastrea el rendimiento de las rutas, permitiéndote tomar decisiones informadas al construir el recorrido de tu Canvas.
+De manera similar a las Rutas de Acción, puedes aprovechar los pasos de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) en tu Canvas para probar múltiples rutas de Canvas entre sí, junto con un grupo de control. Esto rastrea el rendimiento de las rutas, permitiéndote tomar decisiones informadas al construir el recorrido de tu Canvas.
 
 ## Pruebas antes del lanzamiento {#testing-before-launch}
 
@@ -104,7 +104,7 @@ Después de revisar los detalles más finos de tu Canvas, consulta [Enviar Canva
 
 ### Confirmar que tu Canvas se guarda correctamente y que todos los pasos son válidos {#confirm-your-canvas-saves-correctly-and-all-steps-are-valid}
 
-Si tu Canvas no carga y no avanza, esto puede deberse a que una versión anterior del Canvas no se guardó correctamente y contiene pasos no válidos. Puedes duplicar el Canvas desde el dashboard. Si el problema persiste, abre un [ticket de soporte]({{site.baseurl}}/braze_support).
+Si tu Canvas no carga y no avanza, esto puede deberse a que una versión anterior del Canvas no se guardó correctamente y contiene pasos no válidos. Puedes duplicar el Canvas desde el panel. Si el problema persiste, abre un [ticket de soporte]({{site.baseurl}}/braze_support).
 
 ## Solución de problemas {#troubleshooting}
 

@@ -28,7 +28,7 @@ description: "이 문서에서는 커스텀 이벤트 속성정보, 예상 형�
 
 예약 키를 이벤트 속성정보 이름으로 사용할 수 없습니다. `properties` 오브젝트에서 예약 키를 사용하면 "Invalid 'properties' field" 오류가 반환됩니다.
 
-| 등록정보 | 예약 키 |
+| 속성정보 | 예약 키 |
 | --- | --- |
 | 커스텀 이벤트 | `time` 및 `event_name` |
 | 구매 이벤트 | `time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
@@ -96,9 +96,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 이벤트 속성정보 세분화 필터에는 다음이 포함됩니다:
 
-- 지난 Y일 동안 속성정보 A의 값이 B인 커스텀 이벤트를 X회 수행한 경우.
-- 지난 Y일 동안 속성정보 A의 값이 B인 구매를 X회 한 경우.
-- 1일에서 30일 범위 내에서 세분화하는 기능을 추가합니다.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
 ![속성정보 'number of items'가 2이고 값이 지난 30 캘린더 일 동안 1회 이상인 'Abandoned Cart' 필터 그룹.]({% image_buster /assets/img/nested_object3.png %})
 

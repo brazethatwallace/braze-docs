@@ -23,7 +23,7 @@ Wenn die `item_id` nicht gefunden wird, erstellt dieser Endpunkt den Artikel in 
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.replace_item`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `catalogs.replace_item`.
 
 ## Rate-Limit
 

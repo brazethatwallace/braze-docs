@@ -113,7 +113,7 @@ Brazeは個々のセグメントフィルターを最大10,000バイトに制限
 
 フィルターオプションは、カスタム属性としてBrazeに渡されるデータの形式（データタイプ）に関連しています。Brazeがカスタム属性に対して認識しているデータタイプを確認するには、**データ設定** > **カスタム属性**に移動してください。
 
-フィルターオプションが変更された場合、データが以前とは異なる形式（データタイプ）でBrazeに渡されていることを示しています。さまざまなデータタイプとそのフィルタリングオプションの詳細な説明については、[カスタム属性のデータタイプ]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types)を参照してください。
+フィルターオプションが変更された場合、データが以前とは異なる形式（データタイプ）でBrazeに渡されていることを示しています。さまざまなデータタイプとそのフィルタリングオプションの詳細な説明については、[カスタム属性のデータタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)を参照してください。
 
 ダッシュボードでカスタム属性のデータタイプを変更すると、異なる形式でBrazeに送信されるデータは拒否されることに注意してください。カスタム属性がアクティブなキャンペーン、キャンバス、またはセグメントで参照されている間は、そのデータタイプを変更できません。ダッシュボードにエラーが表示され、変更がブロックされます。
 
@@ -123,7 +123,7 @@ Brazeは個々のセグメントフィルターを最大10,000バイトに制限
 
 制限的に見えるフィルターにもかかわらずセグメントが予想よりはるかに大きい場合は、同じ属性に対して否定フィルター（`is not`、`does not equal`、`does not match regex`、`not included`）を**OR**演算子で複数回使用していないか確認してください。この組み合わせは、その属性のすべての値を持つユーザーをターゲットにしてしまう可能性があります。
 
-**OR**の代わりに**AND**を使用するタイミングについては、セグメントの作成の[OR演算子を避けるべき場合]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator)を参照してください。
+**OR**の代わりに**AND**を使用するタイミングについては、セグメントの作成の[OR演算子を避けるべき場合]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#segmentation-logic-using-and-and-or)を参照してください。
 
 ## 分析とレポート {#analytics-and-reporting}
 
@@ -141,7 +141,7 @@ Brazeは個々のセグメントフィルターを最大10,000バイトに制限
 
 セグメントを作成する際、[特定のアプリを使用した]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-3-choose-your-app-or-platform)ユーザーをターゲットにできます。ユーザーが特定のアプリに割り当てられるには、そのアプリでセッションを持っている必要がありますが、アプリでセッションを記録していなくてもユーザーが特定のアプリに割り当てられる2つのシナリオがあります。
 
-最初のシナリオは、`/users/track`エンドポイントを使用する際に`app_id`フィールドが入力されている場合です。具体的には、以下の例のように[イベント]({{site.baseurl}}/api/objects_filters/event_object)または[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を使用する場合です。
+最初のシナリオは、`/users/track`エンドポイントを使用する際に`app_id`フィールドが設定されている場合です。具体的には、以下の例のように[イベント]({{site.baseurl}}/api/objects_filters/event_object)または[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を使用する場合です。
 
 ```json
 {
@@ -156,7 +156,7 @@ Brazeは個々のセグメントフィルターを最大10,000バイトに制限
 }
 ```
 
-2番目のシナリオは、プッシュトークンを移行するために`/users/track`エンドポイントを使用する際に`app_id`フィールドが入力されている場合です。以下の例のようになります。
+2番目のシナリオは、プッシュトークンを移行するために`/users/track`エンドポイントを使用する際に`app_id`フィールドが設定されている場合です。以下の例のようになります。
 
 ```json
 {

@@ -25,7 +25,7 @@ Content Cardsを使用すると、顧客が愛用するアプリ内で、体験�
 - Android：2.6.0以降
 - Web：2.2.0以降
 
-[Content Cardsの詳細についてはこちらをご覧ください。]({{site.baseurl}}/user_guide/channels/content_cards/)
+[Content Cardsの詳細についてはこちらをご覧ください。]({{site.baseurl}}/user_guide/channels/content_cards)
 
 {% alert update %}
 CurrentsのContent CardsおよびContent CardsのAPIドキュメントは、今週後半にリリースされる予定です。お楽しみに！
@@ -39,13 +39,13 @@ Brazeは機能に新しいチャネルを追加しました！新しいチャネ
 
 ## キャンバスまたはキャンペーンの更新に関する通知設定 {#notification-preferences-for-canvas-or-campaign-updates}
 
-この[新しい通知]({{site.baseurl}}/user_guide/administrative/company_settings/notification_preferences/#notification-preferences)は、キャンペーンまたはキャンバスがアクティブ化、更新、再アクティブ化、または非アクティブ化されたときにメールで通知します。Brazeアカウントの**通知設定**でこれを有効にしてください。
+この[新しい通知]({{site.baseurl}}/user_guide/administrative/company_settings/notification_preferences#notification-preferences)は、キャンペーンまたはキャンバスがアクティブ化、更新、再アクティブ化、または非アクティブ化されたときにメールで通知します。Brazeアカウントの**通知設定**でこれを有効にしてください。
 
 ## Jamppテクノロジーパートナードキュメント {#jampp-technology-partner-documentation}
 
 Jamppは、モバイル顧客の獲得とリターゲティングのためのパフォーマンスマーケティングプラットフォームです。行動データと予測およびプログラマティック技術を組み合わせて、消費者が初めて購入する、またはより頻繁に購入するように促すパーソナルで関連性の高い広告を表示することで、広告主の収益を生み出します。
 
-Brazeのお客様は、Braze Webhookチャネルを構成してイベントをJamppにストリーミングすることで、[Jamppと統合]({{site.baseurl}}/partners/jampp/)できます。その結果、モバイル広告エコシステム内でJamppを使用してリターゲティングの取り組みにより豊富なデータセットを追加することができます。
+Brazeのお客様は、Braze Webhookチャネルを構成してイベントをJamppにストリーミングすることで、[Jamppと統合]({{site.baseurl}}/partners/jampp)できます。その結果、モバイル広告エコシステム内でJamppを使用してリターゲティングの取り組みにより豊富なデータセットを追加することができます。
 
 ## アプリ内メッセージ用プラットフォームピッカー {#platform-picker-for-in-app-messages}
 
@@ -56,7 +56,7 @@ Brazeのお客様は、Braze Webhookチャネルを構成してイベントをJa
 ## メールのディスパッチID Currentsフィールド {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-キャンバスとキャンペーンの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。キャンバスやキャンペーンでの[`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)について詳しくはこちらをご覧ください。
+キャンバスとキャンペーンの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。キャンバスやキャンペーンでの[`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)について詳しくはこちらをご覧ください。
 
 _更新は2019年8月に記録されました。_
 {% endalert %}
@@ -75,7 +75,7 @@ Currentsの機能を継続的に強化する取り組みの一環として、す
 
 ## エイリアスによるユーザーの削除 {#delete-users-by-alias}
 
-`users/delete`エンドポイントを使用して、[エイリアスでユーザーを削除]({{site.baseurl}}/api/endpoints/user_data/#user-delete-request)できるようになりました！
+`users/delete`エンドポイントを使用して、[エイリアスでユーザーを削除]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)できるようになりました！
 
 ## メールクリック数と開封数のユニーク計算 {#unique-calculation-for-email-clicks-and-opens}
 
@@ -85,10 +85,10 @@ Currentsの機能を継続的に強化する取り組みの一環として、す
 
 Mailjetも使用しているユーザーは、以前のユニーク判定の時間枠が30日間を超えていたため、これらの数値が急増する可能性があります。この変更については3週間前にお知らせ済みです。SendGridをご利用のお客様は違いを感じないはずです。
 
-これらの更新された用語は、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)で検索できます。
+これらの更新された用語は、[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)で検索できます。
 
 {% alert update %}
-キャンバスとキャンペーンの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。[キャンバスとキャンペーンにおける`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)について詳しくはこちらをご覧ください。
+キャンバスとキャンペーンの間で`dispatch_id`の動作が異なるのは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を「スケジュールされた」場合でもトリガーイベントとして扱うためです。[キャンバスとキャンペーンにおける`dispatch_id`の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)について詳しくはこちらをご覧ください。
 
 _更新は2019年8月に記録されました。_
 {% endalert %}
@@ -96,7 +96,7 @@ _更新は2019年8月に記録されました。_
 ## 最もエンゲージされたチャネル {#most-engaged-channel}
 
 {% alert update %}
-[2019年11月の製品リリース]({{site.baseurl}}/help/release_notes/2019/november/#intelligence-suite)時点で、「最もエンゲージされたチャネル」は[「インテリジェントチャネル」]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/)に改名されました。
+[2019年11月の製品リリース]({{site.baseurl}}/help/release_notes/2019/november#intelligence-suite)時点で、「最もエンゲージされたチャネル」は[「インテリジェントチャネル」]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel)に改名されました。
 {% endalert %}
 
 最もエンゲージされたチャネルフィルターは、選択されたメッセージングチャネルが「最適な」チャネルであるオーディエンスの一部を選択します。この場合、「最適」とは「ユーザーの履歴を考慮した場合、エンゲージメントの可能性が最も高い」という意味です。メール、Webプッシュ、またはモバイルプッシュ（利用可能なモバイルOSやデバイスを含む）をチャネルとして選択できます。
