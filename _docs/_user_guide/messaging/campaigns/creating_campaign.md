@@ -140,7 +140,7 @@ Workspace [suppression lists]({{site.baseurl}}/user_guide/audience/suppression_l
 After adding segments or filters, the **Audience Summary** gives preview of what that segment population looks like, including how many users within that segment are reachable through your selected channels. Reachable counts reflect your workspace data, channel setup, and filters. Keep in mind that exact segment membership is always calculated before the message is sent. For very large audiences, Braze may show estimates until you calculate exact statistics.
 
 {% alert note %}
-If you have a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group) set up, the reachable user count shown in your campaign target audience will be smaller than the reachable user count shown for the same segment. This is because the campaign excludes users in the global control group, while the segment count does not.
+If you have a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group) set up, the reachable user count shown in your campaign target audience is smaller than the reachable user count shown for the same segment. This is because the campaign excludes users in the global control group, while the segment count does not.
 {% endalert %}
 
 ### User Lookup
