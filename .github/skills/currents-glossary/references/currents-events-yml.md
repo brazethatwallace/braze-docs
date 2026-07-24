@@ -149,10 +149,7 @@ Rules specific to this key:
 - **Trailing whitespace is stripped**, so a trailing newline in the block is harmless.
 - No colon-quoting worries — a block scalar takes the text as-is, so `:` and `#` need no escaping.
 
-Only two events currently use `extra_details`. Read them before writing a new one:
-
-- `users.behaviors.pushnotification.TokenStateChange`
-- `users.behaviors.subscriptiongroup.StateChange`
+`extra_details` is used sparingly. Before writing a new one, grep the file for `extra_details: |` and read an existing block as a model.
 
 ## Adding an entry for a new event
 
