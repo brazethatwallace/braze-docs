@@ -171,6 +171,12 @@ If a recipient sees plain text shown as a clickable link, that behavior usually 
 
 For predictable link appearance, tracking, and styling, use explicit `<a href>` tags instead of plain text URLs.
 
+### Can I control the `target` attribute on email links?
+
+While you can set the `target` attribute (such as `target="_blank"` or `target="_top"`) on links in your email HTML, most email clients ignore or override this attribute. For example, Gmail effectively forces `_blank`-like behavior regardless of what you specify.
+
+Because email client behavior varies, the `target` attribute should not be relied on to control how links open. For details on which email clients support the `target` attribute, refer to [caniemail.com](https://www.caniemail.com/features/html-target/).
+
 ### Why are my users being auto-unsubscribed by email security software?
 
 Some corporate email security tools (such as Barracuda, Proofpoint, and similar services) pre-fetch or scan all URLs in incoming emails, including unsubscribe links. This can cause unintended unsubscribes when the security tool follows the one-click list-unsubscribe link.
