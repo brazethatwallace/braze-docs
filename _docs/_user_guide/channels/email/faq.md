@@ -277,9 +277,9 @@ If your emails are delayed, deferred, or bouncing, start by identifying where th
 
 Your email service provider (ESP) such as SparkPost or SendGrid returns SMTP response codes when accepting or deferring messages. Rate-limit responses typically use 4xx codes, which indicate temporary failures:
 
-- **421**: Service temporarily unavailable, often due to high volume, connection limits, or server resource constraints. The message remains queued and your ESP retries delivery automatically.
-- **429**: API rate limit exceeded. You've sent too many requests in a given time window.
-- **450 / 451**: Temporary deferral due to volume or connections. The recipient server is asking you to slow down.
+- 421: Service temporarily unavailable, often due to high volume, connection limits, or server resource constraints. The message remains queued and your ESP retries delivery automatically.
+- 429: API rate limit exceeded. You've sent too many requests in a given time window.
+- 450 / 451: Temporary deferral due to volume or connections. The recipient server is asking you to slow down.
 
 When you see these codes in your bounce logs or ESP dashboard, reduce send volume to the affected domain and implement exponential backoff for retries. Continuing at full volume while rate-limited can escalate temporary deferrals to permanent rejections.
 
@@ -287,8 +287,8 @@ When you see these codes in your bounce logs or ESP dashboard, reduce send volum
 
 Mailbox providers enforce their own rate limits on incoming mail, separate from Braze's sending controls. These limits can be strict and are outside your direct control:
 
-- **Virgin Media / NTL (UK)**: Uses hourly rate limiting that triggers `421 4.1.1 MXIN503 Hourly ratelimit for your IP exceeded` errors. These limits can affect even low-volume senders and are enforced at the IP level across all senders using that IP.
-- **Gmail, Yahoo, iCloud, Microsoft**: Each provider has proprietary throttling thresholds based on your sender reputation, volume, and engagement patterns.
+- Virgin Media / NTL (UK): Uses hourly rate limiting that triggers `421 4.1.1 MXIN503 Hourly ratelimit for your IP exceeded` errors. These limits can affect even low-volume senders and are enforced at the IP level across all senders using that IP.
+- Gmail, Yahoo, iCloud, Microsoft: Each provider has proprietary throttling thresholds based on your sender reputation, volume, and engagement patterns.
 
 If you encounter provider-specific rate limiting, consider batching your sends over a longer time period or segmenting by mailbox provider to spread volume more gradually. Check your recipient list for concentration at one provider—if most recipients use one domain, stagger delivery.
 
@@ -308,10 +308,10 @@ Gmail returns a `421-4.7.28` error when it detects an unusual rate of unsolicite
 
 If you receive this error:
 
-1. **Pause non-essential sends immediately** for 24 to 48 hours. Continuing to send while throttled escalates the issue and can lead to permanent 550 rejections.
-2. **Verify authentication**: Confirm that SPF, DKIM, and DMARC are correctly configured and that your From: header aligns with your authentication.
-3. **Check Google Postmaster Tools** for your domain's compliance status and spam complaint rates. Your user-reported spam rate must stay below 0.1% (the hard ceiling is 0.3%).
-4. **Resume gradually**: After the pause, resume sending at 10 to 20% of previous volume to your most engaged recipients only. Increase volume slowly over several weeks only if no further 4xx errors occur.
+1. Pause non-essential sends immediately for 24 to 48 hours. Continuing to send while throttled escalates the issue and can lead to permanent 550 rejections.
+2. Verify authentication: Confirm that SPF, DKIM, and DMARC are correctly configured and that your From: header aligns with your authentication.
+3. Check Google Postmaster Tools for your domain's compliance status and spam complaint rates. Your user-reported spam rate must stay below 0.1% (the hard ceiling is 0.3%).
+4. Resume gradually: After the pause, resume sending at 10 to 20% of previous volume to your most engaged recipients only. Increase volume slowly over several weeks only if no further 4xx errors occur.
 
 For additional guidance, refer to [Google's Bulk Email Senders Guidelines](https://support.google.com/mail/answer/81126).
 
