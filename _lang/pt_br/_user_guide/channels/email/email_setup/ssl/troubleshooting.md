@@ -1,48 +1,80 @@
 ---
 nav_title: Solução de problemas
-article_title: Solução de problemas de SSL
+article_title: Solução de problemas de rastreamento de cliques SSL
 page_order: 5
 page_type: reference
-description: "Este artigo de referência aborda dicas de solução de problemas para SSL."
+description: "Diagnostique problemas de rastreamento de cliques SSL e configuração de CDN usando um índice de sintomas e um caminho de investigação padrão."
 channel: email
 ---
 
-# Solução de problemas {#troubleshooting}
+# Solução de problemas de rastreamento de cliques SSL {#troubleshoot-ssl-click-tracking}
 
-> Use estas dicas para identificar problemas comuns de rastreamento de cliques com SSL. As orientações de solução de problemas são genéricas, pois cada CDN é único. Para problemas de configuração de CDN, certificados ou proxy, entre em contato com a equipe de suporte do seu CDN, já que essas configurações ocorrem fora do ecossistema da Braze.
+> Use esta página para identificar problemas comuns de rastreamento de cliques SSL. As orientações a seguir são genéricas, pois cada CDN é único. Para problemas de configuração de CDN, certificados ou proxy, entre em contato com a equipe de suporte do seu CDN, já que essas configurações ocorrem fora da Braze.
 
-## Conceitos-chave {#key-concepts}
+## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
-- **URL rastreada:** Envolve o link HTTPS original no seu domínio de rastreamento. Quando um usuário clica nele, o domínio de rastreamento resolve a solicitação e redireciona para o destino final. Um CDN permite rastrear URLs seguras (HTTPS). Sem ele, os usuários podem encontrar um erro de privacidade "a conexão não é segura".
-- **URL não rastreada:** Mantém a URL original intacta, ignorando o CDN para servir como um ambiente de controle.
+| Sintoma | Acesse |
+| --- | --- |
+| As taxas de abertura de e-mail caíram repentinamente | [Baixas taxas de abertura de e-mail](#low-email-open-rates) |
+| Links rastreados retornam HTTP 403 | [HTTP 403 em links de redirecionamento](#http-403-on-redirect-links) |
+| DNS ou CNAME aponta para o provedor de serviços de e-mail em vez da rede de distribuição de conteúdo (CDN) | [Problemas no registro de domínio](#domain-registry-issues) |
+| "A conexão não é privada" ou links quebram durante a configuração | [Problemas com CDN](#cdn-issues) |
+| Configuração de SSL concluída, mas os links ainda mostram HTTP | [Status de ativação do SSL](#ssl-enablement-status) |
+| URL rastreada falha, mas URL não rastreada funciona | [Problemas de rastreamento de cliques](#click-tracking-issues) |
+| Erros de ativação de SSL específicos do Amazon SES | [Amazon SES](#amazon-ses) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de SSL" }
+
+## Caminho de investigação padrão {#standard-investigation-path}
+
+1. Confirme que seu subdomínio de rastreamento de cliques aponta para sua [rede de distribuição de conteúdo (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it) — e não diretamente para seu provedor de serviços de e-mail (SendGrid, SparkPost ou Amazon SES). Peça à sua equipe de TI ou web para verificar se as configurações do seu domínio correspondem à sua configuração na Braze. Para os requisitos da Braze, consulte [Obter um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Confirme que seu certificado SSL está ativo para o domínio de rastreamento. Peça à sua equipe de TI ou web para confirmar que o certificado está atualizado e cobre seu subdomínio de rastreamento de cliques. Para etapas de configuração e guias específicos de CDN, consulte [Obter um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) e [Recursos adicionais]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+3. Envie um e-mail de teste usando o [modelo de solução de problemas de rastreamento de cliques](#click-tracking-issues). Compare as URLs rastreadas com as não rastreadas.
+4. Se os links rastreados falharem com erro 403, revise as regras de CDN e WAF (user agents, query strings, padrões de redirecionamento).
+5. Se a configuração estiver completa, mas os links permanecerem em HTTP, entre em contato com seu gerente de sucesso do cliente da Braze para confirmar que a Braze ativou o SSL.
+6. Para problemas persistentes, coordene com sua equipe de CDN ou TI e entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support) informando os códigos de erro e quaisquer detalhes do seu CDN ou provedor de domínio.
+
+## Conceitos principais {#key-concepts}
+
+- **URL rastreada:** Envolve o link HTTPS original no seu domínio de rastreamento. Quando um usuário clica nela, o domínio de rastreamento resolve a solicitação e redireciona para o destino final. Uma CDN permite rastrear URLs seguras (HTTPS). Sem ela, os usuários podem encontrar um erro de privacidade informando que "a conexão não é segura".
+- **URL não rastreada:** Mantém a URL original intacta, ignorando a CDN para servir como um ambiente de controle.
 
 ## Baixas taxas de abertura de e-mail {#low-email-open-rates}
+
+**Sintoma:** As taxas de abertura de e-mail caíram repentinamente após alterações no SSL ou CDN.
 
 Se você está enfrentando taxas de abertura de e-mail repentinamente baixas, confirme se o certificado SSL está atualizado. Se estiver expirado, você deve renovar o certificado SSL com seu CDN ou provedor de certificados.
 
 ## HTTP 403 em links de redirecionamento {#http-403-on-redirect-links}
 
-Se links de redirecionamento rastreados retornam **403 Forbidden**, a falha geralmente ocorre na sua rede de distribuição de conteúdo (CDN) ou firewall de aplicação web (WAF) — por exemplo, regras no AWS WAF ou Amazon CloudFront que bloqueiam determinados user agents, query strings ou padrões de redirecionamento. Revise os registros e métricas de solicitações bloqueadas com seu CDN ou provedor de nuvem. Para AWS, consulte [Solução de problemas com o CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
+**Sintoma:** Links de e-mail rastreados retornam "403 Forbidden".
+
+Se links de redirecionamento rastreados retornam "403 Forbidden", a falha geralmente ocorre na sua rede de distribuição de conteúdo (CDN) ou firewall de aplicação web (WAF) — por exemplo, regras no AWS WAF ou Amazon CloudFront que bloqueiam determinados user agents, query strings ou padrões de redirecionamento. Revise os registros e métricas de solicitações bloqueadas com seu CDN ou provedor de nuvem. Para AWS, consulte [Solução de problemas com o CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
 Para verificar se o problema é específico do rastreamento de cliques, desative o rastreamento de cliques para um link de teste (consulte [Desativando o rastreamento de cliques link a link]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Se a URL de destino carrega quando o rastreamento de cliques está desativado, mas retorna 403 quando o rastreamento está ativado, concentre-se na configuração do seu domínio de rastreamento de cliques, CDN e WAF.
 
 ## Problemas no registro de domínio {#domain-registry-issues}
 
-Execute um comando dig para confirmar que o rastreamento de links aponta para o CDN. No seu terminal, execute `dig CNAME link_tracking_subdomain`. Na seção `ANSWER SECTION`, é listado para onde seu CNAME aponta. Se ele aponta para o provedor de serviço de e-mail (SendGrid, SparkPost ou Amazon SES) e não para o seu CDN, reconfigure o registro do seu domínio para apontar para o CDN.
+**Sintoma:** O DNS ou CNAME do seu subdomínio de rastreamento aponta para o seu provedor de serviços de e-mail em vez do seu CDN.
+
+Execute um comando dig para confirmar que o rastreamento de links aponta para o CDN. No seu terminal, execute `dig CNAME link_tracking_subdomain`. Na seção `ANSWER SECTION`, é listado para onde seu CNAME aponta. Se ele aponta para o provedor de serviços de e-mail (SendGrid, SparkPost ou Amazon SES) e não para o seu CDN, reconfigure o registro do seu domínio para apontar para o CDN.
 
 ## Problemas com o CDN {#cdn-issues}
 
+**Sintoma:** Os usuários veem erros de "conexão não é privada", ou os links quebram durante a configuração do CDN.
+
 Se os links de e-mail em produção quebram durante a configuração, provavelmente você apontou o DNS para o CDN antes da configuração adequada. Isso pode aparecer como um erro de "link incorreto". Entre em contato com o provedor do seu CDN e revise a documentação para solucionar a configuração.
 
-Se você vir uma mensagem de erro informando que sua conexão não é privada, isso pode indicar que seu SSL ou CDN não está configurado corretamente. Execute um comando `dig` no seu terminal (por exemplo, `dig CNAME your_link_tracking_subdomain`). Na seção `ANSWER SECTION`, se o resultado aponta para o seu ESP em vez do seu CDN, o problema é uma configuração incorreta. Para que o rastreamento de cliques SSL da Braze funcione, o CNAME deve apontar para o seu CDN. Coordene com a equipe que gerencia a configuração do seu SSL e CDN para obter mais assistência.
+Se você vir uma mensagem de erro informando que sua conexão não é privada, isso pode indicar que seu SSL ou CDN não está configurado corretamente. Execute um comando `dig` no seu terminal (por exemplo, `dig CNAME your_link_tracking_subdomain`). Na seção `ANSWER SECTION`, se o resultado aponta para o seu provedor de serviços de e-mail em vez do seu CDN, o problema é uma configuração incorreta. Para que o rastreamento de cliques SSL da Braze funcione, o CNAME deve apontar para o seu CDN. Coordene com a equipe que gerencia a configuração do seu SSL e CDN para obter mais assistência.
 
 ## Status de ativação do SSL {#ssl-enablement-status}
+
+**Sintoma:** A configuração do SSL está concluída, mas os links rastreados ainda aparecem como HTTP.
 
 Se você concluiu a configuração do SSL e os links ainda aparecem como HTTP, entre em contato com o seu gerente de sucesso do cliente da Braze para confirmar que a Braze ativou o SSL. A Braze ativa o SSL somente após todas as etapas de configuração estarem concluídas.
 
 ### Amazon SES {#amazon-ses}
 
-Se você está usando o Amazon SES como provedor de serviço de e-mail, os seguintes problemas de configuração podem impedir a Braze de ativar o SSL ou causar erros durante a configuração:
+Se você está usando o Amazon SES como provedor de serviços de e-mail, os seguintes problemas de configuração podem impedir a Braze de ativar o SSL ou causar erros durante a configuração:
 
 - **Incompatibilidade de região:** Confirme que a origem do seu CDN aponta para o domínio de rastreamento AWS do seu cluster da Braze. Clusters nos EUA usam `r.us-east-1.awstrack.me`. Clusters na UE usam `r.eu-central-1.awstrack.me`. Usar a região errada pode bloquear a ativação do SSL.
 - **Cabeçalho de host:** O Amazon SES exige que seu CDN encaminhe o cabeçalho de host correto. Ative o cabeçalho `X-Forwarded-Host` no seu domínio de rastreamento de cliques. Para saber mais, consulte a seção [Amazon SES](#amazon-ses).
@@ -52,7 +84,9 @@ Se você está usando o Amazon SES como provedor de serviço de e-mail, os segui
 
 ## Problemas de rastreamento de cliques {#click-tracking-issues}
 
-Problemas comuns de redirecionamento geralmente resultam de uma configuração inadequada entre o CDN que hospeda o domínio de rastreamento e seus certificados SSL associados ou registros DNS CNAME. Essas configurações incorretas frequentemente fazem com que os usuários recebam um erro de privacidade "a conexão não é segura" ou uma falha `404` após clicar em um link de e-mail rastreado.
+**Sintoma:** Links de e-mail rastreados falham, mas links não rastreados funcionam, ou os usuários veem erros de certificado ou DNS após clicar.
+
+Problemas comuns de redirecionamento geralmente resultam de uma configuração inadequada entre a rede de distribuição de conteúdo (CDN) que hospeda o domínio de rastreamento e seus certificados SSL associados ou registros DNS CNAME. Essas configurações incorretas frequentemente fazem com que os usuários recebam um erro de privacidade "a conexão não é segura" ou uma falha `404` após clicar em um link de e-mail rastreado.
 
 Use o modelo a seguir para testar a configuração do CDN do seu domínio de rastreamento, que é o mecanismo que suporta a análise de dados dos links nos seus e-mails.
 
@@ -256,14 +290,14 @@ Use o modelo a seguir para testar a configuração do CDN do seu domínio de ras
 3. Envie um e-mail de teste para você mesmo e selecione ambos os botões.
 4. Verifique se o comportamento esperado e os critérios de sucesso estão conforme descrito no modelo.
 
-Se a URL não rastreada funciona, mas a URL rastreada falha, pode haver uma lacuna na configuração. Para solucionar, consulte a documentação do seu ESP e provedor de CDN específicos. Você também pode revisar o artigo [SSL na Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) para requisitos detalhados sobre provisionamento de certificados.
+Se a URL não rastreada funciona, mas a URL rastreada falha, pode haver uma lacuna na configuração. Para solucionar, consulte a documentação do seu provedor de serviços de e-mail e provedor de CDN específicos. Você também pode revisar o artigo [SSL na Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) para requisitos detalhados sobre provisionamento de certificados.
 
 Use a tabela a seguir para diagnosticar erros comuns ao testar o rastreamento de cliques.
 
 | Código de erro | Solução de problemas |
 | --- | --- |
 | `"Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID)` | Verifique se o seu domínio de rastreamento possui um certificado SSL válido. |
-| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Verifique suas configurações de DNS. Confirme que o subdomínio de rastreamento está configurado conforme a configuração recomendada pelo seu CDN e ESP. |
+| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Verifique suas configurações de DNS. Confirme que o subdomínio de rastreamento está configurado conforme a configuração recomendada pelo seu CDN e provedor de serviços de e-mail. |
 | `525 / 526 SSL Error` | Verifique se a configuração de SSL no seu CDN (como Cloudflare) corresponde à capacidade da sua Origin. |
-| `404 Not Found` | Verifique se o seu CDN está configurado para encaminhar o caminho completo da URL para o ESP, em vez de apontar para um diretório raiz vazio. |
+| `404 Not Found` | Verifique se o seu CDN está configurado para encaminhar o caminho completo da URL para o provedor de serviços de e-mail, em vez de apontar para um diretório raiz vazio. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de erro e solução de problemas" }

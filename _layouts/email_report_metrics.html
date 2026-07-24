@@ -275,7 +275,8 @@ $(document).ready(function() {
     {% multi_lang_include layouts/email_report_metrics_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="search" placeholder="{{ glossary_loc.email_report_metrics_search_placeholder }}" aria-label="{{ glossary_loc.email_report_metrics_search_aria }}" />
+        <label for="api_search" id="email-report-metrics-search-label" class="sr-only">{{ glossary_loc.email_report_metrics_search_aria }}</label>
+        <input id="api_search" type="search" placeholder="{{ glossary_loc.email_report_metrics_search_placeholder }}" aria-labelledby="email-report-metrics-search-label" />
         <div id="api_filter_list"></div>
     </div>
 

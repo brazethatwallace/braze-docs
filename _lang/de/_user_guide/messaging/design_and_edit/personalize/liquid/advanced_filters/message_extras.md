@@ -24,19 +24,23 @@ Hier ist ein Beispiel für das Standard-Liquid-Tag-Format für `message_extras`:
 
 Sie können diese Tags nach Bedarf für Ihre Schlüssel-Wert-Paare im Nachrichtentext hinzufügen. Die Gesamtlänge aller Schlüssel und Werte sollte jedoch 1.000 Bytes (1&nbsp;KB) nicht überschreiten. In Currents und der Snowflake-Datenfreigabe sehen Sie ein neues Ereignisfeld namens `message_extras` für Ihre Sendeereignisse. Dieses generiert einen JSON-serialisierten String in einem Feld.
 
-## Wie Message-Extras-Daten über Currents gesendet werden {#how-message-extras-data-is-sent-using-currents}
+{% alert note %}
+E-Mail-Extras senden Metadaten an E-Mail-Anbieter und werden nicht in Currents oder Snowflake veröffentlicht. Um Metadaten oder dynamische Werte zu Currents- oder Snowflake-Sendeereignissen hinzuzufügen, verwenden Sie den `message_extras`-Liquid-Tag.
+{% endalert %}
 
-**Message Extras** sind Schlüssel-Wert-Paare, die zum Sendezeitpunkt angehängt werden. Die Konfiguration hängt vom Kanal ab. Bei E-Mails werden sie über Header hinzugefügt. Bei iOS-Push werden sie in die Push-Payload aufgenommen. Alle unterstützten Sendeereignisse zeigen dasselbe `message_extras`-Feld in Currents (und Snowflake) an, sobald die Nachricht gesendet wurde.
+## Wie Nachrichtenextras-Daten mit Currents gesendet werden {#how-message-extras-data-is-sent-using-currents}
+
+**Nachrichtenextras** sind Schlüssel-Wert-Paare, die zum Sendezeitpunkt angehängt werden. Die Konfiguration hängt vom Kanal ab. Bei E-Mails werden sie über Header hinzugefügt. Bei iOS-Push werden sie in die Push-Payload aufgenommen. Alle unterstützten Sendeereignisse stellen dasselbe `message_extras`-Feld in Currents (und Snowflake) bereit, sobald die Nachricht gesendet wurde.
 
 ## Unterstützte Kanäle {#supported-channels}
 
-Der `message_extras`-Tag wird für alle Nachrichtentypen mit einem Sendeereignis sowie für Impressionsereignisse von In-App-Nachrichten unterstützt. Die Verwendung von `message_extras` mit In-App-Nachrichten erfordert bestimmte [Mindest-SDK-Versionen](#iam-sdk).
+Der `message_extras`-Tag wird für alle Nachrichtentypen mit einem Sendeereignis sowie für In-App-Nachricht-Impression-Ereignisse unterstützt. Die Verwendung von `message_extras` mit In-App Messages erfordert bestimmte [SDK-Mindestversionen](#iam-sdk).
 
 ## So verwenden Sie den `message_extras`-Tag {#how-to-use-the-message_extras-tag}
 
-1. Geben Sie im Nachrichtentext für den Kanal den `message_extras`-Liquid-Tag ein. Alternativ können Sie das Modal **Personalisierung hinzufügen** verwenden und **Message Extras** als Personalisierungstyp auswählen.
+1. Geben Sie im Nachrichtentext für den Kanal den `message_extras`-Liquid-Tag ein. Alternativ können Sie das Modal **Add Personalization** verwenden und **Message Extras** als Personalisierungstyp auswählen.
 
-![Das Modal „Personalisierung hinzufügen“ mit „Message Extras“ als ausgewähltem Personalisierungstyp.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
+![Das Modal „Add Personalization“ mit „Message Extras“ als ausgewähltem Personalisierungstyp.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
 
 {: start="2"}
 
@@ -46,11 +50,11 @@ Der `message_extras`-Tag wird für alle Nachrichtentypen mit einem Sendeereignis
 
 {: start="3"}
 
-3. Nachdem Ihre Campaign oder Ihr Canvas gesendet wurde, hängt Braze die dynamischen Daten zum Sendezeitpunkt über die Currents- oder Snowflake-Datenfreigabe-Sendeereignisse an das `message_extras`-Feld an.
+3. Nachdem Ihre Campaign oder Ihr Canvas gesendet wurde, hängt Braze die dynamischen Daten zum Sendezeitpunkt an das Feld `message_extras` in Currents- oder Snowflake-Data-Sharing-Sendeereignissen an.
 
 ## Syntax überprüfen {#checking-syntax}
 
-Jede andere Eingabe, die nicht dem oben beschriebenen Tag-Standard entspricht, wird möglicherweise nicht an Currents oder Snowflake weitergeleitet. Überprüfen Sie, ob Ihre Syntax oder Formatierung keine der folgenden Probleme enthält:
+Alle anderen Eingaben, die nicht dem zuvor in diesem Abschnitt beschriebenen Tag-Standard entsprechen, werden möglicherweise nicht an Currents oder Snowflake übergeben. Stellen Sie sicher, dass Ihre Syntax oder Formatierung keines der folgenden Probleme enthält:
 
 - Nicht vorhandene, leere oder falsch eingegebene Trennzeichen
 - Doppelte Schlüssel (Braze sendet standardmäßig das zuerst gefundene Schlüssel-Wert-Paar)
@@ -58,7 +62,7 @@ Jede andere Eingabe, die nicht dem oben beschriebenen Tag-Standard entspricht, w
 - Schlüssel und Werte in falscher Reihenfolge
   - {% raw %}Zum Beispiel: `{% message_extras :value 123 :key test %}`{% endraw %}
 
-## Aktionscode-Informationen an Currents senden {#sending-promotion-code-information-to-currents}
+## Senden von Aktionscode-Informationen an Currents {#sending-promotion-code-information-to-currents}
 
 {% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
@@ -66,18 +70,18 @@ Jede andere Eingabe, die nicht dem oben beschriebenen Tag-Standard entspricht, w
 
 - Schlüssel-Wert-Paare, die 1.000 Bytes (1&nbsp;KB) überschreiten, werden abgeschnitten.
 - Leerzeichen zählen zur Zeichenanzahl. Beachten Sie, dass Braze führende und abschließende Leerzeichen entfernt.
-- Die resultierende JSON-Ausgabe enthält nur String-Werte.
-- Sie können Liquid-Variablen als Schlüssel oder Wert verwenden, aber Sie können keine zusätzlichen Liquid-Tags innerhalb von `message_extras` verschachteln.
-  - Zum Beispiel könnten Sie folgendes Liquid verwenden: {% raw %}`{% assign value = '123' %} {% assign key = 'test' %} {% message_extras :key {{key}} :value {{value}} %}`{% endraw %}
+- Die resultierenden JSON-Ausgaben enthalten ausschließlich String-Werte.
+- Sie können Liquid-Variablen als Schlüssel oder Wert verwenden, jedoch keine zusätzlichen Liquid-Tags innerhalb von `message_extras` verschachteln.
+  - Beispielsweise können Sie folgendes Liquid verwenden: {% raw %}`{% assign value = '123' %} {% assign key = 'test' %} {% message_extras :key {{key}} :value {{value}} %}`{% endraw %}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Wie kann ich das message_extras-Feld in den Sendeereignissen mit meinen Engagement-Ereignissen wie Öffnungen und Klicks verknüpfen? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
+### Wie kann ich das Feld message_extras in den Sendeereignissen mit meinen Engagement-Ereignissen wie Öffnungen und Klicks verknüpfen? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
 
-Eine `dispatch_id` wird generiert und in Ihren Sendeereignissen bereitgestellt. Diese kann als eindeutiger Bezeichner verwendet werden, um sie mit bestimmten Klick-, Öffnungs- oder Zustellungsereignissen zu verknüpfen. Sie können dieses Feld in Currents oder Snowflake abfragen. Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+Eine `dispatch_id` wird generiert und in Ihren Sendeereignissen bereitgestellt. Sie können diese als eindeutigen Bezeichner verwenden, um sie bestimmten Klick-, Öffnungs- oder Zustellungsereignissen zuzuordnen. Fragen Sie dieses Feld in Currents oder Snowflake ab. Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 #### Kann ich message_extras mit In-App-Nachrichten verwenden? {#iam-sdk}
 
-Ja, Sie können `message_extras` in Ihren In-App-Nachrichten verwenden, sofern die Geräte Ihrer Nutzer:innen die folgenden Mindest-SDK-Versionen erfüllen:
+Ja, Sie können `message_extras` in Ihren In-App-Nachrichten verwenden, sofern die Geräte Ihrer Nutzer:innen die folgenden Mindest-SDK-Versionen aufweisen:
 
 {% sdk_min_versions web:5.2.0 android:30.4.0 swift:8.4.0 %}

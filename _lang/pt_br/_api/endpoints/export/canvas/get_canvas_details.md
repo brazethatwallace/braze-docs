@@ -100,7 +100,7 @@ Todas as etapas do Canvas têm um campo `next_paths`, que é uma matriz de dados
     },
     ... (more steps)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

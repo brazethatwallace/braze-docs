@@ -34,7 +34,7 @@ description: "この記事では、収益データのエクスポートBrazeエ�
 | `length` | 必須 | 整数 | 返されるシリーズに含める `ending_at` までの最大日数。1以上100以下（両端を含む）でなければなりません。 |
 | `unit` | オプション | 文字列 | データポイント間の時間の単位。day または hour を指定でき、デフォルトは day です。 |
 | `app_id` | オプション | 文字列 | [APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページから取得したアプリAPI識別子。除外した場合、ワークスペース内のすべてのアプリの結果が返されます。 |
-| `product` | オプション | 文字列 | 応答をフィルターする製品の名前。除外した場合、すべてのアプリの結果が返されます。 |
+| `product` | オプション | 文字列 | レスポンスをフィルターする製品の名前。除外した場合、すべてのアプリの結果が返されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
@@ -48,7 +48,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_s
 
 ```json
 {
-  "message": (required, string) the status of the export, returns 'success' when completed without errors,
+  "message": (string) returns 'success' when the request completes without errors,
   "data" : [
     {
       "time" : (string) the date as ISO 8601 date,
