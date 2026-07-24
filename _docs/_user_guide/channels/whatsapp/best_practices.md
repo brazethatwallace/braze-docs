@@ -48,7 +48,7 @@ A suggested best practice is to provide instructions about how to out-out in the
  
 ![WhatsApp message with a footer stating to respond STOP to unsubscribe from the channel]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}
 
-### Minimize response latency for two-way flows
+### Minimize response latency for two-way flows {#minimize-response-latency-for-two-way-flows}
 
 For interactive Canvas flows that reply with [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#response-messages):
 
