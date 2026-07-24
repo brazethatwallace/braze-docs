@@ -46,7 +46,7 @@ While composing your message or content, select **Copy preview link** (or a simi
 Anyone with the link can view the preview. No Braze login or dashboard permissions are required.
 
 {% alert important %}
-Shareable preview links don't require authentication, so anyone who has the link can view it. Treat a link like any other shareable document: only send it to people you intend to have access, and avoid posting it somewhere public.
+Treat a link like any other shareable document: only send it to people you intend to have access, and avoid posting it somewhere public.
 {% endalert %}
 
 ### Link expiration

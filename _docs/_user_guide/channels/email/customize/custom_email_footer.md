@@ -40,7 +40,7 @@ To comply with CAN-SPAM regulations, your custom footer must include an unsubscr
 
 ## Footers without unsubscribe links
 
-Be very careful when using a template with the custom footer {% raw %}`{{${email_footer}}}` but without the `{{${set_user_to_unsubscribed_url}}}`{% endraw %} unsubscribe link tag. A warning will appear, but it'll be your choice to send an email with or without an unsubscribe link.
+Be very careful when using a template with the custom footer {% raw %}`{{${email_footer}}}` but without the `{{${set_user_to_unsubscribed_url}}}`{% endraw %} unsubscribe link tag. A warning appears, but it's your choice to send an email with or without an unsubscribe link.
 
 Here's a warning in the email composer:
 
