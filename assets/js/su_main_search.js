@@ -9,6 +9,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const watchSuggestionsOpenState =
     window.SuSearchA11y?.watchSuggestionsOpenState;
 
+  function revealSearchContainer(container, input) {
+    if (!container || container.dataset.searchReady) return;
+
+    container.dataset.searchReady = "true";
+    container.classList.add("su-search-ready");
+
+    if (input && document.activeElement === input && !input.dataset.userFocused) {
+      input.blur();
+    }
+  }
+
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
     "pt-br":{ form: "Pesquisa do site", search: "Pesquisar", clear: "Limpar pesquisa" },
@@ -127,6 +138,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       if (markSearchReady) {
         markSearchReady(container, queryInput);
+      } else {
+        revealSearchContainer(container, queryInput);
       }
     }
 
@@ -163,6 +176,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Watch for dynamic content
   const targetNode = document.querySelector("#su_main_search");
   if (targetNode) {
+    setTimeout(() => {
+      if (!targetNode.classList.contains("su-search-ready")) {
+        targetNode.classList.add("su-search-ready");
+      }
+    }, 5000);
+
     const observer = new MutationObserver(() => {
       const form = targetNode.querySelector("form");
       const input = targetNode.querySelector("#search-box-autocomplete");

@@ -163,7 +163,10 @@
     input.dataset.suggestionsWatcherApplied = "true";
 
     const scheduleSync = () =>
-      requestAnimationFrame(() => syncSuggestionsOpenState(container, input));
+      requestAnimationFrame(() => {
+        syncSuggestionsOpenState(container, input);
+        attachPanelObserver(input, scheduleSync);
+      });
 
     input.addEventListener("focus", scheduleSync);
     input.addEventListener("blur", () => setTimeout(scheduleSync, 200));
@@ -177,18 +180,37 @@
       }
     });
 
-    const panel = getSuggestionPanel(input);
-    if (panel) {
-      const panelObserver = new MutationObserver(scheduleSync);
-      panelObserver.observe(panel, {
-        attributes: true,
-        attributeFilter: ["style", "class"],
-        childList: true,
-        subtree: true,
-      });
-    }
+    attachPanelObserver(input, scheduleSync);
+
+    const containerObserver = new MutationObserver(scheduleSync);
+    containerObserver.observe(container, {
+      childList: true,
+      subtree: true,
+    });
 
     scheduleSync();
+  }
+
+  /**
+   * @param {HTMLInputElement} input
+   * @param {() => void} scheduleSync
+   * @returns {boolean}
+   */
+  function attachPanelObserver(input, scheduleSync) {
+    if (input.dataset.suggestionsPanelObserverApplied) return true;
+
+    const panel = getSuggestionPanel(input);
+    if (!panel) return false;
+
+    input.dataset.suggestionsPanelObserverApplied = "true";
+    const panelObserver = new MutationObserver(scheduleSync);
+    panelObserver.observe(panel, {
+      attributes: true,
+      attributeFilter: ["style", "class"],
+      childList: true,
+      subtree: true,
+    });
+    return true;
   }
 
   global.SuSearchA11y = {
