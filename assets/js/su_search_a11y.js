@@ -46,9 +46,37 @@
     );
   }
 
+  /**
+   * Keep decorative clear controls out of the tab order until they are visible.
+   * @param {HTMLElement | null} clearButton
+   * @param {HTMLInputElement | null} input
+   */
+  function syncClearButtonTabindex(clearButton, input) {
+    if (!clearButton || !input) return;
+
+    const isVisible =
+      clearButton.offsetParent !== null &&
+      getComputedStyle(clearButton).visibility !== "hidden" &&
+      getComputedStyle(clearButton).display !== "none" &&
+      input.value.trim() !== "";
+
+    clearButton.setAttribute("tabindex", isVisible ? "0" : "-1");
+  }
+
+  /**
+   * Icon submit buttons duplicate the text field in the tab order; Enter already submits.
+   * @param {HTMLButtonElement | null} searchButton
+   */
+  function configureSearchSubmitButton(searchButton) {
+    if (!searchButton) return;
+    searchButton.setAttribute("tabindex", "-1");
+  }
+
   global.SuSearchA11y = {
     searchI18n,
     applySearchInputLabel,
     applyDefaultSearchInputLabel,
+    syncClearButtonTabindex,
+    configureSearchSubmitButton,
   };
 })(typeof window !== "undefined" ? window : this);

@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const applyDefaultSearchInputLabel =
     window.SuSearchA11y?.applyDefaultSearchInputLabel;
+  const syncClearButtonTabindex =
+    window.SuSearchA11y?.syncClearButtonTabindex;
+  const configureSearchSubmitButton =
+    window.SuSearchA11y?.configureSearchSubmitButton;
 
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
@@ -37,6 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (searchButton) {
       searchButton.setAttribute("type", "submit");
       searchButton.setAttribute("aria-label", labels.search);
+      if (configureSearchSubmitButton) {
+        configureSearchSubmitButton(searchButton);
+      }
       searchButton.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -48,7 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (clearButton) {
       clearButton.setAttribute("aria-label", labels.clear);
       clearButton.setAttribute("role", "button");
-      clearButton.setAttribute("tabindex", "0");
+      if (syncClearButtonTabindex) {
+        syncClearButtonTabindex(clearButton, queryInput);
+      }
       clearButton.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -61,6 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (queryInput) {
           queryInput.value = "";
           queryInput.focus();
+          if (syncClearButtonTabindex) {
+            syncClearButtonTabindex(clearButton, queryInput);
+          }
         }
       });
     }
@@ -85,9 +97,12 @@ document.addEventListener("DOMContentLoaded", function () {
       queryInput.setAttribute("aria-expanded", "false");
       queryInput.setAttribute("autocomplete", "off");
 
-      queryInput.addEventListener("focus", () =>
-        queryInput.setAttribute("aria-expanded", "true")
-      );
+      queryInput.addEventListener("focus", () => {
+        queryInput.setAttribute("aria-expanded", "true");
+        if (syncClearButtonTabindex) {
+          syncClearButtonTabindex(clearButton, queryInput);
+        }
+      });
       queryInput.addEventListener("blur", () => {
         // Delay so a click on a suggestion isn't cut off before it fires
         setTimeout(() => queryInput.setAttribute("aria-expanded", "false"), 200);
@@ -97,6 +112,9 @@ document.addEventListener("DOMContentLoaded", function () {
           "aria-expanded",
           queryInput.value.trim() !== "" ? "true" : "false"
         );
+        if (syncClearButtonTabindex) {
+          syncClearButtonTabindex(clearButton, queryInput);
+        }
       });
     }
 

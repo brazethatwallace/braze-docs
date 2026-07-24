@@ -3,6 +3,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const applyDefaultSearchInputLabel =
     window.SuSearchA11y?.applyDefaultSearchInputLabel;
+  const syncClearButtonTabindex =
+    window.SuSearchA11y?.syncClearButtonTabindex;
+  const configureSearchSubmitButton =
+    window.SuSearchA11y?.configureSearchSubmitButton;
 
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
@@ -43,6 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (searchButton) {
         searchButton.setAttribute("type", "submit");
         searchButton.setAttribute("aria-label", labels.search);
+        if (configureSearchSubmitButton) {
+          configureSearchSubmitButton(searchButton);
+        }
         searchButton.addEventListener(
           "click",
           function (e) {
@@ -60,7 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
       if (clearButton) {
         clearButton.setAttribute("aria-label", labels.clear);
         clearButton.setAttribute("role", "button");
-        clearButton.setAttribute("tabindex", "0");
+        const input = form.querySelector("#search-box-autocomplete");
+        if (syncClearButtonTabindex) {
+          syncClearButtonTabindex(clearButton, input);
+        }
         clearButton.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
@@ -75,6 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
             input.value = "";
             input.classList.remove("has-text");
             input.focus();
+            if (syncClearButtonTabindex) {
+              syncClearButtonTabindex(clearButton, input);
+            }
           }
         });
       }
@@ -88,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * Handle search action
    */
   function handleSearch() {
-    const queryInput = document.getElementById("search-box-autocomplete");
+    const queryInput = document.querySelector("#auto #search-box-autocomplete");
     const langSelect = document.getElementById("lang_select");
     const lang = langSelect ? langSelect.value : "en";
 
@@ -108,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * Set up placeholder, ARIA combobox attributes, key events & has-text logic.
    */
   function setupInputWatcher() {
-    const input = document.getElementById("search-box-autocomplete");
+    const input = document.querySelector("#auto #search-box-autocomplete");
     if (!input || input.dataset.searchWatcherApplied) return;
 
     if (applyDefaultSearchInputLabel) {
@@ -121,18 +134,31 @@ document.addEventListener("DOMContentLoaded", function () {
     input.setAttribute("aria-expanded", "false");
     input.setAttribute("autocomplete", "off");
 
-    input.addEventListener("focus", () =>
-      input.setAttribute("aria-expanded", "true")
-    );
-    input.addEventListener("blur", () => {
-      // Delay so a click on a suggestion isn't cut off before it fires
-      setTimeout(() => input.setAttribute("aria-expanded", "false"), 200);
-    });
     input.addEventListener("input", () => {
       input.setAttribute(
         "aria-expanded",
         input.value.trim() !== "" ? "true" : "false"
       );
+      const clearButton = input
+        .closest("form")
+        ?.querySelector(".su__input-close");
+      if (syncClearButtonTabindex) {
+        syncClearButtonTabindex(clearButton, input);
+      }
+    });
+
+    input.addEventListener("blur", () => {
+      // Delay so a click on a suggestion isn't cut off before it fires
+      setTimeout(() => input.setAttribute("aria-expanded", "false"), 200);
+    });
+    input.addEventListener("focus", () => {
+      input.setAttribute("aria-expanded", "true");
+      const clearButton = input
+        .closest("form")
+        ?.querySelector(".su__input-close");
+      if (syncClearButtonTabindex) {
+        syncClearButtonTabindex(clearButton, input);
+      }
     });
 
     // --- Function to toggle has-text class ---
@@ -194,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("searchForm");
         if (form) bindSearchForm(form);
 
-        const input = document.getElementById("search-box-autocomplete");
+        const input = document.querySelector("#auto #search-box-autocomplete");
         if (input) setupInputWatcher();
 
         patchSourceLabels();
