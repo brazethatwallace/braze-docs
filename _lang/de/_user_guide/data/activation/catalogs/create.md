@@ -145,6 +145,10 @@ Als Nächstes benennen wir diesen Katalog „games_catalog“ und wählen den Bu
 Beachten Sie, dass Sie diesen Namen nicht mehr ändern können, nachdem der Katalog erstellt wurde. Sie können einen Katalog löschen und eine aktualisierte Version unter demselben Katalognamen erneut hochladen.
 
 Nachdem Sie den Katalog erstellt haben, können Sie damit beginnen, den [Katalog in einer Campaign zu referenzieren]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
+
+{% alert important %}
+Zuvor hochgeladene CSV-Dateien stehen auf der Seite **Kataloge** 30 Tage nach dem Upload-Datum zum Download bereit. Nach 30 Tagen wird die Datei dauerhaft gelöscht und ist nicht mehr zugänglich.
+{% endalert %}
 {% endtab %}
 
 {% tab Im Browser erstellen %}

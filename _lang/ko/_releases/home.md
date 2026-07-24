@@ -52,12 +52,7 @@ Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [�
 
 대시보드 전반에 있던 독립형 BrazeAI 어시스턴트가 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)로 통합되어, Operator가 대시보드 전반에서 마케터 대상 생성형 AI 지원을 위한 단일 AI 어시스턴트로 자리잡았습니다. 다음 어시스턴트가 이제 Operator를 통해 라우팅됩니다:
 
-- AI Liquid 에이전트
-- AI 카피라이터
-- AI HTML 이메일 템플릿 에이전트
-- AI 이미지 생성기
-- AI를 활용한 콘텐츠 QA
-- 데이터 변환을 위한 AI 코파일럿
+{% multi_lang_include releases/brazeai_operator_legacy_assistants.md %}
 
 기존 진입점은 각 레거시 어시스턴트 버튼이 있던 위치에 그대로 유지됩니다. 독립형 어시스턴트를 여는 대신, 이러한 진입점은 이제 작업에 맞게 사전 범위가 지정된 동적 프롬프트와 함께 Operator 패널을 엽니다. 이러한 진입점은 기존 워크플로우를 조정하지 않고도 이러한 기능을 사용할 수 있도록 Operator로의 직접 경로를 제공합니다.
 
@@ -67,9 +62,7 @@ Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [�
 
 이 기능은 **Campaigns** 페이지 또는 기존 캠페인 내에서 사용할 수 있습니다. 결과적으로 Operator는 다음을 수행할 수 있습니다:
 
-- "이탈 사용자에게 다음에 앱을 열거나 구독을 취소하는 커스텀 이벤트를 기록할 때 20% 할인 프로모션 코드가 포함된 푸시 알림을 보내고 싶습니다"와 같은 프롬프트에 응답합니다.
-- 캠페인 마법사의 각 개별 단계에서 작업 중인 내용에 대한 완전한 가시성과 페이지의 양식 입력을 변경할 수 있는 기능으로 지원합니다.
-- 열린 캠페인에서 시작하든 **Campaigns** 페이지에서 시작하든 마법사의 올바른 단계로 이동하여 작업을 시작합니다.
+{% multi_lang_include releases/brazeai_operator_campaign_creation_prompts.md %}
 
 #### Content Blocks를 위한 Operator 지원 {#operator-support-for-content-blocks}
 
@@ -85,12 +78,7 @@ Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [�
 
 [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents)에서 다음을 수행할 수 있습니다:
 
-- **에이전트 생성** 버튼 드롭다운을 통해 Operator로 사전 설정된 사용 사례를 구성합니다.
-- 에이전트 목록에서 기존 에이전트를 복제합니다.
-- 생성 중에 에이전트를 초안으로 저장하고 나중에 구성을 완료합니다.
-- Canvas 에이전트에 대한 대체 출력 값을 설정하여 에이전트 오류 발생 시 출력 변수가 null로 설정되는 것을 방지합니다.
-- 카탈로그 에이전트 필드에 필수 입력 필드를 설정하여 필수 입력 필드 값이 비어 있거나 누락된 경우 에이전트가 실행되지 않도록 합니다.
-- 에이전트 열의 모든 빈 셀에 대해 에이전트를 다시 실행하여 전체 열을 다시 실행하지 않고도 누락된 값을 채울 수 있습니다.
+{% multi_lang_include releases/brazeai_agent_console_enhancements.md %}
 
 #### 출시된 콘텐츠 최적화 프로그램 단계 편집 {#edit-a-launched-content-optimizer-step}
 
@@ -98,9 +86,7 @@ Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [�
 
 Canvas가 출시된 후 이제 [콘텐츠 최적화 프로그램 단계를 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#edit-a-launched-step)하여 다음을 수행할 수 있습니다:
 
-- 구성요소당 5개 배리언트 제한까지 수동으로 또는 AI 생성 제안을 사용하여 기존 구성요소에 새 배리언트를 추가합니다.
-- 배리언트를 비활성화하여 사용자에게 전송을 중지합니다.
-- 이전에 비활성화된 배리언트를 다시 활성화합니다(구성요소가 5개 배리언트 제한 이하를 유지하는 경우).
+{% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
 ### 채널 및 터치포인트 {#channels-touchpoints}
 
@@ -170,45 +156,7 @@ BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가
 
 최신 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 SDK 업데이트 섹션에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그에서 확인할 수 있습니다.
 
-- [Swift SDK 14.2.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-- [Android SDK 42.3.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.3.0)
-    - `BannerView`: `onDismissCallback`에 전달되는 `BannerDismissSnapshot` 필드가 이제 non-null입니다. SDK가 `placementId`, `stableKey` 또는 `trackingId`를 확인할 수 없는 경우 콜백이 건너뛰어지고 경고가 기록됩니다.
-- [Web SDK 6.8.0](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
-    - 새로운 이커머스 이벤트 메서드 지원을 추가합니다.
-- [Swift SDK 14.2.1](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1421)
-- [Swift SDK 15.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-    - 배너: `onDismiss`가 이제 `Braze/Banner` 대신 `Braze/BannerDismissalEvent`를 수신합니다.
-    - Xcode 버전을 26.0(17A324)으로 올립니다.
-    - 최소 Mac Catalyst 배포 대상을 iOS 13(macOS 10.15 Catalina)에서 iOS 16(macOS 13 Ventura)으로 올립니다.
-        - macOS 12 Monterey 이하의 Mac Catalyst 사용자는 더 이상 지원되지 않습니다.
-    - 특정 엣지 케이스에서 SDK가 다른 사용자에게 인앱 메시지 표시를 방지하는지 여부를 제어하는 기능을 제거합니다.
-        - `Braze.Configuration.preventInAppMessageDisplayForDifferentUser`를 통한 구성 옵션을 제거합니다.
-        - 이제 SDK는 이 구성 옵션이 true로 설정된 것처럼 항상 동작합니다.
-    - `Braze.WebViewBridge.ScriptMessageHandler` 및 `Braze.WebViewBridge.SchemeHandler` init을 non-optional `channel` 매개변수를 갖도록 업데이트합니다.
-- [Android SDK 42.3.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4231)
-    - 새로운 이커머스 이벤트 메서드 지원을 추가합니다.
-    - 커스텀 UI 구현을 위한 배너 해제 메서드를 추가합니다.
-    - HTML 인앱 메시지 버그 수정을 포함합니다.
-- [Swift SDK 15.0.1](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1501)
-- [React Native 21.0.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/21.0.0)
-    - 네이티브 Swift 및 Android SDK 버전 바인딩을 업데이트합니다.
-    - 네이티브 Swift SDK 버전 바인딩을 [Braze Swift SDK 14.0.4에서 15.0.1로](https://github.com/braze-inc/braze-swift-sdk/compare/14.0.4...15.0.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 업데이트합니다.
-    - Content Cards JSDoc을 수정합니다.
-        - Xcode 버전을 26.0(17A324)으로 올립니다.
-- [Swift SDK 15.1.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-    - 새로운 이커머스 이벤트 메서드 지원을 추가합니다.
-    - 커스텀 UI 구현을 위한 배너 해제 메서드를 추가합니다.
-    - 배너를 사용한 커스텀 UI 구축을 위한 예제 구현을 추가합니다.
-    - 패스스루 라이브 활동 관측 가능성을 추가하여 오류 및 업데이트 이벤트를 더 정밀하고 세분화하여 추적할 수 있습니다.
-    - Content Cards에 대한 비동기 콜백 기반 getter를 추가하고 이전 getter를 더 이상 사용하지 않습니다.
-    - 상태 관리 안정성을 개선합니다.
-- [Segment Swift 9.0.0](https://github.com/braze-inc/braze-segment-swift/releases/tag/9.0.0)
-    - Braze Swift SDK 바인딩을 `15.0.0+` SemVer 디노미네이션의 릴리스가 필요하도록 업데이트합니다.
-        - 이를 통해 `15.0.0`에서 `16.0.0` 미만까지의 모든 버전의 Braze SDK와 호환이 가능합니다.
-        - Xcode 버전을 26.0(17A324)으로 올립니다.
-        - 잠재적인 주요 변경 사항에 대한 자세한 내용은 [`15.0.0` 체인지로그 항목](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1500)을 참조하세요.
-- [React Native 21.1.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/21.1.0)
-- [Swift SDK 15.2.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+{% multi_lang_include releases/sdk/2026_6_25_26_updates.md %}
 
 {% enddetails %}
 
@@ -290,29 +238,7 @@ Braze는 [고아 구독 상태 레코드를 자동으로 관리]({{site.baseurl}
 
 최신 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 SDK 업데이트 섹션에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그에서 확인할 수 있습니다.
 
-- [Flutter SDK 19.0.0](https://pub.dev/packages/braze_plugin/changelog#1900)
-    - 지원되는 최소 Dart 버전은 `2.17.0`입니다.
-    - SDK 로깅은 이제 Dart 레이어에서 제어됩니다.
-    - [Braze Android SDK 41.1.1에서 42.2.0으로](https://github.com/braze-inc/braze-android-sdk/compare/v41.1.1...v42.2.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 네이티브 Android 브리지를 포함한 네이티브 SDK 바인딩을 업데이트합니다.
-    - 크래시를 수정합니다.
-- [Cordova 16.0.1](https://github.com/braze-inc/braze-cordova-sdk/releases/tag/16.0.1)
-    - `SwiftDelegate` 템플릿과 함께 `cordova-ios` 8을 사용할 때 iOS 초기화 문제를 수정합니다.
-- [Unity SDK 11.0.0](https://github.com/braze-inc/braze-unity-sdk/blob/master/CHANGELOG.md)
-    - Braze [Swift SDK 13.2.0에서 14.1.0으로](https://github.com/braze-inc/braze-swift-sdk/compare/13.2.0...14.1.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 네이티브 iOS 브리지를 포함한 네이티브 SDK 바인딩을 업데이트합니다.
-    - [Braze Android SDK 36.0.0에서 42.2.0으로](https://github.com/braze-inc/braze-android-sdk/compare/v36.0.0...v42.2.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 네이티브 Android 브리지를 업데이트합니다.
-        - 필요한 최소 Android SDK 버전은 23입니다. 자세한 내용은 [Braze Android SDK 버전 정보](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)를 참조하세요.
-    - 필요한 최소 Unity 버전을 Unity 6([6000.0.66f2](https://unity.com/releases/editor/whats-new/6000.0.66f2) 이상)으로 업데이트했습니다.
-    - News Feed를 제거했습니다.
-        - `RequestFeedRefresh()`, `RequestFeedRefreshFromCache()`, `LogFeedDisplayed()`, `LogCardImpression(string)`, `LogCardClicked(string)`을 제거했습니다.
-    - 사소한 버그를 수정합니다.
-- [React Native 20.1.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/20.1.0)
-    - Android SDK 바인딩을 업데이트합니다.
-    - 푸시 알림 딥링킹 문제를 수정합니다.
-- [Segment Swift 8.0.0](https://github.com/braze-inc/braze-segment-swift/blob/main/CHANGELOG.md#800)
-    - Braze Swift SDK 바인딩을 `14.0.0+` SemVer 디노미네이션의 릴리스가 필요하도록 업데이트합니다.
-        - 이를 통해 `14.0.0`에서 `15.0.0` 미만까지의 모든 버전의 Braze SDK와 호환이 가능합니다.
-        - 잠재적인 주요 변경 사항에 대한 자세한 내용은 [`14.0.0` 체인지로그 항목](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1400)을 참조하세요.
-    - SDK 인증 지원을 추가합니다.
+{% multi_lang_include releases/sdk/2026_5_28_26_updates.md %}
 
 {% enddetails %}
 {% details 2026년 4월 30일 %}
@@ -435,19 +361,7 @@ Canvas에서 이제 컨텍스트 변수를 참조하여 다음을 설정할 수 
 
 최신 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 SDK 업데이트 섹션에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그에서 확인할 수 있습니다.
 
-- [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
-    - 지연 초기화 지원.
-- [Android SDK 42.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.0.0)
-    - In-App Messages 및 배너 관련 버그 수정.
-- [Swift SDK 14.1.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.1.0)
-    - 배너 해제 지원.
-- [Web SDK 6.7.0](https://github.com/braze-inc/braze-web-sdk/releases/tag/v6.7.0)
-    - 배너 해제 지원.
-- [Android SDK 42.1.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.1.0)
-    - 배너 해제 지원.
-- [Braze Segment Android 17.0.0](https://github.com/braze-inc/braze-segment-android/releases/tag/v17.0.0)
-    - 이것은 Analytics-Android를 사용하는 Braze Segment Android 플러그인의 최종 릴리스입니다. Analytics-Android는 2026년 3월에 지원이 종료되었습니다. [Analytics-Kotlin](https://github.com/segmentio/analytics-kotlin)을 사용하는 [Braze Segment Kotlin 플러그인](https://github.com/braze-inc/braze-segment-kotlin)으로 마이그레이션하세요.
-    - 네이티브 SDK 버전을 업그레이드합니다.
+{% multi_lang_include releases/sdk/2026_4_30_26_updates.md %}
 
 {% enddetails %}
 {% details 2026년 4월 2일 %}
@@ -537,31 +451,13 @@ Canvas [메시지 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/ca
 
 #### 통합 개발 환경(IDE)을 Docs MCP에 연결 {#connect-your-integrated-development-environment-ide-to-the-docs-mcp}
 
-AI 코딩 어시스턴트를 사용하여 Context7을 통해 통합 개발 환경(IDE)을 Braze Docs MCP에 연결하여 Braze 통합 워크플로우를 가속화하세요. 이를 통해 어시스턴트가 최신 Braze 문서에 직접 액세스할 수 있어 개발 환경에서 더 정확한 SDK 가이드, 코드 예제 및 문제 해결 도움을 생성할 수 있습니다. Cursor, Claude Desktop 및 VS Code에서의 설정 단계는 [LLM으로 빌드하기]({{site.baseurl}}/developer_guide/getting_started/build_with_llm#connecting-to-the-braze-docs-mcp)를 참조하세요.
+AI 코딩 어시스턴트를 사용하여 Context7을 통해 통합 개발 환경(IDE)을 Braze Docs MCP에 연결하여 Braze 통합 워크플로우를 가속화하세요. 이를 통해 어시스턴트가 최신 Braze 설명서에 직접 액세스할 수 있어 개발 환경에서 더 정확한 SDK 가이드, 코드 예제 및 문제 해결 도움을 생성할 수 있습니다. Cursor, Claude Desktop 및 VS Code에서의 설정 단계는 [LLM으로 빌드하기]({{site.baseurl}}/developer_guide/getting_started/build_with_llm#connecting-to-the-braze-docs-mcp)를 참조하세요.
 
 #### SDK 주요 업데이트
 
 최신 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 SDK 업데이트 섹션에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그에서 확인할 수 있습니다.
 
-- [Cordova 15.0.0](https://github.com/braze-inc/braze-cordova-sdk/releases/tag/15.0.0)
-    - 네이티브 Android 브리지를 [Braze Android SDK 39.0.0에서 41.1.1로](https://github.com/braze-inc/braze-android-sdk/compare/v39.0.0...v41.1.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 업데이트했습니다.
-    - 네이티브 iOS 브리지를 [Braze Swift SDK 13.2.0에서 14.0.1로](https://github.com/braze-inc/braze-swift-sdk/compare/13.2.0...14.0.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 업데이트했습니다.
-    - 성공 콜백과 관련된 `subscribeToInAppMessage` 문제를 수정했습니다.
-- [Roku SDK 2.2.1](https://github.com/braze-inc/braze-roku-sdk/releases/tag/v2.2.1)
-    - 기기의 연결이 간헐적이거나 없는 상태에서 템플릿 인앱 메시지에 대한 실패한 HTTP 요청을 처리할 때 발생하는 크래시를 수정했습니다.
-- [Web SDK 6.6.0](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md#660)
-    - 기본 400일에서 쿠키 기간을 구성할 수 있는 `cookieExpiryInDays` 초기화 옵션을 추가했습니다.
-- [Flutter SDK 18.0.0](https://pub.dev/packages/braze_plugin/changelog#1800)
-    - 지연 초기화 지원을 추가했습니다.
-    - 네이티브 SDK에서 Content Cards, 배너, 기능 플래그, 인앱 메시지 또는 푸시 알림 업데이트를 전달하기 위해 네이티브 코드를 작성할 필요가 없도록 iOS 통합 프로세스를 간소화했습니다.
-        - 이제 SDK는 Braze 인스턴스가 생성될 때 이러한 구독을 자동으로 설정합니다.
-        - 이는 Android의 기존 동작과 일치합니다.
-        - 마이그레이션하려면 `AppDelegate`에서 `braze.contentCards.subscribeToUpdates()`, `braze.banners.subscribeToUpdates()`, `braze.notifications.subscribeToUpdates`, `braze.featureFlags.subscribeToUpdates` 및 `braze.inAppMessagePresenter`에 대한 수동 호출을 제거하세요.
-        - 기본적으로 인앱 메시지가 표시됩니다. 이를 재정의하려면 `BrazePlugin.configure(_:postInitialization:)`의 `postInitialization` 클로저를 사용하여 커스텀 인앱 메시지 프레젠터를 설정하세요.
-- [Swift SDK 14.0.4](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1404)
-    - SDK 재초기화 시 푸시 자동화 관련 버그를 수정했습니다.
-    - Push Stories에서 유효하지 않은 이미지가 필터링되지 않는 문제를 수정했습니다.
-- [Swift SDK 14.0.3](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1403)
+{% multi_lang_include releases/sdk/2026_4_2_26_updates.md %}
 
 {% enddetails %}
 
@@ -595,9 +491,7 @@ Braze가 새로운 [데이터 센터]({{site.baseurl}}/user_guide/data/infrastru
 
 [Currents 및 데이터 공유 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)에 분석 및 다운스트림 시스템에서 사용할 수 있는 데이터를 심화하기 위해 다음과 같은 새로운 필드가 포함되었습니다:
 
-- `agentconsole.AgentExecuted`: `error`(문자열) 추가—발생한 오류에 대한 설명.
-- `agentconsole.ToolInvocation`: `request_id`(문자열) 추가—전체 LLM 요청 및 완전한 실행에 대한 고유 ID.
-- `users.messages.rcs.InboundReceive`: `canvas_variation_name`(문자열) 추가—이 사용자가 받은 Canvas 변형의 이름.
+{% multi_lang_include releases/currents/2026_3_5_26_field_changes.md %}
 
 #### Snowflake 데이터 공유를 위한 Campaign 및 Canvas 필드 {#campaign-and-canvas-fields-for-snowflake-data-share}
 
@@ -725,27 +619,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 최신 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 SDK 업데이트 섹션에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그에서 확인할 수 있습니다.
 
-- [Android SDK 41.1.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md)
-- [Flutter SDK 17.1.0](https://pub.dev/packages/braze_plugin/changelog)
-- [Swift SDK 14.0.2](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-- [Xamarin SDK 9.0.0](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/CHANGELOG.md)
-    - Android 바인딩을 [Braze Android SDK 37.0.0에서 41.0.0으로](https://github.com/braze-inc/braze-android-sdk/compare/v37.0.0...v41.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 업데이트했습니다.
-    - iOS 바인딩을 [Braze Swift SDK 13.3.0에서 14.0.1로](https://github.com/braze-inc/braze-swift-sdk/compare/13.3.0...14.0.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 업데이트했습니다.
-    - Braze Android SDK에 필요한 새로운 전이적 NuGet 종속성을 추가했습니다:
-        - Xamarin.AndroidX.DataStore.Preferences (1.1.7.1)
-        - Xamarin.KotlinX.Serialization.Json.Jvm (1.9.0.2)
-        - Xamarin.Kotlin.StdLib가 2.0.21.3에서 2.3.0.1로 업데이트되었습니다. 프로젝트에서 이 패키지를 이전 버전으로 명시적으로 고정한 경우 복원 오류를 방지하기 위해 업데이트해야 합니다.
-    - News Feed 기능을 제거했습니다.
-        - 이 기능은 네이티브 Android SDK 버전 [38.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v38.0.0)에서 제거되었습니다.
-        - 이 기능은 네이티브 Swift SDK 버전 [14.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.0.0)에서 제거되었습니다.
-    - BRZInAppMessageDismissalReason.BRZInAppMessageDismissalReasonWipeData 열거형 케이스가 BRZInAppMessageDismissalReason.WipeData로 이름이 변경되었습니다.
-- [Expo Plugin 4.0.0](https://github.com/braze-inc/braze-expo-plugin/releases/tag/4.0.0)
-    - 이 버전은 Braze React Native SDK 19.0.0이 필요합니다.
-    - (Android) 데이터 지속성 레이어의 메모리 누수를 수정했습니다.
-    - (Android) 앱이 종료된 상태에서 실행될 때 푸시 알림 딥링크를 처리하기 위한 Braze.getInitialPushPayload() 지원을 추가했습니다. 이를 통해 앱이 콜드 스타트될 때 Android에서 푸시 알림의 딥링크가 처리되지 않는 문제가 해결됩니다.
-- [React Native SDK 19.0.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.0.0)
-    - 네이티브 Swift SDK 버전 바인딩을 Braze Swift SDK 13.3.0에서 14.0.1로 업데이트합니다.
-    - 네이티브 Android SDK 버전 바인딩을 Braze Android SDK 40.0.2에서 41.0.0으로 업데이트합니다.
+{% multi_lang_include releases/sdk/2026_3_5_26_updates.md %}
 
 {% enddetails %}
 
@@ -789,7 +663,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[자동화된 IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming#automated-ip-warming)을 사용하여 일일 전송량을 점진적으로 늘려 수신편지함 제공업체가 전송 패턴을 학습하고 신뢰할 수 있도록 합니다. Braze는 인게이지먼트가 가장 높은 가입자에게 먼저 전송하므로 일일 볼륨이 모범 사례에 맞는 속도로 증가할 수 있습니다.
+[자동화된 IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming#automated-ip-warming)을 사용하여 일일 전송량을 점진적으로 늘려 받은편지함 제공업체가 전송 패턴을 학습하고 신뢰할 수 있도록 합니다. Braze는 인게이지먼트가 가장 높은 구독자에게 먼저 전송하므로 일일 볼륨이 모범 사례에 맞는 속도로 증가할 수 있습니다.
 
 ### 파트너십
 
@@ -869,13 +743,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 최신 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 SDK 업데이트 섹션에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그에서 확인할 수 있습니다.
 
-- [Android SDK 41.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v41.0.0)
-    - `BrazeConfig.Builder.setIsLocationCollectionEnabled()`의 이름을 `setIsAutomaticLocationCollectionEnabled()`로 변경했습니다.
-    - `BrazeConfig.isLocationCollectionEnabled`의 이름을 `isAutomaticLocationCollectionEnabled`로 변경했습니다.
-    - `BrazeConfigurationProvider.isLocationCollectionEnabled`의 이름을 `isAutomaticLocationCollectionEnabled`로 변경했습니다.
-- [Android SDK 40.2.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4020)
-- [Expo Plugin 3.2.0](https://github.com/braze-inc/braze-expo-plugin/blob/main/CHANGELOG.md)
-- [Swift SDK 14.0.1](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+{% multi_lang_include releases/sdk/2026_2_5_26_updates.md %}
 
 {% enddetails %}
 
@@ -890,19 +758,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 버전 4에서 Currents에 적용된 변경 사항은 다음과 같습니다:
 
-* 이벤트 유형 `users.behaviors.pushnotification.TokenStateChange`의 필드 변경:
-    * 새로운 `string` 필드 `push_token` 추가: 이벤트의 푸시 토큰
-* 이벤트 유형 `users.messages.pushnotification.Bounce`의 필드 변경:
-    * 새로운 `string` 필드 `push_token` 추가: 이벤트의 푸시 토큰
-* 이벤트 유형 `users.messages.pushnotification.Send`의 필드 변경:
-    * 새로운 `string` 필드 `push_token` 추가: 이벤트의 푸시 토큰
-* 이벤트 유형 `users.messages.rcs.Click`의 필드 변경:
-    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
-    * `user_phone_number` 필드는 이제 *선택* 사항입니다.
-* 이벤트 유형 `users.messages.rcs.InboundReceive`의 필드 변경:
-    * `user_id` 필드는 이제 *선택* 사항입니다.
-* 이벤트 유형 `users.messages.rcs.Rejection`의 필드 변경:
-    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
+{% multi_lang_include releases/currents/2026_1_8_26_field_changes.md %}
 
 각 릴리스의 이벤트 변경 사항은 [Currents 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)를 참조하세요.
 
@@ -947,12 +803,7 @@ Canvas의 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas
 
 최신 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 SDK 업데이트 섹션에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그에서 확인할 수 있습니다.
 
-- [Android 40.1.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4011)
-- [Android SDK 40.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4010)
-- [Swift SDK 14.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-    - News Feed를 제거합니다.
-        - News Feed와 관련된 모든 UI 요소, 데이터 모델 및 작업이 완전히 제거됩니다.
-- [Web SDK 6.4.0](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
+{% multi_lang_include releases/sdk/2026_1_8_26_updates.md %}
 
 {% enddetails %}
 

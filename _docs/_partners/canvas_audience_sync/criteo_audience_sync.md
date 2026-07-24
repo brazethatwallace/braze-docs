@@ -15,7 +15,7 @@ Using the Braze Audience Sync to Criteo, brands can elect to add user data from 
 
 **Common use cases for audience syncing include:**
 
-{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md lookalike=true %}
 
 This feature gives brands the option to control what specific first-party data is shared with Criteo. At Braze, the integrations you can and cannot share your first-party data with are given the utmost consideration. For more information, refer to our [privacy policy](https://www.braze.com/privacy).
 
@@ -112,7 +112,7 @@ Braze also offers the ability to add users to existing Criteo audiences to ensur
 
 ### Step 5: Launch Canvas
 
-Once you have configured your Audience Sync to Criteo, simply launch the Canvas! The new audience will be created, and users who go through the Audience Sync step will be passed into this audience on Criteo. If your Canvas contains subsequent components, your users will then advance to the next step in their user journey.
+After you configure your Audience Sync to Criteo, launch the Canvas! The new audience is created, and users who go through the Audience Sync step are passed into this audience on Criteo. If your Canvas contains subsequent components, your users advance to the next step in their user journey.
 
 You can view the audience in Criteo by going into your ads manager account and then selecting Segments from the **Audience Library** of the navigation. From the **Segments** page, you can see the size of each audience after it reaches ~1,000.
 

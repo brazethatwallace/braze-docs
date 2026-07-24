@@ -1,0 +1,4 @@
+- **Canvas, Campaigns e Segments ativos:** Confirme que estão funcionando corretamente.
+- **Processos de gerenciamento de identidade:** Confirme que esses processos estão funcionando conforme o esperado.
+- **Personalizações do SDK (opcional):** Se você fez personalizações na integração da Braze com a Shopify (como registrar eventos personalizados ou atributos), verifique se estão funcionando corretamente após o upgrade.
+- **Coleta de inscritos de e-mail ou SMS (opcional):** Se você ativou anteriormente a coleta de inscritos de e-mail ou SMS, novos grupos de inscrições padrão serão criados para refletir o status mais recente dos seus inscritos durante o upgrade. Os grupos de inscrições padrão terão o nome da sua loja Shopify. Esses novos grupos de inscrições padrão estarão disponíveis aproximadamente 5 horas após o upgrade, e você precisará adicioná-los às suas mensagens ativas.

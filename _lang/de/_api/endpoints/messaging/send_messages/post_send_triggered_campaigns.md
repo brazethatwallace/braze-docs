@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 In diesem Abschnitt wird erläutert, wie Braze ein Nutzerprofil für den Versand auswählt und was passiert, wenn kein Profil ausgewählt wird.
 
-Der Abo-Gruppenstatus einer Nutzer:in kann über den Parameter `subscription_groups` innerhalb des `attributes`-Objekts aktualisiert werden. Weitere Einzelheiten finden Sie unter [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Der Abo-Gruppenstatus einer Nutzer:in kann über den Parameter `subscription_groups` innerhalb des `attributes`-Objekts aktualisiert werden. Weitere Einzelheiten finden Sie unter [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 #### Empfänger:innen-Limits und Profilerstellung {#recipient-limits-and-profile-creation}
 

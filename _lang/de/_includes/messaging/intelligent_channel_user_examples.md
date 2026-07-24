@@ -1,0 +1,3 @@
+- **Nutzer:in A** hat E-Mail abonniert und Push ist aktiviert. Diese:r Nutzer:in erhält die E-Mail nicht, wird aber die Push-Nachricht erhalten.
+- **Nutzer:in B** hat E-Mail-Opt-in, aber Push ist nicht aktiviert. Diese:r Nutzer:in wird die E-Mail erhalten, erhält aber nicht die Push-Nachricht.
+- **Nutzer:in C** hat E-Mail-Opt-in und Push ist aktiviert. Diese:r Nutzer:in wird sowohl die E-Mail als auch die Push-Nachricht erhalten.

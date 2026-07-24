@@ -200,13 +200,7 @@ Ihre Webhook-Integration ist nun abgeschlossen!
 
 In diesem Schritt transformieren Sie die Webhook-Nutzlast von der Quellplattform in einen Rückgabewert für ein JavaScript-Objekt. Dieser Rückgabewert muss dem Format des Anfragekörpers für den `/users/track`-Endpunkt entsprechen:
 
-- Der Transformationscode wird in der Programmiersprache JavaScript akzeptiert. Jeder Standard-JavaScript-Kontrollfluss, wie z. B. die if/else-Logik, wird unterstützt.
-- Der Transformationscode greift über die Variable `payload` auf den Anfragekörper des Webhooks zu. Diese Variable ist ein Objekt, das durch das Parsen des JSON-Anfragekörpers erstellt wird.
-- Alle Features, die in unserem `/users/track`-Endpunkt unterstützt werden, werden unterstützt, einschließlich:
-  - Nutzer:innen-Attribut-Objekte, Event-Objekte und Kauf-Objekte
-  - Verschachtelte Attribute und verschachtelte Eigenschaften von angepassten Events
-  - Updates für Abo-Gruppen
-  - E-Mail-Adresse als Bezeichner
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 Wählen Sie **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 

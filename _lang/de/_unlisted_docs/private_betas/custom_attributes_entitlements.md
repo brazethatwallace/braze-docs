@@ -228,11 +228,7 @@ Das letzte Datum, an dem ein angepasstes Event oder Kauf-Event aufgetreten ist, 
 
 #### Details zu Zeitattributen {#time-attribute-details}
 
-- Tag eines wiederkehrenden Ereignisses
-  - Wenn Sie den Filter „Tag eines wiederkehrenden Ereignisses“ verwenden und dann aufgefordert werden, den „Kalendertag des wiederkehrenden Ereignisses“ auszuwählen, wird bei Auswahl von `IS LESS THAN` oder `IS MORE THAN` das aktuelle Datum für diesen Segmentierungsfilter mitgezählt.
-  - Wenn Sie beispielsweise am 10. März 2020 das Datum des Attributs auf `LESS THAN ... March 10, 2020` setzen, werden Attribute für die Tage bis einschließlich 10. März 2020 berücksichtigt.
-- Less than X Days Ago: Der Filter „Less than X Days Ago“ umfasst Daten zwischen X Tagen in der Vergangenheit und dem aktuellen Datum/der aktuellen Uhrzeit.
-- Less than X Days in the Future: Umfasst Daten zwischen dem aktuellen Datum/der aktuellen Uhrzeit und X Tagen in der Zukunft.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 ### Objekte {#objects}
 

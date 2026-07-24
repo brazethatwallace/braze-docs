@@ -6,34 +6,23 @@ noindex: true
 hide_toc: true
 ---
 
-# Message Credits – Sigma (vertraulich) {#message-credits-sigma-confidential}
+# Message Credits – Sigma (vertraulich)
 
-> Message Credits ist die produktübergreifende Paketstruktur von Braze für unsere nativen Angebote Agent Console, SMS, MMS, RCS, WhatsApp und LINE. Message Credits bieten ein flexibles und transparentes Erlebnis bei der Nutzung der Braze-Messaging-Kanäle und bestimmter KI-Features. Credits gewähren Ihnen Zugang zu allen Kanälen, die in der Tabelle auf dieser Seite aufgeführt sind.
+> Message Credits ist die produktübergreifende Paketstruktur von Braze für unsere nativen Angebote Agent Console, SMS, MMS, RCS, WhatsApp und LINE. Message Credits bieten ein flexibles und transparentes Erlebnis, wenn Sie die Messaging-Kanäle und bestimmte KI-Features von Braze nutzen. Credits gewähren Ihnen Zugang zu allen Kanälen, die in der Tabelle auf dieser Seite aufgeführt sind.
 
-{% alert note %}
-Verschiedene Produkte verwenden unterschiedliche Maßeinheiten im Reporting.<br><br>
-<b>Agent Console:</b> Aufrufe<br>
-<b>SMS:</b> Nachrichtensegmente<br>
-<b>MMS:</b> Sends<br>
-<b>WhatsApp:</b> Zugestellte Nachrichten<br>
-<b>RCS:</b> Zugestellte Nachrichtensegmente, zugestellte Sends<br>
-<b>LINE:</b> Sends<br>
-<b>KakaoTalk:</b> Sends<br>
+{% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
-Carrier-Gebühren für SMS, MMS und RCS werden separat (nachträglich) abgerechnet und sind nicht Bestandteil dieser Message-Credits-SKU.
-{% endalert %}
-
-## Definitionen {#definitions}
+## Definitionen
 
 Die Spaltendefinitionen lauten wie folgt:
 
 |---------|-------------------------------------------------|
-| **Ziel** | Spezifische Endregion, Land oder Art der Aktion, die über die Braze-Plattform gesendet wird |
-| **Credits pro 1 Send** | Genaue Anzahl der Message Credits für einen Send<br> (Credits pro Send = Credit-Verhältnis × Zielmultiplikator) |
+| **Ziel** | Die spezifische Endregion, das Land oder die Art der Aktion, die über die Braze-Plattform gesendet wird |
+| **Credits pro 1 Versand** | Genaue Anzahl der Message Credits für einen einzelnen Versand<br> (Credits pro Versand = Credit-Verhältnis × Zielmultiplikator) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Credit-Verhältnistabelle für Message Credits – Sigma {#credit-ratio-table-for-message-credits-sigma}
+## Credit-Verhältnistabelle für Message Credits – Sigma
 
 {% details Zum Aufklappen klicken %}
 <table class="credits-table" aria-label="Credit-Verhältnistabelle für Message Credits – Sigma">
@@ -45,7 +34,7 @@ Die Spaltendefinitionen lauten wie folgt:
     <tr>
         <th><b>Kanal</b></th>
         <th><b>Ziel</b></th>
-        <th class="credits-column"><b>Credits pro 1 Send</b></th>
+        <th class="credits-column"><b>Credits pro 1 Versand</b></th>
     </tr>
     </thead>
     <tbody>
@@ -2279,73 +2268,69 @@ Die Spaltendefinitionen lauten wie folgt:
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
 
-## Details zur Agent Console {#agent-console-details}
-Braze berechnet Nachrichtenguthaben für Agent Console-Aufrufe, die von der Braze-Plattform gesendet werden. Ein Aufruf wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig umfasst Ihr Vertrag zehntausend Aufrufe pro Zeitraum Ihrer Abonnementlaufzeit.
+------
 
-## Details zum SMS/MMS-Kanal {#smsmms-channel-details}
+## Details zur Agent Console
+Braze berechnet Message Credits für Agent-Console-Aufrufe, die über die Braze-Plattform gesendet werden. Ein Aufruf wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig umfasst Ihr Vertrag zehntausend Aufrufe pro Zeitraum Ihrer Abo-Laufzeit.
 
-### SMS-Nachrichtensegmente {#sms-segments}
+## Details zum SMS-/MMS-Kanal
 
-SMS-Nachrichtensegmente sind die Art und Weise, wie die SMS-Branche Nachrichten zählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen unter Verwendung der GSM-7-Kodierung versenden, werden Sie feststellen, dass zwei (2) Nachrichtensegmente gesendet wurden. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
+### SMS-Nachrichtensegmente
 
-### MMS-Segmente {#mms-segments}
+SMS-Nachrichtensegmente sind die Art und Weise, wie die SMS-Branche Nachrichten zählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen in GSM-7-Kodierung versenden, werden Sie feststellen, dass zwei (2) Nachrichtensegmente gesendet wurden. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
+
+### MMS-Segmente
 
 Für MMS beträgt das Nachrichtenlimit 5 MB (dies umfasst das Multimedia-Asset und die Größe des Nachrichtentexts). Um auf der sicheren Seite zu sein, empfiehlt Braze, 600 KB für Ihr Multimedia-Asset nicht zu überschreiten und gleichzeitig einen Nachrichtentext einzuschließen.
 
-### RCS-Typen {#rcs-types}
+### RCS-Typen
 
 RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
 
-- Die RCS-Abrechnung basiert auf zwei verschiedenen Nachrichtentypen (mit Unterscheidungen für die USA):
-    - **Basic RCS:** Nur Text, bis zu 160 Zeichen
-    - **Single RCS:** Nachrichten mit Rich Content oder reine Textnachrichten mit mehr als 160 Zeichen
-    - **Rich RCS (nur USA):** Nur Text, kann begrenzte Vorschläge/Buttons enthalten (quickReply, dialPhone, openURL ohne Webview), segmentiert pro 160 UTF-8-Bytes
-    - **Rich Media RCS (nur USA):** Beliebige Medien ODER Text mit umfangreicheren Vorschlägen/Buttons (Webview, Standort, Kalender usw.), wird als eine Nachricht gezählt
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
-## Details zum WhatsApp-Kanal {#whatsapp-channel-details}
+## Details zum WhatsApp-Kanal
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Weitere Kanaldetails {#additional-channel-details}
-
 ### Webhooks
 
-Webhooks wurden am 9. Dezember 2024 Teil der Nachrichtenguthaben. Braze berechnet Nachrichtenguthaben für alle Webhooks, die von der Braze-Plattform gesendet werden. Standardmäßig umfasst Ihr Vertrag hunderttausend Webhooks pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
+Webhooks wurden am 9. Dezember 2024 in die Nachrichtenguthaben aufgenommen. Braze berechnet Nachrichtenguthaben für alle Webhooks, die über die Braze-Plattform gesendet werden. Standardmäßig enthält Ihr Vertrag einhunderttausend Webhooks pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
 
-### Eigene (BYO) SMS-Konnektoren {#bring-your-own-byo-sms-connectors}
+### Bring your own (BYO) SMS-Konnektoren
 
-Braze ermöglicht es Kund:innen, sich mit Drittanbietern zu integrieren, um SMS-Nachrichten über das „BYO SMS-Konnektor“-Modell zu senden. Braze berechnet Nachrichtenguthaben für jede Nachricht, die von der Braze-Plattform über BYO SMS-Konnektoren gesendet wird.
+Braze ermöglicht es Kund:innen, sich mit Drittanbietern zu integrieren, um SMS-Nachrichten über das Modell „BYO SMS-Konnektor“ zu senden. Braze berechnet Nachrichtenguthaben für jede Nachricht, die über BYO SMS-Konnektoren von der Braze-Plattform gesendet wird.
 
 ### LINE
 
 Braze berechnet Nachrichtenguthaben für alle LINE-Nachrichten, die von der Braze-Plattform gesendet werden.
 
-## Aufschlüsselung nach Abrechnungsregion {#billing-region-breakdown}
+## Aufschlüsselung nach Abrechnungsregion
 
-### Nordamerika {#north-america}
+### Nordamerika
 
 Vereinigte Staaten, Kanada
 
-### Übriges Afrika {#rest-of-africa}
+### Übriges Afrika
 
 Algerien, Angola, Benin, Botswana, Burkina Faso, Burundi, Kamerun, Tschad, Kongo, Eritrea, Äthiopien, Gabun, Gambia, Ghana, Guinea-Bissau, Elfenbeinküste, Kenia, Lesotho, Liberia, Libyen, Madagaskar, Malawi, Mali, Mauretanien, Marokko, Mosambik, Namibia, Niger, Ruanda, Senegal, Sierra Leone, Somalia, Südsudan, Sudan, Eswatini, Tansania, Togo, Tunesien, Uganda, Sambia
 
-### Übriger asiatisch-pazifischer Raum {#rest-of-asia-pacific}
+### Übriger asiatisch-pazifischer Raum
 
 Afghanistan, Australien, Bangladesch, Kambodscha, China, Japan, Laos, Mongolei, Nepal, Neuseeland, Papua-Neuguinea, Philippinen, Sri Lanka, Taiwan, Tadschikistan, Thailand, Turkmenistan, Usbekistan, Vietnam
 
-### Übriges Mittel- und Osteuropa {#rest-of-central-eastern-europe}
+### Übriges Mittel- und Osteuropa
 
 Albanien, Armenien, Aserbaidschan, Belarus, Bulgarien, Kroatien, Tschechische Republik, Georgien, Griechenland, Lettland, Litauen, Nordmazedonien, Moldawien, Serbien, Slowakei, Slowenien, Ukraine
 
-### Übriges Lateinamerika {#rest-of-latin-america}
+### Übriges Lateinamerika
 
 Bolivien, Costa Rica, Dominikanische Republik, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaika, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-### Übriger Naher Osten {#rest-of-middle-east}
+### Übriger Naher Osten
 
 Bahrain, Irak, Jordanien, Kuwait, Libanon, Oman, Jemen
 
-### Übriges Westeuropa {#rest-of-western-europe}
+### Übriges Westeuropa
 
 Österreich, Belgien, Dänemark, Finnland, Irland, Norwegen, Portugal, Schweden, Schweiz

@@ -163,3 +163,24 @@ If you prefer to drag the Content Block into the email as a row, you can set the
 {% alert note %}
 Dragging a Content Block in as a row inserts a pre-rendered snapshot, which does not automatically update if the source Content Block changes.
 {% endalert %}
+
+## Dark mode
+
+Dark mode is a recipient-side preference. Inbox providers and apps (such as Gmail and Outlook) can invert or recolor your HTML, so you should expect different rendering across clients rather than one fixed appearance from Braze alone.
+
+### HTML editor
+
+If you use the **HTML editor**, you can reduce unwanted background inversion in the Gmail mobile apps by applying a single-color CSS `linear-gradient` on table cells instead of a flat `background-color`. For examples, limitations (including using `<td>` or `<th>` rather than `<table>` alone), and syntax, see [Gmail mobile app and dark mode]({{site.baseurl}}/user_guide/channels/email/html_editor/#gmail-dark-mode).
+
+To author separate light and dark styles where clients support them, use the [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) media query. Support varies by inbox—always preview and test in the clients you send to.
+
+### Drag-and-drop editor
+
+In the drag-and-drop editor, dark mode is still controlled by each inbox provider. Turn on **Dark Mode Preview** in **Preview and Test** to review your layout. For where to find the toggle and how to test, see [Can I preview how my email appears in dark mode?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-preview-how-my-email-appears-in-dark-mode). For background colors and readability across themes, see [How should I design emails for dark mode and light mode?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#how-should-i-design-emails-for-dark-mode-and-light-mode).
+
+### General best practices
+
+- Avoid pure white (`#FFFFFF`) and pure black (`#000000`); use off-whites and softened blacks so full inversions look less harsh.
+- Tone down very bright accent colors (for example, vivid buttons) so they stay readable if a client inverts colors.
+- Use transparent PNGs when they fit your layout.
+- On images that include text, add a light outline around dark text, and a dark outline around light text on dark artwork, so copy stays readable if colors shift.

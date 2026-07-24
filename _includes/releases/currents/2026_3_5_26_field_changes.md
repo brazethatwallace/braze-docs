@@ -1,0 +1,3 @@
+- `agentconsole.AgentExecuted`: Added `error` (string)—a description of any error that occurred.
+- `agentconsole.ToolInvocation`: Added `request_id` (string)—a unique ID for the overall LLM request and complete execution.
+- `users.messages.rcs.InboundReceive`: Added `canvas_variation_name` (string)—the name of the Canvas variation the user received.

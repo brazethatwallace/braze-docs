@@ -999,9 +999,7 @@ Hier erfahren Sie, was Sie über die Abmessungen und die Größe von Bannern wis
 
 Sie können benutzerdefinierte Eigenschaften aus Ihrer Banner-Campaign verwenden, um Schlüssel-Wert-Daten über das SDK abzurufen und das Verhalten oder das Erscheinungsbild Ihrer App anzupassen. Beispielsweise könnten Sie:
 
-- Metadaten für Ihre Analytics oder Drittanbieter-Integrationen senden.
-- Metadaten wie einen `timestamp` oder ein JSON-Objekt verwenden, um bedingte Logik zu triggern.
-- Das Verhalten eines Banners basierend auf enthaltenen Metadaten wie `ratio` oder `format` steuern.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 ### Voraussetzungen
 

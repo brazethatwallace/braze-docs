@@ -1,0 +1,5 @@
+- La facturación de RCS se basa en dos tipos de mensaje diferentes (con distinciones para EE. UU.):
+    - **RCS básico:** Solo texto, hasta 160 caracteres
+    - **RCS único:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto > 160 caracteres
+    - **RCS enriquecido (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
+    - **RCS de medios enriquecidos (solo EE. UU.):** Cualquier medio O texto con sugerencias/botones más avanzados (webview, ubicación, calendario, etc.), contado como un mensaje

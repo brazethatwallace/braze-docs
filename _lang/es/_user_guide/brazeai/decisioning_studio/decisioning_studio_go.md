@@ -11,7 +11,7 @@ description: "Aprende a configurar e integrar BrazeAI Decisioning Studio<sup>TM<
 
 ## Acerca de Decisioning Studio Go {#about-decisioning-studio-go}
 
-Decisioning Studio Go es un agente de toma de decisiones con IA para programas de correo electrónico recurrentes. En lugar de elegir una única línea del asunto, hora de envío o imagen ganadora para toda la audiencia, el agente selecciona la mejor combinación para cada destinatario en función de su interacción pasada.
+Decisioning Studio Go es un agente de toma de decisiones con IA para programas de correo electrónico recurrentes. En lugar de elegir una única línea del asunto, hora de envío o imagen ganadora para toda la audiencia, el agente selecciona la mejor combinación para cada destinatario en función de su participación pasada.
 
 Tú defines las variantes entre las que el agente puede elegir, como líneas del asunto, CTA, imágenes, días de envío y horas de envío. Para cada usuario de tu segmento, el agente elige la opción con más probabilidades de generar participación, dentro de las restricciones y el calendario que configures.
 
@@ -56,5 +56,5 @@ Decisioning Studio Pro añade:
 ## Próximos pasos {#next-steps}
 
 - [Configura tu agente de Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup): configura audiencia, calendario, creativos y restricciones
-- [Revisa ejemplos para Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples): confirma que tu programa es un buen candidato
+- [Revisa ejemplos para Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples) para confirmar que tu programa es un buen candidato
 - Consulta las [preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq) para dudas comunes

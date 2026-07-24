@@ -36,7 +36,21 @@ Braze는 세션 시작 시 다음 유형의 인앱 메시지를 사용자 기기
 
 `templated_iam`(또는 "템플릿") 인앱 메시지는 아직 필요한 정보가 템플릿화되지 않은 상태입니다. Braze는 메시지가 표시되기 전에 정보를 가져오기 위해 추가 요청을 해야 합니다.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+인앱 메시지는 **표시 전 Campaign 적격성 재평가**가 선택되어 있거나 메시지에 다음 Liquid 태그 중 하나가 존재하는 경우 템플릿 인앱 메시지로 전달됩니다:
+
+- `canvas_entry_properties`
+- `connected_content`
+- {% raw %}`{sms.${*}}`{% endraw %}와 같은 SMS 변수
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+즉, 세션 시작 시 기기는 전체 메시지 대신 해당 인앱 메시지의 트리거만 수신합니다. 사용자가 인앱 메시지를 트리거하면 사용자의 기기가 실제 메시지를 가져오기 위해 네트워크 요청을 보냅니다.
+
+{% alert note %}
+기기가 인터넷에 접속할 수 없는 경우 메시지가 전달되지 않습니다. Liquid 로직을 해결하는 데 시간이 너무 오래 걸리면 메시지가 전달되지 않을 수 있습니다.
+{% endalert %}
+
 
 ## 키-값 페어 {#key-value-pairs}
 

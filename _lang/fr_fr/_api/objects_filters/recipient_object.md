@@ -13,7 +13,7 @@ description: "Cet article de référence explique les différents composants de 
 
 Vous devez inclure `external_user_id`, `user_alias`, `braze_id` ou `email` dans cet objet. **Les requêtes ne doivent en spécifier qu'un seul.**
 
-L'objet destinataire vous permet de combiner l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object), l'[objet propriétés du déclencheur]({{site.baseurl}}/api/objects_filters/trigger_properties_object), l'[objet propriétés d'entrée Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) et l'[objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+L'objet destinataire vous permet de combiner l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object), l'[objet propriétés du déclencheur]({{site.baseurl}}/api/objects_filters/trigger_properties_object), l'[objet propriétés d'entrée Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) et l'[objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ## Corps de l'objet {#object-body}
 
@@ -41,7 +41,7 @@ Ce profil doit tout de même respecter les règles d'audience et d'éligibilité
 - [Alias d'utilisateurs]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
 - [ID utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
 - [Priorisation]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
-- [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)
+- [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 
 ## Déduplication de l'objet destinataire {#recipient-object-deduping}
 

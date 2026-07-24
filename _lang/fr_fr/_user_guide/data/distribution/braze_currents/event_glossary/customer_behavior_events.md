@@ -70,7 +70,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 Random Bucket Number
 {% endapitags %}
 
-Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos campagnes et de leurs variantes.
+Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos Campaigns et de leurs variantes.
 
 {% alert important %}
 Cet événement Currents n'est disponible que pour les clients qui ont acheté un « connecteur tous événements » et n'est disponible que pour les connecteurs d'événements de stockage (tels que Amazon S3, Microsoft Azure et Google Cloud Storage).
@@ -159,7 +159,7 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.CustomEvent
 
@@ -298,7 +298,7 @@ Cet événement se produit lorsqu'une installation d'application est attribuée 
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.InstallAttribution
 
@@ -435,7 +435,7 @@ Cet événement est déclenché lorsqu'un utilisateur se rend à un emplacement 
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Location
 
@@ -611,7 +611,7 @@ Les achats sont des événements personnalisés spéciaux et sont accompagnés d
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Purchase
 
@@ -774,7 +774,7 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.FirstSession
 
@@ -910,7 +910,7 @@ Cet événement se produit lorsqu'un utilisateur quitte votre application, metta
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionEnd
 
@@ -1050,7 +1050,7 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionStart
 
@@ -1184,7 +1184,7 @@ Cet événement se produit lorsque Braze synchronise le jeton Push To Start de l
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.PushToStartTokenChange
 
@@ -1322,7 +1322,7 @@ Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.UpdateTokenChange
 
@@ -1472,7 +1472,7 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.pushnotification.TokenStateChange
 
@@ -1643,7 +1643,10 @@ Les paires add et remove se répartissent en deux catégories :
 - L'endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou le nettoyage des utilisateurs en double transfère les jetons de l'utilisateur orphelin vers l'utilisateur conservé.
 
 {% alert note %}
-L'identification sur le même profil via l'endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou le `changeUser` du SDK attribuant un ID externe au profil anonyme ne modifie pas le `user_id` et n'émet pas de paires d'événements add et remove. À la place, Braze émet un événement « update » pour chaque jeton de notification push existant et définit `external_user_id` sur l'ID externe de l'utilisateur identifié. Lorsque `changeUser` transfère des jetons d'un profil utilisateur à un autre, Braze émet toujours les paires d'événements add et remove décrites ci-dessus.
+L'identification sur le même profil via l'endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou le [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) du SDK peut attribuer un ID externe à un profil anonyme sans modifier le `user_id`.
+Dans ce cas, Braze n'émet pas de [paires d'événements add et remove](#add-and-remove-pairs).
+À la place, Braze émet un événement « update » pour chaque jeton de notification push existant et définit `external_user_id` sur l'ID externe de l'utilisateur identifié.
+Lorsque `changeUser` transfère des jetons d'un profil utilisateur à un autre, Braze émet toujours les [paires d'événements add et remove](#add-and-remove-pairs) décrites dans la section [Paires add et remove](#add-and-remove-pairs).
 {% endalert %}
 
 #### Requête sur l'état actuel du jeton actif {#querying-for-the-latest-active-token-state}

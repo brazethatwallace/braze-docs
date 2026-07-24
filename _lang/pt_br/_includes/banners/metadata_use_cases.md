@@ -1,0 +1,3 @@
+- Enviar metadados para análise de dados de terceiros ou integrações.
+- Usar metadados como um `timestamp` ou objeto JSON para disparar lógica condicional.
+- Controlar o comportamento de um Banner com base em metadados incluídos, como `ratio` ou `format`.

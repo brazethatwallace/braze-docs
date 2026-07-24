@@ -34,9 +34,7 @@ Ce type de message est disponible dans l'[éditeur par glisser-déposer]({{site.
 
 Les messages in-app plein écran remplissent toute la hauteur de l'appareil et sont recadrés horizontalement (côtés gauche et droit) si nécessaire. Les messages plein écran avec image et texte remplissent 50 % de la hauteur de l'appareil. Tous les messages in-app plein écran remplissent la barre d'état sur les appareils à encoche.
 
-- Toutes les images doivent peser moins de 5&nbsp;Mo.
-- Nous acceptons uniquement les formats PNG, JPEG et [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs).
-- Nous recommandons que vos images pèsent 500&nbsp;Ko.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Créez vos ressources en toute confiance ! Nos modèles d'images pour messages in-app et nos superpositions de zones sûres sont conçus pour s'adapter parfaitement aux appareils de toutes tailles. [Télécharger le ZIP des modèles de conception]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 

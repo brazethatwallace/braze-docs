@@ -7,21 +7,40 @@ description: "This reference article describes top-level Message Prioritization 
 
 # Message Prioritization
 
-> Use Message Prioritization to make sure your users receive the campaigns that matter most.
+> Use Message Prioritization to make sure users receive the messages that matter most to your business, not just whichever ones happen to send first.
 
 {% alert important %}
 Message Prioritization is currently in beta. Contact your Braze account manager if you're interested in participating in this beta.<br><br>This article reflects the version of Message Prioritization planned for production release in late July 2026. Some behavior described here may not yet be available in all beta workspaces.
 {% endalert %}
 
-Only administrators can configure top-level Message Prioritization settings. Limited users may view each page in this section, but may not make changes.
+## Why use Message Prioritization?
 
-For top-level Message Prioritization settings, go to **Settings** > **Message Prioritization**.
+Users can only receive so many messages before volume becomes a problem. The messages that reach them should be the ones that matter most to your business. Message Prioritization helps make sure your highest-value messages win that limited space, rather than leaving it to chance.
+
+Most teams control message volume with frequency caps. On their own, frequency caps are blunt. Once a user hits their cap, send timing decides which messages get through—not business importance.
+
+A low-value promotion that fires first can take a slot a loyalty reward or time-sensitive message would have used later that day. Teams often work around this with separate cap rules, manual scheduling, and ad-hoc filters. These approaches need constant upkeep. They grow harder to manage as campaigns and Canvases change. They still can't guarantee the right message wins.
+
+Message Prioritization changes frequency-cap allocation from **first-come, first-served** to **business-priority-aware**: you rank what matters, and Braze makes the send decisions for you.
+
+Message Prioritization offers several benefits:
+
+- **Define what matters once:** Use categories and ranked rules to encode your priorities—for example, "Loyalty" over "Paid Partnerships." Every opted-in send honors those rankings automatically.
+- **Forward-looking decisions:** Braze predicts what a user may receive later. It can hold back a lower-priority message to preserve cap space for a higher-priority one.
+- **Works across message types and channels:** Scheduled campaigns, action-based campaigns, and Canvas steps compete in one ranked pool within your shared frequency caps.
+- **Retry windows:** A deprioritized message can retry if capacity opens up. This improves the message mix without dropping lower-priority sends entirely.
+
+The result is the same capped send volume, automatically allocated to the messages that matter most.
+
+Message Prioritization is most valuable for high-volume senders that regularly hit frequency caps. It works best when message value is clearly differentiated—for example, loyalty or revenue-driving messages versus routine promotions.
 
 ## How it works
 
 Use Message Prioritization to create [categories](#categories) and [prioritization rules](#prioritization-rules) to rank how your messages are sent.
 
-A beauty brand managing email promotions for paid partnerships and loyalty programs uses Message Prioritization to create two categories named "Paid Partnerships" and "Loyalty". The brand ranks these categories based on which is more business critical to the brand. During the holiday season, the brand ranks "Loyalty" higher than "Paid Partnerships" to prioritize customers who have been part of the membership program for over a year.
+To manage these settings, go to **Settings** > **Message Prioritization**. Only administrators can configure top-level Message Prioritization settings. Users need the "View Message Prioritization" permission to view settings in this section and the "Edit Message Prioritization" permission to edit them.
+
+For example, a beauty brand managing email promotions for paid partnerships and loyalty programs uses Message Prioritization to create two categories: "Paid Partnerships" and "Loyalty". The brand ranks these categories by business importance. During the holiday season, it ranks "Loyalty" first and "Paid Partnerships" second to prioritize long-term members.
 
 ![An example of prioritization rules for two categories: Paid Partnerships and Loyalty.]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization12.png %})
 
@@ -33,9 +52,11 @@ Message Prioritization can evaluate:
 - Action-based campaigns
 - Canvases
 
+Currently, API-triggered campaigns or Canvases aren't supported by Message Prioritization and won't participate in prioritization.
+
 Braze uses its prediction of when each message is expected to send when evaluating whether sending one message now could prevent a higher-priority message from sending later. For more information on how Braze predicts future send timing for campaigns and Canvases, see [How does Braze predict when a future message sends?](#how-does-braze-predict-when-a-future-message-sends)
 
-### Supported message types
+### Supported message channels
 
 Message Prioritization supports the same channels as frequency capping:
 
@@ -48,9 +69,19 @@ Message Prioritization supports the same channels as frequency capping:
 
 For prioritization and frequency capping, iOS push, Android push, web push, and other push notification platforms are treated as one shared push channel, not as separate channels.
 
+These channels are not eligible for Message Prioritization because they aren't subject to frequency capping:
+
+- Content Cards
+- In-app messages
+- Banners
+
+In-app messages and Banners use their own priority settings to decide which message displays when multiple messages compete for the same trigger or placement. For in-app messages, see [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority). For Banners, see [Banner priority]({{site.baseurl}}/user_guide/channels/banners#priority).
+
+If a campaign or Canvas step uses only ineligible channels, it won't participate in prioritization.
+
 ## Categories
 
-Prioritization rules are based on a ranking of categories, which is a label you can assign to a given campaign or Canvas (similar to a [tag]({{site.baseurl}}/user_guide/administrative/app_settings/tags)). You can create up to 20 categories at a given time.
+Prioritization rules are based on a ranking of categories, which are labels you can assign to a given campaign or Canvas (similar to a [tag]({{site.baseurl}}/user_guide/administrative/app_settings/tags)). There is a cap on the number of categories you can create at a given time; talk to your account manager if you'd like a higher limit.
 
 To add a new category:
 
@@ -69,7 +100,7 @@ To edit or delete a category, select the <i class="fas fa-ellipsis-vertical"></i
 
 ## Prioritization rules
 
-After your categories are set up, you can rank them in a set of prioritization rules. Rules are ranked in descending order of priority. You can create up to 10 prioritization rules at a given time.
+After your categories are set up, you can rank them in a set of prioritization rules. Rules are ranked in descending order of priority. There is a cap on the number of prioritization rules you can create at a given time; talk to your account manager if you'd like a higher limit.
 
 1. Go to **Settings** > **Message Prioritization** > **Prioritization Rules** to configure your rules. 
 
@@ -88,9 +119,26 @@ To reorder rules, select and drag the <i class="fa-solid fa-grip-vertical"></i> 
 
 Be sure to select **Save** for your updates to apply.
 
-## Campaign-level settings
+## Frequency caps
 
-### Opt-in
+Message Prioritization works within your existing frequency capping rules. To be eligible for prioritization, a campaign or Canvas step must use a supported channel and be subject to your frequency capping configuration. Messages that are not subject to frequency capping are not eligible for Message Prioritization. If you want a message to always send, opt it out of frequency capping. This also removes it from Message Prioritization.
+
+A prioritized message can send only if:
+
+1. The relevant frequency capping rule has not been reached yet for that user, and
+2. Sending that message would not cause the user to hit a cap before a later, higher-priority message can send.
+
+![An example of a frequency capping rule.]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization9.png %})
+
+You can use channel-specific frequency capping rules, category-specific rules, tag filters, or rules that apply to any channel. Message Prioritization works with whichever rules apply to your opted-in messages.
+
+You can also create frequency capping rules by category to manage how many messages a user receives from a given category. This helps prevent a high-priority category from sending too many messages. Select **Message prioritization category** under **Additional filters**, and select a category from the dropdown.
+
+![An example of the frequency capping rule with the "Category" field dropdown to select P2 or P1.]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization8.png %}){: style="max-width:70%;"}
+
+## Opting in
+
+### Campaign opt-in
 
 To opt a campaign into prioritization, select the **Opt-in to Message Prioritization** checkbox in the campaign's delivery settings.
 
@@ -100,17 +148,25 @@ Next, assign the campaign to a category by selecting one from the **Category** d
 
 ![The Message Prioritization category dropdown in a campaign's delivery settings.]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization10.png %})
 
-Message Prioritization supports scheduled campaigns and action-based campaigns.
+Message Prioritization supports scheduled campaigns and action-based campaigns. API-triggered campaigns aren't supported.
 
-### Intelligent Timing
+### Canvas opt-in
 
-For campaigns that use Intelligent Timing, Message Prioritization compares messages using the send time Braze selects for each user instead of only the original campaign schedule. This lets Braze account for the message that is most likely to be sent to that user first.
+Canvas opt-in works similarly to campaigns. To opt a Canvas into Message Prioritization, enable Message Prioritization in the Canvas settings and assign the Canvas to a category. All steps in the Canvas share that category and the same priority level, which means you can't set priority individually by step.
 
-For recurring Intelligent Timing campaigns, Braze can use the known send time selected for the current recurrence when comparing that campaign against other eligible prioritized messages.
+Message Prioritization supports scheduled Canvases and action-based Canvases. API-triggered Canvases aren't supported.
 
-### Retry window
+## Intelligent Timing
 
-A retry window lets opted-in messages retry for up to three days if the first attempt is not high enough priority to send. On each subsequent day, at the same time the message was originally scheduled or triggered to send, the message is attempted again. After the last day in the retry window, if the message still is not sent, it is not retried further and is permanently deprioritized.
+With Intelligent Timing, Braze sends a message at each user's optimal send time, so the same campaign or Canvas message step can reach different users at different times. Message Prioritization takes this into account: instead of assuming the message sends to everyone at its scheduled time, it ranks a user's competing messages using that user's optimal send time.
+
+For campaigns and Canvas message steps that use Intelligent Timing, Braze predicts send timing on a best-effort basis until it calculates each user's per-user send time. For campaigns, Message Prioritization uses that user's optimal send time for the current occurrence when comparing the campaign against the user's other eligible prioritized messages. For recurring Intelligent Timing campaigns, Braze uses the optimal send time chosen for that occurrence.
+
+For Canvas message steps, Braze updates this prediction once the user enters the step and Braze calculates that user's optimal send time for the step. Message Prioritization uses that calculated send time for the current step. On deterministic paths (paths with no branching, where the step sequence is fixed), Braze also reflects that updated timing in the following message steps when determining their expected send times.
+
+## Retry windows
+
+A retry window lets opted-in messages retry for a limited number of days if the first attempt is not high enough priority to send. The maximum retry window length depends on your Braze platform edition. On each subsequent day, at the same time the message was originally scheduled or triggered to send, the message is attempted again. After the last day in the retry window, if the message still is not sent, it is not retried further and is permanently deprioritized.
 
 For recurring scheduled campaigns, the retry window must be shorter than the minimum time between sends for that campaign. Retries always happen one day at a time from the original send time, even if the campaign is not normally scheduled to send on that day. For example, if you have a campaign that sends every Monday and Wednesday, the retry attempt occurs on Tuesday, so the retry window must be set to one day. If you have a campaign that sends every Monday, Wednesday, and Friday, and the Friday send is retried with a one-day retry window, the retry attempt occurs on Saturday, not Monday.
 
@@ -120,11 +176,13 @@ For action-based campaigns, retries are based on the time the triggered message 
 
 Action-based campaigns that use exception events do not support retry windows.
 
-Retry windows for Canvas messages are configured at the step level. For supported Canvas messaging steps, if a Canvas message step is deprioritized and has a retry window configured, Braze can retry that step later within its retry window.
+Retry windows for Canvas messages are configured at the step level. For supported Canvas messaging steps, if a Canvas Message step is deprioritized and has a retry window configured, Braze can retry that step later within its retry window.
 
-## Canvas-level settings
+## How Braze evaluates messages
 
-To opt a Canvas into Message Prioritization, enable Message Prioritization in the Canvas settings and assign the Canvas to a category.
+{% alert tip %}
+You don't need to understand everything in this section to use Message Prioritization. Once you set your categories and rules and opt your messages in, Braze evaluates and prioritizes messages automatically and does its best to send the ones that matter most. The details here are for when you want to understand how those decisions are made.
+{% endalert %}
 
 When a user is eligible for multiple prioritized messages, Braze evaluates opted-in campaigns and eligible Canvas message steps together on supported channels.
 
@@ -137,33 +195,41 @@ For Canvases, this includes:
 
 Canvas prioritization is not all-or-nothing. A higher-priority campaign can cause one Canvas step to be deprioritized while later eligible steps in that same Canvas can still send, depending on category ranking, send timing, and frequency capping rules.
 
-### How Braze evaluates future messages
+Braze compares prioritized messages only when they share the same applicable frequency capping rule. For example, two email campaigns that count toward the same email frequency capping rule can be prioritized against each other, but a lower-priority email campaign is not deprioritized in favor of a higher-priority SMS message unless both count toward the same rule. Messages outside of Message Prioritization share these frequency cap limits too, so even a high-priority message can be aborted because of a message outside of Message Prioritization.
 
-Braze evaluates campaigns and Canvases differently based on message type.
+Braze evaluates campaigns and Canvases differently, because a Canvas can branch and unfold over time.
 
-#### Campaigns
+### Evaluate campaigns {#evaluating-campaigns}
 
 Braze compares each eligible campaign message using the time that message is expected to send.
 
-#### Canvases
+### Evaluate Canvases {#evaluating-canvases}
 
-Braze traverses the Canvas to determine which future messages a user may receive, starting from:
+To evaluate a Canvas, Braze performs a **look-ahead**: it traverses the Canvas from a starting point to predict which future messages a user may receive, and when. The look-ahead starts from:
 
 - Canvas entry, for future scheduled Canvases
 - The user's current step, if the user is already in the Canvas
 
-Braze then evaluates Canvas steps in the following ways.
+As it looks ahead, Braze treats each type of Canvas step differently. The step type determines whether the look-ahead counts it, skips it, stops at it, or splits across multiple paths:
 
-##### Messaging steps
+| Step category | Effect on the look-ahead |
+|---|---|
+| Messaging steps | Counted as eligible messages for prioritization |
+| Continuation steps | Skipped; the look-ahead passes through them |
+| Boundary steps | The look-ahead stops until the user passes the step |
+| Branching steps | The look-ahead follows every possible path |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Evaluating Canvases" }
+
+#### Messaging steps
 
 These steps are counted toward prioritization and added to the set of eligible messages when they send on a supported channel.
 
 - Message step
 - Content Optimizer step
 
-##### Continuation steps 
- 
-These steps are ignored for prioritization and do not affect look-ahead.
+#### Continuation steps
+
+These steps are ignored for prioritization and do not affect the look-ahead.
 
 - Context Update step
 - User Update step
@@ -171,17 +237,17 @@ These steps are ignored for prioritization and do not affect look-ahead.
 - Feature Flag step
 - Delay step with a fixed delay
 
-##### Boundary steps
+#### Boundary steps
 
-Braze stops look-ahead at these steps until the user actually progresses through them in the Canvas.
+Braze stops the look-ahead at these steps until the user actually progresses through them in the Canvas.
 
 - Delay step with a personalized delay
 - Delay step that follows a branching step
 - Action Path step
 - Experiment step
 
-##### Branching steps 
- 
+#### Branching steps
+
 These steps split the Canvas into multiple possible paths.
 
 - Decision Split step
@@ -189,40 +255,11 @@ These steps split the Canvas into multiple possible paths.
 
 When a prioritization path contains branching steps, Braze assumes all paths are viable and considers all parallel message steps on supported channels for prioritization. Because frequency capping rules can be channel-specific, parallel message steps are de-duplicated by channel when needed.
 
-For example, if one branch can send email and another branch can also send email, Braze treats those as a single possible email send for forward-looking prioritization. If another branch can send push, Braze also considers that possible push send separately.
+For example, if one branch can send email and another branch can also send email, Braze treats those as a single possible email send during the look-ahead. If another branch can send push, Braze also considers that possible push send separately.
 
-For Canvas message steps that use Intelligent Timing, Braze predicts timing best-effort until the user actually reaches that step. Once the user enters the Intelligent Timing step and Braze calculates the per-user send time, Message Prioritization uses that calculated send time for the current step. On deterministic paths, Braze also reflects that updated timing in following message steps when determining their expected send times.
+For Canvas message steps that use Intelligent Timing, Braze uses each user's calculated send time once the user reaches the step. For details, see [Intelligent Timing](#intelligent-timing).
 
 Content Optimizer steps are treated like messaging steps because they always send on a specified channel. However, retry windows do not apply to Content Optimizer steps because retrying would interfere with the experiment. Other supported Canvas messaging steps can use retry windows. Canvas steps on unsupported channels do not participate in Message Prioritization.
-
-## Frequency caps
-
-Message Prioritization works within your existing frequency capping rules. A prioritized message can send only if:
-
-1. The relevant frequency capping rule has not been reached yet for that user, and
-2. Sending that message would not cause the user to hit a cap before a later, higher-priority message can send.
-
-Messages that are not subject to frequency capping are not eligible for Message Prioritization. If you want a message to always send, opt it out of frequency capping. This also removes it from Message Prioritization.
-
-### For supported campaigns and Canvas steps
-
-To be eligible for Message Prioritization, the campaign or Canvas step must use a supported channel and be evaluated within your frequency capping configuration.
-
-![An example of a frequency capping rule.]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization9.png %})
-
-### Frequency capping rules
-
-Braze optimizes priority within your existing frequency capping rules. Prioritized messages are compared only when they share the same applicable frequency capping rule.
-
-For example, two email campaigns that count toward the same email frequency capping rule can be prioritized against each other. A lower-priority email campaign is not deprioritized in favor of a higher-priority SMS message unless both messages count toward the same frequency capping rule.
-
-You can use channel-specific frequency capping rules, category-specific rules, tag filters, or rules that apply to any channel. Message Prioritization works with whichever rules apply to your opted-in messages.
-
-You can create frequency capping rules by category to manage how many messages a user receives from a given category. This helps prevent a high-priority category from sending too many messages. Select **Message prioritization category** under **Additional filters**, and select a category from the dropdown.
-
-![An example of the frequency capping rule with the "Category" field dropdown to select P2 or P1.]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization8.png %}){: style="max-width:70%;"}
-
-Messages outside of Message Prioritization share frequency cap limits with prioritized messages, so even a high-priority message can be aborted due to a message outside of Message Prioritization.
 
 ## Examples
 
@@ -240,31 +277,30 @@ Suppose a user is eligible for a lower-priority campaign, but is also expected t
 
 ### Higher-priority Canvas with a boundary step versus lower-priority campaign
 
-Suppose a higher-priority Canvas includes an Action Path Step, an experiment, or a personalized delay before its next message step. Until the user reaches and moves past that step, Braze does not look ahead to the downstream higher-priority Canvas message. In that case, a lower-priority campaign may still send first.
+Suppose a higher-priority Canvas includes an Action Path step, an experiment, or a personalized delay before its next Message step. Until the user reaches and moves past that step, Braze does not look ahead to the downstream higher-priority Canvas message. In that case, a lower-priority campaign may still send first.
 
 ### Higher-priority branching Canvas versus lower-priority message
 
 Suppose a higher-priority Canvas can send different messages depending on which branch a user follows. Braze evaluates those possible future paths conservatively when comparing messages. This helps prevent a lower-priority message from sending now if a higher-priority Canvas branch could use that same frequency cap later.
 
-### Canvas Intelligent Timing step and downstream steps
+### Canvas step with Intelligent Timing and downstream steps
 
-Suppose a user enters a higher-priority Canvas message step that uses Intelligent Timing. Once Braze calculates that user's send time for the Intelligent Timing step, Message Prioritization uses that per-user send time for the current step and for later message steps on the same deterministic path. This helps Braze compare downstream Canvas messages against other prioritized sends using the updated timing instead of only the earlier path estimate.
+Suppose a user enters a higher-priority Canvas Message step that uses Intelligent Timing. Once Braze calculates that user's send time for the step with Intelligent Timing, Message Prioritization uses that per-user send time for the current step and for later Message steps on the same deterministic path. This helps Braze compare downstream Canvas messages against other prioritized sends using the updated timing instead of only the earlier path estimate.
 
 ## Limitations
 
-Message Prioritization has the following limitations:
+Message Prioritization has the following feature limits. Specific limits depend on your Braze platform edition; contact your Braze account manager for details.
 
-- Up to 20 categories per workspace
-- Up to 10 prioritization rules per workspace
-- Up to 25 active opted-in prioritized scheduled items at a time
-- Up to 25 active opted-in prioritized action-based items at a time
-- Retry windows of up to 3 days
-
-The scheduled-item limit is a combined total across scheduled campaigns and scheduled opted-in Canvases. The action-based-item limit is a combined total across action-based campaigns and action-based opted-in Canvases.
+- A limit on the number of active opted-in scheduled campaigns and Canvases (combined)
+- A limit on the number of active opted-in action-based campaigns and Canvases (combined)
+- A limit on the number of prioritization decisions per month
+- A limit on the number of categories per workspace
+- A limit on the number of prioritization rules per workspace
+- A maximum retry window length
 
 ## Frequently asked questions
 
-### How are ties broken between messages in the same category?
+### How are ties in priority broken between messages in the same category?
 
 When prioritizing two campaigns in the same category against each other, Braze gives higher priority to the one with the earlier send time. If a retry window is configured, Braze uses the end of that retry window when comparing campaigns within the same priority rule. For recurring campaigns, the send time is calculated as the next occurrence as of midnight in company time. For campaigns scheduled in local time, Braze assumes a send time in company time.
 
@@ -284,7 +320,7 @@ Braze predicts future send timing differently for each message type:
 
 - **Scheduled campaigns:** Braze uses the time each campaign is expected to send. For scheduled campaigns that use Intelligent Timing, Braze uses each user's optimal send time for that campaign occurrence.
 - **Action-based campaigns:** Braze uses the time each triggered message is expected to send, including any configured delay between trigger and send.
-- **Canvas steps:** Braze uses the user's Canvas entry or current Canvas position, plus the timing of downstream steps. For Canvas message steps that use Intelligent Timing, once a user enters that step, Braze uses the per-user send time it calculates for that user. For following message steps on the same deterministic prioritization path, Braze uses that Intelligent Timing send time when determining later expected send timing. Before a user reaches the Intelligent Timing step, prediction remains best-effort.
+- **Canvas steps:** Braze uses the user's Canvas entry or current Canvas position, plus the timing of downstream steps. For Canvas message steps that use Intelligent Timing, once a user enters that step, Braze uses the per-user send time it calculates for that user. For following message steps on the same deterministic path, Braze uses that Intelligent Timing send time when determining later expected send timing. Before a user reaches the step with Intelligent Timing, prediction remains best-effort.
 
 ### My message was scheduled to send already, but it hasn't yet because of rate limiting or other delays. What does this mean for prioritizing other campaigns?
 
@@ -292,15 +328,15 @@ Braze assumes your message was sent at the originally scheduled time if it is st
 
 ### My message was prioritized but aborted last-minute. What does that mean for prioritization?
 
-When a message is prioritized, Braze will assume it was sent at its originally scheduled time. In general for Message Prioritization, we don't recommend using Liquid aborts. If a message is aborted due to [`abort_message` Liquid logic]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), we'll assume it was sent to that user and will prioritize future campaigns accordingly.
+When a message is prioritized, Braze assumes it was sent at its originally scheduled time. In general for Message Prioritization, we don't recommend using Liquid aborts. If a message is aborted due to [`abort_message` Liquid logic]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), we assume it was sent to that user and prioritize future campaigns accordingly.
 
-Let's say you have two messages: Message 1 and Message 2. If Message 1 is aborted in favor of a future higher-priority Message 2, this doesn't guarantee that Message 2 will actually send. Message 2 can still abort for any reason, including:
+Let's say you have two messages: Message 1 and Message 2. If Message 1 is aborted in favor of a future higher-priority Message 2, this doesn't guarantee that Message 2 actually sends. Message 2 can still abort for any reason, including:
 
 - Liquid abort messages
 - The user no longer being in the segment
 - Frequency caps because of a message outside of the prioritization rules.
 
-If Message 2 aborts, there will not be another attempt to send Message 1.
+If Message 2 aborts, there is not another attempt to send Message 1.
 
 Note that a user could receive a lower-priority message, but not a higher-priority message for the same frequency capping rule for the following reasons:
 
@@ -309,24 +345,12 @@ Note that a user could receive a lower-priority message, but not a higher-priori
 - At the time of the lower-priority message send, the user was not in the audience for the higher-priority message.
 - Both messages should have been able to send, but a message outside of the prioritization setup sent before the higher-priority message could send.
 
-### How do boundary steps affect Canvas prioritization?
+### How does Intelligent Timing work with Message Prioritization?
 
-Boundary steps stop look-ahead through the Canvas until the user actually reaches or completes that point in the Canvas. For example, if a higher-priority message sits after an Action Path Step, personalized delay, or experiment step, Braze does not use that downstream message to block a lower-priority campaign until the user has moved past that boundary.
-
-### How does branching work in Canvas prioritization?
-
-When a Canvas contains branching paths, Braze assumes each path is viable and compares the highest possible future send volume by channel. This helps avoid sending a lower-priority message now if a higher-priority Canvas path could consume that same frequency cap later.
-
-### What happens if a user has multiple paths through a prioritized Canvas at the same time?
-
-Braze treats each viable path as a possible future path and evaluates the eligible message steps on those paths independently. When multiple paths can send on the same channel, Braze de-duplicates those possible sends by channel when needed.
-
-### How does Intelligent Timing work in Canvas prioritization?
-
-Before a user reaches an Intelligent Timing Canvas message step, Braze predicts that step's timing best-effort. Once the user enters the step and Braze calculates the per-user send time, Message Prioritization uses that calculated send time for the current step and for following message steps on the same deterministic prioritization path.
+For campaigns, Message Prioritization uses each user's optimal send time for the current occurrence. For Canvas message steps, Braze uses each user's calculated send time once the user reaches the step, and reflects that timing in following Message steps on the same deterministic path. For details, see [Intelligent Timing](#intelligent-timing).
 
 ### Is there any reporting or analytics functionality specific to Message Prioritization?
 
-Braze provides Message Prioritization-related events in Currents and data sharing for supported channels, including email, LINE, push notifications, SMS, webhooks, and WhatsApp. These include deprioritized and frequency-capped events, logged to the `users.messages.<channel>.abort` table, as well as retry events that show when a message was later retried within the configured retry window, logged to the `user_messages_<channel>_retry` table.
+Braze provides Message Prioritization-related events in Currents and data sharing for supported channels, including email, LINE, push notifications, SMS, webhooks, and WhatsApp. These include deprioritized and frequency-capped events, logged as the `users.messages.<channel>.Abort` event, as well as retry events that show when a message was later retried within the configured retry window, logged as the `users.messages.<channel>.Retry` event.
 
-For campaigns, you can also use the Messaging Diagnostics dashboard, the existing deprioritized and retried daily stats, and existing [Braze reporting functionality]({{site.baseurl}}/user_guide/analytics/reporting) to monitor the health and performance of your prioritized campaigns and Canvases.
+You can also use the Messaging Diagnostics dashboard, the existing deprioritized and retried daily stats, and existing [Braze reporting functionality]({{site.baseurl}}/user_guide/analytics/reporting) to monitor the health and performance of your prioritized campaigns and Canvases.

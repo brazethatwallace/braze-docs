@@ -87,7 +87,7 @@ Diese Features werden bei der Verschlüsselung auf Bezeichner-Feldebene nicht un
 
 ### Nutzer:innen-Attribute-Objekt {#user-attributes-object}
 
-Wenn Sie die Verschlüsselung auf Bezeichner-Feldebene mit dem Endpunkt `/users/track` verwenden, beachten Sie diese Felddetails für das [Nutzer:innen-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens):
+Wenn Sie die Verschlüsselung auf Bezeichner-Feldebene mit dem Endpunkt `/users/track` verwenden, beachten Sie diese Felddetails für das [Nutzer:innen-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object):
 
 - Das Feld `email` muss der Hash-Wert der E-Mail sein.
 - Das Feld `email_encrypted` muss der verschlüsselte Wert für die E-Mail sein.
