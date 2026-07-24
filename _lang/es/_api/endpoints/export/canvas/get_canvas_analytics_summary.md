@@ -132,7 +132,7 @@ En `total_stats`, `variant_stats` y `step_stats`, `conversions` es el recuento d
       ... (more steps)
     }
   },
-  "message": (required, string) the status of the export, returns 'success' on successful completion
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

@@ -133,7 +133,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }

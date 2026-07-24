@@ -276,7 +276,8 @@ $(document).ready(function() {
     {% multi_lang_include layouts/sql_segment_extensions_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="search" placeholder="{{ glossary_loc.glossary_sql_use_cases_search_placeholder }}" aria-label="{{ glossary_loc.glossary_sql_use_cases_search_aria }}" aria-describedby="search-hint" />
+        <label for="api_search" id="sql-use-cases-search-label" class="sr-only">{{ glossary_loc.glossary_sql_use_cases_search_aria }}</label>
+        <input id="api_search" type="search" placeholder="{{ glossary_loc.glossary_sql_use_cases_search_placeholder }}" aria-labelledby="sql-use-cases-search-label" aria-describedby="search-hint" />
         <span id="search-hint" class="sr-only">{{ glossary_loc.glossary_sql_use_cases_search_hint }}</span>
         <div id="api_filter_list"></div>
     </div>

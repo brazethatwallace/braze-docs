@@ -33,7 +33,7 @@ description: "이 문서에서는 Canvas 데이터 시리즈 분석 내보내기
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
 | `canvas_id` | 필수 | 문자열 | [Canvas API 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
-| `ending_at` | 필수 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 내보내기가 종료되어야 하는 날짜. 요청 시점으로 기본 설정됩니다. |
+| `ending_at` | 필수 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 내보내기가 종료되어야 하는 날짜. 요청 시점이 기본값입니다. |
 | `starting_at` | 선택 사항* | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 내보내기가 시작되어야 하는 날짜. <br><br>* `length` 또는 `starting_at` 중 하나가 필요합니다. |
 | `length` | 선택 사항* | 문자열 | 반환된 시리즈에 포함할 `ending_at` 이전 최대 일수. 1에서 14 사이여야 합니다(포함). <br><br>* `length` 또는 `starting_at` 중 하나가 필요합니다. |
 | `include_variant_breakdown` | 선택 사항 | 부울 | 배리언트 통계를 포함할지 여부(기본값은 `false`).  |
@@ -112,7 +112,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
       ... (more stats by time)
     ]
   },
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

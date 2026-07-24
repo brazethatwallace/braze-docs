@@ -348,7 +348,8 @@ $(document).ready(function() {
     {% multi_lang_include layouts/report_metrics_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.report_metrics_search_placeholder }}" aria-label="{{ glossary_loc.report_metrics_search_aria }}" aria-describedby="search-hint" />
+        <label for="api_search" id="report-metrics-search-label" class="sr-only">{{ glossary_loc.report_metrics_search_aria }}</label>
+        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.report_metrics_search_placeholder }}" aria-labelledby="report-metrics-search-label" aria-describedby="search-hint" />
         <span id="search-hint" class="api-sr-only">{{ glossary_loc.report_metrics_search_hint }}</span>
         <fieldset id="api_filter_list">
           <legend>{{ glossary_loc.report_metrics_filter_legend }}</legend>
