@@ -2,7 +2,9 @@
 
 Per-event documentation for the generated Currents glossary pages lives in [`scripts/resources/currents_events.yml`](../../../../scripts/resources/currents_events.yml).
 
-The file is a single top-level `event_documentation` map. Each key is a full dotted event type; each value is a map of optional keys. Every key is optional — an event with no entry at all still renders, using the EMS description and no tags, callouts, or details.
+The file is a single top-level `event_documentation` map. Each key is a full dotted event type; each value is a map of documentation keys.
+
+**Documentation standard: every event must have `api_tags`.** The generator does not enforce this — it renders an event fine without a tag block — but the docs standard requires `api_tags` on every event, so treat a missing one as a gap to fill. `description` is optional: when it is absent the generator falls back to the description EMS supplies, which is a valid state. The remaining keys (`alert_*`, `property_details`, `extra_details`) are optional and used only where the event needs them.
 
 ```yaml
 event_documentation:
@@ -19,15 +21,15 @@ Indentation is two spaces per level: event types at two, keys at four, list item
 
 ## Keys
 
-| Key | Type | Renders as |
-|---|---|---|
-| `description` | string | The opening paragraph, replacing the description EMS supplies |
-| `api_tags` | list of strings | An `{% apitags %}` block, joined with `, ` |
-| `alert_tip` | string | `{% alert tip %}` callout |
-| `alert_note` | string | `{% alert note %}` callout |
-| `alert_important` | string | `{% alert important %}` callout |
-| `property_details` | list (see below) | A `### Property details` heading and bullet list |
-| `extra_details` | block scalar | Markdown appended verbatim after Property details |
+| Key | Required | Type | Renders as |
+|---|---|---|---|
+| `description` | No | string | The opening paragraph, replacing the description EMS supplies |
+| `api_tags` | **Yes** | list of strings | An `{% apitags %}` block, joined with `, ` |
+| `alert_tip` | No | string | `{% alert tip %}` callout |
+| `alert_note` | No | string | `{% alert note %}` callout |
+| `alert_important` | No | string | `{% alert important %}` callout |
+| `property_details` | No | list (see below) | A `### Property details` heading and bullet list |
+| `extra_details` | No | block scalar | Markdown appended verbatim after Property details |
 
 Order on the page is fixed by the generator and does not follow the order of keys in the YAML: tags, description, tip, note, important, schema tabs, property details, extra details.
 
@@ -45,7 +47,7 @@ Keep it to a sentence or two. Liquid and Markdown both work, though links here a
 
 ## `api_tags`
 
-Feeds the tag chips under the heading. Follow the conventions already in the file: a domain plus an action (`Canvas`, `Conversion`), a channel plus `Sends` for send events, or a concept noun for top-level `users.*` events.
+**Required on every event.** Feeds the tag chips under the heading. Follow the conventions already in the file: a domain plus an action (`Canvas`, `Conversion`), a channel plus `Sends` for send events, or a concept noun for top-level `users.*` events.
 
 ```yaml
     api_tags:
@@ -53,7 +55,7 @@ Feeds the tag chips under the heading. Follow the conventions already in the fil
       - Update Token
 ```
 
-A new event with no `api_tags` entry renders without a tag block, which is visibly inconsistent with its neighbors. Adding tags is the usual first edit after a new event ships.
+An event with no `api_tags` entry renders without a tag block — visibly inconsistent with its neighbors and a violation of the docs standard. A newly shipped event arrives in exactly this state, so adding tags is the first thing to fix.
 
 ## `alert_tip`, `alert_note`, `alert_important`
 
@@ -154,13 +156,14 @@ Only two events currently use `extra_details`. Read them before writing a new on
 
 ## Adding an entry for a new event
 
-New events arrive on the page through EMS at a release, rendering with the EMS description and no tags. To document one:
+New events arrive on the page through EMS at a release, rendering with the EMS description and no tags — the missing tags put them below the docs standard until you complete the entry. To document one:
 
 1. Find the exact event type string as it appears in the generated page's heading anchor or in the changelog entry that introduced it.
 2. Add the key under `event_documentation`, in the position that keeps the file readable — the file is grouped loosely by event family, not strictly sorted.
-3. Add `api_tags` first; it is the most visible gap.
+3. Add `api_tags` — it is required on every event and is the most visible gap on a new one.
 4. Add `description` only to override the EMS text. Leaving it out keeps the two in sync automatically.
-5. Mirror the result into the generated page, following the emit order in [SKILL.md](../SKILL.md) Step 3.
+5. Add `alert_*`, `property_details`, or `extra_details` only where the event needs them.
+6. Mirror the result into the generated page, following the emit order in [SKILL.md](../SKILL.md) Step 3.
 
 The event type also determines which page it lands on, and that routing is in the generator, not here:
 

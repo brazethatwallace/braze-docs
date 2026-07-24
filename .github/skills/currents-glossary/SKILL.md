@@ -52,7 +52,9 @@ Every part of these pages is owned by exactly one layer. Find your change in thi
 | Changelog entries (everything below `# Currents changelog`) | **EMS** | **No** |
 | Which of the three glossary pages an event lands on, and event ordering | Generator source | **No** |
 
-Note the `description` row: `currents_events.yml` **overrides** the description EMS supplies. If an event has no `description` key, the page shows the EMS text — so a description fix is a docs-owned change either way, and adding the key is the fastest correct fix.
+**`api_tags` is required on every event** by the docs standard, and `currents_events.yml` is its only source — the generator renders an event fine without a tag block, so a missing one is a real gap to fill. Any event you touch should end up with `api_tags`; a brand-new event ships without it and needs it added.
+
+The `description` row works differently: `currents_events.yml` **overrides** the description EMS supplies, but it is optional. If an event has no `description` key, the page shows the EMS text, which is a valid state — so a description fix is a docs-owned change either way, and adding the key is the fastest correct fix. The remaining keys (`alert_*`, `property_details`, `extra_details`) are optional too.
 
 The `_lang/` copies of these pages are translations. Do not edit them; they re-sync from English.
 
@@ -153,9 +155,10 @@ You cannot run the generator, so verification is by inspection:
 
 1. **Both sides changed.** Every generated page in your diff has a matching source change, and vice versa. A one-sided diff is the mistake this skill exists to prevent — say so explicitly in the PR description if it's deliberate.
 2. **The YAML parses and the key is on the right event.** Confirm your entry sits under the exact event type string (`users.behaviors.Purchase`, not `Purchase`) and is indented as a child of `event_documentation`.
-3. **The rendered edit is in the right slot** for the order shown in Step 3 — callouts above the schema tabs, property details below them.
-4. **Liquid still balances** — every `{% alert %}`, `{% tabs %}`, `{% api %}` has its closing tag. A generated page that fails to build blocks the whole site.
-5. **Preview the page locally** (`bundle exec jekyll serve`, or the repo's usual preview flow) and read the section you changed.
+3. **Every event you touched has `api_tags`.** It is required on all events. If you added or edited an event's entry — especially a newly shipped event — confirm the key is present; the generator won't flag its absence, but the docs standard requires it.
+4. **The rendered edit is in the right slot** for the order shown in Step 3 — callouts above the schema tabs, property details below them.
+5. **Liquid still balances** — every `{% alert %}`, `{% tabs %}`, `{% api %}` has its closing tag. A generated page that fails to build blocks the whole site.
+6. **Preview the page locally** (`bundle exec jekyll serve`, or the repo's usual preview flow) and read the section you changed.
 
 Then run the normal pre-PR gates: **REQUIRED SUB-SKILL:** [spell-check](../spell-check/SKILL.md), [check-accessibility](../check-accessibility/SKILL.md), and [create-pr](../create-pr/SKILL.md).
 
