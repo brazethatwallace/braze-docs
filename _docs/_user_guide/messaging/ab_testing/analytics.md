@@ -177,12 +177,12 @@ For triggered in-app message campaigns that include delayed displays, control gr
 
 ## Removing message variants after launch
 
-If you remove a message variant from a campaign or Canvas by clicking the **X** in the composer (for example, when creating a new message from a template), this removes the entire message action and creates a new one. Removing a variant affects reporting:
+If you remove a message variant from a campaign or Canvas by clicking the **X** in the composer (for example, when replacing a message from a template), the variant is marked as deleted. Analytics are tied to each variant's unique ID, so removing a variant affects reporting:
 
-- Pre-existing analytics for that variant (such as opens, clicks, and conversions) are no longer associated with the current version of the campaign or step.
-- These metrics may show as 0 or be excluded from variant-level breakdowns in analytics reporting.
+- Pre-existing analytics for the deleted variant (such as opens, clicks, and conversions) no longer appear in the current campaign or Canvas step analytics.
+- Variant-level breakdowns exclude deleted variants. If you add a replacement variant, it receives a new variant ID and starts with no historical stats, so metrics may show as 0.
 
-This applies when you delete and re-add variants, not when you edit the content of an existing variant in place.
+This applies when you delete and re-add variants, not when you edit the content of an existing variant in place. In-place edits keep the same variant ID, so analytics remain associated with that variant.
 
 For more details on deleted variants in reporting, see [Deleted message variants]({{site.baseurl}}/user_guide/analytics/reports/report_builder#deleted-message-variants).
 
