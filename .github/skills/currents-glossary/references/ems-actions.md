@@ -36,7 +36,7 @@ If the field you are questioning appears only under PRC, the docs are not wrong 
 
 Docs changes should **only** change the "Field description" field--while other EMS properties are reflected in the generated docs, changing them would cause structural changes to delivered events too.
 
-Field descriptions have a default for the field name and an optional per-event override; you can find the default doc at https://event-modeling-service.k8s.cluster-001.d-use-1.braze.com/fields/${FIELD_NAME}. New overrides and modifications to them can be made through the UI; changes to the default must be made by the Currents team. Changes should be made at the correct level--don't use an override to correct a mistake in the default because then other events will pick up the old doc.
+Field descriptions have a default for the field name and an optional per-event override; you can find the default doc at https://event-modeling-service.k8s.tools-001.d-use-1.braze.com/fields/${FIELD_NAME}. New overrides and modifications to them can be made through the UI; changes to the default must be made by the Currents team. Changes should be made at the correct level--don't use an override to correct a mistake in the default because then other events will pick up the old doc.
 - If the field doc is already overridden, use the UI to update it.
 - If the default doc is generally correct but some events need a different/more specific doc, use the UI to add overrides to those events.
 - If the default doc is deficient in all cases (e.g. due to inaccuracies or spelling/grammatical errors), contact the Currents team to request a change.

@@ -20,7 +20,7 @@ Four pages under [`_docs/_user_guide/data/distribution/braze_currents/event_glos
 - `user_profiles_events.md`
 - `currents_changelogs.md`
 
-The generator lives outside this repo (in the Currents team's `data-infra-scripts`) and reads the Event Modeling Service (EMS) directly. **You cannot run it from braze-docs.** The Currents team runs it at each Currents release.
+The generator is the `braze-currents-generate-docs` tool (in the Currents team's `braze-currents` plugin, run via `braze-currents:generating-braze-docs-release`) and reads the Event Modeling Service (EMS) directly. **You cannot run it from braze-docs** — it needs EMS/prod access. The Currents team runs it at each Currents release.
 
 **This has one consequence that drives the whole skill:** an edit made only to a generated page looks correct until the next release, then disappears. An edit made only to the source doesn't appear until the next release. So most edits here are a **dual write** — change the rendered page *and* its upstream source in the same PR.
 
