@@ -191,18 +191,28 @@
     scheduleSync();
   }
 
+  const panelObservers = new WeakMap();
+
   /**
    * @param {HTMLInputElement} input
    * @param {() => void} scheduleSync
    * @returns {boolean}
    */
   function attachPanelObserver(input, scheduleSync) {
-    if (input.dataset.suggestionsPanelObserverApplied) return true;
-
     const panel = getSuggestionPanel(input);
+    const existing = panelObservers.get(input);
+
+    if (existing?.panel === panel && panel?.isConnected) {
+      return true;
+    }
+
+    if (existing) {
+      existing.observer.disconnect();
+      panelObservers.delete(input);
+    }
+
     if (!panel) return false;
 
-    input.dataset.suggestionsPanelObserverApplied = "true";
     const panelObserver = new MutationObserver(scheduleSync);
     panelObserver.observe(panel, {
       attributes: true,
@@ -210,6 +220,7 @@
       childList: true,
       subtree: true,
     });
+    panelObservers.set(input, { panel, observer: panelObserver });
     return true;
   }
 
