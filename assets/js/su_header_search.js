@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
     window.SuSearchA11y?.syncClearButtonTabindex;
   const configureSearchSubmitButton =
     window.SuSearchA11y?.configureSearchSubmitButton;
+  const markSearchReady = window.SuSearchA11y?.markSearchReady;
+  const watchSuggestionsOpenState =
+    window.SuSearchA11y?.watchSuggestionsOpenState;
 
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
@@ -94,6 +97,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       form.dataset.listenerAdded = "true";
       form.setAttribute("data-original-action", originalAction);
+
+      const input = form.querySelector("#search-box-autocomplete");
+      const container = form.closest("#auto");
+      if (input && container) {
+        if (watchSuggestionsOpenState) {
+          watchSuggestionsOpenState(container, input);
+        }
+        if (markSearchReady) {
+          markSearchReady(container, input);
+        }
+      }
     }
   }
 
@@ -192,6 +206,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- Run check immediately and periodically for autofill/preload ---
     const checkDelays = [0, 100, 300, 1000, 2000];
     checkDelays.forEach((delay) => setTimeout(toggleHasTextClass, delay));
+
+    const container = input.closest("#auto");
+    if (container && watchSuggestionsOpenState) {
+      watchSuggestionsOpenState(container, input);
+    }
+    if (container && markSearchReady) {
+      markSearchReady(container, input);
+    }
+
     input.dataset.searchWatcherApplied = "true";
   }
 

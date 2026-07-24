@@ -216,6 +216,16 @@ $search_tag_color: $grey-athens;
 section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
     background-color: white;
 }
+
+#su_main_search:not(.su-search-ready) {
+	visibility: hidden;
+	min-height: 63px;
+}
+
+#su_main_search.su-search-ready {
+	visibility: visible;
+}
+
 #su_main_search #search-box-autocomplete {
     border: 2px solid black;
     height: 63px;
@@ -226,22 +236,20 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
 #su_main_search button.su__btn.su__search_btn.su__animate-zoom.su__flex-vcenter.su__position-absolute.su__zindex.su__bg-transparent.su__rtlleft svg path {
     fill: #3e34d3;
 }
-/* Match pill radius and connect the input to the autocomplete panel when open. */
+/* Match pill radius on keyboard focus; flatten only when suggestions are open. */
 #su_main_search input#search-box-autocomplete:focus-visible {
 	@include focus-ring($radius: 16px);
+}
+
+#su_main_search.su-search-suggestions-open input#search-box-autocomplete:focus-visible,
+#su_main_search.su-search-suggestions-open #search-box-autocomplete:focus {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 	border-bottom-color: transparent;
 }
 
-#su_main_search #search-box-autocomplete:focus:not(:focus-visible) {
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-	border-bottom-color: transparent;
-}
-
-#su_main_search #search-box-autocomplete:focus + .su__autocomplete-suggestion,
-#su_main_search input#search-box-autocomplete:focus-visible + .su__autocomplete-suggestion {
+#su_main_search.su-search-suggestions-open #search-box-autocomplete:focus + .su__autocomplete-suggestion,
+#su_main_search.su-search-suggestions-open input#search-box-autocomplete:focus-visible + .su__autocomplete-suggestion {
 	margin-top: 0;
 }
 

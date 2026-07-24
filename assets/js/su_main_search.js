@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     window.SuSearchA11y?.syncClearButtonTabindex;
   const configureSearchSubmitButton =
     window.SuSearchA11y?.configureSearchSubmitButton;
+  const markSearchReady = window.SuSearchA11y?.markSearchReady;
+  const watchSuggestionsOpenState =
+    window.SuSearchA11y?.watchSuggestionsOpenState;
 
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
@@ -116,6 +119,15 @@ document.addEventListener("DOMContentLoaded", function () {
           syncClearButtonTabindex(clearButton, queryInput);
         }
       });
+    }
+
+    if (queryInput) {
+      if (watchSuggestionsOpenState) {
+        watchSuggestionsOpenState(container, queryInput);
+      }
+      if (markSearchReady) {
+        markSearchReady(container, queryInput);
+      }
     }
 
     form.dataset.listenerAdded = "true";

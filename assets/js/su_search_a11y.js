@@ -72,11 +72,116 @@
     searchButton.setAttribute("tabindex", "-1");
   }
 
+  /**
+   * @param {HTMLInputElement | null} input
+   * @returns {HTMLElement | null}
+   */
+  function getSuggestionPanel(input) {
+    const sibling = input?.nextElementSibling;
+    if (sibling?.classList.contains("su__autocomplete-suggestion")) {
+      return sibling;
+    }
+
+    return (
+      input?.closest("#auto, #su_main_search, form")?.querySelector(
+        ".su__autocomplete-suggestion"
+      ) || null
+    );
+  }
+
+  /**
+   * @param {HTMLInputElement | null} input
+   * @returns {boolean}
+   */
+  function isSuggestionPanelOpen(input) {
+    const panel = getSuggestionPanel(input);
+    if (!panel) return false;
+
+    const style = getComputedStyle(panel);
+    return (
+      style.display !== "none" &&
+      style.visibility !== "hidden" &&
+      panel.offsetHeight > 0
+    );
+  }
+
+  /**
+   * @param {HTMLElement | null} container
+   * @param {HTMLInputElement | null} input
+   */
+  function syncSuggestionsOpenState(container, input) {
+    if (!container || !input) return;
+
+    container.classList.toggle(
+      "su-search-suggestions-open",
+      isSuggestionPanelOpen(input)
+    );
+  }
+
+  /**
+   * Reveal the widget after SearchUnify injects markup and clear init-time focus.
+   * @param {HTMLElement | null} container
+   * @param {HTMLInputElement | null} input
+   */
+  function markSearchReady(container, input) {
+    if (!container || container.dataset.searchReady) return;
+
+    container.dataset.searchReady = "true";
+    container.classList.add("su-search-ready");
+    syncSuggestionsOpenState(container, input);
+
+    if (input && document.activeElement === input && !input.dataset.userFocused) {
+      input.blur();
+    }
+  }
+
+  /**
+   * Keep panel-connect styles in sync with the visible autocomplete dropdown.
+   * @param {HTMLElement | null} container
+   * @param {HTMLInputElement | null} input
+   */
+  function watchSuggestionsOpenState(container, input) {
+    if (!container || !input || input.dataset.suggestionsWatcherApplied) return;
+
+    input.dataset.suggestionsWatcherApplied = "true";
+
+    const scheduleSync = () =>
+      requestAnimationFrame(() => syncSuggestionsOpenState(container, input));
+
+    input.addEventListener("focus", scheduleSync);
+    input.addEventListener("blur", () => setTimeout(scheduleSync, 200));
+    input.addEventListener("input", scheduleSync);
+    input.addEventListener("pointerdown", () => {
+      input.dataset.userFocused = "true";
+    });
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Tab") {
+        input.dataset.userFocused = "true";
+      }
+    });
+
+    const panel = getSuggestionPanel(input);
+    if (panel) {
+      const panelObserver = new MutationObserver(scheduleSync);
+      panelObserver.observe(panel, {
+        attributes: true,
+        attributeFilter: ["style", "class"],
+        childList: true,
+        subtree: true,
+      });
+    }
+
+    scheduleSync();
+  }
+
   global.SuSearchA11y = {
     searchI18n,
     applySearchInputLabel,
     applyDefaultSearchInputLabel,
     syncClearButtonTabindex,
     configureSearchSubmitButton,
+    syncSuggestionsOpenState,
+    markSearchReady,
+    watchSuggestionsOpenState,
   };
 })(typeof window !== "undefined" ? window : this);
