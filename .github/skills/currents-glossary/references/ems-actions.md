@@ -32,38 +32,25 @@ Useful before filing a request, to confirm what EMS actually says today and to n
 
 If the field you are questioning appears only under PRC, the docs are not wrong — the change simply has not shipped yet.
 
+## Making changes
+
+Docs changes should **only** change the "Field description" field--while other EMS properties are reflected in the generated docs, changing them would cause structural changes to delivered events too.
+
+Field descriptions have a default for the field name and an optional per-event override; you can find the default doc at https://event-modeling-service.k8s.cluster-001.d-use-1.braze.com/fields/${FIELD_NAME}. New overrides and modifications to them can be made through the UI; changes to the default must be made by the Currents team. Changes should be made at the correct level--don't use an override to correct a mistake in the default because then other events will pick up the old doc.
+- If the field doc is already overridden, use the UI to update it.
+- If the default doc is generally correct but some events need a different/more specific doc, use the UI to add overrides to those events.
+- If the default doc is deficient in all cases (e.g. due to inaccuracies or spelling/grammatical errors), contact the Currents team to request a change.
+- If the default doc is overly-specific and some events need a more general form (e.g. the default specifies a particular channel and the field has been added to events from other channels), as the Currents team to change the default to the more general form. Specify any events that should retain the more-specific form.
+
 ## Requesting a change
 
 File a ticket in the **DI** Jira project, or post in **#docs-currents-collab**. Include:
 
 - The **event type** (the full dotted string, such as `users.behaviors.pushnotification.TokenStateChange`)
-- The **destination tab** the problem appears on, if it is destination-specific
 - The **field name**, exactly as it appears in the JSON
 - **What it says now** and **what it should say**
 - The docs page and section, so the requester can see the rendered context
 
-A request naming the event type and field resolves far faster than one describing the symptom on the docs page, because EMS is not organized by docs page.
-
-## What happens on the Currents side
-
-Useful for setting expectations on timing, and to follow along if you have EMS access.
-
-1. **Edit the event.** From the event detail page, **Edit event** opens the form. The description lives under **General details** as **Description for documentation**. Per-field text lives in the **Fields** section as **Field description** on each field row. A **Preview** panel shows the resulting Currents schema, Platform schema, and a sample event.
-
-   Editing is blocked while a build, promotion, or discard is in progress — the UI says so explicitly.
-
-2. **Promote.** Saving puts changes in the PRC panel and starts a build. Once the build completes, **Promote** moves the PRC changes to RC after a confirmation step. Until promotion succeeds, the change is not in production.
-
-   Field edits are more constrained once a change reaches RC — fields can no longer be deleted there, though they can still be made optional and new ones added. A field *removal* is a breaking change to customer data pipelines and is not a documentation-level fix.
-
-3. **Release.** The docs only change when the Currents team runs the generator as part of a Currents release, which regenerates all four pages against EMS. A description corrected in EMS today appears in braze-docs at the **next Currents release**, not immediately.
-
-That lag is the reason for the dual-write pattern in [SKILL.md](../SKILL.md): for anything braze-docs *can* own, editing both the rendered page and `currents_events.yml` gets the fix in front of customers now and keeps it after the next regeneration.
-
-## Interim wording while a request is open
-
-If an EMS-owned error is actively misleading customers, do not edit the `{% tabs %}` JSON — the edit is guaranteed to be lost and reviewers cannot tell it is temporary. Instead, add a `property_details` bullet or an `alert_note` in `currents_events.yml` describing the correct behavior, with the matching edit to the rendered page. That is durable, survives regeneration, and can be removed once EMS is corrected.
-
 ## A caution on this page
 
-The EMS UI is owned by the Currents team and changes without reference to braze-docs. Labels and flows described here can drift. The handoff path — a DI ticket or **#docs-currents-collab** — is the part that stays accurate.
+The EMS UI is owned by the Currents team and changes without reference to braze-docs. If the labels or flows mentioned here do not seem to correspond to the EMS UI, post in **#docs-currents-collab** so the Currents team can update this skill.
