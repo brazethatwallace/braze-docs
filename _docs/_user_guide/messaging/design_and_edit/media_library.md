@@ -52,6 +52,14 @@ Later, when drafting a message in Braze, you can pull in your images from the me
 
 {% alert tip %} For more help with the media library, check out our [Media library FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq). {% endalert %}
 
+## ZIP file uploads {#zip-file-uploads}
+
+When you upload a ZIP file to the media library, all files must be in the root of the ZIP folder—do not include subdirectories.
+
+This applies to every file in the archive—including font files (`.ttf`, `.woff`, `.otf`, `.woff2`), HTML, CSS, JavaScript, and images. Place each file in the root of the ZIP alongside the others.
+
+Alternatively, upload assets individually to the media library without zipping them.
+
 ## Replace a file
 
 You can replace the file of an existing asset in the media library while keeping its URL and asset ID stable. Because the URL doesn't change, any message or campaign that references that asset—including already-sent emails—automatically reflects the updated file. This is useful when you want to update a shared asset (such as a logo) in one place rather than updating every campaign individually.
