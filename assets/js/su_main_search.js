@@ -9,15 +9,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const watchSuggestionsOpenState =
     window.SuSearchA11y?.watchSuggestionsOpenState;
 
-  function revealSearchContainer(container, input) {
+  function showSearchContainer(container) {
     if (!container || container.dataset.searchReady) return;
 
     container.dataset.searchReady = "true";
     container.classList.add("su-search-ready");
+  }
+
+  function revealSearchContainer(container, input) {
+    if (!container || container.dataset.searchReady) return;
+
+    showSearchContainer(container);
 
     if (input && document.activeElement === input && !input.dataset.userFocused) {
       input.blur();
     }
+  }
+
+  function trackUserFocus(input) {
+    if (!input || input.dataset.userFocusTrackingApplied) return;
+
+    input.dataset.userFocusTrackingApplied = "true";
+    input.addEventListener("pointerdown", () => {
+      input.dataset.userFocused = "true";
+    });
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Tab") {
+        input.dataset.userFocused = "true";
+      }
+    });
   }
 
   const buttonLabels = {
@@ -133,6 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (queryInput) {
+      trackUserFocus(queryInput);
       if (watchSuggestionsOpenState) {
         watchSuggestionsOpenState(container, queryInput);
       }
@@ -177,9 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const targetNode = document.querySelector("#su_main_search");
   if (targetNode) {
     setTimeout(() => {
-      if (!targetNode.classList.contains("su-search-ready")) {
-        targetNode.classList.add("su-search-ready");
-      }
+      showSearchContainer(targetNode);
     }, 5000);
 
     const observer = new MutationObserver(() => {
