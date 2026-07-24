@@ -106,7 +106,7 @@ _Total Opens_ is the count of how many times the email was opened by users, wher
 
 ### Why are my click counts higher than my segment of users who clicked?
 
-Campaign analytics show the total number of click events, while segments return the number of unique users who performed those clicks. Because each user can click multiple times, the total clicks in analytics will often be higher than the count of users who clicked when you create a segment.
+Campaign analytics show the total number of click events, while segments return the number of unique users who performed those clicks. Because each user can click multiple times, the total clicks in analytics is often higher than the count of users who clicked when you create a segment.
 
 For example, if 100 users each click a link 3 times, campaign analytics show 300 total clicks, but a segment filtered by "Clicked Email" for that campaign returns 100 users.
 
