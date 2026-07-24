@@ -131,7 +131,15 @@ When fetching external data in landing pages:
 - **Loading states:** Users will see placeholder text until the endpoint responds. Consider adding a loading indicator or skeleton screen.
 - **Error handling:** If the endpoint fails or is slow to respond, the page may appear broken. Implement appropriate error messages and fallbacks.
 - **Performance:** The page loads immediately, but data appears after the external request completes. Keep your API responses fast for the best user experience.
-- **Security:** Ensure your API endpoint validates the identifier and only returns data the user is authorized to see. Implement rate limiting to prevent abuse. For guidance on choosing secure identifiers, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+- **Security:** Make sure your API endpoint validates the identifier and only returns data the user is authorized to see. Implement rate limiting to prevent abuse. For guidance on choosing secure identifiers, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+
+{% alert warning %}
+For Liquid-personalized landing pages, Braze processes {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} delimiters anywhere they appear in the landing page HTML—including inside JavaScript strings, comments, and regular expressions. This applies to the entire page, but **Custom Code** blocks are the most likely place to include these sequences accidentally.
+
+If these sequences appear without matching closing tags (for example, {% raw %}`/* version {{ 2.0 */`{% endraw %}), Braze treats them as open Liquid tags. Other valid Liquid tags on the page may fail to render, or Liquid rendering may break elsewhere in the same block. In severe cases, broken Liquid can prevent the page from publishing or cause it to be unpublished (see [Fallback pages](#fallback-pages)).
+
+To avoid this, escape or remove {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} from non-Liquid contexts, split the sequences in JavaScript (for example, {% raw %}`'{' + '{'`{% endraw %}). Liquid runs server-side before the script executes. You can also wrap larger non-Liquid sections in {% raw %}`&#123;% raw %&#125;...&#123;% endraw %&#125;`{% endraw %} tags.
+{% endalert %}
 
 ## Fallback pages
 

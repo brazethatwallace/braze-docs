@@ -1,6 +1,9 @@
 // search-form-handler.js
 
 document.addEventListener("DOMContentLoaded", function () {
+  const applyDefaultSearchInputLabel =
+    window.SuSearchA11y?.applyDefaultSearchInputLabel;
+
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
     "pt-br":{ form: "Pesquisa do site", search: "Pesquisar", clear: "Limpar pesquisa" },
@@ -106,22 +109,11 @@ document.addEventListener("DOMContentLoaded", function () {
    */
   function setupInputWatcher() {
     const input = document.getElementById("search-box-autocomplete");
-    if (!input) return;
+    if (!input || input.dataset.searchWatcherApplied) return;
 
-    const translations = {
-      en: "Search everything",
-      "pt-br": "Buscar tudo",
-      ko: "전체 검색",
-      fr: "Rechercher tout",
-      es: "Buscar todo",
-      de: "Alles durchsuchen",
-      ja: "すべて検索",
-    };
-
-    const lang = document.documentElement.lang;
-    const placeholderText = translations[lang] || translations.en;
-    input.setAttribute("placeholder", placeholderText);
-    input.setAttribute("aria-label", placeholderText);
+    if (applyDefaultSearchInputLabel) {
+      applyDefaultSearchInputLabel(input);
+    }
 
     // Combobox ARIA — tells assistive technology this input controls a listbox
     input.setAttribute("role", "combobox");
@@ -174,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- Run check immediately and periodically for autofill/preload ---
     const checkDelays = [0, 100, 300, 1000, 2000];
     checkDelays.forEach((delay) => setTimeout(toggleHasTextClass, delay));
+    input.dataset.searchWatcherApplied = "true";
   }
 
   /**
