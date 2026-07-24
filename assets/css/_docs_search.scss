@@ -238,19 +238,26 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
 }
 /* Match pill radius on keyboard focus; flatten only when suggestions are open. */
 #su_main_search input#search-box-autocomplete:focus-visible {
-	@include focus-ring($radius: 16px);
+	@include focus-ring($radius: 16px, $offset: 0);
 }
 
 #su_main_search.su-search-suggestions-open input#search-box-autocomplete:focus-visible,
 #su_main_search.su-search-suggestions-open #search-box-autocomplete:focus {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
-	border-bottom-color: transparent;
 }
 
 #su_main_search.su-search-suggestions-open #search-box-autocomplete:focus + .su__autocomplete-suggestion,
 #su_main_search.su-search-suggestions-open input#search-box-autocomplete:focus-visible + .su__autocomplete-suggestion {
-	margin-top: 0;
+	margin-top: -2px;
+}
+
+#su_main_search.su-search-suggestions-open .su__mobile_resultbox {
+	top: 61px !important;
+}
+
+#su_main_search.su-search-suggestions-open .su__suggestions-list.su__bg-gray-hover.su__flex-vcenter.su__text-black.su__fontsize-14.su__mb-1.null {
+	border-top: none;
 }
 
 #su_main_search .su__search_btn:focus:not(:focus-visible),
