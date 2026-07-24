@@ -199,9 +199,27 @@ If a user blocks your business, subsequent messages you attempt to send don't de
 #### What happens if a user reports a message? 
 If a user reports a message, you can still send subsequent messages to them. However, reporting may affect your quality rating on the channel. The user's subscription status won't update.
 
+#### How can I exclude users who report my WhatsApp account from upcoming launches?
+Braze doesn't receive notifications from WhatsApp when your account is flagged or reported, so you can't automatically identify or exclude those users in Braze. Users who report your account may remain in your WhatsApp subscription group and continue to be eligible for future messages. 
+
+You can, however, set up a campaign that triggers when a user responds with an opt-out keyword, which automatically unsubscribes them using the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). For more information, see [WhatsApp opt-in and opt-out process]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+
 #### Does Braze support automatic SMS fallback when WhatsApp delivery fails?
 
 No. Braze doesn't offer a native WhatsApp-to-SMS fallback path. To retry on another channel, segment users with failed WhatsApp sends (for example, through Currents failure events) and target an SMS or email campaign.
+
+#### Are WhatsApp response messages free? {#are-whatsapp-response-messages-free}
+
+Response messages composed in the Braze campaign or Canvas editor (not approved WhatsApp templates) are treated as service messages by Meta. Service messages sent through Braze's native WhatsApp integration don't consume Action Credits when they are sent as [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) within an open customer service window.
+
+| Message type | Action Credits | Notes |
+|---|---|---|
+| Response message (inbound reply) | Not consumed | Composed in Braze; not a Meta-approved template. |
+| Template message | Consumed | Marketing, utility, authentication, and limited time offer templates are billed per send. |
+| Utility template in service window | Not consumed by Meta | Meta doesn't charge for utility templates sent within 24 hours of a user-initiated message. Action Credit consumption follows your contract. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response message Action Credits" }
+
+For Canvas flows where users tap quick replies after the original 24-hour window, see [Quick replies and inbound messages outside the 24-hour window]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
 #### What happens if a user replies or taps a quick reply after the 24-hour window closes?
 A new 24-hour customer service window opens. See [Quick replies and inbound messages outside the 24-hour window]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
