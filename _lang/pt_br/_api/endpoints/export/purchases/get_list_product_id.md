@@ -48,7 +48,7 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
   "products": [
     "product_name" (string), the name of the product
   ],
-  "message": "success"
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

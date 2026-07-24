@@ -34,7 +34,7 @@ description: "この記事では、「キャンペーンリストのエクスポ
 | --------- | -------- | --------- | ----------- |
 | `page` | オプション | 整数 | 返すキャンペーンのページ。デフォルトは0です（最大100件の最初のセットを返します）。 |
 | `include_archived` | オプション | ブール値 | アーカイブされたキャンペーンを含めるかどうか。デフォルトはfalseです。 |
-| `sort_direction` | オプション | 文字列 | - 作成時刻を新しいものから古いものへ並べ替える場合: 値`desc`を渡します。<br> - 作成時刻を古いものから新しいものへ並べ替える場合: 値`asc`を渡します。<br><br>`sort_direction`が含まれていない場合、デフォルトの順序は古いものから新しいものになります。 |
+| `sort_direction` | オプション | 文字列 | - 作成時刻を新しいものから古いものへ並べ替える場合：値`desc`を渡します。<br> - 作成時刻を古いものから新しいものへ並べ替える場合：値`asc`を渡します。<br><br>`sort_direction`が含まれていない場合、デフォルトの順序は古いものから新しいものになります。 |
 | `last_edit.time[gt]` | オプション | 時刻 | 結果をフィルターし、指定された時刻以降に編集されたキャンペーンのみを返します。形式は`yyyy-MM-DDTHH:mm:ss`です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
@@ -49,7 +49,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "campaigns" : [
         {
             "id" : (string) the Campaign API identifier,

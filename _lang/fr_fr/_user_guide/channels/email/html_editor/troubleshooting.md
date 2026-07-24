@@ -12,20 +12,21 @@ channel: email
 
 ## Commencez ici : identifiez votre symptôme {#start-here-match-your-symptom}
 
-Identifiez votre symptôme dans le tableau pour accéder à la section correspondante.
+Identifiez votre symptôme dans le tableau ci-dessous pour accéder à la section appropriée.
 
 | Symptôme | Aller à |
 | --- | --- |
 | Le HTML de l'e-mail de test s'affiche mal | [Le HTML s'affiche incorrectement dans les e-mails de test](#html-renders-incorrectly-in-test-emails) |
 | L'éditeur se comporte de manière inattendue dans Chrome | [Conflits d'extensions](#extension-conflicts) |
-| L'e-mail s'affiche différemment selon les clients | [Rendu des e-mails](#email-rendering) |
-| La prévisualisation Inbox Vision ne correspond pas à l'e-mail envoyé | [Insertion CSS](#css-inlining) |
+| L'e-mail s'affiche différemment selon les clients de messagerie | [Rendu des e-mails](#email-rendering) |
+| L'e-mail affiche du code Liquid ou des liens cassés | [HTML déséquilibré dans les modèles Liquid](#unbalanced-html-in-liquid-templates) |
+| L'aperçu Inbox Vision ne correspond pas à l'e-mail envoyé | [Insertion CSS](#css-inlining) |
 | Espaces blancs ou lignes après les images dans les e-mails de test | [Espace blanc sous les images](#white-space-under-images) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptômes liés aux e-mails HTML" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme d'e-mail HTML" }
 
 ## Parcours d'investigation standard {#standard-investigation-path}
 
-Utilisez ce flux de travail lorsque le rendu d'un e-mail HTML ou le comportement de l'éditeur ne correspond pas à vos attentes. Commencez à l'étape 1.
+Utilisez ce flux de travail lorsque le rendu d'un e-mail HTML ou le comportement de l'éditeur ne correspond pas à ce que vous attendez. Commencez à l'étape 1.
 
 1. Validez votre balisage HTML dans l'éditeur ou un validateur externe.
 2. Envoyez un [e-mail de test]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) et notez quels clients de messagerie ou navigateurs présentent le problème.
@@ -35,7 +36,9 @@ Utilisez ce flux de travail lorsque le rendu d'un e-mail HTML ou le comportement
 
 ## Le HTML s'affiche incorrectement dans les e-mails de test {#html-renders-incorrectly-in-test-emails}
 
-**Symptôme :** Un [e-mail de test]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) ne correspond pas à ce que vous attendez de l'éditeur.
+### Symptôme {#symptom}
+
+Un [e-mail de test]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) ne correspond pas à ce que vous attendez de l'éditeur.
 
 Vérifiez d'abord votre configuration HTML, puis consultez les sections [Conflits d'extensions](#extension-conflicts), [Rendu des e-mails](#email-rendering), [Insertion CSS](#css-inlining) et [Espace blanc sous les images](#white-space-under-images).
 
@@ -55,13 +58,64 @@ Les e-mails s'affichent différemment selon les navigateurs et les clients de me
 - Prévisualisez vos e-mails en utilisant [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) pour voir à quoi ressemblent vos e-mails dans différents navigateurs et clients de messagerie.
 - Une fois que vous avez identifié les navigateurs ou clients de messagerie à l'origine des problèmes, informez votre équipe de développement qu'elle devra modifier le HTML et apporter des ajustements pour prendre en charge ces navigateurs ou clients de messagerie.
 
+### HTML déséquilibré dans les modèles Liquid {#unbalanced-html-in-liquid-templates}
+
+#### Symptôme
+
+Certains utilisateurs reçoivent une version modifiée de l'e-mail dans laquelle le code Liquid s'affiche dans le message, les liens sont cassés ou l'espacement semble incorrect.
+
+Braze utilise un analyseur HTML interne pour préparer les e-mails avant leur envoi. Cet analyseur prend en charge des fonctionnalités telles que la génération de l'accroche, le placement du pixel de suivi, le templating de liens et l'aliasing de lien. Lorsque les balises HTML ne sont pas équilibrées au sein de leurs blocs logiques Liquid ou Content Blocks correspondants, l'analyseur peut modifier le HTML sous-jacent de manière inattendue. Cela peut entraîner :
+
+- Des retours à la ligne issus du rendu Liquid dans certains clients de messagerie
+- Un espacement inhabituel dû à des balises `<p>` ajoutées au corps de l'e-mail
+- Le contenu de la balise `<head>` déplacé vers l'accroche
+- Un rendu incohérent selon les systèmes d'exploitation mobiles
+- La suppression du code spécifique à AMP dans les corps d'e-mails AMP, provoquant des échecs de validation
+- Des liens cassés lorsque de nombreux paramètres de requête ou media queries sont utilisés
+
+#### Équilibrer le HTML au sein des blocs Liquid {#balance-html-within-liquid-blocks}
+
+Assurez-vous que toutes les balises HTML s'ouvrent et se ferment au sein de leur bloc logique Liquid ou Content Block correspondant. Cela empêche l'analyseur interne d'interpréter le HTML comme invalide et de le modifier.
+
+#### Exemple déséquilibré {#unbalanced-example}
+
+{% raw %}
+```liquid
+<img src={% if ${language} == 'en' %}"https://example.com/images/banner-en.png" style="width: 100%"{% elsif ${language} == 'de' %}"https://example.com/images/banner-de.png"{% else %}"https://example.com/images/banner-default.png" {% endif %} />
+```
+{% endraw %}
+
+Dans cet exemple, la balise ouvrante `<img` commence en dehors de tout bloc Liquid, et différentes parties des attributs de la balise sont réparties entre les instructions conditionnelles Liquid. Cette structure perturbe l'analyseur, qui ne peut pas déterminer où la balise commence ou se termine.
+
+#### Exemple équilibré {#balanced-example}
+
+{% raw %}
+```liquid
+{% if ${language} == 'en' %}
+  <img src="https://example.com/images/banner-en.png" style="width: 100%;" />
+{% elsif ${language} == 'de' %}
+  <img src="https://example.com/images/banner-de.png" style="width: 100%;" />
+{% else %}
+  <img src="https://example.com/images/banner-default.png" style="width: 100%;" />
+{% endif %}
+```
+{% endraw %}
+
+Dans la version équilibrée, chaque branche Liquid contient une balise `<img>` complète et autonome. Cette approche garantit que l'analyseur traite correctement chaque branche.
+
+#### Corrections supplémentaires {#additional-fixes}
+
+Si vous rencontrez des problèmes de rendu avec les media queries ou de nombreux paramètres de requête, essayez de désactiver l'insertion CSS dans les paramètres de votre e-mail. Cela peut résoudre les conflits entre l'analyseur HTML et les règles CSS complexes.
+
 ### Insertion CSS {#css-inlining}
 
 Il arrive que les prévisualisations dans Inbox Vision ne correspondent toujours pas à ce qui est envoyé avec Braze. Cela peut être dû à la différence d'insertion CSS effectuée par Braze et par d'autres outils. Si vous pensez que c'est le cas, désactivez l'insertion CSS.
 
 ### Espace blanc sous les images {#white-space-under-images}
 
-**Symptôme :** Des espaces blancs ou des lignes apparaissent après les images dans les e-mails de test.
+#### Symptôme
+
+Des espaces blancs ou des lignes apparaissent après les images dans les e-mails de test.
 
 Si vous remarquez des espaces blancs ou des lignes après les images dans vos e-mails de test, cela est généralement dû à la façon dont les clients de messagerie affichent les éléments de type inline. Les images sont de type inline par défaut et sont alignées sur la ligne de base, ce qui permet aux navigateurs d'accommoder les jambages (la partie des lettres comme « g » ou « y » qui descend sous la ligne de base). Cela crée un petit écart qui apparaît sous forme d'espace blanc.
 

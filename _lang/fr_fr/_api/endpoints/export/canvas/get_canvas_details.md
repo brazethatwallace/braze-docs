@@ -100,7 +100,7 @@ Toutes les étapes du Canvas possèdent un champ `next_paths`, qui est un tablea
     },
     ... (more steps)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
