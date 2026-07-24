@@ -182,7 +182,7 @@ If you remove a message variant from a campaign or Canvas by clicking the **X** 
 - Pre-existing analytics for the deleted variant (such as opens, clicks, and conversions) no longer appear in the current campaign or Canvas step analytics.
 - Variant-level breakdowns exclude deleted variants. If you add a replacement variant, it receives a new variant ID and starts with no historical stats, so metrics may show as 0.
 
-This applies when you delete and re-add variants, not when you edit the content of an existing variant in place. In-place edits keep the same variant ID, so analytics remain associated with that variant.
+This applies only when you delete and re-add variants. Editing the content of an existing variant in place does not affect historical analytics.
 
 For more details on deleted variants in reporting, see [Deleted message variants]({{site.baseurl}}/user_guide/analytics/reports/report_builder#deleted-message-variants).
 
