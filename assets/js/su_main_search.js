@@ -153,9 +153,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (queryInput) {
-      trackUserFocus(queryInput);
       if (watchSuggestionsOpenState) {
         watchSuggestionsOpenState(container, queryInput);
+      } else {
+        trackUserFocus(queryInput);
       }
       if (markSearchReady) {
         markSearchReady(container, queryInput);
