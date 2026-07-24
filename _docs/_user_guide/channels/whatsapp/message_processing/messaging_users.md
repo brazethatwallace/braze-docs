@@ -160,7 +160,7 @@ The following events unblock response messages:
 
 ### Quick replies and inbound messages outside the 24-hour window
 
-When a user interacts with your business on WhatsApp, their action counts as an inbound message. That inbound message opens a new 24-hour customer service window, even if the original template was sent more than 24 hours ago.
+When a user interacts with your business on WhatsApp—including by tapping a quick reply button on an older template message—their action counts as an inbound message. That inbound message opens a new 24-hour customer service window, even if the original template was sent more than 24 hours ago.
 
 In a Canvas with quick reply buttons, users can tap a button days after receiving the welcome template and still enter the correct Action Path. Braze evaluates the Action Path when the inbound message arrives; you don't need to extend the Action Path duration beyond the default to capture late replies.
 
