@@ -18,6 +18,7 @@ You can generate a shareable preview link for the following channels and content
 - Content Blocks
 - Content Cards
 - Email and email footer
+- Landing pages
 - LINE
 - Push notifications
 - Subscription pages
@@ -60,7 +61,7 @@ While the core experience is the same everywhere, a few channels have small diff
 
 | Channel | What's different |
 |---|---|
-| Email | The preview includes the message's To, From, and Subject line fields, in addition to the message body. |
+| Email | The preview includes the message's To, From, and Subject line fields, in addition to the message body. <br><br>If you're personalizing as a custom user, values entered as API-trigger properties or event properties may not appear in the preview, even though they display correctly in **Preview and Test**. Custom attributes, test users, and random users aren't affected. |
 | Banner (drag-and-drop editor) | The preview reflects the content as of the last time you opened the **Preview** tab in the composer, not necessarily your most recent edits. <br><br>Open **Preview** again before generating or regenerating a link to make sure it's current. |
 | SMS and RCS | These are both governed by the same shareable preview functionality, but each generates its own independent link. |
 | WhatsApp | Shareable preview is available separately for both WhatsApp template messages and WhatsApp response messages. |
