@@ -90,6 +90,18 @@
   }
 
   /**
+   * @param {HTMLElement} panel
+   * @returns {boolean}
+   */
+  function panelHasSuggestionContent(panel) {
+    return (
+      panel.querySelector(
+        ".su__suggestions-list > *, .su__suggestion-title, .su__recentSearch_result, .su__suggestion-desc"
+      ) !== null
+    );
+  }
+
+  /**
    * @param {HTMLInputElement | null} input
    * @returns {boolean}
    */
@@ -98,11 +110,16 @@
     if (!panel) return false;
 
     const style = getComputedStyle(panel);
-    return (
-      style.display !== "none" &&
-      style.visibility !== "hidden" &&
-      panel.offsetHeight > 0
-    );
+    if (
+      style.display === "none" ||
+      style.visibility === "hidden" ||
+      panel.offsetHeight === 0
+    ) {
+      return false;
+    }
+
+    // SearchUnify can reveal the panel shell (or a loader) before results render.
+    return panelHasSuggestionContent(panel);
   }
 
   /**
