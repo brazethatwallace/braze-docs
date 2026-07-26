@@ -19,9 +19,9 @@ _Diese Integration wird von Jampp gepflegt._
 Die Integration von Braze und Jampp ermöglicht es Unternehmensnutzer:innen, Ereignisse über Braze-Webhook-Ereignisse mit Jampp zu synchronisieren. Dadurch können Kund:innen ihren Retargeting-Initiativen innerhalb ihres mobilen Werbe-Ökosystems reichhaltigere Datensätze hinzufügen.
 
 Einige Beispiele, wann Sie Kund:innen mit einer Anzeige retargeten möchten:
-- Wenn sich der Status des E-Mail- oder Push-Abos einer Kund:in ändert.
-- Wie eine Kund:in mit einer Braze-Messaging-Kampagne interagiert hat.
-- Wenn die Kund:in einen bestimmten Geofence getriggert hat.
+- Wenn sich der Status des E-Mail- oder Push-Abos einer geschäftskunden ändert.
+- Wie eine geschäftskunden mit einer Braze-Messaging-Kampagne interagiert hat.
+- Wenn die geschäftskunden einen bestimmten Geofence getriggert hat.
 
 ## Voraussetzungen {#prerequisites}
 

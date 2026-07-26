@@ -22,7 +22,7 @@ Das von Braze bereitgestellte **Auto**-Modell ist für Modelle optimiert, deren 
 Dies ist die einfachste Option, die keine zusätzliche Einrichtung erfordert. Braze ermöglicht den direkten Zugriff auf große Sprachmodelle (LLMs). Um diese Option zu verwenden, wählen Sie **Auto** aus – dabei werden Gemini-Modelle verwendet.
 
 {% alert important %}
-Sollten Sie beim Erstellen eines Agenten die Option **Braze Auto** nicht in der Dropdown-Liste **Model** sehen, wenden Sie sich an Ihren Customer-Success-Manager, um zu erfahren, wie Sie die Berechtigung zur Nutzung des Braze Auto-Modells erhalten.
+Sollten Sie beim Erstellen eines Agenten die Option **Braze Auto** nicht in der Dropdown-Liste **Model** sehen, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um zu erfahren, wie Sie die Berechtigung zur Nutzung des Braze Auto-Modells erhalten.
 {% endalert %}
 
 ### Option 2: Eigenen API-Schlüssel einbinden {#option-2-bring-your-own-api-key}

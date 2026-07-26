@@ -16,10 +16,10 @@ noindex: true
 > [Shopify](https://www.shopify.com/) ist ein führendes globales Handelsunternehmen, das vertrauenswürdige Tools bereitstellt, um ein Unternehmen jeder Größe zu starten, auszubauen, zu vermarkten und zu verwalten. Die Plattform und Dienste von Shopify sind auf Zuverlässigkeit ausgelegt und bieten Verbraucher:innen überall ein besseres Einkaufserlebnis.
 
 {% alert important %}
-Diese Integration befindet sich derzeit in der Beta-Phase. Für weitere Informationen wenden Sie sich an Ihren Customer-Success-Manager.
+Diese Integration befindet sich derzeit in der Beta-Phase. Für weitere Informationen wenden Sie sich an Ihren geschäftskunden-Success-Manager.
 {% endalert %}
 
-Die Braze-Integration mit Shopify bietet eine leistungsstarke Lösung für E-Commerce-Unternehmen, die ihr Customer-Engagement verbessern und personalisierte Marketingmaßnahmen vorantreiben möchten. Mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) können Sie Daten mit Shopify verbinden, um internes Reporting zu unterstützen und die Last-Touch-Attribution für Käufe besser zu verfolgen.
+Die Braze-Integration mit Shopify bietet eine leistungsstarke Lösung für E-Commerce-Unternehmen, die ihr geschäftskunden-Engagement verbessern und personalisierte Marketingmaßnahmen vorantreiben möchten. Mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) können Sie Daten mit Shopify verbinden, um internes Reporting zu unterstützen und die Last-Touch-Attribution für Käufe besser zu verfolgen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -27,7 +27,7 @@ Die Braze-Integration mit Shopify bietet eine leistungsstarke Lösung für E-Com
 | ----------- | ----------- |
 | Currents | Um Daten nach Shopify zu exportieren, muss [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet sein. |
 | Shopify-Shop | Stellen Sie sicher, dass Sie bereits [mindestens einen Shopify-Shop mit Braze eingerichtet]({{site.baseurl}}/shopify_standard_integration) haben. |
-| Berechtigungen als Shopify-Shop-Inhaber:in oder Mitarbeiter:in | {::nomarkdown}<ul><li>Zugriff auf alle Einstellungen unter <b>General</b> und <b>Online Store</b>.</li><li> Zusätzliche Administratorberechtigungen:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
+| Berechtigungen als Shopify-Shop-Inhaber:in oder Mitarbeiter:in | {::nomarkdown}<ul><li>Zugriff auf alle Einstellungen unter <b>General</b> und <b>Online Store</b>.</li><li> Zusätzliche Administratorberechtigungen:</li><ul><li>Orders: View</li><li>geschäftskunden: ReadWrite</li><li>View geschäftskunden Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration

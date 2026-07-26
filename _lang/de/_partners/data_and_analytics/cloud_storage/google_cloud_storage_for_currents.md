@@ -14,7 +14,7 @@ search_tag: Partner
 > [Google Cloud Storage](https://cloud.google.com/storage/) ist ein massiv skalierbarer Objektspeicher für unstrukturierte Daten, der von Google als Teil der Cloud-Computing-Produkt-Suite angeboten wird.
 
 {% alert important %}
-Wenn Sie zwischen Cloud-Speicheranbietern wechseln, wenden Sie sich an Ihren Customer-Success-Manager von Braze, um weitere Unterstützung bei der Einrichtung und Validierung Ihrer neuen Integration zu erhalten.
+Wenn Sie zwischen Cloud-Speicheranbietern wechseln, wenden Sie sich an Ihren geschäftskunden-Success-Manager von Braze, um weitere Unterstützung bei der Einrichtung und Validierung Ihrer neuen Integration zu erhalten.
 {% endalert %}
 
 Die Integration von Braze und Google Cloud Storage erlaubt es Ihnen, Currents-Daten zu Google Cloud Storage zu streamen. Sie können später einen ETL-Prozess (Extract, Transform, Load) verwenden, um Ihre Daten an andere Ziele zu übertragen, z. B. Google BigQuery.

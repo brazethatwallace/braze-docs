@@ -16,7 +16,7 @@ search_tag: Partner
 Die Integration von Braze und Tealium nutzt die AudienceStream-Besucherprofile. Gemeinsame Verhaltensweisen segmentieren diese Profile, um Gruppen von Besuchern mit gemeinsamen Merkmalen zu erstellen, die als Zielgruppen bezeichnet werden. Diese Zielgruppen können Ihren Marketingtechnologie-Stack in Realtime über Konnektoren unterstützen.
 
 {% alert important %}
-Tealium AudienceStreams und EventStreams bieten sowohl Batch- als auch Non-Batch-Konnektor-Aktionen. Der Non-Batch-Konnektor sollte verwendet werden, wenn Realtime-Anfragen für den Anwendungsfall wichtig sind und keine Bedenken bestehen, die Spezifikationen für die Rate-Limits der Braze API zu überschreiten. Kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support) oder Ihren Customer-Success-Manager, wenn Sie Fragen haben.
+Tealium AudienceStreams und EventStreams bieten sowohl Batch- als auch Non-Batch-Konnektor-Aktionen. Der Non-Batch-Konnektor sollte verwendet werden, wenn Realtime-Anfragen für den Anwendungsfall wichtig sind und keine Bedenken bestehen, die Spezifikationen für die Rate-Limits der Braze API zu überschreiten. Kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support) oder Ihren geschäftskunden-Success-Manager, wenn Sie Fragen haben.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}

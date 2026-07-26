@@ -88,7 +88,7 @@ BrazeがWhatsAppメッセージを送信する際、電話番号が利用可能�
 
 ## 変更に備える方法 {#how-to-prepare-for-the-change}
 
-ほとんどのお客様にとって、アクションは不要です。BrazeはBSUIDルーティング、ユーザー作成、イベントトラッキングを自動的に処理します。ただし、[WhatsApp連絡先帳の有効化](#enable-whatsapp-contact-book)と、複数のWhatsApp Business Account（WABA）を使用している場合は[ビジネスポートフォリオのリンク](#link-business-portfolios-if-you-use-multiple-wabas)をお勧めします。
+ほとんどのお客様にとって、アクションは不要です。BrazeはBSUIDルーティング、ユーザー作成、イベントトラッキングを自動的に処理します。ただし、[WhatsApp連絡先帳の有効化](#enable-whatsapp-contact-book)と、複数のWhatsApp Business アカウント（WABA）を使用している場合は[ビジネスポートフォリオのリンク](#link-business-portfolios-if-you-use-multiple-wabas)をお勧めします。
 
 ### WhatsApp連絡先帳の有効化 {#enable-whatsapp-contact-book}
 
@@ -113,7 +113,7 @@ BSUIDは単一のビジネスポートフォリオにスコープされます。
 
 ## ビジネスポートフォリオのリンクと親BSUID {#link-business-portfolios-and-parent-bsuids}
 
-組織が異なるビジネスポートフォリオにまたがる複数のWhatsApp Business Account（WABA）を運用している場合、Metaの担当者に連絡して、それらのポートフォリオをリンクする資格があるかどうかを確認できます。資格はMetaによって決定され、マネージドビジネスに提供されます。
+組織が異なるビジネスポートフォリオにまたがる複数のWhatsApp Business アカウント（WABA）を運用している場合、Metaの担当者に連絡して、それらのポートフォリオをリンクする資格があるかどうかを確認できます。資格はMetaによって決定され、マネージドビジネスに提供されます。
 
 ### リンクされたポートフォリオの動作 {#linked-portfolio-behavior}
 

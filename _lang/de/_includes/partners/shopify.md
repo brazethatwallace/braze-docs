@@ -2,7 +2,7 @@
 
 {% tabs local %}
 {% tab standard %}
-Die Standard-Integration ist auf Shopify-Onlineshops zugeschnitten und bietet einen nahtlosen und unkomplizierten Einrichtungsprozess. Diese Option erlaubt es Ihnen, Ihren Shopify-Shop schnell mit Braze zu verbinden, sodass Sie leistungsstarke Customer-Engagement-Tools nutzen können, ohne über umfangreiche technische Kenntnisse zu verfügen. Mit dieser Integrationsoption können Sie Kundendaten synchronisieren, personalisiertes Messaging automatisieren und Ihre Marketingmaßnahmen durch umfassende Features von Braze verbessern.
+Die Standard-Integration ist auf Shopify-Onlineshops zugeschnitten und bietet einen nahtlosen und unkomplizierten Einrichtungsprozess. Diese Option erlaubt es Ihnen, Ihren Shopify-Shop schnell mit Braze zu verbinden, sodass Sie leistungsstarke geschäftskunden-Engagement-Tools nutzen können, ohne über umfangreiche technische Kenntnisse zu verfügen. Mit dieser Integrationsoption können Sie Kundendaten synchronisieren, personalisiertes Messaging automatisieren und Ihre Marketingmaßnahmen durch umfassende Features von Braze verbessern.
 
 Um die standardmäßige Shopify-Integration zu verwenden, lesen Sie bitte [Shopify Standard-Integration einrichten]({{site.baseurl}}/shopify_standard_integration).
 {% endtab %}

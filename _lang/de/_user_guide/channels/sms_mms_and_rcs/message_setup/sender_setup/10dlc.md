@@ -122,4 +122,4 @@ Besuchen Sie den Twilio-10DLC-Artikel, um aktuelle [Durchsatzschätzungen](https
 
 ## Nächste Schritte {#next-steps}
 
-Kund:innen, die sich noch nicht für 10DLC registriert haben, müssen mit ihrem Customer-Success-Manager zusammenarbeiten, um ihre Langcodes zu registrieren. **Wenn Kund:innen ihre Langcodes nicht registrieren, wird ab dem 1. Oktober 2021 jeder A2P-Sender, der Langcodes verwendet, eine starke Filterung aller Nachrichten erfahren.** Kontaktieren Sie Ihren Customer-Success-Manager, um mit Ihrer 10DLC-Registrierung zu beginnen.
+Kund:innen, die sich noch nicht für 10DLC registriert haben, müssen mit ihrem geschäftskunden-Success-Manager zusammenarbeiten, um ihre Langcodes zu registrieren. **Wenn Kund:innen ihre Langcodes nicht registrieren, wird ab dem 1. Oktober 2021 jeder A2P-Sender, der Langcodes verwendet, eine starke Filterung aller Nachrichten erfahren.** Kontaktieren Sie Ihren geschäftskunden-Success-Manager, um mit Ihrer 10DLC-Registrierung zu beginnen.

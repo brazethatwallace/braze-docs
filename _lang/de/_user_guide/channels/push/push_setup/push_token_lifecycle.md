@@ -127,7 +127,7 @@ Wenn wir eine Campaign starten möchten, erstellen wir eine Campaign in Braze, d
 
 | Registrierungsschritte | Messaging-Schritte |
 | ------------------ | --------------- |
-| 1. Kund:in (Gerät) registriert sich beim Push-Anbieter<br>2. Anbieter generiert und liefert Push-Token<br>3. Token an Braze übermitteln |1. Braze sendet Push-Payload an den Anbieter<br>2. Anbieter liefert den Push-Payload an das Gerät<br>3. SDK übergibt Messaging-Statistiken an Braze |
+| 1. geschäftskunden (Gerät) registriert sich beim Push-Anbieter<br>2. Anbieter generiert und liefert Push-Token<br>3. Token an Braze übermitteln |1. Braze sendet Push-Payload an den Anbieter<br>2. Anbieter liefert den Push-Payload an das Gerät<br>3. SDK übergibt Messaging-Statistiken an Braze |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Wie sieht das im größeren Maßstab aus?" }
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}

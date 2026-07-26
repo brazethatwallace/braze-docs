@@ -88,7 +88,7 @@ Passen Sie die Kachelgröße an, indem Sie den Größenänderungsgriff ziehen, u
 
 ### Verfügbare Dashboards {#available-dashboards}
 
-Braze stellt vorgefertigte Dashboards für häufige Anwendungsfälle bereit, wie z. B. die Analyse von Umsatz mit Last-Touch-Attribution. Beachten Sie, dass die Möglichkeit, ein Dashboard zu bearbeiten, noch nicht verfügbar ist. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie bestimmte Dashboards in Zukunft sehen möchten.
+Braze stellt vorgefertigte Dashboards für häufige Anwendungsfälle bereit, wie z. B. die Analyse von Umsatz mit Last-Touch-Attribution. Beachten Sie, dass die Möglichkeit, ein Dashboard zu bearbeiten, noch nicht verfügbar ist. Kontaktieren Sie Ihren geschäftskunden-Success-Manager, wenn Sie bestimmte Dashboards in Zukunft sehen möchten.
 
 #### Umsatz – Last-Touch-Attribution {#revenue-last-touch-attribution}
 

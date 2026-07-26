@@ -9,7 +9,7 @@ search_tag: Partner
 
 # VWO
 
-> [VWO](https://vwo.com/) ist eine leistungsstarke Experimentierplattform, die Marken hilft, wichtige Geschäftsmetriken zu verbessern, indem sie Teams in die Lage versetzt, Programme zur Conversion-Optimierung auf der Grundlage von Daten zum Kundenverhalten durchzuführen. Mit VWO können Sie Kundendaten vereinheitlichen, Insights über das Verhalten gewinnen, Hypothesen aufstellen, A/B-Tests über mehrere Plattformen (Server, Web und Mobilgerät) durchführen, Features einführen, Erlebnisse personalisieren und die gesamte Customer Journey optimieren.
+> [VWO](https://vwo.com/) ist eine leistungsstarke Experimentierplattform, die Marken hilft, wichtige Geschäftsmetriken zu verbessern, indem sie Teams in die Lage versetzt, Programme zur Conversion-Optimierung auf der Grundlage von Daten zum Kundenverhalten durchzuführen. Mit VWO können Sie Kundendaten vereinheitlichen, Insights über das Verhalten gewinnen, Hypothesen aufstellen, A/B-Tests über mehrere Plattformen (Server, Web und Mobilgerät) durchführen, Features einführen, Erlebnisse personalisieren und die gesamte geschäftskunden Journey optimieren.
 
 Durch die Integration von VWO mit Braze können Sie VWO-Experimentdaten nutzen, um gezielte Segmente zu erstellen und personalisierte Campaigns zuzustellen.
 
@@ -118,4 +118,4 @@ Wenn Sie keine VWO-Daten in Braze sehen:
 
  ![Braze-Fehlerbehebung]({% image_buster /assets/img/vwo/vwo5_troubleshooting.png %})
 
-Wenn Sie zusätzliche Unterstützung benötigen, wenden Sie sich an Ihren Customer-Success-Manager von VWO.
+Wenn Sie zusätzliche Unterstützung benötigen, wenden Sie sich an Ihren geschäftskunden-Success-Manager von VWO.

@@ -3,7 +3,7 @@ nav_title: mParticle
 layout: dev_guide
 guide_top_header: "mParticle"
 alias: /partners/mparticle_overview/
-guide_top_text: "Mit der Kundendatenplattform von mParticle können Sie mehr aus Ihren Daten machen. Erfahrene Vermarkter nutzen mParticle, um Daten über ihren gesamten Growth Stack hinweg zu orchestrieren und so in den entscheidenden Momenten der Customer Journey zu überzeugen."
+guide_top_text: "Mit der Kundendatenplattform von mParticle können Sie mehr aus Ihren Daten machen. Erfahrene Vermarkter nutzen mParticle, um Daten über ihren gesamten Growth Stack hinweg zu orchestrieren und so in den entscheidenden Momenten der geschäftskunden Journey zu überzeugen."
 description: "Auf dieser Landing Page finden Sie alles über mParticle, einschließlich Anleitungen zur Integration und mParticle für Currents."
 
 guide_featured_list:

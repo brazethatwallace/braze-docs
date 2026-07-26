@@ -26,12 +26,12 @@ Bevor wir uns mit den Details der [Canvas-Einrichtung]({{site.baseurl}}/user_gui
 
   {% tab Journey %}
 
-  Eine Journey, häufig auch als User Journey bezeichnet, ist die individuelle Erfahrung einer/eines Nutzer:in innerhalb des Canvas.<br><br> ![Ein Chart mit der Customer Journey für eine:n neue:n Nutzer:in. Eine anonyme Person installiert eine App, Kat erstellt ein Konto, Kat öffnet die App eine Woche lang nicht, eine Push-Benachrichtigung bringt Kat zurück in die App, dann nutzt Kat die App regelmäßig.]({% image_buster /assets/img_archive/Journey_2.png %}){: style="max-width:90%;"}
+  Eine Journey, häufig auch als User Journey bezeichnet, ist die individuelle Erfahrung einer/eines Nutzer:in innerhalb des Canvas.<br><br> ![Ein Chart mit der geschäftskunden Journey für eine:n neue:n Nutzer:in. Eine anonyme Person installiert eine App, Kat erstellt ein Konto, Kat öffnet die App eine Woche lang nicht, eine Push-Benachrichtigung bringt Kat zurück in die App, dann nutzt Kat die App regelmäßig.]({% image_buster /assets/img_archive/Journey_2.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
   {% tab Canvas Builder %}
-  Der Canvas Builder bildet die Schritte ab, die beim Erstellen Ihres Canvas zu durchlaufen sind. Dazu gehören grundlegende Dinge wie die Benennung Ihres Canvas und das Hinzufügen von Teams. Im Wesentlichen ist der Canvas Builder die entscheidende Einrichtung, die vor dem eigentlichen Aufbau Ihres Canvas erforderlich ist. Hier steuern Sie, wie Ihre Nutzer:innen ihre Customer Journey beginnen und durchlaufen – mit Optionen zur Bearbeitung des [Entry-Zeitplans]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule), der [Zielgruppe]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-13-set-your-target-entry-audience) und der [Sendeeinstellungen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings).<br><br> ![Der Canvas Builder im Abschnitt „Grundlagen“ für ein Canvas mit dem Namen „New Canvas“.]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  Der Canvas Builder bildet die Schritte ab, die beim Erstellen Ihres Canvas zu durchlaufen sind. Dazu gehören grundlegende Dinge wie die Benennung Ihres Canvas und das Hinzufügen von Teams. Im Wesentlichen ist der Canvas Builder die entscheidende Einrichtung, die vor dem eigentlichen Aufbau Ihres Canvas erforderlich ist. Hier steuern Sie, wie Ihre Nutzer:innen ihre geschäftskunden Journey beginnen und durchlaufen – mit Optionen zur Bearbeitung des [Entry-Zeitplans]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule), der [Zielgruppe]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-13-set-your-target-entry-audience) und der [Sendeeinstellungen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings).<br><br> ![Der Canvas Builder im Abschnitt „Grundlagen“ für ein Canvas mit dem Namen „New Canvas“.]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -46,9 +46,9 @@ Bevor wir uns mit den Details der [Canvas-Einrichtung]({{site.baseurl}}/user_gui
   {% endtab %}
 {% endtabs %}
 
-## Die Customer Journey aufbauen {#building-the-customer-journey}
+## Die geschäftskunden Journey aufbauen {#building-the-customer-journey}
 
-Die fünf W-Fragen (Was, Wann, Wer, Warum und Wo) der Visualisierung können Ihnen helfen, Ihre Customer-Engagement-Strategien zu identifizieren und eine personalisierte Nachrichten-Journey für jede:n Ihrer Nutzer:innen zu erstellen.
+Die fünf W-Fragen (Was, Wann, Wer, Warum und Wo) der Visualisierung können Ihnen helfen, Ihre geschäftskunden-Engagement-Strategien zu identifizieren und eine personalisierte Nachrichten-Journey für jede:n Ihrer Nutzer:innen zu erstellen.
 
 ### Das „Was“: Benennen Sie Ihr Canvas {#the-what-name-your-canvas}
 
@@ -56,7 +56,7 @@ Die fünf W-Fragen (Was, Wann, Wer, Warum und Wo) der Visualisierung können Ihn
 
 Unterschätzen Sie niemals die Kraft des Namens. Braze ist auf Zusammenarbeit ausgelegt, daher ist dies ein guter Zeitpunkt, um festzulegen, wie Sie Ziele mit Ihrem Team kommunizieren.
 
-Sie können Tags hinzufügen und die Schritte sowie Varianten in einem Canvas benennen. Weitere Informationen zu Customer Journeys finden Sie in unserem Braze-Lernkurs zum [Mapping von Nutzer-Lebenszyklen](https://learning.braze.com/mapping-customer-lifecycles).
+Sie können Tags hinzufügen und die Schritte sowie Varianten in einem Canvas benennen. Weitere Informationen zu geschäftskunden Journeys finden Sie in unserem Braze-Lernkurs zum [Mapping von Nutzer-Lebenszyklen](https://learning.braze.com/mapping-customer-lifecycles).
 
 ### Das „Warum“: Konversions-Events identifizieren {#the-why-identify-conversion-events}
 

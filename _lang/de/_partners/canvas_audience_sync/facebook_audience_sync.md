@@ -29,7 +29,7 @@ Mit diesem Feature können Marken kontrollieren, welche spezifischen First-Party
 
 Wenn Nutzer:innen den Schritt Audience Sync erreichen, synchronisiert Braze sie nahezu in Realtime und respektiert dabei die Rate-Limits der Facebook Marketing API. Braze stapelt und verarbeitet alle 5 Sekunden so viele Nutzer:innen wie möglich, bevor es sie an Facebook weiterleitet.
 
-Das Rate-Limit der Facebook Marketing API erlaubt nicht mehr als &#126;190.000 API-Anfragen pro Anzeigenkonto in einem Zeitraum von einer Stunde. Erreicht eine Kund:in dieses Limit, wiederholt Braze die Synchronisierung für bis zu &#126;13 Stunden. Wenn die Synchronisierung immer noch nicht möglich ist, listet Braze diese Nutzer:innen in der Metrik „Fehlerhafte Nutzer:innen“ auf.
+Das Rate-Limit der Facebook Marketing API erlaubt nicht mehr als &#126;190.000 API-Anfragen pro Anzeigenkonto in einem Zeitraum von einer Stunde. Erreicht eine geschäftskunden dieses Limit, wiederholt Braze die Synchronisierung für bis zu &#126;13 Stunden. Wenn die Synchronisierung immer noch nicht möglich ist, listet Braze diese Nutzer:innen in der Metrik „Fehlerhafte Nutzer:innen“ auf.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -197,8 +197,8 @@ Derzeit werden wertbasierte Lookalike-Zielgruppen von Braze nicht unterstützt. 
 
 1. Gehen Sie zu Ihrem Facebook Ad Manager Dashboard und wählen Sie **Audiences**.
 2. Wählen Sie **Create audience** > **Custom audience**.
-3. Wählen Sie **Customer list** aus.
-4. Laden Sie Ihre CSV-Datei oder Liste ohne die Spalte **Value** hoch. Wählen Sie **No, continue with a customer list that doesn't include customer value**.
+3. Wählen Sie **geschäftskunden list** aus.
+4. Laden Sie Ihre CSV-Datei oder Liste ohne die Spalte **Value** hoch. Wählen Sie **No, continue with a geschäftskunden list that doesn't include geschäftskunden value**.
 5. Schließen Sie die Erstellung Ihrer angepassten Zielgruppe ab.
 6. Aktualisieren Sie in Braze den Facebook-Audience-Sync-Schritt mit der angepassten Zielgruppe, die Sie erstellt haben.
 

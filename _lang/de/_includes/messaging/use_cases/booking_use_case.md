@@ -1,6 +1,6 @@
 # Anwendungsfall: Buchungserinnerungs-E-Mail-System {#use-case-booking-reminder-email-system}
 
-> Braze ist eine umfassende Customer-Engagement-Plattform, die so konzipiert ist, dass sie in hohem Maße programmgesteuert werden kann. In diesem Anwendungsfall zeigen wir Ihnen einige Möglichkeiten, wie Sie die Funktionen von Braze in Anwendungsfälle integrieren können, die an der Schnittstelle zwischen Produkt und Marketing liegen – wie z. B. Buchungssysteme.
+> Braze ist eine umfassende geschäftskunden-Engagement-Plattform, die so konzipiert ist, dass sie in hohem Maße programmgesteuert werden kann. In diesem Anwendungsfall zeigen wir Ihnen einige Möglichkeiten, wie Sie die Funktionen von Braze in Anwendungsfälle integrieren können, die an der Schnittstelle zwischen Produkt und Marketing liegen – wie z. B. Buchungssysteme.
 
 Dieser Anwendungsfall zeigt, wie Sie die Features von Braze nutzen können, um einen E-Mail-Messaging-Dienst für Buchungserinnerungen aufzubauen. Der Dienst ermöglicht es Nutzer:innen, Termine zu buchen, und sendet ihnen Erinnerungen an bevorstehende Termine. Obwohl in diesem Anwendungsfall E-Mail-Nachrichten verwendet werden, können Sie Nachrichten in einem beliebigen oder mehreren Kanälen auf der Grundlage eines einzigen Updates eines Nutzerprofils versenden.
 

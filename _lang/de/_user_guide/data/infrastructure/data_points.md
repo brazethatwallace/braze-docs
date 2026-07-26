@@ -11,7 +11,7 @@ search_rank: 6
 
 > Bei Braze sind Daten gleichbedeutend mit Aktion: Jede Information, die in Braze eingeht, aktualisiert die Segment-Zugehörigkeit, kann Nachrichten triggern und stornieren, ist sofort für die Personalisierung von Nachrichten verfügbar und vieles mehr. Datenpunkte helfen Ihnen, die wichtigsten Informationen für Ihr Unternehmen zu definieren. Indem Sie sich genau überlegen, welche Daten Sie tracken möchten, stellen Sie sicher, dass Sie das Targeting auf die Daten mit dem höchsten Wirkungsgrad für die Erfahrung Ihrer Nutzer:innen ausrichten.
 
-Die Datenpunkte basieren auf Informationen, die anhand von Nutzerprofilen aufgezeichnet werden. Eine genauere Aufschlüsselung dieser Definition finden Sie in Ihrem Braze-Vertrag. Unser Customer-Success-Team kann Ihnen helfen, die besten Datenpraktiken an Ihre Bedürfnisse anzupassen.
+Die Datenpunkte basieren auf Informationen, die anhand von Nutzerprofilen aufgezeichnet werden. Eine genauere Aufschlüsselung dieser Definition finden Sie in Ihrem Braze-Vertrag. Unser geschäftskunden-Success-Team kann Ihnen helfen, die besten Datenpraktiken an Ihre Bedürfnisse anzupassen.
 
 ## Definition {#definition}
 

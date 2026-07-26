@@ -138,10 +138,10 @@ Content-Security-Policies (die sich normalerweise in der Hydrogen-Datei `entry.s
 Verfolgen Sie, wann sich Käufer:innen bei ihrem Konto anmelden, und synchronisieren Sie ihre Nutzerinformationen mit Braze. Dazu gehört der Aufruf unserer `changeUser`-Methode, um Kund:innen mit einer externen Braze-ID zu identifizieren.
 
 {% alert note %}
-Wir haben derzeit keine Anleitung zur Unterstützung einer angepassten externen Braze-ID. Wenn Sie dies jetzt für Ihre Integration benötigen, wenden Sie sich an Ihren Customer-Success-Manager.
+Wir haben derzeit keine Anleitung zur Unterstützung einer angepassten externen Braze-ID. Wenn Sie dies jetzt für Ihre Integration benötigen, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
 {% endalert %}
 
-Bevor Sie beginnen, vergewissern Sie sich, dass Sie die Callback-URIs für die Kundenanmeldung so eingerichtet haben, dass sie in Hydrogen funktionieren. Weitere Informationen finden Sie unter [Verwendung der Customer Account API mit Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
+Bevor Sie beginnen, vergewissern Sie sich, dass Sie die Callback-URIs für die Kundenanmeldung so eingerichtet haben, dass sie in Hydrogen funktionieren. Weitere Informationen finden Sie unter [Verwendung der geschäftskunden Account API mit Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
 
 1. Nachdem Sie die Callback-URIs eingerichtet haben, definieren Sie eine Funktion für den Aufruf des Braze SDK. Erstellen Sie eine neue Datei (z. B. `Tracking.jsx`) und importieren Sie sie aus Ihren Komponenten:
 
@@ -214,7 +214,7 @@ export function Layout({children}) {
 ```
 
 {: start="3"}
-3. Rufen Sie die E-Mail-Adresse und Telefonnummer der Kund:innen in Ihrer Customer-API-GraphQL-Abfrage ab, die sich in der Datei `app/graphql/customer-account/CustomerDetailsQuery.js` befindet:
+3. Rufen Sie die E-Mail-Adresse und Telefonnummer der Kund:innen in Ihrer geschäftskunden-API-GraphQL-Abfrage ab, die sich in der Datei `app/graphql/customer-account/CustomerDetailsQuery.js` befindet:
 
 ```java
 export const CUSTOMER_FRAGMENT = `#graphql
@@ -670,7 +670,7 @@ Die nächsten Schritte hängen von Ihrer Auswahl der externen ID ab:<br><br>
 Nachdem das Metafeld erstellt wurde, befüllen Sie es für Ihre Kund:innen. Wir empfehlen die folgenden Ansätze:
 
 - **Auf Webhooks zur Kundenerstellung lauschen:** Richten Sie einen Webhook ein, um auf [`customer/create`-Events](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks) zu lauschen. So können Sie das Metafeld schreiben, wenn neue Kund:innen angelegt werden.
-- **Bestehende Kund:innen nachträglich befüllen:** Verwenden Sie die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer), um das Metafeld für zuvor erstellte Kund:innen zu befüllen.
+- **Bestehende Kund:innen nachträglich befüllen:** Verwenden Sie die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [geschäftskunden API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer), um das Metafeld für zuvor erstellte Kund:innen zu befüllen.
 
 #### Schritt 6.2: Einen Endpunkt zum Abrufen Ihrer externen ID erstellen {#step-62-create-an-endpoint-to-retrieve-your-external-id}
 
@@ -706,7 +706,7 @@ Braze erwartet einen `200`-Statuscode, der die externe ID als JSON zurückgibt:
 
 ##### Validierung {#validation}
 
-Es ist entscheidend, dass `shopify_customer_id` und `email_address` (falls vorhanden) mit den Kundenwerten in Shopify übereinstimmen. Sie können die [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) verwenden, um diese Parameter zu validieren und das korrekte `braze.external_id`-Metafeld abzurufen.
+Es ist entscheidend, dass `shopify_customer_id` und `email_address` (falls vorhanden) mit den Kundenwerten in Shopify übereinstimmen. Sie können die [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [geschäftskunden API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) verwenden, um diese Parameter zu validieren und das korrekte `braze.external_id`-Metafeld abzurufen.
 
 ##### Fehlerverhalten und Zusammenführung {#failure-behavior-and-merging}
 Jeder andere Statuscode als `200` wird als Fehler betrachtet.

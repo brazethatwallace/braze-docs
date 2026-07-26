@@ -63,7 +63,7 @@ Die Integration verfügt über Standard-Datenfeldzuordnungen zwischen Braze und 
 Wenn es in Braze zusätzliche Datenfelder gibt, die Sie ODP zuordnen möchten, gehen Sie in ODP wie folgt vor:
 
 1. Wählen Sie im Abschnitt **Segments** der App das Braze-Feld aus der Dropdown-Liste **Braze User Data Fields** aus.
-2. Wählen Sie das ODP-Feld aus der Dropdown-Liste **ODP Customer Fields** aus.
+2. Wählen Sie das ODP-Feld aus der Dropdown-Liste **ODP geschäftskunden Fields** aus.
 3. Wählen Sie **Save Field Map**.
 
 ![Optimizely-Braze-Segment-Feldzuordnungen speichern]({% image_buster /assets/img/optimizely/image4_mapfields.png %})
@@ -84,7 +84,7 @@ Nachdem Sie die Integration konfiguriert haben, können Sie eine Aktivierung in 
 1. Gehen Sie zu **Activation** > **Engage** und wählen Sie **Create New Campaign**.
 2. Wählen Sie **Behavioral**, um eine automatisierte, wiederkehrende Synchronisierung einzurichten.
 3. Wählen Sie **Create From Scratch** und geben Sie dann einen Namen für Ihre Aktivierung ein, der die Daten repräsentiert, die Sie mit Braze synchronisieren (z. B. **Braze Data Sync**).
-4. Im Abschnitt **Enrollment** können Sie Daten für Kund:innen synchronisieren, die einem Segment entsprechen, oder Daten für Kund:innen synchronisieren, die ein Ereignis triggern (z. B. wenn ODP registriert, dass ein:e Kund:in eine E-Mail öffnet):
+4. Im Abschnitt **Enrollment** können Sie Daten für Kund:innen synchronisieren, die einem Segment entsprechen, oder Daten für Kund:innen synchronisieren, die ein Ereignis triggern (z. B. wenn ODP registriert, dass ein:e geschäftskunden eine E-Mail öffnet):
    - **Kund:innen, die einem Segment entsprechen:** Wählen Sie das gewünschte Segment aus und wählen Sie dann **Next**.<br><br>![Optimizely – Segment auswählen]({% image_buster /assets/img/optimizely/image6_segment.png %})
    - **Kund:innen, die ein Ereignis triggern:** Erweitern Sie die Dropdown-Liste **Filter** und wählen Sie das ODP-Ereignis aus, das als Auslöser für diese Datensynchronisierung mit Braze dienen soll. Erweitern Sie dann die **Automation Rules** und passen Sie sie wie gewünscht an. <br><br>![Optimizely – Trigger-Ereignis]({% image_buster /assets/img/optimizely/image7_trigger.png %})
 5. Erweitern Sie **Touchpoints**, wählen Sie **Touchpoint 1** zur Bearbeitung aus und wählen Sie dann **Braze**.

@@ -25,7 +25,7 @@ Um Ihre angepasste Fußzeile zu erstellen oder zu bearbeiten, gehen Sie wie folg
 1. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Abo-Seiten und -Fußzeilen**.
 2. Gehen Sie zum Abschnitt **Angepasste Fußzeile** und aktivieren Sie angepasste Fußzeilen.
 3. Wählen Sie **Bearbeiten** und bearbeiten Sie dann Ihre Fußzeile im Abschnitt **Verfassen**.
-4. Wählen Sie **Vorschau**, um eine Vorschau Ihrer E-Mail-Fußzeile im Posteingang einer Kund:in anzuzeigen. Optional können Sie **Vorschaulink kopieren** auswählen, um einen teilbaren Vorschaulink zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussehen wird. Der Link ist sieben Tage gültig, bevor er neu generiert werden muss.
+4. Wählen Sie **Vorschau**, um eine Vorschau Ihrer E-Mail-Fußzeile im Posteingang einer geschäftskunden anzuzeigen. Optional können Sie **Vorschaulink kopieren** auswählen, um einen teilbaren Vorschaulink zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussehen wird. Der Link ist sieben Tage gültig, bevor er neu generiert werden muss.
 5. Senden Sie eine Testnachricht.
 
 ![Ein Beispiel für eine angepasste Fußzeile.]({% image_buster /assets/img_archive/custom_footer.png %})

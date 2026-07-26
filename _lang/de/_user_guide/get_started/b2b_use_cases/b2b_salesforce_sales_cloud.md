@@ -8,7 +8,7 @@ description: "Erfahren Sie, wie Sie mit Braze-Webhooks über den Salesforce-Endp
 
 # Leads mit Salesforce Sales Cloud verwalten {#manage-leads-with-salesforce-sales-cloud}
 
-> [Salesforce](https://www.salesforce.com/) ist eine der weltweit führenden cloudbasierten Customer-Relationship-Management-Plattformen (CRM), die Unternehmen bei der Verwaltung ihres gesamten Vertriebsprozesses unterstützt – einschließlich Lead-Generierung, Opportunity-Tracking und Konto-Management.<br><br>Auf dieser Seite erfahren Sie, wie Sie mit Braze-Webhooks über eine von der Community eingereichte Integration Leads in Salesforce Sales Cloud erstellen und aktualisieren können.
+> [Salesforce](https://www.salesforce.com/) ist eine der weltweit führenden cloudbasierten geschäftskunden-Relationship-Management-Plattformen (CRM), die Unternehmen bei der Verwaltung ihres gesamten Vertriebsprozesses unterstützt – einschließlich Lead-Generierung, Opportunity-Tracking und Konto-Management.<br><br>Auf dieser Seite erfahren Sie, wie Sie mit Braze-Webhooks über eine von der Community eingereichte Integration Leads in Salesforce Sales Cloud erstellen und aktualisieren können.
 
 {% alert important %}
 Dies ist eine von der Community eingereichte Integration, die nicht direkt von Braze unterstützt wird. Nur offizielle, von Braze bereitgestellte Webhook-Templates werden von Braze unterstützt.
@@ -39,7 +39,7 @@ Wenn Sie die erforderlichen OAuth-Einstellungen für die verbundene App konfigur
 
 ## Erstellen eines Leads in Salesforce Sales Cloud {#creating-lead}
 
-Als Customer-Engagement-Plattform kann Braze neue Leads auf Basis von Nutzer:innen-Flows generieren, z. B. beim Ausfüllen eines Formulars auf einer Landing-Page. In diesem Fall können Sie einen Braze Salesforce Sales Cloud Webhook verwenden, um einen entsprechenden Lead in Salesforce zu erstellen.
+Als geschäftskunden-Engagement-Plattform kann Braze neue Leads auf Basis von Nutzer:innen-Flows generieren, z. B. beim Ausfüllen eines Formulars auf einer Landing-Page. In diesem Fall können Sie einen Braze Salesforce Sales Cloud Webhook verwenden, um einen entsprechenden Lead in Salesforce zu erstellen.
 
 ### Schritt 1: `client_id` und `client_secret` erfassen {#step-1-collect-your-client_id-and-client_secret}
 

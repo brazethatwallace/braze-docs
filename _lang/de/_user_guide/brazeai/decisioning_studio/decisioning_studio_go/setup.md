@@ -22,7 +22,7 @@ Stellen Sie sicher, dass Sie Folgendes bereit haben:
 - Die Varianteninhalte, die Sie testen möchten, wie alternative Betreffzeilen, CTAs und Hero-Bilder. Sie können Varianten während der Einrichtung erstellen, aber wenn Sie sie vorab vorbereiten, beschleunigt das die Konfiguration
 - Workspace-Zugriff mit Berechtigungen zur Konfiguration von KI-Decisioning-Agenten
 
-Wenn Ihr Workspace nicht für Decisioning Studio Go bereitgestellt wurde, sehen Sie die Option zur Agentenkonfiguration im Tab **AI Decisioning** nicht. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu erhalten.
+Wenn Ihr Workspace nicht für Decisioning Studio Go bereitgestellt wurde, sehen Sie die Option zur Agentenkonfiguration im Tab **AI Decisioning** nicht. Wenden Sie sich an Ihren geschäftskunden-Success-Manager, um Zugang zu erhalten.
 
 ## Schritt 1: Richten Sie Ihren Agenten ein {#step-1-set-up-your-agent}
 
@@ -87,7 +87,7 @@ Ihre Frequency-Capping-Regeln können auf Agentenebene angewendet werden:
 - **Auf Cap anrechnen:** Wählen Sie, ob Sendungen dieses Agenten auf das Gesamt-Cap der:des Nutzer:in angerechnet werden.
 
 {% alert tip %}
-Wenn Ihr Frequency-Cap die Nutzererfahrung schützt, sind die Sendungen des Agenten bereits gezielt und Sie müssen sie möglicherweise nicht auf das Cap anrechnen. Wenn Ihr Cap das gesamte Sendevolumen oder die Ausgaben kontrolliert, möchten Sie sie wahrscheinlich anrechnen lassen. Ihr Customer-Success-Manager oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihren Workspace zu bestätigen.
+Wenn Ihr Frequency-Cap die Nutzererfahrung schützt, sind die Sendungen des Agenten bereits gezielt und Sie müssen sie möglicherweise nicht auf das Cap anrechnen. Wenn Ihr Cap das gesamte Sendevolumen oder die Ausgaben kontrolliert, möchten Sie sie wahrscheinlich anrechnen lassen. Ihr geschäftskunden-Success-Manager oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihren Workspace zu bestätigen.
 {% endalert %}
 
 ## Schritt 4: Fügen Sie Inhalte und Templates hinzu {#step-4-add-content-and-templates}
@@ -204,6 +204,6 @@ Die folgende Tabelle fasst die Bereiche von Decisioning Studio Go und zugehörig
 
 ## Fehlerbehebung {#troubleshooting}
 
-Wenden Sie sich an Ihren Customer-Success-Manager oder Solutions Consultant, um Hilfe bei der Agentenkonfiguration, Performance-Überprüfung oder Programmgestaltung zu erhalten.
+Wenden Sie sich an Ihren geschäftskunden-Success-Manager oder Solutions Consultant, um Hilfe bei der Agentenkonfiguration, Performance-Überprüfung oder Programmgestaltung zu erhalten.
 
 Häufig gestellte Fragen finden Sie in den [Decisioning Studio Go FAQ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq).

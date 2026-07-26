@@ -50,11 +50,11 @@ Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr
 
 Die KPI-Karten auf der primären Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten Leistungskennzahlen, wie z. B.:
 
-- Inkrementeller LTV / Kund:in
-- Conversions / Kund:in
-- Abmeldungen / Kund:in
+- Inkrementeller LTV / geschäftskunden
+- Conversions / geschäftskunden
+- Abmeldungen / geschäftskunden
 
-Jede Karte stellt die KPI dar, die über den gesamten ausgewählten Datumsbereich berechnet wird. Dies ist ein Gesamtzeitraumwert, kein Tagesdurchschnitt. Wenn Sie beispielsweise „Inkrementeller LTV / Kund:in = 3,192“ sehen, spiegelt das die Performance über das gesamte ausgewählte Fenster wider.
+Jede Karte stellt die KPI dar, die über den gesamten ausgewählten Datumsbereich berechnet wird. Dies ist ein Gesamtzeitraumwert, kein Tagesdurchschnitt. Wenn Sie beispielsweise „Inkrementeller LTV / geschäftskunden = 3,192“ sehen, spiegelt das die Performance über das gesamte ausgewählte Fenster wider.
 
 ![Performance-Bericht mit den KPI-Zusammenfassungskarten auf der primären Seite, einschließlich Metriken wie „Inkrementeller LTV / Kund:in“, „Conversions / Kund:in“ und „Abmeldungen / Kund:in“.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
 
@@ -101,9 +101,9 @@ Dieser Abschnitt verdeutlicht die Beziehung zwischen den verschiedenen Ansichten
 
 ## Treiberbaum {#driver-tree}
 
-Der Treiberbaum zerlegt eine KPI in ihre Komponententreiber. Zum Beispiel kann „Inkrementeller LTV / Kund:in“ aufgeteilt werden in:
+Der Treiberbaum zerlegt eine KPI in ihre Komponententreiber. Zum Beispiel kann „Inkrementeller LTV / geschäftskunden“ aufgeteilt werden in:
 
-- Conversions / Kund:in
+- Conversions / geschäftskunden
 - Umsatz pro Conversion
 
 ![Performance-Bericht in der Treiberbaum-Ansicht, der ein hierarchisches Diagramm zeigt, das KPIs wie „Inkrementeller LTV / Kund:in“ in Komponententreiber wie „Conversions / Kund:in“ und „Klicks / Kund:in“ aufschlüsselt.]({% image_buster /assets/img/decisioning_studio/reporting_performance_driver_tree.png %})
@@ -116,7 +116,7 @@ Treiberbäume verwenden dieselben KPI-Definitionen wie der Rest des Dashboards u
 
 Segmente ermöglichen es Ihnen, die Performance nach definierten Gruppen aufzuschlüsseln, z. B. nach Engagement-Level, Kundenmerkmalen, Gerätetyp oder anderen konfigurierten Features.
 
-Die Segmentzugehörigkeit wird individuell für Ihren Anwendungsfall konfiguriert und täglich berechnet. Das bedeutet, dass das vergangene Segment einer Kund:in widerspiegelt, wer sie an diesem Tag war. Wenn sich ihr Verhalten später ändert, bleiben historische Tage unverändert. Dies bewahrt die historische Genauigkeit und verhindert, dass sich Berichte rückwirkend verschieben.
+Die Segmentzugehörigkeit wird individuell für Ihren Anwendungsfall konfiguriert und täglich berechnet. Das bedeutet, dass das vergangene Segment einer geschäftskunden widerspiegelt, wer sie an diesem Tag war. Wenn sich ihr Verhalten später ändert, bleiben historische Tage unverändert. Dies bewahrt die historische Genauigkeit und verhindert, dass sich Berichte rückwirkend verschieben.
 
 ### Unterscheidet sich der Performance-Bericht für Go- und Pro-Agenten? {#does-the-performance-report-for-go-versus-pro-agents-differ}
 
@@ -143,7 +143,7 @@ Volumen und Rate erzählen unterschiedliche Geschichten. Eine Campaign kann ein 
 
 ### Was bedeutet „eindeutig“ (oder „distinct“)? {#what-does-unique-or-distinct-mean}
 
-Wenn eine Metrik als „eindeutig“ definiert ist, werden Personen mithilfe eines bestimmten Bezeichners (typischerweise Kund:in) dedupliziert. Jede Person wird einmal pro Tag gezählt.
+Wenn eine Metrik als „eindeutig“ definiert ist, werden Personen mithilfe eines bestimmten Bezeichners (typischerweise geschäftskunden) dedupliziert. Jede Person wird einmal pro Tag gezählt.
 
 „Eindeutig pro Tag“ unterscheidet sich von „eindeutig über den gesamten Datumsbereich“. Wenn Sie tägliche eindeutige Zählungen über mehrere Tage summiert sehen, kann dieselbe Person mehr als einmal erscheinen (einmal pro Tag, an dem sie aktiv war). Das ist beabsichtigt.
 
@@ -157,7 +157,7 @@ Wenn Ihr Performance-Bericht nicht mit einem anderen Dashboard übereinstimmt (z
 - **Filterung von Maschinen- und Bot-Engagement:** Bekanntes maschinen- oder bot-gesteuertes Engagement (wie automatisierte Sicherheitsscans oder nicht-menschliche Klicks) wird herausgefiltert, um sicherzustellen, dass die Performance echtes menschliches Verhalten widerspiegelt. Einige Plattformen schließen diese Interaktionen in ihre Gesamtwerte ein.
 - **Unterschiedliche Definitionen von „eindeutig“:** In diesem Bericht wird Eindeutigkeit typischerweise pro Tag angewendet. Ein anderes System kann Eindeutigkeit über ein gesamtes Campaign-Fenster berechnen. Das sind unterschiedliche Geschäftsfragen und erzeugen unterschiedliche Zahlen.
 - **Datumsbereich und Datenverfügbarkeitsregeln:** Berichte können Aktivierungsverzögerungen, Datenverfügbarkeitsverzögerungen oder ausgeschlossene Daten anwenden. Ein anderes System kann sehr aktuelle oder unvollständige Daten einbeziehen, was vorübergehende Abweichungen verursacht.
-- **Volumen- versus Ratenunterschiede:** Ein System kann das Gesamtvolumen anzeigen (z. B. Gesamt-Conversions), während ein anderes eine Rate anzeigt (z. B. Conversions pro Kund:in). Stellen Sie immer sicher, dass Sie denselben Metriktyp vergleichen.
+- **Volumen- versus Ratenunterschiede:** Ein System kann das Gesamtvolumen anzeigen (z. B. Gesamt-Conversions), während ein anderes eine Rate anzeigt (z. B. Conversions pro geschäftskunden). Stellen Sie immer sicher, dass Sie denselben Metriktyp vergleichen.
 
 ### Warum stimmt die Zahl im Chart nicht mit der Zusammenfassungskarte überein? {#why-doesnt-the-number-in-the-chart-match-the-summary-card}
 

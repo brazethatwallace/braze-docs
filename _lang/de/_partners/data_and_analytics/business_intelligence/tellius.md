@@ -19,8 +19,8 @@ Die Integration von Braze und Tellius ermöglicht es Nutzer:innen, Daten zu nutz
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Tellius-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Tellius-Konto. Sie können Ihre Tellius-Journey mit einer [kostenlosen Demo](https://www.tellius.com/free-trial/) beginnen. |
-| Snowflake-Datenfreigabeprogramm | Wenn Sie bereits Snowflake-Kund:in sind, wenden Sie sich an Ihre Braze-Vertretung, um sich über das Snowflake-Datenfreigabeprogramm zu informieren, mit dem Sie Ihre Braze-Daten in Ihre Snowflake-Instanz übertragen können. |
-| Snowflake-Lesekonto | Wenn Sie kein:e Snowflake-Kund:in sind, wenden Sie sich an Ihre Braze-Vertretung, um ein Snowflake-Lesekonto zu erhalten, das für Sie eingerichtet werden kann, damit Sie auf Ihre Braze-Daten zugreifen können. |
+| Snowflake-Datenfreigabeprogramm | Wenn Sie bereits Snowflake-geschäftskunden sind, wenden Sie sich an Ihre Braze-Vertretung, um sich über das Snowflake-Datenfreigabeprogramm zu informieren, mit dem Sie Ihre Braze-Daten in Ihre Snowflake-Instanz übertragen können. |
+| Snowflake-Lesekonto | Wenn Sie kein:e Snowflake-geschäftskunden sind, wenden Sie sich an Ihre Braze-Vertretung, um ein Snowflake-Lesekonto zu erhalten, das für Sie eingerichtet werden kann, damit Sie auf Ihre Braze-Daten zugreifen können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration

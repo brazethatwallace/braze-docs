@@ -419,7 +419,7 @@ Braze ist darauf angewiesen, dass Shopify die erforderlichen Event-Eigenschaften
 {% subtab Product viewed %}
 **Event**: `ecommerce.product_viewed`<br>
 **Typ**: Empfohlenes Event<br>
-**Getriggert**: Wenn eine Kund:in eine Produktseite aufruft<br>
+**Getriggert**: Wenn eine geschäftskunden eine Produktseite aufruft<br>
 **Datenquelle**: Braze SDKs<br>
 **Anwendungsfall**: Browse Abandonment
 
@@ -444,7 +444,7 @@ Braze ist darauf angewiesen, dass Shopify die erforderlichen Event-Eigenschaften
 {% subtab Cart updated %}
 **Event**: `ecommerce.cart_updated`<br>
 **Typ**: Empfohlenes Event<br>
-**Getriggert**: Wenn eine Kund:in Artikel zum Warenkorb hinzufügt, daraus entfernt oder aktualisiert<br>
+**Getriggert**: Wenn eine geschäftskunden Artikel zum Warenkorb hinzufügt, daraus entfernt oder aktualisiert<br>
 **Datenquelle**: Braze SDKs<br>
 **Anwendungsfall**: Warenkorb-Abbruch
 
@@ -490,7 +490,7 @@ Weitere Informationen darüber, wie Sie eine Liquid-`for`-Schleife einrichten, u
 **Anwendungsfall**: Abbruch der Kaufabwicklung
 
 {% alert important %}
-Wenn eine Kund:in Shop Pay als beschleunigte Checkout-Option nutzt, kann Shopify bestimmte Standard-Checkout-Events überspringen (z. B. den Shopify-Webhook „Checkout gestartet“). Das bedeutet, dass Braze möglicherweise nicht die Daten erhält, die zum Hinzufügen des Checkout-Token-Alias erforderlich sind – was sich auf das Tracking von Checkout-Abbrüchen und die Zuordnung von Nutzerprofilen auswirken kann.
+Wenn eine geschäftskunden Shop Pay als beschleunigte Checkout-Option nutzt, kann Shopify bestimmte Standard-Checkout-Events überspringen (z. B. den Shopify-Webhook „Checkout gestartet“). Das bedeutet, dass Braze möglicherweise nicht die Daten erhält, die zum Hinzufügen des Checkout-Token-Alias erforderlich sind – was sich auf das Tracking von Checkout-Abbrüchen und die Zuordnung von Nutzerprofilen auswirken kann.
 {% endalert %}
 
 Für Canvases zum Checkout-Abbruch müssen Sie zunächst den folgenden Liquid-Tag verwenden:
@@ -808,12 +808,12 @@ Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf
 {% tab Angepasste Shopify-Attribute %}
 | Attributname | Beschreibung |
 | --- | --- |
-| `shopify_total_spent` | Der Gesamtbetrag, den die Kund:in über den gesamten Bestellverlauf ausgegeben hat. |
-| `shopify_order_count` | Die Anzahl der Bestellungen, die mit dieser Kund:in verknüpft sind. Test- und archivierte Bestellungen werden nicht gezählt. |
-| `shopify_last_order_id` | Die ID der letzten Bestellung der Kund:in. |
-| `shopify_last_order_name` | Der Name der letzten Bestellung der Kund:in. Dieser steht in direktem Zusammenhang mit dem Feld `name` in der Auftragsressource. |
-| `shopify_zipcode` | Die Postleitzahl der Kund:in aus der Standardadresse. |
-| `shopify_province` | Die Provinz der Kund:in aus der Standardadresse. |
+| `shopify_total_spent` | Der Gesamtbetrag, den die geschäftskunden über den gesamten Bestellverlauf ausgegeben hat. |
+| `shopify_order_count` | Die Anzahl der Bestellungen, die mit dieser geschäftskunden verknüpft sind. Test- und archivierte Bestellungen werden nicht gezählt. |
+| `shopify_last_order_id` | Die ID der letzten Bestellung der geschäftskunden. |
+| `shopify_last_order_name` | Der Name der letzten Bestellung der geschäftskunden. Dieser steht in direktem Zusammenhang mit dem Feld `name` in der Auftragsressource. |
+| `shopify_zipcode` | Die Postleitzahl der geschäftskunden aus der Standardadresse. |
+| `shopify_province` | Die Provinz der geschäftskunden aus der Standardadresse. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Unterstützte angepasste Shopify-Attribute" }
 
 {% alert important %}

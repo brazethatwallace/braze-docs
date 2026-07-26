@@ -55,7 +55,7 @@ Mehr erfahren Sie in unserem speziellen Artikel zu [Kauf-Events]({{site.baseurl}
 
 {% details Beispielimplementierung %}
 
-Beachten Sie, dass die tatsächliche Implementierung von Kauf-Events technisches Wissen erfordert, da sie die Integration des Braze SDK in Ihre App umfasst. Ihr Customer-Success-Manager wird Ihr Team im Rahmen des Onboardings durch diesen Prozess führen, aber die allgemeinen Schritte sind wie folgt:
+Beachten Sie, dass die tatsächliche Implementierung von Kauf-Events technisches Wissen erfordert, da sie die Integration des Braze SDK in Ihre App umfasst. Ihr geschäftskunden-Success-Manager wird Ihr Team im Rahmen des Onboardings durch diesen Prozess führen, aber die allgemeinen Schritte sind wie folgt:
 
 1. **Integrieren Sie das Braze SDK:** Bevor Sie Events protokollieren können, müssen Sie das Braze SDK in Ihre App integrieren.
 2. **Protokollieren Sie das Kauf-Event:** Nach der SDK-Integration können Sie ein Kauf-Event protokollieren, wann immer ein:e Nutzer:in einen Kauf in Ihrer App tätigt. Dies geschieht typischerweise in der Funktion oder Methode, die aufgerufen wird, wenn ein Kauf abgeschlossen wird.

@@ -53,7 +53,7 @@ Definieren Sie die Zielgruppe, die Ihr Agent bedienen soll. Dies könnten alle K
 
 *Aus welchen Optionen kann der Agent wählen, um das Ergebnis zu erzielen?*
 
-Die Aktionsbank definiert alle Hebel, die der Agent nutzen kann: die Dimensionen (wie Kanal, Angebot, Timing und Häufigkeit) und die spezifischen Optionen innerhalb jeder Dimension. Der Agent experimentiert mit verschiedenen Kombinationen dieser Optionen, um herauszufinden, was für jede:n Kund:in am besten funktioniert.
+Die Aktionsbank definiert alle Hebel, die der Agent nutzen kann: die Dimensionen (wie Kanal, Angebot, Timing und Häufigkeit) und die spezifischen Optionen innerhalb jeder Dimension. Der Agent experimentiert mit verschiedenen Kombinationen dieser Optionen, um herauszufinden, was für jede:n geschäftskunden am besten funktioniert.
 
 ### Das „Wie“: Konfigurieren Sie Ihre Einschränkungen {#the-how-configure-your-constraints}
 
@@ -76,15 +76,15 @@ Einige Beispiele für Entscheidungsagenten, die Sie erstellen könnten:
 Sie könnten einen Wiederholungskauf-Agenten erstellen, um Folge-Conversions nach einem ersten Kauf zu steigern:
 
 - Definieren Sie die Zielgruppe und Nachricht in Braze
-- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene Kombinationen von Produktangeboten, Nachrichtentiming und Häufigkeit für jede:n Kund:in
-- Im Laufe der Zeit lernt BrazeAI<sup>TM</sup>, was für jede:n Kund:in am besten funktioniert
+- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene Kombinationen von Produktangeboten, Nachrichtentiming und Häufigkeit für jede:n geschäftskunden
+- Im Laufe der Zeit lernt BrazeAI<sup>TM</sup>, was für jede:n geschäftskunden am besten funktioniert
 - Orchestriert personalisierte Sendungen über Braze, um die Wiederkaufraten zu maximieren
 {% endtab %}
 {% tab Cross-Sell- oder Upsell-Agent %}
 Sie könnten einen Cross-Sell- oder Upsell-Agenten erstellen, um den durchschnittlichen Umsatz pro Nutzer:in (ARPU) aus Internet-Abos zu maximieren:
 
 - Definieren Sie die Zielgruppe und Nachricht in Braze
-- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene Kombinationen von Nachrichten, Sendezeiten, Rabatten und Tarifangeboten für jede:n Kund:in
+- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene Kombinationen von Nachrichten, Sendezeiten, Rabatten und Tarifangeboten für jede:n geschäftskunden
 - BrazeAI<sup>TM</sup> lernt, welche Kund:innen für Leapfrog-Angebote empfänglich sind und welche Rabatte oder andere Anreize zum Upgraden benötigen
 - Orchestriert personalisierte Sendungen über Braze, um den ARPU zu maximieren
 {% endtab %}
@@ -92,7 +92,7 @@ Sie könnten einen Cross-Sell- oder Upsell-Agenten erstellen, um den durchschnit
 Sie könnten einen Verlängerungs- und Bindungs-Agenten erstellen, um Vertragsverlängerungen zu sichern und sowohl die Vertragslaufzeit als auch den Nettobarwert (NPV) zu maximieren:
 
 - Definieren Sie die Zielgruppe und Nachricht in Braze
-- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene Verlängerungsangebote für jede:n Kund:in
+- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene Verlängerungsangebote für jede:n geschäftskunden
 - BrazeAI<sup>TM</sup> identifiziert Kund:innen, die weniger preissensibel sind und weniger signifikante Rabatte zur Verlängerung benötigen
 - Orchestriert personalisierte Sendungen über Braze, um Vertragsverlängerungen und den NPV zu maximieren
 {% endtab %}
@@ -101,30 +101,30 @@ Sie könnten einen Rückgewinnungs-Agenten erstellen, um die Reaktivierung zu st
 
 - Definieren Sie die Zielgruppe und Nachricht in Braze
 - Decisioning Studio führt automatisch tägliche Experimente durch und testet Tausende von Variablen gleichzeitig, darunter Kreativ, Nachricht, Kanal und Kadenz
-- BrazeAI<sup>TM</sup> ermittelt die beste Kombination für jede:n einzelne:n Kund:in
+- BrazeAI<sup>TM</sup> ermittelt die beste Kombination für jede:n einzelne:n geschäftskunden
 - Orchestriert personalisierte Sendungen über Braze, um die Reaktivierungsraten zu maximieren
 {% endtab %}
 {% tab Empfehlungs-Agent %}
 Sie könnten einen Empfehlungs-Agenten erstellen, um neue Konten zu maximieren, die durch Geschäftskreditkarten-Empfehlungen von bestehenden Kund:innen eröffnet werden:
 
 - Definieren Sie die Zielgruppe und Nachricht in Braze
-- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene E-Mails, Kreative, Sendezeiten und Kreditkartenangebote für jede:n Kund:in
+- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene E-Mails, Kreative, Sendezeiten und Kreditkartenangebote für jede:n geschäftskunden
 - BrazeAI<sup>TM</sup> ermittelt die ideale Kombination für bestimmte Kund:innen
 - Orchestriert personalisierte Sendungen über Braze, um Empfehlungs-Conversions zu maximieren
 {% endtab %}
 {% tab Lead-Nurturing- und Conversion-Agent %}
-Sie könnten einen Lead-Nurturing- und Conversion-Agenten erstellen, um inkrementellen Umsatz zu erzielen und den richtigen Betrag für jede:n Kund:in zu zahlen:
+Sie könnten einen Lead-Nurturing- und Conversion-Agenten erstellen, um inkrementellen Umsatz zu erzielen und den richtigen Betrag für jede:n geschäftskunden zu zahlen:
 
 - Definieren Sie die Zielgruppe und Nachricht in Braze
 - Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene Kundensegmente, Bietmethoden, Gebotshöhen und Kreative
 - BrazeAI<sup>TM</sup> nutzt robuste First-Party-Daten, um die Performance bezahlter Anzeigen zu optimieren, während sich Datenschutzrichtlinien ändern
-- Orchestriert personalisierte Sendungen über Braze, um den Umsatz zu maximieren und gleichzeitig die Kosten pro Kund:in zu optimieren
+- Orchestriert personalisierte Sendungen über Braze, um den Umsatz zu maximieren und gleichzeitig die Kosten pro geschäftskunden zu optimieren
 {% endtab %}
 {% tab Kundenbindungs- und Engagement-Agent %}
 Sie könnten einen Kundenbindungs- und Engagement-Agenten erstellen, um Käufe von neuen Teilnehmer:innen eines Kundenbindungs-Programms zu maximieren:
 
 - Definieren Sie die Zielgruppe und Nachricht in Braze
-- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene E-Mail-Angebote, Sendezeiten und Häufigkeiten für jede:n Kund:in
+- Decisioning Studio führt automatisch tägliche Experimente durch und testet verschiedene E-Mail-Angebote, Sendezeiten und Häufigkeiten für jede:n geschäftskunden
 - BrazeAI<sup>TM</sup> lernt, was für jede:n neue:n Teilnehmer:in im Kundenbindungs-Programm am besten funktioniert
 - Orchestriert personalisierte Sendungen über Braze, um Kauf- und Wiederkaufraten zu maximieren
 {% endtab %}

@@ -211,7 +211,7 @@ Die Segmentierungsfilter für Event-Eigenschaften umfassen:
 
 ![Eine Filtergruppe, die „hat ‚Warenkorb-Abbruch' mit Eigenschaft ‚Anzahl der Artikel' und Wert ‚2' ‚mehr als' ‚1' Mal in den letzten ‚30' Kalendertagen“ enthält.][3]
 
-Daten werden erst ab dem Zeitpunkt protokolliert, an dem eine bestimmte Event-Eigenschaft von Ihrem Customer-Success-Manager aktiviert wurde, und Event-Eigenschaften sind erst ab diesem Datum verfügbar.
+Daten werden erst ab dem Zeitpunkt protokolliert, an dem eine bestimmte Event-Eigenschaft von Ihrem geschäftskunden-Success-Manager aktiviert wurde, und Event-Eigenschaften sind erst ab diesem Datum verfügbar.
 
 ##### Datenpunkte {#data-points}
 
@@ -298,10 +298,10 @@ Eigenschaften angepasster Events sind darauf ausgelegt, Ihnen zu helfen, die Tar
 
 Sie können auf zwei Arten basierend auf den Werten von Event-Eigenschaften segmentieren:
 
-1. **Innerhalb von 30 Tagen:** Braze-Support-Mitarbeiter:innen können die Event-Eigenschafts-Segmentierung basierend auf der Häufigkeit und Aktualität bestimmter Event-Eigenschaftswerte innerhalb von Braze-Segmenten aktivieren. Wenn Sie Event-Eigenschaften innerhalb von Segmenten nutzen möchten, wenden Sie sich an Ihren Braze Account Manager oder Customer-Success-Manager. Diese Option wirkt sich auf die Datennutzung aus.<br><br>
+1. **Innerhalb von 30 Tagen:** Braze-Support-Mitarbeiter:innen können die Event-Eigenschafts-Segmentierung basierend auf der Häufigkeit und Aktualität bestimmter Event-Eigenschaftswerte innerhalb von Braze-Segmenten aktivieren. Wenn Sie Event-Eigenschaften innerhalb von Segmenten nutzen möchten, wenden Sie sich an Ihren Braze Account Manager oder geschäftskunden-Success-Manager. Diese Option wirkt sich auf die Datennutzung aus.<br><br>
 2. **Innerhalb und über 30 Tage hinaus:** Um sowohl die kurz- als auch die langfristige Event-Eigenschafts-Segmentierung abzudecken, können Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension) verwenden. Dieses Feature segmentiert Nutzer:innen basierend auf angepassten Events und Event-Eigenschaften, die in den letzten zwei Jahren erfasst wurden. Diese Option wirkt sich nicht auf die Datennutzung aus.
 
-Wenden Sie sich an Ihren Braze Customer-Success-Manager für Empfehlungen zum besten Ansatz je nach Ihren spezifischen Anforderungen.
+Wenden Sie sich an Ihren Braze geschäftskunden-Success-Manager für Empfehlungen zum besten Ansatz je nach Ihren spezifischen Anforderungen.
 
 [1]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/nested_object1.png %}
 [2]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/nested_object2.png %}

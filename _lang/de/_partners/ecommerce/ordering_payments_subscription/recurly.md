@@ -62,7 +62,7 @@ Recurly verwendet den `account_code` eines Kontos als `external_id` in Braze. Au
 
 ### Angepasste Events {#custom-events}
 
-Für ein effektives Customer-Engagement müssen Sie in Braze [angepasste Events konfigurieren]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), um von Recurly getriggerte Events zu empfangen. Stellen Sie sicher, dass Sie jedes Event aus Recurly für eine gründliche Datenintegration einbeziehen. Diese Events können auch in [Braze Analytics]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#analytics) getrackt werden. Einmal konfiguriert, können diese angepassten Events zur Segmentierung von Nutzer:innen oder zur Personalisierung von Nachrichten verwendet werden.
+Für ein effektives geschäftskunden-Engagement müssen Sie in Braze [angepasste Events konfigurieren]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), um von Recurly getriggerte Events zu empfangen. Stellen Sie sicher, dass Sie jedes Event aus Recurly für eine gründliche Datenintegration einbeziehen. Diese Events können auch in [Braze Analytics]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#analytics) getrackt werden. Einmal konfiguriert, können diese angepassten Events zur Segmentierung von Nutzer:innen oder zur Personalisierung von Nachrichten verwendet werden.
 
 | Angepasstes Braze-Event | Recurly-Event |
 | ----------- | ----------- |

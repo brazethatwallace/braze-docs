@@ -22,10 +22,10 @@ Es gibt vier gängige Kategorien von Kund:innen-Features:
 
 | Feature-Typ | Was er erfasst | Beispiele |
 |-------------|-----------------|---------|
-| **Nutzerprofil** | Objektive Fakten über den Status der Kund:in | `age`, `loyalty_tier`, `days_enrolled`, `city`, `acquisition_channel` |
+| **Nutzerprofil** | Objektive Fakten über den Status der geschäftskunden | `age`, `loyalty_tier`, `days_enrolled`, `city`, `acquisition_channel` |
 | **Nutzerneigung** | Modellbasierte Scores für die Wahrscheinlichkeit, dass Kund:innen etwas tun | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **Nutzerverhalten** | Zusammenfassungen der Kund:innenaktivität über ein Zeitfenster | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
-| **Umgebung** | Kontextuelle Signale außerhalb der Kund:in | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
+| **Umgebung** | Kontextuelle Signale außerhalb der geschäftskunden | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Typen von Kund:innen-Features" }
 
 Zusammen geben diese Feature-Typen dem Modell die Informationen, die es benötigt, um Segmente zu identifizieren, zwischen Kund:innen zu unterscheiden und Empfehlungen entsprechend anzupassen.
@@ -61,21 +61,21 @@ Eine nützliche Diagnose: Wenn ein großer Prozentsatz Ihrer Feature-Werte null 
 
 ## Features mit dem Aktionsraum abstimmen {#align-features-with-the-action-space}
 
-Decisioning Studio ist kein Propensity-Modell, sondern ein Ranking-System. Sein Ziel ist es, für jede Kund:in zu identifizieren, welche Aktion aus einer definierten Menge von Optionen am wahrscheinlichsten das beste Ergebnis erzielt. Dies schafft eine spezifische Anforderung: **Features sollten dem Modell, wo möglich, Informationen liefern, die ihm helfen, zwischen den verfügbaren Optionen für eine bestimmte Kund:in zu unterscheiden.**
+Decisioning Studio ist kein Propensity-Modell, sondern ein Ranking-System. Sein Ziel ist es, für jede geschäftskunden zu identifizieren, welche Aktion aus einer definierten Menge von Optionen am wahrscheinlichsten das beste Ergebnis erzielt. Dies schafft eine spezifische Anforderung: **Features sollten dem Modell, wo möglich, Informationen liefern, die ihm helfen, zwischen den verfügbaren Optionen für eine bestimmte geschäftskunden zu unterscheiden.**
 
 ### Warum das wichtig ist {#why-this-matters}
 
 Angenommen, der Aktionsraum Ihres Agents besteht darin, eines von drei Menüartikeln zu empfehlen: Kaffee, Schwarztee oder Bubble Tea.
 
-Wenn Ihre Features Kund:innen auf einer hohen Ebene beschreiben („bestellt häufig Getränke“ oder „hohes E-Mail-Engagement“), kann das Modell Kund:innen in breite Gruppen segmentieren. Aber wenn es darum geht, Kaffee versus Bubble Tea für eine bestimmte Kund:in zu ranken, helfen breite Features nicht viel. Zwei Kund:innen können bei allgemeinen Features identisch aussehen, aber völlig entgegengesetzte Präferenzen haben.
+Wenn Ihre Features Kund:innen auf einer hohen Ebene beschreiben („bestellt häufig Getränke“ oder „hohes E-Mail-Engagement“), kann das Modell Kund:innen in breite Gruppen segmentieren. Aber wenn es darum geht, Kaffee versus Bubble Tea für eine bestimmte geschäftskunden zu ranken, helfen breite Features nicht viel. Zwei Kund:innen können bei allgemeinen Features identisch aussehen, aber völlig entgegengesetzte Präferenzen haben.
 
 Wenn das Modell auf widersprüchliche Signale stößt – etwa wenn es zwei scheinbar ähnlichen Kund:innen Kaffee empfiehlt, aber nur eine konvertiert –, kann es nicht effektiv lernen. Das Rauschen reduziert seine Fähigkeit, genaue Rankings zu erstellen.
 
 ### Features erstellen, die zum Aktionsraum passen {#build-features-that-match-the-action-space}
 
-Features, die auf derselben Granularität wie Ihr Aktionsraum abgebildet sind, geben dem Modell deutlich stärkere Ranking-Signale. Im Café-Beispiel sagt ein Feature wie `coffee_orders_past_14d` dem Modell direkt, ob eine Kund:in Kaffee bevorzugt. Ein Feature wie `black_tea_orders_past_14d` leistet dasselbe für Schwarztee. Das Modell kann nun eine fundierte Ranking-Entscheidung treffen.
+Features, die auf derselben Granularität wie Ihr Aktionsraum abgebildet sind, geben dem Modell deutlich stärkere Ranking-Signale. Im Café-Beispiel sagt ein Feature wie `coffee_orders_past_14d` dem Modell direkt, ob eine geschäftskunden Kaffee bevorzugt. Ein Feature wie `black_tea_orders_past_14d` leistet dasselbe für Schwarztee. Das Modell kann nun eine fundierte Ranking-Entscheidung treffen.
 
-Mit aktionsausgerichteten Features kann das Modell auch Sättigung und Ermüdung erkennen. Wenn eine Kund:in einen hohen `coffee_orders_past_14d`-Wert hat, aber bei einer kürzlichen Kaffee-Empfehlung nicht konvertiert hat, lernt das Modell, dass eine erneute Kaffee-Empfehlung möglicherweise nicht die beste Wahl ist, und beginnt, Alternativen zu testen.
+Mit aktionsausgerichteten Features kann das Modell auch Sättigung und Ermüdung erkennen. Wenn eine geschäftskunden einen hohen `coffee_orders_past_14d`-Wert hat, aber bei einer kürzlichen Kaffee-Empfehlung nicht konvertiert hat, lernt das Modell, dass eine erneute Kaffee-Empfehlung möglicherweise nicht die beste Wahl ist, und beginnt, Alternativen zu testen.
 
 ### Wenn eine exakte Abstimmung nicht möglich ist {#when-exact-alignment-isnt-available}
 

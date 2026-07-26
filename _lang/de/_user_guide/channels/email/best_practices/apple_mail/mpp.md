@@ -35,7 +35,7 @@ Obwohl diese Updates für die E-Mail-Zustellbarkeit bedeutsam sind, ändert MPP 
 
 ## Wie bereiten Sie sich auf MPP vor? {#how-to-prepare-for-mpp}
 
-Für Marken, die gerade erst beginnen, über ihre Reaktion auf MPP und dessen potenzielle Auswirkungen auf ihr E-Mail-Marketing und ihr gesamtes Customer-Engagement nachzudenken, ist schnelles Handeln entscheidend. Wir empfehlen Nutzer:innen Folgendes:
+Für Marken, die gerade erst beginnen, über ihre Reaktion auf MPP und dessen potenzielle Auswirkungen auf ihr E-Mail-Marketing und ihr gesamtes geschäftskunden-Engagement nachzudenken, ist schnelles Handeln entscheidend. Wir empfehlen Nutzer:innen Folgendes:
 
 - Bewerten Sie das Risiko, das MPP für Ihre Marketing-Aktivitäten darstellt.
 - Erstellen Sie einen gezielten MPP-Reaktionsplan, der Automatisierungsanpassungen auf der Braze-Plattform berücksichtigt, Best Practices für die Zustellbarkeit stärkt und ein breiteres Set an Metriken zur Performance-Messung entwickelt.

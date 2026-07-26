@@ -39,7 +39,7 @@ Happy summer, {{${first_name} | default: "traveler"}}!
 {% endraw %}
 
 {: start="2"}
-2. Jetzt legen wir die Nachricht fest, die gesendet werden soll, wenn die Nutzer:in eine VIP-Kund:in ist. Dafür benötigen wir einen bedingten Logik-Tag: `if`. Dieser Tag besagt, dass wenn das angepasste Attribut `vip_status` gleich `VIP` ist, der folgende Liquid-Code ausgeführt wird. In diesem Fall wird eine bestimmte Nachricht gesendet.
+2. Jetzt legen wir die Nachricht fest, die gesendet werden soll, wenn die Nutzer:in eine VIP-geschäftskunden ist. Dafür benötigen wir einen bedingten Logik-Tag: `if`. Dieser Tag besagt, dass wenn das angepasste Attribut `vip_status` gleich `VIP` ist, der folgende Liquid-Code ausgeführt wird. In diesem Fall wird eine bestimmte Nachricht gesendet.
 
 {% raw %}
 ```liquid

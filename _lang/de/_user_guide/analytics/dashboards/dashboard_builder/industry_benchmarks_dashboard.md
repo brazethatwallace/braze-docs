@@ -17,7 +17,7 @@ Verwenden Sie das **Industry-Benchmarks**-Dashboard, um Ihre E-Mail-, Push-, Con
 Um das **Industry-Benchmarks**-Dashboard aufzurufen, gehen Sie zu **Analytics** > **Dashboard Builder** und wählen Sie **Industry Benchmarks** aus. Wenn das Dashboard keine Daten enthält, wählen Sie **Run Dashboard** aus, um die neuesten Ergebnisse zu generieren. Verwenden Sie die Filter oben im Dashboard, um die Ergebnisse nach Branchenvertikale oder Zeitraum einzugrenzen.
 
 {% alert note %}
-Das **Industry-Benchmarks**-Dashboard befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an der Teilnahme am Early Access interessiert sind.
+Das **Industry-Benchmarks**-Dashboard befindet sich derzeit im Early Access. Kontaktieren Sie Ihren geschäftskunden-Success-Manager, wenn Sie an der Teilnahme am Early Access interessiert sind.
 {% endalert %}
 
 ## Über das Dashboard {#about-the-dashboard}

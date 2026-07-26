@@ -34,7 +34,7 @@ Es gibt ein Limit von fünf gleichzeitig aktiven Prognosen. Vor dem Kauf von Pre
 
 Geben Sie an, ob die Events Ihrer Nutzer:innen in Braze als [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) oder als [Bestellungs-Event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed) gespeichert werden.
 
-Hier sehen Sie, ob die ausgewählte Methode genügend Daten für Braze liefert, um ein Modell des maschinellen Lernens zu erstellen. Wenn die Anforderung nicht erfüllt ist, versuchen Sie, die andere Protokollierungsmethode auszuwählen, sofern diese ebenfalls von Ihrer Anwendung verwendet wird. Leider ist Braze nicht in der Lage, mit der Menge der verfügbaren Daten eine Prognose zu erstellen, wenn dies nicht der Fall ist. Wenn Sie glauben, dass Sie diesen Fehler fälschlicherweise sehen, wenden Sie sich an Ihren Customer-Success-Manager.
+Hier sehen Sie, ob die ausgewählte Methode genügend Daten für Braze liefert, um ein Modell des maschinellen Lernens zu erstellen. Wenn die Anforderung nicht erfüllt ist, versuchen Sie, die andere Protokollierungsmethode auszuwählen, sofern diese ebenfalls von Ihrer Anwendung verwendet wird. Leider ist Braze nicht in der Lage, mit der Menge der verfügbaren Daten eine Prognose zu erstellen, wenn dies nicht der Fall ist. Wenn Sie glauben, dass Sie diesen Fehler fälschlicherweise sehen, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
 
 ### Event-Fenster {#event-window}
 

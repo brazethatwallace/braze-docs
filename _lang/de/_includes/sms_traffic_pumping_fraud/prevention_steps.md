@@ -1,6 +1,6 @@
 ### Welche grundlegenden Sofortmaßnahmen sollte mein Unternehmen ergreifen, um diesen Betrug zu verhindern? {#what-immediate-foundational-steps-should-my-company-take-to-prevent-this-fraud}
 
-Der wichtigste Schritt, den Ihr Unternehmen innerhalb Ihrer Customer-Engagement-Plattform unternehmen kann, ist die Minimierung Ihrer Angriffsfläche durch geografische Einschränkungen.
+Der wichtigste Schritt, den Ihr Unternehmen innerhalb Ihrer geschäftskunden-Engagement-Plattform unternehmen kann, ist die Minimierung Ihrer Angriffsfläche durch geografische Einschränkungen.
 
 #### Die Braze-Allowlist für geografische Berechtigungen nutzen {#utilize-the-braze-geographic-permissions-allowlist}
 

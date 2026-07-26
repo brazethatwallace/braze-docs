@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Cloudinary
 
-> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page) ist eine Bild- und Videoplattform zum Verwalten, Bearbeiten, Optimieren und Zustellen von Bildern und Videos in großem Umfang für jede Campaign über alle Kanäle und Customer Journeys hinweg. Bei Integration und Aktivierung ermöglicht das Medienmanagement von Cloudinary eine dynamische, kontextuelle und personalisierte Zustellung von Assets für Ihre Braze-Campaigns und Canvases.
+> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page) ist eine Bild- und Videoplattform zum Verwalten, Bearbeiten, Optimieren und Zustellen von Bildern und Videos in großem Umfang für jede Campaign über alle Kanäle und geschäftskunden Journeys hinweg. Bei Integration und Aktivierung ermöglicht das Medienmanagement von Cloudinary eine dynamische, kontextuelle und personalisierte Zustellung von Assets für Ihre Braze-Campaigns und Canvases.
 
 ## Über diese Integration {#about-this-integration}
 
@@ -18,7 +18,7 @@ Durch die Verbindung von Cloudinary mit Braze erhalten Marken Zugriff auf visuel
 Auf dieser Seite werden vier mögliche, aber nicht erschöpfende Integrationsmethoden zwischen Cloudinary und Braze beschrieben. Diese Integrationsmethoden beruhen in erster Linie auf der manuellen Änderung von Asset-Links, die aus der Medienbibliothek von Cloudinary kopiert wurden.
 
 {% alert important %}
-Fortgeschrittenere Integrationsmethoden, einschließlich der Verwendung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) zum Aufrufen der [Admin-API](https://cloudinary.com/documentation/admin_api#banner) von Cloudinary, sind möglich, aber die Vorgehensweise variiert von Kund:in zu Kund:in. Wenden Sie sich an Ihren Customer-Success-Manager von Cloudinary und Braze, wenn Sie Hilfe benötigen.
+Fortgeschrittenere Integrationsmethoden, einschließlich der Verwendung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) zum Aufrufen der [Admin-API](https://cloudinary.com/documentation/admin_api#banner) von Cloudinary, sind möglich, aber die Vorgehensweise variiert von geschäftskunden zu geschäftskunden. Wenden Sie sich an Ihren geschäftskunden-Success-Manager von Cloudinary und Braze, wenn Sie Hilfe benötigen.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}

@@ -110,7 +110,7 @@ Sie können die Zielgruppe auf Pinterest einsehen, indem Sie sich in Ihrem Ads-M
 
 Wenn Nutzer:innen den Audience-Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Echtzeit und berücksichtigt dabei die Rate-Limits der Pinterest Marketing API. Braze fasst so viele Nutzer:innen wie möglich in Batches zusammen und verarbeitet sie alle 5 Sekunden, bevor sie an Pinterest gesendet werden.
 
-Das Rate-Limit der Pinterest Segment API erlaubt nicht mehr als sieben Anfragen pro Sekunde pro Nutzer:in und 1.900 Nutzer:innen pro Anfrage. Wenn ein:e Kund:in dieses Limit erreicht, versucht Braze die Synchronisierung bis zu ca. 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
+Das Rate-Limit der Pinterest Segment API erlaubt nicht mehr als sieben Anfragen pro Sekunde pro Nutzer:in und 1.900 Nutzer:innen pro Anfrage. Wenn ein:e geschäftskunden dieses Limit erreicht, versucht Braze die Synchronisierung bis zu ca. 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
 
 ## Analytics verstehen {#understanding-analytics}
 

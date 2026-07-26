@@ -41,4 +41,4 @@ Erstellen Sie eine über die Braze-API [getriggerte Campaign]({{site.baseurl}}/a
 
 ### 3. Schritt: Richten Sie Ihr Toovio-Konto ein {#step-3-set-up-your-toovio-account}
 
-Kontaktieren Sie Toovio unter [info@toovio.com](mailto:info@toovio.com?subject=New%20Customer%20Request) mit dem Betreff „New Customer Request“, um ein Konto einzurichten. Toovio arbeitet mit den Clients zusammen, um Trigger und die zugrunde liegenden Modelle einzurichten.
+Kontaktieren Sie Toovio unter [info@toovio.com](mailto:info@toovio.com?subject=New%20Customer%20Request) mit dem Betreff „New geschäftskunden Request“, um ein Konto einzurichten. Toovio arbeitet mit den Clients zusammen, um Trigger und die zugrunde liegenden Modelle einzurichten.

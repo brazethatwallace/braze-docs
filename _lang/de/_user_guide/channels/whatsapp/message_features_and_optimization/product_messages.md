@@ -15,7 +15,7 @@ channel:
 
 > Produktnachrichten ermöglichen es Ihnen, interaktive WhatsApp-Nachrichten zu senden, die Produkte direkt aus Ihrem Meta-Katalog präsentieren.
 
-Wenn Sie eine WhatsApp-Produktnachricht an Nutzer:innen senden, durchlaufen diese die folgende Customer Journey:
+Wenn Sie eine WhatsApp-Produktnachricht an Nutzer:innen senden, durchlaufen diese die folgende geschäftskunden Journey:
 
 1. Die Nutzer:innen erhalten Ihre Produkt- oder Katalognachricht in WhatsApp.
 2. Die Nutzer:innen fügen Produkte direkt aus WhatsApp ihrem Warenkorb hinzu.

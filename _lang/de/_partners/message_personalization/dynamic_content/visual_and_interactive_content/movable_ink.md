@@ -140,7 +140,7 @@ Verwenden Sie dazu die folgende Syntax und ersetzen Sie die Bild-URL nach Bedarf
 {% endraw %}
 Dieses Template nimmt die aktuelle Zeit (in Sekunden), hängt sie an das Ende des Movable Ink-Bild-Tabs an (als Abfrageparameter) und gibt dann das Endergebnis aus. Mit dem Tab **Test** können Sie eine Vorschau anzeigen&#8212;der Code wird ausgewertet und eine Vorschau angezeigt.
 
-**3.** Bewerten Sie abschließend die Segment-Mitgliedschaft neu. Aktivieren Sie dazu die Option `Re-evaluate audience membership and liquid at send-time`, die sich im Schritt **Target Audiences** einer Campaign befindet. Wenn diese Option nicht verfügbar ist, wenden Sie sich an Ihren Customer-Success-Manager oder den Braze-Support. Diese Option weist die Braze SDKs an, die Campaign erneut anzufragen und bei jedem Triggern einer In-App-Nachricht eine eindeutige URL bereitzustellen.
+**3.** Bewerten Sie abschließend die Segment-Mitgliedschaft neu. Aktivieren Sie dazu die Option `Re-evaluate audience membership and liquid at send-time`, die sich im Schritt **Target Audiences** einer Campaign befindet. Wenn diese Option nicht verfügbar ist, wenden Sie sich an Ihren geschäftskunden-Success-Manager oder den Braze-Support. Diese Option weist die Braze SDKs an, die Campaign erneut anzufragen und bei jedem Triggern einer In-App-Nachricht eine eindeutige URL bereitzustellen.
 
 {% endtab %}
 {% tab Content Card %}

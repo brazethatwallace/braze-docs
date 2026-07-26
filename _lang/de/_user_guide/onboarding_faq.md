@@ -47,7 +47,7 @@ Um zuvor identifizierte Nutzer:innen zu importieren, können Sie eine CSV-Datei 
 
 Sie können Nutzerprofile über CSV-Dateien unter **Zielgruppe** > **Nutzer:innen importieren** hochladen und aktualisieren. Beim Import Ihrer Kundendaten müssen Sie die eindeutige Kennung jedes Kunden angeben, auch bekannt als `external_id`.
 
-Bevor Sie mit dem CSV-Import beginnen, sollten Sie mit Ihrem Entwicklerteam klären, wie die Nutzer:innen in Braze identifiziert werden. In der Regel handelt es sich dabei um eine intern verwendete Datenbank-ID. Diese sollte mit der Art und Weise übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, sodass jede:r Kund:in ein einziges Nutzerprofil in Braze über alle Geräte hinweg hat. Erfahren Sie mehr über den [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) in Braze.
+Bevor Sie mit dem CSV-Import beginnen, sollten Sie mit Ihrem Entwicklerteam klären, wie die Nutzer:innen in Braze identifiziert werden. In der Regel handelt es sich dabei um eine intern verwendete Datenbank-ID. Diese sollte mit der Art und Weise übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, sodass jede:r geschäftskunden ein einziges Nutzerprofil in Braze über alle Geräte hinweg hat. Erfahren Sie mehr über den [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) in Braze.
 
 Wenn Sie in Ihrem Import eine `external_id` angeben, aktualisiert Braze alle vorhandenen Nutzer:innen mit derselben `external_id` oder erstellt eine:n neu identifizierte:n Nutzer:in mit dieser `external_id`, falls keine gefunden wird.
 

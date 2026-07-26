@@ -44,16 +44,16 @@ Gehen Sie zurück zu Ihrem [Friendbuy-Konto](https://retailer.friendbuy.io/) und
 | Name des angepassten Attributs | Definition | Datentyp |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
 | **Friendbuy Referral Status** | Empfehlende Personen werden als *Advocate* und geworbene Personen als *Referred Friend* kategorisiert. | String |
-| **Friendbuy Customer Name** | Der Name, den die Kund:in bei der Übermittlung ihrer Daten über ein Empfehlungs-Widget eingegeben hat. | String |
+| **Friendbuy geschäftskunden Name** | Der Name, den die geschäftskunden bei der Übermittlung ihrer Daten über ein Empfehlungs-Widget eingegeben hat. | String |
 | **Friendbuy Referral Link** | Ein persönlicher Empfehlungslink (PURL), der für einen Advocate erstellt wurde. Zum Beispiel: https://fbuy.io/EzcW | String |
 | **Friendbuy Date of Last Share** | Datum und Uhrzeit, zu der der Advocate zuletzt über einen beliebigen Kanal mit einer Freundin oder einem Freund geteilt hat. Wenn der Advocate noch nicht geteilt hat, ist die Eigenschaft nicht sichtbar. | Time |
 | **Friendbuy Campaign ID** | Die Campaign-ID, die mit dem für einen Advocate generierten persönlichen Empfehlungslink verknüpft ist. | String |
 | **Friendbuy Campaign Name** | Der Campaign-Name, der mit dem für einen Advocate generierten persönlichen Empfehlungslink verknüpft ist. | String |
-| **Friendbuy Coupon Code** | Der neueste Empfehlungs-Gutscheincode, der an die Kund:in verteilt wurde. Hinweis: Es wird nur ein Code angezeigt. | String |
-| **Friendbuy Coupon Value** | Der Währungswert des zuletzt an die Kund:in verteilten Gutscheincodes. | Zahl |
-| **Friendbuy Coupon Status** | Der Status des zuletzt an die Kund:in verteilten Gutscheincodes. Hinweis: Der Status lautet „distributed“ oder „redeemed“. | String |
-| **Friendbuy Coupon Currency** | Währungscode (USD, CAD usw.) oder Prozentsatz (%) in Verbindung mit dem zuletzt an die Kund:in verteilten Gutscheincode. | String |
-| **Friendbuy Coupon Campaign ID** | Die Campaign-ID, die mit dem für eine Kund:in generierten Gutscheincode verknüpft ist. | String |
+| **Friendbuy Coupon Code** | Der neueste Empfehlungs-Gutscheincode, der an die geschäftskunden verteilt wurde. Hinweis: Es wird nur ein Code angezeigt. | String |
+| **Friendbuy Coupon Value** | Der Währungswert des zuletzt an die geschäftskunden verteilten Gutscheincodes. | Zahl |
+| **Friendbuy Coupon Status** | Der Status des zuletzt an die geschäftskunden verteilten Gutscheincodes. Hinweis: Der Status lautet „distributed“ oder „redeemed“. | String |
+| **Friendbuy Coupon Currency** | Währungscode (USD, CAD usw.) oder Prozentsatz (%) in Verbindung mit dem zuletzt an die geschäftskunden verteilten Gutscheincode. | String |
+| **Friendbuy Coupon Campaign ID** | Die Campaign-ID, die mit dem für eine geschäftskunden generierten Gutscheincode verknüpft ist. | String |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angepasste Attribute" }
 
 ## Standardverhalten {#default-behavior}
@@ -70,8 +70,8 @@ Friendbuy verwendet den internationalen Standard (E.164), um echte Telefonnummer
 
 | Kontrollkästchen ausgewählt | Verhalten |
 |-------------------|-----------------------------------------------------------------|
-| Nur E-Mail | Nur die E-Mail-Adresse der Kund:in wird an Braze gesendet. |
-| Nur Telefon | Nur die Telefonnummer der Kund:in wird an Braze gesendet. |
+| Nur E-Mail | Nur die E-Mail-Adresse der geschäftskunden wird an Braze gesendet. |
+| Nur Telefon | Nur die Telefonnummer der geschäftskunden wird an Braze gesendet. |
 | Keines | Es werden keine Kundendaten an Braze gesendet. |
-| Beides | Die E-Mail-Adresse und die Telefonnummer der Kund:in werden an Braze gesendet. |
+| Beides | Die E-Mail-Adresse und die Telefonnummer der geschäftskunden werden an Braze gesendet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verhalten bei Kontrollkästchen" }

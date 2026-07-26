@@ -128,4 +128,4 @@ Sie können auf zwei Arten basierend auf den Werten von Event-Eigenschaften segm
 1. **Innerhalb von 30 Tagen:** Sie können die Event-Eigenschafts-Segmentierung basierend auf der Häufigkeit und Aktualität bestimmter Event-Eigenschaftswerte innerhalb von Braze Segments verwenden. Diese Option wirkt sich auf die Datennutzung aus.<br><br>
 2. **Innerhalb und über 30 Tage hinaus:** Um sowohl die kurz- als auch die langfristige Event-Eigenschafts-Segmentierung abzudecken, können Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) verwenden. Dieses Feature segmentiert Nutzer:innen basierend auf angepassten Events und Event-Eigenschaften, die in den letzten zwei Jahren getrackt wurden. Diese Option wirkt sich nicht auf die Datennutzung aus.
 
-Kontaktieren Sie Ihren Braze Customer-Success-Manager für Empfehlungen zum besten Ansatz je nach Ihren spezifischen Anforderungen.
+Kontaktieren Sie Ihren Braze geschäftskunden-Success-Manager für Empfehlungen zum besten Ansatz je nach Ihren spezifischen Anforderungen.

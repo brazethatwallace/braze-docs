@@ -24,7 +24,7 @@ channel:
 
 ワークスペースごとに最大10個のWhatsAppビジネスアカウントを追加できます。ビジネスアカウントは異なるMeta Business Managerにネストできます。アカウントを追加するには：
 
-1. **テクノロジーパートナー** > **WhatsApp**に移動し、**Add WhatsApp Business Account**を選択します。
+1. **テクノロジーパートナー** > **WhatsApp**に移動し、**Add WhatsApp Business アカウント**を選択します。
 
 ![WhatsAppメッセージング統合セクション。ビジネスアカウントの追加、またはサブスクリプショングループと番号の追加オプションが表示されています。]({% image_buster /assets/img/whatsapp/multiple_wabas.png %})
 
@@ -54,7 +54,7 @@ WhatsAppビジネスアカウントごとに最大20個のサブスクリプシ�
 ![WhatsAppメッセージング統合セクション。ビジネスアカウントの追加、またはサブスクリプショングループと番号の追加オプションが表示されています。]({% image_buster /assets/img/whatsapp/multiple_wabas.png %})
 
 {: start="2"}
-2. サインアップワークフローを進めます。<br><br>**Select your WhatsApp Business Account**ステップで、既存のWhatsAppビジネスアカウントを選択し、新しい電話番号を追加します。この番号は、他のWhatsAppアカウントに登録されていないことを含め、WhatsApp電話番号のすべての要件を満たす必要があります。
+2. サインアップワークフローを進めます。<br><br>**Select your WhatsApp Business アカウント**ステップで、既存のWhatsAppビジネスアカウントを選択し、新しい電話番号を追加します。この番号は、他のWhatsAppアカウントに登録されていないことを含め、WhatsApp電話番号のすべての要件を満たす必要があります。
 
 ### サブスクリプショングループと電話番号の削除 {#removing-a-subscription-group-and-phone-number}
 

@@ -91,7 +91,7 @@ Weitere Informationen finden Sie in Metas Dokumentation zur [Template-Archivieru
 - Zuvor für alle Kund:innen über den WhatsApp Manager zugänglich
 - Jetzt beschränkt auf: Regierungen/große Meta-Werbetreibende, Direktwerbetreibende oder über einen BSP wie Braze (bis zu 5 pro Woche)
 - Neue Voraussetzungen: Unternehmensverifizierung, Zwei-Faktor-Verifizierung, genehmigter Anzeigename, Bekanntheit
-- Wenden Sie sich an Ihren Customer-Success-Manager für Unterstützung
+- Wenden Sie sich an Ihren geschäftskunden-Success-Manager für Unterstützung
 
 ### Oktober 2025: Regionale Preissenkungen {#october-2025-regional-pricing-rate-cuts}
 *Zuletzt aktualisiert: März 2026*
@@ -241,7 +241,7 @@ WhatsApp wird beginnen, Leseraten als Teil der Qualitätsbewertung für Marketin
 ### Februar 2024: Experiment mit Marketing-Konversationen {#february-2024-marketing-conversations-experimentation}
 *Zuletzt aktualisiert: Februar 2024*
 
-Ab dem 6. Februar 2024 testet WhatsApp neue Ansätze, beginnend mit Verbraucher:innen in Indien, um wertvollere Erlebnisse zu schaffen und das Customer-Engagement mit den Marketing-Konversationen Ihrer Marke zu maximieren. Dies kann die Begrenzung der Anzahl von Marketing-Konversationen umfassen, die ein:e Nutzer:in von Ihrer Marke in einem bestimmten Zeitraum erhält, beginnend mit einer kleinen Anzahl von Konversationen, die weniger wahrscheinlich gelesen werden.
+Ab dem 6. Februar 2024 testet WhatsApp neue Ansätze, beginnend mit Verbraucher:innen in Indien, um wertvollere Erlebnisse zu schaffen und das geschäftskunden-Engagement mit den Marketing-Konversationen Ihrer Marke zu maximieren. Dies kann die Begrenzung der Anzahl von Marketing-Konversationen umfassen, die ein:e Nutzer:in von Ihrer Marke in einem bestimmten Zeitraum erhält, beginnend mit einer kleinen Anzahl von Konversationen, die weniger wahrscheinlich gelesen werden.
 
 ### Oktober 2023: Template-Pacing {#october-2023-template-pacing}
 *Zuletzt aktualisiert: Oktober 2023*

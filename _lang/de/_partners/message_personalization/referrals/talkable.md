@@ -15,7 +15,7 @@ _Diese Integration wird von Talkable gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Talkable bringt die von Fürsprecher:innen gesteuerte Akquise in die Customer Journey, die Braze antreibt. Die Integration überträgt jedes Empfehlungs-Opt-in, das Talkable erfasst, in Echtzeit in das passende Braze-Profil, sodass Willkommens-Flows, Empfehlungs-Journeys, Segmentierung und Lifecycle-Messaging auf Basis vertrauenswürdiger Einwilligungen und Empfehlungskontexte gestartet werden können – ganz ohne manuelle Listenexporte oder Batch-Synchronisierungen.
+Talkable bringt die von Fürsprecher:innen gesteuerte Akquise in die geschäftskunden Journey, die Braze antreibt. Die Integration überträgt jedes Empfehlungs-Opt-in, das Talkable erfasst, in Echtzeit in das passende Braze-Profil, sodass Willkommens-Flows, Empfehlungs-Journeys, Segmentierung und Lifecycle-Messaging auf Basis vertrauenswürdiger Einwilligungen und Empfehlungskontexte gestartet werden können – ganz ohne manuelle Listenexporte oder Batch-Synchronisierungen.
 
 Talkable erfasst Marketing-Opt-ins in zwei Szenarien:
 

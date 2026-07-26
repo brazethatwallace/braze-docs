@@ -61,7 +61,7 @@ Um Braze-Daten mit Clarisights zu synchronisieren, müssen Sie einen Braze-Konne
 
 Um Braze als Datenquelle in Ihre Clarisights-Berichte aufzunehmen, navigieren Sie zu **Create New Report**. Benennen Sie Ihren Bericht und wählen Sie **Braze** als Datenquelle in der angezeigten Eingabeaufforderung aus. Sie können auch die Metriken und Dimensionen auswählen, die in den Bericht aufgenommen werden sollen. Wenn Sie fertig sind, wählen Sie **Create Report**.
 
-Die Daten aus Braze werden ab dem Zeitpunkt des nächsten geplanten Datenimports übertragen. Kontaktieren Sie Ihren Customer-Success-Manager von Clarisights, um Backfills für längere Zeiträume anzufordern.
+Die Daten aus Braze werden ab dem Zeitpunkt des nächsten geplanten Datenimports übertragen. Kontaktieren Sie Ihren geschäftskunden-Success-Manager von Clarisights, um Backfills für längere Zeiträume anzufordern.
 
 ![Clarisights-Berichtseinstellungen mit Feldern für Name und Datenquelle. In diesem Beispiel ist „Braze“ als Datenquelle ausgewählt.]({{site.baseurl}}/assets/img/clarisights/braze_report.png)
 

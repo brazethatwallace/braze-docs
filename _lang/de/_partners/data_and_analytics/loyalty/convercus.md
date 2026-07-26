@@ -31,7 +31,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
-| Ein Convercus-Konto | Ein aktives Convercus-Programm. Kontaktieren Sie Ihren Convercus Account Manager, wenn Sie noch kein:e Kund:in sind. |
+| Ein Convercus-Konto | Ein aktives Convercus-Programm. Kontaktieren Sie Ihren Convercus Account Manager, wenn Sie noch kein:e geschäftskunden sind. |
 | Ein Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit der Berechtigung `users.track`. Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }

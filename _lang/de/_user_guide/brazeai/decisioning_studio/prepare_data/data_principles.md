@@ -12,7 +12,7 @@ description: "Dieser Referenzartikel behandelt die allgemeinen Datengrundsätze,
 
 ## Ein einheitlicher Kundenbezeichner über alle Datenbestände hinweg {#one-consistent-customer-identifier-across-all-assets}
 
-Jeder Datenbestand (Kundenprofile, Aktivierungen, Engagements, Conversions) muss denselben Kundenbezeichner referenzieren. Es sollte genau einen primären Bezeichner geben, der jede Kund:in eindeutig und konsistent über alle Datenbestände hinweg identifiziert.
+Jeder Datenbestand (Kundenprofile, Aktivierungen, Engagements, Conversions) muss denselben Kundenbezeichner referenzieren. Es sollte genau einen primären Bezeichner geben, der jede geschäftskunden eindeutig und konsistent über alle Datenbestände hinweg identifiziert.
 
 | Anforderung | Auswirkung bei Verstoß |
 |-------------|------------------------|
@@ -34,11 +34,11 @@ Siehe [Snapshots versus Event-Streams]({{site.baseurl}}/user_guide/brazeai/decis
 
 ## Snapshot-Daten müssen nach einem regelmäßigen, zeitgesteuerten Zeitplan aktualisiert werden {#snapshot-data-must-be-updated-on-a-regular-time-driven-schedule}
 
-Snapshot-Daten (wie Kundenprofile und Features) repräsentieren den aktuellen Zustand einer Kund:in zu einem bestimmten Zeitpunkt. Aktualisierungen von Snapshot-Daten sollten durch einen regelmäßigen Zeitplan gesteuert werden (zum Beispiel täglich), nicht durch Event-Trigger.
+Snapshot-Daten (wie Kundenprofile und Features) repräsentieren den aktuellen Zustand einer geschäftskunden zu einem bestimmten Zeitpunkt. Aktualisierungen von Snapshot-Daten sollten durch einen regelmäßigen Zeitplan gesteuert werden (zum Beispiel täglich), nicht durch Event-Trigger.
 
 | Anforderung | Auswirkung bei Verstoß |
 |-------------|------------------------|
-| Snapshots müssen für alle Kund:innen nach einem regelmäßigen Zeitplan aktualisiert werden, unabhängig davon, ob eine Kund:in an diesem Tag ein Event hatte | Wenn Snapshot-Aktualisierungen nur durch ein Event getriggert werden, werden Features, die vom Zeitverlauf abhängen (wie „Tage seit dem letzten Kauf“ oder „Tage seit der Registrierung“), für Kund:innen veralten, die kein kürzliches Event hatten. Das Modell wird dann mit veralteten Feature-Werten trainiert, was seine Fähigkeit verringert, genaue und zeitnahe Empfehlungen zu geben. |
+| Snapshots müssen für alle Kund:innen nach einem regelmäßigen Zeitplan aktualisiert werden, unabhängig davon, ob eine geschäftskunden an diesem Tag ein Event hatte | Wenn Snapshot-Aktualisierungen nur durch ein Event getriggert werden, werden Features, die vom Zeitverlauf abhängen (wie „Tage seit dem letzten Kauf“ oder „Tage seit der Registrierung“), für Kund:innen veralten, die kein kürzliches Event hatten. Das Modell wird dann mit veralteten Feature-Werten trainiert, was seine Fähigkeit verringert, genaue und zeitnahe Empfehlungen zu geben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Snapshot-Daten müssen nach einem regelmäßigen, zeitgesteuerten Zeitplan aktualisiert werden" }
 
 ## Alle Datenbestände müssen Mindestanforderungen an Datenqualität und -integrität erfüllen {#all-assets-must-meet-minimum-data-quality-and-integrity-requirements}
@@ -47,7 +47,7 @@ Snapshot-Daten (wie Kundenprofile und Features) repräsentieren den aktuellen Zu
 
 | Anforderung | Auswirkung bei Verstoß |
 |-------------|------------------------|
-| Jeder Datenbestand muss die Felder enthalten, die zur Festlegung eines Primärschlüssels und, wo zutreffend, von Verknüpfungsschlüsseln zu anderen Datenbeständen erforderlich sind. Doppelte Datensätze müssen vor der Aufnahme entfernt oder dedupliziert werden. | Doppelte oder nicht zuordenbare Datensätze fügen dem Modelltraining Rauschen hinzu und können zu fehlerhafter Attribution führen. Fehlende Schlüssel verhindern, dass die Engine Ereignisse über die gesamte Customer Journey hinweg verknüpfen kann – von der Empfehlung bis zur Conversion. |
+| Jeder Datenbestand muss die Felder enthalten, die zur Festlegung eines Primärschlüssels und, wo zutreffend, von Verknüpfungsschlüsseln zu anderen Datenbeständen erforderlich sind. Doppelte Datensätze müssen vor der Aufnahme entfernt oder dedupliziert werden. | Doppelte oder nicht zuordenbare Datensätze fügen dem Modelltraining Rauschen hinzu und können zu fehlerhafter Attribution führen. Fehlende Schlüssel verhindern, dass die Engine Ereignisse über die gesamte geschäftskunden Journey hinweg verknüpfen kann – von der Empfehlung bis zur Conversion. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Alle Datenbestände müssen Mindestanforderungen an Datenqualität und -integrität erfüllen" }
 
 Speziell für Event-Stream-Daten muss jeder Datensatz mindestens Folgendes enthalten:

@@ -15,8 +15,8 @@ Erfahren Sie mehr darüber, wie Braze Daten erfasst:
 ## Braze-Bezeichner {#braze-identifiers}
 
 - `braze_id`: Ein von Braze zugewiesener Bezeichner, der unveränderlich ist und mit einer bestimmten Nutzer:in verknüpft wird, wenn er in unserer Datenbank erstellt wird.
-- `external_id`: Ein von der Kund:in zugewiesener Bezeichner, in der Regel eine UUID. Wir empfehlen, die `external_id` zuzuweisen, sobald die Nutzer:in eindeutig identifiziert werden kann. Nachdem eine Nutzer:in identifiziert wurde, kann sie nicht mehr in den anonymen Zustand zurückversetzt werden.
-- `user_alias`: Ein eindeutiger alternativer Bezeichner, den die Kund:in zuweisen kann, um die Nutzer:in über eine ID zu referenzieren, bevor eine `external_id` zugewiesen wird. Nutzer-Aliase können später mit anderen Aliasen oder einer `external_id` zusammengeführt werden, wenn eine solche über den Braze-Endpunkt [User identify]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) verfügbar wird.
+- `external_id`: Ein von der geschäftskunden zugewiesener Bezeichner, in der Regel eine UUID. Wir empfehlen, die `external_id` zuzuweisen, sobald die Nutzer:in eindeutig identifiziert werden kann. Nachdem eine Nutzer:in identifiziert wurde, kann sie nicht mehr in den anonymen Zustand zurückversetzt werden.
+- `user_alias`: Ein eindeutiger alternativer Bezeichner, den die geschäftskunden zuweisen kann, um die Nutzer:in über eine ID zu referenzieren, bevor eine `external_id` zugewiesen wird. Nutzer-Aliase können später mit anderen Aliasen oder einer `external_id` zusammengeführt werden, wenn eine solche über den Braze-Endpunkt [User identify]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) verfügbar wird.
     - Innerhalb des Endpunkts [User identify]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) kann das Feld `merge_behavior` verwendet werden, um anzugeben, welche Daten aus dem Nutzer-Alias-Profil im bekannten Nutzerprofil erhalten bleiben sollen.
     - Beachten Sie, dass der Nutzer-Alias nur dann ein sendefähiges Profil ist, wenn Sie E-Mail und/oder Telefon als Standardattribut im Profil hinterlegen.
 - `device_id`: Ein automatisch generierter, gerätespezifischer Bezeichner. Einem Nutzerprofil kann eine Reihe von `device_ids` zugeordnet sein. Eine Nutzer:in, die sich beispielsweise auf ihrem Arbeitscomputer, ihrem Heimcomputer, ihrem Tablet und in der iOS-App in ihr Konto eingeloggt hat, hätte 4 `device_ids`, die mit ihrem Profil verknüpft sind.
@@ -111,7 +111,7 @@ Diese Funktion befindet sich in der Early-Access-Phase.
 
 [Dokumentation zum Kohortenimport-Sync-Partner]({{site.baseurl}}/partners/isv_partners/cohort_import)<br>
 - Zielgruppen von Nutzer:innen können über die Braze-Kohortenimport-API-Endpunkte als Kohorte mit Braze synchronisiert werden. Anstatt diese Zielgruppen als Nutzerattribute im Nutzerprofil zu speichern, können Kund:innen diese Kohorte über einen vom Partner gebrandeten Filter in unserem Segmentierungs-Tool aufbauen und ansprechen. So können Sie ein bestimmtes Segment von Nutzer:innen effizienter finden und targetieren.
-- Die Endpunkte für den Kohortenimport sind nicht öffentlich und werden für jeden Partner individuell festgelegt. Aus diesem Grund werden Synchronisierungen mit den Kohorten-Endpunkten nicht auf die Rate-Limits des Workspace einer Kund:in angerechnet.
+- Die Endpunkte für den Kohortenimport sind nicht öffentlich und werden für jeden Partner individuell festgelegt. Aus diesem Grund werden Synchronisierungen mit den Kohorten-Endpunkten nicht auf die Rate-Limits des Workspace einer geschäftskunden angerechnet.
 
 [User Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track)<br>
 - Dies ist ein öffentlich zugänglicher Endpunkt, der sofort verwendet werden kann, um Nutzer:innen in Braze zu erstellen, indem eine Nutzer:in in einer bestimmten Zielgruppe durch ein Nutzerattribut gekennzeichnet wird. Der Hauptunterschied zwischen diesem Endpunkt und dem Kohortenimport-Endpunkt besteht darin, dass Zielgruppen, die über diesen Endpunkt gesendet werden, im Nutzerprofil gespeichert werden, während der Kohortenimport-Endpunkt als Filter in unserem Segmentierungs-Tool angezeigt wird. Für diesen Endpunkt gilt ein Rate-Limit von 50.000 Anfragen pro Minute auf Workspace-Ebene.
@@ -125,20 +125,20 @@ Diese Funktion befindet sich in der Early-Access-Phase.
 
 ### Currents
 
-Currents ist ein nahezu in Realtime arbeitendes Streaming-Tool für Nachrichten-Engagement-Analytics in Braze. Es streamt Daten auf Nutzerebene zu allen Sendungen, Zustellungen, Öffnungen, Klicks usw. für Campaigns und Canvases, die aus dem Workspace der Kund:in gesendet werden. Einige Hinweise: Currents wird pro Konnektor für die Kund:in berechnet, daher müssen alle neuen Currents-Partner einen EA-Prozess durchlaufen. Wir verlangen von unseren Partnern, dass sie fünf Kund:innen im Rahmen des EA einbinden, bevor wir die angepasste UI erstellen und den Konnektor öffentlich zur Verfügung stellen.
+Currents ist ein nahezu in Realtime arbeitendes Streaming-Tool für Nachrichten-Engagement-Analytics in Braze. Es streamt Daten auf Nutzerebene zu allen Sendungen, Zustellungen, Öffnungen, Klicks usw. für Campaigns und Canvases, die aus dem Workspace der geschäftskunden gesendet werden. Einige Hinweise: Currents wird pro Konnektor für die geschäftskunden berechnet, daher müssen alle neuen Currents-Partner einen EA-Prozess durchlaufen. Wir verlangen von unseren Partnern, dass sie fünf Kund:innen im Rahmen des EA einbinden, bevor wir die angepasste UI erstellen und den Konnektor öffentlich zur Verfügung stellen.
 - [Partner-Dokumentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector)
 - [Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) – alle Kund:innen, die einen Currents-Konnektor erwerben, haben Zugriff auf diese Events.
 - [Nutzerverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) – nicht alle Kund:innen, die einen Currents-Konnektor erwerben, kaufen auch einen „Alle Events“-Konnektor, der diese Events enthält.
 
 ### Snowflake Data Share
 
-Kund:innen, die einen Snowflake-Data-Share-Konnektor erwerben, haben automatisch Zugriff auf sowohl Message-Engagement- als auch Nutzerverhalten-Events. Wenn Snowflake Data Share als Partnerintegration verwendet wird, stellt Braze im Namen der Kund:in eine Freigabe für die Snowflake-Instanz des Partners bereit. Da die regionsübergreifende Datenfreigabe für unsere Kund:innen mit höheren Kosten verbunden ist, bitten wir Partner, die eine Integration mit Snowflake anstreben, zu beachten, dass sie ein Konto in `US-EAST-1` und/oder `EU-CENTRAL-1` benötigen.
+Kund:innen, die einen Snowflake-Data-Share-Konnektor erwerben, haben automatisch Zugriff auf sowohl Message-Engagement- als auch Nutzerverhalten-Events. Wenn Snowflake Data Share als Partnerintegration verwendet wird, stellt Braze im Namen der geschäftskunden eine Freigabe für die Snowflake-Instanz des Partners bereit. Da die regionsübergreifende Datenfreigabe für unsere Kund:innen mit höheren Kosten verbunden ist, bitten wir Partner, die eine Integration mit Snowflake anstreben, zu beachten, dass sie ein Konto in `US-EAST-1` und/oder `EU-CENTRAL-1` benötigen.
 - [Partner-Dokumentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector)
 
 ## Erstellen und Triggern von Campaigns und Canvases {#building-and-triggering-campaigns-and-canvases}
 
 ### Erstellen von Assets in Braze {#creating-assets-in-braze}
-Braze bietet eine Reihe von Endpunkten, die es Kund:innen und Partnern ermöglichen, E-Mail-Templates und Content Blocks innerhalb des Workspace einer Kund:in zu erstellen bzw. zu aktualisieren. Diese Templates und Content Blocks können wiederum in den Campaigns und Canvases der Kund:in verwendet werden.
+Braze bietet eine Reihe von Endpunkten, die es Kund:innen und Partnern ermöglichen, E-Mail-Templates und Content Blocks innerhalb des Workspace einer geschäftskunden zu erstellen bzw. zu aktualisieren. Diese Templates und Content Blocks können wiederum in den Campaigns und Canvases der geschäftskunden verwendet werden.
 - E-Mail-Templates
     - [Template-Endpunkt erstellen]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template)
     - [Template-Endpunkt aktualisieren]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template#rate-limit)
@@ -157,7 +157,7 @@ Kund:innen können Campaigns und Canvases so einrichten, dass sie über die API 
     - Daten, die zum Zeitpunkt des Versands dynamisch in die Nachricht eingefügt werden können.
 
 ### API-Campaigns
-Bei der Erstellung von API-Campaigns (im Unterschied zu den oben genannten API-getriggerten Campaigns) wird das Braze-Dashboard nur dazu verwendet, eine `campaign_id` zu generieren, mit der die Kund:in Analytics für die Campaign-Berichterstattung verfolgen kann. Die Nachricht der Campaign selbst wird in der API-Anfrage definiert.
+Bei der Erstellung von API-Campaigns (im Unterschied zu den oben genannten API-getriggerten Campaigns) wird das Braze-Dashboard nur dazu verwendet, eine `campaign_id` zu generieren, mit der die geschäftskunden Analytics für die Campaign-Berichterstattung verfolgen kann. Die Nachricht der Campaign selbst wird in der API-Anfrage definiert.
 - [API-Campaign sofort senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 - [API-Campaign planen]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
 

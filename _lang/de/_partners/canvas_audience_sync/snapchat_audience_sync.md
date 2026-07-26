@@ -112,7 +112,7 @@ Sie können die Zielgruppe in Snapchat einsehen, indem Sie Ihr Ads-Manager-Konto
 
 Wenn Nutzer:innen den Audience-Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Echtzeit und berücksichtigt dabei die API-Rate-Limits von Snapchat. Braze fasst alle 5 Sekunden so viele Nutzer:innen wie möglich zusammen und verarbeitet sie, bevor sie an Snapchat gesendet werden.
 
-Das API-Rate-Limit von Snapchat erlaubt nicht mehr als zehn Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Wenn ein:e Kund:in dieses Limit erreicht, versucht Braze die Synchronisierung bis zu ca. 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
+Das API-Rate-Limit von Snapchat erlaubt nicht mehr als zehn Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Wenn ein:e geschäftskunden dieses Limit erreicht, versucht Braze die Synchronisierung bis zu ca. 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
 
 ### Analytics verstehen {#understanding-analytics}
 

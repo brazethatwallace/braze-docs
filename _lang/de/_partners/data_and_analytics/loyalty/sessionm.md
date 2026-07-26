@@ -1,7 +1,7 @@
 ---
 nav_title: SessionM
 article_title: SessionM
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und SessionM, einer Customer-Engagement- und Kundenbindungsplattform."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und SessionM, einer geschäftskunden-Engagement- und Kundenbindungsplattform."
 alias: /partners/sessionm/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # SessionM Treueplattform {#sessionm-loyalty-platform}
 
-> [SessionM](https://sessionm.com/) ist eine Plattform für Customer-Engagement und Kundentreue, Teil von Capillary Technologies, die Marketern Features für das Kampagnenmanagement und Lösungen für das Loyalitätsmanagement zur Verfügung stellt, um das Engagement und den Gewinn durch gezielte Ansprache zu steigern.
+> [SessionM](https://sessionm.com/) ist eine Plattform für geschäftskunden-Engagement und Kundentreue, Teil von Capillary Technologies, die Marketern Features für das Kampagnenmanagement und Lösungen für das Loyalitätsmanagement zur Verfügung stellt, um das Engagement und den Gewinn durch gezielte Ansprache zu steigern.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -73,7 +73,7 @@ Fügen Sie im Tab **Einstellungen** die Schlüssel-Wert-Paare für jedes Anfrage
 Planen Sie Ihre Zustellung, legen Sie Ihre **Zielgruppen** für das Targeting des [zuvor erstellten](#step-1-create-a-segment-in-braze) Segments fest und starten Sie dann Ihre Kampagne.
 
 {% alert important %}
-Dieser Vorgang kann auch über einen API-Client wie Postman durchgeführt werden, indem Sie eine Anfrage direkt an den [SessionM-Tag-Endpunkt](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) stellen und dabei die Kund:in, den Tag-Namen und eine Gültigkeitsdauer für jede Nutzer:in im Aufruf angeben (eine Nutzer:in pro Aufruf).
+Dieser Vorgang kann auch über einen API-Client wie Postman durchgeführt werden, indem Sie eine Anfrage direkt an den [SessionM-Tag-Endpunkt](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) stellen und dabei die geschäftskunden, den Tag-Namen und eine Gültigkeitsdauer für jede Nutzer:in im Aufruf angeben (eine Nutzer:in pro Aufruf).
 <br><br>
 Die folgende Beispielanfrage verwendet cURL.
 
@@ -107,15 +107,15 @@ Das folgende Beispiel zeigt, wie Connected-Content verwendet wird, um Daten der 
 
 SessionM gibt Kund:innen Angebote über verschiedene interne Hebel aus, die konfiguriert werden können. Nach der Ausgabe werden die Angebote in einen Zustand versetzt, den SessionM als „Angebotsmappe“ bezeichnet.
 
-Eine Kund:in muss die erforderliche Aktion durchführen oder das Targeting erfüllen und erhält das Angebot innerhalb von SessionM.
+Eine geschäftskunden muss die erforderliche Aktion durchführen oder das Targeting erfüllen und erhält das Angebot innerhalb von SessionM.
 
-SessionM fügt das Angebot dann der Angebotsmappe der Kund:in im ausgegebenen Zustand hinzu.
+SessionM fügt das Angebot dann der Angebotsmappe der geschäftskunden im ausgegebenen Zustand hinzu.
 
 ### Schritt 2: SessionM Offer Wallet API aufrufen {#step-2-call-sessionm-offer-wallet-api}
 
 Verwenden Sie in einer Kampagne oder einem Canvas-Schritt mit den SessionM-Angeboten [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call), um einen API-Aufruf an den [SessionM `get_user_offers`-Endpunkt](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/) zu tätigen.
 
-Geben Sie in der Connected-Content-Anfrage die SessionM `user_id` der Nutzer:in und Ihre `retailer_id` an, um die vollständige Liste der aktiven Angebote abzurufen, die die Kund:in in ihrer Angebotsmappe hat. Jede Anfrage an diesen Endpunkt kann eine einzelne Nutzer:in enthalten. Wenden Sie sich an das SessionM-Team, um den kodierten String-Schlüssel für den Basic-Authorization-Header in Ihrem Connected-Content-Aufruf zu erhalten.
+Geben Sie in der Connected-Content-Anfrage die SessionM `user_id` der Nutzer:in und Ihre `retailer_id` an, um die vollständige Liste der aktiven Angebote abzurufen, die die geschäftskunden in ihrer Angebotsmappe hat. Jede Anfrage an diesen Endpunkt kann eine einzelne Nutzer:in enthalten. Wenden Sie sich an das SessionM-Team, um den kodierten String-Schlüssel für den Basic-Authorization-Header in Ihrem Connected-Content-Aufruf zu erhalten.
 
 Im Anfrage-Body ist `culture` standardmäßig auf `en-US` eingestellt, aber Sie können Liquid verwenden, um die Sprache einer Nutzer:in für mehrsprachige SessionM-Angebote als Template einzusetzen (z. B. mit {% raw %}`"culture":"{{${language}}}"`{% endraw %}).
 

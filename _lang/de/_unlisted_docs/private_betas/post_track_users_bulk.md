@@ -47,7 +47,7 @@ Jede `/users/sync/bulk`-Anfrage hat ein Payload-Limit von 4&nbsp;MB und kann bis
 Jedes Objekt (Event-, Attribut- und Kauf-Arrays) kann jeweils eine:n Nutzer:in aktualisieren, d. h. bis zu 10.000 verschiedene Nutzer:innen können in einer einzigen Anfrage aktualisiert werden. Ein einzelnes Nutzerprofil kann mit bis zu 100 Objekten in einer einzigen Anfrage aktualisiert werden.
 
 {% alert note %}
-Wenn Sie eine Erhöhung Ihres Rate-Limits benötigen, wenden Sie sich an Ihren Customer-Success-Manager.
+Wenn Sie eine Erhöhung Ihres Rate-Limits benötigen, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
 {% endalert %}
 
 

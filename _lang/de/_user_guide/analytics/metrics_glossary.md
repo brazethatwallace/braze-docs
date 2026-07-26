@@ -184,7 +184,7 @@ Email
 SMS/MMS, RCS
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Confirmed Deliveries' %} Als Braze-Kund:in werden Zustellungen auf Ihr SMS-Kontingent angerechnet.
+{% multi_lang_include analytics/metrics.md metric='Confirmed Deliveries' %} Als Braze-geschäftskunden werden Zustellungen auf Ihr SMS-Kontingent angerechnet.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -717,7 +717,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 SMS/MMS, RCS
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Rejections' %} Als Braze-Kund:in werden Ablehnungen auf Ihr SMS-Kontingent angerechnet.
+{% multi_lang_include analytics/metrics.md metric='Rejections' %} Als Braze-geschäftskunden werden Ablehnungen auf Ihr SMS-Kontingent angerechnet.
 
 {::nomarkdown}
 <span class="calculation-line">

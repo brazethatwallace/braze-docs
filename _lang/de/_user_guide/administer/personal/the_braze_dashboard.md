@@ -3,13 +3,13 @@ nav_title: Das Dashboard
 article_title: Das Braze-Dashboard
 page_order: 1
 page_type: reference
-description: "Das Braze-Dashboard ist Ihr zentraler Workspace zum Erstellen, Verwalten und Analysieren von Customer-Engagement. Es vereint Messaging-Tools, Zielgruppen-Insights, Segmentierung und Realtime-Performance-Daten an einem Ort."
+description: "Das Braze-Dashboard ist Ihr zentraler Workspace zum Erstellen, Verwalten und Analysieren von geschäftskunden-Engagement. Es vereint Messaging-Tools, Zielgruppen-Insights, Segmentierung und Realtime-Performance-Daten an einem Ort."
 
 ---
 
 # Das Braze-Dashboard {#the-braze-dashboard}
 
-> Das Braze-Dashboard ist Ihr zentraler Workspace zum Erstellen, Verwalten und Analysieren von Customer-Engagement. Greifen Sie darauf zu unter [dashboard.braze.com](https://dashboard.braze.com/) oder [dashboard.braze.eu](https://dashboard.braze.eu/).
+> Das Braze-Dashboard ist Ihr zentraler Workspace zum Erstellen, Verwalten und Analysieren von geschäftskunden-Engagement. Greifen Sie darauf zu unter [dashboard.braze.com](https://dashboard.braze.com/) oder [dashboard.braze.eu](https://dashboard.braze.eu/).
 
 Nutzen Sie das Braze-Dashboard, um Campaigns zu planen, Nachrichten zu starten und zu verwalten, Zielgruppen-Insights zu erkunden, die Segmentierung anzupassen und Realtime-Performance- und Engagement-Metriken über eine einzige Schnittstelle zu überprüfen.
 

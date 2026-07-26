@@ -18,9 +18,9 @@ Die RFM-Analyse ist eine Marketingtechnik, die Ihre besten Nutzer:innen identifi
 
 | Kategorie | Definition |
 | --- | --- |
-| Recency | Wie kürzlich ein:e Kund:in einen Kauf getätigt hat. Eine höhere Bewertung bedeutet aktuellere Käufe. |
-| Frequency | Wie häufig ein:e Kund:in einen Kauf getätigt hat. Eine höhere Bewertung bedeutet höhere Häufigkeit. |
-| Monetary | Gesamtbetrag, den ein:e Kund:in ausgegeben hat. Eine höhere Bewertung bedeutet höhere Ausgaben. |
+| Recency | Wie kürzlich ein:e geschäftskunden einen Kauf getätigt hat. Eine höhere Bewertung bedeutet aktuellere Käufe. |
+| Frequency | Wie häufig ein:e geschäftskunden einen Kauf getätigt hat. Eine höhere Bewertung bedeutet höhere Häufigkeit. |
+| Monetary | Gesamtbetrag, den ein:e geschäftskunden ausgegeben hat. Eine höhere Bewertung bedeutet höhere Ausgaben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="RFM-Kategorien" }
 
 {% alert note %}
@@ -67,7 +67,7 @@ RFM-Segmente werden in einer bestimmten Reihenfolge ausgewertet. Nutzer:innen we
 | Loyal Users | Nutzer:innen mit hoher Recency und hoher Frequency. Können einen niedrigeren Monetary-Wert als Champions haben. | 2–3 | 2–3 | 1–3 |
 | Potential Loyalists | Nutzer:innen, die kürzlich mit moderater Frequency und moderatem Monetary-Wert gekauft haben. | 3 | 1–3 | 1–3 |
 | Promising | Nutzer:innen, die einen kürzlichen, hochwertigen Erstkauf getätigt haben, aber noch keine hohe Kaufhäufigkeit aufgebaut haben. | 3 | 0–3 | 1–3 |
-| New Customer | Nutzer:innen, die erst kürzlich ihren ersten Kauf getätigt haben. | 3 | 0–3 | 0–3 |
+| New geschäftskunden | Nutzer:innen, die erst kürzlich ihren ersten Kauf getätigt haben. | 3 | 0–3 | 0–3 |
 | Needing Attention | Nutzer:innen mit überdurchschnittlicher Recency, deren Kaufhäufigkeit oder Monetary-Wert jedoch unterdurchschnittlich sind. | 2–3 | 0–3 | 0–3 |
 | Cannot lose them | Nutzer:innen, die zuvor hochwertig waren mit guten Frequency- und Monetary-Werten, aber seit Langem nicht mehr gekauft haben. | 0–1 | 2–3 | 2–3 |
 | At Risk | Nutzer:innen, die historisch moderate Frequency- und Monetary-Werte hatten, aber seit Langem nicht mehr gekauft haben. | 0–1 | 1–3 | 1–3 |

@@ -48,7 +48,7 @@ Um Yotpo und Braze zu integrieren, führen Sie die folgenden Schritte durch:
     - [Sternebewertung und Anzahl der Bewertungen eines Produkts anzeigen](#star-review-count)
     - [Eine aktuelle 5-Sterne-Bewertung für ein Produkt anzeigen](#five-star-review)
     - [Visuellen UGC nach Produkt anzeigen](#visual-ugc)
-    - [Treueguthaben einer Kund:in in einer E-Mail anzeigen](#loyalty-balance)
+    - [Treueguthaben einer geschäftskunden in einer E-Mail anzeigen](#loyalty-balance)
 
 ### Sternebewertung und Anzahl der Bewertungen eines Produkts anzeigen {#star-review-count}
 
@@ -127,9 +127,9 @@ Das Snippet sieht dann etwa so aus:
 
 ![Beispiel für einen E-Mail-Editor mit einem Snippet von Bildern, die in Yotpo veröffentlicht wurden]({% image_buster /assets/img/yotpo/image4.png %})
 
-### Treueguthaben einer Kund:in in einer E-Mail anzeigen {#loyalty-balance}
+### Treueguthaben einer geschäftskunden in einer E-Mail anzeigen {#loyalty-balance}
 
-Verwenden Sie dieses Snippet, um den Treuepunkte-Kontostand einer Kund:in abzurufen und in Ihrem E-Mail-Messaging zu verwenden:
+Verwenden Sie dieses Snippet, um den Treuepunkte-Kontostand einer geschäftskunden abzurufen und in Ihrem E-Mail-Messaging zu verwenden:
 
 {% raw %}
 ```liquid
@@ -151,7 +151,7 @@ Only {{publication.vip_tier_upgrade_requirements.points_needed}} more points to 
 ```
 {% endraw %}
 
-Ersetzen Sie `<YOTPO-LOYALTY-GUID>` und `<YOTPO-LOYALTY-API-KEY>` durch Ihre Yotpo-Loyalitäts-Zugangsdaten. Die `email_address` wird dynamisch von Braze bezogen. Damit die Integration funktioniert, muss die E-Mail die E-Mail-Adresse der Kund:in sein, die die E-Mail erhält.
+Ersetzen Sie `<YOTPO-LOYALTY-GUID>` und `<YOTPO-LOYALTY-API-KEY>` durch Ihre Yotpo-Loyalitäts-Zugangsdaten. Die `email_address` wird dynamisch von Braze bezogen. Damit die Integration funktioniert, muss die E-Mail die E-Mail-Adresse der geschäftskunden sein, die die E-Mail erhält.
 
 Das Snippet sieht dann etwa so aus:
 

@@ -16,7 +16,7 @@ tool: Canvas
 
 Braze Learning bietet außerdem mehrere dedizierte Canvas-Kurse an, die gängige Canvas-Entwürfe behandeln. Schauen Sie sich diese an, um wertvolle Insights zu Fachbegriffen und Konzepten zu erhalten, die durch eine Mischung aus Videos, Lektionen und interaktiven Übungen erklärt werden.
 
-- [Customer Journeys mit Canvas Flow erstellen](https://learning.braze.com/create-customer-journeys-with-canvas-flow)
+- [geschäftskunden Journeys mit Canvas Flow erstellen](https://learning.braze.com/create-customer-journeys-with-canvas-flow)
 - [Onboarding neuer Treuemitglieder](https://learning.braze.com/new-loyalty-member-onboarding)
 - [Inaktive Nutzer:innen](https://learning.braze.com/lapsing-users)
 - [Eine Warenkorb-Abbruch-Journey erstellen](https://learning.braze.com/build-an-abandoned-cart-user-journey)
@@ -29,9 +29,9 @@ Nehmen wir an, Ihr Restaurant möchte Nutzer:innen beim Onboarding unterstützen
 
 ### Upselling {#upsell}
 
-Auch das Upgraden Ihrer Abos kann durch das Erstellen und Versenden effektiver Canvases gefördert werden. Wenn Sie beispielsweise aktive Nutzer:innen upgraden möchten, die eine kostenlose Version Ihrer App nutzen, können Sie ein aktionsbasiertes Canvas erstellen, das getriggert wird, wenn ein:e Kund:in das angepasste Event „3 Stunden gestreamt“ erreicht hat. Mit einem Nachrichten-Schritt können Sie diese Kund:innen dazu auffordern, sich für Ihre Premium-Abos anzumelden.
+Auch das Upgraden Ihrer Abos kann durch das Erstellen und Versenden effektiver Canvases gefördert werden. Wenn Sie beispielsweise aktive Nutzer:innen upgraden möchten, die eine kostenlose Version Ihrer App nutzen, können Sie ein aktionsbasiertes Canvas erstellen, das getriggert wird, wenn ein:e geschäftskunden das angepasste Event „3 Stunden gestreamt“ erreicht hat. Mit einem Nachrichten-Schritt können Sie diese Kund:innen dazu auffordern, sich für Ihre Premium-Abos anzumelden.
 
-![Auch das Upgraden Ihrer Abos kann durch das Erstellen und Versenden effektiver Canvases gefördert werden. Wenn Sie beispielsweise aktive Nutzer:innen upgraden möchten, die eine kostenlose Version Ihrer App nutzen, können Sie ein aktionsbasiertes Canvas erstellen, das getriggert wird, wenn ein:e Kund:in das angepasste Event „3 Stunden gestreamt“ erreicht hat. Mit einem Nachrichten-Schritt können Sie diese Kund:innen dazu auffordern, sich für Ihre Premium-Abos anzumelden.]({% image_buster /assets/img_archive/canvas_outline_upsell.png %}){: style="max-width:90%;"}
+![Auch das Upgraden Ihrer Abos kann durch das Erstellen und Versenden effektiver Canvases gefördert werden. Wenn Sie beispielsweise aktive Nutzer:innen upgraden möchten, die eine kostenlose Version Ihrer App nutzen, können Sie ein aktionsbasiertes Canvas erstellen, das getriggert wird, wenn ein:e geschäftskunden das angepasste Event „3 Stunden gestreamt“ erreicht hat. Mit einem Nachrichten-Schritt können Sie diese Kund:innen dazu auffordern, sich für Ihre Premium-Abos anzumelden.]({% image_buster /assets/img_archive/canvas_outline_upsell.png %}){: style="max-width:90%;"}
 
 ### Warenkorb-Abbrüche {#abandoned-carts}
 

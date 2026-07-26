@@ -40,7 +40,7 @@ Diese Nachricht wird nur an Kund:innen gesendet, die nachweislich ein Spiel besu
 
 ## Nur englischsprachige Kund:innen anschreiben {#message-english-speaking-customers-only}
 
-Sie können nur englischsprachige Kund:innen anschreiben, indem Sie eine „if“-Anweisung erstellen, die zutrifft, wenn die Sprache der/des Kund:in Englisch ist, und eine „else“-Anweisung, die die Nachricht für alle abbricht, die kein Englisch sprechen oder keine Sprache in ihrem Profil hinterlegt haben.
+Sie können nur englischsprachige Kund:innen anschreiben, indem Sie eine „if“-Anweisung erstellen, die zutrifft, wenn die Sprache der/des geschäftskunden Englisch ist, und eine „else“-Anweisung, die die Nachricht für alle abbricht, die kein Englisch sprechen oder keine Sprache in ihrem Profil hinterlegt haben.
 
 {% raw %}
 ```liquid

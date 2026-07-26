@@ -1,14 +1,14 @@
 ---
 nav_title: API-Anwendungsfälle
 article_title: API-Anwendungsfälle
-description: "Ganz gleich, ob Sie erfahrene Entwickler:innen oder Marketer mit minimalen Entwicklerressourcen sind – dieser Referenzartikel soll Ihnen zeigen, wie Sie die leistungsstarke REST API von Braze nutzen können, um verschiedene Aufgaben zu erfüllen und Ihre Customer-Engagement-Strategie zu verbessern."
+description: "Ganz gleich, ob Sie erfahrene Entwickler:innen oder Marketer mit minimalen Entwicklerressourcen sind – dieser Referenzartikel soll Ihnen zeigen, wie Sie die leistungsstarke REST API von Braze nutzen können, um verschiedene Aufgaben zu erfüllen und Ihre geschäftskunden-Engagement-Strategie zu verbessern."
 page_type: reference
 page_order: 4.8
 ---
 
 # API-Anwendungsfälle {#api-use-cases}
 
-> Die [REST API von Braze]({{site.baseurl}}/api/basics) bietet eine breite Palette von Endpunkten, die Sie bei der Verwaltung und Optimierung Ihrer Customer-Engagement-Strategie unterstützen. In diesem Artikel werden wir verschiedene Anwendungsfälle für jede Endpunkt-Sammlung untersuchen: Kataloge, E-Mail-Listen und -Adressen, Export, Nachrichten, Präferenzzentrum, SMS, Abo-Gruppen, Templates und Nutzerdaten.<br><br>In jedem Abschnitt wird ein Szenario mit einer Schritt-für-Schritt-Anleitung, einem Code-Beispiel und dem erwarteten Ergebnis vorgestellt. Am Ende dieses Artikels werden Sie besser verstehen, wie Sie die REST API von Braze nutzen können, um Ihr Customer-Engagement zu verbessern.
+> Die [REST API von Braze]({{site.baseurl}}/api/basics) bietet eine breite Palette von Endpunkten, die Sie bei der Verwaltung und Optimierung Ihrer geschäftskunden-Engagement-Strategie unterstützen. In diesem Artikel werden wir verschiedene Anwendungsfälle für jede Endpunkt-Sammlung untersuchen: Kataloge, E-Mail-Listen und -Adressen, Export, Nachrichten, Präferenzzentrum, SMS, Abo-Gruppen, Templates und Nutzerdaten.<br><br>In jedem Abschnitt wird ein Szenario mit einer Schritt-für-Schritt-Anleitung, einem Code-Beispiel und dem erwarteten Ergebnis vorgestellt. Am Ende dieses Artikels werden Sie besser verstehen, wie Sie die REST API von Braze nutzen können, um Ihr geschäftskunden-Engagement zu verbessern.
 
 ## Mehrere Artikel aus einem Katalog löschen {#deleting-multiple-items-in-a-catalog}
 

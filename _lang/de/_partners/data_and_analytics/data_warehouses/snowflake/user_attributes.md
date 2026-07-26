@@ -17,7 +17,7 @@ In seltenen Fällen stimmen die Werte von Standard- und angepassten Attributen i
 
 Beispielsweise kann ein Attribut in Snowflake als `NULL` erscheinen, während das Dashboard einen Wert für diese:n Nutzer:in anzeigt.
 
-Wenn Sie weitverbreitete Abweichungen feststellen, wenden Sie sich an Ihren Customer-Success-Manager oder den Braze Support.
+Wenn Sie weitverbreitete Abweichungen feststellen, wenden Sie sich an Ihren geschäftskunden-Success-Manager oder den Braze Support.
 
 ## Verfügbare Ansichten {#available-views}
 

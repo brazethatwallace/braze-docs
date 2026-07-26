@@ -8,7 +8,7 @@ description: "Erfahren Sie, wie Sie die Zielgruppe für Ihren BrazeAI Decisionin
 
 # Zielgruppe definieren {#define-your-audience}
 
-> Zielgruppen für Anwendungsfälle werden in der Regel in einer Customer-Engagement-Plattform (wie Braze oder Salesforce Marketing Cloud) definiert und dann an den Decisioning Studio-Agenten gesendet. Der Agent teilt die Kund:innen anschließend in Behandlungsgruppen ein, um randomisierte kontrollierte Tests durchzuführen.
+> Zielgruppen für Anwendungsfälle werden in der Regel in einer geschäftskunden-Engagement-Plattform (wie Braze oder Salesforce Marketing Cloud) definiert und dann an den Decisioning Studio-Agenten gesendet. Der Agent teilt die Kund:innen anschließend in Behandlungsgruppen ein, um randomisierte kontrollierte Tests durchzuführen.
 
 ## Behandlungsgruppen {#treatment-groups}
 

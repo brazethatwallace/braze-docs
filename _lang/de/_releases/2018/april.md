@@ -32,6 +32,6 @@ Beachten Sie, dass Sie auf die neueste Version von Android (Version 2.2.0+) und 
 
 ## Posteingang Vision
 
-Sie können jetzt [eine Vorschau Ihrer E-Mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/inbox_vision/#inbox-vision) auf der Grundlage der Plattform Ihrer Kund:innen erstellen, entweder über eine Übersichtsseite mit Miniaturansichten oder eine Listenansicht, die einen großen Screenshot und eine genauere Analyse der Probleme enthält, die möglicherweise mit der HTML-Darstellung für jeden Client bestehen. Kontaktieren Sie Ihren Customer-Success-Manager oder Account Manager:in für weitere Informationen.
+Sie können jetzt [eine Vorschau Ihrer E-Mails]({{site.baseurl}}/user_guide/message_building_by_channel/email/inbox_vision/#inbox-vision) auf der Grundlage der Plattform Ihrer Kund:innen erstellen, entweder über eine Übersichtsseite mit Miniaturansichten oder eine Listenansicht, die einen großen Screenshot und eine genauere Analyse der Probleme enthält, die möglicherweise mit der HTML-Darstellung für jeden Client bestehen. Kontaktieren Sie Ihren geschäftskunden-Success-Manager oder Account Manager:in für weitere Informationen.
 
 

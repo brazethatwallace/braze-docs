@@ -29,7 +29,7 @@ Das Herzstück von Braze Pilot ist die Bibliothek mit App-Simulationen. Jede App
 
 ### Steppington
 
-Steppington ist eine Fitness-App mit Trainingsprogrammen, Trainingszielen und einem Steppington+ Premium-Dienst. Sie bietet mehrere Möglichkeiten zur Demonstration von [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), einen Bereich, der mit [Feature-Flags]({{site.baseurl}}/developer_guide/feature_flags) freigeschaltet werden kann, sowie eine umfangreiche Bibliothek zur Protokollierung angepasster Events, mit denen sich viele Customer Journeys für diese Branche veranschaulichen lassen.
+Steppington ist eine Fitness-App mit Trainingsprogrammen, Trainingszielen und einem Steppington+ Premium-Dienst. Sie bietet mehrere Möglichkeiten zur Demonstration von [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), einen Bereich, der mit [Feature-Flags]({{site.baseurl}}/developer_guide/feature_flags) freigeschaltet werden kann, sowie eine umfangreiche Bibliothek zur Protokollierung angepasster Events, mit denen sich viele geschäftskunden Journeys für diese Branche veranschaulichen lassen.
 
 ![Die Startseite von Steppington mit Symbolen für Marathontraining, Yoga, Radfahren und Krafttraining.]({% image_buster /assets/img/braze_pilot/steppington_app.png %}){:style="max-width:50%"}
 
@@ -109,7 +109,7 @@ Wenn Sie Daten als identifizierte:r Nutzer:in protokollieren, zeigt der Statusbe
 Mit Campaigns und Canvases senden Sie Nachrichten an Ihre Nutzer:innen.
 
 - Campaigns eignen sich am besten für einzelne Nachrichten, die über verschiedene Kanäle an ein bestimmtes Zielgruppensegment gesendet werden.
-- Canvases sind fortgeschrittene Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases tragen dazu bei, eine konsistente und nahtlose Kommunikation über verschiedene Kontaktpunkte hinweg sicherzustellen und so die Chancen für Customer-Engagement und Konversion zu erhöhen.
+- Canvases sind fortgeschrittene Campaign-Workflows, mit denen Sie personalisierte geschäftskunden Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases tragen dazu bei, eine konsistente und nahtlose Kommunikation über verschiedene Kontaktpunkte hinweg sicherzustellen und so die Chancen für geschäftskunden-Engagement und Konversion zu erhöhen.
 
 ## Unterstützte Messaging-Kanäle {#supported-messaging-channels}
 

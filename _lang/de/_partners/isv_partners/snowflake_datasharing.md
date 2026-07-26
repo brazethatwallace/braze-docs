@@ -7,7 +7,7 @@ hidden: true
 
 > Wenn Snowflake Data Share als Integrationsmethode verwendet wird, stellt Braze im Namen der Kund:innen eine Freigabe für Ihre Snowflake-Instanz bereit. Diese Freigabe umfasst automatisch alle Ereignisse zum Nachrichten-Engagement und zum Verhalten der Nutzer:innen.
 
-Freigaben werden pro Kund:in bereitgestellt, nachdem die Kund:innen eine Berechtigung für Snowflake Data Share erworben haben. Wenn Kund:innen eine Datenfreigabe anfordern, fügt Braze dem Workspace der Kund:innen eine Freigabe hinzu, und die Kund:innen können die Self-Service-UI verwenden, um die entsprechenden Daten des Partner-Snowflake-Kontos hinzuzufügen.
+Freigaben werden pro geschäftskunden bereitgestellt, nachdem die Kund:innen eine Berechtigung für Snowflake Data Share erworben haben. Wenn Kund:innen eine Datenfreigabe anfordern, fügt Braze dem Workspace der Kund:innen eine Freigabe hinzu, und die Kund:innen können die Self-Service-UI verwenden, um die entsprechenden Daten des Partner-Snowflake-Kontos hinzuzufügen.
 
 ![Bereitstellung der Snowflake-Datenfreigabe im Braze-Dashboard]({% image_buster /assets/img/snowflake.png %})
 

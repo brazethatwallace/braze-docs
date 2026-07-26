@@ -25,7 +25,7 @@ Folgendes ist für die Nutzung dieser Integration erforderlich:
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Copy-Pastd-Konto | Erforderlich für die Nutzung von Building Blocks. Registrieren Sie sich unter [copypastd.com](https://copypastd.com). Jede:r Kund:in erhält einen Workspace, eine Stylesheet-Bibliothek, fünf Builder-Plätze und eine Block-Bibliothek. |
+| Copy-Pastd-Konto | Erforderlich für die Nutzung von Building Blocks. Registrieren Sie sich unter [copypastd.com](https://copypastd.com). Jede:r geschäftskunden erhält einen Workspace, eine Stylesheet-Bibliothek, fünf Builder-Plätze und eine Block-Bibliothek. |
 | Braze-REST-API-Schlüssel für E-Mail-Templates | Ein API-Schlüssel mit den Berechtigungen `templates.email.create`, `templates.email.update` und `templates.email.list`.<br><br>Erstellen Sie den Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Braze-REST-API-Schlüssel für Content Blocks | Ein API-Schlüssel mit den Berechtigungen `content_blocks.create`, `content_blocks.update`, `content_blocks.info` und `content_blocks.list`.<br><br>Erstellen Sie den Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Braze-REST-API-Schlüssel für Kataloge (optional) | Ein API-Schlüssel mit Lesezugriff auf `catalogs.get`, `catalogs.get_item` und `catalogs.get_selections`. Nur erforderlich, wenn Sie Blöcke an Braze-Kataloge binden möchten. |

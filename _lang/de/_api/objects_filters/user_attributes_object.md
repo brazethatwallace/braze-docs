@@ -350,7 +350,7 @@ Wenn Sie Android-Push-Benachrichtigungen an Ihre Nutzer:innen senden müssen, be
 Sie müssen über einen Empfänger verfügen, der Push-Payloads verarbeiten und anzeigen kann. Um den Empfänger über den Push-Payload zu benachrichtigen, fügen Sie der Push-Kampagne die erforderlichen Schlüssel-Wert-Paare hinzu. Die Werte dieser Paare hängen von dem Push-Partner ab, den Sie vor Braze verwendet haben.
 
 {% alert note %}
-Bei einigen Anbietern von Push-Benachrichtigungen muss Braze die Schlüssel-Wert-Paare vereinfachen, damit sie korrekt interpretiert werden können. Um Schlüssel-Wert-Paare für eine bestimmte Android-App zu vereinfachen, wenden Sie sich bitte an Ihren Customer-Success-Manager.
+Bei einigen Anbietern von Push-Benachrichtigungen muss Braze die Schlüssel-Wert-Paare vereinfachen, damit sie korrekt interpretiert werden können. Um Schlüssel-Wert-Paare für eine bestimmte Android-App zu vereinfachen, wenden Sie sich bitte an Ihren geschäftskunden-Success-Manager.
 {% endalert %}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}

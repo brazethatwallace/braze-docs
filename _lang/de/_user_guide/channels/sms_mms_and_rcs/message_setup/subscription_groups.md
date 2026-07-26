@@ -94,7 +94,7 @@ Es gibt zwei Möglichkeiten, einen RCS-verifizierten Absender hinzuzufügen:
 - Eine neue RCS-Abo-Gruppe erstellen
 Die Wahl hängt weitgehend von den RCS-Anwendungsfällen ab, die Sie interessieren.
 
-Je nach Ihrer Integration kann Braze RCS-verifizierte Absender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue Abo-Gruppen für Sie einrichten. In beiden Fällen wird Ihr Customer-Success-Manager Sie durch ein nahtloses und effizientes SMS-Traffic-Upgrade begleiten.
+Je nach Ihrer Integration kann Braze RCS-verifizierte Absender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue Abo-Gruppen für Sie einrichten. In beiden Fällen wird Ihr geschäftskunden-Success-Manager Sie durch ein nahtloses und effizientes SMS-Traffic-Upgrade begleiten.
 {% endtab %}
 {% endtabs %}
 

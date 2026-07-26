@@ -18,7 +18,7 @@ Die Tools auf dieser Seite führen doppelte Profile im Dashboard zusammen. Sie k
 
 Wenn ein anonymes Profil einem bestehenden identifizierten Profil zugeordnet wird (z. B. durch einen SDK-`changeUser()`-Aufruf oder `/users/identify`), verwaist Braze das anonyme Profil und kopiert nur bestimmte Felder auf das identifizierte Profil. Weitere Informationen finden Sie unter [Was passiert, wenn Sie anonyme Nutzer:innen identifizieren]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users).
 
-Zusammenführungen von Nutzer:innen sind schwer rückgängig zu machen. Wenn Sie eine komplexe Zusammenführung über mehrere `external_id`-Werte oder große Profilmigrationen planen, wenden Sie sich an Ihren Customer-Success-Manager, bevor Sie sich auf `/users/merge` verlassen.
+Zusammenführungen von Nutzer:innen sind schwer rückgängig zu machen. Wenn Sie eine komplexe Zusammenführung über mehrere `external_id`-Werte oder große Profilmigrationen planen, wenden Sie sich an Ihren geschäftskunden-Success-Manager, bevor Sie sich auf `/users/merge` verlassen.
 
 Braze behandelt drei Nutzertypen beim Zusammenführen unterschiedlich: zum Löschen markierte Nutzer:innen, Testnutzer:innen und Nutzer:innen der Globalen Kontrollgruppe. Weitere Details finden Sie unter [Zusammenführungsverhalten von Nutzer:innen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 

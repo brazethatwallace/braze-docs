@@ -33,7 +33,7 @@ Die Braze-Dateninfrastruktur umfasst [Datenzentren]({{site.baseurl}}/user_guide/
 
 ## Grundprinzipien {#core-principles}
 
-Daten spielen eine entscheidende Rolle bei der Verbesserung Ihrer Customer-Engagement-Strategie, denn sie ermöglichen es Ihnen, personalisierte Erlebnisse zu schaffen, Kundenverhalten zu verstehen und Messaging-Strategien zu optimieren. Bei Braze entwickeln wir alle Datenfunktionen mit drei Grundprinzipien:
+Daten spielen eine entscheidende Rolle bei der Verbesserung Ihrer geschäftskunden-Engagement-Strategie, denn sie ermöglichen es Ihnen, personalisierte Erlebnisse zu schaffen, Kundenverhalten zu verstehen und Messaging-Strategien zu optimieren. Bei Braze entwickeln wir alle Datenfunktionen mit drei Grundprinzipien:
 
 {% details Ihre Daten härter arbeiten lassen %}
 - **Flexibel und komponentenbasiert:** Unser übergreifendes Ziel ist es, Ihnen zu helfen, Ihre Daten effektiver und umfassender zu nutzen. Dank der modularen Architektur können Sie die Technologien einsetzen, die Sie benötigen, um mehr aus Ihren Daten herauszuholen – ohne unnötige Middleware.
@@ -42,8 +42,8 @@ Daten spielen eine entscheidende Rolle bei der Verbesserung Ihrer Customer-Engag
 {% enddetails %}
 
 {% details Agilität bei Daten steigern, um die Performance zu verbessern %}
-- **Flexibler Aufbau von Zielgruppen:** Verringern Sie die Abhängigkeit von technischen Teams bei der Erstellung von Zielgruppen und liefern Sie personalisiertes Customer-Engagement in großem Umfang.
-- **Geschwindigkeit und Performance:** Engagement-Daten und Insights werden in Realtime bereitgestellt, was iteratives, effektives Customer-Engagement sowie umfassendere Geschäftsentscheidungen unterstützt.
+- **Flexibler Aufbau von Zielgruppen:** Verringern Sie die Abhängigkeit von technischen Teams bei der Erstellung von Zielgruppen und liefern Sie personalisiertes geschäftskunden-Engagement in großem Umfang.
+- **Geschwindigkeit und Performance:** Engagement-Daten und Insights werden in Realtime bereitgestellt, was iteratives, effektives geschäftskunden-Engagement sowie umfassendere Geschäftsentscheidungen unterstützt.
 {% enddetails %}
 
 {% details Ihre Daten sicher und konform halten %}

@@ -31,7 +31,7 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt und/oder abgeschlo
 | Anforderung | Herkunft | Beschreibung |
 | --- | --- | --- |
 | Criteo-Werbekonto | [Criteo](https://marketing.criteo.com/) | Ein aktives Criteo-Werbekonto, das mit Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Ihr Criteo-Administrator Ihnen die entsprechenden Berechtigungen für den Zugriff auf Zielgruppen erteilt hat. |
-| [Criteo-Werberichtlinien](https://www.criteo.com/advertising-guidelines/)<br>und<br>[Criteo-Markensicherheitsrichtlinien](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Als aktive:r Criteo-Kund:in müssen Sie sicherstellen, dass Sie die Werbe- und Markensicherheitsrichtlinien von Criteo einhalten können, bevor Sie Criteo-Campaigns starten. |
+| [Criteo-Werberichtlinien](https://www.criteo.com/advertising-guidelines/)<br>und<br>[Criteo-Markensicherheitsrichtlinien](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Als aktive:r Criteo-geschäftskunden müssen Sie sicherstellen, dass Sie die Werbe- und Markensicherheitsrichtlinien von Criteo einhalten können, bevor Sie Criteo-Campaigns starten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -122,7 +122,7 @@ Sie können die Zielgruppe in Criteo ansehen, indem Sie in Ihr Ads-Manager-Konto
 
 Wenn Nutzer:innen den Audience-Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Echtzeit und berücksichtigt dabei die API-Rate-Limits von Criteo. Braze fasst so viele Nutzer:innen wie möglich in Batches zusammen und verarbeitet sie alle fünf Sekunden, bevor sie an Criteo gesendet werden.
 
-Das API-Rate-Limit von Criteo erlaubt nicht mehr als 250 Anfragen pro Minute. Wenn ein:e Kund:in dieses Limit erreicht, versucht Braze die Synchronisierung bis zu ca. 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
+Das API-Rate-Limit von Criteo erlaubt nicht mehr als 250 Anfragen pro Minute. Wenn ein:e geschäftskunden dieses Limit erreicht, versucht Braze die Synchronisierung bis zu ca. 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
 
 ## Analytics verstehen {#understanding-analytics}
 

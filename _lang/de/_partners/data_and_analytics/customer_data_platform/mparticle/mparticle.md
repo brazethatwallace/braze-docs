@@ -2,7 +2,7 @@
 nav_title: mParticle von Rokt
 article_title: mParticle von Rokt
 alias: /partners/mparticle/
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und mParticle, einer Customer Data Platform, die Informationen zwischen Quellen in Ihrem Marketing Stack sammelt und weiterleitet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und mParticle, einer geschäftskunden Data Platform, die Informationen zwischen Quellen in Ihrem Marketing Stack sammelt und weiterleitet."
 page_type: partner
 search_tag: Partner
 
@@ -12,7 +12,7 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="Njhqwd36gZM" align="right" %}
 
-> Mit der Customer Data Platform von mParticle können Sie mehr aus Ihren Daten machen. Anspruchsvolle Marketer nutzen mParticle zur Orchestrierung von Daten in ihrem gesamten Growth Stack, um in den entscheidenden Momenten der Customer Journey zu überzeugen.
+> Mit der geschäftskunden Data Platform von mParticle können Sie mehr aus Ihren Daten machen. Anspruchsvolle Marketer nutzen mParticle zur Orchestrierung von Daten in ihrem gesamten Growth Stack, um in den entscheidenden Momenten der geschäftskunden Journey zu überzeugen.
 
 Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern:
 - Synchronisieren Sie mParticle-Zielgruppen mit Braze für die Segmentierung von Campaigns und Canvas.
@@ -108,7 +108,7 @@ So erstellen Sie eine Zielgruppe in mParticle:
 | API key operating system | Wählen Sie aus, welchem Betriebssystem Ihr Braze-API-Schlüssel entspricht. Diese Auswahl begrenzt die Arten von Push-Token, die bei einem Zielgruppen-Update weitergeleitet werden. |
 | Send segments as | Die Methode zum Senden von Zielgruppen an Braze. Weitere Details finden Sie im Abschnitt [Weiterleitung von Zielgruppen](#forwarding-audiences). |
 | Workspace REST API key | Braze-REST-API-Schlüssel mit vollständigen Berechtigungen. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| External identity type | Der mParticle-Nutzeridentitätstyp, der als externe ID an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Customer ID“ beizubehalten. |
+| External identity type | Der mParticle-Nutzeridentitätstyp, der als externe ID an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „geschäftskunden ID“ beizubehalten. |
 | Email identity type | Der mParticle-Nutzeridentitätstyp, der als E-Mail an Braze weitergeleitet wird. |
 | Braze instance | Geben Sie an, an welchen Cluster Ihre Braze-Daten weitergeleitet werden sollen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1: Erstellen Sie eine Zielgruppe in mParticle" }
@@ -146,7 +146,7 @@ Navigieren Sie in mParticle zu **Setup > Outputs > Add Outputs** und wählen Sie
 | Einstellungsname | Beschreibung |
 | ------------ | ----------- |
 | Braze-App-Bezeichner-Schlüssel | Ihren Braze-App-Bezeichner-Schlüssel finden Sie im Braze-Dashboard unter **Settings** > **API Keys**. Beachten Sie, dass sich die API-Schlüssel je nach Plattform (iOS, Android und Web) unterscheiden. |
-| External identity type | Der mParticle-Nutzeridentitätstyp, der als externe ID an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Customer ID“ beizubehalten. |
+| External identity type | Der mParticle-Nutzeridentitätstyp, der als externe ID an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „geschäftskunden ID“ beizubehalten. |
 | Email identity type | Der mParticle-Nutzeridentitätstyp, der als E-Mail an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Email“ beizubehalten. |
 | Braze instance | Der Cluster, an den Ihre Braze-Daten weitergeleitet werden; dieser sollte derselbe Cluster sein, auf dem sich Ihr Dashboard befindet. |
 | Enable event stream forwarding | (Server-zu-Server) Wenn aktiviert, werden alle Events in Echtzeit weitergeleitet. Andernfalls werden alle Events in Batches weitergeleitet. Wenn Sie die Event-Stream-Weiterleitung aktivieren, stellen Sie sicher, dass die Daten, die Sie an Braze senden, die [Rate-Limits]({{site.baseurl}}/api/api_limits) einhalten. |
@@ -233,7 +233,7 @@ Braze unterstützt keine Zeitstempel vor dem Jahr 0 oder nach dem Jahr 3000 in a
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Daten-Mapping" }
 
 #### Nutzeridentitäts-Mapping {#user-identity-mapping}
-Für jede mParticle-Ausgabe können Sie den externen Identitätstyp auswählen, der als `external_id` an Braze gesendet wird. Der Standardwert ist „Customer ID“, Sie können jedoch auch eine andere ID, wie z. B. `MPID`, wählen, um sie als `external_id` an Braze zu senden. Beachten Sie, dass die Wahl eines anderen Bezeichners als der Customer ID beeinflussen kann, wie Daten in Braze gesendet werden.
+Für jede mParticle-Ausgabe können Sie den externen Identitätstyp auswählen, der als `external_id` an Braze gesendet wird. Der Standardwert ist „geschäftskunden ID“, Sie können jedoch auch eine andere ID, wie z. B. `MPID`, wählen, um sie als `external_id` an Braze zu senden. Beachten Sie, dass die Wahl eines anderen Bezeichners als der geschäftskunden ID beeinflussen kann, wie Daten in Braze gesendet werden.
 
 Beispielsweise hat das Mapping von MPID auf Ihre Braze-`external_id` folgende Auswirkungen:
 - Aufgrund der Art und Weise, wie MPID zugewiesen wird, erhalten alle Nutzer:innen beim Sitzungsstart eine `external_id`.

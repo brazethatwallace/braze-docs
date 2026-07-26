@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Senden von Transa
 Dieser Endpunkt wird zusammen mit der Erstellung einer Braze-[Transaktions-E-Mail-Campaign]({{site.baseurl}}/api/api_campaigns/transactional_campaigns) und der entsprechenden Campaign-ID verwendet.
 
 {% alert important %}
-Transaktions-E-Mails sind derzeit als Teil ausgewählter Braze-Pakete verfügbar. Wenden Sie sich für weitere Informationen an Ihren Braze-Customer-Success-Manager.
+Transaktions-E-Mails sind derzeit als Teil ausgewählter Braze-Pakete verfügbar. Wenden Sie sich für weitere Informationen an Ihren Braze-geschäftskunden-Success-Manager.
 {% endalert %}
 
 Ähnlich wie beim [Endpunkt zum Senden getriggerter Campaigns]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) können Sie mit diesem Campaign-Typ den Nachrichteninhalt im Braze-Dashboard hinterlegen und gleichzeitig über Ihre API festlegen, wann und an wen eine Nachricht gesendet wird. Im Gegensatz zum Endpunkt „Getriggerte Campaign senden“, der eine Zielgruppe oder ein Segment akzeptiert, an das Nachrichten gesendet werden, muss eine Anfrage an diesen Endpunkt eine:n einzelne:n Nutzer:in entweder über `external_user_id` oder `user_alias` angeben, da dieser Campaign-Typ für 1:1-Nachrichten wie Bestellbestätigungen oder Passwortzurücksetzungen konzipiert ist.

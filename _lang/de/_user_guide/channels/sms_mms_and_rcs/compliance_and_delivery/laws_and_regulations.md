@@ -35,7 +35,7 @@ Beachten Sie beim Versand von Nachrichten die folgenden Regeln:
 
 3. **Halten Sie wesentliche Informationen aktuell und sichtbar.** Stellen Sie sicher, dass die aktuellste Version der Allgemeinen Geschäftsbedingungen Ihrer Marke und Ihrer SMS-/MMS-/RCS-Marketing-Datenschutzrichtlinie auf Ihrer Opt-in-Seite klar sichtbar und leicht zugänglich ist.<br><br>
 
-4. **Senden Sie SMS, MMS oder RCS nur an rechtmäßig erhaltene, eingewilligte Telefonnummern.** Im Rahmen der technischen Migrationsplanung stellen Sie sicher, dass Ihr Team den Mechanismus versteht, mit dem Opt-in-Status mit jedem einzelnen Nutzerprofil in Ihrer Customer-Engagement-Plattform verknüpft werden.<br><br>
+4. **Senden Sie SMS, MMS oder RCS nur an rechtmäßig erhaltene, eingewilligte Telefonnummern.** Im Rahmen der technischen Migrationsplanung stellen Sie sicher, dass Ihr Team den Mechanismus versteht, mit dem Opt-in-Status mit jedem einzelnen Nutzerprofil in Ihrer geschäftskunden-Engagement-Plattform verknüpft werden.<br><br>
 
 5. **Stellen Sie die SHAFT-Compliance in den USA und anderen relevanten Regionen sicher.** Das Senden von SMS-, MMS- oder RCS-Nachrichten mit Inhalten zu den Themen Sex, Hass, Alkohol, Schusswaffen und Tabak (SHAFT) gilt in den USA und einigen anderen Regionen generell als illegal.<br><br>
 
@@ -85,7 +85,7 @@ Braze verwendet [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/sms_mms_and_r
 
 #### Compliance durch Fuzzy-Opt-out {#compliance-through-fuzzy-opt-out}
 
-Um die Erkennung nicht standardmäßiger Opt-out-Anfragen zu automatisieren, können Sie Fuzzy-Opt-out in Ihren Abo-Gruppen-Einstellungen aktivieren, wenn Sie US-Kund:in sind.
+Um die Erkennung nicht standardmäßiger Opt-out-Anfragen zu automatisieren, können Sie Fuzzy-Opt-out in Ihren Abo-Gruppen-Einstellungen aktivieren, wenn Sie US-geschäftskunden sind.
 
 - **Sofortige Konfiguration:** Standardmäßig sendet Fuzzy-Opt-out eine Klärungsnachricht. Um stattdessen ein sofortiges Opt-out anstelle einer Klärung durchzuführen, können Sie Ihren Workspace konfigurieren, indem Sie den Anweisungen im Abschnitt [Fuzzy-Opt-out]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out#configure-fuzzy-opt-out) folgen.
 - **Manuelle Schlüsselwort-Ergänzungen:** Wir empfehlen, risikoreiche Wörter manuell zu Ihrer **Opt-Out**-Schlüsselwortkategorie hinzuzufügen, wie „REMOVE“, „END“, „HALT“, „CEASE“, „DISCONTINUE“ und „UNSUBSCRIBE“, zusätzlich zu den bereits bereitgestellten Standard-Schlüsselwörtern.

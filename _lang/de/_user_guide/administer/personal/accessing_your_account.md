@@ -63,7 +63,7 @@ Das Feature Multi-Company-Entwickler:innen ermöglicht die gemeinsame Nutzung ei
 
 Wenn Sie SSO verwenden und Multi-Company-Entwickler:innen einrichten möchten, müssen Sie eine benutzerdefinierte SAML-Entity-ID aktivieren, indem Sie eine benutzerdefinierte SAML-SSO-Integration einrichten. Folgen Sie den Schritten unter [Service-Provider-initiierte Anmeldung (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), wenden Sie jedoch diese Änderungen an:
 - Ändern Sie die **Entity-ID** für jede Dashboard-Integration in `braze_dashboard_<companyID>`.
-- Kontaktieren Sie Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper `saml_sso_custom_entity_id` für jedes Dashboard zu aktivieren.
+- Kontaktieren Sie Ihren geschäftskunden-Success-Manager oder Account Manager, um den Feature-Flipper `saml_sso_custom_entity_id` für jedes Dashboard zu aktivieren.
 
 #### Zwei-Faktor-Authentifizierung (2FA) {#two-factor-authentication-2fa}
 

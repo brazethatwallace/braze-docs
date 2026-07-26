@@ -82,7 +82,7 @@ Talk to villagers for essential tips on how to beat levels!
 ```
 {% endraw %}
 
-Eigenschaften angepasster Events sind dafür konzipiert, Ihnen bei der Personalisierung Ihres Messagings oder beim Aufbau granularer aktionsbasierter Zustellungskampagnen zu helfen. Wenn Sie Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften erstellen möchten, wenden Sie sich an Ihren Customer-Success-Manager oder unser Support-Team.
+Eigenschaften angepasster Events sind dafür konzipiert, Ihnen bei der Personalisierung Ihres Messagings oder beim Aufbau granularer aktionsbasierter Zustellungskampagnen zu helfen. Wenn Sie Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften erstellen möchten, wenden Sie sich an Ihren geschäftskunden-Success-Manager oder unser Support-Team.
 
 ## Angepasste Attribute {#custom-attributes}
 

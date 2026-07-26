@@ -3,7 +3,7 @@ nav_title: Segment für Currents
 article_title: Segment für Currents
 page_order: 2
 alias: /partners/segment_for_currents/
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze-Currents und Segment, einer Customer Data Platform, die Informationen zwischen Quellen in Ihrem Marketing-Stack sammelt und weiterleitet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze-Currents und Segment, einer geschäftskunden Data Platform, die Informationen zwischen Quellen in Ihrem Marketing-Stack sammelt und weiterleitet."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -12,7 +12,7 @@ search_tag: Partner
 
 # Segment für Currents {#segment-for-currents}
 
-> [Segment](https://segment.com) ist eine Customer Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können. Dieser Referenzartikel gibt eine Übersicht über die Verbindung zwischen Braze-Currents und Segment und beschreibt die Anforderungen und Prozesse für die korrekte Implementierung und Nutzung.
+> [Segment](https://segment.com) ist eine geschäftskunden Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können. Dieser Referenzartikel gibt eine Übersicht über die Verbindung zwischen Braze-Currents und Segment und beschreibt die Anforderungen und Prozesse für die korrekte Implementierung und Nutzung.
 
 Die Integration von Braze und Segment ermöglicht es Ihnen, Braze-Currents zu nutzen, um Ihre Braze-Events nach Segment zu exportieren und so tiefgreifendere Analytics zu Conversions, Bindung und Produktnutzung zu erzielen.
 

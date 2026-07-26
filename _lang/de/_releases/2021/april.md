@@ -29,14 +29,14 @@ Die [Integration von Airbridge und Braze]({{site.baseurl}}/partners/message_orch
 
 [Kubit]({{site.baseurl}}/partners/data_and_analytics/analytics/kubit) ist eine No-Code, Self-Service Analytics-Plattform, die sofortige Produkt-Insights liefert. Durch die nahtlose No-Code-Integration mit Braze können Sie Kohorten-Informationen von Nutzer:innen in Braze importieren und Engagement-Kampagnen starten, um bestimmte Kohorten anzusprechen. Darüber hinaus können Sie durch den Einsatz von Snowflake Secure Data Sharing die Rohdaten der Kampagnen und Impressionen von Braze in die Produkt-Analytics in Kubit integrieren, um die Wirkung dieser Kampagnen in Realtime zu messen.
 
-### Census – Customer Data Platform (CDP) {#census-customer-data-platform}
+### Census – geschäftskunden Data Platform (CDP) {#census-customer-data-platform}
 
 [Census]({{site.baseurl}}/partners/data_and_infrastructure_agility/workflow_automation/census#census) erlaubt es Ihnen, Ihre Kundenerfolgs-, Vertriebs- und Marketing-Teams auf dem gleichen Stand zu halten, indem Ihre Kundendaten synchronisiert werden – ganz ohne ständige Hilfe Ihrer Entwicklungsabteilung.
 
-### Treasure Data – Customer Data Platform (CDP) {#treasure-data-customer-data-platform}
+### Treasure Data – geschäftskunden Data Platform (CDP) {#treasure-data-customer-data-platform}
 
-[Treasure Data]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/treasure_data) trägt dazu bei, relevante Kundenerlebnisse zu schaffen, indem Daten, Insights und Engagement perfekt aufeinander abgestimmt werden. Ausgestattet mit umsetzbaren Indikatoren können CX-Teams, einschließlich Marketing, Vertrieb und Kundendienst, ihre Ausgaben effektiv optimieren und Omnichannel-Interaktionen über die gesamte Customer Journey hinweg personalisieren.
+[Treasure Data]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/treasure_data) trägt dazu bei, relevante Kundenerlebnisse zu schaffen, indem Daten, Insights und Engagement perfekt aufeinander abgestimmt werden. Ausgestattet mit umsetzbaren Indikatoren können CX-Teams, einschließlich Marketing, Vertrieb und Kundendienst, ihre Ausgaben effektiv optimieren und Omnichannel-Interaktionen über die gesamte geschäftskunden Journey hinweg personalisieren.
 
 ## Jacquard – A/B-Tests {#jacquard-ab-testing}
 
-Braze Customer-Engagement baut Beziehungen durch Multichannel-Marketing auf. In Zusammenarbeit mit [Jacquard]({{site.baseurl}}/partners/message_personalization/dynamic_content/content_optimization_testing/jacquard) kann Braze die Markensprache in großem Umfang auf allen Kanälen einsetzen, die an die Stimme Ihrer Marke angepasst sind. Die Deep-Learning-Engine von Jacquard führt die Tests durch, überwacht die Ergebnisse und generiert auf der Grundlage des Gelernten neue Texte.
+Braze geschäftskunden-Engagement baut Beziehungen durch Multichannel-Marketing auf. In Zusammenarbeit mit [Jacquard]({{site.baseurl}}/partners/message_personalization/dynamic_content/content_optimization_testing/jacquard) kann Braze die Markensprache in großem Umfang auf allen Kanälen einsetzen, die an die Stimme Ihrer Marke angepasst sind. Die Deep-Learning-Engine von Jacquard führt die Tests durch, überwacht die Ergebnisse und generiert auf der Grundlage des Gelernten neue Texte.

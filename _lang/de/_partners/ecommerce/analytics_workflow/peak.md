@@ -31,7 +31,7 @@ Als Ausgangspunkt muss ein Peak-Tenant die Integration zwischen Peak und Braze h
 
 ## Integration
 
-Die Peak-Lösung Customer Intelligence nutzt ein Modell zur Prognose einer Reihe zukunftsorientierter Attribute basierend auf Kundenverhalten und -interaktionen. Diese Attribute werden in Peak gespeichert und können für eine prädiktive Segmentierung verwendet werden, einschließlich der Churn-Wahrscheinlichkeit von Kund:innen. Die Aktualisierung dieser prognostischen Attribute erfolgt in einem konfigurierbaren Rhythmus (täglich oder wöchentlich).
+Die Peak-Lösung geschäftskunden Intelligence nutzt ein Modell zur Prognose einer Reihe zukunftsorientierter Attribute basierend auf Kundenverhalten und -interaktionen. Diese Attribute werden in Peak gespeichert und können für eine prädiktive Segmentierung verwendet werden, einschließlich der Churn-Wahrscheinlichkeit von Kund:innen. Die Aktualisierung dieser prognostischen Attribute erfolgt in einem konfigurierbaren Rhythmus (täglich oder wöchentlich).
 
 ### Schritt 1: Modell ausführen und Kund:innen extrahieren {#step-1-run-model-and-extract-customers}
 

@@ -45,7 +45,7 @@ Beachten Sie die Namenskonventionen für Nutzer:innen-IDs.
 | Braze-Schema | Currents-Schema | Beschreibung |
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Der eindeutige Bezeichner, der automatisch von Braze zugewiesen wird. |
-| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzer:innenprofils, der von der Kund:in festgelegt wird. |
+| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzer:innenprofils, der von der geschäftskunden festgelegt wird. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen-ID-Schema" }
 
 ### Plattformwerte {#platform-values}

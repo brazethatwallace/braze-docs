@@ -140,7 +140,7 @@ Nach dem Senden einer WhatsApp-Testnachricht können Sie einen [detaillierten Zu
 
 #### DinMo – Daten und Analytics – Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo) ist eine Composable Customer Data Platform (CDP), die Ihr Cloud Data Warehouse über Reverse Extract, Transform, Load (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppensegmente aus Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status aktuell halten – ohne CSV-Uploads oder Engineering-Support.
+[DinMo]({{site.baseurl}}/partners/dinmo) ist eine Composable geschäftskunden Data Platform (CDP), die Ihr Cloud Data Warehouse über Reverse Extract, Transform, Load (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppensegmente aus Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status aktuell halten – ohne CSV-Uploads oder Engineering-Support.
 
 #### EmailShepherd – Nachrichtenorchestrierung – Templates {#emailshepherd-message-orchestration-templates}
 
@@ -214,9 +214,9 @@ Braze [verwaltet automatisch verwaiste Abo-Status-Datensätze]({{site.baseurl}}/
 
 ### Partnerschaften
 
-#### Chord – Customer Data Platform
+#### Chord – geschäftskunden Data Platform
 
-[Chord](https://www.chord.co/) bietet eine Customer Data Platform, die Events aus Ihrem E-Commerce-Storefront erfasst und standardisiert. Wenn Sie Chord mit Braze verbinden, fließen Kaufaktivitäten, Verhaltens-Events und Identitätsupdates in Braze, sodass Sie Campaigns triggern und Profile aktuell halten können, ohne diese Pipelines selbst aufbauen zu müssen.
+[Chord](https://www.chord.co/) bietet eine geschäftskunden Data Platform, die Events aus Ihrem E-Commerce-Storefront erfasst und standardisiert. Wenn Sie Chord mit Braze verbinden, fließen Kaufaktivitäten, Verhaltens-Events und Identitätsupdates in Braze, sodass Sie Campaigns triggern und Profile aktuell halten können, ohne diese Pipelines selbst aufbauen zu müssen.
 
 Weitere Informationen finden Sie unter [Chord]({{site.baseurl}}/partners/chord).
 
@@ -348,7 +348,7 @@ Sie können jetzt [Shopify-Produkt-Tags, Sammlungen und Metafelder]({{site.baseu
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[GRAVTY®](https://www.lji.io/) ist eine Enterprise-Kundenbindungsplattform von Loyalty Juggernaut Inc. (LJI), die es Marken in den Bereichen Einzelhandel, Reisen, Gastronomie (einschließlich Schnellrestaurants) und Finanzdienstleistungen ermöglicht, Programme der nächsten Generation zu entwerfen, zu verwalten und zu skalieren – und so messbares Wachstum bei Engagement, Bindung und Customer Lifetime Value durch personalisierte, datengestützte Erlebnisse zu erzielen.
+[GRAVTY®](https://www.lji.io/) ist eine Enterprise-Kundenbindungsplattform von Loyalty Juggernaut Inc. (LJI), die es Marken in den Bereichen Einzelhandel, Reisen, Gastronomie (einschließlich Schnellrestaurants) und Finanzdienstleistungen ermöglicht, Programme der nächsten Generation zu entwerfen, zu verwalten und zu skalieren – und so messbares Wachstum bei Engagement, Bindung und geschäftskunden Lifetime Value durch personalisierte, datengestützte Erlebnisse zu erzielen.
 
 <!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK
@@ -825,7 +825,7 @@ Der Anwendungsfall [Reagieren Sie mit verschiedenen Nachrichten basierend auf ei
 
 #### Allowlisting für Connected Content {#allowlisting-for-connected-content}
 
-Sie können bestimmte URLs für die Verwendung mit [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) auf eine Allowlist setzen. Um auf dieses Feature zuzugreifen, wenden Sie sich an Ihren Customer-Success-Manager.
+Sie können bestimmte URLs für die Verwendung mit [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) auf eine Allowlist setzen. Um auf dieses Feature zuzugreifen, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
 
 ### Kanäle und Touchpoints
 

@@ -140,8 +140,8 @@ Wenn Sie einen angepassten externen ID-Typ ausgewählt haben, fahren Sie mit den
 
 Nachdem das Metafeld erstellt wurde, befüllen Sie es für Ihre Kund:innen. Wir empfehlen die folgenden Ansätze:
 
-- **Auf Kundenerstellungs-Webhooks lauschen:** Richten Sie einen Webhook ein, der auf [`customer/create`-Events](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks) lauscht. So können Sie das Metafeld schreiben, wenn ein:e neue:r Kund:in erstellt wird.
-- **Bestehende Kund:innen nachträglich befüllen:** Verwenden Sie die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer), um das Metafeld für zuvor erstellte Kund:innen nachträglich zu befüllen.
+- **Auf Kundenerstellungs-Webhooks lauschen:** Richten Sie einen Webhook ein, der auf [`customer/create`-Events](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks) lauscht. So können Sie das Metafeld schreiben, wenn ein:e neue:r geschäftskunden erstellt wird.
+- **Bestehende Kund:innen nachträglich befüllen:** Verwenden Sie die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [geschäftskunden API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer), um das Metafeld für zuvor erstellte Kund:innen nachträglich zu befüllen.
 
 #### Schritt 4.2: Einen Endpunkt zum Abrufen Ihrer externen ID erstellen {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
@@ -176,7 +176,7 @@ Braze erwartet einen `200`-Statuscode. Jeder andere Code wird als Fehler betrach
 {% endraw %}
 
 {% alert important %}
-Es ist wichtig zu überprüfen, dass `shopify_customer_id` und `email_address` mit den Kundenwerten in Shopify übereinstimmen. Sie können die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) verwenden, um diese Parameter zu validieren und das Metafeld `braze.external_id` abzurufen.
+Es ist wichtig zu überprüfen, dass `shopify_customer_id` und `email_address` mit den Kundenwerten in Shopify übereinstimmen. Sie können die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [geschäftskunden API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) verwenden, um diese Parameter zu validieren und das Metafeld `braze.external_id` abzurufen.
 {% endalert %}
 
 #### Schritt 4.3: Ihre externe ID eingeben {#step-43-input-your-external-id}

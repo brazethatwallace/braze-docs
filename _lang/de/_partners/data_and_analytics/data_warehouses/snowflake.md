@@ -46,7 +46,7 @@ Bevor Sie dieses Feature nutzen können, müssen Sie Folgendes abschließen:
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, wenden Sie sich an Ihren Braze-Konto-Manager oder Customer-Success-Manager. |
+| Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, wenden Sie sich an Ihren Braze-Konto-Manager oder geschäftskunden-Success-Manager. |
 | Snowflake-Konto | Ein Snowflake-Konto mit `admin`-Berechtigungen. Für Kund:innen ohne HIPAA-Anforderungen wird Snowflake Standard oder Enterprise Edition unterstützt. Für HIPAA-konforme Datenfreigabe ist die Business Critical Edition erforderlich. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 

@@ -171,7 +171,7 @@ Array-Attribute eignen sich gut zum Speichern zusammengehöriger Informationslis
 
 Standardmäßig ist die maximale Länge eines Arrays für ein Attribut auf 25 festgelegt und kann für ein einzelnes Array auf 100 erhöht werden. Wenn Sie beispielsweise ein Attribut wie „Angesehene Filme“ senden und es auf 100 eingestellt ist, wird beim Ansehen eines 101. Films der erste Film aus dem Array entfernt und der neueste Film hinzugefügt.
 
-Wenn Sie dieses Maximum erhöhen möchten, wenden Sie sich an Ihren Customer-Success-Manager. Ihr Dashboard-Administrator kann dann die maximale Länge für einzelne Arrays auf über 100 erhöhen, und zwar über den Tab **Angepasste Attribute** auf der Seite **Einstellungen verwalten**.
+Wenn Sie dieses Maximum erhöhen möchten, wenden Sie sich an Ihren geschäftskunden-Success-Manager. Ihr Dashboard-Administrator kann dann die maximale Länge für einzelne Arrays auf über 100 erhöhen, und zwar über den Tab **Angepasste Attribute** auf der Seite **Einstellungen verwalten**.
 
 Beachten Sie, dass Braze bei der Eingabe von Werten mit Leerzeichen zwischen, vor oder nach Wörtern auch nach denselben Leerzeichen sucht.
 

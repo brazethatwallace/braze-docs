@@ -4,7 +4,7 @@
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von Bannern hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Bannern hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager oder geschäftskunden-Success-Manager, um loszulegen.
 
 Stellen Sie vor dem Start sicher, dass Sie [Bannerplatzierungen]({{site.baseurl}}/developer_guide/banners/placements) in Ihrer App oder Website erstellt haben.
 

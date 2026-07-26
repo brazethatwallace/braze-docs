@@ -93,7 +93,7 @@ Canvas-Eingangs-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeute
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren Customer-Success-Manager.
+Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren geschäftskunden-Success-Manager.
 {% endalert %}
 
 {% endif %}

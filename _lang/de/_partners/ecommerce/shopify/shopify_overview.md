@@ -12,7 +12,7 @@ page_order: 0
 
 > [Shopify](https://www.shopify.com/) ist ein weltweit führendes Handelsunternehmen, das zuverlässige Tools für die Gründung, das Wachstum, das Marketing und die Verwaltung von Unternehmen jeder Größe bereitstellt. Shopify macht den Handel für alle besser – mit einer Plattform und Diensten, die auf Zuverlässigkeit ausgelegt sind und Verbraucher:innen überall ein besseres Einkaufserlebnis bieten.
 
-Die Integration von Braze in Shopify bietet eine leistungsstarke Lösung für E-Commerce-Unternehmen, die ihr Customer-Engagement verbessern und personalisiertes Marketing betreiben möchten. Diese Integration verbindet die robusten E-Commerce-Funktionen von Shopify nahtlos mit unserer fortschrittlichen Customer-Engagement-Plattform und ermöglicht es Ihnen, Ihren Nutzer:innen gezielte, relevante und zeitnahe Nachrichten auf der Grundlage von Realtime-Einkaufsverhalten und Transaktionsdaten zuzustellen.
+Die Integration von Braze in Shopify bietet eine leistungsstarke Lösung für E-Commerce-Unternehmen, die ihr geschäftskunden-Engagement verbessern und personalisiertes Marketing betreiben möchten. Diese Integration verbindet die robusten E-Commerce-Funktionen von Shopify nahtlos mit unserer fortschrittlichen geschäftskunden-Engagement-Plattform und ermöglicht es Ihnen, Ihren Nutzer:innen gezielte, relevante und zeitnahe Nachrichten auf der Grundlage von Realtime-Einkaufsverhalten und Transaktionsdaten zuzustellen.
 
 ## Anforderungen {#requirements}
 
@@ -37,7 +37,7 @@ Wenn Sie in Ihren Konfigurationseinstellungen bereits den [historischen Backfill
 Nach der anfänglichen Datensynchronisierung verfolgt Braze kontinuierlich neue Daten und Updates direkt von Shopify und den Braze SDKs.
 
 {% alert note %}
-Wenn Sie bereits Kund:in von Braze sind und über aktive Campaigns oder Canvases verfügen, finden Sie wichtige Informationen unter [Shopify historischer Backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill). Um zu sehen, welche spezifischen Kundendaten zurückgefüllt werden, lesen Sie [Shopify-Features]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features).
+Wenn Sie bereits geschäftskunden von Braze sind und über aktive Campaigns oder Canvases verfügen, finden Sie wichtige Informationen unter [Shopify historischer Backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill). Um zu sehen, welche spezifischen Kundendaten zurückgefüllt werden, lesen Sie [Shopify-Features]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features).
 {% endalert %}
 
 ### Nutzer:innen- und Datensynchronisierung {#user-and-data-syncing}

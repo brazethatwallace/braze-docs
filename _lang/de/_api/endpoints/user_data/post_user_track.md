@@ -393,7 +393,7 @@ Für Kund:innen, die monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web 
 - Zusätzlich zum stündlichen Limit setzt Braze ein Burst-Limit für die Anzahl der Anfragen durch, die alle drei Sekunden gesendet werden können.
 - Jede Anfrage kann bis zu 75 Updates kombiniert über Attribut-, Event- oder Kauf-Objekte zusammenfassen.
 
-Aktuelle Limits basierend auf der erwarteten Datenaufnahme finden Sie im Dashboard unter **Einstellungen** > **APIs und Bezeichner** > **API-Nutzungs-Dashboard**. Wir können Rate-Limits ändern, um die Systemstabilität zu schützen oder einen höheren Datendurchsatz auf Ihrem Konto zu ermöglichen. Bitte wenden Sie sich an den Braze Support oder Ihren Customer-Success-Manager, wenn Sie Fragen oder Bedenken bezüglich des stündlichen oder sekündlichen Anfragelimits und der Anforderungen Ihres Unternehmens haben.
+Aktuelle Limits basierend auf der erwarteten Datenaufnahme finden Sie im Dashboard unter **Einstellungen** > **APIs und Bezeichner** > **API-Nutzungs-Dashboard**. Wir können Rate-Limits ändern, um die Systemstabilität zu schützen oder einen höheren Datendurchsatz auf Ihrem Konto zu ermöglichen. Bitte wenden Sie sich an den Braze Support oder Ihren geschäftskunden-Success-Manager, wenn Sie Fragen oder Bedenken bezüglich des stündlichen oder sekündlichen Anfragelimits und der Anforderungen Ihres Unternehmens haben.
 
 ### Rate-Limit-Header für monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

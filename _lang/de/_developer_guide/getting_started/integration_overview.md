@@ -111,7 +111,7 @@ Sie brauchen Entwickler:innen, die sich mit Folgendem auskennen:
 
 ### CDP-Integrationspartner {#cdp-integration-partners}
 
-Viele Kund:innen sehen im Onboarding von Braze eine Gelegenheit, auch eine Customer Data Platform (CDP) als Integrationspartner einzubinden. Braze bietet Daten-Tracking und Analytics, während eine CDP zusätzlich Daten-Routing und Orchestrierung bieten kann. Braze unterstützt die nahtlose Integration mit vielen CDPs, darunter u. a. [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) und [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
+Viele Kund:innen sehen im Onboarding von Braze eine Gelegenheit, auch eine geschäftskunden Data Platform (CDP) als Integrationspartner einzubinden. Braze bietet Daten-Tracking und Analytics, während eine CDP zusätzlich Daten-Routing und Orchestrierung bieten kann. Braze unterstützt die nahtlose Integration mit vielen CDPs, darunter u. a. [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) und [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
 Wenn Sie eine Side-by-Side-Integration mit einer CDP durchführen, werden die Aufrufe aus dem SDK der CDP dem Braze SDK zugeordnet. Im Wesentlichen ist Folgendes zu beachten:
 * Identifizierungsaufrufe auf `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) zuordnen und Attribute festlegen.
@@ -250,7 +250,7 @@ Die historische Nutzung finden Sie unter **Einstellungen** > **APIs und Bezeichn
 
 ### Höhere Rate-Limits anfordern {#requesting-higher-rate-limits}
 
-Sollten Sie ein höheres Braze-Rate-Limit benötigen, wenden Sie sich bitte an den Braze-Support oder Ihren Customer-Success-Manager und geben Sie dabei die folgenden Details an:
+Sollten Sie ein höheres Braze-Rate-Limit benötigen, wenden Sie sich bitte an den Braze-Support oder Ihren geschäftskunden-Success-Manager und geben Sie dabei die folgenden Details an:
 
 * Ob Sie eine vorübergehende oder dauerhafte Erhöhung benötigen.
 * Warum Sie die Erhöhung benötigen.
@@ -262,4 +262,4 @@ Nachdem Sie Ihre Anfrage eingereicht haben, prüft Braze diese und informiert Si
 
 ### Änderungen und Support {#changes-and-support}
 
-Braze kann Rate-Limits ändern, um die Systemstabilität zu schützen oder einen höheren Datendurchsatz auf Ihrem Konto zu ermöglichen. Wenden Sie sich an den Braze-Support oder Ihren Customer-Success-Manager, wenn Sie Fragen zu Rate-Limits haben und wissen möchten, wie sich diese auf Ihr Unternehmen auswirken.
+Braze kann Rate-Limits ändern, um die Systemstabilität zu schützen oder einen höheren Datendurchsatz auf Ihrem Konto zu ermöglichen. Wenden Sie sich an den Braze-Support oder Ihren geschäftskunden-Success-Manager, wenn Sie Fragen zu Rate-Limits haben und wissen möchten, wie sich diese auf Ihr Unternehmen auswirken.

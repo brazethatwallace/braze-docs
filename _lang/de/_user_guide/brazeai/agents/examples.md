@@ -366,7 +366,7 @@ Recently Engaged Products: Drill bits
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzer:innen basierend auf aktuellen Aktionen mit hoher Kaufabsicht und Verhaltenskontext (über Canvas-Kontext übergeben) ein bis drei Interessenkategorien zuweisen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, den nächsten Schritt einer Customer Journey in Echtzeit mithilfe verifizierter Verhaltenssignale statt Annahmen zu personalisieren.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzer:innen basierend auf aktuellen Aktionen mit hoher Kaufabsicht und Verhaltenskontext (über Canvas-Kontext übergeben) ein bis drei Interessenkategorien zuweisen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, den nächsten Schritt einer geschäftskunden Journey in Echtzeit mithilfe verifizierter Verhaltenssignale statt Annahmen zu personalisieren.
 
 {% tabs local %}
 {% tab Voraussetzungen %}

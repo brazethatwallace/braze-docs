@@ -12,11 +12,11 @@ search_rank: 3
 
 # Webhooks {#webhooks}
 
-> Ein Webhook ist eine automatisierte Nachricht von einem System an ein anderes, nachdem bestimmte Kriterien erfüllt sind. In Braze ist dieses Kriterium in der Regel das Triggern eines angepassten Events. Webhooks bieten dynamischen und flexiblen Zugriff auf Daten und programmatische Funktionalität und ermöglichen es Ihnen, Customer Journeys einzurichten, die Prozesse optimieren.
+> Ein Webhook ist eine automatisierte Nachricht von einem System an ein anderes, nachdem bestimmte Kriterien erfüllt sind. In Braze ist dieses Kriterium in der Regel das Triggern eines angepassten Events. Webhooks bieten dynamischen und flexiblen Zugriff auf Daten und programmatische Funktionalität und ermöglichen es Ihnen, geschäftskunden Journeys einzurichten, die Prozesse optimieren.
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von Webhooks hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Webhooks hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder geschäftskunden-Success-Manager, um loszulegen.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -33,8 +33,8 @@ Einige spezifischere Anwendungsfälle umfassen Folgendes:
 - Senden Sie [transaktionale Nachrichten]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) an Nutzer:innen innerhalb von Facebook Messenger oder Line.
 - Senden Sie Direkt-Mailings an Kund:innen als Reaktion auf deren In-App- und Internet-Aktivitäten, indem Sie Webhooks verwenden, um mit Drittanbieterdiensten wie [Lob.com]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/lob) zu kommunizieren.
 - Wenn ein:e Spieler:in ein bestimmtes Level erreicht oder eine bestimmte Anzahl von Punkten sammelt, verwenden Sie Webhooks und Ihr bestehendes API-Setup, um ein Charakter-Upgrade oder Münzen direkt auf das Konto zu senden. Wenn Sie den Webhook als Teil einer Multichannel-Messaging-Kampagne senden, können Sie gleichzeitig eine Push-Nachricht oder eine andere Nachricht senden, um die:den Spieler:in über die Belohnung zu informieren.
-- Wenn Sie eine Fluggesellschaft sind, können Sie Webhooks und Ihr bestehendes API-Setup verwenden, um das Konto einer Kund:in mit einem Rabatt zu versehen, nachdem eine bestimmte Anzahl von Flügen gebucht wurde.
-- Endlose „If This Then That“ ([IFTTT](https://ifttt.com/about))-Rezepte – zum Beispiel: Wenn sich ein:e Kund:in über E-Mail in die App einloggt, kann diese Adresse automatisch in Salesforce konfiguriert werden.
+- Wenn Sie eine Fluggesellschaft sind, können Sie Webhooks und Ihr bestehendes API-Setup verwenden, um das Konto einer geschäftskunden mit einem Rabatt zu versehen, nachdem eine bestimmte Anzahl von Flügen gebucht wurde.
+- Endlose „If This Then That“ ([IFTTT](https://ifttt.com/about))-Rezepte – zum Beispiel: Wenn sich ein:e geschäftskunden über E-Mail in die App einloggt, kann diese Adresse automatisch in Salesforce konfiguriert werden.
 
 ## Webhook-Fehlerbehandlung und Rate-Limiting {#webhook-error-handling-and-rate-limiting}
 

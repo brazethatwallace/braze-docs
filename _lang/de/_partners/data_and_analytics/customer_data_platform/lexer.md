@@ -1,7 +1,7 @@
 ---
 nav_title: Lexer
 article_title: Lexer
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Lexer, einer Customer Data Platform, die Marketern Kundendaten an die Hand gibt, um verkaufsfördernde Erlebnisse zu schaffen."
+description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Lexer, einer geschäftskunden Data Platform, die Marketern Kundendaten an die Hand gibt, um verkaufsfördernde Erlebnisse zu schaffen."
 alias: /partners/lexer/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lexer
 
-> [Lexer](https://lexer.io/), eine speziell entwickelte Customer Data Platform für den Einzelhandel, hilft Marken, ihren Umsatz durch verbesserte Kundenerlebnisse zu steigern, indem sie eine robuste Datenanreicherung mit den intuitivsten Tools und fachkundiger Beratung kombiniert.
+> [Lexer](https://lexer.io/), eine speziell entwickelte geschäftskunden Data Platform für den Einzelhandel, hilft Marken, ihren Umsatz durch verbesserte Kundenerlebnisse zu steigern, indem sie eine robuste Datenanreicherung mit den intuitivsten Tools und fachkundiger Beratung kombiniert.
 
 _Diese Integration wird von Lexer gepflegt._
 

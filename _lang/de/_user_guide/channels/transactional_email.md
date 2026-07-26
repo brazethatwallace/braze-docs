@@ -15,7 +15,7 @@ description: "Senden Sie Transaktions-E-Mails für kritische, zeitkritische Bena
 
 ## Voraussetzungen {#prerequisites}
 
-Transaktions-E-Mails sind nur als Teil ausgewählter Braze-Pakete verfügbar. Kontaktieren Sie Ihren Braze-Customer-Success-Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support) für weitere Details.
+Transaktions-E-Mails sind nur als Teil ausgewählter Braze-Pakete verfügbar. Kontaktieren Sie Ihren Braze-geschäftskunden-Success-Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support) für weitere Details.
 
 Stellen Sie vor dem Start sicher, dass Sie über Folgendes verfügen:
 
@@ -28,7 +28,7 @@ Transaktions-E-Mails sind für den Versand nicht-werblicher, dienstgetriggerter 
 
 | Anwendungsfall | Erklärung |
 | --- | --- |
-| Bestellbestätigungen | Bestätigen Sie, dass der Kauf einer Kund:in eingegangen ist und bearbeitet wird. |
+| Bestellbestätigungen | Bestätigen Sie, dass der Kauf einer geschäftskunden eingegangen ist und bearbeitet wird. |
 | Passwortzurücksetzungen | Stellen Sie sichere, zeitkritische Links bereit, mit denen Kund:innen ihre Zugangsdaten zurücksetzen können. |
 | Versandbenachrichtigungen | Benachrichtigen Sie Kund:innen, wenn ihre Bestellung versandt wurde, einschließlich Tracking-Informationen und voraussichtlicher Liefertermine. |
 | Kontobenachrichtigungen | Senden Sie kritische kontobezogene Benachrichtigungen, wie z. B. Zahlungsfehler, Abo-Änderungen oder Sicherheitswarnungen. |

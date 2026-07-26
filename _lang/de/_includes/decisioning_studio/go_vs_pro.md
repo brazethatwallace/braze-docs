@@ -8,7 +8,7 @@ Go eignet sich ideal für Teams, die mit KI-Entscheidungsfindung beginnen. Es um
 
 - Selbstständige kreative Konfiguration mit einem vorgefertigten Entscheidungsagenten
 - Erfolgsmetrik mit Schwerpunkt auf Klicks
-- Kompatibilität mit drei Customer-Engagement-Plattformen (CEPs): Braze, Salesforce Marketing Cloud und Klaviyo
+- Kompatibilität mit drei geschäftskunden-Engagement-Plattformen (CEPs): Braze, Salesforce Marketing Cloud und Klaviyo
 
 ### Entscheidungsstudio Pro
 

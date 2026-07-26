@@ -1,7 +1,7 @@
 ---
 nav_title: GRAVTY®
 article_title: GRAVTY® Loyalty Platform
-description: "Dieser Artikel beschreibt die Partnerschaft zwischen Braze und GRAVTY®, einer Enterprise-Loyalty-Plattform, mit der Marken datengestützte Kundenbindungs-Programme entwerfen, verwalten und skalieren können, um Customer-Engagement und Bindung zu verbessern."
+description: "Dieser Artikel beschreibt die Partnerschaft zwischen Braze und GRAVTY®, einer Enterprise-Loyalty-Plattform, mit der Marken datengestützte Kundenbindungs-Programme entwerfen, verwalten und skalieren können, um geschäftskunden-Engagement und Bindung zu verbessern."
 alias: /partners/lji/
 page_type: partner
 search_tag: Partner

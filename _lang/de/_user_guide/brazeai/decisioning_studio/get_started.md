@@ -44,10 +44,10 @@ Arbeiten Sie mit dem AI Decisioning Services-Team zusammen, um die folgenden Ent
 
 | Entscheidung | Beschreibung | Beispiele |
 |----------|-------------|----------|
-| **Erfolgsmetrik** | Das Geschäftsergebnis, das der Agent bei der Personalisierung des Customer-Engagements maximiert. | Umsatz, LTV, ARPU, Conversions, Bindung |
+| **Erfolgsmetrik** | Das Geschäftsergebnis, das der Agent bei der Personalisierung des geschäftskunden-Engagements maximiert. | Umsatz, LTV, ARPU, Conversions, Bindung |
 | **Zielgruppe** | Die Kund:innen, für die der Decisioning-Studio-Agent Engagement-Entscheidungen trifft. | Alle Kund:innen, Mitglieder von Treueprogrammen, gefährdete Abonnent:innen |
 | **Experimentgruppen** | Wie sollen die randomisierten kontrollierten Studien von Decisioning Studio strukturiert sein? | Decisioning Studio, Random Control, BAU, Holdout |
-| **Dimensionen** | Die Engagement-Entscheidungen, die der Agent für jede:n Kund:in personalisiert. | Tageszeit, Betreffzeile, Häufigkeit, Angebote, Kanal |
+| **Dimensionen** | Die Engagement-Entscheidungen, die der Agent für jede:n geschäftskunden personalisiert. | Tageszeit, Betreffzeile, Häufigkeit, Angebote, Kanal |
 | **Optionen** | Die spezifischen Varianten, die der Agent innerhalb jeder Dimension auswählen kann. | Bestimmte Templates, Angebote, Zeitfenster |
 | **Einschränkungen** | Die Geschäftsregeln und Limits, die die Entscheidungen des Agenten einschränken. | Geografische Beschränkungen, Budgetlimits, Berechtigungsregeln |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wichtige Designentscheidungen" }

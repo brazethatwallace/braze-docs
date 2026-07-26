@@ -1,7 +1,7 @@
 ---
 nav_title: DinMo
 article_title: DinMo
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und DinMo, einer Composable Customer Data Platform, die Reverse-ETL nutzt, um Data-Warehouse-Daten in Braze zu synchronisieren."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und DinMo, einer Composable geschäftskunden Data Platform, die Reverse-ETL nutzt, um Data-Warehouse-Daten in Braze zu synchronisieren."
 alias: /partners/dinmo/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # DinMo
 
-> [DinMo](https://www.dinmo.com/) ist eine Composable Customer Data Platform (CDP), die Ihr Cloud Data Warehouse über Reverse Extract, Transform, Load (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppen-Segmente aus Data-Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status ohne CSV-Uploads oder technischen Support aktuell halten.
+> [DinMo](https://www.dinmo.com/) ist eine Composable geschäftskunden Data Platform (CDP), die Ihr Cloud Data Warehouse über Reverse Extract, Transform, Load (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppen-Segmente aus Data-Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status ohne CSV-Uploads oder technischen Support aktuell halten.
 
 _Diese Integration wird von DinMo verwaltet._
 

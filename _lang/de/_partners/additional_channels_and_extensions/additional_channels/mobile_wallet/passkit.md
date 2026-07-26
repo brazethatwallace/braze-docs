@@ -33,10 +33,10 @@ Die Integration von Braze und PassKit ermöglicht es Ihnen, das Engagement Ihrer
 Um die Erfahrungen Ihrer Kund:innen mit der mobilen Wallet weiter zu verbessern, können Sie von Ihrem PassKit-Dashboard aus Daten über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) an Braze weitergeben.
 
 Beispiele für Daten, die Sie von PassKit weitergeben können:
-- **Pass erstellt**: wenn ein:e Kund:in auf einen Pass-Link klickt und zum ersten Mal einen Pass angezeigt bekommt.
-- **Pass-Installationen**: wenn der/die Kund:in den Pass in seine/ihre Wallet-App einfügt und speichert.
+- **Pass erstellt**: wenn ein:e geschäftskunden auf einen Pass-Link klickt und zum ersten Mal einen Pass angezeigt bekommt.
+- **Pass-Installationen**: wenn der/die geschäftskunden den Pass in seine/ihre Wallet-App einfügt und speichert.
 - **Pass-Updates**: wenn ein Pass aktualisiert wird.
-- **Pass löschen**: wenn ein:e Kund:in den Pass aus seiner/ihrer Wallet-App löscht.
+- **Pass löschen**: wenn ein:e geschäftskunden den Pass aus seiner/ihrer Wallet-App löscht.
 
 Sobald die Daten an Braze übergeben wurden, können Sie Zielgruppen aufbauen, Inhalte über Liquid personalisieren und Campaigns oder Canvases triggern, nachdem diese Aktionen durchgeführt wurden.
 

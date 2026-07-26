@@ -141,7 +141,7 @@ Tabelle | Beschreibung
 [USERS_MESSAGES_WHATSAPP_SEND_SHARED](#USERS_MESSAGES_WHATSAPP_SEND_SHARED) | Wenn wir eine WhatsApp-Nachricht für eine:n Nutzer:in senden
 [USERS_MESSAGES_WHATSAPP_RETRY_SHARED](#USERS_MESSAGES_WHATSAPP_RETRY_SHARED) | Wenn eine WhatsApp-Nachricht nach Herabstufung oder Frequency Capping erneut versucht wird (**nur Snowflake-Datenfreigabe**)
 [USERS_RANDOMBUCKETNUMBERUPDATE_SHARED](#USERS_RANDOMBUCKETNUMBERUPDATE_SHARED) | Wenn die zufällige Bucket-Nummer einer/eines Nutzer:in geändert wird
-[USERS_USERDELETEREQUEST_SHARED](#USERS_USERDELETEREQUEST_SHARED) | Wenn eine:r Nutzer:in auf Anfrage einer/eines Kund:in gelöscht wird
+[USERS_USERDELETEREQUEST_SHARED](#USERS_USERDELETEREQUEST_SHARED) | Wenn eine:r Nutzer:in auf Anfrage einer/eines geschäftskunden gelöscht wird
 [USERS_USERORPHAN_SHARED](#USERS_USERORPHAN_SHARED) | Wenn eine:r Nutzer:in mit dem Profil einer/eines anderen Nutzer:in zusammengeführt wird und das ursprüngliche Profil verwaist
 [SNAPSHOTS_APP_SHARED](#SNAPSHOTS_APP_SHARED) | App-Snapshots (**nur Snowflake-Datenfreigabe**)
 [SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED](#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED) | Campaign-Nachrichtenvarianten-Snapshots (**nur Snowflake-Datenfreigabe**)
@@ -178,7 +178,7 @@ Feld | Typ | Beschreibung
 `model_name` | `string` | Name des in dieser Anfrage verwendeten LLM-Modells
 `provider_request_id` | `string` | Vom Modellanbieter für den API-Aufruf vergebene Anfrage-ID
 `cache_hit` | `boolean` | Ob diese Anfrage den Cache getroffen hat, um die Antwort zurückzugeben
-`llm_owned_by_customer` | `boolean` | Wenn true, wurde der API-Schlüssel der/des Kund:in verwendet; wenn false, wurde der Braze-Schlüssel verwendet
+`llm_owned_by_customer` | `boolean` | Wenn true, wurde der API-Schlüssel der/des geschäftskunden verwendet; wenn false, wurde der Braze-Schlüssel verwendet
 `is_error` | `boolean` | Ob diese Anfrage einen Fehler verursacht hat
 `canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
 `canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört

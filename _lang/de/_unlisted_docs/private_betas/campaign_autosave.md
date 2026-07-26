@@ -12,7 +12,7 @@ page_type: reference
 > Wenn Sie Ihre Campaigns in Braze erstellen, werden Ihre Änderungen jetzt automatisch gespeichert. So können Sie sich darauf konzentrieren, Ihre Campaign-Details zu optimieren – mit der Gewissheit, dass Ihr Fortschritt erhalten bleibt.
 
 {% alert important %}
-Das automatische Speichern befindet sich derzeit in der Betaphase und ist nur für Campaigns verfügbar. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an dieser Beta teilnehmen möchten.
+Das automatische Speichern befindet sich derzeit in der Betaphase und ist nur für Campaigns verfügbar. Kontaktieren Sie Ihren geschäftskunden-Success-Manager, wenn Sie an dieser Beta teilnehmen möchten.
 {% endalert %}
 
 {% alert warning %}

@@ -1,7 +1,7 @@
 ---
 nav_title: Chord
 article_title: Chord
-description: "Verbinden Sie die Chord Customer Data Platform (CDP) mit Braze, um E-Commerce-Ereignisse und Identitätsaktualisierungen für Messaging, Segmentierung und Journeys weiterzuleiten."
+description: "Verbinden Sie die Chord geschäftskunden Data Platform (CDP) mit Braze, um E-Commerce-Ereignisse und Identitätsaktualisierungen für Messaging, Segmentierung und Journeys weiterzuleiten."
 alias: /partners/chord/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Chord
 
-> [Chord](https://www.chord.co/) bietet eine Customer Data Platform, die Ereignisse aus Ihrem E-Commerce-Shop erfasst und standardisiert. Wenn Sie Chord mit Braze verbinden, fließen Kaufaktivitäten, Verhaltensereignisse und Identitätsaktualisierungen in Braze, sodass Sie Campaigns triggern und Profile aktuell halten können, ohne diese Pipelines selbst aufbauen zu müssen.
+> [Chord](https://www.chord.co/) bietet eine geschäftskunden Data Platform, die Ereignisse aus Ihrem E-Commerce-Shop erfasst und standardisiert. Wenn Sie Chord mit Braze verbinden, fließen Kaufaktivitäten, Verhaltensereignisse und Identitätsaktualisierungen in Braze, sodass Sie Campaigns triggern und Profile aktuell halten können, ohne diese Pipelines selbst aufbauen zu müssen.
 
 _Diese Integration wird von Chord gepflegt._
 

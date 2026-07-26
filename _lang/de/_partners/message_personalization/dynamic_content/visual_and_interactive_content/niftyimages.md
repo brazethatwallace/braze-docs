@@ -21,7 +21,7 @@ Die NiftyImages-Integration für Braze hilft Ihnen, personalisierte, dynamische 
 
 Sie können NiftyImages verwenden, um:
 
-- **Bilder zu personalisieren:** Erstellen Sie Bilder, die den Namen, den Loyalty-Status, das Prämienguthaben, den Standort, die Produktpräferenz, die Mitgliedschaftsstufe, Kontodetails oder andere Braze-Kontakteigenschaften jeder Kund:in enthalten.
+- **Bilder zu personalisieren:** Erstellen Sie Bilder, die den Namen, den Loyalty-Status, das Prämienguthaben, den Standort, die Produktpräferenz, die Mitgliedschaftsstufe, Kontodetails oder andere Braze-Kontakteigenschaften jeder geschäftskunden enthalten.
 - **Countdown-Timer hinzuzufügen:** Fügen Sie Realtime-Countdown-Timer für Verkaufsaktionen, Produktlaunches, Events, zeitlich begrenzte Angebote, Termine, Onboarding-Fristen und personalisierte Ablaufdaten hinzu.
 - **Dynamische Karten anzuzeigen:** Zeigen Sie den nächstgelegenen Shop, Veranstaltungsort, Servicebereich, Händler, Club, Branch oder Abholort basierend auf Kundenstandortdaten oder Braze-Kontakteigenschaften an.
 - **Kalender anzuzeigen:** Zeigen Sie personalisierte Termine, Events, Buchungen, Verlängerungszeiträume, Campaign-Momente oder Kunden-Meilensteine direkt in Campaign-Visuals an.
@@ -119,7 +119,7 @@ Verwenden Sie veröffentlichte Content Blocks in Braze E-Mail-Templates, Kampagn
 
 - **REST-API-Berechtigungen:** Der Braze REST-API-Schlüssel muss `custom_attributes.get` für die Synchronisierung von Kontakteigenschaften und `content_blocks.create` für die Veröffentlichung von Assets in Braze Content Blocks enthalten.
 - **Verfügbarkeit von Kontakteigenschaften:** Nur Kontakteigenschaften, die dem verbundenen Braze-Konto zur Verfügung stehen, können in NiftyImages synchronisiert werden.
-- **Fallback-Werte:** Verwenden Sie Fallback-Werte beim Erstellen personalisierter Visuals, damit jede Kund:in ein ansprechendes Bild sieht, auch wenn eine Kontakteigenschaft fehlt.
+- **Fallback-Werte:** Verwenden Sie Fallback-Werte beim Erstellen personalisierter Visuals, damit jede geschäftskunden ein ansprechendes Bild sieht, auch wenn eine Kontakteigenschaft fehlt.
 - **Wiederverwendbare Content Blocks:** Die Veröffentlichung in Braze Content Blocks hilft Teams, manuelles Kopieren und Einfügen von HTML zu vermeiden, Merge-Tag-Fehler zu reduzieren und Assets in Kampagnen und Templates wiederzuverwenden.
 - **Mehrere Braze-Konten:** NiftyImages unterstützt mehrere verbundene Braze-Konten, was für Agenturen, Multi-Marken-Teams und Teams hilfreich ist, die mehrere Braze-Instanzen verwalten.
 - **Testen:** Testen Sie die endgültige Braze-Nachricht mit Beispiel-Kundenprofilen, bevor Sie eine Kampagne oder ein Canvas starten.

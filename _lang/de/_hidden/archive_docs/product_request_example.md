@@ -9,7 +9,7 @@ description: "Dieser Referenzartikel zeigt ein Beispiel für eine Produktanfrage
 
 # Beispiel einer Produktanfrage {#product-request-example}
 
-Hier sehen Sie ein Beispiel für eine gute Produktanfrage, die von einer Kund:in eingereicht wurde. Darin wird die Anfrage klar definiert und der Anwendungsfall für das Feature detailliert beschrieben.
+Hier sehen Sie ein Beispiel für eine gute Produktanfrage, die von einer geschäftskunden eingereicht wurde. Darin wird die Anfrage klar definiert und der Anwendungsfall für das Feature detailliert beschrieben.
 
 ## Beispielanfrage von Skyscanner {#example-request-from-skyscanner}
 

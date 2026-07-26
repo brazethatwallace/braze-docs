@@ -37,7 +37,7 @@ Push-Tokens werden im Braze-Dashboard möglicherweise als `subscribed` angezeigt
 Mit Braze kann eine Nutzer:in mehrere Push-Tokens haben (eines für jedes Gerät). Indem Sie alle gültigen Push-Tokens ansprechen, können Sie Benachrichtigungen an mehrere Geräte senden. Es ist auch möglich, Campaigns so zu konfigurieren, dass sie nur an das zuletzt verwendete Gerät gesendet werden.
 
 ## Campaign-Konfiguration {#campaign-configuration}
-Braze ist ein wirklich einzigartiges Customer-Engagement-Tool. Aufgrund unserer umfangreichen Anpassungsmöglichkeiten und der wachsenden Anzahl an Features profitieren Campaigns, die nach Braze migriert werden, oft von einer Neuplanung, um die Vorteile dieser Tools zu nutzen. Unser Framework für die Campaign-Planung (kontaktieren Sie Ihren COM oder SA für weitere Details) ist speziell dafür entwickelt.
+Braze ist ein wirklich einzigartiges geschäftskunden-Engagement-Tool. Aufgrund unserer umfangreichen Anpassungsmöglichkeiten und der wachsenden Anzahl an Features profitieren Campaigns, die nach Braze migriert werden, oft von einer Neuplanung, um die Vorteile dieser Tools zu nutzen. Unser Framework für die Campaign-Planung (kontaktieren Sie Ihren COM oder SA für weitere Details) ist speziell dafür entwickelt.
 
 ### Zusammensetzung {#composition}
 #### Push-Benachrichtigungen {#push-notifications}

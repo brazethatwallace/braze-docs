@@ -12,7 +12,7 @@ description: "Auf dieser Seite finden Sie Antworten auf häufig gestellte Fragen
 
 ## Was ist ein Decisioning-Agent? {#what-is-a-decisioning-agent}
 
-Ein Decisioning-Agent ist eine angepasste Konfiguration für BrazeAI Decisioning Studio™, die speziell auf ein bestimmtes Geschäftsziel zugeschnitten ist. Dies wird durch die von Ihnen gewählte Erfolgsmetrik, die Dimensionen und die Optionen bestimmt. Der Decisioning-Agent ermittelt automatisch die optimale Aktion für jede:n Kund:in, um die von Ihnen gewählte Geschäftsmetrik zu maximieren.
+Ein Decisioning-Agent ist eine angepasste Konfiguration für BrazeAI Decisioning Studio™, die speziell auf ein bestimmtes Geschäftsziel zugeschnitten ist. Dies wird durch die von Ihnen gewählte Erfolgsmetrik, die Dimensionen und die Optionen bestimmt. Der Decisioning-Agent ermittelt automatisch die optimale Aktion für jede:n geschäftskunden, um die von Ihnen gewählte Geschäftsmetrik zu maximieren.
 
 ### Welche Metriken kann ich optimieren? {#what-metrics-can-i-optimize-for}
 

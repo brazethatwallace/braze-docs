@@ -9,7 +9,7 @@ search_tag: Partner
 
 # LiveRamp
 
-> Erfahren Sie, wie Sie LiveRamp und Braze über Snowflake-Datenfreigabe oder Braze-Currents verbinden, um hochgradig personalisierte und relevante Kampagnen zu erstellen – indem Sie die Zeit bis zu Insights verkürzen, Datensilos aufbrechen und das Customer-Engagement optimieren. Diese Integration verbessert datengestütztes Marketing, indem sie verwertbare personenbezogene Erkenntnisse liefert und Verbraucher-Touchpoints konsolidiert, um eine bessere Zielgruppensegmentierung und zeitnahe Kampagnen zu ermöglichen.
+> Erfahren Sie, wie Sie LiveRamp und Braze über Snowflake-Datenfreigabe oder Braze-Currents verbinden, um hochgradig personalisierte und relevante Kampagnen zu erstellen – indem Sie die Zeit bis zu Insights verkürzen, Datensilos aufbrechen und das geschäftskunden-Engagement optimieren. Diese Integration verbessert datengestütztes Marketing, indem sie verwertbare personenbezogene Erkenntnisse liefert und Verbraucher-Touchpoints konsolidiert, um eine bessere Zielgruppensegmentierung und zeitnahe Kampagnen zu ermöglichen.
 
 ## Integrationsoptionen {#integration-options}
 
@@ -45,7 +45,7 @@ Die folgenden Schritte beschreiben, wie Sie LiveRamp über die Snowflake-Datenfr
 
 ### 1. Schritt: Datenfreigabe bei Braze anfragen {#step-1-request-a-data-share-from-braze}
 
-Wenden Sie sich zunächst an Ihren Braze Account Manager oder Customer-Success-Manager, um einen Snowflake Data Share Connector für Ihr Braze-Konto zu erwerben. Wenn Sie eine Datenfreigabe anfragen, stellt Braze die Freigabe aus dem/den Workspace(s) bereit, für den/die die Freigabe erworben wurde. Nachdem die Freigabe bereitgestellt wurde, sind alle Daten sofort von Ihrer Snowflake-Instanz aus in Form einer eingehenden Datenfreigabe zugänglich. Sobald die Freigabe in Ihrer Instanz sichtbar ist, erstellen Sie eine Datenbank aus der Freigabe, damit Sie die Tabellen sehen und abfragen können.
+Wenden Sie sich zunächst an Ihren Braze Account Manager oder geschäftskunden-Success-Manager, um einen Snowflake Data Share Connector für Ihr Braze-Konto zu erwerben. Wenn Sie eine Datenfreigabe anfragen, stellt Braze die Freigabe aus dem/den Workspace(s) bereit, für den/die die Freigabe erworben wurde. Nachdem die Freigabe bereitgestellt wurde, sind alle Daten sofort von Ihrer Snowflake-Instanz aus in Form einer eingehenden Datenfreigabe zugänglich. Sobald die Freigabe in Ihrer Instanz sichtbar ist, erstellen Sie eine Datenbank aus der Freigabe, damit Sie die Tabellen sehen und abfragen können.
 
 Eine vollständige Anleitung finden Sie in der [Anleitung zur Integration von Snowflake mit Braze]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/).
 

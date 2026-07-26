@@ -21,7 +21,7 @@ Lassen Sie uns gemeinsam die Möglichkeiten von Braze entdecken.
 
 ## So funktioniert Braze {#how-braze-works}
 
-Braze ist eine Customer-Engagement-Plattform, die Marken jeder Größe dabei hilft, personalisierte und gezielte Kampagnen über verschiedene Kanäle zu erstellen. Braze gibt Ihnen die Möglichkeit, Ihren Kund:innen zuzuhören, zu verstehen, was ihr Verhalten signalisiert, und dann zu handeln, indem Sie die richtige Nachricht über den richtigen Kanal zur richtigen Zeit senden.
+Braze ist eine geschäftskunden-Engagement-Plattform, die Marken jeder Größe dabei hilft, personalisierte und gezielte Kampagnen über verschiedene Kanäle zu erstellen. Braze gibt Ihnen die Möglichkeit, Ihren Kund:innen zuzuhören, zu verstehen, was ihr Verhalten signalisiert, und dann zu handeln, indem Sie die richtige Nachricht über den richtigen Kanal zur richtigen Zeit senden.
 
 {% alert tip %}
 Stellen Sie sicher, dass Sie [Ihre Kolleg:innen zu Braze hinzufügen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users), damit sie die Plattform gemeinsam mit Ihnen erkunden können.
@@ -33,7 +33,7 @@ Nutzer:innen sind Ihre Kund:innen – die Personen, die die Nachrichten erhalten
 
 ![Screenshot eines Nutzerprofils in Braze.]({% image_buster /assets/img/getting_started/user_profile.png %})
 
-Segmente unterteilen Ihren Kundenstamm in kleinere Gruppen, die Sie dann mit spezifischem Messaging ansprechen können. Sie können verschiedene Variablen verwenden, um Segmente zu erstellen – von Merkmalen wie Geschlecht, Standort und Alter bis hin zu Verhaltensweisen wie Interaktionsmustern mit früheren Kampagnen oder der Position in der Customer Journey.
+Segmente unterteilen Ihren Kundenstamm in kleinere Gruppen, die Sie dann mit spezifischem Messaging ansprechen können. Sie können verschiedene Variablen verwenden, um Segmente zu erstellen – von Merkmalen wie Geschlecht, Standort und Alter bis hin zu Verhaltensweisen wie Interaktionsmustern mit früheren Kampagnen oder der Position in der geschäftskunden Journey.
 
 Segmente sind dynamisch – Nutzer:innen können in Echtzeit in Segmente ein- und ausgegliedert werden, basierend auf ihrem Verhalten und ihrer Beziehung zu Ihrer Marke. So stellen Sie sicher, dass Ihre Kund:innen jederzeit die für sie relevantesten Nachrichten erhalten. Sie können so viele Segmente erstellen, wie Sie für Ihr Targeting und Messaging benötigen.
 
@@ -47,7 +47,7 @@ Campaigns und Canvases sind die Werkzeuge, mit denen Sie Nachrichten an Ihre Nut
 
 Campaigns eignen sich am besten für einzelne Nachrichten, die über verschiedene Kanäle an ein bestimmtes Zielgruppen-Segment gesendet werden. Sie können jeden unserer unterstützten Messaging-Kanäle in Ihrer Campaign nutzen (E-Mail, Push, In-App-Nachrichten, SMS und mehr).
 
-Canvases sind fortschrittliche Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases sorgen für eine konsistente und nahtlose Kommunikation über verschiedene Touchpoints hinweg und erhöhen so die Chancen auf Engagement und Conversion.
+Canvases sind fortschrittliche Campaign-Workflows, mit denen Sie personalisierte geschäftskunden Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases sorgen für eine konsistente und nahtlose Kommunikation über verschiedene Touchpoints hinweg und erhöhen so die Chancen auf Engagement und Conversion.
 
 Mehr dazu finden Sie hier: [Erste Schritte: Campaigns und Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).
 
@@ -80,6 +80,6 @@ Benötigen Sie Hilfe bei Ihrer Migration? Unsere [zertifizierten Braze-Partner](
 
 - **E-Mail-Volumen:** Um E-Mails zu versenden, müssen Sie Ihre IPs aufwärmen. [IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) ist der Prozess des Aufbaus einer Absender-Reputation mit Ihren neu zugewiesenen IP-Adressen. Wenn Sie weniger als 2–3 Millionen E-Mails pro Tag versenden, sollte Ihr IP-Warming 30 Tage oder weniger dauern. Beachten Sie dabei Ihre Spitzenvolumen. Wenn Sie normalerweise 2 Millionen E-Mails pro Tag versenden, aber für einen saisonalen Zeitraum 7 Millionen planen, sollten Sie auf dieses „Spitzen“-Volumen aufwärmen. Absender mit hohem Volumen können mehrere IPs verwenden, um den Warming-Prozess zu beschleunigen.
 - **Organisatorische Komplexität:** Unser Onboarding-Prozess kann an die Bedürfnisse Ihres Unternehmens angepasst werden. Ob Sie eine einzelne Geschäftseinheit, ein Center of Excellence, mehrere unabhängige Einheiten oder Agenturen zur Verstärkung Ihrer Teams einsetzen – Braze hat Erfahrung mit allen Szenarien.
-- **Komplexität der Dateninfrastruktur:** Wenn Sie nur das Braze SDK implementieren oder bereits über eine Customer Data Platform (CDP) verfügen, ist es möglich, alles in nur 30 Tagen einzurichten. Die Verwendung einer modernen CDP kann den Prozess beschleunigen. Wenn Sie jedoch viele Backend-Systeme, Tools oder Datenbanken mit Braze verbinden müssen, kann es länger dauern und mehr dedizierte Ressourcen erfordern, um die Einrichtung abzuschließen.
+- **Komplexität der Dateninfrastruktur:** Wenn Sie nur das Braze SDK implementieren oder bereits über eine geschäftskunden Data Platform (CDP) verfügen, ist es möglich, alles in nur 30 Tagen einzurichten. Die Verwendung einer modernen CDP kann den Prozess beschleunigen. Wenn Sie jedoch viele Backend-Systeme, Tools oder Datenbanken mit Braze verbinden müssen, kann es länger dauern und mehr dedizierte Ressourcen erfordern, um die Einrichtung abzuschließen.
 
 Mehr dazu finden Sie hier: [Erste Schritte: Übersicht über die Integration]({{site.baseurl}}/user_guide/get_started/integrations).

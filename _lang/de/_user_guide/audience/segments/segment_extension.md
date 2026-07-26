@@ -20,7 +20,7 @@ Braze Segments bieten Ihnen leistungsstarke Targeting-Tools, um dynamische Nutze
 Zum Beispiel findet die Standard-Segmentierung von Braze Nutzer:innen, die bestimmte von Ihnen definierte Kriterien erfüllen, wie etwa die Identifizierung von Nutzer:innen, die kürzlich eines Ihrer Produkte gekauft haben. Segmenterweiterungen ermöglichen es Ihnen, tiefer zu gehen – etwa Nutzer:innen zu identifizieren, die eine bestimmte Farbe eines bestimmten Produkts mindestens zweimal zwischen 18 und 24 Monaten gekauft haben. Segmenterweiterungen sind eine Erweiterung, keine Voraussetzung. Wenn Sie fortgeschrittenere Filter oder ein längeres Rückblickfenster benötigen, sind sie ein großartiges Werkzeug, das Ihnen hilft und gleichzeitig Ihre Datennutzung optimiert.
 
 {% alert note %}
-Es gibt ein Standardkontingent von 50 aktiven Segmenterweiterungen pro Workspace zu einem bestimmten Zeitpunkt. Wenn Sie dieses Limit erhöhen müssen, wenden Sie sich an Ihren Braze Customer-Success-Manager, um Ihren Anwendungsfall zu besprechen.
+Es gibt ein Standardkontingent von 50 aktiven Segmenterweiterungen pro Workspace zu einem bestimmten Zeitpunkt. Wenn Sie dieses Limit erhöhen müssen, wenden Sie sich an Ihren Braze geschäftskunden-Success-Manager, um Ihren Anwendungsfall zu besprechen.
 {% endalert %}
 
 ## Eine Segmenterweiterung erstellen {#creating-a-segment-extension}

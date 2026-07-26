@@ -16,7 +16,7 @@ search_tag: Partner
 _Diese Integration wird von Future Anthem gepflegt._
 
 {% alert important %}
-Dieses Feature befindet sich derzeit im Early Access. Wenden Sie sich an das Future Anthem Customer-Success-Team, um loszulegen.
+Dieses Feature befindet sich derzeit im Early Access. Wenden Sie sich an das Future Anthem geschäftskunden-Success-Team, um loszulegen.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -37,7 +37,7 @@ Mit dieser Integration können Sie:
 
 ## Integration
 
-Das Future Anthem Customer-Success-Team hilft Ihnen bei der Einrichtung Ihrer Integration. Wenden Sie sich an Ihren Future Anthem Customer-Success-Kontakt – das Team hilft Ihnen, die relevantesten Attribute zu ermitteln, die an Braze gesendet werden sollen.
+Das Future Anthem geschäftskunden-Success-Team hilft Ihnen bei der Einrichtung Ihrer Integration. Wenden Sie sich an Ihren Future Anthem geschäftskunden-Success-Kontakt – das Team hilft Ihnen, die relevantesten Attribute zu ermitteln, die an Braze gesendet werden sollen.
 
 | Beispiel-Attribute in Future Anthem | Beispiel-Attribute in Braze |
 | ----------------------------------- | --------------------------- |

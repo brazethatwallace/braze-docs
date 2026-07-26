@@ -37,7 +37,7 @@ Machen Sie in der Anzeigenbeschreibung deutlich, dass ein Klick auf die Anzeige 
 ![Entry-Zeitplan für ein aktionsbasiertes Braze-Canvas mit dem Trigger-Ereignis „Eingehende WhatsApp-Nachricht senden“ und einem Nachrichtentext, der dem Regex „free delivery“ entspricht.]({% image_buster /assets/img/whatsapp/action_based_free_delivery.png %})
 
 {: start="3"}
-3. Richten Sie im Canvas eine Antwortnachricht ein, die sofort gesendet wird, nachdem die Kund:in das Canvas betritt (z. B. ohne Verzögerung). Obwohl das Klicken auf die Anzeige technisch gesehen ein Opt-in darstellt, empfehlen wir, Ihre Antwortnachricht so einzurichten, dass Nutzer:innen gefragt werden, ob sie zukünftige Marketing-Nachrichten von Ihnen auf WhatsApp erhalten möchten.
+3. Richten Sie im Canvas eine Antwortnachricht ein, die sofort gesendet wird, nachdem die geschäftskunden das Canvas betritt (z. B. ohne Verzögerung). Obwohl das Klicken auf die Anzeige technisch gesehen ein Opt-in darstellt, empfehlen wir, Ihre Antwortnachricht so einzurichten, dass Nutzer:innen gefragt werden, ob sie zukünftige Marketing-Nachrichten von Ihnen auf WhatsApp erhalten möchten.
 
 {% alert tip %}
 Richten Sie Ihre Antwortnachricht mit Schnellantworten ein (z. B. „Ja“ oder „Nein danke“), damit Nutzer:innen schnell angeben können, ob sie sich anmelden möchten.

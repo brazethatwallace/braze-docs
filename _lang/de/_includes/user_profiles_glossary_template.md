@@ -12,7 +12,7 @@ search_rank: 7
 <div class="api-glossary-preamble" markdown="1">
 
 {% alert important %}
-Nutzerprofil-Events befinden sich in der Betaphase. Wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um Zugang zu erhalten.
+Nutzerprofil-Events befinden sich in der Betaphase. Wenden Sie sich an Ihren geschäftskunden-Success-Manager oder Account Manager, um Zugang zu erhalten.
 {% endalert %}
 
 {% alert tip %}

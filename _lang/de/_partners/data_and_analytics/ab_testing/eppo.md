@@ -60,6 +60,6 @@ Eppo verwendet diese Zuweisungen und Faktentabellen, um die Ergebnisse zu analys
 
 ## Support
 
-Wenn Sie Fragen zur Einrichtung von Braze-Currents, Snowflake-Datenfreigabe oder zur Konfiguration von multivariaten Kampagnen haben, wenden Sie sich an Ihren Customer-Success-Manager von Braze.
+Wenn Sie Fragen zur Einrichtung von Braze-Currents, Snowflake-Datenfreigabe oder zur Konfiguration von multivariaten Kampagnen haben, wenden Sie sich an Ihren geschäftskunden-Success-Manager von Braze.
 
 Wenn Sie Hilfe bei der Konfiguration von Eppo zur Messung von Braze-Experimenten benötigen, wenden Sie sich an das Eppo-Support-Team.

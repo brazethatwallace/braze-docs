@@ -9,11 +9,11 @@ toc_headers: h2
 
 # Orchestrierung einrichten {#set-up-orchestration}
 
-> Decisioning Agents müssen sich mit einer Customer-Engagement-Plattform (CEP) verbinden, um Kommunikation zu orchestrieren, nachdem sie Kundendaten aufgenommen und auf 1:1-Ebene personalisiert haben. Dieser Artikel beschreibt, was Sie vorbereiten müssen und wie Sie die Integration für jede unterstützte CEP konfigurieren.
+> Decisioning Agents müssen sich mit einer geschäftskunden-Engagement-Plattform (CEP) verbinden, um Kommunikation zu orchestrieren, nachdem sie Kundendaten aufgenommen und auf 1:1-Ebene personalisiert haben. Dieser Artikel beschreibt, was Sie vorbereiten müssen und wie Sie die Integration für jede unterstützte CEP konfigurieren.
 
 ## Was ist Orchestrierung? {#what-is-orchestration}
 
-Orchestrierung ist die Verbindung zwischen Decisioning Studio und Ihrer Customer-Engagement-Plattform (CEP). Sobald Ihr Decisioning Agent die optimale Aktion für jede:n Kund:in bestimmt hat, führt die Orchestrierung diese Entscheidungen aus, indem sie personalisierte Kommunikation über Ihre CEP triggert.
+Orchestrierung ist die Verbindung zwischen Decisioning Studio und Ihrer geschäftskunden-Engagement-Plattform (CEP). Sobald Ihr Decisioning Agent die optimale Aktion für jede:n geschäftskunden bestimmt hat, führt die Orchestrierung diese Entscheidungen aus, indem sie personalisierte Kommunikation über Ihre CEP triggert.
 
 Stellen Sie es sich so vor:
 
@@ -73,7 +73,7 @@ Wenn Sie eine andere CEP als Braze oder Salesforce Marketing Cloud verwenden, ka
 
 | Element | Beschreibung |
 |------|-------------|
-| **Datenaufnahme-Fähigkeit** | Ihre CEP muss in der Lage sein, Empfehlungsdateien (typischerweise CSV oder JSON) aufzunehmen, die personalisierte Entscheidungen für jede:n Kund:in enthalten. |
+| **Datenaufnahme-Fähigkeit** | Ihre CEP muss in der Lage sein, Empfehlungsdateien (typischerweise CSV oder JSON) aufzunehmen, die personalisierte Entscheidungen für jede:n geschäftskunden enthalten. |
 | **Unterstützung für dynamischen Content** | Ihre Campaigns müssen das dynamische Befüllen von Feldern basierend auf Empfehlungsdaten unterstützen. |
 | **Angepasste Engineering-Ressourcen** | Ihr Team muss die Integration erstellen, um Empfehlungsdateien zu lesen und Kommunikation zu triggern. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -89,7 +89,7 @@ Bevor Sie die Orchestrierung einrichten, berücksichtigen Sie die folgenden Deta
 
 Ein Basis-Template ist jedes Nachrichten-Template, das Ihr Decisioning Agent verwenden könnte. Berücksichtigen Sie:
 
-- **Wie viele Templates?** Ihr Agent kann mit einem Template oder mehreren arbeiten. Bei mehreren kann der Agent personalisieren, welches Template jede:r Kund:in erhält.
+- **Wie viele Templates?** Ihr Agent kann mit einem Template oder mehreren arbeiten. Bei mehreren kann der Agent personalisieren, welches Template jede:r geschäftskunden erhält.
 - **Welche Kanäle?** E-Mail, Push, SMS oder eine Kombination. Jeder Kanal kann separate Templates und Campaigns erfordern.
 - **Welche dynamischen Elemente?** Identifizieren Sie, welche Teile Ihrer Nachricht der Agent personalisiert (Betreffzeilen, CTAs, Angebote, Timing usw.). Diese werden zu API-Trigger-Eigenschaften oder dynamischen Platzhaltern.
 
@@ -137,7 +137,7 @@ Gehen Sie zu **Einstellungen** > **API-Schlüssel** und erstellen Sie einen neue
 
 Richten Sie eine API-getriggerte Campaign für jedes Basis-Template mit API-Trigger-Eigenschaften für alle optimierten Dimensionen ein.
 
-Ein Basis-Template ist jedes Template, das der Decisioning Agent für die Orchestrierung von Nachrichten verwenden könnte. Ein Decisioning Agent kann ein Basis-Template oder mehrere haben. Im letzteren Fall ist die Auswahl des richtigen Basis-Templates für jede:n Kund:in eine der Entscheidungen, die der Agent personalisiert.
+Ein Basis-Template ist jedes Template, das der Decisioning Agent für die Orchestrierung von Nachrichten verwenden könnte. Ein Decisioning Agent kann ein Basis-Template oder mehrere haben. Im letzteren Fall ist die Auswahl des richtigen Basis-Templates für jede:n geschäftskunden eine der Entscheidungen, die der Agent personalisiert.
 
 ### Schritt 3: Erneute Berechtigung konfigurieren {#step-3-configure-re-eligibility}
 
@@ -199,9 +199,9 @@ Decisioning Studio unterstützt eine native Integration mit Salesforce Marketing
 
 ## Andere CEP-Integrationen einrichten {#set-up-other-cep-integrations}
 
-Decisioning Studio kann mit jeder Customer-Engagement-Plattform integriert werden. Dies kann jedoch einige angepasste Engineering-Arbeit von Ihrem Team erfordern, da Decisioning Studio Kommunikation nicht direkt triggern kann.
+Decisioning Studio kann mit jeder geschäftskunden-Engagement-Plattform integriert werden. Dies kann jedoch einige angepasste Engineering-Arbeit von Ihrem Team erfordern, da Decisioning Studio Kommunikation nicht direkt triggern kann.
 
-In diesem Szenario liefert der Agent eine „Empfehlungsdatei“. Diese Datei enthält Zeilen für jede:n Kund:in mit Spalten, die alle personalisierten Entscheidungen für diese:n Kund:in angeben.
+In diesem Szenario liefert der Agent eine „Empfehlungsdatei“. Diese Datei enthält Zeilen für jede:n geschäftskunden mit Spalten, die alle personalisierten Entscheidungen für diese:n geschäftskunden angeben.
 
 Zum Beispiel die folgende Empfehlungsdatei:
 
