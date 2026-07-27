@@ -846,11 +846,11 @@ Braze ist möglicherweise auch mit anderen Tag-Management-Lösungen kompatibel, 
 
 Die folgende Tabelle beschreibt die verfügbaren Distributionen des Braze Web SDK.
 
-| Name | Beschreibung | npm | CDN-URL
-| ---- | ----------- | --- | -------
-| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code, einschließlich UI-Code. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.10/braze.min.js
-| Core | Enthält das SDK ohne UI. Implementieren Sie Ihre eigene UI für In-App Messages und Content Cards, wenn Sie diese Version des SDK verwenden. Verwenden Sie für die meisten Integrationen die vollständige Bibliothek, da sie anpassbare UI-Elemente über CSS bereitstellt. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.core.min.js
-| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.no-amd.min.js
+| Name | Beschreibung | npm | CDN-URL |
+| ---- | ----------- | --- | ------- |
+| Full | Vollständiges SDK mit UI. Bei Verwendung der npm-Version entfernen JavaScript-Bundler ungenutzten Code, einschließlich UI-Code. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.10/braze.min.js |
+| Core | Enthält das SDK ohne UI. Implementieren Sie Ihre eigene UI für In-App Messages und Content Cards, wenn Sie diese Version des SDK verwenden. Verwenden Sie für die meisten Integrationen die vollständige Bibliothek, da sie anpassbare UI-Elemente über CSS bereitstellt. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.core.min.js |
+| No-AMD | Enthält das vollständige SDK ohne AMD-Unterstützung. Dies ist nützlich, wenn Ihre Website RequireJS oder einen anderen AMD-Modul-Loader verwendet, Sie das SDK aber lieber über das CDN laden möchten. | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.no-amd.min.js |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliotheken" }
 
 ## Unterstützte Browser {#supported-browsers}
