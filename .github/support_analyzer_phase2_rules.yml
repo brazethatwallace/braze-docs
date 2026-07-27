@@ -25,8 +25,8 @@ version: 1
 
 rules:
   - id: data_series_currents
-    enabled: true
-    # skip_if_contains below detects the shared include merged in #13772; disable this rule if that include is canonical.
+    enabled: false
+    # Disabled: canonical include on develop since #13772. Re-enable only if anchors change.
     min_matching_cases: 3
     case_text:
       fields:
@@ -137,4 +137,101 @@ rules:
           <!-- support-analyzer-phase2:liquid_api_trigger_extra_braces_tags -->
           {% alert note %}
           API trigger properties must use two curly braces per tag: `{{api_trigger_properties.${your_api_trigger_property}}}`. Triple braces (for example `{{{...}}}`) are not valid Braze personalization syntax. See [Why is my API-triggered Liquid failing in Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+          {% endalert %}
+
+  - id: webhook_delivery_failures
+    enabled: true
+    min_matching_cases: 2
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)webhook"
+        - "(?i)(retry|retries|timeout|timed out|429|5\\d\\d|failed|failure|not (?:deliver|sent)|error)"
+    pr:
+      title: "[SA] Webhook delivery failures and retries (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Relates to webhook HTTP responses, retry eligibility, and Message Activity Log diagnosis.
+        Reviewers should confirm against webhook delivery behavior before merge.
+    edits:
+      - file: _docs/_user_guide/channels/webhooks/create_a_webhook.md
+        fingerprint: support-analyzer-phase2:webhook_delivery_failures
+        skip_if_contains:
+          - "most other `4XX` client errors, including `401 Unauthorized`, are **not** retried"
+        anchor_substring: "`Retry-After` and rate-limit response headers can affect how long Braze waits before a **retriable** attempt (for example, after `408`, `429`, or `5XX`). They do not make non-retriable responses, such as `401`, eligible for retry."
+        insert: |+
+
+          <!-- support-analyzer-phase2:webhook_delivery_failures -->
+          {% alert note %}
+          If webhook sends look missing in analytics, open the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) for the campaign or Canvas step. Braze retries only certain responses (for example `408`, `429`, and `5XX`)—most other `4XX` client errors, including `401 Unauthorized`, are **not** retried. For the full response table, see [Response codes and retry logic](#response-codes-and-retry-logic) above.
+          {% endalert %}
+
+  - id: canvas_lower_sends_liquid_abort
+    enabled: true
+    min_matching_cases: 3
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)(canvas|message step)"
+        - "(?i)(abort|aborted|not sent|fewer send|lower send|entered.{0,40}not)"
+        - "(?i)(liquid|message activity|personaliz)"
+    pr:
+      title: "[SA] Canvas lower sends — Liquid abort troubleshooting link (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Cross-links Canvas lower-send symptoms to Liquid abort diagnostics.
+        Reviewers should confirm Canvas step analytics wording before merge.
+    edits:
+      - file: _docs/_user_guide/messaging/canvas/troubleshooting.md
+        fingerprint: support-analyzer-phase2:canvas_lower_sends_liquid_abort
+        skip_if_contains:
+          - "aborting_messages/#troubleshooting-high-abort-rates"
+        anchor_substring: Use the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) to see abort and drop reasons at the step level.
+        insert: |+
+
+          <!-- support-analyzer-phase2:canvas_lower_sends_liquid_abort -->
+          {% alert note %}
+          When a message step shows many users **entered** but few **sends**, check whether Liquid `abort_message()` ran at send time. Aborted users still advance to the next Canvas step. For step-by-step diagnosis (Message Activity Log, missing attributes, test sends), see [Troubleshooting high abort rates]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#troubleshooting-high-abort-rates).
+          {% endalert %}
+
+  - id: cdi_updated_at_row_sync
+    enabled: true
+    min_matching_cases: 2
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)(cdi|cloud data ingestion|data warehouse)"
+        - "(?i)(updated_at|rows synced|not sync|missing row|sync log|partial success)"
+    pr:
+      title: "[SA] CDI sync log and UPDATED_AT troubleshooting (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Points readers to CDI Sync Log and UPDATED_AT reconciliation guidance.
+        Reviewers should confirm against CDI sync behavior before merge.
+    edits:
+      - file: _docs/_user_guide/data/unification/cloud_ingestion/sync_logs.md
+        fingerprint: support-analyzer-phase2:cdi_updated_at_row_sync
+        skip_if_contains:
+          - "Why doesn't \"Rows Synced\" match the number in my warehouse?"
+        anchor_substring: To access the sync logs, go to **Data Settings** > **Cloud Data Ingestion** and select the **Sync Log** tab.
+        insert: |+
+
+          <!-- support-analyzer-phase2:cdi_updated_at_row_sync -->
+          {% alert note %}
+          If warehouse row counts do not match **Rows Synced** or you see **Partial Success** runs, open the **Run ID** in Sync Log and review row-level **Error reason** values. CDI selects rows using `UPDATED_AT`—rows with timestamps already processed, unchanged `UPDATED_AT` after edits, or writes during an active sync may be skipped. For common cases, see [Why doesn't "Rows Synced" match the number in my warehouse?]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs/#why-doesnt-rows-synced-match-the-number-in-my-warehouse) and [Cloud Data Ingestion FAQ]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs/).
           {% endalert %}
