@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar datos de ingresos de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar datos de ingresos de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /purchases/revenue_series
 {% endapimethod %}
 
-> Usa este punto de conexión para obtener el dinero total gastado en tu aplicación durante un intervalo de tiempo.
+> Usa este endpoint para obtener el dinero total gastado en tu aplicación durante un intervalo de tiempo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f6e05f9a-13c0-4d66-8caa-4a376d25749f{% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `purchases.revenue_series`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `purchases.revenue_series`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -48,7 +48,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_s
 
 ```json
 {
-  "message": (required, string) the status of the export, returns 'success' when completed without errors,
+  "message": (string) returns 'success' when the request completes without errors,
   "data" : [
     {
       "time" : (string) the date as ISO 8601 date,

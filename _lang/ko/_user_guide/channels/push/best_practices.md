@@ -69,7 +69,7 @@ Braze는 통합 및 분석 목적으로 푸시 페이로드의 일부를 예약�
 
 ### 관련 사용자 데이터 수집 {#collect-relevant-user-data}
 
-푸시 알림은 적시에 관련성 있는 알림으로 사용자를 타겟팅하기 위해 신중하게 다뤄야 합니다. Braze는 관련 세그먼트를 타겟팅하는 데 사용할 수 있는 유용한 기기 및 사용 정보를 수집합니다. 이 정보는 앱에 특화된 커스텀 이벤트 및 속성으로 보완되어야 합니다. 이 데이터를 활용하면 메시지를 신중하게 타겟팅하여 열람률을 높이고 사용자가 푸시를 비활성화하는 경우를 줄일 수 있습니다.
+푸시 알림은 적시에 관련성 있는 알림으로 사용자를 타겟팅하기 위해 신중하게 다뤄야 합니다. Braze는 관련 Segment를 타겟팅하는 데 사용할 수 있는 유용한 기기 및 사용 정보를 수집합니다. 이 정보는 앱에 특화된 커스텀 이벤트 및 속성으로 보완되어야 합니다. 이 데이터를 활용하면 메시지를 신중하게 타겟팅하여 열람률을 높이고 사용자가 푸시를 비활성화하는 경우를 줄일 수 있습니다.
 
 ### 알림 설정 페이지 만들기 {#create-a-notification-settings-page}
 
@@ -83,7 +83,7 @@ Braze는 통합 및 분석 목적으로 푸시 페이로드의 일부를 예약�
 
 ### 사용자 권한 획득 {#obtain-user-permission}
 
-푸시 활성화에 대한 일반 통계는 사용자가 운영체제에서 알림을 승인했는지 여부와 관련됩니다. iOS에서 사용자가 알림을 끄면 Apple이 푸시 토큰 전송을 허용하지 않으므로 시스템에서 자동으로 제거됩니다.
+푸시 활성화에 대한 일반 통계는 사용자가 운영 체제에서 알림을 승인했는지 여부와 관련됩니다. iOS에서 사용자가 알림을 끄면 Apple이 푸시 토큰 전송을 허용하지 않으므로 시스템에서 자동으로 제거됩니다.
 
 Android 13 이상에서는 푸시 알림을 표시하기 전에 권한을 획득해야 합니다. 이전 버전의 Android에서는 기본적으로 사용자가 알림에 구독됩니다.
 
@@ -93,7 +93,7 @@ Android 13 이상에서는 푸시 알림을 표시하기 전에 권한을 획득
 
 ### 푸시 구독 제어 추가 {#add-push-subscription-controls}
 
-사용자가 기기 수준에서 알림을 끄면 포그라운드 푸시 토큰이 완전히 제거되므로, 이를 방지하기 위해 사용자가 앱 내에서 직접 푸시 구독을 제어할 수 있도록 하세요. 자세한 내용은 [푸시 구독 상태 업데이트]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state)를 참조하세요.
+사용자가 기기 수준에서 알림을 끄면 포그라운드 푸시 토큰이 완전히 제거되므로, 이를 방지하기 위해 사용자가 앱 내에서 직접 푸시 구독을 제어할 수 있도록 하세요. 자세한 내용은 [푸시 구독 상태 업데이트]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)를 참조하세요.
 
 ### 고급 스케줄링 사용 또는 지연 추가 {#use-advanced-scheduling-or-add-delays}
 
@@ -142,7 +142,7 @@ Android 13 이상에서는 푸시 알림을 표시하기 전에 권한을 획득
 | --- |
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) 허용되지 않음: (i) App Store와 유사하거나 일반적인 관심 컬렉션으로 서드파티 앱, 확장 프로그램 또는 플러그인을 표시하기 위한 인터페이스를 만드는 것. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) 푸시 알림은 앱 기능에 필수적이어서는 안 되며, 민감한 개인 정보나 기밀 정보를 전송하는 데 사용해서는 안 됩니다. 앱의 UI에 표시된 동의 문구를 통해 고객이 명시적으로 수신에 옵트인하고, 앱에서 이러한 메시지 수신을 거부할 수 있는 방법을 제공하지 않는 한, 푸시 알림은 프로모션이나 직접 마케팅 목적으로 사용해서는 안 됩니다. |
-| [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) 푸시 알림, 카메라 또는 자이로스코프와 같은 하드웨어 또는 운영체제에서 제공하는 내장 기능이나, Apple Music 접근, iCloud 저장소 또는 Screen Time API와 같은 Apple 서비스 및 기술을 수익화해서는 안 됩니다. |
+| [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) 푸시 알림, 카메라 또는 자이로스코프와 같은 하드웨어 또는 운영 체제에서 제공하는 내장 기능이나, Apple Music 접근, iCloud 저장소 또는 Screen Time API와 같은 Apple 서비스 및 기술을 수익화해서는 안 됩니다. |
 {: .reset-td-br-1 aria-label="앱에 대한 모바일 푸시 규정" }
 
 | Google Play Store 정책 |

@@ -17,13 +17,7 @@ Custom events are actions taken by, or updates about, your users. When custom ev
 
 Some common custom event use cases include:
 
-- Triggering a campaign or Canvas based on a custom event using [action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
-- Segmenting users by how many times they performed a custom event, when the last time the event occurred, and similar
-- Using dashboard [custom event analytics](#analytics) to view an aggregate of how often each event occurred
-- Finding additional analytics using [funnel]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) and [retention]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) reports
-- Leveraging [persistent entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) to use metadata from your customer event for personalization in your Canvas steps
-- Generating more sophisticated analytics with [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
-- Setting up [exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) to define when users should exit your Canvas
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Managing custom events
 
@@ -37,9 +31,7 @@ You can blocklist individual custom events through the actions menu, or select a
 
 When you block a custom event:
 
-- Future data won't be collected for that event.
-- Existing data won't be available unless that event is unblocked.
-- That event won't show up in filters or graphs.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 Additionally, if a blocked custom event is currently referenced by filters or triggers in other areas of Braze, a warning modal will appear explaining that all instances of the filters or triggers that reference it will be removed and archived.
 
@@ -150,7 +142,7 @@ You can also use **Filters** to break down your custom events by hour, monthly a
 ![Custom event graph filters]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Increment custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers) to keep a counter on a user action similar to a custom event. However, you can't view custom attribute data in a time series. User actions that don't need to be analyzed in a time series should be recorded using this method.
+[Increment custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) to keep a counter on a user action similar to a custom event. However, you can't view custom attribute data in a time series. User actions that don't need to be analyzed in a time series should be recorded using this method.
 {% endalert %}
 
 ### Why custom events analytics aren't showing

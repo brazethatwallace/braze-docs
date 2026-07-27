@@ -30,7 +30,7 @@ Si vous souhaitez voir des exemples ou tester cet endpoint pour les **groupes Wh
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `subscription.groups.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `subscription.groups.get`.
 
 ## Limite de débit {#rate-limit}
 

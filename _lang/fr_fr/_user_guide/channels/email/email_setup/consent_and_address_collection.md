@@ -14,7 +14,7 @@ channel: email
 
 ## États des abonnés {#subscriber-states}
 
-Il existe trois états d'abonnement e-mail pour un utilisateur : **abonné**, **inscrit** et **désabonné**. Pour modifier l'état d'abonnement d'un utilisateur, consultez notre article sur la [modification des abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-subscriptions) ou utilisez nos [API d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
+Il existe trois états d'abonnement e-mail pour un utilisateur : **abonné**, **inscrit** et **désabonné**. Pour modifier l'état d'abonnement d'un utilisateur, consultez notre article sur la [modification des abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions) ou utilisez nos [API d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
 | État de l'abonné | Description |
 |---|---|

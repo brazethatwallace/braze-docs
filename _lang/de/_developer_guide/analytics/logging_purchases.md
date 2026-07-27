@@ -8,13 +8,13 @@ description: "Erfahren Sie, wie Sie Einkäufe über das Braze SDK protokollieren
 
 # Einkäufe protokollieren {#log-purchases}
 
-> Erfahren Sie, wie Sie In-App-Käufe über das Braze SDK protokollieren können, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Quellen hinweg bestimmen können. So können Sie Nutzer:innen [anhand ihres Lifetime-Value]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking) mit angepassten Events, angepassten Attributen und Kauf-Events segmentieren.
+> Erfahren Sie, wie Sie In-App-Käufe über das Braze SDK protokollieren können, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Quellen hinweg bestimmen können. So können Sie Nutzer:innen [anhand ihres Lifetime-Value]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) mit angepassten Events, angepassten Attributen und Kauf-Events segmentieren.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
 {% endalert %}
 
-Alle gemeldeten Nicht-USD-Währungen werden in Braze auf Basis des Wechselkurses am Tag der Meldung in USD angezeigt. Um eine Währungsumrechnung zu vermeiden, legen Sie die Währung auf USD fest.
+Alle gemeldeten Nicht-USD-Währungen werden in Braze auf Basis des Wechselkurses am Tag der Meldung in USD angezeigt. Um eine Währungsumrechnung zu vermeiden, legen Sie die Währung fest auf USD.
 
 ## Käufe und Umsätze protokollieren {#logging-purchases-and-revenue}
 
@@ -22,7 +22,7 @@ Um Käufe und Umsätze zu protokollieren, rufen Sie `logPurchase()` nach einem e
 
 {% tabs %}
 {% tab web %}
-Für eine Standard-Internet-SDK-Implementierung können Sie die folgende Methode verwenden:
+Für eine Standard-Web-SDK-Implementierung können Sie die folgende Methode verwenden:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
@@ -135,11 +135,11 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 
 ### Eigenschaften hinzufügen {#adding-properties}
 
-Sie können Metadaten über Käufe hinzufügen, indem Sie ein Wörterbuch mit den Werten `Int`, `Double`, `String`, `Bool` oder `Date` übergeben.
+Sie können Metadaten über Käufe hinzufügen, indem Sie ein Dictionary mit den Werten `Int`, `Double`, `String`, `Bool` oder `Date` übergeben.
 
 {% tabs %}
 {% tab web %}
-Für eine Standard-Internet-SDK-Implementierung können Sie die folgende Methode verwenden:
+Für eine Standard-Web-SDK-Implementierung können Sie die folgende Methode verwenden:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
@@ -268,7 +268,7 @@ Sie können auch unsere REST API verwenden, um Einkäufe zu erfassen. Weitere In
 
 ## Bestellungen protokollieren {#logging-orders}
 
-Wenn Sie Einkäufe auf der Bestellebene statt auf der Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden. Weitere Informationen finden Sie in unserer [Spezifikation für Kauf-Objekte]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions).
+Wenn Sie Einkäufe auf der Bestellebene statt auf der Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden. Weitere Informationen finden Sie in unserer [Spezifikation für Kauf-Objekte]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
 
 ## Reservierte Schlüssel {#reserved-keys}
 

@@ -93,11 +93,11 @@ Você tem apenas uma chance de pedir permissão de push a um usuário, e depois 
 
 ### Adicione controles de inscrição de push {#add-push-subscription-controls}
 
-Para evitar que os usuários desativem as notificações no nível do dispositivo, o que remove completamente o token por push em primeiro plano, permita que os usuários controlem sua inscrição de push diretamente no seu app. Consulte [Atualizando estados de inscrição de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state) para mais informações.
+Para evitar que os usuários desativem as notificações no nível do dispositivo, o que remove completamente o token por push em primeiro plano, permita que os usuários controlem sua inscrição de push diretamente no seu app. Consulte [Atualizando estados de inscrição de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) para mais informações.
 
 ### Use agendamento avançado ou adicione postergações {#use-advanced-scheduling-or-add-delays}
 
-Dependendo do tamanho do seu público e de quanto tempo antes sua mensagem push está agendada, pode haver atrasos na entrega do push. O tempo necessário para enviar pushes depende do poder de processamento alocado. Por exemplo, se sua mensagem push usa várias chamadas de Conteúdo conectado, isso pode aumentar a complexidade da criação do template da mensagem push e resultar em velocidades limitadas pela rapidez com que as APIs de terceiros retornam dados.
+Dependendo do tamanho do seu público e de quanto tempo antes sua mensagem push está agendada, pode haver atrasos na entrega do push. O tempo necessário para enviar pushes depende do poder de processamento alocado. Por exemplo, se sua mensagem push usa várias chamadas de Conteúdo Conectado, isso pode aumentar a complexidade da criação do template da mensagem push e resultar em velocidades limitadas pela rapidez com que as APIs de terceiros retornam dados.
 
 Uma carga útil de push menor e uma prioridade de notificação mais alta podem ajudar a reduzir atrasos e escalar suas mensagens. Você pode adicionar `Push Enabled = true` no filtro de público para reduzir o tamanho do público, de modo que apenas usuários com push ativado sejam processados para o envio da Campaign.
 
@@ -128,7 +128,7 @@ Embora você possa relutar em parar de enviar pushes para usuários que original
 
 Ao atribuir [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) a uma Campaign de push, você pode rastrear aberturas do app por um determinado período após o recebimento da Campaign. Definir um evento de conversão para aberturas do app fornece um insight diferente das estatísticas de resultados que você normalmente recebe após uma Campaign de push.
 
-Embora todos os resultados de Campaigns de push detalhem as aberturas diretas e as aberturas de uma mensagem (que incluem tanto aberturas diretas quanto [aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)), o rastreamento de conversão acompanhará qualquer tipo de abertura, seja direta ou por influência.
+Embora todos os resultados de Campaigns de push detalhem as aberturas diretas e as aberturas de uma mensagem (que incluem tanto aberturas diretas quanto [Aberturas por Influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)), o rastreamento de conversão acompanhará qualquer tipo de abertura, seja direta ou por influência.
 
 Além disso, ao usar o evento de conversão "abre o app", você está rastreando aberturas do app que ocorrem antes do prazo de conversão (por exemplo, três dias). Isso difere de uma abertura por influência, pois o tempo que um usuário tem para registrar uma abertura por influência pode variar de pessoa para pessoa, dependendo do comportamento de engajamento anterior de cada usuário.
 

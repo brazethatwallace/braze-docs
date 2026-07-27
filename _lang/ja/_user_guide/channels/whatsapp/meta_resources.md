@@ -63,7 +63,7 @@ Metaは、WhatsApp向けのビジネスユーザー名を導入しています�
 *最終更新：2026年4月*
 
 - Metaは12か月以上非アクティブなテンプレートを自動的にアーカイブします。
-- 自動アーカイブはすべてのWhatsApp Business Accountで有効であり、無効にすることはできません。
+- 自動アーカイブはすべてのWhatsApp Businessアカウントで有効であり、無効にすることはできません。
 - テンプレートのアクティビティには、テンプレートの作成、編集、送信、申し立て、またはアーカイブ解除が含まれます。
 - アーカイブされたテンプレートは送信できず、28日後に完全削除がスケジュールされます。
 - 28日間のウィンドウ内にテンプレートのアーカイブを解除して復元し、スケジュールされた削除をキャンセルできます。
@@ -140,7 +140,7 @@ Metaは、一定期間内にすべてのビジネスからユーザーが受信�
 ### 2025年1月：WhatsAppが4月1日から米国ユーザーへのマーケティングメッセージ送信を一時停止 {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *最終更新：2025年1月*
 
-WhatsAppは2025年4月1日から、米国ユーザー（米国の電話番号を持つ人）へのマーケティングメッセージ送信を一時停止します。[ユーティリティ、サービス、認証](https://developers.facebook.com/docs/whatsapp/pricing/)、および[レスポンスメッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages)は引き続き米国で許可されます。
+WhatsAppは2025年4月1日から、米国ユーザー（米国の電話番号を持つ人）へのマーケティングメッセージ送信を一時停止します。[ユーティリティ、サービス、認証](https://developers.facebook.com/docs/whatsapp/pricing/)、および[レスポンスメッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)は引き続き米国で許可されます。
 
 マーケティングメッセージの送信（およびその他すべてのメッセージタイプ）は、他のすべての国や地域では引き続き許可されており、影響を受けません。
 

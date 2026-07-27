@@ -23,7 +23,7 @@ API 사용량 알림을 사용하여 다음 범주의 요청량을 모니터링�
 
 API 사용량 알림을 생성하려면:
 
-1. **설정** > **API 키** > **API 사용량 알림**으로 이동한 후 새 알림을 생성하세요.
+1. **설정** > **API 및 식별자** > **API 사용량 알림**으로 이동한 후 새 알림을 생성하세요.
 2. 알림 이름을 입력하고 알림을 받고 싶은 REST API 엔드포인트 및 API 키를 선택하세요.
 3. 하나 이상의 응답 코드를 선택하고 [알림 임계값](#api-usage-alert-thresholds)을 지정하여 알림 기준을 정의하세요.
 4. 완료되면 **Alert enabled**를 토글하세요.
@@ -67,7 +67,7 @@ API 사용량 알림을 생성하려면:
 
 ## 알림 수신 설정 {#setting-up-alert-notifications}
 
-이메일 알림, 웹훅 알림 또는 둘 다 설정할 수 있습니다. 웹훅 알림은 Slack 채널과 같은 외부 플랫폼으로 알림을 보내는 사용 사례에 매우 유용합니다. 예시는 알림 환경설정에 대한 Slack 연동에 관한 [설명서]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/#slack-incoming-webhook-integration)를 참조하세요.
+이메일 알림, 웹훅 알림 또는 둘 다 설정할 수 있습니다. 웹훅 알림은 Slack 채널과 같은 외부 플랫폼으로 알림을 보내는 사용 사례에 매우 유용합니다. 예시는 알림 환경설정에 대한 Slack 연동에 관한 [설명서]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences)를 참조하세요.
 
 ![알림 기준이 충족되면 선택한 이메일로 알림이 전송됩니다.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 

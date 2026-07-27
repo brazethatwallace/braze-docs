@@ -147,7 +147,7 @@ El archivo AASA contiene un objeto JSON con una lista de aplicaciones y las ruta
 }
 ```
 
-- `appID`: Se construye combinando el **Team ID** de tu aplicación (ve a `https://developer.apple.com/account/#/membership/` para obtener el team ID) y el **Bundle Identifier**. En el ejemplo anterior, "JHGFJHHYX" es el team ID y "com.facebook.ios" es el bundle ID.
+- `appID`: Se construye combinando el **Team ID** de tu aplicación (ve a `https://developer.apple.com/account/#/membership/` para obtener el team ID) y el **Bundle Identifier**. En este ejemplo, "JHGFJHHYX" es el team ID y "com.facebook.ios" es el bundle ID.
 - `paths`: Matriz de cadenas que especifica qué rutas se incluyen o excluyen de la asociación. Puedes usar `NOT` antes de la ruta para deshabilitar rutas. En este ejemplo, todos los enlaces en esta ruta irán a la web en lugar de abrir la aplicación. Puedes usar `*` como comodín para habilitar todas las rutas en un directorio y `?` para coincidir con un solo carácter (como /archives/201?/ para coincidir con todos los números de 2010 a 2019).
 
 {% alert note %}
@@ -452,3 +452,15 @@ En algunos casos, tu dominio de seguimiento de clics puede no ser capaz de aloja
 
 - **Desactiva selectivamente el seguimiento de clics en las URL de vínculos profundos:** Puedes desactivar el seguimiento de clics para enlaces universales específicos para que vayan directamente a tu dominio principal (donde puedes alojar el archivo AASA o Digital Asset Links). Ten en cuenta que este método puede causar la pérdida de análisis de clics para esos enlaces específicos. Consulta [Desactivar el seguimiento de clics enlace por enlace](#turning-off-click-tracking-on-a-link-to-link-basis) para obtener instrucciones.
 - **Coloca un CDN delante del subdominio de seguimiento:** Si necesitas cobertura completa de seguimiento de clics y vinculación en profundidad, puedes colocar un CDN (como Cloudflare o CloudFront) delante de tu subdominio de seguimiento. Configura el CDN para servir los archivos `.well-known` localmente y redirigir todo el demás tráfico a tu ESP. Este enfoque es más complejo, pero te da control total sobre el seguimiento de clics y los enlaces universales.
+
+#### Los enlaces funcionan en un espacio de trabajo pero no en otro {#links-working-in-one-workspace-but-not-another}
+
+Si los enlaces universales o App Links funcionan correctamente en tu espacio de trabajo de producción pero fallan en tu espacio de trabajo de desarrollo o pruebas, verifica que el dominio de la dirección de correo electrónico de envío coincida con el dominio de seguimiento configurado en la configuración de correo electrónico de cada espacio de trabajo. Una configuración inconsistente entre espacios de trabajo puede hacer que los enlaces se comporten de manera diferente incluso cuando se usan las mismas plantillas de correo electrónico y los mismos archivos AASA o Digital Asset Links.
+
+Para comprobar tu configuración de correo electrónico:
+
+1. Ve a **Configuración** > **Preferencias de correo electrónico** en el panel de Braze.
+2. Revisa la **Configuración de correo electrónico saliente** en **Configuración de envío**.
+3. Confirma que tu dominio de envío y tu dominio de seguimiento están correctamente alineados para el espacio de trabajo donde los enlaces no funcionan.
+
+Si tu dominio de envío difiere entre espacios de trabajo, asegúrate de que cada espacio de trabajo tiene los registros de DNS apropiados configurados y que tus archivos AASA (iOS) o Digital Asset Links (Android) son accesibles desde cada dominio de seguimiento.

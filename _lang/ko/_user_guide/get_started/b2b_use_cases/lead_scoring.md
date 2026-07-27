@@ -117,7 +117,7 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 ### 외부 파트너 {#external-partners}
 
-[기술 파트너]({{site.baseurl}}/partners/home)를 확인하여 리드 스코어링 기능을 제공하는 B2B 파트너에 대해 알아보세요. 원하는 도구가 보이지 않나요? [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) API 엔드포인트를 호출하여 통합할 수 있습니다.
+[기술 파트너]({{site.baseurl}}/partners/home)를 확인하여 리드 스코어링 기능을 제공하는 B2B 파트너에 대해 알아보세요. 원하는 도구가 보이지 않나요? [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) API 엔드포인트를 호출하여 통합할 수 있습니다.
 
 ### 내부 리드 스코어링 데이터 모델 {#internal-lead-scoring-data-models}
 

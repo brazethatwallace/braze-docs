@@ -266,6 +266,26 @@ bundle exec ruby scripts/audit_validurls_targets_vs_jekyll.rb
 
 Details: [Auditing redirect targets](../../../docs/contributing/content_management/redirecting_urls.md#auditing-redirect-targets-against-the-url-map) in the human guide.
 
+### 6. Vercel bulk redirects export
+
+After editing `validurls`, regenerate the production edge redirect file:
+
+```bash
+npm run generate-bulk-redirects
+```
+
+Commit `assets/redirects/bulk-redirects.json` with the redirect list. CI verifies the export with `python3 scripts/generate_bulk_redirects.py --check`. Entries whose source URL includes a `#` fragment are skipped (they remain client-side only in `broken_redirect_list.js`).
+
+### 7. Refresh the sitemap after a bulk rename/redirect batch
+
+The sitemap's `lastmod` dates come from `_data/sitemap_*.json`, which is normally refreshed once a night by the **Nightly sitemap last-modified update** workflow (`.github/workflows/nightly-sitemap-update.yml`). After a large batch of renames or redirect updates, trigger it on demand instead of waiting for the nightly run:
+
+```bash
+gh workflow run nightly-sitemap-update.yml
+```
+
+This only updates `lastmod` timestamps in `_data/sitemap_*.json` and opens a PR against `develop` — it does not push directly (branch protection requires a PR) and it does not change the sitemap's URL list, which Jekyll renders from the live collection at build time regardless. Someone with merge rights still needs to merge the resulting PR, and the updated dates won't appear on the live site until the next deploy. Use this when you want search engines to see fresh `lastmod` dates sooner after a bulk change, not as a way to instantly publish new sitemap URLs.
+
 ### Validation checklist
 
 - [ ] `node --check assets/js/broken_redirect_list.js` passes
@@ -273,7 +293,9 @@ Details: [Auditing redirect targets](../../../docs/contributing/content_manageme
 - [ ] No new redirect chains (OLD points to final URL)
 - [ ] `./bdocs ulinks` run on affected `_docs/` trees when in-doc links used old paths
 - [ ] `./bdocs fblinks` shows no new breaks from this branch
+- [ ] `npm run generate-bulk-redirects` run and `assets/redirects/bulk-redirects.json` committed when `validurls` changed
 - [ ] Spot-check new redirects with `./bdocs lredirects` on a preview URL (when available)
+- [ ] For a large batch of renames/redirects, consider `gh workflow run nightly-sitemap-update.yml` to refresh sitemap `lastmod` dates ahead of the nightly run
 
 ---
 
@@ -285,6 +307,7 @@ Details: [Auditing redirect targets](../../../docs/contributing/content_manageme
 - **Don't use redirects to patch in-doc cross-links** — update the Markdown link to the canonical path instead. Redirects are for external/bookmarked URLs.
 - **Don't edit `_lang/` for English redirect follow-up**, because the translation pipeline owns localized files. English redirects in `broken_redirect_list.js` apply site-wide.
 - **Don't forget `node --check`** after hand-editing the redirect file. A missing semicolon or quote breaks the entire `validurls` object and fails CI.
+- **Don't forget `npm run generate-bulk-redirects`** when `validurls` changes. CI fails if `assets/redirects/bulk-redirects.json` is out of sync with `broken_redirect_list.js`.
 - **Don't assume `ulinks` rewrites every link style** — it targets `{{site.baseurl}}` Markdown links and YAML `link: /docs/...` fields. Hardcoded `https://www.braze.com/docs/...` URLs in prose may need manual updates; see [cross_referencing.md](../../../docs/contributing/content_management/cross_referencing.md).
 
 ---

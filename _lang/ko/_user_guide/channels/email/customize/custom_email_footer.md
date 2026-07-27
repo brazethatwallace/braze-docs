@@ -1,6 +1,6 @@
 ---
-nav_title: 사용자 지정 이메일 바닥글
-article_title: 사용자 지정 이메일 바닥글
+nav_title: 커스텀 이메일 바닥글
+article_title: 커스텀 이메일 바닥글
 page_order: 6.5
 description: "이 문서에서는 워크스페이스 전체에 커스텀 이메일 바닥글을 설정하는 방법을 설명합니다."
 channel:
@@ -57,7 +57,7 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-다음으로, [`/email/status` 엔드포인트]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)를 호출하여 사용자의 구독 상태를 업데이트합니다. 자세한 내용은 [이메일 구독 상태 변경]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)에 대한 설명서를 참조하세요.
+다음으로, [`/email/status` 엔드포인트]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)를 호출하여 사용자의 가입 상태를 업데이트합니다. 자세한 내용은 [이메일 가입 상태 변경]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)에 대한 설명서를 참조하세요.
 
 그런 다음 이 새 링크를 저장합니다. 기본 Braze 탈퇴 태그 {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%}가 바닥글에 있어야 합니다. 즉, 태그를 주석에 넣거나 숨겨진 `<div>` 태그에 배치하여 기본 링크를 "숨기는" 방식으로 포함해야 합니다.
 
@@ -74,7 +74,7 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 | 사용자의 이메일 주소 | {% raw %}`{{${email_address}}}`{% endraw %} |
 | 사용자의 커스텀 탈퇴 URL | {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} <br><br>이 태그는 이전의 {% raw %}`{{${unsubscribe_url}}}`{% endraw %} 태그를 대체합니다. 대신 최신 {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} 태그를 사용하는 것을 권장합니다. |
 | 사용자의 커스텀 옵트인 URL | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
-| 사용자의 커스텀 구독 URL | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
+| 사용자의 커스텀 가입 URL | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | 사용자의 커스텀 Braze 환경설정 센터 URL | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="속성을 사용한 개인화" }
 
@@ -94,4 +94,11 @@ CAN-SPAM 규정을 준수하려면 커스텀 바닥글에 탈퇴 링크를 포�
 
 ## 고려 사항 {#considerations}
 
+
+### BrazeAI Decisioning Studio™
+
 [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio)를 사용하는 경우, {% raw %}`{{${email_footer}}}`{% endraw %}는 표준 Liquid 태그가 아닙니다. Liquid가 실행되기 전에 사전 처리되므로, {% raw %}`{{${email_footer}}}`{% endraw %}를 컨텍스트 변수 값으로 사용하고 `:rerender` 플래그를 호출하면 자동으로 실패합니다. 대신 이메일 바닥글에 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers)을 사용하세요.
+
+### 링크 템플릿 및 UTM 매개변수 {#link-templates-and-utm-parameters}
+
+{% raw %}`{{${email_footer}}}`{% endraw %}를 사용할 때 링크 템플릿은 커스텀 이메일 바닥글의 링크에 자동으로 추가되지 않습니다. 바닥글 링크에 UTM 매개변수와 같은 링크 템플릿이 필요한 경우, 대신 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers)을 사용하거나 커스텀 바닥글의 특정 링크에 UTM 매개변수를 수동으로 추가하세요.

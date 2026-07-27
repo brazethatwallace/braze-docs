@@ -105,7 +105,7 @@ Na guia **Redigir** de cada etapa de atualização de usuário, faça o seguinte
 | **Nome do atributo** | Selecione o atributo de pontuação de leads que você selecionou na etapa 2 (`lead score`). |
 | **Ação** | Altere a ação para **Incrementar por** se a jornada aumentar a pontuação ou **Decrementar por** se a jornada diminuir a pontuação. |
 | **Incrementar por** ou **Decrementar por** | Insira o número de pontos que serão aumentados ou diminuídos da pontuação de leads. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 4d: Adicionar etapas de atualização de usuário" }
 
 ### Etapa 5: Lance seu Canvas {#step-5-launch-your-canvas}
 
@@ -117,7 +117,7 @@ Seja usando um dos nossos [parceiros de tecnologia]({{site.baseurl}}/partners/ho
 
 ### Parceiros externos {#external-partners}
 
-Confira [Parceiros de tecnologia]({{site.baseurl}}/partners/home) para saber mais sobre nossos parceiros B2B que oferecem recursos de pontuação de leads. Não está vendo sua ferramenta lá? Você pode fazer a integração chamando o endpoint [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) da nossa API.
+Confira [Parceiros de tecnologia]({{site.baseurl}}/partners/home) para saber mais sobre nossos parceiros B2B que oferecem recursos de pontuação de leads. Não está vendo sua ferramenta lá? Você pode fazer a integração chamando o endpoint [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da nossa API.
 
 ### Modelos internos de dados de pontuação de leads {#internal-lead-scoring-data-models}
 
@@ -184,7 +184,7 @@ Para atualizar o registro do lead no Salesforce com o status do lead da Braze, r
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Para recuperar um token, [configure um app conectado](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) para o fluxo de credenciais do cliente OAuth 2.0 e, em seguida, use o Conteúdo conectado para recuperar o bearer do Salesforce: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2a: Redigir webhook" }
 
 ![Webhook sendo criado com uma URL de webhook do Salesforce, método HTTP PATCH, corpo de solicitação em texto bruto e cabeçalhos de solicitação.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

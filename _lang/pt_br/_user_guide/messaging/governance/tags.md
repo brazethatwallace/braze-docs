@@ -53,4 +53,4 @@ Tags também podem ser adicionadas a dados personalizados ao gerenciar [atributo
 Esse recurso está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
 {% endalert %}
 
-Para informações sobre como renomear, remover ou aninhar tags no seu dashboard, consulte [Gerenciamento de tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags).
+Para informações sobre como renomear, remover ou aninhar tags no seu dashboard, consulte [Gerenciamento de tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

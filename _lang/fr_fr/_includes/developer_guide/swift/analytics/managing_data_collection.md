@@ -36,7 +36,7 @@ Si l'un de vos SDK autres que Braze collecte des données de suivi, vous devrez 
 
 ### Étape 2 : Créez un manifeste de confidentialité {#step-2-create-a-privacy-manifest}
 
-Commencez par vérifier si vous disposez déjà d'un manifeste de confidentialité en recherchant un fichier `PrivacyInfo.xcprivacy` dans votre projet Xcode. Si ce fichier existe déjà, vous pouvez passer à l'étape suivante. Sinon, consultez [Apple : Créer un manifeste de confidentialité](sdk-tracking.iad-01.braze.com).
+Commencez par vérifier si vous disposez déjà d'un manifeste de confidentialité en recherchant un fichier `PrivacyInfo.xcprivacy` dans votre projet Xcode. Si ce fichier existe déjà, vous pouvez passer à l'étape suivante. Sinon, consultez [Apple : Créer un manifeste de confidentialité](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files).
 
 ### Étape 3 : Ajoutez votre endpoint au manifeste de confidentialité {#step-3-add-your-endpoint-to-the-privacy-manifest}
 
@@ -61,7 +61,7 @@ Sous **App Privacy Configuration**, choisissez **NSPrivacyTrackingDomains**. Dan
 Ensuite, ouvrez `AppDelegate.swift` puis listez chaque [propriété de suivi](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/) que vous souhaitez déclarer en créant une liste de suivi statique ou dynamique. Gardez à l'esprit qu'Apple bloquera ces propriétés jusqu'à ce que l'utilisateur final accepte l'invite ATT. Ne listez donc que les propriétés que vous et votre équipe juridique considérez comme relevant du suivi. Par exemple :
 
 {% tabs %}
-{% tab static example %}
+{% tab Exemple statique %}
 Dans l'exemple suivant, `dateOfBirth`, `customEvent` et `customAttribute` sont déclarés comme données de suivi dans une liste statique.
 
 ```swift
@@ -92,11 +92,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 {% endtab %}
 
-{% tab dynamic example %}
-Dans l'exemple suivant, la liste de suivi est automatiquement mise à jour après que l'utilisateur final a accepté l'invite ATT.
+{% tab Exemple dynamique %}
+Dans l'exemple suivant, la liste de suivi est automatiquement mise à jour après que l'utilisateur final a accepté l'[invite de transparence du suivi des applications (ATT)](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)). La demande d'autorisation lors de l'activation de l'application est un événement par scène. Ce code doit donc être placé dans la méthode `sceneDidBecomeActive(_:)` de votre fichier `SceneDelegate.swift` plutôt que dans la méthode `applicationDidBecomeActive(_:)` de `AppDelegate.swift` (requis pour les applications ayant adopté le [cycle de vie `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)). Votre instance Braze reste accessible depuis `SceneDelegate` via la propriété statique `AppDelegate.braze` configurée à l'étape 1.
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
   // Request and check your user's tracking authorization status.
   ATTrackingManager.requestTrackingAuthorization { status in
     // Let Braze know whether user data is allowed to be collected for tracking.
@@ -104,7 +104,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
     AppDelegate.braze?.set(adTrackingEnabled: enableAdTracking)
 
     // Add the `.firstName` and `.lastName` properties, while removing the `.everything` configuration.
-    AppDelegate.braze.updateTrackingAllowList(
+    AppDelegate.braze?.updateTrackingAllowList(
       adding: [.firstName, .lastName],
       removing: [.everything]
     )
@@ -116,10 +116,10 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 
 ### Étape 5 : Empêchez les boucles de réessai infinies {#step-5-prevent-infinite-retry-loops}
 
-Pour empêcher le SDK d'entrer dans une boucle de réessai infinie, utilisez la méthode `set(adTrackingEnabled: enableAdTracking)` pour gérer les autorisations ATT. La propriété `adTrackingEnabled` dans votre méthode doit être gérée de manière similaire à ce qui suit :
+Pour empêcher le SDK d'entrer dans une boucle de réessai infinie, utilisez la méthode `set(adTrackingEnabled: enableAdTracking)` pour gérer les autorisations ATT. La propriété `adTrackingEnabled` dans la méthode de votre `SceneDelegate.swift` doit être gérée de manière similaire à ce qui suit :
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
     // Request and check your user's tracking authorization status.
     ATTrackingManager.requestTrackingAuthorization { status in
       // Let Braze know whether user data is allowed to be collected for tracking.
@@ -137,7 +137,7 @@ Pour désactiver le suivi des données sur le SDK Swift, définissez la proprié
 
 Vous pouvez utiliser la méthode [`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata()) pour effacer complètement les données SDK stockées localement sur l'appareil d'un utilisateur.
 
-À partir de la version 7.0.0 de Braze Swift, le SDK et la méthode `wipeData()` génèrent aléatoirement un UUID comme identifiant d'appareil. Cependant, si votre `useUUIDAsDeviceId` est défini sur `false` _ou_ si vous utilisez la version 5.7.0 ou antérieure du SDK Swift, vous devrez également effectuer une requête POST vers [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) car votre IDFV (Identifier for Vendors) sera automatiquement utilisé comme identifiant d'appareil de cet utilisateur.
+À partir de la version 7.0.0 de Braze Swift, le SDK et la méthode `wipeData()` génèrent aléatoirement un UUID comme identifiant d'appareil. Cependant, si votre `useUUIDAsDeviceId` est défini sur `false` _ou_ si vous utilisez la version 5.7.0 ou antérieure du SDK Swift, vous devrez également effectuer une requête POST vers [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) car votre IDFV sera automatiquement utilisé comme identifiant d'appareil de cet utilisateur.
 
 Si vous utilisez l'intégration manuelle des notifications push et que votre application appelle `wipeData()` puis réactive le SDK au cours de la même session, appelez à nouveau `registerForRemoteNotifications()` pour que Braze puisse recevoir un jeton d'appareil actualisé. Pour plus d'informations, consultez [Configuration des notifications push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
@@ -197,12 +197,12 @@ Lorsque cette fonctionnalité n'est pas activée, les appareils continuent de se
 
 #### Ce changement aura-t-il un impact sur mes utilisateurs existants dans Braze ? {#will-this-change-impact-my-existing-users-in-braze}
 
-Non. Lorsqu'elle est activée, cette fonctionnalité n'écrase aucune donnée utilisateur dans Braze. Les nouveaux identifiants d'appareil UUID ne seront créés que pour les nouveaux appareils ou lorsque `wipedata()` est appelé.
+Non. Lorsqu'elle est activée, cette fonctionnalité n'écrase aucune donnée utilisateur dans Braze. Les nouveaux identifiants d'appareil UUID ne seront créés que pour les nouveaux appareils ou lorsque `wipeData()` est appelé.
 
 #### Puis-je désactiver cette fonctionnalité après l'avoir activée ? {#can-i-turn-this-feature-off-after-turning-it-on}
 
 Oui, cette fonctionnalité peut être activée et désactivée à votre discrétion. Les identifiants d'appareil précédemment stockés ne seront jamais écrasés.
 
-#### Puis-je toujours collecter la valeur IDFV via Braze par un autre moyen ? {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
+#### Puis-je toujours collecter la valeur IDFV via Braze par un autre moyen ? {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
 
 Oui, vous pouvez toujours collecter l'IDFV de manière facultative via le SDK Swift (la collecte est désactivée par défaut).

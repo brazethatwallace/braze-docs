@@ -15,50 +15,50 @@ platform:
   - Unity
 ---
 
-# [![Cours d'apprentissage de Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Premiers pas : Présentation de l'intégration {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Premiers pas : présentation de l'intégration {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > Cet article donne un aperçu du processus d'onboarding.
 
 ![Diagramme de Venn avec quatre cercles (découverte, intégration, assurance qualité et maintenance) centré sur le délai de rentabilisation.]({% image_buster /assets/img/getting-started/getting-started-integrate-flower.png %}){: style="max-width:50%;float:right;margin-left:15px;border:none;"}
 
-En tant que ressource technique, vous donnerez à votre équipe les moyens d'agir en intégrant Braze dans votre pile technologique. L'onboarding se divise globalement en quatre étapes :
-* [Découverte et planification](#discovery) : Travaillez avec votre équipe pour vous aligner sur la portée, planifier une structure pour les données et les campagnes, et créer une structure d'espace de travail appropriée.
+En tant que ressource technique, vous donnerez à votre équipe les moyens d'agir en intégrant Braze dans votre tech stack. L'onboarding se divise globalement en quatre étapes :
+* [Découverte et planification](#discovery) : Travaillez avec votre équipe pour vous aligner sur le périmètre, planifier une structure pour les données et les campagnes, et créer une structure d'espace de travail appropriée.
 * [Intégration](#integration) : Exécutez votre plan en intégrant le SDK et l'API, en activant les canaux de communication et en configurant l'importation et l'exportation des données.
 * [Assurance qualité](#qa) : Confirmez que la boucle de données et d'envoi de messages entre la plateforme Braze et votre application ou site fonctionne comme prévu.
 * [Maintenance](#maintenance) : Une fois que vous aurez transmis Braze à votre équipe marketing, vous continuerez à veiller à ce que tout se passe bien.
 
 <br>
 {% alert tip %}
-Nous sommes conscients que chaque organisation a des besoins distincts, et Braze est conçu pour répondre à une gamme variée d'options de personnalisation qui peuvent être adaptées à vos exigences spécifiques. Les délais d'intégration varient en fonction de votre cas d'utilisation.
+Nous sommes conscients que chaque organisation a des besoins distincts, et Braze est conçu pour répondre à une gamme variée d'options de personnalisation qui peuvent être adaptées à vos exigences spécifiques. Les délais d'intégration varient en fonction de votre cas d'usage.
 {% endalert %}
 
 ## Découverte et planification {#discovery}
 
 Au cours de cette phase, vous travaillerez avec votre équipe pour définir les tâches d'onboarding et veiller à ce que toutes les parties prenantes s'alignent sur un objectif commun.
 
-Votre équipe effectuera une planification de bout en bout de vos cas d'utilisation pour s'assurer que tout peut être créé comme prévu, avec les bonnes données disponibles pour le faire. Cette phase inclut votre chef de projet, votre responsable CRM, l'ingénierie front-end et back-end, les propriétaires de produits et les marketeurs.
+Votre équipe effectuera une planification de bout en bout de vos cas d'usage pour s'assurer que tout peut être créé comme prévu, avec les bonnes données disponibles pour le faire. Cette phase inclut votre chef de projet, votre responsable CRM, l'ingénierie front-end et back-end, les propriétaires de produits et les marketeurs.
 
 La phase de découverte et de planification dure en moyenne six semaines. Les responsables de l'ingénierie peuvent s'attendre à passer 2 à 4 heures par semaine au cours de cette phase. Les développeurs qui travaillent avec le produit peuvent s'attendre à passer 10 à 20 heures par semaine sur Braze pendant la phase de découverte et de planification.
 
 {% alert tip %}
-Pendant la période d'onboarding de votre entreprise, Braze organisera des séances de présentation technique. Nous recommandons vivement aux ingénieurs de participer à ces sessions. Les sessions de présentation technique vous donnent l'occasion d'aborder l'évolutivité de l'architecture de la plateforme et de voir des exemples pratiques de la façon dont certaines entreprises de votre taille ont précédemment réussi avec des cas d'utilisation similaires.
+Pendant la période d'onboarding de votre entreprise, Braze organisera des séances de présentation technique. Nous recommandons vivement aux ingénieurs de participer à ces sessions. Les séances de présentation technique vous donnent l'occasion d'aborder l'évolutivité de l'architecture de la plateforme et de voir des exemples pratiques de la façon dont certaines entreprises de votre taille ont précédemment réussi avec des cas d'usage similaires.
 {% endalert %}
 
 ![Icônes pour différents canaux, tels que l'e-mail, le panier d'achat, les images, la géolocalisation, etc.]({% image_buster /assets/img/getting-started/data-graphic-2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
 ### Planification des campagnes {#campaign-planning}
 
-Votre équipe CRM planifiera les cas d'utilisation des communications que vous lancerez dans un avenir proche. Ceci inclut les éléments suivants :
+Votre équipe CRM planifiera les cas d'usage de communication que vous lancerez dans un avenir proche. Ceci inclut les éléments suivants :
 * [Canal]({{site.baseurl}}/user_guide/channels) (par exemple, notifications push ou messages in-app)
 * [Méthode de réception/distribution]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) (par exemple, livraison planifiée ou livraison par événement)
 * [Audience cible]({{site.baseurl}}/user_guide/audience/segments)
 * [Indicateurs de réussite]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
-Par exemple, une campagne destinée aux nouveaux clients pourrait consister en un e-mail envoyé tous les jours à 10 heures à un segment de clients qui ont enregistré leur première session hier. L'événement de conversion (indicateur de réussite) consiste à enregistrer une session.
+Par exemple, une campagne destinée aux nouveaux clients pourrait consister en un e-mail envoyé tous les jours à 10 heures à un segment de clients qui ont enregistré leur première session hier. L'événement de conversion (l'indicateur de réussite) consiste à enregistrer une session.
 
 <br>
 {% alert important %}
-L'intégration ne peut pas commencer tant que l'étape de planification des campagnes n'est pas terminée. Cette étape permettra de déterminer quelles parties et pièces de Braze doivent être configurées au cours de la phase d'intégration.
+L'intégration ne peut pas commencer tant que l'étape de planification des campagnes n'est pas terminée. Cette étape permettra de déterminer quelles parties de Braze doivent être configurées au cours de la phase d'intégration.
 {% endalert %}
 
 ### Créer des exigences en matière de données {#creating-data-requirements}
@@ -89,7 +89,7 @@ L'administrateur de votre équipe doit vous ajouter (ainsi que tous les autres m
 
 L'administrateur de votre équipe créera également différents [espaces de travail]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces). Les espaces de travail regroupent vos données — utilisateurs, segments, clés API — en un seul emplacement. Nous vous conseillons de ne regrouper que les différentes versions d'une même application ou d'applications très similaires au sein d'un même espace de travail.
 
-Fait important, les espaces de travail fournissent des clés API pour plusieurs plateformes (comme iOS et Android). Vous utiliserez les clés API corrélées pour associer les données du SDK à un espace de travail particulier. Naviguez vers vos espaces de travail pour accéder à la clé API de chacune de vos applications. Assurez-vous que chaque clé API dispose des autorisations nécessaires pour effectuer le travail que vous avez défini. Pour plus de détails, consultez l'[article sur le provisionnement de l'API]({{site.baseurl}}/api/basics#rest-api-key).
+Fait important, les espaces de travail fournissent des clés API pour plusieurs plateformes (comme iOS et Android). Vous utiliserez les clés API corrélées pour associer les données du SDK à un espace de travail particulier. Naviguez vers vos espaces de travail pour accéder à la clé API de chacune de vos applications. Assurez-vous que chaque clé API dispose des autorisations nécessaires pour effectuer le travail que vous avez défini. Pour plus de détails, consultez l'[article sur le provisionnement de l'API]({{site.baseurl}}/api/basics#rest-api-key-permissions).
 
 {% alert important %}
 Il est important que vous mettiez en place des environnements différents pour le développement et la production. La mise en place d'un environnement de test vous évitera de dépenser de l'argent réel lors de l'onboarding et de l'assurance qualité. Pour créer un environnement de test, configurez un espace de travail de test et veillez à utiliser sa clé API afin de ne pas alimenter votre espace de travail de production avec des données de test.
@@ -122,7 +122,7 @@ Des exemples d'intégration entre le SDK de Braze et le CDP de votre choix peuve
 
 ### Intégration du SDK Braze {#braze-sdk-integration}
 
-Le SDK de Braze fournit deux fonctionnalités essentielles : il collecte et synchronise les données des utilisateurs dans un profil utilisateur consolidé, et alimente les canaux d'envoi de messages tels que les notifications push, les messages in-app et les Content Cards.
+Le SDK de Braze fournit deux fonctionnalités essentielles : il collecte et synchronise les données des utilisateurs dans un profil utilisateur consolidé, et alimente les canaux de communication tels que les notifications push, les messages in-app et les Content Cards.
 
 {% alert tip %}
 Lorsqu'il est entièrement intégré à votre application ou à votre site, le SDK de Braze offre un niveau de sophistication marketing pleinement abouti. Si vous différez l'intégration du SDK de Braze, certaines des fonctionnalités décrites dans la documentation ne seront pas disponibles.
@@ -135,7 +135,7 @@ Pour renforcer la sécurité, vous pouvez activer l'[authentification SDK]({{sit
 Au cours de l'implémentation du SDK, vous devrez :
 
 * Rédiger un code d'intégration SDK pour chaque plateforme que vous souhaitez prendre en charge.
-* Activer les canaux d'envoi de messages pour chaque plateforme, en veillant à ce que le SDK de Braze suive les données issues de vos interactions avec vos clients par e-mail, SMS, notifications push et autres canaux.
+* Activer les canaux de communication pour chaque plateforme, en veillant à ce que le SDK de Braze suive les données issues de vos interactions avec vos clients par e-mail, SMS, notifications push et autres canaux.
 * Créer toutes les personnalisations prévues pour les composants de l'interface utilisateur (par exemple, des Content Cards personnalisées). Pour un contenu entièrement personnalisé, vous devrez enregistrer les analyses, étant donné que la collecte automatique des données du SDK n'aura pas connaissance de vos nouveaux composants. Vous pouvez reproduire cette implémentation sur nos composants par défaut.
 
 ### Utiliser l'API de Braze {#using-the-braze-api}
@@ -159,7 +159,7 @@ Les points de données constituent une structure qui vous permet de vous assurer
 
 ### Migration des données utilisateur existantes {#migrating-legacy-user-data}
 
-Vous pouvez utiliser l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze pour migrer des données historiques qui ont été enregistrées en dehors de Braze. Les jetons de notification push et les achats passés sont des exemples de données couramment importées. Cet endpoint peut être utilisé pour des importations ponctuelles ou des mises à jour régulières par lots.
+Vous pouvez utiliser l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze pour migrer des données historiques qui ont été enregistrées en dehors de Braze. Les jetons de notification push et les achats passés sont des exemples de données couramment importées. Cet endpoint peut être utilisé pour des importations ponctuelles ou des mises à jour régulières par lots.
 
 Vous pouvez également importer des utilisateurs et mettre à jour les valeurs des attributs personnalisés en chargeant une seule fois un [fichier CSV]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv) dans le tableau de bord. Le chargement de fichiers CSV peut être utile pour les marketeurs, tandis que notre REST API permet une plus grande flexibilité.
 
@@ -177,7 +177,7 @@ Les ID des utilisateurs, appelés `external_id` dans Braze, doivent être défin
 
 ### Autres outils {#other-tools}
 
-En fonction de votre cas d'utilisation, il se peut que vous ayez besoin de mettre en place d'autres outils. Par exemple, vous pourriez avoir besoin de configurer un outil comme les [géorepérages]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) pour réaliser vos scénarios utilisateur. Nous avons constaté que les clients qui ont la possibilité de configurer ces outils supplémentaires après avoir effectué les étapes essentielles de l'intégration sont ceux qui réussissent le mieux.
+En fonction de votre cas d'usage, il se peut que vous ayez besoin de mettre en place d'autres outils. Par exemple, vous pourriez avoir besoin de configurer un outil comme les [géorepérages]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) pour réaliser vos scénarios utilisateur. Nous avons constaté que les clients qui ont la possibilité de configurer ces outils supplémentaires après avoir effectué les étapes essentielles de l'intégration sont ceux qui réussissent le mieux.
 
 ## Assurance qualité {#qa}
 Au fur et à mesure de l'exécution de votre intégration, vous fournirez une assurance qualité afin de vous assurer que tout ce que vous mettez en place fonctionne comme prévu. Cette assurance qualité se divise en deux catégories générales : l'ingestion de données et les canaux de communication.
@@ -186,18 +186,18 @@ Au fur et à mesure de l'exécution de votre intégration, vous fournirez une as
 Assurez-vous que vos environnements de production et de test sont configurés avant de commencer l'assurance qualité.
 {% endalert %}
 
-| **Ingestion de données pour l'assurance qualité**  | **Envoi de messages pour l'assurance qualité**                                              |
+| **Ingestion de données pour l'assurance qualité**  | **Envoi de messages pour l'assurance qualité** |
 |---------------------------|---------------------------------------------------------------|
 | Vous assurerez la qualité de l'ingestion, du stockage et de l'exportation des données. | Vous vous assurerez que vos messages sont envoyés correctement à vos utilisateurs et que tout se présente bien. |
 | Effectuez des tests pour confirmer que les données sont stockées correctement. | Créez des segments d'utilisateurs. |
 | Confirmez que les données de session sont correctement attribuées à l'espace de travail prévu dans Braze. | Lancez des Campaigns et des Canvas avec succès. |
-| Confirmez que les débuts et les fins de session sont enregistrés. | Confirmez que les bonnes Campaigns sont diffusées aux bons segments d'utilisateurs. |
+| Confirmez que les débuts et les fins de session sont enregistrés. | Confirmez que les bonnes campagnes sont diffusées aux bons segments d'utilisateurs. |
 | Confirmez que les informations relatives aux attributs des utilisateurs sont correctement enregistrées dans les profils utilisateur. | Confirmez que les jetons de notification push sont correctement enregistrés. |
 | Testez que les données personnalisées sont correctement enregistrées par rapport aux profils utilisateur. | Confirmez que les jetons de notification push sont correctement retirés. |
-| Créez des profils utilisateur anonymes. | Testez que les Campaigns push sont correctement envoyées aux appareils et que l'engagement est enregistré. |
+| Créez des profils utilisateur anonymes. | Testez que les campagnes push sont correctement envoyées aux appareils et que l'engagement est enregistré. |
 | Confirmez que les profils utilisateur anonymes deviennent des profils utilisateur connus lorsque la méthode `changeUser()` est appelée. | Testez que les messages in-app sont distribués et que les indicateurs sont enregistrés. |
 |                           | Vérifiez que les Content Cards sont distribuées et que les indicateurs sont enregistrés. |
-|                           | Facilitez le contenu connecté (par exemple, AccuWeather). |
+|                           | Facilitez le contenu connecté (par exemple, Accuweather). |
 |                           | Confirmez que toutes les intégrations des canaux de communication fonctionnent correctement. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Assurance qualité" }
 
@@ -229,7 +229,7 @@ Vous assurerez le suivi des mises à jour de la plateforme Braze via le [référ
 
 ## Limites de débit du SDK {#sdk-rate-limits}
 
-### Utilisateurs actifs par mois CY 24-25, MAU universel, MAU Web et MAU mobile {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
+### Utilisateurs actifs mensuels CY 24-25, MAU universel, MAU Web et MAU mobile {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
 Pour les clients ayant souscrit aux offres Utilisateurs actifs mensuels CY 24-25, MAU universels, MAU Web et MAU mobiles, Braze applique des limites de débit côté serveur sur les requêtes API utilisées par nos SDK pour mettre à jour les sessions, les attributs utilisateur, les événements et autres données de profil utilisateur. Ceci afin d'assurer la stabilité de la plateforme et de maintenir un service rapide et fiable.
 
@@ -237,15 +237,15 @@ Pour les clients ayant souscrit aux offres Utilisateurs actifs mensuels CY 24-25
 * Toutes les requêtes soumises à une limite de débit sont automatiquement relancées par le SDK.
 * Les requêtes du SDK sont corrélées à la quantité de données personnalisées collectées dans le cadre de votre implémentation. Si vous êtes constamment proche ou à la limite de votre débit horaire, envisagez de :
     * Réviser votre intégration SDK afin de réduire la collecte excessive de données.
-    * Bloquer les données personnalisées qui ne sont pas essentielles pour vos cas d'utilisation marketing.
+    * Bloquer les données personnalisées qui ne sont pas essentielles pour vos cas d'usage marketing.
 * Les limites de débit en rafale sont des limites de courte durée qui s'appliquent lorsqu'un volume important de requêtes arrive dans un laps de temps très court (c'est-à-dire en l'espace de quelques secondes). Vous n'avez pas besoin d'agir lorsque des limites de rafale se produisent, et le SDK réessayera peu de temps après.
 * Les limites de débit constant contrôlent le volume de requêtes soutenu sur une fenêtre glissante plus longue que la fenêtre de rafale (par exemple, plusieurs minutes) et contribuent à lisser le trafic continu entre les limites de rafale et votre limite de débit horaire.
 
 ### Trouver vos limites de débit {#finding-your-rate-limits}
 
-Pour connaître les limites actuelles basées sur le débit attendu du SDK, allez dans **Paramètres** > **Clés API** > **Limites API et SDK**.
+Pour connaître les limites actuelles basées sur le débit attendu du SDK, allez dans **Paramètres** > **API et identifiants** > **Limites API et SDK**.
 
-Pour consulter l'historique d'utilisation, allez dans **Paramètres** > **Clés API** > **Tableau de bord API et SDK**.
+Pour consulter l'historique d'utilisation, allez dans **Paramètres** > **API et identifiants** > **Tableau de bord API et SDK**.
 
 ### Demander une augmentation des limites de débit {#requesting-higher-rate-limits}
 

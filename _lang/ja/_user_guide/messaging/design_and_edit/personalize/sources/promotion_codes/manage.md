@@ -40,7 +40,7 @@ description: "キャンペーンやキャンバスでプロモーションコー
 
 ### アプリ内メッセージキャンペーン {#promotion-codes-iam-campaigns}
 
-[アプリ内メッセージキャンペーン]({{site.baseurl}}/user_guide/channels/in_app_messages)を作成した後、アプリ内メッセージの本文に[プロモーションコードリストスニペット]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes-1)を挿入できます。アプリ内メッセージのプロモーションコードは、ユーザーがアプリ内メッセージの表示をトリガーした場合にのみ差し引かれ、使用されます。
+[アプリ内メッセージキャンペーン]({{site.baseurl}}/user_guide/channels/in_app_messages)を作成した後、アプリ内メッセージの本文に[プロモーションコードリストスニペット]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)を挿入できます。アプリ内メッセージのプロモーションコードは、ユーザーがアプリ内メッセージの表示をトリガーした場合にのみ差し引かれ、使用されます。
 
 ### テストメッセージ {#test-messages}
 

@@ -37,6 +37,8 @@ Você pode usar o objeto de público conectado nestes endpoints:
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
 - [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) (usa `custom_audience`)
 
+Observe que o parâmetro `audience` não aceita array de objetos.
+
 ## Casos de uso {#use-cases}
 
 Use públicos conectados para cenários em que seus sistemas de backend detectam um evento e precisam notificar um conjunto de usuários determinado dinamicamente:
@@ -113,6 +115,19 @@ O objeto de público conectado é composto por um único filtro de público cone
 
 Combine múltiplos filtros com os operadores `AND` e `OR` para criar um filtro de público conectado.
 
+### Considerações {#considerations}
+
+Públicos conectados não podem filtrar usuários por:
+
+ - Atributos padrão
+ - Eventos personalizados
+ - Segments
+ - Eventos de engajamento com mensagem
+ - Atributos personalizados aninhados
+
+Para usar esses filtros, recomendamos incorporá-los em um segmento de público e, em seguida, especificar esse segmento no parâmetro `segment_id` do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters). Ao usar outros endpoints, você precisará adicionar o segmento à Campaign disparada por API ou ao Canvas no dashboard da Braze primeiro. Se você precisar filtrar por atributos aninhados, use um [segmento padrão]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+
+
 ### Filtro de atributo personalizado {#custom-attribute-filter}
 
 Esse filtro permite segmentar com base em um atributo personalizado do usuário. Esses filtros contêm até três campos:
@@ -135,7 +150,7 @@ O tipo de dados do atributo personalizado determina as comparações válidas pa
 | Tipo de atributo personalizado | Comparações permitidas |
 | --- | --- |
 | String | `equals`, `not_equal`, `matches_regex`, `does_not_match_regex`, `exists`, `does_not_exist` |
-| Vetor | `includes_value`, `does_not_include_value`, `exists`, `does_not_exist` |
+| Array | `includes_value`, `does_not_include_value`, `exists`, `does_not_exist` |
 | Numérico | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | Booleano | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | Horário | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
@@ -226,6 +241,7 @@ Esse filtro permite segmentar com base no status de inscrição de e-mail de um 
 Esse filtro permite segmentar com base em quando o usuário usou o app pela última vez. Esses filtros contêm dois campos:
 
 #### Corpo do filtro
+
 ```json
 {
   "last_used_app":
@@ -238,15 +254,3 @@ Esse filtro permite segmentar com base em quando o usuário usou o app pela últ
 
 - **Comparações permitidas:** `after`, `before`
 - **Valores permitidos:** datetime (string ISO 8601)
-
-### Considerações {#considerations}
-
-Públicos conectados não podem filtrar usuários por:
-
- - Atributos padrão
- - Eventos personalizados
- - Segments
- - Eventos de engajamento com mensagem
- - Atributos personalizados aninhados
-
-Para usar esses filtros, recomendamos incorporá-los em um segmento de público e, em seguida, especificar esse segmento no parâmetro `segment_id` do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters). Ao usar outros endpoints, você precisará adicionar o segmento à Campaign disparada por API ou ao Canvas no dashboard da Braze primeiro.

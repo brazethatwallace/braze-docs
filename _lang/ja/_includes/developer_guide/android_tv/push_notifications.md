@@ -16,8 +16,8 @@ Android TVプッシュ統合はネイティブ機能ではありませんが、B
 Android TVのプッシュ通知を設定するには:
 
 1. アプリでカスタムビューを作成して、通知を表示します。
-2. [カスタム通知ファクトリー]({{site.baseurl}}/developer_guide/push_notifications/customization#customization-display)を作成します。これにより、デフォルトのSDK動作がオーバーライドされ、通知を手動で表示できるようになります。`null`を返すことでSDKの処理が防止され、通知を表示するためにカスタムコードが必要になります。これらのステップが完了したら、Android TVへのプッシュ送信を開始できます。<br><br>
-3. （オプション）クリック分析を効果的にトラッキングするには、クリック分析トラッキングを設定します。これは、Brazeプッシュ通知の開封および受信インテントをリッスンする[プッシュコールバック]({{site.baseurl}}/developer_guide/push_notifications/customization#push-callback)を作成することで実現できます。
+2. [カスタム通知ファクトリー]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display)を作成します。これにより、デフォルトのSDK動作がオーバーライドされ、通知を手動で表示できるようになります。`null`を返すことでSDKの処理が防止され、通知を表示するためにカスタムコードが必要になります。これらのステップが完了したら、Android TVへのプッシュ送信を開始できます。<br><br>
+3. （オプション）クリック分析を効果的にトラッキングするには、クリック分析トラッキングを設定します。これは、Brazeプッシュ通知の開封および受信インテントをリッスンする[プッシュコールバック]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_push-callback)を作成することで実現できます。
 
 {% alert note %}
 これらの通知は**永続的ではなく**、デバイスが表示するときにのみユーザーに表示されます。これは、Android TVの通知センターが過去の通知をサポートしていないためです。

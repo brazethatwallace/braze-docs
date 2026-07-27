@@ -510,7 +510,7 @@ Pour l'intégration la plus simple, ajoutez l'extrait de code JavaScript XML (JS
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 
@@ -597,7 +597,7 @@ Si votre bannière utilise le bloc éditeur **Code personnalisé** dans le table
 </button>
 ```
 
-Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). Le `brazeBridge` fournit une couche de communication entre le HTML interne de la bannière et le SDK Braze parent.
+Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/channels/banners/custom_code). Le `brazeBridge` fournit une couche de communication entre le HTML interne de la bannière et le SDK Braze parent.
 
 ### Implémentations d'interface utilisateur personnalisées (headless) {#custom-ui-implementations-headless}
 
@@ -999,9 +999,7 @@ Voici ce que vous devez savoir sur les dimensions et la taille des bannières :
 
 Vous pouvez utiliser les propriétés personnalisées de votre campagne de bannières pour récupérer des données clé-valeur via le SDK et modifier le comportement ou l'apparence de votre application. Par exemple, vous pourriez :
 
-- Envoyer des métadonnées pour vos analyses ou intégrations tierces.
-- Utiliser des métadonnées telles qu'un `timestamp` ou un objet JSON pour déclencher une logique conditionnelle.
-- Contrôler le comportement d'une bannière en fonction des métadonnées incluses comme `ratio` ou `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 ### Conditions préalables
 

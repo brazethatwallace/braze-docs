@@ -19,23 +19,23 @@ description: "Este artigo descreve detalhes sobre o endpoint Atualizar traduçã
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `content_blocks.translations.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `content_blocks.translations.update`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parâmetros de jornada {#path-parameters}
+## Parâmetros de caminho {#path-parameters}
 
-Não há parâmetros de jornada para este endpoint.
+Não há parâmetros de caminho para este endpoint.
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `content_block_id` | Obrigatória | String | O ID do seu bloco de conteúdo. |
-| `locale_id` | Obrigatória | String | O ID (UUID) da localidade. |
-| `translation_map` | Obrigatória | Objeto | Objeto contendo as novas traduções. |
+| `content_block_id` | Obrigatório | String | O ID do seu bloco de conteúdo. |
+| `locale_id` | Obrigatório | String | O ID (UUID) do local. |
+| `translation_map` | Obrigatório | Objeto | Objeto contendo as novas traduções. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert note %}
@@ -68,7 +68,7 @@ Há quatro respostas de código de status para esse endpoint: `200`, `400`, `404
 
 ### Exemplo de resposta de erro {#example-error-response}
 
-O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para obter mais informações sobre os erros que você pode encontrar.
+O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para saber mais sobre os erros que você pode encontrar.
 
 ```json
 {

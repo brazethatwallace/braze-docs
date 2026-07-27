@@ -29,9 +29,11 @@ Legend: (caution) = use carefully, (banned) = do not use.
 - **can** — Use for optional actions. Don't use for directions; prefer imperative verbs.
 - **Canvas** — Always capitalized. Plural: Canvases.
 - **Canvas Flow** — Use only when differentiating from original editor.
+- **Canvas Step Agent** - Title case.
 - **campaign** — Lowercase in running text (`create a campaign`, `active campaigns`). Capitalize only when matching a capitalized UI label (for example, the **Campaigns** page). Never mid-sentence **Campaign** / **Campaigns** for the product concept.
 - **capacity** — Use instead of "limit" for custom data constraints.
 - **catalog** — Lowercase in running text unless matching a capitalized UI label.
+- **Catalog Agent** - Title case.
 - **Content Blocks** — Title case.
 - **Currents / Braze Currents** — Always capitalized.
 - **custom attributes** — Lowercase unless matching UI.

@@ -186,6 +186,13 @@ The **WhatsApp Performance** panel outlines how well your message has performed 
 
 ![WhatsApp performance panel that includes a table of metrics for Variant 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Credits versus send counts
+
+WhatsApp send counts in campaign analytics reflect delivery attempts. Credits consumed may differ when Meta bills by message category (marketing, utility, authentication, service).
+
+- Response messages composed in Braze don't consume Braze WhatsApp credits.
+- Use **Analytics** > **Daily Stats** for directional send volume. Credit breakdowns per campaign or Canvas aren't available.
+
 {% endif %}
 
 If you want to simplify your view, click <i class="fas fa-plus"></i> **Add/Remove Columns** and clear any metrics as desired. By default, all metrics are displayed.
@@ -364,6 +371,12 @@ As another example, suppose you see five _Unique Impressions_ on a Banner campai
 3. SDK recorded an impression and logged it to the server
 
 _Unique Daily Impressions_ refers to the Banners that were actually seen.
+
+#### Discrepancies between control groups and variants
+
+When a Banner campaign uses a control group, control group impressions can be higher than variant impressions, even when the audience split between groups is even. This discrepancy is caused by a difference in how impressions are logged for control and variant Banners.
+
+Both control and variant impressions require the Banner placement to enter the viewport. Variant impressions are logged only when the full Banner is visible on screen. Control impressions can be logged as soon as the placement enters the viewport, before the full Banner would be visible for a variant.
 
 {% elsif include.channel == "email" %}
 
@@ -866,6 +879,8 @@ Here are some key WhatsApp metrics you may see in your analytics. To see the ful
         </tr>
     </tbody>
 </table>
+
+If failures are elevated, see [Investigate WhatsApp send failures]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
 
 #### End-user blocking and reporting metrics
 

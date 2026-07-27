@@ -10,13 +10,13 @@ search_tag: Partner
 
 # PassKit
 
-> PassKit을 사용하면 Apple Wallet 및 Google Pay 패스를 고객 경험에 통합하여 모바일 도달 범위를 확장할 수 있습니다. 디지털 쿠폰, 로열티 카드, 멤버십 카드, 티켓 등을 쉽게 생성, 관리, 배포하고 성과를 분석할 수 있으며, 고객이 별도의 앱을 설치할 필요가 없습니다.
+> PassKit을 사용하면 Apple Wallet 및 Google Pay 패스를 고객 경험에 통합하여 모바일 도달 범위를 확장할 수 있습니다. 디지털 쿠폰, 로열티 카드, 멤버십 카드, 티켓 등을 쉽게 생성, 관리, 배포하고 성능을 분석할 수 있으며, 고객이 별도의 앱을 설치할 필요가 없습니다.
 
 _이 통합은 Passkit에서 유지 관리합니다._
 
 ## 통합 정보 {#about-the-integration}
 
-Braze와 PassKit 통합을 통해 커스텀 Apple Wallet 및 Google Pay 패스를 즉시 전달하여 온라인 캠페인의 참여를 높이고 측정할 수 있습니다. 그런 다음 사용량을 분석하고 위치 기반 메시지와 고객의 모바일 지갑에 대한 개인화된 동적 업데이트를 트리거하여 매장 내 트래픽을 늘리기 위한 실시간 조정을 수행할 수 있습니다.
+Braze와 PassKit 통합을 통해 커스텀 Apple Wallet 및 Google Pay 패스를 즉시 전달하여 온라인 Campaign의 인게이지먼트를 높이고 측정할 수 있습니다. 그런 다음 사용량을 분석하고 위치 기반 메시지와 고객의 모바일 지갑에 대한 개인화된 동적 업데이트를 트리거하여 매장 내 트래픽을 늘리기 위한 실시간 조정을 수행할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -25,12 +25,12 @@ Braze와 PassKit 통합을 통해 커스텀 Apple Wallet 및 Google Pay 패스�
 | PassKit 계정 | PassKit 계정과 PassKit 계정 매니저가 있어야 합니다. |
 | `userDefinedID` | PassKit과 Braze 간에 커스텀 이벤트 및 커스텀 속성을 사용자에게 적절하게 업데이트하려면 Braze 외부 ID를 `userDefinedID`로 설정해야 합니다. 이 `userDefinedID`는 PassKit 엔드포인트에 API 호출을 할 때 사용됩니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics#endpoints)에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
-고객의 모바일 지갑 경험을 더욱 풍부하게 하기 위해 PassKit 대시보드 내에서 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint)를 통해 Braze로 데이터를 전달하도록 선택할 수 있습니다.
+고객의 모바일 지갑 경험을 더욱 풍부하게 하기 위해 PassKit 대시보드 내에서 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 통해 Braze로 데이터를 전달하도록 선택할 수 있습니다.
 
 PassKit에서 공유할 데이터의 예시는 다음과 같습니다:
 - **패스 생성**: 고객이 패스 링크를 클릭하고 처음으로 패스가 표시될 때.
@@ -50,7 +50,7 @@ PassKit에서 데이터를 전달하려면 Braze 외부 ID를 PassKit의 `extern
 
 ## SmartPass 링크를 사용하여 패스 생성 {#create-pass-using-a-smartpass-link}
 
-Braze 내에서 SmartPass 링크를 설정하여 고객이 Android 또는 iOS에 패스를 설치할 수 있는 고유 URL을 생성할 수 있습니다. 이를 위해 Braze 콘텐츠 블록에서 호출할 수 있는 암호화된 SmartPass 데이터 페이로드를 정의해야 합니다. 이 [콘텐츠 블록]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks)은 향후 패스 및 쿠폰에 재사용할 수 있습니다. 통합 과정에서 다음이 사용됩니다:
+Braze 내에서 SmartPass 링크를 설정하여 고객이 Android 또는 iOS에 패스를 설치할 수 있는 고유 URL을 생성할 수 있습니다. 이를 위해 Braze 콘텐츠 블록에서 호출할 수 있는 암호화된 SmartPass 데이터 페이로드를 정의해야 합니다. 이 [콘텐츠 블록]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks#content-blocks)은 향후 패스 및 쿠폰에 재사용할 수 있습니다. 통합 과정에서 다음이 사용됩니다:
 
 - **PassKit URL**: PassKit URL은 PassKit 프로그램의 고유 URL입니다.<br>각 프로그램에는 고유 URL이 있으며, PassKit 프로그램 또는 프로젝트의 **Distribution** 탭에서 찾을 수 있습니다. (예: https://pub1.pskt.io/c/ww0jir)<br><br>
 - **PassKit 시크릿**: URL과 함께 이 프로그램을 위한 PassKit 키가 준비되어 있어야 합니다.<br>PassKit URL과 같은 페이지에서 찾을 수 있습니다.<br><br>
@@ -68,7 +68,7 @@ Braze 내에서 SmartPass 링크를 설정하여 고객이 Android 또는 iOS에
 | --------- | -------- | ---- | ----------- |
 | `person.externalId` | 필수 | 문자열 | Braze 외부 ID로 설정되며, PassKit에서 Braze로의 콜백이 작동하는 데 중요합니다. 이를 통해 회사 사용자가 하나의 Campaign에서 여러 오퍼에 대한 쿠폰을 가질 수 있습니다. 고유성이 강제되지 않습니다. |
 | `members.member.externalId` | 선택 사항 | 문자열 | Braze 외부 ID로 설정되며, 외부 ID를 사용하여 멤버십 패스를 업데이트할 수 있습니다. 이 필드를 설정하면 멤버십 프로그램 내에서 사용자가 고유하게 적용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Step 1: Define your pass data payload #passkit-integrations" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="1단계: 패스 데이터 페이로드 정의 #passkit-integrations" }
 
 사용 가능한 필드, 유형 및 유용한 설명의 전체 목록은 [PassKit GitHub 설명서](https://github.com/PassKit/smart-pass-link-from-csv-generator)를 참조하세요.
 
@@ -220,7 +220,7 @@ Braze 내에서 웹훅 Campaign 또는 Canvas 내 웹훅을 설정하여 사용�
 | `campaignId` (쿠폰) <br><br> `programId` (멤버십) | 문자열 | PassKit에서 생성한 Campaign 또는 프로그램 템플릿의 ID입니다. 이를 찾으려면 PassKit 패스 프로젝트의 **Settings** 탭으로 이동하세요. |
 | `expiryDate` | IO8601 datetime | 패스 만료 날짜입니다. 만료 날짜 이후 패스는 자동으로 무효화됩니다(`isVoided` 참조). 이 값은 템플릿 및 Campaign 종료 날짜 값을 재정의합니다. |
 | `status` | 문자열 | 쿠폰의 현재 상태(예: `REDEEMED` 또는 `UNREDEEMED`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Payload parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="페이로드 매개변수" }
 
 ### 1단계: Braze 웹훅 템플릿 생성 {#step-1-create-your-braze-webhook-template}
 
@@ -260,12 +260,12 @@ PassKit은 base 64로 인코딩된 PassKit API 키를 포함하는 승인용 `HT
 **Preview** 패널에서 요청을 미리 보거나 **Test** 탭으로 이동하여 무작위 사용자, 기존 사용자를 선택하거나 직접 커스터마이즈하여 웹훅을 테스트할 수 있습니다.
 
 {% alert important %}
-페이지를 떠나기 전에 템플릿을 저장하세요! <br>업데이트된 웹훅 템플릿은 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 만들 때 **저장된 웹훅 템플릿** 목록에서 찾을 수 있습니다.
+페이지를 떠나기 전에 템플릿을 저장하세요! <br>업데이트된 웹훅 템플릿은 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)을 만들 때 **저장된 웹훅 템플릿** 목록에서 찾을 수 있습니다.
 {% endalert %}
 
 ## 연결된 콘텐츠를 통해 패스 세부 정보 검색 {#retrieve-pass-details-via-connected-content}
 
-패스를 생성하고 업데이트하는 것 외에도 Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)를 통해 사용자의 패스 메타데이터를 검색하여 메시징 Campaign에 개인화된 패스 세부 정보를 포함할 수 있습니다.
+패스를 생성하고 업데이트하는 것 외에도 Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 통해 사용자의 패스 메타데이터를 검색하여 메시징 Campaign에 개인화된 패스 세부 정보를 포함할 수 있습니다.
 
 **PassKit 연결된 콘텐츠 호출**
 

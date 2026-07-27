@@ -44,10 +44,7 @@ For Snowflake, data sharing happens between a [data provider](https://docs.snowf
 
 ### Step 1: Send the datashare from Braze
 
-1. In Braze, go to **Partner Integrations** > **Data Sharing**.
-2. Enter your Snowflake account details and locator. To get your account locator, run `SELECT CURRENT_ACCOUNT()` in the destination account.
-3. If you're using a CRR share, specify the cloud provider and region.
-4. When you're finished, select **Create Datashare**. This will send the datashare to your Snowflake account.
+{% multi_lang_include partners/snowflake/data_sharing_account_steps.md %}
 
 ### Step 2: Create the database in Snowflake
 
@@ -71,11 +68,7 @@ After the data share is provisioned, create a database from the incoming data sh
 
 Similar to Currents, you can use your Snowflake Secure Data Sharing to:
 
-- Create complex reports
-- Perform attribution modeling
-- Secure sharing within your own company
-- Map raw event or user data to a CRM (like Salesforce)
-- And more
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
 [Download the raw table schemas.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
@@ -95,9 +88,7 @@ Note the following differences between Braze and Snowflake naming conventions fo
 
 #### Non-breaking changes
 
-Non-breaking changes can happen at any time and generally provide additional functionality. Examples of non-breaking changes:
-- Adding a new table or view
-- Adding a column to an existing table or view
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Because new columns are considered non-breaking, Braze strongly recommends explicitly listing the columns of interest in each query instead of using `SELECT *` queries. Alternately, you might want to create views that explicitly name columns and then query those views instead of the tables directly.
@@ -105,10 +96,7 @@ Because new columns are considered non-breaking, Braze strongly recommends expli
 
 #### Breaking changes
 
-When possible, breaking changes will be preceded by an announcement and a migration period. Examples of breaking changes include:
-- Removing a table or view
-- Removing a column from an existing table or view
-- Changing the type or nullability of an existing column
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Snowflake regions
 

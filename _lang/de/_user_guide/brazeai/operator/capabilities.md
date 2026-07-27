@@ -4,12 +4,12 @@ article_title: Was Sie mit Operator tun können
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "Dieser Referenzartikel behandelt die KI-Aufgaben, die über BrazeAI Operator™ verfügbar sind – einschließlich Texterstellung, Nachrichtengenerierung, Liquid, Bildgenerierung, Datentransformationscode und Inhaltsüberprüfung."
+description: "Dieser Referenzartikel behandelt die KI-Aufgaben, die über BrazeAI<sup>TM</sup> Operator verfügbar sind – einschließlich Texterstellung, Nachrichtengenerierung, Liquid, Bildgenerierung, Datentransformationscode und Inhaltsüberprüfung."
 ---
 
 # Was Sie mit Operator tun können {#operator-capabilities}
 
-> Die KI-Funktionen, die zuvor als eigenständige Assistenten verfügbar waren, sind jetzt über [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator) zugänglich. Da Operator in das Dashboard integriert ist und Ihren Workspace versteht (Ihre Markenrichtlinien, Attribute, Connected-Content und die Seite, an der Sie arbeiten), ist die Ausgabe kontextbewusster als das, was die vorherigen Assistenten liefern konnten.
+> Die KI-Funktionen, die zuvor als eigenständige Assistenten verfügbar waren, sind jetzt über [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator) zugänglich. Da Operator in das Dashboard integriert ist und Ihren Workspace versteht (Ihre Markenrichtlinien, Attribute, Connected-Content und die Seite, an der Sie arbeiten), ist die Ausgabe kontextbewusster als das, was die vorherigen Assistenten liefern konnten.
 
 Anstatt für jede Aufgabe ein anderes Tool zu öffnen, beschreiben Sie in natürlicher Sprache, was Sie möchten, und Operator erledigt es im Kontext. Sie können auch das Gespräch fortsetzen – nach einem anderen Ton, einer kürzeren Version oder einer Übersetzung fragen – ohne von vorne zu beginnen. Operator kann auch Änderungen direkt über [Aktionskarten]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) vorschlagen und ausführen, die Sie überprüfen, bevor sie wirksam werden.
 
@@ -224,7 +224,7 @@ Beachten Sie Folgendes, um die Inhaltsüberprüfung optimal zu nutzen:
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-Operator integriert sich mit OpenAI, um Ausgaben zu generieren. Weitere Informationen darüber, welche Daten Braze an OpenAI sendet, wie diese Daten verwendet werden und Ihre Rechte an geistigem Eigentum finden Sie unter [Wie Daten mit OpenAI verwendet werden]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai).
+Operator integriert sich mit OpenAI, um Ausgaben zu generieren. Weitere Informationen darüber, welche Daten Braze an OpenAI sendet, wie diese Daten verwendet werden und Ihre Rechte an geistigem Eigentum finden Sie unter [Wie Daten mit OpenAI verwendet werden]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security).
 
 ## Nächste Schritte {#next-steps}
 

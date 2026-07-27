@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-También puedes configurar [notificaciones de bajada de precios]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) y [notificaciones de reposición de existencias]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications).<br><br> Ten en cuenta que para cada caso de uso, debes crear un evento personalizado que capture el estado de suscripción de un usuario en tu catálogo. El evento personalizado requiere una propiedad del evento que se corresponda con el [SKU o el ID de variante de Shopify]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) que hayas seleccionado como parte de la sincronización de tu producto de Shopify.
+También puedes configurar [notificaciones de bajada de precios]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) y [notificaciones de reposición de existencias]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications).<br><br> Ten en cuenta que para cada caso de uso, debes crear un evento personalizado que capture el estado de suscripción de un usuario en tu catálogo. El evento personalizado requiere una propiedad del evento que se corresponda con el <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKU o el ID de variante de Shopify</a> que hayas seleccionado como parte de la sincronización de tu producto de Shopify.
 {% endalert %}
 
 ## Desactivar la sincronización de productos {#deactivate}

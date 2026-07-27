@@ -31,9 +31,9 @@ Antes de acessar, criar e publicar landing pages, você precisa ter [permissões
 
 ## Níveis de plano {#plan-tiers}
 
-O número de landing pages publicadas, domínios personalizados e recursos que você pode usar depende do seu tipo de plano: gratuito ou pago (incremental).
+O número de landing pages publicadas, domínios personalizados e recursos que você pode usar depende do seu tipo de plano: gratuito ou pro (incremental).
 
-| Recurso                                                                                                   | Nível gratuito     | Nível pago (incremental)     |
+| Recurso                                                                                                   | Nível gratuito     | Nível pro (incremental)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Landing pages publicadas                                                                 | Cinco por empresa | 20 adicionais |
 | Domínios personalizados          | Um por empresa | Cinco adicionais |
@@ -68,9 +68,9 @@ O corpo da landing page pode ter até 500 KB.
 
 ### As landing pages conseguem lidar com cenários de alto tráfego? {#can-landing-pages-handle-high-traffic-scenarios}
 
-Sim, landing pages não personalizadas conseguem lidar com cenários de alto tráfego de forma eficaz. Quando uma landing page não personalizada é solicitada pela primeira vez, a Braze a armazena em cache por meio do Cloudflare. Isso significa que todas as solicitações subsequentes para o mesmo link são servidas a partir do cache, de modo que o desempenho não é prejudicado em solicitações de alto volume. Esse cache dura 24 horas, e as visualizações de páginas em cache não contam para os limites de taxa.
+Sim, landing pages não personalizadas conseguem lidar com cenários de alto tráfego de forma eficaz. Quando uma landing page não personalizada é solicitada pela primeira vez, a Braze a armazena em cache por meio do Cloudflare. Isso significa que todas as solicitações subsequentes para o mesmo link são servidas a partir do cache, de modo que o desempenho não é prejudicado em solicitações de alto volume. Esse cache dura 24 horas, e as visualizações de páginas em cache não contam para os limites de frequência.
 
-Para landing pages personalizadas (usando personalização com Liquid), os limites de taxa se aplicam a solicitações não armazenadas em cache. Para manter o desempenho ideal, consulte [Considerações sobre personalização]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
+Para landing pages personalizadas (usando personalização com Liquid), os limites de frequência se aplicam a solicitações não armazenadas em cache. Para manter o desempenho ideal, consulte [Considerações sobre personalização]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
 ### Existem requisitos técnicos para publicar uma landing page? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
@@ -79,6 +79,12 @@ Não, não há requisitos técnicos.
 ### Existe um editor de HTML para landing pages? {#is-there-an-html-editor-for-landing-pages}
 
 Sim. Use o bloco **Custom Code** no editor de arrastar e soltar para adicionar ou editar HTML.
+
+### Posso usar iframes em landing pages? {#can-i-use-iframes-on-landing-pages}
+
+Sim. Adicione um bloco **Custom Code** no editor de arrastar e soltar e inclua um elemento iframe com a URL do conteúdo que você deseja incorporar.
+
+Se o site incorporado restringir o enquadramento por meio de `frame-ancestors` na sua Content Security Policy (CSP) ou `X-Frame-Options`, a página pode não carregar no iframe. A Braze não pode substituir essas configurações — o site incorporado precisa ser configurado para permitir o domínio da sua landing page.
 
 ### Posso criar um webhook dentro de uma landing page? {#can-i-create-a-webhook-inside-a-landing-page}
 

@@ -56,7 +56,7 @@ Content Cards를 다음 용도로 사용 중이라면 배너로 마이그레이�
 
 - **피드 경험:** 여러 개의 스크롤 가능한 메시지 또는 카드 기반 "받은편지함"과 관련된 모든 사용 사례.
 - **특정 기능:** 연결된 콘텐츠 또는 프로모션 코드가 필요한 메시지. 배너는 이러한 기능을 기본적으로 지원하지 않습니다.
-- **트리거된 전달:** API 트리거 또는 실행 기반 전달이 반드시 필요한 사용 사례. 배너는 API 트리거 또는 실행 기반 전달을 지원하지 않지만, 실시간 자격 평가를 통해 사용자가 각 새로고침 시 세그먼트 멤버십에 따라 즉시 자격을 부여받거나 상실합니다.
+- **트리거된 전달:** API 트리거 또는 실행 기반 전달이 반드시 필요한 사용 사례. 배너는 API 트리거 또는 실행 기반 전달을 지원하지 않지만, 실시간 자격 평가를 통해 사용자가 각 새로고침 시 Segment 멤버십에 따라 즉시 자격을 부여받거나 상실합니다.
 
 ## 마이그레이션 가이드 {#migration-guide}
 
@@ -263,7 +263,7 @@ for card in cards {
 Braze.launchContentCards();
 
 // Or manually render cards
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 cards.forEach(card => {
   if (card.type === 'CLASSIC') {
     // Render classic card
@@ -353,7 +353,7 @@ braze.banners.requestBannersRefresh(placementIds: ["sample_placement_id"])
 ```javascript
 // Using BrazeBannerView component
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 
 // Or get banner data
@@ -742,7 +742,7 @@ let bannerView = BrazeBannerUI.BannerUIView(
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 ```
 {% endtab %}
@@ -763,10 +763,10 @@ Content Cards에서 배너로 마이그레이션할 때 다음 제한 사항에 
 
 ### 트리거된 메시지 마이그레이션 {#migrating-triggered-messages}
 
-배너는 예약된 전달 Campaign만 지원합니다. 이전에 API 트리거 또는 실행 기반이었던 메시지를 마이그레이션하려면 세그먼트 기반 타겟팅으로 변환하세요:
+배너는 예약된 전달 Campaign만 지원합니다. 이전에 API 트리거 또는 실행 기반이었던 메시지를 마이그레이션하려면 Segment 기반 타겟팅으로 변환하세요:
 
-- **예시:** API로 "프로필 완성" 카드를 트리거하는 대신, 지난 7일 이내에 가입했지만 프로필을 완료하지 않은 사용자를 위한 세그먼트를 생성하세요.
-- **실시간 자격:** 사용자는 세그먼트 멤버십에 따라 각 새로고침 시 배너 자격을 즉시 부여받거나 상실합니다.
+- **예시:** API로 "프로필 완성" 카드를 트리거하는 대신, 지난 7일 이내에 가입했지만 프로필을 완료하지 않은 사용자를 위한 Segment를 생성하세요.
+- **실시간 자격:** 사용자는 Segment 멤버십에 따라 각 새로고침 시 배너 자격을 즉시 부여받거나 상실합니다.
 
 ### 기능 차이 {#feature-differences}
 
@@ -780,6 +780,7 @@ Content Cards에서 배너로 마이그레이션할 때 다음 제한 사항에 
 | 드래그 앤 드롭 편집기 | ❌ 커스터마이징에 개발자 필요 | ✅ 마케터가 엔지니어링 없이 생성/업데이트 가능 |
 | 커스텀 HTML/CSS | ❌ 카드 구조로 제한됨 | ✅ 전체 HTML/CSS 지원 |
 | 커스터마이징을 위한 키-값 페어 | ✅ 고급 커스터마이징에 필요 | ✅ 고급 커스터마이징을 위한 "속성"이라는 강력한 타입의 키-값 페어 |
+| 메시지 추가 항목 | ✅ 지원됨 | ❌ 현재 지원되지 않음 |
 | **지속성 및 만료** |
 | 카드 만료 | ✅ 지원됨 (30일 제한) | ✅ 지원됨 (만료 제한 없음) |
 | 진정한 지속성 | ❌ 최대 30일 | ✅ 무제한 지속성 |

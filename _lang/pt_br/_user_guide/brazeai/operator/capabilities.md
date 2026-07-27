@@ -9,7 +9,7 @@ description: "Este artigo de referência aborda as tarefas de IA disponíveis po
 
 # O que você pode fazer com o Operator {#operator-capabilities}
 
-> As funcionalidades de IA anteriormente disponíveis como assistentes independentes agora estão acessíveis por meio do [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator). Como o Operator está integrado ao dashboard e entende seu espaço de trabalho (suas diretrizes da marca, atributos, Conteúdo conectado e a página em que você está trabalhando), o resultado é mais contextualizado do que o que os assistentes anteriores conseguiam produzir.
+> As funcionalidades de IA anteriormente disponíveis como assistentes independentes agora estão acessíveis por meio do [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator). Como o Operator está integrado ao dashboard e entende seu espaço de trabalho (suas diretrizes da marca, atributos, Connected Content e a página em que você está trabalhando), o resultado é mais contextualizado do que o que os assistentes anteriores conseguiam produzir.
 
 Em vez de abrir uma ferramenta diferente para cada tarefa, descreva o que você quer em linguagem natural e o Operator cuida disso no contexto. Você também pode manter o fluxo da conversa — pedindo um tom diferente, uma versão mais curta ou uma tradução — sem precisar recomeçar. O Operator também pode propor e executar alterações diretamente por meio de [cartões de ação]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que você revisa antes de entrarem em vigor.
 
@@ -34,11 +34,11 @@ O Operator também pode gerar HTML para Banners no editor de HTML de Banners. Pa
 
 ## Aplicar diretrizes da marca {#apply-brand-guidelines}
 
-O Operator usa as diretrizes da marca configuradas no seu espaço de trabalho para que textos, modelos e imagens gerados correspondam à voz, ao tom e ao estilo da sua marca. Para configurar as diretrizes da marca, acesse **Conteúdo** > **Diretrizes da marca**. Para saber mais, consulte [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines). Para detalhes sobre como aplicar diretrizes da marca para uso com o Operator, consulte [Aplicar diretrizes da marca]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines).
+O Operator usa as diretrizes da marca configuradas no seu espaço de trabalho para que textos, modelos e imagens gerados correspondam à voz, ao tom e ao estilo da sua marca. Para configurar as diretrizes da marca, acesse **Content** > **Brand Guidelines**. Para saber mais, consulte [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines). Para detalhes sobre como aplicar diretrizes da marca para uso com o Operator, consulte [Aplicar diretrizes da marca]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines).
 
 ## Gerar texto {#generate-copy}
 
-Você pode usar o Operator para fazer brainstorming ou gerar textos de qualquer lugar, mas a melhor experiência é usá-lo diretamente no criador de mensagens, onde ele pode trabalhar junto com você na mensagem que está sendo criada. Descreva seu produto ou Campaign, e o Operator retorna um texto que você pode revisar e inserir.
+Você pode usar o Operator para fazer brainstorming ou gerar textos de qualquer lugar, mas a melhor experiência é usá-lo diretamente no criador de mensagens, onde ele pode trabalhar junto com você na mensagem que está sendo criada. Descreva seu produto ou campanha, e o Operator retorna um texto que você pode revisar e inserir.
 
 O Operator melhora o copywriter independente de algumas formas:
 
@@ -81,7 +81,7 @@ Mantenha o fluxo da conversa para refinar o resultado — por exemplo, peça um 
 
 ## Gerar Liquid {#generate-liquid}
 
-Em qualquer criador de mensagens, abra o Operator para gerar e refinar Liquid para personalização. O Operator entende a [sintaxe Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), seus atributos padrão e [personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), e o [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), e pode explicar o que o código faz.
+Em qualquer criador de mensagens, abra o Operator para gerar e refinar Liquid para personalização. O Operator entende a [sintaxe Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), seus atributos padrão e [personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), e o [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), e pode explicar o que o código faz.
 
 ### Onde você pode gerar Liquid {#generate-liquid-supported-channels}
 
@@ -89,7 +89,7 @@ Assim como na redação de textos, você pode pedir ao Operator para gerar Liqui
 
 ### Funcionalidades de Liquid {#generate-liquid-attributes}
 
-O Operator é altamente capaz com Liquid. Ele pode gerar lógica Liquid complexa baseada nos dados do seu espaço de trabalho — incluindo consultar dados de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) para encontrar valores de exemplo — e pode revisar e explicar o Liquid existente nas suas Campaigns.
+O Operator é altamente capaz com Liquid. Ele pode gerar lógica Liquid complexa baseada nos dados do seu espaço de trabalho — incluindo consultar dados de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) para encontrar valores de exemplo — e pode revisar e explicar o Liquid existente nas suas campanhas.
 
 ### Práticas recomendadas {#generate-liquid-best-practices}
 
@@ -102,11 +102,11 @@ O Operator é treinado para entender linguagem natural. Converse com ele como fa
 Fornecer contexto ajuda o Operator a entender o panorama geral do seu projeto. É útil incluir contexto como:
 
 - O nome e o setor da sua empresa
-- Uma Campaign em que você está trabalhando, como Black Friday ou promoções de fim de ano
+- Uma campanha em que você está trabalhando, como Black Friday ou promoções de fim de ano
 - Seu objetivo, como aumentar sua taxa de cliques
 - Atributos personalizados específicos que você quer incluir na sua mensagem
 
-Incluir contexto no seu prompt ajuda o Operator a adaptar suas respostas para atender melhor às suas necessidades. Você também pode incluir detalhes da sua Campaign, briefing de mensagem ou documento de brainstorming para atualizar o Operator.
+Incluir contexto no seu prompt ajuda o Operator a adaptar suas respostas para atender melhor às suas necessidades. Você também pode incluir detalhes da sua campanha, briefing de mensagem ou documento de brainstorming para atualizar o Operator.
 
 #### Seja específico {#generate-liquid-be-specific}
 
@@ -115,7 +115,7 @@ O Operator pode fazer perguntas de acompanhamento, mas fornecer detalhes antecip
 - Quaisquer preferências ou requisitos conhecidos para a mensagem
 - Instruções sobre como lidar com situações, como falta de respostas do destinatário da mensagem ou opções de mensagem de fallback
 - Valores exatos ou semelhantes para os atributos personalizados que você quer usar, que ajudam o Operator a gerar e testar lógica mais precisa
-- Ao pedir Liquid que usa Conteúdo conectado, documentação do endpoint da API, uma resposta de API de exemplo, ou ambos
+- Ao pedir Liquid que usa Connected Content, documentação do endpoint da API, uma resposta de API de exemplo, ou ambos
 
 #### Seja criativo {#generate-liquid-get-creative}
 
@@ -193,7 +193,7 @@ Para instruções passo a passo sobre como criar uma transformação, consulte [
 
 ## Revisar a qualidade do conteúdo {#review-content-quality}
 
-Na guia **Test** para SMS, push Android, push iOS e mensagens no app tradicionais, selecione **Review with Operator** para revisar seu conteúdo antes de enviar. Por padrão, o Operator revisa sua Campaign quanto a erros de ortografia e gramática, tom inadequado ou fora da marca, linguagem ofensiva e qualquer código solto, conteúdo de teste ou Liquid não renderizado, e recomenda como corrigir o que encontrar. Você também pode pedir ao Operator para personalizar como ele revisa seu conteúdo diretamente no seu prompt.
+Na guia **Test** para SMS, push Android, push iOS e mensagens no app tradicionais, selecione **Review with Operator** para revisar seu conteúdo antes de enviar. Por padrão, o Operator revisa sua campanha quanto a erros de ortografia e gramática, tom inadequado ou fora da marca, linguagem ofensiva e qualquer código solto, conteúdo de teste ou Liquid não renderizado, e recomenda como corrigir o que encontrar. Você também pode pedir ao Operator para personalizar como ele revisa seu conteúdo diretamente no seu prompt.
 
 ### O que você pode pedir ao Operator para verificar {#review-content-quality-supported-features}
 
@@ -212,9 +212,9 @@ Além da revisão padrão, você pode direcionar o Operator para focar em verifi
 
 Considere o seguinte para aproveitar ao máximo a revisão de conteúdo:
 
-- **Revise sua mensagem:** Embora a revisão de conteúdo possa ajudar a identificar erros, ainda é essencial revisar seu conteúdo manualmente. Use as sugestões geradas por IA como um guia útil, mas confie no seu julgamento para garantir a precisão.
-- **Entenda a análise de tom:** Os resultados da análise de tom são subjetivos e baseados na compreensão do modelo de IA. Embora possam fornecer insights úteis, considere o tom pretendido e o contexto da conversa para fazer os ajustes apropriados.
-- **Verifique novamente a linguagem ofensiva sinalizada:** A detecção de linguagem ofensiva é projetada para ser robusta, mas pode ocasionalmente sinalizar falsos positivos. Revise as seções sinalizadas com cuidado e faça as alterações apropriadas conforme necessário.
+- **Revise sua mensagem:** embora a revisão de conteúdo possa ajudar a identificar erros, ainda é essencial revisar seu conteúdo manualmente. Use as sugestões geradas por IA como um guia útil, mas confie no seu julgamento para garantir a precisão.
+- **Entenda a análise de tom:** os resultados da análise de tom são subjetivos e baseados na compreensão do modelo de IA. Embora possam fornecer insights úteis, considere o tom pretendido e o contexto da conversa para fazer os ajustes apropriados.
+- **Verifique novamente a linguagem ofensiva sinalizada:** a detecção de linguagem ofensiva é projetada para ser robusta, mas pode ocasionalmente sinalizar falsos positivos. Revise as seções sinalizadas com cuidado e faça as alterações apropriadas conforme necessário.
 
 ### Exemplos de prompts {#review-content-quality-example-prompts}
 
@@ -224,10 +224,10 @@ Considere o seguinte para aproveitar ao máximo a revisão de conteúdo:
 
 ## Privacidade e segurança de dados {#data-privacy-and-security}
 
-O Operator se integra com a OpenAI para gerar resultados. Para saber mais sobre quais informações a Braze envia para a OpenAI, como esses dados são usados e seus direitos de propriedade intelectual, consulte [Como os dados são usados com a OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai).
+O Operator se integra com a OpenAI para gerar resultados. Para saber mais sobre quais informações a Braze envia para a OpenAI, como esses dados são usados e seus direitos de propriedade intelectual, consulte [Como os dados são usados com a OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security).
 
 ## Próximas etapas {#next-steps}
 
-- [Comece a usar o Operator]({{site.baseurl}}/user_guide/brazeai/operator): Acesse e use o Operator
-- [Revisar ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Revise e aprove as alterações propostas pelo Operator
-- [Solução de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Consulte problemas comuns e soluções
+- [Comece a usar o Operator]({{site.baseurl}}/user_guide/brazeai/operator): acesse e use o Operator
+- [Revisar ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): revise e aprove as alterações propostas pelo Operator
+- [Solução de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): consulte problemas comuns e soluções

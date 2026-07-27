@@ -510,7 +510,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 
@@ -544,8 +544,6 @@ BrazeBannerView(
 ),
 To get the Banner's data model in Flutter, use:
 ```
-
-Flutter에서 배너의 데이터 모델을 가져오려면 다음을 사용하세요:
 
 `getBanner` 메서드를 사용하여 사용자 캐시에 해당 배치가 있는지 확인할 수 있습니다.
 
@@ -599,7 +597,7 @@ Braze는 SDK 메서드를 사용하여 배너를 삽입할 때 보이는 배너�
 </button>
 ```
 
-전체 참조는 [배너를 위한 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code)를 참조하세요. `brazeBridge`는 배너의 내부 HTML과 상위 Braze SDK 간의 통신 계층을 제공합니다.
+전체 참조는 [배너를 위한 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/custom_code)를 참조하세요. `brazeBridge`는 배너의 내부 HTML과 상위 Braze SDK 간의 통신 계층을 제공합니다.
 
 ### 커스텀 UI 구현(헤드리스) {#custom-ui-implementations-headless}
 
@@ -1001,9 +999,7 @@ BrazeBannerView(
 
 배너 Campaign의 커스텀 속성을 사용하여 SDK를 통해 키-값 데이터를 검색하고 앱의 동작이나 외관을 수정할 수 있습니다. 예를 들어 다음과 같은 작업을 수행할 수 있습니다:
 
-- 서드파티 분석 또는 통합을 위한 메타데이터를 전송합니다.
-- `timestamp` 또는 JSON 객체와 같은 메타데이터를 사용하여 조건 로직을 트리거합니다.
-- `ratio` 또는 `format`과 같은 포함된 메타데이터를 기반으로 배너의 동작을 제어합니다.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 ### 필수 조건
 

@@ -4,7 +4,7 @@ nav_title: Filtres de segmentation
 article_title: Filtres de segmentation
 layout: glossary_page
 glossary_top_header: "Filtres de segmentation"
-glossary_top_text: "Le SDK Braze vous fournit un puissant arsenal de filtres pour segmenter et cibler vos utilisateurs en fonction de fonctionnalités et d'attributs spécifiques. Vous pouvez rechercher ou affiner ces filtres par catégorie de filtre.<br><br>Pour en savoir plus sur les différents types de données d'attributs personnalisés que vous pouvez utiliser pour segmenter les utilisateurs, consultez <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">Types de données d'attributs personnalisés</a>. Notez que les filtres d'intervalle sont limités à 100 ans."
+glossary_top_text: "Le SDK Braze vous fournit un puissant arsenal de filtres pour segmenter et cibler vos utilisateurs en fonction de fonctionnalités et d'attributs spécifiques. Vous pouvez rechercher ou affiner ces filtres par catégorie de filtre.<br><br>Pour en savoir plus sur les différents types de données d'attributs personnalisés que vous pouvez utiliser pour segmenter les utilisateurs, consultez <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">Types de données d'attributs personnalisés</a>. Notez que les filtres d'intervalle sont limités à 100 ans."
 
 page_type: glossary
 tool: Segments
@@ -65,7 +65,7 @@ glossaries:
     tags:
       - Custom attribute
   - name: Day of Recurring Event
-    description: "Ce filtre examine le mois et le jour d'un attribut personnalisé de type « date », mais ne prend pas en compte l'année. Ce filtre est utile pour les événements annuels.<br><br>Fuseau horaire :<br>Ce filtre s'ajuste au fuseau horaire de l'utilisateur, à condition que le message soit envoyé avec l'option de planification en heure locale ; sinon, ce filtre utilise le fuseau horaire de votre entreprise."
+    description: "Ce filtre examine le mois et le jour d'un attribut personnalisé de type « date », mais ne prend pas en compte l'année. Ce filtre est utile pour les événements annuels.<br><br>Fuseau horaire&#58;<br>Ce filtre s'ajuste au fuseau horaire de l'utilisateur, à condition que le message soit envoyé avec l'option de planification en heure locale ; sinon, ce filtre utilise le fuseau horaire de votre entreprise."
     tags:
       - Custom attribute
   - name: Custom Event
@@ -257,7 +257,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Entered Canvas Variation
-    description: "Segmente vos utilisateurs selon qu'ils sont entrés dans un chemin de variation d'un Canvas spécifique. Ce filtre évalue tous les utilisateurs.<br><br>Par exemple, si vous filtrez les utilisateurs qui ne sont pas entrés dans un groupe de contrôle de variation Canvas, vous obtenez tous les utilisateurs qui ne sont pas dans le groupe de contrôle, qu'ils soient entrés ou non dans le Canvas."
+    description: "Segmente vos utilisateurs selon qu'ils sont entrés dans un chemin de variante d'un Canvas spécifique. Ce filtre évalue tous les utilisateurs.<br><br>Par exemple, si vous filtrez les utilisateurs qui ne sont pas entrés dans un groupe de contrôle de variante Canvas, vous obtenez tous les utilisateurs qui ne sont pas dans le groupe de contrôle, qu'ils soient entrés ou non dans le Canvas."
     tags:
       - Retargeting
   - name: Last Received Any Message
@@ -281,7 +281,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Available
-    description: "Segmente vos utilisateurs selon qu'ils possèdent une adresse e-mail valide et qu'ils sont abonnés ou ont opté pour les e-mails. Ce filtre vérifie trois critères : si l'utilisateur s'est désabonné des e-mails, si Braze a reçu un échec d'envoi définitif et si l'e-mail a été marqué comme spam. Si l'un de ces critères est rempli, ou si aucune adresse e-mail n'existe pour un utilisateur, l'utilisateur n'est pas inclus.<br><br>Les utilisateurs dont l'e-mail disponible est <code>false</code> sont exclus de l'audience de la campagne et ne reçoivent pas l'e-mail, même si vos paramètres d'envoi sont configurés pour envoyer à tous les utilisateurs (y compris les utilisateurs désabonnés).<br><br>Pour les e-mails où le statut d'abonnement est important, utilisez E-mail disponible au lieu de <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-address\">Adresse e-mail</a>. Les critères supplémentaires vous aident à cibler les utilisateurs éligibles à la réception d'e-mails."
+    description: "Segmente vos utilisateurs selon qu'ils possèdent une adresse e-mail valide et qu'ils sont abonnés ou ont opté pour les e-mails. Ce filtre vérifie trois critères&#58; si l'utilisateur s'est désabonné des e-mails, si Braze a reçu un échec d'envoi définitif et si l'e-mail a été marqué comme spam. Si l'un de ces critères est rempli, ou si aucune adresse e-mail n'existe pour un utilisateur, l'utilisateur n'est pas inclus.<br><br>Les utilisateurs dont l'e-mail disponible est <code>false</code> sont exclus de l'audience de la campagne et ne reçoivent pas l'e-mail, même si vos paramètres d'envoi sont configurés pour envoyer à tous les utilisateurs (y compris les utilisateurs désabonnés).<br><br>Pour les e-mails où le statut d'abonnement est important, utilisez E-mail disponible au lieu de <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-address\">Adresse e-mail</a>. Les critères supplémentaires vous aident à cibler les utilisateurs éligibles à la réception d'e-mails."
     tags:
       - Channel subscription behavior
   - name: Email Opt In Date
@@ -313,7 +313,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
-    description: "Segmente vos utilisateurs par leur <a href=\"/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state\">statut d'abonnement</a> aux notifications push."
+    description: "Segmente vos utilisateurs par leur <a href=\"/docs/user_guide/channels/push/push_setup/push_subscription_states\">statut d'abonnement</a> aux notifications push."
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
@@ -613,7 +613,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: "Segmente vos utilisateurs par le champ de numéro de téléphone au format E.164.<br><br> Lorsqu'un numéro de téléphone est envoyé à Braze, Braze tente de le convertir au <a href=\"/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers\">format E.164</a> utilisé pour l'envoi sur les canaux SMS, RCS et WhatsApp. Le processus de conversion peut échouer si le numéro n'est pas correctement formaté, ce qui fait que le profil utilisateur possède un numéro de téléphone non formaté mais pas de numéro de téléphone d'envoi. Ce filtre de segment renvoie les utilisateurs par leur numéro de téléphone au format E.164 (lorsqu'il est disponible).<br><br>Cas d'usage :<br> - Utilisez ce filtre pour comprendre la taille d'audience cible la plus précise lors de l'envoi de messages SMS, RCS ou WhatsApp.<br>- Utilisez les expressions régulières (regex) avec ce filtre pour segmenter par numéros de téléphone avec un indicatif de pays spécifique. <br>- Utilisez ce filtre pour segmenter les utilisateurs dont les numéros de téléphone n'ont pas réussi le processus de conversion E.164."
+    description: "Segmente vos utilisateurs par le champ de numéro de téléphone au format E.164.<br><br> Lorsqu'un numéro de téléphone est envoyé à Braze, Braze tente de le convertir au <a href=\"/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers\">format E.164</a> utilisé pour l'envoi sur les canaux SMS, RCS et WhatsApp. Le processus de conversion peut échouer si le numéro n'est pas correctement formaté, ce qui fait que le profil utilisateur possède un numéro de téléphone non formaté mais pas de numéro de téléphone d'envoi. Ce filtre de segment renvoie les utilisateurs par leur numéro de téléphone au format E.164 (lorsqu'il est disponible).<br><br>Cas d'usage :<br> - Utilisez ce filtre pour comprendre la taille d'audience cible la plus précise lors de l'envoi de messages SMS, RCS ou WhatsApp.<br>- Utilisez les expressions régulières (regex) avec ce filtre pour segmenter par numéros de téléphone avec un indicatif de pays spécifique. <br>- Utilisez ce filtre pour segmenter les utilisateurs dont les numéros de téléphone n'ont pas réussi le processus de conversion E.164."
     tags:
       - Other Filters
 ---

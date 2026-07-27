@@ -44,7 +44,7 @@ Consultez [Ciblage par localisation]({{site.baseurl}}/user_guide/audience/segmen
 
 ## Définir manuellement l'attribut de localisation par défaut {#hard-setting-the-default-location-attribute}
 
-Vous pouvez également utiliser l'[endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de notre API pour mettre à jour l'attribut standard [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens). Voici un exemple :
+Vous pouvez également utiliser l'[endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de notre API pour mettre à jour l'attribut standard [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). Voici un exemple :
 
 ```
 https://[your_braze_rest_endpoint]/users/track

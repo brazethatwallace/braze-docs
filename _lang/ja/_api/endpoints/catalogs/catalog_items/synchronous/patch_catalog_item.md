@@ -21,7 +21,7 @@ description: "この記事では、カタログアイテムの編集Brazeエン�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.update_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`catalogs.update_item` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -78,13 +78,13 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 - `$add` および `$remove` 演算子は配列型フィールドにのみ適用可能であり、PATCHエンドポイントでのみサポートされています。
 {% endalert %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`200`、`400`、`404` の3つのステータスコード応答があります。
+このエンドポイントには、`200`、`400`、`404` の3つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `200` は、次の応答本文を返す可能性があります。
+ステータスコード `200` は、次のレスポンスボディを返す可能性があります。
 
 ```json
 {
@@ -92,9 +92,9 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンスボディを返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {
@@ -116,7 +116,7 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 ## トラブルシューティング {#troubleshooting}
 
-次のテーブルに、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
+次の表に、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
 
 | エラー | トラブルシューティング |
 | --- | --- |

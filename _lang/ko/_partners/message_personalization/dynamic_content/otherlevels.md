@@ -10,30 +10,30 @@ search_tag: OtherLevels
 
 # OtherLevels
 
-> [OtherLevels](https://www.otherlevels.com/) Experience Platform은 GenAI를 사용하여 스포츠 브랜드, 퍼블리셔 및 운영자가 기존 콘텐츠를 대규모의 브랜드 맞춤형 개인화 비디오 및 리치 미디어 경험으로 전환함으로써 고객과 연결하는 방식을 혁신합니다.
+> [OtherLevels](https://www.otherlevels.com/) Experience Platform은 GenAI를 사용하여 스포츠 브랜드, 퍼블리셔 및 운영자가 기존 콘텐츠를 대규모의 브랜드 맞춤형 개인화된 비디오 및 리치 미디어 경험으로 전환함으로써 고객과 연결하는 방식을 혁신합니다.
 
 *이 통합은 OtherLevels에서 유지 관리합니다.*
 
 ## 개요 {#overview}
 
-Braze와 OtherLevels의 통합을 통해 OtherLevels Experience Platform에 대한 API 호출을 통해 커스텀 GenAI 비디오를 만든 다음, [Braze 연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)를 통해 이러한 비디오를 iOS 푸시 비디오로 사용자에게 전송할 수 있습니다.
+Braze와 OtherLevels의 통합을 통해 OtherLevels Experience Platform에 대한 API 호출을 통해 커스텀 GenAI 비디오를 만든 다음, [Braze 연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 통해 이러한 비디오를 iOS 푸시 비디오로 사용자에게 전송할 수 있습니다.
 
-OtherLevels의 AI 기반 경험으로 사용자에게 더 나은 경험을 제공하세요. 기존 콘텐츠와 타사 콘텐츠를 확장성이 뛰어난 비디오 및 리치 미디어로 변환하여 이미 다양한 방식으로 콘텐츠를 소비하고 상황별 개인화된 경험에 강력하게 반응하는 오디언스에게 제공할 수 있습니다.
+OtherLevels의 인공지능 기반 경험으로 사용자에게 더 나은 경험을 제공하세요. 기존 콘텐츠와 타사 콘텐츠를 확장성이 뛰어난 비디오 및 리치 미디어로 변환하여 이미 다양한 방식으로 콘텐츠를 소비하고 상황별 개인화된 경험에 강력하게 반응하는 오디언스에게 제공할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
 시작하기 전에 다음이 필요합니다:
 
-| 요구 사항          | 설명                                                                                                                                |
+| 요구 사항 | 설명 |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| OtherLevels 계정   | 이 파트너십을 이용하려면 OtherLevels 계정이 필요합니다.                                                                     |
-| Braze REST API 키  | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| OtherLevels 계정 | 이 파트너십을 이용하려면 OtherLevels 계정이 필요합니다. |
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 이 통합을 위해서는 비디오 생성 프로세스의 일부로 OtherLevels Experience Platform API를 호출해야만 Braze에서 사용자에게 메시지를 보낼 수 있습니다. 이 설명서의 일부로 cURL 예제가 제공되지만, API 호출을 자동화하려면 Postman과 같은 API 클라이언트를 사용하는 것이 좋습니다.
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 OtherLevels Experience Platform으로 제작한 GenAI 비디오를 사용하여 다음을 수행할 수 있습니다:
 - 스포츠 구단주 및 리그, 팬 참여, 스포츠 북, iGaming, 복권을 위한 더 나은 경험을 만들 수 있습니다.
@@ -124,15 +124,15 @@ curl --request POST \
 
 다음을 교체하세요:
 
-| 플레이스홀더          | 설명                                                                                                                                |
+| 입력 안내 | 설명 |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `OTHERLEVELS_PROJECT_KEY`   | OtherLevels 계정이 프로비저닝되면 OtherLevels 프로젝트 키가 제공됩니다.                                                                     |
-| `BACKGROUND_IMAGE_URL`  | 비디오 배경에 대한 HTTPS URL입니다. |
-| `INSERT_TITLE` | 비디오 제목으로, 내부 참조용이며 비디오에 표시되지 않습니다.                                                 |
-| `TALENT_TEMPLATE` | 탤런트 템플릿 ID입니다. OtherLevels는 계정 프로비저닝 중에 탤런트(아바타)를 생성하기 위해 사용자와 협력합니다. 사용할 수 있는 탤런트 ID가 하나 또는 여러 개 제공됩니다.                                                 |
-| `TALENT_MODEL` | 탤런트 모델 ID입니다. OtherLevels는 계정 프로비저닝 중에 탤런트(아바타)를 생성하기 위해 사용자와 협력합니다. 사용할 수 있는 탤런트 모델이 하나 또는 여러 개 제공됩니다.                                                 |
-| `INSERT_SCRIPT` | 비디오에서 탤런트가 말하길 원하는 정확한 스크립트입니다.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Call the OtherLevels Experience Platform API to generate a video" }
+| `OTHERLEVELS_PROJECT_KEY` | OtherLevels 계정이 프로비저닝되면 OtherLevels 프로젝트 키가 제공됩니다. |
+| `BACKGROUND_IMAGE_URL` | 비디오 배경에 대한 HTTPS URL입니다. |
+| `INSERT_TITLE` | 비디오 제목으로, 내부 참조용이며 비디오에 표시되지 않습니다. |
+| `TALENT_TEMPLATE` | 탤런트 템플릿 ID입니다. OtherLevels는 계정 프로비저닝 중에 탤런트(아바타)를 생성하기 위해 사용자와 협력합니다. 사용할 수 있는 탤런트 ID가 하나 또는 여러 개 제공됩니다. |
+| `TALENT_MODEL` | 탤런트 모델 ID입니다. OtherLevels는 계정 프로비저닝 중에 탤런트(아바타)를 생성하기 위해 사용자와 협력합니다. 사용할 수 있는 탤런트 모델이 하나 또는 여러 개 제공됩니다. |
+| `INSERT_SCRIPT` | 비디오에서 탤런트가 말하길 원하는 정확한 스크립트입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="1단계: OtherLevels Experience Platform API를 호출하여 비디오 생성하기" }
 
 API 응답의 일부로 OtherLevels는 성공적인 API 호출을 나타내는 JSON 페이로드를 반환합니다. JSON에는 생성된 비디오를 식별할 수 있는 고유한 `recipe_id`가 포함됩니다. 다음 단계에서 `recipe_id`가 필요합니다.
 
@@ -172,20 +172,20 @@ curl --location --request POST 'BRAZE_API_ENDPOINT/users/track' \
 
 다음을 교체하세요:
 
-| 플레이스홀더             | 설명                                                                                                                                                                                     |
+| 입력 안내 | 설명 |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | 현재 Braze 인스턴스의 Braze REST 엔드포인트 URL입니다. 자세한 내용은 [REST API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)를 참조하세요. |
-| `BRAZE_API_KEY`         | `users.track` 권한이 있는 Braze REST API 키입니다.                                                                                                                                      |
-| `USER_ID`              | 이 특정 비디오를 수신할 사용자 ID입니다. 사용할 수 있는 식별자의 더 많은 예시는 [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users)을 참조하세요.                                                                                                                                                  |
-| `RECIPE_ID`       | [1단계](#step-1)의 OtherLevels API 응답에서 받은 `recipe_id`입니다.                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Setting the recipe_id as a custom attribute" }
+| `BRAZE_API_ENDPOINT` | 현재 Braze 인스턴스의 Braze REST 엔드포인트 URL입니다. 자세한 내용은 [REST API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys)를 참조하세요. |
+| `BRAZE_API_KEY` | `users.track` 권한이 있는 Braze REST API 키입니다. |
+| `USER_ID` | 이 특정 비디오를 수신할 사용자 ID입니다. 사용할 수 있는 식별자의 더 많은 예시는 [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track)을 참조하세요. |
+| `RECIPE_ID` | [1단계](#step-1)의 OtherLevels API 응답에서 받은 `recipe_id`입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: recipe_id를 커스텀 속성으로 설정하기" }
 
 ### 3단계: Braze 연결된 콘텐츠를 통해 전송하기 {#step-3-sending-through-braze-connected-content}
 
 GenAI 비디오를 iOS 푸시 메시지로 사용자에게 전송하려면 다음 단계를 따르세요:
 
 1. Braze iOS 푸시 알림 Campaign을 생성합니다.
-2. Campaign을 작성하는 동안 **자산** 섹션으로 이동하여 **Add from URL** 필드에 다음 연결된 콘텐츠 구문을 붙여넣습니다.
+2. Campaign을 작성하는 동안 **자산** 섹션으로 이동하여 **URL에서 추가** 필드에 다음 연결된 콘텐츠 구문을 붙여넣습니다.
 
 {% raw %}
 ```
@@ -196,7 +196,7 @@ GenAI 비디오를 iOS 푸시 메시지로 사용자에게 전송하려면 다�
 그런 다음 `OTHERLEVELS_PROJECT_KEY`를 OtherLevels에서 제공한 프로젝트 키로 교체합니다.
 
 {: start="3"}
-3. **URL file format** 드롭다운에서 **MP4**를 선택합니다.
+3. **URL 파일 형식** 드롭다운에서 **MP4**를 선택합니다.
 4. 원하는 기본 설정에 따라 나머지 Campaign(예: 메시지 콘텐츠, 전송 스케줄, 타겟 오디언스)을 구성합니다.
 
 ![연결된 콘텐츠의 자산 필드 예시.]({% image_buster /assets/img/otherlevels/1.png %})
@@ -207,29 +207,29 @@ GenAI 비디오를 iOS 푸시 메시지로 사용자에게 전송하려면 다�
 
 비디오 배경은 `bg_image` 키 내에서 지정할 수 있습니다.
 
-| 매개변수             | 설명                  |
+| 매개변수 | 설명 |
 |-------------------------|----------------------------|
-| `url`    | 배경 이미지의 HTTPS URL입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
+| `url` | 배경 이미지의 HTTPS URL입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="비디오 크기 및 속성" }
 
 비디오 배경 크기는 `resize_image` 키 내에서 지정할 수 있습니다. 배경 이미지의 크기는 여기에서 구성한 것과 동일한 크기를 사용하는 것이 좋습니다.
 
-| 매개변수             | 설명                  |
+| 매개변수 | 설명 |
 |-------------------------|----------------------------|
-| `width`    | 배경 이미지의 너비로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다. |
-| `height`     | 배경 이미지의 높이로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다.                              |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
+| `width` | 배경 이미지의 너비로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다. |
+| `height` | 배경 이미지의 높이로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="비디오 크기 및 속성" }
 
 비디오 오버레이 옵션은 `image_video_overlay` 키 내에서 지정할 수 있습니다.
 
-| 매개변수             | 설명                  |
+| 매개변수 | 설명 |
 |-------------------------|----------------------------|
-| `width`    | 오버레이의 너비로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다. |
-| `height`         | 오버레이의 높이로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다.                                              |
-| `color`              | 투명도와 함께 RGB로 지정된 오버레이의 색상입니다.                                                                   |
-| `y_pos`       | 중앙에서의 Y축 오프셋입니다.                                                              |
-| `x_pos`    | 중앙에서의 X축 오프셋입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
+| `width` | 오버레이의 너비로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다. |
+| `height` | 오버레이의 높이로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다. |
+| `color` | 투명도와 함께 RGB로 지정된 오버레이의 색상입니다. |
+| `y_pos` | 중앙에서의 Y축 오프셋입니다. |
+| `x_pos` | 중앙에서의 X축 오프셋입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="비디오 크기 및 속성" }
 
 ### 탤런트 및 스크립트 {#talent-and-script}
 
@@ -239,10 +239,10 @@ GenAI 비디오를 iOS 푸시 메시지로 사용자에게 전송하려면 다�
 
 입력 스크립트를 처리하는 데 사용되는 음성 모델은 사람이 읽을 수 있는 자연스러운 스크립트를 제공할 때 가장 잘 작동합니다. 대부분의 경우 스크립트를 수동으로 안내하기 위해 별도의 구두점이 필요하지 않습니다. 하지만 실제 오디언스에게 전송하기 전에 모든 스크립트를 테스트하는 것이 좋습니다. 탤런트가 스크립트를 읽는 속도는 `talking_talent_speed` 키 내에서 지정할 수 있습니다.
 
-| 매개변수             | 설명                  |
+| 매개변수 | 설명 |
 |-------------------------|----------------------------|
-| `speed`    | 탤런트가 스크립트를 읽는 속도를 지정합니다. 예: `1.5`.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Talent and script" }
+| `speed` | 탤런트가 스크립트를 읽는 속도를 지정합니다. 예: `1.5`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="탤런트 및 스크립트" }
 
 ## 추가 고려 사항 {#additional-considerations}
 

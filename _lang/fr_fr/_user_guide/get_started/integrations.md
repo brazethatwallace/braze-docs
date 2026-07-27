@@ -44,7 +44,7 @@ Assurez-vous d'indiquer à vos développeurs quels canaux vous souhaitez utilise
 | Canal | Détails |
 |---|---|
 | Messages in-app | Nécessite la mise en œuvre du SDK ainsi que des étapes spécifiques à ce canal. |
-| Notification push | Nécessite la mise en œuvre du SDK pour assurer une gestion adéquate des identifiants de messagerie et des jetons de notification push. |
+| Notification push | Nécessite la mise en œuvre du SDK pour assurer une gestion adéquate des identifiants de communication et des jetons de notification push. |
 | E-mail | Il s'agit d'un processus entièrement différent. Consultez la section [Configuration de l'e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup) pour plus de détails sur l'intégration. |
 | Content Cards | Pour commencer à utiliser les [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), veuillez contacter votre gestionnaire de la satisfaction client Braze. |
 | SMS et MMS | Consultez la section [Configuration du SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending) pour plus de détails sur l'intégration. |
@@ -61,7 +61,7 @@ Braze a plus d'un tour dans son sac. Il ne s'agit pas seulement d'envoyer des e-
 
 Que devez-vous faire pour leur fournir ces informations ?
 
-1. Travaillez avec votre équipe marketing pour définir les campagnes, les objectifs, les attributs et les événements dont vous devez assurer le suivi. Définissez ces cas d'utilisation et partagez-les avec vos équipes.
+1. Travaillez avec votre équipe marketing pour définir les campagnes, les objectifs, les attributs et les événements dont vous devez assurer le suivi. Définissez ces cas d'usage et partagez-les avec vos équipes.
 2. Définissez vos besoins en données personnalisées ([attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), [événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events), etc.).
 3. À partir de là, discutez de la manière dont ces données doivent être suivies (déclenchées par le SDK, etc.).
 4. Définissez le nombre d'[espaces de travail]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces) dont vous avez besoin. Vos ingénieurs devront savoir comment [tester et configurer]({{site.baseurl}}/user_guide/get_started/workspaces) ces espaces de travail.
@@ -80,7 +80,7 @@ Nous avons même des instructions spécifiques pour [tester votre intégration A
 
 ## Après la mise en œuvre {#after-implementation}
 
-Gardez à l'esprit que la fin de la mise en œuvre ne signifie pas que vous pouvez envoyer un million de messages d'un coup. Envoyer un million de notifications push risque de faire planter votre application si chaque client clique simultanément sur le même lien. Nous vous recommandons de vérifier la capacité de votre infrastructure interne à traiter les requêtes provenant de Braze avant de cliquer sur le bouton **Envoyer**. Vous pouvez ensuite définir votre [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting) en conséquence.
+Gardez à l'esprit que la fin de la mise en œuvre ne signifie pas que vous pouvez envoyer un million de messages d'un coup. Envoyer un million de notifications push risque de faire planter votre application si chaque client clique simultanément sur le même lien. Nous vous recommandons de vérifier la capacité de votre infrastructure interne à traiter les requêtes provenant de Braze avant de cliquer sur le bouton **Envoyer**. Vous pouvez ensuite définir votre [limitation du débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) en conséquence.
 
 ![Logo de la communauté Braze Firebrands]({% image_buster /assets/img/torchie/firebrands.png %}){: style="max-width:15%;float:right;margin-left:15px;border:none;"}
 

@@ -7,7 +7,7 @@ Les fonctionnalités suivantes sont intégrées au SDK Android de Braze. Pour ut
 | Fonctionnalité | Description |
 |-------|-----------|
 | Push Stories | Les Push Stories Android sont intégrées par défaut au SDK Android de Braze. Pour en savoir plus, consultez la section [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories). |
-| Amorces de notifications push | Les Campaigns d'amorces de notifications push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Ceci peut se faire sans personnalisation du SDK, grâce à notre [amorce de notifications push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages). |
+| Amorces de notifications push | Les campagnes d'amorces de notifications push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Ceci peut se faire sans personnalisation du SDK, grâce à notre [amorce de notifications push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fonctionnalités intégrées" }
 
 ## À propos du cycle de vie des notifications push {#push-notification-lifecycle}
@@ -255,11 +255,11 @@ Les clés privées peuvent présenter un risque de sécurité si elles sont comp
 
 ### Étape 6 : Chargez vos identifiants JSON sur Braze {#step-6-upload-your-json-credentials-to-braze}
 
-Ensuite, chargez vos identifiants JSON dans votre tableau de bord de Braze. Dans Braze, sélectionnez <i class="fa-solid fa-gear"></i>&nbsp;**Paramètres** > **Paramètres des applications**.
+Ensuite, chargez vos identifiants JSON dans votre tableau de bord de Braze. Dans Braze, sélectionnez <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **App Settings**.
 
-![Le menu « Paramètres » ouvert dans Braze avec « Paramètres des applications » mis en évidence.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
+![Le menu « Settings » ouvert dans Braze avec « App Settings » mis en évidence.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-Sous les **Paramètres des notifications push** de votre application Android, choisissez **Firebase**, puis sélectionnez **Upload JSON File** et chargez les identifiants [que vous avez générés précédemment](#android_json). Lorsque vous avez terminé, sélectionnez **Save**.
+Sous les **Push Notification Settings** de votre application Android, choisissez **Firebase**, puis sélectionnez **Upload JSON File** et chargez les identifiants [que vous avez générés précédemment](#android_json). Lorsque vous avez terminé, sélectionnez **Save**.
 
 ![Le formulaire « Push Notification Settings » avec « Firebase » sélectionné comme fournisseur de notifications push.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
@@ -454,7 +454,7 @@ Dans votre `braze.xml`, précisez :
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-ou via la [configuration d'exécution :]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)
+ou via la [configuration d'exécution :]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -530,17 +530,17 @@ Vous pouvez également utiliser une référence de couleur :
 <color name="com_braze_default_notification_accent_color">@color/my_color_here</color>
 ```
 
-### Étape 4 : Ajoutez des liens profonds {#step-4-add-deep-links}
+### Étape 4 : Ajoutez des deep links {#step-4-add-deep-links}
 
-#### Activer l'ouverture automatique des liens profonds {#enabling-automatic-deep-link-opening}
+#### Activer l'ouverture automatique des deep links {#enabling-automatic-deep-link-opening}
 
-Pour permettre à Braze d'ouvrir automatiquement votre application et les liens profonds lorsqu'une notification push est cliquée, définissez `com_braze_handle_push_deep_links_automatically` sur `true` dans votre `braze.xml` :
+Pour permettre à Braze d'ouvrir automatiquement votre application et les deep links lorsqu'une notification push est cliquée, définissez `com_braze_handle_push_deep_links_automatically` sur `true` dans votre `braze.xml` :
 
 ```xml
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-Cet indicateur peut également être défini via la [configuration d'exécution]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android) :
+Cet indicateur peut également être défini via la [configuration d'exécution]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration) :
 
 {% tabs %}
 {% tab JAVA %}
@@ -565,11 +565,11 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-Si vous souhaitez gérer les liens profonds de manière personnalisée, vous devrez créer un rappel push qui écoute les intentions de réception et d'ouverture de push de Braze. Pour plus d'informations, consultez la section [Utilisation d'un rappel pour les événements push]({{site.baseurl}}/developer_guide/push_notifications/customization#android_using-a-callback-for-push-events).
+Si vous souhaitez gérer les deep links de manière personnalisée, vous devrez créer un rappel push qui écoute les intentions de réception et d'ouverture de push de Braze. Pour plus d'informations, consultez la section [Utilisation d'un rappel pour les événements push]({{site.baseurl}}/developer_guide/push_notifications/customization#android_using-a-callback-for-push-events).
 
 ## Gestion des notifications au premier plan {#handling-foreground-notifications}
 
-Par défaut, lorsqu'une notification push arrive alors que votre application est au premier plan sur Android, le système l'affiche automatiquement. Pour que Braze traite le payload de la notification push (suivi analytique, gestion des liens profonds et traitement personnalisé), acheminez les données push entrantes vers Braze dans votre méthode `FirebaseMessagingService.onMessageReceived`.
+Par défaut, lorsqu'une notification push arrive alors que votre application est au premier plan sur Android, le système l'affiche automatiquement. Pour que Braze traite le payload de la notification push (suivi analytique, gestion des deep links et traitement personnalisé), acheminez les données push entrantes vers Braze dans votre méthode `FirebaseMessagingService.onMessageReceived`.
 
 ### Fonctionnement {#how-it-works}
 
@@ -630,26 +630,26 @@ Pour plus d'informations, consultez l'[exemple d'intégration Firebase](https://
 
 Si vous souhaitez personnaliser le comportement au premier plan, par exemple supprimer la notification système ou afficher une interface in-app à la place, vous pouvez :
 
-- Utiliser `subscribeToPushNotificationEvents` pour réagir aux événements push et gérer les liens profonds avec la méthode `BrazeNotificationUtils.routeUserWithNotificationOpenedIntent`. Pour plus d'informations, consultez l'[exemple Firebase Push](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseApplication.kt).
+- Utiliser `subscribeToPushNotificationEvents` pour réagir aux événements push et gérer les deep links avec la méthode `BrazeNotificationUtils.routeUserWithNotificationOpenedIntent`. Pour plus d'informations, consultez l'[exemple Firebase Push](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseApplication.kt).
 - Créer et publier votre propre notification à l'aide d'un `IBrazeNotificationFactory` personnalisé, ou supprimer la notification en n'appelant pas `notificationManager.notify` dans votre chemin de traitement.
 
 Pour plus d'informations sur la personnalisation des notifications, consultez la section [Usine de notifications personnalisées]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#custom-notification-factory).
 
-#### Création de liens profonds personnalisés {#creating-custom-deep-links}
+#### Création de deep links personnalisés {#creating-custom-deep-links}
 
-Suivez les instructions de la [documentation pour développeurs Android](http://developer.android.com/training/app-indexing/deep-linking.html) sur la création de liens profonds si vous n'en avez pas encore ajouté à votre application. Pour en savoir plus sur les liens profonds, consultez notre [article de FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
+Suivez les instructions de la [documentation pour développeurs Android](http://developer.android.com/training/app-indexing/deep-linking.html) sur la création de deep links si vous n'en avez pas encore ajouté à votre application. Pour en savoir plus sur les deep links, consultez notre [article de FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
-#### Ajouter des liens profonds {#adding-deep-links}
+#### Ajouter des deep links {#adding-deep-links}
 
-Le tableau de bord de Braze permet de définir des liens profonds ou des URL Web dans les Campaigns de notifications push et les Canvas, qui seront ouverts lorsque la notification est cliquée.
+Le tableau de bord de Braze permet de définir des deep links ou des URL Web dans les campagnes de notifications push et les Canvas, qui seront ouverts lorsque la notification est cliquée.
 
 ![Le paramètre « On Click Behavior » dans le tableau de bord de Braze avec « Deep Link Into Application » sélectionné dans le menu déroulant.]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 
 #### Personnaliser le comportement de la pile arrière {#customizing-back-stack-behavior}
 
-Par défaut, le SDK Android place l'activité du lanceur principal de votre application hôte dans la pile arrière lorsqu'il suit des liens profonds de notification push. Braze vous permet de définir une activité personnalisée à ouvrir dans la pile arrière à la place de votre activité de lanceur principal, ou de désactiver complètement la pile arrière.
+Par défaut, le SDK Android place l'activité du lanceur principal de votre application hôte dans la pile arrière lorsqu'il suit des deep links de notification push. Braze vous permet de définir une activité personnalisée à ouvrir dans la pile arrière à la place de votre activité de lanceur principal, ou de désactiver complètement la pile arrière.
 
-Par exemple, pour définir une activité appelée `YourMainActivity` comme activité de la pile arrière via la [configuration d'exécution]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android) :
+Par exemple, pour définir une activité appelée `YourMainActivity` comme activité de la pile arrière via la [configuration d'exécution]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration) :
 
 {% tabs %}
 {% tab JAVA %}
@@ -685,13 +685,13 @@ Consultez la configuration équivalente pour votre `braze.xml`. Notez que le nom
 
 ### Étape 5 : Définissez les canaux de notification {#step-5-define-notification-channels}
 
-Le SDK Android de Braze prend en charge les [canaux de notification Android](https://developer.android.com/preview/features/notification-channels.html). Si une notification Braze ne contient pas d'ID de canal de notification ou contient un ID de canal non valide, Braze affichera la notification avec le canal de notification par défaut défini dans le SDK. Les utilisateurs de l'entreprise peuvent utiliser les [canaux de notification Android]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels) au sein de la plateforme pour regrouper les notifications.
+Le SDK Android de Braze prend en charge les [canaux de notification Android](https://developer.android.com/preview/features/notification-channels.html). Si une notification Braze ne contient pas d'ID de canal de notification ou contient un ID de canal non valide, Braze affichera la notification avec le canal de notification par défaut défini dans le SDK. Les utilisateurs peuvent utiliser les [canaux de notification Android]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels) au sein de la plateforme pour regrouper les notifications.
 
 Pour définir le nom du canal de notification par défaut de Braze visible par l'utilisateur, utilisez [`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html).
 
 Pour définir la description du canal de notification par défaut de Braze visible par l'utilisateur, utilisez [`BrazeConfig.setDefaultNotificationChannelDescription()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-description.html).
 
-Mettez à jour toutes les Campaigns API avec le paramètre [objet push Android]({{site.baseurl}}/api/objects_filters/messaging/android_object) pour inclure le champ `notification_channel`. Si ce champ n'est pas spécifié, Braze enverra le payload de notification avec l'ID du [canal de repli du tableau de bord]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel).
+Mettez à jour toutes les campagnes API avec le paramètre [objet push Android]({{site.baseurl}}/api/objects_filters/messaging/android_object) pour inclure le champ `notification_channel`. Si ce champ n'est pas spécifié, Braze enverra le payload de notification avec l'ID du [canal de repli du tableau de bord]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel).
 
 En dehors du canal de notification par défaut, Braze ne crée aucun canal. Tous les autres canaux doivent être définis par programmation par l'application hôte, puis saisis dans le tableau de bord de Braze.
 
@@ -706,15 +706,15 @@ Le nom et la description par défaut du canal peuvent également être configur�
 
 #### Tester l'affichage {#testing-display}
 
-À ce stade, vous devriez pouvoir voir les notifications envoyées par Braze. Pour tester cela, rendez-vous sur la page **Campaigns** de votre tableau de bord de Braze et créez une Campaign de **notification push**. Choisissez **Android Push** et concevez votre message. Cliquez ensuite sur l'icône en forme d'œil dans le composeur pour accéder à l'expéditeur de test. Saisissez l'ID utilisateur ou l'adresse e-mail de votre utilisateur actuel et cliquez sur **Send Test**. La notification push devrait s'afficher sur votre appareil.
+À ce stade, vous devriez pouvoir voir les notifications envoyées par Braze. Pour tester cela, rendez-vous sur la page **Campaigns** de votre tableau de bord de Braze et créez une campagne de **notification push**. Choisissez **Android Push** et concevez votre message. Cliquez ensuite sur l'icône en forme d'œil dans le composeur pour accéder à l'expéditeur de test. Saisissez l'ID utilisateur ou l'adresse e-mail de votre utilisateur actuel et cliquez sur **Send Test**. La notification push devrait s'afficher sur votre appareil.
 
-![L'onglet « Test » d'une Campaign de notifications push dans le tableau de bord de Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
+![L'onglet « Test » d'une campagne de notifications push dans le tableau de bord de Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
 Pour les problèmes liés à l'affichage des notifications push, consultez notre [guide de résolution des problèmes]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 
 #### Tester l'analytique {#testing-analytics}
 
-À ce stade, vous devriez également disposer de l'enregistrement analytique pour les ouvertures de notifications push. Cliquer sur la notification lorsqu'elle arrive devrait faire augmenter de 1 le compteur d'**ouvertures directes** sur la page des résultats de votre Campaign. Consultez notre article sur les [rapports push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting) pour en savoir plus sur l'analytique push.
+À ce stade, vous devriez également disposer de l'enregistrement analytique pour les ouvertures de notifications push. Cliquer sur la notification lorsqu'elle arrive devrait faire augmenter de 1 le compteur d'**ouvertures directes** sur la page des résultats de votre campagne. Consultez notre article sur les [rapports push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting) pour en savoir plus sur l'analytique push.
 
 Pour les problèmes liés à l'analytique push, consultez notre [guide de résolution des problèmes]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 
@@ -722,8 +722,8 @@ Pour les problèmes liés à l'analytique push, consultez notre [guide de résol
 
 Si vous souhaitez tester les notifications in-app et push via l'interface de ligne de commande, vous pouvez envoyer une seule notification via le terminal avec cURL et l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging). Vous devrez remplacer les champs suivants par les valeurs correctes pour votre cas de test :
 
-- `YOUR_API_KEY` (Accédez à **Paramètres** > **Clés API**.)
-- `YOUR_EXTERNAL_USER_ID` (Recherchez un profil sur la page **Rechercher des utilisateurs**.)
+- `YOUR_API_KEY` (Accédez à **Settings** > **API Keys**.)
+- `YOUR_EXTERNAL_USER_ID` (Recherchez un profil sur la page **Search Users**.)
 - `YOUR_KEY1` (facultatif)
 - `YOUR_VALUE1` (facultatif)
 

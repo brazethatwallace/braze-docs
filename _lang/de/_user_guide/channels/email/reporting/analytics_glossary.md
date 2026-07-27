@@ -21,7 +21,7 @@ channel:
 
 {% api %}
 
-### Variation {#variation}
+### Variante {#variation}
 
 {% apitags %}
 Count
@@ -49,7 +49,7 @@ Count
 
 {% api %}
 
-### Audience % {#audience}
+### Zielgruppe % {#audience}
 
 {% apitags %}
 Percentage
@@ -63,7 +63,7 @@ Percentage
 
 {% api %}
 
-### Unique Recipients {#unique-recipients}
+### Eindeutige Empfänger:innen {#unique-recipients}
 
 {% apitags %}
 Count
@@ -91,7 +91,7 @@ Count
 
 {% api %}
 
-### Messages Sent {#messages-sent}
+### Gesendete Nachrichten {#messages-sent}
 
 {% apitags %}
 Count
@@ -105,7 +105,7 @@ Count
 
 {% api %}
 
-### Deliveries {#deliveries}
+### Zustellungen {#deliveries}
 
 {% apitags %}
 Count
@@ -123,7 +123,7 @@ Für den **Empfangen**-Status auf Nutzer:innen-Ebene und die zugehörige Logik (
 
 {% api %}
 
-### Deliveries %
+### Zustellungen %
 
 {% apitags %}
 Percentage
@@ -221,7 +221,7 @@ Count, Percentage
 
 {% api %}
 
-### Unique Opens {#unique-opens}
+### Eindeutige Öffnungen {#unique-opens}
 
 {% apitags %}
 Count, Percentage
@@ -243,7 +243,7 @@ Count, Percentage
 
 {% api %}
 
-### Unique Clicks {#unique-clicks}
+### Eindeutige Klicks {#unique-clicks}
 
 {% apitags %}
 Count, Percentage
@@ -265,11 +265,13 @@ Count, Percentage
 
 Wenn die [E-Mail-Heatmap]({{site.baseurl}}/user_guide/channels/email/reporting) Links anzeigt, die Sie nicht erwarten, überprüfen Sie den HTML-Code der Nachricht auf [Content Blocks]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks) oder Abstände zwischen Wörtern, die erfasste URLs erzeugen. Verwenden Sie die **Link-Tabelle nach Gesamtklicks** in der Heatmap-Ansicht, um URLs zu identifizieren, die nicht mit dem sichtbaren Text übereinstimmen.
 
+Braze expandiert Liquid-Tags nicht in der Nachrichtenvorschau, sodass der Heatmap-Renderer den angeklickten Link in der Vorschau nicht zuordnen kann. Dies ist das erwartete Verhalten. Der Heatmap-Renderer versucht, angeklickte URLs mit denen in der Nachricht abzugleichen. Wenn sich die URL erheblich unterscheidet, z. B. wenn die gesamte URL als Event-Eigenschaft übergeben wird, kann die Heatmap sie nicht identifizieren.
+
 {% endapi %}
 
 {% api %}
 
-### Total Clicks {#total-clicks}
+### Gesamtklicks {#total-clicks}
 
 {% apitags %}
 Count, Percentage
@@ -283,7 +285,7 @@ Wenn *Total Clicks* deutlich höher ist als *Unique Clicks*, scannen Sicherheits
 
 {% api %}
 
-### Unsubscribers or Unsub {#unsubscribers-or-unsub}
+### Abmeldungen {#unsubscribers-or-unsub}
 
 {% apitags %}
 Count, Percentage
@@ -316,7 +318,7 @@ Weitere Informationen finden Sie unter [Warum sehe ich eine andere Anzahl von Ab
 
 {% api %}
 
-### Revenue {#revenue}
+### Umsatz {#revenue}
 
 {% apitags %}
 Count
@@ -330,7 +332,7 @@ Count
 
 {% api %}
 
-### Primary Conversions (A) or Primary Conversion Event {#primary-conversions-a-or-primary-conversion-event}
+### Primäre Konversionen (A) oder primäres Konversions-Event {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Count, Percentage
@@ -352,7 +354,7 @@ Count, Percentage
 
 {% api %}
 
-### Confidence {#confidence}
+### Konfidenz {#confidence}
 
 {% apitags %}
 Count
@@ -364,7 +366,7 @@ Count
 
 {% api %}
 
-### Machine Opens {#machine-opens}
+### Maschinelle Öffnungen {#machine-opens}
 
 {% multi_lang_include analytics/metrics.md metric='Machine Opens' %} Diese Metrik wird seit dem 11. November 2021 für SendGrid und seit dem 2. Dezember 2021 für SparkPost erfasst.
 
@@ -374,7 +376,7 @@ Count
 
 {% api %}
 
-### Other Opens {#other-opens}
+### Sonstige Öffnungen {#other-opens}
 
 {% apitags %}
 Count
@@ -388,7 +390,7 @@ Count
 
 {% api %}
 
-### Estimated Real Opens {#estimated-real-opens}
+### Geschätzte tatsächliche Öffnungen {#estimated-real-opens}
 
 {% apitags %}
 Count, Percentage
@@ -400,7 +402,7 @@ Count, Percentage
 
 {% api %}
 
-### Click-to-Open Rate {#click-to-open-rate}
+### Click-to-Open-Rate {#click-to-open-rate}
 
 {% apitags %}
 Percentage
@@ -420,7 +422,7 @@ Der Segment-Filter [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audie
 
 ### Abmeldelinks und eindeutige Klicks {#unsubscribe-links-and-unique-clicks}
 
-Wenn Empfänger:innen auf einen Abmeldelink klicken, zählt Braze dies als Klick, da die Aktion eine URL verwendet. Dies gilt sowohl für von Braze bereitgestellte Abmeldelinks als auch für angepasste Abmeldelinks in Ihrem Nachrichtentext. Diese Klicks fließen zusammen mit anderen Link-Klicks in *Unique Clicks* und *Total Clicks* ein. Metrikdefinitionen finden Sie unter [Unique Clicks](#unique-clicks) weiter oben in diesem Abschnitt und unter [Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Wenn Empfänger:innen auf einen Abmeldelink klicken, zählt Braze dies als Klick, da die Aktion eine URL verwendet. Dies gilt sowohl für von Braze bereitgestellte Abmeldelinks als auch für angepasste Abmeldelinks in Ihrem Nachrichtentext. Diese Klicks fließen zusammen mit anderen Link-Klicks in *Unique Clicks* und *Total Clicks* ein. Metrikdefinitionen finden Sie unter [Eindeutige Klicks](#unique-clicks) und unter [Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Im Browser anzeigen {#view-in-browser}
 

@@ -8,7 +8,7 @@ description: "Découvrez comment enregistrer des achats via le SDK Braze."
 
 # Enregistrer les achats {#log-purchases}
 
-> Découvrez comment enregistrer les achats in-app via le SDK Braze, afin de pouvoir déterminer vos chiffres d'affaires au fil du temps et selon les différentes sources. Vous pourrez ainsi segmenter les utilisateurs [en fonction de leur valeur vie client]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking) à l'aide d'événements personnalisés, d'attributs personnalisés et d'événements d'achat.
+> Découvrez comment enregistrer les achats in-app via le SDK Braze, afin de pouvoir déterminer vos chiffres d'affaires au fil du temps et selon les différentes sources. Vous pourrez ainsi segmenter les utilisateurs [en fonction de leur valeur vie client]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) à l'aide d'événements personnalisés, d'attributs personnalisés et d'événements d'achat.
 
 {% alert note %}
 Pour les SDK wrapper non répertoriés, utilisez plutôt la méthode native Android ou Swift correspondante.
@@ -22,7 +22,7 @@ Pour enregistrer les achats et les chiffres d'affaires, appelez `logPurchase()` 
 
 {% tabs %}
 {% tab web %}
-Pour une implémentation standard du SDK Web, vous pouvez utiliser la méthode suivante :
+Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suivante :
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
@@ -139,7 +139,7 @@ Vous pouvez ajouter des métadonnées sur les achats en transmettant un dictionn
 
 {% tabs %}
 {% tab web %}
-Pour une implémentation standard du SDK Web, vous pouvez utiliser la méthode suivante :
+Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suivante :
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
@@ -268,7 +268,7 @@ Vous pouvez également utiliser notre REST API pour enregistrer les achats. Pour
 
 ## Enregistrement des commandes {#logging-orders}
 
-Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id`. Pour en savoir plus, consultez les [spécifications de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions).
+Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id`. Pour en savoir plus, consultez les [spécifications de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
 
 ## Clés réservées {#reserved-keys}
 

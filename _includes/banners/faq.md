@@ -24,6 +24,20 @@ If a user qualifies for multiple Banner campaigns that share the same placement,
 
 Banners are different from Content Cards, meaning you can’t use Banners and Content Cards in the same feed. To replace existing Content Card feeds with Banners, you’ll need to [create placements in your app or website]({{site.baseurl}}/developer_guide/banners/placements/).
 
+## How are Banners different from in-app messages?
+
+Banners and [in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/) both reach users inside your app or website, but they use different delivery models. If you're comparing Banners to an existing in-app message setup, expect differences in triggers, refresh timing, and testing, not a one-to-one swap.
+
+| Topic | Banners | In-app messages |
+| --- | --- | --- |
+| Where messages appear | Inline at [placements]({{site.baseurl}}/developer_guide/banners/placements/) you define in your app or site | Full-screen, modal, or slide-up overlays managed by the SDK |
+| When content updates | When your app or site calls a Banner refresh (for example at session start or mid-session) | Templated messages evaluate Liquid when the in-app message is triggered (for example on a custom event or session start), after the payload is cached on the device |
+| Action-based triggers | No [action-based delivery]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery); use segments, priority, and refresh timing instead | Supports action-based and API-triggered delivery |
+| Testing | Preview a user, then confirm the placement refresh in your app or site shows the expected Banner | Use **Test Send** or in-app preview flows for trigger-based display |
+| Reporting | Banner views and clicks follow Banner analytics | In-app impressions and clicks follow in-app message analytics |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How are Banners different from in-app messages?" }
+
+
 ## Can Banners include video?
 
 The standard Banner builder supports images, text, and buttons. To include a video in a Banner, you can use a **Custom Code** block in the builder, or build the entire Banner with the HTML editor and embed a video player directly in your HTML.

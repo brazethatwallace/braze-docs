@@ -66,7 +66,7 @@ Cada ejemplo solicita al modelo que devuelva un campo `explanation` junto con su
 Content generation, canvas step agent
 {% endapitags %}
 
-Usa este agente de Canvas para generar líneas de asunto de correo electrónico coordinadas, preencabezados y título y cuerpo de notificaciones push para usuarios que buscaron en la aplicación pero no reservaron. El objetivo es reorientarlos en un recorrido en Canvas con mensajería localizada, segura para la marca, que impulse la finalización de la compra respetando los límites de caracteres de cada canal.
+Usa este agente de paso en Canvas para generar líneas de asunto de correo electrónico coordinadas, preencabezados y título y cuerpo de notificaciones push para usuarios que buscaron en la aplicación pero no reservaron. El objetivo es reorientarlos en un recorrido en Canvas con mensajería localizada, segura para la marca, que impulse la finalización de la compra respetando los límites de caracteres de cada canal.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -147,7 +147,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 Data standardization, canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de Canvas puede analizar los comentarios de los usuarios a partir de cuestionarios posteriores al viaje y categorizar el sentimiento y los temas. El objetivo de este agente es determinar los próximos pasos para una plataforma CRM independiente.
+Este ejemplo describe cómo un agente de paso en Canvas puede analizar los comentarios de los usuarios a partir de cuestionarios posteriores al viaje y categorizar el sentimiento y los temas. El objetivo de este agente es determinar los próximos pasos para una plataforma CRM independiente.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -215,7 +215,7 @@ Input & Output Example:
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de Canvas puede clasificar usuarios en contenedores de interés específicos basándose en atributos personalizados existentes y señales de comportamiento de alta intención, y luego recomendar la mejor siguiente experiencia o artículo. El objetivo es enrutar a los usuarios hacia experiencias orientadas con precisión —como recuperación de carrito o recomendaciones específicas por categoría— basándose únicamente en datos verificados, sin alucinar atributos que no estén presentes.
+Este ejemplo describe cómo un agente de paso en Canvas puede clasificar usuarios en contenedores de interés específicos basándose en atributos personalizados existentes y señales de comportamiento de alta intención, y luego recomendar la mejor siguiente experiencia o artículo. El objetivo es enrutar a los usuarios hacia experiencias orientadas con precisión —como recuperación de carrito o recomendaciones específicas por categoría— basándose únicamente en datos verificados, sin alucinar atributos que no estén presentes.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -294,7 +294,7 @@ Recent Search: "cordless drill"
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de Canvas puede inferir la motivación actual de un usuario a partir de su comportamiento reciente y contexto —como favoritos recientes o historial de búsqueda— y devolver la mejor clave de ruta para su siguiente paso. El objetivo es enviar a cada usuario por la ruta de Canvas más relevante sin segmentación manual.
+Este ejemplo describe cómo un agente de paso en Canvas puede inferir la motivación actual de un usuario a partir de su comportamiento reciente y contexto —como favoritos recientes o historial de búsqueda— y devolver la mejor clave de ruta para su siguiente paso. El objetivo es enviar a cada usuario por la ruta de Canvas más relevante sin segmentación manual.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -366,7 +366,7 @@ Recently Engaged Products: Drill bits
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de Canvas puede asignar usuarios a entre una y tres categorías de interés basándose en acciones recientes de alta intención y contexto de comportamiento (pasado a través del contexto de Canvas), y luego recomendar la mejor siguiente experiencia o artículo. El objetivo es personalizar el siguiente paso de un recorrido del cliente en tiempo real usando señales de comportamiento verificadas en lugar de suposiciones.
+Este ejemplo describe cómo un agente de paso en Canvas puede asignar usuarios a entre una y tres categorías de interés basándose en acciones recientes de alta intención y contexto de comportamiento (pasado a través del contexto de Canvas), y luego recomendar la mejor siguiente experiencia o artículo. El objetivo es personalizar el siguiente paso de un recorrido del cliente en tiempo real usando señales de comportamiento verificadas en lugar de suposiciones.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -375,7 +375,7 @@ Estas instrucciones asumen que la siguiente información está disponible:
 
 - Atributos de usuario como país, idioma, etapa del ciclo de vida, nivel de fidelización, categorías favoritas, artículos vistos recientemente, términos de búsqueda recientes, artículos en el carrito y última categoría de compra
 - Contexto de alta intención, incluyendo acciones y artículos de alta intención, última categoría vista, señales de sesión actuales y listas elegibles para categorías, experiencias e ID de artículos
-- Historial de participación de datos de interacción recientes de campañas y Canvas, incluyendo los mensajes que causaron aperturas, clics y conversiones (no frecuencia de participación ni marcas de tiempo de recencia)
+- Historial de participación de datos de interacción recientes de Campaign y Canvas, incluyendo los mensajes que causaron aperturas, clics y conversiones (no frecuencia de participación ni marcas de tiempo de recencia)
 - **Contexto del agente** desde las [instrucciones de la consola del agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
     - **Todo el contexto de Canvas:** Pasa cualquier variable de contexto adicional al agente que no hayas definido ya en las instrucciones de tu agente, en caso de que sean útiles o relevantes
 
@@ -448,7 +448,7 @@ Recent Search: "18v cordless drill"
 Classification and routing, canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de Canvas puede evaluar un mensaje entrante de un cliente a la vez y devolver si debe tratarse como una solicitud de cancelar suscripción de mensajería futura (por ejemplo, STOP, cancelar suscripción o revocar consentimiento). El objetivo es generar un booleano estricto para que puedas ramificar recorridos de forma conservadora, reduciendo el riesgo de enviar mensajes después de la revocación y evitando falsos positivos cuando el usuario claramente está haciendo una pregunta o continúa interactuando.
+Este ejemplo describe cómo un agente de paso en Canvas puede evaluar un mensaje entrante de un cliente a la vez y devolver si debe tratarse como una solicitud de cancelar suscripción de mensajería futura (por ejemplo, STOP, cancelar suscripción o revocar consentimiento). El objetivo es generar un booleano estricto para que puedas ramificar recorridos de forma conservadora, reduciendo el riesgo de enviar mensajes después de la revocación y evitando falsos positivos cuando el usuario claramente está haciendo una pregunta o continúa interactuando.
 
 {% alert important %}
 La gestión de cancelación de suscripción y consentimiento conlleva obligaciones legales que varían según la región y el canal. Trata este ejemplo como un punto de partida y revisa tu lógica final contra tus propios requisitos de cumplimiento (como TCPA y RGPD) antes de confiar en él en producción.
@@ -530,7 +530,7 @@ Input: “This sucks—what’s the promo code?” → false
 Data standardization, canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de Canvas puede normalizar respuestas SMS o de chat entrantes desordenadas y no estructuradas en un formato estructurado consistente —clasificando la intención, extrayendo entidades y señalando indicadores de cumplimiento como cancelaciones de suscripción y PII. El objetivo es proporcionar a la automatización posterior y a las notificaciones internas datos limpios y legibles por máquina para un enrutamiento confiable.
+Este ejemplo describe cómo un agente de paso en Canvas puede normalizar respuestas SMS o de chat entrantes desordenadas y no estructuradas en un formato estructurado consistente —clasificando la intención, extrayendo entidades y señalando indicadores de cumplimiento como cancelaciones de suscripción y PII. El objetivo es proporcionar a la automatización posterior y a las notificaciones internas datos limpios y legibles por máquina para un enrutamiento confiable.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -650,7 +650,7 @@ Final Output Specification:
 You must return an object with exactly two keys: "short_description" and "explanation".
 - short_description: Plain text for the catalog cell, maximum 150 characters. No markdown.
 - explanation: String. Brief note on how you combined Destination Name, Country, Primary Vibe, and Price Tier per the brand rules.
-Configure your agent's **Output** with **Fields** that match these key names (catalog agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
+Configure your agent's **Output** with **Fields** that match these key names (Catalog Agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
 
 Input & Output Example:
 <input_example>
@@ -810,4 +810,75 @@ existing_category: "hydration"
 {% endraw %}
 {% endtab %}
 {% endtabs %}
+
+{% endapi %}
+
+{% api %}
+
+## Estandarizar entradas no estructuradas con coincidencia aproximada de catálogo {#standardize-unstructured-input-with-approximate-catalog-matching}
+
+{% apitags %}
+Data standardization, canvas step agent
+{% endapitags %}
+
+Este ejemplo describe cómo un agente de paso en Canvas puede procesar entradas de usuario no estructuradas —como texto escrito manualmente con errores tipográficos o variaciones— y usar coincidencia asistida por LLM contra resultados de búsqueda de catálogo para estandarizarlas contra artículos de catálogo conocidos. El objetivo es identificar lo que el usuario realmente quiso decir a partir de su entrada imperfecta, lo cual es especialmente útil cuando las búsquedas de Liquid no pueden manejar coincidencias aproximadas.
+
+{% tabs local %}
+{% tab Requisitos previos %}
+
+Estas instrucciones asumen que la siguiente información está disponible:
+
+- Información del usuario como su nombre
+- Variable de contexto para el texto ingresado manualmente por el usuario (por ejemplo, destino de viaje soñado)
+- **Contexto del agente** desde las [instrucciones de la consola del agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Campos de catálogo:**
+        - **Catálogo:** `<Destination Catalog name>` que contiene nombres de destinos válidos
+        - **Campos:** `destination_name`, que es la columna de búsqueda que contiene los nombres de destinos estandarizados que el agente puede consultar
+    - **Todo el contexto de Canvas:** Pasa cualquier variable de contexto adicional al agente que no hayas definido ya en las instrucciones de tu agente, en caso de que sean útiles o relevantes
+
+{% endtab %}
+{% tab Instrucciones %}
+
+{% raw %}
+```
+Role:
+You are an expert Data Standardization Agent for Wanderluxe Travel. Your role is to take unstructured, manually entered user input and match it to the correct standardized destination name from our catalog, accounting for typos, spelling variations, and common misspellings.
+
+Inputs & Goal:
+A user has manually entered their dream travel destination in a form or survey. Your goal is to identify which standardized destination in our catalog the user actually meant, even if their input contains typos or variations.
+
+You will get the following user-specific inputs:
+{{${first_name}}} - the user's first name
+{{context.${user_entered_destination}}} - the raw text the user typed for their dream destination
+
+You can search the configured Destination Catalog using the catalog search tool. Braze returns matching catalog rows—not the full catalog—so search for likely destination names before you decide on a match.
+
+Rules:
+- Search the catalog for destinations that could match the user's input. Use pattern-based queries (such as $regex) when exact matches fail, and account for common typos, extra letters, missing letters, and phonetic similarities (e.g., "Parisss" → "Paris", "Tokio" → "Tokyo", "Barselona" → "Barcelona").
+- Only return a standardized_destination value that appears in a catalog search result. Do not invent destinations.
+- If multiple catalog destinations could match, choose the most likely match based on similarity to the user's input.
+- If the input is too ambiguous or doesn't closely match any catalog destination (such as nonsense text or very short incomplete input), set standardized_destination to "UNKNOWN" and explain why in the explanation field.
+- Be case-insensitive in matching (treat "paris", "Paris", and "PARIS" as the same).
+- Include "explanation": a short string describing the match logic, which catalog rows you considered, or why no match was found.
+
+Final Output Specification:
+You must return an object containing exactly three keys: "standardized_destination", "confidence", and "explanation".
+- standardized_destination: String. The exact destination name from a catalog search result, or "UNKNOWN" if no match can be made.
+- confidence: String (high, medium, low). Your confidence in the match.
+- explanation: String. Brief note on the matching logic, similarity detected, or reason for UNKNOWN.
+
+Input & Output Example:
+<input_example>
+{{${first_name}}}: Jane
+{{context.${user_entered_destination}}}: Parisss
+Catalog search for destinations similar to "Parisss" returns: {"destination_name": "Paris"}
+</input_example>
+<output_example>
+{"standardized_destination": "Paris", "confidence": "high", "explanation": "User input 'Parisss' closely matches catalog result 'Paris' with extra letters; clear approximate match."}
+</output_example>
+```
+{% endraw %}
+{% endtab %}
+{% endtabs %}
+
 {% endapi %}

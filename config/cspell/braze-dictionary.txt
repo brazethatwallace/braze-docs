@@ -100,6 +100,7 @@ Bandsintown
 Barchart
 BASA
 bdocs
+Beefree
 behaviour
 BENA
 BIMI
@@ -247,6 +248,7 @@ ecommerce
 edume
 EKUGUSII
 Emailable
+Emailify
 emailnotification
 EMEA
 emea
@@ -259,9 +261,11 @@ Eppo’s
 Erdelyi
 Eshop
 ESP
+ESPs
 Espa
 Eswatini
 Eventbrite
+Everest
 EWONDO
 exfiltration
 EXPERIMENTSTEP
@@ -327,6 +331,8 @@ GLOBALCONTROLGROUP
 GLOBALSTATECHANGE
 granularization
 granularized
+granularscimapi
+legacyscimapi
 GRAVTY
 Grindr
 Grotesk
@@ -898,6 +904,8 @@ USERDELETEREQUEST
 useridentifier
 USERORPHAN
 validreg
+Validity
+Validity's
 VARCHAR
 videosmart
 viewports
@@ -927,11 +935,13 @@ Whitelabeled
 whitelabeling
 WiFi
 Winback
+winbacks
 wishlisted
 Wistia
 wordmap
 WordPress
 wordprocessor
+Wormholy
 WWDC
 Wyng
 Xamarin

@@ -46,7 +46,7 @@ Por exemplo, se você iniciar uma campanha de e-mail com limite de frequência, 
 
 ## Campanhas de mensagens no app {#in-app-message-campaigns}
 
-Diferentemente de push ou e-mail, as mensagens no app são entregues aos dispositivos no início da sessão e armazenadas em cache localmente até que o gatilho seja acionado. Quando você edita uma campanha de mensagem no app ativa — como interrompê-la, definir uma [data de término]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger), ativar **Reavaliar elegibilidade da campanha antes de exibir**, atualizar o conteúdo, alterar o gatilho da mensagem ou atualizar o público-alvo — a configuração atualizada se propaga quando os dispositivos buscam os gatilhos no próximo início de sessão.
+Diferentemente de push ou e-mail, as mensagens no app são entregues aos dispositivos no início da sessão e armazenadas em cache localmente até que o gatilho seja acionado. Quando você edita uma campanha de mensagem no app ativa — como interrompê-la, definir uma [data de término]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger), ativar **Reavaliar elegibilidade da campanha antes de exibir**, atualizar o conteúdo, alterar o gatilho da mensagem ou atualizar o público-alvo — a configuração atualizada se propaga quando os dispositivos buscam os gatilhos no próximo início de sessão.
 
 Espere o seguinte:
 
@@ -63,7 +63,7 @@ Se você lançou a campanha de mensagem no app errada, selecione **Stop Campaign
 
 Selecione **Reavaliar elegibilidade da campanha antes de exibir** nas configurações de entrega da sua campanha para que a Braze confirme a participação no público e o status da campanha logo antes de cada exibição. Isso ajuda a evitar impressões após uma campanha ser interrompida, arquivada ou ter passado da data de término. Você pode ativar ou desativar essa configuração após o lançamento, mas ela segue as mesmas regras de propagação que outras alterações: os dispositivos não recebem a configuração atualizada até a próxima sincronização de gatilhos.
 
-Para saber mais, consulte [Escolher usuários para direcionar]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target) e [Por que minha campanha de mensagem no app arquivada ainda está gerando impressões de mensagens no app?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
+Para saber mais, consulte [Escolher usuários para direcionar]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target) e [Por que minha campanha de mensagem no app arquivada ainda está gerando impressões de mensagens no app?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
 ## Campanhas disparadas {#triggered-campaigns}
 

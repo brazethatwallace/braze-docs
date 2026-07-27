@@ -12,7 +12,7 @@ description: "Braze에서 작업할 때 알아야 할 핵심 개념에 대해 �
 > Braze에 오신 것을 환영합니다! 이 문서 모음은 플랫폼을 시작하는 데 도움이 되며 Braze의 주요 용어, 기능 및 특징을 소개합니다. 이 페이지에서는 Braze에서 작업할 때 알아야 할 핵심 개념을 소개합니다.
 
 {% alert tip %}
-이 문서와 함께 무료 [실무자 학습 경로](https://learning.braze.com/page/practitioner) 강좌를 확인해 보시기를 적극 추천합니다. 이 강좌에는 특별한 로그인이나 계정이 필요하지 않습니다. Braze의 기술적인 개요를 찾고 있는 개발자라면 [개발자를 위한 시작하기]({{site.baseurl}}/developer_guide/getting_started/platform_overview)도 확인해 보세요.
+이 문서와 함께 무료 [실무자 학습 경로](https://learning.braze.com/page/practitioner) 강좌를 확인해 보시기를 적극 추천합니다. 이 강좌에는 특별한 로그인이나 계정이 필요하지 않습니다. Braze의 기술적인 개요를 찾고 있는 개발자라면 <a href="/docs/developer_guide/getting_started/platform_overview">개발자를 위한 시작하기</a> 도 확인해 보세요.
 {% endalert %}
 
 시작하기 섹션에서는 Braze의 일반적인 구현에 중점을 두고 설명합니다. 하지만 Braze는 매우 유연하며 다양한 방식으로 조직에 가치를 제공하도록 커스텀할 수 있습니다. 명확성과 간결성을 위해 엄격한 지침을 제공하는 대신 기본값 설정에 대한 설명적인 개요를 제공했습니다. 모든 조직이 각기 다른 요구사항을 가지고 있다는 것을 알고 있으며, Braze는 특정 요구사항에 맞는 다양한 커스텀 옵션을 제공할 수 있도록 설계되었습니다.

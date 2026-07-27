@@ -1,6 +1,8 @@
-Le raccourcissement de liens vous permet de raccourcir automatiquement les URL contenues dans les messages SMS ou RCS et de collecter des données analytiques sur le taux de clics, fournissant ainsi des indicateurs d'engagement supplémentaires pour mieux comprendre comment les utilisateurs interagissent avec vos campagnes.
+Le raccourcissement de liens vous permet de raccourcir automatiquement les URL contenues dans les messages SMS ou RCS et de collecter des données analytiques sur le taux de clics, fournissant ainsi des indicateurs d'engagement supplémentaires pour mieux comprendre comment les utilisateurs interagissent avec vos Campaigns.
 
 Le raccourcissement de liens peut être activé au [niveau de la variante du message]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) dans les Campaigns comme dans les Canvas. Lorsque le raccourcissement de liens est activé, les clics génèrent un [événement de clic SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) envoyé via Currents.
+
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
 
 Les liens sont raccourcis à l'aide de notre domaine court partagé (`brz.ai`) ou de votre domaine de raccourcissement de liens personnalisé, et sont valides pendant 9 semaines à compter de leur date de création. Un exemple d'URL raccourcie ressemble à `https://brz.ai/8jshX2dj`.
 
@@ -71,9 +73,9 @@ Pour des conseils sur le reciblage, consultez [Reciblage]({{site.baseurl}}/user_
 
 Oui. Vous pouvez recibler les utilisateurs ayant cliqué sur des URL en utilisant les [filtres de reciblage SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) ou les événements de clic SMS (`users.messages.sms.ShortLinkClick`) envoyés par Currents.
 
-### Le raccourcissement de liens fonctionne-t-il avec les liens profonds ou les liens universels ? {#does-link-shortening-work-with-deep-links-or-universal-links}
+### Le raccourcissement de liens fonctionne-t-il avec les deep links ou les liens universels ? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
-Le raccourcissement de liens ne fonctionne pas avec les liens profonds. En revanche, vous pouvez raccourcir les liens universels provenant de fournisseurs tiers tels que Branch ou Appsflyer, mais les utilisateurs peuvent rencontrer une brève redirection ou un effet de « scintillement ». Cela se produit parce que le lien raccourci passe d'abord par le web avant de résoudre vers le lien universel qui prend en charge l'ouverture de l'application. De plus, Braze n'est pas en mesure de résoudre les problèmes pouvant survenir lors du raccourcissement de liens universels, tels que la rupture de l'attribution ou des redirections inattendues.
+Le raccourcissement de liens ne fonctionne pas avec les deep links. En revanche, vous pouvez raccourcir les liens universels provenant de fournisseurs tiers tels que Branch ou Appsflyer, mais les utilisateurs peuvent rencontrer une brève redirection ou un effet de « scintillement ». Cela se produit parce que le lien raccourci passe d'abord par le web avant de résoudre vers le lien universel qui prend en charge l'ouverture de l'application. De plus, Braze n'est pas en mesure de résoudre les problèmes pouvant survenir lors du raccourcissement de liens universels, tels que la rupture de l'attribution ou des redirections inattendues.
 
 {% alert note %}
 Testez l'expérience utilisateur avant d'implémenter le raccourcissement de liens avec des liens universels pour confirmer qu'il répond à vos attentes.
@@ -81,7 +83,7 @@ Testez l'expérience utilisateur avant d'implémenter le raccourcissement de lie
 
 ### Les `send_ids` sont-ils associés aux événements de clic SMS ? {#are-send_ids-associated-with-sms-click-events}
 
-Non. Cependant, vous pouvez généralement associer les `send_ids` aux événements de clic en utilisant le [Générateur de requêtes]({{site.baseurl}}/query_builder) pour interroger les données Currents avec cette requête :
+Non. Cependant, vous pouvez généralement associer les `send_ids` aux événements de clic en utilisant le [générateur de requêtes]({{site.baseurl}}/query_builder) pour interroger les données Currents avec cette requête :
 
 ```sql
 SELECT c.*, s.send_id

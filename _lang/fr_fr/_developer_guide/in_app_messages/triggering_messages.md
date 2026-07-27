@@ -14,11 +14,11 @@ platform:
 
 > Découvrez comment déclencher des messages in-app grâce au SDK de Braze.
 
-## Déclencheurs et réception/distribution de messages {#message-triggers-and-delivery}
+## Déclencheurs et réception des messages {#message-triggers-and-delivery}
 
 Les messages in-app sont déclenchés lorsque le SDK enregistre l'un des types d'événements personnalisés suivants : `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase` et `Custom Event` (les deux derniers contenant des filtres de propriétés robustes).
 
-Au début de la session d'un utilisateur, Braze enverra tous les messages in-app éligibles à son appareil, tout en préchargeant simultanément les ressources pour minimiser la latence d'affichage. Si l'événement déclencheur comporte plusieurs messages in-app éligibles, seul le message ayant la priorité la plus élevée sera délivré. Pour plus d'informations, voir [Cycle de vie des sessions]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle).
+Au début de la session d'un utilisateur, Braze envoie tous les messages in-app éligibles à son appareil, tout en préchargeant simultanément les ressources pour minimiser la latence d'affichage. Si l'événement déclencheur comporte plusieurs messages in-app éligibles, seul le message ayant la priorité la plus élevée sera délivré. Pour plus d'informations, voir [Cycle de vie des sessions]({{site.baseurl}}/developer_guide/analytics/tracking_sessions).
 
 {% alert note %}
 Les messages in-app ne peuvent pas être déclenchés par l'API ou par des événements de l'API&#8212;uniquement par des événements personnalisés enregistrés par le SDK. Pour en savoir plus sur la journalisation, reportez-vous à la section [Journalisation des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events).
@@ -36,7 +36,21 @@ Un message in-app `inapp` (ou « [standard]({{site.baseurl}}/user_guide/message_
 
 Un message in-app `templated_iam` (ou « modélisé ») n'est pas encore modélisé avec les informations nécessaires. Braze doit effectuer une autre requête pour récupérer les informations avant que le message puisse apparaître.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+Les messages in-app sont livrés en tant que messages in-app modélisés lorsque l'option **Réévaluer l'éligibilité de la campagne avant l'affichage** est sélectionnée ou si l'une des étiquettes Liquid suivantes existe dans le message :
+
+- `canvas_entry_properties`
+- `connected_content`
+- Variables SMS telles que {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+Cela signifie que lors du démarrage de la session, l'appareil reçoit le déclencheur de ce message in-app au lieu du message entier. Lorsque l'utilisateur déclenche le message in-app, l'appareil de l'utilisateur effectue une requête réseau pour récupérer le message réel.
+
+{% alert note %}
+Le message ne sera pas livré si l'appareil n'a pas accès à Internet. Le message pourrait ne pas être livré si la logique Liquid prend trop de temps à se résoudre.
+{% endalert %}
+
 
 ## Paires clé-valeur {#key-value-pairs}
 
@@ -178,13 +192,13 @@ Pour un contrôle plus avancé du timing des messages, y compris le report et la
 {% subtab Android %}
 Pour Android, désélectionnez **Automatically Display In-App Messages** dans l'éditeur de configuration de Braze. Vous pouvez également définir `com_braze_inapp_show_inapp_messages_automatically` sur `false` dans le fichier `braze.xml` de votre projet Unity.
 
-Le fonctionnement initial de l'affichage des messages in-app peut être défini dans la configuration de Braze à l'aide de « In App Message Manager Initial Display Operation ».
+L'opération initiale d'affichage des messages in-app peut être définie dans la configuration de Braze à l'aide de « In App Message Manager Initial Display Operation ».
 {% endsubtab %}
 
 {% subtab iOS %}
 Pour iOS, définissez les écouteurs d'objets de jeu dans l'éditeur de configuration de Braze et assurez-vous que **Braze Displays In-App Messages** n'est pas sélectionné.
 
-Le fonctionnement initial de l'affichage des messages in-app peut être défini dans la configuration de Braze à l'aide de « In App Message Manager Initial Display Operation ».
+L'opération initiale d'affichage des messages in-app peut être définie dans la configuration de Braze à l'aide de « In App Message Manager Initial Display Operation ».
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -388,7 +402,7 @@ Dans l'exemple suivant, le message in-app spécifique à déclencher a été con
 ![Une campagne de messages in-app basée sur l'événement qui sera envoyée aux utilisateurs qui effectuent l'événement personnalisé « In-app message trigger » où « campaign_name » est égal à « Exemple de nom de campagne IAM ».]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
-Notez que ces messages in-app ne se déclencheront que si la notification push silencieuse est reçue pendant que l'application se trouve au premier plan.
+Ces messages in-app ne se déclencheront que si la notification push silencieuse est reçue pendant que l'application se trouve au premier plan.
 {% endalert %}
 {% endtab %}
 {% endtabs %}

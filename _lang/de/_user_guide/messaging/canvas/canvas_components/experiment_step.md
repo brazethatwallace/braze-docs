@@ -24,7 +24,7 @@ Um Experimentpfade zu verwenden, muss Ihr Canvas Konversions-Events enthalten. Z
 
 Experimentpfade eignen sich am besten zum Testen von Zustellung, Kadenz, Nachrichtentext und Kanalkombinationen.
 
-- **Zustellung:** Vergleichen Sie die Ergebnisse zwischen Nachrichten, die mit unterschiedlichen zeitlichen [Verzögerungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) gesendet werden, basierend auf Nutzeraktionen ([Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)) und unter Verwendung von [intelligentem Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
+- **Zustellung:** Vergleichen Sie die Ergebnisse zwischen Nachrichten, die mit unterschiedlichen zeitlichen [Verzögerungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) gesendet werden, basierend auf Nutzeraktionen ([Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)) und unter Verwendung von [intelligentem Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#step-1-add-intelligent-timing-1).<br><br>
 - **Kadenz:** Testen Sie mehrere Messaging-Abläufe über einen bestimmten Zeitraum. Sie könnten beispielsweise zwei verschiedene Onboarding-Kadenzen testen:
     - Kadenz 1: 2 Nachrichten in den ersten 2 Wochen senden
     - Kadenz 2: 3 Nachrichten in den ersten 2 Wochen senden
@@ -48,12 +48,12 @@ Sie können auch festlegen, ob Nutzer:innen in der Kontrollgruppe den Canvas wei
 ![Experiment-Einstellungen, in denen Sie Pfade hinzufügen und den Prozentsatz der Nutzer:innen in jedem Pfad verteilen können.]({% image_buster /assets/img/experiment_step/exp_settings.png %})
 
 {% alert note %}
-Wenn die erneute Canvas-Berechtigung aktiviert ist, durchlaufen Nutzer:innen, die den Canvas betreten und einen zufällig gewählten Pfad nehmen, denselben Pfad erneut, wenn sie erneut berechtigt werden und den Canvas wieder betreten. Dies gewährleistet die Validität des Experiments und der zugehörigen Analytics. Wenn der Schritt die Pfadzuweisung immer zufällig vornehmen soll, wählen Sie **Randomized Paths in Experiment Paths**. Diese Option ist nicht verfügbar, wenn Winning Path oder Personalized Paths verwendet werden.
+Wenn die erneute Canvas-Berechtigung aktiviert ist, durchlaufen Nutzer:innen, die den Canvas betreten und einen zufällig gewählten Pfad nehmen, denselben Pfad erneut, wenn sie erneut berechtigt werden und den Canvas wieder betreten. Dies gewährleistet die Validität des Experiments und der zugehörigen Analytics. Wenn der Schritt die Pfadzuweisung immer zufällig vornehmen soll, wählen Sie **Randomized Paths in Experiment Paths**. Diese Option ist nicht verfügbar, wenn Winning Path oder personalisierte Pfade verwendet werden.
 {% endalert %}
 
-### 2. Schritt: Winning Path oder Personalized Paths aktivieren (optional) {#step-2}
+### 2. Schritt: Winning Path oder personalisierte Pfade aktivieren (optional) {#step-2}
 
-Sie können Ihr Experiment optimieren, indem Sie [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path) oder [Personalized Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths) aktivieren. Beide Optionen testen Ihre Pfade zunächst mit einem Teil Ihrer Zielgruppe. Nach Abschluss des Experiments werden die verbleibenden und nachfolgenden Nutzer:innen entweder über den insgesamt leistungsstärksten Pfad (Winning Path) oder den für jede:n Nutzer:in leistungsstärksten Pfad (Personalized Paths) geleitet.
+Sie können Ihr Experiment optimieren, indem Sie [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path) oder [personalisierte Pfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths) aktivieren. Beide Optionen testen Ihre Pfade zunächst mit einem Teil Ihrer Zielgruppe. Nach Abschluss des Experiments werden die verbleibenden und nachfolgenden Nutzer:innen entweder über den insgesamt leistungsstärksten Pfad (Winning Path) oder den für jede:n Nutzer:in leistungsstärksten Pfad (personalisierte Pfade) geleitet.
 
 ### 3. Schritt: Pfade erstellen {#step-3-create-paths}
 
@@ -64,12 +64,12 @@ Zuletzt müssen Sie Ihre nachgelagerten Pfade aufbauen. Wählen Sie **Done** und
 Beachten Sie, dass Pfade und ihre nachgelagerten Schritte nach der Erstellung nicht mehr aus einem Canvas entfernt werden können. Nach dem Start können Sie jedoch die Zielgruppenverteilung über die Pfade nach Bedarf anpassen. Wenn Sie beispielsweise einen Tag nach dem Start eines Canvas anhand der Analytics feststellen, dass ein Pfad den anderen überlegen ist, können Sie diesen Pfad auf 100 % und die anderen auf 0 % setzen. Oder Sie können je nach Bedarf weiterhin Nutzer:innen über mehrere Pfade leiten.
 
 {% alert important %}
-Um eine Kontamination des Experiments zu vermeiden: Wenn Ihr Canvas ein aktives oder laufendes Winning-Path- oder Personalized-Path-Experiment hat und Sie den aktiven Canvas aktualisieren – unabhängig davon, ob Sie den Experimentpfad-Schritt selbst aktualisieren – wird das laufende Experiment beendet und der Experiment-Schritt ermittelt keinen Winning Path oder Personalized Paths. Um das Experiment neu zu starten, können Sie den bestehenden Experimentpfad trennen und einen neuen starten oder den Canvas duplizieren und einen neuen Canvas starten. Andernfalls durchlaufen Nutzer:innen den Experimentpfad, als wäre keine Optimierungsmethode ausgewählt worden. Sie können Personalized Paths oder Winning Paths auch nicht für einen bereits aktiven Canvas mit einem Experimentpfad-Schritt aktivieren.<br><br>Weitere Informationen finden Sie unter [Canvases nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits).
+Um eine Kontamination des Experiments zu vermeiden: Wenn Ihr Canvas ein aktives oder laufendes Winning-Path- oder Personalized-Path-Experiment hat und Sie den aktiven Canvas aktualisieren – unabhängig davon, ob Sie den Experimentpfad-Schritt selbst aktualisieren – wird das laufende Experiment beendet und der Experiment-Schritt ermittelt keinen Winning Path und keine personalisierten Pfade. Um das Experiment neu zu starten, können Sie den bestehenden Experimentpfad trennen und einen neuen starten oder den Canvas duplizieren und einen neuen Canvas starten. Andernfalls durchlaufen Nutzer:innen den Experimentpfad, als wäre keine Optimierungsmethode ausgewählt worden. Sie können personalisierte Pfade oder Winning Path auch nicht für einen bereits aktiven Canvas mit einem Experimentpfad-Schritt aktivieren.<br><br>Weitere Informationen finden Sie unter [Canvases nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits).
 {% endalert %}
 
 ## Performance verfolgen {#tracking-performance}
 
-Wählen Sie auf der Seite **Canvas Analytics** den Experimentpfad aus, um eine [detaillierte Tabelle]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant) zu öffnen, die dem Tab **Analyze Variants** entspricht und detaillierte Performance- und Conversion-Statistiken über die Pfade hinweg vergleicht. Sie können die Tabelle auch als CSV exportieren und prozentuale Veränderungen für relevante Metriken im Vergleich zum ausgewählten Pfad oder der Kontrollgruppe vergleichen.
+Wählen Sie auf der Seite **Canvas Analytics** den Experimentpfad aus, um eine [detaillierte Tabelle]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch) zu öffnen, die dem Tab **Analyze Variants** entspricht und detaillierte Performance- und Conversion-Statistiken über die Pfade hinweg vergleicht. Sie können die Tabelle auch als CSV exportieren und prozentuale Veränderungen für relevante Metriken im Vergleich zum ausgewählten Pfad oder der Kontrollgruppe vergleichen.
 
 Jeder Schritt in jedem Pfad zeigt Statistiken in der [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)-Ansicht an, genau wie jeder andere Canvas-Schritt. Beachten Sie jedoch, dass die Analytics einzelner Schritte und die Experimentpfad-Analytics Conversions unterschiedlich messen:
 
@@ -78,16 +78,16 @@ Jeder Schritt in jedem Pfad zeigt Statistiken in der [Canvas Analytics]({{site.b
 
 Da diese Conversion-Fenster unterschiedliche Startpunkte haben, können sie unterschiedliche Konversionsraten für denselben Pfad anzeigen – insbesondere wenn es Verzögerungen zwischen dem Experiment-Schritt und einer nachgelagerten Nachricht gibt. Für den zuverlässigsten Vergleich über Pfade hinweg verwenden Sie die Experimentpfad-Analytics.
 
-### Winning Path und Personalized Paths – Performance {#winning-path-and-personalized-paths-performance}
+### Winning Path und personalisierte Pfade – Performance {#winning-path-and-personalized-paths-performance}
 
-Nutzen Sie Winning Paths, um die Performance über einen Zeitraum zu verfolgen und nachfolgende Nutzer:innen dann automatisch über den leistungsstärksten Pfad zu leiten. Weitere Informationen zu den Analytics, wenn **Winning Path** oder **Personalized Paths** für Ihr Experiment aktiviert sind, finden Sie unter:
+Nutzen Sie Winning Path, um die Performance über einen Zeitraum zu verfolgen und nachfolgende Nutzer:innen dann automatisch über den leistungsstärksten Pfad zu leiten. Weitere Informationen zu den Analytics, wenn **Winning Path** oder **personalisierte Pfade** für Ihr Experiment aktiviert sind, finden Sie unter:
 
 - [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path#analytics)
-- [Personalized Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths#analytics)
+- [Personalisierte Pfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths#analytics)
 
 Die Gewinner-Metrik und die in den Experimentpfaden angezeigten Analytics können sich unterscheiden:
 
-- Das Konversions-Event, das Sie für **Winning Path** oder **Personalized Paths** konfigurieren, bestimmt, wie Braze Pfade vergleicht und während des Experiment-Fensters einen Gewinner auswählt.
+- Das Konversions-Event, das Sie für **Winning Path** oder **personalisierte Pfade** konfigurieren, bestimmt, wie Braze Pfade vergleicht und während des Experiment-Fensters einen Gewinner auswählt.
 - Die Experimentpfad-Analytics folgen weiterhin dem gleichen Canvas-[Konversions-Events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events)-Framework wie der Rest des Canvas, einschließlich Ihres [primären Konversions-Events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events#primary-conversion-event). Daher stimmen die im Dashboard hervorgehobenen Metriken möglicherweise nicht mit der Gewinner-Metrik überein.
 - Bei Push unterscheiden sich *Direkte Öffnungen* und *Gesamtöffnungen*. Weitere Informationen finden Sie unter [Beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 

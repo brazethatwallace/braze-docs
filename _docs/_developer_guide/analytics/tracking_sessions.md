@@ -263,7 +263,7 @@ A user profile can have 0 sessions if the user was created outside the SDK:
 - **Created by CSV import:** If a user is imported through [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) without values for first or last session fields, the profile exists with 0 sessions.
 ### Some users are not logging sessions
 
-Because sessions are tracked only after the SDK is initialized, users who don't trigger SDK initialization don't log any sessions. This typically happens when your app uses conditional logic before initializing the SDK, such as delaying initialization behind a login flow, consent prompt, or feature flag. For implementation guidance, see [Delayed initialization]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift). In these cases, any user who doesn't satisfy the condition never starts a session.
+Because sessions are tracked only after the SDK is initialized, users who don't trigger SDK initialization don't log any sessions. This typically happens when your app uses conditional logic before initializing the SDK, such as delaying initialization behind a login flow, consent prompt, or feature flag. For implementation guidance, see [Delayed initialization]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional). In these cases, any user who doesn't satisfy the condition never starts a session.
 
 If some users are logging sessions and others aren't, verify the following:
 

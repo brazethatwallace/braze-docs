@@ -59,7 +59,7 @@ A continuación, elige cómo quieres empezar a construir:
 
 - **Editor de arrastrar y soltar:** Empieza con un banner en blanco y construye visualmente con bloques y filas.
 - **Editor HTML:** Empieza con un banner en blanco y trabaja directamente en HTML.
-- **Plantillas:** Abre la biblioteca de plantillas y selecciona un diseño de **Plantillas de Braze** o **Tus plantillas**. Las plantillas se abren en el editor de arrastrar y soltar para su personalización.
+- **Plantillas:** Abre la biblioteca de plantillas y selecciona un diseño de **Braze Templates** o **Your Templates**. Las plantillas se abren en el editor de arrastrar y soltar para su personalización.
 
 ![Opciones para elegir el editor de arrastrar y soltar, el editor HTML o plantillas para tu banner.]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
 
@@ -159,9 +159,7 @@ Para la referencia completa del puente JavaScript, consulta [Código personaliza
 
 Puedes añadir propiedades personalizadas a un banner para adjuntar metadatos estructurados, como cadenas u objetos JSON. Estas propiedades no afectan cómo se muestra el banner, pero pueden [accederse a través del SDK de Braze]({{site.baseurl}}/developer_guide/banners/placements) para modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
 
-- Enviar metadatos para tus análisis de terceros o integraciones.
-- Usar metadatos como un `timestamp` u objeto JSON para desencadenar lógica condicional.
-- Controlar el comportamiento de un banner basándote en metadatos incluidos como `ratio` o `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 Las propiedades personalizadas funcionan de la misma manera tanto en el editor de arrastrar y soltar como en el editor HTML. Para añadir una propiedad personalizada, selecciona **Settings** > **Properties** > **Add property**.
 
@@ -220,7 +218,7 @@ Braze te permite realizar un seguimiento de los [eventos de conversión]({{site.
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) y [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) y [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
 
 Para controlar la reelegibilidad en los pasos de banner de Canvas, usa la configuración de reentrada de Canvas. Para más información, consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 

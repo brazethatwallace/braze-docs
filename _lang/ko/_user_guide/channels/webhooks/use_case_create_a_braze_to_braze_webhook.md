@@ -28,7 +28,7 @@ Canvas에 [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/can
 
 Canvas 내에서 고객 프로필을 업데이트하려면([커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) 수정, [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events) 기록, [구매]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) 기록 포함) Braze-to-Braze 웹훅 대신 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)를 사용하세요.
 
-사용자 업데이트는 여러 변경 사항을 그룹화하여 일괄 전송하므로 웹훅보다 빠릅니다. 웹훅보다 설정이 간편하며 [고급 JSON 작성기]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer)를 통해 복잡한 업데이트도 지원합니다. 예를 들어, 사용자가 메시지를 본 횟수를 카운트하려면 Braze-to-Braze 웹훅 대신 사용자 업데이트의 [증가 및 감소 기능]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values)을 사용하세요.
+사용자 업데이트는 여러 변경 사항을 그룹화하여 일괄 전송하므로 웹훅보다 빠릅니다. 웹훅보다 설정이 간편하며 [고급 JSON 작성기]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor)를 통해 복잡한 업데이트도 지원합니다. 예를 들어, 사용자가 메시지를 본 횟수를 카운트하려면 Braze-to-Braze 웹훅 대신 사용자 업데이트의 [증가 및 감소 기능]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values)을 사용하세요.
 
 {% alert tip %}
 Canvas에 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)를 추가하여 JSON 작성기를 사용해 사용자의 속성, 이벤트, 구매를 업데이트할 수 있습니다.
@@ -36,7 +36,7 @@ Canvas에 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/
 
 ## Braze-to-Braze 웹훅을 사용해야 하는 경우 {#when-to-use-a-braze-to-braze-webhook}
 
-사용자 업데이트는 고객 프로필 업데이트를 위해 Braze-to-Braze 웹훅이 수행하는 거의 모든 작업을 처리할 수 있습니다. 단순한 커스텀 속성을 넘어서는 복잡한 업데이트의 경우 [고급 JSON 작성기]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer)를 사용할 수 있습니다.
+사용자 업데이트는 고객 프로필 업데이트를 위해 Braze-to-Braze 웹훅이 수행하는 거의 모든 작업을 처리할 수 있습니다. 단순한 커스텀 속성을 넘어서는 복잡한 업데이트의 경우 [고급 JSON 작성기]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor)를 사용할 수 있습니다.
 
 Send to Destination은 웹훅 구성 없이 Canvas 내에서 두 번째 Canvas를 트리거하는 더 간단한 방법을 제공합니다.
 
@@ -78,7 +78,7 @@ Braze-to-Braze 웹훅을 생성하는 일반적인 워크플로는 다음 단계
 
 ### 요청 헤더 및 메서드 {#request-headers-and-method}
 
-Braze는 API 키를 포함하는 승인용 HTTP 헤더와 콘텐츠 유형을 선언하는 헤더가 필요합니다.
+Braze는 API 키를 포함하는 승인용 HTTP 헤더와 콘텐츠-유형을 선언하는 헤더가 필요합니다.
 
 - **요청 헤더:**
   - **Authorization:** `Bearer YOUR_API_KEY`

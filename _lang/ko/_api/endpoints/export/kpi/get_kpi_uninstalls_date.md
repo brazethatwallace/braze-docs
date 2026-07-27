@@ -1,6 +1,6 @@
 ---
-nav_title: "GET: 날짜별 일일 앱 제거에 대한 KPI 내보내기"
-article_title: "GET: 날짜별 일일 앱 제거에 대한 KPI 내보내기"
+nav_title: "GET: 날짜별 일일 앱 제거에 대한 핵심 성과 지표(KPI) 내보내기"
+article_title: "GET: 날짜별 일일 앱 제거에 대한 핵심 성과 지표(KPI) 내보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -9,7 +9,7 @@ description: "이 문서에서는 날짜별 일일 앱 제거 내보내기 Braze
 
 ---
 {% api %}
-# 날짜별 일일 앱 제거에 대한 KPI 내보내기 {#export-kpis-for-daily-app-uninstalls-by-date}
+# 날짜별 일일 앱 제거에 대한 핵심 성과 지표(KPI) 내보내기 {#export-kpis-for-daily-app-uninstalls-by-date}
 {% apimethod get %}
 /kpi/uninstalls/data_series
 {% endapimethod %}
@@ -20,7 +20,7 @@ description: "이 문서에서는 날짜별 일일 앱 제거 내보내기 Braze
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `kpi.uninstalls.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `kpi.uninstalls.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -47,7 +47,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/uninstalls/d
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "data" : [
         {
             "time" : (string) the date as ISO 8601 date,

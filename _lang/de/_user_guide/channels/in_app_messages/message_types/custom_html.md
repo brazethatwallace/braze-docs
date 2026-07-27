@@ -21,31 +21,31 @@ HTML-In-App-Nachrichten ermöglichen eine größere Kontrolle über das Erschein
 - Angepasste Schriftarten und Stile
 - Videos
 - Mehrere Bilder
-- On-Click-Verhalten
+- Klickverhalten
 - Interaktive Komponenten
 - Angepasste Animationen
 
-Angepasste HTML-Nachrichten können die [JavaScript-Bridge](#javascript-bridge)-Methoden verwenden, um Ereignisse zu protokollieren, angepasste Attribute zu setzen, die Nachricht zu schließen und mehr! Schauen Sie sich unser [GitHub-Repository](https://github.com/braze-inc/in-app-message-templates) an, das detaillierte Anleitungen enthält, wie Sie HTML-In-App-Nachrichten für Ihre Bedürfnisse verwenden und anpassen können, sowie eine Reihe von HTML5-In-App-Nachrichten-Templates, die Ihnen den Einstieg erleichtern.
+Angepasste HTML-Nachrichten können die Methoden der [JavaScript Bridge](#javascript-bridge) verwenden, um Ereignisse zu protokollieren, angepasste Attribute festzulegen, die Nachricht zu schließen und vieles mehr! Sehen Sie sich unser [GitHub-Repository](https://github.com/braze-inc/in-app-message-templates) an, das detaillierte Anleitungen zur Verwendung und Anpassung von HTML-In-App-Nachrichten für Ihre Anforderungen enthält, sowie eine Reihe von HTML5-In-App-Nachrichten-Templates, die Ihnen den Einstieg erleichtern.
 
 {% alert note %}
-Um HTML-In-App-Nachrichten über das Web-SDK zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben: zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen, da HTML-In-App-Nachrichten JavaScript ausführen können, weshalb ein Website-Administrator sie aktivieren muss.
+Um HTML-In-App-Nachrichten über das Web-SDK zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben: zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen, da HTML-In-App-Nachrichten JavaScript ausführen können, weshalb ein:e Website-Administrator:in sie aktivieren muss.
 {% endalert %}
 
 ## JavaScript-Bridge {#javascript-bridge}
 
 {% include javascript_bridge/reference.md %}
 
-## Link-basierte Aktionen {#link-based-actions}
+## Linkbasierte Aktionen {#link-based-actions}
 
-Zusätzlich zu angepasstem JavaScript können Braze-SDKs auch Analysedaten mit diesen praktischen URL-Shortcuts senden. Beachten Sie, dass diese Abfrageparameter und URL-Schemata alle case-sensitive sind.
+Zusätzlich zu angepasstem JavaScript können Braze SDKs auch Analysedaten mit diesen praktischen URL-Shortcuts senden. Beachten Sie, dass diese Abfrageparameter und URL-Schemata alle case-sensitiv sind.
 
 ### Button-Klick-Tracking (veraltet) {#button-click-tracking-deprecated}
 
 {% alert warning %}
-Die Verwendung von `abButtonID` wird bei Nachrichtentypen mit [HTML mit Vorschau]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview) nicht unterstützt. Weitere Informationen finden Sie in unserem [Upgrade-Leitfaden]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
+Die Verwendung von `abButtonID` wird in Nachrichtentypen mit [HTML mit Vorschau]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview) nicht unterstützt. Weitere Informationen finden Sie in unserem [Upgrade-Leitfaden]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
 {% endalert %}
 
-Um Button-Klicks für die In-App-Nachrichten-Analyse zu protokollieren, können Sie `abButtonId` als Abfrageparameter zu jedem Deeplink, jeder Weiterleitungs-URL oder jedem Ankerelement `<a>` hinzufügen. Verwenden Sie `?abButtonId=0`, um einen „Button 1“-Klick zu protokollieren, und `?abButtonId=1`, um einen „Button 2“-Klick zu protokollieren.
+Um Button-Klicks für die In-App-Nachricht-Analytics zu protokollieren, können Sie `abButtonId` als Abfrageparameter zu jedem Deeplink, jeder Weiterleitungs-URL oder jedem Ankerelement `<a>` hinzufügen. Verwenden Sie `?abButtonId=0`, um einen „Button 1“-Klick zu protokollieren, und `?abButtonId=1`, um einen „Button 2“-Klick zu protokollieren.
 
 Wie bei anderen URL-Parametern sollte der erste Parameter mit einem Fragezeichen `?` beginnen, während nachfolgende Parameter durch ein kaufmännisches Und `&` getrennt werden sollten.
 
@@ -65,7 +65,7 @@ In-App-Nachrichten unterstützen nur Button-1- und Button-2-Klicks. URLs, die ke
 
 Um Links außerhalb Ihrer App in einem neuen Fenster zu öffnen, setzen Sie `?abExternalOpen=true`. Die Nachricht wird geschlossen, bevor der Link geöffnet wird.
 
-Für Deeplinking öffnet Braze Ihre URL unabhängig vom Wert von `abExternalOpen`.
+Beim Deeplinking öffnet Braze Ihre URL unabhängig vom Wert von `abExternalOpen`.
 
 ### Als Deeplink öffnen (nur mobil) {#open-as-deeplink-mobile-only}
 
@@ -88,22 +88,10 @@ Das Nachrichtenvorschau-Panel des Editors zeigt eine realistische Vorschau, die 
 ![Interaktion mit der HTML-Vorschau durch Wischen zwischen Seiten.]({% image_buster /assets/img/iam-beta-javascript-preview.gif %})
 
 {% alert tip %}
-Alle `brazeBridge`-JavaScript-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzer:innenprofile, während Sie im Dashboard eine Vorschau anzeigen.
+Alle `brazeBridge`-JavaScript-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzerprofile, während Sie die Vorschau im Dashboard anzeigen.
 {% endalert %}
 
-### SDK-Anforderungen {#supported-sdk-versions}
-
-Um die HTML-Vorschau für In-App-Nachrichten zu verwenden, müssen Sie auf die folgenden Mindestversionen des Braze SDK aktualisieren:
-
-{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
-
-{% alert warning %}
-Da dieser Nachrichtentyp nur von bestimmten neueren SDK-Versionen empfangen werden kann, erhalten Nutzer:innen mit nicht unterstützten SDK-Versionen die Nachricht nicht. Erwägen Sie, diesen Nachrichtentyp erst zu verwenden, nachdem ein erheblicher Teil Ihrer Nutzerbasis erreichbar ist, oder richten Sie sich nur an Nutzer:innen, deren App-Version neuer als die Anforderungen ist. Erfahren Sie mehr über das [Filtern nach der neuesten App-Version]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
-{% endalert %}
-
-### Eine Campaign erstellen {#instructions}
-
-Ihre mobilen App-Nutzer:innen müssen auf die unterstützten SDK-Versionen aktualisieren, um eine In-App-Nachricht mit **angepasstem Code** zu erhalten. Wir empfehlen, [Nutzer:innen zum Aktualisieren aufzufordern]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features), bevor Sie Campaigns starten, die von neueren Braze-SDK-Versionen abhängen.
+### Campaign erstellen {#instructions}
 
 #### Asset-Dateien {#asset-files}
 
@@ -111,7 +99,7 @@ Beim Erstellen von In-App-Nachrichten mit angepasstem Code und HTML-Upload könn
 
 Die folgenden Dateitypen werden für den Upload unterstützt:
 
-| Dateityp           | Dateierweiterung                  |
+| Dateityp           | Dateiendung                       |
 | :------------------ | :-------------------------------- |
 | Schriftdateien      | `.ttf`, `.woff`, `.otf`, `.woff2` |
 | SVG-Bilder          | `.svg`                            |
@@ -128,28 +116,28 @@ Braze empfiehlt das Hochladen von Assets in die Medienbibliothek aus zwei Gründ
 
 Sie können neue oder vorhandene Assets zu Ihrer Campaign hinzufügen.
 
-Um neue Assets zu Ihrer Campaign hinzuzufügen, verwenden Sie den Drag-and-Drop-Bereich zum Hochladen einer Datei. Assets, die in diesem Bereich hinzugefügt werden, werden auch automatisch zur Medienbibliothek hinzugefügt. Um Assets hinzuzufügen, die Sie bereits in die Medienbibliothek hochgeladen haben, wählen Sie **Aus Medienbibliothek hinzufügen**.
+Um neue Assets zu Ihrer Campaign hinzuzufügen, verwenden Sie den Drag-and-Drop-Bereich zum Hochladen einer Datei. Assets, die in diesem Bereich hinzugefügt werden, werden auch automatisch zur Medienbibliothek hinzugefügt. Um Assets hinzuzufügen, die Sie bereits in die Medienbibliothek hochgeladen haben, wählen Sie **Add from Media Library**.
 
-Nachdem Ihre Assets hinzugefügt wurden, erscheinen sie im Abschnitt **Assets für diese Campaign**.
+Nachdem Ihre Assets hinzugefügt wurden, erscheinen sie im Bereich **Assets for this campaign**.
 
 Wenn der Dateiname eines Assets mit dem eines lokalen HTML-Assets übereinstimmt, wird es automatisch ersetzt (zum Beispiel wird `cat.png` hochgeladen und `<img src="cat.png" />` existiert).
 
-Andernfalls fahren Sie mit der Maus über ein Asset in der Liste und wählen Sie <i class="fas fa-copy"></i> **Kopieren**, um die URL der Datei in Ihre Zwischenablage zu kopieren. Fügen Sie dann die kopierte Asset-URL in Ihr HTML ein, wie Sie es normalerweise beim Referenzieren eines Remote-Assets tun würden.
+Andernfalls fahren Sie mit der Maus über ein Asset in der Liste und wählen Sie <i class="fas fa-copy"></i> **Copy**, um die URL der Datei in Ihre Zwischenablage zu kopieren. Fügen Sie dann die kopierte Asset-URL in Ihr HTML ein, wie Sie es normalerweise beim Referenzieren eines Remote-Assets tun würden.
 
 ### HTML-Editor {#html-editor}
 
-Änderungen, die Sie im HTML vornehmen, werden automatisch im Vorschau-Panel gerendert, während Sie tippen. Alle [`brazeBridge`-JavaScript](#bridge)-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzer:innenprofile, während Sie im Dashboard eine Vorschau anzeigen.
+Änderungen, die Sie im HTML vornehmen, werden automatisch im Vorschau-Panel gerendert, während Sie tippen. Alle [`brazeBridge`-JavaScript](#bridge)-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzerprofile, während Sie die Vorschau im Dashboard anzeigen.
 
 {% alert tip %}
-Sie können <i class="fa-solid fa-magnifying-glass"></i> **Suchen** im HTML-Editor auswählen, um in Ihrem Code zu suchen!
+Sie können <i class="fa-solid fa-magnifying-glass" aria-label="Suchen"></i> **Search** im HTML-Editor auswählen, um in Ihrem Code zu suchen!
 {% endalert %}
 
 ### Button-Tracking {#button-tracking-improvements}
 
-Sie können die Performance innerhalb Ihrer In-App-Nachricht mit angepasstem Code mithilfe der JavaScript-Methode [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) verfolgen. Dies ermöglicht es Ihnen, „Button 1“, „Button 2“ und „Body-Klicks“ programmatisch mit `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` bzw. `brazeBridge.logClick()` zu verfolgen.
+Sie können die Performance innerhalb Ihrer In-App-Nachricht mit angepasstem Code mithilfe der JavaScript-Methode [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) verfolgen. Damit können Sie programmatisch „Button 1“, „Button 2“ und „Body Clicks“ mit `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` bzw. `brazeBridge.logClick()` tracken.
 
 | Klicks     | Methode                       |
-| ---------- | ----------------------------- |
+| ---------- | ---------------------------- |
 | Button 1   | `brazeBridge.logClick('0')` |
 | Button 2   | `brazeBridge.logClick('1')` |
 | Body-Klick | `brazeBridge.logClick()`    |
@@ -160,25 +148,24 @@ Sie können die Performance innerhalb Ihrer In-App-Nachricht mit angepasstem Cod
 Diese Methode des Button-Trackings ersetzt die früheren automatischen Klick-Tracking-Methoden (wie `?abButtonId=0`), die entfernt wurden.
 {% endalert %}
 
-Verwenden Sie [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) für HTML-Nachrichten mit Vorschau, wenn Sie mehr als zwei getrackte Buttons benötigen. Button 1 und Button 2 entsprechen `'0'` und `'1'`; zusätzliche Buttons verwenden angepasste IDs (bis zu 100 eindeutige IDs pro Campaign). Informationen zu Zeichenbeschränkungen für Button-IDs finden Sie unter [Button-Tracking](#button-tracking-improvements).
+Verwenden Sie [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) für HTML-Nachrichten mit Vorschau, wenn Sie mehr als zwei getrackte Buttons benötigen. Button 1 und Button 2 werden `'0'` und `'1'` zugeordnet; zusätzliche Buttons verwenden angepasste IDs (bis zu 100 eindeutige IDs pro Campaign). Informationen zu Zeichenbeschränkungen für Button-IDs finden Sie unter [Button-Tracking](#button-tracking-improvements).
 
 ### Fehlerbehebung bei angepassten HTML-Links und Schließverhalten {#troubleshoot-custom-html-links-and-close-behavior}
 
 #### Button-Klicks öffnen den Link nicht {#button-clicks-do-not-open-the-link}
 
-Wenn ein Button in Ihrer angepassten HTML-In-App-Nachricht beim Klicken nicht lädt, überprüfen Sie, ob der Link eine gültige URL oder ein unterstütztes Deeplink-Schema verwendet. Fehlerhafte URLs oder nicht unterstützte angepasste Schemata können verhindern, dass die Klick-Aktion abgeschlossen wird.
+Wenn ein Button in Ihrer angepassten HTML-In-App-Nachricht beim Klicken nicht lädt, überprüfen Sie, ob der Link eine gültige URL oder ein unterstütztes Deeplink-Schema verwendet. Fehlerhafte URLs oder nicht unterstützte angepasste Schemata können verhindern, dass die Klickaktion abgeschlossen wird.
 
 #### Body-Klicks beim Schließen der Nachricht {#body-clicks-when-closing-the-message}
 
-Der Aufruf von `brazeBridge.closeMessage()` schließt die Nachricht, protokolliert aber allein keine Analysedaten. Um einen Body-Klick zu protokollieren, wenn Nutzer:innen die Nachricht schließen, rufen Sie `brazeBridge.logClick()` vor `brazeBridge.closeMessage()` auf, damit die Klick-Protokollierung plattformübergreifend konsistent bleibt.
+Der Aufruf von `brazeBridge.closeMessage()` schließt die Nachricht, protokolliert aber allein keine Analytics-Daten. Um einen Body-Klick zu protokollieren, wenn Nutzer:innen die Nachricht schließen, rufen Sie `brazeBridge.logClick()` vor `brazeBridge.closeMessage()` auf, damit das Klick-Logging plattformübergreifend konsistent bleibt.
 
 ### Nicht abwärtskompatible Änderungen {#backward-incompatible-changes}
 
-1. Die bemerkenswerteste inkompatible Änderung bei diesem neuen Nachrichtentyp sind die SDK-Anforderungen. Nutzer:innen, deren App-SDK die Mindest-[SDK-Versionsanforderungen](#supported-sdk-versions) nicht erfüllt, bekommen die Nachricht nicht angezeigt.
-2. Der Deeplink `braze://close`, der zuvor auf mobilen Apps unterstützt wurde, wurde zugunsten der JavaScript-Methode `brazeBridge.closeMessage()` entfernt. Dies ermöglicht plattformübergreifende HTML-Nachrichten, da das Web keine Deeplinks unterstützt.
-3. Automatisches Klick-Tracking, das `?abButtonId=0` für Button-IDs verwendete, und „Body-Klick“-Tracking auf Schließen-Buttons wurden entfernt. Die folgenden Codebeispiele zeigen, wie Sie Ihr HTML ändern, um unsere neuen Klick-Tracking-JavaScript-Methoden zu verwenden:
+1. Der Deeplink `braze://close`, der zuvor in mobilen Apps unterstützt wurde, wurde zugunsten der JavaScript-Methode `brazeBridge.closeMessage()` entfernt. Dies ermöglicht plattformübergreifende HTML-Nachrichten, da das Internet keine Deeplinks unterstützt.
+2. Automatisches Klick-Tracking, das `?abButtonId=0` für Button-IDs verwendete, und „Body Click“-Tracking bei Schließen-Buttons wurden entfernt. Die folgenden Codebeispiele zeigen, wie Sie Ihr HTML ändern, um unsere neuen Klick-Tracking-JavaScript-Methoden zu verwenden:
 
-   | Vor | Nach |
+   | Vorher | Nachher |
    |:-------- |:------------|
    |<code>&lt;a href="braze://close"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick();brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|

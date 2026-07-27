@@ -84,7 +84,7 @@ Brazeクラウドデータ取り込み機能を使用すると、以下のこと
 
 ## データポイント使用量 {#data-point-usage}
 
-データポイントベースの課金をご利用の場合、クラウドデータ取り込みのデータポイント課金は、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track)経由の更新に対する課金と同等です。詳細については、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)を参照してください。
+データポイントベースの課金をご利用の場合、クラウドデータ取り込みのデータポイント課金は、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)経由の更新に対する課金と同等です。詳細については、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)を参照してください。
 
 {% alert important %}
 Brazeクラウドデータ取り込みは利用可能なレート制限にカウントされるため、別の方法でデータを送信している場合、レート制限はBraze APIとクラウドデータ取り込みの合計になります。

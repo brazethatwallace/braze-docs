@@ -16,12 +16,16 @@ search_rank: 8
 O Currents está incluído em determinados pacotes da Braze. Entre em contato com seu representante da Braze se tiver alguma dúvida ou quiser obter acesso.
 {% endalert %}
 
-Se você vir a mensagem "Você não tem mais integrações de Currents disponíveis" ao adicionar uma nova integração, as causas mais comuns são:
+## Solução de problemas {#troubleshooting}
+
+### Não é possível adicionar uma nova integração de Currents {#cannot-add-a-new-currents-integration}
+
+Se você vir a mensagem "Você não tem mais integrações de Currents disponíveis" ao adicionar uma nova integração, ou se o botão para adicionar um novo conector de Currents estiver desativado, as causas mais comuns são:
 
 - Nenhuma permissão de Currents foi adquirida para este espaço de trabalho.
 - A permissão de Currents está disponível em um espaço de trabalho diferente na sua empresa.
 
-Entre em contato com seu gerente de conta da Braze para solicitar uma permissão ou ajustar sua configuração.
+Para resolver isso, verifique outros espaços de trabalho na sua empresa. Um espaço de trabalho diferente pode mostrar uma permissão de Currents disponível. Se você precisar solicitar uma permissão ou ajustar sua configuração, entre em contato com seu gerente de conta da Braze.
 
 ## Requisitos {#requirements}
 

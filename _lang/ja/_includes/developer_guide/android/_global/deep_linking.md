@@ -50,7 +50,7 @@ public class CustomDeeplinkHandler implements IBrazeDeeplinkHandler {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 
   override fun gotoUri(context: Context, uriAction: UriAction) {
@@ -93,7 +93,7 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 BrazeDeeplinkHandler.setBrazeDeeplinkHandler(new IBrazeDeeplinkHandler() {
   @Override
   public void gotoUri(Context context, UriAction uriAction) {
@@ -118,7 +118,7 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(new IBrazeDeeplinkHandler() {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
   override fun gotoUri(context: Context, uriAction: UriAction) {
     val extras = uriAction.extras
@@ -163,7 +163,7 @@ Brazeがアプリ内でWebサイトのディープリンクを開く場合、そ
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
     .setCustomWebViewActivityClass(MyCustomWebViewActivity::class)
     ...
@@ -174,7 +174,7 @@ Braze.configure(this, brazeConfig);
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 val brazeConfig = BrazeConfig.Builder()
     .setCustomWebViewActivityClass(MyCustomWebViewActivity::class.java)
     ...
@@ -187,12 +187,12 @@ Braze.configure(this, brazeConfig)
 
 ## トラブルシューティング {#troubleshooting}
 
-プッシュ通知からのディープリンクがAndroidで動作しない場合は、以下の手順を試してください。
+プッシュ通知からのディープリンクがAndroidで動作しない場合は、以下のステップを試してください。
 
-1. **Braze以外でディープリンクをテストします。**メールやブラウザなど、別のアプリからディープリンクURLを開いてみてください。アプリが開かない場合、`AndroidManifest.xml`でディープリンクが正しく設定されていない可能性があります。詳細については、Androidの[Create Deep Links](https://developer.android.com/training/app-links/deep-linking)ドキュメントを参照してください。
-2. **自動ディープリンク処理が有効になっていることを確認します。**`braze.xml`で`com_braze_handle_push_deep_links_automatically`が`true`に設定されているか、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)でこのオプションを設定しているか確認してください。この設定がないと、プッシュ通知をタップしたときにBrazeがアプリとディープリンクの送信先を自動的に開きません。
-3. **ディープリンクハンドラーデリゲートを確認します。**カスタムの`IBrazeDeeplinkHandler`を設定している場合、`gotoUri`の実装がURIを正しく処理し、ドロップしていないことを確認してください。
-4. **チャネル間でテストします。**同じディープリンクがアプリ内メッセージでは動作するがプッシュからは動作しない場合、問題はディープリンク自体ではなく、プッシュのディープリンク処理にある可能性が高いです。
+1. **Braze以外でディープリンクをテストします。** メールやブラウザなど、別のアプリからディープリンクURLを開いてみてください。アプリが開かない場合、`AndroidManifest.xml`でディープリンクが正しく設定されていない可能性があります。詳細については、Androidの[Create Deep Links](https://developer.android.com/training/app-links/deep-linking)ドキュメントを参照してください。
+2. **自動ディープリンク処理が有効になっていることを確認します。** `braze.xml`で`com_braze_handle_push_deep_links_automatically`が`true`に設定されているか、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)でこのオプションを設定しているか確認してください。この設定がないと、プッシュ通知をタップしたときにBrazeがアプリとディープリンクの送信先を自動的に開きません。
+3. **ディープリンクハンドラーデリゲートを確認します。** カスタムの`IBrazeDeeplinkHandler`を設定している場合、`gotoUri`の実装がURIを正しく処理し、ドロップしていないことを確認してください。
+4. **チャネル間でテストします。** 同じディープリンクがアプリ内メッセージでは動作するがプッシュからは動作しない場合、問題はディープリンク自体ではなく、プッシュのディープリンク処理にある可能性が高いです。
 
 ## Jetpack Composeの使用 {#using-jetpack-compose}
 

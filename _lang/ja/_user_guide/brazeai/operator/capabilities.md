@@ -224,7 +224,7 @@ SMS、Androidプッシュ通知、iOSプッシュ通知、従来のアプリ内�
 
 ## データプライバシーとセキュリティ {#data-privacy-and-security}
 
-Operatorは出力を生成するためにOpenAIと統合しています。BrazeがOpenAIに送信する情報、そのデータの使用方法、知的財産権の詳細については、[OpenAIでのデータの使用方法]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai)を参照してください。
+Operatorは出力を生成するためにOpenAIと統合しています。BrazeがOpenAIに送信する情報、そのデータの使用方法、知的財産権の詳細については、[OpenAIでのデータの使用方法]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security)を参照してください。
 
 ## 次のステップ {#next-steps}
 

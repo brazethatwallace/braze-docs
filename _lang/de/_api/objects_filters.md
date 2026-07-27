@@ -20,7 +20,7 @@ description: "Diese Landing-Page listet die Braze-API-Objekte und -Filter auf, d
 - [Aliasnamen zur Identifizierung des Objekts]({{site.baseurl}}/api/objects_filters/aliases_to_identify)
 - [Trigger-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
 - [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object)
-- [Nutzer-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
+- [Nutzer-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 - [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object)
 - [Katalogauswahlobjekt]({{site.baseurl}}/api/objects_filters/catalog_selection_object)
 

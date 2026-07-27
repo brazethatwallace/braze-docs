@@ -18,7 +18,7 @@ description: "이 문서에서는 SDK 인증 키 목록 Braze 엔드포인트에
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `sdk_authentication.keys` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `sdk_authentication.keys` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -72,7 +72,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
 
 ### 유효성 검사 규칙 {#validation-rules}
 
-이 엔드포인트에는 다음과 같은 유효성 검사 규칙이 있습니다:
+이 엔드포인트에는 다음과 같은 유효성 검사 규칙이 있습니다.
 
 - `app_id` 매개변수는 유효한 앱 API 식별자여야 합니다.
 - 앱이 워크스페이스에 존재해야 합니다.

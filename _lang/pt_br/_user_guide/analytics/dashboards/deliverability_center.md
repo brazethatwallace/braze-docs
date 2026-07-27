@@ -158,7 +158,7 @@ Consulte esta tabela para entender qual porcentagem do seu tráfego de entrada e
 | TLS de saída | Mostra a porcentagem de e-mails enviados (do Gmail) aceitos via TLS em relação a todos os e-mails enviados para aquele domínio. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Criptografia" }
 
-Para mais ideias sobre como melhorar a entregabilidade, leia [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Consulte também nossas [Práticas recomendadas de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices) para verificar o que deve ser revisado antes de enviar uma campanha de e-mail.
+Para mais ideias sobre como melhorar a entregabilidade, leia [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps). Consulte também nossas [Práticas recomendadas de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices) para verificar o que deve ser revisado antes de enviar uma campanha de e-mail.
 
 ## Configurar o Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 

@@ -1,6 +1,6 @@
 ---
 nav_title: APIキャンペーン
-article_title: API キャンペーン
+article_title: APIキャンペーン
 page_order: 5
 description: "このリファレンス記事では、API呼び出しに含めるcampaign_idの生成方法と、そのキャンペーンの設定方法について説明します。"
 page_type: reference
@@ -21,26 +21,32 @@ APIキャンペーンは通常、トランザクションメッセージング�
 キャンペーンが開始された後、結果をダッシュボードで確認できます。APIキャンペーンはBrazeの[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)を使用します。これらのAPIは、ダッシュボードを通じて完全に作成されたキャンペーンと同じ詳細なレポートおよびリターゲティングオプションを備えています。
 
 {% alert warning %}
-APIキャンペーンは通常トランザクション型であるため、グローバルコントロールグループに属するユーザーも含め、すべてのユーザーがAPIキャンペーンの対象となります。これらの送信には[ワンクリックリスト配信停止]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe)ヘッダーが追加されません。すべてのAPIキャンペーンにワンクリックリスト配信停止ヘッダーを追加する場合は、カスタマーサクセスマネージャーにお問い合わせください。
+APIキャンペーンは通常トランザクション型であるため、グローバルコントロールグループに属するユーザーも含め、すべてのユーザーがAPIキャンペーンの対象となります。これらの送信には[ワンクリックリスト購読解除]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe)ヘッダーが追加されません。すべてのAPIキャンペーンにワンクリックリスト購読解除ヘッダーを追加する場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 ## 新しいキャンペーンを作成する {#create-a-new-campaign}
 
-**メッセージング** > **キャンペーン**に移動して**キャンペーンを作成**を選択し、**API キャンペーン**を選択します。これで、APIキャンペーンの設定に進むことができます。
+**メッセージング** > **キャンペーン**に移動し、**キャンペーンを作成**を選択してから、**APIキャンペーン**を選択します。これで、APIキャンペーンの設定に進むことができます。
 
-[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)は、APIキャンペーンとは異なります。
+[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)はAPIキャンペーンとは異なります。
 
 ## キャンペーンを設定する {#configure-your-campaign}
 
-キャンペーンを設定するには、次のステップを実行します。
+キャンペーンを設定するには、以下のステップを実行します。
 
-1. メッセージを送信した後にキャンペーンページで結果を見つけられるように、わかりやすいタイトルを追加します。
-2. **Add Message**を選択して、APIキャンペーンに含めるメッセージタイプを追加します。これにより、`campaign_id`とメッセージバリエーションIDが生成されます。メッセージバリエーションIDは含める各チャネルごとに異なります。
-3. オプションとして、特定のアクションやキャンペーン目標に対するユーザーのコンバージョンを追跡するために、コンバージョンイベントを追加できます。
-4. **キャンペーンを保存**を選択すると、APIキャンペーンを開始する準備が整います。
+1. キャンペーンページでメッセージ送信後に結果を見つけやすいよう、わかりやすいタイトルを追加します。
+2. **メッセージを追加**を選択し、APIキャンペーンに含めるメッセージタイプを追加します。これにより、`campaign_id` と、含めるチャネルごとに異なるメッセージバリアントIDが生成されます。
+3. 必要に応じて、特定のアクションやキャンペーン目標に対するユーザーのコンバージョンを追跡するコンバージョンイベントを追加できます。
+4. **キャンペーンを保存**を選択すれば、APIキャンペーンを開始する準備は完了です。
 
 ## API呼び出し {#api-calls}
 
-APIキャンペーンを保存したら、APIリクエストに次の内容を含めます。
-- [メッセージ送信エンドポイント]({{site.baseurl}}/api/endpoints/messaging#send-endpoints)に記載されている箇所に、生成された`campaign_id`フィールドを含めます。
-- キャンペーンに含まれる各プラットフォームの[メッセージオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)。メッセージオブジェクトにメッセージバリエーションIDを指定します。これにより、統計が収集され、そのバリアントの下に表示されるようになります。次のメッセージオブジェクトがサポートされています：Android、Content Cards、メール、iOS、Kindle、SMS/MMS、Webプッシュ、Webhook。
+APIキャンペーンを保存した後、APIリクエストに以下を含めてください。
+- 生成された`campaign_id`フィールドを、[メッセージ送信エンドポイント]({{site.baseurl}}/api/endpoints/messaging)に記載されている箇所でAPIリクエストに含めます。
+- キャンペーンに含まれる各プラットフォームの[メッセージオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)。メッセージオブジェクトでは、メッセージバリアントIDを指定します。これにより、統計がそのバリアントの下で収集・表示されるようになります。サポートされているメッセージオブジェクトは、Android、Content Cards、メール、iOS、Kindle、SMS/MMS、Webプッシュ、Webhookです。
+
+### メール添付ファイルの追加 {#adding-email-attachments}
+
+APIキャンペーンのメールに添付ファイルを追加するには、[メールオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/email_object)に`attachments`配列を含めます。ドラッグ＆ドロップエディターまたはHTMLエディターで作成したメールテンプレートを参照するには、メールオブジェクトに`email_template_id`を指定し、API呼び出しを通じて添付ファイルを追加します。
+
+添付ファイルの詳細、サイズ制限、ベストプラクティスについては、[添付ファイル付きメールオブジェクトの例]({{site.baseurl}}/api/objects_filters/messaging/email_object#example-email-object-with-attachment)を参照してください。

@@ -26,7 +26,7 @@ Dark Mode, located in the **Design** tab when [creating an in-app message]({{sit
 
 ![User switching between Light Mode style and Dark Mode styles in the Style tab when creating an in-app message.]({% image_buster /assets/img_archive/iam-dark-mode.gif %})
 
-When this option is enabled, you can choose dark theme colors for your in-app message using the color picker, or by selecting existing [Color Profiles]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#color-profile) to reuse existing Dark or Light themes.
+When this option is enabled, you can choose dark theme colors for your in-app message using the color picker, or by selecting existing [Color Profiles]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#color-profile) to reuse existing Dark or Light themes.
 
 {% alert note %}
 You may still use this feature even if your app does not offer its own dark theme. However, devices which do not support Dark Mode will display the Light theme by default. Changing the devices theme on Android while an in-app message is being displayed won't change which theme is used for that in-app message.
@@ -37,7 +37,7 @@ You may still use this feature even if your app does not offer its own dark them
 To use Dark Mode for all in-app messages, first create a color profile that aligns with your Dark Mode theme.
 
 1. Go to **Content** > **In-App Message**.
-2. Select **Create Templates** and choose [Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#color-profile) from the dropdown.
+2. Select **Create Templates** and choose [Color Profile]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#color-profile) from the dropdown.
 3. Create and save your color profile. 
  
 When creating a Dark Mode version of an in-app message, you can select that color profile to keep the look of your in-app messages consistent.

@@ -141,7 +141,7 @@ If issues remain after explicit skips, warn that CI **Spellcheck** will fail on 
 
 ## Core principles
 
-1. **Match CI scope** — same paths and excludes as `cspell.yml` (`_docs/`, `_includes/`, `.md` only, skip `_docs/_hidden/`).
+1. **Match CI scope** — same paths and excludes as `cspell.yml` (`_docs/`, `_includes/`, `.md` only, skip `_docs/_hidden/`). The pre-commit hook uses the same scope on **staged** files.
 2. **Very high bar for auto-fix** — when uncertain, ask. A false correction in prose is worse than a dictionary question.
 3. **Dictionary is for valid terms, not typos** — never add a misspelling to `braze-dictionary.txt`.
 4. **One stop for ambiguous hits** — batch ask-first items; do not interleave silent prose edits with dictionary changes.

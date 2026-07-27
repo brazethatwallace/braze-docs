@@ -10,7 +10,7 @@ description: "Referencia del README del SDK de Braze para Cordova reflejada desd
 
 ## Acerca del SDK de Braze para Cordova {#about-the-braze-cordova-sdk}
 
-El SDK de Braze para Cordova te ayuda a integrar las capacidades de mensajería, análisis y participación del usuario de Braze en tu aplicación.
+El SDK de Braze para Cordova te ayuda a integrar las funciones de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 
@@ -20,18 +20,18 @@ Para empezar, consulta los siguientes recursos:
 ## Requisitos mínimos de versión {#minimum-version-requirements}
 
 | Plugin de Braze | Cordova Android | Cordova iOS |
-| ------------ | --------------- | ----------- |
-| 10.0.0+      | >= 13.0.0       | >= 5.0.0    |
-| 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
+| --------------- | --------------- | ----------- |
+| 10.0.0+         | >= 13.0.0       | >= 5.0.0    |
+| 2.31.0+         | >= 12.0.0       | >= 5.0.0    |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos mínimos de versión" }
 
-Este SDK además hereda los requisitos de los SDK nativos de Braze subyacentes. Asegúrate de cumplir también con las listas de requisitos enlazadas a continuación:
+Este SDK también hereda los requisitos de los SDK nativos de Braze subyacentes. Asegúrate de cumplir también con los siguientes requisitos de los SDK nativos:
 * [Requisitos del SDK de Android](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
 * [Requisitos del SDK de Swift](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 
 ## Instalación del SDK {#installing-the-sdk}
 {% alert warning %}
-Solo añade el SDK de Braze para Cordova utilizando los comandos `cordova plugin add` indicados en **Instalación del SDK**. No intentes instalarlo mediante otros métodos, ya que podría provocar una brecha de seguridad.
+Solo añade el SDK Braze de Cordova utilizando los métodos que se indican a continuación. No intentes instalarlo con otros métodos, ya que podría provocar una brecha de seguridad.
 {% endalert %}
 ``` text
 # To use the base SDK functionality, install using the `master` branch.

@@ -66,7 +66,7 @@ toc_headers: h2
 Content generation, canvas step agent
 {% endapitags %}
 
-이 Canvas 에이전트를 사용하여 앱에서 검색했지만 예약하지 않은 사용자를 위해 조율된 이메일 제목란, 프리헤더, 푸시 알림 제목 및 본문 카피를 생성합니다. 목표는 각 채널의 문자 수 제한을 준수하면서 현지화되고 브랜드에 안전한 메시징으로 결제를 유도하는 Canvas 여정에서 사용자를 리타겟하는 것입니다.
+이 Canvas Step Agent를 사용하여 앱에서 검색했지만 예약하지 않은 사용자를 위해 조율된 이메일 제목란, 프리헤더, 푸시 알림 제목 및 본문 카피를 생성합니다. 목표는 각 채널의 문자 수 제한을 준수하면서 현지화되고 브랜드에 안전한 메시징으로 결제를 유도하는 Canvas 여정에서 사용자를 리타겟하는 것입니다.
 
 {% tabs local %}
 {% tab 전제 조건 %}
@@ -147,7 +147,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 Data standardization, canvas step agent
 {% endapitags %}
 
-이 예제는 Canvas 에이전트가 여행 후 설문조사에서 사용자 피드백을 분석하고 감성 및 주제를 분류하는 방법을 설명합니다. 이 에이전트의 목표는 별도의 CRM 플랫폼을 위한 다음 단계를 결정하는 것입니다.
+이 예제는 Canvas Step Agent가 여행 후 설문조사에서 사용자 피드백을 분석하고 감성 및 주제를 분류하는 방법을 설명합니다. 이 에이전트의 목표는 별도의 CRM 플랫폼을 위한 다음 단계를 결정하는 것입니다.
 
 {% tabs local %}
 {% tab 전제 조건 %}
@@ -215,7 +215,7 @@ Input & Output Example:
 Affinity agent, canvas step agent
 {% endapitags %}
 
-이 예제는 Canvas 에이전트가 기존 커스텀 속성과 높은 의도의 행동 신호를 기반으로 사용자를 특정 관심사 버킷으로 분류한 다음, 가장 적합한 다음 경험 또는 항목을 추천하는 방법을 설명합니다. 목표는 장바구니 복구 또는 카테고리별 추천과 같이 정확하게 타겟팅된 경험으로 사용자를 라우팅하는 것이며, 존재하지 않는 속성을 환각하지 않고 검증된 데이터에만 기반합니다.
+이 예제는 Canvas Step Agent가 기존 커스텀 속성과 높은 의도의 행동 신호를 기반으로 사용자를 특정 관심사 버킷으로 분류한 다음, 가장 적합한 다음 경험 또는 항목을 추천하는 방법을 설명합니다. 목표는 장바구니 복구 또는 카테고리별 추천과 같이 정확하게 타겟팅된 경험으로 사용자를 라우팅하는 것이며, 존재하지 않는 속성을 환각하지 않고 검증된 데이터에만 기반합니다.
 
 {% tabs local %}
 {% tab 전제 조건 %}
@@ -294,7 +294,7 @@ Recent Search: "cordless drill"
 Affinity agent, canvas step agent
 {% endapitags %}
 
-이 예제는 Canvas 에이전트가 최근 즐겨찾기나 검색 기록과 같은 최근 행동 및 컨텍스트에서 사용자의 현재 동기를 추론하고, 다음 단계를 위한 가장 적합한 단일 라우트 키를 반환하는 방법을 설명합니다. 목표는 수동 세분화 없이 각 사용자를 가장 관련성 높은 Canvas 경로로 보내는 것입니다.
+이 예제는 Canvas Step Agent가 최근 즐겨찾기나 검색 기록과 같은 최근 행동 및 컨텍스트에서 사용자의 현재 동기를 추론하고, 다음 단계를 위한 가장 적합한 단일 라우트 키를 반환하는 방법을 설명합니다. 목표는 수동 세분화 없이 각 사용자를 가장 관련성 높은 Canvas 경로로 보내는 것입니다.
 
 {% tabs local %}
 {% tab 전제 조건 %}
@@ -366,7 +366,7 @@ Recently Engaged Products: Drill bits
 Affinity agent, canvas step agent
 {% endapitags %}
 
-이 예제는 Canvas 에이전트가 최근 높은 의도 행동 및 행동 컨텍스트(Canvas 컨텍스트를 통해 전달)를 기반으로 사용자를 1~3개의 관심사 카테고리에 할당한 다음, 가장 적합한 다음 경험 또는 항목을 추천하는 방법을 설명합니다. 목표는 가정이 아닌 검증된 행동 신호를 사용하여 고객 여정의 다음 단계를 실시간으로 개인화하는 것입니다.
+이 예제는 Canvas Step Agent가 최근 높은 의도 행동 및 행동 컨텍스트(Canvas 컨텍스트를 통해 전달)를 기반으로 사용자를 1~3개의 관심사 카테고리에 할당한 다음, 가장 적합한 다음 경험 또는 항목을 추천하는 방법을 설명합니다. 목표는 가정이 아닌 검증된 행동 신호를 사용하여 고객 여정의 다음 단계를 실시간으로 개인화하는 것입니다.
 
 {% tabs local %}
 {% tab 전제 조건 %}
@@ -448,7 +448,7 @@ Recent Search: "18v cordless drill"
 Classification and routing, canvas step agent
 {% endapitags %}
 
-이 예제는 Canvas 에이전트가 한 번에 하나의 인바운드 고객 메시지를 평가하고, 향후 메시징 수신 거부 요청(예: STOP, 구독 취소, 동의 철회)으로 처리해야 하는지 여부를 반환하는 방법을 설명합니다. 목표는 엄격한 불리언을 출력하여 여정을 보수적으로 분기함으로써, 사용자가 질문을 하거나 계속 참여하는 경우의 오탐을 피하면서 동의 철회 후 메시지를 보내는 위험을 줄이는 것입니다.
+이 예제는 Canvas Step Agent가 한 번에 하나의 인바운드 고객 메시지를 평가하고, 향후 메시징 수신 거부 요청(예: STOP, 구독 취소, 동의 철회)으로 처리해야 하는지 여부를 반환하는 방법을 설명합니다. 목표는 엄격한 불리언을 출력하여 여정을 보수적으로 분기함으로써, 사용자가 질문을 하거나 계속 참여하는 경우의 오탐을 피하면서 동의 철회 후 메시지를 보내는 위험을 줄이는 것입니다.
 
 {% alert important %}
 수신 거부 및 동의 처리에는 지역 및 채널에 따라 다른 법적 의무가 수반됩니다. 이 예제를 출발점으로 삼고, 프로덕션에서 사용하기 전에 자체 규정 준수 요구 사항(예: TCPA 및 GDPR)에 대해 최종 로직을 검토하세요.
@@ -530,7 +530,7 @@ Input: “This sucks—what’s the promo code?” → false
 Data standardization, canvas step agent
 {% endapitags %}
 
-이 예제는 Canvas 에이전트가 지저분하고 비정형인 인바운드 SMS 또는 채팅 답장을 일관된 구조화된 형식으로 정규화하는 방법을 설명합니다—의도를 분류하고, 엔티티를 추출하며, 수신 거부 및 PII와 같은 규정 준수 신호를 플래그합니다. 목표는 다운스트림 자동화 및 내부 알림에 신뢰할 수 있는 라우팅을 위한 깨끗하고 기계 판독 가능한 데이터를 제공하는 것입니다.
+이 예제는 Canvas Step Agent가 지저분하고 비정형인 인바운드 SMS 또는 채팅 답장을 일관된 구조화된 형식으로 정규화하는 방법을 설명합니다—의도를 분류하고, 엔티티를 추출하며, 수신 거부 및 PII와 같은 규정 준수 신호를 플래그합니다. 목표는 다운스트림 자동화 및 내부 알림에 신뢰할 수 있는 라우팅을 위한 깨끗하고 기계 판독 가능한 데이터를 제공하는 것입니다.
 
 {% tabs local %}
 {% tab 전제 조건 %}
@@ -650,7 +650,7 @@ Final Output Specification:
 You must return an object with exactly two keys: "short_description" and "explanation".
 - short_description: Plain text for the catalog cell, maximum 150 characters. No markdown.
 - explanation: String. Brief note on how you combined Destination Name, Country, Primary Vibe, and Price Tier per the brand rules.
-Configure your agent's **Output** with **Fields** that match these key names (catalog agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
+Configure your agent's **Output** with **Fields** that match these key names (Catalog Agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
 
 Input & Output Example:
 <input_example>
@@ -810,4 +810,75 @@ existing_category: "hydration"
 {% endraw %}
 {% endtab %}
 {% endtabs %}
+
+{% endapi %}
+
+{% api %}
+
+## 근사 카탈로그 매칭을 통한 비정형 입력 표준화 {#standardize-unstructured-input-with-approximate-catalog-matching}
+
+{% apitags %}
+Data standardization, canvas step agent
+{% endapitags %}
+
+이 예제는 Canvas Step Agent가 오타나 변형이 포함된 수동 입력 텍스트와 같은 비정형 사용자 입력을 처리하고, LLM 지원 매칭을 사용하여 카탈로그 검색 결과와 대조하여 알려진 카탈로그 항목에 대해 표준화하는 방법을 설명합니다. 목표는 불완전한 입력에서 사용자가 실제로 의미한 것을 식별하는 것이며, 이는 Liquid 조회가 근사 매칭을 처리할 수 없는 경우에 특히 유용합니다.
+
+{% tabs local %}
+{% tab 전제 조건 %}
+
+이 지침은 다음 정보가 사용 가능하다고 가정합니다:
+
+- 이름과 같은 사용자 정보
+- 사용자가 수동으로 입력한 텍스트(예: 꿈의 여행 목적지)에 대한 컨텍스트 변수
+- [에이전트 콘솔 지침]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources)의 **에이전트 컨텍스트**:
+    - **카탈로그 필드:**
+        - **카탈로그:** 유효한 목적지 이름을 포함하는 `<Destination Catalog name>`
+        - **필드:** `destination_name` — 에이전트가 쿼리할 수 있는 표준화된 목적지 이름을 포함하는 검색 가능한 열
+    - **모든 Canvas 컨텍스트:** 에이전트 지침에서 이미 정의하지 않은 추가 컨텍스트 변수를 에이전트에 전달하여 도움이 되거나 관련이 있을 수 있습니다
+
+{% endtab %}
+{% tab 지침 %}
+
+{% raw %}
+```
+Role:
+You are an expert Data Standardization Agent for Wanderluxe Travel. Your role is to take unstructured, manually entered user input and match it to the correct standardized destination name from our catalog, accounting for typos, spelling variations, and common misspellings.
+
+Inputs & Goal:
+A user has manually entered their dream travel destination in a form or survey. Your goal is to identify which standardized destination in our catalog the user actually meant, even if their input contains typos or variations.
+
+You will get the following user-specific inputs:
+{{${first_name}}} - the user's first name
+{{context.${user_entered_destination}}} - the raw text the user typed for their dream destination
+
+You can search the configured Destination Catalog using the catalog search tool. Braze returns matching catalog rows—not the full catalog—so search for likely destination names before you decide on a match.
+
+Rules:
+- Search the catalog for destinations that could match the user's input. Use pattern-based queries (such as $regex) when exact matches fail, and account for common typos, extra letters, missing letters, and phonetic similarities (e.g., "Parisss" → "Paris", "Tokio" → "Tokyo", "Barselona" → "Barcelona").
+- Only return a standardized_destination value that appears in a catalog search result. Do not invent destinations.
+- If multiple catalog destinations could match, choose the most likely match based on similarity to the user's input.
+- If the input is too ambiguous or doesn't closely match any catalog destination (such as nonsense text or very short incomplete input), set standardized_destination to "UNKNOWN" and explain why in the explanation field.
+- Be case-insensitive in matching (treat "paris", "Paris", and "PARIS" as the same).
+- Include "explanation": a short string describing the match logic, which catalog rows you considered, or why no match was found.
+
+Final Output Specification:
+You must return an object containing exactly three keys: "standardized_destination", "confidence", and "explanation".
+- standardized_destination: String. The exact destination name from a catalog search result, or "UNKNOWN" if no match can be made.
+- confidence: String (high, medium, low). Your confidence in the match.
+- explanation: String. Brief note on the matching logic, similarity detected, or reason for UNKNOWN.
+
+Input & Output Example:
+<input_example>
+{{${first_name}}}: Jane
+{{context.${user_entered_destination}}}: Parisss
+Catalog search for destinations similar to "Parisss" returns: {"destination_name": "Paris"}
+</input_example>
+<output_example>
+{"standardized_destination": "Paris", "confidence": "high", "explanation": "User input 'Parisss' closely matches catalog result 'Paris' with extra letters; clear approximate match."}
+</output_example>
+```
+{% endraw %}
+{% endtab %}
+{% endtabs %}
+
 {% endapi %}

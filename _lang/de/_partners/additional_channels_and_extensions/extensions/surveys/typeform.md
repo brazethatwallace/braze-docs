@@ -27,11 +27,11 @@ Durch die Integration von Braze und Typeform können Sie:
 
 ## Integration
 
-### 1. Schritt: Braze Datentransformation einrichten, um Typeform-Webhooks zu akzeptieren {#step-1}
+### Schritt 1: Braze Datentransformation einrichten, um Typeform-Webhooks zu akzeptieren {#step-1}
 
 {% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
-### 2. Schritt: Typeform-Webhooks einrichten {#step-2-set-up-typeform-webhooks}
+### Schritt 2: Typeform-Webhooks einrichten {#step-2-set-up-typeform-webhooks}
 
 Folgen Sie den Schritten in der [Typeform-Webhook-Dokumentation](https://www.typeform.com/help/a/webhooks-360029573471/), um einen Webhook einzurichten.
 
@@ -43,7 +43,7 @@ Senden Sie ein Test-Event an Ihre Datentransformation, indem Sie auf **View deli
 
 ![Typeform-Seite „View deliveries“ mit ausgewähltem „Send test request“.]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
-### 3. Schritt: Transformationscode schreiben, um die gewählten Typeform-Events zu akzeptieren {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
+### Schritt 3: Transformationscode schreiben, um die gewählten Typeform-Events zu akzeptieren {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
 
 In diesem Schritt transformieren Sie die Webhook-Nutzlast, die von Typeform gesendet wird, in einen JavaScript-Objekt-Rückgabewert.
 
@@ -58,13 +58,7 @@ In diesem Schritt transformieren Sie die Webhook-Nutzlast, die von Typeform gese
 
 Dieser Rückgabewert muss dem Format des `/users/track`-Anfragekörpers von Braze entsprechen:
 
-- Der Transformationscode wird in der Programmiersprache JavaScript akzeptiert. Jeder Standard-JavaScript-Kontrollfluss, wie z. B. die if/else-Logik, wird unterstützt.
-- Der Transformationscode greift über die Nutzlastvariable auf den Körper der Webhook-Anfrage zu. Diese Variable ist ein Objekt, das durch das Parsen des JSON-Anfragekörpers erstellt wird.
-- Alle Features, die in unserem `/users/track`-Endpunkt unterstützt werden, werden unterstützt, einschließlich:
-    - Nutzerattribut-Objekte, Event-Objekte und Kauf-Objekte
-    - Verschachtelte Attribute und verschachtelte Eigenschaften angepasster Events
-    - Updates für Abo-Gruppen
-    - E-Mail-Adresse als Bezeichner
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Beispiel für eine Typeform-Webhook-Nutzlast {#example-typeform-webhook-payload}
 
@@ -470,11 +464,11 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Anwendungsfall: Bezeichner verwenden, die in Hidden Fields übergeben werden {#use-case-using-identifier-passed-in-hidden-fields}
+### Anwendungsfall: Bezeichner über Hidden Fields übergeben {#use-case-using-identifier-passed-in-hidden-fields}
 
-Sie können Typeform Hidden Fields verwenden, um Daten in der Typeform-Webhook-Nutzlast zu übergeben, wie z. B. die ID von Nutzer:innen, ohne diese Informationen in der Typeform-Antwort weitergeben zu müssen.
+Sie können Typeform Hidden Fields verwenden, um Daten in der Typeform-Webhook-Nutzlast zu übergeben – wie z. B. die ID von Nutzer:innen –, ohne diese Informationen in der Typeform-Antwort weitergeben zu müssen.
 
-In diesem Beispiel-Template verwenden wir ein Hidden Field „user_id“ und übergeben dieses als `external_id` in die Nutzlast der `/users/track`-Anfrage. Obwohl wir „user_id“ verwenden, können die Felder an Ihre Bedürfnisse angepasst werden.
+In diesem Beispiel-Template verwenden wir ein Hidden Field „user_id“ und übergeben dieses als `external_id` in die Nutzlast der `/users/track`-Anfrage. Obwohl wir hier „user_id“ verwenden, können die Felder an Ihre Bedürfnisse angepasst werden.
 
 {% tabs local %}
 {% tab Input %}
@@ -610,7 +604,7 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### 4. Schritt: Typeform-Webhook veröffentlichen {#step-4-publish-your-typeform-webhook}
+### Schritt 4: Typeform-Webhook veröffentlichen {#step-4-publish-your-typeform-webhook}
 
 Nachdem Sie Ihre Datentransformation geschrieben haben, klicken Sie auf **Validate**, um sicherzustellen, dass Ihr Datentransformationscode korrekt formatiert ist und wie erwartet funktioniert. Speichern und aktivieren Sie anschließend Ihre Datentransformation.
 

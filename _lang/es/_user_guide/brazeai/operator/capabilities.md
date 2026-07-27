@@ -224,7 +224,7 @@ Considera lo siguiente para aprovechar al máximo la revisión de contenido:
 
 ## Privacidad y seguridad de datos {#data-privacy-and-security}
 
-Operator se integra con OpenAI para generar resultados. Para más información sobre qué información envía Braze a OpenAI, cómo se utilizan esos datos y tus derechos de propiedad intelectual, consulta [Cómo se utilizan los datos con OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai).
+Operator se integra con OpenAI para generar resultados. Para más información sobre qué información envía Braze a OpenAI, cómo se utilizan esos datos y tus derechos de propiedad intelectual, consulta [Cómo se utilizan los datos con OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security).
 
 ## Próximos pasos {#next-steps}
 

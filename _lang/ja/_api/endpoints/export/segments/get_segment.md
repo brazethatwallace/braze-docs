@@ -22,7 +22,7 @@ description: "この記事では、セグメントリストのエクスポート
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`segments.list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`segments.list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -42,11 +42,11 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "segments" : [
         {
             "id" : (string) the Segment API identifier,

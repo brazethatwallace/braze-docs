@@ -32,7 +32,6 @@ Você pode usar esses métodos adicionais para criar um feed de Content Cards pe
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Inicia o elemento da interface do usuário dos Content Cards.                                                                 |
 | `requestContentCardsRefresh()`           | Solicita os Content Cards mais recentes do servidor do SDK da Braze. A lista de cartões resultante é passada para cada um dos [ouvintes de eventos de cartão de conteúdo](#reactnative_cards-methods) registrados anteriormente. |
-| `getContentCards()`                      | Recupera os Content Cards do SDK da Braze. Isso retorna uma promessa que é resolvida com a lista mais recente de cartões do servidor. |
 | `getCachedContentCards()`                | Retorna a matriz de Content Cards mais recente do cache.                                            |
 | `logContentCardClicked(cardId)`          | Registra um clique para o ID do cartão de conteúdo fornecido. Esse método é usado apenas para análise de dados. Para executar a ação de clique, chame também `processContentCardClickAction(cardId)`.                                                        |
 | `logContentCardImpression(cardId)`       | Registra uma impressão para o ID do cartão de conteúdo fornecido.                                                      |

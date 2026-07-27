@@ -49,7 +49,7 @@ Esto se muestra de la siguiente manera:
 
 ## Exportación de catálogos {#exporting-catalogs}
 
-Hay dos formas de exportar catálogos desde el dashboard:
+Hay dos formas de exportar catálogos desde el panel:
 
 - Coloca el cursor sobre la fila del catálogo en la sección **Catálogos**. A continuación, selecciona el botón **Exportar catálogo**.
 - Selecciona tu catálogo. A continuación, selecciona el botón **Exportar catálogo** en la pestaña **Vista previa** del catálogo.
@@ -60,7 +60,7 @@ Recibirás un correo electrónico para descargar el archivo CSV después de inic
 
 ### Varios elementos {#multiple-items}
 
-No estás limitado a un solo elemento por mensaje. Utiliza el modal **Añadir personalización** para añadir hasta tres elementos del catálogo a la vez. Para añadir más, selecciona de nuevo **Añadir personalización** en el compositor y selecciona los elementos adicionales del catálogo y la información que deseas mostrar.
+No estás limitado a un solo elemento por mensaje. Utiliza el modal **Añadir personalización** para añadir hasta tres elementos del catálogo a la vez. Para añadir más, selecciona de nuevo **Añadir personalización** en el creador y selecciona los elementos adicionales del catálogo y la información que deseas mostrar.
 
 Echa un vistazo a este ejemplo en el que añadimos el `id` de tres juegos, Tales, Teslagrad y Acaratus, para **Catalog Items** y seleccionamos `title` para **Information to Display**.
 
@@ -145,7 +145,7 @@ Por ejemplo, para añadir el `image_link` de nuestro catálogo de Games a nuestr
 ```
 {% endraw %}
 
-![Compositor de tarjetas de contenido con la etiqueta de Liquid del catálogo utilizada en el campo de imagen.]({% image_buster /assets/img_archive/catalog_image_link1.png %})
+![Creador de tarjetas de contenido con la etiqueta de Liquid del catálogo utilizada en el campo de imagen.]({% image_buster /assets/img_archive/catalog_image_link1.png %})
 
 Así es como se ve cuando se renderiza el Liquid:
 
@@ -174,7 +174,7 @@ También puedes utilizar plantillas para extraer dinámicamente elementos del ca
 Los objetos JSON de los catálogos solo se ingieren a través de la API. No puedes cargar un objeto JSON utilizando un archivo CSV.
 {% endalert %}
 
-Utilizando plantillas de Liquid, puedes extraer dinámicamente los ID de la lista de deseos y utilizarlos en tu mensaje. Para ello, [asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) a tu atributo personalizado y, a continuación, utiliza el modal **Añadir personalización** para extraer un elemento específico de la matriz. Las variables a las que se hace referencia como ID de elemento del catálogo deben escribirse entre llaves para que se puedan referenciar correctamente, como por ejemplo `{{result}}`.
+Utilizando plantillas de Liquid, puedes extraer dinámicamente los ID de la lista de deseos y utilizarlos en tu mensaje. Para ello, [asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) a tu atributo personalizado y, a continuación, utiliza el modal **Añadir personalización** para extraer un elemento específico de la matriz. Las variables a las que se hace referencia como ID de elemento del catálogo deben escribirse entre llaves para que se puedan referenciar correctamente, como por ejemplo `{{result}}`.
 
 {% alert tip %}
 Recuerda que las matrices empiezan en `0`, no en `1`.
@@ -206,7 +206,7 @@ También puedes crear catálogos manualmente con lógica de Liquid. Sin embargo,
 
 #### Elementos del catálogo con plantillas que incluyen Liquid
 
-De forma similar al [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), debes utilizar la marca `:rerender` en una etiqueta de Liquid para renderizar el contenido Liquid de un elemento del catálogo. Ten en cuenta que la marca `:rerender` solo tiene un nivel de profundidad, lo que significa que no se aplicará a ninguna llamada anidada de etiquetas de Liquid.
+De forma similar al [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), debes utilizar la marca `:rerender` en una etiqueta de Liquid para renderizar el contenido Liquid de un elemento del catálogo. Ten en cuenta que la marca `:rerender` solo tiene un nivel de profundidad, lo que significa que no se aplicará a ninguna llamada anidada de etiquetas de Liquid.
 
 Si un elemento del catálogo contiene campos de perfil de usuario (dentro de una etiqueta de personalización de Liquid), estos valores deben definirse en Liquid antes en el mensaje y antes de la plantilla para que el Liquid se renderice correctamente. Si no se proporciona la marca `:rerender`, se mostrará el contenido sin procesar de Liquid.
 
@@ -246,7 +246,7 @@ Si el Liquid del catálogo o de la selección no se muestra como esperas en un m
 | Síntoma | Qué verificar |
 | --- | --- |
 | La vista previa muestra elementos, pero los envíos en vivo están vacíos | Confirma que los **ID de elementos** del catálogo existen en el momento del envío. Si el ID en tu Liquid no coincide con una fila, Braze devuelve una matriz de elementos vacía; consulta [Utilizar Liquid](#using-liquid). Comprueba si hay errores tipográficos y si las fuentes de ID (como las propiedades del evento) faltan en el desencadenador o en el perfil de usuario. |
-| La vista previa del compositor funciona en una Campaign pero no en Canvas | Confirma que estás utilizando el contexto de Liquid correcto: **propiedades de contexto de Canvas** frente a **propiedades del evento**, y que esos campos existen en el desencadenador. Consulta [Propiedades de contexto y del evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
+| La vista previa del creador funciona en una Campaign pero no en Canvas | Confirma que estás utilizando el contexto de Liquid correcto: **propiedades de contexto de Canvas** frente a **propiedades del evento**, y que esos campos existen en el desencadenador. Consulta [Propiedades de contexto y del evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
 | Una selección no devuelve elementos | Revisa los [filtros de selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) y los límites; confirma que los datos del catálogo están sincronizados y que los nombres de las columnas coinciden con tus filtros. |
 | `:rerender` o la entrega con plantillas se ve incorrecta | Para Liquid anidado dentro de campos del catálogo, necesitas `:rerender` y el orden correcto de las variables; consulta [Elementos del catálogo con plantillas que incluyen Liquid](#templating-catalog-items-including-liquid). Los mensajes dentro de la aplicación con plantillas se resuelven en el momento del desencadenamiento; consulta [¿Qué son los mensajes dentro de la aplicación con plantillas?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Algunos canales restringen las etiquetas de catálogo (por ejemplo, ciertos usos de **:rerender** con Banners); consulta [¿Se admiten todas las etiquetas de Liquid?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) en las preguntas frecuentes de Banners. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas de personalización de catálogos" }

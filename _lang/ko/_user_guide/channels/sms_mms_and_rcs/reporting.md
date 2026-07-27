@@ -35,9 +35,9 @@ channel:
 **SMS/MMS/RCS 성과** 패널의 _옵트인_ 및 _옵트아웃_ 통계는 인바운드 키워드를 통해 옵트인 또는 옵트아웃한 사용자를 반영합니다(예: 옵트인의 경우 "START", 옵트아웃의 경우 "STOP" 문자 발송). 이 수치는 일반적으로 세그먼터에 표시되는 수치보다 낮습니다. 이는 SMS에 가입한 총 사용자 수가 아니라 해당 키워드가 문자로 발송된 횟수를 집계하기 때문입니다.
 {% endalert %}
 
-### SMS 캠페인 옵트아웃 추적 {#track-sms-campaign-opt-outs}
+### SMS Campaign 옵트아웃 추적 {#track-sms-campaign-opt-outs}
 
-구독 그룹 상태 변경 테이블 대신 인바운드 수신 테이블을 사용하여 캠페인 수준에서 SMS 옵트아웃을 추적할 수 있습니다. 예를 들어, [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/query_builder)나 데이터 웨어하우스에서 `USERS_MESSAGES_SMS_INBOUNDRECEIVE` 또는 [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) 테이블을 참조하는 쿼리를 실행할 수 있습니다.
+구독 그룹 상태 변경 테이블 대신 인바운드 수신 테이블을 사용하여 Campaign 수준에서 SMS 옵트아웃을 추적할 수 있습니다. 예를 들어, [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/query_builder)나 데이터 웨어하우스에서 `USERS_MESSAGES_SMS_INBOUNDRECEIVE` 또는 [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) 테이블을 참조하는 쿼리를 실행할 수 있습니다.
 
 이 예시 쿼리는 `USERS_MESSAGES_SMS_INBOUNDRECEIVE` 테이블을 참조합니다:
 
@@ -54,7 +54,7 @@ AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 
 ### 옵트아웃 타이밍 {#opt-out-timing}
 
-Currents 또는 데이터 웨어하우스의 키워드 및 인바운드 메시지 이벤트(예: [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)의 타임스탬프 또는 구독 그룹 상태 변경 이벤트)는 Braze가 옵트아웃을 기록한 시점에 대한 신뢰할 수 있는 소스입니다.
+Currents 또는 데이터 웨어하우스의 키워드 및 인바운드 메시지 이벤트(예: [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)의 타임스탬프 또는 구독 그룹 상태 변경 이벤트)는 Braze가 옵트아웃을 기록한 시점에 대한 신뢰할 수 있는 소스입니다.
 
 {% alert note %}
 이벤트 타임스탬프는 Braze가 인바운드 메시지를 수신하거나 처리한 시점을 반영하며, 사용자가 SMS를 발송한 시점이나 통신사 또는 SMS 제공업체가 수신한 시점과 반드시 일치하지는 않습니다. 분석에서 옵트아웃을 Braze가 인바운드 옵트아웃 경로를 처리한 시점으로 간주하는 경우, 이 타임스탬프가 해당 정의와 일치합니다.
@@ -77,4 +77,4 @@ Currents 또는 데이터 웨어하우스의 키워드 및 인바운드 메시�
 
 ## Snowflake 또는 Currents와 *거부* 데이터 대조 {#reconcile-rejections-with-snowflake-or-currents}
 
-대시보드의 *거부* 측정기준은 워크스페이스 수준의 집계 수치입니다. 행 수준의 내보내기가 아니므로, 각 거부를 Snowflake의 단일 행이나 Currents의 단일 `users.messages.sms.Rejection` 이벤트와 항상 일치시킬 수 있는 것은 아닙니다. 예를 들어, Braze가 웨어하우스 내보내기를 위한 거부 처리를 완료하기 전에 고객 프로필이 삭제된 경우, 해당 거부는 `USERS_MESSAGES_SMS_REJECTION_SHARED` 테이블이나 Currents 페이로드에 나타나지 않지만, 집계 SMS 보고서에는 해당 결과가 여전히 반영될 수 있습니다. 자세한 내용은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#sms-message-events-and-deleted-user-profiles) 및 Currents 이벤트 용어집의 [SMS 거부 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-rejection-events)를 참조하세요.
+대시보드의 *거부* 측정기준은 워크스페이스 수준의 집계 수치입니다. 행 수준의 내보내기가 아니므로, 각 거부를 Snowflake의 단일 행이나 Currents의 단일 `users.messages.sms.Rejection` 이벤트와 항상 일치시킬 수 있는 것은 아닙니다. 예를 들어, Braze가 웨어하우스 내보내기를 위한 거부 처리를 완료하기 전에 고객 프로필이 삭제된 경우, 해당 거부는 `USERS_MESSAGES_SMS_REJECTION_SHARED` 테이블이나 Currents 페이로드에 나타나지 않지만, 집계 SMS 보고서에는 해당 결과가 여전히 반영될 수 있습니다. 자세한 내용은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#sms-message-events-and-deleted-user-profiles) 및 Currents 이벤트 용어집의 [SMS 거부 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events)를 참조하세요.

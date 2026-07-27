@@ -9,7 +9,7 @@ description: "Cet article de référence couvre l'utilisation d'un tableau d'obj
 
 # Tableau d'objets {#array-of-objects}
 
-> Cette page explique comment utiliser un tableau d'objets pour regrouper des attributs connexes. Vous pouvez, par exemple, avoir un groupe d'objets « animaux de compagnie », un groupe d'objets « chansons » et un groupe d'objets « compte » pour le même utilisateur. Ces tableaux d'objets peuvent être utilisés pour personnaliser votre envoi de messages avec Liquid, ou segmenter votre audience si un élément d'un objet correspond aux critères.
+> Cette page explique comment utiliser un tableau d'objets pour regrouper des attributs connexes. Vous pouvez, par exemple, avoir un groupe d'objets « animaux de compagnie », un groupe d'objets « chansons » et un groupe d'objets « compte » pour le même utilisateur. Ces tableaux d'objets peuvent être utilisés pour personnaliser vos messages avec Liquid, ou segmenter votre audience si un élément d'un objet correspond aux critères.
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -26,7 +26,7 @@ Lorsqu'un attribut personnalisé imbriqué dans votre requête contient des vale
 {% endalert %}
 
 {% alert tip %}
-Pour en savoir plus sur l'utilisation des tableaux d'objets pour les objets d'attributs utilisateur, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Pour en savoir plus sur l'utilisation des tableaux d'objets pour les objets d'attributs utilisateur, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## Exemple d'API {#api-example}
@@ -533,7 +533,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 
 ## Modèles Liquid {#liquid-templating}
 
-Vous pouvez utiliser ce tableau `pets` pour personnaliser un message. L'exemple de modèle Liquid suivant montre comment référencer les propriétés de l'objet d'attribut personnalisé enregistrées à partir de la requête API précédente et les utiliser dans votre envoi de messages.
+Vous pouvez utiliser ce tableau `pets` pour personnaliser un message. L'exemple de modèle Liquid suivant montre comment référencer les propriétés de l'objet d'attribut personnalisé enregistrées à partir de la requête API précédente et les utiliser dans vos messages.
 
 {% raw %}
 ```liquid
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-Dans ce scénario, vous pouvez utiliser Liquid pour parcourir le tableau `pets` et afficher une phrase pour chaque animal. [Assignez une variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) à l'attribut personnalisé `pets` et utilisez la notation par points pour accéder aux propriétés d'un objet. Spécifiez le nom de l'objet, suivi d'un point `.`, suivi du nom de la propriété.
+Dans ce scénario, vous pouvez utiliser Liquid pour parcourir le tableau `pets` et afficher une phrase pour chaque animal. [Assignez une variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) à l'attribut personnalisé `pets` et utilisez la notation par points pour accéder aux propriétés d'un objet. Spécifiez le nom de l'objet, suivi d'un point `.`, suivi du nom de la propriété.
 
 ## Segmentation {#segmentation}
 

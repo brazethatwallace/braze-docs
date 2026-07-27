@@ -21,7 +21,7 @@ description: "この記事では、「複数のカタログ項目の詳細をリ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.get_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`catalogs.get_items` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 

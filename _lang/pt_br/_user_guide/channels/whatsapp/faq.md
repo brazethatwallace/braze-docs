@@ -6,6 +6,7 @@ description: "Este artigo aborda algumas das perguntas mais frequentes que surge
 page_type: FAQ
 channel:
   - WhatsApp
+
 ---
 
 # Perguntas frequentes {#frequently-asked-questions}
@@ -14,7 +15,7 @@ channel:
 
 ## Tópicos do FAQ {#faq-topics}
 - [Contas comerciais do WhatsApp](#whatsapp-business-accounts)
-- [Número de telefone da conta comercial do WhatsApp](#whatsapp-business-account-phone-numbers)
+- [Números de telefone da conta comercial do WhatsApp](#whatsapp-business-account-phone-numbers)
 - [Opt-in e gerenciamento de inscrições](#opt-in-and-subscription-management)
 - [Limites de envio de mensagens e classificação de qualidade](#messaging-limits-and-quality-rating)
 - [Modelos e criador do WhatsApp](#whatsapp-templates-and-composer)
@@ -45,6 +46,13 @@ A verificação de empresa é um conceito do WhatsApp usado para garantir que a 
 
 #### O que é uma conta comercial oficial? {#what-is-an-official-business-account}
 A OBA (conta comercial oficial) dá a você a marca de verificação verde ao lado do seu nome de exibição e é opcional. Você pode solicitar uma conta comercial oficial após concluir a verificação de empresa. Observe que a verificação de empresa e uma conta comercial oficial são conceitos diferentes do WhatsApp.
+
+#### Por que meu nome de exibição do WhatsApp Business pode ser rejeitado? {#why-might-my-whatsapp-business-display-name-be-rejected}
+As rejeições de nomes de exibição do WhatsApp Business são controladas pela Meta. Se seu nome de exibição for rejeitado, consulte as [diretrizes de nome de exibição do WhatsApp](https://faq.whatsapp.com/793641088597363) para mais informações.
+
+Se seu nome de exibição atende às diretrizes e ainda está sendo rejeitado, a Braze não consegue visualizar os motivos específicos. No entanto, o motivo mais comum para rejeição é que a presença online da empresa é muito baixa, ou a empresa está comercializando [produtos regulamentados ou restritos](https://business.whatsapp.com/policy#further-guidance).
+
+Para mais orientações sobre rejeições de nomes de exibição, consulte [Recursos da Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
 
 ### Números de telefone da conta comercial do WhatsApp {#whatsapp-business-account-phone-numbers}
 
@@ -83,7 +91,7 @@ Você precisa ter o número de telefone do usuário final no perfil da Braze par
 O gerenciamento de inscrições do canal WhatsApp funciona de forma semelhante a como funciona em outros canais da Braze. Consulte [Gerenciando inscrições de usuários]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) para mais informações.
 
 #### Se eu já tenho uma lista de usuários que fizeram opt-in para receber mensagens de marketing no WhatsApp, como atualizo o status de inscrição deles na Braze? {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-Você pode atualizar o status de inscrição deles via [importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data).
+Você pode atualizar o status de inscrição deles via [importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional).
 
 #### Quais métodos devo usar para coletar opt-ins? {#what-methods-should-i-use-to-collect-opt-ins}
 A Braze recomenda consultar as [diretrizes da Meta para métodos de opt-in](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) para manter a conformidade. Consulte o seguinte recurso para [ideias e sugestões de canais e opt-in da Braze](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit).
@@ -169,6 +177,15 @@ Quando você cria modelos usando o [Construtor de modelos do WhatsApp]({{site.ba
 
 Para resolver isso, edite seu modelo no WhatsApp Manager da Meta para usar formatação de marcadores sequenciais e reimporte-o na Braze. Na Braze, confirme que cada campo de variável obrigatório está preenchido com um valor Liquid válido.
 
+#### Por que minha Campaign de WhatsApp não está enviando apesar de o modelo estar sendo exibido corretamente na prévia? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
+Se o seu modelo é exibido corretamente na prévia, mas o registro de processamento mostra **Abort** com os detalhes "Param text cannot have new-line/tab characters or more than 4 consecutive spaces", verifique os valores dos parâmetros preenchidos por Liquid na sua mensagem. O WhatsApp exige que os valores de texto dos parâmetros não contenham:
+
+- Caracteres de nova linha
+- Caracteres de tabulação
+- Mais de 4 espaços consecutivos
+
+Confirme que qualquer lógica Liquid que preenche os parâmetros do modelo remove esses caracteres ou formata o texto adequadamente antes do envio.
+
 ### Entregabilidade e cobrança {#deliverability-and-billing}
 
 #### Por que uma mensagem não seria entregue? {#why-would-a-message-not-be-delivered}
@@ -177,14 +194,41 @@ Existem vários motivos pelos quais uma mensagem pode não ser entregue, incluin
 #### Se uma mensagem não for entregue, serei cobrado? {#if-a-message-is-not-delivered-will-i-be-billed}
 Não. Se uma mensagem não for entregue, você não será cobrado.
 
-#### O que acontece se um usuário final bloquear minha empresa? {#what-happens-if-an-end-user-blocks-my-business}
-Se um usuário final bloquear sua empresa, as mensagens subsequentes que você tentar enviar não serão entregues, e você não será cobrado.
+#### O que acontece se um usuário bloquear minha empresa? {#what-happens-if-a-user-blocks-my-business}
+Se um usuário bloquear sua empresa, as mensagens subsequentes que você tentar enviar não serão entregues, e você não será cobrado.
 
-#### O que acontece se um usuário final denunciar uma mensagem? {#what-happens-if-an-end-user-reports-a-message}
-Se um usuário final denunciar uma mensagem, você ainda poderá enviar mensagens subsequentes para esse usuário. No entanto, a denúncia pode afetar sua classificação de qualidade no canal.
+#### O que acontece se um usuário denunciar uma mensagem? {#what-happens-if-a-user-reports-a-message}
+Se um usuário denunciar uma mensagem, você ainda poderá enviar mensagens subsequentes para esse usuário. No entanto, a denúncia pode afetar sua classificação de qualidade no canal.
 
-#### Se um usuário final bloquear ou denunciar minha empresa, o status de inscrição dele será atualizado na Braze? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### Se um usuário bloquear ou denunciar minha empresa, o status de inscrição dele será atualizado na Braze? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 Não. O status de inscrição na Braze não será atualizado.
+
+#### Como posso excluir usuários que denunciaram minha conta do WhatsApp de próximos envios? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
+A Braze não recebe notificações do WhatsApp quando sua conta é sinalizada ou denunciada, então você não pode identificar ou excluir automaticamente esses usuários na Braze. Usuários que denunciam sua conta podem permanecer no seu grupo de inscrições do WhatsApp e continuar elegíveis para mensagens futuras.
+
+No entanto, você pode configurar uma Campaign que é disparada quando um usuário responde com uma palavra-chave de descadastramento, o que cancela automaticamente a inscrição dele usando o [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Para saber mais, consulte [Processo de opt-in e opt-out do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+
+#### As mensagens de resposta do WhatsApp são gratuitas? {#are-whatsapp-response-messages-free}
+
+As mensagens de resposta compostas no editor de Campaign ou Canvas da Braze (não modelos aprovados do WhatsApp) são tratadas como mensagens de serviço pela Meta. Mensagens de serviço enviadas por meio da integração nativa de WhatsApp da Braze não consomem Action Credits quando são enviadas como [mensagens de resposta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) dentro de uma janela de atendimento ao cliente aberta.
+
+| Tipo de mensagem | Action Credits | Observações |
+|---|---|---|
+| Mensagem de resposta (resposta de entrada) | Não consumidos | Composta na Braze; não é um modelo aprovado pela Meta. |
+| Mensagem de modelo | Consumidos | Modelos de marketing, utilidade, autenticação e oferta por tempo limitado são cobrados por envio. |
+| Modelo de utilidade na janela de serviço | Não consumidos pela Meta | A Meta não cobra por modelos de utilidade enviados dentro de 24 horas de uma mensagem iniciada pelo usuário. O consumo de Action Credits segue seu contrato. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Action Credits de mensagens de resposta" }
+
+Para fluxos de Canvas em que os usuários tocam em respostas rápidas após a janela original de 24 horas, consulte [Respostas rápidas e mensagens de entrada fora da janela de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### O que acontece se um usuário responder ou tocar em uma resposta rápida após o fechamento da janela de 24 horas? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
+Uma nova janela de atendimento ao cliente de 24 horas é aberta. Consulte [Respostas rápidas e mensagens de entrada fora da janela de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Preciso configurar meu Action Path do Canvas para 31 dias para respostas rápidas do WhatsApp? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+Não. A duração padrão do Action Path é suficiente. Consulte [Respostas rápidas e mensagens de entrada fora da janela de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Posso ver quantos créditos de WhatsApp uma Campaign ou Canvas específico consumiu? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
+Não no dashboard da Braze atualmente. A análise de dados de Campaigns e Canvas mostra envios, entregas e falhas, mas não o consumo de créditos por mensagem. As contagens de envio não correspondem diretamente ao uso de créditos porque a categoria do modelo e o tipo de mensagem afetam a cobrança de formas diferentes. Para detalhes de cobrança, consulte [As mensagens de resposta do WhatsApp são gratuitas?](#are-whatsapp-response-messages-free).
 
 ### Integrações, dados e relatórios {#integrations-data-and-reporting}
 
@@ -202,7 +246,7 @@ Para enviar informações para a Braze, por exemplo, para indicar que um usuári
 As mensagens são armazenadas apenas pelo tempo necessário para processá-las. Para acessar as mensagens dos usuários, use Currents.
 
 #### Quais métricas estão disponíveis no dashboard da Braze? {#what-metrics-are-available-in-the-braze-dashboard}
-Você pode ver destinatários únicos, envios, entregas, leituras e falhas no dashboard da Braze. Observe que os recibos de leitura dos usuários finais devem estar "Ativados" para que a Braze rastreie as leituras. Você também pode configurar eventos de conversão para monitorar o desempenho da Campaign, de forma semelhante a outros canais.
+Você pode ver destinatários únicos, envios, entregas, leituras e falhas no dashboard da Braze. Observe que os recibos de leitura do usuário devem estar "Ativados" para que a Braze rastreie as leituras. Você também pode configurar eventos de conversão para monitorar o desempenho da Campaign, de forma semelhante a outros canais.
 
 #### O que é uma conversa do WhatsApp? {#what-is-a-whatsapp-conversation}
 O WhatsApp é um canal focado em mensagens bidirecionais e, portanto, se baseia em conversas (em vez do número de mensagens individuais). Uma conversa é um thread de 24 horas entre uma empresa e um usuário final.

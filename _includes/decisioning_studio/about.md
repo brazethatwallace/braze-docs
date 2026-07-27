@@ -34,7 +34,7 @@ To set up Decisioning Studio, you will:
 - Design your decisioning agent to define what outcome you want to maximize, and what actions the agent can take to do so.
 - Launch your decisioning agent and let it continuously learn and optimize for your business outcomes.
 
-While Decisioning Studio Go is a self-service platform, Decisioning Studio Pro includes AI Decisioning Services support from Braze’s forward deployed data science team, which will help you design and configure your agent to maximize your business outcomes. See [Decisioning Studio Go vs. Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro) for more details.
+While Decisioning Studio Go is a self-service platform, Decisioning Studio Pro includes AI Decisioning Services support from Braze's forward deployed data science team, which helps you design and configure your agent to maximize your business outcomes. See [Decisioning Studio Go vs. Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro) for more details.
 
 For more details, see [Get Started with Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/).
 

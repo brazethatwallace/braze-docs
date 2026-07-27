@@ -128,7 +128,7 @@ Para testar isso de ponta a ponta, use a ferramenta de testes de Lead Ads do Fac
 
 ## Gerenciamento de identidade do usuário {#user-identity-management}
 
-Essa integração permite atribuir seus leads do Facebook por e-mail por meio do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number).
+Essa integração permite atribuir seus leads do Facebook por e-mail por meio do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number).
 
 * Se o e-mail corresponder a um perfil de usuário existente, a Braze atualizará o perfil com os dados de leads do Facebook.
 * Se houver vários perfis de usuário com o mesmo e-mail, a Braze priorizará o perfil atualizado mais recentemente com um ID externo para atualizações.
@@ -162,7 +162,7 @@ Se você não usa e não planeja usar o Zapier, é possível criar a integraçã
 
 Para recuperar leads do Facebook, use <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">webhooks</a>. Consulte a <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">documentação de webhooks</a> para começar a usar webhooks no Facebook.
 
-Depois de estabelecer o URL dos webhooks no Facebook, trabalhe com sua equipe para determinar o melhor caminho para encaminhar os dados para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Semelhante à abordagem do Zapier, recomendamos fazer uma [solicitação por e-mail]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number) pelo endpoint `users/track`.
+Depois de estabelecer o URL dos webhooks no Facebook, trabalhe com sua equipe para determinar o melhor caminho para encaminhar os dados para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Semelhante à abordagem do Zapier, recomendamos fazer uma [solicitação por e-mail]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number) pelo endpoint `users/track`.
 {% enddetails %}
 
 {% alert tip %}

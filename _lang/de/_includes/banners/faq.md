@@ -24,9 +24,23 @@ Wenn sich ein:e Nutzer:in für mehrere Banner-Campaigns qualifiziert, die sich d
 
 Banner unterscheiden sich von Content Cards, d. h. Sie können Banner und Content Cards nicht im selben Feed verwenden. Um bestehende Content-Card-Feeds durch Banner zu ersetzen, müssen Sie [Platzierungen in Ihrer App oder Website erstellen]({{site.baseurl}}/developer_guide/banners/placements).
 
+## Wie unterscheiden sich Banner von In-App-Nachrichten? {#how-are-banners-different-from-in-app-messages}
+
+Banner und [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages) erreichen Nutzer:innen beide innerhalb Ihrer App oder Website, verwenden jedoch unterschiedliche Zustellungsmodelle. Wenn Sie Banner mit einem bestehenden In-App-Nachrichten-Setup vergleichen, erwarten Sie Unterschiede bei Triggern, Aktualisierungszeitpunkten und Tests – kein Eins-zu-eins-Austausch.
+
+| Thema | Banner | In-App-Nachrichten |
+| --- | --- | --- |
+| Wo Nachrichten erscheinen | Inline an [Platzierungen]({{site.baseurl}}/developer_guide/banners/placements), die Sie in Ihrer App oder Website definieren | Vollbild-, Modal- oder Slide-up-Overlays, die vom SDK verwaltet werden |
+| Wann Inhalte aktualisiert werden | Wenn Ihre App oder Website eine Banner-Aktualisierung aufruft (z. B. bei Sitzungsstart oder während der Sitzung) | Vorlagenbasierte Nachrichten werten Liquid aus, wenn die In-App-Nachricht getriggert wird (z. B. bei einem angepassten Event oder Sitzungsstart), nachdem die Payload auf dem Gerät zwischengespeichert wurde |
+| Aktionsbasierte Trigger | Keine [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery); verwenden Sie stattdessen Segmente, Priorität und Aktualisierungszeitpunkte | Unterstützt aktionsbasierte und API-getriggerte Zustellung |
+| Testen | Vorschau für eine:n Nutzer:in anzeigen und dann bestätigen, dass die Platzierungsaktualisierung in Ihrer App oder Website das erwartete Banner anzeigt | Verwenden Sie **Testsendung** oder In-App-Vorschau-Flows für triggerbasierte Anzeige |
+| Reporting | Banner-Aufrufe und -Klicks folgen der Banner-Analytics | In-App-Impressionen und -Klicks folgen der In-App-Nachrichten-Analytics |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wie unterscheiden sich Banner von In-App-Nachrichten?" }
+
+
 ## Können Banner Video enthalten? {#can-banners-include-video}
 
-Der Standard-Banner-Composer unterstützt Bilder, Text und Buttons. Um ein Video in ein Banner einzubinden, können Sie einen **Custom Code**-Block im Composer verwenden oder das gesamte Banner mit dem HTML-Editor erstellen und einen Videoplayer direkt in Ihr HTML einbetten.
+Der Standard-Banner-Builder unterstützt Bilder, Text und Buttons. Um ein Video in ein Banner einzubinden, können Sie einen **Custom Code**-Block im Builder verwenden oder das gesamte Banner mit dem HTML-Editor erstellen und einen Videoplayer direkt in Ihr HTML einbetten.
 
 ## Kann ich ein Banner basierend auf Aktionen von Nutzer:innen triggern? {#can-i-trigger-a-banner-based-on-user-actions}
 
@@ -41,7 +55,7 @@ Wenn ein:e Nutzer:in eine neue Sitzung startet oder Banner nach der Aktion aktua
 
 ## Können Nutzer:innen ein Banner schließen? {#can-users-dismiss-a-banner}
 
-Ja. Sie können Nutzer:innen erlauben, ein Banner manuell zu schließen. Weitere Details zur Konfiguration des Schließverhaltens im Composer und im HTML-Editor finden Sie unter [Schließverhalten konfigurieren]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#dismiss-behavior).
+Ja. Sie können Nutzer:innen erlauben, ein Banner manuell zu schließen. Weitere Details zur Konfiguration des Schließverhaltens im Builder und im HTML-Editor finden Sie unter [Schließverhalten konfigurieren]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#dismiss-behavior).
 
 Nutzer:innen können Banner nur dann manuell schließen, wenn das Schließverhalten aktiviert ist. Wenn das Schließen nicht aktiviert ist, können Sie die Sichtbarkeit von Bannern steuern, indem Sie die Segment-Berechtigung der Nutzer:innen verwalten. Wenn ein:e Nutzer:in die Targeting-Kriterien für eine Banner-Campaign nicht mehr erfüllt, wird das Banner bei der nächsten Sitzung nicht mehr angezeigt.
 
@@ -69,8 +83,8 @@ Nein. Die meisten Liquid-Tags werden jedoch für Banner-Nachrichten unterstützt
 
 Ja. Wie Klick-Events erfasst werden, hängt davon ab, wie Ihr Banner gerendert wird:
 
-- **Composer – Standard-Komponenten:** Wenn Ihr Banner Standard-Editor-Komponenten (Bilder, Buttons, Text) verwendet, werden Klicks automatisch getrackt, wenn Sie die Einfügemethoden des SDK verwenden.
-- **Composer – Custom-Code-Blöcke:** Wenn Sie Klicks für Elemente innerhalb eines Custom-Code-Editor-Blocks tracken möchten, müssen Sie `brazeBridge.logClick()` in Ihrem angepassten HTML aufrufen. Dies gilt auch bei der Verwendung der SDK-Methoden zum Einfügen und Rendern des Banners.
+- **Builder – Standard-Komponenten:** Wenn Ihr Banner Standard-Editor-Komponenten (Bilder, Buttons, Text) verwendet, werden Klicks automatisch getrackt, wenn Sie die Einfügemethoden des SDK verwenden.
+- **Builder – Custom-Code-Blöcke:** Wenn Sie Klicks für Elemente innerhalb eines Custom-Code-Editor-Blocks tracken möchten, müssen Sie `brazeBridge.logClick()` in Ihrem angepassten HTML aufrufen. Dies gilt auch bei der Verwendung der SDK-Methoden zum Einfügen und Rendern des Banners.
 - **HTML-Editor:** Klick-Tracking erfolgt nicht automatisch. Sie müssen `brazeBridge.logClick()` für jedes klickbare Element aufrufen, das Sie tracken möchten. Die vollständige Referenz finden Sie unter [Angepasster Code und JavaScript-Bridge für Banner]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
 - **Angepasste UI (Headless):** Wenn Sie eine vollständig angepasste UI unter Verwendung der angepassten Eigenschaften des Banners erstellen, anstatt das Banner-HTML zu rendern, rufen Sie `logClick()` auf dem Banner-Objekt aus Ihrem Anwendungscode auf.
 

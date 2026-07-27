@@ -39,6 +39,6 @@ Il s'agit d'un cas très rare, dû à l'architecture sous-jacente du fournisseur
 
 Bien que les fichiers CSV soient généralement ouverts automatiquement dans Excel par défaut, ce n'est pas toujours le cas. Consultez les articles de résolution des problèmes pour [Windows](https://support.microsoft.com/en-us/windows/change-which-programs-windows-7-uses-by-default-62fd162f-8c82-0436-806f-c60d69dcf495) et [Apple](https://support.apple.com/guide/mac-help/choose-an-app-to-open-a-file-on-mac-mh35597/mac) afin de définir Excel comme programme par défaut.
 
-Pour convertir un fichier CSV en XLSX ou XLS, ou pour supprimer la virgule entre les valeurs de données, consultez [ce guide](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard) sur l'importation de fichiers CSV dans Excel.
+Pour convertir un fichier CSV en XLSX ou XLS, ou pour supprimer la virgule entre les valeurs de données, consultez [ce guide sur l'importation de fichiers CSV dans Excel](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard).
 
 Si vous constatez que les zéros en début de chaîne sont supprimés des ID utilisateur dans votre exportation CSV, cela est dû au fait qu'Excel traite les nombres d'un fichier CSV comme des données numériques plutôt que du texte. Pour résoudre ce problème, utilisez l'[assistant d'importation de texte d'Excel](https://www.ablebits.com/office-addins-blog/converting-csv-excel-issues/#leading-zeros).

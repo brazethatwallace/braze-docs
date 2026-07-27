@@ -22,7 +22,7 @@ description: "この記事では、「識別子によるユーザーのエクス
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.export.ids`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`users.export.ids`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -62,7 +62,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `email_address` | オプション | 文字列 | ユーザーのメールアドレス。 |
 | `phone` | オプション | [E.164](https://en.wikipedia.org/wiki/E.164)形式の文字列 | ユーザーの電話番号。 |
 | `fields_to_export` | オプション* | 文字列の配列 | エクスポートするユーザーデータフィールドの名前。<br><br>*このフィールドは、1秒あたり40リクエストの高速レート制限を使用するために必要です。省略した場合、1分あたり250リクエストのデフォルトレート制限が代わりに使用されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 *2024年8月22日以降にBrazeにオンボーディングした顧客には必須です。
 
@@ -98,8 +98,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `attributed_source` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。広告が表示されたプラットフォームの識別子。 |
 | `attributed_adgroup` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
 | `attributed_ad` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンおよび広告グループの下のオプションのサブグループの識別子。 |
-| `push_subscribe` | 文字列 | ユーザーのプッシュ通知のサブスクリプションステータス。 |
-| `email_subscribe` | 文字列 | ユーザーのメールサブスクリプションステータス。 |
+| `push_subscribe` | 文字列 | ユーザーのプッシュ通知の購読ステータス。 |
+| `email_subscribe` | 文字列 | ユーザーのメール購読ステータス。 |
 | `braze_id` | 文字列 | このユーザーにBrazeが設定したデバイス固有の一意のユーザー識別子。 |
 | `country` | 文字列 | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)標準を使用したユーザーの国。 |
 | `created_at` | 文字列 | ユーザープロファイルが作成された日時（ISO 8601形式）。 |
@@ -122,8 +122,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したキャンペーンおよびキャンバスのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
-| `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)（存在する場合）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="エクスポートするフィールド" }
+| `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)（存在する場合）。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
 `/users/export/ids`エンドポイントは、受信したすべてのキャンペーンやキャンバス、実行されたすべてのカスタムイベント、行われたすべての購入、すべてのカスタム属性などのデータを含む、このユーザーのユーザープロファイル全体をまとめることに注意してください。このため、このエンドポイントは他のREST APIエンドポイントよりも低速になります。
 
@@ -133,7 +133,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }

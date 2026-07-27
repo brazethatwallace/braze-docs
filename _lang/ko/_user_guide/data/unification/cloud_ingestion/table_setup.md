@@ -56,12 +56,12 @@ Braze는 먼저 소스 테이블에서 행을 읽은 다음, 선택한 데이터
 
 | 데이터 유형 | 형식 참조 |
 | --- | --- |
-| `attributes` | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOAD 열 설정" }
 
-중첩 속성의 경우 [오브젝트 등록정보로 날짜 캡처]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties)의 형식을 사용하여 날짜를 포함합니다.
+중첩 속성의 경우 [오브젝트 속성으로 날짜 캡처]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties)의 형식을 사용하여 날짜를 포함합니다.
 
 ### 페이로드 예시 {#payload-examples}
 

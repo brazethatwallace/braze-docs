@@ -8,7 +8,7 @@ description: "Braze SDKを使用して購入を記録する方法について説
 
 # 購入記録 {#log-purchases}
 
-> Braze SDKを使用してアプリ内購入を記録する方法について説明します。これにより、売上を経時的にトラッキングしたり、売上源を横断してトラッキングしたりできます。カスタムイベント、カスタム属性、および購入イベントを使用して、[生涯価値に基づいて]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking)ユーザーをセグメント化できます。
+> Braze SDKを使用してアプリ内購入を記録する方法について説明します。これにより、売上を経時的にトラッキングしたり、売上源を横断してトラッキングしたりできます。カスタムイベント、カスタム属性、および購入イベントを使用して、[生涯価値に基づいて]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking)ユーザーをセグメント化できます。
 
 {% alert note %}
 リストされていないラッパーSDKの場合は、代わりに関連するネイティブAndroidまたはSwiftメソッドを使用してください。
@@ -18,7 +18,7 @@ description: "Braze SDKを使用して購入を記録する方法について説
 
 ## 購入と売上の記録 {#logging-purchases-and-revenue}
 
-購入と収益を記録するには、アプリでの購入が正常に完了した後に`logPurchase()`を呼び出します。製品IDが空の場合、購入はBrazeに記録されません。
+購入と売上を記録するには、アプリでの購入が正常に完了した後に`logPurchase()`を呼び出します。製品IDが空の場合、購入はBrazeに記録されません。
 
 {% tabs %}
 {% tab web %}
@@ -268,7 +268,7 @@ REST APIを使用して購入を記録することもできます。詳細につ
 
 ## 注文の記録 {#logging-orders}
 
-商品レベルではなく、注文レベルで購入を記録したい場合、注文名または注文カテゴリを`product_id`として使用できます。詳細については、[購入オブジェクトの仕様]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions)を参照してください。
+商品レベルではなく、注文レベルで購入を記録したい場合、注文名または注文カテゴリを`product_id`として使用できます。詳細については、[購入オブジェクトの仕様]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions)を参照してください。
 
 ## 予約済みのキー {#reserved-keys}
 

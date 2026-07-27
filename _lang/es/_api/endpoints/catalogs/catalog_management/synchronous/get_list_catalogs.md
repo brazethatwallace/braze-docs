@@ -6,7 +6,7 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Listar catálogos de Braze."
+description: "En este artículo se describen los detalles del endpoint Listar catálogos de Braze."
 
 ---
 {% api %}
@@ -15,21 +15,21 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs
 {% endapimethod %}
 
-> Utiliza este punto de conexión para devolver una lista de catálogos en un espacio de trabajo.
+> Utiliza este endpoint para devolver una lista de catálogos en un espacio de trabajo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d65fb86-ccf7-423f-9eb2-f68ab36df824 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.get`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.get`.
 
 ## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## Ruta y parámetros de la solicitud {#path-and-request-parameters}
+## Parámetros de ruta y solicitud {#path-and-request-parameters}
 
-No hay parámetros de ruta o solicitud para este punto de conexión.
+No hay parámetros de ruta o solicitud para este endpoint.
 
 ## Ejemplo de solicitud {#example-request}
 

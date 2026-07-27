@@ -1,0 +1,7 @@
+- [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 사용하여 커스텀 이벤트를 기반으로 Campaign 또는 Canvas 트리거
+- 커스텀 이벤트를 수행한 횟수, 마지막으로 이벤트가 발생한 시점 등을 기준으로 사용자를 세그먼트화
+- 대시보드 [커스텀 이벤트 분석]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics)을 사용하여 각 이벤트가 발생한 빈도의 집계 확인
+- [퍼널]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) 및 [유지]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) 보고서를 사용하여 추가 분석 수행
+- [영구 항목 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)을 활용하여 고객 이벤트의 메타데이터를 캔버스 단계에서 개인화에 사용
+- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하여 더 정교한 분석 생성
+- [종료 기준]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)을 설정하여 사용자가 Canvas를 종료해야 하는 시점 정의

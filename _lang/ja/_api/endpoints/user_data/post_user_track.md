@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を参照してください |
+| `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を参照してください |
 | `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)を参照してください |
 | `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を参照してください |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
@@ -185,11 +185,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
 }'
 ```
-### サブスクリプショングループを設定する {#set-subscription-groups}
+### 購読グループを設定する {#set-subscription-groups}
 
-この例では、ユーザーを作成し、ユーザー属性オブジェクト内でサブスクリプショングループを設定する方法を示します。
+この例では、ユーザーを作成し、ユーザー属性オブジェクト内で購読グループを設定する方法を示します。
 
-このエンドポイントでサブスクリプションステータスを更新すると、`external_id`で指定されたユーザー（User1など）が更新され、そのユーザー（User1）と同じメールを持つすべてのユーザーのサブスクリプションステータスも更新されます。
+このエンドポイントで購読ステータスを更新すると、`external_id`で指定されたユーザー（User1など）が更新され、そのユーザー（User1）と同じメールを持つすべてのユーザーの購読ステータスも更新されます。
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
@@ -221,7 +221,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 {% alert note %}
-SMSサブスクリプショングループの場合、グループの`subscription_state`を`subscribed`に設定する際に、そのサブスクリプショングループオブジェクト内でオプションの`use_double_opt_in_logic`パラメーターを`true`に設定すると、ユーザーを[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)ワークフローに入れることができます。`subscription_state`が`subscribed`のときにこのパラメーターが省略されるか`false`に設定されると、ユーザーはダブルオプトインワークフローに入らずに購読されます。このパラメーターは、`subscription_state`が`unsubscribed`などの他の値に設定されている場合は適用されません。
+SMS購読グループの場合、グループの`subscription_state`を`subscribed`に設定する際に、その購読グループオブジェクト内でオプションの`use_double_opt_in_logic`パラメーターを`true`に設定すると、ユーザーを[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)ワークフローに入れることができます。`subscription_state`が`subscribed`のときにこのパラメーターが省略されるか`false`に設定されると、ユーザーはダブルオプトインワークフローに入らずに購読されます。このパラメーターは、`subscription_state`が`unsubscribed`などの他の値に設定されている場合は適用されません。
 {% endalert %}
 
 ### エイリアスのみのユーザーを作成するリクエスト例 {#example-request-to-create-an-alias-only-user}
@@ -318,8 +318,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 | `BAD_PUSH_TOKEN_VALUE` | `push_tokens`はオブジェクトの配列である必要があります。 |
 | `BAD_SUBSCRIPTION_GROUP_ARRAY` | `subscription_groups`は配列である必要があります。 |
 | `BAD_SUBSCRIPTION_GROUP_HASH` | `subscription_groups`配列の各項目は、`subscription_group_id`と`subscription_state`キーを持つJSONオブジェクトである必要があります。 |
-| `BAD_SUBSCRIPTION_GROUP_ID` | `subscription_group_id`は有効なサブスクリプショングループのUUIDである必要があります。 |
-| `BAD_SUBSCRIPTION_GROUP_STATE` | サブスクリプショングループの`subscription_state`は`subscribed`または`unsubscribed`である必要があります。 |
+| `BAD_SUBSCRIPTION_GROUP_ID` | `subscription_group_id`は有効な購読グループのUUIDである必要があります。 |
+| `BAD_SUBSCRIPTION_GROUP_STATE` | 購読グループの`subscription_state`は`subscribed`または`unsubscribed`である必要があります。 |
 | `BLACKLISTED_EXTERNAL_USER_ID` | 指定された`external_id`はブロックリストに登録されており、許可されていません。 |
 | `EMAIL_BAD_FORMAT` | `email`に指定された値は有効なメールアドレスではありません。 |
 | `EXTERNAL_USER_ID_TOO_LARGE` | `external_id`が最大許容長の987バイトを超えています。 |
@@ -393,7 +393,7 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 - 1時間ごとの制限に加えて、Brazeは3秒ごとに送信できるリクエスト数にバースト制限を適用します。
 - 各リクエストは、属性、イベント、購入オブジェクトを合わせて最大75件の更新をバッチできます。
 
-予想される取り込みに基づく現在の制限は、ダッシュボードの**設定** > **APIキー** > **API使用状況ダッシュボード**で確認できます。システムの安定性を保護するため、またはアカウントのデータスループットを向上させるために、レート制限を変更する場合があります。1時間あたりまたは1秒あたりのリクエスト制限やビジネスのニーズに関するご質問やご不明な点については、Brazeサポートまたはカスタマーサクセスマネージャーまでお問い合わせください。
+予想される取り込みに基づく現在の制限は、ダッシュボードの**設定** > **APIと識別子** > **API使用状況ダッシュボード**で確認できます。システムの安定性を保護するため、またはアカウントのデータスループットを向上させるために、レート制限を変更する場合があります。1時間あたりまたは1秒あたりのリクエスト制限やビジネスのニーズに関するご質問やご不明な点については、Brazeサポートまたはカスタマーサクセスマネージャーまでお問い合わせください。
 
 ### CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAUのレート制限ヘッダー {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

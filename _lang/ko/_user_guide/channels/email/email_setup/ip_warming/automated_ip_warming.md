@@ -36,6 +36,10 @@ IP 워밍은 한 번만 수행할 수 있습니다.
 - Campaigns에 대한 승인 워크플로우가 활성화된 경우 "Approve and Deny Campaigns"
     - Braze는 자동화된 IP 워밍에서 생성된 Campaigns를 사용자를 대신하여 자동으로 승인합니다.
 
+{% alert important %}
+이 기능은 이메일 인프라에 따라 지원되지 않을 수 있습니다.
+{% endalert %}
+
 ## 자동화된 IP 워밍 계획 설정 {#set-up-an-automated-ip-warming-plan}
 
 ### 1단계: 스케줄 설정 {#step-1-set-a-schedule}

@@ -21,7 +21,7 @@ description: "この記事では、「カタログ項目の詳細をリストア
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.get_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`catalogs.get_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -96,7 +96,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 
 ## トラブルシューティング {#troubleshooting}
 
-以下の表は、返される可能性のあるエラーと、該当する場合の関連するトラブルシューティング手順を示しています。
+以下の表は、返される可能性のあるエラーと、該当する場合の関連するトラブルシューティングステップを示しています。
 
 | エラー | トラブルシューティング |
 | --- | --- |

@@ -2,7 +2,7 @@
 
 ### 1단계: Gradle 빌드 구성 업데이트 {#step-1-update-your-gradle-build-configuration}
 
-프로젝트의 리포지토리 구성(예: `settings.gradle`, `settings.gradle.kts` 또는 최상위 `build.gradle`)에서 [`mavenCentral()`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.artifacts.dsl/-repository-handler/maven-central.html)를 리포지토리 목록에 추가하세요. 이 구문은 Groovy와 Kotlin DSL 모두 동일합니다.
+프로젝트의 리포지토리 구성(예: `settings.gradle`, `settings.gradle.kts` 또는 최상위 `build.gradle`)에서 [`mavenCentral()`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.artifacts.dsl/-repository-handler/maven-central.html)을 리포지토리 목록에 추가하세요. 이 구문은 Groovy와 Kotlin DSL 모두 동일합니다.
 
 ```groovy
 repositories {
@@ -116,7 +116,7 @@ dependencies {
 
 프로젝트의 `res/values` 폴더에 `braze.xml` 파일을 생성하세요. 특정 데이터 클러스터에 있거나 기존 커스텀 엔드포인트가 있는 경우 `braze.xml` 파일에서도 엔드포인트를 지정해야 합니다.
 
-해당 파일의 내용은 다음 코드 스니펫과 유사해야 합니다. `YOUR_APP_IDENTIFIER_API_KEY`를 Braze 대시보드의 **설정 관리** 페이지에서 찾을 수 있는 식별자로 대체하세요. [dashboard.braze.com](https://dashboard.braze.com)에 로그인하여 [클러스터 주소]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/)를 찾으세요.
+해당 파일의 내용은 다음 코드 스니펫과 유사해야 합니다. `YOUR_APP_IDENTIFIER_API_KEY`를 Braze 대시보드의 **설정 관리** 페이지에서 찾을 수 있는 식별자로 대체하세요. [dashboard.braze.com](https://dashboard.braze.com)에 로그인하여 [클러스터 주소]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints)를 찾으세요.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -322,7 +322,7 @@ class MyApplication : Application() {
 ## 세션 추적 테스트 {#testing-session-tracking}
 
 {% alert tip %}
-SDK 문제를 진단하기 위해 [SDK 디버거]({{site.baseurl}}/developer_guide/debugging/)를 사용할 수도 있습니다.
+SDK 문제를 진단하기 위해 [SDK 디버거]({{site.baseurl}}/developer_guide/debugging)를 사용할 수도 있습니다.
 {% endalert %}
 
 테스트 중 문제가 발생하면 [상세 로깅](#android_enabling-logs)을 활성화한 다음 logcat을 사용하여 액티비티에서 누락된 `openSession` 및 `closeSession` 호출을 감지하세요.
@@ -447,7 +447,7 @@ Braze Android SDK 버전 3.6.0부터 Braze 위치 수집은 기본적으로 비�
 
 #### 로그 활성화 {#enabling-logs}
 
-앱의 문제를 해결하거나 Braze 고객지원과의 처리 시간을 단축하려면 SDK에 대한 상세 로그를 활성화할 수 있습니다. 상세 로그를 Braze 고객지원에 보낼 때 애플리케이션을 실행하자마자 로깅을 시작하고 문제가 발생한 후 충분한 시간이 지난 뒤에 종료해야 합니다. 중앙 집중식 개요를 보려면 [상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)을 참조하세요. 로그 출력을 해석하는 방법을 배우려면 [상세 로그 읽기]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/)를 참조하세요.
+앱의 문제를 해결하거나 Braze 고객지원과의 처리 시간을 단축하려면 SDK에 대한 상세 로그를 활성화할 수 있습니다. 상세 로그를 Braze 고객지원에 보낼 때 애플리케이션을 실행하자마자 로깅을 시작하고 문제가 발생한 후 충분한 시간이 지난 뒤에 종료해야 합니다. 중앙 집중식 개요를 보려면 [상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)을 참조하세요. 로그 출력을 해석하는 방법을 배우려면 [상세 로그 읽기]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs)를 참조하세요.
 
 상세 로그는 개발 환경 전용이므로 앱을 출시하기 전에 비활성화하는 것이 좋습니다.
 
@@ -475,7 +475,7 @@ BrazeLogger.logLevel = Log.MIN_LOG_LEVEL
 
 `MIN_LOG_LEVEL`을 최소 로그 수준으로 설정하려는 로그 수준의 **상수**로 바꾸세요. 설정된 `MIN_LOG_LEVEL` 이상(`>=`) 수준의 모든 로그는 Android의 기본 [`Log`](https://developer.android.com/reference/android/util/Log) 메서드로 전달됩니다. 설정된 `MIN_LOG_LEVEL` 미만(`<`)의 모든 로그는 삭제됩니다.
 
-| 상수    | 값          | 설명                                                               |
+| 상수 | 값 | 설명 |
 |-------------|----------------|---------------------------------------------------------------------------|
 | `VERBOSE`   | 2              | 디버깅 및 개발을 위한 가장 자세한 메시지를 기록합니다.            |
 | `DEBUG`     | 3              | 디버깅 및 개발을 위한 설명 메시지를 기록합니다.                  |
@@ -483,7 +483,7 @@ BrazeLogger.logLevel = Log.MIN_LOG_LEVEL
 | `WARN`      | 5              | 잠재적으로 유해한 상황을 식별하기 위한 경고 메시지를 기록합니다.     |
 | `ERROR`     | 6              | 애플리케이션 실패 또는 심각한 문제를 나타내는 오류 메시지를 기록합니다. |
 | `ASSERT`    | 7              | 개발 중 조건이 거짓일 때 어설션 메시지를 기록합니다.     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enabling logs" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="로그 활성화" }
 
 예를 들어 다음 코드는 로그 수준 `2`, `3`, `4`, `5`, `6`, `7`을 `Log` 메서드로 전달합니다.
 
@@ -511,7 +511,7 @@ BrazeLogger.logLevel = Log.VERBOSE
 
 `MIN_LOG_LEVEL`을 최소 로그 수준으로 설정하려는 로그 수준의 **값**으로 바꾸세요. 설정된 `MIN_LOG_LEVEL` 이상(`>=`) 수준의 모든 로그는 Android의 기본 [`Log`](https://developer.android.com/reference/android/util/Log) 메서드로 전달됩니다. 설정된 `MIN_LOG_LEVEL` 미만(`<`)의 모든 로그는 삭제됩니다.
 
-| 상수    | 값          | 설명                                                               |
+| 상수 | 값 | 설명 |
 |-------------|----------------|---------------------------------------------------------------------------|
 | `VERBOSE`   | 2              | 디버깅 및 개발을 위한 가장 자세한 메시지를 기록합니다.            |
 | `DEBUG`     | 3              | 디버깅 및 개발을 위한 설명 메시지를 기록합니다.                  |
@@ -519,7 +519,7 @@ BrazeLogger.logLevel = Log.VERBOSE
 | `WARN`      | 5              | 잠재적으로 유해한 상황을 식별하기 위한 경고 메시지를 기록합니다.     |
 | `ERROR`     | 6              | 애플리케이션 실패 또는 심각한 문제를 나타내는 오류 메시지를 기록합니다. |
 | `ASSERT`    | 7              | 개발 중 조건이 거짓일 때 어설션 메시지를 기록합니다.     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enabling logs" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="로그 활성화" }
 
 예를 들어 다음 코드는 로그 수준 `2`, `3`, `4`, `5`, `6`, `7`을 `Log` 메서드로 전달합니다.
 
@@ -571,7 +571,7 @@ BrazeLogger.setLogLevel(BrazeLogger.SUPPRESS)
 ```
 
 {% alert tip %}
-코드에서 API 키를 설정하는 방법을 배우려면 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 참조하세요.
+코드에서 API 키를 설정하는 방법을 배우려면 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 참조하세요.
 {% endalert %}
 
 ### 인앱 메시지 전용 TalkBack {#exclusive-in-app-message-talkback}

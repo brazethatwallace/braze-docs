@@ -15,7 +15,7 @@ description: "この記事では、「ライブアクティビティを開始」
 /messages/live_activity/start
 {% endapimethod %}
 
-> このエンドポイントを使用して、iOSアプリに表示される[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)をリモートで開始します。このエンドポイントには追加のセットアップが必要です。
+> このエンドポイントを使用して、iOSアプリに表示される[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)をリモートで開始します。このエンドポイントには追加の設定が必要です。
 
 ライブアクティビティを作成した後、セグメントや接続オーディエンス、または特定の外部ユーザーIDに対してアクティビティをリモートで開始するためにPOSTリクエストを送信できます。Appleのライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications) を参照してください。
 
@@ -72,7 +72,7 @@ description: "この記事では、「ライブアクティビティを開始」
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |-----------|----------|----------|--------------|
-| `app_id` | 必須 | 文字列 | [APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページから取得したアプリ[API識別子]({{site.baseurl}}/api/identifier_types#the-app-identifier)。 |
+| `app_id` | 必須 | 文字列 | [APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページから取得したアプリ[API識別子]({{site.baseurl}}/api/identifier_types#app-identifier)。 |
 | `activity_id` | 必須 | 文字列 | カスタム文字列を `activity_id` として定義します。このIDは、ライブアクティビティに更新または終了イベントを送信する際に使用します。 |
 | `activity_attributes_type` | 必須 | 文字列 | アプリ内の `liveActivities.registerPushToStart` で定義するアクティビティ属性タイプ。 |
 | `activity_attributes` | 必須 | オブジェクト | アクティビティタイプの静的属性値（スポーツチームの名前など、変更されないもの）。 |

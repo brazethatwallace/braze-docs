@@ -22,7 +22,7 @@ Each preference center URL is unique to each user.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `preference_center.user.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `preference_center.user.get` permission.
 
 ## Rate limit
 

@@ -45,7 +45,7 @@ In the agent list, each agent is labeled with its [daily invocation limit]({{sit
 
 ### Step 3: Set your agent's output {#define-the-output-variable}
 
-Agent outputs are called "output variables" and are stored in a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) for easy access. To define the output variable, give the variable a name.
+Agent outputs are called "output variables" and are stored in a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters) for easy access. To define the output variable, give the variable a name.
 
 Note that the output variable's data type is set from the [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents). Agent outputs can be saved as strings, numbers, booleans, or objects. This makes them flexible for both text personalization and conditional logic in your Canvas. Here are some common uses for each type:
 
@@ -73,9 +73,18 @@ Note that the agent is already automatically receiving the context configured in
 
 ![The option to add additional context to an Agent step using Liquid.]({% image_buster /assets/img/ai_agent/agent_step_context.png %}){: style="max-width:80%;"}
 
-### Step 5: Test the agent
+### Step 5: Test the agent {#step-5-test-the-agent}
 
-After setting up your Agent step, you can test and preview the output of this step.
+You can test an Agent step in two ways:
+
+**In-step preview (Canvas builder):** After configuring the step, use the step preview to see agent output for a random user, an existing user, or a custom user. This tests the step in isolation without walking the full Canvas path.
+
+**Test Canvas (full journey):** Select **Test Canvas** in the Canvas footer to preview the user path end-to-end. When the test reaches your Agent step, Braze asks **Do you want to run the agent "{agentName}"?**
+
+- Select **Yes** to optionally add context, then select **Simulate response** to invoke the agent for the preview user. You can describe sample inputs in plain language (for example, cart contents or message text) to supplement the test user's profile and any Canvas context already set upstream.
+- Select **No** to skip the live invocation and use the agent's configured **fallback output** from Agent Console instead.
+
+Invocations from **Simulate response** count toward the agent's daily invocation limit and appear in **Agent Console** > **Logs**. For full Test Canvas behavior, see [Preview user paths]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps).
 
 ![Preview the agent output as a random user.]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 

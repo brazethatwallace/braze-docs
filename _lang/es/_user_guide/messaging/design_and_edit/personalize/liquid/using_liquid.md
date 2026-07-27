@@ -51,7 +51,7 @@ Los siguientes valores pueden sustituirse en un mensaje, dependiendo de su dispo
 - [Información del dispositivo usado más recientemente]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information)
 - [Información del dispositivo objetivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
 
-También puedes extraer contenido directamente de un servidor web a través del [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) de Braze.
+También puedes extraer contenido directamente de un servidor web a través del [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) de Braze.
 
 {% alert important %}
 Braze actualmente es compatible con Liquid hasta e incluyendo Liquid 5 de Shopify.
@@ -65,7 +65,7 @@ Usando [etiquetas de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_ed
 
 Liquid sigue una estructura específica, o sintaxis, que deberás tener en cuenta mientras creas personalización dinámica. Aquí tienes algunas reglas básicas a recordar:
 
-1. **Usa comillas rectas en Braze:** Hay una diferencia entre las comillas tipográficas (**' '**) y las comillas rectas (**&#39; &#39;**). Usa comillas rectas (**&#39; &#39;**) en tu Liquid en Braze. Puedes ver comillas tipográficas al copiar y pegar desde ciertos editores de texto, lo que puede causar problemas en tu Liquid. Si introduces las comillas directamente en el dashboard de Braze, ¡no tendrás problemas!
+1. **Usa comillas rectas en Braze:** Hay una diferencia entre las comillas tipográficas (**' '**) y las comillas rectas (**&#39; &#39;**). Usa comillas rectas (**&#39; &#39;**) en tu Liquid en Braze. Puedes ver comillas tipográficas al copiar y pegar desde ciertos editores de texto, lo que puede causar problemas en tu Liquid. Si introduces las comillas directamente en el panel de Braze, ¡no tendrás problemas!
 2. **Las llaves van en pares:** Cada llave debe abrirse y cerrarse **{ }**. ¡Asegúrate de usar llaves!
 3. **Las sentencias if van en pares:** Por cada `if`, necesitas un `endif` para indicar que la sentencia `if` ha terminado.
 4. **Las sentencias case van en pares:** Por cada `case`, necesitas un `endcase` para cerrar el bloque.
@@ -84,7 +84,7 @@ Los operadores (como `==`, `!=`, `>`, `and`, `or`) y los filtros (como `| size`,
 | Acceso a arrays (`[ ]`) | No compatible | No compatible |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dónde usar operadores y filtros" }
 
-[^case_when_ops]: En las etiquetas `case` y `when`, Liquid compara la expresión `case` con cada valor `when` usando igualdad (similar a encadenar `if` y `elsif` con `==`). No puedes usar operadores de comparación arbitrarios ni operadores lógicos dentro de una cláusula `when` como lo haces con `if` y `elsif`. Para ver ejemplos, consulta [Lógica de mensajería condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags).
+[^case_when_ops]: En las etiquetas `case` y `when`, Liquid compara la expresión `case` con cada valor `when` usando igualdad (similar a encadenar `if` y `elsif` con `==`). No puedes usar operadores de comparación arbitrarios ni operadores lógicos dentro de una cláusula `when` como lo haces con `if` y `elsif`. Para ver ejemplos, consulta [Lógica de mensajería condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
 
 Cuando necesites un valor filtrado en un contexto que no admite filtros, asigna primero el resultado a una variable.
 
@@ -220,4 +220,4 @@ Puedes insertar variables preformateadas con valores predeterminados a través d
 
 El modal insertará Liquid con tu valor predeterminado especificado en el punto donde estaba tu cursor. El punto de inserción también se especifica mediante el cuadro de vista previa, que muestra el texto anterior y posterior. Si un bloque de texto está resaltado, el texto resaltado será reemplazado.
 
-![Un GIF del modal Añadir personalización que muestra al usuario insertando "fellow traveler" como valor predeterminado, y el modal reemplazando el texto resaltado "name" en el compositor con el fragmento de código de Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+![Un GIF del modal Añadir personalización que muestra al usuario insertando "fellow traveler" como valor predeterminado, y el modal reemplazando el texto resaltado "name" en el creador con el fragmento de código de Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})

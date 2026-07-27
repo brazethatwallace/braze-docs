@@ -83,6 +83,40 @@ La lógica de cancelación se evalúa en el momento del envío, cuando Braze pro
 
 La lógica de cancelación se evalúa solo para [mensajes dentro de la aplicación con plantilla]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) en el momento en que se desencadena el mensaje dentro de la aplicación (por ejemplo, cuando el usuario realiza el evento desencadenante o inicia una sesión), no cuando el mensaje se envía inicialmente al dispositivo. Los mensajes dentro de la aplicación se entregan al SDK al inicio de la sesión y se almacenan en caché localmente; el Liquid, incluidas las llamadas a `abort_message()`, se ejecuta cuando se cumple la condición de desencadenamiento.
 
+## Solución de problemas de tasas altas de cancelación {#troubleshooting-high-abort-rates}
+
+Si una campaña o un paso en Canvas muestra muchos usuarios que ingresaron pero pocos envíos, o las entregas parecen más bajas de lo esperado, la lógica de cancelación es una causa común, especialmente cuando Liquid requiere atributos, datos de catálogo o valores de lista que faltan en el momento de la evaluación.
+
+### Revisar el Registro de actividad de mensajes {#check-the-message-activity-log}
+
+1. En el panel de Braze, abre el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) de la campaña o del paso de mensaje en Canvas.
+2. Filtra las entradas relacionadas con cancelaciones. De forma predeterminada, Braze registra {% raw %}`{% abort_message %}`{% endraw %} called. Si pasaste una cadena de motivo a `abort_message()`, ese texto aparecerá en su lugar.
+3. Observa si las cancelaciones se agrupan en un canal (por ejemplo, solo correo electrónico) o en varios canales del mismo Canvas.
+
+### Verificar atributos y Liquid en el momento del envío {#verify-attributes-and-liquid-at-send-time}
+
+Para push, correo electrónico, SMS, webhooks y Content Cards, la lógica de cancelación se ejecuta cuando Braze procesa el mensaje para su entrega, no cuando el usuario ingresó a un Canvas ni cuando se disparó un evento desencadenante anteriormente.
+
+- Confirma que los [atributos personalizados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes), las propiedades del evento o los campos de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) requeridos estén configurados en el usuario antes de que se ejecute el paso de mensaje.
+- Añade comprobaciones explícitas de nil o vacío antes de llamar a `abort_message()`. Una rama `else` que cancela cuando falta un valor detiene el envío para cualquier usuario sin esos datos.
+- Si la personalización depende de una lista, un segmento o una respuesta de contenido conectado, confirma que los datos estén disponibles cuando se ejecute el paso de mensaje. Un usuario puede ingresar a un Canvas antes de que la pertenencia a la lista o los datos posteriores estén listos.
+
+### Comportamiento específico de Canvas {#canvas-specific-behavior}
+
+Si un paso de mensaje se cancela en un Canvas, el usuario no sale del Canvas. En su lugar, avanza al siguiente paso. Las cancelaciones solo afectan el conteo de envíos de ese paso de mensaje.
+
+Al diagnosticar cancelaciones en Canvas:
+
+- Compara los usuarios que ingresaron al paso de mensaje con los usuarios enviados en el mismo paso.
+- Si solo un canal se cancela, revisa el Liquid específico del canal o el estado de suscripción para ese paso.
+- Si las cancelaciones aumentan después de una actualización de lista o catálogo, verifica si el paso de mensaje se ejecutó antes de que se completara la actualización.
+
+### Validar con vista previa y envíos de prueba {#validate-with-preview-and-test-sends}
+
+Previsualiza como un usuario en el creador de mensajes cuyo perfil coincida con un destinatario afectado. Para los envíos de prueba, habilita **Sustituir los atributos de los destinatarios con los atributos del usuario de vista previa actual** cuando tu lógica de cancelación dependa de datos del perfil.
+
+Para más ejemplos de cancelación, consulta [Consultar mensajes de cancelación](#query-for-abort-messages).
+
 ## Consideraciones {#considerations}
 
 La etiqueta de mensaje Liquid `abort_message()` evita que los mensajes se envíen a los usuarios, lo que significa que el mensaje no se mostrará en los perfiles de usuario y no contará para las entregas ni para la limitación de frecuencia.

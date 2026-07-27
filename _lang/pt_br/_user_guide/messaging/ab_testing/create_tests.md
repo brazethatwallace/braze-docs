@@ -17,8 +17,8 @@ local_redirect: #optimizations
 
 ## Etapa 1: Crie sua Campaign {#step-1-create-your-campaign}
 
-1. Acesse **Messaging** > **Campaigns**.
-2. Selecione **Create Campaign** e um canal para a Campaign na seção que permite testes multivariantes e testes A/B. Para documentação detalhada sobre cada canal de envio de mensagens, consulte [Criar uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
+1. Acesse **Envio de mensagens** > **Campaigns**.
+2. Selecione **Criar Campaign** e um canal para a Campaign na seção que permite testes multivariantes e testes A/B. Para documentação detalhada sobre cada canal de envio de mensagens, consulte [Criar uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
 
 ## Etapa 2: Componha suas variantes {#step-2-compose-your-variants}
 
@@ -89,7 +89,7 @@ Dependendo do canal selecionado, você pode testar diferentes componentes da sua
 | ---------------------| --------------- | ------------- |
 | Push | Texto <br> Uso de imagens e emojis <br> Deep links  <br> Apresentação de números (por exemplo, "triplicar" versus "aumentar em 200%")  <br> Apresentação de tempo (por exemplo, "termina à meia-noite" versus "termina em 6 horas") | Aberturas  <br> Taxa de conversão |
 | E-mail | Assunto <br> Nome de exibição <br> Saudação <br> Corpo do texto <br> Uso de imagens e emojis <br> Apresentação de números (por exemplo, "triplicar" versus "aumentar em 200%") <br> Apresentação de tempo (por exemplo, "termina à meia-noite" versus "termina em 6 horas") | Aberturas  <br> Taxa de conversão |
-| Mensagem no app | Aspectos listados para "push" <br> [Especificações de imagem para mensagens no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Clique <br> Taxa de conversão |
+| Mensagem no app | Aspectos listados para "push" <br> [Especificações de imagem para mensagens no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications) | Clique <br> Taxa de conversão |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dicas para diferentes canais" }
 
 {% alert tip %}
@@ -104,7 +104,7 @@ Se você não tem certeza de quanto tempo seu teste deve durar, o recurso [sele�
 
 ### Escolhendo um Segment {#choosing-a-segment}
 
-Como diferentes Segments dos seus usuários podem responder de forma diferente às mensagens, o sucesso de uma mensagem específica diz algo tanto sobre a mensagem em si quanto sobre o Segment-alvo. Portanto, tente projetar um teste com o Segment-alvo em mente.
+Como diferentes segmentos dos seus usuários podem responder de forma diferente às mensagens, o sucesso de uma mensagem específica diz algo tanto sobre a mensagem em si quanto sobre o segmento-alvo. Portanto, tente projetar um teste com o segmento-alvo em mente.
 
 Por exemplo, enquanto usuários ativos podem ter taxas de resposta iguais para "Esta oferta expira amanhã!" e "Esta oferta expira em 24 horas!", usuários que não abriram o app há uma semana podem ser mais responsivos à segunda formulação, pois ela cria um maior senso de urgência.
 

@@ -17,13 +17,7 @@ search_rank: 2
 
 몇 가지 일반적인 커스텀 이벤트 활용 사례는 다음과 같습니다:
 
-- [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 사용하여 커스텀 이벤트를 기반으로 Campaign 또는 Canvas 트리거하기
-- 커스텀 이벤트를 수행한 횟수, 마지막으로 이벤트가 발생한 시간 등을 기준으로 사용자를 세분화하기
-- 대시보드 [커스텀 이벤트 분석](#analytics)을 사용하여 각 이벤트의 발생 빈도에 대한 집계 보기
-- [퍼널]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) 및 [리텐션]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) 보고서를 사용하여 추가 분석 찾기
-- [영구 진입 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)를 활용하여 고객 이벤트의 메타데이터를 캔버스 단계에서 개인화에 사용하기
-- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하여 더 정교한 분석 생성하기
-- 사용자가 Canvas를 종료해야 하는 시점을 정의하기 위한 [종료 기준]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) 설정하기
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## 커스텀 이벤트 관리 {#managing-custom-events}
 
@@ -37,9 +31,7 @@ search_rank: 2
 
 커스텀 이벤트를 차단하면:
 
-- 해당 이벤트에 대한 향후 데이터가 수집되지 않습니다.
-- 해당 이벤트가 차단 해제되지 않는 한 기존 데이터를 사용할 수 없습니다.
-- 해당 이벤트가 필터나 그래프에 표시되지 않습니다.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 또한 차단된 커스텀 이벤트가 현재 Braze의 다른 영역에서 필터나 트리거에 의해 참조되고 있는 경우, 해당 이벤트를 참조하는 모든 필터 또는 트리거 인스턴스가 제거되고 아카이브된다는 경고 모달이 표시됩니다.
 
@@ -85,7 +77,7 @@ search_rank: 2
 
 ## 커스텀 이벤트 저장 {#custom-event-storage}
 
-**고객 프로필**에 저장된 모든 데이터(커스텀 이벤트 메타데이터(첫 번째 또는 마지막 발생, 총 횟수, 30일 동안의 X in Y) 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_archival#active-users) 상태인 한 무기한 보존됩니다.
+**고객 프로필**에 저장된 모든 데이터(커스텀 이벤트 메타데이터(첫 번째 또는 마지막 발생, 총 횟수, 30일 동안의 X in Y) 포함)는 각 프로필이 <a href="/docs/user_archival#active-users">활성</a> 상태인 한 무기한 보존됩니다.
 
 ## 사용자의 이벤트 기록 보기 {#view-a-users-event-history}
 
@@ -150,7 +142,7 @@ Braze는 커스텀 이벤트가 발생한 횟수와 각 사용자가 마지막�
 ![커스텀 이벤트 그래프 필터]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[커스텀 속성 증분]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers)을 사용하여 커스텀 이벤트와 유사한 사용자 동작에 대한 카운터를 유지할 수 있습니다. 그러나 커스텀 속성 데이터는 시계열로 볼 수 없습니다. 시계열로 분석할 필요가 없는 사용자 동작은 이 방법을 사용하여 기록해야 합니다.
+[커스텀 속성 증분]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 사용하여 커스텀 이벤트와 유사한 사용자 동작에 대한 카운터를 유지할 수 있습니다. 그러나 커스텀 속성 데이터는 시계열로 볼 수 없습니다. 시계열로 분석할 필요가 없는 사용자 동작은 이 방법을 사용하여 기록해야 합니다.
 {% endalert %}
 
 ### 커스텀 이벤트 분석이 표시되지 않는 이유 {#why-custom-events-analytics-arent-showing}

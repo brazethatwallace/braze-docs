@@ -45,7 +45,7 @@ API Campaign 트랜잭션을 확인하고, 실패한 메시지에 대한 세부 
 
 메시지의 의미를 파악하려면 각 메시지의 문구와 해당 메시지에 대응하는 열에 주의를 기울이세요. 컨텍스트 단서를 활용하여 문제 해결에 도움이 될 수 있습니다.
 
-예를 들어, **중단된 메시지 오류** 항목은 [Liquid 중단 메시지]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages)뿐만 아니라 여러 가지 이유로 발생할 수 있습니다. 구체적인 이유는 **메시지** 열을 확인하세요:
+예를 들어, **중단된 메시지 오류** 항목은 [Liquid 중단 메시지]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)뿐만 아니라 여러 가지 이유로 발생할 수 있습니다. 구체적인 이유는 **메시지** 열을 확인하세요:
 
 - 전송이 Liquid `abort_message` 태그에 의해 중단된 경우, **메시지** 열에 호출된 정확한 Liquid 스니펫이 표시됩니다. 예: {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
 - 다른 중단 이유의 경우, **메시지** 열에 전송이 중단된 이유가 설명됩니다.

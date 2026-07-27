@@ -20,7 +20,7 @@ description: "この記事では、「月間アクティブユーザーのエク
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`kpi.mau.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`kpi.mau.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -43,11 +43,11 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/mau/data_ser
 ```
 {% endraw %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "data" : [
         {
             "time" : (string) the date as ISO 8601 date,

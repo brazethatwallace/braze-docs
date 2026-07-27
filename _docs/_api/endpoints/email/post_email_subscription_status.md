@@ -28,7 +28,7 @@ You can set the email subscription state for an email address that is not yet as
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `email.status` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `email.status` permission.
 
 ## Rate limit
 

@@ -15,7 +15,7 @@ description: "Este artigo descreve detalhes sobre o endpoint `POST /media_librar
 /media_library/create
 {% endapimethod %}
 
-> Use este endpoint para adicionar um ativo à [Biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) usando uma URL hospedada externamente (`asset_url`) ou dados de arquivo binário enviados no corpo da solicitação (`asset_file`). Este endpoint suporta imagens e arquivos ZIP que contêm imagens.
+> Use este endpoint para adicionar um ativo à [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) usando uma URL hospedada externamente (`asset_url`) ou dados de arquivo binário enviados no corpo da solicitação (`asset_file`). Este endpoint suporta imagens e arquivos ZIP que contêm imagens.
 
 {% alert tip %}
 Você também pode chamar este endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) usando a função [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Isso permite que ferramentas de IA como Claude e Cursor façam upload de ativos para sua biblioteca de mídia por meio de prompts em linguagem natural.
@@ -23,9 +23,9 @@ Você também pode chamar este endpoint por meio do [servidor MCP da Braze]({{si
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `media_library.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `media_library.create`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='media_library' %}
 
@@ -53,11 +53,11 @@ Exemplo de corpo da solicitação para `asset_file`:
 
 O corpo da solicitação inclui os seguintes parâmetros:
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
 | `asset_url` | Opcional | String | Uma URL acessível publicamente para o ativo a ser enviado para a Braze. |
 | `asset_file` | Opcional | Binário | Dados de arquivo binário. |
-| `name` | Opcional | String | Um nome a aparecer na biblioteca de mídia para este ativo. |
+| `name` | Opcional | String | Um nome a ser exibido na biblioteca de mídia para este ativo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Corpo da solicitação" }
 
 {% alert important %}

@@ -22,7 +22,7 @@ Considere as [condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_t
 
 Para entrar em um Canvas, os usuários devem estar no público de entrada antes que o cronograma de entrada ocorra, independentemente de o Canvas ser agendado, baseado em ação ou disparado por API.
 
-![Um Canvas baseado em ação que insere usuários quando eles fazem qualquer compra durante o horário local do usuário, de 30 de abril de 2025 às 12h até 7 de maio de 2025 às 12h.]({% image_buster /assets/img_archive/launch_with_canvas_flow_example.png %}){: style="max-width:75%;"}
+![Um Canvas baseado em ação que insere usuários quando eles fazem qualquer compra durante o fuso local do usuário, de 30 de abril de 2025 às 12h até 7 de maio de 2025 às 12h.]({% image_buster /assets/img_archive/launch_with_canvas_flow_example.png %}){: style="max-width:75%;"}
 
 Observe que os usuários que se qualificarem para o público de entrada após o lançamento do Canvas não entrarão no Canvas.
 
@@ -38,7 +38,7 @@ Para mais detalhes sobre os filtros de segmentação disponíveis para segmentar
 
 ### Agrupe múltiplas solicitações de API {#batch-multiple-api-requests}
 
-Faça suas solicitações na mesma chamada de API, em vez de múltiplas chamadas, para garantir que o perfil de usuário seja criado ou atualizado primeiro. Consulte [Usando múltiplos endpoints]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#using-multiple-api-endpoints) para mais exemplos.
+Faça suas solicitações na mesma chamada de API, em vez de múltiplas chamadas, para garantir que o perfil de usuário seja criado ou atualizado primeiro. Consulte [Usando múltiplos endpoints]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints) para mais exemplos.
 
 ### Adicione uma postergação {#add-a-delay}
 
@@ -61,23 +61,23 @@ Existem quatro componentes principais que você pode usar para segmentar seus us
 * [Jornadas do público](#audience-paths)
 * [Divisão de decisão](#decision-split)
 * [Jornadas de ação](#action-paths)
-* [Jornadas do experimento](#experiment-paths)
+* [Jornadas experimentais](#experiment-paths)
 
 ### Jornadas do público {#audience-paths}
 
-Use as etapas de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) para segmentar usuários dentro do Canvas com base em atributos personalizados, eventos personalizados e dados de engajamento com mensagens anteriores dos perfis de usuário.
+Use as etapas de [jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) para segmentar usuários dentro do Canvas com base em atributos personalizados, eventos personalizados e dados de engajamento com mensagens anteriores dos perfis de usuário.
 
 ### Divisão de decisão {#decision-split}
 
-A etapa de [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) permite enviar seus usuários para diferentes jornadas com base nas respostas a uma pergunta polar.
+A etapa de [divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) permite enviar seus usuários para diferentes jornadas com base nas respostas a uma pergunta polar.
 
 ### Jornadas de ação {#action-paths}
 
-As [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) focam na segmentação de usuários com base em comportamentos em tempo real, como eventos personalizados, eventos de compra e alterações de atributos personalizados.
+As [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) focam na segmentação de usuários com base em comportamentos em tempo real, como eventos personalizados, eventos de compra e alterações de atributos personalizados.
 
-### Jornadas do experimento {#experiment-paths}
+### Jornadas experimentais {#experiment-paths}
 
-Semelhante às Jornadas de ação, você pode aproveitar as etapas de [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) no seu Canvas para testar múltiplas jornadas do Canvas entre si, junto com um grupo de controle. Isso rastreia o desempenho das jornadas, permitindo que você tome decisões informadas ao construir a jornada do seu Canvas.
+Semelhante às jornadas de ação, você pode alavancar as etapas de [jornadas experimentais]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) no seu Canvas para testar múltiplas jornadas do Canvas entre si, junto com um grupo de controle. Isso rastreia o desempenho das jornadas, permitindo que você tome decisões informadas ao construir a jornada do seu Canvas.
 
 ## Testes antes do lançamento {#testing-before-launch}
 
@@ -88,8 +88,8 @@ Após revisar os detalhes do seu Canvas, confira [Enviando Canvas de teste]({{si
 ### Verifique a disponibilidade dos usuários {#check-user-availability}
 
 - Certifique-se de que seus usuários atendem aos critérios de segmentação.
-- Confirme que o estado de inscrição deles é "Subscribed" ou "opted-in" e que o token por push existe. Se você adicionou essas regras como regras de entrada do Canvas, é possível que os usuários tenham cancelado a inscrição entre a entrada no Canvas e o recebimento da etapa de mensagem.
-- Confirme que eles correspondem às configurações de envio do Canvas. (Se os usuários estão "Subscribed", mas as configurações são "Opted-in", os usuários não serão ativados para o canal.)
+- Confirme que o estado de inscrição deles é "subscribed" ou "opted-in" e que o token por push existe. Se você adicionou essas regras como regras de entrada do Canvas, é possível que os usuários tenham cancelado a inscrição entre a entrada no Canvas e o recebimento da etapa de mensagem.
+- Confirme que eles correspondem às configurações de envio do Canvas. (Se os usuários estão "subscribed", mas as configurações são "opted-in", os usuários não serão ativados para o canal.)
 - Se o limite de frequência global está ativado para o seu Canvas, verifique se suas regras estão limitando quantas vezes cada usuário pode receber uma mensagem de um canal específico.
 - Se o horário de silêncio está ativado, o horário de envio da sua mensagem pode ser afetado. Isso significa que sua mensagem pode ser enviada no próximo horário disponível (quando o horário de silêncio terminar) ou cancelada completamente.
 - Verifique a disponibilidade dos usuários para filtros adicionais na etapa do Canvas.
@@ -111,8 +111,8 @@ Se o seu Canvas não está carregando e não avança, isso pode ser causado quan
 {% details Por que meus usuários não estão recebendo as mensagens do Canvas? %}
 **Verifique a disponibilidade dos usuários**
 - Certifique-se de que eles atendem aos critérios de segmentação.
-- Confirme que o estado de inscrição push deles é "Subscribed" ou "opted-in" **e** que o status **Push Enabled** está definido como "true". Se você adicionou essas regras como regras de entrada do Canvas, é possível que os usuários tenham cancelado a inscrição entre a entrada no Canvas e o recebimento da etapa de mensagem.
-- Confirme que eles correspondem às configurações de envio do Canvas. (Se os usuários estão "Subscribed", mas as configurações são "Opted-in", os usuários não serão ativados para o canal.)
+- Confirme que o estado de inscrição push deles é "subscribed" ou "opted-in" **e** que o status **Push Enabled** está definido como "true". Se você adicionou essas regras como regras de entrada do Canvas, é possível que os usuários tenham cancelado a inscrição entre a entrada no Canvas e o recebimento da etapa de mensagem.
+- Confirme que eles correspondem às configurações de envio do Canvas. (Se os usuários estão "subscribed", mas as configurações são "opted-in", os usuários não serão ativados para o canal.)
 - Se o limite de frequência global está ativado para o seu Canvas, verifique se suas regras estão limitando quantas vezes cada usuário pode receber uma mensagem de um canal específico.
 - Se o horário de silêncio está ativado, o horário de envio da sua mensagem pode ser afetado. Isso significa que sua mensagem pode ser enviada no próximo horário disponível (quando o horário de silêncio terminar) ou cancelada completamente.
 

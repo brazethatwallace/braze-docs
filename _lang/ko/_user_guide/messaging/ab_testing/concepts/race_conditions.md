@@ -79,9 +79,9 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 
 #### 트리거와 함께 핵심 데이터 포함 {#include-key-data-with-the-trigger}
 
-여러 엔드포인트를 사용하는 대신, [`campaign/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)를 사용하여 단일 API 호출에 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body)과 [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object)를 포함할 수 있습니다.
+여러 엔드포인트를 사용하는 대신, [`campaign/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)를 사용하여 단일 API 호출에 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body)과 [트리거 속성]({{site.baseurl}}/api/objects_filters/trigger_properties_object)을 포함할 수 있습니다.
 
-이러한 오브젝트가 트리거와 함께 포함되면, 메시지가 트리거되기 전에 속성이 먼저 처리되어 잠재적인 경합 조건을 제거합니다. 트리거 등록정보는 고객 프로필을 업데이트하지 않으며, 메시지의 컨텍스트에서만 사용된다는 점에 유의하세요.
+이러한 오브젝트가 트리거와 함께 포함되면, 메시지가 트리거되기 전에 속성이 먼저 처리되어 잠재적인 경합 조건을 제거합니다. 트리거 속성은 고객 프로필을 업데이트하지 않으며, 메시지의 컨텍스트에서만 사용된다는 점에 유의하세요.
 
 #### POST: Track users (sync) 엔드포인트 사용 {#use-the-post-track-users-sync-endpoint}
 
@@ -97,7 +97,7 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 
 #### 지연 후 오디언스 확인 {#check-your-audience-after-a-delay}
 
-트리거 기준을 포함하는 오디언스 필터를 사용하지 않으려면, 전달 전에 오디언스를 확인하는 것을 권장합니다. 예를 들어, Canvas 메시지 단계에서 [전달 유효성 검사를 사용]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings)하여 메시지 전송 시 오디언스가 전달 기준을 충족하는지 추가로 확인할 수 있습니다. 또한 Canvas의 종료 기준을 활용하여 사용자 여정 중 언제든지 기준을 충족하는 사용자를 종료시킬 수 있습니다.
+트리거 기준을 포함하는 오디언스 필터를 사용하지 않으려면, 전달 전에 오디언스를 확인하는 것을 권장합니다. 예를 들어, 캔버스 메시지 단계에서 [전달 유효성 검사를 사용]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings)하여 메시지 전송 시 오디언스가 전달 기준을 충족하는지 추가로 확인할 수 있습니다. 또한 Canvas의 종료 기준을 활용하여 사용자 여정 중 언제든지 기준을 충족하는 사용자를 종료시킬 수 있습니다.
 
 Campaign의 경우, 종료 이벤트를 사용하여 트리거 이벤트가 있는 Campaign이 지연 중에 종료 이벤트를 수행하는 사용자에게 메시지를 중단할 수 있습니다.
 
@@ -140,7 +140,7 @@ Canvas에서 메시지 단계 바로 뒤에 "단계와 상호작용" 트리거�
 
 이 경우 행동 경로 단계는 해당 상호작용을 등록하지 않습니다. 단계에 진입한 이후에 발생한 이벤트만 평가하기 때문입니다. 따라서 사용자가 의도하지 않은 경로로 라우팅될 수 있습니다.
 
-예를 들어, Canvas가 메시지 단계에서 푸시 알림을 보낸 후, 사용자가 해당 푸시 알림을 열었는지 확인하는 행동 경로 단계가 이어진다고 가정합니다. 사용자가 푸시 알림을 받자마자 즉시 열면(행동 경로 단계에 진입하기 전), 열기 이벤트가 캡처되지 않을 수 있습니다. 그러면 사용자가 실제로 메시지와 상호작용했음에도 불구하고 "열지 않음" 경로로 잘못 라우팅될 수 있습니다.
+예를 들어, Canvas가 메시지 단계에서 푸시 알림을 보낸 후, 사용자가 해당 푸시 알림을 열었는지 확인하는 행동 경로 단계가 이어진다고 가정합니다. 사용자가 푸시 알림을 받자마자 즉시 열면(행동 경로 단계에 진입하기 전), 열람 이벤트가 캡처되지 않을 수 있습니다. 그러면 사용자가 실제로 메시지와 상호작용했음에도 불구하고 "열지 않음" 경로로 잘못 라우팅될 수 있습니다.
 
 ### 모범 사례
 

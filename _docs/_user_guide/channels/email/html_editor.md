@@ -42,12 +42,7 @@ If all of the messages in your campaign are going to be similar or have the same
 {% endtab %}
 {% tab Canvas %}
 
-1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
-2. After you've set up your Canvas, add a step in the Canvas builder. Name your step something clear and meaningful.
-3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) and specify a delay as needed.
-4. Filter your Audience for this step, as necessary. You can further refine the recipients of this step by specifying segments and adding additional filters. Audience options will be checked after the delay, at the time messages are sent.
-5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-6. Choose any other messaging channels that you would like to pair with your message.
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 {% endtab %}
 {% endtabs %}
 
@@ -63,7 +58,7 @@ Braze offers two editing experiences when creating an email campaign: our [drag-
 
 ![Choosing between the drag-and-drop editor, HTML editor, or templates for your email editing experience.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-Then, you can either select an existing [email template]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template), [upload a template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) from a file (HTML editor only), or use a blank template.
+Then, you can either select an existing [email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template), [upload a template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) from a file (HTML editor only), or use a blank template.
 
 If you use the HTML editor and need background colors to stay consistent in the Gmail mobile app when the device is in dark mode, see [Gmail mobile app and Dark Mode background colors](#gmail-dark-mode).
 
@@ -121,10 +116,7 @@ For more information about gradient syntax, see [CSS gradients on W3Schools](htt
 
 After you finish designing and building your email message, add your sending information in **Sending Settings**.
 
-1. Under **Sending Info**, select an email as the **From Display Name + Address**. You can also customize this by selecting **Customize From Display Name + Address**.
-2. Select an email as the **Reply-To Address**. You can also customize this by selecting **Customize Reply-To Address**.
-3. Next, select an email as the **BCC Address** to make your email visible to this address.
-4. Add a subject line to your email. Optionally, you can also add a preheader. To add whitespace after the preheader, select the **Add whitespace after preheader** checkbox.
+{% multi_lang_include email/sending_info_steps.md %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -140,9 +132,7 @@ You can also add personalization for email headers and email extras to send addi
 
 You can also add email attachments by the following methods:
 
-- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
-- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported.
-- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
 
@@ -275,7 +265,7 @@ Deliver emails based on a scheduled time, an action, or an API trigger. For more
 For API-triggered campaigns, when the trigger action is set to **Interact With Campaign**, selecting a **Receive** option as the interaction will cause your new campaign to trigger as soon as Braze marks the selected campaign as sent, even if that message bounces or fails to be delivered.
 {% endalert %}
 
-You can also set the campaign's duration, specify [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) rules.
+You can also set the campaign's duration, specify [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) rules.
 
 ### Choose users to target
 
@@ -295,9 +285,7 @@ When creating a new email campaign, the Control Group defaults to 20% and can be
 
 For multichannel campaigns targeting both email and push channels, you may want to limit your campaign so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in statuses:
 
-- **User A** is subscribed to email and is push enabled. This user doesn't receive the email but will receive the push.
-- **User B** is opted-in to email but is not push enabled. This user will receive the email but doesn't receive the push.
-- **User C** is opted-in to email and is push enabled. This user will receive both the email and the push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 To do so, under **Audience Summary**, select to send this campaign to "opted-in users only". This option will check that only opted-in users will receive your email, and Braze will only send your push to users who are push enabled by default.
 
@@ -318,7 +306,7 @@ You can allow up to a 30-day window during which Braze counts a conversion if th
 {% endtab %}
 
 {% tab Canvas %}
-If you haven't done so already, complete the remaining sections of your Canvas components. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas components. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
 {% endtab %}
 {% endtabs %}
 

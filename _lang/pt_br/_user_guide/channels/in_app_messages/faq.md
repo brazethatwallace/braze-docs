@@ -65,11 +65,11 @@ Para evitar isso, durante a configuração da sua Campaign, selecione **Re-evalu
 
 ## Várias mensagens no app podem ser exibidas na mesma sessão? {#can-multiple-in-app-messages-display-in-the-same-session}
 
-Sim, mas apenas uma mensagem no app pode ser exibida por ocorrência de um [evento-gatilho]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger). Se várias Campaigns de mensagem no app compartilharem o mesmo gatilho (por exemplo, início de sessão), apenas a mensagem de maior prioridade será exibida cada vez que esse gatilho ocorrer. Para gatilhos de início de sessão, isso significa que apenas uma mensagem pode ser exibida por sessão, e a próxima oportunidade de mostrar outra mensagem elegível será na próxima sessão.
+Sim, mas apenas uma mensagem no app pode ser exibida por ocorrência de um [evento-gatilho]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger). Se várias Campaigns de mensagem no app compartilharem o mesmo gatilho (por exemplo, início de sessão), apenas a mensagem de maior prioridade será exibida cada vez que esse gatilho ocorrer. Para gatilhos de início de sessão, isso significa que apenas uma mensagem pode ser exibida por sessão, e a próxima oportunidade de mostrar outra mensagem elegível será na próxima sessão.
 
 Quando várias mensagens compartilham o mesmo nível de prioridade, a mensagem criada mais recentemente é exibida primeiro. Para gatilhos de início de sessão, a próxima mensagem mais recente é exibida em uma sessão subsequente; para outros tipos de gatilho, a próxima mensagem mais recente é exibida na próxima vez que o evento-gatilho ocorrer, o que pode ser dentro da mesma sessão ou em uma sessão posterior.
 
-Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Set Exact Priority**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
+Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Set Exact Priority**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
 
 ## Como a Braze calcula a expiração de uma mensagem no app definida como "após 1 dia(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -149,7 +149,7 @@ Se o seu HTML faz referência a dados REST retornados pelo Connected Content, es
 
 Mensagens no app padrão são exibidas assim que a carga útil em cache estiver pronta após o evento-gatilho. No Android e iOS, imagens grandes ou outros ativos hospedados em CDN referenciados na mensagem podem adicionar um pequeno atraso enquanto esses recursos terminam de ser baixados antes de a mensagem no app aparecer.
 
-[Mensagens no app com modelo](#what-are-templated-in-app-messages) e Campaigns com **Re-evaluate campaign eligibility before displaying** selecionado exigem uma solicitação de rede adicional após o gatilho antes de a mensagem aparecer. Isso pode adicionar um pequeno atraso (normalmente menos de 100 ms em uma conexão estável). Para saber mais, consulte [Escolher usuários para segmentar]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target).
+[Mensagens no app com modelo](#what-are-templated-in-app-messages) e Campaigns com **Re-evaluate campaign eligibility before displaying** selecionado exigem uma solicitação de rede adicional após o gatilho antes de a mensagem aparecer. Isso pode adicionar um pequeno atraso (normalmente menos de 100 ms em uma conexão estável). Para saber mais, consulte [Escolher usuários para segmentar]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
 
 ### Por que minha mensagem no app parece diferente da prévia do dashboard? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 

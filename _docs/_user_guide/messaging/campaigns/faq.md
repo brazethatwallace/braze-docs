@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## How do I create a multichannel campaign?
 
-See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Create a campaign** for setup steps and supported channels.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) in **Create a campaign** for setup steps and supported channels.
 
 ### Can I add a control group to my multichannel campaign?
 
@@ -235,11 +235,7 @@ API-triggered and server-triggered campaigns are ideal for handling more advance
 
 If you encounter a "Request Timed Out" error while creating or editing a campaign or Canvas and need to contact [Braze Support]({{site.baseurl}}/braze_support), include the following information to help speed up resolution:
 
-- **Screen recording:** A recording of the steps you took before seeing the error, including any page transitions.
-- **Timestamp and time zone:** The exact time the error occurred and your time zone.
-- **Browser and version:** The browser you're using (for example, Chrome 120, Safari 17) and whether you've tried reproducing the error in a different browser.
-- **Steps to reproduce:** A clear description of the actions that trigger the error, including any specific campaign or Canvas settings involved.
-- **Network logs (optional):** Open your browser developer tools (**Network** tab), reproduce the error, and export the network log as a HAR (HTTP Archive) log. This helps the support team identify which API call is timing out.
+{% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='campaign' %}
 
 ### Why don't my send analytics match the maximum recipient limit I set?
 

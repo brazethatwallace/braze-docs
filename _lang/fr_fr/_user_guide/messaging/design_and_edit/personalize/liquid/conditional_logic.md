@@ -232,7 +232,7 @@ Les chaînes de caractères et les tableaux nécessitent des apostrophes droites
 
 ### Valeur booléenne {#boolean}
 
-Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) sont des valeurs binaires et peuvent être définies sur `true` ou `false`, comme `registration_complete: true`. Les valeurs booléennes n'ont pas d'apostrophes autour d'elles.
+Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans) sont des valeurs binaires et peuvent être définies sur `true` ou `false`, comme `registration_complete: true`. Les valeurs booléennes n'ont pas d'apostrophes autour d'elles.
 
 {% raw %}
 
@@ -244,7 +244,7 @@ Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/attributes
 
 ### Nombre {#number}
 
-Les [nombres]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) sont des valeurs numériques, qui peuvent être des entiers ou des floats. Par exemple, un utilisateur peut avoir `shoe_size: 10` ou `levels_completed: 287`. Les valeurs numériques n'ont pas d'apostrophes autour d'elles.
+Les [nombres]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) sont des valeurs numériques, qui peuvent être des entiers ou des floats. Par exemple, un utilisateur peut avoir `shoe_size: 10` ou `levels_completed: 287`. Les valeurs numériques n'ont pas d'apostrophes autour d'elles.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ Vous pouvez également utiliser d'autres [opérateurs de base](https://shopify.d
 
 ### Chaîne de caractères {#string}
 
-Une [chaîne de caractères]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) est composée de caractères alphanumériques et stocke une donnée concernant votre utilisateur. Par exemple, vous pouvez avoir `favorite_color: red` ou `phone_number: 3025981329`. Les valeurs de chaîne de caractères doivent avoir des apostrophes autour d'elles.
+Une [chaîne de caractères]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) est composée de caractères alphanumériques et stocke une donnée concernant votre utilisateur. Par exemple, vous pouvez avoir `favorite_color: red` ou `phone_number: 3025981329`. Les valeurs de chaîne de caractères doivent avoir des apostrophes autour d'elles.
 
 {% raw %}
 
@@ -280,7 +280,7 @@ Pour les chaînes de caractères, vous pouvez utiliser à la fois « == » ou «
 
 ### Tableau {#array}
 
-Un [tableau]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) est une liste d'informations concernant votre utilisateur. Par exemple, un utilisateur peut avoir `last_viewed_shows: stranger things, planet earth, westworld`. Les valeurs de tableau doivent avoir des apostrophes autour d'elles.
+Un [tableau]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) est une liste d'informations concernant votre utilisateur. Par exemple, un utilisateur peut avoir `last_viewed_shows: stranger things, planet earth, westworld`. Les valeurs de tableau doivent avoir des apostrophes autour d'elles.
 
 {% raw %}
 
@@ -290,11 +290,47 @@ Un [tableau]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 {% endraw %}
 
-Pour les tableaux, vous devez utiliser « contains » et ne pouvez pas utiliser « == ».
+Pour les tableaux, vous devez utiliser `contains` et ne pouvez pas utiliser `==`.
+
+#### Fonctionnement de `contains` avec les chaînes de caractères et les tableaux {#how-contains-works-with-strings-versus-arrays}
+
+L'opérateur `contains` se comporte différemment selon qu'il évalue une chaîne de caractères ou un tableau :
+
+- **Chaînes de caractères :** `contains` vérifie la présence d'une sous-chaîne n'importe où dans le texte.
+- **Tableaux :** `contains` vérifie une correspondance exacte avec un élément complet du tableau.
+
+{% alert important %}
+Si un attribut est stocké sous forme de tableau (par exemple, `["med1", "med2", "abc"]`), la recherche de `contains "ab"` sera évaluée à `false` car aucun élément individuel de cette liste n'est exactement `"ab"`.
+{% endalert %}
+
+##### Recherche de sous-chaîne dans les tableaux {#substring-matching-on-arrays}
+
+Si vous devez rechercher une correspondance partielle (sous-chaîne) au sein d'un attribut de type tableau, vous devez d'abord convertir le tableau en une seule chaîne de caractères à l'aide du filtre `join`.
+
+Comme Braze ne prend pas en charge les filtres en ligne directement dans les blocs conditionnels {% raw %}`{% if %}`{% endraw %}, vous devez suivre un processus en deux étapes : d'abord, affecter la valeur jointe à une variable, puis exécuter votre vérification conditionnelle.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Comme `join` combine les éléments du tableau en une seule chaîne de caractères (séparateur par défaut : un espace unique), les vérifications de sous-chaîne peuvent correspondre au-delà des limites d'éléments (par exemple, `["Napa", "boulevard"]` devient `Napa boulevard`, où `contains "a b"` est `true`). Utilisez un séparateur explicite tel que « , » pour rendre les limites plus claires et réduire les correspondances accidentelles entre éléments.
+{% endalert %}
 
 ### Horodatage {#time}
 
-Un horodatage indiquant quand un événement a eu lieu. Les valeurs de type [horodatage]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) doivent avoir un [filtre mathématique]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) appliqué pour être utilisées dans la logique conditionnelle.
+Un horodatage indiquant quand un événement a eu lieu. Les valeurs de type [horodatage]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) doivent avoir un [filtre mathématique]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) appliqué pour être utilisées dans la logique conditionnelle.
 
 {% raw %}
 

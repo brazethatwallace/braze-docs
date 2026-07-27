@@ -20,11 +20,11 @@ Lorsque vous incluez une étape des Chemins d'expérience dans votre parcours ut
 
 Pour utiliser les Chemins d'expérience, votre Canvas doit inclure des événements de conversion. Bien que vous ne puissiez pas ajouter d'événements de conversion après le lancement d'un Canvas, vous pouvez cloner le Canvas lancé et y ajouter des événements de conversion pour intégrer des Chemins d'expérience.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 Les Chemins d'expérience sont particulièrement adaptés pour tester la réception, la cadence, le contenu des messages et les combinaisons de canaux.
 
-- **Réception :** Comparez les résultats entre des messages envoyés avec différents [délais]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), basés sur les actions des utilisateurs ([Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), et en utilisant le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
+- **Réception :** Comparez les résultats entre des messages envoyés avec différents [délais]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), basés sur les actions des utilisateurs ([parcours d'action]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), et en utilisant le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#step-1-add-intelligent-timing-1).<br><br>
 - **Cadence :** Testez plusieurs flux de messages sur une période donnée. Par exemple, vous pourriez tester deux cadences d'onboarding différentes :
     - Cadence 1 : Envoyer 2 messages pendant les 2 premières semaines de l'utilisateur
     - Cadence 2 : Envoyer 3 messages pendant les 2 premières semaines de l'utilisateur
@@ -69,7 +69,7 @@ Pour éviter la contamination de l'expérience, si votre Canvas a une expérienc
 
 ## Suivi des performances {#tracking-performance}
 
-Depuis la page **Canvas Analytics**, sélectionnez le chemin d'expérience pour ouvrir un [tableau détaillé]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant) identique à l'onglet **Analyze Variants** pour comparer les performances détaillées et les statistiques de conversion entre les parcours. Vous pouvez également exporter le tableau au format CSV et comparer les variations en pourcentage pour les indicateurs qui vous intéressent par rapport au parcours ou au contrôle que vous sélectionnez.
+Depuis la page **Canvas Analytics**, sélectionnez le chemin d'expérience pour ouvrir un [tableau détaillé]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch) identique à l'onglet **Analyze Variants** pour comparer les performances détaillées et les statistiques de conversion entre les parcours. Vous pouvez également exporter le tableau au format CSV et comparer les variations en pourcentage pour les indicateurs qui vous intéressent par rapport au parcours ou au contrôle que vous sélectionnez.
 
 Chaque étape de chaque parcours affiche des statistiques dans la vue [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), comme n'importe quelle étape de Canvas. Cependant, gardez à l'esprit que les analyses des étapes individuelles et les analyses des Chemins d'expérience mesurent les conversions différemment :
 

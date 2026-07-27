@@ -20,7 +20,7 @@ description: "이 문서에서는 매출 데이터 내보내기 Braze 엔드포�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `purchases.revenue_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `purchases.revenue_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -48,7 +48,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_s
 
 ```json
 {
-  "message": (required, string) the status of the export, returns 'success' when completed without errors,
+  "message": (string) returns 'success' when the request completes without errors,
   "data" : [
     {
       "time" : (string) the date as ISO 8601 date,

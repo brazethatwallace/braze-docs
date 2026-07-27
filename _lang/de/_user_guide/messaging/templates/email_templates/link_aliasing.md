@@ -62,6 +62,10 @@ Sie können auch einen Alias festlegen, der verwendet wird, um einen bestimmten 
 Link Aliasing wird nur in `href`-Attributen innerhalb von HTML-Anchor-Tags unterstützt, bei denen es sicher ist, einen Query-Parameter anzuhängen. Es ist Best Practice, ein Fragezeichen (?) am Ende Ihres Links einzufügen, damit Braze den `lid`-Wert einfach anhängen kann. Ohne das Anhängen des `lid`-Werts erkennt Braze die URL nicht für Link Aliasing.
 {% endalert %}
 
+{% alert important %}
+Im Drag-and-Drop-Editor muss Ihr Link ein Fragezeichen (`?`) vor dem Hash-Symbol (`#`) in Ihrer URL enthalten, damit der Link-Alias im Tab **Link Management** angezeigt wird.
+{% endalert %}
+
 ## Link-Aliase verwalten {#managing-link-aliases}
 
 Um alle Ihre verfolgten Link-Aliase anzuzeigen, gehen Sie wie folgt vor:
@@ -148,9 +152,15 @@ Braze verfolgt nur die letzten 100 angeklickten Link-Aliase auf Profilebene.
 
 ### Aktionsbasierte Filter {#action-based-filters}
 
-Sie können aktionsbasierte Nachrichten erstellen, die auf jeden Link abzielen (verfolgt oder nicht verfolgt), oder Nutzer:innen retargeten, je nachdem, ob sie auf einen Alias in einer beliebigen E-Mail-Campaign oder Canvas-Komponente geklickt haben.
+Wenn Link Aliasing für Ihren Workspace aktiviert ist, können Sie aktionsbasierte Nachrichten erstellen, die auf jeden Link abzielen (verfolgt oder nicht verfolgt), oder Nutzer:innen retargeten, je nachdem, ob sie auf einen Alias in einer beliebigen E-Mail-Campaign oder Canvas-Komponente geklickt haben.
 
 ![Aktionsbasierte Optionen zum Targeten von Nutzer:innen, die auf einen Alias in einer Canvas-Komponente geklickt oder mit einer Campaign interagiert haben.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
+
+- Wenn eine Campaign archiviert wird, wird das Link-Tracking deaktiviert und dieser Link-Alias kann nicht in einem anderen Filter verwendet werden.
+- Wenn ein Link mit aktiviertem Tracking in einer Campaign angeklickt wurde, können Sie die Campaign als verfügbare Option im Segmentfilter finden, auch wenn das Link-Tracking seitdem deaktiviert wurde, solange mindestens ein Link in dieser Nachricht noch verfolgt wird.
+- Sie können einen verfolgten Link nur dann als Filter auswählen, wenn er sich in einem aktiven (gestarteten) Canvas befindet, indem Sie das Dropdown **Alias in Canvas-Schritt angeklickt** verwenden. Wenn der Link in einem Canvas-Entwurf verfolgt wird, können Sie den verfolgten Link nicht als Filter auswählen.
+
+Um Links als nicht verfolgt festzulegen, gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Link Aliasing Settings**.
 
 ### Segmentierungsfilter {#segmentation-filters}
 
@@ -174,7 +184,7 @@ Um alle Links in Ihrer E-Mail-Campaign und deren jeweilige Gesamtklicks anzuzeig
 
 ### E-Mail-Klick-Ereignis {#email-clicks-event}
 
-Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-Ereignis etwas anders aus, wenn Link Aliasing aktiviert ist. Es enthält zwei zusätzliche Felder für das [E-Mail-Klick-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events), wenn Link Aliasing aktiviert ist: `link_id` und `link_alias`.
+Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-Ereignis etwas anders aus, wenn Link Aliasing aktiviert ist. Es enthält zwei zusätzliche Felder für das [E-Mail-Klick-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-click-events), wenn Link Aliasing aktiviert ist: `link_id` und `link_alias`.
 
 ```json
 // Email Click: users.messages.email.Click
@@ -206,7 +216,7 @@ Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-
 ```
 
 {% alert update %}
-Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvas und Campaigns.
+Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Entry-Schritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvas und Campaigns.
 
 _Update vermerkt im August 2019._
 {% endalert %}

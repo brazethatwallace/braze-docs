@@ -1,0 +1,7 @@
+- Disparar uma Campaign ou Canvas com base em um evento personalizado usando [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
+- Segmentar usuários pela quantidade de vezes que realizaram um evento personalizado, quando o evento ocorreu pela última vez e informações semelhantes
+- Usar a [análise de dados de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) do dashboard para visualizar um agregado da frequência de cada evento
+- Encontrar análises adicionais usando relatórios de [funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) e [retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)
+- Aproveitar as [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) para usar metadados do evento do cliente na personalização das etapas do Canvas
+- Gerar análises mais sofisticadas com o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- Configurar [critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) para definir quando os usuários devem sair do Canvas

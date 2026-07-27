@@ -64,7 +64,7 @@ Informationen zur Verwendung in URLs und Query-Strings (z. B. wenn ein Name `%` 
 
 Braze verfügt über ein integriertes Feature, das Liquid-Code für Segmente generiert, der in einer Nachricht verwendet werden kann. Konkret können Sie ein Segment erstellen, das mehrere Kriterien in einem Objekt abgleicht.
 
-Weitere Informationen finden Sie unter [Multi-Kriterien-Segmentierung]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation).
+Weitere Informationen finden Sie unter [Multi-Kriterien-Segmentierung]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
 ### Wie verwende ich Event-Eigenschaften, um eine Nachricht zu personalisieren, die ein Event triggert? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -149,6 +149,41 @@ Abbruchlogik ermöglicht es Ihnen, den Versand einer Nachricht zu stoppen, wenn 
 
 Nein. Der {% raw %}`{% abort_message %}`{% endraw %}-Tag akzeptiert einen statischen String in Anführungszeichen, keine Liquid-Personalisierung. Verwenden Sie andere Liquid-Logik vor dem Tag, wenn Sie ein bedingtes Abbruchverhalten benötigen.
 
+### Wie maskiere ich Telefonnummern mit Liquid? {#how-do-i-mask-phone-numbers-with-liquid}
+
+Sie können Telefonnummern mit dem `slice`-Filter maskieren, um bestimmte Ziffern zu extrahieren, und mit dem `append`-Filter, um sie mit Maskierungszeichen zu kombinieren.
+
+#### Alle Ziffern außer den letzten vier maskieren {#mask-all-but-the-last-four-digits}
+
+Um eine 10-stellige Telefonnummer als `******7890` anzuzeigen:
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### Die ersten drei und die letzten vier Ziffern anzeigen {#show-the-first-three-and-last-four-digits}
+
+Um eine 10-stellige Telefonnummer als `123***7890` anzuzeigen:
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
+
 ## Canvas, Kataloge und Trigger-Eigenschaften {#canvas-catalogs-and-trigger-properties}
 
 ### Warum schlägt mein API-getriggertes Liquid in Braze fehl? {#why-is-my-api-triggered-liquid-failing-in-braze}
@@ -189,9 +224,9 @@ Wenn Sie zusätzliche Abstände in gesendeten Nachrichten bemerken, die Content 
 ```
 {% endraw %}
 
-### Warum fehlt mein Content Block unter **Row** im Drag-and-Drop-Suchtool? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+### Warum fehlt mein Content Block unter **Zeile** im Drag-and-Drop-Suchtool? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
 
-Einige Content Blocks werden im Drag-and-Drop-Editor unter **Row** nicht angezeigt. Fügen Sie einen HTML-Block über den Tab **Content** (**Advanced**) hinzu und fügen Sie dann den Content-Block-Liquid-Tag in diesen HTML-Block ein, um den Blockinhalt zu rendern.
+Einige Content Blocks werden im Drag-and-Drop-Editor unter **Zeile** nicht angezeigt. Fügen Sie einen HTML-Block über den Tab **Inhalt** (**Erweitert**) hinzu und fügen Sie dann den Content-Block-Liquid-Tag in diesen HTML-Block ein, um den Blockinhalt zu rendern.
 
 ### Warum unterscheidet sich die Vorschau meines Drag-and-Drop-Content-Blocks von der Ansicht im Editor? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 

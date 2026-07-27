@@ -18,7 +18,7 @@ _Diese Integration wird von Snowplow gepflegt._
 
 Die Integration von Braze und Snowplow ermöglicht es Ihnen, Snowplow-Events in Realtime an Braze weiterzuleiten – mit Hilfe der Snowplow Event Forwarding Lösung. Diese Integration bietet Ihnen die Möglichkeit, Events an Braze zu senden und dabei volle Flexibilität und Kontrolle zu behalten. Genauer gesagt können Sie:
 - Events filtern und transformieren, bevor sie an Braze gesendet werden.
-- Snowplow-Event-Daten auf Braze-Attribute, angepasste Events und Käufe abbilden.
+- Snowplow-Event-Daten auf Braze-Nutzerattribute, angepasste Events und Käufe abbilden.
 - Alle Daten in Ihrer privaten Cloud aufbewahren, bis Sie sich entscheiden, sie weiterzuleiten.
 - Die Lösung selbst innerhalb Ihres bestehenden Snowplow-Cloud-Kontos bereitstellen.
 
@@ -33,7 +33,7 @@ Nutzen Sie die umfangreichen Verhaltensdaten von Snowplow, um leistungsstarke ku
 | Snowplow-Pipeline       | Sie benötigen eine funktionsfähige Snowplow-Pipeline.                                                                                                                                                                                                                                          |
 | Zugang zur Snowplow-Konsole | Sie müssen Zugriff auf die Snowplow-Konsole haben, um Event-Forwarder zu konfigurieren.                                                                                                                                                                                                                                |
 | Braze REST-API-Schlüssel      | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` und `users.alias.update`. <br><br> Sie können diesen im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellen. |
-| Braze REST-Endpunkt     | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                                                                                                     |
+| Braze REST-Endpunkt     | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                                                                                                     |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -46,7 +46,7 @@ Erstellen Sie dynamische Zielgruppen in Braze auf der Grundlage der hochwertigen
 
 ## Integration
 
-### 1. Schritt: Konfigurieren Sie das Ziel in der Snowplow-Konsole {#step-1-configure-the-destination-in-snowplow-console}
+### Schritt 1: Konfigurieren Sie das Ziel in der Snowplow-Konsole {#step-1-configure-the-destination-in-snowplow-console}
 
 So erstellen Sie den Event Forwarder:
 
@@ -55,34 +55,34 @@ So erstellen Sie den Event Forwarder:
 3. Geben Sie Ihren Braze-API-Schlüssel und Ihren REST-API-Endpunkt ein.
 4. Speichern Sie die Verbindung.
 
-### 2. Schritt: Konfigurieren Sie den Event Forwarder {#step-2-configure-the-event-forwarder}
+### Schritt 2: Konfigurieren Sie den Event Forwarder {#step-2-configure-the-event-forwarder}
 
 Bei der Konfiguration des Forwarders können Sie auswählen, welche Snowplow-Events weitergeleitet werden sollen, und sie auf Braze-Objekttypen abbilden:
 
-1. **[Attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)**: Aktualisieren Sie die Daten des Nutzerprofils und angepasste Nutzer:innen-Eigenschaften.
-2. **[Angepasste Events]({{site.baseurl}}/api/objects_filters/event_object/)**: Senden Sie Nutzer:innen-Aktionen und Verhaltensweisen.
-3. **[Käufe]({{site.baseurl}}/api/objects_filters/purchase_object/)**: Senden Sie Transaktionsdaten mit Produktdetails.
+1. **[Nutzerattribute]({{site.baseurl}}/api/objects_filters/user_attributes_object)**: Aktualisieren Sie die Daten des Nutzerprofils und angepasste Nutzereigenschaften.
+2. **[Angepasste Events]({{site.baseurl}}/api/objects_filters/event_object)**: Senden Sie Nutzeraktionen und Verhaltensweisen.
+3. **[Käufe]({{site.baseurl}}/api/objects_filters/purchase_object)**: Senden Sie Transaktionsdaten mit Produktdetails.
 
 Für jeden Objekttyp können Sie Feldzuordnungen konfigurieren, um festzulegen, wie Snowplow-Event-Daten auf Braze-Felder abgebildet werden. Detaillierte Anweisungen zur Einrichtung und Konfiguration der Feldzuordnungen finden Sie in der Snowplow-Dokumentation zum [Erstellen von Forwardern](https://docs.snowplow.io/docs/destinations/forwarding-events/creating-forwarders/).
 
-### 3. Schritt: Validieren Sie die Integration {#step-3-validate-the-integration}
+### Schritt 3: Validieren Sie die Integration {#step-3-validate-the-integration}
 
 Überprüfen Sie, ob die Events Braze erreichen, indem Sie die folgenden Seiten in Ihrem Braze-Konto aufrufen:
 
-1. **Abfrage-Builder**: Navigieren Sie in Braze zu **Analytics** > **Query Builder**. Sie können Abfragen zu den folgenden Tabellen schreiben, um eine Vorschau der von Snowplow weitergeleiteten Daten zu erhalten: `USER_BEHAVIORS_CUSTOMEVENT_SHARED` und `USERS_BEHAVIORS_PURCHASE_SHARED`.
+1. **Query Builder**: Navigieren Sie in Braze zu **Analytics** > **Query Builder**. Sie können Abfragen zu den folgenden Tabellen schreiben, um eine Vorschau der von Snowplow weitergeleiteten Daten zu erhalten: `USER_BEHAVIORS_CUSTOMEVENT_SHARED` und `USERS_BEHAVIORS_PURCHASE_SHARED`.
 2. **API-Nutzungs-Dashboard**: Navigieren Sie in Braze zu **Einstellungen** > **APIs und Bezeichner**, um ein Chart der API-Nutzung im Zeitverlauf anzuzeigen. Sie können speziell nach dem API-Schlüssel filtern, den Snowplow verwendet, und sowohl Erfolge als auch Fehler einsehen.
 
 ## Angepasste Eigenschaften senden {#sending-custom-properties}
 
 Sie können angepasste Eigenschaften über die Standardfelder hinaus senden. Die Struktur hängt davon ab, welchen Braze-Objekttyp Sie verwenden:
 
-- **Attribute**: Fügen Sie sie als Top-Level-Felder hinzu (zum Beispiel `subscription_tier`, `loyalty_points`)
-- **Event-Eigenschaften**: Verschachteln Sie sie unter dem `properties`-Objekt (zum Beispiel `properties.plan_type`, `properties.feature_flag`)
-- **Kauf-Eigenschaften**: Verschachteln Sie sie unter dem `properties`-Objekt (zum Beispiel `properties.color`, `properties.size`)
+- **Nutzerattribute**: Fügen Sie sie als Top-Level-Felder hinzu (zum Beispiel `subscription_tier`, `loyalty_points`).
+- **Event-Eigenschaften**: Verschachteln Sie sie unter dem `properties`-Objekt (zum Beispiel `properties.plan_type`, `properties.feature_flag`).
+- **Kauf-Eigenschaften**: Verschachteln Sie sie unter dem `properties`-Objekt (zum Beispiel `properties.color`, `properties.size`).
 
 Für Eigenschaftsnamen, die Leerzeichen enthalten, verwenden Sie die Klammerschreibweise (zum Beispiel `["account type"]` oder `properties["campaign source"]`).
 
-Einzelheiten zu den unterstützten Datentypen, den Anforderungen an die Benennung der Eigenschaften und den Größenbeschränkungen für die Nutzdaten finden Sie in der [Dokumentation zum Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object/).
+Einzelheiten zu den unterstützten Datentypen, den Anforderungen an die Benennung der Eigenschaften und den Größenbeschränkungen für die Nutzdaten finden Sie in der [Dokumentation zum Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object).
 
 ## Einschränkungen {#limitations}
 

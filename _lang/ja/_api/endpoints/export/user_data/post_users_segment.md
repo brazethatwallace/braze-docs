@@ -26,19 +26,19 @@ description: "この記事では、「セグメント別ユーザーのエクス
 **エクスポートの出力形式**: エクスポートが成功し、クラウドストレージ認証情報を設定していない場合、HTTPレスポンスには圧縮アーカイブ（ZIPまたはGZIPファイル）をダウンロードするためのURLが含まれます。クラウドストレージ認証情報（S3、Azure、またはGoogle Cloud Storage）が設定されている場合、Brazeはエクスポートをバケットに直接書き込み、レスポンスにはダウンロードURLは含まれません。エクスポートが失敗した場合は、代わりにメール通知が届きます。クラウドストレージ認証情報を設定すると、大規模なエクスポートで障害が発生する可能性が低くなります。
 {% endalert %}
 
-企業は、このエンドポイントを使用するセグメントごとに、特定の時刻に最大1つのエクスポートを実行できます。エクスポートが完了するのを待ってから、再試行してください。
+企業は、このエンドポイントを使用するセグメントごとに、特定の時点で最大1つのエクスポートを実行できます。エクスポートが完了するのを待ってから、再試行してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cfa6fa98-632c-4f25-8789-6c3f220b9457 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.export.segment`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`users.export.segment`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 認証情報ベースの応答の詳細 {#credentials-based-response-details}
+## 認証情報ベースのレスポンスの詳細 {#credentials-based-response-details}
 
 [S3][1]、[Azure][2]、または[Google Cloud Storage][3]の認証情報をBrazeに追加した場合、各ファイルは`segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`のようなキー形式でZIPファイルとしてバケットにアップロードされます。Azureを使用している場合は、BrazeのAzureパートナー概要ページで**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認してください。通常、Brazeは処理を最適化するために5,000ユーザーごとに1つのファイルを作成します。大きなワークスペース内で小さなセグメントをエクスポートすると、複数のファイルが生成される場合があります。その後、ファイルを展開し、必要に応じてすべての`json`ファイルを1つのファイルに連結できます。`output_format`に`gzip`を指定すると、ファイル拡張子は`.zip`ではなく`.gz`になります。
 
@@ -58,11 +58,11 @@ description: "この記事では、「セグメント別ユーザーのエクス
 | `RANDOM_UUID` | リクエスト時にBrazeによって生成されるランダムUUID。 | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
 | `TIMESTAMP_WHEN_EXPORT_STARTED` | UTCでエクスポートが要求されたUnix時間（2017-01-01:00:00:00Zからの秒数）。 | `1556044807` |
 | `filename` | ファイルごとにランダム。 | `114f0226319130e1a4770f2602b5639a` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="認証情報ベースの応答の詳細" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="認証情報ベースのレスポンスの詳細" }
 
 {% enddetails %}
 
-このエンドポイントを使用する際にエクスポートに独自のバケットポリシーを適用するため、独自のS3またはAzure認証情報を設定することを強くお勧めします。クラウドストレージの認証情報がない場合は、リクエストへの応答で、すべてのユーザーファイルを含むZIPファイルをダウンロードできるURLが提供されます。URLは、エクスポートの準備ができた後にのみ有効な場所になります。
+このエンドポイントを使用する際にエクスポートに独自のバケットポリシーを適用するため、独自のS3またはAzure認証情報を設定することを強くお勧めします。クラウドストレージの認証情報がない場合は、リクエストへのレスポンスで、すべてのユーザーファイルを含むZIPファイルをダウンロードできるURLが提供されます。URLは、エクスポートの準備ができた後にのみ有効な場所になります。
 
 クラウドストレージ認証情報を提供しない場合は、このエンドポイントからエクスポートできるデータ量に制限があることに注意してください。エクスポートするフィールドやユーザーの数によっては、ファイルが大きすぎるとファイル転送が失敗することがあります。ベストプラクティスは、`fields_to_export`を使用してエクスポートするフィールドを指定し、転送サイズを抑えるために必要なフィールドのみを指定することです。ファイルの生成でエラーが発生する場合は、ランダムバケット番号に基づいてユーザー群をより多くのセグメントに分割することを検討してください（たとえば、ランダムバケット番号が1,000未満、または1,000から2,000の間のセグメントを作成します）。
 
@@ -139,8 +139,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `attributed_source` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。広告が掲載されたプラットフォームの識別子。 |
 | `attributed_adgroup` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
 | `attributed_ad` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンと広告グループの下のオプションのサブグループの識別子。 |
-| `push_subscribe` | 文字列 | ユーザーのプッシュ通知のサブスクリプションステータス。 |
-| `email_subscribe` | 文字列 | ユーザーのメールサブスクリプションステータス。 |
+| `push_subscribe` | 文字列 | ユーザーのプッシュ通知の購読ステータス。 |
+| `email_subscribe` | 文字列 | ユーザーのメール購読ステータス。 |
 | `braze_id` | 文字列 | このユーザーに対してBrazeが設定したデバイス固有の一意のユーザー識別子。 |
 | `country` | 文字列 | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)標準を使用したユーザーの国。 |
 | `created_at` | 文字列 | ユーザープロファイルが作成された日時（ISO 8601形式）。 |
@@ -164,7 +164,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したキャンペーンおよびキャンバスのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
-| `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)（存在する場合）。 |
+| `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)（存在する場合）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="エクスポートするフィールド" }
 
 ## 重要な注意事項 {#important-reminders}
@@ -174,13 +174,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 - 企業がエンドポイントレベルで実行できる同時セグメントエクスポートの数は100に制限されています。この制限を超えると、エラーが発生します。
 - 最初のエクスポートジョブの実行中にセグメントを2回目にエクスポートしようとすると、429エラーが発生します。
 - [`403 Forbidden`レスポンス]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting?sdktab=cloud%20storage%20connected#segment-export-api-downloads)は、多くの場合、エクスポートファイルがまだ準備できていないことを意味します。
-- サブスクリプショングループのデータは、セグメントエクスポートでは利用できません。サブスクリプションステータスでユーザーを特定するには、サブスクリプショングループのメンバーシップに基づいて別のセグメントを作成し、そのセグメントをエクスポートしてください。
+- 購読グループのデータは、セグメントエクスポートでは利用できません。購読ステータスでユーザーを特定するには、購読グループのメンバーシップに基づいて別のセグメントを作成し、そのセグメントをエクスポートしてください。
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example, 'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }

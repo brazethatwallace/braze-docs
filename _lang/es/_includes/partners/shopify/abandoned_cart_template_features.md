@@ -1,0 +1,3 @@
+- Un nuevo desencadenador basado en la acción "Performed cart updated"
+- Criterios de salida predefinidos para eliminar a los clientes que han avanzado en su proceso de compra
+- Una nueva etiqueta de Liquid de carrito de compras para admitir la personalización de productos

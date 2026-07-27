@@ -2,6 +2,8 @@
 
 リンク短縮とクリックトラッキングは、キャンペーンとキャンバスの両方で[メッセージバリアントレベル]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign)で有効にできます。
 
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+
 URLの長さは、有効にしたトラッキングの種類によって決まります。
 - **基本トラッキング**は、キャンペーンレベルのクリックトラッキングを有効にします。静的URLの長さは20文字、パーソナライズ済みURLの長さは25文字になります。
 - **高度なトラッキング**は、キャンペーンレベルおよびユーザーレベルのクリックトラッキングを有効にし、クリックに基づくセグメンテーションやリターゲティング機能の使用を可能にします。クリックはCurrentsを通じて送信される[SMSクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)も生成します。高度なトラッキングを使用した静的URLの長さは27〜28文字になり、URLをクリックしたユーザーのセグメントを作成できます。パーソナライズ済みURLの長さは32〜33文字になります。
@@ -46,7 +48,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-カスタム定義のLiquid変数の短縮もサポートしています。以下のセクションにいくつかの例を示します。
+カスタム定義のLiquid変数の短縮もサポートしています。以下にいくつかの例を示します。
 
 ### Liquid変数を使用したURLの作成 {#create-a-url-using-liquid-variables}
 

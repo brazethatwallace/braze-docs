@@ -37,7 +37,7 @@ Hier sind einige Beispiele, die die Unterschiede zwischen lokaler und `E.164`-Fo
 
 Beim Import von Telefonnummern ist es wichtig, das [empfohlene Format](#recommended-format) einzuhalten. Verwenden Sie zum Importieren von Telefonnummern eine der folgenden Methoden:
 
-- [Eine CSV-Datei in Braze hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)
+- [Eine CSV-Datei in Braze hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)
 - [Den `/users/track`-Endpunkt verwenden]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 
 {% alert important %}
@@ -56,8 +56,8 @@ Wenn eine Telefonnummer als ungültig eingestuft wird, markiert Braze die Telefo
 
 Eine Telefonnummer wird aus folgenden Gründen als ungültig eingestuft:
 
-- **Anbieterfehler**: Ein permanenter Fehler wurde vom SMS- und RCS-Anbieter empfangen. Dies bedeutet, dass die angegebene Telefonnummer falsch formatiert ist oder dauerhaft keine SMS- oder RCS-Nachrichten empfangen kann.
-- **Deaktiviert**: Die Telefonnummer wurde deaktiviert, weil ein Mobilfunkteilnehmer seinen Dienst gekündigt und seine Nummer bei seinem Anbieter freigegeben hat (und diese möglicherweise irgendwann recycelt und einer neuen Nutzer:in zugewiesen wird). Eine deaktivierte Telefonnummer kann als ungültig markiert werden, auch wenn Sie keine SMS- oder RCS-Nachrichten an diese Telefonnummer gesendet haben.
+- **Anbieterfehler:** Ein permanenter Fehler wurde vom SMS- und RCS-Anbieter empfangen. Dies bedeutet, dass die angegebene Telefonnummer falsch formatiert ist oder dauerhaft keine SMS- oder RCS-Nachrichten empfangen kann.
+- **Deaktiviert:** Die Telefonnummer wurde deaktiviert, weil ein Mobilfunkteilnehmer seinen Dienst gekündigt und seine Nummer bei seinem Anbieter freigegeben hat (und diese möglicherweise irgendwann recycelt und einer neuen Nutzer:in zugewiesen wird). Eine deaktivierte Telefonnummer kann als ungültig markiert werden, auch wenn Sie keine SMS- oder RCS-Nachrichten an diese Telefonnummer gesendet haben.
 
 Diese ungültigen Telefonnummern können über [SMS- und RCS-Endpunkte]({{site.baseurl}}/api/endpoints/sms) verwaltet werden.
 

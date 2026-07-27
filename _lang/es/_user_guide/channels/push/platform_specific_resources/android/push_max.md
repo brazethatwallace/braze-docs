@@ -25,7 +25,7 @@ Algunos dispositivos Android fabricados por fabricantes de equipos originales (O
 
 - Disponible solo para notificaciones push de Android
 - No es compatible con mensajes basados en acciones o desencadenados por API
-- No es compatible cuando se selecciona la opción de [enviar solo al último dispositivo utilizado por el usuario]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#device-options)
+- No es compatible cuando se selecciona la opción de [enviar solo al último dispositivo utilizado por el usuario]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#most-recently-used-device)
 
 ## Requisitos previos {#prerequisites}
 
@@ -38,9 +38,9 @@ Las notificaciones push enviadas con Push Max solo se entregarán a dispositivos
 {% tabs %}
 {% tab Campaigns %}
 
-Para usar Push Max en tu Campaign:
+Para usar Push Max en tu campaña:
 
-1. Crea una Campaign push.
+1. Crea una campaña push.
 2. Selecciona **Android Push** como tu plataforma.
 3. Ve al paso **Schedule Delivery**.
 4. Selecciona **Send using Push Max**.
@@ -62,11 +62,11 @@ Para usar Push Max en tu Canvas:
 {% endtab %}
 {% endtabs %}
 
-Las dos características siguientes, Intelligent Timing y tiempo de vida, se pueden usar junto con Push Max para mejorar potencialmente la capacidad de entrega de tus notificaciones push de Android.
+Las dos características siguientes, sincronización inteligente y tiempo de vida, se pueden usar junto con Push Max para mejorar potencialmente la capacidad de entrega de tus notificaciones push de Android.
 
-### Intelligent Timing {#intelligent-timing}
+### Sincronización inteligente {#intelligent-timing}
 
-Push Max funciona mejor cuando [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) está activado. Intelligent Timing puede calcular y enviar la notificación push en el momento en que es más probable que el usuario esté usando la aplicación y que el push se entregue.
+Push Max funciona mejor cuando la [sincronización inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) está activada. La sincronización inteligente puede calcular y enviar la notificación push en el momento en que es más probable que el usuario esté usando la aplicación y que el push se entregue.
 
 ### Tiempo de vida (TTL) {#time-to-live-ttl}
 

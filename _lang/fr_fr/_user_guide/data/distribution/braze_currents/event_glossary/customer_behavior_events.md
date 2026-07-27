@@ -248,7 +248,7 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 
 ### Détails des propriétés {#property-details}
 
-- Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) associées à l'événement.
+- Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) associées à l'événement.
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte afin d'activer la fonctionnalité permettant l'envoi de `ad_id`.
 
@@ -1643,7 +1643,10 @@ Les paires add et remove se répartissent en deux catégories :
 - L'endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou le nettoyage des utilisateurs en double transfère les jetons de l'utilisateur orphelin vers l'utilisateur conservé.
 
 {% alert note %}
-L'identification sur le même profil via l'endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou le `changeUser` du SDK attribuant un ID externe au profil anonyme ne modifie pas le `user_id` et n'émet pas de paires d'événements add et remove. À la place, Braze émet un événement « update » pour chaque jeton de notification push existant et définit `external_user_id` sur l'ID externe de l'utilisateur identifié. Lorsque `changeUser` transfère des jetons d'un profil utilisateur à un autre, Braze émet toujours les paires d'événements add et remove décrites ci-dessus.
+L'identification sur le même profil via l'endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou le [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) du SDK peut attribuer un ID externe à un profil anonyme sans modifier le `user_id`.
+Dans ce cas, Braze n'émet pas de [paires d'événements add et remove](#add-and-remove-pairs).
+À la place, Braze émet un événement « update » pour chaque jeton de notification push existant et définit `external_user_id` sur l'ID externe de l'utilisateur identifié.
+Lorsque `changeUser` transfère des jetons d'un profil utilisateur à un autre, Braze émet toujours les [paires d'événements add et remove](#add-and-remove-pairs) décrites dans la section [Paires add et remove](#add-and-remove-pairs).
 {% endalert %}
 
 #### Requête sur l'état actuel du jeton actif {#querying-for-the-latest-active-token-state}

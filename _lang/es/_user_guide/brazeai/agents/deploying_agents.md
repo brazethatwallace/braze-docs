@@ -26,13 +26,13 @@ Seleccionas el tipo de agente en **Agent Console** cuando creas el agente. Para 
 
 Apunta a casos de uso de alto valor en los que los agentes puedan generar el mayor retorno de la inversión (ROI), y elige audiencias con probabilidades de responder. Una audiencia más pequeña y con grandes oportunidades suele superar a una audiencia grande con pocas oportunidades.
 
-Para los agentes de Canvas, empieza con usuarios que tengan señales fuertes —como búsquedas recientes, alta participación o datos de perfil enriquecidos— antes de expandirte a segmentos más amplios. Para los agentes de catálogo, prioriza las filas en las que las columnas de entrada que necesitas ya estén rellenadas, de modo que cada invocación tenga suficiente contexto para producir resultados útiles.
+Para los agentes de paso en Canvas, empieza con usuarios que tengan señales fuertes —como búsquedas recientes, alta participación o datos de perfil enriquecidos— antes de expandirte a segmentos más amplios. Para los agentes de catálogo, prioriza las filas en las que las columnas de entrada que necesitas ya estén rellenadas, de modo que cada invocación tenga suficiente contexto para producir resultados útiles.
 
-Para probar el ROI a pequeña escala antes de desplegar un agente de forma amplia, utiliza un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo una parte de tu audiencia entre en la rama que contiene tu paso Agente.
+Para probar el ROI a pequeña escala antes de desplegar un agente de forma amplia, utiliza un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo una parte de tu audiencia entre en la rama que contiene tu paso Agente.
 
 ## Usar agentes de paso en Canvas {#use-canvas-step-agents}
 
-Después de crear un agente de Canvas, añádelo a un Canvas como paso Agente para personalizar mensajes u orientar la toma de decisiones en tiempo real.
+Después de crear un agente de paso en Canvas, añádelo a un Canvas como paso Agente para personalizar mensajes u orientar la toma de decisiones en tiempo real.
 
 ### Cómo funciona {#how-it-works}
 
@@ -48,7 +48,7 @@ Para añadir un agente a tu Canvas:
 2. Selecciona el agente que procesará los datos en este paso.
 3. Define el nombre de la variable de salida. El tipo de datos de salida se configura en [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents).
 4. (Opcional) Añade valores de contexto adicionales para que el agente los consulte cuando se ejecute. Esto puede incluir variables Liquid adicionales o contexto de Canvas que no hayas vinculado previamente en la configuración del agente, por ejemplo, valores que solo quieras pasar en el momento del envío desde este paso.
-5. Prueba y previsualiza la salida del agente en la vista previa del paso.
+5. Prueba el agente utilizando la vista previa del paso o [Probar Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps) para recorrer la ruta completa del usuario.
 
 Para conocer los tipos de datos de salida, la creación de plantillas con Liquid y las capturas de pantalla, consulta [Paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
@@ -76,7 +76,7 @@ Para ver ejemplos, consulta [Cómo funciona]({{site.baseurl}}/user_guide/messagi
 
 ### Gestión de errores y comportamiento alternativo {#fallback-behavior}
 
-Lo siguiente se aplica a los **agentes de paso en Canvas** en un [paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
+Lo siguiente se aplica a los agentes de paso en Canvas en un [paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 - Si el modelo conectado devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) del proveedor del LLM, Braze reintenta continuamente la solicitud utilizando retirada exponencial hasta que la llamada se complete correctamente o Braze determine que no puede completarse; a continuación, los usuarios avanzan al siguiente paso en Canvas.
 - Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), la variable de salida se establece en `null` a menos que el agente tenga [valores alternativos configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) en Agent Console.
@@ -168,8 +168,8 @@ También puedes anular manualmente la celda generada por el agente seleccionando
 
 ### Gestión de errores {#error-handling}
 
-- Las invocaciones de catálogo fallidas no se reintentan, incluidos los [errores de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) del proveedor del LLM.
-- Si la llamada a la API del proveedor del modelo fundacional devuelve algún otro error, como un error de clave de API no válida, el valor del campo no se actualiza. Los agentes de catálogo no admiten la configuración de valores alternativos en Agent Console.
+- Si el proveedor del LLM devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors), Braze reintenta continuamente la solicitud utilizando retirada exponencial hasta que la llamada se complete correctamente o Braze determine que no puede completarse.
+- Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), el valor del campo del catálogo no se actualiza. Los agentes de catálogo no admiten la configuración de valores alternativos en Agent Console.
 - Puedes revisar los registros del agente para obtener detalles sobre las ejecuciones fallidas.
 - Los agentes de catálogo solo pueden procesar valores de entrada de hasta 25 KB por fila.
 
@@ -177,11 +177,11 @@ También puedes anular manualmente la celda generada por el agente seleccionando
 
 La supervisión funciona de la misma manera independientemente de si tu agente se ejecuta en Canvas o en catálogos.
 
-En la sección **Usage** de tu agente, puedes consultar y navegar hasta los lugares en los que el agente se utiliza activamente en catálogos y Canvas.
+En la sección **Uso** de tu agente, puedes consultar y navegar hasta los lugares en los que el agente se utiliza activamente en catálogos y Canvas.
 
 ![Sección de uso del agente que muestra dos agentes activos y un agente inactivo para Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-En la sección **Logs** de tu agente, puedes supervisar las llamadas reales de los agentes que se producen en tus Canvas y catálogos. Puedes filtrar por información como el intervalo de fechas, el resultado (correcto o fallido) o la ubicación de la llamada. También puedes seleccionar **Export CSV** para exportar solo los registros que se muestran en la página actual.
+En la sección **Registros** de tu agente, puedes supervisar las llamadas reales de los agentes que se producen en tus Canvas y catálogos. Puedes filtrar por información como el intervalo de fechas, el resultado (correcto o fallido) o la ubicación de la llamada. También puedes seleccionar **Exportar CSV** para exportar solo los registros que se muestran en la página actual.
 
 {% alert tip %}
 También puedes supervisar los errores de límite de invocaciones diarias en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
@@ -189,9 +189,11 @@ También puedes supervisar los errores de límite de invocaciones diarias en el 
 
 ![Registros para la puntuación de sentimiento de IA de un agente.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-Selecciona **View** para una llamada de agente específica y verás la entrada, la salida y el ID de usuario.
+Selecciona **Ver** para una llamada de agente específica y verás la entrada, la salida y el ID de usuario.
 
 ![El panel de detalles de un agente de asignación deportiva aleatoria que muestra la solicitud de entrada, la respuesta de salida y un ID de usuario asociado.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
+
+Para los agentes de paso en Canvas, los registros incluyen una sección **Fallback Output** que muestra cualquier salida alternativa que se haya utilizado cuando la invocación generó un error.
 
 ### Usar Currents {#use-currents}
 

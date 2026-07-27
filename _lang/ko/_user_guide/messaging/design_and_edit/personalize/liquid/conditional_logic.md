@@ -42,7 +42,7 @@ Buy now! Would 5% off convince you?
 
 ## 조건 로직 {#conditional-logic}
 
-메시지에 조건문과 같은 다양한 유형의 [지능형 로직](http://docs.shopify.com/themes/liquid-documentation/basics)을 포함할 수 있습니다. 다음 예제에서는 [조건문](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)을 사용하여 캠페인을 국제화합니다:
+메시지에 조건문과 같은 다양한 유형의 [지능형 로직](http://docs.shopify.com/themes/liquid-documentation/basics)을 포함할 수 있습니다. 다음 예제에서는 [조건문](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)을 사용하여 Campaign을 국제화합니다:
 {% raw %}
 
 ```liquid
@@ -232,7 +232,7 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 ### 부울 {#boolean}
 
-[부울]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans)은 이진 값으로, `registration_complete: true`와 같이 `true` 또는 `false`로 설정할 수 있습니다. 부울 값에는 작은따옴표를 사용하지 않습니다.
+[부울]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans)은 이진 값으로, `registration_complete: true`와 같이 `true` 또는 `false`로 설정할 수 있습니다. 부울 값에는 작은따옴표를 사용하지 않습니다.
 
 {% raw %}
 
@@ -244,7 +244,7 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 ### 숫자 {#number}
 
-[숫자]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers)는 정수 또는 플로트가 될 수 있는 숫자 값입니다. 예를 들어, 사용자는 `shoe_size: 10` 또는 `levels_completed: 287`을 가질 수 있습니다. 숫자 값에는 작은따옴표를 사용하지 않습니다.
+[숫자]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)는 정수 또는 플로트가 될 수 있는 숫자 값입니다. 예를 들어, 사용자는 `shoe_size: 10` 또는 `levels_completed: 287`을 가질 수 있습니다. 숫자 값에는 작은따옴표를 사용하지 않습니다.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 ### 문자열 {#string}
 
-[문자열]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings)은 영숫자 문자로 구성되며 사용자에 대한 데이터를 저장합니다. 예를 들어, `favorite_color: red` 또는 `phone_number: 3025981329`가 있을 수 있습니다. 문자열 값에는 작은따옴표를 사용해야 합니다.
+[문자열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)은 영숫자 문자로 구성되며 사용자에 대한 데이터를 저장합니다. 예를 들어, `favorite_color: red` 또는 `phone_number: 3025981329`가 있을 수 있습니다. 문자열 값에는 작은따옴표를 사용해야 합니다.
 
 {% raw %}
 
@@ -280,7 +280,7 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 ### 배열 {#array}
 
-[배열]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays)은 사용자에 대한 정보 목록입니다. 예를 들어, 사용자는 `last_viewed_shows: stranger things, planet earth, westworld`를 가질 수 있습니다. 배열 값에는 작은따옴표를 사용해야 합니다.
+[배열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)은 사용자에 대한 정보 목록입니다. 예를 들어, 사용자는 `last_viewed_shows: stranger things, planet earth, westworld`를 가질 수 있습니다. 배열 값에는 작은따옴표를 사용해야 합니다.
 
 {% raw %}
 
@@ -290,11 +290,47 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 {% endraw %}
 
-배열의 경우 "contains"를 사용해야 하며 "=="는 사용할 수 없습니다.
+배열의 경우 `contains`를 사용해야 하며 `==`는 사용할 수 없습니다.
+
+#### 문자열과 배열에서 `contains`의 동작 방식 {#how-contains-works-with-strings-versus-arrays}
+
+`contains` 연산자는 문자열을 평가하는지 배열을 평가하는지에 따라 다르게 동작합니다:
+
+- **문자열:** `contains`는 텍스트 내 어디에서든 부분 문자열을 확인합니다.
+- **배열:** `contains`는 배열 내의 완전한 요소와 정확히 일치하는지 확인합니다.
+
+{% alert important %}
+속성이 배열로 저장된 경우(예: `["med1", "med2", "abc"]`), `contains "ab"`를 검색하면 해당 목록에 정확히 `"ab"`인 요소가 없으므로 `false`로 평가됩니다.
+{% endalert %}
+
+##### 배열에서의 부분 문자열 일치 {#substring-matching-on-arrays}
+
+배열 속성 내에서 부분 일치(부분 문자열)를 찾으려면, 먼저 `join` 필터를 사용하여 배열을 단일 문자열로 변환해야 합니다.
+
+Braze는 조건 {% raw %}`{% if %}`{% endraw %} 블록 내에서 인라인 필터를 직접 지원하지 않으므로, 두 단계 프로세스를 따라야 합니다: 먼저 결합된 값을 변수에 할당한 다음 조건 확인을 실행합니다.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+`join`은 배열 요소를 하나의 문자열로 결합하므로(기본 구분자: 공백 하나), 부분 문자열 검사가 요소 경계를 넘어 일치할 수 있습니다(예: `["Napa", "boulevard"]`는 `Napa boulevard`가 되어 `contains "a b"`가 `true`가 됩니다). ","와 같은 명시적 구분자를 사용하면 경계가 더 명확해지고 의도하지 않은 교차 요소 일치를 줄일 수 있습니다.
+{% endalert %}
 
 ### 시간 {#time}
 
-이벤트가 발생한 시점의 타임스탬프입니다. [시간]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) 값은 조건 로직에서 사용하려면 [수학 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters)를 적용해야 합니다.
+이벤트가 발생한 시점의 타임스탬프입니다. [시간]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) 값은 조건 로직에서 사용하려면 [수학 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters)를 적용해야 합니다.
 
 {% raw %}
 

@@ -266,7 +266,7 @@ Removed Push Credential
 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries)를 사용하려면 **PII 보기** 권한이 필요합니다. 이는 일부 고객 데이터에 직접 액세스할 수 있기 때문입니다.
 {% endalert %}
 
-기존 팀 권한 기능에 대해서는 [사용자 권한 설정]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions)을 참조하세요.
+기존 팀 권한 기능에 대해서는 [사용자 권한 설정]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
 
 ### PII 정의 {#defining-pii}
 

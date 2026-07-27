@@ -30,7 +30,7 @@ Wenn Sie Beispiele sehen oder diesen Endpunkt für **WhatsApp-Gruppen** testen m
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `subscription.groups.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `subscription.groups.get`.
 
 ## Rate-Limit
 
@@ -54,12 +54,12 @@ Wenn mehrere Nutzer:innen (mehrere `external_ids`) dieselbe E-Mail-Adresse haben
 ## Beispielanfrage {#example-request}
 
 {% tabs %}
-{% tab Multiple Users %}
+{% tab Mehrere Nutzer:innen %}
 {% raw %}
 `https://rest.iad-03.braze.com/subscription/user/status?external_id[]=1&external_id[]=2`
 {% endraw %}
 {% endtab %}
-{% tab SMS and WhatsApp %}
+{% tab SMS und WhatsApp %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&limit=100&offset=1&phone=+11112223333' \
@@ -67,7 +67,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
 ```
 {% endraw %}
 {% endtab %}
-{% tab Email %}
+{% tab E-Mail %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@example.com&limit=100&offset=0' \

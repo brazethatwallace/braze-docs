@@ -58,13 +58,7 @@ Dans cette étape, vous transformez le payload du webhook envoyé par Typeform e
 
 Cette valeur de retour doit respecter le format du corps de la requête `/users/track` de Braze :
 
-- Le code de transformation est accepté dans le langage de programmation JavaScript. Tout flux de contrôle JavaScript standard, tel que la logique if/else, est pris en charge.
-- Le code de transformation accède au corps de la requête du webhook via la variable payload. Cette variable est un objet rempli en analysant le JSON du corps de la requête.
-- Toutes les fonctionnalités prises en charge dans notre endpoint `/users/track` sont prises en charge, y compris :
-    - Objets d'attributs utilisateur, objets d'événements et objets d'achat
-    - Attributs imbriqués et propriétés d'événements personnalisés imbriquées
-    - Mises à jour des groupes d'abonnement
-    - L'adresse e-mail comme identifiant
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Exemple de payload de webhook Typeform {#example-typeform-webhook-payload}
 
@@ -322,13 +316,13 @@ Content-Type: application/json
 }
 ```
 
-## Cas d'utilisation de la Transformation des données {#data-transformation-use-cases}
+## Cas d'usage de la Transformation des données {#data-transformation-use-cases}
 
 Voici des exemples de modèles créés à l'aide de notre [exemple de payload de webhook Typeform](#example-typeform-webhook-payload). Ces modèles peuvent servir de point de départ. Vous pouvez repartir de zéro ou supprimer des composants spécifiques selon vos besoins.
 
-Dans ces exemples de modèles, nous enregistrons un événement personnalisé dans le profil Braze. Le titre du Typeform est transmis comme nom de l'événement personnalisé, et les résultats du Typeform sont transmis comme propriétés d'événement. Ces exemples de modèles ne prennent pas en charge les types de questions Calendly, Téléchargement de fichier ou Paiement dans Typeform.
+Dans ces exemples de modèles, nous enregistrons un événement personnalisé dans le profil Braze. Le titre du Typeform est transmis comme nom de l'événement personnalisé, et les résultats du Typeform sont transmis comme propriétés d'événement. Ces exemples de modèles ne prennent pas en charge les types de questions Calendly, téléchargement de fichier ou paiement dans Typeform.
 
-### Cas d'utilisation : l'e-mail comme identifiant {#use-case-email-as-identifier}
+### Cas d'usage : l'e-mail comme identifiant {#use-case-email-as-identifier}
 
 Dans cet exemple de modèle, nous utilisons une adresse e-mail (capturée à partir d'une question d'adresse e-mail dans le typeform) comme identifiant.
 
@@ -470,7 +464,7 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Cas d'utilisation : utilisation d'un identifiant transmis via les champs cachés {#use-case-using-identifier-passed-in-hidden-fields}
+### Cas d'usage : utilisation d'un identifiant transmis via les champs cachés {#use-case-using-identifier-passed-in-hidden-fields}
 
 Vous pouvez utiliser les champs cachés de Typeform pour transmettre des données dans le payload du webhook Typeform, comme l'ID d'un utilisateur, sans avoir à inclure ces informations dans la réponse Typeform.
 

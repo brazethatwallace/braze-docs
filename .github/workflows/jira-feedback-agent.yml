@@ -1,14 +1,15 @@
 # Triggers a Cursor Cloud Agent to investigate a Jira feedback ticket and propose a fix.
 # Draft PRs are opened by the agent using `.cursor/agents/feedback-handler.md` (Cursor API `autoCreatePR` stays off).
-# `GH_TOKEN` is passed via Cursor API `envVars` so the agent's `gh` CLI can open PRs; configure the `GH_TOKEN` repository secret.
+# `GH_TOKEN`, `JIRA_USER_EMAIL`, and `JIRA_API_TOKEN` are passed via Cursor API `envVars` so the agent can
+# open PRs with `gh` and post edge-case Jira comments via the REST API; configure those repository secrets.
 # Caller dispatches `repository_dispatch` with event type `jira-feedback-ticket` and a client_payload
 # containing ticket fields. See Cloud Agents API: https://cursor.com/docs/cloud-agent/api/endpoints
 #
 # Repository secrets (configure in GitHub repo or org settings):
 # - `CURSOR_API_KEY` — Cursor Cloud Agents API
 # - `GH_TOKEN` — PAT for agent `gh` / git in the cloud VM (`envVars`)
-# - `JIRA_USER_EMAIL` — Atlassian account email for Jira REST Basic auth
-# - `JIRA_API_TOKEN` — Atlassian API token (scopes to add comments on issues)
+# - `JIRA_USER_EMAIL` — Atlassian account email for Jira REST Basic auth (`envVars` + workflow comment step)
+# - `JIRA_API_TOKEN` — Atlassian API token (scopes to add comments on issues; `envVars` + workflow comment step)
 
 name: Jira feedback — Cursor cloud agent
 
@@ -53,7 +54,7 @@ jobs:
             exit 1
           fi
           if [ -z "${JIRA_USER_EMAIL}" ] || [ -z "${JIRA_API_TOKEN}" ]; then
-            echo "::error::JIRA_USER_EMAIL and JIRA_API_TOKEN repository secrets must be set for the Jira comment step"
+            echo "::error::JIRA_USER_EMAIL and JIRA_API_TOKEN repository secrets must be set for agent envVars and the Jira comment step"
             exit 1
           fi
 
@@ -61,13 +62,15 @@ jobs:
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
           REPO_URL: ${{ github.server_url }}/${{ github.repository }}
           TICKET_ID: ${{ github.event.client_payload.ticket_id }}
         shell: bash
         run: |
           set -euo pipefail
 
-          # Request body: prompt, repos, autoCreatePR, envVars (GH_TOKEN for gh CLI in the agent).
+          # Request body: prompt, repos, autoCreatePR, envVars (GH_TOKEN for gh; Jira creds for edge-case comments).
           # Full playbook lives in-repo at .cursor/agents/feedback-handler.md; the agent reads it after clone.
           # Auth: Basic with API key as username, empty password (same as curl -u 'KEY:').
 
@@ -82,6 +85,8 @@ jobs:
             --arg prompt_text "${PROMPT_TEXT}" \
             --arg repo_url "${REPO_URL}" \
             --arg gh_token "${GH_TOKEN}" \
+            --arg jira_user_email "${JIRA_USER_EMAIL}" \
+            --arg jira_api_token "${JIRA_API_TOKEN}" \
             '{
               prompt: { text: $prompt_text },
               repos: [
@@ -92,7 +97,9 @@ jobs:
               ],
               autoCreatePR: false,
               envVars: {
-                GH_TOKEN: $gh_token
+                GH_TOKEN: $gh_token,
+                JIRA_USER_EMAIL: $jira_user_email,
+                JIRA_API_TOKEN: $jira_api_token
               }
             }')
 
@@ -124,26 +131,76 @@ jobs:
         run: |
           set -euo pipefail
 
-          COMMENT_JSON=$(jq -n \
-            '{
-              body: {
-                version: 1,
-                type: "doc",
-                content: [
-                  {
-                    type: "paragraph",
-                    content: [
-                      {
-                        type: "text",
-                        text: "🤖 Cursor Agent: Picking up this ticket now. A draft PR will appear here shortly — no action needed from you yet."
-                      }
-                    ]
-                  }
-                ]
-              }
-            }')
-
           AUTH_B64=$(printf '%s:%s' "${JIRA_USER_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w0)
+
+          # Fetch assignee so we can @-mention them in the comment.
+          ASSIGNEE_ACCOUNT_ID=""
+          ASSIGNEE_DISPLAY_NAME=""
+          set +e
+          ISSUE_HTTP=$(curl -sS -o /tmp/jira-issue-response.json -w '%{http_code}' \
+            --request GET \
+            --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}?fields=assignee" \
+            --header "Authorization: Basic ${AUTH_B64}" \
+            --header 'Accept: application/json')
+          ISSUE_CURL_EXIT=$?
+          set -e
+
+          if [ "${ISSUE_CURL_EXIT}" -eq 0 ] && [ "${ISSUE_HTTP}" -ge 200 ] && [ "${ISSUE_HTTP}" -lt 300 ]; then
+            ASSIGNEE_ACCOUNT_ID=$(jq -r '.fields.assignee.accountId // empty' /tmp/jira-issue-response.json)
+            ASSIGNEE_DISPLAY_NAME=$(jq -r '.fields.assignee.displayName // empty' /tmp/jira-issue-response.json)
+          else
+            echo "::warning::Could not fetch Jira assignee (HTTP ${ISSUE_HTTP:-?}); commenting without mention."
+          fi
+
+          if [ -n "${ASSIGNEE_ACCOUNT_ID}" ]; then
+            COMMENT_JSON=$(jq -n \
+              --arg account_id "${ASSIGNEE_ACCOUNT_ID}" \
+              --arg mention_text "@${ASSIGNEE_DISPLAY_NAME}" \
+              '{
+                body: {
+                  version: 1,
+                  type: "doc",
+                  content: [
+                    {
+                      type: "paragraph",
+                      content: [
+                        { type: "text", text: "🤖 " },
+                        {
+                          type: "mention",
+                          attrs: {
+                            id: $account_id,
+                            text: $mention_text
+                          }
+                        },
+                        {
+                          type: "text",
+                          text: " — Picking up this ticket now. A draft PR will appear shortly."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }')
+          else
+            COMMENT_JSON=$(jq -n \
+              '{
+                body: {
+                  version: 1,
+                  type: "doc",
+                  content: [
+                    {
+                      type: "paragraph",
+                      content: [
+                        {
+                          type: "text",
+                          text: "🤖 Picking up this ticket now. A draft PR will appear shortly."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }')
+          fi
 
           set +e
           HTTP_CODE=$(curl -sS -o /tmp/jira-comment-response.json -w '%{http_code}' \

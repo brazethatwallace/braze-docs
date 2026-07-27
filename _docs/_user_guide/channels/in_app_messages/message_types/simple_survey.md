@@ -125,7 +125,7 @@ Check out [In-app message reporting]({{site.baseurl}}/user_guide/channels/in_app
 
 ### Currents {#currents}
 
-Selected choices will automatically flow through to Currents, under the [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe) `button_id` field. Each choice will be sent with its universally unique identifier (UUID).
+Selected choices will automatically flow through to Currents, under the [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events) `button_id` field. Each choice will be sent with its universally unique identifier (UUID).
 
 ## Use cases
 

@@ -57,7 +57,7 @@ The following table shows how different user actions affect iOS push enablement,
 
 <sup>* If the app does not use provisional push, `Foreground Push Enabled` is `false` until the user allows push notifications. If the app uses provisional push, `Foreground Push Enabled` is `true` at the start of the first session. For more information, see [Provisional authorization and quiet push](#provisional-push).</sup>
 
-<sup>** Starting with [Braze Swift SDK version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), the `optInWhenPushAuthorized` configuration property controls whether push subscription state is automatically set to `Opted-In` when push permission becomes authorized. For more information, see [Updating push subscription states](#update-push-subscription-state).</sup>
+<sup>** Starting with [Braze Swift SDK version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), the `optInWhenPushAuthorized` configuration property controls whether push subscription state is automatically set to `Opted-In` when push permission becomes authorized. For more information, see [Push tokens](#push-tokens).</sup>
 
 ## Push permission
 
@@ -92,7 +92,7 @@ Authorized push requires explicit permission from a user before sending any noti
 
 Before iOS 12 (released in 2018), all users must explicitly opt-in to receive push notifications.
 
-In iOS 12, Apple introduced [provisional authorization](https://www.braze.com/resources/articles/mastering-provisional-push), allowing brands to send quiet push notifications to their users' notification center before they explicitly opt-in, giving you a chance to demonstrate the value of your messages early. Refer to [provisional authorization]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications) to learn more.
+In iOS 12, Apple introduced [provisional authorization](https://www.braze.com/resources/articles/mastering-provisional-push), allowing brands to send quiet push notifications to their users' notification center before they explicitly opt-in, giving you a chance to demonstrate the value of your messages early. Refer to [provisional authorization]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) to learn more.
 
 ### Web
 

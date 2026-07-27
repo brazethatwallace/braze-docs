@@ -13,7 +13,7 @@ The Report Builder allows you to compare the results of multiple campaigns or Ca
 
 ## In-app message iOS implementation guide
 
-This detailed guide covers how to leverage subclassing to create custom slideup in-app messages, custom modal in-app messages, and custom full in-app messages to add to your Braze campaigns and Canvases. Included are the necessary code consideration, detailed use cases built by our team, and accompanying code snippets. Visit our documentation [here]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/) to read more. 
+This detailed guide covers how to leverage subclassing to create custom slideup in-app messages, custom modal in-app messages, and custom full in-app messages to add to your Braze campaigns and Canvases. Included are the necessary code consideration, detailed use cases built by our team, and accompanying code snippets. Visit our [iOS in-app messaging implementation guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/) to read more. 
 
 ## SMS custom keyword categories and retargeting options
 

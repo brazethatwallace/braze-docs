@@ -23,7 +23,7 @@ If the `item_id` isn't found, this endpoint will create the item in your catalog
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.replace_item` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `catalogs.replace_item` permission.
 
 ## Rate limit
 

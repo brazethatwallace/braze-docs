@@ -8,7 +8,7 @@ description: "Esta página de referencia describe los operadores que admite Liqu
 
 # Operadores {#operators}
 
-> Liquid admite muchos [operadores](https://docs.shopify.com/themes/liquid/basics/operators) que puedes usar en tus sentencias condicionales. Esta página cubre los operadores que admite Liquid y proporciona casos de uso de cómo puedes utilizarlos en tus mensajes.
+> Liquid admite muchos [operadores](https://docs.shopify.com/themes/liquid/basics/operators) que puedes usar en tus sentencias condicionales. Esta página cubre los operadores que admite Liquid y proporciona ejemplos de cómo puedes utilizarlos en tus mensajes.
 
 Esta tabla enumera los operadores admitidos. Ten en cuenta que los paréntesis son caracteres no válidos en Liquid e impiden que tus etiquetas funcionen.
 
@@ -26,7 +26,7 @@ Esta tabla enumera los operadores admitidos. Ten en cuenta que los paréntesis s
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Operadores" }
 
 {% alert note %}
-Los operadores se pueden usar en sentencias condicionales (`if`, `elsif`, `unless`) pero no en sentencias `assign`, bucles `for` ni corchetes de acceso a arreglos. En las etiquetas `case` y `when`, cada rama compara la expresión `case` con un valor `when` usando igualdad en lugar de expresiones de operadores arbitrarios. Para ver ejemplos, consulta [Lógica condicional de mensajería]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). Para un desglose completo, consulta [Dónde usar operadores y filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
+Los operadores se pueden usar en sentencias condicionales (`if`, `elsif`, `unless`) pero no en sentencias `assign`, bucles `for` ni corchetes de acceso a arreglos. En las etiquetas `case` y `when`, cada rama compara la expresión `case` con un valor `when` usando igualdad en lugar de expresiones de operadores arbitrarios. Para ver ejemplos, consulta [Lógica condicional de mensajería]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when). Para un desglose completo, consulta [Dónde usar operadores y filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ## Agrupar condiciones sin paréntesis {#grouping-conditions-without-parentheses}
@@ -86,7 +86,7 @@ Need a sign to update your wardrobe? We added a 15% discount code to your accoun
 ```
 {% endraw %}
 
-![Un compositor de notificaciones push con el código Liquid completo del tutorial.]({% image_buster /assets/img/liquid-if-totalspend.png %}){: width="100%"}
+![Un creador de notificaciones push con el código Liquid completo del tutorial.]({% image_buster /assets/img/liquid-if-totalspend.png %}){: width="100%"}
 
 {% details Código Liquid completo %}
 {% raw %}
@@ -179,7 +179,7 @@ Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 {% endraw %}
 {% enddetails %}
 
-![Un compositor de notificaciones push con el código Liquid completo del tutorial.]({% image_buster /assets/img/liquid-if-elsif-games.png %})
+![Un creador de notificaciones push con el código Liquid completo del tutorial.]({% image_buster /assets/img/liquid-if-elsif-games.png %})
 
 Ahora, si un usuario jugó por última vez *Awkward Dinner Party*, recibirá este mensaje:
 
@@ -241,7 +241,7 @@ Stream now!
 {% endraw %}
 {% enddetails %}
 
-![Un compositor de notificaciones push con el código Liquid completo del tutorial.]({% image_buster /assets/img/abort-if.png %})
+![Un creador de notificaciones push con el código Liquid completo del tutorial.]({% image_buster /assets/img/abort-if.png %})
 
 También puedes [cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) basándote en contenido conectado.
 
@@ -253,7 +253,7 @@ Si usas [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/
 
 ### La vista previa puede convertir incorrectamente los tipos de propiedad {#preview-may-incorrectly-coerce-property-types}
 
-Al previsualizar un mensaje en el dashboard, la mayoría de las variables (como los atributos personalizados) se convierten al tipo correcto. Sin embargo, algunas variables no tienen un tipo definido que la vista previa pueda consultar:
+Al previsualizar un mensaje en el panel, la mayoría de las variables (como los atributos personalizados) se convierten al tipo correcto. Sin embargo, algunas variables no tienen un tipo definido que la vista previa pueda consultar:
 
 - `api_trigger_properties`
 - `canvas_entry_properties`

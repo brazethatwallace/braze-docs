@@ -25,8 +25,8 @@ Wunderkind Signalsの統合により、カート放棄、商品放棄、価格�
 | Wunderkindアカウント | Signalsが有効になっているWunderkindアカウントが必要です。資格の確認については、Wunderkindの担当者にお問い合わせください。 |
 | Brazeアカウント | キャンバスにアクセスできるBrazeアカウントが必要です。WunderkindチームにBrazeアカウントのシートを付与する必要があります。詳細については、[Grant Wunderkind access to your Braze account](https://support.wunderkind.co/hc/en-us/articles/47921719757339-Grant-Wunderkind-Access-to-Your-Braze-Account) を参照してください。 |
 | Braze REST APIキー | セットアップ中に特定の権限を持つ専用のAPIキーを作成します（[ステップ1](#step-1-create-a-braze-api-key-for-wunderkind) を参照）。 |
-| ユーザー識別 | Wunderkindは通常、`user_alias`と`alias_label: "wknd_email_id"`（多くの場合メールアドレスを`alias_name`として使用）を使用して消費者をBrazeに解決します。各[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)の受信者には、`external_user_id`、`user_alias`、`braze_id`、または`email`のいずれか1つを含める必要があります（[recipientsオブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object)）。`email`を使用する場合は、[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)を含めてください。`user_alias`を使用する場合、トリガーの前にプロファイルがBrazeに既に存在している必要があります。[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)または[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)を使用して、ユーザーとエイリアスを先に作成または更新してください。詳細については、[制限事項](#limitations)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
+| ユーザー識別 | Wunderkindは通常、`user_alias`と`alias_label: "wknd_email_id"`（多くの場合メールアドレスを`alias_name`として使用）を使用して消費者をBrazeに解決します。各[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)の受信者には、`external_user_id`、`user_alias`、`braze_id`、または`email`のいずれか1つを含める必要があります（[recipientsオブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object)）。`email`を使用する場合は、[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)を含めてください。`user_alias`を使用する場合、トリガーの前にプロファイルがBrazeに既に存在している必要があります。[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)または[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)を使用して、ユーザーとエイリアスを先に作成または更新してください。詳細については、[制限事項](#limitations)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 仕組み {#how-it-works}
 
@@ -40,7 +40,7 @@ Wunderkindが高インテントの匿名ユーザーを識別し、そのアイ�
 
 Brazeダッシュボードで以下を行います。
 
-1. **設定** > **APIキー** に移動し、**新しいAPIキーを作成** をクリックします。
+1. **設定** > **APIキー**に移動し、**新しいAPIキーを作成**をクリックします。
 2. キーにわかりやすい名前を付けます（例: `Wunderkind Signals`）。
 3. [Grant Wunderkind access to your Braze account](https://support.wunderkind.co/hc/en-us/articles/47921719757339-Grant-Wunderkind-Access-to-Your-Braze-Account) に記載されている権限を付与します。
 4. APIキーをコピーして、次のセクションでWunderkindプラットフォームに入力します。
@@ -51,10 +51,10 @@ Wunderkind Signalsの場合、Braze [REST API]({{site.baseurl}}/api/basics)リ�
 
 ### ステップ2: BrazeをWunderkindプラットフォームに接続する {#step-2-connect-braze-to-the-wunderkind-platform}
 
-1. Wunderkindプラットフォームにログインし、**Integrations Hub** に移動します。
-2. **Braze** タイルを選択し、**Connect** を選択します。
+1. Wunderkindプラットフォームにログインし、**Integrations Hub**に移動します。
+2. **Braze**タイルを選択し、**Connect**を選択します。
 3. Braze REST APIキーを入力し、クラスターを選択します。
-4. **Save** を選択します。
+4. **Save**を選択します。
 
 ### ステップ3: 新しいBrazeアセットを確認する {#step-3-review-new-braze-assets}
 
@@ -65,7 +65,7 @@ Wunderkind Signalsの場合、Braze [REST API]({{site.baseurl}}/api/basics)リ�
 | Content Blocks | 自動 |
 | APIトリガーキャンバス | マネージドサービス |
 | タグ、カスタム属性、リンクテンプレート | マネージドサービス |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3: 新しいBrazeアセットを確認する" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Review new Braze assets" }
 
 ### ステップ4: キャンバスのセットアップを完了する {#step-4-complete-canvas-setup}
 
@@ -110,7 +110,7 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
 | `WKCouponPurpose` | 文字列 | クーポンオファーの説明（使用しない場合は空文字列） |
 | `Items` | 配列 | 商品オブジェクトの配列（このセクションの商品フィールドを参照） |
 | `WkOpen` | 文字列 | レポート目的で利用可能なトラッキングピクセル |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="共通フィールド（すべてのキャンバスタイプ）" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Common fields (all キャンバス types) #canvas-types-table" }
 
 ### 商品アイテムフィールド {#product-item-fields}
 
@@ -123,7 +123,7 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
 | `WkPrice` | 文字列 | 元の価格（価格低下キャンバスのみ） |
 | `WKSalePrice` | 文字列 | セール価格（価格低下キャンバスのみ） |
 | `WkQuantity` | 文字列 | 残り数量（在庫僅少キャンバスのみ） |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="商品アイテムフィールド" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Product item fields" }
 
 ### キャンバス固有のフィールドと`WkPurpose`の値 {#canvas-specific-fields-and-wkpurpose-values}
 
@@ -135,14 +135,14 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
 | 再入荷 | `"back in stock"` | — |
 | 価格低下 | `"price drop"` | 各アイテムの`WkPrice`、`WKSalePrice` |
 | 在庫僅少 | `"low stock"` | 各アイテムの`WkQuantity` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="キャンバス固有のフィールドとWkPurposeの値" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canvas-specific fields and WkPurpose values" }
 
 ### ペイロードの例 {#example-payloads}
 
 `recipients`内の各オブジェクトには、`external_user_id`、`user_alias`、`braze_id`、または`email`のいずれか1つを含める必要があります。詳細については、[recipientsオブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object)を参照してください。
 
 {% alert note %}
-各例では**1つの**Braze受信者識別子を使用しています。最初の6つは`user_alias`のみを使用し、最後の1つは`email`と[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)のみを使用しています。例のJSONでは、レビューツールがその値（`"email"`）をBrazeの受信者`email`フィールドと混同しないように、`context`内の`WkChannel`キーを省略しています。本番環境では、[共通フィールド（すべてのキャンバスタイプ）テーブル](#canvas-types-table)に記載されているとおり、`context`に`"WkChannel": "email"`を含めてください。
+各例では**1つの**Braze受信者識別子を使用しています。最初の6つは`user_alias`のみを使用し、最後の1つは`email`と[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)のみを使用しています。例のJSONでは、レビューツールがその値（`"email"`）をBrazeの受信者`email`フィールドと混同しないように、`context`内の`WkChannel`キーを省略しています。本番環境では、[共通フィールド（すべてのキャンバスタイプ）テーブル](#canvas-types-table)に記載されているとおり、`context`に`"WkChannel": "email"`を含めてください。
 {% endalert %}
 
 以下の例では、Wunderkindがアイデンティティを解決する方法に合わせて、`wknd_email_id`を使用した`user_alias`を使用しています。
@@ -385,7 +385,7 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
 
 ### Liquidの使用例 {#example-liquid-usage}
 
-Wunderkindが`/canvas/trigger/send`を呼び出すと、各受信者の`context`オブジェクトに渡されたキーと値がキャンバスエントリデータになります。メッセージステップでは、`context` Liquid名前空間を使用してそれらを参照します。例えば、[キャンバス contextオブジェクト]({{site.baseurl}}/api/objects_filters/context_object)および[メッセージ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step)に記載されているように {% raw %}`{{context.${WkPurpose}}}`{% endraw %} を使用します。正しいLiquid構文を使用する以外に、追加の設定は不要です。
+Wunderkindが`/canvas/trigger/send`を呼び出すと、各受信者の`context`オブジェクトに渡されたキーと値がキャンバスエントリデータになります。メッセージステップでは、`context` Liquid名前空間を使用してそれらを参照します。例えば、[キャンバスcontextオブジェクト]({{site.baseurl}}/api/objects_filters/context_object)および[メッセージ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step)に記載されているように {% raw %}`{{context.${WkPurpose}}}`{% endraw %} を使用します。正しいLiquid構文を使用する以外に、追加の設定は不要です。
 
 Brazeの出力タグを`for`タグの条件内にネストしないでください。[Liquidの使用]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid#use-a-filter-result-in-a-for-loop)に記載されているように、まず`context`から`Items`配列を変数に割り当ててからループしてください。`assign`行ではBrazeのキャンバスエントリ形式 {% raw %}`{{context.${Items}}}`{% endraw %} を使用します（[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/supported_personalization_tags#summary-of-supported-tags)を参照）。
 
@@ -420,14 +420,14 @@ Wunderkindは**Braze Currents**を使用してBrazeからパフォーマンス�
 | クリック数 | Braze Currents |
 | コンバージョン | Braze Currents（セットアップ時に定義されたイベント） |
 | 購読解除 | Braze Currents |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="レポート" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reporting" }
 
 ## 制限事項 {#limitations}
 
 - **抑制/オプトアウトの同期なし。** 抑制はBraze内でネイティブに管理する必要があります。注: Braze Signalsに移行する既存のWunderkind顧客の場合、Wunderkindはチームと連携して現在のセットアップを維持します。
 - **メールチャネルのみ。** SMSはこの統合では現在サポートされていません。
 - **キャンバストリガーの前にユーザープロファイルが存在している必要があります。** `user_alias`受信者を使用した[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)は、そのエイリアスを既に持つ**既存の**Brazeプロファイルのみを解決します。エイリアスで`send_to_existing_only`を使用することはできず、キャンバストリガーはエイリアスのみから新しいプロファイルを作成しません。ユーザーを先に作成または更新し、`wknd_email_id`エイリアスを設定する必要があります（例えば、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)または[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)を使用）。Wunderkindは、Brazeが処理を完了できるように、そのアップサート後にトリガーを発火する前に少し待機する場合があります。
-- **識別子としてのメール。** キャンバストリガーが`user_alias`の代わりに`email`で受信者を識別する場合、Brazeの要件に従って、その受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)を含めてください。
+- **識別子としてのメール。** キャンバストリガーが`user_alias`の代わりに`email`で受信者を識別する場合、Brazeの要件に従って、その受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)を含めてください。
 
 
 ## その他のリソース {#additional-resources}
@@ -435,5 +435,5 @@ Wunderkindは**Braze Currents**を使用してBrazeからパフォーマンス�
 - [Wunderkindヘルプセンター — Signals for Braze Overview](https://support.wunderkind.co/hc/en-us/articles/47156898436891-Signals-for-Braze-Overview)
 - [Wunderkind Developer Portal — Integration Overview](https://developer.wunderkind.co/docs/integration-overview)
 - [APIトリガー配信を使用したキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)
-- [キャンバス contextオブジェクト]({{site.baseurl}}/api/objects_filters/context_object)
+- [キャンバスcontextオブジェクト]({{site.baseurl}}/api/objects_filters/context_object)
 - [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)

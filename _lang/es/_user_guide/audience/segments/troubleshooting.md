@@ -113,7 +113,7 @@ Los usuarios pueden tener múltiples aplicaciones, por lo que seleccionar una ap
 
 Tus opciones de filtro están relacionadas con el formato (tipo de datos) que estás pasando a Braze para tu atributo personalizado. Para revisar el tipo de datos que Braze está reconociendo para tus atributos personalizados, ve a **Configuración de datos** > **Atributos personalizados**.
 
-Si tus opciones de filtro han cambiado, esto es una indicación de que tus datos se están pasando a Braze en un formato (tipo de datos) diferente al anterior. Para descripciones detalladas de los diferentes tipos de datos y sus opciones de filtrado, consulta [tipos de datos de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types).
+Si tus opciones de filtro han cambiado, esto es una indicación de que tus datos se están pasando a Braze en un formato (tipo de datos) diferente al anterior. Para descripciones detalladas de los diferentes tipos de datos y sus opciones de filtrado, consulta [tipos de datos de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 Ten en cuenta que cambiar el tipo de datos de un atributo personalizado en el panel rechazará los datos que se envíen a Braze en un formato diferente. No puedes cambiar el tipo de datos de un atributo personalizado mientras ese atributo esté referenciado en Campaigns, Canvas o Segments activos; el panel mostrará un error y bloqueará el cambio.
 
@@ -123,7 +123,7 @@ La pestaña **Valores** de un atributo personalizado muestra resultados de una m
 
 Si tu Segment parece mucho más grande de lo que esperas a pesar de tener filtros que parecen restrictivos, verifica si estás usando filtros negativos (`no es`, `no es igual a`, `no coincide con regex` o `no incluido`) con el operador **OR** en el mismo atributo más de una vez. Esa combinación puede segmentar usuarios con todos los valores para el atributo.
 
-Para orientación sobre cuándo usar **AND** en lugar de **OR**, consulta [Cuándo evitar el operador OR]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator) en Crear un Segment.
+Para orientación sobre cuándo usar **AND** en lugar de **OR**, consulta [Cuándo evitar el operador OR]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#segmentation-logic-using-and-and-or) en Crear un Segment.
 
 ## Análisis e informes {#analytics-and-reporting}
 

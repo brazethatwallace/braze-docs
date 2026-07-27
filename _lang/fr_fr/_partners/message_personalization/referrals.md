@@ -1,23 +1,30 @@
 ---
-nav_title: Recommandation
-article_title: Recommandation
+nav_title: "Recommandation"
+article_title: "Recommandation"
 page_order: 5
 page_type: landing
-description: "Cette page répertorie les partenaires Braze (Alloys) qui proposent des intégrations de marketing de recommandation."
-layout: partner_page
+description: "Parcourez les intégrations de partenaires technologiques pour la recommandation."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "Partenaires de recommandation"
+guide_top_header: "Recommandation"
+guide_top_text: "Parcourez les intégrations de partenaires technologiques pour la recommandation. Pour une liste complète et filtrable de tous les partenaires technologiques Braze, consultez le <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
-valid_partner_list:
-- name: Extole
-  url: /docs/partners/extole/
-- name: Friendbuy
-  url: /docs/partners/friendbuy/
-- name: Mention Me
-  url: /docs/partners/mention_me/
-- name: Talkable
-  url: /docs/partners/talkable/
-- name: ViralSweep
-  url: /docs/partners/viralsweep/
+guide_featured_title: "Partenaires"
+guide_featured_list:
+  - name: "Extole"
+    link: /docs/partners/message_personalization/referrals/extole
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Friendbuy"
+    link: /docs/partners/message_personalization/referrals/friendbuy
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Mention Me"
+    link: /docs/partners/message_personalization/referrals/mention_me
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Talkable"
+    link: /docs/partners/message_personalization/referrals/talkable
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "ViralSweep"
+    link: /docs/partners/message_personalization/referrals/viralsweep
+    image: /assets/img/braze_icons/users-01.svg
 ---

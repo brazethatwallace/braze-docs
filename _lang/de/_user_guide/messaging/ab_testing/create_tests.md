@@ -89,7 +89,7 @@ Je nachdem, welchen Kanal Sie auswählen, können Sie verschiedene Komponenten I
 | ---------------------| --------------- | ------------- |
 | Push | Text <br> Bild- und Emoji-Verwendung <br> Deeplinks <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
 | E-Mail | Betreff <br> Anzeigename <br> Anrede <br> Fließtext <br> Bild- und Emoji-Verwendung <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
-| In-App-Nachricht | Aspekte wie bei „Push“ aufgeführt <br> [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Klick <br> Konversionsrate |
+| In-App-Nachricht | Aspekte wie bei „Push“ aufgeführt <br> [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications) | Klick <br> Konversionsrate |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipps für verschiedene Kanäle" }
 
 {% alert tip %}

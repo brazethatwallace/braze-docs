@@ -24,7 +24,7 @@ Note that to send messages with this endpoint, you must have a [campaign ID]({{s
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.trigger.schedule.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `campaigns.trigger.schedule.create` permission.
 
 ## Rate limit
 

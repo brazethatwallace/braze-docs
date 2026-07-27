@@ -224,7 +224,7 @@ SMS, Android 푸시, iOS 푸시, 전통적인 인앱 메시지의 **테스트** 
 
 ## 데이터 프라이버시 및 보안 {#data-privacy-and-security}
 
-Operator는 OpenAI와 통합하여 출력을 생성합니다. Braze가 OpenAI에 보내는 정보, 해당 데이터의 사용 방식, 지적 재산권에 대한 자세한 내용은 [OpenAI와의 데이터 사용 방식]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai)을 참조하세요.
+Operator는 OpenAI와 통합하여 출력을 생성합니다. Braze가 OpenAI에 보내는 정보, 해당 데이터의 사용 방식, 지적 재산권에 대한 자세한 내용은 [OpenAI와의 데이터 사용 방식]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security)을 참조하세요.
 
 ## 다음 단계 {#next-steps}
 

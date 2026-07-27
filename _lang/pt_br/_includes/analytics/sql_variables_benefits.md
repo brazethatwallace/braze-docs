@@ -1,0 +1,3 @@
+- Economize tempo criando uma variável de campanha para selecionar a partir de uma lista ao criar seu relatório, em vez de colar IDs de Campaign.
+- Substitua valores adicionando variáveis que permitem reutilizar o relatório para casos de uso ligeiramente diferentes no futuro (como um evento personalizado diferente).
+- Reduza erros do usuário ao editar seu SQL, diminuindo a quantidade de edição necessária para cada relatório. Colegas mais familiarizados com SQL podem criar relatórios que colegas menos técnicos podem usar em seguida.
