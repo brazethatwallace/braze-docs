@@ -197,7 +197,7 @@ No. If a message is not delivered, you will not be billed.
 If a user blocks your business, subsequent messages you attempt to send don't deliver, and you aren't billed. The user's subscription status won't update.
 
 #### What happens if a user reports a message? 
-If a user reports a message, you can still send subsequent messages to them. However, reporting may affect your quality rating on the channel. The user's subscription status won't update.
+If a user reports a message, you can still send subsequent messages to them. However, reporting may affect your quality rating on the channel. The user's subscription status doesn't update.
 
 #### How can I exclude users who report my WhatsApp account from upcoming launches?
 Braze doesn't receive notifications from WhatsApp when your account is flagged or reported, so you can't automatically identify or exclude those users in Braze. Users who report your account may remain in your WhatsApp subscription group and continue to be eligible for future messages. 
