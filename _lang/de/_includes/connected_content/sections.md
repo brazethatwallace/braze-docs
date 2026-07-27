@@ -4,7 +4,7 @@ Standardmäßig setzt Connected-Content einen `Content-Type`-Header bei einer GE
 
 {% raw %}
 ```js
-{% connected_content http://numbersapi.com/random/trivia :content_type application/json %}
+{% connected_content https://api.sunrise-sunset.org/v2?lat=40.7128&lng=-74.0060&date=today :content_type application/json %}
 ```
 {% endraw %}
 

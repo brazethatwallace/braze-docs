@@ -12,10 +12,10 @@ description: "Braze JavaScript SDK README-Referenz, gespiegelt von GitHub."
 
 Das Braze JavaScript SDK hilft Ihnen, Braze-Messaging-, Analytics- und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.
 
-Für den Einstieg stehen Ihnen folgende Ressourcen zur Verfügung:
+Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
-- [Braze-Benutzerhandbuch](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze-Entwicklerhandbuch](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
 
 ### Architekturübersicht {#architecture-overview}
 
@@ -48,7 +48,7 @@ Oder mit yarn:
 yarn add @braze/javascript-sdk
 ```
 
-Mit der API auf Modulebene:
+Mit Module-Level API:
 ``` typescript
 import { initialize, openSession, changeUser } from '@braze/javascript-sdk';
 
@@ -71,18 +71,20 @@ await openSession();
 
 Bevor Sie das Braze JavaScript SDK integrieren, benötigen Sie:
 
-{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
+- **Braze-Konto**: Ein Braze-Konto mit API-Zugang
+- **API-Schlüssel**: Den API-Schlüssel Ihrer App aus dem Braze-Dashboard
+- **SDK-Endpunkt**: Die URL Ihres Braze SDK-Endpunkts (z. B. `sdk.iad-01.braze.com`)
 
 ### Zugangsdaten abrufen {#getting-your-credentials}
 
 1. **API-Schlüssel**: Zu finden in Ihrem Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**
 2. **SDK-Endpunkt**: Zu finden unter **Einstellungen** > **SDK-Authentifizierung** > **Endpunkte**
 
-## Integration {#integration}
+## Integration
 
-### API aufrufen {#calling-the-api}
+### API-Aufruf {#calling-the-api}
 
-Verwenden Sie die API auf Modulebene: Rufen Sie `initialize()` einmal auf und nutzen Sie dann die exportierten Funktionen. Um die Konfiguration zu wechseln, rufen Sie zuerst `destroy()` und dann erneut `initialize()` auf.
+Verwenden Sie die API auf Modulebene: Rufen Sie `initialize()` einmal auf und verwenden Sie dann die exportierten Funktionen. Um die Konfiguration zu wechseln, rufen Sie zuerst `destroy()` und dann erneut `initialize()` auf.
 
 ``` typescript
 import { initialize, logPurchase, changeUser } from '@braze/javascript-sdk';
@@ -98,7 +100,7 @@ await logPurchase('sku-1', 9.99, 'USD', 1);
 
 Das Konfigurationsobjekt für die Initialisierung erfordert `storageManager`. `networkManager` und `pushManager` sind optional.
 
-**1. StorageManager** – Asynchrone Key-Value-Speicherschnittstelle
+**1. StorageManager** – Asynchrone Schlüssel-Wert-Speicher-Schnittstelle
 ``` typescript
 interface StorageManager {
   store(key: string, value: string, isId?: boolean): Promise<void>;
@@ -107,10 +109,10 @@ interface StorageManager {
   clearData(storageKeys: string[]): Promise<void>;
 }
 ```
-- Der Parameter `isId` kennzeichnet **persistente ID-Speicherung**: Wenn `true`, speichert das SDK einen persistenten Bezeichner (Geräte-ID, Nutzer:innen-ID) oder das Opt-out-Flag. Implementierungen sollten diese über App-Neustarts hinweg beibehalten, damit das SDK dasselbe Gerät bzw. dieselbe:n Nutzer:in wiedererkennen kann. Wenn `false`, handelt es sich um Sitzungs-/Cache-Daten (Ereignisse, Attribute usw.), die nur im Arbeitsspeicher gehalten werden können. Für Webumgebungen empfiehlt es sich, Cookies für Schlüssel zu verwenden, die mit `isId: true` gespeichert werden, um sitzungsübergreifende Persistenz sicherzustellen.
+- Der Parameter `isId` kennzeichnet **persistente ID-Speicherung**: Wenn `true`, speichert das SDK einen persistenten Bezeichner (Geräte-ID, Nutzer:innen-ID) oder das Opt-out-Flag. Implementierungen sollten diese über App-Neustarts hinweg beibehalten, damit das SDK dasselbe Gerät bzw. dieselbe:n Nutzer:in wiedererkennen kann. Wenn `false`, handelt es sich um Sitzungs-/Cache-Daten (Ereignisse, Attribute usw.), die nur im Arbeitsspeicher gehalten werden können. Für Web-Umgebungen sollten Sie Cookies für Schlüssel verwenden, die mit `isId: true` gespeichert werden, um sitzungsübergreifende Persistenz sicherzustellen.
 - Muss asynchrone Operationen für alle Speichervorgänge unterstützen
 
-**2. NetworkManager** (optional) – HTTP-POST-Anfrageschnittstelle
+**2. NetworkManager** (optional) – Schnittstelle für HTTP-POST-Anfragen
 ``` typescript
 interface NetworkManager {
   postRequest(
@@ -124,7 +126,7 @@ interface NetworkManager {
 - Kann überschrieben werden, wenn `fetch` nicht die bevorzugte API ist
 - Hinweis: Das SDK verfügt bereits über integrierte Retry- und Rate-Limiting-Logik
 
-**3. PushManager** (optional) – Push-Benachrichtigungsschnittstelle
+**3. PushManager** (optional) – Schnittstelle für Push-Benachrichtigungen
 ``` typescript
 interface PushManager {
   isPushBlocked(): boolean | undefined;
@@ -248,7 +250,7 @@ try {
 }
 ```
 
-#### Angepasste Speicherimplementierung {#custom-storage-implementation}
+#### Angepasste Speicher-Implementierung {#custom-storage-implementation}
 
 Vollständige StorageManager-Implementierung mit IndexedDB für persistente IDs:
 
@@ -385,9 +387,9 @@ class IndexedDBStorageManager implements StorageManager {
 const storageManager = new IndexedDBStorageManager();
 ```
 
-#### Angepasste Netzwerkimplementierung {#custom-network-implementation}
+#### Angepasste Netzwerk-Implementierung {#custom-network-implementation}
 
-NetworkManager, der jede ausgehende Anfrage protokolliert (das SDK übernimmt bereits Fehlerbehandlung und Retries):
+NetworkManager, der jede ausgehende Anfrage protokolliert (das SDK übernimmt bereits die Fehlerbehandlung und Wiederholungsversuche):
 
 ``` typescript
 import type { NetworkManager } from '@braze/javascript-sdk';
@@ -533,7 +535,7 @@ if (subscriptionId) {
 }
 ```
 
-**Konfiguration wechseln:** Es existiert jeweils nur eine aktive Sitzung. Um die Konfiguration zu wechseln, rufen Sie `destroy()` und dann `initialize()` auf:
+**Konfiguration wechseln:** Es kann jeweils nur eine aktive Sitzung existieren. Um die Konfiguration zu wechseln, rufen Sie `destroy()` und dann `initialize()` auf:
 
 ``` typescript
 import { destroy, initialize } from '@braze/javascript-sdk';
@@ -569,7 +571,7 @@ await setCustomUserAttribute('last_login', new Date());
 await setCustomUserAttribute('tags', ['vip', 'early-adopter']);
 ```
 
-#### Ereignisprotokollierung und Analytics {#event-logging-and-analytics}
+#### Ereignis-Logging und Analytics {#event-logging-and-analytics}
 
 ``` typescript
 import {
@@ -595,7 +597,7 @@ requestImmediateDataFlush((success) => {
 });
 ```
 
-#### In-App-Nachrichten-Behandlung {#in-app-message-handling}
+#### Behandlung von In-App-Nachrichten {#in-app-message-handling}
 
 ``` typescript
 import {
@@ -619,34 +621,34 @@ subscribeToInAppMessage(async (inAppMessage) => {
 });
 ```
 
-### Fehlerbehandlung und Sonderfälle {#error-handling-edge-cases}
+### Fehlerbehandlung und Grenzfälle {#error-handling-edge-cases}
 
 #### Häufige Fehlerbedingungen {#common-error-conditions}
 
 **SDK nicht initialisiert:**
-- Die meisten Methoden geben `undefined` zurück (statt zu werfen), wenn das SDK nicht initialisiert ist
+- Die meisten Methoden geben `undefined` zurück (statt eine Exception zu werfen), wenn das SDK nicht initialisiert ist
 - `initialize()` gibt `false` zurück, wenn bereits initialisiert oder die Validierung fehlschlägt
 - `changeUser()` ist ein No-Op und das Promise wird aufgelöst, wenn das SDK nicht initialisiert ist
-- Prüfen Sie Rückgabewerte immer auf `undefined`, bevor Sie sie verwenden
+- Prüfen Sie immer auf `undefined`-Rückgabewerte, bevor Sie diese verwenden
 
 **Validierungsfehler:**
-- Ungültiger API-Schlüssel oder Base-URL: `initialize()` gibt `false` zurück und protokolliert einen Fehler
+- Ungültiger API-Schlüssel oder ungültige Basis-URL: `initialize()` gibt `false` zurück und protokolliert einen Fehler
 - Ungültige Ereignisnamen/Schlüssel: Maximal 255 Zeichen, dürfen nicht mit `$` beginnen, nur alphanumerische Zeichen und Satzzeichen
-- Ungültige Attributwerte: Strings maximal 255 Zeichen, keine Zeilenumbrüche/Tabs/doppelte Anführungszeichen, dürfen nicht mit `$` beginnen
+- Ungültige Attributwerte: Strings maximal 255 Zeichen, keine Zeilenumbrüche/Tabs/doppelten Anführungszeichen, dürfen nicht mit `$` beginnen
 - Ungültige Währungscodes: Nicht unterstützte Codes führen zu einer Warnung, es wird keine Aktion ausgeführt
 - Ungültige Kaufmenge: Muss zwischen 1 und 100 liegen, wird andernfalls ignoriert
 
 **Netzwerkfehler:**
-- Die `postRequest()`-Methode des NetworkManagers sollte Fehler behandeln und Promises entsprechend ablehnen
-- Der Data-Flush-Controller wiederholt fehlgeschlagene Anfragen automatisch
+- `postRequest()` des NetworkManagers sollte Fehler behandeln und Promises entsprechend ablehnen
+- Der Daten-Flush-Controller wiederholt fehlgeschlagene Anfragen automatisch
 - Verwenden Sie den Callback von `requestImmediateDataFlush()`, um Flush-Fehler zu erkennen
 
 **Speicherfehler:**
 - StorageManager-Methoden sollten Fehler ordnungsgemäß behandeln
-- Wenn der Speicher fehlschlägt, funktioniert das SDK möglicherweise nicht korrekt
+- Wenn die Speicherung fehlschlägt, funktioniert das SDK möglicherweise nicht korrekt
 - Das `isId`-Flag bestimmt die Persistenz: IDs bleiben sitzungsübergreifend erhalten, Objekte sind sitzungsbezogen
 
-**Sonderfälle bei der Nutzer:innen-Identifikation:**
+**Grenzfälle bei der Nutzer:innen-Identifikation:**
 - Nach der Identifikation kann nicht zu einer:m anonymen Nutzer:in zurückgekehrt werden
 - Ein Nutzer:innenwechsel beendet die aktuelle Sitzung und startet eine neue
 - Der Verlauf anonymer Nutzer:innen bleibt bei der erstmaligen Identifikation erhalten
@@ -665,23 +667,23 @@ subscribeToInAppMessage(async (inAppMessage) => {
 **Daten-Flushing:**
 - Automatischer Flush alle 10 Sekunden (konfigurierbar, Minimum: 3 Sekunden)
 - Flush kann stillschweigend fehlschlagen – verwenden Sie den Callback von `requestImmediateDataFlush()`
-- Daten werden in die Warteschlange gestellt, wenn das Netzwerk nicht verfügbar ist, und übertragen, sobald das Netzwerk wiederhergestellt ist
+- Daten werden in die Warteschlange gestellt, wenn kein Netzwerk verfügbar ist, und übertragen, sobald das Netzwerk wiederhergestellt ist
 
 ### Wichtige Hinweise zur Implementierung {#important-implementation-notes}
 
-1. **Die meisten Methoden sind asynchron**: Asynchrone SDK-Methoden geben ein Promise zurück (verwenden Sie `await` oder `.then()`). Einige Konfigurations- und Hilfsmethoden (z. B. `destroy`, `toggleLogging`, `setLogger`) sind synchron; Details finden Sie in den TypeScript-Definitionen oder der Kurzreferenztabelle.
+1. **Die meisten Methoden sind asynchron**: Asynchrone SDK-Methoden geben ein Promise zurück (verwenden Sie `await` oder `.then()`). Einige Konfigurations- und Hilfsmethoden (zum Beispiel `destroy`, `toggleLogging`, `setLogger`) sind synchron; Details finden Sie in den TypeScript-Definitionen oder der Kurzreferenztabelle.
 
-2. **Methoden können `undefined` zurückgeben**: Wenn das SDK nicht initialisiert ist, geben die meisten Methoden `undefined` zurück, anstatt zu werfen. Prüfen Sie auf `undefined`, bevor Sie Rückgabewerte verwenden.
+2. **Methoden können `undefined` zurückgeben**: Wenn das SDK nicht initialisiert ist, geben die meisten Methoden `undefined` zurück, anstatt eine Exception zu werfen. Prüfen Sie auf `undefined`, bevor Sie Rückgabewerte verwenden.
 
 3. **Methoden können `null` zurückgeben**: Einige Methoden geben `null` zurück, um „nicht gefunden“ anzuzeigen (z. B. gibt `getUserId()` `null` zurück, wenn die:der Nutzer:in anonym ist). Dies unterscheidet sich von `undefined` (SDK nicht initialisiert).
 
 4. **Speicherschlüssel verwenden das `isId`-Flag**: Der Parameter `isId` in StorageManager-Methoden unterscheidet zwischen:
-   - ID-Speicher: Persistente Bezeichner (Geräte-ID, Nutzer:innen-ID), die sitzungsübergreifend erhalten bleiben sollen
-   - Objekt-Speicher: Sitzungsbezogene Daten, die gelöscht werden können
+   - ID-Speicherung: Persistente Bezeichner (Geräte-ID, Nutzer:innen-ID), die sitzungsübergreifend erhalten bleiben sollten
+   - Objekt-Speicherung: Sitzungsbezogene Daten, die gelöscht werden können
 
-5. **SDK-Metadaten-Tags**: Das `sdkMetadata`-Array identifiziert die Plattform/den Wrapper, der das SDK verwendet (z. B. `['npm']` oder `[BrazeSdkMetadata.NPM]`). Gültige Tags werden durch das `BrazeSdkMetadata`-Enum definiert (z. B. `npm`, `cdn`, `manu`, `shp`, `gg`, `kep`), und das SDK fügt automatisch `'wjs'` hinzu, um das JavaScript SDK zu kennzeichnen.
+5. **SDK-Metadaten-Tags**: Das Array `sdkMetadata` identifiziert die Plattform bzw. den Wrapper, der das SDK verwendet (zum Beispiel `['npm']` oder `[BrazeSdkMetadata.NPM]`). Gültige Tags werden durch das Enum `BrazeSdkMetadata` definiert (wie `npm`, `cdn`, `manu`, `shp`, `gg`, `kep`), und das SDK fügt automatisch `'wjs'` hinzu, um das JavaScript SDK zu kennzeichnen.
 
-6. **Standard-NetworkManager**: Wenn kein `networkManager` bereitgestellt wird, verwendet das SDK eine Standardimplementierung, die globale `fetch`- und `URL`-APIs erfordert. Stellen Sie eine angepasste Implementierung bereit, wenn diese nicht verfügbar sind.
+6. **Standard-NetworkManager**: Wenn kein `networkManager` angegeben wird, verwendet das SDK eine Standardimplementierung, die globale `fetch`- und `URL`-APIs erfordert. Stellen Sie eine angepasste Implementierung bereit, wenn diese nicht verfügbar sind.
 
 7. **PushManager ist optional**: Implementieren Sie `PushManager` nur, wenn Sie Push-Benachrichtigungsfunktionalität benötigen. Andernfalls kann er weggelassen werden.
 
@@ -695,13 +697,13 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 12. **Validierungsregeln**: Ereignisnamen, Attributschlüssel und Eigenschaftsschlüssel unterliegen einer strikten Validierung (maximal 255 Zeichen, dürfen nicht mit `$` beginnen, nur alphanumerische Zeichen und Satzzeichen). Ungültige Werte können ignoriert werden oder Fehler verursachen.
 
-## Debugging und Fehlerbehebung {#debugging-troubleshooting}
+## Debugging / Fehlerbehebung {#debugging-troubleshooting}
 
-Übergeben Sie die Option `enableLogging: true` an die Initialisierungsoptionen. Dies ist für die Entwicklung wertvoll, aber stellen Sie sicher, dass Sie diese Option entfernen oder [einen alternativen Logger bereitstellen](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html#setlogger), bevor Sie Ihre Seite in die Produktion überführen.
+Übergeben Sie die Option `enableLogging: true` an die Initialisierungsoptionen. Dies ist für die Entwicklung hilfreich, aber stellen Sie sicher, dass Sie diese Option entfernen oder [einen alternativen Logger bereitstellen](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html#setlogger), bevor Sie Ihre Seite in die Produktion überführen.
 
 ## Kontakt {#contact}
 
-Wenn Sie Fragen haben, kontaktieren Sie bitte [support@braze.com](mailto:support@braze.com).
+Wenn Sie Fragen haben, wenden Sie sich bitte an [support@braze.com](mailto:support@braze.com).
 <!-- END GENERATED README CONTENT -->
 
 Für Repository-Details und Beispielprojekte siehe [https://github.com/braze-inc/braze-javascript-sdk](https://github.com/braze-inc/braze-javascript-sdk).

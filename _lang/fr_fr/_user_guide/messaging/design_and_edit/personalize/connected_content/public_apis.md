@@ -20,31 +20,22 @@ Les API publiques peuvent être soumises à des restrictions d'utilisation et à
 |	 API 	| Description |
 | --------- | --- |
 | [OpenWeatherMap](http://openweathermap.org/api) | Fournit des données météorologiques actuelles, des prévisions à 5 et 16 jours, ainsi que des données historiques. |
-| [NYT Article Search](https://developer.nytimes.com/docs/articlesearch-product/1/overview) | Fournit des données d'articles du NYT, incluant le titre, le sujet, l'URL, la date, le résumé, etc. |
-| [The Guardian API](http://open-platform.theguardian.com/documentation/) | Fournit des données d'articles du Guardian, incluant le titre, le sujet, l'URL, la date, le résumé, etc. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="News and information" }
+| [NYT Article Search](https://developer.nytimes.com/docs/articlesearch-product/1/overview) | Fournit des données d'articles du NYT, notamment le titre, le sujet, l'URL, la date, le résumé, etc. |
+| [The Guardian API](http://open-platform.theguardian.com/documentation/) | Fournit des données d'articles du Guardian, notamment le titre, le sujet, l'URL, la date, le résumé, etc. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actualités et informations" }
 
 ## Événements et billetterie {#events-and-ticketing}
 
 |	 API 	| Description |
 | --------- | --- |
-| [SeatGeek](http://platform.seatgeek.com/) | Fournit des informations sur les billets pour des concerts, événements sportifs et spectacles de théâtre. |
-| [OnConnect](http://developer.tmsapi.com/docs/read/data_v1_1/movies/movie_showtimes) | Fournit des informations sur les films à l'affiche et les horaires de séances dans les cinémas américains et canadiens. |
+| [SeatGeek](http://platform.seatgeek.com/)| Fournit des informations sur les billets pour les concerts, les événements sportifs et les spectacles de théâtre.  |
 | [Eventbrite](http://developer.eventbrite.com/) | Fournit des données sur une variété d'événements publics. |
-| [Eventful](http://api.eventful.com/) | Fournit des données sur une variété d'événements publics. |
 | [Ticketmaster](http://developer.ticketmaster.com/products-and-docs/apis/getting-started/) | Fournit des données sur les événements publics, les lieux et les prix. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Events and ticketing" }
-
-## Alimentation et boissons {#food-and-drink}
-
-|  API  | Description |
-| --------- | --- |
-| [BreweryDB](http://www.brewerydb.com/) | Fournit des informations sur les brasseries, les bières et les événements liés à la bière. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Food and drink" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements et billetterie" }
 
 ## Finance {#finance}
 
-|  API  | Description |
+|	 API 	| Description |
 | --------- | --- |
 | [Barchart OnDemand](https://www.barchartondemand.com/free) | Fournit une variété de données sur les actions, les contrats à terme et les devises. |
 | [CoinDesk](https://www.coindesk.com/api/) | Fournit une variété de données sur les cryptomonnaies. |
@@ -52,39 +43,37 @@ Les API publiques peuvent être soumises à des restrictions d'utilisation et à
 
 ## Santé {#health}
 
-|  API  | Description |
+|	 API 	| Description |
 | --------- | --- |
 | [AirVisual](https://airvisual.com/api) | Fournit des données sur la qualité de l'air et la météo. |
 | [Nutritionix Worlds](https://developer.nutritionix.com/) | Fournit des données nutritionnelles vérifiées. |
 | [USDA Nutrients](https://fdc.nal.usda.gov/api-guide.html) | Fournit un accès à la base de données nationale sur les nutriments. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Health" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Santé" }
 
 ## Musique {#music}
 
-|	 API 	| Description |
+| API | Description |
 | --------- | --- |
-| [Last.fm](http://www.last.fm/api) | Fournit une variété de données musicales, incluant des informations sur les artistes, des recommandations d'artistes, et plus encore. |
-| [iTunes](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) | Fournit des données sur une variété d'éléments des boutiques iTunes, App Store et iBooks. |
+| [Last.fm](http://www.last.fm/api) | Fournit une variété de données musicales, notamment des informations sur les artistes, des recommandations d'artistes, et plus encore. |
+| [iTunes](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) | Fournit des données sur une variété d'articles dans les boutiques iTunes, App Store et iBooks. |
 | [Bandsintown](http://www.bandsintown.com/api/overview) | Fournit des informations sur les concerts locaux et recommande des événements musicaux en direct. |
-| [Songkick](http://www.songkick.com/developer) | Fournit des informations sur la musique en direct : artistes, salles, emplacements, etc. |
+| [Songkick](http://www.songkick.com/developer) | Fournit des informations sur la musique en direct avec des artistes, des salles, des emplacements, etc. |
 | [Discogs](http://www.discogs.com/developers/) | Fournit des informations sur les artistes, les labels et les enregistrements. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Music" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Musique" }
 
-## Informations produit {#product-information}
+## Informations sur les produits {#product-information}
 
 |	 API 	| Description |
 | --------- | --- |
-| [eBay](http://developer.ebay.com/devzone/shopping/docs/concepts/shoppingapiguide.html) | Fournit des données eBay en temps réel, incluant des données sur les articles, les recherches populaires, et plus encore. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Product information" }
+| [eBay](http://developer.ebay.com/devzone/shopping/docs/concepts/shoppingapiguide.html) | Fournit des données eBay en direct, y compris des données sur les articles, les recherches populaires, et plus encore. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informations sur les produits" }
 
 ## Divers {#miscellaneous}
 
-|	 API 	| Description |
+| API | Description |
 | --------- | --- |
-| [Numbers API](http://numbersapi.com/) | Fournit des anecdotes numériques aléatoires. |
-| [Clearbit](http://blog.clearbit.com/logo) | Fournit des images de logos d'entreprises. |
-| [London Unified](http://api.tfl.gov.uk/#Line) et [NYC MTA](https://new.mta.info/developers) | Fournissent des données de transport en commun en temps réel, incluant l'état des lignes, les heures d'arrivée, etc. |
-| [Sunrise and Sunset](https://sunrise-sunset.org/api) | Fournit les heures de lever et de coucher du soleil pour une latitude et une longitude données. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Miscellaneous" }
+| [London Unified](http://api.tfl.gov.uk/#Line) et [NYC MTA](https://new.mta.info/developers) | Fournissent des données de transport en commun en temps réel, y compris les statuts des lignes, les heures d'arrivée, etc. |
+| [Sunrise and Sunset](https://sunrise-sunset.org/api) | Fournit les heures de coucher et de lever du soleil pour une latitude et une longitude données. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divers" }
 
 [16]: [success@braze.com](mailto:success@braze.com)

@@ -10,66 +10,70 @@ tool: Canvas
 
 > As Jornadas personalizadas são semelhantes à [Variante personalizada]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#personalized-variant) em Campaigns e permitem personalizar qualquer ponto de uma jornada do Canvas para usuários individuais com base na probabilidade de conversão.
 
-## Como as Jornadas personalizadas funcionam {#how-personalized-paths-works}
+## Como a jornada personalizada funciona {#how-personalized-paths-works}
 
-Quando as Jornadas personalizadas estão ativadas em uma etapa de Jornada do experimento, o comportamento é ligeiramente diferente dependendo se o Canvas está configurado para envio único ou recorrente:
+Quando a jornada personalizada está ativada em uma etapa de jornada experimental, o comportamento é ligeiramente diferente dependendo se o seu Canvas está configurado para envio único ou recorrente:
 
-- **Canvas de envio único:** Um grupo de usuários é retido em um grupo de postergação. Os usuários restantes passam por um teste inicial para treinar um modelo preditivo durante um período que você configura — pelo menos 24 horas para melhores resultados. Após o teste, um modelo é criado para identificar quais comportamentos dos usuários estavam associados a uma maior probabilidade de conversão em uma determinada jornada. Por fim, cada usuário no grupo de postergação é enviado pela jornada com maior probabilidade de resultar em conversão para ele, com base nos comportamentos que apresenta e no que o modelo preditivo aprendeu durante o teste inicial.
-- **Canvas recorrentes, disparados por ação e disparados por API:** Um experimento inicial é realizado com todos os usuários que entram na Jornada do experimento durante um período especificado. Para manter a integridade do experimento, se um usuário receber várias mensagens antes do fim do período, ele será atribuído à mesma variante todas as vezes. Após o período do experimento, cada usuário é enviado pela jornada com maior probabilidade de resultar em conversão para ele.
+- **Canvas de envio único:** Um grupo de usuários é retido em um grupo de postergação. Os usuários restantes passam por um teste inicial para treinar um modelo preditivo por uma duração que você configura — pelo menos 24 horas para melhores resultados. Após o teste, um modelo é criado para identificar quais comportamentos dos usuários estavam associados a uma maior probabilidade de conversão em uma determinada jornada. Por fim, cada usuário no grupo de postergação é direcionado para a jornada com maior probabilidade de resultar em conversão para ele, com base nos comportamentos que apresenta e no que o modelo preditivo aprendeu durante o teste inicial.
+- **Canvas recorrentes, disparados por ação e disparados por API:** Um experimento inicial é realizado com todos os usuários que entram na jornada experimental durante uma janela especificada. Para manter a integridade do experimento, se um usuário receber várias mensagens antes do fim da janela, ele será atribuído à mesma variante todas as vezes. Após a janela do experimento, cada usuário é direcionado para a jornada com maior probabilidade de resultar em conversão para ele.
 
-## Usando Jornadas personalizadas {#using-personalized-paths}
+## Usando jornadas personalizadas {#using-personalized-paths}
 
-### Etapa 1: Adicionar uma Jornada do experimento {#step-1-add-an-experiment-path}
+### Etapa 1: Adicionar uma jornada experimental {#step-1-add-an-experiment-path}
 
-Adicione uma [Jornada do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) ao seu Canvas e ative **Jornadas personalizadas**.
+Adicione uma [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) ao seu Canvas e ative as **Jornadas personalizadas**.
 
-![Adicione uma Jornada do experimento ao seu Canvas e ative Jornadas personalizadas.]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
+![Adicione uma jornada experimental ao seu Canvas e ative as Jornadas personalizadas.]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
 
-### Etapa 2: Configurar as definições de Jornadas personalizadas {#step-2-configure-personalized-paths-settings}
+### Etapa 2: Configurar as definições de jornadas personalizadas {#step-2-configure-personalized-paths-settings}
 
 Especifique o evento de conversão que deve determinar o vencedor. Se não houver eventos de conversão disponíveis, volte à primeira etapa da configuração do Canvas e [atribua eventos de conversão]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events).
 
-Se você escolher aberturas ou cliques como evento de conversão, certifique-se de que a primeira etapa na jornada seja uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). A Braze só contabiliza o engajamento da primeira etapa de Mensagem em cada jornada respectiva. Se a jornada começar com uma etapa diferente (como uma etapa de Postergação ou Jornada do público) e a mensagem vier depois, essa mensagem não será incluída na avaliação de desempenho.
+Se você escolher aberturas ou cliques como evento de conversão, certifique-se de que a primeira etapa na jornada seja uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). A Braze conta apenas o engajamento da primeira etapa de Mensagem em cada jornada respectiva. Se a jornada começar com uma etapa diferente (como uma etapa de Postergação ou Jornada do público) e a mensagem vier depois, essa mensagem não será incluída na avaliação de desempenho.
 
-Em seguida, defina o **Período do experimento**. O **Período do experimento** determina por quanto tempo os usuários serão enviados por todas as jornadas antes de escolher a melhor jornada para cada usuário no grupo de postergação. O período começa quando o primeiro usuário entra na etapa.
+Em seguida, defina a **Janela do experimento**. A **Janela do experimento** determina por quanto tempo os usuários serão enviados por todas as jornadas antes de escolher a melhor jornada para cada usuário no grupo de atraso. A janela começa quando o primeiro usuário entra na etapa.
 
-![Captura de tela relacionada à etapa 2: configurar as definições de Jornadas personalizadas.]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
+![Captura de tela relacionada à etapa 2: configurar as definições de jornadas personalizadas.]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
 
 ### Etapa 3: Determinar o fallback {#step-3-determine-fallback}
 
-Por padrão, se os resultados do teste não forem suficientes para determinar um vencedor estatisticamente significativo, todos os usuários futuros serão enviados pela jornada com melhor desempenho geral.
+Por padrão, se os resultados do teste não forem suficientes para determinar um vencedor estatisticamente significativo, todos os usuários futuros serão enviados pela jornada com melhor desempenho.
 
-Alternativamente, você pode selecionar **Continuar enviando todos os usuários futuros pela combinação de jornadas**.
+Como alternativa, você pode selecionar **Continuar enviando todos os usuários futuros pela combinação de jornadas**.
 
-![Alternativamente, você pode selecionar Continuar enviando todos os usuários futuros pela combinação de jornadas.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
+![Como alternativa, você pode selecionar Continuar enviando todos os usuários futuros pela combinação de jornadas.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
 
-Essa opção enviará os usuários futuros pela combinação de jornadas de acordo com as porcentagens especificadas na distribuição da jornada do experimento.
+Essa opção enviará os usuários futuros pela combinação de jornadas de acordo com as porcentagens especificadas na distribuição da jornada experimental.
 
 ![Captura de tela relacionada à etapa 3: determinar o fallback.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
+
+{% alert note %}
+Se o experimento for concluído com resultados insuficientes, apenas a guia **Experimento inicial** será exibida, pois o modelo determina que a personalização não superaria uma única jornada com melhor desempenho. Para mais detalhes, consulte [Análise de dados](#analytics).
+{% endalert %}
 
 ### Etapa 4: Adicionar suas jornadas e lançar o Canvas {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
 {% tab Canvas de envio único %}
 
-Um único componente de Jornada do experimento pode conter até quatro jornadas. No entanto, para Canvas de envio único, você pode adicionar até três jornadas quando as Jornadas personalizadas estão ativadas. A quarta jornada deve ser reservada para o Grupo de postergação que a Braze adiciona automaticamente ao seu experimento.
+Um único componente de jornada experimental pode conter até quatro jornadas. No entanto, para Canvas de envio único, você pode adicionar até três jornadas quando as Jornadas personalizadas estiverem ativadas. A quarta jornada deve ser reservada para o Grupo de atraso que a Braze adiciona automaticamente ao seu experimento.
 
-Termine de configurar seu Canvas conforme necessário e lance-o. Quando o primeiro usuário entrar no experimento, você pode verificar o Canvas para ver a análise de dados conforme eles chegam e [acompanhar o desempenho do seu experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
+Termine de configurar seu Canvas conforme necessário e lance-o. Quando o primeiro usuário entrar no experimento, você pode verificar o Canvas para ver a análise de dados conforme elas chegam e [acompanhar o desempenho do seu experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
 
 ![Captura de tela relacionada à etapa 4: adicionar suas jornadas e lançar o Canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
 
-Quando o período do experimento passar e o experimento estiver concluído, a Braze enviará os usuários no grupo de postergação para suas respectivas jornadas com a maior probabilidade personalizada de conversão, com base na recomendação do modelo preditivo.
+Quando a janela do experimento passar e o experimento for concluído, a Braze enviará os usuários do grupo de atraso para suas respectivas jornadas com a maior probabilidade personalizada de conversão, com base na recomendação do modelo preditivo.
 
 ![Captura de tela relacionada à etapa 4: adicionar suas jornadas e lançar o Canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
 
 {% endtab %}
-{% tab Canvas recorrente, disparado por ação ou disparado por API %}
+{% tab Canvas recorrente, baseado em ação ou disparado por API %}
 
-Você pode testar até quatro jornadas em uma única Jornada do experimento. Adicione suas jornadas e termine de configurar seu Canvas conforme necessário, depois lance-o.
+Você pode testar até quatro jornadas em uma única jornada experimental. Adicione suas jornadas e termine de configurar seu Canvas conforme necessário, depois lance-o.
 
-Quando o primeiro usuário entrar no experimento, você pode verificar o Canvas para ver a análise de dados conforme eles chegam e [acompanhar o desempenho do seu experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
+Quando o primeiro usuário entrar no experimento, você pode verificar o Canvas para ver a análise de dados conforme elas chegam e [acompanhar o desempenho do seu experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
 
-Quando o período do experimento passar e o experimento estiver concluído, todos os usuários subsequentes que entrarem no Canvas serão enviados pela jornada com maior probabilidade de resultar em conversão para eles.
+Quando a janela do experimento passar e o experimento for concluído, todos os usuários subsequentes que entrarem no Canvas serão enviados pela jornada com maior probabilidade de resultar em conversão para eles.
 
 ![Captura de tela relacionada à etapa 4: adicionar suas jornadas e lançar o Canvas.]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
 
@@ -80,7 +84,7 @@ Quando o período do experimento passar e o experimento estiver concluído, todo
 
 Quando as Jornadas personalizadas estão ativadas e produzem resultados suficientes, sua visualização de análise de dados é separada em duas guias: **Experimento inicial** e **Jornadas personalizadas**.
 
-Se o experimento for concluído com resultados insuficientes, apenas a guia **Experimento inicial** será exibida, pois o modelo determina que a personalização não superaria o envio de todos os usuários pela jornada com melhor desempenho geral. Nesse caso, o comportamento de fallback configurado é aplicado e nenhuma análise de Jornadas personalizadas fica disponível.
+Se o experimento for concluído com resultados insuficientes (por exemplo, quando o aumento projetado do modelo é inferior ao limite de 0,5% ou nenhum segmento significativo de usuários é identificado), apenas a guia **Experimento inicial** será exibida, pois o modelo determina que a personalização não superaria uma única jornada com melhor desempenho. Nesse caso, o comportamento de fallback configurado é aplicado e nenhuma análise de Jornadas personalizadas fica disponível.
 
 {% tabs local %}
 {% tab Experimento inicial %}
@@ -143,8 +147,8 @@ Os três cartões nesta página mostram o aumento projetado, os resultados gerai
 {% endtab %}
 {% endtabs %}
 
-## Usando Jornadas personalizadas com entrega no horário local {#using-personalized-paths-with-local-time-delivery}
+## Usando jornadas personalizadas com entrega no horário local {#using-personalized-paths-with-local-time-delivery}
 
-Não recomendamos usar entrega no horário local em Canvas com Jornadas personalizadas. Isso porque os períodos do experimento começam quando o primeiro usuário passa pela etapa. Usuários que estão em fusos horários muito adiantados podem entrar na etapa e acionar o início do período do experimento muito antes do esperado, o que pode resultar na conclusão do experimento antes que a maioria dos seus usuários em fusos horários mais comuns tenha tido tempo suficiente para entrar no Canvas e converter.
+Não recomendamos usar entrega no horário local em Canvas com jornadas personalizadas. Isso porque as janelas de experimento começam quando o primeiro usuário passa pela etapa. Usuários que estão em fusos horários muito adiantados podem entrar na etapa e disparar o início da janela de experimento muito antes do esperado, o que pode fazer com que o experimento seja concluído antes que a maior parte dos seus usuários em fusos horários mais comuns tenha tido tempo suficiente para entrar no Canvas e converter.
 
-Se você deseja usar entrega no horário local, use um período de experimento de 24 a 48 horas ou mais. Dessa forma, os usuários em fusos horários adiantados entram no Canvas e acionam o início do experimento, mas ainda resta bastante tempo no período do experimento. Os usuários em fusos horários mais atrasados ainda terão tempo suficiente para entrar no Canvas e na etapa de Jornada do experimento com Jornadas personalizadas e possivelmente converter antes que o período do experimento expire.
+Como alternativa, se você deseja usar entrega no horário local, use uma janela de experimento de 24 a 48 horas ou mais. Dessa forma, os usuários em fusos horários adiantados entram no Canvas e disparam o início do experimento, mas ainda resta bastante tempo na janela de experimento. Os usuários em fusos horários mais tardios ainda terão tempo suficiente para entrar no Canvas e na etapa de jornada experimental com jornadas personalizadas e possivelmente converter antes que a janela de experimento expire.

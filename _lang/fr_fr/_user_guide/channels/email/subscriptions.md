@@ -97,11 +97,11 @@ Lorsque l'état d'abonnement e-mail global d'un utilisateur change, Braze propag
 
 ## Groupes d'abonnement {#subscription-groups}
 
-Les groupes d'abonnement sont des filtres de Segment qui permettent d'affiner davantage votre audience à partir des [états d'abonnement globaux](#subscription-states). Ces groupes vous permettent de proposer des options d'abonnement plus granulaires aux utilisateurs finaux.
+Les groupes d'abonnement sont des filtres de Segment qui peuvent affiner davantage votre audience à partir des [états d'abonnement globaux](#subscription-states). Ces groupes vous permettent de proposer des options d'abonnement plus granulaires aux utilisateurs finaux.
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-Par exemple, supposons que vous envoyiez plusieurs catégories de Campaigns par e-mail (promotionnelles, newsletters ou mises à jour de produits). Dans ce cas, vous pouvez utiliser les groupes d'abonnement pour permettre à vos clients de choisir les catégories d'e-mails auxquelles ils souhaitent s'abonner ou se désabonner en masse depuis une seule page, en utilisant un [centre de préférences e-mail](#email-preference-center). Vous pouvez également utiliser les groupes d'abonnement pour permettre à vos clients de choisir la fréquence à laquelle ils souhaitent recevoir des e-mails de votre part, en créant des groupes d'abonnement pour des e-mails quotidiens, hebdomadaires ou mensuels.
+Par exemple, supposons que vous envoyez plusieurs catégories de Campaigns par e-mail (promotionnelles, newsletters ou mises à jour de produits). Dans ce cas, vous pouvez utiliser les groupes d'abonnement pour permettre à vos clients de choisir les catégories d'e-mails auxquelles ils souhaitent s'abonner ou se désabonner en masse depuis une seule page, en utilisant un [centre de préférences e-mail](#email-preference-center). Vous pouvez également utiliser les groupes d'abonnement pour permettre à vos clients de choisir la fréquence à laquelle ils souhaitent recevoir des e-mails de votre part, en créant des groupes d'abonnement pour des e-mails quotidiens, hebdomadaires ou mensuels.
 
 Utilisez les [endpoints des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups) pour gérer de manière programmatique les groupes d'abonnement que vous avez enregistrés dans le tableau de bord de Braze sur la page **Groupe d'abonnement**.
 
@@ -118,13 +118,13 @@ Tous les groupes d'abonnement sont automatiquement ajoutés à votre centre de p
 
 ### Segmenter avec un groupe d'abonnement {#segmenting-with-a-subscription-group}
 
-Lors de la création de vos Segments, définissez le nom du groupe d'abonnement comme filtre pour cibler les utilisateurs qui se sont abonnés à votre groupe. Cela est utile pour les newsletters mensuelles, les coupons, les niveaux d'adhésion, et bien plus encore.
+Lors de la création de vos Segments, définissez le nom du groupe d'abonnement comme filtre pour cibler les utilisateurs qui se sont abonnés à votre groupe. Cela est utile pour les newsletters mensuelles, les coupons, les niveaux d'adhésion, et plus encore.
 
 ![Exemple de ciblage des utilisateurs dans le Segment « Utilisateurs inactifs » avec le filtre pour les utilisateurs du groupe d'abonnement « E-mails hebdomadaires ».]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
 ### Archiver des groupes d'abonnement {#archiving-subscription-groups}
 
-Les groupes d'abonnement archivés ne peuvent pas être modifiés et n'apparaissent plus dans les filtres de Segment ni dans votre centre de préférences. Si vous tentez d'archiver un groupe utilisé comme filtre de Segment dans un e-mail, une Campaign ou un Canvas, vous recevrez un message d'erreur vous empêchant d'archiver le groupe tant que vous n'aurez pas supprimé toutes les utilisations de celui-ci.
+Les groupes d'abonnement archivés ne peuvent pas être modifiés et n'apparaissent plus dans les filtres de Segment ni dans votre centre de préférences. Si vous tentez d'archiver un groupe utilisé comme filtre de Segment dans un e-mail, une Campaign ou un Canvas, vous recevez un message d'erreur qui vous empêche d'archiver le groupe tant que vous n'avez pas supprimé toutes les utilisations de celui-ci.
 
 Pour archiver votre groupe depuis la page **Groupes d'abonnement**, procédez comme suit :
 
@@ -139,13 +139,13 @@ Vous pouvez consulter le graphique **Série temporelle du groupe d'abonnement** 
 
 ![Un exemple de graphique « Série temporelle du groupe d'abonnement » daté du 2 au 11 décembre. Le graphique montre une augmentation d'environ 10 millions du nombre d'utilisateurs entre le 6 et le 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-Si le décompte de la série temporelle diverge fortement d'un Segment utilisant **Le statut d'abonnement e-mail est Désabonné**, n'oubliez pas que le graphique comptabilise l'appartenance à ce **groupe d'abonnement**, tandis que ce filtre reflète l'état d'abonnement e-mail **global** — par exemple, des utilisateurs peuvent être globalement abonnés mais désabonnés d'un groupe spécifique.
+Si le décompte de la série temporelle diverge fortement d'un Segment utilisant **Le statut d'abonnement e-mail est Désabonné**, n'oubliez pas que le graphique compte l'appartenance à ce **groupe d'abonnement**, tandis que ce filtre reflète l'état d'abonnement e-mail **global** — par exemple, des utilisateurs peuvent être globalement abonnés mais désabonnés d'un groupe spécifique.
 
-#### Consulter les groupes d'abonnement dans l'analyse de campagne {#viewing-subscription-groups-in-campaign-analytics}
+#### Consulter les groupes d'abonnement dans l'analyse de Campaign {#viewing-subscription-groups-in-campaign-analytics}
 
-Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonnement (abonnés ou désabonnés) à partir d'une Campaign par e-mail spécifique sur la page d'analyse de cette Campaign.
+Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonnement (abonné ou désabonné) à partir d'une Campaign par e-mail spécifique sur la page d'analyse de cette Campaign.
 
-1. Depuis la page **Analyse de la Campaign** de votre Campaign, faites défiler jusqu'à la section **Performance des messages e-mail**.
+1. Depuis la page **Analyse de Campaign** de votre Campaign, faites défiler jusqu'à la section **Performance des messages e-mail**.
 2. Sélectionnez la flèche sous **Groupes d'abonnement** pour voir le décompte agrégé des changements d'état, tels que soumis par vos clients.
 
 ![La page « Performance des messages e-mail » affichant le décompte agrégé des changements d'état soumis par les clients.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
@@ -159,7 +159,7 @@ Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonneme
 
 Le centre de préférences e-mail vous permet de gérer quels utilisateurs reçoivent les newsletters des groupes d'abonnement. Vous le trouverez dans le tableau de bord sous **Subscription Groups**. Chaque groupe d'abonnement que vous créez est ajouté à la liste du centre de préférences.
 
-Pour en savoir plus sur l'ajout ou la personnalisation d'un centre de préférences, consultez [Centre de préférences]({{site.baseurl}}/user_guide/channels/email/subscriptions).
+Pour en savoir plus sur l'ajout ou la personnalisation d'un centre de préférences, consultez [Centre de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
 ## Modification des abonnements e-mail {#changing-email-subscriptions}
 

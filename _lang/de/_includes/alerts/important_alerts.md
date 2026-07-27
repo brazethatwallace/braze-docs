@@ -85,7 +85,7 @@ Die Shopify-Integration unterstützt Shopify-Webhooks für die Erstellung und Ak
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-Canvas-Eingangs-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeutet, dass `canvas_entry_properties` als `context` referenziert wird. Jede `context`-Variable enthält einen Namen, einen Datentyp und einen Wert, der Liquid enthalten kann. Derzeit sind `canvas_entry_properties` abwärtskompatibel. Weitere Informationen finden Sie unter [Kontext]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#how-it-works) und [Canvas-Kontextobjekt]({{site.baseurl}}/api/objects_filters/context_object).
+Canvas-Entry-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeutet, dass `canvas_entry_properties` als `context` referenziert wird. Jede `context`-Variable enthält einen Namen, einen Datentyp und einen Wert, der Liquid enthalten kann. Derzeit sind `canvas_entry_properties` abwärtskompatibel. Weitere Informationen finden Sie unter [Kontext]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#how-it-works) und [Canvas-Kontextobjekt]({{site.baseurl}}/api/objects_filters/context_object).
 {% endalert %}
 
 {% endif %}
@@ -101,14 +101,12 @@ Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn 
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Auswahl zwischen den Filtertypen „Tag des Jahres“ und „Zeit“**: Wenn Sie Kontextvariablen filtern, die Datumsangaben enthalten, wählen Sie den korrekten Vergleichstyp, je nachdem, ob sich das Datum jedes Jahr wiederholt:
+**Auswahl zwischen den Filtertypen „Tag des Jahres“ und „Zeit“**: Wenn Sie Kontextvariablen filtern, die Datumsangaben enthalten, wählen Sie den korrekten Vergleichstyp, je nachdem, ob sich das Datum jedes Jahr wiederholt. Verwenden Sie „Tag des Jahres“ nur, wenn das Jahr nicht im Wert enthalten ist, den die Kontextvariable erzeugt.
 
 - **Verwenden Sie „Tag des Jahres“,** wenn sich das Datum jedes Jahr wiederholt (z. B. Geburtstage, Jahrestage oder Feiertage wie Weihnachten). Dieser Vergleichstyp berechnet auf Grundlage des Tages im Jahr (1–365/366) und ignoriert die Jahreskomponente.
 - **Verwenden Sie „Zeit“,** wenn es sich um ein absolutes Datum handelt, das sich nicht wiederholt (z. B. Vertragsende, Terminvereinbarungen oder Abo-Verlängerungsdaten). Dieser Vergleichstyp berechnet auf Grundlage des vollständigen Zeitstempels einschließlich des Jahres.
 
 Die Verwendung von „Tag des Jahres“ für absolute Datumsangaben kann zu falschen oder unerwarteten Ergebnissen führen, da die Berechnung die Jahreskomponente nicht berücksichtigt. Wenn Sie beispielsweise ein zukünftiges Vertragsenddatum im April vergleichen, um festzustellen, ob es innerhalb von 63 Tagen liegt, kann „Tag des Jahres“ zu falschen Übereinstimmungen führen, da nur die Tageszahlen (119 gegenüber 359) verglichen werden, ohne zu berücksichtigen, dass der April tatsächlich 188 Tage entfernt ist.
-
-**Allgemeine Richtlinie**: Wiederholt sich dieses Datum jedes Jahr? **Ja** → Verwenden Sie „Tag des Jahres“. **Nein** → Verwenden Sie „Zeit“.
 {% endalert %}
 
 {% endif %}
@@ -124,7 +122,7 @@ Granulare Berechtigungen befinden sich derzeit in der Early-Access-Phase. Wenn f
 {% if include.alert == 'WhatsApp audio and documents' %}
 
 {% alert note %}
-Die [Braze-Medienbibliothek]({{site.baseurl}}/media_library) unterstützt nur Bilder und Video. Audio-Dateien und Dokumente müssen über eine gehostete URL referenziert werden.
+Die [Braze-Medienbibliothek]({{site.baseurl}}/media_library) unterstützt nur Bilder und Videos. Audio-Dateien und Dokumente müssen über eine gehostete URL referenziert werden.
 {% endalert %}
 
 {% endif %}

@@ -31,7 +31,7 @@ channel: email
 3. [클릭 추적 문제 해결 템플릿](#click-tracking-issues)을 사용하여 테스트 이메일을 발송하세요. 추적된 URL과 추적되지 않은 URL을 비교하세요.
 4. 추적된 링크가 403 오류로 실패하는 경우, CDN 및 WAF 규칙(사용자 에이전트, 쿼리 문자열, 리디렉트 패턴)을 검토하세요.
 5. 설정이 완료되었지만 링크가 여전히 HTTP인 경우, Braze 고객 성공 매니저에게 연락하여 Braze에서 SSL이 활성화되었는지 확인하세요.
-6. 문제가 지속되면 CDN 또는 IT 팀과 협력하고, 오류 코드 및 CDN 또는 도메인 공급자의 세부 정보를 포함하여 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
+6. 문제가 지속되는 경우, CDN 또는 IT 팀과 협력하고 오류 코드 및 CDN 또는 도메인 공급자의 세부 정보를 포함하여 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 
 ## 주요 개념 {#key-concepts}
 
@@ -300,4 +300,5 @@ SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우
 | `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | DNS 설정을 확인하세요. CDN 및 ESP 권장 구성에 따라 추적 하위 도메인이 구성되어 있는지 확인하세요. |
 | `525 / 526 SSL Error` | CDN(예: Cloudflare)의 SSL 설정이 Origin의 기능과 일치하는지 확인하세요. |
 | `404 Not Found` | CDN이 빈 루트 디렉토리를 가리키는 대신 전체 URL 경로를 ESP에 전달하도록 구성되어 있는지 확인하세요. |
+| `400 Bad Request: Request Header or Cookie Too Large` | 이 오류는 일반적으로 클릭 추적 도메인이 웹사이트 도메인에서 너무 많은 대용량 쿠키를 상속받을 때 발생합니다. Braze는 추적 도메인에 쿠키를 설정하거나 차단하지 않습니다. 클릭 추적 요청을 리버스 프록시할 때 해당 쿠키를 ESP로 전송하지 않도록 CDN을 구성하세요. nginx 구성에서 `large_client_header_buffers` 설정을 늘려야 할 수도 있습니다(예: `large_client_header_buffers 4 32k;`로 설정하면 최대 32&nbsp;KB의 헤더를 허용합니다). 자세한 내용은 CDN 공급자 또는 웹사이트 엔지니어링 팀에 문의하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="오류 코드 및 문제 해결" }

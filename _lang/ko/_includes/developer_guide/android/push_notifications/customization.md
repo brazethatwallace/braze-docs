@@ -175,13 +175,13 @@ setCustomBrazeNotificationFactory(null)
 {% endtab %}
 {% endtabs %}
 
-## 다색 텍스트 렌더링 {#rendering-multicolor-text}
+## 멀티컬러 텍스트 렌더링 {#rendering-multicolor-text}
 
-Braze SDK 버전 3.1.1에서는 푸시 알림에 다색 텍스트를 렌더링하기 위해 HTML을 기기로 전송할 수 있습니다.
+Braze SDK 버전 3.1.1에서는 HTML을 기기로 전송하여 푸시 알림에 멀티컬러 텍스트를 렌더링할 수 있습니다.
 
-![글자가 다른 색상으로 표시되고 기울임꼴이며 배경색이 지정된 Android 푸시 메시지 "Multicolor Push test message".]({% image_buster /assets/img/multicolor_android_push.png %}){: style="max-width:40%;"}
+![글자마다 색상이 다르고, 이탤릭체와 배경색이 적용된 Android 푸시 메시지 "Multicolor Push test message"]({% image_buster /assets/img/multicolor_android_push.png %}){: style="max-width:40%;"}
 
-이 예제는 다음 HTML로 렌더링됩니다:
+이 예시는 다음 HTML로 렌더링됩니다:
 
 ```html
 <p><span style="color: #99cc00;">M</span>u<span style="color: #008080;">lti</span>Colo<span style="color: #ff6600;">r</span> <span style="color: #000080;">P</span><span style="color: #00ccff;">u</span><span style="color: #ff0000;">s</span><span style="color: #808080;">h</span></p>
@@ -189,17 +189,17 @@ Braze SDK 버전 3.1.1에서는 푸시 알림에 다색 텍스트를 렌더링�
 <p><em>test</em> <span style="text-decoration: underline; background-color: #ff6600;"><strong>message</strong></span></p>
 ```
 
-참고로, Android는 푸시 알림에서 유효한 HTML 요소 및 태그를 제한합니다. 예를 들어, `marquee`는 허용되지 않습니다.
+Android에서는 푸시 알림에 사용할 수 있는 HTML 요소와 태그가 제한된다는 점에 유의하세요. 예를 들어, `marquee`는 허용되지 않습니다.
 
 {% alert important %}
-다색 텍스트 렌더링은 기기별로 다르며, Android 기기 또는 버전에 따라 표시되지 않을 수 있습니다.
+멀티컬러 텍스트 렌더링은 기기에 따라 다르며, Android 기기 또는 버전에 따라 표시되지 않을 수 있습니다.
 {% endalert %}
 
-푸시 알림에서 다색 텍스트를 렌더링하려면 `braze.xml` 또는 `BrazeConfig`를 업데이트할 수 있습니다:
+푸시 알림에서 멀티컬러 텍스트를 렌더링하려면 `braze.xml` 또는 `BrazeConfig`를 업데이트할 수 있습니다:
 
 {% tabs local %}
 {% tab braze.xml %}
-다음 항목을 `braze.xml`에 추가하세요:
+`braze.xml`에 다음을 추가합니다:
 
 ```xml
 <bool translatable="false" name="com_braze_push_notification_html_rendering_enabled">true</bool>
@@ -235,7 +235,7 @@ Braze.configure(this, brazeConfig)
 
 ### 지원되는 HTML 태그 {#supported-html-tags}
 
-현재 Google은 Android에서 지원하는 HTML 태그 목록을 설명서에 직접 기재하지 않습니다&#8212;이 정보는 [Git 리포지토리의 `Html.java` 파일](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java)에서만 확인할 수 있습니다. 다음 표를 참조할 때 이 점을 유념하세요. 이 정보는 해당 파일에서 추출한 것이며, 지원되는 HTML 태그는 변경될 수 있습니다.
+현재 Google은 Android에서 지원하는 HTML 태그를 문서에 직접 나열하지 않으며, 이 정보는 [Git 리포지토리의 `Html.java` 파일](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java)에서만 확인할 수 있습니다. 아래 표를 참고할 때 이 점을 유의하세요. 이 정보는 해당 파일에서 가져온 것이며, 지원되는 HTML 태그는 변경될 수 있습니다.
 
 <table aria-label="지원되는 HTML 태그">
   <thead>
@@ -253,7 +253,7 @@ Braze.configure(this, brazeConfig)
     </tr>
     <tr>
       <td><code>&lt;i&gt;</code>, <code>&lt;em&gt;</code></td>
-      <td>기울임꼴 텍스트</td>
+      <td>이탤릭 텍스트</td>
     </tr>
     <tr>
       <td><code>&lt;u&gt;</code></td>
@@ -265,11 +265,11 @@ Braze.configure(this, brazeConfig)
     </tr>
     <tr>
       <td><code>&lt;sup&gt;</code></td>
-      <td>위첨자 텍스트</td>
+      <td>위 첨자 텍스트</td>
     </tr>
     <tr>
       <td><code>&lt;sub&gt;</code></td>
-      <td>아래첨자 텍스트</td>
+      <td>아래 첨자 텍스트</td>
     </tr>
     <tr>
       <td><code>&lt;tt&gt;</code></td>
@@ -286,16 +286,16 @@ Braze.configure(this, brazeConfig)
     </tr>
     <tr>
       <td><code>&lt;span&gt;</code> (인라인 CSS 포함)</td>
-      <td>인라인 스타일(예: 색상, 배경)</td>
+      <td>인라인 스타일 (예: 색상, 배경)</td>
     </tr>
     <tr>
       <td rowspan="4">단락 &amp; 블록</td>
       <td><code>&lt;p&gt;</code>, <code>&lt;div&gt;</code></td>
-      <td>블록 단위 섹션</td>
+      <td>블록 수준 섹션</td>
     </tr>
     <tr>
       <td><code>&lt;br&gt;</code></td>
-      <td>줄바꿈</td>
+      <td>줄 바꿈</td>
     </tr>
     <tr>
       <td><code>&lt;blockquote&gt;</code></td>
@@ -303,12 +303,12 @@ Braze.configure(this, brazeConfig)
     </tr>
     <tr>
       <td><code>&lt;ul&gt;</code> + <code>&lt;li&gt;</code></td>
-      <td>불릿이 있는 비순서 목록</td>
+      <td>글머리 기호가 있는 비순서 목록</td>
     </tr>
     <tr>
       <td>제목</td>
       <td><code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code></td>
-      <td>제목(다양한 크기)</td>
+      <td>제목 (다양한 크기)</td>
     </tr>
     <tr>
       <td rowspan="2">링크 &amp; 이미지</td>
@@ -322,7 +322,7 @@ Braze.configure(this, brazeConfig)
     <tr>
       <td>기타 인라인</td>
       <td><code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;dfn&gt;</code>, <code>&lt;cite&gt;</code></td>
-      <td>기울임꼴 또는 굵은 글씨의 동의어</td>
+      <td>이탤릭 또는 굵은 텍스트의 동의어</td>
     </tr>
   </tbody>
 </table>
@@ -332,45 +332,62 @@ Braze.configure(this, brazeConfig)
 
 ### 작동 방식 {#how-it-works}
 
-인라인 이미지 푸시를 사용하면 Android 푸시 알림 내에서 더 큰 이미지를 표시할 수 있습니다. 이 디자인을 사용하면 사용자가 이미지를 확대하기 위해 수동으로 푸시를 확장할 필요가 없습니다. 일반 Android 푸시 알림과 달리 인라인 이미지 푸시 이미지는 3:2 종횡비로 제공됩니다.
+인라인 이미지 푸시를 사용하면 Android 푸시 알림 내에서 더 큰 이미지를 표시할 수 있습니다. 이 디자인을 사용하면 사용자가 이미지를 확대하기 위해 수동으로 푸시를 펼칠 필요가 없습니다. 일반 Android 푸시 알림과 달리, 인라인 이미지 푸시 이미지는 3:2 비율로 표시됩니다.
 
 ![인라인 이미지 푸시 렌더링을 보여주는 Android 푸시 알림 미리보기.]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
 
 ### 호환성 {#compatibility}
 
-모든 기기에 인라인 이미지를 전송할 수 있지만, 최소 버전을 충족하지 않는 기기 및 SDK에는 표준 이미지가 대신 표시됩니다. 인라인 이미지가 제대로 표시되려면 Android Braze SDK v10.0.0 이상과 Android M 이상을 실행하는 기기가 모두 필요합니다. 이미지가 렌더링되려면 SDK도 활성화되어야 합니다.
+인라인 이미지는 모든 기기에 전송할 수 있지만, 최소 버전 요구 사항을 충족하지 않는 기기 및 SDK에서는 표준 이미지가 대신 표시됩니다. 인라인 이미지가 올바르게 표시되려면 Android Braze SDK v10.0.0 이상과 Android M 이상을 실행하는 기기가 모두 필요합니다. 이미지가 렌더링되려면 SDK도 활성화되어 있어야 합니다.
 
 {% alert note %}
-Android 12를 실행하는 기기는 커스텀 푸시 알림 스타일의 변경으로 인해 다르게 렌더링됩니다.
+Android 12를 실행하는 기기에서는 커스텀 푸시 알림 스타일의 변경으로 인해 렌더링이 다르게 표시됩니다.
 {% endalert %}
 
 ### 인라인 이미지 푸시 전송 {#sending-an-inline-image-push}
 
-Android 푸시 메시지를 작성할 때 **Notification Type** 드롭다운에서 이 기능을 사용할 수 있습니다.
+Android 푸시 메시지를 작성할 때 이 기능은 **Notification Type** 드롭다운에서 사용할 수 있습니다.
 
-![표준 푸시 미리보기 근처에 있는 "Notification Type" 드롭다운 위치를 보여주는 푸시 캠페인 편집기.]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![표준 푸시 미리보기 근처에 있는 "Notification Type" 드롭다운의 위치를 보여주는 푸시 Campaign 편집기.]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## 설정 {#settings}
 
-Braze 대시보드를 통해 전송되는 Android 푸시 알림에는 다양한 고급 설정이 제공됩니다. 이 문서에서는 이러한 기능과 성공적으로 사용하는 방법에 대해 설명합니다.
+Braze 대시보드를 통해 전송되는 Android 푸시 알림에는 다양한 고급 설정을 사용할 수 있습니다. 이 문서에서는 이러한 기능과 성공적으로 사용하는 방법을 설명합니다.
 
 ![Braze Android 푸시 작성기 고급 설정 패널.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### 알림 ID {#notification-id}
 
-**Notification ID**는 선택한 메시지 카테고리에 대한 고유 식별자로, 메시징 서비스에 해당 ID의 가장 최근 메시지만 고려하도록 알립니다. 알림 ID를 설정하면 오래되고 관련성이 없는 메시지 더미 대신 가장 최근의 관련성 있는 메시지만 보낼 수 있습니다.
+**알림 ID**는 사용자가 선택한 메시지 카테고리의 고유 식별자로, 메시징 서비스에 해당 ID의 가장 최근 메시지만 유지하도록 지시합니다. 알림 ID를 설정하면 오래되고 관련 없는 메시지가 쌓이는 대신 가장 최근의 관련성 있는 메시지만 전송할 수 있습니다.
 
-### Firebase 메시징 전달 우선순위 {#fcm-priority}
+#### 중복 알림이 덮어쓰기되는 것 방지하기 {#preventing-duplicate-notifications-from-overwriting}
 
-[Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) 필드를 통해 푸시를 "normal" 또는 "high" 우선순위로 Firebase Cloud Messaging에 전송할지 여부를 제어할 수 있습니다.
+기본적으로 푸시 알림의 제목과 본문 텍스트가 동일한 경우, Android는 제목과 본문 문자열을 함께 해싱하여 두 메시지에 동일한 알림 ID를 생성합니다. 이로 인해 두 번째 알림이 첫 번째 알림을 덮어쓰게 되어 알림 트레이에 하나의 알림만 표시됩니다.
 
-### 유지 시간(TTL) {#ttl}
+동일한 알림이 서로 덮어쓰기되는 것을 방지하려면 Android 푸시 알림 설정에서 고유한 알림 ID 값을 지정할 수 있습니다. 다음은 몇 가지 옵션입니다:
 
-**Time to Live**(TTL) 필드에서는 푸시 메시징 서비스에 메시지를 저장할 커스텀 기간을 설정할 수 있습니다. TTL의 기본값은 FCM의 경우 4주, ADM의 경우 31일입니다.
+- **타임스탬프를 사용한 Liquid 템플릿 활용:** 현재 시간을 기반으로 고유한 값을 생성합니다.
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **서버 측 생성:** 진정한 랜덤 값을 위해 서버에서 알림 ID를 생성하고 Liquid를 통해 전달합니다. 이렇게 하면 각 알림에 고유한 식별자가 부여되어 여러 알림이 동시에 표시될 수 있습니다.
+
+### Firebase Messaging 전송 우선순위 {#fcm-priority}
+
+[Firebase Messaging 전송 우선순위](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) 필드를 사용하면 푸시가 Firebase Cloud Messaging에 "일반" 또는 "높음" 우선순위로 전송되는지 제어할 수 있습니다.
+
+### TTL(Time to Live) {#ttl}
+
+**TTL**(Time to Live) 필드를 사용하면 푸시 메시징 서비스에 메시지를 저장하는 커스텀 기간을 설정할 수 있습니다. TTL의 기본값은 FCM의 경우 4주, ADM의 경우 31일입니다.
 
 ### 요약 텍스트 {#summary-text}
 
-요약 텍스트를 사용하면 확장된 알림 보기에서 추가 텍스트를 설정할 수 있습니다. 이미지가 포함된 알림의 캡션으로도 사용됩니다.
+요약 텍스트를 사용하면 확장된 알림 보기에서 추가 텍스트를 설정할 수 있습니다. 또한 이미지가 포함된 알림의 캡션 역할도 합니다.
 
 ![제목이 "This is the title for the notification."이고 요약 텍스트가 "This is the summary text for the notification."인 Android 메시지.]({% image_buster /assets/img/android/push/collapsed-android-notification.png %}){: style="max-width:65%;"}
 
@@ -378,11 +395,11 @@ Braze 대시보드를 통해 전송되는 Android 푸시 알림에는 다양한 
 
 ![제목이 "This is the title for the notification."이고 요약 텍스트가 "This is the summary text for the notification."인 Android 메시지.]({% image_buster /assets/img/android/push/expanded-android-notification.png %}){: style="max-width:65%;"}
 
-이미지가 포함된 푸시 알림의 경우, 메시지 텍스트는 축소된 보기에서 표시되며, 요약 텍스트는 알림이 확장될 때 이미지 캡션으로 표시됩니다.
+이미지가 포함된 푸시 알림의 경우, 축소된 보기에서는 메시지 텍스트가 표시되고, 알림이 확장되면 요약 텍스트가 이미지 캡션으로 표시됩니다.
 
 ### 커스텀 URI {#custom-uri}
 
-**Custom URI** 기능을 사용하면 알림을 클릭할 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI가 지정되지 않은 경우 알림을 클릭하면 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부에 딥링킹하고 사용자를 앱 외부에 존재하는 리소스로 연결할 수 있습니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 그림과 같이 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다:
+**커스텀 URI** 기능을 사용하면 알림을 클릭했을 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI를 지정하지 않으면 알림을 클릭했을 때 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부로 딥링크하거나 앱 외부에 있는 리소스로 사용자를 안내할 수 있습니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 통해 지정하거나, 아래 그림과 같이 대시보드의 푸시 작성기에서 **고급 설정** 아래에서 지정할 수 있습니다:
 
 ![Braze 푸시 작성기의 딥링킹 고급 설정.]({% image_buster /assets/img_archive/deep_link.png %})
 
@@ -392,33 +409,33 @@ Braze 대시보드를 통해 전송되는 Android 푸시 알림에는 다양한 
 알림 표시 우선순위 설정은 Android O 이상을 실행하는 기기에서는 더 이상 사용되지 않습니다. 최신 기기의 경우 [알림 채널 구성](https://developer.android.com/training/notify-user/channels#importance)을 통해 우선순위를 설정하세요.
 {% endalert %}
 
-푸시 알림의 우선순위 수준은 다른 알림에 비해 알림 트레이에 표시되는 방식에 영향을 미칩니다. 또한 우선순위가 일반 이하인 메시지는 배터리 수명을 보존하기 위해 지연 시간이 약간 더 길어지거나 일괄 발송되는 반면, 우선순위가 높은 메시지는 항상 즉시 발송되므로 전달 속도와 방식에도 영향을 줄 수 있습니다.
+푸시 알림의 우선순위 수준은 알림 트레이에서 다른 알림과 비교하여 알림이 표시되는 방식에 영향을 줍니다. 또한 전송 속도와 방식에도 영향을 줄 수 있는데, 일반 및 낮은 우선순위 메시지는 배터리 수명을 보존하기 위해 약간 높은 지연 시간으로 전송되거나 일괄 처리될 수 있는 반면, 높은 우선순위 메시지는 항상 즉시 전송됩니다.
 
-Android O에서는 알림 우선순위가 알림 채널의 속성이 되었습니다. 채널 구성 중 우선순위를 정의하려면 개발자와 협력해야 하며, 알림을 보낼 때 적절한 채널을 선택하려면 대시보드를 사용해야 합니다. Android O 이전 버전을 실행하는 기기의 경우, Braze 대시보드 및 메시징 API를 통해 Android 알림의 우선순위 수준을 지정할 수 있습니다.
+Android O에서 알림 우선순위는 알림 채널의 속성이 되었습니다. 개발자와 협력하여 채널 구성 시 우선순위를 정의한 다음, 알림 사운드를 전송할 때 대시보드를 사용하여 적절한 채널을 선택해야 합니다. Android O 이전 버전을 실행하는 기기의 경우, Braze 대시보드와 메시징 API를 통해 Android 알림의 우선순위 수준을 지정할 수 있습니다.
 
-전체 사용자 기반에 특정 우선순위로 메시지를 전송하려면, [알림 채널 구성](https://developer.android.com/training/notify-user/channels#importance)(O+ 기기 대상)을 통해 우선순위를 간접적으로 지정하고 대시보드에서 개별 우선순위를 전송하는(&#60;O 기기 대상) 것을 권장합니다.
+전체 사용자 기반에 특정 우선순위로 메시지를 보내려면 [알림 채널 구성](https://developer.android.com/training/notify-user/channels#importance)을 통해 간접적으로 우선순위를 지정하고(O 이상 기기 대상) *동시에* 대시보드에서 개별 우선순위를 전송하는(&#60;O 기기 대상) 것을 권장합니다.
 
-Android 또는 Fire OS 푸시 알림에서 설정할 수 있는 우선순위 수준은 다음과 같습니다:
+Android 또는 Fire OS 푸시 알림에 설정할 수 있는 우선순위 수준은 다음과 같습니다:
 
-| 우선순위 | 설명/용도 | `priority` 값(API 메시지의 경우) |
+| 우선순위 | 설명/용도 | `priority` 값 (API 메시지용) |
 |----------|--------------------------|-------------------------------------|
-| Max      | 긴급하거나 시간이 촉박한 메시지 | `2` |
-| High     | 친구의 새 메시지와 같은 중요한 커뮤니케이션 | `1` |
-| Default  | 대부분의 알림 - 메시지가 다른 우선순위 유형에 명시적으로 속하지 않는 경우에 사용합니다 | `0` |
-| Low      | 사용자가 알기를 원하지만 즉각적인 조치가 필요하지 않은 정보 | `-1` |
-| Min      | 상황별 또는 배경 정보 | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="알림 표시 우선순위 #notification-priority" }
+| 최대      | 긴급하거나 시간에 민감한 메시지 | `2` |
+| 높음     | 친구의 새 메시지와 같은 중요한 커뮤니케이션 | `1` |
+| 기본값  | 대부분의 알림 - 메시지가 다른 우선순위 유형에 명시적으로 해당하지 않는 경우 사용 | `0` |
+| 낮음      | 사용자에게 알리고 싶지만 즉각적인 조치가 필요하지 않은 정보 | `-1` |
+| 최소      | 상황별 또는 배경 정보. | `-2` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="알림 표시 우선순위" }
 
 자세한 내용은 Google의 [Android 알림](http://developer.android.com/design/patterns/notifications.html) 설명서를 참조하세요.
 
-### 소리 {#sounds}
+### 사운드 {#sounds}
 
-Android O에서는 알림 소리가 알림 채널의 속성이 되었습니다. 개발자와 협력하여 채널 구성 중 소리를 정의한 다음 대시보드를 사용하여 알림을 보낼 때 적절한 채널을 선택해야 합니다.
+Android O에서 알림 사운드는 알림 채널의 속성이 되었습니다. 개발자와 협력하여 채널 구성 시 사운드를 정의한 다음, 알림을 전송할 때 대시보드를 사용하여 적절한 채널을 선택해야 합니다.
 
-Android O 이전 버전을 실행하는 기기의 경우, Braze를 사용하면 대시보드 작성기를 통해 개별 푸시 메시지의 소리를 설정할 수 있습니다. 기기에서 로컬 사운드 리소스를 지정하면 됩니다(예: `android.resource://com.mycompany.myapp/raw/mysound`). 이 필드에서 "default"를 지정하면 기기에서 기본 알림 소리가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다.
+Android O 이전 버전을 실행하는 기기의 경우, Braze를 사용하면 대시보드 작성기를 통해 개별 푸시 메시지의 사운드를 설정할 수 있습니다. 기기의 로컬 사운드 리소스를 지정하여 설정할 수 있습니다(예: `android.resource://com.mycompany.myapp/raw/mysound`). 이 필드에 "default"를 지정하면 기기의 기본 알림 사운드가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 통해 지정하거나 대시보드의 푸시 작성기에서 **고급 설정** 아래에서 지정할 수 있습니다.
 
 ![Braze 푸시 작성기의 사운드 고급 설정.]({% image_buster /assets/img_archive/sound_android.png %})
 
-대시보드 프롬프트에 전체 사운드 리소스 URI(예: `android.resource://com.mycompany.myapp/raw/mysound`)를 입력합니다.
+대시보드 프롬프트에 전체 사운드 리소스 URI(예: `android.resource://com.mycompany.myapp/raw/mysound`)를 입력하세요.
 
-전체 사용자 기반에 특정 소리를 전송하려면, [알림 채널 구성](https://developer.android.com/training/notify-user/channels)(O+ 기기 대상)을 통해 소리를 간접적으로 지정하고 대시보드에서 개별 소리를 전송하는(&#60;O 기기 대상) 것을 권장합니다.
+전체 사용자 기반에 특정 사운드로 메시지를 보내려면 [알림 채널 구성](https://developer.android.com/training/notify-user/channels)을 통해 간접적으로 사운드를 지정하고(O 이상 기기 대상) *동시에* 대시보드에서 개별 사운드를 전송하는(&#60;O 기기 대상) 것을 권장합니다.

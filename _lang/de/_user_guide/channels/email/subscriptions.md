@@ -133,19 +133,19 @@ Um Ihre Gruppe auf der Seite **Abo-Gruppen** zu archivieren, gehen Sie wie folgt
 
 Braze verarbeitet keine Statusänderungen für Nutzer:innen in archivierten Gruppen. Wenn Sie beispielsweise Abo-Gruppe 1 archivieren, während Alex diese abonniert hat, bleibt Alex „abonniert“, auch wenn Alex auf einen Abmeldelink klickt. Das spielt keine Rolle, da Abo-Gruppe 1 archiviert ist und Sie keine Nachrichten darüber senden können.
 
-#### Abo-Gruppengrößen anzeigen {#viewing-subscription-group-sizes}
+#### Größe der Abo-Gruppen anzeigen {#viewing-subscription-group-sizes}
 
-Sie können das Diagramm **Abo-Gruppen-Zeitreihe** auf der Seite **Abo-Gruppen** verwenden, um die Abo-Gruppengröße basierend auf der Anzahl der Nutzer:innen über einen Zeitraum hinweg einzusehen. Diese Abo-Gruppengrößen sind auch mit anderen Bereichen von Braze konsistent, wie z. B. der Berechnung der Segmentgröße.
+Sie können das Diagramm **Abo-Gruppen-Zeitreihe** auf der Seite **Abo-Gruppen** verwenden, um die Größe der Abo-Gruppe basierend auf der Anzahl der Nutzer:innen über einen Zeitraum hinweg einzusehen. Diese Abo-Gruppengrößen sind auch mit anderen Bereichen von Braze konsistent, wie z. B. der Berechnung der Segmentgröße.
 
 ![Ein Beispiel für ein Diagramm „Abo-Gruppen-Zeitreihe“ vom 2. bis 11. Dezember. Das Diagramm zeigt einen Anstieg von ca. 10 Millionen Nutzer:innen vom 6. zum 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
 Wenn die Zeitreihenanzahl stark von einem Segment abweicht, das **E-Mail-Abo-Status ist Abgemeldet** verwendet, beachten Sie, dass das Diagramm die Mitgliedschaft in dieser **Abo-Gruppe** zählt, während dieser Filter den **globalen** E-Mail-Abo-Status widerspiegelt – Nutzer:innen können beispielsweise global abonniert, aber von einer bestimmten Gruppe abgemeldet sein.
 
-#### Abo-Gruppen in der Campaign-Analyse anzeigen {#viewing-subscription-groups-in-campaign-analytics}
+#### Abo-Gruppen in Campaign-Analytics anzeigen {#viewing-subscription-groups-in-campaign-analytics}
 
-Sie können die Anzahl der Nutzer:innen sehen, die ihren Abo-Status (abonniert oder abgemeldet) über eine bestimmte E-Mail-Campaign geändert haben, auf der Analyseseite dieser Campaign.
+Sie können die Anzahl der Nutzer:innen sehen, die ihren Abo-Status (abonniert oder abgemeldet) über eine bestimmte E-Mail-Campaign geändert haben, auf der Analytics-Seite dieser Campaign.
 
-1. Scrollen Sie auf der Seite **Campaign-Analyse** für Ihre Campaign nach unten zum Abschnitt **E-Mail-Nachrichten-Performance**.
+1. Scrollen Sie auf der Seite **Campaign Analytics** für Ihre Campaign nach unten zum Abschnitt **E-Mail-Nachrichten-Performance**.
 2. Wählen Sie den Pfeil unter **Abo-Gruppen** aus, um die aggregierte Anzahl der Statusänderungen zu sehen, die von Ihren Kund:innen übermittelt wurden.
 
 ![Die Seite „E-Mail-Nachrichten-Performance“ mit der aggregierten Anzahl der von Kund:innen übermittelten Statusänderungen.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
@@ -159,7 +159,7 @@ Sie können die Anzahl der Nutzer:innen sehen, die ihren Abo-Status (abonniert o
 
 Das E-Mail-Einstellungscenter ermöglicht es Ihnen zu verwalten, welche Nutzer:innen Newsletter von Abo-Gruppen erhalten. Sie finden es im Dashboard unter **Abo-Gruppen**. Jede von Ihnen erstellte Abo-Gruppe wird der Liste im Einstellungscenter hinzugefügt.
 
-Weitere Informationen zum Hinzufügen oder Anpassen eines Einstellungscenters finden Sie unter [Einstellungscenter]({{site.baseurl}}/user_guide/channels/email/subscriptions).
+Weitere Informationen zum Hinzufügen oder Anpassen eines Einstellungscenters finden Sie unter [Einstellungscenter]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
 ## E-Mail-Abos ändern {#changing-email-subscriptions}
 

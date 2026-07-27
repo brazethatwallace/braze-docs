@@ -61,7 +61,7 @@ Al traducir contenido, las URLs requieren un manejo especial para evitar enlaces
 
 Las URLs estáticas se introducen manualmente en el editor (por ejemplo, `https://example.com`). También recomendamos lo siguiente:
 
-| Recomendación | Motivo |
+| Recomendación | Razón |
 | --- | --- |
 | Mantén el protocolo (`https://`) fuera de las etiquetas de traducción. Envuelve solo el dominio y la ruta (por ejemplo, `example.com/en`). | Los traductores pueden alterar o eliminar accidentalmente caracteres especiales, causando enlaces rotos. |
 | No incluyas parámetros de consulta dentro de las etiquetas de traducción (por ejemplo, `?utm_source=promo`). | Los traductores pueden alterar o eliminar accidentalmente caracteres especiales, lo que resulta en enlaces rotos. |
@@ -79,7 +79,7 @@ Una URL estándar que sigue ambas recomendaciones es:
 
 Si tu URL se genera con Liquid (por ejemplo, {% raw %}`{% landing_page_url %}`{% endraw %}), recomendamos lo siguiente:
 
-| Recomendación | Motivo |
+| Recomendación | Razón |
 | --- | --- |
 | Envuelve la URL generada con Liquid en etiquetas de traducción solo si debe ser localizada. | La sintaxis de Liquid debe preservarse cuidadosamente para que se renderice correctamente. |
 | No incluyas parámetros de consulta (por ejemplo, `?utm_source=promo`) dentro de las etiquetas de traducción. | Los traductores pueden alterar o eliminar accidentalmente caracteres especiales, lo que resulta en enlaces rotos. |
@@ -129,9 +129,9 @@ Este texto está envuelto **incorrectamente**:
 
 ### Paso 3: Añadir locales a tu mensaje {#step-3-add-locales-to-your-message}
 
-Después de añadir etiquetas de traducción a tu mensaje, selecciona **Administrar idiomas** en el editor (**Idiomas** en los editores de arrastrar y soltar para correo electrónico y Content Blocks) y selecciona al menos un locale para el que deseas añadir traducciones.
+Después de agregar etiquetas de traducción a tu mensaje, selecciona **Administrar idiomas** en el editor (**Idiomas** en los editores de arrastrar y soltar para correo electrónico y Content Blocks) y selecciona al menos un locale para el que deseas añadir traducciones.
 
-![El desplegable Añadir locale con opciones para seleccionar el locale predeterminado o atributos personalizados.]({% image_buster /assets/img/multi-language_support/select_locale_type.png %}){: style="max-width:70%;"}
+![El menú desplegable Añadir locale con opciones para seleccionar el locale predeterminado o atributos personalizados.]({% image_buster /assets/img/multi-language_support/select_locale_type.png %}){: style="max-width:70%;"}
 
 #### Content Blocks que contienen traducciones {#content-blocks-containing-translation}
 
@@ -173,7 +173,7 @@ Para usar los endpoints de traducciones con Canvas, incluye los siguientes pará
   - `message_variation_id`
 
 {% alert note %}
-Al usar la API de traducción con pasos en Canvas que se crearon después de que el Canvas se lanzó, el `message_variation_id` que pases a la API estará vacío o en blanco.
+Al usar la API de traducción con pasos en Canvas que se crearon después de que el Canvas se lanzó, el `message_variation_id` que pasas a la API estará vacío o en blanco.
 {% endalert %}
 
 {% endtab %}
@@ -181,7 +181,7 @@ Al usar la API de traducción con pasos en Canvas que se crearon después de que
 
 ### Paso 5: Previsualizar traducciones {#step-5-preview-translations}
 
-Para previsualizar tu mensaje, selecciona la opción **Usuario multilingüe** en el desplegable **Previsualizar como usuario**. Esto te permite alternar entre diferentes definiciones de locale para previsualizar todas las traducciones de tu mensaje.
+Para previsualizar tu mensaje, selecciona la opción **Usuario multilingüe** en el menú desplegable **Previsualizar como usuario**. Esto te permite alternar entre diferentes definiciones de locale para previsualizar todas las traducciones de tu mensaje.
 
 ![Previsualizaciones de locales]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
@@ -193,7 +193,7 @@ Cuando duplicas un paso en Canvas, una Campaign o una variante, las traducciones
 
 ### Guardar traducciones en Content Blocks {#save-translations-in-content-blocks}
 
-Los Content Blocks admiten multilenguaje de la misma manera que los mensajes. Al crear o editar Content Blocks, puedes etiquetar contenido para traducción, agregar locales y cargar traducciones usando un CSV o la [API de traducciones]({{site.baseurl}}/api/endpoints/translations).
+Los Content Blocks admiten multilenguaje de la misma manera que los mensajes. Al crear o editar Content Blocks, puedes etiquetar contenido para traducción, agregar locales y cargar traducciones usando un CSV o la [API de traducción]({{site.baseurl}}/api/endpoints/translations).
 
 Las traducciones guardadas permanecen asociadas con el Content Block. Cuando el bloque se agrega a un mensaje, sus traducciones se incluyen automáticamente.
 
@@ -211,9 +211,9 @@ Al completar el archivo de traducción para idiomas que se escriben de derecha a
 
 En las Campaigns de correo electrónico, Braze realiza el seguimiento de enlaces agregando información de seguimiento (parámetros de consulta) a cada URL. Este comportamiento es compatible tanto con el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) como con las [plantillas de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 
-Cuando una URL está envuelta en etiquetas de traducción, es posible que Braze no pueda determinar dónde agregar esta información de seguimiento. Para asegurarte de que esto funcione correctamente, debes incluir un carácter especial al final de la URL para indicar dónde se debe agregar el seguimiento.
+Cuando una URL está envuelta en etiquetas de traducción, es posible que Braze no pueda determinar dónde agregar esta información de seguimiento. Para asegurar que esto funcione correctamente, debes incluir un carácter especial al final de la URL para indicar dónde se debe agregar el seguimiento.
 
-Las URLs usan dos caracteres especiales para controlar cómo funciona esto:
+Las URL utilizan dos caracteres especiales para controlar cómo funciona esto:
   - `?` agrega seguimiento a una URL que aún no lo tiene.
   - `&` agrega seguimiento adicional si ya hay un `?` presente en la URL. Una URL solo puede contener un `?`.
 
@@ -227,7 +227,7 @@ Las URLs usan dos caracteres especiales para controlar cómo funciona esto:
 
 ### Configuración de idioma y accesibilidad {#language-settings-and-accessibility}
 
-Comienza con [Idioma de accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) en [Accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para el contexto de WCAG, el comportamiento de canales y editores (incluidas las páginas de destino) y la configuración de **Accesibilidad** a nivel de mensaje.
+Comienza con [Idioma de accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) en [Accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para contexto de WCAG, comportamiento de canales y editores (incluidas las páginas de destino) y la configuración de **Accesibilidad** a nivel de mensaje.
 
 Cuando usas **mensajes multilenguaje**, alinea el idioma de accesibilidad con cada locale para que los envíos localizados declaren el idioma apropiado.
 
@@ -255,13 +255,24 @@ Al utilizar etiquetas de traducción, se aplican los siguientes límites:
 - Cada texto predeterminado (el contenido entre las etiquetas de traducción) puede tener hasta 2000 caracteres.
 - Las traducciones por configuración regional pueden tener hasta 409 600 bytes (aproximadamente 409,6&nbsp;KB).
 
+### ¿Por qué recibo un error al descargar plantillas de correo electrónico multilingüe? {#why-am-i-receiving-an-error-when-downloading-multi-language-email-templates}
+
+Si encuentras errores al descargar plantillas de correo electrónico multilingüe, es posible que las etiquetas de traducción estén envolviendo atributos HTML o estilos CSS que entran en conflicto con la forma en que Braze procesa los cuerpos de los correos electrónicos.
+
+Braze trata el cuerpo HTML y el cuerpo de texto plano como componentes separados del mismo mensaje. Cuando las etiquetas de traducción incluyen referencias `href` y estilos CSS, esto puede generar etiquetas en conflicto que impiden que la plantilla se descargue correctamente.
+
+Para resolver esto:
+- Excluye las referencias `href` y los estilos CSS de las etiquetas de traducción.
+- Envuelve solo el contenido de texto legible por humanos en las etiquetas de traducción, como se describe en [Atributos y estructura HTML](#html-attributes-and-structure).
+- Para las URL, sigue las indicaciones en [Localizar URL](#localize-urls).
+
 #### ¿Puedo hacer un cambio en la copia traducida en una de mis configuraciones regionales? {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
 
-Sí. Primero, haz la edición en el CSV y luego sube el archivo de nuevo para hacer un cambio en la copia traducida.
+Sí. Primero, realiza la edición en el CSV y luego vuelve a cargar el archivo para hacer un cambio en la copia traducida.
 
 ### ¿Braze proporciona traducciones? {#does-braze-provide-translations}
 
-No. Debes [proporcionar tus propias traducciones](#step-4-add-translations) ya sea subiendo un CSV o usando la API de traducción.
+No. Debes [proporcionar tus propias traducciones](#step-4-add-translations) ya sea cargando un CSV o utilizando la API de traducción.
 
 ### ¿Puedo anidar etiquetas de traducción? {#can-i-nest-translation-tags}
 
@@ -269,27 +280,27 @@ No.
 
 #### ¿Puedo envolver mensajes HTML completos en una etiqueta de traducción? {#can-i-wrap-entire-html-messages-in-a-translation-tag}
 
-No. Como práctica recomendada, solo debes envolver texto legible por humanos o contenido que deba ser localizado. Esto ayuda a prevenir formatos rotos, enlaces u otros elementos que no son texto.
+No. Como práctica recomendada, solo debes envolver texto legible por humanos o contenido que deba localizarse. Esto ayuda a prevenir formatos rotos, enlaces u otros elementos que no son texto.
 
 Además, considera envolver piezas de texto más pequeñas y semánticamente relacionadas para crear traducciones precisas y evitar limitaciones de rendimiento o tamaño.
 
 #### ¿Puedo hacer un cambio en la copia traducida en una de mis configuraciones regionales?
 
-Sí. Si usas un CSV, primero haz la edición en el archivo y luego súbelo de nuevo para hacer un cambio en la copia traducida. Si usas la [API de traducción]({{site.baseurl}}/api/endpoints/translations), utiliza los endpoints de actualización para hacer cambios.
+Sí. Si utilizas un CSV, primero realiza la edición en el archivo y luego vuelve a cargarlo para hacer un cambio en la copia traducida. Si utilizas la [API de traducción]({{site.baseurl}}/api/endpoints/translations), usa los endpoints de actualización para realizar cambios.
 
 #### ¿Qué validaciones o comprobaciones adicionales realiza Braze? {#what-validations-or-extra-checks-does-braze-do}
 
 | Escenario | Validación en Braze |
 | --- | --- |
 | Un mensaje contiene dos o más ID de traducción coincidentes que se asignan a textos diferentes. | Este archivo de traducción no se descargará. |
-| A un archivo de traducción le faltan uno o más ID de etiquetas de traducción. | Este archivo de traducción no se subirá. |
-| Un archivo de traducción contiene configuraciones regionales que faltan en el mensaje. | Este archivo de traducción no se subirá. |
+| A un archivo de traducción le faltan uno o más ID de etiquetas de traducción. | Este archivo de traducción no se cargará. |
+| Un archivo de traducción contiene configuraciones regionales que no están en el mensaje. | Este archivo de traducción no se cargará. |
 | Las etiquetas de traducción deben añadirse a un mensaje antes de descargar la plantilla de traducción. | Este archivo de traducción no se descargará. |
-| Las etiquetas de traducción encontradas en tu archivo subido faltan en tu mensaje. | Las traducciones adicionales no se guardarán en el mensaje. |
+| Las etiquetas de traducción encontradas en tu archivo cargado no están en tu mensaje. | Las traducciones adicionales no se guardarán en el mensaje. |
 | {% raw %}Un mensaje contiene una o más etiquetas de Liquid rotas. Para abrir etiquetas usa `{% translation your_id_here %}`, cierra las etiquetas de traducción con `{% endtranslation %}`.{% endraw %} | Este archivo de traducción no se descargará. |
 | Un archivo de traducción contiene texto predeterminado que no coincide con lo que hay en el mensaje. | Las traducciones se añaden, pero el texto original del mensaje no se actualiza. |
-| Una o más de las configuraciones regionales en un mensaje han sido eliminadas en la configuración y ya no existen. | Las traducciones que ya se han añadido siguen existiendo dentro del mensaje. Si se eliminan del mensaje, las traducciones se pierden. |
-| Las etiquetas de traducción contienen URL completas o URL generadas por Liquid. | Las etiquetas de traducción que contienen URL se identifican en caso de que ocurran problemas con enlaces rotos o seguimiento de enlaces. |
-| Las etiquetas de traducción incluyen parámetros de consulta. | Las etiquetas de traducción que contienen parámetros de consulta se identifican en caso de que ocurran problemas con enlaces rotos o seguimiento de enlaces. |
-| Las etiquetas de traducción contienen atributos o estructuras HTML. | Las etiquetas de traducción que contienen atributos o estructuras HTML se identifican en caso de que ocurran problemas con estilos y formato. |
+| Una o más de las configuraciones regionales en un mensaje se han eliminado en la configuración y ya no existen. | Las traducciones que ya se han añadido siguen existiendo dentro del mensaje. Si se eliminan del mensaje, las traducciones se pierden. |
+| Las etiquetas de traducción contienen URL completas o URL generadas por Liquid. | Las etiquetas de traducción que contienen URL se identifican en caso de que surjan problemas con enlaces rotos o seguimiento de enlaces. |
+| Las etiquetas de traducción incluyen parámetros de consulta. | Las etiquetas de traducción que contienen parámetros de consulta se identifican en caso de que surjan problemas con enlaces rotos o seguimiento de enlaces. |
+| Las etiquetas de traducción contienen atributos o estructuras HTML. | Las etiquetas de traducción que contienen atributos o estructuras HTML se identifican en caso de que surjan problemas con estilos y formato. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="¿Qué validaciones o comprobaciones adicionales realiza Braze?" }

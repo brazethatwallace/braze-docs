@@ -9,7 +9,7 @@ description: "Diagnostica errores de webhooks y contenido conectado usando un í
 
 > Usa esta página para solucionar problemas de códigos de error comunes de webhooks y contenido conectado. Para la configuración, consulta [Crear un webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) y [Realizar una llamada a la API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
-## Empieza aquí: identifica tu síntoma {#start-here-match-your-symptom}
+## Empieza aquí: Identifica tu síntoma {#start-here-match-your-symptom}
 
 Identifica tu síntoma en la tabla para navegar a la sección correspondiente.
 
@@ -18,24 +18,24 @@ Identifica tu síntoma en la tabla para navegar a la sección correspondiente.
 | Error de cliente `4XX` en el registro de actividad de mensajes | [Errores 4XX](#4xx-errors) |
 | Error de servidor `5XX` o tiempo de espera agotado | [Errores 5XX](#5xx-errors) |
 | `598 Host Unhealthy` o solicitudes detenidas brevemente | [Detección de host no saludable](#unhealthy-host-detection) |
-| El contenido conectado se muestra en blanco en la vista previa o el envío | [El contenido conectado no devuelve cuerpo de respuesta](#connected-content-returns-no-response-body) |
-| Correo electrónico automatizado de error de Braze | [Correos electrónicos automatizados y entradas del registro de actividad de mensajes](#automated-emails-and-message-activity-log-entries) |
+| El contenido conectado aparece en blanco en la vista previa o el envío | [El contenido conectado no devuelve cuerpo de respuesta](#connected-content-returns-no-response-body) |
+| Correo electrónico de error automatizado de Braze | [Correos electrónicos automatizados y entradas del registro de actividad de mensajes](#automated-emails-and-message-activity-log-entries) |
 | Necesitas eventos de fallo de webhook en Currents | [Información adicional sobre fallos en Braze Currents](#additional-failure-insights-in-braze-currents) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Síntomas de webhook y contenido conectado" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de webhook y contenido conectado" }
 
 ## Ruta de investigación estándar {#standard-investigation-path}
 
-Usa este flujo de trabajo cuando una solicitud de webhook o contenido conectado falle o se renderice incorrectamente. Empieza en el paso 1.
+Usa este flujo de trabajo cuando una solicitud de webhook o contenido conectado falle o se renderice incorrectamente. Comienza en el paso 1.
 
 1. Abre el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) y anota el código de error, la marca de tiempo y la URL del endpoint.
-2. Para errores `4XX`, verifica la sintaxis de la solicitud, los encabezados de autenticación, la ruta de la URL y el método HTTP contra la documentación del endpoint.
+2. Para errores `4XX`, verifica la sintaxis de la solicitud, los encabezados de autenticación, la ruta de la URL y el método HTTP en la documentación del endpoint.
 3. Para errores `5XX`, comprueba el estado del endpoint, los límites de velocidad y si Braze marcó el host como no saludable.
-4. Para contenido conectado, previsualiza el mensaje para un usuario de prueba y confirma que Liquid no se resuelve como un valor en blanco o que rompa el JSON.
-5. Si la detección de host no saludable puede estar involucrada, revisa [Detección de host no saludable](#unhealthy-host-detection) antes de contactar con [soporte de Braze]({{site.baseurl}}/support_contact).
+4. Para contenido conectado, previsualiza el mensaje para un usuario de prueba y confirma que Liquid no se resuelve en valores vacíos o que rompan el JSON.
+5. Si la detección de hosts no saludables puede estar involucrada, revisa [Detección de hosts no saludables](#unhealthy-host-detection) antes de contactar con [soporte de Braze]({{site.baseurl}}/support_contact).
 
-## Errores 4XX {#4xx-errors} {#4xx-errors}
+## Errores 4XX {#4xx-errors}
 
-Los errores `4XX` indican que hay un problema con la solicitud enviada al endpoint. Estos errores suelen deberse a solicitudes erróneas, incluyendo parámetros mal formados, encabezados de autenticación faltantes o URL incorrectas. Ten en cuenta que estos errores también se aplican al [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
+Los errores `4XX` indican que hay un problema con la solicitud enviada al endpoint. Estos errores suelen deberse a solicitudes erróneas, como parámetros mal formados, encabezados de autenticación faltantes o URLs incorrectas. Ten en cuenta que estos errores también se aplican al [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 Consulta la siguiente tabla para obtener detalles sobre los códigos de error y los pasos para resolverlos:
 
@@ -62,7 +62,7 @@ table td {
           <li>Comprueba la carga útil de la solicitud en busca de errores de sintaxis.</li>
           <li>Confirma que todos los campos obligatorios están incluidos y correctamente formateados.</li>
           <li>Si estás enviando una carga útil JSON, valida la estructura JSON.</li>
-          <li>Si estás usando Liquid para incluir etiquetas de personalización en la solicitud de webhook, verifica que Liquid no se resuelva como un valor en blanco ni produzca caracteres que rompan el JSON (como comillas sin escapar). Previsualiza el mensaje para un usuario de prueba para confirmar que la salida renderizada es válida.</li>
+          <li>Si estás utilizando Liquid para incluir etiquetas de personalización en la solicitud de webhook, verifica que Liquid no se resuelva con un valor en blanco ni produzca caracteres que rompan el JSON (como comillas sin escapar). Previsualiza el mensaje para un usuario de prueba para confirmar que la salida renderizada es válida.</li>
         </ul>
       </td>
     </tr>
@@ -83,6 +83,7 @@ table td {
         <ul>
           <li>Comprueba si la clave de API o el token tiene los permisos necesarios.</li>
           <li>Confirma que tienes los permisos de usuario para acceder al endpoint.</li>
+          <li>Si las solicitudes devuelven consistentemente <code>403</code> y la autenticación parece correcta, es posible que tu servidor, puerta de enlace de API o WAF esté bloqueando las direcciones IP de salida de Braze. Añade a la lista de permitidos las IP de tu clúster de Braze. Para webhooks, consulta <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">Lista de IP permitidas</a>. Para contenido conectado, consulta <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Lista de IP permitidas de contenido conectado</a>.</li>
         </ul>
       </td>
     </tr>
@@ -131,33 +132,33 @@ table td {
       <td>Se han enviado demasiadas solicitudes en un período de tiempo determinado.</td>
       <td>
         <ul>
-          <li>Reduce el límite de velocidad en tu campaña o paso en Canvas.</li>
+          <li>Reduce el límite de velocidad en tu Campaign o paso en Canvas.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Errores 5XX {#5xx-errors} {#5xx-errors}
+## Errores 5XX {#5xx-errors}
 
-Los errores `5XX` indican que hay un problema con el endpoint. Estos errores suelen deberse a problemas del lado del servidor.
+Los errores `5XX` indican que hay un problema con el endpoint. Estos errores suelen estar causados por problemas del lado del servidor.
 
-| Código de error | Qué significa |
+| Código de error                    | Qué significa                                                                                                                                         |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **500 Internal Server Error** | El endpoint encontró una condición inesperada que le impidió completar la solicitud. |
-| **502 Bad Gateway** | El endpoint recibió una respuesta no válida del servidor ascendente. |
-| **503 Service Unavailable** | El endpoint no puede gestionar la solicitud actualmente debido a una sobrecarga temporal o mantenimiento. |
-| **504 Gateway Timeout** | El endpoint no recibió una respuesta oportuna del servidor ascendente. |
-| **529 Host Overloaded** | El host del endpoint está sobrecargado y no pudo responder. |
-| **598 Host Unhealthy** | Braze simuló la respuesta porque el host del endpoint está marcado temporalmente como no saludable. Para más información, consulta [Detección de host no saludable](#unhealthy-host-detection). |
-| **599 Connection Error** | Braze experimentó un error de tiempo de espera de conexión de red al intentar establecer una conexión con el endpoint, lo que significa que el endpoint puede ser inestable o estar caído. |
+| **500 Internal Server Error** | El endpoint encontró una condición inesperada que le impidió completar la solicitud.                                                       |
+| **502 Bad Gateway**           | El endpoint recibió una respuesta no válida del servidor ascendente.                                                                                   |
+| **503 Service Unavailable**   | El endpoint no puede gestionar la solicitud en este momento debido a una sobrecarga temporal o mantenimiento.                                                    |
+| **504 Gateway Timeout**       | El endpoint no recibió una respuesta oportuna del servidor ascendente.                                                                               |
+| **529 Host Overloaded**       | El host del endpoint está sobrecargado y no pudo responder. |
+| **598 Host Unhealthy**        | Braze simuló la respuesta porque el host del endpoint está marcado temporalmente como no saludable. Para más información, consulta [Detección de host no saludable](#unhealthy-host-detection). |
+| **599 Connection Error**      | Braze experimentó un error de tiempo de espera de conexión de red al intentar establecer una conexión con el endpoint, lo que significa que el endpoint puede ser inestable o estar caído. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Errores 5XX" }
 
 ### Resolución de errores 5XX {#resolving-5xx-errors}
 
 Aquí tienes consejos para solucionar errores `5XX` comunes:
 
-- Revisa el mensaje de error para obtener detalles específicos disponibles en el **Registro de actividad de mensajes**. Para webhooks, ve a la sección **Rendimiento a lo largo del tiempo** en la página de inicio de Braze y selecciona las estadísticas de webhooks. Desde ahí, puedes encontrar la marca de tiempo que indica cuándo ocurrieron los errores.
+- Revisa el mensaje de error en busca de detalles específicos disponibles en el **Registro de actividad de mensajes**. Para webhooks, ve a la sección **Performance Over Time** en la página de inicio de Braze y selecciona las estadísticas de webhooks. Desde ahí, puedes encontrar la marca de tiempo que indica cuándo ocurrieron los errores.
 - Asegúrate de que no estás enviando demasiadas solicitudes que sobrecarguen el endpoint. Puedes enviar en lotes o ajustar el límite de velocidad para comprobar si esto reduce los errores.
 
 ## Detección de host no saludable {#unhealthy-host-detection}

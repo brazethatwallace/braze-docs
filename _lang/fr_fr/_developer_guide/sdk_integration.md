@@ -15,6 +15,10 @@ Pour consulter le contenu des fichiers README du SDK reproduit dans la documenta
 Après avoir intégré le SDK, vous pouvez activer l'[authentification SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) afin d'ajouter un niveau de sécurité supplémentaire en empêchant les requêtes SDK non autorisées. L'authentification SDK est disponible pour Web, Android, Swift, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) et Expo.
 {% endalert %}
 
+{% alert note %}
+Si l'initialisation du SDK échoue avec des erreurs de confiance de certificat HTTPS (par exemple, `SSLHandshakeException` avec `Trust anchor for certification path not found`), consultez [Résolution des erreurs de confiance de certificat du SDK]({{site.baseurl}}/developer_guide/sdk_integration/troubleshooting_certificate_errors).
+{% endalert %}
+
 {% sdktabs %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/web/sdk_integration.md %}
@@ -110,5 +114,5 @@ Pour déboguer votre intégration Braze, vous pouvez consulter la console de dé
 {% endsdktabs %}
 
 {% alert note %}
-Lors de l'assurance qualité de votre intégration SDK, utilisez l'[outil de débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) pour résoudre les problèmes sans avoir à activer la journalisation détaillée dans votre application.
+Lors de l'assurance qualité de votre intégration SDK, utilisez le [débogueur du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) pour résoudre les problèmes sans avoir à activer la journalisation détaillée dans votre application.
 {% endalert %}

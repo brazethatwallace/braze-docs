@@ -11,14 +11,14 @@ page_order: 0
 
 ## Prérequis {#prerequisites}
 
-Pour accéder au générateur de pages de destination, vous avez besoin de [certaines autorisations]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Si vous n'y avez pas accès, demandez de l'aide à votre administrateur Braze.
+Pour accéder au générateur de pages de destination, vous devez disposer de [certaines autorisations]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Si vous n'y avez pas accès, demandez de l'aide à votre administrateur Braze.
 
-## Créer une page de destination {#creating-a-landing-page}
+## Créer une page de destination {#create-a-landing-page}
 
-Une page de destination est une page web publiée et accessible en direct, dotée d'une URL partageable que vos clients peuvent consulter.
+Une page de destination est une page web en direct et publiée, dotée d'une URL partageable que vos clients peuvent visiter.
 
 {% alert note %}
-Les modèles de page de destination sont des points de départ de conception non publiés, sans URL publique, ce qui signifie qu'ils ne peuvent pas être partagés avec vos clients. Pour créer une page à partir d'un modèle, consultez [Utiliser des modèles](#using-templates).
+Les modèles de pages de destination sont des points de départ de conception non publiés, sans URL publique, ce qui signifie qu'ils ne peuvent pas être partagés avec vos clients. Pour créer une page à partir d'un modèle, consultez [Utiliser des modèles](#using-templates).
 {% endalert %}
 
 ### Étape 1 : Créer un nouveau brouillon {#step-1-create-a-new-draft}
@@ -42,7 +42,7 @@ Nous vous recommandons de suivre ces bonnes pratiques :
 | Champ | Description | Recommandations |
 | --- | --- | --- |
 | Titre du site | Le titre qui s'affiche dans l'onglet du navigateur. | Utilisez jusqu'à 60 caractères. |
-| Méta description | Un extrait de texte qui s'affiche dans les résultats de recherche. | Utilisez entre 140 et 160 caractères. |
+| Méta-description | Un extrait de texte qui s'affiche dans les résultats de recherche. | Utilisez entre 140 et 160 caractères. |
 | Favicon | L'icône qui apparaît à côté du titre du site dans l'onglet du navigateur. | Utilisez un rapport hauteur/largeur de 1:1 et un type de fichier pris en charge : PNG, JPEG ou ICO. |
 | URL de la page | Il s'agit du chemin URL vers votre page de destination. Cette valeur est également référencée lors de l'utilisation des [étiquettes Liquid de page de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que vous pouvez intégrer dans un message pour identifier automatiquement les utilisateurs lorsqu'ils soumettent votre formulaire. | Cette valeur doit être unique dans votre espace de travail. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Détails du site" }
@@ -51,7 +51,7 @@ Nous vous recommandons de suivre ces bonnes pratiques :
 
 Si ce n'est pas déjà fait, sélectionnez **Save as draft**. Pour commencer à personnaliser votre page, sélectionnez **Edit landing page**. L'éditeur par glisser-déposer préchargera un modèle par défaut que vous pouvez personnaliser selon votre cas d'usage.
 
-![Exemple de page de destination en cours de création dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/landing_pages/template.png %})
+![Un exemple de page de destination en cours de création dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/landing_pages/template.png %})
 
 L'éditeur utilise deux types de composants pour la composition des pages de destination : les blocs de base et les blocs de formulaire. Tous les blocs doivent être placés dans une ligne. Pour une référence dédiée de chaque bloc et de ses propriétés, consultez [Blocs éditeur (pages de destination)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
@@ -131,6 +131,8 @@ Lorsque cette option est activée, vous pouvez également inverser l'empilement 
 
 ![Le bouton bascule « Vertically stack on smaller screens » dans la section « Customize columns ».]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
+
 #### Champs facultatifs et obligatoires {#optional-and-required-fields}
 
 Vous pouvez choisir si un champ de formulaire est obligatoire ou facultatif. Les champs obligatoires doivent être remplis avant que le formulaire puisse être soumis. Les champs facultatifs peuvent être laissés vides ou non sélectionnés par un utilisateur.
@@ -149,7 +151,7 @@ Pour lier la page de confirmation :
 - Sélectionnez le bouton **Submit** sur votre formulaire
 - Utilisez l'action **Open web URL** pour créer un lien vers votre page de confirmation
 
-Si vous n'incluez pas de page de confirmation, les utilisateurs risquent de ne pas savoir que leur formulaire a été soumis avec succès. Incluez toujours une expérience de confirmation pour compléter le parcours.
+Si vous n'incluez pas de page de confirmation, les utilisateurs pourraient ne pas savoir que leur formulaire a été soumis avec succès. Incluez toujours une expérience de confirmation pour compléter le parcours.
 
 {% alert note %}
 Si votre page de confirmation s'ouvre dans un nouvel onglet, un utilisateur qui revient sur la page de destination d'origine et soumet à nouveau avec des informations mises à jour peut écraser la soumission précédente, ce qui entraîne des données incohérentes.
@@ -157,7 +159,7 @@ Si votre page de confirmation s'ouvre dans un nouvel onglet, un utilisateur qui 
 
 ### Étape 5 : Prévisualiser la page {#step-5-preview-the-page}
 
-Vous pouvez prévisualiser votre page de destination dans l'onglet **Preview** de l'éditeur. Après avoir enregistré votre page de destination en tant que brouillon, vous pouvez consulter l'URL en accédant à **Landing Pages** et en sélectionnant **Copy URL** à côté de votre page de destination. Vous pouvez également partager l'URL avec des collaborateurs.
+Vous pouvez prévisualiser votre page de destination dans l'onglet **Preview** de l'éditeur. Après avoir enregistré votre page de destination en tant que brouillon, vous pouvez visiter l'URL en accédant à **Landing Pages** et en sélectionnant **Copy URL** à côté de votre page de destination. Vous pouvez également partager l'URL avec des collaborateurs.
 
 ![Une page de destination avec le menu ouvert affichant l'option « Copy URL ».]({% image_buster /assets/img/landing_pages/copy-url.png %})
 
@@ -173,19 +175,19 @@ Lorsque vous êtes prêt, sélectionnez **Publish Landing Page**.
 Les bloqueurs de pop-ups et de publicités agressifs sur iOS et dans Safari (y compris les contrôles intégrés de Safari et les extensions tierces) peuvent avoir un impact négatif sur le comportement des pages de destination lorsqu'un bouton **Submit** de formulaire ouvre également une autre URL, que cette URL s'ouvre dans le même onglet ou dans un nouvel onglet.
 {% endalert %}
 
-## Utilisation des modèles {#using-templates}
+## Utiliser des modèles {#use-templates}
 
 Les modèles de pages de destination sont des points de départ de conception réutilisables qui vous aident à créer des pages de destination plus rapidement. Un modèle n'a pas d'URL publique et ne peut pas être visité par les clients. Pour créer une page de destination en direct à partir d'un modèle, sélectionnez le modèle lors de la création d'une nouvelle page de destination, personnalisez-le selon vos besoins, puis publiez-le.
 
 Les modèles sont accessibles et gérables à la fois dans l'éditeur de pages de destination et depuis la page **Landing Page Templates** (**Content** > **Landing Page**). Les modèles de pages de destination nécessitent un nom et une description facultative.
 
-## Gestion des modèles {#managing-templates}
+## Gérer les modèles {#manage-templates}
 
-Vous pouvez prévisualiser, archiver ou modifier des modèles de page de destination. Vous pouvez dupliquer vos propres modèles de page de destination (situés dans **Vos modèles**), mais pas les modèles Braze. Lors de la modification d'une page de destination, vous pouvez enregistrer votre page de destination en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page de destination.
+Vous pouvez prévisualiser, archiver ou modifier les modèles de page de destination. Vous pouvez dupliquer vos propres modèles de page de destination (situés dans **Vos modèles**), mais pas les modèles Braze. Lors de la modification d'une page de destination, vous pouvez enregistrer votre page de destination en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page de destination.
 
 ![Un menu déroulant avec des options pour enregistrer, modifier et supprimer une page de destination.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Consulter les analyses {#viewing-analytics}
+## Consulter les analyses {#view-analytics}
 
 Pour analyser l'efficacité de votre page de destination, accédez à **Messaging** > **Landing Pages**, puis sélectionnez une page de destination que vous avez publiée. Vous pouvez y suivre le nombre de vues de page, de clics sur la page, de soumissions de page, ainsi que les taux de soumission de votre page de destination.
 
@@ -201,4 +203,4 @@ Causes courantes :
 - Des caractères spéciaux sont utilisés dans les champs de texte
 - Une case à cocher obligatoire n'est pas sélectionnée
 
-Les messages d'erreur affichés aux utilisateurs ne peuvent pas être personnalisés. Prévisualisez votre page d'accueil pour confirmer le comportement des champs avant de publier.
+Les messages d'erreur affichés aux utilisateurs ne peuvent pas être personnalisés. Prévisualisez votre page de destination pour confirmer le comportement des champs avant de publier.

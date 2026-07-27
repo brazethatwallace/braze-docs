@@ -15,23 +15,23 @@ Ordnen Sie Ihr Symptom in der Tabelle zu, um zum entsprechenden Abschnitt zu nav
 
 | Symptom | Gehe zu |
 | --- | --- |
-| `4XX`-Client-Fehler im Nachrichten-Aktivitätsprotokoll | [4XX-Fehler](#4xx-errors) |
-| `5XX`-Server-Fehler oder Zeitüberschreitung | [5XX-Fehler](#5xx-errors) |
-| `598 Host Unhealthy` oder Anfragen kurzzeitig gestoppt | [Erkennung fehlerhafter Hosts](#unhealthy-host-detection) |
-| Connected-Content wird in der Vorschau oder beim Senden leer gerendert | [Connected-Content gibt keinen Antworttext zurück](#connected-content-returns-no-response-body) |
-| Automatisierte Fehler-E-Mail von Braze | [Automatisierte E-Mails und Einträge im Nachrichten-Aktivitätsprotokoll](#automated-emails-and-message-activity-log-entries) |
+| `4XX`-Client-Fehler im Nachrichtenaktivitätsprotokoll | [4XX-Fehler](#4xx-errors) |
+| `5XX`-Server-Fehler oder Timeout | [5XX-Fehler](#5xx-errors) |
+| `598 Host Unhealthy` oder kurzzeitig angehaltene Anfragen | [Erkennung fehlerhafter Hosts](#unhealthy-host-detection) |
+| Connected-Content wird in der Vorschau oder beim Senden leer dargestellt | [Connected-Content gibt keinen Antworttext zurück](#connected-content-returns-no-response-body) |
+| Automatisierte Fehler-E-Mail von Braze | [Automatisierte E-Mails und Einträge im Nachrichtenaktivitätsprotokoll](#automated-emails-and-message-activity-log-entries) |
 | Webhook-Fehlerereignisse in Currents benötigt | [Zusätzliche Fehler-Insights in Braze-Currents](#additional-failure-insights-in-braze-currents) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook- und Connected-Content-Symptome" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook- und Connected-Content-Symptom" }
 
-## Standard-Untersuchungspfad {#standard-investigation-path}
+## Standardmäßiger Untersuchungspfad {#standard-investigation-path}
 
-Verwenden Sie diesen Workflow, wenn eine Webhook- oder Connected-Content-Anfrage fehlschlägt oder falsch gerendert wird. Beginnen Sie bei Schritt 1.
+Verwenden Sie diesen Workflow, wenn eine Webhook- oder Connected-Content-Anfrage fehlschlägt oder nicht korrekt gerendert wird. Beginnen Sie bei Schritt 1.
 
-1. Öffnen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) und notieren Sie den Fehlercode, den Zeitstempel und die Endpunkt-URL.
+1. Öffnen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) und notieren Sie den Fehlercode, den Zeitstempel und die Endpunkt-URL.
 2. Überprüfen Sie bei `4XX`-Fehlern die Anfrage-Syntax, Authentifizierungs-Header, den URL-Pfad und die HTTP-Methode anhand der Endpunkt-Dokumentation.
-3. Prüfen Sie bei `5XX`-Fehlern den Endpunkt-Zustand, Rate-Limits und ob Braze den Host als fehlerhaft markiert hat.
-4. Zeigen Sie bei Connected-Content die Nachricht für eine:n Testnutzer:in in der Vorschau an und bestätigen Sie, dass Liquid nicht zu leeren oder JSON-brechenden Werten aufgelöst wird.
-5. Wenn die Erkennung fehlerhafter Hosts beteiligt sein könnte, lesen Sie [Erkennung fehlerhafter Hosts](#unhealthy-host-detection), bevor Sie den [Braze-Support]({{site.baseurl}}/support_contact) kontaktieren.
+3. Überprüfen Sie bei `5XX`-Fehlern den Endpunkt-Zustand, Rate-Limits und ob Braze den Host als fehlerhaft markiert hat.
+4. Zeigen Sie bei Connected-Content eine Vorschau der Nachricht für eine:n Testnutzer:in an und stellen Sie sicher, dass Liquid nicht zu leeren oder JSON-brechenden Werten aufgelöst wird.
+5. Falls eine fehlerhafte Host-Erkennung beteiligt sein könnte, lesen Sie [Erkennung fehlerhafter Hosts](#unhealthy-host-detection), bevor Sie den [Braze-Support]({{site.baseurl}}/support_contact) kontaktieren.
 
 ## 4XX-Fehler {#4xx-errors}
 
@@ -62,27 +62,28 @@ table td {
           <li>Überprüfen Sie den Anfrage-Payload auf Syntaxfehler.</li>
           <li>Stellen Sie sicher, dass alle erforderlichen Felder enthalten und korrekt formatiert sind.</li>
           <li>Wenn Sie einen JSON-Payload senden, validieren Sie die JSON-Struktur.</li>
-          <li>Wenn Sie Liquid verwenden, um Personalisierungs-Tags in der Webhook-Anfrage einzusetzen, überprüfen Sie, ob das Liquid nicht zu einem leeren Wert aufgelöst wird oder JSON-brechende Zeichen erzeugt (wie nicht-escapte Anführungszeichen). Zeigen Sie die Nachricht für eine:n Testnutzer:in in der Vorschau an, um zu bestätigen, dass die gerenderte Ausgabe gültig ist.</li>
+          <li>Wenn Sie Liquid verwenden, um Personalisierungs-Tags in der Webhook-Anfrage einzufügen, überprüfen Sie, dass Liquid nicht zu einem leeren Wert aufgelöst wird oder JSON-brechende Zeichen erzeugt (z. B. nicht-escapte Anführungszeichen). Zeigen Sie eine Vorschau der Nachricht für eine:n Testnutzer:in an, um zu bestätigen, dass die gerenderte Ausgabe gültig ist.</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><b>401 Unauthorized</b></td>
-      <td>Die Anfrage erfordert eine Authentifizierung.</td>
+      <td>Die Anfrage erfordert eine Nutzer:innen-Authentifizierung.</td>
       <td>
         <ul>
-          <li>Überprüfen Sie, ob die korrekten Authentifizierungs-Zugangsdaten (wie API-Schlüssel oder Token) in den Anfrage-Headern enthalten sind.</li>
-          <li>Stellen Sie sicher, dass Sie die Berechtigungen haben, auf den Endpunkt zuzugreifen.</li>
+          <li>Überprüfen Sie, ob die korrekten Zugangsdaten (z. B. API-Schlüssel oder Token) in den Anfrage-Headern enthalten sind.</li>
+          <li>Stellen Sie sicher, dass Sie über die erforderlichen Nutzer:innen-Berechtigungen verfügen, um auf den Endpunkt zuzugreifen.</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><b>403 Forbidden</b></td>
-      <td>Der Endpunkt versteht die Anfrage, verweigert aber die Autorisierung.</td>
+      <td>Der Endpunkt versteht die Anfrage, verweigert jedoch die Autorisierung.</td>
       <td>
         <ul>
-          <li>Prüfen Sie, ob der API-Schlüssel oder das Token die erforderlichen Berechtigungen hat.</li>
-          <li>Stellen Sie sicher, dass Sie die Berechtigungen haben, auf den Endpunkt zuzugreifen.</li>
+          <li>Prüfen Sie, ob der API-Schlüssel oder das Token über die erforderlichen Berechtigungen verfügt.</li>
+          <li>Stellen Sie sicher, dass Sie über die erforderlichen Nutzer:innen-Berechtigungen verfügen, um auf den Endpunkt zuzugreifen.</li>
+          <li>Wenn Anfragen konsistent <code>403</code> zurückgeben und die Authentifizierung korrekt erscheint, blockiert möglicherweise Ihr Server, API-Gateway oder Ihre WAF die ausgehenden IP-Adressen von Braze. Setzen Sie die IPs für Ihren Braze-Cluster auf die Allowlist. Für Webhooks siehe <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP-Allowlisting</a>. Für Connected-Content siehe <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Connected-Content-IP-Allowlisting</a>.</li>
         </ul>
       </td>
     </tr>
@@ -142,23 +143,23 @@ table td {
 
 `5XX`-Fehler weisen darauf hin, dass ein Problem mit dem Endpunkt vorliegt. Diese Fehler werden in der Regel durch serverseitige Probleme verursacht.
 
-| Fehlercode | Bedeutung |
+| Fehlercode                    | Bedeutung                                                                                                                                         |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **500 Internal Server Error** | Der Endpunkt ist auf eine unerwartete Bedingung gestoßen, die ihn daran gehindert hat, die Anfrage abzuschließen. |
-| **502 Bad Gateway** | Der Endpunkt hat eine ungültige Antwort vom Upstream-Server erhalten. |
-| **503 Service Unavailable** | Der Endpunkt kann die Anfrage derzeit aufgrund einer vorübergehenden Überlastung oder Wartung nicht verarbeiten. |
-| **504 Gateway Timeout** | Der Endpunkt hat keine rechtzeitige Antwort vom Upstream-Server erhalten. |
-| **529 Host Overloaded** | Der Endpunkt-Host ist überlastet und konnte nicht antworten. |
-| **598 Host Unhealthy** | Braze hat die Antwort simuliert, da der Endpunkt-Host vorübergehend als fehlerhaft markiert ist. Weitere Informationen finden Sie unter [Erkennung fehlerhafter Hosts](#unhealthy-host-detection). |
-| **599 Connection Error** | Braze hat beim Versuch, eine Verbindung zum Endpunkt herzustellen, einen Netzwerk-Verbindungs-Timeout-Fehler festgestellt, was bedeutet, dass der Endpunkt möglicherweise instabil oder nicht erreichbar ist. |
+| **500 Internal Server Error** | Der Endpunkt ist auf eine unerwartete Bedingung gestoßen, die ihn daran gehindert hat, die Anfrage abzuschließen.                                                       |
+| **502 Bad Gateway**           | Der Endpunkt hat eine ungültige Antwort vom Upstream-Server erhalten.                                                                                   |
+| **503 Service Unavailable**   | Der Endpunkt kann die Anfrage derzeit aufgrund einer vorübergehenden Überlastung oder Wartung nicht bearbeiten.                                                    |
+| **504 Gateway Timeout**       | Der Endpunkt hat keine rechtzeitige Antwort vom Upstream-Server erhalten.                                                                               |
+| **529 Host Overloaded**       | Der Endpunkt-Host ist überlastet und konnte nicht antworten. |
+| **598 Host Unhealthy**        | Braze hat die Antwort simuliert, da der Endpunkt-Host vorübergehend als fehlerhaft markiert ist. Weitere Informationen finden Sie unter [Erkennung fehlerhafter Hosts](#unhealthy-host-detection). |
+| **599 Connection Error**      | Bei Braze ist ein Netzwerk-Verbindungs-Timeout-Fehler beim Versuch aufgetreten, eine Verbindung zum Endpunkt herzustellen. Das bedeutet, dass der Endpunkt möglicherweise instabil oder nicht erreichbar ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="5XX-Fehler" }
 
-### Behebung von 5XX-Fehlern {#resolving-5xx-errors}
+### 5XX-Fehler beheben {#resolving-5xx-errors}
 
-Hier sind Tipps zur Fehlerbehebung häufiger `5XX`-Fehler:
+Hier sind Tipps zur Fehlerbehebung bei häufigen `5XX`-Fehlern:
 
-- Überprüfen Sie die Fehlermeldung auf spezifische Details, die im **Nachrichten-Aktivitätsprotokoll** verfügbar sind. Gehen Sie für Webhooks zum Abschnitt **Performance Over Time** auf der Braze-Startseite und wählen Sie die Statistiken für Webhooks aus. Dort finden Sie den Zeitstempel, der angibt, wann die Fehler aufgetreten sind.
-- Stellen Sie sicher, dass Sie nicht zu viele Anfragen senden, die den Endpunkt überlasten. Sie können in Batches senden oder das Rate-Limit anpassen, um zu prüfen, ob dies die Fehler reduziert.
+- Überprüfen Sie die Fehlermeldung auf spezifische Details, die im **Message Activity Log** verfügbar sind. Gehen Sie für Webhooks zum Abschnitt **Performance Over Time** auf der Braze-Startseite und wählen Sie die Statistiken für Webhooks aus. Dort können Sie den Zeitstempel finden, der angibt, wann die Fehler aufgetreten sind.
+- Stellen Sie sicher, dass Sie nicht zu viele Anfragen senden, die den Endpunkt überlasten. Sie können in Stapeln senden oder die Rate-Limits anpassen, um zu prüfen, ob dies die Fehler reduziert.
 
 ## Erkennung fehlerhafter Hosts {#unhealthy-host-detection}
 

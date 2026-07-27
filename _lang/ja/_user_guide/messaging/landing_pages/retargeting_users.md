@@ -15,29 +15,29 @@ page_order: 3
 
 ## ユーザーのリターゲティング {#retargeting-users}
 
-Brazeは、ユーザーがランディングページのフォームを送信すると自動的に追跡します。フォームの送信総数は[ランディングページの分析]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#viewing-analytics)で確認できます。ただし、ユーザー固有のリターゲティングを行うには、以下のいずれかの方法でランディングページのフォームを通じてユーザーをリターゲティングする必要があります。
+Brazeは、ユーザーがランディングページフォームを送信したタイミングを自動的に追跡します。フォームの送信総数は[ランディングページ分析]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#view-analytics)で確認できます。ただし、ユーザー固有のリターゲティングを行うには、以下のいずれかの方法でランディングページフォームを通じてユーザーをリターゲティングする必要があります。
 
-- **セグメントを使用する:** 新しいセグメントを作成して、ランディングページのフォームを送信したユーザーまたは送信していないユーザーを自動的に識別できます。
-- **メッセージトリガーを使用する:** メッセージトリガーを設定して、フォーム送信後にユーザーに自動的にメッセージを送信したり、キャンバスに登録したりできます。
+- **セグメントを使用する：** 新しいセグメントを作成して、ランディングページフォームを送信したユーザーまたは送信していないユーザーを自動的に識別できます。
+- **メッセージトリガーを使用する：** メッセージトリガーを設定して、フォーム送信後にユーザーに自動的にメッセージを送信したり、キャンバスに登録したりできます。
 
 {% tabs local %}
 {% tab セグメントを使用する %}
 [セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)する際、「リターゲティング」グループで**Submitted form on Landing Page**を選択します。
 
-![フィルターグループが「Submitted Form on Landing Page」に選択されたセグメント作成画面。]({% image_buster /assets/img/landing_pages/segmentation_selected.png %})
+![フィルターグループが「Submitted Form on Landing Page」に設定されたセグメント作成画面。]({% image_buster /assets/img/landing_pages/segmentation_selected.png %})
 
-ここから、ランディングページのフォームを送信したかどうかに基づいてユーザーをセグメンテーションできます。
+ここから、ランディングページフォームを送信したかどうかに基づいてユーザーをセグメント化できます。
 {% endtab %}
 
 {% tab メッセージトリガーを使用する %}
 [キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns)または[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas)の配信オプションを選択する際、**Action Based Delivery**を選択し、次に**Submitted Landing Page form**を選択します。
 
-このランディングページのフォームを通じてフォームを送信したすべてのユーザーは、選択したメッセージングチャネルでメッセージを受信するか、選択したキャンバスに登録されます。
+このランディングページフォームからフォームを送信したすべてのユーザーは、選択したメッセージングチャネルを通じてメッセージが送信されるか、選択したキャンバスに登録されます。
 
 ![メッセージングにおけるランディングページのトリガーアクション。]({% image_buster /assets/img/landing_pages/trigger.png %})
 
 {% alert note %}
-ランディングページのアクションベースの配信オプションは、アプリ内メッセージでは利用できません。ランディングページでフォームを送信したユーザーをアプリ内メッセージでターゲットするには、キャンペーンの**ターゲティングオプション**で**Submitted Form on Landing Page**フィルターを選択してください。
+ランディングページのアクションベース配信オプションは、アプリ内メッセージでは利用できません。ランディングページでフォームを送信したユーザーをアプリ内メッセージでターゲティングするには、キャンペーンの**ターゲティングオプション**で**Submitted Form on Landing Page**フィルターを選択してください。
 {% endalert %}
 
 {% endtab %}

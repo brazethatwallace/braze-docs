@@ -9,7 +9,7 @@ Les fenêtres de navigation privée ne prennent pas en charge les notifications 
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-L'ajout d'une adresse CCI à votre campagne ou Canvas entraîne le doublement de vos e-mails facturables pour la campagne ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
+L'ajout d'une adresse CCI à votre Campaign ou Canvas entraîne le doublement de vos e-mails facturables pour la Campaign ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Les propriétés d'entrée Canvas font partie des variables de contexte Canvas. 
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Ce partenaire n'apparaît sur votre page **Partenaires technologiques** que si vous avez activé [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire de la satisfaction client.
+Ce partenaire n'apparaît sur votre page **Partenaires technologiques** que si vous avez activé [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). Pour obtenir de l'aide pour démarrer, contactez votre CSM.
 {% endalert %}
 
 {% endif %}
@@ -101,14 +101,12 @@ Ce partenaire n'apparaît sur votre page **Partenaires technologiques** que si v
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Choix entre les types de filtre « Jour de l'année » et « Heure »** : lorsque vous filtrez des variables de contexte contenant des dates, sélectionnez le type de comparaison approprié selon que la date se répète chaque année ou non :
+**Choix entre les types de filtre « Jour de l'année » et « Heure »** : lorsque vous filtrez des variables de contexte contenant des dates, sélectionnez le type de comparaison approprié selon que la date se répète chaque année ou non. Utilisez « Jour de l'année » uniquement lorsque l'année n'est pas incluse dans la valeur produite par la variable de contexte.
 
 - **Utilisez « Jour de l'année »** lorsque la date se répète chaque année (par exemple, les anniversaires, les dates commémoratives ou les fêtes comme Noël). Ce type de comparaison se base sur le jour de l'année (1-365/366), sans tenir compte de l'année.
 - **Utilisez « Heure »** lorsque la date est absolue et ne se répète pas (par exemple, les dates de fin de contrat, les dates de rendez-vous ou les dates de renouvellement d'abonnement). Ce type de comparaison se base sur l'horodatage complet, année incluse.
 
 L'utilisation de « Jour de l'année » pour des dates absolues peut produire des résultats incorrects ou inattendus, car le calcul ignore la composante année. Par exemple, si vous comparez une date de fin de contrat en avril pour déterminer si elle se situe dans les 63 prochains jours, « Jour de l'année » peut générer des correspondances erronées, car seuls les numéros de jour sont comparés (119 contre 359) sans tenir compte du fait qu'avril est en réalité dans 188 jours.
-
-**Règle générale** : cette date se répète-t-elle chaque année ? **Oui** → Utilisez « Jour de l'année ». **Non** → Utilisez « Heure ».
 {% endalert %}
 
 {% endif %}
@@ -116,7 +114,7 @@ L'utilisation de « Jour de l'année » pour des dates absolues peut produire de
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-Les autorisations granulaires sont en accès anticipé. Lorsque la migration sera planifiée pour votre société, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration).
+Les autorisations granulaires sont en accès anticipé. Lorsque la migration sera planifiée pour votre entreprise, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration).
 {% endalert %}
 
 {% endif %}
@@ -150,7 +148,7 @@ Pour cette intégration, l'alias d'utilisateur doit respecter le format suivant 
 {% if include.alert == 'network dependency' %}
 
 {% alert important %}
-Les Content Cards, les messages in-app, les bannières et les indicateurs de fonctionnalité dépendent de la connectivité de l'appareil pour se synchroniser avec les serveurs Braze. Les conditions réseau pouvant varier, il est possible que le contenu ou les mises à jour ne soient pas synchronisés, affichés ou supprimés immédiatement (par exemple, si un utilisateur est hors ligne). Nous vous recommandons d'éviter ces canaux pour les mises à jour critiques et urgentes.
+Les Content Cards, les messages in-app, les bannières et les feature flags dépendent de la connectivité de l'appareil pour se synchroniser avec les serveurs Braze. Les conditions réseau pouvant varier, il est possible que le contenu ou les mises à jour ne soient pas synchronisés, affichés ou supprimés immédiatement (par exemple, si un utilisateur est hors ligne). Nous vous recommandons d'éviter ces canaux pour les mises à jour critiques et urgentes.
 {% endalert %}
 
 {% endif %}

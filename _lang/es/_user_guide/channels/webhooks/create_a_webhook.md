@@ -112,9 +112,9 @@ La opción de texto sin formato te da la flexibilidad de escribir una solicitud 
 
 Tanto la [personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) como la [internacionalización]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) usando Liquid son compatibles con el texto sin formato.
 
-![Un ejemplo de un cuerpo de solicitud con texto sin formato usando Liquid.]({% image_buster /assets/img_archive/webhook_rawtext.png %})
+![Un ejemplo de cuerpo de solicitud con texto sin formato usando Liquid.]({% image_buster /assets/img_archive/webhook_rawtext.png %})
 
-Si configuras el `Content-Type` del [encabezado de solicitud](#request-headers-optional) como `application/x-www-form-url-encoded`, el cuerpo de la solicitud debe estar formateado como una cadena codificada en URL. Por ejemplo:
+Si configuras el [encabezado de solicitud](#request-headers-optional) `Content-Type` como `application/x-www-form-url-encoded`, el cuerpo de la solicitud debe estar formateado como una cadena codificada en URL. Por ejemplo:
 
 {% raw %}
 ```
@@ -128,15 +128,19 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ### Encabezados de solicitud (opcional) {#request-headers-optional}
 
-Ciertos endpoints pueden requerir que incluyas encabezados en tu solicitud. En la sección **Compose** del creador, puedes añadir tantos encabezados como necesites.
+Ciertos endpoints pueden requerir que incluyas encabezados en tu solicitud. En la sección **Redactar** del creador, puedes añadir tantos encabezados como necesites.
 
 ![Ejemplos de encabezados de solicitud para la clave "Authorization" y la clave "Content-type".]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-Los encabezados de solicitud más comunes son las especificaciones de `Content-Type` (que describen qué tipo de datos se esperan en el cuerpo, como XML o JSON) y los encabezados de autorización que contienen tus credenciales con tu proveedor o sistema.
+Los encabezados de solicitud más comunes son las especificaciones de [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) (que describen qué tipo de datos se esperan en el cuerpo, como XML o JSON) y los encabezados de [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) que contienen tus credenciales con tu proveedor o sistema.
 
-Las especificaciones de tipo de contenido deben utilizar la clave `Content-Type`. Los valores más comunes son `application/json` o `application/x-www-form-urlencoded`.
+{% alert note %}
+Los nombres de encabezados HTTP no distinguen entre mayúsculas y minúsculas según [RFC 7230, sección 3.2 ("Each header field consists of a case-insensitive field name")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). Si tu endpoint receptor o cualquier servicio intermedio (como CDN) transforma las mayúsculas y minúsculas de los encabezados, esto no afectará al procesamiento de los encabezados: `Content-Type`, `content-type` y `CONTENT-TYPE` se tratan de forma idéntica.
+{% endalert %}
 
-Los encabezados de autorización deben utilizar la clave `Authorization`. Los valores más comunes son {% raw %} `Bearer {{YOUR_TOKEN}}` o `Basic {{YOUR_TOKEN}}` {% endraw %} donde `YOUR_TOKEN` son las credenciales proporcionadas por tu proveedor o sistema.
+Las especificaciones de tipo de contenido deben usar la clave `Content-Type`. Los valores más comunes son `application/json` o `application/x-www-form-urlencoded`.
+
+Los encabezados de autorización deben usar la clave `Authorization`. Los valores más comunes son {% raw %} `Bearer {{YOUR_TOKEN}}` o `Basic {{YOUR_TOKEN}}` {% endraw %} donde `YOUR_TOKEN` son las credenciales proporcionadas por tu proveedor o sistema.
 
 ## Paso 4: Envía un mensaje de prueba {#step-4-test-send-your-message}
 
@@ -207,7 +211,7 @@ Los webhooks dependen de que los servidores de Braze realicen solicitudes a un e
 - Prueba tu webhook en busca de errores de sintaxis
 - Asegúrate de que las variables personalizadas tengan valores predeterminados
 
-Si tu webhook no se envía, se registra un mensaje de error en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), que incluye detalles como la marca de tiempo del error, el nombre de la aplicación y detalles sobre el error.
+Si tu webhook no se envía, se registra un mensaje de error en el [registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), que incluye detalles como la marca de tiempo del error, el nombre de la aplicación y detalles sobre el error.
 
 ![Error de webhook con el mensaje "An active access token must be used to query information about the current user".]({% image_buster /assets/img_archive/webhook-error.png %})
 
@@ -228,14 +232,22 @@ Cuando se envía la solicitud del webhook, el servidor receptor devuelve un cód
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Códigos de respuesta y lógica de reintentos" }
 
 {% alert note %}
-Braze reintenta los códigos de estado mencionados anteriormente en esta sección hasta cinco veces en un plazo de 30 minutos utilizando retirada exponencial. Si no podemos alcanzar tu endpoint, los reintentos pueden distribuirse a lo largo de un período de 24 horas.<br><br>Cada webhook tiene un tiempo de espera máximo de 90 segundos.
+Braze reintenta los códigos de estado mencionados anteriormente en esta sección hasta cinco veces en 30 minutos utilizando retirada exponencial. Si no podemos alcanzar tu endpoint, los reintentos pueden distribuirse a lo largo de un período de 24 horas.<br><br>Cada webhook tiene un tiempo de espera máximo de 90 segundos.
 {% endalert %}
 
 Los encabezados de respuesta `Retry-After` y de límite de velocidad pueden afectar cuánto tiempo espera Braze antes de un intento **reintentable** (por ejemplo, después de `408`, `429` o `5XX`). No hacen que las respuestas no reintentables, como `401`, sean elegibles para reintento.
 
+#### 403 Forbidden y lista de IP permitidas {#403-forbidden-and-ip-allowlisting}
+
+Las respuestas `403 Forbidden` significan que tu endpoint recibió la solicitud pero la rechazó. Las causas comunes incluyen autenticación no válida o ausente, permisos de API insuficientes y reglas de red (como un firewall o un firewall de aplicaciones web) que bloquean las direcciones IP de salida de Braze.
+
+Si las solicitudes de webhook devuelven consistentemente `403` y tus encabezados de autenticación son correctos, añade las IP de Braze a la lista de permitidas de tu clúster en el servidor que recibe el webhook. Consulta [Lista de IP permitidas](#ip-allowlisting). Las solicitudes de contenido conectado utilizan las mismas IP de salida; consulta [Lista de IP permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
+Para otros pasos de solución de problemas con `4XX`, consulta [Solucionar problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
+
 #### Autenticación y credenciales de contenido conectado {#authentication-and-connected-content-credentials}
 
-La solicitud HTTP saliente del webhook no admite adjuntar [credenciales de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` o `:auth_credentials`) para autenticarse contra tu endpoint. Configura la autenticación utilizando **Encabezados de solicitud** en el webhook en su lugar. Para obtener un token o secreto en el momento del envío, puedes colocar una etiqueta {% raw %}`{% connected_content %}`{% endraw %} en un campo de encabezado o cuerpo para que Liquid la resuelva antes de que se envíe el webhook.
+La solicitud HTTP de webhook saliente no admite adjuntar [credenciales de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` o `:auth_credentials`) para autenticarse contra tu endpoint. En su lugar, configura la autenticación utilizando **Encabezados de solicitud** en el webhook. Para obtener un token o secreto en el momento del envío, puedes colocar una etiqueta {% raw %}`{% connected_content %}`{% endraw %} en un campo de encabezado o cuerpo para que Liquid la resuelva antes de que se envíe el webhook.
 
 #### Plantillas de webhook guardadas y uso en Campaigns {#saved-webhook-templates-and-campaign-usage}
 
@@ -249,7 +261,7 @@ Para explicaciones detalladas, pasos de solución de problemas y orientación so
 
 Cuando se envía un webhook desde Braze, los servidores de Braze realizan solicitudes de red a los servidores de nuestros clientes o de terceros. Con la lista de IP permitidas, puedes verificar que las solicitudes de webhook provienen de Braze, añadiendo una capa de seguridad.
 
-Braze enviará webhooks desde las siguientes IP. Las IP enumeradas se añaden automática y dinámicamente a cualquier clave de API que haya sido habilitada para la lista de permitidas.
+Braze enviará webhooks desde las siguientes IP. Las IP enumeradas se añaden automática y dinámicamente a cualquier clave de API que haya optado por la lista de permitidas.
 
 {% alert important %}
 Si estás realizando un webhook de Braze a Braze y utilizas la lista de permitidas, deberías incluir en la lista todas las siguientes IP, incluyendo `127.0.0.1`.

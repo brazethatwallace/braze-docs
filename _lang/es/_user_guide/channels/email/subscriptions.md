@@ -97,13 +97,13 @@ Cuando el estado de suscripción global de correo electrónico de un usuario cam
 
 ## Grupos de suscripción {#subscription-groups}
 
-Los grupos de suscripción son filtros de segmento que pueden acotar aún más tu audiencia a partir de los [estados de suscripción global](#subscription-states). Estos grupos te permiten presentar opciones de suscripción más detalladas a los usuarios finales.
+Los grupos de suscripción son filtros de Segment que pueden acotar aún más tu audiencia a partir de los [estados de suscripción global](#subscription-states). Estos grupos te permiten presentar opciones de suscripción más detalladas a los usuarios finales.
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-Por ejemplo, supongamos que envías varias categorías de Campaigns de correo electrónico (promocionales, boletines informativos o actualizaciones de producto). En ese caso, puedes utilizar grupos de suscripción para que tus clientes elijan a qué categorías de correo electrónico desean suscribirse o cancelar la suscripción de forma masiva desde una sola página, utilizando un [centro de preferencias de correo electrónico](#email-preference-center). Alternativamente, podrías utilizar grupos de suscripción para que tus clientes elijan con qué frecuencia desean recibir correos electrónicos, creando grupos de suscripción para correos diarios, semanales o mensuales.
+Por ejemplo, supongamos que envías varias categorías de Campaigns de correo electrónico (promocionales, boletines informativos o actualizaciones de producto). En ese caso, puedes usar grupos de suscripción para que tus clientes elijan de qué categorías de correo electrónico quieren suscribirse o cancelar la suscripción de forma masiva desde una sola página, utilizando un [centro de preferencias de correo electrónico](#email-preference-center). Alternativamente, podrías usar grupos de suscripción para que tus clientes elijan con qué frecuencia quieren recibir correos electrónicos, creando grupos de suscripción para correos diarios, semanales o mensuales.
 
-Utiliza los [endpoints de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups) para gestionar de forma programática los grupos de suscripción que tienes almacenados en el panel de Braze en la página **Grupo de suscripción**.
+Usa los [endpoints de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups) para gestionar de forma programática los grupos de suscripción que tienes almacenados en el panel de Braze en la página **Grupo de suscripción**.
 
 ### Crear un grupo de suscripción {#creating-a-subscription-group}
 
@@ -118,30 +118,30 @@ Todos los grupos de suscripción se añaden automáticamente a tu centro de pref
 
 ### Segmentar con un grupo de suscripción {#segmenting-with-a-subscription-group}
 
-Al crear tus segmentos, establece el nombre del grupo de suscripción como filtro para dirigirte a los usuarios que se han suscrito a tu grupo. Esto es útil para boletines mensuales, cupones, niveles de membresía y más.
+Al crear tus Segments, establece el nombre del grupo de suscripción como filtro para dirigirte a los usuarios que han optado por tu grupo. Esto es útil para boletines mensuales, cupones, niveles de membresía y más.
 
-![Ejemplo de segmentación de usuarios en el segmento "Usuarios inactivos" con el filtro para usuarios en el grupo de suscripción "Correos semanales".]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
+![Ejemplo de segmentación de usuarios en el Segment "Lapsed Users" con el filtro para usuarios en el grupo de suscripción "Weekly Emails".]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
 ### Archivar grupos de suscripción {#archiving-subscription-groups}
 
-Los grupos de suscripción archivados no se pueden editar y ya no aparecen en los filtros de segmento ni en tu centro de preferencias. Si intentas archivar un grupo que se está utilizando como filtro de segmento en algún correo electrónico, Campaign o Canvas, recibirás un mensaje de error que te impedirá archivar el grupo hasta que elimines todos los usos del mismo.
+Los grupos de suscripción archivados no se pueden editar y ya no aparecen en los filtros de Segment ni en tu centro de preferencias. Si intentas archivar un grupo que se está utilizando como filtro de Segment en algún correo electrónico, Campaign o Canvas, recibirás un mensaje de error que te impedirá archivar el grupo hasta que elimines todos los usos del mismo.
 
 Para archivar tu grupo desde la página **Grupos de suscripción**, haz lo siguiente:
 
 1. Busca tu grupo en la lista de grupos de suscripción.
 2. Selecciona **Archivar** en el menú desplegable <i class="fa-solid fa-ellipsis-vertical" aria-label="Más opciones"></i>&nbsp;.
 
-Braze no procesa cambios de estado para los usuarios en grupos archivados. Por ejemplo, si archivas el Grupo de suscripción 1 mientras Alex está suscrito, Alex permanecerá como "suscrito" incluso si hace clic en un enlace para cancelar la suscripción. Esto no importa porque el Grupo de suscripción 1 está archivado y no puedes enviar mensajes utilizándolo.
+Braze no procesa cambios de estado para los usuarios en grupos archivados. Por ejemplo, si archivas el Grupo de suscripción 1 mientras Alex está suscrito, Alex permanecerá como "suscrito" incluso si hace clic en un enlace de cancelación de suscripción. Esto no importa porque el Grupo de suscripción 1 está archivado y no puedes enviar mensajes usándolo.
 
 #### Ver el tamaño de los grupos de suscripción {#viewing-subscription-group-sizes}
 
-Puedes consultar el gráfico **Serie temporal de grupos de suscripción** en la página **Grupos de suscripción** para ver el tamaño del grupo de suscripción basado en el número de usuarios a lo largo de un período de tiempo. Estos tamaños de grupos de suscripción también son consistentes con otras áreas de Braze, como el cálculo del tamaño de segmento.
+Puedes consultar el gráfico **Serie temporal de grupos de suscripción** en la página **Grupos de suscripción** para ver el tamaño del grupo de suscripción basado en el número de usuarios a lo largo de un período de tiempo. Estos tamaños de grupos de suscripción también son consistentes con otras áreas de Braze, como el cálculo del tamaño de Segment.
 
 ![Un ejemplo del gráfico "Serie temporal de grupos de suscripción" con fechas del 2 al 11 de diciembre. El gráfico muestra un aumento de aproximadamente 10 millones en el número de usuarios del 6 al 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-Si el recuento de la serie temporal diverge significativamente de un segmento que utiliza **El estado de suscripción de correo electrónico es Cancelado**, recuerda que el gráfico cuenta la membresía en ese **grupo de suscripción**, mientras que ese filtro refleja el estado de suscripción de correo electrónico **global**; por ejemplo, los usuarios pueden estar suscritos globalmente pero haber cancelado la suscripción de un grupo específico.
+Si el recuento de la serie temporal diverge significativamente de un Segment que utiliza **El estado de suscripción de correo electrónico es Cancelado**, recuerda que el gráfico cuenta la membresía en ese **grupo de suscripción**, mientras que ese filtro refleja el estado de suscripción de correo electrónico **global**; por ejemplo, los usuarios pueden estar suscritos globalmente pero haber cancelado la suscripción de un grupo específico.
 
-#### Ver grupos de suscripción en los análisis de Campaign {#viewing-subscription-groups-in-campaign-analytics}
+#### Ver grupos de suscripción en el análisis de Campaign {#viewing-subscription-groups-in-campaign-analytics}
 
 Puedes ver los recuentos de usuarios que cambiaron su estado de suscripción (suscrito o cancelado) a partir de una Campaign de correo electrónico específica en la página de análisis de esa Campaign.
 
@@ -153,13 +153,13 @@ Puedes ver los recuentos de usuarios que cambiaron su estado de suscripción (su
 ### Comprobar el grupo de suscripción de correo electrónico de un usuario {#checking-a-users-email-subscription-group}
 
 - **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del panel de Braze desde la página [Buscar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. También puedes ver los grupos de suscripción de correo electrónico de un usuario en la pestaña **Participación**.
-- **REST API de Braze:** Utiliza el [endpoint para listar los grupos de suscripción de un usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint para listar el estado del grupo de suscripción de un usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para ver los grupos de suscripción del perfil de un usuario individual.
+- **REST API de Braze:** Usa el [endpoint para listar los grupos de suscripción de un usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint para listar el estado del grupo de suscripción de un usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para ver los grupos de suscripción del perfil de un usuario individual.
 
 ## Centro de preferencias de correo electrónico {#email-preference-center}
 
 El centro de preferencias de correo electrónico te permite gestionar qué usuarios reciben boletines de grupos de suscripción. Encuéntralo en el panel en **Grupos de suscripción**. Cada grupo de suscripción que crees se añade a la lista del centro de preferencias.
 
-Para obtener más información sobre cómo añadir o personalizar un centro de preferencias, consulta [Centro de preferencias]({{site.baseurl}}/user_guide/channels/email/subscriptions).
+Para obtener más información sobre cómo añadir o personalizar un centro de preferencias, consulta [Centro de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
 ## Cambio de suscripciones de correo electrónico {#changing-email-subscriptions}
 

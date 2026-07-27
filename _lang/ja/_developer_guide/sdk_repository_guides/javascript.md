@@ -8,24 +8,24 @@ description: "GitHubからミラーリングされたBraze JavaScript SDK README
 <!-- BEGIN GENERATED README CONTENT -->
 # JavaScript SDK リポジトリガイド {#javascript-sdk-repository-guide}
 
-## Braze JavaScript SDKについて {#about-the-braze-javascript-sdk}
+## Braze JavaScript SDKについて
 
 Braze JavaScript SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
+- [Braze ユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze 開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
 
-### アーキテクチャの概要 {#architecture-overview}
+### アーキテクチャの概要
 
-Braze JavaScript SDKは、純粋なJavaScript環境で動作するように設計された**プラットフォーム非依存**のライブラリです。ブラウザやNode.js固有のAPIを含まないため、さまざまなJavaScriptランタイムでの使用に適しています。
+Braze JavaScript SDKは、あらゆる純粋なJavaScript環境で動作するように設計された**プラットフォーム非依存**のライブラリです。ブラウザやNode.js固有のAPIを含まないため、さまざまなJavaScriptランタイムでの使用に適しています。
 
-**主要な設計原則：**
-- **依存性注入**: SDKはプラットフォーム固有のAPIを使用する代わりに、ストレージ、ネットワーキング、デバイス情報の実装を必要とします
+**主な設計原則：**
+- **依存性の注入**: SDKはプラットフォーム固有のAPIを使用する代わりに、ストレージ、ネットワーキング、デバイス情報の実装を必要とします
 - **非同期ファースト**: ほとんどのAPIメソッドは非同期でPromiseを返します。一部のユーティリティメソッド（例：`destroy`、`subscribeToInAppMessage`、`toggleLogging`、`setLogger`）は同期的です。正確なシグネチャについてはTypeScript定義を参照してください。
-- **シングルトンセッション**: モジュールレベルAPI（`initialize`/`destroy`）は、一度に1つのアクティブなSDKセッションを管理します。
-- **内部依存関係管理**: 提供された実装から内部依存関係（UserManager、SessionManager、DataFlushControllerなど）を作成・管理します
+- **シングルトンセッション**: モジュールレベルのAPI（`initialize`/`destroy`）は、一度に1つのアクティブなSDKセッションを管理します。
+- **内部依存関係の管理**: 提供された実装から内部依存関係（UserManager、SessionManager、DataFlushControllerなど）を作成・管理します
 
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
@@ -34,21 +34,21 @@ Effective marketing automation is an essential part of successfully scaling and 
 - [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
-## クイックスタート {#quickstart}
+## クイックスタート
 
-npmでSDKをインストールします：
+npm で SDKをインストールします:
 
 ``` bash
 npm install @braze/javascript-sdk
 ```
 
-またはyarnで：
+または yarn を使用します:
 
 ``` bash
 yarn add @braze/javascript-sdk
 ```
 
-モジュールレベルAPIを使用する場合：
+モジュールレベル API の場合:
 ``` typescript
 import { initialize, openSession, changeUser } from '@braze/javascript-sdk';
 
@@ -67,24 +67,24 @@ await changeUser(userId);
 await openSession();
 ```
 
-## 前提条件 {#prerequisites}
+## 前提条件
 
-Braze JavaScript SDKを統合する前に、以下が必要です：
+Braze JavaScript SDKを統合する前に、以下が必要です。
 
 - **Brazeアカウント**: APIアクセスが可能なBrazeアカウント
-- **APIキー**: BrazeダッシュボードからのアプリのAPIキー
-- **SDKエンドポイント**: BrazeのSDKエンドポイントURL（例：`sdk.iad-01.braze.com`）
+- **APIキー**: Brazeダッシュボードから取得したアプリのAPIキー
+- **SDKエンドポイント**: BrazeのSDKエンドポイントURL（例: `sdk.iad-01.braze.com`）
 
-### 認証情報の取得 {#getting-your-credentials}
+### 認証情報の取得
 
-1. **APIキー**: Brazeダッシュボードの**設定** > **APIキー**にあります
-2. **SDKエンドポイント**: **設定** > **SDK認証** > **エンドポイント**にあります
+1. **APIキー**: Brazeダッシュボードの**設定** > **APIキー**で確認できます
+2. **SDKエンドポイント**: **設定** > **SDK認証** > **エンドポイント**で確認できます
 
-## 統合 {#integration}
+## インテグレーション
 
-### APIの呼び出し {#calling-the-api}
+### APIの呼び出し
 
-モジュールレベルAPIを使用します。`initialize()`を一度呼び出してから、エクスポートされた関数を呼び出します。設定を切り替えるには、まず`destroy()`を呼び出してから、再度`initialize()`を呼び出します。
+モジュールレベルのAPIを使用します。`initialize()` を一度呼び出してから、エクスポートされた関数を呼び出します。設定を切り替えるには、まず `destroy()` を呼び出してから、再度 `initialize()` を呼び出します。
 
 ``` typescript
 import { initialize, logPurchase, changeUser } from '@braze/javascript-sdk';
@@ -94,11 +94,11 @@ await changeUser('user-123');
 await logPurchase('sku-1', 9.99, 'USD', 1);
 ```
 
-### コアコンセプト {#core-concepts}
+### コアコンセプト
 
-#### 必須の実装 {#required-implementations}
+#### 必須の実装
 
-初期化設定オブジェクトには`storageManager`が必須です。`networkManager`と`pushManager`はオプションです。
+initialize 設定オブジェクトには `storageManager` が必要です。`networkManager` と `pushManager` はオプションです。
 
 **1. StorageManager** - 非同期キーバリューストレージインターフェイス
 ``` typescript
@@ -109,7 +109,7 @@ interface StorageManager {
   clearData(storageKeys: string[]): Promise<void>;
 }
 ```
-- `isId`パラメーターは**永続的なIDストレージ**を示します。`true`の場合、SDKは永続的な識別子（デバイスID、ユーザーID）またはオプトアウトフラグを保存しています。実装では、SDKが同じデバイス/ユーザーを認識できるように、アプリの再起動後もこれらを永続化する必要があります。`false`の場合、値はセッション/キャッシュデータ（イベント、属性など）であり、メモリ内のみでも構いません。Web環境では、クロスセッションの永続性を確保するために、`isId: true`で保存されるキーにはCookieの使用を検討してください。
+- `isId` パラメーターは**永続的なIDストレージ**を示します。`true` の場合、SDKは永続的な識別子（デバイスID、ユーザーID）またはオプトアウトフラグを保存しています。実装では、SDKが同じデバイス/ユーザーを認識できるように、アプリの再起動後もこれらを永続化する必要があります。`false` の場合、値はセッション/キャッシュデータ（イベント、属性など）であり、メモリ内のみでも構いません。Web環境では、クロスセッションの永続性を確保するために、`isId: true` で保存されるキーにはCookieの使用を検討してください。
 - すべてのストレージ操作で非同期操作を処理する必要があります
 
 **2. NetworkManager**（オプション）- HTTP POSTリクエストインターフェイス
@@ -122,9 +122,9 @@ interface NetworkManager {
   ): Promise<Partial<Record<string, unknown>>>;
 }
 ```
-- デフォルトの実装は`fetch` APIを使用します（グローバルな`fetch`と`URL`が必要）
-- `fetch`が推奨APIでない場合は上書きできます
-- 注：SDKにはリトライとレート制限のロジックがすでに組み込まれています
+- デフォルトの実装は `fetch` APIを使用します（グローバルな `fetch` と `URL` が必要です）
+- `fetch` が推奨されるAPIでない場合は上書きできます
+- 注: SDKにはリトライとレート制限のロジックがすでに組み込まれています
 
 **3. PushManager**（オプション）- プッシュ通知インターフェイス
 ``` typescript
@@ -141,17 +141,17 @@ interface PushManager {
 ```
 - プッシュ通知を実装する場合にのみ必要です
 
-#### データフラッシュ {#data-flushing}
+#### データフラッシュ
 
-SDKは、キャッシュされたデータを10秒ごとに自動的にBrazeサーバーにフラッシュします（`flushIntervalInSeconds`で設定可能）。即時同期を強制するには`requestImmediateDataFlush()`を使用します。
+SDKは、キャッシュされたデータを10秒ごとに自動的にBrazeサーバーにフラッシュします（`flushIntervalInSeconds` で設定可能）。即時同期を強制するには `requestImmediateDataFlush()` を使用します。
 
-### 統合パターン {#integration-patterns}
+### インテグレーションパターン
 
 メソッドシグネチャ、パラメーターと戻り値の型、および完全なAPIの詳細については、パッケージ内のTypeScript定義を参照してください。
 
-#### 基本的な統合 {#basic-integration}
+#### 基本的なインテグレーション
 
-エラーハンドリングを含む完全な動作例：
+エラーハンドリングを含む完全な動作例:
 
 ``` typescript
 import {
@@ -250,9 +250,9 @@ try {
 }
 ```
 
-#### カスタムストレージ実装 {#custom-storage-implementation}
+#### カスタムストレージの実装
 
-永続的なIDのためのIndexedDBを使用した完全なStorageManager実装：
+IndexedDBを使用した永続IDの完全なStorageManager実装:
 
 ``` typescript
 import type { StorageManager } from '@braze/javascript-sdk';
@@ -387,9 +387,9 @@ class IndexedDBStorageManager implements StorageManager {
 const storageManager = new IndexedDBStorageManager();
 ```
 
-#### カスタムネットワーク実装 {#custom-network-implementation}
+#### カスタムネットワークの実装
 
-すべての送信リクエストをログに記録するNetworkManager（SDKはエラーとリトライをすでに処理しています）：
+すべての送信リクエストをログに記録するNetworkManager（SDKはエラーとリトライをすでに処理しています）:
 
 ``` typescript
 import type { NetworkManager } from '@braze/javascript-sdk';
@@ -424,9 +424,9 @@ class LoggingNetworkManager implements NetworkManager {
 const networkManager = new LoggingNetworkManager();
 ```
 
-#### エラーハンドリング {#error-handling}
+#### エラーハンドリング
 
-完全なエラーハンドリングパターン：
+完全なエラーハンドリングパターン:
 
 ``` typescript
 import {
@@ -504,7 +504,7 @@ async function initializeSafely() {
 }
 ```
 
-#### 購読管理 {#subscription-management}
+#### 購読管理
 
 ``` typescript
 import {
@@ -535,7 +535,7 @@ if (subscriptionId) {
 }
 ```
 
-**設定の切り替え：** 一度にアクティブなセッションは1つだけ存在します。設定を切り替えるには、`destroy()`を呼び出してから`initialize()`を呼び出します：
+**設定の切り替え:** 一度にアクティブなセッションは1つだけ存在します。設定を切り替えるには、`destroy()` を呼び出してから `initialize()` を呼び出します:
 
 ``` typescript
 import { destroy, initialize } from '@braze/javascript-sdk';
@@ -544,9 +544,9 @@ destroy();
 await initialize({ /* new config */ });
 ```
 
-### 一般的なユースケース {#common-use-cases}
+### 一般的なユースケース
 
-#### ユーザー識別と属性トラッキング {#user-identification-and-attribute-tracking}
+#### ユーザー識別と属性トラッキング
 
 ``` typescript
 import {
@@ -571,7 +571,7 @@ await setCustomUserAttribute('last_login', new Date());
 await setCustomUserAttribute('tags', ['vip', 'early-adopter']);
 ```
 
-#### イベントログと分析 {#event-logging-and-analytics}
+#### イベントログと分析
 
 ``` typescript
 import {
@@ -597,7 +597,7 @@ requestImmediateDataFlush((success) => {
 });
 ```
 
-#### アプリ内メッセージの処理 {#in-app-message-handling}
+#### アプリ内メッセージの処理
 
 ``` typescript
 import {
@@ -621,89 +621,87 @@ subscribeToInAppMessage(async (inAppMessage) => {
 });
 ```
 
-### エラーハンドリングとエッジケース {#error-handling-edge-cases}
+### エラーハンドリングとエッジケース
 
-#### 一般的なエラー条件 {#common-error-conditions}
+#### 一般的なエラー条件
 
-**SDKが初期化されていない場合：**
-- ほとんどのメソッドは、SDKが初期化されていない場合にスローするのではなく`undefined`を返します
-- `initialize()`は、すでに初期化されているかバリデーションに失敗した場合に`false`を返します
-- `changeUser()`は、SDKが初期化されていない場合はno-opとなり、Promiseが解決されます
-- 戻り値を使用する前に、常に`undefined`をチェックしてください
+**SDKが初期化されていない場合:**
+- ほとんどのメソッドは、SDKが初期化されていない場合、スローではなく `undefined` を返します
+- `initialize()` は、すでに初期化されているかバリデーションに失敗した場合に `false` を返します
+- `changeUser()` はSDKが初期化されていない場合、何も行わずPromiseが解決されます
+- 戻り値を使用する前に、常に `undefined` をチェックしてください
 
-**バリデーション失敗：**
-- 無効なAPIキーまたはベースURL：`initialize()`が`false`を返し、エラーをログに記録します
-- 無効なイベント名/キー：最大255文字、`$`で始めることはできず、英数字と句読点のみ使用可能です
-- 無効な属性値：文字列は最大255文字、改行/タブ/ダブルクォートは使用不可、`$`で始めることはできません
-- 無効な通貨コード：サポートされていないコードは警告が表示され、アクションは実行されません
-- 無効な購入数量：1〜100の範囲でなければならず、それ以外は無視されます
+**バリデーションの失敗:**
+- 無効なAPIキーまたはベースURL: `initialize()` が `false` を返し、エラーをログに記録します
+- 無効なイベント名/キー: 最大255文字、`$` で始めることはできません。英数字と句読点のみ使用可能です
+- 無効な属性値: 文字列は最大255文字、改行/タブ/ダブルクォートは使用できません。`$` で始めることはできません
+- 無効な通貨コード: サポートされていないコードは警告が表示され、アクションは実行されません
+- 無効な購入数量: 1〜100の範囲でなければなりません。範囲外の場合は無視されます
 
-**ネットワークエラー：**
-- NetworkManagerの`postRequest()`はエラーを適切に処理し、Promiseをリジェクトする必要があります
+**ネットワークエラー:**
+- NetworkManagerの `postRequest()` はエラーを適切に処理し、Promiseを拒否する必要があります
 - データフラッシュコントローラーは失敗したリクエストを自動的にリトライします
-- フラッシュの失敗を検出するには`requestImmediateDataFlush()`コールバックを使用します
+- フラッシュの失敗を検出するには `requestImmediateDataFlush()` のコールバックを使用します
 
-**ストレージエラー：**
+**ストレージエラー:**
 - StorageManagerのメソッドはエラーを適切に処理する必要があります
 - ストレージが失敗した場合、SDKが正しく機能しない可能性があります
-- `isId`フラグが永続性を決定します：IDはセッション間で永続化され、オブジェクトはセッションスコープです
+- `isId` フラグが永続性を決定します: IDはセッション間で永続化され、オブジェクトはセッションスコープです
 
-**ユーザー識別のエッジケース：**
+**ユーザー識別のエッジケース:**
 - 識別後に匿名ユーザーに戻すことはできません
 - ユーザーの切り替えにより、現在のセッションが終了し、新しいセッションが開始されます
 - 初回識別時に匿名ユーザーの履歴が保持されます
 - 別のデバイスにユーザーが存在する場合、履歴がマージされます
 
-**セッション管理：**
+**セッション管理:**
 - セッションは30分間の非アクティブ後にタイムアウトします（設定可能）
-- `openSession()`は新しいセッションの場合`true`を、再開の場合`false`を返します
-- `changeUser()`または`setIdentifierToken()`の後に`openSession()`を呼び出す必要があります
+- `openSession()` は新しいセッションの場合 `true` を、再開の場合 `false` を返します
+- `changeUser()` または `setIdentifierToken()` の後に `openSession()` を呼び出す必要があります
 
-**購読管理：**
-- 購読コールバックは、イベント発生時に同期的に呼び出されます
-- メモリリークを防ぐために購読を削除してください
-- `removeAllSubscriptions()`はすべての購読を一度にクリアします
+**購読管理:**
+- 購読コールバックはイベント発生時に同期的に呼び出されます
+- メモリリークを防ぐために購読を解除してください
+- `removeAllSubscriptions()` はすべての購読を一度にクリアします
 
-**データフラッシュ：**
-- 10秒ごとに自動フラッシュ（設定可能、最小：3秒）
-- フラッシュはサイレントに失敗する場合があります - `requestImmediateDataFlush()`コールバックを使用してください
+**データフラッシュ:**
+- 10秒ごとに自動フラッシュが行われます（設定可能、最小: 3秒）
+- フラッシュはサイレントに失敗する場合があります - `requestImmediateDataFlush()` のコールバックを使用してください
 - ネットワークが利用できない場合、データはキューに入れられ、ネットワーク復旧時にフラッシュされます
 
-### 重要な実装上の注意事項 {#important-implementation-notes}
+### 実装に関する重要な注意事項
 
-1. **ほとんどのメソッドは非同期です**: 非同期SDKメソッドはPromiseを返します（`await`または`.then()`を使用してください）。一部の設定およびユーティリティメソッド（例：`destroy`、`toggleLogging`、`setLogger`）は同期的です。詳細についてはTypeScript定義またはクイックリファレンステーブルを参照してください。
+1. **ほとんどのメソッドは非同期です**: 非同期SDKメソッドはPromiseを返します（`await` または `.then()` を使用してください）。一部の設定およびユーティリティメソッド（例: `destroy`、`toggleLogging`、`setLogger`）は同期的です。詳細についてはTypeScript定義またはクイックリファレンステーブルを参照してください。
 
-2. **メソッドが`undefined`を返す場合があります**: SDKが初期化されていない場合、ほとんどのメソッドはスローする代わりに`undefined`を返します。戻り値を使用する前に`undefined`をチェックしてください。
+2. **メソッドが `undefined` を返す場合があります**: SDKが初期化されていない場合、ほとんどのメソッドはスローではなく `undefined` を返します。戻り値を使用する前に `undefined` をチェックしてください。
 
-3. **メソッドが`null`を返す場合があります**: 一部のメソッドは「見つからない」ことを示すために`null`を返します（例：`getUserId()`はユーザーが匿名の場合`null`を返します）。これは`undefined`（SDKが初期化されていない）とは異なります。
+3. **メソッドが `null` を返す場合があります**: 一部のメソッドは「見つからない」ことを示すために `null` を返します（例: `getUserId()` はユーザーが匿名の場合に `null` を返します）。これは `undefined`（SDKが初期化されていない）とは異なります。
 
-4. **ストレージキーは`isId`フラグを使用します**: StorageManagerメソッドの`isId`パラメーターは以下を区別します：
-   - IDストレージ：セッション間で永続化する必要がある永続的な識別子（デバイスID、ユーザーID）
-   - オブジェクトストレージ：クリア可能なセッションスコープのデータ
+4. **ストレージキーは `isId` フラグを使用します**: StorageManagerメソッドの `isId` パラメーターは以下を区別します:
+   - IDストレージ: セッション間で永続化する必要がある永続的な識別子（デバイスID、ユーザーID）
+   - オブジェクトストレージ: クリア可能なセッションスコープのデータ
 
-5. **SDKメタデータタグ**: `sdkMetadata`配列は、SDKを使用しているプラットフォーム/ラッパーを識別します（例：`['npm']`または`[BrazeSdkMetadata.NPM]`）。有効なタグは`BrazeSdkMetadata`列挙型（`npm`、`cdn`、`manu`、`shp`、`gg`、`kep`など）で定義されており、SDKはJavaScript SDKを示す`'wjs'`を自動的に追加します。
+5. **SDKメタデータタグ**: `sdkMetadata` 配列は、SDKを使用しているプラットフォーム/ラッパーを識別します（例: `['npm']` または `[BrazeSdkMetadata.NPM]`）。有効なタグは `BrazeSdkMetadata` 列挙型（`npm`、`cdn`、`manu`、`shp`、`gg`、`kep` など）で定義されており、SDKはJavaScript SDKを示す `'wjs'` を自動的に追加します。
 
-6. **デフォルトのNetworkManager**: `networkManager`が提供されない場合、SDKはグローバルな`fetch`と`URL` APIを必要とするデフォルトの実装を使用します。これらが利用できない場合は、カスタム実装を提供してください。
+6. **デフォルトのNetworkManager**: `networkManager` が提供されない場合、SDKはグローバルな `fetch` と `URL` APIを必要とするデフォルトの実装を使用します。これらが利用できない場合は、カスタム実装を提供してください。
 
-7. **PushManagerはオプションです**: プッシュ通知機能が必要な場合にのみ`PushManager`を実装してください。それ以外の場合は省略できます。
+7. **PushManagerはオプションです**: プッシュ通知機能が必要な場合にのみ `PushManager` を実装してください。それ以外の場合は省略できます。
 
-8. **破棄とクリーンアップ**: SDKを破棄する必要がある場合は`destroy()`を呼び出します。一度にアクティブなセッションは1つだけ存在できます。再度`initialize()`を呼び出す前に`destroy()`を呼び出す必要があります。これにより、タイマーが停止し、データがフラッシュされ、リソースが解放されます。
+8. **破棄とクリーンアップ**: SDKを解体する必要がある場合は `destroy()` を呼び出します。一度にアクティブなセッションは1つだけ存在できます。再度 `initialize()` を呼び出す前に `destroy()` を呼び出す必要があります。これにより、タイマーが停止し、データがフラッシュされ、リソースが解放されます。
 
-9. **データフラッシュ**: データは10秒ごとに自動的にフラッシュされます（設定可能）。即時同期には`requestImmediateDataFlush()`を使用してください。
+9. **データフラッシュ**: データは10秒ごとに自動的にフラッシュされます（設定可能）。即時同期には `requestImmediateDataFlush()` を使用します。
 
-10. **セッション管理**: 重複する匿名ユーザーの作成を避けるため、`changeUser()`または`setIdentifierToken()`の後に必ず`openSession()`を呼び出してください。
+10. **セッション管理**: 重複する匿名ユーザーの作成を避けるため、`changeUser()` または `setIdentifierToken()` の後に必ず `openSession()` を呼び出してください。
 
-11. **型安全性**: SDKはTypeScriptで記述されており、完全な型定義が含まれています。最良のエクスペリエンスと型チェックのためにTypeScriptを使用してください。
+11. **型安全性**: SDKは完全な型定義を備えたTypeScriptで記述されています。最適なエクスペリエンスと型チェックのためにTypeScriptを使用してください。
 
-12. **バリデーションルール**: イベント名、属性キー、プロパティキーには厳格なバリデーションがあります（最大255文字、`$`で始めることはできず、英数字と句読点のみ使用可能）。無効な値は無視されるか、エラーが発生する場合があります。
+12. **バリデーションルール**: イベント名、属性キー、およびプロパティキーには厳格なバリデーションがあります（最大255文字、`$` で始めることはできません。英数字と句読点のみ使用可能です）。無効な値は無視されるか、エラーが発生する場合があります。
 
-## デバッグ / トラブルシューティング {#debugging-troubleshooting}
+`enableLogging: true` オプションを初期化オプションに渡します。これは開発時に役立ちますが、ページを本番環境にリリースする前に、このオプションを削除するか、[代替のロガーを提供](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html#setlogger)してください。
 
-初期化オプションに`enableLogging: true`を渡します。これは開発時に有用ですが、本番環境にページをリリースする前に、このオプションを削除するか、[代替のロガーを提供](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html#setlogger)してください。
+## お問い合わせ
 
-## お問い合わせ {#contact}
-
-ご質問がある場合は、[support@braze.com](mailto:support@braze.com)までお問い合わせください。
+ご質問がある場合は、[support@braze.com](mailto:support@braze.com) までお問い合わせください。
 <!-- END GENERATED README CONTENT -->
 
-リポジトリの詳細とサンプルプロジェクトについては、[https://github.com/braze-inc/braze-javascript-sdk](https://github.com/braze-inc/braze-javascript-sdk)を参照してください。
+リポジトリの詳細とサンプルプロジェクトについては、[https://github.com/braze-inc/braze-javascript-sdk](https://github.com/braze-inc/braze-javascript-sdk) を参照してください。

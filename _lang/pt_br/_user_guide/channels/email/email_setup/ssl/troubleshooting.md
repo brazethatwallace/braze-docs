@@ -88,7 +88,7 @@ Se você está usando o Amazon SES como provedor de serviços de e-mail, os segu
 
 Problemas comuns de redirecionamento geralmente resultam de uma configuração inadequada entre a rede de distribuição de conteúdo (CDN) que hospeda o domínio de rastreamento e seus certificados SSL associados ou registros DNS CNAME. Essas configurações incorretas frequentemente fazem com que os usuários recebam um erro de privacidade "a conexão não é segura" ou uma falha `404` após clicar em um link de e-mail rastreado.
 
-Use o modelo a seguir para testar a configuração do CDN do seu domínio de rastreamento, que é o mecanismo que suporta a análise de dados dos links nos seus e-mails.
+Use o modelo a seguir para testar a configuração da CDN do seu domínio de rastreamento, que é o mecanismo que suporta a análise de dados dos links nos seus e-mails.
 
 1. Copie e cole o modelo a seguir em uma Campaign de e-mail HTML na Braze.
 
@@ -300,4 +300,5 @@ Use a tabela a seguir para diagnosticar erros comuns ao testar o rastreamento de
 | `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Verifique suas configurações de DNS. Confirme que o subdomínio de rastreamento está configurado conforme a configuração recomendada pelo seu CDN e provedor de serviços de e-mail. |
 | `525 / 526 SSL Error` | Verifique se a configuração de SSL no seu CDN (como Cloudflare) corresponde à capacidade da sua Origin. |
 | `404 Not Found` | Verifique se o seu CDN está configurado para encaminhar o caminho completo da URL para o provedor de serviços de e-mail, em vez de apontar para um diretório raiz vazio. |
+| `400 Bad Request: Request Header or Cookie Too Large` | Esse erro geralmente ocorre quando o domínio de rastreamento de cliques herda cookies grandes demais do domínio do seu website. A Braze não define nem bloqueia cookies no domínio de rastreamento. Configure seu CDN para não enviar esses cookies ao provedor de serviços de e-mail ao fazer proxy reverso da solicitação de rastreamento de cliques. Talvez também seja necessário aumentar a configuração `large_client_header_buffers` na sua configuração do nginx (por exemplo, `large_client_header_buffers 4 32k;` para permitir cabeçalhos de até 32&nbsp;KB). Para saber mais, consulte seu provedor de CDN ou a equipe de engenharia do seu website. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de erro e solução de problemas" }

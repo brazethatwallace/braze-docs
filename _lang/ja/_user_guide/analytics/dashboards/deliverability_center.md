@@ -63,20 +63,20 @@ channel:
 
 {% enddetails %}
 
-## Google Postmasterアカウントのセットアップ {#set-up-your-google-postmaster-account}
+## Google Postmasterアカウントの設定 {#set-up-your-google-postmaster-account}
 
-到達性センターに接続する前に、Google Postmaster Toolsアカウントをセットアップする必要があります。仕事用または個人用のGmailアカウントを使用してGoogle Postmasterをセットアップできます。
+到達性センターに接続する前に、Google Postmaster Toolsアカウントを設定する必要があります。仕事用または個人用のGmailアカウントを使用してGoogle Postmasterを設定できます。
 
 1. [Google Postmaster Toolsダッシュボード](https://postmaster.google.com/managedomains?pli=1)にアクセスします。
-2. ページ下部の<i class="fas fa-plus-circle"></i> **Add domain**を選択します。
-3. ルート（親）ドメインを入力してメールを認証します。TXTレコードが、Brazeで使用しているサブドメインでは**なく**、このルート（親）ドメインに紐付けられていることを確認してください。ルート（親）ドメインを検証すると、追加のTXTレコードを作成せずに、後からPostmaster Toolsにサブドメインを追加できます。例えば、`braze.com`を検証すると、後から`demo.braze.com`をPostmaster Toolsに別のサブドメインとして追加し、サブドメインレベルの指標を確認できます。
-4. GoogleがTXTレコードを生成します。このレコードはドメインのDNSに直接追加できます。通常、DNSを管理している担当者がこの作業を行います。特定のDNSの更新方法に関する情報とガイダンスについては、[ドメインの確認（ホスト固有の手順）](https://support.google.com/a/topic/1409901)を参照してください。
-5. **Next**を選択します。<br>![メールを認証するためのドメイン「demo.braze.com」の例。]({% image_buster /assets/img_archive/domain_authentication.png %})
-6. TXTレコードをDNSに追加した後、Google Postmaster Toolsダッシュボードに戻り、**Verify**を選択します。このステップでドメインの所有権が確認され、PostmasterアカウントでGmailの到達性指標にアクセスできるようになります。<br>![ドメイン「demo.braze.com」の所有権を確認するプロンプト。]({% image_buster /assets/img_archive/domain_verification.png %})
+2. ページの下部で、<i class="fas fa-plus-circle"></i>**ドメインを追加**を選択します。
+3. メールを認証するためにルート（親）ドメインを入力します。TXTレコードがBrazeで使用しているサブドメインで**はなく**、このルート（親）ドメインに紐付けられていることを確認してください。ルート（親）ドメインを検証すると、追加のTXTレコードを作成せずに、後からPostmaster Toolsにサブドメインを追加できます。たとえば、`braze.com`を検証すると、後から`demo.braze.com`を別のサブドメインとしてPostmaster Toolsに追加し、サブドメインレベルの指標を確認できます。
+4. Googleは、ドメインのDNSに直接追加できるTXTレコードを生成します。これは通常、DNSを管理している担当者が所有しています。特定のDNSの更新方法に関する情報とガイダンスについては、[ドメインの確認（ホスト固有の手順）](https://support.google.com/a/topic/1409901)を確認してください。
+5. **次へ**を選択します。<br>![メールを認証するためのドメイン「demo.braze.com」の例。]({% image_buster /assets/img_archive/domain_authentication.png %})
+6. TXTレコードがDNSに追加された後、Google Postmaster Toolsダッシュボードに戻り、**確認**を選択します。このステップでは、ドメインの所有権を確認し、PostmasterアカウントでGmailの到達性指標にアクセスできるようにします。<br>![ドメイン「demo.braze.com」の所有権を確認するプロンプト。]({% image_buster /assets/img_archive/domain_verification.png %})
 7. ルート（親）ドメインを検証した後、送信サブドメインをGoogle Postmasterに追加します。
 
 {% alert note %}
-サブドメインがGoogle Postmasterの到達性センターに表示されない場合、ルート（親）ドメインのみをGoogle Postmasterに追加したことが原因である可能性があります。Google Postmasterでルートドメインが検証された後、サブドメインを追加すると自動的に検証されます。このプロセスにより、Googleがサブドメインレベルの指標を報告できるようになり、その情報をBrazeの到達性センターに取り込むことができます。
+サブドメインがGoogle Postmasterの到達性センターに含まれていない場合、これはルート（親）ドメインのみをGoogle Postmasterに追加した結果である可能性があります。Google Postmasterでルートドメインが検証された後、サブドメインを追加でき、それらは自動的に検証されます。このプロセスにより、Googleはサブドメインレベルの指標を報告でき、それをBrazeの到達性センターに取り込むことができます。
 {% endalert %}
 
 ## Google Postmasterの統合 {#integrating-google-postmaster}
@@ -125,6 +125,14 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 | 悪い | スパム苦情率が高い履歴があります。このドメインからのメールは、接続時にほぼ常に拒否されるか、スパムフォルダーにフィルタリングされます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="IPレピュテーション" }
 
+{% alert important %}
+Brazeに表示されるスパム苦情データは、Microsoft、Yahoo、Comcastなど、スパム苦情を共有するメールプロバイダーからのフィードバックループ（FBL）レポートに基づいています。これらのプロバイダーのユーザーがメールをスパムとして報告すると、その苦情がBrazeに送信されます。<br><br>
+ただし、GmailとiCloudは従来のフィードバックループを運用しておらず、スパム苦情をBrazeに報告しません。これは以下を意味します。<br>
+- Gmailユーザーからのスパム苦情はBrazeの指標に含まれず、SnowflakeやCurrentsのデータでも利用できません。<br>
+- Gmailのスパムデータは、[Gmail Postmaster Tools](https://www.gmail.com/postmaster/)で集計パーセンテージとしてのみ確認でき、個別のアドレスとしては確認できません。<br>
+- Gmail Postmaster Toolsで高いスパム率が表示されている場合でも、Gmailはそのデータを送信者と共有しないため、Brazeのスパム苦情指標とは一致しません。
+{% endalert %}
+
 #### ドメインレピュテーション {#domain-reputation}
 
 以下の表を使用して、ドメインレピュテーションの評価を監視・把握し、スパムフォルダーにフィルタリングされることを防ぎましょう。
@@ -160,70 +168,81 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 
 到達性の改善に関するその他のアイデアについては、[到達性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)をお読みください。メールキャンペーンを送信する前に確認すべき事項については、[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices)も参照してください。
 
-## Microsoft Smart Network Data Services（SNDS）のセットアップ {#set-up-microsoft-smart-network-data-services-snds}
+## Microsoft Smart Network Data Services（SNDS）の設定 {#set-up-microsoft-smart-network-data-services-snds}
 
-Microsoftがメインのメールボックスプロバイダーである場合、到達性センターでMicrosoft SNDSデータを表示できます。これには、Amazon SES、SendGrid、またはSparkPostを使用するワークスペースの専用送信IPが含まれます。このデータを使用して、IPの健全性を監視し、Microsoftの受信トレイプロバイダーが送信をどのように評価しているかを把握できます。
+Microsoft が主要なメールボックスプロバイダーである場合、配信到達性センターで Microsoft SNDS データを確認できます。これには、Amazon SES、SendGrid、または SparkPost を使用するワークスペースの専用送信IPが含まれます。このデータを使用して、IPの健全性を監視し、Microsoft の受信トレイプロバイダーが送信をどのように評価しているかを把握できます。
 
-Microsoft SNDSは、Outlook、Hotmail、LiveなどのMicrosoft受信トレイプロバイダーから報告された、スパム苦情、スパムトラップヒット、送信量に関するIPレベルのデータを提供します。
+Microsoft SNDS は、Outlook、Hotmail、Live などの Microsoft 受信トレイプロバイダーから報告されたスパム苦情、スパムトラップヒット、送信量に関するIPレベルのデータを提供します。
 
 {% alert important %}
-到達性センターにデータが表示されない場合は、IPアドレスのリストを添えて[サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
+配信到達性センターにデータが表示されない場合は、IPアドレスのリストを添えて[サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
 {% endalert %}
 
 ### Amazon SES
 
-Amazon SESを通じてメールを送信するワークスペースの場合、到達性センターには専用送信IPのMicrosoft SNDS指標が表示されます。Brazeは、この機能がワークスペースで有効になった際に、最大90日間のSNDS履歴データをバックフィルします。
+Amazon SES を通じてメールを送信するワークスペースの場合、配信到達性センターには専用送信IPの Microsoft SNDS メトリクスが表示されます。Braze は、この機能がワークスペースで有効になると、最大90日分の過去の SNDS データをバックフィルします。
 
 {% alert note %}
-Amazon SESは**トラップメッセージ期間の開始**または**トラップメッセージ期間の終了**の指標を提供しません。SES送信IPの場合、これらの列はMicrosoft SNDSテーブルで非表示になります。それ以外のSNDS指標（スパムトラップヒットを含む）は引き続き表示できます。
+Amazon SES は **Trap message period start** または **Trap message period end** メトリクスを提供しません。SES 送信IPの場合、これらの列は Microsoft SNDS テーブルで非表示になります。それらのIPについて、スパムトラップヒットを含む他の SNDS メトリクスは引き続き確認できます。
 {% endalert %}
 
-![Microsoft SNDSの結果の例。サンプルIP、受信者数、RCPTコマンド、DATAコマンド、フィルター結果、苦情率、トラップメッセージ期間の開始と終了、スパムトラップヒット数が含まれています。]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
+![Microsoft SNDS の結果例。サンプルIP、受信者数、RCPT コマンド、DATA コマンド、フィルター結果、苦情率、トラップメッセージ期間の開始と終了、スパムトラップヒットが含まれています。]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
 
-### 指標と定義
+### メトリクスと定義
 
-以下の指標はMicrosoft SNDSに適用されます。
+以下のメトリクスは Microsoft SNDS に適用されます。
 
 #### 受信者数 {#recipients}
 
-この指標は、IPから送信されたメッセージの受信者数を示します。
+このメトリクスは、そのIPから送信されたメッセージの受信者数を示します。
 
-#### DATAコマンド {#data-commands}
+#### DATA コマンド {#data-commands}
 
-この指標は、IPから送信されたDATAコマンドの数を追跡します。DATAコマンドは、メール送信に使用されるSMTPプロトコルの一部です。
+このメトリクスは、そのIPから送信された DATA コマンドの数を追跡します。DATA コマンドは、メール送信に使用される SMTP プロトコルの一部です。
 
 #### フィルター結果 {#filter-results}
 
-フィルター結果を理解するには、以下の表を参照してください。
+フィルター結果を理解するには、以下のテーブルを参照してください。
 
 | 結果 | 定義 |
 | ----- | ---------- |
-| 緑 | 指定された期間の最大10%がMicrosoftのスパムフィルターによってスパムと判定されました。 |
-| 黄 | 指定された期間の10%から90%がMicrosoftのスパムフィルターによってスパムと判定されました。 |
-| 赤 | 指定された期間の90%以上がMicrosoftのスパムフィルターによってスパムと判定されました。 |
+| 緑 | 指定された期間の最大10%で、Microsoft のスパムフィルターによりスパムと判定されました。 |
+| 黄 | 指定された期間の10%から90%の間で、Microsoft のスパムフィルターによりスパムと判定されました。 |
+| 赤 | 指定された期間の90%以上で、Microsoft のスパムフィルターによりスパムと判定されました。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="フィルター結果" }
 
 #### 苦情率 {#complaint-rate}
 
-これは、アクティビティ期間中にIPから受信したメッセージに対して、HotmailまたはWindows Liveユーザーが苦情を報告した割合です。ユーザーはWebユーザーインターフェイスを通じて、ほぼすべてのメッセージを迷惑メールとして報告できます。
+これは、アクティビティ期間中にそのIPから受信したメッセージに対して、Hotmail または Windows Live ユーザーが苦情を報告した割合です。ユーザーは、Web ユーザーインターフェイスを通じてほぼすべてのメッセージを迷惑メールとして報告できます。
 
 苦情率を計算するには、苦情数をメッセージ受信者数で割ります。
 
 | 結果 | 定義 |
 | ----- | ---------- |
-| 0.3%未満 | 理想的な苦情率です。 |
-| 0.3%超 | サインアッププロセスを見直し、購読解除リンクが機能していることを確認してください。また、メールをオーディエンスに合わせてよりパーソナライズできないか検討してください。 |
-| 100%超 | SNDSは苦情が報告された日に苦情を表示し、苦情対象のメールが配信された日に遡って表示するわけではないことに注意してください。 |
+| 0.3% 未満 | 理想的な苦情率です。 |
+| 0.3% 以上 | サインアッププロセスを見直し、購読解除リンクが正常に機能していることを確認してください。また、メールをオーディエンスに合わせてよりパーソナライズできないか検討してください。 |
+| 100% 以上 | SNDS は苦情が報告された日に苦情を表示し、苦情対象のメールが配信された日に遡って表示するわけではないことに注意してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="苦情率" }
 
 #### スパムトラップヒット {#spam-trap-hits}
 
-スパムトラップヒットは、「トラップアカウント」に送信されたメッセージの数です。トラップアカウントとは、Outlook.comが管理する、メールを一切要求しないアカウントです。これらのトラップアカウントに送信されたメッセージはスパムと見なされる可能性が高いため、この指標を監視して低く保つことが重要です。スパムトラップヒットが低いということは、メッセージがこれらのアカウントに送信されておらず、実際のアカウントに送信されていることを意味します。
+スパムトラップヒットは、「トラップアカウント」に送信されたメッセージの数です。トラップアカウントとは、Outlook.com が管理する、メールを一切要求しないアカウントです。これらのトラップアカウントに送信されたメッセージはスパムと見なされる可能性が高いため、このメトリクスを監視して低い値を維持することが重要です。スパムトラップヒットが低いということは、メッセージがこれらのアカウントに送信されておらず、実際のアカウントに送信されていることを意味します。
 
 #### トラップメッセージ期間の開始と終了 {#trap-message-period-start-and-end}
 
-これらの列は、アクティビティ期間中にIPからトラップアカウントに送信された最初と最後のメッセージが受信された時刻を示します。Amazon SESはこれらの指標を提供しないため、Microsoft SNDSテーブルでSES送信IPのみを表示している場合、これらの列は非表示になります。
+これらの列は、アクティビティ期間中にそのIPからトラップアカウントに送信された最初と最後のメッセージがいつ受信されたかを示します。Amazon SES はこれらのメトリクスを提供しないため、Microsoft SNDS テーブルで SES 送信IPのみを表示する場合、これらの列は非表示になります。
 
 {% alert tip %}
-Brazeで検証済みのドメインに関連するレコードを探している場合、到達性センターにはGoogle PostmasterまたはMicrosoft SNDSからのデータが表示されます。つまり、いずれかのプラットフォームにBrazeと共有するデータがない可能性があります。あるいは、一貫したメール配信を維持することで、より高いレピュテーションにつながる可能性があります。
+Braze で確認済みドメインに関連するレコードを探している場合、配信到達性センターには Google Postmaster または Microsoft SNDS からのデータが表示されるため、いずれかのプラットフォームに Braze と共有するデータがない可能性があります。あるいは、一貫したメール配信を維持することで、より高いレピュテーションにつながる可能性があります。
 {% endalert %}
+
+## スパム苦情とフィードバックループ {#spam-complaints-and-feedback-loops}
+
+メールフィードバックループ（FBL）を使用すると、メール送信者は受信者がメッセージをスパムとしてマークした際にレポートを受け取ることができます。ただし、GmailとiCloudは従来のフィードバックループを提供していないため、Braze（SparkPostまたはSendGrid経由）はこれらのプロバイダーからスパム苦情データを受信できません。
+
+GmailとiCloudからスパム苦情データを取得できないため、これらの主要プロバイダーにおけるメールの健全性とレピュテーションを監視するために、他のツールを使用することが重要です。
+
+- [Google Postmaster Tools](https://www.gmail.com/postmaster/)を使用して、ドメインとIPのレピュテーション、スパム率、ユーザーエンゲージメントを監視します。[Google Postmasterの統合](#integrating-google-postmaster)で説明されているように、Google PostmasterをBrazeと統合できます。
+- Appleは、Googleに相当するパブリックなPostmasterツールを提供していません。強力なエンゲージメント指標の維持とメールのベストプラクティスの遵守に注力してください。
+
+すべてのプロバイダーで良好な配信性を維持するために、[サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)を実装して、エンゲージメントのないユーザーへの送信を自動的に停止してください。これにより、メールがスパムとしてマークされるのを防ぎ、送信者レピュテーションを保護できます。
