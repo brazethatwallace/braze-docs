@@ -83,6 +83,7 @@ table td {
         <ul>
           <li>Check if the API key or token has the required permissions.</li>
           <li>Confirm that you have the user permissions to access the endpoint.</li>
+          <li>If requests consistently return <code>403</code> and authentication looks correct, your server, API gateway, or WAF may be blocking Braze's outbound IP addresses. Allowlist the IPs for your Braze cluster. For webhooks, see <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP allowlisting</a>. For Connected Content, see <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Connected Content IP allowlisting</a>.</li>
         </ul>
       </td>
     </tr>

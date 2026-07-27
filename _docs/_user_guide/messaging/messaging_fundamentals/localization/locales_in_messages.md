@@ -255,6 +255,17 @@ When using translation tags, the following limits apply:
 - Each default text (the content between translation tags) can have up to 2,000 characters.
 - The translations per locale can have up to 409,600 bytes (approximately 409.6&nbsp;KB).
 
+### Why am I receiving an error when downloading multi-language email templates?
+
+If you encounter errors when downloading multi-language email templates, the translation tags may be wrapping HTML attributes or CSS styling that conflict with how Braze processes email bodies. 
+
+Braze treats the HTML body and plaintext body as separate components of the same message. When translation tags include `href` references and CSS styling, this can lead to conflicting tags that prevent the template from being downloaded correctly.
+
+To resolve this:
+- Exclude `href` references and CSS styling from translation tags.
+- Wrap only human-readable text content in translation tags, as described in [HTML attributes and structure](#html-attributes-and-structure).
+- For URLs, follow the guidance in [Localize URLs](#localize-urls).
+
 #### Can I make a change to the translated copy in one of my locales?
 
 Yes. First, make the edit in the CSV, then upload the file again to make a change to the translated copy.

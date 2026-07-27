@@ -141,7 +141,9 @@ If you have row descriptions, you must use **Matches regex** to specify a row. F
 
 ### Timing requirements for response messages
 
-Response messages need to be sent within 24 hours of receiving a user's message. To help build successful experiences, Braze checks the message logic to confirm there is an upstream inbound user message that unblocks the response message. 
+Response messages need to be sent within 24 hours of receiving a user's message. To help build successful experiences, Braze checks the message logic to confirm there is an upstream inbound user message that unblocks the response message.
+
+For sub-minute replies in two-way Canvas flows, minimize steps between the inbound trigger and the response message send. Canvas architecture, webhook round trips, and User Update batching can add latency. See [Minimize response latency for two-way flows]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
 
 The following events unblock response messages: 
 
@@ -178,7 +180,7 @@ sequenceDiagram
 #### Things to know
 
 - The response message step must still fall within 24 hours of the user's inbound message. In most Canvas flows, the response sends immediately after the Action Path evaluates, so this isn't an issue.
-- Don't confuse the 24-hour customer service window with Canvas [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), which can use a window of up to 30 days. Conversion windows control attribution; they don't affect whether a response message can send.
+- The 24-hour customer service window is different from Canvas [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), which can use a window of up to 30 days. Conversion windows control attribution; they don't affect whether a response message can send.
 - For billing, see [Are WhatsApp response messages free?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
 
 ### Filtering by a custom time attribute
@@ -194,3 +196,7 @@ However, the `inbound_media_urls` Liquid field, which references the URL of that
 {% alert note %}
 If you save an `inbound_media_urls` value to a user custom attribute for later use, be aware of this seven-day expiration. Attempting to access the URL after it has expired results in a broken link.
 {% endalert %}
+
+### Inbound profile name
+
+When Meta includes a display name on an inbound WhatsApp message, Braze exposes it as the {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} Liquid attribute on that inbound event. This value reflects the name the user set in WhatsApp and may not match CRM profile data. Validate the data before using it in user copy, or use a Canvas User Update step to save it to a profile field for later use. For a full list of WhatsApp Liquid attributes, see [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

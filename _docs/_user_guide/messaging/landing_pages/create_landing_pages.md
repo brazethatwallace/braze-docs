@@ -13,7 +13,7 @@ page_order: 0
 
 To access the landing page builder, you need [certain permissions]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). If you don’t have access, ask your Braze admin for help.
 
-## Creating a landing page
+## Create a landing page
 
 A landing page is a live, published web page with a shareable URL that your customers can visit. 
 
@@ -131,6 +131,8 @@ When enabled, you can also reverse stack columns to control the vertical order o
 
 ![The "Vertically stack on smaller screens" toggle in the "Customize columns" section.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
+
 #### Optional and required fields
 
 You can choose whether a form field is required or optional. Required fields must be filled out before the form can be submitted. Optional fields can be left blank or unselected by a user.
@@ -173,25 +175,25 @@ When you're ready, select **Publish Landing Page**.
 Aggressive pop-up blockers and ad blockers on iOS and in Safari (including Safari's built-in controls and third-party extensions) can negatively impact how landing pages behave when a form **Submit** button also opens another URL, whether that URL opens in the same tab or a new tab.
 {% endalert %}
 
-## Using templates
+## Use templates
 
 Landing page templates are reusable design starting points that help you build landing pages faster. A template has no public URL and can't be visited by customers. To create a live landing page from a template, select the template when creating a new landing page, customize it as needed, then publish it.
 
 Templates can be accessed and managed in both the landing page editor and from the **Landing Page Templates** page (**Content** > **Landing Page**). Landing page templates require a name and optional description. 
 
-## Managing templates
+## Manage templates
 
 You can preview, archive, or edit landing page templates. You can duplicate your own landing page templates (located in **Your Templates**), but not Braze Templates. When editing a landing page, you can save your landing page as a template, make changes to the template, or delete the content of the landing page.
 
 ![A dropdown with options to save, change, and delete a landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Viewing analytics
+## View analytics
 
 To analyze the effectiveness of your landing page, go to **Messaging** > **Landing Pages**, then selected a landing page you've published. Here, you can track the number of page views, page clicks, page submissions, and the submission rates for your landing page.
 
 ![The analytics section for a landing page.]({% image_buster /assets/img/landing_pages/analytics.png %})
 
-## Handling form submission errors {#handling-form-submission-errors}
+## Handle form submission errors {#handling-form-submission-errors}
 
 If a user tries to submit a form with missing or unsupported input, they’ll see a generic error message and won’t be able to submit.
 

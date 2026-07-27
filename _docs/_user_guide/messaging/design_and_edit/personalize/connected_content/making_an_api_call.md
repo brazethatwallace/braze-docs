@@ -27,16 +27,62 @@ If you see more Connected Content calls in your logs than sends or recipients, t
 
 ## Send a Connected Content call
 
+To send a Connected Content call, use the {% raw %}`{% connected_content %}`{% endraw %} tag. With this tag, assign or declare variables by using `:save`. Aspects of these variables can be referenced later in the message with [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
+
+### Break down the API call
+
+The following example uses the Sunrise-Sunset API and includes today's sunrise time in a message:
+
 {% raw %}
-
-To send a Connected Content call, use the `{% connected_content %}` tag. With this tag, you can assign or declare variables by using `:save`. Aspects of these variables can be referenced later in the message with [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
-
-For example, the following message body will access the URL `http://numbersapi.com/random/trivia` and include a fun trivia fact in your message:
-
 ```
-{% connected_content http://numbersapi.com/random/trivia :save result %}
-Hi there, here is some fun trivia for you!: {{result.text}}
+{% connected_content https://api.sunrise-sunset.org/v2?lat=40.7128&lng=-74.0060&date=today :save result %}
+Hi there, today's sunrise in NYC is at {{result.sunrise}}.
 ```
+{% endraw %}
+
+Here's what each part does:
+
+| Component | What it does |
+| --- | --- |
+| `connected_content` tag | Tells Braze to make an HTTP request while rendering the message. |
+| `https://api.sunrise-sunset.org/v2` | The API endpoint Braze calls. |
+| `lat=40.7128&lng=-74.0060` | Query parameters for New York City coordinates. |
+| `date=today` | Requests data for the current day at those coordinates. |
+| `:save result` | Stores the API response in a local variable named `result`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Break down the API call" }
+
+### How the Sunrise-Sunset API response works
+
+This endpoint returns JSON with top-level fields such as `sunrise`, `sunset`, and `tzid`. Times are returned in the location's timezone by default (for this example, New York time).
+
+For example, the response shape is similar to:
+
+```json
+{
+  "date": "2026-07-23",
+  "tzid": "America/New_York",
+  "sunrise": "2026-07-23T05:42:11-04:00",
+  "sunset": "2026-07-23T20:21:32-04:00"
+}
+```
+
+### Map the API response to Liquid
+
+Because the response is saved as `result`, reference each field directly from that object.
+
+{% raw %}
+```liquid
+{{result.sunrise}}
+{{result.sunset}}
+{{result.tzid}}
+```
+{% endraw %}
+
+Use this pattern whenever you save JSON from Connected Content:
+
+1. Save the API response with `:save`.
+2. Find the field you want in the JSON response.
+3. Reference it in Liquid as `saved_variable.field_name`.
 
 ### Add variables
 
@@ -44,6 +90,7 @@ You can also include user profile attributes as variables in the URL string when
 
 For example, you may have a web service that returns content based on a user's email address and ID. If you're passing attributes containing special characters, such as the at sign (@), make sure to use the Liquid filter `url_param_escape` to replace any characters not allowed in URLs with their URL-friendly escaped versions, as shown in the following email address attribute.
 
+{% raw %}
 ```
 Hi, here are some articles that you might find interesting:
 
@@ -58,7 +105,7 @@ Connected Content requests support GET and POST requests only.
 
 ## Error handling
 
-If the URL is unavailable and reaches a 404 page, Braze will render an empty string in its place. If the URL reaches an HTTP 500 or 502 page, the URL will fail on the retry logic.
+If the URL is unavailable and reaches a 404 page, Braze renders an empty string in its place. If the URL reaches an HTTP 500 or 502 page, the URL fails on the retry logic.
 
 If the endpoint returns JSON, you can detect that by checking if the `connected` value is null, and then [conditionally abort the message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content). Braze only allows URLs that communicate over port 80 (HTTP) and 443 (HTTPS).
 
@@ -66,9 +113,9 @@ If the endpoint returns JSON, you can detect that by checking if the `connected`
 
 Connected Content employs an unhealthy host detection mechanism to detect when the target host experiences a high rate of significant slowness or overload, resulting in timeouts, too many requests, or other outcomes that prevent Braze from successfully communicating with the target endpoint. It acts as a safeguard to reduce unnecessary load that may be causing the target host to struggle. It also serves to stabilize Braze infrastructure and maintain fast messaging speeds.
 
-If the target host experiences a high rate of significant slowness or overload, Braze will temporarily halt requests to the target host for one minute, instead simulating responses indicating the failure. After one minute, Braze will probe the host's health using a small number of requests before resuming requests at full speed if the host is found to be healthy. If the host is still unhealthy, Braze will wait another minute before trying again.
+If the target host experiences a high rate of significant slowness or overload, Braze temporarily halts requests to the target host for one minute, instead simulating responses indicating the failure. After one minute, Braze probes the host's health using a small number of requests before resuming requests at full speed if the host is found to be healthy. If the host is still unhealthy, Braze waits another minute before trying again.
 
-If requests to the target host are halted by the unhealthy host detector, Braze will continue to render messages and follow your Liquid logic as if it received an error response code. If you want to ensure that these Connected Content requests are retried when they're halted by the unhealthy host detector, use the `:retry` option. For more information on the `:retry` option, see [Connected Content retries]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries).
+If requests to the target host are halted by the unhealthy host detector, Braze continues to render messages and follow your Liquid logic as if it received an error response code. If you want to ensure that these Connected Content requests are retried when they're halted by the unhealthy host detector, use the `:retry` option. For more information on the `:retry` option, see [Connected Content retries]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries).
 
 If you believe the unhealthy host detection may be causing issues, contact [Braze Support]({{site.baseurl}}/support_contact).
 
@@ -84,7 +131,7 @@ For more information about common error codes, see [Troubleshoot webhook and Con
 
 The following are different mechanisms:
 
-- **429 Too Many Requests:** Your endpoint (or an upstream service) is returning this response. It means your server or middleware is refusing traffic, often because it has its own rate limit. Braze does not apply a separate rate limit to Connected Content; Connected Content request volume scales directly with your [message delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Because messages can be rendered multiple times per recipient (for example, for email HTML, plain text, and AMP), the number of Connected Content requests can exceed that rate limit—do not assume it will be less than or equal to the messages per minute you set. If you see 429s, scale your endpoint or middleware to handle the expected request volume, or lower the campaign or Canvas step rate limit so that fewer messages (and thus fewer Connected Content calls) are sent per minute.
+- **429 Too Many Requests:** Your endpoint (or an upstream service) is returning this response. It means your server or middleware is refusing traffic, often because it has its own rate limit. Braze does not apply a separate rate limit to Connected Content; Connected Content request volume scales directly with your [message delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Because messages can be rendered multiple times per recipient (for example, for email HTML, plain text, and AMP), the number of Connected Content requests can exceed that rate limit—do not assume it will be less than or equal to the messages per minute you set. If you see 429s, scale your endpoint or middleware to handle the expected request volume, or lower the campaign or Canvas [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) so that fewer messages (and thus fewer Connected Content calls) are sent per minute.
 - **Unhealthy host detection:** A Braze-side safeguard that triggers after a high rate and volume of *failures* in a one-minute window. The failure count includes `408`, `429`, `502`, `503`, `504`, and `529` status codes. When triggered, Braze temporarily halts requests to that host and simulates a failure response. This is independent of your own rate limiting. For detection thresholds and more detail, see [Troubleshoot webhook and Connected Content requests]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). To avoid hitting unhealthy host detection, ensure your endpoint can handle the call volume described in [Understanding Connected Content call volume](#understanding-connected-content-call-volume) and [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints).
 
 ## Allow for efficient performance {#allowing-for-efficient-performance}
@@ -95,19 +142,34 @@ For more on planning endpoint capacity and reducing call volume, see [Best pract
 
 ## Things to know
 
-* Braze does not charge for API calls and will not count toward your given data point usage.
-* There is a 1 MB limit for Connected Content responses.
-* Connected Content executes when the message is rendered. For in-app messages, the message is rendered at impression time.
-* Connected Content calls do not follow redirects.
+- Braze does not charge for API calls and does not count toward your given data point usage.
+- There is a 1 MB limit for Connected Content responses.
+- Connected Content executes when the message is rendered. For in-app messages, the message is rendered at impression time.
+- Connected Content calls do not follow redirects.
+
+### How Connected Content calls are processed
+
+Connected Content calls within a single message template are executed sequentially (top to bottom) during Liquid rendering. This means downstream calls can reference variables set by upstream calls. In this example, the first call retrieves user data, and the second call uses that data to fetch preferences:
+
+{% raw %}
+```liquid
+{% connected_content https://api.example.com/user :save user_data %}
+{% connected_content https://api.example.com/preferences?user_id={{user_data.id}} :save preferences %}
+```
+{% endraw %}
+
+### Global sending and request volume
+
+While Connected Content calls execute sequentially within a single message, messages are sent in parallel across your campaigns and Canvases. High-volume sends can generate significant request traffic to your endpoints during peak sending periods. To manage and throttle that traffic—including workspace messaging rate limits, delivery speed rate limiting, and caching—see [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints).
 
 ## Best practices for high-volume endpoints
 
 If your messages use Connected Content and you send at high volume, plan for more requests than the number of recipients or sends:
 
-1. **Estimate peak load:** Use a conservative multiplier when sizing your endpoint or middleware—Connected Content requests can exceed the number of recipients or messages sent. For example, for email a single recipient can generate multiple calls (HTML, plain text, and AMP), so recipients × 2 or × 3 is often used as a conservative estimate.
-2. **Use caching where appropriate:** GET requests are cached by default. For POST requests, add `:cache_max_age` when the response can be reused for a period (for example, token or content that doesn't change per request). See [Caching responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) and the [POST caching FAQ](#what-is-caching-behavior) in the following section.
-3. **Set delivery speed rate limiting:** [Delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) on campaigns or Canvas steps is the only lever to indirectly limit Connected Content request volume—Braze does not rate limit Connected Content itself. It is only a proxy, and not a perfect one, because Connected Content requests are not 1:1 with messages. Use it to keep message (and thus Connected Content) volume within what your endpoint can handle.
-4. **Design for idempotency and retries:** Braze may call your endpoint more than once per recipient. Ensure your endpoint can tolerate duplicate requests without incorrect side effects.
+- **Estimate peak load:** Use a conservative multiplier when sizing your endpoint or middleware—Connected Content requests can exceed the number of recipients or messages sent. For example, for email a single recipient can generate multiple calls (HTML, plain text, and AMP), so recipients × 2 or × 3 is often used as a conservative estimate.
+- **Use caching where appropriate:** GET requests are cached by default. For POST requests, add `:cache_max_age` when the response can be reused for a period (for example, token or content that doesn't change per request). See [Caching responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) and the [POST caching FAQ](#what-is-caching-behavior) in the following section.
+- **Set message rate limits:** [Workspace messaging rate limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) and [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) on campaigns or Canvases indirectly limit Connected Content request volume—Braze does not rate limit Connected Content itself. These are proxies, not perfect ones, because Connected Content requests are not 1:1 with messages. Use them to keep message (and thus Connected Content) volume within what your endpoint can handle.
+- **Design for idempotency and retries:** Braze may call your endpoint more than once per recipient. Ensure your endpoint can tolerate duplicate requests without incorrect side effects.
 
 ## Authentication types
 
@@ -223,6 +285,8 @@ When a message using Connected Content is sent from Braze, the Braze servers aut
 Braze will send Connected Content requests from the following IP ranges. The listed ranges are automatically and dynamically added to any API keys that have been opted in for allowlisting. 
 
 Braze has a reserved set of IPs used for all services, not all of which are active at a given time. This is designed for Braze to send from a different data center or do maintenance, if necessary, without impacting customers. Braze may use one, a subset, or all of the following IPs listed when making Connected Content requests.
+
+If Connected Content requests consistently return `403 Forbidden` and authentication is configured correctly, allowlist these IPs on the server that receives the request. A `403` can also indicate insufficient permissions or invalid credentials, so confirm both network and auth settings. For webhook-specific guidance, see [403 Forbidden and IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#403-forbidden-and-ip-allowlisting).
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 

@@ -66,14 +66,16 @@ Stopping a Canvas does not exit users who are waiting to receive a message. If y
 
 You can edit the following settings and details after launching a Canvas:
 
-* Canvas name and description
-* Teams and tags
-* Entry type, schedule, and controls
-* Subscription status
-* Rate limiting
-* Frequency capping
-* Quiet Hours
-* Target audience
+- Canvas name and description
+- Teams
+- Tags 
+  - Adding a tag after launch lets you retarget users in segments with filters such as `Received Message from Campaign or Canvas with Tag`.
+- Entry type, schedule, and controls
+- Subscription status
+- Rate limiting
+- Frequency capping
+- Quiet hours
+- Target audience
 
 After a Canvas has launched:
 

@@ -125,6 +125,14 @@ To help understand the ratings for IP reputation, refer to this table:
 | Bad | Has a history of receiving elevated rates of spam complaints. Emails from this domain are almost always be rejected at connection time or filtered to the spam folder. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="IP reputation" }
 
+{% alert important %}
+The spam complaint data shown in Braze is based on feedback loop (FBL) reports from email providers who share them, such as Microsoft, Yahoo, and Comcast. When users at these providers report mail as spam, those complaints are sent back to Braze.<br><br>
+However, Gmail and iCloud do not operate traditional feedback loops and do not report spam complaints back to Braze. This means:<br>
+- Spam complaints from Gmail users are not included in Braze metrics or available in Snowflake or Currents data.<br>
+- You can view Gmail spam data only as aggregate percentages in [Gmail Postmaster Tools](https://www.gmail.com/postmaster/), not as individual addresses.<br>
+- If you see high spam rates in Gmail Postmaster Tools, those numbers do not match your Braze spam complaint metrics because Gmail doesn't share that data with senders.
+{% endalert %}
+
 #### Domain reputation 
 
 Use the following table to help monitor and understand your domain reputation ratings to help avoid being filtered into a spam folder.
@@ -227,3 +235,14 @@ These columns show when the first and last messages sent to trap accounts were r
 {% alert tip %}
 If you're looking for records related to one of your verified domains in Braze, note that the Deliverability Center lists your data from Google Postmaster or Microsoft SNDS, meaning it's likely that either platform doesn't have any data to share with Braze. Alternatively, try maintaining consistent email delivery, as this can lead to a higher reputation. 
 {% endalert %}
+
+## Spam complaints and feedback loops
+
+An email feedback loop (FBL) allows email senders to receive reports when recipients mark messages as spam. However, Gmail and iCloud do not offer traditional feedback loops, which means Braze (through SparkPost or SendGrid) does not receive spam complaint data from these providers. 
+
+Because spam complaint data is not available from Gmail and iCloud, it's important to use other tools to monitor your email health and reputation with these major providers:
+
+- Use [Google Postmaster Tools](https://www.gmail.com/postmaster/) to monitor domain and IP reputation, spam rates, and user engagement. You can integrate Google Postmaster with Braze as described in [Integrate Google Postmaster](#integrating-google-postmaster).
+- Apple does not provide a public Postmaster tool equivalent to Google's. Focus on maintaining strong engagement metrics and following email best practices.
+
+To maintain good deliverability with all providers, implement a [sunset policy]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) to automatically stop sending to unengaged users. This helps prevent your emails from being marked as spam and protects your sender reputation.

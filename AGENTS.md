@@ -26,12 +26,13 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`spell-check`](.github/skills/spell-check/SKILL.md) | Pre-PR cspell gate for changed `_docs/` and `_includes/` markdown |
 | [`snippet-pii`](scripts/check_snippet_pii.py) | Advisory fenced-code-block PII scan for `_docs/` and `_includes/` (see `check-snippet-pii.yml`) |
 | [`tam-solutions`](.github/skills/tam-solutions/SKILL.md) | Converting TAM solution assets into public User Guide example articles |
+| [`slack-to-docs`](.github/skills/slack-to-docs/SKILL.md) | Mining SME Slack channels for source-verified doc PRs with dedup and thread citations |
 
 ## How to invoke (Cursor)
 
 - **Routine `_docs/` edits:** Describe the task; no tag required. The repo bootstrap rule points agents at `braze-docs`.
 - **Verification:** Invoke **`/reference-repos`** from chat, or ask to “verify against source.” Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders.
-- **Heavy workflows:** Invoke from chat once (for example `/redirect-management`, `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `image-curator`, `/image-pruner`, `/screenshot-pii-audit`, `/spell-check`, `/create-pr`).
+- **Heavy workflows:** Invoke from chat once (for example `/redirect-management`, `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `/slack-to-docs`, `image-curator`, `/image-pruner`, `/screenshot-pii-audit`, `/spell-check`, `/create-pr`).
 
 Inside `SKILL.md` files and agent rules, cross-reference other skills with `braze-docs:skill-name` or relative links — not `@` or `/`. See [CAPABILITIES.md](CAPABILITIES.md#cross-referencing-skills-in-instructions).
 
