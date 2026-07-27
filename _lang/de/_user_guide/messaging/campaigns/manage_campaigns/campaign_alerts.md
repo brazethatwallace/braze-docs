@@ -14,31 +14,33 @@ channel:
 
 # Kampagnenbenachrichtigungen {#campaign-alerts}
 
-> Wir möchten Sie benachrichtigen, wenn etwas nicht ganz wie erwartet läuft, und Ihnen die Gewissheit geben, dass alles reibungslos funktioniert. Schwellenwert-Benachrichtigungen für Kampagnen sorgen für Sicherheit – erfahren Sie als Erste:r, wenn eine wichtige Kampagne mehr oder weniger Nachrichten sendet als erwartet.
+> Wir möchten Sie benachrichtigen, wenn etwas nicht ganz wie erwartet läuft, und Ihnen die Gewissheit geben, dass alles reibungslos funktioniert. Schwellenwert-Benachrichtigungen für Campaigns sorgen für Sicherheit – erfahren Sie als Erste:r, wenn eine wichtige Campaign mehr oder weniger Nachrichten sendet als erwartet.
 
-Kampagnenbenachrichtigungen sind für die folgenden Kampagnen verfügbar:
+Suchen Sie nach der gleichen Funktion für Canvas? Lesen Sie den Artikel [Canvas-Schwellenwert-Benachrichtigungen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts).
 
-- Wiederkehrende geplante Kampagnen
-- Aktionsbasierte Kampagnen
-- API-getriggerte Kampagnen
+Kampagnenbenachrichtigungen sind für die folgenden Campaigns verfügbar:
 
-## Ihre Kampagnenbenachrichtigung einrichten {#setting-up-your-campaign-alert}
+- Wiederkehrende geplante Campaigns
+- Aktionsbasierte Campaigns
+- API-getriggerte Campaigns
 
-Navigieren Sie zur Analytics-Seite Ihrer Kampagne, um mit der Einrichtung Ihrer Benachrichtigung zu beginnen. Wenn Sie **Benachrichtigung einrichten** auswählen, können Sie obere und untere Schwellenwerte sowie die Empfänger:innen und Kanäle für die Benachrichtigung festlegen.
+## Einrichten Ihrer Campaign-Benachrichtigung {#setting-up-your-campaign-alert}
 
-![Dialogfeld für Kampagnenüberwachung mit zwei Buttons: „Abbrechen“ und „Speichern“.]({% image_buster /assets/img_archive/campaign_alerts.png %})
+Navigieren Sie zur Analytics-Seite Ihrer Campaign, um mit der Einrichtung Ihrer Benachrichtigung zu beginnen. Wenn Sie **Set Up Alert** auswählen, können Sie obere und untere Schwellenwerte für Benachrichtigungen sowie die Empfänger:innen und Kanäle der Benachrichtigungen festlegen.
 
-Für eine geplante wiederkehrende Kampagne können Sie obere und untere Schwellenwerte für die Nachrichten festlegen, die bei jedem Versand der Kampagne gesendet werden. Für eine getriggerte Kampagne können Sie obere und untere Schwellenwerte für die Anzahl der stündlich und täglich gesendeten Nachrichten festlegen.
+![Dialogfeld für Campaign-Monitoring mit zwei Buttons: „Cancel“ und „Save“.]({% image_buster /assets/img_archive/campaign_alerts.png %})
 
-Sie können eine E-Mail-Benachrichtigung, eine Webhook-Benachrichtigung oder beides einrichten. Webhook-Benachrichtigungen können sehr nützlich sein, da sie es Ihnen ermöglichen, eine Benachrichtigung an einen Slack-Kanal zu senden. Weitere Informationen zur Integration von Kampagnenbenachrichtigungen mit Slack finden Sie in der Slack-Dokumentation unter [Sending messages using incoming webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/).
+Für eine geplante wiederkehrende Campaign können Sie obere und untere Schwellenwerte für die Anzahl der gesendeten Nachrichten bei jedem Versand der Campaign festlegen. Für eine getriggerte Campaign können Sie obere und untere Schwellenwerte für die Anzahl der stündlich und täglich gesendeten Nachrichten festlegen.
+
+Sie können eine E-Mail-Benachrichtigung, eine Webhook-Benachrichtigung oder beides einrichten. Webhook-Benachrichtigungen können sehr nützlich sein, da sie es Ihnen ermöglichen, eine Benachrichtigung an einen Slack-Kanal zu senden. Weitere Informationen zur Integration von Campaign-Benachrichtigungen mit Slack finden Sie in der Slack-Dokumentation unter [Nachrichten über eingehende Webhooks senden](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/).
 
 {% alert note %}
-Wenn Sie Kampagnenbenachrichtigungen für zukünftige Kampagnen einrichten, erhalten Sie möglicherweise Updates, bevor die Kampagne startet und nachdem sie endet. Das liegt daran, dass Kampagnenbenachrichtigungen weiterhin gesendet werden, bis die Kampagne manuell gestoppt wurde.
+Wenn Sie Campaign-Benachrichtigungen für zukünftige Campaigns einrichten, erhalten Sie möglicherweise Aktualisierungen, bevor die Campaign startet und nachdem sie endet. Dies liegt daran, dass Campaign-Benachrichtigungen weiterhin gesendet werden, bis die Campaign manuell gestoppt wurde.
 {% endalert %}
 
-## Webhook-Payload für Kampagnenbenachrichtigungen {#campaign-alert-webhook-payload}
+## Webhook-Payload für Campaign-Benachrichtigungen {#campaign-alert-webhook-payload}
 
-Im Folgenden finden Sie ein Beispiel-Payload für den Body eines Kampagnenbenachrichtigungs-Webhooks. Dieses Beispiel verwendet eine Benachrichtigung, die so konfiguriert ist, dass sie gesendet wird, wenn die Anzahl der gesendeten Nachrichten bei einem bestimmten Kampagnenversand unter 500 fällt.
+Das Folgende ist ein Beispiel-Payload für den Body eines Webhook für Campaign-Benachrichtigungen. Dieses Beispiel verwendet eine Benachrichtigung, die so konfiguriert ist, dass sie gesendet wird, wenn die Anzahl gesendeter Nachrichten bei einem bestimmten Campaign-Versand unter 500 fällt.
 
 ```
 {"text":"Your campaign 'Sample campaign' had fewer than 500 messages sent this run. It had 4 messages sent this run. See https://dashboard-01.braze.com/engagement/campaigns/5b44b00ffbe76a7024f242e6/51804f26dd365acfa700026a?page=-2",

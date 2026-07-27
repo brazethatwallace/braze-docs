@@ -16,29 +16,31 @@ channel:
 
 > Queremos alertar você quando algo não parecer como esperado e garantir a tranquilidade de que tudo está funcionando bem. Os alertas de limite de campanha oferecem essa tranquilidade — seja a primeira pessoa a saber se uma campanha importante envia mais ou menos mensagens do que o esperado.
 
+Procurando a mesma funcionalidade em um Canvas? Consulte [Alertas de limite de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts).
+
 Os alertas de campanha estão disponíveis para as seguintes campanhas:
 
 - Campanhas agendadas recorrentes
 - Campanhas baseadas em ação
 - Campanhas disparadas por API
 
-## Configurando seu alerta de campanha {#setting-up-your-campaign-alert}
+## Configurando o alerta da sua campanha {#setting-up-your-campaign-alert}
 
-Acesse a página de análise de dados da sua campanha para começar a configurar seu alerta. Ao selecionar **Set Up Alert**, você poderá especificar os limites superior e inferior do alerta, bem como os destinatários e canais de alerta.
+Acesse a página de análise de dados da sua Campaign para começar a configurar o alerta. Ao selecionar **Set Up Alert**, você poderá especificar limites superiores e inferiores para o alerta, bem como os destinatários e canais de alerta.
 
-![Caixa de diálogo de monitoramento de campanha com dois botões: Cancel e Save.]({% image_buster /assets/img_archive/campaign_alerts.png %})
+![Caixa de diálogo de monitoramento de Campaign com dois botões: Cancel e Save.]({% image_buster /assets/img_archive/campaign_alerts.png %})
 
-Para uma campanha agendada recorrente, você pode definir limites superiores e inferiores para as mensagens enviadas a cada execução da campanha. Para uma campanha disparada, você pode definir limites superiores e inferiores para o número de mensagens enviadas por hora e por dia.
+Para uma Campaign recorrente agendada, você pode definir limites superiores e inferiores para as mensagens enviadas a cada disparo da Campaign. Para uma Campaign disparada, você pode definir limites superiores e inferiores para o número de mensagens enviadas por hora e por dia.
 
-Você pode configurar um alerta por e-mail, um alerta por webhook ou ambos. Os alertas por webhook podem ser muito úteis, pois permitem enviar um alerta para um canal do Slack. Para saber mais sobre a integração de alertas de campanha com o Slack, consulte a documentação do Slack sobre [Envio de mensagens usando incoming webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/).
+Você pode configurar um alerta por e-mail, um alerta por webhook ou ambos. Alertas por webhook podem ser muito úteis, pois permitem enviar um alerta para um canal do Slack. Para saber mais sobre a integração de alertas de Campaign com o Slack, consulte a documentação do Slack sobre [Envio de mensagens usando webhooks de entrada](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/).
 
 {% alert note %}
-Ao configurar alertas de campanha para campanhas futuras, você pode receber atualizações antes do início da campanha e após o término. Isso acontece porque os alertas de campanha continuam sendo enviados até que a campanha seja interrompida manualmente.
+Ao configurar alertas de Campaign para Campaigns futuras, você pode receber atualizações antes do início da Campaign e após o seu término. Isso acontece porque os alertas de Campaign continuarão sendo enviados até que a Campaign seja interrompida manualmente.
 {% endalert %}
 
-## Carga útil do webhook de alerta de campanha {#campaign-alert-webhook-payload}
+## Carga útil do webhook de alerta de Campaign {#campaign-alert-webhook-payload}
 
-A seguir, um exemplo de carga útil para o corpo de um webhook de alerta de campanha. Este exemplo usa um alerta configurado para ser enviado quando o número de mensagens enviadas fica abaixo de 500 em uma determinada execução de campanha.
+A seguir está um exemplo de carga útil para o corpo de um webhook de alerta de Campaign. Este exemplo usa um alerta configurado para enviar quando o número de mensagens enviadas fica abaixo de 500 para um determinado envio de Campaign.
 
 ```
 {"text":"Your campaign 'Sample campaign' had fewer than 500 messages sent this run. It had 4 messages sent this run. See https://dashboard-01.braze.com/engagement/campaigns/5b44b00ffbe76a7024f242e6/51804f26dd365acfa700026a?page=-2",

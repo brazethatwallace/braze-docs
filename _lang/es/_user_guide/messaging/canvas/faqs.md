@@ -21,7 +21,7 @@ Puedes añadir hasta 200 pasos en un Canvas.
 
 ### ¿Cuál es la diferencia entre un componente y un paso? {#whats-the-difference-between-a-component-and-a-step}
 
-Un [componente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about) es una parte individual de tu Canvas que puedes usar para determinar la efectividad de tu Canvas. Los componentes pueden incluir acciones como dividir el recorrido de usuario, añadir un retraso e incluso probar múltiples rutas de Canvas. Un paso en Canvas se refiere al recorrido personalizado del usuario en las ramas de tu Canvas. Esencialmente, tu Canvas está compuesto por componentes individuales que crean pasos para el recorrido de usuario.
+Un [componente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about) es una parte individual de tu Canvas que puedes usar para determinar la efectividad de tu Canvas. Los componentes pueden incluir acciones como dividir el recorrido del usuario, añadir un retraso e incluso probar múltiples rutas de Canvas. Un paso en Canvas se refiere al recorrido personalizado del usuario en las ramas de tu Canvas. Esencialmente, tu Canvas está compuesto por componentes individuales que crean pasos para el recorrido del usuario.
 
 ### ¿Puedo lanzar un Canvas con pasos desconectados? {#can-i-launch-a-canvas-with-disconnected-steps}
 
@@ -29,13 +29,13 @@ Sí. También puedes guardar Canvas después del lanzamiento con pasos desconect
 
 ### ¿A dónde van los usuarios cuando llegan a un paso desconectado? {#where-do-users-go-when-theyve-reached-a-disconnected-step}
 
-Si un usuario se encuentra en un paso desconectado del flujo de trabajo de tu Canvas, avanzará al paso siguiente si existe uno, y la configuración del paso determinará cómo debe avanzar el usuario. Esto está pensado para permitir a los usuarios realizar cambios en los pasos sin tener que conectarlos directamente al resto del Canvas. Esto también te da margen para probar antes de publicar de inmediato, lo que permite guardar un borrador de forma efectiva.
+Si un usuario se encuentra en un paso desconectado del flujo de trabajo de tu Canvas, avanzará al paso siguiente si existe uno, y la configuración del paso determinará cómo debe avanzar el usuario. Esto está pensado para permitirte realizar cambios en los pasos sin tener que conectarlos directamente al resto del Canvas. Esto también te da margen para probar antes de publicar de inmediato, lo que en la práctica permite guardar un borrador.
 
 Te recomendamos revisar la vista de análisis de los usuarios pendientes en un paso de Canvas antes de desconectar un paso.
 
 ### ¿Qué ocurre si la audiencia y la hora de envío son idénticas para un Canvas que tiene una variante, pero múltiples ramas? {#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches}
 
-Ponemos en cola un trabajo para cada paso: se ejecutan aproximadamente al mismo tiempo, y uno de ellos "gana". En la práctica, esto puede distribuirse de forma algo uniforme, pero es probable que haya al menos un ligero sesgo hacia el paso que se creó primero.
+Ponemos en cola un trabajo para cada paso: se ejecutan aproximadamente al mismo tiempo, y uno de ellos "gana". En la práctica, esto puede distribuirse de forma más o menos uniforme, pero es probable que haya al menos un ligero sesgo hacia el paso que se creó primero.
 
 Además, no podemos garantizar exactamente cómo será esa distribución. Si quieres una división equitativa, añade un filtro de [número de contenedor aleatorio]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers).
 
@@ -49,7 +49,7 @@ Los eventos de excepción solo se desencadenan mientras el usuario está esperan
 
 ### ¿Cómo afecta la edición de un Canvas a los usuarios que ya están en él? {#how-does-editing-a-canvas-affect-users-already-in-the-canvas}
 
-Si editas algunos de los pasos de un Canvas de varios pasos, los usuarios que ya estaban en la audiencia pero no han recibido los pasos recibirán la versión actualizada del mensaje. Ten en cuenta que esto solo ocurrirá si aún no han sido evaluados para el paso.
+Si editas algunos de los pasos de un Canvas de varios pasos, los usuarios que ya estaban en la audiencia pero no han recibido los pasos recibirán la versión actualizada del mensaje. Ten en cuenta que esto solo ocurrirá si aún no han sido evaluados para ese paso.
 
 Para más información sobre lo que puedes editar después del lanzamiento, consulta [Cambiar tu Canvas después del lanzamiento]({{site.baseurl}}/post-launch_edits).
 
@@ -63,13 +63,13 @@ Cuando detienes un Canvas, se aplica lo siguiente:
 
 ### ¿Debo crear un solo Canvas o Canvas separados por ciclo de vida del usuario? {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
 
-Dependiendo de lo que quieras lograr con tu Canvas, es posible que necesites diferentes enfoques en la forma en que construyes el recorrido de usuario. La flexibilidad de Canvas te permite mapear recorridos de usuario para cualquier etapa del ciclo de vida del usuario. Consulta nuestras [plantillas de Braze Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para ver varios ejemplos de enfoques optimizados para crear recorridos de usuario efectivos.
+Dependiendo de lo que quieras lograr con tu Canvas, es posible que necesites diferentes enfoques para construir el recorrido del usuario. La flexibilidad de Canvas te permite mapear recorridos de usuario para cualquier etapa del ciclo de vida del usuario. Consulta nuestras [plantillas de Braze Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para ver varios ejemplos de enfoques optimizados para crear recorridos de usuario efectivos.
 
 ## Mensajes y entrega {#messages-and-delivery}
 
 ### ¿Cuándo se envían los mensajes dentro de la aplicación en Canvas? {#when-are-in-app-messages-in-canvas-sent}
 
-Los mensajes dentro de la aplicación se envían al inicio de la siguiente sesión. Esto significa que si el usuario entra en el paso de Canvas antes de que se detenga el Canvas, seguirá recibiendo el mensaje dentro de la aplicación en su siguiente inicio de sesión, siempre que el mensaje dentro de la aplicación no haya expirado aún.
+Los mensajes dentro de la aplicación se envían al inicio de la siguiente sesión. Esto significa que si el usuario entra en el paso de Canvas antes de que se detenga el Canvas, seguirá recibiendo el mensaje dentro de la aplicación en el siguiente inicio de sesión, siempre que el mensaje dentro de la aplicación no haya expirado aún.
 
 Es posible que un usuario inicie una sesión antes de que se detenga el Canvas, pero que no se le muestre el mensaje dentro de la aplicación de inmediato. Esto puede ocurrir si el mensaje dentro de la aplicación se desencadena por un evento personalizado o tiene un retraso. Esto significa que es posible que un usuario registre una impresión de mensaje dentro de la aplicación y "reciba" el mensaje dentro de la aplicación después de que se detenga el Canvas. Sin embargo, el usuario habría tenido que iniciar la sesión antes de que se detuviera el Canvas, pero **después** de recibir el paso de Canvas.
 
@@ -81,11 +81,11 @@ Detener un Canvas no hará que los usuarios que están esperando recibir mensaje
 
 Si _Mensajes enviados_ siempre es cero para un Canvas que contiene un paso de mensaje dentro de la aplicación, esto se debe a que la entrega de mensajes dentro de la aplicación funciona de manera diferente a otros canales de mensajería.
 
-Los mensajes dentro de la aplicación son "solicitados" por el SDK, en lugar de ser "enviados" desde Braze. Los mensajes dentro de la aplicación para usuarios elegibles se entregan automáticamente al inicio de la sesión y "esperan" el evento desencadenante antes de mostrarse. Dado que los usuarios elegibles reciben el mensaje cuando inician una sesión, Braze no lo reporta como un evento de envío. Cuando los usuarios realizan el evento desencadenante, el mensaje se muestra y Braze registra una impresión y marca el paso de Canvas (o Campaign) como recibido en el perfil de usuario. En consecuencia, el total de _Envíos_ es cero para los mensajes dentro de la aplicación.
+Los mensajes dentro de la aplicación son "solicitados" por el SDK, en lugar de ser "enviados" desde Braze. Los mensajes dentro de la aplicación para usuarios elegibles se entregan automáticamente al inicio de la sesión y "esperan" al evento desencadenante antes de mostrarse. Dado que los usuarios elegibles reciben el mensaje cuando inician una sesión, Braze no lo reporta como un evento de envío. Cuando los usuarios realizan el evento desencadenante, el mensaje se muestra y Braze registra una impresión y marca el paso de Canvas (o Campaign) como recibido en el perfil de usuario. En consecuencia, el total de _Envíos_ es cero para los mensajes dentro de la aplicación.
 
 ### ¿Por qué los usuarios no recibieron mi mensaje dentro de la aplicación después de un retraso largo o una rama? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
 
-Después de que se completan los pasos de [Retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) anteriores y las verificaciones de audiencia, los usuarios se vuelven elegibles para un mensaje dentro de la aplicación solo cuando alcanzan el paso de Mensaje. Si el mensaje expira en una fecha del calendario o en una ventana corta de **duración después de que el paso esté disponible**, los usuarios en ramas más lentas pueden llegar después de la expiración y nunca ver el mensaje. Alinea la expiración con los retrasos más largos y realistas de tu recorrido. Para más información y ejemplos, consulta [Expiración de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration).
+Después de que se completen los pasos de [Retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) anteriores y las comprobaciones de audiencia, los usuarios se vuelven elegibles para un mensaje dentro de la aplicación solo cuando alcanzan el paso de Mensaje. Si el mensaje expira en una fecha del calendario o en una ventana corta de **duración después de que el paso esté disponible**, los usuarios en ramas más lentas pueden llegar después de la expiración y nunca ver el mensaje. Alinea la expiración con los retrasos más largos realistas de tu recorrido. Para más información y ejemplos, consulta [Expiración de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration).
 
 ### ¿Por qué veo "Canvas Entry Properties may not be used in In-App Messages."? {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
 
@@ -113,13 +113,13 @@ No recibe ese envío para el canal limitado, pero los pasos de Mensaje aún avan
 
 ### ¿Por qué los envíos son menores que el tamaño estimado de la audiencia? {#why-are-sends-lower-than-the-estimated-audience-size}
 
-Los envíos pueden ser menores que la **Audiencia estimada** por muchas de las mismas razones que en las [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq#why-are-sends-lower-than-the-estimated-audience-size), incluyendo limitaciones de frecuencia, filtros estrictos de dispositivo o navegador, ventanas de reelegibilidad, límites de velocidad y exclusiones a nivel de canal (por ejemplo, alcanzabilidad push o verificaciones de suscripción y capacidad de entrega de correo electrónico).
+Los envíos pueden ser menores que la **Audiencia estimada** por muchas de las mismas razones que en las [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq#why-are-sends-lower-than-the-estimated-audience-size), incluyendo limitaciones de frecuencia, filtros estrictos de dispositivo o navegador, ventanas de reelegibilidad, límites de velocidad y exclusiones a nivel de canal (por ejemplo, alcanzabilidad push o comprobaciones de suscripción y capacidad de entrega de correo electrónico).
 
 También aplican factores específicos de Canvas:
 
 - **Entrada basada en acciones o desencadenada por API:** Los usuarios solo entran (y reciben pasos) después de realizar el comportamiento de entrada, por lo que los envíos realizados van por detrás de la estimación inicial hasta que esas acciones ocurran.
 - **Rutas de audiencia:** Los usuarios se dirigen a la rama de mayor prioridad para la que califican, por lo que las ramas posteriores pueden recibir menos usuarios de lo que sugiere un conteo plano de Segment.
-- **Verificaciones de audiencia y hora de envío:** Los pasos completos reevalúan los filtros en el momento del envío a menos que configures lo contrario. Los usuarios que calificaron cuando se creó el Canvas pueden quedar fuera antes de que se envíe un mensaje.
+- **Comprobaciones de audiencia y hora de envío:** Los pasos completos reevalúan los filtros en el momento del envío a menos que configures lo contrario. Los usuarios que calificaron cuando se creó el Canvas pueden quedar fuera antes de que se envíe un mensaje.
 - **Grupos de control:** Los grupos de control globales o de Canvas retienen una parte de los entrantes de la mensajería.
 - **Horas tranquilas y retrasos:** Los mensajes pueden retenerse o reprogramarse, desplazando los envíos fuera de la ventana de informes que estás viendo.
 - **Límites máximos de entrada o audiencia:** Los límites de entrada o envío detienen a usuarios adicionales incluso cuando el Segment subyacente es más grande.
@@ -139,8 +139,8 @@ Por ejemplo, si un usuario recibe un paso de Canvas el lunes y nuevamente el vie
 
 Si descubres que tu Canvas programado diario envía a menos usuarios con el tiempo, verifica lo siguiente:
 
-- **Verifica si la reelegibilidad está activada:** Sin reelegibilidad, Braze ingresa a cada usuario en el Canvas solo una vez. En Canvas programados diariamente, solo los usuarios que coinciden con la audiencia y que aún no han entrado en el Canvas son elegibles para cada entrada. A medida que más usuarios entran, cada entrada posterior tiene menos usuarios elegibles, por lo que el volumen de entrada disminuye.
-- **Verifica si la audiencia tiene membresía fija:** Las audiencias construidas a partir de una lista fija de usuarios (como una [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) utilizada como filtro de Segment) no ganan nuevos miembros automáticamente. Sin nuevos entrantes, el volumen de entrada no puede recuperarse a medida que los usuarios entran en el Canvas.
+- **Comprueba si la reelegibilidad está activada:** Sin reelegibilidad, Braze ingresa a cada usuario en el Canvas solo una vez. En Canvas programados diariamente, solo los usuarios que coinciden con la audiencia y que aún no han entrado en el Canvas son elegibles para cada entrada. A medida que más usuarios entran, cada entrada posterior tiene menos usuarios elegibles, por lo que el volumen de entradas disminuye.
+- **Comprueba si la audiencia tiene membresía fija:** Las audiencias construidas a partir de una lista fija de usuarios (como una [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) utilizada como filtro de Segment) no ganan nuevos miembros automáticamente. Sin nuevos entrantes, el volumen de entradas no puede recuperarse a medida que los usuarios entran en el Canvas.
 
 Para [límites de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) y otros factores que reducen los envíos para una sola ocurrencia, consulta [¿Por qué los envíos son menores que el tamaño estimado de la audiencia?](#why-are-sends-lower-than-the-estimated-audience-size).
 
@@ -203,11 +203,11 @@ No, pero puedes [archivar un Canvas]({{site.baseurl}}/user_guide/messaging/gover
 
 ### ¿Cómo reanudo un Canvas o una Campaign archivados? {#how-do-i-resume-an-archived-canvas-or-campaign}
 
-Los mensajes archivados no se envían hasta que los devuelvas a un estado editable. [Desarchivar]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving) la Campaign o el Canvas, configura la programación de entrada o el horario de envío en una ventana futura (o duplica el recorrido si necesitas una copia limpia), y luego selecciona **Reanudar** o lanza según sea necesario. Consulta [Archivar Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving).
+Los mensajes archivados no se envían hasta que los devuelvas a un estado editable. [Desarchivar]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving) la Campaign o el Canvas, configura la programación de entrada o el horario de envío a una ventana futura (o duplica el recorrido si necesitas una copia limpia), luego selecciona **Reanudar** o lanza según sea necesario. Consulta [Archivar Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving).
 
 ### ¿Por qué mi Canvas no se guarda cuando no aparece ningún error? {#why-doesnt-my-canvas-save-when-no-error-appears}
 
-Los filtros vacíos de **Atributo personalizado** en la audiencia o en los filtros a nivel de paso pueden bloquear el guardado sin un mensaje de validación detallado. Abre cada tarjeta de filtro, elimina las reglas de atributo personalizado incompletas o introduce tanto el nombre del atributo como el valor, y luego selecciona **Guardar** de nuevo.
+Los filtros de **Atributo personalizado** vacíos en la audiencia o en los filtros a nivel de paso pueden bloquear el guardado sin un mensaje de validación detallado. Abre cada tarjeta de filtro, elimina las reglas de atributo personalizado incompletas o introduce tanto el nombre del atributo como el valor, y luego selecciona **Guardar** de nuevo.
 
 ### ¿Por qué desapareció una etiqueta de mi Canvas o Campaign? {#why-did-a-tag-disappear-from-my-canvas-or-campaign}
 
@@ -241,7 +241,7 @@ Para obtener más ayuda con la solución de problemas de Canvas, asegúrate de c
 
 Usa [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) como `Entered Canvas Variation`, `In Canvas Control Group` o `Received Message from Canvas Step` para segmentar usuarios según la entrada en Canvas, la asignación de variante o la participación en un paso. Estos filtros evalúan el historial de entrada y las interacciones; no indican si un usuario sigue avanzando a través de un recorrido activo.
 
-Para incluir o excluir usuarios según su participación activa en Canvas, añade pasos de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) en la entrada y salida del Canvas para establecer y borrar atributos personalizados, y luego filtra por esos atributos en Campaigns o Segments.
+Para incluir o excluir usuarios según la participación activa en Canvas, añade pasos de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) en la entrada y salida del Canvas para establecer y borrar atributos personalizados, y luego filtra por esos atributos en Campaigns o Segments.
 
 ## Segmentación {#segmentation}
 
@@ -261,7 +261,7 @@ Ten en cuenta que la asignación de variantes se produce en la entrada al Canvas
 
 ## Editor de Canvas original {#original-canvas-editor}
 
-{% details Expande para ver las preguntas frecuentes del editor de Canvas original %}
+{% details Ampliar para ver las preguntas frecuentes del editor de Canvas original %}
 
 ### ¿Cómo convierto un Canvas existente del editor original al editor actual? {#how-do-i-convert-an-existing-canvas-from-the-original-editor-to-the-current-editor}
 
@@ -305,7 +305,7 @@ Ten en cuenta que si la sincronización inteligente está activada, el mensaje s
 
 El evento de excepción se aplica mediante Rutas de Acción, que están separadas de los pasos de mensaje. Las horas tranquilas se aplican en el componente de mensaje. Esto significa que si un usuario ya pasó la Ruta de Acción (y no fue excluido con el evento de excepción), luego encuentra las horas tranquilas cuando llega al componente de mensaje, y su Canvas estaba configurado de modo que el mensaje se reenvíe después del período de horas tranquilas, el evento de excepción ya no se aplicará. Ten en cuenta que este caso de uso no es común.
 
-Para Segments y filtros, el paso de mensaje tiene validaciones de entrega que permiten a los usuarios configurar Segments y filtros adicionales que se validan en el momento del envío. Esto previene el caso límite de horas tranquilas mencionado anteriormente.
+Para Segments y filtros, el paso de mensaje tiene validaciones de entrega que permiten a los usuarios configurar Segments y filtros adicionales que se validan en el momento del envío. Esto evita el caso límite de horas tranquilas mencionado anteriormente.
 
 ##### Configuración de programación "en" o "en el siguiente" {#in-or-on-the-next-schedule-setting}
 
@@ -313,9 +313,9 @@ Los eventos de excepción se crean mediante Rutas de Acción. Las Rutas de Acci�
 
 {% enddetails %}
 
-### ¿Qué debo incluir al enviar un ticket de soporte por un error de "Request Timed Out"? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
+### ¿Qué debo incluir al enviar un ticket de soporte por un error "Request Timed Out"? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
-Si encuentras un error de "Request Timed Out" mientras editas un Canvas y necesitas contactar con el [soporte de Braze]({{site.baseurl}}/braze_support), incluye la siguiente información para ayudar a acelerar la resolución:
+Si encuentras un error "Request Timed Out" mientras editas un Canvas y necesitas contactar con el [soporte de Braze]({{site.baseurl}}/braze_support), incluye la siguiente información para ayudar a acelerar la resolución:
 
 {% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='canvas' %}
 
@@ -323,7 +323,7 @@ Si encuentras un error de "Request Timed Out" mientras editas un Canvas y necesi
 
 ### ¿Los usuarios huérfanos son elegibles para recibir mensajes de Canvas? {#are-orphaned-users-eligible-to-receive-canvas-messages}
 
-No. Los [usuarios huérfanos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users) no son elegibles para recibir mensajes. Si un perfil queda huérfano mientras un usuario está en un recorrido de Canvas, saldrá silenciosamente del flujo. Es posible que los análisis no siempre muestren un evento **Exited** para esa salida, y el resumen del flujo de trabajo puede incluir un `partial_update_token` sin `exited_date` ni `exit_reason`.
+No. Los [usuarios huérfanos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users) no son elegibles para recibir mensajes. Si un perfil queda huérfano mientras un usuario está en un recorrido de Canvas, sale silenciosamente del flujo. Es posible que los análisis no siempre muestren un evento **Exited** para esa salida, y el resumen del flujo de trabajo puede incluir un `partial_update_token` sin `exited_date` ni `exit_reason`.
 
 Para más información sobre fusiones y perfiles huérfanos, consulta [Fusionar usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
@@ -335,7 +335,7 @@ Este es el mismo comportamiento descrito para [detener un Canvas](#what-happens-
 
 ### ¿Cómo puedo confirmar que un paso de webhook en Canvas se ejecutó sin contenido visible para el usuario? {#how-can-i-confirm-a-canvas-webhook-step-fired-without-user-visible-content}
 
-Braze registra los **envíos** de webhook y los resultados de entrega relacionados para los pasos de [webhook]({{site.baseurl}}/user_guide/channels/webhooks) en Campaigns y Canvas. Usa los análisis del paso, los [informes de webhook]({{site.baseurl}}/user_guide/channels/webhooks/reporting) o los eventos de webhook de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para confirmar que el paso se ejecutó. Los registros de solicitudes de tu endpoint proporcionan confirmación adicional cuando necesitas prueba de recepción del lado del servidor.
+Braze rastrea los **envíos** de webhooks y los resultados de entrega relacionados para los pasos de [Webhook]({{site.baseurl}}/user_guide/channels/webhooks) en Campaigns y Canvas. Usa los análisis del paso, los [informes de webhook]({{site.baseurl}}/user_guide/channels/webhooks/reporting) o los eventos de webhook de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para confirmar que el paso se ejecutó. Los registros de solicitudes de tu endpoint proporcionan confirmación adicional cuando necesitas prueba de recepción del lado del servidor.
 
 Braze no incluye un píxel de seguimiento invisible integrado para los pasos de webhook. Confía en las métricas de webhook de Braze y en los registros de tu endpoint en lugar de solicitudes personalizadas de imágenes de un píxel.
 
@@ -343,7 +343,11 @@ Braze no incluye un píxel de seguimiento invisible integrado para los pasos de 
 
 Para Canvas basados en acciones y activados por API, Braze deduplica los eventos desencadenantes de modo que un usuario puede entrar como máximo **una vez por segundo** en el mismo Canvas. Si un usuario realiza el mismo evento desencadenante varias veces en un segundo, solo se procesa una entrada.
 
-Para permitir múltiples entradas en el mismo segundo, espacía los eventos desencadenantes en al menos 1.1 segundos (por ejemplo, cuando controlas la temporización de eventos desde tu servidor). Para un comportamiento similar al de Campaigns que permita múltiples desencadenantes en el mismo segundo, compara tu caso de uso con [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns) con la programación y configuración de reelegibilidad adecuadas.
+Para permitir múltiples entradas en el mismo segundo, espacia los eventos desencadenantes al menos 1.1 segundos (por ejemplo, cuando controlas la temporización de eventos desde tu servidor). Para un comportamiento similar al de Campaigns que permita múltiples desencadenantes en el mismo segundo, compara tu caso de uso con [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns) con la configuración de programación y reelegibilidad adecuada.
+
+### ¿Cuándo se deduplican los usuarios en Canvas activados por API? {#when-are-users-de-duplicated-in-api-triggered-canvases}
+
+Si un usuario vuelve a entrar en un Canvas activado por API y llega a un paso de retraso donde ya está en cola por una entrada anterior para un mensaje idéntico, Braze deduplica al usuario para evitar envíos duplicados. La segunda instancia de Canvas sale, por lo que el número de entradas puede superar el número de envíos.
 
 ### ¿Por qué una notificación push de prueba llega a la aplicación incorrecta, pero los envíos en vivo se ven correctos? {#why-does-a-test-push-go-to-the-wrong-app-but-live-sends-look-correct}
 
@@ -365,7 +369,7 @@ Braze envía esta notificación cuando los mensajes de Canvas se retrasan por li
 
 ### ¿Cuándo deja un usuario de recibir mensajes después de un evento de excepción? {#when-does-a-user-stop-receiving-messages-after-an-exception-event}
 
-Braze registra la salida tan pronto como ocurre el evento de excepción, pero los usuarios pueden permanecer dentro de un paso hasta que los temporizadores finalicen, lo cual es más visible en los pasos de retraso. El comportamiento también difiere entre los pasos programados y los pasos activados por eventos. Para cronogramas, ejemplos y matices de análisis, consulta [Criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria).
+Braze registra la salida tan pronto como ocurre el evento de excepción, pero los usuarios pueden permanecer dentro de un paso hasta que los temporizadores finalicen, lo cual es más visible en los pasos de retraso. El comportamiento también difiere entre pasos programados y pasos activados por eventos. Para cronogramas, ejemplos y matices de análisis, consulta [Criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria).
 
 ### ¿Por qué mi paso de Rutas de Acción muestra un error cuando selecciono una interacción de alias de enlace? {#why-does-my-action-paths-step-show-an-error-when-i-select-a-link-alias-interaction}
 
@@ -373,4 +377,4 @@ Los grupos de acciones que usan desencadenantes de interactividad de correo elec
 
 ### ¿Cómo afectan las marcas de tiempo históricas de eventos personalizados a los Canvas y Campaigns basados en acciones? {#how-do-historical-custom-event-timestamps-affect-action-based-canvases-and-campaigns}
 
-Braze evalúa los recorridos basados en acciones cuando se ingieren los eventos que califican y el usuario cumple con tus reglas de audiencia. Si un evento llega al perfil fuera de la ventana en la que tu Canvas o Campaign estaba activa, o antes de que el usuario coincidiera con tu audiencia, es posible que la entrada o los envíos posteriores no ocurran como se esperaba. Compara las marcas de tiempo de los eventos con los tiempos de activación y la pertenencia a Segments usando el registro de actividad del perfil de usuario y los pasos de solución de problemas en [Solución de problemas de eventos personalizados]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#troubleshooting-custom-events). Si el comportamiento aún no coincide con lo esperado, contacta con [soporte de Braze]({{site.baseurl}}/braze_support).
+Braze evalúa los recorridos basados en acciones cuando se ingieren los eventos que califican y el usuario cumple con tus reglas de audiencia. Si un evento llega al perfil fuera de la ventana en la que tu Canvas o Campaign estaba activa, o antes de que el usuario coincidiera con tu audiencia, es posible que la entrada o los envíos posteriores no ocurran como se espera. Compara las marcas de tiempo de los eventos con los tiempos de activación y la pertenencia al Segment usando el registro de actividad del perfil de usuario y los pasos de solución de problemas en [Solución de problemas de eventos personalizados]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#troubleshooting-custom-events). Si el comportamiento aún no coincide con lo esperado, contacta con [soporte de Braze]({{site.baseurl}}/braze_support).

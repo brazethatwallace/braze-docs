@@ -34,7 +34,7 @@ Si se encuentra una coincidencia, puedes ver la información que has registrado 
 Cuando se utiliza un número de teléfono en la búsqueda, se convierte al formato [`E.164`](https://en.wikipedia.org/wiki/e.164). Los usuarios cuyos números de teléfono no se pueden convertir al formato `E.164` (por ejemplo, porque el número de teléfono tiene un código de país o código de área no válido) no se pueden buscar por número de teléfono.
 {% endalert %}
 
-![Resultados de búsqueda con un banner que dice "Varios usuarios coinciden con tus criterios de búsqueda" y dos botones con las etiquetas Anterior y Siguiente.]({% image_buster /assets/img_archive/User_Search_Nonunique.png %}){: style="max-width:60%;"}
+![Resultados de búsqueda con un banner que dice "Varios usuarios coinciden con tus criterios de búsqueda" y dos botones etiquetados como Anterior y Siguiente.]({% image_buster /assets/img_archive/User_Search_Nonunique.png %}){: style="max-width:60%;"}
 
 ## Ejemplos {#use-cases}
 
@@ -100,7 +100,7 @@ La pestaña **Interacción** contiene información sobre las interacciones de un
 ### Pestaña Historial de eventos {#event-history-tab}
 
 {% alert note %}
-Para ver la pestaña **Historial de eventos**, necesitas los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) **Search Users**, **View User Event Properties** y **View PII**, ya que las propiedades del evento pueden contener datos personales.
+Para ver la pestaña **Historial de eventos**, necesitas los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) **Buscar usuarios**, **Ver propiedades de eventos de usuario** y **Ver PII**, ya que las propiedades de eventos pueden contener datos personales.
 {% endalert %}
 
 La pestaña **Historial de eventos** muestra los eventos personalizados y las compras que un usuario ha registrado. Úsala para verificar que los datos de eventos llegan correctamente y solucionar problemas a nivel de usuario directamente en el panel, sin necesidad de exportaciones de datos ni herramientas externas.
@@ -121,10 +121,14 @@ La pestaña **Historial de eventos** muestra los eventos personalizados y las co
 
 En general, Braze muestra una Campaign en **Campaigns recibidas** después de intentar enviar el mensaje. No se requiere una entrega al dispositivo o buzón de entrada del usuario para que se registre un envío. **Mensajes de Canvas recibidos** sigue las mismas reglas específicas de canal para cada tipo de mensaje de Canvas.
 
+{% alert tip %}
+Cuando las marcas de tiempo se muestran en formato relativo (como "hace 6 días"), pasa el cursor sobre ellas para ver la fecha y hora exactas.
+{% endalert %}
+
 - **Correo electrónico:** Braze registra un envío cuando el mensaje se entrega a tu proveedor de servicios de correo electrónico (ESP). Después de esa entrega, el mensaje no se cancela por lógica de Liquid, límites de velocidad o porque el usuario esté marcado como inalcanzable. Los siguientes eventos suelen ser una entrega o un rebote.
 - **Push:** Braze registra un envío cuando el mensaje se entrega al proveedor de push (por ejemplo, el servicio de notificaciones push de Apple (APN) o Firebase Cloud Messaging (FCM)). El proveedor generalmente intenta entregar de inmediato; si el dispositivo no está disponible (por ejemplo, sin conexión), el proveedor puede reintentar hasta que el mensaje expire.
 - **In-App Messages:** Braze registra un envío cuando se lanza la Campaign.
-- **Content Cards:** Cuándo Braze registra un evento de _envío_ depende del tipo de entrega y de tu configuración de **creación de tarjeta**. Una Campaign de tarjeta de contenido aparece en **Campaigns recibidas** en el perfil del usuario solo después de que el usuario visualiza la tarjeta en la aplicación. Para el desglose completo, consulta [Cuándo se registran los envíos]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged) y [Campaigns recibidas y filtros de reorientación]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters) en el artículo de informes de Content Cards.
+- **Content Cards:** Cuándo Braze registra un evento de _envío_ depende del tipo de entrega y tu configuración de **creación de tarjeta**. Una Campaign de tarjeta de contenido aparece en **Campaigns recibidas** en el perfil del usuario solo después de que el usuario visualiza la tarjeta en la aplicación. Para el desglose completo, consulta [Cuándo se registran los envíos]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged) y [Campaigns recibidas y filtros de reorientación]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters) en el artículo de informes de Content Cards.
 - **SMS, WhatsApp y webhooks:** Braze registra un envío cuando el mensaje entra en la ruta de entrega de ese canal (por ejemplo, el proveedor de SMS o WhatsApp, o tu endpoint de webhook).
 
 {% alert note %}
@@ -145,7 +149,7 @@ En la pestaña **Historial de mensajes**, los eventos de RCS se incluyen con los
 
 ![La pestaña Historial de mensajes mostrando qué Campaigns y Canvas ha recibido un usuario.]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
 
-#### Ver y comprender los eventos {#viewing-and-understanding-events}
+#### Ver y comprender eventos {#viewing-and-understanding-events}
 
 Para cada evento en la tabla **Historial de mensajes**, puedes ver el canal de mensajería, el tipo de evento, la marca de tiempo en que ocurrió el evento, la Campaign o mensaje de Canvas asociado, y los datos del dispositivo del usuario. Para filtrar eventos específicos, haz clic en **Filtros** y selecciona eventos de la lista.
 
@@ -155,7 +159,7 @@ Los siguientes eventos de interacción con mensajes están disponibles para corr
 
 | Canal | Eventos de interacción disponibles |
 | --- | --- |
-| Correo electrónico | Rebote<br>Clic<br>Eventos de aplazamiento<br>Entrega<br>Marcar como correo no deseado<br>Apertura (consulta la [nota sobre el evento de apertura de correo electrónico](#note-on-email-open-event))<br>Envío<br>Rebote blando<br>Cancelar suscripción |
+| Correo electrónico | Rebote<br>Clic<br>Eventos de aplazamiento<br>Entrega<br>Marcar como correo no deseado<br>Apertura (ver [nota sobre el evento de apertura de correo electrónico](#note-on-email-open-event))<br>Envío<br>Rebote blando<br>Cancelar suscripción |
 | SMS | Envío del operador<br>Entrega<br>Fallo de entrega<br>Recepción entrante<br>Rechazo<br>Envío |
 | Push | Rebote<br>Apertura influenciada<br>iOS en primer plano<br>Apertura<br>Envío |
 | Mensaje dentro de la aplicación | Clic<br>Impresión |
@@ -175,7 +179,7 @@ Los eventos de cancelación están disponibles para los siguientes canales:
 - Push
 - Webhooks
 
-Los eventos de cancelación no están disponibles actualmente para In-App Messages ni Content Cards.
+Los eventos de cancelación actualmente no están disponibles para In-App Messages ni Content Cards.
 
 ##### Eventos de limitación de frecuencia {#frequency-cap-events}
 
@@ -185,7 +189,7 @@ Un evento de limitación de frecuencia ocurre cuando un usuario califica para re
 
 Algunos envíos de mensajes pueden aparecer en el historial de mensajes con destinos en blanco (indicados por "—"). Esto se debe a que algunos canales, como Content Cards y webhooks, no recopilan datos del dispositivo en el envío del mensaje.
 
-Los envíos de Content Cards se registran cuando la tarjeta está disponible para ser visualizada. Dado que las Content Cards pueden verse en múltiples dispositivos, los datos del dispositivo no se registran en el envío. En su lugar, esta información se registra en la impresión (cuando la tarjeta se visualiza realmente). Los webhooks se envían a un endpoint del sistema (no a un dispositivo), por lo que los datos del dispositivo no aplican.
+Los envíos de Content Cards se registran cuando la tarjeta está disponible para ser visualizada. Dado que las Content Cards pueden visualizarse en múltiples dispositivos, los datos del dispositivo no se registran en el envío. En su lugar, esta información se registra en la impresión (cuando la tarjeta se visualiza realmente). Los webhooks se envían a un endpoint del sistema (no a un dispositivo), por lo que los datos del dispositivo no son aplicables.
 
 #### Nota sobre el evento de apertura de correo electrónico {#note-on-email-open-event}
 
@@ -198,7 +202,7 @@ Si bien las estadísticas de apertura de correo electrónico pueden ser útiles 
 Algunos campos pueden estar ausentes en la pestaña **Historial de mensajes** de un usuario en los siguientes escenarios:
 
 - Cuando a un evento le faltan datos para **Mensaje enviado**, esto indica que la Campaign no tiene variaciones de mensaje.
-- Cuando a un evento le faltan datos para **Campaign/Canvas** y **Mensaje enviado**, esto indica que este mensaje se envió desde una Campaign de API (no Campaigns activadas por API) que no especificó el `campaign_id` ni el `message_variation_id`. Estos campos son opcionales y pueden omitirse del cuerpo de la solicitud. Cuando se especifican estos campos, esa información se completa en los registros del historial de mensajes.
+- Cuando a un evento le faltan datos para **Campaign/Canvas** y **Mensaje enviado**, esto indica que este mensaje se envió desde una Campaign de API (no Campaigns activadas por API) que no especificó el `campaign_id` y el `message_variation_id`. Estos campos son opcionales y pueden omitirse del cuerpo de la solicitud. Cuando se especifican estos campos, esa información se completa en los registros del historial de mensajes.
    - Si un mensaje en particular falta completamente del historial de mensajes pero aparece en el registro de **Campaigns recibidas**, es probable que el usuario haya recibido la Campaign antes de ser identificado como el usuario actual. Si un perfil existente queda huérfano, el registro de **Campaigns recibidas** se transfiere, pero el historial de mensajes no.
 - Cuando faltan datos para **Campaign/Canvas**, es posible que se haya enviado una prueba manual. Las pruebas manuales se registran en la pestaña **Historial de mensajes**, pero la Campaign o Canvas que se envió no se registra.
 - Cuando un usuario está en un grupo semilla u otra audiencia de prueba interna, el **Historial de mensajes** puede mostrar metadatos limitados de Campaign o Canvas en comparación con los envíos de producción.
