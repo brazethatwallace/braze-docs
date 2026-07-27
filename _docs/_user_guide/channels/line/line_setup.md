@@ -102,7 +102,7 @@ After the integration process completes, Braze will automatically pull that chan
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
 
 {% alert note %}
-If you need to update or rotate the channel secret for an already integrated LINE channel, contact [Braze Support]({{site.baseurl}}/braze_support) to request an update.
+You can update or rotate the channel secret and channel access token for an already integrated LINE channel by going to **Partner Integrations** > **Technology Partners** > **LINE** and selecting your integration.
 {% endalert %}
 
 {: start="3"}
