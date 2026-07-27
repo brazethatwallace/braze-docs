@@ -31,7 +31,7 @@ Segment reporting is available only for segments with [analytics tracking]({{sit
 To report on segments directly:
 
 1. Go to **Analytics** > **Report Builder (New)**.  
-2. Select **Create New Report**.  
+2. Click **Create New Report**.  
 3. In the **Rows** dropdown, select **Segments**.  
 4. (Optional) Select **Add drilldown** to break the segment data down further:  
    - **Campaigns and Canvases:** See which campaigns and Canvases targeted the segment, and how each performed.  
@@ -39,7 +39,7 @@ To report on segments directly:
 5. In **Report content**, open the **Segments** dropdown and select segments to add to your report.   
 6. Select metrics in **Columns** > **Customize Metrics**, then set your date range in **Report content**.
 7. If you added a **Campaigns and Canvases** drilldown, add the campaigns and Canvases to include in the report.
-8. Select **Save and run**.
+8. Click **Save and run**.
 
 For the full Report Builder workflow, see [Creating a report]({{site.baseurl}}/user_guide/analytics/reports/report_builder#creating-a-report).
 
@@ -52,9 +52,9 @@ To drill down campaign, Canvas, or channel reports by segment:
 3. In **Report content**, open the **Segments** dropdown and select segments to add to your report.
 4. Select metrics in **Columns** > **Customize Metrics**, then set your date range in **Report content**.   
 5. Add the campaigns or Canvases to include in the report.
-6. Select **Save and run** to see performance broken out by each segment your campaigns or Canvases targeted.
+6. Click **Save and run** to see performance broken out by each segment your campaigns or Canvases targeted.
 
-This is especially useful for accounts that send the same campaign or Canvas to multiple segments. You can see how each segment responded without manually cross-referencing segment membership and campaign performance.
+This is especially useful for workspaces that send the same campaign or Canvas to multiple segments. You can see how each segment responded without manually cross-referencing segment membership and campaign performance.
 
 ## Supported combinations
 
