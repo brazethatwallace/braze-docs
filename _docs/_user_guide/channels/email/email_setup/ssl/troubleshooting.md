@@ -300,5 +300,6 @@ Use the following table to diagnose common errors when testing click tracking.
 | `"This site can’t be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Check your DNS settings. Ensure your tracking subdomain is configured per your CDN and ESP recommended configuration. |
 | `525 / 526 SSL Error` | Check that the SSL setting in your CDN (like Cloudflare) matches your Origin's capability. |
 | `404 Not Found` | Check that your CDN is configured to forward the entire URL path to the ESP, rather than pointing to a blank root directory. |
+| `400 Bad Request: Request Header or Cookie Too Large` | This error typically occurs when the click-tracking domain inherits too many large cookies from your website's domain. Braze does not set or block any cookies on the tracking domain. Configure your CDN to not send those cookies to the ESP when reverse-proxying the click-tracking request. You may also need to increase the `large_client_header_buffers` setting in your nginx configuration (for example, `large_client_header_buffers 4 32k;` to allow headers up to 32&nbsp;KB). For more information, consult your CDN provider or website engineering team. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Error codes and troubleshooting" }
 
