@@ -25,6 +25,7 @@ Some workflows use a different PR body format while sharing this workflow (Steps
 | Skill | When to use |
 | ----- | ----------- |
 | [`support-analyzer`](../support-analyzer/SKILL.md) | Support case–driven doc updates (`[SA]` title, case links) |
+| [`slack-to-docs`](../slack-to-docs/SKILL.md) | Slack SME channel mining → source-verified doc PRs with thread citations |
 | [`docs-discrepancies`](../docs-discrepancies/SKILL.md) | Doc vs platform source audits (`[DD]` title) |
 | [`image-pruner`](../image-pruner/SKILL.md) | Unreferenced image cleanup (`[IP]` title) |
 | [`tam-solutions`](../tam-solutions/SKILL.md) | TAM → example library articles (`[TAM solutions]` title) |
@@ -199,14 +200,26 @@ After create (when applicable):
 
 ```bash
 gh pr edit --add-label "<workflow label>"    # variant skills only
-gh pr edit --add-reviewer braze-inc/docs-team
+gh pr edit --add-assignee <github-login>     # vertical tech writer — see below
 ```
 
-Use [`.github/CODEOWNERS`](../../../.github/CODEOWNERS) or variant-specific assignee rules when they apply.
+### Tech writer assignee (not reviewer)
+
+After creating the draft PR, set the **assignee** to the [tech writer for the vertical](https://confluence.atl.braze.com/wiki/x/nAZuE) (Technical Writing page on Confluence). Use their **GitHub login**, not their display name.
+
+```bash
+gh pr edit --add-assignee <github-login>
+```
+
+- **Do not** add the vertical tech writer as a reviewer (`--add-reviewer`). Ownership is tracked via assignee.
+- If the contributor **is** the vertical tech writer, they are already the default assignee — leave assignee as-is.
+- If you cannot determine the vertical owner, leave assignee unset and note it in the handoff for the contributor to set.
+- Optionally request review from SMEs or engineers cited in the PR; that is separate from assignee.
+- Use [`.github/CODEOWNERS`](../../../.github/CODEOWNERS) or variant-specific assignee rules when they apply.
 
 **Confirm with the user before running `gh pr create`** unless they have already asked you to open the PR without asking.
 
-After CI passes, the author selects **Ready for review** and adds the [tech writer for their vertical](https://confluence.atl.braze.com/wiki/x/nAZuE) or `braze-inc/docs-team` as reviewer per [PULL_REQUEST_TEMPLATE](../../../.github/PULL_REQUEST_TEMPLATE).
+After CI passes, the author selects **Ready for review** and requests review from relevant SMEs or engineers per [PULL_REQUEST_TEMPLATE](../../../.github/PULL_REQUEST_TEMPLATE). The vertical tech writer is already the assignee.
 
 ## Quality checklist
 

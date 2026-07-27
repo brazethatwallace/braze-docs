@@ -33,6 +33,6 @@ For Jira tickets, add the ticket number and a link to the ticket, like:
 If your PR meets the above requirements, select **Ready for review**, then:
 
 1. Have any relevant subject matter experts (like engineers or product managers) review and approve your work.
-2. Add the [tech writer assigned to your specific vertical](https://confluence.atl.braze.com/wiki/x/nAZuE) as a reviewer. If you're not sure which tech writer to choose, add `braze-inc/docs-team`.
+2. Assign the [tech writer for your vertical](https://confluence.atl.braze.com/wiki/x/nAZuE) as the PR assignee (not as a reviewer). If you are the vertical tech writer, you are already the default assignee.
 
 Thanks for contributing! We look forward to reading your work.
