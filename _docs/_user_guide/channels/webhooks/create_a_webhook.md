@@ -132,7 +132,11 @@ Certain endpoints may require that you include headers in your request. In the *
 
 ![Request header examples for "Authorization" key and "Content-type" key.]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-Common request headers are `Content-Type` specifications (which describe what type of data to expect in the body, such as XML or JSON) and authorization headers that contain your credentials with your vendor or system. 
+Common request headers are [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) specifications (which describe what type of data to expect in the body, such as XML or JSON) and [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) headers that contain your credentials with your vendor or system.
+
+{% alert note %}
+HTTP header names are case-insensitive per [RFC 7230, section 3.2 ("Each header field consists of a case-insensitive field name")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). If your receiving endpoint or any intermediate services (such as CDNs) transform header casing, this won't affect header processing—`Content-Type`, `content-type`, and `CONTENT-TYPE` are all treated identically.
+{% endalert %} 
 
 Content type specifications must use the key `Content-Type`. Common values are `application/json` or `application/x-www-form-urlencoded`.
 
