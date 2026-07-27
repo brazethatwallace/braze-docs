@@ -126,7 +126,6 @@ To help understand the ratings for IP reputation, refer to this table:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="IP reputation" }
 
 {% alert important %}
-**Spam complaint reporting**<br>
 The spam complaint data shown in Braze is based on feedback loop (FBL) reports from email providers who share them, such as Microsoft, Yahoo, and Comcast. When users at these providers report mail as spam, those complaints are sent back to Braze.<br><br>
 However, Gmail and iCloud do not operate traditional feedback loops and do not report spam complaints back to Braze. This means:<br>
 - Spam complaints from Gmail users are not included in Braze metrics or available in Snowflake or Currents data.<br>
