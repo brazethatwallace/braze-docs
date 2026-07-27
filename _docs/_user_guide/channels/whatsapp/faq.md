@@ -191,7 +191,7 @@ Confirm that any Liquid logic that populates template parameters removes these c
 There are various reasons a message would fail to be delivered, including network issues and the device being turned off. 
 
 #### If a message is not delivered, will I be billed? 
-No. If a message is not delivered, you will not be billed. 
+No. If a message is not delivered, you are not billed. 
 
 #### What happens if a user blocks my business? 
 If a user blocks your business, subsequent messages you attempt to send don't deliver, and you aren't billed. The user's subscription status won't update.
