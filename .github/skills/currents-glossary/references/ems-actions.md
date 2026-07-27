@@ -27,8 +27,10 @@ Useful before filing a request, to confirm what EMS actually says today and to n
 1. Open the production URL. The root page lists every event.
 2. Narrow the list with **Search for an event name**, or the **Filter by Namespace**, **Filter by Owner**, and **Filter by Release Status** dropdowns. The list is paginated.
 3. Click an event name to open its detail page. It shows **Event details** (name, owner, description) and two panels:
-   - **Release Candidate (RC)** — the fields currently in production. This is what the docs generator will pick up at the next release.
    - **Pre-release Candidate (PRC)** — changes staged but not yet promoted. Content here is *not* in production and will not appear in docs until it is promoted and released.
+   - **Release Candidate (RC)** — the fields staged for production; these will be picked up by the next release.
+   - **Pending release** — the fields for the next release, only displayed if it has been cut but not released yet.
+   - **In Production** — the fields in the latest public release.
 
 If the field you are questioning appears only under PRC, the docs are not wrong — the change simply has not shipped yet.
 
