@@ -191,21 +191,22 @@ Confirm that any Liquid logic that populates template parameters removes these c
 There are various reasons a message would fail to be delivered, including network issues and the device being turned off. 
 
 #### If a message is not delivered, will I be billed? 
-No. If a message is not delivered, you will not be billed. 
+No. If a message is not delivered, you are not billed. 
 
 #### What happens if a user blocks my business? 
-If a user blocks your business, subsequent messages you attempt to send will not be delivered, and you will not be billed. 
+If a user blocks your business, subsequent messages you attempt to send don't deliver, and you aren't billed. The user's subscription status won't update.
 
 #### What happens if a user reports a message? 
-If a user reports a message, you can still send subsequent messages to them. However, reporting may affect your quality rating on the channel. 
-
-#### If a user blocks or reports my business, will their subscription status be updated in Braze? 
-No. Their Braze subscription status won't be updated.
+If a user reports a message, you can still send subsequent messages to them. However, reporting may affect your quality rating on the channel. The user's subscription status doesn't update.
 
 #### How can I exclude users who report my WhatsApp account from upcoming launches?
 Braze doesn't receive notifications from WhatsApp when your account is flagged or reported, so you can't automatically identify or exclude those users in Braze. Users who report your account may remain in your WhatsApp subscription group and continue to be eligible for future messages. 
 
 You can, however, set up a campaign that triggers when a user responds with an opt-out keyword, which automatically unsubscribes them using the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). For more information, see [WhatsApp opt-in and opt-out process]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+
+#### Does Braze support automatic SMS fallback when WhatsApp delivery fails?
+
+No. Braze doesn't offer a native WhatsApp-to-SMS fallback path. To retry on another channel, segment users with failed WhatsApp sends (for example, through Currents failure events) and target an SMS or email campaign.
 
 #### Are WhatsApp response messages free? {#are-whatsapp-response-messages-free}
 

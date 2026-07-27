@@ -58,7 +58,7 @@ description: "이 문서에서는 글로벌 컨트롤 그룹의 사용자 내보
 
 이 엔드포인트를 사용할 때 자체 버킷 정책을 적용하기 위해 S3 또는 Azure 자격 증명을 설정하는 것을 강력히 권장합니다(**파트너 통합** > **기술 파트너** > 파트너 페이지로 이동).
 
-![Amazon S3 탭이 있는 Azure의 기술 파트너 페이지]({% image_buster /assets/img/technology_partners_page.png %})
+![Amazon S3 탭이 있는 Azure의 기술 파트너 페이지.]({% image_buster /assets/img/technology_partners_page.png %})
 
 클라우드 스토리지 자격 증명을 제공하지 않은 경우, 요청에 대한 응답으로 모든 사용자 파일이 포함된 ZIP 파일을 다운로드할 수 있는 URL이 제공됩니다. URL은 내보내기가 준비된 후에만 유효한 위치가 됩니다.
 
@@ -147,7 +147,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example,'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }

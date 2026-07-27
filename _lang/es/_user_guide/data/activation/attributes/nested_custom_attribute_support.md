@@ -13,9 +13,9 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 
 ## Acerca de los atributos anidados {#about-nested-attributes}
 
-Los atributos anidados te permiten crear segmentos más ricos y personalizar mensajes con datos de un único objeto de atributo personalizado.
+Los atributos anidados te permiten crear segmentos más completos y personalizar mensajes con datos de un único objeto de atributo personalizado.
 
-En el siguiente ejemplo, el atributo personalizado `favorite_book` contiene los atributos anidados `title`, `author` y `publishing_date`. Este objeto se puede usar para dirigirte a usuarios por autor, filtrar por fecha de publicación o insertar el título del libro directamente en un mensaje:
+En el siguiente ejemplo, el atributo personalizado `favorite_book` contiene los atributos anidados `title`, `author` y `publishing_date`. Este objeto se puede utilizar para dirigirse a usuarios por autor, filtrar por fecha de publicación o insertar el título del libro directamente en un mensaje:
 
 ```json
 "favorite_book": {
@@ -30,15 +30,15 @@ En el siguiente ejemplo, el atributo personalizado `favorite_book` contiene los 
 
 ## Consideraciones {#considerations}
 
-- Los atributos personalizados anidados están pensados para atributos personalizados enviados a través del SDK o la API de Braze.
+- Los atributos personalizados anidados están destinados a atributos personalizados enviados a través de Braze SDK o API.
 - Los objetos tienen un tamaño máximo de 100&nbsp;KB. Si una actualización hace que el objeto supere los 100&nbsp;KB, Braze descarta la actualización y el atributo permanece sin cambios.
-- Los nombres de las claves y los valores de cadena tienen un límite de tamaño de 255 caracteres.
-- Los nombres de las claves no pueden contener espacios.
+- Los nombres de clave y los valores de cadena tienen un límite de tamaño de 255 caracteres.
+- Los nombres de clave no pueden contener espacios.
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
-- No todos los partners de Braze admiten atributos personalizados anidados. Consulta la [documentación del partner]({{site.baseurl}}/partners/home) para confirmar si determinadas integraciones de partners admiten esta característica.
-- Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
-- De forma predeterminada, el filtro de Segment **Atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support).
-- Al previsualizar mensajes en el panel usando **Vista previa como usuario personalizado**, solo puedes introducir datos simulados como cadena o matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
+- No todos los partners de Braze admiten atributos personalizados anidados. Consulta la [documentación del partner]({{site.baseurl}}/partners/home) para confirmar si integraciones específicas del partner admiten esta característica.
+- Los atributos personalizados anidados no se pueden usar como filtro al realizar una llamada a la API de Connected Audience.
+- De forma predeterminada, el filtro de Segment de **atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedad incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, contacta con [soporte de Braze]({{site.baseurl}}/braze_support).
+- Al previsualizar mensajes en el panel usando **Vista previa como usuario personalizado**, solo puedes introducir datos simulados como una cadena o una matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para las propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
 
 ## Ejemplo de API {#api-example}
 
@@ -68,7 +68,7 @@ El siguiente es un ejemplo de `/users/track` con un objeto "Most Played Song". P
 
 {% endtab %}
 {% tab Actualizar %}
-Para actualizar un objeto existente, envía un POST a `users/track` con el parámetro `_merge_objects` en la solicitud. Esto realizará una fusión profunda de tu actualización con los datos del objeto existente. La fusión profunda asegura que todos los niveles de un objeto se fusionen con otro objeto en lugar de solo el primer nivel. En este ejemplo, ya tenemos un objeto `most_played_song` en Braze, y ahora estamos añadiendo un nuevo campo, `year_released`, al objeto `most_played_song`.
+Para actualizar un objeto existente, envía un POST a `users/track` con el parámetro `_merge_objects` en la solicitud. Esto realizará una fusión profunda de tu actualización con los datos del objeto existente. La fusión profunda garantiza que todos los niveles de un objeto se fusionen con otro objeto en lugar de solo el primer nivel. En este ejemplo, ya tenemos un objeto `most_played_song` en Braze, y ahora estamos añadiendo un nuevo campo, `year_released`, al objeto `most_played_song`.
 
 ```json
 {
@@ -84,7 +84,7 @@ Para actualizar un objeto existente, envía un POST a `users/track` con el pará
 }
 ```
 
-Después de recibir esta solicitud, el objeto de atributo personalizado se verá así:
+Después de recibir esta solicitud, el objeto de atributo personalizado tendrá el siguiente aspecto:
 
 ```json
 {"most_played_song": {
@@ -120,13 +120,13 @@ Para eliminar un objeto de atributo personalizado, envía un POST a `users/track
 ```
 
 {% alert note %}
-Este enfoque no se puede usar para eliminar una clave anidada dentro de una [matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
+Este enfoque no se puede utilizar para eliminar una clave anidada dentro de una [matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-## Ejemplo de SDK {#sdk-example}
+## Ejemplo del SDK {#sdk-example}
 
 {% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
 
@@ -240,12 +240,12 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 {% endtab %}
 {% endtabs %}
 
-## Capturar fechas como propiedades de objeto {#capturing-dates-as-object-properties}
+## Captura de fechas como propiedades de objeto {#capturing-dates-as-object-properties}
 
-Para capturar fechas como propiedades de objeto, debes usar la clave `$time`. En el siguiente ejemplo, se usa un objeto "Important Dates" para capturar el conjunto de propiedades de objeto, `birthday` y `wedding_anniversary`. Los valores de estas fechas son un objeto con una clave `$time`, que no puede ser un valor nulo.
+Para capturar fechas como propiedades de objeto, debes usar la clave `$time`. En el siguiente ejemplo, se utiliza un objeto "Important Dates" para capturar el conjunto de propiedades de objeto, `birthday` y `wedding_anniversary`. El valor de estas fechas es un objeto con una clave `$time`, que no puede ser un valor nulo.
 
 {% alert note %}
-Si no capturaste fechas como propiedades de objeto inicialmente, te recomendamos reenviar estos datos usando la clave `$time` para todos los usuarios. De lo contrario, esto puede resultar en segmentos incompletos al usar el atributo `$time`. Sin embargo, si el valor de `$time` en un atributo personalizado anidado no tiene el formato correcto, el atributo personalizado anidado completo no se actualizará.
+Si no capturaste fechas como propiedades de objeto inicialmente, te recomendamos reenviar estos datos usando la clave `$time` para todos los usuarios. De lo contrario, esto puede generar Segments incompletos al usar el atributo `$time`. Sin embargo, si el valor de `$time` en un atributo personalizado anidado no tiene el formato correcto, el atributo personalizado anidado completo no se actualizará.
 {% endalert %}
 
 ```json
@@ -263,12 +263,12 @@ Si no capturaste fechas como propiedades de objeto inicialmente, te recomendamos
 ```
 
 {% alert note %}
-Para atributos personalizados anidados, si el año es menor que 0 o mayor que 3000, Braze no almacena estos valores en el usuario.
+Para los atributos personalizados anidados, si el año es menor que 0 o mayor que 3000, Braze no almacena estos valores en el usuario.
 {% endalert %}
 
 ## Plantillas Liquid {#liquid-templating}
 
-El siguiente ejemplo de plantilla Liquid muestra cómo hacer referencia a las propiedades del objeto de atributo personalizado guardadas desde la solicitud de API anterior y usarlas en tu mensajería.
+El siguiente ejemplo de plantilla Liquid muestra cómo hacer referencia a las propiedades del objeto de atributo personalizado guardadas a partir de la solicitud de API anterior y utilizarlas en tu mensajería.
 
 Usa la etiqueta de personalización `custom_attribute` y la notación de punto para acceder a las propiedades de un objeto. Especifica el nombre del objeto (y la posición en la matriz si haces referencia a una matriz de objetos), seguido de un punto, seguido del nombre de la propiedad.
 
@@ -280,7 +280,7 @@ Usa la etiqueta de personalización `custom_attribute` y la notación de punto p
 
 Para usar Liquid de atributos personalizados anidados en tu mensaje:
 
-1. Ve a una Campaign o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
+1. Ve a una Campaign o Canvas, luego abre el paso del mensaje donde quieres añadir personalización.
 2. En el creador de mensajes, inserta el fragmento de código Liquid donde quieras que aparezca el valor.
 3. Usa **Vista previa y prueba** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
 
@@ -290,36 +290,48 @@ Puedes usar **Añadir personalización** para insertar un atributo personalizado
 
 Para abrir **Añadir personalización**:
 
-1. Ve a una Campaign o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
+1. Ve a una Campaign o Canvas, luego abre el paso del mensaje donde quieres añadir personalización.
 2. En el creador de mensajes, selecciona **Personalización** para abrir la barra lateral **Añadir personalización**, donde puedes elegir opciones de personalización.
 
 Para configurar la personalización de atributos personalizados anidados:
 
 1. En **Tipo de personalización**, selecciona **Atributos personalizados anidados**.
-2. En **Atributo de nivel superior**, selecciona la ruta del atributo personalizado anidado que quieras insertar.
+2. En **Atributo de nivel superior**, selecciona la ruta del atributo personalizado anidado que quieres insertar.
    Por ejemplo, selecciona `preferences.neighborhood_office`.
 3. Opcional: En **Valor predeterminado**, introduce un valor alternativo para los usuarios que no tengan su propio valor para ese atributo.
-4. Revisa el **fragmento de código Liquid** generado para confirmar que coincide con la ruta esperada.
+4. Revisa el **Fragmento de código Liquid** generado para confirmar que coincide con la ruta esperada.
 5. Selecciona **Insertar**.
 
-En este ejemplo, Braze inserta el valor anidado de `preferences.neighborhood_office` en tu mensaje. Los valores predeterminados son alternativas que tu mensaje incluye para los usuarios que no tienen su propio valor para un atributo.
+Para este ejemplo, Braze inserta el valor anidado de `preferences.neighborhood_office` en tu mensaje. Los valores predeterminados son alternativas que tu mensaje incluye para los usuarios que no tienen su propio valor para un atributo.
 
 {% alert tip %}
-Verifica que se haya generado un esquema si no ves la opción de insertar atributos personalizados anidados.
+Comprueba que se haya generado un esquema si no ves la opción de insertar atributos personalizados anidados.
 {% endalert %}
 
-## Regenerar esquemas {#regenerate-schema}
+## Generar y regenerar esquemas {#regenerate-schema}
 
-Después de que se haya generado un esquema, puedes regenerarlo **una vez por día calendario** (según la zona horaria de tu empresa). Esta sección describe cómo regenerar tu esquema. Para información más detallada sobre esquemas, consulta [Generar un esquema usando el explorador de objetos anidados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
+Para usar atributos personalizados anidados en la segmentación y la personalización, debes generar un esquema para el atributo. Después de que se haya generado un esquema, puedes regenerarlo según sea necesario. Para información más detallada sobre esquemas, consulta [Generar un esquema usando el explorador de objetos anidados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
+
+### Generar un esquema {#generate-a-schema}
+
+Después de crear un atributo personalizado anidado y enviar datos a Braze, puedes generar el esquema:
+
+1. Ve a **Data Settings** > **Custom Attributes**.
+2. Busca tu atributo personalizado anidado.
+3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-arrows-rotate" aria-label="Generar esquema"></i> **Generate Schema**.
+
+Después de que se genere el esquema, el icono <i class="fas fa-arrows-rotate" aria-label="Generar esquema"></i> cambia a un icono de signo más <i class="fas fa-plus" aria-label="Administrar esquema"></i> que puedes seleccionar para ver y administrar el esquema.
+
+### Regenerar un esquema {#regenerate-a-schema}
 
 Para regenerar el esquema de tu atributo personalizado anidado:
 
-1. Ve a **Configuración de datos** > **Atributos personalizados**.
+1. Ve a **Data Settings** > **Custom Attributes**.
 2. Busca tu atributo personalizado anidado.
-3. En la columna **Nombre del atributo** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> **Administrar esquema** para administrar el esquema.
-4. Aparecerá un modal. Selecciona **Regenerar esquema**.
+3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> **Manage schema** para administrar el esquema.
+4. Aparecerá un modal. Selecciona **Regenerate Schema**.
 
-La acción **Regenerar esquema** está limitada a **una vez por día calendario** en la zona horaria de tu empresa. No puedes iniciar otra regeneración mientras un trabajo de esquema ya está **en progreso** (la opción no está disponible mientras el estado es **Generando**). Regenerar el esquema solo detecta nuevos objetos y no elimina objetos que actualmente existen en el esquema.
+No puedes iniciar otra regeneración mientras un trabajo de esquema ya está **en progreso** (la opción no está disponible mientras el estado es **Generating**). Solo se puede ejecutar un trabajo de generación de esquema a la vez por empresa. Regenerar el esquema solo detecta nuevos objetos y no elimina objetos que actualmente existen en el esquema.
 
 {% alert important %}
 Para restablecer el esquema de una matriz de objetos con un objeto existente, necesitas crear un nuevo atributo personalizado. La regeneración del esquema no elimina objetos existentes.
@@ -329,18 +341,18 @@ Si los datos no aparecen como se esperaba después de regenerar el esquema, es p
 
 ## Desencadenar cambios en atributos personalizados anidados {#trigger-nested-custom-attribute-changes}
 
-Puedes desencadenar acciones cuando un objeto de atributo personalizado anidado cambia. Esta opción no está disponible para cambios en matrices de objetos. Si no ves una opción para ver el explorador de rutas, verifica que hayas generado un esquema.
+Puedes desencadenar cuando un objeto de atributo personalizado anidado cambia. Esta opción no está disponible para cambios en matrices de objetos. Si no ves una opción para ver el explorador de rutas, comprueba que hayas generado un esquema.
 
-Por ejemplo, en una campaña basada en acciones, puedes añadir una nueva acción desencadenante para **Cambiar valor de atributo personalizado** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
+Por ejemplo, en una campaña basada en acciones, puedes agregar una nueva acción desencadenante para **Cambiar valor de atributo personalizado** para dirigirte a los usuarios que han cambiado sus preferencias de oficina del vecindario.
 
 Para configurar este desencadenador en una campaña basada en acciones:
 
 1. Crea o edita una campaña, luego establece el tipo de entrega en **Entrega basada en acciones**.
-2. En la configuración de desencadenadores, selecciona **Cambiar valor de atributo personalizado**.
-3. Selecciona la ruta del atributo personalizado anidado que quieras monitorear.
+2. En la configuración del desencadenador, selecciona **Cambiar valor de atributo personalizado**.
+3. Selecciona la ruta del atributo personalizado anidado que deseas monitorear.
    Por ejemplo, selecciona `preferences.neighborhood_office`.
 4. Selecciona la condición de desencadenamiento que desees, como **cualquier valor nuevo**.
-5. Termina de configurar el mensaje y la audiencia de tu campaña, luego lánzala.
+5. Termina de configurar el mensaje y la audiencia de tu campaña, luego lanza la campaña.
 
 ## Solución de problemas {#troubleshooting}
 
@@ -350,23 +362,23 @@ Si notas que los valores de atributos personalizados anidados no se están añad
 
 Para diagnosticar y resolver este problema:
 
-1. **Compara ejemplos de usuarios:** Obtén un ejemplo de usuario exitoso y uno no exitoso donde el atributo personalizado anidado debería haberse establecido.
+1. **Compara ejemplos de usuarios:** Obtén un ejemplo de usuario exitoso y uno no exitoso en los que el atributo personalizado anidado debería haberse establecido.
 2. **Revisa la estructura de datos:** Visualiza y compara los valores de atributos personalizados en ambos perfiles:
-   - ¿Las propiedades están almacenadas bajo un objeto?
+   - ¿Las propiedades están almacenadas dentro de un objeto?
    - ¿Las propiedades están almacenadas como una matriz de propiedades?
-3. **Verifica el filtro de segmentación:** Compara la estructura de datos almacenada con la forma en que el atributo personalizado anidado se referencia en tus filtros de segmentación.
+3. **Verifica el filtro de segmentación:** Compara la estructura de datos almacenada con la forma en que se hace referencia al atributo personalizado anidado en tus filtros de segmentación.
 4. **Verifica el tipo de datos:** Para identificar el tipo de datos de un atributo personalizado:
    - Ve a **Configuración de datos** > **Atributos personalizados**.
-   - Busca el atributo personalizado de nivel superior que contiene el atributo anidado que quieras verificar.
-   - Si la fila muestra **Generar esquema**, selecciónalo para generar el esquema primero.
-   - Después de que se genere el esquema, selecciona el ícono de más en la columna **Nombre del atributo** de ese atributo.
-   - En el modal **Editar esquema**, revisa los atributos anidados y sus valores correspondientes en la columna **Tipo de datos**.
+   - Busca el atributo personalizado de nivel superior que contiene el atributo anidado que deseas verificar.
+   - Si la fila muestra **Generate Schema**, selecciónalo para generar el esquema primero.
+   - Una vez generado el esquema, selecciona el icono de más en la columna **Attribute Name** para ese atributo.
+   - En el modal **Edit schema**, revisa los atributos anidados y sus valores correspondientes en la columna **Data type**.
 
-Si encuentras que el tipo de datos no coincide con el formato previsto en los perfiles de usuario, elimina el valor con formato incorrecto de los perfiles de usuario afectados y reenvía el atributo en el formato correcto usando la solicitud de API o el método de SDK apropiado.
+Si encuentras que el tipo de datos no coincide con el formato previsto en los perfiles de usuario, elimina el valor con formato incorrecto de los perfiles de usuario afectados y reenvía el atributo en el formato correcto utilizando la solicitud de API o el método de SDK apropiado.
 
-## Comportamiento de segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
+## Comportamiento de la segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Cuando usas múltiples filtros de `Nested Custom Attribute` con lógica AND para segmentar en una matriz de objetos, cada filtro se evalúa de forma independiente en todos los elementos de la matriz. Un usuario califica para el Segment si _cualquier_ elemento de la matriz satisface cada filtro individual; los filtros no tienen que coincidir con el _mismo_ elemento.
+Cuando utilizas varios filtros de `Nested Custom Attribute` con lógica AND para segmentar en una matriz de objetos, cada filtro se evalúa de forma independiente en todos los elementos de la matriz. Un usuario cumple los requisitos del Segment si _cualquier_ elemento de la matriz satisface cada filtro individual; los filtros no tienen que coincidir con el _mismo_ elemento.
 
 Por ejemplo, supongamos que un usuario tiene la siguiente matriz:
 
@@ -384,9 +396,9 @@ Un Segment con los siguientes filtros AND:
 - `orders[].price` es mayor que 50
 - `orders[].price` es menor que 30
 
-Este usuario calificaría porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el Segment.
+Este usuario cumpliría los requisitos porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el Segment.
 
-Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, usa [segmentación multicriterio]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
+Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, utiliza la [segmentación multicriterio]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
 
 ## Puntos de datos {#data-points}
 

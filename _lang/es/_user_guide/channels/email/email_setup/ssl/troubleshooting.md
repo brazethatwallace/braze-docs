@@ -1,36 +1,66 @@
 ---
 nav_title: Solución de problemas
-article_title: Solución de problemas de SSL
+article_title: Solución de problemas del seguimiento de clics con SSL
 page_order: 5
 page_type: reference
-description: "Este artículo de referencia cubre consejos de solución de problemas para SSL."
+description: "Diagnostica problemas de seguimiento de clics con SSL y configuración de CDN utilizando un índice de síntomas y una ruta de investigación estándar."
 channel: email
 ---
 
-# Solución de problemas {#troubleshooting}
+# Solución de problemas del seguimiento de clics con SSL {#troubleshoot-ssl-click-tracking}
 
-> Usa estos consejos para identificar problemas comunes de seguimiento de clics con SSL. Las indicaciones de solución de problemas son genéricas porque cada CDN es único. Para problemas de configuración de CDN, certificados o proxy, ponte en contacto con el equipo de soporte de tu CDN, ya que estas configuraciones se realizan fuera del ecosistema de Braze.
+> Usa esta página para identificar problemas comunes de seguimiento de clics con SSL. Ten en cuenta que las siguientes indicaciones son genéricas porque cada CDN es único. Para problemas de configuración de CDN, certificados o proxy, ponte en contacto con el equipo de soporte de tu CDN, ya que estas configuraciones se realizan fuera de Braze.
+
+## Empieza aquí: identifica tu síntoma {#start-here-match-your-symptom}
+
+| Síntoma | Ir a |
+| --- | --- |
+| Las tasas de apertura de correo electrónico cayeron repentinamente | [Tasas de apertura de correo electrónico bajas](#low-email-open-rates) |
+| Los enlaces rastreados devuelven HTTP 403 | [HTTP 403 en enlaces de redirección](#http-403-on-redirect-links) |
+| El DNS o CNAME apunta al ESP en lugar del CDN | [Problemas con el registro de dominios](#domain-registry-issues) |
+| "La conexión no es privada" o los enlaces fallan durante la configuración | [Problemas con el CDN](#cdn-issues) |
+| La configuración SSL está completa pero los enlaces siguen mostrando HTTP | [Estado de habilitación de SSL](#ssl-enablement-status) |
+| La URL rastreada falla pero la URL sin seguimiento funciona | [Problemas con el seguimiento de clics](#click-tracking-issues) |
+| Errores de habilitación de SSL específicos de Amazon SES | [Amazon SES](#amazon-ses) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de SSL" }
+
+## Ruta de investigación estándar {#standard-investigation-path}
+
+1. Confirma que tu subdominio de seguimiento de clics apunta a tu [red de entrega de contenido (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it), no directamente a tu proveedor de servicios de correo electrónico (SendGrid, SparkPost o Amazon SES). Pide a tu equipo de TI o web que verifique que la configuración de tu dominio coincide con tu configuración de Braze. Para los requisitos de Braze, consulta [Adquirir un certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Confirma que tu certificado SSL está activo para el dominio de seguimiento. Pide a tu equipo de TI o web que confirme que el certificado está vigente y cubre tu subdominio de seguimiento de clics. Para los pasos de configuración y guías específicas de CDN, consulta [Adquirir un certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) y [Recursos adicionales]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+3. Envía un correo electrónico de prueba utilizando la [plantilla de solución de problemas de seguimiento de clics](#click-tracking-issues). Compara las URL con seguimiento frente a las que no tienen seguimiento.
+4. Si los enlaces con seguimiento fallan con un error 403, revisa las reglas de CDN y WAF (agentes de usuario, cadenas de consulta, patrones de redirección).
+5. Si la configuración está completa pero los enlaces siguen siendo HTTP, contacta a tu administrador de éxito de cliente de Braze para confirmar que Braze habilitó SSL.
+6. Para problemas persistentes, coordina con tu CDN o equipo de TI y contacta a [soporte de Braze]({{site.baseurl}}/braze_support) con los códigos de error y cualquier detalle de tu CDN o proveedor de dominios.
 
 ## Conceptos clave {#key-concepts}
 
-- **URL con seguimiento:** Envuelve el enlace HTTPS original en tu dominio de seguimiento. Cuando un usuario hace clic en él, el dominio de seguimiento resuelve la solicitud y redirige al destino final. Un CDN te permite rastrear URLs seguras (HTTPS). Sin él, los usuarios pueden encontrar un error de privacidad de "la conexión no es segura".
-- **URL sin seguimiento:** Mantiene la URL original intacta, omitiendo el CDN para servir como entorno de control.
+- **URL con seguimiento:** Envuelve el enlace HTTPS original en tu dominio de seguimiento. Cuando un usuario hace clic en él, el dominio de seguimiento resuelve la solicitud y redirige al destino final. Un CDN te permite hacer seguimiento de URL seguras (HTTPS). Sin él, los usuarios pueden encontrar un error de privacidad de "la conexión no es segura".
+- **URL sin seguimiento:** Mantiene la URL original intacta, omitiendo el CDN para servir como un entorno de control.
 
 ## Tasas bajas de apertura de correo electrónico {#low-email-open-rates}
+
+**Síntoma:** Las tasas de apertura de correo electrónico cayeron repentinamente tras cambios en SSL o CDN.
 
 Si de repente experimentas tasas bajas de apertura de correo electrónico, confirma que el certificado SSL esté actualizado. Si ha expirado, debes renovar ese certificado SSL con tu CDN o proveedor de certificados.
 
 ## HTTP 403 en enlaces de redirección {#http-403-on-redirect-links}
 
-Si los enlaces de redirección con seguimiento devuelven **403 Forbidden**, el fallo suele ocurrir en tu red de entrega de contenido (CDN) o firewall de aplicaciones web (WAF), por ejemplo, reglas en AWS WAF o Amazon CloudFront que bloquean ciertos agentes de usuario, cadenas de consulta o patrones de redirección. Revisa los registros de solicitudes bloqueadas y las métricas con tu CDN o proveedor de nube. Para AWS, consulta [Solución de problemas con CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
+**Síntoma:** Los enlaces de correo electrónico con seguimiento devuelven "403 Forbidden".
+
+Si los enlaces de redirección con seguimiento devuelven "403 Forbidden", el fallo suele ocurrir en tu red de entrega de contenido (CDN) o firewall de aplicaciones web (WAF), por ejemplo, reglas en AWS WAF o Amazon CloudFront que bloquean ciertos agentes de usuario, cadenas de consulta o patrones de redirección. Revisa los registros de solicitudes bloqueadas y las métricas con tu CDN o proveedor de nube. Para AWS, consulta [Solución de problemas con CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
 Para ver si el problema es específico del seguimiento de clics, desactiva el seguimiento de clics para un enlace de prueba (consulta [Desactivar el seguimiento de clics enlace por enlace]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Si la URL de destino carga cuando el seguimiento de clics está desactivado pero devuelve 403 cuando está activado, concéntrate en la configuración de tu dominio de seguimiento de clics, CDN y WAF.
 
 ## Problemas con el registro de dominio {#domain-registry-issues}
 
+**Síntoma:** El DNS o CNAME de tu subdominio de seguimiento apunta a tu ESP en lugar de a tu CDN.
+
 Ejecuta un comando dig para confirmar que apuntas el seguimiento de enlaces al CDN. En tu terminal ejecuta `dig CNAME link_tracking_subdomain`. En `ANSWER SECTION`, se indica a dónde apunta tu CNAME. Si apunta al proveedor de servicios de correo electrónico (SendGrid, SparkPost o Amazon SES) y no a tu CDN, reconfigura tu registro de dominio para que apunte a tu CDN.
 
 ## Problemas con el CDN {#cdn-issues}
+
+**Síntoma:** Los usuarios ven errores de "la conexión no es privada", o los enlaces se rompen durante la configuración del CDN.
 
 Si los enlaces de correo electrónico en vivo se rompen durante la configuración, probablemente apuntaste el DNS hacia tu CDN antes de una configuración adecuada. Esto puede aparecer como un error de "enlace incorrecto". Ponte en contacto con tu proveedor de CDN y revisa su documentación para solucionar la configuración.
 
@@ -38,7 +68,9 @@ Si ves un mensaje de error indicando que tu conexión no es privada, esto puede 
 
 ## Estado de habilitación de SSL {#ssl-enablement-status}
 
-Si completas la configuración de SSL y los enlaces siguen apareciendo como HTTP, ponte en contacto con tu administrador del éxito del cliente de Braze para confirmar que Braze habilitó SSL. Braze habilita SSL solo después de que se completen todos los pasos de configuración.
+**Síntoma:** La configuración de SSL está completa, pero los enlaces con seguimiento siguen apareciendo como HTTP.
+
+Si completas la configuración de SSL y los enlaces siguen apareciendo como HTTP, ponte en contacto con tu administrador de éxito de cliente de Braze para confirmar que Braze habilitó SSL. Braze habilita SSL solo después de que se completen todos los pasos de configuración.
 
 ### Amazon SES {#amazon-ses}
 
@@ -51,6 +83,8 @@ Si estás usando Amazon SES como tu proveedor de servicios de correo electrónic
 - **Reenvío de encabezados deshabilitado:** Si la habilitación de SSL sigue fallando después de configurar `X-Forwarded-Host`, intenta deshabilitar el reenvío de encabezados en tu CDN o proxy. Algunas configuraciones resuelven el problema cuando el reenvío se desactiva por completo. Trabaja con tu equipo de TI o proveedor de CDN para probar esta configuración.
 
 ## Problemas con el seguimiento de clics {#click-tracking-issues}
+
+**Síntoma:** Los enlaces de correo electrónico con seguimiento fallan, pero los enlaces sin seguimiento funcionan, o los usuarios ven errores de certificado o DNS después de hacer clic.
 
 Los problemas comunes de redirección suelen ser resultado de una configuración incorrecta entre el CDN que aloja el dominio de seguimiento y sus certificados SSL asociados o registros DNS CNAME. Estas malas configuraciones a menudo causan que los usuarios reciban un error de privacidad de "la conexión no es segura" o un fallo `404` después de hacer clic en un enlace de correo electrónico con seguimiento.
 

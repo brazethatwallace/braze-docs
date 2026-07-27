@@ -330,7 +330,8 @@ $(document).ready(function() {
     {% multi_lang_include layouts/liquid_use_case_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.glossary_liquid_use_cases_search_placeholder }}" aria-label="{{ glossary_loc.glossary_liquid_use_cases_search_aria }}" aria-describedby="search-hint" />
+        <label for="api_search" id="liquid-use-cases-search-label" class="sr-only">{{ glossary_loc.glossary_liquid_use_cases_search_aria }}</label>
+        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.glossary_liquid_use_cases_search_placeholder }}" aria-labelledby="liquid-use-cases-search-label" aria-describedby="search-hint" />
         <span id="search-hint" class="sr-only">{{ glossary_loc.glossary_liquid_use_cases_search_hint }}</span>
         <div id="api_filter_list"></div>
     </div>

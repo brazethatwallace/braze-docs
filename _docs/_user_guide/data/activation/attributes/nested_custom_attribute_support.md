@@ -308,9 +308,21 @@ For this example, Braze inserts the nested value for `preferences.neighborhood_o
 Check that a schema has been generated if you don't see the option to insert nested custom attributes.
 {% endalert %}
 
-## Regenerate schemas {#regenerate-schema}
+## Generate and regenerate schemas {#regenerate-schema}
 
-After a schema has been generated, you can regenerate it **once per calendar day** (based on your company's time zone). This section describes how to regenerate your schema. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
+To use nested custom attributes in segmentation and personalization, you must generate a schema for the attribute. After a schema has been generated, you can regenerate it as needed. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
+
+### Generate a schema
+
+After you create a nested custom attribute and send data to Braze, you can generate the schema:
+
+1. Go to **Data Settings** > **Custom Attributes**.
+2. Search for your nested custom attribute.
+3. In the **Attribute Name** column for your attribute, select <i class="fas fa-arrows-rotate"></i> **Generate Schema**.
+
+After the schema is generated, the <i class="fas fa-arrows-rotate"></i> icon changes to a <i class="fas fa-plus"></i> plus icon that you can select to view and manage the schema.
+
+### Regenerate a schema
 
 To regenerate the schema for your nested custom attribute:
 
@@ -319,7 +331,7 @@ To regenerate the schema for your nested custom attribute:
 3. In the **Attribute Name** column for your attribute, select <i class="fas fa-plus"></i> **Manage schema** to manage the schema.
 4. A modal will appear. Select **Regenerate Schema**.
 
-The **Regenerate Schema** action is limited to **once per calendar day** in your company's time zone. You can't start another regeneration while a schema job is already **in progress** (the option is unavailable while status is **Generating**). Regenerating the schema only detects new objects and does not delete objects that currently exist in the schema.
+You can't start another regeneration while a schema job is already **in progress** (the option is unavailable while status is **Generating**). Only one schema generation job can run at a time per company. Regenerating the schema only detects new objects and does not delete objects that currently exist in the schema.
 
 {% alert important %}
 To reset the schema for an object array with an existing object, you need to create a new custom attribute. Schema regeneration doesn't delete existing objects.

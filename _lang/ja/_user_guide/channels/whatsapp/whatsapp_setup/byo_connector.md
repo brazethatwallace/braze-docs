@@ -24,19 +24,19 @@ channel:
 
 ## セットアップ {#set-up}
 
-BYO WhatsAppコネクターをセットアップする前に、WhatsApp Business Accountの過去の送信がInfobipを通じて行われていないことを確認してください。
+BYO WhatsAppコネクターをセットアップする前に、WhatsApp Businessアカウントの過去の送信がInfobipを通じて行われていないことを確認してください。
 
 ### サポートされるケース {#supported-cases}
 
-- WhatsApp Business Accountと電話番号がこれまでパートナーに接続されたことがない
-- WhatsApp Business Accountがネイティブ統合を通じてBrazeに直接接続されている
-    - [WhatsApp電話番号の移行]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)の手順に従い、電話番号を1つずつ新しいWhatsApp Business Accountに移行してください。
-- WhatsApp Business AccountがBrazeおよびInfobip以外のソリューションプロバイダーに接続されている
-    - [WhatsApp電話番号の移行]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)の手順に従い、電話番号を1つずつ新しいWhatsApp Business Accountに移行してください。
+- WhatsApp Businessアカウントと電話番号がこれまでパートナーに接続されたことがない
+- WhatsApp Businessアカウントがネイティブ統合を通じてBrazeに直接接続されている
+    - [WhatsApp電話番号の移行]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)の手順に従い、電話番号を1つずつ新しいWhatsApp Businessアカウントに移行してください。
+- WhatsApp BusinessアカウントがBrazeおよびInfobip以外のソリューションプロバイダーに接続されている
+    - [WhatsApp電話番号の移行]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)の手順に従い、電話番号を1つずつ新しいWhatsApp Businessアカウントに移行してください。
 
 ## ステップ 1:Infobipアカウント情報の取得 {#step-1}
 
-1. Infobipで、WhatsApp Business Accountに使用するアカウントを特定します。
+1. Infobipで、WhatsApp Businessアカウントに使用するアカウントを特定します。
 2. **Developer Tools** > **API Keys** に移動し、**Create API Key** を選択します。
 
 ![作成日が「16/12/2025」、有効期限が「16/12/36」の「Create API key」ページ。]({% image_buster /assets/img/whatsapp/byo_connector/create_api_key.png %})
@@ -53,7 +53,7 @@ BYO WhatsAppコネクターをセットアップする前に、WhatsApp Business
 - `Subscriptions:manage`
 - `Metrics:manage`
 6. キーを作成したら、APIキーをコピーします。
-    - キーは作成後、限られた時間内にのみコピーできます。将来別のWhatsApp Business Accountを接続する必要がある場合は、これらの手順を繰り返して新しいキーを作成できます。
+    - キーは作成後、限られた時間内にのみコピーできます。将来別のWhatsApp Businessアカウントを接続する必要がある場合は、これらの手順を繰り返して新しいキーを作成できます。
 
 ![6つのスコープが追加された「Braze Example API Key」。]({% image_buster /assets/img/whatsapp/byo_connector/api_key.png %})
 
@@ -86,7 +86,7 @@ BYO WhatsAppコネクターをセットアップする前に、WhatsApp Business
 セットアップが完了すると、電話番号がWhatsApp Business Groupの下にサブスクリプショングループとして表示されます。WhatsApp Business Groupには、接続先のInfobipアカウント名とAPIベースURLが含まれます。ネイティブ統合を通じて接続されたアカウントには、Infobipアカウント名は表示されません。
 
 {% alert note %}
-各WhatsApp Business Accountを1つのInfobipアカウントに接続してください。追加の電話番号やサブスクリプショングループを接続するたびに、WhatsApp Business Accountがすでにinfobipアカウントに接続されている場合は、既存アカウントのAPI認証情報を再入力する必要があります。
+各WhatsApp Businessアカウントを1つのInfobipアカウントに接続してください。追加の電話番号やサブスクリプショングループを接続するたびに、WhatsApp Businessアカウントがすでにinfobipアカウントに接続されている場合は、既存アカウントのAPI認証情報を再入力する必要があります。
 {% endalert %}
 
 ## ステップ 3:メッセージの送信 {#step-3-sending-messages}
@@ -97,14 +97,14 @@ BYO WhatsAppコネクターをセットアップする前に、WhatsApp Business
 
 ## セットアップのトラブルシューティング {#troubleshooting-setup}
 
-### WhatsApp Business Account IDを取得できない {#couldnt-retrieve-whatsapp-business-account-id}
+### WhatsApp Businessアカウント IDを取得できない {#couldnt-retrieve-whatsapp-business-account-id}
 
-WhatsApp Business Accountが別のBrazeワークスペースに接続されていないことを確認してください。
+WhatsApp Businessアカウントが別のBrazeワークスペースに接続されていないことを確認してください。
 
-### WhatsApp Business Account IDをInfobipと共有できない {#couldnt-share-whatsapp-business-account-id-with-infobip}
+### WhatsApp Businessアカウント IDをInfobipと共有できない {#couldnt-share-whatsapp-business-account-id-with-infobip}
 
-1. WhatsApp Business AccountがBrazeまたは別のパートナーに接続されていないことを確認してください。
-2. WhatsApp Business Account内の電話番号が別のInfobipアカウントに接続されていないことを確認してください。インポートされた番号の場合は、Infobipで番号を見つけて **Cancel number** を選択できます。
+1. WhatsApp BusinessアカウントがBrazeまたは別のパートナーに接続されていないことを確認してください。
+2. WhatsApp Businessアカウント内の電話番号が別のInfobipアカウントに接続されていないことを確認してください。インポートされた番号の場合は、Infobipで番号を見つけて **Cancel number** を選択できます。
 
 ## 注意事項 {#considerations}
 
@@ -113,5 +113,5 @@ Brazeの既存機能はすべてサポートされていますが、以下のユ
 | ユースケース | 理由 |
 | --- | --- |
 | BrazeとInfobipの両方で受信メッセージを処理する | いずれかのシステムによってトリガーされるロジックチェーンが発生し、重複した、場合によっては矛盾するメッセージスレッドが生成される可能性があるためです。 |
-| BrazeとInfobipの両方からメッセージを送信する | Brazeに接続されたWhatsApp Business Accountの場合、すべての送信はBrazeから行われます。 |
+| BrazeとInfobipの両方からメッセージを送信する | Brazeに接続されたWhatsApp Businessアカウントの場合、すべての送信はBrazeから行われます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="注意事項" }

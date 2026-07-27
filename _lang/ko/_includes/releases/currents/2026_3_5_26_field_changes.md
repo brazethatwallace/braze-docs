@@ -1,0 +1,3 @@
+- `agentconsole.AgentExecuted`: `error`(문자열) 추가—발생한 오류에 대한 설명입니다.
+- `agentconsole.ToolInvocation`: `request_id`(문자열) 추가—전체 LLM 요청 및 완전한 실행에 대한 고유 ID입니다.
+- `users.messages.rcs.InboundReceive`: `canvas_variation_name`(문자열) 추가—사용자가 수신한 Canvas 배리에이션의 이름입니다.

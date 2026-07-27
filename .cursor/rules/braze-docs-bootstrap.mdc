@@ -18,6 +18,7 @@ The following table shows a few common entry points — not every skill or workf
 | **create-pr** | Opening a draft PR with summary, verification checklist, and pre-PR gates | `/create-pr` — *"Open a draft PR for this branch"* |
 | **redirect-management** | Adding or validating redirects when pages move or rename | `/redirect-management` — *"Add a redirect for the renamed CSV import page"* |
 | **reference-repos** | Verifying product, API, or SDK behavior against source code | `/reference-repos` — *"Verify this endpoint limit against platform source"* |
+| **slack-to-docs** | Mining SME Slack channels for doc gaps → verified PRs | `/slack-to-docs` — *"Mine #whatsapp-sme-global for the last 6 months"* |
 | **Style guide** | Voice, tone, formatting, images, API article structure | [`docs/contributing/style_guide/`](docs/contributing/style_guide/) — *"Does this section follow the writing style guide?"* |
 
 For every skill, invocation syntax, and when-to-use guidance, see **[CAPABILITIES.md](CAPABILITIES.md)**.

@@ -1,0 +1,4 @@
+- Ingerir dados de usuários first-party e zero-party coletados do Komo para a Braze em tempo real
+- Ingerir dados de pesquisa de mercado e preferências de usuários quando eles respondem a pesquisas, enquetes e perguntas de quiz
+- Compilar progressivamente perfis de usuário na Braze ao longo do tempo, à medida que o usuário continua interagindo e compartilhando mais dados sobre si mesmo
+- Padronizar a aparência dos e-mails de transação enviados pela Braze

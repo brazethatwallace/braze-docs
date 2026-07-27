@@ -15,34 +15,34 @@ alias: /line/create/
 
 > Les campagnes LINE peuvent atteindre directement vos clients et discuter avec eux de manière programmatique. Vous pouvez utiliser Liquid et d'autres contenus dynamiques pour créer une expérience personnalisée avec vos utilisateurs et favoriser une expérience utilisateur discrète avec votre marque.
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
 Avant de créer un message LINE, procédez comme suit :
 
 1. Lisez l'aperçu de LINE.
-2. Prenez connaissance des politiques, limites et règles de contenu.
+2. Prenez connaissance des politiques, des limites et des règles de contenu.
 3. [Configurez votre connexion LINE]({{site.baseurl}}/user_guide/channels/line/line_setup).
 
-L'envoi de messages LINE depuis Braze consomme les crédits de messages ou d'actions de votre compte.
+L'envoi de messages LINE depuis Braze consommera les crédits de messages ou d'actions de votre compte.
 
 ## Étape 1 : Choisir où créer votre message {#step-1-choose-where-to-build-your-message}
 
-Vous ne savez pas si votre message doit être envoyé via une campagne ou un Canvas ? Les campagnes sont plus adaptées aux envois de messages ciblés uniques, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
+Vous ne savez pas si votre message doit être envoyé via une Campaign ou un Canvas ? Les Campaigns sont plus adaptées aux campagnes de communication ciblées et ponctuelles, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
 
 {% tabs %}
 {% tab Campaign %}
 
 **Étapes :**
 
-1. Accédez à **Messagerie** > **Campagnes** et sélectionnez **Créer une campagne**.
-2. Sélectionnez **LINE** ou, pour les campagnes ciblant plusieurs canaux, sélectionnez **Campagne multicanale**.
+1. Allez dans **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
+2. Sélectionnez **LINE** ou, pour les campagnes ciblant plusieurs canaux, sélectionnez **Multichannel Campaign**.
 3. Donnez à votre campagne un nom clair et significatif.
-4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire.
-   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports.
-5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes ajoutées. Pour en savoir plus, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+4. Ajoutez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
+   * Les tags facilitent la recherche de vos campagnes et la création de rapports.
+5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différentes plateformes, types de messages et mises en page pour chacune de vos variantes ajoutées. Pour en savoir plus sur ce sujet, consultez [Test multivarié et test A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copier à partir de la variante** dans le menu déroulant **Ajouter une variante**.
+Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
 {% endalert %}
 
 {% endtab %}
@@ -50,27 +50,22 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 
 **Étapes :**
 
-1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur Canvas.
-2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur Canvas. Donnez à votre étape un nom clair et significatif.
-3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) et spécifiez un délai si nécessaire.
-4. Filtrez votre audience pour cette étape si nécessaire. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
-5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-6. Choisissez tout autre canal de communication que vous souhaitez associer à votre message.
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 
 {% endtab %}
 {% endtabs %}
 
-## Étape 2 : Rédiger votre message LINE {#step-2-compose-your-line-message}
+## Étape 2 : Rédigez votre message LINE {#step-2-compose-your-line-message}
 
-Rédigez votre message en utilisant la personnalisation (comme Liquid ou le contenu connecté) selon vos besoins. LINE autorise jusqu'à cinq bulles de message par message, qui peuvent utiliser n'importe quelle disposition disponible : texte, image, enrichi ou basé sur des cartes.
+Rédigez votre message en utilisant la personnalisation (comme Liquid ou le contenu connecté) selon vos besoins. LINE autorise jusqu'à cinq bulles de message par envoi, chacune pouvant utiliser l'un des formats de message disponibles : texte, image, message enrichi ou message à base de cartes.
 
-![Compositeur LINE avec un message affiché dans la prévisualisation.]({% image_buster /assets/img/line/line_composer.png %})
+![Éditeur LINE avec un message affiché dans l'aperçu.]({% image_buster /assets/img/line/line_composer.png %})
 
 ### Conseils {#tips}
 
 #### Utiliser Liquid {#using-liquid}
 
-Si vous prévoyez d'utiliser Liquid, veillez à inclure une valeur par défaut pour votre personnalisation. Cela évitera que les destinataires ayant des profils utilisateur incomplets reçoivent une marque substitutive vide. Par exemple, au lieu qu'un utilisateur reçoive le message « Bonjour, ! », il pourrait recevoir le message « Bonjour, nouvel abonné ! ».
+Si vous prévoyez d'utiliser Liquid, veillez à inclure une valeur par défaut pour votre personnalisation. Cela évitera que les destinataires dont le profil utilisateur est incomplet ne reçoivent une marque substitutive vide. Par exemple, au lieu de recevoir le message « Bonjour, ! », un utilisateur pourrait recevoir le message « Bonjour, nouvel abonné ! ».
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -82,28 +77,28 @@ L'apparence finale des messages de droite à gauche dépend en grande partie de 
 
 Passez à l'onglet **Test** pour envoyer un message LINE de test à des groupes de test de contenu ou à des utilisateurs individuels, ou prévisualisez le message en tant qu'utilisateur directement dans Braze.
 
-![L'onglet « Tests » affichant une prévisualisation d'un message de test.]({% image_buster /assets/img/line/test_preview.png %})
+![L'onglet « Tests » affichant un aperçu d'un message de test.]({% image_buster /assets/img/line/test_preview.png %})
 
-Pour en savoir plus, consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=line).
+Pour plus d'informations, consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=line).
 
-## Étape 4 : Construire le reste de votre campagne ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+## Étape 4 : Créer le reste de votre campagne ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Construisez le reste de votre campagne. Consultez les sections suivantes pour plus de détails sur la meilleure façon d'utiliser nos outils pour créer des messages LINE.
+Créez le reste de votre campagne. Consultez les sections suivantes pour plus de détails sur la meilleure façon d'utiliser nos outils pour créer des messages LINE.
 
-### Choisir la planification ou le déclencheur de réception {#choose-delivery-schedule-or-trigger}
+### Choisir la planification de livraison ou le déclencheur {#choose-delivery-schedule-or-trigger}
 
-Les messages LINE peuvent être envoyés selon un horaire planifié, une action ou un déclencheur API. Pour en savoir plus sur les options de planification et de déclenchement, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Les messages LINE peuvent être envoyés à une heure planifiée, en fonction d'une action ou via un déclencheur API. Pour en savoir plus sur les options de planification et de déclenchement, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Vous pouvez spécifier des contrôles de réception, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
+Vous pouvez spécifier des contrôles de livraison, comme autoriser les utilisateurs à devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
-[Ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en choisissant des segments ou des filtres pour affiner votre audience. Vous devriez avoir déjà choisi le groupe d'abonnement, qui restreint les utilisateurs selon le niveau ou la catégorie de communication qu'ils souhaitent avoir avec vous.
+[Ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en choisissant des Segments ou des filtres pour affiner votre audience. Vous devriez avoir déjà choisi le groupe d'abonnement, qui restreint les utilisateurs en fonction du niveau ou de la catégorie de communication qu'ils souhaitent avoir avec vous.
 
-Sélectionnez l'audience la plus large parmi vos segments, puis affinez éventuellement ce segment davantage avec nos [filtres]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Vous recevez automatiquement un aperçu de la population approximative de ce segment. Gardez à l'esprit que l'appartenance exacte au segment est toujours calculée avant l'envoi du message.
+Sélectionnez l'audience la plus large parmi vos Segments, et affinez éventuellement ce Segment davantage avec nos [filtres]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Vous recevez automatiquement un aperçu de la population approximative de ce Segment. Gardez à l'esprit que l'appartenance exacte au Segment est toujours calculée avant l'envoi du message.
 
 ### Choisir les événements de conversion {#choose-conversion-events}
 
@@ -119,13 +114,13 @@ Vous pouvez également définir des événements de conversion personnalisés en
 {% endtab %}
 {% tab Canvas %}
 
-Si ce n'est pas déjà fait, complétez les sections restantes de votre Canvas. Pour plus de détails sur la construction du reste de votre Canvas, l'utilisation des tests multivariés et de la sélection intelligente, et plus encore, consultez [Créer un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
+Si ce n'est pas déjà fait, complétez les sections restantes de votre Canvas. Pour plus de détails sur la création du reste de votre Canvas, l'utilisation des tests multivariés et de la sélection intelligente, et plus encore, consultez [Créer un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 
 {% endtab %}
 {% endtabs %}
 
 ## Étape 5 : Vérifier et déployer {#step-5-review-and-deploy}
 
-Après avoir terminé la construction de votre campagne ou Canvas, vérifiez ses détails, testez-le, puis envoyez-le !
+Après avoir terminé la création de votre Campaign ou Canvas, vérifiez ses détails, testez-le, puis envoyez-le !
 
-Ensuite, consultez les [rapports LINE]({{site.baseurl}}/line/reporting) pour découvrir comment accéder aux résultats de vos campagnes LINE.
+Consultez ensuite la section [Rapports LINE]({{site.baseurl}}/line/reporting) pour découvrir comment accéder aux résultats de vos Campaigns LINE.

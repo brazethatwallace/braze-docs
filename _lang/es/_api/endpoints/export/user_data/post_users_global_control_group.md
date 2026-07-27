@@ -32,7 +32,7 @@ Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/ap
 
 ## Detalles de la respuesta basados en credenciales {#credentials-based-response-details}
 
-Si has añadido tus credenciales de [S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) o [Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) a Braze a través de la página correspondiente de **Socios tecnológicos**, cada archivo se cargará en tu contenedor como un archivo ZIP con un formato de clave similar a `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Si utilizas Azure, asegúrate de que tienes marcada la casilla **Make this the default data export destination** en la página de resumen del partner de Azure en Braze.
+Si has añadido tus credenciales de [S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) o [Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) a Braze a través de la página correspondiente de **Technology Partners**, cada archivo se cargará en tu contenedor como un archivo ZIP con un formato de clave similar a `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`. Si utilizas Azure, asegúrate de que tienes marcada la casilla **Make this the default data export destination** en la página de resumen del partner de Azure en Braze.
 
 Por lo general, creamos un archivo por cada 5000 usuarios para optimizar el procesamiento. Exportar segmentos más pequeños dentro de un espacio de trabajo grande puede dar lugar a varios archivos. A continuación, puedes extraer los archivos y concatenar todos los archivos `json` en un único archivo si es necesario. Si especificas un `output_format` de `gzip`, entonces la extensión del archivo será `.gz` en lugar de `.zip`.
 
@@ -56,9 +56,9 @@ Por lo general, creamos un archivo por cada 5000 usuarios para optimizar el proc
 
 {% enddetails %}
 
-Te recomendamos encarecidamente que configures tus propias credenciales de S3 o Azure (en **Integraciones de socios** > **Socios tecnológicos** > página del partner) cuando utilices este endpoint para aplicar tus propias políticas de contenedor en la exportación.
+Te recomendamos encarecidamente que configures tus propias credenciales de S3 o Azure (en **Partner Integrations** > **Technology Partners** > página del partner) cuando utilices este endpoint para aplicar tus propias políticas de contenedor en la exportación.
 
-![La página de Socios tecnológicos de Azure, con una pestaña para Amazon S3.]({% image_buster /assets/img/technology_partners_page.png %})
+![La página de Technology Partners de Azure, con una pestaña para Amazon S3.]({% image_buster /assets/img/technology_partners_page.png %})
 
 Si no proporcionas tus credenciales de almacenamiento en el cloud, la respuesta a la solicitud proporciona la URL donde se puede descargar un ZIP que contiene todos los archivos del usuario. La URL solo será una ubicación válida una vez que la exportación esté lista.
 
@@ -147,7 +147,7 @@ La siguiente es una lista de valores `fields_to_export` válidos. Usar `fields_t
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example,'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }

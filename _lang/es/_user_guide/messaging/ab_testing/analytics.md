@@ -14,19 +14,19 @@ Después de que tu campaña se haya lanzado, puedes comprobar el rendimiento de 
 
 ## Análisis por opción de optimización {#analytics-by-optimization-option}
 
-Tu vista de análisis variará dependiendo de si seleccionaste una [optimización]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) durante la configuración inicial.
+Tu vista de análisis varía en función de si seleccionaste una [optimización]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) durante la configuración inicial.
 
 ### Sin optimización {#no-optimization}
 
 Si seleccionaste **Sin optimización** al configurar tu campaña, tu vista de análisis permanecerá igual. La página **Análisis de campañas** de tu campaña mostrará el rendimiento de tus variantes en comparación con tu grupo de control, si incluiste uno.
 
-![Sección de rendimiento del análisis de campaña para una campaña de correo electrónico con múltiples variantes. La tabla enumera varias métricas de rendimiento para cada variante, como destinatarios, rebotes, clics y conversiones.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
+![Sección de rendimiento del análisis de campaña para una campaña de correo electrónico con múltiples variantes. La tabla enumera diversas métricas de rendimiento para cada variante, como destinatarios, rebotes, clics y conversiones.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
 Para más detalles, consulta el artículo [Análisis de campañas]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) para tu canal de mensajería.
 
 ### Selección de variante con BrazeAI<sup>TM</sup> (solo push) {#brazeai-variant-selection-push-only}
 
-Si usas la selección de variante con BrazeAI<sup>TM</sup>, dependiendo de si se trata de un envío único o una campaña recurrente, una vez que la ventana del experimento (o el primer período para recurrentes) haya pasado, verás el incremento, si lo hay, en la página de inicio de la campaña. También verás más detalles similares a los de la variante ganadora si ejecutas una campaña de envío único.
+Si usas la selección de variante con BrazeAI<sup>TM</sup>, dependiendo de si se trata de un envío único o una campaña recurrente, una vez que haya pasado la ventana del experimento (o el primer periodo en el caso de campañas recurrentes), verás el incremento, si lo hay, en la página de inicio de la campaña. También verás más detalles similares a la variante ganadora si ejecutas una campaña de envío único.
 
 Para más detalles sobre cómo reportamos el incremento en la selección de variante con BrazeAI<sup>TM</sup>, consulta [Selección de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
@@ -34,7 +34,7 @@ Para más detalles sobre cómo reportamos el incremento en la selección de vari
 
 ### Variante ganadora {#winning-variant}
 
-Si seleccionaste **Variante ganadora** como optimización al configurar tu campaña, tienes acceso a una pestaña adicional en el análisis de tu campaña llamada **Resultado de la prueba A/B**. Después de que la variante ganadora se envíe a los usuarios restantes de tu prueba, esta pestaña muestra los resultados de ese envío.
+Si seleccionaste **Variante ganadora** como optimización al configurar tu campaña, tienes acceso a una pestaña adicional en los análisis de tu campaña llamada **Resultado de la prueba A/B**. Después de que la variante ganadora se envíe a los usuarios restantes de tu prueba, esta pestaña muestra los resultados de ese envío.
 
 El **Resultado de la prueba A/B** se divide en dos pestañas: **Prueba inicial** y **Variante ganadora**.
 
@@ -47,7 +47,7 @@ Si una variante superó a todas las demás con más del 95 % de [confianza]({{si
 
 Si ninguna variante supera a todas las demás con un 95 % de confianza y elegiste enviar la variante con mejor rendimiento de todos modos, la variante con mejor rendimiento se enviará igualmente y se indicará con la etiqueta "Ganadora".
 
-![Resultados de una prueba inicial enviada para determinar la variante ganadora donde ninguna variante tuvo un rendimiento mejor que las demás con suficiente confianza para alcanzar el umbral del 95 por ciento de confianza para significancia estadística.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
+![Resultados de una prueba inicial enviada para determinar la variante ganadora, donde ninguna variante tuvo un rendimiento mejor que las demás con suficiente confianza para alcanzar el umbral del 95 % de confianza para significancia estadística.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
 
 #### Cómo se selecciona la variante ganadora {#how-the-winning-variant-is-selected}
 
@@ -60,7 +60,7 @@ Una variante puede tener mejor rendimiento que el grupo de control, pero la prue
 {% endtab %}
 {% tab Variante ganadora %}
 
-La pestaña **Variante ganadora** muestra los resultados del segundo envío, donde cada usuario restante recibió la variante con mejor rendimiento de la prueba inicial. Tu **% de audiencia** sumará el porcentaje del segmento objetivo que reservaste para el grupo de la variante ganadora.
+La pestaña **Variante ganadora** muestra los resultados del segundo envío, en el que cada usuario restante recibió la variante con mejor rendimiento de la prueba inicial. Tu **% de audiencia** sumará el porcentaje del segmento objetivo que reservaste para el grupo de la variante ganadora.
 
 ![Resultados de la variante ganadora enviada al grupo de la variante ganadora.]({% image_buster /assets/img_archive/ab_analytics_wv_1.png %})
 
@@ -78,20 +78,20 @@ Si seleccionaste **Variante personalizada** como optimización al configurar tu 
 
 La pestaña **Prueba inicial** muestra las métricas de cada variante de la prueba A/B inicial enviada a una parte de tu segmento objetivo.
 
-![Resultados de una prueba inicial enviada para determinar la variante con mejor rendimiento para cada usuario. Una tabla muestra el rendimiento de cada variante basándose en varias métricas para el canal objetivo.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
+![Resultados de una prueba inicial enviada para determinar la variante con mejor rendimiento para cada usuario. Una tabla muestra el rendimiento de cada variante según diversas métricas para el canal objetivo.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
 
 De forma predeterminada, la prueba busca asociaciones entre los eventos personalizados de cada usuario y sus preferencias de variante de mensaje. Este análisis detecta si los eventos personalizados aumentan o disminuyen la probabilidad de responder a una variante de mensaje en particular. Estas relaciones se utilizan luego para determinar qué usuarios reciben qué variante de mensaje en el envío final.
 
-Las relaciones entre eventos personalizados y preferencias de mensaje se muestran en la tabla de la pestaña **Envío inicial**.
+Las relaciones entre los eventos personalizados y las preferencias de mensaje se muestran en la tabla de la pestaña **Envío inicial**.
 
-![Tablas de datos de eventos personalizados para la variante 1 y la variante 2 que muestran las puntuaciones de impacto de los eventos personalizados e indican cómo cada evento influye en la preferencia de variante.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Tablas de datos de eventos personalizados para la variante 1 y la variante 2 que muestran puntuaciones de impacto de eventos personalizados que indican cómo cada evento influye en la preferencia de variante.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
-Si la prueba no puede encontrar una relación significativa entre los eventos personalizados y las preferencias de ruta, recurre a un método de análisis basado en sesiones, y no se muestran tablas de datos de eventos personalizados.
+Si la prueba no puede encontrar una relación significativa entre los eventos personalizados y las preferencias de ruta, la prueba recurre a un método de análisis basado en sesiones, y no se muestran tablas de datos de eventos personalizados.
 
 {% details Método de análisis alternativo %}
 
 **Método de análisis basado en sesiones**<br>
-Si se utiliza el método alternativo para determinar las variantes personalizadas, la pestaña **Prueba inicial** muestra un desglose de las variantes preferidas de los usuarios basándose en una combinación de ciertas características.
+Si se utiliza el método alternativo para determinar las variantes personalizadas, la pestaña **Prueba inicial** muestra un desglose de las variantes preferidas de los usuarios basado en una combinación de ciertas características.
 
 Estas características son:
 
@@ -99,33 +99,33 @@ Estas características son:
 - **Frecuencia:** Con qué frecuencia tienen sesiones
 - **Antigüedad:** Cuánto tiempo llevan siendo usuarios
 
-Por ejemplo, la prueba puede encontrar que la mayoría de los usuarios prefieren la variante A, pero los usuarios que tuvieron una sesión hace aproximadamente 3-12 días, tienen entre 1-12 días entre sesiones y fueron creados en los últimos 67-577 días tienden a preferir la variante B. Por lo tanto, los usuarios en esa subpoblación recibieron la variante B en el segundo envío, mientras que el resto recibió la variante A.
+Por ejemplo, la prueba puede encontrar que la mayoría de los usuarios prefieren la variante A, pero los usuarios que tuvieron una sesión hace aproximadamente 3-12 días, tienen entre 1-12 días entre sesiones y fueron creados en los últimos 67-577 días tienden a preferir la variante B. Por lo tanto, los usuarios de esa subpoblación recibieron la variante B en el segundo envío, mientras que el resto recibió la variante A.
 
-![La tabla de características de usuario, que muestra qué usuarios se predice que preferirán la variante A y la variante B basándose en los tres contenedores en los que se encuentran para recencia, frecuencia y antigüedad.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
+![La tabla de características de usuario, que muestra qué usuarios se predice que prefieren la variante A y la variante B según los tres contenedores en los que se encuentran para recencia, frecuencia y antigüedad.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
 
 **Cómo se seleccionan las variantes personalizadas**<br>
-Con este método, el mensaje recomendado para un usuario individual es la suma de los efectos de su recencia, frecuencia y antigüedad específicas. La recencia, la frecuencia y la antigüedad se dividen en contenedores, como se ilustra en la tabla de **Características de usuario**. El rango de tiempo de cada contenedor se determina por los datos de los usuarios en cada campaña individual y cambiará de una campaña a otra.
+Con este método, el mensaje recomendado para un usuario individual es la suma de los efectos de su recencia, frecuencia y antigüedad específicas. La recencia, la frecuencia y la antigüedad se dividen en contenedores, como se ilustra en la tabla **Características de usuario**. El rango de tiempo de cada contenedor se determina por los datos de los usuarios en cada campaña individual y cambiará de campaña a campaña.
 
-Cada contenedor puede tener una contribución o "impulso" diferente hacia cada variante de mensaje. La fuerza del impulso para cada contenedor se determina a partir de las respuestas de los usuarios en el envío inicial utilizando [regresión logística](https://en.wikipedia.org/wiki/Logistic_regression). Esta tabla solo resume los resultados mostrando con qué variante tendieron a interactuar los usuarios en cada contenedor. La variante personalizada real de cualquier usuario individual depende de la suma de los efectos de los tres contenedores en los que se encuentra, uno para cada característica.
+Cada contenedor puede tener una contribución o "impulso" diferente hacia cada variante de mensaje. La fuerza del impulso para cada contenedor se determina a partir de las respuestas de los usuarios en el envío inicial utilizando [regresión logística](https://en.wikipedia.org/wiki/Logistic_regression). Esta tabla solo resume los resultados mostrando con qué variante tendieron a interactuar los usuarios de cada contenedor. La variante personalizada real de cualquier usuario individual depende de la suma de los efectos de los tres contenedores en los que se encuentra, uno por cada característica.
 
 {% enddetails %}
 
 {% endtab %}
 {% tab Variante personalizada %}
 
-La pestaña **Variante personalizada** muestra los resultados del segundo envío, donde cada usuario restante recibió la variante con la que era más probable que interactuara.
+La pestaña **Variante personalizada** muestra los resultados del segundo envío, en el que cada usuario restante recibió la variante con la que era más probable que interactuara.
 
-Las tres tarjetas en esta página muestran tu incremento proyectado, los resultados generales y los resultados proyectados si hubieras enviado solo la variante ganadora en su lugar. Incluso si no hay incremento, lo cual puede suceder a veces, el resultado es el mismo que enviar solo la variante ganadora (una prueba A/B tradicional).
+Las tres tarjetas de esta página muestran tu incremento proyectado, los resultados generales y los resultados proyectados si hubieras enviado solo la variante ganadora. Incluso si no hay incremento, lo cual puede ocurrir a veces, el resultado es el mismo que enviar solo la variante ganadora (una prueba A/B tradicional).
 
-- **Incremento proyectado:** La mejora en tu métrica de optimización seleccionada para este envío debido al uso de variantes personalizadas en lugar de una prueba A/B estándar (si los usuarios restantes solo hubieran recibido la variante ganadora).
-- **Resultados generales:** Los resultados del segundo envío basados en tu métrica de optimización elegida (*Unique Opens*, *clics únicos* o *evento de conversión primaria*).
-- **Resultados proyectados:** Los resultados proyectados del segundo envío basados en tu métrica de optimización elegida si hubieras enviado solo la variante ganadora en su lugar.
+- **Incremento proyectado:** La mejora en tu métrica de optimización seleccionada para este envío gracias al uso de variantes personalizadas en lugar de una prueba A/B estándar (si los usuarios restantes solo hubieran recibido la variante ganadora).
+- **Resultados generales:** Los resultados del segundo envío basados en tu métrica de optimización elegida (*Unique Opens*, *Unique Clicks* o *evento de conversión primaria*).
+- **Resultados proyectados:** Los resultados proyectados del segundo envío basados en tu métrica de optimización elegida si hubieras enviado solo la variante ganadora.
 
 ![Pestaña de variante personalizada para una campaña optimizada para aperturas únicas. Las tarjetas muestran el incremento proyectado, las aperturas únicas generales (con variante personalizada) y las aperturas únicas proyectadas (con variante ganadora).]({% image_buster /assets/img_archive/ab_analytics_pv_1.png %})
 
-La tabla en esta página muestra las métricas de cada variante del envío de la variante personalizada. Tu **% de audiencia** suma el porcentaje del segmento objetivo que reservaste para el grupo de la variante personalizada.
+La tabla de esta página muestra las métricas de cada variante del envío de variante personalizada. Tu **% de audiencia** suma el porcentaje del segmento objetivo que reservaste para el grupo de variante personalizada.
 
-![Tabla de resultados del envío de variante personalizada que muestra las métricas de rendimiento para la variante A, la variante B y todas las variaciones, incluyendo porcentaje de audiencia, envíos, entregas, aperturas, clics y conversiones.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Tabla de resultados del envío de variante personalizada que muestra métricas de rendimiento para la variante A, la variante B y todas las variaciones, incluyendo porcentaje de audiencia, envíos, entregas, aperturas, clics y conversiones.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -174,6 +174,17 @@ Además, los mensajes de variante que requieren un tiempo de renderizado más la
 ### Retrasos en mensajes dentro de la aplicación {#in-app-message-delays}
 
 Para campañas de mensajes dentro de la aplicación desencadenados que incluyen visualizaciones retrasadas, las impresiones del grupo de control se registrarán cuando el usuario final habría recibido originalmente el mensaje dentro de la aplicación. Por ejemplo, si una campaña está configurada para retrasar la visualización una hora, las impresiones del grupo de control no se registrarán hasta que haya pasado el retraso de una hora. Esto ayuda con el seguimiento preciso de las impresiones relacionadas con el momento previsto de la entrega del mensaje.
+
+## Eliminar variantes de mensaje después del lanzamiento {#removing-message-variants-after-launch}
+
+Si eliminas una variante de mensaje de una Campaign o Canvas haciendo clic en la **X** en el creador (por ejemplo, al reemplazar un mensaje de una plantilla), la variante se marca como eliminada. Los análisis están vinculados al ID único de cada variante, por lo que eliminar una variante afecta a los informes:
+
+- Los análisis preexistentes de la variante eliminada (como aperturas, clics y conversiones) ya no aparecen en los análisis actuales de la Campaign o del paso en Canvas.
+- Los desgloses a nivel de variante excluyen las variantes eliminadas. Si añades una variante de reemplazo, esta recibe un nuevo ID de variante y comienza sin estadísticas históricas, por lo que las métricas pueden mostrarse como 0.
+
+Esto solo aplica cuando eliminas y vuelves a añadir variantes. Editar el contenido de una variante existente en su lugar no afecta a los análisis históricos.
+
+Para más detalles sobre las variantes eliminadas en los informes, consulta [Variantes de mensaje eliminadas]({{site.baseurl}}/user_guide/analytics/reports/report_builder#deleted-message-variants).
 
 ## Seguimientos recomendados {#recommended-follow-ups}
 

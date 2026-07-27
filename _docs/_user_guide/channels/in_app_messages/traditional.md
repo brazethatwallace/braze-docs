@@ -263,7 +263,7 @@ This setting only applies to the Slideup message type. Choose between having you
 
 ### HTML and assets
 
-This setting only applies to the Custom code message type. Copy and paste HTML into the available space and upload your assets using a ZIP file.
+This setting only applies to the custom code message type. Copy and paste HTML into the available space and upload your assets using a [ZIP file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#zip-file-uploads).
 
 ### Email capture input placeholder
 

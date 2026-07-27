@@ -15,6 +15,12 @@ To access the landing page builder, you need [certain permissions]({{site.baseur
 
 ## Creating a landing page
 
+A landing page is a live, published web page with a shareable URL that your customers can visit. 
+
+{% alert note %}
+Landing page templates are unpublished design starting points with no public URL, meaning they can't be shared with your customers. To create a page from a template, see [Using templates](#using-templates).
+{% endalert %}
+
 ### Step 1: Create a new draft
 
 Go to **Messaging** > **Landing Pages**, then select **Create landing page**. You can also select the name of an existing landing page to duplicate or make changes to it.
@@ -169,7 +175,9 @@ Aggressive pop-up blockers and ad blockers on iOS and in Safari (including Safar
 
 ## Using templates
 
-Use landing page templates to create templates for your next campaigns. These templates can be accessed and managed in both the landing page editor and from the **Landing Page Templates** page (**Content** > **Landing Page**). Landing page templates require a name and optionally require a description. 
+Landing page templates are reusable design starting points that help you build landing pages faster. A template has no public URL and can't be visited by customers. To create a live landing page from a template, select the template when creating a new landing page, customize it as needed, then publish it.
+
+Templates can be accessed and managed in both the landing page editor and from the **Landing Page Templates** page (**Content** > **Landing Page**). Landing page templates require a name and optional description. 
 
 ## Managing templates
 
