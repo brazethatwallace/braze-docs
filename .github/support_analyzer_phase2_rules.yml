@@ -99,10 +99,10 @@ rules:
       fields:
         - Support Cases Description
         - Support Cases Email Message Text Body Cleaned
-      match_mode: all_of
+      match_mode: any_of
       patterns:
-        - "(?i)(api\\s*trigger|api_trigger_properties|trigger_properties)"
-        - "(?i)(\\{\\{\\{|triple\\s*brace|extra\\s*brace|curly\\s*brace|liquid)"
+        - "(?is)(api\\s*trigger|api_trigger|trigger_propert).{0,120}(liquid|personaliz|\\{\\{)"
+        - "(?is)(liquid|personaliz).{0,120}(api\\s*trigger|api_trigger|trigger_propert)"
     pr:
       title: "[SA] Liquid — extra braces in API-triggered properties (automated)"
       draft: true
@@ -234,4 +234,36 @@ rules:
           <!-- support-analyzer-phase2:cdi_updated_at_row_sync -->
           {% alert note %}
           If warehouse row counts do not match **Rows Synced** or you see **Partial Success** runs, open the **Run ID** in Sync Log and review row-level **Error reason** values. CDI selects rows using `UPDATED_AT`—rows with timestamps already processed, unchanged `UPDATED_AT` after edits, or writes during an active sync may be skipped. For common cases, see [Why doesn't "Rows Synced" match the number in my warehouse?]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs/#why-doesnt-rows-synced-match-the-number-in-my-warehouse) and [Cloud Data Ingestion FAQ]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs/).
+          {% endalert %}
+
+  - id: sms_optin_keyword
+    enabled: true
+    min_matching_cases: 3
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)(sms|mms|subscription group)"
+        - "(?i)(opt.?in|keyword|double opt|reject|registration|compliance|alpha)"
+    pr:
+      title: "[SA] SMS subscription groups — opt-in and keywords (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Relates to SMS subscription group opt-in, keywords, and rejection troubleshooting.
+        Reviewers should confirm regional compliance guidance with SMS stakeholders before merge.
+    edits:
+      - file: _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups.md
+        fingerprint: support-analyzer-phase2:sms_optin_keyword
+        skip_if_contains:
+          - "High rejection rates are often tied to sender registration"
+        anchor_substring: Design separate SMS subscription groups for each messaging purpose (for example, transactional versus marketing) and for each workspace.
+        insert: |+
+
+          <!-- support-analyzer-phase2:sms_optin_keyword -->
+          {% alert note %}
+          Users must be subscribed to the correct SMS subscription group before they can receive messages. Confirm opt-in via [keyword processing]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/) or the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). When [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) is enabled, users must confirm before status becomes `Subscribed`. High rejection rates are often tied to sender registration or carrier rules—contact [Braze Support]({{site.baseurl}}/braze_support/) with the subscription group and sample user IDs.
           {% endalert %}
