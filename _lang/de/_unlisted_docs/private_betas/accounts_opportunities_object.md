@@ -89,9 +89,9 @@ table td {
 
 | Feldname | Feldtyp | Erforderlich | Beschreibung |
 |-----------------------------|------------|----------|------------------------------------------------------------------------------------|
-| `id`                          | String     | Ja      | Die ID des Kontos in Ihrer CRM-Plattform (geschäftskunden Relationship Management). |
+| `id`                          | String     | Ja      | Die ID des Kontos in Ihrer CRM-Plattform (Customer Relationship Management). |
 | `name`                        | String     | Ja      | Der Name des Kontos. |
-| `type`                        | String     | Nein       | Der Kontotyp, z. B. geschäftskunden, Partner oder Reseller. |
+| `type`                        | String     | Nein       | Der Kontotyp, z. B. Kund:in, Partner oder Reseller. |
 | `annual_revenue`              | String     | Nein       | Jahresumsatz des Kontos. |
 | `industry`                    | String     | Nein       | Branche, in der das Konto tätig ist. |
 | `number_of_employees`         | String     | Nein       | Anzahl der Mitarbeiter:innen, unterstützt Bereiche. |

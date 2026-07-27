@@ -39,7 +39,7 @@ Die Partnerschaft zwischen Braze und Pypestream kann in Ihren Canvases genutzt w
 Pypestream nutzt eine serverlose Integrationsebene, um angepasste Integrationen in verschiedene Plattformen durchzuführen. Diese Schicht dient als Schnittstelle zu Diensten oder Systemen, um die Datenanforderungen des zu erstellenden Konversationsflusses zu unterstützen. Diese Integrationen, die als Action-Node-Integrationen bezeichnet werden, sind in der Regel in Python geschrieben und werden über die Pypestream-Plattform bereitgestellt. Nachdem ein Action Node instanziiert wurde, bietet er die Flexibilität, sich in jeden beliebigen Braze-API-Endpunkt zu integrieren, und erlaubt die Auswertung der Ergebnisse auf vielfältige Weise.
 
 {% alert note %}
-In diesem [Pypestream-Artikel](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070) finden Sie eine Übersicht und Konfigurationsschritte für Pypestream-Action-Nodes. Sie müssen geschäftskunden von Pypestream sein, um auf diese Dokumentation zugreifen zu können.
+In diesem [Pypestream-Artikel](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070) finden Sie eine Übersicht und Konfigurationsschritte für Pypestream-Action-Nodes. Sie müssen Kund:in von Pypestream sein, um auf diese Dokumentation zugreifen zu können.
 {% endalert %}
 
 ### 1. Schritt: Endpunkt-Konfigurationen festlegen {#step-1-set-endpoint-configurations}
@@ -160,7 +160,7 @@ class BrazeExample:
 Der letzte Schritt der Integration mit der Braze REST API besteht darin, die Abläufe im [Design Studio](https://platform.pypestream.com/design-studio/) von Pypestream so zu konfigurieren, dass sie den Action Node verwenden, der im vorherigen Schritt entwickelt wurde.
 
 {% alert note %}
-In diesem [Pypestream-Artikel](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070) finden Sie eine Übersicht darüber, wie Sie Modi im Design Studio konfigurieren können. Sie müssen geschäftskunden von Pypestream sein, um auf diese Dokumentation zugreifen zu können.
+In diesem [Pypestream-Artikel](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070) finden Sie eine Übersicht darüber, wie Sie Modi im Design Studio konfigurieren können. Sie müssen Kund:in von Pypestream sein, um auf diese Dokumentation zugreifen zu können.
 {% endalert %}
 
 ## Anwendungsfall der Integration {#integration-use-case}

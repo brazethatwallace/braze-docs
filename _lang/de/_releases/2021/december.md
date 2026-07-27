@@ -45,7 +45,7 @@ Webhooks sind leistungsstarke, flexible Tools – aber sie können auch ein weni
 
 ## Amazon Personalize
 
-Amazon Personalize ist so, als hätten Sie Ihr eigenes Empfehlungssystem für maschinelles Lernen, das den ganzen Tag läuft. Basierend auf mehr als 20 Jahren Erfahrung mit Empfehlungen ermöglicht Ihnen Amazon Personalize, das geschäftskunden-Engagement zu verbessern, indem es personalisierte Produkt- und Inhaltsempfehlungen in Realtime sowie gezielte Marketing-Aktionen bereitstellt.
+Amazon Personalize ist so, als hätten Sie Ihr eigenes Empfehlungssystem für maschinelles Lernen, das den ganzen Tag läuft. Basierend auf mehr als 20 Jahren Erfahrung mit Empfehlungen ermöglicht Ihnen Amazon Personalize, das Customer-Engagement zu verbessern, indem es personalisierte Produkt- und Inhaltsempfehlungen in Realtime sowie gezielte Marketing-Aktionen bereitstellt.
 
 Wenn Sie mehr erfahren möchten, lesen Sie unseren neuen Artikel über [Amazon Personalize]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize/). Dort erfahren Sie, welche Anwendungsfälle Amazon Personalize bietet, mit welchen Daten es arbeitet, wie Sie den Dienst konfigurieren und wie Sie ihn in Braze integrieren können.
 
@@ -55,6 +55,6 @@ Wenn Sie mehr erfahren möchten, lesen Sie unseren neuen Artikel über [Amazon P
 
 Die Integration von [Yotpo]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/yotpo/) und Braze erlaubt es Ihnen, Sternebewertungen, Top-Rezensionen und visuelle nutzergenerierte Inhalte zu Produkten in E-Mails und anderen Kommunikationskanälen innerhalb von Braze dynamisch abzurufen und anzuzeigen. Sie können auch Daten zur Kundentreue in E-Mails und andere Kommunikationsmethoden einbeziehen, um eine personalisierte Interaktion zu schaffen, die den Umsatz und die Loyalität steigert.
 
-### Zeotap – geschäftskunden Data Platform (CDP) {#zeotap-customer-data-platform}
+### Zeotap – Customer Data Platform (CDP) {#zeotap-customer-data-platform}
 
 Mit der Integration von [Zeotap]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/zeotap/) und Braze können Sie den Umfang und die Reichweite Ihrer Campaigns erweitern, indem Sie Zeotap-Kundensegmente synchronisieren, um Zeotap-Nutzerdaten Braze-Nutzer:innen-Konten zuzuordnen. Sie können dann auf diese Daten reagieren und Ihren Nutzer:innen personalisierte Targeting-Erlebnisse bereitstellen.

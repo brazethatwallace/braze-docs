@@ -1,7 +1,7 @@
 ---
 nav_title: Lemnisk
 article_title: Integration von Lemnisk mit Braze
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Lemnisk, einer KI-gestützten, auf einer geschäftskunden Data Platform basierenden Plattform für Marketing-Automatisierung, die es Ihnen erlaubt, die bei Lemnisk aus verschiedenen Quellen gesammelten Nutzerdaten in Braze zu streamen, um sie mit den Tools von Braze über verschiedene Kanäle und Ziele hinweg zu aktivieren."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Lemnisk, einer KI-gestützten, auf einer Customer Data Platform basierenden Plattform für Marketing-Automatisierung, die es Ihnen erlaubt, die bei Lemnisk aus verschiedenen Quellen gesammelten Nutzerdaten in Braze zu streamen, um sie mit den Tools von Braze über verschiedene Kanäle und Ziele hinweg zu aktivieren."
 alias: /partners/lemnisk/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Lemnisk
 
-> [Lemnisk](https://www.lemnisk.co/) ist eine KI-gestützte geschäftskunden Data Platform (CDP) und Marketing-Automatisierungslösung, die die Erfassung, Vereinheitlichung und Aktivierung von Kundendaten aus verschiedenen, isolierten Quellen in Echtzeit ermöglicht. Sie stellt diese vereinheitlichten Daten nahtlos über verschiedene MarTech- und Geschäftsplattformen hinweg bereit und bietet gleichzeitig robuste Realtime-Analytics, um jede Phase des Kundendaten-Lebenszyklus zu verfolgen.
+> [Lemnisk](https://www.lemnisk.co/) ist eine KI-gestützte Customer Data Platform (CDP) und Marketing-Automatisierungslösung, die die Erfassung, Vereinheitlichung und Aktivierung von Kundendaten aus verschiedenen, isolierten Quellen in Echtzeit ermöglicht. Sie stellt diese vereinheitlichten Daten nahtlos über verschiedene MarTech- und Geschäftsplattformen hinweg bereit und bietet gleichzeitig robuste Realtime-Analytics, um jede Phase des Kundendaten-Lebenszyklus zu verfolgen.
 
 _Diese Integration wird von Lemnisk gepflegt._
 

@@ -112,7 +112,7 @@ Sie können die Zielgruppe in TikTok einsehen, indem Sie Ihr **Ads Manager Accou
 
 Wenn Nutzer:innen den Audience-Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Echtzeit unter Berücksichtigung der Rate-Limits der TikTok-Marketing-API. Braze fasst alle 5 Sekunden so viele Nutzer:innen wie möglich in Batches zusammen und verarbeitet sie, bevor sie an TikTok gesendet werden.
 
-Das Rate-Limit der TikTok-Segment-API erlaubt maximal 50 Abfragen pro Sekunde und 10.000 Nutzer:innen pro Anfrage. Wenn ein:e geschäftskunden dieses Limit erreicht, versucht Braze die Synchronisierung bis zu &#126;13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
+Das Rate-Limit der TikTok-Segment-API erlaubt maximal 50 Abfragen pro Sekunde und 10.000 Nutzer:innen pro Anfrage. Wenn ein:e Kund:in dieses Limit erreicht, versucht Braze die Synchronisierung bis zu &#126;13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
 
 ## Analytics verstehen {#understanding-analytics}
 

@@ -29,7 +29,7 @@ Die Integration von Braze und Stensul ermöglicht es Ihnen, Ihre HTML-formatiert
 
 ## Integration
 
-Stellen Sie Ihrem Stensul geschäftskunden-Success-Team Ihren Braze REST-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Team wird dann die erste Integration für Sie einrichten.
+Stellen Sie Ihrem Stensul Customer-Success-Team Ihren Braze REST-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Team wird dann die erste Integration für Sie einrichten.
 
 {% alert important %}
 Dies ist eine einmalige Einrichtung, und alle zukünftigen Exporte werden automatisch diesen API-Schlüssel verwenden.

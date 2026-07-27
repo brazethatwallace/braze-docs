@@ -61,7 +61,7 @@ Fügen Sie Produkt-Tags, Shopify-Kollektionen und Metafelder zuerst in Shopify h
 {% endtab %}
 {% tab Produkt-Metafelder %}
 
-1. Wenn Sie eine bestehende Shopify-Integration haben, autorisieren Sie die Braze Shopify-App erneut, um die neuen erforderlichen Berechtigungen für die Produktsynchronisierung zu installieren. Wenn Sie ein:e neue:r geschäftskunden sind, fahren Sie mit dem nächsten Schritt fort.
+1. Wenn Sie eine bestehende Shopify-Integration haben, autorisieren Sie die Braze Shopify-App erneut, um die neuen erforderlichen Berechtigungen für die Produktsynchronisierung zu installieren. Wenn Sie ein:e neue:r Kund:in sind, fahren Sie mit dem nächsten Schritt fort.
 
 ![Banner mit der Aufforderung, die Braze Shopify-App erneut zu autorisieren.]({% image_buster /assets/img/shopify/banner_to_reauthorize.png %})
 
@@ -149,7 +149,7 @@ Sie können auch synchronisierte Produkt-Tags, Metafelder und Kollektionen in Ih
 ![Shopify-Katalog mit synchronisierten Daten.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
-Wenn Ihre Synchronisierung Ihr Katalogspeicherlimit überschreitet, stoppt Braze die Synchronisierung und neue Produkt-Updates werden nicht mehr berücksichtigt. Wenden Sie sich an Ihren geschäftskunden-Success-Manager, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.
+Wenn Ihre Synchronisierung Ihr Katalogspeicherlimit überschreitet, stoppt Braze die Synchronisierung und neue Produkt-Updates werden nicht mehr berücksichtigt. Wenden Sie sich an Ihren Customer-Success-Manager, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.
 {% endalert %}
 
 ### Schritt 5: Konfiguration verwalten {#step-5-manage-your-configuration}
@@ -202,7 +202,7 @@ Ihr Shopify-Katalog wird von Shopify verwaltet. Um Ihren Katalog zu aktualisiere
 Diese Anwendungsfälle zeigen, wie Sie Ihre synchronisierten Shopify-Katalogdaten zur Personalisierung von Nachrichten verwenden können.
 
 {% alert warning %}
-Braze synchronisiert bis zu 250 Varianten jedes Shopify-Produkts in Ihren Katalog. Varianten, die dieses Limit überschreiten, werden nicht synchronisiert. Wenn Sie mehr als 250 Varianten pro Produkt benötigen, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Braze synchronisiert bis zu 250 Varianten jedes Shopify-Produkts in Ihren Katalog. Varianten, die dieses Limit überschreiten, werden nicht synchronisiert. Wenn Sie mehr als 250 Varianten pro Produkt benötigen, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
 {% tabs %}

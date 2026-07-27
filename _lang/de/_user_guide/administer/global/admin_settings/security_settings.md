@@ -52,7 +52,7 @@ Verwenden Sie das angezeigte Feld, um bestimmte IP-Adressen und Subnetze auf die
 
 ## Zwei-Faktor-Authentifizierung (2FA)
 
-Die Zwei-Faktor-Authentifizierung ist für alle Unternehmensnutzer:innen erforderlich. Sie fügt einer Kontoanmeldung eine zweite Ebene der Identitätsüberprüfung hinzu und macht sie sicherer als nur einen Benutzernamen und ein Passwort. Wenn Ihr Dashboard die Zwei-Faktor-Authentifizierung nicht unterstützen kann, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Die Zwei-Faktor-Authentifizierung ist für alle Unternehmensnutzer:innen erforderlich. Sie fügt einer Kontoanmeldung eine zweite Ebene der Identitätsüberprüfung hinzu und macht sie sicherer als nur einen Benutzernamen und ein Passwort. Wenn Ihr Dashboard die Zwei-Faktor-Authentifizierung nicht unterstützen kann, wenden Sie sich an Ihren Customer-Success-Manager.
 
 Wenn die Zwei-Faktor-Authentifizierung aktiviert ist:
 

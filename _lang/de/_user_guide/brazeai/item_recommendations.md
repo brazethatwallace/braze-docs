@@ -390,7 +390,7 @@ Ja, aber erst nach ihrem nächsten geplanten Update. Bestehende Empfehlungen sch
 
 ### Wie kann ich alle Empfehlungen, die mehrere Tage gültig sind, gleichzeitig ablaufen lassen? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
-Wenn Sie alle mehrtägigen Empfehlungen zu einem bestimmten Datum ablaufen lassen möchten (sodass alle aktiven Empfehlungen gleichzeitig neue Prognosen erhalten), wenden Sie sich bitte an den Braze-Support oder Ihren geschäftskunden-Success-Manager. Die BrazeAI-Expert:innen führen diesen Vorgang manuell durch, um eine optimale Performance des Modells zu gewährleisten.
+Wenn Sie alle mehrtägigen Empfehlungen zu einem bestimmten Datum ablaufen lassen möchten (sodass alle aktiven Empfehlungen gleichzeitig neue Prognosen erhalten), wenden Sie sich bitte an den Braze-Support oder Ihren Customer-Success-Manager. Die BrazeAI-Expert:innen führen diesen Vorgang manuell durch, um eine optimale Performance des Modells zu gewährleisten.
 
 ### Was passiert, wenn ich den Eigenschaftsnamen für eine aktive KI-Artikelempfehlung ändere? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
 

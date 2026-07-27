@@ -13,7 +13,7 @@ hidden: true
 > Der KI-Schritt innerhalb von Canvas nutzt ChatGPT, um personalisiertes Marketing zu automatisieren, indem er nutzergenerierte Eingaben (wie Umfrage-Feedback) interpretiert, die passende Antwort bestimmt und Nachrichten triggert – alles innerhalb von Braze. ChatGPT wird von OpenAI betrieben, einem Drittanbieter.
 
 {% alert note %}
-Der KI-Schritt ist derzeit als Beta-Feature verfügbar. Kontaktieren Sie Ihren geschäftskunden-Success-Manager, wenn Sie an der Teilnahme an diesem Beta-Test interessiert sind.
+Der KI-Schritt ist derzeit als Beta-Feature verfügbar. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an der Teilnahme an diesem Beta-Test interessiert sind.
 {% endalert %}
 
 ## Einen KI-Schritt erstellen {#create-ai-step}
@@ -75,7 +75,7 @@ Wie im Beispiel unter [Einen KI-Schritt erstellen](#create-ai-step) gezeigt, kö
 
 Dieses Beispiel wurde unter [Einen KI-Schritt erstellen](#create-ai-step) verwendet.
 
-Ein:e geschäftskunden hat „`{% raw %}{{canvas_entry_properties.${product_name}}}{% endraw %}`“ gekauft und folgendes Produktfeedback gegeben: „`{% raw %}{{canvas_entry_properties.${text}}}{% endraw %}`“. Erstelle einen Sentiment-Score als Ganzzahl zwischen 0 und 100. Erstelle dann eine personalisierte Nachricht. Dies sollte zwei Variablen zurückgeben: „message“ und „sentiment score.“
+Ein:e Kund:in hat „`{% raw %}{{canvas_entry_properties.${product_name}}}{% endraw %}`“ gekauft und folgendes Produktfeedback gegeben: „`{% raw %}{{canvas_entry_properties.${text}}}{% endraw %}`“. Erstelle einen Sentiment-Score als Ganzzahl zwischen 0 und 100. Erstelle dann eine personalisierte Nachricht. Dies sollte zwei Variablen zurückgeben: „message“ und „sentiment score.“
 
 ### Umfrage-Follow-ups {#survey-follow-ups}
 
@@ -97,7 +97,7 @@ Sie können beispielsweise einen Prompt erstellen, der die 50 letzten Käufe der
 
 #### Beispiel-KI-Prompt
 
-Ein:e geschäftskunden hat die folgenden Produkte gekauft: „`{% raw %}{{custom_attribute.${Products Purchased}}}{% endraw %}`“. Identifiziere die am häufigsten gekaufte Produktkategorie der Nutzer:innen. Dies sollte eine neue Variable für „most purchased category“ zurückgeben.
+Ein:e Kund:in hat die folgenden Produkte gekauft: „`{% raw %}{{custom_attribute.${Products Purchased}}}{% endraw %}`“. Identifiziere die am häufigsten gekaufte Produktkategorie der Nutzer:innen. Dies sollte eine neue Variable für „most purchased category“ zurückgeben.
 
 ![Tab „Vorschau“ der KI-Schritt-Einstellungen, der die KI-generierte Variable „book“ für den Parameter der am häufigsten gekauften Kategorie zeigt.][5]
 

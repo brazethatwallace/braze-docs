@@ -20,7 +20,7 @@ channel:
 
 ### Zurückgewiesene E-Mails (Bounces) {#bounced-emails}
 
-- **554 5.7.1 [internal] recipient address was suppressed due to geschäftskunden policy:** Versuchen Sie eine andere Adresse, reaktivieren Sie den Kontakt über einen anderen Kanal oder entfernen Sie die Adresse nur für Ihre eigenen Testadressen von der Unterdrückungsliste. Vermeiden Sie es, Unterdrückungen echter Nutzer:innen aufzuheben, da dies Ihrer Reputation schaden kann.
+- **554 5.7.1 [internal] recipient address was suppressed due to customer policy:** Versuchen Sie eine andere Adresse, reaktivieren Sie den Kontakt über einen anderen Kanal oder entfernen Sie die Adresse nur für Ihre eigenen Testadressen von der Unterdrückungsliste. Vermeiden Sie es, Unterdrückungen echter Nutzer:innen aufzuheben, da dies Ihrer Reputation schaden kann.
 - **Mailbox full / invalid account:** Häufig ein Signal für die Listenqualität. Priorisieren Sie Nutzer:innen, die kürzlich geöffnet oder geklickt haben (z. B. in den letzten 30–60 Tagen), während Sie inaktive oder ungültige Adressen bereinigen.
 
 #### Soft-Bounce-Wiederholungsverhalten {#soft-bounce-retry-behavior}

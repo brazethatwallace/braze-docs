@@ -12,7 +12,7 @@ description: "Dieser Referenzartikel erläutert den Unterschied zwischen Snapsho
 
 ## Snapshot-Daten (Zustand) {#snapshot-data-state}
 
-Ein Snapshot repräsentiert den Zustand einer geschäftskunden zu einem bestimmten Zeitpunkt. Er beantwortet die Frage: „Wie sieht diese geschäftskunden gerade aus?“
+Ein Snapshot repräsentiert den Zustand einer Kund:in zu einem bestimmten Zeitpunkt. Er beantwortet die Frage: „Wie sieht diese Kund:in gerade aus?“
 
 Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis aller Änderungen bis zu diesem Zeitpunkt wider. Dies eignet sich am besten für Kundenprofile, berechnete Features (zum Beispiel „Tage seit dem letzten Kauf“, „Treuestufe“, „Churn-Score“).
 
@@ -26,7 +26,7 @@ Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis al
 
 ### Wie Snapshots aktualisiert werden sollten {#how-snapshots-should-be-updated}
 
-- **Auslöser:** Zeitgesteuert, nicht ereignisgesteuert. Snapshots sollten nach einem festen Zeitplan generiert werden (zum Beispiel täglich), unabhängig davon, ob eine geschäftskunden an diesem Tag Aktivität hatte.
+- **Auslöser:** Zeitgesteuert, nicht ereignisgesteuert. Snapshots sollten nach einem festen Zeitplan generiert werden (zum Beispiel täglich), unabhängig davon, ob eine Kund:in an diesem Tag Aktivität hatte.
 - **Umfang:** Jedes Update muss alle relevanten Kund:innen umfassen, einschließlich derjenigen, die kein Event hatten.
 - **Methode:** Fügen Sie neue Snapshot-Datensätze zum Datensatz hinzu, anstatt vorherige Werte zu überschreiben. Dadurch bleibt der historische Zustand für das Modelltraining erhalten.
 
@@ -42,7 +42,7 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 
 ## Event-Stream-Daten (Fluss) {#event-stream-data-flow}
 
-Ein Event-Stream zeichnet diskrete Aktionen auf, sobald sie stattfinden. Er beantwortet die Frage: „Was hat diese geschäftskunden getan, und wann?“ Ein Event-Stream eignet sich ideal für rohe, unveränderliche, inkrementelle und chronologische Daten. Jeder Datensatz repräsentiert ein Ereignis, das zu einem bestimmten Zeitpunkt stattgefunden hat. Verwenden Sie diesen Datenstrom zum Beispiel für Aktivierungsdatensätze, Engagement-Protokolle (Öffnungen, Klicks), Konversions-Events oder Coupon-Einlösungen.
+Ein Event-Stream zeichnet diskrete Aktionen auf, sobald sie stattfinden. Er beantwortet die Frage: „Was hat diese Kund:in getan, und wann?“ Ein Event-Stream eignet sich ideal für rohe, unveränderliche, inkrementelle und chronologische Daten. Jeder Datensatz repräsentiert ein Ereignis, das zu einem bestimmten Zeitpunkt stattgefunden hat. Verwenden Sie diesen Datenstrom zum Beispiel für Aktivierungsdatensätze, Engagement-Protokolle (Öffnungen, Klicks), Konversions-Events oder Coupon-Einlösungen.
 
 ### Erforderliche Felder
 
@@ -52,7 +52,7 @@ Ein Event-Stream zeichnet diskrete Aktionen auf, sobald sie stattfinden. Er bean
 | Event-Typ | Was passiert ist (zum Beispiel Aktivierung, Conversion, Klick) |
 | Event-Zeitstempel | Wann das Ereignis tatsächlich stattgefunden hat |
 | Erstellungs-Zeitstempel | Wann dieser Datensatz in Ihrem System erstellt wurde (siehe Hinweis im folgenden Abschnitt) |
-| Event-Eigenschaften | Zusätzliche Metadaten über das Event; je reichhaltiger diese sind, desto besser kann Decisioning Studio Events über die geschäftskunden Journey hinweg verknüpfen |
+| Event-Eigenschaften | Zusätzliche Metadaten über das Event; je reichhaltiger diese sind, desto besser kann Decisioning Studio Events über die Customer Journey hinweg verknüpfen |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Erforderliche Felder" }
 
 {% alert important %}
@@ -115,6 +115,6 @@ Wenn Sie Braze verwenden, nutzen Sie Currents-Exporte (nicht angepasste Attribut
 
 ### Snapshot-Daten bei einem Event-Auslöser aktualisieren {#update-snapshot-data-on-an-event-trigger}
 
-Einige Implementierungen aktualisieren Snapshot-Daten nur dann, wenn ein Event auftritt – zum Beispiel wird ein Feature nur dann neu berechnet, wenn eine geschäftskunden einen Kauf tätigt. Dies führt dazu, dass Features, die vom Zeitverlauf abhängen, für Kund:innen veralten, die kein kürzliches Event hatten.
+Einige Implementierungen aktualisieren Snapshot-Daten nur dann, wenn ein Event auftritt – zum Beispiel wird ein Feature nur dann neu berechnet, wenn eine Kund:in einen Kauf tätigt. Dies führt dazu, dass Features, die vom Zeitverlauf abhängen, für Kund:innen veralten, die kein kürzliches Event hatten.
 
 Beispiel: Ein Feature wie `days_since_last_purchase` hat jeden einzelnen Tag einen anderen korrekten Wert. Wenn es nur bei einem Kauf neu berechnet wird, bleibt es bei einem falschen Wert für alle Kund:innen eingefroren, die in letzter Zeit keinen Kauf getätigt haben. Aktualisieren Sie Snapshot-Daten immer nach einem zeitgesteuerten Zeitplan, der alle Kund:innen jeden Tag abdeckt.

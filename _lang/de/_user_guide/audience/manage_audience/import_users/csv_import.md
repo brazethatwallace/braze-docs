@@ -37,7 +37,7 @@ Die CSV-Datei, die Sie importieren, benötigt einen dedizierten Bezeichner. Wäh
 {% tabs local %}
 <!-- TAB -->
 {% tab Externe ID %}
-Beim Import Ihrer Kundendaten können Sie eine `external_id` als eindeutigen Bezeichner für jede:n geschäftskunden verwenden. Wenn Sie in Ihrem Import eine `external_id` angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit derselben `external_id` oder erstellt eine:n neu identifizierte:n Nutzer:in mit dieser `external_id`, falls keine Übereinstimmung gefunden wird.
+Beim Import Ihrer Kundendaten können Sie eine `external_id` als eindeutigen Bezeichner für jede:n Kund:in verwenden. Wenn Sie in Ihrem Import eine `external_id` angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit derselben `external_id` oder erstellt eine:n neu identifizierte:n Nutzer:in mit dieser `external_id`, falls keine Übereinstimmung gefunden wird.
 
 - Download: [CSV-Attribut-Import-Template: Externe ID]({{site.baseurl}}/assets/download_file/braze-user-import-template-csv.xlsx?3aafd0c03634ac03f248b3055fbc3126)
 - Download: [CSV-Event-Import-Template: Externe ID](https://braze.com/unlisted_docs/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)

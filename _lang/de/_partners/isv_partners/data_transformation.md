@@ -11,7 +11,7 @@ hidden: true
 
 Eine Partnerintegration, die auf dem Feature Datentransformation basiert, könnte eine Code-Vorlage für die Transformation sein, die über die öffentliche Dokumentation mit den Kund:innen geteilt wird.
 
-Für gegenseitige geschäftskunden würde es etwa so aussehen:
+Für gegenseitige Kund:in würde es etwa so aussehen:
 
 1. Sie melden sich bei Ihrer Plattform an und richten Webhooks ein.
 2. Sie arbeiten mit ihrem Braze Team zusammen, um Zugriff auf Braze Data Transformation zu erhalten und eine neue Transformation in ihrem Braze-Dashboard zu erstellen.

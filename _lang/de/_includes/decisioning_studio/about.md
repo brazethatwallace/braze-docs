@@ -6,7 +6,7 @@
 
 [BrazeAI Decisioning Studio™](https://www.braze.com/product/brazeai-decisioning-studio/) ersetzt A/B-Tests durch Entscheidungsagenten, die alles personalisieren und jede Metrik maximieren: Steigern Sie Ihren Umsatz, nicht die Klickzahlen&#8212;mit Decisioning Studio können Sie jede Geschäftsmetrik optimieren.
 
-BrazeAI<sup>TM</sup>-Entscheidungsagenten entdecken automatisch die optimale Aktion für jede:n einzelne:n geschäftskunden. Mit Ihren First-Party-Daten kann BrazeAI<sup>TM</sup> jeden geschäftlichen KPI für eine Vielzahl von Anwendungsfällen maximieren, einschließlich Cross-Sell, Upsell, Wiederkauf, Bindung, Erneuerung, Empfehlung, Winback und mehr.
+BrazeAI<sup>TM</sup>-Entscheidungsagenten entdecken automatisch die optimale Aktion für jede:n einzelne:n Kund:in. Mit Ihren First-Party-Daten kann BrazeAI<sup>TM</sup> jeden geschäftlichen KPI für eine Vielzahl von Anwendungsfällen maximieren, einschließlich Cross-Sell, Upsell, Wiederkauf, Bindung, Erneuerung, Empfehlung, Winback und mehr.
 
 
 Um mehr zu erfahren oder mit Decisioning Studio zu beginnen, [vereinbaren Sie einen Termin](https://www.braze.com/get-started/) mit Braze.
@@ -15,9 +15,9 @@ Um mehr zu erfahren oder mit Decisioning Studio zu beginnen, [vereinbaren Sie ei
 
 ## Wichtigste Features {#key-features}
 
-- **Behalten Sie Ihren Tech-Stack, aber fügen Sie ein Gehirn hinzu:** BrazeAI<sup>TM</sup> fungiert als Entscheidungsebene zwischen Ihren Datensystemen und Ihrer geschäftskunden-Engagement-Plattform. Obwohl Decisioning Studio am besten mit Braze zusammenarbeitet, werden auch eine Vielzahl anderer Plattformen unterstützt.
+- **Behalten Sie Ihren Tech-Stack, aber fügen Sie ein Gehirn hinzu:** BrazeAI<sup>TM</sup> fungiert als Entscheidungsebene zwischen Ihren Datensystemen und Ihrer Customer-Engagement-Plattform. Obwohl Decisioning Studio am besten mit Braze zusammenarbeitet, werden auch eine Vielzahl anderer Plattformen unterstützt.
 - **Wählen Sie Gewinner für Menschen, nicht für Segmente:** Nutzen Sie alle Ihre First-Party-Daten, um die optimale 1:1-Entscheidung für jede:n Einzelne:n zu treffen.
-- **Personalisieren Sie alles:** KI-Entscheidungsagenten finden die beste Nachricht, das beste Produkt, den besten Anreiz, den besten Kanal, den besten Zeitpunkt und die beste Häufigkeit für jede:n einzelne:n geschäftskunden.
+- **Personalisieren Sie alles:** KI-Entscheidungsagenten finden die beste Nachricht, das beste Produkt, den besten Anreiz, den besten Kanal, den besten Zeitpunkt und die beste Häufigkeit für jede:n einzelne:n Kund:in.
 - **Maximieren Sie jede Metrik:** Klicks sind nicht gleichbedeutend mit Umsatz. Nutzen Sie BrazeAI<sup>TM</sup>, um die Angebote oder Anreize auszuwählen, die den Umsatz, den Gewinn, den CLV oder jeden anderen geschäftlichen KPI maximieren.
 - **Öffnen Sie die Black Box:** Sehen Sie, wie KI-Entscheidungsagenten personalisieren, um tiefe Insights in die Treiber des Kundenverhaltens zu erhalten.
 - **Kompetente Unterstützung während des gesamten Prozesses:** Decisioning Studio Pro umfasst die Unterstützung durch unser Team für KI-Entscheidungsdienste, das Ihre Entscheidungsagenten auf die spezifischen Anforderungen Ihres Unternehmens zuschneidet.
@@ -42,11 +42,11 @@ Weitere Informationen finden Sie unter [Erste Schritte mit Decisioning Studio]({
 
 Obwohl beide von BrazeAI<sup>TM</sup> unterstützt werden, erfüllen Entscheidungsagenten und Braze Agents unterschiedliche Zwecke in Ihrem Marketing-Stack.
 
-**Entscheidungsagenten** sind die strategischen Koordinatoren Ihrer Kampagnen. Sie agieren auf Campaign-Ebene und führen kontinuierlich Experimente in verschiedenen Bereichen wie Angebot, Kanal, Zeitpunkt und Häufigkeit durch, um eine Geschäftsmetrik wie Umsatz, Conversions oder ARPU zu maximieren. Ein Entscheidungsagent verwaltet einen gesamten Anwendungsfall – wie beispielsweise Winback, Cross-Sell oder Erneuerung – und lernt im Laufe der Zeit, welche Kombination von Aktionen für jede:n einzelne:n geschäftskunden am besten geeignet ist.
+**Entscheidungsagenten** sind die strategischen Koordinatoren Ihrer Kampagnen. Sie agieren auf Campaign-Ebene und führen kontinuierlich Experimente in verschiedenen Bereichen wie Angebot, Kanal, Zeitpunkt und Häufigkeit durch, um eine Geschäftsmetrik wie Umsatz, Conversions oder ARPU zu maximieren. Ein Entscheidungsagent verwaltet einen gesamten Anwendungsfall – wie beispielsweise Winback, Cross-Sell oder Erneuerung – und lernt im Laufe der Zeit, welche Kombination von Aktionen für jede:n einzelne:n Kund:in am besten geeignet ist.
 
 **Braze Agents** sind KI-gestützte Hilfsprogramme, die in einzelnen Canvas-Schritten oder Katalogfeldern integriert sind. Sie nutzen große Sprachmodelle (LLMs), um Inhalte zu generieren (wie personalisierte Betreffzeilen oder Nachrichtentexte), Routing-Entscheidungen auf Grundlage des Kundenkontexts zu treffen oder Ihre Kataloge mit dynamisch generierten Werten anzureichern. Braze Agents zeichnen sich dadurch aus, dass sie Kreativität und Personalisierung in bestimmte Touchpoints Ihrer Campaign einbringen.
 
-Betrachten Sie es so: Ein Entscheidungsagent ist der Dirigent, der Ihre gesamte Campaign-Strategie koordiniert, während Braze Agents die Musiker sind, die jedem einzelnen Moment der geschäftskunden Journey Kreativität und Nuancen verleihen. Sie können beide zusammen verwenden – lassen Sie einen Entscheidungsagenten das optimale Angebot und den optimalen Kanal für jede:n geschäftskunden ermitteln und verwenden Sie dann einen Braze Agent, um personalisierten Text für diese spezifische Nachricht zu erstellen.
+Betrachten Sie es so: Ein Entscheidungsagent ist der Dirigent, der Ihre gesamte Campaign-Strategie koordiniert, während Braze Agents die Musiker sind, die jedem einzelnen Moment der Customer Journey Kreativität und Nuancen verleihen. Sie können beide zusammen verwenden – lassen Sie einen Entscheidungsagenten das optimale Angebot und den optimalen Kanal für jede:n Kund:in ermitteln und verwenden Sie dann einen Braze Agent, um personalisierten Text für diese spezifische Nachricht zu erstellen.
 
 
 {% multi_lang_include decisioning_studio/go_vs_pro.md %}

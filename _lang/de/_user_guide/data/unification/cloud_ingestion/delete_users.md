@@ -115,7 +115,7 @@ GO
 
 ### Funktionsweise {#how-it-works}
 
-Mit der Braze Cloud-Datenaufnahme richten Sie eine Integration zwischen Ihrer Data-Warehouse-Instanz und dem Braze Workspace ein, um Daten regelmäßig zu synchronisieren. Diese Synchronisierung erfolgt nach einem von Ihnen festgelegten Zeitplan, und jede Integration kann einen eigenen Zeitplan haben. Synchronisierungen können so häufig wie alle 15 Minuten oder so selten wie einmal im Monat erfolgen. Wenn Sie häufigere Synchronisierungen als alle 15 Minuten benötigen, sprechen Sie mit Ihrem geschäftskunden-Success-Manager oder ziehen Sie die Verwendung von REST-API-Aufrufen für die Echtzeitdatenaufnahme in Betracht.
+Mit der Braze Cloud-Datenaufnahme richten Sie eine Integration zwischen Ihrer Data-Warehouse-Instanz und dem Braze Workspace ein, um Daten regelmäßig zu synchronisieren. Diese Synchronisierung erfolgt nach einem von Ihnen festgelegten Zeitplan, und jede Integration kann einen eigenen Zeitplan haben. Synchronisierungen können so häufig wie alle 15 Minuten oder so selten wie einmal im Monat erfolgen. Wenn Sie häufigere Synchronisierungen als alle 15 Minuten benötigen, sprechen Sie mit Ihrem Customer-Success-Manager oder ziehen Sie die Verwendung von REST-API-Aufrufen für die Echtzeitdatenaufnahme in Betracht.
 
 Wenn eine Synchronisierung ausgeführt wird, stellt Braze eine direkte Verbindung zu Ihrer Data-Warehouse-Instanz her, ruft alle neuen Daten aus der angegebenen Tabelle ab und löscht die entsprechenden Nutzerprofile in Ihrem Braze-Dashboard.
 

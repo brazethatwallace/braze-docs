@@ -3,7 +3,7 @@ nav_title: Segment
 article_title: Segment
 page_order: 1
 alias: /partners/segment/
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Segment, einer geschäftskunden Data Platform, die Informationen zwischen den Quellen in Ihrem Marketing-Stack sammelt und weiterleitet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Segment, einer Customer Data Platform, die Informationen zwischen den Quellen in Ihrem Marketing-Stack sammelt und weiterleitet."
 page_type: partner
 search_tag: Partner
 
@@ -13,7 +13,7 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="RfOHfZ34hYM" align="right" %}
 
-> [Segment](https://segment.com) ist eine geschäftskunden Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können.
+> [Segment](https://segment.com) ist eine Customer Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können.
 
 Die Integration von Braze und Segment ermöglicht es Ihnen, Ihre Nutzer:innen zu tracken und Daten an verschiedene Anbieter von Analytics weiterzuleiten. Segment ermöglicht Ihnen:
 

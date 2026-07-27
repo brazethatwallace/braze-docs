@@ -60,7 +60,7 @@ Richten Sie anschließend die Details für Ihren Agenten ein:
 2. (optional) Fügen Sie Tags hinzu, um Ihren Agenten zu filtern.
 3. Wählen Sie das [Modell]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) aus, das Ihr Agent verwenden soll.
 4. Wenn Sie nicht das **Braze Auto**-Modell verwenden, wählen Sie die [Denkstufe]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) des Modells aus. Sie können zwischen Minimal, Niedrig, Mittel oder Hoch wählen. Wir empfehlen, mit **Minimal** zu beginnen, die Antworten Ihres Agenten zu testen und diese bei Bedarf anzupassen.
-5. Legen Sie ein tägliches Ausführungslimit fest. Standardmäßig ist dieser Wert auf 250.000 eingestellt, kann jedoch auf 1.000.000 erhöht werden. Wenn Sie das Limit über 1.000.000 hinaus erhöhen möchten, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um mehr zu erfahren.
+5. Legen Sie ein tägliches Ausführungslimit fest. Standardmäßig ist dieser Wert auf 250.000 eingestellt, kann jedoch auf 1.000.000 erhöht werden. Wenn Sie das Limit über 1.000.000 hinaus erhöhen möchten, wenden Sie sich an Ihren Customer-Success-Manager, um mehr zu erfahren.
 
 Das Feld **Daily action credit cost limit** gibt die maximale Anzahl an Credits an, die dieser Agent pro Tag verbrauchen kann. Braze berechnet diesen Wert aus dem Credit-Verhältnis pro Aufruf Ihres Workspace für das ausgewählte Modell (aus Ihrem Vertrag, angezeigt auf der Seite [Credit-Verhältnisse]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage)) multipliziert mit dem täglichen Ausführungslimit. Die Schätzung wird aktualisiert, wenn Sie das Modell oder das Ausführungslimit ändern.
 

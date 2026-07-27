@@ -10,7 +10,7 @@ description: "Braze Web SDK README-Referenz, gespiegelt von GitHub."
 
 ## Über das Braze Web SDK {#about-the-braze-web-sdk}
 
-Das Braze Web SDK ermöglicht es Ihnen, die geschäftskunden-Engagement-Plattform von Braze direkt in Ihre Webanwendungen zu integrieren. Es wurde mit TypeScript entwickelt und für moderne Webentwicklung konzipiert. Dieses SDK bietet umfassende Tools für Nutzerverwaltung, Messaging, Analytics und Feature-Flags.
+Das Braze Web SDK ermöglicht es Ihnen, die Customer-Engagement-Plattform von Braze direkt in Ihre Webanwendungen zu integrieren. Es wurde mit TypeScript entwickelt und für moderne Webentwicklung konzipiert. Dieses SDK bietet umfassende Tools für Nutzerverwaltung, Messaging, Analytics und Feature-Flags.
 
 ### Was Sie damit tun können {#what-you-can-do}
 

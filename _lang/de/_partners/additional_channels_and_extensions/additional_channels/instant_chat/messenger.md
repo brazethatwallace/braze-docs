@@ -40,7 +40,7 @@ Wenn Sie zusätzliche Hilfe bei der Einrichtung Ihres Bots benötigen, finden Si
 
 ### Schritt 1: Sammeln Sie Ihre PSIDs {#step-1-collect-your-psids}
 
-Um Nachrichten im Facebook Messenger zu versenden, müssen Sie die seitenbezogenen IDs (PSIDs) Ihrer Nutzer:innen erfassen, um sie zu identifizieren und einheitlich mit ihnen zu interagieren. PSIDs sind nicht dasselbe wie die Facebook-ID der Nutzer:innen. Facebook erstellt diesen Bezeichner jedes Mal, wenn Sie einer geschäftskunden eine Nachricht senden oder wenn eine geschäftskunden Ihnen eine Nachricht sendet.
+Um Nachrichten im Facebook Messenger zu versenden, müssen Sie die seitenbezogenen IDs (PSIDs) Ihrer Nutzer:innen erfassen, um sie zu identifizieren und einheitlich mit ihnen zu interagieren. PSIDs sind nicht dasselbe wie die Facebook-ID der Nutzer:innen. Facebook erstellt diesen Bezeichner jedes Mal, wenn Sie einer Kund:in eine Nachricht senden oder wenn eine Kund:in Ihnen eine Nachricht sendet.
 
 PSIDs können über einen der verschiedenen [Eingänge](https://developers.facebook.com/docs/messenger-platform/discovery), die Facebook bietet, gefunden werden. Nachdem Nutzer:innen eine Nachricht an Ihre App geschickt oder eine Aktion in einer Konversation durchgeführt haben, wie z. B. das Antippen eines Buttons oder das Senden einer Nachricht, wird ihre PSID in die Eigenschaft `sender.id` des Webhook-Ereignisses aufgenommen, sodass Ihr Bot erkennen kann, wer die Aktion durchgeführt hat.
 

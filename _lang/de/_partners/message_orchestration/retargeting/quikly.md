@@ -1,7 +1,7 @@
 ---
 nav_title: Quikly
 article_title: Quikly
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Quikly, einer Plattform für Dringlichkeits-Marketing, mit der Sie Conversions bei Events innerhalb einer Braze geschäftskunden Journey beschleunigen können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Quikly, einer Plattform für Dringlichkeits-Marketing, mit der Sie Conversions bei Events innerhalb einer Braze Customer Journey beschleunigen können."
 alias: /partners/quikly/
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ _Diese Integration wird von Quikly gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Partnerschaft von Braze und Quikly ermöglicht es Ihnen, Conversions bei Events innerhalb einer Braze geschäftskunden Journey zu beschleunigen. Quikly nutzt dazu die Psychologie der Dringlichkeit, um Verbraucher:innen auf unterhaltsame – und sofortige – Weise zu motivieren. Marken können Quikly beispielsweise nutzen, um sofort neue E-Mail- und SMS-Abonnent:innen direkt in Braze zu gewinnen oder andere wichtige Marketing-Ziele wie das Herunterladen Ihrer mobilen App zu fördern.
+Die Partnerschaft von Braze und Quikly ermöglicht es Ihnen, Conversions bei Events innerhalb einer Braze Customer Journey zu beschleunigen. Quikly nutzt dazu die Psychologie der Dringlichkeit, um Verbraucher:innen auf unterhaltsame – und sofortige – Weise zu motivieren. Marken können Quikly beispielsweise nutzen, um sofort neue E-Mail- und SMS-Abonnent:innen direkt in Braze zu gewinnen oder andere wichtige Marketing-Ziele wie das Herunterladen Ihrer mobilen App zu fördern.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -30,12 +30,12 @@ Die Partnerschaft von Braze und Quikly ermöglicht es Ihnen, Conversions bei Eve
 
 ## Anwendungsfälle {#use-cases}
 
-Quikly ermöglicht es Marken, die E-Mail- oder SMS-Akquise zu beschleunigen, und motiviert Abonnent:innen, First-Party-Daten direkt in Braze bereitzustellen. Sie können Braze auch verwenden, um inaktive Kund:innen mit einer Quikly-Aktivierung anzusprechen, die diese Zielgruppe reaktiviert und bindet. Darüber hinaus können Marketer diese Integration nutzen, um bestimmte geschäftskunden-Journey-Events mit einzigartigen Belohnungsstrukturen zu incentivieren.
+Quikly ermöglicht es Marken, die E-Mail- oder SMS-Akquise zu beschleunigen, und motiviert Abonnent:innen, First-Party-Daten direkt in Braze bereitzustellen. Sie können Braze auch verwenden, um inaktive Kund:innen mit einer Quikly-Aktivierung anzusprechen, die diese Zielgruppe reaktiviert und bindet. Darüber hinaus können Marketer diese Integration nutzen, um bestimmte Customer-Journey-Events mit einzigartigen Belohnungsstrukturen zu incentivieren.
 
 Zum Beispiel:
  - Bauen Sie über Tage hinweg Vorfreude und Engagement auf, indem Verbraucher:innen sich für die Chance auf attraktive Rewards mit [Quikly Hype](https://www.quikly.com/urgency-marketing/platform/product-overview/hype) per Opt-in anmelden. First-Party-Daten werden automatisch an Braze übertragen.
  - Beschleunigen Sie die Gewinnung neuer E-Mail- und SMS-Abonnent:innen mit einzigartigen Realtime-Angeboten, die auf der Reaktionsgeschwindigkeit der Verbraucher:innen, dem Ranking gegenüber anderen, dem Zufallsprinzip oder dem Ablauf von Zeit oder Kontingenten basieren – mit [Quikly Swap](https://www.quikly.com/urgency-marketing/platform/product-overview/swap).
- - Motivieren Sie bestimmte Schritte in der geschäftskunden Journey mit einzigartigen Belohnungsstrukturen über Webhooks.
+ - Motivieren Sie bestimmte Schritte in der Customer Journey mit einzigartigen Belohnungsstrukturen über Webhooks.
  - Wenden Sie angepasste Attribute oder Events auf das Nutzerprofil an, wenn Nutzer:innen an einer Quikly-Aktivierung teilnehmen.
 
 ## Integration
@@ -90,7 +90,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 Quikly-Aktivierungen können Mobilfunknummern direkt von Kund:innen erfassen und ein neues SMS-Abo einrichten. Um diese Integration zu aktivieren, stellen Sie Ihrem Quikly Client Success Manager die `subscription_group_id` zur Verfügung. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie zur Seite **Abo-Gruppe** navigieren.
 
-Quikly führt eine Abo-Suche anhand der Telefonnummer der/des geschäftskunden durch und schreibt ihr/ihm bei der Aktivierung automatisch gut, wenn bereits ein SMS-Abo besteht. Andernfalls wird ein neues Abo eingeleitet, und nachdem der Abo-Status verifiziert wurde, wird der/dem geschäftskunden die Gutschrift erteilt.
+Quikly führt eine Abo-Suche anhand der Telefonnummer der/des Kund:in durch und schreibt ihr/ihm bei der Aktivierung automatisch gut, wenn bereits ein SMS-Abo besteht. Andernfalls wird ein neues Abo eingeleitet, und nachdem der Abo-Status verifiziert wurde, wird der/dem Kund:in die Gutschrift erteilt.
 
 Hier sehen Sie den vollständigen Workflow, wenn Kund:innen ihre Mobilfunknummer und Einwilligung über Quikly angeben:
 1. Quikly führt eine Abo-Suche anhand des [Abo-Gruppenstatus]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) durch, um festzustellen, ob eine bestimmte `phone` bei einer `subscription_group_id` abonniert ist. Wenn ein Abo besteht, wird der/dem Nutzer:in in der Quikly-Aktivierung gutgeschrieben. Es sind keine weiteren Maßnahmen erforderlich.
@@ -131,7 +131,7 @@ Je nach Ihrer Braze-Implementierung möchten Sie möglicherweise, dass Events in
 {% endtab %}
 {% tab Webhooks %}
 ### Webhooks
-Verwenden Sie Webhooks, um Anreize für bestimmte Events in der geschäftskunden Journey zu triggern. Wenn Sie beispielsweise ein Braze-Event für den Fall haben, dass sich Nutzer:innen bei Ihrer App anmelden, Push-Benachrichtigungen aktivieren oder Ihren Shop-Locator verwenden, können Sie einen Webhook nutzen, um ein angepasstes Angebot für diese:n Nutzer:in auf Grundlage der Konfiguration einer bestimmten Quikly-Aktivierung zu triggern. Beispieltaktiken umfassen die Belohnung der ersten X Nutzer:innen, die eine Aktion ausführen (z. B. sich bei Ihrer App anmelden), mit einem angepassten Angebot oder die Bereitstellung eines Angebots, dessen Wert mit zunehmender Zeit abnimmt, um eine sofortige Reaktion zu motivieren.
+Verwenden Sie Webhooks, um Anreize für bestimmte Events in der Customer Journey zu triggern. Wenn Sie beispielsweise ein Braze-Event für den Fall haben, dass sich Nutzer:innen bei Ihrer App anmelden, Push-Benachrichtigungen aktivieren oder Ihren Shop-Locator verwenden, können Sie einen Webhook nutzen, um ein angepasstes Angebot für diese:n Nutzer:in auf Grundlage der Konfiguration einer bestimmten Quikly-Aktivierung zu triggern. Beispieltaktiken umfassen die Belohnung der ersten X Nutzer:innen, die eine Aktion ausführen (z. B. sich bei Ihrer App anmelden), mit einem angepassten Angebot oder die Bereitstellung eines Angebots, dessen Wert mit zunehmender Zeit abnimmt, um eine sofortige Reaktion zu motivieren.
 
 ### Erstellen eines Quikly-Webhooks in Braze {#create-a-quikly-webhook-in-braze}
 

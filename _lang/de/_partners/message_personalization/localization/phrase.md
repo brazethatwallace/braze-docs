@@ -16,7 +16,7 @@ _Diese Integration wird von Phrase gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Phrase und Braze erlaubt es Ihnen, E-Mail-Templates und Content Blocks zu übersetzen, ohne die Braze-Schnittstelle zu verlassen. Mit der Phrase-TMS-Integration für Braze können Sie das geschäftskunden-Engagement steigern und das Wachstum in neuen Märkten mit nahtloser Lokalisierung vorantreiben.
+Die Integration von Phrase und Braze erlaubt es Ihnen, E-Mail-Templates und Content Blocks zu übersetzen, ohne die Braze-Schnittstelle zu verlassen. Mit der Phrase-TMS-Integration für Braze können Sie das Customer-Engagement steigern und das Wachstum in neuen Märkten mit nahtloser Lokalisierung vorantreiben.
 
 ## Voraussetzungen {#prerequisites}
 

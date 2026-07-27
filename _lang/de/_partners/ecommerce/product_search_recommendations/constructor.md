@@ -54,9 +54,9 @@ Sie können die Offsite-Discovery-API-URL von Constructor verwenden, um Produktb
 | Parameter | Beschreibung |
 |-------------|-------------|
 | `position` | Bezieht sich auf die Rangfolge des empfohlenen Artikels innerhalb der Vorschlagsliste (z. B. `position = 2`). <br>![Positionsrangfolge des Artikels.]({% image_buster /assets/img/constructor/constructor_position.png %}) |
-| `ui` | Stellt den Bezeichner der Nutzerin oder des Nutzers dar, der für die Personalisierung der Empfehlungsergebnisse entscheidend ist. Setzen Sie den Parameter `ui` auf die `external_id` der geschäftskunden in Braze. Wird dieser Parameter weggelassen, gibt Constructor allgemeine Empfehlungen anstelle von nutzerspezifischen zurück. |
+| `ui` | Stellt den Bezeichner der Nutzerin oder des Nutzers dar, der für die Personalisierung der Empfehlungsergebnisse entscheidend ist. Setzen Sie den Parameter `ui` auf die `external_id` der Kund:in in Braze. Wird dieser Parameter weggelassen, gibt Constructor allgemeine Empfehlungen anstelle von nutzerspezifischen zurück. |
 | `pod_id` | Bezeichner für den Pod, der die Strategie und die Searchandising-Regeln für Empfehlungen enthält (z. B. erzeugt ein Pod mit einer Bestseller-Strategie personalisierte Bestseller). |
-| `key` | Der Constructor-Indexschlüssel für diese geschäftskunden. |
+| `key` | Der Constructor-Indexschlüssel für diese Kund:in. |
 | `style_id` | Legt fest, welche Bilder für die Produktkarte angezeigt werden. Zum Beispiel zeigen verschiedene `style_ids` unterschiedliche Produktkartenbilder an. |
 | `campaign_id` | Eindeutige ID für die E-Mail-Kampagne. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parameter" }

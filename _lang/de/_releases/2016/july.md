@@ -14,7 +14,7 @@ Dieses Upgrade erleichtert Ihnen die Verwendung des Nachrichten-Fehlerprotokolls
 
 ## Zeitstempel für den letzten gesendeten Push für Uninstall-Tracking hinzugefügt {#added-timestamp-for-last-uninstall-tracking-push-sent}
 
-Braze erkennt Deinstallationen, indem es einen stillen Push an die Apps einer geschäftskunden sendet, um zu sehen, welche Geräte reagieren. Dieses Feature fügt einen unauffälligen Zeitstempel hinzu, der anzeigt, wann das Uninstall-Tracking zuletzt ausgeführt wurde. Diesen Zeitstempel finden Sie auf Ihrer Einstellungsseite, auf der das Uninstall-Tracking konfiguriert ist. Erfahren Sie mehr über [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/).
+Braze erkennt Deinstallationen, indem es einen stillen Push an die Apps einer Kund:in sendet, um zu sehen, welche Geräte reagieren. Dieses Feature fügt einen unauffälligen Zeitstempel hinzu, der anzeigt, wann das Uninstall-Tracking zuletzt ausgeführt wurde. Diesen Zeitstempel finden Sie auf Ihrer Einstellungsseite, auf der das Uninstall-Tracking konfiguriert ist. Erfahren Sie mehr über [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/).
 
 ![Uninstall-Tracking-Kontrollkästchen]({% image_buster /assets/img_archive/uninstall_tracking_checkbox.png %})
 

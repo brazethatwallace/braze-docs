@@ -1,7 +1,7 @@
 ---
 nav_title: Survicate
 article_title: Survicate
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Survicate, einer Plattform für Kundenfeedback, die Ihnen hilft, Insights von Kund:innen über mehrere Kanäle und während der gesamten geschäftskunden Journey zu sammeln, zu analysieren und zu nutzen."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Survicate, einer Plattform für Kundenfeedback, die Ihnen hilft, Insights von Kund:innen über mehrere Kanäle und während der gesamten Customer Journey zu sammeln, zu analysieren und zu nutzen."
 alias: /partners/survicate/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Survicate
 
-> [Survicate](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter) ist eine Plattform für Kundenfeedback, die Insights von Kund:innen über mehrere Kanäle und über die gesamte geschäftskunden Journey hinweg sammelt, analysiert und auswertet. [Sehen Sie sich eine kurze Demo an](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter)
+> [Survicate](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter) ist eine Plattform für Kundenfeedback, die Insights von Kund:innen über mehrere Kanäle und über die gesamte Customer Journey hinweg sammelt, analysiert und auswertet. [Sehen Sie sich eine kurze Demo an](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter)
 
 _Diese Integration wird von Survicate gepflegt._
 
@@ -23,7 +23,7 @@ Nutzen Sie die native Integration von Survicate und Braze, um Antworten auf E-Ma
 Braze und Survicate arbeiten zusammen, um eine Reihe von Feedback-Anwendungsfällen abzudecken und Ihnen dabei zu helfen, umsetzbare Insights der Nutzer:innen zu sammeln und das Kundenerlebnis zu verbessern:
 
 - Verbessern Sie die Beantwortungsquoten von Umfragen mit eingebetteten Umfragen, die direkt aus dem Posteingang beantwortet werden können.
-- Sammeln Sie Insights in kritischen Phasen der geschäftskunden Journey über Braze In-App Messages.
+- Sammeln Sie Insights in kritischen Phasen der Customer Journey über Braze In-App Messages.
 - Verwenden Sie in Survicate gespeichertes Feedback, um intelligentere Segmente in Braze zu erstellen.
 - Automatisieren Sie Folgekampagnen auf der Grundlage des Feedbacks von Kund:innen.
 - Nutzen Sie Insights von Kund:innen, um personalisierte Workflows zu triggern.

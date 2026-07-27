@@ -41,7 +41,7 @@ Wenn Sie eine Mischung aus Nutzer:innen mit einer `external_id` und Nutzer:innen
 
 ### Import mit externer ID {#importing-with-external-id}
 
-Beim Import Ihrer Kundendaten müssen Sie den eindeutigen Bezeichner jedes Kunden angeben, auch bekannt als `external_id`. Bevor Sie mit Ihrem CSV-Import beginnen, ist es wichtig, von Ihrem Entwicklerteam zu erfahren, wie Nutzer:innen in Braze identifiziert werden. Typischerweise handelt es sich um eine interne Datenbank-ID. Diese sollte mit der Art übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, und ist so konzipiert, dass jede:r geschäftskunden ein einziges Nutzerprofil in Braze über alle Geräte hinweg hat. Lesen Sie mehr über den Braze [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle).
+Beim Import Ihrer Kundendaten müssen Sie den eindeutigen Bezeichner jedes Kunden angeben, auch bekannt als `external_id`. Bevor Sie mit Ihrem CSV-Import beginnen, ist es wichtig, von Ihrem Entwicklerteam zu erfahren, wie Nutzer:innen in Braze identifiziert werden. Typischerweise handelt es sich um eine interne Datenbank-ID. Diese sollte mit der Art übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, und ist so konzipiert, dass jede:r Kund:in ein einziges Nutzerprofil in Braze über alle Geräte hinweg hat. Lesen Sie mehr über den Braze [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle).
 
 Wenn Sie eine `external_id` in Ihrem Import angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit derselben `external_id` oder erstellt eine:n neu identifizierte:n Nutzer:in mit dieser `external_id`, falls keine:r gefunden wird.
 
@@ -98,7 +98,7 @@ Beim Import von Kundendaten als Attribute müssen die von Ihnen verwendeten Spal
 
 | NUTZERPROFILFELD | DATENTYP | INFORMATIONEN | ERFORDERLICH |
 |---|---|---|---|
-| `external_id` | String | Ein eindeutiger Nutzerbezeichner für Ihre:n geschäftskunden. | Ja, siehe den [folgenden Hinweis](#about-external-ids). |
+| `external_id` | String | Ein eindeutiger Nutzerbezeichner für Ihre:n Kund:in. | Ja, siehe den [folgenden Hinweis](#about-external-ids). |
 | `user_alias_name` | String | Ein eindeutiger Nutzerbezeichner für anonyme Nutzer:innen. Eine Alternative zur `external_id`. | Nein, siehe den [folgenden Hinweis](#about-external-ids). |
 | `user_alias_label` | String | Ein gemeinsames Label, um Nutzer-Aliase zu gruppieren. | Ja, wenn `user_alias_name` verwendet wird. |
 | `first_name` | String | Der Vorname Ihrer Nutzer:innen, wie von ihnen angegeben (zum Beispiel `Jane`). | Nein |
@@ -123,7 +123,7 @@ Beim Import von Kundendaten als Attribute müssen die von Ihnen verwendeten Spal
 ##### Über externe IDs {#about-external-ids}
 
 Obwohl `external_id` nicht zwingend erforderlich ist, **müssen** Sie eines der folgenden Felder angeben:
-- `external_id`: Ein eindeutiger Nutzerbezeichner für Ihre:n geschäftskunden, **oder**
+- `external_id`: Ein eindeutiger Nutzerbezeichner für Ihre:n Kund:in, **oder**
 - `braze_id`: Ein eindeutiger Nutzerbezeichner, der für bestehende Braze-Nutzer:innen abgerufen wird, **oder**
 - `user_alias_name` und `user_alias_label`: Ein eindeutiger Nutzerbezeichner für eine:n anonyme:n Nutzer:in
 
@@ -220,7 +220,7 @@ Angepasste Events können Event-Eigenschaften haben. Beispielsweise könnte das 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Obwohl external_id selbst nicht zwingend erforderlich ist, müssen Sie eines der folgenden Felder angeben: <br>- `external_id`: Ein eindeutiger Nutzerbezeichner für Ihre:n geschäftskunden <br>- `braze_id`: Ein eindeutiger Nutzerbezeichner, der für bestehende Braze-Nutzer:innen abgerufen wird <br>- `user_alias_name`: Ein eindeutiger Nutzerbezeichner für eine:n anonyme:n Nutzer:in
+Obwohl external_id selbst nicht zwingend erforderlich ist, müssen Sie eines der folgenden Felder angeben: <br>- `external_id`: Ein eindeutiger Nutzerbezeichner für Ihre:n Kund:in <br>- `braze_id`: Ein eindeutiger Nutzerbezeichner, der für bestehende Braze-Nutzer:innen abgerufen wird <br>- `user_alias_name`: Ein eindeutiger Nutzerbezeichner für eine:n anonyme:n Nutzer:in
 {% endalert %}
 
 #### CSV-Größe {#csv-size}

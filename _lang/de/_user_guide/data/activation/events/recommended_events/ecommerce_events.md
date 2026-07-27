@@ -59,7 +59,7 @@ Braze bietet drei Möglichkeiten, Nutzer:innen auf Basis von E-Commerce-Daten zu
 - **Segmenterweiterungen:** Für die Segmentierung nach verschachtelten Event-Eigenschaften, einschließlich des verschachtelten Produkt-Arrays oder der Metadaten-Objekt-Eigenschaften, verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) mit Filterung nach verschachtelten Event-Eigenschaften. So können Sie Zielgruppen erstellen wie „Nutzer:innen, die Produkt SKU-123 in den letzten 90 Tagen gekauft haben“ oder Kriterien über verschiedene Eigenschaften derselben Bestellung kombinieren.
 
 {% alert important %}
-Segmenterweiterungen für empfohlene E-Commerce-Events sind ein kostenpflichtiges Feature im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren geschäftskunden-Success-Manager. Bestätigen Sie, dass Ihr Plan Zugang beinhaltet, bevor Sie Ihrem Team die Segmentierung nach verschachtelten Eigenschaften empfehlen.
+Segmenterweiterungen für empfohlene E-Commerce-Events sind ein kostenpflichtiges Feature im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren Customer-Success-Manager. Bestätigen Sie, dass Ihr Plan Zugang beinhaltet, bevor Sie Ihrem Team die Segmentierung nach verschachtelten Eigenschaften empfehlen.
 {% endalert %}
 
 ### Triggern {#triggering}

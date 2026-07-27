@@ -35,7 +35,7 @@ Die Integration von Braze mit Okendo funktioniert über mehrere Produkte der Oke
 
 ### 2. Schritt: Bezeichner konfigurieren {#step-2-configure-your-identifier}
 
-Das Feld `external_id` dient zur Identifizierung der Nutzer:innen, die mit jedem Event verknüpft sind. Aktivieren Sie **Use Shopify geschäftskunden ID for Braze user identification**, um das Feld mit Shopify-Kunden-IDs zu verknüpfen. Andernfalls deaktivieren Sie die Option, um es mit der E-Mail-Adresse der jeweiligen Nutzer:innen zu verknüpfen.
+Das Feld `external_id` dient zur Identifizierung der Nutzer:innen, die mit jedem Event verknüpft sind. Aktivieren Sie **Use Shopify Customer ID for Braze user identification**, um das Feld mit Shopify-Kunden-IDs zu verknüpfen. Andernfalls deaktivieren Sie die Option, um es mit der E-Mail-Adresse der jeweiligen Nutzer:innen zu verknüpfen.
 
 ## Synchronisierung von Okendo-Events und -Attributen mit Braze {#syncing-okendo-events-and-attributes-to-braze}
 

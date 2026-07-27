@@ -131,7 +131,7 @@ Wenn Sie zeitnähere Sitzungsgrenzen in Currents benötigen, rufen Sie `requestI
 
 Wenn Ihr Speicher-Bucket zum Zeitpunkt der Datenübertragung nicht verfügbar ist, gehen diese Daten verloren. Braze kann Events, die nicht erfolgreich zugestellt wurden, nicht nachträglich auffüllen. Um Datenverlust zu vermeiden, stellen Sie sicher, dass Ihr Speicher-Bucket jederzeit verfügbar und korrekt konfiguriert ist.
 
-## Warum wird die Meldung „You do not have any remaining geschäftskunden Behavior Events entitlements“ angezeigt, wenn ich meine Currents-Integration bearbeite? {#why-do-i-see-you-do-not-have-any-remaining-customer-behavior-events-entitlements-when-editing-my-currents-integration}
+## Warum wird die Meldung „You do not have any remaining Customer Behavior Events entitlements“ angezeigt, wenn ich meine Currents-Integration bearbeite? {#why-do-i-see-you-do-not-have-any-remaining-customer-behavior-events-entitlements-when-editing-my-currents-integration}
 
 Diese Meldung kann erscheinen, wenn Sie eine bestehende Currents-Integration aktualisieren und Ihr Workspace das Kontingent für Kundenverhalten-Events erreicht hat. Kontaktieren Sie Ihren Braze Account Manager, um ein zusätzliches Kontingent anzufordern oder Ihre Konfiguration anzupassen.
 

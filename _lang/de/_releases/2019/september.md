@@ -21,7 +21,7 @@ Kund:innen können innerhalb von [OneLogin]({{site.baseurl}}/user_guide/administ
 
 ## Passkit-Partnerschaft {#passkit-partnership}
 
-Mit [Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit) können Braze-Kund:innen ihr geschäftskunden-Engagement auf mobile Wallets ausweiten. Sie werden in der Lage sein, personalisierte Wallet-Campaigns zu erstellen und dabei die leistungsstarke Segmentierung von Braze zu nutzen und neben Kanälen wie Push, In-App-Nachrichten und mehr zu orchestrieren.
+Mit [Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit) können Braze-Kund:innen ihr Customer-Engagement auf mobile Wallets ausweiten. Sie werden in der Lage sein, personalisierte Wallet-Campaigns zu erstellen und dabei die leistungsstarke Segmentierung von Braze zu nutzen und neben Kanälen wie Push, In-App-Nachrichten und mehr zu orchestrieren.
 
 ## Rückgabe des Dispatch-ID-Werts über Messaging-Endpunkte {#dispatch-id-value-return-via-messaging-endpoints}
 

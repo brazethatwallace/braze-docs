@@ -20,7 +20,7 @@ Es gibt drei Zustände des E-Mail-Abonnements für Nutzer:innen: **Opt-in**, **A
 |---|---|
 | Opt-in | Diese Kund:innen haben auf den Link in einer Bestätigungs-E-Mail geklickt und sich aktiv für den Erhalt Ihrer Nachrichten entschieden. |
 | Abonniert | Standardmäßig sind Nutzer:innen für E-Mails angemeldet, solange sie eine gültige E-Mail-Adresse in ihrem Profil gespeichert haben. Nutzer:innen bleiben abonniert, bis sie sich abmelden oder ein Opt-in durchführen. |
-| Abgemeldet | Um als abgemeldet markiert zu werden, hat sich ein:e geschäftskunden entweder ausdrücklich von Ihren E-Mails abgemeldet oder eine E-Mail als Spam markiert. |
+| Abgemeldet | Um als abgemeldet markiert zu werden, hat sich ein:e Kund:in entweder ausdrücklich von Ihren E-Mails abgemeldet oder eine E-Mail als Spam markiert. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Abo-Status von Abonnent:innen" }
 
 ## Methoden zur Adresserfassung {#address-collection-methods}

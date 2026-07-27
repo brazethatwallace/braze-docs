@@ -22,7 +22,7 @@ ChatGPT-Apps bieten eine leistungsstarke Plattform für die Entwicklung von KI-b
 
 ### Wesentliche Vorteile {#key-benefits}
 
-- **Übernehmen Sie die Verantwortung für die geschäftskunden Journey:** Während die Nutzer:innen über ChatGPT mit Ihrer Marke interagieren, behalten Sie Einblick in ihr Verhalten, ihre Präferenzen und ihr Engagement. Diese Daten werden direkt in die Braze-Nutzerprofile übertragen und nicht nur in die Analytics der KI-Plattform.
+- **Übernehmen Sie die Verantwortung für die Customer Journey:** Während die Nutzer:innen über ChatGPT mit Ihrer Marke interagieren, behalten Sie Einblick in ihr Verhalten, ihre Präferenzen und ihr Engagement. Diese Daten werden direkt in die Braze-Nutzerprofile übertragen und nicht nur in die Analytics der KI-Plattform.
 - **Plattformübergreifendes Retargeting:** Verfolgen Sie die Interaktionen der Nutzer:innen in Ihrer ChatGPT-App und sprechen Sie sie über Ihre Owned Channels (E-Mail, SMS, Push-Benachrichtigungen, In-App-Nachrichten) mit personalisierten Campaigns an, die auf ihren KI-Nutzungsmustern basieren.
 - **Geben Sie 1:1-Aktionsinhalte an ChatGPT-Konversationen zurück:** Liefern Sie Braze [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages), [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) und mehr direkt innerhalb Ihrer ChatGPT-Erfahrung aus, indem Sie die angepassten Konversations-UI-Komponenten verwenden, die Ihr Team für Ihre App entwickelt hat.
 - **Umsatz-Attribution:** Verfolgen Sie Käufe und Conversions, die aus Interaktionen mit der ChatGPT-App stammen.
@@ -35,7 +35,7 @@ ChatGPT-Apps bieten eine leistungsstarke Plattform für die Entwicklung von KI-b
 - **Financial Services**: Track financial advice requests and product recommendations for compliance and optimization
 - **Travel**: Monitor destination research, booking inquiries, and trip planning interactions
 
-By integrating Braze with your ChatGPT App, you ensure that every AI interaction becomes a data point in your geschäftskunden engagement strategy, not just a black box interaction on someone else's platform. -->
+By integrating Braze with your ChatGPT App, you ensure that every AI interaction becomes a data point in your customer engagement strategy, not just a black box interaction on someone else's platform. -->
 
 ## Voraussetzungen {#prerequisites}
 

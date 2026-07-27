@@ -19,7 +19,7 @@ _Diese Integration wird von Sendbird gepflegt._
 Die Integration von Braze und Sendbird ermöglicht es Unternehmensnutzer:innen:
 {% multi_lang_include partners/instant_chat/sendbird_integration_bullets.md %}
 
-Durch die Nutzung der gemeinsamen Funktionen von Braze und Sendbird Notifications können Unternehmen das geschäftskunden-Engagement steigern und durch effektive In-App-Benachrichtigungsstrategien höhere Konversionsraten erzielen.
+Durch die Nutzung der gemeinsamen Funktionen von Braze und Sendbird Notifications können Unternehmen das Customer-Engagement steigern und durch effektive In-App-Benachrichtigungsstrategien höhere Konversionsraten erzielen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -35,7 +35,7 @@ Durch die Nutzung der gemeinsamen Funktionen von Braze und Sendbird Notification
 
 ![Diagramm, das die Anwendungsfälle der Integration von Braze und Sendbird Notifications für Marketing- und Transaktionsnachrichten zusammenfasst.]({% image_buster /assets/img/sendbird/use-cases.png %})
 
-Die Integration von Braze und Sendbird Notifications bietet eine Reihe von Anwendungsfällen, um das geschäftskunden-Engagement zu steigern und ein herausragendes Nutzererlebnis zu bieten:
+Die Integration von Braze und Sendbird Notifications bietet eine Reihe von Anwendungsfällen, um das Customer-Engagement zu steigern und ein herausragendes Nutzererlebnis zu bieten:
 
 - **Marketing**: Verbessern Sie gezielte Campaigns mit personalisierten Aktionen und Empfehlungen, die auf die Präferenzen der Nutzer:innen zugeschnitten sind, wie z. B. exklusive Rabatte basierend auf dem Browserverlauf oder früheren Käufen.
 - **Transaktional**: Optimieren Sie die Kundenkommunikation durch Realtime-Updates zu Bestellungen, Lieferungen, Rechnungen und Zahlungen, einschließlich Benachrichtigungen zum Auftragsstatus, Versanddetails und voraussichtlichen Lieferzeiten.

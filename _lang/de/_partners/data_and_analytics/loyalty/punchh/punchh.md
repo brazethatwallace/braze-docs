@@ -44,7 +44,7 @@ Die Integration von Braze und Punchh ermöglicht es Ihnen, Daten für Geschenk- 
 
 ### Wichtige Hinweise {#important-things-to-note}
 
-- Punchh bietet die Möglichkeit, das Senden von Standard-Nutzerattributen an Braze zu deaktivieren, sodass der geschäftskunden keine Mehrkosten für Datenpunkte entstehen. Dies wird bei der Einrichtung des Adapters konfiguriert.
+- Punchh bietet die Möglichkeit, das Senden von Standard-Nutzerattributen an Braze zu deaktivieren, sodass der Kund:in keine Mehrkosten für Datenpunkte entstehen. Dies wird bei der Einrichtung des Adapters konfiguriert.
 - Wenn Sie angepasste Segmente für wiederkehrende Kampagnen verwenden, muss der Kampagnenname anstelle der Kampagnen-ID verwendet werden, da sich die IDs bei jedem Kampagnendurchlauf ändern.
 - Zu den Kommunikationskanälen, die innerhalb jeder Punchh-Geschenkkampagne zur Verfügung stehen, gehören Rich Messages, Push-Benachrichtigungen, SMS und E-Mail.
 - Nachdem Nutzer:innen von Braze an ein angepasstes Punchh-Segment gesendet wurden, können sie nicht mehr entfernt werden. Einem bestehenden angepassten Segment können nur neue Gäste hinzugefügt werden. Wenn Gäste aus einem bestehenden angepassten Punchh-Segment entfernt werden sollen, muss in Braze eine neue Webhook-Kampagne erstellt werden, um Nutzer:innen an ein neues angepasstes Punchh-Segment zu senden.
@@ -182,7 +182,7 @@ Wenn Sie einen Trigger hinzufügen, wird die Liste der in Braze erstellten Ereig
 
 ![Braze-Trigger-Konfiguration mit einem ausgewählten Punchh-Ereignis für eine aktionsbasierte Campaign.]({% image_buster /assets/img/punchh/update5.png %})
 
-Sie können Eigenschaftsfilter hinzufügen, um das auslösende Ereignis weiter zu filtern. Beispielsweise sollte die Nachricht nur dann ausgelöst werden, wenn eine geschäftskunden das Ereignis „checkins_gift“ triggert, bei dem die genehmigte Eigenschaft `true` lautet. Dies ist ein optionales Feature, das möglicherweise nicht auf alle Anwendungsfälle anwendbar ist.
+Sie können Eigenschaftsfilter hinzufügen, um das auslösende Ereignis weiter zu filtern. Beispielsweise sollte die Nachricht nur dann ausgelöst werden, wenn eine Kund:in das Ereignis „checkins_gift“ triggert, bei dem die genehmigte Eigenschaft `true` lautet. Dies ist ein optionales Feature, das möglicherweise nicht auf alle Anwendungsfälle anwendbar ist.
 
 #### Segmentierung {#segmentation}
 
@@ -203,7 +203,7 @@ Im Falle einer Registrierungskampagne können alle Registrierten für das Segmen
 Punchh-Konfigurationen erforderlich:
 - Kampagne: Registrierung
 - Segment: Alle Registrierten
-- Reward: Wahl der geschäftskunden
+- Reward: Wahl der Kund:in
 Erforderliche Ereignisse:
 - Reward-Ereignis
 - Gast-Ereignis
@@ -236,8 +236,8 @@ Die Erstellung eines Segments von Nutzer:innen, die dieses Angebot erhalten soll
 
 Punchh-Konfigurationen erforderlich:
 - Kampagne: Massenangebot
-- Segment: Angepasste Liste oder Wahl der geschäftskunden
-- Reward: Wahl der geschäftskunden
+- Segment: Angepasste Liste oder Wahl der Kund:in
+- Reward: Wahl der Kund:in
 
 **Mit Punchh für Segmentierung und Geschenke und Braze für Messaging:**<br>
 Beispiel: Eine 2-$-Rabattprämie wird an ein innerhalb von Punchh konfigurierbares Segment gesendet, wobei das Messaging über Braze erfolgt.<br>
@@ -255,12 +255,12 @@ Beispiel: Eine 2-$-Rabattprämie wird an ein Segment gesendet, dessen Attribute 
 {% tab Wiederkehrendes Massenangebot %}
 #### Wiederkehrende Massenangebotskampagne {#recurring-mass-offer-campaign}
 
-Wenn Sie eine wiederkehrende Massenangebotskampagne für Geschenke verwenden, muss eine Massenangebotskampagne in Punchh konfiguriert und eine Messaging-Kampagne in Braze eingerichtet werden. Ein angepasstes Punchh-Segment ist erforderlich, wenn die geschäftskunden die Braze-Segmentierung nutzen möchte (nur empfohlen, wenn Attribute verwendet werden, die in Punchh nicht verfügbar sind). Andernfalls kann die Punchh-Segmentierung verwendet werden, und die Braze-Messaging-Kampagne wird auf Grundlage des Reward-Ereignisses getriggert.
+Wenn Sie eine wiederkehrende Massenangebotskampagne für Geschenke verwenden, muss eine Massenangebotskampagne in Punchh konfiguriert und eine Messaging-Kampagne in Braze eingerichtet werden. Ein angepasstes Punchh-Segment ist erforderlich, wenn die Kund:in die Braze-Segmentierung nutzen möchte (nur empfohlen, wenn Attribute verwendet werden, die in Punchh nicht verfügbar sind). Andernfalls kann die Punchh-Segmentierung verwendet werden, und die Braze-Messaging-Kampagne wird auf Grundlage des Reward-Ereignisses getriggert.
 
 Punchh-Konfigurationen erforderlich:
 - Kampagne: Wiederkehrendes Massenangebot
-- Segment: Angepasste Liste oder Wahl der geschäftskunden
-- Reward: Wahl der geschäftskunden
+- Segment: Angepasste Liste oder Wahl der Kund:in
+- Reward: Wahl der Kund:in
 Überlegungen:
 - Kampagnen-IDs und Kampagnennamen werden als Ereigniseigenschaften an Braze gesendet. Wenn Sie in Braze einen Punchh-Kampagnenbezeichner verwenden möchten, um die Zielgruppe, die die Kampagne erhält, weiter zu filtern, müssen Sie den Kampagnennamen verwenden, da sich die Kampagnen-IDs täglich ändern.
 
@@ -273,7 +273,7 @@ Wenn Sie eine Post-Check-in-Angebotskampagne nutzen, sendet Braze die Benachrich
 Punchh-Konfigurationen erforderlich:
 - Kampagne: Post-Check-in-Angebot
 - Segment: Angepasste Liste
-- Reward: Wahl der geschäftskunden
+- Reward: Wahl der Kund:in
 
 Beispiel: Eine E-Mail, die Gäste darauf hinweist, dieses Wochenende vorbeizukommen, um doppelte Punkte zu erhalten – an ein Segment mit Attributen, die in Punchh nicht verfügbar sind. Punchh schenkt diesem Segment Punkte nach einem qualifizierten Check-in und optionalem Messaging von Braze.
 
@@ -287,8 +287,8 @@ Wenn Sie eine Post-Check-in-Angebotskampagne verwenden, bei der die Kund:innen n
 
 Punchh-Konfigurationen erforderlich:
 - Kampagne: Post-Check-in-Angebot
-- Segment: Wahl der geschäftskunden
-- Reward: Wahl der geschäftskunden
+- Segment: Wahl der Kund:in
+- Reward: Wahl der Kund:in
 
 Beispiel: Eine Überraschungs- und Freude-Kampagne von Braze wird an ein in Punchh verfügbares Segment gesendet, das sich bei den Gästen für ihren Besuch bedankt und sie mit 2 $ Rabatt auf ihren nächsten Besuch belohnt.
 
@@ -302,8 +302,8 @@ Wenn Sie eine Jubiläumskampagne nutzen, erhalten Nutzer:innen zunächst ein Ges
 
 Punchh-Konfigurationen erforderlich:
 - Kampagne: Jubiläumskampagne
-- Segment: Wahl der geschäftskunden
-- Reward: Wahl der geschäftskunden
+- Segment: Wahl der Kund:in
+- Reward: Wahl der Kund:in
 Überlegungen:
 - Monat der Registrierung als Geschenk
 - Gültigkeitsdauer (Wie lange ist die Geburtstagsbelohnung gültig?)
@@ -315,14 +315,14 @@ Punchh-Konfigurationen erforderlich:
 {% tab Rückruf %}
 #### Rückrufkampagne {#recall-campaign}
 
-Beim Targeting von Nutzer:innen auf Basis von Inaktivität kann eine Rückrufkampagne verwendet werden. Die geschäftskunden kann das Segment und die Kampagne innerhalb von Punchh erstellen, aber Braze für das Messaging nutzen.
+Beim Targeting von Nutzer:innen auf Basis von Inaktivität kann eine Rückrufkampagne verwendet werden. Die Kund:in kann das Segment und die Kampagne innerhalb von Punchh erstellen, aber Braze für das Messaging nutzen.
 
 Wenn Sie eine in Braze erstellte Segmentierung verwenden möchten, können Sie ein [angepasstes Punchh-Segment]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh#step-3-create-punchh-webhook-in-braze) auf Basis von Inaktivität an eine wiederkehrende Massenangebotskampagne anhängen.
 
 Punchh-Konfigurationen erforderlich:
 - Kampagne: Rückrufkampagne
-- Segment: Wahl der geschäftskunden
-- Reward: Wahl der geschäftskunden
+- Segment: Wahl der Kund:in
+- Reward: Wahl der Kund:in
 Überlegungen:
 - Kampagne läuft nach einem Zeitplan
 

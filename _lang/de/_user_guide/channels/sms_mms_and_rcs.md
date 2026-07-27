@@ -19,7 +19,7 @@ SMS ist nach wie vor einer der weltweit am häufigsten genutzten Kanäle – jed
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von SMS, MMS und RCS hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder geschäftskunden-Success-Manager, um loszulegen.
+Die Verfügbarkeit von SMS, MMS und RCS hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
 
 Stellen Sie vor dem Start sicher, dass Folgendes vorhanden ist:
 

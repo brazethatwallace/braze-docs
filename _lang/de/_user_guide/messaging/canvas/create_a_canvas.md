@@ -19,7 +19,7 @@ Sie können keine Canvases mehr mit dem ursprünglichen Canvas-Editor erstellen 
 
 Gehen Sie zunächst zu **Messaging** > **Canvas** und wählen Sie **Create Canvas**.
 
-Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres Canvas – von der Benennung über das Festlegen von Konversions-Events bis hin zur Auswahl der richtigen Nutzer:innen für Ihre geschäftskunden Journey. Wählen Sie die folgenden Tabs aus, um zu sehen, welche Einstellungen Sie in jedem Builder-Schritt anpassen können.
+Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres Canvas – von der Benennung über das Festlegen von Konversions-Events bis hin zur Auswahl der richtigen Nutzer:innen für Ihre Customer Journey. Wählen Sie die folgenden Tabs aus, um zu sehen, welche Einstellungen Sie in jedem Builder-Schritt anpassen können.
 
 {% tabs local %}
   {% tab Grundlagen %}

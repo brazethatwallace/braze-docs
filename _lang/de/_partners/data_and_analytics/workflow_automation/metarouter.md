@@ -9,7 +9,7 @@ search_tag: Partner
 
 # MetaRouter
 
-> [MetaRouter](https://www.metarouter.io/) steigert Ihr Braze-Erlebnis durch nahtlose Integration als leistungsstarke serverseitige Tag-Management-Plattform. Es ermöglicht Ihnen die Orchestrierung einer kompletten geschäftskunden-Data-Journey innerhalb von Braze – von der zuverlässigen, vollständig auf First-Party-Daten basierenden Datenerfassung mit einer Anreicherung von bis zu 30 % bis hin zur Aktivierung von Realtime-Event-Streams für personalisierte Journeys. Darüber hinaus vereinfacht MetaRouter die Implementierung, da keine Tags von Braze oder anderen Drittanbietern mehr benötigt werden. So erhalten Sie eine granulare, Parameter-für-Parameter-Kontrolle über die Daten, die in Braze einfließen.
+> [MetaRouter](https://www.metarouter.io/) steigert Ihr Braze-Erlebnis durch nahtlose Integration als leistungsstarke serverseitige Tag-Management-Plattform. Es ermöglicht Ihnen die Orchestrierung einer kompletten Customer-Data-Journey innerhalb von Braze – von der zuverlässigen, vollständig auf First-Party-Daten basierenden Datenerfassung mit einer Anreicherung von bis zu 30 % bis hin zur Aktivierung von Realtime-Event-Streams für personalisierte Journeys. Darüber hinaus vereinfacht MetaRouter die Implementierung, da keine Tags von Braze oder anderen Drittanbietern mehr benötigt werden. So erhalten Sie eine granulare, Parameter-für-Parameter-Kontrolle über die Daten, die in Braze einfließen.
 
 _Diese Integration wird von Metarouter gepflegt._
 

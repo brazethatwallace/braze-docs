@@ -1,5 +1,7 @@
 {
   "de": {
+    "business customer": "geschäftskunden",
+    "customer": "Kund:in",
     "exception event": "Ausnahme-Event",
     "experiment paths": "Experimentpfade",
     "local time": "Ortszeit"

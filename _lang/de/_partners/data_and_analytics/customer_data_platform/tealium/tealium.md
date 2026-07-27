@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Tealium
 
-> [Tealium](https://tealium.com/) ist ein universeller Daten-Hub und eine geschäftskunden Data Platform, bestehend aus EventStream, AudienceStream und iQ Tag-Management, die es Ihnen ermöglicht, Mobil-, Web- und alternative Daten aus Drittanbieter-Quellen zu verbinden. Die Verbindung von Tealium mit Braze ermöglicht einen Datenfluss von angepassten Events, Nutzerattributen und Käufen, die Sie in die Lage versetzen, Ihre Daten in Realtime zu nutzen.
+> [Tealium](https://tealium.com/) ist ein universeller Daten-Hub und eine Customer Data Platform, bestehend aus EventStream, AudienceStream und iQ Tag-Management, die es Ihnen ermöglicht, Mobil-, Web- und alternative Daten aus Drittanbieter-Quellen zu verbinden. Die Verbindung von Tealium mit Braze ermöglicht einen Datenfluss von angepassten Events, Nutzerattributen und Käufen, die Sie in die Lage versetzen, Ihre Daten in Realtime zu nutzen.
 
 ![Eine Übersichtsgrafik von Tealium, die zeigt, wie die verschiedenen Produkte von Tealium und die Braze-Plattform zusammenpassen, um kanalübergreifende Campaigns in Realtime zu aktivieren.]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
@@ -42,7 +42,7 @@ Wenn Sie mehr über die Vor- und Nachteile der einzelnen Methoden erfahren möch
 {% endtabs %}
 
 {% alert important %}
-Tealium bietet sowohl Batch- als auch Non-Batch-Konnektor-Aktionen an. Der Non-Batch-Konnektor sollte verwendet werden, wenn Anfragen in Realtime für den Anwendungsfall wichtig sind und keine Bedenken bestehen, dass die Spezifikationen für die Rate-Limits der Braze-API überschritten werden. Kontaktieren Sie den Braze-Support oder Ihren geschäftskunden-Success-Manager, wenn Sie Fragen haben.<br><br>
+Tealium bietet sowohl Batch- als auch Non-Batch-Konnektor-Aktionen an. Der Non-Batch-Konnektor sollte verwendet werden, wenn Anfragen in Realtime für den Anwendungsfall wichtig sind und keine Bedenken bestehen, dass die Spezifikationen für die Rate-Limits der Braze-API überschritten werden. Kontaktieren Sie den Braze-Support oder Ihren Customer-Success-Manager, wenn Sie Fragen haben.<br><br>
 
 Bei Batch-Konnektoren werden Anfragen in eine Warteschlange gestellt, bis einer der folgenden Schwellenwerte erreicht ist:<br><br>
 - Maximale Anzahl von Anfragen: 75
@@ -83,7 +83,7 @@ Tealium bietet zwei Möglichkeiten zur Integration von Mobile Remote Commands. E
 | Mobile-Remote-Command-Methode | Vorteile | Nachteile |
 | --- | --- | --- |
 | **Remote-Command-Tag** | Ändern Sie die Abbildungen und Daten, die an den Remote Command gesendet werden, ganz einfach über die Tealium iQ UI.<br><br>Dies erlaubt es, zusätzliche Daten oder Events an ein SDK eines Drittanbieters zu senden, nachdem die App bereits im App Store ist, ohne dass der Client die App aktualisieren muss. | Das Tag-Management-Modul in der App stützt sich auf eine ausgeblendete Webansicht, um JavaScript zu verarbeiten. |
-| **JSON-Konfigurationsdatei**<br>([Empfohlen](https://docs.tealium.com/platforms/remote-commands/integrations/braze/#how-it-works)) | Die Verwendung der JSON-Methode macht eine ausgeblendete Webansicht in der App überflüssig und reduziert den Speicherverbrauch erheblich.<br><br>Die JSON-Datei kann per Fernzugriff oder lokal in der App der geschäftskunden gehostet werden. | Im Moment gibt es keine UI, um dies zu verwalten, so dass es ein wenig zusätzlichen Aufwand erfordert.<br><br>Hinweis: Tealium arbeitet an einer Verwaltungs-UI, die dieses Problem lösen und den JSON-Remote-Commands das gleiche Maß an Flexibilität verleihen wird, das sie mit der iQ-Tag-Management-Version haben. |
+| **JSON-Konfigurationsdatei**<br>([Empfohlen](https://docs.tealium.com/platforms/remote-commands/integrations/braze/#how-it-works)) | Die Verwendung der JSON-Methode macht eine ausgeblendete Webansicht in der App überflüssig und reduziert den Speicherverbrauch erheblich.<br><br>Die JSON-Datei kann per Fernzugriff oder lokal in der App der Kund:in gehostet werden. | Im Moment gibt es keine UI, um dies zu verwalten, so dass es ein wenig zusätzlichen Aufwand erfordert.<br><br>Hinweis: Tealium arbeitet an einer Verwaltungs-UI, die dieses Problem lösen und den JSON-Remote-Commands das gleiche Maß an Flexibilität verleihen wird, das sie mit der iQ-Tag-Management-Version haben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Remote Commands" }
 
 Verwenden Sie die Datenabbildungen von Braze Mobile Remote Commands, um Standard-Nutzerattribute und angepasste Attribute festzulegen und Käufe und angepasste Events zu verfolgen. Die entsprechenden Braze-Methoden finden Sie in der folgenden Tabelle.

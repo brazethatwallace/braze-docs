@@ -1,7 +1,7 @@
 ---
 nav_title: Regal
 article_title: Regal
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Regal, einer Voice-KI-Agenten-Plattform, mit der Sie personalisierte, Omnichannel-geschäftskunden-Journeys mithilfe von Braze-Daten und Regal-Gesprächen orchestrieren können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Regal, einer Voice-KI-Agenten-Plattform, mit der Sie personalisierte, Omnichannel-Customer-Journeys mithilfe von Braze-Daten und Regal-Gesprächen orchestrieren können."
 alias: /partners/regal/
 page_type: partner
 search_tag: Partner
@@ -14,9 +14,9 @@ search_tag: Partner
 
 _Diese Integration wird von Regal gepflegt._
 
-Durch die Integration von Regal mit Braze können Sie Verhaltensdaten und konversationelle KI vereinen, um personalisierte, Omnichannel-geschäftskunden-Journeys zu orchestrieren. Braze erfasst Signale über den gesamten Kundenlebenszyklus, die Regal nutzt, um KI-Agenten-Gespräche, Routing und Echtzeit-Entscheidungen zu steuern.
+Durch die Integration von Regal mit Braze können Sie Verhaltensdaten und konversationelle KI vereinen, um personalisierte, Omnichannel-Customer-Journeys zu orchestrieren. Braze erfasst Signale über den gesamten Kundenlebenszyklus, die Regal nutzt, um KI-Agenten-Gespräche, Routing und Echtzeit-Entscheidungen zu steuern.
 
-Verwenden Sie Braze-Daten, um zu bestimmen, was Ihre KI-Agenten sagen, wie sie reagieren und wann sie aktiv werden. Senden Sie Gesprächsergebnisse und Insights zurück an Braze, um Targeting und Lifecycle-Marketing zu verbessern. Lösen Sie KI-gestützte Anrufe und SMS an wichtigen Punkten der geschäftskunden Journey aus und setzen Sie in Braze basierend auf dem Gesprächsverlauf nach.
+Verwenden Sie Braze-Daten, um zu bestimmen, was Ihre KI-Agenten sagen, wie sie reagieren und wann sie aktiv werden. Senden Sie Gesprächsergebnisse und Insights zurück an Braze, um Targeting und Lifecycle-Marketing zu verbessern. Lösen Sie KI-gestützte Anrufe und SMS an wichtigen Punkten der Customer Journey aus und setzen Sie in Braze basierend auf dem Gesprächsverlauf nach.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -175,7 +175,7 @@ Sie können auch zusätzliche Nutzerprofil-Attribute in diesen Payload aufnehmen
 
 Richten Sie ein Canvas oder eine Campaign für jedes wichtige Event ein, das Sie an Regal senden möchten.
 
-Diese Events dienen nicht nur dazu, Kontaktaufnahmen auszulösen (z. B. eine Bestätigungs-SMS, wenn ein Lead die Registrierung abschließt). Sie liefern den Echtzeit-Kontext, der bestimmt, wie Regal-KI-Agenten sprechen, Entscheidungen treffen und Gespräche über die gesamte geschäftskunden Journey hinweg weiterleiten. Indem Sie Event-Daten und Attribute von Braze senden, ermöglichen Sie KI-Agenten, Gespräche basierend auf dem Verhalten, den Präferenzen und der Lifecycle-Phase jeder Nutzer:in anzupassen.
+Diese Events dienen nicht nur dazu, Kontaktaufnahmen auszulösen (z. B. eine Bestätigungs-SMS, wenn ein Lead die Registrierung abschließt). Sie liefern den Echtzeit-Kontext, der bestimmt, wie Regal-KI-Agenten sprechen, Entscheidungen treffen und Gespräche über die gesamte Customer Journey hinweg weiterleiten. Indem Sie Event-Daten und Attribute von Braze senden, ermöglichen Sie KI-Agenten, Gespräche basierend auf dem Verhalten, den Präferenzen und der Lifecycle-Phase jeder Nutzer:in anzupassen.
 
 Beispielsweise können Braze-Events und -Attribute in Regal verwendet werden, um:
 
@@ -598,7 +598,7 @@ return brazecall;
 
 **Maßgeschneiderte Follow-up-Journeys in Braze basierend auf `call.analysis.available`-Events von Regal triggern**
 
-Verwenden Sie das `call.analysis.available`-Event von Regal, um den Hauptgrund zu identifizieren, warum eine geschäftskunden nicht konvertiert hat, und eine maßgeschneiderte Follow-up-Journey in Braze auszulösen.
+Verwenden Sie das `call.analysis.available`-Event von Regal, um den Hauptgrund zu identifizieren, warum eine Kund:in nicht konvertiert hat, und eine maßgeschneiderte Follow-up-Journey in Braze auszulösen.
 
 Zum Beispiel:
 

@@ -31,7 +31,7 @@ Die folgenden Kundendaten-Assets helfen Agenten, effektiver zu personalisieren:
 
 | Datentyp | Beschreibung | Beispiele |
 |-----------|-------------|----------|
-| **Kundenprofil** | Statische und sich langsam ändernde Attribute | Jahre als geschäftskunden, Geografie, Akquisitionskanal, Zufriedenheitsniveau, geschätzter Lifetime-Value |
+| **Kundenprofil** | Statische und sich langsam ändernde Attribute | Jahre als Kund:in, Geografie, Akquisitionskanal, Zufriedenheitsniveau, geschätzter Lifetime-Value |
 | **Kundenverhalten** | Aktivitäts- und Engagement-Muster | Kontoanmeldungen, Gerätetyp, Kundenservice-Interaktionen, Produktnutzung |
 | **Transaktionsverlauf** | Kauf- und Conversion-Daten | Gekaufte Produkte, Transaktionsbeträge, Zahlungsmethoden, Kaufkanäle |
 | **Marketing-Engagement** | Reaktionen auf Kommunikation | E-Mail-Öffnungen/-Klicks, SMS-Engagement, Web- und Mobilaktivität, Umfrageantworten |

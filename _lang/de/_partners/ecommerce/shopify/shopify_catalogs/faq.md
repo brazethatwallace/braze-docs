@@ -48,7 +48,7 @@ Sie können bis zu 20 pro Konfiguration synchronisieren:
 
 ### Was passiert, wenn ein Produkt zu mehr als 250 Kollektionen gehört? {#what-if-a-product-belongs-to-more-than-250-collections}
 
-Shopify erlaubt es, dass Produkte zu mehr als 250 Kollektionen gehören, aber Braze kann nur die ersten 250 Kollektionszuordnungen pro Produkt abrufen. Wenn ein Produkt zu einer ausgewählten Kollektion gehört, die außerhalb der ersten 250 abgerufenen liegt, wird diese Zuordnung nicht in Ihrem Shopify-Katalog widergespiegelt. Wenn Ihnen fehlende Kollektionszuordnungen auffallen, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Shopify erlaubt es, dass Produkte zu mehr als 250 Kollektionen gehören, aber Braze kann nur die ersten 250 Kollektionszuordnungen pro Produkt abrufen. Wenn ein Produkt zu einer ausgewählten Kollektion gehört, die außerhalb der ersten 250 abgerufenen liegt, wird diese Zuordnung nicht in Ihrem Shopify-Katalog widergespiegelt. Wenn Ihnen fehlende Kollektionszuordnungen auffallen, wenden Sie sich an Ihren Customer-Success-Manager.
 
 ### Warum sehe ich nicht alle meine Kollektionen im Konfigurationsmodal? {#why-dont-i-see-all-my-collections-in-the-configuration-modal}
 

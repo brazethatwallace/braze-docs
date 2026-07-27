@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Kognitiv Inspire
 
-> [Kognitiv Inspire](http://kognitiv.com) ist ein Treuetechnologie-System, das durch ergebnisorientierte Kundenbindungs-Programme, die das geschäftskunden-Engagement verstärken, die Ausgaben erhöhen und loyales Verhalten honorieren, unvergleichliche Kundenerlebnisse ermöglicht.
+> [Kognitiv Inspire](http://kognitiv.com) ist ein Treuetechnologie-System, das durch ergebnisorientierte Kundenbindungs-Programme, die das Customer-Engagement verstärken, die Ausgaben erhöhen und loyales Verhalten honorieren, unvergleichliche Kundenerlebnisse ermöglicht.
 
 _Diese Integration wird von Kognitiv Inspire gepflegt._
 

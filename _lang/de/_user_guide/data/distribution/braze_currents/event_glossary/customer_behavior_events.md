@@ -74,7 +74,7 @@ Dieses Nutzer-Event wird jedes Mal ausgelöst, wenn ein:e neue:r Nutzer:in in se
 
 {% alert important %}
 Dieses Currents-Event ist nur für Kund:innen verfügbar, die einen „All Events Connector“ erworben haben, und steht nur für Storage-Event-Konnektoren (wie Amazon S3, Microsoft Azure und Google Cloud Storage) zur Verfügung.
-<br><br>Wenden Sie sich an Ihren geschäftskunden-Success-Manager, um dieses Event zu aktivieren und den Backfill für die zufälligen Bucket-Nummern bestehender Nutzer:innen in Ihrem Workspace zu planen.
+<br><br>Wenden Sie sich an Ihren Customer-Success-Manager, um dieses Event zu aktivieren und den Backfill für die zufälligen Bucket-Nummern bestehender Nutzer:innen in Ihrem Workspace zu planen.
 {% endalert %}
 
 {% tabs %}
@@ -250,7 +250,7 @@ Dieses Event tritt ein, wenn ein bestimmtes angepasstes Event getriggert wird. V
 
 - Bei angepassten Events wird die Payload auch mit allen [angepassten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) befüllt, die mit dem Event verknüpft sind.
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -537,7 +537,7 @@ Dieses Event wird getriggert, wenn ein:e Nutzer:in einen bestimmten Standort bes
 ### Details zu den Eigenschaften
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -708,7 +708,7 @@ Käufe sind spezielle angepasste Events und werden mit einem JSON-kodierten Stri
 
 - Bei Kauf-Events wird die Payload auch mit den [Kauf-Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#purchase-properties) befüllt, die mit dem Event verknüpft sind.
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 

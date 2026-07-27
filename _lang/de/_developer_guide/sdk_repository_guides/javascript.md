@@ -28,7 +28,7 @@ Das Braze JavaScript SDK ist eine **plattformunabhängige** Bibliothek, die in j
 - **Internes Abhängigkeitsmanagement**: Erstellt und verwaltet interne Abhängigkeiten (UserManager, SessionManager, DataFlushController usw.) aus den bereitgestellten Implementierungen
 
 <!--
-Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better geschäftskunden relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
+Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
 - [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
 - [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)

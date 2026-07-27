@@ -18,19 +18,19 @@ Bevor wir uns mit den Details der Kampagneneinrichtung befassen, lassen Sie uns 
 
 Kampagnen sind ein einzelner Nachrichtenschritt, um Ihre Nutzer:innen über Kanäle zu erreichen – häufig auch als Messaging-Kanäle bezeichnet. Zu diesen Messaging-Kanälen gehören Content Cards, E-Mail, In-App-Nachrichten, Push, SMS und MMS sowie Webhooks. Wenn Sie wissen, wo sich Ihre Kund:innen aufhalten, können Sie die passenden Messaging-Kanäle für die Kommunikation nutzen.
 
-## Die geschäftskunden Journey gestalten {#building-the-customer-journey}
+## Die Customer Journey gestalten {#building-the-customer-journey}
 
-Da Kampagnen je nach Messaging-Kanal individuell aufgebaut werden können, können Sie die folgenden fünf W-Fragen der Visualisierung nutzen, um Ihre geschäftskunden-Engagement-Strategien und -Ziele zu identifizieren und zu konzipieren.
+Da Kampagnen je nach Messaging-Kanal individuell aufgebaut werden können, können Sie die folgenden fünf W-Fragen der Visualisierung nutzen, um Ihre Customer-Engagement-Strategien und -Ziele zu identifizieren und zu konzipieren.
 
 ### Das „Was“: Benennen Sie Ihre Kampagne {#the-what-name-your-campaign}
 
 *Was möchten Sie den Nutzer:innen helfen zu tun oder zu verstehen?*
 
-Unterschätzen Sie niemals die Kraft des Namens. Braze ist auf Zusammenarbeit ausgelegt, daher ist dies ein hervorragender Zeitpunkt, um festzulegen, wie Sie Ziele mit Ihrem Team kommunizieren. Weitere Informationen zu geschäftskunden Journeys finden Sie in unserem Braze-Lernkurs [Mapping User Lifecycles](https://learning.braze.com/mapping-customer-lifecycles)!
+Unterschätzen Sie niemals die Kraft des Namens. Braze ist auf Zusammenarbeit ausgelegt, daher ist dies ein hervorragender Zeitpunkt, um festzulegen, wie Sie Ziele mit Ihrem Team kommunizieren. Weitere Informationen zu Customer Journeys finden Sie in unserem Braze-Lernkurs [Mapping User Lifecycles](https://learning.braze.com/mapping-customer-lifecycles)!
 
 ### Das „Wann“: Startbedingungen erstellen {#the-when-create-starting-conditions}
 
-*Wann wird ein:e geschäftskunden auf diese Kampagne stoßen?*
+*Wann wird ein:e Kund:in auf diese Kampagne stoßen?*
 
 Nutzer:innen können Ihre Kampagne auf drei Arten betreten: bei einem festgelegten Datum und Zeitpunkt (geplant), wenn sie eine bestimmte Aktion ausführen (aktionsbasiert) oder wenn sie etwas tun, das einen API-Aufruf triggert (API-getriggert).
 
@@ -62,7 +62,7 @@ Es ist immer wichtig, ein klar definiertes Ziel vor Augen zu haben, und Kampagne
 
 *Wo kann ich meine Zielgruppe am besten erreichen?*
 
-Hier legen wir fest, welche Messaging-Kanäle für Ihre geschäftskunden Journey am sinnvollsten sind. Idealerweise möchten Sie Ihre Nutzer:innen dort erreichen, wo sie am aktivsten sind.
+Hier legen wir fest, welche Messaging-Kanäle für Ihre Customer Journey am sinnvollsten sind. Idealerweise möchten Sie Ihre Nutzer:innen dort erreichen, wo sie am aktivsten sind.
 
 ### Das „Wie“: Das Erlebnis gestalten {#the-how-build-the-experience}
 

@@ -72,7 +72,7 @@ Sie wählen eine einzelne Frequenz, z. B. drei Versendungen pro Woche. Der Agent
 
 ### Wie funktioniert Frequency-Capping? {#how-do-frequency-caps-work}
 
-Während der Einrichtung können Sie die Frequency-Capping-Regeln Ihres Workspace auf den Agent anwenden und festlegen, ob die Versendungen des Agents auf das globale Frequency-Cap jede:r Nutzer:in angerechnet werden. Ihr geschäftskunden-Success-Manager oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihr Programm zu bestimmen, basierend darauf, wie Frequency-Caps in Ihrem Workspace konfiguriert sind.
+Während der Einrichtung können Sie die Frequency-Capping-Regeln Ihres Workspace auf den Agent anwenden und festlegen, ob die Versendungen des Agents auf das globale Frequency-Cap jede:r Nutzer:in angerechnet werden. Ihr Customer-Success-Manager oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihr Programm zu bestimmen, basierend darauf, wie Frequency-Caps in Ihrem Workspace konfiguriert sind.
 
 ### Kann der Agent über mehrere Kanäle hinweg senden? {#can-the-agent-send-across-multiple-channels}
 
@@ -118,4 +118,4 @@ Sie. Der Agent versendet ausschließlich Inhalte, die Sie als Variante hinzugef�
 
 ### Wo erhalte ich Hilfe zu meinem Agent? {#where-do-i-get-help-with-my-agent}
 
-Wenden Sie sich an Ihren Braze geschäftskunden-Success-Manager oder Solutions Consultant, um Unterstützung bei der Konfiguration, der Performance-Überprüfung oder dem Programmdesign zu erhalten.
+Wenden Sie sich an Ihren Braze Customer-Success-Manager oder Solutions Consultant, um Unterstützung bei der Konfiguration, der Performance-Überprüfung oder dem Programmdesign zu erhalten.

@@ -125,7 +125,7 @@ Sie können die Zielgruppe auf LinkedIn einsehen, indem Sie in Ihr Anzeigenkonto
 
 Wenn Nutzer:innen den Audience-Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Echtzeit und berücksichtigt dabei die API-Rate-Limits von LinkedIn. Braze fasst so viele Nutzer:innen wie möglich in Batches zusammen und verarbeitet sie alle 5 Sekunden, bevor sie an LinkedIn gesendet werden.
 
-Das API-Rate-Limit von LinkedIn erlaubt nicht mehr als zehn Anfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Wenn ein:e geschäftskunden dieses Limit erreicht, versucht Braze die Synchronisierung bis zu etwa 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
+Das API-Rate-Limit von LinkedIn erlaubt nicht mehr als zehn Anfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Wenn ein:e Kund:in dieses Limit erreicht, versucht Braze die Synchronisierung bis zu etwa 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
 
 ## Analytics verstehen {#understanding-analytics}
 

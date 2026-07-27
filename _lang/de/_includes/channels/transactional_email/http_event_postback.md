@@ -5,7 +5,7 @@ Sie können diese Updates über eindeutige Bezeichner mit einzelnen Nachrichten 
 - `dispatch_id`: Eine eindeutige ID, die Braze automatisch für jede Nachricht generiert.
 - `external_send_id`: Ein angepasster Bezeichner, den Sie angeben, z. B. eine Bestellnummer, um Updates mit Ihren internen Systemen abzugleichen.
 
-Wenn Sie beispielsweise `external_send_id: 1234` in die Anfrage beim Versenden einer Bestellbestätigungs-E-Mail aufnehmen, enthalten alle nachfolgenden Ereignis-Postbacks für diese E-Mail – wie `Sent` oder `Delivered` – den Wert `external_send_id: 1234`. Damit können Sie bestätigen, ob die geschäftskunden für Bestellung #1234 die Bestellbestätigungs-E-Mail erhalten hat.
+Wenn Sie beispielsweise `external_send_id: 1234` in die Anfrage beim Versenden einer Bestellbestätigungs-E-Mail aufnehmen, enthalten alle nachfolgenden Ereignis-Postbacks für diese E-Mail – wie `Sent` oder `Delivered` – den Wert `external_send_id: 1234`. Damit können Sie bestätigen, ob die Kund:in für Bestellung #1234 die Bestellbestätigungs-E-Mail erhalten hat.
 
 ### Einrichten von Postbacks {#setting-up-postbacks}
 

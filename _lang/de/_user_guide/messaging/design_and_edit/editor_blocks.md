@@ -383,14 +383,14 @@ Nutzer:innen können aus mehreren Optionen auswählen. Werte werden in einem def
 
 ### Langtext {#long-text}
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-geschäftskunden-Success-Manager.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile {#saved-row}
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-geschäftskunden-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 -->
 
 ## Wissenswertes {#things-to-know}
@@ -472,7 +472,7 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown-Timer
 
-Zeigt einen Countdown bis zu einem von Ihnen festgelegten Datum und Uhrzeit an. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-geschäftskunden-Success-Manager.
+Zeigt einen Countdown bis zu einem von Ihnen festgelegten Datum und Uhrzeit an. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 
 Nachdem Sie einen **Countdown-Timer**-Block hinzugefügt haben, verwenden Sie das Eigenschaftenpanel, um das Zieldatum und die Uhrzeit, Beschriftungen und das Styling festzulegen.
 -->
@@ -515,14 +515,14 @@ Nutzer:innen wählen mehrere Optionen aus; Werte werden in einem definierten [Ar
 
 ### Langtext
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-geschäftskunden-Success-Manager. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-geschäftskunden-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 -->
 
 ## Wissenswertes
@@ -609,14 +609,14 @@ Erfasst eine E-Mail-Adresse und fügt sie beim Absenden dem Braze-Profil der Nut
 
 ### Langtext
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-geschäftskunden-Success-Manager.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-geschäftskunden-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 -->
 
 ## Wissenswertes

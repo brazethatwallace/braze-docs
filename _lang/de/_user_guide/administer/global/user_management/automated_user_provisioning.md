@@ -15,7 +15,7 @@ alias: /scim/automated_user_provisioning/
 ## Zugriff auf die SCIM-Bereitstellungseinstellungen {#accessing-scim-provisioning-settings}
 
 {% alert important %}
-Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab. Wenn dieses Feature in Ihrem Workspace nicht verfügbar ist, wenden Sie sich an Ihren geschäftskunden-Success-Manager für weitere Informationen.
+Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab. Wenn dieses Feature in Ihrem Workspace nicht verfügbar ist, wenden Sie sich an Ihren Customer-Success-Manager für weitere Informationen.
 {% endalert %}
 
 1. Navigieren Sie im Braze-Dashboard zu **Einstellungen** > **Admin-Einstellungen** > **SCIM-Bereitstellung** und wählen Sie anschließend **SCIM-Integration konfigurieren**.

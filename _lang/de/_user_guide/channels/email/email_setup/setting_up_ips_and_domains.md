@@ -57,7 +57,7 @@ Diese Methode richtet insgesamt eine Versand-Domain, eine Tracking-Domain und ei
 
 Um die Self-Service-E-Mail-Einrichtung zu nutzen, müssen Sie die folgenden Voraussetzungen erfüllen:
 
-1. Sie sind ein:e neue:r geschäftskunden im Onboarding.
+1. Sie sind ein:e neue:r Kund:in im Onboarding.
 2. Sie verfügen über die Unternehmensberechtigung „Manage Company Settings“.
 
 ### 1. Schritt: Einrichtung starten {#step-1-begin-setup}

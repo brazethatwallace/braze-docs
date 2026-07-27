@@ -40,7 +40,7 @@ Data Leakage ist der kritischste Fehler beim Backfilling. Er tritt auf, wenn der
 
 Wenn das Modell auf Daten trainiert, die „die Zukunft kennen“, scheint es während des Trainings gut abzuschneiden, liefert aber in der Produktion schlechte Ergebnisse, da Realtime-Entscheidungen keinen Zugriff auf zukünftige Daten haben.
 
-Betrachten Sie beispielsweise die Berechnung eines historischen „Lifetime-Value“-Features unter Verwendung der Gesamtausgaben einer geschäftskunden bis heute und die anschließende Nutzung dieses Werts zur Vorhersage von Verhalten, das Monate zuvor aufgetreten ist. Zum Zeitpunkt dieses historischen Ereignisses war der vollständige Lifetime-Value noch nicht bekannt.
+Betrachten Sie beispielsweise die Berechnung eines historischen „Lifetime-Value“-Features unter Verwendung der Gesamtausgaben einer Kund:in bis heute und die anschließende Nutzung dieses Werts zur Vorhersage von Verhalten, das Monate zuvor aufgetreten ist. Zum Zeitpunkt dieses historischen Ereignisses war der vollständige Lifetime-Value noch nicht bekannt.
 
 Dies lässt sich vermeiden, indem Sie historische Features immer nur mit den Informationen rekonstruieren, die zum historischen Zeitstempel verfügbar gewesen wären – nicht mit Informationen, die sich danach angesammelt haben.
 

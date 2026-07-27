@@ -396,7 +396,7 @@ Wenn Sie den Datentyp eines angepassten Attributs oder Events ändern (z. B. von
 - **Neue Daten müssen dem neuen Typ entsprechen.** API-Aufrufe, die den vorherigen Datentyp für das geänderte Attribut senden, werden nicht akzeptiert. Senden Sie den neuen Datentyp.
 
 {% alert important %}
-Die Möglichkeit, die automatische Erkennung daran zu hindern, den Datentyp des angepassten Attributs zu aktualisieren, befindet sich derzeit im Early Access. Wenden Sie sich an Ihren geschäftskunden-Success-Manager, wenn Sie daran teilnehmen möchten.
+Die Möglichkeit, die automatische Erkennung daran zu hindern, den Datentyp des angepassten Attributs zu aktualisieren, befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie daran teilnehmen möchten.
 {% endalert %}
 
 ## Katalog-Datentypen {#catalog-data-types}

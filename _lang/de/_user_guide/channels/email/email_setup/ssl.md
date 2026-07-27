@@ -38,7 +38,7 @@ Wenn Sie eine HTTP Strict Transport Security (HSTS)-Domain haben, richten Sie SS
 
 Erwerben Sie ein SSL-Zertifikat über einen Drittanbieter, in der Regel ein Content Delivery Network (CDN). Ein CDN hostet das Zertifikat und stellt es dem Browser bereit, wenn ein:e Nutzer:in auf einen Link klickt, indem der Datenverkehr über das CDN umgeleitet wird, um Zertifikate anzuwenden, bevor er an SendGrid oder SparkPost weitergeleitet wird.
 
-Um die SSL-Einrichtung zu starten, kontaktieren Sie Ihren Braze geschäftskunden-Success-Manager, um eine vollständige Braze-E-Mail-Einrichtung einzuleiten.
+Um die SSL-Einrichtung zu starten, kontaktieren Sie Ihren Braze Customer-Success-Manager, um eine vollständige Braze-E-Mail-Einrichtung einzuleiten.
 
 Nachdem Braze die Einrichtung eingeleitet hat, folgen Sie diesen Schritten:
 
@@ -46,14 +46,14 @@ Nachdem Braze die Einrichtung eingeleitet hat, folgen Sie diesen Schritten:
 2. Braze überprüft, ob die Einträge korrekt zu Ihrer Registrierung hinzugefügt wurden.
 3. Danach wählen Sie ein CDN aus und erhalten SSL-Zertifikate von einem Drittanbieter.
 4. An diesem Punkt richten Sie Ihr CDN ein. Beachten Sie, dass Braze bei der Fehlerbehebung der CDN-Konfiguration nicht helfen kann. Kontaktieren Sie Ihren CDN-Anbieter für weitere Unterstützung.
-5. Kontaktieren Sie Ihren geschäftskunden-Success-Manager, um SSL aktivieren zu lassen.
+5. Kontaktieren Sie Ihren Customer-Success-Manager, um SSL aktivieren zu lassen.
 
 ## Was ist ein CDN und warum brauche ich es? {#what-is-a-cdn-and-why-do-i-need-it}
 
 Ein Content Delivery Network (CDN) ist eine Plattform aus Servern, die schnelle Ladezeiten von Inhalten über verschiedene Medien hinweg sicherstellt und gleichzeitig Sicherheitszertifikate verwaltet.
 
 {% alert important %}
-Die CDN-Konfiguration erfolgt immer erst, nachdem Ihre DNS-Einträge von Braze validiert wurden. Wenn Sie diesen Schritt noch nicht eingeleitet haben, kontaktieren Sie Ihren geschäftskunden-Success-Manager für weitere Informationen zum Einstieg.
+Die CDN-Konfiguration erfolgt immer erst, nachdem Ihre DNS-Einträge von Braze validiert wurden. Wenn Sie diesen Schritt noch nicht eingeleitet haben, kontaktieren Sie Ihren Customer-Success-Manager für weitere Informationen zum Einstieg.
 {% endalert %}
 
 Für das Klick- und Öffnungs-Tracking transformieren Zustellungspartner Links mithilfe einer markenspezifischen Subdomain, und das CDN wendet das SSL-Zertifikat auf diese transformierten Links an. Partner müssen dem Browser der Empfänger:innen häufig gültige Zertifikate vorlegen, damit Links und Bilder korrekt angezeigt werden. Da Braze keine Zertifikate anfordert oder verwaltet, müssen Sie dies über ein CDN einrichten.

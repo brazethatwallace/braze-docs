@@ -27,7 +27,7 @@ Wir sind von der Leistungsfähigkeit von Currents und Data Warehouses so überze
 
 ## Kundendaten {#customer-data}
 
-Diese geschäftskunden Data Platforms sammeln und leiten Informationen aus verschiedenen Quellen an eine Vielzahl anderer Ziele weiter, damit Sie Braze-Daten bestmöglich nutzen können.
+Diese Customer Data Platforms sammeln und leiten Informationen aus verschiedenen Quellen an eine Vielzahl anderer Ziele weiter, damit Sie Braze-Daten bestmöglich nutzen können.
 
 * [mParticle]({{site.baseurl}}/partners/mparticle_for_currents)
 * [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents)

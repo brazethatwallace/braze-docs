@@ -8,7 +8,7 @@ search_tag: Partner
 description: "Entdecken Sie Braze-Technologie-Partner (Alloys) nach Kategorie. Finden Sie Integrationsdokumentation für Personalisierung, Orchestrierung, Daten, E-Commerce, Audience Sync und mehr."
 
 guide_top_header: "Technologie-Partner"
-guide_top_text: "Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsuchen Sie die Partnerkategorien nach technischen Integrationsleitfäden.<br><br>Eine vollständige, durchsuchbare und filterbare Liste aller Braze-Technologie-Partner finden Sie im <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>. Möchten Sie unserer Community von Kund:innen beitreten, die Braze nutzen, um ihr Kundenerlebnis zu modernisieren? Besuchen Sie unser <a href='https://brazefirebrands.splashthat.com/'>geschäftskunden Champions Program</a>."
+guide_top_text: "Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsuchen Sie die Partnerkategorien nach technischen Integrationsleitfäden.<br><br>Eine vollständige, durchsuchbare und filterbare Liste aller Braze-Technologie-Partner finden Sie im <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>. Möchten Sie unserer Community von Kund:innen beitreten, die Braze nutzen, um ihr Kundenerlebnis zu modernisieren? Besuchen Sie unser <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a>."
 
 guide_featured_title: "Partnerkategorien"
 guide_featured_list:

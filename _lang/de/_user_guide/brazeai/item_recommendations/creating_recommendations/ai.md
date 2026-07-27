@@ -170,7 +170,7 @@ Die folgenden Beispielzuordnungen beziehen sich beide auf diesen Beispielkatalog
 {% tabs %}
 {% tab Angepasstes Event %}
 
-Angenommen, Sie möchten das angepasste Event `added_to_cart` verwenden, um ähnliche Produkte zu empfehlen, bevor die geschäftskunden zur Kasse geht. Das Event `added_to_cart` hat eine Event-Eigenschaft `product_sku`.
+Angenommen, Sie möchten das angepasste Event `added_to_cart` verwenden, um ähnliche Produkte zu empfehlen, bevor die Kund:in zur Kasse geht. Das Event `added_to_cart` hat eine Event-Eigenschaft `product_sku`.
 
 Dann muss die Eigenschaft `product_sku` mindestens einen der Werte aus der Spalte `id` im Beispielkatalog enthalten: „ADI-BL-7“, „ADI-RD-8“, „ADI-WH-9“ oder „ADI-PP-10“. Sie benötigen nicht für jeden Katalogartikel Events, aber Sie brauchen einige davon, damit das Empfehlungssystem genügend Inhalte hat, um damit zu arbeiten.
 

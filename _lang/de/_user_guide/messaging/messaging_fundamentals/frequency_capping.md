@@ -199,7 +199,7 @@ Wenn Sie bei gleichzeitiger Verwendung beider Features eine bestimmte Anzahl von
 
 - **Erhöhen Sie Ihr Rate-Limit:** Um Nutzer:innen zu berücksichtigen, die Frequency-gekappt sind. Wenn Sie beispielsweise 500 Nutzer:innen erreichen möchten, aber erwarten, dass einige Frequency-gekappt werden, setzen Sie Ihr Rate-Limit höher (z. B. 1.000 Nutzer:innen).
 - **Verwenden Sie Rate-Limiting allein:** Wenn Ihr Ziel darin besteht, das Volumen der pro Campaign gesendeten Nachrichten zu steuern.
-- **Wenden Sie sich an Ihren geschäftskunden-Success-Manager:** Für Hilfe bei der Gestaltung einer robusten Messaging-Strategie, die sowohl geschäftliche Anforderungen als auch technische Überlegungen berücksichtigt.
+- **Wenden Sie sich an Ihren Customer-Success-Manager:** Für Hilfe bei der Gestaltung einer robusten Messaging-Strategie, die sowohl geschäftliche Anforderungen als auch technische Überlegungen berücksichtigt.
 
 ### Feature-Übersicht {#freq-cap-feat-over}
 

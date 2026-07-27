@@ -28,10 +28,10 @@ Ein neuer [`/purchases/product_list`-Endpunkt]({{site.baseurl}}/api/endpoints/ex
 
 ## Neue Braze Partnerschaften {#new-braze-partnerships}
 
-### Adobe – geschäftskunden Data Platform
+### Adobe – Customer Data Platform
 Die Integration von Braze und [Adobe]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/adobe/#adobe) ermöglicht es Marken, ihre Adobe-Daten (angepasste Attribute und Segmente) in Realtime mit Braze zu verbinden und abzubilden. Marken können dann auf Basis dieser Daten handeln und diesen Nutzer:innen personalisierte, zielgerichtete Erlebnisse bieten.
 
-### BlueConic – geschäftskunden Data Platform
+### BlueConic – Customer Data Platform
 Mit [Blueconic]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/blueconic/#blueconic) können Unternehmensnutzer:innen Daten in persistenten, individuellen Profilen vereinheitlichen und dann über Kunden-Touchpoints und Systeme hinweg synchronisieren, um eine breite Palette von wachstumsorientierten Initiativen zu unterstützen, einschließlich Orchestrierung des Kundenlebenszyklus, Modellierung und Analytics, digitale Produkte und Erlebnisse, zielgruppenbasierte Monetarisierung und mehr.
 
 ### Worthy – Dynamischer Content {#worthy-dynamic-content}

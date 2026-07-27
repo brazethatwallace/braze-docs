@@ -12,7 +12,7 @@ toc_headers: h2
 > Das **Messaging-Diagnose**-Dashboard bietet eine allgemeine Aufschlüsselung der Ergebnisse beim Nachrichtenversand, mit der Sie Trends erkennen und potenzielle Probleme in Ihrem Messaging-Setup diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden.
 
 {% alert important %}
-Das **Messaging-Diagnose**-Dashboard ist allgemein verfügbar. Kontaktieren Sie Ihren geschäftskunden-Success-Manager, wenn Sie Zugang zu diesem Feature erhalten möchten.
+Das **Messaging-Diagnose**-Dashboard ist allgemein verfügbar. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie Zugang zu diesem Feature erhalten möchten.
 {% endalert %}
 
 {% alert note %}

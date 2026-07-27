@@ -104,7 +104,7 @@ JSON-Schlüssel-Wert-Paare ermöglichen es Ihnen, einfach eine Anfrage für eine
 
 ![Anfrage-Body mit JSON-Schlüssel-Wert-Paaren.]({% image_buster /assets/img/webhook_json_1.png %})
 
-Sie können Ihre Schlüssel-Wert-Paare mit Liquid personalisieren, z. B. indem Sie beliebige Nutzerattribute, [angepasste Attribute]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#additional-notes-and-best-practices) oder [Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events) in Ihre Anfrage aufnehmen. Sie können beispielsweise den Vornamen und die E-Mail-Adresse einer geschäftskunden in Ihre Anfrage aufnehmen. Stellen Sie sicher, dass Sie für jedes Attribut einen [Standardwert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) angeben.
+Sie können Ihre Schlüssel-Wert-Paare mit Liquid personalisieren, z. B. indem Sie beliebige Nutzerattribute, [angepasste Attribute]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#additional-notes-and-best-practices) oder [Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events) in Ihre Anfrage aufnehmen. Sie können beispielsweise den Vornamen und die E-Mail-Adresse einer Kund:in in Ihre Anfrage aufnehmen. Stellen Sie sicher, dass Sie für jedes Attribut einen [Standardwert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) angeben.
 
 #### Rohtext {#raw-text}
 

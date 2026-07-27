@@ -83,7 +83,7 @@ Um Nutzer:innen mit abgelehnten SMS-Sendungen aus Ihren Segmenten auszuschließe
 
 ## Nutzer:innen zu SMS- und RCS-Abo-Gruppen hinzufügen {#add-users-to-sms-and-rcs-subscription-groups}
 
-Damit Nutzer:innen eine SMS- oder RCS-Nachricht empfangen können, müssen sie eine gültige Telefonnummer haben und in eine Abo-Gruppe eingewilligt haben. Abo-Gruppen sind an das SMS- oder RCS-Programm gebunden, das Sie betreiben (stellen Sie sicher, dass Sie die [gesetzlichen Anforderungen für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) einhalten und die Einwilligung jeder geschäftskunden dokumentiert haben). Weitere Informationen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups).
+Damit Nutzer:innen eine SMS- oder RCS-Nachricht empfangen können, müssen sie eine gültige Telefonnummer haben und in eine Abo-Gruppe eingewilligt haben. Abo-Gruppen sind an das SMS- oder RCS-Programm gebunden, das Sie betreiben (stellen Sie sicher, dass Sie die [gesetzlichen Anforderungen für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) einhalten und die Einwilligung jeder Kund:in dokumentiert haben). Weitere Informationen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Drittanbieter-Beschaffung und -Verifizierung {#third-party-sourcing-and-verification}
 

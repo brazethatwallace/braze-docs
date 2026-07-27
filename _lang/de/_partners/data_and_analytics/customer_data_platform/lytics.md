@@ -1,7 +1,7 @@
 ---
 nav_title: Lytics
 article_title: Lytics
-description: "Dieser Referenzartikel behandelt die Integration von Braze und Lytics. Lytics ist eine unternehmensweite geschäftskunden Data Platform für Marketer, Analyst:innen und Technolog:innen. Diese Integration ermöglicht es Marken, ihre Lytics-Daten direkt mit Braze zu synchronisieren und abzubilden."
+description: "Dieser Referenzartikel behandelt die Integration von Braze und Lytics. Lytics ist eine unternehmensweite Customer Data Platform für Marketer, Analyst:innen und Technolog:innen. Diese Integration ermöglicht es Marken, ihre Lytics-Daten direkt mit Braze zu synchronisieren und abzubilden."
 alias: /partners/lytics/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lytics
 
-> [Lytics](https://www.lytics.com/) ist die geschäftskunden Data Platform (CDP) der Wahl für die nächste Generation kundenorientierter Unternehmen. Die Lösungen Lytics Decision Engine, Conductor und Cloud Connect bieten Marketern und Datenteams die Möglichkeit, Identitätsauflösung, Orchestrierung und Kampagnenoptimierung in Realtime und unter Wahrung des Datenschutzes durchzuführen.
+> [Lytics](https://www.lytics.com/) ist die Customer Data Platform (CDP) der Wahl für die nächste Generation kundenorientierter Unternehmen. Die Lösungen Lytics Decision Engine, Conductor und Cloud Connect bieten Marketern und Datenteams die Möglichkeit, Identitätsauflösung, Orchestrierung und Kampagnenoptimierung in Realtime und unter Wahrung des Datenschutzes durchzuführen.
 
 _Diese Integration wird von Lytics gepflegt._
 
@@ -24,7 +24,7 @@ Die Integration ermöglicht es Marken:
 
 ## Anwendungsfälle {#use-cases}
 
-Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [importieren](#importing-data-from-braze-to-lytics) und Lytics-Nutzer:innen-Profile anzureichern. Wenn Sie Braze und Lytics zusammen verwenden, können Sie auch die kanalübergreifenden, verhaltensgestützten Zielgruppen von Lytics [exportieren](#integration), um anhand von First-Party-Daten hochgradig personalisierte Braze-geschäftskunden-Journeys zu erstellen.
+Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [importieren](#importing-data-from-braze-to-lytics) und Lytics-Nutzer:innen-Profile anzureichern. Wenn Sie Braze und Lytics zusammen verwenden, können Sie auch die kanalübergreifenden, verhaltensgestützten Zielgruppen von Lytics [exportieren](#integration), um anhand von First-Party-Daten hochgradig personalisierte Braze-Customer-Journeys zu erstellen.
 
 ## Voraussetzungen {#prerequisites}
 

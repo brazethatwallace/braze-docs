@@ -16,7 +16,7 @@ search_tag: Partner
 
 Die Integration von Braze und AppsFlyer lässt Sie besser verstehen, wie Sie Ihre Campaigns optimieren und ganzheitlicher gestalten können, indem Sie die mobilen Install-Attribution-Daten von AppsFlyer nutzen.
 
-Mit der [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences)-Integration können Sie Ihre AppsFlyer-Zielgruppen (Kohorten) direkt an Braze weitergeben, was es Ihnen erlaubt, leistungsstarke geschäftskunden-Engagement-Campaigns zu erstellen, die genau auf die richtigen Nutzer:innen zur richtigen Zeit ausgerichtet sind.
+Mit der [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences)-Integration können Sie Ihre AppsFlyer-Zielgruppen (Kohorten) direkt an Braze weitergeben, was es Ihnen erlaubt, leistungsstarke Customer-Engagement-Campaigns zu erstellen, die genau auf die richtigen Nutzer:innen zur richtigen Zeit ausgerichtet sind.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -224,7 +224,7 @@ In diesem Stadium, nachdem Sie die CTD-Details in AppsFlyer freigegeben und vali
 Sie können eine Qualitätssicherung und Fehlerbehebung durchführen, indem Sie mit OneLink einen Deeplink senden. Einzelheiten zur Verwendung von OneLink finden Sie in der [AppsFlyer-Dokumentation](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a).
 
 Wenn CTD-Links als HTTP identifiziert werden, wenden Sie sich an das E-Mail-Ops-Team von Braze, um das SSL-Click-Tracking zu aktivieren. Dadurch wird sichergestellt, dass alle HTTP-Links automatisch in HTTPS umgewandelt werden.
-Sie können den folgenden Beispieltext für eine Nachricht verwenden, wenn Sie sich an Ihren geschäftskunden-Success-Manager wenden, oder indem Sie wie in [Schritt 1](#step-1-create-a-click-tracking-domain) ein Ticket im Braze-Dashboard erstellen:
+Sie können den folgenden Beispieltext für eine Nachricht verwenden, wenn Sie sich an Ihren Customer-Success-Manager wenden, oder indem Sie wie in [Schritt 1](#step-1-create-a-click-tracking-domain) ein Ticket im Braze-Dashboard erstellen:
 
 ```
 Hi Team,

@@ -15,7 +15,7 @@ _Diese Integration wird von DOTS.ECO gepflegt._
 
 ## Über diese Integration {#about-this-integration}
 
-Braze und DOTS.ECO verbinden geschäftskunden-Engagement-Journeys mit realen Impact-Rewards. Von einem Braze-Canvas- oder Campaign-Schritt aus können Sie eine Anfrage zur Erstellung eines DOTS.ECO-Zertifikats mithilfe von Connected-Content auslösen. DOTS.ECO gibt Zertifikats-Metadaten (wie `certificate_url` und `certificate_image_url`) zurück, die Sie im Nutzerprofil als angepasste Attribute speichern und über Kanäle wie In-App-Nachrichten, Content Cards und Push-Benachrichtigungen wiederverwenden können.
+Braze und DOTS.ECO verbinden Customer-Engagement-Journeys mit realen Impact-Rewards. Von einem Braze-Canvas- oder Campaign-Schritt aus können Sie eine Anfrage zur Erstellung eines DOTS.ECO-Zertifikats mithilfe von Connected-Content auslösen. DOTS.ECO gibt Zertifikats-Metadaten (wie `certificate_url` und `certificate_image_url`) zurück, die Sie im Nutzerprofil als angepasste Attribute speichern und über Kanäle wie In-App-Nachrichten, Content Cards und Push-Benachrichtigungen wiederverwenden können.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -34,7 +34,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 |---|---|
 | DOTS.ECO-Konto | Zugang zu einem DOTS.ECO-Konto. |
-| DOTS.ECO-Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO-App-Token, einen API-Schlüssel und eine Zuordnungs-ID. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO-geschäftskunden-Success-Manager. |
+| DOTS.ECO-Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO-App-Token, einen API-Schlüssel und eine Zuordnungs-ID. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO-Customer-Success-Manager. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }

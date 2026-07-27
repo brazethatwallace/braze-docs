@@ -239,9 +239,9 @@ Nachfolgend finden Sie Beispiel-Templates, die mit unserem [Stripe-Webhook-Beisp
 
 In diesem Beispiel-Template protokollieren wir ein angepasstes Event für das Braze-Profil. Der Event-Typ wird als angepasster Event-Name gesendet, und das Datenobjekt wird als Event-Eigenschaften übergeben.
 
-### Anwendungsfall: geschäftskunden als Bezeichner {#use-case-customer-as-an-identifier}
+### Anwendungsfall: Kund:in als Bezeichner {#use-case-customer-as-an-identifier}
 
-In diesem Beispiel-Template verwenden wir das Feld „geschäftskunden“ als Bezeichner.
+In diesem Beispiel-Template verwenden wir das Feld „customer“ als Bezeichner.
 
 {% tabs local %}
 {% tab Input %}

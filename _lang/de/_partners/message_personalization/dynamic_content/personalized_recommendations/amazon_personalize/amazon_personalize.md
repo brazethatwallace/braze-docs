@@ -11,7 +11,7 @@ search_tag: Partner
 <!--
 {% multi_lang_include video.html id="xFZ3HMleYYE" align="right" %}
 -->
-> [Amazon Personalize](https://aws.amazon.com/personalize/) ist so, als hätten Sie Ihr eigenes Empfehlungssystem für maschinelles Lernen, das den ganzen Tag läuft. Basierend auf mehr als 20 Jahren Erfahrung mit Empfehlungen ermöglicht Ihnen Amazon Personalize, das geschäftskunden-Engagement zu verbessern, indem es personalisierte Produkt- und Inhaltsempfehlungen in Echtzeit sowie gezielte Marketing-Aktionen ermöglicht.
+> [Amazon Personalize](https://aws.amazon.com/personalize/) ist so, als hätten Sie Ihr eigenes Empfehlungssystem für maschinelles Lernen, das den ganzen Tag läuft. Basierend auf mehr als 20 Jahren Erfahrung mit Empfehlungen ermöglicht Ihnen Amazon Personalize, das Customer-Engagement zu verbessern, indem es personalisierte Produkt- und Inhaltsempfehlungen in Echtzeit sowie gezielte Marketing-Aktionen ermöglicht.
 
 _Diese Integration wird von Amazon Personalize gepflegt._
 

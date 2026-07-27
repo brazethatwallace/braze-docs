@@ -25,7 +25,7 @@ Schauen Sie sich unseren kostenlosen Kurs [Developer Learning Path](https://lear
 
 ## Was ist Braze? {#what-is-braze}
 
-Braze ist eine geschäftskunden-Engagement-Plattform. Sie erfasst Nutzerdaten, zeigt Nutzeraktionen und -verhalten an und ermöglicht es Ihnen, darauf zu reagieren. Die Plattform umfasst drei Hauptkomponenten: das SDK, das Dashboard und die REST API.
+Braze ist eine Customer-Engagement-Plattform. Sie erfasst Nutzerdaten, zeigt Nutzeraktionen und -verhalten an und ermöglicht es Ihnen, darauf zu reagieren. Die Plattform umfasst drei Hauptkomponenten: das SDK, das Dashboard und die REST API.
 
 Für Marketer, die einen allgemeineren Überblick über Braze suchen, empfiehlt sich stattdessen der Abschnitt [Erste Schritte für Marketer]({{site.baseurl}}/user_guide/get_started).
 
@@ -62,13 +62,13 @@ Mehr über die Teile und Komponenten von Braze finden Sie hier: [Erste Schritte:
 
 ## Datenanalyse und Maßnahmen {#data-analysis-and-action}
 
-Die in Braze gespeicherten Daten bleiben erhalten und können für Segmentierung, Personalisierung und Targeting verwendet werden, solange Sie Braze-geschäftskunden sind. So können Sie auf Nutzerprofildaten (z. B. Sitzungsaktivitäten oder Käufe) zugreifen, bis Sie sich entscheiden, diese Informationen zu löschen. Ein Streaming-Dienst könnte zum Beispiel die angesehenen Inhalte jeder Abonnentin und jedes Abonnenten vom ersten Tag an verfolgen (auch wenn das schon viele Jahre her ist) und diese Daten nutzen, um relevante Nachrichten zu versenden.
+Die in Braze gespeicherten Daten bleiben erhalten und können für Segmentierung, Personalisierung und Targeting verwendet werden, solange Sie Braze-Kund:in sind. So können Sie auf Nutzerprofildaten (z. B. Sitzungsaktivitäten oder Käufe) zugreifen, bis Sie sich entscheiden, diese Informationen zu löschen. Ein Streaming-Dienst könnte zum Beispiel die angesehenen Inhalte jeder Abonnentin und jedes Abonnenten vom ersten Tag an verfolgen (auch wenn das schon viele Jahre her ist) und diese Daten nutzen, um relevante Nachrichten zu versenden.
 
 ![Ein Segment im Braze-Dashboard mit dem Titel „Kürzliche Käufer:innen“ wird neben einem Telefonbildschirm angezeigt, auf dem eine E-Mail mit dem Titel „Top-Empfehlungen für Linda“ zu sehen ist.]({% image_buster /assets/img/getting-started/getting-started-segment.png %}){: style="max-width:80%"}
 
 ### App-Analytics {#app-analytics}
 
-Das Braze-Dashboard zeigt Grafiken an, die in Realtime auf der Grundlage von Analytics-Metriken und angepassten Events, die Sie instrumentieren, aktualisiert werden. Konsistente Messungen und Optimierungen mithilfe von A/B-Tests, benutzerdefinierten Berichten, Analytics und automatisierter Intelligenz unterstützen Ihr geschäftskunden-Engagement und Ihre Differenzierung.
+Das Braze-Dashboard zeigt Grafiken an, die in Realtime auf der Grundlage von Analytics-Metriken und angepassten Events, die Sie instrumentieren, aktualisiert werden. Konsistente Messungen und Optimierungen mithilfe von A/B-Tests, benutzerdefinierten Berichten, Analytics und automatisierter Intelligenz unterstützen Ihr Customer-Engagement und Ihre Differenzierung.
 
 ### Nutzersegmentierung {#user-segmentation}
 

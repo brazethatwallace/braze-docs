@@ -10,15 +10,15 @@ description: "Dieser Artikel enthält Versionshinweise für Oktober 2017."
 
 ## Push Stories
 
-Auf iOS und Android können Sie jetzt [Benachrichtigungen mit mehreren Seiten erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/), von denen jede ein Bild, ein Klickverhalten und einen optionalen Titel und Untertitel enthält. Dieses Feature erfordert iOS SDK 3.2.1 und Android SDK 2.2.0. Um Zugang zu diesem neuen Produkt zu erhalten, wenden Sie sich an Ihren geschäftskunden-Success-Manager, Account Manager oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
+Auf iOS und Android können Sie jetzt [Benachrichtigungen mit mehreren Seiten erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/), von denen jede ein Bild, ein Klickverhalten und einen optionalen Titel und Untertitel enthält. Dieses Feature erfordert iOS SDK 3.2.1 und Android SDK 2.2.0. Um Zugang zu diesem neuen Produkt zu erhalten, wenden Sie sich an Ihren Customer-Success-Manager, Account Manager oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
 
 ## Currents
 
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/) bietet eine Reihe von Realtime-Datenverbindungen für große Datenmengen mit vorgefertigten Verbindungen direkt zu Technologien wie Data Warehouses, Business-Intelligence-Tools und Datenmanagement-Plattformen. Der Start erfolgt mit Integrationen für Amazon Redshift, Amplitude und die Datenmanagement-Plattformen Segment und mParticle. Um Zugang zu diesem neuen Produkt zu erhalten, wenden Sie sich an Ihren geschäftskunden-Success-Manager, Account Manager oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/) bietet eine Reihe von Realtime-Datenverbindungen für große Datenmengen mit vorgefertigten Verbindungen direkt zu Technologien wie Data Warehouses, Business-Intelligence-Tools und Datenmanagement-Plattformen. Der Start erfolgt mit Integrationen für Amazon Redshift, Amplitude und die Datenmanagement-Plattformen Segment und mParticle. Um Zugang zu diesem neuen Produkt zu erhalten, wenden Sie sich an Ihren Customer-Success-Manager, Account Manager oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
 
 ## Okta Single Sign-on (Oktober 2017) {#okta-single-sign-on-october-2017}
 
-Unternehmen können Okta verwenden, um den Zugriff auf Braze zu kontrollieren und anderen Unternehmensnutzer:innen die Anmeldung mit Okta-Zugangsdaten zu erlauben oder zu erzwingen. Um Zugang zu diesem neuen Produkt zu erhalten, wenden Sie sich an Ihren geschäftskunden-Success-Manager, Account Manager oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
+Unternehmen können Okta verwenden, um den Zugriff auf Braze zu kontrollieren und anderen Unternehmensnutzer:innen die Anmeldung mit Okta-Zugangsdaten zu erlauben oder zu erzwingen. Um Zugang zu diesem neuen Produkt zu erhalten, wenden Sie sich an Ihren Customer-Success-Manager, Account Manager oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
 
 > Update: Informationen darüber, wie Sie auf Okta zugreifen können, finden Sie in unseren [Release Notes vom Mai 2018]({{site.baseurl}}/help/release_notes/2017/august/#may-2018).
 

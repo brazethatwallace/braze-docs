@@ -18,11 +18,11 @@ Jedes Beispiel in diesem Leitfaden ist mit einer der folgenden Eignungsstufen ge
 |---|---|
 | **Beste Eignung** | Der Agent hat genügend Zeit zum Lernen, Ihre Zielgruppe ist stabil genug, um einen Uplift zu zeigen, und Personalisierung kann das Engagement sinnvoll beeinflussen. Beginnen Sie hier. |
 | **Unterstützt** | Das Beispiel kann gut funktionieren, aber der Erfolg hängt von Timing, Zielgruppengröße oder Reihenfolge ab. Prüfen Sie die Hinweise, bevor Sie sich festlegen. |
-| **Nicht empfohlen** | Das Beispiel steht im Widerspruch zur Lernweise des Agents. Wählen Sie einen anderen Programmtyp oder sprechen Sie mit Ihrem geschäftskunden-Success-Manager oder Solutions Consultant über ein anderes Setup. |
+| **Nicht empfohlen** | Das Beispiel steht im Widerspruch zur Lernweise des Agents. Wählen Sie einen anderen Programmtyp oder sprechen Sie mit Ihrem Customer-Success-Manager oder Solutions Consultant über ein anderes Setup. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eignungsstufen" }
 
 {% alert note %}
-Über alle Eignungsstufen hinweg lernt der Agent am besten, wenn Ihre Zielgruppe genügend Engagement-Signale erzeugt, damit der Algorithmus Muster erkennen kann. Als Faustregel sollten Sie Zielgruppen von Zehntausenden von Nutzer:innen oder mehr anvisieren, mit einem konsistenten wöchentlichen Sendevolumen. Der Agent kann auch mit kleineren Zielgruppen arbeiten, aber rechnen Sie mit einer längeren Lernphase und einem weniger zuverlässigen Uplift. Ihr geschäftskunden-Success-Manager oder Solutions Consultant kann Ihnen helfen zu bestätigen, ob eine bestimmte Zielgruppe die richtige Größe hat.
+Über alle Eignungsstufen hinweg lernt der Agent am besten, wenn Ihre Zielgruppe genügend Engagement-Signale erzeugt, damit der Algorithmus Muster erkennen kann. Als Faustregel sollten Sie Zielgruppen von Zehntausenden von Nutzer:innen oder mehr anvisieren, mit einem konsistenten wöchentlichen Sendevolumen. Der Agent kann auch mit kleineren Zielgruppen arbeiten, aber rechnen Sie mit einer längeren Lernphase und einem weniger zuverlässigen Uplift. Ihr Customer-Success-Manager oder Solutions Consultant kann Ihnen helfen zu bestätigen, ob eine bestimmte Zielgruppe die richtige Größe hat.
 {% endalert %}
 
 ## Beste Eignung {#best-fit}
@@ -62,7 +62,7 @@ Jedes Beispiel in diesem Leitfaden ist mit einer der folgenden Eignungsstufen ge
 |---|---|
 | Wie es aussieht | Eine einzelne E-Mail oder Sequenz, die durch eine Kundenaktion ausgelöst wird – abgebrochener Einkauf, Browse-Abbruch oder Post-Purchase-Follow-up. |
 | Warum es funktioniert | Trigger schaffen einen klaren Einstiegspunkt. Wenn die Journey wiederkehrend ist und das Zielgruppenvolumen konsistent ist, kann der Agent lernen, welche Inhalte für welche Nutzer:innen funktionieren. |
-| Hinweise | Timing ist entscheidend. Wenn die E-Mail innerhalb von Minuten nach dem Trigger-Ereignis versendet werden muss, klären Sie mit Ihrem geschäftskunden-Success-Manager oder Solutions Consultant, ob der Sendezeitplan des Agents kompatibel ist. Wenn Nutzer:innen E-Mails in einer bestimmten Reihenfolge erhalten müssen (E-Mail A vor E-Mail B), müssen Sie die Zielgruppen-Verschiebungen selbst orchestrieren – der Agent sequenziert keine Sendungen für einzelne Nutzer:innen über eine mehrstufige E-Mail-Journey hinweg. |
+| Hinweise | Timing ist entscheidend. Wenn die E-Mail innerhalb von Minuten nach dem Trigger-Ereignis versendet werden muss, klären Sie mit Ihrem Customer-Success-Manager oder Solutions Consultant, ob der Sendezeitplan des Agents kompatibel ist. Wenn Nutzer:innen E-Mails in einer bestimmten Reihenfolge erhalten müssen (E-Mail A vor E-Mail B), müssen Sie die Zielgruppen-Verschiebungen selbst orchestrieren – der Agent sequenziert keine Sendungen für einzelne Nutzer:innen über eine mehrstufige E-Mail-Journey hinweg. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Aktions- oder ereignisgesteuerte Journeys" }
 
 ## Nicht empfohlen {#not-recommended}
@@ -73,7 +73,7 @@ Jedes Beispiel in diesem Leitfaden ist mit einer der folgenden Eignungsstufen ge
 |---|---|
 | Wie es aussieht | Eine mehrstufige E-Mail-Sequenz – zum Beispiel ein Onboarding-Tutorial – bei der Nutzer:innen E-Mail A, dann E-Mail B, dann E-Mail C in dieser Reihenfolge erhalten müssen. |
 | Warum es nicht passt | Der Agent wählt aus, was er jeder/jedem Nutzer:in sendet, basierend darauf, was wahrscheinlich einen Klick für diese:n Nutzer:in erzeugt. Er modelliert keine Sequenzanforderungen. Wenn Sie eine bestimmte Reihenfolge erzwingen müssen, müssen Sie die Zielgruppe selbst orchestrieren (Nutzer:innen nach jeder E-Mail von Segment zu Segment verschieben), was den größten Teil des Vorteils der Agent-Nutzung reduziert. Der Agent kann auch nicht eigenständig bestätigen, dass E-Mail A erfolgreich war, bevor er E-Mail B sendet. |
-| Was Sie stattdessen tun sollten | Verwenden Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), um die Drip-Sequenz zu orchestrieren. Wenn Sie KI-Optimierung innerhalb einer Drip-Sequenz wünschen, sprechen Sie mit Ihrem geschäftskunden-Success-Manager oder Solutions Consultant darüber, ob [Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) besser geeignet ist. |
+| Was Sie stattdessen tun sollten | Verwenden Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), um die Drip-Sequenz zu orchestrieren. Wenn Sie KI-Optimierung innerhalb einer Drip-Sequenz wünschen, sprechen Sie mit Ihrem Customer-Success-Manager oder Solutions Consultant darüber, ob [Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) besser geeignet ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Drip-Sequenzen" }
 
 ### Einmalige E-Mail-Blasts {#one-time-email-blasts}
@@ -99,7 +99,7 @@ Jedes Beispiel in diesem Leitfaden ist mit einer der folgenden Eignungsstufen ge
 
 ## Nächste Schritte {#next-steps}
 
-Wenden Sie sich an Ihren Braze geschäftskunden-Success-Manager oder Solutions Consultant, wenn Sie unsicher sind, ob Ihr Programm geeignet ist. Starke Signale sind:
+Wenden Sie sich an Ihren Braze Customer-Success-Manager oder Solutions Consultant, wenn Sie unsicher sind, ob Ihr Programm geeignet ist. Starke Signale sind:
 
 - Die Zielgruppe erhält regelmäßig E-Mails – mindestens wöchentlich – über einen Zeitraum von einem Monat oder mehr.
 - Die Zielgruppe ist groß genug, um konsistente Engagement-Signale zu erzeugen (Zehntausende von Nutzer:innen sind ein nützlicher Ausgangswert).

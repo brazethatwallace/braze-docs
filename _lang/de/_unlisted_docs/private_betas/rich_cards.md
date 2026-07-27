@@ -116,7 +116,7 @@ Generell integriert sich RCS natürlicher in Android-Geräte (diese Methode wurd
 {% tab Rich Card %}
 
 {% alert important %}
-Rich Cards befinden sich im Early Access. Kontaktieren Sie Ihren Braze geschäftskunden-Success-Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind.
+Rich Cards befinden sich im Early Access. Kontaktieren Sie Ihren Braze Customer-Success-Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind.
 {% endalert %}
 
 Eine Rich Card kombiniert Media, Text und Buttons in einer einzigen Nachricht und schafft so ein intuitiveres und ansprechenderes Erlebnis für Ihre Kund:innen. Sie können zwei Untertypen von Rich Cards erstellen: Text und Media.

@@ -1,7 +1,7 @@
 ---
 nav_title: BlueConic
 article_title: BlueConic
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und BlueConic, einer führenden Pure-Play geschäftskunden Data Platform, die es Ihnen ermöglicht, Daten in persistenten, individuellen Profilen zu vereinheitlichen und sie dann über einen Amazon Web Services S3-Server für Importziele zwischen den beiden Systemen zu synchronisieren."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und BlueConic, einer führenden Pure-Play Customer Data Platform, die es Ihnen ermöglicht, Daten in persistenten, individuellen Profilen zu vereinheitlichen und sie dann über einen Amazon Web Services S3-Server für Importziele zwischen den beiden Systemen zu synchronisieren."
 alias: /partners/blueconic/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # BlueConic
 
-> [BlueConic](https://www.blueconic.com/), die führende Pure-Play geschäftskunden Data Platform, befreit die First-Party-Daten von Unternehmen aus unterschiedlichen Systemen und macht sie zugänglich, wo und wann immer sie benötigt werden, um Kundenbeziehungen zu transformieren und das Geschäftswachstum zu fördern.
+> [BlueConic](https://www.blueconic.com/), die führende Pure-Play Customer Data Platform, befreit die First-Party-Daten von Unternehmen aus unterschiedlichen Systemen und macht sie zugänglich, wo und wann immer sie benötigt werden, um Kundenbeziehungen zu transformieren und das Geschäftswachstum zu fördern.
 
 _Diese Integration wird von Blueconic gepflegt._
 

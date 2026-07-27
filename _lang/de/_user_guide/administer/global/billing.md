@@ -51,7 +51,7 @@ Für jede App können Sie **Aufschlüsselung anzeigen** auswählen, um eine gesc
 
 ![Tab „Aufschlüsselung“ für meistgenutzte Events und Attribute nach App]({% image_buster /assets/img/most_used_events_attributes_2.png %}){: style="max-width:60%"}
 
-Datenaufschlüsselungen wie diese können Ihnen helfen zu verstehen, welche spezifischen Datenpunkte große Prozentsätze Ihres Kontingents beanspruchen. Wir empfehlen, diese Informationen von Zeit zu Zeit zu überprüfen, um sicherzustellen, dass Sie keine Datenpunkte auf versehentliche und unnötige Weise verbrauchen. Ihr geschäftskunden-Success-Manager kann Ihnen Hinweise geben, wie Sie das Beste aus Ihrem aktuellen Plan herausholen, oder Optionen für mehr Flexibilität anbieten.
+Datenaufschlüsselungen wie diese können Ihnen helfen zu verstehen, welche spezifischen Datenpunkte große Prozentsätze Ihres Kontingents beanspruchen. Wir empfehlen, diese Informationen von Zeit zu Zeit zu überprüfen, um sicherzustellen, dass Sie keine Datenpunkte auf versehentliche und unnötige Weise verbrauchen. Ihr Customer-Success-Manager kann Ihnen Hinweise geben, wie Sie das Beste aus Ihrem aktuellen Plan herausholen, oder Optionen für mehr Flexibilität anbieten.
 
 ## Dashboard „Datenpunkt-Nutzung gesamt“ {#total-data-points-dashboard}
 

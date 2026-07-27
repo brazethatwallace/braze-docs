@@ -54,7 +54,7 @@ So erstellen Sie eine SQL-Segmenterweiterung mit inkrementeller Aktualisierung:
 {% tab AI SQL Generator %}
 
 {% alert note %}
-Der KI-SQL-Generator ist derzeit als Beta-Feature verfügbar. Wenden Sie sich an Ihren geschäftskunden-Success-Manager, wenn Sie an der Teilnahme an diesem Betatest interessiert sind.
+Der KI-SQL-Generator ist derzeit als Beta-Feature verfügbar. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie an der Teilnahme an diesem Betatest interessiert sind.
 {% endalert %}
 
 Der KI-SQL-Generator nutzt [GPT](https://openai.com/gpt-4), powered by OpenAI, um SQL-Empfehlungen für Ihr SQL-Segment zu geben.

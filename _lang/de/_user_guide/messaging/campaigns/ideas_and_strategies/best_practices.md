@@ -50,7 +50,7 @@ Im Laufe der Zeit können Ihre Nutzer:innen bestimmte Features vergessen oder ne
 
 ## Hohe Bewertungen {#high-ratings}
 
-Fünf-Sterne-Bewertungen im App Store stehen auf der Wunschliste jedes Mobile-Marketers. Positive Bewertungen zu erhalten, ist jedoch keine leichte Aufgabe, da es zusätzlichen Aufwand von Ihren Nutzer:innen erfordert. Durch den cleveren Einsatz unserer Funktionalitäten können wir Ihnen helfen, Ihr geschäftskunden-Engagement zu steigern.
+Fünf-Sterne-Bewertungen im App Store stehen auf der Wunschliste jedes Mobile-Marketers. Positive Bewertungen zu erhalten, ist jedoch keine leichte Aufgabe, da es zusätzlichen Aufwand von Ihren Nutzer:innen erfordert. Durch den cleveren Einsatz unserer Funktionalitäten können wir Ihnen helfen, Ihr Customer-Engagement zu steigern.
 
 ### Power-User ansprechen {#targeting-power-users}
 

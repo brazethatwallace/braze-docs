@@ -28,7 +28,7 @@ Zum Beispiel könnte {% raw %}`{{context.${flight_time}}}`{% endraw %} die gepla
 
 Jedes Mal, wenn eine Nutzer:in das Canvas betritt – auch wenn sie es zuvor bereits betreten hat – werden die Kontextvariablen basierend auf den neuesten Eintrittsdaten und der Canvas-Konfiguration neu definiert. Dieser zustandsbehaftete Ansatz ermöglicht es jedem Canvas-Eintritt, seinen eigenen unabhängigen Kontext beizubehalten, sodass Nutzer:innen mehrere aktive Zustände innerhalb derselben Journey haben können, während der spezifische Kontext für jeden Zustand erhalten bleibt.
 
-Wenn ein:e geschäftskunden beispielsweise zwei bevorstehende Flüge hat, werden zwei separate Journey-Zustände gleichzeitig ausgeführt – jeder mit seinen eigenen flugspezifischen Kontextvariablen wie Abflugzeit und Zielort. So können Sie personalisierte Erinnerungen über den 14-Uhr-Flug nach New York senden und gleichzeitig andere Updates über den 8-Uhr-Flug nach Los Angeles am nächsten Tag versenden, sodass jede Nachricht für die jeweilige Buchung relevant bleibt.
+Wenn ein:e Kund:in beispielsweise zwei bevorstehende Flüge hat, werden zwei separate Journey-Zustände gleichzeitig ausgeführt – jeder mit seinen eigenen flugspezifischen Kontextvariablen wie Abflugzeit und Zielort. So können Sie personalisierte Erinnerungen über den 14-Uhr-Flug nach New York senden und gleichzeitig andere Updates über den 8-Uhr-Flug nach Los Angeles am nächsten Tag versenden, sodass jede Nachricht für die jeweilige Buchung relevant bleibt.
 
 ## Hinweise {#considerations}
 

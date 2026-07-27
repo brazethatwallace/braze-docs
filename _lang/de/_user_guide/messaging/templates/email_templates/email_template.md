@@ -57,7 +57,7 @@ Hier ist eine Liste der Fehler, die in unserem Editor berücksichtigt werden:
 
 Nachdem Sie Ihr Template fertiggestellt haben, können Sie es vor dem Versand testen.
 
-Wählen Sie am unteren Rand des Übersichtsbildschirms **Preview and Test** aus. Hier können Sie eine Vorschau anzeigen, wie Ihre E-Mail im Posteingang einer geschäftskunden erscheint. Mit der ausgewählten Option **Preview as User** können Sie Ihre E-Mail als zufällige:r Nutzer:in anzeigen, eine:n bestimmte:n Nutzer:in auswählen oder eine:n benutzerdefinierte:n Nutzer:in erstellen. So können Sie testen, ob Ihre Connected-Content- und Personalisierungsaufrufe wie erwartet funktionieren.
+Wählen Sie am unteren Rand des Übersichtsbildschirms **Preview and Test** aus. Hier können Sie eine Vorschau anzeigen, wie Ihre E-Mail im Posteingang einer Kund:in erscheint. Mit der ausgewählten Option **Preview as User** können Sie Ihre E-Mail als zufällige:r Nutzer:in anzeigen, eine:n bestimmte:n Nutzer:in auswählen oder eine:n benutzerdefinierte:n Nutzer:in erstellen. So können Sie testen, ob Ihre Connected-Content- und Personalisierungsaufrufe wie erwartet funktionieren.
 
 Anschließend können Sie **Copy preview link** auswählen, um einen teilbaren Vorschaulink zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussieht. Der Link ist sieben Tage gültig, bevor er neu generiert werden muss.
 

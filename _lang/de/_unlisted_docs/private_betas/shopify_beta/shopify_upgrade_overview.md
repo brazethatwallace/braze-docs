@@ -41,7 +41,7 @@ Bevor Sie den Upgrade-Prozess auf der Shopify-Integrationsseite starten, erfüll
 - **SDK-Anpassungen prüfen:** Wenn Sie Ihre Braze- und Shopify-Integration angepasst haben (z. B. durch das Protokollieren angepasster Events oder Attribute), stellen Sie sicher, dass diese Anpassungen nach dem Upgrade korrekt funktionieren. Wenn Sie eigene Browser-Events für Aktionen wie „Produkt angesehen“ oder „Warenkorb aktualisiert“ erstellt haben, koordinieren Sie mit Ihren Entwickler:innen, um diese vor dem Upgrade zu entfernen, da sie die Funktionalität des neuen Konnektors duplizieren würden.
 
 {% alert important %}
-Wenn Sie einen Shopify-Onlineshop betreiben und Ihre Entwickler:innen die Braze SDKs direkt in Ihre Shopify-Website oder über Google Tag Manager oder eine geschäftskunden Data Platform (CDP) implementiert haben, müssen Sie planen, deren Nutzung einzustellen, wenn Sie auf den neuen Shopify-Konnektor upgraden.
+Wenn Sie einen Shopify-Onlineshop betreiben und Ihre Entwickler:innen die Braze SDKs direkt in Ihre Shopify-Website oder über Google Tag Manager oder eine Customer Data Platform (CDP) implementiert haben, müssen Sie planen, deren Nutzung einzustellen, wenn Sie auf den neuen Shopify-Konnektor upgraden.
 {% endalert %}
 
 - **Identitätsmanagement überprüfen:** Wenn Sie eine externe Braze-ID verwenden, arbeiten Sie mit Ihrem Entwicklerteam zusammen, um sicherzustellen, dass sie mit der neuen Integration kompatibel ist. Wenn Sie die externe ID innerhalb Ihres Shopify-Shop-Erlebnisses setzen, lassen Sie Ihre Entwickler:innen diese anpassen, um Konflikte mit dem [neuen Identitätsmanagement-Prozess]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview#user-and-data-syncing) zu vermeiden.
@@ -56,7 +56,7 @@ Braze bietet zwei Integrationsoptionen für Shopify-Händler:innen, die auf die 
 
 {% tabs local %}
 {% tab Standard %}
-Die Standard-Integration ist auf Shopify-Onlineshops zugeschnitten und bietet einen nahtlosen und unkomplizierten Einrichtungsprozess. Mit dieser Option können Sie Ihren Shopify-Shop schnell mit Braze verbinden und leistungsstarke geschäftskunden-Engagement-Tools nutzen, ohne umfangreiche technische Expertise zu benötigen. Mit dieser Integrationsoption können Sie Kundendaten synchronisieren, personalisiertes Messaging automatisieren und Ihre Marketingmaßnahmen durch umfassende Braze-Features verbessern.
+Die Standard-Integration ist auf Shopify-Onlineshops zugeschnitten und bietet einen nahtlosen und unkomplizierten Einrichtungsprozess. Mit dieser Option können Sie Ihren Shopify-Shop schnell mit Braze verbinden und leistungsstarke Customer-Engagement-Tools nutzen, ohne umfangreiche technische Expertise zu benötigen. Mit dieser Integrationsoption können Sie Kundendaten synchronisieren, personalisiertes Messaging automatisieren und Ihre Marketingmaßnahmen durch umfassende Braze-Features verbessern.
 
 Um Ihre bestehende Shopify-Integration über den Standard-Upgrade-Pfad zu upgraden, lesen Sie [Upgrade Ihrer Shopify-Integration (Standard)]({{site.baseurl}}/shopify_standard_upgrade).
 {% endtab %}

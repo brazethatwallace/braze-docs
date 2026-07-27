@@ -21,7 +21,7 @@ Die drei erforderlichen Ereignis-Ressourcen (Aktivierungen, Engagements und Conv
 Jede dieser Ressourcen muss als inkrementeller Ereignis-Stream (nicht als Snapshot) strukturiert sein. Weitere Informationen finden Sie unter [Snapshots versus Ereignis-Streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams).
 
 {% alert note %}
-Wenn Decisioning Studio nativ in Ihre geschäftskunden-Engagement-Plattform integriert ist (z. B. Braze oder Salesforce Marketing Cloud), können Aktivierungs- und Engagement-Daten automatisch ohne zusätzliche Konfiguration erfasst werden. Prüfen Sie Ihre Setup-Dokumentation, um dies zu bestätigen.
+Wenn Decisioning Studio nativ in Ihre Customer-Engagement-Plattform integriert ist (z. B. Braze oder Salesforce Marketing Cloud), können Aktivierungs- und Engagement-Daten automatisch ohne zusätzliche Konfiguration erfasst werden. Prüfen Sie Ihre Setup-Dokumentation, um dies zu bestätigen.
 {% endalert %}
 
 ## Erforderliche Ressourcen {#required-assets}
@@ -32,7 +32,7 @@ Kundenprofildaten beschreiben, wer Ihre Kund:innen sind. Decisioning Studio nutz
 
 Häufige Profilattribute umfassen:
 
-- Jahre als geschäftskunden
+- Jahre als Kund:in
 - Geografie (sofern durch Ihre Branche und Datenschutzanforderungen erlaubt)
 - Akquisitionskanal (z. B. Internet, Telefon, im Shop)
 - Zufriedenheits- oder Stimmungswert

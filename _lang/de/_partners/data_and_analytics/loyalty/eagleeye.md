@@ -15,7 +15,7 @@ _Diese Integration wird von Eagle Eye verwaltet._
 
 ## Übersicht {#overview}
 
-Eagle Eye Connect ist eine bidirektionale Integration zwischen Braze und AIR, die es Marken ermöglicht, Treue- und Aktionsdaten direkt in Braze zu aktivieren. Clients können in AIR Rewards an Verbraucher:innen ausgeben, die eine Zielgruppe in AIR betreten. Dies erlaubt Marketern, das geschäftskunden-Engagement anhand von Echtzeitdaten wie Punktesalden, Aktionen und Reward-Aktivitäten zu personalisieren.
+Eagle Eye Connect ist eine bidirektionale Integration zwischen Braze und AIR, die es Marken ermöglicht, Treue- und Aktionsdaten direkt in Braze zu aktivieren. Clients können in AIR Rewards an Verbraucher:innen ausgeben, die eine Zielgruppe in AIR betreten. Dies erlaubt Marketern, das Customer-Engagement anhand von Echtzeitdaten wie Punktesalden, Aktionen und Reward-Aktivitäten zu personalisieren.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -156,7 +156,7 @@ Fügen Sie außerdem Nutzer:innen zu Zielgruppen hinzu und bestätigen Sie, dass
 
 Nachdem die Tests erfolgreich verlaufen sind, kann die Integration in Betrieb genommen werden, um kontinuierlich Daten an Braze zu senden. Die gleichen Konfigurationsschritte sind für Produktionsumgebungen in AIR und Braze erforderlich.
 
-Wenden Sie sich an Ihren Eagle Eye geschäftskunden-Success-Manager, damit Ihnen eine Ressource zugewiesen wird, um EE Connect einzurichten.
+Wenden Sie sich an Ihren Eagle Eye Customer-Success-Manager, damit Ihnen eine Ressource zugewiesen wird, um EE Connect einzurichten.
 
 ## Support
 

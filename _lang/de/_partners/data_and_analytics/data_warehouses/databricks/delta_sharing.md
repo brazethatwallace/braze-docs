@@ -14,7 +14,7 @@ hidden: true
 > Databricks [Delta Sharing](https://docs.databricks.com/en/delta-sharing/index.html) ermöglicht es Ihnen, Live-Daten zu Braze-Engagement und Campaigns sicher in Ihre Databricks-Umgebung zu teilen. Dieser Artikel beschreibt, wie die Datenfreigabe von Braze als Datenanbieter an Ihr Databricks-Konto als Empfänger funktioniert und wie Sie freigegebene Tabellen abfragen können.
 
 {% alert important %}
-Databricks Delta Sharing mit Braze befindet sich in der **geschlossenen Beta**. Verfügbarkeit, unterstützte Regionen und Produktverhalten können sich ändern. Kontaktieren Sie Ihren Braze-geschäftskunden-Success-Manager, um teilzunehmen oder zu bestätigen, ob dieses Feature für Ihren Workspace aktiviert ist.
+Databricks Delta Sharing mit Braze befindet sich in der **geschlossenen Beta**. Verfügbarkeit, unterstützte Regionen und Produktverhalten können sich ändern. Kontaktieren Sie Ihren Braze-Customer-Success-Manager, um teilzunehmen oder zu bestätigen, ob dieses Feature für Ihren Workspace aktiviert ist.
 {% endalert %}
 
 Databricks Delta Sharing ist Teil der Braze-Datenverteilung. Einen vollständigen Überblick über die Optionen der Datenverteilung finden Sie unter [Datenverteilung]({{site.baseurl}}/user_guide/data/distribution).
@@ -55,7 +55,7 @@ Nachdem die Datenfreigabe bereitgestellt wurde, erstellen Sie einen Katalog aus 
 Eine vollständige Liste der in Databricks verfügbaren Tabellen und Spalten finden Sie im Download der [Databricks-Rohtabellenschemata](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) als Textdatei. Diese Datei spiegelt das Databricks-Delta-Sharing-Schema wider (zum Beispiel `DB_CREATED_AT` für den Aufnahmezeitpunkt). Sie ist nicht austauschbar mit den [Snowflake-Rohtabellenschemata](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) oder der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables), die Snowflake-Benennungen und -Felder beschreiben.
 
 {% alert note %}
-Während der geschlossenen Beta ist möglicherweise nicht jede in der Databricks-Schemadatei aufgeführte Tabelle in Ihrer Freigabe verfügbar. Spaltennamen und -typen können sich ebenfalls von der Snowflake-Datenfreigabe unterscheiden (zum Beispiel `DB_CREATED_AT` statt `SF_CREATED_AT`). Kontaktieren Sie Ihren Braze-geschäftskunden-Success-Manager, wenn Sie die aktuelle Tabellenliste für Ihren Workspace benötigen.
+Während der geschlossenen Beta ist möglicherweise nicht jede in der Databricks-Schemadatei aufgeführte Tabelle in Ihrer Freigabe verfügbar. Spaltennamen und -typen können sich ebenfalls von der Snowflake-Datenfreigabe unterscheiden (zum Beispiel `DB_CREATED_AT` statt `SF_CREATED_AT`). Kontaktieren Sie Ihren Braze-Customer-Success-Manager, wenn Sie die aktuelle Tabellenliste für Ihren Workspace benötigen.
 {% endalert %}
 
 ### Nutzer-ID-Schema {#user-id-schema}
@@ -97,7 +97,7 @@ Wenn möglich, werden nicht abwärtskompatible Änderungen durch eine Ankündigu
 
 ### Databricks-Regionen {#databricks-regions}
 
-Während der geschlossenen Beta können unterstützte Cloud-Anbieter und Regionen je nach Workspace und Rollout variieren. Kontaktieren Sie Ihren Braze-geschäftskunden-Success-Manager für die Optionen, die für Ihr Konto gelten.
+Während der geschlossenen Beta können unterstützte Cloud-Anbieter und Regionen je nach Workspace und Rollout variieren. Kontaktieren Sie Ihren Braze-Customer-Success-Manager für die Optionen, die für Ihr Konto gelten.
 
 ### Aufbewahrungsrichtlinie {#retention-policy}
 

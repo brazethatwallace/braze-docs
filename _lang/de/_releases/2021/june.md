@@ -30,9 +30,9 @@ Sind Sie neugierig auf die Details der Kauf-Events bei Braze? Besuchen Sie unser
 
 [Nexla]({{site.baseurl}}/partners/nexla/) ist der führende Anbieter von einheitlichen Datenoperationen und ein Gartner Cool Vendor 2021. Kund:innen, die Currents nutzen, um Daten an Data Warehouses zu senden, können Nexla verwenden, um diese Daten zu extrahieren, zu transformieren und an andere Standorte zu laden, sodass Daten in Ihrem gesamten Ökosystem leicht zugänglich sind. Mit Nexla können Sie Braze-Currents verwenden, um Daten in einem angepassten Format per Mausklick an das Ziel Ihrer Wahl zugestellt zu bekommen.
 
-### Amperity – geschäftskunden Data Platform (CDP) {#amperity-customer-data-platform}
+### Amperity – Customer Data Platform (CDP) {#amperity-customer-data-platform}
 
-[Amperity]({{site.baseurl}}/partners/amperity/) ist eine umfassende geschäftskunden Data Platform (CDP) für Unternehmen, die Marken dabei hilft, ihre Kund:innen kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity unterstützt die Braze-Plattform, indem es eine einheitliche Sicht auf Ihre Kund:innen über seine CDP und Braze bereitstellt und Ihnen erlaubt, wertvolle Amperity-Daten an Braze zu senden.
+[Amperity]({{site.baseurl}}/partners/amperity/) ist eine umfassende Customer Data Platform (CDP) für Unternehmen, die Marken dabei hilft, ihre Kund:innen kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity unterstützt die Braze-Plattform, indem es eine einheitliche Sicht auf Ihre Kund:innen über seine CDP und Braze bereitstellt und Ihnen erlaubt, wertvolle Amperity-Daten an Braze zu senden.
 
 ### Digioh – Umfragen {#digioh-surveys}
 
@@ -40,4 +40,4 @@ Sind Sie neugierig auf die Details der Kauf-Events bei Braze? Besuchen Sie unser
 
 ### AppsFlyer Audiences – Attribution/Analytics
 
-[AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/) ist eine Analytics-Plattform für Mobile-Marketing und Attribution, die Ihnen hilft, Ihre Apps durch Marketing-Analytics, Mobile-Attribution und Deeplinking zu analysieren und zu optimieren. [AppsFlyer Audiences]({{site.baseurl}}/partners/appsflyer_audiences/) erlaubt es Ihnen, Zielgruppen-Segmente zu erstellen und diese Segmente direkt an Braze zu übergeben, um leistungsstarke geschäftskunden-Engagement-Campaigns zu erstellen.
+[AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/) ist eine Analytics-Plattform für Mobile-Marketing und Attribution, die Ihnen hilft, Ihre Apps durch Marketing-Analytics, Mobile-Attribution und Deeplinking zu analysieren und zu optimieren. [AppsFlyer Audiences]({{site.baseurl}}/partners/appsflyer_audiences/) erlaubt es Ihnen, Zielgruppen-Segmente zu erstellen und diese Segmente direkt an Braze zu übergeben, um leistungsstarke Customer-Engagement-Campaigns zu erstellen.

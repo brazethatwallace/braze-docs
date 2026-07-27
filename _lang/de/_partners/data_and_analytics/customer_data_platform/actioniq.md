@@ -1,7 +1,7 @@
 ---
 nav_title: ActionIQ
 article_title: ActionIQ
-description: "Dieser Referenzartikel behandelt die Integration von Braze und ActionIQ. ActionIQ ist eine unternehmensweite geschäftskunden Data Platform für Marketer, Analysten und Technologen. Diese Integration ermöglicht es Marken, ihre ActionIQ-Daten direkt mit Braze zu synchronisieren und abzubilden."
+description: "Dieser Referenzartikel behandelt die Integration von Braze und ActionIQ. ActionIQ ist eine unternehmensweite Customer Data Platform für Marketer, Analysten und Technologen. Diese Integration ermöglicht es Marken, ihre ActionIQ-Daten direkt mit Braze zu synchronisieren und abzubilden."
 alias: /partners/actioniq/
 page_type: partner
 search_tag: ActionIQ
@@ -9,7 +9,7 @@ search_tag: ActionIQ
 
 # ActionIQ
 
-> [ActionIQ](https://www.actioniq.com/) ist eine geschäftskunden Data Platform für Unternehmensmarken, die Marketern einfache und sichere Möglichkeiten bietet, Daten überall im Kundenerlebnis zu aktivieren. Dank der einzigartigen, zusammensetzbaren Architektur von ActionIQ können die Daten sicher dort bleiben, wo sie sind, und die Marketing-Teams verwenden nur die Tools, die sie benötigen.
+> [ActionIQ](https://www.actioniq.com/) ist eine Customer Data Platform für Unternehmensmarken, die Marketern einfache und sichere Möglichkeiten bietet, Daten überall im Kundenerlebnis zu aktivieren. Dank der einzigartigen, zusammensetzbaren Architektur von ActionIQ können die Daten sicher dort bleiben, wo sie sind, und die Marketing-Teams verwenden nur die Tools, die sie benötigen.
 
 _Diese Integration wird von ActionIQ gepflegt._
 

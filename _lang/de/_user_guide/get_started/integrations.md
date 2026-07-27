@@ -46,7 +46,7 @@ Teilen Sie Ihren Entwickler:innen mit, welche Kanäle Sie verwenden möchten, um
 | In-App-Nachrichten | Erfordert die SDK-Implementierung sowie diese kanalspezifischen Schritte. |
 | Push | Erfordert eine SDK-Implementierung für die korrekte Handhabung von Messaging-Zugangsdaten und Push-Token. |
 | E-Mail | Dies ist ein völlig anderer Prozess. Weitere Einzelheiten zur Integration finden Sie im Abschnitt [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup). |
-| Content Cards | Um mit [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) zu beginnen, wenden Sie sich bitte an Ihren Braze-geschäftskunden-Success-Manager. |
+| Content Cards | Um mit [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) zu beginnen, wenden Sie sich bitte an Ihren Braze-Customer-Success-Manager. |
 | SMS und MMS | Weitere Einzelheiten zur Integration finden Sie im Abschnitt [SMS-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending). |
 | Webhooks | Erfordert eine SDK-Implementierung sowie kanalspezifische Schritte. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Sie implementieren die von Ihnen gewünschten Messaging-Kanäle" }
@@ -57,7 +57,7 @@ Mit Braze können Sie für jeden Kanal barrierefreie Messaging-Kampagnen erstell
 
 ### 3. Schritt: Daten einrichten {#step-3-they-set-up-your-data}
 
-Braze ist kein One-Trick-Pony. Hier geht es nicht nur um das Versenden von E-Mails oder Push-Nachrichten. Es geht darum, personalisierte geschäftskunden Journeys zu erstellen, die für jede Nutzerin und jeden Nutzer einzigartig sind. Diese geschäftskunden Journeys basieren auf Aktionen in Ihrer App oder auf Ihrer Website – und Sie bestimmen, welche das sind! Die nächste Aufgabe Ihrer Entwickler:innen besteht darin, dafür zu sorgen, dass die in Ihrer App oder Website durchgeführten Aktionen von Braze erfasst werden.
+Braze ist kein One-Trick-Pony. Hier geht es nicht nur um das Versenden von E-Mails oder Push-Nachrichten. Es geht darum, personalisierte Customer Journeys zu erstellen, die für jede Nutzerin und jeden Nutzer einzigartig sind. Diese Customer Journeys basieren auf Aktionen in Ihrer App oder auf Ihrer Website – und Sie bestimmen, welche das sind! Die nächste Aufgabe Ihrer Entwickler:innen besteht darin, dafür zu sorgen, dass die in Ihrer App oder Website durchgeführten Aktionen von Braze erfasst werden.
 
 Was müssen Sie also tun, um ihnen diese Informationen zu geben?
 
@@ -84,4 +84,4 @@ Denken Sie daran, dass eine abgeschlossene Implementierung nicht automatisch bed
 
 ![Logo der Braze-Firebrands-Community]({% image_buster /assets/img/torchie/firebrands.png %}){: style="max-width:15%;float:right;margin-left:15px;border:none;"}
 
-Wenn Sie sich mit Braze vertraut gemacht haben, können Sie bei Braze Firebrands mitmachen! Braze Firebrands ist unsere geschäftskunden-Engagement-Community. Wir wollen Vordenker:innen und Pionier:innen zusammenbringen, die Braze nutzen, um ihr Kundenerlebnis und ihr Marketing zu modernisieren. Möchten Sie mehr erfahren? [Jetzt mitmachen](https://brazefirebrands.splashthat.com/).
+Wenn Sie sich mit Braze vertraut gemacht haben, können Sie bei Braze Firebrands mitmachen! Braze Firebrands ist unsere Customer-Engagement-Community. Wir wollen Vordenker:innen und Pionier:innen zusammenbringen, die Braze nutzen, um ihr Kundenerlebnis und ihr Marketing zu modernisieren. Möchten Sie mehr erfahren? [Jetzt mitmachen](https://brazefirebrands.splashthat.com/).

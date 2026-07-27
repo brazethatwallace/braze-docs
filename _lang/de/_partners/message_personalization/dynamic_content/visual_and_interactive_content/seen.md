@@ -1,7 +1,7 @@
 ---
 nav_title: Seen
 article_title: Seen
-description: "Seen ermöglicht personalisierte Video-Erlebnisse in großem Umfang und hilft Marken, das Engagement entlang der geschäftskunden Journey zu steigern."
+description: "Seen ermöglicht personalisierte Video-Erlebnisse in großem Umfang und hilft Marken, das Engagement entlang der Customer Journey zu steigern."
 alias: /partners/seen/
 page_type: partner
 search_tag: Partner
@@ -100,7 +100,7 @@ Konfigurieren Sie den Webhook wie folgt:
   - `Authorization`: Bearer `{Seen_API_TOKEN}`
   - `Content-Type`: `application/json`
 
-  Generieren Sie ein [API-Token](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen geschäftskunden-Success-Manager, wenn Sie Unterstützung benötigen.
+  Generieren Sie ein [API-Token](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen Customer-Success-Manager, wenn Sie Unterstützung benötigen.
 
 - Testen Sie den Webhook mit einer/einem Nutzer:in auf dem **Test**-Tab.
 - Schließen Sie nach einem erfolgreichen Test die Webhook-Einrichtung ab.

@@ -29,7 +29,7 @@ Mit der Integration von Braze und Extole können Sie Kunden-Events und -Attribut
 
 ## Anwendungsfälle {#use-cases}
 
-Die folgenden Anwendungsfälle zeigen Ihnen einige Möglichkeiten, wie Sie die Integration von Extole in Braze nutzen können. Arbeiten Sie mit Ihren Extole-Implementierungs- und geschäftskunden-Success-Managern zusammen, um eine Option zu entwickeln, die den speziellen Anforderungen Ihres Unternehmens entspricht.
+Die folgenden Anwendungsfälle zeigen Ihnen einige Möglichkeiten, wie Sie die Integration von Extole in Braze nutzen können. Arbeiten Sie mit Ihren Extole-Implementierungs- und Customer-Success-Managern zusammen, um eine Option zu entwickeln, die den speziellen Anforderungen Ihres Unternehmens entspricht.
 
 - Verwenden Sie angepasste Events aus Ihren Empfehlungs- und Engagement-Programmen, um eine Braze-Campaign oder ein Canvas zu triggern
 - Erstellen Sie angepasste Segmente, Dashboards und Berichte mit Daten aus Ihren Extole-Programmen
@@ -37,7 +37,7 @@ Die folgenden Anwendungsfälle zeigen Ihnen einige Möglichkeiten, wie Sie die I
 
 ## Integration
 
-Führen Sie die folgenden Schritte aus, um Ihre Integration schnell zum Laufen zu bringen. Ihre Extole-Implementierungs- und geschäftskunden-Success-Manager unterstützen Sie bei diesem Prozess und beantworten alle Ihre Fragen.
+Führen Sie die folgenden Schritte aus, um Ihre Integration schnell zum Laufen zu bringen. Ihre Extole-Implementierungs- und Customer-Success-Manager unterstützen Sie bei diesem Prozess und beantworten alle Ihre Fragen.
 
 ### Verbindung mit Ihrem Braze-Konto herstellen {#connect-to-your-braze-account}
 
@@ -52,7 +52,7 @@ Führen Sie die folgenden Schritte aus, um Ihre Integration schnell zum Laufen z
 
 ### Extole-Programm-Events {#extole-program-events}
 
-Im Folgenden finden Sie die Standard-Events, Event-Eigenschaften und Nutzerattribute, die Extole an Braze sendet. Wenden Sie sich an Ihre Extole-Implementierungs- oder geschäftskunden-Success-Manager, um zusätzliche Extole-Events zu identifizieren und zu Ihrer Integration hinzuzufügen.
+Im Folgenden finden Sie die Standard-Events, Event-Eigenschaften und Nutzerattribute, die Extole an Braze sendet. Wenden Sie sich an Ihre Extole-Implementierungs- oder Customer-Success-Manager, um zusätzliche Extole-Events zu identifizieren und zu Ihrer Integration hinzuzufügen.
 
 | Event | Beschreibung | Event-Eigenschaften | Nutzerattribute |
 | ----------- | ----------- | ----------- | ----------- |

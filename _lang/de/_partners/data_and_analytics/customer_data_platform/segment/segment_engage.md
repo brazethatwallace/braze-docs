@@ -6,7 +6,7 @@ alias: /partners/segment_personas/
 alias: /partners/segment_engage/
 alias: /partners/data_and_infrastructure_agility/customer_data_platform/segment/segment_personas/
 
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Segment, einer geschäftskunden Data Platform, die Informationen zwischen den Quellen in Ihrem Marketing-Stack sammelt und weiterleitet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Segment, einer Customer Data Platform, die Informationen zwischen den Quellen in Ihrem Marketing-Stack sammelt und weiterleitet."
 page_type: partner
 search_tag: Partner
 
@@ -14,7 +14,7 @@ search_tag: Partner
 
 # Segment Engage
 
-> [Segment](https://segment.com) ist eine geschäftskunden Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können. Dieser Referenzartikel gibt eine Übersicht über die Verbindung zwischen [Braze und Segment Engage](https://segment.com/docs/destinations/braze/#Engage) und beschreibt die Anforderungen und Prozesse für die ordnungsgemäße Implementierung und Nutzung.
+> [Segment](https://segment.com) ist eine Customer Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können. Dieser Referenzartikel gibt eine Übersicht über die Verbindung zwischen [Braze und Segment Engage](https://segment.com/docs/destinations/braze/#Engage) und beschreibt die Anforderungen und Prozesse für die ordnungsgemäße Implementierung und Nutzung.
 
 Die Integration von Braze und Segment ermöglicht es Ihnen, mit [Engage](https://segment.com/docs/engage/), dem integrierten Zielgruppen-Builder von Segment, Segmente von Nutzer:innen auf der Grundlage von Daten zu erstellen, die Sie bereits über verschiedene Quellen gesammelt haben. Diese Zielgruppen werden dann als Kohorte mit Braze synchronisiert oder im Nutzerprofil durch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) oder [angepasste Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-events) gekennzeichnet, die zur Erstellung von Braze-Segmenten für das Retargeting in Campaigns und Canvas verwendet werden können.
 
@@ -24,7 +24,7 @@ Die Integration von Braze und Segment ermöglicht es Ihnen, mit [Engage](https:/
 | ----------- | ----------- |
 | Segment-Konto | Um diese Partnerschaft nutzen zu können, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
 | Braze-Cloud-Ziel | Sie müssen in Ihrer Segment-Integration bereits [Braze als Ziel eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben.<br><br>Dazu gehört die Angabe des richtigen Braze-Rechenzentrums und des REST-API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
-| Braze-Datenimport-Schlüssel | Um Engage-Zielgruppen als Kohorten mit Braze zu synchronisieren, müssen Sie einen Datenimport-Schlüssel generieren.<br><br>Der Kohortenimport befindet sich im Early Access. Wenden Sie sich an Ihren geschäftskunden-Success-Manager, um Zugang zu diesem Feature zu erhalten. |
+| Braze-Datenimport-Schlüssel | Um Engage-Zielgruppen als Kohorten mit Braze zu synchronisieren, müssen Sie einen Datenimport-Schlüssel generieren.<br><br>Der Kohortenimport befindet sich im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu diesem Feature zu erhalten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }

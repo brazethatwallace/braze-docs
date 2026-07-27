@@ -1,27 +1,27 @@
 ---
-nav_title: Dynamics 365 geschäftskunden Insights
-article_title: Dynamics 365 geschäftskunden Insights
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Dynamics 365 geschäftskunden Insights, einer führenden geschäftskunden Data Platform (CDP) für Unternehmen, mit der Sie Kundensegmente nach Braze exportieren können, um sie in Kampagnen oder Canvases zu verwenden."
+nav_title: Dynamics 365 Customer Insights
+article_title: Dynamics 365 Customer Insights
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Dynamics 365 Customer Insights, einer führenden Customer Data Platform (CDP) für Unternehmen, mit der Sie Kundensegmente nach Braze exportieren können, um sie in Kampagnen oder Canvases zu verwenden."
 alias: /partners/dynamics_365_customer_insights/
 page_type: partner
 search_tag: Partner
 ---
 
-# Dynamics 365 geschäftskunden Insights
+# Dynamics 365 Customer Insights
 
-> [Dynamics 365 geschäftskunden Insights](https://dynamics.microsoft.com/en-gb/ai/customer-insights/) ist eine führende geschäftskunden Data Platform (CDP) für Unternehmen, die personalisierte Kundenerlebnisse mit einer 360-Grad-Sicht auf Ihre Kund:innen ermöglicht.
+> [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/en-gb/ai/customer-insights/) ist eine führende Customer Data Platform (CDP) für Unternehmen, die personalisierte Kundenerlebnisse mit einer 360-Grad-Sicht auf Ihre Kund:innen ermöglicht.
 
-_Diese Integration wird von Dynamics 365 geschäftskunden Insights gepflegt._
+_Diese Integration wird von Dynamics 365 Customer Insights gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Dynamics 365 geschäftskunden Insights ermöglicht es Ihnen, Kundensegmente nach Braze zu exportieren, um sie in Kampagnen oder Canvases zu verwenden.
+Die Integration von Braze und Dynamics 365 Customer Insights ermöglicht es Ihnen, Kundensegmente nach Braze zu exportieren, um sie in Kampagnen oder Canvases zu verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Dynamics 365 geschäftskunden Insights-Konto | Um die Vorteile dieser Partnerschaft nutzen zu können, benötigen Sie ein [Dynamics 365 geschäftskunden Insights](https://dynamics.microsoft.com/en-gb/ai/customer-insights/)-Konto. Sie benötigen Zugriff als Administrator:in, um Verbindungen innerhalb Ihres Dynamics 365 geschäftskunden Insights-Kontos anzuzeigen und zu bearbeiten und auf die erforderlichen Plugins zuzugreifen. |
+| Dynamics 365 Customer Insights-Konto | Um die Vorteile dieser Partnerschaft nutzen zu können, benötigen Sie ein [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/en-gb/ai/customer-insights/)-Konto. Sie benötigen Zugriff als Administrator:in, um Verbindungen innerhalb Ihres Dynamics 365 Customer Insights-Kontos anzuzeigen und zu bearbeiten und auf die erforderlichen Plugins zuzugreifen. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track` und `users.export.segment` ist erforderlich. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Übereinstimmende Profilbezeichner | Vereinheitlichte Kundenprofile in den exportierten Segmenten enthalten ein Feld für eine E-Mail-Adresse und eine Braze `external_id`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -30,31 +30,31 @@ Die Integration von Braze und Dynamics 365 geschäftskunden Insights ermöglicht
 
 ### 1. Schritt: Braze-Verbindung einrichten {#step-1-set-up-braze-connection}
 
-Navigieren Sie in geschäftskunden Insights zu **Admin > Connections**. Wählen Sie dann **Add connections** und wählen Sie **Braze**, um die Verbindung zu konfigurieren.
+Navigieren Sie in Customer Insights zu **Admin > Connections**. Wählen Sie dann **Add connections** und wählen Sie **Braze**, um die Verbindung zu konfigurieren.
 
 1. Geben Sie Ihrer Verbindung im Feld **Display name** einen erkennbaren Namen.
 2. Wählen Sie, wer diese Verbindung nutzen kann. Wenn Sie dieses Feld leer lassen, ist der Standardwert „Administrators“. Weitere Informationen finden Sie unter [Beitragenden erlauben, eine Verbindung für Exporte zu verwenden](https://docs.microsoft.com/en-us/dynamics365/customer-insights/connections#allow-contributors-to-use-a-connection-for-exports).
 3. Geben Sie Ihren Braze-API-Schlüssel und den REST-Endpunkt im Format `rest.iad-03.braze.com` an.
 4. Wählen Sie **I agree**, um die Einhaltung der Daten- und Datenschutzrichtlinien zu bestätigen.
 5. Wählen Sie **Connect**, um die Verbindung zu Braze zu initialisieren.
-6. Wählen Sie **Add yourself as export user** und geben Sie Ihre geschäftskunden Insights-Zugangsdaten an.
+6. Wählen Sie **Add yourself as export user** und geben Sie Ihre Customer Insights-Zugangsdaten an.
 7. Wählen Sie **Save**, um die Verbindung abzuschließen.
 
 ### 2. Schritt: Ein Braze Segment erstellen {#step-2-create-a-braze-segment}
 
 1. Gehen Sie in Braze zu **Audience** > **Segments**.
-2. Erstellen Sie ein Segment der Nutzer:innen, die Microsoft über Dynamics 365 geschäftskunden Insights aktualisieren soll.
+2. Erstellen Sie ein Segment der Nutzer:innen, die Microsoft über Dynamics 365 Customer Insights aktualisieren soll.
 3. Erfassen Sie den **API-Bezeichner** des Segments.
 
 ### 3. Schritt: Einen Export konfigurieren {#step-3-configure-an-export}
 
 Sie können diesen Export konfigurieren, wenn Sie Zugang zu einer Verbindung dieses Typs haben. Weitere Informationen finden Sie in der [Übersicht über Exporte](https://docs.microsoft.com/en-us/dynamics365/customer-insights/export-destinations#set-up-a-new-export).
 
-1. Gehen Sie in geschäftskunden Insights zu **Data > Exports**. Um einen neuen Export zu erstellen, wählen Sie **Add destination**.
+1. Gehen Sie in Customer Insights zu **Data > Exports**. Um einen neuen Export zu erstellen, wählen Sie **Add destination**.
 2. Wählen Sie im Feld **Connection for export** eine Verbindung für den Abschnitt „Braze“ aus. Wenn Sie diesen Abschnittsnamen nicht sehen, stehen Ihnen keine Verbindungen dieses Typs zur Verfügung.
 3. Geben Sie den Segment-API-Bezeichner des Segments in Braze an.
-4. Wählen Sie im Abschnitt **Data matching** im Feld **Email** das Feld aus, das die E-Mail-Adresse einer geschäftskunden darstellt. Wählen Sie dann im Feld **Braze geschäftskunden ID** das Feld aus, das die Braze-ID der geschäftskunden darstellt. Sie können auch ein zusätzliches, optionales Feld für den Datenabgleich auswählen.
-  a. Wenn Sie die `external_id` in Braze dem Feld „Braze geschäftskunden ID“ in geschäftskunden Insights zuordnen, werden die vorhandenen Datensätze beim Exportieren in Braze aktualisiert.
+4. Wählen Sie im Abschnitt **Data matching** im Feld **Email** das Feld aus, das die E-Mail-Adresse einer Kund:in darstellt. Wählen Sie dann im Feld **Braze Customer ID** das Feld aus, das die Braze-ID der Kund:in darstellt. Sie können auch ein zusätzliches, optionales Feld für den Datenabgleich auswählen.
+  a. Wenn Sie die `external_id` in Braze dem Feld „Braze Customer ID“ in Customer Insights zuordnen, werden die vorhandenen Datensätze beim Exportieren in Braze aktualisiert.
   b. Wenn Sie ein anderes ID-Feld zuordnen, das nicht der `external_id` eines Datensatzes in Braze entspricht, oder ein leeres Feld, werden beim Exportieren neue Datensätze in Braze erstellt.
 5. Wählen Sie abschließend die Segmente aus, die Sie exportieren möchten, und wählen Sie **Save**.
 

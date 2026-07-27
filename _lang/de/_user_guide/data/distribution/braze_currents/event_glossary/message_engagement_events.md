@@ -42,7 +42,7 @@ Beachten Sie die Namenskonventionen für Nutzer-IDs.
 | Braze-Schema | Currents-Schema | Beschreibung |
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Der eindeutige Bezeichner, der automatisch von Braze zugewiesen wird. |
-| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzerprofils, der von der geschäftskunden festgelegt wird. |
+| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzerprofils, der von der Kund:in festgelegt wird. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-ID-Schema" }
 
 ### Plattformwerte {#platform-values}
@@ -4478,7 +4478,7 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer auf eine Content C
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android-Google-Advertising-ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -4749,7 +4749,7 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine Content Card 
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android-Google-Advertising-ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -5020,7 +5020,7 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine Content Card 
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android-Google-Advertising-ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -8992,7 +8992,7 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -9280,7 +9280,7 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -11338,7 +11338,7 @@ Dieses Ereignis tritt ein, wenn ein Fehler vom Apple Push Notification Service o
 
 ### Eigenschaftsdetails
 
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -11549,7 +11549,7 @@ Dieses Ereignis wird von unserem [Swift SDK](https://github.com/braze-inc/braze-
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -11827,7 +11827,7 @@ In seltenen Fällen kann eine Push-Öffnung vor dem entsprechenden Push-Sendeere
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -12345,7 +12345,7 @@ Dieses Ereignis tritt ein, wenn Braze eine Push-Nachricht für eine Nutzerin ode
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren geschäftskunden-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
 - Mit `message_extras` können Sie Ihre Sende-Ereignisse mit dynamischen Daten aus Connected-Content, angepassten Attributen (z. B. Sprache, Land) und Canvas-Entry-Eigenschaften versehen. Weitere Informationen finden Sie unter [Nachrichten-Extras]({{site.baseurl}}/message_extras_tag).
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 

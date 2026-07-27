@@ -11,7 +11,7 @@ description: "Dieser Referenzartikel erklärt, wie Sie Shopify-Segmente als Koho
 > Die Shopify-Segmentsynchronisierung erweitert Ihren Shopify-Shop in Braze und gibt Ihrem Marketing-Team direkten Zugang zu umfangreicheren Nutzerdaten, die in Shopify vorliegen – einschließlich Signalen, die von der Standard-Braze-Shopify-Integration nicht erfasst werden. Durch die Synchronisierung von Shopify-Segmenten als Kohorten stimmen Sie Zielgruppendefinitionen plattformübergreifend ab und bieten konsistente, koordinierte Nutzererlebnisse – unabhängig davon, ob Nutzer:innen in Shopify angesprochen oder über eine Braze-Campaign erreicht werden.
 
 {% alert important %}
-Die Shopify-Segmentsynchronisierung befindet sich derzeit in der Beta-Phase. Um Zugang zu erhalten, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Die Shopify-Segmentsynchronisierung befindet sich derzeit in der Beta-Phase. Um Zugang zu erhalten, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}

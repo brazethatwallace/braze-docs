@@ -21,7 +21,7 @@ Sehen Sie sich dieses Video an, um einen Überblick über Braze Agents in der Ag
 
 Braze Agents unterstützen Ihr Team dabei, intelligentere und personalisiertere Erlebnisse zu bieten – ohne zusätzlichen Arbeitsaufwand. Sie agieren als autonome Agenten, die nicht nur auf Eingaben reagieren, sondern auch den Kontext verstehen, Entscheidungen treffen und Maßnahmen ergreifen, um ein Ziel zu erreichen.
 
-In der Praxis können Agenten automatisch Nachrichtentexte erstellen – wie Betreffzeilen oder In-Product-Texte –, sodass jede geschäftskunden eine auf sie zugeschnittene Kommunikation erhält. Sie können sich auch in Echtzeit anpassen und Personen basierend auf Präferenzen, Verhaltensweisen oder anderen Daten über verschiedene Canvas-Pfade leiten.
+In der Praxis können Agenten automatisch Nachrichtentexte erstellen – wie Betreffzeilen oder In-Product-Texte –, sodass jede Kund:in eine auf sie zugeschnittene Kommunikation erhält. Sie können sich auch in Echtzeit anpassen und Personen basierend auf Präferenzen, Verhaltensweisen oder anderen Daten über verschiedene Canvas-Pfade leiten.
 
 Über das Messaging hinaus können Agenten Ihre Kataloge bereichern, indem sie Produkt- und Profilfeldwerte berechnen oder generieren und so Ihre Daten aktuell und dynamisch halten. Durch die Übernahme repetitiver oder komplexer Aufgaben ermöglichen sie Ihrem Team, sich auf Strategie und Kreativität zu konzentrieren, anstatt sich mit manuellem Setup zu befassen. Braze Agents agieren eher als Kooperationspartner denn als Hintergrundprozesse – sie unterstützen Sie bei der Lösung von Problemen und erzielen Wirkung in großem Maßstab.
 
@@ -64,7 +64,7 @@ Agenten werden mit Anweisungen (System-Prompts) konfiguriert, die ihr Verhalten 
 
 Es gelten die folgenden Einschränkungen:
 
-- Jeder Agent verfügt über ein standardmäßiges tägliches Ausführungslimit von 250.000 Durchläufen, das auf maximal 1.000.000 Durchläufe pro Tag erhöht werden kann. Wenden Sie sich an Ihren geschäftskunden-Success-Manager, wenn Sie dieses Limit erhöhen möchten.
+- Jeder Agent verfügt über ein standardmäßiges tägliches Ausführungslimit von 250.000 Durchläufen, das auf maximal 1.000.000 Durchläufe pro Tag erhöht werden kann. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie dieses Limit erhöhen möchten.
 - Die Agentenkonsole zeigt für jeden Agenten ein **tägliches Aktionsguthaben-Kostenlimit** an – die geschätzten maximalen Credits pro Tag basierend auf dem Credit-Verhältnis pro Ausführung Ihres Modells und dem täglichen Ausführungslimit. Siehe [Tägliche Ausführungs- und Credit-Limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - Standardmäßig muss jeder Durchlauf innerhalb von 20 Sekunden abgeschlossen sein. Nach 20 Sekunden gibt der Agent eine `null`-Antwort zurück, wo immer er verwendet wird.
     - Sollten Ihre Agenten regelmäßig eine Zeitüberschreitung aufweisen, wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.

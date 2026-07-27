@@ -1,5 +1,5 @@
 - Fivetran verwenden, um Braze-Daten in Snowflake zu importieren
 - Transformationen erstellen, indem Braze-Daten mit Daten anderer Anwendungen kombiniert werden, um das Verhalten von Nutzer:innen effektiv zu analysieren
-- Daten aus Snowflake in Braze importieren, um neue geschäftskunden-Engagement-Möglichkeiten zu schaffen
+- Daten aus Snowflake in Braze importieren, um neue Customer-Engagement-Möglichkeiten zu schaffen
 - Braze-Daten mit Daten anderer Anwendungen kombinieren, um ein ganzheitlicheres Verständnis des Verhaltens von Nutzer:innen zu gewinnen
 - Mit einem Business-Intelligence-Tool integrieren, um die in Snowflake gespeicherten Daten weiter zu untersuchen

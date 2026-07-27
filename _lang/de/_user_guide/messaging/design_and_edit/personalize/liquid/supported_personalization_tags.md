@@ -226,7 +226,7 @@ Iterations-Tags können verwendet werden, um einen Codeblock wiederholt auszufü
 
 ### Anwendungsfall
 
-Nehmen wir an, Sie haben einen Sale auf Nike-Sneaker und möchten Kund:innen ansprechen, die Interesse an Nike gezeigt haben. Sie haben ein Array von Produktmarken, die im Profil jeder geschäftskunden angesehen wurden. Dieses Array könnte bis zu 25 Produktmarken enthalten, aber Sie möchten nur Kund:innen ansprechen, die ein Nike-Produkt als eines ihrer 5 zuletzt angesehenen Produkte betrachtet haben.
+Nehmen wir an, Sie haben einen Sale auf Nike-Sneaker und möchten Kund:innen ansprechen, die Interesse an Nike gezeigt haben. Sie haben ein Array von Produktmarken, die im Profil jeder Kund:in angesehen wurden. Dieses Array könnte bis zu 25 Produktmarken enthalten, aber Sie möchten nur Kund:innen ansprechen, die ein Nike-Produkt als eines ihrer 5 zuletzt angesehenen Produkte betrachtet haben.
 
 ```liquid
 {% for items in {{custom_attribute.${Brands Viewed}}} limit:5 %}

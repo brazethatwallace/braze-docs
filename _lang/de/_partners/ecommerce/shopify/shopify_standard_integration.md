@@ -156,8 +156,8 @@ Die nächsten Schritte hängen davon ab, welche externe ID Sie ausgewählt haben
 
 Nachdem Sie das Metafeld erstellt haben, füllen Sie es für Ihre Kund:innen aus. Wir empfehlen die folgenden Ansätze:
 
-- **Auf Webhooks zur Kund:innen-Erstellung lauschen:** Richten Sie einen Webhook ein, um auf [`customer/create`-Events](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks) zu lauschen. Damit können Sie das Metafeld schreiben, wenn eine neue geschäftskunden angelegt wird.
-- **Bestehende Kund:innen nachfüllen:** Verwenden Sie die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [geschäftskunden API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer), um das Metafeld für zuvor erstellte Kund:innen zu füllen.
+- **Auf Webhooks zur Kund:innen-Erstellung lauschen:** Richten Sie einen Webhook ein, um auf [`customer/create`-Events](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks) zu lauschen. Damit können Sie das Metafeld schreiben, wenn eine neue Kund:in angelegt wird.
+- **Bestehende Kund:innen nachfüllen:** Verwenden Sie die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer), um das Metafeld für zuvor erstellte Kund:innen zu füllen.
 
 #### Mögliche Race-Condition {#potential-race-condition}
 
@@ -201,7 +201,7 @@ Braze erwartet einen `200`-Statuscode, der die externe ID als JSON zurückgibt:
 ```
 
 #### Validierung {#validation}
-Es ist wichtig, dass Sie überprüfen, ob `shopify_customer_id` und `email_address` (falls vorhanden) mit den Kund:innen-Werten in Shopify übereinstimmen. Sie können die [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [geschäftskunden API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) verwenden, um diese Parameter zu validieren und das richtige `braze.external_id`-Metafeld abzurufen.
+Es ist wichtig, dass Sie überprüfen, ob `shopify_customer_id` und `email_address` (falls vorhanden) mit den Kund:innen-Werten in Shopify übereinstimmen. Sie können die [Shopify Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) verwenden, um diese Parameter zu validieren und das richtige `braze.external_id`-Metafeld abzurufen.
 
 #### Fehlerverhalten und Zusammenführung {#failure-behavior-and-merging}
 Jeder andere Statuscode als `200` wird als Fehler betrachtet.

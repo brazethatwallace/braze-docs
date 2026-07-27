@@ -23,7 +23,7 @@ Bei bestimmten Currents-Engagement-Ereignissen wurden die Tracking-Eigenschaften
 
 ## Amazon Personalize Partnerschaft {#amazon-personalize-partnership}
 
-Amazon Personalize nutzt maschinelles Lernen, um hochwertige Empfehlungen für Ihre Website und Anwendungen zu erstellen. Mit Amazon Personalize können Sie das geschäftskunden-Engagement verbessern, indem Sie personalisierte Produkt- und Inhaltsempfehlungen in Realtime sowie gezielte Marketing-Aktionen ermöglichen. Weitere Informationen finden Sie in unserer [Amazon Personalize]({{site.baseurl}}/partners/amazon_personalize/)-Dokumentation.
+Amazon Personalize nutzt maschinelles Lernen, um hochwertige Empfehlungen für Ihre Website und Anwendungen zu erstellen. Mit Amazon Personalize können Sie das Customer-Engagement verbessern, indem Sie personalisierte Produkt- und Inhaltsempfehlungen in Realtime sowie gezielte Marketing-Aktionen ermöglichen. Weitere Informationen finden Sie in unserer [Amazon Personalize]({{site.baseurl}}/partners/amazon_personalize/)-Dokumentation.
 
 ## Vizbee Partnerschaft {#vizbee-partnership}
 

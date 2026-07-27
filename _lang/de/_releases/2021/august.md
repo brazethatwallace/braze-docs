@@ -10,7 +10,7 @@ description: "Dieser Artikel enthält Versionshinweise für August 2021."
 
 ## Google Audience Sync
 
-Die Braze [Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/)-Integration ermöglicht es Marken, die Reichweite ihrer kanalübergreifenden geschäftskunden Journeys auf Google Search, Google Shopping, Gmail, YouTube und Google Display auszudehnen. Mithilfe Ihrer First-Party-Kundendaten können Sie Anzeigen auf der Grundlage von dynamischen Verhaltenstriggern, Segmentierung und mehr sicher zustellen. Jedes Kriterium, das Sie normalerweise zum Triggern einer Nachricht (z. B. Push, E-Mail, SMS usw.) im Rahmen eines Braze-Canvas verwenden, kann verwendet werden, um eine Anzeige für diese Nutzer:innen über Googles geschäftskunden Match auszulösen.
+Die Braze [Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/)-Integration ermöglicht es Marken, die Reichweite ihrer kanalübergreifenden Customer Journeys auf Google Search, Google Shopping, Gmail, YouTube und Google Display auszudehnen. Mithilfe Ihrer First-Party-Kundendaten können Sie Anzeigen auf der Grundlage von dynamischen Verhaltenstriggern, Segmentierung und mehr sicher zustellen. Jedes Kriterium, das Sie normalerweise zum Triggern einer Nachricht (z. B. Push, E-Mail, SMS usw.) im Rahmen eines Braze-Canvas verwenden, kann verwendet werden, um eine Anzeige für diese Nutzer:innen über Googles Customer Match auszulösen.
 
 ## Best-Practice-Leitfaden für die iOS SDK-Integration {#best-practice-ios-sdk-integration-guide}
 

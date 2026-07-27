@@ -42,7 +42,7 @@ Für Kund:innen, die Monthly Active Users CY 24-25, Universal MAU, Web MAU oder 
 Für Kund:innen mit älteren Rate-Limits kann jede `/users/track`-Anfrage bis zu 75 Attribut-Objekte, 75 Event-Objekte und 75 Kauf-Objekte enthalten. Jedes Objekt kann eine:n Nutzer:in aktualisieren, was insgesamt maximal 225 Objekte pro Anfrage ergibt. Ein einzelnes Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
 {% enddetails %}
 
-Weitere Informationen finden Sie unter [API-Rate-Limits]({{site.baseurl}}/api/api_limits). Bitte wenden Sie sich an Ihren geschäftskunden-Success-Manager, um eine Erhöhung anzufordern.
+Weitere Informationen finden Sie unter [API-Rate-Limits]({{site.baseurl}}/api/api_limits). Bitte wenden Sie sich an Ihren Customer-Success-Manager, um eine Erhöhung anzufordern.
 
 <!---/users/export/ids-->
 

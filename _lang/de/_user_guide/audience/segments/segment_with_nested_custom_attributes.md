@@ -75,7 +75,7 @@ Get to your {{segmented_nested_objects[0].goal}} goal faster, make a deposit usi
 
 {% endraw %}
 
-Dies gibt die folgende Nachricht an Ihre geschäftskunden zurück: „Get to your retirement goal faster, make a deposit using our new fast deposit feature!“
+Dies gibt die folgende Nachricht an Ihre Kund:in zurück: „Get to your retirement goal faster, make a deposit using our new fast deposit feature!“
 
 ## Schema mit dem Explorer für verschachtelte Objekte generieren {#generate-schema}
 

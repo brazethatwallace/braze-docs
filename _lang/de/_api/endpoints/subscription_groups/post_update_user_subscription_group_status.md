@@ -31,7 +31,7 @@ Wenn Sie Beispiele sehen oder diesen Endpunkt für **SMS- und RCS-Abo-Gruppen** 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `subscription.status.set`.
 
 {% alert note %}
-Wenn Sie diesen Endpunkt mit [LINE-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups) verwenden möchten, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Wenn Sie diesen Endpunkt mit [LINE-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups) verwenden möchten, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
 {% multi_lang_include api/orphaned_subscription_states.md %}

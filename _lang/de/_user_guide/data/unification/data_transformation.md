@@ -4,7 +4,7 @@ article_title: Datentransformation
 page_order: 2
 layout: dev_guide
 guide_top_header: "Datentransformation"
-guide_top_text: "Braze Datentransformation erlaubt es Ihnen, Webhook-Integrationen zu erstellen und zu verwalten, um den Datenfluss von externen Plattformen in Braze zu automatisieren. Diese neu integrierten Nutzerdaten können dann für noch anspruchsvollere Marketing-Anwendungsfälle genutzt werden. Braze Datentransformation kann Ihre Datenintegration beschleunigen, selbst wenn Sie nur wenig Erfahrung mit der Programmierung haben, und kann die Abhängigkeit Ihres Teams von manuellen API-Aufrufen, Integrations-Tools von Drittanbietern oder sogar geschäftskunden Data Platforms ersetzen."
+guide_top_text: "Braze Datentransformation erlaubt es Ihnen, Webhook-Integrationen zu erstellen und zu verwalten, um den Datenfluss von externen Plattformen in Braze zu automatisieren. Diese neu integrierten Nutzerdaten können dann für noch anspruchsvollere Marketing-Anwendungsfälle genutzt werden. Braze Datentransformation kann Ihre Datenintegration beschleunigen, selbst wenn Sie nur wenig Erfahrung mit der Programmierung haben, und kann die Abhängigkeit Ihres Teams von manuellen API-Aufrufen, Integrations-Tools von Drittanbietern oder sogar Customer Data Platforms ersetzen."
 page_type: landing
 description: "Auf dieser Landing-Page finden Sie Artikel über Braze Datentransformation, u. a. wie Sie eine Datentransformation erstellen und Anwendungsfälle."
 alias: /data_transformation/

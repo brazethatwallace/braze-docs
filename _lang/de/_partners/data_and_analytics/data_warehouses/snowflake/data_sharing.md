@@ -24,9 +24,9 @@ Beim Data Sharing werden keine tatsächlichen Daten zwischen Konten kopiert oder
 
 Darüber hinaus kann der Zugriff auf von Braze geteilte Daten mithilfe der integrierten Rollen- und Berechtigungsfunktionen von Snowflake über die bereits vorhandenen Zugriffskontrollen Ihres Snowflake-Kontos gesteuert und verwaltet werden. Der Zugriff kann auf die gleiche Weise eingeschränkt und überwacht werden wie bei Ihren eigenen Daten.
 
-- **Verkürzen Sie die Zeit bis zu Insights**<br>Verabschieden Sie sich von ETL-Prozessen, deren Aufbau Wochen dauert. Dank der einzigartigen Architekturen von Braze und Snowflake sind alle geschäftskunden-Engagement- und Kampagnendaten sofort zugänglich und abfragbar, sobald sie im Data Lake eintreffen. Es werden keine Daten kopiert oder verschoben, sodass Sie Kundenerlebnisse auf Basis der relevantesten und aktuellsten Informationen bereitstellen können.
-- **Beseitigen Sie Datensilos**<br>Erstellen Sie eine ganzheitliche Sicht auf Ihre Kund:innen über alle Kanäle und Plattformen hinweg. Data Sharing macht es einfacher denn je, Ihre Braze-geschäftskunden-Engagement-Daten mit all Ihren anderen Snowflake-Daten zu verknüpfen – für umfassendere Insights aus einer einzigen, zuverlässigen Datenquelle.
-- **Vergleichen Sie Ihr Engagement**<br>Optimieren Sie Ihre geschäftskunden-Engagement-Strategien mit Braze Benchmarks. Dieses interaktive Tool, betrieben von Braze und Snowflake, ermöglicht es Ihnen, die Engagement-Daten Ihrer Marke mit Benchmarks über Kanäle, Branchen und Geräteplattformen hinweg zu vergleichen.
+- **Verkürzen Sie die Zeit bis zu Insights**<br>Verabschieden Sie sich von ETL-Prozessen, deren Aufbau Wochen dauert. Dank der einzigartigen Architekturen von Braze und Snowflake sind alle Customer-Engagement- und Kampagnendaten sofort zugänglich und abfragbar, sobald sie im Data Lake eintreffen. Es werden keine Daten kopiert oder verschoben, sodass Sie Kundenerlebnisse auf Basis der relevantesten und aktuellsten Informationen bereitstellen können.
+- **Beseitigen Sie Datensilos**<br>Erstellen Sie eine ganzheitliche Sicht auf Ihre Kund:innen über alle Kanäle und Plattformen hinweg. Data Sharing macht es einfacher denn je, Ihre Braze-Customer-Engagement-Daten mit all Ihren anderen Snowflake-Daten zu verknüpfen – für umfassendere Insights aus einer einzigen, zuverlässigen Datenquelle.
+- **Vergleichen Sie Ihr Engagement**<br>Optimieren Sie Ihre Customer-Engagement-Strategien mit Braze Benchmarks. Dieses interaktive Tool, betrieben von Braze und Snowflake, ermöglicht es Ihnen, die Engagement-Daten Ihrer Marke mit Benchmarks über Kanäle, Branchen und Geräteplattformen hinweg zu vergleichen.
 
 Weitere Informationen zum Data Sharing von Snowflake finden Sie unter [Introduction to Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work).
 
@@ -34,7 +34,7 @@ Weitere Informationen zum Data Sharing von Snowflake finden Sie unter [Introduct
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze-Zugang | Kontaktieren Sie Ihren Braze-Konto- oder geschäftskunden-Success-Manager, um Data Sharing einzurichten. |
+| Braze-Zugang | Kontaktieren Sie Ihren Braze-Konto- oder Customer-Success-Manager, um Data Sharing einzurichten. |
 | Snowflake-Konto | Ein Snowflake-Konto mit `admin`-Berechtigungen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 

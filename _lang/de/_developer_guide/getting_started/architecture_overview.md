@@ -141,7 +141,7 @@ Während der CSV-Export ein Basislimit von 500.000 Zeilen hat, gibt es für die 
 ## Praxisbeispiel {#putting-it-all-together}
 Eine Ihrer Nutzer:innen, nennen wir sie Mel, hat gerade Ihre Produktankündigung erhalten. Hinter den Kulissen haben alle Ebenen der Braze-Plattform zusammengearbeitet, um sicherzustellen, dass dieser Prozess reibungslos abläuft.
 
-Die Informationen von Mel wurden über einen CSV-Import von Ihrer Legacy-Plattform für geschäftskunden-Engagement in Braze übernommen. Jedes Mal, wenn Mel nach der Integration mit Ihrer App interagierte, wurden weitere Daten zu ihrem Kundenprofil hinzugefügt.
+Die Informationen von Mel wurden über einen CSV-Import von Ihrer Legacy-Plattform für Customer-Engagement in Braze übernommen. Jedes Mal, wenn Mel nach der Integration mit Ihrer App interagierte, wurden weitere Daten zu ihrem Kundenprofil hinzugefügt.
 
 Ihre Produktankündigung wurde an alle Kund:innen gesendet, denen ein ähnlicher Artikel in Ihrer App gefallen hat. Sie haben diese Daten als angepasstes Event definiert. Das SDK hat dieses Event getrackt und Ihre Nutzerbasis entsprechend segmentiert. Braze orchestrierte die beste Tageszeit, um diese Ankündigung zu versenden, und personalisierte die Ankündigung, indem Mel mit ihrem bevorzugten Namen angesprochen wurde.
 

@@ -12,7 +12,7 @@ description: "Dieser Artikel bietet einen Überblick über die verschiedenen Mö
 > Dieser Artikel bietet einen Überblick über die verschiedenen Möglichkeiten, wie Sie mit Braze Nachrichten versenden können. In Braze können Sie Nachrichten entweder über eine [Campaign](#campaigns) oder ein [Canvas](#canvas) versenden.
 
 - Wählen Sie eine Campaign, um eine einzelne, gezielte Nachricht an eine Gruppe von Nutzer:innen zu senden. Eine Campaign ist ein einzelner Nachrichtenschritt, um mit Ihren Nutzer:innen über verschiedene Messaging-Kanäle in Kontakt zu treten.
-- Für das Versenden einer Reihe von fortlaufenden Nachrichten im Rahmen einer übergreifenden geschäftskunden Journey empfehlen wir Canvas, unser Tool für die Journey-Orchestrierung. Während Campaigns gut geeignet sind, um einfache, zielgerichtete Nachrichten zu versenden, können Sie mit Canvases Ihre Beziehungen zu Kund:innen auf die nächste Stufe heben.
+- Für das Versenden einer Reihe von fortlaufenden Nachrichten im Rahmen einer übergreifenden Customer Journey empfehlen wir Canvas, unser Tool für die Journey-Orchestrierung. Während Campaigns gut geeignet sind, um einfache, zielgerichtete Nachrichten zu versenden, können Sie mit Canvases Ihre Beziehungen zu Kund:innen auf die nächste Stufe heben.
 
 ## Campaigns {#campaigns}
 

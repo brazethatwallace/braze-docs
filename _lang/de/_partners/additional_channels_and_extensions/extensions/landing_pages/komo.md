@@ -1,7 +1,7 @@
 ---
 nav_title: Komo
 article_title: Komo
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Komo, einer geschäftskunden-Engagement-Plattform, die auf Gamification, interaktive Inhalte, Wettbewerbe, Prämien und Loyalität spezialisiert ist. Durch diese Integration können First-Party-Daten und Zero-Party-Daten, die in Komo erfasst wurden, in Braze veröffentlicht werden."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Komo, einer Customer-Engagement-Plattform, die auf Gamification, interaktive Inhalte, Wettbewerbe, Prämien und Loyalität spezialisiert ist. Durch diese Integration können First-Party-Daten und Zero-Party-Daten, die in Komo erfasst wurden, in Braze veröffentlicht werden."
 alias: /partners/komo/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Komo
 
-> [Komo](https://komo.tech/) ist eine geschäftskunden-Engagement-Plattform, die sich auf Gamification, interaktive Inhalte, Wettbewerbe, Prämien und Loyalität spezialisiert hat.
+> [Komo](https://komo.tech/) ist eine Customer-Engagement-Plattform, die sich auf Gamification, interaktive Inhalte, Wettbewerbe, Prämien und Loyalität spezialisiert hat.
 
 _Diese Integration wird von Komo gepflegt._
 

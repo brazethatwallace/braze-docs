@@ -1,7 +1,7 @@
 ---
 nav_title: Adobe
 article_title: Adobe
-description: "Diese Seite beschreibt die Partnerschaft zwischen Braze und Adobe, einer geschäftskunden Data Platform, die es Marken erlaubt, ihre Adobe-Daten (angepasste Attribute und Segmente) mit Braze in Echtzeit zu verbinden und abzubilden. Marken können dann auf Basis dieser Daten handeln und diesen Nutzer:innen personalisierte, zielgerichtete Erlebnisse bieten."
+description: "Diese Seite beschreibt die Partnerschaft zwischen Braze und Adobe, einer Customer Data Platform, die es Marken erlaubt, ihre Adobe-Daten (angepasste Attribute und Segmente) mit Braze in Echtzeit zu verbinden und abzubilden. Marken können dann auf Basis dieser Daten handeln und diesen Nutzer:innen personalisierte, zielgerichtete Erlebnisse bieten."
 page_type: partner
 page_order: 1
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Adobe
 
-> Die geschäftskunden Data Platform (CDP) von Adobe basiert auf der Adobe Experience Platform und führt bekannte und anonyme Daten aus verschiedenen Unternehmensquellen zusammen, um Kundenprofile zu erstellen. Diese Profile können dann verwendet werden, um über alle Kanäle und Geräte hinweg personalisierte Erlebnisse in Realtime zu bieten.
+> Die Customer Data Platform (CDP) von Adobe basiert auf der Adobe Experience Platform und führt bekannte und anonyme Daten aus verschiedenen Unternehmensquellen zusammen, um Kundenprofile zu erstellen. Diese Profile können dann verwendet werden, um über alle Kanäle und Geräte hinweg personalisierte Erlebnisse in Realtime zu bieten.
 
 Die Integration von Braze und Adobe CDP verbindet die Adobe-Daten Ihrer Marke (angepasste Attribute und Segmente) mit Braze und bildet sie in Echtzeit ab. Sie können dann auf diese Daten reagieren und Ihren Nutzer:innen personalisierte, zielgerichtete Erlebnisse zustellen. Bei Adobe ist die Integration intuitiv. Nehmen Sie einfach eine beliebige [Adobe-Identität](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en), bilden Sie sie auf eine externe ID von Braze ab und senden Sie sie an die Braze-Plattform. Alle gesendeten Daten werden in Braze über ein neues Attribut `AdobeExperiencePlatformSegments` zugänglich sein.
 
@@ -29,7 +29,7 @@ Die Integration der Adobe Experience Platform unterstützt derzeit keine dynamis
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert important %}
-Das Senden zusätzlicher angepasster Attribute erhöht Ihre Datenpunkt-Nutzung. Wir empfehlen Ihnen, mit Ihrem geschäftskunden-Success-Manager zu sprechen, um diesen potenziellen Anstieg der Datenpunkte besser zu verstehen.
+Das Senden zusätzlicher angepasster Attribute erhöht Ihre Datenpunkt-Nutzung. Wir empfehlen Ihnen, mit Ihrem Customer-Success-Manager zu sprechen, um diesen potenziellen Anstieg der Datenpunkte besser zu verstehen.
 {% endalert %}
 
 ## Integration

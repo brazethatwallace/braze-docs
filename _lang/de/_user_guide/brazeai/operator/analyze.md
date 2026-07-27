@@ -12,7 +12,7 @@ hidden: true
 > Operator Analyze beantwortet Performance-Fragen in natürlicher Sprache in BrazeAI Operator<sup>TM</sup>. Die Antworten umfassen Charts, Vergleiche und kurze Insights. Sie müssen kein Dashboard erstellen oder zuerst einen vollständigen Bericht abrufen.
 
 {% alert important %}
-Operator Analyze befindet sich derzeit in der Beta-Phase. Funktionen und unterstützte Analysen werden weiterentwickelt. Um Zugang für Ihr Konto anzufordern, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Operator Analyze befindet sich derzeit in der Beta-Phase. Funktionen und unterstützte Analysen werden weiterentwickelt. Um Zugang für Ihr Konto anzufordern, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
 ## Warum Operator Analyze verwenden? {#why-use-operator-analyze}
@@ -140,14 +140,14 @@ Wenn sich die Ergebnisse über die Fenster hinweg um mehr als 50 % unterscheiden
 
 ## Datenaktualität {#data-freshness}
 
-Die Daten werden täglich aktualisiert. Aktivitäten des aktuellen Tages erscheinen nach der nächsten Aktualisierung. Jede Antwort gibt das neueste Datum im Datensatz an. Wenn dieses Datum veraltet erscheint, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Die Daten werden täglich aktualisiert. Aktivitäten des aktuellen Tages erscheinen nach der nächsten Aktualisierung. Jede Antwort gibt das neueste Datum im Datensatz an. Wenn dieses Datum veraltet erscheint, wenden Sie sich an Ihren Customer-Success-Manager.
 
 ## Was nicht abgedeckt wird {#whats-out-of-scope}
 
-* **Performance-Aufschlüsselungen auf Produktebene.** *Attributed Revenue* und Engagement werden auf Campaign-, Canvas-, Kanal- oder Programmebene aggregiert. Sie werden nicht auf Produkte oder SKUs heruntergebrochen. Fragen auf Produkt- oder SKU-Ebene werden nicht unterstützt. Wenden Sie sich für diese Analysen an Ihren geschäftskunden-Success-Manager.
+* **Performance-Aufschlüsselungen auf Produktebene.** *Attributed Revenue* und Engagement werden auf Campaign-, Canvas-, Kanal- oder Programmebene aggregiert. Sie werden nicht auf Produkte oder SKUs heruntergebrochen. Fragen auf Produkt- oder SKU-Ebene werden nicht unterstützt. Wenden Sie sich für diese Analysen an Ihren Customer-Success-Manager.
 * **Branchen-Benchmarks für WhatsApp und RCS.** Engagement-Metriken für beide Kanäle werden unterstützt. Benchmarks sind noch nicht verfügbar.
 
-Fragen außerhalb des Umfangs erhalten eine direkte Antwort, wenn möglich eine vorgeschlagene Alternative oder einen Verweis an Ihren geschäftskunden-Success-Manager.
+Fragen außerhalb des Umfangs erhalten eine direkte Antwort, wenn möglich eine vorgeschlagene Alternative oder einen Verweis an Ihren Customer-Success-Manager.
 
 ## Tipps für bessere Ergebnisse {#tips-for-better-results}
 

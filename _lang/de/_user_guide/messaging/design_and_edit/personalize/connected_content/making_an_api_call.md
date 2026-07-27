@@ -73,7 +73,7 @@ Wenn Anfragen an den Zielhost durch den Detektor für ungesunde Hosts angehalten
 Wenn Sie glauben, dass die Erkennung ungesunder Hosts Probleme verursacht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact).
 
 {% alert note %}
-Sie können bestimmte URLs auf eine Allowlist setzen, die für Connected-Content verwendet werden sollen. Um auf dieses Feature zuzugreifen, kontaktieren Sie Ihren geschäftskunden-Success-Manager.
+Sie können bestimmte URLs auf eine Allowlist setzen, die für Connected-Content verwendet werden sollen. Um auf dieses Feature zuzugreifen, kontaktieren Sie Ihren Customer-Success-Manager.
 {% endalert %}
 
 {% alert tip %}

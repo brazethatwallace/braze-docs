@@ -21,7 +21,7 @@ Verwenden Sie den SQL-Editor, wenn Sie:
 - Komplexere Datenanwendungsfälle mit SQL bearbeiten möchten
 
 {% alert important %}
-Der SQL-Editor der Cloud-Datenaufnahme befindet sich in der Beta-Phase. Kontaktieren Sie Ihren geschäftskunden-Success-Manager oder Account Manager für den Zugang.
+Der SQL-Editor der Cloud-Datenaufnahme befindet sich in der Beta-Phase. Kontaktieren Sie Ihren Customer-Success-Manager oder Account Manager für den Zugang.
 {% endalert %}
 
 ## Voraussetzungen und Einschränkungen {#prerequisites-and-limitations}

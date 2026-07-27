@@ -1,6 +1,6 @@
 ---
 nav_title: Zeotap
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Zeotap, einer geschäftskunden Data Platform der nächsten Generation, die Identitätsauflösung, Insights und Datenanreicherung bietet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Zeotap, einer Customer Data Platform der nächsten Generation, die Identitätsauflösung, Insights und Datenanreicherung bietet."
 page_type: partner
 search_tag: Partner
 page_order: 1
@@ -8,7 +8,7 @@ page_order: 1
 
 # Zeotap
 
-> [Zeotap](https://zeotap.com/) ist eine geschäftskunden Data Platform der nächsten Generation, die Ihnen hilft, Ihre mobile Zielgruppe zu entdecken und zu verstehen, indem sie Identitätsauflösung, Insights und Datenanreicherung bietet.
+> [Zeotap](https://zeotap.com/) ist eine Customer Data Platform der nächsten Generation, die Ihnen hilft, Ihre mobile Zielgruppe zu entdecken und zu verstehen, indem sie Identitätsauflösung, Insights und Datenanreicherung bietet.
 
 Mit der Integration von Zeotap und Braze können Sie den Umfang und die Reichweite Ihrer Campaigns erweitern, indem Sie Zeotap-Kundensegmente synchronisieren, um Nutzerdaten Braze-Nutzerkonten zuzuordnen. Sie können dann auf diese Daten reagieren und Ihren Nutzer:innen personalisierte Targeting-Erlebnisse zustellen.
 

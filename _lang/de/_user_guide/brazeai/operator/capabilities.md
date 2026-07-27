@@ -143,7 +143,7 @@ Probieren Sie verschiedene Prompts aus, um zu sehen, wie Operator Ihr Messaging 
 
 {% include copy_block.html content="Improve this Liquid so it's easier to read." %}
 
-{% include copy_block.html content="Create a message that shows different content based on my geschäftskunden's loyalty status. If we don't know about their loyalty status, send a fallback message." %}
+{% include copy_block.html content="Create a message that shows different content based on my customer's loyalty status. If we don't know about their loyalty status, send a fallback message." %}
 
 {% include copy_block.html content="Write a dynamic message that includes a user's favorite product and their last purchase date. If there's no last purchase, abort the message." %}
 
@@ -151,7 +151,7 @@ Probieren Sie verschiedene Prompts aus, um zu sehen, wie Operator Ihr Messaging 
 
 {% include copy_block.html content="Help me write a message to encourage users to come back and check out if they have items remaining in their cart." %}
 
-{% include copy_block.html content="Write Liquid to personalize a message based on a geschäftskunden's country. I want to fill in the message with the country's name. If we don't have either of them, suggest they click on a link to update their profile." %}
+{% include copy_block.html content="Write Liquid to personalize a message based on a customer's country. I want to fill in the message with the country's name. If we don't have either of them, suggest they click on a link to update their profile." %}
 
 {% include copy_block.html content="How can I personalize a welcome message with a user's first name and write different copy based on the user's gender?" %}
 

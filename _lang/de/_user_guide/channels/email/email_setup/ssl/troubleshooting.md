@@ -30,7 +30,7 @@ channel: email
 2. Bestätigen Sie, dass Ihr SSL-Zertifikat für die Tracking-Domain aktiv ist. Bitten Sie Ihr IT- oder Web-Team zu bestätigen, dass das Zertifikat aktuell ist und Ihre Klick-Tracking-Subdomain abdeckt. Informationen zu den Einrichtungsschritten und CDN-spezifischen Anleitungen finden Sie unter [SSL-Zertifikat erwerben]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) und [Zusätzliche Ressourcen]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
 3. Senden Sie eine Test-E-Mail mit dem [Template zur Fehlerbehebung beim Klick-Tracking](#click-tracking-issues). Vergleichen Sie getrackte und nicht getrackte URLs.
 4. Wenn getrackte Links mit einem 403-Fehler fehlschlagen, überprüfen Sie die CDN- und WAF-Regeln (User-Agents, Query-Strings, Redirect-Muster).
-5. Wenn die Einrichtung abgeschlossen ist, die Links aber weiterhin HTTP verwenden, wenden Sie sich an Ihren Braze geschäftskunden-Success-Manager, um zu bestätigen, dass Braze SSL aktiviert hat.
+5. Wenn die Einrichtung abgeschlossen ist, die Links aber weiterhin HTTP verwenden, wenden Sie sich an Ihren Braze Customer-Success-Manager, um zu bestätigen, dass Braze SSL aktiviert hat.
 6. Koordinieren Sie sich bei anhaltenden Problemen mit Ihrem CDN- oder IT-Team und wenden Sie sich mit Fehlercodes und allen Details Ihres CDN- oder Domain-Anbieters an den [Braze-Support]({{site.baseurl}}/braze_support).
 
 ## Schlüsselkonzepte {#key-concepts}
@@ -70,7 +70,7 @@ Wenn eine Fehlermeldung angezeigt wird, dass Ihre Verbindung nicht privat ist, k
 
 **Symptom:** Die SSL-Einrichtung ist abgeschlossen, aber getrackte Links erscheinen weiterhin als HTTP.
 
-Wenn Sie die SSL-Einrichtung abgeschlossen haben und Links weiterhin als HTTP erscheinen, kontaktieren Sie Ihren Braze geschäftskunden-Success-Manager, um zu bestätigen, dass Braze SSL aktiviert hat. Braze aktiviert SSL erst, nachdem alle Einrichtungsschritte abgeschlossen sind.
+Wenn Sie die SSL-Einrichtung abgeschlossen haben und Links weiterhin als HTTP erscheinen, kontaktieren Sie Ihren Braze Customer-Success-Manager, um zu bestätigen, dass Braze SSL aktiviert hat. Braze aktiviert SSL erst, nachdem alle Einrichtungsschritte abgeschlossen sind.
 
 ### Amazon SES {#amazon-ses}
 

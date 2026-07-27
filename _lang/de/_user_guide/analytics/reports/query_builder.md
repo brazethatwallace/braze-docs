@@ -41,7 +41,7 @@ Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Templates]({{sit
 
 ### Datenzeitraum {#data-timeframe}
 
-Abfragen liefern Daten der letzten 60 Tage. Wenn Sie Currents oder die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) nutzen, können Sie möglicherweise Daten von bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Abfragen liefern Daten der letzten 60 Tage. Wenn Sie Currents oder die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) nutzen, können Sie möglicherweise Daten von bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren Customer-Success-Manager.
 
 ### Zeitzone des Abfrage-Builders {#query-builder-time-zone}
 

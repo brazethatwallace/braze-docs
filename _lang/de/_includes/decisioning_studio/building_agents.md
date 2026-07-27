@@ -49,7 +49,7 @@ Wenn der Entwurf steht, wird das Team mit Ihnen zusammenarbeiten, um alle zusät
 
 ### Schritt 3: Richten Sie Ihre Zustellungsplattform ein
 
-Anschließend wird Ihnen das AI Expert Service-Team bei der Einrichtung Ihrer geschäftskunden-Engagement-Plattform behilflich sein. Das Decisioning Studio funktioniert am besten mit Braze, es werden jedoch auch verschiedene andere Plattformen unterstützt. Bitte wenden Sie sich an Ihr AI Expert Service-Team, um weitere Informationen zu erhalten.
+Anschließend wird Ihnen das AI Expert Service-Team bei der Einrichtung Ihrer Customer-Engagement-Plattform behilflich sein. Das Decisioning Studio funktioniert am besten mit Braze, es werden jedoch auch verschiedene andere Plattformen unterstützt. Bitte wenden Sie sich an Ihr AI Expert Service-Team, um weitere Informationen zu erhalten.
 
 {% tabs local %}
 {% tab Braze %}

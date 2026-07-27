@@ -113,7 +113,7 @@ Wir empfehlen die folgenden Best Practices, um sich auf diese Änderungen einzus
 
 ### Utility-Konversationen {#utility-conversations}
 
-Am 1. August 2024 hat Meta die Tarife für Utility-Konversationen gesenkt, um Marken zu ermutigen, mehr geschäftskunden Journeys nach dem Kauf auf der Plattform abzuwickeln. Wir haben diese Kostensenkungen anteilig an Ihre Message-Credits- oder WhatsApp-Credits-Kontingente weitergegeben. Dieses Update trat am selben Tag wie bei Meta in Kraft (1. August).
+Am 1. August 2024 hat Meta die Tarife für Utility-Konversationen gesenkt, um Marken zu ermutigen, mehr Customer Journeys nach dem Kauf auf der Plattform abzuwickeln. Wir haben diese Kostensenkungen anteilig an Ihre Message-Credits- oder WhatsApp-Credits-Kontingente weitergegeben. Dieses Update trat am selben Tag wie bei Meta in Kraft (1. August).
 
 #### Was sind Utility-Konversationen? {#what-are-utility-conversations}
 
@@ -186,4 +186,4 @@ Detaillierte Informationen zur Senkung der Utility-Konversationstarife:
 | Vereinigtes Königreich                             | 44,7 %                    |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Um besser zu verstehen, wie Sie von diesen Änderungen profitieren können, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Um besser zu verstehen, wie Sie von diesen Änderungen profitieren können, wenden Sie sich an Ihren Customer-Success-Manager.

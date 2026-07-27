@@ -10,13 +10,13 @@ search_tag: Partner
 
 # Justuno
 
-> [Justuno](https://www.justuno.com/) ermöglicht es Ihnen, mit dynamischen Segmenten vollständig optimierte Besuchererlebnisse für alle Ihre Zielgruppen zu schaffen und bietet das fortschrittlichste verfügbare Targeting&#8212;und das alles, ohne die Geschwindigkeit der Website zu beeinträchtigen oder den Entwicklungsaufwand zu erhöhen. Analysieren Sie Konversionsraten, indem Sie angepasste Analytics wie die Anzahl der erstellten Profile, die beeinflusste Rate wiederkehrender Besucher:innen und die Seiten pro Sitzung anzeigen, um einen Marketing-Vorteil in Ihrer Branche zu erhalten. Justuno ermöglicht es Ihnen, den Umsatz pro Besucher:in zu steigern, sinnvolles geschäftskunden-Engagement aufzubauen und Ihr Geschäft auszubauen. Optimieren Sie die gesamte Zielgruppen-Journey End-to-End mit einer vernetzten Plattform.
+> [Justuno](https://www.justuno.com/) ermöglicht es Ihnen, mit dynamischen Segmenten vollständig optimierte Besuchererlebnisse für alle Ihre Zielgruppen zu schaffen und bietet das fortschrittlichste verfügbare Targeting&#8212;und das alles, ohne die Geschwindigkeit der Website zu beeinträchtigen oder den Entwicklungsaufwand zu erhöhen. Analysieren Sie Konversionsraten, indem Sie angepasste Analytics wie die Anzahl der erstellten Profile, die beeinflusste Rate wiederkehrender Besucher:innen und die Seiten pro Sitzung anzeigen, um einen Marketing-Vorteil in Ihrer Branche zu erhalten. Justuno ermöglicht es Ihnen, den Umsatz pro Besucher:in zu steigern, sinnvolles Customer-Engagement aufzubauen und Ihr Geschäft auszubauen. Optimieren Sie die gesamte Zielgruppen-Journey End-to-End mit einer vernetzten Plattform.
 
 ## Anwendungsfälle {#use-cases}
 
 Braze erlaubt es jedem Marketer, beliebige Datenmengen aus beliebigen Quellen zu sammeln und zu verarbeiten, sodass Sie von einer Plattform aus kreativ und kanalübergreifend in Echtzeit mit Ihren Kund:innen in Kontakt treten können.
 
-Die Integration von Justuno und Braze bietet Ihnen das Beste aus beiden Welten. Sie können die in Braze gespeicherten Kundendaten mit den in Justuno gespeicherten Besucher- und Kundendaten kombinieren und personalisierte Erlebnisse für alle Zielgruppen schaffen. Dies erhöht die Effektivität Ihrer Marketingkampagnen und Ihres geschäftskunden-Engagements.
+Die Integration von Justuno und Braze bietet Ihnen das Beste aus beiden Welten. Sie können die in Braze gespeicherten Kundendaten mit den in Justuno gespeicherten Besucher- und Kundendaten kombinieren und personalisierte Erlebnisse für alle Zielgruppen schaffen. Dies erhöht die Effektivität Ihrer Marketingkampagnen und Ihres Customer-Engagements.
 
 ## Voraussetzungen {#prerequisites}
 

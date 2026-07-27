@@ -711,7 +711,7 @@ Wir empfehlen, Abfragen innerhalb einer Stunde abzuschließen, um eine optimale 
 | Beschränkung | Beschreibung |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Anzahl der Integrationen | Es gibt keine Begrenzung für die Anzahl der Integrationen, die Sie einrichten können. Sie können jedoch nur eine Integration pro Tabelle oder Ansicht einrichten. |
-| Anzahl der Zeilen | Standardmäßig können pro Durchlauf bis zu 500 Millionen Zeilen synchronisiert werden. Braze unterbricht alle Synchronisierungen mit mehr als 500 Millionen neuen Zeilen. Wenn Sie ein höheres Limit benötigen, wenden Sie sich an Ihren geschäftskunden-Success-Manager bei Braze oder an den Braze Support. |
+| Anzahl der Zeilen | Standardmäßig können pro Durchlauf bis zu 500 Millionen Zeilen synchronisiert werden. Braze unterbricht alle Synchronisierungen mit mehr als 500 Millionen neuen Zeilen. Wenn Sie ein höheres Limit benötigen, wenden Sie sich an Ihren Customer-Success-Manager bei Braze oder an den Braze Support. |
 | Attribute pro Zeile | Jede Zeile sollte eine einzelne Nutzer-ID und ein JSON-Objekt mit bis zu 250 Attributen enthalten. Jeder Schlüssel im JSON-Objekt zählt als ein Attribut (d. h. ein Array zählt als ein Attribut). |
 | Payload-Größe | Jede Zeile kann eine Payload von bis zu 1 MB enthalten. Braze lehnt Payloads ab, die größer als 1&nbsp;MB sind, und protokolliert den Fehler „Payload was greater than 1MB“ zusammen mit der zugehörigen externen ID und der gekürzten Payload im Synchronisierungsprotokoll. |
 | Datentyp | Sie können Nutzerattribute, Events und Käufe über Cloud Data Ingestion synchronisieren. |

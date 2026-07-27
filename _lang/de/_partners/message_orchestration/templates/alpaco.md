@@ -36,7 +36,7 @@ Alpaco unterstützt [alle Liquid-Variablen](https://shopify.github.io/liquid/) u
 
 ## Integration
 
-Stellen Sie dem geschäftskunden-Success-Team von Alpaco Ihren Braze-REST-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Team wird dann die erste Integration für Sie einrichten.
+Stellen Sie dem Customer-Success-Team von Alpaco Ihren Braze-REST-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Team wird dann die erste Integration für Sie einrichten.
 
 {% alert note %}
 Dies ist eine einmalige Einrichtung, und alle zukünftigen Exporte werden automatisch diesen API-Schlüssel verwenden.

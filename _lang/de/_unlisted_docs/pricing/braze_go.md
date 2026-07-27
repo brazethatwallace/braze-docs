@@ -8,7 +8,7 @@ hide_toc: true
 
 # Braze Go
 
-> Braze Go bietet einen optimierten Zugang zur Braze geschäftskunden-Engagement-Plattform, damit Ihre Marketing-Teams überall starten und überallhin gelangen können. Braze Go wurde für Einfachheit und Effizienz entwickelt und ist auf ausgewählte aufstrebende Märkte zugeschnitten.
+> Braze Go bietet einen optimierten Zugang zur Braze Customer-Engagement-Plattform, damit Ihre Marketing-Teams überall starten und überallhin gelangen können. Braze Go wurde für Einfachheit und Effizienz entwickelt und ist auf ausgewählte aufstrebende Märkte zugeschnitten.
 
 {% alert important %}
 Braze Go ist nicht in allen Märkten verfügbar. Wenn Sie mehr über Braze Go erfahren möchten, kontaktieren Sie Ihren Account Manager.

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Refiner
 
-> [Refiner](https://refiner.io) ist eine In-App-Umfrageplattform für SaaS- und mobile Apps. Sie ermöglicht es Produkt- und Voice-of-geschäftskunden-Teams, gezielte In-App-Umfragen zu starten und kontinuierlich NPS-, CSAT-, CES-, Produktfeedback- und Zero-Party-Nutzerdaten zu erfassen.
+> [Refiner](https://refiner.io) ist eine In-App-Umfrageplattform für SaaS- und mobile Apps. Sie ermöglicht es Produkt- und Voice-of-Customer-Teams, gezielte In-App-Umfragen zu starten und kontinuierlich NPS-, CSAT-, CES-, Produktfeedback- und Zero-Party-Nutzerdaten zu erfassen.
 
 _Diese Integration wird von Refiner gepflegt._
 

@@ -39,7 +39,7 @@ Nutzen Sie die umfangreichen Verhaltensdaten von Snowplow, um leistungsstarke ku
 ## Anwendungsfälle {#use-cases}
 
 ### Personalisierte, aktionsbasierte Zustellung {#personalized-action-based-delivery}
-Verwenden Sie eines der zahlreichen Events, die Snowplow standardmäßig erfasst, oder definieren Sie angepasste Events, um noch detailliertere geschäftskunden Journeys zu gestalten, die für Ihr Unternehmen sinnvoll sind. Nutzen Sie die reichhaltigen Verhaltensdaten von Snowplow, um Kunden-Funnel zu entwerfen und Ihren Marketing- und Produkt-Teams dabei zu helfen, Conversion und Produktnutzung durch Braze zu maximieren.
+Verwenden Sie eines der zahlreichen Events, die Snowplow standardmäßig erfasst, oder definieren Sie angepasste Events, um noch detailliertere Customer Journeys zu gestalten, die für Ihr Unternehmen sinnvoll sind. Nutzen Sie die reichhaltigen Verhaltensdaten von Snowplow, um Kunden-Funnel zu entwerfen und Ihren Marketing- und Produkt-Teams dabei zu helfen, Conversion und Produktnutzung durch Braze zu maximieren.
 
 ### Dynamische Segmentierung {#dynamic-segmentation}
 Erstellen Sie dynamische Zielgruppen in Braze auf der Grundlage der hochwertigen Verhaltensdaten von Snowplow: Wenn Nutzer:innen in Ihrem Produkt, Ihrer App oder auf Ihrer Website Aktionen durchführen, können Sie die von Snowplow in Realtime erfassten Verhaltensdaten nutzen, um Nutzer:innen automatisch zu relevanten Segmenten in Braze hinzuzufügen oder daraus zu entfernen.

@@ -2,7 +2,7 @@
 nav_title: Amperity
 article_title: Amperity
 alias: /partners/amperity/
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Amperity, einer umfassenden geschäftskunden Data Platform für Unternehmen, mit der Sie Amperity-Nutzer:innen synchronisieren, Daten vereinheitlichen, Daten über AWS S3-Buckets an Braze senden und vieles mehr können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Amperity, einer umfassenden Customer Data Platform für Unternehmen, mit der Sie Amperity-Nutzer:innen synchronisieren, Daten vereinheitlichen, Daten über AWS S3-Buckets an Braze senden und vieles mehr können."
 page_type: partner
 search_tag: Partner
 
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Amperity
 
-> [Amperity](https://amperity.com/) ist eine umfassende geschäftskunden Data Platform (CDP) für Unternehmen, die Marken dabei hilft, ihre Kund:innen kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity bietet intelligente Funktionen für die Vereinheitlichung der Datenverwaltung, Analytics, Insights und Aktivierung.
+> [Amperity](https://amperity.com/) ist eine umfassende Customer Data Platform (CDP) für Unternehmen, die Marken dabei hilft, ihre Kund:innen kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity bietet intelligente Funktionen für die Vereinheitlichung der Datenverwaltung, Analytics, Insights und Aktivierung.
 
 _Diese Integration wird von Amperity gepflegt._
 
@@ -80,7 +80,7 @@ Folgende Datentypen werden unterstützt:
 - String
 - Varchar
 
-Der verwendete Datentyp hängt von der Art des Attributs ab. Eine E-Mail-Adresse wäre zum Beispiel ein String, während das Alter einer geschäftskunden ein Integer sein könnte.
+Der verwendete Datentyp hängt von der Art des Attributs ab. Eine E-Mail-Adresse wäre zum Beispiel ein String, während das Alter einer Kund:in ein Integer sein könnte.
 
 ### Duplizierung von Attributen {#duplication-of-attributes}
 
@@ -102,11 +102,11 @@ Amperity verfolgt, was sich zwischen den Synchronisierungen mit Braze ändert un
 
 #### Schritt 2a: Kundenprofile-Tabelle erstellen {#step-2a-build-the-customer-profiles-table}
 
-Erstellen Sie eine neue Tabelle mit dem Namen „Braze geschäftskunden Attributes“ in Ihrer geschäftskunden 360-Datenbank in Amperity. Diese Tabelle sollte alle Attribute von Braze enthalten, die Ihre Marke von Amperity aus verwalten möchte, einschließlich der von Braze geforderten Standard-Nutzerprofilfelder und aller angepassten Attribute. Verwenden Sie SQL, um die Struktur dieser Tabelle zu definieren, wie in [der Amperity-Dokumentation](https://docs.amperity.com/datagrid/destination_braze.html#customer-profiles-table) beschrieben.
+Erstellen Sie eine neue Tabelle mit dem Namen „Braze Customer Attributes“ in Ihrer Customer 360-Datenbank in Amperity. Diese Tabelle sollte alle Attribute von Braze enthalten, die Ihre Marke von Amperity aus verwalten möchte, einschließlich der von Braze geforderten Standard-Nutzerprofilfelder und aller angepassten Attribute. Verwenden Sie SQL, um die Struktur dieser Tabelle zu definieren, wie in [der Amperity-Dokumentation](https://docs.amperity.com/datagrid/destination_braze.html#customer-profiles-table) beschrieben.
 
 #### Schritt 2b: Tabelle benennen, validieren und speichern {#step-2b-name-validate-and-save-the-table}
 
-Benennen Sie die Tabelle „Braze geschäftskunden Attributes“ und speichern Sie sie. Überprüfen Sie, ob die Tabelle für den **Segment Editor** und den Editor **Edit Attributes** innerhalb von Campaigns zugänglich ist.
+Benennen Sie die Tabelle „Braze Customer Attributes“ und speichern Sie sie. Überprüfen Sie, ob die Tabelle für den **Segment Editor** und den Editor **Edit Attributes** innerhalb von Campaigns zugänglich ist.
 
 #### Schritt 2c: Braze als Ziel hinzufügen {#step-2c-add-braze-as-a-destination}
 

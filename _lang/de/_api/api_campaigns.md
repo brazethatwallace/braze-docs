@@ -21,7 +21,7 @@ Diese Informationen senden Sie dann an Ihr Entwicklungsteam, um sie in der API-A
 Nachdem die Kampagne begonnen hat, können Sie die Ergebnisse im Dashboard einsehen. API-Kampagnen verwenden die [Messaging-APIs]({{site.baseurl}}/api/endpoints/messaging) von Braze, die über die gleichen detaillierten Berichts- und Retargeting-Optionen verfügen wie Kampagnen, die vollständig über das Dashboard erstellt wurden.
 
 {% alert warning %}
-Da API-Kampagnen in der Regel transaktionsbezogen sind, kommen alle Nutzer:innen für API-Kampagnen in Frage, auch diejenigen in Ihrer globalen Kontrollgruppe. Eine [Ein-Klick-Listenabmeldung]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe)-Kopfzeile wird diesen Sendungen nicht hinzugefügt. Wenn Sie allen API-Kampagnen eine Ein-Klick-Listenabmeldung-Kopfzeile hinzufügen möchten, wenden Sie sich an Ihren geschäftskunden-Success-Manager.
+Da API-Kampagnen in der Regel transaktionsbezogen sind, kommen alle Nutzer:innen für API-Kampagnen in Frage, auch diejenigen in Ihrer globalen Kontrollgruppe. Eine [Ein-Klick-Listenabmeldung]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe)-Kopfzeile wird diesen Sendungen nicht hinzugefügt. Wenn Sie allen API-Kampagnen eine Ein-Klick-Listenabmeldung-Kopfzeile hinzufügen möchten, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
 ## Neue Kampagne erstellen {#create-a-new-campaign}

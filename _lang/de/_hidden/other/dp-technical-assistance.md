@@ -37,7 +37,7 @@ Die meisten Datenschutzgesetze unterscheiden drei Hauptakteure, die an der Verar
 In Bezug auf die Braze-Dienste:
 
 - Bei den betroffenen Personen handelt es sich beispielsweise um die Endnutzer:innen Ihrer Kundenanwendung (z. B. Ihre Kund:innen) oder um Ihre Mitarbeiter:innen, die Unternehmensnutzer:innen in Ihrer Instanz der Braze-Dienste sind.
-- Sie, als Braze-geschäftskunden, sind der Verantwortliche, der entscheidet, wie und warum die personenbezogenen Daten der betroffenen Personen innerhalb der Braze-Dienste erhoben und verarbeitet werden.
+- Sie, als Braze-Kund:in, sind der Verantwortliche, der entscheidet, wie und warum die personenbezogenen Daten der betroffenen Personen innerhalb der Braze-Dienste erhoben und verarbeitet werden.
 - Braze ist ein Auftragsverarbeiter, der personenbezogene Daten in den Braze-Diensten in Ihrem Auftrag und gemäß den Anweisungen verarbeitet, die wir von Ihnen erhalten.
 
 Bei den oben genannten Begriffen handelt es sich um DSGVO-Begriffe. Vergleichbare Begriffe unter dem CCPA lauten beispielsweise:
