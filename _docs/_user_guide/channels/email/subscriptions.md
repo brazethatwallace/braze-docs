@@ -159,7 +159,8 @@ You can see counts of users who changed their subscription state (subscribed or 
 
 The email preference center lets you manage which users receive subscription group newsletters. Find it in the dashboard under **Subscription Groups**. Each subscription group you create is added to the preference center list. 
 
-To learn more about how to add or customize a preference center, refer to [Preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions).
+To learn more about how to add or customize a preference center, refer to [Preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
+
 
 ## Changing email subscriptions {#changing-email-subscriptions}
 
