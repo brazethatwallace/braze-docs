@@ -2,7 +2,7 @@
 nav_title: Segment reporting
 article_title: Segment reporting in Report Builder
 permalink: /segment_reporting_report_builder/
-description: "This reference article covers Segment as a reporting dimension in Report Builder, including how to report on segments, break down by segment, and which combinations are supported."
+description: "This reference article covers segment as a reporting dimension in Report Builder, including how to report on segments, break down by segment, and which combinations are supported."
 hidden: true
 noindex: true
 page_type: reference
@@ -14,7 +14,7 @@ page_type: reference
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success manager' %}
 
-Report Builder supports **Segments** in rows and as a drilldown option, so you can see how your segments are performing and break down campaign or Canvas performance by segment membership.
+Report Builder supports **Segments** in rows and as a drilldown option, so you can see how your segments are performing and break down campaign or Canvas performance by segment membership. If **Segments** doesn't appear in your **Rows** or **Drilldown** dropdowns, this feature hasn't been enabled for your account.
 
 You can answer questions like:
 
@@ -87,7 +87,3 @@ Not all Report Builder metrics are available when you report on segments. Which 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Segment reporting metrics availability"}
 
 For more on how your rows and drilldown selections affect metrics, see [Metrics availability]({{site.baseurl}}/user_guide/analytics/reports/report_builder#metrics-availability) in Report Builder.
-
-## Availability
-
-Segment reporting is an early access feature that is gradually being enabled for accounts. If **Segments** doesn't appear in your **Rows** or **Drilldown** dropdowns, this feature hasn't been enabled for your account. Contact your customer success manager to request access.
