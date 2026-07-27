@@ -11,8 +11,6 @@ channel: email
 
 > Use automated IP warming to gradually ramp email volume from a new IP address to build sender reputation with inbox providers.
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='Automated IP warming' %}
-
 ## How it works
 
 You can use automated IP warming to gradually increase your daily send volume, allowing inbox providers to learn and trust your sending patterns. When you add a domain to your workspace, you can select the **Automated IP Warming** tile in the **Pick up where you left off** section of your home dashboard, and this tile remains here for 60 days.
@@ -89,6 +87,10 @@ Next, select the conversion deadline, which is the maximum time that can pass be
 ### Step 5: Review and launch
 
 Review the details of your IP warming plan. Then, select **Launch**.
+
+### Multiple IP warmups
+
+Go to **Settings** > **Email Preferences**, then select **Automated IP warming**. Here, you can set up multiple IP warming plans and track each plan's progress.
 
 ## During active IP warming
 
