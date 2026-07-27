@@ -131,7 +131,7 @@ For more information about common error codes, see [Troubleshoot webhook and Con
 
 The following are different mechanisms:
 
-- **429 Too Many Requests:** Your endpoint (or an upstream service) is returning this response. It means your server or middleware is refusing traffic, often because it has its own rate limit. Braze does not apply a separate rate limit to Connected Content; Connected Content request volume scales directly with your [message delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Because messages can be rendered multiple times per recipient (for example, for email HTML, plain text, and AMP), the number of Connected Content requests can exceed that rate limit—do not assume it will be less than or equal to the messages per minute you set. If you see 429s, scale your endpoint or middleware to handle the expected request volume, or lower the campaign or Canvas step rate limit so that fewer messages (and thus fewer Connected Content calls) are sent per minute.
+- **429 Too Many Requests:** Your endpoint (or an upstream service) is returning this response. It means your server or middleware is refusing traffic, often because it has its own rate limit. Braze does not apply a separate rate limit to Connected Content; Connected Content request volume scales directly with your [message delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Because messages can be rendered multiple times per recipient (for example, for email HTML, plain text, and AMP), the number of Connected Content requests can exceed that rate limit—do not assume it will be less than or equal to the messages per minute you set. If you see 429s, scale your endpoint or middleware to handle the expected request volume, or lower the campaign or Canvas [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) so that fewer messages (and thus fewer Connected Content calls) are sent per minute.
 - **Unhealthy host detection:** A Braze-side safeguard that triggers after a high rate and volume of *failures* in a one-minute window. The failure count includes `408`, `429`, `502`, `503`, `504`, and `529` status codes. When triggered, Braze temporarily halts requests to that host and simulates a failure response. This is independent of your own rate limiting. For detection thresholds and more detail, see [Troubleshoot webhook and Connected Content requests]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). To avoid hitting unhealthy host detection, ensure your endpoint can handle the call volume described in [Understanding Connected Content call volume](#understanding-connected-content-call-volume) and [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints).
 
 ## Allow for efficient performance {#allowing-for-efficient-performance}
@@ -142,19 +142,34 @@ For more on planning endpoint capacity and reducing call volume, see [Best pract
 
 ## Things to know
 
-* Braze does not charge for API calls and will not count toward your given data point usage.
-* There is a 1 MB limit for Connected Content responses.
-* Connected Content executes when the message is rendered. For in-app messages, the message is rendered at impression time.
-* Connected Content calls do not follow redirects.
+- Braze does not charge for API calls and does not count toward your given data point usage.
+- There is a 1 MB limit for Connected Content responses.
+- Connected Content executes when the message is rendered. For in-app messages, the message is rendered at impression time.
+- Connected Content calls do not follow redirects.
+
+### How Connected Content calls are processed
+
+Connected Content calls within a single message template are executed sequentially (top to bottom) during Liquid rendering. This means downstream calls can reference variables set by upstream calls. In this example, the first call retrieves user data, and the second call uses that data to fetch preferences:
+
+{% raw %}
+```liquid
+{% connected_content https://api.example.com/user :save user_data %}
+{% connected_content https://api.example.com/preferences?user_id={{user_data.id}} :save preferences %}
+```
+{% endraw %}
+
+### Global sending and request volume
+
+While Connected Content calls execute sequentially within a single message, messages are sent in parallel across your campaigns and Canvases. High-volume sends can generate significant request traffic to your endpoints during peak sending periods. To manage and throttle that traffic—including workspace messaging rate limits, delivery speed rate limiting, and caching—see [Best practices for high-volume endpoints](#best-practices-for-high-volume-endpoints).
 
 ## Best practices for high-volume endpoints
 
 If your messages use Connected Content and you send at high volume, plan for more requests than the number of recipients or sends:
 
-1. **Estimate peak load:** Use a conservative multiplier when sizing your endpoint or middleware—Connected Content requests can exceed the number of recipients or messages sent. For example, for email a single recipient can generate multiple calls (HTML, plain text, and AMP), so recipients × 2 or × 3 is often used as a conservative estimate.
-2. **Use caching where appropriate:** GET requests are cached by default. For POST requests, add `:cache_max_age` when the response can be reused for a period (for example, token or content that doesn't change per request). See [Caching responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) and the [POST caching FAQ](#what-is-caching-behavior) in the following section.
-3. **Set delivery speed rate limiting:** [Delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) on campaigns or Canvas steps is the only lever to indirectly limit Connected Content request volume—Braze does not rate limit Connected Content itself. It is only a proxy, and not a perfect one, because Connected Content requests are not 1:1 with messages. Use it to keep message (and thus Connected Content) volume within what your endpoint can handle.
-4. **Design for idempotency and retries:** Braze may call your endpoint more than once per recipient. Ensure your endpoint can tolerate duplicate requests without incorrect side effects.
+- **Estimate peak load:** Use a conservative multiplier when sizing your endpoint or middleware—Connected Content requests can exceed the number of recipients or messages sent. For example, for email a single recipient can generate multiple calls (HTML, plain text, and AMP), so recipients × 2 or × 3 is often used as a conservative estimate.
+- **Use caching where appropriate:** GET requests are cached by default. For POST requests, add `:cache_max_age` when the response can be reused for a period (for example, token or content that doesn't change per request). See [Caching responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) and the [POST caching FAQ](#what-is-caching-behavior) in the following section.
+- **Set message rate limits:** [Workspace messaging rate limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) and [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) on campaigns or Canvases indirectly limit Connected Content request volume—Braze does not rate limit Connected Content itself. These are proxies, not perfect ones, because Connected Content requests are not 1:1 with messages. Use them to keep message (and thus Connected Content) volume within what your endpoint can handle.
+- **Design for idempotency and retries:** Braze may call your endpoint more than once per recipient. Ensure your endpoint can tolerate duplicate requests without incorrect side effects.
 
 ## Authentication types
 
