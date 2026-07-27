@@ -35,7 +35,7 @@ Brazeワークスペースには[複数のWhatsApp Businessアカウント]({{si
 - **Business portfolio**ドロップダウンでビジネスポートフォリオを選択します。これはWhatsApp Businessアカウントに接続されるため、期待するビジネスポートフォリオが表示されない場合は、権限を確認してください。
 - **WhatsApp business account**フィールドで、**Create a new WhatsApp Business Account**を選択します。これは、ワークスペースに別のWhatsApp Businessアカウントを追加する場合や、そのアカウントがすでにMetaに存在する場合も同様です。ドロップダウンから既存のWhatsApp Businessアカウントを選択するのではなく、このオプションを選択してください。<br><br>![ビジネスポートフォリオ名を含むビジネス情報を入力するフィールドがあるウィンドウ。]({% image_buster /assets/img/whatsapp/business_info.png %}){: style="max-width:50%;"}<br><br>
 4. 以下のドロップダウンフィールドを選択し、**Next**を選択します。
-- **Choose a WhatsApp Business アカウント**：WhatsApp Businessアカウントを作成
+- **Choose a WhatsApp Business account**：WhatsApp Businessアカウントを作成
 - **Create or select a WhatsApp Business profile**：新しいWhatsApp Businessプロファイルを作成<br><br>![WhatsApp Businessアカウントとプロファイルを選択または作成するかを指定するフィールド。]({% image_buster /assets/img/whatsapp/create_select_waba.png %}){: style="max-width:50%;"}<br><br>
 5. 以下の情報を入力し、**Next**を選択します。
 - WhatsApp Businessアカウント名

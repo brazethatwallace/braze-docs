@@ -10,5 +10,8 @@
     "button": "botón",
     "endpoint": "endpoint",
     "SDK endpoint": "Punto final de SDK"
+  },
+  "ja": {
+    "WhatsApp Business Account": "WhatsApp Businessアカウント"
   }
 }
