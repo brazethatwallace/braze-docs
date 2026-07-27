@@ -271,6 +271,8 @@ Braze will send Connected Content requests from the following IP ranges. The lis
 
 Braze has a reserved set of IPs used for all services, not all of which are active at a given time. This is designed for Braze to send from a different data center or do maintenance, if necessary, without impacting customers. Braze may use one, a subset, or all of the following IPs listed when making Connected Content requests.
 
+If Connected Content requests consistently return `403 Forbidden` and authentication is configured correctly, allowlist these IPs on the server that receives the request. A `403` can also indicate insufficient permissions or invalid credentials, so confirm both network and auth settings. For webhook-specific guidance, see [403 Forbidden and IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#403-forbidden-and-ip-allowlisting).
+
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### `User-Agent` header
