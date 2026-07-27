@@ -1,0 +1,43 @@
+# Unit tests for Looker Support Cases credential redaction
+# (scripts/export_support_cases_from_looker.py + _data/pii_patterns.yml).
+#
+# Run locally:
+#   pip install pyyaml
+#   cd scripts && python3 -m pytest test_export_support_cases_redaction.py -v
+
+name: Test support cases export redaction
+
+on:
+  pull_request:
+    paths:
+      - "_data/pii_patterns.yml"
+      - "scripts/export_support_cases_from_looker.py"
+      - "scripts/test_export_support_cases_redaction.py"
+      - ".github/workflows/test-export-support-cases-redaction.yml"
+
+concurrency:
+  group: test-export-support-cases-redaction-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test-redaction:
+    name: Unit tests (export_support_cases_from_looker redaction)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml pytest --quiet
+
+      - name: Run redaction tests
+        working-directory: scripts
+        run: python3 -m pytest test_export_support_cases_redaction.py -v

@@ -14,7 +14,7 @@ The Looker saved report behind the export is scoped to a **rolling ~3-day** wind
 
 **~7:00 AM Eastern, Tuesday and Friday:** The **Support analyzer (Looker)** workflow runs (two `cron` entries with `timezone: America/New_York`).
 
-1. **`export`** — Checks out **`support-analyzer-data`**, runs `scripts/export_support_cases_from_looker.py` with Looker API credentials, writes **`_data/support_cases_latest.csv`** (redacts common credential patterns in case text before write), and pushes to **`origin/support-analyzer-data`**. If the CSV is unchanged from the last commit, this job does not create a new commit.
+1. **`export`** — Checks out **`support-analyzer-data`**, runs `scripts/export_support_cases_from_looker.py` with Looker API credentials (script + `_data/pii_patterns.yml` copied from the workflow ref), writes **`_data/support_cases_latest.csv`** (redacts common credential patterns in case text before write), and pushes to **`origin/support-analyzer-data`**. If the CSV is unchanged from the last commit, this job does not create a new commit.
 
 2. **`digest_and_pr`** — Checks out the default branch checkout for that job, fetches the CSV from **`support-analyzer-data`**, runs `scripts/support_analyzer_weekly_digest.py`, uploads the digest markdown as workflow artifact **`support-analyzer-weekly-digest`**, and opens a **draft** digest PR to **`develop`** (branch pattern `support-analyzer/weekly-digest-<run_id>`, title like **`[SA] Weekly support cases digest — YYYY-MM-DD`**, label **`support analyzer`**). The digest PR body includes a short **stakeholder blurb** explaining automation. **This PR does not change customer-facing docs**—only `.github/support_analyzer_weekly_digest.md`.
 
@@ -106,6 +106,7 @@ Omit **`--dry-run`** only when you intend to create branches and PRs (`GH_TOKEN`
 | Digest output (in PR / artifact) | `.github/support_analyzer_weekly_digest.md` |
 | Phase 2 script | `scripts/support_analyzer_phase2.py` |
 | Export script | `scripts/export_support_cases_from_looker.py` |
+| Credential redaction patterns | `_data/pii_patterns.yml` |
 | Digest script | `scripts/support_analyzer_weekly_digest.py` |
 
 ---
@@ -141,7 +142,7 @@ Export fails closed without **`SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DAT
 | Symptom | What to check |
 |---------|----------------|
 | **Export** fails | Looker secrets, query id variable, network; Actions log for `export_support_cases_from_looker.py`. |
-| **Export** push rejected (GH013) | Case text contained a credential GitHub push protection blocked. The export job runs `scripts/export_support_cases_from_looker.py` from the **workflow ref** (`develop` on schedule), not from `support-analyzer-data` (that branch is CSV-only). Redaction covers AWS keys, SendGrid `SG.…` keys, Twilio `AC…`/`SK…` SIDs, GitHub/Slack/Stripe tokens—re-run after merging script/workflow fixes. Check the log for `Redacted N embedded credential-like value(s)`; do not unblock secrets in GitHub unless you intend to store them on the data branch. |
+| **Export** push rejected (GH013) | Case text contained a credential GitHub push protection blocked. The export job runs `scripts/export_support_cases_from_looker.py` and `_data/pii_patterns.yml` from the **workflow ref** (`develop` on schedule), not from `support-analyzer-data` (that branch is CSV-only). Redaction covers patterns in `_data/pii_patterns.yml` (AWS keys, SendGrid `SG.…` keys, Twilio `AC…`/`SK…` SIDs, GitHub/Slack/Stripe tokens)—add missing patterns there, then re-run after merging. Check the log for `Redacted N embedded credential-like value(s)`; do not unblock secrets in GitHub unless you intend to store them on the data branch. |
 | **Digest** fails with empty CSV | Branch **`support-analyzer-data`** missing or empty file; ensure `export` succeeded. |
 | **Phase 2** fails “script not found” | For scheduled runs, `support_analyzer_phase2.py` must exist on **default branch**; merge the script before relying on schedule-only. |
 | **Phase 2** fails strict anchors | Target `_docs` file missing anchor text on `develop`; fix anchor or rule in a PR, or adjust rule. |

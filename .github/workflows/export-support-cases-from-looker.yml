@@ -12,7 +12,8 @@
 # Data sensitivity: Support Cases CSV may contain consumer PII. Keep this repository private,
 # limit branch access, and scope the Looker saved query appropriately. The export script
 # requires SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA=1 in Actions and redacts common
-# credential patterns (AWS keys, SendGrid SG.* keys, Twilio AC/SK SIDs, GitHub/Slack/Stripe tokens, etc.) before commit.
+# credential patterns from `_data/pii_patterns.yml` (AWS keys, SendGrid SG.* keys, Twilio AC/SK SIDs,
+# GitHub/Slack/Stripe tokens, etc.) before commit.
 #
 # Secrets: LOOKER_CLIENT_ID, LOOKER_CLIENT_SECRET
 # Optional variable: LOOKER_SUPPORT_CASES_QUERY_ID
@@ -63,16 +64,19 @@ jobs:
         run: |
           git fetch origin support-analyzer-data "${{ github.ref_name }}" 2>/dev/null || true
           git checkout -B support-analyzer-data origin/support-analyzer-data 2>/dev/null || git checkout -b support-analyzer-data
-          # CSV-only branch: copy export script from workflow ref without staging it for commit.
-          mkdir -p scripts
+          # CSV-only branch: copy export script + redaction patterns from workflow ref
+          # without staging them for commit.
+          mkdir -p scripts _data
           git show "origin/${{ github.ref_name }}:scripts/export_support_cases_from_looker.py" \
             > scripts/export_support_cases_from_looker.py
+          git show "origin/${{ github.ref_name }}:_data/pii_patterns.yml" \
+            > _data/pii_patterns.yml
 
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
-      - run: pip install requests
+      - run: pip install requests pyyaml
 
       - name: Export from Looker
         env:

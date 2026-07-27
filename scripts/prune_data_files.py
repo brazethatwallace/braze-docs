@@ -42,6 +42,7 @@ PROTECTED_REL_PATHS = {
     "_data/alerts.yml",
     "_data/i18n.yml",
     "_data/language_map.yml",
+    "_data/pii_patterns.yml",
     "_data/unreferenced_images_allowlist.txt",
     "_data/support_cases_latest.csv",
 }
