@@ -43,7 +43,9 @@ The Looker saved report behind the export is scoped to a **rolling ~3-day** wind
 
 **Keeping the ownership map current**
 
-- **`.github/support_analyzer_doc_assignees.csv`** should stay aligned with the team’s **Docs – Page Paths / ownership** spreadsheet (re-export CSV and replace the file in a PR).
+- **`.github/support_analyzer_doc_assignees.csv`** should stay aligned with the team’s **Docs – Page Paths / ownership** spreadsheet.
+- **Monthly sync:** GitHub Actions workflow **Doc ownership sync (monthly)** (`.github/workflows/sync-doc-ownership.yml`) runs on the **first weekday** of each month at **9:00 America/New_York** (and on demand). It scans eligible `_docs/` paths on `develop`, updates the spreadsheet **Page Paths** tab, regenerates the CSV, and opens a draft PR when the CSV changes. Path rules live in `scripts/doc_ownership_sync_config.yml`.
+- **Manual override:** You can still re-export CSV from the sheet and replace the file in a PR if needed.
 - **Two assignees for one path:** put **comma-separated GitHub logins** in the **GitHub Username** cell (quoted in CSV if needed), for example `"lydia-xie,zairro"`. Multiple spreadsheet rows for the same path also combine when they share the longest matching prefix length.
 
 ---
