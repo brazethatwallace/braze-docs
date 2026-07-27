@@ -23,7 +23,7 @@ You can answer questions like:
 - How does engagement compare across segments for a single campaign or Canvas?
 
 {% alert note %}
-Segment reporting is only available for segments with [analytics tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) enabled. To select **Segments** in the **Rows** dropdown, you need the workspace-level ["View Dashboard Reports" permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Segment reporting is available only for segments with [analytics tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) enabled. To select **Segments** in the **Rows** dropdown, you need the workspace-level ["View Dashboard Reports" permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Report on segments
