@@ -143,6 +143,42 @@ def _redact_export_text(text: str) -> tuple[str, int]:
 # Default Support Cases explore query ID (from Looker embed URL); override with LOOKER_SUPPORT_CASES_QUERY_ID.
 _DEFAULT_SUPPORT_CASES_QUERY_ID = "OwFKj0j5nyA2o05QqF2bm4"
 
+# Fail when a new export has fewer than this fraction of the prior row count (if prior > 0).
+_DEFAULT_MAX_DROP_RATIO = 0.5
+
+
+def _count_csv_data_rows(csv_text: str) -> int:
+    """Return data row count (excludes header line)."""
+    lines = csv_text.splitlines()
+    if not lines:
+        return 0
+    return max(0, len(lines) - 1)
+
+
+def _validate_export_row_count(
+    csv_text: str,
+    *,
+    prior_row_count: int | None,
+    min_rows: int = 1,
+    max_drop_ratio: float = _DEFAULT_MAX_DROP_RATIO,
+) -> int:
+    """Fail closed on empty exports or sharp row-count drops vs. the prior file."""
+    new_rows = _count_csv_data_rows(csv_text)
+    if new_rows < min_rows:
+        raise SystemExit(
+            f"Error: Looker export has {new_rows} data row(s); need at least {min_rows}."
+        )
+    if prior_row_count is not None and prior_row_count > 0:
+        threshold = prior_row_count * max_drop_ratio
+        if new_rows < threshold:
+            pct = int(max_drop_ratio * 100)
+            raise SystemExit(
+                f"Error: Looker export row count dropped sharply "
+                f"({prior_row_count} → {new_rows}; threshold {pct}% of prior). "
+                "Check the Looker query or date window before committing."
+            )
+    return new_rows
+
 
 def main():
     base_url = (os.environ.get("LOOKER_BASE_URL") or "https://braze.looker.com").rstrip("/")
@@ -207,10 +243,24 @@ def main():
     else:
         output_path = os.path.expanduser(output_path)
 
+    output_path_obj = Path(output_path)
+    prior_row_count: int | None = None
+    if output_path_obj.is_file():
+        prior_row_count = _count_csv_data_rows(
+            output_path_obj.read_text(encoding="utf-8", errors="replace")
+        )
+
     csv_text, redactions = _redact_export_text(csv_resp.text)
     if redactions:
         print(
             f"Redacted {redactions} embedded credential-like value(s) from export before write.",
+            file=sys.stderr,
+        )
+
+    row_count = _validate_export_row_count(csv_text, prior_row_count=prior_row_count)
+    if prior_row_count is not None:
+        print(
+            f"Export row count: {prior_row_count} → {row_count} data rows.",
             file=sys.stderr,
         )
 

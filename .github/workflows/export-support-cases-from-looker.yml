@@ -1,12 +1,11 @@
-# Support analyzer (Looker): export → digest PR → Phase 2 draft doc PRs → close digest PR
+# Support analyzer (Looker): export → digest artifact → Phase 2 draft doc PRs
 #
 # 1) Export Support Cases CSV from Looker and push to branch `support-analyzer-data`.
-# 2) Generate a machine digest (counts + keyword themes), upload it as an artifact, and open ONE draft PR to `develop`.
+# 2) Generate a machine digest (counts + keyword themes) and upload it as a workflow artifact (30-day retention).
 # 3) Phase 2 (after digest): evaluate `.github/support_analyzer_phase2_rules.yml` against the same CSV and open
 #    draft PRs to `develop` for allowlisted doc inserts.
-# 4) If Phase 2 succeeds and a digest PR was opened, close that digest PR (digest remains in workflow artifacts).
 #
-# The digest PR is not customer docs. Phase 2 PRs touch `_docs` but are drafts for human review.
+# The digest is internal triage output only—not customer docs. Phase 2 PRs touch `_docs` but are drafts for human review.
 # Ad-hoc triage still uses the support-analyzer skill for cases outside the Phase 2 rules file.
 #
 # Data sensitivity: Support Cases CSV may contain consumer PII. Keep this repository private,
@@ -24,7 +23,7 @@
 #
 # Phase 2 does not clone Appboy/platform (or other product repos) in CI; no REFERENCE_REPO_TOKEN here.
 #
-# Labels: Create `support analyzer` and `do not merge` in the repo if missing—the digest PR applies both.
+# Labels: Create `support analyzer` in the repo if missing—Phase 2 draft PRs apply it.
 #
 # Schedule: `cron` + `timezone` use GitHub Actions schedule event semantics (IANA timezone, DST-aware).
 # Default: Tuesday and Friday ~7:00 America/New_York (~every three days; Looker export is a rolling ~3-day window).
@@ -46,14 +45,16 @@ on:
         default: false
         type: boolean
 
-permissions:
-  contents: write
-  pull-requests: write
+concurrency:
+  group: support-analyzer-looker
+  cancel-in-progress: false
 
 jobs:
   export:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v7
@@ -94,12 +95,12 @@ jobs:
           git add _data/support_cases_latest.csv
           git diff --staged --quiet && echo "No CSV changes to commit" || (git commit -m "chore: Support Cases export from Looker (scheduled)" && git push origin support-analyzer-data)
 
-  digest_and_pr:
+  digest:
     needs: export
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    outputs:
-      digest_pr_number: ${{ steps.digest_pr.outputs.pull-request-number || '' }}
+    permissions:
+      contents: read
 
     steps:
       - uses: actions/checkout@v7
@@ -127,43 +128,25 @@ jobs:
         with:
           name: support-analyzer-weekly-digest
           path: .github/support_analyzer_weekly_digest.md
+          retention-days: 30
 
-      - name: Date stamp (Eastern)
-        id: stamp
-        run: echo "ymd=$(TZ=America/New_York date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
-
-      - name: Open digest pull request
-        id: digest_pr
-        uses: peter-evans/create-pull-request@v8
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          draft: true
-          branch: support-analyzer/weekly-digest-${{ github.run_id }}
-          base: develop
-          title: "[SA] Weekly support cases digest — ${{ steps.stamp.outputs.ymd }}"
-          body: |
-            ## For tagged reviewers and stakeholders
-
-            This pull request was **generated automatically** by the Braze Support analyzer workflow. That process reviews the latest **Braze Support** case export (Looker). **This PR** is an internal digest only (keyword themes and counts)—it does **not** change customer-facing Braze Docs. The same workflow run may open separate **draft** Phase 2 PRs that propose `_docs` edits (see `.github/support_analyzer_phase2_rules.yml`).
-
-            **Do not merge:** This digest PR is for **analysis and triage only**. Use `.github/support_analyzer_weekly_digest.md` in this PR and `_data/support_cases_latest.csv` on branch `support-analyzer-data` with the support-analyzer skill (`.github/skills/support-analyzer/SKILL.md`) as needed.
-
-            When Phase 2 completes successfully, this digest PR is **closed automatically** (the digest file is also attached as a **workflow artifact** on the run).
-
-            See `.github/support_analyzer_weekly_digest.md` in this PR.
-          labels: |
-            support analyzer
-            do not merge
-          commit-message: "chore: support cases digest (automated)"
-          delete-branch: true
-          add-paths: |
-            .github/support_analyzer_weekly_digest.md
+      - name: Digest job summary
+        run: |
+          {
+            echo "### Support analyzer digest"
+            echo ""
+            echo "Keyword theme digest uploaded as artifact **support-analyzer-weekly-digest** (retained 30 days)."
+            echo "Use \`_data/support_cases_latest.csv\` on branch \`support-analyzer-data\` with the support-analyzer skill for full triage."
+          } >> "$GITHUB_STEP_SUMMARY"
 
   phase2_doc_prs:
-    needs: [digest_and_pr]
+    needs: [digest]
     if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.skip_phase2 == 'true') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       # workflow_dispatch: checkout the branch you run from (has Phase 2 script before merge).
@@ -213,6 +196,7 @@ jobs:
           name: support-analyzer-phase2-verification
           path: .github/support_analyzer_phase2_verification.md
           if-no-files-found: ignore
+          retention-days: 30
 
       - name: Upload Phase 2 run summary
         if: ${{ always() }}
@@ -221,31 +205,16 @@ jobs:
           name: support-analyzer-phase2-summary
           path: .github/support_analyzer_phase2_run_summary.json
           if-no-files-found: ignore
-
-  close_digest_pr:
-    needs: [digest_and_pr, phase2_doc_prs]
-    if: ${{ needs.digest_and_pr.result == 'success' && needs.digest_and_pr.outputs.digest_pr_number != '' && needs.phase2_doc_prs.result == 'success' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: write
-      pull-requests: write
-
-    steps:
-      - name: Close digest-only pull request
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ needs.digest_and_pr.outputs.digest_pr_number }}
-        run: |
-          gh pr close "$PR_NUMBER" --delete-branch --repo "${{ github.repository }}" \
-            --comment "Automated: Phase 2 finished for this workflow run. The digest is still available from the **support-analyzer-weekly-digest** artifact on the workflow run. Re-open from the branch history if you need an in-repo thread."
+          retention-days: 30
 
   notify:
     name: Slack notification
-    needs: [export, digest_and_pr, phase2_doc_prs, close_digest_pr]
+    needs: [export, digest, phase2_doc_prs]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: read
 
     steps:
       - uses: actions/checkout@v7
@@ -270,10 +239,8 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           NEEDS_EXPORT_RESULT: ${{ needs.export.result }}
-          NEEDS_DIGEST_RESULT: ${{ needs.digest_and_pr.result }}
+          NEEDS_DIGEST_RESULT: ${{ needs.digest.result }}
           NEEDS_PHASE2_RESULT: ${{ needs.phase2_doc_prs.result }}
-          NEEDS_CLOSE_DIGEST_RESULT: ${{ needs.close_digest_pr.result }}
-          DIGEST_PR_NUMBER: ${{ needs.digest_and_pr.outputs.digest_pr_number }}
           SKIP_PHASE2: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skip_phase2 == 'true' }}
           PHASE2_SUMMARY_PATH: .github/support_analyzer_phase2_run_summary.json
         run: python scripts/support_analyzer_slack_notify.py

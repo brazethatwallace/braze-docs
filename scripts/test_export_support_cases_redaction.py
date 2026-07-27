@@ -9,10 +9,12 @@ from pathlib import Path
 from unittest import mock
 
 from export_support_cases_from_looker import (
+    _count_csv_data_rows,
     _load_default_secret_redactions,
     _load_secret_redactions,
     _redact_embedded_secrets,
     _redact_export_text,
+    _validate_export_row_count,
 )
 
 # Synthetic fixtures shaped like credential formats GitHub push protection scans.
@@ -255,6 +257,29 @@ class RedactExportTextTests(unittest.TestCase):
         text, count = _redact_export_text("no secrets here")
         self.assertEqual(count, 0)
         self.assertEqual(text, "no secrets here")
+
+
+class ExportRowSanityTests(unittest.TestCase):
+    def test_count_csv_data_rows_excludes_header(self) -> None:
+        self.assertEqual(_count_csv_data_rows("a,b\n1,2\n3,4"), 2)
+        self.assertEqual(_count_csv_data_rows(""), 0)
+
+    def test_validate_rejects_empty_export(self) -> None:
+        with self.assertRaises(SystemExit):
+            _validate_export_row_count("h\n", prior_row_count=None)
+
+    def test_validate_rejects_sharp_drop(self) -> None:
+        csv_text = "h\n" + "\n".join("x" for _ in range(40))
+        with self.assertRaises(SystemExit):
+            _validate_export_row_count(csv_text, prior_row_count=100)
+
+    def test_validate_allows_first_export_without_prior(self) -> None:
+        csv_text = "h\n" + "\n".join("x" for _ in range(10))
+        self.assertEqual(_validate_export_row_count(csv_text, prior_row_count=None), 10)
+
+    def test_validate_allows_modest_drop(self) -> None:
+        csv_text = "h\n" + "\n".join("x" for _ in range(60))
+        self.assertEqual(_validate_export_row_count(csv_text, prior_row_count=100), 60)
 
 
 if __name__ == "__main__":

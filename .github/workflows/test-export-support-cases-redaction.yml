@@ -13,6 +13,9 @@ on:
       - "_data/pii_patterns.yml"
       - "scripts/export_support_cases_from_looker.py"
       - "scripts/test_export_support_cases_redaction.py"
+      - "scripts/support_analyzer_phase2.py"
+      - "scripts/validate_support_analyzer_phase2_rules.py"
+      - "scripts/test_support_analyzer_phase2_hardening.py"
       - ".github/workflows/test-export-support-cases-redaction.yml"
 
 concurrency:
@@ -38,6 +41,6 @@ jobs:
       - name: Install dependencies
         run: pip install pyyaml pytest --quiet
 
-      - name: Run redaction tests
+      - name: Run redaction and hardening tests
         working-directory: scripts
-        run: python3 -m pytest test_export_support_cases_redaction.py -v
+        run: python3 -m pytest test_export_support_cases_redaction.py test_support_analyzer_phase2_hardening.py -v
