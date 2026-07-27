@@ -97,18 +97,18 @@ Lorsque l'état d'abonnement e-mail global d'un utilisateur change, Braze propag
 
 ## Groupes d'abonnement {#subscription-groups}
 
-Les groupes d'abonnement sont des filtres de segment qui permettent d'affiner davantage votre audience à partir des [états d'abonnement globaux](#subscription-states). Ces groupes vous permettent de proposer des options d'abonnement plus granulaires aux utilisateurs finaux.
+Les groupes d'abonnement sont des filtres de Segment qui permettent d'affiner davantage votre audience à partir des [états d'abonnement globaux](#subscription-states). Ces groupes vous permettent de proposer des options d'abonnement plus granulaires aux utilisateurs finaux.
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-Par exemple, supposons que vous envoyez plusieurs catégories de campagnes e-mail (promotionnelles, newsletter ou mises à jour produit). Dans ce cas, vous pouvez utiliser des groupes d'abonnement pour permettre à vos clients de choisir les catégories d'e-mails auxquelles ils souhaitent s'abonner ou se désabonner en masse depuis une seule page, en utilisant un [centre de préférences e-mail](#email-preference-center). Vous pouvez également utiliser des groupes d'abonnement pour permettre à vos clients de choisir la fréquence de réception de vos e-mails, en créant des groupes d'abonnement pour les e-mails quotidiens, hebdomadaires ou mensuels.
+Par exemple, supposons que vous envoyiez plusieurs catégories de Campaigns par e-mail (promotionnelles, newsletters ou mises à jour de produits). Dans ce cas, vous pouvez utiliser les groupes d'abonnement pour permettre à vos clients de choisir les catégories d'e-mails auxquelles ils souhaitent s'abonner ou se désabonner en masse depuis une seule page, en utilisant un [centre de préférences e-mail](#email-preference-center). Vous pouvez également utiliser les groupes d'abonnement pour permettre à vos clients de choisir la fréquence à laquelle ils souhaitent recevoir des e-mails de votre part, en créant des groupes d'abonnement pour des e-mails quotidiens, hebdomadaires ou mensuels.
 
-Utilisez les [endpoints des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups) pour gérer de manière programmatique les groupes d'abonnement que vous avez enregistrés dans le tableau de bord de Braze sur la page **Subscription Group**.
+Utilisez les [endpoints des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups) pour gérer de manière programmatique les groupes d'abonnement que vous avez enregistrés dans le tableau de bord de Braze sur la page **Groupe d'abonnement**.
 
-### Création d'un groupe d'abonnement {#creating-a-subscription-group}
+### Créer un groupe d'abonnement {#creating-a-subscription-group}
 
-1. Accédez à **Audience** > **Subscription Group Management**.
-2. Sélectionnez **Create email subscription group**.
+1. Accédez à **Audience** > **Gestion des groupes d'abonnement**.
+2. Sélectionnez **Créer un groupe d'abonnement e-mail**.
 3. Donnez un nom et une description à votre groupe d'abonnement.
 4. Sélectionnez **Enregistrer**.
 
@@ -116,44 +116,44 @@ Tous les groupes d'abonnement sont automatiquement ajoutés à votre centre de p
 
 ![Champs pour créer un groupe d'abonnement.]({% image_buster /assets/img/sub_group_create.png %}){: style="max-width:75%"}
 
-### Segmentation avec un groupe d'abonnement {#segmenting-with-a-subscription-group}
+### Segmenter avec un groupe d'abonnement {#segmenting-with-a-subscription-group}
 
-Lors de la création de vos segments, définissez le nom du groupe d'abonnement comme filtre pour cibler les utilisateurs qui se sont abonnés à votre groupe. C'est idéal pour les newsletters mensuelles, les coupons, les niveaux d'adhésion, et bien plus encore.
+Lors de la création de vos Segments, définissez le nom du groupe d'abonnement comme filtre pour cibler les utilisateurs qui se sont abonnés à votre groupe. Cela est utile pour les newsletters mensuelles, les coupons, les niveaux d'adhésion, et bien plus encore.
 
-![Exemple de ciblage des utilisateurs dans le segment « Utilisateurs inactifs » avec le filtre pour les utilisateurs du groupe d'abonnement « E-mails hebdomadaires ».]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
+![Exemple de ciblage des utilisateurs dans le Segment « Utilisateurs inactifs » avec le filtre pour les utilisateurs du groupe d'abonnement « E-mails hebdomadaires ».]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
-### Archivage des groupes d'abonnement {#archiving-subscription-groups}
+### Archiver des groupes d'abonnement {#archiving-subscription-groups}
 
-Les groupes d'abonnement archivés ne peuvent pas être modifiés et n'apparaissent plus dans les filtres de segment ni dans votre centre de préférences. Si vous tentez d'archiver un groupe utilisé comme filtre de segment dans un e-mail, une Campaign ou un Canvas, vous recevrez un message d'erreur vous empêchant d'archiver le groupe tant que vous n'aurez pas supprimé toutes ses utilisations.
+Les groupes d'abonnement archivés ne peuvent pas être modifiés et n'apparaissent plus dans les filtres de Segment ni dans votre centre de préférences. Si vous tentez d'archiver un groupe utilisé comme filtre de Segment dans un e-mail, une Campaign ou un Canvas, vous recevrez un message d'erreur vous empêchant d'archiver le groupe tant que vous n'aurez pas supprimé toutes les utilisations de celui-ci.
 
-Pour archiver votre groupe depuis la page **Subscription Groups**, procédez comme suit :
+Pour archiver votre groupe depuis la page **Groupes d'abonnement**, procédez comme suit :
 
 1. Trouvez votre groupe dans la liste des groupes d'abonnement.
-2. Sélectionnez **Archiver** dans le menu déroulant <i class="fa-solid fa-ellipsis-vertical" aria-label="Ouvrir le menu d'options"></i>&nbsp;.
+2. Sélectionnez **Archiver** dans le menu déroulant <i class="fa-solid fa-ellipsis-vertical" aria-label="Plus d'options"></i>&nbsp;.
 
-Braze ne traite pas les changements d'état pour les utilisateurs des groupes archivés. Par exemple, si vous archivez le groupe d'abonnement 1 alors qu'Alex y est abonné, Alex reste « abonné » même s'il clique sur un lien de désabonnement. Cela n'a pas d'importance car le groupe d'abonnement 1 est archivé et vous ne pouvez pas envoyer de messages en l'utilisant.
+Braze ne traite pas les changements d'état pour les utilisateurs dans les groupes archivés. Par exemple, si vous archivez le groupe d'abonnement 1 alors qu'Alex y est abonné, Alex reste « abonné » même s'il clique sur un lien de désabonnement. Cela n'a pas d'importance car le groupe d'abonnement 1 est archivé et vous ne pouvez pas envoyer de messages en l'utilisant.
 
-#### Consultation de la taille des groupes d'abonnement {#viewing-subscription-group-sizes}
+#### Consulter la taille des groupes d'abonnement {#viewing-subscription-group-sizes}
 
-Vous pouvez consulter le graphique **Subscription Group Timeseries** sur la page **Subscription Groups** pour visualiser la taille du groupe d'abonnement en fonction du nombre d'utilisateurs sur une période donnée. Ces tailles de groupes d'abonnement sont également cohérentes avec les autres zones de Braze, comme le calcul de la taille des segments.
+Vous pouvez consulter le graphique **Série temporelle du groupe d'abonnement** sur la page **Groupes d'abonnement** pour visualiser la taille du groupe d'abonnement en fonction du nombre d'utilisateurs sur une période donnée. Ces tailles de groupes d'abonnement sont également cohérentes avec d'autres zones de Braze, comme le calcul de la taille des Segments.
 
-![Exemple de graphique « Subscription Group Timeseries » daté du 2 au 11 décembre. Le graphique montre une augmentation d'environ 10 millions d'utilisateurs entre le 6 et le 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
+![Un exemple de graphique « Série temporelle du groupe d'abonnement » daté du 2 au 11 décembre. Le graphique montre une augmentation d'environ 10 millions du nombre d'utilisateurs entre le 6 et le 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-Si le décompte de la série temporelle diverge fortement d'un segment utilisant **Email Subscription Status is Unsubscribed**, rappelez-vous que le graphique comptabilise l'appartenance à ce **groupe d'abonnement**, tandis que ce filtre reflète l'état d'abonnement e-mail **global** — par exemple, des utilisateurs peuvent être globalement abonnés mais désabonnés d'un groupe spécifique.
+Si le décompte de la série temporelle diverge fortement d'un Segment utilisant **Le statut d'abonnement e-mail est Désabonné**, n'oubliez pas que le graphique comptabilise l'appartenance à ce **groupe d'abonnement**, tandis que ce filtre reflète l'état d'abonnement e-mail **global** — par exemple, des utilisateurs peuvent être globalement abonnés mais désabonnés d'un groupe spécifique.
 
-#### Consultation des groupes d'abonnement dans l'analyse des campagnes {#viewing-subscription-groups-in-campaign-analytics}
+#### Consulter les groupes d'abonnement dans l'analyse de campagne {#viewing-subscription-groups-in-campaign-analytics}
 
-Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonnement (abonné ou désabonné) à partir d'une campagne e-mail spécifique sur la page d'analyse de cette Campaign.
+Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonnement (abonnés ou désabonnés) à partir d'une Campaign par e-mail spécifique sur la page d'analyse de cette Campaign.
 
-1. Depuis la page **Campaign Analytics** de votre Campaign, faites défiler jusqu'à la section **Email Message Performance**.
-2. Sélectionnez la flèche sous **Subscription Groups** pour voir le décompte agrégé des changements d'état, tels que soumis par vos clients.
+1. Depuis la page **Analyse de la Campaign** de votre Campaign, faites défiler jusqu'à la section **Performance des messages e-mail**.
+2. Sélectionnez la flèche sous **Groupes d'abonnement** pour voir le décompte agrégé des changements d'état, tels que soumis par vos clients.
 
-![La page « Email Message Performance » affichant le décompte agrégé des changements d'état soumis par les clients.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
+![La page « Performance des messages e-mail » affichant le décompte agrégé des changements d'état soumis par les clients.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
 
-### Vérification du groupe d'abonnement e-mail d'un utilisateur {#checking-a-users-email-subscription-group}
+### Vérifier le groupe d'abonnement e-mail d'un utilisateur {#checking-a-users-email-subscription-group}
 
-- **Profil utilisateur :** Les profils utilisateur individuels sont accessibles via le tableau de bord de Braze depuis la page [Rechercher des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Vous pouvez y rechercher des profils utilisateur par adresse e-mail, numéro de téléphone ou ID utilisateur externe. Vous pouvez également consulter les groupes d'abonnement e-mail d'un utilisateur dans l'onglet **Engagement**.
-- **REST API Braze :** Utilisez l'[endpoint Lister les groupes d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou l'[endpoint Lister le statut des groupes d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) pour consulter les groupes d'abonnement d'un profil utilisateur individuel.
+- **Profil utilisateur :** Les profils utilisateur individuels sont accessibles via le tableau de bord de Braze depuis la page [Rechercher des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Vous pouvez y rechercher des profils utilisateur par adresse e-mail, numéro de téléphone ou identifiant utilisateur externe. Vous pouvez également consulter les groupes d'abonnement e-mail d'un utilisateur dans l'onglet **Engagement**.
+- **REST API de Braze :** Utilisez l'[endpoint Lister les groupes d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou l'[endpoint Lister le statut du groupe d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) pour consulter les groupes d'abonnement du profil d'un utilisateur individuel.
 
 ## Centre de préférences e-mail {#email-preference-center}
 
@@ -163,7 +163,11 @@ Pour en savoir plus sur l'ajout ou la personnalisation d'un centre de préféren
 
 ## Modification des abonnements e-mail {#changing-email-subscriptions}
 
-Dans la plupart des cas, les utilisateurs gèrent leur abonnement e-mail via des liens inclus dans les e-mails qu'ils reçoivent. Insérez un pied de page conforme à la législation avec un lien de désabonnement en bas de chaque e-mail. Lorsque les utilisateurs sélectionnent l'URL de désabonnement, Braze les désabonne et affiche une page de confirmation du changement. Incluez cette étiquette Liquid : {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
+Dans la plupart des cas, les utilisateurs gèrent leur abonnement e-mail via des liens inclus dans les e-mails qu'ils reçoivent. Insérez un pied de page conforme à la législation avec un lien de désabonnement en bas de chaque e-mail. Lorsque les utilisateurs sélectionnent l'URL de désabonnement, Braze les désabonne et affiche une page de destination confirmant le changement. Incluez cette étiquette Liquid : {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
+
+{% alert note %}
+Vous pouvez utiliser l'étiquette Liquid {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} uniquement dans les Campaigns et les Canvas par e-mail. Vous ne pouvez pas utiliser cette étiquette dans d'autres canaux de communication.
+{% endalert %}
 
 Lorsqu'un utilisateur sélectionne « Se désabonner de tous les types d'e-mails ci-dessus » dans le centre de préférences, Braze définit son état d'abonnement e-mail global sur `unsubscribed` et le désabonne de tous les groupes.
 
@@ -171,40 +175,40 @@ Lorsqu'un utilisateur sélectionne « Se désabonner de tous les types d'e-mails
 
 Si vous ne souhaitez pas utiliser le pied de page par défaut, créez un pied de page e-mail personnalisé à l'échelle de l'espace de travail et intégrez-le dans chaque e-mail en utilisant {% raw %}`{{${email_footer}}}`{% endraw %}.
 
-Cela vous évite de créer un nouveau pied de page pour chaque modèle d'e-mail ou campagne e-mail. Pour les étapes détaillées, consultez [Pied de page e-mail personnalisé]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer).
+Cela vous évite de créer un nouveau pied de page pour chaque modèle d'e-mail ou Campaign par e-mail. Pour les étapes détaillées, consultez [Pied de page e-mail personnalisé]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer).
 
 #### Gestion des états d'abonnement pour les adresses IP chinoises {#managing-subscription-states-for-chinese-ip-addresses}
 
-Si vous prévoyez des adresses IP chinoises, ne vous fiez pas uniquement à un lien de désabonnement pour maintenir les listes de désabonnés. Proposez des chemins de désabonnement alternatifs tels qu'un ticket d'assistance ou une adresse e-mail de conseiller client.
+Si vous prévoyez des adresses IP chinoises, ne vous fiez pas uniquement à un lien de désabonnement pour maintenir les listes de désabonnés (`unsubscribed`). Proposez des chemins de désabonnement alternatifs tels qu'un ticket d'assistance ou une adresse e-mail de conseiller client.
 
 ### Création d'une page de désabonnement personnalisée {#creating-a-custom-unsubscribe-page}
 
 Lorsque les utilisateurs sélectionnent une URL de désabonnement dans un e-mail, ils accèdent à une page par défaut qui confirme le changement d'abonnement.
 
-Pour utiliser une page personnalisée à la place :
+Pour utiliser une page de destination personnalisée à la place :
 
-1. Accédez à **Email Preferences** > **Subscription Pages and Footers**.
+1. Accédez à **Préférences e-mail** > **Pages d'abonnement et pieds de page**.
 2. Ajoutez le HTML de votre page personnalisée.
 
-Incluez un lien de réabonnement (par exemple {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) pour que les utilisateurs puissent annuler un désabonnement accidentel.
+Incluez un lien de réabonnement (par exemple {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) pour que les utilisateurs puissent annuler un désabonnement accidentel. Comme pour {% raw %}`${set_user_to_unsubscribed_url}`{% endraw %}, vous pouvez utiliser cette étiquette uniquement dans les Campaigns et les Canvas par e-mail.
 
-Vous pouvez également rediriger les utilisateurs vers votre site et mettre à jour le statut avec la REST API Braze (par exemple un lien avec {% raw %}`?user_id={{${user_id}}}`{% endraw %} puis appeler [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
+Vous pouvez également rediriger les utilisateurs vers votre site et mettre à jour le statut avec la REST API de Braze (par exemple un lien avec {% raw %}`?user_id={{${user_id}}}`{% endraw %} puis appeler [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
 
 {% alert note %}
-Si vous utilisez le pied de page du tableau de bord au lieu d'un simple bloc de contenu HTML, le modèle doit toujours contenir {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} pour être enregistré. Pour utiliser temporairement une URL de désabonnement différente, vous pouvez commenter l'étiquette par défaut. Par exemple : {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
+Si vous utilisez le pied de page du tableau de bord au lieu d'un simple bloc de contenu HTML, le modèle doit toujours contenir {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} pour pouvoir être enregistré. Pour utiliser temporairement une URL de désabonnement différente, vous pouvez commenter l'étiquette par défaut. Par exemple : {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
 {% endalert %}
 
 ![Page de désabonnement personnalisée avec un aperçu « Désolé de vous voir partir ! ».]({% image_buster /assets/img/custom_unsubscribe.png %})
 
 ### Création d'une page d'abonnement personnalisée {#creating-a-custom-opt-in-page}
 
-Utilisez une page d'abonnement personnalisée pour permettre aux utilisateurs de prendre connaissance et de contrôler leurs préférences de notification avant l'abonnement. Cette communication supplémentaire peut aider vos campagnes e-mail à éviter les dossiers de spam.
+Utilisez une page d'abonnement personnalisée pour permettre aux utilisateurs de prendre connaissance et de contrôler leurs préférences de notification avant l'abonnement. Cette communication supplémentaire peut aider vos Campaigns par e-mail à éviter les dossiers de spam.
 
-1. Accédez à **Settings** > **Email Preferences**.
-2. Sélectionnez **Subscription Pages and Footers**.
-3. Personnalisez le style dans la section **Custom opt-in page** pour voir comment cela indique à vos utilisateurs qu'ils ont été abonnés.
+1. Accédez à **Paramètres** > **Préférences e-mail**.
+2. Sélectionnez **Pages d'abonnement et pieds de page**.
+3. Personnalisez le style dans la section **Page d'abonnement personnalisée** pour voir comment cela indique à vos utilisateurs qu'ils ont été abonnés.
 
-Les utilisateurs accèdent à cette page via l'étiquette {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %}.
+Les utilisateurs accèdent à cette page via l'étiquette {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %}. Comme pour les autres étiquettes Liquid d'abonnement e-mail, vous pouvez utiliser cette étiquette uniquement dans les Campaigns et les Canvas par e-mail.
 
 {% alert tip %}
 Utilisez un processus de double abonnement pour améliorer votre portée. Braze envoie un e-mail de confirmation supplémentaire dans lequel l'utilisateur confirme ses préférences de notification via un lien. Après confirmation, l'abonnement de l'utilisateur est confirmé.

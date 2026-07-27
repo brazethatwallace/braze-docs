@@ -26,21 +26,27 @@ Como las campañas API suelen ser transaccionales, todos los usuarios son elegib
 
 ## Crear una nueva campaña {#create-a-new-campaign}
 
-Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña** y, a continuación, **Campañas API**. Ahora puedes avanzar para configurar tu campaña de API.
+Ve a **Mensajería** > **Campaigns** y selecciona **Crear Campaign**, luego selecciona **API Campaigns**. Ahora puedes continuar con la configuración de tu Campaign de API.
 
-Una [campaña desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) es diferente de una campaña de API.
+Una [Campaign activada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) es diferente de una Campaign de API.
 
-## Configura tu campaña {#configure-your-campaign}
+## Configura tu Campaign {#configure-your-campaign}
 
-Para configurar tu campaña, realiza los siguientes pasos:
+Para configurar tu Campaign, realiza los siguientes pasos:
 
-1. Añade un título descriptivo para que puedas encontrar los resultados en la página de campañas después de haber enviado tus mensajes.
-2. Selecciona **Añadir mensaje** y añade los tipos de mensajes que se incluirán en tu campaña API. Esto te permitirá generar un `campaign_id` y un ID de variación del mensaje, que difiere para cada canal que incluyas.
-3. Opcionalmente, puedes añadir un evento de conversión para hacer un seguimiento de las conversiones de usuarios en una acción específica o en un objetivo de campaña.
-4. Selecciona **Guardar campaña** y ¡ya estás listo para empezar tu campaña API!
+1. Añade un título descriptivo para que puedas encontrar los resultados en la página de Campaigns después de haber enviado tus mensajes.
+2. Selecciona **Añadir mensaje** y añade los tipos de mensaje incluidos en tu Campaign de API. Esto te permite generar un `campaign_id` y un ID de variante de mensaje, que difiere para cada canal que incluyas.
+3. Opcionalmente, puedes añadir un evento de conversión para rastrear las conversiones de los usuarios en una acción o meta de Campaign específica.
+4. Selecciona **Guardar Campaign** y ¡estarás listo para comenzar tu Campaign de API!
 
 ## Llamadas a la API {#api-calls}
 
-Después de guardar tu campaña de API, incluye lo siguiente en tu solicitud de API:
-- Los campos `campaign_id` generados con tu solicitud de API según se indique en los [endpoints de envío de mensajes]({{site.baseurl}}/api/endpoints/messaging).
-- Un [objeto de mensaje]({{site.baseurl}}/api/objects_filters#messaging-objects) para cada plataforma incluida en la campaña. En el objeto de mensaje, proporciona el ID de variación del mensaje. Esto especifica que las estadísticas deben recopilarse y mostrarse bajo esa variante. Se admiten los siguientes objetos de mensaje: Android, Content Cards, correo electrónico, iOS, Kindle, SMS/MMS, notificación push web y webhook.
+Después de guardar tu Campaign de API, incluye lo siguiente en tu solicitud de API:
+- Los campos `campaign_id` generados con tu solicitud de API donde se indica en los [endpoints de envío de mensajes]({{site.baseurl}}/api/endpoints/messaging).
+- Un [objeto de mensaje]({{site.baseurl}}/api/objects_filters#messaging-objects) para cada plataforma incluida en la Campaign. En el objeto de mensaje, proporciona el ID de variante del mensaje. Esto especifica que las estadísticas deben recopilarse y mostrarse bajo esa variante. Se admiten los siguientes objetos de mensaje: Android, Content Cards, correo electrónico, iOS, Kindle, SMS/MMS, notificación push web y webhook.
+
+### Añadir archivos adjuntos de correo electrónico {#adding-email-attachments}
+
+Para añadir archivos adjuntos a los correos electrónicos de Campaigns de API, incluye un array `attachments` en el [objeto de correo electrónico]({{site.baseurl}}/api/objects_filters/messaging/email_object). Puedes hacer referencia a una plantilla de correo electrónico creada en el editor de arrastrar y soltar o en el editor HTML proporcionando su `email_template_id` en el objeto de correo electrónico y, a continuación, añadir archivos adjuntos a través de la llamada a la API.
+
+Para obtener detalles sobre archivos adjuntos, límites de tamaño y prácticas recomendadas, consulta [Ejemplo de objeto de correo electrónico con archivo adjunto]({{site.baseurl}}/api/objects_filters/messaging/email_object#example-email-object-with-attachment).

@@ -49,7 +49,7 @@ Puedes encontrar más información específica de Canvas en [Mensajes dentro de 
 
 ## Paso 2: Especificar las plataformas de entrega {#step-2-specify-delivery-platforms}
 
-Comienza eligiendo qué plataformas deben recibir el mensaje. Usa esta selección para limitar la entrega de una Campaign a un conjunto específico de aplicaciones. Por ejemplo, podrías elegir **Navegadores web** para un mensaje en el explorador que anime a los usuarios a descargar tu aplicación móvil, para asegurarte de que no reciban el mensaje después de haber obtenido tu aplicación. Dado que las selecciones de plataforma son específicas de cada variante, podrías probar la participación del mensaje por plataforma.
+Comienza eligiendo qué plataformas deben recibir el mensaje. Usa esta selección para limitar la entrega de una campaña a un conjunto específico de aplicaciones. Por ejemplo, podrías elegir **Navegadores web** para un mensaje en el explorador que anime a los usuarios a descargar tu aplicación móvil, para asegurarte de que no reciban el mensaje después de haber obtenido ya tu aplicación. Dado que las selecciones de plataforma son específicas de cada variante, podrías probar la participación del mensaje por plataforma.
 
 | Plataforma                                    | Entrega del mensaje             |
 |------------------------------------------------|---------------------------------|
@@ -62,7 +62,7 @@ Comienza eligiendo qué plataformas deben recibir el mensaje. Usa esta selecció
 
 Una vez que hayas seleccionado una plataforma de envío, explora los tipos de mensaje, diseños y otras opciones asociadas. Obtén más información sobre el comportamiento esperado y la apariencia de cada uno de estos mensajes en nuestra página de [Tipos de mensaje]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types), o haciendo clic en los tipos de mensaje vinculados en las siguientes tablas.
 
-Al decidir qué tipo de mensaje utilizar, considera cuánto espacio ocupará tu mensaje y cuán disruptivo puede resultar para la experiencia del usuario.
+Al decidir qué tipo de mensaje usar, considera cuánto espacio ocupará tu mensaje y cuán disruptivo puede resultar para la experiencia del usuario.
 
 - Los mensajes de **deslizamiento hacia arriba** son los menos intrusivos, ya que aparecen de forma sutil sin bloquear el contenido.
 - Los mensajes **modales** se sitúan en un punto intermedio: lo suficientemente prominentes para captar la atención sin ocupar toda la pantalla.
@@ -146,7 +146,7 @@ Estos mensajes dentro de la aplicación son personalizables según tus necesidad
     <td>Mensajes personalizados que funcionan según lo definido en tu código personalizado (HTML, CSS y/o JavaScript).</td>
     <td>N/A</td>
     <td>Debes establecer la opción de inicialización <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> en <code>true</code> para que tu mensaje dentro de la aplicación funcione.</td>
-    <td>Esta es una buena opción si quieres todas las ventajas de los IAM pero necesitas funcionalidad adicional o que la apariencia se mantenga acorde con tu marca. Puedes modificar cada detalle del mensaje: fuente, color, forma, tamaño, botones, etc. <br><br>Ejemplos de uso incluyen solicitar a los usuarios comentarios sobre la aplicación, formularios de captura de correo electrónico o mensajes paginados.</td>
+    <td>Esta es una buena opción si quieres todas las ventajas de los IAM pero necesitas funcionalidad adicional o que la apariencia se mantenga acorde a tu marca. Puedes modificar cada detalle del mensaje: fuente, color, forma, tamaño, botones, etc. <br><br>Ejemplos de uso incluyen solicitar a los usuarios comentarios sobre la aplicación, formularios de captura de correo electrónico o mensajes paginados</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>Formulario de captura de correo electrónico</a></td>
@@ -164,8 +164,8 @@ Estos mensajes dentro de la aplicación son personalizables según tus necesidad
       <li>Solo imagen</li>
       </ul>
     </td>
-    <td>El modal web con CSS es exclusivo del SDK web y solo se puede utilizar después de seleccionar <b>Web Browsers</b>.</td>
-    <td>Cuando quieras cargar o escribir CSS personalizado para crear mensajes con un estilo completamente personalizado y atractivo.</td>
+    <td>El modal web con CSS es exclusivo del SDK web y solo se puede usar después de seleccionar <b>Web Browsers</b>.</td>
+    <td>Cuando quieras cargar o escribir CSS personalizado para crear mensajes con un estilo completamente personalizado y atractivo. </td>
   </tr>
 </tbody>
 </table>
@@ -178,7 +178,7 @@ Si Braze detecta que no has incluido un botón de cierre o descarte en tu códig
 
 La pestaña **Redactar** te permite editar todos los aspectos del contenido y el comportamiento de tu mensaje.
 
-![Un ejemplo de mensaje dentro de la aplicación de una marca para dar la bienvenida a nuevos clientes e invitarlos a configurar un perfil de usuario.]({% image_buster /assets/img_archive/iam_compose.png %}){: style="max-width:85%" }
+![Ejemplo de mensaje dentro de la aplicación de una marca para dar la bienvenida a nuevos clientes e invitarlos a configurar un perfil de usuario.]({% image_buster /assets/img_archive/iam_compose.png %}){: style="max-width:85%" }
 
 El contenido de la pestaña **Redactar** varía en función de las opciones de mensaje elegidas en el paso anterior, pero puede incluir cualquiera de las siguientes opciones:
 
@@ -202,19 +202,19 @@ Algunos tipos de mensaje no necesitan y, por lo tanto, no solicitan encabezados.
 
 ##### Generar texto con IA {#generating-ai-copy}
 
-¿Necesitas ayuda para crear un texto increíble? Prueba a usar el [asistente de redacción con IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Introduce el nombre o la descripción de un producto y la IA generará texto de marketing similar al humano para usar en tus mensajes.
+¿Necesitas ayuda para crear un texto increíble? Prueba usar el [asistente de redacción con IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Introduce un nombre o descripción de producto y la IA generará texto de marketing similar al humano para usar en tus mensajes.
 
 ![Botón para lanzar el redactor con IA, ubicado en el campo Mensaje del creador de mensajes dentro de la aplicación.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
 ##### Crear mensajes de derecha a izquierda {#creating-right-to-left-messages}
 
-¿Necesitas ayuda para redactar mensajes de derecha a izquierda para idiomas como el árabe y el hebreo? Consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) para conocer las mejores prácticas.
+¿Necesitas ayuda para crear mensajes de derecha a izquierda para idiomas como el árabe y el hebreo? Consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) para conocer las mejores prácticas.
 
 ### Texto de los botones {#buttons}
 
-Cuando esté disponible para tu tipo de mensaje, puedes hacer que aparezcan hasta dos botones debajo del cuerpo del texto. Puedes crear y editar el texto y el color personalizados de los botones. También puedes añadir un enlace a los Términos de servicio dentro de los formularios de captura de correo electrónico.
+Cuando esté disponible para tu tipo de mensaje, puedes hacer que aparezcan hasta dos botones debajo del cuerpo de texto. Puedes crear y editar el texto y el color personalizados de los botones. También puedes añadir un enlace a los Términos de servicio dentro de los formularios de captura de correo electrónico.
 
-Si decides usar solo un botón, se ajustará automáticamente para ocupar el espacio disponible en la parte inferior del mensaje en lugar de dejar espacio para un botón adicional.
+Si decides usar solo un botón, se ajustará automáticamente para ocupar el espacio disponible en la parte inferior de tu mensaje en lugar de dejar espacio para un botón adicional.
 
 #### Elegir un botón principal {#choosing-a-primary-button}
 
@@ -263,11 +263,11 @@ Esta configuración solo se aplica al tipo de mensaje de deslizamiento hacia arr
 
 ### HTML y activos {#html-and-assets}
 
-Esta configuración solo se aplica al tipo de mensaje de código personalizado. Copia y pega HTML en el espacio disponible y sube tus activos usando un archivo ZIP.
+Esta configuración solo se aplica al tipo de mensaje de código personalizado. Copia y pega HTML en el espacio disponible y sube tus activos usando un [archivo ZIP]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#zip-file-uploads).
 
-### Marcador de posición de entrada de captura de correo electrónico {#email-capture-input-placeholder}
+### Marcador de posición del campo de captura de correo electrónico {#email-capture-input-placeholder}
 
-Esta configuración solo se aplica al tipo de mensaje de formulario de captura de correo electrónico. Introduce texto personalizado que aparecerá como texto de marcador de posición en el campo de entrada de correo electrónico. De forma predeterminada, aparece "Enter your email address".
+Esta configuración solo se aplica al tipo de mensaje de formulario de captura de correo electrónico. Introduce texto personalizado que aparecerá como texto de marcador de posición en el campo de entrada de correo electrónico. El valor predeterminado es "Introduce tu dirección de correo electrónico".
 
 ## Paso 5: Dale estilo a tu mensaje dentro de la aplicación {#step-5-style-your-in-app-message}
 
@@ -332,7 +332,7 @@ Consulta nuestra documentación para desarrolladores sobre [desencadenamiento de
 
 #### Desencadenamiento en línea versus sin conexión {#online-versus-offline-triggering}
 
-Los mensajes dentro de la aplicación funcionan enviando el mensaje y los desencadenantes al dispositivo del usuario. Una vez que los mensajes dentro de la aplicación están en un dispositivo, esperan a mostrarse hasta que se cumpla la condición de desencadenamiento. Si los mensajes dentro de la aplicación ya están almacenados en caché en el dispositivo del usuario, incluso puedes desencadenar mensajes dentro de la aplicación sin conexión, sin conexión a Braze (por ejemplo, en modo avión).
+Los mensajes dentro de la aplicación funcionan enviando el mensaje y los desencadenantes al dispositivo del usuario. Una vez que los mensajes dentro de la aplicación están en un dispositivo, esperan a mostrarse hasta que se cumpla la condición de desencadenamiento. Si los mensajes dentro de la aplicación ya están almacenados en caché en el dispositivo del usuario, incluso puedes desencadenar mensajes dentro de la aplicación sin conexión a Braze (por ejemplo, en modo avión).
 
 {% alert important %}
 Una vez que un mensaje dentro de la aplicación se ha detenido, es posible que algunos usuarios sigan viendo el mensaje si iniciaron una sesión antes de que el mensaje se detuviera y posteriormente realizan el evento desencadenante. Estos usuarios se contarán como una impresión única incluso después de que la Campaign se haya detenido.
@@ -373,7 +373,7 @@ En algunos escenarios, es posible que desees reevaluar la elegibilidad de un usu
 
 Cuando seleccionas **Re-evaluate campaign eligibility before displaying**, se realizará una solicitud adicional a Braze para confirmar que el usuario sigue siendo elegible para este mensaje antes de enviarlo. Además, cualquier variable de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) se procesará en ese momento antes de que se muestre el mensaje.
 
-Esto evita que se envíen mensajes dentro de la aplicación a usuarios dentro de Campaigns expiradas o archivadas. Si no reevalúas la elegibilidad de un usuario, el usuario recibirá el mensaje dentro de la aplicación incluso después de que la Campaign haya expirado o esté archivada, porque el mensaje está en tu SDK y esperando a que los usuarios lo desencadenen.
+Esto evita que se envíen mensajes dentro de la aplicación a usuarios dentro de Campaigns expiradas o archivadas. Si no reevalúas la elegibilidad de un usuario, este recibirá el mensaje dentro de la aplicación incluso después de que la Campaign haya expirado o se haya archivado, porque el mensaje está en tu SDK y esperando a que los usuarios lo desencadenen.
 
 {% alert note %}
 Habilitar esta opción resultará en un ligero retraso (< 100 ms) entre el momento en que un usuario desencadena un mensaje dentro de la aplicación y el momento en que se muestra el mensaje, debido a la solicitud adicional de elegibilidad y procesamiento de plantillas.
@@ -403,35 +403,35 @@ Para obtener información sobre las opciones de mensajes dentro de la aplicació
 
 ## Paso 8: Revisar e implementar {#step-8-review-and-deploy}
 
-Cuando hayas terminado de crear tu Campaign o Canvas, revisa los detalles, [pruébalo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) y envíalo.
+Cuando hayas terminado de crear la última parte de tu Campaign o Canvas, revisa sus detalles, [pruébala]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) y ¡envíala!
 
 A continuación, consulta [Informes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) para saber cómo puedes acceder a los resultados de tus Campaigns de mensajería.
 
 ## Cosas que debes saber {#things-to-know}
 
-### Límites de Campaigns activas de mensajes dentro de la aplicación {#active-in-app-message-campaign-limits}
+### Límites de campañas activas de mensajes dentro de la aplicación {#active-in-app-message-campaign-limits}
 
-Braze valora la fiabilidad y la velocidad. Te sugerimos que envíes solo los datos que necesitas a Braze y desactives cualquier Campaign que ya no aporte valor a tu marca.
+Braze valora la fiabilidad y la velocidad. Te sugerimos que envíes solo los datos que necesites a Braze y desactives cualquier campaña que ya no aporte valor a tu marca.
 
-Procesar Campaigns de mensajes dentro de la aplicación basadas en acciones que aún están en estado activo pero que ya no envían mensajes o ya no son necesarias ralentiza el rendimiento general de los servicios de Braze para ti y para otros clientes. Este tiempo adicional necesario para procesar estas grandes cantidades de Campaigns inactivas significa que cualquier mensaje dentro de la aplicación tardará más en aparecer en los dispositivos del usuario final, lo que afecta la experiencia del usuario final.
+Procesar Campaigns de mensajes dentro de la aplicación basadas en acciones que siguen en estado activo pero que ya no envían mensajes o ya no son necesarias ralentiza el rendimiento general de los servicios de Braze para ti y para otros clientes. Este tiempo adicional necesario para procesar estas grandes cantidades de campañas inactivas significa que cualquier mensaje dentro de la aplicación tardará más en aparecer en los dispositivos del usuario final, lo que afecta a su experiencia.
 
 {% alert important %}
-Puedes tener hasta 200 Campaigns activas de mensajes dentro de la aplicación basadas en acciones por espacio de trabajo para optimizar la velocidad de entrega de mensajes y evitar tiempos de espera. Esto no aplica a Canvas.
+Puedes tener hasta 200 Campaigns activas de mensajes dentro de la aplicación basadas en acciones por espacio de trabajo para optimizar la velocidad de entrega de mensajes y evitar tiempos de espera. Esto no se aplica a Canvas.
 {% endalert %}
 
-El conteo de 200 incluye Campaigns activas de mensajes dentro de la aplicación que aún no han alcanzado su hora de finalización y aquellas que no tienen hora de finalización. Las Campaigns activas de mensajes dentro de la aplicación que hayan superado su hora de finalización no se contarán. El cliente promedio de Braze tiene un total de 26 Campaigns activas a la vez, por lo que es poco probable que esta limitación te afecte.
+El recuento de 200 incluye Campaigns activas de mensajes dentro de la aplicación que aún no han alcanzado su hora de finalización y aquellas que no tienen hora de finalización. Las Campaigns activas de mensajes dentro de la aplicación que hayan superado su hora de finalización no se contabilizarán. El cliente promedio de Braze tiene un total de 26 campañas activas a la vez, por lo que es poco probable que esta limitación te afecte.
 
 ### Evaluación de la entrega según la zona horaria local {#local-time-delivery-evaluation}
 
-Cuando una Campaign de mensajes dentro de la aplicación se programa utilizando la zona horaria local del usuario, la evaluación de la hora de inicio y finalización de la Campaign se gestiona en el propio dispositivo.
+Cuando se programa una Campaign de mensajes dentro de la aplicación utilizando la zona horaria local del usuario, la evaluación de la hora de inicio y finalización de la campaña se gestiona en el propio dispositivo.
 
 Las Campaigns de mensajes dentro de la aplicación normalmente se envían al dispositivo del usuario cuando se inicia o se actualiza la sesión de la aplicación. En ese momento:
 
-1. El SDK evalúa si el usuario califica para algún mensaje dentro de la aplicación basado en desencadenantes.
-2. El dispositivo verifica si el evento desencadenante del usuario ocurrió dentro de la hora de inicio y finalización de la Campaign (según la zona horaria local del usuario).
+1. El SDK evalúa si el usuario cumple los requisitos para cualquier mensaje dentro de la aplicación basado en desencadenantes.
+2. El dispositivo comprueba si el evento desencadenante del usuario ocurrió dentro de la hora de inicio y finalización de la Campaign (según la zona horaria local del usuario).
 3. Si se cumplen ambas condiciones, el mensaje dentro de la aplicación es elegible para mostrarse.
 
 #### Consideraciones {#considerations}
 
 - Si un usuario desencadena un evento (como pulsar un botón) poco después de que se entregue el mensaje dentro de la aplicación, es posible que el mensaje no aparezca hasta la siguiente actualización de sesión, siempre que se sigan cumpliendo todos los criterios de elegibilidad.
-- De forma similar a otros tipos de canales, las Campaigns de mensajes dentro de la aplicación idealmente deben lanzarse con 24 a 48 horas de antelación. Este margen da a los usuarios tiempo suficiente para cumplir los criterios de elegibilidad e iniciar una sesión para que el mensaje sea evaluado y mostrado.
+- De forma similar a otros tipos de canal, las Campaigns de mensajes dentro de la aplicación deberían lanzarse idealmente con 24-48 horas de antelación. Este margen da a los usuarios tiempo suficiente para cumplir los requisitos de elegibilidad e iniciar una sesión para que el mensaje sea evaluado y mostrado.

@@ -34,11 +34,11 @@ Si se encuentra una coincidencia, puedes ver la información que has registrado 
 Cuando se utiliza un número de teléfono en la búsqueda, se convierte al formato [`E.164`](https://en.wikipedia.org/wiki/e.164). Los usuarios cuyos números de teléfono no se pueden convertir al formato `E.164` (por ejemplo, porque el número de teléfono tiene un código de país o código de área no válido) no se pueden buscar por número de teléfono.
 {% endalert %}
 
-![Resultados de búsqueda con un banner que dice "Varios usuarios coinciden con tus criterios de búsqueda" y dos botones etiquetados como Anterior y Siguiente.]({% image_buster /assets/img_archive/User_Search_Nonunique.png %}){: style="max-width:60%;"}
+![Resultados de búsqueda con un banner que dice "Varios usuarios coinciden con tus criterios de búsqueda" y dos botones con las etiquetas Anterior y Siguiente.]({% image_buster /assets/img_archive/User_Search_Nonunique.png %}){: style="max-width:60%;"}
 
 ## Ejemplos {#use-cases}
 
-Los perfiles de usuario son un gran recurso para la solución de problemas y las pruebas, ya que puedes acceder fácilmente a información sobre el historial de participación de un usuario, su pertenencia a Segments, su dispositivo y su sistema operativo.
+Los perfiles de usuario son un gran recurso para la solución de problemas y las pruebas, ya que puedes acceder fácilmente a información sobre el historial de participación de un usuario, su pertenencia a Segments, dispositivo y sistema operativo.
 
 Por ejemplo, si un usuario informa de un problema y no estás seguro de qué dispositivo y sistema operativo está utilizando, puedes usar la [pestaña Resumen](#overview-tab) para encontrar esta información (siempre que tengas su correo electrónico o ID de usuario). También puedes ver el idioma de un usuario, lo que podría ser útil si estás solucionando problemas con una [campaña multilingüe]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) que no se comportó como esperabas.
 
@@ -84,12 +84,12 @@ La pestaña **Interacción** contiene información sobre las interacciones de un
 | Categoría de interacción | Contiene |
 | --- | --- |
 | Configuración de contacto | Estado de suscripción para correo electrónico, SMS y push, y los grupos de suscripción a los que este usuario está asociado para estos tres canales. Esta sección también incluye información del registro de cambios para tokens de notificaciones push. Consulta [correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) y [push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) para obtener información sobre cómo se configuran las suscripciones y las adhesiones voluntarias. |
-| Campaigns recibidas | **Campaigns recibidas** refleja los tiempos de envío y visualización específicos de cada canal. La mayoría de los canales registran un envío cuando Braze pasa el mensaje al proveedor de entrega, incluso cuando el mensaje no se entrega finalmente. **Content Cards** son diferentes: las Campaigns aparecen aquí solo después de que el usuario visualiza la tarjeta en la aplicación. Para un desglose por canal, consulta [Cuándo aparecen las Campaigns en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received). <br><br>Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la Campaign o no recibieron directamente el mensaje.<br><br>Estas listas utilizan [datos de interacción de mensajería]({{site.baseurl}}/api/data_retention/messaging_interaction_data) (incluidas las reglas de expiración) para determinar qué aparece para la reorientación y el historial.<br><br> Selecciona una Campaign de la lista para verla. |
+| Campaigns recibidas | **Campaigns recibidas** refleja los tiempos de envío y visualización específicos de cada canal. La mayoría de los canales registran un envío cuando Braze pasa el mensaje al proveedor de entrega, incluso cuando el mensaje no se entrega finalmente. **Content Cards** son diferentes: las Campaigns aparecen aquí solo después de que el usuario visualiza la tarjeta en la aplicación. Para un desglose por canal, consulta [Cuándo aparecen las Campaigns en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received). <br><br>Cuando un mensaje se recibe, se abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la Campaign o no recibieron directamente el mensaje.<br><br>Estas listas utilizan [datos de interacción de mensajería]({{site.baseurl}}/api/data_retention/messaging_interaction_data) (incluidas las reglas de expiración) para determinar qué aparece para la reorientación y el historial.<br><br> Selecciona una Campaign de la lista para verla. |
 | Segments | Segments en los que este usuario está incluido. Selecciona un Segment de la lista para verlo. |
 | Estadísticas de comunicación | Cuándo este usuario recibió mensajes tuyos por última vez de cada canal. |
 | Atribución de instalación | Información sobre cómo y cuándo un usuario instaló tu aplicación. Obtén más información sobre [comprender las instalaciones de usuarios]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution). |
 | Varios | El [número de contenedor aleatorio]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) del usuario. |
-| Mensajes de Canvas recibidos | Mensajes de Canvas que este usuario ha recibido y cuándo. Los tiempos de envío siguen las mismas reglas de canal que **Campaigns recibidas**; consulta [Cuándo aparecen las Campaigns en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received).<br><br> Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la Campaign o no recibieron directamente el mensaje.<br><br> Selecciona un mensaje de la lista para verlo. |
+| Mensajes de Canvas recibidos | Mensajes de Canvas que este usuario ha recibido y cuándo. Los tiempos de envío siguen las mismas reglas de canal que **Campaigns recibidas**; consulta [Cuándo aparecen las Campaigns en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received).<br><br> Cuando un mensaje se recibe, se abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la Campaign o no recibieron directamente el mensaje.<br><br> Selecciona un mensaje de la lista para verlo. |
 | Predicciones | Puntuaciones de [predicción de cancelación]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) y [predicción de eventos]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) para este usuario. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pestaña Interacción" }
 
@@ -128,7 +128,7 @@ Cuando las marcas de tiempo se muestran en formato relativo (como "hace 6 días"
 - **Correo electrónico:** Braze registra un envío cuando el mensaje se entrega a tu proveedor de servicios de correo electrónico (ESP). Después de esa entrega, el mensaje no se cancela por lógica de Liquid, límites de velocidad o porque el usuario esté marcado como inalcanzable. Los siguientes eventos suelen ser una entrega o un rebote.
 - **Push:** Braze registra un envío cuando el mensaje se entrega al proveedor de push (por ejemplo, el servicio de notificaciones push de Apple (APN) o Firebase Cloud Messaging (FCM)). El proveedor generalmente intenta entregar de inmediato; si el dispositivo no está disponible (por ejemplo, sin conexión), el proveedor puede reintentar hasta que el mensaje expire.
 - **In-App Messages:** Braze registra un envío cuando se lanza la Campaign.
-- **Content Cards:** Cuándo Braze registra un evento de _envío_ depende del tipo de entrega y tu configuración de **creación de tarjeta**. Una Campaign de tarjeta de contenido aparece en **Campaigns recibidas** en el perfil del usuario solo después de que el usuario visualiza la tarjeta en la aplicación. Para el desglose completo, consulta [Cuándo se registran los envíos]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged) y [Campaigns recibidas y filtros de reorientación]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters) en el artículo de informes de Content Cards.
+- **Content Cards:** Cuándo Braze registra un evento de _envío_ depende del tipo de entrega y tu configuración de **Creación de tarjeta**. Una Campaign de tarjeta de contenido aparece en **Campaigns recibidas** en el perfil del usuario solo después de que el usuario visualiza la tarjeta en la aplicación. Para el desglose completo, consulta [Cuándo se registran los envíos]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged) y [Campaigns recibidas y filtros de reorientación]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters) en el artículo de informes de Content Cards.
 - **SMS, WhatsApp y webhooks:** Braze registra un envío cuando el mensaje entra en la ruta de entrega de ese canal (por ejemplo, el proveedor de SMS o WhatsApp, o tu endpoint de webhook).
 
 {% alert note %}
@@ -144,12 +144,12 @@ La pestaña **Historial de mensajes** del perfil de usuario muestra eventos reci
 Los datos en esta pestaña no se actualizan después de que se fusiona un usuario. Además, cualquier evento asociado con mensajes enviados a través de la API (por ejemplo, el [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)) no aparece en esta pestaña si no se especifica un ID de Campaign en esos envíos.
 
 {% alert important %}
-En la pestaña **Historial de mensajes**, los eventos de RCS se incluyen con los eventos de SMS. Los eventos de RCS no aparecen por separado.
+Los eventos de RCS no son compatibles actualmente en la pestaña **Historial de mensajes**.
 {% endalert %}
 
 ![La pestaña Historial de mensajes mostrando qué Campaigns y Canvas ha recibido un usuario.]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
 
-#### Ver y comprender eventos {#viewing-and-understanding-events}
+#### Ver y comprender los eventos {#viewing-and-understanding-events}
 
 Para cada evento en la tabla **Historial de mensajes**, puedes ver el canal de mensajería, el tipo de evento, la marca de tiempo en que ocurrió el evento, la Campaign o mensaje de Canvas asociado, y los datos del dispositivo del usuario. Para filtrar eventos específicos, haz clic en **Filtros** y selecciona eventos de la lista.
 
@@ -159,10 +159,10 @@ Los siguientes eventos de interacción con mensajes están disponibles para corr
 
 | Canal | Eventos de interacción disponibles |
 | --- | --- |
-| Correo electrónico | Rebote<br>Clic<br>Eventos de aplazamiento<br>Entrega<br>Marcar como correo no deseado<br>Apertura (ver [nota sobre el evento de apertura de correo electrónico](#note-on-email-open-event))<br>Envío<br>Rebote blando<br>Cancelar suscripción |
+| Correo electrónico | Rebote<br>Clic<br>Eventos de aplazamiento<br>Entrega<br>Marcar como correo no deseado<br>Apertura (consulta la [nota sobre el evento de apertura de correo electrónico](#note-on-email-open-event))<br>Envío<br>Rebote blando<br>Cancelar suscripción |
 | SMS | Envío del operador<br>Entrega<br>Fallo de entrega<br>Recepción entrante<br>Rechazo<br>Envío |
 | Push | Rebote<br>Apertura influenciada<br>iOS en primer plano<br>Apertura<br>Envío |
-| Mensaje dentro de la aplicación | Clic<br>Impresión |
+| In-App Messages | Clic<br>Impresión |
 | Content Cards | Clic<br>Descarte<br>Impresión<br>Envío |
 | Webhooks | Envío |
 | WhatsApp | Cancelación<br>Entrega<br>Fallo<br>Limitación de frecuencia<br>Recepción entrante<br>Lectura<br>Envío |
@@ -179,7 +179,7 @@ Los eventos de cancelación están disponibles para los siguientes canales:
 - Push
 - Webhooks
 
-Los eventos de cancelación actualmente no están disponibles para In-App Messages ni Content Cards.
+Los eventos de cancelación no están disponibles actualmente para In-App Messages ni Content Cards.
 
 ##### Eventos de limitación de frecuencia {#frequency-cap-events}
 
@@ -187,13 +187,13 @@ Un evento de limitación de frecuencia ocurre cuando un usuario califica para re
 
 ##### Destinos en blanco {#blank-destinations}
 
-Algunos envíos de mensajes pueden aparecer en el historial de mensajes con destinos en blanco (indicados por "—"). Esto se debe a que algunos canales, como Content Cards y webhooks, no recopilan datos del dispositivo en el envío del mensaje.
+Algunos envíos de mensajes pueden aparecer en el Historial de mensajes con destinos en blanco (indicados por "—"). Esto se debe a que algunos canales, como Content Cards y webhooks, no recopilan datos del dispositivo en el envío del mensaje.
 
 Los envíos de Content Cards se registran cuando la tarjeta está disponible para ser visualizada. Dado que las Content Cards pueden visualizarse en múltiples dispositivos, los datos del dispositivo no se registran en el envío. En su lugar, esta información se registra en la impresión (cuando la tarjeta se visualiza realmente). Los webhooks se envían a un endpoint del sistema (no a un dispositivo), por lo que los datos del dispositivo no son aplicables.
 
 #### Nota sobre el evento de apertura de correo electrónico {#note-on-email-open-event}
 
-El seguimiento de aperturas de correo electrónico es propenso a errores en cualquier herramienta, incluido Braze. Con la variedad de funciones de protección de privacidad que ofrecen los diferentes clientes de correo electrónico, que bloquean la carga automática de imágenes o las cargan proactivamente en el servidor, los eventos de apertura de correo electrónico son susceptibles tanto a falsos positivos como a falsos negativos.
+El seguimiento de aperturas de correo electrónico es propenso a errores en cualquier herramienta, incluido Braze. Con la variedad de funciones de protección de privacidad ofrecidas por diferentes clientes de correo electrónico que bloquean la carga automática de imágenes o las cargan proactivamente en el servidor, los eventos de apertura de correo electrónico son susceptibles tanto a falsos positivos como a falsos negativos.
 
 Si bien las estadísticas de apertura de correo electrónico pueden ser útiles en conjunto, por ejemplo, para comparar la efectividad de diferentes líneas del asunto, no debes asumir que un evento de apertura individual para un usuario individual es significativo.
 

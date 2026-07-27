@@ -49,13 +49,13 @@ Vous trouverez plus d'informations spécifiques à Canvas dans [Messages in-app 
 
 ## Étape 2 : Spécifier les plateformes de diffusion {#step-2-specify-delivery-platforms}
 
-Commencez par choisir les plateformes qui doivent recevoir le message. Utilisez cette sélection pour limiter la diffusion d'une campagne à un ensemble spécifique d'applications. Par exemple, vous pouvez choisir **Web Browsers** pour un message dans le navigateur encourageant les utilisateurs à télécharger votre application mobile, afin de vous assurer qu'ils ne reçoivent pas le message après avoir déjà obtenu votre application. Étant donné que les sélections de plateformes sont spécifiques à chaque variante, vous pouvez essayer de tester l'engagement par message et par plateforme.
+Commencez par choisir les plateformes qui doivent recevoir le message. Utilisez cette sélection pour limiter la diffusion d'une campagne à un ensemble spécifique d'applications. Par exemple, vous pouvez choisir **Navigateurs web** pour un message dans le navigateur encourageant les utilisateurs à télécharger votre application mobile, afin de vous assurer qu'ils ne reçoivent pas le message après avoir déjà obtenu votre application. Étant donné que les sélections de plateformes sont spécifiques à chaque variante, vous pouvez essayer de tester l'engagement par message selon la plateforme.
 
-| Plateforme                        | Diffusion du message             |
-|---------------------------------|------------------------------|
-| Mobile Apps                     | SDK iOS, Android et Vega |
-| Web Browsers                    | SDK Web                      |
-| Both Mobile Apps & Web Browsers | SDK iOS, Android, Vega et Web |
+| Plateforme                                      | Diffusion du message             |
+|-------------------------------------------------|----------------------------------|
+| Applications mobiles                            | SDK iOS, Android et Vega         |
+| Navigateurs web                                 | SDK Web                          |
+| Applications mobiles et navigateurs web         | SDK iOS, Android, Vega et Web    |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Spécifier les plateformes de diffusion" }
 
 ## Étape 3 : Spécifier vos types de messages {#step-3-specify-your-message-types}
@@ -64,7 +64,7 @@ Une fois que vous avez sélectionné une plateforme d'envoi, parcourez les types
 
 Lorsque vous choisissez le type de message à utiliser, tenez compte de l'espace que votre message occupera et de la manière dont il pourrait perturber l'expérience utilisateur.
 
-- Les messages **contextuels** sont les moins intrusifs, apparaissant de manière subtile sans bloquer le contenu.
+- Les messages **contextuels** sont les moins intrusifs, apparaissant subtilement sans bloquer le contenu.
 - Les messages **modaux** se situent au milieu : suffisamment visibles pour attirer l'attention sans prendre entièrement le contrôle de l'écran.
 - Les messages **plein écran** sont les plus accrocheurs et les plus adaptés aux annonces importantes ou aux promotions.
 
@@ -165,7 +165,7 @@ Ces messages in-app sont personnalisables selon vos besoins.
       </ul>
     </td>
     <td>La fenêtre modale web avec CSS est propre au SDK Web et ne peut être utilisée qu'après avoir sélectionné <b>Web Browsers</b>.</td>
-    <td>Lorsque vous souhaitez importer ou écrire du CSS personnalisé pour créer des communications au style entièrement personnalisé et visuellement soignées.</td>
+    <td>Lorsque vous souhaitez importer ou écrire du CSS personnalisé pour créer des messages au style entièrement personnalisé et visuellement soignés.</td>
   </tr>
 </tbody>
 </table>
@@ -188,13 +188,13 @@ Sélectionnez **Ajouter des langues** et choisissez les langues souhaitées dans
 
 ### Image {#image}
 
-Selon votre type de message, vous pouvez **Télécharger une image**, **Choisir un badge** ou utiliser **Font Awesome**. Pour télécharger une image, sélectionnez **Ajouter une image** ou fournissez une URL d'image. Sélectionner **Ajouter une image** ouvre la **bibliothèque multimédia**, où vous pouvez choisir une image précédemment téléchargée ou en ajouter une nouvelle. Chaque type de message et plateforme peut avoir ses propres proportions et exigences suggérées — assurez-vous de vérifier ces informations avant de commander ou de créer une image de zéro.
+Selon votre type de message, vous pouvez **Télécharger une image**, **Choisir un badge** ou utiliser **Font Awesome**. Pour télécharger une image, sélectionnez **Ajouter une image** ou fournissez une URL d'image. En sélectionnant **Ajouter une image**, vous ouvrez la **bibliothèque multimédia**, où vous pouvez choisir une image précédemment téléchargée ou en ajouter une nouvelle. Chaque type de message et chaque plateforme peut avoir ses propres proportions et exigences suggérées — assurez-vous de vérifier ces spécifications avant de commander ou de créer une image de toutes pièces.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 ### En-tête et corps {#header-and-body}
 
-Rédigez ce que vous souhaitez ! Incluez du texte entièrement personnalisé (souvent avec des fonctionnalités HTML personnalisées) avec les options d'inclusion de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) et d'autres types de personnalisation. Plus vite vous transmettez votre message et incitez votre client à cliquer, mieux c'est ! Nous recommandons des en-têtes et un contenu de message clairs et concis.
+Rédigez ce que vous souhaitez ! Incluez un texte entièrement personnalisé (souvent avec des fonctionnalités HTML personnalisées) avec les options d'inclusion de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) et d'autres types de personnalisation. Plus vite vous transmettez votre message et incitez votre client à cliquer, mieux c'est ! Nous recommandons des en-têtes et un contenu de message clairs et concis.
 
 Certains types de messages ne nécessitent pas d'en-tête et n'en demandent donc pas.
 
@@ -214,13 +214,13 @@ Besoin d'aide pour rédiger des messages de droite à gauche pour des langues co
 
 Lorsque cette option est disponible pour votre type de message, vous pouvez faire apparaître jusqu'à deux boutons sous le corps de votre texte. Vous pouvez créer et modifier le texte et la couleur des boutons personnalisés. Vous pouvez également ajouter un lien vers les conditions d'utilisation dans les formulaires de capture d'e-mail.
 
-Si vous choisissez de n'utiliser qu'un seul bouton, il s'ajustera automatiquement pour occuper l'espace disponible en bas de votre message au lieu de laisser de la place pour un bouton supplémentaire.
+Si vous choisissez de n'utiliser qu'un seul bouton, celui-ci s'ajustera automatiquement pour occuper l'espace disponible en bas de votre message au lieu de laisser de la place pour un bouton supplémentaire.
 
 #### Choisir un bouton principal {#choosing-a-primary-button}
 
 Si vous décidez de formater ces boutons avec vos propres couleurs, nous vous recommandons d'utiliser le bouton 2 pour le résultat que vous préférez.
 
-En d'autres termes, si vous souhaitez que votre utilisateur clique sur un bouton plutôt que sur l'autre, assurez-vous qu'il s'agit du bouton secondaire. Le bouton secondaire a souvent affiché un meilleur potentiel de clics, surtout s'il a une couleur quelque peu contrastée ou qui se démarque du reste du message. Cela est d'autant plus marqué lorsque le bouton principal se fond davantage visuellement dans le message.
+En d'autres termes, si vous souhaitez que votre utilisateur clique sur un bouton plutôt que sur l'autre, assurez-vous qu'il s'agit du bouton secondaire. Le bouton secondaire a souvent affiché un meilleur potentiel de clics, surtout s'il présente une couleur quelque peu contrastée ou qui se démarque du reste du message. Cet effet est d'autant plus marqué lorsque le bouton principal se fond davantage visuellement dans le message.
 
 ![Boutons principal et secondaire dans un message in-app]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
@@ -235,8 +235,8 @@ Lorsque votre client clique sur un bouton de votre message in-app, les actions s
 | Fermer le message | Ferme le message actuellement actif. |
 | Enregistrer un événement personnalisé | Choisissez un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events) à déclencher. Peut être utilisé pour afficher un autre message in-app ou déclencher des communications supplémentaires. |
 | Enregistrer un attribut personnalisé | Choisissez un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) à définir pour l'utilisateur actuel. |
-| Demander l'autorisation push | Affiche la demande d'autorisation push native. En savoir plus sur l'[amorçage push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages), ainsi que les [bonnes pratiques]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#best-practices) pour préparer les utilisateurs aux notifications push. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement au clic" }
+| Demander l'autorisation push | Affiche la demande native d'autorisation push. En savoir plus sur l'[amorçage push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages), ainsi que les [bonnes pratiques]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#best-practices) pour préparer les utilisateurs aux notifications push. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement au clic #button-actions" }
 
 Remarque : les options __Demander l'autorisation push__, __Enregistrer un événement personnalisé__ et __Enregistrer un attribut personnalisé__ nécessitent les versions minimales de SDK suivantes :
 
@@ -244,9 +244,9 @@ Remarque : les options __Demander l'autorisation push__, __Enregistrer un évén
 
 Pour combiner plusieurs actions ou effectuer des actions SDK supplémentaires non disponibles dans le tableau de bord (comme l'ajout à un groupe d'abonnement ou la définition d'un type d'abonnement e-mail), vous pouvez utiliser les [deep links Braze Actions]({{site.baseurl}}/developer_guide/braze_actions).
 
-### Options pour appareils iOS {#ios-device-options}
+### Options pour les appareils iOS {#ios-device-options}
 
-Si vous le souhaitez, vous pouvez restreindre votre message in-app pour qu'il ne soit envoyé qu'aux appareils iOS. Pour ce faire, cliquez sur **Modifier** et sélectionnez **Envoyer uniquement aux appareils iOS**.
+Si vous le souhaitez, vous pouvez restreindre l'envoi de votre message in-app aux appareils iOS uniquement. Pour ce faire, cliquez sur **Modifier** et sélectionnez **Envoyer uniquement aux appareils iOS**.
 
 ### Fermeture du message {#message-close}
 
@@ -255,7 +255,7 @@ Choisissez parmi les options suivantes :
 - **Fermeture automatique :** Sélectionnez le nombre de secondes pendant lesquelles le message restera à l'écran.
 - **Attendre le balayage ou le toucher de l'utilisateur :** Nécessite une option de fermeture ou de rejet.
 
-La fermeture d'un message enregistre une impression mais pas un clic. Pour savoir comment les clics sont suivis par action de l'utilisateur, consultez [Suivi des clics]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting#click-tracking).
+La fermeture d'un message enregistre une impression mais pas un clic. Pour savoir comment les clics sont suivis en fonction de l'action de l'utilisateur, consultez [Suivi des clics]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting#click-tracking).
 
 ### Position du contextuel {#slide-up-position}
 
@@ -263,11 +263,11 @@ Ce paramètre s'applique uniquement au type de message contextuel. Choisissez en
 
 ### HTML et ressources {#html-and-assets}
 
-Ce paramètre s'applique uniquement au type de message code personnalisé. Copiez et collez du HTML dans l'espace disponible et téléchargez vos ressources à l'aide d'un fichier ZIP.
+Ce paramètre s'applique uniquement au type de message à code personnalisé. Copiez et collez le HTML dans l'espace disponible et téléchargez vos ressources à l'aide d'un [fichier ZIP]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#zip-file-uploads).
 
 ### Marque substitutive du champ de saisie de capture d'e-mail {#email-capture-input-placeholder}
 
-Ce paramètre s'applique uniquement au type de message formulaire de capture d'e-mail. Saisissez un texte personnalisé qui apparaîtra comme texte de remplacement dans le champ de saisie de l'e-mail. Par défaut, il affiche « Enter your email address ».
+Ce paramètre s'applique uniquement au type de message de formulaire de capture d'e-mail. Saisissez un texte personnalisé qui apparaîtra comme marque substitutive dans le champ de saisie de l'e-mail. Par défaut, ce texte est « Enter your email address ».
 
 ## Étape 5 : Styliser votre message in-app {#step-5-style-your-in-app-message}
 
@@ -300,12 +300,12 @@ Certains types de messages in-app n'offrent pas d'option de style au-delà du t�
 
 Vous pouvez ajouter des [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) pour envoyer des champs personnalisés supplémentaires aux appareils des utilisateurs.
 
-## Étape 7 : Construire le reste de votre campagne ou Canvas {#step-7-build-the-remainder-of-your-campaign-or-canvas}
+## Étape 7 : Créer le reste de votre campagne ou Canvas {#step-7-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Construisez le reste de votre campagne ; consultez les sections suivantes pour obtenir des conseils supplémentaires sur la meilleure façon d'utiliser nos outils pour créer des messages in-app.
+Créez le reste de votre campagne ; consultez les sections suivantes pour obtenir des conseils sur la meilleure façon d'utiliser nos outils pour créer des messages in-app.
 
 ### Choisir un déclencheur {#choose-a-trigger}
 
@@ -323,7 +323,7 @@ La distribution des messages in-app repose entièrement sur les actions de décl
 - Ouvrir l'application ou la page web
 - Effectuer un événement personnalisé (fonctionne uniquement avec les événements envoyés via le SDK)
 - Ouvrir un message push spécifique
-- Planifier automatiquement l'envoi des campagnes à une heure précise en fonction de l'heure locale de chacun de vos utilisateurs.
+- Planifier automatiquement l'envoi des Campaigns à une heure précise en fonction de l'heure locale de chacun de vos utilisateurs.
 - Les messages peuvent également être configurés pour se répéter quotidiennement, hebdomadairement (éventuellement certains jours spécifiques) ou mensuellement.
 
 Une date et une heure de début doivent être sélectionnées ; cependant, une date de fin est facultative. Une date de fin empêchera ce message in-app spécifique de s'afficher sur les appareils après la date/heure spécifiée.
@@ -340,40 +340,40 @@ Une fois qu'un message in-app a été arrêté, il est possible que certains uti
 
 ### Choisir une priorité {#choose-a-priority}
 
-Enfin, après avoir sélectionné l'action à partir de laquelle le message in-app sera déclenché, vous devez également définir une priorité. Si deux messages sont déclenchés par la même action, les messages à haute priorité seront programmés pour s'afficher sur les appareils des utilisateurs avant les messages à priorité inférieure.
+Enfin, après avoir sélectionné l'action à partir de laquelle le message in-app sera déclenché, vous devez également définir une priorité. Si deux messages sont déclenchés par la même action, les messages à priorité élevée seront programmés pour s'afficher sur les appareils des utilisateurs avant les messages à priorité inférieure.
 
 Vous pouvez choisir parmi les priorités de message suivantes :
 
-- Priorité haute (affiché avant les autres messages)
+- Priorité élevée (affiché avant les autres messages)
 - Priorité moyenne (par défaut)
-- Priorité basse (affiché après les autres messages)
+- Priorité faible (affiché après les autres messages)
 
-Les options haute, moyenne et basse pour les priorités des messages déclenchés sont des compartiments, et plusieurs messages peuvent donc avoir la même priorité sélectionnée. Lorsque plusieurs messages partagent la même priorité, le message le plus récemment créé ou assigné prend le dessus et s'affiche en premier :
+Les options de priorité élevée, moyenne et faible pour les messages déclenchés sont des compartiments, et plusieurs messages peuvent donc avoir la même priorité sélectionnée. Lorsque plusieurs messages partagent la même priorité, le message le plus récemment créé ou attribué est prioritaire et s'affiche en premier :
 
-- **Compartiment de priorité par défaut :** lorsque deux campagnes partagent le même déclencheur et utilisent la priorité par défaut (moyenne), la campagne créée en dernier reçoit le déclencheur.
-- **Compartiment de priorité spécifique :** lorsque plusieurs campagnes partagent le même déclencheur et sont assignées à un compartiment de priorité spécifique, la campagne la plus récemment assignée à ce compartiment reçoit le déclencheur.
+- **Compartiment de priorité par défaut :** lorsque deux Campaigns partagent le même déclencheur et utilisent la priorité par défaut (moyenne), la campagne créée en dernier reçoit le déclencheur.
+- **Compartiment de priorité spécifique :** lorsque plusieurs Campaigns partagent le même déclencheur et sont attribuées à un compartiment de priorité spécifique, la campagne la plus récemment attribuée à ce compartiment reçoit le déclencheur.
 
-Pour définir les priorités au sein de ces compartiments, cliquez sur **Set exact priority**, et vous pouvez glisser-déposer les campagnes pour les ordonner avec la priorité correcte.
+Pour définir les priorités au sein de ces compartiments, cliquez sur **Set exact priority**, et vous pouvez glisser-déposer les Campaigns pour les ordonner avec la priorité correcte.
 
-![Exemple de la façon dont la priorité est définie pour une campagne de message in-app et un Canvas.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
+![Exemple de définition de la priorité pour une campagne de message in-app et un Canvas.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
-Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en choisissant des segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative de ce segment. Gardez à l'esprit que l'appartenance exacte au segment est toujours calculée avant l'envoi du message.
+Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en choisissant des Segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative de ce Segment. Gardez à l'esprit que l'appartenance exacte au Segment est toujours calculée avant l'envoi du message.
 
 {% alert note %}
-S'il y a un délai sur l'étape de message in-app, l'appartenance au segment sera évaluée après le délai. Si l'utilisateur est éligible, le message in-app sera synchronisé lors de la prochaine session disponible.
+S'il y a un délai sur l'étape de message in-app, l'appartenance au Segment sera évaluée après le délai. Si l'utilisateur est éligible, le message in-app sera synchronisé lors de la prochaine session disponible.
 {% endalert %}
 
 #### Réévaluer l'éligibilité de la campagne et le Liquid {#re-evaluate-campaign-eligibility-and-liquid}
 
-Dans certains scénarios, vous pouvez souhaiter réévaluer l'éligibilité d'un utilisateur lorsqu'il déclenche l'affichage d'un message in-app. Les exemples incluent les campagnes qui ciblent un attribut personnalisé qui change fréquemment ou les messages qui doivent refléter les modifications de profil de dernière minute.
+Dans certains scénarios, vous pouvez souhaiter réévaluer l'éligibilité d'un utilisateur lorsqu'il déclenche l'affichage d'un message in-app. Les exemples incluent les Campaigns qui ciblent un attribut personnalisé qui change fréquemment ou les messages qui doivent refléter les modifications de profil de dernière minute.
 
 ![Case à cocher « Réévaluer l'éligibilité de la campagne avant l'affichage » sélectionnée.]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
 Lorsque vous sélectionnez **Re-evaluate campaign eligibility before displaying**, une requête supplémentaire sera envoyée à Braze pour confirmer que l'utilisateur est toujours éligible à ce message avant l'envoi. De plus, toutes les variables [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou de [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) seront modélisées à ce moment-là avant l'affichage du message.
 
-Cela empêche l'envoi de messages in-app aux utilisateurs dans le cadre de campagnes expirées ou archivées. Si vous ne réévaluez pas l'éligibilité d'un utilisateur, celui-ci recevra le message in-app même après l'expiration ou l'archivage de la campagne, car le message se trouve dans votre SDK et attend que les utilisateurs le déclenchent.
+Cela empêche l'envoi de messages in-app aux utilisateurs dans le cadre de Campaigns expirées ou archivées. Si vous ne réévaluez pas l'éligibilité d'un utilisateur, celui-ci recevra le message in-app même après l'expiration ou l'archivage de la campagne, car le message se trouve dans votre SDK et attend que les utilisateurs le déclenchent.
 
 {% alert note %}
 L'activation de cette option entraînera un léger délai (< 100 ms) entre le moment où un utilisateur déclenche un message in-app et le moment où le message s'affiche, en raison de la requête supplémentaire d'éligibilité et de modélisation.
@@ -394,7 +394,7 @@ Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuen
 {% endtab %}
 {% tab Canvas %}
 
-Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, mettre en œuvre les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, mettre en œuvre des tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Créer votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 
 Pour des informations sur les options de messages in-app spécifiques à Canvas, consultez [Messages in-app dans Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 
@@ -433,5 +433,5 @@ Les campagnes de messages in-app sont généralement envoyées à l'appareil de 
 
 #### Considérations {#considerations}
 
-- Si un utilisateur déclenche un événement (comme un appui sur un bouton) peu après la distribution du message in-app, le message peut ne pas apparaître avant la prochaine actualisation de session, en supposant que tous les critères d'éligibilité sont toujours remplis.
+- Si un utilisateur déclenche un événement (comme un appui sur un bouton) peu après la distribution du message in-app, le message peut ne pas apparaître avant la prochaine actualisation de session, à condition que tous les critères d'éligibilité soient toujours remplis.
 - Comme pour les autres types de canaux, les campagnes de messages in-app devraient idéalement être lancées 24 à 48 heures à l'avance. Ce délai donne aux utilisateurs suffisamment de temps pour remplir les critères d'éligibilité et initier une session afin que le message soit évalué et affiché.
