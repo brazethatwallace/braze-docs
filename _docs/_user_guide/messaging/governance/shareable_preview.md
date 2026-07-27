@@ -52,7 +52,7 @@ Treat a link like any other shareable document: only send it to people you inten
 ### Link expiration
 
 - Every shareable preview link expires seven days after it's generated.
-- Once a link expires, it no longer opens. Generate a new link from the composer to get a fresh one.
+- When a link expires, it no longer opens. Generate a new link from the composer to get a fresh one.
 - There's no way to manually revoke or deactivate a link before it expires. Regenerating a link doesn't revoke the previous one; each link simply expires on its own seven-day schedule.
 
 ## Per-channel nuances
