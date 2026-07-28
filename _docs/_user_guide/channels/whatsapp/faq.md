@@ -21,6 +21,7 @@ channel:
 - [WhatsApp templates and composer](#whatsapp-templates-and-composer)
 - [Deliverability and billing](#deliverability-and-billing) 
 - [Integrations, data, and reporting](#integrations-data-and-reporting)
+- [Media and images](#media-and-images)
 
 ### WhatsApp business accounts 
 
@@ -253,3 +254,8 @@ WhatsApp is a channel focused on 2-way messaging and thus anchors on conversatio
 
 - **Business-initiated conversation**: A conversation where the business starts by sending an approved template message to the end user. As soon as the business sends a message, it begins the 24-hour window.
 - **User-initiated conversation**: A conversation where the end-user sends a message to the business. When the business sends a message in response, this begins the 24-hour window.
+
+### Media and images
+
+#### Why won't images load when sent as a WhatsApp message?
+If users report that images in WhatsApp messages won't download or the download icon is unresponsive, this is likely due to a known issue in older WhatsApp app versions. This issue can usually be resolved by upgrading the device to the most recent version of WhatsApp.
