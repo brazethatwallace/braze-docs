@@ -116,7 +116,7 @@ Este enfoque no requiere pares de valor de cadena de consulta incrustados en la 
 
 ### ¿Por qué mi centro de preferencias no funciona en un envío de prueba? {#why-doesnt-my-preference-center-work-in-a-test-send}
 
-Los enlaces del centro de preferencias requieren un contexto de envío en vivo. Los envíos de prueba no generan URL válidas del centro de preferencias, y el botón **Guardar preferencias** se deshabilita si la página se carga. Este es el comportamiento esperado. Para probar de extremo a extremo, lanza una campaña o un paso en Canvas a un usuario de prueba o un segmento interno pequeño, o usa el [endpoint Generar URL del centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Para más detalles, consulta [Probar centros de preferencias](#testing-preference-centers).
+Los enlaces del centro de preferencias requieren un contexto de envío en vivo. Los envíos de prueba no generan URL válidas del centro de preferencias, y el botón **Guardar preferencias** se deshabilita si la página se carga. Este es el comportamiento esperado. Para probar de extremo a extremo, lanza una Campaign o un paso en Canvas a un usuario de prueba o un segmento interno pequeño, o usa el [endpoint Generar URL del centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Para más detalles, consulta [Probar centros de preferencias](#testing-preference-centers).
 
 ### No he creado un centro de preferencias. ¿Por qué veo "PreferenceCenterBrazeDefault" en mi panel? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
 
@@ -128,7 +128,7 @@ Si haces referencia a {%raw%}`${preference_center_url}`{%endraw%} en un nuevo me
 
 No. Sin embargo, puedes aprovechar Liquid al escribir el HTML para páginas personalizadas de adhesión voluntaria y cancelación de suscripción. Si usas enlaces dinámicos para administrar las cancelaciones de suscripción, este es un enlace único.
 
-Por ejemplo, si estás rastreando la tasa de cancelaciones para usuarios de habla hispana, necesitarías usar campañas separadas o aprovechar los análisis de Currents (como verificar cuándo un usuario cancela la suscripción y comprobar el idioma preferido de ese usuario).
+Por ejemplo, si estás rastreando la tasa de cancelaciones para usuarios de habla hispana, necesitarías usar Campaigns separadas o aprovechar los análisis de Currents (como verificar cuándo un usuario cancela la suscripción y comprobar el idioma preferido de ese usuario).
 
 Como otro ejemplo, para rastrear las tasas de cancelación de suscripción para usuarios de habla hispana, podrías añadir una cadena de parámetro de consulta como `?Spanish=true` a la URL de cancelación de suscripción si el idioma del usuario es español y usar un enlace de cancelación de suscripción regular si no lo es:
 
