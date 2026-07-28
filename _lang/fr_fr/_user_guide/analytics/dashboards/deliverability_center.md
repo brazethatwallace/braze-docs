@@ -125,6 +125,14 @@ Pour comprendre les évaluations de la réputation IP, consultez ce tableau :
 | Mauvaise | Présente un historique de taux élevés de plaintes pour spam. Les e-mails provenant de ce domaine sont presque toujours rejetés à la connexion ou filtrés vers le dossier spam. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Réputation IP" }
 
+{% alert important %}
+Les données de plaintes pour spam affichées dans Braze sont basées sur les rapports de boucle de rétroaction (FBL) des fournisseurs de messagerie qui les partagent, tels que Microsoft, Yahoo et Comcast. Lorsque les utilisateurs de ces fournisseurs signalent un e-mail comme spam, ces plaintes sont renvoyées à Braze.<br><br>
+Cependant, Gmail et iCloud ne disposent pas de boucles de rétroaction traditionnelles et ne transmettent pas les plaintes pour spam à Braze. Cela signifie :<br>
+- Les plaintes pour spam des utilisateurs Gmail ne sont pas incluses dans les indicateurs Braze et ne sont pas disponibles dans les données Snowflake ou Currents.<br>
+- Vous pouvez consulter les données de spam Gmail uniquement sous forme de pourcentages agrégés dans [Gmail Postmaster Tools](https://www.gmail.com/postmaster/), et non sous forme d'adresses individuelles.<br>
+- Si vous constatez des taux de spam élevés dans Gmail Postmaster Tools, ces chiffres ne correspondent pas à vos indicateurs de plaintes pour spam dans Braze, car Gmail ne partage pas ces données avec les expéditeurs.
+{% endalert %}
+
 #### Réputation du domaine {#domain-reputation}
 
 Utilisez le tableau suivant pour surveiller et comprendre les évaluations de la réputation de votre domaine afin d'éviter d'être filtré dans le dossier spam.
@@ -227,3 +235,14 @@ Ces colonnes indiquent quand les premiers et derniers messages envoyés à des c
 {% alert tip %}
 Si vous recherchez des enregistrements liés à l'un de vos domaines vérifiés dans Braze, notez que le Centre de livrabilité affiche vos données provenant de Google Postmaster ou de Microsoft SNDS, ce qui signifie qu'il est possible que l'une ou l'autre de ces plateformes n'ait pas de données à partager avec Braze. Vous pouvez également essayer de maintenir un envoi d'e-mails régulier, car cela peut contribuer à améliorer votre réputation.
 {% endalert %}
+
+## Plaintes pour spam et boucles de rétroaction {#spam-complaints-and-feedback-loops}
+
+Une boucle de rétroaction (FBL) pour les e-mails permet aux expéditeurs de recevoir des rapports lorsque les destinataires signalent des messages comme spam. Cependant, Gmail et iCloud ne proposent pas de boucles de rétroaction traditionnelles, ce qui signifie que Braze (via SparkPost ou SendGrid) ne reçoit pas de données de plaintes pour spam de ces fournisseurs.
+
+Étant donné que les données de plaintes pour spam ne sont pas disponibles pour Gmail et iCloud, il est important d'utiliser d'autres outils pour surveiller la santé et la réputation de vos e-mails auprès de ces principaux fournisseurs :
+
+- Utilisez [Google Postmaster Tools](https://www.gmail.com/postmaster/) pour surveiller la réputation de votre domaine et de vos adresses IP, les taux de spam et l'engagement des utilisateurs. Vous pouvez intégrer Google Postmaster avec Braze comme décrit dans [Intégrer Google Postmaster](#integrating-google-postmaster).
+- Apple ne propose pas d'outil Postmaster public équivalent à celui de Google. Concentrez-vous sur le maintien d'indicateurs d'engagement solides et sur le respect des bonnes pratiques en matière d'e-mails.
+
+Pour maintenir une bonne livrabilité auprès de tous les fournisseurs, mettez en place une [politique de temporisation]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) pour cesser automatiquement d'envoyer des e-mails aux utilisateurs inactifs. Cela permet d'éviter que vos e-mails soient signalés comme spam et protège la réputation de votre expéditeur.

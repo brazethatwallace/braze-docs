@@ -11,7 +11,7 @@ channel:
 
 > Configurar un centro de preferencias proporciona un lugar centralizado para que tus usuarios editen y administren sus preferencias de notificación para tu [mensajería de correo electrónico]({{site.baseurl}}/user_guide/channels/email). Este artículo incluye los pasos para crear un centro de preferencias generado por API, pero también puedes crear un centro de preferencias usando el [editor de arrastrar y soltar]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center).
 
-En el dashboard de Braze, ve a **Audiencia** > **Centros de preferencias de correo electrónico**.
+En el panel de Braze, ve a **Audiencia** > **Centros de preferencias de correo electrónico**.
 
 Aquí es donde puedes administrar y ver cada grupo de suscripción. Cada grupo de suscripción que crees se añade a esta lista del centro de preferencias. Puedes crear múltiples centros de preferencias.
 
@@ -21,7 +21,7 @@ El centro de preferencias está diseñado para usarse dentro del canal de correo
 
 ## Crear un centro de preferencias con API {#create-a-preference-center-with-api}
 
-Usando los [puntos de conexión del centro de preferencias de Braze]({{site.baseurl}}/api/endpoints/preference_center), puedes crear un centro de preferencias, un sitio web alojado por Braze, que puede mostrar el estado de suscripción y los estados de los grupos de suscripción de tus usuarios. Usando HTML y CSS, tu equipo de desarrolladores puede crear el centro de preferencias para que el estilo de la página coincida con tus directrices de marca.
+Usando los [endpoints del centro de preferencias de Braze]({{site.baseurl}}/api/endpoints/preference_center), puedes crear un centro de preferencias, un sitio web alojado por Braze, que puede mostrar el estado de suscripción y los estados de los grupos de suscripción de tus usuarios. Usando HTML y CSS, tu equipo de desarrolladores puede crear el centro de preferencias para que el estilo de la página coincida con tus directrices de marca.
 
 Usar Liquid te permite recuperar los nombres de tus grupos de suscripción y el estado de cada usuario. De esta manera, Braze almacena y recupera estos datos cuando se carga la página.
 
@@ -29,20 +29,20 @@ Usar Liquid te permite recuperar los nombres de tus grupos de suscripción y el 
 
 | Requisito | Descripción |
 |---|---|
-| Centro de preferencias habilitado | Tu dashboard de Braze tiene permisos para usar la característica del centro de preferencias. |
+| Centro de preferencias habilitado | Tu panel de Braze tiene permisos para usar la característica del centro de preferencias. |
 | Espacio de trabajo válido con un grupo de suscripción de correo electrónico, SMS o WhatsApp | Un espacio de trabajo funcional con usuarios válidos y un grupo de suscripción de correo electrónico, SMS o WhatsApp. |
 | Usuario válido | Un usuario con una dirección de correo electrónico y un ID externo. |
-| Clave de API generada con permisos del centro de preferencias | En el dashboard de Braze, ve a **Configuración** > **Claves de API** para confirmar que tienes acceso a una clave de API con permisos del centro de preferencias. |
+| Clave de API generada con permisos del centro de preferencias | En el panel de Braze, ve a **Configuración** > **Claves de API** para confirmar que tienes acceso a una clave de API con permisos del centro de preferencias. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-### Paso 1: Usa el punto de conexión Crear centro de preferencias {#step-1-use-the-create-preference-center-endpoint}
+### Paso 1: Usa el endpoint Crear centro de preferencias {#step-1-use-the-create-preference-center-endpoint}
 
-Comencemos a crear un centro de preferencias usando el [punto de conexión Crear centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center). Para personalizar tu centro de preferencias, puedes incluir HTML que se alinee con tu marca en el campo `preference_center_page_html` y el campo `confirmation_page_html`.
+Comencemos a crear un centro de preferencias usando el [endpoint Crear centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center). Para personalizar tu centro de preferencias, puedes incluir HTML que se alinee con tu marca en el campo `preference_center_page_html` y el campo `confirmation_page_html`.
 
-El [punto de conexión Generar URL del centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) te permite obtener la URL del centro de preferencias para un usuario específico fuera de un correo electrónico enviado a través de Braze.
+El [endpoint Generar URL del centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) te permite obtener la URL del centro de preferencias para un usuario específico fuera de un correo electrónico enviado a través de Braze.
 
 {% alert note %}
-Braze renderiza `confirmation_page_html` en un iframe que usa una URL `data:`. Los navegadores tratan las URL `data:` como orígenes opacos. Como resultado, los scripts en ese iframe no pueden cargar recursos externos adicionales, y la navegación de la ventana principal o la comunicación entre marcos desde esa página falla.<br><br>En su lugar, puedes enlazar a contenido externo, como una URL de cuestionario alojada, en lugar de incrustar scripts. Si necesitas incrustar una herramienta de terceros y el proveedor lo permite, usa un `<iframe title="Description of the embedded content" src="https://example.com/...">` que apunte a la URL HTTPS alojada de la herramienta.
+Braze renderiza `confirmation_page_html` en un iframe que usa una URL `data:`. Los navegadores tratan las URL `data:` como orígenes opacos. Como resultado, los scripts en ese iframe no pueden cargar recursos externos adicionales, y la navegación de la ventana principal o la comunicación entre marcos desde esa página falla.<br><br>En su lugar, puedes enlazar a contenido externo, como una URL de cuestionario alojada, en lugar de incrustar scripts. Si necesitas incrustar una herramienta de terceros y el proveedor lo permite, usa un `<iframe title="Descripción del contenido incrustado" src="https://example.com/...">` que apunte a la URL HTTPS alojada de la herramienta.
 {% endalert %}
 
 ### Paso 2: Incluir en tu campaña de correo electrónico {#step-2-include-in-your-email-campaign}
@@ -65,19 +65,17 @@ También puedes usar una combinación de HTML que incluya Liquid. Por ejemplo, p
 ```
 {%endraw%}
 
-El centro de preferencias tiene una casilla de verificación que permite a tus usuarios cancelar la suscripción de todos los correos electrónicos. Ten en cuenta que no puedes guardar estas preferencias si se envían como un mensaje de prueba.
+El centro de preferencias tiene una casilla de verificación que permite a tus usuarios cancelar la suscripción de todos los correos electrónicos.
 
-{% alert important %}
-La etiqueta de Liquid anterior solo funciona al lanzar una Campaign o Canvas. Enviar un correo electrónico de prueba no genera un enlace válido. Para verificar el enlace del centro de preferencias, lanza el mensaje en una Campaign dirigida solo a tu perfil de prueba.
-{% endalert %}
+{% multi_lang_include preference_center/testing.md section="api" %}
 
 #### Editar un centro de preferencias {#edit-a-preference-center}
 
-Puedes editar y actualizar tu centro de preferencias usando el [punto de conexión Actualizar centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center).
+Puedes editar y actualizar tu centro de preferencias usando el [endpoint Actualizar centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center).
 
 #### Identificar centros de preferencias y detalles {#identify-preference-centers-and-details}
 
-Para identificar tus centros de preferencias, usa el [punto de conexión Ver detalles del centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) para devolver información relacionada, como la marca de tiempo de la última actualización, el ID del centro de preferencias y más.
+Para identificar tus centros de preferencias, usa el [endpoint Ver detalles del centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) para devolver información relacionada, como la marca de tiempo de la última actualización, el ID del centro de preferencias y más.
 
 ## Personalizar un centro de preferencias {#customize-a-preference-center}
 
@@ -116,7 +114,11 @@ Este enfoque no requiere pares de valor de cadena de consulta incrustados en la 
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-### No he creado un centro de preferencias. ¿Por qué veo "PreferenceCenterBrazeDefault" en mi dashboard? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
+### ¿Por qué mi centro de preferencias no funciona en un envío de prueba? {#why-doesnt-my-preference-center-work-in-a-test-send}
+
+Los enlaces del centro de preferencias requieren un contexto de envío en vivo. Los envíos de prueba no generan URL válidas del centro de preferencias, y el botón **Guardar preferencias** se deshabilita si la página se carga. Este es el comportamiento esperado. Para probar de extremo a extremo, lanza una campaña o un paso en Canvas a un usuario de prueba o un segmento interno pequeño, o usa el [endpoint Generar URL del centro de preferencias]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Para más detalles, consulta [Probar centros de preferencias](#testing-preference-centers).
+
+### No he creado un centro de preferencias. ¿Por qué veo "PreferenceCenterBrazeDefault" en mi panel? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
 
 Esto se usa para renderizar el centro de preferencias cuando se usa el Liquid heredado {%raw%}`${preference_center_url}`{%endraw%}, lo que significa que los pasos en Canvas o las plantillas que hacen referencia a {%raw%}`${preference_center_url}` o `preference_center.${PreferenceCenterBrazeDefault}`{%endraw%} no funcionarán. Esto también se aplica a los mensajes enviados anteriormente que incluían el Liquid heredado o "PreferenceCenterBrazeDefault" como parte del mensaje.
 
@@ -126,7 +128,7 @@ Si haces referencia a {%raw%}`${preference_center_url}`{%endraw%} en un nuevo me
 
 No. Sin embargo, puedes aprovechar Liquid al escribir el HTML para páginas personalizadas de adhesión voluntaria y cancelación de suscripción. Si usas enlaces dinámicos para administrar las cancelaciones de suscripción, este es un enlace único.
 
-Por ejemplo, si estás rastreando la tasa de cancelaciones para usuarios de habla hispana, necesitarías usar Campaigns separadas o aprovechar los análisis de Currents (como verificar cuándo un usuario cancela la suscripción y comprobar el idioma preferido de ese usuario).
+Por ejemplo, si estás rastreando la tasa de cancelaciones para usuarios de habla hispana, necesitarías usar campañas separadas o aprovechar los análisis de Currents (como verificar cuándo un usuario cancela la suscripción y comprobar el idioma preferido de ese usuario).
 
 Como otro ejemplo, para rastrear las tasas de cancelación de suscripción para usuarios de habla hispana, podrías añadir una cadena de parámetro de consulta como `?Spanish=true` a la URL de cancelación de suscripción si el idioma del usuario es español y usar un enlace de cancelación de suscripción regular si no lo es:
 

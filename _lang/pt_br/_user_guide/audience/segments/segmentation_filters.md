@@ -61,7 +61,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: Atributos que são propriedades de atributos personalizados.<br><br>Ao filtrar um atributo personalizado aninhado do tipo data/hora, você pode optar por filtrar com base em "Dia do ano" ou "Hora". "Dia do ano" verifica apenas o mês e o dia para comparação. "Hora" compara o timestamp completo, incluindo o ano.
+    description: Atributos que são propriedades de atributos personalizados.<br><br>Ao filtrar um atributo personalizado aninhado do tipo data/hora, você pode optar por filtrar com base em "Dia do ano" ou "Hora". "Dia do ano" verifica apenas o mês e o dia para comparação. "Hora" compara o timestamp completo, incluindo o ano. A mesma lógica se aplica ao filtrar variáveis de contexto em jornadas do público do Canvas; consulte <a href="/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables">Filtros de dia do ano e hora para variáveis de contexto de data</a> para mais detalhes.
     tags:
       - Custom attribute
   - name: Day of Recurring Event
@@ -145,11 +145,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
-    description: Segmenta seus usuários por quando receberam um componente específico do Canvas.<br><br> Como os dados são atualizados para todos os perfis que compartilham o mesmo identificador de canal (por exemplo, e-mail ou telefone) quando ocorre uma entrega, abertura ou clique, um usuário que compartilha um identificador com alguém que recebeu uma mensagem pode não corresponder a esse filtro mesmo que nunca tenha recebido a mensagem explicitamente. Use "Entered Canvas Variation" para isolar perfis de usuário de duplicatas.<br><br> Este filtro não considera quando os usuários receberam outros componentes do Canvas.
+    description: Segmenta seus usuários por quando receberam um componente específico do Canvas.<br><br> Como os dados são atualizados para todos os perfis que compartilham o mesmo identificador de canal (por exemplo, e-mail ou telefone) quando ocorre uma entrega, abertura ou clique, um usuário que compartilha um identificador com alguém que recebeu uma mensagem pode corresponder a esse filtro mesmo que nunca tenha recebido a mensagem explicitamente. Use "Entered Canvas Variation" para isolar perfis de usuário de duplicatas.<br><br> Este filtro não considera quando os usuários receberam outros componentes do Canvas.
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
-    description: Segmenta seus usuários por quando receberam uma Campaign específica.<br><br> Como os dados são atualizados para todos os perfis que compartilham o mesmo identificador de canal (por exemplo, e-mail ou telefone) quando ocorre uma entrega, abertura ou clique, um usuário que compartilha um identificador com alguém que recebeu uma mensagem pode não corresponder a esse filtro mesmo que nunca tenha recebido a mensagem explicitamente.<br><br> Este filtro não considera quando os usuários receberam outras Campaigns.
+    description: Segmenta seus usuários por quando receberam uma Campaign específica.<br><br> Como os dados são atualizados para todos os perfis que compartilham o mesmo identificador de canal (por exemplo, e-mail ou telefone) quando ocorre uma entrega, abertura ou clique, um usuário que compartilha um identificador com alguém que recebeu uma mensagem pode corresponder a esse filtro mesmo que nunca tenha recebido a mensagem explicitamente.<br><br> Este filtro não considera quando os usuários receberam outras Campaigns.
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
@@ -377,7 +377,7 @@ glossaries:
     tags:
       - eCommerce
   - name: Total canceled orders count (last 730 days)
-    description: Segmenta seus usuários pela contagem total de pedidos que um usuário cancelou nos últimos 2 anos, com base no <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de eCommerce</a> para pedido cancelado (espaços de trabalho que não rastreiam eventos de eCommerce não possuem dados para esse filtro). Os usuários são avaliados para esse filtro uma vez por dia.<br><br>Este filtro está em beta. Entre em contato com o gerente de conta da Braze se tiver interesse em usar esse filtro.
+    description: Segmenta seus usuários pela contagem total de pedidos que um usuário cancelou nos últimos 2 anos, com base no <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de eCommerce</a> para pedido realizado (espaços de trabalho que não rastreiam eventos de eCommerce não possuem dados para esse filtro). Os usuários são avaliados para esse filtro uma vez por dia.<br><br>Este filtro está em beta. Entre em contato com o gerente de conta da Braze se tiver interesse em usar esse filtro.
     tags:
       - eCommerce
   - name: Customer lifetime value (last 730 days)

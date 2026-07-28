@@ -3,7 +3,7 @@ nav_title: Gestión de etiquetas
 article_title: Gestión de etiquetas
 page_order: 6
 page_type: reference
-description: "Este artículo de referencia explica cómo gestionar etiquetas en el dashboard de Braze, incluyendo la anidación, el cambio de nombre y la organización de etiquetas en Campaigns, Canvas y Segments."
+description: "Este artículo de referencia explica cómo gestionar etiquetas en el panel de Braze, incluyendo la anidación, el cambio de nombre y la organización de etiquetas en Campaigns, Canvas y Segments."
 ---
 
 # Gestión de etiquetas {#managing-tags}
@@ -21,7 +21,7 @@ Para organizar aún más tus etiquetas, puedes anidarlas bajo una etiqueta princ
 
 ### La etiqueta principal está en uso pero no aparece en **Nest Tag Under** {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
 
-Cuando una etiqueta principal está aplicada en el dashboard pero no aparece en el desplegable **Nest Tag Under** mientras creas una nueva etiqueta, vuelve a crear la etiqueta principal como una etiqueta independiente para que sea buscable en la lista. Este comportamiento es esperado cuando la etiqueta principal existe solo como una dependencia anidada en otra parte de tu espacio de trabajo.
+Cuando una etiqueta principal está aplicada en el panel pero no aparece en el desplegable **Nest Tag Under** mientras creas una nueva etiqueta, vuelve a crear la etiqueta principal como una etiqueta independiente para que sea buscable en la lista. Este comportamiento es esperado cuando la etiqueta principal existe solo como una dependencia anidada en otra parte de tu espacio de trabajo.
 
 ![El cuadro de diálogo de nueva etiqueta con la opción Nest Tag Under seleccionada.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
@@ -62,9 +62,9 @@ table td {
 </tbody>
 </table>
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
-Los siguientes son casos de uso comunes para utilizar etiquetas en la gestión del ciclo de vida de tu mensajería.
+Los siguientes son ejemplos comunes del uso de etiquetas para gestionar el ciclo de vida de tu mensajería.
 
 {% tabs %}
 {% tab Limitación de frecuencia %}
@@ -82,7 +82,7 @@ Limita la frecuencia con la que tus clientes reciben Campaigns de un tipo determ
 
 ### Informes {#reporting}
 
-Configura un informe de interacción para supervisar el volumen de todas las Campaigns con una etiqueta determinada. Por ejemplo, si deseas monitorear todas tus Campaigns de push, podrías añadir una etiqueta como `Push Reporting` a esas Campaigns y luego configurar un [informe de interacción]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases) para que te envíe un informe de esas Campaigns etiquetadas todos los días.
+Configura un informe de participación para supervisar el volumen de todas las Campaigns con una etiqueta determinada. Por ejemplo, si deseas monitorear todas tus Campaigns de push, podrías añadir una etiqueta como `Push Reporting` a esas Campaigns y luego configurar un [informe de participación]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases) para que te envíe un informe de esas Campaigns etiquetadas todos los días.
 
 {% endtab %}
 {% endtabs %}

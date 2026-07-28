@@ -87,7 +87,7 @@ Wenn Sie einen IP-Pool zum Versenden einer E-Mail verwenden, wählen Sie über d
 
 Seed-Gruppen werden nur für den E-Mail-Kanal unterstützt. Fügen Sie Nutzer:innen zu einer Seed-Gruppe hinzu, um Kopien jeder E-Mail-Variante an alle Mitglieder der Gruppe zu senden.
 
-Seed-Gruppen sind für API-Kampagnen nicht verfügbar, aber Sie können Seed-Gruppen über einen API-getriggerten Einstieg in die Campaign einbinden. Verwenden Sie dies, um Zustellbarkeitsmetriken zu messen und eine Aufzeichnung Ihrer E-Mail-Inhalte für historische und Archivierungszwecke zu führen.
+Seed-Gruppen sind für API-Campaigns nicht verfügbar, aber Sie können Seed-Gruppen über einen API-getriggerten Einstieg in die Campaign einbinden. Verwenden Sie dies, um Zustellbarkeitsmetriken zu messen und eine Aufzeichnung Ihrer E-Mail-Inhalte für historische und Archivierungszwecke zu führen.
 
 Nachdem Sie eine interne Gruppe erstellt und als Seed-Gruppe gekennzeichnet haben, wählen Sie sie im Schritt **Target Audiences** des Campaign-Editors oder im Schritt **Sendeeinstellungen** in einem Canvas aus.
 
