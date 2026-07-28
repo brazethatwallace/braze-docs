@@ -69,8 +69,6 @@ Either endpoint returns a push token object that includes push enablement inform
 
 Confirm that you are in the segment you are targeting (if this is a live campaign and not a test). In the **User Profile**, you can see which segments the user currently matches. Segment membership updates in real time.
 
-Confirm that you are in the segment you are targeting (if this is a live campaign and not a test). In the **User Profile**, you can see which segments the user currently matches. Segment membership updates in real time.
-
 ![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
 You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment. **User Lookup** accepts only `external_id` or `braze_id`—not email addresses or phone numbers. To search by email, phone, push token, or user alias, see [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
