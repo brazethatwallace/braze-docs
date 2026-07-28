@@ -105,7 +105,7 @@ Bei der Zustellung in der Ortszeit prüft Braze die Eintrittsberechtigung zweima
 {% tab Aktionsbasierte Zustellung %}
 Bei der aktionsbasierten Zustellung treten Nutzer:innen in das Canvas ein und beginnen Nachrichten zu erhalten, wenn sie bestimmte Aktionen ausführen, wie z. B. Ihre App öffnen, einen Kauf tätigen oder ein angepasstes Event triggern.
 
-Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Entry-Zielgruppe** steuern, einschließlich Regeln für die Wiederberechtigung und Frequency-Capping-Einstellungen. Beachten Sie, dass die aktionsbasierte Zustellung für Canvas-Komponenten mit In-App-Nachrichten nicht verfügbar ist.
+Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Entry-Zielgruppe** steuern, einschließlich Regeln für die Wiederberechtigung und Frequency-Capping-Einstellungen. Beachten Sie, dass die aktionsbasierte Zustellung für Canvas-Komponenten mit In-App Messages nicht verfügbar ist.
 
 ![Ein Beispiel für aktionsbasierte Zustellung. Nutzer:innen treten in das Canvas ein, wenn sie einen Kauf tätigen, mit einem Eintrittsfenster ab 13:30 Uhr am 10. Juni 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
