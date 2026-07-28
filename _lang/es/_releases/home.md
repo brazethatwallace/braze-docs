@@ -24,7 +24,7 @@ Para obtener más información sobre cualquiera de las actualizaciones enumerada
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-El [dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) proporciona un desglose de alto nivel de los resultados de envío de mensajes, permitiéndote detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus campañas o Canvas pueden no haberse enviado como se esperaba. Ponte en contacto con tu administrador de éxito de cliente para acceder a la característica.
+El [dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) proporciona un desglose de alto nivel de los resultados de envío de mensajes, permitiéndote detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus Campaigns o Canvas pueden no haberse enviado como se esperaba. Ponte en contacto con tu administrador de éxito de cliente para acceder a la característica.
 
 #### Mapeador de eventos personalizados en la importación CSV
 
@@ -59,7 +59,7 @@ Por ejemplo, en la página de horas tranquilas, pide a Operator que configure la
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-El [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) es una conexión alojada de forma remota que te permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity y Claude Code directamente a Braze. A través de lenguaje natural, los agentes pueden leer análisis de campañas, Canvas y Segments, atributos personalizados, eventos, KPI y catálogos, y crear o actualizar plantillas de correo electrónico, Content Blocks y activos de la biblioteca multimedia. No se expone información personal identificable de perfiles de usuario.
+El [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) es una conexión alojada de forma remota que te permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity y Claude Code directamente a Braze. A través de lenguaje natural, los agentes pueden leer análisis de Campaigns, Canvas y Segments, atributos personalizados, eventos, KPI y catálogos, y crear o actualizar plantillas de correo electrónico, Content Blocks y activos de la biblioteca multimedia. No se expone información personal identificable de perfiles de usuario.
 
 Para conectarte, pega una única URL de endpoint en tu cliente MCP — `https://mcp.braze.com/mcp` para EE. UU. o `https://mcp.braze.eu/mcp` para la UE — y luego inicia sesión con OAuth, incluyendo SSO. El servidor se inicia con las herramientas disponibles.
 
@@ -141,7 +141,7 @@ Ahora puedes actualizar las credenciales push de forma programática con el [end
 
 #### Validity - Datos y análisis
 
-[Validity Everest](https://www.validity.com/everest/) es una plataforma de capacidad de entrega de correo electrónico que te ayuda a medir la colocación en la bandeja de entrada y proteger tu reputación de envío. La integración de Braze y Validity sincroniza tu lista de semillas de Everest con Braze, siembra automáticamente las campañas y Canvas que califican, y extrae las métricas de participación de vuelta a Validity Inbox para que puedas comparar la colocación basada en semillas con la participación real de los suscriptores.
+[Validity Everest](https://www.validity.com/everest/) es una plataforma de capacidad de entrega de correo electrónico que te ayuda a medir la colocación en la bandeja de entrada y proteger tu reputación de envío. La integración de Braze y Validity sincroniza tu lista de semillas de Everest con Braze, siembra automáticamente las Campaigns y Canvas que califican, y extrae las métricas de participación de vuelta a Validity Inbox para que puedas comparar la colocación basada en semillas con la participación real de los suscriptores.
 
 ### SDK
 
