@@ -183,15 +183,26 @@ Kontextvariablen werden deklariert und sind nur im Geltungsbereich eines Canvas 
 
 Ähnlich wie Canvas-Kontextvariablen vordefinierte Typen haben, müssen die Vergleiche zwischen Kontextvariablen und statischen Werten [übereinstimmende Datentypen]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) aufweisen. Der Kontextvariablen-Filter ermöglicht Vergleiche über mehrere Datentypen für boolesche Werte, Zahlen, Strings, Zeit und Tag des Jahres, ähnlich wie die Vergleiche für [verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
+Hier ist ein Beispiel eines Kontextvariablen-Filters, der die Kontextvariable `product_name` mit dem Regex `/braze/` vergleicht.
+
+![Ein Filter-Setup für die Kontextvariable „product_name“, um den Regex „/braze/“ abzugleichen.]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### Tag-des-Jahres- und Zeit-Filter für Datums-Kontextvariablen {#day-of-year-and-time-filters-for-date-context-variables}
+
+Um **Tag des Jahres**- oder **Zeit**-Vergleichsfilter mit einer Kontextvariable zu verwenden:
+
+1. Fügen Sie einen [Kontext-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) hinzu, der eine Kontextvariable auf ein Kalenderdatum setzt (z. B. 23. Oktober 2025).
+2. Fügen Sie nach dem Kontext-Schritt einen [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)-Schritt hinzu.
+3. Fügen Sie im Zielgruppenpfade-Schritt einen Filter hinzu, der Nutzer:innen basierend auf dieser Kontextvariable aufteilt.
+4. Wählen Sie einen Vergleich aus der Kategorie **Tag des Jahres** oder **Zeit**.
+
+Wenn eine Kontextvariable keinen deklarierten Typ hat, zeigt Braze alle verfügbaren Vergleichstypen im Dropdown an, einschließlich **Tag des Jahres** und **Zeit**. Wenn die Variable im Kontext-Schritt als **Zeit**-Typ deklariert ist, werden nur **Tag des Jahres**- und **Zeit**-Vergleiche angezeigt. Für andere Datentypen mit einem bekannten Typ (z. B. ein verschachteltes angepasstes Attribut mit einem Zeit-Typ) werden nur die Vergleiche angezeigt, die für diesen Typ gelten.
+
 {% alert note %}
 Verwenden Sie denselben Datentyp für Ihre Kontextvariable und den Vergleich. Wenn Ihre Kontextvariable beispielsweise ein Zeit-Datentyp ist, verwenden Sie Zeitvergleiche (wie „vor“ oder „nach“). Die Verwendung nicht übereinstimmender Datentypen (wie String-Vergleiche mit einer Zeit-Kontextvariable) kann zu unerwartetem Verhalten führen.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-Hier ist ein Beispiel eines Kontextvariablen-Filters, der die Kontextvariable `product_name` mit dem Regex `/braze/` vergleicht.
-
-![Ein Filter-Setup für die Kontextvariable „product_name“, um den Regex „/braze/“ abzugleichen.]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### Vergleich mit Kontextvariablen oder angepassten Attributen {#comparing-to-context-variables-or-custom-attributes}
 

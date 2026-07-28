@@ -183,15 +183,26 @@ Canvas [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_component
 
 Canvas 컨텍스트 변수에 사전 정의된 유형이 있는 것과 마찬가지로, 컨텍스트 변수와 정적 값 간의 비교는 [일치하는 데이터 유형]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)이어야 합니다. 컨텍스트 변수 필터는 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)의 비교와 유사하게 부울, 숫자, 문자열, 시간 및 연중 일자에 대해 여러 데이터 유형에 걸쳐 비교를 허용합니다.
 
+다음은 컨텍스트 변수 `product_name`을 정규식 `/braze/`와 비교하는 컨텍스트 변수 필터의 예시입니다.
+
+![컨텍스트 변수 "product_name"이 정규식 "/braze/"와 일치하도록 설정된 필터.]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### 날짜 컨텍스트 변수에 대한 연중 일자 및 시간 필터 {#day-of-year-and-time-filters-for-date-context-variables}
+
+컨텍스트 변수에 **연중 일자** 또는 **시간** 비교 필터를 사용하려면:
+
+1. 컨텍스트 변수를 캘린더 날짜(예: 2025년 10월 23일)로 설정하는 [컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)를 추가합니다.
+2. 컨텍스트 단계 뒤에 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) 단계를 추가합니다.
+3. 오디언스 경로 단계에서 해당 컨텍스트 변수를 기반으로 사용자를 분할하는 필터를 추가합니다.
+4. **연중 일자** 또는 **시간** 카테고리에서 비교를 선택합니다.
+
+컨텍스트 변수에 선언된 유형이 없는 경우 Braze는 **연중 일자** 및 **시간**을 포함한 사용 가능한 모든 비교 유형을 드롭다운에 표시합니다. 변수가 컨텍스트 단계에서 **시간** 유형으로 선언된 경우 **연중 일자** 및 **시간** 비교만 표시됩니다. 알려진 유형이 있는 다른 데이터 유형(예: 시간 유형의 중첩 커스텀 속성)의 경우 해당 유형에 적용되는 비교만 표시됩니다.
+
 {% alert note %}
 컨텍스트 변수와 비교에 동일한 데이터 유형을 사용하세요. 예를 들어, 컨텍스트 변수가 시간 데이터 유형인 경우 시간 비교("이전" 또는 "이후" 등)를 사용하세요. 일치하지 않는 데이터 유형(예: 시간 컨텍스트 변수에 문자열 비교)을 사용하면 예기치 않은 동작이 발생할 수 있습니다.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-다음은 컨텍스트 변수 `product_name`을 정규식 `/braze/`와 비교하는 컨텍스트 변수 필터의 예시입니다.
-
-![컨텍스트 변수 "product_name"이 정규식 "/braze/"와 일치하도록 설정된 필터.]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### 컨텍스트 변수 또는 커스텀 속성과 비교 {#comparing-to-context-variables-or-custom-attributes}
 

@@ -1,7 +1,7 @@
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}
-Janelas de navegação privada não oferecem suporte a push para a web.
+Janelas de navegação privada não oferecem suporte a web push.
 {% endalert %}
 
 {% endif %}
@@ -37,7 +37,7 @@ Lembre-se de que, embora esses e-mails possam não ser entregues ao gateway de S
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-Para maior segurança, recomendamos adicionar nosso recurso de [Autenticação do SDK]({{site.baseurl}}/developer_guide/authentication) para evitar a simulação de usuários.
+Para maior segurança, recomendamos adicionar nosso recurso de [autenticação do SDK]({{site.baseurl}}/developer_guide/authentication) para evitar a simulação de usuários.
 {% endalert %}
 
 {% endif %}
@@ -101,14 +101,12 @@ Este parceiro aparece na sua página **Parceiros de tecnologia** apenas se você
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Escolhendo entre os tipos de filtro "Day of year" e "Time"**: Ao filtrar variáveis de contexto que contêm datas, escolha o tipo de comparação correto com base em se a data se repete a cada ano:
+**Escolhendo entre os tipos de filtro "Day of year" e "Time"**: Ao filtrar variáveis de contexto que contêm datas, escolha o tipo de comparação correto com base em se a data se repete a cada ano. Use "Day of year" somente quando o ano não estiver incluído no valor que a variável de contexto produz.
 
 - **Use "Day of year"** quando a data se repete a cada ano (por exemplo, aniversários, datas comemorativas ou feriados como o Natal). Esse tipo de comparação calcula com base no dia do ano (1-365/366), ignorando o componente do ano.
 - **Use "Time"** quando a data for uma data absoluta que não se repete (por exemplo, datas de término de contrato, datas de compromissos ou datas de renovação de inscrição). Esse tipo de comparação calcula com base no timestamp completo, incluindo o ano.
 
 Usar "Day of year" para datas absolutas pode produzir resultados incorretos ou inesperados porque o cálculo ignora o componente do ano. Por exemplo, se você estiver comparando uma data futura de término de contrato em abril para determinar se está dentro de 63 dias, usar "Day of year" pode corresponder incorretamente às datas porque compara apenas os números dos dias (119 vs 359) sem considerar que abril está na verdade a 188 dias de distância.
-
-**Diretriz geral**: A data se repete a cada ano? **Sim** → Use "Day of year". **Não** → Use "Time".
 {% endalert %}
 
 {% endif %}
@@ -124,7 +122,7 @@ As permissões granulares estão em acesso antecipado. Quando a migração for p
 {% if include.alert == 'WhatsApp audio and documents' %}
 
 {% alert note %}
-A [Biblioteca de mídia da Braze]({{site.baseurl}}/media_library) oferece suporte apenas a imagens e vídeos. Arquivos de áudio e documentos devem ser referenciados por meio de uma URL hospedada.
+A [biblioteca de mídia da Braze]({{site.baseurl}}/media_library) oferece suporte apenas a imagens e vídeos. Arquivos de áudio e documentos devem ser referenciados por meio de uma URL hospedada.
 {% endalert %}
 
 {% endif %}

@@ -15,7 +15,7 @@ Bevor Sie beginnen, müssen Sie eine [Landing-Page]({{site.baseurl}}/user_guide/
 
 ## Nutzer:innen retargeten {#retargeting-users}
 
-Braze erfasst automatisch, wenn Nutzer:innen ein Landing-Page-Formular einreichen. Sie können die Gesamtzahl der Einreichungen für ein Formular unter [Landing-Page-Analytics]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#viewing-analytics) einsehen. Für nutzerspezifisches Retargeting müssen Sie Nutzer:innen jedoch über Ihr Landing-Page-Formular mit einer der folgenden Methoden retargeten:
+Braze erfasst automatisch, wenn Nutzer:innen ein Landing-Page-Formular einreichen. Sie können die Gesamtzahl der Einreichungen für ein Formular unter [Landing-Page-Analytics]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#view-analytics) einsehen. Für nutzerspezifisches Retargeting müssen Sie Nutzer:innen jedoch über Ihr Landing-Page-Formular mit einer der folgenden Methoden retargeten:
 
 - **Über ein Segment:** Sie können ein neues Segment erstellen, um automatisch Nutzer:innen zu identifizieren, die ein Landing-Page-Formular eingereicht haben oder nicht.
 - **Über einen Nachrichtentrigger:** Sie können einen Nachrichtentrigger einrichten, um Nutzer:innen nach dem Einreichen des Formulars automatisch eine Nachricht zu senden oder sie in einen Canvas aufzunehmen.

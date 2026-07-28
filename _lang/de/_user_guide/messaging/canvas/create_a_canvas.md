@@ -109,6 +109,10 @@ Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Entry-Zielgruppe*
 
 ![Ein Beispiel für aktionsbasierte Zustellung. Nutzer:innen treten in das Canvas ein, wenn sie einen Kauf tätigen, mit einem Eintrittsfenster ab 13:30 Uhr am 10. Juni 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
+{% alert note %}
+**Mit Canvas-Schritt interagieren** ist nicht als aktionsbasierter Entry-Trigger für Canvases verfügbar. Es kann nur als Trigger für Campaigns verwendet werden. Um ein Canvas von einem anderen aus zu triggern, verwenden Sie die Canvas-Komponente [An Ziel senden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) oder erstellen Sie einen [Braze-zu-Braze-Webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas), der den `/canvas/trigger/send`-Endpunkt aufruft.
+{% endalert %}
+
 {% alert important %}
 Wenn Ihr aktionsbasiertes Canvas Nachrichten früher als erwartet sendet, überprüfen Sie, ob der Zeitstempel Ihres angepassten Events mit der aktuellen Zeit statt mit einer zurückdatierten Zeit gesendet wird. Wenn beispielsweise ein aktionsbasiertes Canvas eine dreistündige Verzögerung nach Ausführung eines angepassten Events hat, verwendet Braze den mit dem angepassten Event gesendeten Zeitstempel, um diese Verzögerung zu berechnen. Wenn der Zeitstempel um mehr als drei Stunden zurückdatiert ist, behandelt Braze die Verzögerung als bereits abgelaufen und sendet die Nachricht sofort.
 {% endalert %}
@@ -136,6 +140,14 @@ Wenn Nutzer:innen erneut in das Canvas eintreten, dieselbe Komponente wie beim v
 ### Schritt 1.3: Legen Sie Ihre Entry-Zielgruppe fest {#step-13-set-your-target-entry-audience}
 
 Nur Nutzer:innen, die Ihren definierten Kriterien entsprechen, können im Schritt **Zielgruppe** in die Journey eintreten. Das bedeutet, dass Braze die Zielgruppe zuerst auf Berechtigung prüft, **bevor** Nutzer:innen in die Canvas-Journey eintreten. Wenn Sie beispielsweise neue Nutzer:innen ansprechen möchten, können Sie ein Segment von Nutzer:innen auswählen, die Ihre App vor weniger als einer Woche zum ersten Mal verwendet haben.
+
+{% alert important %}
+In Workspaces mit mehreren Apps wird die Berechtigung der Canvas-Entry-Zielgruppe (einschließlich Segmente und Filter) nur beim Eintritt der Nutzer:innen in das Canvas geprüft, nicht bei einzelnen Nachrichtenschritten. Wenn Ihr Workspace mehrere Apps hat und Sie sicherstellen müssen, dass Nachrichtenschritte nur Nutzer:innen einer bestimmten App ansprechen, verwenden Sie einen der folgenden Ansätze in jedem Nachrichtenschritt:
+- Aktivieren Sie **Zielgruppe beim Nachrichtenversand validieren** in den [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) des Nachrichtenschritts und fügen Sie app-spezifische Segmente oder Filter hinzu.
+- Verwenden Sie Liquid, um das Zielgerät oder die App zum Sendezeitpunkt zu prüfen.
+
+Ohne diese Schutzmaßnahmen können Nutzer:innen, die sich in einer App für die Journey qualifiziert haben, Nachrichten erhalten, die für eine andere App bestimmt sind, wenn sie auch andere Apps in Ihrem Workspace verwenden.
+{% endalert %}
 
 Unter **Entry Controls** können Sie die Anzahl der Nutzer:innen begrenzen, die jedes Mal eintreten, wenn das Canvas planmäßig ausgeführt wird. Für API-getriggerte und aktionsbasierte Canvases gilt dieses Limit pro UTC-Stunde.
 

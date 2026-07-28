@@ -109,6 +109,10 @@ Você pode controlar outros aspectos do comportamento do Canvas na janela **Púb
 
 ![Um exemplo de entrega baseada em ação. Os usuários entrarão no Canvas se fizerem uma compra, com uma janela de entrada começando às 13h30 em 10 de junho de 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
+{% alert note %}
+**Interagir com etapa do Canvas** não está disponível como gatilho de entrada baseada em ação para Canvas. Ele só pode ser usado como gatilho para Campaigns. Para disparar um Canvas a partir de outro, use o componente [Enviar para destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) do Canvas ou crie um [webhook Braze-para-Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) que chame o endpoint `/canvas/trigger/send`.
+{% endalert %}
+
 {% alert important %}
 Se o seu Canvas baseado em ação enviar mensagens antes do esperado, verifique se o timestamp do evento personalizado está sendo enviado com o horário atual em vez de um horário retroativo. Por exemplo, se um Canvas baseado em ação tem uma postergação de três horas após o usuário realizar um evento personalizado, a Braze usa o timestamp enviado com o evento personalizado para avaliar essa postergação. Se o timestamp estiver retroativo em mais de três horas, a Braze tratará a postergação como já decorrida e enviará a mensagem imediatamente.
 {% endalert %}
@@ -136,6 +140,14 @@ Se um usuário reentrar no Canvas, alcançar o mesmo componente da entrada anter
 ### Etapa 1.3: Defina seu público-alvo de entrada {#step-13-set-your-target-entry-audience}
 
 Somente os usuários que correspondem aos critérios definidos podem entrar na jornada na etapa **Público-alvo**. Isso significa que a Braze avalia a elegibilidade do público-alvo primeiro, **antes** de os usuários entrarem na jornada do Canvas. Por exemplo, se você quiser direcionar novos usuários, pode selecionar um segmento de usuários que usaram seu app pela primeira vez há menos de uma semana.
+
+{% alert important %}
+Em espaços de trabalho com múltiplos apps, a elegibilidade do público de entrada do Canvas (incluindo segmentos e filtros) é avaliada apenas quando os usuários entram no Canvas, não em etapas de mensagem individuais. Se o seu espaço de trabalho tem múltiplos apps e você precisa garantir que as etapas de mensagem direcionem apenas usuários de um app específico, use uma das seguintes abordagens em cada etapa de mensagem:
+- Ative **Validar público no envio da mensagem** nas [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) da etapa de mensagem e adicione segmentos ou filtros específicos do app.
+- Use Liquid para verificar o dispositivo ou app direcionado no momento do envio.
+
+Sem essas proteções, usuários que se qualificaram para a jornada em um app podem receber mensagens destinadas a outro app se também usarem outros apps no seu espaço de trabalho.
+{% endalert %}
 
 Em **Controles de entrada**, você pode limitar o número de usuários toda vez que o Canvas for agendado para execução. Para Canvas baseados em disparo por API e baseados em ação, esse limite ocorre a cada hora UTC.
 
@@ -228,7 +240,7 @@ Por padrão, a atribuição de variante do Canvas é determinada por um hash det
 
 {% details Expandir para ver as etapas %}
 
-1. Crie um atributo personalizado do tipo **Número** para armazenar seu número aleatório. Dê um nome fácil de localizar, como `lottery_number` ou `random_assignment`. No dashboard, acesse **Configurações de dados** > **Atributos personalizados**.<br><br>
+1. Crie um atributo personalizado do tipo **Número** para armazenar seu número aleatório. Dê um nome fácil de localizar, como `lottery_number` ou `random_assignment`. No dashboard, acesse **Data Settings** > **Custom Attributes**.<br><br>
 2. Use uma única variante do Canvas (ou adicione a mesma etapa de Atualização de usuário a cada variante). Adicione uma etapa de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) no início da jornada. Essa etapa gera e armazena o número aleatório antes que os usuários cheguem à etapa de Jornadas do público.<br><br>
 3. Na etapa de Atualização de usuário, selecione o [Editor JSON avançado]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Use a tag {% raw %}{% random %}{% endraw %} para gerar o número. Para mais detalhes, consulte [Enviar mensagens com um número aleatório]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#send-messages-with-a-random-number). Por exemplo, {% raw %}`{% random 10 %}`{% endraw %} retorna um inteiro de 0 a 9. Defina o atributo personalizado da etapa 1 usando JSON como este:<br><br>{% raw %}
 ```json

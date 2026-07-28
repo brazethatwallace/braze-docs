@@ -66,14 +66,16 @@ Detener un Canvas no hace salir a los usuarios que están esperando recibir un m
 
 Puedes editar la siguiente configuración y detalles después de lanzar un Canvas:
 
-* Nombre y descripción del Canvas
-* Equipos y etiquetas
-* Tipo de entrada, horario y controles
-* Estado de suscripción
-* Límite de velocidad
-* Limitación de frecuencia
-* Horas tranquilas
-* Público objetivo
+- Nombre y descripción del Canvas
+- Equipos
+- Etiquetas
+  - Añadir una etiqueta después del lanzamiento te permite reorientar usuarios en Segments con filtros como `Received Message from Campaign or Canvas with Tag`.
+- Tipo de entrada, horario y controles
+- Estado de suscripción
+- Límite de velocidad
+- Limitación de frecuencia
+- Horas tranquilas
+- Público objetivo
 
 Después de que un Canvas ha sido lanzado:
 

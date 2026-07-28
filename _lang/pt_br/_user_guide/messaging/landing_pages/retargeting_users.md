@@ -15,7 +15,7 @@ Antes de começar, você precisará criar uma [landing page]({{site.baseurl}}/us
 
 ## Redirecionamento de usuários {#retargeting-users}
 
-A Braze rastreia automaticamente quando um usuário envia um formulário de landing page. Você pode visualizar o número total de envios de um formulário em [análise de dados de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#viewing-analytics). No entanto, para redirecionamento específico por usuário, você precisará redirecionar os usuários por meio do formulário da sua landing page usando um dos seguintes métodos:
+A Braze rastreia automaticamente quando um usuário envia um formulário de landing page. Você pode visualizar o número total de envios de um formulário em [análise de dados de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#view-analytics). No entanto, para redirecionamento específico por usuário, você precisará redirecionar os usuários por meio do formulário da sua landing page usando um dos seguintes métodos:
 
 - **Usando um segmento:** Você pode criar um novo segmento para identificar automaticamente os usuários que enviaram ou não um formulário de landing page.
 - **Usando um gatilho de mensagem:** Você pode configurar um gatilho de mensagem para enviar mensagens automaticamente aos usuários ou inseri-los em um Canvas após o envio do formulário.
