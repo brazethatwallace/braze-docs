@@ -355,7 +355,7 @@ En este ejemplo, tenemos nuestro Canvas dividido en dos variantes. La variante 1
 
 ### Intelligent Selection para Canvas {#intelligent-selection-for-canvas}
 
-Las capacidades de Intelligent Selection ahora están disponibles dentro de Canvas multivariantes. De manera similar a la función de [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) para campañas multivariantes, Intelligent Selection para Canvas analiza el rendimiento de cada variante del Canvas y ajusta el porcentaje de usuarios que se canalizan a través de cada variante. Esta distribución se basa en las métricas de rendimiento de cada variante para maximizar el número total esperado de conversiones.
+Las capacidades de Intelligent Selection ahora están disponibles dentro de Canvas multivariantes. De manera similar a la función de [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) para Campaigns multivariantes, Intelligent Selection para Canvas analiza el rendimiento de cada variante del Canvas y ajusta el porcentaje de usuarios que se canalizan a través de cada variante. Esta distribución se basa en las métricas de rendimiento de cada variante para maximizar el número total esperado de conversiones.
 
 Ten en cuenta que los Canvas multivariantes te permiten probar no solo el texto, sino también el momento y los canales. A través de Intelligent Selection, puedes probar Canvas de manera más eficiente y tener la confianza de que tus usuarios serán enviados por el mejor recorrido posible del Canvas.
 
