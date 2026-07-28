@@ -72,7 +72,7 @@ AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
 | -------------------------- | -------- |
 | `.url(URL, useWebView: Bool)` | 외부 브라우저에서 지정된 URL을 엽니다. `useWebView`를 `true`로 설정하면 웹 뷰에서 열립니다. |
 | `.none` | 클릭하면 메시지가 닫힙니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Click action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 동작 유형" }
 
 {% alert important %}
 버튼이 포함된 인앱 메시지의 경우, 버튼 텍스트를 추가하기 전에 클릭 동작이 추가되면 메시지 `clickAction`도 최종 페이로드에 포함됩니다.
@@ -241,7 +241,7 @@ BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = 
 |----------|-------------|
 | `true`         | Modal 인앱 메시지는 외부를 탭하면 닫힙니다.     |
 | `false`        | 기본값으로, Modal 인앱 메시지는 외부를 탭해도 닫히지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing modal dismissals" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modal 닫기 사용자 지정" }
 
 인앱 메시지 사용자 지정에 대한 자세한 내용은 이 [문서](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization)를 참조하세요.
 
@@ -358,7 +358,7 @@ func inAppMessage(
 | `.reenqueue`                        | 메시지가 표시되지 않고 스택의 맨 위로 다시 배치됩니다.                                       |
 | `.later`                            | 메시지가 표시되지 않고 스택의 맨 위로 다시 배치됩니다. (더 이상 사용되지 않으며, `.reenqueue`를 사용하세요) |
 | `.discard`                          | 메시지가 폐기되며 표시되지 않습니다.                                                                    |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing display timing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표시 타이밍 사용자 지정" }
 
 {% alert tip %}
 `InAppMessageUI`의 샘플을 확인하려면 [Swift Braze SDK 리포지토리](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI)와 [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI)를 참조하세요.
@@ -373,7 +373,7 @@ func inAppMessage(
 | `.auto`                             | 메시지 뷰가 상태 표시줄 숨김 상태를 결정합니다.                                 |
 | `.hidden`                           | 항상 상태 표시줄을 숨깁니다.                                                           |
 | `.visible`                          | 항상 상태 표시줄을 표시합니다.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Hiding the status bar" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="상태 표시줄 숨기기" }
 
 ## 다크 모드 비활성화 {#disabling-dark-mode}
 
