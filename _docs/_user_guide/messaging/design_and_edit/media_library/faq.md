@@ -30,6 +30,10 @@ No, the media library doesn't support video files. We recommend you host these e
 
 No, the media library doesn't support cropping GIF images.
 
+### How do I copy the URL of an image uploaded to the media library?
+
+To copy the URL of an image uploaded to the media library, navigate to **Content** > **Media Library**. Hover over the image you want to reference, then select the **Copy Image URL** icon to copy the image URL to your clipboard.
+
 ### Can I use SVG images in email?
 
 SVG images are not recommended for email due to limited support across email clients. Gmail and several other major email providers do not render SVG images, which can result in broken or missing images for recipients. For reliable email rendering, use PNG, JPEG, or GIF formats instead.
