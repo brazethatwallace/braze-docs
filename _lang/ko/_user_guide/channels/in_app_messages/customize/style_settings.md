@@ -139,7 +139,7 @@ https://example.com/images/default-background.png
 ```
 {% endraw %}
 
-### Liquid 추가 {#adding-liquid}
+### Liquid 추가 {#add-liquid}
 
 ![Liquid 개인화를 추가하는 아이콘.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 

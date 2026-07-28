@@ -139,7 +139,7 @@ https://example.com/images/default-background.png
 ```
 {% endraw %}
 
-### Liquidの追加 {#adding-liquid}
+### Liquidの追加 {#add-liquid}
 
 ![Liquidパーソナライゼーションを追加するアイコン。]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 

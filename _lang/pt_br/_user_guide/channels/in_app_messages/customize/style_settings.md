@@ -139,7 +139,7 @@ https://example.com/images/default-background.png
 ```
 {% endraw %}
 
-### Adicionando Liquid {#adding-liquid}
+### Adicionando Liquid {#add-liquid}
 
 ![Ícone para adicionar personalização Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
