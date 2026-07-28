@@ -56,7 +56,7 @@ L'exemple ci-contre montre un flux avec une liste hybride d'éléments alimenté
 
 ### Paires clé-valeur déclenchées par l'API {#api-triggered-key-value-pairs}
 
-Les [campagnes déclenchées par l'API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) sont une bonne stratégie à employer lorsque les valeurs d'une carte dépendent de facteurs externes pour déterminer le contenu à afficher à l'utilisateur. Par exemple, pour afficher du contenu supplémentaire, définissez des paires clé-valeur à l'aide de Liquid. Notez que `class_type` doit être connu au moment de la configuration.
+Les [Campaigns déclenchées par l'API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) sont une bonne stratégie à employer lorsque les valeurs d'une carte dépendent de facteurs externes pour déterminer le contenu à afficher à l'utilisateur. Par exemple, pour afficher du contenu supplémentaire, définissez des paires clé-valeur à l'aide de Liquid. Notez que `class_type` doit être connu au moment de la configuration.
 
 ![Les paires clé-valeur pour le cas d'usage des Content Cards supplémentaires. Dans cet exemple, différents aspects de la carte, tels que « tile_id », « tile_deeplink » et « tile_title », sont définis à l'aide de Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
