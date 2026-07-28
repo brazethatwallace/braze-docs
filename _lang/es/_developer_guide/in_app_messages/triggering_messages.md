@@ -30,13 +30,13 @@ Braze envía los siguientes tipos de mensajes dentro de la aplicación a los dis
 
 ### `inapp` (estándar) {#inapp-standard}
 
-Un mensaje dentro de la aplicación `inapp` (o "[estándar]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages#standard-message-types)") ya está plantillado con la información necesaria, como los atributos personalizados que Braze ya conoce. Generalmente, cuando el mensaje dentro de la aplicación se descarga en el dispositivo, el evento desencadenante hace que el SDK muestre el mensaje dentro de la aplicación `inapp` incluso cuando el dispositivo está sin conexión o en modo avión.
+Un mensaje dentro de la aplicación `inapp` (o "[estándar]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages#standard-message-types)") ya tiene la plantilla aplicada con la información necesaria, como los atributos personalizados que Braze ya conoce. Generalmente, cuando el mensaje dentro de la aplicación se descarga en el dispositivo, el evento desencadenante hace que el SDK muestre el mensaje dentro de la aplicación `inapp` incluso cuando el dispositivo está sin conexión o en modo avión.
 
-### `templated_iam` (plantillado) {#templated_iam-templated}
+### `templated_iam` (con plantilla) {#templated_iam-templated}
 
-Un mensaje dentro de la aplicación `templated_iam` (o "plantillado") aún no está plantillado con la información necesaria. Braze debe realizar otra solicitud para obtener la información antes de que el mensaje pueda aparecer.
+Un mensaje dentro de la aplicación `templated_iam` (o "con plantilla") aún no tiene la plantilla aplicada con la información necesaria. Braze debe realizar otra solicitud para obtener la información antes de que el mensaje pueda aparecer.
 
-Los mensajes dentro de la aplicación se entregan como mensajes dentro de la aplicación plantillados cuando se selecciona **Reevaluar la elegibilidad de la campaña antes de mostrar** o si alguna de las siguientes etiquetas de Liquid existe en el mensaje:
+Los mensajes dentro de la aplicación se entregan como mensajes con plantilla cuando se selecciona **Reevaluar la elegibilidad de la campaña antes de mostrar** o si alguna de las siguientes etiquetas de Liquid existe en el mensaje:
 
 - `canvas_entry_properties`
 - `connected_content`
@@ -159,14 +159,14 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 ```
 
 {% alert important %}
-Si llamas a `braze.showInAppMessage` sin quitar `braze.automaticallyShowInAppMessages()`, los mensajes pueden aparecer dos veces.
+Si llamas a `braze.showInAppMessage` sin eliminar `braze.automaticallyShowInAppMessages()`, los mensajes pueden aparecer dos veces.
 {% endalert %}
 
 Para obtener un control más avanzado sobre la temporización de los mensajes, incluyendo el aplazamiento y la restauración de mensajes desencadenados, consulta nuestro [Tutorial: Aplazamiento y restauración de mensajes desencadenados]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
 {% endtab %}
 
 {% tab android %}
-1. Implementa el [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para establecer un oyente personalizado.
+1. Implementa el [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para establecer un listener personalizado.
 2. Actualiza tu método [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) para que devuelva [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html).
 
 Para obtener un control más avanzado sobre la temporización de los mensajes, incluyendo la visualización posterior y la reincorporación a la cola, consulta nuestra página [Personalización de mensajes]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
@@ -181,7 +181,7 @@ Para obtener un control más avanzado sobre la temporización de los mensajes, i
 
 {% tab flutter %}
 1. Verifica que estás utilizando el inicializador de integración automática, que está habilitado de forma predeterminada en las versiones `2.2.0` y posteriores.
-2. Define la operación de mensajes dentro de la aplicación predeterminada en `DISCARD` añadiendo la siguiente línea a tu archivo `braze.xml`.
+2. Define la operación predeterminada de mensajes dentro de la aplicación en `DISCARD` añadiendo la siguiente línea a tu archivo `braze.xml`.
     ```xml
     <string name="com_braze_flutter_automatic_integration_iam_operation">DISCARD</string>
     ```
@@ -196,7 +196,7 @@ La operación inicial de visualización de mensajes dentro de la aplicación se 
 {% endsubtab %}
 
 {% subtab iOS %}
-Para iOS, configura los oyentes de objetos del juego en el editor de configuración de Braze y asegúrate de que **Braze Displays In-App Messages** no esté seleccionada.
+Para iOS, configura los listeners de objetos del juego en el editor de configuración de Braze y asegúrate de que **Braze Displays In-App Messages** no esté seleccionada.
 
 La operación inicial de visualización de mensajes dentro de la aplicación se puede configurar en Braze utilizando la opción "In App Message Manager Initial Display Operation".
 {% endsubtab %}
@@ -342,7 +342,7 @@ Si se registra un evento enviado por el servidor mientras la aplicación no est�
 {% endtab %}
 
 {% tab swift %}
-#### Paso 1: Manejar el push silencioso y los pares clave-valor {#step-1-handle-silent-push-and-key-value-pairs}
+#### Paso 1: Gestionar el push silencioso y los pares clave-valor {#step-1-handle-silent-push-and-key-value-pairs}
 
 Implementa la siguiente función y llámala dentro del método [`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application/):
 
@@ -389,7 +389,7 @@ La campaña push debe incluir extras de par clave-valor que indiquen que esta ca
 
 ![Una campaña de mensajes dentro de la aplicación con entrega basada en acciones que tiene dos pares clave-valor. "CAMPAIGN_NAME" establecido como "Ejemplo de nombre de mensaje dentro de la aplicación" e "IS_SERVER_EVENT" establecido en "true".]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
-El código del método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` comprueba si hay una clave `IS_SERVER_EVENT` y registrará un evento personalizado del SDK si la hay.
+El código del método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` comprueba si existe la clave `IS_SERVER_EVENT` y registrará un evento personalizado del SDK en caso afirmativo.
 
 Puedes modificar el nombre o las propiedades del evento enviando el valor deseado dentro de los extras del par clave-valor de la carga útil push. Al registrar el evento personalizado, estos extras se pueden utilizar como parámetro del nombre del evento o como propiedad del evento.
 

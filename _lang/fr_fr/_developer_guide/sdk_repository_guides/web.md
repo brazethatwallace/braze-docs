@@ -29,7 +29,9 @@ Que vous développiez une application monopage, un site e-commerce ou une platef
 
 Avant d'intégrer le SDK Web de Braze, vous aurez besoin de :
 
-{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
+- **Compte Braze** : un compte Braze avec accès à l'API
+- **Clé API** : la clé API de votre application depuis le tableau de bord de Braze
+- **Endpoint du SDK** : l'URL de votre endpoint SDK Braze (par exemple, `sdk.iad-01.braze.com`)
 
 ### Obtenir vos identifiants {#getting-your-credentials}
 

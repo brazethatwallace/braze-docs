@@ -442,7 +442,7 @@ O exemplo à direita mostra uma `UICollectionView` com uma lista híbrida de ite
 
 #### Configuração do dashboard {#dashboard-configuration}
 
-Esse Content Card é entregue por uma campanha disparada por API com pares chave-valor disparados por API. Isso é ideal para campanhas em que os valores do cartão dependem de fatores externos para determinar o conteúdo a ser exibido ao usuário. Note que `class_type` deve ser conhecido no momento da configuração.
+Esse Content Card é entregue por uma Campaign disparada por API com pares chave-valor disparados por API. Isso é ideal para Campaigns em que os valores do cartão dependem de fatores externos para determinar o conteúdo a ser exibido ao usuário. Note que `class_type` deve ser conhecido no momento da configuração.
 
 ![Os pares chave-valor para o caso de uso de Content Cards suplementares. Neste exemplo, diferentes aspectos do cartão, como "tile_id", "tile_deeplink" e "tile_title", são definidos usando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 

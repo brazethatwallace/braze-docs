@@ -15,6 +15,10 @@ page_order: 2.0
 SDK를 통합한 후에는 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication)을 활성화하여 무단 SDK 요청을 방지함으로써 추가적인 보안 계층을 적용할 수 있습니다. SDK 인증은 웹, Android, Swift, React Native, Flutter, Unity, Cordova, .NET MAUI(Xamarin) 및 Expo에서 사용할 수 있습니다.
 {% endalert %}
 
+{% alert note %}
+SDK 초기화가 HTTPS 인증서 신뢰 오류(예: `Trust anchor for certification path not found`가 포함된 `SSLHandshakeException`)로 실패하는 경우, [SDK 인증서 신뢰 오류 문제 해결]({{site.baseurl}}/developer_guide/sdk_integration/troubleshooting_certificate_errors)을 참조하세요.
+{% endalert %}
+
 {% sdktabs %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/web/sdk_integration.md %}

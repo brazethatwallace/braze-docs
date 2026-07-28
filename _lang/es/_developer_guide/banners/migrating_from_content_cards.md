@@ -56,7 +56,7 @@ Sigue utilizando Content Cards si necesitas:
 
 - **Experiencias con la fuente:** Cualquier caso de uso que implique múltiples mensajes desplazables o un «buzón de entrada» basado en tarjetas.
 - **Características específicas:** Mensajes que requieren contenido conectado o códigos promocionales, ya que los banners no los admiten de forma nativa.
-- **Entrega desencadenada:** Casos de uso que requieren estrictamente una entrega desencadenada por API o basada en acciones. Aunque los banners no admiten la entrega desencadenada por API o basada en acciones, la evaluación de elegibilidad en tiempo real significa que los usuarios se clasifican o descartan instantáneamente en función de su pertenencia a un segmento cada vez que se actualiza la página.
+- **Entrega desencadenada:** Casos de uso que requieren estrictamente una entrega desencadenada por API o basada en acciones. Aunque los banners no admiten la entrega desencadenada por API o basada en acciones, la evaluación de elegibilidad en tiempo real significa que los usuarios se clasifican o descartan instantáneamente en función de su pertenencia a un segmento en cada actualización.
 
 ## Guía de migración {#migration-guide}
 

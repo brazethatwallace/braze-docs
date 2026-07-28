@@ -71,7 +71,9 @@ await openSession();
 
 Bevor Sie das Braze JavaScript SDK integrieren, benötigen Sie:
 
-{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
+- **Braze-Konto**: Ein Braze-Konto mit API-Zugang
+- **API-Schlüssel**: Den API-Schlüssel Ihrer App aus dem Braze-Dashboard
+- **SDK-Endpunkt**: Ihre Braze-SDK-Endpunkt-URL (z. B. `sdk.iad-01.braze.com`)
 
 ### Zugangsdaten abrufen {#getting-your-credentials}
 

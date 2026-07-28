@@ -29,7 +29,9 @@ Ob Sie eine Single-Page-Anwendung, eine E-Commerce-Website oder eine Content-Pla
 
 Bevor Sie das Braze Web SDK integrieren, benötigen Sie:
 
-{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
+- **Braze-Konto**: Ein Braze-Konto mit API-Zugang
+- **API-Schlüssel**: Den API-Schlüssel Ihrer App aus dem Braze-Dashboard
+- **SDK-Endpunkt**: Ihre Braze SDK-Endpunkt-URL (z. B. `sdk.iad-01.braze.com`)
 
 ### Ihre Zugangsdaten abrufen {#getting-your-credentials}
 

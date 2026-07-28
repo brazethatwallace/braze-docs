@@ -21,7 +21,7 @@ description: "Esta landing page lista os objetos e filtros da API da Braze usado
 - [Objeto de propriedades do gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
 - [Objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object)
 - [Objeto de atributo de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object)
-- [Objeto de programação]({{site.baseurl}}/api/objects_filters/schedule_object)
+- [Objeto de cronograma]({{site.baseurl}}/api/objects_filters/schedule_object)
 - [Objeto de seleção de catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object)
 
 ### Objetos de envio de mensagens {#messaging-objects}
