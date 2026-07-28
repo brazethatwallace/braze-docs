@@ -6,7 +6,7 @@ description: "Referencia del README del SDK de React Native de Braze reflejada d
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Guía del repositorio del SDK de React Native
+# Guía del repositorio del SDK de React Native {#react-native-sdk-repository-guide}
 
 ## Acerca del SDK de Braze para React Native
 
@@ -71,7 +71,7 @@ Llamar a `Braze.initialize` de nuevo con credenciales diferentes destruye la ins
 
 ---
 
-## Configuración nativa
+## Configuración nativa {#native-setup}
 
 > **Fuente de referencia:** Las pantallas paso a paso, los cambios de Gradle/CocoaPods y la lista completa de claves XML de Android se encuentran en la [guía para desarrolladores de Braze React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). Los fragmentos de código a continuación son ejemplos mínimos.
 
