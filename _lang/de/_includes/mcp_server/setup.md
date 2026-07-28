@@ -1,440 +1,154 @@
 # Einrichtung des Braze MCP-Servers {#setting-up-the-braze-mcp-server}
 
-> Erfahren Sie, wie Sie den Braze MCP-Server einrichten, um mit Ihren Braze-Daten mithilfe von Tools für natürliche Sprache wie Claude und Cursor zu interagieren. Weitere allgemeine Informationen finden Sie unter [Braze MCP-Server]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> Erfahren Sie, wie Sie eine Verbindung zum Remote-Braze-MCP-Server herstellen, sich mit OAuth authentifizieren und Braze-Tools in Ihrem MCP-Client nutzen. Weitere Informationen finden Sie unter [Braze MCP-Server]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie beginnen, benötigen Sie Folgendes:
+Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
 
 | Voraussetzung | Beschreibung |
 |--------------|-------------|
-| Braze-API-Schlüssel | Ein Braze-API-Schlüssel mit den erforderlichen Berechtigungen. Sie erstellen einen neuen Schlüssel, wenn Sie [Ihren Braze MCP-Server einrichten](#create-api-key). |
-| MCP-Client | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) und [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) werden offiziell unterstützt. Sie benötigen ein Konto für einen dieser Clients, um den Braze MCP-Server nutzen zu können. |
-| Terminal | Eine Terminal-App, mit der Sie Befehle ausführen und Tools installieren können. Verwenden Sie Ihre bevorzugte Terminal-App oder die auf Ihrem Computer vorinstallierte. |
+| Early-Access-Registrierung | Ihr Account Manager kann Ihr Unternehmen für das Early-Access-Programm registrieren. |
+| Unterstützter MCP-Client | Jeder Client, der Remote-MCP-Server mit OAuth unterstützt, funktioniert. Braze hat Claude, ChatGPT, Cursor, OpenAI Codex und Claude Code verifiziert. |
+| Braze-Dashboard-Konto | Sie melden sich mit Ihren normalen Braze-Zugangsdaten an, einschließlich SSO oder SAML, falls Ihr Unternehmen dies nutzt. Es gibt keine separate MCP-Anmeldung. |
+| Server-Endpunkt-Auswahl | Wählen Sie `https://mcp.braze.com/mcp` (US) oder `https://mcp.braze.eu/mcp` (EU). Beide Endpunkte können jeden Braze-Cluster erreichen. |
+| Kein IP-Allowlisting | Kund:innen, die [IP-Allowlisting](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting) verwenden, können derzeit nicht am Early Access teilnehmen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Einrichtung des Braze MCP-Servers
-
-### 1. Schritt: `uv` installieren {#step-1-install-uv}
-
-Installieren Sie zunächst `uv`&#8212;ein [Befehlszeilentool von Astral](https://docs.astral.sh/uv/getting-started/installation/) für die Abhängigkeitsverwaltung und die Handhabung von Python-Paketen.
-
-{% tabs local %}
-{% tab MacOS and Linux %}
-Öffnen Sie Ihre Terminal-Anwendung, fügen Sie den folgenden Befehl ein und drücken Sie <kbd>Enter</kbd>.
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-Die Ausgabe sieht in etwa wie folgt aus:
-
-```bash
-$ curl -LsSf https://astral.sh/uv/install.sh | sh
-
-downloading uv 0.8.9 aarch64-apple-darwin
-no checksums to verify
-installing to /Users/Isaiah.Robinson/.local/bin
-  uv
-  uvx
-everything's installed!
-```
-{% endtab %}
-
-{% tab Windows %}
- Öffnen Sie Windows PowerShell, fügen Sie den folgenden Befehl ein und drücken Sie <kbd>Enter</kbd>.
-
-```powershell
-irm https://astral.sh/uv/install.ps1 | iex
-```
-
-Die Ausgabe sieht in etwa wie folgt aus:
-
-```powershell
-PS C:\Users\YourUser> irm https://astral.sh/uv/install.ps1 | iex
-
-Downloading uv 0.8.9 (x86_64-pc-windows-msvc)
-no checksums to verify
-installing to C:\Users\YourUser\.local\bin
-  uv.exe
-  uvx.exe
-everything's installed!
-```
-{% endtab %}
-{% endtabs %}
-
-### 2. Schritt: API-Schlüssel erstellen {#create-api-key}
-
-Der Braze MCP-Server umfasst sowohl Lese- als auch Schreib-Endpunkte. Sie geben keine Daten aus Braze-Nutzerprofilen zurück. Schreib-Endpunkte ermöglichen es Agenten, Inhalte in Ihrem Workspace zu erstellen oder zu aktualisieren.
-
-So erstellen Sie Ihren API-Schlüssel:
-
-1. Navigieren Sie zu **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**.
-2. Erstellen Sie einen neuen Schlüssel.
-3. Weisen Sie Ihrem Schlüssel einige oder alle der folgenden Berechtigungen zu.
-
-{% alert important %}
-Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhindern, dass Ihr Agent Änderungen in Braze vornimmt, lassen Sie alle Schreibberechtigungen weg, wenn Sie Ihren API-Schlüssel erstellen.
+{% alert note %}
+Der Zugriff Ihres Agenten spiegelt Ihre Dashboard-Berechtigungen wider. Wenn Ihr Dashboard-Zugriff auf ein Team statt auf einen vollständigen Workspace beschränkt ist, funktionieren einige Tools während des Early Access möglicherweise nicht.
 {% endalert %}
 
-{% details Liste der unterstützten Berechtigungen %}
-#### Campaigns
+## Zugriff verwalten (für Admins) {#managing-access-for-admins}
 
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) | `campaigns.data_series` |
-| [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | `campaigns.details` |
-| [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | `campaigns.list` |
-| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
+### Zugriff gewähren {#grant-access}
 
-#### Canvas
+Admins steuern den Zugriff auf den MCP-Server über die Berechtigung **Use MCP Server**. Standardmäßig haben Nutzer:innen diese Berechtigung nicht, und sie muss explizit gewährt werden.
 
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | `canvas.data_series` |
-| [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | `canvas.data_summary` |
-| [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | `canvas.details` |
-| [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
+Wenn ein Admin diese Berechtigung nicht sieht, wenden Sie sich an Ihren Braze Account Manager, um die Early-Access-Registrierung anzufordern.
 
-#### Kataloge {#catalogs}
+### Zugriff widerrufen {#revoke-access}
 
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) | `catalogs.get` |
-| [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | `catalogs.get_items` |
-| [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Kataloge" }
+Um den Zugriff zu widerrufen, entfernen Sie die Berechtigung **Use MCP Server** von der/dem Nutzer:in. Das Entfernen von Dashboard-Berechtigungen entfernt auch diese Funktionen von jedem verbundenen Agenten bei der nächsten Anfrage.
 
-#### Cloud-Datenaufnahme {#cloud-data-ingestion}
+### Nutzung überwachen {#audit-usage}
 
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | `cdi.integration_list` |
-| [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | `cdi.integration_job_status` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cloud-Datenaufnahme" }
+Wenn sich eine/ein Nutzer:in erfolgreich über OAuth verbindet, wird ein Ereignis im [Sicherheitsereignisbericht](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#security-event-report) protokolliert.
 
-#### Content Blocks
+## Ihren Client verbinden {#connect-your-client}
 
-Die Berechtigungen `content_blocks.create` und `content_blocks.update` sind Schreibberechtigungen. Fügen Sie sie nur hinzu, wenn Ihr Agent Content Blocks in Ihrem Workspace erstellen oder aktualisieren soll.
+### Schritt 1: Berechtigungen und Workspace-Zugriff bestätigen {#step-1-confirm-permissions-and-workspace-access}
 
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
-| [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
-| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | `content_blocks.create` |
-| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
+1. Sie oder Ihr Unternehmensadmin müssen bestätigen, dass Sie die Berechtigung **Use MCP Server** haben.
+2. Wenn Sie Zugriff auf mehrere Workspaces benötigen, stellen Sie sicher, dass die Berechtigung für alle relevanten Workspaces aktiviert ist.
 
-#### Angepasste Attribute {#custom-attributes}
+### Schritt 2: Braze als Remote-MCP-Konnektor hinzufügen {#step-2-add-braze-as-a-remote-mcp-connector}
 
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribute" }
+Fügen Sie in Ihrem MCP-Client einen neuen Remote-Server oder angepassten Konnektor hinzu und geben Sie Ihre Braze-MCP-URL ein. In Claude können Sie beispielsweise zu **Settings** > **Connectors** > **Add custom connector** gehen und die URL einfügen.
 
-#### Ereignisse {#events}
+Es sind keine Client-ID, kein Client-Secret und kein API-Schlüssel erforderlich. Ihr Client registriert sich automatisch bei Braze.
 
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | `events.list` |
-| [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | `events.data_series` |
-| [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisse" }
+Braze-MCP-Endpunkt-Optionen:
 
-#### KPIs
+- `https://mcp.braze.com/mcp` (US)
+- `https://mcp.braze.eu/mcp` (EU)
 
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) | `kpi.new_users.data_series` |
-| [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | `kpi.dau.data_series` |
-| [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | `kpi.mau.data_series` |
-| [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
-
-#### Medienbibliothek {#media-library}
-
-Die Berechtigung `media_library.create` ist eine Schreibberechtigung. Fügen Sie sie nur hinzu, wenn Ihr Agent Assets in Ihre Medienbibliothek hochladen soll.
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Medienbibliothek" }
-
-#### Nachrichten {#messages}
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Nachrichten" }
-
-#### Präferenzzentrum {#preference-center}
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | `preference_center.list` |
-| [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Präferenzzentrum" }
-
-#### Käufe {#purchases}
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | `purchases.product_list` |
-| [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | `purchases.revenue_series` |
-| [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Käufe" }
-
-#### Segments
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | `segments.list` |
-| [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | `segments.data_series` |
-| [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
-
-#### Sendungen {#sends}
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sendungen" }
-
-#### Sitzungen {#sessions}
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sitzungen" }
-
-#### SDK-Authentifizierungsschlüssel {#sdk-authentication-keys}
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Authentifizierungsschlüssel" }
-
-#### Abo {#subscription}
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | `subscription.status.get` |
-| [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Abo" }
-
-#### Templates
-
-Die Berechtigungen `templates.email.create` und `templates.email.update` sind Schreibberechtigungen. Fügen Sie sie nur hinzu, wenn Ihr Agent E-Mail-Templates in Ihrem Workspace erstellen oder aktualisieren soll.
-
-| Endpunkt | Erforderliche Berechtigung |
-|----------|---------------------|
-| [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
-| [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
-| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
-| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
-{% enddetails %}
-
-{% alert warning %}
-Verwenden Sie keinen bereits vorhandenen API-Schlüssel wieder. Erstellen Sie einen speziell für Ihren MCP-Client. Weisen Sie nur die Berechtigungen zu, die Ihr Agent benötigt. Agenten versuchen möglicherweise, jede Berechtigung zu nutzen, die Sie gewähren. Lassen Sie daher alle Schreibberechtigungen weg, wenn Ihr Agent keine Änderungen in Braze vornehmen soll.
+{% alert tip %}
+EU-Kund:innen sollten den EU-Endpunkt verwenden. Nicht-EU-Kund:innen können beide Endpunkte verwenden.
 {% endalert %}
 
-### 3. Schritt: Bezeichner und Endpunkt abrufen {#step-3-get-your-identifier-and-endpoint}
+Einrichtungsanleitungen für Clients:
 
-Wenn Sie Ihren MCP-Client konfigurieren, benötigen Sie den Bezeichner Ihres API-Schlüssels und den REST-Endpunkt Ihres Workspaces. Um diese Informationen abzurufen, kehren Sie zur Seite **API-Schlüssel** im Dashboard zurück&#8212;lassen Sie diese Seite geöffnet, damit Sie im [nächsten Schritt](#configure-client) darauf zurückgreifen können.
+- [Claude](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+- [Claude Code](https://code.claude.com/docs/en/mcp-quickstart)
+- [ChatGPT](https://developers.openai.com/api/docs/guides/developer-mode)
+- [Cursor](https://cursor.com/docs/mcp#using-mcpjson)
+- [OpenAI Codex](https://developers.openai.com/codex/mcp)
 
-![Die Seite „API-Schlüssel“ in Braze mit einem neu erstellten API-Schlüssel und dem REST-Endpunkt der Nutzer:innen.]({% image_buster /assets/img/mcp_server/get_indentifer_and_endpoint.png %}){: style="max-width:85%;"}
+### Schritt 3: Über OAuth bei Braze anmelden {#step-3-sign-in-to-braze-through-oauth}
 
-### 4. Schritt: MCP-Client konfigurieren {#configure-client}
+Wenn Ihr Agent zum ersten Mal ein Braze-Tool aufruft, öffnet Ihr Client ein Browserfenster und leitet Sie zur Anmeldung bei Braze weiter.
 
-Konfigurieren Sie Ihren MCP-Client mithilfe der bereitgestellten Konfigurationsdatei.
+1. Melden Sie sich wie gewohnt bei Braze an, einschließlich SSO, falls erforderlich.
+2. Wenn Ihre Anmeldung auf mehr als ein Unternehmen im selben Cluster zugreifen kann, wählen Sie das Unternehmen aus, das Sie verwenden möchten.
+3. Überprüfen Sie auf dem Zustimmungsbildschirm den Zugriff, den die Anwendung anfordert.
+4. Aktivieren Sie das Bestätigungskontrollkästchen, um der Braze-Datenschutzrichtlinie zuzustimmen, und wählen Sie dann **Continue**, um zu Ihrem MCP-Client zurückzukehren.
 
-{% tabs %}
-{% tab Claude %}
-Richten Sie Ihren MCP-Server mithilfe des [Claude Desktop](https://claude.ai/download)-Konnektor-Verzeichnisses ein.
+![Der Braze-Zustimmungsbildschirm, der zeigt, dass Claude Desktop Zugriff auf Braze-Kontoinformationen und umfassenden Zugriff auf Braze-Daten anfordert, mit einem Kontrollkästchen zur Bestätigung der Datenschutzrichtlinie sowie den Buttons „Cancel“ und „Continue“.]({% image_buster /assets/img/mcp_server/oauth_consent_screen.png %}){: style="max-width:65%;"}
 
-1. Gehen Sie in Claude Desktop zu **Settings** > **Connectors** > **Browse Connectors** > **Desktop Extensions** > **Braze MCP Server** > **Install**.
-2. Geben Sie Ihren API-Schlüssel und Ihre Basis-URL ein.
-3. Speichern Sie die Konfiguration und starten Sie Claude Desktop neu.
+Ihre Sitzung verwendet kurzlebige Zugriffstoken, die automatisch aktualisiert werden. Gelegentlich müssen Sie sich möglicherweise erneut anmelden.
 
-{% endtab %}
+### Schritt 4: Ihrem Agenten mitteilen, welchen Workspace er verwenden soll {#step-4-tell-your-agent-which-workspace-to-use}
 
-{% tab Cursor %}
-Gehen Sie in [Cursor](https://cursor.com/) zu **Settings** > **Tools and Integrations** > **MCP Tools** > **Add Custom MCP** und fügen Sie das folgende Snippet hinzu:
+Wenn Ihr Konto auf mehr als einen Workspace zugreifen kann, geben Sie den Workspace in Ihrem Prompt an. Zum Beispiel:
 
-```json
-{
-  "mcpServers": {
-    "braze": {
-      "command": "uvx",
-      "args": ["--native-tls", "braze-mcp-server@latest"],
-      "env": {
-        "BRAZE_API_KEY": "your-braze-api-key",
-        "BRAZE_BASE_URL": "your-braze-endpoint-url"
-      }
-    }
-  }
-}
-```
+- `I'd like to look at campaign analytics for the past week in the Production workspace.`
+- `Can you compare this week's analytics between my prod-1 workspace and my prod-2 workspace?`
 
-Ersetzen Sie `key-identifier` und `rest-endpoint` durch die entsprechenden Werte von der Seite **API-Schlüssel** in Braze. Ihre Konfiguration sollte in etwa wie folgt aussehen:
+Wenn Sie keinen Workspace angeben, fragt Ihr Agent möglicherweise nach.
 
-```json
-{
-  "mcpServers": {
-    "braze": {
-      "command": "uvx",
-      "args": ["--native-tls", "braze-mcp-server@latest"],
-      "env": {
-        "BRAZE_API_KEY": "2e8b-3c6c-d12e-bd75-4f0e2a8e5c71",
-        "BRAZE_BASE_URL": "https://torchie.braze.com"
-      }
-    }
-  }
-}
-```
+### Schritt 5: Test-Prompt senden {#step-5-send-a-test-prompt}
 
-Wenn Sie fertig sind, speichern Sie die Konfiguration und starten Sie Cursor neu.
-{% endtab %}
-{% tab Gemini CLI %}
-Gemini CLI liest Nutzer:innen-Einstellungen aus `~/.gemini/settings.json`. Falls diese Datei nicht vorhanden ist, können Sie sie erstellen, indem Sie Folgendes in Ihrem Terminal ausführen:
+Senden Sie nach der Einrichtung einen kurzen Validierungs-Prompt, wie zum Beispiel:
 
-```powershell
-mkdir -p ~/.gemini
-nano ~/.gemini/settings.json
-```
+- `List the Braze tools available in this workspace.`
+- `Show my recent Canvases from the Production workspace.`
 
-Ersetzen Sie als Nächstes `yourname` durch den genauen String vor `@BZXXXXXXXX` in Ihrer Terminal-Eingabeaufforderung. Ersetzen Sie dann `key-identifier` und `rest-endpoint` durch die entsprechenden Werte von der Seite **API-Schlüssel** in Braze.
+Weitere Beispiele finden Sie unter [Verwendung des Braze MCP-Servers]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
 
-Ihre Konfiguration sollte in etwa wie folgt aussehen:
+## Beispiel: Verbindung mit Claude herstellen {#example-connect-with-claude}
 
-```json
-{
-  "mcpServers": {
-    "braze": {
-      "command": "/Users/yourname/.local/bin/uvx",
-      "args": ["--native-tls", "braze-mcp-server@latest"],
-      "env": {
-        "BRAZE_API_KEY": "2e8b-3c6c-d12e-bd75-4f0e2a8e5c71",
-        "BRAZE_BASE_URL": "https://torchie.braze.com"
-      }
-    }
-  }
-}
-```
+Die Verbindung eines Clients erfordert nur wenige Schritte. Die folgende Anleitung verwendet Claude, aber der Ablauf ist bei anderen unterstützten Clients ähnlich.
 
-Wenn Sie fertig sind, speichern Sie die Konfiguration und starten Sie Gemini CLI neu. Führen Sie anschließend in Gemini die folgenden Befehle aus, um zu überprüfen, ob der Braze MCP-Server aufgeführt ist und die Tools und das Schema zur Verwendung verfügbar sind:
+1. Gehen Sie in Claude zu **Settings** > **Connectors** > **Add custom connector**.
+2. Geben Sie einen Namen ein, z. B. `Braze`, und fügen Sie dann Ihre Braze-MCP-URL ein: `https://mcp.braze.com/mcp` für US oder `https://mcp.braze.eu/mcp` für EU. Sie benötigen keine Client-ID, kein Client-Secret und keinen API-Schlüssel.
+3. Wählen Sie **Add**, um den Konnektor zu speichern. Claude registriert sich automatisch bei Braze.
+4. Wählen Sie **Connect**, um die Authentifizierung zu starten. Claude öffnet ein Browserfenster und leitet Sie zur Anmeldung bei Braze weiter.
+5. Melden Sie sich mit Ihren üblichen Zugangsdaten bei Braze an, einschließlich SSO, falls Ihr Unternehmen dies nutzt. Wenn Ihre Anmeldung auf mehr als ein Unternehmen im selben Cluster zugreifen kann, wählen Sie das Unternehmen aus, das Sie verwenden möchten.
+6. Überprüfen Sie auf dem Zustimmungsbildschirm den angeforderten Zugriff, aktivieren Sie das Bestätigungskontrollkästchen und wählen Sie dann **Continue**. Claude kehrt zu Ihrem Chat zurück, und Ihr Agent kann nun Braze-Tools verwenden.
 
-```powershell
-gemini
-/mcp
-/mcp desc
-/mcp schema
-```
+Um die Verbindung zu bestätigen, senden Sie einen Test-Prompt wie `Show my recent Canvases from the Production workspace`.
 
-Sie sollten den `braze`-Server mit den verfügbaren Tools und Schemata aufgelistet sehen.
+## Migration vom lokalen Beta-Server {#migrating-from-the-local-beta-server}
 
-{% endtab %}
-{% endtabs %}
+Sie können den lokalen Beta-Server und den remote gehosteten Server während der Migration parallel betreiben. Möglicherweise müssen Sie Ihrem Agenten explizit mitteilen, welchen er verwenden soll.
 
-### 5. Schritt: Test-Prompt senden {#step-5-send-a-test-prompt}
+Der remote gehostete Server enthält neue Tools, die im lokalen Beta-Server nicht vorhanden sind. Wenn Sie Skills für den lokalen Server erstellt haben, müssen Sie diese möglicherweise aktualisieren, um auf neue Tool-Namen und -Verhaltensweisen zu verweisen.
 
-Nachdem Sie den Braze MCP-Server eingerichtet haben, senden Sie einen Test-Prompt an Ihren MCP-Client. Weitere Beispiele und Best Practices finden Sie unter [Verwendung des Braze MCP-Servers]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
-
-{% tabs %}
-{% tab Claude %}
-**Beispiel-Prompt:** `What are my available Braze functions?`
-**Beispielantwort:** Hat `list_functions` verwendet und die verfügbaren Braze MCP-Funktionskategorien zurückgegeben.
-{% endtab %}
-
-{% tab Cursor %}
-**Beispiel-Prompt:** `What are my available Braze functions?`
-**Beispielantwort:** Hat `list_functions` abgefragt und Funktionen wie `get_canvas_list` aufgelistet.
-{% endtab %}
-
-{% tab Gemini CLI %}
-**Beispiel-Prompt:** `What are my available Braze functions?`
-**Beispielantwort:** Hat `list_functions` in Gemini CLI abgefragt und verfügbare Braze MCP-Funktionskategorien sowie Beispielfunktionen zurückgegeben.
-{% endtab %}
-{% endtabs %}
+Nachdem Sie bestätigt haben, dass Ihre Workflows und Skills auf dem Remote-Server funktionieren, deaktivieren Sie den lokal gehosteten Server.
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Terminalfehler {#terminal-errors}
+### Authentifizierung schlägt in einem unterstützten Client fehl {#authentication-fails-in-a-supported-client}
 
-#### `uvx`-Befehl nicht gefunden {#uvx-command-not-found}
+1. Bestätigen Sie, dass Ihr Unternehmen für Early Access registriert ist.
+2. Bestätigen Sie, dass Ihre/Ihr Nutzer:in die Berechtigung **Use MCP Server** hat.
+3. Versuchen Sie die Anmeldung und Autorisierung erneut.
 
-Wenn Sie die Fehlermeldung erhalten, dass der `uvx`-Befehl nicht gefunden wurde, installieren Sie `uv` erneut und starten Sie Ihr Terminal neu.
+### Authentifizierung wird in einem nicht verifizierten Client blockiert {#authentication-is-blocked-in-an-unverified-client}
 
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+Während des Early Access pflegt Braze eine Allowlist unterstützter Client-Domains aus Sicherheitsgründen. Wenn Sie sich von einem Client verbinden, der nicht auf der Allowlist steht, wird die Authentifizierung möglicherweise blockiert. Wenn Sie der Meinung sind, dass Ihr Client unterstützt werden sollte, wenden Sie sich an [mcp-product@braze.com](mailto:mcp-product@braze.com).
 
-#### `spawn uvx ENOENT`-Fehler {#spawn-uvx-enoent-error}
+Clients, die lokal auf Ihrem Rechner ohne ein angepasstes Schema laufen, wie Claude Code und OpenAI Codex, sollten ebenfalls funktionieren.
 
-Wenn Sie `spawn uvx ENOENT`-Fehler erhalten, müssen Sie möglicherweise den Dateipfad in der Konfigurationsdatei Ihres Clients aktualisieren. Öffnen Sie zunächst Ihr Terminal und führen Sie den folgenden Befehl aus:
+### Agent kann nicht auf erwartete Tools zugreifen {#agent-cannot-access-expected-tools}
 
-```bash
-which uvx
-```
+1. Bestätigen Sie, dass Ihre/Ihr Dashboard-Nutzer:in über die erforderlichen Berechtigungen verfügt. Ihr Agent kann nur Tools verwenden, die Ihrem eigenen Dashboard-Zugriff entsprechen.
+2. Bestätigen Sie, dass Sie den erwarteten Workspace in Ihrem Prompt ausgewählt haben.
+3. Bitten Sie Ihren Agenten, `get_workspaces` aufzurufen, und überprüfen Sie die verfügbaren Workspace-IDs.
 
-Der Befehl sollte eine Nachricht ähnlich der folgenden zurückgeben:
+### Agent verwendet den falschen Workspace {#agent-uses-the-wrong-workspace}
 
-```bash
-/Users/alex-lee/.local/bin/uvx
-```
+Wenn Ihr Konto auf mehr als einen Workspace zugreifen kann, benennen Sie den Workspace in Ihrem Prompt mit dem genauen Namen, der im Braze-Dashboard angezeigt wird. Wenn Sie keinen Workspace angeben, fragt Ihr Agent möglicherweise nach oder verwendet einen unerwarteten.
 
-Kopieren Sie die Nachricht in Ihre Zwischenablage und öffnen Sie [die Konfigurationsdatei Ihres Clients](#configure-client). Ersetzen Sie `"command": "uvx"` durch den kopierten Pfad und starten Sie anschließend Ihren Client neu. Zum Beispiel:
+{% alert important %}
+Bevor Ihr Agent mit der Arbeit beginnt, bestätigen Sie immer, welchen Workspace er verwendet. In einigen Fällen kann ein Agent einen anderen Workspace auswählen als den, den Sie beabsichtigt haben.
+{% endalert %}
 
-```json
-"command": "/Users/alex-lee/.local/bin/uvx"
-```
+### Zu einem anderen Unternehmen wechseln {#switching-to-a-different-company}
 
-#### Paketinstallation schlägt fehl {#package-installation-fails}
-
-Wenn die Paketinstallation fehlschlägt, versuchen Sie stattdessen, eine bestimmte Python-Version zu installieren.
-
-```bash
-uvx --python 3.12 braze-mcp-server@latest
-```
-
-### Client-Konfiguration {#client-configuration}
-
-#### „Diese Erweiterung ist nicht mit Ihrem Gerät kompatibel“ {#this-extension-is-not-compatible-with-your-device}
-
-Wenn dieser Fehler bei der Installation der Braze MCP-Server-Erweiterung angezeigt wird, kann dies auf Folgendes hinweisen:
-
-- **Ihr Gerät erfüllt die Anforderungen nicht**: Einige MCP-Server-Erweiterungen erfordern bestimmte Betriebssystemversionen oder Hardware.
-- **Fehlende Entwicklertools (nur macOS)**: Unter macOS benötigt die Installation der Erweiterung Befehlszeilen-Entwicklertools, um Python-Befehle auszuführen. Wenn diese Tools nicht installiert sind, schlägt die Installation mit diesem Fehler fehl.
-
-Um die Befehlszeilen-Entwicklertools unter macOS zu installieren, führen Sie Folgendes in Ihrem Terminal aus:
-
-```bash
-xcode-select --install
-```
-
-Starten Sie nach Abschluss der Installation Ihren MCP-Client neu und versuchen Sie erneut, die Erweiterung zu installieren.
-
-#### MCP-Client kann den Braze-Server nicht finden {#mcp-client-cant-find-the-braze-server}
-
-1. Überprüfen Sie, ob die Syntax Ihrer MCP-Client-Konfiguration korrekt ist.
-2. Starten Sie Ihren MCP-Client nach Konfigurationsänderungen neu.
-3. Überprüfen Sie, ob `uvx` in Ihrem System-`PATH` enthalten ist.
-
-#### Authentifizierungsfehler {#authentication-errors}
-
-1. Überprüfen Sie, ob Ihr `BRAZE_API_KEY` korrekt und aktiv ist.
-2. Stellen Sie sicher, dass Ihre `BRAZE_BASE_URL` mit Ihrer Braze-Instanz übereinstimmt.
-3. Überprüfen Sie, ob Ihr API-Schlüssel über die [erforderlichen Berechtigungen](#create-api-key) verfügt.
-
-#### Verbindungs-Timeouts oder Netzwerkfehler {#connection-timeouts-or-network-errors}
-
-1. Überprüfen Sie, ob Ihre `BRAZE_BASE_URL` für Ihre Instanz korrekt ist.
-2. Überprüfen Sie Ihre Netzwerkverbindung und Firewall-Einstellungen.
-3. Stellen Sie sicher, dass Sie HTTPS in Ihrer Basis-URL verwenden.
+Ihr Unternehmen wird bei der ersten Autorisierung festgelegt. Um in einem anderen Unternehmen im selben Cluster zu arbeiten, trennen Sie den Braze-Konnektor in Ihrem Client, autorisieren Sie erneut und wählen Sie das andere Unternehmen während der Anmeldung aus.
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

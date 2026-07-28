@@ -1,9 +1,11 @@
-## Aviso Legal
+## Aviso legal {#legal-disclaimer}
 <!-- Braze Legal must approve any changes to this content. -->
 <!-- Note: Keep these comments under this H2 heading to avoid breaking how headings on certain pages are rendered. -->
 
-O [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) é um protocolo de código aberto recém-introduzido que pode estar suscetível a problemas de segurança ou vulnerabilidades neste momento.
+### Como instruções e respostas são tratadas {#how-instructions-and-responses-are-handled}
 
-O código e as instruções de configuração do servidor MCP da Braze são fornecidos pela Braze "no estado em que se encontram" e sem quaisquer garantias, e os clientes o utilizam por sua própria conta e risco. A Braze não será responsável por quaisquer consequências decorrentes de configuração inadequada, uso indevido do MCP ou quaisquer potenciais problemas de segurança que possam surgir. A Braze incentiva fortemente os clientes a revisar suas configurações cuidadosamente e a seguir as diretrizes descritas para reduzir os riscos associados à integridade e segurança do seu ambiente Braze.
+O servidor MCP da Braze recebe instruções do seu cliente MCP de provedor terceiro, como Claude, ChatGPT, Copilot, Gemini CLI, Codex ou Cursor, exatamente como o modelo de IA subjacente desse provedor as formula. Quando você digita uma solicitação em linguagem natural, o modelo de IA interpreta sua solicitação e a traduz em uma ou mais chamadas de ferramenta específicas para a Braze. A Braze recebe e executa a chamada de ferramenta conforme enviada. A Braze não vê seu prompt original em linguagem natural e não pode verificar se a chamada de ferramenta gerada reflete total ou precisamente a sua solicitação pretendida.
 
-Para assistência ou esclarecimentos, fale com o [suporte da Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support).
+Quando a Braze retorna dados ou um resultado, essa resposta é enviada de volta ao seu cliente MCP de provedor terceiro, que então interpreta, formata e apresenta as informações para você. A Braze não controla como o modelo de IA apresenta, resume ou descreve as informações retornadas.
+
+A Braze não é responsável por instruções geradas por, ou respostas transmitidas por meio de, qualquer cliente MCP de provedor terceiro. A Braze recomenda não usar o "modo automático" caso seu cliente MCP de provedor terceiro o ofereça para implementação automática de ações. Revise os resumos gerados por IA comparando-os com os dados de origem no seu dashboard da Braze e revise qualquer ação proposta pela IA antes de implementá-la por meio do seu cliente MCP de provedor terceiro.
