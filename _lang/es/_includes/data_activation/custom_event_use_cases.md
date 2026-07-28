@@ -1,5 +1,5 @@
 - Desencadenar una Campaign o un Canvas basándose en un evento personalizado mediante la [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
-- Segmentar usuarios por cuántas veces realizaron un evento personalizado, cuándo fue la última vez que ocurrió el evento, y similares
+- Segmentar usuarios por cuántas veces realizaron un evento personalizado, cuándo fue la última vez que ocurrió el evento y similares
 - Usar los [análisis de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) del panel para ver un agregado de la frecuencia con la que ocurrió cada evento
 - Encontrar análisis adicionales usando informes de [embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) y [retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)
 - Aprovechar las [propiedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) para usar metadatos de tu evento de cliente para la personalización en tus pasos en Canvas

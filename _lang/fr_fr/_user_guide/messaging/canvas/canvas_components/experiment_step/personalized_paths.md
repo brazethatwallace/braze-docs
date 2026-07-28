@@ -47,6 +47,10 @@ Cette option enverra les futurs utilisateurs sur le mix de chemins selon les pou
 
 ![Capture d'écran relative à l'étape 3 : déterminer le comportement de repli.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
+{% alert note %}
+Si l'expérience se termine avec des résultats insuffisants, seul l'onglet **Expérience initiale** est affiché, car le modèle détermine que la personnalisation ne surpasserait pas l'envoi de tous les utilisateurs sur un seul chemin le plus performant. Pour plus de détails, consultez la section [Analyses](#analytics).
+{% endalert %}
+
 ### Étape 4 : Ajouter vos chemins et lancer le Canvas {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
@@ -80,7 +84,7 @@ Lorsque la fenêtre d'expérience est écoulée et que l'expérience est termin�
 
 Lorsque les chemins personnalisés sont activés et produisent des résultats suffisants, votre vue d'analyse est séparée en deux onglets : **Expérience initiale** et **Chemins personnalisés**.
 
-Si l'expérience se termine avec des résultats insuffisants, seul l'onglet **Expérience initiale** est affiché, car le modèle détermine que la personnalisation ne surpasserait pas l'envoi de tous les utilisateurs sur un seul chemin le plus performant. Dans ce cas, votre comportement de repli configuré est appliqué et aucune analyse de chemins personnalisés n'est disponible.
+Si l'expérience se termine avec des résultats insuffisants (par exemple, lorsque le gain projeté du modèle est inférieur au seuil de 0,5 % ou qu'aucun segment d'utilisateurs significatif n'est identifié), seul l'onglet **Expérience initiale** est affiché, car le modèle détermine que la personnalisation ne surpasserait pas l'envoi de tous les utilisateurs sur un seul chemin le plus performant. Dans ce cas, votre comportement de repli configuré est appliqué et aucune analyse de chemins personnalisés n'est disponible.
 
 {% tabs local %}
 {% tab Expérience initiale %}

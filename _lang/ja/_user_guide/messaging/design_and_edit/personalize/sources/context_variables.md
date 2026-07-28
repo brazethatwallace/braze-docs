@@ -183,15 +183,26 @@ Liquid内（[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canva
 
 キャンバスのコンテキスト変数に事前定義されたタイプがあるのと同様に、コンテキスト変数と静的値の比較には[一致するデータタイプ]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)が必要です。コンテキスト変数フィルターは、ブール値、数値、文字列、時間、年内の日付の複数のデータタイプにわたる比較を可能にします。これは[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)の比較と同様です。
 
+以下は、コンテキスト変数`product_name`を正規表現`/braze/`と比較するコンテキスト変数フィルターの例です。
+
+![コンテキスト変数「product_name」を正規表現「/braze/」に一致させるフィルター設定。]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### 日付コンテキスト変数の年内の日付フィルターと時間フィルター {#day-of-year-and-time-filters-for-date-context-variables}
+
+コンテキスト変数で**年内の日付**または**時間**の比較フィルターを使用するには:
+
+1. 日付（例: 2025年10月23日）にコンテキスト変数を設定する[コンテキストステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)を追加します。
+2. コンテキストステップの後に[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)ステップを追加します。
+3. オーディエンスパスステップで、そのコンテキスト変数に基づいてユーザーを分割するフィルターを追加します。
+4. **年内の日付**または**時間**カテゴリから比較を選択します。
+
+コンテキスト変数に宣言されたタイプがない場合、Brazeはドロップダウンに**年内の日付**と**時間**の両方を含むすべての利用可能な比較タイプを表示します。変数がコンテキストステップで**時間**タイプとして宣言されている場合、**年内の日付**と**時間**の比較のみが表示されます。既知のタイプを持つ他のデータタイプ（例: 時間タイプの階層化カスタム属性）の場合、そのタイプに適用される比較のみが表示されます。
+
 {% alert note %}
 コンテキスト変数と比較には同じデータタイプを使用してください。例えば、コンテキスト変数が時間データタイプの場合、時間比較（「前」や「後」など）を使用します。一致しないデータタイプ（時間コンテキスト変数に対する文字列比較など）を使用すると、予期しない動作が発生する可能性があります。
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-以下は、コンテキスト変数`product_name`を正規表現`/braze/`と比較するコンテキスト変数フィルターの例です。
-
-![コンテキスト変数「product_name」を正規表現「/braze/」に一致させるフィルター設定。]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### コンテキスト変数またはカスタム属性との比較 {#comparing-to-context-variables-or-custom-attributes}
 

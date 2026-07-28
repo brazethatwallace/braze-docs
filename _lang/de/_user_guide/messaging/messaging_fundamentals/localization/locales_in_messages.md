@@ -23,7 +23,7 @@ description: "Dieser Artikel beschreibt die Schritte zur Verwendung von Locales 
 
 | Feature | Erforderliche Nutzer:innenberechtigungen |
 | --- | --- |
-| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvases hinzuzufügen:<br><br> {::nomarkdown} <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvases hinzuzufügen:<br><br> {::nomarkdown} <ul><li>Campaigns bearbeiten</li><li>Canvases bearbeiten</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen"}
 
 {% endtab %}
@@ -31,7 +31,7 @@ description: "Dieser Artikel beschreibt die Schritte zur Verwendung von Locales 
 
 | Feature | Erforderliche Nutzer:innenberechtigungen |
 | --- | --- |
-| Templates | Sie benötigen diese Berechtigungen für den Template-Typ, dem Sie Locales und Übersetzungen hinzufügen möchten:<br><br> {::nomarkdown} <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
+| Templates | Sie benötigen diese Berechtigungen für den Template-Typ, dem Sie Locales und Übersetzungen hinzufügen möchten:<br><br> {::nomarkdown} <ul><li>E-Mail-Templates bearbeiten</li><li>IAM-Templates bearbeiten</li><li>Content-Block-Templates bearbeiten</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% endtab %}
@@ -254,6 +254,17 @@ Bei der Verwendung von Übersetzungs-Tags gelten die folgenden Limits:
 - Jede Nachricht kann bis zu 200 Übersetzungs-Tags enthalten.
 - Jeder Standardtext (der Inhalt zwischen Übersetzungs-Tags) kann bis zu 2.000 Zeichen umfassen.
 - Die Übersetzungen pro Locale können bis zu 409.600 Bytes (ca. 409,6&nbsp;KB) umfassen.
+
+### Warum erhalte ich einen Fehler beim Herunterladen mehrsprachiger E-Mail-Templates? {#why-am-i-receiving-an-error-when-downloading-multi-language-email-templates}
+
+Wenn beim Herunterladen mehrsprachiger E-Mail-Templates Fehler auftreten, umschließen die Übersetzungs-Tags möglicherweise HTML-Attribute oder CSS-Styling, die mit der Verarbeitung von E-Mail-Bodys durch Braze in Konflikt stehen.
+
+Braze behandelt den HTML-Body und den Plaintext-Body als separate Komponenten derselben Nachricht. Wenn Übersetzungs-Tags `href`-Referenzen und CSS-Styling enthalten, kann dies zu widersprüchlichen Tags führen, die das korrekte Herunterladen des Templates verhindern.
+
+So beheben Sie das Problem:
+- Schließen Sie `href`-Referenzen und CSS-Styling von Übersetzungs-Tags aus.
+- Umschließen Sie nur menschenlesbaren Textinhalt mit Übersetzungs-Tags, wie unter [HTML-Attribute und -Struktur](#html-attributes-and-structure) beschrieben.
+- Befolgen Sie für URLs die Anleitung unter [URLs lokalisieren](#localize-urls).
 
 #### Kann ich eine Änderung an der übersetzten Kopie in einer meiner Locales vornehmen? {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
 

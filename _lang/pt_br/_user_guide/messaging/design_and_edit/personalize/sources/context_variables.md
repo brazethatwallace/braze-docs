@@ -54,13 +54,13 @@ As variáveis de contexto têm os mesmos formatos esperados para tipos de dados 
 
 | Tipo de dado | Exemplo de nome de variável | Exemplo de valor |
 |---|---|---|
-|Booleano| loyalty_program |{% raw %}<code>true</code>{% endraw %}|
-|Número| credit_score |{% raw %}<code>740</code>{% endraw %}|
-|String| product_name |{% raw %}<code>green_tea</code>{% endraw %} |
-|Array| favorite_products|{% raw %}<code>["wireless_headphones", "smart_homehub", "fitness_tracker_swatch"]</code>{% endraw %}|
-|Array (de objetos)| pet_details |{% raw %}<code>[<br>&emsp;{ "id": 1, "type": "dog", "breed": "beagle", "name": "Gus" }<br>&emsp;,<br>&emsp;{ "id": 2, "type": "cat", "breed": "calico", "name": "Gerald" }<br>]</code>{% endraw %}|
-|Horário (em UTC) | last_purchase_date|{% raw %}<code>2025-12-25T08:15:30:250-0800</code>{% endraw %}|
-|Objeto (achatado) | user_profile|{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
+| Booleano | loyalty_program |{% raw %}<code>true</code>{% endraw %}|
+| Número | credit_score |{% raw %}<code>740</code>{% endraw %}|
+| String | product_name |{% raw %}<code>green_tea</code>{% endraw %} |
+| Array | favorite_products |{% raw %}<code>["wireless_headphones", "smart_homehub", "fitness_tracker_swatch"]</code>{% endraw %}|
+| Array (de objetos) | pet_details |{% raw %}<code>[<br>&emsp;{ "id": 1, "type": "dog", "breed": "beagle", "name": "Gus" }<br>&emsp;,<br>&emsp;{ "id": 2, "type": "cat", "breed": "calico", "name": "Gerald" }<br>]</code>{% endraw %}|
+| Horário (em UTC) | last_purchase_date |{% raw %}<code>2025-12-25T08:15:30:250-0800</code>{% endraw %}|
+| Objeto (achatado) | user_profile |{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de dados" }
 
 Por padrão, o tipo de dado de horário está em UTC. Se você usar um tipo de dado string para armazenar um valor de horário, poderá definir o horário em um fuso horário diferente, como PST.
@@ -183,15 +183,26 @@ As variáveis de contexto são declaradas e acessíveis apenas no escopo de um C
 
 Assim como as variáveis de contexto do Canvas têm tipos pré-definidos, as comparações entre variáveis de contexto e valores estáticos devem ter [tipos de dados correspondentes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). O filtro de variável de contexto permite comparações entre múltiplos tipos de dados para booleanos, números, strings, horário e dia do ano, semelhante às comparações para [atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
+Aqui está um exemplo de um filtro de variável de contexto comparando a variável de contexto `product_name` com o regex `/braze/`.
+
+![Uma configuração de filtro para a variável de contexto "product_name" para corresponder ao regex "/braze/".]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### Filtros de dia do ano e horário para variáveis de contexto de data {#day-of-year-and-time-filters-for-date-context-variables}
+
+Para usar filtros de comparação de **Dia do ano** ou **Horário** com uma variável de contexto:
+
+1. Adicione uma [etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) que defina uma variável de contexto como uma data do calendário (por exemplo, 23 de outubro de 2025).
+2. Adicione uma etapa de [jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) após a etapa de Contexto.
+3. Na etapa de jornadas do público, adicione um filtro que divida os usuários com base nessa variável de contexto.
+4. Escolha uma comparação da categoria **Dia do ano** ou **Horário**.
+
+Se uma variável de contexto não tiver tipo declarado, a Braze mostrará todos os tipos de comparação disponíveis no menu suspenso, incluindo **Dia do ano** e **Horário**. Se a variável for declarada como tipo **horário** na etapa de Contexto, apenas as comparações de **Dia do ano** e **Horário** serão exibidas. Para outros tipos de dados com tipo conhecido (por exemplo, um atributo personalizado aninhado com tipo de horário), apenas as comparações aplicáveis a esse tipo serão exibidas.
+
 {% alert note %}
 Use o mesmo tipo de dado para sua variável de contexto e comparação. Por exemplo, se sua variável de contexto for do tipo de dado de horário, use comparações de horário (como "antes" ou "depois"). Usar tipos de dados incompatíveis (como comparações de string com uma variável de contexto de horário) pode causar comportamento inesperado.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-Aqui está um exemplo de um filtro de variável de contexto comparando a variável de contexto `product_name` com o regex `/braze/`.
-
-![Uma configuração de filtro para a variável de contexto "product_name" para corresponder ao regex "/braze/".]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### Comparando com variáveis de contexto ou atributos personalizados {#comparing-to-context-variables-or-custom-attributes}
 

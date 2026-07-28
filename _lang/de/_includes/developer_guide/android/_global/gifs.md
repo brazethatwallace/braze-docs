@@ -174,9 +174,9 @@ Um dies zu vermeiden:
 
 Dadurch wird das Laden von Bildern vom UI-Rendering getrennt, und Ihr eigener Image-Loader bleibt mit Android SDK 36.0.0 und höher kompatibel.
 
-Diese Anleitung gilt für eigene Image-Loader unter Android. Web-In-App-Nachrichten unterstützen GIFs standardmäßig.
+Diese Anleitung gilt für eigene Image-Loader unter Android. In-App-Nachrichten im Web unterstützen GIFs standardmäßig.
 
-Das folgende Kotlin-Beispiel verwendet Platzhalterwerte, um dieses Muster zu veranschaulichen:
+Das folgende Kotlin-Beispiel verwendet Platzhalter, um dieses Muster zu veranschaulichen:
 
 ```kotlin
 private const val TAG = "SampleGlideLoader"

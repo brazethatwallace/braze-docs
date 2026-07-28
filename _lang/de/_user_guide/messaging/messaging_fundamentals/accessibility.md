@@ -103,7 +103,7 @@ Je nach individuellen Bedürfnissen sind diese Nutzer:innen angewiesen auf:
 {% endtab %}
 {% endtabs %}
 
-## Bewährte Praktiken {#best-practices}
+## Best Practices {#best-practices}
 
 Barrierefreie Inhalte zu erstellen muss nicht überwältigend sein. Kleine, durchdachte Entscheidungen können einen großen Unterschied machen. Dieser Abschnitt führt Sie durch praktische Tipps, die mehr Menschen helfen, Ihre Nachrichten erfolgreich zu lesen, zu navigieren und mit ihnen zu interagieren. Ob Sie Ihren Text anpassen, Ihre Buttons gestalten oder Alt-Text zu Bildern hinzufügen – jede Verbesserung trägt zu einem inklusiveren Erlebnis bei. Legen wir los.
 

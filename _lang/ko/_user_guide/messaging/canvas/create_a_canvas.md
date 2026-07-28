@@ -109,6 +109,10 @@ Canvas에 여러 배리언트 또는 대조군이 있는 경우, Braze는 이 �
 
 ![실행 기반 전달의 예시. 사용자가 구매를 완료하면 Canvas에 진입하며, 진입 기간은 2025년 6월 10일 오후 1:30에 시작됩니다.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
+{% alert note %}
+**Canvas 단계와 상호작용**은 Canvases의 실행 기반 진입 트리거로 사용할 수 없습니다. Campaigns의 트리거로만 사용할 수 있습니다. 하나의 Canvas에서 다른 Canvas를 트리거하려면 [목적지로 보내기]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) Canvas 구성요소를 사용하거나 `/canvas/trigger/send` 엔드포인트를 호출하는 [Braze 간 웹훅]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas)을 만드세요.
+{% endalert %}
+
 {% alert important %}
 실행 기반 Canvas가 예상보다 일찍 메시지를 보내는 경우, 커스텀 이벤트 타임스탬프가 소급된 시간이 아닌 현재 시간으로 전송되고 있는지 확인하세요. 예를 들어 실행 기반 Canvas에 사용자가 커스텀 이벤트를 수행한 후 3시간 지연이 있는 경우, Braze는 커스텀 이벤트와 함께 전송된 타임스탬프를 사용하여 해당 지연을 평가합니다. 타임스탬프가 3시간 이상 소급된 경우, Braze는 지연이 이미 경과한 것으로 처리하고 메시지를 즉시 발송합니다.
 {% endalert %}
@@ -136,6 +140,14 @@ API 트리거 전달에 다음 엔드포인트를 사용할 수 있습니다:
 ### 1.3단계: 타겟 진입 오디언스 설정 {#step-13-set-your-target-entry-audience}
 
 **타겟 오디언스** 단계에서 정의한 기준에 맞는 사용자만 여정에 진입할 수 있습니다. 즉, Braze는 사용자가 Canvas 여정에 진입하기 **전에** 먼저 타겟 오디언스의 자격을 평가합니다. 예를 들어 신규 사용자를 타겟팅하려면 1주일 이내에 앱을 처음 사용한 사용자 Segment를 선택할 수 있습니다.
+
+{% alert important %}
+여러 앱이 있는 워크스페이스에서 Canvas 진입 오디언스 자격(Segments 및 필터 포함)은 사용자가 Canvas에 진입할 때만 평가되며, 개별 메시지 단계에서는 평가되지 않습니다. 워크스페이스에 여러 앱이 있고 메시지 단계가 특정 앱의 사용자만 타겟팅하도록 해야 하는 경우, 각 메시지 단계에서 다음 방법 중 하나를 사용하세요:
+- 메시지 단계 [전달 유효성 검사]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations)에서 **메시지 발송 시 오디언스 유효성 검사**를 활성화하고 앱별 Segments 또는 필터를 추가합니다.
+- Liquid를 사용하여 발송 시 타겟 기기 또는 앱을 확인합니다.
+
+이러한 보호 조치가 없으면 한 앱에서 여정에 자격을 얻은 사용자가 워크스페이스의 다른 앱도 사용하는 경우 다른 앱을 위한 메시지를 받을 수 있습니다.
+{% endalert %}
 
 **진입 제어**에서 Canvas가 실행되도록 스케줄될 때마다 사용자 수를 제한할 수 있습니다. API 트리거 기반 및 실행 기반 Canvases의 경우 이 제한은 매 UTC 시간마다 적용됩니다.
 

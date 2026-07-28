@@ -47,6 +47,10 @@ Diese Option sendet zukünftige Nutzer:innen den Mix aus Pfaden gemäß den in d
 
 ![Screenshot zu Schritt 3: Fallback festlegen.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
+{% alert note %}
+Wenn das Experiment mit unzureichenden Ergebnissen abgeschlossen wird, wird nur der Tab **Initial Experiment** angezeigt, da das Modell feststellt, dass die Personalisierung nicht besser abschneiden würde als ein einzelner leistungsstärkster Pfad. Weitere Details finden Sie unter [Analytics](#analytics).
+{% endalert %}
+
 ### Schritt 4: Pfade hinzufügen und den Canvas starten {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
@@ -80,7 +84,7 @@ Wenn das Experiment-Zeitfenster abgelaufen und das Experiment abgeschlossen ist,
 
 Wenn personalisierte Pfade aktiviert sind und ausreichende Ergebnisse liefern, ist Ihre Analytics-Ansicht in zwei Tabs unterteilt: **Initial Experiment** und **Personalized Paths**.
 
-Wenn das Experiment mit unzureichenden Ergebnissen abgeschlossen wird, wird nur der Tab **Initial Experiment** angezeigt, da das Modell feststellt, dass die Personalisierung nicht besser abschneiden würde als das Senden aller Nutzer:innen über einen einzelnen leistungsstärksten Pfad. In diesem Fall wird Ihr konfiguriertes Fallback-Verhalten angewendet, und es stehen keine Analytics für personalisierte Pfade zur Verfügung.
+Wenn das Experiment mit unzureichenden Ergebnissen abgeschlossen wird (z. B. wenn der prognostizierte Lift des Modells unter dem Schwellenwert von 0,5 % liegt oder keine aussagekräftigen Nutzersegmente identifiziert werden), wird nur der Tab **Initial Experiment** angezeigt, da das Modell feststellt, dass die Personalisierung nicht besser abschneiden würde als ein einzelner leistungsstärkster Pfad. In diesem Fall wird Ihr konfiguriertes Fallback-Verhalten angewendet, und es stehen keine Analytics für personalisierte Pfade zur Verfügung.
 
 {% tabs local %}
 {% tab Initial Experiment %}

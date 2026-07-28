@@ -13,7 +13,7 @@ page_order: 0
 
 랜딩 페이지 빌더에 접근하려면 [특정 권한]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites)이 필요합니다. 접근 권한이 없는 경우 Braze 관리자에게 도움을 요청하세요.
 
-## 랜딩 페이지 만들기 {#creating-a-landing-page}
+## 랜딩 페이지 만들기 {#create-a-landing-page}
 
 랜딩 페이지는 공유 가능한 URL이 있는 실시간 게시 웹 페이지로, 고객이 방문할 수 있습니다.
 
@@ -131,6 +131,8 @@ page_order: 0
 
 !['열 커스터마이즈' 섹션의 '작은 화면에서 수직으로 쌓기' 토글.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
+
 #### 선택 필드와 필수 필드 {#optional-and-required-fields}
 
 양식 필드를 필수 또는 선택으로 설정할 수 있습니다. 필수 필드는 양식을 제출하기 전에 반드시 작성해야 합니다. 선택 필드는 사용자가 비워두거나 선택하지 않을 수 있습니다.
@@ -179,13 +181,13 @@ iOS 및 Safari의 공격적인 팝업 차단기와 광고 차단기(Safari의 �
 
 템플릿은 랜딩 페이지 편집기와 **랜딩 페이지 템플릿** 페이지(**콘텐츠** > **랜딩 페이지**)에서 모두 접근하고 관리할 수 있습니다. 랜딩 페이지 템플릿에는 이름이 필수이며, 설명은 선택 사항입니다.
 
-## 템플릿 관리 {#managing-templates}
+## 템플릿 관리 {#manage-templates}
 
 랜딩 페이지 템플릿을 미리 보거나, 보관하거나, 편집할 수 있습니다. 자신의 랜딩 페이지 템플릿(**내 템플릿**에 위치)은 복제할 수 있지만, Braze 템플릿은 복제할 수 없습니다. 랜딩 페이지를 편집할 때 랜딩 페이지를 템플릿으로 저장하거나, 템플릿을 변경하거나, 랜딩 페이지의 콘텐츠를 삭제할 수 있습니다.
 
 ![랜딩 페이지를 저장, 변경, 삭제하는 옵션이 있는 드롭다운.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## 분석 보기 {#viewing-analytics}
+## 분석 보기 {#view-analytics}
 
 랜딩 페이지의 효과를 분석하려면 **메시징** > **랜딩 페이지**로 이동한 다음, 게시한 랜딩 페이지를 선택하세요. 여기에서 랜딩 페이지의 페이지 조회수, 페이지 클릭수, 페이지 제출수 및 제출률을 추적할 수 있습니다.
 

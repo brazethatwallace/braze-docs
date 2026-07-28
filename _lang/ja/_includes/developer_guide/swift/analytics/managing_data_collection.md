@@ -17,7 +17,7 @@ iOS 17.2以降、Appleはエンドユーザーが[Ad Tracking Transparency (ATT)
 ## Brazeのトラッキングデータを宣言する {#declaring-braze-tracking-data}
 
 {% alert tip %}
-詳細な手順については、[Privacy Tracking Data tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/)を参照してください。
+詳細な手順については、[Privacy Tracking Dataチュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/)を参照してください。
 {% endalert %}
 
 ### 前提条件 {#prerequisites}
@@ -93,10 +93,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab 動的な例 %}
-以下の例では、エンドユーザーがATTプロンプトを受け入れた後、トラッキングリストが自動的に更新されます。
+以下の例では、エンドユーザーが[App Tracking Transparency (ATT) プロンプト](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:))を受け入れた後、トラッキングリストが自動的に更新されます。アプリのアクティベーション時に認可をリクエストするのはシーンごとのイベントであるため、このコードは`AppDelegate.swift`の`applicationDidBecomeActive(_:)`ではなく、`SceneDelegate.swift`ファイルの`sceneDidBecomeActive(_:)`メソッドに配置する必要があります（[`UIScene`ライフサイクル](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)を採用しているアプリの場合に必要です）。Brazeインスタンスには、ステップ1で設定した`AppDelegate.braze`静的プロパティを通じて`SceneDelegate`からアクセスできます。
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
   // Request and check your user's tracking authorization status.
   ATTrackingManager.requestTrackingAuthorization { status in
     // Let Braze know whether user data is allowed to be collected for tracking.
@@ -104,7 +104,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
     AppDelegate.braze?.set(adTrackingEnabled: enableAdTracking)
 
     // Add the `.firstName` and `.lastName` properties, while removing the `.everything` configuration.
-    AppDelegate.braze.updateTrackingAllowList(
+    AppDelegate.braze?.updateTrackingAllowList(
       adding: [.firstName, .lastName],
       removing: [.everything]
     )
@@ -116,10 +116,10 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 
 ### ステップ5：無限リトライループを防止する {#step-5-prevent-infinite-retry-loops}
 
-SDKが無限リトライループに入るのを防ぐため、`set(adTrackingEnabled: enableAdTracking)`メソッドを使用してATT権限を処理します。メソッド内の`adTrackingEnabled`プロパティは、以下のように処理する必要があります。
+SDKが無限リトライループに入るのを防ぐため、`set(adTrackingEnabled: enableAdTracking)`メソッドを使用してATT権限を処理します。`SceneDelegate.swift`メソッド内の`adTrackingEnabled`プロパティは、以下のように処理する必要があります。
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
     // Request and check your user's tracking authorization status.
     ATTrackingManager.requestTrackingAuthorization { status in
       // Let Braze know whether user data is allowed to be collected for tracking.
@@ -203,6 +203,6 @@ Swift SDK `v7.0.0+`で`useUUIDAsDeviceId`が有効（デフォルト）の場合
 
 はい、この機能は自由にオンとオフを切り替えることができます。以前に保存されたデバイスIDは上書きされません。
 
-#### Brazeを介してIDFV値を別の場所で収集することはできますか？ {#can-i-still-capture-the-idfv-value-via-braze-elsewhere}
+#### Brazeを介してIDFV値を別の場所で収集することはできますか？ {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
 
 はい、オプションでSwift SDKを使用してIDFVを収集することもできます（収集はデフォルトでは無効です）。

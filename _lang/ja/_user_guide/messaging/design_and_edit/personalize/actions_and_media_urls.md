@@ -37,7 +37,7 @@ description: "このリファレンス記事では、Liquid を使用してア�
 
 #### UTM タグとは {#what-is-a-utm-tag}
 
-[UTM（Urchin Traffic Manager）タグ](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)を使用すると、キャンペーンアトリビューションの詳細をリンクに直接含めることができます。UTM タグは Google Analytics でキャンペーンアトリビューションデータを収集するために使用され、以下のプロパティを追跡できます。
+[UTM（Urchin Traffic Manager）タグ](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)を使用すると、キャンペーンアトリビューションの詳細をリンクに直接含めることができます。UTM タグは Google Analytics でキャンペーンアトリビューションデータを収集するために使用され、以下のプロパティをトラッキングできます。
 
 - `utm_source`: トラフィックのソースの識別子（例: `my_app`）
 - `utm_medium`: キャンペーンの媒体（例: `newsfeed`）
@@ -45,7 +45,7 @@ description: "このリファレンス記事では、Liquid を使用してア�
 - `utm_term`: ユーザーをアプリまたはWebサイトに誘導した有料検索キーワードの識別子（例: `pizza`）
 - `utm_content`: ユーザーがクリックした特定のリンクまたはコンテンツの識別子（例: `toplink` または `android_iam_button2`）
 
-UTM タグは、通常の HTTP（Web）リンクとディープリンクの両方に埋め込むことができ、Google Analytics で追跡できます。
+UTM タグは、通常の HTTP（Web）リンクとディープリンクの両方に埋め込むことができ、Google Analytics でトラッキングできます。
 
 ##### UTM タグの計算 {#utm-tag-calculations}
 

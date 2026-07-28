@@ -1,6 +1,6 @@
 ## Entendendo o fluxo de trabalho de push da Braze {#understanding-the-braze-push-workflow}
 
-O serviço Firebase Cloud Messaging (FCM) é a infraestrutura do Google para notificações por push enviadas para aplicativos Android. Esta é a estrutura simplificada de como as notificações por push são ativadas para os dispositivos de seus usuários e como a Braze pode enviar notificações por push para eles:
+O serviço Firebase Cloud Messaging (FCM) é a infraestrutura do Google para notificações por push enviadas para aplicativos Android. Esta é a estrutura simplificada de como as notificações por push são ativadas para os dispositivos dos seus usuários e como a Braze pode enviar notificações por push para eles:
 
 ```mermaid
 ---
@@ -59,7 +59,7 @@ Se o FCM nos informar que qualquer um dos tokens por push para os quais estávam
 
 Para obter mais detalhes sobre o FCM, acesse [Cloud messaging](https://firebase.google.com/docs/cloud-messaging/).
 
-## Use os registros de erros do push {#use-the-push-error-logs}
+## Use os registros de erros de push {#use-the-push-error-logs}
 
 A Braze fornece erros de notificações por push no registro de atividades de mensagens. Esse registro de erros fornece uma variedade de avisos que podem ser muito úteis para identificar por que suas campanhas não estão funcionando como esperado. Ao selecionar uma mensagem de erro, você será redirecionado para a documentação relevante que ajudará a solucionar um incidente específico.
 
@@ -108,7 +108,7 @@ Verifique se o seu dispositivo tem boa conectividade com a internet e se não es
 
 ### Tocar em uma notificação por push não abre o app {#tapping-push-notification-doesnt-open-the-app}
 
-Verifique se `com_braze_handle_push_deep_links_automatically` está definido como `true` ou `false`. Para ativar a Braze para abrir automaticamente o app e quaisquer deep links quando uma notificação por push for tocada, defina `com_braze_handle_push_deep_links_automatically` como `true` no seu arquivo `braze.xml`.
+Verifique se `com_braze_handle_push_deep_links_automatically` está definido como `true` ou `false`. Para permitir que a Braze abra automaticamente o app e quaisquer deep links quando uma notificação por push for tocada, defina `com_braze_handle_push_deep_links_automatically` como `true` no seu arquivo `braze.xml`.
 
 Se `com_braze_handle_push_deep_links_automatically` estiver definido como o padrão `false`, você precisará usar um retorno de chamada do Braze Push para ouvir e tratar as intenções recebidas e abertas de push.
 

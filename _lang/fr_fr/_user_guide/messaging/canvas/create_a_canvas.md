@@ -109,6 +109,10 @@ Vous pouvez contrôler d'autres aspects du comportement du Canvas depuis la fen�
 
 ![Un exemple de livraison par événement. Les utilisateurs entreront dans le Canvas s'ils effectuent un achat, avec une fenêtre d'entrée commençant à 13 h 30 le 10 juin 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
+{% alert note %}
+**Interagir avec l'étape Canvas** n'est pas disponible comme déclencheur d'entrée par événement pour les Canvas. Il ne peut être utilisé que comme déclencheur pour les Campaigns. Pour déclencher un Canvas à partir d'un autre, utilisez le composant Canvas [Envoyer vers une destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination), ou créez un [webhook Braze-à-Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) qui appelle l'endpoint `/canvas/trigger/send`.
+{% endalert %}
+
 {% alert important %}
 Si votre Canvas par événement envoie des messages plus tôt que prévu, vérifiez que l'horodatage de votre événement personnalisé est envoyé avec l'heure actuelle plutôt qu'une heure antérieure. Par exemple, si un Canvas par événement a un délai de trois heures après qu'un utilisateur effectue un événement personnalisé, Braze utilise l'horodatage envoyé avec l'événement personnalisé pour évaluer ce délai. Si l'horodatage est antérieur de plus de trois heures, Braze considère que le délai est déjà écoulé et envoie le message immédiatement.
 {% endalert %}
@@ -136,6 +140,14 @@ Si un utilisateur ré-entre dans le Canvas, atteint le même composant que son e
 ### Étape 1.3 : Définir votre audience cible d'entrée {#step-13-set-your-target-entry-audience}
 
 Seuls les utilisateurs correspondant à vos critères définis peuvent entrer dans le parcours à l'étape **Audience cible**, ce qui signifie que Braze évalue l'éligibilité de l'audience cible **avant** que les utilisateurs n'entrent dans le parcours Canvas. Par exemple, si vous souhaitez cibler de nouveaux utilisateurs, vous pouvez sélectionner un segment d'utilisateurs qui ont utilisé votre application pour la première fois il y a moins d'une semaine.
+
+{% alert important %}
+Dans les espaces de travail comportant plusieurs applications, l'éligibilité de l'audience d'entrée du Canvas (y compris les segments et les filtres) n'est évaluée que lorsque les utilisateurs entrent dans le Canvas, et non à chaque étape de message individuelle. Si votre espace de travail comporte plusieurs applications et que vous devez vous assurer que les étapes de message ne ciblent que les utilisateurs d'une application spécifique, utilisez l'une des approches suivantes dans chaque étape de message :
+- Activez **Valider l'audience à l'envoi du message** dans les [validations de livraison]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) de l'étape de message et ajoutez des segments ou filtres spécifiques à l'application.
+- Utilisez Liquid pour vérifier l'appareil ou l'application ciblée au moment de l'envoi.
+
+Sans ces mesures de protection, les utilisateurs qui se sont qualifiés pour le parcours dans une application peuvent recevoir des messages destinés à une autre application s'ils utilisent également d'autres applications de votre espace de travail.
+{% endalert %}
 
 Dans **Contrôles d'entrée**, vous pouvez limiter le nombre d'utilisateurs à chaque exécution planifiée du Canvas. Pour les Canvas déclenchés par API et par événement, cette limite s'applique à chaque heure UTC.
 

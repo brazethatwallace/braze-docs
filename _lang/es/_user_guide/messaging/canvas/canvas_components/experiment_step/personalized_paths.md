@@ -47,6 +47,10 @@ Esta opción enviará a los usuarios futuros por la combinación de recorridos s
 
 ![Captura de pantalla relacionada con el paso 3: determinar la alternativa.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
+{% alert note %}
+Si el experimento se completa con resultados insuficientes, solo se muestra la pestaña **Experimento inicial** porque el modelo determina que la personalización no superaría el rendimiento de un solo recorrido con mejor rendimiento. Para más detalles, consulta [Análisis](#analytics).
+{% endalert %}
+
 ### Paso 4: Añadir tus recorridos y lanzar el Canvas {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
@@ -80,7 +84,7 @@ Cuando la ventana del experimento pase y el experimento esté completo, todos lo
 
 Cuando los recorridos personalizados están activados y producen resultados suficientes, tu vista de análisis se separa en dos pestañas: **Experimento inicial** y **Recorridos personalizados**.
 
-Si el experimento se completa con resultados insuficientes, solo se muestra la pestaña **Experimento inicial**, ya que el modelo determina que la personalización no superaría el envío de todos los usuarios por un solo recorrido con mejor rendimiento. En este caso, se aplica el comportamiento alternativo que configuraste y no hay análisis de recorridos personalizados disponibles.
+Si el experimento se completa con resultados insuficientes (por ejemplo, cuando la mejora proyectada del modelo es inferior al umbral del 0,5 % o no se identifican segmentos de usuarios significativos), solo se muestra la pestaña **Experimento inicial** porque el modelo determina que la personalización no superaría el rendimiento de un solo recorrido con mejor rendimiento. En este caso, se aplica el comportamiento alternativo que configuraste y no hay análisis de recorridos personalizados disponibles.
 
 {% tabs local %}
 {% tab Experimento inicial %}

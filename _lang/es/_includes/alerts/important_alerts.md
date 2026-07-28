@@ -9,7 +9,7 @@ Las ventanas de navegación privada no admiten notificaciones push web.
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-Añadir una dirección BCC a tu campaña o Canvas hace que se dupliquen los correos electrónicos facturables para la campaña o el componente de Canvas, ya que Braze envía un mensaje a tu usuario y otro a tu dirección BCC.
+Añadir una dirección BCC a tu Campaign o Canvas hace que se dupliquen los correos electrónicos facturables para la Campaign o el componente de Canvas, ya que Braze envía un mensaje a tu usuario y otro a tu dirección BCC.
 {% endalert %}
 
 {% endif %}
@@ -25,7 +25,7 @@ La configuración de prioridad de visualización de notificaciones ya no se util
 {% if include.alert == "Email via SMS" %}
 
 {% alert important %}
-No envíes correos electrónicos transaccionales legalmente requeridos a las pasarelas SMS, ya que es muy probable que esos correos electrónicos no se entreguen.
+No envíes correos transaccionales legalmente requeridos a las pasarelas SMS, ya que es muy probable que esos correos electrónicos no se entreguen.
 <br><br>
 Aunque los correos electrónicos que envías utilizando un número de teléfono y el dominio de la pasarela del proveedor (conocido como MM3) pueden hacer que el correo electrónico se reciba como un mensaje SMS (de texto), algunos de nuestros proveedores de correo electrónico no admiten este comportamiento. Por ejemplo, si envías un correo electrónico a un número de teléfono de T-Mobile (como "9999999999@tmomail.net"), tu mensaje SMS se enviará a quien posea ese número de teléfono en la red de T-Mobile.
 <br><br>
@@ -37,7 +37,7 @@ Ten en cuenta que, aunque estos correos electrónicos no se entreguen a la pasar
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-Para mayor seguridad, te recomendamos añadir nuestra característica de [Autenticación SDK]({{site.baseurl}}/developer_guide/authentication) para evitar la suplantación de identidad de usuarios.
+Para mayor seguridad, te recomendamos añadir nuestra característica de [autenticación SDK]({{site.baseurl}}/developer_guide/authentication) para evitar la suplantación de identidad de usuarios.
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Las propiedades de entrada de Canvas forman parte de las variables de contexto d
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Este socio aparece en tu página de **Socios tecnológicos** solo si tienes habilitados los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents). Para obtener ayuda para empezar, ponte en contacto con tu administrador del éxito del cliente.
+Este partner aparece en tu página de **Partners tecnológicos** solo si tienes habilitados los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents). Para obtener ayuda para empezar, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
 
 {% endif %}
@@ -101,14 +101,12 @@ Este socio aparece en tu página de **Socios tecnológicos** solo si tienes habi
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Elegir entre los tipos de filtro «Día del año» y «Hora»**: al filtrar variables de contexto que contienen fechas, elige el tipo de comparación correcto en función de si la fecha se repite cada año:
+**Elegir entre los tipos de filtro «Día del año» y «Hora»**: al filtrar variables de contexto que contienen fechas, elige el tipo de comparación correcto en función de si la fecha se repite cada año. Usa «Día del año» solo cuando el año no esté incluido en el valor que produce la variable de contexto.
 
 - **Usa «Día del año»** cuando la fecha se repita cada año (por ejemplo, cumpleaños, aniversarios o fiestas como Navidad). Este tipo de comparación calcula en función del día del año (1-365/366), ignorando el componente del año.
 - **Usa «Hora»** cuando la fecha sea una fecha absoluta que no se repita (por ejemplo, fechas de finalización de contratos, fechas de citas o fechas de renovación de suscripciones). Este tipo de comparación calcula basándose en la marca de tiempo completa, incluido el año.
 
 El uso de «Día del año» para fechas absolutas puede producir resultados incorrectos o inesperados, ya que el cálculo ignora el componente del año. Por ejemplo, si comparas la fecha de vencimiento de un contrato futuro en abril para determinar si está dentro de los 63 días, el uso de «Día del año» puede hacer que las fechas coincidan incorrectamente, ya que solo compara los números de los días (119 frente a 359) sin tener en cuenta que, en realidad, quedan 188 días para abril.
-
-**Directriz general**: ¿la fecha se repite cada año? **Sí** → Usa «Día del año». **No** → Usa «Hora».
 {% endalert %}
 
 {% endif %}
@@ -116,7 +114,7 @@ El uso de «Día del año» para fechas absolutas puede producir resultados inco
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-Los permisos granulares se encuentran en fase de acceso anticipado. Cuando se planifique la migración para tu empresa, los administradores de Braze recibirán correos electrónicos y banners en el dashboard notificándoles la [migración de permisos granulares]({{site.baseurl}}/granular_permissions_migration).
+Los permisos granulares se encuentran en fase de acceso anticipado. Cuando se planifique la migración para tu empresa, los administradores de Braze recibirán correos electrónicos y banners en el panel notificándoles la [migración de permisos granulares]({{site.baseurl}}/granular_permissions_migration).
 {% endalert %}
 
 {% endif %}
@@ -124,7 +122,7 @@ Los permisos granulares se encuentran en fase de acceso anticipado. Cuando se pl
 {% if include.alert == 'WhatsApp audio and documents' %}
 
 {% alert note %}
-La [Biblioteca de medios de Braze]({{site.baseurl}}/media_library) solo admite imágenes y video. Los archivos de audio y los documentos deben referenciarse a través de una URL alojada.
+La [biblioteca de medios de Braze]({{site.baseurl}}/media_library) solo admite imágenes y video. Los archivos de audio y los documentos deben referenciarse a través de una URL alojada.
 {% endalert %}
 
 {% endif %}
@@ -158,7 +156,7 @@ Content Cards, los mensajes dentro de la aplicación, los banners y los conmutad
 {% if include.alert == 'dynamic image URL' %}
 
 {% alert important %}
-Si estás cargando imágenes con [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), asegúrate de que la URL de tu imagen comience con `https://`. Usar `http://` provocará que tu aplicación se bloquee.
+Si estás cargando imágenes con [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), asegúrate de que la URL de tu imagen comience con `https://`. Usar `http://` provocará que tu aplicación se bloquee.
 {% endalert %}
 
 {% endif %}

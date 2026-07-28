@@ -25,19 +25,19 @@ Zunächst müssen Sie Ihr HTML-E-Mail-Template erstellen. Es muss sich um eine Z
 
 ## Ihr Template hochladen {#uploading-your-template}
 
-### 1. Schritt: Zum E-Mail-Template-Editor navigieren {#step-1-go-to-the-email-template-editor}
+### Schritt 1: Zum E-Mail-Template-Editor navigieren {#step-1-go-to-the-email-template-editor}
 
 Gehen Sie zu **Inhalt** > **E-Mail**. Wählen Sie **E-Mail-Template erstellen**.
 
-### 2. Schritt: Template-Details hinzufügen {#step-2-add-template-details}
+### Schritt 2: Template-Details hinzufügen {#step-2-add-template-details}
 
 Geben Sie einen Template-Namen ein. Optional können Sie eine Beschreibung, Teams und Tags hinzufügen.
 
-### 3. Schritt: Ihr Template hochladen {#step-3-upload-your-template}
+### Schritt 3: Ihr Template hochladen {#step-3-upload-your-template}
 
 Wählen Sie im Abschnitt **Template-Inhalt** die Option **Datei hochladen**. Wählen Sie Ihr Template von Ihrem Computer aus. Lesen Sie den Abschnitt [Voraussetzungen](#upload-requirements), um sicherzustellen, dass Ihr Template die Upload-Anforderungen erfüllt.
 
-### 4. Schritt: Ihr Template fertigstellen und speichern {#step-4-finish-and-save-your-template}
+### Schritt 4: Ihr Template fertigstellen und speichern {#step-4-finish-and-save-your-template}
 
 Stellen Sie sicher, dass Sie Ihr Template speichern, indem Sie **Template speichern** auswählen. Sie können dieses Template jetzt in jeder Campaign oder jedem Canvas verwenden.
 
@@ -53,9 +53,11 @@ Um Ihre E-Mail für eine API-Campaign zu verwenden, benötigen Sie die `email_te
 
 ## E-Mail-Templates verwalten {#managing-email-templates}
 
-Sie können E-Mail-Templates [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)! Erfahren Sie mehr über das Erstellen und Verwalten von Templates und kreativen Inhalten unter [Templates]({{site.baseurl}}/user_guide/messaging/templates).
+Sie können E-Mail-Templates [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates). Erfahren Sie mehr über das Erstellen und Verwalten von Templates und kreativen Inhalten unter [Templates]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Fehlerbehebung {#troubleshooting}
+
+### Upload-Fehler {#upload-errors}
 
 Es gibt verschiedene E-Mail-Fehlermeldungen, die beim Hochladen einer HTML-Template-Datei auftreten können. Wenn Sie eine Fehlermeldung erhalten, finden Sie in der folgenden Tabelle häufige Probleme und empfohlene Lösungen:
 
@@ -71,6 +73,14 @@ Es gibt verschiedene E-Mail-Fehlermeldungen, die beim Hochladen einer HTML-Templ
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 Beachten Sie, dass beim Herunterladen der Dateien für HTML-Campaigns, Canvas-Schritte mit E-Mail-Nachrichten oder Templates auf einem Windows-Computer das Zeichen `|` (Pipe-Zeichen) nicht unterstützt wird. Möglicherweise müssen Sie eine andere Anwendung verwenden, um den Inhalt der ZIP-Datei zu extrahieren.
+
+### E-Mail wird nicht korrekt dargestellt {#email-not-rendering-properly}
+
+Wenn Ihre E-Mail nicht korrekt dargestellt wird, überprüfen Sie jeden Content-Block, um sicherzustellen, dass keine zusätzlichen `<!doctype>`-Header vorhanden sind.
+
+Wenn sowohl im HTML-Template selbst als auch in einem der Content Blocks ein `<!doctype>`-Header vorhanden ist, wird die E-Mail nicht korrekt dargestellt. Behandeln Sie Content Blocks als HTML-Fragmente, die zur bestehenden Dokumentstruktur des E-Mail-Templates hinzugefügt werden. Content Blocks sollten keine zusätzlichen Body-Tags oder Template-HTML-Code enthalten. In einigen Fällen können Tools wie Emailify vorgeschriebenen Code mit zusätzlicher HTML-Struktur importieren. Überprüfen Sie daher importierte Content Blocks sorgfältig.
+
+Prüfen Sie außerdem, ob doppelte Tags und Klassennamen in Ihrem Template und Ihren Content Blocks vorhanden sind, da diese Darstellungsprobleme verursachen können.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

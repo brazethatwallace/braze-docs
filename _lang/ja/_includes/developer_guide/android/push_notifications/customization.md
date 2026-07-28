@@ -360,6 +360,23 @@ Brazeダッシュボードから送信されるAndroidプッシュ通知には�
 
 **通知ID**は、選択したメッセージカテゴリの一意の識別子です。そのIDからの最新のメッセージのみを尊重するようメッセージングサービスに通知する役割を果たします。通知IDを設定すると、古くて無関係なメッセージのスタックではなく、最新で関連性の高いメッセージだけを送信できます。
 
+#### 重複する通知の上書きを防止する {#preventing-duplicate-notifications-from-overwriting}
+
+デフォルトでは、プッシュ通知のタイトルと本文が同一の場合、Androidはタイトルと本文の文字列をハッシュ化して両方のメッセージに同じ通知IDを生成します。これにより、2番目の通知が最初の通知を上書きし、通知トレイには1つの通知のみが表示されます。
+
+同一の通知が互いに上書きされるのを防ぐには、Androidプッシュ通知設定で一意の通知ID値を指定します。以下にいくつかのオプションを示します。
+
+- **タイムスタンプ付きのLiquidテンプレートを使用する：** 現在の時刻に基づいて一意の値を生成します。
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **サーバー側で生成する：** 真にランダムな値を得るには、サーバー側で通知IDを生成し、Liquidを通じて渡します。これにより、各通知が固有の識別子を持ち、複数の通知を同時に表示できます。
+
 ### Firebaseメッセージング配信の優先度 {#fcm-priority}
 
 [Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages)フィールドでは、「通常」または「高」のどちらの優先度でプッシュをFirebase Cloud Messagingに送信するかを制御できます。
@@ -406,7 +423,7 @@ AndroidまたはFire OSプッシュ通知で設定できる優先度レベルは
 | 高 | 友人からの新着メッセージなど、重要なコミュニケーション | `1` |
 | デフォルト | ほとんどの通知 - メッセージが他の優先度タイプのいずれにも明示的に該当しない場合に使用します | `0` |
 | 低 | ユーザーに知ってもらいたいが、すぐに行動を起こす必要のない情報 | `-1` |
-| 最小 | 状況に即した情報またはバックグラウンド情報 | `-2` |
+| 最小 | 文脈に応じた情報またはバックグラウンド情報 | `-2` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="通知の表示優先度" }
 
 詳細については、Googleの[Android通知](http://developer.android.com/design/patterns/notifications.html)に関するドキュメントを参照してください。

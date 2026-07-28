@@ -27,16 +27,62 @@ Si ves más llamadas de contenido conectado en tus registros que envíos o desti
 
 ## Enviar una llamada de contenido conectado {#send-a-connected-content-call}
 
+Para enviar una llamada de contenido conectado, usa la etiqueta {% raw %}`{% connected_content %}`{% endraw %}. Con esta etiqueta, puedes asignar o declarar variables usando `:save`. Los aspectos de estas variables pueden referenciarse más adelante en el mensaje con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
+
+### Desglose de la llamada a la API {#break-down-the-api-call}
+
+El siguiente ejemplo usa la API Sunrise-Sunset e incluye la hora del amanecer de hoy en un mensaje:
+
 {% raw %}
-
-Para enviar una llamada de contenido conectado, usa la etiqueta `{% connected_content %}`. Con esta etiqueta, puedes asignar o declarar variables usando `:save`. Los aspectos de estas variables pueden referenciarse más adelante en el mensaje con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
-
-Por ejemplo, el siguiente cuerpo de mensaje accederá a la URL `http://numbersapi.com/random/trivia` e incluirá un dato curioso en tu mensaje:
-
 ```
-{% connected_content http://numbersapi.com/random/trivia :save result %}
-Hi there, here is some fun trivia for you!: {{result.text}}
+{% connected_content https://api.sunrise-sunset.org/v2?lat=40.7128&lng=-74.0060&date=today :save result %}
+Hi there, today's sunrise in NYC is at {{result.sunrise}}.
 ```
+{% endraw %}
+
+Esto es lo que hace cada parte:
+
+| Componente | Qué hace |
+| --- | --- |
+| Etiqueta `connected_content` | Indica a Braze que realice una solicitud HTTP mientras representa el mensaje. |
+| `https://api.sunrise-sunset.org/v2` | El endpoint de la API que Braze llama. |
+| `lat=40.7128&lng=-74.0060` | Parámetros de consulta para las coordenadas de la ciudad de Nueva York. |
+| `date=today` | Solicita datos para el día actual en esas coordenadas. |
+| `:save result` | Almacena la respuesta de la API en una variable local llamada `result`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Desglose de la llamada a la API" }
+
+### Cómo funciona la respuesta de la API Sunrise-Sunset {#how-the-sunrise-sunset-api-response-works}
+
+Este endpoint devuelve JSON con campos de nivel superior como `sunrise`, `sunset` y `tzid`. Los horarios se devuelven en la zona horaria de la ubicación de forma predeterminada (para este ejemplo, hora de Nueva York).
+
+Por ejemplo, la forma de la respuesta es similar a:
+
+```json
+{
+  "date": "2026-07-23",
+  "tzid": "America/New_York",
+  "sunrise": "2026-07-23T05:42:11-04:00",
+  "sunset": "2026-07-23T20:21:32-04:00"
+}
+```
+
+### Mapear la respuesta de la API a Liquid {#map-the-api-response-to-liquid}
+
+Dado que la respuesta se guarda como `result`, haz referencia a cada campo directamente desde ese objeto.
+
+{% raw %}
+```liquid
+{{result.sunrise}}
+{{result.sunset}}
+{{result.tzid}}
+```
+{% endraw %}
+
+Usa este patrón siempre que guardes JSON desde contenido conectado:
+
+1. Guarda la respuesta de la API con `:save`.
+2. Encuentra el campo que deseas en la respuesta JSON.
+3. Haz referencia a él en Liquid como `saved_variable.field_name`.
 
 ### Agregar variables {#add-variables}
 
@@ -44,6 +90,7 @@ También puedes incluir atributos del perfil de usuario como variables en la cad
 
 Por ejemplo, puedes tener un servicio web que devuelve contenido basado en la dirección de correo electrónico y el ID de un usuario. Si estás pasando atributos que contienen caracteres especiales, como el signo de arroba (@), asegúrate de usar el filtro Liquid `url_param_escape` para reemplazar cualquier carácter no permitido en las URL con sus versiones escapadas compatibles con URL, como se muestra en el siguiente atributo de dirección de correo electrónico.
 
+{% raw %}
 ```
 Hi, here are some articles that you might find interesting:
 
@@ -84,7 +131,7 @@ Para más información sobre códigos de error comunes, consulta [Solución de p
 
 Los siguientes son mecanismos diferentes:
 
-- **429 Too Many Requests:** Tu endpoint (o un servicio upstream) está devolviendo esta respuesta. Significa que tu servidor o middleware está rechazando tráfico, a menudo porque tiene su propio límite de velocidad. Braze no aplica un límite de velocidad separado al contenido conectado; el volumen de solicitudes de contenido conectado escala directamente con tu [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Debido a que los mensajes pueden representarse múltiples veces por destinatario (por ejemplo, para HTML de correo electrónico, texto plano y AMP), el número de solicitudes de contenido conectado puede exceder ese límite de velocidad; no asumas que será menor o igual a los mensajes por minuto que configuraste. Si ves errores 429, escala tu endpoint o middleware para manejar el volumen de solicitudes esperado, o reduce el límite de velocidad de la campaña o del paso en Canvas para que se envíen menos mensajes (y por lo tanto menos llamadas de contenido conectado) por minuto.
+- **429 Too Many Requests:** Tu endpoint (o un servicio upstream) está devolviendo esta respuesta. Significa que tu servidor o middleware está rechazando tráfico, a menudo porque tiene su propio límite de velocidad. Braze no aplica un límite de velocidad separado al contenido conectado; el volumen de solicitudes de contenido conectado escala directamente con tu [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Debido a que los mensajes pueden representarse múltiples veces por destinatario (por ejemplo, para HTML de correo electrónico, texto plano y AMP), el número de solicitudes de contenido conectado puede exceder ese límite de velocidad; no asumas que será menor o igual a los mensajes por minuto que configuraste. Si ves errores 429, escala tu endpoint o middleware para manejar el volumen de solicitudes esperado, o reduce el [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) de la campaña o Canvas para que se envíen menos mensajes (y por lo tanto menos llamadas de contenido conectado) por minuto.
 - **Detección de host no saludable:** Una protección del lado de Braze que se activa después de una alta tasa y volumen de *fallos* en una ventana de un minuto. El conteo de fallos incluye los códigos de estado `408`, `429`, `502`, `503`, `504` y `529`. Cuando se activa, Braze detiene temporalmente las solicitudes a ese host y simula una respuesta de fallo. Esto es independiente de tu propio límite de velocidad. Para los umbrales de detección y más detalles, consulta [Solución de problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Para evitar activar la detección de host no saludable, asegúrate de que tu endpoint pueda manejar el volumen de llamadas descrito en [Acerca del volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints).
 
 ## Permitir un rendimiento eficiente {#allowing-for-efficient-performance}
@@ -95,19 +142,34 @@ Para más información sobre la planificación de la capacidad del endpoint y la
 
 ## Cosas que debes saber {#things-to-know}
 
-* Braze no cobra por las llamadas a la API y no contarán para tu uso de puntos de datos.
-* Hay un límite de 1 MB para las respuestas de contenido conectado.
-* El contenido conectado se ejecuta cuando el mensaje se representa. Para los mensajes dentro de la aplicación, el mensaje se representa en el momento de la impresión.
-* Las llamadas de contenido conectado no siguen redirecciones.
+- Braze no cobra por las llamadas a la API y no contarán para tu uso de puntos de datos.
+- Hay un límite de 1 MB para las respuestas de contenido conectado.
+- El contenido conectado se ejecuta cuando el mensaje se representa. Para los mensajes dentro de la aplicación, el mensaje se representa en el momento de la impresión.
+- Las llamadas de contenido conectado no siguen redirecciones.
+
+### Cómo se procesan las llamadas de contenido conectado {#how-connected-content-calls-are-processed}
+
+Las llamadas de contenido conectado dentro de una sola plantilla de mensaje se ejecutan secuencialmente (de arriba a abajo) durante la representación de Liquid. Esto significa que las llamadas posteriores pueden hacer referencia a variables establecidas por llamadas anteriores. En este ejemplo, la primera llamada recupera datos del usuario y la segunda llamada usa esos datos para obtener preferencias:
+
+{% raw %}
+```liquid
+{% connected_content https://api.example.com/user :save user_data %}
+{% connected_content https://api.example.com/preferences?user_id={{user_data.id}} :save preferences %}
+```
+{% endraw %}
+
+### Envío global y volumen de solicitudes {#global-sending-and-request-volume}
+
+Aunque las llamadas de contenido conectado se ejecutan secuencialmente dentro de un solo mensaje, los mensajes se envían en paralelo a través de tus Campaigns y Canvas. Los envíos de alto volumen pueden generar un tráfico de solicitudes significativo a tus endpoints durante los períodos de envío pico. Para gestionar y limitar ese tráfico, incluyendo los límites de velocidad de mensajería del espacio de trabajo, el límite de velocidad de entrega y el almacenamiento en caché, consulta [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints).
 
 ## Mejores prácticas para endpoints de alto volumen {#best-practices-for-high-volume-endpoints}
 
 Si tus mensajes usan contenido conectado y envías a alto volumen, planifica para más solicitudes que el número de destinatarios o envíos:
 
-1. **Estima la carga máxima:** Usa un multiplicador conservador al dimensionar tu endpoint o middleware; las solicitudes de contenido conectado pueden exceder el número de destinatarios o mensajes enviados. Por ejemplo, para correo electrónico, un solo destinatario puede generar múltiples llamadas (HTML, texto plano y AMP), por lo que destinatarios × 2 o × 3 se usa frecuentemente como una estimación conservadora.
-2. **Usa caché cuando sea apropiado:** Las solicitudes GET se almacenan en caché de forma predeterminada. Para solicitudes POST, agrega `:cache_max_age` cuando la respuesta pueda reutilizarse durante un período (por ejemplo, token o contenido que no cambia por solicitud). Consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) y las [preguntas frecuentes sobre caché de POST](#what-is-caching-behavior) en la siguiente sección.
-3. **Configura el límite de velocidad de entrega:** El [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) en campañas o pasos en Canvas es la única palanca para limitar indirectamente el volumen de solicitudes de contenido conectado; Braze no limita la velocidad del contenido conectado en sí. Es solo un proxy, y no uno perfecto, porque las solicitudes de contenido conectado no son 1:1 con los mensajes. Úsalo para mantener el volumen de mensajes (y por lo tanto de contenido conectado) dentro de lo que tu endpoint puede manejar.
-4. **Diseña para idempotencia y reintentos:** Braze puede llamar a tu endpoint más de una vez por destinatario. Asegúrate de que tu endpoint pueda tolerar solicitudes duplicadas sin efectos secundarios incorrectos.
+- **Estima la carga máxima:** Usa un multiplicador conservador al dimensionar tu endpoint o middleware; las solicitudes de contenido conectado pueden exceder el número de destinatarios o mensajes enviados. Por ejemplo, para correo electrónico, un solo destinatario puede generar múltiples llamadas (HTML, texto plano y AMP), por lo que destinatarios × 2 o × 3 se usa frecuentemente como una estimación conservadora.
+- **Usa caché cuando sea apropiado:** Las solicitudes GET se almacenan en caché de forma predeterminada. Para solicitudes POST, agrega `:cache_max_age` cuando la respuesta pueda reutilizarse durante un período (por ejemplo, token o contenido que no cambia por solicitud). Consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) y las [preguntas frecuentes sobre caché de POST](#what-is-caching-behavior) en la siguiente sección.
+- **Configura límites de velocidad de mensajes:** Los [límites de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) y el [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) en Campaigns o Canvas limitan indirectamente el volumen de solicitudes de contenido conectado; Braze no limita la velocidad del contenido conectado en sí. Son solo proxies, y no perfectos, porque las solicitudes de contenido conectado no son 1:1 con los mensajes. Úsalos para mantener el volumen de mensajes (y por lo tanto de contenido conectado) dentro de lo que tu endpoint puede manejar.
+- **Diseña para idempotencia y reintentos:** Braze puede llamar a tu endpoint más de una vez por destinatario. Asegúrate de que tu endpoint pueda tolerar solicitudes duplicadas sin efectos secundarios incorrectos.
 
 ## Tipos de autenticación {#authentication-types}
 
@@ -223,6 +285,8 @@ Cuando se envía un mensaje que usa contenido conectado desde Braze, los servido
 Braze enviará solicitudes de contenido conectado desde los siguientes rangos de IP. Los rangos listados se agregan automática y dinámicamente a cualquier clave de API que haya sido habilitada para la lista de permitidos.
 
 Braze tiene un conjunto reservado de IP usadas para todos los servicios, no todas las cuales están activas en un momento dado. Esto está diseñado para que Braze pueda enviar desde un centro de datos diferente o realizar mantenimiento, si es necesario, sin afectar a los clientes. Braze puede usar una, un subconjunto o todas las siguientes IP listadas al realizar solicitudes de contenido conectado.
+
+Si las solicitudes de contenido conectado devuelven consistentemente `403 Forbidden` y la autenticación está configurada correctamente, agrega estas IP a la lista de permitidos en el servidor que recibe la solicitud. Un `403` también puede indicar permisos insuficientes o credenciales no válidas, así que confirma tanto la configuración de red como la de autenticación. Para orientación específica sobre webhooks, consulta [403 Forbidden y lista de IP permitidas]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#403-forbidden-and-ip-allowlisting).
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 

@@ -53,7 +53,7 @@ Campaign 또는 Canvas에 BCC 주소를 추가하면 Braze가 사용자에게 �
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-레거시 구매 이벤트는 유지보수 모드로 전환됩니다. 기존 Braze 고객은 레거시 구매 이벤트를 계속 사용할 수 있습니다. 기존 구매 이벤트는 계속 정상적으로 작동하지만, 향후 새로운 기능은 전자상거래 추천 이벤트를 기반으로 구축됩니다. Braze는 서비스 종료일이 설정되기 전에 충분한 사전 공지를 제공합니다. 신규 Braze 고객은 레거시 구매 이벤트를 사용할 수 없으므로 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)를 사용해야 합니다.
+레거시 구매 이벤트는 유지보수 모드로 전환됩니다. 기존 Braze 고객은 레거시 구매 이벤트를 계속 사용할 수 있습니다. 기존 구매 이벤트는 계속 정상적으로 작동하지만, 향후 새로운 기능은 이커머스 추천 이벤트를 기반으로 구축됩니다. Braze는 서비스 종료일이 설정되기 전에 충분한 사전 공지를 제공합니다. 신규 Braze 고객은 레거시 구매 이벤트를 사용할 수 없으므로 [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)를 사용해야 합니다.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ Campaign 또는 Canvas에 BCC 주소를 추가하면 Braze가 사용자에게 �
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-레거시 구매 이벤트는 지원 중단 상태(유지보수 모드)로 전환됩니다. 구매 이벤트는 계속 정상적으로 작동하지만, [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)를 우선하여 구매 이벤트 위에 순수하게 새로운 기능이 추가되지 않습니다. 이 변경이 적용되면 Segment 필터가 더 이상 구매 동작 아래에 표시되지 않습니다.<br><br> 현재 구매 이벤트를 사용 중인 경우 단계적 중단 계획에 대한 사전 공지를 받게 됩니다. 지금은 공식 지원 중단일까지 구매 이벤트를 계속 사용할 수 있습니다. 자세한 내용은 [추천 이벤트 개요]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events)를 참조하세요.
+레거시 구매 이벤트는 지원 중단 상태(유지보수 모드)로 전환됩니다. 구매 이벤트는 계속 정상적으로 작동하지만, [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)를 우선하여 구매 이벤트 위에 순수하게 새로운 기능이 추가되지 않습니다. 이 변경이 적용되면 Segment 필터가 더 이상 구매 동작 아래에 표시되지 않습니다.<br><br> 현재 구매 이벤트를 사용 중인 경우 단계적 중단 계획에 대한 사전 공지를 받게 됩니다. 지금은 공식 지원 중단일까지 구매 이벤트를 계속 사용할 수 있습니다. 자세한 내용은 [추천 이벤트 개요]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events)를 참조하세요.
 {% endalert %}
 
 {% endif %}
@@ -101,14 +101,12 @@ Canvas 진입 속성은 Canvas 컨텍스트 변수의 일부입니다. 이는 `c
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**"연중일"과 "시간" 필터 유형 중에서 선택하기**: 날짜가 포함된 컨텍스트 변수를 필터링할 때, 날짜가 매년 반복되는지에 따라 올바른 비교 유형을 선택하세요.
+**"연중일"과 "시간" 필터 유형 중에서 선택하기**: 날짜가 포함된 컨텍스트 변수를 필터링할 때, 날짜가 매년 반복되는지에 따라 올바른 비교 유형을 선택하세요. 컨텍스트 변수가 생성하는 값에 연도가 포함되지 않는 경우에만 "연중일"을 사용하세요.
 
 - **"연중일" 사용**: 날짜가 매년 반복될 때(예: 생일, 기념일 또는 크리스마스와 같은 휴일). 이 비교 유형은 연도 구성요소를 무시하고 연중일(1-365/366)을 기준으로 계산합니다.
 - **"시간" 사용**: 날짜가 반복되지 않는 절대 날짜일 때(예: 계약 종료일, 약속 날짜 또는 구독 갱신 날짜). 이 비교 유형은 연도를 포함한 전체 타임스탬프를 기준으로 계산합니다.
 
 절대 날짜에 "연중일"을 사용하면 연도 구성요소를 무시하므로 잘못되거나 예상치 못한 결과가 발생할 수 있습니다. 예를 들어, 4월의 미래 계약 종료일이 63일 이내인지 비교할 때, "연중일"을 사용하면 날짜 번호(119 vs 359)만 비교하기 때문에 실제로 4월까지는 188일이 남아 있음에도 잘못 일치할 수 있습니다.
-
-**일반 지침**: 날짜가 매년 반복되나요? **예** → "연중일"을 사용하세요. **아니오** → "시간"을 사용하세요.
 {% endalert %}
 
 {% endif %}
@@ -132,7 +130,7 @@ Canvas 진입 속성은 Canvas 컨텍스트 변수의 일부입니다. 이는 `c
 {% if include.alert == 'Meta MP4 video issue' %}
 
 {% alert important %}
-Meta에는 특정 인코딩 또는 컨테이너 설정으로 인해 일부 MP4 동영상이 Android 기기에서 재생되지 않을 수 있는 알려진 문제가 있습니다. 영구적인 수정이 제공될 때까지, MP4 파일을 다시 포맷하면 대부분의 발신자에게 문제가 해결됩니다. 올바른 전달 가능성을 확인하려면 모든 동영상을 Android 기기에서 테스트하세요. <br><br>[CloudConvert](https://cloudconvert.com/mp4-converter)와 같은 웹 도구를 사용하여 MP4 파일을 다시 포맷할 수 있습니다. MP4 파일을 도구에 업로드하고 다시 MP4로 변환한 다음 변환된 파일을 다운로드하세요.
+Meta에는 특정 인코딩 또는 컨테이너 설정으로 인해 일부 MP4 동영상이 Android 기기에서 재생되지 않을 수 있는 알려진 문제가 있습니다. 영구적인 수정이 제공될 때까지, MP4 파일을 다시 포맷하면 대부분의 발송자에게 문제가 해결됩니다. 올바른 전달 가능성을 확인하려면 모든 동영상을 Android 기기에서 테스트하세요. <br><br>[CloudConvert](https://cloudconvert.com/mp4-converter)와 같은 웹 도구를 사용하여 MP4 파일을 다시 포맷할 수 있습니다. MP4 파일을 도구에 업로드하고 다시 MP4로 변환한 다음 변환된 파일을 다운로드하세요.
 {% endalert %}
 
 {% endif %}

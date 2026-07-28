@@ -13,7 +13,7 @@ page_order: 0
 
 Para acceder al creador de páginas de inicio, necesitas [ciertos permisos]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Si no tienes acceso, pide ayuda a tu administrador de Braze.
 
-## Crear una página de inicio {#creating-a-landing-page}
+## Crear una página de inicio {#create-a-landing-page}
 
 Una página de inicio es una página web en vivo y publicada con una URL compartible que tus clientes pueden visitar.
 
@@ -76,9 +76,9 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 
 #### Texto con span {#span-text}
 
-Para aplicar estilos específicos a bloques de texto sin código personalizado, resalta el texto que deseas estilizar y luego selecciona **Envolver con span para estilo**.
+Para aplicar estilos específicos a bloques de texto sin código personalizado, resalta el texto que deseas estilizar y luego selecciona **Wrap with span for style**.
 
-![Cuadro de texto con diferentes secciones de texto estilizadas, como diferentes tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción de "Envolver con span para estilo".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Cuadro de texto con diferentes secciones de texto estilizadas, como diferentes tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción de "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
 Ajusta las propiedades del span para actualizar el estilo de tu texto, que incluyen:
 
@@ -123,13 +123,15 @@ Te recomendamos configurar los estilos a nivel de contenedor de página antes de
 
 ![La sección "Contenedor de página" con opciones para personalizar imágenes de fondo, colores, detalles de borde y estilo de contenido.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
-#### Receptivo a los dispositivos del usuario {#responsive-to-user-devices}
+#### Adaptable a los dispositivos del usuario {#responsive-to-user-devices}
 
-Puedes hacer que tu página de inicio sea receptiva al tamaño del dispositivo del usuario apilando columnas verticalmente en pantallas más pequeñas. Para habilitar esto, añade una columna a la fila que deseas hacer receptiva y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
+Puedes hacer que tu página de inicio se adapte al tamaño del dispositivo del usuario apilando columnas verticalmente en pantallas más pequeñas. Para habilitar esto, añade una columna a la fila que deseas hacer adaptable y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
 
 Cuando está habilitado, también puedes invertir el apilamiento de columnas para controlar el orden vertical del contenido multicolumna en pantallas más pequeñas. Esto hace que las páginas se vean y se sientan mejor en dispositivos móviles sin código personalizado.
 
 ![El interruptor "Apilar verticalmente en pantallas más pequeñas" en la sección "Personalizar columnas".]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
+
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
 
 #### Campos opcionales y obligatorios {#optional-and-required-fields}
 
@@ -173,19 +175,19 @@ Cuando estés listo, selecciona **Publicar página de inicio**.
 Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios en iOS y en Safari (incluidos los controles integrados de Safari y las extensiones de terceros) pueden afectar negativamente el comportamiento de las páginas de inicio cuando un botón **Enviar** de formulario también abre otra URL, ya sea que esa URL se abra en la misma pestaña o en una nueva pestaña.
 {% endalert %}
 
-## Uso de plantillas {#using-templates}
+## Uso de plantillas {#use-templates}
 
 Las plantillas de páginas de inicio son puntos de partida de diseño reutilizables que te ayudan a crear páginas de inicio más rápido. Una plantilla no tiene URL pública y los clientes no pueden visitarla. Para crear una página de inicio en vivo a partir de una plantilla, selecciona la plantilla al crear una nueva página de inicio, personalízala según sea necesario y publícala.
 
-Puedes acceder a las plantillas y gestionarlas tanto en el editor de páginas de inicio como desde la página **Landing Page Templates** (**Content** > **Landing Page**). Las plantillas de páginas de inicio requieren un nombre y una descripción opcional.
+Puedes acceder a las plantillas y gestionarlas tanto en el editor de páginas de inicio como desde la página **Plantillas de páginas de inicio** (**Contenido** > **Página de inicio**). Las plantillas de páginas de inicio requieren un nombre y una descripción opcional.
 
-## Gestión de plantillas {#managing-templates}
+## Gestionar plantillas {#manage-templates}
 
 Puedes previsualizar, archivar o editar plantillas de páginas de inicio. Puedes duplicar tus propias plantillas de páginas de inicio (ubicadas en **Tus plantillas**), pero no las plantillas de Braze. Al editar una página de inicio, puedes guardar tu página de inicio como plantilla, hacer cambios en la plantilla o eliminar el contenido de la página de inicio.
 
 ![Un menú desplegable con opciones para guardar, cambiar y eliminar una página de inicio.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Consultar análisis {#viewing-analytics}
+## Consultar análisis {#view-analytics}
 
 Para analizar la eficacia de tu página de inicio, ve a **Mensajería** > **Páginas de inicio** y selecciona una página de inicio que hayas publicado. Aquí puedes hacer seguimiento del número de vistas de página, clics en la página, envíos de página y las tasas de envío de tu página de inicio.
 
