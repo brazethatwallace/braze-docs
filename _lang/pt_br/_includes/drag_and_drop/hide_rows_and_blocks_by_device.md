@@ -6,16 +6,16 @@
 
 {% if include.channel == 'banner' %}
 {% assign heading_level = '#####' %}
-{% assign preview_subject = 'your Banner' %}
-{% assign live_phrase = 'in the live Banner' %}
+{% assign preview_subject = 'seu Banner' %}
+{% assign live_phrase = 'no Banner ao vivo' %}
 {% elsif include.channel == 'in_app_message' %}
 {% assign heading_level = '###' %}
-{% assign preview_subject = 'your message' %}
-{% assign live_phrase = 'in the live in-app message' %}
+{% assign preview_subject = 'sua mensagem' %}
+{% assign live_phrase = 'na mensagem no app ao vivo' %}
 {% elsif include.channel == 'landing_page' %}
 {% assign heading_level = '####' %}
-{% assign preview_subject = 'your page' %}
-{% assign live_phrase = 'on the live landing page' %}
+{% assign preview_subject = 'sua página' %}
+{% assign live_phrase = 'na landing page ao vivo' %}
 {% endif %}
 
 {{ heading_level }} Ocultar linhas e blocos por dispositivo

@@ -6,16 +6,16 @@
 
 {% if include.channel == 'banner' %}
 {% assign heading_level = '#####' %}
-{% assign preview_subject = 'your Banner' %}
-{% assign live_phrase = 'in the live Banner' %}
+{% assign preview_subject = 'Banner' %}
+{% assign live_phrase = 'ライブBannerでは' %}
 {% elsif include.channel == 'in_app_message' %}
 {% assign heading_level = '###' %}
-{% assign preview_subject = 'your message' %}
-{% assign live_phrase = 'in the live in-app message' %}
+{% assign preview_subject = 'メッセージ' %}
+{% assign live_phrase = 'ライブアプリ内メッセージでは' %}
 {% elsif include.channel == 'landing_page' %}
 {% assign heading_level = '####' %}
-{% assign preview_subject = 'your page' %}
-{% assign live_phrase = 'on the live landing page' %}
+{% assign preview_subject = 'ページ' %}
+{% assign live_phrase = 'ライブランディングページでは' %}
 {% endif %}
 
 {{ heading_level }} デバイス別に行やブロックを非表示にする
