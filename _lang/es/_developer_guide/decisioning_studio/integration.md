@@ -25,7 +25,7 @@ Obtén la URL del endpoint asociada a tu instancia de Braze específica. Para m�
 
 ### Paso 2: Crea una clave de API {#step-2-create-an-api-key}
 
-En Braze, ve a **Settings** > **API Keys** y, a continuación, crea una nueva clave con los siguientes permisos:
+En Braze, ve a **Configuración** > **Claves de API** y, a continuación, crea una nueva clave con los siguientes permisos:
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
