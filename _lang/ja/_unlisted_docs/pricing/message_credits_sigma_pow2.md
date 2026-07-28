@@ -2293,6 +2293,8 @@ RCSはSMSおよびMMSの次世代版です。SMSのようなダイレクトで�
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
+## 追加チャネルの詳細 {#additional-channel-details}
+
 ### Webhookについて
 
 Webhookは2024年12月9日にメッセージクレジットの対象となりました。Brazeプラットフォームから送信されるすべてのwebhookに対して、Brazeはメッセージクレジットを課金します。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに10万件のwebhookが含まれています。追加のwebhookについては、注文書に従って課金されます。
