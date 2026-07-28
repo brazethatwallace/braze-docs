@@ -124,7 +124,7 @@ Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um beim Abstan
 | Align | Verschiebt die Linie nach links, zentriert oder rechts. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
-### Spacer {#spacer}
+### Spacer
 
 Fügt Abstand oder Padding zwischen anderen Blöcken hinzu.
 
