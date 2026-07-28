@@ -195,7 +195,7 @@ Si has creado un segmento en el que esperas que los usuarios entren y salgan con
 
 ## Gestionar tus extensiones de segmento {#managing-your-segment-extensions}
 
-En la página **Extensiones de segmento**, los segmentos generados mediante SQL se indican con <i class="fas fa-code" alt="SQL Segment Extension"></i> junto a su nombre.
+En la página **Extensiones de segmento**, los segmentos generados mediante SQL se indican con <i class="fas fa-code" alt="Extensión de segmento SQL"></i> junto a su nombre.
 
 Selecciona una extensión de segmento SQL para ver dónde se está utilizando la extensión, archivar la extensión o [actualizar manualmente la membresía del segmento](#refreshing-segment-membership).
 
