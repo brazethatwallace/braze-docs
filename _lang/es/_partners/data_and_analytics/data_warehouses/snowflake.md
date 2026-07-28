@@ -50,7 +50,7 @@ Antes de poder utilizar esta característica, tendrás que completar lo siguient
 | Cuenta de Snowflake | Una cuenta de Snowflake con permisos `admin`. Para clientes que no son HIPAA, se admite Snowflake Standard o Enterprise Edition. Para el uso compartido de datos conforme a HIPAA, se requiere Business Critical Edition. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Configuración de la compartición segura de datos {#setting-up-secure-data-sharing}
+## Configuración de Secure Data Sharing {#setting-up-secure-data-sharing}
 
 En Snowflake, los datos se comparten entre un [proveedor de datos](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers) y un [consumidor de datos](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers). En este contexto, tu cuenta de Braze es el proveedor de datos porque crea y envía el datashare&#8212;mientras que tu cuenta de Snowflake es el consumidor de datos porque utiliza el datashare para crear una base de datos. Para más detalles, consulta [Snowflake: Consumir datos compartidos](https://docs.snowflake.com/en/user-guide/data-share-consumers).
 

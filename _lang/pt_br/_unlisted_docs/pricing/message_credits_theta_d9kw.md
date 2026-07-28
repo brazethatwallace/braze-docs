@@ -1,31 +1,31 @@
 ---
-nav_title: Créditos de mensagem - Theta
+nav_title: Message Credits - Theta
 permalink: "/message_credits_theta_d9kw/"
 hidden: true
 noindex: true
 hide_toc: true
 ---
 
-# Créditos de mensagem - Theta (Confidencial)
+# Message Credits - Theta (Confidencial) {#message-credits-theta-confidential}
 
-> Créditos de mensagem é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os créditos de mensagem proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
+> Message Credits é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os Message Credits proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
-## Definições
+## Definições {#definitions}
 
 As definições das colunas são as seguintes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Região final específica, país ou tipo de ação enviada pela plataforma Braze |
-| **Créditos por 1 envio** | Número exato de créditos de mensagem para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
+| **Créditos por 1 envio** | Número exato de Message Credits para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabela de proporção de créditos para créditos de mensagem - Theta
+## Tabela de proporção de créditos para Message Credits - Theta {#credit-ratio-table-for-message-credits-theta}
 
 {% details Clique para expandir %}
-<table class="credits-table" aria-label="Tabela de proporção de créditos para créditos de mensagem - Theta">
+<table class="credits-table" aria-label="Tabela de proporção de créditos para Message Credits - Theta">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -2275,67 +2275,69 @@ As definições das colunas são as seguintes:
 
 {% multi_lang_include pricing/agent_console_details.md %}
 
-## Detalhes do canal SMS/MMS
+## Detalhes do canal SMS/MMS {#smsmms-channel-details}
 
-### Segmentos de SMS
+### Segmentos de SMS {#sms-segments}
 
-Segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensagens. Um segmento de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
+Os segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensagens. Um segmento de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
 
-### Segmentos de MMS
+### Segmentos de MMS {#mms-segments}
 
 Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não ultrapassar 600 KB para o seu ativo multimídia, incluindo também o corpo da mensagem.
 
-### Tipos de RCS
+### Tipos de RCS {#rcs-types}
 
 O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um canal direto e de alto engajamento como o SMS, com recursos mais avançados que os consumidores modernos esperam, como conteúdo rico (imagens, vídeos, documentos), envio verificado e com marca, recursos interativos como respostas e ações sugeridas, e muito mais.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
-## Detalhes do canal WhatsApp
+## Detalhes do canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
+
+### Detalhes adicionais do canal {#additional-channel-details}
 
 ### Webhooks
 
 Os webhooks passaram a fazer parte dos Créditos de Mensagem em 9 de dezembro de 2024. A Braze cobrará Créditos de Mensagem por quaisquer webhooks enviados a partir da plataforma Braze. Por padrão, seu contrato inclui cem mil webhooks por cada Período do seu Prazo de Inscrição. Webhooks adicionais serão cobrados conforme seu Formulário de Pedido.
 
-### Conectores SMS próprios (BYO)
+### Conectores SMS próprios (BYO) {#bring-your-own-byo-sms-connectors}
 
-A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo "conector SMS BYO". A Braze cobrará Créditos de Mensagem por cada mensagem enviada a partir da plataforma Braze por meio de conectores SMS BYO.
+A Braze permite que os clientes integrem provedores terceirizados para enviar mensagens SMS por meio do modelo "conector SMS BYO". A Braze cobrará Créditos de Mensagem por cada mensagem enviada a partir da plataforma Braze por meio de conectores SMS BYO.
 
 ### LINE
 
 A Braze cobrará Créditos de Mensagem por quaisquer mensagens LINE enviadas a partir da plataforma Braze.
 
-## Detalhamento por região de cobrança
+## Detalhamento por região de cobrança {#billing-region-breakdown}
 
-### América do Norte
+### América do Norte {#north-america}
 
 Estados Unidos, Canadá
 
-### Restante da África
+### Restante da África {#rest-of-africa}
 
 Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia,
 Madagascar, Malauí, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
 
-### Restante da Ásia-Pacífico
+### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
 
 Afeganistão, Austrália, Bangladesh, Camboja, China, Japão, Laos, Mongólia, Nepal, Nova Zelândia, Papua-Nova Guiné, Filipinas, Sri Lanka, Taiwan, Tajiquistão, Tailândia,
 Turcomenistão, Uzbequistão, Vietnã
 
-### Restante da Europa Central e Oriental
+### Restante da Europa Central e Oriental {#rest-of-central-eastern-europe}
 
 Albânia, Armênia, Azerbaijão, Bielorrússia, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Letônia, Lituânia, Macedônia, Moldávia, Sérvia, Eslováquia, Eslovênia, Ucrânia
 
-### Restante da América Latina
+### Restante da América Latina {#rest-of-latin-america}
 
 Bolívia, Costa Rica, República Dominicana, Equador, El Salvador,
 Guatemala, Haiti, Honduras, Jamaica, Nicarágua, Panamá, Paraguai, Porto Rico, Uruguai, Venezuela
 
-### Restante do Oriente Médio
+### Restante do Oriente Médio {#rest-of-middle-east}
 
 Bahrein, Iraque, Jordânia, Kuwait, Líbano, Omã, Iêmen
 
-### Restante da Europa Ocidental
+### Restante da Europa Ocidental {#rest-of-western-europe}
 
 Áustria, Bélgica, Dinamarca, Finlândia, Irlanda, Noruega, Portugal, Suécia, Suíça

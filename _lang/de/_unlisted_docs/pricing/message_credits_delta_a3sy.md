@@ -18,7 +18,7 @@ Die Spaltendefinitionen lauten wie folgt:
 
 |---------|-------------------------------------------------|
 | **Ziel** | Spezifische Endregion, Land oder Art der Aktion, die über die Braze-Plattform gesendet wird |
-| **Credits pro 1 Versand** | Genaue Anzahl der Message Credits für einen einzelnen Versand<br> (Credits pro Versand = Credit-Verhältnis × Zielmultiplikator) |
+| **Credits pro 1 Versand** | Genaue Anzahl der Message Credits für einen Versand<br> (Credits pro Versand = Credit-Verhältnis × Zielmultiplikator) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
@@ -2298,7 +2298,7 @@ Webhooks wurden am 9. Dezember 2024 Teil der Nachrichtenguthaben. Braze berechne
 
 ### Eigene (BYO) SMS-Konnektoren {#bring-your-own-byo-sms-connectors}
 
-Braze ermöglicht es Kund:innen, sich mit Drittanbietern zu integrieren, um SMS-Nachrichten über das Modell „BYO SMS-Konnektor“ zu senden. Braze berechnet Nachrichtenguthaben für jede Nachricht, die über BYO SMS-Konnektoren von der Braze-Plattform gesendet wird.
+Braze ermöglicht es Kund:innen, sich mit Drittanbietern zu integrieren, um SMS-Nachrichten über das Modell „BYO SMS-Konnektor“ zu senden. Braze berechnet Nachrichtenguthaben für jede Nachricht, die von der Braze-Plattform über BYO SMS-Konnektoren gesendet wird.
 
 ### LINE
 

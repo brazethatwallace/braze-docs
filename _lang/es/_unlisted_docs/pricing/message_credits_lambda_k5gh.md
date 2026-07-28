@@ -1920,107 +1920,107 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brasil - Básico</td>
+        <td>Brasil - Basic</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brasil - Individual</td>
+        <td>Brasil - Single</td>
         <td>3.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Básico</td>
+        <td>Colombia - Basic</td>
         <td>1.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Individual</td>
+        <td>Colombia - Single</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Francia - Básico</td>
+        <td>Francia - Basic</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Francia - Individual</td>
+        <td>Francia - Single</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Alemania - Básico</td>
+        <td>Alemania - Basic</td>
         <td>12.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Alemania - Individual</td>
+        <td>Alemania - Single</td>
         <td>12.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italia - Básico</td>
+        <td>Italia - Basic</td>
         <td>4.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italia - Individual</td>
+        <td>Italia - Single</td>
         <td>6.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>México - Básico</td>
+        <td>México - Basic</td>
         <td>6.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>México - Individual</td>
+        <td>México - Single</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapur - Básico</td>
+        <td>Singapur - Basic</td>
         <td>4.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapur - Individual</td>
+        <td>Singapur - Single</td>
         <td>8.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>España - Básico</td>
+        <td>España - Basic</td>
         <td>6.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>España - Individual</td>
+        <td>España - Single</td>
         <td>13.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Suecia - Básico</td>
+        <td>Suecia - Basic</td>
         <td>7.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Suecia - Individual</td>
+        <td>Suecia - Single</td>
         <td>10.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Reino Unido - Básico</td>
+        <td>Reino Unido - Basic</td>
         <td>7.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Reino Unido - Individual</td>
+        <td>Reino Unido - Single</td>
         <td>14.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Estados Unidos - Básico - Obsoleto</td>
+        <td>Estados Unidos - Basic - Obsoleto</td>
         <td>1.00</td>
     </tr>
     <tr>

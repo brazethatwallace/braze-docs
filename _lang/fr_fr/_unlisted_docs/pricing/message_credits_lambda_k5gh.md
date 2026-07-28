@@ -8,7 +8,7 @@ hide_toc: true
 
 # Message Credits - Lambda (confidentiel) {#message-credits-lambda-confidential}
 
-> Message Credits est la structure de packaging multi-produits de Braze pour notre Agent Console natif, ainsi que nos offres SMS, MMS, RCS, WhatsApp et LINE. Les Message Credits offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication Braze et de certaines fonctionnalités d'IA. Les crédits vous donnent accès à n'importe lequel des canaux présentés dans le tableau de cette page.
+> Message Credits est la structure de packaging multi-produits de Braze pour nos offres natives Agent Console, SMS, MMS, RCS, WhatsApp et LINE. Les Message Credits offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication Braze et de certaines fonctionnalités d'IA. Les crédits vous donnent accès à l'ensemble des canaux présentés dans le tableau de cette page.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
@@ -17,8 +17,8 @@ hide_toc: true
 Les définitions des colonnes sont les suivantes :
 
 |---------|-------------------------------------------------|
-| **Destination** | Région finale spécifique, pays ou type d'action envoyé via la plateforme Braze |
-| **Crédits par envoi** | Nombre exact de Message Credits pour effectuer un envoi<br> (crédits par envoi = ratio de crédits x multiplicateur de destination) |
+| **Destination** | Région finale, pays ou type d'action spécifique envoyé via la plateforme Braze |
+| **Crédits par envoi** | Nombre exact de Message Credits nécessaires pour effectuer un envoi<br> (crédits par envoi = ratio de crédits x multiplicateur de destination) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
@@ -2055,7 +2055,7 @@ Pour les MMS, la limite de taille du message est de 5 Mo (cela inclut la ressour
 
 ### Types RCS {#rcs-types}
 
-Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des capacités plus riches que les consommateurs modernes attendent désormais, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
+Le RCS est la nouvelle génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des fonctionnalités plus riches auxquelles les consommateurs modernes s'attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 

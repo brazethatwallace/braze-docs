@@ -26,18 +26,18 @@ Puedes sincronizar tus productos con un catálogo de Braze a través del flujo d
 
 ### Paso 2: Selecciona el identificador de tu producto {#step-2-select-your-product-identifier}
 
-Selecciona qué identificador de producto utilizar como ID del catálogo:
-- Shopify Variant ID
-- SKU
+Selecciona el identificador de producto principal que se usará como ID del catálogo de Braze:
 
-Los valores de ID y encabezado del identificador de producto que elijas solo pueden incluir letras, números, guiones y guiones bajos. Si el identificador del producto no sigue este formato, Braze lo filtrará de la sincronización de tu catálogo.
+- **Shopify Variant ID** es una buena opción predeterminada cuando tus SKU faltan, están duplicados entre variantes o pueden contener caracteres como barras, puntos, espacios o ampersands. Los Variant ID son numéricos y siempre cumplen estos requisitos.
+- **SKU** funciona bien cuando cada variante tiene un SKU único que sigue las mismas reglas de caracteres que Shopify Variant ID, y quieres que la mensajería o los análisis usen los SKU de comercio minorista como clave del catálogo.
+  - Puedes usar SKU de texto libre que contengan caracteres no permitidos utilizando Shopify Variant ID en lugar de SKU.
 
-Este será el identificador principal que utilizarás para hacer referencia a la información del catálogo de Braze.
+El valor que selecciones se convierte en el `item_id` del catálogo y solo puede contener letras, números, guiones y guiones bajos.
 
 {% alert note %}
-Si seleccionas SKU como ID del catálogo, asegúrate de que todos los productos y variantes de tu tienda tienen un SKU establecido y son únicos.<br><br>
+Si usas SKU como ID del catálogo, asegúrate de que todos los productos y variantes de tu tienda tengan un SKU establecido y que sean únicos.<br><br>
 - Si a un artículo le falta un SKU, Braze no puede sincronizar ese producto en el catálogo.
-- Si tienes más de un producto con el mismo SKU, esto puede provocar un comportamiento inesperado o que la información del producto sea anulada involuntariamente por el SKU duplicado.
+- Si tienes más de un producto con el mismo SKU, esto puede provocar un comportamiento inesperado o que la información del producto sea anulada involuntariamente.
 {% endalert %}
 
 ### Paso 3: Configura datos de producto adicionales (opcional) {#step-3}
@@ -95,7 +95,7 @@ Braze admite los siguientes objetos de metacampos y algunos de sus tipos respect
 | `url`, `list.url`                                | Cadena (URL), Matriz de cadenas (URLs)                 |
 | `metaobject_reference`, `list.metaobject_reference` | Cadena, Matriz de cadenas                          |
 | `mixed_reference`, `list.mixed_reference`        | Cadena, Matriz de cadenas                              |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configura datos de producto adicionales (opcional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configura datos de producto adicionales (opcional) #step-3" }
 
 {% endsubtab %}
 {% subtab Metacampos no compatibles %}
@@ -725,6 +725,8 @@ Si la sincronización de tu producto de Shopify se encuentra con un error, podr�
 | Error | Causa | Solución |
 | --- | --- | --- |
 | Error del servidor | Esto ocurre si hay un error de servidor por parte de Shopify cuando intentamos sincronizar tus productos. | [Desactiva la sincronización](#deactivate) y vuelve a sincronizar todo tu inventario de productos. |
-| SKU duplicado | Esto ocurre si utilizas un SKU como ID de artículo del catálogo y tienes productos con el mismo SKU. Como el ID de artículo del catálogo debe ser único, todos tus productos deben tener SKU únicos. | Audita tu lista completa de productos y variantes en Shopify para asegurarte de que no hay SKU duplicados. Si los hay, actualízalos para que sean SKU únicos solo en la cuenta de tu tienda Shopify. Una vez corregido esto, [desactiva la sincronización](#deactivate) y vuelve a sincronizar todo tu inventario de productos. |
+| SKU duplicado | Esto ocurre si utilizas un SKU como ID de artículo del catálogo y múltiples variantes comparten el mismo SKU. Cada `item_id` del catálogo debe ser único, por lo que los artículos afectados pueden no sincronizarse, acumular registros de error o tener información de producto anulada involuntariamente. | Audita tu lista completa de productos y variantes en Shopify para asegurarte de que no hay SKU duplicados. Si los hay, actualízalos para que sean SKU únicos solo en la cuenta de tu tienda Shopify. Una vez corregido esto, [desactiva la sincronización](#deactivate) y vuelve a sincronizar todo tu inventario de productos. |
 | Límite de catálogo superado | Esto ocurre si superas el límite de tu catálogo. Braze no podrá finalizar la sincronización o mantenerla activa debido a que no hay más almacenamiento disponible. | Hay dos soluciones a este problema:<br><br>1. Ponte en contacto con tu director de cuentas para subir de nivel y aumentar el límite de tu catálogo.<br><br>2. Libera espacio de almacenamiento eliminando cualquiera de los siguientes elementos:<br>- Artículos de otros catálogos<br>- Otros catálogos<br>- Selecciones creadas<br><br> Después de utilizar cualquiera de las dos soluciones, hay que desactivar la sincronización y volver a sincronizarla. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Solución de problemas" }
+
+Para más detalles sobre la validación de artículos de catálogo, consulta [Solución de problemas]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) en la documentación de la API de catálogos.

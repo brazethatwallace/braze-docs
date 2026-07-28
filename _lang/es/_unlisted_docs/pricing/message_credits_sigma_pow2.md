@@ -6,26 +6,26 @@ noindex: true
 hide_toc: true
 ---
 
-# Créditos de mensaje - Sigma (confidencial)
+# Créditos de mensaje - Sigma (confidencial) {#message-credits-sigma-confidential}
 
 > Créditos de mensaje es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp y LINE. Los créditos de mensaje proporcionan una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
-## Definiciones
+## Definiciones {#definitions}
 
 Las definiciones de las columnas son las siguientes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Región final específica, país o tipo de acción que se envía a través de la plataforma Braze |
-| **Créditos por 1 envío** | Número exacto de créditos de mensaje para realizar un envío<br> (créditos por envío = ratio de créditos x multiplicador de destino) |
+| **Créditos por 1 envío** | Número exacto de créditos de mensaje para realizar un envío<br> (créditos por envío = proporción de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabla de ratio de créditos para créditos de mensaje - Sigma
+## Tabla de proporción de créditos para créditos de mensaje - Sigma {#credit-ratio-table-for-message-credits-sigma}
 
 {% details Haz clic para expandir %}
-<table class="credits-table" aria-label="Tabla de ratio de créditos para créditos de mensaje - Sigma">
+<table class="credits-table" aria-label="Tabla de proporción de créditos para créditos de mensaje - Sigma">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -2120,27 +2120,27 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>Line</td>
-        <td>All Regions</td>
+        <td>Todas las regiones</td>
         <td>0.15</td>
     </tr>
     <tr>
         <td>KakaoTalk</td>
-        <td>All Regions</td>
+        <td>Todas las regiones</td>
         <td>0.20</td>
     </tr>
     <tr>
         <td>Webhooks</td>
-        <td>Standard</td>
+        <td>Estándar</td>
         <td>0.08</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
-        <td>Infobip - All Regions</td>
+        <td>Conector SMS BYO</td>
+        <td>Infobip - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
-        <td>Twilio - All Regions</td>
+        <td>Conector SMS BYO</td>
+        <td>Twilio - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
@@ -2270,67 +2270,69 @@ Las definiciones de las columnas son las siguientes:
 
 ------
 
-## Detalles de Agent Console
+## Detalles de Agent Console {#agent-console-details}
 Braze cobrará créditos de mensaje por las invocaciones de Agent Console enviadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
 
-## Detalles del canal SMS/MMS
+## Detalles del canal SMS/MMS {#smsmms-channel-details}
 
-### Segmentos de SMS
+### Segmentos de SMS {#sms-segments}
 
 Los segmentos del mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un solo despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
 
-### Segmentos de MMS
+### Segmentos de MMS {#mms-segments}
 
 Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y el tamaño del cuerpo del mensaje). Para mayor seguridad, Braze recomienda no exceder los 600 KB para tu activo multimedia e incluir también un cuerpo de mensaje.
 
-### Tipos de RCS
+### Tipos de RCS {#rcs-types}
 
 RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
-## Detalles del canal WhatsApp
+## Detalles del canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
+### Detalles adicionales del canal {#additional-channel-details}
+
 ### Webhooks
 
-Los webhooks pasaron a formar parte de los créditos de mensajes el 9 de diciembre de 2024. Braze cobrará créditos de mensajes por cualquier webhook enviado desde la plataforma de Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según lo establecido en tu formulario de pedido.
+Los webhooks pasaron a formar parte de los créditos de mensaje el 9 de diciembre de 2024. Braze cobrará créditos de mensaje por cualquier webhook enviado desde la plataforma de Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según lo establecido en tu formulario de pedido.
 
-### Conectores SMS propios (BYO)
+### Conectores SMS propios (BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará créditos de mensajes por cada mensaje enviado desde la plataforma de Braze a través de conectores SMS BYO.
+Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará créditos de mensaje por cada mensaje enviado desde la plataforma de Braze a través de conectores SMS BYO.
 
 ### LINE
 
-Braze cobrará créditos de mensajes por cualquier mensaje de LINE enviado desde la plataforma de Braze.
+Braze cobrará créditos de mensaje por cualquier mensaje de LINE enviado desde la plataforma de Braze.
 
-## Desglose por región de facturación
+## Desglose por región de facturación {#billing-region-breakdown}
 
-### Norteamérica
+### Norteamérica {#north-america}
 
 Estados Unidos, Canadá
 
-### Resto de África
+### Resto de África {#rest-of-africa}
 
 Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia, Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
-### Resto de Asia-Pacífico
+### Resto de Asia-Pacífico {#rest-of-asia-pacific}
 
 Afganistán, Australia, Bangladés, Camboya, China, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Sri Lanka, Taiwán, Tayikistán, Tailandia, Turkmenistán, Uzbekistán, Vietnam
 
-### Resto de Europa Central y Oriental
+### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
 
 Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Letonia, Lituania, Macedonia, Moldavia, Serbia, Eslovaquia, Eslovenia, Ucrania
 
-### Resto de América Latina
+### Resto de América Latina {#rest-of-latin-america}
 
 Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador, Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-### Resto de Oriente Medio
+### Resto de Oriente Medio {#rest-of-middle-east}
 
 Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Yemen
 
-### Resto de Europa Occidental
+### Resto de Europa Occidental {#rest-of-western-europe}
 
 Austria, Bélgica, Dinamarca, Finlandia, Irlanda, Noruega, Portugal, Suecia, Suiza
