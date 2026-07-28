@@ -350,7 +350,7 @@ useEffect(() => {
 - **Expo**：手動のネイティブ設定を避けるため、可能な限り[Braze Expoプラグイン](https://github.com/braze-inc/braze-expo-plugin)を使用してください。
 - **New Architecture / Turbo Modules**：最新のプラグインバージョンでサポートされています。移行する場合は、開発者ガイドおよびサンプルの`AppDelegate` / Gradle設定に従ってください。
 - **プライバシー（iOS）**：`updateTrackingPropertyAllowList`などのメソッドは、プライバシーマニフェスト関連の設定をサポートしています。詳細は[Swiftプライバシーマニフェスト](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)を参照してください。
-## - **Jest**：`react-native`のネイティブモジュールまたはBraze Turboモジュールをモックします（パターンについてはこのリポジトリの`__tests__/jest.setup.js`を参照してください）。 {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
+- **Jest**：`react-native`のネイティブモジュールまたはBraze Turboモジュールをモックします（パターンについてはこのリポジトリの`__tests__/jest.setup.js`を参照してください）。
 
 ## バージョンサポート {#version-support}
 
