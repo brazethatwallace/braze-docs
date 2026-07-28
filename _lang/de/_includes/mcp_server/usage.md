@@ -8,7 +8,7 @@
 
 Bevor Sie dieses Feature nutzen können, müssen Sie [den Braze MCP-Server einrichten]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}.
 
-## Best Practices
+## Best Practices {#best-practices}
 
 Wenn Sie den Braze MCP-Server über Tools für natürliche Sprache verwenden, beachten Sie die folgenden Tipps:
 
@@ -82,7 +82,7 @@ Ich habe `create_email_template` verwendet und Ihr Template erstellt.
 {% endtab %}
 {% endtabs %}
 
-Weitere Informationen finden Sie unter [Verfügbare API-Funktionen]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates-email){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates-email){% endif %}.
+Weitere Informationen finden Sie unter [Verfügbare API-Funktionen]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates){% endif %}.
 
 ## Beispiel-Workflows {#example-workflows}
 

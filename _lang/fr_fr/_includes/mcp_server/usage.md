@@ -82,7 +82,7 @@ J'ai utilisé `create_email_template` et créé votre modèle.
 {% endtab %}
 {% endtabs %}
 
-Pour plus d'informations, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates-email){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates-email){% endif %}.
+Pour plus d'informations, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates){% endif %}.
 
 ## Exemples de workflows {#example-workflows}
 
