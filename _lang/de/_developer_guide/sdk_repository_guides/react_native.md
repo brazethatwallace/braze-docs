@@ -350,7 +350,7 @@ useEffect(() => {
 - **Expo**: Verwenden Sie nach Möglichkeit das [Braze Expo Plugin](https://github.com/braze-inc/braze-expo-plugin), um manuelle native Verdrahtung zu vermeiden.
 - **New Architecture / Turbo Modules**: Wird in neueren Plugin-Versionen unterstützt. Folgen Sie dem Entwicklerleitfaden und den Beispieleinstellungen für `AppDelegate` / Gradle, wenn Sie migrieren.
 - **Datenschutz (iOS)**: Methoden wie `updateTrackingPropertyAllowList` unterstützen die Konfiguration im Zusammenhang mit dem Privacy Manifest. Weitere Informationen finden Sie unter [Swift Privacy Manifest](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/).
-## - **Jest**: Mocken Sie die nativen Module von `react-native` oder das Braze-Turbo-Modul (siehe `__tests__/jest.setup.js` in diesem Repository für Beispiele). {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
+- **Jest**: Mocken Sie die nativen Module von `react-native` oder das Braze-Turbo-Modul (siehe `__tests__/jest.setup.js` in diesem Repository für Beispiele).
 
 ## Versionsunterstützung {#version-support}
 
