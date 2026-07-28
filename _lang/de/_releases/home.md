@@ -18,13 +18,13 @@ Weitere Informationen zu den auf dieser Seite aufgeführten Updates erhalten Sie
 
 ## Veröffentlichung am 23. Juli 2026 {#july-23-2026-release}
 
-### Daten und Berichterstattung {#data-reporting}
+### Daten und Reporting {#data-reporting}
 
-#### Messaging-Diagnose-Dashboard {#messaging-diagnostics-dashboard}
+#### Messaging-Diagnostics-Dashboard {#messaging-diagnostics-dashboard}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Das [Messaging-Diagnose-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) bietet eine Aufschlüsselung der Ergebnisse des Nachrichtenversands auf hoher Ebene, mit der Sie Trends erkennen und potenzielle Probleme in Ihrer Messaging-Konfiguration diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu diesem Feature zu erhalten.
+Das [Messaging-Diagnostics-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) bietet eine Aufschlüsselung der Ergebnisse des Nachrichtenversands auf hoher Ebene, mit der Sie Trends erkennen und potenzielle Probleme in Ihrer Messaging-Konfiguration diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu diesem Feature zu erhalten.
 
 #### CSV-Mapper für angepasste Events {#csv-custom-events-mapper}
 
