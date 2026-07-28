@@ -26,7 +26,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 {% endalert %}
 
 {% alert tip %}
-ユーザー属性オブジェクトでのオブジェクト配列の使用について詳しくは、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を参照してください。
+ユーザー属性オブジェクトでのオブジェクト配列の使用について詳しくは、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照してください。
 {% endalert %}
 
 ## APIの例 {#api-example}

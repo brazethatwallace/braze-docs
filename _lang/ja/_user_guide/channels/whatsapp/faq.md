@@ -21,6 +21,7 @@ channel:
 - [WhatsAppテンプレートとコンポーザー](#whatsapp-templates-and-composer)
 - [配信到達性と課金](#deliverability-and-billing)
 - [インテグレーション、データ、レポート](#integrations-data-and-reporting)
+- [メディアと画像](#media-and-images)
 
 ### WhatsAppビジネスアカウント {#whatsapp-business-accounts}
 
@@ -34,18 +35,25 @@ Brazeダッシュボードの埋め込みサインアップフローを通じて
 埋め込みサインアップフローを完了した後、business.facebook.comの[WhatsAppセクション](https://business.facebook.com/wa/manage/home)に移動してアカウントにアクセスできます。
 
 #### 複数のWABAをBrazeに接続できますか？ {#can-i-connect-multiple-wabas-to-braze}
-はい、ワークスペースごとに最大10個のWhatsAppビジネスアカウントを追加でき、各ビジネスアカウントは異なるMeta Business Managerの下にネストできます。
+はい、ワークスペースごとに最大10個のWhatsApp Businessアカウントを追加でき、各ビジネスアカウントは異なるMeta Business Managerの下にネストできます。
 
-![BrazeとWhatsAppのエコシステムの図。ワークスペースとWhatsAppビジネスアカウントの接続関係を示しています。1つの購読グループを1つの電話番号に、複数のWhatsAppビジネスアカウントを1つのワークスペースに、1つのワークスペースを複数のMeta Business Portfolioに接続できます。]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
+![BrazeとWhatsAppのエコシステムの図。ワークスペースとWhatsApp Businessアカウントの接続関係を示しています。1つの購読グループを1つの電話番号に、複数のWhatsApp Businessアカウントを1つのワークスペースに、1つのワークスペースを複数のMeta Business Portfolioに接続できます。]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
-#### WhatsAppビジネスアカウントの通貨を変更できますか？ {#can-i-change-my-whatsapp-business-account-currency}
-いいえ。MetaがWhatsAppビジネスアカウントの通貨を管理しており、Brazeでは変更や変換ができません。別の通貨を使用するには、その通貨で[別のWhatsAppビジネスアカウントを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)か、Metaサポートに連絡して既存のアカウントの通貨を更新できるかどうかを確認してください。
+#### WhatsApp Businessアカウントの通貨を変更できますか？ {#can-i-change-my-whatsapp-business-account-currency}
+いいえ。MetaがWhatsApp Businessアカウントの通貨を管理しており、Brazeでは変更や変換ができません。別の通貨を使用するには、その通貨で[別のWhatsApp Businessアカウントを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)か、Metaサポートに連絡して既存のアカウントの通貨を更新できるかどうかを確認してください。
 
 #### ビジネス認証とは何ですか？ {#what-is-business-verification}
 ビジネス認証は、ブランドが正当なビジネスであることを確認するために使用されるWhatsAppの概念です。WhatsApp Managerで完了できます。ビジネス認証は、メッセージングのスケーリングにも必要です。ビジネス認証がない場合、顧客はローリング24時間内に最大250人のユニークエンドユーザーにのみ送信できます。
 
 #### 公式ビジネスアカウントとは何ですか？ {#what-is-an-official-business-account}
 OBA（公式ビジネスアカウント）は、表示名の横に緑色のチェックマークが付き、任意で取得できます。ビジネス認証の完了後に公式ビジネスアカウントを申請できます。ビジネス認証と公式ビジネスアカウントは異なるWhatsAppの概念であることに注意してください。
+
+#### WhatsApp Businessの表示名が却下される理由は何ですか？ {#why-might-my-whatsapp-business-display-name-be-rejected}
+WhatsApp Businessの表示名の却下はMetaによって管理されています。表示名が却下された場合は、[WhatsAppの表示名ガイドライン](https://faq.whatsapp.com/793641088597363)を参照してください。
+
+表示名がガイドラインを満たしているにもかかわらず却下される場合、Brazeは具体的な理由を確認することができません。ただし、却下の最も一般的な理由は、ビジネスのオンラインプレゼンスが低すぎること、またはビジネスが[規制対象または制限対象の製品](https://business.whatsapp.com/policy#further-guidance)をマーケティングしていることです。
+
+表示名の却下に関する詳細なガイダンスについては、[Metaリソース]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources)を参照してください。
 
 ### WhatsAppビジネスアカウントの電話番号 {#whatsapp-business-account-phone-numbers}
 
@@ -188,18 +196,19 @@ Metaがテンプレートを誤ってフラグ付けしたと思われる場合�
 いいえ。メッセージが配信されなかった場合、課金されません。
 
 #### ユーザーが私のビジネスをブロックした場合はどうなりますか？ {#what-happens-if-a-user-blocks-my-business}
-ユーザーがあなたのビジネスをブロックした場合、その後送信しようとするメッセージは配信されず、課金もされません。
+ユーザーがあなたのビジネスをブロックした場合、その後送信しようとするメッセージは配信されず、課金もされません。ユーザーの購読ステータスは更新されません。
 
 #### ユーザーがメッセージを報告した場合はどうなりますか？ {#what-happens-if-a-user-reports-a-message}
-ユーザーがメッセージを報告した場合でも、そのユーザーに後続のメッセージを送信できます。ただし、報告はチャネル上の品質評価に影響を与える可能性があります。
-
-#### ユーザーが私のビジネスをブロックまたは報告した場合、Brazeで購読ステータスは更新されますか？ {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
-いいえ。Brazeの購読ステータスは更新されません。
+ユーザーがメッセージを報告した場合でも、そのユーザーに後続のメッセージを送信できます。ただし、報告はチャネル上の品質評価に影響を与える可能性があります。ユーザーの購読ステータスは更新されません。
 
 #### WhatsAppアカウントを報告したユーザーを今後の配信から除外するにはどうすればよいですか？ {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
 Brazeは、アカウントがフラグ付けまたは報告された際にWhatsAppから通知を受け取らないため、Brazeでそれらのユーザーを自動的に特定または除外することはできません。アカウントを報告したユーザーは、WhatsApp購読グループに残り、今後のメッセージの対象となり続ける可能性があります。
 
 ただし、ユーザーがオプトアウトキーワードで返信した際にトリガーされるキャンペーンを設定し、[`/subscription/status/set`エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)を使用して自動的に購読解除することができます。詳細については、[WhatsAppのオプトインとオプトアウトプロセス]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process)を参照してください。
+
+#### WhatsAppの配信が失敗した場合、BrazeはSMSへの自動フォールバックをサポートしていますか？ {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
+
+いいえ。BrazeはネイティブのWhatsAppからSMSへのフォールバックパスを提供していません。別のチャネルで再試行するには、WhatsApp送信に失敗したユーザーをセグメント化し（例えば、Currentsの失敗イベントを使用）、SMSまたはメールキャンペーンをターゲットにしてください。
 
 #### WhatsAppの応答メッセージは無料ですか？ {#are-whatsapp-response-messages-free}
 
@@ -246,3 +255,8 @@ WhatsAppは双方向メッセージングに焦点を当てたチャネルであ
 
 - **ビジネス発信会話**：ビジネスが承認済みテンプレートメッセージをエンドユーザーに送信して開始する会話です。ビジネスがメッセージを送信すると同時に、24時間のウィンドウが始まります。
 - **ユーザー発信会話**：エンドユーザーがビジネスにメッセージを送信する会話です。ビジネスが応答メッセージを送信すると、24時間のウィンドウが始まります。
+
+### メディアと画像 {#media-and-images}
+
+#### WhatsAppメッセージとして送信した画像が読み込まれないのはなぜですか？ {#why-wont-images-load-when-sent-as-a-whatsapp-message}
+WhatsAppメッセージ内の画像がダウンロードできない、またはダウンロードアイコンが反応しないとユーザーから報告された場合、これは古いバージョンのWhatsAppアプリにおける既知の問題が原因である可能性があります。この問題は通常、デバイスを最新バージョンのWhatsAppにアップグレードすることで解決できます。

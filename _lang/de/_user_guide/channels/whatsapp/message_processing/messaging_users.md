@@ -143,6 +143,8 @@ Wenn Sie Zeilenbeschreibungen haben, müssen Sie **Matches regex** verwenden, um
 
 Antwortnachrichten müssen innerhalb von 24 Stunden nach Erhalt einer Nutzernachricht gesendet werden. Um erfolgreiche Erlebnisse zu gewährleisten, überprüft Braze die Nachrichtenlogik, um zu bestätigen, dass es eine vorgelagerte eingehende Nutzernachricht gibt, die die Antwortnachricht freischaltet.
 
+Für Antworten im Sekundenbereich in wechselseitigen Canvas-Abläufen minimieren Sie die Schritte zwischen dem eingehenden Trigger und dem Senden der Antwortnachricht. Canvas-Architektur, Webhook-Roundtrips und User-Update-Batching können Latenz verursachen. Siehe [Antwortlatenz für wechselseitige Abläufe minimieren]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
+
 Die folgenden Ereignisse schalten Antwortnachrichten frei:
 
 - Eingehende Nachricht
@@ -178,7 +180,7 @@ sequenceDiagram
 #### Wissenswertes {#things-to-know}
 
 - Der Antwortnachrichten-Schritt muss weiterhin innerhalb von 24 Stunden nach der eingehenden Nachricht der Nutzer:innen liegen. In den meisten Canvas-Abläufen wird die Antwort sofort nach der Auswertung des Aktionspfads gesendet, sodass dies kein Problem darstellt.
-- Verwechseln Sie das 24-Stunden-Kundenservice-Fenster nicht mit Canvas-[Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), die ein Fenster von bis zu 30 Tagen verwenden können. Konversions-Fenster steuern die Attribution; sie beeinflussen nicht, ob eine Antwortnachricht gesendet werden kann.
+- Das 24-Stunden-Kundenservice-Fenster unterscheidet sich von Canvas-[Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), die ein Fenster von bis zu 30 Tagen verwenden können. Konversions-Fenster steuern die Attribution; sie beeinflussen nicht, ob eine Antwortnachricht gesendet werden kann.
 - Informationen zur Abrechnung finden Sie unter [Sind WhatsApp-Antwortnachrichten kostenlos?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
 
 ### Filtern nach einem angepassten Zeitattribut {#filtering-by-a-custom-time-attribute}
@@ -194,3 +196,7 @@ Das Liquid-Feld `inbound_media_urls`, das auf die URL dieser Medien verweist, is
 {% alert note %}
 Wenn Sie einen `inbound_media_urls`-Wert in einem angepassten Attribut für die spätere Verwendung speichern, beachten Sie diesen Ablauf nach sieben Tagen. Der Versuch, nach Ablauf auf die URL zuzugreifen, führt zu einem defekten Link.
 {% endalert %}
+
+### Eingehender Profilname {#inbound-profile-name}
+
+Wenn Meta einen Anzeigenamen in einer eingehenden WhatsApp-Nachricht mitliefert, stellt Braze diesen als Liquid-Attribut {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} für dieses eingehende Ereignis bereit. Dieser Wert spiegelt den Namen wider, den die Nutzer:innen in WhatsApp festgelegt haben, und stimmt möglicherweise nicht mit CRM-Profildaten überein. Validieren Sie die Daten, bevor Sie sie in Nutzertexten verwenden, oder nutzen Sie einen Canvas-User-Update-Schritt, um den Wert in einem Profilfeld für die spätere Verwendung zu speichern. Eine vollständige Liste der WhatsApp-Liquid-Attribute finden Sie unter [Unterstützte Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

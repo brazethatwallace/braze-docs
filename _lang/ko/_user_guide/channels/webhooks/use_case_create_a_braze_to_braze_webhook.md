@@ -16,7 +16,7 @@ description: "이 참조 문서에서는 사용자 업데이트와 Braze-to-Braz
 
 ## 다른 Canvas를 트리거하려면 Send to Destination 사용 {#use-send-to-destination-for-triggering-another-canvas}
 
-Canvas 내에서 두 번째 Canvas를 트리거하려면 Braze-to-Braze 웹훅 대신 [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)을 사용하세요. 이 Canvas 구성요소는 Canvas 여정을 연결하기 위해 특별히 설계되었으며, 한 Canvas에서 다른 Canvas로 사용자를 보내는 더 간단하고 효율적인 방법을 제공합니다.
+Canvas 내에서 두 번째 Canvas를 트리거하려면 Braze-to-Braze 웹훅 대신 [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)을 사용하세요. 이 캔버스 구성요소는 Canvas 여정을 연결하기 위해 특별히 설계되었으며, 한 Canvas에서 다른 Canvas로 사용자를 보내는 더 간단하고 효율적인 방법을 제공합니다.
 
 Send to Destination은 사용자가 해당 단계에 도달할 때 대상 Canvas의 진입 및 오디언스 기준에 따라 사용자를 평가하며, 웹훅 구성이나 API 키가 필요하지 않습니다. 기준을 충족하는 사용자는 대상 Canvas에 진입하며, 이후 추가 단계가 있는 경우 소스 Canvas에서 여정을 계속할 수 있습니다.
 
@@ -40,10 +40,10 @@ Canvas에 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/
 
 Send to Destination은 웹훅 구성 없이 Canvas 내에서 두 번째 Canvas를 트리거하는 더 간단한 방법을 제공합니다.
 
-전용 Canvas 구성요소가 없는 시나리오에서 Braze 내에서 Braze의 [REST API]({{site.baseurl}}/api/basics)를 호출해야 하는 경우 Braze-to-Braze 웹훅을 사용할 수 있습니다. 일반적인 예시는 다음과 같습니다:
+전용 캔버스 구성요소가 없는 시나리오에서 Braze 내에서 Braze의 [REST API]({{site.baseurl}}/api/basics)를 호출해야 하는 경우 Braze-to-Braze 웹훅을 사용할 수 있습니다. 일반적인 예시는 다음과 같습니다:
 
 - Canvas에서 [API 트리거 Campaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)을 트리거하는 경우
-- Braze의 한 워크플로가 전용 Canvas 구성요소가 없는 API를 호출해야 하는 오케스트레이션 패턴을 위해 다른 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 호출하는 경우
+- Braze의 한 워크플로가 전용 캔버스 구성요소가 없는 API를 호출해야 하는 오케스트레이션 패턴을 위해 다른 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 호출하는 경우
 
 Canvas 내에서 사용자를 업데이트하려면 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)를 사용하세요. 다른 Canvas를 트리거하려면 [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)을 사용하세요.
 
@@ -55,7 +55,7 @@ Braze-to-Braze 웹훅을 생성하려면 호출하려는 엔드포인트에 대�
 
 Braze-to-Braze 웹훅을 생성하는 일반적인 워크플로는 다음 단계를 따릅니다:
 
-1. Campaign 또는 Canvas 구성요소로 [웹훅을 생성]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)합니다.
+1. Campaign 또는 캔버스 구성요소로 [웹훅을 생성]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)합니다.
 2. **빈 템플릿**을 선택합니다.
 3. **작성** 탭에서 API 사용 사례에 맞는 **웹훅 URL**과 **요청 본문**을 지정합니다.
 4. **설정** 탭에서 엔드포인트에서 요구하는 **HTTP 메서드**와 **요청 헤더**를 지정합니다.
@@ -64,6 +64,10 @@ Braze-to-Braze 웹훅을 생성하는 일반적인 워크플로는 다음 단계
 ## 초기 Canvas에서 두 번째 Canvas 트리거 {#trigger-a-second-canvas-from-an-initial-canvas}
 
 이 사용 사례에서는 두 개의 Canvas를 생성하고 Braze-to-Braze 웹훅을 사용하여 첫 번째 Canvas에서 두 번째 Canvas를 트리거합니다. 이는 사용자가 다른 Canvas의 특정 지점에 도달했을 때의 진입 트리거 역할을 합니다.
+
+{% alert note %}
+**캔버스 단계와 상호작용** 트리거는 Campaign에서만 사용할 수 있으며, 액션 기반 Canvas 진입에는 사용할 수 없습니다. 사용자가 다른 Canvas의 특정 단계에 도달하는 것을 기반으로 Canvas를 트리거해야 하는 경우, 이 Braze-to-Braze 웹훅 방식 또는 [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) 캔버스 구성요소를 사용하세요.
+{% endalert %}
 
 1. 먼저 두 번째 Canvas, 즉 초기 Canvas에 의해 트리거될 Canvas를 생성합니다.
 2. Canvas **진입 스케줄**에서 **API-Triggered**를 선택합니다.

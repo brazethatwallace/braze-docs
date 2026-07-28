@@ -35,7 +35,7 @@ Existem vários cenários em que o `native_line_id` é definido no perfil de usu
 | A empresa usa o endpoint `/users/track` e especifica o atributo `native_line_id` | Sim | Se existir um perfil de usuário para o usuário especificado ([especificado por `external_id`, `user_alias`, `braze_id` ou `email`]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)):<br>- `native_line_id` é definido com o valor especificado<br>- Todos os outros atributos especificados na solicitação são definidos no perfil de usuário<br>- Múltiplos perfis terão o mesmo `native_line_id` |
 | A empresa solicita que a Braze execute o sincronizador de status de inscrição | Não | Se um ID de usuário LINE retornado pelo LINE não tiver um perfil de usuário correspondente na Braze, um perfil de usuário anônimo será criado:<br>- `native_line_id` é definido como o ID LINE do usuário<br>- O alias de usuário `line_id` é definido como o ID LINE do usuário<br>- O usuário é inscrito no grupo de inscrições da Braze do canal<br><br>Observe que, se um usuário com o mesmo ID LINE for criado posteriormente, haverá usuários duplicados, mas ambos terão o status de inscrição LINE correto. O merge de usuários pode limpar sua base de usuários nesses casos. |
 | A empresa solicita que a Braze execute o sincronizador de status de inscrição | Sim | Se um ID de usuário LINE retornado pelo LINE tiver um perfil de usuário correspondente na Braze:<br>- O usuário é inscrito no grupo de inscrições da Braze do canal |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Setting the nativelineid attribute" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configurando o atributo nativelineid" }
 
 ## Encontrando o `native_line_id` {#finding-the-native_line_id}
 

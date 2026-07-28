@@ -17,9 +17,10 @@ tool: Campaigns
 
 ### 시작하기 전에 {#before-you-begin}
 
-- 메시지를 수신할 대상을 정의하는 [세그먼트]({{site.baseurl}}/user_guide/audience/segments)를 구축하거나 선택하세요.
+- 메시지를 수신할 대상을 정의하는 [Segment(세그먼트)]({{site.baseurl}}/user_guide/audience/segments)를 구축하거나 선택하세요.
 - 메시징 채널, 전달 유형 및 전환 목표가 사용 사례에 맞는지 [캠페인 기본 사항]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics)을 검토하세요.
 - 전달, 타겟팅 및 전환에 대한 안내 워크스루를 보려면 [캠페인 설정](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze 학습 과정을 수강하세요.
+- Operator에게 브리프를 기반으로 캠페인 초안을 작성하거나 타겟팅 및 전달 선택을 개선하도록 요청하세요. 자세한 내용은 [Operator로 할 수 있는 것]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences)을 참조하세요.
 
 ## 캠페인 작성기 {#campaign-composer}
 
@@ -68,7 +69,7 @@ tool: Campaigns
 
 멀티채널 캠페인의 경우, Braze는 채널별로 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 추적합니다. 사용자가 둘 이상의 채널에서 메시지를 수신한 후 전환하면, Braze는 해당 전환을 여러 채널에 걸쳐 기여할 수 있습니다. 전환 수가 *고유 사용자*를 초과할 수 있으며, 비율이 100%를 초과할 수 있습니다. 전체 규칙은 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)을 참조하세요.
 
-여러 채널에 걸친 발송의 사용량 제한은 [멀티채널 캠페인 및 Canvases]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases)에 설명되어 있습니다. 워크스페이스 전체 규칙(멀티채널 발송이 한도에 어떻게 집계되는지 포함)은 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)을 참조하세요.
+여러 채널에 걸친 발송의 사용량 제한은 [멀티채널 Campaigns 및 Canvases]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases)에 설명되어 있습니다. 워크스페이스 전체 규칙(멀티채널 발송이 한도에 어떻게 집계되는지 포함)은 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)을 참조하세요.
 
 ### 멀티채널 캠페인 생성 {#create-a-multichannel-campaign}
 
@@ -130,23 +131,23 @@ Braze 전반의 스케줄링 개념은 [캠페인 스케줄]({{site.baseurl}}/us
 
 ### 타겟팅 옵션 {#targeting-options}
 
-이 섹션에서는 세그먼트 또는 필터를 선택하여 오디언스를 좁혀 사용자를 타겟팅할 수 있습니다. 자격이 있는 사용자는 여전히 **전달 스케줄** 단계에서 정의한 트리거 또는 기준을 충족해야 합니다. 타겟 오디언스는 대기실과 같습니다. 이미 안에 있는 사람만 다음 동작이 발생할 때 앞으로 나아갈 수 있습니다.
+이 섹션에서는 Segment 또는 필터를 선택하여 오디언스를 좁혀 사용자를 타겟팅할 수 있습니다. 자격이 있는 사용자는 여전히 **전달 스케줄** 단계에서 정의한 트리거 또는 기준을 충족해야 합니다. 타겟 오디언스는 대기실과 같습니다. 이미 안에 있는 사람만 다음 동작이 발생할 때 앞으로 나아갈 수 있습니다.
 
 워크스페이스 [억제 목록]({{site.baseurl}}/user_guide/audience/suppression_lists)은 이 캠페인에 대한 예외를 허용하지 않는 한 목록에 있는 사용자를 자동으로 제외합니다.
 
 ### 오디언스 요약 {#audience-summary}
 
-세그먼트 또는 필터를 추가한 후, **오디언스 요약**은 해당 세그먼트 모집단의 모습을 미리 보여주며, 해당 세그먼트 내에서 선택한 채널을 통해 도달 가능한 사용자 수를 포함합니다. 도달 가능 수는 워크스페이스 데이터, 채널 설정 및 필터를 반영합니다. 정확한 세그먼트 멤버십은 항상 메시지가 발송되기 전에 계산된다는 점을 유의하세요. 매우 큰 오디언스의 경우, Braze는 정확한 통계를 계산할 때까지 추정치를 표시할 수 있습니다.
+Segment 또는 필터를 추가한 후, **오디언스 요약**은 해당 Segment 모집단의 모습을 미리 보여주며, 해당 Segment 내에서 선택한 채널을 통해 도달 가능한 사용자 수를 포함합니다. 도달 가능 수는 워크스페이스 데이터, 채널 설정 및 필터를 반영합니다. 정확한 Segment 멤버십은 항상 메시지가 발송되기 전에 계산된다는 점을 유의하세요. 매우 큰 오디언스의 경우, Braze는 정확한 통계를 계산할 때까지 추정치를 표시할 수 있습니다.
 
 ### 사용자 조회 {#user-lookup}
 
-세그먼트 또는 필터를 추가한 후, 사용자를 조회하여 세그먼트 기준에 일치하는지 확인함으로써 오디언스가 예상대로 설정되었는지 테스트할 수 있습니다. 이를 위해 **사용자 조회** 섹션에서 사용자의 `external_id` 또는 `braze_id`를 검색하세요. 여기서는 이메일 주소로 검색할 수 없습니다. 자세한 내용은 [세그먼트 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)를 참조하세요.
+Segment 또는 필터를 추가한 후, 사용자를 조회하여 Segment 기준에 일치하는지 확인함으로써 오디언스가 예상대로 설정되었는지 테스트할 수 있습니다. 이를 위해 **사용자 조회** 섹션에서 사용자의 `external_id` 또는 `braze_id`를 검색하세요. 여기서는 이메일 주소로 검색할 수 없습니다. 자세한 내용은 [Segment 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)를 참조하세요.
 
-사용자가 세그먼트, 필터 및 앱 기준에 일치하면 알림이 표시됩니다. 사용자가 세그먼트, 필터 또는 앱 기준의 일부 또는 전부에 일치하지 않으면, 문제 해결을 위해 누락된 기준이 나열됩니다.
+사용자가 Segment, 필터 및 앱 기준에 일치하면 알림이 표시됩니다. 사용자가 Segment, 필터 또는 앱 기준의 일부 또는 전부에 일치하지 않으면, 문제 해결을 위해 누락된 기준이 나열됩니다.
 
 ### 이 사용자에게 발송 {#send-to-these-users}
 
-구독 기반 채널(이메일, SMS 등)의 경우, **이 사용자에게 발송**을 사용하여 특정 구독 상태를 가진 사용자(예: 이메일에 가입되고 옵트인한 사용자)에게만 캠페인을 발송하세요.
+가입 기반 채널(이메일, SMS 등)의 경우, **이 사용자에게 발송**을 사용하여 특정 가입 상태를 가진 사용자(예: 이메일에 가입되고 옵트인한 사용자)에게만 캠페인을 발송하세요.
 
 ### 발송량 제한 {#limit-send-volume}
 
@@ -154,7 +155,7 @@ Braze 전반의 스케줄링 개념은 [캠페인 스케줄]({{site.baseurl}}/us
 
 ### 이 캠페인의 발송 속도 제한 {#limit-the-rate-at-which-this-campaign-sends}
 
-대규모 캠페인이 사용자 활동 급증을 유발하여 서버에 과부하를 줄 것으로 예상되는 경우, 메시지 발송에 대한 분당 사용량 제한을 지정할 수 있습니다. 이는 Braze가 1분 내에 사용량 제한 설정 이상으로 발송하지 않음을 의미합니다. 자세한 내용은 [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)을 참조하세요.
+대규모 캠페인이 사용자 활동 급증을 유발하여 서버에 과부하를 줄 것으로 예상되는 경우, 메시지 발송에 대한 분당 사용량 제한을 지정할 수 있습니다. 이는 Braze가 1분 내에 사용량 제한 설정 이상으로 발송하지 않음을 의미합니다. 자세한 내용은 [전달 속도 사용량 제한조치]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)를 참조하세요.
 
 ### A/B 테스트 {#ab-testing}
 
@@ -164,9 +165,9 @@ Braze 전반의 스케줄링 개념은 [캠페인 스케줄]({{site.baseurl}}/us
 
 ## 4단계: 전환 이벤트 할당 {#step-4-assign-conversion-events}
 
-[전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)는 사용자가 캠페인을 수신한 후(또는 대조군에 진입한 후) 결과를 측정합니다. Braze는 기본적으로 짧은 기간(3일) 내의 **세션 시작**을 사용합니다. 캠페인당 최대 4개의 이벤트까지 KPI에 맞는 전환 이벤트를 정의할 수 있습니다.
+[전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)는 사용자가 캠페인을 수신한 후(또는 대조군에 진입한 후) 성과를 측정합니다. Braze는 기본적으로 짧은 기간(3일) 내의 **세션 시작**을 사용합니다. 캠페인당 최대 4개의 이벤트까지 핵심 성과 지표(KPI)에 맞는 전환 이벤트를 정의할 수 있습니다.
 
-시작 후, [전환 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/conversions)를 사용하여 여러 캠페인 또는 Canvases에 걸친 전환 추세를 분석하고, 채널을 비교하며, 날짜 범위, 기여도 방법 및 분석 항목을 한 곳에서 조정하세요.
+시작 후, [전환 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/conversions)를 사용하여 여러 Campaigns 또는 Canvases에 걸친 전환 추세를 분석하고, 채널을 비교하며, 날짜 범위, 기여도 방법 및 분석 항목을 한 곳에서 조정하세요.
 
 {% alert important %}
 캠페인 시작 후에는 전환 이벤트를 추가하거나 제거할 수 없습니다. 시작 전에 이벤트를 확인하세요.
@@ -176,14 +177,14 @@ Braze 전반의 스케줄링 개념은 [캠페인 스케줄]({{site.baseurl}}/us
 
 **요약 검토** 단계에서는 스케줄, 오디언스, 배리언트 및 메시징 선택 사항을 보여줍니다. 캠페인을 시작하기 전에:
 
-1. 세그먼트, 배리언트 및 전달 설정이 의도와 일치하는지 확인합니다.
+1. Segment, 배리언트 및 전달 설정이 의도와 일치하는지 확인합니다.
 2. 테스트 기기 또는 내부 수신자에서 렌더링 및 동작을 검증하기 위해 [테스트 메시지를 발송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)합니다.
 
 준비가 되면 **캠페인 시작**을 선택합니다.
 
 ### 승인 {#approvals}
 
-워크스페이스에서 승인을 사용하는 경우, 캠페인 승인 권한이 있는 팀원이 시작 전에 승인해야 합니다. 자세한 내용은 [캠페인 및 Canvases 승인]({{site.baseurl}}/user_guide/messaging/governance/approvals)을 참조하세요.
+워크스페이스에서 승인을 사용하는 경우, 캠페인 승인 권한이 있는 팀원이 시작 전에 승인해야 합니다. 자세한 내용은 [Campaigns 및 Canvases 승인]({{site.baseurl}}/user_guide/messaging/governance/approvals)을 참조하세요.
 
 ## 관련 문서 {#related-articles}
 

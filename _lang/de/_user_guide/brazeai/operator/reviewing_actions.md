@@ -24,16 +24,7 @@ Sollte eine Aktion nach der Genehmigung fehlschlagen, benachrichtigt Operator Si
 
 ### Verfügbarkeit {#availability}
 
-Aktionskarten werden in den folgenden Editoren und auf den folgenden Seiten unterstützt.
-
-- **Nachrichten-Editoren:**
-    - In-App-Nachrichten (nur traditioneller Editor)
-    - Content Cards
-    - E-Mail (nur HTML-Editor)
-    - Push-Benachrichtigungen
-    - SMS/MMS/RCS
-    - Webhooks
-- Seite [Angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+Aktionskarten werden für Nachrichteninhalte in denselben Kanälen und Editoren unterstützt, in denen Operator Nachrichten generieren kann, sowie auf der Seite [Angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents). Informationen zu unterstützten Kanälen und Editoren finden Sie unter [Nachrichten generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
 
 Auf anderen Seiten stellt Operator eine Liste von Schritten zur Verfügung, die in der UI ausgeführt werden müssen, anstatt selbst Aktionen auszuführen. Die Funktionalität von Operator wird regelmäßig verbessert, und eine erweiterte Abdeckung für Erstellungswerkzeuge ist geplant.
 

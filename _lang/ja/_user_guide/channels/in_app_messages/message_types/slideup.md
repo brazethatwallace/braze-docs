@@ -22,9 +22,7 @@ description: "このリファレンス記事では、スライドアップアプ
 
 スライドアップメッセージには、省略記号で切り捨てられるまで最大3行のコピーを含めることができます。スライドアップの画像はトリミングやクリッピングされることはなく、常に50 x 50ピクセルの画像コンテナに収まるように縮小されます。
 
-- すべての画像は5&nbsp;MB未満である必要があります。
-- PNG、JPEG、GIFファイル形式のみ対応しています。
-- 画像は500&nbsp;KBを推奨します。
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} 自信を持ってアセットを作成しましょう！アプリ内メッセージの画像テンプレートとセーフゾーンオーバーレイは、あらゆるサイズのデバイスに対応するように設計されています。[デザインテンプレートZIPをダウンロード]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 

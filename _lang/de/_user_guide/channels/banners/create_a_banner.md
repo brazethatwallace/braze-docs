@@ -76,6 +76,8 @@ Um die Hintergrundeigenschaften, Rahmeneinstellungen und mehr Ihrer Nachricht an
 
 ![Style-Panel des Banner-Composers.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='banner' %}
+
 {% endtab %}
 {% tab HTML-Editor %}
 
@@ -99,7 +101,7 @@ Um Nutzer:innen in verschiedenen Sprachen innerhalb einer einzelnen Banner-Campa
 {% tabs %}
 {% tab Drag-and-Drop-Editor %}
 
-Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Event protokollieren]({{site.baseurl}}/developer_guide/analytics), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken. Für ein detaillierteres Klick-Tracking weisen Sie jedem interaktiven Element über das Feld **Identifier for Reporting** in dessen Eigenschaftenpanel einen angepassten Bezeichner zu.
+Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Ereignis protokollieren]({{site.baseurl}}/developer_guide/analytics), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken. Für ein detaillierteres Klick-Tracking weisen Sie jedem interaktiven Element über das Feld **Identifier for Reporting** in dessen Eigenschaftenpanel einen angepassten Bezeichner zu.
 
 {% alert important %}
 {::nomarkdown}
@@ -142,7 +144,7 @@ Wenn Nutzer:innen ein Banner schließen, wird es für diese Nutzer:innen nicht e
 {% endtab %}
 {% tab HTML-Editor %}
 
-Im HTML-Editor wird das Schließen in Ihrem HTML über `brazeBridge.closeMessage()` gesteuert. Kombinieren Sie es mit `brazeBridge.logClick()`, um die Schließaktion auch als Klick-Event zu tracken. Beispiel:
+Im HTML-Editor wird das Schließen in Ihrem HTML über `brazeBridge.closeMessage()` gesteuert. Kombinieren Sie es mit `brazeBridge.logClick()`, um die Schließaktion auch als Klick-Ereignis zu tracken. Beispiel:
 
 ```html
 <a href="#" onclick="brazeBridge.logClick(); brazeBridge.closeMessage();">&#x2715; Close</a>
