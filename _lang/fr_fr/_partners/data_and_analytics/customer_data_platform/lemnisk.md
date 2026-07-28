@@ -44,7 +44,7 @@ Sous **External API details**, entrez les détails pertinents pour votre endpoin
 
 ![Remplissage des détails de l'endpoint et du payload de l'API externe]({% image_buster /assets/img/lemnisk/ext_api_ext_api_details.png %})
 
-Pour terminer la configuration du suivi des utilisateurs, sélectionnez **Enregistrer**. Vous serez automatiquement redirigé vers la page **Test API**.
+Pour terminer la configuration du suivi des utilisateurs, sélectionnez **Save**. Vous serez automatiquement redirigé vers la page **Test API**.
 
 ### Étape 2 : Tester la configuration {#step-2-test-the-configuration}
 
@@ -65,5 +65,5 @@ Ensuite, vérifiez que vos événements sont bien envoyés à Braze. Dans le tab
 3. Sous **Engagement Creation**, entrez les détails de base et sélectionnez la configuration [que vous avez créée précédemment](#create-a-braze-external-api).
 4. Sous **Configure Parameters**, vous trouverez les entrées pour les paramètres de Braze que vous avez choisi d'exposer au niveau de l'engagement. Dans l'exemple suivant, on retrouve _Name of the User_, _Product ID_ et _Event Time_.
     ![Création d'un engagement pour envoyer les données utilisateur à Braze]({% image_buster /assets/img/lemnisk/create_an_engagement.png %})
-5. Saisissez les variables de personnalisation pertinentes pour les paramètres choisis, puis sélectionnez **Enregistrer**.
+5. Saisissez les variables de personnalisation pertinentes pour les paramètres choisis, puis sélectionnez **Save**.
 6. Lorsque vous avez terminé, activez l'engagement.

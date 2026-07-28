@@ -39,7 +39,7 @@ L'affectation des variantes est aléatoire à chaque envoi, de sorte que la rép
 
 Lorsque vous utilisez la variante gagnante pour des campagnes à envoi unique, le test se termine lorsque l'heure d'envoi de la variante gagnante arrive. Braze désigne une variante comme gagnante si elle affiche le taux de conversion le plus élevé avec une marge statistiquement significative.
 
-Pour les campagnes récurrentes, déclenchées par une action ou déclenchées par l'API, vous pouvez utiliser la Sélection intelligente pour suivre en continu les données de performance de chaque variante et optimiser en permanence le trafic de la campagne vers les variantes les plus performantes. Avec la Sélection intelligente, plutôt que de définir explicitement un groupe d'expérience où les utilisateurs reçoivent des variantes aléatoires, l'algorithme de Braze affine continuellement son estimation de la variante la plus performante, ce qui permet potentiellement une sélection plus rapide de la meilleure variante.
+Pour les campagnes récurrentes, déclenchées par une action ou déclenchées par l'API, vous pouvez utiliser la sélection intelligente pour suivre en continu les données de performance de chaque variante et optimiser en permanence le trafic de la campagne vers les variantes les plus performantes. Avec la sélection intelligente, plutôt que de définir explicitement un groupe d'expérience où les utilisateurs reçoivent des variantes aléatoires, l'algorithme de Braze affine continuellement son estimation de la variante la plus performante, ce qui permet potentiellement une sélection plus rapide de la meilleure variante.
 
 ### Comment Braze gère-t-il les utilisateurs qui ont reçu une variante de message dans une campagne récurrente ou une étape d'entrée de Canvas ? {#how-does-braze-handle-users-who-received-a-message-variant-in-a-recurring-campaign-or-canvas-entry-step}
 
@@ -51,13 +51,13 @@ Par exemple, supposons que nous ayons une campagne ou un Canvas avec trois varia
 Un utilisateur peut être marqué comme ayant « reçu » un message s'il partage un identifiant de canal (comme une adresse e-mail ou un numéro de téléphone) avec quelqu'un qui a reçu, ouvert ou cliqué sur le message.
 {% endalert %}
 
-#### Qu'en est-il des Chemins d'expérience ? {#what-about-experiment-paths}
+#### Qu'en est-il des chemins d'expérience ? {#what-about-experiment-paths}
 
 Le même principe s'applique, car les chemins de Canvas qui suivent une expérience sont également des variantes.
 
 #### Puis-je effectuer des actions pour redistribuer les utilisateurs dans les campagnes et les Canvas ? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
 
-La seule façon de redistribuer les utilisateurs dans les Canvas est d'utiliser les [chemins aléatoires dans les Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), qui randomisent toujours l'affectation des chemins lorsque les utilisateurs entrent à nouveau dans le Canvas. Cependant, il ne s'agit pas d'une expérience standard et cela pourrait invalider les résultats de l'expérience, car le groupe de contrôle peut être contaminé par des utilisateurs du groupe de traitement.
+La seule façon de redistribuer les utilisateurs dans les Canvas est d'utiliser les [chemins aléatoires dans les chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), qui randomisent toujours l'affectation des chemins lorsque les utilisateurs entrent à nouveau dans le Canvas. Cependant, il ne s'agit pas d'une expérience standard et cela pourrait invalider les résultats de l'expérience, car le groupe de contrôle peut être contaminé par des utilisateurs du groupe de traitement.
 
 ## Confiance et biais {#confidence-and-bias}
 
@@ -75,6 +75,6 @@ Il n'existe aucun moyen pratique pour que les attributs ou comportements d'un ut
 
 Pour affecter les utilisateurs aux variantes de message, aux variantes de Canvas ou à leurs groupes de contrôle respectifs, nous commençons par associer leur ID utilisateur généré aléatoirement à l'ID de campagne ou de Canvas généré aléatoirement. Ensuite, nous appliquons un algorithme de hachage sha256 et divisons le résultat par 100, en conservant le reste (également appelé modulo 100). Enfin, nous classons les utilisateurs dans des tranches correspondant aux pourcentages d'affectation des variantes (et du contrôle facultatif) définis dans le tableau de bord.
 
-### Pourquoi ne puis-je pas utiliser la limite de débit avec un groupe de contrôle ? {#why-cant-i-use-rate-limiting-with-a-control-group}
+### Pourquoi ne puis-je pas utiliser la limitation du débit avec un groupe de contrôle ? {#why-cant-i-use-rate-limiting-with-a-control-group}
 
-Braze ne prend actuellement pas en charge la limite de débit avec les tests A/B comportant un groupe de contrôle. En effet, la limite de débit ne s'applique pas au groupe de contrôle de la même manière qu'aux variantes, ce qui introduit un biais. Envisagez plutôt d'utiliser la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), qui ajuste automatiquement le pourcentage d'utilisateurs recevant chaque variante en fonction des analyses et de la performance de la campagne.
+Braze ne prend actuellement pas en charge la limitation du débit avec les tests A/B comportant un groupe de contrôle. En effet, la limitation du débit ne s'applique pas au groupe de contrôle de la même manière qu'aux variantes, ce qui introduit un biais. Envisagez plutôt d'utiliser la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), qui ajuste automatiquement le pourcentage d'utilisateurs recevant chaque variante en fonction des analyses et de la performance de la campagne.

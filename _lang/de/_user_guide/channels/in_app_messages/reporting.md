@@ -37,6 +37,21 @@ Für In-App-Nachrichten definiert diese Seite eindeutige Impressionen anhand ein
 *Gesamte Impressionen* können *Eindeutige Impressionen* übersteigen, wenn Nutzer:innen die Nachricht am selben Kalendertag mehr als einmal ansehen (siehe die Metrikdefinitionen in der obigen Tabelle). Um Nutzer:innen mit überhöhten Impression-Zahlen zu untersuchen, erstellen Sie ein Segment mit dem Filter **Device Count** auf **more than** `1` und dem Filter **Received Message from Campaign** für die jeweilige Campaign.
 {% endalert %}
 
+### Klick-Tracking {#click-tracking}
+
+Braze protokolliert eine Impression, wenn eine In-App-Nachricht auf dem Bildschirm sichtbar wird. Bei In-App-Nachrichten, die mit dem [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) erstellt wurden, beschreibt die folgende Tabelle, was als Klick gezählt wird.
+
+| Nutzeraktion | Klick protokolliert |
+|-------------|--------------|
+| Nutzer:innen klicken auf den Nachrichtentext, wenn die Nachricht keine Buttons hat | Ja (Body-Klick) |
+| Nutzer:innen klicken auf einen Button | Ja (Button-Klick) |
+| Nutzer:innen klicken auf den Schließen-Button (X) | Nein |
+| Nutzer:innen tippen oder klicken außerhalb der Nachricht, um sie zu schließen (wenn aktiviert) | Nein |
+| Nutzer:innen schließen die App, während die Nachricht angezeigt wird | Nein |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klick-Tracking" }
+
+Definitionen von Body-Klicks und Button-Klicks finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
+
 Informationen zu Ungleichgewichten bei Impressionen zwischen Kontrollgruppe und Variante in A/B-Tests finden Sie unter [Diskrepanzen zwischen Kontrollgruppe und Variante]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## Wie werden Conversions bei erneuter Berechtigung inkrementiert? {#how-do-conversions-increment-with-re-eligibility}

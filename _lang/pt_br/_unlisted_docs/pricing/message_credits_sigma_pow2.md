@@ -8,7 +8,7 @@ hide_toc: true
 
 # Créditos de mensagem - Sigma (Confidencial) {#message-credits-sigma-confidential}
 
-> Créditos de mensagem é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os Créditos de mensagem proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
+> Créditos de mensagem é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os créditos de mensagem proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
@@ -18,14 +18,14 @@ As definições das colunas são as seguintes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Região final específica, país ou tipo de ação enviada pela plataforma Braze |
-| **Créditos por 1 envio** | Número exato de Créditos de mensagem para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
+| **Créditos por 1 envio** | Número exato de créditos de mensagem para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabela de proporção de créditos para Créditos de mensagem - Sigma {#credit-ratio-table-for-message-credits-sigma}
+## Tabela de proporção de créditos para créditos de mensagem - Sigma {#credit-ratio-table-for-message-credits-sigma}
 
 {% details Clique para expandir %}
-<table class="credits-table" aria-label="Tabela de proporção de créditos para Créditos de mensagem - Sigma">
+<table class="credits-table" aria-label="Tabela de proporção de créditos para créditos de mensagem - Sigma">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -2271,7 +2271,7 @@ As definições das colunas são as seguintes:
 ------
 
 ## Detalhes do Agent Console {#agent-console-details}
-A Braze cobrará Créditos de mensagem por invocações do Agent Console enviadas a partir da plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de inscrição.
+A Braze cobrará créditos de mensagem por invocações do Agent Console enviadas pela plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de inscrição.
 
 ## Detalhes do canal SMS/MMS {#smsmms-channel-details}
 
@@ -2281,7 +2281,7 @@ Segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensag
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia e também incluir um corpo de mensagem.
+Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia, incluindo também o corpo da mensagem.
 
 ### Tipos de RCS {#rcs-types}
 
@@ -2293,7 +2293,7 @@ O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um can
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-### Detalhes adicionais do canal {#additional-channel-details}
+## Detalhes adicionais do canal {#additional-channel-details}
 
 ### Webhooks
 
@@ -2301,7 +2301,7 @@ Os webhooks passaram a fazer parte dos Créditos de Mensagem em 9 de dezembro de
 
 ### Conectores SMS próprios (BYO) {#bring-your-own-byo-sms-connectors}
 
-A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo "conector SMS BYO". A Braze cobrará Créditos de Mensagem por cada mensagem enviada a partir da plataforma Braze por meio de conectores SMS BYO.
+A Braze permite que os clientes integrem provedores terceirizados para enviar mensagens SMS por meio do modelo "conector SMS BYO". A Braze cobrará Créditos de Mensagem por cada mensagem enviada a partir da plataforma Braze por meio de conectores SMS BYO.
 
 ### LINE
 
@@ -2315,7 +2315,7 @@ Estados Unidos, Canadá
 
 ### Restante da África {#rest-of-africa}
 
-Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia, Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
+Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia, Madagascar, Malauí, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
 
 ### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
 
@@ -2323,7 +2323,7 @@ Afeganistão, Austrália, Bangladesh, Camboja, China, Japão, Laos, Mongólia, N
 
 ### Restante da Europa Central e Oriental {#rest-of-central-eastern-europe}
 
-Albânia, Armênia, Azerbaijão, Belarus, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Letônia, Lituânia, Macedônia, Moldávia, Sérvia, Eslováquia, Eslovênia, Ucrânia
+Albânia, Armênia, Azerbaijão, Bielorrússia, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Letônia, Lituânia, Macedônia, Moldávia, Sérvia, Eslováquia, Eslovênia, Ucrânia
 
 ### Restante da América Latina {#rest-of-latin-america}
 

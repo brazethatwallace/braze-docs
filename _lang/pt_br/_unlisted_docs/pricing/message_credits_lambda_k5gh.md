@@ -130,7 +130,7 @@ As definições das colunas são as seguintes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Anguila</td>
+        <td>Anguilla</td>
         <td>9.90</td>
     </tr>
     <tr>
@@ -635,7 +635,7 @@ As definições das colunas são as seguintes:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Quiribati</td>
+        <td>Kiribati</td>
         <td>3.10</td>
     </tr>
     <tr>
@@ -2085,7 +2085,7 @@ Estados Unidos, Canadá
 
 ### Restante da África {#rest-of-africa}
 
-Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia, Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Suazilândia, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
+Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia, Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
 
 ### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
 

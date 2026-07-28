@@ -194,8 +194,6 @@ Decisioning StudioエージェントがSMSキャンペーンのフィールド�
 
 Decisioning StudioはSalesforce Marketing Cloudとのネイティブ統合をサポートしています。Decisioning Studioは、ダイナミック要素を入力するために必要なデータを含むAPIイベントをジャーニーにトリガーします。
 
-SFMC統合を構成する詳細なステップについては、Decisioning Studio Goドキュメントの[SFMCデータ要件]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources#sfmc-data-requirements)を参照してください。
-
 {% endtab %}
 {% tab その他のCEP %}
 
@@ -224,7 +222,7 @@ Decisioning Studioは任意のカスタマーエンゲージメントプラッ�
 2. **徹底的にテストしましょう：** ローンチ前に、少数のユーザーセットで統合をテストし、ダイナミックコンテンツが正しく入力されることを確認します。
 3. **設定を文書化しましょう：** キャンペーンID、テンプレートID、APIキー、その他の識別子を記録しておきます。Decisioning Studioポータルでこれらを参照する必要があります。
 4. **チームと連携しましょう：** オーケストレーションの設定には、マーケティング、開発、データチームが関与する場合があります。プロセスにおける各自の役割を全員が理解していることを確認してください。
-5. **フィードバックデータを計画しましょう：** オーケストレーションはメッセージを送信し、エージェントの学習に役立つエンゲージメントおよびコンバージョンデータを収集します。詳細については、[データの準備]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data)を参照してください。
+5. **フィードバックデータを計画しましょう：** オーケストレーションはメッセージを送信し、エージェントの学習に役立つエンゲージメントデータやコンバージョンデータを収集します。詳細については、[データの準備]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data)を参照してください。
 
 ## 次のステップ {#next-steps}
 

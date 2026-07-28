@@ -87,7 +87,7 @@ Brazeでメールアドレスを更新する際は、`email`が含まれるす�
 
 ### ユーザー属性オブジェクト {#user-attributes-object}
 
-`/users/track`エンドポイントで識別子フィールドレベルの暗号化を使用する場合、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)のフィールドの詳細に注意してください:
+`/users/track`エンドポイントで識別子フィールドレベルの暗号化を使用する場合、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)のフィールドの詳細に注意してください:
 
 - `email`フィールドはメールのハッシュ値でなければなりません。
 - `email_encrypted`フィールドはメールの暗号化された値でなければなりません。

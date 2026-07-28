@@ -28,7 +28,7 @@ hidden: true
 
 ## 호환성 문제 변경 사항 수정 {#fixing-breaking-changes}
 
-Braze에서 **파트너 통합** > **Shopify**로 이동한 다음 **업그레이드 시작**을 선택합니다.
+Braze에서 **파트너 통합** > **Shopify**로 이동한 다음 **Start upgrade**를 선택합니다.
 
 ![업그레이드를 시작하는 옵션이 있는 패널.]({% image_buster /assets/unlisted_docs/img/shopify/start_shopify_upgrade.png %}){: style="max-width:35%;"}
 
@@ -74,11 +74,11 @@ Shopify 통합에서 중단된 이벤트를 사용하는 활성 메시지를 처
 
 ### 1단계: 업그레이드 시작 {#step-1-start-the-upgrade}
 
-Braze에서 **파트너 통합** > **Shopify**로 이동한 다음 **업그레이드 시작**을 선택합니다.
+Braze에서 **파트너 통합** > **Shopify**로 이동한 다음 **Start upgrade**를 선택합니다.
 
 ![업그레이드를 시작하는 옵션이 있는 패널.]({% image_buster /assets/unlisted_docs/img/shopify/start_shopify_upgrade.png %}){: style="max-width:35%;"}
 
-체크박스를 선택하여 이용 약관에 동의한 다음 **업그레이드 시작**을 선택합니다.
+체크박스를 선택하여 이용 약관에 동의한 다음 **Start the upgrade**를 선택합니다.
 
 ![업그레이드 시 호환성 문제 변경 사항이 발생할 수 있음을 이해했는지 확인하는 모달.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %})
 
@@ -90,7 +90,7 @@ Braze에서 **파트너 통합** > **Shopify**로 이동한 다음 **업그레�
 
 ### 3단계: Braze 앱 재인증 {#step-3-reauthorize-the-braze-app}
 
-Braze 앱을 재인증하려면 **Shopify로 이동**을 선택합니다.
+Braze 앱을 재인증하려면 **Go to Shopify**를 선택합니다.
 
 ![Braze 앱을 재인증하기 위해 Shopify로 이동하는 버튼이 있는 Shopify 업그레이드 패널.]({% image_buster /assets/unlisted_docs/img/shopify/reauthorize_braze_app.png %}){: style="max-width:35%;"}
 
@@ -100,17 +100,17 @@ Shopify 사이트에서 안내에 따라 Braze 앱을 재인증합니다. 이를
 재인증 프로세스는 몇 분이 소요될 수 있지만, 완료되면 Shopify 페이지에서 자동으로 업데이트됩니다.
 {% endalert %}
 
-![Shopify 이벤트 상태를 보여주는 "통합 설정" 페이지.]({% image_buster /assets/unlisted_docs/img/shopify/reauthorization_status.png %})
+![Shopify 이벤트 상태를 보여주는 "Integration Settings" 페이지.]({% image_buster /assets/unlisted_docs/img/shopify/reauthorization_status.png %})
 
 ### 4단계: 외부 ID 유형 선택 {#step-4-choose-an-external-id-type}
 
 선택한 외부 ID 유형은 Shopify 계정이 생성되거나 주문이 접수될 때 새로운 Shopify 고객 프로필에 할당됩니다. 또한 Shopify 고객 ID 별칭은 있지만 Braze에서 외부 ID가 할당되지 않은 기존 고객 프로필을 업데이트하는 데에도 사용됩니다.
 
-외부 ID 유형을 선택하려면 Braze로 돌아가서 **외부 ID 확인**을 선택합니다.
+외부 ID 유형을 선택하려면 Braze로 돌아가서 **Confirm external ID**를 선택합니다.
 
 ![외부 ID를 확인하는 버튼이 있는 Shopify 업그레이드 패널.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_external_id.png %}){: style="max-width:35%;"}
 
-워크스페이스의 Shopify 통합에 사용할 외부 ID를 선택합니다. 완료되면 **외부 ID 설정**을 선택합니다.
+워크스페이스의 Shopify 통합에 사용할 외부 ID를 선택합니다. 완료되면 **Set external ID**를 선택합니다.
 
 ![외부 ID를 선택하는 드롭다운이 있는 모달.]({% image_buster /assets/unlisted_docs/img/shopify/external_id_field.png %}){: style="max-width:70%;"}
 
@@ -182,7 +182,7 @@ Braze는 `200` 상태 코드를 기대합니다. 다른 코드는 실패로 간�
 
 ### 5단계: Braze 앱 임베드 활성화 {#step-5-enable-the-braze-app-embed}
 
-스토어 테마 내에서 Braze 앱 임베드를 활성화하려면 Braze로 돌아가서 **Shopify로 이동**을 선택합니다.
+스토어 테마 내에서 Braze 앱 임베드를 활성화하려면 Braze로 돌아가서 **Go to Shopify**를 선택합니다.
 
 ![Braze 앱 임베드를 활성화하는 버튼이 있는 Shopify 업그레이드 패널.]({% image_buster /assets/unlisted_docs/img/shopify/enable_app_embed.png %}){: style="max-width:35%;"}
 

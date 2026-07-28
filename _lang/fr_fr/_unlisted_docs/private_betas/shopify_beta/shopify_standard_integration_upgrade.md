@@ -84,9 +84,9 @@ Acceptez les conditions générales en cochant la case, puis sélectionnez **Sta
 
 ### Étape 2 : Configurer les SDK Braze {#step-2-set-up-the-braze-sdks}
 
-L'intégration standard ajoutera automatiquement les SDK Braze à votre site Shopify. Si vous avez déjà intégré les SDK Braze directement ou utilisé un outil tiers pour cela, coordonnez-vous avec vos développeurs pour supprimer l'implémentation précédente du SDK lors de la mise à niveau.
+L'intégration standard ajoutera automatiquement les SDK Braze à votre site Shopify. Si vous avez déjà intégré les SDK Braze directement ou utilisé un outil tiers pour cela, coordonnez-vous avec vos développeurs pour supprimer le déploiement précédent du SDK lors de la mise à niveau.
 
-![Fenêtre modale confirmant que la nouvelle intégration implémentera automatiquement le SDK Braze et JavaScript sur votre boutique.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_integration.png %}){: style="max-width:70%;"}
+![Fenêtre modale confirmant que la nouvelle intégration déploiera automatiquement le SDK Braze et JavaScript sur votre boutique.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_integration.png %}){: style="max-width:70%;"}
 
 ### Étape 3 : Réautoriser l'application Braze {#step-3-reauthorize-the-braze-app}
 

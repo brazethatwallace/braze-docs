@@ -115,6 +115,8 @@ Cuando un perfil de usuario tiene un token push de primer plano válido asociado
 
 {% alert note %}
 El filtro `Foreground Push Enabled for App` solo considera la presencia de un token push de primer plano y segundo plano válido para la aplicación dada. Sin embargo, el filtro más genérico [`Foreground Push Enabled`](#foreground-push-enabled) segmenta a los usuarios que han activado explícitamente las notificaciones push para cualquier aplicación en tu espacio de trabajo. Este recuento incluye solo push en primer plano y no incluye a los usuarios que han cancelado su suscripción. Puedes obtener más información sobre estos y otros filtros en [Filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+
+Para un pequeño porcentaje de usuarios, los retrasos en el procesamiento pueden causar una discrepancia temporal: un usuario puede tener un token push de primer plano válido en su perfil pero aún no coincidir con el filtro `Foreground Push Enabled`. Su perfil puede mostrar brevemente que el push en primer plano no está habilitado aunque haya un token presente. Esto generalmente se resuelve una vez que el procesamiento se pone al día.
 {% endalert %}
 
 ### Múltiples usuarios en un dispositivo {#multiple-users-on-one-device}

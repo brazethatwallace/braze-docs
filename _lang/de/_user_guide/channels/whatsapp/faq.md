@@ -21,6 +21,7 @@ channel:
 - [WhatsApp-Templates und Composer](#whatsapp-templates-and-composer)
 - [Zustellbarkeit und Abrechnung](#deliverability-and-billing)
 - [Integrationen, Daten und Reporting](#integrations-data-and-reporting)
+- [Medien und Bilder](#media-and-images)
 
 ### WhatsApp-Business-Konten {#whatsapp-business-accounts}
 
@@ -195,18 +196,19 @@ Es gibt verschiedene Gründe, warum eine Nachricht nicht zugestellt werden kann,
 Nein. Wenn eine Nachricht nicht zugestellt wird, werden Ihnen keine Kosten berechnet.
 
 #### Was passiert, wenn ein:e Nutzer:in mein Unternehmen blockiert? {#what-happens-if-a-user-blocks-my-business}
-Wenn ein:e Nutzer:in Ihr Unternehmen blockiert, werden nachfolgende Nachrichten, die Sie zu senden versuchen, nicht zugestellt, und Ihnen werden keine Kosten berechnet.
+Wenn ein:e Nutzer:in Ihr Unternehmen blockiert, werden nachfolgende Nachrichten, die Sie zu senden versuchen, nicht zugestellt, und Ihnen werden keine Kosten berechnet. Der Abo-Status der/des Nutzer:in wird nicht aktualisiert.
 
 #### Was passiert, wenn ein:e Nutzer:in eine Nachricht meldet? {#what-happens-if-a-user-reports-a-message}
-Wenn ein:e Nutzer:in eine Nachricht meldet, können Sie weiterhin nachfolgende Nachrichten an diese:n Nutzer:in senden. Allerdings kann die Meldung Ihre Qualitätsbewertung auf dem Kanal beeinflussen.
-
-#### Wenn ein:e Nutzer:in mein Unternehmen blockiert oder meldet, wird deren Abo-Status in Braze aktualisiert? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
-Nein. Deren Braze-Abo-Status wird nicht aktualisiert.
+Wenn ein:e Nutzer:in eine Nachricht meldet, können Sie weiterhin nachfolgende Nachrichten an diese:n Nutzer:in senden. Allerdings kann die Meldung Ihre Qualitätsbewertung auf dem Kanal beeinflussen. Der Abo-Status der/des Nutzer:in wird nicht aktualisiert.
 
 #### Wie kann ich Nutzer:innen, die mein WhatsApp-Konto melden, von zukünftigen Sendungen ausschließen? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
 Braze erhält keine Benachrichtigungen von WhatsApp, wenn Ihr Konto markiert oder gemeldet wird. Daher können Sie diese Nutzer:innen in Braze nicht automatisch identifizieren oder ausschließen. Nutzer:innen, die Ihr Konto melden, können in Ihrer WhatsApp-Abo-Gruppe verbleiben und weiterhin für zukünftige Nachrichten berechtigt sein.
 
 Sie können jedoch eine Campaign einrichten, die ausgelöst wird, wenn ein:e Nutzer:in mit einem Abmelde-Schlüsselwort antwortet, wodurch die Abmeldung automatisch über den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) erfolgt. Weitere Informationen finden Sie unter [WhatsApp-Opt-in- und Opt-out-Prozess]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+
+#### Unterstützt Braze einen automatischen SMS-Fallback, wenn die WhatsApp-Zustellung fehlschlägt? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
+
+Nein. Braze bietet keinen nativen WhatsApp-zu-SMS-Fallback-Pfad. Um einen erneuten Versuch über einen anderen Kanal durchzuführen, segmentieren Sie Nutzer:innen mit fehlgeschlagenen WhatsApp-Sendungen (z. B. über Currents-Fehler-Events) und richten Sie eine SMS- oder E-Mail-Campaign darauf aus.
 
 #### Sind WhatsApp-Antwortnachrichten kostenlos? {#are-whatsapp-response-messages-free}
 
@@ -253,3 +255,8 @@ WhatsApp ist ein Kanal, der auf bidirektionales Messaging ausgerichtet ist und d
 
 - **Geschäftsinitiierte Konversation**: Eine Konversation, bei der das Unternehmen eine genehmigte Template-Nachricht an die/den Endnutzer:in sendet. Sobald das Unternehmen eine Nachricht sendet, beginnt das 24-Stunden-Fenster.
 - **Nutzerinitiierte Konversation**: Eine Konversation, bei der die/der Endnutzer:in eine Nachricht an das Unternehmen sendet. Wenn das Unternehmen eine Nachricht als Antwort sendet, beginnt das 24-Stunden-Fenster.
+
+### Medien und Bilder {#media-and-images}
+
+#### Warum werden Bilder nicht geladen, wenn sie als WhatsApp-Nachricht gesendet werden? {#why-wont-images-load-when-sent-as-a-whatsapp-message}
+Wenn Nutzer:innen berichten, dass Bilder in WhatsApp-Nachrichten nicht heruntergeladen werden können oder das Download-Symbol nicht reagiert, liegt dies wahrscheinlich an einem bekannten Problem in älteren WhatsApp-App-Versionen. Dieses Problem kann in der Regel behoben werden, indem das Gerät auf die neueste Version von WhatsApp aktualisiert wird.

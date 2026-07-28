@@ -69,7 +69,7 @@ Depois de criar seu grupo interno, adicione usuários teste como membros desse g
 
 ### Grupos de teste de conteúdo {#content-test-groups}
 
-Semelhante ao envio de uma pré-visualização de teste de uma mensagem, o grupo de teste de conteúdo economiza tempo e permite que você lance testes para uma lista predefinida de usuários da Braze simultaneamente. Isso está disponível para push, mensagens no app, SMS, e-mail e Content Cards na Braze. Somente grupos marcados como grupos de teste de conteúdo ficam disponíveis na seção de pré-visualização de uma mensagem.
+Semelhante ao envio de uma prévia de teste de uma mensagem, o grupo de teste de conteúdo economiza tempo e permite que você lance testes para uma lista predefinida de usuários da Braze simultaneamente. Isso está disponível para push, mensagens no app, SMS, e-mail e Content Cards na Braze. Somente grupos marcados como grupos de teste de conteúdo ficam disponíveis na seção de prévia de uma mensagem.
 
 {% alert note %}
 Mensagens de teste de [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) só podem ser enviadas para números de telefone válidos no banco de dados.
@@ -106,7 +106,7 @@ Os envios de teste são projetados para QA e revisão internos, então eles inte
 {% alert tip %}
 Se os membros do grupo de teste não estiverem vendo a mensagem, confirme que eles estão no grupo interno, use linhas de assunto distintas para que o Gmail não agrupe as mensagens e peça que verifiquem a pasta de spam.
 
-Se o e-mail usar [Liquid `abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), os membros do grupo de teste ainda devem satisfazer a condição de cancelamento para receber o envio.
+Se o e-mail usar [Liquid `abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), os membros do grupo de teste ainda devem satisfazer a condição de interrupção para receber o envio.
 {% endalert %}
 
 #### Para Campaigns {#for-campaigns}

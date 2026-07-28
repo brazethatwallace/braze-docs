@@ -11,7 +11,7 @@ description: "Erfahren Sie, wie Sie BrazeAI Decisioning Studio<sup>TM</sup> Go e
 
 ## Über Decisioning Studio Go {#about-decisioning-studio-go}
 
-Decisioning Studio Go ist ein KI-Entscheidungsagent für wiederkehrende E-Mail-Programme. Anstatt eine einzige gewinnende Betreffzeile, Sendezeit oder ein einzelnes Bild für die gesamte Zielgruppe auszuwählen, wählt der Agent die beste Kombination für jede:n Empfänger:in basierend auf deren bisherigem Engagement aus.
+Decisioning Studio Go ist ein KI-Decisioning-Agent für wiederkehrende E-Mail-Programme. Anstatt eine einzige gewinnende Betreffzeile, Sendezeit oder ein einzelnes Bild für die gesamte Zielgruppe auszuwählen, wählt der Agent die beste Kombination für jede:n Empfänger:in basierend auf deren bisherigem Engagement aus.
 
 Sie definieren die Varianten, aus denen der Agent wählen kann – wie Betreffzeilen, CTAs, Bilder, Sendetage und Sendezeiten. Für jede:n Nutzer:in in Ihrem Segment wählt der Agent die Option aus, die am wahrscheinlichsten Engagement erzeugt, innerhalb der von Ihnen konfigurierten Einschränkungen und des Zeitplans.
 
@@ -55,6 +55,6 @@ Decisioning Studio Pro bietet zusätzlich:
 
 ## Nächste Schritte {#next-steps}
 
-- [Richten Sie Ihren Decisioning Studio Go-Agenten ein]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) – Zielgruppe, Zeitplan, Creatives und Einschränkungen konfigurieren
-- [Beispiele für Decisioning Studio Go ansehen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples) – prüfen, ob Ihr Programm gut geeignet ist
+- [Richten Sie Ihren Decisioning Studio Go-Agenten ein]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) und konfigurieren Sie Zielgruppe, Zeitplan, Creatives und Einschränkungen
+- [Beispiele für Decisioning Studio Go ansehen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples), um zu prüfen, ob Ihr Programm gut geeignet ist
 - Häufige Fragen finden Sie in den [FAQ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq)

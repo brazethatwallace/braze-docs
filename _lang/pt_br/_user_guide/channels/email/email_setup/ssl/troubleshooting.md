@@ -9,7 +9,7 @@ channel: email
 
 # Solução de problemas de rastreamento de cliques SSL {#troubleshoot-ssl-click-tracking}
 
-> Use esta página para identificar problemas comuns de rastreamento de cliques SSL. As orientações a seguir são genéricas, pois cada CDN é único. Para problemas de configuração de CDN, certificados ou proxy, entre em contato com a equipe de suporte do seu CDN, já que essas configurações ocorrem fora da Braze.
+> Use esta página para identificar problemas comuns de rastreamento de cliques SSL. As orientações a seguir são genéricas, pois cada CDN é única. Para problemas de configuração de CDN, certificados ou proxy, entre em contato com a equipe de suporte do seu CDN, já que essas configurações ocorrem fora da Braze.
 
 ## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
@@ -58,7 +58,7 @@ Para verificar se o problema é específico do rastreamento de cliques, desative
 
 Execute um comando dig para confirmar que o rastreamento de links aponta para o CDN. No seu terminal, execute `dig CNAME link_tracking_subdomain`. Na seção `ANSWER SECTION`, é listado para onde seu CNAME aponta. Se ele aponta para o provedor de serviços de e-mail (SendGrid, SparkPost ou Amazon SES) e não para o seu CDN, reconfigure o registro do seu domínio para apontar para o CDN.
 
-## Problemas com o CDN {#cdn-issues}
+## Problemas com CDN {#cdn-issues}
 
 **Sintoma:** Os usuários veem erros de "conexão não é privada", ou os links quebram durante a configuração do CDN.
 
@@ -300,4 +300,5 @@ Use a tabela a seguir para diagnosticar erros comuns ao testar o rastreamento de
 | `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Verifique suas configurações de DNS. Confirme que o subdomínio de rastreamento está configurado conforme a configuração recomendada pelo seu CDN e provedor de serviços de e-mail. |
 | `525 / 526 SSL Error` | Verifique se a configuração de SSL no seu CDN (como Cloudflare) corresponde à capacidade da sua Origin. |
 | `404 Not Found` | Verifique se o seu CDN está configurado para encaminhar o caminho completo da URL para o provedor de serviços de e-mail, em vez de apontar para um diretório raiz vazio. |
+| `400 Bad Request: Request Header or Cookie Too Large` | Esse erro geralmente ocorre quando o domínio de rastreamento de cliques herda cookies grandes demais do domínio do seu website. A Braze não define nem bloqueia cookies no domínio de rastreamento. Configure seu CDN para não enviar esses cookies ao provedor de serviços de e-mail ao fazer proxy reverso da solicitação de rastreamento de cliques. Talvez também seja necessário aumentar a configuração `large_client_header_buffers` na sua configuração do nginx (por exemplo, `large_client_header_buffers 4 32k;` para permitir cabeçalhos de até 32&nbsp;KB). Para saber mais, consulte seu provedor de CDN ou equipe de engenharia do website. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de erro e solução de problemas" }

@@ -36,7 +36,7 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différents modèles de webhook pour chacune de vos variantes ajoutées. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Si tous les messages de votre campagne sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
+Si tous les messages de votre campagne sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copier depuis la variante** dans le menu déroulant **Ajouter une variante**.
 {% endalert %}
 
 {% endtab %}
@@ -128,11 +128,15 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ### En-têtes de requête (facultatif) {#request-headers-optional}
 
-Certains endpoints peuvent nécessiter l'inclusion d'en-têtes dans votre requête. Dans la section **Compose** du composeur, vous pouvez ajouter autant d'en-têtes que nécessaire.
+Certains endpoints peuvent nécessiter l'inclusion d'en-têtes dans votre requête. Dans la section **Compose** du compositeur, vous pouvez ajouter autant d'en-têtes que nécessaire.
 
 ![Exemples d'en-têtes de requête pour la clé « Authorization » et la clé « Content-Type ».]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-Les en-têtes de requête courants sont les spécifications `Content-Type` (qui décrivent le type de données attendu dans le corps de la requête, comme XML ou JSON) et les en-têtes d'autorisation qui contiennent vos identifiants auprès de votre fournisseur ou système.
+Les en-têtes de requête courants sont les spécifications [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) (qui décrivent le type de données attendu dans le corps, comme XML ou JSON) et les en-têtes [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) qui contiennent vos identifiants auprès de votre fournisseur ou système.
+
+{% alert note %}
+Les noms d'en-têtes HTTP ne sont pas sensibles à la casse conformément à la [RFC 7230, section 3.2 (« Each header field consists of a case-insensitive field name »)](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). Si votre endpoint récepteur ou tout service intermédiaire (comme les CDN) transforme la casse des en-têtes, cela n'affectera pas le traitement des en-têtes — `Content-Type`, `content-type` et `CONTENT-TYPE` sont tous traités de manière identique.
+{% endalert %}
 
 Les spécifications de type de contenu doivent utiliser la clé `Content-Type`. Les valeurs courantes sont `application/json` ou `application/x-www-form-urlencoded`.
 
@@ -196,13 +200,13 @@ Si ce n'est pas déjà fait, complétez les sections restantes de votre étape C
 
 ## Étape 6 : Vérifier et déployer {#step-6-review-and-deploy}
 
-Après avoir terminé la création de votre dernière Campaign ou de votre dernier Canvas, vérifiez les détails, testez-le, puis envoyez-le !
+Après avoir terminé la création de votre campagne ou de votre Canvas, vérifiez les détails, testez-le, puis envoyez-le !
 
 ## Ce qu'il faut savoir {#things-to-know}
 
 ### Erreurs, logique de nouvelle tentative et délais d'expiration {#errors-retry-logic-and-timeouts}
 
-Les webhooks reposent sur les serveurs Braze qui envoient des requêtes à un endpoint externe, et des erreurs peuvent parfois survenir. Les erreurs les plus courantes incluent les erreurs de syntaxe, les clés API expirées, les limites de débit et les problèmes inattendus côté serveur. Avant d'envoyer une campagne de webhook :
+Les webhooks reposent sur les serveurs Braze qui envoient des requêtes à un endpoint externe, et des erreurs peuvent parfois survenir. Les erreurs les plus courantes incluent les erreurs de syntaxe, les clés API expirées, les limites de débit et les problèmes inattendus côté serveur. Avant d'envoyer une campagne webhook :
 
 - Testez votre webhook pour détecter les erreurs de syntaxe
 - Assurez-vous que les variables personnalisées ont des valeurs par défaut
@@ -211,7 +215,7 @@ Si votre webhook ne parvient pas à s'envoyer, un message d'erreur est enregistr
 
 ![Erreur de webhook avec le message « An active access token must be used to query information about the current user ».]({% image_buster /assets/img_archive/webhook-error.png %})
 
-Si le message d'erreur n'est pas suffisamment clair quant à la source de l'erreur, vous devriez consulter la documentation de l'endpoint d'API que vous utilisez. Celle-ci fournit généralement une explication des codes d'erreur utilisés par l'endpoint ainsi que leurs causes habituelles.
+Si le message d'erreur n'est pas suffisamment clair quant à la source de l'erreur, vous devriez consulter la documentation de l'endpoint API que vous utilisez. Celle-ci fournit généralement une explication des codes d'erreur utilisés par l'endpoint ainsi que leurs causes habituelles.
 
 #### Codes de réponse et logique de nouvelle tentative {#response-codes-and-retry-logic}
 
@@ -232,6 +236,14 @@ Braze effectue de nouvelles tentatives pour les codes de statut mentionnés plus
 {% endalert %}
 
 Les en-têtes de réponse `Retry-After` et de limite de débit peuvent influencer le délai d'attente de Braze avant une tentative **réessayable** (par exemple, après `408`, `429` ou `5XX`). Ils ne rendent pas les réponses non réessayables, telles que `401`, éligibles à une nouvelle tentative.
+
+#### 403 Forbidden et liste d'autorisation IP {#403-forbidden-and-ip-allowlisting}
+
+Les réponses `403 Forbidden` signifient que votre endpoint a reçu la requête mais l'a refusée. Les causes courantes incluent une authentification invalide ou manquante, des autorisations API insuffisantes et des règles réseau (comme un pare-feu ou un pare-feu applicatif web) qui bloquent les adresses IP sortantes de Braze.
+
+Si les requêtes webhook renvoient systématiquement `403` et que vos en-têtes d'authentification sont corrects, ajoutez les adresses IP de Braze pour votre cluster à la liste d'autorisation du serveur qui reçoit le webhook. Consultez [Liste d'autorisation IP](#ip-allowlisting). Les requêtes de contenu connecté utilisent les mêmes adresses IP sortantes ; consultez [Liste d'autorisation IP du contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
+Pour d'autres étapes de résolution des problèmes `4XX`, consultez [Résoudre les problèmes liés aux requêtes webhook et de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
 
 #### Authentification et identifiants de contenu connecté {#authentication-and-connected-content-credentials}
 
@@ -259,6 +271,6 @@ Si vous effectuez un webhook de Braze à Braze et que vous utilisez la liste d'a
 
 ### Supprimer des utilisateurs {#delete-users}
 
-Pour supprimer un utilisateur individuel ou un Segment d'utilisateurs, accédez à **Audience** > **Gérer l'audience** > **Supprimer des utilisateurs**. Le tableau de bord prend en charge la suppression en masse de Segments (jusqu'à 10 millions de profils), inclut une fenêtre d'annulation de 7 jours et ne consomme pas les limites de débit partagées de la REST API. Pour les étapes, les limites et les autorisations, consultez [Supprimer des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
+Pour supprimer un utilisateur individuel ou un Segment d'utilisateurs, accédez à **Audience** > **Manage Audience** > **Delete Users**. Le tableau de bord prend en charge la suppression en masse de Segments (jusqu'à 10 millions de profils), inclut une fenêtre d'annulation de 7 jours et ne consomme pas les limites de débit partagées de la REST API. Pour les étapes, les limites et les autorisations, consultez [Supprimer des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
-Pour une suppression programmatique par lots plus petits, utilisez l'[endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) au lieu d'une campagne de webhook.
+Pour une suppression programmatique par lots plus petits, utilisez l'[endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) au lieu d'une campagne webhook.

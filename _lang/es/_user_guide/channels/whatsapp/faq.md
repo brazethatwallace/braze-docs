@@ -21,6 +21,7 @@ channel:
 - [Plantillas de WhatsApp y creador](#whatsapp-templates-and-composer)
 - [Capacidad de entrega y facturación](#deliverability-and-billing)
 - [Integraciones, datos e informes](#integrations-data-and-reporting)
+- [Medios e imágenes](#media-and-images)
 
 ### Cuentas de WhatsApp Business {#whatsapp-business-accounts}
 
@@ -194,18 +195,19 @@ Hay varias razones por las que un mensaje podría no entregarse, incluyendo prob
 No. Si un mensaje no se entrega, no se te cobrará.
 
 #### ¿Qué sucede si un usuario bloquea mi empresa? {#what-happens-if-a-user-blocks-my-business}
-Si un usuario bloquea tu empresa, los mensajes posteriores que intentes enviar no se entregarán y no se te cobrará.
+Si un usuario bloquea tu empresa, los mensajes posteriores que intentes enviar no se entregarán y no se te cobrará. El estado de suscripción del usuario no se actualizará.
 
 #### ¿Qué sucede si un usuario reporta un mensaje? {#what-happens-if-a-user-reports-a-message}
-Si un usuario reporta un mensaje, aún puedes enviar mensajes posteriores a ese usuario. Sin embargo, los reportes pueden afectar tu calificación de calidad en el canal.
-
-#### Si un usuario bloquea o reporta mi empresa, ¿se actualizará su estado de suscripción en Braze? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
-No. Su estado de suscripción en Braze no se actualizará.
+Si un usuario reporta un mensaje, aún puedes enviar mensajes posteriores a ese usuario. Sin embargo, los reportes pueden afectar tu calificación de calidad en el canal. El estado de suscripción del usuario no se actualizará.
 
 #### ¿Cómo puedo excluir a los usuarios que reportan mi cuenta de WhatsApp de próximos lanzamientos? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
 Braze no recibe notificaciones de WhatsApp cuando tu cuenta es marcada o reportada, por lo que no puedes identificar ni excluir automáticamente a esos usuarios en Braze. Los usuarios que reportan tu cuenta pueden permanecer en tu grupo de suscripción de WhatsApp y seguir siendo elegibles para futuros mensajes.
 
 Sin embargo, puedes configurar una campaña que se desencadene cuando un usuario responda con una palabra clave de cancelación, lo que cancela automáticamente su suscripción usando el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Para más información, consulta [Proceso de adhesión voluntaria y cancelación de suscripción de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+
+#### ¿Braze admite la alternativa automática a SMS cuando falla la entrega de WhatsApp? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
+
+No. Braze no ofrece una ruta nativa de alternativa de WhatsApp a SMS. Para reintentar en otro canal, segmenta a los usuarios con envíos fallidos de WhatsApp (por ejemplo, a través de eventos de fallo de Currents) y dirígelos a una Campaign de SMS o correo electrónico.
 
 #### ¿Los mensajes de respuesta de WhatsApp son gratuitos? {#are-whatsapp-response-messages-free}
 
@@ -252,3 +254,8 @@ WhatsApp es un canal enfocado en la mensajería bidireccional y, por lo tanto, s
 
 - **Conversación iniciada por la empresa**: una conversación en la que la empresa comienza enviando un mensaje de plantilla aprobado al usuario final. Tan pronto como la empresa envía un mensaje, comienza la ventana de 24 horas.
 - **Conversación iniciada por el usuario**: una conversación en la que el usuario final envía un mensaje a la empresa. Cuando la empresa envía un mensaje en respuesta, comienza la ventana de 24 horas.
+
+### Medios e imágenes {#media-and-images}
+
+#### ¿Por qué no se cargan las imágenes cuando se envían como mensaje de WhatsApp? {#why-wont-images-load-when-sent-as-a-whatsapp-message}
+Si los usuarios reportan que las imágenes en los mensajes de WhatsApp no se descargan o el icono de descarga no responde, es probable que se deba a un problema conocido en versiones anteriores de la aplicación de WhatsApp. Este problema generalmente se puede resolver actualizando el dispositivo a la versión más reciente de WhatsApp.

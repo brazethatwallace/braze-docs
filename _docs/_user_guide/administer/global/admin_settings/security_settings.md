@@ -26,7 +26,7 @@ Select **Enforce complex passwords** to require passwords to include at least on
 - Uppercase letter
 - Lowercase letter
 - Number
-- Special character
+- Special character (any character that is not a letter or number, such as `!`, `@`, `#`, or `(`)
 
 ### Password re-usability
 

@@ -14,6 +14,7 @@ page_order: 5
 
 ## アクセス方法 {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_liquid.md %}
+任意のメッセージ作成画面でオペレーターを開き、パーソナライゼーション用のLiquidを生成・改善できます。オペレーターは[Liquid構文]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)、標準および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)、[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を理解しており、コードの内容を説明することもできます。
+
 
 サポートされているチャネル、Liquid属性、ベストプラクティス、プロンプトの例などの詳細については、[オペレーター機能でのLiquid生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-liquid)を参照してください。

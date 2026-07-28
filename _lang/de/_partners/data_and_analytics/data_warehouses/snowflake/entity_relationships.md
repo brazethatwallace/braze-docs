@@ -484,7 +484,7 @@ erDiagram
 
 {% endsdktab %}
 
-{% sdktab E-Mail %}
+{% sdktab Email %}
 ## Beziehungsdiagramm
 
 ```mermaid
@@ -1158,7 +1158,7 @@ erDiagram
 
 {% endsdktab %}
 
-{% sdktab Feature-Flags %}
+{% sdktab Feature Flags %}
 ## Beziehungstabellen
 
 ### `IMPRESSION_SHARED`
@@ -1605,7 +1605,7 @@ erDiagram
 
 {% endsdktab %}
 
-{% sdktab Push-Benachrichtigungen %}
+{% sdktab Push Notifications %}
 ## Beziehungsdiagramm
 
 ```mermaid

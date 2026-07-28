@@ -2281,7 +2281,7 @@ Segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensag
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia e também incluir um corpo de mensagem.
+Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia, incluindo também o corpo da mensagem.
 
 ### Tipos de RCS {#rcs-types}
 
@@ -2293,7 +2293,7 @@ O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um can
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-### Detalhes adicionais do canal {#additional-channel-details}
+## Detalhes adicionais do canal {#additional-channel-details}
 
 ### Webhooks
 
@@ -2301,7 +2301,7 @@ Os webhooks passaram a fazer parte dos Créditos de Mensagem em 9 de dezembro de
 
 ### Conectores SMS próprios (BYO) {#bring-your-own-byo-sms-connectors}
 
-A Braze permite que os clientes integrem provedores terceirizados para enviar mensagens SMS por meio do modelo "conector SMS BYO". A Braze cobrará Créditos de Mensagem por cada mensagem enviada a partir da plataforma Braze por meio de conectores SMS BYO.
+A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo "conector SMS BYO". A Braze cobrará Créditos de Mensagem por cada mensagem enviada a partir da plataforma Braze por meio de conectores SMS BYO.
 
 ### LINE
 

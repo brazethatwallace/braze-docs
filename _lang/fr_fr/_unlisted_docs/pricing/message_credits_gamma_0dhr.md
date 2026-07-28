@@ -8,7 +8,7 @@ hide_toc: true
 
 # Crédits de message - Gamma (confidentiel)
 
-> Les crédits de message constituent la structure d'offre multi-produits de Braze pour notre Agent Console natif, ainsi que les offres SMS, MMS, RCS, WhatsApp et LINE. Les crédits de message offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication Braze et de certaines fonctionnalités d'IA. Les crédits vous donnent accès à n'importe lequel des canaux présentés dans le tableau de cette page.
+> Les crédits de message constituent la structure de packaging multi-produits de Braze pour notre Agent Console natif, ainsi que nos offres SMS, MMS, RCS, WhatsApp et LINE. Les crédits de message offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication Braze et de certaines fonctionnalités d'IA. Les crédits vous donnent accès à n'importe lequel des canaux présentés dans le tableau de cette page.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
@@ -18,7 +18,7 @@ Les définitions des colonnes sont les suivantes :
 
 |---------|-------------------------------------------------|
 | **Destination** | Région finale, pays ou type d'action spécifique envoyé via la plateforme Braze |
-| **Crédits par envoi** | Nombre exact de crédits de message pour effectuer un envoi<br> (crédits par envoi = ratio de crédits x multiplicateur de destination) |
+| **Crédits par envoi** | Nombre exact de crédits de message nécessaires pour effectuer un envoi<br> (crédits par envoi = ratio de crédits x multiplicateur de destination) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
@@ -2271,13 +2271,13 @@ Les définitions des colonnes sont les suivantes :
 ------
 
 ## Détails de l'Agent Console
-Braze facture des crédits de message pour les invocations de l'Agent Console envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent initie un appel à un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.
+Braze facture des crédits de message pour les invocations de l'Agent Console envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent initie un appel vers un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.
 
 ## Détails du canal SMS/MMS
 
 ### Segments SMS
 
-Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en utilisant l'encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraîne des frais supplémentaires.
+Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en utilisant l'encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraînera des frais supplémentaires.
 
 ### Segments MMS
 
