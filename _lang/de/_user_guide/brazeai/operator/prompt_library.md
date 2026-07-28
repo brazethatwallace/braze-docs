@@ -140,7 +140,7 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 {% include copy_block.html content="Welche 5 Stellen in Braze sollte ich basierend auf diesem Dashboard zuerst besuchen, um unser Setup zu verstehen (Daten, Kanäle, Versand und Targeting)?" available="Home page" %}
 
-{% include copy_block.html content="Ich fühle mich überfordert und möchte mit der Agent Console loslegen, weiß aber nicht wie. Was könnte ich basierend auf meinen aktuell laufenden Campaigns tun?" available="Campaigns" %}
+{% include copy_block.html content="Ich fühle mich überfordert und möchte mit der Agentenkonsole loslegen, weiß aber nicht wie. Was könnte ich basierend auf meinen aktuell laufenden Campaigns tun?" available="Campaigns" %}
 
 {% include copy_block.html content="Was kann ich auf der Seite „Knowledge Sources“ tun, und wie richte ich am schnellsten meine erste Quelle ein?" available="Agent Console" %}
 
