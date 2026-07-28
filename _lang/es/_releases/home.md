@@ -24,7 +24,7 @@ Para obtener más información sobre cualquiera de las actualizaciones enumerada
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-El [dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) proporciona un desglose de alto nivel de los resultados de envío de mensajes, permitiéndote detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus campañas o Canvas pueden no haberse enviado como se esperaba. Ponte en contacto con tu administrador de éxito de cliente para acceder a la característica.
+El [dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) proporciona un desglose de alto nivel de los resultados de envío de mensajes, permitiéndote detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus Campaigns o Canvas pueden no haberse enviado como se esperaba. Ponte en contacto con tu administrador de éxito de cliente para acceder a la característica.
 
 #### Mapeador de eventos personalizados en la importación de CSV {#csv-custom-events-mapper}
 
@@ -59,7 +59,7 @@ Por ejemplo, en la página de horas tranquilas, pide a Operator que configure la
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-El [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) es una conexión alojada de forma remota que te permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity y Claude Code directamente a Braze. A través de lenguaje natural, los agentes pueden leer análisis de campañas, Canvas y segmentos, atributos personalizados, eventos, KPI y catálogos, y crear o actualizar plantillas de correo electrónico, Content Blocks y activos de la biblioteca multimedia. No se expone PII de perfiles de usuario.
+El [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) es una conexión alojada de forma remota que te permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity y Claude Code directamente a Braze. A través de lenguaje natural, los agentes pueden leer análisis de Campaigns, Canvas y segmentos, atributos personalizados, eventos, KPI y catálogos, y crear o actualizar plantillas de correo electrónico, Content Blocks y activos de la biblioteca multimedia. No se expone PII de perfiles de usuario.
 
 Para conectarte, pega una única URL de endpoint en tu cliente MCP — `https://mcp.braze.com/mcp` para EE. UU. o `https://mcp.braze.eu/mcp` para la UE — y luego inicia sesión con OAuth, incluyendo SSO. El servidor se inicia con las herramientas disponibles.
 
@@ -101,7 +101,7 @@ Cuando compones un Banner, ahora puedes crearlo [usando el editor HTML]({{site.b
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Ahora puedes [reemplazar el archivo de un activo existente en la biblioteca multimedia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) manteniendo estables su URL e ID de activo. Dado que la URL no cambia, cualquier campaña, Canvas, Content Block o plantilla que haga referencia a ese activo refleja automáticamente el archivo actualizado, por lo que no necesitas volver a subirlo ni volver a vincularlo manualmente en todos los lugares donde se usa.
+Ahora puedes [reemplazar el archivo de un activo existente en la biblioteca multimedia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) manteniendo estables su URL e ID de activo. Dado que la URL no cambia, cualquier Campaign, Canvas, Content Block o plantilla que haga referencia a ese activo refleja automáticamente el archivo actualizado, por lo que no necesitas volver a subirlo ni volver a vincularlo manualmente en todos los lugares donde se usa.
 
 #### Vista de cuadrícula para la biblioteca multimedia {#grid-view-for-the-media-library}
 

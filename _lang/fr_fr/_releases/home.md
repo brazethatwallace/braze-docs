@@ -8,7 +8,7 @@ page_type: reference
 
 ---
 
-# Quoi de neuf dans Braze ?
+# Quoi de neuf dans Braze ? {#whats-new-in-braze}
 
 {% alert tip %}
 Pour plus d'informations sur l'une des mises à jour énumérées sur cette page, contactez votre gestionnaire de compte ou [ouvrez un ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support). Vous pouvez également consulter nos [journaux des modifications du SDK]({{site.baseurl}}/developer_guide/changelogs) pour plus d'informations sur les versions mensuelles du SDK, les améliorations et les changements majeurs.
@@ -16,23 +16,23 @@ Pour plus d'informations sur l'une des mises à jour énumérées sur cette page
 
 {% details 23 juillet 2026 %}
 
-## Publication le 23 juillet 2026
+## Publication le 23 juillet 2026 {#july-23-2026-release}
 
-### Données et rapports
+### Données et rapports {#data-reporting}
 
-#### Tableau de bord de diagnostic des messages
+#### Tableau de bord de diagnostic des messages {#messaging-diagnostics-dashboard}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 Le [tableau de bord de diagnostic des messages]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) fournit une ventilation de haut niveau des résultats d'envoi de messages, vous permettant de repérer les tendances et de diagnostiquer les problèmes potentiels dans votre configuration de messagerie. Ce tableau de bord peut vous aider à comprendre pourquoi les messages de vos Campaigns ou Canvas n'ont peut-être pas été envoyés comme prévu. Contactez votre gestionnaire du succès des clients pour accéder à cette fonctionnalité.
 
-#### Mappeur CSV pour les événements personnalisés
+#### Mappeur CSV pour les événements personnalisés {#csv-custom-events-mapper}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 Le [flux d'importation CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#about-csv-import) pour les événements personnalisés inclut désormais un mappeur qui vous permet de mapper les noms d'événements et les en-têtes de propriétés d'événements aux champs Braze avant l'importation. Cette mise à jour aligne l'expérience des événements personnalisés sur le flux des attributs personnalisés et réduit le besoin de reformater les fichiers avant le téléchargement. Le flux comprend le téléchargement d'un CSV, le mappage des champs et événements requis, le mappage des propriétés d'événements, puis la sélection des préférences de ciblage avant l'importation. Si votre fichier correspond déjà au format attendu, vous pouvez poursuivre le flux sans effectuer de modifications de mappage.
 
-#### Le stockage gratuit des catalogues prend désormais en charge jusqu'à 500 Mo
+#### Le stockage gratuit des catalogues prend désormais en charge jusqu'à 500 Mo {#catalogs-free-storage-now-supports-up-to-500-mb}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -40,7 +40,7 @@ La version gratuite des [catalogues]({{site.baseurl}}/user_guide/data/activation
 
 ### BrazeAI<sup>TM</sup>
 
-#### Operator peut désormais mettre à jour les pages de paramètres pour vous
+#### Operator peut désormais mettre à jour les pages de paramètres pour vous {#operator-can-now-update-settings-pages-for-you}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -55,7 +55,7 @@ La version gratuite des [catalogues]({{site.baseurl}}/user_guide/data/activation
 
 Par exemple, sur la page Heures calmes, demandez à Operator de définir les heures calmes de 21 h à 8 h pour les SMS.
 
-#### Serveur MCP Braze distant
+#### Serveur MCP Braze distant {#remote-braze-mcp-server}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
@@ -63,53 +63,53 @@ Le [serveur MCP Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) est une c
 
 Pour vous connecter, collez une seule URL d'endpoint dans votre client MCP — `https://mcp.braze.com/mcp` pour les États-Unis ou `https://mcp.braze.eu/mcp` pour l'UE — puis connectez-vous avec OAuth, y compris le SSO. Le serveur se lance avec les outils disponibles.
 
-### Orchestration
+### Orchestration {#orchestration}
 
-#### Portée d'audience Teams
+#### Portée d'audience Teams {#teams-audience-scoping}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 La configuration d'audience de [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) prend désormais en charge plusieurs filtres.
 
-### Canaux et points de contact
+### Canaux et points de contact {#channels-touchpoints}
 
-#### Échelle de notation pour les sondages dans les messages in-app et les pages de destination
+#### Échelle de notation pour les sondages dans les messages in-app et les pages de destination {#survey-rating-scale-for-in-app-messages-and-landing-pages}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
 Ajoutez une échelle de notation numérique à un bloc de formulaire dans les [sondages de pages de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#rating-scale) et les [sondages de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/surveys#rating-scale) pour capturer le sentiment, la satisfaction et la probabilité de recommandation sans code personnalisé. Trois plages sont prises en charge : 1–10, 1–5 et 0–10 (la plage NPS standard).
 
-#### Modèles d'offres à durée limitée WhatsApp
+#### Modèles d'offres à durée limitée WhatsApp {#whatsapp-limited-time-offer-templates}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 Les [modèles d'offres à durée limitée WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates) affichent une offre promotionnelle limitée dans le temps avec un compte à rebours optionnel à l'approche de l'expiration. Utilisez cette mise en page pour les promotions à durée limitée, telles que les ventes saisonnières ou les offres personnalisées en fonction d'un attribut utilisateur.
 
-#### Mise à niveau en libre-service de la version SDK Shopify
+#### Mise à niveau en libre-service de la version SDK Shopify {#shopify-self-serve-sdk-version-upgrade}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 Les nouveaux clients [Shopify]({{site.baseurl}}/partners/ecommerce/shopify) sont provisionnés avec les dernières versions du SDK Web Braze et du SDK JavaScript lors de la configuration. Les clients existants peuvent consulter leur version actuelle du SDK dans les paramètres d'intégration, être notifiés lorsqu'une version plus récente est disponible et effectuer les mises à niveau en libre-service depuis les paramètres d'intégration.
 
-#### Éditeur HTML pour les bannières
+#### Éditeur HTML pour les bannières {#html-editor-for-banners}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 Lorsque vous composez une bannière, vous pouvez désormais la créer [à l'aide de l'éditeur HTML]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner). L'éditeur HTML est idéal pour les équipes qui maintiennent déjà leurs propres modèles HTML ou qui souhaitent un contrôle total sur le balisage et le style des bannières. Vous pouvez écrire ou coller du HTML personnalisé directement dans l'éditeur.
 
-#### Remplacer un fichier dans la bibliothèque multimédia
+#### Remplacer un fichier dans la bibliothèque multimédia {#replace-a-file-in-the-media-library}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 Vous pouvez désormais [remplacer le fichier d'une ressource existante de la bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) tout en conservant son URL et son ID de ressource stables. Comme l'URL ne change pas, toute Campaign, Canvas, Content Block ou modèle qui référence cette ressource reflète automatiquement le fichier mis à jour, vous n'avez donc pas besoin de le re-télécharger ou de le re-lier manuellement partout où il est utilisé.
 
-#### Vue en grille pour la bibliothèque multimédia
+#### Vue en grille pour la bibliothèque multimédia {#grid-view-for-the-media-library}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 La bibliothèque multimédia et certaines bibliothèques de modèles offrent désormais une vue en grille en plus de la vue en liste existante. La vue en grille affiche les ressources sous forme de vignettes avec des métadonnées clés (nom, type, dernière modification), ce qui permet de trouver plus rapidement les images et les créations visuellement plutôt que par nom de fichier. Le filtrage et la recherche fonctionnent de la même manière dans les deux vues.
 
-#### Prise en charge de l'aperçu partageable pour davantage de canaux
+#### Prise en charge de l'aperçu partageable pour davantage de canaux {#shareable-preview-support-for-more-channels}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -123,23 +123,23 @@ L'[aperçu partageable]({{site.baseurl}}/user_guide/channels/email/html_editor#s
 
 Depuis une Campaign ou un message, générez un lien et partagez-le avec des réviseurs qui n'ont pas accès au tableau de bord de Braze — marque, juridique ou une agence externe, par exemple. Les destinataires ouvrent le lien dans n'importe quel navigateur pour voir le message rendu tel qu'un client le verrait, y compris toute personnalisation de test.
 
-#### API de mise à jour des identifiants push
+#### API de mise à jour des identifiants push {#push-credentials-update-api}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 Vous pouvez désormais mettre à jour les identifiants push de manière programmatique avec l'[endpoint de mise à jour des identifiants push]({{site.baseurl}}/api/endpoints/apps/post_update_push_credential). Chaque requête met à jour une application et une plateforme (`apple`, `firebase`, `huawei` ou `kindle`) et accepte les payloads d'identifiants sous forme de valeurs encodées en Base64. Cela aide les équipes à gérer de grands portefeuilles d'applications et les politiques de rotation des identifiants sans dépendre de téléchargements manuels dans le tableau de bord.
 
-### Partenariats
+### Partenariats {#partnerships}
 
-#### Refiner - Sondages
+#### Refiner - Sondages {#refiner-surveys}
 
 [Refiner](https://refiner.io) est une plateforme de sondages in-app pour les applications SaaS et mobiles. Elle permet aux équipes produit et voix du client de lancer des sondages in-app ciblés et de collecter en continu des données NPS, CSAT, CES, des retours produit et des données zero-party.
 
-#### Stayfilm - Contenu visuel et interactif
+#### Stayfilm - Contenu visuel et interactif {#stayfilm-visual-and-interactive-content}
 
 [Stayfilm](https://www.stayfilm.com/) est une API REST pour la production vidéo automatisée et personnalisée à grande échelle. La plateforme intègre des données, des images, du texte, des bandes sonores, de la narration et des effets visuels pour générer du contenu vidéo personnalisé pour le commerce électronique, les places de marché, les flux de travail CRM et les Campaigns marketing.
 
-#### Validity - Données et analyse
+#### Validity - Données et analyse {#validity-data-and-analytics}
 
 [Validity Everest](https://www.validity.com/everest/) est une plateforme de livrabilité des e-mails qui vous aide à mesurer le placement en boîte de réception et à protéger votre réputation d'envoi. L'intégration de Braze et Validity synchronise votre liste de seeds Everest avec Braze, seed automatiquement les Campaigns et Canvas éligibles, et récupère les indicateurs d'engagement dans Validity Inbox afin que vous puissiez comparer le placement basé sur les seeds avec l'engagement réel des abonnés.
 
@@ -147,7 +147,7 @@ Vous pouvez désormais mettre à jour les identifiants push de manière programm
 
 Les mises à jour SDK suivantes ont été publiées. Pour plus de détails, consultez les [journaux des modifications du SDK]({{site.baseurl}}/developer_guide/changelogs).
 
-#### Mises à jour majeures du SDK
+#### Mises à jour majeures du SDK {#sdk-breaking-updates}
 
 Les dernières mises à jour du SDK ont été publiées. Les mises à jour majeures sont répertoriées dans la section des mises à jour du SDK ; toutes les autres mises à jour peuvent être consultées dans les journaux des modifications SDK correspondants.
 
