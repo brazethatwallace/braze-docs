@@ -20,6 +20,8 @@ Gehen Sie zu **Audience** > **Segments**.
 
 Wählen Sie **Create Segment**, um mit der Erstellung Ihres Segments zu beginnen. Benennen Sie Ihr Segment, indem Sie den Typ der Nutzer:innen beschreiben, nach denen Sie filtern möchten. So können Sie das Segment leichter identifizieren, wenn Sie es für Ihre Campaigns oder Canvases als Zielgruppe verwenden möchten. Vage Segmenttitel können verwirrend sein.
 
+Sie können auch den Operator bitten, Ihnen beim Erstellen der Filterlogik Ihres Segments anhand einer Beschreibung Ihrer Zielgruppe zu helfen. Weitere Informationen finden Sie unter [Was Sie mit dem Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
+
 Optional können Sie Folgendes tun:
 - Eine Beschreibung zum Segment hinzufügen, um weitere Details zur Absicht dieser Zielgruppe bereitzustellen und Notizen für andere Teammitglieder zu hinterlassen.
 - Ein [Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) zu Ihrem Segment hinzufügen.

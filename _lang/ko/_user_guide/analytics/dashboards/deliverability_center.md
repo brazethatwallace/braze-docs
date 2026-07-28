@@ -13,7 +13,7 @@ channel:
 
 > 전달 가능성 센터는 [Gmail Postmaster Tools](https://www.gmail.com/postmaster/)를 활용하여 발송된 이메일에 대한 데이터를 추적하고 발송 도메인에 대한 데이터를 수집함으로써 이메일 성능에 대한 더 깊은 인사이트를 제공합니다.
 
-이메일 전달 가능성은 Campaign 성공의 핵심입니다. Braze 대시보드의 전달 가능성 센터를 사용하면 **IP Reputation** 또는 **Delivery Errors**별로 도메인을 확인하여 이메일 전달 가능성과 관련된 잠재적 문제를 발견하고 해결할 수 있습니다.
+이메일 전달 가능성은 Campaign(캠페인) 성공의 핵심입니다. Braze 대시보드의 전달 가능성 센터를 사용하면 **IP Reputation** 또는 **Delivery Errors**별로 도메인을 확인하여 이메일 전달 가능성과 관련된 잠재적 문제를 발견하고 해결할 수 있습니다.
 
 전달 가능성 센터에 접근하려면 워크스페이스에 대해 아래 드롭다운에 나열된 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다.
 
@@ -125,6 +125,14 @@ IP 평판 등급을 이해하려면 다음 표를 참조하세요:
 | 나쁨 | 높은 스팸 신고율을 받은 이력이 있습니다. 이 도메인의 이메일은 거의 항상 연결 시 거부되거나 스팸 폴더로 필터링됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="IP 평판" }
 
+{% alert important %}
+Braze에 표시되는 스팸 신고 데이터는 Microsoft, Yahoo, Comcast 등 스팸 신고를 공유하는 이메일 제공업체의 피드백 루프(FBL) 보고서를 기반으로 합니다. 이러한 제공업체의 사용자가 메일을 스팸으로 신고하면 해당 신고가 Braze로 다시 전송됩니다.<br><br>
+그러나 Gmail과 iCloud는 기존 피드백 루프를 운영하지 않으며 스팸 신고를 Braze로 다시 보고하지 않습니다. 이는 다음을 의미합니다:<br>
+- Gmail 사용자의 스팸 신고는 Braze 측정기준에 포함되지 않으며 Snowflake 또는 Currents 데이터에서도 사용할 수 없습니다.<br>
+- Gmail 스팸 데이터는 [Gmail Postmaster Tools](https://www.gmail.com/postmaster/)에서 집계 비율로만 확인할 수 있으며, 개별 주소로는 확인할 수 없습니다.<br>
+- Gmail Postmaster Tools에서 높은 스팸 비율이 표시되더라도 Gmail이 해당 데이터를 발신자와 공유하지 않기 때문에 Braze 스팸 신고 측정기준과 일치하지 않습니다.
+{% endalert %}
+
 #### 도메인 평판 {#domain-reputation}
 
 다음 표를 사용하여 도메인 평판 등급을 모니터링하고 이해하여 스팸 폴더로 필터링되는 것을 방지하세요.
@@ -158,7 +166,7 @@ IP 평판 등급을 이해하려면 다음 표를 참조하세요:
 | TLS 아웃바운드 | 해당 도메인으로 발송된 모든 메일 중 TLS를 통해 수락된 발신 메일(Gmail에서)의 비율을 표시합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="암호화" }
 
-전달 가능성을 개선하는 더 많은 아이디어는 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)을 참조하세요. 이메일 Campaign을 발송하기 전에 확인해야 할 사항은 [이메일 모범 사례]({{site.baseurl}}/user_guide/channels/email/best_practices)를 참조하세요.
+전달 가능성을 개선하는 더 많은 아이디어는 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)을 참조하세요. 이메일 캠페인을 발송하기 전에 확인해야 할 사항은 [이메일 모범 사례]({{site.baseurl}}/user_guide/channels/email/best_practices)를 참조하세요.
 
 ## Microsoft Smart Network Data Services(SNDS) 설정 {#set-up-microsoft-smart-network-data-services-snds}
 
@@ -227,3 +235,14 @@ Amazon SES는 **Trap message period start** 또는 **Trap message period end** �
 {% alert tip %}
 Braze에서 인증된 도메인 중 하나와 관련된 기록을 찾고 있다면, 전달 가능성 센터는 Google Postmaster 또는 Microsoft SNDS의 데이터를 나열하므로 해당 플랫폼에 Braze와 공유할 데이터가 없을 수 있습니다. 또는 일관된 이메일 전달을 유지하면 더 높은 평판으로 이어질 수 있습니다.
 {% endalert %}
+
+## 스팸 신고 및 피드백 루프 {#spam-complaints-and-feedback-loops}
+
+이메일 피드백 루프(FBL)를 통해 이메일 발신자는 수신자가 메시지를 스팸으로 표시할 때 보고서를 받을 수 있습니다. 그러나 Gmail과 iCloud는 기존 피드백 루프를 제공하지 않으므로 Braze(SparkPost 또는 SendGrid를 통해)는 이러한 제공업체로부터 스팸 신고 데이터를 수신하지 않습니다.
+
+Gmail과 iCloud에서 스팸 신고 데이터를 사용할 수 없으므로 다른 도구를 사용하여 이러한 주요 제공업체에서의 이메일 상태와 평판을 모니터링하는 것이 중요합니다:
+
+- [Google Postmaster Tools](https://www.gmail.com/postmaster/)를 사용하여 도메인 및 IP 평판, 스팸 비율, 사용자 참여를 모니터링하세요. [Google Postmaster 통합](#integrating-google-postmaster)에 설명된 대로 Google Postmaster를 Braze와 통합할 수 있습니다.
+- Apple은 Google에 해당하는 공개 Postmaster 도구를 제공하지 않습니다. 강력한 참여 측정기준을 유지하고 이메일 모범 사례를 따르는 데 집중하세요.
+
+모든 제공업체에서 좋은 전달 가능성을 유지하려면 [일몰 정책]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)을 구현하여 참여하지 않는 사용자에게 자동으로 발송을 중단하세요. 이를 통해 이메일이 스팸으로 표시되는 것을 방지하고 발송자 평판을 보호할 수 있습니다.

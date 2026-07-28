@@ -68,7 +68,7 @@ glossaries:
       - Other Filters
   - name: Nested Custom Attributes
     display_name: "階層化カスタム属性"
-    description: カスタム属性のプロパティである属性です。<br><br>階層化された時間カスタム属性をフィルタリングする場合、「Day of Year」または「Time」に基づいてフィルタリングすることを選択できます。「Day of Year」は比較のために月と日のみをチェックします。「Time」は年を含む完全なタイムスタンプを比較します。
+    description: カスタム属性のプロパティである属性です。<br><br>階層化された時間カスタム属性をフィルタリングする場合、「Day of Year」または「Time」に基づいてフィルタリングすることを選択できます。「Day of Year」は比較のために月と日のみをチェックします。「Time」は年を含む完全なタイムスタンプを比較します。同じロジックがキャンバスのオーディエンスパスのコンテキスト変数をフィルタリングする場合にも適用されます。詳細については、<a href="/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables">日付コンテキスト変数のDay of YearフィルターとTimeフィルター</a> を参照してください。
     tags:
       - Custom attribute
   - name: Day of Recurring Event

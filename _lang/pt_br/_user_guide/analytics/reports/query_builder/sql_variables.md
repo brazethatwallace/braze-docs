@@ -187,7 +187,7 @@ Seu Liquid será usado para exibir um calendário dentro do intervalo de datas f
 
 ![Um exemplo de calendário renderizado na Braze.]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 {% tabs local %}
 {% tab uma Campaign %}
@@ -439,7 +439,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### Segments
+### Segments {#segments}
 
 Para selecionar Segments que tenham o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ativado. Defina como o ID de análise de dados do Segment, que corresponde aos IDs armazenados na coluna `user_segment_membership_ids` nas tabelas onde essa coluna está disponível.
 

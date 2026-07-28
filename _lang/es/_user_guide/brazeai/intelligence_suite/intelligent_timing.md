@@ -211,7 +211,7 @@ Si utilizas Intelligent Timing, te recomendamos dejar más tiempo para que final
 
 ## Preguntas más frecuentes (FAQ) {#faq}
 
-### General
+### General {#general}
 
 #### ¿Qué predice Intelligent Timing? {#what-does-intelligent-timing-predict}
 
@@ -247,7 +247,7 @@ Intelligent Timing programa mensajes durante la «hora de mayor interacción» d
 
 Si no hay eventos relevantes para un usuario, Intelligent Timing utiliza la configuración alternativa de los ajustes de tu mensaje, ya sea una hora alternativa personalizada o la hora más popular para utilizar la aplicación entre todos los usuarios.
 
-### Campaigns
+### Campaigns {#campaigns}
 
 #### ¿Con cuánta antelación debo lanzar una Campaign de Intelligent Timing para entregarla con éxito a todos los usuarios de todas las zonas horarias? {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
 

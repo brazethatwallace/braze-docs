@@ -155,7 +155,7 @@ Par exemple :
 
 ![Exemple de compositeur de message issu d'une campagne de content cards.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-Dans la section **On click behavior**, saisissez la logique Liquid pour déterminer où les utilisateurs doivent être redirigés lorsqu'ils cliquent sur la content card sur les appareils iOS, Android et Web.
+Dans la section **Comportement au clic**, saisissez la logique Liquid pour déterminer où les utilisateurs doivent être redirigés lorsqu'ils cliquent sur la content card sur les appareils iOS, Android et Web.
 
 {% raw %}
 ```liquid
@@ -172,9 +172,9 @@ Par exemple :
 
 ![Exemple de bloc de comportement au clic dans le compositeur.]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
-Accédez à l'onglet **Test** et sélectionnez **Custom user** sous **Preview message as user**. Saisissez une date dans le champ **Custom attribute** pour prévisualiser la content card qui serait envoyée à un utilisateur s'étant inscrit à cette date. <br><br>
+Accédez à l'onglet **Test** et sélectionnez **Utilisateur personnalisé** sous **Prévisualiser le message en tant qu'utilisateur**. Saisissez une date dans le champ **Attribut personnalisé** pour prévisualiser la content card qui serait envoyée à un utilisateur s'étant inscrit à cette date. <br><br>
 
-![Un exemple d'attribut personnalisé nommé « start_date ».]({% image_buster /assets/img/recs/custom_attributes_test.png %})
+![Exemple d'attribut personnalisé nommé « start_date ».]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
 
 {% tab using Connected Content %}

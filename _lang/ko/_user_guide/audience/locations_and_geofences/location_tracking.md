@@ -110,7 +110,7 @@ Braze는 기본적으로 SDK를 통해 사용자의 가장 최근 위치를 캡�
 
 사용자 위치 데이터가 Braze로 전송되고 있는지 확인하려면 **Location Available** 필터를 사용하세요. 이 필터를 사용하면 "가장 최근 위치"가 있는 사용자의 비율을 확인할 수 있습니다.
 
-!["Location Available" 필터를 사용하는 "Test Location" Segment.]({% image_buster /assets/img_archive/trouble7.png %})
+!["Location Available" 필터를 사용하는 "Test Location" 세그먼트.]({% image_buster /assets/img_archive/trouble7.png %})
 
 #### 데이터 전송 {#data-transfer}
 

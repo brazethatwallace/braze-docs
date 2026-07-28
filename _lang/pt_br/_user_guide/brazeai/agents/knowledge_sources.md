@@ -11,7 +11,7 @@ page_order: 3.5
 > As fontes de conhecimento ajudam seus agentes de IA a interpretar dados do catálogo e recuperar as informações certas para atingir seus objetivos. Para uma introdução aos Braze Agents, consulte [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). Para adicionar conhecimento a um agente, consulte [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources).
 
 {% alert important %}
-As fontes de conhecimento para o Console do agente estão atualmente em acesso antecipado. Entre em contato com o gerente da sua conta Braze se tiver interesse em participar deste acesso antecipado.
+As fontes de conhecimento para o Console do agente estão atualmente em acesso antecipado. Entre em contato com o gerente da sua conta na Braze se tiver interesse em participar deste acesso antecipado.
 {% endalert %}
 
 ## Como funciona {#how-it-works}

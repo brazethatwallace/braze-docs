@@ -3,7 +3,7 @@ nav_title: インテリジェントタイミング
 article_title: インテリジェントタイミング
 page_order: 1.3
 description: "この記事では、インテリジェントタイミング（旧称インテリジェント配信）の概要と、キャンペーンおよびキャンバスでこの機能を活用する方法について説明します。"
-
+toc_headers: h2
 ---
 
 # [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}インテリジェントタイミング {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
@@ -25,7 +25,7 @@ Brazeは、ユーザーが過去にアプリと行ったやり取りと、各メ
 
 Brazeが最適な送信時間を計算するための関連するエンゲージメントデータをユーザーが持っていない場合、フォールバック時間を指定できます。
 
-## ユースケース {#use-cases}
+## ユースケース {#examples}
 
 - 時間的制約のない定期的なキャンペーンの送信
 - 複数のタイムゾーンにわたるユーザーを含むキャンペーンの自動化

@@ -23,7 +23,7 @@ hidden: true
 開始する前に、以下を確認してください。
 
 - **重要な変更点：** レガシーコネクターから新しいコネクターへの重要な変更点を[Shopifyアップグレードの概要]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)で確認してください。
-- **アップグレードの前提条件：** エンジニアリングチームとマーケティングチームで必要な[アップグレードの前提条件]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites)をすべて完了してください。
+- **アップグレードの前提条件：** 開発チームとマーケティングチームで必要な[アップグレードの前提条件]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites)をすべて完了してください。
 - **破壊的変更：** Brazeでフラグが立てられたすべての破壊的変更を確認し、修正してください。詳細な手順については、[破壊的変更の修正](#fixing-breaking-changes-fixing-breaking-changes)を参照してください。
 
 ## 破壊的変更の修正 {#fixing-breaking-changes}
@@ -42,17 +42,13 @@ Shopifyデータを使用している影響を受けるキャンバス、キャ�
 {% tab 放棄カート %}
 放棄カートメッセージングの場合、新しい放棄カートキャンバステンプレートを使用する必要があります。これには以下が含まれます。
 
-- 「カート更新を実行」アクションに基づく新しいトリガー
-- 購入プロセスを進めた顧客を除外するための事前定義された終了条件
-- 製品パーソナライゼーションをサポートする新しいショッピングカートLiquidタグ
+{% multi_lang_include partners/shopify/abandoned_cart_template_features.md %}
 {% endtab %}
 
 {% tab 放棄チェックアウト %}
 放棄チェックアウトメッセージングの場合、新しい放棄チェックアウトキャンバステンプレートを使用する必要があります。これには以下が含まれます。
 
-- エントリ条件に事前定義されたecommerce.checkout_startedイベント
-- 購入プロセスを進めた顧客を除外するための事前定義された終了条件
-- 製品パーソナライゼーションをサポートする新しいショッピングカートLiquidタグ
+{% multi_lang_include partners/shopify/abandoned_checkout_template_features.md %}
 
 連携を通じて利用可能な新しいeコマースキャンバステンプレートと製品パーソナライゼーション用の事前定義されたHTMLブロックの完全なリストについては、[キャンバスユーザージャーニーの作成]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys)を参照してください。
 
@@ -66,7 +62,7 @@ Shopify連携で廃止されたイベントを使用するアクティブなメ�
 {% tab サブスクライバーリスト %}
 連携を通じてShopifyからメールまたはSMSサブスクライバーを収集している場合、アクティブなメッセージにShopifyストアの対応するサブスクライバーリストが含まれていることを確認してください。
 
-アップグレードが完了すると、連携用の新しいデフォルトサブスクリプショングループが作成されます。これらをアクティブなメッセージングの一部として活用する必要があります。変更の詳細については、[サブスクライバーの収集]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)を参照してください。
+アップグレードが完了すると、連携用の新しいデフォルト購読グループが作成されます。これらをアクティブなメッセージングの一部として活用する必要があります。変更の詳細については、[サブスクライバーの収集]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)を参照してください。
 {% endtab %}
 {% endtabs %}
 
@@ -86,7 +82,7 @@ Brazeで、**パートナー連携** > **Shopify**に移動し、**アップグ�
 
 ![アップグレードにより破壊的変更が発生する可能性があることを理解していることを確認するモーダル。]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %})
 
-### ステップ2：Braze SDKのセットアップ {#step-2-set-up-the-braze-sdks}
+### ステップ2：Braze SDKの設定 {#step-2-set-up-the-braze-sdks}
 
 標準連携では、Braze SDKがShopifyサイトに自動的に追加されます。すでにBraze SDKを直接統合しているか、サードパーティツールを使用している場合は、アップグレード時に以前のSDK実装を削除するよう開発者と調整してください。
 
@@ -131,10 +127,7 @@ external IDタイプを選択するには、Brazeに戻り、**external IDを確
 
 #### ステップ4.1：`braze.external_id`メタフィールドの作成 {#step-41-create-the-brazeexternal_id-metafield}
 
-1. Shopify管理パネルで、**設定** > **メタフィールド**に移動します。
-2. **顧客** > **定義を追加**を選択します。
-3. **名前空間とキー**に`braze.external_id`と入力します。
-4. **タイプ**で**IDタイプ**を選択します。
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 メタフィールドが作成されたら、顧客に対してデータを入力します。以下のアプローチをお勧めします。
 
@@ -147,7 +140,7 @@ Brazeがexternal IDを取得するために呼び出せるパブリックエン�
 
 ##### エンドポイントの仕様 {#endpoint-specifications}
 
-**方法：** `GET`
+**メソッド：** `GET`
 
 | パラメーター | 説明 |
 | --- | --- |
@@ -185,9 +178,7 @@ Brazeは`200`ステータスコードを期待します。その他のコード�
 
 ##### 考慮事項 {#considerations}
 
-- Brazeがエンドポイントにリクエストを送信した際にexternal IDが生成されていない場合、`changeUser`関数が呼び出された際にShopify顧客IDがデフォルトとして使用されます。このステップは、匿名ユーザープロファイルと識別済みユーザープロファイルのマージに不可欠です。その結果、ワークスペース内に異なるタイプのexternal IDが一時的に存在する期間が発生する場合があります。
-- `braze.external_id`メタフィールドでexternal IDが利用可能になると、連携はこのexternal IDを優先して割り当てます。
-    - Shopify顧客IDが以前にBrazeのexternal IDとして設定されていた場合、`braze.external_id`メタフィールドの値に置き換えられます。
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### ステップ5：Brazeアプリ埋め込みの有効化 {#step-5-enable-the-braze-app-embed}
 
@@ -207,9 +198,6 @@ Brazeに戻ると、Shopify連携のインストールが完了した際に通�
 
 新しいShopifyコネクターが稼働していることを確認するには、以下をテストしてください。
 
-- **アクティブなキャンバス、キャンペーン、セグメント：** 正常に機能していることを確認します。
-- **ID管理プロセス：** これらのプロセスが期待どおりに動作していることを確認します。
-- **SDKカスタマイズ（オプション）：** BrazeとShopifyの連携にカスタマイズ（カスタムイベントや属性のログ記録など）を行った場合、アップグレード後に正しく動作していることを確認します。
-- **メールまたはSMSサブスクライバーの収集（オプション）：** 以前にメールまたはSMSサブスクライバーの収集を有効にしていた場合、アップグレード中にサブスクライバーの最新ステータスを反映する新しいデフォルトサブスクリプショングループが作成されます。デフォルトサブスクリプショングループの名前はShopifyストアフロントの名前になります。これらの新しいデフォルトサブスクリプショングループはアップグレード後約5時間で利用可能になり、アクティブなメッセージに追加する必要があります。
+{% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
 ご質問がある場合は、[サポートにお問い合わせ]({{site.baseurl}}/user_guide/administrative/access_braze/support)ください。
