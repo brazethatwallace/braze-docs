@@ -95,7 +95,7 @@ Los correos electrónicos semilla tienen `[SEED]` antepuesto a la línea del asu
 
 - Incrementan los envíos en los análisis del panel.
 - Afectan los análisis de correo electrónico ni la reorientación.
-- Actualizan la lista de **Campaigns recibidas** del perfil de usuario.
+- Actualizan la lista de **Campaign Received** del perfil de usuario.
 - Afectan la limitación de frecuencia.
 - Cuentan ni afectan los límites de velocidad de entrega.
 
