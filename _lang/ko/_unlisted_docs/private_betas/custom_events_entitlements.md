@@ -209,7 +209,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 {% multi_lang_include data_activation/custom_event_property_filters.md %}
 
-![속성정보 'number of items'의 값이 '2'인 'Abandoned Cart'를 지난 '30' 캘린더 일 동안 '1'회 '이상' 수행한 필터 그룹.][3]
+![속성정보 'number of items'의 값이 '2'인 'Abandoned Cart'를 지난 '30' 캘린더 일 동안 '1'회 '이상' 수행한 필터 그룹][3]
 
 데이터는 고객 성공 매니저가 활성화한 후에만 해당 이벤트 속성정보에 대해 기록되며, 이벤트 속성정보는 해당 날짜 이후부터만 사용할 수 있습니다.
 

@@ -24,16 +24,7 @@ Operator가 대시보드에서 변경 사항(예: 양식 필드 입력, 설정 �
 
 ### 지원 범위 {#availability}
 
-액션 카드는 다음 편집기 및 페이지에서 지원됩니다.
-
-- **메시지 편집기:**
-    - 인앱 메시지(기존 편집기만 해당)
-    - Content Cards
-    - 이메일(HTML 편집기만 해당)
-    - 푸시 알림
-    - SMS/MMS/RCS
-    - 웹훅
-- [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) 페이지
+액션 카드는 Operator가 메시지를 생성할 수 있는 동일한 채널 및 편집기의 메시지 콘텐츠와 [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) 페이지에서 지원됩니다. 지원되는 채널 및 편집기에 대한 자세한 내용은 [메시지 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages)을 참조하세요.
 
 다른 페이지에서는 Operator가 직접 동작을 수행하지 않고 UI에서 따라야 할 단계 목록을 제공합니다. Operator 기능은 지속적으로 개선되고 있으며, 생성 도구에 대한 지원 범위 확대가 예상됩니다.
 
@@ -50,7 +41,7 @@ Operator의 계획을 수정하려면 먼저 보류 중인 동작을 승인하�
 - **켜짐:** Operator가 제안한 동작은 수동 승인 없이 즉시 실행됩니다. 일부 동작은 안전을 위해 여전히 명시적인 승인이 필요합니다. 예를 들어 이미지 생성이나 워크스페이스 수준 설정 변경 등이 해당됩니다.
 - **꺼짐(기본값):** 제안된 모든 동작은 위에서 설명한 수동 검토 절차를 따릅니다.
 
-![Operator 채팅 패널의 자동 승인 토글 및 확인 모달.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
+![Operator 채팅 패널의 자동 승인 토글 및 확인 Modal.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
 
 자동 승인은 페이지를 새로고침하거나 새 탭을 열거나 로그아웃 후 다시 로그인할 때 초기화됩니다. 대시보드에서 페이지를 이동해도 초기화되지 않습니다. 자동 승인은 언제든지 해제할 수 있습니다.
 

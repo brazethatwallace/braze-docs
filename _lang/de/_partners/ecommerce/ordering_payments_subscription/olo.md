@@ -58,8 +58,8 @@ Olo benötigt eine erfolgreiche Antwort vom Test-Event-Webhook, bevor Sie die Ko
 
 In diesem Schritt transformieren Sie die Webhook-Nutzlast, die von der Quellplattform gesendet wird, in einen Rückgabewert als JavaScript-Objekt.
 
-1. Senden Sie eine Anfrage an Ihre URL für die Datentransformation mit einer Beispiel-Nutzlast eines Olo-Events, das Sie unterstützen möchten. Siehe [Format des Anfragekörpers](#request-body-format) für Hilfe bei der Formatierung Ihrer Anfrage.
-2. Aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Beispiel-Nutzlast des Events in den **Webhook-Details** sehen können.
+1. Senden Sie eine Anfrage an Ihre URL für die Datentransformation mit einer Beispiel-Event-Nutzlast eines Olo-Events, das Sie unterstützen möchten. Siehe [Format des Anfragekörpers](#request-body-format) für Hilfe bei der Formatierung Ihrer Anfrage.
+2. Aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Beispiel-Event-Nutzlast in den **Webhook-Details** sehen können.
 3. Aktualisieren Sie Ihren Datentransformationscode, um die von Ihnen gewählten Olo-Events zu unterstützen.
 4. Klicken Sie auf **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 5. Speichern und aktivieren Sie Ihre Datentransformation.
@@ -80,7 +80,7 @@ Nachdem die `/users/track`-Anfrage `brazecall` zugewiesen wurde, geben Sie expli
 
 ### Transformation eines einzelnen Events {#single-event-transformation}
 
-Wenn Sie nur ein einziges Olo-Event unterstützen möchten, brauchen Sie den `X-Olo-Event-Type`-Header nicht zu verwenden, um die Nutzlast der `/users/track`-Anfrage bedingt zu erstellen. Zum Beispiel das Protokollieren eines Kauf-Events oder eines angepassten Events im Nutzerprofil, wenn ein Olo-Order-Placed-Webhook an Braze gesendet wird.
+Wenn Sie nur ein einziges Olo-Event unterstützen möchten, brauchen Sie den `X-Olo-Event-Type`-Header nicht zu verwenden, um die Nutzlast der `/users/track`-Anfrage bedingt zu erstellen. Zum Beispiel das Protokollieren eines Kauf-Events oder eines angepassten Events im Nutzerprofil, wenn ein Olo-„Order Placed“-Webhook an Braze gesendet wird.
 
 ### Jedes Produkt als Kauf protokollieren {#logging-each-product-as-a-purchase}
 

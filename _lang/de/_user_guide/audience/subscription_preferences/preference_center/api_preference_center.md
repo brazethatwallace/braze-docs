@@ -35,7 +35,7 @@ Durch die Verwendung von Liquid können Sie die Namen Ihrer Abo-Gruppen und den 
 | Generierter API-Schlüssel mit Präferenzzentrum-Berechtigungen | Gehen Sie im Braze-Dashboard zu **Einstellungen** > **API-Schlüssel**, um zu bestätigen, dass Sie Zugriff auf einen API-Schlüssel mit Präferenzzentrum-Berechtigungen haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-### 1. Schritt: Den Endpunkt „Präferenzzentrum erstellen“ verwenden {#step-1-use-the-create-preference-center-endpoint}
+### Schritt 1: Den Endpunkt „Präferenzzentrum erstellen“ verwenden {#step-1-use-the-create-preference-center-endpoint}
 
 Beginnen wir mit dem Erstellen eines Präferenzzentrums mithilfe des [Endpunkts „Präferenzzentrum erstellen“]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center). Um Ihr Präferenzzentrum anzupassen, können Sie HTML, das zu Ihrem Branding passt, in das Feld `preference_center_page_html` und das Feld `confirmation_page_html` einfügen.
 
@@ -45,7 +45,7 @@ Der [Endpunkt „Präferenzzentrum-URL generieren“]({{site.baseurl}}/api/endpo
 Braze rendert `confirmation_page_html` in einem iframe, der eine `data:`-URL verwendet. Browser behandeln `data:`-URLs als opake Ursprünge. Daher können Skripte in diesem iframe keine zusätzlichen externen Ressourcen laden, und das Navigieren des übergeordneten Fensters oder die Kommunikation über Frames von dieser Seite aus schlägt fehl.<br><br>Stattdessen können Sie auf externe Inhalte verlinken, z. B. eine gehostete Umfrage-URL, anstatt Skripte einzubetten. Wenn Sie ein Drittanbieter-Tool einbetten müssen und der Anbieter dies erlaubt, verwenden Sie ein `<iframe title="Beschreibung des eingebetteten Inhalts" src="https://example.com/...">`, das auf die gehostete HTTPS-URL des Tools verweist.
 {% endalert %}
 
-### 2. Schritt: In Ihre E-Mail-Kampagne einbinden {#step-2-include-in-your-email-campaign}
+### Schritt 2: In Ihre E-Mail-Campaign einbinden {#step-2-include-in-your-email-campaign}
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
@@ -65,11 +65,9 @@ Sie können auch eine Kombination aus HTML mit Liquid verwenden. Zum Beispiel k�
 ```
 {%endraw%}
 
-Das Präferenzzentrum verfügt über ein Kontrollkästchen, mit dem Ihre Nutzer:innen sich von allen E-Mails abmelden können. Beachten Sie, dass diese Präferenzen nicht gespeichert werden können, wenn sie als Testnachricht gesendet werden.
+Das Präferenzzentrum verfügt über ein Kontrollkästchen, mit dem Ihre Nutzer:innen sich von allen E-Mails abmelden können.
 
-{% alert important %}
-Der obige Liquid-Tag funktioniert nur beim Starten einer Kampagne oder eines Canvas. Das Senden einer Test-E-Mail erzeugt keinen gültigen Link. Um den Präferenzzentrum-Link zu überprüfen, starten Sie die Nachricht in einer Kampagne, die nur auf Ihr Testprofil ausgerichtet ist.
-{% endalert %}
+{% multi_lang_include preference_center/testing.md section="api" %}
 
 #### Ein Präferenzzentrum bearbeiten {#edit-a-preference-center}
 
@@ -116,6 +114,10 @@ Dieser Ansatz erfordert keine in die URL eingebetteten Abfragestring-Wert-Paare,
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
+### Warum funktioniert mein Präferenzzentrum nicht in einem Testversand? {#why-doesnt-my-preference-center-work-in-a-test-send}
+
+Links zum Präferenzzentrum erfordern einen Live-Versandkontext. Testversände erzeugen keine gültigen Präferenzzentrum-URLs, und der Button **Save Preferences** ist deaktiviert, wenn die Seite geladen wird. Dies ist das erwartete Verhalten. Um End-to-End zu testen, starten Sie eine Campaign oder einen Canvas-Schritt an eine:n Testnutzer:in oder ein kleines internes Segment, oder verwenden Sie den [Endpunkt „Präferenzzentrum-URL generieren“]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Weitere Details finden Sie unter [Präferenzzentren testen](#testing-preference-centers).
+
 ### Ich habe kein Präferenzzentrum erstellt. Warum sehe ich „PreferenceCenterBrazeDefault“ in meinem Dashboard? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
 
 Dies wird verwendet, um das Präferenzzentrum zu rendern, wenn das Legacy-Liquid {%raw%}`${preference_center_url}`{%endraw%} verwendet wird. Das bedeutet, dass Canvas-Schritte oder Templates, die entweder {%raw%}`${preference_center_url}` oder `preference_center.${PreferenceCenterBrazeDefault}`{%endraw%} referenzieren, nicht funktionieren. Dies gilt auch für zuvor gesendete Nachrichten, die das Legacy-Liquid oder „PreferenceCenterBrazeDefault“ als Teil der Nachricht enthielten.
@@ -126,9 +128,9 @@ Wenn Sie {%raw%}`${preference_center_url}`{%endraw%} in einer neuen Nachricht er
 
 Nein. Sie können jedoch Liquid nutzen, wenn Sie das HTML für benutzerdefinierte Opt-in- und Opt-out-Seiten schreiben. Wenn Sie dynamische Links zur Verwaltung von Abmeldungen verwenden, handelt es sich um einen einzelnen Link.
 
-Wenn Sie beispielsweise die Abmeldungsrate für spanischsprachige Nutzer:innen verfolgen, müssten Sie entweder separate Kampagnen verwenden oder Analytics rund um Currents nutzen (z. B. prüfen, wann sich ein:e Nutzer:in abmeldet, und die bevorzugte Sprache dieser/dieses Nutzer:in überprüfen).
+Wenn Sie beispielsweise die Abmelderate für spanischsprachige Nutzer:innen verfolgen, müssten Sie entweder separate Campaigns verwenden oder Analytics rund um Currents nutzen (z. B. prüfen, wann sich ein:e Nutzer:in abmeldet, und die bevorzugte Sprache dieser/dieses Nutzer:in überprüfen).
 
-Als weiteres Beispiel könnten Sie für das Tracking der Abmeldungsraten für spanischsprachige Nutzer:innen einen Abfrageparameter-String wie `?Spanish=true` zur Abmelde-URL hinzufügen, wenn die Sprache der/des Nutzer:in Spanisch ist, und andernfalls einen regulären Abmelde-Link verwenden:
+Als weiteres Beispiel könnten Sie für das Tracking der Abmelderaten für spanischsprachige Nutzer:innen einen Abfrageparameter-String wie `?Spanish=true` zur Abmelde-URL hinzufügen, wenn die Sprache der/des Nutzer:in Spanisch ist, und andernfalls einen regulären Abmelde-Link verwenden:
 
 {% raw %}
 ```liquid
@@ -143,7 +145,7 @@ Dann könnten Sie über Currents identifizieren, welche Nutzer:innen Spanisch sp
 
 ### Sind sowohl Abmelde-Links als auch E-Mail-Präferenzzentren für den Versand erforderlich? {#are-both-unsubscribe-links-and-email-preference-centers-required-for-sending}
 
-Nein. Wenn Sie beim Erstellen einer E-Mail-Kampagne die Meldung „Your Email Body does not include an unsubscribe link“ sehen, ist diese Warnung zu erwarten, wenn sich Ihr Abmelde-Link in einem Content-Block befindet.
+Nein. Wenn Sie beim Erstellen einer E-Mail-Campaign die Meldung „Your Email Body does not include an unsubscribe link“ sehen, ist diese Warnung zu erwarten, wenn sich Ihr Abmelde-Link in einem Content-Block befindet.
 
 ### Wie aktualisiere ich das Standard-Browser-Symbol? {#how-do-i-update-the-default-browser-icon}
 

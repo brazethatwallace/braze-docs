@@ -16,7 +16,7 @@ search_rank: 11
 
 Dans ce cas, « le meilleur » signifie le canal qui a la plus forte probabilité d'engagement, compte tenu de l'historique de l'utilisateur. Vous pouvez sélectionner l'e-mail, le SMS, WhatsApp, les notifications push Web ou les notifications push mobiles (incluant tout système d'exploitation ou appareil mobile disponible) en tant que canal.
 
-Le canal intelligent calcule un taux d'engagement pour chaque utilisateur sur chaque canal pris en charge, classe ces canaux, et considère le canal le mieux classé comme le meilleur canal de cet utilisateur.
+Le canal intelligent calcule un taux d'engagement pour chaque utilisateur sur chaque canal pris en charge, classe ces canaux et considère le canal le mieux classé comme le meilleur canal de cet utilisateur.
 
 Pour activer le filtre de canal intelligent, sélectionnez le filtre **Intelligent Channel** sur la page **Target Audiences** lors de la création d'une Campaign ou d'un Canvas.
 

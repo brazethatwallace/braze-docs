@@ -13,7 +13,7 @@ search_tag: Partner
 
 Ao integrar a Braze e a Typeform, você pode:
 
-- Atualizar os perfis de usuários na Braze com os dados coletados da resposta do Typeform
+- Atualizar os perfis de usuários na Braze com os dados coletados das respostas do Typeform
 - Disparar o envio de mensagens na Braze com base no engajamento de um usuário com um typeform
 - Personalizar o envio de mensagens da Braze com base nas respostas do usuário no Typeform
 
@@ -608,7 +608,7 @@ return brazecall;
 
 Depois de escrever sua Transformação de dados, clique em **Validate** para verificar se o código está formatado corretamente e funcionará conforme o esperado. Em seguida, salve e ative sua Transformação de dados.
 
-Quando ativada, os dados do evento personalizado são registrados no perfil de um usuário quando ele completa seu formulário.
+Quando ativada, os dados do evento personalizado são registrados no perfil do usuário quando ele completa o formulário.
 
 ![Perfil de usuário mostrando um evento personalizado registrado após o envio do Typeform.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 

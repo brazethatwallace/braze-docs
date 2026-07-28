@@ -27,22 +27,22 @@ tool: Currents
     * 새로운 `string` 필드 `thinking_level` 추가: 요청에 사용된 사고 또는 추론 수준
 
 * 이벤트 유형 `users.messages.banner.Click`에 대한 필드 변경 사항:
-    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 클릭인지 여부로, 고유 클릭 통계에 집계됩니다
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 배리언트에 대한 사용자의 첫 번째 클릭인지 여부로, 고유 클릭 통계에 집계됩니다
 
 * 이벤트 유형 `users.messages.banner.Dismiss`에 대한 필드 변경 사항:
-    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 닫기인지 여부로, 고유 닫기 통계에 집계됩니다
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 배리언트에 대한 사용자의 첫 번째 닫기인지 여부로, 고유 닫기 통계에 집계됩니다
 
 * 이벤트 유형 `users.messages.banner.Impression`에 대한 필드 변경 사항:
-    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 노출인지 여부로, 고유 노출 통계에 집계됩니다
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 배리언트에 대한 사용자의 첫 번째 노출인지 여부로, 고유 노출 통계에 집계됩니다
 
 * 이벤트 유형 `users.messages.contentcard.Click`에 대한 필드 변경 사항:
-    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 클릭인지 여부로, 고유 클릭 통계에 집계됩니다
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 배리언트에 대한 사용자의 첫 번째 클릭인지 여부로, 고유 클릭 통계에 집계됩니다
 
 * 이벤트 유형 `users.messages.contentcard.Dismiss`에 대한 필드 변경 사항:
-    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 닫기인지 여부로, 고유 닫기 통계에 집계됩니다
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 배리언트에 대한 사용자의 첫 번째 닫기인지 여부로, 고유 닫기 통계에 집계됩니다
 
 * 이벤트 유형 `users.messages.contentcard.Impression`에 대한 필드 변경 사항:
-    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 변형에 대한 사용자의 첫 번째 노출인지 여부로, 고유 노출 통계에 집계됩니다
+    * 새로운 `boolean` 필드 `is_unique` 추가: 해당 메시지 배리언트에 대한 사용자의 첫 번째 노출인지 여부로, 고유 노출 통계에 집계됩니다
 
 * 이벤트 유형 `users.messages.featureflag.Impression`에 대한 필드 변경 사항:
     * 새로운 `boolean` 필드 `is_unique` 추가: 이 기능 플래그에 대한 사용자의 첫 번째 노출인지 여부로, 고유 노출 통계에 집계됩니다
@@ -122,29 +122,29 @@ tool: Currents
 * 이벤트 유형 `users.messages.banner.Abort`에 대한 필드 변경 사항:
     * 새로운 `string` 필드 `canvas_name` 추가: Canvas의 이름
     * 새로운 `string` 필드 `canvas_step_name` 추가: 캔버스 단계의 이름
-    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 배리언트의 이름
     * 새로운 `string` 필드 `canvas_id` 추가: 이 이벤트가 속한 Canvas의 API ID
     * 새로운 `string` 필드 `canvas_step_id` 추가: 이 이벤트가 속한 캔버스 단계의 API ID
-    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
-    * 새로운 `string` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 변형의 API ID
+    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 배리언트의 API ID
+    * 새로운 `string` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 배리언트의 API ID
 
 * 이벤트 유형 `users.messages.banner.Click`에 대한 필드 변경 사항:
     * 새로운 `string` 필드 `canvas_id` 추가: 이 이벤트가 속한 Canvas의 API ID
     * 새로운 `string` 필드 `canvas_step_id` 추가: 이 이벤트가 속한 캔버스 단계의 API ID
     * 새로운 `string` 필드 `canvas_name` 추가: Canvas의 이름
     * 새로운 `string` 필드 `canvas_step_name` 추가: 캔버스 단계의 이름
-    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
-    * 새로운 `string` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 변형의 API ID
-    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 배리언트의 API ID
+    * 새로운 `string` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 배리언트의 API ID
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 배리언트의 이름
 
 * 이벤트 유형 `users.messages.banner.Impression`에 대한 필드 변경 사항:
     * 새로운 `string` 필드 `canvas_id` 추가: 이 이벤트가 속한 Canvas의 API ID
     * 새로운 `string` 필드 `canvas_step_id` 추가: 이 이벤트가 속한 캔버스 단계의 API ID
     * 새로운 `string` 필드 `canvas_name` 추가: Canvas의 이름
     * 새로운 `string` 필드 `canvas_step_name` 추가: 캔버스 단계의 이름
-    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
-    * 새로운 `string` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 변형의 API ID
-    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 배리언트의 API ID
+    * 새로운 `string` 필드 `canvas_variation_id` 추가: 이 이벤트가 속한 Canvas 배리언트의 API ID
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 배리언트의 이름
 
 ## 버전 6의 변경 사항 (릴리스 날짜 2026-03-04) {#changes-in-version-6-release-date-2026-03-04}
 
@@ -157,7 +157,7 @@ tool: Currents
     * 새로운 `string` 필드 `request_id` 추가: 이 전체 LLM 요청 및 완전한 실행에 대한 고유 ID
 
 * 이벤트 유형 `users.messages.rcs.InboundReceive`에 대한 필드 변경 사항:
-    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 배리언트의 이름
 
 ## 버전 5의 변경 사항 (릴리스 날짜 2026-02-04) {#changes-in-version-5-release-date-2026-02-04}
 
@@ -196,14 +196,14 @@ tool: Currents
     * 새로운 `string` 필드 `push_token` 추가: 이벤트의 푸시 토큰
 
 * 이벤트 유형 `users.messages.rcs.Click`에 대한 필드 변경 사항:
-    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 변형의 이름
+    * 새로운 `string` 필드 `canvas_variation_name` 추가: 이 사용자가 받은 Canvas 배리언트의 이름
     * 필드 `user_phone_number`은 이제 *선택 사항*입니다.
 
 * 이벤트 유형 `users.messages.rcs.InboundReceive`에 대한 필드 변경 사항:
     * 필드 `user_id`는 이제 *선택 사항*입니다.
 
 * 이벤트 유형 `users.messages.rcs.Rejection`에 대한 필드 변경 사항:
-    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 변형의 API ID
+    * 새로운 `string` 필드 `canvas_step_message_variation_id` 추가: 이 사용자가 받은 캔버스 단계 메시지 배리언트의 API ID
 
 ## 버전 3의 변경 사항 (릴리스 날짜 2025-10-08) {#changes-in-version-3-release-date-2025-10-08}
 

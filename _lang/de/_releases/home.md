@@ -18,19 +18,19 @@ Weitere Informationen zu den auf dieser Seite aufgeführten Updates erhalten Sie
 
 ## Veröffentlichung am 23. Juli 2026 {#july-23-2026-release}
 
-### Daten und Berichterstattung {#data-reporting}
+### Daten und Reporting {#data-reporting}
 
-#### Messaging-Diagnose-Dashboard {#messaging-diagnostics-dashboard}
+#### Messaging-Diagnostics-Dashboard {#messaging-diagnostics-dashboard}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Das [Messaging-Diagnose-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) bietet eine Aufschlüsselung der Ergebnisse des Nachrichtenversands auf hoher Ebene, mit der Sie Trends erkennen und potenzielle Probleme in Ihrer Messaging-Konfiguration diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu diesem Feature zu erhalten.
+Das [Messaging-Diagnostics-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) bietet eine Aufschlüsselung der Ergebnisse des Nachrichtenversands auf hoher Ebene, mit der Sie Trends erkennen und potenzielle Probleme in Ihrer Messaging-Konfiguration diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu diesem Feature zu erhalten.
 
 #### CSV-Mapper für angepasste Events {#csv-custom-events-mapper}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Der [CSV-Import-Flow]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#about-csv-import) für angepasste Events enthält jetzt einen Mapper, mit dem Sie Event-Namen und Event-Eigenschafts-Header vor dem Import Braze-Feldern zuordnen können. Dieses Update bringt die Erfahrung mit angepassten Events in Einklang mit dem Flow für angepasste Attribute und reduziert die Notwendigkeit, Dateien vor dem Upload umzuformatieren. Der Flow umfasst das Hochladen einer CSV, das Zuordnen erforderlicher Felder und Events, das Zuordnen von Event-Eigenschaften und die Auswahl von Targeting-Präferenzen vor dem Import. Wenn Ihre Datei bereits dem erwarteten Format entspricht, können Sie den Flow ohne Zuordnungsänderungen durchlaufen.
+Der [CSV-Import-Flow]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#about-csv-import) für angepasste Events enthält jetzt einen Mapper, mit dem Sie Event-Namen und Event-Eigenschafts-Header vor dem Import Braze-Feldern zuordnen können. Dieses Update bringt das Erlebnis für angepasste Events in Einklang mit dem Flow für angepasste Attribute und reduziert die Notwendigkeit, Dateien vor dem Upload umzuformatieren. Der Flow umfasst das Hochladen einer CSV, das Zuordnen erforderlicher Felder und Events, das Zuordnen von Event-Eigenschaften und die Auswahl von Targeting-Präferenzen vor dem Import. Wenn Ihre Datei bereits dem erwarteten Format entspricht, können Sie den Flow ohne Zuordnungsänderungen durchlaufen.
 
 #### Kostenloser Katalogspeicher unterstützt jetzt bis zu 500 MB {#catalogs-free-storage-now-supports-up-to-500-mb}
 
@@ -50,10 +50,10 @@ Die kostenlose Version von [Katalogen]({{site.baseurl}}/user_guide/data/activati
 - Push-Einstellungen
 - Messaging-Rate-Limits
 - Messaging-Regeln und Always-On-Genehmigungsworkflows
-- Andere Bezeichner und API-Limits
+- Weitere Bezeichner und API-Limits
 - Kontaktinformationen
 
-Bitten Sie Operator beispielsweise auf der Seite „Ruhezeiten“, die Ruhezeiten von 21:00 bis 8:00 Uhr für SMS festzulegen.
+Bitten Sie Operator beispielsweise auf der Seite „Ruhezeiten“, die Ruhezeiten für SMS von 21:00 bis 8:00 Uhr festzulegen.
 
 #### Remote-Braze-MCP-Server
 
@@ -83,7 +83,7 @@ Fügen Sie einem Formularblock sowohl in [Landing-Page-Umfragen]({{site.baseurl}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[WhatsApp-Templates für zeitlich begrenzte Angebote]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates) zeigen ein zeitlich begrenztes Werbeangebot mit einem optionalen Countdown an, wenn das Angebot dem Ablauf nahekommt. Verwenden Sie dieses Layout für zeitlich begrenzte Aktionen, wie saisonale Verkäufe oder auf ein Nutzerattribut personalisierte Angebote.
+[WhatsApp-Templates für zeitlich begrenzte Angebote]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates) zeigen ein zeitlich begrenztes Werbeangebot mit einem optionalen Countdown an, wenn das Angebot sich dem Ablauf nähert. Verwenden Sie dieses Layout für zeitlich begrenzte Aktionen, wie saisonale Verkäufe oder auf ein Nutzerattribut personalisierte Angebote.
 
 #### Shopify Self-Service-SDK-Versions-Upgrade {#shopify-self-serve-sdk-version-upgrade}
 
@@ -101,7 +101,7 @@ Wenn Sie ein Banner erstellen, können Sie es jetzt [mit dem HTML-Editor]({{site
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Sie können jetzt [die Datei eines bestehenden Medienbibliotheks-Assets ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file), während URL und Asset-ID stabil bleiben. Da sich die URL nicht ändert, spiegelt jede Campaign, jedes Canvas, jeder Content Block oder jedes Template, das auf dieses Asset verweist, automatisch die aktualisierte Datei wider, sodass Sie sie nicht überall manuell erneut hochladen oder verlinken müssen.
+Sie können jetzt [die Datei eines bestehenden Medienbibliotheks-Assets ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file), während URL und Asset-ID stabil bleiben. Da sich die URL nicht ändert, spiegelt jede Campaign, jedes Canvas, jeder Content Block oder jedes Template, das auf dieses Asset verweist, automatisch die aktualisierte Datei wider, sodass Sie sie nicht manuell überall neu hochladen oder verlinken müssen.
 
 #### Rasteransicht für die Medienbibliothek {#grid-view-for-the-media-library}
 
@@ -109,11 +109,11 @@ Sie können jetzt [die Datei eines bestehenden Medienbibliotheks-Assets ersetzen
 
 Die Medienbibliothek und ausgewählte Template-Bibliotheken bieten jetzt neben der bestehenden Listenansicht eine Rasteransicht. Die Rasteransicht zeigt Assets als Miniaturansichten mit wichtigen Metadaten (Name, Typ, zuletzt geändert) an, sodass Sie Bilder und Kreativmaterial schneller visuell statt nach Dateinamen finden können. Filterung und Suche funktionieren in beiden Ansichten gleich.
 
-#### Shareable-Preview-Unterstützung für weitere Kanäle {#shareable-preview-support-for-more-channels}
+#### Unterstützung für teilbare Vorschau für weitere Kanäle {#shareable-preview-support-for-more-channels}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Shareable Preview]({{site.baseurl}}/user_guide/channels/email/html_editor#step-3b-preview-and-test-your-message) unterstützt jetzt die folgenden zusätzlichen Kanäle:
+Die [teilbare Vorschau]({{site.baseurl}}/user_guide/channels/email/html_editor#step-3b-preview-and-test-your-message) unterstützt jetzt die folgenden zusätzlichen Kanäle:
 
 - SMS, MMS und RCS
 - WhatsApp
@@ -133,7 +133,7 @@ Sie können Push-Zugangsdaten jetzt programmatisch mit dem [Endpunkt zur Aktuali
 
 #### Refiner – Umfragen {#refiner-surveys}
 
-[Refiner](https://refiner.io) ist eine In-App-Umfrageplattform für SaaS- und mobile Apps. Sie ermöglicht es Produkt- und Voice-of-Customer-Teams, gezielte In-App-Umfragen zu starten und kontinuierlich NPS-, CSAT-, CES-, Produktfeedback- und Zero-Party-Nutzerdaten zu sammeln.
+[Refiner](https://refiner.io) ist eine In-App-Umfrageplattform für SaaS- und mobile Apps. Sie ermöglicht es Produkt- und Voice-of-Customer-Teams, gezielte In-App-Umfragen zu starten und kontinuierlich NPS, CSAT, CES, Produktfeedback und Zero-Party-Nutzerdaten zu erfassen.
 
 #### Stayfilm – Visuelle und interaktive Inhalte {#stayfilm-visual-and-interactive-content}
 
@@ -218,7 +218,7 @@ Die eigenständigen BrazeAI-Assistenten, die im gesamten Dashboard zu finden sin
 
 Die bestehenden Einstiegspunkte bleiben dort, wo sich die jeweiligen Legacy-Assistenten-Buttons befanden. Anstatt einen eigenständigen Assistenten zu öffnen, öffnen diese Einstiegspunkte jetzt das Operator-Panel mit dynamischen Prompts, die auf Ihre Aufgabe voreingestellt sind. Diese Einstiegspunkte bieten einen direkten Weg in Operator, sodass Sie diese Funktionen nutzen können, ohne Ihre bestehenden Workflows anzupassen.
 
-#### Operator-Unterstützung für Campaign-Erstellung und -Bearbeitung {#operator-support-for-campaign-creation-and-editing}
+#### Operator-Unterstützung für Kampagnenerstellung und -bearbeitung {#operator-support-for-campaign-creation-and-editing}
 
 [Operator]({{site.baseurl}}/user_guide/brazeai/operator) kann jetzt ganze Campaigns erstellen und bearbeiten, nicht nur Nachrichten verfassen. Aus einem einzigen natürlichsprachlichen Prompt oder Campaign-Briefing erstellt Operator eine überprüfungsbereite Campaign von Anfang bis Ende – verfasst die Nachricht, plant die Zustellung, targetiert eine Zielgruppe und weist Konversions-Events zu – und fasst dann im Überprüfungsschritt zusammen, was erstellt wurde. Zuvor konnte Operator die Nachricht verfassen (einer der fünf Schritte zur Campaign-Erstellung); jetzt hat er Sichtbarkeit und Kontrolle über die verbleibenden Schritte Zeitplan, Zielgruppe, Zuweisen und Überprüfen.
 

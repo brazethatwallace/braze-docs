@@ -18,8 +18,9 @@ Pour créer et lancer une campagne, vous avez besoin des autorisations « Edit C
 ### Avant de commencer {#before-you-begin}
 
 - Créez ou choisissez les [segments]({{site.baseurl}}/user_guide/audience/segments) qui définissent les destinataires de vos messages.
-- Consultez les [bases des campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics) pour vous assurer que les canaux de communication, les types de distribution et les objectifs de conversion correspondent à votre cas d'utilisation.
+- Consultez les [bases des campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics) pour vous assurer que les canaux de communication, les types de distribution et les objectifs de conversion correspondent à votre cas d'usage.
 - Pour un parcours guidé sur la distribution, le ciblage et les conversions, suivez le cours d'apprentissage Braze [Configuration des campagnes](https://learning.braze.com/campaign-setup-delivery-targeting-conversions).
+- Demandez à Operator de vous aider à rédiger votre campagne à partir d'un brief, ou à affiner le ciblage et les choix de distribution. Pour en savoir plus, consultez [Ce que vous pouvez faire avec Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 ## Éditeur de campagne {#campaign-composer}
 
@@ -44,7 +45,7 @@ Pour créer une campagne :
 
 1. Accédez à **Messaging** > **Campaigns**.
 2. Sélectionnez **Create campaign**.
-3. Sélectionnez le [canal]({{site.baseurl}}/user_guide/channels) qui correspond à votre cas d'utilisation.
+3. Sélectionnez le [canal]({{site.baseurl}}/user_guide/channels) qui correspond à votre cas d'usage.
 4. À l'[étape Rédiger](#step-1-compose-messages), rédigez et prévisualisez le contenu pour ce canal.
 
 Chaque campagne utilise un seul type de canal à la fois. Ajoutez des variantes lorsque vous souhaitez comparer des déclinaisons créatives ou effectuer des [tests A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
@@ -90,8 +91,8 @@ Utilisez les champs suivants pour enregistrer les métadonnées qui aident votre
 | --- | --- |
 | Nom | Utilisez un nom clair qui reflète l'objectif de la campagne. |
 | Description | Facultatif. Expliquez l'intention ou ajoutez des liens vers des briefs pour les collaborateurs. |
-| Équipe | Facultatif. Affectez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) pour que les bons groupes puissent modifier ou consulter les rapports de cet envoi. |
-| Étiquettes | Facultatif. Ajoutez des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) pour filtrer dans les listes et les outils tels que le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder). |
+| Équipe | Facultatif. Affectez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) pour que les bons groupes puissent modifier ou consulter les rapports de cet envoi. |
+| Étiquettes | Facultatif. Ajoutez des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) pour filtrer dans les listes et les outils tels que le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder). |
 | ID de campagne | Lorsqu'il est affiché dans l'éditeur ou le résumé, copiez cet identifiant pour les appels API, les rapports et les intégrations qui font référence à une campagne spécifique. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Détails de la campagne" }
 
@@ -104,7 +105,7 @@ Rédigez le contenu spécifique à chaque canal dans cette étape. Pour des inst
 Ajoutez des variantes lorsque vous souhaitez comparer des déclinaisons créatives ou de distribution. Pour en savoir plus sur les expériences et les contrôles, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Lorsque chaque variante utilise un contenu similaire, rédigez le message **avant** d'ajouter des variantes supplémentaires. Utilisez ensuite **Copy from Variant** dans le menu **Add Variant** pour réutiliser votre travail entre les variantes ou les canaux.
+Lorsque chaque variante utilise un contenu similaire, rédigez le message **avant** d'ajouter des variantes supplémentaires. Utilisez ensuite **Copier depuis la variante** dans le menu **Ajouter une variante** pour réutiliser votre travail entre les variantes ou les canaux.
 {% endalert %}
 
 ## Étape 2 : Planifier la distribution {#step-2-schedule-delivery}
@@ -120,33 +121,33 @@ Choisissez quand les utilisateurs deviennent éligibles pour recevoir la campagn
 
 Pour les concepts de planification dans Braze, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-### Contrôles de l'envoi {#delivery-controls}
+### Contrôles de distribution {#delivery-controls}
 
 Selon le type de distribution, vous pouvez ajuster la [rééligibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) (si les utilisateurs peuvent entrer à nouveau dans la campagne) et respecter les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) de l'espace de travail. Vous pouvez également configurer les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) pour que les messages ne soient pas envoyés pendant des fenêtres restreintes.
 
 ## Étape 3 : Cibler les audiences {#step-3-target-audiences}
 
-Dans **Target Audiences**, définissez qui est éligible pour recevoir la campagne. Pour toutes les options de ciblage, les parcours de l'interface et les captures d'écran, consultez [Cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
+Dans **Publics cibles**, définissez qui est éligible pour recevoir la campagne. Pour toutes les options de ciblage, les parcours de l'interface et les captures d'écran, consultez [Cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
 
 ### Options de ciblage {#targeting-options}
 
-Dans cette section, vous pouvez cibler les utilisateurs en choisissant des segments ou des filtres pour affiner votre audience. Les utilisateurs éligibles doivent toujours remplir le déclencheur ou les critères que vous définissez à l'étape **Schedule Delivery**. L'audience cible fonctionne comme une salle d'attente : seules les personnes déjà à l'intérieur peuvent avancer lorsque l'action suivante se produit.
+Dans cette section, vous pouvez cibler les utilisateurs en choisissant des segments ou des filtres pour affiner votre audience. Les utilisateurs éligibles doivent toujours remplir le déclencheur ou les critères que vous définissez à l'étape **Planifier la distribution**. L'audience cible fonctionne comme une salle d'attente : seules les personnes déjà à l'intérieur peuvent avancer lorsque l'action suivante se produit.
 
 Les [listes de suppression]({{site.baseurl}}/user_guide/audience/suppression_lists) de l'espace de travail excluent automatiquement les utilisateurs répertoriés, sauf si vous autorisez une exception pour cette campagne.
 
 ### Résumé de l'audience {#audience-summary}
 
-Après avoir ajouté des segments ou des filtres, le **Résumé de l'audience** donne un aperçu de la population de ce segment, y compris le nombre d'utilisateurs joignables via les canaux sélectionnés. Les comptages de joignabilité reflètent les données de votre espace de travail, la configuration des canaux et les filtres. Gardez à l'esprit que l'appartenance exacte au segment est toujours calculée avant l'envoi du message. Pour les très grandes audiences, Braze peut afficher des estimations jusqu'à ce que vous calculiez les statistiques exactes.
+Après avoir ajouté des segments ou des filtres, le **résumé de l'audience** donne un aperçu de la population de ce segment, y compris le nombre d'utilisateurs joignables via les canaux sélectionnés. Les comptages de joignabilité reflètent les données de votre espace de travail, la configuration des canaux et les filtres. Gardez à l'esprit que l'appartenance exacte au segment est toujours calculée avant l'envoi du message. Pour les très grandes audiences, Braze peut afficher des estimations jusqu'à ce que vous calculiez les statistiques exactes.
 
 ### Recherche d'utilisateur {#user-lookup}
 
-Après avoir ajouté des segments ou des filtres, vous pouvez vérifier si votre audience est configurée comme prévu en recherchant un utilisateur pour confirmer qu'il correspond aux critères du segment. Pour ce faire, recherchez l'`external_id` ou le `braze_id` d'un utilisateur dans la section **User Lookup**. Vous ne pouvez pas effectuer de recherche par adresse e-mail ici. Consultez [Tester les segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) pour en savoir plus.
+Après avoir ajouté des segments ou des filtres, vous pouvez vérifier si votre audience est configurée comme prévu en recherchant un utilisateur pour confirmer qu'il correspond aux critères du segment. Pour ce faire, recherchez l'`external_id` ou le `braze_id` d'un utilisateur dans la section **Recherche d'utilisateur**. Vous ne pouvez pas effectuer de recherche par adresse e-mail ici. Consultez [Tester les segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) pour en savoir plus.
 
 Lorsqu'un utilisateur correspond aux critères du segment, du filtre et de l'application, une alerte l'indique. Lorsqu'un utilisateur ne correspond pas à une partie ou à l'ensemble des critères du segment, du filtre ou de l'application, les critères manquants sont répertoriés à des fins de résolution des problèmes.
 
 ### Envoyer à ces utilisateurs {#send-to-these-users}
 
-Pour les canaux basés sur l'abonnement (e-mail, SMS et similaires), utilisez **Send to these users** pour n'envoyer votre campagne qu'aux utilisateurs ayant un statut d'abonnement spécifique, comme ceux qui sont abonnés et ont opté pour l'e-mail.
+Pour les canaux basés sur l'abonnement (e-mail, SMS et similaires), utilisez **Envoyer à ces utilisateurs** pour n'envoyer votre campagne qu'aux utilisateurs ayant un statut d'abonnement spécifique, comme ceux qui sont abonnés et ont opté pour l'e-mail.
 
 ### Limiter le volume d'envoi {#limit-send-volume}
 
@@ -164,7 +165,7 @@ Pour les campagnes push, e-mail et webhook planifiées pour un envoi unique, vou
 
 ## Étape 4 : Affecter des événements de conversion {#step-4-assign-conversion-events}
 
-Les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) mesurent les résultats après qu'un utilisateur a reçu votre campagne (ou est entré dans le groupe de contrôle). Braze définit par défaut **Starts Session** dans une courte fenêtre (trois jours). Vous pouvez définir des événements de conversion correspondant à vos indicateurs clés de performance, jusqu'à quatre événements par campagne.
+Les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) mesurent les résultats après qu'un utilisateur a reçu votre campagne (ou est entré dans le groupe de contrôle). Braze définit par défaut **Starts Session** dans une courte fenêtre (trois jours). Vous pouvez définir des événements de conversion correspondant à vos KPI, jusqu'à quatre événements par campagne.
 
 Après le lancement, utilisez le [tableau de bord des conversions]({{site.baseurl}}/user_guide/analytics/dashboards/conversions) pour analyser les tendances de conversion sur plusieurs campagnes ou Canvas, comparer les canaux et ajuster les plages de dates, les méthodes d'attribution et les ventilations en un seul endroit.
 
@@ -174,12 +175,12 @@ Vous ne pouvez pas ajouter ou supprimer des événements de conversion après le
 
 ## Étape 5 : Vérifier le résumé et lancer {#step-5-review-summary-and-launch}
 
-L'étape **Review Summary** affiche la planification, l'audience, les variantes et les choix de communication. Avant de lancer votre campagne :
+L'étape **Résumé de vérification** affiche la planification, l'audience, les variantes et les choix de communication. Avant de lancer votre campagne :
 
 1. Confirmez que les segments, les variantes et les paramètres de distribution correspondent à votre intention.
 2. [Envoyez des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) pour valider le rendu et le comportement sur vos appareils de test ou auprès de destinataires internes.
 
-Lorsque vous êtes prêt, sélectionnez **Launch Campaign**.
+Lorsque vous êtes prêt, sélectionnez **Lancer la campagne**.
 
 ### Approbations {#approvals}
 

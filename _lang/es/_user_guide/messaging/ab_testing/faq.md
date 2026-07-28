@@ -17,7 +17,7 @@ description: "Este artículo cubre las preguntas frecuentes sobre pruebas multiv
 
 #### Pruebas A/B {#ab-testing}
 
-En las pruebas A/B, el especialista en marketing experimenta con una sola variable dentro de la campaña (como la línea del asunto del correo electrónico o la hora de envío del mensaje). Esto implica dividir aleatoriamente un subconjunto de la audiencia en dos o más grupos, presentar a cada grupo una variación diferente y observar cuál exhibe la tasa de conversión más alta. Normalmente, la variación con mejor rendimiento se envía posteriormente al resto de la audiencia.
+En las pruebas A/B, el especialista en marketing experimenta con una sola variable dentro de la Campaign (como la línea del asunto del correo electrónico o la hora de envío del mensaje). Esto implica dividir aleatoriamente un subconjunto de la audiencia en dos o más grupos, presentar a cada grupo una variación diferente y observar cuál exhibe la tasa de conversión más alta. Normalmente, la variación con mejor rendimiento se envía posteriormente al resto de la audiencia.
 
 #### Pruebas multivariante {#multivariate-testing}
 
@@ -37,15 +37,15 @@ La asignación de variantes se aleatoriza en cada envío, por lo que la distribu
 
 ### ¿Cuándo termina la prueba inicial? {#when-is-the-initial-test-over}
 
-Cuando se usa la variante ganadora para campañas de envío único, la prueba termina cuando llega la hora de envío de la variante ganadora. Braze considerará que una variante es la ganadora si muestra la tasa de conversión más alta con un margen estadísticamente significativo.
+Cuando se usa la variante ganadora para Campaigns de envío único, la prueba termina cuando llega la hora de envío de la variante ganadora. Braze considerará que una variante es la ganadora si muestra la tasa de conversión más alta con un margen estadísticamente significativo.
 
-Para campañas recurrentes, basadas en acciones y desencadenadas por API, puedes usar Intelligent Selection para rastrear continuamente los datos de rendimiento de cada variante y optimizar continuamente el tráfico de la campaña hacia las variantes con mejor rendimiento. Con Intelligent Selection, en lugar de definir explícitamente un grupo de experimento donde los usuarios reciben variantes aleatorias, el algoritmo de Braze refinará continuamente su estimación de la variante con mejor rendimiento, lo que potencialmente permite una selección más rápida del mejor resultado.
+Para Campaigns recurrentes, basadas en acciones y desencadenadas por API, puedes usar la selección inteligente para rastrear continuamente los datos de rendimiento de cada variante y optimizar continuamente el tráfico de la Campaign hacia las variantes con mejor rendimiento. Con la selección inteligente, en lugar de definir explícitamente un grupo de experimento donde los usuarios reciben variantes aleatorias, el algoritmo de Braze refinará continuamente su estimación de la variante con mejor rendimiento, lo que potencialmente permite una selección más rápida del mejor resultado.
 
-### ¿Cómo maneja Braze a los usuarios que recibieron una variante de mensaje en una campaña recurrente o un paso de entrada de Canvas? {#how-does-braze-handle-users-who-received-a-message-variant-in-a-recurring-campaign-or-canvas-entry-step}
+### ¿Cómo maneja Braze a los usuarios que recibieron una variante de mensaje en una Campaign recurrente o un paso de entrada de Canvas? {#how-does-braze-handle-users-who-received-a-message-variant-in-a-recurring-campaign-or-canvas-entry-step}
 
-Los usuarios se asignan aleatoriamente a una variante particular antes de recibir la campaña por primera vez. Cada vez sucesiva que se recibe la campaña (o el usuario vuelve a entrar en una variante de Canvas), reciben la misma variante a menos que se modifiquen los porcentajes de variantes. Si los porcentajes de variantes cambian, los usuarios pueden ser redistribuidos a otras variantes. Los usuarios permanecen en estas variantes hasta que los porcentajes se modifiquen nuevamente. Los usuarios solo se redistribuyen para las variantes que fueron editadas.
+Los usuarios se asignan aleatoriamente a una variante particular antes de recibir la Campaign por primera vez. Cada vez sucesiva que se recibe la Campaign (o el usuario vuelve a entrar en una variante en Canvas), reciben la misma variante a menos que se modifiquen los porcentajes de variantes. Si los porcentajes de variantes cambian, los usuarios pueden ser redistribuidos a otras variantes. Los usuarios permanecen en estas variantes hasta que los porcentajes se modifiquen nuevamente. Los usuarios solo se redistribuyen para las variantes que fueron editadas.
 
-Por ejemplo, supongamos que tenemos una campaña o Canvas con tres variantes. Si solo se cambian o actualizan la variante A y la variante B, los usuarios de la variante C no serán redistribuidos porque el porcentaje de la variante C no cambió. Los grupos de control permanecen consistentes si el porcentaje de variante no cambia. Los usuarios que previamente recibieron mensajes no pueden entrar en el grupo de control en un envío posterior, ni ningún usuario en el grupo de control puede recibir un mensaje.
+Por ejemplo, supongamos que tenemos una Campaign o Canvas con tres variantes. Si solo se cambian o actualizan la variante A y la variante B, los usuarios de la variante C no serán redistribuidos porque el porcentaje de la variante C no cambió. Los grupos de control permanecen consistentes si el porcentaje de variante no cambia. Los usuarios que previamente recibieron mensajes no pueden entrar en el grupo de control en un envío posterior, ni ningún usuario en el grupo de control puede recibir un mensaje.
 
 {% alert note %}
 Un usuario puede ser marcado como que "recibió" un mensaje si comparte un identificador de canal (como un correo electrónico o número de teléfono) con alguien que recibió, abrió o hizo clic en el mensaje.
@@ -55,7 +55,7 @@ Un usuario puede ser marcado como que "recibió" un mensaje si comparte un ident
 
 Lo mismo aplica porque los recorridos de Canvas que siguen a un experimento también son variantes.
 
-#### ¿Puedo tomar acciones para redistribuir usuarios en campañas y Canvas? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
+#### ¿Puedo tomar acciones para redistribuir usuarios en Campaigns y Canvas? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
 
 La única forma de redistribuir usuarios en Canvas es usar [Recorridos aleatorios en recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), que siempre aleatorizará las asignaciones de recorridos cuando los usuarios vuelvan a entrar en el Canvas. Sin embargo, esto no es un experimento estándar y podría invalidar cualquier resultado del experimento porque el grupo de control puede contaminarse con usuarios del tratamiento.
 
@@ -71,10 +71,10 @@ Sin embargo, si las tasas de conversión entre las variantes y el control conver
 
 ### ¿Pueden las asignaciones de grupo de control y prueba introducir sesgo en las pruebas? {#can-control-and-test-group-assignments-introduce-bias-to-testing}
 
-No hay una forma práctica en que los atributos o comportamientos de un usuario antes de la creación de una campaña o Canvas particular puedan variar sistemáticamente entre variantes y control.
+No hay una forma práctica en que los atributos o comportamientos de un usuario antes de la creación de una Campaign o Canvas particular puedan variar sistemáticamente entre variantes y control.
 
-Para asignar usuarios a variantes de mensaje, variantes de Canvas o sus respectivos grupos de control, comenzamos vinculando su ID de usuario generado aleatoriamente con el ID de campaña o Canvas generado aleatoriamente. Luego, aplicamos un algoritmo de hash sha256 y dividimos ese resultado entre 100, quedándonos con el residuo (también conocido como módulo con 100). Finalmente, ordenamos a los usuarios en segmentos que corresponden a las asignaciones de porcentaje para variantes (y control opcional) elegidas en el dashboard.
+Para asignar usuarios a variantes de mensaje, variantes en Canvas o sus respectivos grupos de control, comenzamos vinculando su ID de usuario generado aleatoriamente con el ID de Campaign o Canvas generado aleatoriamente. Luego, aplicamos un algoritmo de hash sha256 y dividimos ese resultado entre 100, quedándonos con el residuo (también conocido como módulo con 100). Finalmente, ordenamos a los usuarios en segmentos que corresponden a las asignaciones de porcentaje para variantes (y control opcional) elegidas en el panel.
 
 ### ¿Por qué no puedo usar límites de velocidad con un grupo de control? {#why-cant-i-use-rate-limiting-with-a-control-group}
 
-Braze actualmente no admite límites de velocidad con pruebas A/B que tienen un grupo de control. Esto se debe a que los límites de velocidad no se aplican al grupo de control de la misma manera que a las variantes, lo que introduce sesgo. En su lugar, considera usar [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), que ajusta automáticamente el porcentaje de usuarios que recibirán cada variante basándose en los análisis y el rendimiento de la campaña.
+Braze actualmente no admite límites de velocidad con pruebas A/B que tienen un grupo de control. Esto se debe a que los límites de velocidad no se aplican al grupo de control de la misma manera que a las variantes, lo que introduce sesgo. En su lugar, considera usar la [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), que ajusta automáticamente el porcentaje de usuarios que recibirán cada variante basándose en los análisis y el rendimiento de la Campaign.

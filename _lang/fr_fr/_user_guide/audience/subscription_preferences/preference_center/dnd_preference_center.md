@@ -100,9 +100,11 @@ Ensuite, personnalisez la page de confirmation en sélectionnant **Confirmation 
 
 ## Étape 6 : Prévisualiser et lancer votre centre de préférences {#step-6-preview-and-launch-your-preference-center}
 
-Vous pouvez prévisualiser votre centre de préférences en sélectionnant l'onglet **Preview** dans l'éditeur. Cependant, la fonctionnalité de test est désactivée. De plus, les envois de test de Campaigns ou d'étapes du Canvas qui incluent l'étiquette Liquid du centre de préférences ne génèrent pas de lien valide. Pour tester l'ensemble des fonctionnalités de votre centre de préférences, envoyez une Campaign ou un Canvas en direct. Après avoir modifié votre centre de préférences, vous pouvez fermer l'éditeur en sélectionnant **Done**.
+Vous pouvez prévisualiser votre centre de préférences en sélectionnant l'onglet **Preview** dans l'éditeur. L'aperçu affiche à la fois le centre de préférences et la page de confirmation.
 
-L'aperçu affiche à la fois le centre de préférences et la page de confirmation. Sélectionnez **Save as Draft** pour revenir à ce centre de préférences ultérieurement, ou si vous êtes satisfait, sélectionnez **Launch Preference Center**.
+Cependant, la fonctionnalité de test est désactivée. De plus, les envois de test de Campaigns ou d'étapes du Canvas qui incluent l'étiquette Liquid du centre de préférences ne génèrent pas de lien valide. Cet aperçu ne vous permet pas d'enregistrer des modifications d'abonnement — il montre uniquement l'apparence de la page. Pour tester l'enregistrement des préférences, consultez [Tester les centres de préférences](#testing-preference-centers). Après avoir modifié votre centre de préférences, vous pouvez fermer l'éditeur en sélectionnant le bouton **Done**.
+
+Sélectionnez **Save as Draft** pour revenir à ce centre de préférences ultérieurement, ou si vous êtes satisfait, sélectionnez **Launch Preference Center**.
 
 Lors du lancement du centre de préférences, vous serez invité à confirmer le nom, car il ne pourra plus être modifié après le lancement. Après avoir confirmé le nom, le centre de préférences sera lancé et prêt à être utilisé.
 
@@ -115,6 +117,14 @@ Pour placer un lien vers le centre de préférences dans vos e-mails, copiez l'�
 ![L'option Copy Liquid dans la ligne d'un centre de préférences.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
 Ajoutez l'étiquette Liquid à l'emplacement souhaité dans votre e-mail, de la même manière que les [URL de désabonnement]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) sont insérées.
+
+{% multi_lang_include preference_center/testing.md %}
+
+## Questions fréquentes {#frequently-asked-questions}
+
+### Pourquoi mon centre de préférences ne fonctionne-t-il pas lors d'un envoi de test ? {#why-doesnt-my-preference-center-work-in-a-test-send}
+
+Les liens du centre de préférences nécessitent un contexte d'envoi en direct. Les envois de test ne génèrent pas d'URL valides pour le centre de préférences, et le bouton **Save Preferences** est désactivé si la page se charge. Il s'agit du comportement attendu. Pour tester de bout en bout, lancez une Campaign ou une étape du Canvas vers un utilisateur test ou un petit segment interne. Pour plus de détails, consultez [Tester les centres de préférences](#testing-preference-centers).
 
 ## Gestion des erreurs {#handle-errors}
 

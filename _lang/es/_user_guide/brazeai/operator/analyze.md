@@ -17,7 +17,7 @@ Operator Analyze se encuentra actualmente en fase beta. Las capacidades y los an
 
 ## ¿Por qué usar Operator Analyze? {#why-use-operator-analyze}
 
-La mayoría de las preguntas sobre rendimiento aún requieren cambiar de herramienta, crear vistas o esperar a que alguien más lo haga. Algunos ejemplos incluyen "¿Cómo fue la semana pasada?", "¿Estamos alineados con el punto de referencia?" y "¿Qué campaña está generando los mejores resultados?"
+La mayoría de las preguntas sobre rendimiento aún requieren cambiar de herramienta, crear vistas o esperar a que alguien más lo haga. Algunos ejemplos incluyen "¿Cómo fue la semana pasada?", "¿Estamos alineados con el punto de referencia?" y "¿Qué Campaign está generando los mejores resultados?"
 
 Operator Analyze cubre métricas de participación, *ingresos atribuidos* y puntos de referencia del sector. Son los mismos datos que de otro modo tendrías que extraer en un informe o panel. Pregunta con tus propias palabras desde el panel de Operator. Obtienes un gráfico, una comparación clasificada o una tabla, además de uno a cinco análisis accionables.
 
@@ -52,10 +52,10 @@ Describe lo que quieres saber. No se requiere una redacción fija. Selecciona un
 {% endtab %}
 {% tab Detalles de Campaign y Canvas %}
 
-* "¿Cuáles son nuestras 10 mejores campañas de correo electrónico por *tasa de click-through* este trimestre fiscal?"
+* "¿Cuáles son nuestras 10 mejores Campaigns de correo electrónico por *tasa de click-through* este trimestre fiscal?"
 * "¿Qué Canvas generaron más *clics* el mes pasado?"
-* "¿Qué campañas generaron más *ingresos atribuidos* en el Q1 del año fiscal 26?"
-* "Muestra nuestras campañas de push con peor rendimiento en los últimos 30 días."
+* "¿Qué Campaigns generaron más *ingresos atribuidos* en el Q1 del año fiscal 26?"
+* "Muestra nuestras Campaigns de push con peor rendimiento en los últimos 30 días."
 
 {% endtab %}
 {% tab Análisis de tendencias %}
@@ -71,7 +71,7 @@ Describe lo que quieres saber. No se requiere una redacción fija. Selecciona un
 Pregunta sobre *ingresos atribuidos* y *conversiones* agregados a nivel de Campaign, Canvas, canal o programa.
 
 * "Compara los *ingresos atribuidos* y las *conversiones* del trimestre más reciente con el trimestre anterior."
-* "¿Qué campañas generaron más *ingresos atribuidos* en los últimos 90 días?"
+* "¿Qué Campaigns generaron más *ingresos atribuidos* en los últimos 90 días?"
 * "Desglosa los *ingresos atribuidos* por canal para el año fiscal 26 hasta la fecha."
 
 {% endtab %}
@@ -131,8 +131,8 @@ También puedes usar rangos en formato ISO como `Q4 2025` o `2025-03-01 to 2025-
 Operator Analyze usa de forma predeterminada **7 días**. Indica una ventana en tu pregunta para cambiarla:
 
 * **1 día** para verificaciones rápidas de participación
-* **3 días** para campañas de ciclo corto
-* **7 días** para resúmenes generales y lecturas de campañas (predeterminado)
+* **3 días** para Campaigns de ciclo corto
+* **7 días** para resúmenes generales y lecturas de Campaigns (predeterminado)
 * **30 días** para vistas estratégicas o de largo plazo
 * **Todas las ventanas** para una comparación lado a lado de 1D / 3D / 7D / 30D
 

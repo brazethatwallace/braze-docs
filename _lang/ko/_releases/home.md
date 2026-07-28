@@ -40,7 +40,7 @@ page_type: reference
 
 ### BrazeAI<sup>TM</sup>
 
-#### Operator가 이제 설정 페이지를 대신 업데이트할 수 있습니다 {#operator-can-now-update-settings-pages-for-you}
+#### Operator가 이제 설정 페이지를 직접 업데이트 가능 {#operator-can-now-update-settings-pages-for-you}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -101,7 +101,7 @@ page_type: reference
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 URL과 자산 ID를 안정적으로 유지하면서 [기존 미디어 라이브러리 자산의 파일을 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)할 수 있습니다. URL이 변경되지 않으므로 해당 자산을 참조하는 모든 Campaign, Canvas, Content Block 또는 템플릿이 업데이트된 파일을 자동으로 반영하여 사용되는 모든 곳에서 수동으로 다시 업로드하거나 다시 연결할 필요가 없습니다.
+이제 URL과 자산 ID를 안정적으로 유지하면서 [기존 미디어 라이브러리 자산의 파일을 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)할 수 있습니다. URL이 변경되지 않으므로 해당 자산을 참조하는 모든 Campaign, Canvas, Content Block 또는 템플릿이 자동으로 업데이트된 파일을 반영하여 사용되는 모든 곳에서 수동으로 다시 업로드하거나 다시 연결할 필요가 없습니다.
 
 #### 미디어 라이브러리의 그리드 뷰 {#grid-view-for-the-media-library}
 
@@ -109,7 +109,7 @@ page_type: reference
 
 미디어 라이브러리와 일부 템플릿 라이브러리에서 이제 기존 목록 뷰와 함께 그리드 뷰를 제공합니다. 그리드 뷰는 자산을 주요 메타데이터(이름, 유형, 최종 수정일)와 함께 썸네일로 표시하여 파일 이름 대신 시각적으로 이미지와 크리에이티브를 더 빠르게 찾을 수 있습니다. 필터링과 검색은 두 뷰 모두에서 동일하게 작동합니다.
 
-#### 더 많은 채널에 대한 공유 가능한 미리보기 지원 {#shareable-preview-support-for-more-channels}
+#### 더 많은 채널을 위한 공유 가능한 미리보기 지원 {#shareable-preview-support-for-more-channels}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -121,7 +121,7 @@ page_type: reference
 - Content Cards
 - LINE
 
-Campaign이나 메시지에서 링크를 생성하고 Braze 대시보드 액세스 권한이 없는 검토자(브랜드, 법무, 외부 에이전시 등)와 공유할 수 있습니다. 수신자는 모든 브라우저에서 링크를 열어 테스트 개인화를 포함하여 고객이 보는 것처럼 렌더링된 메시지를 볼 수 있습니다.
+Campaign이나 메시지에서 링크를 생성하여 Braze 대시보드 액세스 권한이 없는 검토자(브랜드, 법무, 외부 에이전시 등)와 공유할 수 있습니다. 수신자는 모든 브라우저에서 링크를 열어 테스트 개인화를 포함하여 고객이 보는 것처럼 렌더링된 메시지를 볼 수 있습니다.
 
 #### 푸시 자격 증명 업데이트 API {#push-credentials-update-api}
 
@@ -163,12 +163,12 @@ Campaign이나 메시지에서 링크를 생성하고 Braze 대시보드 액세�
 - [Web SDK 6.10.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
     - `unregisterPush` 및 로그아웃 메서드를 추가합니다.
     - 이커머스 이벤트에 추가 필드를 추가합니다.
-    - 시작 시 중복 새로고침과 관련된 배너 및 Content Card 문제를 수정합니다.
+    - 시작 시 중복 새로고침과 관련된 배너 및 Content Cards 문제를 수정합니다.
     - 배너 해제를 위한 공개 메서드를 추가합니다.
 - [Flutter SDK 21.0.0](https://github.com/braze-inc/braze-flutter-sdk/releases/tag/v21.0.0)
     - 네이티브 iOS 브리지를 업데이트합니다.
     - 더 이상 사용되지 않는 메서드를 제거합니다.
-    - `changeUser`, `enableSDK`, `disableSDK` 핸들러가 완료 결과를 반환하도록 업데이트합니다.
+    - `changeUser`, `enableSDK`, `disableSDK` 핸들러를 완료 결과를 반환하도록 업데이트합니다.
 - [Expo SDK 5.2.0](https://github.com/braze-inc/braze-expo-plugin/releases/tag/v5.2.0)
     - 샘플 앱을 Expo SDK 56으로 업데이트합니다.
 - [React Native SDK 22.0.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/22.0.0)
@@ -797,7 +797,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 [콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)은 자동화된 인게이지먼트 최적화를 제공하는 지속적인 고배리언트 콘텐츠 테스트 캔버스 단계입니다. 메시지 단계와 유사한 드래그 앤 드롭 인터페이스를 사용하여 테스트할 구성요소를 정의하고, AI를 사용하여 배리언트를 생성하거나 수동으로 입력한 다음, Liquid 태그를 사용하여 이러한 구성요소를 메시지 콘텐츠에 매핑할 수 있습니다.
 
-비상황별 멀티암드 밴딧 옵티마이저를 기반으로 구축된 콘텐츠 최적화 프로그램은 사용자당 단일 메시지를 전송하며, 예측 추천을 기반으로 전달할 구성요소 배리언트 조합을 결정합니다. 단계가 시간이 지남에 따라 데이터를 수집하면서 성과가 우수한 배리언트는 자연스럽게 전송 할당이 증가하고 성과가 낮은 배리언트는 감소합니다. 콘텐츠 최적화 프로그램은 지속적인 최적화를 위해 일일 사용자 수가 일정한(하루 최소 수천 명) 반복 전송 Canvas에서 가장 잘 작동합니다.
+비상황별 멀티암드 밴딧 옵티마이저를 기반으로 구축된 콘텐츠 최적화 프로그램은 사용자당 단일 메시지를 전송하며, 예측 추천을 기반으로 전달할 구성요소 배리언트 조합을 결정합니다. 단계가 시간이 지남에 따라 데이터를 수집하면서 성과가 우수한 배리언트는 자연스럽게 전송 할당이 증가하고 성과가 낮은 배리언트는 감소합니다. 콘텐츠 최적화 프로그램은 지속적인 최적화를 위해 일일 사용자 수가 일정한(하루 최소 수천 명) 반복 전송 Canvases에서 가장 잘 작동합니다.
 
 ### 데이터 및 보고
 

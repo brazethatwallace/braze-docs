@@ -2,16 +2,16 @@
 nav_title: HTMLメールテンプレート
 article_title: HTMLメールテンプレートの生成
 permalink: "/template_assistant/"
-description: "このリファレンス記事では、Operatorを使用してHTMLメールテンプレートを生成する方法について、仕組みやプロンプトの例を含めて説明します。"
+description: "このリファレンス記事では、オペレーターを使用してHTMLメールテンプレートを生成する方法について、仕組みやプロンプトの例を含めて説明します。"
 page_type: reference
 ---
 
 # HTMLメールテンプレートの生成 {#generate-html-email-templates}
 
-> Operatorを使用して、HTMLメールテンプレートを生成・改善できます。必要なテンプレートを自然言語で説明すると、Operatorがブランドガイドラインとグローバルスタイル設定を使用してテンプレートを構築または変更します。
+> オペレーターを使用して、HTMLメールテンプレートを生成・改善できます。必要なテンプレートを自然言語で説明すると、オペレーターがブランド・ガイドラインとグローバルスタイル設定を使用してテンプレートを構築または変更します。
 
 {% alert important %}
-OperatorによるHTMLメールテンプレートの生成は早期アクセス段階です。この早期アクセスへの参加にご興味がある場合は、Brazeアカウントマネージャーにお問い合わせください。
+オペレーターによるHTMLメールテンプレートの生成は早期アクセス段階です。この早期アクセスへの参加にご興味がある場合は、Brazeアカウントマネージャーにお問い合わせください。
 
 この機能はメールチャネルのHTMLエディターでのみサポートされており、その他のエディター（ドラッグ＆ドロップやAMPなど）ではサポートされていません。
 {% endalert %}
@@ -20,15 +20,16 @@ OperatorによるHTMLメールテンプレートの生成は早期アクセス�
 
 ## アクセス方法 {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_html_template.md %}
+HTMLメールテンプレートエディターで、**生成**サイドバーグループに**テンプレート**オプションがあります。これを選択すると、ブランドに沿ったHTMLメールテンプレートを生成または改善できます。オペレーターが[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を適用し、ブランドのボイスやスタイルに合った結果を生成します。
+
 
 ## 仕組み {#how-it-works}
 
-Operatorは、[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)と[グローバルスタイル設定]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/)を使用して、メッセージのコンテンツとスタイルをブランドに合わせて調整します。
+オペレーターは、[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)と[グローバルスタイル設定]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings)を使用して、メッセージのコンテンツとスタイルをブランドに合わせて調整します。
 
-たとえば、グローバルスタイル設定が設定されている場合、Operatorはブランドのカラーやスタイルを取り入れます。Brazeでブランドガイドラインが定義されている場合、Operatorはそれらも参照して、ブランドのトーンやパーソナリティに合ったコピーを作成します。
+たとえば、グローバルスタイル設定が設定されている場合、オペレーターはブランドのカラーやスタイルを取り入れます。Brazeでブランド・ガイドラインが定義されている場合、オペレーターはそれらも参照して、ブランドのトーンやパーソナリティに合ったコピーを作成します。
 
-Operatorは、モバイルレスポンシブ対応のテンプレートへの改善も行います。
+オペレーターは、モバイルレスポンシブ対応のテンプレートへの改善も行います。
 
 ## プロンプトの例 {#example-prompts}
 

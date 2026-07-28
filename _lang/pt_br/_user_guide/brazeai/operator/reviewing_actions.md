@@ -24,16 +24,7 @@ Se uma ação falhar após a aprovação, o Operator vai notificar você com det
 
 ### Disponibilidade {#availability}
 
-Os cartões de ação são compatíveis com os seguintes editores e páginas.
-
-- **Editores de mensagem:**
-    - Mensagens no app (apenas editor tradicional)
-    - Content Cards
-    - E-mail (apenas editor de HTML)
-    - Notificações por push
-    - SMS/MMS/RCS
-    - Webhooks
-- Página [Criar agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+Os cartões de ação são compatíveis com conteúdo de mensagens nos mesmos canais e editores em que o Operator pode gerar mensagens, e na página [Criar agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents). Para ver os canais e editores compatíveis, consulte [Gerar mensagens]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
 
 Em outras páginas, o Operator fornece uma lista de etapas a seguir na interface em vez de tomar a ação por conta própria. A funcionalidade do Operator está sendo aprimorada regularmente, e a expectativa é que a cobertura para ferramentas de criação seja expandida.
 

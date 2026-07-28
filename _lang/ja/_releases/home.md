@@ -40,11 +40,11 @@ page_type: reference
 
 ### BrazeAI<sup>TM</sup>
 
-#### オペレーターが設定ページを更新可能に {#operator-can-now-update-settings-pages-for-you}
+#### Operatorが設定ページを更新可能に {#operator-can-now-update-settings-pages-for-you}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[オペレーター]({{site.baseurl}}/user_guide/brazeai/operator/capabilities)が、より多くの設定ページで直接変更を行えるようになりました。設定画面をクリックして操作する代わりに、自然言語で変更内容を記述できます。サポートされるページは以下のとおりです。
+[Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities)が、より多くの設定ページで直接変更を行えるようになりました。設定画面をクリックして操作する代わりに、自然言語で変更内容を記述できます。サポートされるページは以下のとおりです。
 
 - クワイエットアワー
 - プッシュ設定
@@ -53,7 +53,7 @@ page_type: reference
 - その他の識別子とAPI制限
 - 連絡先情報
 
-たとえば、クワイエットアワーページで、オペレーターにSMSのクワイエットアワーを午後9時から午前8時に設定するよう依頼できます。
+たとえば、クワイエットアワーページで、OperatorにSMSのクワイエットアワーを午後9時から午前8時に設定するよう依頼できます。
 
 #### リモートBraze MCPサーバー {#remote-braze-mcp-server}
 
@@ -65,7 +65,7 @@ page_type: reference
 
 ### オーケストレーション {#orchestration}
 
-#### チームオーディエンススコーピング {#teams-audience-scoping}
+#### チームのオーディエンススコーピング {#teams-audience-scoping}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -89,7 +89,7 @@ page_type: reference
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-新しい[Shopify]({{site.baseurl}}/partners/ecommerce/shopify)顧客は、セットアップ時に最新のBraze Web SDKおよびJavaScript SDKバージョンでプロビジョニングされます。既存の顧客は、インテグレーション設定で現在のSDKバージョンを確認し、新しいバージョンが利用可能になると通知を受け取り、インテグレーション設定からセルフサーブでアップグレードできます。
+新しい[Shopify]({{site.baseurl}}/partners/ecommerce/shopify)顧客は、セットアップ時に最新のBraze Web SDKおよびJavaScript SDKバージョンでプロビジョニングされます。既存の顧客は、インテグレーション設定で現在のSDKバージョンを確認し、新しいバージョンが利用可能になったときに通知を受け取り、インテグレーション設定からセルフサーブでアップグレードできます。
 
 #### バナー用HTMLエディタ {#html-editor-for-banners}
 
@@ -101,7 +101,7 @@ page_type: reference
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-URLとアセットIDを安定させたまま、[既存のメディアライブラリアセットのファイルを置換]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)できるようになりました。URLが変わらないため、そのアセットを参照するキャンペーン、キャンバス、Content Block、テンプレートは自動的に更新されたファイルを反映し、使用されているすべての場所で手動で再アップロードや再リンクする必要がありません。
+URLとアセットIDを安定させたまま、[既存のメディアライブラリアセットのファイルを置換]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)できるようになりました。URLが変わらないため、そのアセットを参照するキャンペーン、キャンバス、Content Block、テンプレートは自動的に更新されたファイルを反映するため、使用されているすべての場所で手動で再アップロードや再リンクする必要がありません。
 
 #### メディアライブラリのグリッドビュー {#grid-view-for-the-media-library}
 
@@ -127,7 +127,7 @@ URLとアセットIDを安定させたまま、[既存のメディアライブ�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[プッシュ認証情報更新エンドポイント]({{site.baseurl}}/api/endpoints/apps/post_update_push_credential)を使用して、プッシュ認証情報をプログラムで更新できるようになりました。各リクエストは1つのアプリと1つのプラットフォーム（`apple`、`firebase`、`huawei`、または`kindle`）を更新し、認証情報ペイロードをBase64エンコード値として受け入れます。これにより、大規模なアプリポートフォリオと認証情報ローテーションポリシーを、手動のダッシュボードアップロードに頼らずに管理できます。
+[プッシュ認証情報更新エンドポイント]({{site.baseurl}}/api/endpoints/apps/post_update_push_credential)を使用して、プッシュ認証情報をプログラムで更新できるようになりました。各リクエストは1つのアプリと1つのプラットフォーム（`apple`、`firebase`、`huawei`、または`kindle`）を更新し、認証情報ペイロードをBase64エンコード値として受け入れます。これにより、手動のダッシュボードアップロードに依存せずに、大規模なアプリポートフォリオと認証情報ローテーションポリシーを管理できます。
 
 ### パートナーシップ {#partnerships}
 
@@ -152,7 +152,7 @@ URLとアセットIDを安定させたまま、[既存のメディアライブ�
 最新のSDK更新がリリースされました。破壊的更新はSDK更新セクションに記載されています。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
 - [Android SDK 43.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v43.0.0)
-    - `unregisterPush`およびlogoutメソッドを追加しました。
+    - `unregisterPush`およびログアウトメソッドを追加しました。
     - eコマースイベントに追加フィールドを追加しました。
     - プッシュ通知画像読み込みの指数バックオフを追加しました。
 - [Swift SDK 17.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
@@ -161,7 +161,7 @@ URLとアセットIDを安定させたまま、[既存のメディアライブ�
     - デバイスおよびユーザー識別子のノンブロッキングアクセサーを追加しました。
     - `Braze.LiveActivities`の非推奨のpush-to-start更新APIを削除しました。
 - [Web SDK 6.10.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
-    - `unregisterPush`およびlogoutメソッドを追加しました。
+    - `unregisterPush`およびログアウトメソッドを追加しました。
     - eコマースイベントに追加フィールドを追加しました。
     - 起動時の冗長なリフレッシュに関連するバナーおよびContent Cardsの問題を修正しました。
     - バナー却下のパブリックメソッドを追加しました。
@@ -210,29 +210,29 @@ Amazon SES経由でメールを送信するワークスペースでは、[デリ
 
 ### BrazeAI<sup>TM</sup>
 
-#### オペレーターに統合されたBrazeAIアシスタント {#unified-brazeai-assistants-in-operator}
+#### Operatorに統合されたBrazeAIアシスタント {#unified-brazeai-assistants-in-operator}
 
-ダッシュボード全体に散在していたスタンドアロンのBrazeAIアシスタントが[BrazeAI オペレーター]({{site.baseurl}}/user_guide/brazeai/operator)に統合され、オペレーターがダッシュボード全体のマーケター向け生成AI支援のための単一のAIアシスタントとして確立されました。以下のアシスタントがオペレーター経由でルーティングされるようになりました。
+ダッシュボード全体に散在していたスタンドアロンのBrazeAIアシスタントが[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)に統合され、Operatorがダッシュボード全体のマーケター向け生成AI支援のための単一のAIアシスタントとして確立されました。以下のアシスタントがOperator経由でルーティングされるようになりました。
 
 {% multi_lang_include releases/brazeai_operator_legacy_assistants.md %}
 
-既存のエントリポイントは、以前の各レガシーアシスタントボタンがあった場所にそのまま残ります。スタンドアロンアシスタントを開く代わりに、これらのエントリポイントはタスクに事前スコープされたダイナミックプロンプトを持つオペレーターペインを開くようになりました。これらのエントリポイントは、既存のワークフローを調整することなくこれらの機能を使用できるように、オペレーターへの直接ルートを提供します。
+既存のエントリポイントは、以前の各レガシーアシスタントボタンがあった場所にそのまま残ります。スタンドアロンアシスタントを開く代わりに、これらのエントリポイントはタスクに事前スコープされたダイナミックプロンプトを持つOperatorペインを開くようになりました。これらのエントリポイントは、既存のワークフローを調整することなくこれらの機能を使用できるように、Operatorへの直接ルートを提供します。
 
-#### キャンペーン作成と編集のオペレーターサポート {#operator-support-for-campaign-creation-and-editing}
+#### キャンペーン作成と編集のOperatorサポート {#operator-support-for-campaign-creation-and-editing}
 
-[オペレーター]({{site.baseurl}}/user_guide/brazeai/operator)が、メッセージの作成だけでなく、キャンペーン全体の作成と編集ができるようになりました。1つの自然言語プロンプトまたはキャンペーンブリーフから、オペレーターはレビュー可能なキャンペーンをエンドツーエンドで構築します。メッセージの作成、配信のスケジュール、オーディエンスのターゲティング、コンバージョンイベントの割り当てを行い、レビューステップで構築内容を要約します。以前は、オペレーターはメッセージの作成（キャンペーン作成の5つのステップのうちの1つ）のみが可能でしたが、残りのスケジュール、ターゲット、割り当て、レビューのステップも可視化・制御できるようになりました。
+[Operator]({{site.baseurl}}/user_guide/brazeai/operator)が、メッセージの作成だけでなく、キャンペーン全体の作成と編集ができるようになりました。1つの自然言語プロンプトまたはキャンペーンブリーフから、Operatorはレビュー可能なキャンペーンをエンドツーエンドで構築します。メッセージの作成、配信のスケジュール、オーディエンスのターゲティング、コンバージョンイベントの割り当てを行い、レビューステップで構築内容を要約します。以前は、Operatorはメッセージの作成（キャンペーン作成の5つのステップのうちの1つ）のみが可能でしたが、残りのスケジュール、ターゲット、割り当て、レビューのステップも可視化・制御できるようになりました。
 
-この機能は、**キャンペーン**ページまたは既存のキャンペーン内から利用できます。その結果、オペレーターは以下が可能です。
+この機能は、**キャンペーン**ページまたは既存のキャンペーン内から利用できます。その結果、Operatorは以下が可能です。
 
 {% multi_lang_include releases/brazeai_operator_campaign_creation_prompts.md %}
 
-#### Content Blocksのオペレーターサポート {#operator-support-for-content-blocks}
+#### Content BlocksのOperatorサポート {#operator-support-for-content-blocks}
 
-[オペレーター]({{site.baseurl}}/user_guide/brazeai/operator)が、[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)（一度構築して複数のメッセージで参照する再利用可能なスニペット）を自然言語プロンプトから直接作成・編集できるようになりました。**Content Blocks**ページから、オペレーターに新しいContent Blockをゼロから作成するか、既存のものを編集するよう依頼すると、オペレーターがレビュー用のコンテンツを生成または更新します。
+[Operator]({{site.baseurl}}/user_guide/brazeai/operator)が、[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)（一度構築して複数のメッセージで参照する再利用可能なスニペット）を自然言語プロンプトから直接作成・編集できるようになりました。**Content Blocks**ページから、Operatorに新しいContent Blockをゼロから作成するか、既存のものを編集するよう依頼すると、Operatorがレビュー用のコンテンツを生成または更新します。
 
-#### オペレーターで構築されたエージェントコンソールテンプレート {#agent-console-templates-built-with-operator}
+#### Operatorで構築されたエージェントコンソールテンプレート {#agent-console-templates-built-with-operator}
 
-**エージェントコンソール**でエージェントを構築する際に、カスタムエージェントを作成するか、**オペレーターでエージェントを作成**のオプションを選択してBrazeAIオペレーターで開始テンプレートを適用できます。オペレーターは、以下のエージェントコンソール開始テンプレートの指示、出力フィールド、コンテキストを事前設定できます。
+**エージェントコンソール**でエージェントを構築する際に、カスタムエージェントを作成するか、**Operatorでエージェントを作成**のオプションを選択してBrazeAI Operatorで開始テンプレートを適用できます。Operatorは、以下のエージェントコンソール開始テンプレートの指示、出力フィールド、コンテキストを事前設定できます。
 
 詳細については、[カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を参照してください。
 
@@ -368,7 +368,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 #### WhatsApp `inbound_profile_name`
 
-Metaの受信メッセージングwebhookからユーザーのWhatsApp表示名を自動的にキャプチャし、ユーザーのBrazeプロファイルに書き込むことができます。受信WhatsAppメッセージを受信すると、Brazeはプロファイル名を新しいWhatsApp Liquid属性 [{% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %}]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) として公開します。これをキャンバスのユーザー更新ステップで参照して、プロファイルフィールドに保存できます。
+Metaの受信メッセージングwebhookからユーザーのWhatsApp表示名を自動的にキャプチャし、ユーザーのBrazeプロファイルに書き込むことができます。受信WhatsAppメッセージを受信すると、Brazeはプロファイル名を新しいWhatsApp Liquid属性[{% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %}]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)として公開します。これをキャンバスのユーザー更新ステップで参照して、プロファイルフィールドに保存できます。
 
 #### 孤立したSMSサブスクリプション状態 {#orphaned-sms-subscription-states}
 
@@ -548,11 +548,11 @@ Currents Mixpanelインテグレーションが、MixpanelのEUおよびイン�
 
 ### BrazeAI<sup>TM</sup>
 
-#### BrazeAI オペレーター<sup>TM</sup>からサポートチケットを提出 {#file-support-tickets-from-brazeai-operatortm}
+#### BrazeAI Operator<sup>TM</sup>からサポートチケットを提出 {#file-support-tickets-from-brazeai-operatortm}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[BrazeAI オペレーター]({{site.baseurl}}/user_guide/brazeai/operator)に、ダッシュボードを離れずにBrazeサポートチケットを提出するフローが追加されました。手順、自動的に含まれるコンテキスト、および迅速な解決のためのヒントについては、[BrazeAI オペレーターでサポートチケットを提出]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)を参照してください。
+[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)に、ダッシュボードを離れずにBrazeサポートチケットを提出するフローが追加されました。手順、自動的に含まれるコンテキスト、および迅速な解決のためのヒントについては、[BrazeAI Operatorでサポートチケットを提出]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)を参照してください。
 
 ### オーケストレーション
 
@@ -797,7 +797,7 @@ Radius Networksの[Flybuy]({{site.baseurl}}/partners/message_personalization/loc
 
 [コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)は、継続的で高バリアントなコンテンツテストのキャンバスステップで、自動エンゲージメント最適化を実現します。メッセージステップと同様のドラッグ＆ドロップ可能なインターフェイスを使用して、テストするコンポーネントを定義し、AIを使用してバリアントを生成し（または手動で入力）、Liquidタグを使用してこれらのコンポーネントをメッセージコンテンツにマッピングできます。
 
-非コンテキストのマルチアームバンディットオプティマイザに基づいて構築されたコンテンツオプティマイザーは、ユーザーごとに1つのメッセージを送信し、予測推奨に基づいて配信するコンポーネントバリアントの組み合わせを決定します。ステップが時間の経過とともにデータを収集すると、パフォーマンスの高いバリアントは送信割り当てが自然に増え、パフォーマンスの低いバリアントは減ります。コンテンツオプティマイザーは、継続的な最適化を可能にするために、一貫した日次ユーザーボリューム（1日あたり少なくとも数千ユーザー）を持つ繰り返し送信キャンバスで最適に動作します。
+非コンテキストのマルチアームバンディットオプティマイザーに基づいて構築されたコンテンツオプティマイザーは、ユーザーごとに1つのメッセージを送信し、予測推奨に基づいて配信するコンポーネントバリアントの組み合わせを決定します。ステップが時間の経過とともにデータを収集すると、パフォーマンスの高いバリアントは送信割り当てが自然に増え、パフォーマンスの低いバリアントは減ります。コンテンツオプティマイザーは、継続的な最適化を可能にするために、一貫した日次ユーザーボリューム（1日あたり少なくとも数千ユーザー）を持つ繰り返し送信キャンバスで最適に動作します。
 
 ### データ＆レポート
 

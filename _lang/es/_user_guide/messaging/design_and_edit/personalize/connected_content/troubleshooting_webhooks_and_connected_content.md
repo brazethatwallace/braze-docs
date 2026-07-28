@@ -83,6 +83,7 @@ table td {
         <ul>
           <li>Comprueba si la clave de API o el token tiene los permisos necesarios.</li>
           <li>Confirma que tienes los permisos de usuario para acceder al endpoint.</li>
+          <li>Si las solicitudes devuelven consistentemente <code>403</code> y la autenticación parece correcta, tu servidor, puerta de enlace de API o WAF puede estar bloqueando las direcciones IP de salida de Braze. Añade las IP de tu clúster de Braze a la lista de permitidos. Para webhooks, consulta <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">Lista de IP permitidas</a>. Para contenido conectado, consulta <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Lista de IP permitidas de contenido conectado</a>.</li>
         </ul>
       </td>
     </tr>

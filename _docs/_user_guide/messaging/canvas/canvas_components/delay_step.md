@@ -91,6 +91,10 @@ To successfully configure this, you must also select what happens if the user en
 {% endtab %}
 {% endtabs %}
 
+### Profile updates during delays
+
+If a user enters a Canvas and adds a valid email address during the Delay step before it ends, they receive the email at the next step. This applies to other profile updates as well. Any changes to user attributes or contact information during the delay are reflected when the user advances to subsequent steps.
+
 ## Using Delay steps
 
 Let's say that it's June 10. On June 11, you'd like users to enter the Canvas and receive a message about an upcoming promotion. Then, you want to hold users in the Canvas until June 17 at 3 pm local time. At 3 pm local time on June 17, you want to send users a reminder message about the promotion.

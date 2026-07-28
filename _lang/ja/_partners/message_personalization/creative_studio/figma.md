@@ -25,29 +25,29 @@ BrazeとFigmaの連携により、Figmaから直接Brazeメディアライブラ
 |---|---|
 | Figmaアカウント | このパートナーシップを利用するには、Figmaアカウントが必要です。 |
 | Brazeメディアライブラリへのアクセス | Brazeでメディアライブラリアセットの追加、編集、削除を行うには、「Manage Media Library Assets」権限が必要です。 |
-| Brazeワークスペースへのアクセス | Figmaの画像やビジュアルアセットをアップロードするBrazeワークスペースへのアクセス権が必要です。 |
+| Brazeワークスペースへのアクセス | Figmaの画像やビジュアルアセットをアップロードするBrazeのワークスペースへのアクセス権が必要です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 連携 {#integration}
 
-### ステップ 1:Figma to Braze Exportプラグインをインストールする {#step-1-install-the-figma-to-braze-export-plugin}
+### ステップ1:Figma to Braze Exportプラグインをインストールする {#step-1-install-the-figma-to-braze-export-plugin}
 
 FigmaのCommunityにアクセスして、[Braze Exportプラグイン](https://www.figma.com/community/plugin/1606726267245196698/figma-to-braze-export)を見つけます。**Open In**を選択して、Figmaファイルにプラグインを読み込みます。
 
 Figmaでは、**Plugins**セクションからもFigma to Braze Exportプラグインを見つけることができます。
 
-### ステップ 2:Brazeに接続する {#step-2-connect-to-braze}
+### ステップ2:Brazeに接続する {#step-2-connect-to-braze}
 
 インストール後、**Connect to Braze**を選択してBrazeアカウントを接続し、**Continue**を選択します。
 
-次に、**Braze workspace**ドロップダウンからBrazeワークスペースを選択するか、ワークスペース名を入力します。
+次に、**Braze workspace**ドロップダウンからBrazeのワークスペースを選択するか、ワークスペース名を入力します。
 
-### ステップ 3:Figmaアセットを選択する {#step-3-select-your-figma-assets}
+### ステップ3:Figmaアセットを選択する {#step-3-select-your-figma-assets}
 
 Brazeにエクスポートする画像やビジュアルアセットを選択します。複数のアセットを選択するには、<kbd>Shift</kbd>キーを押すか、アセット上でカーソルをドラッグ＆ドロップします。
 
 エクスポートされる画像やビジュアルアセットの名前には、Figmaで選択したフレームの名前が使用されます。
 
-### ステップ 4:Brazeにエクスポートする {#step-4-export-to-braze}
+### ステップ4:Brazeにエクスポートする {#step-4-export-to-braze}
 
 **Export to Braze**を選択します。画像やビジュアルアセットがBrazeメディアライブラリにアップロードされます。この連携を使用してインポートされたすべての画像は、ソースが**Figma**に設定されます。

@@ -156,10 +156,10 @@ CSV 파일을 업로드하여 카탈로그를 생성합니다. `id`, `title`, `p
 
 브라우저에서 카탈로그를 편집하거나 생성하기 전에 워크스페이스에 대한 다음 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다:
 
-- 카탈로그 보기
-- 카탈로그 편집
-- 카탈로그 내보내기
-- 카탈로그 삭제
+- View Catalogs
+- Edit Catalogs
+- Export Catalogs
+- Delete Catalogs
 
 ### 1단계: 카탈로그 세부 정보 입력 {#step-1-enter-catalog-details}
 

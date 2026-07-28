@@ -20,6 +20,7 @@ Para criar e lançar uma campanha, você precisa das permissões "Edit Campaigns
 - Crie ou escolha os [segmentos]({{site.baseurl}}/user_guide/audience/segments) que definem quem deve receber suas mensagens.
 - Revise os [Conceitos básicos de campanhas]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics) para que os canais de envio de mensagens, tipos de entrega e metas de conversão estejam alinhados ao seu caso de uso.
 - Para um passo a passo guiado sobre entrega, direcionamento e conversões, faça o curso do Braze Learning [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions).
+- Peça ao Operator para ajudar a rascunhar sua campanha a partir de um briefing ou refinar as escolhas de direcionamento e entrega. Para mais detalhes, consulte [O que você pode fazer com o Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 ## Criador de campanhas {#campaign-composer}
 
@@ -104,7 +105,7 @@ Componha o conteúdo específico do canal nesta etapa. Para orientações detalh
 Adicione variantes quando quiser comparar divisões criativas ou de entrega. Para informações sobre experimentos e controles, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Quando cada variante usa conteúdo semelhante, componha a mensagem **antes** de adicionar variantes extras. Em seguida, use **Copy from Variant** no menu **Add Variant** para reutilizar o trabalho entre variantes ou canais.
+Quando cada variante usa conteúdo semelhante, componha a mensagem **antes** de adicionar variantes extras. Em seguida, use **Copiar da variante** no menu **Adicionar variante** para reutilizar o trabalho entre variantes ou canais.
 {% endalert %}
 
 ## Etapa 2: Programar entrega {#step-2-schedule-delivery}
@@ -126,27 +127,27 @@ Dependendo do tipo de entrega, você pode ajustar a [reelegibilidade]({{site.bas
 
 ## Etapa 3: Direcionar públicos {#step-3-target-audiences}
 
-Em **Target Audiences**, defina quem é elegível para receber a campanha. Para ver todas as opções de direcionamento, passo a passo da interface e capturas de tela, consulte [Direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
+Em **Públicos-alvo**, defina quem é elegível para receber a campanha. Para ver todas as opções de direcionamento, passo a passo da interface e capturas de tela, consulte [Direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
 
 ### Opções de direcionamento {#targeting-options}
 
-Nesta seção, você pode direcionar usuários escolhendo segmentos ou filtros para refinar seu público. Os usuários elegíveis ainda precisam atender ao gatilho ou critério que você definiu na etapa **Schedule Delivery**. O público-alvo funciona como uma sala de espera — apenas as pessoas que já estão dentro podem avançar quando a próxima ação acontecer.
+Nesta seção, você pode direcionar usuários escolhendo segmentos ou filtros para refinar seu público. Os usuários elegíveis ainda precisam atender ao gatilho ou critério que você definiu na etapa **Programar entrega**. O público-alvo funciona como uma sala de espera — apenas as pessoas que já estão dentro podem avançar quando a próxima ação acontecer.
 
 As [listas de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists) do espaço de trabalho excluem automaticamente os usuários listados, a menos que você permita uma exceção para esta campanha.
 
 ### Resumo do público {#audience-summary}
 
-Após adicionar segmentos ou filtros, o **Resumo do público** oferece uma pré-visualização de como é a população desse segmento, incluindo quantos usuários dentro dele são alcançáveis pelos canais selecionados. As contagens de alcance refletem os dados do seu espaço de trabalho, a configuração do canal e os filtros. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem. Para públicos muito grandes, a Braze pode exibir estimativas até que você calcule as estatísticas exatas.
+Após adicionar segmentos ou filtros, o **Resumo do público** oferece uma prévia de como é a população desse segmento, incluindo quantos usuários dentro dele são alcançáveis pelos canais selecionados. As contagens de alcance refletem os dados do seu espaço de trabalho, a configuração do canal e os filtros. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem. Para públicos muito grandes, a Braze pode exibir estimativas até que você calcule as estatísticas exatas.
 
 ### Busca de usuário {#user-lookup}
 
-Após adicionar segmentos ou filtros, você pode testar se seu público está configurado conforme esperado buscando um usuário para confirmar se ele corresponde aos critérios do segmento. Para isso, pesquise o `external_id` ou `braze_id` de um usuário na seção **User Lookup**. Não é possível pesquisar por endereço de e-mail aqui. Consulte [Testando segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) para saber mais.
+Após adicionar segmentos ou filtros, você pode testar se seu público está configurado conforme esperado buscando um usuário para confirmar se ele corresponde aos critérios do segmento. Para isso, pesquise o `external_id` ou `braze_id` de um usuário na seção **Busca de usuário**. Não é possível pesquisar por endereço de e-mail aqui. Consulte [Testando segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) para saber mais.
 
 Quando um usuário corresponde aos critérios de segmento, filtro e app, um alerta informa isso. Quando um usuário não corresponde a parte ou a todos os critérios de segmento, filtro ou app, os critérios ausentes são listados para fins de solução de problemas.
 
 ### Enviar para estes usuários {#send-to-these-users}
 
-Para canais baseados em inscrição (e-mail, SMS e similares), use **Send to these users** para enviar sua campanha apenas para usuários que tenham um status de inscrição específico, como aqueles que estão inscritos e optaram por receber e-mail.
+Para canais baseados em inscrição (e-mail, SMS e similares), use **Enviar para estes usuários** para enviar sua campanha apenas para usuários que tenham um status de inscrição específico, como aqueles que estão inscritos e optaram por receber e-mail.
 
 ### Limitar volume de envio {#limit-send-volume}
 
@@ -174,12 +175,12 @@ Não é possível adicionar ou remover eventos de conversão após o lançamento
 
 ## Etapa 5: Revisar resumo e lançar {#step-5-review-summary-and-launch}
 
-A etapa **Review Summary** mostra as escolhas de agendamento, público, variantes e envio de mensagens. Antes de lançar sua campanha:
+A etapa **Revisar resumo** mostra as escolhas de agendamento, público, variantes e envio de mensagens. Antes de lançar sua campanha:
 
 1. Confirme se os segmentos, variantes e configurações de entrega correspondem à sua intenção.
 2. [Envie mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) para validar a renderização e o comportamento nos seus dispositivos de teste ou destinatários internos.
 
-Quando estiver pronto, selecione **Launch Campaign**.
+Quando estiver pronto, selecione **Lançar campanha**.
 
 ### Aprovações {#approvals}
 

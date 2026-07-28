@@ -183,15 +183,26 @@ Les variables de contexte sont déclarées et accessibles uniquement dans le pé
 
 De la même manière que les variables de contexte Canvas ont des types prédéfinis, les comparaisons entre variables de contexte et valeurs statiques doivent avoir des [types de données correspondants]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). Le filtre de variable de contexte permet des comparaisons sur plusieurs types de données pour les booléens, les nombres, les chaînes de caractères, l'heure et le jour de l'année, de manière similaire aux comparaisons pour les [attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
+Voici un exemple de filtre de variable de contexte comparant la variable de contexte `product_name` à l'expression régulière `/braze/`.
+
+![Configuration d'un filtre pour la variable de contexte « product_name » correspondant à l'expression régulière « /braze/ ».]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### Filtres Jour de l'année et Heure pour les variables de contexte de type date {#day-of-year-and-time-filters-for-date-context-variables}
+
+Pour utiliser les filtres de comparaison **Jour de l'année** ou **Heure** avec une variable de contexte :
+
+1. Ajoutez une [étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) qui définit une variable de contexte sur une date du calendrier (par exemple, le 23 octobre 2025).
+2. Ajoutez une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) après l'étape de contexte.
+3. Dans l'étape Parcours d'audience, ajoutez un filtre qui répartit les utilisateurs en fonction de cette variable de contexte.
+4. Choisissez une comparaison dans la catégorie **Jour de l'année** ou **Heure**.
+
+Si une variable de contexte n'a pas de type déclaré, Braze affiche tous les types de comparaison disponibles dans le menu déroulant, y compris **Jour de l'année** et **Heure**. Si la variable est déclarée comme type **heure** dans l'étape de contexte, seules les comparaisons **Jour de l'année** et **Heure** sont affichées. Pour les autres types de données avec un type connu (par exemple, un attribut personnalisé imbriqué avec un type heure), seules les comparaisons applicables à ce type sont affichées.
+
 {% alert note %}
 Utilisez le même type de données pour votre variable de contexte et votre comparaison. Par exemple, si votre variable de contexte est de type heure, utilisez des comparaisons temporelles (telles que « avant » ou « après »). L'utilisation de types de données incompatibles (comme des comparaisons de chaînes de caractères avec une variable de contexte de type heure) peut entraîner un comportement inattendu.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-Voici un exemple de filtre de variable de contexte comparant la variable de contexte `product_name` à l'expression régulière `/braze/`.
-
-![Configuration d'un filtre pour la variable de contexte « product_name » correspondant à l'expression régulière « /braze/ ».]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### Comparaison avec des variables de contexte ou des attributs personnalisés {#comparing-to-context-variables-or-custom-attributes}
 

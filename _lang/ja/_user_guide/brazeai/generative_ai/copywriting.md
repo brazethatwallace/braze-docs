@@ -14,6 +14,7 @@ description: "このリファレンス記事では、オペレーターを使用
 
 ## アクセス方法 {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_copy.md %}
+任意のメッセージ作成画面でオペレーターを開き、マーケティングコピーの下書きと改善を行います。製品やキャンペーンの説明を入力すると、オペレーターが確認・挿入可能なコピーを返します。
+
 
 利用可能なトーン、プロンプトの例、ブランドガイドラインの統合などの詳細については、[オペレーターの機能でコピーを生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)を参照してください。

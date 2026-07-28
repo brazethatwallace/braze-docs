@@ -634,7 +634,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 アクセシビリティの問題を早期に特定して修正するために、Brazeは以下の領域で自動アクセシビリティテストを提供しています：
 
 - メール用の[Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing)
-- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)（例：HTMLのアプリ内メッセージ、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)）
+- HTMLエディターを使用して作成されたメッセージ用の[アクセシビリティスキャナー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)（例：HTMLのIn-App Messages、HTML Content Blocks、[カスタムメールフッター]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)、[メールオプトインページ]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page)、[メール配信停止ページ]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)）
 
 これらのテストは、Webコンテンツアクセシビリティガイドライン（[WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)）標準（アクセシブルなコンテンツのための国際的に認められた技術標準のセット）に基づいてメッセージをチェックします。自動的に検出できる問題はフラグが立てられ、優先順位付けに役立つように重大度別に分類されます。
 

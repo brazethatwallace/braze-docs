@@ -11,7 +11,7 @@ page_type: reference
 # O que há de novo na Braze {#whats-new-in-braze}
 
 {% alert tip %}
-Para saber mais sobre qualquer uma das atualizações listadas nesta página, entre em contato com o gerente da sua conta ou [abra um tíquete de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support). Confira também nossos [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs) para mais informações sobre nossas versões mensais do SDK, melhorias e alterações significativas.
+Para saber mais sobre qualquer uma das atualizações listadas nesta página, entre em contato com o gerente da sua conta ou [abra um ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support). Confira também nossos [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs) para mais informações sobre nossas versões mensais do SDK, melhorias e alterações significativas.
 {% endalert %}
 
 {% details 23 de julho de 2026 %}
@@ -30,9 +30,9 @@ O [dashboard de Diagnóstico de Mensagens]({{site.baseurl}}/user_guide/analytics
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-O [fluxo de importação por CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#about-csv-import) para eventos personalizados agora inclui um mapeador que permite mapear nomes de eventos e cabeçalhos de propriedades de eventos para campos da Braze antes da importação. Essa atualização alinha a experiência de eventos personalizados com o fluxo de atributos personalizados e reduz a necessidade de reformatar arquivos antes do upload. O fluxo inclui o upload de um CSV, o mapeamento de campos e eventos obrigatórios, o mapeamento de propriedades de eventos e, em seguida, a seleção de preferências de direcionamento antes da importação. Se o seu arquivo já corresponder ao formato esperado, você pode prosseguir pelo fluxo sem fazer alterações de mapeamento.
+O [fluxo de importação por CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#about-csv-import) para eventos personalizados agora inclui um mapeador que permite mapear nomes de eventos e cabeçalhos de propriedades de eventos para campos da Braze antes da importação. Essa atualização alinha a experiência de eventos personalizados com o fluxo de atributos personalizados e reduz a necessidade de reformatar arquivos antes do upload. O fluxo inclui o upload de um CSV, o mapeamento de campos e eventos obrigatórios, o mapeamento de propriedades de eventos e, em seguida, a seleção de preferências de direcionamento antes da importação. Se o seu arquivo já corresponder ao formato esperado, você pode continuar pelo fluxo sem fazer alterações no mapeamento.
 
-#### Armazenamento gratuito de catálogos agora suporta até 500 MB {#catalogs-free-storage-now-supports-up-to-500-mb}
+#### O armazenamento gratuito de catálogos agora suporta até 500 MB {#catalogs-free-storage-now-supports-up-to-500-mb}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -53,13 +53,13 @@ O [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities) agora po
 - Outros identificadores e limites de API
 - Informações de contato
 
-Por exemplo, na página de horário de silêncio, peça ao Operator para definir o horário de silêncio das 21h às 8h para SMS.
+Por exemplo, na página de Horário de silêncio, peça ao Operator para definir o horário de silêncio das 21h às 8h para SMS.
 
 #### Servidor MCP remoto da Braze {#remote-braze-mcp-server}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-O [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) é uma conexão hospedada remotamente que permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity e Claude Code diretamente à Braze. Por meio de linguagem natural, os agentes podem ler análises de Campaigns, Canvas e Segments, atributos personalizados, eventos, KPIs e catálogos, além de criar ou atualizar modelos de e-mail, Content Blocks e ativos da biblioteca de mídia. Nenhum PII de perfil de usuário é exposto.
+O [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) é uma conexão hospedada remotamente que permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity e Claude Code diretamente à Braze. Por meio de linguagem natural, os agentes podem ler análises de Campaigns, Canvas e Segments, atributos personalizados, eventos, KPIs e catálogos, além de criar ou atualizar modelos de e-mail, Content Blocks e ativos da biblioteca de mídia. Nenhuma PII de perfil de usuário é exposta.
 
 Para conectar, cole um único URL de endpoint no seu cliente MCP — `https://mcp.braze.com/mcp` para US ou `https://mcp.braze.eu/mcp` para EU — e faça login com OAuth, incluindo SSO. O servidor é iniciado com as ferramentas disponíveis.
 
@@ -69,7 +69,7 @@ Para conectar, cole um único URL de endpoint no seu cliente MCP — `https://mc
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-A configuração de público das [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) agora suporta múltiplos filtros.
+A configuração de público das [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) agora suporta múltiplos filtros.
 
 ### Canais e pontos de contato {#channels-touchpoints}
 
@@ -83,19 +83,19 @@ Adicione uma escala de avaliação numérica a um bloco de formulário em [pesqu
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Os [modelos de oferta por tempo limitado do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates) exibem uma oferta promocional com prazo determinado e uma contagem regressiva opcional conforme a oferta se aproxima do vencimento. Use esse layout para promoções com prazo definido, como vendas sazonais ou ofertas personalizadas com base em um atributo do usuário.
+Os [modelos de oferta por tempo limitado do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates) exibem uma oferta promocional com prazo determinado e uma contagem regressiva opcional conforme a oferta se aproxima da expiração. Use esse layout para promoções com prazo definido, como vendas sazonais ou ofertas personalizadas com base em um atributo do usuário.
 
 #### Upgrade de versão do SDK da Shopify por autoatendimento {#shopify-self-serve-sdk-version-upgrade}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Novos clientes da [Shopify]({{site.baseurl}}/partners/ecommerce/shopify) são provisionados nas versões mais recentes do Braze Web SDK e JavaScript SDK durante a configuração. Clientes existentes podem visualizar a versão atual do SDK nas configurações de integração, receber notificações quando uma versão mais recente estiver disponível e fazer upgrades por autoatendimento nas configurações de integração.
+Novos clientes da [Shopify]({{site.baseurl}}/partners/ecommerce/shopify) são provisionados nas versões mais recentes do Braze Web SDK e JavaScript SDK durante a configuração. Clientes existentes podem visualizar sua versão atual do SDK nas configurações de integração, receber notificações quando uma versão mais recente estiver disponível e fazer upgrades por autoatendimento nas configurações de integração.
 
 #### Editor de HTML para Banners {#html-editor-for-banners}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Ao compor um Banner, agora você pode criá-lo [usando o editor de HTML]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner). O editor de HTML é ideal para equipes que já mantêm seus próprios modelos de HTML ou desejam controle total sobre a marcação e o estilo dos Banners. Você pode escrever ou colar HTML personalizado diretamente no editor.
+Ao compor um Banner, agora você pode criá-lo [usando o editor de HTML]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner). O editor de HTML é ideal para equipes que já mantêm seus próprios modelos HTML ou desejam controle total sobre a marcação e o estilo dos Banners. Você pode escrever ou colar HTML personalizado diretamente no editor.
 
 #### Substituir um arquivo na biblioteca de mídia {#replace-a-file-in-the-media-library}
 
@@ -512,7 +512,6 @@ Agora você pode [sincronizar tags de produto, coleções e metafields da Shopif
 
 O [GRAVTY®](https://www.lji.io/) é uma plataforma de fidelidade de nível empresarial da Loyalty Juggernaut Inc. (LJI) que permite que marcas de varejo, viagens, restaurantes (incluindo restaurantes de serviço rápido) e serviços financeiros projetem, gerenciem e escalem programas de próxima geração — impulsionando crescimento mensurável em engajamento, retenção e valor do tempo de vida do cliente por meio de experiências personalizadas e orientadas por dados.
 
-<!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK
 
 As seguintes atualizações do SDK foram lançadas. Para mais detalhes, consulte os [changelogs do SDK]({{site.baseurl}}/releases/sdk_changelogs).
@@ -548,11 +547,11 @@ A Ingestão de Dados na Nuvem (CDI) tem um novo design que separa fontes e sincr
 
 ### BrazeAI<sup>TM</sup>
 
-#### Abra tíquetes de suporte pelo BrazeAI Operator<sup>TM</sup> {#file-support-tickets-from-brazeai-operatortm}
+#### Abra tickets de suporte pelo BrazeAI Operator<sup>TM</sup> {#file-support-tickets-from-brazeai-operatortm}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-O [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) agora inclui um fluxo para abrir tíquetes de suporte da Braze sem sair do dashboard. Para ver os passos, o contexto incluído automaticamente e dicas para resolução mais rápida, consulte [Abrir tíquetes de suporte com o BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets).
+O [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) agora inclui um fluxo para abrir tickets de suporte da Braze sem sair do dashboard. Para ver os passos, o contexto incluído automaticamente e dicas para resolução mais rápida, consulte [Abrir tickets de suporte com o BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets).
 
 ### Orquestração
 
@@ -729,7 +728,7 @@ O [Anthropic]({{site.baseurl}}/partners/ai_model_providers/anthropic) é uma emp
 
 #### Canva - Personalização de mensagens - Estúdio criativo {#canva-message-personalization-creative-studio}
 
-O [Canva]({{site.baseurl}}/partners/canva) sincroniza suas imagens no Canva diretamente com a biblioteca de mídia da Braze, otimizando seu fluxo de trabalho criativo e mantendo seus ativos visuais atualizados em todos os seus canais de envio de mensagens.
+O [Canva]({{site.baseurl}}/partners/canva) sincroniza suas imagens no Canva diretamente com a Biblioteca de mídia da Braze, otimizando seu fluxo de trabalho criativo e mantendo seus ativos visuais atualizados em todos os seus canais de envio de mensagens.
 
 #### DOTS.ECO - Recompensas {#dotseco-rewards}
 
@@ -737,7 +736,7 @@ O [DOTS.ECO]({{site.baseurl}}/partners/additional_channels_and_extensions/extens
 
 #### Figma - Personalização de mensagens - Estúdio criativo {#figma-message-personalization-creative-studio}
 
-O [Figma]({{site.baseurl}}/partners/figma) é uma plataforma de design colaborativo que permite construir, projetar e prototipar produtos. Use essa integração para enviar imagens e ativos visuais do Figma diretamente para a biblioteca de mídia da Braze.
+O [Figma]({{site.baseurl}}/partners/figma) é uma plataforma de design colaborativo que permite construir, projetar e prototipar produtos. Use essa integração para enviar imagens e ativos visuais do Figma diretamente para a Biblioteca de mídia da Braze.
 
 #### Flybuy - Personalização de mensagens - Localização {#flybuy-message-personalization-location}
 
@@ -855,11 +854,11 @@ O [Mailizio]({{site.baseurl}}/partners/mailizio) é uma plataforma de criação 
 
 ### APIs
 
-#### APIs POST da biblioteca de mídia {#media-library-post-apis}
+#### APIs POST da Biblioteca de mídia {#media-library-post-apis}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Os ativos da biblioteca de mídia agora podem ser adicionados via API, permitindo que clientes, parceiros e agências automatizem mais fluxos de trabalho de criação de mensagens. Use a [API]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) para fazer upload de um arquivo de ativo diretamente ou copiar um arquivo de um URL existente. Esse recurso desbloqueia recursos de integração e automação.
+Os ativos da Biblioteca de mídia agora podem ser adicionados via API, permitindo que clientes, parceiros e agências automatizem mais fluxos de trabalho de criação de mensagens. Use a [API]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) para fazer upload de um arquivo de ativo diretamente ou copiar um arquivo de um URL existente. Esse recurso desbloqueia recursos de integração e automação.
 
 ### Currents e Datashare
 
@@ -869,7 +868,7 @@ Os ativos da biblioteca de mídia agora podem ser adicionados via API, permitind
 
 Dois novos [eventos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) estão agora disponíveis para destinos de armazenamento (AWS S3, GCS e Azure Blob Storage) e Snowflake Datashare: `agentconsole.AgentExecuted` e `agentconsole.ToolInvocation`. Esses eventos permitem que você analise o uso e os detalhes do Console do agente em seus sistemas downstream, ajudando-o a entender e aproveitar ao máximo o uso do agente. Os agentes permitem que você crie e implante agentes inteligentes que podem executar tarefas específicas na Braze, incluindo a geração de conteúdo em Canvas ou catálogos e o encaminhamento de usuários por diferentes caminhos com base em tomada de decisões inteligente. Para saber mais, consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
 
-#### Novos eventos de "Retry" para canais individuais {#new-retry-events-for-individual-channels}
+#### Novos eventos de nova tentativa para canais individuais {#new-retry-events-for-individual-channels}
 
 {% multi_lang_include release_type.md release="General availability" %}
 

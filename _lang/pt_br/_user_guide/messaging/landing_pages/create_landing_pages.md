@@ -13,12 +13,12 @@ page_order: 0
 
 Para acessar o construtor de landing pages, você precisa de [determinadas permissões]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Se você não tiver acesso, peça ajuda ao administrador da Braze.
 
-## Criando uma landing page {#creating-a-landing-page}
+## Criar uma landing page {#create-a-landing-page}
 
 Uma landing page é uma página web ativa e publicada com uma URL compartilhável que seus clientes podem visitar.
 
 {% alert note %}
-Os modelos de landing page são pontos de partida de design não publicados, sem URL pública, o que significa que não podem ser compartilhados com seus clientes. Para criar uma página a partir de um modelo, consulte [Usando modelos](#using-templates).
+Os modelos de landing page são pontos de partida de design não publicados, sem URL pública, o que significa que não podem ser compartilhados com seus clientes. Para criar uma página a partir de um modelo, consulte [Usar modelos](#using-templates).
 {% endalert %}
 
 ### Etapa 1: Criar um novo rascunho {#step-1-create-a-new-draft}
@@ -131,6 +131,8 @@ Quando ativado, você também pode inverter a ordem de empilhamento das colunas 
 
 ![O botão "Vertically stack on smaller screens" na seção "Customize columns".]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
+
 #### Campos opcionais e obrigatórios {#optional-and-required-fields}
 
 Você pode escolher se um campo de formulário é obrigatório ou opcional. Campos obrigatórios devem ser preenchidos antes que o formulário possa ser enviado. Campos opcionais podem ser deixados em branco ou não selecionados pelo usuário.
@@ -173,25 +175,25 @@ Quando estiver pronto, selecione **Publish Landing Page**.
 Bloqueadores de pop-up e de anúncios agressivos no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando um botão **Submit** de formulário também abre outra URL, seja na mesma guia ou em uma nova guia.
 {% endalert %}
 
-## Usando modelos {#using-templates}
+## Usar modelos {#use-templates}
 
 Os modelos de landing page são pontos de partida de design reutilizáveis que ajudam você a criar landing pages mais rapidamente. Um modelo não tem URL pública e não pode ser visitado por clientes. Para criar uma landing page ativa a partir de um modelo, selecione o modelo ao criar uma nova landing page, personalize conforme necessário e publique.
 
 Os modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na página **Landing Page Templates** (**Content** > **Landing Page**). Os modelos de landing page exigem um nome e uma descrição opcional.
 
-## Gerenciando modelos {#managing-templates}
+## Gerenciar modelos {#manage-templates}
 
-Você pode visualizar, arquivar ou editar modelos de landing page. É possível duplicar seus próprios modelos de landing page (localizados em **Seus Modelos**), mas não os modelos da Braze. Ao editar uma landing page, você pode salvar sua landing page como modelo, fazer alterações no modelo ou excluir o conteúdo da landing page.
+Você pode visualizar, arquivar ou editar modelos de landing page. É possível duplicar seus próprios modelos de landing page (localizados em **Your Templates**), mas não os modelos da Braze. Ao editar uma landing page, você pode salvar sua landing page como modelo, fazer alterações no modelo ou excluir o conteúdo da landing page.
 
 ![Um menu suspenso com opções para salvar, alterar e excluir uma landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Visualizando análise de dados {#viewing-analytics}
+## Visualizar análise de dados {#view-analytics}
 
 Para analisar a eficácia da sua landing page, acesse **Messaging** > **Landing Pages** e selecione uma landing page que você publicou. Aqui, você pode acompanhar o número de visualizações de página, cliques na página, envios de página e as taxas de envio da sua landing page.
 
 ![A seção de análise de dados de uma landing page.]({% image_buster /assets/img/landing_pages/analytics.png %})
 
-## Lidando com erros de envio de formulário {#handling-form-submission-errors}
+## Lidar com erros de envio de formulário {#handling-form-submission-errors}
 
 Se um usuário tentar enviar um formulário com campos ausentes ou entradas não suportadas, ele verá uma mensagem de erro genérica e não conseguirá enviar.
 
@@ -201,4 +203,4 @@ Causas comuns:
 - Caracteres especiais são usados em campos de texto
 - Uma caixa de seleção obrigatória não está marcada
 
-As mensagens de erro exibidas aos usuários não podem ser personalizadas. Pré-visualize sua landing page para confirmar o comportamento dos campos antes de publicar.
+As mensagens de erro exibidas aos usuários não podem ser personalizadas. Visualize sua landing page para confirmar o comportamento dos campos antes de publicar.

@@ -85,7 +85,7 @@ También debes tener en cuenta los siguientes matices:
 
 ### ¿Cuál es la diferencia entre los filtros Most Recent Device Locale y Most Recent Location? {#whats-the-difference-between-the-most-recent-device-locale-and-most-recent-location-filters}
 
-El filtro `Most Recent Device Locale` proviene de la configuración del dispositivo del usuario. Por ejemplo, para los usuarios de iPhone aparece en su dispositivo en **Settings** > **General** > **Language & Region**. Este filtro se utiliza para capturar el idioma y el formato regional, como fechas y direcciones, y es independiente del filtro `Most Recent Location`.
+El filtro `Most Recent Device Locale` proviene de la configuración del dispositivo del usuario. Por ejemplo, para los usuarios de iPhone aparece en su dispositivo en **Configuración** > **General** > **Idioma y región**. Este filtro se utiliza para capturar el idioma y el formato regional, como fechas y direcciones, y es independiente del filtro `Most Recent Location`.
 
 El filtro `Most Recent Location` es la última ubicación GPS conocida del dispositivo. Se actualiza al inicio de la sesión y se almacena en el perfil del usuario.
 

@@ -32,6 +32,8 @@ guide_featured_list:
 ---
 
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' subject='endpoints' %}
+
 ## How to export a list of users with dashboard access
 
 Use this workflow to audit users who have access to your Braze dashboard.

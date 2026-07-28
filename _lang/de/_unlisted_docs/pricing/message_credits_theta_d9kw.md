@@ -1,12 +1,12 @@
 ---
-nav_title: Message Credits – Theta
+nav_title: Message Credits - Theta
 permalink: "/message_credits_theta_d9kw/"
 hidden: true
 noindex: true
 hide_toc: true
 ---
 
-# Message Credits – Theta (vertraulich) {#message-credits-theta-confidential}
+# Message Credits - Theta (vertraulich) {#message-credits-theta-confidential}
 
 > Message Credits ist die produktübergreifende Paketstruktur von Braze für unsere nativen Angebote Agent Console, SMS, MMS, RCS, WhatsApp und LINE. Message Credits bieten ein flexibles und transparentes Erlebnis bei der Nutzung der Braze-Messaging-Kanäle und bestimmter KI-Features. Credits gewähren Ihnen Zugang zu allen Kanälen, die in der Tabelle auf dieser Seite aufgeführt sind.
 
@@ -18,14 +18,14 @@ Die Spaltendefinitionen lauten wie folgt:
 
 |---------|-------------------------------------------------|
 | **Ziel** | Spezifische Endregion, Land oder Art der Aktion, die über die Braze-Plattform gesendet wird |
-| **Credits pro 1 Versand** | Genaue Anzahl der Message Credits für einen einzelnen Versand<br> (Credits pro Versand = Credit-Verhältnis × Zielmultiplikator) |
+| **Credits pro 1 Versand** | Genaue Anzahl der Message Credits für einen Versand<br> (Credits pro Versand = Credit-Verhältnis × Zielmultiplikator) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Credit-Verhältnistabelle für Message Credits – Theta {#credit-ratio-table-for-message-credits-theta}
+## Credit-Verhältnistabelle für Message Credits - Theta {#credit-ratio-table-for-message-credits-theta}
 
 {% details Zum Aufklappen klicken %}
-<table class="credits-table" aria-label="Credit-Verhältnistabelle für Message Credits – Theta">
+<table class="credits-table" aria-label="Credit-Verhältnistabelle für Message Credits - Theta">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -2287,7 +2287,7 @@ Für MMS beträgt das Nachrichtenlimit 5 MB (dies umfasst das Multimedia-Asset u
 
 ### RCS-Typen {#rcs-types}
 
-RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
+RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie SMS – mit reichhaltigeren Funktionen, die moderne Verbraucher:innen erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -2295,7 +2295,7 @@ RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines di
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-### Zusätzliche Kanaldetails {#additional-channel-details}
+## Zusätzliche Kanaldetails {#additional-channel-details}
 
 ### Webhooks
 
@@ -2303,7 +2303,7 @@ Webhooks wurden am 9. Dezember 2024 Teil der Nachrichtenguthaben. Braze berechne
 
 ### Eigene (BYO) SMS-Konnektoren {#bring-your-own-byo-sms-connectors}
 
-Braze ermöglicht es Kund:innen, sich mit Drittanbietern zu integrieren, um SMS-Nachrichten über das „BYO SMS-Konnektor“-Modell zu senden. Braze berechnet Nachrichtenguthaben für jede Nachricht, die von der Braze-Plattform über BYO SMS-Konnektoren gesendet wird.
+Braze ermöglicht es Kund:innen, sich mit Drittanbietern zu integrieren, um SMS-Nachrichten über das Modell „BYO SMS-Konnektor“ zu senden. Braze berechnet Nachrichtenguthaben für jede Nachricht, die von der Braze-Plattform über BYO SMS-Konnektoren gesendet wird.
 
 ### LINE
 

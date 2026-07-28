@@ -12,6 +12,10 @@ channel:
 
 > Bring Your Own(BYO) WhatsApp 커넥터는 Braze와 Infobip 간의 파트너십을 제공하며, Braze가 Infobip WhatsApp Business Manager(WABA)에 액세스할 수 있도록 합니다. 이를 통해 Braze에서 세분화, 개인화, Campaign 오케스트레이션을 활용하면서 메시징 비용은 Infobip과 직접 관리하고 결제할 수 있습니다. Braze는 아웃바운드 메시지, 인바운드 메시지 처리, WhatsApp 플로우, 분석 등 WhatsApp 채널이 제공하는 모든 기존 기능을 유지합니다.
 
+{% alert note %}
+다른 Business Solution Provider(BSP)에서 Braze 통합으로 마이그레이션하려면 [다른 Business Solution Provider에서 마이그레이션]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider)을 참조하세요.
+{% endalert %}
+
 ## 요구 사항 {#requirements}
 
 | 요구 사항 | 설명 |
@@ -30,9 +34,9 @@ BYO WhatsApp 커넥터를 설정하기 전에, WhatsApp Business 계정의 이�
 
 - WhatsApp Business 계정과 전화번호가 이전에 파트너에 연결된 적이 없는 경우
 - WhatsApp Business 계정이 네이티브 통합을 통해 Braze에 직접 연결된 경우
-    - [WhatsApp 전화번호 마이그레이션]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)의 단계를 따라 전화번호를 한 번에 하나씩 새 WhatsApp Business 계정으로 마이그레이션하세요.
+    - [WhatsApp Business 계정 간 마이그레이션]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts)의 단계를 따라 전화번호를 한 번에 하나씩 새 WhatsApp Business 계정으로 마이그레이션하세요.
 - WhatsApp Business 계정이 Braze 및 Infobip이 아닌 다른 솔루션 제공업체에 연결된 경우
-    - [WhatsApp 전화번호 마이그레이션]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)의 단계를 따라 전화번호를 한 번에 하나씩 새 WhatsApp Business 계정으로 마이그레이션하세요.
+    - [WhatsApp Business 계정 간 마이그레이션]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts)의 단계를 따라 전화번호를 한 번에 하나씩 새 WhatsApp Business 계정으로 마이그레이션하세요.
 
 ## 1단계: Infobip 계정 정보 가져오기 {#step-1}
 

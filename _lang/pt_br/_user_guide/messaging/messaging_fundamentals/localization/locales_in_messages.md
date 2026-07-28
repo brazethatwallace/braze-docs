@@ -229,7 +229,7 @@ As URLs usam dois caracteres especiais para controlar como isso funciona:
 
 Comece com [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) em [Acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para contexto de WCAG, comportamento de canal e editor (incluindo landing pages) e configurações de **Acessibilidade** no nível da mensagem.
 
-Ao usar **mensagens em vários idiomas**, alinhe o idioma de acessibilidade com cada local para que os envios localizados declarem o idioma apropriado.
+Ao usar **mensagens multilíngues**, alinhe o idioma de acessibilidade com cada local para que os envios localizados declarem o idioma apropriado.
 
 #### Configurar o idioma de acessibilidade {#configuring-the-accessibility-language}
 
@@ -241,7 +241,7 @@ No nível da mensagem, defina o idioma de acessibilidade na seção **Acessibili
 
 ##### Nível do local {#locale-level}
 
-Para mensagens em vários idiomas, defina o idioma de acessibilidade para cada local em **Configurações de localização**. Você pode usar {% raw %}`{{accessibility_language}}`{% endraw %} na seção **Acessibilidade** para que o idioma do documento ou cartão seja mapeado para esses valores de local.
+Para mensagens multilíngues, defina o idioma de acessibilidade para cada local em **Configurações de localização**. Você pode usar {% raw %}`{{accessibility_language}}`{% endraw %} na seção **Acessibilidade** para que o idioma do documento ou cartão seja mapeado para esses valores de local.
 
 Se esse token aparece por padrão em novas mensagens depende do canal e do editor. Por exemplo, In-App Messages e Banners se comportam de forma diferente de landing pages e e-mails de arrastar e soltar. Consulte [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) para mais detalhes.
 
@@ -253,9 +253,20 @@ Ao usar tags de tradução, os seguintes limites se aplicam:
 
 - Cada mensagem pode ter até 200 tags de tradução.
 - Cada texto padrão (o conteúdo entre as tags de tradução) pode ter até 2.000 caracteres.
-- As traduções por localidade podem ter até 409.600 bytes (aproximadamente 409,6&nbsp;KB).
+- As traduções por local podem ter até 409.600 bytes (aproximadamente 409,6&nbsp;KB).
 
-#### Posso fazer uma alteração no texto traduzido em uma das minhas localidades? {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
+### Por que estou recebendo um erro ao baixar modelos de e-mail multilíngues? {#why-am-i-receiving-an-error-when-downloading-multi-language-email-templates}
+
+Se você encontrar erros ao baixar modelos de e-mail multilíngues, as tags de tradução podem estar envolvendo atributos HTML ou estilos CSS que conflitam com a forma como a Braze processa os corpos de e-mail.
+
+A Braze trata o corpo HTML e o corpo de texto simples como componentes separados da mesma mensagem. Quando as tags de tradução incluem referências `href` e estilos CSS, isso pode gerar tags conflitantes que impedem o download correto do modelo.
+
+Para resolver isso:
+- Exclua referências `href` e estilos CSS das tags de tradução.
+- Envolva apenas conteúdo de texto legível por humanos em tags de tradução, conforme descrito em [Atributos e estrutura HTML](#html-attributes-and-structure).
+- Para URLs, siga as orientações em [Localizar URLs](#localize-urls).
+
+#### Posso fazer uma alteração no texto traduzido em um dos meus locais? {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
 
 Sim. Primeiro, faça a edição no CSV e depois faça o upload do arquivo novamente para alterar o texto traduzido.
 
@@ -271,9 +282,9 @@ Não.
 
 Não. Como prática recomendada, você deve envolver apenas texto legível ou conteúdo que precisa ser localizado. Isso ajuda a evitar problemas com formatação, links ou outros elementos que não são texto.
 
-Além disso, considere envolver partes menores e semanticamente relacionadas do texto para criar traduções precisas e evitar limitações de performance ou tamanho.
+Além disso, considere envolver partes menores e semanticamente relacionadas do texto para criar traduções precisas e evitar limitações de desempenho ou tamanho.
 
-#### Posso fazer uma alteração no texto traduzido em uma das minhas localidades?
+#### Posso fazer uma alteração no texto traduzido em um dos meus locais?
 
 Sim. Se estiver usando um CSV, primeiro faça a edição no arquivo e depois faça o upload novamente para alterar o texto traduzido. Se estiver usando a [API de tradução]({{site.baseurl}}/api/endpoints/translations), use os endpoints de atualização para fazer alterações.
 
@@ -283,12 +294,12 @@ Sim. Se estiver usando um CSV, primeiro faça a edição no arquivo e depois fa�
 | --- | --- |
 | Uma mensagem contém dois ou mais IDs de tradução correspondentes que mapeiam para textos diferentes. | Este arquivo de tradução não será baixado. |
 | Um arquivo de tradução está sem um ou mais IDs de tag de tradução. | Este arquivo de tradução não será enviado. |
-| Um arquivo de tradução contém localidades que não existem na mensagem. | Este arquivo de tradução não será enviado. |
+| Um arquivo de tradução contém locais que não existem na mensagem. | Este arquivo de tradução não será enviado. |
 | As tags de tradução devem ser adicionadas a uma mensagem antes de baixar o modelo de tradução. | Este arquivo de tradução não será baixado. |
 | Tags de tradução encontradas no arquivo enviado estão ausentes na sua mensagem. | As traduções extras não serão salvas na mensagem. |
 | {% raw %}Uma mensagem contém uma ou mais tags Liquid com erro. Para abrir tags, use `{% translation your_id_here %}`, e feche tags de tradução com `{% endtranslation %}`.{% endraw %} | Este arquivo de tradução não será baixado. |
 | Um arquivo de tradução contém texto padrão que não corresponde ao que está na mensagem. | As traduções são adicionadas, mas o texto original da mensagem não é atualizado. |
-| Uma ou mais localidades em uma mensagem foram excluídas nas configurações e não existem mais. | As traduções que já foram adicionadas continuam existindo na mensagem. Se forem excluídas da mensagem, as traduções serão perdidas. |
+| Um ou mais locais em uma mensagem foram excluídos nas configurações e não existem mais. | As traduções que já foram adicionadas continuam existindo na mensagem. Se forem excluídas da mensagem, as traduções serão perdidas. |
 | As tags de tradução contêm URLs completas ou URLs geradas por Liquid. | Tags de tradução contendo URLs são identificadas para o caso de ocorrerem problemas com links quebrados ou rastreamento de links. |
 | As tags de tradução incluem parâmetros de consulta. | Tags de tradução contendo parâmetros de consulta são identificadas para o caso de ocorrerem problemas com links quebrados ou rastreamento de links. |
 | As tags de tradução contêm atributos ou estruturas HTML. | Tags de tradução contendo atributos ou estruturas HTML são identificadas para o caso de ocorrerem problemas com estilos e formatação. |

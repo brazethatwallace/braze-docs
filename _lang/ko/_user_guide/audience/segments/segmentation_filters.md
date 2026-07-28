@@ -61,7 +61,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: 커스텀 속성의 속성정보인 속성입니다.<br><br>중첩된 시간 커스텀 속성을 필터링할 때 "연중 일자" 또는 "시간"을 기준으로 필터링할 수 있습니다. "연중 일자"는 비교 시 월과 일만 확인합니다. "시간"은 연도를 포함한 전체 타임스탬프를 비교합니다.
+    description: 커스텀 속성의 속성정보인 속성입니다.<br><br>중첩된 시간 커스텀 속성을 필터링할 때 "연중 일자" 또는 "시간"을 기준으로 필터링할 수 있습니다. "연중 일자"는 비교 시 월과 일만 확인합니다. "시간"은 연도를 포함한 전체 타임스탬프를 비교합니다. Canvas 오디언스 경로의 컨텍스트 변수를 필터링할 때도 동일한 로직이 적용됩니다. 자세한 내용은 <a href="/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables">날짜 컨텍스트 변수에 대한 연중 일자 및 시간 필터</a> 를 참조하세요.
     tags:
       - Custom attribute
   - name: Day of Recurring Event

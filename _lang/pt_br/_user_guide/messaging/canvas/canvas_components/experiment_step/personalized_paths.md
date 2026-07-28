@@ -47,6 +47,10 @@ Essa opção enviará os usuários futuros pela combinação de jornadas de acor
 
 ![Captura de tela relacionada à etapa 3: determinar o fallback.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
+{% alert note %}
+Se o experimento for concluído com resultados insuficientes, apenas a guia **Experimento inicial** será exibida, pois o modelo determina que a personalização não superaria o envio de todos os usuários pela jornada com melhor desempenho geral. Para mais detalhes, consulte [Análise de dados](#analytics).
+{% endalert %}
+
 ### Etapa 4: Adicionar suas jornadas e lançar o Canvas {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
@@ -80,7 +84,7 @@ Quando o período do experimento passar e o experimento estiver concluído, todo
 
 Quando as Jornadas personalizadas estão ativadas e produzem resultados suficientes, sua visualização de análise de dados é separada em duas guias: **Experimento inicial** e **Jornadas personalizadas**.
 
-Se o experimento for concluído com resultados insuficientes, apenas a guia **Experimento inicial** será exibida, pois o modelo determina que a personalização não superaria o envio de todos os usuários pela jornada com melhor desempenho geral. Nesse caso, o comportamento de fallback configurado é aplicado e nenhuma análise de Jornadas personalizadas fica disponível.
+Se o experimento for concluído com resultados insuficientes (por exemplo, quando o aumento projetado do modelo é inferior ao limite de 0,5% ou nenhum segmento significativo de usuários é identificado), apenas a guia **Experimento inicial** será exibida, pois o modelo determina que a personalização não superaria o envio de todos os usuários pela jornada com melhor desempenho geral. Nesse caso, o comportamento de fallback configurado é aplicado e nenhuma análise de Jornadas personalizadas fica disponível.
 
 {% tabs local %}
 {% tab Experimento inicial %}
