@@ -1,15 +1,9 @@
 # Braze MCPサーバー {#the-braze-mcp-server}
 
-> Braze MCPサーバーについて学びましょう。これはClaudeやCursorのようなAIツールが非PIIのBrazeデータにアクセスして質問に答え、傾向を分析し、インサイトを提供できるようにする安全な接続です。
+> Braze MCPサーバーについて学びましょう。これはClaudeやCursorのようなAIツールが非PIIのBrazeデータにアクセスして質問に答え、傾向を分析し、インサイトを提供し、コンテンツを作成できるようにする安全なリモート接続です。
 
 {% alert important %}
-今夏、BrazeはリモートのBrazeホスト型MCPサーバーを早期アクセスとして提供開始します。これは、ローカルホスト型のベータサーバー（[PyPI](https://pypi.org/project/braze-mcp-server/)上の`braze-mcp-server`およびClaude Desktopの拡張機能ディレクトリ）に代わるものです。<br><br>
-
-**これがあなたにとって意味すること：**<br><br>
-
-- ローカルホスト型サーバーは引き続き動作しますが、サポートは終了しています。ベータ版への新しいエンドポイントの追加や問題の修正は行いません。
-- リモートサーバーが早期アクセスで利用可能になった際には、切り替えが必要です。リモートサーバーはローカルインストール不要で、静的APIキーの代わりにOAuthを使用し、Claude、Copilot、Gemini CLI、Codex、CursorなどのMCPクライアントで動作します。
-- 早期アクセスの提供開始については、このページをご確認いただくか、Brazeアカウントチームにご連絡ください。
+リモートMCPサーバーは早期アクセス段階です。アクセスをリクエストするには、アカウントマネージャーにお問い合わせください。
 {% endalert %}
 
 ## モデルコンテキストプロトコル（MCP）とは {#what-is-model-context-protocol-mcp}
@@ -27,66 +21,86 @@
 - マルチステップのエージェントワークフローを作成するCRMエンジニア。
 - 自然言語クエリを試す技術系マーケター。
 
-Braze MCPサーバーには、読み取り専用と書き込みの両方のエンドポイントが含まれています。Brazeユーザープロファイルからデータを返すことはありません。Braze APIキーに割り当てるエンドポイントを選択することで、エージェントが読み取り、作成、または更新できる範囲をコントロールできます。利用可能なエンドポイントの完全なリストと必要な権限については、[利用可能なAPI機能]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}を参照してください。
+Braze MCPサーバーには、読み取りと書き込みの両方のツールが含まれています。これらのツールはBrazeユーザープロファイルからデータを返すことはありません。エージェントはBrazeダッシュボードのユーザー権限を継承します。利用可能なツールの完全なリストについては、[利用可能なAPI機能]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}を参照してください。
 
 {% alert warning %}
-エージェントに持たせたいAPIキーの権限のみを割り当ててください。エージェントにBraze内で変更を加えさせたくない場合は、APIキーを作成する際に書き込み権限をオフのままにしてください。エージェントは、付与された書き込み権限を通じてデータの書き込みを試みる可能性があります。
+ユーザーレベルのPIIを公開するツールは利用できません。
 {% endalert %}
 
-## 使用例 {#usage-example}
+MCPサーバーを使用して、キャンペーンやキャンバスのパフォーマンスに関する質問をしたり、セグメントやカスタム属性を調べたり、レポートを生成したり、メールテンプレート、コンテンツブロック、メディアライブラリのアセットなどのコンテンツを自然言語で作成したりできます。
 
-ClaudeやCursorのようなツールを使って、自然言語でBrazeとやり取りできます。その他の例やベストプラクティスについては、[Braze MCPサーバーの使用方法]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}を参照してください。
+## ベータ版MCPサーバーは非推奨ですか？ {#is-the-beta-mcp-server-deprecated}
 
-{% tabs %}
-{% tab Claude %}
-**プロンプトの例：** `What are my available Braze functions?`
-**応答の例：** `list_functions`を使用し、利用可能なBraze MCP機能カテゴリを返しました。
-{% endtab %}
+はい。2025年8月にリリースされたローカルホスト型MCPサーバーは非推奨であり、追加の更新は行われません。引き続き使用できますが、Brazeはリモートホスト版への移行を推奨しています。
 
-{% tab Cursor %}
-**プロンプトの例：** `What are my available Braze functions?`
-**応答の例：** `list_functions`をクエリし、`get_canvas_list`などの機能を一覧表示しました。
-{% endtab %}
-{% endtabs %}
+### リモートサーバーはどう違いますか？ {#how-is-the-remote-server-different}
+
+以前のBraze MCPサーバーはローカルマシン上で動作していました。パッケージのインストール、設定ファイルの管理、適切な権限を持つBraze APIキーの作成が必要でした。リモートMCPサーバーでは、そのローカル設定が不要になります。
+
+サポートされているMCPクライアントから1分以内に接続できます。認証にはOAuthを使用します。アクセスは共有APIキーではなくBrazeダッシュボードのユーザーアカウントに紐づいているため、エージェントが閲覧・実行できる内容はダッシュボードの権限と同じです。ダッシュボードユーザーがBrazeでアクセスを失うと、クライアントもアクセスを失います。
+
+主な違いは以下のとおりです。
+
+- **設定：** パッケージのインストールや設定ファイルの編集の代わりに、BrazeのURLを貼り付けるだけです。
+- **認証：** APIキーの作成の代わりに、Brazeアカウントでサインインします。
+- **権限：** APIキーの権限ではなく、ダッシュボードのユーザーアカウントに基づいてアクセスが決まります。
+- **ワークスペースの指定：** ローカル設定で固定するのではなく、リクエストごとにワークスペースのコンテキストが渡されます。
 
 ## よくある質問（FAQ） {#faq}
 
 ### どのMCPクライアントがサポートされていますか？ {#which-mcp-clients-are-supported}
 
-正式にサポートされているのは[Claude](https://claude.ai/)と[Cursor](https://cursor.com/)のみです。Braze MCPサーバーを利用するには、これらのクライアントのいずれかのアカウントが必要です。
+OAuthを使用したリモートMCPサーバーをサポートするMCPクライアントであれば動作します。Brazeが検証済みのクライアントは以下のとおりです。
+
+- カスタムコネクター経由のClaude
+- カスタムコネクター経由のChatGPT
+- Cursor
+- OpenAI Codex
+- Claude Code
 
 ### MCPクライアントはBrazeのどのデータにアクセスできますか？ {#what-braze-data-can-my-mcp-client-access}
 
-MCPクライアントは、PIIを返さないエンドポイントにアクセスできます。エージェントが使用できるエンドポイントは、APIキーに割り当てた権限によってコントロールできます。
+MCPクライアントは、ユーザーレベルのPIIを返さないツールにアクセスできます。
 
 ### MCPクライアントはBrazeデータを変更できますか？ {#can-my-mcp-client-change-braze-data}
 
-はい。サーバーは、エージェントがワークスペース内のコンテンツ（メディアライブラリのアセット、メールテンプレート、Content Blocksなど）を作成または更新できる、限定された書き込みエンドポイントのセットを公開しています。各書き込みエンドポイントには、それぞれ独自のAPIキー権限が必要です。エージェントにBraze内で特定の変更を加えさせたくない場合は、APIキーを作成する際にその権限をオフのままにしてください。書き込み機能の完全なリストと必要な権限については、[利用可能なAPI機能]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}を参照してください。
+はい、ダッシュボードユーザーにその権限がある場合は変更できます。
 
-### BrazeでサードパーティのMCPサーバーを使用できますか？ {#can-i-use-a-third-party-mcp-server-for-braze}
+### Braze APIキーは引き続き必要ですか？ {#do-i-still-need-a-braze-api-key}
 
-Brazeデータに対してサードパーティのMCPサーバーを使用することは推奨されません。[PyPi](https://pypi.org/project/braze-mcp-server/)でホストされている公式のBraze MCPサーバーのみを使用してください。
+MCPには不要です。APIキーはREST APIで引き続き使用でき、非推奨にはなりません。
 
-### なぜBraze MCPサーバーはPIIアクセスを提供しないのですか？ {#why-doesnt-the-braze-mcp-server-offer-pii-access}
+### どのリージョンがサポートされていますか？ {#which-regions-are-supported}
 
-ユーザーデータを保護しつつ価値あるユースケースをサポートするため、サーバーは通常PIIを返さないエンドポイントに限定されています。これにより、ワークスペースとそこに含まれるユーザーのリスクが軽減されます。
+両方のBrazeクラスターがサポートされています。現在、2つのエンドポイントが利用可能です。
 
-### APIキーは再利用できますか？ {#can-i-reuse-my-api-keys}
+- `https://mcp.braze.com/mcp`（US）
+- `https://mcp.braze.eu/mcp`（EU）
 
-いいえ。MCPクライアント用に新しいAPIキーを作成する必要があります。AIツールには許容できる範囲のアクセスのみを付与し、過剰な権限は避けてください。
+どちらのエンドポイントからでも、すべてのBrazeクラスターにアクセスできます。
 
-### Braze MCPサーバーはローカルでホストされていますか、それともリモートですか？ {#is-the-braze-mcp-server-hosted-locally-or-remotely}
+### 検証済みリスト以外のツールでBrazeリモートMCPサーバーを使用できますか？ {#can-i-use-the-braze-remote-mcp-server-with-tools-other-than-the-verified-list}
 
-現在利用可能なBraze MCPサーバーはローカルでホストされています。リモートのBrazeホスト型MCPサーバーは今夏に早期アクセスとして提供開始され、ローカルホスト型のベータサーバーに代わるものとなります。
+試すことはできますが、認証がブロックされる場合があります。Brazeは現在、セキュリティのためにサポート対象ドメインの許可リストを管理しています。お使いのツールがリストに含まれておらず、認証の問題が発生した場合は、[mcp-product@braze.com](mailto:mcp-product@braze.com)までお問い合わせください。
 
-### Cursorが関数のリストしか表示しないのはなぜですか？ {#why-is-cursor-only-listing-functions}
+### リモートサーバーは複数のワークスペースをサポートしていますか？ {#does-the-remote-server-support-multiple-workspaces}
 
-askモードかagentモードかを確認してください。MCPサーバーを使用するには、agentモードである必要があります。
+はい。会話ごとまたはリクエストごとにワークスペースを指定できます。1つの接続で、アクセスが許可されているすべてのワークスペースをカバーできます。
 
-### エージェントが誤った回答を返した場合はどうすればよいですか？ {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
+### エージェントはユーザーレベルのPIIにアクセスできますか？ {#can-my-agent-access-user-level-pii}
 
-Cursorのようなツールを使用している場合は、使用するモデルを変更してみてください。例えば、自動設定にしている場合は、特定のモデルに変更し、ユースケースに最適なモデルを見つける実験をしてみてください。新しいチャットを開始してプロンプトを再試行することもできます。
+いいえ。現時点では、PIIを公開するツールは利用できません。
 
-問題が解決しない場合は、[mcp-product@braze.com](mailto:mcp-product@braze.com)までメールでお知らせください。可能であれば、動画を添付し、コール機能を展開してエージェントが試みたコールを確認できるようにしてください。
+### 権限が変更された場合はどうなりますか？ {#what-happens-when-my-permissions-change}
+
+エージェントのアクセスはダッシュボードユーザーに連動して変更されます。権限の変更は次のリクエスト時に適用されます。無効化されたダッシュボードユーザーはMCPアクセスを失います。
+
+### クライアントのディレクトリにBrazeコネクターが表示されないのはなぜですか？ {#why-do-i-not-see-the-braze-connector-in-my-clients-directory}
+
+ディレクトリへの掲載は早期アクセス開始後に順次展開されます。Braze MCPのURLを使用して、いつでも手動で接続できます。
+
+### 当社ではIP許可リストを使用しています。リモートMCPサーバーを使用できますか？ {#my-company-uses-ip-allowlisting-can-we-use-the-remote-mcp-server}
+
+現時点ではできません。[IP許可リスト](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting)を使用しているお客様は、早期アクセスプログラムに参加できません。
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}
