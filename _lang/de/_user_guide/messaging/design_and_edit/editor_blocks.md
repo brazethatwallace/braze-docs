@@ -25,7 +25,7 @@ Wählen Sie den Editor aus, den Sie verwenden:
 {% sdktab email %}
 ## E-Mail-Editor-Blöcke {#email-editor-blocks}
 
-Editor-Blöcke befinden sich im Bereich **Content** für E-Mail-Nachrichten. Ziehen Sie einen Block in eine Spalte im **Drag-and-Drop-Editor**; er passt sich automatisch an die Spaltenbreite an.
+Editor-Blöcke befinden sich im Bereich **Inhalt** für E-Mail-Nachrichten. Ziehen Sie einen Block in eine Spalte im **Drag-and-Drop-Editor**; er passt sich automatisch an die Spaltenbreite an.
 
 Weitere Informationen zum Erstellen von E-Mails im **Drag-and-Drop-Editor** finden Sie unter [E-Mail per Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) und <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Weitere Anpassungen</a> in diesem Artikel.
 
