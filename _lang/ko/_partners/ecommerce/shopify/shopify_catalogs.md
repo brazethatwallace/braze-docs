@@ -95,7 +95,7 @@ Braze는 다음 메타필드 오브젝트와 해당 유형 일부를 지원합�
 | `url`, `list.url` | 문자열(URL), 문자열 배열(URL) |
 | `metaobject_reference`, `list.metaobject_reference` | 문자열, 문자열 배열 |
 | `mixed_reference`, `list.mixed_reference` | 문자열, 문자열 배열 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 추가 제품 데이터 구성(선택 사항) #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 추가 제품 데이터 구성(선택 사항)" }
 
 {% endsubtab %}
 {% subtab 지원되지 않는 메타필드 %}

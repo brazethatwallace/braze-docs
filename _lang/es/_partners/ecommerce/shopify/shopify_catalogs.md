@@ -95,7 +95,7 @@ Braze admite los siguientes objetos de metacampos y algunos de sus tipos respect
 | `url`, `list.url`                                | Cadena (URL), Matriz de cadenas (URLs)                 |
 | `metaobject_reference`, `list.metaobject_reference` | Cadena, Matriz de cadenas                          |
 | `mixed_reference`, `list.mixed_reference`        | Cadena, Matriz de cadenas                              |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configura datos de producto adicionales (opcional) #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configura datos de producto adicionales (opcional)" }
 
 {% endsubtab %}
 {% subtab Metacampos no compatibles %}

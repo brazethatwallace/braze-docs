@@ -95,7 +95,7 @@ A Braze oferece suporte aos seguintes objetos de metacampos e alguns de seus res
 | `url`, `list.url` | String (URL), Array de Strings (URLs) |
 | `metaobject_reference`, `list.metaobject_reference` | String, Array de Strings |
 | `mixed_reference`, `list.mixed_reference` | String, Array de Strings |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configure dados adicionais de produtos (opcional) #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configure dados adicionais de produtos (opcional)" }
 
 {% endsubtab %}
 {% subtab Metacampos não compatíveis %}

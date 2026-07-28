@@ -95,7 +95,7 @@ Brazeは以下のメタフィールドオブジェクトとそれぞれのタイ
 | `url`, `list.url`                                | 文字列（URL）、文字列の配列（URL）                      |
 | `metaobject_reference`, `list.metaobject_reference` | 文字列、文字列の配列                                |
 | `mixed_reference`, `list.mixed_reference`        | 文字列、文字列の配列                                    |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3: 追加の商品データを設定する（オプション） #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3: 追加の商品データを設定する（オプション）" }
 
 {% endsubtab %}
 {% subtab サポートされていないメタフィールド %}
