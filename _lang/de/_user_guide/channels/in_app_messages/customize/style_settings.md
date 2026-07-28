@@ -94,6 +94,8 @@ Jeder Block hat seine eigenen Einstellungen, wie z. B. eine granulare Steuerung 
 
 Während Sie Ihre In-App-Nachricht erstellen, können Sie in der Symbolleiste eine Mobilgeräte-, Tablet- oder Desktop-Ansicht auswählen, um eine Vorschau zu sehen, wie Ihre In-App-Nachricht für Ihre Nutzergruppen aussehen wird. So stellen Sie sicher, dass Ihr Inhalt responsiv ist, und Sie können unterwegs alle notwendigen Anpassungen vornehmen.
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
+
 ## Kreative Details {#creative-details}
 
 ### Vollbild auf größeren Bildschirmen {#fullscreen}
@@ -102,7 +104,7 @@ Auf einem Tablet oder Desktop-Browser wird eine Vollbild-In-App-Nachricht in der
 
 ![Beispiel einer Vollbild-In-App-Nachricht.]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### Hintergrundbild hinzufügen {#adding-a-background-image}
+### Hintergrundbild hinzufügen {#add-a-background-image}
 
 Sie können ein Bild zum Hintergrund Ihrer Nachricht über den Tab **Message styles** hinzufügen.
 
@@ -147,7 +149,7 @@ Um [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/li
 
 Nehmen Sie als Nächstes Ihr generiertes Liquid-Snippet und fügen Sie es in Ihre Nachricht ein. Nachdem Sie Ihre In-App-Nachricht entworfen und erstellt haben, gehen Sie zu **Preview & Test**, um eine Vorschau Ihrer Nachricht anzuzeigen.
 
-### Den KI-Texter verwenden {#using-the-ai-copywriter}
+### Den KI-Texter verwenden {#use-the-ai-copywriter}
 
 Wenn ein Textblock in Ihrer In-App-Nachricht ausgewählt ist, wählen Sie <i class="fa-solid fa-wand-magic-sparkles" title="KI-Texter"></i> **KI-Texter** in der Block-Symbolleiste, um den [KI-gestützten Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) zu starten. Der KI-Textassistent übergibt einen kurzen Produktnamen oder eine Beschreibung an das GPT3-Textgenerierungstool von OpenAI, um menschenähnliche Marketingtexte für Ihre Nachrichten zu generieren.
 
@@ -157,7 +159,7 @@ Sie können sich einige Klicks sparen, indem Sie Text innerhalb des Blocks marki
 
 ![GIF des KI-Texters.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### Stile auf Standard zurücksetzen {#resetting-styles-to-default}
+### Stile auf Standard zurücksetzen {#reset-styles-to-default}
 
 Eigenschaften, die Sie gegenüber dem Standardstil geändert haben, sind mit einem orangefarbenen Punkt markiert. Um eine bestimmte Eigenschaft auf ihren Standardstil zurückzusetzen, bewegen Sie den Mauszeiger über das Feld und wählen Sie **Reset to default**.
 
@@ -165,7 +167,7 @@ Eigenschaften, die Sie gegenüber dem Standardstil geändert haben, sind mit ein
 
 Sie können auch alle Stile für ein ausgewähltes Element zurücksetzen, indem Sie <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> neben dem Namen des Eigenschaftenpanels auswählen und **Reset to default styles** wählen.
 
-### Stile kopieren und einfügen {#copying-and-pasting-styles}
+### Stile kopieren und einfügen {#copy-and-paste-styles}
 
 Nachdem Sie Änderungen am Stil eines Elements vorgenommen haben, können Sie diese Stile kopieren und auf ein anderes Element einfügen. Beim Einfügen von Stilen werden nur die für dieses Element relevanten Eigenschaften angewendet.
 

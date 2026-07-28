@@ -80,7 +80,7 @@ Braze erlaubt nur URLs, die über die Standardports `80` (HTTP) und `443` (HTTPS
 
 #### Liquid verwenden {#using-liquid}
 
-Sie können Ihre Webhook-URLs mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) personalisieren. Manchmal erfordern bestimmte Endpunkte, dass Sie eine Nutzer:in identifizieren oder nutzerspezifische Informationen als Teil Ihrer URL angeben. Wenn Sie Liquid verwenden, stellen Sie sicher, dass Sie für jede nutzerspezifische Information, die Sie in Ihrer URL verwenden, einen [Standardwert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) angeben.
+Sie können Ihre Webhook-URLs mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) personalisieren. Manchmal erfordern bestimmte Endpunkte, dass Sie Nutzer:innen identifizieren oder nutzerspezifische Informationen als Teil Ihrer URL angeben. Wenn Sie Liquid verwenden, stellen Sie sicher, dass Sie für jede nutzerspezifische Information, die Sie in Ihrer URL verwenden, einen [Standardwert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) angeben.
 
 ### HTTP-Methode {#http-method}
 
@@ -132,7 +132,11 @@ Bestimmte Endpunkte erfordern möglicherweise, dass Sie Header in Ihre Anfrage a
 
 ![Beispiele für Anfrage-Header mit dem Schlüssel „Authorization“ und dem Schlüssel „Content-Type“.]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-Gängige Anfrage-Header sind `Content-Type`-Spezifikationen (die beschreiben, welcher Datentyp im Body erwartet wird, z. B. XML oder JSON) und Autorisierungs-Header, die Ihre Zugangsdaten für Ihren Anbieter oder Ihr System enthalten.
+Gängige Anfrage-Header sind [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)-Spezifikationen (die beschreiben, welcher Datentyp im Body erwartet wird, z. B. XML oder JSON) und [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)-Header, die Ihre Zugangsdaten für Ihren Anbieter oder Ihr System enthalten.
+
+{% alert note %}
+HTTP-Header-Namen sind gemäß [RFC 7230, Abschnitt 3.2 („Each header field consists of a case-insensitive field name“)](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2) nicht case-sensitiv. Wenn Ihr empfangender Endpunkt oder zwischengeschaltete Dienste (wie CDNs) die Groß-/Kleinschreibung von Headern ändern, hat dies keinen Einfluss auf die Header-Verarbeitung – `Content-Type`, `content-type` und `CONTENT-TYPE` werden alle identisch behandelt.
+{% endalert %}
 
 Content-Typ-Spezifikationen müssen den Schlüssel `Content-Type` verwenden. Gängige Werte sind `application/json` oder `application/x-www-form-urlencoded`.
 
@@ -202,7 +206,7 @@ Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertig erstellt ha
 
 ### Fehler, Wiederholungslogik und Timeouts {#errors-retry-logic-and-timeouts}
 
-Webhooks basieren darauf, dass Braze-Server Anfragen an einen externen Endpunkt senden, wobei gelegentlich Fehler auftreten können. Die häufigsten Fehler umfassen Syntaxfehler, abgelaufene API-Schlüssel, Rate-Limits und unerwartete serverseitige Probleme. Bevor Sie eine Webhook-Campaign senden:
+Webhooks basieren darauf, dass Braze-Server Anfragen an einen externen Endpunkt senden, wobei gelegentlich Fehler auftreten können. Die häufigsten Fehler umfassen Syntaxfehler, abgelaufene API-Schlüssel, Rate-Limits und unerwartete serverseitige Probleme. Bevor Sie eine Webhook-Kampagne senden:
 
 - Testen Sie Ihren Webhook auf Syntaxfehler
 - Stellen Sie sicher, dass personalisierte Variablen Standardwerte haben
@@ -233,6 +237,14 @@ Braze wiederholt die weiter oben in diesem Abschnitt genannten Statuscodes bis z
 
 `Retry-After`- und Rate-Limit-Antwort-Header können beeinflussen, wie lange Braze vor einem **wiederholbaren** Versuch wartet (zum Beispiel nach `408`, `429` oder `5XX`). Sie machen nicht wiederholbare Antworten wie `401` nicht für eine Wiederholung zulässig.
 
+#### 403 Forbidden und IP-Allowlisting {#403-forbidden-and-ip-allowlisting}
+
+`403 Forbidden`-Antworten bedeuten, dass Ihr Endpunkt die Anfrage empfangen, aber abgelehnt hat. Häufige Ursachen sind ungültige oder fehlende Authentifizierung, unzureichende API-Berechtigungen und Netzwerkregeln (wie eine Firewall oder Web Application Firewall), die die ausgehenden IP-Adressen von Braze blockieren.
+
+Wenn Webhook-Anfragen konsistent `403` zurückgeben und Ihre Authentifizierungs-Header korrekt sind, setzen Sie die Braze-IPs für Ihren Cluster auf dem Server, der den Webhook empfängt, auf die Allowlist. Siehe [IP-Allowlisting](#ip-allowlisting). Connected-Content-Anfragen verwenden dieselben ausgehenden IPs; siehe [Connected-Content-IP-Allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
+Weitere Schritte zur Fehlerbehebung bei `4XX`-Fehlern finden Sie unter [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
+
 #### Authentifizierung und Connected-Content-Zugangsdaten {#authentication-and-connected-content-credentials}
 
 Die ausgehende Webhook-HTTP-Anfrage unterstützt nicht das Anhängen von [Connected-Content-Zugangsdaten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` oder `:auth_credentials`) zur Authentifizierung gegenüber Ihrem Endpunkt. Legen Sie die Authentifizierung stattdessen über **Anfrage-Header** im Webhook fest. Um ein Token oder ein Geheimnis zum Sendezeitpunkt abzurufen, können Sie ein {% raw %}`{% connected_content %}`{% endraw %}-Tag in ein Header- oder Body-Feld einfügen, damit Liquid es auflöst, bevor der Webhook gesendet wird.
@@ -259,6 +271,6 @@ Wenn Sie einen Braze-zu-Braze-Webhook erstellen und Allowlisting verwenden, soll
 
 ### Nutzer:innen löschen {#delete-users}
 
-Um einzelne Nutzer:innen oder ein Segment von Nutzer:innen zu löschen, gehen Sie zu **Audience** > **Manage Audience** > **Delete Users**. Das Dashboard unterstützt die Massenlöschung von Segmenten (bis zu 10 Millionen Profile), bietet ein 7-tägiges Stornierungsfenster und verbraucht keine gemeinsamen REST API-Rate-Limits. Schritte, Limits und Berechtigungen finden Sie unter [Nutzer:innen löschen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
+Um einzelne Nutzer:innen oder ein Segment von Nutzer:innen zu löschen, gehen Sie zu **Audience** > **Manage Audience** > **Delete Users**. Das Dashboard unterstützt die Massenlöschung von Segmenten (bis zu 10 Millionen Profile), bietet ein 7-tägiges Stornierungsfenster und verbraucht keine gemeinsamen REST-API-Rate-Limits. Schritte, Limits und Berechtigungen finden Sie unter [Nutzer:innen löschen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
-Für die programmatische Löschung in kleineren Batches verwenden Sie den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) anstelle einer Webhook-Campaign.
+Für die programmatische Löschung in kleineren Batches verwenden Sie den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) anstelle einer Webhook-Kampagne.

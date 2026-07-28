@@ -101,7 +101,7 @@ Los grupos de suscripción son filtros de segmento que pueden acotar aún más t
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-Por ejemplo, supongamos que envías varias categorías de Campaigns de correo electrónico (promocionales, boletines informativos o actualizaciones de producto). En ese caso, puedes utilizar grupos de suscripción para que tus clientes elijan a qué categorías de correo electrónico desean suscribirse o cancelar la suscripción de forma masiva desde una sola página, utilizando un [centro de preferencias de correo electrónico](#email-preference-center). Alternativamente, podrías utilizar grupos de suscripción para que tus clientes elijan con qué frecuencia desean recibir correos electrónicos, creando grupos de suscripción para correos diarios, semanales o mensuales.
+Por ejemplo, supongamos que envías varias categorías de campañas de correo electrónico (promocionales, boletines informativos o actualizaciones de producto). En ese caso, puedes utilizar grupos de suscripción para que tus clientes elijan a qué categorías de correo electrónico desean suscribirse o cancelar la suscripción de forma masiva desde una sola página, utilizando un [centro de preferencias de correo electrónico](#email-preference-center). Alternativamente, podrías utilizar grupos de suscripción para que tus clientes elijan con qué frecuencia desean recibir correos electrónicos, creando grupos de suscripción para correos diarios, semanales o mensuales.
 
 Utiliza los [endpoints de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups) para gestionar de forma programática los grupos de suscripción que tienes almacenados en el panel de Braze en la página **Grupo de suscripción**.
 
@@ -152,14 +152,15 @@ Puedes ver los recuentos de usuarios que cambiaron su estado de suscripción (su
 
 ### Comprobar el grupo de suscripción de correo electrónico de un usuario {#checking-a-users-email-subscription-group}
 
-- **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del panel de Braze desde la página [Buscar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. También puedes ver los grupos de suscripción de correo electrónico de un usuario en la pestaña **Participación**.
+- **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del panel de Braze desde la página [Buscar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. También puedes ver los grupos de suscripción de correo electrónico de un usuario en la pestaña **Interacción**.
 - **REST API de Braze:** Utiliza el [endpoint para listar los grupos de suscripción de un usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint para listar el estado del grupo de suscripción de un usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para ver los grupos de suscripción del perfil de un usuario individual.
 
 ## Centro de preferencias de correo electrónico {#email-preference-center}
 
 El centro de preferencias de correo electrónico te permite gestionar qué usuarios reciben boletines de grupos de suscripción. Encuéntralo en el panel en **Grupos de suscripción**. Cada grupo de suscripción que crees se añade a la lista del centro de preferencias.
 
-Para obtener más información sobre cómo añadir o personalizar un centro de preferencias, consulta [Centro de preferencias]({{site.baseurl}}/user_guide/channels/email/subscriptions).
+Para obtener más información sobre cómo añadir o personalizar un centro de preferencias, consulta [Centro de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
+
 
 ## Cambio de suscripciones de correo electrónico {#changing-email-subscriptions}
 
@@ -202,7 +203,7 @@ Si usas el pie de página del panel en lugar de solo un bloque de contenido HTML
 
 ### Creación de una página personalizada de adhesión voluntaria {#creating-a-custom-opt-in-page}
 
-Usa una página personalizada de adhesión voluntaria para permitir que los usuarios reconozcan y controlen las preferencias de notificación antes de suscribirse. Esta comunicación adicional puede ayudar a que las Campaigns de correo electrónico no terminen en las carpetas de correo no deseado.
+Usa una página personalizada de adhesión voluntaria para permitir que los usuarios reconozcan y controlen las preferencias de notificación antes de suscribirse. Esta comunicación adicional puede ayudar a que las campañas de correo electrónico no terminen en las carpetas de correo no deseado.
 
 1. Ve a **Configuración** > **Preferencias de correo electrónico**.
 2. Selecciona **Páginas de suscripción y pies de página**.

@@ -94,6 +94,8 @@ Chaque bloc possède ses propres paramètres, comme un contrôle granulaire du r
 
 Lors de la création de votre message in-app, vous pouvez sélectionner une vue mobile, tablette ou ordinateur de bureau dans la barre d'outils pour prévisualiser l'apparence de votre message in-app pour vos groupes d'utilisateurs. Cela garantit que votre contenu est responsive, et vous pouvez effectuer les ajustements nécessaires au fur et à mesure.
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
+
 ## Détails créatifs {#creative-details}
 
 ### Plein écran sur les écrans plus grands {#fullscreen}
@@ -102,7 +104,7 @@ Sur une tablette ou un navigateur de bureau, un message in-app en plein écran s
 
 ![Exemple de message in-app en plein écran.]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### Ajout d'une image d'arrière-plan {#adding-a-background-image}
+### Ajouter une image d'arrière-plan {#add-a-background-image}
 
 Vous pouvez ajouter une image à l'arrière-plan de votre message depuis l'onglet **Message styles**.
 
@@ -139,7 +141,7 @@ https://example.com/images/default-background.png
 ```
 {% endraw %}
 
-### Ajout de Liquid {#add-liquid}
+### Ajouter du Liquid {#add-liquid}
 
 ![Icône pour ajouter la personnalisation Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
@@ -147,9 +149,9 @@ Pour ajouter du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/p
 
 Ensuite, prenez votre extrait de code Liquid généré et insérez-le dans votre message. Après avoir conçu et créé votre message in-app, accédez à **Preview & Test** pour prévisualiser votre message.
 
-### Utilisation du rédacteur IA {#using-the-ai-copywriter}
+### Utiliser le rédacteur IA {#use-the-ai-copywriter}
 
-Lorsqu'un bloc de texte est sélectionné dans votre message in-app, sélectionnez <i class="fa-solid fa-wand-magic-sparkles" title="Rédacteur IA"></i> **AI copywriter** dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing semblable à celui d'un humain pour vos messages.
+Lorsqu'un bloc de texte est sélectionné dans votre message in-app, sélectionnez <i class="fa-solid fa-wand-magic-sparkles" title="Rédacteur IA"></i> **AI copywriter** dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing au ton naturel pour vos messages.
 
 {% alert tip %}
 Vous pouvez gagner quelques clics en surlignant le texte à l'intérieur du bloc avant de cliquer sur l'icône. Le texte surligné sera ajouté à l'outil, et le texte sera généré immédiatement.
@@ -157,7 +159,7 @@ Vous pouvez gagner quelques clics en surlignant le texte à l'intérieur du bloc
 
 ![GIF du rédacteur IA.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### Réinitialisation des styles par défaut {#resetting-styles-to-default}
+### Réinitialiser les styles par défaut {#reset-styles-to-default}
 
 Les propriétés que vous avez modifiées par rapport à leur style par défaut sont marquées d'un point orange. Pour réinitialiser une propriété spécifique à son style par défaut, survolez le champ et sélectionnez **Reset to default**.
 
@@ -165,7 +167,7 @@ Les propriétés que vous avez modifiées par rapport à leur style par défaut 
 
 Vous pouvez également réinitialiser tous les styles d'un élément sélectionné en cliquant sur <i class="fas fa-paintbrush" title="Copier ou coller les styles"></i> à côté du nom du panneau de propriétés et en sélectionnant **Reset to default styles**.
 
-### Copier et coller des styles {#copying-and-pasting-styles}
+### Copier et coller des styles {#copy-and-paste-styles}
 
 Après avoir modifié le style d'un élément, vous pouvez copier et coller ces styles sur un autre élément. Lors du collage des styles, seules les propriétés pertinentes pour cet élément sont appliquées.
 

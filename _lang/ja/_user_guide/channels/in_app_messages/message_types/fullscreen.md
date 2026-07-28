@@ -34,9 +34,7 @@ tool:
 
 フルスクリーンアプリ内メッセージは、デバイスの高さ全体を埋め、必要に応じて水平方向（左右）にトリミングされます。画像とテキストのフルスクリーンメッセージは、デバイスの高さの50%を占めます。すべてのフルスクリーンアプリ内メッセージは、「ノッチ」付きデバイスのステータスバーも埋めます。
 
-- すべての画像は5&nbsp;MB未満である必要があります。
-- PNG、JPEG、および[GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs)ファイルタイプのみ対応しています。
-- 画像は500&nbsp;KBを推奨します。
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} 自信を持ってアセットを作成しましょう！アプリ内メッセージの画像テンプレートとセーフゾーンオーバーレイは、あらゆるサイズのデバイスに対応するよう設計されています。[デザインテンプレートZIPをダウンロード]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 

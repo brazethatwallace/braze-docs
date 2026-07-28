@@ -65,6 +65,10 @@ El flujo de trabajo general para crear un webhook de Braze a Braze sigue estos p
 
 En este caso de uso, creas dos Canvas y usas un webhook de Braze a Braze para desencadenar el segundo Canvas desde el primero. Esto actúa como un desencadenante de entrada para cuando un usuario alcanza un punto determinado en otro Canvas.
 
+{% alert note %}
+El desencadenante **Interactuar con paso en Canvas** solo está disponible para Campaigns, no para la entrada a Canvas basada en acciones. Si necesitas desencadenar un Canvas basado en que un usuario alcance un paso específico en otro Canvas, usa este enfoque de webhook de Braze a Braze o el componente de Canvas [Enviar a destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination).
+{% endalert %}
+
 1. Comienza creando tu segundo Canvas, el Canvas que debería ser desencadenado por tu Canvas inicial.
 2. Para el **Horario de entrada** del Canvas, selecciona **Activado por API**.
 3. Toma nota de tu **Canvas ID**. Lo necesitarás en un paso posterior.

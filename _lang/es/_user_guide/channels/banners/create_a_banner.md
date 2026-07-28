@@ -33,7 +33,7 @@ Antes de poder lanzar tu banner, tu equipo de desarrollo debe [configurar las ub
 3. Dale a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario. Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el generador de informes, puedes filtrar por las etiquetas relevantes.
 5. Selecciona la ubicación que creaste previamente para asociarla con tu campaña.
-6. Añade variantes según sea necesario. Puedes elegir un tipo de mensaje y diseño diferente para cada una. Para más información sobre variantes, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+6. Añade variantes según sea necesario. Puedes elegir un tipo de mensaje y diseño diferente para cada una. Para más información sobre variantes, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 7. Elige una fecha y hora de inicio para tu campaña de banner. De forma predeterminada, los banners duran indefinidamente. Puedes cambiar esto seleccionando **End Time** y especificando una fecha y hora de fin.
 
 {% alert tip %}
@@ -75,6 +75,8 @@ Puedes arrastrar y soltar bloques y filas en el área del lienzo para empezar a 
 Para personalizar las propiedades de fondo, la configuración de bordes y más de tu mensaje, selecciona **Styles**. Si solo quieres personalizar el estilo de un bloque o fila específicos, selecciónalo para hacer cambios.
 
 ![Panel de estilos del creador de banners.]({% image_buster /assets/img/banners/banner_card_styles.png %})
+
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='banner' %}
 
 {% endtab %}
 {% tab Editor HTML %}
@@ -218,7 +220,7 @@ Braze te permite realizar un seguimiento de los [eventos de conversión]({{site.
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) y [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing) y [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
 
 Para controlar la reelegibilidad en los pasos de banner de Canvas, usa la configuración de reentrada de Canvas. Para más información, consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 

@@ -65,6 +65,10 @@ Le flux de travail général pour créer un webhook Braze-à-Braze suit ces éta
 
 Dans ce cas d'usage, vous créez deux Canvas et utilisez un webhook Braze-à-Braze pour déclencher le second Canvas depuis le premier. Cela agit comme un déclencheur d'entrée lorsqu'un utilisateur atteint un certain point dans un autre Canvas.
 
+{% alert note %}
+Le déclencheur **Interact with Canvas Step** n'est disponible que pour les Campaigns, pas pour l'entrée Canvas basée sur une action. Si vous devez déclencher un Canvas en fonction d'un utilisateur atteignant une étape spécifique dans un autre Canvas, utilisez cette approche de webhook Braze-à-Braze ou le composant Canvas [Envoyer à la destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination).
+{% endalert %}
+
 1. Commencez par créer votre second Canvas — le Canvas qui doit être déclenché par votre Canvas initial.
 2. Pour la **planification d'entrée** du Canvas, sélectionnez **API-Triggered**.
 3. Notez votre **Canvas ID**. Vous en aurez besoin dans une étape ultérieure.

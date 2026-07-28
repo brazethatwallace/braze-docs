@@ -1,7 +1,7 @@
 ---
 nav_title: 파일 스토리지 통합
 article_title: 파일 스토리지 통합
-description: "이 페이지에서는 Braze 클라우드 데이터 수집과 S3에서 Braze로 관련 데이터를 동기화하는 방법에 대해 설명합니다."
+description: "이 페이지에서는 Braze 클라우드 데이터 수집과 Amazon S3 또는 Google Cloud Storage에서 Braze로 관련 데이터를 동기화하는 방법에 대해 설명합니다."
 page_order: 4
 page_type: reference
 
@@ -9,11 +9,16 @@ page_type: reference
 
 # 파일 스토리지 통합 {#file-storage-integrations}
 
-> 이 페이지에서는 클라우드 데이터 수집 지원을 설정하고 S3에서 Braze로 관련 데이터를 동기화하는 방법에 대해 설명합니다.
+> 이 페이지에서는 클라우드 데이터 수집을 설정하여 Amazon S3 또는 Google Cloud Storage에서 Braze로 데이터를 동기화하는 방법에 대해 설명합니다.
 
 ## 작동 방식 {#how-it-works}
 
-S3용 클라우드 데이터 수집(CDI)을 사용하여 AWS 계정에 있는 하나 이상의 S3 버킷을 Braze와 직접 통합할 수 있습니다. 새 파일이 S3에 게시되면 SQS에 메시지가 게시되고 Braze 클라우드 데이터 수집이 해당 새 파일을 가져옵니다.
+클라우드 데이터 수집(CDI)을 사용하여 클라우드 계정에 있는 하나 이상의 스토리지 버킷을 Braze와 직접 통합할 수 있습니다. 버킷에 새 파일이 추가되면 클라우드 공급자가 알림을 게시하고, Braze 클라우드 데이터 수집이 해당 데이터를 동기화합니다.
+
+알림 메커니즘은 공급자에 따라 다릅니다:
+
+- **Amazon S3:** 새 파일이 S3에 게시되면 Amazon Simple Queue Service(SQS) 대기열에 메시지가 게시되고, Braze가 해당 메시지를 소비하여 새 파일을 수집합니다.
+- **Google Cloud Storage(GCS):** 버킷에서 새 파일이 완료되면 GCS가 Pub/Sub 토픽에 `OBJECT_FINALIZE` 알림을 게시합니다. Braze는 Pub/Sub 구독에서 해당 알림을 소비하여 새 파일을 수집합니다.
 
 클라우드 데이터 수집은 다음을 지원합니다:
 
@@ -22,17 +27,20 @@ S3용 클라우드 데이터 수집(CDI)을 사용하여 AWS 계정에 있는 �
 - Parquet 파일
 - 속성, 커스텀 이벤트, 구매 이벤트, 사용자 삭제 및 카탈로그 데이터
 
-## 필수 조건 {#prerequisites}
+## 클라우드 데이터 수집 설정하기 {#setting-up-cloud-data-ingestion}
+
+설정 단계는 파일 스토리지 공급자에 따라 다릅니다. 공급자에 해당하는 탭을 선택한 다음, 이어지는 섹션에서 공통 구성을 완료하세요.
+
+{% tabs %}
+{% tab Amazon S3 %}
 
 통합에는 다음 리소스가 필요합니다:
 
- - 데이터 저장용 S3 버킷
- - 새 파일 알림을 위한 SQS 대기열
- - Braze 액세스를 위한 IAM 역할
+- 데이터 저장용 S3 버킷
+- 새 파일 알림을 위한 SQS 대기열
+- Braze 액세스를 위한 IAM 역할
 
 ### AWS 정의 {#aws-definitions}
-
-먼저, 이 작업에서 사용되는 용어를 정의합니다.
 
 | 용어 | 정의 |
 | --- | --- |
@@ -216,17 +224,239 @@ AWS에서 설정을 완료하려면 IAM 역할을 만들고 5단계의 IAM 정�
 8. 액세스 또는 권한 문제로 인해 동기화가 중단되는 경우 알림을 받을 연락처 이메일을 추가합니다. 선택적으로 사용자 수준 오류 및 동기화 성공에 대한 알림을 설정할 수 있습니다.
 9. 동기화를 생성합니다.
 
+{% endtab %}
+{% tab Google Cloud Storage %}
+
+통합에는 다음 리소스가 필요합니다:
+
+- 데이터 저장용 Cloud Storage 버킷
+- 새 파일 알림을 위한 Pub/Sub 토픽 및 구독
+- JSON 키를 Braze에 업로드할 서비스 계정
+
+### GCP 정의 {#gcp-definitions}
+
+| 용어 | 정의 |
+| --- | --- |
+| Google Cloud 프로젝트 | 프로젝트는 모든 Google Cloud 리소스를 구성하며, 고유한 프로젝트 ID와 프로젝트 번호로 식별됩니다. |
+| Cloud Storage 버킷 | 버킷은 Braze가 수집할 데이터 파일을 보관하는 컨테이너입니다. |
+| Pub/Sub 토픽 | 토픽은 Cloud Storage 버킷에서 새 파일 알림을 수신하는 명명된 리소스입니다. |
+| Pub/Sub 구독 | 구독은 토픽에 연결되어 메시지를 전달합니다. Braze는 풀 구독에서 새 파일 알림을 소비합니다. |
+| 서비스 계정 | 서비스 계정은 Braze가 버킷과 구독에 액세스하는 데 사용하는 비인간 ID입니다. JSON 키를 Braze에 업로드합니다. |
+| IAM 역할 | ID 및 액세스 관리(IAM) 역할은 버킷과 구독에서 서비스 계정에 부여하는 권한 모음입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="GCP 정의" }
+
+## Google Cloud에서 클라우드 데이터 수집 설정하기 {#setting-up-cloud-data-ingestion-in-google-cloud}
+
+### 1단계: Cloud Storage 버킷 만들기 {#step-1-create-a-cloud-storage-bucket}
+
+Google Cloud 콘솔에서 **Cloud Storage** > **Buckets** > **Create**로 이동합니다. 프로젝트 ID와 버킷 이름을 기록해 두세요. Braze에서 소스를 구성할 때 필요합니다. IAM으로 권한을 관리할 수 있도록 균일한 버킷 수준 액세스를 활성화하는 것을 권장합니다.
+
+또는 gcloud로 버킷을 생성할 수 있습니다:
+
+```shell
+gcloud storage buckets create gs://YOUR-BUCKET-NAME \
+  --project=YOUR-PROJECT-ID \
+  --location=YOUR-REGION \
+  --uniform-bucket-level-access
+```
+
+### 2단계: Pub/Sub 토픽 및 구독 만들기 {#step-2-create-a-pubsub-topic-and-subscription}
+
+Google Cloud 콘솔에서 **Pub/Sub** > **Topics** > **Create topic**으로 이동합니다. Google이 기본 구독을 생성하도록 하거나 별도로 생성할 수 있습니다. 그런 다음 해당 토픽에 **풀** 구독을 생성합니다.
+
+또는 gcloud를 사용할 수 있습니다:
+
+```shell
+gcloud pubsub topics create YOUR-TOPIC --project=YOUR-PROJECT-ID
+gcloud pubsub subscriptions create YOUR-SUBSCRIPTION \
+  --topic=YOUR-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
+```
+
+**구독 ID**를 기록해 두세요. Braze는 동기화를 생성할 때 토픽이 아닌 구독이 필요합니다. 구독은 풀 구독이어야 합니다.
+
+### 3단계: 버킷 알림을 토픽으로 전송하기 {#step-3-send-bucket-notifications-to-the-topic}
+
+{% alert important %}
+Cloud Storage에서 Pub/Sub로의 알림 생성은 Google Cloud 콘솔에서 사용할 수 없습니다. gcloud(여기에 표시), Terraform 또는 JSON API를 사용해야 합니다. 자세한 내용은 Google Cloud 설명서의 [Cloud Storage에 대한 Pub/Sub 알림 구성](https://cloud.google.com/storage/docs/reporting-changes#enabling)을 참조하세요.
+{% endalert %}
+
+먼저 Cloud Storage 서비스 에이전트에 토픽에 게시할 수 있는 권한을 부여한 다음, `OBJECT_FINALIZE`에 대한 알림을 생성합니다. `OBJECT_FINALIZE` 이벤트는 버킷에 새 오브젝트가 생성되거나 완료될 때마다 발생합니다.
+
+```shell
+# Get the Cloud Storage service agent for your project
+gcloud storage service-agent --project=YOUR-PROJECT-ID
+
+# Grant it Pub/Sub Publisher on the topic
+gcloud pubsub topics add-iam-policy-binding YOUR-TOPIC \
+  --project=YOUR-PROJECT-ID \
+  --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
+  --role="roles/pubsub.publisher"
+
+# Create the OBJECT_FINALIZE notification (optionally scope to a folder with --object-prefix)
+gcloud storage buckets notifications create gs://YOUR-BUCKET-NAME \
+  --topic=YOUR-TOPIC \
+  --event-types=OBJECT_FINALIZE \
+  --payload-format=json
+```
+
+이 명령에서 다음 자리 표시자를 바꾸세요:
+
+- `YOUR-PROJECT-ID`: Google Cloud 프로젝트 ID, 사람이 읽을 수 있는 식별자(예: `my-gcp-project`).
+- `YOUR-TOPIC`: [2단계](#step-2-create-a-pubsub-topic-and-subscription)에서 생성한 Pub/Sub 토픽.
+- `YOUR-BUCKET-NAME`: Cloud Storage 버킷 이름.
+- `YOUR-PROJECT-NUMBER`: Cloud Storage 서비스 에이전트의 이메일 주소에 사용되는 숫자 식별자인 프로젝트 번호. 프로젝트 ID와 다릅니다. Google Cloud 콘솔의 **Dashboard**에서 확인하거나 다음 명령을 실행하세요:
+
+```shell
+gcloud projects describe YOUR-PROJECT-ID --format="value(projectNumber)"
+```
+
+### 4단계: 서비스 계정 만들기 {#step-4-create-a-service-account}
+
+Google Cloud 콘솔에서 **IAM & Admin** > **Service Accounts** > **Create service account**로 이동합니다.
+
+또는 gcloud를 사용할 수 있습니다:
+
+```shell
+gcloud iam service-accounts create braze-cdi-gcs \
+  --project=YOUR-PROJECT-ID \
+  --display-name="Braze CDI GCS"
+```
+
+### 5단계: 권한 부여 {#step-5-grant-permissions}
+
+커넥터에는 정확히 다음 권한이 필요합니다: 버킷에 대한 `storage.buckets.get`, `storage.objects.get`, `storage.objects.list`, 그리고 구독에 대한 `pubsub.subscriptions.consume`. 커스텀 역할 또는 사전 정의된 역할로 부여할 수 있습니다.
+
+**커스텀 역할:** 정확히 해당 권한을 가진 커스텀 역할을 생성하고 버킷과 구독에 바인딩합니다:
+
+```shell
+gcloud iam roles create brazeCdiGcs --project=YOUR-PROJECT-ID \
+  --title="Braze CDI GCS" \
+  --permissions=storage.buckets.get,storage.objects.get,storage.objects.list,pubsub.subscriptions.consume \
+  --stage=GA
+
+gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
+
+gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
+  --project=YOUR-PROJECT-ID \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
+```
+
+**사전 정의된 역할:** 버킷에 `roles/storage.objectViewer` 및 `roles/storage.legacyBucketReader`를, 구독에 `roles/pubsub.subscriber`를 부여합니다. `objectViewer` 역할은 `storage.objects.get` 및 `storage.objects.list`를 제공하고, `legacyBucketReader`는 `storage.buckets.get`을 제공합니다:
+
+```shell
+gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="roles/storage.objectViewer"
+gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="roles/storage.legacyBucketReader"
+gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
+  --project=YOUR-PROJECT-ID \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="roles/pubsub.subscriber"
+```
+
+### 6단계: JSON 키 만들기 {#step-6-create-a-json-key}
+
+Google Cloud 콘솔에서 서비스 계정을 열고 **Keys** > **Add key** > **Create new key**로 이동한 다음 **JSON**을 선택합니다.
+
+또는 gcloud를 사용할 수 있습니다:
+
+```shell
+gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
+  --iam-account=braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com
+```
+
+## Braze에서 클라우드 데이터 수집 설정하기
+
+1. Braze에서 **데이터 설정** > **클라우드 데이터 수집** > **소스**로 이동하여 **데이터 소스 추가**를 선택한 다음 **Google Cloud Storage**를 선택합니다.
+
+![데이터 소스 목록에서 Google Cloud Storage가 선택된 "새 소스 추가" 화면.]({% image_buster /assets/img/cloud_ingestion/gcs_source_picker.png %})
+
+{: start="2"}
+2. 소스 필드를 작성합니다:
+    - **Bucket** — 버킷 이름
+    - **Project ID** — GCP 프로젝트 ID
+    - **Service account JSON key** — 6단계의 키 파일을 업로드하고 자격 증명에 이름을 지정합니다
+
+![버킷, 프로젝트 ID 및 자격 증명 업로드 필드가 표시된 Google Cloud Storage 소스 양식.]({% image_buster /assets/img/cloud_ingestion/gcs_source_form.png %})
+
+{: start="3"}
+3. **연결 테스트**를 선택한 다음 **소스에 연결**을 선택합니다.
+4. 동기화를 생성합니다. **데이터 설정** > **클라우드 데이터 수집** > **동기화**로 이동하여 **데이터 동기화 생성**을 선택합니다. 동기화 이름과 **데이터 유형**(**사용자 속성**, **커스텀 이벤트**, **구매 이벤트**, **카탈로그** 또는 **사용자 삭제** 등)을 선택한 다음 **다음**을 선택합니다.
+5. **데이터 정의** 단계에서 GCS 소스를 선택한 다음 다음을 지정합니다:
+    - **Pub/Sub subscription ID** — 2단계의 구독 ID(토픽이 아님)
+    - **Folder path**(선택 사항) — 버킷 내 경로 접두사([공유 버킷에서 폴더 동기화하기](#syncing-a-folder-in-a-shared-bucket) 참조)
+
+![Pub/Sub 구독 ID 및 폴더 경로 필드가 표시된 Google Cloud Storage 동기화 양식.]({% image_buster /assets/img/cloud_ingestion/gcs_sync_form.png %})
+
+{: start="6"}
+6. **미리보기 및 검증**을 선택하여 Braze가 구독에 접근하고 수집 가능한 파일 목록을 확인할 수 있는지 검증합니다. 테스트가 성공하면 버킷의 기존 파일이 나열되지만, 해당 파일은 자동으로 동기화되지 않습니다.
+7. 오류 알림을 받을 연락처 이메일을 추가합니다. Google Cloud Storage 동기화는 이벤트 기반이므로 스케줄이 필요하지 않습니다. Braze는 새 파일이 업로드되면 수집합니다. 요약을 검토한 다음 **동기화 생성**을 선택합니다.
+
+### 공유 버킷에서 폴더 동기화하기 {#syncing-a-folder-in-a-shared-bucket}
+
+하나의 버킷을 여러 동기화에서 재사용할 수 있지만, 각 동기화는 고유한 폴더를 대상으로 하고 자체 전용 Pub/Sub 구독을 가져야 합니다.
+
+
+{% alert important %}
+동일한 소스 버킷을 공유하는 여러 동기화의 경우, 폴더 경로와 구독 모두 워크스페이스 내 동기화 전체에서 고유해야 합니다.
+{% endalert %}
+
+공유 버킷에서 동기화하려는 각 폴더에 대해:
+
+1. 동기화의 **Folder** 필드를 경로 접두사(예: `attributes/`)로 설정합니다. Braze는 해당 접두사로 시작하는 경로의 오브젝트만 나열하고 수집합니다.
+2. 해당 폴더에 대한 전용 토픽과 접두사 범위 알림을 생성한 다음, 해당 토픽에 구독을 생성합니다:
+
+    ```shell
+    # 폴더당 하나의 토픽
+    gcloud pubsub topics create YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID
+
+    # Cloud Storage 서비스 에이전트에 토픽에 대한 publisher 권한 부여
+    gcloud pubsub topics add-iam-policy-binding YOUR-ATTRIBUTES-TOPIC \
+      --project=YOUR-PROJECT-ID \
+      --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
+      --role="roles/pubsub.publisher"
+
+    # --object-prefix로 폴더 범위가 지정된 알림
+    gcloud storage buckets notifications create gs://YOUR-BUCKET-NAME \
+      --topic=YOUR-ATTRIBUTES-TOPIC --event-types=OBJECT_FINALIZE \
+      --payload-format=json --object-prefix=attributes/
+
+    # 동기화당 하나의 구독
+    gcloud pubsub subscriptions create YOUR-ATTRIBUTES-SUBSCRIPTION \
+      --topic=YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
+    ```
+
+3. [5단계](#step-5-grant-permissions)에서와 같이 Braze 서비스 계정에 해당 구독에 대한 소비 권한을 부여합니다:
+
+    ```shell
+    gcloud pubsub subscriptions add-iam-policy-binding YOUR-ATTRIBUTES-SUBSCRIPTION \
+      --project=YOUR-PROJECT-ID \
+      --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+      --role="roles/pubsub.subscriber"
+    ```
+
+    [5단계](#step-5-grant-permissions)에서 커스텀 역할을 생성한 경우 `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"`를 대신 사용하세요.
+4. Braze에서 동기화를 생성할 때 이 폴더의 새 **Pub/Sub subscription ID**와 **Folder path**를 입력하여 해당 폴더의 파일만 수집하도록 합니다.
+
+
+{% endtab %}
+{% endtabs %}
 
 ## 필수 파일 형식 {#required-file-formats}
 
-클라우드 데이터 수집은 JSON, CSV 및 Parquet 파일을 지원합니다. 필수 열은 데이터 유형에 따라 다릅니다:
+필수 파일 형식은 Amazon S3와 Google Cloud Storage에서 동일합니다. 클라우드 데이터 수집은 JSON, CSV 및 Parquet 파일을 지원합니다. 필수 열은 데이터 유형에 따라 다릅니다:
 
 - 사용자 데이터(속성, 커스텀 이벤트, 구매 이벤트)는 사용자 식별자와 페이로드를 사용합니다
 - 카탈로그 데이터는 카탈로그 식별자를 사용합니다
 
-카탈로그 데이터에 S3를 사용하는 경우, 카탈로그별 요구 사항 및 동작에 대해서는 이 페이지와 함께 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)를 참조하세요.
+카탈로그 데이터에 파일 스토리지를 사용하는 경우, 카탈로그별 요구 사항 및 동작에 대해서는 이 페이지와 함께 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)를 참조하세요.
 
-Braze는 AWS에서 적용하는 것 외에 추가적인 파일 이름 요구 사항을 적용하지 않습니다. 파일 이름은 고유해야 합니다. 고유성을 보장하려면 타임스탬프를 추가하는 것이 좋습니다.
+Braze는 파일 스토리지 공급자가 적용하는 것 외에 추가적인 파일 이름 요구 사항을 적용하지 않습니다. 파일 이름은 고유해야 합니다. 고유성을 보장하려면 타임스탬프를 추가하는 것이 좋습니다.
 
 지원되는 모든 파일 형식(속성, 커스텀 이벤트, 구매, 카탈로그 및 사용자 삭제)의 예는 [braze-examples](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion/braze-examples/payloads/file_storage)의 샘플 파일을 참조하세요.
 
@@ -310,25 +540,25 @@ ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-선택적 `DELETED` 열을 포함합니다. `DELETED`가 `true`일 때 해당 카탈로그 항목은 Braze의 카탈로그에서 제거됩니다. 필수 열의 전체 목록은 [카탈로그 식별자](#catalog-identifiers)를 참조하세요. 삭제 동작에 대해서는 [카탈로그 항목 삭제](#deleting-catalog-items)를 참조하세요. 대상 카탈로그 생성 및 동기화 동작을 포함한 전체 카탈로그 설정 흐름에 대해서는 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)를 참조하세요.
+선택적 `DELETED` 열을 포함합니다. `DELETED`가 `true`일 때 해당 카탈로그 항목은 Braze의 카탈로그에서 제거됩니다. 필수 열의 전체 목록은 [카탈로그 식별자](#catalog-identifiers)를 참조하세요. 삭제 동작에 대해서는 [카탈로그 항목 삭제](#deleting-catalog-items)를 참조하세요. 대상 카탈로그 생성 및 동기화 동작을 포함한 포괄적인 카탈로그 설정 흐름에 대해서는 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)를 참조하세요.
 {% endtab %}
 
 {% endtabs %}
 
 ## 데이터 삭제 {#deleting-data}
 
-S3용 클라우드 데이터 수집은 파일 업로드를 통해 사용자 및 카탈로그 항목 삭제를 지원합니다. 각각에 대해 별도의 동기화 및 파일 형식을 사용하세요.
+파일 스토리지용 클라우드 데이터 수집은 파일 업로드를 통해 사용자 및 카탈로그 항목 삭제를 지원합니다. 각각에 대해 별도의 동기화 및 파일 형식을 사용하세요.
 
 - **[사용자 삭제](#deleting-users)** – 데이터 유형 **사용자 삭제**로 동기화를 생성하고 사용자 식별자만 포함된 파일(페이로드 없음)을 업로드합니다.
 - **[카탈로그 항목 삭제](#deleting-catalog-items)** – 기존 카탈로그 동기화를 사용하고 항목 제거를 표시하기 위해 `deleted`(또는 `DELETED`) 열을 추가합니다.
 
 ### 사용자 삭제 {#deleting-users}
 
-S3의 파일을 사용하여 Braze에서 사용자 프로필을 삭제하려면:
+소스 버킷의 파일을 사용하여 Braze에서 사용자 프로필을 삭제하려면:
 
-1. 새 클라우드 데이터 수집 동기화를 생성합니다(다른 동기화와 동일한 [AWS 및 Braze 설정](#setting-up-cloud-data-ingestion-in-aws)).
+1. 새 클라우드 데이터 수집 동기화를 생성합니다(다른 동기화와 동일한 설정).
 2. Braze에서 동기화를 구성할 때 **데이터 유형**을 **사용자 삭제**로 설정합니다.
-3. 사용자 식별자 열만 포함된 파일을 S3 버킷에 업로드합니다. `PAYLOAD` 열은 포함하지 마세요. 페이로드가 존재하면 우발적인 삭제를 방지하기 위해 동기화가 실패합니다.
+3. 사용자 식별자 열만 포함된 파일을 소스 버킷에 업로드합니다. `PAYLOAD` 열은 포함하지 마세요. 페이로드가 존재하면 우발적인 삭제를 방지하기 위해 동기화가 실패합니다.
 
 파일의 각 행은 다음 중 하나를 사용하여 정확히 한 명의 사용자를 식별해야 합니다:
 
@@ -363,7 +593,7 @@ user-to-delete-002
 
 파일 스토리지를 사용하여 카탈로그에서 항목을 제거하려면:
 
-1. [카탈로그 데이터 동기화]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)에 사용하는 동일한 S3 동기화를 사용합니다(데이터 유형 **카탈로그**).
+1. [카탈로그 데이터 동기화]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)에 사용하는 동일한 동기화를 사용합니다(데이터 유형 **카탈로그**).
 2. CSV 또는 JSON 파일에 선택적 **`deleted`**(또는 **`DELETED`**) 열을 추가합니다.
 3. Braze의 카탈로그에서 제거할 카탈로그 항목에 대해 `deleted`를 `true`로 설정합니다.
 
@@ -386,7 +616,7 @@ ID,PAYLOAD,DELETED
 
 ## 알아두어야 할 사항 {#things-to-know}
 
-- S3 소스 버킷에 추가되는 파일은 512&nbsp;MB를 초과하면 안 됩니다. 512&nbsp;MB보다 큰 파일은 오류가 발생하며 Braze에 동기화되지 않습니다.
+- 소스 버킷에 추가되는 파일은 512&nbsp;MB를 초과하면 안 됩니다. 이 제한은 Amazon S3와 Google Cloud Storage 모두에 적용됩니다. 512&nbsp;MB보다 큰 파일은 오류가 발생하며 Braze에 동기화되지 않습니다.
 - 파일당 행 수에 대한 추가 제한은 없지만, 동기화 속도를 개선하기 위해 더 작은 파일을 사용하는 것이 좋습니다. 예를 들어, 500&nbsp;MB 파일은 5개의 별도 100&nbsp;MB 파일보다 수집하는 데 상당히 더 오래 걸립니다.
 - 주어진 시간에 업로드되는 파일 수에 대한 추가 제한은 없습니다.
 - 파일 내부 또는 파일 간 순서 지정은 지원되지 않습니다. 예상되는 경합 조건을 모니터링하는 경우 주기적으로 업데이트를 일괄 처리하는 것이 좋습니다.
@@ -395,11 +625,11 @@ ID,PAYLOAD,DELETED
 
 ### 파일 업로드 및 처리 {#uploading-files-and-processing}
 
-CDI는 동기화가 생성된 후에 추가된 파일만 처리합니다. 이 과정에서 Braze는 새로 추가되는 파일을 감지하고, 이를 통해 SQS에 새 메시지가 트리거됩니다. 그러면 새 파일을 처리하기 위한 새 동기화가 시작됩니다.
+CDI는 동기화가 생성된 후에 추가된 파일만 처리합니다. 이 과정에서 Braze는 새로 추가되는 파일을 감지하고, 이를 통해 새 알림이 트리거됩니다. 그러면 새 파일을 처리하기 위한 새 동기화가 시작됩니다. Amazon S3의 경우 알림은 SQS에 대한 메시지입니다. Google Cloud Storage의 경우 Pub/Sub에 대한 `OBJECT_FINALIZE` 메시지입니다.
 
-기존 파일을 사용하여 Braze가 버킷에 액세스하고 수집할 파일을 감지할 수 있는지 확인할 수 있지만, 이 파일들은 Braze에 동기화되지 않습니다. CDI가 이를 처리하려면, 동기화하려는 기존 파일을 S3에 다시 업로드해야 합니다.
+기존 파일을 사용하여 Braze가 버킷에 액세스하고 수집할 파일을 감지할 수 있는지 확인할 수 있지만, 이 파일들은 Braze에 동기화되지 않습니다. CDI가 이를 처리하려면, 동기화하려는 기존 파일을 소스 버킷에 다시 업로드해야 합니다.
 
-### 예기치 않은 파일 오류 처리 {#handling-unexpected-file-errors}
+### 예기치 않은 파일 오류 처리(Amazon S3) {#handling-unexpected-file-errors-amazon-s3}
 
 많은 수의 오류 또는 실패한 파일이 관찰되는 경우, CDI의 대상 폴더가 아닌 다른 폴더에서 S3 버킷에 파일을 추가하는 다른 프로세스가 있을 수 있습니다.
 
@@ -410,3 +640,15 @@ S3 알림 또는 SQS 대상 권한과 관련된 문제(예: 대상 유효성 검
 - [Amazon S3 콘솔을 사용하여 이벤트 알림 활성화 및 구성](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html)
 - [대상에 이벤트 알림 메시지 게시 권한 부여](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html)
 - [Amazon SQS 문제 해결](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-troubleshooting.html)
+
+### 예기치 않은 파일 오류 처리(Google Cloud Storage) {#handling-unexpected-file-errors-google-cloud-storage}
+
+Amazon S3와 마찬가지로 CDI는 동기화가 생성된 후에 업로드된 파일만 처리합니다. 각 새 오브젝트는 Pub/Sub 토픽에 `OBJECT_FINALIZE` 메시지를 트리거합니다. 버킷에 이미 존재하는 파일을 수집하려면 다시 업로드하세요.
+
+파일이 수집되지 않는 경우 다음을 확인하세요:
+
+- 버킷 알림이 존재하는지 확인합니다. `gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME`으로 버킷의 알림을 나열합니다.
+- Cloud Storage 서비스 에이전트가 토픽에 대해 `roles/pubsub.publisher`를 가지고 있는지 확인합니다.
+- Braze 서비스 계정이 구독에 대한 소비 권한(`pubsub.subscriptions.consume`, 커스텀 역할 또는 `roles/pubsub.subscriber`를 통해 부여)을 가지고 있는지 확인합니다.
+
+자세한 내용은 Google Cloud 설명서의 [Cloud Storage에 대한 Pub/Sub 알림](https://cloud.google.com/storage/docs/pubsub-notifications)을 참조하세요.

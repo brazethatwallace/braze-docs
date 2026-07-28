@@ -31,8 +31,8 @@ Die Event-Eigenschaften werden zusammen mit der Nutzer:in gesendet, sodass Sie d
 
 Führen Sie diese Schritte aus, um Benachrichtigungen über Preissenkungen in einem bestimmten Katalog einzurichten.
 
-1. Gehen Sie zu Ihrem Katalog und wählen Sie den Tab **Einstellungen**.
-2. Wählen Sie den Schalter **Preissenkung**.
+1. Gehen Sie zu Ihrem Katalog und wählen Sie den Tab **Settings**.
+2. Wählen Sie den Schalter **Price Drop**.
 3. Wenn die globalen Katalogeinstellungen nicht konfiguriert wurden, werden Sie aufgefordert, die angepassten Events und Eigenschaften einzurichten, die zum Triggern von Benachrichtigungen verwendet werden. <br><br> ![Bereich für Katalogeinstellungen.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
 
 | Feld | Beschreibung |
@@ -63,19 +63,19 @@ Hier ist ein Beispiel für ein angepasstes Event:
 ```
 
 {: start="4"}
-4. Wählen Sie **Speichern** und fahren Sie mit dem nächsten Abschnitt fort, um Benachrichtigungsregeln einzurichten.
+4. Wählen Sie **Save** und fahren Sie mit dem nächsten Abschnitt fort, um Benachrichtigungsregeln einzurichten.
 
 ### Einrichten von Benachrichtigungsregeln {#setting-up-notification-rules}
 
-1. Rufen Sie die Seite **Einstellungen** Ihres Katalogs auf.
-2. Wählen Sie bei **Benachrichtigungsregeln** eine der folgenden Optionen aus:<br>
+1. Rufen Sie die Seite **Settings** Ihres Katalogs auf.
+2. Wählen Sie bei **Notification rules** eine der folgenden Optionen aus:<br>
 
-    - **Alle abonnierten Nutzer:innen benachrichtigen:** Benachrichtigen Sie alle Kund:innen, die warten, wenn der Preis des Artikels sinkt.
-    - **Benachrichtigungslimits festlegen:** Benachrichtigen Sie eine bestimmte Anzahl von Kund:innen in dem von Ihnen konfigurierten Benachrichtigungszeitraum. Braze benachrichtigt die angegebene Anzahl von Kund:innen schrittweise, bis es keine Kund:innen mehr zu benachrichtigen gibt oder bis der Preis des Artikels wieder steigt. Ihre Benachrichtigungsrate darf 10.000 Nutzer:innen pro Minute nicht überschreiten.<br>
+    - **Notify all subscribed users:** Benachrichtigen Sie alle Kund:innen, die warten, wenn der Preis des Artikels sinkt.
+    - **Set notification limits:** Benachrichtigen Sie eine bestimmte Anzahl von Kund:innen in dem von Ihnen konfigurierten Benachrichtigungszeitraum. Braze benachrichtigt die angegebene Anzahl von Kund:innen schrittweise, bis es keine Kund:innen mehr zu benachrichtigen gibt oder bis der Preis des Artikels wieder steigt. Ihre Benachrichtigungsrate darf 10.000 Nutzer:innen pro Minute nicht überschreiten.<br>
 
-2. Legen Sie das **Preisfeld im Katalog** fest. Dies ist das Katalogfeld zur Ermittlung des Artikelpreises. Es muss ein Zahlentyp sein.
-3. Legen Sie die **Preissenkungsregel** fest. Diese Logik bestimmt, ob eine Benachrichtigung gesendet werden soll. Eine Preissenkung kann als prozentuale Preisänderung oder durch die Änderung des Wertes für das Preisfeld konfiguriert werden.
-4. Wählen Sie **Einstellungen speichern**.
+2. Legen Sie das **Price field in catalog** fest. Dies ist das Katalogfeld zur Ermittlung des Artikelpreises. Es muss ein Zahlentyp sein.
+3. Legen Sie die **Price drop rule** fest. Diese Logik bestimmt, ob eine Benachrichtigung gesendet werden soll. Eine Preissenkung kann als prozentuale Preisänderung oder durch die Änderung des Wertes für das Preisfeld konfiguriert werden.
+4. Wählen Sie **Save settings**.
 
 ![Katalogeinstellungen, die die aktivierte Preissenkungsfunktion anzeigen. Die Preissenkungsregel ist eine Änderung von drei Prozent des ursprünglichen Preises.]({% image_buster /assets/img/price_drop_notifications.png %})
 
@@ -109,5 +109,5 @@ Verwenden Sie den Liquid-Tag {%raw%}``{% catalog_items <name_of_your_catalog> {{
 ## Überlegungen {#considerations}
 
 - Nutzer:innen sind für 90 Tage abonniert. Wenn der Preis eines Artikels innerhalb von 90 Tagen nicht sinkt, wird die Nutzer:in aus dem Abo entfernt.
-- Wenn Sie die Benachrichtigungsregel **Alle abonnierten Nutzer:innen benachrichtigen** verwenden, benachrichtigt Braze 100.000 Nutzer:innen innerhalb von 10 Minuten.
+- Wenn Sie die Benachrichtigungsregel **Notify all subscribed users** verwenden, benachrichtigt Braze 100.000 Nutzer:innen innerhalb von 10 Minuten.
 - Braze unterstützt bis zu 50.000 aktualisierte Artikel pro Tag, die für das Triggern von Preissenkungsbenachrichtigungen berechtigt sind. Sie können bis zu 100 Millionen aktive Abos gleichzeitig haben, wobei jedes Abo ein Nutzerprofil darstellt, das einen Katalogartikel beobachtet.

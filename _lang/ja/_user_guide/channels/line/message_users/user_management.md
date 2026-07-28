@@ -18,7 +18,7 @@ alias: /line/user_management/
 Brazeを通じてLINEメッセージを送信する場合、Brazeは`native_line_id`属性を使用して、メッセージの送信先ユーザーを特定します。LINEがBrazeにWebhookイベント（ユーザーがチャネルをフォローした場合やメッセージに返信した場合など）を送信すると、`native_line_id`を使用して対応するユーザープロファイルが検索されます。
 
 {% alert note %}
-LINE ユーザー ID はLINEプロバイダーごとに異なります。特定のユーザーは、フォローしているプロバイダーごとに異なるLINEユーザー ID を持ちます。ユーザーは（メールアドレスや電話番号とは異なり）自分のLINE IDを知らない可能性が高く、フォローしているブランドごとにIDが変わるためです。
+LINEユーザーIDはLINEプロバイダーごとに異なります。特定のユーザーは、フォローしているプロバイダーごとに異なるLINEユーザーIDを持ちます。ユーザーは（メールアドレスや電話番号とは異なり）自分のLINE IDを知らない可能性が高く、フォローしているブランドごとにIDが変わるためです。
 {% endalert %}
 
 ## `native_line_id` 属性の設定 {#setting-the-native_line_id-attribute}
@@ -31,8 +31,8 @@ LINE ユーザー ID はLINEプロバイダーごとに異なります。特定�
 | ユーザーがLINEチャネルをフォローする | はい | `native_line_id`を持つすべてのユーザープロファイル:<br>- チャネルのBraze購読グループに登録される |
 | 会社が`native_line_id`列を含むユーザーCSVをアップロードする | いいえ | 指定された`external_id`またはユーザーエイリアスに対応するユーザープロファイルが存在しない場合:<br>- `native_line_id`に指定された値が設定される<br>- CSVで指定されたその他すべての属性がユーザープロファイルに設定される |
 | 会社が`native_line_id`列を含むユーザーCSVをアップロードする | はい | 指定された`external_id`またはユーザーエイリアスに対応するユーザープロファイルが存在する場合:<br>- `native_line_id`に指定された値が設定される<br>- CSVで指定されたその他すべての属性がユーザープロファイルに設定される<br>- 複数のプロファイルが同じ`native_line_id`を持つ |
-| 会社が`/users/track`エンドポイントを使用して`native_line_id`属性を指定する | いいえ | 指定されたユーザー（[`external_id`、`user_alias`、`braze_id`、または`email`で指定]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)）に対応するユーザープロファイルが存在しない場合:<br>- `native_line_id`に指定された値が設定される<br>- リクエストで指定されたその他すべての属性がユーザープロファイルに設定される |
-| 会社が`/users/track`エンドポイントを使用して`native_line_id`属性を指定する | はい | 指定されたユーザー（[`external_id`、`user_alias`、`braze_id`、または`email`で指定]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)）に対応するユーザープロファイルが存在する場合:<br>- `native_line_id`に指定された値が設定される<br>- リクエストで指定されたその他すべての属性がユーザープロファイルに設定される<br>- 複数のプロファイルが同じ`native_line_id`を持つ |
+| 会社が`/users/track`エンドポイントを使用して`native_line_id`属性を指定する | いいえ | 指定されたユーザー（[`external_id`、`user_alias`、`braze_id`、または`email`で指定]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)）に対応するユーザープロファイルが存在しない場合:<br>- `native_line_id`に指定された値が設定される<br>- リクエストで指定されたその他すべての属性がユーザープロファイルに設定される |
+| 会社が`/users/track`エンドポイントを使用して`native_line_id`属性を指定する | はい | 指定されたユーザー（[`external_id`、`user_alias`、`braze_id`、または`email`で指定]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)）に対応するユーザープロファイルが存在する場合:<br>- `native_line_id`に指定された値が設定される<br>- リクエストで指定されたその他すべての属性がユーザープロファイルに設定される<br>- 複数のプロファイルが同じ`native_line_id`を持つ |
 | 会社がBrazeに購読ステータス同期ツールの実行をリクエストする | いいえ | LINEから返されたユーザーLINE IDに対応するユーザープロファイルがBrazeに存在しない場合、匿名ユーザープロファイルが作成されます:<br>- `native_line_id`にユーザーのLINE IDが設定される<br>- `line_id`ユーザーエイリアスにユーザーのLINE IDが設定される<br>- ユーザーがチャネルのBraze購読グループに登録される<br><br>同じLINE IDを持つユーザーが後から作成された場合、重複ユーザーが発生しますが、両方とも正しいLINE購読ステータスを持ちます。このような場合、ユーザーマージによってユーザー群を整理できます。 |
 | 会社がBrazeに購読ステータス同期ツールの実行をリクエストする | はい | LINEから返されたユーザーLINE IDに対応するユーザープロファイルがBrazeに存在する場合:<br>- ユーザーがチャネルのBraze購読グループに登録される |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="native_line_id属性の設定" }

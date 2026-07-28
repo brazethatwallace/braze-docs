@@ -33,7 +33,7 @@ Para obtener más información sobre qué son los webhooks y cómo puedes usarlo
 4. (Opcional) Añade una descripción para explicar cómo se utilizará esta campaña.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario.
    * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas específicas.
-5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plantillas de webhook para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plantillas de webhook para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
@@ -128,11 +128,15 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ### Encabezados de solicitud (opcional) {#request-headers-optional}
 
-Ciertos endpoints pueden requerir que incluyas encabezados en tu solicitud. En la sección **Compose** del creador, puedes añadir tantos encabezados como necesites.
+Ciertos endpoints pueden requerir que incluyas encabezados en tu solicitud. En la sección **Redactar** del creador, puedes añadir tantos encabezados como necesites.
 
 ![Ejemplos de encabezados de solicitud para la clave "Authorization" y la clave "Content-type".]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-Los encabezados de solicitud más comunes son las especificaciones de `Content-Type` (que describen qué tipo de datos se esperan en el cuerpo, como XML o JSON) y los encabezados de autorización que contienen tus credenciales con tu proveedor o sistema.
+Los encabezados de solicitud más comunes son las especificaciones de [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) (que describen qué tipo de datos se esperan en el cuerpo, como XML o JSON) y los encabezados de [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) que contienen tus credenciales con tu proveedor o sistema.
+
+{% alert note %}
+Los nombres de los encabezados HTTP no distinguen entre mayúsculas y minúsculas según [RFC 7230, sección 3.2 ("Each header field consists of a case-insensitive field name")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). Si tu endpoint receptor o cualquier servicio intermedio (como CDN) transforma las mayúsculas y minúsculas de los encabezados, esto no afectará al procesamiento de los encabezados: `Content-Type`, `content-type` y `CONTENT-TYPE` se tratan de forma idéntica.
+{% endalert %}
 
 Las especificaciones de tipo de contenido deben utilizar la clave `Content-Type`. Los valores más comunes son `application/json` o `application/x-www-form-urlencoded`.
 
@@ -189,14 +193,14 @@ Braze te permite hacer un seguimiento de la frecuencia con la que los usuarios r
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu paso en Canvas. Para obtener más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu paso en Canvas. Para obtener más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariantes y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
 
 {% endtab %}
 {% endtabs %}
 
 ## Paso 6: Revisar e implementar {#step-6-review-and-deploy}
 
-Cuando hayas terminado de crear la última de tus Campaign o Canvas, revisa los detalles, pruébala y envíala.
+Cuando hayas terminado de crear tu Campaign o Canvas, revisa los detalles, pruébala y envíala.
 
 ## Cosas que debes saber {#things-to-know}
 
@@ -233,11 +237,19 @@ Braze reintenta los códigos de estado mencionados anteriormente en esta secció
 
 Los encabezados de respuesta `Retry-After` y de límite de velocidad pueden afectar cuánto tiempo espera Braze antes de un intento **reintentable** (por ejemplo, después de `408`, `429` o `5XX`). No hacen que las respuestas no reintentables, como `401`, sean elegibles para reintento.
 
+#### 403 Forbidden y lista de IP permitidas {#403-forbidden-and-ip-allowlisting}
+
+Las respuestas `403 Forbidden` significan que tu endpoint recibió la solicitud pero la rechazó. Las causas comunes incluyen autenticación no válida o ausente, permisos de API insuficientes y reglas de red (como un firewall o un firewall de aplicaciones web) que bloquean las direcciones IP salientes de Braze.
+
+Si las solicitudes de webhook devuelven `403` de forma consistente y tus encabezados de autenticación son correctos, añade las IP de Braze para tu clúster a la lista de permitidas en el servidor que recibe el webhook. Consulta [Lista de IP permitidas](#ip-allowlisting). Las solicitudes de contenido conectado utilizan las mismas IP salientes; consulta [Lista de IP permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
+Para otros pasos de solución de problemas con `4XX`, consulta [Solucionar problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
+
 #### Autenticación y credenciales de contenido conectado {#authentication-and-connected-content-credentials}
 
 La solicitud HTTP saliente del webhook no admite adjuntar [credenciales de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` o `:auth_credentials`) para autenticarse contra tu endpoint. Configura la autenticación utilizando **Encabezados de solicitud** en el webhook en su lugar. Para obtener un token o secreto en el momento del envío, puedes colocar una etiqueta {% raw %}`{% connected_content %}`{% endraw %} en un campo de encabezado o cuerpo para que Liquid la resuelva antes de que se envíe el webhook.
 
-#### Plantillas de webhook guardadas y uso en Campaigns {#saved-webhook-templates-and-campaign-usage}
+#### Plantillas de webhook guardadas y uso en campañas {#saved-webhook-templates-and-campaign-usage}
 
 Braze no proporciona un informe integrado que enumere cada Campaign o paso en Canvas que haga referencia a una **plantilla de webhook guardada** determinada. Para auditar el uso, revisa los pasos de webhook que utilizan la misma URL y método HTTP, o contacta con [soporte de Braze]({{site.baseurl}}/support_contact).
 
@@ -259,6 +271,6 @@ Si estás realizando un webhook de Braze a Braze y utilizas la lista de permitid
 
 ### Eliminar usuarios {#delete-users}
 
-Para eliminar un usuario individual o un Segment de usuarios, ve a **Audiencia** > **Gestionar audiencia** > **Eliminar usuarios**. El panel admite la eliminación masiva de Segments (hasta 10 millones de perfiles), incluye una ventana de cancelación de 7 días y no consume los límites de velocidad compartidos de la REST API. Para conocer los pasos, límites y permisos, consulta [Eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
+Para eliminar un usuario individual o un segmento de usuarios, ve a **Audiencia** > **Gestionar audiencia** > **Eliminar usuarios**. El panel admite la eliminación masiva de segmentos (hasta 10 millones de perfiles), incluye una ventana de cancelación de 7 días y no consume los límites de velocidad compartidos de la REST API. Para conocer los pasos, límites y permisos, consulta [Eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
 Para la eliminación programática en lotes más pequeños, utiliza el [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) en lugar de una campaña de webhook.

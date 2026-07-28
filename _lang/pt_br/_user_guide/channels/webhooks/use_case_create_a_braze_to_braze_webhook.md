@@ -65,6 +65,10 @@ O fluxo de trabalho geral para criar um webhook Braze-para-Braze segue estas eta
 
 Neste caso de uso, você cria dois Canvas e usa um webhook Braze-para-Braze para disparar o segundo Canvas a partir do primeiro. Isso funciona como um gatilho de entrada para quando um usuário atinge um determinado ponto em outro Canvas.
 
+{% alert note %}
+O gatilho **Interact with Canvas Step** está disponível apenas para Campaigns, não para entrada baseada em ação do Canvas. Se você precisar disparar um Canvas com base em um usuário atingindo uma etapa específica em outro Canvas, use essa abordagem de webhook Braze-para-Braze ou o componente [Enviar para Destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) do Canvas.
+{% endalert %}
+
 1. Comece criando seu segundo Canvas — o Canvas que deve ser disparado pelo seu Canvas inicial.
 2. Para o **Cronograma de entrada** do Canvas, selecione **API-Triggered**.
 3. Anote o **Canvas ID**. Você precisará dele em uma etapa posterior.

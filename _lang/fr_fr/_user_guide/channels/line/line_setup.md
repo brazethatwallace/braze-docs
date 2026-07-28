@@ -102,7 +102,7 @@ Une fois le processus d'intégration terminé, Braze récupérera automatiquemen
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2.1 : Modifier les paramètres du webhook" }
 
 {% alert note %}
-Si vous devez mettre à jour ou renouveler le secret du canal pour un canal LINE déjà intégré, contactez l'[assistance Braze]({{site.baseurl}}/braze_support) pour demander une mise à jour.
+Vous pouvez mettre à jour ou renouveler le secret du canal et le jeton d'accès au canal pour un canal LINE déjà intégré en accédant à **Intégrations partenaires** > **Partenaires technologiques** > **LINE** et en sélectionnant votre intégration.
 {% endalert %}
 
 {: start="3"}
