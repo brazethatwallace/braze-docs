@@ -2295,7 +2295,7 @@ RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 �
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-### 추가 채널 세부 정보 {#additional-channel-details}
+## 추가 채널 세부 정보 {#additional-channel-details}
 
 ### 웹훅 {#webhooks}
 

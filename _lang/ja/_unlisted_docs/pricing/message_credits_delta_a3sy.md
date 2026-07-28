@@ -2290,7 +2290,7 @@ RCSはSMSおよびMMSの次世代版です。SMSのようなダイレクトで�
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-### チャネルの追加詳細 {#additional-channel-details}
+## チャネルの追加詳細 {#additional-channel-details}
 
 ### Webhook {#webhooks}
 

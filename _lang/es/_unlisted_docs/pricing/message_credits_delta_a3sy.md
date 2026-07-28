@@ -2290,7 +2290,7 @@ RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal d
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-### Detalles adicionales del canal {#additional-channel-details}
+## Detalles adicionales del canal {#additional-channel-details}
 
 ### Webhooks
 
