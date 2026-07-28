@@ -1,17 +1,15 @@
 ---
 nav_title: Android용 라이브 업데이트
 article_title: Android Braze SDK용 라이브 업데이트
-page_order: 0.1
-description: "Android Braze SDK의 라이브 업데이트를 설정하는 방법을 알아보세요."
-platform:
-  - Android
-  - FireOS
-hidden: true
+layout: redirect
+redirect_to: /docs/developer_guide/live_notifications/
+noindex: true
 ---
 
+<!--
 # Android용 라이브 업데이트 {#live-updates-for-android}
 
-> Braze SDK에서 Android 라이브 업데이트를 사용하는 방법을 알아보세요. [진행률 중심 알림](https://developer.android.com/about/versions/16/features/progress-centric-notifications)이라고도 합니다. 이러한 알림은 대화형 잠금 화면 알림을 표시할 수 있는 [Swift Braze SDK의 라이브 활동]({{site.baseurl}}/developer_guide/live_notifications/live_activities)과 유사합니다. Android 16은 사용자가 시작한 시작부터 끝까지의 여정을 원활하게 추적할 수 있도록 진행률 중심 알림을 도입했습니다.
+> Braze SDK에서 Android 라이브 업데이트를 사용하는 방법을 알아보세요. [진행률 중심 알림](https://developer.android.com/about/versions/16/features/progress-centric-notifications)이라고도 합니다. 이러한 알림은 인터랙티브 잠금 화면 알림을 표시할 수 있는 [Swift Braze SDK의 라이브 활동]({{site.baseurl}}/developer_guide/live_notifications/live_activities)과 유사합니다. Android 16은 사용자가 시작한 처음부터 끝까지의 여정을 원활하게 추적할 수 있도록 진행률 중심 알림을 도입했습니다.
 
 ## 작동 방식 {#how-it-works}
 
@@ -19,7 +17,7 @@ hidden: true
 
 ## 라이브 업데이트 표시 {#displaying-a-live-update}
 
-이 섹션에서는 야생동물 구조팀이 누가 가장 많은 올빼미를 구할 수 있는지 경쟁하는 새로운 게임 쇼의 호스트인 Superb Owl과 파트너가 됩니다. Android 앱에서 라이브 업데이트를 활용하여 진행 중인 경기의 상태를 표시하고 실시간으로 알림을 동적으로 업데이트할 수 있도록 하려고 합니다.
+이 섹션에서는 야생동물 구조팀이 누가 가장 많은 올빼미를 구할 수 있는지 경쟁하는 새로운 게임 쇼의 호스트인 Superb Owl과 파트너가 됩니다. Android 앱에서 라이브 업데이트를 활용하여 진행 중인 경기의 상태를 표시하고 실시간으로 알림을 동적으로 업데이트하려고 합니다.
 
 ![Android의 라이브 업데이트 예시]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
 
@@ -73,7 +71,7 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
 
 `MyCustomNotificationFactory.kt`에서 라이브 업데이트가 표시될 때 데이터를 처리하는 새로운 메서드를 만듭니다.
 
-Superb Owl은 각 팀의 이름과 로고를 확장된 라이브 업데이트에 매핑하기 위해 다음과 같은 메서드를 만들었습니다:
+Superb Owl은 각 팀의 이름과 로고를 확장된 라이브 업데이트에 매핑하기 위해 다음과 같은 메서드를 만들었습니다.
 
 ```kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
@@ -114,7 +112,7 @@ class MyApplication : Application() {
 
 #### curl 명령 예시 {#example-curl-command}
 
-Superb Owl은 다음 curl 명령을 사용하여 요청을 보냈습니다:
+Superb Owl은 다음 curl 명령을 사용하여 요청을 보냈습니다.
 
 ```
 curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
@@ -147,17 +145,18 @@ curl 명령은 테스트에 유용하지만, 이미 [iOS 라이브 활동]({{sit
 
 #### 요청 매개변수 {#request-parameters}
 
-| 키 | 설명 |
+| 키                          | 설명 |
 |------------------------------|------------|
 | `REST_API_KEY`               | `messages.send` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | `BRAZE_REST_ENDPOINT`         | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics#endpoints)에 따라 달라집니다. |
 | `USER_ID`                    | 알림을 보낼 사용자의 ID입니다. |
 | `messages.android_push.title` | 메시지 제목입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 용도로 사용할 수 있습니다. |
 | `messages.android_push.alert` | 메시지 본문입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 용도로 사용할 수 있습니다. |
-| `messages.extra`             | 커스텀 알림 팩토리에서 라이브 알림에 사용하는 키-값 페어입니다. 이 값에는 어떤 문자열이든 할당할 수 있지만, 위의 예시에서는 `live_updates`를 사용하여 기본 푸시 알림인지 라이브 푸시 알림인지를 결정합니다. |
+| `messages.extra`             | 커스텀 알림 팩토리에서 라이브 알림에 사용하는 키-값 페어입니다. 이 값에는 어떤 문자열이든 할당할 수 있지만, [curl 명령 예시](#example-curl-command)에서는 `live_updates`를 사용하여 기본 푸시 알림인지 라이브 푸시 알림인지를 결정합니다. |
 | `ASSIGNED_NOTIFICATION_ID`   | 선택한 사용자의 라이브 알림에 할당할 알림 ID입니다. 이 ID는 해당 게임에 고유해야 하며, 나중에 [기존 알림을 업데이트](#android_step-4-update-data-with-the-braze-rest-api)할 때 사용해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="요청 매개변수" }
 
 ### 5단계: 활동 업데이트 {#step-5-update-the-activity}
 
 기존 라이브 업데이트를 새 데이터로 업데이트하려면 `messages.extra`에 할당된 관련 키-값 페어를 수정한 다음 동일한 `notification_id`를 사용하여 `/messages/send` 엔드포인트를 다시 호출합니다.
+-->

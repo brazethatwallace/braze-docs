@@ -68,13 +68,7 @@ In this step, you will transform the webhook payload that will be sent from the 
 
 This return value must adhere to Braze’s `/users/track` request body format:
 
-- Transformation code is accepted in the JavaScript programming language. Any standard JavaScript control flow, such as if/else logic, is supported.
-- Transformation code accesses the webhook request body via the payload variable. This variable is an object populated by parsing the request body JSON.
-- Any feature supported in our `/users/track` endpoint is supported, including:
-    - User attributes objects, event objects, and purchase objects
-    - Nested attributes and nested custom event properties
-    - Subscription group updates
-    - Email address as an identifier
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Example Data Transformations for Olo webhooks
 
@@ -145,7 +139,7 @@ return brazecall;
 
 Olo sends the event type within the `X-Olo-Event-Type` header of each webhook. To support multiple Olo webhook events within a single transformation, use conditional logic to transform the webhook payload based on the value of this header type.  
 
-In the below transformation example, our JavaScript creates a particular payload for the events of `UserSignedUp` and `OrderPlaced`. Additionally, an `else` condition handles a payload for any Olo events sent to Braze without the X-Olo-Event-Type header of `UserSignedUp` and `OrderPlaced`.
+In the following transformation example, our JavaScript creates a particular payload for the events of `UserSignedUp` and `OrderPlaced`. Additionally, an `else` condition handles a payload for any Olo events sent to Braze without the X-Olo-Event-Type header of `UserSignedUp` and `OrderPlaced`.
 
 ```javascript
 // captures the value within the X-Olo-Event-Type header for use in the conditional logic

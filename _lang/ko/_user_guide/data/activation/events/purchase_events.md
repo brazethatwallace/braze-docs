@@ -17,7 +17,7 @@ search_rank: 3
 
 ## 구매 이벤트 기록 {#log-purchase-events}
 
-구매를 기록하려면 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)를 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)로 전달하거나, 아래에 나열된 SDK 라이브러리 중 하나를 사용하세요.
+구매를 기록하려면 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)를 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)로 전달하거나, 다음 섹션에 나열된 SDK 라이브러리 중 하나를 사용하세요.
 
 {% alert note %}
 구매 이벤트 속성정보는 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events#expected-format)와 동일한 데이터 유형을 사용합니다.
@@ -27,7 +27,7 @@ search_rank: 3
 
 - [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=web)
+- [웹]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=web)
 - [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-purchases)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=unity)
 - [.NET MAUI(구 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#logging-purchases)
@@ -113,7 +113,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 세분화를 위한 구매 측정기준 추적 외에도, Braze는 각 제품의 구매 횟수와 시간에 따른 매출도 기록합니다. 이를 통해 가장 인기 있는 제품을 파악하거나 프로모션 Campaign이 매출에 미치는 영향을 측정하는 데 도움이 될 수 있습니다.
 
-이 데이터는 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data) 페이지에서 확인할 수 있습니다.
+이 데이터는 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data) 페이지에서 확인할 수 있습니다.
 
 ### 매출 계산 {#revenue-calculations}
 
@@ -157,7 +157,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 #### 통화 변환 {#currency-conversion}
 
-구매 이벤트가 USD가 아닌 통화로 기록되면, Braze는 [Open Exchange Rates](http://openexchangerates.org)의 환율을 사용하여 금액을 USD로 변환합니다. 이 환율은 24시간마다 한 번 새로고침됩니다. 환율이 캐시되기 때문에, 특히 급격한 변동을 겪는 통화의 경우 실시간 시장 환율과 약간의 차이가 있을 수 있습니다.
+구매 이벤트가 USD가 아닌 통화로 기록되면, Braze는 [Open Exchange Rates](http://openexchangerates.org)의 환율을 사용하여 금액을 USD로 변환합니다. 이 환율은 24시간마다 한 번 갱신됩니다. 환율이 캐시되기 때문에, 특히 급격한 변동을 겪는 통화의 경우 실시간 시장 환율과 약간의 차이가 있을 수 있습니다.
 
 #### 생애 매출 계산 {#lifetime-revenue-calculation}
 
@@ -167,7 +167,7 @@ $$\text{평균 구매 금액} = \frac{\text{총 지출 금액(달러)}}{\text{�
 
 Braze에서 사용자의 LTV를 파악할 수 있는 주요 위치는 두 곳입니다:
 
-- 각 앱 및 사이트의 *생애 매출* 및 *사용자당 생애주기 가치*와 같은 전체 측정기준은 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data)를 참조하세요.
+- 각 앱 및 사이트의 *생애 매출* 및 *사용자당 생애주기 가치*와 같은 전체 측정기준은 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)를 참조하세요.
 - 특정 사용자의 생애 매출을 파악하려면 해당 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab)을 참조하세요.
 
 ##### 환불이 생애 매출에 미치는 영향 {#impact-of-refunds-on-lifetime-revenue}
@@ -211,7 +211,7 @@ Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 �
 
 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)과 달리, 사용되는 Segment는 실시간으로 업데이트되고, 무제한의 Segment를 지원하며, 최대 30일의 조회 기록을 제공하고, 데이터 포인트가 발생합니다. 추가 데이터 포인트 비용이 발생하므로, 커스텀 이벤트에 대한 이벤트 속성정보를 활성화하려면 Braze 고객 성공 매니저에게 문의해야 합니다.
 
-승인되면 **데이터 설정** > **커스텀 이벤트**에서 **등록정보 관리**를 선택하여 대시보드에서 추가 속성정보를 추가할 수 있습니다. 그런 다음 Campaign 또는 Canvas 빌더의 타겟 단계에서 이러한 이벤트 속성정보를 사용할 수 있습니다.
+승인되면 **데이터 설정** > **커스텀 이벤트**에서 **속성정보 관리**를 선택하여 대시보드에서 추가 속성정보를 추가할 수 있습니다. 그런 다음 Campaign 또는 Canvas 빌더의 타겟 단계에서 이러한 이벤트 속성정보를 사용할 수 있습니다.
 
 {% include data_activation/segmentable_purchase_properties_keys_note.md %}
 
@@ -221,7 +221,7 @@ Sam의 프로필에는 두 건의 구매 이벤트가 있지만, 실제로는 �
 
 ### 주문 수준에서 구매 기록 {#log-purchases-at-the-order-level}
 
-제품 수준이 아닌 주문 수준에서 구매를 기록하려면, 주문 이름 또는 주문 카테고리를 `product_id`로 사용하세요. 자세한 내용은 [구매 오브젝트 사양]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions)을 참조하세요.
+제품 수준이 아닌 주문 수준에서 구매를 기록하려면, 주문 이름 또는 주문 카테고리를 `product_id`로 사용하세요. 자세한 내용은 [구매 오브젝트 사양]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions)을 참조하세요.
 
 ### 제품 ID 명명 규칙 {#product-id-naming-conventions}
 

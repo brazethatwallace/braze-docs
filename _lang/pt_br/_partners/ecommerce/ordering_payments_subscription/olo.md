@@ -68,13 +68,7 @@ Nesta etapa, você transformará a carga útil do webhook que será enviada da p
 
 Esse valor de retorno deve seguir o formato do corpo da solicitação `/users/track` da Braze:
 
-- O código de transformação é aceito na linguagem de programação JavaScript. Todo fluxo de controle JavaScript padrão, como a lógica if/else, é suportado.
-- O código de transformação acessa o corpo da solicitação do webhook por meio da variável de carga útil. Essa variável é um objeto preenchido pela análise do corpo da solicitação JSON.
-- Qualquer recurso aceito em nosso endpoint `/users/track` é aceito, incluindo:
-    - Objetos de atributos de usuário, objetos de eventos e objetos de compra
-    - Atributos aninhados e propriedades de evento personalizado aninhadas
-    - Atualizações do grupo de inscrições
-    - Endereço de e-mail como identificador
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Exemplos de Transformações de dados para webhooks da Olo {#example-data-transformations-for-olo-webhooks}
 
@@ -145,7 +139,7 @@ return brazecall;
 
 A Olo envia o tipo de evento no cabeçalho `X-Olo-Event-Type` de cada webhook. Para suportar vários eventos de webhook da Olo dentro de uma única transformação, use lógica condicional para transformar a carga útil do webhook com base no valor desse tipo de cabeçalho.
 
-No exemplo de transformação abaixo, nosso JavaScript cria uma carga útil específica para os eventos `UserSignedUp` e `OrderPlaced`. Além disso, uma condição `else` lida com uma carga útil para quaisquer eventos da Olo enviados para a Braze sem o cabeçalho X-Olo-Event-Type de `UserSignedUp` e `OrderPlaced`.
+No exemplo de transformação a seguir, nosso JavaScript cria uma carga útil específica para os eventos `UserSignedUp` e `OrderPlaced`. Além disso, uma condição `else` lida com uma carga útil para quaisquer eventos da Olo enviados para a Braze sem o cabeçalho X-Olo-Event-Type de `UserSignedUp` e `OrderPlaced`.
 
 ```javascript
 // captures the value within the X-Olo-Event-Type header for use in the conditional logic

@@ -43,13 +43,13 @@ Los pasos de Contexto procesan usuarios en lotes para optimizar el rendimiento. 
 
 Esto significa:
 
-**Ejemplo**: Si 3500 usuarios entran en un paso de Contexto con Contenido conectado que tarda 650 ms por usuario:
+**Ejemplo**: Si 3500 usuarios entran en un paso de Contexto con contenido conectado que tarda 650 ms por usuario:
 - Braze crea 4 lotes de usuarios (1000, 1000, 1000 y 500 usuarios en este ejemplo).
 - Cada lote procesa usuarios secuencialmente, por lo que un lote de 1000 usuarios tarda aproximadamente 10,8 minutos (650 segundos; 1000 × 650 ms).
 - Los lotes se completan en diferentes momentos, por lo que los usuarios van pasando al siguiente paso a medida que su lote termina.
-- Los primeros usuarios pueden llegar al siguiente paso varios minutos antes que los últimos usuarios, dependiendo del tamaño del lote y los tiempos de respuesta del Contenido conectado.
+- Los primeros usuarios pueden llegar al siguiente paso varios minutos antes que los últimos usuarios, dependiendo del tamaño del lote y los tiempos de respuesta del contenido conectado.
 
-Sin Contenido conectado, los pasos de Contexto se procesan mucho más rápido porque no hay llamadas a API externas que esperar.
+Sin contenido conectado, los pasos de Contexto se procesan mucho más rápido porque no hay llamadas a API externas que esperar.
 
 ## Consideraciones {#considerations}
 
@@ -113,9 +113,9 @@ Asegúrate de observar cualquier escenario común que cree variables de contexto
 
 Si la variable de contexto es válida, puedes hacer referencia a la variable en todo tu Canvas. Sin embargo, si la variable de contexto no se creó correctamente, los pasos futuros en tu Canvas tampoco funcionarán correctamente. Por ejemplo, si creas un paso de Contexto para asignar a los usuarios una hora de cita y estableces el valor de la hora de cita con una fecha pasada, el correo electrónico de recordatorio en tu paso de Mensaje no se envía.
 
-## Convertir cadenas de Contenido conectado a JSON {#converting-connected-content-strings-to-json}
+## Convertir cadenas de contenido conectado a JSON {#converting-connected-content-strings-to-json}
 
-Al hacer una [llamada de Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) en un paso de Contexto, el JSON devuelto por la llamada se evalúa como un tipo de datos de cadena para mantener la consistencia y prevenir errores. Si quieres convertir esta cadena a JSON, conviértela usando `as_json_string`. Por ejemplo:
+Al hacer una [llamada de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) en un paso de Contexto, el JSON devuelto por la llamada se evalúa como un tipo de datos de cadena para mantener la consistencia y prevenir errores. Si quieres convertir esta cadena a JSON, conviértela usando `as_json_string`. Por ejemplo:
 
 {%raw%}
 ```liquid
@@ -130,7 +130,7 @@ Al hacer una [llamada de Contenido conectado]({{site.baseurl}}/user_guide/messag
 
 Una variable de contexto se considera no válida cuando:
 
-- Una llamada a un Contenido conectado integrado falla.
+- Una llamada a un contenido conectado integrado falla.
 - La expresión Liquid en tiempo de ejecución devuelve un valor que no coincide con el tipo de datos o está vacío (nulo).
 
 Por ejemplo, si el tipo de datos de la variable de contexto es **Número** pero la expresión Liquid devuelve una cadena, es no válida.
@@ -143,28 +143,28 @@ Al solucionar problemas, monitoriza la métrica _No actualizado_ para verificar 
 
 Consulta [Tipos de datos]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#data-types) para ver las configuraciones de ejemplo para cada tipo de datos.
 
-### Retrasos en el envío con Contenido conectado {#delays-in-sending-with-connected-content}
+### Retrasos en el envío con contenido conectado {#delays-in-sending-with-connected-content}
 
 Todos los usuarios en un lote se procesan antes de que cualquier usuario avance. Después de que se completa el procesamiento del lote, los usuarios exitosos pasan al siguiente paso, mientras que los usuarios fallidos se reintentan por separado; los usuarios exitosos no esperan a que los reintentos tengan éxito antes de avanzar.
 
 #### Comportamiento de reintento {#retry-behavior}
 
-En los pasos de Canvas (incluidos los pasos de Contexto), Braze usa mecanismos de reintento específicos de Canvas en lugar del comportamiento estándar de reintento de Contenido conectado. Si una llamada de Contenido conectado falla:
+En los pasos de Canvas (incluidos los pasos de Contexto), Braze usa mecanismos de reintento específicos de Canvas en lugar del comportamiento estándar de reintento de contenido conectado. Si una llamada de contenido conectado falla:
 
- - Para los pasos de Mensaje, las llamadas de Contenido conectado pueden reintentarse hasta cinco veces.
+ - Para los pasos de Mensaje, las llamadas de contenido conectado pueden reintentarse hasta cinco veces.
  - Para todos los demás pasos, Braze reintenta el paso aproximadamente 13 veces con retirada exponencial.
 
 Si todos los reintentos fallan, el usuario sale del Canvas.
 
-La etiqueta `:retry` usada en el Contenido conectado estándar no se aplica a las llamadas de Contenido conectado realizadas dentro de los pasos de Canvas. Los pasos de Canvas tienen su propia lógica de reintento optimizada para flujos de trabajo de Canvas.
+La etiqueta `:retry` usada en el contenido conectado estándar no se aplica a las llamadas de contenido conectado realizadas dentro de los pasos de Canvas. Los pasos de Canvas tienen su propia lógica de reintento optimizada para flujos de trabajo de Canvas.
 
 El tiempo que tarda en procesar a todos los usuarios a través de un paso de Contexto depende de:
 
 - El número de usuarios que entran en el paso
-- Si se usa Contenido conectado (y su tiempo de respuesta)
+- Si se usa contenido conectado (y su tiempo de respuesta)
 - El tamaño del lote (predeterminado: 1000 usuarios por lote)
 
-Si tu punto de conexión de Contenido conectado tiene límites de velocidad, ten en cuenta que los pasos de Contexto procesan usuarios secuencialmente dentro de cada lote, lo que ayuda a respetar los límites de velocidad de forma natural. Sin embargo, múltiples lotes se procesan en paralelo, así que asegúrate de que tu punto de conexión pueda manejar solicitudes concurrentes de múltiples lotes.
+Si tu endpoint de contenido conectado tiene límites de velocidad, ten en cuenta que los pasos de Contexto procesan usuarios secuencialmente dentro de cada lote, lo que ayuda a respetar los límites de velocidad de forma natural. Sin embargo, múltiples lotes se procesan en paralelo, así que asegúrate de que tu endpoint pueda manejar solicitudes concurrentes de múltiples lotes.
 
 ## Estandarización de consistencia de zona horaria {#time-zone-consistency-standardization}
 
@@ -187,7 +187,7 @@ Ahora que Canvas Context está disponible de forma general, se aplican los sigui
 
 Este cambio es parte de un esfuerzo más amplio para crear una experiencia más predecible y consistente al editar pasos y mensajes de Canvas.
 
-#### ¿Se ven afectados los Canvas desencadenados por API o planificados por este cambio? {#are-api-triggered-or-scheduled-canvases-impacted-by-this-change}
+#### ¿Se ven afectados los Canvas desencadenados por API o programados por este cambio? {#are-api-triggered-or-scheduled-canvases-impacted-by-this-change}
 
 No.
 
@@ -259,7 +259,7 @@ Sí. Todas las variables en un paso de Contexto se evalúan en secuencia, lo que
 |---|---|---|
 | `favorite_cuisine` | {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | El tipo de cocina favorita de un usuario. |
 | `promo_code` | {% raw %}`EATFRESH`{% endraw %} | El código de descuento disponible para un usuario. |
-| `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Un mensaje personalizado que combina las variables anteriores. En un paso de Mensaje, podrías usar el fragmento de código Liquid {% raw %}`{{context.${personalized_message}}}`{% endraw %} para hacer referencia a la variable de contexto y entregar un mensaje personalizado a cada usuario. También podrías usar un paso de Contexto para guardar el valor del [código de promoción]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#creating-a-promotion-code-list) y usarlo como plantilla en otros pasos a lo largo de un Canvas. |
+| `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Un mensaje personalizado que combina las variables anteriores. En un paso de Mensaje, podrías usar el fragmento de código Liquid {% raw %}`{{context.${personalized_message}}}`{% endraw %} para hacer referencia a la variable de contexto y entregar un mensaje personalizado a cada usuario. También podrías usar un paso de Contexto para guardar el valor del [código de promoción]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create) y usarlo como plantilla en otros pasos a lo largo de un Canvas. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="¿Pueden las variables hacer referencia entre sí en un mismo paso de Contexto?" }
 
 Esto también aplica entre múltiples pasos de Contexto. Por ejemplo, imagina esta secuencia:

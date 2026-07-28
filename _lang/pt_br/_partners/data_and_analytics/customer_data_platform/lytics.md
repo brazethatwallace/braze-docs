@@ -114,7 +114,7 @@ Você pode importar dados de público da Braze para a Lytics usando os seguintes
 
 #### Etapa 1: Criar um token da API da Lytics {#step-1-create-a-lytics-api-token}
 
-Navegue até o menu da conta da Lytics no canto inferior esquerdo selecionando o nome da sua conta e selecione **Access Tokens** no menu suspenso. Em seguida, selecione **Create API Token**.
+Navegue até o menu da conta da Lytics selecionando o nome da sua conta e selecione **Access Tokens** no menu suspenso. Em seguida, selecione **Create API Token**.
 
 ![Tela de tokens de acesso da Lytics com Create API Token selecionado no menu da conta.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 

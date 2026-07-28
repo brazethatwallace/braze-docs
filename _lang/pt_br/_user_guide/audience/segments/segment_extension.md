@@ -15,19 +15,19 @@ A segmentação da Braze permite que você direcione usuários com base em event
 
 ## Por que usar extensões de segmento? {#why-use-segment-extensions}
 
-Os Segments da Braze oferecem ferramentas poderosas de direcionamento para criar grupos dinâmicos de usuários. Para a maioria dos casos de uso, isso é suficiente para alcançar seu público de forma eficaz. As extensões de segmento são projetadas para casos de uso avançados em que você precisa analisar comportamentos de até dois anos atrás ou aplicar lógica complexa — sem comprometer a retenção de dados ou o desempenho do sistema. Você pode usar consultas [SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) (extensões de segmento SQL) ou dados do seu próprio [data warehouse]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) para refinar ainda mais o seu público.
+Os segmentos da Braze oferecem ferramentas poderosas de direcionamento para criar grupos dinâmicos de usuários. Para a maioria dos casos de uso, isso é suficiente para alcançar seu público de forma eficaz. As extensões de segmento são projetadas para casos de uso avançados em que você precisa analisar comportamentos de até dois anos atrás ou aplicar lógica complexa — sem comprometer a retenção de dados ou o desempenho do sistema. Você pode usar consultas [SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) (extensões de segmento SQL) ou dados do seu próprio [data warehouse]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) para refinar ainda mais o seu público.
 
 Por exemplo, a segmentação padrão da Braze encontra usuários que atendem a critérios específicos que você define, como identificar um usuário que comprou recentemente um dos seus produtos. As extensões de segmento permitem ir mais fundo — como identificar usuários que compraram uma cor específica de um produto específico pelo menos duas vezes entre 18 e 24 meses atrás. As extensões de segmento são um aprimoramento, não um requisito. Se você precisa de filtros mais avançados ou uma janela de retrospectiva mais longa, elas são uma ótima ferramenta para ajudar, mantendo o uso de dados otimizado.
 
 {% alert note %}
-Há uma alocação padrão de 25 extensões de segmento ativas por espaço de trabalho em um determinado momento. Se você precisar aumentar esse limite, entre em contato com seu gerente de sucesso do cliente da Braze para discutir seu caso de uso.
+Há uma alocação padrão de 50 extensões de segmento ativas por espaço de trabalho em um determinado momento. Se você precisar aumentar esse limite, entre em contato com seu gerente de sucesso do cliente da Braze para discutir seu caso de uso.
 {% endalert %}
 
 ## Criando uma extensão de segmento {#creating-a-segment-extension}
 
 Para criar uma extensão de segmento, você criará um filtro para refinar um segmento dos seus usuários com base em propriedades de eventos personalizados. Ao criar uma extensão de segmento, você escolherá se o segmento será estático ou atualizado dinamicamente em um intervalo definido.
 
-### Etapa 1: Navegue até Extensões de segmento {#step-1-navigate-to-segment-extensions}
+### Etapa 1: Navegue até extensões de segmento {#step-1-navigate-to-segment-extensions}
 
 Acesse **Audience** > **Segment Extensions**.
 
@@ -73,7 +73,7 @@ Se você estiver criando uma extensão de segmento usando um evento recomendado 
 
 Para aumentar a precisão do direcionamento, marque a caixa de seleção **Add Property Filters**. Isso permitirá que você faça uma análise detalhada com base nas propriedades específicas da sua compra ou evento personalizado. Oferecemos suporte à segmentação por propriedade de evento com base em objetos de string, numéricos, booleanos e de data/hora.
 
-Para propriedades de string, você pode inserir vários valores de uma vez. No exemplo abaixo, esse filtro procura usuários com um status igual a qualquer um dos seguintes: ouro, prata ou bronze.
+Para propriedades de string, você pode inserir vários valores de uma vez. No exemplo a seguir, esse filtro procura usuários com um status igual a qualquer um dos seguintes: ouro, prata ou bronze.
 
 ![Segmentação baseada em propriedades de string.]({% image_buster /assets/img/segment/property5.png %})
 
@@ -87,14 +87,14 @@ Se você estiver usando eventos recomendados de eCommerce e adicionar uma propri
 
 ![Detalhes da extensão de segmento com um menu suspenso de propriedades disponíveis.]({% image_buster /assets/img/segment/ecommerce_recommended_event_properties.png %})
 
-Também oferecemos suporte à segmentação baseada em [propriedades de eventos aninhadas]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). No menu suspenso de comparação, selecione a comparação que corresponde ao tipo de dados da sua propriedade aninhada. Você pode usar a mesma sintaxe de propriedade de evento aninhada para adicionar propriedades aninhadas para qualquer evento recomendado de eCommerce que contenha propriedades aninhadas. Para informações sobre as diferentes propriedades aninhadas disponíveis, consulte [Tipos de eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events). Para gerar o esquema necessário para o nome da propriedade da sua extensão de segmento, siga as etapas em [Objetos aninhados em eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
+Também oferecemos suporte à segmentação baseada em [propriedades de eventos aninhadas]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). No menu suspenso de comparação, selecione a comparação que corresponde ao tipo de dados da sua propriedade aninhada. Você pode usar a mesma sintaxe de propriedade de evento aninhada para adicionar propriedades aninhadas para qualquer evento recomendado de eCommerce que contenha propriedades aninhadas. Para informações sobre as diferentes propriedades aninhadas disponíveis, consulte [Tipos de eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Para gerar o esquema necessário para o nome da propriedade da sua extensão de segmento, siga as etapas em [Objetos aninhados em eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ![Segmentação baseada em propriedades de eventos aninhadas.]({% image_buster /assets/img/segment/nested_segment_extensions.png %})
 
 As extensões de segmento dependem do armazenamento de longo prazo de propriedades de eventos e não possuem um limite de armazenamento de propriedades com carimbo de data/hora. Você pode consultar propriedades de eventos rastreadas nos últimos dois anos. O uso de propriedades de eventos dentro de extensões de segmento não afeta o consumo de pontos de dados.
 
 {% alert note %}
-Você não precisa de extensões de segmento para usar propriedades de eventos ou atributos personalizados aninhados no seu segmento. As extensões de segmento apenas estendem a janela histórica usada para criar um segmento padrão. Você pode criar um [segmento]({{site.baseurl}}/user_guide/audience/segments) padrão em tempo real que usa propriedades de eventos dos últimos 30 dias ou que usa atributos personalizados aninhados. Da mesma forma, você pode [programar sua mensagem]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) para ser disparada em tempo real com base em uma propriedade de evento — sem necessidade de extensão de segmento.
+Você não precisa de extensões de segmento para usar propriedades de eventos ou atributos personalizados aninhados no seu segmento. As extensões de segmento apenas estendem a janela histórica usada para criar um segmento padrão. Você pode criar um [segmento]({{site.baseurl}}/user_guide/audience/segments) padrão em tempo real que usa propriedades de eventos dos últimos 30 dias ou que usa atributos personalizados aninhados. Da mesma forma, você pode [agendar sua mensagem]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) para ser disparada em tempo real com base em uma propriedade de evento — sem necessidade de extensão de segmento.
 {% endalert %}
 
 ### Etapa 4: Defina as configurações de atualização (opcional) {#step-4-designate-refresh-settings-optional}

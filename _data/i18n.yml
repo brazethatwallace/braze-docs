@@ -24,6 +24,12 @@ en:
   nav_flyout_esc_hint_before: "Press "
   nav_flyout_esc_hint_after: " to close the menu"
   nav_flyout_shortcut_hint: Press Arrow down to open the documentation menu without expanding the sidebar.
+  site_search_input_aria: Search everything
+  site_search_input_placeholder_hint: Search…
+  onboarding_faq_search_aria: Search FAQ
+  onboarding_faq_search_placeholder: Search
+  broken_page_search_aria: Search Braze Documentation
+  broken_page_search_placeholder: Search Braze Documentation
   report_metrics_intro: "These are terms you'll find in your reports in your Braze account. Search for the metrics you need or filter by channel. This glossary does not necessarily include metrics you might see in Currents or other downloaded reports outside of your Braze account."
   report_metrics_search_placeholder: Search
   report_metrics_search_aria: Search glossary
@@ -72,13 +78,30 @@ en:
   sql_segment_extensions_glossary_intro: "Use the search bar or the checkboxes below to browse sample SQL Segment Extension queries."
   liquid_use_case_glossary_intro: "Looking for inspiration to craft the perfect personalization using Liquid? Take a look through our collection of Liquid use cases, outlined by category below.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
   glossary_agents_use_cases_search_placeholder: Search
-  glossary_agents_use_cases_search_aria: Search use cases
+  glossary_agents_use_cases_search_aria: Search examples
   glossary_agents_use_cases_search_hint: Results update automatically as you type.
-  glossary_agents_use_cases_no_results: No use cases matching these filters
-  agents_use_case_glossary_intro: "Take a look through our collection of agent instructions and use cases.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  glossary_agents_use_cases_no_results: No examples matching these filters
+  glossary_agents_use_cases_showing: Showing __COUNT__ of __TOTAL__ examples
+  agents_use_case_glossary_intro: "Browse our library of ready-to-adapt agent instructions. Each example includes the scenario it solves, the data it expects, and a complete instruction block you can copy into the Agent Console and tailor to your brand.<br><br>Use the search bar or the filters on the right to find the instructions that fit your need."
   agents_use_case_tag_labels:
-    "canvas agent": Canvas agent
-    "catalog agent": Catalog agent
+    "content generation": Content generation
+    "affinity agent": Affinity agent
+    "data standardization": Data standardization
+    "classification and routing": Classification and routing
+    "catalog enrichment": Catalog enrichment
+    "canvas step agent": Canvas Step Agent
+    "catalog agent": Catalog Agent
+  agents_use_case_tag_groups:
+    "content generation": use_case_category
+    "affinity agent": use_case_category
+    "data standardization": use_case_category
+    "classification and routing": use_case_category
+    "catalog enrichment": use_case_category
+    "canvas step agent": agent_type
+    "catalog agent": agent_type
+  agents_use_case_tag_group_labels:
+    use_case_category: Category
+    agent_type: Agent type
   message_engagement_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas consist of the Braze Events that are directly related to message sending."
   customer_behavior_events_glossary_title: Customer behavior and user events
   customer_behavior_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas include other app or website activity such as sessions, custom events, and purchases tracked through the platform."
@@ -246,6 +269,12 @@ fr:
   nav_flyout_esc_hint_before: "Appuyez sur "
   nav_flyout_esc_hint_after: " pour fermer le menu"
   nav_flyout_shortcut_hint: Appuyez sur la flèche vers le bas pour ouvrir le menu de documentation sans développer la barre latérale.
+  site_search_input_aria: Rechercher tout
+  site_search_input_placeholder_hint: Rechercher…
+  onboarding_faq_search_aria: Rechercher dans la FAQ
+  onboarding_faq_search_placeholder: Rechercher
+  broken_page_search_aria: Rechercher dans la documentation Braze
+  broken_page_search_placeholder: Rechercher dans la documentation Braze
   report_metrics_intro: "Ces termes désignent les indicateurs que vous trouvez dans vos rapports au sein de votre compte Braze. Recherchez les indicateurs dont vous avez besoin ou filtrez par canal. Ce glossaire ne couvre pas nécessairement tous les indicateurs que vous pourriez voir dans Currents ou dans d'autres rapports téléchargés en dehors de votre compte Braze."
   report_metrics_search_placeholder: Rechercher
   report_metrics_search_aria: Rechercher dans le glossaire
@@ -295,7 +324,12 @@ fr:
   glossary_agents_use_cases_no_results: Aucun cas d'usage ne correspond à ces filtres
   agents_use_case_glossary_intro: "Parcourez notre collection d'instructions d'agents et de cas d'utilisation.<br><br>Utilisez la barre de recherche ou les cases à cocher ci-dessous pour trouver les cas d'usage qui correspondent à vos besoins."
   agents_use_case_tag_labels:
-    "canvas agent": Agent Canvas
+    "content generation": Génération de contenu
+    "affinity agent": Agent d'affinité
+    "data standardization": Standardisation des données
+    "classification and routing": Classification et routage
+    "catalog enrichment": Enrichissement du catalogue
+    "canvas step agent": Agent d'étape Canvas
     "catalog agent": Agent de catalogue
   works_best_in: "Idéal pour :"
   clipboard_copied: "Copié"
@@ -328,6 +362,12 @@ ja:
   nav_flyout_esc_hint_before: "メニューを閉じるには "
   nav_flyout_esc_hint_after: " を押してください"
   nav_flyout_shortcut_hint: サイドバーを広げずにドキュメントメニューを開くには、下矢印キーを押します。
+  site_search_input_aria: すべて検索
+  site_search_input_placeholder_hint: 検索…
+  onboarding_faq_search_aria: FAQを検索
+  onboarding_faq_search_placeholder: 検索
+  broken_page_search_aria: Brazeドキュメントを検索
+  broken_page_search_placeholder: Brazeドキュメントを検索
   report_metrics_intro: "Brazeアカウントのレポートに表示される用語をまとめています。検索で目的の指標を探すか、チャネルで絞り込みできます。Currentsや、Brazeアカウント外でダウンロードしたレポートにのみ出る指標は、この用語集に含まれない場合があります。"
   report_metrics_search_placeholder: 検索
   report_metrics_search_aria: 用語集を検索
@@ -381,7 +421,12 @@ ja:
   glossary_agents_use_cases_no_results: この条件に一致するユースケースはありません
   agents_use_case_glossary_intro: "エージェントのインストラクションとユースケース集をご覧ください。<br><br>検索バーまたは下のチェックボックスから、ニーズに合ったユースケースを探してください。"
   agents_use_case_tag_labels:
-    "canvas agent": キャンバスエージェント
+    "content generation": コンテンツ生成
+    "affinity agent": アフィニティエージェント
+    "data standardization": データ標準化
+    "classification and routing": 分類とルーティング
+    "catalog enrichment": カタログのエンリッチメント
+    "canvas step agent": Canvasステップエージェント
     "catalog agent": カタログエージェント
   message_engagement_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマは、メッセージ送信に直接関連するBrazeイベントで構成されています。"
   customer_behavior_events_glossary_title: 顧客行動とユーザーイベント
@@ -536,6 +581,12 @@ ko:
   nav_flyout_esc_hint_before: "메뉴를 닫으려면 "
   nav_flyout_esc_hint_after: " 키를 누르세요"
   nav_flyout_shortcut_hint: 사이드바를 넓히지 않고 문서 메뉴를 열려면 아래쪽 화살표 키를 누르세요.
+  site_search_input_aria: 전체 검색
+  site_search_input_placeholder_hint: 검색…
+  onboarding_faq_search_aria: FAQ 검색
+  onboarding_faq_search_placeholder: 검색
+  broken_page_search_aria: Braze 문서 검색
+  broken_page_search_placeholder: Braze 문서 검색
   report_metrics_intro: "이 목록은 Braze 계정의 보고서에서 확인할 수 있는 용어를 설명합니다. 필요한 측정기준을 검색하거나 채널별로 필터링하세요. Currents나 Braze 계정 밖에서 다운로드한 보고서에만 표시되는 측정기준은 여기에 없을 수 있습니다."
   report_metrics_search_placeholder: 검색
   report_metrics_search_aria: 용어집 검색
@@ -587,7 +638,12 @@ ko:
   glossary_agents_use_cases_no_results: 이 필터와 일치하는 사용 사례가 없습니다
   agents_use_case_glossary_intro: "에이전트 지침 및 사용 사례 모음을 살펴보세요.<br><br>검색창 또는 아래 확인란을 사용하여 필요에 맞는 사용 사례를 찾으세요."
   agents_use_case_tag_labels:
-    "canvas agent": Canvas 에이전트
+    "content generation": 콘텐츠 생성
+    "affinity agent": 친밀도 에이전트
+    "data standardization": 데이터 표준화
+    "classification and routing": 분류 및 라우팅
+    "catalog enrichment": 카탈로그 보강
+    "canvas step agent": Canvas 단계 에이전트
     "catalog agent": 카탈로그 에이전트
   currents_customer_behavior_tag_labels:
     attribution: 어트리뷰션
@@ -739,6 +795,12 @@ pt-br:
   nav_flyout_esc_hint_before: "Pressione "
   nav_flyout_esc_hint_after: " para fechar o menu"
   nav_flyout_shortcut_hint: Pressione a seta para baixo para abrir o menu de documentação sem expandir a barra lateral.
+  site_search_input_aria: Buscar tudo
+  site_search_input_placeholder_hint: Buscar…
+  onboarding_faq_search_aria: Pesquisar FAQ
+  onboarding_faq_search_placeholder: Pesquisar
+  broken_page_search_aria: Pesquisar na documentação da Braze
+  broken_page_search_placeholder: Pesquisar na documentação da Braze
   report_metrics_intro: "Estes são termos que você encontra nos relatórios da sua conta Braze. Pesquise a métrica de que precisa ou filtre por canal. Este glossário não inclui necessariamente todas as métricas que você pode ver no Currents ou em outros relatórios baixados fora da sua conta Braze."
   report_metrics_search_placeholder: Pesquisar
   report_metrics_search_aria: Pesquisar no glossário
@@ -788,7 +850,12 @@ pt-br:
   glossary_agents_use_cases_no_results: Nenhum caso de uso corresponde a esses filtros
   agents_use_case_glossary_intro: "Confira nossa coleção de instruções e casos de uso para agentes.<br><br>Use a barra de pesquisa ou as caixas de seleção abaixo para encontrar os casos de uso que atendem às suas necessidades."
   agents_use_case_tag_labels:
-    "canvas agent": Agente de Canvas
+    "content generation": Geração de conteúdo
+    "affinity agent": Agente de afinidade
+    "data standardization": Padronização de dados
+    "classification and routing": Classificação e roteamento
+    "catalog enrichment": Enriquecimento de catálogo
+    "canvas step agent": Agente de etapa do Canvas
     "catalog agent": Agente de catálogo
   works_best_in: "Funciona melhor em:"
   clipboard_copied: "Copiado"
@@ -821,6 +888,12 @@ es:
   nav_flyout_esc_hint_before: "Pulse "
   nav_flyout_esc_hint_after: " para cerrar el menú"
   nav_flyout_shortcut_hint: Pulse la flecha hacia abajo para abrir el menú de documentación sin expandir la barra lateral.
+  site_search_input_aria: Buscar todo
+  site_search_input_placeholder_hint: Buscar…
+  onboarding_faq_search_aria: Buscar en las preguntas frecuentes
+  onboarding_faq_search_placeholder: Buscar
+  broken_page_search_aria: Buscar en la documentación de Braze
+  broken_page_search_placeholder: Buscar en la documentación de Braze
   report_metrics_intro: "Estos son términos que encontrará en los informes de su cuenta de Braze. Busque la métrica que necesite o filtre por canal. Este glosario no incluye necesariamente todas las métricas que pueda ver en Currents u otros informes descargados fuera de su cuenta de Braze."
   report_metrics_search_placeholder: Buscar
   report_metrics_search_aria: Buscar en el glosario
@@ -870,7 +943,12 @@ es:
   glossary_agents_use_cases_no_results: Ningún caso de uso coincide con estos filtros
   agents_use_case_glossary_intro: "Consulta nuestra colección de instrucciones y casos de uso para agentes.<br><br>Usa la barra de búsqueda o las casillas de abajo para encontrar los casos de uso que necesitas."
   agents_use_case_tag_labels:
-    "canvas agent": Agente de Canvas
+    "content generation": Generación de contenido
+    "affinity agent": Agente de afinidad
+    "data standardization": Estandarización de datos
+    "classification and routing": Clasificación y enrutamiento
+    "catalog enrichment": Enriquecimiento del catálogo
+    "canvas step agent": Agente de paso en Canvas
     "catalog agent": Agente de catálogo
   works_best_in: "Funciona mejor en:"
   clipboard_copied: "Copiado"
@@ -903,6 +981,12 @@ de:
   nav_flyout_esc_hint_before: "Drücken Sie "
   nav_flyout_esc_hint_after: ", um das Menü zu schließen"
   nav_flyout_shortcut_hint: Drücken Sie die Abwärtspfeiltaste, um das Dokumentationsmenü zu öffnen, ohne die Seitenleiste zu erweitern.
+  site_search_input_aria: Alles durchsuchen
+  site_search_input_placeholder_hint: Suchen…
+  onboarding_faq_search_aria: FAQ durchsuchen
+  onboarding_faq_search_placeholder: Suchen
+  broken_page_search_aria: Braze-Dokumentation durchsuchen
+  broken_page_search_placeholder: Braze-Dokumentation durchsuchen
   report_metrics_intro: "Hier finden Sie Begriffe und Kennzahlen aus den Berichten in Ihrem Braze-Konto. Suchen Sie nach der passenden Kennzahl oder filtern Sie nach Kanal. Dieses Glossar umfasst nicht zwingend alle Kennzahlen, die Sie in Currents oder anderen heruntergeladenen Berichten außerhalb Ihres Braze-Kontos sehen."
   report_metrics_search_placeholder: Suchen
   report_metrics_search_aria: Glossar durchsuchen
@@ -952,7 +1036,12 @@ de:
   glossary_agents_use_cases_no_results: Keine Anwendungsfälle entsprechen diesen Filtern
   agents_use_case_glossary_intro: "Durchsuchen Sie unsere Sammlung von Agentenanweisungen und Anwendungsfällen.<br><br>Verwenden Sie die Suchleiste oder die Kontrollkästchen unten, um die passenden Anwendungsfälle zu finden."
   agents_use_case_tag_labels:
-    "canvas agent": Canvas-Agent
+    "content generation": Inhaltserstellung
+    "affinity agent": Affinitätsagent
+    "data standardization": Datenstandardisierung
+    "classification and routing": Klassifizierung und Weiterleitung
+    "catalog enrichment": Kataloganreicherung
+    "canvas step agent": Canvas-Schritt-Agent
     "catalog agent": Katalog-Agent
   works_best_in: "Am besten geeignet für:"
   clipboard_copied: "Kopiert"

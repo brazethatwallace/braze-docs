@@ -57,4 +57,4 @@ braze.getUser().setEmail(<email address>);
 {: start="4"}
 4. Führen Sie auf Braze die Nutzerprofile per E-Mail zusammen.
 
-Wenn Sie auf doppelte Nutzerprofile stoßen, können Sie unser [Tool zur Massenzusammenführung]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users/#bulk-merging) verwenden, um Ihre Daten zu bereinigen.
+Wenn Sie auf doppelte Nutzerprofile stoßen, können Sie unser [Tool zur Massenzusammenführung]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users#bulk-merging) verwenden, um Ihre Daten zu bereinigen.

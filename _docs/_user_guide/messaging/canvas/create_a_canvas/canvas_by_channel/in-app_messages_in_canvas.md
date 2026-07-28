@@ -56,6 +56,10 @@ If an in-app message is set to expire on a specific date and time that has alrea
 
 This often happens when a preceding step, such as a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) step, keeps users on a longer path. For example, if you launch a Canvas on May 22 with a 72-hour delay followed by an in-app message that expires on May 23 at midnight, users reach the Message step after the expiration time and do not see the in-app message.
 
+### Control groups and A/B testing
+
+When you use Canvas A/B testing with variant paths and a control path, keep in-app message expiry duration settings aligned across paths. If the control path uses a shorter expiry duration than the variant paths, control users may reach the step after expiration, which can lower control impressions compared to variant impressions and skew your test results.
+
 ## Use cases
 
 Braze recommends that you consider using this feature in your promotional and onboarding Canvases.

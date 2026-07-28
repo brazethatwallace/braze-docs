@@ -28,7 +28,7 @@ Pour en savoir plus sur l'implémentation du cycle de vie des sessions dans le S
 
 **Ce qui est considéré comme une activité par défaut :**
 - Ouverture ou actualisation de l'application web
-- Interaction avec les éléments d'interface générés par Braze (tels que les [messages in-app]({{site.baseurl}}/developer_guide/in_app_messages) ou les [Content Cards]({{site.baseurl}}/developer_guide/content_cards))
+- Interaction avec les éléments d'interface générés par Braze (tels que les [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages) ou les [Content Cards]({{site.baseurl}}/developer_guide/content_cards))
 - Appel de méthodes du SDK qui envoient des événements suivis (tels que des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events) ou des [mises à jour d'attributs utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes))
 
 **Ce qui n'est pas considéré comme une activité par défaut :**
@@ -264,7 +264,7 @@ Un profil utilisateur peut afficher 0 session si l'utilisateur a été créé en
 
 ### Certains utilisateurs n'enregistrent pas de sessions {#some-users-are-not-logging-sessions}
 
-Étant donné que les sessions ne sont suivies qu'après l'initialisation du SDK, les utilisateurs qui ne déclenchent pas l'initialisation du SDK n'enregistrent aucune session. Cela se produit généralement lorsque votre application utilise une logique conditionnelle avant d'initialiser le SDK, comme le report de l'initialisation derrière un flux de connexion, une invite de consentement ou un indicateur de fonctionnalité. Pour des conseils d'implémentation, consultez [Initialisation différée]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift). Dans ces cas, tout utilisateur qui ne remplit pas la condition ne démarre jamais de session.
+Étant donné que les sessions ne sont suivies qu'après l'initialisation du SDK, les utilisateurs qui ne déclenchent pas l'initialisation du SDK n'enregistrent aucune session. Cela se produit généralement lorsque votre application utilise une logique conditionnelle avant d'initialiser le SDK, comme le report de l'initialisation derrière un flux de connexion, une invite de consentement ou un indicateur de fonctionnalité. Pour des conseils d'implémentation, consultez [Initialisation différée]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional). Dans ces cas, tout utilisateur qui ne remplit pas la condition ne démarre jamais de session.
 
 Si certains utilisateurs enregistrent des sessions et d'autres non, vérifiez les points suivants :
 

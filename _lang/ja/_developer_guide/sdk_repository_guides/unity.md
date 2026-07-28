@@ -6,6 +6,8 @@ description: "GitHubからミラーリングされたBraze Unity SDK READMEリ�
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Unity SDKリポジトリガイド {#unity-sdk-repository-guide}
+
 ## Braze Unity SDKについて {#about-the-braze-unity-sdk}
 
 Braze Unity SDKは、Brazeのメッセージング、分析、およびユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
@@ -15,18 +17,18 @@ Braze Unity SDKは、Brazeのメッセージング、分析、およびユーザ
 - [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
 - [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=unity)
 
-## プラグインのセットアップ {#plugin-setup}
+## プラグインの設定 {#plugin-setup}
 
 UnityスクリプトでBrazeの使用を開始する前に、プラグインファイルをUnityプロジェクトにインポートする必要があります。
 
 **推奨:** AndroidおよびiOSプラグインは、[SDKリリースページ][1]からダウンロード可能なUnityパッケージとしてバンドルされています。
 
-**手動プラグインセットアップ:** または、プラグインをUnityプロジェクトに手動でコピーすることもできます。
+**手動プラグイン設定:** または、プラグインをUnityプロジェクトに手動でコピーすることもできます。
   1. まず、このリポジトリをクローンします。
   2. 他のプラグインを使用していない場合は、このリポジトリの`Plugins`ディレクトリをUnityプロジェクトの`Assets`フォルダにコピーするだけです。
   3. すでに`/<your-project>/Assets/Plugins`ディレクトリがある場合（おそらく別のプラグインを使用しているため）、`Plugins/Appboy/AppboyBinding.cs`を`/<your-project>/Assets/Plugins`にコピーします。次に、このリポジトリの`Plugins/iOS`と`Plugins/Android`の内容をそれぞれ`/<your-project>/Assets/Plugins/iOS`と`/<your-project>/Assets/Plugins/Android`にコピーします。
 
-## 統合のセットアップ {#integration-setup}
+## 統合の設定 {#integration-setup}
 
 BrazeをUnityアプリケーションに統合するには、[Braze Unity SDKの統合][2]の手順を完了してください。
 

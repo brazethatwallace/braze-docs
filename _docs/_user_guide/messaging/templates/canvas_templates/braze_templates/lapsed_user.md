@@ -58,7 +58,7 @@ Keep the default settings for the entry audience, which targets users who haven'
 Keep most of the default subscription settings:
 
 - Only send to users who have subscribed or opted into receiving messages or notifications.
-- Apply your [frequency capping rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) so that you don't overwhelm your audience with the number of messages they receive. In this case, set your frequency capping to limit the number of campaigns or Canvas steps tagged with "Lapsing/Retention" that a user can receive to two every week.
+- Apply your [frequency capping rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) so that you don't overwhelm your audience with the number of messages they receive. In this case, set your frequency capping to limit the number of campaigns or Canvas steps tagged with "Lapsing/Retention" that a user can receive to two every week.
 - Don't send messages during quiet hours in the user's local time (12 am to 8 am).
 
 The only setting to change is what happens when a message triggers during quiet hours. Instead of cancelling the message, select **Send at next available time** so that your users don't miss out on any promotions.
@@ -76,7 +76,7 @@ Now, build your Canvas by customizing the templated steps:
 3. Keep the default for the Decision Split step called "Sessions?", which defines the ">1 Session" group as users who've used your app more than once in the last calendar day.
 4. Customize the Message step for users who fall into the ">1 Session" group. In this use case, thank users for visiting your app and highlight perks they've unlocked.
 5. Make sure your Google Audience sync is set up in the Ad Audience Update step, so that you update and sync the user data of users who had multiple sessions after receiving the first email.
-6. Keep the default for the [Experiment Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) component called "A/B Test". This randomly sends one of two promotions (that you customize in the next step) to users who've had fewer than two sessions.
+6. Keep the default for the [Experiment Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) component called "A/B Test". This randomly sends one of two promotions (that you customize in the next step) to users who've had fewer than two sessions.
 7. Customize the two promotions that send to users as part of the Experiment Path. In this use case, make one a 20% promotion for a three-month subscription and the other a 10% promotion for a one-month subscription.
 
 ![Canvas steps with branching paths based on how many sessions a user had.]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}

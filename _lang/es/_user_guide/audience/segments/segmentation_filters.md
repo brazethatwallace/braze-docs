@@ -4,7 +4,7 @@ nav_title: Filtros de segmentación
 article_title: Filtros de segmentación
 layout: glossary_page
 glossary_top_header: "Filtros de segmentación"
-glossary_top_text: "El SDK de Braze te proporciona un potente arsenal de filtros para segmentar y dirigirte a tus usuarios en función de características y atributos específicos. Puedes buscar o acotar estos filtros por categoría de filtro.<br><br>Para conocer los diferentes tipos de datos de atributos personalizados que puedes utilizar para segmentar usuarios, consulta <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">Tipos de datos de atributos personalizados</a>. Ten en cuenta que los filtros de intervalo están limitados a 100 años."
+glossary_top_text: "El SDK de Braze te proporciona un potente arsenal de filtros para segmentar y dirigirte a tus usuarios en función de características y atributos específicos. Puedes buscar o acotar estos filtros por categoría de filtro.<br><br>Para conocer los diferentes tipos de datos de atributos personalizados que puedes utilizar para segmentar usuarios, consulta <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">Tipos de datos de atributos personalizados</a>. Ten en cuenta que los filtros de intervalo están limitados a 100 años."
 
 page_type: glossary
 tool: Segments
@@ -37,11 +37,11 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: Te permite filtrar en función de la pertenencia a un segmento en cualquier lugar donde se utilicen filtros (como segmentos, campañas y otros) y dirigirte a múltiples segmentos diferentes dentro de una sola campaña. <br><br>Para capturar la pertenencia a un segmento en un momento específico, exporta los usuarios del segmento en el dashboard o llama al <a href="/docs/api/endpoints/export/user_data/post_users_segment/">punto de conexión <code>/users/export/segment</code></a> antes de enviar una campaña o Canvas. Braze no almacena el historial de segmentación por usuario, por lo que no puedes comprobar retroactivamente si un usuario estaba en un segmento en un momento pasado. Para más información, consulta <a href="/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv/">Exportar datos de segmento a CSV</a>.<br><br>Ten en cuenta que los segmentos que ya utilizan este filtro no pueden incluirse ni anidarse dentro de otros segmentos, ya que esto podría crear un ciclo en el que el segmento A incluye al segmento B, que a su vez intenta incluir al segmento A de nuevo. Si eso ocurriera, el segmento seguiría referenciándose a sí mismo, haciendo imposible calcular quién pertenece realmente a él. Además, anidar segmentos de esta forma añade complejidad y puede ralentizar las cosas. En su lugar, recrea el segmento que intentas incluir utilizando los mismos filtros.<br><br>Si un segmento no aparece en el desplegable del filtro **Segment Membership**, recréalo con los mismos filtros y selecciona el nuevo segmento, o confirma que no depende ya de esta audiencia de una forma que crearía un ciclo.
+    description: Te permite filtrar en función de la pertenencia a un segmento en cualquier lugar donde se utilicen filtros (como segmentos, campañas y otros) y dirigirte a múltiples segmentos diferentes dentro de una sola campaña. <br><br>Para capturar la pertenencia a un segmento en un momento específico, exporta los usuarios del segmento en el panel o llama al <a href="/docs/api/endpoints/export/user_data/post_users_segment/">endpoint <code>/users/export/segment</code></a> antes de enviar una campaña o Canvas. Braze no almacena el historial de segmentación por usuario, por lo que no puedes comprobar retroactivamente si un usuario estaba en un segmento en un momento pasado. Para más información, consulta <a href="/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv/">Exportar datos de segmento a CSV</a>.<br><br>Ten en cuenta que los segmentos que ya utilizan este filtro no pueden incluirse ni anidarse dentro de otros segmentos, ya que esto podría crear un ciclo en el que el segmento A incluye al segmento B, que a su vez intenta incluir al segmento A de nuevo. Si eso ocurriera, el segmento seguiría referenciándose a sí mismo, haciendo imposible calcular quién pertenece realmente a él. Además, anidar segmentos de esta forma añade complejidad y puede ralentizar las cosas. En su lugar, recrea el segmento que intentas incluir utilizando los mismos filtros.<br><br>Si un segmento no aparece en el desplegable del filtro **Segment Membership**, recréalo con los mismos filtros y selecciona el nuevo segmento, o confirma que no depende ya de esta audiencia de una forma que crearía un ciclo.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
-    description: Después de crear una extensión de segmento en el dashboard de Braze, puedes elegir incluir o excluir esas extensiones en tu segmento.
+    description: Después de crear una extensión de segmento en el panel de Braze, puedes elegir incluir o excluir esas extensiones en tu segmento.
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
@@ -57,7 +57,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Created From
-    description: "Segmenta a los usuarios por el origen de creación de su perfil de usuario.<br><br>Se admiten los siguientes valores:<br>- SDK (<code>sdk</code>): perfil de usuario creado a través del SDK de Braze.<br>- REST API (<code>rest</code>): perfil de usuario creado a través de la REST API de Braze.<br>- Importación de token de push (<code>pti</code>): perfil de usuario creado mediante la importación de tokens de push.<br>- CSV (<code>csv</code>): perfil de usuario creado mediante importación CSV.<br>- Demo (<code>demo</code>): perfil de usuario creado con datos de demostración.<br>- SMS (<code>sms</code>): perfil de usuario creado a través de SMS.<br>- Shopify (<code>shopify</code>): perfil de usuario creado a través de Shopify.<br>- WhatsApp (<code>whats_app</code>): perfil de usuario creado a través de WhatsApp.<br>- Evento de proveedor (<code>provider_event</code>): perfil de usuario creado a través de un evento de proveedor.<br>- Sincronización de proveedor (<code>provider_sync</code>): perfil de usuario creado a través de una sincronización de proveedor.<br>- Página de inicio (<code>landing_page</code>): perfil de usuario creado a través de una página de inicio."
+    description: "Segmenta a los usuarios por el origen de creación de su perfil de usuario.<br><br>Se admiten los siguientes valores:<br>- SDK (<code>sdk</code>): perfil de usuario creado a través del SDK de Braze.<br>- REST API (<code>rest</code>): perfil de usuario creado a través de la REST API de Braze.<br>- Importación de token de push (<code>pti</code>): perfil de usuario creado mediante la importación de tokens de push.<br>- CSV (<code>csv</code>): perfil de usuario creado mediante importación CSV.<br>- Demo (<code>demo</code>): perfil de usuario creado con datos de demostración.<br>- SMS (<code>sms</code>): perfil de usuario creado a través de SMS.<br>- Shopify (<code>shopify</code>): perfil de usuario creado a través de Shopify.<br>- WhatsApp (<code>whats_app</code>): perfil de usuario creado a través de WhatsApp.<br>- Evento de proveedor (<code>provider_event</code>): perfil de usuario creado a través de un evento de proveedor.<br>- Sincronización de proveedor (<code>provider_sync</code>): perfil de usuario creado a través de una sincronización de proveedor.<br>- Página de destino (<code>landing_page</code>): perfil de usuario creado a través de una página de destino."
     tags:
       - Other Filters
   - name: Nested Custom Attributes
@@ -89,7 +89,7 @@ glossaries:
     tags:
       - Custom events
   - name: Email Address
-    description: Te permite designar a los destinatarios de tu campaña por direcciones de correo electrónico individuales para pruebas. También se puede utilizar para enviar correos electrónicos transaccionales a todos tus usuarios (incluidos los que cancelaron su suscripción) utilizando el especificador "La dirección de correo electrónico no está en blanco" dentro del filtro, para que puedas maximizar la entrega de correos electrónicos independientemente del estado de aceptación. <br><br>Este filtro solo comprueba si los perfiles de usuario tienen una dirección de correo electrónico, mientras que el filtro <a href="/docs/user_guide/audience/segments/segmentation_filters#email-available">Correo electrónico disponible</a> comprueba criterios adicionales.
+    description: Te permite designar a los destinatarios de tu campaña por direcciones de correo electrónico individuales para pruebas. También se puede utilizar para enviar correos transaccionales a todos tus usuarios (incluidos los que cancelaron su suscripción) utilizando el especificador "La dirección de correo electrónico no está en blanco" dentro del filtro, para que puedas maximizar la entrega de correos electrónicos independientemente del estado de adhesión voluntaria. <br><br>Este filtro solo comprueba si los perfiles de usuario tienen una dirección de correo electrónico, mientras que el filtro <a href="/docs/user_guide/audience/segments/segmentation_filters#email-available">Correo electrónico disponible</a> comprueba criterios adicionales.
     tags:
       - Other Filters
   - name: External User ID
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: Segmenta a tus usuarios en función de si su dirección de correo electrónico ha tenido un rebote duro (por ejemplo, la dirección de correo electrónico no es válida). Para exportar usuarios con correos electrónicos no válidos, llama al <a href="/docs/api/endpoints/email/get_list_hard_bounces/">punto de conexión <code>/email/hard_bounces</code></a> o crea un segmento con filtros como la dirección de correo electrónico no está en blanco, el correo electrónico no está disponible y el estado de suscripción de correo electrónico no es cancelado.
+    description: Segmenta a tus usuarios en función de si su dirección de correo electrónico ha tenido un rebote duro (por ejemplo, la dirección de correo electrónico no es válida). Para exportar usuarios con correos electrónicos no válidos, llama al <a href="/docs/api/endpoints/email/get_list_hard_bounces/">endpoint <code>/email/hard_bounces</code></a> o crea un segmento con filtros como la dirección de correo electrónico no está en blanco, el correo electrónico no está disponible y el estado de suscripción de correo electrónico no es cancelado.
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -225,7 +225,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Has Marked You As Spam
-    description: Segmenta a tus usuarios en función de si han marcado tus mensajes como spam.
+    description: Segmenta a tus usuarios en función de si han marcado tus mensajes como correo no deseado.
     tags:
       - Retargeting
   - name: Invalid Phone Number
@@ -281,7 +281,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Available
-    description: Segmenta a tus usuarios en función de si tienen una dirección de correo electrónico válida y si están suscritos u optados para recibir correo electrónico. Este filtro comprueba tres criterios&#58; si el usuario canceló su suscripción a correos electrónicos, si Braze ha recibido un rebote duro y si el correo electrónico fue marcado como spam. Si se cumple alguno de estos criterios, o si no existe un correo electrónico para un usuario, el usuario no se incluye.<br><br>Los usuarios cuyo correo electrónico disponible es <code>false</code> se excluyen de la audiencia de la campaña y no reciben el correo electrónico, incluso si tus ajustes de envío están configurados para enviar a todos los usuarios (incluidos los usuarios que cancelaron su suscripción).<br><br>Para correos electrónicos donde el estado de aceptación importa, utiliza Correo electrónico disponible en lugar de <a href="/docs/user_guide/audience/segments/segmentation_filters#email-address">Dirección de correo electrónico</a>. Los criterios adicionales te ayudan a dirigirte a usuarios que son elegibles para recibir correo electrónico.
+    description: Segmenta a tus usuarios en función de si tienen una dirección de correo electrónico válida y si están suscritos u optados para recibir correo electrónico. Este filtro comprueba tres criterios&#58; si el usuario canceló su suscripción a correos electrónicos, si Braze ha recibido un rebote duro y si el correo electrónico fue marcado como correo no deseado. Si se cumple alguno de estos criterios, o si no existe un correo electrónico para un usuario, el usuario no se incluye.<br><br>Los usuarios cuyo correo electrónico disponible es <code>false</code> se excluyen de la audiencia de la campaña y no reciben el correo electrónico, incluso si tus ajustes de envío están configurados para enviar a todos los usuarios (incluidos los usuarios que cancelaron su suscripción).<br><br>Para correos electrónicos donde el estado de adhesión voluntaria importa, utiliza Correo electrónico disponible en lugar de <a href="/docs/user_guide/audience/segments/segmentation_filters#email-address">Dirección de correo electrónico</a>. Los criterios adicionales te ayudan a dirigirte a usuarios que son elegibles para recibir correo electrónico.
     tags:
       - Channel subscription behavior
   - name: Email Opt In Date
@@ -313,7 +313,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
-    description: Segmenta a tus usuarios por su <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">estado de suscripción</a> para push.
+    description: Segmenta a tus usuarios por su <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">estado de suscripción</a> para push.
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
@@ -377,7 +377,7 @@ glossaries:
     tags:
       - eCommerce
   - name: Total canceled orders count (last 730 days)
-    description: Segmenta a tus usuarios por el recuento total de pedidos que un usuario canceló en los últimos 2 años, basado en el <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de comercio electrónico</a> para pedido cancelado (los espacios de trabajo que no rastrean eventos de comercio electrónico no tienen datos para este filtro). Los usuarios se evalúan para este filtro una vez al día.<br><br>Este filtro está en beta. Ponte en contacto con tu director de cuentas de Braze si te interesa utilizar este filtro.
+    description: Segmenta a tus usuarios por el recuento total de pedidos que un usuario canceló en los últimos 2 años, basado en el <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de comercio electrónico</a> para pedido realizado (los espacios de trabajo que no rastrean eventos de comercio electrónico no tienen datos para este filtro). Los usuarios se evalúan para este filtro una vez al día.<br><br>Este filtro está en beta. Ponte en contacto con tu director de cuentas de Braze si te interesa utilizar este filtro.
     tags:
       - eCommerce
   - name: Customer lifetime value (last 730 days)
@@ -489,7 +489,7 @@ glossaries:
     tags:
       - Devices
   - name: Web Browser
-    description: Segmenta a tus usuarios por el navegador web que utilizan para acceder a tu sitio web.
+    description: Segmenta a tus usuarios por el navegador web que utilizan para acceder a tu sitio web. Este filtro coincide con cualquier navegador en el historial de dispositivos del usuario, no solo con el navegador utilizado más recientemente.
     tags:
       - Devices
   - name: Device IDFA
@@ -573,11 +573,11 @@ glossaries:
     tags:
       - Install attribution
   - name: Churn Risk Category
-    description: Segmenta a tus usuarios por categoría de riesgo de abandono según una predicción específica.
+    description: Segmenta a tus usuarios por categoría de riesgo de cancelación según una predicción específica.
     tags:
       - Intelligence and predictive
   - name: Churn Risk Score
-    description: Segmenta a tus usuarios por puntuación de riesgo de abandono según una predicción específica.
+    description: Segmenta a tus usuarios por puntuación de riesgo de cancelación según una predicción específica.
     tags:
       - Intelligence and predictive
   - name: Event Likelihood Category
@@ -613,7 +613,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: Segmenta a tus usuarios por el campo de número de teléfono en formato E.164.<br><br> Cuando se envía un número de teléfono a Braze, Braze intenta convertirlo al <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">formato E.164</a> que se utiliza para enviar a través de los canales SMS, RCS y WhatsApp. El proceso de conversión puede fallar si el número no tiene el formato adecuado, lo que resulta en que el perfil del usuario tenga un número de teléfono sin formato pero no un número de teléfono de envío. Este filtro de segmento devuelve usuarios por su número de teléfono en formato E.164 (cuando está disponible).<br><br>Casos de uso:<br> - Utiliza este filtro para comprender el tamaño más preciso de la audiencia objetivo al enviar mensajes SMS, RCS o WhatsApp.  <br>- Utiliza expresiones regulares (regex) con este filtro para segmentar por números de teléfono con un código de país específico. <br>- Utiliza este filtro para segmentar usuarios por números de teléfono que fallaron en el proceso de conversión a E.164.
+    description: Segmenta a tus usuarios por el campo de número de teléfono en formato E.164.<br><br> Cuando se envía un número de teléfono a Braze, Braze intenta convertirlo al <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">formato E.164</a> que se utiliza para enviar a través de los canales SMS, RCS y WhatsApp. El proceso de conversión puede fallar si el número no tiene el formato adecuado, lo que resulta en que el perfil del usuario tenga un número de teléfono sin formato pero no un número de teléfono de envío. Este filtro de segmento devuelve usuarios por su número de teléfono en formato E.164 (cuando está disponible).<br><br>Ejemplos:<br> - Utiliza este filtro para comprender el tamaño más preciso de la audiencia objetivo al enviar mensajes SMS, RCS o WhatsApp.  <br>- Utiliza expresiones regulares (regex) con este filtro para segmentar por números de teléfono con un código de país específico. <br>- Utiliza este filtro para segmentar usuarios por números de teléfono que fallaron en el proceso de conversión a E.164.
     tags:
       - Other Filters
 ---

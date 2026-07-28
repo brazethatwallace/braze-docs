@@ -14,13 +14,7 @@ Custom events are actions taken by, or updates about, your users. When custom ev
 
 Some common custom event use cases include:
 
-- Triggering a campaign or Canvas based on a custom event using [action-based delivery]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)
-- Segmenting users by how many times they performed a custom event, when the last time the event occurred, and similar
-- Using dashboard [custom event analytics]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics) to view an aggregate of how often each event occurred
-- Finding additional analytics using [funnel]({{site.baseurl}}/user_guide/data_and_analytics/reporting/funnel_reports/#step-2-select-events-for-funnel-steps) and [retention]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/) reports
-- Leveraging [persistent entry properties]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties/) to use metadata from your customer event for personalization in your Canvas steps
-- Generating more sophisticated analytics with [Currents]({{site.baseurl}}/user_guide/data/braze_currents/)
-- Setting up [exit criteria]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria) to define when users should exit your Canvas
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Entitlements
 
@@ -42,9 +36,7 @@ You can blocklist individual custom events through the actions menu, or select a
 
 When you block a custom event:
 
-- Future data won't be collected for that event.
-- Existing data won't be available unless that event is unblocked.
-- That event won't show up in filters or graphs.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 Additionally, if a blocked custom event is currently referenced by filters or triggers in other areas of Braze, a warning modal will appear explaining that all instances of the filters or triggers that reference it will be removed and archived.
 
@@ -68,7 +60,7 @@ To export the list of custom events as a CSV file, select the **Export all** but
 
 ## Logging custom events
 
-Custom events require additional setup. Refer to the list below for documentation about each platform, where you'll find information about the methods used to log custom events and how to add properties and quantities to your custom events.
+Custom events require additional setup. Refer to the platform documentation links to find the methods used to log custom events and add properties and quantities.
 
 {% details Expand for documentation by platform %}
 
@@ -215,9 +207,7 @@ To add event properties for segmentation, do the following:
 
 The event property segmentation filters include:
 
-- Has done a custom event with property A with value B, X times in the last Y days.
-- Has made any purchases with property A with value B, X times in the last Y days.
-- Adds the ability to segment within 1 to 30 days.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
 ![A filter group that "has 'Abandoned Cart' with property 'number of items' and value '2' 'more than' 1'1 time in the last '30' calendar days.][3]
 

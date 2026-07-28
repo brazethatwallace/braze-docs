@@ -53,7 +53,7 @@ The automation steps performed by the SDK are compatible with pre-existing push 
 
 {% alert warning %}
 The SDK must be initialized on the main thread to enable push notification automation. SDK initialization must happen before the application has finished launching or in your AppDelegate [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) implementation.
-If your application requires additional setup before initializing the SDK, please refer to the [Delayed Initialization]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift) documentation page.
+If your application requires additional setup before initializing the SDK, please refer to the [Delayed Initialization]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional) documentation page.
 {% endalert %}
 
 #### Step 3.2: Override individual configurations (optional)

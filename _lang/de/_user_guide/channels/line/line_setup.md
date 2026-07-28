@@ -28,7 +28,7 @@ Für die Integration von LINE mit Braze benötigen Sie Folgendes:
 Der Versand von LINE-Nachrichten über Braze wird von den Nachrichtenguthaben oder Aktionsguthaben Ihres Kontos abgezogen.
 
 {% alert note %}
-**`native_line_id` festlegen**: Sie können `native_line_id` festlegen, indem Sie Nutzeraktualisierungen an Braze senden (z. B. mit dem [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Wenn Ihr clientseitiges SDK kein dediziertes Feld für `native_line_id` hat, senden Sie es in serverseitigen Nutzeraktualisierungen über eine dieser Methoden.
+**`native_line_id` festlegen**: Sie können `native_line_id` festlegen, indem Sie Nutzeraktualisierungen an Braze senden (z. B. mit dem [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Wenn Ihr clientseitiges SDK kein dediziertes Feld für `native_line_id` hat, senden Sie es in serverseitigen Nutzeraktualisierungen über eine dieser Methoden.
 {% endalert %}
 
 ## Arten von LINE-Konten {#types-of-line-accounts}
@@ -69,11 +69,11 @@ Um konsistente Nutzeraktualisierungen einzurichten, bestehende LINE-IDs von Nutz
 Sie können nur ein LINE-Konto in einem einzelnen Workspace haben. Wenn Sie mehrere LINE-Konten haben, empfehlen wir, jedes in einem anderen Workspace zu verwenden.
 {% endalert %}
 
-## 1. Schritt: Bestehende LINE-Nutzer:innen importieren oder aktualisieren {#step-1-import-or-update-existing-line-users}
+## Schritt 1: Bestehende LINE-Nutzer:innen importieren oder aktualisieren {#step-1-import-or-update-existing-line-users}
 
 Dieser Schritt ist erforderlich, wenn Sie bereits identifizierte LINE-Nutzer:innen haben, da Braze später automatisch deren Abo-Status abruft und das richtige Nutzerprofil aktualisiert. Wenn Sie Nutzer:innen noch nicht mit ihrer LINE-ID abgestimmt haben, überspringen Sie diesen Schritt.
 
-Sie können Nutzer:innen mit jeder von Braze unterstützten Methode importieren oder aktualisieren, einschließlich des [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkts, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+Sie können Nutzer:innen mit jeder von Braze unterstützten Methode importieren oder aktualisieren, einschließlich des [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkts, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Unabhängig von der verwendeten Methode aktualisieren Sie `native_line_id`, um die LINE-ID der Nutzer:innen bereitzustellen. Weitere Informationen zu `native_line_id` finden Sie unter [Nutzereinrichtung](#user-setup).
 
@@ -81,7 +81,7 @@ Unabhängig von der verwendeten Methode aktualisieren Sie `native_line_id`, um d
 Der Abo-Gruppenstatus sollte nicht angegeben werden und wird ignoriert. LINE ist die maßgebliche Quelle für den Abo-Status von Nutzer:innen, der entweder über das Abo-Synchronisierungstool oder durch Ereignisaktualisierungen mit Braze synchronisiert wird.
 {% endalert %}
 
-## 2. Schritt: LINE-Kanal integrieren {#step-2-integrate-line-channel}
+## Schritt 2: LINE-Kanal integrieren {#step-2-integrate-line-channel}
 
 Nach Abschluss des Integrationsprozesses ruft Braze automatisch die LINE-Follower dieses Kanals in Braze ab. Für alle LINE-IDs, die bereits mit einem Braze-Nutzerprofil verknüpft sind, wird jedes Profil mit dem Status „abonniert“ aktualisiert, und alle verbleibenden LINE-IDs erzeugen anonyme Nutzer:innen. Zusätzlich werden für neue Follower Ihres LINE-Kanals nicht identifizierte Nutzerprofile erstellt, wenn sie dem Kanal folgen.
 
@@ -95,7 +95,7 @@ Nach Abschluss des Integrationsprozesses ruft Braze automatisch die LINE-Followe
 
 | Informationstyp | Ort |
 | --- | --- |
-| Provider-ID | Wählen Sie Ihren Provider und gehen Sie dann zu **Settings** > **Basic information** |
+| Provider-ID | Wählen Sie Ihren Provider und gehen Sie dann zu ***Settings** > **Basic information** |
 | Kanal-ID | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Basic settings** |
 | Kanalgeheimnis | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Basic settings** |
 | Kanalzugriffstoken | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Messaging API**. Wenn kein Kanalzugriffstoken vorhanden ist, wählen Sie **Issue**. |
@@ -117,7 +117,7 @@ Wenn Sie das Kanalgeheimnis für einen bereits integrierten LINE-Kanal aktualisi
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-1. Gehen Sie zur Braze-Technologie-Partner-Seite für LINE und geben Sie die Informationen ein, die Sie sich aus dem LINE-Tab **Providers** notiert haben:
+1. Gehen Sie zur Braze-Technologie-Partnerseite für LINE und geben Sie die Informationen ein, die Sie sich aus dem LINE-Tab **Providers** notiert haben:
    - Provider-ID
    - Kanal-ID
    - Kanalgeheimnis
@@ -136,11 +136,11 @@ Stellen Sie während der Integration sicher, dass Ihr Kanalgeheimnis korrekt ist
 
 ![Abschnitt LINE-Abo-Gruppen mit einer Abo-Gruppe für den Kanal „LINE“.]({% image_buster /assets/img/line/line_subscription_groups.png %}){: style="max-width:80%;"}
 
-## 3. Schritt: Nutzer-IDs abstimmen {#step-3-reconcile-user-ids}
+## Schritt 3: Nutzer-IDs abstimmen {#step-3-reconcile-user-ids}
 
 Kombinieren Sie die LINE-IDs Ihrer Nutzer:innen mit ihren bestehenden Braze-Nutzerprofilen, indem Sie die Schritte unter [Nutzer-ID-Abstimmung](#user-id-reconciliation) befolgen.
 
-## 4. Schritt: Methoden zur Nutzeraktualisierung ändern {#step-4-change-your-user-update-methods}
+## Schritt 4: Methoden zur Nutzeraktualisierung ändern {#step-4-change-your-user-update-methods}
 
 Vorausgesetzt, Sie haben bereits eine Methode, um Nutzeraktualisierungen an Braze zu senden, müssen Sie diese aktualisieren, um das neue Feld `native_line_id` einzuschließen, damit nachfolgende Nutzeraktualisierungen, die an Braze gesendet werden, dieses Feld enthalten.
 
@@ -190,7 +190,7 @@ Hier ist ein Beispiel-Payload für `/users/track`, der ein Nutzerprofil anhand d
 ```
 {% endraw %}
 
-## 5. Schritt: Profile zusammenführen (optional) {#step-5-merge-profiles-optional}
+## Schritt 5: Profile zusammenführen (optional) {#step-5-merge-profiles-optional}
 
 Wie oben beschrieben, besteht die Möglichkeit, dass mehrere Nutzerprofile mit derselben `native_line_id` existieren. Wenn Ihre Aktualisierungsmethoden doppelte Nutzerprofile erstellen, können Sie nicht identifizierte Nutzerprofile mit identifizierten Nutzerprofilen über den `/user/merge`-Endpunkt zusammenführen.
 
@@ -233,9 +233,20 @@ Um dies zu verwalten, bietet Braze Tools und Logik, die eine gut integrierte Nut
 {: start="2"}
 2. **Ereignisaktualisierungen:** Diese werden verwendet, um den Abo-Status von Nutzer:innen zu aktualisieren. Wenn Braze Nutzerereignisaktualisierungen für den integrierten LINE-Kanal erhält und das Ereignis ein Follow ist, erhält das Nutzerprofil den Abo-Gruppenstatus `subscribed`. Wenn das Ereignis ein Unfollow ist, erhält das Nutzerprofil den Abo-Gruppenstatus `unsubscribed`.<br><br>- Alle Braze-Nutzerprofile mit einer übereinstimmenden `native_line_id` werden automatisch aktualisiert. <br>- Wenn kein übereinstimmendes Nutzerprofil für ein Ereignis existiert, erstellt Braze [anonyme Nutzer:innen]({{site.baseurl}}/line/user_management).
 
+## Einen LINE-Kanal in einem anderen Workspace erneut integrieren {#re-integrate-a-line-channel-in-another-workspace}
+
+Um einen LINE-Kanal in einem anderen Braze-Workspace zu verwenden:
+
+1. Archivieren Sie im ursprünglichen Workspace die Abo-Gruppe für diesen Kanal.
+2. Integrieren Sie den Kanal im Ziel-Workspace über [Schritt 2: LINE-Kanal integrieren](#step-2-integrate-line-channel).
+
+Stellen Sie sicher, dass Sie die Berechtigung [Abo-Gruppen verwalten]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) in beiden Workspaces haben. Ohne Berechtigungen in beiden Workspaces schlägt die Integration mit einem Fehler fehl, der darauf hinweist, dass der Kanal bereits verbunden ist.
+
+Informationen dazu, wie sich die Archivierung auf Abo-Gruppen auswirkt, finden Sie unter [LINE-Abo-Gruppen]({{site.baseurl}}/line/subscription_groups#archive-behavior).
+
 ## Anwendungsfälle {#use-cases}
 
-Dies sind Anwendungsfälle, wie Nutzer:innen nach Befolgen der oben genannten Einrichtungsschritte aktualisiert werden können.
+Dies sind Anwendungsfälle, wie Nutzer:innen nach Befolgen der Einrichtungsschritte aktualisiert werden können.
 
 ### Bestehendes Braze-Nutzerprofil folgt bereits dem LINE-Kanal {#existing-braze-user-profile-already-follows-line-channel}
 
@@ -243,18 +254,18 @@ Dies sind Anwendungsfälle, wie Nutzer:innen nach Befolgen der oben genannten Ei
 2. Das Abo-Synchronisierungstool wird ausgeführt, stellt fest, dass die Nutzer:innen dem LINE-Kanal folgen, und aktualisiert das Nutzerprofil mit dem Abo-Status `subscribed`.
 3. Wenn sich der Abo-Status ändert (z. B. wenn die Nutzer:innen den Kanal blockieren, entfreunden oder erneut folgen), erhält Braze die Aktualisierung von LINE und aktualisiert das Nutzerprofil mit der `native_line_id` entsprechend.
 
-#### Bestehendes Nutzerprofil hat den LINE-Kanal blockiert, entfreundet oder entfolgt {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
+### Bestehendes Nutzerprofil hat den LINE-Kanal blockiert, entfreundet oder entfolgt {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
 
 1. Das Braze-Nutzerprofil wird mit einem `native_line_id`-Attribut aktualisiert. Der Standard-Abo-Status ist `unsubscribed`.
 2. Das Abo-Synchronisierungstool stellt nicht fest, dass die Nutzer:innen dem LINE-Kanal folgen, und der Abo-Status bleibt `unsubscribed`.
 3. Wenn die Nutzer:innen später dem Kanal folgen, erhält Braze die Aktualisierung von LINE und aktualisiert das Nutzerprofil mit dem Abo-Status `subscribed`.
 
-##### Nutzerprofilerstellung erfolgt nach LINE-Follow {#user-profile-creation-occurs-after-line-follow}
+### Nutzerprofilerstellung erfolgt nach LINE-Follow {#user-profile-creation-occurs-after-line-follow}
 
 1. Der Kanal erhält einen neuen LINE-Follower.
 2. Braze erstellt ein anonymes Nutzerprofil, bei dem das `native_line_id`-Attribut auf die LINE-ID des Followers gesetzt wird, und einen Nutzer-Alias `line_id`, der auf die LINE-ID des Followers gesetzt wird. Das Profil hat den Abo-Status `subscribed`.
-3. Die Nutzer:innen werden durch [Nutzerabstimmung](#user-id-reconciliation) als Inhaber:innen der LINE-ID identifiziert.
-  - Das anonyme Nutzerprofil kann über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt identifiziert werden. Nachfolgende Aktualisierungen (über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) dieses Nutzerprofils können die Nutzer:innen über diese bekannte `external_id` ansprechen.
+3. Die Nutzer:innen werden durch [Nutzer-ID-Abstimmung](#user-id-reconciliation) als Inhaber:innen der LINE-ID identifiziert.
+  - Das anonyme Nutzerprofil kann über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt identifiziert werden. Nachfolgende Aktualisierungen (über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) dieses Nutzerprofils können die Nutzer:innen über diese bekannte `external_id` ansprechen.
 
 {% raw %}
 ```json
@@ -272,14 +283,14 @@ Dies sind Anwendungsfälle, wie Nutzer:innen nach Befolgen der oben genannten Ei
 ```
 {% endraw %}
 
-  - Ein neues Nutzerprofil kann erstellt werden (über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)), indem die `native_line_id` gesetzt wird. Dieses neue Profil erbt den Abo-Status des bestehenden anonymen Nutzerprofils. Beachten Sie, dass dies zu mehreren Profilen mit derselben `native_line_id` führt. Diese können jederzeit über den `/users/merge`-Endpunkt im unter [Schritt 5](#step-5-merge-profiles-optional) beschriebenen Prozess zusammengeführt werden.
+  - Ein neues Nutzerprofil kann erstellt werden (über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt, [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)), indem die `native_line_id` gesetzt wird. Dieses neue Profil erbt den Abo-Status des bestehenden anonymen Nutzerprofils. Beachten Sie, dass dies zu mehreren Profilen mit derselben `native_line_id` führt. Diese können jederzeit über den `/users/merge`-Endpunkt im unter [Schritt 5](#step-5-merge-profiles-optional) beschriebenen Prozess zusammengeführt werden.
 
-##### Nutzerprofilerstellung erfolgt vor LINE-Follow {#user-profile-creation-occurs-before-line-follow}
+### Nutzerprofilerstellung erfolgt vor LINE-Follow {#user-profile-creation-occurs-before-line-follow}
 
 1. Sie gewinnen neue Nutzer:innen und senden die Informationen an Braze. Ein neues Nutzerprofil wird erstellt (Profil 1).
 2. Die Nutzer:innen folgen Ihrem LINE-Konto.
 3. Braze erhält ein Follow-Ereignis und erstellt ein anonymes Nutzerprofil (Profil 2).
-4. Die Nutzer:innen werden durch [Nutzerabstimmung](#user-id-reconciliation) als Inhaber:innen der LINE-ID identifiziert.
+4. Die Nutzer:innen werden durch [Nutzer-ID-Abstimmung](#user-id-reconciliation) als Inhaber:innen der LINE-ID identifiziert.
 5. Sie aktualisieren Profil 1, um das `native_line_id`-Attribut zu setzen. Dieses Profil erbt den Abo-Status von Profil 2.
   - Jetzt gibt es zwei Nutzerprofile mit derselben `native_line_id`. Diese können jederzeit über den `/users/merge`-Endpunkt im unter [Schritt 5](#step-5-merge-profiles-optional) beschriebenen Prozess zusammengeführt werden.
 
@@ -289,10 +300,10 @@ LINE-IDs werden automatisch von Braze empfangen, wenn Nutzer:innen Ihrem Kanal f
 
 Es gibt zwei Möglichkeiten, eine LINE-ID mit einem bestehenden Braze-Nutzerprofil zu kombinieren:
 
-- [LINE-Anmeldung (LINE Login)](#line-login)
+- [LINE Login](#line-login)
 - [Nutzerkontoverknüpfung](#user-account-linking)
 
-### LINE-Anmeldung (LINE Login) {#line-login}
+### LINE Login {#line-login}
 
 Diese Methode nutzt Social-Media-Logins zur Abstimmung. Wenn sich Nutzer:innen in Ihrer App anmelden, erhalten sie die Option, [LINE Login](https://developers.line.biz/en/docs/line-login/overview/) zu verwenden, um ein Nutzerkonto zu erstellen oder sich anzumelden.
 
@@ -311,7 +322,7 @@ Um die korrekte LINE-ID für alle Nutzer:innen zu erhalten, richten Sie LINE Log
 
 4. Speichern Sie die LINE-ID der Nutzer:innen (`native_line_id`) im Nutzerprofil mit einer übereinstimmenden E-Mail in Ihrer Datenbank oder erstellen Sie ein neues Nutzerprofil mit der E-Mail und LINE-ID der Nutzer:innen.
 
-5. Senden Sie die neuen oder aktualisierten Nutzerinformationen an Braze über den [`/user/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users), [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+5. Senden Sie die neuen oder aktualisierten Nutzerinformationen an Braze über den [`/user/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 #### Abläufe {#workflows}
 
@@ -347,7 +358,7 @@ Thanks for following Flash n' Thread on LINE! For personalized offers and 20% of
 
 {: start="3"}
 3. Erstellen Sie eine Folgenachricht, die den Gutscheincode liefert.
-4. (Optional) Erstellen Sie eine aktionsbasierte Kampagne oder ein Canvas, das ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden, um ihnen den Gutscheincode zu senden. <br>![Aktionsbasierte Kampagne, die ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden.]({% image_buster /assets/img/line/account_link_2.png %})
+4. (Optional) Erstellen Sie eine aktionsbasierte Campaign oder ein Canvas, das ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden, um ihnen den Gutscheincode zu senden. <br>![Aktionsbasierte Campaign, die ausgelöst wird, wenn die LINE-Nutzer:innen identifiziert werden.]({% image_buster /assets/img/line/account_link_2.png %})
 
 #### So funktioniert es {#how-it-works}
 
@@ -377,7 +388,7 @@ if (user && isLoggedIn && lineUserId) {
 }
 ```
 
-#### Abläufe bei der Nutzerkontoverknüpfung
+#### Abläufe
 
 ##### Bestehende Nutzer:innen folgen Ihrem LINE-Kanal {#existing-user-follows-your-line-channel}
 
@@ -391,9 +402,9 @@ if (user && isLoggedIn && lineUserId) {
 
 ## LINE-Testnutzer:innen in Braze erstellen {#creating-line-test-users-in-braze}
 
-Sie können Ihren LINE-Kanal testen, bevor Sie die [Nutzerabstimmung](#user-id-reconciliation) einrichten, indem Sie ein „Wer bin ich“-Canvas oder eine Kampagne erstellen.
+Sie können Ihren LINE-Kanal testen, bevor Sie die [Nutzer-ID-Abstimmung](#user-id-reconciliation) einrichten, indem Sie ein „Wer bin ich“-Canvas oder eine Campaign erstellen.
 
-1. Richten Sie ein Canvas ein, das die Braze-Nutzer-ID bei einem bestimmten Triggerwort zurückgibt. <br><br>Beispiel-Trigger <br><br>![Trigger zum Senden der Kampagne an Nutzer:innen, die eine eingehende LINE-Nachricht an eine bestimmte Abo-Gruppe gesendet haben.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Beispielnachricht<br><br>![LINE-Nachricht mit der Braze-Nutzer-ID.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
+1. Richten Sie ein Canvas ein, das die Braze-Nutzer-ID bei einem bestimmten Triggerwort zurückgibt. <br><br>Beispiel-Trigger <br><br>![Trigger zum Senden der Campaign an Nutzer:innen, die eine eingehende LINE-Nachricht an eine bestimmte Abo-Gruppe gesendet haben.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Beispielnachricht<br><br>![LINE-Nachricht mit der Braze-Nutzer-ID.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
 
 2. In Braze können Sie die Braze-ID verwenden, um bestimmte Nutzer:innen zu suchen und bei Bedarf zu ändern.
 

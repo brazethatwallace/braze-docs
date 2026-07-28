@@ -14,6 +14,10 @@ alias: /scim/automated_user_provisioning/
 
 ## SCIMプロビジョニング設定へのアクセス {#accessing-scim-provisioning-settings}
 
+{% alert important %}
+SCIMプロビジョニングの利用可否はプラットフォームのエディションによって異なります。この機能がワークスペースにない場合は、カスタマーサクセスマネージャーにお問い合わせください。
+{% endalert %}
+
 1. Brazeダッシュボードで、**設定** > **管理者設定** > **SCIMプロビジョニング**に移動し、**SCIM連携の設定**を選択します。
 2. **Brazeの設定**ステップで、プロビジョニング方法を選択し、アクセス設定を入力します。
 
@@ -55,7 +59,7 @@ OktaでBrazeアプリをSAML SSO用に設定した場合は、**Okta - Brazeア�
 
 ### ステップ1.4:API認証情報をテストする {#step-14-test-the-api-credentials}
 
-**Test API Credentials**を選択します。統合が成功すると確認メッセージが表示され、保存できます。
+**Test API Credentials**を選択します。連携が成功すると確認メッセージが表示され、保存できます。
 
 ### ステップ1.5:アプリへのプロビジョニングを有効にする {#step-15-enable-provisioning-to-the-app}
 
@@ -144,6 +148,10 @@ Microsoft Entra管理センターにログインします。
 2. **Provision Microsoft Entra ID Users**を選択します。
 3. **Setup SCIM provisioning**ページのテーブルに表示される属性と一致するように、**Attribute Mapping**セクションを確認・設定します。
 4. **Attribute Mapping**ページを閉じます。
+
+{% alert important %}
+`userName`属性は、SCIMがユーザーを正しく識別・管理するために、Brazeのユーザーのメールアドレスと正確に一致する必要があります。SCIMが有効になる前にBrazeで手動プロビジョニングされたユーザーは、SCIMアプリケーションに追加されても、自動的にIdP管理ユーザーに変換されません。それらのユーザーのプロビジョニング方法は手動のままです。
+{% endalert %}
 
 ## ステップ2:ユーザーをアプリに割り当てる
 

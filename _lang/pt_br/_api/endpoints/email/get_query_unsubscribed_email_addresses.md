@@ -22,15 +22,15 @@ Você pode usar esse endpoint para configurar uma sincronização bidirecional e
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.unsubscribe`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.unsubscribe`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ----------|-----------| ---------|------ |
 | `start_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data de início do intervalo para recuperar cancelamentos de inscrição; deve ser anterior a end_date. A API trata essa data como meia-noite no horário UTC. |
 | `end_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data final do intervalo para recuperar cancelamentos de inscrição. A API trata essa data como meia-noite no horário UTC. |

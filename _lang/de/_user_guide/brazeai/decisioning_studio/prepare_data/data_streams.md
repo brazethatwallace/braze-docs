@@ -51,7 +51,7 @@ Ein Event-Stream zeichnet diskrete Aktionen auf, sobald sie stattfinden. Er bean
 | Kundenbezeichner | Auf wen sich dieses Event bezieht |
 | Event-Typ | Was passiert ist (zum Beispiel Aktivierung, Conversion, Klick) |
 | Event-Zeitstempel | Wann das Ereignis tatsächlich stattgefunden hat |
-| Erstellungs-Zeitstempel | Wann dieser Datensatz in Ihrem System erstellt wurde (siehe Hinweis unten) |
+| Erstellungs-Zeitstempel | Wann dieser Datensatz in Ihrem System erstellt wurde (siehe Hinweis im folgenden Abschnitt) |
 | Event-Eigenschaften | Zusätzliche Metadaten über das Event; je reichhaltiger diese sind, desto besser kann Decisioning Studio Events über die Customer Journey hinweg verknüpfen |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Erforderliche Felder" }
 

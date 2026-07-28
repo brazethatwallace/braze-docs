@@ -48,7 +48,7 @@ Wenn die Anfrage kein Nutzerprofil zurückgibt, können Sie entweder einen Nutze
 
 Verwenden Sie den User-Track-Endpunkt, um einen Nutzer-Alias zu erstellen, wobei Sie den von Ihnen gewählten Bezeichner als Alias-Namen verwenden. Indem Sie `_update_existing_only` als `false` im Attribut-, Event- oder Kauf-Objekt angeben, in dem der neue Nutzer-Alias definiert ist, können Sie das Alias-Profil erstellen und gleichzeitig Attribute, Events und Käufe zu diesem Profil hinzufügen.
 
-Damit der Nutzer-Alias ein sendefähiges Profil ist, müssen Sie die E-Mail-Adresse im Feld `email` angeben, wie unten gezeigt.
+Damit der Nutzer-Alias ein sendefähiges Profil ist, müssen Sie die E-Mail-Adresse im Feld `email` angeben, wie im folgenden Beispiel gezeigt.
 
 ```json
 {
@@ -153,7 +153,7 @@ Kund:innen können Campaigns und Canvases so einrichten, dass sie über die API 
     - Campaigns sind einzelne Nachrichten, wie z. B. individuelle E-Mails.
 - [Canvases über API triggern]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#request-body)
     - Canvas ist eine einheitliche Oberfläche, auf der Marketer Campaigns mit mehreren Nachrichten und Schritten erstellen können, um eine zusammenhängende Journey zu gestalten. Wenn Sie ein Canvas triggern, nehmen Sie eine Nutzer:in in den Canvas-Flow auf, wo sie so lange Nachrichten erhält, bis sie die Canvas-Kriterien nicht mehr erfüllt.
-- [API-Trigger-Eigenschaften/Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
+- [API-Trigger-Eigenschaften/Canvas-Entry-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
     - Daten, die zum Zeitpunkt des Versands dynamisch in die Nachricht eingefügt werden können.
 
 ### API-Campaigns

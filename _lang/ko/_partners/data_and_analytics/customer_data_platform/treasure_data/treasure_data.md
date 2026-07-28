@@ -23,10 +23,10 @@ Braze와 Treasure Data 통합을 사용하면 Treasure Data의 작업 결과를 
 | --- | --- |
 | Treasure Data 계정 | 이 파트너십을 활용하려면 [Treasure Data 계정](https://www.treasuredata.com/custom-demo/)이 필요합니다. |
 | Braze REST API 키 | `users.track`, `users.delete`, `users.alias.new`, `users.identify` 권한이 있는 Braze REST API 키.<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints))에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints))에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 Treasure Data에서 통합된 고객 프로필을 Braze로 동기화하여 타겟 세그먼트를 구축할 수 있습니다. Treasure Data는 퍼스트파티 쿠키 데이터, 모바일 ID, CRM과 같은 서드파티 시스템 등을 지원합니다.
 
@@ -38,7 +38,7 @@ Treasure Data에서 **Integrations Hub** 아래의 **Catalog**로 이동하여 *
 
 표시되는 **New Authentication** 프롬프트에서 연결 이름을 지정하고 Braze REST API 키와 REST 엔드포인트를 입력합니다. 완료되면 **Done**을 선택합니다.
 
-![]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
+![REST API 키 및 엔드포인트 필드가 있는 Treasure Data Braze 인증 양식.]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
 
 ### 2단계: 쿼리 정의 {#step-2-define-your-query}
 
@@ -50,7 +50,7 @@ HIVE를 사용하여 쿼리를 작성하는 사용자의 경우, HIVE에서는 �
 
 다음으로, **Export Results**를 선택하고 기존 통합 인증을 선택합니다.
 
-![]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
+![Export Results 및 Braze 통합이 선택된 Treasure Data 쿼리 결과 페이지.]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
 
 다음 [커스터마이제이션 섹션](#customization)에 설명된 대로 추가 내보내기 결과 매개변수를 정의합니다. 내보내기 통합 콘텐츠에서 통합 매개변수를 검토합니다.
 
@@ -68,7 +68,7 @@ HIVE를 사용하여 쿼리를 작성하는 사용자의 경우, HIVE에서는 �
 | `pre_formatted_fields` | 문자열 | 배열 또는 JSON 열의 형식을 유지하려면 사용합니다. |
 | `track_record_type` | Custom Events<br>Purchases<br>User Profile Attributes | **User - Track** 모드의 레코드 유형 |
 | `skip_on_invalid_records` | 부울 | 활성화하면 JSON 열의 잘못된 레코드를 무시하고 계속 진행합니다. <br> 그렇지 않으면 작업이 중지됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customization" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="커스터마이제이션" }
 
 {% alert note %}
 미리 서식 지정된 필드, 예제 쿼리, 매개변수 세부 정보 및 쿼리 내보내기 작업 스케줄링에 대한 자세한 내용은 [Treasure Data](https://docs.treasuredata.com/display/public/INT/Braze+Export+Integration)를 참조하세요.

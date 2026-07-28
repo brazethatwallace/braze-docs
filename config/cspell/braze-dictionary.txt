@@ -100,6 +100,7 @@ Bandsintown
 Barchart
 BASA
 bdocs
+Beefree
 behaviour
 BENA
 BIMI
@@ -217,7 +218,9 @@ DELIVERYFAILURE
 Demandbase
 Denada
 Deprioritization
+deprioritize
 deprioritized
+deprioritizes
 detangle
 Deutsch
 developerid
@@ -245,6 +248,7 @@ ecommerce
 edume
 EKUGUSII
 Emailable
+Emailify
 emailnotification
 EMEA
 emea
@@ -257,9 +261,11 @@ Eppo’s
 Erdelyi
 Eshop
 ESP
+ESPs
 Espa
 Eswatini
 Eventbrite
+Everest
 EWONDO
 exfiltration
 EXPERIMENTSTEP
@@ -325,6 +331,8 @@ GLOBALCONTROLGROUP
 GLOBALSTATECHANGE
 granularization
 granularized
+granularscimapi
+legacyscimapi
 GRAVTY
 Grindr
 Grotesk
@@ -603,6 +611,7 @@ PhDs
 Phiture's
 phrasee
 pickencoding
+Plazma
 Podfile
 postbacks
 prebuild
@@ -773,6 +782,7 @@ Squarespace
 SSSZ
 stackadapt
 STATECHANGE
+Stayfilm
 Stensul
 Steppington
 Stpo
@@ -894,6 +904,8 @@ USERDELETEREQUEST
 useridentifier
 USERORPHAN
 validreg
+Validity
+Validity's
 VARCHAR
 videosmart
 viewports
@@ -923,11 +935,13 @@ Whitelabeled
 whitelabeling
 WiFi
 Winback
+winbacks
 wishlisted
 Wistia
 wordmap
 WordPress
 wordprocessor
+Wormholy
 WWDC
 Wyng
 Xamarin

@@ -13,10 +13,6 @@ description: "This article provides steps on how to use locales in your messages
 
 ## Prerequisites
 
-Watch the following video for an optional overview of setting up and using multi-language messages.
-
-{% multi_lang_include video.html id="whfstwrel5" source="wistia" %}
-
 {% tabs %}
 {% tab Multi-language locales %}
 
@@ -27,7 +23,7 @@ Watch the following video for an optional overview of setting up and using multi
 
 | Feature | Required user permissions |
 | --- | --- |
-| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> {::nomarkdown} <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites"}
 
 {% endtab %}
@@ -35,7 +31,7 @@ Watch the following video for an optional overview of setting up and using multi
 
 | Feature | Required user permissions |
 | --- | --- |
-| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
+| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> {::nomarkdown} <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
@@ -54,7 +50,7 @@ Wrap text you want to translate with the Liquid translation tags {% raw %}`{% tr
 Here is an example message marked for translation: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Highlight the text you want to translate and use the keyboard shortcut **Cmd + Alt + L** (macOS) or **Ctrl + Alt + L** (Windows) to wrap in translation tags.<br><br> This shortcut works in all channels that support multi-language messaging except for the drag-and-drop editors for email and Content Blocks. For those, use the **Add personalization** button in the left sidebar to add translation tags.
+Highlight the text you want to translate and use the keyboard shortcut **Cmd + Alt + L** (macOS) or **Ctrl + Alt + L** (Windows) to wrap in translation tags.<br><br> This shortcut works in all channels that support multi-language messaging except for the drag-and-drop editors for email and Content Blocks. For those, use the **Add personalization** button to add translation tags.
 {% endalert %}
 
 #### Localize URLs
@@ -258,6 +254,17 @@ When using translation tags, the following limits apply:
 - Each message can have up to 200 translation tags.
 - Each default text (the content between translation tags) can have up to 2,000 characters.
 - The translations per locale can have up to 409,600 bytes (approximately 409.6&nbsp;KB).
+
+### Why am I receiving an error when downloading multi-language email templates?
+
+If you encounter errors when downloading multi-language email templates, the translation tags may be wrapping HTML attributes or CSS styling that conflict with how Braze processes email bodies. 
+
+Braze treats the HTML body and plaintext body as separate components of the same message. When translation tags include `href` references and CSS styling, this can lead to conflicting tags that prevent the template from being downloaded correctly.
+
+To resolve this:
+- Exclude `href` references and CSS styling from translation tags.
+- Wrap only human-readable text content in translation tags, as described in [HTML attributes and structure](#html-attributes-and-structure).
+- For URLs, follow the guidance in [Localize URLs](#localize-urls).
 
 #### Can I make a change to the translated copy in one of my locales?
 

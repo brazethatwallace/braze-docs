@@ -32,6 +32,10 @@ In this section, you can add the names and email addresses you can use when Braz
 
 !["Outbound Email Settings" section with fields for different display names and domains.]({% image_buster /assets/img/email_settings/display_name_address.png %})
 
+{% alert note %}
+Apple Mail clients don't recognize the `@` symbol when it's used in a custom display name. Different mailbox providers control how the display name address shows for their users, so the display name may appear differently depending on the email client.
+{% endalert %}
+
 #### Personalize with Liquid
 
 You can also use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in the **From Display Name**, **Local Part**, and **Domain** fields to dynamically template the sender name and email address based on custom attributes. Note that to use Liquid in the **Domain** field, you must go to an email campaign's **Sending Info** options and select the **Customize from display name + address** checkbox.
@@ -368,7 +372,7 @@ If a subscription group referenced in **Sending Info** for one-click is archived
 {% enddetails %}
 
 {% details Is the one-click unsubscribe setting available for email templates? %}
-No, we currently do not have plans to add this for email templates, as these templates aren't assigned to a sending domain. If you're interested in this feature for email templates, submit [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+No, we currently do not have plans to add this for email templates, as these templates aren't assigned to a sending domain. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details Does this feature check that the one-click unsubscribe URL added to the custom option is valid? %}

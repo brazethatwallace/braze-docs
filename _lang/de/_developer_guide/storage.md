@@ -58,7 +58,7 @@ Standardmäßig erfasst Braze die folgenden Eigenschaften auf Geräteebene, um d
 - Zeitzone des Geräts
 
 {% alert note %}
-Das Braze SDK erfasst den Identifier for Advertisers (IDFA) nicht automatisch. Apps können den IDFA optional an Braze übergeben, indem sie die nachfolgenden Methoden direkt implementieren. Apps müssen das ausdrückliche Opt-in für das Tracking durch die Endnutzer:innen über das App Tracking Transparency Framework einholen, bevor sie den IDFA an Braze übergeben.
+Das Braze SDK erfasst den Identifier for Advertisers (IDFA) nicht automatisch. Apps können den IDFA optional an Braze übergeben, indem sie die in den folgenden Abschnitten beschriebenen Methoden implementieren. Apps müssen das ausdrückliche Opt-in für das Tracking durch die Endnutzer:innen über das App Tracking Transparency Framework einholen, bevor sie den IDFA an Braze übergeben.
 
 1. Um den Status des Werbe-Trackings festzulegen, verwenden Sie [`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/).
 2. Um den Identifier for Advertisers (IDFA) festzulegen, verwenden Sie [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/).
@@ -73,7 +73,7 @@ Standardmäßig sind alle Eigenschaften aktiviert. Sie können sie jedoch auch m
 Sie können zum Beispiel die Sprache des Geräts angeben, die auf die Allowlist gesetzt werden soll. Weitere Informationen finden Sie unter der Option `devicePropertyAllowlist` für [`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions).
 
 ```javascript
-import * as braze from"@braze/web-sdk";
+import * as braze from "@braze/web-sdk";
 braze.initialize("API-KEY", {
     baseUrl: "BASE-URL",
     devicePropertyAllowlist: [ braze.DeviceProperties.LANGUAGE ] // list of `DeviceProperties` you want to collect
@@ -120,9 +120,11 @@ configuration.devicePropertyAllowList = @[
 Wenn Sie mehr über automatisch erfasste Geräteeigenschaften erfahren möchten, lesen Sie den Abschnitt [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 {% endalert %}
 
-## Speichern von Cookies (nur Internet) {#cookies}
+## Cookies speichern (nur Internet) {#cookies}
 
-Nach der [Initialisierung des Internet Braze SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize) werden Cookies mit einer Gültigkeitsdauer von 400 Tagen erstellt und gespeichert, die bei neuen Sitzungen automatisch erneuert werden.
+Nach der [Initialisierung des Internet Braze SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize) erstellt und speichert das SDK First-Party-Cookies (auf Ihrer eigenen Domain), die eine Gültigkeitsdauer von 400 Tagen haben und bei neuen Sitzungen automatisch erneuert werden.
+
+Cookies speichern nur Nutzer:innen-, Sitzungs- und Geräte-Bezeichner. Andere Daten – wie In-App-Nachrichten, die auf einen Trigger warten, Content Cards und Ereignisse oder Attribute in der Warteschlange, die noch nicht mit Braze synchronisiert wurden – werden in `localStorage` gespeichert.
 
 Die folgenden Cookies werden gespeichert:
 
@@ -149,7 +151,7 @@ braze.initialize("API-KEY", {
 
 ### Cookies deaktivieren {#disable-cookies}
 
-Um alle Cookies zu deaktivieren, verwenden Sie die Option [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) bei der Initialisierung des Internet SDK. Damit verhindern Sie, dass anonyme Nutzer:innen, die über Sub-Domains hinweg navigieren, miteinander verknüpft werden. Dies führt dazu, dass auf jeder Sub-Domain eine neue Nutzer:in angelegt wird.
+Um alle Cookies zu deaktivieren, verwenden Sie die Option [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) bei der Initialisierung des Internet SDK. Wenn Cookies deaktiviert sind, verwendet das SDK stattdessen `localStorage`, um Nutzer:innen und Sitzungen zu identifizieren. Damit verhindern Sie, dass anonyme Nutzer:innen, die über Sub-Domains hinweg navigieren, miteinander verknüpft werden. Dies führt dazu, dass auf jeder Sub-Domain eine neue Nutzer:in angelegt wird.
 
 ```javascript
 import * as braze from "@braze/web-sdk";

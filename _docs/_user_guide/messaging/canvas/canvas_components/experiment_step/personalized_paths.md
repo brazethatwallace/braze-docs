@@ -47,6 +47,10 @@ This option will send future users down the mix of paths according to the percen
 
 ![Screenshot related to step 3: determine fallback.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
+{% alert note %}
+If the experiment completes with insufficient results, only the **Initial Experiment** tab is shown because the model determines that personalization would not outperform a single best-performing path. For more details, refer to [Analytics](#analytics).
+{% endalert %}
+
 ### Step 4: Add your paths and launch the Canvas
 
 {% tabs local %}
@@ -78,7 +82,9 @@ When the experiment window passes and the experiment is complete, all subsequent
 
 ## Analytics {#analytics}
 
-If Personalized Paths was turned on, your analytics view is separated into two tabs: **Initial Experiment** and **Personalized Paths**.
+When Personalized Paths is turned on and produces sufficient results, your analytics view is separated into two tabs: **Initial Experiment** and **Personalized Paths**. 
+
+If the experiment completes with insufficient results (for example, when the model's projected lift is less than the 0.5% threshold or no meaningful user segments are identified), only the **Initial Experiment** tab is shown because the model determines that personalization would not outperform a single best-performing path. In this case, your configured fallback behavior is applied, and no Personalized Paths analytics are available.
 
 {% tabs local %}
 {% tab Initial Experiment %}

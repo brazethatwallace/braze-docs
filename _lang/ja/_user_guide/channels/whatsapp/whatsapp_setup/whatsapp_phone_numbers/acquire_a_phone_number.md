@@ -26,9 +26,13 @@ Brazeが電話番号をプロビジョニングすることはないため、ご
 - WhatsApp Business Platformで以前使用されていないこと
 - 個人のWhatsAppアカウントに接続されていないこと
 
+{% alert note %}
+Brazeでは、ご自身のビジネスが所有し、継続的にフルアクセスできる番号を使用することを強くお勧めします。WhatsApp埋め込みサインアッププロセスでは、番号を認証するためにこの番号に送信されるメッセージにアクセスする必要があります。後で再度番号を認証する必要がある場合もあるため、番号へのアクセスを維持する必要があります。
+{% endalert %}
+
 ## Twilio電話番号の取得 {#acquiring-a-twilio-phone-number}
 
-### ステップ 1:TwilioコンソールまたはAPIから電話番号を購入する {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
+### ステップ1:TwilioコンソールまたはAPIから電話番号を購入する {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
 
 1. Twilioコンソールから、**Develop** > **Phone Numbers** > **Manage** > **Buy a number** に移動します。このオプションが表示されない場合は、**Explore Products** を選択し、**Super Networks** までスクロールして、**Phone Number** > **Buy a number** を選択します。<br><br>![「Develop」タブが開かれ「Buy a number」オプションが表示されたTwilioコンソール。]({% image_buster /assets/img/whatsapp/develop_buy_number.png %}){: style="max-width:20%;"}<br><br>
 
@@ -36,23 +40,23 @@ Brazeが電話番号をプロビジョニングすることはないため、ご
 
 3. 電話番号を購入したら、**Active Numbers** に移動し、購入した電話番号を選択します。<br><br>![購入した電話番号が表示された「Active Numbers」。]({% image_buster /assets/img/whatsapp/active_numbers.png %}){: style="max-width:70%;"}<br><br>
 
-### ステップ 2:電話番号を設定する {#step-2-configure-your-phone-number}
+### ステップ2:電話番号を設定する {#step-2-configure-your-phone-number}
 
 メール経由で認証コードを受信できるようにTwilio電話番号を設定します。**Twilioコンソールで電話番号をWhatsAppにリンクしないでください。**
 
 {% alert warning %}
-Twilioコンソールで電話番号をWhatsAppにリンクしないでください。リンクすると、その番号がTwilioのWhatsApp Business Accountに登録されるため、埋め込みサインアップワークフローを通じてBrazeに接続できなくなります。
+Twilioコンソールで電話番号をWhatsAppにリンクしないでください。リンクすると、その番号がTwilioのWhatsApp Businessアカウントに登録されるため、埋め込みサインアップワークフローを通じてBrazeに接続できなくなります。
 {% endalert %}
 
 1. Twilioコンソールで、[Active Numbersページ](https://www.twilio.com/console/phone-numbers/incoming)に移動し、購入した電話番号を選択します。
 2. **Voice Configuration** セクションに移動し、**Configure with** ドロップダウンで **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service** を選択します。
 3. **A call comes in** の行で、**Webhook** を選択し、URLを `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS` に設定します。`YOUR_EMAIL_ADDRESS` はご自身のメールアドレスに置き換えてください。
 
-### ステップ 3:埋め込みサインアップワークフローを完了する {#step-3-complete-the-embedded-sign-up-workflow}
+### ステップ3:埋め込みサインアップワークフローを完了する {#step-3-complete-the-embedded-sign-up-workflow}
 
-1. Twilioの設定が完了したら、Brazeダッシュボード > **テクノロジーパートナー** > **WhatsApp** に移動し、**Begin integration** または **Add WhatsApp Business Account**（表示されている方）を選択して、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)をトリガーします。<br><br>**Add a phone number for WhatsApp** ステップで、電話番号の認証方法として **Phone call** を選択します。<br><br>![テキストメッセージまたは電話で電話番号を認証するオプションが表示されたセクション。]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
+1. Twilioの設定が完了したら、Brazeダッシュボード > **テクノロジーパートナー** > **WhatsApp** に移動し、**Begin integration** または **Add WhatsApp Business Account**（表示されている方）を選択して、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)をトリガーします。<br><br>**Add a phone number for WhatsApp** のステップで、電話番号の認証方法として **Phone call** を選択します。<br><br>![テキストメッセージまたは電話で電話番号を認証するオプションが表示されたセクション。]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
 
-2. 認証コードがメールの受信トレイに届くまで数分待ち、認証コードを入力してセットアップを完了します。
+2. 認証コードがメールの受信トレイに届くまで数分待ち、認証コードを入力して設定を完了します。
 
 ## Infobip電話番号の取得 {#acquiring-an-infobip-phone-number}
 
@@ -66,6 +70,6 @@ Twilioコンソールで電話番号をWhatsAppにリンクしないでくださ
 
 5. 選択した国によっては、Infobipチームから登録の詳細について連絡が来るのを待ちます（米国の10DLCなど）。<br><br>
 
-6. Infobipで電話番号の準備ができたら、Brazeダッシュボード > **テクノロジーパートナー** > **WhatsApp** に移動し、**Begin integration** または **Add WhatsApp Business Account**（表示されている方）を選択して、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)をトリガーします。<br><br>**Add a phone number for WhatsApp** ステップで、電話番号の認証方法として **Text message** を選択します。<br><br>![テキストメッセージまたは電話で電話番号を認証するオプションが表示されたセクション。]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
+6. Infobipで電話番号の準備ができたら、Brazeダッシュボード > **テクノロジーパートナー** > **WhatsApp** に移動し、**Begin integration** または **Add WhatsApp Business Account**（表示されている方）を選択して、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)をトリガーします。<br><br>**Add a phone number for WhatsApp** のステップで、電話番号の認証方法として **Text message** を選択します。<br><br>![テキストメッセージまたは電話で電話番号を認証するオプションが表示されたセクション。]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
 
-7. Infobipのカスタマーポータルで[analyze logs](https://www.infobip.com/docs/analyze/analyze-logs)を確認して認証コードを取得します。表示されるまで数分かかる場合があります。認証コードを入力してセットアップを完了します。
+7. Infobipのカスタマーポータルで[analyze logs](https://www.infobip.com/docs/analyze/analyze-logs)を確認して認証コードを取得します。表示されるまで数分かかる場合があります。認証コードを入力して設定を完了します。

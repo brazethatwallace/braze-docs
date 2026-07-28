@@ -16,7 +16,7 @@ Quando você usa a integração da Braze com o Outgrow para conteúdo interativo
 - **Personalização aprimorada**: Colete dados de questionários, pesquisas e calculadoras do Outgrow que podem ser mapeados para atributos personalizados na Braze. Esses dados permitem uma segmentação precisa e campanhas personalizadas.
 - **Sincronização de dados em tempo real**: Receba os dados do Outgrow na Braze em tempo real, permitindo que você aja imediatamente com base nos insights dos usuários. Isso possibilita acompanhamentos oportunos ou mensagens personalizadas com base nas interações mais recentes dos usuários.
 - **Gerenciamento de dados simplificado**: Automatize a transferência de dados entre o Outgrow e a Braze, eliminando exportações e importações manuais de dados, reduzindo discrepâncias e economizando tempo.
-- **Melhoria da experiência do usuário**: Aproveite os insights dos usuários para criar experiências mais relevantes, levando a maior satisfação, retenção e lifetime value.
+- **Melhoria da experiência do usuário**: Aproveite os insights dos usuários para criar experiências mais relevantes, levando a maior satisfação, retenção e valor do tempo de vida.
 - **Direcionamento e segmentação flexíveis**: Refine a segmentação na Braze usando os dados do Outgrow, permitindo direcionar usuários com base em interações específicas (como pontuações de questionários ou respostas a pesquisas) para criar campanhas que repercutam entre seus usuários.
 
 ## Pré-requisitos {#prerequisites}
@@ -37,7 +37,7 @@ Siga estas etapas para configurar a integração da Braze com o Outgrow:
 
 ### Etapa 1: Gerar a chave de API da Braze {#step-1-generate-braze-api-key}
 
-1. Na sua conta Braze, acesse **Developer Console** > **API Settings**.
+1. Na sua conta Braze, acesse **Console de desenvolvedor** > **Configurações de API**.
 2. Selecione **Create New API Key**.
 3. Dê um nome à sua chave de API, ative a permissão `users.track` e salve a chave de API.
 
@@ -66,7 +66,7 @@ No Outgrow, você pode mapear respostas de conteúdo interativo (como resultados
 Depois de configurar a integração, execute um teste para confirmar se os dados estão sendo transferidos corretamente do Outgrow para a Braze.
 
 1. Publique uma experiência do Outgrow (como um questionário ou uma calculadora) e conclua-a como um usuário teste.
-2. Na sua conta Braze, acesse a seção **User Profile** e verifique se há atributos atualizados (como `outgrow_quiz_score` ou `outgrow_custom_segment`).
+2. Na sua conta Braze, acesse a seção **Perfil de usuário** e verifique se há atributos atualizados (como `outgrow_quiz_score` ou `outgrow_custom_segment`).
 3. Verifique se os dados estão preenchidos corretamente nos atributos personalizados apropriados.
 
 ## Uso de dados do Outgrow na Braze para segmentação e direcionamento {#using-outgrow-data-in-braze-for-segmentation-and-targeting}
@@ -75,7 +75,7 @@ Depois de configurar a integração, execute um teste para confirmar se os dados
 
 Com a integração, você pode criar segmentos na Braze com base em atributos personalizados preenchidos a partir das respostas do Outgrow.
 
-1. Na Braze, acesse **Engagement** > **Segments** e selecione **Create New Segment**.
+1. Na Braze, acesse **Engajamento** > **Segments** e selecione **Create New Segment**.
 2. Dê um nome ao seu segmento e defina filtros com base nos dados do Outgrow. Por exemplo:
    - Filtre por `outgrow_quiz_score` para direcionar os usuários que pontuaram acima de um determinado limite.
    - Filtre por `outgrow_custom_segment` para direcionar os usuários que pertencem a um determinado segmento definido pelo Outgrow.
@@ -85,10 +85,10 @@ Com a integração, você pode criar segmentos na Braze com base em atributos pe
 
 Você pode usar os segmentos personalizados criados a partir dos dados do Outgrow para personalizar suas Campaigns na Braze e direcionar os usuários com base em suas respostas ao conteúdo interativo. Para fazer isso e criar uma experiência de usuário mais personalizada, siga estas etapas:
 
-1. Na Braze, acesse **Engagement** > **Campaigns**.
-2. Selecione **Create Campaign** e escolha o tipo de campanha (e-mail, push, mensagem no app ou outros).
-3. Na etapa de direcionamento do público, selecione o segmento criado a partir dos atributos do Outgrow (como usuários com pontuações ou segmentos de questionário específicos).
-4. Personalize o conteúdo e as configurações da sua campanha e, em seguida, lance-a.
+1. Na Braze, acesse **Engajamento** > **Campaigns**.
+2. Selecione **Create Campaign** e escolha o tipo de Campaign (e-mail, push, mensagem no app ou outros).
+3. Na etapa de direcionamento do público, selecione o segmento criado a partir dos atributos do Outgrow (como usuários com pontuações de questionário ou segmentos específicos).
+4. Personalize o conteúdo e as configurações da sua Campaign e, em seguida, lance-a.
 
 ## Solução de problemas comuns {#troubleshooting-common-issues}
 
@@ -102,7 +102,7 @@ Você pode usar os segmentos personalizados criados a partir dos dados do Outgro
 ## Considerações adicionais {#additional-considerations}
 
 - **Privacidade de dados**: Cumpra as normas de privacidade de dados (como GDPR e CCPA) ao transferir dados de usuários entre plataformas.
-- **Limites de taxa**: Os dados do Outgrow são enviados para a Braze em tempo real, mas os limites de taxa da API da Braze podem se aplicar a grandes volumes de dados. Planeje adequadamente para experiências de alto tráfego.
+- **Limites de frequência**: Os dados do Outgrow são enviados para a Braze em tempo real, mas os limites de frequência da API da Braze podem se aplicar a grandes volumes de dados. Planeje adequadamente para experiências de alto tráfego.
 - **Configuração de atributos personalizados**: Verifique se os atributos personalizados da Braze usados nessa integração estão configurados corretamente para capturar os dados enviados pelo Outgrow.
 
 Para obter assistência adicional, consulte a [documentação do Outgrow](https://support.outgrow.co/docs/configuring-native-integration-between-outgrow-braze) ou entre em contato com o Suporte do Outgrow.

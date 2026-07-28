@@ -44,7 +44,7 @@ Para criar uma extensão de segmento SQL com atualização incremental:
    ![Modal de criação de nova extensão com opções de atualização completa e atualização incremental.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Adicione um nome para sua extensão de segmento e insira seu SQL. Consulte a seção [Escrevendo SQL](#writing-sql) para requisitos e recursos.<br><br>
    ![Editor SQL mostrando um exemplo de extensão de segmento SQL incremental.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
-4. Se desejar, selecione **Regenerate Extension Daily**.<br><br>
+4. Se desejar, selecione **Regenerar extensão diariamente**.<br><br>
    ![Caixa de seleção para regenerar a extensão diariamente.]({% image_buster /assets/img_archive/sql_segments_regenerate.png %}){: style="max-width:60%" }<br><br>
    Quando selecionado, a Braze atualizará automaticamente a associação ao segmento todos os dias. Isso significa que todos os dias, à meia-noite no fuso horário da sua empresa (com um possível atraso de uma hora), a Braze verificará se há novos usuários no seu segmento e os adicionará automaticamente. Se uma extensão de segmento não tiver sido usada em 7 dias, a Braze pausará automaticamente a regeneração diária. Uma extensão de segmento não utilizada é aquela que não faz parte de uma Campaign ou de um Canvas (a Campaign ou o Canvas não precisa estar ativo para que a extensão seja considerada "usada").<br><br>
 5. Salve sua extensão de segmento.
@@ -63,7 +63,7 @@ O gerador de SQL com IA utiliza o [GPT](https://openai.com/gpt-4), desenvolvido 
 
 Para usar o gerador de SQL com IA, faça o seguinte:
 
-1. Selecione **Launch AI SQL Generator** após criar um [segmento SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) usando atualização completa ou incremental.
+1. Selecione **Iniciar gerador de SQL com IA** após criar um [segmento SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) usando atualização completa ou incremental.
 2. Digite seu prompt e selecione **Gerar** para transformar seu prompt em SQL.
 3. Revise o SQL gerado para ter certeza de que está correto e, em seguida, salve o segmento.
 
@@ -124,19 +124,19 @@ Além disso, sua consulta SQL padrão deve aderir às seguintes regras:
 Todas as consultas de atualização incremental consistem em duas partes: uma consulta e detalhes do esquema.
 
 1. No editor, escreva uma consulta que selecione `user_id`s da tabela desejada.
-2. Adicione detalhes do esquema selecionando um **Operator**, **Number of times** e **Time period** nos campos acima do editor. A consulta verificará se a soma da coluna agregada atende a uma determinada condição especificada pelos placeholders {% raw %}`{{operator}}` e `{{number of times}}`{% endraw %}. Isso funciona de forma semelhante ao fluxo de trabalho para criação de extensões de segmento clássicas.<br><br>
-   - **Operator:** Indique se o evento ocorreu mais do que, menos do que ou igual a um número de ocorrências.<br>
+2. Adicione detalhes do esquema selecionando um **Operador**, **Número de vezes** e **Período de tempo** nos campos acima do editor. A consulta verificará se a soma da coluna agregada atende a uma determinada condição especificada pelos placeholders {% raw %}`{{operator}}` e `{{number of times}}`{% endraw %}. Isso funciona de forma semelhante ao fluxo de trabalho para criação de extensões de segmento clássicas.<br><br>
+   - **Operador:** Indique se o evento ocorreu mais do que, menos do que ou igual a um número de ocorrências.<br>
    ![Campo do operador com "More than" selecionado.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
-   - **Number of times:** Quantas vezes você gostaria de avaliar o evento em relação ao operador.<br>
+   - **Número de vezes:** Quantas vezes você gostaria de avaliar o evento em relação ao operador.<br>
    ![Campo de número de vezes com "5" inserido.]({% image_buster /assets/img_archive/sql_segments_times.png %})<br><br>
-   - **Time period:** Número de dias, de 1 a 730, em que você deseja verificar as instâncias do evento. Esse período se refere a dias passados em relação ao dia atual. O exemplo a seguir mostra a consulta de usuários que realizaram o evento mais de 5 vezes nos últimos 365 dias.<br>
+   - **Período de tempo:** Número de dias, de 1 a 730, em que você deseja verificar as instâncias do evento. Esse período se refere a dias passados em relação ao dia atual. O exemplo a seguir mostra a consulta de usuários que realizaram o evento mais de 5 vezes nos últimos 365 dias.<br>
    ![Campo de período de tempo com "365" inserido.]({% image_buster /assets/img_archive/sql_segments_period.png %})
 
 No exemplo a seguir, o segmento resultante conteria usuários que realizaram o evento `favorited` mais de 3 vezes nos últimos 30 dias, após uma data especificada.
 
 ![Editor SQL mostrando um exemplo de extensão de segmento SQL incremental.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:65%" }
 
-![Pré-visualização SQL de uma extensão de segmento SQL incremental.]({% image_buster /assets/img_archive/sql_segments_incremental_preview.png %}){: style="max-width:85%" }
+![Prévia SQL de uma extensão de segmento SQL incremental.]({% image_buster /assets/img_archive/sql_segments_incremental_preview.png %}){: style="max-width:85%" }
 
 {% alert tip %}
 Os segmentos de atualização incremental levam em conta eventos tardios, que são eventos que ocorreram há mais de dois dias (por exemplo, eventos do SDK que não foram enviados no momento em que foram capturados).
@@ -165,29 +165,29 @@ LIMIT 10
 
 ### Etapa 3: Pré-visualize a consulta {#step-3-preview-the-query}
 
-Antes de salvar, você pode executar uma pré-visualização da sua consulta. As pré-visualizações de consultas são automaticamente limitadas a 100 linhas e atingem o tempo limite após 60 segundos. O requisito da coluna `user_id` não se aplica ao executar uma pré-visualização.
+Antes de salvar, você pode executar uma prévia da sua consulta. As prévias de consultas são automaticamente limitadas a 100 linhas e atingem o tempo limite após 60 segundos. O requisito da coluna `user_id` não se aplica ao executar uma prévia.
 
-Para extensões de segmento SQL incrementais, a pré-visualização não incluirá os critérios adicionais do operador, número de vezes e campos de período de tempo.
+Para extensões de segmento SQL incrementais, a prévia não incluirá os critérios adicionais do operador, número de vezes e campos de período de tempo.
 
 ### Etapa 4: Determine se você precisa inverter o SQL {#step-4-determine-if-you-need-to-invert-sql}
 
-Em seguida, determine se você precisa inverter o SQL. Embora não seja possível consultar diretamente usuários com zero eventos, você pode usar **Invert SQL** para direcionar esses usuários.
+Em seguida, determine se você precisa inverter o SQL. Embora não seja possível consultar diretamente usuários com zero eventos, você pode usar **Inverter SQL** para direcionar esses usuários.
 
 {% alert note %}
-Por padrão, **Invert SQL** não está ativado. No entanto, se você usar o gerador de SQL com IA para gerar uma instrução SQL que precisa ser negada, o ChatGPT pode retornar uma saída que ativa automaticamente esse recurso.
+Por padrão, **Inverter SQL** não está ativado. No entanto, se você usar o gerador de SQL com IA para gerar uma instrução SQL que precisa ser negada, o ChatGPT pode retornar uma saída que ativa automaticamente esse recurso.
 {% endalert %}
 
-Por exemplo, para direcionar usuários que têm menos de três compras, primeiro escreva uma consulta para selecionar usuários que têm três ou mais compras. Em seguida, selecione **Invert SQL** para direcionar usuários com menos de três compras (incluindo aqueles com zero compras).
+Por exemplo, para direcionar usuários que têm menos de três compras, primeiro escreva uma consulta para selecionar usuários que têm três ou mais compras. Em seguida, selecione **Inverter SQL** para direcionar usuários com menos de três compras (incluindo aqueles com zero compras).
 
 {% alert important %}
-A menos que você esteja especificamente visando usuários com zero eventos, não será necessário inverter o SQL. Se **Invert SQL** estiver selecionado, confirme que o recurso é necessário e que o segmento corresponde ao público desejado. Por exemplo, se uma consulta direciona usuários com pelo menos um evento, ela só direcionará usuários com zero eventos quando invertida.
+A menos que você esteja especificamente visando usuários com zero eventos, não será necessário inverter o SQL. Se **Inverter SQL** estiver selecionado, confirme que o recurso é necessário e que o segmento corresponde ao público desejado. Por exemplo, se uma consulta direciona usuários com pelo menos um evento, ela só direcionará usuários com zero eventos quando invertida.
 {% endalert %}
 
 ![Extensão de segmento chamada "Clicou em 1-4 e-mails nos últimos 30 dias" com a opção de inverter SQL selecionada.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:90%;"}
 
 ## Atualizando a associação de segmentos {#refreshing-segment-membership}
 
-Para atualizar a associação de segmentos de qualquer extensão de segmento criada usando SQL, abra a extensão de segmento e selecione **Refresh**.
+Para atualizar a associação de segmentos de qualquer extensão de segmento criada usando SQL, abra a extensão de segmento e selecione **Atualizar**.
 
 {% alert tip %}
 Se você criou um segmento no qual espera que os usuários entrem e saiam regularmente, atualize manualmente a extensão de segmento que ele usa antes de direcionar esse segmento em uma Campaign ou Canvas.
@@ -207,7 +207,7 @@ Selecione uma extensão de segmento SQL para visualizar onde a extensão está s
 
 ## Créditos do Snowflake {#credits}
 
-Cada espaço de trabalho da Braze tem 5 créditos do Snowflake disponíveis por mês. Se precisar de mais créditos, entre em contato com o gerente da sua conta. Os créditos são usados sempre que você atualiza, ou salva e atualiza, a associação de um segmento SQL. Os créditos não são usados quando você executa pré-visualizações em um segmento SQL ou salva ou atualiza uma extensão de segmento clássica.
+Cada espaço de trabalho da Braze tem 5 créditos do Snowflake disponíveis por mês. Se precisar de mais créditos, entre em contato com o gerente da sua conta. Os créditos são usados sempre que você atualiza, ou salva e atualiza, a associação de um segmento SQL. Os créditos não são usados quando você executa prévias em um segmento SQL ou salva ou atualiza uma extensão de segmento clássica.
 
 {% alert note %}
 Os créditos do Snowflake não são compartilhados entre os recursos. Por exemplo, os créditos das extensões de segmento SQL e do Criador de consultas são independentes um do outro.
@@ -215,9 +215,9 @@ Os créditos do Snowflake não são compartilhados entre os recursos. Por exempl
 
 O uso de créditos está correlacionado ao tempo de execução da sua consulta de SQL. Quanto maior o tempo de execução, mais créditos a consulta custará. O tempo de execução pode variar de acordo com a complexidade e o tamanho das suas consultas ao longo do tempo. Quanto mais complexas e frequentes forem as consultas executadas, maior será a alocação de recursos e mais rápido será o tempo de execução.
 
-Para economizar créditos, faça uma pré-visualização da sua consulta para garantir que ela esteja correta antes de salvar a extensão de segmento SQL.
+Para economizar créditos, faça uma prévia da sua consulta para garantir que ela esteja correta antes de salvar a extensão de segmento SQL.
 
-Seus créditos serão redefinidos para 5 no primeiro dia de cada mês, às 12h UTC. Você pode monitorar o uso dos seus créditos durante o mês no painel de uso de créditos. Na página **Extensões de segmento**, clique em <i class="fa-solid fa-chart-column"></i> **View SQL Credit Usage**.
+Seus créditos serão redefinidos para 5 no primeiro dia de cada mês, às 12h UTC. Você pode monitorar o uso dos seus créditos durante o mês no painel de uso de créditos. Na página **Extensões de segmento**, clique em <i class="fa-solid fa-chart-column"></i> **Ver uso de créditos SQL**.
 
 ![Painel de uso de créditos SQL na página de extensões de segmento SQL]({% image_buster /assets/img_archive/sql_segments_credits.png %}){: style="max-width:60%"}
 

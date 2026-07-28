@@ -131,6 +131,21 @@ The report contains all statistics selected in the [Add Stats](#add-statistics-t
 
 ## Troubleshooting
 
+### Engagement report metrics differ from the Email Performance Dashboard
+
+Engagement reports and the [Email Performance Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/) use the same email metric definitions. Both attribute opens and clicks to the day each event **occurred**, and both calculate *Unique Opens* and *Unique Clicks* as seven-day unique counts per day that are summed across your selected date range. For definitions, see [Email metrics]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary) and [How metrics are calculated]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#how-metrics-are-calculated) on the channel performance dashboards page.
+
+If totals still differ for the same campaigns and period, check the following:
+
+| Check | Why it matters |
+| --- | --- |
+| Date range and time zone | Both surfaces must cover the same calendar days in the same time zone. |
+| Campaign or Canvas selection | The Email Performance Dashboard aggregates email activity across the workspace. An engagement report includes only the campaigns or Canvases you selected. |
+| Daily rows versus report totals | If **Data Display** splits the export into daily rows, sum those rows to compare against dashboard totals for the same range. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Checks when engagement report email metrics differ from the Email Performance Dashboard" }
+
+Differences are more common when engagement report figures are compared to **Campaign** or **Canvas** analytics instead of the Email Performance Dashboard. Campaign and Canvas pages can surface send-date metrics (for example, sends or conversions attributed to the send date) alongside event-date opens and clicks. See [Engagement report doesn't match metrics from the Canvas or campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign).
+
 ### Engagement report doesn't match metrics from the Canvas or campaign
 
 #### Mismatched time range

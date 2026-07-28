@@ -23,11 +23,15 @@ description: "このリファレンス記事では、Brazeがeコマースイベ
 
 ### eコマースイベントの仕組み {#how-ecommerce-events-work}
 
-eコマースイベントは、事前定義された名前とプロパティスキーマを持つカスタムイベントです。[Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)または[`/users/track` REST APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して送信し、Brazeは取り込み時に各イベントをスキーマに対してバリデーションします。バリデーションに合格すると、Brazeは収益フィールドの計算やユーザープロファイルのカート状態管理など、そのイベントタイプに固有の後処理を自動的に適用します。
+eコマースイベントは、事前定義された名前とプロパティスキーマを持つカスタムイベントです。[Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)、[`/users/track` REST APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)、または[Cloud Data Ingestion（CDI）]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を使用して送信し、Brazeは取り込み時に各イベントをスキーマに対してバリデーションします。バリデーションに合格すると、Brazeは収益フィールドの計算やユーザープロファイルのカート状態管理など、そのイベントタイプに固有の後処理を自動的に適用します。
+
+{% alert note %}
+CSVアップロードはeコマースイベントをサポートしていません。これらのイベントを送信するには、SDK、`/users/track`、またはCDIを使用してください。
+{% endalert %}
 
 eコマースイベントは、他のカスタムイベントが機能するすべての場所で機能します: 実行済みカスタムイベントのトリガーとフィルター、カスタムイベントレポートなど。ただし、スキーマバリデーションにより、以下の追加機能が利用可能になります:
 
-- キャンペーン、キャンバス、アクションパス、アプリ内メッセージトリガー、コンテンツカードの削除における「注文する」トリガーアクション
+- キャンペーン、キャンバス、アクションパス、アプリ内メッセージトリガー、Content Cardsの削除における「注文する」トリガーアクション
 - 計算済みeコマースユーザープロファイルフィールド（**合計収益**、**合計注文数**、**合計返金額**）
 - カート放棄フロー向けのカート状態管理
 - 予測イベント、解約予測、アイテムのおすすめなどのBrazeAI<sup>TM</sup>機能向けのリッチデータ
@@ -76,7 +80,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
 | `currency`     | 文字列           | はい      | 3文字のISO 4217コード（例: `USD`または`EUR`）。                                                                                               |
 | `source`       | 文字列           | はい      | イベントの発生元（例: `web`、`ios`、`android`）。                                                                               |
 | `type`         | 文字列の配列 | いいえ       | Brazeのカタログトリガー機能（在庫復活および値下げアラート）を使用するために必須。許容値: `"price_drop"`、`"back_in_stock"`     |
-| `metadata`     | オブジェクト           | いいえ       | 柔軟なキーと値のペア。認識されるサブプロパティ: `sku`（文字列）                                                                                   |
+| `metadata`     | オブジェクト           | いいえ       | 柔軟なキーと値のペア（例: `category`や`brand`）。                                                                                   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="イベントプロパティ" }
 
 #### REST APIの例 {#rest-api-example}
@@ -99,7 +103,6 @@ eコマースイベントは、他のカスタムイベントが機能するす�
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }
@@ -1142,51 +1145,7 @@ eコマースイベントを送信すると、Brazeはそのイベント名に�
 米ドル以外の通貨値は、イベントが報告された日の為替レートを使用して自動的に米ドルに変換されます。すでに米ドルで報告している場合は、意図しない変換を避けるために通貨を`USD`にハードコードしてください。
 {% endalert %}
 
-## eコマースイベントの実装 {#implement-ecommerce-events}
-
-eコマースイベントは、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)（サーバーサイド）またはBraze SDK（クライアントサイド）を通じて送信できます。SDKの実装例については、[Braze SDKを通じたeコマースイベントのロギング]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)を参照してください。
-
-### サーバーサイドでイベントを送信する {#send-events-server-side}
-
-`/users/track`エンドポイントを使用して、バックエンドからeコマースイベントを送信します。各イベントには、正確なイベント名、ユーザーの`external_id`、およびイベントスキーマに一致するプロパティオブジェクトが必要です。
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## 実装の詳細 {#implementation-details}
 
 ### データポイントと課金 {#data-points-and-billing}
 

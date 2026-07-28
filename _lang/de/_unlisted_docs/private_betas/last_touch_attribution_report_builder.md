@@ -12,7 +12,7 @@ hidden: true
 Last-Touch-Attribution-Metriken befinden sich im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
-Last-Touch-Attribution (LTA) ist ein Conversion-Attributionsmodell, das die vollständige Zuordnung einer Conversion der letzten Nachricht zuschreibt, mit der ein:e Nutzer:in vor der Conversion interagiert hat. Im Gegensatz zu Conversion-Fenstern auf Campaign-Ebene verwendet LTA branchenübliche Attributionsfenster für jeden Kanal:
+Last-Touch-Attribution (LTA) ist ein Konversions-Attributionsmodell, das die vollständige Zuordnung einer Konversion der letzten Nachricht zuschreibt, mit der ein:e Nutzer:in vor der Konversion interagiert hat. Im Gegensatz zu Konversions-Fenstern auf Campaign-Ebene verwendet LTA branchenübliche Attributionsfenster für jeden Kanal:
 
 | Kanal | Attributionsfenster |
 | --- | --- |
@@ -26,15 +26,15 @@ Last-Touch-Attribution (LTA) ist ein Conversion-Attributionsmodell, das die voll
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-Wenn eine Conversion außerhalb des Attributionsfensters eines Kanals stattfindet, wird sie in diesem Modell nicht gezählt.
+Wenn eine Konversion außerhalb des Attributionsfensters eines Kanals stattfindet, wird sie in diesem Modell nicht gezählt.
 {% endalert %}
 
 ## Vorteile {#benefits}
 
 Last-Touch-Attribution bietet wesentliche Vorteile gegenüber dem Standard-Conversion-Tracking:
 
-* Sie ermöglicht es Ihnen, Conversions bestimmten Touchpoints zuzuordnen, sodass Sie nachvollziehen können, welche Kanäle (nicht nur Campaigns oder Canvases) Ergebnisse erzielen.
-* Die Zuordnung erfolgt ausschließlich an die zuletzt berührte Nachricht, sodass jede Conversion nur einmal gezählt wird. Dadurch werden überlappende Conversions über Campaigns oder Canvases mit gemeinsamen Konversions-Events und Zielgruppen hinweg eliminiert.
+* Sie ermöglicht es Ihnen, Konversionen bestimmten Touchpoints zuzuordnen, sodass Sie nachvollziehen können, welche Kanäle (nicht nur Campaigns oder Canvases) Ergebnisse erzielen.
+* Die Zuordnung erfolgt ausschließlich an die zuletzt berührte Nachricht, sodass jede Konversion nur einmal gezählt wird. Dadurch werden überlappende Konversionen über Campaigns oder Canvases mit gemeinsamen Konversions-Events und Zielgruppen hinweg eliminiert.
 
 ## Last-Touch-Attribution-Metriken zu Ihrem Bericht hinzufügen {#add-last-touch-attribution-metrics-to-your-report}
 
@@ -52,8 +52,8 @@ Umsatz- und Kauf-Metriken sind nicht verfügbar.
 ![Das Panel „Metriken anpassen“ mit Last-Touch-Attribution-Metriken.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Folgen Sie den Schritten 7–9 auf der Seite [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/).
+7. Folgen Sie den Schritten 7–9 auf der Seite [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder).
 
 {% alert note %}
-Senden Sie Feedback an Ihren Customer-Success-Manager oder geben Sie es über den Button **Feedback senden** ab.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}
 {% endalert %}

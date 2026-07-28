@@ -6,6 +6,8 @@ description: "Braze Unity SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Unity SDK – Repository-Leitfaden {#unity-sdk-repository-guide}
+
 ## Über das Braze Unity SDK {#about-the-braze-unity-sdk}
 
 Das Braze Unity SDK hilft Ihnen, Braze-Messaging, Analytics und Funktionen zum Nutzer:innen-Engagement in Ihre Anwendung zu integrieren.

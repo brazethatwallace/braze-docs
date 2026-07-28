@@ -12,7 +12,7 @@ search_tag: Partner
 
 > A [Heap](https://heap.io/), uma plataforma de insights digitais, concentra você nas oportunidades da sua experiência digital que mais impactam seus negócios, eliminando o atrito, encantando seus clientes e acelerando a receita.
 
-A integração entre a Braze e a Heap permite [importar dados da Heap para a Braze](#data-import-integration), criar coortes de usuários e [exportar dados da Braze para a Heap]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/) para criar segmentos.
+A integração entre a Braze e a Heap permite [importar dados da Heap para a Braze](#data-import-integration), criar coortes de usuários e [exportar dados da Braze para a Heap]({{site.baseurl}}/partners/data_and_analytics/analytics/heap) para criar segmentos.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -20,8 +20,8 @@ A integração entre a Braze e a Heap permite [importar dados da Heap para a Bra
 | ----------- | ----------- |
 | Conta do Heap | É necessário ter uma conta [Heap](https://heap.io/about) para aproveitar essa parceria. |
 | Chave de importação de dados da Braze | Isso pode ser obtido no dashboard da Braze em **Integrações de parceiros** > **Parceiros de tecnologia** e selecionando **Heap**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-| Braze Currents | Para exportar dados da Braze para a Heap, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) ativado na sua conta. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Braze Currents | Para exportar dados da Braze para a Heap, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) ativado na sua conta. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -39,7 +39,7 @@ Na Braze, navegue até **Integrações de parceiros** > **Parceiros de tecnologi
 
 Nessa página, você pode encontrar sua chave de importação de dados e um endpoint REST. Anote esses dois valores e forneça-os ao seu gerente de conta da Heap para concluir a configuração da integração.
 
-![]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
+![Página da parceira de tecnologia Heap na Braze mostrando a chave de importação de dados e o endpoint.]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
 
 ### Etapa 2: Segmentar usuários importados na Braze {#step-2-segment-imported-users-in-braze}
 

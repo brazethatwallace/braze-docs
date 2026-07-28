@@ -16,18 +16,22 @@ search_rank: 8
 Currents sind in bestimmten Braze-Paketen enthalten. Wenden Sie sich an Ihre Vertretung von Braze, wenn Sie Fragen haben oder Zugang erhalten möchten.
 {% endalert %}
 
-Wenn beim Hinzufügen einer neuen Integration die Meldung „You do not have any remaining Currents integrations“ angezeigt wird, sind häufige Ursachen:
+## Fehlerbehebung {#troubleshooting}
+
+### Neue Currents-Integration kann nicht hinzugefügt werden {#cannot-add-a-new-currents-integration}
+
+Wenn beim Hinzufügen einer neuen Integration die Meldung „You do not have any remaining Currents integrations“ angezeigt wird oder der Button zum Hinzufügen eines neuen Currents-Konnektors ausgegraut ist, sind häufige Ursachen:
 
 - Für diesen Workspace wurde kein Currents-Anspruch erworben.
 - Der Currents-Anspruch ist in einem anderen Workspace Ihres Unternehmens verfügbar.
 
-Wenden Sie sich an Ihren Braze-Account Manager, um einen Anspruch anzufordern oder Ihre Konfiguration anzupassen.
+Um dies zu beheben, überprüfen Sie andere Workspaces in Ihrem Unternehmen. Ein anderer Workspace zeigt möglicherweise einen verfügbaren Currents-Anspruch an. Wenn Sie einen Anspruch anfordern oder Ihre Konfiguration anpassen müssen, wenden Sie sich an Ihren Braze-Account Manager.
 
 ## Anforderungen {#requirements}
 
 Die Verwendung von Currents mit einem unserer Partner erfordert dieselben grundlegenden Parameter und Verbindungsmethoden.
 
-Jeder Partner benötigt die Erlaubnis von Braze, Daten zu schreiben und an ihn zu senden, und Braze fragt nach dem Standort, an den diese Dateien geschrieben werden sollen, insbesondere Bucket-Namen oder Schlüssel.
+Jeder Partner benötigt die Erlaubnis von Braze, Daten zu schreiben und an ihn zu senden, und Braze fragt nach dem Speicherort, an den diese Dateien geschrieben werden sollen, insbesondere Bucket-Namen oder Schlüssel.
 
 Die folgenden Anforderungen sind die grundlegenden Mindestanforderungen für die Integration mit den meisten unserer Partner. Einige Partner verlangen zusätzliche Parameter, die in der jeweiligen [Partnerdokumentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) aufgeführt sind, zusammen mit allen Besonderheiten, die mit diesen Grundanforderungen verbunden sind.
 
@@ -88,7 +92,7 @@ Wenn Sie ein Feld für eine dieser Transformationen auswählen, wird diese Trans
 Currents verwirft Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB.
 {% endalert %}
 
-Bevor Sie testen, sollten Sie sich unsere [Currents-Beispieldaten auf GitHub](https://github.com/Appboy/currents-examples) ansehen. Wenn Sie zum Testen bereit sind, wählen Sie unten eine Option aus:
+Bevor Sie testen, sollten Sie sich unsere [Currents-Beispieldaten auf GitHub](https://github.com/Appboy/currents-examples) ansehen. Wenn Sie zum Testen bereit sind, wählen Sie eine Option im folgenden Abschnitt aus:
 
 #### Test-Events versenden {#sending-test-events}
 

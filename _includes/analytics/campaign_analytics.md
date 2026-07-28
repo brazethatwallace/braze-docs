@@ -186,6 +186,13 @@ The **WhatsApp Performance** panel outlines how well your message has performed 
 
 ![WhatsApp performance panel that includes a table of metrics for Variant 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Credits versus send counts
+
+WhatsApp send counts in campaign analytics reflect delivery attempts. Credits consumed may differ when Meta bills by message category (marketing, utility, authentication, service).
+
+- Response messages composed in Braze don't consume Braze WhatsApp credits.
+- Use **Analytics** > **Daily Stats** for directional send volume. Credit breakdowns per campaign or Canvas aren't available.
+
 {% endif %}
 
 If you want to simplify your view, click <i class="fas fa-plus"></i> **Add/Remove Columns** and clear any metrics as desired. By default, all metrics are displayed.
@@ -365,6 +372,12 @@ As another example, suppose you see five _Unique Impressions_ on a Banner campai
 
 _Unique Daily Impressions_ refers to the Banners that were actually seen.
 
+#### Discrepancies between control groups and variants
+
+When a Banner campaign uses a control group, control group impressions can be higher than variant impressions, even when the audience split between groups is even. This discrepancy is caused by a difference in how impressions are logged for control and variant Banners.
+
+Both control and variant impressions require the Banner placement to enter the viewport. Variant impressions are logged only when the full Banner is visible on screen. Control impressions can be logged as soon as the placement enters the viewport, before the full Banner would be visible for a variant.
+
 {% elsif include.channel == "email" %}
 
 #### Email metrics
@@ -496,7 +509,7 @@ Deferred or deferral is when an email was not immediately delivered, but Braze r
 
 _Deferrals_ differ from _Soft Bounces_. If no email was successfully delivered during this retry period, Braze will send one soft bounce event per attempted campaign sent. Before February 25, 2025, these retries were counted as multiple soft bounces for 1 campaign send.
 
-Note that _Deferrals_ are currently only available using Currents or Braze Snowflake features (such as Query Builder, SQL Segment, Snowflake Data Sharing). If you’d like to include this in campaign or Canvas analytics, please [submit product feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Note that _Deferrals_ are currently only available using Currents or Braze Snowflake features (such as Query Builder, SQL Segment, Snowflake Data Sharing). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Estimated real open rate {#estimated-real-open-rate}
 
@@ -867,6 +880,8 @@ Here are some key WhatsApp metrics you may see in your analytics. To see the ful
     </tbody>
 </table>
 
+If failures are elevated, see [Investigate WhatsApp send failures]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### End-user blocking and reporting metrics
 
 Additional metrics may be accessed via the [WhatsApp Manager dashboard](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), though [confirmation of your access](https://www.facebook.com/business/help/218116047387456) is necessary to access all available insights. 
@@ -935,7 +950,7 @@ In addition to Braze analytics, template-level analytics can be accessed in the 
 
 ### SMS Currents events
 
-Like email, Braze receives user-level events related to an SMS message as it makes its journey to a user. Any inbound SMS event will also be sent as a Currents event through the [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) event. This allows you to perform additional actions or reporting on the messages your users are texting in outside of the Braze platform. 
+Like email, Braze receives user-level events related to an SMS message as it makes its journey to a user. Any inbound SMS event will also be sent as a Currents event through the [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) event. This allows you to perform additional actions or reporting on the messages your users are texting in outside of the Braze platform. 
 
 {% alert note %}
 Inbound messages are truncated past 1,600 characters.

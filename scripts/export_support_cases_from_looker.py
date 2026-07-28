@@ -19,60 +19,165 @@ Environment variables:
                                 Case CSV (may contain consumer PII) to the configured output path.
 
 The export is raw Looker CSV (with common credential patterns redacted so git push protection
-does not block the data branch). Treat the file as sensitive; this repo should stay private and
-access to the data branch limited to people who may handle support content.
+does not block the data branch). Patterns live in `_data/pii_patterns.yml` — edit that file to
+add or change redactions without touching this script. Treat the CSV as sensitive; this repo
+should stay private and access to the data branch limited to people who may handle support content.
 
 Usage:
   export LOOKER_CLIENT_ID="..." LOOKER_CLIENT_SECRET="..."
+  pip install requests pyyaml
   python scripts/export_support_cases_from_looker.py
 """
+
+from __future__ import annotations
 
 import os
 import re
 import sys
 from datetime import datetime
+from functools import lru_cache
+from pathlib import Path
 
-# Redact credential-like strings that may appear in case text before git push (push protection).
-# Not a substitute for PII handling; see SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA.
-_SECRET_REDACTIONS: list[tuple[re.Pattern[str], str]] = [
-    (
-        re.compile(r"\b(?:AKIA|ASIA|AIDA|AROA|AIPA|ANPA|ANVA|AGPA)[0-9A-Z]{16}\b"),
-        "[REDACTED_AWS_ACCESS_KEY_ID]",
-    ),
-    (
-        # Leading word boundary only — trailing boundary omitted for CSV punctuation after keys.
-        re.compile(r"\bSG\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}"),
-        "[REDACTED_SENDGRID_API_KEY]",
-    ),
-    (re.compile(r"\bghp_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
-    (re.compile(r"\bgithub_pat_[A-Za-z0-9_]{82,}\b"), "[REDACTED_GITHUB_TOKEN]"),
-    (re.compile(r"\bgho_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
-    (re.compile(r"\bghu_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
-    (re.compile(r"\bghs_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
-    (re.compile(r"\bghr_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
-    # b/a/p/r/s bot-app tokens; e enterprise; o legacy OAuth (GitHub push protection scans all).
-    (re.compile(r"\bxox[bapreso]-[A-Za-z0-9-]{10,}\b"), "[REDACTED_SLACK_TOKEN]"),
-    (
-        re.compile(r"\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,}\b"),
-        "[REDACTED_STRIPE_KEY]",
-    ),
-    # Twilio Account SID (AC…) and API Key SID (SK…); 32 hex chars after prefix.
-    (re.compile(r"\bAC[0-9a-fA-F]{32}"), "[REDACTED_TWILIO_ACCOUNT_SID]"),
-    (re.compile(r"\bSK[0-9a-fA-F]{32}"), "[REDACTED_TWILIO_API_KEY_SID]"),
-]
+try:
+    import yaml
+except ImportError as e:  # pragma: no cover
+    raise SystemExit("PyYAML is required: pip install pyyaml") from e
+
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+_DEFAULT_PII_PATTERNS_PATH = _REPO_ROOT / "_data" / "pii_patterns.yml"
+
+# Exceptions that indicate a redaction-config or I/O problem (fail closed with a clear message).
+_REDACTION_CONFIG_ERRORS = (OSError, ValueError, re.error)
 
 
-def _redact_embedded_secrets(text: str) -> tuple[str, int]:
-    """Return scrubbed text and total number of replacements."""
+def _compile_secret_redactions(path: Path) -> list[tuple[re.Pattern[str], str]]:
+    """Load and compile redaction patterns from a YAML file."""
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"PII redaction patterns file not found: {path}. "
+            "Expected `_data/pii_patterns.yml` (copied from the workflow ref in CI)."
+        )
+
+    try:
+        raw = path.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise OSError(f"Could not read PII patterns file {path}: {exc}") from exc
+
+    try:
+        data = yaml.safe_load(raw)
+    except yaml.YAMLError as exc:
+        raise ValueError(f"Invalid YAML in PII patterns file {path}: {exc}") from exc
+    if not isinstance(data, dict) or not isinstance(data.get("patterns"), list):
+        raise ValueError(
+            f"Invalid PII patterns file {path}: expected a mapping with a `patterns` list."
+        )
+
+    compiled: list[tuple[re.Pattern[str], str]] = []
+    for i, entry in enumerate(data["patterns"]):
+        if not isinstance(entry, dict):
+            raise ValueError(f"Invalid pattern entry at index {i} in {path}: expected a mapping.")
+        pattern = entry.get("pattern")
+        replacement = entry.get("replacement")
+        if not isinstance(pattern, str) or not pattern:
+            raise ValueError(f"Invalid or missing `pattern` at index {i} in {path}.")
+        if not isinstance(replacement, str) or not replacement:
+            raise ValueError(f"Invalid or missing `replacement` at index {i} in {path}.")
+        # Reject backslash / group-reference syntax so re.sub never re-embeds the secret.
+        if "\\" in replacement:
+            raise ValueError(
+                f"Invalid `replacement` at index {i} in {path}: backslashes are not allowed "
+                "(re.sub would treat \\g<0>/\\1 as backreferences and can leak the match)."
+            )
+        try:
+            compiled.append((re.compile(pattern), replacement))
+        except re.error as exc:
+            raise ValueError(f"Invalid regex at index {i} in {path}: {exc}") from exc
+
+    if not compiled:
+        raise ValueError(f"No redaction patterns found in {path}.")
+    return compiled
+
+
+@lru_cache(maxsize=1)
+def _load_default_secret_redactions() -> list[tuple[re.Pattern[str], str]]:
+    """Cached production patterns from `_data/pii_patterns.yml` only."""
+    return _compile_secret_redactions(_DEFAULT_PII_PATTERNS_PATH)
+
+
+def _load_secret_redactions(
+    patterns_path: str | None = None,
+) -> list[tuple[re.Pattern[str], str]]:
+    """Load redaction patterns. Explicit paths are never cached (test / override safety)."""
+    if patterns_path is None:
+        return _load_default_secret_redactions()
+    return _compile_secret_redactions(Path(patterns_path))
+
+
+def _redact_embedded_secrets(
+    text: str,
+    *,
+    patterns_path: str | None = None,
+) -> tuple[str, int]:
+    """Return scrubbed text and total number of replacements.
+
+    Replacements are applied as literal strings (never as re.sub templates), so a
+    YAML typo containing ``\\g<0>`` cannot re-embed the matched secret.
+    """
     total = 0
-    for pattern, replacement in _SECRET_REDACTIONS:
-        text, n = pattern.subn(replacement, text)
+    for pattern, replacement in _load_secret_redactions(patterns_path):
+        # Lambda keeps ``replacement`` literal even if validation is bypassed.
+        text, n = pattern.subn(lambda _m, repl=replacement: repl, text)
         total += n
     return text, total
 
 
+def _redact_export_text(text: str) -> tuple[str, int]:
+    """Redact export CSV text, exiting with a clear Error line on config/I/O failures."""
+    try:
+        return _redact_embedded_secrets(text)
+    except _REDACTION_CONFIG_ERRORS as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        raise SystemExit(1) from exc
+
+
 # Default Support Cases explore query ID (from Looker embed URL); override with LOOKER_SUPPORT_CASES_QUERY_ID.
 _DEFAULT_SUPPORT_CASES_QUERY_ID = "OwFKj0j5nyA2o05QqF2bm4"
+
+# Fail when a new export has fewer than this fraction of the prior row count (if prior > 0).
+_DEFAULT_MAX_DROP_RATIO = 0.5
+
+
+def _count_csv_data_rows(csv_text: str) -> int:
+    """Return data row count (excludes header line)."""
+    lines = csv_text.splitlines()
+    if not lines:
+        return 0
+    return max(0, len(lines) - 1)
+
+
+def _validate_export_row_count(
+    csv_text: str,
+    *,
+    prior_row_count: int | None,
+    min_rows: int = 1,
+    max_drop_ratio: float = _DEFAULT_MAX_DROP_RATIO,
+) -> int:
+    """Fail closed on empty exports or sharp row-count drops vs. the prior file."""
+    new_rows = _count_csv_data_rows(csv_text)
+    if new_rows < min_rows:
+        raise SystemExit(
+            f"Error: Looker export has {new_rows} data row(s); need at least {min_rows}."
+        )
+    if prior_row_count is not None and prior_row_count > 0:
+        threshold = prior_row_count * max_drop_ratio
+        if new_rows < threshold:
+            pct = int(max_drop_ratio * 100)
+            raise SystemExit(
+                f"Error: Looker export row count dropped sharply "
+                f"({prior_row_count} → {new_rows}; threshold {pct}% of prior). "
+                "Check the Looker query or date window before committing."
+            )
+    return new_rows
 
 
 def main():
@@ -138,10 +243,24 @@ def main():
     else:
         output_path = os.path.expanduser(output_path)
 
-    csv_text, redactions = _redact_embedded_secrets(csv_resp.text)
+    output_path_obj = Path(output_path)
+    prior_row_count: int | None = None
+    if output_path_obj.is_file():
+        prior_row_count = _count_csv_data_rows(
+            output_path_obj.read_text(encoding="utf-8", errors="replace")
+        )
+
+    csv_text, redactions = _redact_export_text(csv_resp.text)
     if redactions:
         print(
             f"Redacted {redactions} embedded credential-like value(s) from export before write.",
+            file=sys.stderr,
+        )
+
+    row_count = _validate_export_row_count(csv_text, prior_row_count=prior_row_count)
+    if prior_row_count is not None:
+        print(
+            f"Export row count: {prior_row_count} → {row_count} data rows.",
             file=sys.stderr,
         )
 

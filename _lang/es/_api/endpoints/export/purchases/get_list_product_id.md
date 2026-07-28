@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar ID de productos de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar ID de productos de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /purchases/product_list
 {% endapimethod %}
 
-> Usa este punto de conexión para devolver una lista paginada de ID de productos.
+> Usa este endpoint para devolver una lista paginada de ID de productos.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#dff4ed40-81f5-451d-9d44-accc0e932285{% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `purchases.product_list`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `purchases.product_list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -48,7 +48,7 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
   "products": [
     "product_name" (string), the name of the product
   ],
-  "message": "success"
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

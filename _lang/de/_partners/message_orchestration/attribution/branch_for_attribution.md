@@ -17,7 +17,7 @@ _Diese Integration wird von Branch gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Branch hilft Ihnen dabei, genau zu verstehen, wann und wo Nutzer:innen akquiriert wurden und wie Sie ihre Journeys durch robuste Attribution und [Deeplinking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) personalisieren können.
+Die Integration von Braze und Branch hilft Ihnen dabei, genau zu verstehen, wann und wo Nutzer:innen akquiriert wurden und wie Sie ihre Journeys durch robuste Attribution und [Deeplinking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) personalisieren können.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -26,7 +26,7 @@ Die Integration von Braze und Branch hilft Ihnen dabei, genau zu verstehen, wann
 | Branch-Konto | Um diese Partnerschaft nutzen zu können, benötigen Sie ein Branch-Konto. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. Einzelheiten zu diesen Anforderungen finden Sie in Schritt 1 des Integrationsprozesses. |
 | Branch SDK | Neben dem erforderlichen Braze SDK müssen Sie auch das [Branch SDK](https://help.branch.io/developers-hub/docs/native-sdks-overview) installieren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -99,9 +99,21 @@ Nachdem Braze Attribution-Daten von Branch erhalten hat, ändert sich die Status
 
 Dieser Status ändert sich erst, wenn Braze Daten über eine attributierte Installation erhält. Braze ignoriert organische Installationen (schließt sie aus dem Branch-Postback aus) und zählt sie nicht bei der Bestimmung, ob die Verbindung erfolgreich war.
 
+## Feldzuordnung {#field-mapping}
+
+Branch-Attribution-Felder werden wie folgt auf Braze abgebildet:
+
+| Branch-Feld | Braze-Feld |
+| --- | --- |
+| Campaign | `campaign` |
+| Channel | `source` |
+| Ad Set Name | `adgroup` |
+| Ad Name | `ad` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Branch-Feldzuordnung" }
+
 ## Attribution-Daten von Facebook und X (ehemals Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 
-Attribution-Daten für Kampagnen auf Facebook und X (ehemals Twitter) sind nicht über unsere Partner verfügbar. Diese Medienquellen erlauben ihren Partnern nicht, Attribution-Daten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
+Attribution-Daten für Campaigns auf Facebook und X (ehemals Twitter) sind nicht über unsere Partner verfügbar. Diese Medienquellen erlauben ihren Partnern nicht, Attribution-Daten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
 
 ## Branch-Klick-Tracking-URLs in Braze (optional) {#branch-click-tracking-urls-in-braze-optional}
 
@@ -111,7 +123,7 @@ Um mit Branch-Klick-Tracking-Links zu beginnen, besuchen Sie die [Dokumentation]
 
 {% tabs local %}
 {% tab Android %}
-Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Branch-SDK-Integration erfasst. Sie können die GAID in Ihre Branch-Klick-Tracking-Links aufnehmen, indem Sie die folgende Liquid-Logik verwenden:
+Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Branch-SDK-Integration erfasst. Sie können die GAID in Ihre Branch-Klick-Tracking-Links aufnehmen, indem Sie die folgende Liquid-Logik verwenden:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

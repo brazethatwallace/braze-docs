@@ -35,11 +35,11 @@ Vous pouvez activer le suivi des désinstallations sur la page **Paramètres des
 
 Lorsque vous activez le suivi des désinstallations pour une application, Braze envoie chaque nuit un message push en arrière-plan aux utilisateurs qui n'ont pas enregistré de session ou reçu de push au cours des dernières 24 heures.
 
-### Configuration {#configuration}
+### Configuration
 
-Pour configurer le suivi des désinstallations pour votre application iOS, utilisez une [méthode utilitaire]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Pour votre application Android, utilisez [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Lorsque Braze détecte une désinstallation, qu'il s'agisse du suivi des désinstallations ou de la distribution normale d'une Campaign push, nous enregistrons la meilleure estimation de l'heure de désinstallation sur le profil de l'utilisateur. Cette information est stockée dans le profil utilisateur en tant qu'attribut standard et peut être utilisée pour définir un segment d'utilisateurs pour les Campaigns de reconquête.
+Pour configurer le suivi des désinstallations pour votre application iOS, utilisez une [méthode utilitaire]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Pour votre application Android, utilisez [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Lorsque Braze détecte une désinstallation, qu'il s'agisse du suivi des désinstallations ou de la distribution normale d'une Campaign push, nous enregistrons la meilleure estimation de l'heure de désinstallation sur le profil de l'utilisateur. Cette information est stockée dans le profil utilisateur en tant qu'attribut standard et peut être utilisée pour définir un segment d'utilisateurs pour les campagnes de reconquête.
 
-## Filtrage des segments en fonction des désinstallations {#filtering-segments-by-uninstalls}
+## Filtrage des Segments en fonction des désinstallations {#filtering-segments-by-uninstalls}
 
 Le filtre **Désinstallé** sélectionne les utilisateurs qui ont désinstallé votre application dans une période donnée. Comme il est difficile de déterminer l'heure exacte d'une désinstallation, nous recommandons d'utiliser des plages de temps plus larges pour les filtres de désinstallation afin de s'assurer que toutes les personnes ayant désinstallé l'application soient incluses dans le segment à un moment donné.
 
@@ -83,7 +83,7 @@ Pour en savoir plus sur l'utilisation du suivi des désinstallations, consultez 
 
 ### Quand le profil d'un utilisateur est-il marqué comme désinstallé ? Quand le marqueur de désinstallation est-il supprimé ? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
 
-Braze marque un utilisateur comme ayant désinstallé l'application lorsque nous détectons que celle-ci n'est plus présente sur l'appareil (voir [Fonctionnement](#how-it-works) pour la détection via les notifications push classiques et le suivi optionnel des désinstallations). Après la réinstallation de votre application, le marqueur de désinstallation peut rester sur le profil de l'utilisateur jusqu'à ce qu'il **ouvre l'application et démarre une nouvelle session** — la réinstallation seule ne supprime pas le marqueur. Jusqu'à cette session, les segments et les filtres qui utilisent l'état de désinstallation (par exemple **N'a pas désinstallé**) continuent de considérer l'utilisateur comme ayant désinstallé.
+Braze marque un utilisateur comme ayant désinstallé l'application lorsque nous détectons que celle-ci n'est plus présente sur l'appareil (voir [Fonctionnement](#how-it-works) pour la détection via les notifications push classiques et le suivi optionnel des désinstallations). Après la réinstallation de votre application, le marqueur de désinstallation peut rester sur le profil de l'utilisateur jusqu'à ce qu'il **ouvre l'application et démarre une nouvelle session** — la réinstallation seule ne supprime pas le marqueur. Jusqu'à cette session, les Segments et les filtres qui utilisent l'état de désinstallation (par exemple **N'a pas désinstallé**) continuent de considérer l'utilisateur comme ayant désinstallé.
 
 ### Pourquoi le nombre de désinstallations augmente-t-il soudainement ? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
@@ -112,3 +112,7 @@ Pour APNs, vérifiez les profils utilisateurs pour l'erreur push `BadDeviceToken
 Cette différence est normale.
 
 Apple utilise une planification aléatoire pour retarder le signalement lorsqu'un jeton push devient invalide, ce qui signifie que même après qu'un utilisateur a désinstallé une application, APNs peut continuer à renvoyer des réponses positives aux notifications push pendant un certain temps. Ce délai est intentionnel et vise à protéger la vie privée des utilisateurs. Aucun rebond ou échec ne sera signalé tant qu'APNs ne renvoie pas un statut `410` pour un jeton invalide.
+
+### Quel est le lien entre le suivi des désinstallations et les notifications push silencieuses ou en arrière-plan ? {#how-does-uninstall-tracking-relate-to-silent-or-background-push}
+
+La détection des désinstallations peut utiliser des notifications push en arrière-plan de faible priorité qui n'apparaissent pas sous forme de notification visible. Celles-ci sont distinctes des [**envois**]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) de Campaign dans les analyses de communication standard. Lorsque vous analysez les tendances de désinstallation, examinez les graphiques de désinstallation parallèlement aux indicateurs d'engagement push plutôt que de comparer directement les notifications push de désinstallation aux totaux d'envois marketing.

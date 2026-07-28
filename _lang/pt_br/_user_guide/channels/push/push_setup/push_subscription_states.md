@@ -56,11 +56,11 @@ A tabela a seguir mostra como diferentes ações do usuário afetam a ativação
 
 <sup>* Se o app não usar push provisório, `Foreground Push Enabled` será `false` até que o usuário permita notificações por push. Se o app usar push provisório, `Foreground Push Enabled` será `true` no início da primeira sessão. Para saber mais, consulte [Autorização provisória e push silencioso](#provisional-push).</sup>
 
-<sup>** A partir da [versão 7.5.0 do Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), a propriedade de configuração `optInWhenPushAuthorized` controla se o estado de inscrição de push é automaticamente definido como `Opted-In` quando a permissão de push é autorizada. Para saber mais, consulte [Atualizando estados de inscrição de push](#update-push-subscription-state).</sup>
+<sup>** A partir da [versão 7.5.0 do Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), a propriedade de configuração `optInWhenPushAuthorized` controla se o estado de inscrição de push é automaticamente definido como `Opted-In` quando a permissão de push é autorizada. Para saber mais, consulte [Tokens de push](#push-tokens).</sup>
 
 ## Permissão de push {#push-permission}
 
-Todas as plataformas com push ativado — iOS, Web e Android — exigem opt-in explícito por meio de um prompt do sistema no nível do SO, com algumas pequenas diferenças descritas abaixo.
+Todas as plataformas com push ativado — iOS, Web e Android — exigem opt-in explícito por meio de um prompt do sistema no nível do SO, com algumas pequenas diferenças descritas na seção a seguir.
 
 Como a decisão do usuário é final e você não pode perguntar novamente após uma recusa, usar mensagens no app de [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) é uma estratégia importante para aumentar suas taxas de opt-in.
 
@@ -91,7 +91,7 @@ O push autorizado exige permissão explícita do usuário antes de enviar qualqu
 
 Antes do iOS 12 (lançado em 2018), todos os usuários precisavam fazer opt-in explícito para receber notificações por push.
 
-No iOS 12, a Apple introduziu a [autorização provisória](https://www.braze.com/resources/articles/mastering-provisional-push), permitindo que marcas enviem notificações por push silenciosas para a central de notificações dos usuários antes que eles façam opt-in explícito, dando a você a chance de demonstrar o valor das suas mensagens antecipadamente. Consulte [autorização provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications) para saber mais.
+No iOS 12, a Apple introduziu a [autorização provisória](https://www.braze.com/resources/articles/mastering-provisional-push), permitindo que marcas enviem notificações por push silenciosas para a central de notificações dos usuários antes que eles façam opt-in explícito, dando a você a chance de demonstrar o valor das suas mensagens antecipadamente. Consulte [autorização provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) para saber mais.
 
 ### Web {#web}
 
@@ -166,7 +166,7 @@ Se o usuário for adicionado como usuário teste, em **Console de desenvolvedor*
 - **Push de segundo plano ativado no iOS:** O usuário recebeu o prompt de push e disse não, ou disse sim e depois desativou notificações por push nas configurações do dispositivo (refletido após o usuário ter uma sessão).
 - **Push de primeiro plano ativado no iOS:** O usuário recebeu o prompt de push e está elegível para receber push em primeiro plano.
 
-A análise de dados de Campaign refletirá as estatísticas de push de acordo com os detalhes acima. Você também pode baixar os perfis de usuários que entraram na Campaign ou Canvas para fazer referência cruzada com os perfis de usuários.
+A análise de dados de Campaign refletirá as estatísticas de push de acordo com os detalhes anteriores desta seção. Você também pode baixar os perfis de usuários que entraram na Campaign ou Canvas para fazer referência cruzada com os perfis de usuários.
 
 ## Outros cenários específicos de plataforma {#other-platform-specific-scenarios}
 

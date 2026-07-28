@@ -10,28 +10,28 @@ description: "이 문서에는 2019년 9월의 릴리스 노트가 포함되어 
 
 ## OneLogin 내 Braze 앱 {#braze-app-within-onelogin}
 
-고객은 SP 또는 IdP 시작 로그인을 위해 [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin/) 내에서 Braze를 간단히 검색하고 선택할 수 있습니다. 즉, 고객은 OneLogin 내에서 커스텀 애플리케이션을 추가할 필요가 없습니다. 그 결과, SAML SSO를 시작한 이후 나타난 속성 등의 특정 설정이 미리 채워집니다.
+고객은 SP 또는 IdP 시작 로그인을 위해 [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin) 내에서 Braze를 간단히 검색하고 선택할 수 있습니다. 즉, 고객은 OneLogin 내에서 커스텀 애플리케이션을 추가할 필요가 없습니다. 그 결과, SAML SSO를 시작한 이후 나타난 속성 등의 특정 설정이 미리 채워집니다.
 
-## Rokt 캘린더 파트너십 {#rokt-calendar-partnership}
+## Rokt Calendar 파트너십 {#rokt-calendar-partnership}
 
-[Rokt 캘린더]({{site.baseurl}}/partners/home/)는 Braze 고객에게 개인화된 마케팅 이니셔티브를 조정하고 개인화된 콘텐츠를 최종 사용자의 캘린더로 확장할 수 있는 기능을 제공합니다. 이를 통해 최종 사용자에게 보다 원활한 경험을 제공하고 고객 서비스와의 사용자 고착도를 더욱 높일 수 있습니다. 고객은 다음을 수행할 수 있습니다.
+[Rokt Calendar]({{site.baseurl}}/partners/home)는 Braze 고객에게 개인화된 마케팅 이니셔티브를 조정하고 개인화된 콘텐츠를 최종사용자의 캘린더로 확장할 수 있는 기능을 제공합니다. 이를 통해 최종사용자에게 보다 원활한 경험을 제공하고 고객 서비스와의 사용자 고착도를 더욱 높일 수 있습니다. 고객은 다음을 수행할 수 있습니다.
 
 - Braze 플랫폼을 통해 캘린더 초대를 보내 '날짜 저장'을 하고 커뮤니케이션을 확장합니다.
 - 이벤트 내용이 변경된 경우 기존 초대를 업데이트합니다.
 
 ## Passkit 파트너십 {#passkit-partnership}
 
-[Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit/)을 통해 Braze 고객은 모바일 지갑으로 고객 참여를 확대할 수 있습니다. Braze의 강력한 세분화 기능을 사용하여 개인화된 지갑 캠페인을 진행하고 푸시, 인앱 메시지 등의 채널과 함께 오케스트레이션할 수 있습니다.
+[Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit)을 통해 Braze 고객은 모바일 지갑으로 고객 참여를 확대할 수 있습니다. Braze의 강력한 세분화 기능을 사용하여 개인화된 지갑 캠페인을 진행하고 푸시, 인앱 메시지 등의 채널과 함께 오케스트레이션할 수 있습니다.
 
 ## 메시징 엔드포인트를 통한 디스패치 ID 값 반환 {#dispatch-id-value-return-via-messaging-endpoints}
 
 메시지의 `dispatch_id`는 다음 메시징 엔드포인트 응답에 포함됩니다:
-- [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/#sending-messages-via-API-triggered-delivery)
-- [`/campaigns/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging/#create-schedule-endpoint)
-- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/#sending-messages-immediately-via-api-only)
-- [`/messages/schedule`]({{site.baseurl}}/api/endpoints/messaging/#create-schedule-endpoint)
-- [`/canvases/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/#canvas)
-- [`/canvases/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging/#api-triggered-canvases)
+- [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
+- [`/campaigns/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)
+- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
+- [`/messages/schedule`]({{site.baseurl}}/api/endpoints/messaging)
+- [`/canvases/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
+- [`/canvases/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)
 
 이를 통해 트랜잭션 메시징을 사용하는 고객이 Currents를 통해 호출을 추적할 수 있습니다.
 

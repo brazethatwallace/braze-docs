@@ -6,6 +6,8 @@ description: "Referência do README do Braze Roku SDK espelhada do GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guia do repositório do Roku SDK {#roku-sdk-repository-guide}
+
 ## Sobre o Braze Roku SDK {#about-the-braze-roku-sdk}
 
 O Braze Roku SDK ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.

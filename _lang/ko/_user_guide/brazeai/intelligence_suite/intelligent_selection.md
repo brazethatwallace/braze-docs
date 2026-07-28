@@ -20,7 +20,7 @@ Campaign에 지능형 선택을 추가하기 전에 다음 사항이 올바르�
 - Campaign이 반복 스케줄로 발송됩니다. 단일 발송 Campaign은 지원되지 않습니다.
 - 최소 두 개의 메시지 배리언트를 추가했습니다.
 - 배리언트 간 성과를 측정할 전환 이벤트를 정의했습니다.
-- 재자격 기간이 24시간 이상으로 설정되어 있습니다. 더 짧은 기간은 대조군 배리언트의 무결성에 영향을 미칠 수 있으므로 지원되지 않습니다. 자세한 내용은 [이 FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)를 참조하세요.
+- 재자격 기간이 24시간 이상으로 설정되어 있습니다. 더 짧은 기간은 대조군 배리언트의 무결성에 영향을 미칠 수 있으므로 지원되지 않습니다. 자세한 내용은 [지능형 선택 FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)를 참조하세요.
 {% endtab %}
 
 {% tab Canvas %}
@@ -85,7 +85,7 @@ Campaign 및 Canvases의 경우, 지능형 선택은 배리언트의 "실제" �
 
 ## 지능형 선택 배리언트 분포 {#intelligent-selection-variant-distribution}
 
-지능형 선택은 Campaign 전환의 현재 상태를 기반으로 배리언트 분포를 결정합니다. 훈련 기간이 끝난 후에만 최종 분포를 결정합니다.
+지능형 선택은 Campaign 전환의 현재 상태를 기반으로 배리언트 분포를 결정합니다. 교육 기간이 끝난 후에만 최종 분포를 결정합니다.
 
 이는 Campaign의 초기 단계에서 99%와 1% 지능형 선택이 거의 동일한 발송을 받을 수 있지만, 배리언트 할당의 최종 비율은 99%–1%로 설정될 수 있음을 의미합니다.
 
@@ -113,7 +113,7 @@ Campaign의 초기 단계에서 지능형 선택이 50/50으로 발송되는 것
 
 ### Campaign 초기 단계에서 지능형 선택 배리언트가 동일한 발송량을 보이는 이유는 무엇인가요? {#why-are-my-intelligent-selection-variants-showing-equal-sends-during-the-early-stages-of-my-campaign}
 
-지능형 선택은 Campaign 전환의 현재 상태를 기반으로 발송할 배리언트를 할당합니다. 훈련 기간 동안 배리언트 간에 균등하게 발송된 후에만 최종 배리언트 할당을 결정합니다. Campaign의 초기 단계에서 지능형 선택이 균등하게 발송되는 것을 원하지 않는 경우, 기존 A/B 테스트를 위해 고정된 배리언트를 사용하세요.
+지능형 선택은 Campaign 전환의 현재 상태를 기반으로 발송할 배리언트를 할당합니다. 교육 기간 동안 배리언트 간에 균등하게 발송된 후에만 최종 배리언트 할당을 결정합니다. Campaign의 초기 단계에서 지능형 선택이 균등하게 발송되는 것을 원하지 않는 경우, 기존 A/B 테스트를 위해 고정된 배리언트를 사용하세요.
 
 ### 지능형 선택이 확실한 위너를 선택하지 않고 최적화를 중단하나요? {#will-intelligent-selection-stop-optimizing-without-picking-a-clear-winner}
 

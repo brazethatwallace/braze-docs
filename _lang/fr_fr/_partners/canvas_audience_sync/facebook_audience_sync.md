@@ -14,9 +14,9 @@ tool:
 
 > Grâce à la synchronisation d'audience Braze vers Facebook, vous pouvez choisir d'ajouter les données de vos propres utilisateurs issues de votre intégration Braze aux audiences personnalisées de Facebook afin de diffuser des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore.
 
-Tous les critères que vous utiliseriez habituellement pour déclencher un message (push, e-mail, SMS ou webhook) dans un Canvas Braze sur la base de vos données utilisateur peuvent désormais être utilisés pour déclencher une publicité auprès de cet utilisateur dans Facebook à l'aide d'audiences personnalisées. Par exemple, lorsque vous configurez une synchronisation d'audience avec Facebook, vous êtes en mesure d'utiliser une grande variété de champs first-party comme l'e-mail, le téléphone, le prénom et le nom de famille.
+Tous les critères que vous utiliseriez habituellement pour déclencher un message (notification push, e-mail, SMS ou webhook) dans un Canvas Braze sur la base de vos données utilisateur peuvent désormais être utilisés pour déclencher une publicité auprès de cet utilisateur dans Facebook à l'aide d'audiences personnalisées. Par exemple, lorsque vous configurez une synchronisation d'audience avec Facebook, vous êtes en mesure d'utiliser une grande variété de champs first-party comme l'e-mail, le téléphone, le prénom et le nom de famille.
 
-**Les cas d'utilisation courants pour la synchronisation des audiences personnalisées sont les suivants** :
+**Les cas d'usage courants pour la synchronisation des audiences personnalisées sont les suivants** :
 
 - Cibler des utilisateurs à forte valeur ajoutée via plusieurs canaux pour favoriser les achats ou l'engagement.
 - Recibler les utilisateurs qui réagissent moins aux autres canaux marketing.
@@ -40,14 +40,14 @@ Vous devrez confirmer que vous avez créé et complété les éléments suivants
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | Un outil centralisé pour gérer les ressources Facebook de votre marque (par exemple, les comptes publicitaires, les pages et les applications). |
 | Compte publicitaire Facebook | [Facebook](https://www.facebook.com/business/help/910137316041095) | Un compte publicitaire Facebook actif lié au gestionnaire d'entreprise de votre marque.<br><br>Assurez-vous que l'administrateur de votre Facebook Business Manager vous a accordé les autorisations « Manage Campaigns » ou « Manage ad accounts » pour les comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze. Assurez-vous également que vous avez accepté les conditions générales de votre compte publicitaire. |
 | Conditions des audiences personnalisées de Facebook | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Acceptez les conditions des audiences personnalisées de Facebook pour vos comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
 ### Étape 1 : Se connecter à Facebook {#step-1-connect-to-facebook}
 
 {% alert important %}
-Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) pour connecter Facebook à votre compte Braze.
+Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) pour connecter Facebook à votre compte Braze.
 {% endalert %}
 
 Dans le tableau de bord de Braze, allez dans **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Facebook**. Sous Facebook Audience Export, sélectionnez **Connect Facebook**.
@@ -67,7 +67,7 @@ Votre connexion Facebook est appliquée au niveau de l'espace de travail Braze. 
 {% alert important %}
 Pour les clients qui ont déjà suivi le processus de révision de l'application Facebook pour la [gestion des publicités](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) et l'[accès standard à la gestion des publicités](https://developers.facebook.com/docs/marketing-api/access#standard), votre jeton d'utilisateur système sera toujours valide pour le composant Facebook Audience. Vous ne pourrez pas modifier ou révoquer le jeton d'utilisateur système Facebook via la page partenaire Facebook. Au lieu de cela, vous pouvez connecter votre compte Facebook pour remplacer votre jeton d'utilisateur système Facebook dans votre espace de travail Braze.
 
-<br><br>La configuration Facebook oAuth s'appliquera également aux [exportations Facebook utilisant des Segments]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites).
+<br><br>La configuration Facebook oAuth s'appliquera également aux [exportations Facebook utilisant des Segments]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites).
 {% endalert %}
 
 ### Étape 2 : Accepter les conditions de service des audiences personnalisées {#step-2-accept-custom-audiences-terms-of-service}
@@ -148,7 +148,7 @@ Le tableau suivant comprend des indicateurs et des descriptions pour vous aider 
 | Utilisateurs en attente | Nombre d'utilisateurs actuellement traités par Braze pour la synchronisation avec Facebook. |
 | Utilisateurs en erreur | Nombre d'utilisateurs qui n'ont pas été synchronisés avec Facebook en raison d'une erreur d'API après environ 13 heures de tentatives. Les causes potentielles d'erreurs peuvent inclure un jeton Facebook invalide ou la suppression de l'audience personnalisée sur Facebook. |
 | Sortis du Canvas | Nombre d'utilisateurs qui ont quitté le Canvas. Cela se produit lorsque la dernière étape d'un Canvas est une étape Facebook. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprendre les analyses" }
 
 {% alert important %}
 Il y a un délai dans les rapports pour les indicateurs des utilisateurs synchronisés et des utilisateurs en erreur en raison du traitement interne.
@@ -176,7 +176,7 @@ Facebook ne fournit pas cette information pour des raisons de confidentialité.
 
 ### Braze prend-il en charge les audiences personnalisées basées sur la valeur ? {#does-braze-support-value-based-custom-audiences}
 
-Pour l'instant, les audiences personnalisées basées sur la valeur ne sont pas prises en charge par Braze. Si vous souhaitez synchroniser ces types d'audiences personnalisées, soumettez vos [commentaires sur le produit]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+Pour l'instant, les audiences personnalisées basées sur la valeur ne sont pas prises en charge par Braze. {% multi_lang_include product_feedback_cta.md context="gap" feature="value-based custom audience sync" %}
 
 ### Braze procède-t-il au hachage des données avant de les envoyer aux partenaires d'Audience Sync ? {#does-braze-hash-data-before-sending-it-to-audience-sync-partners}
 

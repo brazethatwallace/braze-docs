@@ -37,7 +37,7 @@ Veja alguns exemplos mostrando as diferenças entre a formatação local e o for
 
 Ao importar números de telefone, é importante seguir o [formato recomendado](#recommended-format). Para importar números de telefone, use um dos seguintes métodos:
 
-- [Fazer upload de um CSV para a Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)
+- [Fazer upload de um CSV para a Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)
 - [Usar o endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 
 {% alert important %}

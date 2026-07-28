@@ -82,11 +82,11 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 {% endtabs %}
 
 {% alert tip %}
-10米ドルという値と数量3を渡すと、10ドルの購入3件、合計30ドルとしてユーザーのプロファイルに記録されます。
+10米ドルという値と数量3を渡すと、10ドルの購入3件、合計30ドルとしてユーザーのプロフィールに記録されます。
 {% endalert %}
 
 ### 注文レベルでの購入記録 {#log-purchases-at-the-order-level}
-商品レベルではなく、注文レベルで購入を記録したい場合、注文名または注文カテゴリを`product_id`として使用できます。詳細については、[購入オブジェクトの仕様]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions)を参照してください。
+商品レベルではなく、注文レベルで購入を記録したい場合、注文名または注文カテゴリを`product_id`として使用できます。詳細については、[購入オブジェクトの仕様]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions)を参照してください。
 
 ### 予約済みのキー {#reserved-keys}
 

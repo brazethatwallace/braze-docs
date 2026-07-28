@@ -36,12 +36,7 @@ If all of the messages in your campaign are going to be similar or have the same
 {% endtab %}
 {% tab Canvas %}
 
-1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
-2. After you've set up your Canvas, add a step in the Canvas builder. Name your step something clear and meaningful.
-3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) and specify a delay as needed. Note that steps containing in-app messages cannot be action-based.
-4. Filter your Audience for this step, as necessary. You can further refine the recipients of this step by specifying segments and adding additional filters. Audience options will be checked after the delay, at the time messages are sent.
-5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-6. Choose any other messaging channels which you would like to pair with your message.
+{% multi_lang_include messaging/canvas_message_step_setup.md in_app_message=true %}
 
 {% alert important %}
 You can't have multiple in-app message variants in a single step.
@@ -147,14 +142,14 @@ These in-app messages are customizable to your needs.
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#custom-html-messages'>Custom HTML Message</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Custom HTML Message</a></td>
     <td>Custom messages that perform as defined in your custom code (HTML, CSS, and/or JavaScript).</td>
     <td>N/A</td>
     <td>Must set <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> initialization option to <code>true</code> for your in-app message to work.</td>
     <td>This is a good option if you want all the advantages of IAMs but need additional functionality or for the appearance to stay "on brand". You can alter every little detail of the message—font, color, shape, size, buttons, etc. <br><br>Example use cases include asking users for app feedback, email capture forms, or paginated messages</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>Email Capture Form</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>Email Capture Form</a></td>
     <td>Typically used to capture the viewer's email.</td>
     <td>N/A</td>
     <td>Must set <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> initialization option to <code>true</code> for your in-app message to work.</td>
@@ -225,7 +220,7 @@ If you choose to only use one button, it will automatically adjust to take over 
 
 If you decide to format these buttons with your own colors, we recommend that you use Button 2 for your more preferred result.
 
-In other words, if you want your user to click on one button more than the other, make sure it is on the right. The right button has often displayed better potential to get clicked, especially if it has a somewhat contrasting or otherwise stand-out color from the rest of the message. This is only emphasized when the button on the left blends more visually with the message.
+In other words, if you want your user to click on one button more than the other, make sure it is the secondary button. The secondary button has often displayed better potential to get clicked, especially if it has a somewhat contrasting or otherwise stand-out color from the rest of the message. This is only emphasized when the primary button blends more visually with the message.
 
 ![Primary and secondary buttons in an in-app message]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
@@ -247,6 +242,8 @@ Note: the __Request Push Permission__, __Log Custom Event__, and __Log Custom At
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
+To combine multiple actions or perform additional SDK actions not available in the dashboard (such as adding to a subscription group or setting an email subscription type), you can use [Braze Actions deeplinks]({{site.baseurl}}/developer_guide/braze_actions).
+
 ### iOS device options
 
 If desired, you can restrict your in-app message to only send to iOS devices. To do so, click **Change** and select **Only send to iOS devices**.
@@ -258,13 +255,15 @@ Choose between the following options:
 - **Dismiss Automatically:** Select how many seconds the message will remain on the screen.
 - **Wait for User Swipe or Touch:** Requires a dismissal or close option.
 
+Dismissing a message logs an impression but not a click. For how clicks are tracked by user action, see [Click tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/#click-tracking).
+
 ### Slide up position
 
 This setting only applies to the Slideup message type. Choose between having your slideup appear **From Bottom of App Screen** or **From Top of App Screen**.
 
 ### HTML and assets
 
-This setting only applies to the Custom code message type. Copy and paste HTML into the available space and upload your assets using a ZIP file.
+This setting only applies to the custom code message type. Copy and paste HTML into the available space and upload your assets using a [ZIP file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#zip-file-uploads).
 
 ### Email capture input placeholder
 
@@ -395,7 +394,7 @@ Braze allows you to track how often users perform specific actions, [conversion 
 {% endtab %}
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
 
 For information on Canvas-specific in-app messaging options, refer to [In-app messages in Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 

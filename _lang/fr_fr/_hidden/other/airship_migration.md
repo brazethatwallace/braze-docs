@@ -18,15 +18,15 @@ Braze utilise le jeton d'appareil Apple pour iOS.
 
 #### Migration des jetons de notification push {#push-token-migration}
 
-Il est nécessaire de [migrer les jetons push via l'API]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens). La documentation liée contient des étapes spécifiques ainsi qu'un exemple de payload, mais le processus global est le suivant :
+Il est nécessaire de [migrer les jetons push via l'API]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens). La documentation liée contient des étapes spécifiques ainsi qu'un exemple de payload, mais le processus global est le suivant :
 
-1. Importez les jetons via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Pour les importations par lots volumineux, nous disposons de ressources pour accélérer le processus. Contactez votre COM ou SA pour plus de détails !
+1. Importez les jetons via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Pour les importations par lots volumineux, nous disposons de ressources pour accélérer le processus. Contactez votre COM ou SA pour plus de détails !
 2. Si le jeton existe déjà dans Braze, il sera ignoré ; sinon, un profil anonyme sera généré.
 3. Effectuez l'assurance qualité de l'intégration push. Assurez-vous que les étapes de [configuration du push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) ont été réalisées.
 
 Si vos profils utilisateur et vos jetons de notification push sont stockés à des emplacements distincts, nous vous recommandons d'importer les jetons de notification push de manière anonyme, puis de migrer ultérieurement vos profils utilisateur existants. Il n'est pas nécessaire de les associer, car le SDK iOS de Braze gèrera la résolution du jeton lors de l'intégration réussie.
 
-- Nous recommandons de migrer les utilisateurs via l'API, mais s'il est nécessaire d'importer une liste statique d'utilisateurs, cela peut être fait via un CSV. Notez que **les jetons push ne peuvent pas être importés via CSV** car l'objet « push_token » ne peut pas être spécifié dans le CSV. Pour consulter un modèle d'importation et en savoir plus sur l'importation de données dans le tableau de bord, consultez notre [documentation CSV]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv).
+- Nous recommandons de migrer les utilisateurs via l'API, mais s'il est nécessaire d'importer une liste statique d'utilisateurs, cela peut être fait via un CSV. Notez que **les jetons push ne peuvent pas être importés via CSV** car l'objet « push_token » ne peut pas être spécifié dans le CSV. Pour consulter un modèle d'importation et en savoir plus sur l'importation de données dans le tableau de bord, consultez notre [documentation CSV]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#csv).
 
 {% alert note %}
 Les jetons push peuvent apparaître sous la forme `subscribed` dans le tableau de bord de Braze, mais passeront à `opted-in` une fois que les utilisateurs auront démarré une session avec le SDK de Braze.
@@ -53,23 +53,23 @@ Braze peut envoyer des notifications push aux utilisateurs qui ne mettent pas à
 Dans le cas de campagnes spécifiques au cycle de vie qui doivent se poursuivre pendant votre processus de migration vers le SDK Braze, les utilisateurs peuvent être éligibles à la réception de notifications de Braze et d'Airship, à condition que Braze ait reçu un jeton de notification push valide.
 
 #### Centre de messages {#message-center}
-Pour remplacer la fonctionnalité de centre de messages d'Airship, nous vous recommandons de créer une campagne multicanal composée d'une notification push et d'une [Content Card]({{site.baseurl}}/user_guide/channels/content_cards/). Pour en savoir plus sur l'utilisation des Content Cards dans un format de centre de messages, consultez notre [guide d'implémentation des Content Cards iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/implementation_guide/#content-cards-in-a-message-center).
+Pour remplacer la fonctionnalité de centre de messages d'Airship, nous vous recommandons de créer une campagne multicanal composée d'une notification push et d'une [Content Card]({{site.baseurl}}/user_guide/channels/content_cards). Pour en savoir plus sur l'utilisation des Content Cards dans un format de centre de messages, consultez notre [guide d'implémentation des Content Cards iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/implementation_guide#content-cards-in-a-message-center).
 
 ### Segmentation
-Braze propose de multiples filtres de [segmentation]({{site.baseurl}}/user_guide/audience/segments/) afin d'offrir une expérience utilisateur riche à vos clients.
+Braze propose de multiples filtres de [segmentation]({{site.baseurl}}/user_guide/audience/segments) afin d'offrir une expérience utilisateur riche à vos clients.
 
-| **Perspective de Braze** :<br> Dans Braze, les segments sont entièrement dynamiques, de sorte que les utilisateurs entrent et sortent du segment au fur et à mesure que les conditions définies changent. |
+| **Perspective de Braze** :<br>Dans Braze, les Segments sont entièrement dynamiques, de sorte que les utilisateurs entrent et sortent du Segment au fur et à mesure que les conditions définies changent. |
 {: .reset-td-br-1 aria-label="Segmentation" }
 
-#### Migration de segments utilisateur {#user-segment-migration}
+#### Migration de Segments utilisateur {#user-segment-migration}
 
-Pour recréer directement un segment statique Airship dans Braze, il existe deux options :
+Pour recréer directement un Segment statique Airship dans Braze, il existe deux options :
 - **Importation via API – Attribuer un attribut personnalisé** (recommandé)<br>
-Nous vous recommandons d'importer les utilisateurs via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) et, ce faisant, d'attribuer un attribut personnalisé à ces utilisateurs importés. Par exemple, vous pouvez créer un segment d'utilisateurs possédant chacun un attribut personnalisé `Segment_Group_1` défini sur `true`. Pour segmenter ultérieurement ces utilisateurs, vous devez [créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) regroupant tous les utilisateurs pour lesquels `Segment_Group_1` est `true`.<br><br>
+Nous vous recommandons d'importer les utilisateurs via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) et, ce faisant, d'attribuer un attribut personnalisé à ces utilisateurs importés. Par exemple, vous pouvez créer un Segment d'utilisateurs possédant chacun un attribut personnalisé `Segment_Group_1` défini sur `true`. Pour segmenter ultérieurement ces utilisateurs, vous devez [créer un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) regroupant tous les utilisateurs pour lesquels `Segment_Group_1` est `true`.<br><br>
 - **Filtre basé sur l'importation d'utilisateurs CSV**<br>
 Il existe dans Braze une option permettant de filtrer spécifiquement les utilisateurs inclus dans une importation CSV donnée. Cette option de filtrage est disponible lors de l'étape de ciblage des utilisateurs de nos outils d'engagement, sous « Filtrer les utilisateurs par `Updated/Imported via CSV` ».
 ![Filtre d'importation CSV]({% image_buster /assets/img/csv_filter.png %}){: style="max-width:90%;border:0;"}
-Notez que pour les importations CSV, un ID externe est requis pour chaque utilisateur importé et que **les segments contenant uniquement des utilisateurs anonymes ou des alias ne pourront pas être importés**. Pour consulter un modèle d'importation et en savoir plus sur l'importation de données dans le tableau de bord, consultez notre [documentation CSV]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv).
+Notez que pour les importations CSV, un ID externe est requis pour chaque utilisateur importé et que **les Segments contenant uniquement des utilisateurs anonymes ou des alias ne pourront pas être importés**. Pour consulter un modèle d'importation et en savoir plus sur l'importation de données dans le tableau de bord, consultez notre [documentation CSV]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#csv).
 
 ## Remplacer les extraits de code du SDK {#replace-sdk-code-snippets}
 Afin de simplifier la migration, nous avons mis en évidence les extraits de code SDK d'Airship suivants présents dans votre code, avec les extraits de code SDK de Braze correspondants pour les remplacer. Consultez les sujets suivants pour commencer :

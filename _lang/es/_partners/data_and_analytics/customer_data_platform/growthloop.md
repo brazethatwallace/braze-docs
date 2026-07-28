@@ -23,13 +23,13 @@ La integración de Braze y GrowthLoop te permite segmentar los datos de clientes
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta GrowthLoop Growth o Enterprise | Se necesita una cuenta GrowthLoop para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos.<br><br>Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
-Envía listas de clientes desde tu almacén de datos a Braze, segmentando campañas de correo electrónico y notificaciones push en un clic, y mantenlas siempre sincronizadas.
+Envía listas de clientes desde tu almacén de datos a Braze para segmentar campañas de correo electrónico y notificaciones push en un clic, y mantenlas siempre sincronizadas.
 
 - Correos electrónicos basados en la activación del registro: envía correos electrónicos para ayudar a los usuarios que abandonan tu flujo de registro y conviértelos en usuarios activos.
 - Correos electrónicos basados en cualquier comportamiento del usuario: envía correos electrónicos basados en el comportamiento del usuario, como "Añadir al carrito".
@@ -39,7 +39,7 @@ Envía listas de clientes desde tu almacén de datos a Braze, segmentando campa�
 
 ### Configurar la conexión de Braze en GrowthLoop {#configure-braze-connection-in-growthloop}
 
-Cuando accedas a la plataforma de segmentación dentro de GrowthLoop, ve a la pestaña **Destinations** en la barra lateral izquierda y haz clic en **New Destination** en la esquina superior derecha.
+Cuando accedas a la plataforma de segmentación dentro de GrowthLoop, ve a la pestaña **Destinations** en la barra lateral de navegación y haz clic en **New Destination** en la barra de acciones.
 
 Desplázate hasta que encuentres Braze y haz clic en **Add Braze**.
 

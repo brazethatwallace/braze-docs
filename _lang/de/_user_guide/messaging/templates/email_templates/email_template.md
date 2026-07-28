@@ -13,13 +13,13 @@ search_rank: 1
 
 # E-Mail-Template erstellen {#create-an-email-template}
 
-> Das Braze-Dashboard verfügt über einen E-Mail-Template-Editor, mit dem Sie individuell gestaltete, ansprechende E-Mails erstellen und für die spätere Verwendung in Kampagnen speichern können. Sie können auch Ihr eigenes [HTML-E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) hochladen.
+> Das Braze-Dashboard verfügt über einen E-Mail-Template-Editor, mit dem Sie individuell gestaltete, ansprechende E-Mails erstellen und für die spätere Verwendung in Campaigns speichern können. Sie können auch Ihr eigenes [HTML-E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) hochladen.
 
-## 1. Schritt: Zum E-Mail-Template-Editor navigieren {#step-1-navigate-to-the-email-template-editor}
+## Schritt 1: Zum E-Mail-Template-Editor navigieren {#step-1-navigate-to-the-email-template-editor}
 
 Gehen Sie im Braze-Dashboard zu **Content** > **Email**.
 
-## 2. Schritt: Bearbeitungsmodus auswählen {#step-2-select-your-editing-experience}
+## Schritt 2: Bearbeitungsmodus auswählen {#step-2-select-your-editing-experience}
 
 Wählen Sie zwischen **Drag-and-drop Editor** oder **HTML code editor** für Ihren Bearbeitungsmodus.
 
@@ -31,15 +31,15 @@ Sie können auch aus vorgefertigten Braze-Templates wählen, ein neues Template 
 Bestehende benutzerdefinierte HTML-Templates müssen mit dem Drag-and-drop-Editor neu erstellt werden.
 {% endalert %}
 
-## 3. Schritt: Ihr Template anpassen {#step-3-customize-your-template}
+## Schritt 3: Ihr Template anpassen {#step-3-customize-your-template}
 
-Nachdem Sie Ihren Bearbeitungsmodus ausgewählt haben, können Sie Ihr E-Mail-Template kreativ gestalten. Sie können HTML verwenden, um Ihr Branding im HTML-Editor zu erstellen und nachzubilden, oder eine Vielzahl von [kreativen Details]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#creative-details) im Drag-and-drop-Editor einfügen.
+Nachdem Sie Ihren Bearbeitungsmodus ausgewählt haben, können Sie Ihr E-Mail-Template kreativ gestalten. Sie können HTML verwenden, um Ihr Branding im HTML-Editor zu erstellen und nachzubilden, oder eine Vielzahl von [kreativen Details]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) im Drag-and-drop-Editor einfügen.
 
 ### Abmeldelink einfügen {#include-an-unsubscribe-link}
 
 Wenn Sie beim Entwerfen Ihres E-Mail-Templates keinen Abmeldelink einfügen, wird Braze Sie auffordern, diesen in Ihre E-Mail einzufügen, da er für alle Marketing-E-Mails gesetzlich vorgeschrieben ist. Sie können diesen Abmeldelink als Fußzeile am Ende Ihrer E-Mails hinzufügen, indem Sie den Liquid-Tag {% raw %}``${email_footer}``{% endraw %} verwenden oder die [Fußzeile anpassen]({{site.baseurl}}/user_guide/channels/email/subscriptions#custom-footer) in Ihrem Template.
 
-## 4. Schritt: Auf E-Mail-Fehler prüfen {#step-4-check-for-email-errors}
+## Schritt 4: Auf E-Mail-Fehler prüfen {#step-4-check-for-email-errors}
 
 E-Mail-Fehler werden im Tab **Verfassen** des Nachrichten-Workflows angezeigt. Fehler verhindern, dass Sie fortfahren können. „Warnungen“ sind Hinweise, die Ihnen helfen, Best Practices einzuhalten. Je nach Ihren geschäftlichen Anforderungen können Sie diese ignorieren.
 
@@ -53,7 +53,7 @@ Hier ist eine Liste der Fehler, die in unserem Editor berücksichtigt werden:
 - E-Mails mit leerem **Textkörper** oder **Betreff**
 - E-Mails ohne Abmeldelink
 
-## 5. Schritt: Vorschau anzeigen und Nachricht testen {#step-5-preview-and-test-your-message}
+## Schritt 5: Vorschau anzeigen und Nachricht testen {#step-5-preview-and-test-your-message}
 
 Nachdem Sie Ihr Template fertiggestellt haben, können Sie es vor dem Versand testen.
 
@@ -73,23 +73,23 @@ Wenn Sie bereit für eine abschließende Prüfung sind, wählen Sie **Test Send*
 
 Wenn Sie Probleme mit Ihrem Template feststellen oder Änderungen vornehmen möchten, wählen Sie **Edit Email**, um zum Editor zurückzukehren. Beachten Sie, dass Änderungen, die im **Classic**-Editor vorgenommen werden, möglicherweise nicht im HTML-Editor oder in der E-Mail-Vorschau angezeigt werden.
 
-## 6. Schritt: Template speichern {#step-6-save-your-template}
+## Schritt 6: Template speichern {#step-6-save-your-template}
 
-Speichern Sie Ihr Template unbedingt, indem Sie **Save Template** auswählen. Sie können dieses Template jetzt in jeder Kampagne oder Canvas-Komponente verwenden. Um auf Ihr Template zuzugreifen, wählen Sie den Bearbeitungsmodus aus, mit dem Sie es erstellt haben, und wählen Sie es dann aus der Liste der verfügbaren Templates aus.
+Speichern Sie Ihr Template unbedingt, indem Sie **Save Template** auswählen. Sie können dieses Template jetzt in jeder Campaign oder Canvas-Komponente verwenden. Um auf Ihr Template zuzugreifen, wählen Sie den Bearbeitungsmodus aus, mit dem Sie es erstellt haben, und wählen Sie es dann aus der Liste der verfügbaren Templates aus.
 
 {% alert note %}
-Wenn Sie Änderungen an einem bestehenden Template vornehmen, werden diese Änderungen nicht in Kampagnen übernommen, die mit früheren Versionen dieses Templates erstellt wurden.
+Wenn Sie Änderungen an einem bestehenden Template vornehmen, werden diese Änderungen nicht in Campaigns übernommen, die mit früheren Versionen dieses Templates erstellt wurden.
 {% endalert %}
 
 ### Ihre Templates verwalten {#manage-your-templates}
 
 Sie können E-Mail-Templates unter **Templates** > **Email Templates** anzeigen und nach Status, Typ, Tags, der erstellenden Person filtern oder nach Template-Name suchen. Sie benötigen die entsprechenden Nutzer:innenberechtigungen, wie z. B. **View Email Templates**, um diese Templates anzuzeigen. Weitere Details finden Sie unter [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
-Wenn Sie mehr E-Mail-Templates erstellen, können Sie E-Mail-Templates [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates). Erfahren Sie mehr über das Erstellen und Verwalten Ihrer Template- und Kreativinhalte-Bibliothek unter [Templates und Medien]({{site.baseurl}}/user_guide/messaging/templates).
+Wenn Sie mehr E-Mail-Templates erstellen, können Sie E-Mail-Templates [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates). Erfahren Sie mehr über das Erstellen und Verwalten Ihrer Template- und Kreativinhalte-Bibliothek unter [Templates und Medien]({{site.baseurl}}/user_guide/messaging/templates).
 
-### Ihre Templates in API-Kampagnen verwenden {#use-your-templates-in-api-campaigns}
+### Ihre Templates in API-Campaigns verwenden {#use-your-templates-in-api-campaigns}
 
-Um Ihre E-Mail für eine API-Kampagne zu verwenden, benötigen Sie eine `email_template_id`, die Sie am unteren Rand jedes in Braze erstellten E-Mail-Templates finden.
+Um Ihre E-Mail für eine API-Campaign zu verwenden, benötigen Sie eine `email_template_id`, die Sie am unteren Rand jedes in Braze erstellten E-Mail-Templates finden.
 
 ![API-Bezeichner am unteren Rand eines E-Mail-Templates.]({% image_buster /assets/img/email_templates/template5.png %})
 
@@ -98,7 +98,7 @@ Um Ihre E-Mail für eine API-Kampagne zu verwenden, benötigen Sie eine `email_t
 Sie können im Drag-and-drop-Editor an E-Mail-Templates zusammenarbeiten und diese kommentieren.
 
 1. Wählen Sie den Content-Block oder die Zeile im E-Mail-Textkörper aus, die Sie kommentieren möchten.
-2. Wählen Sie das <i class="fas fa-comment"></i> Kommentarsymbol aus.
+2. Wählen Sie das <i class="fas fa-comment" aria-label="Kommentar"></i> Kommentarsymbol aus.
 3. Geben Sie Ihren Kommentar in der Seitenleiste ein und wählen Sie dann **Submit** aus.
 4. Nachdem Sie Ihre Kommentare eingegeben haben, wählen Sie **Done** aus.
 5. Wählen Sie **Save Template** aus, um Ihre Kommentare zu speichern.

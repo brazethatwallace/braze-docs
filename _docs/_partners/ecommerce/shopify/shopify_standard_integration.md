@@ -19,7 +19,7 @@ page_order: 1
 3. In the Shopify app store, install the Braze application.<br><br>![The Braze app store page with a button to install the application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-If your Shopify account is associated with more than one store, you can change the store you’re logged into by selecting the store icon at the top-right of the page and selecting **Switch stores**.
+If your Shopify account is associated with more than one store, you can change the store you’re logged into by selecting the store icon in the header and selecting **Switch stores**.
 {% endalert %}
 
 {: start="4"}
@@ -40,6 +40,10 @@ After you select the standard setup onboarding path, you’ll need to choose whe
 - Upon account signup, such as account login
     - Track only identified users
     - Starts tracking data when site visitors sign up or log into their accounts
+
+{% alert note %}
+New customers are provisioned on the latest Braze Web SDK and JavaScript SDK versions during setup. Existing customers can view their current SDK version in integration settings, get notified when a newer version is available, and self-serve upgrades from integration settings.
+{% endalert %}
 
 ## Step 3: Configure your Shopify data
 
@@ -206,9 +210,7 @@ It is critical to validate that the `shopify_customer_id` and `email_address` (i
 #### Failure behavior and merging
 Any status code other than `200` is considered a failure.
 
-- **Merge implications:** If the endpoint fails (returns non-`200` or times out), Braze cannot retrieve the external ID. Consequently, the merge between the Shopify user and the Braze user profile will not happen at that time.
-- **Retry logic:** Braze may attempt standard immediate network retries, but if the failure persists, the merge will be deferred until the next qualifying event (for example, the next time the user updates their profile or completes a checkout).
-- **Supportability:** To support timely user merging, ensure your endpoint is highly available and handles the optional `email_address` field gracefully.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 ### Step 4.3: Input your external ID
 
@@ -216,9 +218,7 @@ Repeat [Step 4](#step-4), and enter your endpoint URL after selecting custom ext
 
 #### Considerations
 
-- If your external ID isn't generated when Braze sends a request to your endpoint, the integration will default to using the Shopify customer ID when the `changeUser` function is called. This step is crucial for merging the anonymous user profile with the identified user profile. As a result, there may be a temporary period during which different types of external IDs exist within your workspace.
-- When the external ID is available in the `braze.external_id` metafield, the integration will prioritize and assign this external ID. 
-    - If the Shopify customer ID was previously set as the Braze external ID, it will be replaced with the `braze.external_id` metafield value. 
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### Step 4.4: Collect your email or SMS opt-ins from Shopify (optional)
 
@@ -228,11 +228,7 @@ If you use the email or SMS channels, you can sync your email and SMS marketing 
 
 ![“Collect subscribers” section with option to collect email or SMS marketing opt-ins.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-As mentioned in [Shopify overview]({{site.baseurl}}/shopify_overview/), if you want to use a third-party capture form, your developers need to integrate Braze SDK code. This will let you capture the email address and global email subscription status from form submissions. Specifically, you need to implement and test these methods to your `theme.liquid` file:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Sets the email address on the user profile
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Updates the global email subscription status
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ## Step 5: Sync products (optional)
 
@@ -260,7 +256,7 @@ To add content cards or feature flags, you will need to collaborate with your de
 
 #### Web push notifications
 
-Web push currently is not supported for the Shopify integration. To request support, submit a product request through the [Braze product portal]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+Web push currently is not supported for the Shopify integration. {% multi_lang_include product_feedback_cta.md context="gap" feature="web push for the Shopify integration" %}
 
 ## Step 7: Finish setup
 

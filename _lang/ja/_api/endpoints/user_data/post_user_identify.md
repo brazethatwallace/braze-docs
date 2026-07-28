@@ -109,7 +109,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `aliases_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | [識別するエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/aliases_to_identify)および[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)を参照してください。 |
-| `emails_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | 識別子として `email` が指定されている場合は必須です。ユーザーを識別するためのメールアドレス。[メールによるユーザーの識別](#identifying-users-by-email)を参照してください。 |
+| `emails_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | 識別子として `email` が指定されている場合は必須です。ユーザーを識別するためのメールアドレス。[メールアドレスと電話番号によるユーザーの識別](#identifying-users-by-email-addresses-and-phone-numbers)を参照してください。 |
 | `phone_numbers_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | ユーザーを識別するための電話番号。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
@@ -171,9 +171,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 
 ### 識別リクエストが成功を返すのにプロファイルがマージされないのはなぜですか？ {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
 
-`201 Created` と `message: success` は、リクエストが受け付けられたことを意味します。ペイロード内のすべてのエイリアスやメールが既存のプロファイルに一致したことを保証するものではありません。`alias_name` の大文字と小文字の不一致、重複プロファイル、または優先順位ルールにより、呼び出しが成功しても目に見えるマージが行われない場合があります。`alias_name` の大文字と小文字が保存されている値と正確に一致していることを確認し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)で重複プロファイルを確認し、`emails_to_identify` を使用する場合は[`prioritization`](#identifying-users-by-email)を確認してください。
+`201 Created` と `message: success` は、Brazeがリクエストを受け付けたことを意味します。ペイロード内のすべてのエイリアスやメールが既存のプロファイルに一致したことを保証するものではありません。`alias_name` の大文字と小文字の不一致、重複プロファイル、またはBrazeの優先順位ルールにより、呼び出しが成功しても目に見えるマージが行われない場合があります。`alias_name` の大文字と小文字が保存されている値と正確に一致していることを確認し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)で重複プロファイルを確認し、`emails_to_identify` を使用する場合は[`prioritization`](#identifying-users-by-email-addresses-and-phone-numbers)を確認してください。
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {

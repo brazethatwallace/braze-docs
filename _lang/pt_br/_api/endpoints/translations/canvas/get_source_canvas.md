@@ -19,21 +19,21 @@ description: "Este artigo descreve detalhes sobre o endpoint de origem de tradu�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `canvas.translations.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.translations.get`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
 ## Parâmetros de consulta {#query-parameters}
 
-| Parâmetro              | Obrigatória | Tipo de dados | Descrição                        |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id`          | Obrigatória | String    | O ID do Canvas.              |
-| `step_id`              | Obrigatória | String    | O ID da sua etapa do Canvas.        |
-| `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
-| `locale_id`            | Opcional | String    | O ID (UUID) do local.              |
-| `post_launch_draft_version` | Opcional | booleano | Quando `true`, retorna a versão de rascunho mais recente em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente.
+| `workflow_id` | Obrigatório | String | O ID do Canvas. |
+| `step_id` | Obrigatório | String | O ID da sua etapa do Canvas. |
+| `message_variation_id` | Obrigatório | String | O ID da sua variação de mensagem. |
+| `locale_id` | Opcional | String | O ID (UUID) do local. |
+| `post_launch_draft_version` | Opcional | Booleano | Quando `true`, retorna a versão de rascunho mais recente em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de consulta" }
 
 {% alert note %}

@@ -41,7 +41,7 @@ MESSAGE HERE
 
 ## Os usuários podem receber uma mensagem no app novamente após descartá-la? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 Para Campaigns de mensagem no app, você pode permitir que os usuários se tornem elegíveis para receber a Campaign novamente ativando a reelegibilidade em **Controles de entrega** (**Permitir que os usuários se tornem reelegíveis para receber a Campaign**). A rapidez com que podem recebê-la novamente depende do período de reelegibilidade que você definir e de como a Braze registrou o envio anterior. Consulte [Reelegibilidade para Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) para o comportamento de Campaigns, incluindo como a reelegibilidade se relaciona com o recebimento da mensagem.
 
@@ -65,11 +65,11 @@ Para evitar isso, durante a configuração da sua Campaign, selecione **Re-evalu
 
 ## Várias mensagens no app podem ser exibidas na mesma sessão? {#can-multiple-in-app-messages-display-in-the-same-session}
 
-Sim, mas apenas uma mensagem no app pode ser exibida por ocorrência de um [evento de gatilho]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger). Se várias Campaigns de mensagem no app compartilharem o mesmo gatilho (por exemplo, início de sessão), apenas a mensagem de maior prioridade será exibida cada vez que esse gatilho ocorrer. Para gatilhos de início de sessão, isso significa que apenas uma mensagem pode ser exibida por sessão, e a próxima oportunidade de mostrar outra mensagem elegível será na próxima sessão.
+Sim, mas apenas uma mensagem no app pode ser exibida por ocorrência de um [evento-gatilho]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger). Se várias Campaigns de mensagem no app compartilharem o mesmo gatilho (por exemplo, início de sessão), apenas a mensagem de maior prioridade será exibida cada vez que esse gatilho ocorrer. Para gatilhos de início de sessão, isso significa que apenas uma mensagem pode ser exibida por sessão, e a próxima oportunidade de mostrar outra mensagem elegível será na próxima sessão.
 
-Quando várias mensagens compartilham o mesmo nível de prioridade, a mensagem criada mais recentemente é exibida primeiro. Para gatilhos de início de sessão, a próxima mensagem mais recente é exibida em uma sessão subsequente; para outros tipos de gatilho, a próxima mensagem mais recente é exibida na próxima vez que o evento de gatilho ocorrer, o que pode ser dentro da mesma sessão ou em uma sessão posterior.
+Quando várias mensagens compartilham o mesmo nível de prioridade, a mensagem criada mais recentemente é exibida primeiro. Para gatilhos de início de sessão, a próxima mensagem mais recente é exibida em uma sessão subsequente; para outros tipos de gatilho, a próxima mensagem mais recente é exibida na próxima vez que o evento-gatilho ocorrer, o que pode ser dentro da mesma sessão ou em uma sessão posterior.
 
-Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Definir prioridade exata**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
+Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Set Exact Priority**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
 
 ## Como a Braze calcula a expiração de uma mensagem no app definida como "após 1 dia(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -92,21 +92,21 @@ Isso significa que, durante o início da sessão, o dispositivo recebe o gatilho
 A mensagem não será entregue se o dispositivo não tiver acesso à internet. A mensagem pode não ser entregue se a lógica Liquid demorar muito para ser resolvida.
 {% endalert %}
 
-## Como funciona o comportamento de aborto para mensagens no app? {#how-does-abort-behavior-work-for-in-app-messages}
+## Como funciona o comportamento de interrupção para mensagens no app? {#how-does-abort-behavior-work-for-in-app-messages}
 
-Na Braze, um aborto ocorre quando um usuário realiza uma ação que o torna elegível para receber uma mensagem, mas ele não a recebe porque a lógica Liquid o marca como inelegível. Por exemplo:
+Na Braze, uma interrupção ocorre quando um usuário realiza uma ação que o torna elegível para receber uma mensagem, mas ele não a recebe porque a lógica Liquid o marca como inelegível. Por exemplo:
 
 1. Sam realiza uma ação que deveria disparar uma Campaign de e-mail.
 2. O corpo do e-mail contém lógica Liquid que diz que, se um atributo personalizado de pontuação for menor que 50, não envie este e-mail.
 3. A pontuação do atributo personalizado de Sam é 20.
 4. A Braze reconhece que Sam não deveria receber este e-mail, e o e-mail é abortado.
-5. Um evento de aborto é registrado.
+5. Um evento de interrupção é registrado.
 
-No entanto, como as mensagens no app são um canal pull, os abortos funcionam de forma um pouco diferente para elas.
+No entanto, como as mensagens no app são um canal pull, as interrupções funcionam de forma um pouco diferente para elas.
 
-### Comportamento padrão de aborto de mensagem no app {#standard-in-app-message-abort-behavior}
+### Comportamento padrão de interrupção de mensagem no app {#standard-in-app-message-abort-behavior}
 
-As mensagens no app são puxadas pelo dispositivo no início da sessão e armazenadas em cache no dispositivo, de modo que, independentemente da qualidade da conexão com a internet, a mensagem pode ser entregue instantaneamente ao usuário. Por exemplo, se um usuário receber cinco mensagens no app dentro de sua sessão, ele receberá todas as cinco no início da sessão. As mensagens são armazenadas em cache localmente e aparecem quando seus eventos de gatilho definidos ocorrem (início de sessão, o usuário clica em um botão que registra um evento personalizado, ou outros).
+As mensagens no app são puxadas pelo dispositivo no início da sessão e armazenadas em cache no dispositivo, de modo que, independentemente da qualidade da conexão com a internet, a mensagem pode ser entregue instantaneamente ao usuário. Por exemplo, se um usuário receber cinco mensagens no app dentro de sua sessão, ele receberá todas as cinco no início da sessão. As mensagens são armazenadas em cache localmente e aparecem quando seus eventos-gatilho definidos ocorrem (início de sessão, o usuário clica em um botão que registra um evento personalizado, ou outros).
 
 Em outras palavras, a lógica que determina se uma mensagem no app deve ser abortada ocorre **antes** de o gatilho ter ocorrido. Para demonstrar isso, vamos supor que Sam do exemplo de e-mail está inscrito em notificações por push.
 
@@ -115,49 +115,49 @@ Em outras palavras, a lógica que determina se uma mensagem no app deve ser abor
 3. Sam **não** realizou nenhuma ação que dispararia essas mensagens, mas poderia recebê-las na sessão.
 4. O Liquid em duas das mensagens no app tem regras que excluem Sam de receber a mensagem (como o atributo personalizado de pontuação não ser alto o suficiente).
 5. Sam não recebe as duas mensagens no app que o excluem, mas recebe as outras três mensagens.
-6. Nenhum evento de aborto é registrado.
+6. Nenhum evento de interrupção é registrado.
 
-A Braze não registra nenhum evento de aborto no caso de Sam porque isso não atende à definição de um aborto; Sam **não** realizou nenhuma ação que dispararia as mensagens. Para mensagens no app, os usuários nunca realizam de fato o gatilho antes de a Braze determinar que eles não devem ver a mensagem.
+A Braze não registra nenhum evento de interrupção no caso de Sam porque isso não atende à definição de uma interrupção; Sam **não** realizou nenhuma ação que dispararia as mensagens. Para mensagens no app, os usuários nunca realizam de fato o gatilho antes de a Braze determinar que eles não devem ver a mensagem.
 
-### Comportamento de aborto de mensagem no app com modelo {#templated-in-app-message-abort-behavior}
+### Comportamento de interrupção de mensagem no app com modelo {#templated-in-app-message-abort-behavior}
 
-[Mensagens no app com modelo](#what-are-templated-in-app-messages) forçam o SDK a reavaliar se uma mensagem deve ser exibida quando o evento de gatilho ocorre. Isso tem um comportamento de aborto diferente. Para demonstrar, considere este exemplo:
+[Mensagens no app com modelo](#what-are-templated-in-app-messages) forçam o SDK a reavaliar se uma mensagem deve ser exibida quando o evento-gatilho ocorre. Isso tem um comportamento de interrupção diferente. Para demonstrar, considere este exemplo:
 
 1. Sam inicia uma sessão da Braze abrindo um app com tecnologia Braze em seu telefone.
 2. Os critérios de público das Campaigns ativas dizem que Sam pode ser elegível para uma mensagem no app com modelo, então as informações de gatilho são enviadas ao dispositivo sem a carga útil da mensagem.
 3. Sam seleciona um botão que registra um evento personalizado, disparando a mensagem no app com modelo.
 4. O dispositivo de Sam faz uma solicitação de rede para buscar a mensagem no app.
-5. A lógica Liquid da mensagem leva a um aborto, então a Braze registra isso como um aborto; Sam realizou a ação-gatilho antes dessa avaliação.
+5. A lógica Liquid da mensagem leva a uma interrupção, então a Braze registra isso como uma interrupção; Sam realizou a ação-gatilho antes dessa avaliação.
 
-### Comparando o comportamento de aborto de mensagens no app {#comparing-in-app-message-abort-behavior}
+### Comparando o comportamento de interrupção de mensagens no app {#comparing-in-app-message-abort-behavior}
 
 Esta tabela compara os fluxos de mensagem no app que Sam experimentou:
 
-| Mensagem no app | Comportamento de aborto |
+| Mensagem no app | Comportamento de interrupção |
 | --- | --- |
-| Padrão | Um evento de aborto não foi registrado porque Sam não realizou nenhuma ação que dispararia uma mensagem.<br><br>Mensagens no app padrão não registram abortos porque a definição de um aborto é "não viu a mensagem apesar de ter realizado a ação-gatilho". Como as mensagens no app são entregues ao dispositivo antes das ações de gatilho ocorrerem, não faz sentido considerar mensagens no app omitidas por causa da lógica Liquid. |
-| Com modelo | Um evento de aborto foi registrado porque Sam realizou a ação-gatilho para disparar a mensagem no app com modelo, mas recebeu um aborto no modelo Liquid.<br><br>Mensagens no app com modelo registram abortos porque a avaliação Liquid ocorre após a ação-gatilho ter sido realizada. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparação do comportamento de aborto de mensagens no app" }
+| Padrão | Um evento de interrupção não foi registrado porque Sam não realizou nenhuma ação que dispararia uma mensagem.<br><br>Mensagens no app padrão não registram interrupções porque a definição de uma interrupção é "não viu a mensagem apesar de ter realizado a ação-gatilho". Como as mensagens no app são entregues ao dispositivo antes das ações-gatilho ocorrerem, não faz sentido considerar mensagens no app omitidas por causa da lógica Liquid. |
+| Com modelo | Um evento de interrupção foi registrado porque Sam realizou a ação-gatilho para disparar a mensagem no app com modelo, mas recebeu uma interrupção no modelo Liquid.<br><br>Mensagens no app com modelo registram interrupções porque a avaliação Liquid ocorre após a ação-gatilho ter sido realizada. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparação do comportamento de interrupção de mensagens no app" }
 
-### Quando o Conteúdo conectado é executado para mensagens no app? {#when-does-connected-content-run-for-in-app-messages}
+### Quando o Connected Content é executado para mensagens no app? {#when-does-connected-content-run-for-in-app-messages}
 
-Para [mensagens no app com modelo](#what-are-templated-in-app-messages), o Conteúdo conectado e outras Liquid tags são resolvidos quando o evento de gatilho ocorre e o dispositivo solicita a carga útil da mensagem — não quando o usuário clica em um botão dentro da mensagem. Cada busca de modelo pode incluir chamadas de Conteúdo conectado para aquela exibição.
+Para [mensagens no app com modelo](#what-are-templated-in-app-messages), o Connected Content e outras Liquid tags são resolvidos quando o evento-gatilho ocorre e o dispositivo solicita a carga útil da mensagem — não quando o usuário clica em um botão dentro da mensagem. Cada busca de modelo pode incluir chamadas de Connected Content para aquela exibição.
 
-Se o seu HTML faz referência a dados REST retornados pelo Conteúdo conectado, esses dados ficam disponíveis para a sessão em que a mensagem foi modelada. Vários botões podem fazer referência à mesma resposta de Conteúdo conectado sem disparar chamadas adicionais ao clicar.
+Se o seu HTML faz referência a dados REST retornados pelo Connected Content, esses dados ficam disponíveis para a sessão em que a mensagem foi modelada. Vários botões podem fazer referência à mesma resposta de Connected Content sem disparar chamadas adicionais ao clicar.
 
 ### Por que há um atraso antes de minha mensagem no app ser exibida? {#why-is-there-a-delay-before-my-in-app-message-displays}
 
-Mensagens no app padrão são exibidas assim que a carga útil em cache estiver pronta após o evento de gatilho. No Android e iOS, imagens grandes ou outros ativos hospedados em CDN referenciados na mensagem podem adicionar um pequeno atraso enquanto esses recursos terminam de ser baixados antes de a mensagem no app aparecer.
+Mensagens no app padrão são exibidas assim que a carga útil em cache estiver pronta após o evento-gatilho. No Android e iOS, imagens grandes ou outros ativos hospedados em CDN referenciados na mensagem podem adicionar um pequeno atraso enquanto esses recursos terminam de ser baixados antes de a mensagem no app aparecer.
 
-[Mensagens no app com modelo](#what-are-templated-in-app-messages) e Campaigns com **Re-evaluate campaign eligibility before displaying** selecionado exigem uma solicitação de rede adicional após o gatilho antes de a mensagem aparecer. Isso pode adicionar um pequeno atraso (normalmente menos de 100 ms em uma conexão estável). Para saber mais, consulte [Escolher usuários para segmentar]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target).
+[Mensagens no app com modelo](#what-are-templated-in-app-messages) e Campaigns com **Re-evaluate campaign eligibility before displaying** selecionado exigem uma solicitação de rede adicional após o gatilho antes de a mensagem aparecer. Isso pode adicionar um pequeno atraso (normalmente menos de 100 ms em uma conexão estável). Para saber mais, consulte [Escolher usuários para segmentar]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
 
-### Por que minha mensagem no app parece diferente da pré-visualização do dashboard? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+### Por que minha mensagem no app parece diferente da prévia do dashboard? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 
-Mensagens no app entregues podem diferir da pré-visualização do dashboard quando:
+Mensagens no app entregues podem diferir da prévia do dashboard quando:
 
 - Sua integração aplica estilos personalizados ou substitui a interface padrão de mensagens no app em determinadas plataformas
-- A pré-visualização usa um perfil de usuário teste com atributos diferentes dos do destinatário
-- O conteúdo com modelo é resolvido de forma diferente no momento do envio em comparação com o modo de pré-visualização
+- A prévia usa um perfil de usuário teste com atributos diferentes dos do destinatário
+- O conteúdo com modelo é resolvido de forma diferente no momento do envio em comparação com o modo de prévia
 
 Use [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) com um usuário teste cujo perfil corresponda ao seu público-alvo ao validar a aparência.
 

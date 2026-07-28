@@ -12,7 +12,7 @@ tool: Canvas
 
 > Os comentários no Canvas podem ser um ótimo espaço colaborativo para sua equipe de marketing identificar, discutir e revisar os detalhes mais específicos dos seus Canvas. Ao construir um Canvas, você pode criar e gerenciar comentários para identificar áreas que possam precisar de feedback adicional dos seus colegas.
 
-![]({% image_buster /assets/img_archive/canvas_comments.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
+![Construtor de Canvas com a barra lateral de comentários mostrando conversas abertas.]({% image_buster /assets/img_archive/canvas_comments.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
 
 ## Benefícios {#benefits}
 
@@ -28,7 +28,7 @@ Por padrão, a barra lateral mostrará os comentários abertos. Você pode alter
 
 Para deixar um comentário, clique no ícone de comentário <i class="fas fa-comment"></i> na parte superior do Canvas. Isso transformará seu cursor em um ícone de comentário. Clique na etapa na qual deseja comentar. Para reverter o cursor, pressione a tecla **Esc** ou clique no ícone de comentário novamente.
 
-##### Atalhos de teclado {#keyboard-shortcuts}
+### Atalhos de teclado {#keyboard-shortcuts}
 
 Você também pode usar atalhos de teclado para adicionar comentários:
 
@@ -44,13 +44,13 @@ Para visualizar um comentário existente, abra a barra lateral ou selecione o í
 
 Você pode excluir comentários e conversas que criou clicando no ícone de menu <i class="fa-solid fa-ellipsis-vertical"></i> no seu comentário. Se um círculo vermelho aparecer ao lado de um comentário, isso indica que o comentário não foi lido.
 
-Não é possível excluir comentários ou conversas de outros usuários. No entanto, qualquer pessoa pode resolver um comentário selecionando **Resolve Thread**.
+Não é possível excluir comentários ou conversas de outros usuários. No entanto, qualquer pessoa pode resolver um comentário selecionando **Resolver conversa**.
 
 ## Gerenciando notificações {#managing-notifications}
 
-![]({% image_buster /assets/img_archive/canvas_notifications.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
+![Painel de configurações de notificações do Canvas para alertas de comentários.]({% image_buster /assets/img_archive/canvas_notifications.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
 
-Para gerenciar as notificações por e-mail de um Canvas, abra a barra lateral e clique em <i class="fa-solid fa-bell"></i> **Notifications**. Aqui, você pode selecionar suas preferências de notificação.
+Para gerenciar as notificações por e-mail de um Canvas, abra a barra lateral e clique em <i class="fa-solid fa-bell"></i> **Notificações**. Aqui, você pode selecionar suas preferências de notificação.
 
 Selecionar **All New Comments** notifica você sobre novas conversas iniciadas em um Canvas, incluindo quando comentários são resolvidos ou reabertos. Selecionar **Mentions or Replies** notifica você sobre novos comentários nos quais você foi marcado ou conversas das quais está participando.
 

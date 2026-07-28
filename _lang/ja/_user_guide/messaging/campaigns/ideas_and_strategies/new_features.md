@@ -81,7 +81,7 @@ Androidの場合、このバージョン名はアプリの [Package Version Name
 
 ### 機能を使用していない場合 {#have-not-used-feature}
 
-新しいアプリバージョンをリリースして新機能を導入した場合、ユーザーが新しいコンテンツに気づかないことがあります。機能認知キャンペーンを実施することは、新機能やまだ使用されていない機能についてユーザーに伝える優れた方法です。これを行うには、アプリ内で特定のアクションを完了したことがないユーザーに割り当てられる[カスタム属性]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data)を作成するか、特定のアクションを追跡する[カスタムイベント]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data)を使用する必要があります。この属性（またはイベント）を使用して、キャンペーンを送信するユーザーをセグメント化できます。
+新しいアプリバージョンをリリースして新機能を導入した場合、ユーザーが新しいコンテンツに気づかないことがあります。機能認知キャンペーンを実施することは、新機能やまだ使用されていない機能についてユーザーに伝える優れた方法です。これを行うには、アプリ内で特定のアクションを完了したことがないユーザーに割り当てられる[カスタム属性]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を作成するか、特定のアクションを追跡する[カスタムイベント]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を使用する必要があります。この属性（またはイベント）を使用して、キャンペーンを送信するユーザーをセグメント化できます。
 
 {% alert tip %}
 オーディエンスの特定の部分をリターゲティングしたいですか？[リターゲティングキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns)をチェックして、ユーザーの過去のアクションを活用してキャンペーンをリターゲティングする方法を学びましょう。

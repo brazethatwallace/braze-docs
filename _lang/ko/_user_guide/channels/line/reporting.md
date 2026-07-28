@@ -29,7 +29,7 @@ LINE의 열람 및 클릭 관련 통계는 특정 날짜에 20명 이상의 사�
 
 **Campaign Details** 패널에는 LINE 메시지 성과에 대한 상위 수준 개요가 표시됩니다.
 
-이 패널에서 수신자에게 발송된 메시지 수, 기본 전환율, 이 메시지로 발생한 총 매출 등의 전체 측정기준을 확인할 수 있습니다. 또한 이 페이지에서 전달, 오디언스 및 전환 설정을 검토할 수 있습니다.
+이 패널에서 수신자에게 발송된 메시지 수, 주요 전환율, 이 메시지로 발생한 총 매출 등의 전체 측정기준을 확인할 수 있습니다. 또한 이 페이지에서 전달, 오디언스 및 전환 설정을 검토할 수 있습니다.
 
 #### 대조군 {#control-groups}
 
@@ -37,7 +37,7 @@ LINE의 열람 및 클릭 관련 통계는 특정 날짜에 20명 이상의 사�
 
 ### LINE 성과 {#line-performance}
 
-**LINE Performance** 패널에는 메시지가 다양한 차원에서 얼마나 잘 수행되었는지가 표시됩니다. 이 패널의 측정기준은 선택한 메시징 채널과 다변량 테스트 실행 여부에 따라 달라집니다. <i class="fa fa-eye preview-icon"></i> **미리보기** 아이콘을 클릭하면 각 배리언트 또는 채널에 대한 메시지를 확인할 수 있습니다.
+**LINE Performance** 패널에는 메시지가 다양한 차원에서 얼마나 잘 수행되었는지가 표시됩니다. 이 패널의 측정기준은 선택한 메시징 채널과 다변량 테스트 실행 여부에 따라 달라집니다. <i class="fa fa-eye preview-icon"></i> **Preview** 아이콘을 클릭하면 각 배리언트 또는 채널에 대한 메시지를 확인할 수 있습니다.
 
 ![두 배리언트에 대한 측정기준을 보여주는 'LINE Performance' 패널.]({% image_buster /assets/img/line/line_performance.png %})
 
@@ -68,4 +68,4 @@ LINE의 열람 및 클릭 관련 통계는 특정 날짜에 20명 이상의 사�
 
 ### 전환 상관관계 {#conversion-correlation}
 
-**Conversion Correlation** 패널에서는 어떤 사용자 속성과 동작이 Campaign에 설정한 결과에 도움이 되거나 방해가 되는지에 대한 인사이트를 제공합니다. 자세한 내용은 [전환 상관관계]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation)를 참조하세요.
+**Conversion Correlation** 패널에서는 어떤 사용자 속성과 동작이 Campaign에 설정한 성과에 도움이 되거나 방해가 되는지에 대한 인사이트를 제공합니다. 자세한 내용은 [전환 상관관계]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation)를 참조하세요.

@@ -74,10 +74,10 @@ Em seguida, crie sua mensagem personalizada no app adicionando fontes personaliz
 
 Quando toda a edição estiver concluída, exporte o modelo clicando em **Export**. Após a exportação, o código HTML da mensagem no app será gerado. Copie esse código clicando no botão **Copy code**.
 
-![]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
+![Diálogo de exportação do IAM Studio com o HTML da mensagem no app gerado e a ação de copiar código.]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
 
 ### Etapa 4: Use o código na Braze {#step-4-use-code-in-braze}
 
 Navegue até a Braze e, na sua mensagem no app, cole o código personalizado na caixa **HTML Input**. Certifique-se de testar sua mensagem para verificar se ela está sendo exibida corretamente.
 
-![]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}
+![Editor de Campaign de mensagem no app da Braze com o HTML do IAM Studio colado na caixa HTML Input.]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}

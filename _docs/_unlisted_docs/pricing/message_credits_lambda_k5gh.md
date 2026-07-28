@@ -10,18 +10,7 @@ hide_toc: true
 
 > Message Credits is Braze’s cross-product packaging structure for our native Agent Console, SMS, MMS, RCS, WhatsApp, and LINE offerings. Message Credits provide a flexible and transparent experience when taking advantage of Braze messaging channels and certain AI features. Credits give you access to any of the channels presented in the table on this page.
 
-{% alert note %}
-Different products will have different units of measure in reporting.<br><br>
-<b>Agent Console:</b> Invocations<br>
-<b>SMS:</b> Segments<br>
-<b>MMS:</b> Sends<br>
-<b>WhatsApp:</b> Messages delivered <br>
-<b>RCS:</b> Segments delivered, Sends delivered<br>
-<b>LINE:</b> Sends<br>
-<b>KakaoTalk:</b> Sends<br>
-
-Lastly, carrier fees related to SMS, MMS, and RCS are billed separately (in arrears) and are not considered as part of this Message Credits SKU.
-{% endalert %}
+{% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
 ## Definitions
 
@@ -2068,11 +2057,7 @@ For MMS, the message limit is 5 MB (this includes the multimedia asset and the m
 
 RCS is the next generation of SMS and MMS. It offers the benefits of a direct, high engagement channel like SMS–with richer capabilities that modern consumers have come to expect, like rich content (images, videos, documents), verified and branded sending, interactive features like suggested replies and actions, and more.
 
-- RCS billing centers on two different message types (with distinctions for the USA):
-    - **Basic RCS:** Text-only, up to 160 characters
-    - **Single RCS:** Messages containing rich content, or text-only messages > 160 characters
-    - **Rich RCS (USA Only):** Text only, may include limited suggestions/buttons (quickReply, dialPhone, openURL w/o webview), segmented per 160 UTF-8 bytes
-    - **Rich Media RCS (USA Only):** Any media OR text with richer suggestions/buttons (webview, location, calendar, etc.), counted as one message
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 ## WhatsApp channel details
 
@@ -2100,26 +2085,23 @@ United States, Canada
 
 ### Rest of Africa
 
-Algeria, Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Chad, Congo, Eritrea, Ethiopia, Gabon, Gambia, Ghana,  Guinea-Bissau, Ivory Coast, Kenya, Lesotho, Liberia, Libya,
-Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwanda, Senegal, Sierra Leone, Somalia, South Sudan, Sudan, Swaziland, Tanzania, Togo, Tunisia, Uganda, Zambia
+Algeria, Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Chad, Congo, Eritrea, Ethiopia, Gabon, Gambia, Ghana,  Guinea-Bissau, Ivory Coast, Kenya, Lesotho, Liberia, Libya, Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwanda, Senegal, Sierra Leone, Somalia, South Sudan, Sudan, Swaziland, Tanzania, Togo, Tunisia, Uganda, Zambia
 
 ### Rest of Asia Pacific
 
-Afghanistan, Australia, Bangladesh, Cambodia, China, Hong Kong, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Singapore, Sri Lanka, Taiwan, Tajikistan, Thailand,
-Turkmenistan, Uzbekistan, Vietnam
+Afghanistan, Australia, Bangladesh, Cambodia, China, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Sri Lanka, Taiwan, Tajikistan, Thailand, Turkmenistan, Uzbekistan, Vietnam
 
 ### Rest of Central & Eastern Europe
 
-Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Hungary, Latvia, Lithuania, Macedonia, Moldova, Poland, Romania, Serbia, Slovakia, Slovenia, Ukraine
+Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Latvia, Lithuania, Macedonia, Moldova, Serbia, Slovakia, Slovenia, Ukraine
 
 ### Rest of Latin America
 
-Bolivia, Costa Rica, Dominican Republic, Ecuador, El Salvador,
-Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
+Bolivia, Costa Rica, Dominican Republic, Ecuador, El Salvador,Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
 
 ### Rest of Middle East
 
-Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Yemen
+Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Yemen
 
 ### Rest of Western Europe
 

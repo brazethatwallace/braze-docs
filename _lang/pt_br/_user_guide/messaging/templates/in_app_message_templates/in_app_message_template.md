@@ -35,7 +35,7 @@ Perfis de cores e modelos CSS se aplicam ao editor tradicional. Se você usa o e
 
 ## Etapa 3: Gerenciar seus modelos {#step-3-manage-your-templates}
 
-Em **Content** > **In-App Message**, filtre, pesquise ou abra um modelo para editar. Você pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates) modelos como outros tipos de modelo. Para uma visão geral dos fluxos de trabalho de modelos e mídia, consulte [Modelos]({{site.baseurl}}/user_guide/messaging/templates).
+Em **Content** > **In-App Message**, filtre, pesquise ou abra um modelo para editar. Você pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates) modelos como outros tipos de modelo. Para uma visão geral dos fluxos de trabalho de modelos e mídia, consulte [Modelos]({{site.baseurl}}/user_guide/messaging/templates).
 
 Para acessar modelos de mensagens no app, você precisa de [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para visualizar ou editar modelos de mensagens no app.
 
@@ -59,7 +59,7 @@ Selecione **Save Color Profile** quando terminar.
 
 Você pode personalizar um modelo CSS completo para sua [mensagem no app modal web](#web-modal-css).
 
-Nomeie e adicione tags ao seu modelo CSS e escolha se ele será seu modelo padrão. Você pode escrever seu próprio CSS no espaço fornecido. Esse espaço já vem pré-preenchido com o CSS mostrado na pré-visualização da sua mensagem, e você pode ajustá-lo conforme suas necessidades.
+Nomeie e adicione tags ao seu modelo CSS e escolha se ele será seu modelo padrão. Você pode escrever seu próprio CSS no espaço fornecido. Esse espaço já vem pré-preenchido com o CSS mostrado na prévia da sua mensagem, e você pode ajustá-lo conforme suas necessidades.
 
 ```css
 .ab-message-header, .ab-message-text {
@@ -113,6 +113,6 @@ Você pode editar tudo, desde a cor de fundo até o tamanho e peso da fonte, e m
 
 #### Modal com CSS (somente web) {#web-modal-css}
 
-Se você optar por usar uma mensagem Modal Web somente para web com CSS, poderá aplicar seu próprio modelo ou escrever seu próprio CSS no espaço fornecido. Esse espaço já vem pré-preenchido com o CSS mostrado na pré-visualização da sua mensagem, mas você pode ajustá-lo conforme suas necessidades.
+Se você optar por usar uma mensagem Modal Web somente para web com CSS, poderá aplicar seu próprio modelo ou escrever seu próprio CSS no espaço fornecido. Esse espaço já vem pré-preenchido com o CSS mostrado na prévia da sua mensagem, mas você pode ajustá-lo conforme suas necessidades.
 
 Se quiser aplicar seu próprio modelo, selecione **Apply Template** e escolha na galeria de modelos de mensagens no app. Se você não tiver nenhuma opção, pode adicionar um [modelo CSS](#in-app-message-templates) usando o construtor de modelos CSS em **Templates** > **In-App Message Templates**.

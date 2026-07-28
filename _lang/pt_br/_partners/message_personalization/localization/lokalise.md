@@ -18,8 +18,8 @@ _Esta integração é mantida pelo Lokalise._
 
 O Lokalise oferece duas opções de integração com a Braze:
 
-- **Integração multilíngue (recomendada)**: Usa a [API de composição multilíngue]({{site.baseurl}}/api/endpoints/translations/) da Braze para fornecer uma sincronização bidirecional direta entre o Lokalise e a Braze. Essa integração funciona com variantes de mensagens localizadas para Campaigns, Canvas e Modelos de e-mail, e oferece suporte a fluxos de trabalho pré-lançamento e pós-lançamento para push, e-mail e In-App Messages.
-- **Integração de Conteúdo conectado (legada)**: Usa o Conteúdo conectado da Braze para inserir conteúdo traduzido com base nas configurações de idioma do usuário.
+- **Integração multilíngue (recomendada)**: Usa a [API de composição multilíngue]({{site.baseurl}}/api/endpoints/translations) da Braze para fornecer uma sincronização bidirecional direta entre o Lokalise e a Braze. Essa integração funciona com variantes de mensagens localizadas para Campaigns, Canvas e modelos de e-mail, e oferece suporte a fluxos de trabalho pré-lançamento e pós-lançamento para push, e-mail e In-App Messages.
+- **Integração de Connected Content (legada)**: Usa o Connected Content da Braze para inserir conteúdo traduzido com base nas configurações de idioma do usuário.
 
 Este artigo aborda a configuração de ambas as integrações.
 
@@ -33,11 +33,11 @@ A integração multilíngue usa a API de composição multilíngue da Braze para
 | ----------- | ----------- |
 | Conta do Lokalise | É necessário ter uma conta do Lokalise para usar essa parceria. |
 | Projeto de tradução do Lokalise | Crie um projeto do Lokalise com o tipo **Marketing and support** e escolha **Braze** como a **Content integration**. |
-| Configurações multilíngues da Braze | O [suporte multilíngue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/) deve estar ativado no seu espaço de trabalho da Braze. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões para ler e atualizar Campaigns, Canvas e Modelos de e-mail. Você pode criar uma no dashboard da Braze em **Settings** > **API Keys**. |
-| Região do servidor da Braze | Sua [região do servidor da Braze]({{site.baseurl}}/api/basics/#endpoints) (por exemplo, US-01, EU-01). Você pode encontrá-la no dashboard da Braze. |
-| Tags de tradução no conteúdo da Braze | As mensagens devem usar [tags de tradução]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para identificar o conteúdo traduzível. Envolva cada bloco traduzível em tags {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %} com um ID exclusivo. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Configurações multilíngues da Braze | O [suporte multilíngue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) deve estar ativado no seu espaço de trabalho da Braze. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões para ler e atualizar Campaigns, Canvas e modelos de e-mail. Você pode criar uma no dashboard da Braze em **Settings** > **API Keys**. |
+| Região do servidor da Braze | Sua [região do servidor da Braze]({{site.baseurl}}/api/basics#endpoints) (por exemplo, US-01, EU-01). Você pode encontrá-la no dashboard da Braze. |
+| Tags de tradução no conteúdo da Braze | As mensagens devem usar [tags de tradução]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para identificar o conteúdo traduzível. Envolva cada bloco traduzível em tags {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %} com um ID exclusivo. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ### Configuração e uso {#setup-and-usage}
 
@@ -45,16 +45,16 @@ Para instruções detalhadas sobre como conectar a integração multilíngue da 
 
 A integração oferece suporte a:
 - Sincronização bidirecional direta entre o Lokalise e a Braze (sem manipulação manual de arquivos)
-- Variantes de mensagens localizadas para Campaigns, Canvas e Modelos de e-mail
+- Variantes de mensagens localizadas para Campaigns, Canvas e modelos de e-mail
 - Fluxos de trabalho de tradução pré-lançamento e pós-lançamento
 
 {% alert note %}
 Somente o conteúdo configurado para uso multilíngue na Braze e envolvido em tags de tradução está disponível para importação no Lokalise. Os códigos de idioma devem corresponder exatamente na Braze e no Lokalise para que as traduções sejam sincronizadas corretamente.
 {% endalert %}
 
-## Integração de Conteúdo conectado (legada) {#connected-content-integration-legacy}
+## Integração de Connected Content (legada) {#connected-content-integration-legacy}
 
-A integração legada usa o Conteúdo conectado da Braze para inserir conteúdo traduzido com base nas configurações de idioma do usuário.
+A integração legada usa o Connected Content da Braze para inserir conteúdo traduzido com base nas configurações de idioma do usuário.
 
 ### Pré-requisitos
 
@@ -62,7 +62,7 @@ A integração legada usa o Conteúdo conectado da Braze para inserir conteúdo 
 | ----------- | ----------- |
 | Conta do Lokalise | É necessário ter uma conta do Lokalise para usar essa parceria. |
 | Projeto de tradução do Lokalise | Crie um projeto do Lokalise com o tipo de projeto **Software Localization**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ### Criar um novo projeto do Lokalise {#create-a-new-lokalise-project}
 
@@ -70,7 +70,7 @@ Para criar um novo projeto de tradução, faça login no Lokalise e selecione **
 
 ### Integração {#integration}
 
-No Lokalise, você criará uma chave de tradução para cada uma das variáveis de Conteúdo conectado definidas na Braze. Quando as traduções estiverem prontas, você poderá gerar um arquivo JSON por idioma e publicá-lo nas URLs que servirão seu Conteúdo conectado.
+No Lokalise, você criará uma chave de tradução para cada uma das variáveis de Connected Content definidas na Braze. Quando as traduções estiverem prontas, você poderá gerar um arquivo JSON por idioma e publicá-lo nas URLs que servirão seu Connected Content.
 
 #### Etapa 1: Configuração de idiomas do usuário {#step-1-configure-user-languages}
 
@@ -82,7 +82,7 @@ Os códigos de idioma usados devem corresponder tanto na Braze quanto no Lokalis
 
 #### Etapa 2: Prepare suas traduções no Lokalise {#step-2-prepare-your-translations-on-lokalise}
 
-Em seguida, para preparar suas traduções no Lokalise, você precisará criar manualmente as chaves de tradução com o mesmo nome que está usando nas variáveis de Conteúdo conectado da Braze.
+Em seguida, para preparar suas traduções no Lokalise, você precisará criar manualmente as chaves de tradução com o mesmo nome que está usando nas variáveis de Connected Content da Braze.
 
 Por exemplo, vamos criar uma chave de tradução simples, `description`:
 1. Abra seu projeto do Lokalise, clique em **Add Key** e digite "description" no campo **Key**.
@@ -90,11 +90,11 @@ Por exemplo, vamos criar uma chave de tradução simples, `description`:
 3. Adicione "Web" no menu suspenso **Platforms**.
 4. Quando estiver pronto, clique em **Save**.
 
-![]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
+![Modal de adição de chave do Lokalise criando a chave de tradução description.]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
 
 Sua chave de tradução deve aparecer no editor de projetos:
 
-![]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
+![Editor de projetos do Lokalise mostrando a chave de tradução recém-adicionada.]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
 
 ##### Problemas conhecidos {#known-issues}
 
@@ -112,21 +112,21 @@ Na **Translation File URL**, o Lokalise publica um arquivo JSON contendo todas a
 1. A primeira parte do caminho da URL é comum a todos os idiomas.
 2. O nome do arquivo JSON no final da URL é baseado no código do idioma.
 
-A URL do arquivo de tradução é a URL de que você precisará ao configurar uma Campaign da Braze. Você pode atualizar o conteúdo do arquivo JSON clicando em **Refresh**. Note que a URL permanecerá a mesma, e você não precisará alterar sua chamada de Conteúdo conectado na Braze.
+A URL do arquivo de tradução é a URL de que você precisará ao configurar uma Campaign da Braze. Você pode atualizar o conteúdo do arquivo JSON clicando em **Refresh**. Note que a URL permanecerá a mesma, e você não precisará alterar sua chamada de Connected Content na Braze.
 
 ##### URL de teste {#test-url}
 
 Para testar essa URL, copie-a e substitua {% raw %}`{{${language}}}`{% endraw %} por um código de idioma (por exemplo, `en`) e abra essa URL no seu navegador. Você verá um arquivo JSON com suas chaves e traduções:
 
-![]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
+![Visualização no navegador do arquivo JSON de tradução exportado pelo Lokalise.]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
 
 #### Etapa 4: Uso de traduções na Campaign da Braze {#step-4-use-translations-in-braze-campaign}
 
-##### Inserir chamada de Conteúdo conectado {#insert-connected-content-call}
+##### Inserir chamada de Connected Content {#insert-connected-content-call}
 
 Quando estiver com tudo pronto, retorne à Braze e abra uma Campaign existente ou crie uma nova. Criaremos uma nova Campaign de e-mail com conteúdo de amostra para este exemplo. Clique em **Edit Email Body**.
 
-Para inserir suas traduções, você precisa adicionar a solicitação de Conteúdo conectado no HTML, na parte superior do documento ou logo antes do primeiro local em que a tradução é necessária. Isso pode ser feito inserindo o seguinte markup:
+Para inserir suas traduções, você precisa adicionar a solicitação de Connected Content no HTML, na parte superior do documento ou logo antes do primeiro local em que a tradução é necessária. Isso pode ser feito inserindo o seguinte markup:
 
 {% raw %}
 `{% connected_content https://exports.live.lokalise.cloud/braze/123abc/456xyz/{{${language}}}.json :save translations %}`
@@ -137,7 +137,7 @@ Substitua a URL `https://exports.live.lokalise.cloud/...` pela URL do arquivo de
 {% raw %}
 
 - `{{${language}}}` significa "inserir o idioma do usuário nessa posição". Caso prefira, é possível codificar seu código de idioma. Exemplo: `en.json`.
-  - Para garantir que o arquivo JSON traduzido apropriado seja recuperado para cada usuário, é necessário colocar o atributo de perfil `{{${language}}}` ou outro atributo personalizado semelhante que contenha o idioma do usuário no final da URL dos arquivos de tradução. (por exemplo, `/{{${language}}}.json`) Os valores contidos nesses atributos devem corresponder ao prefixo de cada um dos arquivos JSON traduzidos. Isso garantirá que o arquivo de tradução correto será retornado para cada usuário.
+  - Para garantir que o arquivo JSON traduzido apropriado seja recuperado para cada usuário, é necessário colocar o atributo de perfil `{{${language}}}` ou outro atributo personalizado semelhante que contenha o idioma do usuário no final da URL dos arquivos de tradução (por exemplo, `/{{${language}}}.json`). Os valores contidos nesses atributos devem corresponder ao prefixo de cada um dos arquivos JSON traduzidos. Isso garantirá que o arquivo de tradução correto será retornado para cada usuário.
 - `:save translations` salvará o conteúdo JSON na variável translations.
 
 ##### Exibir traduções {#display-translations}
@@ -147,9 +147,9 @@ Agora use a variável translations para exibir as traduções desejadas por suas
 Por exemplo, para exibir a chave `description`, use `{{ translations.description }}`.
 
 {% endraw %}
-![]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
+![Exemplo do editor de e-mail da Braze mostrando traduções de Connected Content do Lokalise.]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
 
-Por fim, salve o modelo de e-mail e faça uma pré-visualização. Você deverá ver sua tradução sendo exibida.
+Por fim, salve o modelo de e-mail e faça uma prévia. Você deverá ver sua tradução sendo exibida.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
@@ -163,7 +163,7 @@ Não, os códigos ISO de locale devem corresponder na Braze e no Lokalise.
 
 ### Podemos usar o sinalizador `:rerender` ao conectar o conteúdo do Lokalise? {#can-we-use-the-rerender-flag-when-connecting-lokalise-content}
 
-Sim, claro. Você pode consultar os documentos da Braze para saber como adicionar esse sinalizador.
+Sim, claro. Você pode consultar a documentação da Braze para saber como adicionar esse sinalizador.
 
 ### Após atualizar o arquivo de tradução no Lokalise, por que não consigo ver nenhuma alteração no conteúdo traduzido na Braze? {#after-refreshing-the-translation-file-on-lokalise-why-cant-i-see-any-changes-in-the-translated-content-on-braze}
 

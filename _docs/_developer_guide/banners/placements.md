@@ -31,7 +31,21 @@ These are the minimum SDK versions needed to create Banner placements:
 
 ### Step 2: Refresh placements in your app {#requestBannersRefresh}
 
-To refresh placements, call the refresh method for your SDK. If `subscribeToBannersUpdates` is active, the SDK automatically re-publishes your cached placement IDs at the start of each new session and when you call `changeUser`. This automatic refresh does not consume a rate limiting token.
+To refresh placements, call the refresh method for your SDK (`requestBannersRefresh()` on Web and Android, or `requestRefresh()` on Swift).
+
+Banner refresh behavior has two paths:
+
+1. **Explicit refresh:** You can call the refresh method at any point during an active session.
+2. **Automatic refresh on a new session:** After you make at least one explicit refresh request, the SDK can re-request the most recently requested placement IDs when a new Braze session starts (for example, after `changeUser()` or after a session timeout).
+
+The role of `subscribeToBannersUpdates()` differs by platform:
+
+- **iOS and Android:** `subscribeToBannersUpdates()` (or `subscribeToUpdates()` on Swift) registers an update callback. The automatic session-start refresh is not dependent on the subscription being active.
+- **Web:** The automatic session-start refresh is tied to `subscribeToBannersUpdates()` being registered. Without an active subscription, the SDK does not automatically repeat the refresh on a new session.
+
+In all cases, you must make at least one explicit refresh request per app lifecycle so the SDK knows which placement IDs to keep updated. Banners are not fetched automatically on first launch without that initial call, and the tracked placement IDs reset after the app restarts.
+
+Automatic session-start refreshes do not consume a rate limiting token.
 
 {% alert tip %}
 Refresh placements as soon as possible to avoid delays in downloading or displaying Banners.
@@ -496,7 +510,7 @@ For the simplest integration, add the following JavaScript XML (JSX) snippet int
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 
@@ -583,7 +597,7 @@ If your Banner uses the **Custom Code** editor block in the Braze dashboard, you
 </button>
 ```
 
-For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). The `brazeBridge` provides a communication layer between the Banner's internal HTML and the parent Braze SDK.
+For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code). The `brazeBridge` provides a communication layer between the Banner's internal HTML and the parent Braze SDK.
 
 ### Custom UI implementations (headless)
 
@@ -985,9 +999,7 @@ Here's what you need to know about Banner dimensions and sizing:
 
 You can use custom properties from your Banner campaign to retrieve key–value data through the SDK and modify your app’s behavior or appearance. For example, you could:
 
-- Send metadata for your third-party analytics or integrations.
-- Use metadata such as a `timestamp` or JSON object to trigger conditional logic.
-- Control the behavior of a banner based on included metadata like `ratio` or `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 ### Prerequisites
 

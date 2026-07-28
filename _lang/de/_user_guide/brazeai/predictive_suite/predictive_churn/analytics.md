@@ -12,7 +12,7 @@ page_order: 1.5
 
 ## Über Predictive-Churn-Analytics {#about-predictive-churn-analytics}
 
-Sobald das Training der Prognose abgeschlossen und diese Seite gefüllt ist, können Sie direkt [Filter]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters) in Segmenten oder Campaigns verwenden, um die Ergebnisse des Modells zu nutzen. Wenn Sie jedoch Hilfe bei der Entscheidung benötigen, wen Sie ansprechen und warum, kann Ihnen diese Seite auf der Grundlage der historischen Genauigkeit des Modells und Ihrer eigenen Geschäftsziele helfen.
+Sobald das Training der Prognose abgeschlossen und diese Seite gefüllt ist, können Sie direkt [Filter]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) in Segmenten oder Campaigns verwenden, um die Ergebnisse des Modells zu nutzen. Wenn Sie jedoch Hilfe bei der Entscheidung benötigen, wen Sie ansprechen und warum, kann Ihnen diese Seite auf der Grundlage der historischen Genauigkeit des Modells und Ihrer eigenen Geschäftsziele helfen.
 
 Dies sind die Komponenten, aus denen sich die Predictive-Churn-Analytics zusammensetzen:
 
@@ -25,7 +25,7 @@ Die Verteilung der Scores für die gesamte Prognosegruppe wird oben auf der Seit
 
 Wenn Sie den Schieberegler verschieben, informiert Sie der Balken in der linken Hälfte des unteren Panels darüber, wie viele Nutzer:innen aus der gesamten Prognosegruppe angesprochen werden würden.
 
-![]({% image_buster /assets/img/churn/churnTargeting.gif %})
+![Predictive-Churn-Analytics-Chart mit Schieberegler zur Auswahl eines Ziel-Score-Bereichs.]({% image_buster /assets/img/churn/churnTargeting.gif %})
 
 ## Churn Score und Kategorie {#churn_score}
 
@@ -43,7 +43,7 @@ Die Scores und die entsprechenden Kategorien werden nach dem Zeitplan aktualisie
 
 In der rechten Hälfte des Panels unterhalb des Charts zeigen wir Schätzungen der erwarteten Genauigkeit bei der Ansprache dieses Teils der Prognosegruppe. Auf der Grundlage von Daten über Nutzer:innen in der Prognosegruppe in der Vergangenheit und der offensichtlichen Genauigkeit des Modells bei der Unterscheidung zwischen abwandernden und nicht abwandernden Nutzer:innen auf der Grundlage dieser vergangenen Daten schätzen diese Fortschrittsbalken für eine zukünftige potenzielle Nachricht unter Verwendung der mit dem Schieberegler hervorgehobenen Zielgruppe:
 
-![]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+![Panel „Geschätzte Genauigkeit“ mit erwarteten Abwandernden und Nicht-Abwandernden für den ausgewählten Zielgruppenbereich.]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 - Wie viele ausgewählte Nutzer:innen voraussichtlich abwandern werden
 - Wie viele ausgewählte Nutzer:innen voraussichtlich **nicht** abwandern werden
@@ -60,7 +60,7 @@ Dies ist eine Schätzung, wie viele Nutzer:innen, die nicht abgewandert wären, 
 
 ## Churn-Korrelationstabelle {#correlation_table}
 
-Diese Analyse zeigt Nutzerattribute oder -verhaltensweisen, die in der historischen Prognosegruppe mit der Abwanderung korreliert haben. Die Tabellen sind in links und rechts für mehr bzw. weniger abwanderungsgefährdet unterteilt. Für jede Zeile wird in der rechten Spalte das Verhältnis angezeigt, in dem Nutzer:innen mit dem Verhalten oder Attribut in der linken Spalte eher oder weniger wahrscheinlich abwandern. Diese Zahl gibt die Churn-Wahrscheinlichkeit bei Vorhandensein dieses Verhaltens oder Attributs geteilt durch die Churn-Wahrscheinlichkeit der gesamten Prognosegruppe an.
+Diese Analyse zeigt Nutzerattribute oder -verhaltensweisen, die in der historischen Prognosegruppe mit der Abwanderung korreliert haben. Die Tabellen sind in links und rechts für mehr bzw. weniger abwanderungsgefährdet unterteilt. Für jede Zeile wird in der zweiten Spalte das Verhältnis angezeigt, in dem Nutzer:innen mit dem Verhalten oder Attribut in der ersten Spalte eher oder weniger wahrscheinlich abwandern. Diese Zahl gibt die Churn-Wahrscheinlichkeit bei Vorhandensein dieses Verhaltens oder Attributs geteilt durch die Churn-Wahrscheinlichkeit der gesamten Prognosegruppe an.
 
 Diese Tabelle wird nur aktualisiert, wenn die Prognose neu trainiert wird, und nicht, wenn die _Churn-Risiko-Scores_ der Nutzer:innen aktualisiert werden.
 

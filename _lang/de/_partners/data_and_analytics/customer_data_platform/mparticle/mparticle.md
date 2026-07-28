@@ -17,14 +17,14 @@ search_tag: Partner
 Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern:
 - Synchronisieren Sie mParticle-Zielgruppen mit Braze für die Segmentierung von Campaigns und Canvas.
 - Teilen Sie Daten zwischen den beiden Plattformen. Dies kann über die mParticle-Kit-Integration und die Server-zu-Server-Integration erfolgen.
-- [Senden Sie Braze-Nutzerinteraktionen über Currents an mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/) und machen Sie sie im gesamten Growth Stack nutzbar.
+- [Senden Sie Braze-Nutzerinteraktionen über Currents an mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents) und machen Sie sie im gesamten Growth Stack nutzbar.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | mParticle-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [mParticle-Konto](https://app.mparticle.com/login). |
-| Braze-Instanz | Ihre Braze-Instanz finden Sie auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) (z. B. `US-01` oder `US-02`). |
+| Braze-Instanz | Ihre Braze-Instanz finden Sie auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints) (z. B. `US-01` oder `US-02`). |
 | Braze-App-Bezeichner-Schlüssel | Ihr App-Bezeichner-Schlüssel. <br><br>Diesen finden Sie im Braze-Dashboard unter **Einstellungen verwalten** > **API-Schlüssel**. |
 | Workspace-REST-API-Schlüssel | (Server-zu-Server) Ein Braze-REST-API-Schlüssel<br><br>Dieser kann im Braze-Dashboard unter **Entwicklungskonsole** > **API-Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -149,10 +149,10 @@ Navigieren Sie in mParticle zu **Setup > Outputs > Add Outputs** und wählen Sie
 | External identity type | Der mParticle-Nutzeridentitätstyp, der als externe ID an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Customer ID“ beizubehalten. |
 | Email identity type | Der mParticle-Nutzeridentitätstyp, der als E-Mail an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Email“ beizubehalten. |
 | Braze instance | Der Cluster, an den Ihre Braze-Daten weitergeleitet werden; dieser sollte derselbe Cluster sein, auf dem sich Ihr Dashboard befindet. |
-| Enable event stream forwarding | (Server-zu-Server) Wenn aktiviert, werden alle Events in Echtzeit weitergeleitet. Andernfalls werden alle Events in Batches weitergeleitet. Wenn Sie die Event-Stream-Weiterleitung aktivieren, stellen Sie sicher, dass die Daten, die Sie an Braze senden, die [Rate-Limits]({{site.baseurl}}/api/api_limits/) einhalten. |
+| Enable event stream forwarding | (Server-zu-Server) Wenn aktiviert, werden alle Events in Echtzeit weitergeleitet. Andernfalls werden alle Events in Batches weitergeleitet. Wenn Sie die Event-Stream-Weiterleitung aktivieren, stellen Sie sicher, dass die Daten, die Sie an Braze senden, die [Rate-Limits]({{site.baseurl}}/api/api_limits) einhalten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Braze-Ausgabeeinstellungen konfigurieren" }
 
-![]({% image_buster /assets/img_archive/configure_settings.png %})
+![mParticle-Braze-Ausgabeeinstellungen mit App-Bezeichner, Identitäts-Mapping und Instanzfeldern.]({% image_buster /assets/img_archive/configure_settings.png %})
 
 ### Embedded-Kit-Integration {#embedded-kit-integration}
 
@@ -184,7 +184,7 @@ Der [Leitfaden zur Braze-Event-Kit-Integration](https://docs.mparticle.com/integ
 
 Navigieren Sie in mParticle zu **Connections** > **Connect** > **[Ihre gewünschte Plattform]** > **Connect Output**, um Braze als Ausgabe hinzuzufügen. Wählen Sie dann **Save**.
 
-![]({% image_buster /assets/img_archive/mParticle_event_config.png %})
+![mParticle-Event-Kit-Verbindungseinrichtung für die Braze-Ausgabe.]({% image_buster /assets/img_archive/mParticle_event_config.png %})
 
 Nicht alle Verbindungseinstellungen gelten für alle Plattformen und Integrationstypen. Eine Aufschlüsselung der Verbindungseinstellungen und der Plattformen, für die sie gelten, finden Sie in der [mParticle-Dokumentation](https://docs.mparticle.com/integrations/braze/event/#connection-settings).
 
@@ -204,7 +204,7 @@ Damit serverseitige Daten an Braze weitergeleitet werden, müssen sie eine `exte
 
 Navigieren Sie in mParticle zu **Connections > Connect > [Ihre gewünschte Plattform] > Connect Output**, um Braze als Ausgabe hinzuzufügen. **Speichern** Sie, wenn Sie fertig sind.
 
-![]({% image_buster /assets/img_archive/mParticle_connections.png %})
+![mParticle-Verbindungsbildschirm zum Hinzufügen von Braze als Ausgabe auf einer Plattform.]({% image_buster /assets/img_archive/mParticle_connections.png %})
 
 Nicht alle Verbindungseinstellungen gelten für alle Plattformen und Integrationstypen. Eine Aufschlüsselung der Verbindungseinstellungen und der Plattformen, für die sie gelten, finden Sie in der [mParticle-Dokumentation](https://docs.mparticle.com/integrations/braze/event/#connection-settings).
 
@@ -214,8 +214,8 @@ Bevor Sie „Enriched User Attributes“ oder „Enriched User Identities“ akt
 
 #### Datentypen {#data-types}
 Nicht alle Datentypen werden zwischen beiden Plattformen unterstützt.
-- [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) unterstützen String-, numerische, boolesche oder Datumsobjekte. Arrays oder verschachtelte Objekte werden nicht unterstützt.
-- [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) unterstützen String-, numerische, boolesche, Datumsobjekte und Arrays, aber keine Objekte oder verschachtelten Objekte.
+- [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events) unterstützen String-, numerische, boolesche oder Datumsobjekte. Arrays oder verschachtelte Objekte werden nicht unterstützt.
+- [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) unterstützen String-, numerische, boolesche, Datumsobjekte und Arrays, aber keine Objekte oder verschachtelten Objekte.
 
 {% alert note %}
 Braze unterstützt keine Zeitstempel vor dem Jahr 0 oder nach dem Jahr 3000 in angepassten Attributen vom Typ `Time`. Braze nimmt diese Werte auf, wenn sie von mParticle gesendet werden, aber der Wert wird als String gespeichert.

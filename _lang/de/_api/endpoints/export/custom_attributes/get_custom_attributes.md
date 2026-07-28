@@ -18,7 +18,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Angep
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `custom_attributes.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `custom_attributes.get`.
 
 ## Rate-Limit
 
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "attributes" : [
         {
             "array_length": 100, (number) the maximum array length, or null if not applicable,

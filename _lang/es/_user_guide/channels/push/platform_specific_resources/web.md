@@ -36,7 +36,7 @@ Las notificaciones push web entregan actualizaciones urgentes y accionables que 
 - Atraer a las personas de vuelta a tu sitio web con botones de llamada a la acción claros
 - Personalizar tus notificaciones push con información de productos y clientes para hacer tu mensaje relevante
 
-Las notificaciones push web funcionan de la misma manera que las notificaciones push de aplicaciones en tu teléfono. Para más información sobre cómo componer una notificación push web, consulta [Crear una notificación push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message).
+Las notificaciones push web funcionan de la misma manera que las notificaciones push de aplicaciones en tu teléfono. Para más información sobre cómo componer una notificación push web, consulta [Crear una notificación push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
 ![Ejemplo de notificación push web con el mismo mensaje push mostrado en una laptop y un teléfono.]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 
@@ -71,12 +71,12 @@ Para más información sobre los estándares del protocolo push y la compatibili
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
 
-## 410 (Gone) y puntos de conexión de push web no válidos {#410-gone-and-invalid-web-push-endpoints}
+## 410 (Gone) y endpoints de notificación push web no válidos {#410-gone-and-invalid-web-push-endpoints}
 
-Los navegadores y servicios push pueden devolver **410 Gone** (u otros errores similares de "punto de conexión no válido") cuando una suscripción de push web ya no es aceptada. Las causas comunes incluyen:
+Los navegadores y servicios push pueden devolver **410 Gone** (u otros errores similares de "endpoint no válido") cuando una suscripción de notificación push web ya no es aceptada. Las causas comunes incluyen:
 
 - El usuario desactivó las notificaciones para tu sitio en la configuración del navegador o del sistema operativo.
-- Un perfil de usuario diferente se suscribió en el mismo perfil de navegador, por lo que el punto de conexión se rotó al nuevo suscriptor.
+- Un perfil de usuario diferente se suscribió en el mismo perfil de navegador, por lo que el endpoint se rotó al nuevo suscriptor.
 - La suscripción expiró después de un largo período sin interacción; después de que el usuario opte por recibirlas de nuevo, se crea una nueva suscripción en la siguiente sesión.
 
-Después de que el usuario vuelva a activar las notificaciones, activa de nuevo el flujo normal de registro de push web de tu sitio para que Braze almacene el nuevo punto de conexión de suscripción.
+Después de que el usuario vuelva a activar las notificaciones, activa de nuevo el flujo normal de registro de notificación push web de tu sitio para que Braze almacene el nuevo endpoint de suscripción.

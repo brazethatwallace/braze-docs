@@ -11,7 +11,7 @@ platform:
 
 # Registrar eventos de comercio electrónico {#log-ecommerce-events}
 
-> Aprende a registrar [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) a través de los SDK de Android, Swift y Web de Braze usando clases de eventos tipadas y `logEcommerceEvent`. Para esquemas de propiedades de eventos, características de la plataforma y validación de ingesta, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) y [Validación de eventos y solución de problemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
+> Aprende a registrar [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) a través de los SDK de Android, Swift y Web de Braze usando clases de eventos tipadas y `logEcommerceEvent`. Para esquemas de propiedades del evento, características de la plataforma y validación de ingesta, consulta [Eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) y [Validación de eventos y solución de problemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
 
 {% alert note %}
 Para los SDK envolventes no incluidos en la lista, usa el método nativo de Android o Swift correspondiente en su lugar.
@@ -28,18 +28,18 @@ Se desencadena cuando un usuario ve una página de detalle de producto.
 
 **Propiedades del evento**
 
-| Nombre de la propiedad | Tipo de datos | Obligatoria | Descripción |
+| Nombre de la propiedad | Tipo de datos | Obligatorio | Descripción |
 | ------------- | --------- | -------- | ----------- |
 | `product_id` | Cadena | Sí | Identificador único del producto (por ejemplo, SKU o ID de artículo). |
 | `product_name` | Cadena | Sí | Nombre de visualización del producto. |
 | `variant_id` | Cadena | Sí | Identificador de la variante del producto (por ejemplo, `shirt_medium_blue`). |
 | `image_url` | Cadena | No | URL de la imagen del producto. |
 | `product_url` | Cadena | No | URL de la página del producto para más detalles. |
-| `price` | Número flotante | Sí | Precio unitario de la variante en el momento de la visualización. |
+| `price` | Flotante | Sí | Precio unitario de la variante en el momento de la visualización. |
 | `currency` | Cadena | Sí | Código ISO 4217 de tres letras (por ejemplo, `USD` o `EUR`). |
 | `source` | Cadena | Sí | Fuente de la que se origina el evento (por ejemplo, `web`, `ios` o `android`). |
-| `type` | Matriz de cadenas | No | Obligatoria para usar las características de desencadenadores de catálogo de Braze para alertas de vuelta en stock y bajada de precio. Valores aceptados: `"price_drop"`, `"back_in_stock"`. |
-| `metadata` | Objeto | No | Pares clave-valor flexibles. Subpropiedad reconocida: `sku` (cadena). |
+| `type` | Matriz de cadenas | No | Obligatorio para usar las características de desencadenadores de catálogo de Braze para alertas de vuelta en stock y bajada de precio. Valores aceptados: `"price_drop"`, `"back_in_stock"`. |
+| `metadata` | Objeto | No | Pares clave-valor flexibles (por ejemplo, `category` o `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades del evento de producto visualizado" }
 
 {% endtab %}
@@ -49,14 +49,14 @@ Se desencadena cada vez que cambia el contenido del carrito de un usuario. Usa e
 
 **Propiedades del evento**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `cart_id` | Cadena | Sí | Identificador único del carrito. Se comparte entre los eventos de carrito, pago y pedido para el mapeado del carrito del usuario. |
 | `action` | Cadena | No | `add` (incrementar cantidad o agregar una línea), `remove` (decrementar cantidad; la línea se elimina en `0`) o `replace` (reemplazo completo del carrito, igual que omitir `action`). |
-| `total_value` | Número flotante | Condicional | Obligatoria cuando se omite `action` o es `replace`. Opcional cuando `action` es `add` o `remove`. |
-| `subtotal_value` | Número flotante | No | Valor del subtotal del carrito (después de descuentos, antes de impuestos/envío). |
-| `tax` | Número flotante | No | Impuesto total aplicado al carrito. |
-| `shipping` | Número flotante | No | Costo total de envío del carrito. |
+| `total_value` | Flotante | Condicional | Obligatorio cuando se omite `action` o es `replace`. Opcional cuando `action` es `add` o `remove`. |
+| `subtotal_value` | Flotante | No | Valor del subtotal del carrito (después de descuentos, antes de impuestos/envío). |
+| `tax` | Flotante | No | Impuesto total aplicado al carrito. |
+| `shipping` | Flotante | No | Costo total de envío del carrito. |
 | `currency` | Cadena | Sí | Código ISO 4217 de tres letras. |
 | `products` | Array | Sí | Elementos de línea para esta actualización. Consulta la tabla de propiedades de producto. |
 | `source` | Cadena | Sí | Fuente de la que se origina el evento. |
@@ -65,7 +65,7 @@ Se desencadena cada vez que cambia el contenido del carrito de un usuario. Usa e
 
 **Propiedades de producto (`products[]`)**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `product_id` | Cadena | Sí | Identificador único del producto. |
 | `product_name` | Cadena | Sí | Nombre de visualización del producto. |
@@ -73,7 +73,7 @@ Se desencadena cada vez que cambia el contenido del carrito de un usuario. Usa e
 | `image_url` | Cadena | No | URL de la imagen del producto. |
 | `product_url` | Cadena | No | URL de la página del producto. |
 | `quantity` | Entero | Sí | Para reemplazo completo, unidades en el carrito para esta línea. Para `add` o `remove`, cuántas unidades agregar o quitar. |
-| `price` | Número flotante | Sí | Precio unitario de la variante. |
+| `price` | Flotante | Sí | Precio unitario de la variante. |
 | `metadata` | Objeto | No | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades de producto del evento de carrito actualizado" }
 
@@ -84,14 +84,14 @@ Se desencadena cuando el usuario inicia el flujo de pago.
 
 **Propiedades del evento**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `checkout_id` | Cadena | Sí | Identificador único de la sesión de pago. |
 | `cart_id` | Cadena | No | Identificador del carrito. Se comparte entre los eventos de carrito, pago y pedido para el mapeado del carrito del usuario. |
-| `total_value` | Número flotante | Sí | Valor monetario total del pago. |
-| `subtotal_value` | Número flotante | No | Valor del subtotal (después de descuentos, antes de impuestos/envío). |
-| `tax` | Número flotante | No | Impuesto total aplicado al pago. |
-| `shipping` | Número flotante | No | Costo total de envío. |
+| `total_value` | Flotante | Sí | Valor monetario total del pago. |
+| `subtotal_value` | Flotante | No | Valor del subtotal (después de descuentos, antes de impuestos/envío). |
+| `tax` | Flotante | No | Impuesto total aplicado al pago. |
+| `shipping` | Flotante | No | Costo total de envío. |
 | `currency` | Cadena | Sí | Código ISO 4217 de tres letras. |
 | `products` | Array | Sí | Artículos en proceso de pago. Consulta la tabla de propiedades de producto. |
 | `source` | Cadena | Sí | Fuente de la que se origina el evento. |
@@ -100,7 +100,7 @@ Se desencadena cuando el usuario inicia el flujo de pago.
 
 **Propiedades de producto (`products[]`)**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `product_id` | Cadena | Sí | Identificador único del producto. |
 | `product_name` | Cadena | Sí | Nombre de visualización del producto. |
@@ -108,7 +108,7 @@ Se desencadena cuando el usuario inicia el flujo de pago.
 | `image_url` | Cadena | No | URL de la imagen del producto. |
 | `product_url` | Cadena | No | URL de la página del producto. |
 | `quantity` | Entero | Sí | Número de unidades en el carrito. |
-| `price` | Número flotante | Sí | Precio unitario de la variante. |
+| `price` | Flotante | Sí | Precio unitario de la variante. |
 | `metadata` | Objeto | No | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades de producto del evento de pago iniciado" }
 
@@ -119,17 +119,17 @@ Se desencadena cuando un pedido se completa correctamente o se confirma el pago.
 
 **Propiedades del evento**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `order_id` | Cadena | Sí | Identificador único del pedido. |
 | `cart_id` | Cadena | No | Identificador del carrito. Se comparte entre los eventos de carrito, pago y pedido para el mapeado del carrito del usuario. |
-| `total_value` | Número flotante | Sí | Valor monetario total del pedido. |
-| `subtotal_value` | Número flotante | No | Valor del subtotal (después de descuentos, antes de impuestos/envío). |
-| `tax` | Número flotante | No | Impuesto total aplicado al pedido. |
-| `shipping` | Número flotante | No | Costo total de envío. |
+| `total_value` | Flotante | Sí | Valor monetario total del pedido. |
+| `subtotal_value` | Flotante | No | Valor del subtotal (después de descuentos, antes de impuestos/envío). |
+| `tax` | Flotante | No | Impuesto total aplicado al pedido. |
+| `shipping` | Flotante | No | Costo total de envío. |
 | `currency` | Cadena | Sí | Código ISO 4217 de tres letras. |
-| `total_discounts` | Número flotante | No | Monto total de descuentos aplicados al pedido. |
-| `discounts` | Array | No | Lista detallada de descuentos aplicados. Cada objeto de descuento admite `code` (cadena), `amount` (número flotante) y `type` (cadena). |
+| `total_discounts` | Flotante | No | Monto total de descuentos aplicados al pedido. |
+| `discounts` | Array | No | Lista detallada de descuentos aplicados. Cada objeto de descuento admite `code` (cadena), `amount` (flotante) y `type` (cadena). |
 | `products` | Array | Sí | Artículos en el pedido. Consulta la tabla de propiedades de producto. |
 | `source` | Cadena | Sí | Fuente de la que se origina el evento. |
 | `metadata` | Objeto | No | Pares clave-valor flexibles. Subpropiedad reconocida: `order_status_url` (cadena). |
@@ -137,7 +137,7 @@ Se desencadena cuando un pedido se completa correctamente o se confirma el pago.
 
 **Propiedades de producto (`products[]`)**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `product_id` | Cadena | Sí | Identificador único del producto. |
 | `product_name` | Cadena | Sí | Nombre de visualización del producto. |
@@ -145,7 +145,7 @@ Se desencadena cuando un pedido se completa correctamente o se confirma el pago.
 | `image_url` | Cadena | No | URL de la imagen del producto. |
 | `product_url` | Cadena | No | URL de la página del producto. |
 | `quantity` | Entero | Sí | Número de unidades en el pedido. |
-| `price` | Número flotante | Sí | Precio unitario de la variante. |
+| `price` | Flotante | Sí | Precio unitario de la variante. |
 | `metadata` | Objeto | No | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades de producto del evento de pedido realizado" }
 
@@ -156,15 +156,15 @@ Se desencadena cuando se cancela un pedido.
 
 **Propiedades del evento**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `order_id` | Cadena | Sí | Identificador único del pedido. |
-| `total_value` | Número flotante | Sí | Valor monetario total del pedido que se cancela. Envía el monto absoluto (mayor o igual a `0`); Braze se encarga del decremento. |
-| `subtotal_value` | Número flotante | No | Valor del subtotal (después de descuentos, antes de impuestos/envío). |
-| `tax` | Número flotante | No | Impuesto total aplicado al pedido. |
-| `shipping` | Número flotante | No | Costo total de envío. |
+| `total_value` | Flotante | Sí | Valor monetario total del pedido que se cancela. Envía el monto absoluto (mayor o igual a `0`); Braze se encarga del decremento. |
+| `subtotal_value` | Flotante | No | Valor del subtotal (después de descuentos, antes de impuestos/envío). |
+| `tax` | Flotante | No | Impuesto total aplicado al pedido. |
+| `shipping` | Flotante | No | Costo total de envío. |
 | `currency` | Cadena | Sí | Código ISO 4217 de tres letras. |
-| `total_discounts` | Número flotante | No | Monto total de descuentos aplicados al pedido. |
+| `total_discounts` | Flotante | No | Monto total de descuentos aplicados al pedido. |
 | `discounts` | Array | No | Lista detallada de descuentos aplicados. |
 | `cancel_reason` | Cadena | Sí | Motivo por el que se canceló el pedido. |
 | `products` | Array | Sí | Artículos en el pedido cancelado. Consulta la tabla de propiedades de producto. |
@@ -174,7 +174,7 @@ Se desencadena cuando se cancela un pedido.
 
 **Propiedades de producto (`products[]`)**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `product_id` | Cadena | Sí | Identificador único del producto. |
 | `product_name` | Cadena | Sí | Nombre de visualización del producto. |
@@ -182,7 +182,7 @@ Se desencadena cuando se cancela un pedido.
 | `image_url` | Cadena | No | URL de la imagen del producto. |
 | `product_url` | Cadena | No | URL de la página del producto. |
 | `quantity` | Entero | Sí | Número de unidades en el pedido. |
-| `price` | Número flotante | Sí | Precio unitario de la variante. |
+| `price` | Flotante | Sí | Precio unitario de la variante. |
 | `metadata` | Objeto | No | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades de producto del evento de pedido cancelado" }
 
@@ -193,12 +193,12 @@ Se desencadena cuando se emite un reembolso total o parcial. Para reembolsos par
 
 **Propiedades del evento**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `order_id` | Cadena | Sí | Identificador único del pedido original. |
-| `total_value` | Número flotante | Sí | Valor monetario total del reembolso. Envía el monto absoluto (mayor o igual a `0`); Braze se encarga del ajuste de ingresos. |
+| `total_value` | Flotante | Sí | Valor monetario total del reembolso. Envía el monto absoluto (mayor o igual a `0`); Braze se encarga del ajuste de ingresos. |
 | `currency` | Cadena | Sí | Código ISO 4217 de tres letras. |
-| `total_discounts` | Número flotante | No | Monto total de descuentos aplicados originalmente. |
+| `total_discounts` | Flotante | No | Monto total de descuentos aplicados originalmente. |
 | `discounts` | Array | No | Lista detallada de descuentos. |
 | `products` | Array | Sí | Artículos que se reembolsan. Consulta la tabla de propiedades de producto. |
 | `source` | Cadena | Sí | Fuente de la que se origina el evento. |
@@ -207,7 +207,7 @@ Se desencadena cuando se emite un reembolso total o parcial. Para reembolsos par
 
 **Propiedades de producto (`products[]`)**
 
-| Propiedad | Tipo de datos | Obligatoria | Descripción |
+| Propiedad | Tipo de datos | Obligatorio | Descripción |
 | -------- | --------- | -------- | ----------- |
 | `product_id` | Cadena | Sí | Identificador único del producto. |
 | `product_name` | Cadena | Sí | Nombre de visualización del producto. |
@@ -215,7 +215,7 @@ Se desencadena cuando se emite un reembolso total o parcial. Para reembolsos par
 | `image_url` | Cadena | No | URL de la imagen del producto. |
 | `product_url` | Cadena | No | URL de la página del producto. |
 | `quantity` | Entero | Sí | Número de unidades reembolsadas. |
-| `price` | Número flotante | Sí | Precio unitario de la variante. |
+| `price` | Flotante | Sí | Precio unitario de la variante. |
 | `metadata` | Objeto | No | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades de producto del evento de pedido reembolsado" }
 
@@ -243,7 +243,7 @@ El SDK de Android [42.3.0+](https://github.com/braze-inc/braze-android-sdk/relea
 - `EcommerceProduct`: elementos de línea para eventos de carrito, pago y pedido.
   - Obligatorios: `productId`, `productName`, `variantId`, `price`, `quantity` (`Long` no negativo)
   - Opcionales: `imageUrl`, `productUrl`, `metadata`
-- `BrazeProperties`: `metadata` a nivel de evento o de producto. Las claves deben ser cadenas no vacías de hasta 255 caracteres sin signo de dólar ($) inicial.
+- `BrazeProperties`: `metadata` a nivel de evento o de producto. Las claves deben ser cadenas no vacías de como máximo 255 caracteres sin signo de dólar ($) inicial.
 
 ### Validación del lado del cliente {#client-side-validation}
 
@@ -274,7 +274,6 @@ import com.braze.models.outgoing.BrazeProperties
 import com.braze.models.recommended.ecommerce.ProductViewedEvent
 
 val metadata = BrazeProperties()
-  .addProperty("sku", "SS-R-101")
   .addProperty("category", "Apparel")
 
 val productViewedEvent = ProductViewedEvent(
@@ -480,7 +479,6 @@ import com.braze.models.outgoing.BrazeProperties;
 import com.braze.models.recommended.ecommerce.ProductViewedEvent;
 
 BrazeProperties metadata = new BrazeProperties()
-    .addProperty("sku", "SS-R-101")
     .addProperty("category", "Apparel");
 
 ProductViewedEvent productViewedEvent = new ProductViewedEvent(
@@ -692,7 +690,6 @@ if let productViewedEvent = try? Braze.Ecommerce.ProductViewedEvent(
     currency: "GBP",
     source: "https://braze-apparel.com/",
     metadata: [
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"
@@ -899,7 +896,7 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_refunded", properties: 
 {% endtab %}
 {% endtabs %}
 
-## Web
+## Web {#web}
 
 En el SDK Web [6.8.0+](https://github.com/braze-inc/braze-web-sdk), llama a `logEcommerceEvent` con un `name` de evento y `properties`. En versiones anteriores del SDK, llama a `logCustomEvent` con el nombre del evento y un objeto de propiedades. `ecommerce.order_cancelled` y `ecommerce.order_refunded` usan `logCustomEvent`.
 
@@ -925,7 +922,6 @@ braze.logEcommerceEvent({
         "currency": "GBP",
         "source": "https://braze-apparel.com/",
         "metadata": {
-            "sku": "",
             "color": "ORANGE",
             "size": "6",
             "brand": "Braze"
@@ -947,7 +943,6 @@ braze.logCustomEvent("ecommerce.product_viewed", {
     "currency": "GBP",
     "source": "https://braze-apparel.com/",
     "metadata": {
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"

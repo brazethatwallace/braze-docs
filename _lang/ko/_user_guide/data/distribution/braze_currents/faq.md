@@ -15,13 +15,13 @@ tool: Currents
 
 Campaign 또는 Canvas 측정기준을 특정 날짜 범위로 가져오려면 다음 방법 중 하나를 사용하세요:
 
-- 표준 API 기간 외에 대시보드 스타일의 보고가 필요한 경우 날짜 기반 내보내기를 위한 [제품 요청](https://portal.braze.com/)을 제출하세요.
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
 - `ending_at` 및 `length` 파라미터를 사용하여 [Campaign 분석]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) 또는 [Canvas 분석]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) 엔드포인트를 호출하거나, 시계열 데이터를 위해 [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) 및 [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)를 사용하세요.
 - Amazon S3, Azure Blob Storage 또는 기타 지원되는 대상에서 지속적으로 쿼리 가능한 메시지 참여 데이터가 필요한 경우 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하여 이벤트를 데이터 웨어하우스로 스트리밍하세요.
 
 ## 활성 상태의 커런츠 통합을 어떻게 편집하나요? {#how-do-i-edit-a-live-currents-integration}
 
-활성 상태의 Currents 커넥터를 변경하려면 통합을 열고 페이지 왼쪽 하단의 **편집**을 클릭하세요. **편집**이 없으면 통합 UI는 읽기 전용 상태로 유지되며, 아이콘만으로는 커넥터 설정을 수정할 수 없습니다.
+활성 상태의 Currents 커넥터를 변경하려면 통합을 열고 **편집**을 선택하세요. **편집**이 없으면 통합 UI는 읽기 전용 상태로 유지되며, 아이콘만으로는 커넥터 설정을 수정할 수 없습니다.
 
 ## Braze는 업로드 후 Azure Blob Storage Avro 파일을 어떻게 처리하나요? {#how-does-braze-handle-azure-blob-storage-avro-files-after-upload}
 
@@ -60,7 +60,7 @@ Currents는 "최소 1회" 전달을 보장하므로, 중복 이벤트가 간혹 
 
 ## Currents에서 사용 가능한 이벤트를 어떻게 확인하나요? {#how-do-i-find-which-events-are-available-for-currents}
 
-Currents가 기록하는 이벤트의 전체 목록은 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 용어집을 참조하세요. 이벤트 유형(예: 발송, 전달, 열기)별로 이 용어집을 필터링할 수 있습니다.
+Currents가 기록하는 이벤트의 전체 목록은 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 용어집을 참조하세요. 이벤트 유형(예: 발송, 전달, 열람)별로 이 용어집을 필터링할 수 있습니다.
 
 ## Currents 이벤트 수가 대시보드 또는 참여 보고서 측정기준과 일치하지 않는 이유는 무엇인가요? {#why-do-my-currents-event-counts-not-match-my-dashboard-or-engagement-report-metrics}
 
@@ -95,7 +95,7 @@ Braze는 Currents에 이벤트를 소급 적용하지 않습니다. 하지만 �
 
 ## Currents 이벤트에는 어떤 사용자 식별자가 포함되나요? {#what-user-identifiers-are-included-in-currents-events}
 
-메시지 참여 이벤트(발송, 열기, 클릭 등)에는 Braze 사용자 ID(`user_id`)와 프로필에 존재하는 경우 외부 식별자(이벤트 페이로드에서 `external_user_id`, Braze 스키마 매핑 테이블에서는 `external_id`로 표시됨)가 포함됩니다. 일부 이메일 메시지 참여 이벤트에는 `email_address`도 포함됩니다. 커스텀 속성은 포함되지 않습니다. 아래를 참조하세요.
+메시지 참여 이벤트(발송, 열기, 클릭 등)에는 Braze 사용자 ID(`user_id`)와 프로필에 존재하는 경우 외부 식별자(이벤트 페이로드에서 `external_user_id`, Braze 스키마 매핑 테이블에서는 `external_id`로 표시됨)가 포함됩니다. 일부 이메일 메시지 참여 이벤트에는 `email_address`도 포함됩니다. 커스텀 속성은 포함되지 않습니다.
 
 Currents 데이터를 데이터 웨어하우스나 CRM으로 라우팅하고 프로필 데이터와 조인해야 하는 경우, 다운스트림 시스템에서 `user_id` 또는 `external_user_id`를 사용하여 조인을 수행하세요.
 
@@ -109,7 +109,7 @@ Currents 데이터를 데이터 웨어하우스나 CRM으로 라우팅하고 프
 
 ## Braze는 Currents 변경 사항을 고객에게 어떻게 알리나요? {#how-does-braze-notify-customers-of-changes-to-currents}
 
-Currents 변경 사항(예: 새 이벤트 필드 또는 이벤트 유형)이 발생하면, Braze는 활성 커런츠 통합을 보유하고 있으며 지난 30일 이내에 대시보드를 사용한 모든 고객에게 이메일을 발송합니다. 최신 변경 사항은 [커런츠 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)에서도 확인할 수 있습니다.
+호환성을 깨뜨리는 변경이 드물게 발생하는 경우, Braze는 활성 통합의 담당자와 지난 30일 이내에 대시보드를 사용한 활성 커런츠 통합을 보유한 모든 관리자에게 사전 이메일을 발송합니다. 새 이벤트나 기존 이벤트에 새 필드가 추가되는 것과 같은 비호환성 변경의 경우, Braze는 알림을 발송하지 않습니다. 최신 변경 사항은 [커런츠 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)를 참조하세요.
 
 ## Currents 데이터에 얼마나 많은 스토리지가 필요한가요? {#how-much-storage-do-i-need-for-currents-data}
 

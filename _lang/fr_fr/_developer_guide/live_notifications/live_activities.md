@@ -336,7 +336,7 @@ Pour plus de détails, consultez notre article sur l'endpoint [`/messages/live_a
 
 ## Suivi des activités en direct {#tracking-live-activities}
 
-Les événements d'activité en direct sont disponibles dans Currents, Snowflake Data Sharing et le Générateur de requêtes. Les événements suivants peuvent vous aider à comprendre et à surveiller le cycle de vie de vos activités en direct, à suivre la disponibilité des jetons et à diagnostiquer de manière indépendante les problèmes ou à vérifier les statuts de distribution.
+Les événements d'activité en direct sont disponibles dans Currents, Snowflake Data Sharing et le générateur de requêtes. Les événements suivants peuvent vous aider à comprendre et à surveiller le cycle de vie de vos activités en direct, à suivre la disponibilité des jetons et à diagnostiquer de manière indépendante les problèmes ou à vérifier les statuts de distribution.
 
 - [Live Activity Push To Start Token Change]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-push-to-start-token-change-events) : Enregistre lorsqu'un jeton push-to-start (PTS) est ajouté ou mis à jour dans Braze, vous permettant de suivre les enregistrements et la disponibilité des jetons par utilisateur.
 - [Live Activity Update Token Change]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-update-token-change-events) : Suit l'ajout, la mise à jour ou la suppression des jetons Live Activity Update (LAU).
@@ -364,7 +364,7 @@ Vous pouvez également vérifier les signaux de disponibilité des jetons :
 
 ### Tableau de bord d'utilisation de l'API {#api-usage-dashboard}
 
-Accédez à **Paramètres** > **Clés API** > **Tableau de bord**, sélectionnez **Filtres**, et filtrez par **Endpoint** pour voir les réponses de l'API. Par exemple, sélectionnez `/messages/live_activity/update` (ou `/messages/live_activity/start`) et consultez le volume de requêtes sur les 30 derniers jours. Les réponses de l'API indiquent que l'API est appelée et que les notifications d'activité en direct iOS sont utilisées dans cet espace de travail. Pour plus d'informations, consultez [Tableau de bord d'utilisation de l'API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage).
+Accédez à **Paramètres** > **API et identifiants** > **Tableau de bord**, sélectionnez **Filtres**, et filtrez par **Endpoint** pour voir les réponses de l'API. Par exemple, sélectionnez `/messages/live_activity/update` (ou `/messages/live_activity/start`) et consultez le volume de requêtes sur les 30 derniers jours. Les réponses de l'API indiquent que l'API est appelée et que les notifications d'activité en direct iOS sont utilisées dans cet espace de travail. Pour plus d'informations, consultez [Tableau de bord d'utilisation de l'API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage).
 
 ## Observer les événements d'activité en direct (facultatif) {#observe-live-activity-events}
 
@@ -379,7 +379,7 @@ Ne vous abonnez pas directement à ces flux ActivityKit avec Apple, car cela ent
 4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
 5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
 
-Utilisez plutôt les abonnements mentionnés ci-dessous.
+Utilisez plutôt les abonnements mentionnés dans cette section.
 {% endalert %}
 
 Le SDK Braze fournit deux méthodes d'abonnement sur `braze.liveActivities` pour observer l'ensemble du cycle de vie des activités en direct. Pour un guide pas à pas complet, consultez le [tutoriel sur les activités en direct](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
@@ -661,7 +661,7 @@ Non, cela n'est pas pris en charge actuellement.
 
 #### Que se passe-t-il si une notification push est envoyée alors qu'une activité en direct est active ? {#what-happens-if-a-push-notification-is-sent-while-a-live-activity-is-active}
 
-![Écran de téléphone avec une activité sportive en direct « Bulls vs Bears » vers le milieu de l'écran et un texte de notification push lorem ipsum en bas de l'écran.]({% image_buster /assets/img/push-vs-live-activities.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
+![Écran de téléphone avec une activité sportive en direct Bulls vs Bears vers le milieu de l'écran et un texte de notification push lorem ipsum en bas de l'écran.]({% image_buster /assets/img/push-vs-live-activities.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
 Les activités en direct et les notifications push occupent des zones d'écran différentes et n'entrent pas en conflit sur l'écran de l'utilisateur.
 
@@ -689,7 +689,7 @@ Pour vérifier que votre notification push-to-start est bien arrivée sur l'appa
 
 #### Après avoir démarré mon activité en direct avec push-to-start, pourquoi ne reçoit-elle pas de nouvelles mises à jour ? {#after-starting-my-live-activity-with-push-to-start-why-isnt-it-receiving-new-updates}
 
-Vérifiez que vous avez correctement implémenté les instructions décrites [ci-dessus](#swift_brazeActivityAttributes). Votre `ActivityAttributes` doit contenir à la fois la conformité au protocole `BrazeLiveActivityAttributes` et la propriété `brazeActivityId`.
+Vérifiez que vous avez correctement implémenté les instructions décrites dans la [configuration de BrazeLiveActivityAttributes](#swift_brazeActivityAttributes). Votre `ActivityAttributes` doit contenir à la fois la conformité au protocole `BrazeLiveActivityAttributes` et la propriété `brazeActivityId`.
 
 Après avoir reçu une notification push-to-start d'activité en direct, vérifiez que vous pouvez voir une requête réseau sortante vers l'endpoint `/push_token_tag` de votre URL Braze et qu'elle contient le bon ID d'activité dans le champ `"tag"`.
 

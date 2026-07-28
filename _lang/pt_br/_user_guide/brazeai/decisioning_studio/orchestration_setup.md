@@ -118,14 +118,14 @@ Para integrações com a Braze, planeje quais dimensões o seu agente vai otimiz
 
 ## Configuração da integração {#integration-setup}
 
-Selecione a sua CEP abaixo para começar a configuração da integração.
+Selecione a sua CEP na lista abaixo para começar a configuração da integração.
 
 {% tabs %}
 {% tab Braze %}
 
 ## Configurar a integração com a Braze {#set-up-braze-integration}
 
-Siga estas etapas para integrar um agente do Decisioning Studio com os recursos de orquestração da Braze (a equipe de serviços da Braze estará disponível para ajudar):
+Siga estas etapas para integrar um agente do Decisioning Studio com os recursos de orquestração da Braze (a equipe de serviços da Braze está disponível para ajudar):
 
 ### Etapa 1: Criar uma chave de API {#step-1-create-an-api-key}
 
@@ -194,8 +194,6 @@ Resultando na seguinte mensagem:
 
 O Decisioning Studio oferece suporte a integração nativa com o Salesforce Marketing Cloud. O Decisioning Studio dispara eventos de API em uma jornada com os dados necessários para preencher elementos dinâmicos.
 
-Para etapas detalhadas sobre como configurar a integração com o SFMC, siga as [instruções do SFMC]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration) na documentação do Decisioning Studio Go.
-
 {% endtab %}
 {% tab Outras CEPs %}
 
@@ -203,7 +201,7 @@ Para etapas detalhadas sobre como configurar a integração com o SFMC, siga as 
 
 O Decisioning Studio pode se integrar com qualquer plataforma de engajamento com clientes. No entanto, isso pode exigir algum trabalho de engenharia personalizado da sua equipe, já que o Decisioning Studio não pode disparar comunicações diretamente.
 
-Nesse cenário, o agente entregará um "arquivo de recomendação". Esse arquivo contém linhas para cada cliente, com colunas que indicam todas as decisões personalizadas para aquele cliente.
+Nesse cenário, o agente entrega um "arquivo de recomendação". Esse arquivo contém linhas para cada cliente, com colunas que indicam todas as decisões personalizadas para aquele cliente.
 
 Por exemplo, o seguinte arquivo de recomendação:
 
@@ -220,11 +218,11 @@ Pode ser usado para otimizar uma Campaign de e-mail com a seguinte aparência:
 
 Tenha estas práticas recomendadas em mente ao se preparar para a orquestração:
 
-1. **Comece com um escopo reduzido.** Use um canal e um ou dois modelos no início. Você pode expandir depois, conforme aprende o que funciona.
-2. **Teste com cuidado.** Antes de lançar, teste sua integração com um pequeno grupo de usuários para verificar se o conteúdo dinâmico é preenchido corretamente.
-3. **Documente sua configuração.** Mantenha um registro dos IDs de Campaign, IDs de modelo, chaves de API e outros identificadores. Você precisará consultá-los no portal do Decisioning Studio.
-4. **Coordene com a sua equipe.** A configuração da orquestração pode envolver equipes de marketing, engenharia e dados. Certifique-se de que todos entendam seu papel no processo.
-5. **Planeje os dados de feedback.** A orquestração inclui o envio de mensagens e a coleta de dados de engajamento e conversão que ajudam o seu agente a aprender. Consulte [Preparar seus dados]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) para mais detalhes.
+1. **Comece com um escopo reduzido:** use um canal e um ou dois modelos no início. Você pode expandir depois, conforme aprende o que funciona.
+2. **Teste com cuidado:** antes de lançar, teste sua integração com um pequeno grupo de usuários para verificar se o conteúdo dinâmico é preenchido corretamente.
+3. **Documente sua configuração:** mantenha um registro dos IDs de Campaign, IDs de modelo, chaves de API e outros identificadores. Você precisará consultá-los no portal do Decisioning Studio.
+4. **Coordene com a sua equipe:** a configuração da orquestração pode envolver equipes de marketing, engenharia e dados. Certifique-se de que todos entendam seu papel no processo.
+5. **Planeje os dados de feedback:** a orquestração inclui o envio de mensagens e a coleta de dados de engajamento e conversão que ajudam o seu agente a aprender. Consulte [Preparar seus dados]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) para mais detalhes.
 
 ## Próximas etapas {#next-steps}
 

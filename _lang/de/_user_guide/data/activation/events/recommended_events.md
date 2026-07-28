@@ -23,7 +23,11 @@ Da diese Events einem definierten Schema folgen, kann jedes unterstützte Featur
 
 ### So funktionieren E-Commerce-Events {#how-ecommerce-events-work}
 
-E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemata. Sie senden sie über das [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) oder den [`/users/track` REST-API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachbearbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
+E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemata. Sie senden sie über das [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), den [`/users/track` REST-API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachbearbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
+
+{% alert note %}
+CSV-Uploads unterstützen keine E-Commerce-Events. Verwenden Sie das SDK, `/users/track` oder CDI, um diese Events zu senden.
+{% endalert %}
 
 E-Commerce-Events funktionieren überall dort, wo auch andere angepasste Events funktionieren: Trigger und Filter für durchgeführte angepasste Events, Reporting zu angepassten Events und mehr. Ihre Schema-Validierung schaltet jedoch zusätzliche Funktionen frei, darunter:
 
@@ -76,7 +80,7 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 | `currency`     | String           | Ja      | Dreistelliger ISO-4217-Code (z. B. `USD` oder `EUR`). |
 | `source`       | String           | Ja      | Quelle, von der das Event stammt (z. B. `web`, `ios` oder `android`). |
 | `type`         | String-Array     | Nein       | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-auf-Lager- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
-| `metadata`     | Objekt           | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `sku` (String) |
+| `metadata`     | Objekt           | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `category` oder `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### REST-API-Beispiel {#rest-api-example}
@@ -99,7 +103,6 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }
@@ -1142,51 +1145,7 @@ Die folgende Tabelle fasst zusammen, was Braze automatisch für jedes Event tut,
 Nicht-USD-Währungswerte werden automatisch anhand des Wechselkurses am Tag der Event-Meldung in USD umgerechnet. Wenn Sie bereits in USD berichten, setzen Sie `USD` als Währung fest, um eine unbeabsichtigte Umrechnung zu vermeiden.
 {% endalert %}
 
-## E-Commerce-Events implementieren {#implement-ecommerce-events}
-
-Sie können E-Commerce-Events über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (serverseitig) oder über die Braze SDKs (clientseitig) senden. SDK-Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
-
-### Events serverseitig senden {#send-events-server-side}
-
-Verwenden Sie den `/users/track`-Endpunkt, um E-Commerce-Events von Ihrem Backend zu senden. Jedes Event erfordert den exakten Event-Namen, die `external_id` der Nutzer:in und ein Eigenschafts-Objekt, das dem Event-Schema entspricht.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## Implementierungsdetails {#implementation-details}
 
 ### Datenpunkte und Abrechnung {#data-points-and-billing}
 

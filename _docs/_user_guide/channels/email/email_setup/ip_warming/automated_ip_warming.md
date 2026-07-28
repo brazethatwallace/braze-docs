@@ -36,6 +36,10 @@ To perform automated IP warming, you must have the following:
 - "Approve and Deny Campaigns" if the approval workflow for campaigns is turned on 
     - Braze automatically approves the campaigns created from automated IP warming on your behalf.
 
+{% alert important %}
+This feature may not be supported depending on your email infrastructure.
+{% endalert %}
+
 ## Set up an automated IP warming plan
 
 ### Step 1: Set a schedule
@@ -99,7 +103,7 @@ The system monitors your health based on the following industry benchmarks:
 - Bounces greater than 5%
 - Spam complaint rates greater than 0.04%
 
-If stats are below our benchmarks, the system holds volume the next day rather than increasing the volume to mitigate risk to your sender reputation.
+If stats are under our benchmarks, the system holds volume the next day rather than increasing the volume to mitigate risk to your sender reputation.
 
 ## Stop an IP warmup plan
 

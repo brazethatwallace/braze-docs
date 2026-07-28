@@ -78,7 +78,7 @@ Events stellen bestimmte Aktionen oder Verhaltensweisen dar, die von Nutzer:inne
 
 #### Standard-Events {#standard-events}
 
-[Standard-Events]({{site.baseurl}}/user_guide/data/activation/events#standard-events) sind vorgegebene Events, die Braze automatisch verfolgt, nachdem das SDK in Ihre App oder Website integriert wurde. Einige Beispiele für Standard-Events sind:
+[Standard-Events]({{site.baseurl}}/user_guide/data/activation/events) sind vorgegebene Events, die Braze automatisch verfolgt, nachdem das SDK in Ihre App oder Website integriert wurde. Einige Beispiele für Standard-Events sind:
 
 - **Sitzungsbeginn:** Dieses Event wird ausgelöst, wenn Nutzer:innen die App öffnen.
 - **Sitzungsende:** Dieses Event wird ausgelöst, wenn Nutzer:innen die App schließen.
@@ -118,7 +118,7 @@ In unserem Artikel erfahren Sie mehr über [Datenpunkte]({{site.baseurl}}/user_g
 Tipps für die Arbeit mit Segmenten:
 
 - Segmente in Braze sind dynamisch: Nutzer:innen fließen ständig in Segmente hinein und wieder heraus, da sie nicht immer die Kriterien erfüllen. Nutzer:innen, die zum Versandzeitpunkt die Kriterien eines Segments erfüllen, sind die Empfänger:innen der jeweiligen Campaign oder des Canvas.
-    - Wenn Sie statische Segmente wünschen, können Sie Segmenterweiterungen verwenden. Segmenterweiterungen ([ohne Regeneration]({{site.baseurl}}/user_guide/audience/segments/segment_extension#extension-regeneration)) bilden Ihre Zielgruppe als einzelne Momentaufnahme ab.
+    - Wenn Sie statische Segmente wünschen, können Sie Segmenterweiterungen verwenden. Segmenterweiterungen ([ohne Regeneration]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-4-designate-refresh-settings-optional)) bilden Ihre Zielgruppe als einzelne Momentaufnahme ab.
 - Sie sind nicht auf einen einzelnen Filter beschränkt. Erstellen Sie exakt abgegrenzte, granulare Segmente, indem Sie mehrere Filter übereinander legen.
 - Sie können die Aktionen oder Nicht-Aktionen Ihrer Nutzer:innen nutzen, um zu verstehen, wie Sie sie dort erreichen, wo sie mit Ihnen in Kontakt treten möchten. Bei diesen Aktionen kann es sich um angepasste Events, Engagement mit einer bestehenden Campaign oder einem Canvas oder sogar um eine bestimmte Nachricht innerhalb eines Canvas handeln.
 

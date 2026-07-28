@@ -9,22 +9,22 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les uti
 
 ---
 {% api %}
-# Exporter le profil utilisateur par Groupe de contrôle global {#export-user-profile-by-global-control-group}
+# Exporter le profil utilisateur par groupe de contrôle global {#export-user-profile-by-global-control-group}
 {% apimethod post %}
 /users/export/global_control_group
 {% endapimethod %}
 
-> Utilisez cet endpoint pour exporter tous les utilisateurs d'un Groupe de contrôle global.
+> Utilisez cet endpoint pour exporter tous les utilisateurs d'un groupe de contrôle global.
 
-Les données des utilisateurs sont exportées sous la forme de plusieurs fichiers d'objets JSON d'utilisateurs séparés par de nouvelles lignes (par exemple, un objet JSON par ligne). Tous les utilisateurs d'un Groupe de contrôle global sont inclus à chaque fois que les fichiers sont générés. Braze ne conserve pas l'historique des ajouts et suppressions d'utilisateurs dans un Groupe de contrôle global.
+Les données des utilisateurs sont exportées sous la forme de plusieurs fichiers d'objets JSON d'utilisateurs séparés par de nouvelles lignes (par exemple, un objet JSON par ligne). Tous les utilisateurs d'un groupe de contrôle global sont inclus à chaque fois que les fichiers sont générés. Braze ne conserve pas l'historique des ajouts et suppressions d'utilisateurs dans un groupe de contrôle global.
 
-Pour trouver l'identifiant de segment de votre Groupe de contrôle global, consultez les [types d'identifiants API]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier).
+Pour trouver l'identifiant de segment de votre groupe de contrôle global, consultez les [types d'identifiants API]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aa3d8b90-d984-48f0-9287-57aa30469de2 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `users.export.global_control_group`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `users.export.global_control_group`.
 
 ## Limite de débit {#rate-limit}
 
@@ -140,14 +140,14 @@ Voici une liste des `fields_to_export` valides. Utiliser `fields_to_export` pour
 | `time_zone` | Chaîne de caractères | Fuseau horaire de l'utilisateur au même format que la base de données de fuseaux horaires IANA. |
 | `total_revenue` | Float | Chiffre d'affaires total attribué à cet utilisateur. Le chiffre d'affaires total est calculé à partir des achats réalisés par l'utilisateur pendant les fenêtres de conversion des Campaigns et Canvas qu'il a reçus. |
 | `uninstalled_at` | Horodatage | Date et heure de désinstallation de l'application par l'utilisateur. Absent si l'application n'a pas été désinstallée. |
-| `user_aliases` | Objet | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) contenant les champs `alias_name` et `alias_label`, s'ils existent. |
+| `user_aliases` | Objet | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object) contenant les champs `alias_name` et `alias_label`, s'ils existent. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs à exporter" }
 
 ## Réponse {#response}
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example,'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }

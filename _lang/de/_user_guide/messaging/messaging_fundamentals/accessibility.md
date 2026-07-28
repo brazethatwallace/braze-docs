@@ -103,7 +103,7 @@ Je nach individuellen Bedürfnissen sind diese Nutzer:innen angewiesen auf:
 {% endtab %}
 {% endtabs %}
 
-## Best Practices {#best-practices}
+## Bewährte Praktiken {#best-practices}
 
 Barrierefreie Inhalte zu erstellen muss nicht überwältigend sein. Kleine, durchdachte Entscheidungen können einen großen Unterschied machen. Dieser Abschnitt führt Sie durch praktische Tipps, die mehr Menschen helfen, Ihre Nachrichten erfolgreich zu lesen, zu navigieren und mit ihnen zu interagieren. Ob Sie Ihren Text anpassen, Ihre Buttons gestalten oder Alt-Text zu Bildern hinzufügen – jede Verbesserung trägt zu einem inklusiveren Erlebnis bei. Legen wir los.
 
@@ -219,7 +219,7 @@ Halten Sie Button-Texte kurz, um Abschneidung zu vermeiden. Wenn der Text eines 
 Button-Text muss vor der Hintergrundfarbe des Buttons gut lesbar sein. Überprüfen Sie, ob Ihr Button-Text die WCAG 2.2 AA [Kontrastminima](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) erfüllt:
 
 - 4,5:1 Kontrastverhältnis für normalgroßen Text (die meisten Buttons)
-- 3:1 Kontrastverhältnis für großen Text (typischerweise über 18pt)
+- 3:1 Kontrastverhältnis für großen Text (typischerweise 18pt oder größer)
 
 Hoher Kontrast hilft sicherzustellen, dass Buttons für alle lesbar und klickbar bleiben, einschließlich Nutzer:innen mit Sehbeeinträchtigungen oder solchen, die Ihre Nachricht unter schwierigen Bedingungen betrachten. Weitere Informationen finden Sie im Abschnitt [Farbkontrast](#color-contrast).
 
@@ -415,7 +415,7 @@ Wenn ein Bild wesentlichen Text enthält, fügen Sie diese Information in den Al
   </thead>
   <tbody>
     <tr>
-      <td>„Banner mit dem Text „Sommerschlussverkauf – 50 % Rabatt auf alle Bademode.“"</td>
+      <td>„Banner mit dem Text „Sommerschlussverkauf – 50 % Rabatt auf alle Bademode“"</td>
       <td>„Banner, das einen Verkauf bewirbt.“ (Erwähnt den tatsächlichen Rabatt nicht)</td>
     </tr>
     <tr>
@@ -451,7 +451,7 @@ Füllen Sie Alt-Text nicht mit SEO-Begriffen oder Handlungsaufforderungen auf, d
     </tr>
     <tr>
       <td>„Mobiltelefon, das eine Wetter-App mit 24 °C anzeigt“</td>
-      <td>„Erleben Sie Echtzeit-Innovationen im Wetter-Tracking, die alles verändern“ (Spiegelt nicht wider, was sichtbar gezeigt wird)</td>
+      <td>„Erleben Sie Realtime-Innovationen im Wetter-Tracking, die alles verändern“ (Spiegelt nicht wider, was sichtbar gezeigt wird)</td>
     </tr>
   </tbody>
 </table>
@@ -505,6 +505,7 @@ Fügen Sie Ihren Videos Untertitel hinzu, damit Nutzer:innen den Dialogen, Sound
 Untertitel können ein- und ausgeschaltet werden, sodass Nutzer:innen wählen können, was für sie am besten funktioniert.
 
 {% multi_lang_include accessibility/video.md %}
+
 
 #### Stellen Sie Wiedergabesteuerungen bereit {#playback-controls}
 
@@ -634,7 +635,7 @@ E-Mails, die im E-Mail-Drag-and-Drop-Editor erstellt werden, haben Präsentation
 Um Ihnen zu helfen, Barrierefreiheitsprobleme frühzeitig zu erkennen und zu beheben, bietet Braze automatisierte Barrierefreiheitstests in den folgenden Bereichen:
 
 - [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) für E-Mails
-- [Barrierefreiheits-Scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) für Nachrichten, die mit unserem HTML-Editor erstellt wurden (zum Beispiel HTML-In-App-Nachrichten, HTML Content Blocks, [benutzerdefinierte E-Mail-Fußzeilen]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [E-Mail-Opt-in-Seiten]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page) und [E-Mail-Abmeldeseiten]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)).
+- [Barrierefreiheits-Scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) für Nachrichten, die mit unserem HTML-Editor erstellt wurden (zum Beispiel HTML-In-App-Nachrichten, HTML Content Blocks, [benutzerdefinierte E-Mail-Fußzeilen]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [E-Mail-Opt-in-Seiten]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page) und [E-Mail-Abmeldeseiten]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)).
 
 Diese Tests prüfen Ihre Nachricht anhand des Standards der Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) – einer Reihe international anerkannter technischer Standards für barrierefreie Inhalte. Alle Probleme, die automatisch erkannt werden können, werden markiert und nach Schweregrad kategorisiert, um Ihnen bei der Priorisierung zu helfen.
 
@@ -667,4 +668,4 @@ Selbst wenn Ihre Nachricht jede automatisierte Prüfung besteht, ist es dennoch 
 - Wo möglich manuell zu testen, besonders bei Layout- und Interaktionsmustern.
 - Tools wie Screenreader, reine Tastaturnavigation und Browser-Zoom zu verwenden, um verschiedene Zugangsbedürfnisse zu simulieren.
 
-Indem Sie automatisierte Tests mit durchdachter manueller Überprüfung kombinieren, erkennen Sie mehr potenzielle Probleme und erstellen inklusivere, benutzerfreundlichere Campaigns für alle Empfänger:innen.
+Indem Sie automatisierte Tests mit durchdachter manueller Überprüfung kombinieren, erkennen Sie mehr potenzielle Probleme und erstellen inklusivere, benutzerfreundlichere Kampagnen für alle Empfänger:innen.

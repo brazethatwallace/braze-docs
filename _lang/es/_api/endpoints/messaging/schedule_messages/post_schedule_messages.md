@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear mensajes programados de Braze."
+description: "En este artículo se describen los detalles del endpoint Crear mensajes programados de Braze."
 
 ---
 {% api %}
@@ -14,19 +14,19 @@ description: "En este artículo se describen los detalles del punto de conexión
 /messages/schedule/create
 {% endapimethod %}
 
-> Utiliza este punto de conexión para programar el envío de una Campaign, Canvas u otro mensaje a una hora determinada, y te proporciona un identificador para hacer referencia a ese mensaje en las actualizaciones.
+> Utiliza este endpoint para programar el envío de una Campaign, Canvas u otro mensaje a una hora determinada, y te proporciona un identificador para hacer referencia a ese mensaje en las actualizaciones.
 
 Si te diriges a un segmento, se almacenará un registro de tu solicitud en la [consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/) después de que se hayan enviado todos los mensajes programados.
 
 {% alert tip %}
-Si te interesa enviar mensajes inmediatamente a usuarios designados, utiliza en su lugar el [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
+Si te interesa enviar mensajes inmediatamente a usuarios designados, utiliza en su lugar el [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#25272fb8-bc39-41df-9a41-07ecfd76cb1d {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `messages.schedule.create`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `messages.schedule.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -83,7 +83,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `campaign_id` | Opcional | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types). |
 | `send_id` | Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types). |
 | `override_messaging_limits` | Opcional | Booleano | Ignora la limitación de frecuencia para las campañas, predeterminado a falso |
-| `recipient_subscription_state` | Opcional | Cadena | Utiliza esta opción para enviar mensajes solo a los usuarios que se hayan adherido voluntariamente (`opted_in`), solo a los usuarios que se hayan suscrito o estén adheridos voluntariamente (`subscribed`) o a todos los usuarios, incluidos los que hayan cancelado la suscripción (`all`). <br><br>El uso de `all` usuarios es útil para la mensajería de correo electrónico transaccional. De forma predeterminada, `subscribed`. |
+| `recipient_subscription_state` | Opcional | Cadena | Utiliza esta opción para enviar mensajes solo a los usuarios que se hayan adherido voluntariamente (`opted_in`), solo a los usuarios que se hayan suscrito o estén adheridos voluntariamente (`subscribed`) o a todos los usuarios, incluidos los que hayan cancelado la suscripción (`all`). <br><br>El uso de `all` usuarios es útil para la mensajería de correo transaccional. De forma predeterminada, `subscribed`. |
 | `schedule` | Obligatorio | Objeto de programación | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object) |
 | `messages` | Opcional | Objeto de mensajería | Consulta [los objetos de mensajería disponibles]({{site.baseurl}}/api/objects_filters#messaging-objects). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }

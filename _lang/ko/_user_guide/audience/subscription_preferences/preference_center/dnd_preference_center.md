@@ -19,10 +19,7 @@ page_order: 2
 
 ## 1단계: 이메일 환경설정 센터 만들기 {#step-1-create-an-email-preference-center}
 
-**오디언스** > **이메일 환경설정 센터**로 이동하여 환경설정 센터를 만듭니다.
-
-여기에 커스텀 환경설정 센터 목록이 표시됩니다. **새로 만들기**를 선택하여 새 환경설정 센터를 만들거나, 기존 환경설정 센터의 이름을 선택하여 변경합니다.
-
+**오디언스** > **이메일 환경설정 센터**로 이동하여 환경설정 센터를 만듭니다. 여기에 커스텀 환경설정 센터 목록이 표시됩니다. **새로 만들기**를 선택하여 새 환경설정 센터를 만들거나, 기존 환경설정 센터의 이름을 선택하여 변경합니다.
 
 ## 2단계: 이메일 환경설정 센터 이름 지정 {#step-2-name-the-email-preference-center}
 
@@ -30,24 +27,23 @@ page_order: 2
 
 이 Liquid 태그는 모든 아웃바운드 이메일 Campaign 또는 캔버스 단계에 포함할 수 있으며, 사용자를 환경설정 센터로 안내합니다.
 
-
 ## 3단계: 환경설정 센터에 구독 그룹 추가 {#step-3-add-subscription-groups-to-the-preference-center}
 
 **편집기 실행**을 선택하여 드래그 앤 드롭 편집기에서 환경설정 센터 디자인을 시작합니다.
 
 ### 사용 가능한 구독 그룹 정의 {#define-available-subscription-groups}
 
-환경설정 센터에 표시할 구독 그룹을 결정하려면 **+ 구독 그룹 추가** 버튼을 선택하여 원하는 구독 그룹을 선택할 수 있는 모달을 실행합니다. 선택한 후 **구독 그룹 추가** 버튼을 선택하여 환경설정 센터에 추가합니다.
+환경설정 센터에 표시할 구독 그룹을 결정하려면 **+ 구독 그룹 추가** 버튼을 선택하여 원하는 구독 그룹을 선택할 수 있는 Modal을 실행합니다. 선택한 후 **구독 그룹 추가** 버튼을 선택하여 환경설정 센터에 추가합니다.
 
 스마트 블록을 선택하고 블록 속성을 조정하여 선택한 구독 그룹을 추가로 구성할 수 있습니다.
+
 - 구독 그룹 순서 조정
 - 추가 구독 그룹 추가 또는 제거
 - 설명 포함
-- **Subscribe to all** 체크박스 추가 또는 제거 - 이 블록에 표시된 모든 구독 그룹에 사용자를 구독시킵니다
-- **Unsubscribe from all** 체크박스 추가 또는 제거 - 이 블록에 표시된 모든 구독 그룹에서 사용자의 구독을 취소합니다
+- **Subscribe to all** 체크박스 추가 또는 제거 — 이 블록에 표시된 모든 구독 그룹에 사용자를 가입시킵니다
+- **Unsubscribe from all** 체크박스 추가 또는 제거 — 이 블록에 표시된 모든 구독 그룹에서 사용자의 구독을 취소합니다
 
-
-템플릿 하단의 **Unsubscribe from all** 버튼은 제거할 수 없으며, 사용자가 이메일 메시지 수신을 [글로벌 구독 취소]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states)하게 됩니다.
+템플릿 하단의 **Unsubscribe from all** 버튼은 제거할 수 없으며, 사용자가 이메일 메시지 수신을 [글로벌 탈퇴]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states)하게 됩니다.
 
 ## 4단계: 드래그 앤 드롭 편집기를 사용하여 환경설정 센터 커스터마이즈 {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
 
@@ -89,35 +85,39 @@ page_order: 2
 
 환경설정 센터에서 커스텀 코드 블록을 사용하는 경우, 사용자에게 전달될 때 커스텀 코드에서 인라인 프레임이 생성되지 않을 수 있습니다.
 
+{% alert note %}
+링크가 포함된 Content Blocks는 드래그 앤 드롭 환경설정 센터에서 사용할 수 없습니다. Content Blocks 내의 링크는 클릭할 수 없습니다.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
 ## 5단계: 확인 페이지 커스터마이즈 {#step-5-customize-your-confirmation-page}
 
-확인 페이지도 커스터마이즈하는 것을 잊지 마세요! 드래그 앤 드롭 편집기 창 상단에서 **확인 페이지**를 선택하여 이 페이지를 편집할 수 있습니다. 이 페이지는 사용자가 환경설정 센터를 사용하여 환경설정을 업데이트한 후 표시됩니다. 위와 동일한 스타일링 기능이 이 페이지에도 적용됩니다.
+다음으로 **확인 페이지**를 선택하여 확인 페이지를 커스터마이즈합니다. 이 페이지는 사용자가 환경설정 센터를 사용하여 환경설정을 업데이트한 후 표시됩니다. [공통 스타일 설정](#set-common-styles) 및 [드래그 앤 드롭 환경설정 센터 구성요소](#drag-and-drop-preference-center-components)의 동일한 스타일링 기능이 이 페이지에도 적용됩니다.
 
 ![사용자의 환경설정이 업데이트되었음을 알리는 확인 페이지 예시.]({% image_buster /assets/img/preference_center/preference_center9.png %}){: style="max-width:65%;"}
 
 ## 6단계: 환경설정 센터 미리보기 및 시작 {#step-6-preview-and-launch-your-preference-center}
 
-편집기 내에서 **미리보기** 탭을 선택하여 환경설정 센터를 미리 볼 수 있습니다. 단, 테스트 기능은 비활성화되어 있습니다. 환경설정 센터 편집을 마친 후 **Done** 버튼을 선택하여 편집기를 닫을 수 있습니다.
+편집기 내에서 **미리보기** 탭을 선택하여 환경설정 센터를 미리 볼 수 있습니다. 단, 테스트 기능은 비활성화되어 있습니다. 또한 환경설정 센터 Liquid 태그가 포함된 Campaign 또는 캔버스 단계의 테스트 발송은 유효한 링크를 생성하지 않습니다. 환경설정 센터의 전체 기능을 테스트하려면 실시간 Campaign 또는 Canvas를 발송하세요. 환경설정 센터 편집을 마친 후 **완료**를 선택하여 편집기를 닫을 수 있습니다.
 
-환경설정 센터와 확인 페이지의 미리보기가 모두 표시됩니다. **초안으로 저장**을 선택하여 나중에 이 환경설정 센터로 돌아오거나, 만족스러우면 **Launch Preference Center**를 선택합니다.
+미리보기에는 환경설정 센터와 확인 페이지가 모두 표시됩니다. **초안으로 저장**을 선택하여 나중에 이 환경설정 센터로 돌아오거나, 만족스러우면 **환경설정 센터 시작**을 선택합니다.
 
 환경설정 센터를 시작할 때 이름을 확인하라는 메시지가 표시됩니다. 시작 후에는 이름을 편집할 수 없기 때문입니다. 이름을 확인하면 환경설정 센터가 시작되어 사용할 준비가 됩니다.
 
-## 환경설정 센터 사용 {#using-the-preference-center}
+## 환경설정 센터 사용 {#use-the-preference-center}
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
-이메일에 환경설정 센터 링크를 배치하려면 **문안 Liquid** 아이콘을 선택하여 원하는 환경설정 센터의 Liquid 태그를 복사합니다.
+이메일에 환경설정 센터 링크를 배치하려면 **Liquid 복사** 아이콘을 선택하여 원하는 환경설정 센터의 Liquid 태그를 복사합니다.
 
-![환경설정 센터 행의 문안 Liquid 옵션.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
+![환경설정 센터 행의 Liquid 복사 옵션.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
-[구독 취소 URL]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link)을 삽입하는 방법과 유사하게 이메일의 원하는 위치에 Liquid 태그를 추가합니다.
+[탈퇴 URL]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link)을 삽입하는 방법과 유사하게 이메일의 원하는 위치에 Liquid 태그를 추가합니다.
 
-## 오류 처리 {#handling-errors}
+## 오류 처리 {#handle-errors}
 
 사용자가 환경설정 센터에서 **저장**을 선택할 때 오류가 발생하면, 다음과 같은 기본 오류 메시지가 표시되며, 이 메시지는 편집기에서 커스터마이즈하거나 스타일을 지정할 수 없습니다. 단, 이 페이지에서는 오류 메시지의 현지화가 지원됩니다.
 
-![환경설정을 저장하는 중 문제가 발생했다는 오류 메시지.]({% image_buster /assets/img/preference_center/preference_center11.png %}){: style="max-width:55%;"}
+!["환경설정을 저장하는 중 문제가 발생했습니다. 다시 시도해 주세요."라는 오류 메시지.]({% image_buster /assets/img/preference_center/preference_center11.png %}){: style="max-width:55%;"}

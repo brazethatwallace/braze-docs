@@ -1,19 +1,19 @@
 ---
 nav_title: APIキャンペーン
-article_title: API キャンペーン
+article_title: APIキャンペーン
 page_order: 5
 description: "このリファレンス記事では、API呼び出しに含めるcampaign_idの生成方法と、そのキャンペーンの設定方法について説明します。"
 page_type: reference
 tool: Campaigns
-
 ---
+
 # APIキャンペーン {#api-campaigns}
 
-> このリファレンス記事では、API呼び出しに含める`campaign_id`の生成方法とそのキャンペーンの設定方法について説明します。
+> このリファレンス記事では、API呼び出しに含める`campaign_id`の生成方法と、そのキャンペーンの設定方法について説明します。
 
 APIキャンペーンは通常、トランザクションメッセージングに使用されます。APIキャンペーン（[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)ではない）を作成する場合、Brazeダッシュボードは`campaign_id`を生成するためだけに使用され、キャンペーンレポートの分析を追跡できます。また、キャンペーン内の各バリアントごとに異なるメッセージバリエーションIDを生成することもできます。
 
-次に、その情報を以下の内容とともに開発チームに送信し、APIリクエストで使用します。
+その情報を以下の内容とともに開発チームに送信し、APIリクエストで使用してもらいます。
 - キャンペーンコピー
 - オーディエンスメンバーシップ
 - アセット
@@ -21,26 +21,65 @@ APIキャンペーンは通常、トランザクションメッセージング�
 キャンペーンが開始された後、結果をダッシュボードで確認できます。APIキャンペーンはBrazeの[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)を使用します。これらのAPIは、ダッシュボードを通じて完全に作成されたキャンペーンと同じ詳細なレポートおよびリターゲティングオプションを備えています。
 
 {% alert warning %}
-APIキャンペーンは通常トランザクション型であるため、グローバルコントロールグループに属するユーザーも含め、すべてのユーザーがAPIキャンペーンの対象となります。これらの送信には[ワンクリックリスト配信停止]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe)ヘッダーが追加されません。すべてのAPIキャンペーンにワンクリックリスト配信停止ヘッダーを追加する場合は、カスタマーサクセスマネージャーにお問い合わせください。
+APIキャンペーンは通常トランザクション型であるため、グローバルコントロールグループに属するユーザーも含め、すべてのユーザーがAPIキャンペーンの対象となります。デフォルトでは、これらの送信に[ワンクリックリスト購読解除]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe)ヘッダーは追加されません。APIキャンペーンにワンクリックリスト購読解除ヘッダーを追加するには、[APIキャンペーンにワンクリックリスト購読解除を追加する](#add-one-click-list-unsubscribe-to-api-campaigns)を参照してください。すべてのAPIキャンペーンにワンクリックリスト購読解除ヘッダーを追加する場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 ## 新しいキャンペーンを作成する {#create-a-new-campaign}
 
-**メッセージング** > **キャンペーン**に移動して**キャンペーンを作成**を選択し、**API キャンペーン**を選択します。これで、APIキャンペーンの設定に進むことができます。
+**メッセージング** > **キャンペーン**に移動し、**キャンペーンを作成**を選択してから、**APIキャンペーン**を選択します。これで、APIキャンペーンの設定に進むことができます。
 
-[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)は、APIキャンペーンとは異なります。
+[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)はAPIキャンペーンとは異なります。
 
 ## キャンペーンを設定する {#configure-your-campaign}
 
-キャンペーンを設定するには、次のステップを実行します。
+キャンペーンを設定するには、以下のステップを実行します。
 
-1. メッセージを送信した後にキャンペーンページで結果を見つけられるように、わかりやすいタイトルを追加します。
-2. **Add Message**を選択して、APIキャンペーンに含めるメッセージタイプを追加します。これにより、`campaign_id`とメッセージバリエーションIDが生成されます。メッセージバリエーションIDは含める各チャネルごとに異なります。
-3. オプションとして、特定のアクションやキャンペーン目標に対するユーザーのコンバージョンを追跡するために、コンバージョンイベントを追加できます。
-4. **キャンペーンを保存**を選択すると、APIキャンペーンを開始する準備が整います。
+1. キャンペーンページでメッセージ送信後に結果を見つけやすいよう、わかりやすいタイトルを追加します。
+2. **メッセージを追加**を選択し、APIキャンペーンに含めるメッセージタイプを追加します。これにより、`campaign_id`と、含めるチャネルごとに異なるメッセージバリエーションIDが生成されます。
+3. 必要に応じて、特定のアクションやキャンペーン目標に対するユーザーのコンバージョンを追跡するコンバージョンイベントを追加できます。
+4. **キャンペーンを保存**を選択すれば、APIキャンペーンを開始する準備は完了です。
 
 ## API呼び出し {#api-calls}
 
-APIキャンペーンを保存したら、APIリクエストに次の内容を含めます。
-- [メッセージ送信エンドポイント]({{site.baseurl}}/api/endpoints/messaging#send-endpoints)に記載されている箇所に、生成された`campaign_id`フィールドを含めます。
-- キャンペーンに含まれる各プラットフォームの[メッセージオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)。メッセージオブジェクトにメッセージバリエーションIDを指定します。これにより、統計が収集され、そのバリアントの下に表示されるようになります。次のメッセージオブジェクトがサポートされています：Android、Content Cards、メール、iOS、Kindle、SMS/MMS、Webプッシュ、Webhook。
+APIキャンペーンを保存した後、APIリクエストに以下を含めてください。
+
+- 生成された`campaign_id`フィールドを、[メッセージ送信エンドポイント]({{site.baseurl}}/api/endpoints/messaging)に記載されている箇所でAPIリクエストに含めます。
+- キャンペーンに含まれる各プラットフォームの[メッセージオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)。メッセージオブジェクトでは、メッセージバリエーションIDを指定します。これにより、統計がそのバリアントの下で収集・表示されるようになります。サポートされているメッセージオブジェクトは、Android、Content Cards、メール、iOS、Kindle、SMS/MMS、Webプッシュ、Webhookです。
+
+## APIキャンペーンにワンクリックリスト購読解除を追加する {#add-one-click-list-unsubscribe-to-api-campaigns}
+
+{% raw %}
+デフォルトでは、BrazeはAPIキャンペーンにワンクリックリスト購読解除ヘッダーを追加しません。個々のAPIキャンペーン送信にこのヘッダーを追加するには、APIリクエストのメールヘッダーフィールドに`{{${set_user_to_one_click_list_unsubscribe}}}`Liquidタグを含めます。
+{% endraw %}
+
+ワンクリックリスト購読解除の[RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058)に準拠するには、APIリクエストに`List-Unsubscribe`と`List-Unsubscribe-Post`の両方のヘッダーを含めてください。
+
+{% raw %}
+```json
+{
+  "external_user_ids": ["user_id"],
+  "messages": {
+    "email": {
+      "app_id": "your_app_id",
+      "subject": "Your Subject",
+      "from": "Sender Name <sender@example.com>",
+      "body": "<p>Email body content</p>",
+      "headers": {
+        "List-Unsubscribe": "<{{${set_user_to_one_click_list_unsubscribe}}}>",
+        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"
+      }
+    }
+  }
+}
+```
+{% endraw %}
+
+{% alert note %}
+これらのヘッダーを含めても、メールクライアントが購読解除ボタンを表示することは保証されません。メールクライアントは、送信者のレピュテーションやメッセージの内容などの要因に基づいて、購読解除オプションを表示するかどうかを判断します。
+{% endalert %}
+
+### メール添付ファイルの追加 {#add-email-attachments}
+
+APIキャンペーンのメールに添付ファイルを追加するには、[メールオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/email_object)に`attachments`配列を含めます。ドラッグ＆ドロップエディターまたはHTMLエディターで作成したメールテンプレートを参照するには、メールオブジェクトに`email_template_id`を指定し、API呼び出しを通じて添付ファイルを追加します。
+
+添付ファイルの詳細、サイズ制限、ベストプラクティスについては、[添付ファイル付きメールオブジェクトの例]({{site.baseurl}}/api/objects_filters/messaging/email_object#example-email-object-with-attachment)を参照してください。

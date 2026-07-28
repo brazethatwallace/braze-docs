@@ -143,7 +143,9 @@ Transactional campaigns include messages sent after the user completes a purchas
 
 In addition, when creating welcome campaigns, you can trigger messages to send after the user registers or sets up an account. Staggering messages to be sent on different days following registration will allow you to create a thorough onboarding process.
 
-## Why did a user not receive my triggered campaign?
+## Frequently asked questions
+
+### Why did a user not receive my triggered campaign?
 
 Any of these things will prevent a user who has completed the trigger event from receiving the campaign:
 
@@ -158,11 +160,11 @@ Any of these things will prevent a user who has completed the trigger event from
 
 For example, imagine you want to send an event-triggered campaign to male users who just registered. When the user registers, you record a custom event `registration` and simultaneously set the user's `gender` attribute. The event may trigger the campaign before Braze has processed the user's gender, preventing them from receiving the campaign.
 
-As a best practice, ensure that the attribute on which the campaign is segmented is flushed to Braze servers before the event. If this isn't possible, the best way to guarantee delivery is to use [custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) to attach the relevant user properties to the event and apply a property filter for the specific event property instead of a segmentation filter. For our example, you would add a `gender` property to the custom event `registration` so that Braze is guaranteed to have the data you need when your campaign is triggered.
+As a best practice, ensure that the attribute on which the campaign is segmented is flushed to Braze servers before the event. If this isn't possible, the best way to guarantee delivery is to use [custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) to attach the relevant user properties to the event and apply a property filter for the specific event property instead of a segmentation filter. For our example, you would add a `gender` property to the custom event `registration` so that Braze is guaranteed to have the data you need when your campaign is triggered.
 
 Additionally, if a campaign is action-based and has a delay, you can check the option to **Re-evaluate segment membership at send-time** to ensure users are still part of the target audience when the message is sent.
 
-### Audience criteria evaluation
+#### Audience criteria evaluation
 
 For campaigns that involve a delay before sending (including rate limiting, local time zone, Intelligent Timing, or a trigger schedule), when the segment is re-evaluated depends on campaign type and settings.
 
@@ -177,7 +179,7 @@ We recommend either changing the target audience to include all users, or checki
 
 ![Screenshot related to audience criteria evaluation.]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
 
-### Troubleshooting custom events
+#### Troubleshooting custom events
 
 First, confirm that the custom event is being passed to Braze. Go to **Analytics** > **Custom Events Report**, and then select the respective custom event and date range. If the event doesn't display, confirm that it's set up correctly and that the user performed the correct action.
 
@@ -192,3 +194,8 @@ If the custom event displays, further troubleshoot by doing the following:
 In-app messages can only be triggered by events sent through the SDK, not the REST API.
 {% endalert %}
 
+### When do action-based campaigns evaluate audience membership?
+
+Braze evaluates audience membership when it processes the trigger event, before the message is sent. By default, Braze checks whether the user matches the target audience at enqueue time. If the campaign has a delay, you can select **Re-evaluate segment membership at send-time** to check audience criteria again immediately before send—for example, when a user could perform the trigger action and then exit the audience before the send completes.
+
+For more information, see [Audience criteria evaluation](#audience-criteria-evaluation).

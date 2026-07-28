@@ -6,6 +6,8 @@ description: "GitHubからミラーリングされたBraze Android SDK READMEリ
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Android SDKリポジトリガイド {#android-sdk-repository-guide}
+
 ## Braze Android SDKについて {#about-the-braze-android-sdk}
 
 Braze Android SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
@@ -28,8 +30,8 @@ repositories {
 }
 // ...
 dependencies {
-  `implementation 'com.braze:android-sdk-ui:42.3.+'`
-  `implementation 'com.braze:android-sdk-location:42.3.+'`
+  `implementation 'com.braze:android-sdk-ui:43.0.+'`
+  `implementation 'com.braze:android-sdk-location:43.0.+'`
 }
 // ...
 ```
@@ -66,7 +68,7 @@ Braze Android SDKは`minSdkVersion`をAPI 21+として宣言しており、SDK�
 minSdk|5.0+ / API 21+（Lollipop以降）
 targetSdk|37
 Kotlin|`org.jetbrains.kotlin:kotlin-stdlib:2.2.20`
-Firebase Cloud Messaging|24.1.2
+Firebase Cloud Messaging|25.1.0
 Font Awesome|4.3.0
 
 ## モジュール {#modules}
@@ -75,13 +77,13 @@ Font Awesome|4.3.0
 
 モジュール | 説明
 :----|:----
-`android-sdk-base`|Braze SDKの基本分析ライブラリーです。
-`android-sdk-ui`|アプリ内メッセージ、プッシュ、Content Cards、バナー用のBraze SDKユーザーインターフェイスライブラリーです。
-`android-sdk-location`|ロケーションとジオフェンス用のBraze SDKロケーションライブラリーです。
-`android-sdk-jetpack-compose`|Jetpack Composeサポート用のBraze SDKライブラリーです。
+`android-sdk-base`|Braze SDKの基本分析ライブラリです。
+`android-sdk-ui`|アプリ内メッセージ、プッシュ、Content Cards、バナー用のBraze SDKユーザーインターフェイスライブラリです。
+`android-sdk-location`|ロケーションとジオフェンス用のBraze SDKロケーションライブラリです。
+`android-sdk-jetpack-compose`|Jetpack Composeサポート用のBraze SDKライブラリです。
 `droidboy`|Brazeの詳細な使用方法を示すサンプルアプリです。
-`android-sdk-unity`|Unity上でのBraze SDK統合を可能にするライブラリーです。
-`samples`|さまざまな統合オプションのサンプルアプリを含むフォルダーです。
+`android-sdk-unity`|Unity上でのBraze SDK統合を可能にするライブラリです。
+`samples`|さまざまな統合オプションのサンプルアプリを含むフォルダです。
 
 ## お問い合わせ {#contact}
 

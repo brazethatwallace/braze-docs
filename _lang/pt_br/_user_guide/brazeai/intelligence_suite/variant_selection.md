@@ -65,13 +65,13 @@ Começa com uma distribuição uniforme para treinar e otimizar, e então duas v
 
 ## Relatórios {#reporting}
 
-![Relatório de melhoria]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
+![Relatório de aumento]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
-Após a conclusão do teste para envio único, e após um breve intervalo para envio recorrente, temos dados confiáveis para reportar. Reportamos qualquer melhoria que a Seleção de Variante BrazeAI<sup>TM</sup> conseguiu alcançar no dashboard.
+Após a conclusão do teste para envio único, e após um breve intervalo para envio recorrente, temos dados confiáveis para reportar. Reportamos qualquer aumento que a Seleção de Variante BrazeAI<sup>TM</sup> conseguiu alcançar no dashboard.
 
 {% tabs %}
 {% tab Envio único %}
-Após o envio da coorte de treinamento, a Braze aguarda o período definido na configuração de duração e analisa os dados. Com base na distribuição das variantes concorrentes, calculamos uma média de como seria o desempenho se nenhuma otimização fosse feita, e então calculamos a melhoria com base na variante vencedora.
+Após o envio da coorte de treinamento, a Braze aguarda o período definido na configuração de duração e analisa os dados. Com base na distribuição das variantes concorrentes, calculamos uma média de como seria o desempenho se nenhuma otimização fosse feita, e então calculamos o aumento com base na variante vencedora.
 
 Por exemplo (assumindo uma distribuição uniforme):
 - Variante 1: 3,5%
@@ -79,13 +79,13 @@ Por exemplo (assumindo uma distribuição uniforme):
 - Variante 3: 2,5%
 - Variante 4: 2%
 
-A taxa de abertura sem otimização é 2,75% (0,035*0,25 + 0,03*0,25 + 0,025*0,25 + 0,02*0,25). A Seleção de Variante escolhe a Variante 1, 3,5%, então a melhoria é de 27,3%.
+A taxa de abertura sem otimização é 2,75% (.035\*.25 + .03\*.25 + 0.025\*.25 + 0.02\*.25). A Seleção de Variante escolhe a Variante 1, 3,5%, então o aumento é de 27,3%.
 {% endtab %}
 
 {% tab Recorrente %}
-A Braze analisa rotineiramente os resultados quando fazemos ajustes e mostra a melhoria com base na média da melhoria de cada período.
+A Braze analisa rotineiramente os resultados quando fazemos ajustes e mostra o aumento com base na média do aumento de cada período.
 
-Calculamos a melhoria do período com base em quanto ajustamos, de forma semelhante ao envio único.
+Calculamos o aumento do período com base em quanto ajustamos, de forma semelhante ao envio único.
 
 Por exemplo:
 - Variante 1: 3,5%, 25% da coorte
@@ -93,7 +93,7 @@ Por exemplo:
 - Variante 3: 2,5%, 25% da coorte
 - Variante 4: 2%, 25% da coorte
 
-A taxa de abertura sem otimização é 2,75% (0,035*0,25 + 0,03*0,25 + 0,025*0,25 + 0,02*0,25). A Seleção de Variante dá mais peso às variantes de melhor desempenho.
+A taxa de abertura sem otimização é 2,75% (.035\*.25 + .03\*.25 + 0.025\*.25 + 0.02\*.25). A Seleção de Variante dá mais peso às variantes de melhor desempenho.
 
 Digamos que ela faça o seguinte:
 - Variante 1: 65%
@@ -101,7 +101,7 @@ Digamos que ela faça o seguinte:
 - Variante 3: 10%
 - Variante 4: 5%
 
-Isso equivale a uma taxa de abertura escolhida de 3,075% (0,035*0,65 + 0,03*0,15 + 0,025*0,1 + 0,02*0,05), o que representa uma melhoria de 11,8%. Calculamos isso a cada período e então fazemos a média ao longo de todo o período de otimização.
+Isso equivale a uma taxa de abertura escolhida de 3,075% (.035\*.65 + .03\*.15 + 0.025\*.1 + 0.02\*.05), o que representa um aumento de 11,8%. Calculamos isso a cada período e então fazemos a média ao longo de todo o período de otimização.
 {% endtab %}
 {% endtabs %}
 

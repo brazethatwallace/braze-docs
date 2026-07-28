@@ -1,10 +1,10 @@
 ## Über GIFs {#about-gifs}
 
-Braze bietet die Möglichkeit, eine angepasste Bildbibliothek zu verwenden, um animierte GIFs anzuzeigen. Obwohl das folgende Beispiel [Glide](https://bumptech.github.io/glide/) verwendet, ist jede Bildbibliothek kompatibel, die GIFs unterstützt.
+Braze bietet die Möglichkeit, eine eigene Bildbibliothek zu verwenden, um animierte GIFs anzuzeigen. Obwohl das folgende Beispiel [Glide](https://bumptech.github.io/glide/) verwendet, ist jede Bildbibliothek kompatibel, die GIFs unterstützt.
 
 ## Eigene Bildbibliothek integrieren {#integrating-a-custom-image-library}
 
-### 1. Schritt: Erstellen des Image-Loader-Delegaten {#step-1-creating-the-image-loader-delegate}
+### Schritt 1: Erstellen des Image-Loader-Delegaten {#step-1-creating-the-image-loader-delegate}
 
 Der Image-Loader-Delegat muss die folgenden Methoden implementieren:
 
@@ -164,7 +164,7 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
 
 Ab Android SDK 36.0.0 ist `displayInAppMessage()` eine `suspend`-Funktion. Das bedeutet, dass `renderUrlIntoInAppMessageView()` auf einem Hintergrund-Thread statt auf dem Haupt-Thread ausgeführt wird.
 
-Wenn Ihr angepasster Image-Loader `Glide.into(imageView)` in `renderUrlIntoInAppMessageView()` aufruft, kann Ihre App mit der Meldung „You must call this method on the main thread“ fehlschlagen.
+Wenn Ihr eigener Image-Loader `Glide.into(imageView)` in `renderUrlIntoInAppMessageView()` aufruft, kann Ihre App mit der Meldung „You must call this method on the main thread“ fehlschlagen.
 
 Um dies zu vermeiden:
 
@@ -172,9 +172,9 @@ Um dies zu vermeiden:
 2. Übergeben Sie das UI-Update an den Haupt-Thread mit `imageView.post { ... }`.
 3. Wenn das geladene Ergebnis ein GIF-Drawable ist, starten Sie die Animation, nachdem Sie es auf der View gesetzt haben.
 
-Dadurch wird das Laden von Bildern vom UI-Rendering getrennt, und Ihr angepasster Image-Loader bleibt mit Android SDK 36.0.0 und höher kompatibel.
+Dadurch wird das Laden von Bildern vom UI-Rendering getrennt, und Ihr eigener Image-Loader bleibt mit Android SDK 36.0.0 und höher kompatibel.
 
-Diese Anleitung gilt für angepasste Image-Loader unter Android. In-App-Nachrichten im Web unterstützen GIFs standardmäßig.
+Diese Anleitung gilt für eigene Image-Loader unter Android. Web-In-App-Nachrichten unterstützen GIFs standardmäßig.
 
 Das folgende Kotlin-Beispiel verwendet Platzhalterwerte, um dieses Muster zu veranschaulichen:
 
@@ -206,9 +206,9 @@ private fun renderUrlIntoView(
 }
 ```
 
-### 2. Schritt: Festlegen des Image-Loader-Delegaten {#step-2-setting-the-image-loader-delegate}
+### Schritt 2: Festlegen des Image-Loader-Delegaten {#step-2-setting-the-image-loader-delegate}
 
-Das Braze SDK verwendet jeden angepassten Image-Loader, der mit [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html) festgelegt wird. Wir empfehlen, den angepassten Image-Loader in einer angepassten Application-Unterklasse zu konfigurieren:
+Das Braze SDK verwendet jeden eigenen Image-Loader, der mit [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html) festgelegt wird. Wir empfehlen, den eigenen Image-Loader in einer eigenen Application-Unterklasse zu konfigurieren:
 
 {% tabs %}
 {% tab JAVA %}
@@ -238,7 +238,7 @@ class GlideIntegrationApplication : Application() {
 {% endtab %}
 {% endtabs %}
 
-## Angepasstes Laden von Bildern mit Jetpack Compose {#custom-image-loading-with-jetpack-compose}
+## Eigenes Laden von Bildern mit Jetpack Compose {#custom-image-loading-with-jetpack-compose}
 
 Um das Laden von Bildern mit Jetpack Compose zu überschreiben, können Sie einen Wert an [`imageComposable`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#-808910455%2FProperties%2F-1725759721) übergeben. Diese Funktion nimmt eine `Card` entgegen und rendert das Bild sowie die benötigten Modifier. Alternativ können Sie auch `customCardComposer` von `ContentCardsList` verwenden, um die gesamte Karte zu rendern.
 

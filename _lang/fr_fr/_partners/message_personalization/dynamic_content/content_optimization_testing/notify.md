@@ -2,7 +2,9 @@
 nav_title: Notify
 article_title: Notify
 description: "Cet article de référence présente le partenariat entre Braze et Notify, une solution de personnalisation omnicanale en temps réel qui offre une personnalisation tout au long du cycle de vie du client."
-alias: /partners/notify/
+alias:
+  - /partners/notify/
+  - /partners/message_personalization/dynamic_content/notify/
 page_type: partner
 search_tag: Partner
 ---
@@ -28,7 +30,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 ### Étape 1 : Créer votre Campaign {#step-1-create-your-campaign}
 
-Créez une [Campaign déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) dans Braze. Partagez ensuite l'identifiant `api_identifier` de la Campaign avec Notify.
+Créez une [Campaign déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) dans Braze. Partagez ensuite l'identifiant `api_identifier` de la Campaign avec Notify.
 
 ### Étape 2 : Créer votre segment dans Braze {#step-2-create-your-segment-in-braze}
 
@@ -40,4 +42,4 @@ Notify exportera alors les utilisateurs du segment rattaché à la Campaign.
 
 ### Étape 4 : Notify déclenche la Campaign {#step-4-notify-triggers-the-campaign}
 
-À l'aide de l'endpoint `/campaigns/trigger/send`, l'intelligence artificielle de Notify déclenche la Campaign Braze créée à l'[étape 1](#step-1-create-your-campaign) pour l'envoyer aux utilisateurs au moment jugé le plus propice à l'engagement.
+À l'aide de l'endpoint `/campaigns/trigger/send`, l'IA de Notify déclenche la Campaign Braze créée à l'[étape 1](#step-1-create-your-campaign) pour l'envoyer aux utilisateurs au moment jugé le plus propice à l'engagement.

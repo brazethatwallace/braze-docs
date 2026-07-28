@@ -26,7 +26,7 @@ Para maior segurança, você pode especificar uma lista de endereços IP e sub-r
 Se você não especificar nenhum, as solicitações poderão ser enviadas de qualquer endereço IP.
 
 {% alert tip %}
-Está criando um webhook da Braze para a Braze e usando lista de permissões? Confira nossa lista de [IPs para lista de permissões]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-whitelisting).
+Está criando um webhook da Braze para a Braze e usando lista de permissões? Confira nossa lista de [IPs para lista de permissões]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 {% endalert %}
 
 ### Alertas de uso da API {#api-usage-alerts}

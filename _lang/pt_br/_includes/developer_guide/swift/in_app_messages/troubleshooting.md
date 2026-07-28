@@ -15,7 +15,7 @@ A lista completa de domínios CDN está abaixo:
 
 #### Exemplos {#examples}
 
-Abaixo estão as bibliotecas conhecidas por entrar em conflito com o cache de ativos da Braze, juntamente com código de exemplo para contornar o problema. Se seu projeto usa uma biblioteca que causa um erro de recurso indisponível e não está listada abaixo, consulte a documentação dessa biblioteca para APIs de uso semelhantes.
+Abaixo estão as bibliotecas conhecidas por entrar em conflito com o cache de ativos da Braze, juntamente com código de exemplo para contornar o problema. Se seu projeto usa uma biblioteca que causa um erro de recurso indisponível e não está listada aqui, consulte a documentação dessa biblioteca para APIs de uso semelhantes.
 
 ##### Netfox
 
@@ -62,6 +62,21 @@ XNLogger.shared.addFilters([brazeAssetsHostFilter])
 ```objc
 XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"https://cdn.braze.com"];
 [XNLogger.shared addFilters:@[brazeAssetsHostFilter]];
+```
+{% endtab %}
+{% endtabs %}
+
+##### Wormholy
+
+{% tabs %}
+{% tab Swift %}
+```swift
+Wormholy.ignoredHosts = ["cdn.braze.com"]
+```
+{% endtab %}
+{% tab Objective-C %}
+```objc
+Wormholy.ignoredHosts = @[@"cdn.braze.com"];
 ```
 {% endtab %}
 {% endtabs %}

@@ -48,7 +48,7 @@ O editor de arrastar e soltar usa dois componentes principais para compor mensag
 
 ### Botão X de fechar {#close-x-button}
 
-Para mensagens no app do tipo modal e tela cheia, você pode personalizar o botão de fechar exibido como <i class="fa-solid fa-xmark"></i> no canto superior direito da sua mensagem. As opções de personalização incluem posição do botão, tamanho, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.
+Para mensagens no app do tipo modal e tela cheia, você pode personalizar o botão de fechar exibido como <i class="fa-solid fa-xmark"></i> na parte superior da sua mensagem. As opções de personalização incluem posição do botão, tamanho, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.
 
 ![Opções para personalizar o botão X de fechar em mensagens no app, incluindo tamanho do botão, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -113,6 +113,31 @@ Você pode adicionar uma imagem ao fundo da sua mensagem a partir da guia **Mess
 {% alert tip %}
 Se você estiver com dificuldade para selecionar um determinado bloco, pode usar a seta para cima na barra de ferramentas inline do bloco para mover o foco para cada bloco pai.
 {% endalert %}
+
+#### Trocar imagens de fundo com Liquid {#swap-background-images-with-liquid}
+
+Para trocar dinamicamente imagens de fundo com base nos dados do usuário (como atributos personalizados ou propriedades do usuário), use blocos Liquid {% raw %}`{% capture %}`{% endraw %} para atribuir a URL de imagem correta a uma variável antes que o HTML e o CSS sejam carregados.
+
+Coloque sua lógica Liquid no início da sua mensagem e, em seguida, referencie a variável capturada no campo de URL da imagem de fundo. Isso seleciona a imagem correta com base nos dados de cada usuário.
+
+Após capturar a URL da imagem, use {% raw %}`{{ image_url | strip }}`{% endraw %} para gerar a URL com qualquer espaço em branco extra removido. Você pode então colar esse Liquid no campo de URL da imagem de fundo para exibir dinamicamente imagens diferentes para usuários diferentes.
+
+##### Exemplo {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
 
 ### Adicionando Liquid {#adding-liquid}
 

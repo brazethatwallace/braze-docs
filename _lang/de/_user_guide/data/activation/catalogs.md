@@ -7,7 +7,7 @@ layout: dev_guide
 guide_top_header: "Kataloge"
 guide_top_text: "Kataloge greifen auf Daten aus importierten CSV-Dateien und API-Endpunkten zu, um Ihre Nachrichten anzureichern – ähnlich wie Sie über Liquid auf angepasste Attribute oder Event-Eigenschaften zugreifen würden."
 
-description: "Auf dieser Landing-Page finden Sie alles rund um Kataloge. Nutzen Sie Kataloge und gefilterte Sets, um Nicht-Nutzerdaten in Ihren Braze-Kampagnen einzusetzen und personalisierte Nachrichten zu versenden."
+description: "Auf dieser Landing-Page finden Sie alles rund um Kataloge. Nutzen Sie Kataloge und gefilterte Sets, um Nicht-Nutzerdaten in Ihren Braze Campaigns einzusetzen und personalisierte Nachrichten zu versenden."
 
 guide_featured_title: "Abschnitt-Artikel"
 guide_featured_list:
@@ -66,14 +66,14 @@ Sie können jede Art von Daten in einen Katalog einbringen. In der Regel handelt
 
 Kataloge sind ein Feature zur Datenspeicherung. Sie enthalten große Datenmengen, auf die Sie in Ihren Nachrichten zur Personalisierung verweisen können. Um die Daten tatsächlich zu referenzieren, verwenden Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) als Templating-Sprache. Anders gesagt: Kataloge sind der Speicher, in dem die Daten vorgehalten werden, und Liquid ist die Sprache, die die relevanten Daten aus dem Speicher abruft.
 
-Beispiele dafür, wie Sie Liquid zum Abrufen von Kataloginformationen verwenden können, finden Sie in den zusätzlichen Anwendungsfällen unter [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases).
+Beispiele dafür, wie Sie Liquid zum Abrufen von Kataloginformationen verwenden können, finden Sie in den zusätzlichen Anwendungsfällen unter [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases).
 
 ## Einschränkungen beim Datenspeicher {#data-storage-limitations}
 
 Der Datenspeicher für Kataloge ist durch die Größe der Katalogartikel begrenzt, die sich von der Größe der hochgeladenen CSV-Dateien unterscheiden kann.
 
-Bei der kostenlosen Version der Kataloge sind bis zu 100&nbsp;MB Speicherplatz zulässig. Sie können unbegrenzt viele Artikel anlegen, solange der Speicherplatz 100&nbsp;MB nicht überschreitet.
+Bei der kostenlosen Version der Kataloge sind bis zu 500&nbsp;MB Speicherplatz zulässig. Sie können unbegrenzt viele Artikel anlegen, solange der Speicherplatz 500&nbsp;MB nicht überschreitet.
 
-Für Catalogs Pro stehen folgende Speichergrößen zur Verfügung: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB oder 50&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (100&nbsp;MB) in jedem dieser Tarife enthalten ist.
+Für Catalogs Pro stehen folgende Speichergrößen zur Verfügung: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB oder 50&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (500&nbsp;MB) in jedem dieser Tarife enthalten ist.
 
 Wenn Sie Ihren Katalogspeicher upgraden möchten, kontaktieren Sie Ihren Braze Account Manager. Einzelheiten zu den Tarifen und Berechtigungshinweise finden Sie unter [Katalogspeicher]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).

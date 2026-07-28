@@ -19,35 +19,31 @@ Vous pouvez gérer les centres de préférences par glisser-déposer existants d
 
 ## Étape 1 : Créer un centre de préférences e-mail {#step-1-create-an-email-preference-center}
 
-Créez un centre de préférences en accédant à **Audience** > **Centre de préférence des e-mails**.
-
-Une liste de centres de préférences personnalisés s'affichera. Sélectionnez **Créer** pour créer un nouveau centre de préférences, ou sélectionnez le nom d'un centre existant pour le modifier.
-
+Créez un centre de préférences en accédant à **Audience** > **Centre de préférence des e-mails**. Une liste de centres de préférences personnalisés s'affiche. Sélectionnez **Create New** pour créer un nouveau centre de préférences, ou sélectionnez le nom d'un centre existant pour le modifier.
 
 ## Étape 2 : Nommer le centre de préférences e-mail {#step-2-name-the-email-preference-center}
 
-Les noms des centres de préférences ne peuvent contenir que des caractères alphanumériques, des tirets ou des underscores. Le nom que vous fournissez déterminera la syntaxe de l'étiquette Liquid générée.
+Les noms des centres de préférences ne peuvent contenir que des caractères alphanumériques, des tirets ou des underscores. Le nom que vous fournissez détermine la syntaxe de l'étiquette Liquid générée.
 
 Cette étiquette Liquid peut être incluse dans n'importe quelle Campaign ou étape du Canvas sortante et dirigera les utilisateurs vers le centre de préférences.
 
-
 ## Étape 3 : Ajouter des groupes d'abonnement au centre de préférences {#step-3-add-subscription-groups-to-the-preference-center}
 
-Sélectionnez **Lancer l'éditeur** pour commencer à concevoir votre centre de préférences dans l'éditeur par glisser-déposer.
+Sélectionnez **Launch Editor** pour commencer à concevoir votre centre de préférences dans l'éditeur par glisser-déposer.
 
 ### Définir les groupes d'abonnement disponibles {#define-available-subscription-groups}
 
 Pour déterminer quels groupes d'abonnement doivent apparaître dans le centre de préférences, sélectionnez le bouton **+ Add subscription groups** pour ouvrir une fenêtre modale dans laquelle vous pouvez sélectionner les groupes d'abonnement souhaités. Après votre sélection, cliquez sur le bouton **Add Subscription Groups** pour les ajouter au centre de préférences.
 
 Vous pouvez configurer davantage les groupes d'abonnement sélectionnés en cliquant sur le bloc intelligent et en ajustant les propriétés du bloc.
+
 - Ajuster l'ordre des groupes d'abonnement
 - Ajouter ou supprimer des groupes d'abonnement supplémentaires
 - Inclure des descriptions
-- Ajouter ou supprimer une case à cocher **Subscribe to all** qui abonnera l'utilisateur à tous les groupes d'abonnement affichés dans ce bloc
-- Ajouter ou supprimer une case à cocher **Unsubscribe from all** qui désabonnera l'utilisateur de tous les groupes d'abonnement affichés dans ce bloc
+- Ajouter ou supprimer une case à cocher **Subscribe to all** qui abonne l'utilisateur à tous les groupes d'abonnement affichés dans ce bloc
+- Ajouter ou supprimer une case à cocher **Unsubscribe from all** qui désabonne l'utilisateur de tous les groupes d'abonnement affichés dans ce bloc
 
-
-Le bouton **Unsubscribe from all** en bas du modèle ne peut pas être supprimé et [désabonnera globalement]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) l'utilisateur de la réception de tout message e-mail.
+Le bouton **Unsubscribe from all** en bas du modèle ne peut pas être supprimé et [désabonne globalement]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) l'utilisateur de la réception de tout e-mail.
 
 ## Étape 4 : Personnaliser le centre de préférences avec l'éditeur par glisser-déposer {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
 
@@ -89,35 +85,39 @@ Chaque bloc possède ses propres paramètres, comme un contrôle granulaire du r
 
 Si vous utilisez le bloc de code personnalisé dans votre centre de préférences, les cadres intégrés (iframes) peuvent ne pas être générés dans le code personnalisé lors de la livraison à vos utilisateurs.
 
+{% alert note %}
+Les Content Blocks contenant des liens ne peuvent pas être utilisés dans le centre de préférences par glisser-déposer. Les liens au sein des Content Blocks ne sont pas cliquables.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
 ## Étape 5 : Personnaliser votre page de confirmation {#step-5-customize-your-confirmation-page}
 
-N'oubliez pas de personnaliser la page de confirmation ! Vous pouvez modifier cette page en sélectionnant **Confirmation Page** en haut de la fenêtre de l'éditeur par glisser-déposer. Cette page sera affichée aux utilisateurs après la mise à jour de leurs préférences via le centre de préférences. Les mêmes fonctionnalités de style décrites ci-dessus s'appliquent également à cette page.
+Ensuite, personnalisez la page de confirmation en sélectionnant **Confirmation Page**. Cette page est affichée aux utilisateurs après la mise à jour de leurs préférences via le centre de préférences. Les mêmes fonctionnalités de style décrites dans [Définir les styles communs](#set-common-styles) et [Composants du centre de préférences par glisser-déposer](#drag-and-drop-preference-center-components) s'appliquent également à cette page.
 
 ![Un exemple de page de confirmation indiquant à l'utilisateur que ses préférences ont été mises à jour.]({% image_buster /assets/img/preference_center/preference_center9.png %}){: style="max-width:65%;"}
 
 ## Étape 6 : Prévisualiser et lancer votre centre de préférences {#step-6-preview-and-launch-your-preference-center}
 
-Vous pouvez prévisualiser votre centre de préférences en sélectionnant l'onglet **Preview** dans l'éditeur. Cependant, la fonctionnalité de test est désactivée. Après avoir modifié votre centre de préférences, vous pouvez fermer l'éditeur en sélectionnant le bouton **Done**.
+Vous pouvez prévisualiser votre centre de préférences en sélectionnant l'onglet **Preview** dans l'éditeur. Cependant, la fonctionnalité de test est désactivée. De plus, les envois de test de Campaigns ou d'étapes du Canvas qui incluent l'étiquette Liquid du centre de préférences ne génèrent pas de lien valide. Pour tester l'ensemble des fonctionnalités de votre centre de préférences, envoyez une Campaign ou un Canvas en direct. Après avoir modifié votre centre de préférences, vous pouvez fermer l'éditeur en sélectionnant **Done**.
 
-Vous verrez un aperçu du centre de préférences et de la page de confirmation. Sélectionnez **Enregistrer en tant que brouillon** pour revenir à ce centre de préférences ultérieurement, ou si vous êtes satisfait, sélectionnez **Launch Preference Center**.
+L'aperçu affiche à la fois le centre de préférences et la page de confirmation. Sélectionnez **Save as Draft** pour revenir à ce centre de préférences ultérieurement, ou si vous êtes satisfait, sélectionnez **Launch Preference Center**.
 
 Lors du lancement du centre de préférences, vous serez invité à confirmer le nom, car il ne pourra plus être modifié après le lancement. Après avoir confirmé le nom, le centre de préférences sera lancé et prêt à être utilisé.
 
-## Utiliser le centre de préférences {#using-the-preference-center}
+## Utiliser le centre de préférences {#use-the-preference-center}
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
-Pour placer un lien vers le centre de préférences dans vos e-mails, copiez l'étiquette Liquid du centre de préférences souhaité en sélectionnant l'icône **Copier le Liquid**.
+Pour placer un lien vers le centre de préférences dans vos e-mails, copiez l'étiquette Liquid du centre de préférences souhaité en sélectionnant l'icône **Copy Liquid**.
 
-![L'option Copier le Liquid dans la ligne d'un centre de préférences.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
+![L'option Copy Liquid dans la ligne d'un centre de préférences.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
 Ajoutez l'étiquette Liquid à l'emplacement souhaité dans votre e-mail, de la même manière que les [URL de désabonnement]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) sont insérées.
 
-## Gestion des erreurs {#handling-errors}
+## Gestion des erreurs {#handle-errors}
 
-Si une erreur survient lorsqu'un utilisateur sélectionne **Save** dans un centre de préférences, le message d'erreur par défaut suivant s'affichera. Ce message ne peut être ni personnalisé ni stylisé dans l'éditeur. Cependant, la localisation des messages d'erreur est toujours prise en charge sur ces pages.
+Si une erreur survient lorsqu'un utilisateur sélectionne **Save** dans un centre de préférences, le message d'erreur par défaut suivant s'affiche. Ce message ne peut être ni personnalisé ni stylisé dans l'éditeur. Cependant, la localisation des messages d'erreur est toujours prise en charge sur ces pages.
 
 ![Un message d'erreur indiquant « Un problème est survenu lors de l'enregistrement de vos préférences. Veuillez réessayer. »]({% image_buster /assets/img/preference_center/preference_center11.png %}){: style="max-width:55%;"}

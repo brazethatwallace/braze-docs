@@ -48,6 +48,12 @@ search_rank: 3
 | Google Play — [시스템 기능의 무단 사용 또는 모방](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | 앱은 시스템 알림을 모방하거나 방해해서는 안 됩니다. 시스템 수준 알림은 앱의 핵심 기능에만 사용해야 합니다(예: 항공사 앱이 사용자에게 특가 정보를 알리거나, 게임이 사용자에게 인게임 프로모션을 알리는 경우). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 메시지 규정" }
 
+## 자주 묻는 질문 {#frequently-asked-questions}
+
+### Braze는 푸시 전송 성공을 언제 기록하나요? {#when-does-braze-record-a-successful-send-for-push}
+
+Braze는 일반적으로 메시지가 Braze에서 Apple, Google 또는 웹 푸시 서비스로 발송되면 **전송**을 기록합니다. **전달**, 열람, 반송 및 앱 삭제 신호는 별도로 추적되며 나중에 도착할 수 있습니다. **전송** 수와 다운스트림 측정기준이 일치하지 않는 경우 단계 및 Campaign 수준 분석과 함께 [푸시 문제 해결]({{site.baseurl}}/user_guide/channels/push/troubleshooting)을 활용하세요.
+
 ## 다음 단계 {#next-steps}
 
 - [푸시 설정]({{site.baseurl}}/user_guide/channels/push/push_setup)

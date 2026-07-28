@@ -6,9 +6,11 @@ description: "GitHub에서 미러링된 Braze JavaScript SDK README 참조입니
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# JavaScript SDK 리포지토리 가이드 {#javascript-sdk-repository-guide}
+
 ## Braze JavaScript SDK 소개 {#about-the-braze-javascript-sdk}
 
-Braze JavaScript SDK는 Braze 메시징, 분석, 사용자 참여 기능을 애플리케이션에 통합할 수 있도록 도와줍니다.
+Braze JavaScript SDK는 Braze 메시징, 분석, 사용자 인게이지먼트 기능을 애플리케이션에 통합할 수 있도록 도와줍니다.
 
 시작하려면 다음 리소스를 참조하세요:
 
@@ -626,7 +628,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 **SDK가 초기화되지 않은 경우:**
 - 대부분의 메서드는 SDK가 초기화되지 않은 경우 throw하지 않고 `undefined`를 반환합니다
 - `initialize()`는 이미 초기화되었거나 유효성 검사에 실패한 경우 `false`를 반환합니다
-- `changeUser()`는 SDK가 초기화되지 않은 경우 아무 작업도 수행하지 않으며 Promise가 해결됩니다
+- `changeUser()`는 SDK가 초기화되지 않은 경우 아무 작업도 수행하지 않으며 Promise가 resolve됩니다
 - 반환 값을 사용하기 전에 항상 `undefined`를 확인하세요
 
 **유효성 검사 실패:**
@@ -637,7 +639,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 - 잘못된 구매 수량: 1-100이어야 하며, 그렇지 않으면 무시됩니다
 
 **네트워크 오류:**
-- NetworkManager `postRequest()`는 오류를 처리하고 Promise를 적절히 거부해야 합니다
+- NetworkManager `postRequest()`는 오류를 처리하고 Promise를 적절히 reject해야 합니다
 - 데이터 플러시 컨트롤러는 실패한 요청을 자동으로 재시도합니다
 - `requestImmediateDataFlush()` 콜백을 사용하여 플러시 실패를 감지합니다
 
@@ -693,7 +695,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 11. **타입 안전성**: SDK는 완전한 타입 정의와 함께 TypeScript로 작성되었습니다. 최상의 경험과 타입 검사를 위해 TypeScript를 사용하세요.
 
-12. **유효성 검사 규칙**: 이벤트 이름, 속성 키, 등록정보 키에는 엄격한 유효성 검사가 적용됩니다(최대 255자, `$`로 시작할 수 없음, 영숫자 + 구두점만 허용). 잘못된 값은 무시되거나 오류를 발생시킬 수 있습니다.
+12. **유효성 검사 규칙**: 이벤트 이름, 속성 키, 속성정보 키에는 엄격한 유효성 검사가 적용됩니다(최대 255자, `$`로 시작할 수 없음, 영숫자 + 구두점만 허용). 잘못된 값은 무시되거나 오류를 발생시킬 수 있습니다.
 
 ## 디버깅 / 문제 해결 {#debugging-troubleshooting}
 

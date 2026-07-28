@@ -44,12 +44,7 @@ If all of the messages in your campaign are going to be similar or have the same
 
 **Steps:**
 
-1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
-2. After you've set up your Canvas, add a step in the Canvas builder. Name your step something clear and meaningful.
-3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#schedule-your-canvas-step) and specify a delay as needed.
-4. Filter your audience for this step as necessary. You can further refine the recipients of this step by specifying segments and adding additional filters. Audience options will be checked after the delay at the time messages are sent.
-5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#advancement-behavior).
-6. Choose any other messaging channels which you would like to pair with your message.
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +64,7 @@ The **Compose** tab consists of the following fields:
 
 ### Language {#internationalization}
 
-[Internationalization]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages) is supported in the URL and the request body. To internationalize your message, select **Add languages** and fill out the required fields. 
+[Internationalization]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) is supported in the URL and the request body. To internationalize your message, select **Add languages** and fill out the required fields. 
 
 We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, refer to [Languages supported]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
@@ -115,7 +110,7 @@ You can personalize your key-value pairs using Liquid, such as including any use
 
 The raw text option gives you the flexibility to write a request for an endpoint that expects a body of any format. For example, you might use this to write a request for an endpoint that expects your request to be in XML format. 
 
-Both [personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) and [internationalization]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages) using Liquid is supported in raw text.
+Both [personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) and [internationalization]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) using Liquid is supported in raw text.
 
 ![An example of a request body with raw text using Liquid.]({% image_buster /assets/img_archive/webhook_rawtext.png %})
 
@@ -137,7 +132,11 @@ Certain endpoints may require that you include headers in your request. In the *
 
 ![Request header examples for "Authorization" key and "Content-type" key.]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-Common request headers are `Content-Type` specifications (which describe what type of data to expect in the body, such as XML or JSON) and authorization headers that contain your credentials with your vendor or system. 
+Common request headers are [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) specifications (which describe what type of data to expect in the body, such as XML or JSON) and [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) headers that contain your credentials with your vendor or system.
+
+{% alert note %}
+HTTP header names are case-insensitive per [RFC 7230, section 3.2 ("Each header field consists of a case-insensitive field name")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). If your receiving endpoint or any intermediate services (such as CDNs) transform header casing, this won't affect header processing—`Content-Type`, `content-type`, and `CONTENT-TYPE` are all treated identically.
+{% endalert %} 
 
 Content type specifications must use the key `Content-Type`. Common values are `application/json` or `application/x-www-form-urlencoded`.
 
@@ -178,7 +177,7 @@ Webhooks can be delivered based on a scheduled time, an action, or based on an A
 
 For action-based delivery, you can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) rules.
+This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) rules.
 
 ### Choose users to target
 
@@ -194,7 +193,7 @@ Braze allows you to track how often users perform specific actions, [conversion 
 
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas step. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas step. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
 
 {% endtab %}
 {% endtabs %}
@@ -233,10 +232,18 @@ When the webhook request is sent, the receiving server will return a response co
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
-Braze retries the above status codes up to five times within 30 minutes using exponential backoff. If we can't reach your endpoint, retries may be spread over a 24-hour period.<br><br>Each webhook is allowed 90 seconds before it times out.
+Braze retries the earlier in this section status codes up to five times within 30 minutes using exponential backoff. If we can't reach your endpoint, retries may be spread over a 24-hour period.<br><br>Each webhook is allowed 90 seconds before it times out.
 {% endalert %}
 
 `Retry-After` and rate-limit response headers can affect how long Braze waits before a **retriable** attempt (for example, after `408`, `429`, or `5XX`). They do not make non-retriable responses, such as `401`, eligible for retry.
+
+#### 403 Forbidden and IP allowlisting
+
+`403 Forbidden` responses means your endpoint received the request but refused it. Common causes include invalid or missing authentication, insufficient API permissions, and network rules (such as a firewall or web application firewall) that block Braze's outbound IP addresses.
+
+If webhook requests consistently return `403` and your authentication headers are correct, allowlist the Braze IPs for your cluster on the server that receives the webhook. See [IP allowlisting](#ip-allowlisting). Connected Content requests use the same outbound IPs; see [Connected Content IP allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
+For other `4XX` troubleshooting steps, refer to [Troubleshoot webhook and Connected Content requests]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
 
 #### Authentication and Connected Content credentials
 

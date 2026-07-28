@@ -1,10 +1,10 @@
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Avant de commencer ce tutoriel, veuillez vérifier que votre SDK Braze répond aux exigences minimales en matière de version :
 
 {% sdk_min_versions swift:11.3.0 android:33.1.0 web:5.8.1 reactnative:14.0.0 flutter:13.0.0 %}
 
-## Affichage de bannières pour le SDK Web
+## Affichage de bannières pour le SDK Web {#displaying-banners-for-the-web-sdk}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Displaying Banners Web" %}
 
@@ -46,41 +46,41 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 <!-- ...the rest of your html -->
 ```
 
-!étape
-lignes-index.js=5
+!!step
+lines-index.js=5
 
-#### 1\. Activer le débogage (facultatif)
+### 1. Activer le débogage (facultatif) {#1-enable-debugging-optional}
 
 Pour faciliter la résolution des problèmes lors du développement, pensez à activer le débogage.
 
-!étape
-lignes-=8-23index.js
+!!step
+lines-index.js=8-23
 
-#### 2\. Veuillez vous abonner aux mises à jour de Banner.
+### 2. S'abonner aux mises à jour des bannières {#2-subscribe-to-banner-updates}
 
-Veuillez utiliser cette méthode`subscribeToBannersUpdates()` pour enregistrer un gestionnaire qui s'exécute chaque fois qu'une bannière est mise à jour. À l'intérieur du gestionnaire, veuillez appeler`braze.getBanner("global_banner")`pour obtenir le dernier emplacement.
+Utilisez `subscribeToBannersUpdates()` pour enregistrer un gestionnaire qui s'exécute chaque fois qu'une bannière est mise à jour. À l'intérieur du gestionnaire, appelez `braze.getBanner("global_banner")` pour obtenir le dernier emplacement.
 
-!étape
-lignes-=15-22index.js
+!!step
+lines-index.js=15-22
 
-#### 3\. Veuillez insérer la bannière et gérer les groupes de contrôle.
+### 3. Insérer la bannière et gérer les groupes de contrôle {#3-insert-the-banner-and-handle-control-groups}
 
-Veuillez utiliser cette fonction`braze.insertBanner(banner, container)` pour insérer une bannière lorsqu'elle est renvoyée. Afin de garantir la clarté de votre mise en page, veuillez masquer ou réduire les bannières qui font partie d'un groupe de contrôle (par exemple, lorsque`isControl`  est `true`).
+Utilisez `braze.insertBanner(banner, container)` pour insérer une bannière lorsqu'elle est renvoyée. Afin de garder votre mise en page claire, masquez ou réduisez les bannières qui font partie d'un groupe de contrôle (par exemple, lorsque `isControl` est `true`).
 
-!étape
-lignes-index.js=25
+!!step
+lines-index.js=25
 
-#### 4\. Veuillez actualiser vos bannières.
+### 4. Actualiser vos bannières {#4-refresh-your-banners}
 
-Après avoir initialisé le SDK, veuillez appeler`requestBannersRefresh(["global_banner", ...])`pour vous assurer que les bannières sont actualisées au début de chaque session.
+Après avoir initialisé le SDK, appelez `requestBannersRefresh(["global_banner", ...])` pour vous assurer que les bannières sont actualisées au début de chaque session.
 
 Vous pouvez également appeler cette fonction à tout moment pour actualiser ultérieurement les emplacements des bannières.
 
-!étape
-lignes-=3main.html
+!!step
+lines-main.html=3
 
-#### 5\. Veuillez ajouter un conteneur pour votre bannière.
+### 5. Ajouter un conteneur pour votre bannière {#5-add-a-container-for-your-banner}
 
-Dans votre code HTML, veuillez ajouter un nouvel`<div>`élément et attribuez-lui un nom court en rapport avec la bannière`id`, tel que `global-banner-container`. Braze utilisera ceci`<div>`pour insérer votre bannière dans la page.
+Dans votre code HTML, ajoutez un nouvel élément `<div>` et attribuez-lui un `id` court en rapport avec la bannière, tel que `global-banner-container`. Braze utilisera ce `<div>` pour insérer votre bannière dans la page.
 
 {% endscrolly %}

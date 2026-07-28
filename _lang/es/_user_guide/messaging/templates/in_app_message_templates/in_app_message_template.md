@@ -35,7 +35,7 @@ Los perfiles de color y las plantillas CSS se aplican al editor tradicional. Si 
 
 ## Paso 3: Administra tus plantillas {#step-3-manage-your-templates}
 
-En **Contenido** > **Mensaje dentro de la aplicación**, filtra, busca o abre una plantilla para editarla. Puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) y [archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates) plantillas como cualquier otro tipo de plantilla. Para un resumen de los flujos de trabajo de plantillas y medios, consulta [Plantillas]({{site.baseurl}}/user_guide/messaging/templates).
+En **Contenido** > **Mensaje dentro de la aplicación**, filtra, busca o abre una plantilla para editarla. Puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) y [archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates) plantillas como cualquier otro tipo de plantilla. Para un resumen de los flujos de trabajo de plantillas y medios, consulta [Plantillas]({{site.baseurl}}/user_guide/messaging/templates).
 
 Para acceder a las plantillas de mensajes dentro de la aplicación, necesitas [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para ver o editar plantillas de mensajes dentro de la aplicación.
 

@@ -1,0 +1,3 @@
+- Auf Eingaben reagieren wie „Ich möchte unseren inaktiven Nutzer:innen eine Push-Benachrichtigung mit einem 20-%-Rabattcode senden, wenn sie das nächste Mal die App öffnen oder ein angepasstes Event auslösen, das ihr Abo kündigt“.
+- Sie bei jedem einzelnen Schritt des Campaign-Assistenten unterstützen, mit voller Transparenz darüber, woran Sie gerade arbeiten, und der Möglichkeit, Formulareingaben auf der Seite zu ändern.
+- Zum richtigen Schritt im Assistenten navigieren, um mit der Umsetzung zu beginnen – egal, ob Sie von einer offenen Campaign oder der **Campaigns**-Seite aus starten.

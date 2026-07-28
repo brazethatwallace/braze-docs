@@ -14,7 +14,7 @@ description: "Este artigo de referência aborda como enviar mensagens de teste n
 > Antes de enviar uma campanha de mensagens para seus usuários, como prática recomendada, sugerimos testar para garantir que tudo esteja correto e funcione conforme o esperado. Você pode criar e enviar mensagens de teste para dispositivos selecionados ou membros da equipe usando as ferramentas do dashboard da Braze.
 
 {% alert important %}
-Salve o rascunho da sua Campaign após o teste para evitar a exclusão da Campaign. Você pode enviar mensagens de teste sem salvar a mensagem como rascunho.
+Salve o rascunho da sua campanha após o teste para evitar a exclusão da campanha. Você pode enviar mensagens de teste sem salvar a mensagem como rascunho.
 {% endalert %}
 
 ## Etapa 1: Identifique seus usuários de teste {#step-1-identify-your-test-users}
@@ -23,17 +23,17 @@ Antes de testar sua campanha de mensagens, é importante identificar seus usuár
 
 ### Opcional: Crie um grupo de teste de conteúdo {#optional-create-a-content-test-group}
 
-Uma maneira conveniente de organizar seus usuários de teste é criando um [grupo de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), que inclui um grupo de usuários que receberão mensagens de teste de Campaigns. Você pode adicionar esse grupo de teste ao campo **Add Content Test Groups** em **Test Recipients** na sua Campaign e iniciar seus testes sem criar ou adicionar usuários de teste individuais.
+Uma maneira conveniente de organizar seus usuários de teste é criando um [grupo de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), que inclui um grupo de usuários que receberão mensagens de teste de campanhas. Você pode adicionar esse grupo de teste ao campo **Add Content Test Groups** em **Test Recipients** na sua campanha e iniciar seus testes sem criar ou adicionar usuários de teste individuais.
 
 ## Etapa 2: Envie mensagens de teste específicas por canal {#step-2-send-channel-specific-test-messages}
 
 Para ver as etapas de envio de mensagens de teste, consulte a seção a seguir para o respectivo canal.
 
 {% tabs local %}
-{% tab Banners %}
+{% tab Banner %}
 
 {% alert important %}
-Antes de testar mensagens de Banner na Braze, você precisará criar uma Campaign de Banner na Braze. Além disso, verifique se o posicionamento que deseja testar já está [inserido no seu app ou site]({{site.baseurl}}/developer_guide/banners/placements).
+Antes de testar mensagens de Banner na Braze, você precisará criar uma campanha de Banner na Braze. Além disso, verifique se o posicionamento que deseja testar já está [inserido no seu app ou site]({{site.baseurl}}/developer_guide/banners/placements).
 {% endalert %}
 
 Após criar sua mensagem de Banner, você pode pré-visualizar o Banner ou enviar uma mensagem de teste.
@@ -52,7 +52,7 @@ Lembre-se de que sua pré-visualização pode não ser idêntica à renderizaç�
 
 ### Lista de verificação do teste {#test-checklist}
 
-- Sua Campaign de Banner está atribuída a um posicionamento?
+- Sua campanha de Banner está atribuída a um posicionamento?
 - As imagens e mídias aparecem e funcionam conforme o esperado nos tipos de dispositivos e tamanhos de tela direcionados?
 - Seus links e botões direcionam o usuário para onde deveriam?
 - O Liquid funciona conforme o esperado? Você considerou um valor de atributo padrão caso o Liquid não retorne nenhuma informação?
@@ -91,7 +91,7 @@ Na guia **Preview** do criador, a visualização da sua mensagem pode não ser i
 
 - Seu usuário de teste está inscrito para push com um token de push válido?
 - As imagens e mídias aparecem e funcionam conforme o esperado?
-- O Liquid funciona conforme o esperado? Você considerou um [valor de atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) caso o Liquid não retorne nenhuma informação?
+- O Liquid funciona conforme o esperado? Você considerou um [valor de atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) caso o Liquid não retorne nenhuma informação?
 - Seu texto está claro, conciso e correto?
 - Seus links direcionam o usuário para onde deveriam?
 - Seu usuário de teste está inscrito para push com um token de push válido?
@@ -109,7 +109,7 @@ Se a imagem de um Content Card não está sendo renderizada ou aparece quebrada:
 
 Após o envio dos seus Content Cards, você pode detalhar ou depurar quaisquer problemas a partir do [Registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) no Console de desenvolvedor.
 
-Um caso de uso comum é tentar depurar por que um usuário não consegue ver um Content Card específico. Para isso, você pode verificar nos **Registros de usuários de eventos** os Content Cards entregues ao SDK no início da sessão, mas antes de uma impressão, e rastreá-los até uma Campaign específica:
+Um caso de uso comum é tentar depurar por que um usuário não consegue ver um Content Card específico. Para isso, você pode verificar nos **Registros de usuários de eventos** os Content Cards entregues ao SDK no início da sessão, mas antes de uma impressão, e rastreá-los até uma campanha específica:
 
 1. Acesse **Settings** > **Event User Log**.
 2. Localize e expanda a solicitação do SDK para seu usuário de teste.
@@ -147,7 +147,7 @@ Um caso de uso comum é tentar depurar por que um usuário não consegue ver um 
 A partir daí, você pode revisar as configurações e o conteúdo da mensagem para investigar e determinar por que um usuário não consegue ver um Content Card específico.
 
 {% endtab %}
-{% tab Email %}
+{% tab E-mail %}
 
 1. Rascunhe sua mensagem de e-mail.
 2. Selecione **Preview and Test**.
@@ -156,7 +156,7 @@ A partir daí, você pode revisar as configurações e o conteúdo da mensagem p
 
 ![Testar e-mail]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
-Se sua Campaign de e-mail contém uma imagem grande e não está sendo exibida conforme o esperado no Outlook, considere reduzir as dimensões reais do arquivo da imagem com uma ferramenta de edição ou redimensionamento de imagem, em vez de apenas redimensioná-la com CSS ou HTML.
+Se sua campanha de e-mail contém uma imagem grande e não está sendo exibida conforme o esperado no Outlook, considere reduzir as dimensões reais do arquivo da imagem com uma ferramenta de edição ou redimensionamento de imagem, em vez de apenas redimensioná-la com CSS ou HTML.
 
 {% endtab %}
 {% tab Mensagem no app %}
@@ -197,7 +197,7 @@ Na **Preview**, a visualização da sua mensagem pode não ser idêntica à rend
 ### Lista de verificação do teste
 
 - As imagens e mídias aparecem e funcionam conforme o esperado?
-- O Liquid funciona conforme o esperado? Você considerou um [valor de atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) caso o Liquid não retorne nenhuma informação?
+- O Liquid funciona conforme o esperado? Você considerou um [valor de atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) caso o Liquid não retorne nenhuma informação?
 - Seu texto está claro, conciso e correto?
 - Seus botões direcionam o usuário para onde deveriam?
 
@@ -287,13 +287,13 @@ Após criar seu webhook, você pode fazer um envio de teste para verificar a res
 {% endtab %}
 {% endtabs %}
 
-## Testar Campaigns personalizadas {#test-personalized-campaigns}
+## Testar campanhas personalizadas {#test-personalized-campaigns}
 
-Se você está testando Campaigns que preenchem dados de usuários ou usam propriedades de eventos personalizados, será necessário seguir etapas adicionais ou diferentes.
+Se você está testando campanhas que preenchem dados de usuários ou usam propriedades de eventos personalizados, será necessário seguir etapas adicionais ou diferentes.
 
-### Testando Campaigns personalizadas com atributos de usuário {#testing-campaigns-personalized-with-user-attributes}
+### Testando campanhas personalizadas com atributos de usuário {#testing-campaigns-personalized-with-user-attributes}
 
-Se você está usando [personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview) na sua mensagem, precisará seguir etapas adicionais para pré-visualizar corretamente sua Campaign e verificar se os dados do usuário estão preenchendo o conteúdo adequadamente.
+Se você está usando [personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview) na sua mensagem, precisará seguir etapas adicionais para pré-visualizar corretamente sua campanha e verificar se os dados do usuário estão preenchendo o conteúdo adequadamente.
 
 Ao enviar uma mensagem de teste, certifique-se de escolher a opção **Select Existing User** ou pré-visualizar como um **Custom User**.
 
@@ -317,39 +317,39 @@ Você pode editar campos individuais de um usuário aleatório ou existente para
 
 ![A guia "Preview as a User" com um botão "Edit".]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
 
-### Testando Campaigns personalizadas com propriedades de eventos personalizados {#testing-campaigns-personalized-with-custom-event-properties}
+### Testando campanhas personalizadas com propriedades de eventos personalizados {#testing-campaigns-personalized-with-custom-event-properties}
 
-Testar Campaigns personalizadas com [propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) difere um pouco do teste de outros tipos de Campaigns descritos.
+Testar campanhas personalizadas com [propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) difere um pouco do teste de outros tipos de campanhas descritos.
 
 {% tabs local %}
 {% tab Disparar manualmente %}
 
-#### Método 1: Disparando a Campaign manualmente {#method-1-triggering-campaign-manually}
+#### Método 1: Disparando a campanha manualmente {#method-1-triggering-campaign-manually}
 
-Você pode disparar a Campaign manualmente como uma forma robusta de testar Campaigns personalizadas usando propriedades de eventos personalizados:
+Você pode disparar a campanha manualmente como uma forma robusta de testar campanhas personalizadas usando propriedades de eventos personalizados:
 
 1. Escreva o texto envolvendo a propriedade do evento.
 
 ![Compondo mensagem de teste com propriedades]({% image_buster /assets/img_archive/testeventproperties-compose.png %})
 
 {: start="2"}
-2. Use a [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) para entregar a Campaign quando o evento ocorrer.
+2. Use a [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) para entregar a campanha quando o evento ocorrer.
 
 {% alert note %}
-Se você está testando uma Campaign de push para iOS, deve definir uma postergação de um minuto para ter tempo de sair do app, pois o iOS não entrega notificações por push para o app atualmente aberto. Outros tipos de Campaigns podem ser configurados para entrega imediata.
+Se você está testando uma campanha de push para iOS, deve definir um delay de um minuto para ter tempo de sair do app, pois o iOS não entrega notificações por push para o app atualmente aberto. Outros tipos de campanhas podem ser configurados para entrega imediata.
 {% endalert %}
 
 ![Entrega da mensagem de teste]({% image_buster /assets/img_archive/testeventproperties-delivery.png %})
 
 {: start="3"}
-3. Direcione os usuários como faria para testes, usando um filtro de teste ou direcionando seu próprio endereço de e-mail, e finalize a criação da Campaign.
+3. Direcione os usuários como faria para testes, usando um filtro de teste ou direcionando seu próprio endereço de e-mail, e finalize a criação da campanha.
 
 ![Direcionamento da mensagem de teste]({% image_buster /assets/img_archive/testeventproperties-target.png %})
 
 {: start="4"}
 4. Acesse seu app e conclua o evento personalizado.
 
-A Campaign será disparada e mostrará a mensagem personalizada com a propriedade do evento.
+A campanha será disparada e mostrará a mensagem personalizada com a propriedade do evento.
 
 ![Exemplo de mensagem de teste]({% image_buster /assets/img_archive/testeventproperties-message2.png %})
 
@@ -358,9 +358,9 @@ A Campaign será disparada e mostrará a mensagem personalizada com a propriedad
 
 #### Método 2: Enviando uma mensagem de teste para si mesmo {#method-2-sending-yourself-a-test-message}
 
-Alternativamente, se você está salvando IDs de usuário personalizados, também pode testar a Campaign enviando uma mensagem de teste personalizada para si mesmo.
+Alternativamente, se você está salvando IDs de usuário personalizados, também pode testar a campanha enviando uma mensagem de teste personalizada para si mesmo.
 
-1. Escreva o texto da sua Campaign.
+1. Escreva o texto da sua campanha.
 2. Selecione a guia **Test** e escolha **Customized User**.
 3. Adicione a propriedade do evento personalizado na parte inferior da página e adicione seu ID de usuário ou endereço de e-mail na caixa superior.
 4. Selecione **Send Test** para receber uma mensagem personalizada com a propriedade.
@@ -382,21 +382,22 @@ Você pode testar propriedades de eventos personalizados inserindo valores manua
 
 ## Limitações {#limitations}
 
-Existem algumas situações em que as mensagens de teste não se comportam da mesma forma que Campaigns ou Canvas enviados para usuários reais. Nesses casos, considere lançar a Campaign ou Canvas para um conjunto limitado de usuários de teste para validar esse comportamento.
+Existem algumas situações em que as mensagens de teste não se comportam da mesma forma que Campaigns ou Canvas enviados para usuários reais. Nesses casos, considere lançar a Campaign ou o Canvas para um conjunto limitado de usuários de teste para validar esse comportamento.
 
 - Visualizar a Central de Preferências da Braze a partir de mensagens de teste fará com que o botão **Save Preferences** fique esmaecido.
 - Para testar mensagens no app e Content Cards, o usuário alvo deve ter um token de push para o dispositivo alvo.
 - Para testar links de cancelamento de inscrição em e-mails, certifique-se de que o endereço de e-mail do seu usuário de teste esteja no respectivo espaço de trabalho.
 - O cabeçalho `List-Unsubscribe` não é incluído em e-mails enviados pela funcionalidade de mensagem de teste.
+- E-mails enviados para usuários do grupo de teste não atualizam a lista de Campaigns recebidas no perfil do usuário nem incrementam os envios na análise de dados do dashboard.
 
 ## Solução de problemas {#troubleshooting}
 
 ### Mensagens no app {#in-app-messages}
 
-Se sua Campaign de mensagem no app não está sendo disparada por uma Campaign de push, verifique a segmentação da Campaign no app para confirmar que o usuário atende ao público-alvo **antes** de receber a mensagem push.
+Se sua campanha de mensagem no app não está sendo disparada por uma campanha de push, verifique a segmentação da campanha no app para confirmar que o usuário atende ao público-alvo **antes** de receber a mensagem push.
 
 Para envios de teste no Android e iOS, as mensagens no app que usam o comportamento ao clicar **Request push permission** podem não ser exibidas em alguns dispositivos. Como solução alternativa:
 - **Android:** Os dispositivos devem estar no Android 13 e na versão 21.0.0 do nosso SDK Android. Outro motivo pode ser que o dispositivo no qual a mensagem no app é exibida já possui um prompt no nível do sistema. Você pode ter selecionado **Do not ask again**, então pode ser necessário reinstalar o app para redefinir as permissões de notificação antes de testar novamente.
 - **iOS:** Recomendamos que sua equipe de desenvolvimento revise a implementação de notificações por push do seu app e remova manualmente qualquer código que solicite permissões de push. Para saber mais, consulte [Mensagens no app de introdução ao push]({{site.baseurl}}/user_guide/channels/push/best_practices).
 
-Para que uma Campaign de mensagem no app baseada em ação seja entregue, você deve registrar eventos personalizados por meio do SDK da Braze, não por REST APIs, para que os usuários recebam mensagens no app elegíveis diretamente em seus dispositivos. Os usuários recebem a mensagem no app se realizarem o evento durante a sessão.
+Para que uma campanha de mensagem no app baseada em ação seja entregue, você deve registrar eventos personalizados por meio do SDK da Braze, não por REST APIs, para que os usuários recebam mensagens no app elegíveis diretamente em seus dispositivos. Os usuários recebem a mensagem no app se realizarem o evento durante a sessão.

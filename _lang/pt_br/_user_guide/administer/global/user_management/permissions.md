@@ -39,8 +39,8 @@ Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas in
 | Nome do papel    | Espaço de trabalho | Permissões
 ----------- | ----------- | ---------
 | Profissional de marketing - Marcas de moda | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
-| Profissional de marketing - Marcas de skincare | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
-| Gerenciamento de usuários - Todas as marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams" |
+| Profissional de marketing - Marcas de skincare | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers".|
+| Gerenciamento de usuários - Todas as marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams"|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemplos de papéis" }
 {% endtab %}
 {% endtabs %}
@@ -90,8 +90,9 @@ Tenha em mente os seguintes comportamentos ao atribuir acesso ao dashboard:
 - **Administrador do espaço de trabalho versus administrador da empresa:** Administradores do espaço de trabalho gerenciam permissões dentro dos espaços de trabalho atribuídos. Administradores da empresa têm autoridade em toda a empresa, incluindo a exclusão de outros usuários do dashboard.
 - **Usuários limitados:** Usuários limitados com a permissão "Edit Dashboard Users" podem gerenciar outros usuários limitados, mas não podem criar ou gerenciar contas de administrador da empresa.
 - **Escopo de gerenciamento de usuários do dashboard:** Na página de detalhes do usuário, as permissões aparecem apenas para os espaços de trabalho que o editor pode acessar. Um usuário limitado que pode editar usuários em um espaço de trabalho pode não ver as caixas de seleção de permissões de outro espaço de trabalho.
+- **Botão Atribuir permissões:** Ao editar um usuário que já possui permissões no nível do espaço de trabalho ou conjuntos de permissões para todos os espaços de trabalho que você pode gerenciar, o botão **Atribuir permissões** desaparece. Isso acontece porque não há espaços de trabalho adicionais para atribuir no nível do espaço de trabalho.
 - **Exportar dados de usuários:** A exportação de dados de usuários requer acesso no nível do espaço de trabalho, além da permissão de exportação.
-- **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [Parceiros de tecnologia]({{site.baseurl}}/partners) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
+- **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [parceiros de tecnologia]({{site.baseurl}}/partners) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
 - **Importar e atualizar dados de usuários:** Essa permissão inclui a capacidade de editar perfis de usuários do app por meio de fluxos de importação, não apenas registros de usuários do dashboard.
 
 ## Editar as permissões de um usuário {#edit-a-users-permissions}
@@ -221,7 +222,8 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Dados de usuários | Edit User Data | Criar e atualizar dados de usuários |
 | Dados de usuários | Export User Data | Baixar usuários do dashboard |
 | Usuários duplicados | View User Merge Records | Visualizar uma lista de registros de mesclagem de usuários |
-| Usuários | View User Profiles (PII Redacted) | Visualizar perfis de usuário de maneira compatível com IPI |
+| Usuários | View User Profiles (PII Redacted) | Visualizar perfis de usuário de maneira compatível com IPI. Usuários com essa permissão não podem salvar ou lançar Campaigns que referenciam atributos personalizados marcados como IPI, a menos que também tenham a permissão "View Custom Attributes Marked as PII".<br><br>A permissão "View User Profiles (PII Redacted)" deve ser ativada antes do uso. Entre em contato com seu gerente de sucesso do cliente para ativá-la no seu espaço de trabalho. |
+| Usuários | View User Event Properties | Visualizar propriedades de eventos na guia **Histórico de eventos** nos perfis de usuário |
 | Usuários duplicados | Merge Duplicate Users | Combinar usuários duplicados em um único usuário. Os duplicados são removidos após a mesclagem |
 | Exclusão de usuários | View User Deletion Records | Visualizar uma lista de registros de exclusão de usuários |
 | Exclusão de usuários | Delete Users | Excluir permanentemente usuários do dashboard individualmente ou em massa |
@@ -361,7 +363,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Configurações de domínio | Edit Domain Settings | Adicionar domínios delegados e domínios personalizados em domínios verificados |
 | Criptografia em nível de campo | Edit Identifier Field-Level Encryption | Ativar e atualizar configurações de criptografia em nível de campo |
 | Ativos da biblioteca de mídia | View Media Library Assets | Visualizar ativos da biblioteca de mídia |
-| Ativos da biblioteca de mídia | Delete Media Library Assets | Excluir permanentemente ativos da biblioteca de mídia |
+| Ativos da biblioteca de mídia | Delete Media Library Assets | Remover ativos da biblioteca de mídia da interface. Ativos excluídos continuam hospedados pela Braze para evitar a quebra de mensagens que os referenciam. Para excluir permanentemente um ativo, entre em contato com o suporte da Braze. |
 | Ativos da biblioteca de mídia | Edit Media Library Assets | Criar e atualizar ativos da biblioteca de mídia |
 | Ativos da biblioteca de mídia | Replace Media Library Assets | Substituir o arquivo de um ativo existente da biblioteca de mídia mantendo a URL e o ID do ativo estáveis |
 | Limites de taxa de envio de mensagens | View Messaging Rate Limits | Visualizar limites de taxa de envio de mensagens no nível do espaço de trabalho |
@@ -376,5 +378,5 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Grupos de inscrições | Edit Subscriptions | Criar e atualizar grupos de inscrições |
 | Transformações | Edit Data Transformation | Criar e atualizar transformações de dados |
 | Transformações | View Data Transformation | Visualizar transformações de dados |
-| Tíquetes de suporte | Create Support Ticket | Criar e atualizar tíquetes de suporte |
+| Tickets de suporte | Create Support Ticket | Criar e atualizar tickets de suporte |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Outras permissões" }

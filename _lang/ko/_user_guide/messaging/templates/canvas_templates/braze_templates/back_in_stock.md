@@ -18,7 +18,7 @@ tool: Canvas
 이 템플릿을 성공적으로 사용하려면 다음이 필요합니다:
 
 - 상품 정보가 포함된 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/create)
-- 메시지를 보내려는 상품에 대해 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#how-back-in-stock-notifications-work)이 설정되어 있어야 합니다
+- 메시지를 보내려는 상품에 대해 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)이 설정되어 있어야 합니다
 
 ## 필요에 맞게 템플릿 맞춤 설정하기 {#tailoring-the-template-to-your-needs}
 
@@ -26,13 +26,13 @@ tool: Canvas
 
 Canvas를 만들기 전에 스트레이트 레그 바지 재고 정보가 포함된 [카탈로그를 설정]({{site.baseurl}}/user_guide/data/activation/catalogs/create)하고 Classic Straight Leg 청바지에 대한 [재입고 알림을 설정]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#setting-up-back-in-stock-notifications)합니다. 사용자가 앱에서 Classic Straight Leg 청바지를 즐겨찾기하는 커스텀 이벤트를 수행하면 알림을 구독하도록 설정했습니다.
 
-재입고 템플릿에 접근하려면 새 Canvas를 만들 때 **Use a Canvas template** > **Braze templates**를 선택합니다. 그런 다음 **Back in Stock** 옆에 있는 **Apply Template**을 선택합니다. 이제 필요에 맞게 템플릿을 살펴보겠습니다.
+재입고 템플릿에 접근하려면 새 Canvas를 만들 때 **Canvas 템플릿 사용** > **Braze 템플릿**을 선택합니다. 그런 다음 **Back in Stock** 옆에 있는 **템플릿 적용**을 선택합니다. 이제 필요에 맞게 템플릿을 살펴보겠습니다.
 
 ### 1단계: 세부 정보 설정하기 {#step-1-set-up-the-details}
 
 목표에 맞게 Canvas 세부 정보를 조정해 보겠습니다.
 
-1. 템플릿 이름 옆의 **Edit**을 선택합니다.
+1. 템플릿 이름 옆의 **편집**을 선택합니다.
 
 ![Canvas의 현재 제목과 설명.]({% image_buster /assets/img/canvas_templates/back_in_stock_old_name_description.png %}){: style="max-width:45%;"}
 
@@ -41,28 +41,28 @@ Canvas를 만들기 전에 스트레이트 레그 바지 재고 정보가 포함
 3. 이 Canvas에 개인화된 메시징이 포함되어 있음을 설명하도록 설명을 업데이트합니다.
 4. **Promotional** 태그 아래에 중첩된 **Back in Stock** 태그를 추가하여 Canvas 홈 페이지에서 필터링할 수 있도록 합니다.
 
-![Canvas 이름이 "Back in Stock - Classic Straight Leg"이고 간단한 Canvas 설명이 있는 "Set Up Canvas Details" 단계.]({% image_buster /assets/img/canvas_templates/back_in_stock_1.png %})
+![Canvas 이름이 "Back in Stock - Classic Straight Leg"이고 간단한 Canvas 설명이 있는 "Canvas 세부 정보 설정" 단계.]({% image_buster /assets/img/canvas_templates/back_in_stock_1.png %})
 
 ### 2단계: 전환 이벤트 할당하기 {#step-2-assign-conversion-events}
 
-**Primary Conversion Event - A**를 **Make a specific purchase**로 변경하고 제품 이름으로 **Classic Straight Leg**을 선택합니다.
+**주요 전환 이벤트 - A**를 **특정 구매 수행**으로 변경하고 제품 이름으로 **Classic Straight Leg**을 선택합니다.
 
-![전환 기한이 7일인 Classic Straight Leg 제품 구매 전환 이벤트 유형에 대한 "Assign Conversion Events" 섹션.]({% image_buster /assets/img/canvas_templates/back_in_stock_2.png %})
+![전환 기한이 7일인 Classic Straight Leg 제품 구매 전환 이벤트 유형에 대한 "전환 이벤트 할당" 섹션.]({% image_buster /assets/img/canvas_templates/back_in_stock_2.png %})
 
 ### 3단계: 진입 스케줄 맞춤 설정하기 {#step-3-tailor-the-entry-schedule}
 
-진입 스케줄은 **Action-Based**로 유지하여 사용자가 동작을 수행할 때 Canvas에 진입하도록 합니다. 템플릿에서 이미 **Perform a Back in Stock Event**로 설정되어 있습니다.
+진입 스케줄은 **액션 기반**으로 유지하여 사용자가 동작을 수행할 때 Canvas에 진입하도록 합니다. 템플릿에서 이미 **재입고 이벤트 수행**으로 설정되어 있습니다.
 
 이 단계에서 두 가지를 조정합니다:
 
 1. Classic Straight Leg 청바지 정보가 포함된 카탈로그를 선택합니다. 이 카탈로그의 이름은 "Straight Leg Pants"입니다.
 
-![액션 기반 Canvas의 "Entry Schedule" 단계.]({% image_buster /assets/img/canvas_templates/back_in_stock_3.png %})
+![액션 기반 Canvas의 "진입 스케줄" 단계.]({% image_buster /assets/img/canvas_templates/back_in_stock_3.png %})
 
 {: start="2"}
-2. **Start Time (Required)**을 원하는 시작 날짜와 시간으로 설정합니다.
+2. **시작 시간(필수)**을 원하는 시작 날짜와 시간으로 설정합니다.
 
-![시작 시간이 2025년 1월 2일 오전 12시인 "Entry Window" 섹션.]({% image_buster /assets/img/canvas_templates/back_in_stock_4.png %})
+![시작 시간이 2025년 1월 2일 오전 12시인 "진입 기간" 섹션.]({% image_buster /assets/img/canvas_templates/back_in_stock_4.png %})
 
 ### 4단계: 타겟 오디언스 선택하기 {#step-4-select-the-target-audience}
 
@@ -71,23 +71,23 @@ Classic Straight Leg 청바지를 구매할 가능성이 높은 사용자로 타
 1. 타겟 Segment인 "Favorited - Classic Straight Leg Jeans"를 선택합니다. 이 Segment는 앱이나 웹사이트에서 Classic Straight Leg 청바지를 즐겨찾기한 사용자로 구성됩니다.
 2. "Jeans"를 "0"회 이상 구매한 사용자를 포함하는 필터를 선택합니다.
 
-!["Favorited - Classic Straight Leg Jeans" Segment가 있는 "Target Audience" 단계.]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})
+!["Favorited - Classic Straight Leg Jeans" Segment가 있는 "타겟 오디언스" 단계.]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})
 
 {: start="3"}
 3. 진입 제어를 조정하여 Canvas의 최대 기간이 지난 후 사용자가 Canvas에 다시 진입할 수 있도록 합니다. 이렇게 하면 사용자가 동일한 단계를 동시에 트리거할 가능성을 줄일 수 있습니다.
 
-![Canvas의 최대 기간 동안 사용자가 이 Canvas에 다시 진입할 수 있도록 허용하는 체크박스가 있는 "Entry Controls" 섹션.]({% image_buster /assets/img/canvas_templates/back_in_stock_6.png %})
+![Canvas의 최대 기간 동안 사용자가 이 Canvas에 다시 진입할 수 있도록 허용하는 체크박스가 있는 "진입 제어" 섹션.]({% image_buster /assets/img/canvas_templates/back_in_stock_6.png %})
 
 {: start="4"}
 4. Classic Straight Leg 청바지를 즐겨찾기 해제하는 커스텀 이벤트를 수행한 사용자를 제거하도록 종료 기준을 조정합니다.
 
-!["Unfavorited" 커스텀 이벤트를 수행한 사용자에 대한 예외가 있는 "Exit Criteria" 섹션.]({% image_buster /assets/img/canvas_templates/back_in_stock_7.png %})
+!["Unfavorited" 커스텀 이벤트를 수행한 사용자에 대한 예외가 있는 "종료 기준" 섹션.]({% image_buster /assets/img/canvas_templates/back_in_stock_7.png %})
 
 ### 5단계: 발송 설정 선택하기 {#step-5-select-your-send-settings}
 
 기본 구독 설정을 유지하여 메시지나 알림 수신에 가입했거나 옵트인한 사용자에게만 발송하고, 나머지 설정(최대 게재빈도 설정, 방해금지 시간, 시드 그룹)은 건너뜁니다.
 
-![가입했거나 옵트인한 사용자를 타겟팅하는 "Send Settings" 단계.]({% image_buster /assets/img/canvas_templates/back_in_stock_8.png %})
+![가입했거나 옵트인한 사용자를 타겟팅하는 "발송 설정" 단계.]({% image_buster /assets/img/canvas_templates/back_in_stock_8.png %})
 
 ### 6단계: Canvas 커스터마이즈하기 {#step-6-customize-your-canvas}
 
@@ -110,7 +110,7 @@ Classic Straight Leg 청바지를 구매할 가능성이 높은 사용자로 타
 
 ### 7단계: Canvas 테스트 및 시작하기 {#step-7-test-and-launch-your-canvas}
 
-Canvas를 테스트하고 검토하여 예상대로 작동하는지 확인한 후 **Launch Canvas**를 선택하여 시작합니다. 이제 Classic Straight Leg 청바지를 즐겨찾기하고 메시징 채널을 구독한 사용자는 재입고 시 알림을 받게 됩니다!
+Canvas를 테스트하고 검토하여 예상대로 작동하는지 확인한 후 **Canvas 시작**을 선택하여 시작합니다. 이제 Classic Straight Leg 청바지를 즐겨찾기하고 메시징 채널을 구독한 사용자는 재입고 시 알림을 받게 됩니다!
 
 {% alert tip %}
 Canvas를 시작하기 전과 후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)를 확인하세요.

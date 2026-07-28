@@ -74,10 +74,10 @@ Als Nächstes erstellen Sie Ihre personalisierte In-App-Nachricht, indem Sie ang
 
 Wenn Sie alle Bearbeitungen abgeschlossen haben, exportieren Sie das Template, indem Sie auf **Export** klicken. Nach dem Exportieren wird der HTML-Code für die In-App-Nachricht generiert. Kopieren Sie diesen Code, indem Sie auf den Button **Copy code** klicken.
 
-![]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
+![IAM Studio Exportdialog mit generiertem In-App-Nachrichten-HTML und der Aktion „Code kopieren“.]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
 
 ### 4. Schritt: Code in Braze verwenden {#step-4-use-code-in-braze}
 
 Navigieren Sie zu Braze, und fügen Sie in Ihrer In-App-Nachricht den angepassten Code in das **HTML Input**-Feld ein. Testen Sie Ihre Nachricht, um sicherzustellen, dass sie korrekt angezeigt wird.
 
-![]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}
+![Braze In-App-Nachrichten-Campaign-Editor mit eingefügtem IAM Studio HTML im HTML-Input-Feld.]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}

@@ -18,7 +18,7 @@ CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されている
 このページでは、CloudinaryとBrazeの間で可能な4つの連携方法について説明します（ただし、これらに限定されるものではありません）。これらの連携方法は、主にCloudinaryのメディアライブラリから手動でコピーしたアセットリンクの変更に依存しています。
 
 {% alert important %}
-[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用してCloudinaryの[Admin API](https://cloudinary.com/documentation/admin_api#banner)を呼び出すなど、より高度な連携方法も可能ですが、アプローチは顧客ごとに異なります。詳しくは、CloudinaryおよびBrazeのカスタマーサクセスマネージャーにお問い合わせください。
+[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用してCloudinaryの[Admin API](https://cloudinary.com/documentation/admin_api#banner)を呼び出すなど、より高度な連携方法も可能ですが、アプローチは顧客ごとに異なります。詳しくは、CloudinaryおよびBrazeのカスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -26,7 +26,7 @@ CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されている
 | 要件     | 説明 |
 |-----------------------|-----------------|
 | Cloudinaryアカウント  | この連携を利用するには、[Cloudinaryアカウント](https://cloudinary.com/users/register_free?utm_source=braze+docs+page)が必要です  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 連携方法 {#integration-methods}
 
@@ -39,9 +39,9 @@ CloudinaryをBrazeに接続すると、Cloudinary Assetsに保存されている
 
 ## Cloudinary DAMからキャンペーンアセットを選択する {#select-campaign-assets-through-cloudinary-dam}
 
-BrazeのキャンペーンやキャンバスでCloudinaryのDAMから画像や動画を直接使用する最も簡単な方法は、Cloudinaryメディアライブラリの**アセット**ページからURLを取得することです。
+Brazeのキャンペーンやキャンバスで、CloudinaryのDAMから画像や動画を直接使用する最も簡単な方法は、Cloudinaryメディアライブラリの**アセット**ページからURLを取得することです。
 
-![Cloudinaryの画像アセットライブラリのグリッドビュー。画像の右上に「URLをコピー」ツールチップがハイライト表示されています。]({% image_buster /assets/img/cloudinary/one.png %})
+![Cloudinaryの画像アセットライブラリのグリッドビュー。1つの画像がハイライトされ、「URLをコピー」ツールチップが表示されています。]({% image_buster /assets/img/cloudinary/one.png %})
 
 ### 画像とGIFの設定 {#images-and-gifs-setup}
 
@@ -72,7 +72,7 @@ BrazeのキャンペーンやキャンバスでCloudinaryのDAMから画像や�
 ```
 {% endraw %}
 
-AndroidおよびiOS固有の考慮事項については、[動画]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/)を参照してください。
+AndroidおよびiOS固有の考慮事項については、[動画]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html)を参照してください。
 
 {% endtab %}
 {% tab 動画をGIFに変換 %}
@@ -119,7 +119,7 @@ Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_
 
 ### 前提条件
 
-ダイナミックなアセット選択を有効にするには、Cloudinaryがタグとメタデータに基づいてアセットのセットを返せる必要があります。リスト配信タイプが制限されている場合、CloudinaryはBrazeのキャンペーンでのパーソナライズされたアセット選択に必要なダイナミックリストを提供できません。
+ダイナミックなアセット選択を有効にするには、Cloudinaryがタグとメタデータに基づいてアセットのセットを返せる必要があります。リスト配信タイプが制限されている場合、Cloudinaryはキャンペーンでのパーソナライズされたアセット選択に必要なダイナミックリストを提供できません。
 - リスト配信タイプの制限を解除します：Cloudinaryコンソールでセキュリティ設定を開き、制限画像タイプのリソースリスト項目をクリアします。
 
 ### ダイナミック選択の設定 {#dynamic-selection-setup}
@@ -190,7 +190,7 @@ Cloudinaryの[テキストオーバーレイトランスフォーメーション
 ```
 {% endraw %}
 
-![海を見下ろす青い屋根の白い教会。画像の左上に半透明の暗い長方形の上に「John Smith」という文字が表示されています。]({% image_buster /assets/img/cloudinary/two.png %})
+![海を見下ろす青い屋根の白い教会。画像の上に半透明の暗い長方形があり、その中に「John Smith」という文字が表示されています。]({% image_buster /assets/img/cloudinary/two.png %})
 
 ```
 {% endtab %}

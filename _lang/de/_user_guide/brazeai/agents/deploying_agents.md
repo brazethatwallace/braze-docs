@@ -26,13 +26,13 @@ Sie wählen den Agententyp in der **Agentenkonsole** aus, wenn Sie den Agenten e
 
 Konzentrieren Sie sich auf hochwertige Anwendungsfälle, bei denen Agenten die größte Kapitalrendite (ROI) erzielen können, und wählen Sie Zielgruppen aus, die wahrscheinlich reagieren. Eine kleinere Zielgruppe mit hohem Potenzial übertrifft oft eine große Zielgruppe mit geringem Potenzial.
 
-Beginnen Sie bei Canvas-Agenten mit Nutzer:innen, die starke Signale aufweisen – wie aktuelle Suchanfragen, hohes Engagement oder umfangreiche Profildaten – bevor Sie auf breitere Segmente ausweiten. Priorisieren Sie bei Katalog-Agenten Zeilen, in denen die benötigten Eingabespalten bereits befüllt sind, damit jeder Aufruf genügend Kontext hat, um nützliche Ausgaben zu erzeugen.
+Beginnen Sie bei Canvas-Schritt-Agenten mit Nutzer:innen, die starke Signale aufweisen – wie aktuelle Suchanfragen, hohes Engagement oder umfangreiche Profildaten – bevor Sie auf breitere Segmente ausweiten. Priorisieren Sie bei Katalog-Agenten Zeilen, in denen die benötigten Eingabespalten bereits befüllt sind, damit jeder Aufruf genügend Kontext hat, um nützliche Ausgaben zu erzeugen.
 
 Um die Kapitalrendite in kleinem Maßstab zu testen, bevor Sie einen Agenten breit ausrollen, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
 
 ## Canvas-Schritt-Agenten verwenden {#use-canvas-step-agents}
 
-Nachdem Sie einen Canvas-Agenten erstellt haben, fügen Sie ihn als Agent-Schritt zu einem Canvas hinzu, um Nachrichten zu personalisieren oder Entscheidungen in Echtzeit zu steuern.
+Nachdem Sie einen Canvas-Schritt-Agenten erstellt haben, fügen Sie ihn als Agent-Schritt zu einem Canvas hinzu, um Nachrichten zu personalisieren oder Entscheidungen in Echtzeit zu steuern.
 
 ### Funktionsweise {#how-it-works}
 
@@ -48,7 +48,7 @@ Um einen Agenten zu Ihrem Canvas hinzuzufügen:
 2. Wählen Sie den Agenten aus, der die Daten in diesem Schritt verarbeitet.
 3. Definieren Sie den Namen der Ausgabevariable. Der Ausgabedatentyp wird in der [Agentenkonsole]({{site.baseurl}}/user_guide/brazeai/agents) festgelegt.
 4. (Optional) Fügen Sie zusätzliche Kontextwerte hinzu, die der Agent bei der Ausführung referenzieren kann. Dies können zusätzliche Liquid-Variablen oder Canvas-Kontext sein, die Sie nicht bereits im Agent-Setup gebunden haben – beispielsweise Werte, die Sie nur zum Sendezeitpunkt aus diesem Schritt übergeben möchten.
-5. Testen und überprüfen Sie die Agentenausgabe in der Schrittvorschau.
+5. Testen Sie den Agenten mithilfe der Schrittvorschau oder über [Canvas testen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps), um den vollständigen Nutzerpfad durchzugehen.
 
 Informationen zu Ausgabedatentypen, Liquid-Templating und Screenshots finden Sie unter [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
@@ -76,7 +76,7 @@ Beispiele finden Sie unter [Funktionsweise]({{site.baseurl}}/user_guide/messagin
 
 ### Fehlerbehandlung und Fallback-Verhalten {#fallback-behavior}
 
-Das Folgende gilt für **Canvas-Schritt-Agenten** in einem [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
+Das Folgende gilt für Canvas-Schritt-Agenten in einem [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 - Wenn das verbundene Modell einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann; die Nutzer:innen fahren dann mit dem nächsten Canvas-Schritt fort.
 - Bei anderen Fehlern (wie einem Timeout oder einem ungültigen API-Schlüssel) wird die Ausgabevariable auf `null` gesetzt, es sei denn, der Agent hat [konfigurierte Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in der Agentenkonsole.
@@ -168,8 +168,8 @@ Sie können die vom Agenten generierte Zelle auch manuell überschreiben, indem 
 
 ### Fehlerbehandlung {#error-handling}
 
-- Fehlgeschlagene Katalogaufrufe werden nicht wiederholt, auch nicht bei [Rate-Limit-Fehlern]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) des LLM-Anbieters.
-- Wenn der API-Aufruf an den Basismodellanbieter einen anderen Fehler zurückgibt, beispielsweise einen ungültigen API-Schlüssel, wird der Feldwert nicht aktualisiert. Katalog-Agenten unterstützen keine Konfiguration von Fallback-Werten in der Agentenkonsole.
+- Wenn der LLM-Anbieter einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann.
+- Bei anderen Fehlern (wie einem Timeout oder einem ungültigen API-Schlüssel) wird der Katalogfeldwert nicht aktualisiert. Katalog-Agenten unterstützen keine Konfiguration von Fallback-Werten in der Agentenkonsole.
 - Sie können die Protokolle des Agenten überprüfen, um Details zu fehlgeschlagenen Ausführungen zu erhalten.
 - Katalog-Agenten können nur Eingabewerte von bis zu 25 KB pro Zeile verarbeiten.
 
@@ -192,6 +192,8 @@ Sie können auch Fehler bezüglich des täglichen Aufruflimits im [Nachrichten-A
 Wählen Sie **Anzeigen** für einen bestimmten Agentenaufruf aus, um die Eingabe, Ausgabe und Nutzer-ID einzusehen.
 
 ![Das Detail-Panel für einen Agenten „Random Sports Assignment“, das die Eingabeaufforderung, die Ausgabeantwort und eine zugehörige Nutzer-ID anzeigt.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
+
+Bei Canvas-Schritt-Agenten enthalten die Protokolle einen Abschnitt **Fallback-Ausgabe**, der alle Fallback-Ausgaben anzeigt, die verwendet wurden, wenn der Aufruf fehlgeschlagen ist.
 
 ### Currents verwenden {#use-currents}
 

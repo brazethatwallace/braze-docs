@@ -5,12 +5,12 @@ layout: email_report_metrics
 page_order: 0
 excerpt_separator: ""
 page_type: glossary
-description: "Este glosario incluye los términos que encontrarás en la sección de análisis de tu campaña de correo electrónico o Canvas, tras el lanzamiento. Este glosario no incluye las métricas de Currents."
+description: "Este glosario incluye los términos que encontrarás en la sección de análisis de tu Campaign de correo electrónico o Canvas, tras el lanzamiento. Este glosario no incluye las métricas de Currents."
 channel:
   - email
 ---
 
-> Este glosario define las métricas en la pestaña **Analytics** para campañas de correo electrónico y Canvas. Braze no ofrece una página alojada de «ver este correo electrónico en un navegador»; consulta [¿Puedo agregar un enlace de «ver este correo electrónico en un navegador» a mis correos electrónicos?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) para una solución alternativa. Para otros problemas que abarcan varias métricas, consulta [Preguntas frecuentes sobre correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq).
+> Este glosario define las métricas en la pestaña **Analytics** para Campaigns de correo electrónico y Canvas. Braze no ofrece una página alojada de «ver este correo electrónico en un navegador»; consulta [¿Puedo agregar un enlace de «ver este correo electrónico en un navegador» a mis correos electrónicos?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) para una solución alternativa. Para otros problemas que abarcan varias métricas, consulta [Preguntas frecuentes sobre correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq).
 
 <style>
   .calculation-line {
@@ -21,7 +21,7 @@ channel:
 
 {% api %}
 
-### Variación {#variation}
+### Variante {#variation}
 
 {% apitags %}
 Count
@@ -175,7 +175,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
 
-Cuando un correo electrónico tiene un rebote duro o se marca como correo no deseado, Braze marca la dirección de correo electrónico como no válida, pero no actualiza el [estado de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions) del usuario. Braze detiene cualquier envío futuro a esa dirección de correo electrónico. Para eliminar una dirección de correo electrónico de tu lista de rebotes duros, usa el [punto de conexión para eliminar correos electrónicos con rebote duro]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
+Cuando un correo electrónico tiene un rebote duro o se marca como correo no deseado, Braze marca la dirección de correo electrónico como no válida, pero no actualiza el [estado de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions) del usuario. Braze detiene cualquier envío futuro a esa dirección de correo electrónico. Para eliminar una dirección de correo electrónico de tu lista de rebotes duros, usa el [endpoint para eliminar correos electrónicos con rebote duro]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
 
 <span class="calculation-line">Cálculo: Recuento </span>
 
@@ -221,20 +221,20 @@ Count, Percentage
 
 {% api %}
 
-### Aperturas únicas {#unique-opens}
+### Unique Opens {#unique-opens}
 
 {% apitags %}
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Para correo electrónico, esto se rastrea durante un período de siete días. Esto significa que un mismo usuario que abre el mismo correo electrónico de nuevo después de siete días cuenta como una nueva apertura única. Como resultado, los recuentos de aperturas únicas en el dashboard pueden ser mayores que una simple consulta `DISTINCT user_id` en los datos de Currents. Para que coincidan los recuentos del dashboard con Currents, filtra por eventos donde `is_unique` sea `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Para correo electrónico, esto se rastrea durante un período de siete días. Esto significa que un mismo usuario que abre el mismo correo electrónico de nuevo después de siete días cuenta como una nueva apertura única. Como resultado, los recuentos de aperturas únicas en el panel pueden ser mayores que una simple consulta `DISTINCT user_id` en los datos de Currents. Para que coincidan los recuentos del panel con Currents, filtra por eventos donde `is_unique` sea `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
     Cálculo:
     <ul>
-        <li><b><i>Aperturas únicas</i>:</b> Recuento</li>
-        <li><b><i>% de aperturas únicas</i> o <i>Tasa de aperturas únicas</i>:</b> (Aperturas únicas) / (Entregas)</li>
+        <li><b><i>Unique Opens</i>:</b> Recuento</li>
+        <li><b><i>% de Unique Opens</i> o <i>Tasa de Unique Opens</i>:</b> (Unique Opens) / (Entregas)</li>
     </ul>
 </span>
 {:/}
@@ -249,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto se rastrea durante un período de siete días para correo electrónico y se mide por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (un único intento de envío). Esto incluye clics en los enlaces de cancelación de suscripción proporcionados por Braze. Las URL de cancelación de suscripción personalizadas rastreadas también cuentan para *Clics únicos* cuando un usuario selecciona el enlace. Después de siete días, otro clic único se contabiliza para el mismo usuario si hace clic de nuevo. Las métricas de interacción de correo electrónico del dashboard, incluidos los _Clics únicos_, se calculan en Braze y no se concilian a partir de informes agregados del ESP. Para que coincidan los recuentos del dashboard con Currents, filtra por eventos donde `is_unique` sea `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto se rastrea durante un período de siete días para correo electrónico y se mide por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (un único intento de envío). Esto incluye clics en los enlaces de cancelación de suscripción proporcionados por Braze. Las URL de cancelación de suscripción personalizadas rastreadas también cuentan para *Clics únicos* cuando un usuario selecciona el enlace. Después de siete días, otro clic único se contabiliza para el mismo usuario si hace clic de nuevo. Las métricas de interacción de correo electrónico del panel, incluidos los _Clics únicos_, se calculan en Braze y no se concilian a partir de informes agregados del ESP. Para que coincidan los recuentos del panel con Currents, filtra por eventos donde `is_unique` sea `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -264,6 +264,8 @@ Count, Percentage
 #### Enlaces inesperados en el mapa de calor del correo electrónico {#unexpected-links-on-the-email-heatmap}
 
 Cuando el [mapa de calor del correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting) muestra enlaces que no esperas, inspecciona el HTML del mensaje en busca de [bloques de contenido]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks) o espacios entre palabras que crean URL rastreadas. Usa la **tabla de enlaces por clics totales** en la vista del mapa de calor para identificar URL que no coinciden con el texto visible.
+
+Braze no expande las etiquetas de Liquid en la vista previa del mensaje, por lo que el renderizador del mapa de calor no puede hacer coincidir el enlace clicado en la vista previa. Este es el comportamiento esperado. El renderizador del mapa de calor intenta hacer coincidir las URL clicadas con las del mensaje. Cuando la URL es significativamente diferente, como cuando la URL completa se pasa como una propiedad de evento, el mapa de calor no puede identificarla.
 
 {% endapi %}
 
@@ -305,7 +307,7 @@ Las _cancelaciones de suscripción_ reflejan el enlace estándar de cancelación
 
 #### Por qué las *cancelaciones de suscripción* y los clics en el enlace de cancelación de suscripción pueden diferir {#why-unsubscribes-and-unsubscribe-link-clicks-can-differ}
 
-En la página de **Analytics** de una campaña de correo electrónico o Canvas, compara el recuento de *Cancelaciones de suscripción* con los clics en la URL de cancelación de suscripción de Braze en el desglose por enlace cuando expandes **Total Clicks** o **Unique Clicks**. Ambos suelen coincidir, pero pueden diferir:
+En la página de **Analytics** de una Campaign de correo electrónico o Canvas, compara el recuento de *Cancelaciones de suscripción* con los clics en la URL de cancelación de suscripción de Braze en el desglose por enlace cuando expandes **Total Clicks** o **Unique Clicks**. Ambos suelen coincidir, pero pueden diferir:
 
 - **Más *cancelaciones de suscripción* que clics en la URL de cancelación de suscripción del cuerpo:** [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) es una vía adicional de cancelación de suscripción en el encabezado del correo electrónico (no el enlace en el cuerpo de tu mensaje). Cuando un usuario cancela su suscripción de esta forma, se contabiliza en *Cancelaciones de suscripción*, pero no como un clic en la URL de cancelación de suscripción rastreada en el cuerpo.
 - **Más clics en la URL de cancelación de suscripción del cuerpo que *cancelaciones de suscripción*:** Un usuario puede seleccionar ese enlace más de una vez. Si cancela su suscripción, se vuelve a suscribir y cancela de nuevo, los análisis de correo electrónico pueden registrar múltiples clics (por ejemplo, dos) en el desglose de clics.
@@ -380,7 +382,7 @@ Count
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Ten en cuenta que un usuario también puede abrir un correo electrónico (de modo que la apertura cuenta para <i>Otras aperturas</i>) antes de que se registre un recuento de <i>Aperturas automáticas</i>. Si un usuario abre un correo electrónico una vez (o más) después de un evento de apertura automática desde un buzón de entrada que no sea Apple Mail, entonces la cantidad de veces que el usuario abre el correo electrónico se calcula para <i>Otras aperturas</i> y solo una vez para <i>Aperturas únicas</i>.
+{% multi_lang_include analytics/metrics.md metric='Other Opens' %} Ten en cuenta que un usuario también puede abrir un correo electrónico (de modo que la apertura cuenta para <i>Otras aperturas</i>) antes de que se registre un recuento de <i>Aperturas automáticas</i>. Si un usuario abre un correo electrónico una vez (o más) después de un evento de apertura automática desde un buzón de entrada que no sea Apple Mail, entonces la cantidad de veces que el usuario abre el correo electrónico se calcula para <i>Otras aperturas</i> y solo una vez para <i>Unique Opens</i>.
 
 <span class="calculation-line">Cálculo: Recuento </span>
 
@@ -408,7 +410,7 @@ Percentage
 
 {% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
-<span class="calculation-line">Cálculo: (Clics únicos) / (Aperturas únicas) (para correo electrónico)</span>
+<span class="calculation-line">Cálculo: (Clics únicos) / (Unique Opens) (para correo electrónico)</span>
 
 #### Puntuaciones de probabilidad de apertura de mensajes (segmentación) {#message-open-likelihood-scores-segmentation}
 
@@ -420,7 +422,7 @@ El filtro de Segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/aud
 
 ### Enlaces de cancelación de suscripción y clics únicos {#unsubscribe-links-and-unique-clicks}
 
-Cuando un destinatario hace clic en un enlace de cancelación de suscripción, Braze lo cuenta como un clic porque la acción utiliza una URL. Esto se aplica a los enlaces de cancelación de suscripción proporcionados por Braze y a los enlaces de cancelación de suscripción personalizados en el cuerpo de tu mensaje. Esos clics contribuyen a *Clics únicos* y *Clics totales* junto con otros clics en enlaces. Para las definiciones de métricas, consulta [Clics únicos](#unique-clicks) más arriba y [¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Cuando un destinatario hace clic en un enlace de cancelación de suscripción, Braze lo cuenta como un clic porque la acción utiliza una URL. Esto se aplica a los enlaces de cancelación de suscripción proporcionados por Braze y a los enlaces de cancelación de suscripción personalizados en el cuerpo de tu mensaje. Esos clics contribuyen a *Clics únicos* y *Clics totales* junto con otros clics en enlaces. Para las definiciones de métricas, consulta [Clics únicos](#unique-clicks) y [¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Ver en el navegador {#view-in-browser}
 
@@ -456,6 +458,6 @@ Puedes ver este resultado incluso cuando la campaña muestra **Enviar inmediatam
 
 - La campaña usa un [evento de excepción]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) o un retraso en el momento de envío que afecta la temporización.
 - Los usuarios tienen un período de [reelegibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility), por lo que no pueden recibir el mensaje de nuevo hasta que pase esa ventana.
-- Otro mensaje de campaña o paso de mensaje de Canvas con mayor prioridad consumió el espacio de envío cuando los desencadenantes se superponen.
+- Otro mensaje de Campaign o paso de mensaje de Canvas con mayor prioridad consumió el espacio de envío cuando los desencadenantes se superponen.
 
 Si un usuario debería haber recibido el mensaje pero no lo hizo, verifica los resultados anteriores para el mismo desencadenante (por ejemplo, rebote de correo electrónico o canal no habilitado). Otro mensaje en el mismo flujo de trabajo puede haber impedido este envío.

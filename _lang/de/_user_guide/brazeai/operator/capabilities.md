@@ -4,12 +4,12 @@ article_title: Was Sie mit Operator tun können
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "Dieser Referenzartikel behandelt die KI-Aufgaben, die über BrazeAI Operator™ verfügbar sind – einschließlich Texterstellung, Liquid, Bildgenerierung, Datentransformationscode und Inhaltsüberprüfung."
+description: "Dieser Referenzartikel behandelt die KI-Aufgaben, die über BrazeAI<sup>TM</sup> Operator verfügbar sind – einschließlich Texterstellung, Nachrichtengenerierung, Liquid, Bildgenerierung, Datentransformationscode und Inhaltsüberprüfung."
 ---
 
 # Was Sie mit Operator tun können {#operator-capabilities}
 
-> Die KI-Funktionen, die zuvor als eigenständige Assistenten verfügbar waren, sind jetzt über [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator) zugänglich. Da Operator in das Dashboard integriert ist und Ihren Workspace versteht (Ihre Markenrichtlinien, Attribute, Connected-Content und die Seite, an der Sie arbeiten), ist die Ausgabe kontextbewusster als das, was die vorherigen Assistenten liefern konnten.
+> Die KI-Funktionen, die zuvor als eigenständige Assistenten verfügbar waren, sind jetzt über [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator) zugänglich. Da Operator in das Dashboard integriert ist und Ihren Workspace versteht (Ihre Markenrichtlinien, Attribute, Connected-Content und die Seite, an der Sie arbeiten), ist die Ausgabe kontextbewusster als das, was die vorherigen Assistenten liefern konnten.
 
 Anstatt für jede Aufgabe ein anderes Tool zu öffnen, beschreiben Sie in natürlicher Sprache, was Sie möchten, und Operator erledigt es im Kontext. Sie können auch das Gespräch fortsetzen – nach einem anderen Ton, einer kürzeren Version oder einer Übersetzung fragen – ohne von vorne zu beginnen. Operator kann auch Änderungen direkt über [Aktionskarten]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) vorschlagen und ausführen, die Sie überprüfen, bevor sie wirksam werden.
 
@@ -29,6 +29,8 @@ Alle bestehenden Einstiegspunkte bleiben erhalten, sodass Ihre Workflows nicht b
 | Data Transformations AI Copilot | Generierte Transformationscode | Der **Insert Code**-Button auf der Datentransformationsseite |
 | Inhaltsüberprüfung | Prüfte Inhalte auf Rechtschreibung, Grammatik, Ton, anstößige Sprache und fehlerhaften Code | **Review with Operator**-Button auf dem **Test**-Tab |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Was über Operator verfügbar ist" }
+
+Operator kann auch HTML für Banner im Banner-HTML-Editor generieren. Weitere Informationen finden Sie unter [Nachrichten generieren](#generate-messages).
 
 ## Markenrichtlinien anwenden {#apply-brand-guidelines}
 
@@ -56,6 +58,26 @@ Die Tonalität des generierten Textes wird durch Ihren Prompt bestimmt. Beschrei
 {% include copy_block.html content="Rewrite this subject line in a more casual tone." %}
 
 {% include copy_block.html content="Translate this copy into Spanish." %}
+
+## Nachrichten generieren {#generate-messages}
+
+Operator kann Nachrichten-HTML in unterstützten Editoren generieren. Beschreiben Sie die gewünschte Nachricht in natürlicher Sprache, überprüfen Sie die Ausgabe und fügen Sie sie in Ihren Editor ein.
+
+Die besten Ergebnisse erzielen Sie, wenn Sie Operator in dem Editor verwenden, in dem Sie gerade arbeiten, da es dort [seitenbezogenen Kontext]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) für den Kanal und den Nachrichtentyp hat. Wenn [Markenrichtlinien](#apply-brand-guidelines) konfiguriert sind, wendet Operator diese automatisch an.
+
+### HTML-Banner {#generate-messages-html-banners}
+
+Wählen Sie im [Banner-HTML-Editor]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) **Ask Operator** aus, um HTML für Ihr Banner zu generieren. Beschreiben Sie das gewünschte Layout, den Inhalt und das Styling. Operator kann [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)-Personalisierung in das generierte Markup einbinden.
+
+Setzen Sie das Gespräch fort, um das Ergebnis zu verfeinern – fragen Sie zum Beispiel nach einem anderen Layout, kürzerem Text oder aktualisierten Button-Styles – bevor Sie das HTML in den Editor einfügen.
+
+#### Beispiel-Prompts {#generate-messages-html-banners-example-prompts}
+
+{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." %}
+
+{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." %}
+
+{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." %}
 
 ## Liquid generieren {#generate-liquid}
 
@@ -202,7 +224,7 @@ Beachten Sie Folgendes, um die Inhaltsüberprüfung optimal zu nutzen:
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-Operator integriert sich mit OpenAI, um Ausgaben zu generieren. Weitere Informationen darüber, welche Daten Braze an OpenAI sendet, wie diese Daten verwendet werden und Ihre Rechte an geistigem Eigentum finden Sie unter [Wie Daten mit OpenAI verwendet werden]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai).
+Operator integriert sich mit OpenAI, um Ausgaben zu generieren. Weitere Informationen darüber, welche Daten Braze an OpenAI sendet, wie diese Daten verwendet werden und Ihre Rechte an geistigem Eigentum finden Sie unter [Wie Daten mit OpenAI verwendet werden]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security).
 
 ## Nächste Schritte {#next-steps}
 

@@ -6,6 +6,8 @@ description: "Référence du README du SDK Android de Braze, reproduite depuis G
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guide du dépôt du SDK Android {#android-sdk-repository-guide}
+
 ## À propos du SDK Android de Braze {#about-the-braze-android-sdk}
 
 Le SDK Android de Braze vous aide à intégrer les fonctionnalités d'envoi de messages, d'analyse et d'engagement utilisateur de Braze dans votre application.
@@ -28,8 +30,8 @@ repositories {
 }
 // ...
 dependencies {
-  `implementation 'com.braze:android-sdk-ui:42.3.+'`
-  `implementation 'com.braze:android-sdk-location:42.3.+'`
+  `implementation 'com.braze:android-sdk-ui:43.0.+'`
+  `implementation 'com.braze:android-sdk-location:43.0.+'`
 }
 // ...
 ```
@@ -66,7 +68,7 @@ Outil | Version minimale prise en charge
 minSdk|5.0+ / API 21+ (Lollipop et versions ultérieures)
 targetSdk|37
 Kotlin|`org.jetbrains.kotlin:kotlin-stdlib:2.2.20`
-Firebase Cloud Messaging|24.1.2
+Firebase Cloud Messaging|25.1.0
 Font Awesome|4.3.0
 
 ## Modules {#modules}

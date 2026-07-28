@@ -18,7 +18,7 @@ tool: Media
 |---|---|
 | "View Media Library Assets" permission | View media library assets |
 | "Edit Media Library Assets" permission | Create and update media library assets |
-| "Delete Media Library Assets" permission | Permanently delete media library assets |
+| "Delete Media Library Assets" permission | Remove media library assets from the UI. Deleted assets remain hosted by Braze to prevent breaking messages that reference them. To permanently delete an asset, contact Braze Support. |
 | "Replace Media Library Assets" permission | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
 
@@ -51,6 +51,14 @@ Later, when drafting a message in Braze, you can pull in your images from the me
 ![Two common ways of accessing the media library depending on the message composer. One shows the email Drag and Drop Editor with the title "Images and GIFs" and a button to "Add from Media Library". The other shows the standard editors, such as push and in-app messages, with the title "Media" and a button to "Add Image".]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
 
 {% alert tip %} For more help with the media library, check out our [Media library FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq). {% endalert %}
+
+## ZIP file uploads {#zip-file-uploads}
+
+When you upload a ZIP file to the media library, all files must be in the root of the ZIP folder—do not include subdirectories.
+
+This applies to every file in the archive—including font files (`.ttf`, `.woff`, `.otf`, `.woff2`), HTML, CSS, JavaScript, and images. Place each file in the root of the ZIP alongside the others.
+
+Alternatively, upload assets individually to the media library without zipping them.
 
 ## Replace a file
 
@@ -90,8 +98,8 @@ GIFs with very elongated shapes (for example, 3000 x 2 pixels) or 300 or more fr
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-Before using this feature, review [how your data is used and sent to OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy).
+Before using this feature, review [how your data is used and sent to OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).
 {% endalert %}
 
-If you don't see **AI Image Generator** on the **Media Library** page, confirm you have **Edit Media Library Assets** permission. If the option is still missing, contact your Braze customer team to confirm your workspace has access to BrazeAI image generation. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#ai-policy).
+If you don't see **AI Image Generator** on the **Media Library** page, confirm you have **Edit Media Library Assets** permission. If the option is still missing, contact your Braze customer team to confirm your workspace has access to BrazeAI image generation. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).
 

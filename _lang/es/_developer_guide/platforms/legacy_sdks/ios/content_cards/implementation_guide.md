@@ -1,6 +1,6 @@
 ---
 nav_title: Implementación avanzada (opcional)
-article_title: Guía de implementación de Content Cards para iOS (Opcional)
+article_title: Guía de implementación de Content Cards para iOS (opcional)
 platform: iOS
 page_order: 7
 description: "Esta guía de implementación avanzada abarca consideraciones sobre códigos de Content Cards de iOS, tres casos de uso creados por nuestro equipo, fragmentos de código que los acompañan y orientaciones sobre el registro de impresiones, clics y descartes."
@@ -14,12 +14,12 @@ noindex: true
 
 <br>
 {% alert important %}
-¿Buscas la guía básica de integración del desarrollador de Content Cards? Encuéntrala [aquí]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
+¿Buscas la guía básica de integración del desarrollador de Content Cards? Encuéntrala en la [guía básica de integración del desarrollador de Content Cards]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
 {% endalert %}
 
 # Guía de implementación de Content Cards {#content-card-implementation-guide}
 
-> Esta guía de implementación opcional y avanzada abarca consideraciones sobre códigos de Content Cards, tres casos de uso personalizados creados por nuestro equipo, fragmentos de código que los acompañan y orientaciones sobre el registro de impresiones, clics y descartes. ¡Visita nuestro repositorio de demostraciones Braze [aquí](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Ten en cuenta que esta guía de implementación se centra en una implementación Swift, pero se proporcionan fragmentos de código Objective-C para los interesados.
+> Esta guía de implementación opcional y avanzada abarca consideraciones sobre códigos de Content Cards, tres casos de uso personalizados creados por nuestro equipo, fragmentos de código que los acompañan y orientaciones sobre el registro de impresiones, clics y descartes. ¡Visita nuestro repositorio de demostraciones Braze en [GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Ten en cuenta que esta guía de implementación se centra en una implementación Swift, pero se proporcionan fragmentos de código Objective-C para los interesados.
 
 ## Consideraciones sobre códigos {#code-considerations}
 
@@ -440,9 +440,9 @@ Puedes integrar fácilmente Content Cards en una fuente existente, permitiendo q
 
 El ejemplo de la derecha muestra un `UICollectionView` con una lista híbrida de elementos que se rellenan mediante datos locales y Content Cards impulsadas por Braze. Con esto, las Content Cards pueden ser indistinguibles de los contenidos existentes.
 
-#### Configuración del dashboard {#dashboard-configuration}
+#### Configuración del panel {#dashboard-configuration}
 
-Esta Content Card se entrega mediante una Campaign desencadenada por API con pares clave-valor desencadenados por API. Esto es ideal para campañas en las que los valores de la tarjeta dependen de factores externos para determinar qué contenido mostrar al usuario. Ten en cuenta que `class_type` debe conocerse en el momento de la configuración.
+Esta Content Card se entrega mediante una Campaign desencadenada por API con pares clave-valor desencadenados por API. Esto es ideal para Campaigns en las que los valores de la tarjeta dependen de factores externos para determinar qué contenido mostrar al usuario. Ten en cuenta que `class_type` debe conocerse en el momento de la configuración.
 
 ![Los pares clave-valor para el caso de uso de Content Cards complementarias. En este ejemplo, diferentes aspectos de la tarjeta, como "tile_id", "tile_deeplink" y "tile_title", se configuran utilizando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -455,9 +455,9 @@ Las Content Cards pueden utilizarse en un formato de centro de mensajes en el qu
 
 ![Centro de mensajes de Content Card con tarjetas de mensajes individuales.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
-#### Configuración del dashboard
+#### Configuración del panel
 
-Para los siguientes tipos de mensaje, el par clave-valor `class_type` debe añadirse a la configuración de tu dashboard. Los valores asignados aquí son arbitrarios, pero deben poder distinguirse entre tipos de clases. Estos pares clave-valor son los identificadores clave en los que se fija la aplicación para decidir a dónde ir cuando el usuario hace clic en un mensaje de buzón de entrada abreviado.
+Para los siguientes tipos de mensaje, el par clave-valor `class_type` debe añadirse a la configuración de tu panel. Los valores asignados aquí son arbitrarios, pero deben poder distinguirse entre tipos de clases. Estos pares clave-valor son los identificadores clave en los que se fija la aplicación para decidir a dónde ir cuando el usuario hace clic en un mensaje de buzón de entrada abreviado.
 
 {% tabs local %}
 {% tab Arbitrary custom view message - full page %}
@@ -537,9 +537,9 @@ Las Content Cards pueden aprovecharse para crear experiencias dinámicas e inter
 
 Las tarjetas bien colocadas como esta son una forma estupenda de dar a los usuarios un "empujoncito" hacia acciones específicas.
 <br><br><br>
-#### Configuración del dashboard
+#### Configuración del panel
 
-La configuración del dashboard para Content Cards interactivas es sencilla. Los pares clave-valor para este caso de uso incluyen un `discount_percentage` configurado como el importe de descuento deseado y `class_type` configurado como `coupon_code`. Estos pares clave-valor son la forma en que se filtran las Content Cards específicas de cada tipo y se muestran en la pantalla de pago.
+La configuración del panel para Content Cards interactivas es sencilla. Los pares clave-valor para este caso de uso incluyen un `discount_percentage` configurado como el importe de descuento deseado y `class_type` configurado como `coupon_code`. Estos pares clave-valor son la forma en que se filtran las Content Cards específicas de cada tipo y se muestran en la pantalla de pago.
 
 ![Content Card interactiva que muestra una promoción en el momento de la compra.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
 

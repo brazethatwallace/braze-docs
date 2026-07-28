@@ -572,6 +572,16 @@ $search_icon: $white;
 	@include focus-ring($radius: 11px);
   }
 
+#auto .su__search_btn:focus:not(:focus-visible),
+#auto .su__input-close:focus:not(:focus-visible) {
+	outline: none;
+}
+
+#auto .su__search_btn:focus-visible,
+#auto .su__input-close:focus-visible {
+	@include focus-ring($radius: 4px, $offset: 0);
+}
+
 #auto #search-box-autocomplete::placeholder{
 	color: white;
 	font-weight: bold;

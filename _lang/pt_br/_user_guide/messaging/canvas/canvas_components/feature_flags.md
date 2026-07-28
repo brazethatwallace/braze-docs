@@ -11,7 +11,7 @@ local_redirect:
 
 # Feature Flag {#feature-flag}
 
-> As Feature Flags permitem que você experimente e confirme suas hipóteses sobre novos recursos. Profissionais de marketing podem usar Feature Flags para segmentar seu público no [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) e acompanhar o impacto do lançamento de recursos nas conversões. Além disso, as [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) permitem otimizar essas conversões testando diferentes mensagens ou jornadas entre si e determinando qual é a mais eficaz. Use a Jornada Vencedora à medida que você lança progressivamente seu recurso para um público mais amplo.
+> As Feature Flags permitem que você experimente e confirme suas hipóteses sobre novos recursos. Profissionais de marketing podem usar Feature Flags para segmentar seu público no [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) e acompanhar o impacto do lançamento de recursos nas conversões. Além disso, as [jornadas experimentais]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) permitem otimizar essas conversões testando diferentes mensagens ou jornadas entre si e determinando qual é a mais eficaz. Use a jornada vencedora à medida que você lança progressivamente seu recurso para um público mais amplo.
 
 Quer saber mais sobre Feature Flags e como elas podem ser usadas na Braze? Confira nossos artigos dedicados sobre [Feature Flags]({{site.baseurl}}/developer_guide/feature_flags).
 

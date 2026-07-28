@@ -16,7 +16,7 @@ search_tag: OtherLevels
 
 ## Visão geral {#overview}
 
-A integração entre a Braze e a OtherLevels permite criar vídeos GenAI personalizados por meio de chamadas de API para a OtherLevels Experience Platform e, em seguida, enviar esses vídeos aos seus usuários como vídeos push para iOS por meio do [Conteúdo conectado da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/).
+A integração entre a Braze e a OtherLevels permite criar vídeos GenAI personalizados por meio de chamadas de API para a OtherLevels Experience Platform e, em seguida, enviar esses vídeos aos seus usuários como vídeos push para iOS por meio do [Conteúdo conectado da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 Ofereça aos seus usuários uma experiência melhor com as experiências baseadas em IA da OtherLevels. Transforme conteúdo existente e de terceiros em vídeo altamente escalável e mídia avançada para públicos que já consomem conteúdo de forma diferente e respondem fortemente a experiências contextualmente personalizadas.
 
@@ -27,9 +27,9 @@ Antes de começar, você precisará do seguinte:
 | Pré-requisito          | Descrição                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta OtherLevels   | É necessário ter uma conta OtherLevels para aproveitar essa parceria.                                                                     |
-| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões de `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
-| Um endpoint REST da Braze | [Seu URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá do URL da Braze para sua instância.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões de `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Um endpoint REST da Braze | [Seu URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá do URL da Braze para sua instância.                                                 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 Essa integração requer a chamada da API da OtherLevels Experience Platform como parte do processo de geração de vídeo antes que as mensagens possam ser enviadas aos seus usuários pela Braze. Exemplos de cURL são fornecidos como parte desta documentação, mas recomendamos o uso de clientes de API como o Postman para automatizar as chamadas de API.
 
@@ -132,7 +132,7 @@ Substitua o seguinte:
 | `TALENT_TEMPLATE` | Um ID de modelo de talento. A OtherLevels trabalhará com você durante o provisionamento da conta para criar um talento (avatar). Você receberá um ou vários IDs de talento que podem ser usados.                                                 |
 | `TALENT_MODEL` | Um ID de modelo de talento. A OtherLevels trabalhará com você durante o provisionamento da conta para criar um talento (avatar). Você receberá um ou vários modelos de talento que podem ser usados.                                                 |
 | `INSERT_SCRIPT` | O roteiro exato que você gostaria que o talento dissesse durante o vídeo.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Chame a API da OtherLevels Experience Platform para gerar um vídeo" }
 
 Como parte da resposta da API, a OtherLevels retornará uma carga útil JSON indicando uma chamada de API bem-sucedida. O JSON conterá um `recipe_id` exclusivo para identificar o vídeo gerado. O `recipe_id` será necessário na próxima etapa.
 
@@ -174,11 +174,11 @@ Substitua o seguinte:
 
 | Espaço reservado             | Descrição                                                                                                                                                                                     |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | O URL do endpoint REST da Braze da sua instância atual. Para saber mais, consulte [Chaves da API REST]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
+| `BRAZE_API_ENDPOINT`    | O URL do endpoint REST da Braze da sua instância atual. Para saber mais, consulte [Chaves da API REST]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
 | `BRAZE_API_KEY`         | Sua chave da API REST da Braze com a permissão `users.track`.                                                                                                                                      |
-| `USER_ID`              | O ID do usuário que receberá esse vídeo específico. Para mais exemplos dos identificadores que podem ser usados, consulte [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).                                                                                                                                                  |
+| `USER_ID`              | O ID do usuário que receberá esse vídeo específico. Para mais exemplos dos identificadores que podem ser usados, consulte [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).                                                                                                                                                  |
 | `RECIPE_ID`       | O `recipe_id` recebido da resposta da API da OtherLevels na [Etapa 1](#step-1).                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Definir o recipe_id como um atributo personalizado" }
 
 ### Etapa 3: Envio por meio do Conteúdo conectado da Braze {#step-3-sending-through-braze-connected-content}
 
@@ -210,7 +210,7 @@ O plano de fundo do vídeo pode ser especificado na chave `bg_image`.
 | Parâmetro             | Descrição                  |
 |-------------------------|----------------------------|
 | `url`    | URL HTTPS para a imagem de fundo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tamanho e atributos do vídeo" }
 
 O tamanho do plano de fundo do vídeo pode ser especificado na chave `resize_image`. Recomendamos que a imagem de fundo tenha o mesmo tamanho configurado aqui.
 
@@ -218,7 +218,7 @@ O tamanho do plano de fundo do vídeo pode ser especificado na chave `resize_ima
 |-------------------------|----------------------------|
 | `width`    | Largura da imagem de fundo, com opções para os modos retrato e paisagem. |
 | `height`     | Altura da imagem de fundo, com opções para os modos retrato e paisagem.                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tamanho e atributos do vídeo" }
 
 As opções de sobreposição de vídeo podem ser especificadas na chave `image_video_overlay`.
 
@@ -229,7 +229,7 @@ As opções de sobreposição de vídeo podem ser especificadas na chave `image_
 | `color`              | Cor da sobreposição especificada em RGB junto com a transparência do vídeo.                                                                   |
 | `y_pos`       | Deslocamento do eixo Y em relação ao centro.                                                              |
 | `x_pos`    | Deslocamento do eixo X em relação ao centro. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tamanho e atributos do vídeo" }
 
 ### Talento e roteiro {#talent-and-script}
 
@@ -242,7 +242,7 @@ O modelo de voz usado para processar scripts de entrada funciona melhor quando v
 | Parâmetro             | Descrição                  |
 |-------------------------|----------------------------|
 | `speed`    | Especifique a velocidade na qual o talento lerá o roteiro. Por exemplo, `1.5`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Talento e roteiro" }
 
 ## Considerações adicionais {#additional-considerations}
 

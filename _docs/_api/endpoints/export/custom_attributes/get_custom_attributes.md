@@ -18,7 +18,7 @@ description: "This article outlines details about the Export custom attributes B
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `custom_attributes.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `custom_attributes.get` permission.
 
 ## Rate limit
 
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "attributes" : [
         {
             "array_length": 100, (number) the maximum array length, or null if not applicable,

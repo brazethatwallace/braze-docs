@@ -52,7 +52,7 @@ Bevor Sie Ihre CSV-Datei hochladen, stellen Sie sicher, dass sie die folgenden A
 |-----------------|---------|
 | Kopfzeilen | Die erste Spalte in der CSV-Datei muss den Namen `id` tragen, und jede Zeile muss einen eindeutigen `id`-Wert enthalten. |
 | Spalten | Eine CSV-Datei kann maximal 1.000 Felder (Spalten) enthalten, und jeder Spaltenname kann bis zu 250 Zeichen lang sein. |
-| Dateigröße | Bei kostenlosen Tarifen ist die Gesamtgröße aller CSV-Dateien eines Unternehmens auf 100 MB begrenzt. Für Pro-Tarife beträgt die maximale Dateigröße für eine einzelne CSV-Datei 2 GB. |
+| Dateigröße | Bei kostenlosen Tarifen ist die Gesamtgröße aller CSV-Dateien eines Unternehmens auf 500 MB begrenzt. Für Pro-Tarife beträgt die maximale Dateigröße für eine einzelne CSV-Datei 2 GB. |
 | Feldwerte | Jede Zelle (Feldwert) kann bis zu 5.000 Zeichen enthalten. |
 | Zulässige Zeichen | Die `id`-Spalte und alle Kopfzeilenwerte dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten. |
 | Datentypen | Unterstützte Datentypen für CSV-Uploads umfassen String, Zahl, Boolescher Wert, Zeitangabe und Geolocation. Die vollständige Liste der Datentypen, einschließlich derjenigen, die nur über die API und CDI verfügbar sind, finden Sie unter [Unterstützte Datentypen](#supported-data-types). |
@@ -145,6 +145,10 @@ Als Nächstes benennen wir diesen Katalog „games_catalog“ und wählen den Bu
 Beachten Sie, dass Sie diesen Namen nicht mehr ändern können, nachdem der Katalog erstellt wurde. Sie können einen Katalog löschen und eine aktualisierte Version unter demselben Katalognamen erneut hochladen.
 
 Nachdem Sie den Katalog erstellt haben, können Sie damit beginnen, den [Katalog in einer Campaign zu referenzieren]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
+
+{% alert important %}
+Zuvor hochgeladene CSV-Dateien stehen auf der Seite **Kataloge** 30 Tage nach dem Upload-Datum zum Download bereit. Nach 30 Tagen wird die Datei dauerhaft gelöscht und ist nicht mehr zugänglich.
+{% endalert %}
 {% endtab %}
 
 {% tab Im Browser erstellen %}
@@ -239,7 +243,7 @@ Wenn Sie zum Beispiel einen einzelnen Katalogartikel bearbeiten möchten, könne
 
 ## Katalogspeicher {#tiers}
 
-Die kostenlose Version von Catalogs unterstützt CSV-Dateien mit einer Gesamtgröße von bis zu 100 MB für alle CSV-Dateien in Ihrem Unternehmen, während die Catalogs-Pro-Version CSV-Dateien mit einer Größe von bis zu 2 GB für eine einzelne CSV-Datei unterstützt.
+Die kostenlose Version von Catalogs unterstützt CSV-Dateien mit einer Gesamtgröße von bis zu 500 MB für alle CSV-Dateien in Ihrem Unternehmen, während die Catalogs-Pro-Version CSV-Dateien mit einer Größe von bis zu 2 GB für eine einzelne CSV-Datei unterstützt.
 
 {% alert important %}
 Der im Braze-Dashboard angezeigte Paketanspruch wird aus optischen Gründen auf die nächste Einheit gerundet; Sie haben jedoch weiterhin Anspruch auf den vollen erworbenen Umfang. Um ein Upgrade für den Katalogspeicher anzufordern, wenden Sie sich an Ihren Braze Account Manager.
@@ -247,11 +251,11 @@ Der im Braze-Dashboard angezeigte Paketanspruch wird aus optischen Gründen auf 
 
 ### Kostenlose Version {#free-version}
 
-Die Speichergröße der kostenlosen Version von Catalogs beträgt bis zu 100&nbsp;MB. Sie können eine unbegrenzte Anzahl von Artikeln haben, solange sie unter 100&nbsp;MB bleiben.
+Die Speichergröße der kostenlosen Version von Catalogs beträgt bis zu 500&nbsp;MB. Sie können eine unbegrenzte Anzahl von Artikeln haben, solange sie unter 500&nbsp;MB bleiben.
 
 #### Catalogs Pro {#catalogs-pro}
 
-Auf Unternehmensebene richtet sich der maximale Speicherplatz für Catalogs Pro nach der Größe der Katalogdaten. Die verfügbaren Speichergrößen sind: 5&nbsp;GB, 10&nbsp;GB oder 15&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (100&nbsp;MB) in jedem dieser Tarife enthalten ist.
+Auf Unternehmensebene richtet sich der maximale Speicherplatz für Catalogs Pro nach der Größe der Katalogdaten. Die verfügbaren Speichergrößen sind: 5&nbsp;GB, 10&nbsp;GB oder 15&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (500&nbsp;MB) in jedem dieser Tarife enthalten ist.
 
 ## Spezifikationen {#specifications}
 

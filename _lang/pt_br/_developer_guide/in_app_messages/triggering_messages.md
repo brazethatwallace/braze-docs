@@ -18,7 +18,7 @@ platform:
 
 As mensagens no app são disparadas quando o SDK registra um dos seguintes tipos de eventos personalizados: `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase` e `Custom Event` (os dois últimos contendo filtros de propriedade robustos).
 
-No início da sessão de um usuário, a Braze entregará todas as mensagens no app elegíveis para seu dispositivo, enquanto simultaneamente pré-carrega ativos para minimizar a latência de exibição. Se o evento de gatilho tiver mais de uma mensagem no app elegível, apenas a mensagem com a maior prioridade será entregue. Para saber mais, veja [Ciclo de vida da sessão]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle).
+No início da sessão de um usuário, a Braze entrega todas as mensagens no app elegíveis para o dispositivo, enquanto simultaneamente pré-carrega ativos para minimizar a latência de exibição. Se o evento de gatilho tiver mais de uma mensagem no app elegível, apenas a mensagem com a maior prioridade será entregue. Para saber mais, veja [Ciclo de vida da sessão]({{site.baseurl}}/developer_guide/analytics/tracking_sessions).
 
 {% alert note %}
 Mensagens no app não podem ser disparadas através da API ou por eventos da API&#8212;apenas eventos personalizados registrados pelo SDK. Para saber mais sobre registro, veja [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events).
@@ -36,7 +36,21 @@ Uma mensagem no app `inapp` (ou "[padrão]({{site.baseurl}}/user_guide/message_b
 
 Uma mensagem no app `templated_iam` (ou "com modelo") ainda não tem o modelo preenchido com as informações necessárias. A Braze precisa fazer outra solicitação para obter as informações antes que a mensagem possa aparecer.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+As mensagens no app são entregues como mensagens no app com modelo quando **Reavaliar a elegibilidade da campanha antes de exibir** está selecionado ou se alguma das seguintes Liquid tags existir na mensagem:
+
+- `canvas_entry_properties`
+- `connected_content`
+- Variáveis de SMS como {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+Isso significa que, durante o início da sessão, o dispositivo recebe o gatilho dessa mensagem no app em vez da mensagem inteira. Quando o usuário dispara a mensagem no app, o dispositivo do usuário faz uma solicitação de rede para buscar a mensagem real.
+
+{% alert note %}
+A mensagem não será entregue se o dispositivo não tiver acesso à internet. A mensagem pode não ser entregue se a lógica Liquid demorar muito para ser resolvida.
+{% endalert %}
+
 
 ## Pares de chave-valor {#key-value-pairs}
 
@@ -88,7 +102,7 @@ Para saber mais, consulte o [KDoc](https://braze-inc.github.io/braze-android-sdk
 {% endtab %}
 
 {% tab swift %}
-O seguinte exemplo usa lógica personalizada para definir a apresentação de uma mensagem no app com base em seus pares de chave-valor em `extras`. Para um exemplo completo de personalização, confira [nosso app de exemplo](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples).
+O exemplo a seguir usa lógica personalizada para definir a apresentação de uma mensagem no app com base em seus pares de chave-valor em `extras`. Para um exemplo completo de personalização, confira [nosso app de exemplo](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples).
 
 {% subtabs %}
 {% subtab swift %}
@@ -524,7 +538,7 @@ Se você receber uma Campaign de mensagem no app alguns segundos após o início
 - Personalizações
 - O evento de gatilho sendo registrado mais tarde do que o esperado (como com um `templated_iam`)
 
-## Mensagens de intenção de saída para a Web {#exit-intent-messages-for-web}
+## Mensagens de intenção de saída para a web {#exit-intent-messages-for-web}
 
 Mensagens de intenção de saída são mensagens no app não disruptivas usadas para comunicar informações importantes aos visitantes antes que eles deixem seu site.
 

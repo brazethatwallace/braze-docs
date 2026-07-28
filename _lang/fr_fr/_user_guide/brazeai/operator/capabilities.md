@@ -4,12 +4,12 @@ article_title: Ce que vous pouvez faire avec Operator
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "Cet article de référence couvre les tâches d'intelligence artificielle disponibles via BrazeAI Operator™, notamment la rédaction, le Liquid, la génération d'images, le code de transformation des données et la vérification de contenu."
+description: "Cet article de référence couvre les tâches d'IA disponibles via BrazeAI Operator™, notamment la rédaction, la génération de messages, le Liquid, la génération d'images, le code de transformation des données et la vérification de contenu."
 ---
 
 # Ce que vous pouvez faire avec Operator {#operator-capabilities}
 
-> Les fonctionnalités d'intelligence artificielle auparavant disponibles en tant qu'assistants autonomes sont désormais accessibles via [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator). Comme Operator est intégré au tableau de bord et comprend votre espace de travail (vos directives de marque, attributs, contenu connecté et la page sur laquelle vous travaillez), les résultats sont plus contextuels que ce que les assistants précédents pouvaient produire.
+> Les fonctionnalités d'IA auparavant disponibles en tant qu'assistants autonomes sont désormais accessibles via [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator). Comme Operator est intégré au tableau de bord et comprend votre espace de travail (vos directives de marque, attributs, contenu connecté et la page sur laquelle vous travaillez), les résultats sont plus contextuels que ce que les assistants précédents pouvaient produire.
 
 Au lieu d'ouvrir un outil différent pour chaque tâche, décrivez ce que vous souhaitez en langage naturel et Operator s'en charge dans le contexte. Vous pouvez également animer la conversation en demandant un ton différent, une version plus courte ou une traduction, sans repartir de zéro. Operator peut aussi proposer et exécuter des modifications directement via des [cartes d'action]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que vous vérifiez avant leur application.
 
@@ -29,6 +29,8 @@ Tous les points d'entrée existants restent en place, vos flux de travail ne son
 | Data Transformations AI Copilot | Générait du code de transformation | Le bouton **Insérer le code** sur la page Transformation des données |
 | Vérification de contenu | Vérifiait le contenu pour l'orthographe, la grammaire, le ton, le langage offensant et le code résiduel | Le bouton **Vérifier avec Operator** dans l'onglet **Test** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ce qui est disponible via Operator" }
+
+Operator peut également générer du HTML pour les Banners dans l'éditeur HTML de Banner. Pour en savoir plus, consultez [Générer des messages](#generate-messages).
 
 ## Appliquer les directives de marque {#apply-brand-guidelines}
 
@@ -56,6 +58,26 @@ Le ton du texte généré est déterminé par votre prompt. Décrivez le style s
 {% include copy_block.html content="Rewrite this subject line in a more casual tone." %}
 
 {% include copy_block.html content="Translate this copy into Spanish." %}
+
+## Générer des messages {#generate-messages}
+
+Operator peut générer du HTML de message dans les éditeurs pris en charge. Décrivez le message souhaité en langage naturel, vérifiez le résultat, puis insérez-le dans votre éditeur.
+
+Vous obtiendrez les meilleurs résultats en utilisant Operator dans l'éditeur que vous êtes en train d'utiliser, où il dispose du [contexte de la page]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) pour le canal et le type de message. Lorsque les [directives de marque](#apply-brand-guidelines) sont configurées, Operator les applique automatiquement.
+
+### Banners HTML {#generate-messages-html-banners}
+
+Dans l'[éditeur HTML de Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), sélectionnez **Ask Operator** pour générer du HTML pour votre Banner. Décrivez la mise en page, le contenu et le style souhaités. Operator peut inclure la personnalisation [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dans le balisage généré.
+
+Animez la conversation pour affiner le résultat — par exemple, demandez une mise en page différente, un texte plus court ou un style de bouton mis à jour — avant d'insérer le HTML dans l'éditeur.
+
+#### Exemples de prompts {#generate-messages-html-banners-example-prompts}
+
+{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." %}
+
+{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." %}
+
+{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." %}
 
 ## Générer du Liquid {#generate-liquid}
 
@@ -140,7 +162,7 @@ Essayez différents prompts pour voir comment Operator peut améliorer vos messa
 
 ## Générer des images {#generate-images}
 
-Operator génère des images à l'aide de [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/), un système d'intelligence artificielle d'OpenAI, fournisseur tiers de Braze. Cela vous permet de créer des images réalistes et des illustrations à partir d'une description en langage naturel.
+Operator génère des images à l'aide de [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/), un système d'IA d'OpenAI, fournisseur tiers de Braze. Cela vous permet de créer des images réalistes et des illustrations à partir d'une description en langage naturel.
 
 Dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), sélectionnez **Générer avec Operator** dans le panneau **Charger des ressources**. Décrivez l'image souhaitée, et Operator la génère et l'enregistre directement dans votre bibliothèque multimédia.
 
@@ -190,8 +212,8 @@ Au-delà de sa vérification par défaut, vous pouvez orienter Operator vers des
 
 Tenez compte des éléments suivants pour tirer le meilleur parti de la vérification de contenu :
 
-- **Relisez votre message :** bien que la vérification de contenu puisse aider à identifier les erreurs, il est toujours essentiel de relire votre contenu manuellement. Appuyez-vous sur les suggestions générées par l'intelligence artificielle comme guide utile, mais utilisez votre jugement pour garantir la précision.
-- **Comprenez l'analyse du ton :** les résultats de l'analyse du ton sont subjectifs et basés sur la compréhension du modèle d'intelligence artificielle. Bien qu'ils puissent fournir des informations utiles, tenez compte de votre ton souhaité et du contexte de la conversation pour effectuer les ajustements appropriés.
+- **Relisez votre message :** bien que la vérification de contenu puisse aider à identifier les erreurs, il est toujours essentiel de relire votre contenu manuellement. Appuyez-vous sur les suggestions générées par l'IA comme guide utile, mais utilisez votre jugement pour garantir la précision.
+- **Comprenez l'analyse du ton :** les résultats de l'analyse du ton sont subjectifs et basés sur la compréhension du modèle d'IA. Bien qu'ils puissent fournir des informations utiles, tenez compte de votre ton souhaité et du contexte de la conversation pour effectuer les ajustements appropriés.
 - **Vérifiez le langage offensant signalé :** la détection du langage offensant est conçue pour être robuste, mais elle peut occasionnellement signaler des faux positifs. Examinez attentivement les sections signalées et apportez les modifications nécessaires.
 
 ### Exemples de prompts {#review-content-quality-example-prompts}
@@ -202,7 +224,7 @@ Tenez compte des éléments suivants pour tirer le meilleur parti de la vérific
 
 ## Confidentialité et sécurité des données {#data-privacy-and-security}
 
-Operator s'intègre à OpenAI pour générer des résultats. Pour en savoir plus sur les informations que Braze envoie à OpenAI, la façon dont ces données sont utilisées et vos droits de propriété intellectuelle, consultez [Comment les données sont utilisées avec OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai).
+Operator s'intègre à OpenAI pour générer des résultats. Pour en savoir plus sur les informations que Braze envoie à OpenAI, la façon dont ces données sont utilisées et vos droits de propriété intellectuelle, consultez [Comment les données sont utilisées avec OpenAI]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security).
 
 ## Étapes suivantes {#next-steps}
 

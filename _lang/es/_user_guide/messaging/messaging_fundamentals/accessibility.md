@@ -219,7 +219,7 @@ Mantén el texto de los botones conciso para evitar el truncamiento. Si el texto
 El texto de los botones debe ser fácil de leer contra el color de fondo del botón. Verifica que el texto de tu botón cumpla con los [mínimos de contraste](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) de WCAG 2.2 AA:
 
 - Relación de contraste de 4.5:1 para texto de tamaño normal (la mayoría de los botones)
-- Relación de contraste de 3:1 para texto grande (generalmente superior a 18 pt)
+- Relación de contraste de 3:1 para texto grande (generalmente de 18 pt o más)
 
 Un alto contraste ayuda a que los botones sigan siendo legibles y clicables para todos, incluidos los usuarios con discapacidades visuales o aquellos que ven tu mensaje en entornos difíciles. Para más orientación, consulta la sección [Contraste de color](#color-contrast).
 
@@ -442,7 +442,7 @@ No rellenes el texto alternativo con términos SEO o llamadas a la acción que n
   </thead>
   <tbody>
     <tr>
-      <td>"Portátil mostrando el gráfico de análisis del dashboard de Braze"</td>
+      <td>"Portátil mostrando el gráfico de análisis del panel de Braze"</td>
       <td>"¡Impulsa las conversiones y dispara el ROI con la mejor plataforma del mundo!" (Añade lenguaje de marketing innecesario)</td>
     </tr>
     <tr>
@@ -505,6 +505,7 @@ Incluye subtítulos en tus videos para que los usuarios puedan seguir los diálo
 Los subtítulos se pueden activar o desactivar, permitiendo a los usuarios elegir lo que mejor les funcione.
 
 {% multi_lang_include accessibility/video.md %}
+
 
 #### Proporciona controles de reproducción {#playback-controls}
 
@@ -634,7 +635,7 @@ Los correos electrónicos creados en el editor de correo electrónico de arrastr
 Para ayudarte a identificar y corregir problemas de accesibilidad de forma temprana, Braze ofrece pruebas automatizadas de accesibilidad en las siguientes áreas:
 
 - [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) para correos electrónicos
-- [Escáner de accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) para mensajes creados con nuestro editor HTML (por ejemplo, In-App Messages HTML, Content Blocks HTML, [pies de correo electrónico personalizados]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [páginas de adhesión voluntaria por correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page) y [páginas de cancelación de suscripción por correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)).
+- [Escáner de accesibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) para mensajes creados con nuestro editor HTML (por ejemplo, In-App Messages HTML, Content Blocks HTML, [pies de correo electrónico personalizados]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [páginas de adhesión voluntaria por correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page) y [páginas de cancelación de suscripción por correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)).
 
 Estas pruebas verifican tu mensaje contra el estándar de Pautas de Accesibilidad al Contenido Web ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)), un conjunto de estándares técnicos reconocidos internacionalmente para contenido accesible. Cualquier problema que pueda detectarse automáticamente se marca y categoriza por gravedad para ayudarte a priorizar.
 

@@ -19,7 +19,7 @@ page_order: 1
 3. Installieren Sie im Shopify App Store die Braze-Anwendung.<br><br>![Die Braze-App-Store-Seite mit einem Button zur Installation der Anwendung.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Wenn Ihr Shopify-Konto mit mehr als einem Shop verbunden ist, können Sie den Shop, bei dem Sie angemeldet sind, ändern, indem Sie das Shop-Symbol oben rechts auf der Seite auswählen und **Switch stores** wählen.
+Wenn Ihr Shopify-Konto mit mehr als einem Shop verbunden ist, können Sie den Shop, bei dem Sie angemeldet sind, ändern, indem Sie das Shop-Symbol in der Kopfzeile auswählen und **Switch stores** wählen.
 {% endalert %}
 
 {: start="4"}
@@ -163,7 +163,7 @@ Nachdem Sie das Metafeld erstellt haben, füllen Sie es für Ihre Kund:innen aus
 
 Der Shopify-Webhook `customers/create` kann ausgelöst werden, bevor das Metafeld `braze.external_id` in das Nutzerprofil geschrieben wurde. In diesem Fall:
 
-1. Wenn das Metafeld fehlt, ruft Braze den konfigurierten Endpunkt (Schritt 4.2) auf, um die externe ID abzurufen.
+1. Wenn das Metafeld fehlt, ruft Braze den konfigurierten Endpunkt ([Schritt 4.2](#step-42-create-an-endpoint-to-retrieve-your-external-id)) auf, um die externe ID abzurufen.
 2. Wenn auch dieser Aufruf fehlschlägt oder ein Timeout auftritt, erstellt Braze ein temporäres Nutzerprofil mit der Shopify-Kund:innen-ID als externe ID.
 3. Bei jedem nachfolgenden Event, bei dem das Metafeld vorhanden ist (z. B. `customers/update` oder `orders/create` für ein `ecommerce.order_placed`-Event), erkennt Braze automatisch die Abweichung und führt das temporäre Profil mit der korrekten externen ID zusammen.
 
@@ -206,9 +206,7 @@ Es ist wichtig, dass Sie überprüfen, ob `shopify_customer_id` und `email_addre
 #### Fehlerverhalten und Zusammenführung {#failure-behavior-and-merging}
 Jeder andere Statuscode als `200` wird als Fehler betrachtet.
 
-- **Auswirkungen auf die Zusammenführung:** Wenn der Endpunkt fehlschlägt (nicht `200` oder Timeout), kann Braze die externe ID nicht abrufen. Folglich wird die Zusammenführung zwischen der Shopify-Nutzer:in und dem Braze-Nutzerprofil zu diesem Zeitpunkt nicht stattfinden.
-- **Wiederholungslogik:** Braze kann standardmäßig sofortige Netzwerk-Wiederholungsversuche unternehmen. Wenn der Fehler jedoch weiterhin besteht, wird die Zusammenführung bis zum nächsten qualifizierenden Event aufgeschoben (z. B. wenn die Nutzer:in ihr Profil aktualisiert oder einen Checkout abschließt).
-- **Verfügbarkeit:** Um die rechtzeitige Zusammenführung von Nutzer:innen zu unterstützen, stellen Sie sicher, dass Ihr Endpunkt hochverfügbar ist und das optionale Feld `email_address` zuverlässig verarbeitet.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 ### Schritt 4.3: Geben Sie Ihre externe ID ein {#step-43-input-your-external-id}
 
@@ -216,9 +214,7 @@ Wiederholen Sie [Schritt 4](#step-4) und geben Sie Ihre Endpunkt-URL ein, nachde
 
 #### Überlegungen {#considerations}
 
-- Wenn Ihre externe ID nicht generiert wird, wenn Braze eine Anfrage an Ihren Endpunkt sendet, verwendet die Integration standardmäßig die Shopify-Kund:innen-ID, wenn die Funktion `changeUser` aufgerufen wird. Dieser Schritt ist entscheidend für die Zusammenführung des anonymen Nutzerprofils mit dem identifizierten Nutzerprofil. Daher kann es vorübergehend vorkommen, dass in Ihrem Workspace verschiedene Arten von externen IDs existieren.
-- Wenn die externe ID im Metafeld `braze.external_id` verfügbar ist, wird die Integration diese externe ID priorisieren und zuweisen.
-    - Wenn die Shopify-Kund:innen-ID zuvor als externe Braze-ID festgelegt wurde, wird sie durch den Wert des Metafelds `braze.external_id` ersetzt.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### Schritt 4.4: Sammeln Sie Ihre E-Mail- oder SMS-Opt-ins von Shopify (optional) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -228,11 +224,7 @@ Wenn Sie die Kanäle E-Mail oder SMS nutzen, können Sie Ihre Opt-in-Status für
 
 ![Abschnitt „Abonnent:innen sammeln“ mit der Option, Opt-ins für E-Mail- oder SMS-Marketing zu sammeln.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-Wie in der [Shopify-Übersicht]({{site.baseurl}}/shopify_overview) erwähnt, müssen Ihre Entwickler:innen den Braze-SDK-Code integrieren, wenn Sie ein Erfassungsformular eines Drittanbieters verwenden möchten. Auf diese Weise können Sie die E-Mail-Adresse und den globalen E-Mail-Abo-Status aus Formularübermittlungen erfassen. Genauer gesagt müssen Sie diese Methoden in Ihre `theme.liquid`-Datei implementieren und testen:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Legt die E-Mail-Adresse im Nutzerprofil fest
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Aktualisiert den globalen E-Mail-Abo-Status
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ## 5. Schritt: Produkte synchronisieren (optional) {#step-5-sync-products-optional}
 
@@ -242,7 +234,7 @@ Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-Katalog synchro
 
 ## 6. Schritt: Kanäle aktivieren (optional) {#step-6-activate-channels-optional}
 
-Sie können In-Browser-Nachrichten ohne Entwickler:in aktivieren, indem Sie sie in Ihrem Setup konfigurieren.
+Sie können In-App-Nachrichten ohne Entwickler:in aktivieren, indem Sie sie in Ihrem Setup konfigurieren.
 
 ![Einrichtungsschritt zur Aktivierung von Kanälen, wobei die verfügbare Option In-Browser-Messaging ist.]({% image_buster /assets/img/shopify/activate_channels_standard.png %})
 
@@ -260,7 +252,7 @@ Um Content Cards oder Feature-Flags hinzuzufügen, müssen Sie mit Ihren Entwick
 
 #### Web-Push-Benachrichtigungen {#web-push-notifications}
 
-Web-Push wird für die Shopify-Integration derzeit nicht unterstützt. Um Support anzufordern, stellen Sie eine Produktanfrage über das [Braze-Produktportal]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Web-Push wird für die Shopify-Integration derzeit nicht unterstützt. {% multi_lang_include product_feedback_cta.md context="gap" feature="web push for the Shopify integration" %}
 
 ## 7. Schritt: Einrichtung abschließen {#step-7-finish-setup}
 

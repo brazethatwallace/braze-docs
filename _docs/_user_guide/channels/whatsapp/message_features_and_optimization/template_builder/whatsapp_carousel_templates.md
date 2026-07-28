@@ -58,7 +58,7 @@ Fill the required fields.
 
 ### Step 3: Add body content
 
-Every carousel message must begin with body content, which is text that appears above the carousel cards.
+Every carousel message must begin with body content, which is text that appears before the carousel cards.
 
 You can include Liquid variables for personalization, such as {% raw %}`{{first_name}}`{% endraw %}, which creates an empty variable slot that can be filled with dynamic content or modified later when using the template in campaigns. Variables cannot be placed at the very beginning or end of the body content.
 

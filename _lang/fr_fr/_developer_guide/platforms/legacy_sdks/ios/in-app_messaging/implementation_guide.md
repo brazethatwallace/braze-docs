@@ -74,7 +74,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 
 ## Cas d'utilisation {#sample-use-cases}
 
-Nous avons fourni trois cas d'utilisation ci-dessous. Chaque cas d'utilisation offre une explication détaillée, des extraits de code pertinents et un aperçu de la manière dont les messages in-app peuvent être examinés et utilisés dans le tableau de bord de Braze :
+Nous avons fourni trois cas d'utilisation dans la section suivante. Chaque cas d'utilisation offre une explication détaillée, des extraits de code pertinents et un aperçu de la manière dont les messages in-app peuvent être examinés et utilisés dans le tableau de bord de Braze :
 - [Message in-app contextuel personnalisé](#custom-slide-up-in-app-message)
 - [Message in-app modal personnalisé](#custom-modal-in-app-message)
 - [Message in-app plein écran personnalisé](#custom-full-in-app-message)
@@ -83,7 +83,7 @@ Nous avons fourni trois cas d'utilisation ci-dessous. Chaque cas d'utilisation o
 
 ![Deux iPhone côte à côte. Le premier iPhone affiche le message contextuel touchant le bas de l'écran du téléphone. Le deuxième iPhone affiche le message contextuel positionné plus haut sur l'écran, vous permettant de voir le bouton de navigation de l'application.]({% image_buster /assets/img/iam_implementation/slideup.png %}){: style="float:right;max-width:45%;margin-left:15px;border:0;"}
 
-Lors de la création de votre message in-app contextuel, vous remarquerez peut-être que vous ne pouvez pas modifier l'emplacement du message à l'aide des méthodes par défaut. Une telle modification est rendue possible en sous-classant le `ABKInAppMessageSlideupViewController` et en remplaçant la variable `offset` par votre propre variable personnalisée. L'image à droite montre un exemple de la façon dont cela peut être utilisé pour ajuster vos messages in-app contextuels.
+Lors de la création de votre message in-app contextuel, vous remarquerez peut-être que vous ne pouvez pas modifier l'emplacement du message à l'aide des méthodes par défaut. Une telle modification est rendue possible en sous-classant le `ABKInAppMessageSlideupViewController` et en remplaçant la variable `offset` par votre propre variable personnalisée. L'image ci-contre montre comment cela peut être utilisé pour ajuster vos messages in-app contextuels.
 
 Visitez le [`SlideFromBottomViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/SlideFromBottomViewController.swift) pour commencer.
 
@@ -214,7 +214,7 @@ Ajustez la valeur respective dans `viewWillTransition()`, car la sous-classe ass
 
 ![Un iPhone affichant un message in-app modal qui vous permet de parcourir une liste d'équipes sportives et de sélectionner celle que vous préférez. Au bas de ce message in-app, un grand bouton bleu indique Envoyer.]({% image_buster /assets/img/iam_implementation/modal.png %}){: style="float:right;max-width:23%;margin-left:15px;border:0;"}
 
-Un `ABKInAppMessageModalViewController` peut être sous-classé pour tirer parti d'un `UIPickerView` offrant des moyens attrayants de collecter de précieux attributs utilisateur. Le message in-app modal personnalisé vous permet d'utiliser le Contenu connecté ou toute liste disponible pour afficher et recueillir des attributs à partir d'une liste dynamique d'éléments.
+Un `ABKInAppMessageModalViewController` peut être sous-classé pour tirer parti d'un `UIPickerView` offrant des moyens attrayants de collecter de précieux attributs utilisateur. Le message in-app modal personnalisé vous permet d'utiliser le contenu connecté ou toute liste disponible pour afficher et recueillir des attributs à partir d'une liste dynamique d'éléments.
 
 Vous pouvez intégrer vos propres vues dans des messages in-app sous-classés. Cet exemple illustre comment un `UIPickerView` peut être utilisé pour étendre la fonctionnalité d'un `ABKModalInAppMessageViewController`.
 
@@ -222,7 +222,7 @@ Visitez le [ModalPickerViewController](https://github.com/braze-inc/braze-growth
 
 #### Configuration du tableau de bord {#dashboard-configuration}
 
-Pour configurer un message in-app modal dans le tableau de bord, vous devez fournir une liste d'éléments formatés comme une chaîne de caractères séparée par des virgules. Dans notre exemple, nous utilisons le Contenu connecté pour extraire une liste de noms d'équipes JSON et les formater en conséquence.
+Pour configurer un message in-app modal dans le tableau de bord, vous devez fournir une liste d'éléments formatés comme une chaîne de caractères séparée par des virgules. Dans notre exemple, nous utilisons le contenu connecté pour extraire une liste de noms d'équipes JSON et les formater en conséquence.
 
 ![Le composeur de messages in-app montre un aperçu de ce à quoi le message in-app ressemblera, mais affiche à la place la liste des éléments que vous avez fournis à Braze. Comme l'interface utilisateur de Braze n'affiche pas votre interface de message in-app personnalisé à moins qu'il ne soit envoyé à un téléphone, l'aperçu n'est pas représentatif de ce à quoi ressemblera votre message ; nous vous recommandons donc d'effectuer un test avant l'envoi.]({% image_buster /assets/img/iam_implementation/dashboard1.png %})
 
@@ -357,7 +357,7 @@ Vous souhaitez utiliser nos messages in-app modaux personnalisés pour partager 
 
 ![Un message in-app qui affiche une liste d'options de configuration avec des interrupteurs à côté de chaque option. Au bas du message, un grand bouton bleu indique Envoyer.]({% image_buster /assets/img/iam_implementation/fullscreen.png %}){: style="float:right;max-width:23%;margin-left:15px;border:0;"}
 
-Utilisez des messages in-app plein écran personnalisés pour créer des invites interactives et conviviales afin de recueillir de précieuses données client. L'exemple à droite montre une implémentation du message in-app plein écran personnalisé réinventé comme un primer push interactif avec des préférences de notification.
+Utilisez des messages in-app plein écran personnalisés pour créer des invites interactives et conviviales afin de recueillir de précieuses données client. L'exemple ci-contre montre une implémentation du message in-app plein écran personnalisé réinventé comme un primer push interactif avec des préférences de notification.
 
 Visitez le [`FullListViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/FullListViewController/FullListViewController.swift) pour commencer.
 

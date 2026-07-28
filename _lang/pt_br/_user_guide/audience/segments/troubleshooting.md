@@ -10,7 +10,7 @@ description: "Este artigo de referência aborda a solução de problemas para er
 
 # Solução de problemas de Segments {#troubleshoot-segments}
 
-> Encontre seu sintoma abaixo para ir à seção correta. Esta página aborda erros de lançamento, elegibilidade de usuários, problemas com filtros e divergências na análise de dados. Para definições de filtros, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Para estimativas de tamanho de Segments, contagens exatas e gráficos de histórico de membros, consulte [Medir o tamanho do Segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+> Encontre seu sintoma na lista abaixo para ir à seção correta. Esta página aborda erros de lançamento, elegibilidade de usuários, problemas com filtros e divergências na análise de dados. Para definições de filtros, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Para estimativas de tamanho de Segments, contagens exatas e gráficos de histórico de membros, consulte [Medir o tamanho do Segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
@@ -33,7 +33,7 @@ Use este fluxo de trabalho quando um usuário deveria estar em um Segment mas n�
 
 1. **Lançamento bloqueado:** Se você vir um erro de complexidade de público ou de filtro de 10.000 bytes em uma Campaign ou Canvas, comece com [Erros](#errors) (solução alternativa com CSV, simplificação de filtros).
 2. **Pré-visualização de usuário ou busca de usuário:** Teste um usuário específico em relação aos filtros do seu Segment. Quando um usuário não corresponde a parte ou a todos os critérios, os critérios ausentes são listados para solução de problemas. Para ver as etapas, consulte [Testando Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) em Criar um Segment.
-3. **Calcular estatísticas exatas:** Se a estimativa do Segment mostra 0 usuários ou parece incorreta, selecione **Calcular estatísticas exatas** no painel **Usuários contatáveis**. Salve seu Segment antes de calcular. Se um cálculo já estiver em andamento, aguarde sua conclusão; números desatualizados podem ser exibidos até que o novo cálculo seja concluído. Para mais informações, consulte [Calculando estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
+3. **Calcular estatísticas exatas:** Se a estimativa do Segment mostra 0 usuários ou parece incorreta, selecione **Calcular estatísticas exatas** no painel **Usuários contatáveis**. Salve seu Segment antes de calcular. Se um cálculo já estiver em andamento, aguarde sua conclusão; números desatualizados podem ser exibidos até que o novo cálculo seja concluído. Para saber mais, consulte [Calculando estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 4. **Verifique os valores dos filtros:** Procure erros de digitação, incompatibilidades de tipo de dado, referências desatualizadas a etapas do Canvas e [filtros negativos + lógica OR](#segment-is-much-larger-than-expected).
 5. **Verifique a complexidade:** Se o lançamento estiver bloqueado, consulte [O público-alvo é complexo demais para ser lançado](#target-audience-is-too-complex-to-launch).
 6. **Fale com o Suporte:** Se ainda estiver bloqueado, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support).
@@ -42,14 +42,14 @@ Use este fluxo de trabalho quando um usuário deveria estar em um Segment mas n�
 
 O tamanho do Segment no dashboard geralmente é uma estimativa baseada em uma amostra de usuários. Segments muito pequenos podem mostrar um intervalo estimado que inclui 0, mesmo quando há usuários que correspondem aos seus filtros.
 
-- Selecione **Calcular estatísticas exatas** no painel **Usuários contatáveis** para obter uma contagem precisa. Salve o Segment primeiro. Para mais informações, consulte [Considerações sobre contagens estimadas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#considerations-for-estimate-counts).
-- Se a **Pré-visualização de usuário** retornar zero usuários para um Segment pequeno, isso não significa necessariamente que o Segment está vazio. Execute **Calcular estatísticas exatas** para confirmar. Para mais informações, consulte [Pré-visualização de usuário]({{site.baseurl}}/user_guide/audience/segments/segment_data#user-preview).
+- Selecione **Calcular estatísticas exatas** no painel **Usuários contatáveis** para obter uma contagem precisa. Salve o Segment primeiro. Para saber mais, consulte [Considerações sobre contagens estimadas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#considerations-for-estimate-counts).
+- Se a **Pré-visualização de usuário** retornar zero usuários para um Segment pequeno, isso não significa necessariamente que o Segment está vazio. Execute **Calcular estatísticas exatas** para confirmar. Para saber mais, consulte [Pré-visualização de usuário]({{site.baseurl}}/user_guide/audience/segments/segment_data#user-preview).
 
 ## Associação retroativa ao Segment {#retroactive-segment-membership}
 
 A Braze não armazena o histórico de associação de Segments por usuário. Não é possível verificar se um usuário específico estava em um Segment no momento de um envio passado.
 
-Para capturar a associação em um determinado momento, exporte os usuários do Segment no dashboard ou chame o endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) antes de enviar uma Campaign ou Canvas. Para mais informações, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) (filtro de associação ao Segment) e [Exportar dados de Segment para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
+Para capturar a associação em um determinado momento, exporte os usuários do Segment no dashboard ou chame o endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) antes de enviar uma Campaign ou Canvas. Para saber mais, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) (filtro de associação ao Segment) e [Exportar dados de Segment para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
 ## Erros {#errors}
 
@@ -112,17 +112,17 @@ Usuários podem ter múltiplos apps, então selecionar um app específico na se�
 
 Suas opções de filtro estão relacionadas ao formato (tipo de dado) que você está enviando para a Braze para seu atributo personalizado. Para revisar o tipo de dado que a Braze está reconhecendo para seus atributos personalizados, navegue até **Configurações de dados** > **Atributos personalizados**.
 
-Se suas opções de filtro mudaram, isso é uma indicação de que seus dados estão sendo enviados para a Braze em um formato (tipo de dado) diferente do anterior. Para descrições detalhadas dos diferentes tipos de dados e suas opções de filtragem, consulte [tipos de dados de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types).
+Se suas opções de filtro mudaram, isso é uma indicação de que seus dados estão sendo enviados para a Braze em um formato (tipo de dado) diferente do anterior. Para descrições detalhadas dos diferentes tipos de dados e suas opções de filtragem, consulte [tipos de dados de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 Tenha em mente que alterar o tipo de dado de um atributo personalizado no dashboard rejeitará dados que são enviados para a Braze em um formato diferente. Não é possível alterar o tipo de dado de um atributo personalizado enquanto esse atributo estiver referenciado em Campaigns, Canvas ou Segments ativos; o dashboard exibirá um erro e bloqueará a alteração.
 
-A guia **Valores** em um atributo personalizado mostra resultados de uma amostra de aproximadamente 250.000 usuários. Não use a guia **Valores** para confirmar se um valor de atributo específico existe para fins de solução de problemas. Para mais informações, consulte [Guia Valores]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#values-tab).
+A guia **Valores** em um atributo personalizado mostra resultados de uma amostra de aproximadamente 250.000 usuários. Não use a guia **Valores** para confirmar se um valor de atributo específico existe para fins de solução de problemas. Para saber mais, consulte [Guia Valores]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#values-tab).
 
 ### O Segment é muito maior do que o esperado {#segment-is-much-larger-than-expected}
 
 Se o seu Segment parece muito maior do que o esperado apesar de filtros aparentemente restritivos, verifique se você está usando filtros negativos (`não é`, `não é igual a`, `não corresponde ao regex` ou `não incluído`) com o operador **OR** no mesmo atributo mais de uma vez. Essa combinação pode segmentar usuários com todos os valores para o atributo.
 
-Para orientações sobre quando usar **AND** em vez de **OR**, consulte [Quando evitar o operador OR]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator) em Criar um Segment.
+Para orientações sobre quando usar **AND** em vez de **OR**, consulte [Quando evitar o operador OR]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#segmentation-logic-using-and-and-or) em Criar um Segment.
 
 ## Análise de dados e relatórios {#analytics-and-reporting}
 
@@ -155,7 +155,7 @@ O primeiro cenário é se o campo `app_id` é preenchido ao usar o endpoint `/us
 }
 ```
 
-O segundo cenário é se o campo `app_id` é preenchido ao usar o endpoint `/users/track` para migrar tokens de push, como neste exemplo:
+O segundo cenário é se o campo `app_id` é preenchido ao usar o endpoint `/users/track` para migrar tokens por push, como neste exemplo:
 
 ```json
 {

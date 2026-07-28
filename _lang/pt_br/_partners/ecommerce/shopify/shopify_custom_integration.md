@@ -12,11 +12,11 @@ page_order: 3
 
 > Esta página orienta você sobre como integrar a Braze a uma loja Shopify Hydrogen ou a qualquer loja Shopify headless usando uma vitrine personalizada.
 
-Este guia usa o framework Hydrogen da Shopify como exemplo. No entanto, você pode seguir uma abordagem semelhante se a sua marca usar o Shopify para o back-end da sua loja com uma configuração de front-end "headless".
+Este guia usa o framework Hydrogen da Shopify como exemplo. No entanto, você pode seguir uma abordagem semelhante se a sua marca usar o Shopify para o backend da sua loja com uma configuração de front-end "headless".
 
 Para integrar sua loja Shopify headless com a Braze, você precisa concluir estas duas metas:
 
-1. **Inicializar e carregar o Braze Web SDK para ativar o rastreamento no site**<br><br> Adicione manualmente o código em seu site do Shopify para ativar o rastreamento no site da Braze. Ao implementar o Braze SDK em sua loja Shopify headless, é possível rastrear as atividades no site, incluindo sessões, comportamento anônimo do usuário, ações do comprador antes do checkout e quaisquer [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que você decida incluir com sua equipe de desenvolvimento. Você também pode adicionar quaisquer canais compatíveis com os SDKs, como mensagens no app ou Content Cards.
+1. **Inicializar e carregar o Braze Web SDK para ativar o rastreamento no site**<br><br> Adicione manualmente o código em seu site do Shopify para ativar o rastreamento no site da Braze. Ao implementar o Braze SDK em sua loja Shopify headless, é possível rastrear as atividades no site, incluindo sessões, comportamento de usuário anônimo, ações do comprador antes do checkout e quaisquer [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que você decida incluir com sua equipe de desenvolvimento. Você também pode adicionar quaisquer canais compatíveis com os SDKs, como In-App Messages ou Content Cards.
 
 {: start="2"}
 2. **Instalar a integração da Braze com o Shopify**<br><br> Depois de conectar sua loja Shopify à Braze, você terá acesso aos dados de clientes, checkout, pedidos e produtos por meio de webhooks do Shopify.
@@ -51,7 +51,7 @@ A loja precisa ter o nome "Shopify" ou a integração poderá não funcionar cor
 A primeira etapa é inicializar o Braze Web SDK. Recomendamos fazer isso instalando nosso pacote NPM:
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
@@ -665,10 +665,7 @@ As próximas etapas dependem da seleção do seu ID externo:<br><br>
 
 #### Etapa 6.1: Criar o metafield `braze.external_id` {#step-61-create-the-brazeexternal_id-metafield}
 
-1. No painel de administração do Shopify, acesse **Settings** > **Metafields**.
-2. Selecione **Customers** > **Add definition**.
-3. Em **Namespace and key**, digite `braze.external_id`.
-4. Em **Type**, selecione **ID Type**.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 Depois que o metafield for criado, preencha-o para seus clientes. Recomendamos as seguintes abordagens:
 
@@ -714,9 +711,7 @@ A Braze espera um código de status `200` retornando o JSON do ID externo:
 ##### Comportamento de falha e mesclagem {#failure-behavior-and-merging}
 Qualquer código de status diferente de `200` é considerado uma falha.
 
-- **Implicações da mesclagem:** Se o endpoint falhar (retornar diferente de `200` ou atingir o tempo limite), a Braze não poderá recuperar o ID externo. Consequentemente, a mesclagem entre o usuário do Shopify e o perfil de usuário da Braze não ocorrerá nesse momento.
-- **Lógica de nova tentativa:** A Braze poderá tentar novas tentativas de rede padrão imediatas, mas se a falha persistir, a mesclagem será adiada até o próximo evento qualificador (por exemplo, a próxima vez que o usuário atualizar seu perfil ou concluir um checkout).
-- **Suporte:** Para garantir a mesclagem de usuários em tempo hábil, certifique-se de que seu endpoint esteja altamente disponível e lide com o campo opcional `email_address` de forma adequada.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 #### Etapa 6.3: Inserir seu ID externo {#step-63-input-your-external-id}
 
@@ -724,9 +719,7 @@ Repita a [Etapa 6](#step-6) e insira a URL do endpoint depois de selecionar ID e
 
 ##### Considerações {#considerations}
 
-- Se seu ID externo não for gerado quando a Braze enviar uma solicitação ao seu endpoint, a integração usará por padrão o ID do cliente do Shopify quando a função `changeUser` for chamada. Essa etapa é crucial para mesclar o perfil do usuário anônimo com o perfil do usuário identificado. Como resultado, pode haver um período temporário durante o qual diferentes tipos de IDs externos existam em seu espaço de trabalho.
-- Quando o ID externo estiver disponível no metafield `braze.external_id`, a integração priorizará e atribuirá esse ID externo.
-    - Se o ID do cliente do Shopify tiver sido definido anteriormente como o ID externo da Braze, ele será substituído pelo valor do metafield `braze.external_id`.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 #### Etapa 6.4: Coletar suas aceitações de e-mail ou SMS do Shopify (opcional) {#step-64-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -736,11 +729,7 @@ Se você usar os canais de e-mail ou SMS, poderá sincronizar seus estados de ac
 
 ![Seção "Coletar assinantes" com a opção de coletar aceitação de marketing por e-mail ou SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-Conforme mencionado na [visão geral do Shopify]({{site.baseurl}}/shopify_overview), se você quiser usar um formulário de captura de terceiros, seus desenvolvedores precisarão integrar o código do Braze SDK. Isso permitirá que você capture o endereço de e-mail e o status global da inscrição de e-mail dos envios de formulários. Especificamente, você precisa implementar e testar esses métodos em seu arquivo `theme.liquid`:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Define o endereço de e-mail no perfil do usuário
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Atualiza o status global da inscrição de e-mail
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ### Etapa 7: Sincronizar produtos (opcional) {#step-7-sync-products-optional}
 
@@ -750,9 +739,9 @@ Você pode sincronizar todos os produtos de sua loja Shopify com um catálogo da
 
 ### Etapa 8: Ativar canais {#step-8-activate-channels}
 
-Para ativar mensagens no app, Content Cards e Feature Flags usando a integração direta do Shopify, adicione cada canal ao seu SDK. Siga os links de documentação fornecidos para cada canal abaixo:
+Para ativar In-App Messages, Content Cards e Feature Flags usando a integração direta do Shopify, adicione cada canal ao seu SDK. Siga os links de documentação fornecidos para cada canal:
 
-- **Mensagens no app:** Para ativar mensagens no app para casos de uso de formulários de captura de leads, consulte [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
+- **In-App Messages:** Para ativar In-App Messages para casos de uso de formulários de captura de leads, consulte [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
 - **Content Cards:** Para ativar Content Cards para casos de uso de caixa de entrada ou banner de site, consulte [Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 - **Feature Flags:** Para ativar Feature Flags para casos de uso de experimentação no site, consulte [Feature Flags]({{site.baseurl}}/developer_guide/feature_flags).
 
@@ -760,7 +749,7 @@ Para ativar mensagens no app, Content Cards e Feature Flags usando a integraçã
 
 Depois de concluir todas as etapas, selecione **Finish Setup** para retornar à página do parceiro. Em seguida, ative a incorporação do app da Braze em sua página de administração do Shopify, conforme indicado pelo banner exibido.
 
-![Banner que diz para ativar a incorporação do app da Braze no Shopify para que você possa concluir a configuração de sua integração.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
+![Banner indicando para ativar a incorporação do app da Braze no Shopify para concluir a configuração da integração.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 
 #### Exemplo de código {#example-code}
 

@@ -77,7 +77,7 @@ Weitere Informationen zum Protokollieren angepasster Events finden Sie unter [An
 
 ## Sitzungs-Updates abonnieren {#subscribing-to-session-updates}
 
-### 1. Schritt: Updates abonnieren {#step-1-subscribe-to-updates}
+### Schritt 1: Updates abonnieren {#step-1-subscribe-to-updates}
 
 Um Sitzungs-Updates zu abonnieren, verwenden Sie die Methode `subscribeToSessionUpdates()`.
 
@@ -176,7 +176,7 @@ Das React Native SDK stellt keine Methode zur Verfügung, um Sitzungs-Updates di
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Sitzungs-Tracking testen (optional) {#step-2-test-session-tracking-optional}
+### Schritt 2: Sitzungs-Tracking testen (optional) {#step-2-test-session-tracking-optional}
 
 Um das Sitzungs-Tracking zu testen, starten Sie eine Sitzung auf Ihrem Gerät, öffnen Sie dann das Braze-Dashboard und suchen Sie nach dem/der entsprechenden Nutzer:in. Wählen Sie in dessen/deren Nutzerprofil die **Sitzungsübersicht** aus. Wenn die Metriken wie erwartet aktualisiert werden, funktioniert das Sitzungs-Tracking korrekt.
 
@@ -264,7 +264,7 @@ Ein Nutzerprofil kann 0 Sitzungen aufweisen, wenn der/die Nutzer:in außerhalb d
 
 ### Einige Nutzer:innen protokollieren keine Sitzungen {#some-users-are-not-logging-sessions}
 
-Da Sitzungen erst nach der Initialisierung des SDK getrackt werden, protokollieren Nutzer:innen, die die SDK-Initialisierung nicht auslösen, keine Sitzungen. Dies geschieht typischerweise, wenn Ihre App bedingte Logik vor der Initialisierung des SDK verwendet, z. B. eine verzögerte Initialisierung hinter einem Anmeldevorgang, einer Einwilligungsabfrage oder einem Feature-Flag. Hinweise zur Implementierung finden Sie unter [Verzögerte Initialisierung]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift). In diesen Fällen startet kein:e Nutzer:in, der/die die Bedingung nicht erfüllt, jemals eine Sitzung.
+Da Sitzungen erst nach der Initialisierung des SDK getrackt werden, protokollieren Nutzer:innen, die die SDK-Initialisierung nicht auslösen, keine Sitzungen. Dies geschieht typischerweise, wenn Ihre App bedingte Logik vor der Initialisierung des SDK verwendet, z. B. eine verzögerte Initialisierung hinter einem Anmeldevorgang, einer Einwilligungsabfrage oder einem Feature-Flag. Hinweise zur Implementierung finden Sie unter [Verzögerte Initialisierung]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional). In diesen Fällen startet kein:e Nutzer:in, der/die die Bedingung nicht erfüllt, jemals eine Sitzung.
 
 Wenn einige Nutzer:innen Sitzungen protokollieren und andere nicht, überprüfen Sie Folgendes:
 

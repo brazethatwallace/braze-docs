@@ -10,7 +10,7 @@ search_tag: Partner
 
 # AccuWeather
 
-> [AccuWeather](https://www.accuweather.com/) ist ein Medienunternehmen, das weltweit Dienste zur Wettervorhersage anbietet. Mit AccuWeather können Sie Ihre Marketingkampagnen anreichern und personalisieren sowie Übersetzungen durch den Einsatz von Braze [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) automatisieren.
+> [AccuWeather](https://www.accuweather.com/) ist ein Medienunternehmen, das weltweit Dienste zur Wettervorhersage anbietet. Mit AccuWeather können Sie Ihre Marketingkampagnen anreichern und personalisieren sowie Übersetzungen durch den Einsatz von Braze [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) automatisieren.
 
 _Diese Integration wird von AccuWeather gepflegt._
 
@@ -64,7 +64,7 @@ Eine Aufschlüsselung der beiden Connected-Content-Aufrufe finden Sie in den fol
 
 {% tabs %}
 {% tab Locations %}
-#### Locations-API-Beispiel {#locations-api-example}
+### Locations-API-Beispiel {#locations-api-example}
 
 {% raw %}
 Innerhalb des ersten `connected_content`-Tags wird eine GET-Anfrage an die [Locations API](https://apidev.accuweather.com/developers/locationsAPIguide) gestellt. Für dieses Beispiel können Sie alternativ die `{{${city}}}` der Nutzer:in nutzen, wenn Sie kein angepasstes Attribut für die Postleitzahl haben.
@@ -157,7 +157,7 @@ Dieses JSON-Objekt kann in einer lokalen Variable `location_info` gespeichert we
 {% endtab %}
 {% tab Current conditions %}
 
-#### Current-Conditions-API-Beispiel {#current-conditions-api-example}
+### Current-Conditions-API-Beispiel {#current-conditions-api-example}
 
 Für den zweiten `connected_content`-Tag wird eine GET-Anfrage an die [Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) gestellt. Der **Standortschlüssel** muss der Anfrage-URL hinzugefügt werden. Hier ist ein Beispiel für den `connected_content`-Tag:
 

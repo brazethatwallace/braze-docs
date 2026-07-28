@@ -27,7 +27,7 @@ Die Hauptseite **Sync Log** bietet einen umfassenden Überblick über alle Ihre 
 Sync-Protokolle enthalten außerdem die folgenden Details zu jeder Synchronisierung:
 
 * **Sync-Name:** Der Name der Synchronisierungskonfiguration.
-* **Run-ID:** Ein eindeutiger Bezeichner für eine bestimmte Ausführung der Synchronisierung. Wählen Sie diese ID aus, um weitere Details anzuzeigen. Sie kann auch in den [CDI-API-Endpunkten]({{site.baseurl}}/api/endpoints/cdi) verwendet werden oder um einen Synchronisierungslauf mit Braze Support zu referenzieren.
+* **Run-ID:** Ein eindeutiger Bezeichner für eine bestimmte Ausführung der Synchronisierung. Wählen Sie diese ID aus, um weitere Details anzuzeigen oder um einen Synchronisierungslauf mit Braze Support zu referenzieren.
 * **Status:** Der Status des Laufs (Success, Partial Success, Error, Running).
 * **Neue Zeilen aus der Quelle gelesen:** Die Anzahl der neuen Zeilen, die für diesen Durchlauf aus Ihrem Data Warehouse abgerufen wurden.
 * **Ergebnisse:** Eine Aufschlüsselung der Anzahl der erfolgreichen und fehlgeschlagenen Zeilen innerhalb des Durchlaufs.

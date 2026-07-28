@@ -88,7 +88,7 @@ Building Blocks comes with the default Braze user attributes (`first_name`, `ema
 
 1. In Building Blocks, navigate to **Team Settings** > **Connect** > **Custom Attributes**.
 2. Import your custom attributes using one of the following methods: 
-* **Bulk import (recommended).** In Braze, navigate to **Data Settings** > **Custom Attributes** and select **Export** (top right). Upload the CSV in Building Blocks.
+* **Bulk import (recommended).** In Braze, navigate to **Data Settings** > **Custom Attributes** and select **Export**. Upload the CSV in Building Blocks.
 * **Add attributes one at a time.** Type the attribute name (for example, `loyalty_tier`) and select **Add**. This method is useful if you're adding only several attributes or if you want to add a new attribute between Braze exports.
 
 After you save, your custom attributes appear in the builder's **Personalize** dropdown alongside the defaults. Inserting one renders the correct {% raw %}`{{custom_attribute.${name}}}`{% endraw %} Liquid at export, so Braze resolves the value per recipient at send time.
@@ -98,7 +98,7 @@ After you save, your custom attributes appear in the builder's **Personalize** d
 ### Step 1: Push a template to Braze
 
 1. Open any email in the Building Blocks builder.
-2. Select **Push to Braze** (top right).
+2. Select **Push to Braze** in the action bar.
 3. Select the workspace and confirm. Building Blocks creates an email template in Braze with the rendered Liquid.
 
 The template appears in Braze under **Templates & Media** > **Email Templates**, named after the email and the selected date in the email settings.

@@ -13,7 +13,7 @@ noindex: true
 # Integración manual {#manual-integration}
 
 {% alert tip %}
-Te recomendamos encarecidamente que implementes el SDK mediante un administrador de paquetes como [Swift Package Manager](../swift_package_manager/), [CocoaPods](../cocoapods/) o [Carthage](../carthage_integration/). Te ahorrará mucho tiempo y automatizará gran parte del proceso. Sin embargo, si no puedes hacerlo, puedes completar la integración manualmente siguiendo las instrucciones.
+Te recomendamos encarecidamente que implementes el SDK mediante un administrador de paquetes como [Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods) o [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration). Te ahorrará mucho tiempo y automatizará gran parte del proceso. Sin embargo, si no puedes hacerlo, puedes completar la integración manualmente siguiendo las instrucciones.
 {% endalert %}
 
 ## Paso 1: Descarga del SDK de Braze {#step-1-downloading-the-braze-sdk}
@@ -40,7 +40,7 @@ Te recomendamos encarecidamente que implementes el SDK mediante un administrador
 Si intentas utilizar la versión básica del SDK sin las características de la interfaz de usuario de Braze, los mensajes dentro de la aplicación no se mostrarán. Si intentas mostrar la interfaz de usuario de Content Cards de Braze con la versión básica, se producirá un comportamiento impredecible.
 {% endalert %}
 
-## Paso 2: Añadir bibliotecas iOS necesarias {#step-2-adding-required-ios-libraries}
+## Paso 2: Añadir las bibliotecas de iOS necesarias {#step-2-adding-required-ios-libraries}
 
 1. Haz clic en el objetivo de tu proyecto (utilizando la navegación de la izquierda) y selecciona la pestaña **Build Phases**.<br><br>
 2. Haz clic en el botón <i class="fas fa-plus"></i> situado debajo de **Link Binary With Libraries**.<br><br>

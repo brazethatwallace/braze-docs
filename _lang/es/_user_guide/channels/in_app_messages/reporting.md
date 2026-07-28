@@ -33,9 +33,11 @@ Para los mensajes dentro de la aplicación, esta página define las impresiones 
 | Tasa de conversión | La métrica de impresiones únicas diarias totales (*Impresiones únicas*) se utiliza para calcular la tasa de conversión. <br><br> Tasa de conversión = (Conversiones primarias) / (Impresiones únicas) <br><br> Para los mensajes dentro de la aplicación, las *Impresiones únicas* solo se pueden contar una vez por día calendario en la zona horaria de tu espacio de trabajo. El número de veces que un usuario completa una acción deseada (una "conversión") puede incrementarse dentro de ese mismo día calendario. Por lo tanto, si un usuario completa una conversión varias veces en un día, la *Tasa de conversión* puede incrementarse en consecuencia, pero las *Impresiones únicas* se cuentan solo una vez para ese día calendario. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de mensajes dentro de la aplicación" }
 
-{% alert note %}
-En las pruebas A/B, las *Impresiones únicas* del grupo de control pueden superar las *Impresiones únicas* de la variante, y las *Impresiones totales* del control pueden superar las *Impresiones totales* de la variante, cuando los mensajes de la variante requieren tiempo de renderizado (por ejemplo, imágenes grandes o contenido conectado con plantillas). Los usuarios que desencadenan el mensaje pero lo abandonan antes de que la variante termine de renderizarse pueden no registrar impresiones de la variante, mientras que el grupo de control registra impresiones sin renderizar un mensaje.
+{% alert tip %}
+Las *Impresiones totales* pueden superar a las *Impresiones únicas* cuando un usuario ve el mensaje más de una vez en el mismo día calendario (consulta las definiciones de métricas en la tabla anterior). Para investigar usuarios con recuentos de impresiones inflados, crea un segmento con el filtro **Recuento de dispositivos** configurado en **más de** `1`, y el filtro **Mensaje recibido de Campaign** para la campaña específica.
 {% endalert %}
+
+Para los desequilibrios de impresiones entre el grupo de control y la variante en las pruebas A/B, consulta [Discrepancias entre el grupo de control y la variante]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## ¿Cómo se incrementan las conversiones con la reelegibilidad? {#how-do-conversions-increment-with-re-eligibility}
 

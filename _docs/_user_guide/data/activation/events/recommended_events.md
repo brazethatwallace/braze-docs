@@ -23,7 +23,11 @@ Because these events follow a defined schema, each supported feature can read th
 
 ### How eCommerce events work
 
-eCommerce events are custom events with predefined names and property schemas. You send them using the [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) or the [`/users/track` REST API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), and Braze validates each event against its schema on ingestion. When validation passes, Braze automatically applies post-processing specific to that event type, such as calculating revenue fields and managing cart state on user profiles.
+eCommerce events are custom events with predefined names and property schemas. You send them using the [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), the [`/users/track` REST API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), or [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), and Braze validates each event against its schema on ingestion. When validation passes, Braze automatically applies post-processing specific to that event type, such as calculating revenue fields and managing cart state on user profiles.
+
+{% alert note %}
+CSV uploads don't support eCommerce events. Use the SDK, `/users/track`, or CDI to send these events.
+{% endalert %}
 
 eCommerce events work everywhere other custom events do: triggers and filters for performed custom events, custom events reporting, and more. However, their schema validation unlocks additional capabilities, including:
 
@@ -76,7 +80,7 @@ Use SDK eCommerce event APIs where available. For platform-specific implementati
 | `currency`     | String           | Yes      | Three-letter ISO 4217 code (for example, `USD` or `EUR`).                                                                                               |
 | `source`       | String           | Yes      | Source the event originates from (for example, `web`, `ios`, or `android`).                                                                               |
 | `type`         | Array of strings | No       | Required to use Braze’s catalog trigger features for back-in-stock and price-drop alerts. Accepted values: `"price_drop"`, `"back_in_stock"`     |
-| `metadata`     | Object           | No       | Flexible key-value pairs. Recognized sub-property: `sku` (String)                                                                                   |
+| `metadata`     | Object           | No       | Flexible key-value pairs (for example, `category` or `brand`).                                                                                   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### REST API example
@@ -99,7 +103,6 @@ Use SDK eCommerce event APIs where available. For platform-specific implementati
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }
@@ -1142,51 +1145,7 @@ The following table summarizes what Braze automatically does for each event when
 Non-USD currency values are automatically converted to USD using the exchange rate on the date the event is reported. If you already report in USD, hardcode `USD` as the currency to avoid unintended conversion.
 {% endalert %}
 
-## Implement eCommerce events 
-
-You can send eCommerce events through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (server-side) or through the Braze SDKs (client-side). For SDK implementation examples, see [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
-
-### Send events server-side
-
-Use the `/users/track` endpoint to send eCommerce events from your backend. Each event requires the exact event name, the user's `external_id`, and a properties object matching the event schema.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## Implementation details
 
 ### Data points and billing
 

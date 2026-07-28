@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Canva
 
-> [Canva](https://www.canva.com/)는 소셜 미디어 게시물, 프레젠테이션, 동영상 등을 위한 시각적 콘텐츠를 만들 수 있는 그래픽 디자인 플랫폼 및 도구입니다. Canva의 Braze 앱은 정적 디자인을 미디어 라이브러리로 전송하는 것 외에도 **이메일** 디자인을 Braze 이메일 템플릿으로 내보내는 기능을 지원합니다.
+> [Canva](https://www.canva.com/)는 소셜 미디어 게시물, 프레젠테이션, 비디오 등을 위한 시각적 콘텐츠를 만들 수 있는 그래픽 디자인 플랫폼 및 도구입니다. Canva의 Braze 앱은 정적 디자인을 미디어 라이브러리로 전송하는 것 외에도 **이메일** 디자인을 Braze 이메일 템플릿으로 내보내는 기능을 지원합니다.
 
 ## 통합 소개 {#about-the-integration}
 
@@ -68,7 +68,7 @@ Braze 미디어 라이브러리에 파일을 저장하려는 표준 Canva 디자
 Canva 파일이 **이메일** 디자인 유형인 경우 이 흐름을 사용합니다. HTML을 Braze에 템플릿으로 게시합니다(이미지 흐름과 유사한 메타데이터이지만, **Apps** 대신 **Share**에서 시작합니다).
 
 1. Canva에서 **이메일** 디자인을 만들거나 엽니다. 처음부터 메시지를 작성하거나 Canva 이메일 템플릿을 사용합니다.
-2. 에디터 오른쪽 상단의 **Share**를 클릭하고 **Braze**를 선택합니다. Braze가 목록에 없으면 **See more**를 열고 **More options**로 스크롤하여 Braze를 찾습니다.
+2. 에디터 액션 바에서 **Share**를 클릭하고 **Braze**를 선택합니다. Braze가 목록에 없으면 **See more**를 열고 **More options**로 스크롤하여 Braze를 찾습니다.
 
 ![Canva의 추가 게시 방법에서 More options 아래의 Braze.]({% image_buster /assets/img/canva_integration/canva-share-more-options-braze.png %})
 

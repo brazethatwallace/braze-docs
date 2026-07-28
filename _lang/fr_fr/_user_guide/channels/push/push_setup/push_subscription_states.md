@@ -31,7 +31,7 @@ Sur iOS et Android, lorsqu'un appareil passe de l'autorisation push au premier p
 
 Après avoir attendu de nouvelles données SDK (par exemple, juste après une session de test), sélectionnez **Refresh** sur le profil utilisateur si les valeurs semblent obsolètes. Il peut y avoir un court délai entre le moment où le SDK envoie les données et celui où le profil reflète le dernier enregistrement push.
 
-Pour les utilisateurs que vous ajoutez à un [groupe interne]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), sélectionnez **Record User Events for group members** dans les **Internal Group Settings** de ce groupe afin que les requêtes SDK apparaissent dans le journal. Ouvrez ensuite le [Journal des événements utilisateur]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) dans **Paramètres** > **Event User Log**, trouvez les requêtes SDK de l'utilisateur et développez le payload brut. Vous pouvez inspecter des champs tels que `remote_notification_enabled` pour vérifier si l'appareil signale les notifications distantes comme activées ou désactivées.
+Pour les utilisateurs que vous ajoutez à un [groupe interne]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), sélectionnez **Record User Events for group members** dans les **Internal Group Settings** de ce groupe afin que les requêtes SDK apparaissent dans le journal. Ouvrez ensuite le [Journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) dans **Paramètres** > **Event User Log**, trouvez les requêtes SDK de l'utilisateur et développez le payload brut. Vous pouvez inspecter des champs tels que `remote_notification_enabled` pour vérifier si l'appareil signale les notifications distantes comme activées ou désactivées.
 
 ### Segmentation et filtres push {#segmentation-and-push-filters}
 
@@ -57,11 +57,11 @@ Le tableau suivant montre comment différentes actions utilisateur affectent l'a
 
 <sup>* Si l'application n'utilise pas le push provisoire, `Foreground Push Enabled` est `false` jusqu'à ce que l'utilisateur autorise les notifications push. Si l'application utilise le push provisoire, `Foreground Push Enabled` est `true` au début de la première session. Pour plus d'informations, consultez [Autorisation provisoire et push silencieux](#provisional-push).</sup>
 
-<sup>** À partir de la [version 7.5.0 du SDK Swift de Braze](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), la propriété de configuration `optInWhenPushAuthorized` contrôle si l'état d'abonnement push est automatiquement défini sur `Opted-In` lorsque l'autorisation push est accordée. Pour plus d'informations, consultez [Mise à jour des états d'abonnement push](#update-push-subscription-state).</sup>
+<sup>** À partir de la [version 7.5.0 du SDK Swift de Braze](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), la propriété de configuration `optInWhenPushAuthorized` contrôle si l'état d'abonnement push est automatiquement défini sur `Opted-In` lorsque l'autorisation push est accordée. Pour plus d'informations, consultez [Jetons push](#push-tokens).</sup>
 
 ## Autorisation push {#push-permission}
 
-Toutes les plateformes compatibles push — iOS, Web et Android — nécessitent un abonnement explicite via une invite système au niveau de l'OS, avec quelques légères différences décrites ci-dessous.
+Toutes les plateformes compatibles push — iOS, Web et Android — nécessitent un abonnement explicite via une invite système au niveau de l'OS, avec quelques légères différences décrites dans la section suivante.
 
 Étant donné que la décision d'un utilisateur est définitive et que vous ne pouvez pas redemander après un refus, utiliser des messages in-app de type [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) est une stratégie importante pour augmenter vos taux d'abonnement.
 
@@ -92,7 +92,7 @@ Le push autorisé nécessite une autorisation explicite de l'utilisateur avant d
 
 Avant iOS 12 (sorti en 2018), tous les utilisateurs devaient explicitement s'abonner pour recevoir des notifications push.
 
-Avec iOS 12, Apple a introduit l'[autorisation provisoire](https://www.braze.com/resources/articles/mastering-provisional-push), permettant aux marques d'envoyer des notifications push silencieuses dans le centre de notifications de leurs utilisateurs avant qu'ils ne s'abonnent explicitement, vous donnant ainsi la possibilité de démontrer la valeur de vos messages en amont. Consultez [autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications) pour en savoir plus.
+Avec iOS 12, Apple a introduit l'[autorisation provisoire](https://www.braze.com/resources/articles/mastering-provisional-push), permettant aux marques d'envoyer des notifications push silencieuses dans le centre de notifications de leurs utilisateurs avant qu'ils ne s'abonnent explicitement, vous donnant ainsi la possibilité de démontrer la valeur de vos messages en amont. Consultez [autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) pour en savoir plus.
 
 ### Web {#web}
 
@@ -167,7 +167,7 @@ Si l'utilisateur est ajouté en tant qu'utilisateur test, dans **Console de dév
 - **Arrière-plan iOS activé :** L'utilisateur a reçu l'invite push et a refusé, ou a accepté puis a désactivé les notifications push dans les paramètres de son appareil (reflété après que l'utilisateur a enregistré une session).
 - **Premier plan iOS activé :** L'utilisateur a reçu l'invite push et est éligible pour recevoir des notifications push au premier plan.
 
-L'analyse de Campaign reflétera les statistiques push conformément aux détails ci-dessus. Vous pouvez également télécharger les profils utilisateurs qui sont entrés dans la Campaign ou le Canvas pour croiser les profils utilisateurs.
+L'analyse de Campaign reflétera les statistiques push conformément aux détails présentés plus haut dans cette section. Vous pouvez également télécharger les profils utilisateurs qui sont entrés dans la Campaign ou le Canvas pour croiser les profils utilisateurs.
 
 ## Autres scénarios spécifiques aux plateformes {#other-platform-specific-scenarios}
 
@@ -180,7 +180,7 @@ Pour gérer les abonnements, vous pouvez utiliser la méthode utilisateur [`setP
 
 Si un utilisateur désactive les notifications dans son navigateur, la prochaine notification push envoyée à cet utilisateur rebondira, et Braze mettra à jour le jeton push de l'utilisateur en conséquence. Cela est utilisé pour gérer l'éligibilité aux filtres d'activation push (`Background or Foreground Push Enabled`, `Foreground Push Enabled` et `Foreground Push Enabled for App`). Le statut d'abonnement défini sur le profil de l'utilisateur est un paramètre au niveau de l'utilisateur et ne change pas lorsqu'un push rebondit.
 
-### Erreurs de jeton push Web 410 {#410-web-push-token-errors}
+### Erreurs de jeton push Web 410 {#410-web-push-token-errors} {#410-web-push-token-errors}
 
 Si vous recevez une erreur `410: Gone`, cela peut se produire lorsqu'un utilisateur désactive les notifications push web depuis le navigateur dans les paramètres de son OS, ou s'il se connecte en tant qu'utilisateur différent sur le même appareil, ou si l'utilisateur n'a pas visité le site web depuis un certain temps.
 

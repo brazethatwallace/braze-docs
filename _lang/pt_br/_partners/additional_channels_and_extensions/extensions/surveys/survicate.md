@@ -28,7 +28,7 @@ A Braze e a Survicate trabalham juntas para cobrir uma série de casos de uso de
 - Automatize campanhas de acompanhamento com base no feedback do cliente.
 - Use os insights dos clientes para disparar fluxos de trabalho personalizados.
 - Alcance um público mais amplo com pesquisas traduzidas automaticamente.
-- Envie eventos para os perfis de contato da Braze quando alguém responder à sua pesquisa
+- Envie eventos para os perfis de contato da Braze quando alguém responder à sua pesquisa.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -36,8 +36,8 @@ A Braze e a Survicate trabalham juntas para cobrir uma série de casos de uso de
 | ----------- | ----------- |
 | Conta Survicate | Você precisa de uma conta Survicate para ativar essa integração. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com a permissão `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **APIs e identificadores**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Principais recursos da integração {#key-features-of-the-integration}
 
@@ -82,12 +82,12 @@ Exiba a primeira pergunta diretamente no corpo do e-mail para iniciar a pesquisa
 
 1. Clique em **Get email code** e, em seguida, **Copy the HTML code**:
 
-![Get email code]({% image_buster /assets/img/survicate/survicate_5.gif %})
+![Obter código de e-mail]({% image_buster /assets/img/survicate/survicate_5.gif %})
 
 {: start="2"}
 2. Acesse a Campaign da Braze que deseja usar para a pesquisa, clique em **Edit email body** e adicione um bloco HTML ao seu modelo:
 
-![Get HTML block code]({% image_buster /assets/img/survicate/survicate_6.png %})
+![Obter código do bloco HTML]({% image_buster /assets/img/survicate/survicate_6.png %})
 
 {: start="3"}
 3. Substitua o código pelo que você copiou da sua pesquisa Survicate. Você verá a primeira pergunta da pesquisa no modelo:
@@ -103,7 +103,7 @@ Exiba a primeira pergunta diretamente no corpo do e-mail para iniciar a pesquisa
 
 1. Clique em **+ Create new survey**, selecione qualquer método de criação (um modelo, usando a criação de pesquisa por IA ou adicionando suas próprias perguntas) e, em seguida, escolha In-platform surveys e o tipo de pesquisa Braze In-App Message:
 
-![Clique em + Create new survey, selecione qualquer método de criação]({% image_buster /assets/img/survicate/survicate_8.gif %})
+![Clique em + Create new survey e selecione qualquer método de criação]({% image_buster /assets/img/survicate/survicate_8.gif %})
 
 {: start="2"}
 2. Inicie sua pesquisa de In-App Message da Braze navegando até sua conta Braze e, em seguida, em **Messaging > Campaigns > Create campaign > In-app message**:
@@ -130,7 +130,7 @@ Você pode encontrar um snippet de exemplo e a implementação em React [no site
 {% endalert %}
 
 {: start="3"}
-3. Na sua Campaign da Braze, configure as etapas **Target** e **Assign**. Quando concluída, sua Campaign estará pronta para ser lançada. Na etapa **Review**, você pode ver a aparência da Campaign. A pesquisa aparece no seu site no local especificado no painel da Survicate, conforme descrito acima.
+3. Na sua Campaign da Braze, configure as etapas **Target** e **Assign**. Quando concluída, sua Campaign estará pronta para ser lançada. Na etapa **Review**, você pode ver a aparência da Campaign. A pesquisa aparece no seu site no local especificado no painel da Survicate, conforme descrito na etapa 1.
 
 ### Ativando a integração da Braze {#enabling-the-braze-integration}
 

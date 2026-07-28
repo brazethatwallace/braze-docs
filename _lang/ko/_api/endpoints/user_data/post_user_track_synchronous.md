@@ -26,7 +26,7 @@ description: "이 문서에서는 동기식 사용자 추적 Braze 엔드포인�
 
 동기 호출에서 API는 상태 코드 `201`을 반환하여 요청이 성공적으로 수신되고 이해되었으며 수락되고 완료되었음을 나타냅니다. 호출 응답은 작업 결과로 선택된 사용자 프로필 필드를 보여줍니다.
 
-이 엔드포인트는 `/users/track` 엔드포인트보다 사용량 제한이 낮습니다(아래 [사용량 제한](#rate-limit) 참조). 각 `/users/track/sync` 요청에는 하나의 이벤트 오브젝트, 하나의 속성 오브젝트 **또는** 하나의 구매 오브젝트만 포함할 수 있습니다. 이 엔드포인트는 동기 호출이 필요한 사용자 프로필 업데이트를 위해 예약해야 합니다. 건전한 구현을 위해 `/users/track/sync`와 `/users/track`을 함께 사용하는 것을 권장합니다.
+이 엔드포인트는 `/users/track` 엔드포인트보다 사용량 제한이 낮습니다([사용량 제한](#rate-limit) 참조). 각 `/users/track/sync` 요청에는 하나의 이벤트 오브젝트, 하나의 속성 오브젝트 **또는** 하나의 구매 오브젝트만 포함할 수 있습니다. 이 엔드포인트는 동기 호출이 필요한 사용자 프로필 업데이트를 위해 예약해야 합니다. 건전한 구현을 위해 `/users/track/sync`와 `/users/track`을 함께 사용하는 것을 권장합니다.
 
 예를 들어 동일한 사용자에 대해 짧은 시간 동안 연속적인 요청을 보내는 경우 비동기식 `/users/track` 엔드포인트에서는 경합 조건이 발생할 수 있지만, `/users/track/sync` 엔드포인트를 사용하면 `2XX` 응답을 받은 후 각 요청을 순차적으로 보낼 수 있습니다.
 
@@ -65,7 +65,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | 선택 사항 | 하나의 속성 오브젝트 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) 보기 |
+| `attributes` | 선택 사항 | 하나의 속성 오브젝트 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object) 보기 |
 | `events` | 선택 사항 | 하나의 이벤트 오브젝트 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object) 보기 |
 | `purchases` | 선택 사항 | 하나의 구매 오브젝트 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object) 보기 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
@@ -285,10 +285,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 동일한 속성, 이벤트 또는 구매에 대해 한 사용자에게 여러 요청을 보내는 경우, Braze는 경합 조건이 발생하지 않도록 각 요청 사이에 성공 응답을 기다릴 것을 권장합니다.
 
+동일한 사용자에 대해 `/users/track`을 빠르게 연속 호출할 때 여전히 일관되지 않은 프로필 상태가 나타나면, 해당 업데이트를 `/users/track/sync`로 전환하고 한 번에 하나의 요청을 보내면서 다음 요청 전에 각 `2XX` 응답을 기다리세요. 이 순서가 긴밀한 루프나 병렬 워커 간의 읽기-후-쓰기 경합 조건을 방지하는 지원되는 방법입니다.
+
 ### 응답 값이 원래 요청의 값과 일치하지 않는 이유는 무엇인가요? {#why-doesnt-the-response-value-match-the-one-in-my-original-request}
 
 요청이 완료되었더라도 커스텀 속성 값이 업데이트되지 않았을 수 있습니다. 이는 커스텀 속성 업데이트가 최대 문자 수를 초과하거나, 배열 제한을 초과하거나, 사용자가 Braze에 존재하지 않는데 `_update_existing_only = true`로 설정된 경우에 발생할 수 있습니다.
 
-이러한 경우 응답을 요청이 완료되었지만 원하는 업데이트가 이루어지지 않았다는 표시로 간주하세요. 위에서 설명한 이유를 참고하여 문제를 해결하세요.
+이러한 경우 응답을 요청이 완료되었지만 원하는 업데이트가 이루어지지 않았다는 표시로 간주하세요. [응답 값이 원래 요청의 값과 일치하지 않는 이유는 무엇인가요?](#why-doesnt-the-response-value-match-the-one-in-my-original-request)에 나열된 이유를 참고하여 문제를 해결하세요.
 
 {% endapi %}

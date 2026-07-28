@@ -185,9 +185,9 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 Para conferir um app de exemplo usando FCM com o SDK Android da Braze, veja [Braze: App de exemplo de push do Firebase](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push).
 {% endalert %}
 
-### Limites de taxa {#rate-limits}
+### Limites de frequência {#rate-limits}
 
-A API do Firebase Cloud Messaging (FCM) tem um limite de taxa padrão de 600.000 solicitações por minuto. Se você atingir esse limite, a Braze tentará automaticamente outra vez em alguns minutos. Para solicitar um aumento, entre em contato com o [Suporte do Firebase](https://firebase.google.com/support).
+A API do Firebase Cloud Messaging (FCM) tem um limite de frequência padrão de 600.000 solicitações por minuto. Se você atingir esse limite, a Braze tentará automaticamente outra vez em alguns minutos. Para solicitar um aumento, entre em contato com o [Suporte do Firebase](https://firebase.google.com/support).
 
 ### Etapa 1: Adicione o Firebase ao seu projeto {#step-1-add-firebase-to-your-project}
 
@@ -235,7 +235,7 @@ Selecione **Firebase Cloud Messaging _API_ Admin**, não **Firebase Cloud Messag
 
 ### Etapa 5: Gere credenciais JSON {#json}
 
-Em seguida, gere credenciais JSON para sua conta de serviço FCM. No Google Cloud IAM & Admin, acesse **Service Accounts** e escolha seu projeto. Localize a conta de serviço FCM [que você criou anteriormente](#android_service-account) e selecione <i class="fa-solid fa-ellipsis-vertical" aria-label="Ações"></i>&nbsp;**Actions** > **Manage Keys**.
+Em seguida, gere credenciais JSON para sua conta de serviço FCM. No Google Cloud IAM & Admin, acesse **Service Accounts** e escolha seu projeto. Localize a conta de serviço FCM [que você criou anteriormente](#android_service-account) e selecione <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Manage Keys**.
 
 ![A página inicial da conta de serviço do projeto com o menu "Actions" aberto.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-manage-keys.png %})
 
@@ -255,7 +255,7 @@ As chaves privadas podem representar um risco de segurança se forem comprometid
 
 ### Etapa 6: Faça upload das suas credenciais JSON na Braze {#step-6-upload-your-json-credentials-to-braze}
 
-Em seguida, faça upload das suas credenciais JSON no dashboard da Braze. Na Braze, selecione <i class="fa-solid fa-gear" aria-label="Configurações"></i>&nbsp;**Settings** > **App Settings**.
+Em seguida, faça upload das suas credenciais JSON no dashboard da Braze. Na Braze, selecione <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **App Settings**.
 
 ![O menu "Settings" aberto na Braze com "App Settings" destacado.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
@@ -271,7 +271,7 @@ As chaves privadas podem representar um risco de segurança se forem comprometid
 
 Quando um dos seus usuários aceita notificações por push, seu app precisa gerar um token FCM no dispositivo dele antes de poder enviar notificações por push. Com o SDK da Braze, é possível ativar o registro automático do token FCM para cada dispositivo do usuário nos arquivos de configuração da Braze do seu projeto.
 
-Primeiro, acesse o Firebase Console, abra seu projeto e selecione <i class="fa-solid fa-gear" aria-label="Configurações"></i>&nbsp;**Settings** > **Project settings**.
+Primeiro, acesse o Firebase Console, abra seu projeto e selecione <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**.
 
 ![O projeto Firebase com o menu "Settings" aberto.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
@@ -454,7 +454,7 @@ No seu `braze.xml`, especifique:
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-ou defina via [configuração de tempo de execução:]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)
+ou defina via [configuração de tempo de execução:]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -540,7 +540,7 @@ Para permitir que a Braze abra automaticamente seu app e quaisquer deep links qu
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-Esse sinalizador também pode ser definido via [configuração de tempo de execução]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android):
+Esse sinalizador também pode ser definido via [configuração de tempo de execução]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration):
 
 {% tabs %}
 {% tab JAVA %}
@@ -565,7 +565,7 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-Se quiser personalizar o tratamento de deep links, você precisará criar um retorno de chamada de push que escute as intenções de push recebidas e abertas da Braze. Para mais informações, veja [Usando um retorno de chamada para eventos de push]({{site.baseurl}}/developer_guide/push_notifications/customization#android_using-a-callback-for-push-events).
+Se quiser personalizar o tratamento de deep links, você precisará criar um retorno de chamada de push que escute as intenções de push recebidas e abertas da Braze. Para saber mais, veja [Usando um retorno de chamada para eventos de push]({{site.baseurl}}/developer_guide/push_notifications/customization#android_using-a-callback-for-push-events).
 
 ## Tratando notificações em primeiro plano {#handling-foreground-notifications}
 
@@ -624,13 +624,13 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 {% endtab %}
 {% endtabs %}
 
-Para mais informações, veja o [exemplo de integração do Firebase](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseMessagingService.kt) no repositório do SDK Android da Braze.
+Para saber mais, veja o [exemplo de integração do Firebase](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseMessagingService.kt) no repositório do SDK Android da Braze.
 
 ### Personalizando o comportamento em primeiro plano {#customizing-foreground-behavior}
 
 Se você quiser um comportamento personalizado em primeiro plano, como suprimir a notificação do sistema ou mostrar uma interface no app, você pode:
 
-- Usar `subscribeToPushNotificationEvents` para reagir a eventos de push e tratar deep links com o método `BrazeNotificationUtils.routeUserWithNotificationOpenedIntent`. Para mais informações, veja o [exemplo de push do Firebase](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseApplication.kt).
+- Usar `subscribeToPushNotificationEvents` para reagir a eventos de push e tratar deep links com o método `BrazeNotificationUtils.routeUserWithNotificationOpenedIntent`. Para saber mais, veja o [exemplo de push do Firebase](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseApplication.kt).
 - Criar e publicar sua própria notificação usando um `IBrazeNotificationFactory` personalizado, ou suprimir a notificação não chamando `notificationManager.notify` no seu caminho de tratamento.
 
 Para saber mais sobre como personalizar notificações, veja [Fábrica de notificações personalizadas]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#custom-notification-factory).
@@ -649,7 +649,7 @@ O dashboard da Braze oferece suporte à configuração de deep links ou URLs da 
 
 Por padrão, o SDK do Android colocará a atividade principal do iniciador do seu app na back stack ao seguir deep links de push. A Braze permite definir uma atividade personalizada para ser aberta na back stack no lugar da atividade principal do iniciador ou desativar a back stack completamente.
 
-Por exemplo, para definir uma atividade chamada `YourMainActivity` como a atividade de back stack usando a [configuração de tempo de execução]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android):
+Por exemplo, para definir uma atividade chamada `YourMainActivity` como a atividade de back stack usando a [configuração de tempo de execução]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration):
 
 {% tabs %}
 {% tab JAVA %}
@@ -706,7 +706,7 @@ O nome e a descrição padrão do canal também podem ser configurados em `braze
 
 #### Testando a exibição {#testing-display}
 
-Nesse ponto, você já deve conseguir ver as notificações enviadas pela Braze. Para testar, acesse a página **Campaigns** no dashboard da Braze e crie uma Campaign de **Notificação por push**. Escolha **Push para Android** e crie sua mensagem. Em seguida, clique no ícone do olho no criador para obter o remetente de teste. Digite o ID do usuário ou o endereço de e-mail do usuário atual e clique em **Send Test**. Você deverá ver o push aparecer no seu dispositivo.
+Nesse ponto, você já deve conseguir ver as notificações enviadas pela Braze. Para testar, acesse a página **Campaigns** no dashboard da Braze e crie uma Campaign de **Push Notification**. Escolha **Android Push** e crie sua mensagem. Em seguida, clique no ícone do olho no criador para obter o remetente de teste. Digite o ID do usuário ou o endereço de e-mail do usuário atual e clique em **Send Test**. Você deverá ver o push aparecer no seu dispositivo.
 
 ![A guia "Test" de uma Campaign de notificação por push no dashboard da Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
@@ -714,7 +714,7 @@ Para problemas relacionados à exibição de push, consulte nosso [guia de solu�
 
 #### Testando a análise de dados {#testing-analytics}
 
-Nesse ponto, você também deve ter o registro de análise de dados para aberturas de notificações por push. Ao clicar na notificação quando ela chegar, as **Aberturas diretas** na página de resultados da sua Campaign deverão aumentar em 1. Confira nosso artigo sobre [relatórios push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting) para obter informações detalhadas sobre a análise de dados de push.
+Nesse ponto, você também deve ter o registro de análise de dados para aberturas de notificações por push. Ao clicar na notificação quando ela chegar, as **Aberturas Diretas** na página de resultados da sua Campaign deverão aumentar em 1. Confira nosso artigo sobre [relatórios push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting) para obter informações detalhadas sobre a análise de dados de push.
 
 Para problemas relacionados à análise de dados de push, consulte nosso [guia de solução de problemas]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 
@@ -759,7 +759,7 @@ Este recurso está disponível apenas na REST API da Braze. Consulte o [objeto p
 
 ## Erros de cota do FCM excedida {#fcm-quota-exceeded-errors}
 
-Quando seu limite para o Firebase Cloud Messaging (FCM) é excedido, o Google retorna erros de "cota excedida". O limite padrão do FCM é de 600.000 solicitações por minuto. A Braze tenta reenviar de acordo com as melhores práticas recomendadas pelo Google. No entanto, um grande volume desses erros pode prolongar o tempo de envio por vários minutos. Para atenuar o possível impacto, a Braze enviará um alerta de que o limite de taxa está sendo excedido e informando quais medidas você pode tomar para evitar os erros.
+Quando seu limite para o Firebase Cloud Messaging (FCM) é excedido, o Google retorna erros de "cota excedida". O limite padrão do FCM é de 600.000 solicitações por minuto. A Braze tenta reenviar de acordo com as melhores práticas recomendadas pelo Google. No entanto, um grande volume desses erros pode prolongar o tempo de envio por vários minutos. Para atenuar o possível impacto, a Braze enviará um alerta de que o limite de frequência está sendo excedido e informando quais medidas você pode tomar para evitar os erros.
 
 Para verificar seu limite atual, acesse seu **Google Cloud Console** > **APIs & Services** > **Firebase Cloud Messaging API** > **Quotas & System Limits**, ou visite a [página de cotas da API FCM](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas).
 
@@ -767,15 +767,15 @@ Para verificar seu limite atual, acesse seu **Google Cloud Console** > **APIs & 
 
 Recomendamos essas melhores práticas para manter esses volumes de erro baixos.
 
-#### Solicite um aumento de limite de taxa do FCM {#request-a-rate-limit-increase-from-fcm}
+#### Solicite um aumento de limite de frequência do FCM {#request-a-rate-limit-increase-from-fcm}
 
-Para solicitar um aumento de limite de taxa do FCM, você pode entrar em contato diretamente com o [Suporte do Firebase](https://firebase.google.com/support) ou fazer o seguinte:
+Para solicitar um aumento de limite de frequência do FCM, você pode entrar em contato diretamente com o [Suporte do Firebase](https://firebase.google.com/support) ou fazer o seguinte:
 
 1. Acesse a [página de cotas da API FCM](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas).
 2. Localize a cota de **Send requests per minute**.
 3. Selecione **Edit Quota**.
 4. Insira um novo valor e envie sua solicitação.
 
-#### Aplique um limite de taxa no espaço de trabalho {#apply-a-workspace-rate-limit}
+#### Aplique um limite de frequência no espaço de trabalho {#apply-a-workspace-rate-limit}
 
-Você pode aplicar um limite de taxa no espaço de trabalho para notificações por push do Android. Isso pode ajudar a regular a taxa de entrega das suas mensagens enviadas. Para mais informações, consulte [Limites de taxa de envio de mensagens do espaço de trabalho]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits).
+Você pode aplicar um limite de frequência no espaço de trabalho para notificações por push do Android. Isso pode ajudar a regular a taxa de entrega das suas mensagens enviadas. Para saber mais, consulte [Limites de frequência de envio de mensagens do espaço de trabalho]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits).

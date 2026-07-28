@@ -37,7 +37,7 @@ This integration also allows you to [import user cohorts to Braze]({{site.baseur
 
 1. On the Hightouch platform, in the **Destinations** section, click **Add destination**.
 2. Select **Braze** from the list of available destinations.
-3. Provide your Braze REST endpoint (excluding "https://rest.") and your Braze REST API Key.<br><br>![]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
+3. Provide your Braze REST endpoint (excluding "https://rest.") and your Braze REST API Key.<br><br>![Hightouch Braze destination setup form with endpoint and API key fields.]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
 
 ### Step 2: Object and event syncing
 

@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## Eine getriggerte Kampagne einrichten {#setting-up-a-triggered-campaign}
 
-### 1. Schritt: Trigger-Event auswählen {#step-1-select-a-trigger-event}
+### Schritt 1: Trigger-Event auswählen {#step-1-select-a-trigger-event}
 
 Wählen Sie ein Trigger-Event aus. Dies kann Folgendes umfassen:
 - Einen Kauf tätigen
@@ -76,7 +76,7 @@ Darüber hinaus halten sich getriggerte In-App-Nachrichten weiterhin an die Zust
 
 ![Zeitplan für aktionsbasierte Kampagnenzustellung mit Konfigurationsoptionen für Trigger-Events.]({% image_buster /assets/img_archive/schedule_triggered1.png %})
 
-### 2. Schritt: Verzögerungsdauer auswählen {#step-2-select-delay-length}
+### Schritt 2: Verzögerungsdauer auswählen {#step-2-select-delay-length}
 
 Wählen Sie aus, wie lange nach Erfüllung der Trigger-Kriterien gewartet werden soll, bevor die Kampagne gesendet wird. Wenn die gewählte Verzögerungsdauer länger ist als der Sendezeitraum der Nachricht, erhalten keine Nutzer:innen die Kampagne.
 
@@ -93,7 +93,7 @@ Sie können auch wählen, die Kampagne an einem bestimmten Wochentag zu senden (
 ![Sie können auch wählen, die Kampagne an einem bestimmten Wochentag zu senden (indem Sie „am nächsten“ und dann einen Tag auswählen) oder nach einer bestimmten Anzahl von Tagen (indem Sie „in“ auswählen). Alternativ können Sie Ihre Nachricht mit dem Feature „Intelligentes Timing“ senden, anstatt manuell einen Zustellungszeitpunkt auszuwählen.]({% image_buster /assets/img_archive/schedule_triggered7.png %})
 ![Sie können auch wählen, die Kampagne an einem bestimmten Wochentag zu senden (indem Sie „am nächsten“ und dann einen Tag auswählen) oder nach einer bestimmten Anzahl von Tagen (indem Sie „in“ auswählen). Alternativ können Sie Ihre Nachricht mit dem Feature „Intelligentes Timing“ senden, anstatt manuell einen Zustellungszeitpunkt auszuwählen.]({% image_buster /assets/img_archive/schedule_triggered8.png %})
 
-### 3. Schritt: Ausnahme-Events auswählen {#step-3-select-exception-events}
+### Schritt 3: Ausnahme-Events auswählen {#step-3-select-exception-events}
 
 Wählen Sie ein Ausnahme-Event aus, das Nutzer:innen vom Empfang dieser Kampagne ausschließt. Dies ist nur möglich, wenn Ihre getriggerte Nachricht nach einer Zeitverzögerung gesendet wird. [Ausnahme-Events]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) können ein Kauf, der Start einer Sitzung, die Ausführung eines der festgelegten [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) einer Kampagne oder die Ausführung eines angepassten Events sein. Wenn Nutzer:innen das Trigger-Event abschließen, aber dann vor dem Nachrichtenversand aufgrund der Zeitverzögerung das Ausnahme-Event ausführen, erhalten sie die Kampagne nicht. Nutzer:innen, die die Kampagne aufgrund des Ausnahme-Events nicht erhalten, sind automatisch berechtigt, sie in Zukunft zu erhalten, wenn sie das nächste Mal das Trigger-Event abschließen – auch wenn Sie keine [erneute Berechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) aktiviert haben.
 
@@ -107,7 +107,7 @@ Weitere Informationen zur Verwendung von Ausnahme-Events finden Sie in unserem A
 Sie können „Sitzungsstart“ nicht gleichzeitig als Trigger-Event und Ausnahme-Event für eine Kampagne festlegen. Sie haben jedoch immer die Möglichkeit, ein anderes angepasstes Event außerhalb dieser Option auszuwählen.
 {% endalert %}
 
-### 4. Schritt: Dauer festlegen {#step-4-assign-duration}
+### Schritt 4: Dauer festlegen {#step-4-assign-duration}
 
 Legen Sie die Dauer der Kampagne fest, indem Sie eine Startzeit und eine optionale Endzeit angeben.
 
@@ -115,7 +115,7 @@ Legen Sie die Dauer der Kampagne fest, indem Sie eine Startzeit und eine optiona
 
 Wenn Nutzer:innen ein Trigger-Event innerhalb des festgelegten Zeitraums abschließen, sich aber aufgrund einer geplanten Verzögerung erst außerhalb des Zeitraums für die Nachricht qualifizieren, erhalten sie die Kampagne nicht. Wenn Sie also eine Zeitverzögerung festlegen, die länger als der Nachrichtenzeitraum ist, erhalten keine Nutzer:innen Ihre Kampagne. Darüber hinaus können Sie wählen, die Nachricht in der [Ortszeit]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns) der Nutzer:innen zu senden.
 
-### 5. Schritt: Zeitfenster auswählen {#step-5-select-time-frame}
+### Schritt 5: Zeitfenster auswählen {#step-5-select-time-frame}
 
 Wählen Sie aus, ob Nutzer:innen die Kampagne während eines bestimmten Tagesabschnitts erhalten sollen. Wenn Sie der Nachricht ein Zeitfenster zuweisen und Nutzer:innen entweder das Trigger-Event außerhalb des Zeitfensters abschließen oder die Nachrichtenverzögerung dazu führt, dass sie das Zeitfenster verpassen, erhalten sie Ihre Nachricht standardmäßig nicht.
 
@@ -129,7 +129,7 @@ Wenn Nutzer:innen die Nachricht nicht erhalten, weil sie das Zeitfenster verpass
 
 Wenn Sie der Kampagne auch eine bestimmte Dauer zugewiesen haben, müssen Nutzer:innen sich sowohl innerhalb der Dauer als auch innerhalb des spezifischen Tagesabschnitts qualifizieren, um die Nachricht zu erhalten.
 
-### 6. Schritt: Erneute Berechtigung festlegen {#step-6-determine-re-eligibility}
+### Schritt 6: Erneute Berechtigung festlegen {#step-6-determine-re-eligibility}
 
 Legen Sie fest, ob Nutzer:innen [erneut berechtigt]({% image_buster /assets/img_archive/ReEligible.png %}) für die Kampagne werden können. Wenn Sie die erneute Berechtigung zulassen, können Sie eine Zeitverzögerung festlegen, bevor Nutzer:innen die Kampagne erneut erhalten können. Dies verhindert, dass Ihre getriggerten Kampagnen als „Spam“ wahrgenommen werden.
 
@@ -139,11 +139,13 @@ Legen Sie fest, ob Nutzer:innen [erneut berechtigt]({% image_buster /assets/img_
 
 Getriggerte Kampagnen sind sehr effektiv für transaktionale oder leistungsbasierte Nachrichten.
 
-Transaktionale Kampagnen umfassen Nachrichten, die gesendet werden, nachdem Nutzer:innen einen Kauf getätigt oder einen Artikel in ihren Warenkorb gelegt haben. Letzterer Fall ist ein gutes Beispiel für eine Kampagne, die von einem Ausnahme-Event profitiert. Angenommen, Ihre Kampagne erinnert Nutzer:innen an Artikel in ihrem Warenkorb, die sie noch nicht gekauft haben. Das Ausnahme-Event wäre in diesem Fall der Kauf der Produkte im Warenkorb. Für leistungsbasierte Kampagnen können Sie eine Nachricht 5 Minuten nach Abschluss einer Conversion oder dem Bestehen eines Spiellevels senden.
+Transaktionale Kampagnen umfassen Nachrichten, die gesendet werden, nachdem Nutzer:innen einen Kauf getätigt oder einen Artikel in ihren Warenkorb gelegt haben. Letzterer Fall ist ein gutes Beispiel für eine Kampagne, die von einem Ausnahme-Event profitiert. Angenommen, Ihre Kampagne erinnert Nutzer:innen an Artikel in ihrem Warenkorb, die sie noch nicht gekauft haben. Das Ausnahme-Event wäre in diesem Fall der Kauf der Produkte im Warenkorb. Für leistungsbasierte Kampagnen können Sie eine Nachricht 5 Minuten nach Abschluss einer Konversion oder dem Bestehen eines Spiellevels senden.
 
 Darüber hinaus können Sie beim Erstellen von Willkommenskampagnen Nachrichten so einrichten, dass sie nach der Registrierung oder Kontoeinrichtung gesendet werden. Durch zeitversetztes Senden von Nachrichten an verschiedenen Tagen nach der Registrierung können Sie einen umfassenden Onboarding-Prozess gestalten.
 
-## Warum hat ein:e Nutzer:in meine getriggerte Kampagne nicht erhalten? {#why-did-a-user-not-receive-my-triggered-campaign}
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Warum hat ein:e Nutzer:in meine getriggerte Kampagne nicht erhalten? {#why-did-a-user-not-receive-my-triggered-campaign}
 
 Jeder der folgenden Punkte kann verhindern, dass Nutzer:innen, die das Trigger-Event abgeschlossen haben, die Kampagne erhalten:
 
@@ -158,11 +160,11 @@ Die [Segmentierung]({{site.baseurl}}/user_guide/audience/segments) einer getrigg
 
 Stellen Sie sich zum Beispiel vor, Sie möchten eine Event-getriggerte Kampagne an männliche Nutzer senden, die sich gerade registriert haben. Bei der Registrierung erfassen Sie ein angepasstes Event `registration` und setzen gleichzeitig das Attribut `gender` der Nutzer:innen. Das Event kann die Kampagne triggern, bevor Braze das Geschlecht der Nutzer:innen verarbeitet hat, was dazu führt, dass sie die Kampagne nicht erhalten.
 
-Als Best Practice sollten Sie sicherstellen, dass das Attribut, auf dem die Kampagne segmentiert ist, an die Braze-Server übermittelt wird, bevor das Event gesendet wird. Wenn dies nicht möglich ist, ist der beste Weg zur Sicherstellung der Zustellung die Verwendung von [angepassten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties), um die relevanten Nutzereigenschaften an das Event anzuhängen und einen Eigenschaftsfilter für die spezifische Event-Eigenschaft anstelle eines Segmentierungsfilters anzuwenden. In unserem Beispiel würden Sie dem angepassten Event `registration` eine `gender`-Eigenschaft hinzufügen, damit Braze garantiert über die benötigten Daten verfügt, wenn Ihre Kampagne getriggert wird.
+Als Best Practice sollten Sie sicherstellen, dass das Attribut, auf dem die Kampagne segmentiert ist, an die Braze-Server übermittelt wird, bevor das Event gesendet wird. Wenn dies nicht möglich ist, ist der beste Weg zur Sicherstellung der Zustellung die Verwendung von [angepassten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties), um die relevanten Nutzereigenschaften an das Event anzuhängen und einen Eigenschaftsfilter für die spezifische Event-Eigenschaft anstelle eines Segmentierungsfilters anzuwenden. In unserem Beispiel würden Sie dem angepassten Event `registration` eine `gender`-Eigenschaft hinzufügen, damit Braze garantiert über die benötigten Daten verfügt, wenn Ihre Kampagne getriggert wird.
 
 Wenn eine Kampagne aktionsbasiert ist und eine Verzögerung hat, können Sie zusätzlich die Option **Segmentzugehörigkeit zum Sendezeitpunkt erneut prüfen** aktivieren, um sicherzustellen, dass Nutzer:innen zum Zeitpunkt des Nachrichtenversands noch Teil der Zielgruppe sind.
 
-### Auswertung der Zielgruppenkriterien {#audience-criteria-evaluation}
+#### Auswertung der Zielgruppenkriterien {#audience-criteria-evaluation}
 
 Bei Kampagnen mit einer Verzögerung vor dem Versand (einschließlich Rate-Limiting, Ortszeit, intelligentem Timing oder einem Trigger-Zeitplan) hängt der Zeitpunkt der erneuten Segmentauswertung vom Kampagnentyp und den Einstellungen ab.
 
@@ -177,7 +179,7 @@ Wir empfehlen, entweder die Zielgruppe so zu ändern, dass alle Nutzer:innen ein
 
 ![Screenshot zur Auswertung der Zielgruppenkriterien.]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
 
-### Fehlerbehebung bei angepassten Events {#troubleshooting-custom-events}
+#### Fehlerbehebung bei angepassten Events {#troubleshooting-custom-events}
 
 Bestätigen Sie zunächst, dass das angepasste Event an Braze übermittelt wird. Gehen Sie zu **Analytics** > **Bericht zu angepassten Events**, und wählen Sie dann das entsprechende angepasste Event und den Zeitraum aus. Wenn das Event nicht angezeigt wird, überprüfen Sie, ob es korrekt eingerichtet ist und ob die Nutzer:innen die richtige Aktion ausgeführt haben.
 
@@ -191,3 +193,9 @@ Wenn das angepasste Event angezeigt wird, führen Sie die folgenden weiteren Sch
 {% alert note %}
 In-App-Nachrichten können nur durch Events getriggert werden, die über das SDK gesendet werden, nicht über die REST API.
 {% endalert %}
+
+### Wann wertet eine aktionsbasierte Kampagne die Zielgruppenzugehörigkeit aus? {#when-do-action-based-campaigns-evaluate-audience-membership}
+
+Braze wertet die Zielgruppenzugehörigkeit aus, wenn das Trigger-Event verarbeitet wird – also bevor die Nachricht gesendet wird. Standardmäßig prüft Braze, ob die Nutzer:innen zum Zeitpunkt der Einreihung in die Warteschlange zur Zielgruppe gehören. Wenn die Kampagne eine Verzögerung hat, können Sie **Segmentzugehörigkeit zum Sendezeitpunkt erneut prüfen** auswählen, um die Zielgruppenkriterien unmittelbar vor dem Versand erneut zu prüfen – beispielsweise wenn Nutzer:innen die Trigger-Aktion ausführen und dann die Zielgruppe verlassen könnten, bevor der Versand abgeschlossen ist.
+
+Weitere Informationen finden Sie unter [Auswertung der Zielgruppenkriterien](#audience-criteria-evaluation).

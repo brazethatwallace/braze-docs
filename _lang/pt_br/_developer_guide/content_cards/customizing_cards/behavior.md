@@ -52,7 +52,7 @@ Os pares de chave-valor são armazenados em objetos <a href="https://braze-inc.g
 
 Você pode combinar perfeitamente os Content Cards em um feed existente, permitindo que os dados de vários feeds sejam carregados simultaneamente. Isso cria uma experiência coesa e harmoniosa com os Content Cards da Braze e o conteúdo de feed existente.
 
-O exemplo à direita mostra um feed com uma lista híbrida de itens que são preenchidos por meio de dados locais e Content Cards fornecidos pela Braze. Com isso, os Content Cards podem ser indistinguíveis do conteúdo existente.
+O exemplo ao lado mostra um feed com uma lista híbrida de itens que são preenchidos por meio de dados locais e Content Cards fornecidos pela Braze. Com isso, os Content Cards podem ser indistinguíveis do conteúdo existente.
 
 ### Pares de chave-valor disparados por API {#api-triggered-key-value-pairs}
 
@@ -63,7 +63,7 @@ As [Campaigns disparadas por API]({{site.baseurl}}/user_guide/messaging/campaign
 ## Content Cards como conteúdo interativo {#content-cards-as-interactive-content}
 ![Um Content Card interativo mostrando uma promoção de 50% aparece no canto inferior esquerdo da tela. Depois de clicado, a promoção será aplicada ao carrinho.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
-Os Content Cards podem ser aproveitados para criar experiências dinâmicas e interativas para seus usuários. No exemplo à direita, temos um pop-up de Content Card que aparece no checkout, oferecendo aos usuários promoções de última hora. Cartões bem posicionados como esse são uma ótima maneira de dar aos usuários um "empurrãozinho" em direção a ações específicas.
+Os Content Cards podem ser aproveitados para criar experiências dinâmicas e interativas para seus usuários. No exemplo ao lado, um pop-up de Content Card aparece no checkout, oferecendo aos usuários promoções de última hora. Cartões bem posicionados como esse são uma ótima maneira de dar aos usuários um "empurrãozinho" em direção a ações específicas.
 
 Os pares de chave-valor para esse caso de uso incluem `discount_percentage` definido como o valor do desconto desejado e `class_type` definido como `coupon_code`. Esses pares de chave-valor permitem filtrar e exibir Content Cards específicos por tipo na tela de checkout. Para saber mais sobre o uso de pares de chave-valor para gerenciar vários feeds, consulte [Personalização do feed padrão de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
 <br>
@@ -122,11 +122,13 @@ Em seguida, você pode usar essas informações para exibir um emblema que indic
 
 O exemplo a seguir usa `braze.contentCards` para solicitar e exibir o número de Content Cards não lidos. Depois que o app é fechado e a sessão do usuário termina, esse código solicita uma contagem de cartões, filtrando o número de cartões com base na propriedade `viewed`.
 
+Apps que adotaram o [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) (obrigatório para apps compilados com [Xcode 27 e posterior](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)) devem implementar isso em `sceneDidEnterBackground(_:)` do `SceneDelegate.swift` em vez de `applicationDidEnterBackground(_:)` do `AppDelegate.swift`.
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 Nesse método, implemente o seguinte código, que atualiza ativamente a contagem de emblemas enquanto o usuário visualiza os cartões durante uma determinada sessão:
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 Nesse método, implemente o seguinte código, que atualiza ativamente a contagem de emblemas enquanto o usuário visualiza os cartões durante uma determinada sessão:

@@ -29,7 +29,7 @@ Le SDK Braze .NET MAUI propose trois types de Content Cards uniques qui partagen
 
 Pour une référence complète de la carte de base, consultez la documentation [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) et [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct).
 
-### Bannière {#xamarin_banner}
+### Bannière {#banner}
 
 Les cartes de type bannière sont des images cliquables en taille réelle.
 
@@ -41,7 +41,7 @@ Les cartes de type bannière sont des images cliquables en taille réelle.
 
 Pour une référence complète de la carte bannière, consultez la documentation [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html) et [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct) (désormais renommée en image uniquement).
 
-### Image avec légende {#xamarin_captioned-image}
+### Image avec légende {#captioned-image}
 
 Les cartes d'image avec légende sont des images cliquables en taille réelle accompagnées d'un texte descriptif.
 
@@ -56,9 +56,9 @@ Les cartes d'image avec légende sont des images cliquables en taille réelle ac
 
 Pour une référence complète de la carte d'image avec légende, consultez la documentation [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) et [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
 
-### Classique {#xamarin_classic}
+### Classique {#classic}
 
-Les cartes classiques comportent un titre, une description et une image facultative à gauche du texte.
+Les cartes classiques comportent un titre, une description et une image facultative avant le texte.
 
 | Propriété | Description |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|

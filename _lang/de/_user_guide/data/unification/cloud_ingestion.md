@@ -23,7 +23,7 @@ Bei einer Synchronisierung stellt Braze eine direkte Verbindung zu Ihrer Data-Wa
 
 ### Ihre Integrations-ID finden {#finding-your-integration-id}
 
-Sie finden Ihre Integrations-ID in der URL, wenn Sie eine Integration im Braze-Dashboard anzeigen. Navigieren Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** und wählen Sie eine Integration aus. Die Integrations-ID wird in der URL im Format `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]` angezeigt. Wenn Ihre URL beispielsweise `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz` lautet, ist Ihre Integrations-ID `abc123xyz`. Sie können diese ID verwenden, wenn Sie API-Aufrufe durchführen, um Synchronisierungen zu triggern oder den Synchronisierungsstatus zu überprüfen.
+Sie finden Ihre Integrations-ID in der URL, wenn Sie eine Integration im Braze-Dashboard anzeigen. Navigieren Sie zu **Data Settings** > **Cloud Data Ingestion** und wählen Sie eine Integration aus. Die Integrations-ID wird in der URL im Format `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]` angezeigt. Wenn Ihre URL beispielsweise `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz` lautet, ist Ihre Integrations-ID `abc123xyz`. Sie können diese ID verwenden, wenn Sie API-Aufrufe durchführen, um Synchronisierungen zu triggern oder den Synchronisierungsstatus zu überprüfen.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -84,7 +84,7 @@ Quellspezifische Einrichtungsanleitungen und SQL-Beispiele finden Sie unter [Dat
 
 ## Datenpunkt-Nutzung {#data-point-usage}
 
-Für Kund:innen mit datenpunktbasierter Abrechnung entspricht die Datenpunkt-Abrechnung für die Cloud-Datenaufnahme der Abrechnung von Updates über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track). Weitere Informationen finden Sie unter [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
+Für Kund:innen mit datenpunktbasierter Abrechnung entspricht die Datenpunkt-Abrechnung für die Cloud-Datenaufnahme der Abrechnung von Updates über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Weitere Informationen finden Sie unter [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
 {% alert important %}
 Braze Cloud-Datenaufnahme wird auf das verfügbare Rate-Limit angerechnet. Wenn Sie also Daten mit einer anderen Methode senden, wird das Rate-Limit zwischen der Braze API und der Cloud-Datenaufnahme kombiniert.

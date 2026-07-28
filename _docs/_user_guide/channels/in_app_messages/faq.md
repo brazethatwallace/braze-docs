@@ -65,11 +65,11 @@ To prevent this, during your campaign setup, select **Re-evaluate campaign eligi
 
 ## Can multiple in-app messages display in the same session?
 
-Yes, but only one in-app message can display per occurrence of a [trigger event]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger). If multiple in-app message campaigns share the same trigger (for example, session start), only the highest-priority message displays each time that trigger occurs. For session start triggers, this means only one message can display per session, and the next opportunity to show another eligible message is the next session.
+Yes, but only one in-app message can display per occurrence of a [trigger event]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger). If multiple in-app message campaigns share the same trigger (for example, session start), only the highest-priority message displays each time that trigger occurs. For session start triggers, this means only one message can display per session, and the next opportunity to show another eligible message is the next session.
 
 When multiple messages share the same priority level, the most recently created message displays first. For session start triggers, the next most recent message displays in a subsequent session; for other trigger types, the next most recent message displays the next time that trigger event occurs, which may be within the same session or a later session.
 
-To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
+To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
 
 ## How does Braze calculate an in-app message expiration set to "after 1 day(s)"?
 
@@ -149,7 +149,7 @@ If your HTML references REST data returned by Connected Content, that data is av
 
 Standard in-app messages display as soon as the cached payload is ready after the trigger event. On Android and iOS, large images or other CDN-hosted assets referenced in the message can add a short delay while those resources finish downloading before the in-app message appears.
 
-[Templated in-app messages](#what-are-templated-in-app-messages) and campaigns with **Re-evaluate campaign eligibility before displaying** selected require an additional network request after the trigger before the message appears. This can add a short delay (typically under 100 ms on a stable connection). For more information, see [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target).
+[Templated in-app messages](#what-are-templated-in-app-messages) and campaigns with **Re-evaluate campaign eligibility before displaying** selected require an additional network request after the trigger before the message appears. This can add a short delay (typically under 100 ms on a stable connection). For more information, see [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
 
 ### Why does my in-app message look different from the dashboard preview?
 
@@ -185,7 +185,7 @@ Keep in mind:
 
 - **Links and deep links:** Each on-click action has one URL field by default. Use Liquid in the URL to vary links by device, app type, or user attributes. On the **Message container**, you can also turn on platform-specific on-click behavior to set different links per platform.
 - **Opacity and backgrounds:** Opacity on the message container affects the full message background. Individual blocks can set their own background colors. For finer control, add custom CSS in a Custom Code block.
-- **Message width:** The **Message container** maximum width cannot be set below 325 px in the editor, which keeps content readable on smaller screens. Use custom CSS if you need a narrower layout.
+- **Message width:** The **Message container** maximum width cannot be set under 325 px in the editor, which keeps content readable on smaller screens. Use custom CSS if you need a narrower layout.
 - **Platform-specific backgrounds:** A single message uses the same background image and colors on web and mobile. You cannot set different backgrounds per platform in the editor.
 - **Multi-page messages:** Background images and message-level on-click actions apply across all pages in a multi-page message. To use different full images on each page, add buttons that link to the next page.
 - **Message-level styles:** Message-level styles apply to the entire message.

@@ -2,10 +2,10 @@
 
 Les blocs éditeurs se trouvent dans la section **Contenu** des messages e-mail. Glissez un bloc à l'intérieur d'une colonne dans l'**éditeur par glisser-déposer** ; il s'ajuste automatiquement à la largeur de la colonne.
 
-Pour en savoir plus sur la création d'e-mails dans l'**éditeur par glisser-déposer**, consultez [Créer un e-mail par glisser-déposer]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) et <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Autres personnalisations</a> dans cet article.
+Pour en savoir plus sur la création d'e-mails dans l'**éditeur par glisser-déposer**, consultez [Créer un e-mail par glisser-déposer]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) et <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Autres personnalisations</a> dans cet article.
 
 {% alert tip %}
-Vous pouvez également ajouter des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) à n'importe quelle URL dans les blocs éditeurs `Image`, `Button` ou `Text`.
+Vous pouvez également ajouter des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) à n'importe quelle URL dans les blocs éditeurs `Image`, `Button` ou `Text`.
 {% endalert %}
 
 ### Titre {#title}
@@ -23,8 +23,8 @@ Ajoute du texte pour les en-têtes dans l'e-mail.
 | Alignement | Déplace le titre vers la gauche, le centre ou la droite. |
 | Hauteur de ligne | Modifie l'espace entre les lignes de texte. |
 | Espacement des lettres | Modifie l'espace entre chaque caractère. |
-| Sens du texte | Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
+| Sens du texte | Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Titre" }
 
 ### Paragraphe {#paragraph}
 
@@ -41,8 +41,8 @@ Permet de saisir du texte dans le message. Une barre d'outils facilite la mise e
 | Espacement des paragraphes | Modifie l'espace entre les paragraphes. |
 | Hauteur de ligne | Modifie l'espace entre les lignes de texte. |
 | Espacement des lettres | Modifie l'espace entre chaque caractère. |
-| Sens du texte | Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
+| Sens du texte | Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraphe" }
 
 ### Liste {#list}
 
@@ -63,8 +63,8 @@ Ajoute une liste à puces.
 | Indentation des éléments de liste | Modifie l'indentation des éléments de liste. |
 | Hauteur de ligne | Modifie l'espace entre les lignes de texte. |
 | Espacement des lettres | Modifie l'espace entre chaque caractère. |
-| Sens du texte | Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
+| Sens du texte | Par défaut de gauche à droite, mais peut être modifié pour être [de droite à gauche]({{site.baseurl}}/right_to_left_messages). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liste" }
 
 ### Bouton {#button}
 
@@ -74,7 +74,7 @@ Ajoute un bouton standard. Les propriétés permettent de modifier le style et d
 |---|---|
 | Options du bouton | Définit diverses options du bouton, telles que la police, la taille, la largeur, la couleur et la marge intérieure. |
 | Bouton au survol | Le style du bouton lorsqu'un utilisateur le survole avec une souris ou un trackpad. Cela inclut la couleur d'arrière-plan du bouton, la couleur de la police et les styles de bordure. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bouton" }
 
 #### Comportement au clic {#on-click-behavior}
 
@@ -85,7 +85,7 @@ Ajoute un bouton standard. Les propriétés permettent de modifier le style et d
 | Destinataire, objet et corps du message | Pour le type de lien **Send email**, définit l'adresse e-mail du destinataire, l'objet et le contenu qui seront pré-remplis dans un brouillon d'e-mail lorsque l'utilisateur sélectionne le bouton. |
 | Tél. | Pour les types de lien **Make call** et **Send SMS**, définit le numéro de téléphone que l'utilisateur appellera ou auquel il enverra un SMS en sélectionnant le bouton. |
 | Message | Pour le type de lien **Send SMS**, définit le contenu qui sera pré-rempli dans un brouillon de SMS lorsque l'utilisateur sélectionne le bouton. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement au clic" }
 
 ### Ligne de séparation {#divider}
 
@@ -97,7 +97,7 @@ Insère une ligne continue, en pointillés ou en tirets pour faciliter l'espacem
 | Ligne | Les différents formats de ligne : pointillés, tirets ou trait continu. Vous pouvez également modifier l'épaisseur et la couleur de la ligne de séparation. |
 | Largeur | Ajuste l'étendue de la ligne de séparation par incréments de 5. |
 | Alignement | Déplace la ligne vers la gauche, le centre ou la droite. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ligne de séparation" }
 
 ### Espaceur {#spacer}
 
@@ -106,11 +106,11 @@ Ajoute de l'espace ou de la marge intérieure entre les autres blocs.
 | Propriété | Description |
 |---|---|
 | Hauteur | Ajuste la hauteur du bloc d'espacement. La valeur par défaut est 60 px. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Espaceur" }
 
 ### Image
 
-Insère une image provenant de la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Pour les images dynamiques (images avec Liquid ou contenu connecté), vous devez définir une image de secours afin d'utiliser les paramètres de largeur automatique. Pour les spécifications relatives aux images, consultez les [spécifications relatives aux images dans les e-mails]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#email).
+Insère une image provenant de la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Pour les images dynamiques (images avec Liquid ou contenu connecté), vous devez définir une image de secours afin d'utiliser les paramètres de largeur automatique. Pour les spécifications relatives aux images, consultez les [spécifications relatives aux images dans les e-mails]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -118,7 +118,7 @@ Insère une image provenant de la [bibliothèque multimédia]({{site.baseurl}}/u
 |---|---|
 | Largeur automatique | Modifie la largeur de l'image en pixels. |
 | Alignement | Oriente l'image vers la gauche, le centre ou la droite du bloc. |
-| Image avec Liquid | Utilisez la logique [Liquid]({{site.baseurl}}/liquid/) pour définir dynamiquement différentes images au sein d'un même bloc de contenu. |
+| Image avec Liquid | Utilisez la logique [Liquid]({{site.baseurl}}/liquid) pour définir dynamiquement différentes images au sein d'un même bloc de contenu. |
 | URL | Définissez une image en utilisant l'adresse de l'endroit où elle est hébergée. |
 | Texte alternatif | Une courte description de l'image qui fournit aux utilisateurs les mêmes informations que celles présentées dans l'image. Essentiel pour l'accessibilité des lecteurs d'écran ou lorsque l'image ne parvient pas à se charger. |
 | Image aux coins arrondis | Affiche l'image avec des coins arrondis. Par défaut, les images sont affichées avec des coins carrés. |
@@ -132,6 +132,19 @@ Pour la **largeur automatique**, le redimensionnement automatique choisit la mei
 - Les images plus petites que l'espace disponible utilisent leur taille naturelle pour éviter les effets de distorsion ou les images floues.
 {% endalert %}
 
+#### Comportement du bouton de téléchargement Gmail {#gmail-download-button-behavior}
+
+Gmail ajoute automatiquement un bouton de téléchargement aux images qui n'ont pas de lien hypertexte (`href`) associé. Cependant, si le rapport hauteur/largeur de l'image est de 299 × 524 px ou moins, Gmail n'affiche pas le bouton de téléchargement.
+
+Pour empêcher le bouton de téléchargement d'apparaître sur les images plus grandes, vous pouvez appliquer la solution de contournement avec le lien « # » :
+
+1. Sélectionnez le bloc **Image**.
+2. Dans le panneau **Options du bloc**, accédez à la section **Lien**.
+3. Définissez le **Type de lien** sur **Open web page**.
+4. Saisissez un signe dièse (`#`) dans le champ **URL**.
+
+L'ajout de ce lien empêche Gmail d'afficher le bouton de téléchargement sans affecter l'expérience utilisateur.
+
 ### Vidéo {#video}
 
 Crée un lien vers du contenu vidéo. Seuls YouTube et Vimeo sont pris en charge.
@@ -143,7 +156,7 @@ Crée un lien vers du contenu vidéo. Seuls YouTube et Vimeo sont pris en charge
 | Style de l'icône de lecture | Propose différentes options pour le bouton de lecture situé en haut d'une image vidéo. |
 | Couleur de l'icône de lecture | Permet de sélectionner **Light** ou **Dark** pour le bouton de lecture. |
 | Taille de l'icône de lecture | Choisissez la taille en pixels du bouton de lecture. Plage prédéfinie de 50&nbsp;px à 80&nbsp;px (par incréments de 5&nbsp;px). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vidéo" }
 
 {% alert tip %}
 Les vidéos hébergées par Vimeo ne fonctionnent que si elles sont définies comme publiques. Tous les autres paramètres de sécurité disponibles dans Vimeo (par exemple, « Hide from Vimeo.com ») génèrent un format de lien différent qui n'est pas pris en charge par ce bloc de contenu. Ces types de liens sont modifiés par le générateur, ce qui empêche Braze de générer une miniature.
@@ -159,7 +172,7 @@ Insère les icônes de plateformes de réseaux sociaux. Vous pouvez télécharge
 | Configurer la collection d'icônes | Définit l'URL pour chaque icône sociale. Inclut le basculeur **More options** pour modifier le titre et le texte alternatif. |
 | Alignement | Déplace l'icône sociale vers la gauche, le centre ou la droite. |
 | Espacement des icônes | Détermine l'espacement entre chaque icône sociale. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Réseaux sociaux" }
 
 ### Icônes {#icons}
 
@@ -177,15 +190,15 @@ Insère une icône. Vous pouvez télécharger des images personnalisées. Braze 
 | Taille de l'icône | Détermine la taille de votre icône. |
 | Espacement de l'icône | Modifie l'espacement de l'icône. |
 | Marge intérieure de l'icône | Modifie la marge intérieure de l'icône. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icônes" }
 
 ### HTML
 
-Insère du HTML brut. Recommandé pour [Liquid]({{site.baseurl}}/liquid/), comme le contenu connecté ou les instructions conditionnelles.
+Insère du HTML brut. Recommandé pour [Liquid]({{site.baseurl}}/liquid), comme le contenu connecté ou les instructions conditionnelles.
 
 | Propriété | Description |
 |---|---|
-| HTML | Ajoutez ou modifiez du HTML brut, y compris [Liquid]({{site.baseurl}}/liquid/) pour la personnalisation ou la logique conditionnelle. |
+| HTML | Ajoutez ou modifiez du HTML brut, y compris du [Liquid]({{site.baseurl}}/liquid) pour la personnalisation ou la logique conditionnelle. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### Menu
@@ -210,7 +223,7 @@ Crée un menu flexible pour le message que vous concevez.
 
 ### Produit {#product}
 
-Affiche des lignes de produits à partir d'un [catalogue de produits]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/), soit sous forme d'éléments statiques issus d'une sélection de catalogue (jusqu'à 12), soit sous forme de produits dynamiques alimentés par un [déclencheur eCommerce Canvas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/) (jusqu'à 24).
+Affiche des lignes de produits à partir d'un [catalogue de produits]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks), soit sous forme d'éléments statiques issus d'une sélection de catalogue (jusqu'à 12), soit sous forme de produits dynamiques alimentés par un [déclencheur eCommerce Canvas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases) (jusqu'à 24).
 
 | Propriété | Description |
 | --- | --- |
@@ -228,11 +241,11 @@ Affiche des lignes de produits à partir d'un [catalogue de produits]({{site.bas
 | Nombre max. de produits par ligne | Définit le nombre de produits affichés par ligne : **1**, **2** ou **3** (**3** n'est disponible que lorsque l'orientation est **Image center**). |
 | Espacement des produits | Définit l'espacement entre les produits : **Auto** ou **Custom**. |
 | Espacement personnalisé | *(Lorsque **Custom** est sélectionné)* Définit l'écart en pixels entre les produits. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Produit" }
 
 ## Personnalisation {#personalization}
 
 Vous pouvez ajouter de la personnalisation à votre e-mail à l'aide de Liquid ou du contenu connecté.
 
 - **Liquid :** Sous **Content** > **Personalization**, sélectionnez un attribut, copiez l'extrait de code et collez-le dans un bloc Titre, Paragraphe ou Liste (Liquid de base) ou dans un bloc HTML (Liquid avancé). De manière générale, bien que vous puissiez utiliser du Liquid de base dans les blocs Titre, Paragraphe et Liste, nous recommandons d'utiliser les blocs HTML pour les logiques plus complexes afin d'éviter les problèmes de mise en page. Notez que Liquid n'est pas pris en charge dans les blocs d'image ni dans les champs d'URL des boutons.
-- **[Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) :** Ajoutez un bloc **HTML** et placez-y votre appel {% raw %}`{% connected_content %}`{% endraw %}.
+- **[Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) :** Ajoutez un bloc **HTML** et placez-y votre appel {% raw %}`{% connected_content %}`{% endraw %}.

@@ -1,9 +1,9 @@
 ---
 nav_title: 高度な実装（任意）
-article_title: iOS 用コンテンツカード実装ガイド（オプション）
+article_title: iOS 用 Content Cards 実装ガイド（オプション）
 platform: iOS
 page_order: 7
-description: "この高度な実装ガイドでは、iOS コンテンツカードのコードに関する考慮事項、当社チームが構築した3つのユースケース、付随するコードスニペット、およびインプレッション、クリック、却下のロギングに関するガイダンスについて説明します。"
+description: "この高度な実装ガイドでは、iOS Content Cardsのコードに関する考慮事項、当社チームが構築した3つのユースケース、付随するコードスニペット、およびインプレッション、クリック、却下のロギングに関するガイダンスについて説明します。"
 channel:
   - content cards
 
@@ -14,20 +14,20 @@ noindex: true
 
 <br>
 {% alert important %}
-基本的なコンテンツカード開発者統合ガイドをお探しですか？[基本的なコンテンツカード開発者統合ガイド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration)をご覧ください。
+基本的なContent Cards開発者統合ガイドをお探しですか？[基本的なContent Cards開発者統合ガイド]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration)をご覧ください。
 {% endalert %}
 
-# コンテンツカード実装ガイド {#content-card-implementation-guide}
+# Content Cards実装ガイド {#content-card-implementation-guide}
 
-> このオプションの高度な実装ガイドでは、コンテンツカードのコードに関する考慮事項、当社チームが構築した3つのカスタムユースケース、付随するコードスニペット、およびインプレッション、クリック、却下のロギングに関するガイダンスについて説明します。[こちらから Braze Demo リポジトリ](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)にアクセスしてください！この実装ガイドは Swift の実装を中心としていますが、興味のある方のために Objective-C のスニペットも提供されています。
+> このオプションの高度な実装ガイドでは、Content Cardsのコードに関する考慮事項、当社チームが構築した3つのカスタムユースケース、付随するコードスニペット、およびインプレッション、クリック、却下のロギングに関するガイダンスについて説明します。[こちらから Braze Demo リポジトリ](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)にアクセスしてください！この実装ガイドはSwiftの実装を中心としていますが、興味のある方のためにObjective-Cのスニペットも提供されています。
 
 ## コードに関する考慮事項 {#code-considerations}
 
 ### カスタムオブジェクトとしてのContent Cards {#content-cards-as-custom-objects}
 
-ブースターを追加するロケット船のように、独自のカスタムオブジェクトを拡張してContent Cardsとして機能させることができます。このような限定された API サーフェスは、異なるデータバックエンドとの互換性を保つ柔軟性を提供します。これは、`ContentCardable` プロトコルに準拠し、（次のコードスニペットに示すように）イニシャライザを実装することで実行できます。また、`ContentCardData` 構造体を使用することで、`ABKContentCard` データにアクセスできます。`ABKContentCard` ペイロードは、すべてプロトコルに付属のイニシャライザを使用して `Dictionary` 型から `ContentCardData` 構造体とカスタムオブジェクト自体を初期化するために使用されます。
+ブースターを追加するロケット船のように、独自のカスタムオブジェクトを拡張してContent Cardsとして機能させることができます。このような限定されたAPIサーフェスは、異なるデータバックエンドとの互換性を保つ柔軟性を提供します。これは、`ContentCardable` プロトコルに準拠し、（次のコードスニペットに示すように）イニシャライザを実装することで実行できます。また、`ContentCardData` 構造体を使用することで、`ABKContentCard` データにアクセスできます。`ABKContentCard` ペイロードは、すべてプロトコルに付属のイニシャライザを使用して `Dictionary` 型から `ContentCardData` 構造体とカスタムオブジェクト自体を初期化するために使用されます。
 
-イニシャライザには `ContentCardClassType` enum も含まれます。この enum は、初期化するオブジェクトを決定するために使用されます。Braze ダッシュボード内のキーと値のペアを使用して、初期化するオブジェクトを決定するために使用する明示的な `class_type` キーを設定できます。Content Cardsのこれらのキーと値のペアは、`ABKContentCard` の `extras` 変数に格納されます。イニシャライザのもう1つのコアコンポーネントは、`metaData` ディクショナリパラメータです。`metaData` には解析された `ABKContentCard` から一連のキーと値までのすべてが含まれます。関連するカードが解析され、カスタムオブジェクトに変換された後、アプリは JSON またはその他のソースからインスタンス化されたかのように、それらのカードで作業を開始する準備ができています。
+イニシャライザには `ContentCardClassType` enumも含まれます。このenumは、初期化するオブジェクトを決定するために使用されます。Brazeダッシュボード内のキーと値のペアを使用して、初期化するオブジェクトを決定するために使用する明示的な `class_type` キーを設定できます。Content Cardsのこれらのキーと値のペアは、`ABKContentCard` の `extras` 変数に格納されます。イニシャライザのもう1つのコアコンポーネントは、`metaData` ディクショナリパラメータです。`metaData` には解析された `ABKContentCard` から一連のキーと値までのすべてが含まれます。関連するカードが解析され、カスタムオブジェクトに変換された後、アプリはJSONまたはその他のソースからインスタンス化されたかのように、それらのカードで作業を開始する準備ができています。
 
 これらのコードに関する考慮事項をしっかりと理解したら、[ユースケース](#sample-use-cases)をチェックして、カスタムオブジェクトの実装を開始してください。
 
@@ -35,7 +35,7 @@ noindex: true
 {% tab ContentCardable %}
 {% subtabs global %}
 {% subtab Swift %}
-**ContentCardable プロトコル**<br>
+**ContentCardableプロトコル**<br>
 `ABKContentCard` データと `ContentCardClassType` enumを表す `ContentCardData` オブジェクトです。`ABKContentCard` メタデータを使用してカスタムオブジェクトをインスタンス化するために使用されるイニシャライザです。
 ```swift
 protocol ContentCardable {
@@ -61,7 +61,7 @@ extension ContentCardable {
   }
 }
 ```
-**コンテンツカードデータ構造体**<br>
+**Content Cardsデータ構造体**<br>
 `ContentCardData` は、`ABKContentCard` の解析された値を表します。
 
 ```swift
@@ -82,7 +82,7 @@ extension ContentCardData: Equatable {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-**ContentCardable プロトコル**<br>
+**ContentCardableプロトコル**<br>
 `ABKContentCard` データを `ContentCardClassType` enumと共に表す `ContentCardData` オブジェクトです。`ABKContentCard` メタデータを使用してカスタムオブジェクトをインスタンス化するために使用されるイニシャライザです。
 ```objc
 @protocol ContentCardable <NSObject>
@@ -98,7 +98,7 @@ extension ContentCardData: Equatable {
 
 @end
 ```
-**コンテンツカードデータ構造体**<br>
+**Content Cardsデータ構造体**<br>
 `ContentCardData` は、`ABKContentCard` の解析された値を表します。
 
 ```objc
@@ -126,7 +126,7 @@ extension ContentCardData: Equatable {
 {% subtabs global %}
 {% subtab Swift %}
 **カスタムオブジェクトイニシャライザ**<br>
-`ABKContentCard` からのメタデータは、オブジェクトの変数を設定するために使用されます。Braze ダッシュボードで設定されたキーと値のペアは、「extras」ディクショナリに格納されます。
+`ABKContentCard` からのメタデータは、オブジェクトの変数を設定するために使用されます。Brazeダッシュボードで設定されたキーと値のペアは、「extras」ディクショナリに格納されます。
 
 ```swift
 extension CustomObject: ContentCardable {
@@ -146,7 +146,7 @@ extension CustomObject: ContentCardable {
 ```
 
 **タイプの識別**<br>
-`ContentCardClassType` enumは、Braze ダッシュボードの `class_type` 値を表します。この値は、Content Cardsを異なる場所に表示するためのフィルター識別子としても使用されます。
+`ContentCardClassType` enumは、Brazeダッシュボードの `class_type` 値を表します。この値は、Content Cardsを異なる場所に表示するためのフィルター識別子としても使用されます。
 
 ```swift
 enum ContentCardClassType: Hashable {
@@ -171,7 +171,7 @@ enum ContentCardClassType: Hashable {
 {% endsubtab %}
 {% subtab Objective-C %}
 **カスタムオブジェクトイニシャライザ**<br>
-`ABKContentCard` からのメタデータは、オブジェクトの変数を設定するために使用されます。Braze ダッシュボードで設定されたキーと値のペアは、「extras」ディクショナリに格納されます。
+`ABKContentCard` からのメタデータは、オブジェクトの変数を設定するために使用されます。Brazeダッシュボードで設定されたキーと値のペアは、「extras」ディクショナリに格納されます。
 
 
 ```objc
@@ -197,7 +197,7 @@ enum ContentCardClassType: Hashable {
 ```
 
 **タイプの識別**<br>
-`ContentCardClassType` enumは、Braze ダッシュボードの `class_type` 値を表します。この値は、Content Cardsを異なる場所に表示するためのフィルター識別子としても使用されます。
+`ContentCardClassType` enumは、Brazeダッシュボードの `class_type` 値を表します。この値は、Content Cardsを異なる場所に表示するためのフィルター識別子としても使用されます。
 
 ```objc
 typedef NS_ENUM(NSInteger, ContentCardClassType) {
@@ -301,7 +301,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 {% subtabs global %}
 {% subtab Swift %}
 **ペイロードデータの操作**<br>
-Content Cardsの配列をループし、一致する `class_type` を持つカードのみを解析します。ABKContentCard からのペイロードは `Dictionary` に解析されます。
+Content Cardsの配列をループし、一致する `class_type` を持つカードのみを解析します。ABKContentCardからのペイロードは `Dictionary` に解析されます。
 
 ```swift
 func convertContentCards(_ cards: [ABKContentCard], for classTypes: [ContentCardClassType]) -> [ContentCardable] {
@@ -362,7 +362,7 @@ func contentCardable(with metaData: [ContentCardKey: Any], for classType: Conten
 {% endsubtab %}
 {% subtab Objective-C %}
 **ペイロードデータの操作**<br>
-Content Cardsの配列をループし、一致する `class_type` を持つカードのみを解析します。ABKContentCard からのペイロードは `Dictionary` に解析されます。
+Content Cardsの配列をループし、一致する `class_type` を持つカードのみを解析します。ABKContentCardからのペイロードは `Dictionary` に解析されます。
 
 ```objc
 - (NSArray *)convertContentCards:(NSArray<ABKContentCard*> *)cards forClassType:(ContentCardClassType)classType {
@@ -425,7 +425,7 @@ Content Cardsの配列をループし、一致する `class_type` を持つカ�
 {% endtab %}
 {% endtabs %}
 
-## ユースケース {#sample-use-cases}
+## ユースケース {#use-cases}
 
 以下に3つのユースケースを紹介します。各ユースケースでは、詳細な説明、関連するコードスニペット、およびContent Cardsの変数がBrazeダッシュボードでどのように表示され、どのように使用されるかを確認できます。
 - [補足コンテンツとしてのContent Cards](#content-cards-as-supplemental-content)
@@ -444,7 +444,7 @@ Content Cardsを既存のフィードにシームレスにブレンドし、複�
 
 このContent Cardsは、APIトリガーのキーと値のペアを持つAPIトリガーキャンペーンによって提供されます。これは、カードの値が外部要因に依存して、ユーザーに表示するコンテンツを決定するキャンペーンに最適です。なお、`class_type` はセットアップ時に把握しておく必要があります。
 
-![補足コンテンツカードのユースケースのキーと値のペア。この例では、カードの各要素（「tile_id」、「tile_deeplink」、「tile_title」など）がLiquidを使って設定されています。]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
+![補足Content Cardsのユースケースのキーと値のペア。この例では、カードの各要素（「tile_id」、「tile_deeplink」、「tile_title」など）がLiquidを使って設定されています。]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
 ##### 分析をログに記録する準備はできましたか？ {#ready-to-log-analytics}
 データフローの外観について理解を深めるには、[以下のセクション](#logging-impressions-clicks-and-dismissals)を参照してください。
@@ -619,7 +619,7 @@ extension BrazeManager {
 
 ## ヘルパーファイル {#helper-files}
 
-{% details ContentCardKey ヘルパーファイル %}
+{% details ContentCardKeyヘルパーファイル %}
 {% tabs %}
 {% tab Swift %}
 ```swift

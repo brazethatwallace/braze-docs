@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar lista de campañas de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar lista de campañas de Braze."
 
 ---
 {% api %}
@@ -14,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /campaigns/list
 {% endapimethod %}
 
-> Usa este punto de conexión para exportar una lista de campañas, cada una de las cuales incluirá su nombre, el identificador de API de la campaña, si se trata de una campaña de API y las etiquetas asociadas a la campaña.
+> Usa este endpoint para exportar una lista de campañas, cada una de las cuales incluirá su nombre, el identificador de API de la campaña, si se trata de una campaña de API y las etiquetas asociadas a la campaña.
 
 Las campañas se devuelven en grupos de 100 ordenadas por fecha de creación (de la más antigua a la más reciente, por defecto).
 
@@ -22,7 +22,7 @@ Las campañas se devuelven en grupos de 100 ordenadas por fecha de creación (de
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `campaigns.list`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `campaigns.list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -49,7 +49,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "campaigns" : [
         {
             "id" : (string) the Campaign API identifier,

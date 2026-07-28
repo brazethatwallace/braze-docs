@@ -48,7 +48,7 @@ These delays are configured for your use case. If you need to understand your sp
 
 ## KPI cards
 
-The KPI cards on the left side of the report show the key performance indicators configured for your use case, such as:
+The KPI cards on the primary side side of the report show the key performance indicators configured for your use case, such as:
 
 - Incremental LTV / Customer
 - Conversions / Customer
@@ -95,7 +95,7 @@ This section reinforces the relationship between the different views:
 
 - The KPI card is a window-level calculation.
 - The chart is a daily calculation.
-- The*table shows the underlying totals driving the KPI.
+- The table shows the underlying totals driving the KPI.
 
 ![Performance report showing the aggregate table at the bottom, with columns for Group, Incremental LTV, Customer, and Incremental LTV / Customer for each comparison group.]({% image_buster /assets/img/decisioning_studio/reporting_performance_aggregate_table.png %})
 

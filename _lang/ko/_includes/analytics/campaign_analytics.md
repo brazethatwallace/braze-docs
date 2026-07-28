@@ -187,6 +187,13 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![배리언트 1에 대한 측정기준 표가 포함된 WhatsApp Performance 패널.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### 크레딧과 발송 수 {#credits-versus-send-counts}
+
+캠페인 분석의 WhatsApp 발송 수는 전달 시도를 반영합니다. Meta가 메시지 카테고리(마케팅, 유틸리티, 인증, 서비스)별로 과금하는 경우 소비되는 크레딧이 다를 수 있습니다.
+
+- Braze에서 작성된 응답 메시지는 Braze WhatsApp 크레딧을 소비하지 않습니다.
+- 방향성 발송 볼륨을 확인하려면 **Analytics** > **Daily Stats**를 사용하세요. 캠페인 또는 Canvas별 크레딧 세부 내역은 제공되지 않습니다.
+
 {% endif %}
 
 보기를 간소화하려면 <i class="fas fa-plus"></i> **Add/Remove Columns**를 클릭하고 원하는 측정기준을 선택 해제하세요. 기본적으로 모든 측정기준이 표시됩니다.
@@ -365,6 +372,12 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
 
 _Unique Daily Impressions_는 실제로 본 배너를 의미합니다.
 
+#### 대조군과 배리언트 간의 차이 {#discrepancies-between-control-groups-and-variants}
+
+배너 캠페인에서 대조군을 사용하는 경우, 오디언스 분할이 균등하더라도 대조군 노출이 배리언트 노출보다 높을 수 있습니다. 이 차이는 대조군과 배리언트 배너의 노출 기록 방식 차이로 인해 발생합니다.
+
+대조군과 배리언트 노출 모두 배너 배치가 뷰포트에 진입해야 합니다. 배리언트 노출은 전체 배너가 화면에 표시될 때만 기록됩니다. 대조군 노출은 배치가 뷰포트에 진입하는 즉시 기록될 수 있으며, 이는 배리언트의 경우 전체 배너가 표시되기 전입니다.
+
 {% elsif include.channel == "email" %}
 
 #### 이메일 측정기준 {#email-metrics}
@@ -496,7 +509,7 @@ Braze는 열람 추적 픽셀이 로드될 때 이메일 열람을 기록합니�
 
 _연기_는 _소프트바운스_와 다릅니다. 이 재시도 기간 동안 이메일이 성공적으로 전달되지 않으면, Braze는 시도된 캠페인 발송당 하나의 소프트바운스 이벤트를 전송합니다. 2025년 2월 25일 이전에는 이러한 재시도가 1개의 캠페인 발송에 대해 여러 번의 소프트바운스로 카운트되었습니다.
 
-_연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQL Segment, Snowflake 데이터 공유)을 통해서만 확인할 수 있습니다. 캠페인 또는 Canvas 분석에 포함하고 싶으시다면 [제품 피드백을 제출]({{site.baseurl}}/user_guide/administrative/access_braze/portal)해 주세요.
+_연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQL Segment, Snowflake 데이터 공유)을 통해서만 확인할 수 있습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### 추정 실제 열람율 {#estimated-real-open-rate}
 
@@ -593,7 +606,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
     </tbody>
 </table>
 
-#### 대조군과 배리언트 간의 차이 {#discrepancies-between-control-groups-and-variants}
+#### 대조군과 배리언트 간의 차이
 
 인앱 메시지 캠페인에서 배리언트를 50대 50으로 분할하면, 대조군이 배리언트보다 약간 높은 비율을 보일 수 있습니다(예: 대조군 51%, 배리언트 49%). 이 차이는 렌더링 시간의 차이로 인해 발생합니다. 예를 들어, 배리언트 메시지가 큰 이미지나 템플릿화된 연결된 콘텐츠를 사용하여 렌더링이 완료되기 전에 사용자가 떠나는 반면, 대조군은 메시지를 표시하지 않고 노출을 기록하는 경우입니다.
 
@@ -867,6 +880,8 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
     </tbody>
 </table>
 
+실패가 증가한 경우 [WhatsApp 발송 실패 조사]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures)를 참조하세요.
+
 #### 최종 사용자 차단 및 보고 측정기준 {#end-user-blocking-and-reporting-metrics}
 
 추가 측정기준은 [WhatsApp 매니저 대시보드](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx)를 통해 확인할 수 있지만, 모든 인사이트에 접근하려면 [접근 권한 확인](https://www.facebook.com/business/help/218116047387456)이 필요합니다.
@@ -935,7 +950,7 @@ Braze 분석 외에도 템플릿 수준의 분석은 WhatsApp 비즈니스 매�
 
 ### SMS Currents 이벤트 {#sms-currents-events}
 
-이메일과 마찬가지로, Braze는 SMS 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 SMS 이벤트는 [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
+이메일과 마찬가지로, Braze는 SMS 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 SMS 이벤트는 [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
 
 {% alert note %}
 인바운드 메시지는 1,600자를 초과하면 잘립니다.

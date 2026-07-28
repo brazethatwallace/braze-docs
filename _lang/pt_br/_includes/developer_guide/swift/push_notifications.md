@@ -1,6 +1,6 @@
-## Limites de taxa {#rate-limits}
+## Limites de frequência {#rate-limits}
 
-As notificações por push são limitadas por taxa, então não tenha medo de enviar quantas seu aplicativo precisar. O iOS e o serviço de Notificações por Push da Apple (APNs) controlarão a frequência com que são entregues, e você não terá problemas por enviar muitas. Se suas notificações por push forem limitadas, elas podem sofrer postergação até a próxima vez que o dispositivo enviar um pacote keep-alive ou receber outra notificação.
+As notificações por push têm limite de frequência, então não tenha medo de enviar quantas seu aplicativo precisar. O iOS e o serviço de Notificações por Push da Apple (APNs) controlarão a frequência com que são entregues, e você não terá problemas por enviar muitas. Se suas notificações por push forem limitadas, elas podem sofrer postergação até a próxima vez que o dispositivo enviar um pacote keep-alive ou receber outra notificação.
 
 ## Configurando notificações por push {#setting-up-push-notifications}
 
@@ -12,14 +12,14 @@ As notificações por push são limitadas por taxa, então não tenha medo de en
 
 No Xcode, acesse a seção **Signing & Capabilities** do alvo principal do app e adicione a capacidade de notificações por push.
 
-![A seção "Signing & Capabilities" em um projeto Xcode.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![A seção 'Signing & Capabilities' em um projeto Xcode.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
 ### Etapa 3: Configure o tratamento de push {#step-3-set-up-push-handling}
 
 Você pode usar o SDK Swift para automatizar o processamento de notificações remotas recebidas da Braze. Esta é a maneira mais simples de lidar com notificações por push e é o método de tratamento recomendado.
 
 {% tabs local %}
-{% tab Automatic %}
+{% tab Automático %}
 #### Etapa 3.1: Ative a automação na propriedade de push {#step-31-enable-automation-in-the-push-property}
 
 Para ativar a integração automática de push, defina a propriedade `automation` da configuração `push` para `true`:
@@ -53,7 +53,7 @@ As etapas de automação realizadas pelo SDK são compatíveis com integrações
 
 {% alert warning %}
 O SDK deve ser inicializado na thread principal para ativar a automação de notificação por push. A inicialização do SDK deve ocorrer antes que o aplicativo tenha terminado de iniciar ou na sua implementação do AppDelegate [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application).
-Se o seu aplicativo exigir uma configuração adicional antes de inicializar o SDK, consulte a página da documentação sobre [inicialização com postergação]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift).
+Se o seu aplicativo exigir uma configuração adicional antes de inicializar o SDK, consulte a página da documentação sobre [inicialização com postergação]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional).
 {% endalert %}
 
 #### Etapa 3.2: Substitua configurações individuais (opcional) {#step-32-override-individual-configurations-optional}
@@ -98,7 +98,7 @@ A Braze também fornece categorias de push padrão para suporte ao botão de aç
 Adicione o seguinte código ao método `application:didFinishLaunchingWithOptions:` do delegado do seu app.
 
 {% alert note %}
-O seguinte exemplo de código inclui integração para autenticação push provisória (linhas 5 e 6). Se você não planeja usar autorização provisória no seu app, pode remover as linhas de código que adicionam `UNAuthorizationOptionProvisional` às opções de `requestAuthorization`.<br>Visite [opções de notificação do iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/) para saber mais sobre a autenticação push provisória.
+O seguinte exemplo de código inclui integração para autenticação push provisória (linhas 5 e 6). Se você não planeja usar autorização provisória no seu app, pode remover as linhas de código que adicionam `UNAuthorizationOptionProvisional` às opções de `requestAuthorization`.<br>Visite [opções de notificação do iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options) para saber mais sobre a autenticação push provisória.
 {% endalert %}
 
 {% subtabs %}
@@ -289,14 +289,14 @@ Para ativar notificações por push em primeiro plano e permitir que a Braze as 
 
 ## Testando notificações {#push-testing}
 
-Se você quiser testar notificações no app e notificações por push via linha de comando, pode enviar uma única notificação pelo terminal via CURL e a [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
+Se você quiser testar notificações no app e notificações por push via linha de comando, pode enviar uma única notificação pelo terminal via CURL e a [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
 
 - `YOUR_API_KEY` — disponível em **Configurações** > **Chaves de API**.
-- `YOUR_EXTERNAL_USER_ID` — disponível na página **Pesquisar usuários**. Para saber mais, consulte [atribuir IDs de usuário]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#assigning-a-user-id).
+- `YOUR_EXTERNAL_USER_ID` — disponível na página **Pesquisar usuários**. Para saber mais, consulte [atribuir IDs de usuário]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#assigning-a-user-id).
 - `YOUR_KEY1` (opcional)
 - `YOUR_VALUE1` (opcional)
 
-No exemplo a seguir, a instância `US-01` está sendo usada. Se você não estiver nessa instância, consulte nossa [documentação da API]({{site.baseurl}}/api/basics/) para ver em qual endpoint fazer solicitações.
+No exemplo a seguir, a instância `US-01` está sendo usada. Se você não estiver nessa instância, consulte nossa [documentação da API]({{site.baseurl}}/api/basics) para ver em qual endpoint fazer solicitações.
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR_API_KEY}" -d '{
@@ -398,7 +398,7 @@ Para um exemplo completo, veja o [exemplo de integração manual de notificaçõ
 
 ## Push primers {#push-primers}
 
-Campaigns de push primer incentivam seus usuários a ativar notificações por push no dispositivo para o seu app. Isso pode ser feito sem personalização de SDK usando nosso [push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
+Campaigns de push primer incentivam seus usuários a ativar notificações por push no dispositivo para o seu app. Isso pode ser feito sem personalização de SDK usando nosso [push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages).
 
 ## Gerenciamento dinâmico de gateway APNs {#dynamic-apns-gateway-management}
 
@@ -416,7 +416,7 @@ A Braze suporta o gerenciamento dinâmico de gateway APNs para notificações po
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### Como funciona {#how-it-works-1}
+### Como funciona
 
 Quando um app iOS se integra ao SDK Swift da Braze, ele envia dados relacionados ao dispositivo, incluindo [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment), para a API do SDK da Braze, se disponível. O valor `apns_gateway` indica se o app está usando o ambiente APNs de desenvolvimento (`dev`) ou produção (`prod`).
 
@@ -431,7 +431,7 @@ Quando a Braze envia uma notificação por push:
 
 #### Por que esse recurso foi introduzido? {#why-was-this-feature-introduced}
 
-Com o gerenciamento dinâmico de gateway APNs, o ambiente correto é selecionado automaticamente. Anteriormente, você tinha que configurar manualmente o gateway APNs, o que poderia levar a erros de `BadDeviceToken`, invalidação de token e potenciais problemas de limite de taxa do APNs.
+Com o gerenciamento dinâmico de gateway APNs, o ambiente correto é selecionado automaticamente. Anteriormente, você tinha que configurar manualmente o gateway APNs, o que poderia levar a erros de `BadDeviceToken`, invalidação de token e potenciais problemas de limite de frequência do APNs.
 
 #### Como isso impacta o desempenho de entrega de push? {#how-does-this-impact-push-delivery-performance}
 
@@ -439,4 +439,4 @@ Este recurso melhora as taxas de entrega, sempre roteando os tokens de push para
 
 #### Posso desativar este recurso? {#can-i-disable-this-feature}
 
-O gerenciamento dinâmico de gateway APNs está ativado por padrão e oferece melhorias de confiabilidade. Se você tiver casos de uso específicos que exigem seleção manual de gateway, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
+O gerenciamento dinâmico de gateway APNs está ativado por padrão e oferece melhorias de confiabilidade. Se você tiver casos de uso específicos que exigem seleção manual de gateway, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support).

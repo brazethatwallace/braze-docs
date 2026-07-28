@@ -24,7 +24,7 @@ To locate the segment identifier of your Global Control Group, refer to [API ide
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `users.export.global_control_group` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `users.export.global_control_group` permission.
 
 ## Rate limit
 
@@ -140,14 +140,14 @@ The following is a list of valid `fields_to_export`. Using `fields_to_export` to
 | `time_zone`           | String          | User's time zone in the same format as the IANA Time Zone Database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `total_revenue`       | Float           | Total revenue attributed to this user. Total revenue is calculated based on purchases the user made during conversion windows for the campaigns and Canvases they received.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `uninstalled_at`      | Timestamp       | Date and time the user uninstalls the app. Omitted if the app has not been uninstalled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `user_aliases`        | Object          | [User aliases object]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) containing the `alias_name` and `alias_label`, if exists.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `user_aliases`        | Object          | [User aliases object]({{site.baseurl}}/api/objects_filters/user_alias_object) containing the `alias_name` and `alias_label`, if exists.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
 ## Response
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example,'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }

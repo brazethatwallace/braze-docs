@@ -3,7 +3,7 @@ nav_title: 문제 해결
 article_title: 푸시 문제 해결
 page_order: 5
 page_type: reference
-description: "이 페이지에서는 푸시 메시징 채널과 관련된 다양한 문제에 대한 문제 해결 단계를 안내합니다."
+description: "푸시 메시징 채널과 관련된 문제에 대한 문제 해결 단계입니다."
 channel: push
 ---
 
@@ -13,7 +13,7 @@ channel: push
 
 ## 푸시 알림 누락 {#missing-push-notifications}
 
-푸시 알림 전달에 문제가 있으신가요? 다음 항목을 확인하여 이 문제를 해결할 수 있습니다:
+푸시 알림이 예상대로 도착하지 않는 경우, 다음 항목을 순서대로 확인하세요:
 
 - [푸시 구독 상태](#push-subscription-status)
 - [Segment](#segment)
@@ -26,57 +26,62 @@ channel: push
 
 ### 푸시 구독 상태 {#push-subscription-status}
 
-푸시는 가입됨 또는 옵트인한 사용자에게만 발송할 수 있습니다. **고객 프로필** 섹션의 [참여]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) 탭에서 고객 프로필을 확인하여 테스트 중인 워크스페이스에 대해 푸시에 활성 등록되어 있는지 확인하세요. 여러 앱에 등록되어 있는 경우 **Push Registered For** 필드에 목록이 표시됩니다:
+푸시는 가입됨 또는 옵트인한 사용자에게만 발송할 수 있습니다. **고객 프로필**에서 [참여]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) 탭을 열고 테스트 중인 워크스페이스에 대해 푸시에 활성 등록되어 있는지 확인하세요. 여러 앱에 등록되어 있는 경우 **Push Registered For**에 목록이 표시됩니다:
 
 ![푸시 등록 대상]({% image_buster /assets/img_archive/trouble1.png %})
 
 Braze 내보내기 엔드포인트를 사용하여 고객 프로필을 내보낼 수도 있습니다:
+
 - [식별자별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
 - [Segment별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
 두 엔드포인트 모두 기기별 푸시 활성화 정보를 포함하는 푸시 토큰 오브젝트를 반환합니다.
 
-#### Segment {#segment}
+### Segment {#segment}
 
-타겟팅하는 Segment에 포함되어 있는지 확인하세요(라이브 Campaign이고 테스트가 아닌 경우). **고객 프로필**에서 사용자가 현재 포함된 Segment 목록을 확인할 수 있습니다. 세분화는 실시간으로 업데이트되므로 이 값은 항상 변할 수 있다는 점을 기억하세요.
+타겟팅하는 Segment에 포함되어 있는지 확인하세요(라이브 Campaign이고 테스트가 아닌 경우). **고객 프로필**에서 사용자가 현재 포함된 Segment 목록을 확인할 수 있습니다. Segment 멤버십은 실시간으로 업데이트됩니다.
 
 ![Segment 목록]({% image_buster /assets/img_archive/trouble2.png %})
 
-Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다. **User Lookup**은 `external_id` 또는 `braze_id`만 허용하며, 이메일 주소나 전화번호는 사용할 수 없습니다. 이메일, 전화번호, 푸시 토큰 또는 사용자 별칭으로 검색하려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)을 사용하세요.
+Segment를 생성할 때 **사용자 검색**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다. **사용자 검색**은 `external_id` 또는 `braze_id`만 허용하며, 이메일 주소나 전화번호는 사용할 수 없습니다. 이메일, 전화번호, 푸시 토큰 또는 사용자 별칭으로 검색하려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)을 참조하세요.
 
-![검색 필드가 있는 User Lookup 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
+![검색 필드가 있는 사용자 검색 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
-#### 푸시 알림 한도 {#push-notification-caps}
+### 푸시 알림 한도 {#push-notification-caps}
 
-글로벌 최대 게재빈도 설정을 확인하세요. 워크스페이스에 글로벌 최대 게재빈도 설정이 적용되어 있고 지정된 기간 동안 푸시 알림 한도에 이미 도달했기 때문에 푸시 알림을 받지 못했을 수 있습니다.
-
-대시보드에서 [글로벌 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over)을 확인하여 이를 수행할 수 있습니다. Campaign이 최대 게재빈도 설정 규칙을 따르도록 설정된 경우, 이 설정의 영향을 받는 사용자 수가 표시됩니다.
+워크스페이스에 글로벌 최대 게재빈도 설정이 적용되어 있는 경우, 해당 기간 동안 한도에 이미 도달하여 푸시를 받지 못했을 수 있습니다. 대시보드에서 [글로벌 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over)과 한도를 확인하세요. Campaign이 최대 게재빈도 설정 규칙을 따르는 경우, Campaign 세부 정보에 영향을 받은 사용자 수가 표시됩니다.
 
 ![Campaign 세부 정보]({% image_buster /assets/img_archive/trouble3.png %})
 
-#### 사용량 제한 {#rate-limits}
+### 사용량 제한 {#rate-limits}
 
-Campaign 또는 Canvas에 사용량 제한이 설정되어 있는 경우, 이 한도를 초과하여 메시지를 받지 못할 수 있습니다. 자세한 내용은 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting)을 참조하세요.
+Campaign 또는 Canvas에 사용량 제한이 설정되어 있는 경우, 해당 한도를 초과하면 메시지를 받지 못할 수 있습니다. 자세한 내용은 [사용량 제한조치]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting)를 참조하세요.
 
-#### 대조군 상태 {#control-group-status}
+### 대조군 상태 {#control-group-status}
 
 단일 채널 Campaign이거나 대조군이 있는 Canvas인 경우, 대조군에 포함되었을 수 있습니다.
 
-  1. [배리언트 분배]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants)를 확인하여 대조군이 있는지 확인하세요.
-  2. 대조군이 있는 경우, [Campaign 대조군 포함]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) 필터로 Segment를 생성한 다음 [Segment를 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv)하여 사용자 ID가 이 목록에 있는지 확인하세요.
+  1. [배리언트 분배]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants)를 확인하여 대조군이 있는지 확인하세요.
+  2. 대조군이 있는 경우, [Campaign 대조군 포함]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) 필터로 Segment를 생성한 다음 [Segment를 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details)하여 사용자 ID가 목록에 있는지 확인하세요.
 
-#### 유효한 푸시 토큰 {#valid-push-token}
-푸시 토큰은 발신자가 푸시 알림으로 특정 기기를 타겟팅하는 데 사용하는 식별자입니다. 따라서 기기에 유효한 푸시 토큰이 없으면 푸시 알림을 보낼 방법이 없습니다.
+### 유효한 푸시 토큰 {#valid-push-token}
 
-#### 푸시 알림 유형 {#push-notification-type}
+푸시 토큰은 발신자가 푸시 알림으로 특정 기기를 타겟팅하는 데 사용하는 식별자입니다. 유효한 푸시 토큰이 없으면 Braze는 해당 기기에 푸시를 보낼 수 없습니다.
 
-올바른 유형의 푸시 알림을 사용하고 있는지 확인하세요. 예를 들어, FireTV를 타겟팅하려면 Android 푸시 Campaign이 아닌 Kindle 푸시 알림을 사용해야 합니다. 마찬가지로 Android를 타겟팅하려면 iOS 푸시 Campaign이 아닌 Android 푸시 알림을 사용하세요. 다음 문서에서 Braze 워크플로우에 대한 자세한 내용을 확인하세요:
-- [Apple 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=swift)
-- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=android)
+Braze는 고객 프로필당 최대 20개의 기기를 저장합니다. 21번째 기기가 등록되면 가장 오래된 기기가 제거됩니다(선입선출, FIFO). SDK에서 [`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids)를 호출하면 현재 기기가 프로필에 다시 등록됩니다.
 
-#### 현재 앱 {#current-app}
+### 푸시 알림 유형 {#push-notification-type}
 
-내부 사용자를 대상으로 푸시 발송을 테스트할 때, 푸시 알림을 받을 사용자가 현재 해당 앱에 로그인되어 있는지 확인하세요. 그렇지 않으면 사용자가 푸시를 받지 못하거나 Segment에 포함되지 않았다고 생각되는 푸시를 받을 수 있습니다.
+타겟팅하는 기기 또는 플랫폼에 맞는 푸시 유형을 사용하세요. 예를 들어, Fire TV를 타겟팅하려면 Android 푸시 Campaign이 아닌 Kindle 푸시 알림을 사용해야 합니다. Android 기기의 경우 iOS 푸시 Campaign이 아닌 Android 푸시 알림을 사용하세요.
+
+플랫폼별 문제 해결 워크플로는 다음을 참조하세요:
+
+- [Apple 푸시 알림 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
+- [Firebase Cloud Messaging 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
+
+### 현재 앱 {#current-app}
+
+내부 사용자를 대상으로 푸시를 테스트할 때, 푸시 알림을 받을 사용자가 올바른 앱에 로그인되어 있는지 확인하세요. 그렇지 않으면 푸시를 받지 못하거나 세분화에 따라 예상하지 못한 푸시를 받을 수 있습니다.
 
 {% alert note %}
 Android에서 이미지가 포함된 푸시 메시지를 보내는 경우, FCM이 이미지를 삭제하고 푸시 메시지에 텍스트만 표시하는 경우가 있습니다. 이 문제는 일반적으로 서버 연결 문제로 인해 발생합니다.
@@ -175,6 +180,8 @@ Apple `.p8` 인증 키는 Braze에서 APNs 푸시에 필요한 방식입니다. 
 
 ### .p8 키와 .p12 인증서 비교 {#p8-keys-versus-p12-certificates}
 
+다음 표를 사용하여 자격 증명 유형, 만료 및 대시보드에서의 표시 방식을 비교하세요.
+
 | 자격 증명 | 만료 | 대시보드 상태 표시기 |
 | --- | --- | --- |
 | `.p8` 인증 키 | 만료되지 않음 | 녹색 상태 표시기 없음(정상) |
@@ -196,9 +203,9 @@ Apple `.p8` 인증 키는 Braze에서 APNs 푸시에 필요한 방식입니다. 
 
 ### 데스크탑에서 Chrome 재설정 {#reset-chrome-on-desktop}
 
-1. Chrome 브라우저에서 URL 옆의 **View Site Information** 슬라이더 아이콘을 선택하세요.
-2. **Notifications**에서 **Reset permission**을 선택하세요.
-3. Chrome DevTools를 여세요. 운영체제별 관련 단축키는 다음과 같습니다.
+1. Chrome 브라우저에서 URL 옆의 **사이트 정보 보기** 슬라이더 아이콘을 선택하세요.
+2. **알림**에서 **권한 재설정**을 선택하세요.
+3. Chrome DevTools를 여세요. 운영 체제별 관련 단축키는 다음과 같습니다.
 
 <style>
 table {
@@ -206,7 +213,7 @@ table {
 }
 </style>
 
-| 운영체제 | 키보드 단축키 |
+| 운영 체제 | 키보드 단축키 |
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
@@ -224,17 +231,17 @@ table {
 
 Android 알림 서랍에 사이트의 알림이 표시되는 경우:
 
-1. 푸시 알림에서 <i class="fas fa-cog" title="설정"></i> **설정**을 탭하고 **Site settings**를 선택하세요.
-2. **Site settings**에서 **Clear & Reset**을 탭하세요.
+1. 푸시 알림에서 <i class="fas fa-cog" title="설정"></i> **설정**을 탭하고 **사이트 설정**을 선택하세요.
+2. **사이트 설정**에서 **지우기 및 재설정**을 탭하세요.
 
 사이트의 알림이 열려 있지 않은 경우:
 
 1. Android에서 Chrome을 여세요.
 2. <i class="fas fa-ellipsis-vertical"></i> 메뉴를 탭하세요.
-3. **Settings** > **Site Settings** > **Notifications**로 이동하세요.
-4. 알림이 **Ask before sending (recommended)**으로 설정되어 있는지 확인하세요.
+3. **설정** > **사이트 설정** > **알림**으로 이동하세요.
+4. 알림이 **보내기 전에 확인(권장)**으로 설정되어 있는지 확인하세요.
 5. 목록에서 사이트를 찾으세요.
-6. 항목을 선택하고 **Clear and Reset**을 탭하세요.
+6. 항목을 선택하고 **지우기 및 재설정**을 탭하세요.
 
 푸시 권한이 재설정되었습니다. 사이트에 새 탭을 열고 테스트해 보세요.
 
@@ -244,15 +251,15 @@ Android 알림 서랍에 사이트의 알림이 표시되는 경우:
 ### 데스크탑에서 Firefox 재설정 {#reset-firefox-on-desktop}
 
 1. 사이트 URL 옆의 <i class="fa-solid fa-circle-info" alt="정보 아이콘"></i> 또는 <i class="fas fa-lock" alt="잠금 아이콘"></i>을 선택하세요.
-2. **Permissions**에서 **Receive Notifications** 옆의 <i class="fa-solid fa-circle-xmark" title="이 권한을 지우고 다시 요청"></i> **Clear permission**을 선택하여 알림 권한을 지우세요.
-3. 같은 메뉴에서 **Clear Cookies and Site Data**를 선택하세요.
-4. 선택을 확인하는 대화 상자에서 **OK**를 선택하세요.
+2. **권한**에서 **알림 수신** 옆의 <i class="fa-solid fa-circle-xmark" title="이 권한을 지우고 다시 요청"></i> **권한 지우기**를 선택하여 알림 권한을 지우세요.
+3. 같은 메뉴에서 **쿠키 및 사이트 데이터 지우기**를 선택하세요.
+4. 선택을 확인하는 대화 상자에서 **확인**을 선택하세요.
 
 푸시 권한이 재설정되었습니다. 사이트에 새 탭을 열고 테스트해 보세요.
 
 ### Android에서 Firefox 재설정 {#reset-firefox-on-android}
 
-Android에서 푸시 권한을 재설정하려면 이 [Mozilla 지원 문서](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser)를 참조하세요.
+Android에서 푸시 권한을 재설정하려면 Mozilla 지원의 [검색 기록 및 기타 개인 데이터 지우기](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser)를 참조하세요.
 
 {% endtab %}
 {% tab Safari %}
@@ -264,21 +271,29 @@ Android에서 푸시 권한을 재설정하려면 이 [Mozilla 지원 문서](ht
 {% endalert %}
 
 1. Safari를 여세요.
-2. [Mac 메뉴 막대](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac)에서 **Safari** > **Settings** > **Websites** > **Notifications**로 이동하세요.
+2. [Mac 메뉴 막대](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac)에서 **Safari** > **설정** > **웹사이트** > **알림**으로 이동하세요.
 3. 목록에서 사이트를 선택하세요.
-4. **Remove**를 선택하여 해당 사이트의 알림 권한을 삭제하세요.
-5. 그런 다음 **Privacy** > **Manage Website Data**로 이동하세요.
+4. **제거**를 선택하여 해당 사이트의 알림 권한을 삭제하세요.
+5. 그런 다음 **개인 정보 보호** > **웹사이트 데이터 관리**로 이동하세요.
 6. 목록에서 사이트를 선택하세요.
-7. **Remove**를 선택하거나, 모든 사이트 데이터를 제거하려면 **Remove All**을 선택하세요.
-8. **Done**을 선택하세요.
+7. **제거**를 선택하거나, 모든 사이트 데이터를 제거하려면 **모두 제거**를 선택하세요.
+8. **완료**를 선택하세요.
 
 푸시 권한이 재설정되었습니다. 사이트에 새 탭을 열고 테스트해 보세요.
 
 {% endtab %}
 {% endtabs %}
 
+## 푸시 열람 측정기준 {#push-open-metrics}
+
+Braze는 사용자가 알림을 탭하고 앱이 세션을 시작할 때 직접 열람을 기록합니다. 앱을 열지 않고 리치 푸시 알림을 확장하는 것은 직접 열람으로 기록되지 않습니다.
+
+사용자가 알림을 탭하지 않고 푸시를 받은 후 앱을 열면, Braze는 대신 영향받은 열람을 기록할 수 있습니다. 정의 및 보고에 대한 자세한 내용은 [영향받은 열람]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)을 참조하세요.
+
 ## 푸시 오류 메시지 {#push-error-messages}
 
-일반적인 푸시 오류 메시지(`DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered` 등)에 대한 자세한 내용은 [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)를 참조하세요.
+일반적인 푸시 오류 코드(`DEVICE_UNREGISTERED`, `NotRegistered`, `Unregistered` 등)에 대한 정의는 [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)를 참조하세요.
+
+FCM이 `DEVICE_UNREGISTERED` 또는 `NotRegistered`와 같은 오류를 반환하면, Braze는 일반적으로 고객 프로필에서 해당 푸시 토큰을 제거합니다. 이 제거는 보통 앱이 제거되었거나 토큰이 더 이상 유효하지 않음을 나타냅니다. 제거 추적 Campaign은 동일한 토큰 제거 로직을 대규모로 사용합니다.
 
 추가 도움이 필요하신가요? [지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.

@@ -24,7 +24,7 @@ Com a integração entre a Braze e a Extole, você pode transferir eventos e atr
 | ----------- | ----------- |
 | Conta Extole | É necessário ter uma conta da Extole para usar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com a permissão `users.track`. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| URL da API da Braze | Seu URL da API da Braze é específico para sua [instância da Braze]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| URL da API da Braze | Seu URL da API da Braze é específico para sua [instância da Braze]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -47,7 +47,7 @@ Conclua as etapas a seguir para colocar sua integração em funcionamento rapida
 4. Digite seu URL da API da Braze. Esse URL depende da instância em que sua conta da Braze está provisionada.
 5. Adicione todos os eventos da Extole que você gostaria de enviar para a Braze. Os eventos padrão, as propriedades do evento e os atributos de usuário são descritos na [tabela de eventos da Extole](https://dev.extole.com/docs/braze#extole-program-events).
 6. Adicione quaisquer estados de recompensas que você gostaria de enviar para a Braze, além do estado `FULFILLED`. Consulte a [tabela de recompensas da Extole](https://dev.extole.com/docs/braze#extole-rewards) para obter descrições dos estados de recompensas disponíveis.
-7. Selecione o mapeamento da sua chave de ID externa da Braze. É assim que a Extole atualiza os perfis de usuário na Braze. Você pode mapear a chave de ID externa da Braze para `email_address` ou `partner_user_id` da Extole para o usuário. Recomendamos usar `external_id` em vez de `email_address`, pois é mais seguro.
+7. Selecione o mapeamento da sua chave de ID externo da Braze. É assim que a Extole atualiza os perfis de usuário na Braze. Você pode mapear a chave de ID externo da Braze para `email_address` ou `partner_user_id` da Extole para o usuário. Recomendamos usar `external_id` em vez de `email_address`, pois é mais seguro.
 8. Salve suas configurações para concluir a conexão. Agora, os eventos da Extole podem fluir para sua conta da Braze.
 
 ### Eventos do programa Extole {#extole-program-events}
@@ -58,7 +58,7 @@ Abaixo estão os eventos padrão, as propriedades do evento e os atributos de us
 | ----------- | ----------- | ----------- | ----------- |
 | `extole_created_share_link` | Um participante cria seu link de compartilhamento inserindo seu e-mail no Extole Share Experience. | Nome do evento  <br>Hora do evento  <br>Parceiro (Extole)  <br>Funil (defensor ou amigo)  <br>Programa | <br>ID externo <br>E-mail  <br>Link de compartilhamento |
 | `extole_shared` | Um participante compartilha seu link de indicação com um amigo. | Nome do evento  <br>Hora do evento  <br>Parceiro (Extole)  <br>ID externo  <br>Funil (defensor ou amigo)  <br>Programa  <br>Canal de compartilhamento | E-mail <br>Nome <br>Sobrenome |
-| `outcome` - O resultado é dinâmico com base na configuração do seu programa (como `extole_shipped`, `extole_converted`)| Um participante converteu ou concluiu o evento de resultado desejado configurado para o programa. | Dinâmico por programa | E-mail <br>Nome <br>Sobrenome |
+| `outcome` - O resultado é dinâmico com base na configuração do seu programa (como `extole_shipped`, `extole_converted`) | Um participante converteu ou concluiu o evento de resultado desejado configurado para o programa. | Dinâmico por programa | E-mail <br>Nome <br>Sobrenome |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Eventos do programa Extole" }
 
 ### Estados de inscrição da Extole {#extole-subscription-states}
@@ -66,7 +66,7 @@ Abaixo estão os eventos padrão, as propriedades do evento e os atributos de us
 | Estado da inscrição | Descrição | Propriedades do evento | Atributos do usuário |
 | ----------- | ----------- | ----------- | ----------- |
 | `subscribed` | Um participante optou por receber mensagens de marketing. | N/D | E-mail  <br>Tipo de lista  <br>ID externo  <br>Inscrição de e-mail (aceitação) |
-| `unsubscribed` | Um participante cancelou o recebimento das comunicações por e-mail da Extole. | E-mail  <br>ID externo  <br>Estado da inscrição (inscrição cancelada)  <br>ID do grupo de inscrições  | Tipo de lista |
+| `unsubscribed` | Um participante cancelou o recebimento das comunicações por e-mail da Extole. | E-mail  <br>ID externo  <br>Estado da inscrição (inscrição cancelada)  <br>ID do grupo de inscrições | Tipo de lista |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Estados de inscrição da Extole" }
 
 ### Recompensas da Extole {#extole-rewards}
@@ -75,13 +75,13 @@ Por padrão, a Extole enviará eventos de recompensas no estado `FULFILLED` para
 
 | Estado da recompensa | Descrição | Propriedades do evento | Atributos do usuário |
 | ----------- | ----------- | ----------- | ----------- |
-| `FULFILLED` | O estado padrão. Foi atribuído um valor (como cupom ou cartão-presente) à recompensa por um fornecedor de recompensas da Extole. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal  | E-mail <br>Nome  <br>Sobrenome |
-| `EARNED` | Uma recompensa foi criada e associada a uma pessoa. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal  | E-mail <br>Nome  <br>Sobrenome |
-| `SENT` | A recompensa foi processada e enviada por e-mail ou em um dispositivo para o destinatário. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal  | E-mail <br>Nome  <br>Sobrenome |
-| `REDEEMED` | A recompensa foi usada pelo destinatário, conforme evidenciado em um evento de conversão ou resgate enviado à Extole. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal  | E-mail <br>Nome  <br>Sobrenome |
-| `FAILED` | Um problema impediu que a recompensa fosse emitida ou enviada, exigindo atenção. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal  | E-mail <br>Nome  <br>Sobrenome |
-| `CANCELED` | A recompensa foi desativada e retornará ao inventário. | E-mail <br>Valor nominal  <br>Tipo de valor nominal  | E-mail <br>Nome  <br>Sobrenome |
-| `REVOKED` | A recompensa cumprida foi invalidada. Por exemplo, a Extole solicitou um cartão-presente de um fornecedor e depois determinou que o cartão foi enviado por engano. Se o fornecedor oferecer suporte à revogação da recompensa, a Extole solicitará a devolução dos fundos, e a recompensa não será mais válida. | E-mail <br>Valor nominal   <br>Tipo de valor nominal  | E-mail <br>Nome  <br>Sobrenome |
+| `FULFILLED` | O estado padrão. Foi atribuído um valor (como cupom ou cartão-presente) à recompensa por um fornecedor de recompensas da Extole. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal | E-mail <br>Nome  <br>Sobrenome |
+| `EARNED` | Uma recompensa foi criada e associada a uma pessoa. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal | E-mail <br>Nome  <br>Sobrenome |
+| `SENT` | A recompensa foi processada e enviada por e-mail ou em um dispositivo para o destinatário. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal | E-mail <br>Nome  <br>Sobrenome |
+| `REDEEMED` | A recompensa foi usada pelo destinatário, conforme evidenciado em um evento de conversão ou resgate enviado à Extole. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal | E-mail <br>Nome  <br>Sobrenome |
+| `FAILED` | Um problema impediu que a recompensa fosse emitida ou enviada, exigindo atenção. | E-mail <br>Valor nominal  <br>Código de cupom  <br>Tipo de valor nominal | E-mail <br>Nome  <br>Sobrenome |
+| `CANCELED` | A recompensa foi desativada e retornará ao inventário. | E-mail <br>Valor nominal  <br>Tipo de valor nominal | E-mail <br>Nome  <br>Sobrenome |
+| `REVOKED` | A recompensa cumprida foi invalidada. Por exemplo, a Extole solicitou um cartão-presente de um fornecedor e depois determinou que o cartão foi enviado por engano. Se o fornecedor oferecer suporte à revogação da recompensa, a Extole solicitará a devolução dos fundos, e a recompensa não será mais válida. | E-mail <br>Valor nominal  <br>Tipo de valor nominal | E-mail <br>Nome  <br>Sobrenome |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Recompensas da Extole" }
 
 
@@ -89,7 +89,7 @@ Por padrão, a Extole enviará eventos de recompensas no estado `FULFILLED` para
 
 ### Localizar e criar usuários na Braze {#find-and-create-users-in-braze}
 
-Para determinados casos de uso, como uma nova inscrição de e-mail ou SMS em que a Extole não tem um ID externo (ID de usuário), a Extole pode verificar o identificador do usuário usando o endpoint [Exportar perfil de usuário por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) da Braze. A Extole adicionará e atualizará quaisquer atributos de perfil se o usuário existir na Braze. Se a solicitação não retornar um perfil de usuário, a Extole usará o endpoint `/users/track` para criar um alias de usuário com o endereço de e-mail do usuário como o nome do alias.
+Para determinados casos de uso, como uma nova inscrição de e-mail ou SMS em que a Extole não tem um ID externo (ID de usuário), a Extole pode verificar o identificador do usuário usando o endpoint [Exportar perfil de usuário por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) da Braze. A Extole adicionará e atualizará quaisquer atributos de perfil se o usuário existir na Braze. Se a solicitação não retornar um perfil de usuário, a Extole usará o endpoint `/users/track` para criar um alias de usuário com o endereço de e-mail do usuário como o nome do alias.
 
 ## Usando esta integração {#using-this-integration}
 

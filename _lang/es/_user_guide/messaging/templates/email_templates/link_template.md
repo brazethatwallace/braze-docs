@@ -85,7 +85,11 @@ Para acceder a la pestaña **Gestión de enlaces** en el editor HTML actualizado
 Las plantillas de enlaces no se aplican al texto sin formato. Esto significa que Currents puede mostrar clics que no incluyen los parámetros de las plantillas de enlaces, ya que esos clics pueden provenir de la versión de texto sin formato del correo electrónico.
 {% endalert %}
 
-A medida que añades plantillas de enlaces en la pestaña **Gestión de enlaces**, desplázate hacia la derecha para ver las plantillas que has añadido. Si los enlaces existentes dentro de un correo electrónico ya tienen una plantilla de enlaces añadida, los enlaces recién añadidos también tendrán la plantilla de enlaces añadida de forma predeterminada.
+A medida que añades plantillas de enlaces en la pestaña **Gestión de enlaces**, cada plantilla aparece como una columna adicional en la tabla. Si los enlaces existentes dentro de un correo electrónico ya tienen una plantilla de enlaces añadida, los enlaces recién añadidos también tendrán la plantilla de enlaces añadida de forma predeterminada.
+
+{% alert tip %}
+Al incluir enlaces en tu mensaje, asegúrate de que las URL comiencen con `http://` o `https://`.
+{% endalert %}
 
 ## Administrar plantillas de enlaces {#managing-link-templates}
 
@@ -94,6 +98,29 @@ También puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/manag
 {% alert important %}
 Archivar plantillas no está disponible actualmente para las plantillas de enlaces.
 {% endalert %}
+
+## Solución de problemas {#troubleshooting}
+
+### Parámetros UTM faltantes {#missing-utm-parameters}
+
+Las plantillas de enlaces no se aplican a los enlaces en comentarios HTML estándar (`<!-- ... -->`). Para los comentarios condicionales de Outlook (por ejemplo, `<!--[if mso]>`), las plantillas de enlaces se aplican cuando el aliasing de enlaces está habilitado para tu espacio de trabajo. Los espacios de trabajo sin aliasing de enlaces habilitado siguen omitiendo los comentarios condicionales.
+
+### Parámetros UTM presentes en el navegador pero ausentes en los enlaces {#utm-parameters-present-in-browser-but-missing-from-links}
+
+Esto puede ocurrir cuando la ruta de la URL en tu correo electrónico no coincide con la ruta completa que pretendes (por ejemplo, una ruta acortada o diferente a la URL completa del sitio web).
+
+- **Qué verificar:** El `href` en el correo electrónico incluye la ruta completa a la página (no solo una ruta parcial que depende de redirecciones).
+- **Qué esperar:** Si la ruta en el correo electrónico está incompleta o es diferente, los parámetros UTM de tu plantilla de enlaces pueden no aplicarse a ese enlace cuando se hace clic, aunque el sitio web aún pueda redirigir al visitante a la página correcta.
+
+Por ejemplo, si el enlace completo es `https://www.somewebsite.com/women/designer/johnjane` pero el correo electrónico usa `https://www.somewebsite.com/designer/johnjane`, es esperable que los parámetros UTM no se añadan al enlace del correo electrónico.
+
+### Parámetros UTM faltantes en enlaces renderizados con Liquid {#utm-parameters-missing-from-liquid-rendered-links}
+
+Al aplicar plantillas de enlaces, Braze analiza cada URL para determinar dónde añadir los parámetros. Si una etiqueta de Liquid renderiza una URL que no puede analizarse como un URI válido, la plantilla de enlaces se omite silenciosamente. Verifica que tu salida de Liquid produzca una URL bien formada. Prueba previsualizando el mensaje para un usuario específico y verificando que la URL renderizada sea válida. Si la URL incluye variables de Liquid en la ruta o la cadena de consulta, confirma que la salida no contenga caracteres no válidos o codificación incorrecta.
+
+### Valores UTM faltantes en envíos de prueba {#utm-values-missing-in-test-sends}
+
+Al enviar pruebas de plantillas de enlaces, {% raw %}`{{${user_id}}}`{% endraw %} no se renderiza. En su lugar, duplica la campaña y configúrala para dirigirla al correo electrónico o `external_id` de tus usuarios internos y lanza la campaña para verificar que todos los parámetros UTM de la plantilla de enlaces se completen.
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

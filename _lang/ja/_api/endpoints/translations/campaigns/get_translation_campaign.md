@@ -19,7 +19,7 @@ description: "この記事では、「キャンペーンのすべての翻訳を
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.translations.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`campaigns.translations.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -30,13 +30,13 @@ description: "この記事では、「キャンペーンのすべての翻訳を
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
 | `campaign_id` | 必須 | 文字列 | キャンペーンのID。 |
-| `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
-| `locale_id` | オプション | 文字列 | 応答をフィルタリングするためのロケールUUID。 |
+| `message_variation_id` | 必須 | 文字列 | メッセージバリアントのID。 |
+| `locale_id` | オプション | 文字列 | レスポンスをフィルタリングするためのロケールUUID。 |
 | `post_launch_draft_version` | オプション | ブール値 | `true` の場合、最新の公開済みライブバージョンではなく、最新の下書きバージョンを返します。デフォルトは `false` で、最新のライブバージョンを返します。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="クエリパラメーター" }
 
 {% alert note %}
-すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントの応答で確認できます。
+すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントのレスポンスで確認できます。
 {% endalert %}
 
 ## リクエスト例 {#example-request}
@@ -47,13 +47,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translati
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコード応答があります。
+このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `200` は、次の応答ヘッダーと本文を返す可能性があります。
+ステータスコード `200` は、次のレスポンスヘッダーと本文を返す可能性があります。
 
 ```json
 {
@@ -90,9 +90,9 @@ curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translati
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。
+ステータスコード `400` は、次のレスポンス本文を返す可能性があります。
 
 ```json
 {

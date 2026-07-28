@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | 선택 사항 | 속성 오브젝트 배열 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) 보기 |
+| `attributes` | 선택 사항 | 속성 오브젝트 배열 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object) 보기 |
 | `events` | 선택 사항 | 이벤트 오브젝트 배열 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object) 보기 |
 | `purchases` | 선택 사항 | 구매 오브젝트 배열 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object) 보기 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
@@ -393,7 +393,7 @@ Braze는 이메일 주소로 고객 프로필 업데이트 요청 예시에 나�
 - 시간당 제한 외에도 Braze는 3초마다 전송할 수 있는 요청 수에 버스트 제한을 적용합니다.
 - 각 요청은 속성, 이벤트 또는 구매 오브젝트에 걸쳐 최대 75개의 업데이트를 일괄 처리할 수 있습니다.
 
-예상 수집량에 따른 현재 제한은 대시보드의 **설정** > **API 키** > **API 사용량 대시보드**에서 확인할 수 있습니다. 시스템 안정성을 보호하거나 계정의 데이터 처리량 증가를 허용하기 위해 사용량 제한을 수정할 수 있습니다. 시간당 또는 초당 요청 제한 및 비즈니스 요구 사항에 대한 질문이나 우려 사항이 있는 경우 Braze 고객지원 또는 고객 성공 매니저에게 문의하세요.
+예상 수집량에 따른 현재 제한은 대시보드의 **설정** > **API 및 식별자** > **API 사용량 대시보드**에서 확인할 수 있습니다. 시스템 안정성을 보호하거나 계정의 데이터 처리량 증가를 허용하기 위해 사용량 제한을 수정할 수 있습니다. 시간당 또는 초당 요청 제한 및 비즈니스 요구 사항에 대한 질문이나 우려 사항이 있는 경우 Braze 고객지원 또는 고객 성공 매니저에게 문의하세요.
 
 ### 월간 활성 사용자 CY 24-25, 유니버설 MAU, 웹 MAU 및 모바일 MAU에 대한 사용량 제한 헤더 {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

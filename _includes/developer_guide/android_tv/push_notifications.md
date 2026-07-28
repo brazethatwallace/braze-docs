@@ -1,6 +1,6 @@
 ## About push notifications for Android TV
 
-![]({% image_buster /assets/img/Television.png %}){: style="float:right;max-width:25%;margin-left:15px; border: 0"}
+![Android TV device illustration used for the Android TV push notifications guide.]({% image_buster /assets/img/Television.png %}){: style="float:right;max-width:25%;margin-left:15px; border: 0"}
 
 While not a native feature, Android TV push integration is made possible by leveraging the Braze Android SDK and Firebase Cloud Messaging to register a push token for Android TV. It is, however, necessary to build a UI to display the notification payload after it is received.
 
@@ -16,8 +16,8 @@ To use this feature, you'll need to complete the following:
 To set up push notifications for Android TV:
 
 1. Create a custom view in your app to display your notifications.
-2. Create a [custom notification factory]({{site.baseurl}}/developer_guide/push_notifications/customization#customization-display). This will override the default SDK behavior and allow you to manually display the notifications. By returning `null`, this will prevent the SDK from processing and will require custom code to display the notification. After these steps have been completed, you can start sending push to Android TV!<br><br>
-3. (Optional) To track click analytics effectively, set up click analytics tracking. This can be achieved by creating a [push callback]({{site.baseurl}}/developer_guide/push_notifications/customization#push-callback) to listen for Braze push opened and received intents.
+2. Create a [custom notification factory]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display). This overrides the default SDK behavior and allows you to manually display the notifications. By returning `null`, this prevents the SDK from processing and requires custom code to display the notification. After these steps have been completed, you can start sending push to Android TV!<br><br>
+3. (Optional) To track click analytics effectively, set up click analytics tracking. This can be achieved by creating a [push callback]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_push-callback) to listen for Braze push opened and received intents.
 
 {% alert note %}
 These notifications **will not persist** and will only be visible to the user when the device displays them. This is due to Android TV's notification center not supporting historical notifications.

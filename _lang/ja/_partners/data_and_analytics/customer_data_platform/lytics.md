@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [Lytics](https://www.lytics.com/)は、顧客中心の次世代ビジネスに最適な顧客データプラットフォーム（CDP）です。Lytics Decision Engine、Conductor、Cloud Connectの各ソリューションは、マーケターとデータチームに、プライバシーに準拠した方法で、アイデンティティ解決、オーケストレーション、キャンペーン最適化をリアルタイムで実行する機会を提供します。
 
-_この統合はLyticsによって管理されます。_
+_この統合はLyticsによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
@@ -24,7 +24,7 @@ BrazeとLyticsの統合により、顧客を一元的に把握できるため、
 
 ## ユースケース {#use-cases}
 
-BrazeをLyticsに接続して、メール、SMS、プッシュアクティビティを[インポート](#importing-data-from-braze-to-lytics)し、Lyticsのユーザープロファイルを充実させます。BrazeとLyticsを併用することで、Lyticsのクロスチャネル、行動主導型のオーディエンスを[エクスポート](#integration)し、ファーストパーティデータを使用して高度にパーソナライズされたBrazeカスタマージャーニーを構築することもできます。
+BrazeをLyticsに接続して、メール、SMS、プッシュアクティビティを[インポート](#importing-data-from-braze-to-lytics)し、Lyticsのユーザープロファイルを充実させます。BrazeとLyticsを併用することで、Lyticsのクロスチャネルの行動主導型オーディエンスを[エクスポート](#integration)し、ファーストパーティデータを使用して高度にパーソナライズされたBrazeカスタマージャーニーを構築することもできます。
 
 ## 前提条件 {#prerequisites}
 
@@ -63,7 +63,7 @@ Lyticsで、ナビゲーションバーの**Data**コンソール内の**Jobs**�
 
 **Configure Job**プロンプト内で、ラベルとオプションの説明を入力します。次に、**Braze External User ID Field**の入力欄から、Braze外部ユーザーID（`braze_id`）を含むLyticsのフィールドを選択します。次は最も重要なステップです。同じプロンプト内のオーディエンスピッカーを使用して、Brazeにエクスポートするオーディエンスを選択します。
 
-最後に、**Existing Users**チェックボックスで適切なオプションを選択します。このボックスをオンのままにすると、選択したLyticsオーディエンスにすでに存在しているユーザーが追加されます。オフにすると、ワークフロー開始後にオーディエンスに追加される時点またはオーディエンスから外される時点でのみ、ユーザーがBrazeにエクスポートされます。
+最後に、**Existing Users**チェックボックスで適切なオプションを選択します。このボックスをオンのままにすると、選択したLyticsオーディエンスにすでに存在しているユーザーが追加されます。オフにすると、ワークフロー開始後にオーディエンスに追加された時点またはオーディエンスから外れた時点でのみ、ユーザーがBrazeにエクスポートされます。
 
 {% alert note %}
 このボックスをチェックすると、選択したオーディエンスのすべての既存ユーザーがBrazeに送信されます。Brazeの料金にデータポイントが含まれている場合は、データポイント使用量を適宜モニターしてください。
@@ -101,7 +101,7 @@ Lyticsで、ナビゲーションバーの**Data**コンソール内の**Jobs**�
 }
 ```
 
-オーディエンスのエクスポートに含まれ、Brazeにまだ存在していない`external_id`に対し、Brazeで新しいユーザーが作成されます。
+オーディエンスのエクスポートに含まれ、Brazeにまだ存在していない`external_id`に対して、Brazeで新しいユーザーが作成されます。
 
 ## BrazeからLyticsにデータをインポートする {#importing-data-from-braze-to-lytics}
 
@@ -114,7 +114,7 @@ BrazeからLyticsへのオーディエンスデータのインポートは、以
 
 #### ステップ1:Lytics APIトークンを作成する {#step-1-create-a-lytics-api-token}
 
-アカウント名を選択して左下にあるLytics Account Menuに移動し、ドロップダウンメニューから**Access Tokens**を選択します。次に**Create API Token**を選択します。
+アカウント名を選択してLytics Account Menuに移動し、ドロップダウンメニューから**Access Tokens**を選択します。次に**Create API Token**を選択します。
 
 ![アカウントメニューからCreate API Tokenが選択されたLyticsのAccess Tokens画面。]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 

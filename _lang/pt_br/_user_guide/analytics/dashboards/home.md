@@ -84,7 +84,7 @@ A seguir estão as definições das estatísticas disponíveis, como são calcul
 
 *Usuários* é o número total de usuários criados nesse espaço de trabalho. Isso inclui todos os usuários que usaram seu app ou site em qualquer momento, além daqueles que podem não estar associados a um app ou site específico. Esse número é o percentual de quantos dos seus usuários totais são representados como *Usuários ativos mensais* (MAU), o que é útil para avaliar a retenção de usuários ao longo de um período prolongado.
 
-Uma proporção baixa de MAU em relação ao total de usuários pode indicar que você precisa diversificar seus canais de envio de mensagens ou aumentar seus esforços para alcançar usuários inativos. Consulte nossa dica rápida sobre [captura de usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) para mais informações. De modo geral, a proporção de MAU em relação ao total de usuários tende a diminuir ao longo do tempo devido ao churn, mas as ferramentas da Braze podem ajudar a minimizar esse efeito mantendo os usuários engajados por mais tempo.
+Uma proporção baixa de MAU em relação ao total de usuários pode indicar que você precisa diversificar seus canais de envio de mensagens ou aumentar seus esforços para alcançar usuários inativos. Consulte nossa dica rápida sobre [captura de usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users) para mais informações. De modo geral, a proporção de MAU em relação ao total de usuários tende a diminuir ao longo do tempo devido ao churn, mas as ferramentas da Braze podem ajudar a minimizar esse efeito mantendo os usuários engajados por mais tempo.
 
 ### Sessões totais {#lifetime-sessions}
 
@@ -111,9 +111,7 @@ Os cálculos de MAU seguem regras específicas para garantir uma cobrança preci
 - **Exclusões via API**: Excluir um usuário via API não atualiza o MAU imediatamente; a contagem se corrige automaticamente no próximo ciclo mensal.
 
 {% alert note %}
-Usuários anônimos também contam para o seu MAU. Em dispositivos móveis, os usuários anônimos dependem do dispositivo. Para usuários web, os usuários anônimos dependem do cache do navegador.
-
-As contagens de MAU na Braze podem diferir de ferramentas como a Amplitude quando cada produto usa uma definição diferente de usuário ativo. Compare a configuração na Amplitude (e suas regras de MAU da Braze acima) antes de investigar uma discrepância como um problema no pipeline de dados.
+Usuários anônimos também contam para o seu MAU. Em dispositivos móveis, os usuários anônimos dependem do dispositivo. Para usuários web, os usuários anônimos dependem do cache do navegador. <br><br> As contagens de MAU na Braze podem diferir de ferramentas como a Amplitude quando cada produto usa uma definição diferente de usuário ativo. Compare a configuração na Amplitude (e suas [regras de cálculo do MAU](#mau-calculation-rules)) antes de investigar uma discrepância como um problema no pipeline de dados.
 {% endalert %}
 
 #### Exemplo de cálculo do MAU {#mau-calculation-example}
@@ -130,6 +128,10 @@ O exemplo a seguir demonstra como os cálculos de MAU funcionam com diferentes a
 
 Os snapshots de MAU são calculados uma vez por dia e nunca mudam retroativamente. Neste exemplo, a contagem de MAU do dia após a etapa 3 permanece permanentemente em 2, mesmo que o Usuário 2 se torne órfão posteriormente. No entanto, a contagem de MAU dos dias seguintes reflete apenas o usuário não órfão. Dentro de qualquer janela de 30 dias, esse fluxo consome 1 MAU, já que apenas um usuário distinto e não órfão permanece.
 
+##### Considerações sobre a contagem de MAU {#mau-count-considerations}
+
+As contagens de MAU na Braze dependem de onde você as visualiza. O MAU total é calculado no nível do usuário, independentemente de apps e plataformas, de modo que cada usuário é contado apenas uma vez. No entanto, quando você visualiza as contagens de MAU por app, a soma do MAU de todos os apps pode exceder o MAU total; um usuário que usa vários apps no seu espaço de trabalho é contado na métrica de MAU individual de cada app.
+
 ### Usuários ativos diários {#daily-active-users}
 
 *Usuários ativos diários* (DAU) exibe o número de usuários únicos que registram pelo menos uma sessão no seu app ou site em um determinado dia. O DAU pode ser uma estatística útil para examinar a variabilidade diária do uso do seu app ou site e ajustar suas campanhas de mensagens para serem o mais eficazes possível. Por exemplo, o uso do seu app pode ter um pico considerável nos fins de semana — isso indicaria que você poderia alcançar mais usuários com mensagens no app nesses dias, em vez de dias úteis.
@@ -139,9 +141,7 @@ Os snapshots de MAU são calculados uma vez por dia e nunca mudam retroativament
 *Novos usuários* informa quantos usuários que nunca haviam registrado uma sessão começaram a usar seu app ou site. Esse número é o total de novos usuários no período selecionado. Essa estatística pode ser muito valiosa para acompanhar a eficácia dos seus esforços de publicidade.
 
 {% alert note %}
-Quando você integra a Braze pela primeira vez, todos os usuários aparecerão como novos, pois a Braze nunca registrou uma sessão para eles antes.
-
-Diferentemente do MAU, a contagem de *Novos usuários* pode diminuir retroativamente quando a Braze mescla um perfil anônimo em um perfil identificado e torna o perfil anônimo órfão. A Braze remove o perfil órfão dos totais de uso do app, o que pode reduzir a contagem de *Novos usuários* para datas que você já visualizou. Para saber mais sobre o comportamento de vinculação de perfis, consulte [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
+Quando você integra a Braze pela primeira vez, todos os usuários aparecerão como novos, pois a Braze nunca registrou uma sessão para eles antes. <br><br> Diferentemente do MAU, a contagem de *Novos usuários* pode diminuir retroativamente quando a Braze mescla um perfil anônimo em um perfil identificado e torna o perfil anônimo órfão. A Braze remove o perfil órfão dos totais de uso do app, o que pode reduzir a contagem de *Novos usuários* para datas que você já visualizou. Para saber mais sobre o comportamento de vinculação de perfis, consulte [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}

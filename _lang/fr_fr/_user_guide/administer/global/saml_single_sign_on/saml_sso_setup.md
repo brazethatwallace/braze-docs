@@ -75,7 +75,7 @@ Enregistrez vos paramètres de sécurité et déconnectez-vous. Ensuite, reconne
 
 ## Configuration de votre RelayState {#setting-up-your-relaystate}
 
-1. Dans Braze, accédez à **Paramètres** > **Clés API**.
+1. Dans Braze, accédez à **Paramètres** > **API et identifiants**.
 2. Dans l'onglet **Clés API**, sélectionnez le bouton **Créer une clé API**.
 3. Dans le champ **Nom de la clé API**, saisissez un nom pour votre clé.
 4. Développez le menu déroulant **SSO** sous **Autorisations** et cochez **sso.saml.login**.
@@ -94,6 +94,10 @@ Vous pouvez restreindre les membres de votre organisation à se connecter unique
 ![Exemple de configuration de la section « Règles d'authentification » avec une longueur minimale de mot de passe de 8 caractères et une réutilisation de mot de passe limitée à 3 fois. Les mots de passe expireront après 180 jours et les utilisateurs seront déconnectés après 1 440 minutes d'inactivité.]({% image_buster /assets/img/sso3.png %})
 
 En activant les restrictions, les utilisateurs Braze de votre entreprise ne pourront plus se connecter avec un mot de passe, même s'ils se sont déjà connectés avec un mot de passe auparavant.
+
+{% alert important %}
+Une fois l'authentification unique imposée, il n'existe aucune option de secours pour se connecter en cas d'échec de l'authentification SSO. Avant d'activer l'imposition de l'authentification unique, assurez-vous que votre configuration SSO est correcte, que tous les certificats sont à jour et renouvelés, et que vos paramètres de sécurité sont correctement gérés pour éviter les problèmes de connexion.
+{% endalert %}
 
 ## Obtenir une trace SAML {#obtaining-a-saml-trace}
 
@@ -185,7 +189,7 @@ Si votre entreprise n'a pas téléchargé l'application Braze depuis la boutique
 
 Si votre entreprise utilise Google SSO au lieu de l'authentification unique (SSO) SAML personnalisée, contactez votre gestionnaire de compte Braze pour activer Google SSO pour votre espace de travail. Une fois activé, accédez à **Paramètres de sécurité** et sélectionnez **Enforce Google SSO only login** pour exiger l'authentification Google pour tous les utilisateurs de l'entreprise.
 
-Lorsque l'application de Google SSO est activée, les utilisateurs doivent se connecter avec l'authentification Google et ne peuvent plus utiliser de mot de passe Braze. Chaque utilisateur doit se connecter avec le compte Google correspondant à son adresse e-mail du tableau de bord de Braze. Si un utilisateur sélectionne un autre compte Google lors de la connexion, Braze rejette la tentative d'authentification.
+Lorsque l'imposition de Google SSO est activée, les utilisateurs doivent se connecter avec l'authentification Google et ne peuvent plus utiliser de mot de passe Braze. Chaque utilisateur doit se connecter avec le compte Google correspondant à son adresse e-mail du tableau de bord de Braze. Si un utilisateur sélectionne un autre compte Google lors de la connexion, Braze rejette la tentative d'authentification.
 
 ### Résolution des problèmes de connexion Google SSO {#troubleshooting-google-sso-sign-in}
 
@@ -199,5 +203,5 @@ Si certains utilisateurs ne parviennent pas à se connecter avec Google SSO, vé
 
 Après avoir configuré l'authentification unique (SSO) SAML, vous pouvez :
 
-- [Imposer la connexion SSO uniquement]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
+- [Imposer la connexion SSO uniquement]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
 - [Configurer le provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) afin que les nouveaux utilisateurs créent automatiquement des comptes Braze lors de leur première connexion SSO.

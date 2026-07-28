@@ -6,7 +6,7 @@ page_order: 4
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión de Braze Sustituir varios elementos del catálogo."
+description: "En este artículo se describen los detalles del endpoint Sustituir varios elementos del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,15 +15,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> Utiliza este punto de conexión para sustituir varios elementos de tu catálogo.
+> Utiliza este endpoint para sustituir varios elementos de tu catálogo.
 
-Si un elemento del catálogo no existe, este punto de conexión creará el elemento en tu catálogo. Cada solicitud puede admitir hasta 50 elementos de catálogo. Este punto de conexión es asíncrono.
+Si un elemento del catálogo no existe, este endpoint creará el elemento en tu catálogo. Cada solicitud puede admitir hasta 50 elementos de catálogo. Este endpoint es asíncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#ab30a4fc-60bc-4460-885c-1b92af8bc061 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.replace_items`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.replace_items`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -85,10 +85,10 @@ El campo `Location` utiliza el tipo de datos `geo`, que espera una matriz con el
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `202`, `400` y `404`.
 
 {% alert note %}
-El sistema también puede devolver una respuesta `400` si tu empresa ha alcanzado su límite de almacenamiento del catálogo. La versión gratuita de los catálogos tiene un límite de 100&nbsp;MB. Para más información sobre los niveles de almacenamiento y cómo actualizar, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+El sistema también puede devolver una respuesta `400` si tu empresa ha alcanzado su límite de almacenamiento del catálogo. La versión gratuita de los catálogos tiene un límite de 500&nbsp;MB. Para más información sobre los niveles de almacenamiento y cómo actualizar, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Ejemplo de respuesta correcta {#example-success-response}

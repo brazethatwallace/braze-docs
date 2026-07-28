@@ -52,7 +52,7 @@ Die Vorschauen werden widergespiegelt und sind interaktiv.
 ![Push-Story-Composer]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-Wenn Sie Bilder mit [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content) einbinden, stellen Sie sicher, dass Ihre Bild-URL mit `https://` beginnt. Die Verwendung von `http://` führt zum Absturz Ihrer App.
+Wenn Sie Bilder mit [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) einbinden, stellen Sie sicher, dass Ihre Bild-URL mit `https://` beginnt. Die Verwendung von `http://` führt zum Absturz Ihrer App.
 {% endalert %}
 
 ### Bild- und Textspezifikationen {#image-and-text-specifications}
@@ -86,9 +86,9 @@ Wenn Sie eine Campaign oder ein Canvas erstellen, können Sie filtern, welche Nu
 
 ### Push-Story-Analytics {#push-stories-analytics}
 
-Die Analytics sehen dem aktuellen Analytics-Bereich für Push-Benachrichtigungen sehr ähnlich. Für Push-Story-Analytics können Sie die Metrik **Direkte Öffnungen** aufklappen, um die Klicks pro Seite anzuzeigen.
+Die Analytics sehen dem aktuellen Analytics-Bereich für Push-Benachrichtigungen sehr ähnlich. Für Push-Story-Analytics können Sie die Metrik **Direct Opens** aufklappen, um die Klicks pro Seite anzuzeigen.
 
-![iOS-Push-Performance-Tabelle mit Beispiel-Analytics und erweiterten Details für die Metrik „Direkte Öffnungen“.]({% image_buster /assets/img_archive/pushstories_analytics.png %})
+![iOS-Push-Performance-Tabelle mit Beispiel-Analytics und erweiterten Details für die Metrik „Direct Opens“.]({% image_buster /assets/img_archive/pushstories_analytics.png %})
 
 ## Fehlerbehebung {#troubleshooting}
 

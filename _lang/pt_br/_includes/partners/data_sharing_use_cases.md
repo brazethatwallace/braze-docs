@@ -1,0 +1,5 @@
+- Criar relatórios complexos
+- Realizar modelagem de atribuição
+- Compartilhar dados de forma segura dentro da sua empresa
+- Mapear dados brutos de eventos ou dados de usuários para um CRM (como o Salesforce)
+- E muito mais

@@ -26,7 +26,7 @@ Antes de criar uma notificação Rich por push para Android, observe os seguinte
   - **Média:** 1024x512
   - **Grande:** 2048x1024
 - Atualmente, as notificações Rich para Android só permitem imagens estáticas, incluindo os formatos JPEG e PNG. GIF e outros formatos de imagem ainda não são compatíveis.
-- Adicionar botões de ação à sua notificação por push pode afetar a área da imagem que é exibida. Teste com a pré-visualização do dashboard e em dispositivos reais para confirmar que os resultados estão conforme o esperado.
+- Adicionar botões de ação à sua notificação por push pode afetar a área da imagem que é exibida. Teste com a prévia do dashboard e em dispositivos reais para confirmar que os resultados estão conforme o esperado.
 - O SDK da Braze para Android deve estar ativado para que a imagem seja renderizada.
 
 {% alert note %}
@@ -37,7 +37,7 @@ Embora a Braze forneça instruções sobre como configurar notificações Rich p
 
 ### Etapa 1: Criar uma Campaign de push {#step-1-create-a-push-campaign}
 
-Siga as etapas para [criar uma Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) e redigir uma notificação por push para Android. Você usará o mesmo criador para configurar notificações por push que não contêm conteúdo avançado.
+Siga as etapas para [criar uma Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) e redigir uma notificação por push para Android. Você usará o mesmo criador para configurar notificações por push que não contêm conteúdo avançado.
 
 ### Etapa 2: Adicionar legenda {#step-2-add-captioning}
 
@@ -49,10 +49,10 @@ Adicione o **Summary Text** que você deseja exibir antes da imagem na notifica�
 
 Adicione sua imagem no campo **Android Notification Image** no criador da mensagem. As imagens podem ser enviadas diretamente pelo dashboard ou especificando uma URL de conteúdo hospedada em outro local.
 
-Para detalhes sobre imagens compatíveis, confira [Especificações de imagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#push).
+Para detalhes sobre imagens compatíveis, confira [Especificações de imagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications).
 
 ![A seção de imagem de notificação Android onde você pode adicionar uma imagem ou inserir uma URL de imagem.]({% image_buster /assets/img_archive/android_rich_image.png %})
 
 ### Etapa 4: Continuar criando sua Campaign {#step-4-continue-creating-your-campaign}
 
-Após o conteúdo da sua notificação Rich ser enviado ao dashboard, você pode continuar [programando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Após o conteúdo da sua notificação Rich ser enviado ao dashboard, você pode continuar [agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).

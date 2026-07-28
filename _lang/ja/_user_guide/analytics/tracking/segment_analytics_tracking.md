@@ -5,7 +5,7 @@ page_order: 3
 page_type: reference
 description: "このリファレンス記事では、セグメント分析の追跡と、収益と購入の推移、セッション数の推移、およびカスタムイベント数の推移を確認する方法について説明します。"
 tool:
-  - セグメント
+  - Segments
   - Reports
 ---
 
@@ -17,7 +17,7 @@ tool:
 
 ## セグメント分析を有効にする {#turning-on-segment-analytics}
 
-セグメントのページの**セグメント Details**セクションで、**Analytics Tracking**を有効にします。
+セグメントのページの**セグメントの詳細**セクションで、**分析の追跡**を有効にします。
 
 ![セグメントの分析の追跡トグル]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
@@ -37,13 +37,13 @@ tool:
 
 任意のカスタム期間のセグメントデータを視覚的に比較するには、セグメントをグラフに追加するか、グラフから削除します。**Breakdown**ドロップダウンで**By セグメント**を選択し、**Breakdown values**でセグメントを選択します。
 
-グラフの上にある任意のセグメント名を選択して、そのセグメントの指標の表示・非表示を切り替えます。
+グラフの凡例にある任意のセグメント名を選択して、そのセグメントの指標の表示・非表示を切り替えます。
 
 ![複数セグメントの収益]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
 ## セッション数の推移 {#sessions-over-time}
 
-同様に、[この特定セグメントのセッション数の推移]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data)に関するデータは、**Home**ページで確認できます。
+同様に、[この特定セグメントのセッション数の推移]({{site.baseurl}}/user_guide/analytics/dashboards/home)に関するデータは、**Home**ページで確認できます。
 
 ![セグメント別のセッションデータ]({% image_buster /assets/img_archive/events_over_time2.png %})
 
@@ -53,10 +53,10 @@ tool:
 
 ## クエリビルダーテンプレートの使用 {#using-query-builder-templates}
 
-分析の追跡をオンにすると、クエリビルダーのレポートテンプレートを使用して、キャンペーン、キャンバス、バリアント、ステップのパフォーマンス指標をセグメント別に分類できます。詳細については、[セグメントデータ]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment)を参照してください。
+分析の追跡をオンにすると、クエリビルダーのレポートテンプレートを使用して、キャンペーン、キャンバス、バリアント、ステップのパフォーマンス指標をセグメント別に分類できます。詳細については、[セグメントデータ]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 
 ### 分析の追跡が正しくない、または空に見える場合は何を確認すべきですか？ {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
 
-**セグメント Details**で**Analytics Tracking**がまだ有効になっていることを確認し、アプリごとの上限（追跡対象のセグメントは25個まで）を超えていないことを確認してください。また、追跡を初めて有効にした後、データが反映されるまで最大24時間かかる場合があります。問題が続く場合は、セグメントの定義とレポートの日付範囲を確認してから、[サポートにお問い合わせください]({{site.baseurl}}/braze_support)。
+**セグメントの詳細**で**分析の追跡**がまだ有効になっていることを確認し、アプリごとの上限（追跡対象のセグメントは25個まで）を超えていないことを確認してください。また、追跡を初めて有効にした後、データが反映されるまで最大24時間かかる場合があります。問題が続く場合は、セグメントの定義とレポートの日付範囲を確認してから、[サポートにお問い合わせください]({{site.baseurl}}/braze_support)。

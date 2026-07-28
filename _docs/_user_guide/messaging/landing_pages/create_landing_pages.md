@@ -13,7 +13,13 @@ page_order: 0
 
 To access the landing page builder, you need [certain permissions]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). If you don’t have access, ask your Braze admin for help.
 
-## Creating a landing page
+## Create a landing page
+
+A landing page is a live, published web page with a shareable URL that your customers can visit. 
+
+{% alert note %}
+Landing page templates are unpublished design starting points with no public URL, meaning they can't be shared with your customers. To create a page from a template, see [Using templates](#using-templates).
+{% endalert %}
 
 ### Step 1: Create a new draft
 
@@ -70,7 +76,20 @@ You can use these blocks to add content and customize the layout of your landing
 
 #### Span text
 
-{% multi_lang_include drag_and_drop/span_text.md %}
+To apply specific styling to text blocks without custom code, highlight the text you want to style and then select **Wrap with span for style**. 
+
+![Text box with different stylized text sections, such as different font sizes and colors, and a highlighted section that displays a toolbar with the option to "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+
+Adjust the span properties to update your text styling, which includes:
+
+- Font family, weight, size
+- Line height 
+- Letter spacing
+- Text alignment and color
+- Block padding
+
+![Span properties panel with different options to update.]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}
+
 
 {% endtab %}
 {% tab Form blocks %}
@@ -98,7 +117,7 @@ After creating a landing page with a form, be sure to embed its [landing page Li
 
 #### Page container styles
 
-You can set styles to be applied across all relevant component blocks in your landing page from the **Page container** tab. These styles will be used everywhere on your page except where you override them with a specific block.
+You can set styles to be applied across all relevant component blocks in your landing page from the **Page container** tab. These styles apply everywhere on your page except where you override them with a specific block.
 
 We recommend setting up page container-level styles before you customize styles at the block level. You can also add a background image for the entire page.
 
@@ -111,6 +130,8 @@ You can make your landing page responsive to the size of a user's device by vert
 When enabled, you can also reverse stack columns to control the vertical order of multi-column content on smaller screens. This makes pages look and feel better on mobile without custom code.
 
 ![The "Vertically stack on smaller screens" toggle in the "Customize columns" section.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
+
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
 
 #### Optional and required fields
 
@@ -154,23 +175,25 @@ When you're ready, select **Publish Landing Page**.
 Aggressive pop-up blockers and ad blockers on iOS and in Safari (including Safari's built-in controls and third-party extensions) can negatively impact how landing pages behave when a form **Submit** button also opens another URL, whether that URL opens in the same tab or a new tab.
 {% endalert %}
 
-## Using templates
+## Use templates
 
-Use landing page templates to create templates for your next campaigns. These templates can be accessed and managed in both the landing page editor and from the **Landing Page Templates** page (**Content** > **Landing Page**). Landing page templates require a name and optionally require a description. 
+Landing page templates are reusable design starting points that help you build landing pages faster. A template has no public URL and can't be visited by customers. To create a live landing page from a template, select the template when creating a new landing page, customize it as needed, then publish it.
 
-## Managing templates
+Templates can be accessed and managed in both the landing page editor and from the **Landing Page Templates** page (**Content** > **Landing Page**). Landing page templates require a name and optional description. 
+
+## Manage templates
 
 You can preview, archive, or edit landing page templates. You can duplicate your own landing page templates (located in **Your Templates**), but not Braze Templates. When editing a landing page, you can save your landing page as a template, make changes to the template, or delete the content of the landing page.
 
 ![A dropdown with options to save, change, and delete a landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Viewing analytics
+## View analytics
 
 To analyze the effectiveness of your landing page, go to **Messaging** > **Landing Pages**, then selected a landing page you've published. Here, you can track the number of page views, page clicks, page submissions, and the submission rates for your landing page.
 
 ![The analytics section for a landing page.]({% image_buster /assets/img/landing_pages/analytics.png %})
 
-## Handling form submission errors {#handling-form-submission-errors}
+## Handle form submission errors {#handling-form-submission-errors}
 
 If a user tries to submit a form with missing or unsupported input, they’ll see a generic error message and won’t be able to submit.
 

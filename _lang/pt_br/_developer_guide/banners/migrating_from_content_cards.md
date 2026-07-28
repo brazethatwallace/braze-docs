@@ -54,8 +54,8 @@ Considere migrar para Banners se você estiver usando Content Cards para:
 
 Continue usando Content Cards se você precisar de:
 
-- **Experiências de feed:** Qualquer caso de uso envolvendo várias mensagens roláveis ou uma "Caixa de Entrada" baseada em cartões.
-- **Recursos específicos:** Mensagens que requerem Conteúdo conectado ou códigos promocionais, pois Banners não suportam isso nativamente.
+- **Experiências de feed:** Qualquer caso de uso envolvendo várias mensagens roláveis ou uma "caixa de entrada" baseada em cartões.
+- **Recursos específicos:** Mensagens que requerem Connected Content ou códigos promocionais, pois Banners não suportam isso nativamente.
 - **Entrega disparada:** Casos de uso que exigem estritamente entrega disparada por API ou entrega baseada em ação. Embora Banners não suportem entrega disparada por API ou entrega baseada em ação, a avaliação de elegibilidade em tempo real significa que os usuários se qualificam ou desqualificam instantaneamente com base na associação ao segmento a cada atualização.
 
 ## Guia de migração {#migration-guide}
@@ -263,7 +263,7 @@ for card in cards {
 Braze.launchContentCards();
 
 // Or manually render cards
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 cards.forEach(card => {
   if (card.type === 'CLASSIC') {
     // Render classic card
@@ -353,7 +353,7 @@ braze.banners.requestBannersRefresh(placementIds: ["sample_placement_id"])
 ```javascript
 // Using BrazeBannerView component
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 
 // Or get banner data
@@ -386,7 +386,7 @@ braze.requestBannersRefresh(["sample_placement_id"]);
 ### Registrar análise de dados (implementações personalizadas) {#log-analytics-custom-implementations}
 
 {% alert note %}
-Tanto Content Cards quanto Banners rastreiam automaticamente a análise de dados ao usar seus componentes de UI padrão. Os exemplos abaixo são para implementações personalizadas onde você está construindo sua própria UI.
+Tanto Content Cards quanto Banners rastreiam automaticamente a análise de dados ao usar seus componentes de UI padrão. Os exemplos a seguir são para implementações personalizadas onde você está construindo sua própria UI.
 {% endalert %}
 
 #### Abordagem de Content Cards
@@ -742,7 +742,7 @@ let bannerView = BrazeBannerUI.BannerUIView(
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 ```
 {% endtab %}
@@ -780,6 +780,7 @@ Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem 
 | Editor de arrastar e soltar | ❌ Requer desenvolvedor para personalização | ✅ Profissionais de marketing podem criar/atualizar sem engenharia |
 | HTML/CSS personalizado | ❌ Limitado à estrutura do cartão | ✅ Suporte total a HTML/CSS |
 | Pares chave-valor para personalização | ✅ Necessário para personalização avançada | ✅ Pares chave-valor fortemente tipados chamados "propriedades" para personalização avançada |
+| Extras de mensagem | ✅ Suportado | ❌ Não suportado atualmente |
 | **Persistência e expiração** |
 | Expiração do cartão | ✅ Suportado (limite de 30 dias) | ✅ Suportado (sem limite de expiração) |
 | Persistência verdadeira | ❌ Máximo de 30 dias | ✅ Persistência ilimitada |

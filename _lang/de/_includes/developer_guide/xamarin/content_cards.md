@@ -1,4 +1,4 @@
-## Über .NET MAUI-Content-Cards {#about-net-maui-content-cards}
+## Über .NET MAUI Content Cards {#about-net-maui-content-cards}
 
 Das Braze .NET MAUI (ehemals Xamarin) SDK enthält einen Standard-Karten-Feed, der Ihnen den Einstieg in Content Cards erleichtert. Der im Braze SDK enthaltene Standard-Kartenfeed verarbeitet das gesamte Analytics-Tracking, Ausblendungen und die Darstellung der Content Cards von Nutzer:innen.
 
@@ -25,7 +25,7 @@ Das Braze .NET MAUI SDK verfügt über drei eigene Content-Card-Kartentypen, die
 | `isControlCard` | Ob diese Karte eine Kontrollkarte ist. Kontrollkarten sollten Nutzer:innen nicht angezeigt werden. |
 | `extras` | Die Map der Key-Value-Extras für diese Karte. |
 | `isTest` | Ob diese Karte eine Testkarte ist. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Basis-Kartenmodell" }
 
 Eine vollständige Referenz der Basiskarte finden Sie in der [Android-](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) und [iOS-Dokumentation](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct).
 
@@ -52,13 +52,13 @@ Karten mit Bildunterschrift sind anklickbare Bilder in voller Größe mit beglei
 | `title` | Der Titeltext für die Karte. |
 | `cardDescription` | Der Beschreibungstext für die Karte. |
 | `domain` | (Optional) Der Linktext für die Eigenschafts-URL, zum Beispiel `"braze.com/resources/"`. Er kann auf der UI der Karte angezeigt werden, um die Aktion/Richtung beim Anklicken der Karte anzugeben. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bild mit Bildunterschrift" }
 
 Eine vollständige Referenz zu Karten des Typs „Bild mit Bildunterschrift“ finden Sie in der [Android-](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) und [iOS-Dokumentation](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
 
 ### Klassisch {#classic}
 
-Klassische Karten haben einen Titel, eine Beschreibung und ein optionales Bild auf der linken Seite des Textes.
+Klassische Karten haben einen Titel, eine Beschreibung und ein optionales Bild vor dem Text.
 
 | Eigenschaft | Beschreibung |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -66,7 +66,7 @@ Klassische Karten haben einen Titel, eine Beschreibung und ein optionales Bild a
 | `title` | Der Titeltext für die Karte. |
 | `cardDescription` | Der Beschreibungstext für die Karte. |
 | `domain` | (Optional) Der Linktext für die Eigenschafts-URL, zum Beispiel `"braze.com/resources/"`. Er kann auf der UI der Karte angezeigt werden, um die Aktion/Richtung beim Anklicken der Karte anzugeben. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klassisch" }
 
 Eine vollständige Referenz der klassischen Content-Card (Textankündigung) finden Sie in der Dokumentation für [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) und [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct). Eine vollständige Referenz der klassischen Bildkarte (Kurznachrichten) finden Sie in der Dokumentation für [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) und [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct).
 
@@ -81,4 +81,4 @@ Mit diesen zusätzlichen Methoden können Sie einen angepassten Content-Card-Fee
 | `logContentCardClicked(cardId)` | Protokolliert einen Klick für die angegebene Content-Card-ID. Diese Methode wird nur zu Analytics-Zwecken verwendet. |
 | `logContentCardImpression(cardId)` | Protokolliert eine Impression für die angegebene Content-Card-ID. |
 | `logContentCardDismissed(cardId)` | Protokolliert eine Ausblendung für die angegebene Content-Card-ID. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Karten-Methoden" }

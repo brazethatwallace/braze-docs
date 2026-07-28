@@ -140,7 +140,7 @@ Das spezifische Limit variiert je nach Nutzer:in, abhängig von deren Engagement
 ### Januar 2025: WhatsApp pausiert den Versand von Marketing-Nachrichten an US-Nutzer:innen ab dem 1. April {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Zuletzt aktualisiert: Januar 2025*
 
-WhatsApp wird den Versand von Marketing-Nachrichten an US-Nutzer:innen (Personen mit US-Telefonnummern) ab dem 1. April 2025 pausieren. [Utility-, Service- und Authentifizierungsnachrichten](https://developers.facebook.com/docs/whatsapp/pricing/) sowie [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) sind in den USA weiterhin erlaubt.
+WhatsApp wird den Versand von Marketing-Nachrichten an US-Nutzer:innen (Personen mit US-Telefonnummern) ab dem 1. April 2025 pausieren. [Utility-, Service- und Authentifizierungsnachrichten](https://developers.facebook.com/docs/whatsapp/pricing/) sowie [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) sind in den USA weiterhin erlaubt.
 
 Der Versand von Marketing-Nachrichten (sowie allen anderen Nachrichtentypen) in alle anderen Länder oder Regionen ist weiterhin erlaubt und wird nicht beeinträchtigt.
 

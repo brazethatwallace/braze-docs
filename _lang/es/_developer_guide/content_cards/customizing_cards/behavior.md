@@ -18,7 +18,7 @@ platform:
 
 ## Pares clave-valor {#key-value-pairs}
 
-Braze te permite enviar cargas útiles de datos adicionales mediante Content Cards a los dispositivos de los usuarios utilizando pares clave-valor. Pueden ayudarte a realizar un seguimiento de las métricas internas, actualizar el contenido de la aplicación y personalizar las propiedades. [Añade pares clave-valor utilizando el dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
+Braze te permite enviar cargas útiles de datos adicionales mediante Content Cards a los dispositivos de los usuarios utilizando pares clave-valor. Pueden ayudarte a realizar un seguimiento de las métricas internas, actualizar el contenido de la aplicación y personalizar las propiedades. [Añade pares clave-valor utilizando el panel]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
 
 {% alert note %}
 No recomendamos enviar valores JSON anidados como pares clave-valor. En su lugar, aplana el JSON antes de enviarlo.
@@ -43,7 +43,7 @@ Los pares clave-valor se almacenan en objetos <a href="https://braze-inc.github.
 {% endtabs %}
 
 {% alert tip %}
-Es importante que tus equipos de marketing y desarrolladores se coordinen sobre qué pares clave-valor se utilizarán (por ejemplo, `feed_type = brand_homepage`), ya que cualquier par clave-valor que los especialistas en marketing introduzcan en el dashboard de Braze debe coincidir exactamente con los pares clave-valor que los desarrolladores incorporen a la lógica de la aplicación.
+Es importante que tus equipos de marketing y desarrollo se coordinen sobre qué pares clave-valor se utilizarán (por ejemplo, `feed_type = brand_homepage`), ya que cualquier par clave-valor que los especialistas en marketing introduzcan en el panel de Braze debe coincidir exactamente con los pares clave-valor que los desarrolladores incorporen a la lógica de la aplicación.
 {% endalert %}
 
 ## Content Cards como contenido complementario {#content-cards-as-supplemental-content}
@@ -56,7 +56,7 @@ El ejemplo de la derecha muestra una fuente con una lista híbrida de elementos 
 
 ### Pares clave-valor desencadenados por la API {#api-triggered-key-value-pairs}
 
-Las [Campaigns desencadenadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) son una buena estrategia a emplear cuando los valores de una tarjeta dependen de factores externos para determinar qué contenido mostrar al usuario. Por ejemplo, para mostrar contenido complementario, establece pares clave-valor utilizando Liquid. Ten en cuenta que `class_type` debe conocerse en el momento de la configuración.
+Las [campañas desencadenadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) son una buena estrategia a emplear cuando los valores de una tarjeta dependen de factores externos para determinar qué contenido mostrar al usuario. Por ejemplo, para mostrar contenido complementario, establece pares clave-valor utilizando Liquid. Ten en cuenta que `class_type` debe conocerse en el momento de la configuración.
 
 ![Los pares clave-valor para el caso de uso de las Content Cards complementarias. En este ejemplo, diferentes aspectos de la tarjeta, como "tile_id", "tile_deeplink" y "tile_title", se configuran utilizando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -122,11 +122,13 @@ Puedes utilizar esta información para mostrar una señal que indique cuántas C
 
 El siguiente ejemplo utiliza `braze.contentCards` para solicitar y mostrar el número de Content Cards no leídas. Una vez cerrada la aplicación y finalizada la sesión del usuario, este código solicita un recuento de tarjetas, filtrando el número de tarjetas en función de la propiedad `viewed`.
 
+Las aplicaciones que han adoptado el [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) (requerido para aplicaciones creadas con [Xcode 27 y versiones posteriores](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)) deben implementar esto en `sceneDidEnterBackground(_:)` de `SceneDelegate.swift` en lugar de `applicationDidEnterBackground(_:)` de `AppDelegate.swift`.
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 Dentro de este método, implementa el siguiente código, que actualiza activamente el recuento de señales mientras el usuario ve las tarjetas durante una sesión determinada:
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 Dentro de este método, implementa el siguiente código, que actualiza activamente el recuento de señales mientras el usuario ve las tarjetas durante una sesión determinada:

@@ -2,11 +2,11 @@
 
 ### アセット読み込みのトラブルシューティング（`NSURLError`コード`-1008`） {#asset-loading}
 
-Brazeをサードパーティのネットワークロギングライブラリーと統合する際、開発者はドメインコード`-1008`の`NSURLError`に遭遇することがよくあります。このエラーは、画像やフォントなどのアセットを取得できなかったか、キャッシュに失敗したことを示しています。このようなケースを回避するには、Braze CDNのURLを、これらのライブラリーによって無視されるべきドメインのリストに登録する必要があります。
+Brazeをサードパーティのネットワークロギングライブラリと統合する際、開発者はドメインコード`-1008`の`NSURLError`に遭遇することがよくあります。このエラーは、画像やフォントなどのアセットを取得できなかったか、キャッシュに失敗したことを示しています。このようなケースを回避するには、Braze CDNのURLを、これらのライブラリによって無視されるべきドメインのリストに登録する必要があります。
 
 #### ドメイン {#domains}
 
-CDNドメインの全リストは以下の通りです。
+CDNドメインの全リストは以下のとおりです。
 
 * `"appboy-images.com"`
 * `"braze-images.com"`
@@ -15,7 +15,7 @@ CDNドメインの全リストは以下の通りです。
 
 #### 例 {#examples}
 
-以下は、Brazeのアセットキャッシュと競合することが知られているライブラリーと、問題を回避するためのサンプルコードです。利用できないリソースエラーを引き起こすライブラリーをプロジェクトで使用しており、以下にリストされていない場合は、そのライブラリーのドキュメントを参照して、同様の使用方法のAPIを確認してください。
+以下は、Brazeのアセットキャッシュと競合することが知られているライブラリと、問題を回避するためのサンプルコードです。利用できないリソースエラーを引き起こすライブラリをプロジェクトで使用しており、以下にリストされていない場合は、そのライブラリのドキュメントを参照して、同様の使用方法のAPIを確認してください。
 
 ##### Netfox
 
@@ -62,6 +62,21 @@ XNLogger.shared.addFilters([brazeAssetsHostFilter])
 ```objc
 XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"https://cdn.braze.com"];
 [XNLogger.shared addFilters:@[brazeAssetsHostFilter]];
+```
+{% endtab %}
+{% endtabs %}
+
+##### Wormholy
+
+{% tabs %}
+{% tab Swift %}
+```swift
+Wormholy.ignoredHosts = ["cdn.braze.com"]
+```
+{% endtab %}
+{% tab Objective-C %}
+```objc
+Wormholy.ignoredHosts = @[@"cdn.braze.com"];
 ```
 {% endtab %}
 {% endtabs %}

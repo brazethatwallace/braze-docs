@@ -93,7 +93,7 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 #### 4d단계: 사용자 업데이트 단계 추가 {#step-4d-add-user-update-steps}
 
-행동 경로 아래에 생성된 각 Canvas 경로에 사용자 업데이트 단계를 추가합니다.
+행동 경로에서 생성된 각 Canvas 경로에 사용자 업데이트 단계를 추가합니다.
 
 ![각 행동 그룹에 대한 분기된 사용자 업데이트 경로가 있는 행동 경로를 표시하는 Canvas.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
@@ -117,7 +117,7 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 ### 외부 파트너 {#external-partners}
 
-[기술 파트너]({{site.baseurl}}/partners/home)를 확인하여 리드 스코어링 기능을 제공하는 B2B 파트너에 대해 알아보세요. 원하는 도구가 보이지 않나요? [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) API 엔드포인트를 호출하여 통합할 수 있습니다.
+[기술 파트너]({{site.baseurl}}/partners/home)를 확인하여 리드 스코어링 기능을 제공하는 B2B 파트너에 대해 알아보세요. 원하는 도구가 보이지 않나요? [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) API 엔드포인트를 호출하여 통합할 수 있습니다.
 
 ### 내부 리드 스코어링 데이터 모델 {#internal-lead-scoring-data-models}
 
@@ -130,7 +130,7 @@ Braze를 리드 스코어링 모델을 포함한 내부 데이터 모델과 다�
 
 마케팅 도구로서 Braze는 팀의 내부 리드 스코어 모델을 보완할 수 있는 매우 관련성 높은 데이터를 포함하고 있습니다.
 
-예를 들어, 메시징 참여 데이터(예: 이메일 열기 및 클릭, 랜딩 페이지 참여 등)는 리드의 참여 수준을 결정할 수 있습니다. Braze 스트리밍 내보내기 데이터 솔루션을 사용하여 이 데이터를 클라우드 데이터 웨어하우스로 다시 전달하고 리드 스코어링 모델의 입력으로 사용할 수 있습니다.
+예를 들어, 메시징 인게이지먼트 데이터(예: 이메일 열람 및 클릭, 랜딩 페이지 참여 등)는 리드의 참여 수준을 결정할 수 있습니다. Braze 스트리밍 내보내기 데이터 솔루션을 사용하여 이 데이터를 클라우드 데이터 웨어하우스로 다시 전달하고 리드 스코어링 모델의 입력으로 사용할 수 있습니다.
 
 - [Braze 커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
 - [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
@@ -192,7 +192,7 @@ Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려�
 
 이 Campaign은 사용자의 리드 점수가 변경될 때마다 트리거되어야 합니다. 이 Campaign은 점수가 변경된 모든 사용자에 대해 트리거되지만, 현재 MQL이 아니고 이전 단계에서 설정한 임계값을 초과한 사용자에게만 영향을 미칩니다.
 
-**전달 예약** 단계에서 다음을 선택합니다.
+**배달 예약** 단계에서 다음을 선택합니다.
 - **행동 기반** 전달 유형
 - 리드 스코어링 속성 이름과 **새로운 값** 동작으로 **커스텀 속성 값 변경** 트리거 동작
 

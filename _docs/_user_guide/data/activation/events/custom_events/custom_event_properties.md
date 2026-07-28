@@ -52,13 +52,36 @@ Nested custom event properties are also supported in [action-based delivery]({{s
 
 You can also use custom event properties for personalization within the messaging template. Any campaign using [action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) with a trigger event can use custom event properties from that event for messaging personalization.
 
-For example, if you have a gaming app and want to send a message to users who completed a level, you could further personalize your message with a property for the time it took users to complete that level. In this example, the message is personalized for three different segments using [conditional logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). The custom event property called `time_spent` can be included in the message by calling ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+#### Considerations with filters
+
+- **API calls:** When making API calls and using the "is blank" filter, a custom event property is considered "blank" if excluded from the call. For example, if you include `"event_property": ""`, your users are considered "not blank".
+- **Integers:** When filtering for a number custom event property and the number is very large, don't use the "exactly" filter. If a number is too large, it may be rounded at a certain length, so your filter won't work as expected.
+
+#### Type coercion for comparisons
+
+When using event properties in Liquid conditional statements, you may encounter the error `Liquid error: comparison of String with 0 failed` if you're comparing an integer event property using operators like greater than, less than, or equal to. This happens because Liquid treats the property as a string by default.
+
+To fix this, use the `plus: 0` filter to coerce the property to a number before comparison:
 
 {% raw %}
 ```liquid
-{% if {{event_properties.${time_spent}}} < 600 %}
+{% assign time_spent = {{event_properties.${time_spent}}} | plus: 0 %}
+{% if time_spent >= 100 %}
+  Great job completing the level quickly!
+{% endif %}
+```
+{% endraw %}
+
+For example, if you have a gaming app and want to send a message to users who completed a level, you could further personalize your message with a property for the time it took users to complete that level.
+
+The following message is personalized for three different segments using [conditional logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). The custom event property called `time_spent` can be included in the message by calling ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+
+{% raw %}
+```liquid
+{% assign time_spent = {{event_properties.${time_spent}}} | plus: 0 %}
+{% if time_spent < 600 %}
 Incredible work, hero! Are you ready to test your skills against other powerful heroes? Visit the Arena for real-time battles with top players from around the globe.
-{% elsif {{event_properties.${time_spent}}} < 1800 %}
+{% elsif time_spent < 1800 %}
 Great job, hero! Don't forget to visit the town store between levels to upgrade your tools.
 {% else %}
 Well done, hero! Talk to villagers for tips on how to beat levels faster and unlock more rewards.
@@ -67,15 +90,23 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 {% endraw %}
 
 {% alert warning %}
-If the user doesn't have an internet connection, triggered in-app messages with templated custom event properties (for example, {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) will fail and not display.
+If the user doesn't have an internet connection, triggered in-app messages with templated custom event properties (for example, {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) fail and don't display.
 {% endalert %}
 
-For a full list of Liquid tags that will cause in-app messages to deliver as templated in-app messages, refer to [Frequently asked questions]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages).
+For a full list of Liquid tags that cause in-app messages to deliver as templated in-app messages, see [Frequently asked questions]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages).
 
-#### Considerations with filters
+#### Canvas
 
-- **API calls:** When making API calls and using the "is blank" filter, a custom event property is considered "blank" if excluded from the call. For example, if you were to include `"event_property": ""`, then your users would be considered "not blank".
-- **Integers:** When filtering for a number custom event property and the number is very large, don't use the "exactly" filter. If a number is too large, it may be rounded at a certain length, so your filter won't work as expected.
+In Canvas, `context` and `event_properties` serve different purposes:
+
+- **`context`**: Properties from the event or API call that triggered Canvas entry. Use `context` in any Message step, including the first.
+- **`event_properties`**: Properties from a custom event or purchase that occurs during the journey. Use them only in the first Message step after an [Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) step—not on the Everyone Else path, and not in later Message steps.
+
+{% alert important %}
+In the first Message step of a Canvas, use `context` instead of `event_properties`, or add an Action Paths step before the Message step. Exception: for in-app messages, you can use `event_properties` in the first Message step when that event is the Canvas entry trigger.
+{% endalert %}
+
+For more information, see [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) and [Canvas entry properties and event properties](#canvas-entry-properties-and-event-properties).
 
 ### Segmentation
 
@@ -96,9 +127,7 @@ To add event properties for segmentation, do the following:
 
 The event property segmentation filters include:
 
-- Has done a custom event with property A with value B, X times in the last Y days.
-- Has made any purchases with property A with value B, X times in the last Y days.
-- Adds the ability to segment within 1 to 30 days.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
 ![A filter group that has 'Abandoned Cart' with property 'number of items' and value 2 more than 1 time in the last 30 calendar days.]({% image_buster /assets/img/nested_object3.png %})
 

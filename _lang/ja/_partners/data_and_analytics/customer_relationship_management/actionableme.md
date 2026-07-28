@@ -23,7 +23,7 @@ Brazeとactionable.meの統合により、Brazeの利用状況の進捗を監視
 | 必要条件 | 説明 |
 | --- | --- |
 | actionable.meアカウント | このパートナーシップを活用するには、actionable.meアカウントが必要です。 |
-| Braze REST APIキー | 次のセクションに記載されている権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze REST APIキー | 次のセクションに記載されている権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **API キー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -33,7 +33,7 @@ Brazeとactionable.meを統合するには、actionable.meプラットフォー�
 
 ### ステップ1:Braze APIキーを作成する {#step-1-create-your-braze-api-key}
 
-Brazeで**Settings** > **API Keys**に移動します。**Create New API Key**を選択し、以下の権限が追加されていることを確認します。
+Brazeで**設定** > **API キー**に移動します。**API キーを作成**を選択し、以下の権限が追加されていることを確認します。
 
 - `campaigns.list`
 - `campaigns.data_series`

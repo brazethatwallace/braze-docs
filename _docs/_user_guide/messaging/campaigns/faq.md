@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## How do I create a multichannel campaign?
 
-See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Create a campaign** for setup steps and supported channels.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) in **Create a campaign** for setup steps and supported channels.
 
 ### Can I add a control group to my multichannel campaign?
 
@@ -235,11 +235,7 @@ API-triggered and server-triggered campaigns are ideal for handling more advance
 
 If you encounter a "Request Timed Out" error while creating or editing a campaign or Canvas and need to contact [Braze Support]({{site.baseurl}}/braze_support), include the following information to help speed up resolution:
 
-- **Screen recording:** A recording of the steps you took before seeing the error, including any page transitions.
-- **Timestamp and time zone:** The exact time the error occurred and your time zone.
-- **Browser and version:** The browser you're using (for example, Chrome 120, Safari 17) and whether you've tried reproducing the error in a different browser.
-- **Steps to reproduce:** A clear description of the actions that trigger the error, including any specific campaign or Canvas settings involved.
-- **Network logs (optional):** Open your browser developer tools (**Network** tab), reproduce the error, and export the network log as a HAR (HTTP Archive) log. This helps the support team identify which API call is timing out.
+{% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='campaign' %}
 
 ### Why don't my send analytics match the maximum recipient limit I set?
 
@@ -265,8 +261,8 @@ Several factors can cause the number of sends to be lower than the estimated aud
 - **Global frequency capping:** Workspace-level caps can prevent eligible users from receiving another message in the same window, which lowers realized sends.
 - **Newly imported users:** Profiles that just became eligible may not receive until the next evaluation or send pass, so counts catch up on a later run.
 - **Push reachability:** For push campaigns, confirm the audience is push-enabled for the correct app. If you don't filter for push-enabled users, the estimated audience can include profiles that can't receive push. Check **Reachable users** in the **Target Users** step for a closer operational estimate.
-- **Rate limiting:** If rate limiting is applied, messages are distributed over time and some sends may be deferred or not yet reflected in the count.
-- **Re-eligibility windows:** Users who aren't re-eligible yet won't receive again during the cooldown, so sends fall below the estimated audience size for that period.
+- **Rate limiting:** A [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) caps how many messages Braze sends per minute during a single send occurrence. Braze spreads delivery across a longer window, so some sends may be deferred, not yet reflected in the count, or not completed if the limit is low relative to the eligible audience.
+- **Re-eligibility windows:** Users who aren't re-eligible yet won't receive again during the cooldown, so sends fall short of the estimated audience size for that period.
 - **Reporting window:** The analytics time range may not include every send.
 - **Segment re-evaluation:** For action-based or scheduled campaigns that re-evaluate at send time, users who were in the segment when the campaign was enqueued may no longer qualify when the message is actually sent.
 - **Send caps:** A Maximum number of users (or similar cap) in **Target Audiences** stops delivery when the cap is hit.
@@ -276,6 +272,14 @@ Several factors can cause the number of sends to be lower than the estimated aud
 
 For questions about calendar days, silent push, webhooks, Canvas behavior, and related topics, see the [Frequently asked questions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) for [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 
+### Why is my campaign experiencing lower send rates?
+
+If you find that your daily scheduled campaigns send to fewer users over time, check for the following:
+
+- **Check if re-eligibility is turned on:** Without re-eligibility, Braze messages each user only once. On daily scheduled campaigns, only users who match the audience and have not yet received the message are eligible for each send. As more users receive the message, each later send has fewer eligible users, so send volume declines.
+- **Check if the audience has fixed membership:** Audiences built from a fixed user list (such as a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) used as a segment filter) do not gain new members automatically. Without new entrants, send volume cannot rebound as users are messaged.
+
+For [delivery speed rate limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) and other factors that lower sends for a single occurrence, see [Why are sends lower than the estimated audience size?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ### Why can unique recipients exceed sends for email and SMS?
 

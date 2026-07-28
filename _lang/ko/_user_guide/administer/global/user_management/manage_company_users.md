@@ -19,7 +19,7 @@ Braze 계정에 사용자를 추가하려면 관리자 권한이 있어야 합�
 1. **설정** > **사용자 관리** > **회사 사용자**로 이동합니다.
 2. **+ 새 사용자 추가**를 선택합니다.
 3. 이메일, 부서, [사용자 역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role) 등 요청된 정보를 입력합니다.
-4. 관리자가 아닌 사용자의 경우, 해당 사용자에게 부여할 회사 수준 및 워크스페이스 수준 [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions)을 선택합니다.
+4. 관리자가 아닌 사용자의 경우, 해당 사용자에게 부여할 회사 수준 및 워크스페이스 수준 [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions)을 선택합니다.
 
 ![커스텀 권한 필드 섹션이 있는 워크스페이스 수준 권한.]({% image_buster /assets/img/add_new_user_3.png %})
 
@@ -29,7 +29,7 @@ Braze 계정에 사용자를 추가하려면 관리자 권한이 있어야 합�
 
 팀에서 Gmail을 사용하고 이메일 주소 추가에 문제가 있는 경우, 이메일 주소에 더하기 기호(+)를 추가하여 별칭을 만들 수 있습니다(예: "+1" 또는 "+test"). 예를 들어, `contractor@braze.com`의 별칭을 `contractor+1@braze.com`으로 만들 수 있습니다. `contractor+1@braze.com`으로 보낸 이메일은 여전히 `contractor@braze.com`으로 전달되지만, 별칭은 고유한 이메일 주소로 인식됩니다.
 
-별칭 없이 여러 회사에서 하나의 계정을 사용하려면 [다중 회사 개발자 사용]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers)을 참조하세요. SSO를 사용하는 경우, 여러 이메일 주소로 등록하기 전에 [싱글 사인온(SSO) 고려 사항]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso)을 검토하세요.
+별칭 없이 여러 회사에서 하나의 계정을 사용하려면 [다중 회사 개발자 사용]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers)을 참조하세요. SSO를 사용하는 경우, 여러 이메일 주소로 등록하기 전에 [SSO 고려 사항]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso)을 검토하세요.
 
 ### Braze 계정의 이메일 주소를 변경할 수 있나요? {#can-i-change-my-braze-accounts-email-address}
 

@@ -26,6 +26,10 @@ Votre numéro de téléphone doit répondre aux exigences suivantes de l'API Wha
 - Ne pas avoir été utilisé précédemment avec la plateforme WhatsApp Business
 - Ne pas être connecté à un compte WhatsApp personnel
 
+{% alert note %}
+Braze recommande fortement d'utiliser un numéro que votre entreprise possède et auquel elle a un accès complet et permanent. Lors du processus d'inscription intégrée WhatsApp, vous devez avoir accès aux messages envoyés à ce numéro pour le vérifier. Il est possible que vous deviez vérifier le numéro à nouveau ultérieurement, vous devez donc en conserver l'accès.
+{% endalert %}
+
 ## Obtenir un numéro de téléphone Twilio {#acquiring-a-twilio-phone-number}
 
 ### Étape 1 : Acheter un numéro de téléphone depuis la console ou l'API Twilio {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
@@ -62,7 +66,7 @@ Ne liez pas votre numéro de téléphone à WhatsApp dans la console Twilio. Si 
 
 3. Selon le pays sélectionné, vous devrez peut-être compléter un processus d'inscription supplémentaire (comme sélectionner une option 10DLC ou numéro gratuit pour les numéros de téléphone américains). Assurez-vous de sélectionner l'option disponible.<br><br>![Une page vous demandant de sélectionner le type de numéro : 10DLC ou numéro gratuit.]({% image_buster /assets/img/whatsapp/infoblip_10dlc.png %}){: style="max-width:70%;"}<br><br>
 
-4. Sélectionnez l'offre disponible, puis poursuivez les étapes restantes et attendez que votre demande soit traitée. Vous pouvez vérifier l'état en accédant à **Numbers** > **My Request**. <br><br>![Une offre avec des informations incluant les frais et la couverture.]({% image_buster /assets/img/whatsapp/infoblip_offer.png %}){: style="max-width:70%;"}<br><br>
+4. Sélectionnez l'offre disponible, puis poursuivez les étapes restantes et attendez que votre demande soit traitée. Vous pouvez vérifier le statut en accédant à **Numbers** > **My Request**. <br><br>![Une offre avec des informations incluant les frais et la couverture.]({% image_buster /assets/img/whatsapp/infoblip_offer.png %}){: style="max-width:70%;"}<br><br>
 
 5. Selon le pays sélectionné, attendez que l'équipe Infobip vous contacte pour les détails d'inscription (comme pour le 10DLC aux États-Unis).<br><br>
 

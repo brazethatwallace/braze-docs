@@ -108,7 +108,7 @@ Both attributes are required for the [user alias object]({{site.baseurl}}/api/ob
 
 After you've set up the RevenueCat purchases SDK and Braze SDK to have the same user identity, you can turn on the integration and configure the event names from the RevenueCat dashboard.
 
-1. Navigate to your project in the RevenueCat dashboard and find the **Integrations** card in the left menu. Select **+ New**.
+1. Navigate to your project in the RevenueCat dashboard and find the **Integrations** card in the navigation menu. Select **+ New**.
 2. Next, select **Braze** from the available integration and add your Braze instance and Braze REST API key. 
 3. Enter the event names that RevenueCat will send or choose the default event names. More details on available events can be found in [step 3](#configure-event-names).
 4. Select whether you want RevenueCat to report proceeds (after app store cut) or revenue (gross sales).
@@ -142,6 +142,6 @@ After configuring Braze settings in RevenueCat, events will automatically begin 
 
 ### Add a sandbox API key for Testing
 
-If you only provide one Braze REST API key to RevenueCat, only production events will be sent. If you also want to send sandbox testing events, [create another Braze REST API key]({{site.baseurl}}/api/basics/#app-group-rest-api-keys) and add it to your Braze settings in RevenueCat.
+If you only provide one Braze REST API key to RevenueCat, only production events will be sent. If you also want to send sandbox testing events, [create another Braze REST API key]({{site.baseurl}}/api/basics#creating-rest-api-keys) and add it to your Braze settings in RevenueCat.
 
 

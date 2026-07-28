@@ -13,12 +13,12 @@ local_redirect: #optimizations
 
 > Sie können einen multivariaten oder A/B-Test für jede Campaign erstellen, die auf einen einzelnen Kanal ausgerichtet ist. Wenn Sie beispielsweise multivariate oder A/B-Tests für eine Push-Campaign verwenden möchten, können Sie iOS- und Android-Geräte in derselben Campaign ansprechen.
 
-![Das Dropdown-Menü nach Auswahl des Buttons „Kampagne erstellen“, um entweder Multichannel oder Einzelkanal auszuwählen.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
+![Das Dropdown-Menü nach Auswahl des Buttons „Campaign erstellen“, um entweder Multichannel oder Einzelkanal auszuwählen.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 
 ## 1. Schritt: Erstellen Sie Ihre Campaign {#step-1-create-your-campaign}
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
-2. Wählen Sie **Kampagne erstellen** und einen Kanal für die Campaign aus dem Bereich, der multivariate und A/B-Tests ermöglicht. Eine ausführliche Dokumentation zu jedem Messaging-Kanal finden Sie unter [Kampagne erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
+2. Wählen Sie **Campaign erstellen** und einen Kanal für die Campaign aus dem Bereich, der multivariate und A/B-Tests ermöglicht. Eine ausführliche Dokumentation zu jedem Messaging-Kanal finden Sie unter [Campaign erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
 
 ## 2. Schritt: Verfassen Sie Ihre Varianten {#step-2-compose-your-variants}
 
@@ -56,19 +56,19 @@ Bei der Auswertung Ihrer Ergebnisse können Sie die Konversionsraten Ihrer Varia
 Die Verwendung einer Kontrollgruppe bei der Bestimmung einer Gewinnervariante anhand von _Öffnungen_ oder _Klicks_ wird nicht empfohlen. Da die Kontrollgruppe die Nachricht nicht erhält, können diese Nutzer:innen keine Öffnungen oder Klicks durchführen. Daher beträgt die Konversionsrate dieser Gruppe per Definition 0 % und stellt keinen aussagekräftigen Vergleich mit den Varianten dar.
 {% endalert %}
 
-#### Kontrollgruppen mit A/B-Tests {#control-groups-with-ab-testing}
+#### Kontrollgruppen und A/B-Tests {#control-groups-and-ab-testing}
 
-Bei Verwendung von Rate-Limiting mit einem A/B-Test wird das Rate-Limit nicht auf die gleiche Weise auf die Kontrollgruppe angewendet wie auf die Testgruppe, was eine potenzielle Quelle für zeitliche Verzerrungen darstellt. Verwenden Sie geeignete Conversion-Fenster, um diese Verzerrung zu vermeiden.
+Bei Verwendung von Rate-Limiting mit einem A/B-Test wird das Rate-Limit nicht auf die gleiche Weise auf die Kontrollgruppe angewendet wie auf die Testgruppe, was eine potenzielle Quelle für zeitliche Verzerrungen darstellt. Verwenden Sie geeignete Konversions-Fenster, um diese Verzerrung zu vermeiden.
 
-#### Kontrollgruppen mit Intelligenter Auswahl {#control-groups-with-intelligent-selection}
+#### Kontrollgruppen mit intelligenter Auswahl {#control-groups-with-intelligent-selection}
 
-Die Größe der Kontrollgruppe für eine Campaign mit [Intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) basiert auf der Anzahl der Varianten. Wenn jede Variante an mehr als 20 % der Nutzer:innen gesendet wird, beträgt die Kontrollgruppe 20 %, und die Varianten werden gleichmäßig auf die verbleibenden 80 % aufgeteilt. Wenn Sie jedoch genügend Varianten haben, sodass jede Variante an weniger als 20 % der Nutzer:innen gesendet wird, muss die Kontrollgruppe kleiner werden. Wenn die Intelligente Auswahl beginnt, die Performance Ihres Tests zu analysieren, wächst oder schrumpft die Kontrollgruppe basierend auf den Ergebnissen.
+Die Größe der Kontrollgruppe für eine Campaign mit [intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) basiert auf der Anzahl der Varianten. Wenn jede Variante an mehr als 20 % der Nutzer:innen gesendet wird, beträgt die Kontrollgruppe 20 %, und die Varianten werden gleichmäßig auf die verbleibenden 80 % aufgeteilt. Wenn Sie jedoch genügend Varianten haben, sodass jede Variante an weniger als 20 % der Nutzer:innen gesendet wird, muss die Kontrollgruppe kleiner werden. Wenn die intelligente Auswahl beginnt, die Performance Ihres Tests zu analysieren, wächst oder schrumpft die Kontrollgruppe basierend auf den Ergebnissen.
 
 ## 5. Schritt: Legen Sie ein Konversions-Event fest (optional) {#step-5-designate-a-conversion-event-optional}
 
 Das Festlegen eines Konversions-Events für eine Campaign ermöglicht es Ihnen zu sehen, wie viele Empfänger:innen dieser Campaign nach dem Erhalt eine bestimmte Aktion durchgeführt haben.
 
-Dies wirkt sich nur auf den Test aus, wenn Sie in den vorherigen Schritten **Primary Conversion Rate** gewählt haben. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
+Dies wirkt sich nur auf den Test aus, wenn Sie in den vorherigen Schritten **Primäre Konversionsrate** gewählt haben. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 
 ## 6. Schritt: Überprüfen und starten {#step-6-review-and-launch}
 
@@ -89,18 +89,18 @@ Je nachdem, welchen Kanal Sie auswählen, können Sie verschiedene Komponenten I
 | ---------------------| --------------- | ------------- |
 | Push | Text <br> Bild- und Emoji-Verwendung <br> Deeplinks <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
 | E-Mail | Betreff <br> Anzeigename <br> Anrede <br> Fließtext <br> Bild- und Emoji-Verwendung <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
-| In-App-Nachricht | Aspekte wie bei „Push“ aufgeführt <br> [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Klick <br> Konversionsrate |
+| In-App-Nachricht | Aspekte wie bei „Push“ aufgeführt <br> [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications) | Klick <br> Konversionsrate |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipps für verschiedene Kanäle" }
 
 {% alert tip %}
-Vergessen Sie bei der Durchführung von A/B-Tests nicht, [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) zu generieren, mit denen Sie verstehen können, wie jede Variante Ihren Konversionstrichter beeinflusst hat – insbesondere wenn „Conversion“ für Ihr Unternehmen mehrere Schritte oder Aktionen umfasst.
+Vergessen Sie bei der Durchführung von A/B-Tests nicht, [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) zu generieren, mit denen Sie verstehen können, wie jede Variante Ihren Konversions-Funnel beeinflusst hat – insbesondere wenn „Conversion“ für Ihr Unternehmen mehrere Schritte oder Aktionen umfasst.
 {% endalert %}
 
 Darüber hinaus kann die ideale Dauer Ihres Tests je nach Kanal variieren. Bedenken Sie die durchschnittliche Zeit, die die meisten Nutzer:innen benötigen, um mit jedem Kanal zu interagieren.
 
 Wenn Sie beispielsweise einen Push testen, erzielen Sie möglicherweise schneller signifikante Ergebnisse als beim Testen von E-Mails, da Nutzer:innen Push-Nachrichten sofort sehen, es aber Tage dauern kann, bis sie eine E-Mail sehen oder öffnen. Wenn Sie In-App-Nachrichten testen, bedenken Sie, dass Nutzer:innen die App öffnen müssen, um die Campaign zu sehen. Sie sollten daher länger auf Ergebnisse warten, sowohl von Ihren aktivsten App-Nutzer:innen als auch von Ihren typischeren Nutzer:innen.
 
-Wenn Sie unsicher sind, wie lange Ihr Test laufen sollte, kann das Feature [Intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) nützlich sein, um eine Gewinnervariante effizient zu finden.
+Wenn Sie unsicher sind, wie lange Ihr Test laufen sollte, kann das Feature [intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) nützlich sein, um eine Gewinnervariante effizient zu finden.
 
 ### Ein Segment auswählen {#choosing-a-segment}
 

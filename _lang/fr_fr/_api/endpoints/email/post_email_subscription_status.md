@@ -14,17 +14,21 @@ description: "Cet article présente en détail l'endpoint Braze Modifier le stat
 /email/status
 {% endapimethod %}
 
-> Utilisez cet endpoint pour définir l'état d'abonnement aux e-mails de vos utilisateurs.
+> Utilisez cet endpoint pour définir l'état d'abonnement global aux e-mails de vos utilisateurs.
 
 Les utilisateurs peuvent avoir le statut `opted_in`, `unsubscribed` ou `subscribed` (sans confirmation d'abonnement ou de désabonnement spécifique).
 
-Vous pouvez définir l'état d'abonnement aux e-mails pour une adresse e-mail qui n'est pas encore associée à l'un de vos utilisateurs dans Braze. Lorsque cette adresse e-mail est ensuite associée à un utilisateur, l'état d'abonnement aux e-mails que vous avez importé sera automatiquement appliqué.
+{% alert note %}
+Cet endpoint met à jour l'état d'abonnement global aux e-mails de l'utilisateur, qui est différent du statut du groupe d'abonnement. L'état d'abonnement global s'applique à tous les e-mails, tandis que les [groupes d'abonnement]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) permettent un contrôle plus précis sur des types d'e-mails spécifiques. Lorsqu'un utilisateur est globalement désabonné, il ne recevra pas d'e-mails, quel que soit le statut de son groupe d'abonnement. Pour interroger le statut du groupe d'abonnement, utilisez l'[endpoint Lister le statut du groupe d'abonnement de l'utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
+{% endalert %}
+
+Vous pouvez définir l'état d'abonnement aux e-mails pour une adresse e-mail qui n'est pas encore associée à l'un de vos utilisateurs dans Braze. Lorsque cette adresse e-mail est ensuite associée à un utilisateur, l'état d'abonnement aux e-mails que vous avez importé est automatiquement appliqué.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#be852462-0cda-4a48-b68b-85bd8a9f2147 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `email.status`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `email.status`.
 
 ## Limite de débit {#rate-limit}
 

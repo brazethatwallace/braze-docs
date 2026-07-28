@@ -2,12 +2,12 @@
 nav_title: Codes verwenden
 article_title: Aktionscodes verwenden
 page_order: 0.2
-description: "Erfahren Sie, wie Sie Aktionscodes verwenden und die Nutzung für Ihre Kampagnen und Canvases einsehen können."
+description: "Erfahren Sie, wie Sie Aktionscodes verwenden und die Nutzung für Ihre Campaigns und Canvases einsehen können."
 ---
 
 # Aktionscodes verwenden {#use-promotion-codes}
 
-> Erfahren Sie, wie Sie Aktionscodes verwenden und die Nutzung für Ihre Kampagnen und Canvases einsehen können.
+> Erfahren Sie, wie Sie Aktionscodes verwenden und die Nutzung für Ihre Campaigns und Canvases einsehen können.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -25,7 +25,7 @@ Fügen Sie die Code-Snippets in eine Ihrer Nachrichten in Braze ein und verwende
 
 ### Über Canvas-Schritte hinweg {#across-canvas-steps}
 
-Wenn ein Code-Snippet in einer Kampagne oder einem Canvas mit Multichannel-Nachrichten verwendet wird, erhält jede:r Nutzer:in einen eindeutigen Code. In einem Canvas mit mehreren Schritten, die auf Aktionscodes verweisen, erhält ein:e Nutzer:in für jeden Schritt, den sie/er betritt, einen neuen Code.
+Wenn ein Code-Snippet in einer Campaign oder einem Canvas mit Multichannel-Nachrichten verwendet wird, erhält jede:r Nutzer:in einen eindeutigen Code. In einem Canvas mit mehreren Schritten, die auf Aktionscodes verweisen, erhält ein:e Nutzer:in für jeden Schritt, den sie/er betritt, einen neuen Code.
 
 Um einen Aktionscode in einem Canvas zuzuweisen und über Schritte hinweg wiederzuverwenden:
 
@@ -38,13 +38,13 @@ Wenn ein:e Nutzer:in sich über mehrere Kanäle für einen Code qualifiziert, er
 Wenn keine Aktionscodes verfügbar sind, werden Test- oder Live-Nachrichten, die auf Codes angewiesen sind, nicht gesendet.
 {% endalert %}
 
-### In-App-Nachricht-Kampagnen {#promotion-codes-iam-campaigns}
+### In-App-Nachricht-Campaigns {#promotion-codes-iam-campaigns}
 
-Nachdem Sie eine [In-App-Nachricht-Kampagne]({{site.baseurl}}/user_guide/channels/in_app_messages) erstellt haben, können Sie ein [Aktionscode-Listen-Snippet]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes-1) in den Nachrichtentext Ihrer In-App-Nachricht einfügen. Aktionscodes in In-App-Nachrichten werden erst abgezogen und verwendet, wenn ein:e Nutzer:in die Anzeige der In-App-Nachricht auslöst.
+Nachdem Sie eine [In-App-Nachricht-Campaign]({{site.baseurl}}/user_guide/channels/in_app_messages) erstellt haben, können Sie ein [Aktionscode-Listen-Snippet]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes) in den Nachrichtentext Ihrer In-App-Nachricht einfügen. Aktionscodes in In-App-Nachrichten werden erst abgezogen und verwendet, wenn ein:e Nutzer:in die Anzeige der In-App-Nachricht auslöst.
 
 ### Testnachrichten {#test-messages}
 
-Testversendungen und Seed-Gruppen-E-Mail-Versendungen verbrauchen Aktionscodes, sofern nicht anders angefordert. Kontaktieren Sie Ihren Braze Account Manager, um dieses Feature-Verhalten zu aktualisieren, damit Aktionscodes bei Testversendungen und Seed-Gruppen-E-Mail-Versendungen nicht verwendet werden.
+Testversendungen und Seed-Gruppen-E-Mail-Versendungen verbrauchen Aktionscodes, sofern nicht anders angefordert. Kontaktieren Sie Ihre:n Braze Account Manager:in, um dieses Feature-Verhalten zu aktualisieren, damit Aktionscodes bei Testversendungen und Seed-Gruppen-E-Mail-Versendungen nicht verwendet werden.
 
 ### Mit Message Extras für Currents {#with-message-extras-for-currents}
 
@@ -74,7 +74,7 @@ Diese Code-Anzahl kann auch beim erneuten Aufrufen einer bestehenden Aktionscode
 
 ## Multichannel- und Einzelkanal-Versendungen {#multichannel-and-single-channel-sends}
 
-Bei Multichannel- und Einzelversand-Kampagnen und Canvases werden alle Aktionscodes, die im Liquid einer Nachricht referenziert werden, **vor** dem Senden der Nachricht abgezogen, um Folgendes sicherzustellen:
+Bei Multichannel- und Einzelversand-Campaigns und Canvases werden alle Aktionscodes, die im Liquid einer Nachricht referenziert werden, **vor** dem Senden der Nachricht abgezogen, um Folgendes sicherzustellen:
 
 - Dieselben Aktionscodes werden kanalübergreifend in einer Multichannel-Nachricht verwendet.
 - Zusätzliche Aktionscodes werden nicht verbraucht, wenn eine Nachricht fehlschlägt oder abgebrochen wird.

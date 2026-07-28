@@ -40,7 +40,7 @@ Canvas에서 하나의 프로모션 코드를 할당하고 여러 단계에서 �
 
 ### 인앱 메시지 Campaign {#promotion-codes-iam-campaigns}
 
-[인앱 메시지 Campaign]({{site.baseurl}}/user_guide/channels/in_app_messages)을 생성한 후, 인앱 메시지 본문에 [프로모션 코드 목록 스니펫]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes-1)을 삽입할 수 있습니다. 인앱 메시지의 프로모션 코드는 사용자가 인앱 메시지 표시를 트리거할 때만 차감되어 사용됩니다.
+[인앱 메시지 Campaign]({{site.baseurl}}/user_guide/channels/in_app_messages)을 생성한 후, 인앱 메시지 본문에 [프로모션 코드 목록 스니펫]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)을 삽입할 수 있습니다. 인앱 메시지의 프로모션 코드는 사용자가 인앱 메시지 표시를 트리거할 때만 차감되어 사용됩니다.
 
 ### 테스트 메시지 {#test-messages}
 

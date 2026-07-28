@@ -34,7 +34,7 @@ configuration.push.automation = true
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-`````````objc
+```objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:@"{YOUR-BRAZE-API-KEY}" endpoint:@"{YOUR-BRAZE-API-ENDPOINT}"];
 configuration.push.automation = [[BRZConfigurationPushAutomation alloc] initEnablingAllAutomations:YES];
 ```
@@ -53,7 +53,7 @@ SDKによって実行されるオートメーションステップは、コー�
 
 {% alert warning %}
 プッシュ通知のオートメーションを有効にするには、SDKをメインスレッドで初期化する必要があります。SDKの初期化は、アプリケーションの起動が完了する前、またはAppDelegateの[`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) 実装で行う必要があります。
-アプリケーションがSDKを初期化する前に追加の設定を必要とする場合は、[遅延初期化]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift)に関するドキュメントページを参照してください。
+アプリケーションがSDKを初期化する前に追加の設定を必要とする場合は、[遅延初期化]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional)に関するドキュメントページを参照してください。
 {% endalert %}
 
 #### ステップ3.2: 個別の設定を上書きする（オプション） {#step-32-override-individual-configurations-optional}
@@ -63,7 +63,7 @@ SDKによって実行されるオートメーションステップは、コー�
 {% subtabs %}
 {% subtab Swift %}
 
-`````````swift
+```swift
 // Enable all automations and disable the automatic notification authorization request at launch.
 configuration.push.automation = true
 configuration.push.automation.requestAuthorizationAtLaunch = false
@@ -72,7 +72,7 @@ configuration.push.automation.requestAuthorizationAtLaunch = false
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-`````````objc
+```objc
 // Enable all automations and disable the automatic notification authorization request at launch.
 configuration.push.automation = [[BRZConfigurationPushAutomation alloc] initEnablingAllAutomations:YES];
 configuration.push.automation.requestAuthorizationAtLaunch = NO;
@@ -98,13 +98,13 @@ Brazeには、プッシュアクションボタンをサポートするデフォ
 アプリデリゲートの `application:didFinishLaunchingWithOptions:` メソッドに以下のコードを追加します。
 
 {% alert note %}
-次のコードサンプルには、仮のプッシュ認証の統合が含まれています（5行目と6行目）。アプリで仮許可を使用する予定がない場合は、`requestAuthorization` オプションに `UNAuthorizationOptionProvisional` を追加するコード行を削除できます。<br>プッシュ仮認証の詳細については、[iOS通知オプション]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/)をご覧ください。
+次のコードサンプルには、仮のプッシュ認証の統合が含まれています（5行目と6行目）。アプリで仮許可を使用する予定がない場合は、`requestAuthorization` オプションに `UNAuthorizationOptionProvisional` を追加するコード行を削除できます。<br>プッシュ仮認証の詳細については、[iOS通知オプション]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options)をご覧ください。
 {% endalert %}
 
 {% subtabs %}
 {% subtab Swift %}
 
-`````````swift
+```swift
 application.registerForRemoteNotifications()
 let center = UNUserNotificationCenter.current()
 center.setNotificationCategories(Braze.Notifications.categories)
@@ -121,7 +121,7 @@ center.requestAuthorization(options: options) { granted, error in
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-`````````objc
+```objc
 [application registerForRemoteNotifications];
 UNUserNotificationCenter *center = UNUserNotificationCenter.currentNotificationCenter;
 [center setNotificationCategories:BRZNotifications.categories];
@@ -155,7 +155,7 @@ APNsの登録が完了したら、結果の `deviceToken` をBrazeに渡して�
 
 アプリの `application(_:didRegisterForRemoteNotificationsWithDeviceToken:)` メソッドに次のコードを追加します。
 
-`````````swift
+```swift
 AppDelegate.braze?.notifications.register(deviceToken: deviceToken)
 ```
 
@@ -164,7 +164,7 @@ AppDelegate.braze?.notifications.register(deviceToken: deviceToken)
 
 アプリの `application:didRegisterForRemoteNotificationsWithDeviceToken:` メソッドに次のコードを追加します。
 
-`````````objc
+```objc
 [AppDelegate.braze.notifications registerDeviceToken:deviceToken];
 ```
 
@@ -185,7 +185,7 @@ AppDelegate.braze?.notifications.register(deviceToken: deviceToken)
 {% subtab Swift %}
 Brazeのデフォルトプッシュ処理を有効にするには、アプリの `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッドに以下のコードを追加します。
 
-`````````swift
+```swift
 if let braze = AppDelegate.braze, braze.notifications.handleBackgroundNotification(
   userInfo: userInfo,
   fetchCompletionHandler: completionHandler
@@ -197,7 +197,7 @@ completionHandler(.noData)
 
 次に、アプリの `userNotificationCenter(_:didReceive:withCompletionHandler:)` メソッドに以下を追加します。
 
-`````````swift
+```swift
 if let braze = AppDelegate.braze, braze.notifications.handleUserNotification(
   response: response,
   withCompletionHandler: completionHandler
@@ -211,7 +211,7 @@ completionHandler()
 {% subtab OBJECTIVE-C %}
 Brazeのデフォルトプッシュ処理を有効にするには、アプリケーションの `application:didReceiveRemoteNotification:fetchCompletionHandler:` メソッドに以下のコードを追加します。
 
-`````````objc
+```objc
 BOOL processedByBraze = AppDelegate.braze != nil && [AppDelegate.braze.notifications handleBackgroundNotificationWithUserInfo:userInfo
                                                                                                        fetchCompletionHandler:completionHandler];
 if (processedByBraze) {
@@ -223,7 +223,7 @@ completionHandler(UIBackgroundFetchResultNoData);
 
 次に、アプリの `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` メソッドに次のコードを追加します。
 
-`````````objc
+```objc
 BOOL processedByBraze = AppDelegate.braze != nil && [AppDelegate.braze.notifications handleUserNotificationWithResponse:response
                                                                                                   withCompletionHandler:completionHandler];
 if (processedByBraze) {
@@ -241,7 +241,7 @@ completionHandler();
 {% subtab Swift %}
 フォアグラウンドのプッシュ通知を有効にし、受信時にBrazeがそれを認識できるようにするには、`UNUserNotificationCenter.userNotificationCenter(_:willPresent:withCompletionHandler:)` を実装します。ユーザーがフォアグラウンド通知をタップすると、`userNotificationCenter(_:didReceive:withCompletionHandler:)` プッシュデリゲートが呼び出され、Brazeはプッシュクリックイベントを記録します。
 
-`````````swift
+```swift
 func userNotificationCenter(
   _ center: UNUserNotificationCenter,
   willPresent notification: UNNotification,
@@ -265,7 +265,7 @@ func userNotificationCenter(
 {% subtab OBJECTIVE-C %}
 フォアグラウンドのプッシュ通知を有効にし、受信時にBrazeがそれを認識できるようにするには、`userNotificationCenter:willPresentNotification:withCompletionHandler:` を実装します。ユーザーがフォアグラウンド通知をタップすると、`userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` プッシュデリゲートが呼び出され、Brazeはプッシュクリックイベントを記録します。
 
-`````````objc
+```objc
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
        willPresentNotification:(UNNotification *)notification
          withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
@@ -289,16 +289,16 @@ func userNotificationCenter(
 
 ## 通知のテスト {#push-testing}
 
-コマンドラインからアプリ内通知とプッシュ通知をテストする場合は、CURLと[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)を介してターミナルから単一の通知を送信できます。次のフィールドをテストケースの正しい値に置き換える必要があります。
+コマンドラインからアプリ内通知とプッシュ通知をテストする場合は、CURLと[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)を介してターミナルから単一の通知を送信できます。次のフィールドをテストケースの正しい値に置き換える必要があります。
 
 - `YOUR_API_KEY` - **設定** > **APIキー**で確認できます。
-- `YOUR_EXTERNAL_USER_ID` - **ユーザーを検索**ページで確認できます。詳しくは[ユーザーIDの割り当て]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#assigning-a-user-id)を参照してください。
+- `YOUR_EXTERNAL_USER_ID` - **ユーザー検索**ページで確認できます。詳しくは[ユーザーIDの割り当て]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#assigning-a-user-id)を参照してください。
 - `YOUR_KEY1`（オプション）
 - `YOUR_VALUE1`（オプション）
 
-以下の例では、`US-01` インスタンスを使用しています。このインスタンスを使用していない場合は、[APIドキュメント]({{site.baseurl}}/api/basics/)を参照して、どのエンドポイントにリクエストを行うかを確認してください。
+以下の例では、`US-01` インスタンスを使用しています。このインスタンスを使用していない場合は、[APIドキュメント]({{site.baseurl}}/api/basics)を参照して、どのエンドポイントにリクエストを行うかを確認してください。
 
-`````````bash
+```bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR_API_KEY}" -d '{
   "external_user_ids":["YOUR_EXTERNAL_USER_ID"],
   "messages": {
@@ -321,7 +321,7 @@ Brazeが処理したプッシュ通知ペイロードにアクセスするには
 {% tabs %}
 {% tab Swift %}
 
-`````````swift
+```swift
 // This subscription is maintained through a Braze cancellable, which will observe for changes until the subscription is cancelled.
 // You must keep a strong reference to the cancellable to keep the subscription active.
 // The subscription is canceled either when the cancellable is deinitialized or when you call its `.cancel()` method.
@@ -338,7 +338,7 @@ let cancellable = AppDelegate.braze?.notifications.subscribeToUpdates(payloadTyp
 
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 NSInteger filtersValue = BRZNotificationsPayloadTypeFilter.opened.rawValue | BRZNotificationsPayloadTypeFilter.received.rawValue;
 BRZNotificationsPayloadTypeFilter *filters = [[BRZNotificationsPayloadTypeFilter alloc] initWithRawValue: filtersValue];
 BRZCancellable *cancellable = [notifications subscribeToUpdatesWithPayloadTypes:filters update:^(BRZNotificationsPayload * _Nonnull payload) {
@@ -369,7 +369,7 @@ BRZCancellable *cancellable = [notifications subscribeToUpdatesWithPayloadTypes:
 
 `handleForegroundNotification(notification:)` を呼び出すと、Brazeは通知ペイロードを処理して分析データを記録し、ディープリンクやボタンアクションを処理します。実際の表示動作は、完了ハンドラに渡す `UNNotificationPresentationOptions` によって制御されます。
 
-`````````swift
+```swift
 import BrazeKit
 import UserNotifications
 
@@ -398,7 +398,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 ## プッシュプライマー {#push-primers}
 
-プッシュプライマーキャンペーンでは、アプリのデバイスでプッシュ通知を有効にするようユーザーに促します。これは、[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)を使用して、SDKのカスタマイズなしで行うことができます。
+プッシュプライマーキャンペーンでは、アプリのデバイスでプッシュ通知を有効にするようユーザーに促します。これは、[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages)を使用して、SDKのカスタマイズなしで行うことができます。
 
 ## ダイナミックAPNsゲートウェイ管理 {#dynamic-apns-gateway-management}
 
@@ -416,7 +416,7 @@ BrazeはiOS向けプッシュ通知のダイナミックAPNsゲートウェイ�
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### 仕組み {#how-it-works-1}
+### 仕組み
 
 iOSアプリがBraze Swift SDKと統合する場合、利用可能であれば[`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment)を含むデバイス関連データをBraze SDK APIに送信します。`apns_gateway` 値は、アプリが開発用（`dev`）または本番用（`prod`）のAPNs環境を使用しているかを示します。
 
@@ -429,14 +429,14 @@ Brazeがプッシュ通知を送信するとき：
 
 ### よくある質問 {#frequently-asked-questions}
 
-#### なぜこの機能が導入されたのですか {#why-was-this-feature-introduced}
+#### なぜこの機能が導入されたのですか？ {#why-was-this-feature-introduced}
 
 ダイナミックAPNsゲートウェイ管理により、適切な環境が自動的に選択されます。以前は、APNsゲートウェイを手動で設定する必要があり、`BadDeviceToken` エラーやトークンの無効化、さらにはAPNsのレート制限の問題が発生する可能性がありました。
 
-#### プッシュ配信パフォーマンスにどのような影響がありますか {#how-does-this-impact-push-delivery-performance}
+#### プッシュ配信パフォーマンスにどのような影響がありますか？ {#how-does-this-impact-push-delivery-performance}
 
 この機能は、プッシュトークンを常に正しいAPNs環境にルーティングすることで配信率を向上させ、誤設定されたゲートウェイによる失敗を回避します。
 
-#### この機能を無効にできますか {#can-i-disable-this-feature}
+#### この機能を無効にできますか？ {#can-i-disable-this-feature}
 
-ダイナミックAPNsゲートウェイ管理はデフォルトで有効になっており、信頼性の向上を提供します。手動でのゲートウェイ選択が必要な具体的なユースケースがある場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administrative/access_braze/support/)にお問い合わせください。
+ダイナミックAPNsゲートウェイ管理はデフォルトで有効になっており、信頼性の向上を提供します。手動でのゲートウェイ選択が必要な具体的なユースケースがある場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administrative/access_braze/support)にお問い合わせください。

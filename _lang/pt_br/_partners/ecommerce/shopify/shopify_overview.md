@@ -1,7 +1,7 @@
 ---
 nav_title: Visão geral do Shopify
 article_title: Visão geral do Shopify
-description: "Este artigo de referência descreve a parceria entre a Braze e a Shopify, uma empresa de comércio global que permite conectar sua loja da Shopify com a Braze para passar webhooks selecionados da Shopify para a Braze. Aproveite as estratégias de mensagens entre canais da Braze e o Canvas para incentivar os clientes a completarem suas compras ou redirecionar os usuários com base nas compras anteriores."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Shopify, uma empresa de comércio global que permite conectar sua loja da Shopify com a Braze para passar webhooks selecionados da Shopify para a Braze. Aproveite as estratégias de mensagens integradas entre canais da Braze e o Canvas para incentivar os clientes a completarem suas compras ou redirecionar os usuários com base nas compras anteriores."
 page_type: partner
 search_tag: Partner
 alias: /shopify_overview/
@@ -12,7 +12,7 @@ page_order: 0
 
 > [A Shopify](https://www.shopify.com/) é uma empresa líder em comércio global que fornece ferramentas confiáveis para iniciar, crescer, comercializar e gerenciar negócios de qualquer tamanho. A Shopify torna o comércio melhor para todo mundo com uma plataforma e serviços projetados para confiabilidade, enquanto oferece uma melhor experiência de compra para consumidores em todos os lugares.
 
-A integração da Braze com a Shopify fornece uma solução poderosa para empresas de eCommerce que buscam aprimorar seu engajamento com os clientes e impulsionar esforços de marketing personalizados. Essa integração conecta perfeitamente as robustas capacidades de eCommerce da Shopify com nossa avançada plataforma de engajamento com clientes, permitindo que você envie mensagens direcionadas, relevantes e oportunas aos seus usuários com base em comportamentos de compra em tempo real e dados transacionais.
+A integração da Braze com a Shopify fornece uma solução poderosa para empresas de eCommerce que buscam aprimorar o engajamento do cliente e impulsionar esforços de marketing personalizados. Essa integração conecta perfeitamente as robustas capacidades de eCommerce da Shopify com nossa avançada plataforma de engajamento com clientes, permitindo que você envie mensagens direcionadas, relevantes e oportunas aos seus usuários com base em comportamentos de compra em tempo real e dados transacionais.
 
 ## Requisitos {#requirements}
 
@@ -43,7 +43,7 @@ Se você é um cliente existente da Braze com Campaigns ou Canvas ativos, revise
 ### Sincronização de usuários e dados {#user-and-data-syncing}
 
 Após a integração estar ativa, a Braze reunirá dados de usuários de duas fontes principais por meio da integração com a Shopify:
-- **Shopify Web Pixel API e embeds de app:** Isso alimenta o Braze Web SDK e o Javascript SDK para suportar rastreamento no site, gerenciamento de identidade, dados comportamentais de eCommerce e potencializar canais de envio de mensagens como mensagens no app.
+- **Shopify Web Pixel API e embeds de app:** Isso alimenta o Braze Web SDK e o Javascript SDK para suportar rastreamento no site, gerenciamento de identidade, dados comportamentais de eCommerce e potencializar canais de envio de mensagens como In-App Messages.
 - **Webhooks da Shopify:** dados comportamentais de eCommerce, sincronização de produtos e coleta de assinantes
 
 Durante a integração, você precisará selecionar quando os SDKs da Braze são inicializados e carregam seu site Shopify:
@@ -53,8 +53,8 @@ Durante a integração, você precisará selecionar quando os SDKs da Braze são
     - **O que faz:** Evita o rastreamento de usuários anônimos para uma abordagem mais conservadora e orientada à privacidade, de modo que a atividade do usuário seja rastreada *após* o usuário fazer login em sua conta
 
 {% alert note %}
-- Visitas ao site (sessões) contam para suas alocações de Usuários Ativos Mensais (MAU).
-- As versões do Braze Web SDK e do JavaScript SDK serão automaticamente definidas para v5.4.0.
+- Visitas ao site (sessões) contam para suas alocações de usuários ativos mensais (MAU).
+- As versões do Braze Web SDK e do JavaScript SDK são automaticamente definidas para v6.8.0. Você pode fazer upgrade da versão do SDK a qualquer momento nas configurações da integração.
 {% endalert %}
 
 A Braze usa a integração com a Shopify para suportar múltiplos identificadores que rastreiam seus usuários desde a experiência de compra como convidados até se tornarem usuários identificados:
@@ -85,7 +85,7 @@ O status de opt-in de marketing da Shopify para e-mail e marketing por SMS pode 
 - **Processo de checkout:** Se um usuário atualizar seu status de opt-in durante o checkout.
 
 {% alert note %}
-O status de opt-in de marketing por e-mail da Shopify não mudará o [estado global de inscrição por e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions) de um usuário na Braze. O estado de inscrição padrão quando um perfil de usuário é criado é "Subscribed". Lembre-se de usar o grupo de inscrições como parte dos critérios de entrada da sua Campaign ou Canvas.
+O status de opt-in de marketing por e-mail da Shopify não mudará o [estado global de inscrição por e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions) de um usuário na Braze. O estado de inscrição padrão quando um perfil de usuário é criado é "subscribed". Lembre-se de usar o grupo de inscrições como parte dos critérios de entrada da sua Campaign ou Canvas.
 {% endalert %}
 
 Esta tabela mostra quais estados de opt-in de marketing da Shopify correspondem aos status dentro do seu grupo de inscrições da Braze.
@@ -143,4 +143,4 @@ A Braze suporta a capacidade de sincronizar os produtos da sua loja Shopify em u
 
 ## Solicitações de titulares de dados {#data-subject-requests}
 
-Como parte da integração da plataforma da Braze com a Shopify, a Braze recebe automaticamente os [webhooks de conformidade da Shopify](https://shopify.dev/docs/apps/build/privacy-law-compliance/). No entanto, como os clientes são os controladores de dados dos dados de seus Usuários Finais, os clientes devem realizar quaisquer ações necessárias para atender às Solicitações de Titulares de Dados recebidas em relação aos dados de Usuários Finais na Braze (incluindo dados de Usuários Finais recebidos por meio da integração com a Shopify). Consulte nossa documentação de [Assistência Técnica em Proteção de Dados]({{site.baseurl}}/dp-technical-assistance) para mais detalhes.
+Como parte da integração da plataforma da Braze com a Shopify, a Braze recebe automaticamente os [webhooks de conformidade da Shopify](https://shopify.dev/docs/apps/build/privacy-law-compliance/). No entanto, como os clientes são os controladores de dados dos dados de seus usuários finais, os clientes devem realizar quaisquer ações necessárias para atender às solicitações de titulares de dados recebidas em relação aos dados de usuários finais na Braze (incluindo dados de usuários finais recebidos por meio da integração com a Shopify). Consulte nossa documentação de [Assistência Técnica em Proteção de Dados]({{site.baseurl}}/dp-technical-assistance) para mais detalhes.

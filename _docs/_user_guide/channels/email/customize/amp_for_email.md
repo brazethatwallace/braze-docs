@@ -22,7 +22,7 @@ Braze is not responsible for users registering with Google or meeting the necess
 | AMP for email turned on | AMP is available for all users. |
 | Gmail account enablement | See [Enabling Gmail account](#enabling-gmail-account). |
 | Google sender authentication | Gmail [authenticates the sender](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) of AMP emails with DKIM, SPF, and DMARC. These must be set up for your account. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| AMP email elements | A compelling AMP email includes the strategic use of various components. Refer to the Essentials tab in the [Components](#components) section below. |
+| AMP email elements | A compelling AMP email includes the strategic use of various components. Refer to the Essentials tab in the [Components](#components) section. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ### Supported email clients
@@ -51,7 +51,7 @@ Go to your Gmail settings, and select **Enable dynamic email** in the **General*
 
 ## API usage
 
-You can also use AMP for email with our API. If you use any of the Braze [Messaging endpoints]({{site.baseurl}}/api/endpoints/messaging) to send an email, add `amp_body` as an object specification as shown below.
+You can also use AMP for email with our API. If you use any of the Braze [Messaging endpoints]({{site.baseurl}}/api/endpoints/messaging) to send an email, add `amp_body` as an object specification as shown in the following section.
 
 ### Email object specification
 
@@ -260,7 +260,7 @@ If none of these conditions are causing the error, contact [Support]({{site.base
 
 You can configure your Gmail inbox to render AMP emails for testing purposes by doing the following:
 
-1. In Gmail, select **Settings** in the top right corner of your inbox.
+1. In Gmail, select **Settings** from your inbox toolbar.
 2. Select **See all settings**.
 3. In the **General** tab, go to the **Dynamic email** section and confirm the **Enable dynamic email** checkbox is selected.
 4. Next, select **Developer Settings**, and select the **Always allow dynamic emails from this sender:** checkbox.

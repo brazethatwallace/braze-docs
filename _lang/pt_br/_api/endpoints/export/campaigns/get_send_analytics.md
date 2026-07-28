@@ -14,7 +14,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 /sends/data_series
 {% endapimethod %}
 
-> Use esse endpoint para recuperar uma série diária de várias estatísticas de um `send_id` rastreado para Campanhas da API.
+> Use esse endpoint para recuperar uma série diária de várias estatísticas de um `send_id` rastreado para Campaigns de API.
 
 A Braze armazena a análise de dados de envio por 14 dias após o envio. As conversões da campanha serão atribuídas ao `send_id` mais recente que um determinado usuário recebeu da campanha.
 
@@ -24,7 +24,7 @@ A Braze armazena a análise de dados de envio por 14 dias após o envio. As conv
 
 ## Pré-requisitos {#prerequisites}
 
-Esse endpoint é apenas para Campanhas da API. Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `sends.data_series`.
+Esse endpoint é apenas para Campaigns de API. Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sends.data_series`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -32,11 +32,11 @@ Esse endpoint é apenas para Campanhas da API. Para usar esse endpoint, você pr
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- |------------ |
-| `campaign_id` | Obrigatória | String | Consulte o [identificador de API da campanha]({{site.baseurl}}/api/identifier_types). |
-| `send_id` | Obrigatória | String | Consulte o [identificador de API de envio]({{site.baseurl}}/api/identifier_types). |
-| `length` | Obrigatória | Número inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
+| `campaign_id` | Obrigatório | String | Consulte o [identificador de API da campanha]({{site.baseurl}}/api/identifier_types). |
+| `send_id` | Obrigatório | String | Consulte o [identificador de API de envio]({{site.baseurl}}/api/identifier_types). |
+| `length` | Obrigatório | Número inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é a hora da solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
@@ -53,7 +53,6 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
         {
             "time": (string) the date as ISO 8601 date,
@@ -94,7 +93,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
         "revenue": (optional, float)
       }
     ],
-  "message": "success"
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

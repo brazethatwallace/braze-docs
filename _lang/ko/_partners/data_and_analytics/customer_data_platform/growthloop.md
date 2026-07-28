@@ -24,22 +24,22 @@ Braze와 GrowthLoop 통합을 사용하면 데이터 웨어하우스에서 직�
 | ----------- | ----------- |
 | GrowthLoop growth 또는 enterprise 계정 | 이 파트너십을 활용하려면 GrowthLoop 계정이 필요합니다. |
 | Braze REST API 키 | 모든 권한이 포함된 Braze REST API 키.<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 사용 사례 {#use-cases}
 
 데이터 웨어하우스에서 Braze로 고객 목록을 전송하여 이메일 및 푸시 알림 Campaign을 한 번의 클릭으로 타겟팅하고 항상 동기화 상태를 유지합니다.
 
 - 가입 활성화 기반 이메일 — 가입 플로우에서 이탈한 사용자에게 이메일을 보내 활성 사용자로 전환합니다.
-- 사용자 동작 기반 이메일 — "장바구니에 추가"와 같은 사용자 동작을 기반으로 이메일을 전송합니다.
+- 사용자 행동 기반 이메일 — "장바구니에 추가"와 같은 사용자 행동을 기반으로 이메일을 전송합니다.
 - 이탈 고객 대상 이메일 — 이메일을 통해 이탈 고객에게 오퍼를 제공하여 재참여를 유도합니다.
 
 ## 통합 {#integration}
 
 ### GrowthLoop에서 Braze 연결 구성 {#configure-braze-connection-in-growthloop}
 
-GrowthLoop 내 세분화 플랫폼에 로그인한 후, 왼쪽 사이드바의 **Destinations** 탭으로 이동하여 오른쪽 상단의 **New Destination**을 클릭합니다.
+GrowthLoop 내 세분화 플랫폼에 로그인한 후, 왼쪽 사이드바의 **Destinations** 탭으로 이동하여 액션 바에서 **New Destination**을 클릭합니다.
 
 Braze를 찾을 때까지 스크롤한 다음 **Add Braze**를 클릭합니다.
 
@@ -47,8 +47,8 @@ Braze를 찾을 때까지 스크롤한 다음 **Add Braze**를 클릭합니다.
 
 - **Destination name**: 앱에서 앞으로 대상의 이름으로 지정되고 참조되는 이름입니다.
 - **Sync frequency**: Daily 또는 Hourly를 선택합니다. GrowthLoop이 Braze로 오디언스를 내보내는 빈도를 제어합니다.
-- **API key**: 필요한 권한이 포함된, 요구 사항에서 생성한 API 키입니다.
-- **API URL**: 요구 사항에서 정의한 URL입니다.
+- **API key**: 필요한 권한이 포함된, 필수 조건에서 생성한 API 키입니다.
+- **API URL**: 필수 조건에서 정의한 URL입니다.
 
 **Create**를 클릭하면 첫 번째 오디언스를 Braze로 내보낼 수 있습니다! GrowthLoop에서 오디언스를 생성하려면 [오디언스 생성](https://www.growthloop.com/help-center-articles/create-an-audience)을 참조하세요.
 

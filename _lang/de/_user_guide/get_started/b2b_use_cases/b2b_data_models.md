@@ -34,7 +34,7 @@ In Braze werden diese vier Objekte kombiniert und auf zwei Objekte reduziert: Nu
 | Geschäftsobjekte | Diese lassen sich auf alle Nicht-Nutzer:innen-Objekte in Ihrem Vertriebs-CRM-System abbilden. Dazu gehören Ihre vertriebsspezifischen Objekte, wie z. B. Kontoobjekte und Opportunity-Objekte. | Konten<br> Opportunities |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ein B2B-Datenmodell erstellen" }
 
-## 1. Schritt: Erstellen Sie Ihre Geschäftsobjekte in Braze {#step-1-create-your-business-objects-in-braze}
+## Schritt 1: Erstellen Sie Ihre Geschäftsobjekte in Braze {#step-1-create-your-business-objects-in-braze}
 
 Geschäftsobjekte sind alle nicht nutzerzentrierten Datensätze. Im B2B-Kontext gehören dazu Ihre Konto- und Opportunity-Daten sowie alle anderen relevanten, nicht nutzerbezogenen Datensätze, die Ihr Unternehmen verfolgt.
 
@@ -44,7 +44,7 @@ Es gibt zwei Methoden zur Erstellung und Verwaltung Ihrer Geschäftsobjekte in B
 | --- | --- |
 | [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) | Dies sind unabhängige Datenobjekte (ergänzende Datenobjekte) zum primären Nutzerprofil in Braze. In einem B2B-Kontext würden Sie wahrscheinlich Kataloge für Ihre Konten und Opportunities haben. |
 | [Verbundene Quellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) | Diese erlauben es Braze, Ihr Data Warehouse direkt abzufragen. Wahrscheinlich synchronisieren Sie Ihre Lead-, Kontakt-, Opportunity- und Kontoobjekte bereits regelmäßig mit Ihrem Data Warehouse, sodass Sie die Segmentierung von Braze direkt auf dieses Warehouse verweisen und es in einer Zero-Copy-Umgebung aktivieren können. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="1. Schritt: Erstellen Sie Ihre Geschäftsobjekte in Braze" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1: Erstellen Sie Ihre Geschäftsobjekte in Braze" }
 
 {% tabs %}
 {% tab Catalogs %}
@@ -153,11 +153,11 @@ Wie Sie verbundene Quellen einrichten, erfahren Sie unter [Einbindung verbundene
 {% endtab %}
 {% endtabs %}
 
-## 2. Schritt: Verknüpfen Sie Ihre Geschäftsobjekte mit Nutzerprofilen {#step-2-relate-your-business-objects-to-user-profiles}
+## Schritt 2: Verknüpfen Sie Ihre Geschäftsobjekte mit Nutzerprofilen {#step-2-relate-your-business-objects-to-user-profiles}
 
 Nutzerprofile sind das primäre Objekt in Braze, das den Großteil Ihrer demografischen Segmentierung, Triggerung und Personalisierung ermöglicht. Zu den Nutzerprofilen gehören [Standard-Nutzerdaten]({{site.baseurl}}/user_guide/data/unification/user_data), die von unserem SDK und anderen Quellen erfasst werden, einschließlich [benutzerdefinierter Daten]({{site.baseurl}}/user_guide/data/activation), die entweder in Form von Attributen (demografische Daten), Ereignissen (Verhaltensdaten) oder Käufen (Transaktionsdaten) vorliegen.
 
-### 2.1. Schritt: Vertriebs-CRM-IDs auf Braze abbilden {#step-21-map-sales-crm-ids-to-braze}
+### Schritt 2.1: Vertriebs-CRM-IDs auf Braze abbilden {#step-21-map-sales-crm-ids-to-braze}
 
 Stellen Sie zunächst sicher, dass Braze und das CRM Ihrer Wahl über einen gemeinsamen Bezeichner verfügen, um Daten auszutauschen. Wir empfehlen, die folgende Tabelle zu verwenden, um die ID-Felder Ihres Vertriebs-CRM auf das Braze-Nutzerobjekt abzubilden. In der folgenden Tabelle ist Salesforce als CRM-System angegeben, aber dies kann mit jedem CRM-System durchgeführt werden.
 
@@ -177,7 +177,7 @@ Wir empfehlen die Verwendung von [Aliasen]({{site.baseurl}}/user_guide/data/unif
 
 Nachdem Sie Ihre IDs synchronisiert haben, müssen Sie Ihre Braze-Nutzerprofile mit Ihren Geschäftsobjekten verknüpfen.
 
-### 2.2. Schritt: Erstellen Sie eine Beziehung zwischen Nutzerprofilen und Ihren Geschäftsobjekten {#step-22-create-a-relationship-between-user-profiles-and-your-business-objects}
+### Schritt 2.2: Erstellen Sie eine Beziehung zwischen Nutzerprofilen und Ihren Geschäftsobjekten {#step-22-create-a-relationship-between-user-profiles-and-your-business-objects}
 
 {% tabs %}
 {% tab Catalogs %}

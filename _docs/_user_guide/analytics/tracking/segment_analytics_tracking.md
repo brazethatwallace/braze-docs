@@ -37,13 +37,13 @@ Revenue and purchase charts reflect activity recorded after analytics tracking i
 
 To visually compare segment data for any custom time range, add or remove segments from the graph. Select **By Segment** in the **Breakdown** dropdown, and then select your segments in **Breakdown values**.
 
-Select any segment name above the graph to turn on or off visibility for that segment's metrics.
+Select any segment name in the graph legend to turn on or off visibility for that segment's metrics.
 
 ![Revenue for multiple segments]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
 ## Sessions over time
 
-Similarly, you can find data on [sessions over time for this particular segment]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data) on the **Home** page.
+Similarly, you can find data on [sessions over time for this particular segment]({{site.baseurl}}/user_guide/analytics/dashboards/home) on the **Home** page.
 
 ![Session data by segment]({% image_buster /assets/img_archive/events_over_time2.png %})
 
@@ -53,7 +53,7 @@ View data on [Custom events over time for segments]({{site.baseurl}}/user_guide/
 
 ## Using Query Builder templates
 
-When analytics tracking is turned on, you can use Query Builder report templates to break down performance metrics for campaigns, Canvas, variants, and steps by segments. To learn more, check out [Segment data]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment).
+When analytics tracking is turned on, you can use Query Builder report templates to break down performance metrics for campaigns, Canvas, variants, and steps by segments. To learn more, check out [Segment data]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment).
 
 ## Frequently asked questions
 

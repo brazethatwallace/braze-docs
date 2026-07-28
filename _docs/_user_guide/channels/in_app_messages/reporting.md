@@ -37,6 +37,21 @@ For in-app messages, this page defines unique impressions using a calendar-day b
 *Total Impressions* can exceed *Unique Impressions* when a user views the message more than once on the same calendar day (see the metric definitions in the preceding table). To investigate users with inflated impression counts, create a segment with the **Device Count** filter set to **more than** `1`, and the **Received Message from Campaign** filter for the specific campaign.
 {% endalert %}
 
+### Click tracking
+
+Braze logs an impression when an in-app message becomes visible on screen. For in-app messages created with the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), the following table describes what counts as a click.
+
+| User action | Click logged |
+|-------------|--------------|
+| User clicks the message body when the message has no buttons | Yes (body click) |
+| User clicks a button | Yes (button click) |
+| User clicks the close button (X) | No |
+| User taps or clicks outside the message to dismiss it (when enabled) | No |
+| User closes the app while the message is displayed | No |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Click tracking" }
+
+For definitions of body clicks and button clicks, see the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
+
 For control group versus variant impression imbalances in A/B tests, see [Discrepancies between the control group and variant]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## How do conversions increment with re-eligibility?

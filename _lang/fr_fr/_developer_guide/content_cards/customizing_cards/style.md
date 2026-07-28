@@ -14,13 +14,13 @@ platform:
 
 # Personnaliser le style des Content Cards {#customize-the-style-of-content-cards}
 
-> Les Content Cards de Braze sont livrées avec une apparence par défaut. Cet article présente les options de style disponibles pour vos Content Cards, afin de les adapter à l'identité de votre marque. Pour consulter la liste complète des types de cartes de contenu, voir [À propos des Content Cards]({{site.baseurl}}/developer_guide/content_cards).
+> Les Content Cards de Braze sont livrées avec une apparence par défaut. Cet article présente les options de style disponibles pour vos Content Cards, afin de les adapter à l'identité de votre marque. Pour consulter la liste complète des types de Content Cards, voir [À propos des Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Créer un style personnalisé {#creating-a-custom-style}
 
 L'interface utilisateur par défaut des Content Cards est importée depuis la couche UI du SDK Braze. Vous pouvez ensuite ajuster certains aspects du style des cartes, l'ordre d'affichage et la manière dont le flux est présenté à vos utilisateurs.
 
-![Deux cartes de contenu, l'une avec la police par défaut et des coins carrés, l'autre avec des coins arrondis et une police bouclée]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
+![Deux Content Cards, l'une avec la police par défaut et des coins carrés, l'autre avec des coins arrondis et une police bouclée]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
 Les propriétés des Content Cards telles que `title`, `cardDescription`, `imageUrl`, etc., sont directement modifiables depuis le [tableau de bord]({{site.baseurl}}/user_guide/channels/content_cards/creative_details). C'est la méthode recommandée pour modifier ces informations.

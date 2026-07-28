@@ -36,6 +36,10 @@ Um automatisiertes IP-Warming durchzuführen, benötigen Sie Folgendes:
 - „Campaigns genehmigen und ablehnen“, wenn der Genehmigungs-Workflow für Campaigns aktiviert ist
     - Braze genehmigt die durch automatisiertes IP-Warming erstellten Campaigns automatisch in Ihrem Namen.
 
+{% alert important %}
+Dieses Feature wird je nach Ihrer E-Mail-Infrastruktur möglicherweise nicht unterstützt.
+{% endalert %}
+
 ## Ein automatisiertes IP-Warming einrichten {#set-up-an-automated-ip-warming-plan}
 
 ### 1. Schritt: Zeitplan festlegen {#step-1-set-a-schedule}
@@ -78,9 +82,9 @@ Sie können bis zu vier der folgenden Konversions-Events zum Tracking definieren
 - E-Mail öffnen
 - E-Mail anklicken
 
-Wählen Sie als Nächstes die Conversion-Frist aus – die maximale Zeit, die zwischen dem Eintritt von Nutzer:innen in eine Campaign und dem Konversions-Event vergehen darf.
+Wählen Sie als Nächstes die Konversionsfrist aus – die maximale Zeit, die zwischen dem Eintritt von Nutzer:innen in eine Campaign und dem Konversions-Event vergehen darf.
 
-![Conversion-Einstellungen mit Auswahl des Konversions-Events und der Conversion-Frist.]({% image_buster /assets/img/automated_ip_warming_conversions.png %})
+![Konversionseinstellungen mit Auswahl des Konversions-Events und der Konversionsfrist.]({% image_buster /assets/img/automated_ip_warming_conversions.png %})
 
 ### 5. Schritt: Überprüfen und starten {#step-5-review-and-launch}
 

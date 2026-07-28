@@ -11,7 +11,7 @@ description: "Este artículo de referencia explica cómo conectar y configurar v
 > Conecta varios dominios de tiendas Shopify a un único espacio de trabajo para tener una visión holística de tus clientes en todos los mercados. Construye y lanza programas de automatización y recorridos en un único espacio de trabajo sin duplicar esfuerzos en las tiendas regionales.
 
 {% alert important %}
-Esta característica no es compatible con Shopify Markets ni Markets Pro. Si deseas solicitar soporte para estos, envía una [solicitud de producto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Esta característica no es compatible con Shopify Markets ni Markets Pro. {% multi_lang_include product_feedback_cta.md context="gap" feature="Shopify Markets or Markets Pro support" %}
 {% endalert %}
 
 ## Requisitos {#requirements}
@@ -91,7 +91,7 @@ Alternativamente, puedes sincronizar la información de adhesión voluntaria al 
 
 | Opción | Recursos |
 |------|---------|
-| API | - [Puntos finales de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups) para sustituir directamente lo que admite la integración<br>- [Punto de conexión `Users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups) para configurar los datos del grupo de suscripción o el [estado global de suscripción al correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)<br>- [Centro de preferencias de Braze]({{site.baseurl}}/user_guide/channels/email/subscriptions) para más opciones personalizadas de recopilación de adhesiones voluntarias de marketing |
+| API | - [Endpoints de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups) para sustituir directamente lo que admite la integración<br>- [Endpoint `Users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups) para configurar los datos del grupo de suscripción o el [estado global de suscripción al correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)<br>- [Centro de preferencias de Braze]({{site.baseurl}}/user_guide/channels/email/subscriptions) para más opciones personalizadas de recopilación de adhesiones voluntarias de marketing |
 | SDK | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Recopilar suscriptores (opcional)" }
 {% endtab %}

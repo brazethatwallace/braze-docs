@@ -24,6 +24,10 @@ Remove **referenced but redundant** images from English canonical docs. Unlike [
 
 **Never curate:** `assets/img/logos/`, `assets/img/braze_icons/`, `assets/img/icons/`, `assets/img/contributing/style_guide/**`, **`_docs/_partners/**`** (manual review only).
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only HEAD`
+
 ---
 
 ## Scheduled maintenance (CI)

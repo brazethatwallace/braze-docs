@@ -68,7 +68,7 @@ Canvas 빌더가 Canvas 설정을 단계별로 안내합니다. 이름 지정부
 
 ### 1.1단계: Canvas 기본 사항부터 시작하기 {#step-11-start-with-your-canvas-basics}
 
-여기에서 Canvas 이름을 지정하고, [팀]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams)을 할당하고, [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags)를 만들거나 추가합니다. Canvas에 전환 이벤트를 할당할 수도 있습니다.
+여기에서 Canvas 이름을 지정하고, [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)를 할당하고, [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 만들거나 추가합니다. Canvas에 전환 이벤트를 할당할 수도 있습니다.
 
 {% alert tip %}
 Canvas에 태그를 지정하면 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)를 사용할 때 특정 태그로 필터링할 수 있습니다.
@@ -82,7 +82,7 @@ Canvas에 태그를 지정하면 쉽게 찾고 보고서를 작성할 수 있습
 
 ![3일 전환 기한 내에 구매를 완료한 사용자의 전환을 기록하기 위한 구매 완료 전환 이벤트 유형이 있는 주요 전환 이벤트 A.]({% image_buster /assets/img/add_canvas_conversions.png %})
 
-Canvas에 여러 배리언트 또는 대조군이 있는 경우, Braze는 이 전환 이벤트를 사용하여 이 전환 목표를 달성하기 위한 최적의 변형을 결정합니다. 동일한 로직을 사용하여 여러 전환 이벤트를 만들 수 있습니다.
+Canvas에 여러 배리언트 또는 대조군이 있는 경우, Braze는 이 전환 이벤트를 사용하여 이 전환 목표를 달성하기 위한 최적의 배리언트를 결정합니다. 동일한 로직을 사용하여 여러 전환 이벤트를 만들 수 있습니다.
 
 ### 1.2단계: Canvas 진입 스케줄 결정 {#step-12-determine-your-canvas-entry-schedule}
 
@@ -155,9 +155,9 @@ API 트리거 전달에 다음 엔드포인트를 사용할 수 있습니다:
 - **실행 기반:** 시간별, 일별 또는 Canvas의 수명 동안
 - **API 트리거:** 시간별, 일별 또는 Canvas의 수명 동안
 
-예를 들어 실행 기반 Canvas가 있고 **진입량 제한**을 선택하고 **최대 진입** 필드를 5,000명으로 설정하고 제한 주기를 **일별**로 설정하면 Canvas는 하루에 5,000명의 사용자에게만 발송합니다.
+예를 들어 스케줄 Canvas가 있고 **진입량 제한**을 선택하고 **최대 진입** 필드를 500,000명으로 설정하고 제한 주기를 **Canvas가 스케줄될 때마다**로 설정하면 Canvas는 스케줄된 발송당 500,000명의 사용자에게만 발송합니다.
 
-!['Canvas에 사용자 재진입 허용' 및 '진입량 제한' 체크박스가 표시된 '진입 제어' 페이지. 후자를 사용하면 최대 진입 수를 설정하고 진입 스케줄 유형에 따라 달라지는 주기를 선택할 수 있습니다(예: 스케줄 진입의 경우 Canvas의 수명 동안 또는 Canvas가 스케줄될 때마다, 실행 기반 및 API 트리거 진입의 경우 시간별, 일별 또는 Canvas의 수명 동안).]({% image_buster /assets/img_archive/entry_controls.png %})
+!['Canvas에 사용자 재진입 허용' 및 '진입량 제한' 체크박스가 표시된 '진입 제어' 페이지.]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
 Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선택하지 않길 권장합니다. 발송량이 늘어날 수 있기 때문입니다.
@@ -169,7 +169,7 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 
 #### 대상 집단 계산 {#calculating-target-population}
 
-**대상 집단** 섹션에서 선택한 Segments 및 추가 필터와 같은 오디언스 요약과 메시징 채널별 도달 가능 사용자 수 분석을 확인할 수 있습니다. 기본 추정치 대신 타겟 오디언스의 정확한 도달 가능 사용자 수를 계산하려면 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics)을 선택하세요.
+**대상 집단** 섹션에서 선택한 Segments 및 추가 필터와 같은 오디언스 요약과 메시징 채널별 도달 가능 사용자 수 분석을 확인할 수 있습니다. 기본 추정치 대신 타겟 오디언스의 정확한 도달 가능 사용자 수를 계산하려면 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics)을 선택하세요.
 
 참고 사항:
 
@@ -187,13 +187,11 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 
 ### 1.4단계: 발송 설정 선택 {#step-14-select-your-send-settings}
 
-**발송 설정**을 선택하여 구독 설정을 편집하고, 사용량 제한을 활성화하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 활성화합니다. [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components) 또는 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)을 활성화하면 사용자에게 가해지는 마케팅 압력을 완화하고 과도한 메시지 발송을 방지할 수 있습니다.
+**발송 설정**을 선택하여 구독 설정을 편집하고, 사용량 제한조치를 활성화하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 활성화합니다. [사용량 제한조치]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) 또는 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)을 활성화하면 사용자에게 가해지는 마케팅 압력을 완화하고 과도한 메시지 발송을 방지할 수 있습니다.
 
 이메일 및 푸시 채널을 타겟팅하는 Canvases의 경우, 명시적으로 옵트인한 사용자만 메시지를 받도록 Canvas를 제한할 수 있습니다(가입됨 또는 가입 취소된 사용자 제외). 예를 들어 옵트인 상태가 다른 세 명의 사용자가 있다고 가정해 보겠습니다:
 
-- **사용자 A**는 이메일에 가입되어 있고 푸시가 활성화되어 있습니다. 이 사용자는 이메일을 받지 않지만 푸시를 받습니다.
-- **사용자 B**는 이메일에 옵트인했지만 푸시가 활성화되어 있지 않습니다. 이 사용자는 이메일을 받지만 푸시를 받지 않습니다.
-- **사용자 C**는 이메일에 옵트인했고 푸시가 활성화되어 있습니다. 이 사용자는 이메일과 푸시를 모두 받습니다.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 이렇게 하려면 **구독 설정**을 "옵트인한 사용자에게만" 이 Canvas를 보내도록 설정합니다. 이 옵션은 옵트인한 사용자만 이메일을 받도록 하며, Braze는 기본적으로 푸시가 활성화된 사용자에게만 푸시를 보냅니다.
 
@@ -281,7 +279,7 @@ Canvas 워크플로우에서 구성요소를 선택하여 모든 단계를 편�
 
 ![지연이 '특정 날짜까지'로 설정된 '지연' 단계 예시.]({% image_buster /assets/img_archive/edit_delay_flow.png %})
 
-또는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계의 **행동 설정**을 빠르게 편집하고 조정하여 일정 기간 동안 사용자를 유지할 수 있습니다. 이는 이 평가 기간 동안의 행동에 따라 다음 경로의 우선순위를 지정합니다.
+또는 [작업 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계의 **행동 설정**을 빠르게 편집하고 조정하여 일정 기간 동안 사용자를 유지할 수 있습니다. 이는 이 평가 기간 동안의 행동에 따라 다음 경로의 우선순위를 지정합니다.
 
 ![평가 기간이 1일로 설정된 Canvas의 두 번째 단계 '행동 설정'.]({% image_buster /assets/img_archive/action_paths_flow.png %})
 
@@ -303,11 +301,11 @@ Canvas에서 `campaign.${name}` Liquid 태그를 사용하여 현재 Canvas 구�
 Canvas 구성요소 구성을 완료한 후 **완료**를 선택합니다.
 
 {% tabs local %}
-{% tab Canvas 진입 등록정보 %}
+{% tab Canvas 진입 속성정보 %}
 
-[`context` 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)는 Canvas 생성의 **진입 스케줄** 단계에서 구성되며 사용자를 Canvas에 진입시키는 트리거를 나타냅니다. 이러한 등록정보는 API 트리거 Canvases의 진입 페이로드 등록정보에도 접근할 수 있습니다. `context` 오브젝트는 최대 50KB까지 가능합니다.
+[`context` 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)는 Canvas 생성의 **진입 스케줄** 단계에서 구성되며 사용자를 Canvas에 진입시키는 트리거를 나타냅니다. 이러한 속성정보는 API 트리거 Canvases의 진입 페이로드 속성정보에도 접근할 수 있습니다. `context` 오브젝트는 최대 50KB까지 가능합니다.
 
-Canvas 진입 시 생성된 이러한 등록정보를 참조할 때 다음 Liquid를 사용하세요: {% raw %} ``context.${property_name}`` {% endraw %}. 이벤트는 이 방식으로 사용하려면 커스텀 이벤트 또는 구매 이벤트여야 합니다.
+Canvas 진입 시 생성된 이러한 속성정보를 참조할 때 다음 Liquid를 사용하세요: {% raw %} ``context.${property_name}`` {% endraw %}. 이벤트는 이 방식으로 사용하려면 커스텀 이벤트 또는 구매 이벤트여야 합니다.
 
 {% raw %}
 예를 들어 다음 요청을 고려해 보세요: `"context" : {"product_name" : "shoes", "product_price" : 79.99}`. 이 Liquid ``{{context.${product_name}}}``를 사용하여 메시지에 "shoes"라는 단어를 추가할 수 있습니다.
@@ -315,12 +313,12 @@ Canvas 진입 시 생성된 이러한 등록정보를 참조할 때 다음 Liqui
 
 {% endtab %}
 
-{% tab 이벤트 등록정보 %}
-이벤트 등록정보는 커스텀 이벤트 및 구매에 대해 설정한 등록정보입니다. 이러한 `event_properties`는 실행 기반 전달이 있는 Campaigns와 Canvases에서 사용할 수 있습니다.
+{% tab 이벤트 속성정보 %}
+이벤트 속성정보는 커스텀 이벤트 및 구매에 대해 설정한 속성정보입니다. 이러한 `event_properties`는 실행 기반 전달이 있는 Campaigns와 Canvases에서 사용할 수 있습니다.
 
-Canvas에서 커스텀 이벤트 및 구매 이벤트 등록정보는 행동 경로 단계 다음에 오는 모든 메시지 단계의 Liquid에서 사용할 수 있습니다. 이러한 `event_properties`를 참조할 때 이 Liquid {% raw %} ``{{event_properties.${property_name}}}`` {% endraw %}를 사용하세요. 이러한 이벤트는 메시지 구성요소에서 이 방식으로 사용하려면 커스텀 이벤트 또는 구매 이벤트여야 합니다.
+Canvas에서 커스텀 이벤트 및 구매 이벤트 속성정보는 작업 경로 단계 다음에 오는 모든 메시지 단계의 Liquid에서 사용할 수 있습니다. 이러한 `event_properties`를 참조할 때 이 Liquid {% raw %} ``{{event_properties.${property_name}}}`` {% endraw %}를 사용하세요. 이러한 이벤트는 메시지 구성요소에서 이 방식으로 사용하려면 커스텀 이벤트 또는 구매 이벤트여야 합니다.
 
-행동 경로 다음의 첫 번째 메시지 단계에서 해당 행동 경로에서 참조된 이벤트와 관련된 `event_properties`를 사용할 수 있습니다. 이 행동 경로 단계와 메시지 단계 사이에 다른 단계(다른 행동 경로 또는 메시지 단계가 아닌)가 있을 수 있습니다. 메시지 단계가 행동 경로 단계의 다른 모든 사용자가 아닌 경로로 추적될 수 있는 경우에만 `event_properties`에 접근할 수 있습니다.
+작업 경로 다음의 첫 번째 메시지 단계에서 해당 작업 경로에서 참조된 이벤트와 관련된 `event_properties`를 사용할 수 있습니다. 이 작업 경로 단계와 메시지 단계 사이에 다른 단계(다른 작업 경로 또는 메시지 단계가 아닌)가 있을 수 있습니다. 메시지 단계가 작업 경로 단계의 다른 모든 사용자가 아닌 경로로 추적될 수 있는 경우에만 `event_properties`에 접근할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}

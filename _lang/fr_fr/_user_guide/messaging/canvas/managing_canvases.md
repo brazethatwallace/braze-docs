@@ -24,6 +24,9 @@ guide_featured_list:
   - name: Cloner des Canvas
     link: /docs/user_guide/messaging/canvas/managing_canvases/cloning_canvases
     image: /assets/img/braze_icons/copy-04.svg
+  - name: Alertes de seuil Canvas
+    link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts
+    image: /assets/img/braze_icons/bell-03.svg
 
 guide_menu_title: "Ressources supplémentaires"
 guide_menu_list:

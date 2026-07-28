@@ -16,7 +16,7 @@ tool: Campaign
 A Braze recomenda que você envie apenas dados de clientes que pretende utilizar na plataforma. Considere a filosofia dos "Quatro T's da Braze" para garantir que você envie apenas dados que serão usados para:
 
 - **Target (Direcionar)** seus públicos criando [segmentos de público]({{site.baseurl}}/user_guide/audience/segments).
-- **Trigger (Disparar)** suas mensagens com entrega [baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#action-based-delivery) ou [disparada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
+- **Trigger (Disparar)** suas mensagens com entrega [baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) ou [disparada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 - **Template (Modelar)** e personalizar suas mensagens com [lógica condicional Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 - **Track (Rastrear)** a eficácia das suas campanhas com [rastreamento de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 
@@ -28,7 +28,7 @@ Isso permite otimizar os dados que você envia para a Braze e agilizar sua capac
 
 ### Identifique seu público {#identify-your-audience}
 
-Aproveite segmentos e filtros a seu favor ao definir seu público. Considere quem sua campanha e mensagens estão direcionando. Com essa informação essencial, você pode criar [campanhas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) que oferecem a flexibilidade de construir suas mensagens em diferentes canais para atender às preferências de notificação do seu público.
+Aproveite segmentos e filtros a seu favor ao definir seu público. Considere quem sua campanha e mensagens estão direcionando. Com essa informação essencial, você pode criar [campanhas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) que oferecem a flexibilidade de construir suas mensagens em diferentes canais para atender às preferências de notificação do seu público.
 
 Também é importante entender seus [usuários ativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns) para demonstrar apreço pelos seus usuários mais consistentes.
 

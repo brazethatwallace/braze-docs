@@ -3,7 +3,7 @@ nav_title: Seguimiento de la ubicación
 article_title: Seguimiento de ubicación
 page_order: 0
 page_type: reference
-description: "Este artículo de referencia explica cómo utilizar el seguimiento de ubicación y la segmentación por ubicación en tus aplicaciones, y qué socios admiten el seguimiento de ubicación."
+description: "Este artículo de referencia explica cómo utilizar el seguimiento de ubicación y la segmentación por ubicación en tus aplicaciones, y qué partners admiten el seguimiento de ubicación."
 tool: Location
 search_rank: 2
 ---
@@ -20,7 +20,7 @@ Para habilitar la recopilación de ubicación en tu aplicación, consulta la gu�
 - [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=android)
 - [Web]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=web)
 
-En general, las aplicaciones móviles utilizan el chip GPS del dispositivo y otros sistemas (como el escaneo de Wi-Fi) para rastrear la ubicación de un usuario. Las aplicaciones web utilizan WPS (sistema de posicionamiento Wi-Fi) para rastrear la ubicación de un usuario. Todas estas plataformas requieren que los usuarios opten por el seguimiento de ubicación. La precisión de tus datos de seguimiento de ubicación puede verse afectada por si tus usuarios tienen o no el Wi-Fi habilitado en sus dispositivos. Los usuarios de Android también pueden elegir diferentes modos de ubicación: los usuarios que están en modo "Ahorro de batería" o "Solo dispositivo" pueden tener datos imprecisos.
+En general, las aplicaciones móviles utilizan el chip GPS del dispositivo y otros sistemas (como el escaneo de Wi-Fi) para rastrear la ubicación de un usuario. Las aplicaciones Web utilizan WPS (sistema de posicionamiento Wi-Fi) para rastrear la ubicación de un usuario. Todas estas plataformas requieren que los usuarios opten por el seguimiento de ubicación. La precisión de tus datos de seguimiento de ubicación puede verse afectada por si tus usuarios tienen o no el Wi-Fi habilitado en sus dispositivos. Los usuarios de Android también pueden elegir diferentes modos de ubicación: los usuarios que están en modo "Ahorro de batería" o "Solo dispositivo" pueden tener datos imprecisos.
 
 ### Ubicación del usuario del SDK por dirección IP {#sdk-user-location-by-ip-address}
 
@@ -44,7 +44,7 @@ Consulta [Segmentación por ubicación]({{site.baseurl}}/user_guide/audience/seg
 
 ## Establecer manualmente el atributo de ubicación predeterminado {#hard-setting-the-default-location-attribute}
 
-También puedes utilizar el [punto de conexión `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) en nuestra API para actualizar el atributo estándar [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens). Un ejemplo es:
+También puedes utilizar el [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) en nuestra API para actualizar el atributo estándar [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). Un ejemplo es:
 
 ```
 https://[your_braze_rest_endpoint]/users/track
@@ -60,9 +60,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Soporte de socios para balizas y geovallas {#partnership-support-for-beacon-and-geofence}
+## Soporte de partners para balizas y geovallas {#partnership-support-for-beacon-and-geofence}
 
-Combinar el soporte existente de balizas o geovallas con nuestras funciones de segmentación y mensajería te proporciona más información sobre las acciones físicas de tus usuarios para que puedas enviarles mensajes en consecuencia. Puedes aprovechar el seguimiento de ubicación con algunos de nuestros socios:
+Combinar el soporte existente de balizas o geovallas con nuestras características de segmentación y mensajería te proporciona más información sobre las acciones físicas de tus usuarios para que puedas enviarles mensajes en consecuencia. Puedes aprovechar el seguimiento de ubicación con algunos de nuestros partners:
 
 - [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
 - [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)

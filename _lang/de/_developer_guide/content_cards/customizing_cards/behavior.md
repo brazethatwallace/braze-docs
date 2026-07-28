@@ -52,7 +52,7 @@ Es ist wichtig, dass sich Ihre Marketing- und Entwicklerteams darüber abstimmen
 
 Sie können Content Cards nahtlos in einen bestehenden Feed einfügen, sodass Daten aus mehreren Feeds gleichzeitig geladen werden können. Dadurch entsteht ein zusammenhängendes, harmonisches Erlebnis mit Braze Content Cards und vorhandenen Feed-Inhalten.
 
-Das Beispiel auf der rechten Seite zeigt einen Feed mit einer hybriden Liste von Artikeln, die über lokale Daten und Braze Content Cards gefüllt werden. Auf diese Weise können Content Cards ununterscheidbar neben bestehenden Inhalten stehen.
+Das nebenstehende Beispiel zeigt einen Feed mit einer hybriden Liste von Artikeln, die über lokale Daten und von Braze bereitgestellte Content Cards gefüllt werden. Auf diese Weise können Content Cards ununterscheidbar neben bestehenden Inhalten stehen.
 
 ### API-getriggerte Schlüssel-Wert-Paare {#api-triggered-key-value-pairs}
 
@@ -63,7 +63,7 @@ Das Beispiel auf der rechten Seite zeigt einen Feed mit einer hybriden Liste von
 ## Content Cards als interaktive Inhalte {#content-cards-as-interactive-content}
 ![Unten links im Bildschirm erscheint eine interaktive Content-Card mit einer 50-Prozent-Rabattaktion. Nach dem Klick wird die Aktion auf den Warenkorb angewendet.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
-Content Cards können genutzt werden, um dynamische und interaktive Erlebnisse für Ihre Nutzer:innen zu schaffen. Im Beispiel auf der rechten Seite erscheint an der Kasse ein Content-Card-Popup, das den Nutzer:innen Last-Minute-Aktionen bietet. Gut platzierte Karten wie diese sind eine großartige Möglichkeit, den Nutzer:innen einen „Anstoß“ zu bestimmten Aktionen zu geben.
+Content Cards können genutzt werden, um dynamische und interaktive Erlebnisse für Ihre Nutzer:innen zu schaffen. Im nebenstehenden Beispiel erscheint an der Kasse ein Content-Card-Popup, das den Nutzer:innen Last-Minute-Aktionen bietet. Gut platzierte Karten wie diese sind eine großartige Möglichkeit, den Nutzer:innen einen „Anstoß“ zu bestimmten Aktionen zu geben.
 
 Die Schlüssel-Wert-Paare für diesen Anwendungsfall umfassen einen `discount_percentage`, der als gewünschter Rabattbetrag festgelegt ist, und einen `class_type`, der als `coupon_code` festgelegt ist. Mit diesen Schlüssel-Wert-Paaren können Sie typspezifische Content Cards im Checkout-Bildschirm filtern und anzeigen. Weitere Informationen zur Verwendung von Schlüssel-Wert-Paaren zur Verwaltung mehrerer Feeds finden Sie unter [Anpassen des Standard-Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
 <br>
@@ -122,11 +122,13 @@ Anhand dieser Informationen können Sie dann ein Badge anzeigen, das die Anzahl 
 
 Das folgende Beispiel verwendet `braze.contentCards`, um die Anzahl der ungelesenen Content Cards abzufragen und anzuzeigen. Nachdem die App geschlossen und die Sitzung der Nutzer:innen beendet wurde, fordert dieser Code eine Kartenzählung an und filtert die Anzahl der Karten anhand der Eigenschaft `viewed`.
 
+Apps, die den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen haben (erforderlich für Apps, die mit [Xcode 27 und höher](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) erstellt wurden), sollten dies in `sceneDidEnterBackground(_:)` von `SceneDelegate.swift` implementieren, anstatt in `applicationDidEnterBackground(_:)` von `AppDelegate.swift`.
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 Implementieren Sie innerhalb dieser Methode den folgenden Code, der den Badge-Zähler aktiv aktualisiert, wenn Nutzer:innen in einer bestimmten Sitzung Karten ansehen:
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 Implementieren Sie innerhalb dieser Methode den folgenden Code, der den Badge-Zähler aktiv aktualisiert, wenn Nutzer:innen in einer bestimmten Sitzung Karten ansehen:

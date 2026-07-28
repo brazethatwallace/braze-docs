@@ -16,12 +16,16 @@ search_rank: 8
 O Currents está incluído em determinados pacotes da Braze. Entre em contato com seu representante da Braze se tiver alguma dúvida ou quiser obter acesso.
 {% endalert %}
 
-Se você vir a mensagem "Você não tem mais integrações de Currents disponíveis" ao adicionar uma nova integração, as causas mais comuns são:
+## Solução de problemas {#troubleshooting}
+
+### Não é possível adicionar uma nova integração de Currents {#cannot-add-a-new-currents-integration}
+
+Se você vir a mensagem "Você não tem mais integrações de Currents disponíveis" ao adicionar uma nova integração, ou se o botão para adicionar um novo conector de Currents estiver desativado, as causas mais comuns são:
 
 - Nenhuma permissão de Currents foi adquirida para este espaço de trabalho.
 - A permissão de Currents está disponível em um espaço de trabalho diferente na sua empresa.
 
-Entre em contato com seu gerente de conta da Braze para solicitar uma permissão ou ajustar sua configuração.
+Para resolver isso, verifique outros espaços de trabalho na sua empresa. Um espaço de trabalho diferente pode mostrar uma permissão de Currents disponível. Se você precisar solicitar uma permissão ou ajustar sua configuração, entre em contato com seu gerente de conta da Braze.
 
 ## Requisitos {#requirements}
 
@@ -88,11 +92,11 @@ Selecionar um campo para uma dessas transformações aplicará essa transformaç
 O Currents descartará eventos com cargas úteis excessivamente grandes, superiores a 900&nbsp;KB.
 {% endalert %}
 
-Antes de testar, considere conferir nossos [dados de exemplo do Currents no GitHub](https://github.com/Appboy/currents-examples). Quando estiver pronto para testar, escolha uma opção abaixo:
+Antes de testar, considere conferir nossos [dados de exemplo do Currents no GitHub](https://github.com/Appboy/currents-examples). Quando estiver pronto para testar, escolha uma opção na seção a seguir:
 
 #### Enviando eventos de teste {#sending-test-events}
 
-Para testar sua integração, você pode selecionar **Send Test Events** para enviar um evento de cada um dos seus tipos de evento selecionados para este Current. Para informações detalhadas sobre cada tipo de evento, consulte nossas bibliotecas de [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) e [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
+Para testar sua integração, você pode selecionar **Enviar eventos de teste** para enviar um evento de cada um dos seus tipos de evento selecionados para este Current. Para informações detalhadas sobre cada tipo de evento, consulte nossas bibliotecas de [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) e [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 ![A página "Teste de Currents" no dashboard da Braze.]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 

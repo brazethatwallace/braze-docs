@@ -49,7 +49,7 @@ Las etiquetas UTM pueden incorporarse tanto en enlaces HTTP regulares (web) como
 
 ##### Cálculos de etiquetas UTM {#utm-tag-calculations}
 
-Braze reporta _Clics totales_ para todos los enlaces en una Campaign o paso en Canvas, lo que puede incluir enlaces que no tienen etiquetas UTM. Esto significa que puedes ver un resultado diferente (a menudo menor) en los enlaces de seguimiento de campañas de Google Analytics en comparación con los _Clics totales_ mostrados en el rendimiento de tu campaña o en el Generador de informes.
+Braze reporta _Clics totales_ para todos los enlaces en una Campaign o paso en Canvas, lo que puede incluir enlaces que no tienen etiquetas UTM. Esto significa que puedes ver un resultado diferente (a menudo menor) en los enlaces de seguimiento de campañas de Google Analytics en comparación con los _Clics totales_ mostrados en el rendimiento de tu campaña o en el generador de informes.
 
 #### Uso de etiquetas UTM con Braze {#using-utm-tags-with-braze}
 
@@ -88,7 +88,7 @@ myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spri
 
 ## Usar personalización Liquid en URL {#use-liquid-personalization-in-urls}
 
-Puedes construir dinámicamente tu URL directamente dentro del compositor de Braze, lo que te permite añadir parámetros UTM dinámicos a tus URL o enviar a los usuarios enlaces únicos (como dirigir a los usuarios a su carrito abandonado o a un producto específico que volvió a estar en stock).
+Puedes construir dinámicamente tu URL directamente dentro del creador de Braze, lo que te permite añadir parámetros UTM dinámicos a tus URL o enviar a los usuarios enlaces únicos (como dirigir a los usuarios a su carrito abandonado o a un producto específico que volvió a estar en stock).
 
 ### Crear una URL con etiquetas de personalización Liquid compatibles {#create-a-url-with-supported-liquid-personalization-tags}
 
@@ -100,7 +100,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-También admitimos el acortamiento de variables Liquid definidas de forma personalizada. A continuación se muestran varios ejemplos:
+También admitimos el acortamiento de variables Liquid definidas de forma personalizada, como en los siguientes ejemplos:
 
 ### Crear una URL usando variables Liquid {#create-a-url-using-liquid-variables}
 
@@ -117,11 +117,11 @@ https://example.com/{{url_var}}
 
 Acortamos las URL que son generadas por Liquid, incluso aquellas incluidas en propiedades de desencadenamiento por API. Por ejemplo, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa una URL válida, acortamos y rastreamos esa URL antes de enviar el mensaje.
 
-### Acortar URL en el punto de conexión `/messages/send` {#shorten-urls-in-messagessend-endpoint}
+### Acortar URL en el endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
-El acortamiento de enlaces también está habilitado para mensajes exclusivos de API a través del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para una lista completa de parámetros de solicitud, consulta [parámetros de solicitud]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
+El acortamiento de enlaces también está habilitado para mensajes exclusivos de API a través del [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para una lista completa de parámetros de solicitud, consulta [parámetros de solicitud]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Sí | Booleano | Establece `link_shortening_enabled` en `true` para activar el acortamiento de enlaces. Para usar el seguimiento, deben estar presentes un `campaign_id` y un `message_variation_id`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Acortar URL en el punto de conexión /messages/send" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Acortar URL en el endpoint /messages/send" }

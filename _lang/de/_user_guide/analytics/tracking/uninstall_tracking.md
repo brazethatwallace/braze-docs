@@ -8,7 +8,7 @@ tool: Reports
 
 ---
 
-# Uninstall-Tracking {#uninstall-tracking}
+# Uninstall-Tracking
 
 > Dieser Artikel zeigt Ihnen, wie Sie die Gesamtheit der App-Deinstallationen im Laufe der Zeit betrachten können, um Trends und Anomalien zu erkennen, und wie Sie Deinstallationen auf Kampagnenebene verfolgen können, um festzustellen, ob eine bestimmte Campaign App-Installationen fördert oder verhindert.
 
@@ -112,3 +112,7 @@ Wenn Sie ein Segment haben, das passive Nutzer:innen mit aktiviertem [Analytics-
 Der Unterschied ist zu erwarten.
 
 Apple verwendet einen zufälligen Zeitplan, um die Meldung zu verzögern, wenn ein Push-Token ungültig wird. Das bedeutet, dass APNs auch nach der Deinstallation einer App noch für eine gewisse Zeit erfolgreiche Antworten auf Push-Benachrichtigungen zurückgeben können. Diese Verzögerung ist beabsichtigt und dient dem Schutz der Privatsphäre der Nutzer:innen. Es wird kein Bounce oder Fehler gemeldet, bis APNs einen `410`-Status für ein ungültiges Token zurückgibt.
+
+### Wie hängt das Uninstall-Tracking mit stillen oder Hintergrund-Push-Nachrichten zusammen? {#how-does-uninstall-tracking-relate-to-silent-or-background-push}
+
+Die Deinstallationserkennung kann Push-Nachrichten mit niedriger Priorität im Hintergrund verwenden, die nicht als sichtbare Benachrichtigung angezeigt werden. Diese sind von den [**Sends**]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) einer Campaign in den Standard-Messaging-Analytics getrennt. Wenn Sie Deinstallationstrends analysieren, betrachten Sie die Deinstallationsdiagramme zusammen mit den Push-Engagement-Metriken, anstatt Deinstallations-Pushes direkt mit den Gesamtzahlen der Marketing-Sends zu vergleichen.

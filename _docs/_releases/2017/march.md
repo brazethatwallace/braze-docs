@@ -10,7 +10,7 @@ description: "This article contains release notes for March 2017."
 
 ## New retargeting filter
 
-We've added a new "Converted from Canvas" filter to provide more seamless retargeting options. Learn more about using [retargeting filters]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#retarget-campaigns).
+We've added a new "Converted from Canvas" filter to provide more seamless retargeting options. Learn more about using [retargeting filters]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/).
 
 ## Webhook templates
 

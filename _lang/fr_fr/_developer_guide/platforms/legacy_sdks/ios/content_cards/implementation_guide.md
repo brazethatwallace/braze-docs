@@ -122,7 +122,7 @@ Un objet `ContentCardData` représentant les données `ABKContentCard` avec un e
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Custom Objects %}
+{% tab Objets personnalisés %}
 {% subtabs global %}
 {% subtab Swift %}
 **Initialiseur d'objet personnalisé**<br>
@@ -224,7 +224,7 @@ typedef NS_ENUM(NSInteger, ContentCardClassType) {
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Handling Content Cards %}
+{% tab Gestion des Content Cards %}
 {% subtabs global %}
 {% subtab Swift %}
 **Demander des Content Cards**<br>
@@ -297,7 +297,7 @@ Le `class_type` est transmis comme filtre pour ne renvoyer que les Content Cards
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Working with Payload Data %}
+{% tab Travailler avec les données de la charge utile %}
 {% subtabs global %}
 {% subtab Swift %}
 **Travailler avec les données de la charge utile**<br>
@@ -438,7 +438,7 @@ Vous trouverez ci-dessous trois cas d'utilisation. Chaque cas d'utilisation offr
 
 Vous pouvez intégrer de façon fluide les Content Cards dans un flux existant, ce qui permet de charger simultanément les données de plusieurs flux. Cela crée une expérience cohésive et harmonieuse avec les Content Cards de Braze et le contenu du flux existant.
 
-L'exemple à droite montre un `UICollectionView` avec une liste hybride d'éléments renseignés par les données locales et les Content Cards alimentées par Braze. Avec cette méthode, les Content Cards ne peuvent pas être différenciées du contenu existant.
+L'exemple ci-contre montre un `UICollectionView` avec une liste hybride d'éléments renseignés par les données locales et les Content Cards alimentées par Braze. Avec cette méthode, les Content Cards ne peuvent pas être différenciées du contenu existant.
 
 #### Configuration du tableau de bord {#dashboard-configuration}
 
@@ -533,7 +533,7 @@ Consultez la [section suivante](#logging-impressions-clicks-and-dismissals) pour
 
 ### Content Cards interactives {#interactive-content-cards}
 <br>
-Les Content Cards peuvent être utilisées pour créer des expériences dynamiques et interactives pour vos utilisateurs. Dans l'exemple à droite, une fenêtre contextuelle de Content Card apparaît au moment du paiement, fournissant aux utilisateurs des promotions de dernière minute.
+Les Content Cards peuvent être utilisées pour créer des expériences dynamiques et interactives pour vos utilisateurs. Dans l'exemple ci-contre, une fenêtre contextuelle de Content Card apparaît au moment du paiement, fournissant aux utilisateurs des promotions de dernière minute.
 
 Des cartes bien placées comme celles-ci constituent un excellent moyen d'encourager les utilisateurs à entreprendre des actions spécifiques.
 <br><br><br>
@@ -556,7 +556,7 @@ Ce comportement peut être modifié comme indiqué dans notre [guide des styles 
 
 Après avoir étendu vos objets personnalisés pour qu'ils fonctionnent comme des Content Cards, l'enregistrement d'indicateurs précieux tels que les impressions, les clics et les rejets est rapide. Pour ce faire, vous pouvez utiliser un protocole `ContentCardable` qui référence et fournit des données à un fichier auxiliaire qui sera enregistré par le SDK Braze.
 
-### Composants d'implémentation<br><br> {#implementation-components}
+### Composants d'implémentation {#implementation-components}<br><br> {#implementation-components}
 
 {% tabs %}
 {% tab Swift %}

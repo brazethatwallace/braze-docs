@@ -8,25 +8,24 @@ search_tag: Partner
 
 ---
 
-# Análisis de Heap
+# Análisis de Heap {#heap-analytics}
 
-> Este artículo describe cómo enviar automáticamente eventos de interacción de Braze a Heap para su análisis. Para más información sobre la integración de Heap y sus otras funcionalidades, como la [sincronización de cohortes de Heap]({{site.baseurl}}/partners/data_and_infrastructure_agility/cohort_import/heap/#data-import-integration) con Braze, consulta el [artículo principal sobre Heap]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/heap_cohort_import/).
+> Este artículo describe cómo enviar automáticamente eventos de interacción de Braze a Heap para su análisis. Para más información sobre la integración de Heap y sus otras funcionalidades, como la [sincronización de cohortes de Heap]({{site.baseurl}}/partners/data_and_infrastructure_agility/cohort_import/heap#data-import-integration) con Braze, consulta el [artículo principal sobre Heap]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/heap_cohort_import).
 
-## Integración de exportación de datos
+## Integración de exportación de datos {#data-export-integration}
 
 Utiliza Braze Currents para enviar automáticamente eventos de interacción (por ejemplo, correo electrónico enviado, push enviado) desde Braze a Heap para su análisis.
 
-### Paso 1: Obtener credenciales de Heap
+### Paso 1: Obtener credenciales de Heap {#step-1-get-heap-credentials}
 
-Necesitarás una URL de punto final de webhook para configurar esta integración, que puedes obtener de tu director de cuentas de Heap.
+Necesitarás una URL de endpoint de webhook para configurar esta integración, que puedes obtener de tu director de cuentas de Heap.
 
-### Paso 2: Configurar Braze Currents
+### Paso 2: Configurar Braze Currents {#step-2-configure-braze-currents}
 
-En Braze, ve a **Integraciones de socios** > **Exportación de datos**, haz clic en **Crear nuevo Current** y selecciona **Exportación de Heap**. 
+En Braze, ve a **Integraciones de socios** > **Exportación de datos**, haz clic en **Crear nuevo Current** y selecciona **Exportación de Heap**.
 
 Dale un nombre a tu exportación y pasa a la página **Detalles de Current**. En esta página, introduce el endpoint y el token de portador opcional (si se proporciona).
 
-Tras configurar las credenciales de tu integración, comprueba todos los eventos de interacción con los mensajes, comportamiento del cliente y usuario que quieras exportar a Heap, y haz clic en **Iniciar Current**.
+Tras configurar las credenciales de tu integración, marca todos los eventos de interacción con los mensajes, comportamiento del cliente y usuario que quieras exportar a Heap, y haz clic en **Iniciar Current**.
 
-![]({% image_buster /assets/img/heap/heap4.png %}){: style="max-width:90%;"}
-
+![Página de configuración de Braze Heap Current con campos de endpoint, token y selección de eventos.]({% image_buster /assets/img/heap/heap4.png %}){: style="max-width:90%;"}

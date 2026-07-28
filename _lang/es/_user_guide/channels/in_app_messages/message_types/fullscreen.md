@@ -34,26 +34,24 @@ Este tipo de mensaje está disponible tanto en el [editor de arrastrar y soltar]
 
 Los mensajes dentro de la aplicación a pantalla completa llenarán toda la altura del dispositivo y se recortarán horizontalmente (lados izquierdo y derecho) según sea necesario. Los mensajes a pantalla completa con imagen y texto llenarán el 50 % de la altura del dispositivo. Todos los mensajes dentro de la aplicación a pantalla completa llenarán la barra de estado en dispositivos con "muesca".
 
-- Todas las imágenes deben pesar menos de 5&nbsp;MB.
-- Solo aceptamos archivos de tipo PNG, JPEG y [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs).
-- Recomendamos que tus imágenes pesen 500&nbsp;KB.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} ¡Crea activos con confianza! Nuestras plantillas de imágenes para mensajes dentro de la aplicación y las superposiciones de zona segura están diseñadas para funcionar correctamente en dispositivos de todos los tamaños. [Descargar plantillas de diseño en ZIP]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
 ### Vertical {#portrait}
 
-| diseño | tamaño del activo | notas |
+| Diseño | Tamaño del activo | Notas |
 |--- | --- | --- |
 | Imagen y texto | Relación de aspecto 6:5<br> Alta resolución 1200 x 1000&nbsp;px<br> Mínimo 600 x 500&nbsp;px | Puede haber recorte en todos los lados, pero la imagen siempre llenará el 50 % superior del viewport |
-| Solo imagen | Relación de aspecto 3:5<br> Alta resolución 1200 x 2000&nbsp;px<br> Mínimo 600 x 1000&nbsp;px | Puede haber recorte en los bordes izquierdo y derecho en dispositivos más altos |
+| Solo imagen | Relación de aspecto 3:5<br> Alta resolución 1200 x 2000&nbsp;px<br> Mínimo 600 x 1000&nbsp;px | Puede haber recorte en el borde principal y en el borde derecho en dispositivos más altos |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Vertical" }
 
 ### Horizontal {#landscape}
 
-| diseño | tamaño del activo | notas |
+| Diseño | Tamaño del activo | Notas |
 |--- | --- | --- |
 | Imagen y texto | Relación de aspecto 10:3<br> Alta resolución 2000 x 600px<br> Mínimo 1000 x 300&nbsp;px | Puede haber recorte en todos los lados, pero la imagen siempre llenará el 50 % superior del viewport |
-| Solo imagen | Relación de aspecto 5:3<br> Alta resolución 2000 x 1200px<br> Mínimo 1000 x 600&nbsp;px | Puede haber recorte en los bordes izquierdo y derecho en dispositivos más altos |
+| Solo imagen | Relación de aspecto 5:3<br> Alta resolución 2000 x 1200px<br> Mínimo 1000 x 600&nbsp;px | Puede haber recorte en el borde principal y en el borde derecho en dispositivos más altos |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Horizontal" }
 
 ### Zona segura de imagen {#image-safe-zone}

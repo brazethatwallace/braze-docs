@@ -20,7 +20,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 Si quieres usar tus plantillas HTML personalizadas existentes o plantillas creadas por terceros, deben recrearse en el editor de arrastrar y soltar.
 
-¿No tienes claro si tu mensaje dentro de la aplicación debe enviarse usando una campaña o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos. Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un mensaje dentro de la aplicación con arrastrar y soltar.
+¿No tienes claro si tu mensaje dentro de la aplicación debe enviarse usando una Campaign o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)? Las Campaigns son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos. Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un mensaje dentro de la aplicación con arrastrar y soltar.
 
 ## Requisitos previos {#prerequisites}
 
@@ -33,7 +33,7 @@ Si quieres usar tus plantillas HTML personalizadas existentes o plantillas cread
 
 {% details Más información sobre los SDK mínimos %}
 
-Los mensajes creados con el editor de arrastrar y soltar solo pueden enviarse a usuarios con las versiones mínimas del SDK (consulta la tabla anterior). Si un usuario no ha actualizado su aplicación (es decir, está en una versión anterior del SDK), no recibirá el mensaje dentro de la aplicación.
+Los mensajes creados con el editor de arrastrar y soltar solo pueden enviarse a usuarios con las versiones mínimas del SDK (consulta la tabla de la sección anterior). Si un usuario no ha actualizado su aplicación (es decir, está en una versión anterior del SDK), no recibirá el mensaje dentro de la aplicación.
 
 Para aprovechar todas las características disponibles en el editor de arrastrar y soltar, actualiza tus SDK a las versiones recomendadas. Esto te permite aprovechar las siguientes características adicionales:
 
@@ -72,7 +72,7 @@ Selecciona **Build message** para comenzar a diseñar tu mensaje dentro de la ap
 
 ![La sección de plantillas de Braze donde puedes elegir una plantilla básica, de imagen de fondo, de captura de número de teléfono o en blanco.]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
 
-También puedes acceder a todas las plantillas desde la sección **Templates** del dashboard.
+También puedes acceder a todas las plantillas desde la sección **Templates** del panel.
 
 ## Paso 3: Agregar páginas adicionales (opcional) {#multi-page}
 
@@ -140,9 +140,9 @@ Aquí es donde tu mensaje puede lucirse, vestido con el estilo distintivo de tu 
 
 ## Paso 5: Probar tu mensaje dentro de la aplicación {#step-5-test-your-in-app-message}
 
-La sección **Preview & Test** te permite previsualizar tus mensajes dentro de la aplicación en diferentes dispositivos y enviar un mensaje de prueba a tu dispositivo. Aquí puedes asegurarte de que los detalles estén alineados en todas tus plataformas para tu campaña de mensaje dentro de la aplicación de arrastrar y soltar.
+La sección **Preview & Test** te permite previsualizar tus mensajes dentro de la aplicación en diferentes dispositivos y enviar un mensaje de prueba a tu dispositivo. Aquí puedes asegurarte de que los detalles estén alineados en todas tus plataformas para tu Campaign de mensaje dentro de la aplicación de arrastrar y soltar.
 
-Es importante siempre probar tus mensajes dentro de la aplicación antes de enviar tus campañas para ayudarte a visualizar cómo se verá tu mensaje final desde la perspectiva de tu usuario.
+Es importante siempre probar tus mensajes dentro de la aplicación antes de enviar tus Campaigns para ayudarte a visualizar cómo se verá tu mensaje final desde la perspectiva de tu usuario.
 
 ### Previsualizar el mensaje como un usuario {#preview-message-as-a-user}
 
@@ -186,9 +186,9 @@ No puedes transferir directamente mensajes HTML existentes al editor, pero puede
 
 Actualmente, el editor está limitado solo a mensajes modales y de pantalla completa. Puedes cambiar entre tipos de visualización en la sección **Message container** del panel **Message styles**.
 
-### ¿Puedo guardar mi mensaje dentro de la aplicación como plantilla después de construirlo dentro de mi campaña o Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### ¿Puedo guardar mi mensaje dentro de la aplicación como plantilla después de construirlo dentro de mi Campaign o Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en una futura campaña o paso en Canvas, puedes guardarlo como plantilla personalizada usando el botón **Save as template**, disponible después de salir del editor. Antes de poder guardarlo como plantilla, primero debes lanzar la campaña O guardarlo como borrador.
+Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en una futura Campaign o paso en Canvas, puedes guardarlo como plantilla personalizada usando el botón **Save as template**, disponible después de salir del editor. Antes de poder guardarlo como plantilla, primero debes lanzar la Campaign O guardarlo como borrador.
 
 ![Una vista previa de un mensaje dentro de la aplicación para un recorrido de producto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 

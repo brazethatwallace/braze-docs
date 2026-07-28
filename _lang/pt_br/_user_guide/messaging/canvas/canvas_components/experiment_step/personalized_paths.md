@@ -78,7 +78,9 @@ Quando o período do experimento passar e o experimento estiver concluído, todo
 
 ## Análise de dados {#analytics}
 
-Se as Jornadas personalizadas estiverem ativadas, sua visualização de análise de dados é separada em duas guias: **Experimento inicial** e **Jornadas personalizadas**.
+Quando as Jornadas personalizadas estão ativadas e produzem resultados suficientes, sua visualização de análise de dados é separada em duas guias: **Experimento inicial** e **Jornadas personalizadas**.
+
+Se o experimento for concluído com resultados insuficientes, apenas a guia **Experimento inicial** será exibida, pois o modelo determina que a personalização não superaria o envio de todos os usuários pela jornada com melhor desempenho geral. Nesse caso, o comportamento de fallback configurado é aplicado e nenhuma análise de Jornadas personalizadas fica disponível.
 
 {% tabs local %}
 {% tab Experimento inicial %}
@@ -134,7 +136,7 @@ Os três cartões nesta página mostram o aumento projetado, os resultados gerai
 
 - **Aumento projetado:** A melhoria no evento de conversão selecionado devido ao uso de Jornadas personalizadas em vez de enviar todos os usuários pela jornada com melhor desempenho geral.
 - **Resultados gerais:** Os resultados do segundo envio com base no seu evento de conversão.
-- **Resultados projetados:** Os resultados projetados do segundo envio com base na métrica de otimização escolhida, caso você tivesse enviado apenas a Variante vencedora.
+- **Resultados projetados:** Os resultados projetados do segundo envio com base na métrica de otimização escolhida, caso você tivesse enviado apenas a variante vencedora.
 
 ![Guia Jornadas personalizadas para um Canvas. Os cartões mostram o Aumento projetado, Conversões gerais (com Jornadas personalizadas) e Aberturas únicas projetadas (com Jornada vencedora).]({% image_buster /assets/img/experiment_step/experiment_personalized_analytics_tab2.png %})
 

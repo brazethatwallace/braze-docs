@@ -27,10 +27,10 @@ Fullstory의 세션 요약 데이터의 실시간 가치는 연결된 콘텐츠�
 
 | 요구 사항 | 설명 |
 |-----------------------|-----------------|
-| Fullstory 세션 API 승인 토큰 | 아래 1단계를 참조하세요. |
-| Braze 연결된 콘텐츠 승인 토큰 활성화 | 얼리 액세스에 대한 아래 참고 사항을 참조하세요. |
-| Braze Canvas 컨텍스트 단계 | 얼리 액세스에 대한 아래 참고 사항을 참조하세요. |
-| 활성화된 Braze AI 에이전트 단계 | 얼리 액세스에 대한 아래 참고 사항을 참조하세요. |
+| Fullstory 세션 API 승인 토큰 | 이 가이드의 1단계를 참조하세요. |
+| Braze 연결된 콘텐츠 승인 토큰 활성화 | 이 섹션의 얼리 액세스 참고 사항을 참조하세요. |
+| Braze Canvas 컨텍스트 단계 | 이 섹션의 얼리 액세스 참고 사항을 참조하세요. |
+| 활성화된 Braze AI 에이전트 단계 | 이 섹션의 얼리 액세스 참고 사항을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 {% alert important %}
@@ -64,7 +64,7 @@ Braze 에이전트, Canvas 컨텍스트, 연결된 콘텐츠 승인 토큰은 �
 
 ![자격 증명 편집 필드를 보여주는 Braze 스크린샷]({% image_buster /assets/img/fullstory/1.png %}){: style="max-width:50%;"}
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 ### 동적 메시지 여정 생성 {#create-dynamic-message-journeys}
 
@@ -151,7 +151,7 @@ Canvas 컨텍스트 단계와 연결된 콘텐츠를 활용하면 이 ID를 사�
 {% endraw %}
 {% enddetails %}
 
-나중에 사용자의 Canvas 여정에서 컨텍스트 Liquid 태그를 사용하여 위 오브젝트에서 사용 가능한 모든 데이터를 활용할 수 있습니다. 다음 단계에서는 [에이전트]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step/) 단계에서 이 데이터를 사용하는 방법을 보여줍니다.
+나중에 사용자의 Canvas 여정에서 컨텍스트 Liquid 태그를 사용하여 위 오브젝트에서 사용 가능한 모든 데이터를 활용할 수 있습니다. 다음 단계에서는 [에이전트]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step) 단계에서 이 데이터를 사용하는 방법을 보여줍니다.
 
 {% alert note %}
 예기치 않은 동작을 방지하려면 컨텍스트 단계 뒤에 오디언스 경로 단계를 포함하세요. 컨텍스트 태그가 비어 있는 경우(연결된 콘텐츠 호출이 실패했거나 정보가 반환되지 않았음을 나타냄) 사용자를 컨텍스트에서 제외할 수 있습니다.
@@ -162,7 +162,7 @@ Canvas 컨텍스트 단계와 연결된 콘텐츠를 활용하면 이 ID를 사�
 
 ### 적절한 카피 생성 {#produce-appropriate-copy}
 
-Fullstory가 트리거한 Canvas에 [에이전트 단계]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)를 생성하고 위에서 설명한 컨텍스트 단계를 포함하면 에이전트에서 Fullstory의 세션 요약 데이터를 참조할 수 있습니다.
+Fullstory가 트리거한 Canvas에 [에이전트 단계]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)를 생성하고 이 섹션에서 설명한 컨텍스트 단계를 포함하면 에이전트에서 Fullstory의 세션 요약 데이터를 참조할 수 있습니다.
 
 이 예시에서는 이 데이터를 사용하여 Braze 에이전트가 콘텐츠 카드에 사용할 적절한 메시지 카피를 생성하도록 하여 사용자가 유기한 장바구니로 돌아오도록 유도합니다.
 
@@ -170,7 +170,7 @@ Fullstory가 트리거한 Canvas에 [에이전트 단계]({{site.baseurl}}/user_
 
 이 단계에서 생성한 컨텍스트 Liquid 태그의 이름은 앞서 생성한 AI 에이전트 단계에서 사용한 컨텍스트 Liquid 태그와 동일한 이름을 사용합니다.
 
-사용 사례에 따라 필요한 프롬프트는 다릅니다. 효과적인 에이전트 프롬프트를 만들기 위한 모범 사례는 [작성 지침]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)을 참조하세요.
+사용 사례에 따라 필요한 프롬프트는 다릅니다. 효과적인 에이전트 프롬프트를 만들기 위한 모범 사례는 [작성 지침]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions)을 참조하세요.
 
 Canvas에서 AI 에이전트 단계를 선택한 다음 드롭다운에서 **Session Context** 에이전트를 선택합니다. 출력을 변수(이 경우 "message")로 저장하면 Liquid 태그 {% raw %}`{{context.${message}.message}}`{% endraw %}를 사용하여 메시지 카피에 배치할 수 있습니다.
 

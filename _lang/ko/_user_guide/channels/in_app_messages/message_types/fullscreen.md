@@ -34,26 +34,24 @@ tool:
 
 전체화면 인앱 메시지는 기기의 전체 높이를 채우며 필요에 따라 가로(좌우)로 잘릴 수 있습니다. 이미지 및 텍스트 전체화면 메시지는 기기 높이의 50%를 채웁니다. 모든 전체화면 인앱 메시지는 "노치" 기기에서 상태 표시줄을 채웁니다.
 
-- 모든 이미지는 5&nbsp;MB 미만이어야 합니다.
-- PNG, JPEG 및 [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs) 파일 형식만 지원합니다.
-- 이미지 크기는 500&nbsp;KB를 권장합니다.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
-{% alert tip %} 자신 있게 자산을 만들어 보세요! 인앱 메시지 이미지 템플릿과 안전 영역 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
+{% alert tip %} 자신 있게 에셋을 만들어 보세요! 인앱 메시지 이미지 템플릿과 안전 영역 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
 ### 세로 {#portrait}
 
-| 레이아웃 | 자산 크기 | 참고 |
+| 레이아웃 | 에셋 크기 | 참고 |
 |--- | --- | --- |
 | 이미지 및 텍스트 | 6:5 종횡비<br> 고해상도 1200 x 1000&nbsp;px<br> 최소 600 x 500&nbsp;px | 모든 면에서 잘림이 발생할 수 있지만, 이미지는 항상 뷰포트 상단 50%를 채웁니다 |
-| 이미지만 | 3:5 종횡비<br> 고해상도 1200 x 2000&nbsp;px<br> 최소 600 x 1000&nbsp;px | 더 긴 기기에서 좌우 가장자리에서 잘림이 발생할 수 있습니다 |
+| 이미지만 | 3:5 종횡비<br> 고해상도 1200 x 2000&nbsp;px<br> 최소 600 x 1000&nbsp;px | 더 긴 기기에서 주요 면과 오른쪽 가장자리에서 잘림이 발생할 수 있습니다 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="세로" }
 
 ### 가로 {#landscape}
 
-| 레이아웃 | 자산 크기 | 참고 |
+| 레이아웃 | 에셋 크기 | 참고 |
 |--- | --- | --- |
 | 이미지 및 텍스트 | 10:3 종횡비<br> 고해상도 2000 x 600px<br> 최소 1000 x 300&nbsp;px | 모든 면에서 잘림이 발생할 수 있지만, 이미지는 항상 뷰포트 상단 50%를 채웁니다 |
-| 이미지만 | 5:3 종횡비<br> 고해상도 2000 x 1200px<br> 최소 1000 x 600&nbsp;px | 더 긴 기기에서 좌우 가장자리에서 잘림이 발생할 수 있습니다 |
+| 이미지만 | 5:3 종횡비<br> 고해상도 2000 x 1200px<br> 최소 1000 x 600&nbsp;px | 더 긴 기기에서 주요 면과 오른쪽 가장자리에서 잘림이 발생할 수 있습니다 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="가로" }
 
 ### 이미지 안전 영역 {#image-safe-zone}
@@ -69,12 +67,12 @@ Braze 플랫폼에서 전체화면 인앱 메시지를 미리볼 때, 다양한 
 {% tabs %}
 {% tab 세로 %}
 
-![큰 화면에서 세로 방향으로 표시되는 전체화면 인앱 메시지. 메시지가 화면 가운데에 위치한 큰 모달로 나타납니다.]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
+![큰 화면에서 세로 방향으로 표시되는 전체화면 인앱 메시지. 메시지가 화면 가운데에 위치한 큰 Modal로 나타납니다.]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
 {% tab 가로 %}
 
-![큰 화면에서 가로 방향으로 표시되는 전체화면 인앱 메시지. 메시지가 화면 가운데에 위치한 큰 모달로 나타납니다.]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
+![큰 화면에서 가로 방향으로 표시되는 전체화면 인앱 메시지. 메시지가 화면 가운데에 위치한 큰 Modal로 나타납니다.]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
 {% endtabs %}

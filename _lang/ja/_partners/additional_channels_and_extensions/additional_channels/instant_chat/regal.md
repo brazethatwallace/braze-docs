@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Regal
 
-> [Regal.io](https://regal.io)は音声AIエージェントプラットフォームであり、チャネル横断でインテリジェントなリアルタイム会話を通じて、企業がより優れたカスタマーエクスペリエンスを推進できるよう支援します。
+> [Regal.io](https://regal.io)は音声AIエージェントプラットフォームであり、チャネル横断でインテリジェントなリアルタイム会話を通じて、企業がより優れた顧客体験を推進できるよう支援します。
 
 _この統合はRegalによって管理されています。_
 
@@ -29,17 +29,17 @@ Brazeのデータを使用して、AIエージェントが何を話すか、ど�
 
 ## 統合：BrazeからRegalにデータを送信する {#integration-sending-data-from-braze-to-regal}
 
-BrazeのキャンバスまたはキャンペーンのWebhookを使用して、顧客プロファイルとイベントデータをBrazeからRegalに送信します。
+Brazeのキャンバスまたはキャンペーンのwebhookを使用して、顧客プロファイルとイベントデータをBrazeからRegalに送信します。
 
 ### ステップ1：Regalで新しい連絡先を作成する {#step-1-create-new-contacts-in-regal}
 
-Regalでの通話やテキストに利用できるようにすべき新しいBrazeプロファイルが作成されるたびに、WebhookをRegalに送信するキャンバスまたはキャンペーンを作成します。
+Regalでの通話やテキストに利用できるようにすべき新しいBrazeプロファイルが作成されるたびに、webhookをRegalに送信するキャンバスまたはキャンペーンを作成します。
 
 1. 「Create New Contact for Regal」というタイトルのキャンバスまたはキャンペーンを作成し、エントリタイプとして**アクションベース**を選択します。
 
 2. トリガーロジックを**カスタムイベント**に設定し、電話番号を持つプロファイルが作成されたときに発生するイベントを選択します。Regalでは、電話番号フィールドが設定されていることを確認するフィルターを追加することも推奨しています。
 
-3. 新しいWebhookテンプレートに、次のフィールドを記入してください：
+3. 新しいwebhookテンプレートに、次のフィールドを記入してください：
    - **Webhook URL**：<https://events.regalvoice.com/events>
    - **リクエスト本文**：Raw Text
 
@@ -113,7 +113,7 @@ Regalには、認証用のHTTPヘッダーとHTTPメソッドも必要です。�
 
 ### ステップ2：オプトイン情報を更新する {#step-2-update-opt-in-information}
 
-アプリ内のさまざまなタイミングでオプトインおよびオプトアウトが発生する可能性がある場合、ユーザーがサブスクリプションステータスを変更したときにRegalを更新します。
+アプリ内のさまざまなタイミングでオプトインおよびオプトアウトが発生する可能性がある場合、ユーザーが購読ステータスを変更したときにRegalを更新します。
 
 Regalでは、連絡先レベルではなく電話番号ごとにオプトインとオプトアウトを管理できるよう、`traits.phones`スキーマの使用を推奨しています。
 
@@ -123,10 +123,10 @@ Regalでは、連絡先レベルではなく電話番号ごとにオプトイン
 
 2. 次のトリガーオプションのいずれかを選択し、ユーザーのオプトインステータスを表すフィールドを選択します：
     - **ユーザープロファイルフィールドの更新**
-    - **サブスクリプショングループステータスの更新**
-    - **サブスクリプションステータス**
+    - **購読グループステータスの更新**
+    - **購読ステータス**
 
-3. 新しいWebhookテンプレートに、次のフィールドを記入してください：
+3. 新しいwebhookテンプレートに、次のフィールドを記入してください：
    - **Webhook URL**：<https://events.regalvoice.com/events>
    - **リクエスト本文**：Raw Text
 
@@ -181,7 +181,7 @@ Regalに送信するキーイベントごとに、キャンバスまたはキャ
 
 - **AIエージェントの発話をパーソナライズ**：最近の行動や製品への関心を会話で直接参照します。
   - 例：ユーザーが生命保険のオプションを閲覧した場合、エージェントは会話で`contact.firstName`と`contact.brazeProductInterest`を参照できます。
-- **動的な会話ロジックを駆動**：エージェントがリアルタイムで優先する内容を調整します。
+- **ダイナミックな会話ロジックを駆動**：エージェントがリアルタイムで優先する内容を調整します。
   - 例：`contact.brazeAge`が65歳を超える場合はMedicare補償を優先し、それ以外の場合はACAプランと現在の保険ステータスに焦点を当てます。
 - **インテリジェントなルーティングとエスカレーションを実現**：価値やインテントに基づいて会話をルーティングします。
   - 例：`contact.brazeLeadTier`が「High Value」の場合、資格確認後にシニアエージェントに転送し、それ以外の場合はAIエージェントで続行します。
@@ -266,7 +266,7 @@ Regal Reporting WebhookとBrazeデータ変換を使用して、Regalのレポ�
 
 ### ステップ1：Brazeでデータ変換を作成する {#step-1-create-a-data-transformation-in-braze}
 
-Brazeに送信する予定のRegal Webhookごとに、1つのデータ変換を作成します。
+Brazeに送信する予定のRegal webhookごとに、1つのデータ変換を作成します。
 
 データ変換を作成するには：
 1. Brazeダッシュボードの**Transformations**ページに移動します。
@@ -276,11 +276,11 @@ Brazeに送信する予定のRegal Webhookごとに、1つのデータ変換を�
 ### ステップ2：Regalでレポートwebhookを有効にする {#step-2-enable-reporting-webhooks-in-regal}
 
 レポートwebhookを設定するには：
-1. Regalアプリに移動して、**Settings**ページを開きます。
+1. Regalアプリに移動して、**設定**ページを開きます。
 
 2. **Reporting Webhooks**セクションで、**Create Webhooks**をクリックします。
 
-3. Webhookエンドポイント入力で、関連するデータ変換のBrazeデータ変換Webhook URLを追加します。
+3. webhookエンドポイント入力で、関連するデータ変換のBrazeデータ変換webhook URLを追加します。
 
 #### エンドポイントの更新 {#updating-an-endpoint}
 
@@ -540,9 +540,9 @@ return brazecall;
 
 ```
 {% endtab %}
-{% tab 連絡先の配信停止 %}
+{% tab 連絡先の購読解除 %}
 
-**Regalの`contact.unsubscribed`イベントに基づいて、Brazeで連絡先の配信停止を行う**
+**Regalの`contact.unsubscribed`イベントに基づいて、Brazeで連絡先の購読解除を行う**
 
 以下は、Regalの`contact.unsubscribed`イベントのサンプルペイロードです。
 
@@ -568,7 +568,7 @@ return brazecall;
 }
 ```
 
-以下は、Brazeで連絡先の配信停止を行うサンプルデータ変換です。
+以下は、Brazeで連絡先の購読解除を行うサンプルデータ変換です。
 
 ```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.

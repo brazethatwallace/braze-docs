@@ -34,7 +34,7 @@ Marketing templates are the most common type used in Braze. They consist of up t
 |---|---|---|
 | Header | No | Supports text, image, video, document, or location. See [Media Specifications](#media-specifications) for file type, size, and dimension requirements. |
 | Body | Yes | The main message content |
-| Footer | No | Supplementary text displayed below the body |
+| Footer | No | Supplementary text that follows the body |
 | Buttons | No | Include up to 10 buttons (all button types are supported) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Marketing templates" }
 
@@ -54,7 +54,7 @@ Marketing templates are the most common type used in Braze. They consist of up t
 | Button type | Behavior | Notes |
 |---|---|---|
 | Quick reply | Sends the button label text as a reply in the conversation | |
-| URL | Opens a URL in the user's default browser; supports 1 variable appended to the end of the URL (max 2,000 characters) | |
+| URL | Opens a URL in the user's default browser; supports 1 variable appended to the end of the URL (max 2,000 characters) | URLs containing special characters (such as `&`, `%`, `<`, `>`) may cause message send failures. Use the [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) or [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) Liquid filter to properly encode URLs with special characters. |
 | Phone number | Initiates a call to the specified phone number | |
 | Copy coupon code | Copies a coupon code to the user's clipboard | Always requires Meta approval |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Button types" }
@@ -62,6 +62,38 @@ Marketing templates are the most common type used in Braze. They consist of up t
 #### Parameter formatting
 
 Template variables can use either named parameters (such as {% raw %}`{{first_name}}`{% endraw %}) or positional parameters (such as {% raw %}`{{1}}`{% endraw %}). In Braze, variables can be replaced with Liquid or plain text. Always include default values for Liquid variables; messages with missing variable values will not be sent.
+
+### Limited time offer templates
+
+Limited time offer templates display a time-sensitive promotional offer with an optional countdown as the offer nears expiration. Use this layout for time-boxed promotions, such as seasonal sales or offers personalized to a user attribute.
+
+| Component | Required | Notes |
+|---|---|---|
+| Header | No | Select **None** or add media (image or video). See [Media Specifications](#media-specifications) for file type, size, and dimension requirements. |
+| Offer details | Yes | Offer title, offer code, and an optional expiration. |
+| Body | Yes | The main message content. Supports Liquid. |
+| Footer | No | Supplementary text displayed after the body. |
+| Buttons | Yes | **Copy offer code** is included automatically. You can add one **Visit website** button; no other button types are supported for this template type. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limited time offer templates" }
+
+#### Offer details
+
+| Field | Required | Notes |
+|---|---|---|
+| Title | Yes | A short line describing the offer. |
+| Code | Yes | The offer code recipients will copy. This populates the **Copy offer code** button automatically. |
+| Expiration | No | Set a fixed date and time (for example, an end date for a summer sale), or personalize it based on a user attribute (for example, each user's birthday). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Offer details" }
+
+If you set an expiration, recipients see a countdown in the message that updates as the offer nears its end. For example, the message could initially show the end date, then switch to something like "5 days left" when the end date is closer. If you don't set an expiration, the offer displays without a countdown. Braze prevents messages from sending when the expiration is in the past (for example, if the expiration is November 1, 2026 but the send time is November 15, 2026).
+
+#### Button types
+
+| Button type | Notes |
+|---|---|
+| Copy offer code | Included automatically. Button text is "Copy offer code", and can't be edited. |
+| Visit website | The only other button you can add. Maximum of 1. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limited time offer button types" }
 
 ### Media Card carousel templates
 

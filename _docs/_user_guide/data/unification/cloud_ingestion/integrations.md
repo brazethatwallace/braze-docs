@@ -68,7 +68,7 @@ There may be two to five minutes of warm-up time when Braze connects to Classic 
 Before you start, review [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) to understand source table requirements compared to `PAYLOAD` formatting requirements.
 
 {% alert note %}
-Your source table or view can include columns that aren't listed for your warehouse in the tabs below (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
+Your source table or view can include columns that aren't listed for your warehouse in the tabs in the following section (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
 {% endalert %}
 
 {% tabs %}
@@ -376,16 +376,9 @@ If you have network policies in place, you must give Braze network access to you
 #### Step 1.1: Set up the service principal and grant access
 Braze connects to your Fabric warehouse using a service principal with Entra ID authentication. Create a new service principal for Braze to use, and grant access to Fabric resources as needed. Braze needs the following details to connect:    
 
-* Tenant ID (also called directory) for your Azure account 
-* Principal ID (also called application ID) for the service principal 
-* Client secret for Braze to authenticate
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
-1. In the Azure portal, navigate to Microsoft Entra admin center, and then App Registrations 
-2. Select **+ New registration** under **Identity** > **Applications** > **App registrations**.
-3. Enter a name, and then select `Accounts in this organizational directory only` as the supported account type. Then, select **Register**. 
-4. Select the application (service principal) you just created, then navigate to **Certificates & secrets** > **+ New client secret**.
-5. Enter a description for the secret, and set an expiry period for the secret. Then, select **Add**. 
-6. Note the client secret created to use in the Braze setup. 
+{% multi_lang_include data_unification/azure_app_registration_steps.md %} 
 
 {% alert note %}
 Azure doesn't allow unlimited expiry on service principal secrets. Remember to refresh the credentials before they expire to maintain the flow of data to Braze.
@@ -511,6 +504,35 @@ In the Braze dashboard, the **Database name** field only accepts letters (A–Z,
 #### Step 2.2: Test connection and connect to source
 
 Next, select **Test connection**. Once successful, finalize remaining settings and click **Connect to Source**. If the connection fails, an error message appears to help troubleshoot the issue.
+
+#### Troubleshooting: Invalid snapshot identifier
+
+If Braze returns an `Invalid snapshot identifier` error during **Test connection** or sync setup, Redshift can't resolve the snapshot reference used when your source object is queried.
+
+In Redshift, a snapshot is a point-in-time backup of a cluster. Each snapshot has a unique identifier used by Redshift to reference that backup state. For more information, see [Amazon Redshift snapshots and backups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html).
+
+This error can occur when metadata changes while Braze validates the source object, such as during snapshot copy, restore, or replication-related operations. For more information, see [copying snapshots to another AWS Region](https://docs.aws.amazon.com/redshift/latest/mgmt/cross-region-snapshot-copy.html) and [restoring a cluster from a snapshot](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshot-restore-cluster-from-snapshot.html).
+
+To troubleshoot:
+
+1. Verify source settings in Braze, including cluster endpoint, database, schema, and object name.
+2. Run the same query directly in Redshift to confirm the table or view is readable and stable.
+3. Retry after active snapshot, restore, resize, or replication activity finishes.
+4. If the issue persists, query a materialized view instead of a frequently changing base table.
+
+A materialized view stores precomputed query results that you can refresh on a schedule, which can make reads more stable for CDI syncs. For more information, see [materialized views in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html).
+
+Example:
+
+```sql
+CREATE MATERIALIZED VIEW ingestion.users_attributes_mv AS
+SELECT updated_at, external_id, alias_label, alias_name, braze_id, email, phone, payload
+FROM ingestion.users_attributes_sync;
+
+REFRESH MATERIALIZED VIEW ingestion.users_attributes_mv;
+```
+
+After you create the materialized view, use the materialized view name as the source object in your Braze CDI sync instead of the base table.
 {% endtab %}
 {% tab BigQuery %}
 

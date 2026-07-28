@@ -75,6 +75,32 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% endsubtabs %}
+
+{% alert note %}
+`changeUser` pone en cola el cambio de usuario y regresa inmediatamente en el hilo que lo llama. Cualquier setter de atributos que se llame en `braze.user` después se serializa automáticamente detrás de las operaciones iniciadas por `changeUser`. Leer `braze.user.id` bloquea el hilo que lo llama hasta que el cambio de usuario se complete por completo. Para contextos en el hilo principal o sensibles a la latencia, utiliza las alternativas no bloqueantes.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.user.getId { userId in
+  print("User ID:", userId ?? "anonymous")
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let userId = await AppDelegate.braze?.user.getId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze.user getIdWithCompletion:^(NSString * _Nullable userId) {
+  NSLog(@"User ID: %@", userId ?: @"anonymous");
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 {% endtab %}
 
 {% tab CORDOVA %}
@@ -196,7 +222,7 @@ No utilices un valor fácil de adivinar ni un número incremental para tu ID de 
 Para mayor seguridad, utiliza la [autenticación del SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
 {% endalert %}
 
-Aunque es fundamental que nombres correctamente tus ID de usuario desde el principio, siempre puedes renombrarlos en el futuro utilizando el punto de conexión [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
+Aunque es fundamental que nombres correctamente tus ID de usuario desde el principio, siempre puedes renombrarlos en el futuro utilizando el endpoint [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
 
 | Tipos de ID no recomendados | Ejemplo no recomendado |
 | ------------ | ----------- |

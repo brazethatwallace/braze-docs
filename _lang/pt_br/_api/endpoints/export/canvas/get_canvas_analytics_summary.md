@@ -20,27 +20,27 @@ description: "Este artigo descreve o endpoint da Braze para exportar análise de
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `canvas.data_summary`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.data_summary`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obrigatória | String | Consulte [Identificador de API do Canvas]({{site.baseurl}}/api/identifier_types). |
-| `ending_at` | Obrigatória | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data final para a exportação de dados. O padrão é o momento da solicitação. |
+| `canvas_id` | Obrigatório | String | Consulte [Identificador de API do Canvas]({{site.baseurl}}/api/identifier_types). |
+| `ending_at` | Obrigatório | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data final para a exportação de dados. O padrão é o momento da solicitação. |
 | `starting_at` | Opcional* | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data de início para a exportação de dados. <br><br>* É necessário informar `length` ou `starting_at`. |
 | `length` | Opcional* | String | Número máximo de dias antes de `ending_at` incluídos na série retornada. Deve estar entre 1 e 14 (inclusive). <br><br>* É necessário informar `length` ou `starting_at`. |
-| `include_variant_breakdown` | Opcional | booleano | Se deve incluir estatísticas de variantes (o padrão é `false`).  |
-| `include_step_breakdown` | Opcional | booleano | Se deve incluir estatísticas de etapas (o padrão é `false`). |
-| `include_deleted_step_data` | Opcional | booleano | Se deve incluir estatísticas de etapas excluídas (o padrão é `false`). |
+| `include_variant_breakdown` | Opcional | Booleano | Se deve incluir estatísticas de variantes (o padrão é `false`). |
+| `include_step_breakdown` | Opcional | Booleano | Se deve incluir estatísticas de etapas (o padrão é `false`). |
+| `include_deleted_step_data` | Opcional | Booleano | Se deve incluir estatísticas de etapas excluídas (o padrão é `false`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 {% alert important %}
-A análise de dados do Canvas é agregada por dia no fuso horário configurado da sua empresa na Braze (o mesmo fuso horário usado pelo dashboard). A API normaliza `starting_at` e `ending_at` para meia-noite nesse fuso horário.
+A análise de dados do Canvas é agregada por dia no fuso horário configurado da sua empresa na Braze (o mesmo fuso horário usado pelo dashboard). A API normaliza `starting_at` e `ending_at` para meia-noite nesse fuso horário. Certifique-se de que seus timestamps estejam alinhados com o fuso horário da sua empresa para que suas estatísticas correspondam ao dashboard. Por exemplo, se o fuso horário da sua empresa for UTC+2, o timestamp deve ser 0h UTC+2.
 {% endalert %}
 
 ## Exemplo de solicitação {#example-request}
@@ -54,6 +54,20 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 
 ## Resposta {#response}
 
+### Campos de evento de conversão {#conversion-event-fields}
+
+A resposta inclui um par de campos de conversão para cada evento de conversão configurado no Canvas. O evento de conversão primária usa `conversions` e `conversions_by_entry_time`. Cada evento adicional usa o mesmo nome base com um sufixo numérico que começa em `1` para o segundo evento e aumenta em um para cada evento adicional.
+
+| Ordem do evento de conversão no Canvas | Campo de conversões | Campo por horário de entrada |
+| --- | --- | --- |
+| Primário | `conversions` | `conversions_by_entry_time` |
+| Segundo | `conversions1` | `conversions1_by_entry_time` |
+| Terceiro | `conversions2` | `conversions2_by_entry_time` |
+| Quarto | `conversions3` | `conversions3_by_entry_time` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ordem de conversão" }
+
+O quinto evento e os seguintes seguem o mesmo padrão (por exemplo, `conversions4` e `conversions4_by_entry_time`). Esses campos aparecem em `total_stats` e, quando você solicita detalhamentos, em `variant_stats` e `step_stats` usando os mesmos nomes.
+
 {% alert note %}
 Em `total_stats`, `variant_stats` e `step_stats`, `conversions` é a contagem do [evento de conversão primária]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) do Canvas. Quando você configura eventos de conversão adicionais, a carga útil também pode incluir `conversions1`, `conversions2` e campos com índices superiores para o segundo, terceiro e demais eventos. Isso é semelhante à [resposta multivariante]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) do endpoint `/campaigns/data_series`. Quando presentes, os campos que terminam em `_by_entry_time` atribuem essas conversões pelo horário de entrada no Canvas.
 {% endalert %}
@@ -64,15 +78,28 @@ Em `total_stats`, `variant_stats` e `step_stats`, `conversions` é a contagem do
     "name": (string) the Canvas name,
     "total_stats": {
       "revenue": (float) the number of dollars of revenue (USD),
-      "conversions": (int) the number of conversions,
-      "conversions_by_entry_time": (int) the number of conversions for the conversion event by entry time,
-      "entries": (int) the number of entries
+      "entries": (int) the number of entries,
+      "conversions": (int) the number of conversions for the primary conversion event,
+      "conversions_by_entry_time": (int) the number of conversions for the primary conversion event by entry time,
+      "conversions1": (optional, int) the number of conversions for the second conversion event,
+      "conversions1_by_entry_time": (optional, int) the number of conversions for the second conversion event by entry time,
+      "conversions2": (optional, int) the number of conversions for the third conversion event,
+      "conversions2_by_entry_time": (optional, int) the number of conversions for the third conversion event by entry time,
+      "conversions3": (optional, int) the number of conversions for the fourth conversion event,
+      "conversions3_by_entry_time": (optional, int) the number of conversions for the fourth conversion event by entry time
     },
     "variant_stats": (optional) {
       "00000000-0000-0000-0000-0000000000000": (string) the API identifier for the variant {
         "name": (string) the name of the variant,
         "revenue": (float) the number of dollars of revenue (USD),
-        "conversions": (int) the number of conversions,
+        "conversions": (int) the number of conversions for the primary conversion event,
+        "conversions_by_entry_time": (optional, int) the number of conversions for the primary conversion event by entry time,
+        "conversions1": (optional, int) the number of conversions for the second conversion event,
+        "conversions1_by_entry_time": (optional, int) the number of conversions for the second conversion event by entry time,
+        "conversions2": (optional, int) the number of conversions for the third conversion event,
+        "conversions2_by_entry_time": (optional, int) the number of conversions for the third conversion event by entry time,
+        "conversions3": (optional, int) the number of conversions for the fourth conversion event,
+        "conversions3_by_entry_time": (optional, int) the number of conversions for the fourth conversion event by entry time,
         "entries": (int) the number of entries
       },
       ... (more variants)
@@ -81,8 +108,14 @@ Em `total_stats`, `variant_stats` e `step_stats`, `conversions` é a contagem do
       "00000000-0000-0000-0000-0000000000000": (string) the API identifier for the step {
         "name": (string) the name of the step,
         "revenue": (float) the number of dollars of revenue (USD),
-        "conversions": (int) the number of conversions,
-        "conversions_by_entry_time": (int) the number of conversions for the conversion event by entry time,
+        "conversions": (int) the number of conversions for the primary conversion event,
+        "conversions_by_entry_time": (int) the number of conversions for the primary conversion event by entry time,
+        "conversions1": (optional, int) the number of conversions for the second conversion event,
+        "conversions1_by_entry_time": (optional, int) the number of conversions for the second conversion event by entry time,
+        "conversions2": (optional, int) the number of conversions for the third conversion event,
+        "conversions2_by_entry_time": (optional, int) the number of conversions for the third conversion event by entry time,
+        "conversions3": (optional, int) the number of conversions for the fourth conversion event,
+        "conversions3_by_entry_time": (optional, int) the number of conversions for the fourth conversion event by entry time,
         "messages": {
           "android_push": (name of channel) [
             {
@@ -99,12 +132,12 @@ Em `total_stats`, `variant_stats` e `step_stats`, `conversions` é a contagem do
       ... (more steps)
     }
   },
-  "message": (required, string) the status of the export, returns 'success' on successful completion
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
 {% alert important %}
-Na resposta da API, o campo `influenced_opens` representa o número total de aberturas (tanto aberturas diretas quanto aberturas por influência combinadas). No dashboard da Braze, "aberturas por influência" refere-se apenas a aberturas por influência, excluindo aberturas diretas. Isso se deve a uma convenção de nomenclatura legada na API.
+Na resposta da API, o campo `influenced_opens` representa o número total de aberturas (tanto Aberturas Diretas quanto Aberturas por Influência combinadas). No dashboard da Braze, "Aberturas por Influência" refere-se apenas a aberturas por influência, excluindo Aberturas Diretas. Isso se deve a uma convenção de nomenclatura legada na API.
 {% endalert %}
 
 ## Artigos relacionados {#related-articles}

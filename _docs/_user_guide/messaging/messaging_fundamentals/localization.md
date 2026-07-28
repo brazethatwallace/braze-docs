@@ -38,9 +38,9 @@ In this approach, localization is applied to a single template in Braze using [L
 
 ### One template per country 
 
-This approach separates templating into different sending locales. After sending, the dashboard reports sending analytics based on each country separately, and any downstream user-level [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents) events will also be tied to a specific campaign.
+This approach separates templating into different sending locales. After sending, the dashboard reports sending analytics based on each country separately, and any downstream user-level [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) events will also be tied to a specific campaign.
 
-- Templates benefit from implementing [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags) for maintenance and tracking purposes.
+- Templates benefit from implementing [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) for maintenance and tracking purposes.
 - Campaigns can inherit the configurations from the same [Braze template]({{site.baseurl}}/user_guide/messaging/templates) and [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) (such as [email templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates) that contain Liquid).
 - Pre-existing campaigns and templates can be [duplicated]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating) to allow a faster time time-to-value.
 
@@ -55,7 +55,7 @@ This approach separates templating into different sending locales. After sending
 
 In this approach, localization is handled within [Canvas basics]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey) and Liquid to define messaging for each user. 
 
-After a Canvas is sent, the dashboard provides aggregated [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), whereas the user level engagement can be measured via custom [segment funnels]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size), such as combining [**Country**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) and [**Received Canvas Step**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-canvas-step) filters.
+After a Canvas is sent, the dashboard provides aggregated [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), whereas the user level engagement can be measured via custom [segment funnels]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size), such as combining [**Country**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) and [**Received Canvas Step**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step) filters.
 
 | Advantages | Considerations |
 | --- | --- |
@@ -71,7 +71,7 @@ Localization can be achieved with the following methods:
 - Separate Canvases per country, this ensures the complex user journeys are defined at the top of the funnel using audience filters
 - Bespoke user journeys per country, the implementation of [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) to intuitively segment users on a large scale for each journey by creating separate message threads for each country in a single Canvas
 
-Once sent, the dashboard provides dynamic analytics per country and within user-level [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents) events based on the customer’s current location.
+Once sent, the dashboard provides dynamic analytics per country and within user-level [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) events based on the customer’s current location.
 
 | Advantages | Considerations |
 | --- | --- |
@@ -122,7 +122,7 @@ We always recommend including a {% raw %}`{% else %}`{% endraw %} statement in y
 {% endtab %}
 
 {% tab Content Blocks %}
-Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) are reusable blocks of content. When a block is changed, all references to that block changes. For example, updates to an email header or footer will be reflected in all emails or to house translations. These blocks can also be [created]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block#create-content-block) and [updated]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) using the REST API, and users can programmatically upload translations. 
+Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) are reusable blocks of content. When a block is changed, all references to that block changes. For example, updates to an email header or footer will be reflected in all emails or to house translations. These blocks can also be [created]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) and [updated]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) using the REST API, and users can programmatically upload translations. 
 
 When building a campaign in the dashboard, Content Blocks can be referenced using tag {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}. These blocks could contain all translations housed within conditional logic for each language, as shown in option 1, or a separate block for each language can be used.
 
@@ -230,7 +230,7 @@ Create a CSV in the following format:
 {% endsubtab %}
 {% endsubtabs %}
 
-These catalog items can them be referenced using [personalization]({{site.baseurl}}/user_guide/data/activation/catalogs/create#using-catalogs-in-a-message), shown below, or [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) that allow you to create groups of data. 
+These catalog items can them be referenced using [personalization]({{site.baseurl}}/user_guide/data/activation/catalogs/create), shown in the following example, or [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) that allow you to create groups of data. 
 
 {% raw %}
 ```liquid
@@ -242,7 +242,7 @@ These catalog items can them be referenced using [personalization]({{site.baseur
 {% endtab %}
 
 {% tab Braze partners %}
-Many Braze partners offer localization solutions, including [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-transifex) and [Crowdin](https://crowdin.com/). Typically users use the platform alongside an internal team and translation agency. These translations are then uploaded there and are then accessible via REST API. These services also often leverage [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), allowing users to fetch the translations via API.
+Many Braze partners offer localization solutions, including [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) and [Crowdin](https://crowdin.com/). Typically users use the platform alongside an internal team and translation agency. These translations are then uploaded there and are then accessible via REST API. These services also often leverage [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), allowing users to fetch the translations via API.
 
 For example, the following Connected Content calls call Transifex and Crowdin to fetch a translation, leveraging {% raw %}`{{${language}}}`{% endraw %} to identify the correct translation for a given user. This translation is then saved in the JSON block "strings" and referenced.
 

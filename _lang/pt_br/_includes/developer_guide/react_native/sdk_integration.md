@@ -73,7 +73,7 @@ Em `app.json`, adicione o plugin Braze Expo. A chave de API e o endpoint não s�
 | `enableFirebaseCloudMessaging`                | booleano | Somente Android. Se deve usar o Firebase Cloud Messaging para notificações por push.             |
 | `firebaseCloudMessagingSenderId`              | string  | Somente Android. Seu ID de remetente do Firebase Cloud Messaging.                                    |
 | `sessionTimeout`                              | inteiro | O tempo limite da sessão da Braze para seu app, em segundos.                                                                                               |
-| `enableSdkAuthentication`                     | booleano | Se deve ativar o recurso de [autenticação do SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication).      |
+| `enableSdkAuthentication`                     | booleano | Se deve ativar o recurso de [autenticação do SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication).      |
 | `logLevel`                                    | inteiro | O nível de registro do seu app. O nível de log padrão é 8 e registra minimamente informações. Para ativar o registro detalhado para depuração, use o nível de registro 0.    |
 | `minimumTriggerIntervalInSeconds`             | inteiro | O intervalo de tempo mínimo, em segundos, entre os disparos. O padrão é 30 segundos.                                                                           |
 | `enableAutomaticLocationCollection`           | booleano | Se a coleta automática de localização está ativada (se o usuário permitir).                                                                                  |
@@ -425,14 +425,14 @@ Em `app.json`, adicione o plugin Braze Expo. Você pode fornecer as seguintes op
 
 | Método                                        | Tipo    | Descrição                                                                                                                                              |
 | --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `androidApiKey`                               | string  | Obrigatória. A [chave de API]({{site.baseurl}}/api/identifier_types/) do seu aplicativo Android, localizada no dashboard da Braze em **Gerenciar configurações**. |
-| `iosApiKey`                                   | string  | Obrigatória. A [chave de API]({{site.baseurl}}/api/identifier_types/) do seu aplicativo iOS, localizada no dashboard da Braze em **Gerenciar configurações**.     |
-| `baseUrl`                                     | string  | Obrigatória. O [endpoint de SDK]({{site.baseurl}}/api/basics/#endpoints) do seu app, localizado no dashboard da Braze em **Gerenciar configurações**.    |
+| `androidApiKey`                               | string  | Obrigatória. A [chave de API]({{site.baseurl}}/api/identifier_types) do seu aplicativo Android, localizada no dashboard da Braze em **Gerenciar configurações**. |
+| `iosApiKey`                                   | string  | Obrigatória. A [chave de API]({{site.baseurl}}/api/identifier_types) do seu aplicativo iOS, localizada no dashboard da Braze em **Gerenciar configurações**.     |
+| `baseUrl`                                     | string  | Obrigatória. O [endpoint de SDK]({{site.baseurl}}/api/basics#endpoints) do seu app, localizado no dashboard da Braze em **Gerenciar configurações**.    |
 | `enableBrazeIosPush`                          | booleano | Somente iOS. Se deve usar a Braze para lidar com notificações por push no iOS. Introduzido no React Native SDK v1.38.0 e no Expo Plugin v0.4.0.                       |
 | `enableFirebaseCloudMessaging`                | booleano | Somente Android. Se deve usar o Firebase Cloud Messaging para notificações por push. Introduzido no React Native SDK v1.38.0 e no Expo Plugin v0.4.0.             |
 | `firebaseCloudMessagingSenderId`              | string  | Somente Android. Seu ID de remetente do Firebase Cloud Messaging. Introduzido no React Native SDK v1.38.0 e no Expo Plugin v0.4.0.                                    |
 | `sessionTimeout`                              | inteiro | O tempo limite da sessão da Braze para seu app, em segundos.                                                                                               |
-| `enableSdkAuthentication`                     | booleano | Se deve ativar o recurso de [autenticação do SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication).      |
+| `enableSdkAuthentication`                     | booleano | Se deve ativar o recurso de [autenticação do SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication).      |
 | `logLevel`                                    | inteiro | O nível de registro do seu app. O nível de log padrão é 8 e registra minimamente informações. Para ativar o registro detalhado para depuração, use o nível de registro 0.    |
 | `minimumTriggerIntervalInSeconds`             | inteiro | O intervalo de tempo mínimo, em segundos, entre os disparos. O padrão é 30 segundos.                                                                           |
 | `enableAutomaticLocationCollection`           | booleano | Se a coleta automática de localização está ativada (se o usuário permitir).                                                                                  |
@@ -576,7 +576,7 @@ Isso adiciona Kotlin ao seu projeto.
 
 **Etapa 2.2: Configure o SDK da Braze**
 
-Para se conectar aos servidores da Braze, crie um arquivo `braze.xml` na pasta `res/values` do seu projeto. O trecho de código a seguir mostra um exemplo de configuração `braze.xml`. Substitua a [chave]({{site.baseurl}}/api/identifier_types/) de API e o [endpoint]({{site.baseurl}}/api/basics/#endpoints) pelos seus valores:
+Para se conectar aos servidores da Braze, crie um arquivo `braze.xml` na pasta `res/values` do seu projeto. O trecho de código a seguir mostra um exemplo de configuração `braze.xml`. Substitua a [chave]({{site.baseurl}}/api/identifier_types) de API e o [endpoint]({{site.baseurl}}/api/basics#endpoints) pelos seus valores:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -691,7 +691,7 @@ import BrazeKit
 import braze_react_native_sdk
 ```
 
-No método `application(_:didFinishLaunchingWithOptions:)`, substitua a [chave]({{site.baseurl}}/api/identifier_types/) de API e o [endpoint]({{site.baseurl}}/api/basics/#endpoints) pelos valores do seu app. Em seguida, crie a instância da Braze usando a configuração e crie uma propriedade estática em `AppDelegate` para facilitar o acesso.
+No método `application(_:didFinishLaunchingWithOptions:)`, substitua a [chave]({{site.baseurl}}/api/identifier_types) de API e o [endpoint]({{site.baseurl}}/api/basics#endpoints) pelos valores do seu app. Em seguida, crie a instância da Braze usando a configuração e crie uma propriedade estática em `AppDelegate` para facilitar o acesso.
 
 {% alert note %}
 Nosso exemplo pressupõe uma implementação do [RCTAppDelegate](https://github.com/facebook/react-native/blob/e64756ae5bb5c0607a4d97a134620fafcb132b3b/packages/react-native/Libraries/AppDelegate/RCTAppDelegate.h), que fornece várias abstrações na configuração do React Native. Se estiver usando uma configuração diferente para seu app, certifique-se de ajustar sua implementação conforme necessário.
@@ -736,7 +736,7 @@ O trecho de código a seguir mostra como importar o SDK da Braze no topo do arqu
 #import "BrazeReactBridge.h"
 ```
 
-No método `application:didFinishLaunchingWithOptions:`, substitua a [chave]({{site.baseurl}}/api/identifier_types/) de API e o [endpoint]({{site.baseurl}}/api/basics/#endpoints) pelos valores do seu app. Em seguida, crie a instância da Braze usando a configuração e crie uma propriedade estática em `AppDelegate` para facilitar o acesso.
+No método `application:didFinishLaunchingWithOptions:`, substitua a [chave]({{site.baseurl}}/api/identifier_types) de API e o [endpoint]({{site.baseurl}}/api/basics#endpoints) pelos valores do seu app. Em seguida, crie a instância da Braze usando a configuração e crie uma propriedade estática em `AppDelegate` para facilitar o acesso.
 
 {% alert note %}
 Nosso exemplo pressupõe uma implementação do [RCTAppDelegate](https://github.com/facebook/react-native/blob/e64756ae5bb5c0607a4d97a134620fafcb132b3b/packages/react-native/Libraries/AppDelegate/RCTAppDelegate.h), que fornece várias abstrações na configuração do React Native. Se estiver usando uma configuração diferente para seu app, certifique-se de ajustar sua implementação conforme necessário.
@@ -790,7 +790,7 @@ O trecho de código a seguir mostra como importar a biblioteca no seu código Re
 import Braze from "@braze/react-native-sdk";
 ```
 
-Em seguida, chame `Braze.initialize()` com a chave de API do identificador do app e o endpoint de SDK para criar a instância da Braze. Veja as opções abaixo para saber onde chamar esse método no seu app.
+Em seguida, chame `Braze.initialize()` com a chave de API do identificador do app e o endpoint de SDK para criar a instância da Braze. Veja as opções abaixo para saber onde chamar esse método no fluxo do seu app.
 
 #### Inicialização padrão {#standard-initialization}
 
@@ -906,7 +906,7 @@ const App = () => {
   )
 ```
 
-No dashboard da Braze, acesse [Pesquisa de usuários]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/#using-user-search) e procure o usuário com o ID correspondente a `some-user-id`. Lá, você pode verificar se os dados de sessão e dispositivo foram registrados.
+No dashboard da Braze, acesse [Pesquisa de usuários]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search#using-user-search) e procure o usuário com o ID correspondente a `some-user-id`. Lá, você pode verificar se os dados de sessão e dispositivo foram registrados.
 
 {% endtab %}
 {% endtabs %}
@@ -915,6 +915,6 @@ No dashboard da Braze, acesse [Pesquisa de usuários]({{site.baseurl}}/user_guid
 
 Após integrar o SDK da Braze, você pode começar a implementar recursos comuns de envio de mensagens:
 
-- [Notificações por push]({{site.baseurl}}/developer_guide/push_notifications/): Configure e envie notificações por push para seus usuários.
-- [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages/): Exiba mensagens contextuais dentro do seu app.
-- [Banners]({{site.baseurl}}/developer_guide/banners/): Mostre banners persistentes na interface do seu app.
+- [Notificações por push]({{site.baseurl}}/developer_guide/push_notifications): Configure e envie notificações por push para seus usuários.
+- [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages): Exiba mensagens contextuais dentro do seu app.
+- [Banners]({{site.baseurl}}/developer_guide/banners): Mostre banners persistentes na interface do seu app.

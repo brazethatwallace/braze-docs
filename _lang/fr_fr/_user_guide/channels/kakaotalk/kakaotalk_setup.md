@@ -38,7 +38,7 @@ Enregistrez les adresses IP Braze de votre cluster dans votre tableau de bord Co
 | Type de compte | Description |
 | --- | --- |
 | Canal basique | Un canal KakaoTalk standard que toute organisation peut configurer. Il permet l'envoi de messages diffusés et le chat 1:1 via KakaoTalk. |
-| [Canal Business](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Un canal KakaoTalk amélioré et vérifié pour les entreprises, qui nécessite un processus de candidature et de vérification. Il offre des fonctionnalités avancées, telles que {::nomarkdown}<ul><li>Badge vérifié</li><li>Apparition en tant que canal recommandé</li><li>Prise en charge de l'envoi de messages professionnels</li></ul>{:/} |
+| [Canal Business](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Un canal KakaoTalk amélioré et vérifié pour les entreprises, qui nécessite un processus de candidature et de vérification. Il offre des fonctionnalités avancées, telles que {::nomarkdown}<ul><li>Badge vérifié</li><li>Apparition en tant que canal recommandé</li><li>Prise en charge de la messagerie professionnelle</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Types de comptes KakaoTalk" }
 
 #### Candidater pour un canal Business {#apply-for-a-business-channel}
@@ -67,7 +67,7 @@ Après avoir rassemblé votre documentation, suivez ces étapes :
 ### Étape 1 : Connecter le canal KakaoTalk à Braze {#step-1-connect-the-kakaotalk-channel-to-braze}
 
 1. Accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez votre fournisseur KakaoTalk.
-2. Rassemblez les identifiants requis pour votre fournisseur (voir ci-dessous), puis saisissez-les sur la page **Partenaires technologiques** et enregistrez.
+2. Rassemblez les identifiants requis pour votre fournisseur (voir la section suivante), puis saisissez-les sur la page **Partenaires technologiques** et enregistrez.
 3. Utilisez les identifiants nouvellement enregistrés pour l'envoi.
 
 #### CJ OliveNetworks

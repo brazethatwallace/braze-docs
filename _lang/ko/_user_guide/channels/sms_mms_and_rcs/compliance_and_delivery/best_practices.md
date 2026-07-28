@@ -36,7 +36,7 @@ SMS 및 MMS가 여러 인스턴스에 걸쳐 설정되어 있고 잘못된 구�
 * Braze는 이러한 사례를 식별하기 위한 모니터링을 갖추고 있습니다. 이 동작이 감지되면 Braze는 옵트아웃을 올바른 인스턴스로 재지정하고 해당 기간 동안 발생한 옵트아웃을 소급 적용합니다.
 * 고객이 Braze에 있는 각 구독 그룹에 대해 옵트아웃을 테스트할 것을 강력히 권장합니다. 메시지를 발송하기 전에 이 문제를 식별하는 것이 문제가 발견된 후 완화하는 것보다 낫습니다.
 
-Braze는 고객 프로필(`user_id`) 수준과 전화번호(`channel_id`) 수준 모두에서 SMS/MMS 구독을 관리합니다. 전화번호가 옵트인 또는 옵트아웃되면 해당 번호를 공유하는 모든 프로필에 업데이트가 적용됩니다. 최종 사용자가 특정 전화번호로 옵트인한 후 전화번호를 변경하는 경우, 새 전화번호는 해당 사용자의 구독 그룹 상태를 상속합니다. 따라서 최종 사용자가 옵트아웃한 후 새 전화번호로 앱이나 웹사이트에 다시 접속하더라도 원치 않는 메시지를 수신하지 않습니다.
+Braze는 고객 프로필(`user_id`) 수준과 전화번호(`channel_id`) 수준 모두에서 SMS/MMS 구독을 관리합니다. 전화번호가 옵트인 또는 옵트아웃되면 해당 번호를 공유하는 모든 프로필에 업데이트가 적용됩니다. 최종사용자가 특정 전화번호로 옵트인한 후 전화번호를 변경하는 경우, 새 전화번호는 해당 사용자의 구독 그룹 상태를 상속합니다. 따라서 최종사용자가 옵트아웃한 후 새 전화번호로 앱이나 웹사이트에 다시 접속하더라도 원치 않는 메시지를 수신하지 않습니다.
 
 ## 전화번호 목록 위생 권장 사항 {#phone-number-list-hygiene-recommendations}
 
@@ -121,6 +121,6 @@ SMS 메시지 본문 상단에 다음 스니펫을 포함하세요. 이 예시�
 
 #### 고려 사항
 
-- {% raw %}`time_zone: ${time_zone}`{% endraw %}를 사용하면 고정된 글로벌 시간이 아닌 각 사용자의 현지 시간을 기준으로 시간 범위를 평가할 수 있습니다. 자세한 내용은 [이 FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer)를 참조하세요.
+- {% raw %}`time_zone: ${time_zone}`{% endraw %}를 사용하면 고정된 글로벌 시간이 아닌 각 사용자의 현지 시간을 기준으로 시간 범위를 평가할 수 있습니다. 자세한 내용은 [Campaign FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer)를 참조하세요.
 - {% raw %}`abort_message()`{% endraw %}에 의해 억제된 메시지는 다음 날로 재스케줄되지 않으며 취소됩니다.
 - {% raw %}기본적으로 중단된 메시지는 표준 Campaign 보고서에 표시되지 않습니다. 그러나 Liquid가 `{% abort_message %}`로 발송을 중단하면 Braze는 이를 메시지 활동 로그에 메시지 오류로 기록합니다(기본적으로 `{% abort_message %}`가 호출된 것으로 표시됩니다). 문자열을 전달하면 해당 사유가 로그에 표시됩니다(예: `{% abort_message('language was nil') %}`){% endraw %}. 대시보드에서 이러한 억제 내역을 확인하려면 고객 성공 매니저에게 연락하여 [메시징 진단 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard)에 대한 액세스를 요청하세요.

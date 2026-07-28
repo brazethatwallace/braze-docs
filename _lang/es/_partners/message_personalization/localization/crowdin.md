@@ -1,7 +1,7 @@
 ---
 nav_title: Crowdin
 article_title: Crowdin
-description: "Usa la integración de Crowdin para traducir campañas, experiencias de Canvas, plantillas de correo electrónico y Content Blocks con Translation Memory, glosarios y traducción automática."
+description: "Usa la integración de Crowdin para traducir Campaigns, experiencias de Canvas, plantillas de correo electrónico y Content Blocks con Translation Memory, glosarios y traducción automática."
 alias: /partners/crowdin/
 page_type: partner
 search_tag: Partner
@@ -37,8 +37,8 @@ Crowdin ofrece dos aplicaciones para Braze: [Braze Campaigns & Canvas](https://s
 | **Cuenta de Crowdin** | Se necesita una [cuenta en Crowdin.com](https://accounts.crowdin.com/register) o una [cuenta de Crowdin Enterprise](https://accounts.crowdin.com/workspace/create). |
 | **Proyecto de Crowdin** | Antes de conectar Braze, [crea un proyecto de traducción](https://support.crowdin.com/creating-project/) en Crowdin o Crowdin Enterprise. |
 | **Clave de API REST de Braze** | Una clave de API REST de Braze con permisos para Campaigns, Canvas, Content Blocks, atributos personalizados, correo electrónico y plantillas. |
-| **Punto de conexión REST de Braze** | La URL específica de tu punto de conexión REST de Braze (por ejemplo, `https://rest.iad-03.braze.com`). |
-| **Configuración multilingüe de Braze** | Los locales deben estar configurados en tu dashboard de Braze en **Configuración** > **Configuración de localización**. |
+| **Endpoint REST de Braze** | La URL específica de tu endpoint REST de Braze (por ejemplo, `https://rest.iad-03.braze.com`). |
+| **Configuración multilingüe de Braze** | Los locales deben estar configurados en tu panel de Braze en **Configuración** > **Configuración de localización**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de Braze Campaigns & Canvas {#braze-campaigns-canvas-integration}
@@ -61,7 +61,7 @@ Antes de conectar Crowdin, añade tus idiomas de destino en Braze.
 
 ### Paso 2: Configura el proyecto de Braze en Crowdin {#step-2-set-up-the-braze-project-in-crowdin}
 
-1. En tu cuenta de Crowdin Enterprise o Crowdin.com, ve a la **Tienda** en el menú de la izquierda.
+1. En tu cuenta de Crowdin Enterprise o Crowdin.com, ve a la **Tienda** en el menú de navegación.
 2. Busca **Braze Campaigns & Canvas** y selecciona **Install**.
 
 ![Tienda de Crowdin con Braze Campaigns & Canvas seleccionado e Install resaltado.]({% image_buster /assets/img/crowdin/crowdin_store_campaigns_canvas.png %})
@@ -74,12 +74,12 @@ Antes de conectar Crowdin, añade tus idiomas de destino en Braze.
 
 Autoriza la conexión con tus credenciales de API de Braze:
 
-![Formulario de conexión de Crowdin Braze Campaigns & Canvas con clave de API REST, punto de conexión REST y Log in with Braze Campaigns & Canvas.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_login.png %})
+![Formulario de conexión de Crowdin Braze Campaigns & Canvas con clave de API REST, endpoint REST y Log in with Braze Campaigns & Canvas.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_login.png %})
 
-- **Clave de API REST de Braze:** Créala en Braze en **Settings** > **APIs and Identifiers** > **API Keys**. Otorga los permisos que necesita esta integración (Campaigns, Canvas, Content Blocks y atributos personalizados).
-- **Punto de conexión REST de Braze:** Introduce la URL de tu instancia de Braze (por ejemplo, `https://rest.iad-03.braze.com`). Para más información, consulta [Puntos de conexión de la REST API]({{site.baseurl}}/api/basics/#endpoints).
+- **Clave de API REST de Braze:** Créala en Braze en **Configuración** > **API e identificadores** > **Claves de API**. Otorga los permisos que necesita esta integración (Campaigns, Canvas, Content Blocks y atributos personalizados).
+- **Endpoint REST de Braze:** Introduce la URL de tu instancia de Braze (por ejemplo, `https://rest.iad-03.braze.com`). Para más información, consulta [Endpoints de la REST API]({{site.baseurl}}/api/basics#endpoints).
 
-![Página de claves de API REST de Braze con Create API Key y el control de copia del punto de conexión REST.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
+![Página de claves de API REST de Braze con Crear clave de API y el control de copia del endpoint REST.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
 Selecciona **Log in with Braze Campaigns & Canvas**.
 
@@ -87,7 +87,7 @@ Selecciona **Log in with Braze Campaigns & Canvas**.
 
 Después de conectar tu cuenta, mapea cada idioma del proyecto de Crowdin con el locale correspondiente de Braze.
 
-1. En el panel de la integración **Braze Campaigns & Canvas**, selecciona el ícono de engranaje de **Settings** en la esquina superior derecha.
+1. En el panel de la integración **Braze Campaigns & Canvas**, selecciona el icono de engranaje de **Settings** en la barra de acciones superior.
 
 ![Pantalla de la integración Braze Campaigns & Canvas con Settings en la barra de acciones superior.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_settings.png %})
 
@@ -110,29 +110,29 @@ Crowdin lee las mismas **etiquetas de traducción** Liquid que Braze usa para me
 
 {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
-Para HTML, Liquid en enlaces y otros patrones, sigue las mismas reglas que en [Traducción de locales]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) (por ejemplo, mantén las etiquetas alrededor de los segmentos más pequeños posibles y envuelve solo las partes específicas del idioma en las URL al localizar enlaces).
+Para HTML, Liquid en enlaces y otros patrones, sigue las mismas reglas que en [Traducción de locales]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales) (por ejemplo, mantén las etiquetas alrededor de los segmentos más pequeños posibles y envuelve solo las partes específicas del idioma en las URL al localizar enlaces).
 
-Guarda tu mensaje de Braze como **Draft** antes de que Crowdin pueda detectar y extraer el contenido.
+Guarda tu mensaje de Braze como **borrador** antes de que Crowdin pueda detectar y extraer el contenido.
 
 ### Paso 5: Gestiona las traducciones en Crowdin {#step-5-manage-translations-in-crowdin}
 
 La pantalla de la integración tiene dos lados:
 
-- **Lado derecho (Braze):** Tus Campaigns y Canvas.
-- **Lado izquierdo (Crowdin):** Contenido ya sincronizado para traducción.
+- **Panel de Braze:** Tus Campaigns y Canvas.
+- **Panel de Crowdin:** Contenido ya sincronizado para traducción.
 
-![Paneles de Crowdin y Braze Campaigns & Canvas con carpetas para campañas y locales, Sync to Braze y Sync to Crowdin.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_sync_panels.png %})
+![Paneles de Crowdin y Braze Campaigns & Canvas con carpetas para Campaigns y locales, Sync to Braze y Sync to Crowdin.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_sync_panels.png %})
 
 #### Sincronizar contenido {#syncing-content}
 
-1. En el lado de **Braze (derecho)**, selecciona la casilla de la Campaign o Canvas que quieras traducir.
+1. En el panel de **Braze**, selecciona la casilla de la Campaign o Canvas que quieras traducir.
 2. Selecciona **Sync to Crowdin**.
-3. Cuando la sincronización se complete, el archivo aparecerá en el lado de **Crowdin (izquierdo)**. Los traductores pueden abrir las cadenas en el Editor de Crowdin.
+3. Cuando la sincronización se complete, el archivo aparecerá en el panel de **Crowdin**. Los traductores pueden abrir las cadenas en el Editor de Crowdin.
 
 #### Devolver las traducciones a Braze {#returning-translations-to-braze}
 
 1. Cuando las traducciones estén al 100 % en Crowdin, vuelve a la pestaña **Integrations**.
-2. Selecciona el contenido completado en el lado de **Crowdin (izquierdo)**.
+2. Selecciona el contenido completado en el panel de **Crowdin**.
 3. Selecciona **Sync to Braze**. Esto envía las cadenas traducidas a las variantes de idioma correspondientes en tu Campaign de Braze.
 
 ### Paso 6: Previsualiza el mensaje como un usuario multilingüe en Braze {#step-6-preview-the-message-as-a-multi-language-user-in-braze}
@@ -147,7 +147,7 @@ Para confirmar la integración:
 
 ## Integración de Braze Email Templates {#braze-email-templates-integration}
 
-Si localizas correo electrónico a nivel de plantilla, usa la [aplicación Braze Email Templates](https://store.crowdin.com/braze-app) para sincronizar el HTML de tu Biblioteca de medios de Braze.
+Si localizas correo electrónico a nivel de plantilla, usa la [aplicación Braze Email Templates](https://store.crowdin.com/braze-app) para sincronizar el HTML de tu biblioteca de medios de Braze.
 
 Para un recorrido en video, consulta [Integración de Braze Email Templates](https://youtu.be/g0YMKW3jEjk).
 
@@ -166,24 +166,24 @@ Para un recorrido en video, consulta [Integración de Braze Email Templates](htt
 
 Autoriza la conexión con tus credenciales de API de Braze:
 
-![Formulario de conexión de Crowdin Braze Email Templates con clave de API REST, punto de conexión REST y Log in with Braze Email Templates.]({% image_buster /assets/img/crowdin/crowdin_email_templates_login.png %}){: style="max-width:85%;"}
+![Formulario de conexión de Crowdin Braze Email Templates con clave de API REST, endpoint REST y Log in with Braze Email Templates.]({% image_buster /assets/img/crowdin/crowdin_email_templates_login.png %}){: style="max-width:85%;"}
 
-1. **Clave de API REST de Braze:** Otorga permisos de `templates.email` y `content_blocks` (lectura y escritura). Crea la clave en Braze en **Settings** > **APIs and Identifiers** > **API Keys**.
+1. **Clave de API REST de Braze:** Otorga permisos de `templates.email` y `content_blocks` (lectura y escritura). Crea la clave en Braze en **Configuración** > **API e identificadores** > **Claves de API**.
 
-![Página de claves de API REST de Braze con Create API Key y el control de copia del punto de conexión REST.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
+![Página de claves de API REST de Braze con Crear clave de API y el control de copia del endpoint REST.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
 {: start="2"}
-2. Para el **punto de conexión REST de Braze**, usa la URL específica de tu instancia (por ejemplo, `https://rest.iad-03.braze.com`).
+2. Para el **endpoint REST de Braze**, usa la URL específica de tu instancia (por ejemplo, `https://rest.iad-03.braze.com`).
 3. Selecciona **Log in with Braze Email Templates**.
 
 ### Paso 3: Sincroniza el contenido para traducción {#step-3-sync-content-for-translation}
 
 La pantalla de la integración muestra tu biblioteca de Braze:
 
-- **Lado derecho (Braze):** **Plantillas de correo electrónico** y **Content Blocks** que puedes sincronizar.
-- **Lado izquierdo (Crowdin):** Contenido en traducción.
+- **Panel de Braze:** **Plantillas de correo electrónico** y **Content Blocks** que puedes sincronizar.
+- **Panel de Crowdin:** Contenido en traducción.
 
-1. En el lado de **Braze (derecho)**, selecciona la casilla junto a las plantillas o bloques que quieras localizar.
+1. En el panel de **Braze**, selecciona la casilla junto a las plantillas o bloques que quieras localizar.
 2. Selecciona **Sync to Crowdin**.
 3. Crowdin extrae el código HTML fuente. Los traductores trabajan en el Editor de Crowdin con una **vista previa WYSIWYG** en vivo para que el diseño se mantenga intacto.
 
@@ -193,8 +193,8 @@ La pantalla de la integración muestra tu biblioteca de Braze:
 
 Cuando las traducciones alcancen el 100 % de completitud:
 
-1. Selecciona los archivos completados en el lado de **Crowdin (izquierdo)**.
+1. Selecciona los archivos completados en el panel de **Crowdin**.
 2. Selecciona **Sync to Braze**.
-3. Crowdin crea automáticamente versiones localizadas de estos activos en tu Biblioteca de medios de Braze (por ejemplo, `Template_Name_fr`).
+3. Crowdin crea automáticamente versiones localizadas de estos activos en tu biblioteca de medios de Braze (por ejemplo, `Template_Name_fr`).
 
 ![Paneles de Crowdin y Braze Email Templates listando plantillas de correo electrónico y Content Blocks, con Sync to Braze y Sync to Crowdin.]({% image_buster /assets/img/crowdin/crowdin_email_templates_sync_panels.png %})

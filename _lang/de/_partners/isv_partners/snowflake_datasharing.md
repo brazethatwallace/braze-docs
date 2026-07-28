@@ -9,11 +9,11 @@ hidden: true
 
 Freigaben werden pro Kund:in bereitgestellt, nachdem die Kund:innen eine Berechtigung für Snowflake Data Share erworben haben. Wenn Kund:innen eine Datenfreigabe anfordern, fügt Braze dem Workspace der Kund:innen eine Freigabe hinzu, und die Kund:innen können die Self-Service-UI verwenden, um die entsprechenden Daten des Partner-Snowflake-Kontos hinzuzufügen.
 
-![]({% image_buster /assets/img/snowflake.png %})
+![Bereitstellung der Snowflake-Datenfreigabe im Braze-Dashboard]({% image_buster /assets/img/snowflake.png %})
 
 Sobald die Freigabe bereitgestellt ist, sind alle Daten sofort innerhalb der Snowflake-Instanz als eingehende Datenfreigabe zugänglich.
 
-![]({% image_buster /assets/img/snowflake2.png %})
+![Eingehende Snowflake-Datenfreigabe in der Snowflake-Instanz der Kund:innen]({% image_buster /assets/img/snowflake2.png %})
 
 Innerhalb Ihrer Snowflake-Instanz sehen Sie eine Freigabe pro Region. Jede Tabelle hat eine Spalte, `app_group_id`, die im Grunde ein Mandantenschlüssel für Braze ist. Wenn neue Kund:innen innerhalb derselben Region zu einer Freigabe hinzugefügt werden, erscheinen sie als unterschiedliche `app_group_ids` in den bestehenden Tabellen.
 
@@ -33,9 +33,7 @@ Duplikate sind zu erwarten, aber alle Ereignisse haben einen eindeutigen Bezeich
 
 ### Abwärtskompatible Änderungen {#non-breaking-changes}
 
-Abwärtskompatible Änderungen können jederzeit vorgenommen werden und bieten im Allgemeinen zusätzliche Funktionen. Beispiele für abwärtskompatible Änderungen:
-- Hinzufügen einer neuen Tabelle oder Ansicht
-- Hinzufügen einer Spalte zu einer bestehenden Tabelle oder Ansicht
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Da neue Spalten als abwärtskompatibel gelten, empfiehlt Braze dringend, die gewünschten Spalten in jeder Abfrage explizit aufzuführen, anstatt `SELECT *`-Abfragen zu verwenden. Alternativ können Sie auch Ansichten erstellen, die Spalten explizit benennen, und diese Ansichten dann anstelle der Tabellen direkt abfragen.
@@ -43,10 +41,7 @@ Da neue Spalten als abwärtskompatibel gelten, empfiehlt Braze dringend, die gew
 
 ### Nicht abwärtskompatible Änderungen {#breaking-changes}
 
-Wenn möglich, werden nicht abwärtskompatible Änderungen durch eine Ankündigung und einen Migrationszeitraum eingeleitet. Beispiele für nicht abwärtskompatible Änderungen:
-- Entfernen einer Tabelle oder Ansicht
-- Entfernen einer Spalte aus einer bestehenden Tabelle oder Ansicht
-- Ändern des Typs oder der Nullfähigkeit einer vorhandenen Spalte
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ## Wann die Tabellen SNAPSHOTS und CHANGELOGS aktualisiert werden {#when-snapshots-and-changelogs-tables-are-updated}
 

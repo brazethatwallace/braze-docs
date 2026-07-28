@@ -16,13 +16,13 @@ description: "이 문서에서는 캠페인 목록 내보내기 Braze 엔드포�
 
 > 이 엔드포인트를 사용하여 캠페인 목록을 내보낼 수 있으며, 각 캠페인에는 이름, Campaign API 식별자, API 캠페인 여부, 캠페인에 연결된 태그가 포함됩니다.
 
-캠페인은 생성 시간순으로 정렬된 100개 단위의 그룹으로 반환됩니다(기본적으로 가장 오래된 것부터 최신 순).
+캠페인은 생성 시간순으로 정렬된 100개 단위의 그룹으로 반환됩니다(기본값은 가장 오래된 것부터 최신 순).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f3b0b3ef-04fb-4a31-8570-e6ad88dacb18 {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `campaigns.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `campaigns.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -49,7 +49,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "campaigns" : [
         {
             "id" : (string) the Campaign API identifier,

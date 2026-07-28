@@ -45,3 +45,32 @@ If you have not already, follow [Shopify standard integration setup]({{site.base
 5. Select **Launch Current**
 
 ![The Braze Shopify Currents page. This page includes fields for integration name, contact email, and Shopify Store.]({% image_buster /assets/img/shopify/shopify_currents.png %})
+
+## User profile sync
+
+In addition to event data, the Shopify integration can sync user profile updates from Braze to your Shopify store. When a user's profile is updated in Braze, Currents creates or updates the matching customer in your store.
+
+### User matching
+
+Braze matches Shopify customers using the Braze `user_id` as a Shopify [custom identifier](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSet) (`customId`) with the namespace `braze` and the key `user_id`. If no customer with that identifier exists in your store, a new customer is created. Anonymous users are not synced.
+
+### Field mapping
+
+The following Braze profile fields are synced to Shopify:
+
+| Braze field | Shopify customer field | Notes |
+| ----------- | ---------------------- | ----- |
+| `first_name` | `firstName` | Mapped as-is. Sent only when present on the profile update. |
+| `last_name` | `lastName` | Mapped as-is. Sent only when present on the profile update. |
+| `email_address` | `email` | Trimmed and lowercased before sending. |
+| `phone_number` | `phone` | Sent in [E.164](https://en.wikipedia.org/wiki/E.164) format. |
+| `language` | `locale` | Converted to a Shopify-supported locale. Portuguese and Chinese are assigned a regional variant (such as `pt-BR`) based on the user's country. If the user's language isn't supported by Shopify, this field is omitted. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+
+Only the fields present on a profile update are sent. Fields omitted from an update are left unchanged in Shopify—a sync never clears or deletes a field on your Shopify customer.
+
+### Fields that are not synced
+
+The integration currently doesn't write Shopify metafields, so profile fields that would require a metafield are not synced. In particular, custom attributes are not sent to Shopify. The other fields not sent are `external_user_id`, `gender`, `dob` (date of birth), `timezone`, `home_city`, `country`, and `archived`.
+
+Braze may create metafield definitions under the `braze` namespace on your store (for example, `braze.gender`). These definitions are reserved for potential future use—Braze doesn't currently write values to them. The exception is `braze.user_id`, which stores the identifier used to match your customers.

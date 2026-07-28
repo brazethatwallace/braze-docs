@@ -140,7 +140,7 @@ O limite específico varia por usuário, dependendo do nível de engajamento. Sa
 ### Janeiro de 2025: WhatsApp pausando o envio de mensagens de marketing para usuários dos EUA a partir de 1º de abril {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Última atualização em janeiro de 2025*
 
-O WhatsApp pausará o envio de mensagens de marketing para usuários dos EUA (pessoas com números de telefone dos EUA) a partir de 1º de abril de 2025. [Mensagens de utilidade, serviço e autenticação](https://developers.facebook.com/docs/whatsapp/pricing/) e [mensagens de resposta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) ainda serão permitidas nos EUA.
+O WhatsApp pausará o envio de mensagens de marketing para usuários dos EUA (pessoas com números de telefone dos EUA) a partir de 1º de abril de 2025. [Mensagens de utilidade, serviço e autenticação](https://developers.facebook.com/docs/whatsapp/pricing/) e [mensagens de resposta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) ainda serão permitidas nos EUA.
 
 O envio de mensagens de marketing (além de todos os outros tipos de mensagem) para todos os outros países ou regiões ainda é permitido e não será afetado.
 
@@ -154,22 +154,22 @@ A entrega de mensagens de marketing para números de telefone com códigos de á
 A Meta atualizou recentemente sua [política de opt-in](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/). Em vez de exigir consentimento específico do canal, os negócios agora podem enviar mensagens aos usuários na plataforma se:
 
 1. A pessoa forneceu seu número de telefone.
-2. A pessoa concedeu permissão de opt-in para mensagens em geral, não apenas para o WhatsApp.
+2. A pessoa concedeu permissão de aceitação para mensagens em geral, não apenas para o WhatsApp.
 
-Os negócios ainda precisam cumprir todas as leis locais e seguir os requisitos abaixo ao obter o opt-in:
+Os negócios ainda precisam cumprir todas as leis locais e seguir os requisitos abaixo ao obter a aceitação:
 
 - Os negócios devem declarar claramente que a pessoa está optando por receber comunicações do negócio
 - Os negócios devem declarar claramente o nome do negócio do qual a pessoa está optando por receber mensagens
 - Os negócios devem cumprir a legislação aplicável
 
-Embora o WhatsApp tenha flexibilizado sua política, a Braze ainda recomenda coletar opt-in específico para o canal do WhatsApp, a fim de promover a melhor experiência do cliente e taxas de engajamento. Como sempre, consulte sua equipe jurídica para ver o que faz sentido para sua marca.
+Embora o WhatsApp tenha flexibilizado sua política, a Braze ainda recomenda coletar aceitação específica para o canal do WhatsApp, a fim de promover a melhor experiência do cliente e taxas de engajamento. Como sempre, consulte sua equipe jurídica para ver o que faz sentido para sua marca.
 
 ### Novembro de 2024: Atualizações no limite de modelo de marketing por usuário para pessoas nos EUA, antes da temporada de festas {#november-2024-updates-to-the-per-user-marketing-template-limit-for-people-in-the-us-ahead-of-the-holiday-season}
 *Última atualização em dezembro de 2024*
 
 Desde que a Meta implementou o limite de modelo de marketing por usuário, a Meta observou melhorias significativas nas taxas de leitura e no sentimento dos usuários.
 
-A partir de agora, antes da temporada de festas, pessoas nos EUA receberão menos novas conversas de marketing. A Meta espera que essa mudança crie públicos mais engajados, o que, em última análise, leva a melhores resultados para os negócios. Isso pode resultar em taxas de entrega mais baixas para o seu negócio se você enviar mensagens de marketing para números de telefone dos EUA, o que pode ser monitorado com o código de erro `131049` pelo Braze Currents e pelo Registro de atividades de envio de mensagem.
+A partir de agora, antes da temporada de festas, pessoas nos EUA receberão menos novas conversas de marketing. A Meta espera que essa mudança crie públicos mais engajados, o que, em última análise, leva a melhores resultados para os negócios. Isso pode resultar em taxas de entrega mais baixas para o seu negócio se você enviar mensagens de marketing para números de telefone dos EUA, o que pode ser monitorado com o código de erro `131049` pelo Braze Currents e pelo registro de atividades de mensagem.
 
 Negócios nos EUA ainda podem entregar mensagens de marketing em outras regiões geográficas, e não há impacto em mensagens de utilidade, autenticação ou serviço, nem em mensagens de modelo de marketing enviadas dentro de uma janela de conversa iniciada pelo usuário (por exemplo, um anúncio de clique para WhatsApp, carrossel de produtos ou modelo de cupom enviado como parte de uma conversa).
 
@@ -275,7 +275,7 @@ No experimento, a Meta seleciona aleatoriamente aproximadamente 1% dos consumido
 
 ### Como saberei se minha mensagem de marketing foi impactada pelo experimento da Meta? {#how-will-i-know-if-my-marketing-message-was-impacted-by-metas-experiment}
 
-Se uma mensagem não for entregue devido ao experimento, um código de erro específico será exibido no Registro de Atividades e no Currents. A mensagem também será contabilizada como uma falha e incorporada às suas métricas de Falhas do WhatsApp em todos os relatórios dentro do dashboard da Braze. Você não será cobrado por essas mensagens.
+Se uma mensagem não for entregue devido ao experimento, um código de erro específico será exibido no Registro de Atividades e no Currents. A mensagem também será contabilizada como uma falha e incorporada às suas métricas de falhas do WhatsApp em todos os relatórios dentro do dashboard da Braze. Você não será cobrado por essas mensagens.
 
 Esse código de erro 130472 indicará "User's number is part of an experiment." Consulte a [documentação da Meta](https://developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes?content_id=8SJRLBEjYGvXO9k) para mais informações sobre códigos de erro da Cloud API do WhatsApp.
 

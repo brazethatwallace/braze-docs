@@ -11,17 +11,17 @@ description: "Diese Seite bietet eine Übersicht darüber, wie Sie Katalogdaten 
 
 > Diese Seite beschreibt, wie Sie Katalogdaten synchronisieren können.
 
-## 1. Schritt: Einen neuen Katalog erstellen {#step-1-create-a-new-catalog}
+## Schritt 1: Einen neuen Katalog erstellen {#step-1-create-a-new-catalog}
 
 Bevor Sie eine neue Cloud-Datenaufnahme-Integration (CDI) für [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) erstellen, müssen Sie einen neuen Katalog erstellen oder einen vorhandenen Katalog identifizieren, den Sie für die Integration verwenden möchten. Es gibt mehrere Möglichkeiten, einen neuen Katalog zu erstellen. Sie alle eignen sich für die CDI-Integration:
-- Eine [CSV-Datei]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv) hochladen
-- Einen Katalog im [Braze-Dashboard]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) oder bei der CDI-Einrichtung erstellen
+- Eine [CSV-Datei]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) hochladen
+- Einen Katalog im [Braze-Dashboard]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) oder bei der CDI-Einrichtung erstellen
 - Einen Katalog mithilfe des [Endpunkts „Katalog erstellen“]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog) erstellen
 
 Änderungen am Katalogschema (z. B. das Hinzufügen neuer Felder oder Änderungen am Feldtyp) müssen über das Katalog-Dashboard vorgenommen werden, bevor aktualisierte Daten über CDI synchronisiert werden. Wir empfehlen, diese Aktualisierungen vorzunehmen, wenn die Synchronisierung pausiert ist oder keine Ausführung geplant ist, um Konflikte zwischen den Daten aus Ihrem Data Warehouse und dem Schema in Braze zu vermeiden.
 
-## 2. Schritt: Cloud-Datenaufnahme mit Katalogdaten integrieren {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für [Nutzerdaten-CDI-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup).
+## Schritt 2: Cloud-Datenaufnahme mit Katalogdaten integrieren {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
+Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für [Nutzerdaten-CDI-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 {% tabs %}
 {% tab Snowflake %}
@@ -87,7 +87,7 @@ Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für 
     GRANT SELECT ON TABLE CATALOGS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Wenn Sie eine Firewall oder andere Netzwerkrichtlinien haben, müssen Sie Braze Netzwerkzugriff auf Ihre Redshift-Instanz gewähren. Erlauben Sie den Zugriff von den unten aufgeführten IPs, die der Region Ihres Braze-Dashboards entsprechen. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Wenn Sie eine Firewall oder andere Netzwerkrichtlinien haben, müssen Sie Braze Netzwerkzugriff auf Ihre Redshift-Instanz gewähren. Erlauben Sie den Zugriff von den folgenden IPs, die der Region Ihres Braze-Dashboards entsprechen. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab BigQuery %}
@@ -116,7 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | ERFORDERLICH |
 | ID | STRING | ERFORDERLICH |
 | DELETED | BOOLEAN | OPTIONAL |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Cloud-Datenaufnahme mit Katalogdaten integrieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2: Cloud-Datenaufnahme mit Katalogdaten integrieren" }
 
 {:start="2"}
 
@@ -155,7 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING, STRUCT oder MAP | ERFORDERLICH |
 | ID | STRING | ERFORDERLICH |
 | DELETED | BOOLEAN | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Cloud-Datenaufnahme mit Katalogdaten integrieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2: Cloud-Datenaufnahme mit Katalogdaten integrieren" }
 
 {:start="2"}
 
@@ -204,7 +204,7 @@ Erstellen Sie Quelldateien in S3 im JSON- oder CSV-Format. Jede Datei muss die f
 | `PAYLOAD` | Ja | Ein JSON-String der Felder, die mit dem Katalogartikel in Braze synchronisiert werden sollen. |
 | `DELETED` | Optional | Wenn auf `true` gesetzt, wird der entsprechende Katalogartikel aus dem Katalog entfernt. |
 | `UPDATED_AT` | *Nicht unterstützt* | Dateispeicher unterstützt keine `UPDATED_AT`-Spalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Cloud-Datenaufnahme mit Katalogdaten integrieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2: Cloud-Datenaufnahme mit Katalogdaten integrieren" }
 
 {% alert note %}
 Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zeitstempel hinzu, um die Eindeutigkeit sicherzustellen.

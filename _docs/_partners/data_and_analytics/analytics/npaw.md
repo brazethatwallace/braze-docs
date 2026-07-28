@@ -49,7 +49,7 @@ Once all the fields have been filled out, simply click on the **Connect** button
 
 Once you have finished configuring your integration with Braze, navigate to the **Users** product and select the **Sample Manager** within the **Sections Manager**.
 
-After creating a sample within the **Sample Manger**, you will now be able to click on the triple dot icon on the right-hand side to send all users within your sample to Braze.
+After creating a sample within the **Sample Manger**, you can click the triple dot icon in the row actions menu to send all users within your sample to Braze.
 
 ![NPAW sample manager]({% image_buster /assets/img/npaw_sample_manager.png %})
 

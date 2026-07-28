@@ -19,7 +19,7 @@ Brazeアカウントにユーザーを追加するには、管理者権限が必
 1. **設定** > **ユーザー管理** > **会社ユーザー**に移動します。
 2. **+ 新しいユーザーを追加**を選択します。
 3. メールアドレス、部署、[ユーザーロール]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role)など、求められた情報を入力します。
-4. 管理者でないユーザーの場合、そのユーザーに付与する会社レベルおよびワークスペースレベルの[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions)を選択します。
+4. 管理者でないユーザーの場合、そのユーザーに付与する会社レベルおよびワークスペースレベルの[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions)を選択します。
 
 ![カスタム権限フィールドのセクションを含むワークスペースレベルの権限。]({% image_buster /assets/img/add_new_user_3.png %})
 

@@ -9,7 +9,7 @@ Web Braze SDKを使えば、分析データを収集し、Webユーザー向け�
 Web Braze SDKは以下の方法で統合できます。追加のオプションについては、[その他の統合方法](#web_other-integration-methods)を参照してください。
 
 - **コードベースの統合：** お好みのパッケージマネージャーまたはBraze CDNを使って、Web Braze SDKをコードベースに直接統合します。これにより、SDKの読み込み方法と設定方法を完全にコントロールできます。
-- **Google Tag Manager：** サイトのコードを変更せずにWeb Braze SDKを統合できるノーコードソリューションです。詳細については、[Braze SDKとGoogle Tag Manager]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager/)を参照してください。
+- **Google Tag Manager：** サイトのコードを変更せずにWeb Braze SDKを統合できるノーコードソリューションです。詳細については、[Google Tag ManagerとBraze SDK]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager)を参照してください。
 
 {% alert important %}
 [NPM統合方式]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web)の使用を推奨します。メリットには、SDKライブラリーをWebサイトにローカル保存できること、広告ブロック拡張機能の影響を受けないこと、バンドラーサポートの一環として読み込み速度の向上に寄与することが含まれます。
@@ -19,7 +19,7 @@ Web Braze SDKは以下の方法で統合できます。追加のオプション�
 {% tab code-based integration %}
 ### ステップ1：Brazeライブラリーをインストールする {#step-1-install-the-braze-library}
 
-Brazeライブラリーは、以下のいずれかの方法でインストールできます。ただし、Webサイトが`Content-Security-Policy`を使用している場合は、続行する前に[コンテンツセキュリティポリシー]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy/)を確認してください。
+Brazeライブラリーは、以下のいずれかの方法でインストールできます。ただし、Webサイトが`Content-Security-Policy`を使用している場合は、続行する前に[コンテンツセキュリティポリシー]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy)を確認してください。
 
 {% alert important %}
 ほとんどの広告ブロッカーはBraze Web SDKをブロックしませんが、より制限の厳しい広告ブロッカーでは問題が発生することが知られています。
@@ -39,7 +39,7 @@ npm install --save @braze/web-sdk
 
 インストール後は、通常の方法でライブラリーを`import`または`require`できます。
 
-`````````typescript
+```typescript
 import * as braze from "@braze/web-sdk";
 // or, using `require`
 const braze = require("@braze/web-sdk");
@@ -60,13 +60,13 @@ Safariのデフォルト設定である**クロスサイトトラッキングの
 
 ### ステップ2：SDKを初期化する {#step-2-initialize-the-sdk}
 
-Braze Web SDKをWebサイトに追加した後、Brazeダッシュボードの**Settings** > **App Settings**にあるAPIキーと[SDKエンドポイントURL]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/)でライブラリーを初期化します。`braze.initialize()`のオプションの完全な一覧と、その他のJavaScriptメソッドについては、[Braze JavaScriptドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)を参照してください。
+Braze Web SDKをWebサイトに追加した後、Brazeダッシュボードの**設定** > **アプリ設定**にあるAPIキーと[SDKエンドポイントURL]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints)でライブラリーを初期化します。`braze.initialize()`のオプションの完全な一覧と、その他のJavaScriptメソッドについては、[Braze JavaScriptドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)を参照してください。
 
 {% alert note %}
 **Web SDKリクエストにおけるカスタムドメインはサポートされていません：** Web SDKの`baseUrl`はBraze SDKエンドポイントでなければなりません（例：`sdk.iad-05.braze.com`）。BrazeはCNAMEレコードを介して顧客所有のドメインを経由するWeb SDKトラフィックのルーティングをサポートしていません。Web SDKのリクエストを自身のドメインから発信する必要がある場合は、Brazeサポートにお問い合わせください。
 {% endalert %}
 
-`````````javascript
+```javascript
 // initialize the SDK
 braze.initialize('YOUR-API-KEY-HERE', {
     baseUrl: "YOUR-SDK-ENDPOINT-HERE",
@@ -94,7 +94,7 @@ braze.openSession();
 ```
 
 {% alert important %}
-**アプリ内メッセージの表示：** アプリ内メッセージがトリガーされた際に自動的に表示するには、`braze.automaticallyShowInAppMessages()`を呼び出す必要があります。この呼び出しがないと、アプリ内メッセージは自動的に表示されません。メッセージ表示を手動で管理したい場合は、この呼び出しを削除し、代わりに`braze.subscribeToInAppMessage()`を使用してください。詳細については、[アプリ内メッセージ配信]({{site.baseurl}}/developer_guide/in_app_messages/delivery/)を参照してください。
+**アプリ内メッセージの表示：** アプリ内メッセージがトリガーされた際に自動的に表示するには、`braze.automaticallyShowInAppMessages()`を呼び出す必要があります。この呼び出しがないと、アプリ内メッセージは自動的に表示されません。メッセージ表示を手動で管理したい場合は、この呼び出しを削除し、代わりに`braze.subscribeToInAppMessage()`を使用してください。詳細については、[自動トリガーの無効化]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#disabling-automatic-triggers)を参照してください。
 {% endalert %}
 
 #### 匿名ユーザーにおけるセッション消失のトラブルシューティング {#troubleshooting-missing-sessions-for-anonymous-users}
@@ -108,7 +108,7 @@ braze.openSession();
 詳細については、[ステップ2：SDKを初期化する]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web&tab=code-based%20integration#step-2-initialize-the-sdk)を参照してください。
 
 {% alert important %}
-モバイルデバイスまたはWebデバイスの匿名ユーザーは、[MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data/#monthly-active-users)にカウントされる場合があります。その結果、これらのユーザーをMAUカウントから除外するために、条件付きでSDKを読み込むか、初期化することを検討してください。
+モバイルデバイスまたはWebデバイスの匿名ユーザーは、[MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data#monthly-active-users)にカウントされる場合があります。その結果、これらのユーザーをMAUカウントから除外するために、条件付きでSDKを読み込むか、初期化することを検討してください。
 {% endalert %}
 {% endtab %}
 
@@ -156,7 +156,7 @@ SDKの初期化をユーザー操作まで遅らせると、バナーやContent 
 
 **条件付き初期化の例：**
 
-`````````javascript
+```javascript
 // Only initialize Braze if your custom bot detection determines this is not a bot
 if (!isLikelyBot()) {
   braze.initialize('YOUR-API-KEY-HERE', {
@@ -177,21 +177,21 @@ if (!isLikelyBot()) {
 
 ### ロギング {#logging}
 
-ロギングをすばやく有効にするには、`?brazeLogging=true`をパラメーターとしてWebサイトURLに追加します。あるいは、[基本](#web_basic-logging)ロギングまたは[カスタム](#web_custom-logging)ロギングを有効にすることもできます。すべてのプラットフォームにわたる一元的な概要については、[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)を参照してください。
+ロギングをすばやく有効にするには、`?brazeLogging=true`をパラメーターとしてWebサイトURLに追加します。あるいは、[基本](#web_basic-logging)ロギングまたは[カスタム](#web_custom-logging)ロギングを有効にすることもできます。すべてのプラットフォームにわたる一元的な概要については、[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)を参照してください。
 
 #### 基本的なロギング {#basic-logging}
 
 {% tabs local %}
-{% tab before initialization %}
+{% tab 初期化前 %}
 SDKが初期化される前に、基本的なデバッグメッセージをJavaScriptコンソールに記録するには`enableLogging`を使用します。
 
-`````````javascript
+```javascript
 enableLogging: true
 ```
 
 メソッドは次のようになります。
 
-`````````javascript
+```javascript
 braze.initialize('API-KEY', {
     baseUrl: 'API-ENDPOINT',
     enableLogging: true
@@ -200,10 +200,10 @@ braze.openSession();
 ```
 {% endtab %}
 
-{% tab after initialization %}
+{% tab 初期化後 %}
 SDKが初期化された後、基本的なデバッグメッセージをJavaScriptコンソールに記録するには`braze.toggleLogging()`を使用します。メソッドは次のようになります。
 
-`````````javascript
+```javascript
 braze.initialize('API-KEY', {
     baseUrl: 'API-ENDPOINT',
 });
@@ -222,13 +222,13 @@ braze.toggleLogging();
 
 カスタムデバッグメッセージをJavaScriptコンソールに記録するには、`setLogger`を使用します。基本ログとは異なり、これらのログはユーザーには表示されません。
 
-`````````javascript
+```javascript
 setLogger(loggerFunction: (message: STRING) => void): void
 ```
 
 `STRING`を1つの文字列パラメーターとしてメッセージに置き換えます。メソッドは次のようになります。
 
-`````````javascript
+```javascript
 braze.initialize('API-KEY');
 braze.setLogger(function(message) {
     console.log("Braze Custom Logger: " + message);
@@ -254,12 +254,12 @@ RSSリーダーまたは任意のサービスを使用して、[リリースフ�
 ## その他の統合方法 {#other-integration-methods}
 
 ### Accelerated Mobile Pages（AMP） {#accelerated-mobile-pages-amp}
-{% details See more %}
+{% details 詳細を見る %}
 #### ステップ1：AMP Webプッシュスクリプトを含める {#step-1-include-amp-web-push-script}
 
 次の非同期スクリプトタグをheadに追加します。
 
-`````````js
+```js
 <script async custom-element="amp-web-push" src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js"></script>
 ```
 
@@ -267,7 +267,7 @@ RSSリーダーまたは任意のサービスを使用して、[リリースフ�
 
 HTMLのbodyにウィジェットを追加し、ユーザーがプッシュ通知の登録と配信停止を行えるようにします。
 
-`````````js
+```js
 <!-- A subscription widget -->
 <amp-web-push-widget visibility="unsubscribed" layout="fixed" width="250" height="80">
   <button on="tap:amp-web-push.subscribe">Subscribe to Notifications</button>
@@ -296,7 +296,7 @@ Webサイトのルートディレクトリに`service-worker.js`ファイルを�
 
 HTMLのbodyに次の`amp-web-push` HTML要素を追加します。[`apiKey`と`baseUrl`](https://documenter.getpostman.com/view/4689407/SVYrsdsG)をクエリパラメーターとして`service-worker-URL`に追加する必要があることに注意してください。
 
-`````````js
+```js
 <amp-web-push
 layout="nodisplay"
 id="amp-web-push"
@@ -319,7 +319,7 @@ service-worker-url="FILE_PATH_TO_YOUR_SERVICE_WORKER?apiKey={YOUR_API_KEY}&baseU
 
 RequireJSまたは他のAMDモジュールローダーを使用する場合は、ライブラリーのコピーをセルフホスティングし、他のリソースと同様に参照することをお勧めします。
 
-`````````javascript
+```javascript
 require(['path/to/braze.min.js'], function(braze) {
   braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT' });
   // Required if you want in-app messages to display automatically
@@ -352,7 +352,7 @@ Web SDKはブラウザー環境で動作します。SSRフレームワークで�
 
 このセクションにフレームワークが記載されていない場合は、クライアント専用のライフサイクルフックからBrazeを動的にインポートできます。
 
-`````````javascript
+```javascript
 // MyComponent/braze-exports.js
 // Export the parts of the SDK that you need.
 export { initialize, openSession } from "@braze/web-sdk";
@@ -371,7 +371,7 @@ useEffect(() => {
 
 webpackを使用している場合は、特定のSDKエクスポートのみを動的にインポートできます。
 
-`````````javascript
+```javascript
 // MyComponent.js
 useEffect(() => {
     import(
@@ -391,7 +391,7 @@ useEffect(() => {
 
 再利用可能な`useBraze`フックを作成し、アプリのルート付近で呼び出します。
 
-`````````tsx
+```tsx
 // hooks/useBraze.ts
 import { useEffect, useRef } from "react";
 
@@ -433,7 +433,7 @@ export function useBraze() {
 
 アプリをラップするクライアントコンポーネントで`useBraze`を呼び出します。
 
-`````````tsx
+```tsx
 // app/components/AppRoot.tsx
 "use client";
 
@@ -446,7 +446,7 @@ export function AppRoot({ children }: { children: ReactNode }) {
 }
 ```
 
-`````````tsx
+```tsx
 // app/layout.tsx
 import type { ReactNode } from "react";
 import { AppRoot } from "./components/AppRoot";
@@ -470,7 +470,7 @@ export default function RootLayout({
 
 カスタムアプリコンポーネントの先頭で`useBraze`を呼び出します。
 
-`````````tsx
+```tsx
 // pages/_app.tsx
 import type { AppProps } from "next/app";
 import { useBraze } from "../hooks/useBraze";
@@ -490,7 +490,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ローカルのRemix検証例を実行するには、`PORT=4013 npm run dev`を使用します。
 
-`````````tsx
+```tsx
 // app/root.tsx
 import { Outlet } from "@remix-run/react";
 import { useBraze } from "./hooks/useBraze";
@@ -506,7 +506,7 @@ export default function App() {
 
 `useBraze`がアプリのルートでSDKを初期化した後、他のクライアントコンポーネントからBrazeメソッドを呼び出すことができます。一般的なパターンは、`onClick`や`onSubmit`などのユーザーアクション内でメソッドを呼び出すことです。この例では、SDKメソッドはファイルの先頭ではなく、クリックハンドラー内で読み込まれます。これにより、Web SDKをサーバーコードから分離し、そのアクションに必要なものだけを読み込みます。`webpackExports`コメントは、どのメソッドを含めるかをwebpackに指示するため、バンドルサイズを小さく保てます。
 
-`````````tsx
+```tsx
 // app/components/BuyButton.tsx
 "use client";
 
@@ -534,9 +534,9 @@ RemixでViteを使用していて、パッケージルートのインポート�
 
 ### Tealium iQ
 
-Tealium iQは、基本的なターンキーBraze統合を提供します。統合を構成するには、Tealium Tag Managementインターフェイスで Brazeを検索し、ダッシュボードからWeb SDK APIキーを指定します。
+Tealium iQは、基本的なターンキーBraze統合を提供します。統合を構成するには、Tealium Tag ManagementインターフェイスでBrazeを検索し、ダッシュボードからWeb SDK APIキーを指定します。
 
-詳細やTealiumの設定に関する詳しいサポートが必要な場合は、[統合ドキュメント]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)を参照するか、Tealiumのアカウントマネージャーにお問い合わせください。
+詳細やTealiumの設定に関する詳しいサポートが必要な場合は、[統合ドキュメント]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium)を参照するか、Tealiumのアカウントマネージャーにお問い合わせください。
 
 ### Vite {#vite}
 

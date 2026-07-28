@@ -3,11 +3,11 @@ nav_title: カスタムイベント
 article_title: カスタムイベント
 page_order: 1
 page_type: reference
-description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、Canvasエントリプロパティ、関連する分析の表示場所などについて説明します。"
+description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、キャンバスエントリプロパティ、関連する分析の表示場所などについて説明します。"
 search_rank: 2
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Braze Learning コース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > この記事では、カスタムイベントとプロパティ、ユーザープロファイルのイベント履歴、関連するセグメンテーションフィルター、キャンバスエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、[イベント]({{site.baseurl}}/user_guide/data/activation/events)を参照してください。
 
@@ -69,7 +69,7 @@ search_rank: 2
 
 ## カスタムイベントの記録 {#logging-custom-events}
 
-カスタムイベントには追加のセットアップが必要です。以下のリストを参照して、各プラットフォームのドキュメントを確認してください。カスタムイベントの記録に使用するメソッドや、プロパティと数量の追加方法についての情報が記載されています。
+カスタムイベントには追加のセットアップが必要です。以下のプラットフォーム別ドキュメントを参照して、カスタムイベントの記録に使用するメソッドや、プロパティと数量の追加方法をご確認ください。
 
 {% details プラットフォーム別のドキュメントを展開 %}
 
@@ -85,7 +85,7 @@ search_rank: 2
 
 ## カスタムイベントの保存 {#custom-event-storage}
 
-**ユーザープロファイル**に保存されるすべてのデータ（カスタムイベントのメタデータ（初回または最終発生日時、合計回数、30日間のX in Y）を含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_archival#active-users)である限り無期限に保持されます。
+**ユーザープロファイル**に保存されるすべてのデータ（カスタムイベントのメタデータ（初回または最終発生日時、合計回数、30日間のX in Y）を含む）は、各プロファイルが<a href="/docs/user_archival#active-users">アクティブ</a> である限り無期限に保持されます。
 
 ## ユーザーのイベント履歴の表示 {#view-a-users-event-history}
 
@@ -116,7 +116,7 @@ search_rank: 2
 - データエクスポートを設定せずに、特定のユーザーのサポート問題を調査する。
 
 {% alert note %}
-**イベント履歴**タブの表示には、イベントプロパティに個人データが含まれる可能性があるため、**ユーザーを検索**と**PIIの表示**の両方のユーザー権限が必要です。詳しくは、[会社のユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
+**イベント履歴**タブの表示には、イベントプロパティに個人データが含まれる可能性があるため、**ユーザーを検索**、**PIIの表示**、および**ユーザーイベントプロパティの表示**のユーザー権限が必要です。詳しくは、[会社のユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
 {% endalert %}
 
 ## セグメンテーションフィルター {#segmentation-filters}
@@ -150,7 +150,7 @@ Brazeは、各ユーザーについてカスタムイベントの発生回数と
 ![カスタムイベントグラフのフィルター]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[カスタム属性のインクリメント]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers)を使用すると、カスタムイベントと同様にユーザーアクションのカウンターを保持できます。ただし、カスタム属性データを時系列で表示することはできません。時系列で分析する必要のないユーザーアクションは、この方法で記録してください。
+[カスタム属性のインクリメント]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)を使用すると、カスタムイベントと同様にユーザーアクションのカウンターを保持できます。ただし、カスタム属性データを時系列で表示することはできません。時系列で分析する必要のないユーザーアクションは、この方法で記録してください。
 {% endalert %}
 
 ### カスタムイベント分析が表示されない理由 {#why-custom-events-analytics-arent-showing}

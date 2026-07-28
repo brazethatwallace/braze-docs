@@ -159,7 +159,7 @@ Wenn Sie referenzierte Produkte aus Ihrem Katalog entfernen, können die zugehö
 
 ## Eingehende Produktanfragen empfangen {#receiving-inbound-product-questions}
 
-Nutzer:innen können auf Ihre Produkt- oder Katalognachricht mit Produktanfragen antworten. Diese kommen als eingehende Nachrichten an, die dann mit einem [Aktions-Pfad]({{site.baseurl}}/action_paths) sortiert werden können.
+Nutzer:innen können auf Ihre Produkt- oder Katalognachricht mit Produktanfragen antworten. Diese kommen als eingehende Nachrichten an, die dann mit einem [Aktionspfad]({{site.baseurl}}/action_paths) sortiert werden können.
 
 Darüber hinaus extrahiert Braze die Produkt-ID und Katalog-ID aus diesen Anfragen. Wenn Sie also Antworten automatisieren oder Anfragen an ein anderes Team (z. B. den Support) weiterleiten möchten, können Sie diese Details einbeziehen. Sie könnten beispielsweise Antworten mit den WhatsApp-Eigenschaften `inbound_product_id` oder `inbound_catalog_id` personalisieren.
 
@@ -196,7 +196,7 @@ Das Warenkorb-Event enthält:
 - **Quelle:** Gekennzeichnet als „whats_app“
 - **Metadaten:** Zusätzliche Daten wie Katalog-ID und Nachrichtentext
 
-Weitere Informationen zu Braze-Warenkorb-Events finden Sie unter [Typen empfohlener E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events).
+Weitere Informationen zu Braze-Warenkorb-Events finden Sie unter [Typen empfohlener E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 ### Eine getriggerte Antwort einrichten {#setting-up-a-triggered-response}
 

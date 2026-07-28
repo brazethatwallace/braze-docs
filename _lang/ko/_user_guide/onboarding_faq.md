@@ -51,7 +51,7 @@ CSV 가져오기를 시작하기 전에 엔지니어링 팀으로부터 Braze에
 
 가져오기에 `external_id`를 입력하면 Braze는 동일한 `external_id`를 가진 기존 사용자를 업데이트하거나, 해당 사용자를 찾을 수 없는 경우 해당 `external_id`가 설정된 새로 식별된 사용자를 생성합니다.
 
-자세한 내용을 확인하고 CSV 가져오기 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)를 참조하세요.
+자세한 내용을 확인하고 CSV 가져오기 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)를 참조하세요.
 
 #### API
 
@@ -108,7 +108,7 @@ Users
 
 몇 가지 추가 참고 사항:
 
-- 중복된 고객 프로필의 모든 참여 데이터(예: 수신한 Campaigns 또는 Canvases)는 손실됩니다. 과거 참여 컨텍스트를 유지하는 유일한 방법은 커스텀 속성(예: 수신한 모든 Campaigns 또는 Canvases의 배열 커스텀 속성)으로 추가하는 것입니다.
+- 중복된 고객 프로필의 모든 인게이지먼트 데이터(예: 수신한 Campaigns 또는 Canvases)는 손실됩니다. 과거 인게이지먼트 컨텍스트를 유지하는 유일한 방법은 커스텀 속성(예: 수신한 모든 Campaigns 또는 Canvases의 배열 커스텀 속성)으로 추가하는 것입니다.
 - 고객 프로필을 마이그레이션할 때 중복된 고객 프로필 중 어떤 프로필을 유지할지 결정하는 것도 팀의 몫입니다. Braze는 삭제할 프로필 목록을 결정하거나 제공할 수 없습니다.
 - 궁극적으로 팀에서는 사용자 경험 관점에서 가입 프로세스를 평가하고 사용자가 식별될 때만 `changeUser()` 메서드를 호출하도록 하는 것이 중요합니다.
 
@@ -129,7 +129,7 @@ CSV 파일을 가져오려면 사용자 섹션 아래의 **사용자 가져오�
 
 **이 CSV에서 사용자 가져오기를 선택하고 이 특정 사용자 배치를 그룹으로 리타겟팅할 수 있도록 설정한** 다음 **이 CSV에서 가져온 사용자로부터 Segment 자동 생성**을 선택합니다. **가져오기 시작**을 클릭하면 Braze가 파일을 업로드하고 열 헤더와 각 열의 데이터 유형을 확인한 후 Segment를 생성합니다.
 
-CSV 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)를 참조하세요.
+CSV 템플릿을 다운로드하려면 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)를 참조하세요.
 
 {% endapi %}
 {% api %}
@@ -151,7 +151,7 @@ Braze SDK는 특정 기능 및 속성을 기반으로 사용자를 세분화하�
 Segments
 {% endapitags %}
 
-참여 아래의 **Segments** 페이지로 이동하여 현재 모든 사용자 Segment를 확인합니다. 이 페이지에서 새 Segment를 만들고 이름을 지정할 수 있습니다. 시작하려면 **세그먼트 생성**을 클릭하고 Segment의 이름을 지정합니다.
+인게이지먼트 아래의 **Segments** 페이지로 이동하여 현재 모든 사용자 Segment를 확인합니다. 이 페이지에서 새 Segment를 만들고 이름을 지정할 수 있습니다. 시작하려면 **Segment 생성**을 클릭하고 Segment의 이름을 지정합니다.
 
 Segment를 생성한 후에는 `Most Recent Location` 필터를 추가하여 사용자가 마지막으로 앱을 사용한 장소를 기준으로 사용자를 타겟팅합니다. 표준 원형 영역에서 사용자를 강조 표시하거나 커스텀 다각형 영역을 만들 수 있습니다.
 
@@ -182,9 +182,9 @@ Segments
 5. 사용자 목록에서 타겟팅할 구매 아이템 또는 특정 커스텀 이벤트를 선택합니다.
 6. 사용자가 이벤트를 완료해야 하는 횟수(이상, 미만 또는 같음)와 되돌아볼 일수(최대 365일)를 선택합니다.
 
-타겟팅 정확도를 높이려면 **등록정보 필터 추가**를 선택하고 구매 또는 커스텀 이벤트의 특정 등록정보를 기반으로 세분화할 수 있습니다. Braze는 문자열, 숫자, 부울, 시간 객체를 기반으로 이벤트 속성정보 세분화를 지원합니다.
+타겟팅 정확도를 높이려면 **속성정보 필터 추가**를 선택하고 구매 또는 커스텀 이벤트의 특정 속성정보를 기반으로 세분화할 수 있습니다. Braze는 문자열, 숫자, 부울, 시간 객체를 기반으로 이벤트 속성정보 세분화를 지원합니다.
 
-[중첩 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 기반으로 한 세분화도 지원합니다.
+[중첩된 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 기반으로 한 세분화도 지원합니다.
 
 세그먼트 확장은 이벤트 속성정보의 장기 저장에 의존하며 30일의 커스텀 이벤트 속성 저장 제한이 없습니다. 즉, 지난 1년 동안 추적된 이벤트 속성정보를 다시 살펴볼 수 있으며, 확장이 먼저 설정될 때까지 추적이 기다리지 않습니다.
 
@@ -218,7 +218,7 @@ Segments
 Campaigns
 {% endapitags %}
 
-설정 단계, 지원되는 채널 및 작성기 전환 방법은 **Campaign 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns)을 참조하세요.
+설정 단계, 지원되는 채널 및 작성기 전환 방법은 **Campaign 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign)을 참조하세요.
 
 {% endapi %}
 {% api %}
@@ -468,9 +468,9 @@ Canvases
 
 전환은 해당 항목에 대해 사용자가 가장 최근에 수신한 메시지에 할당됩니다. Canvas 시작 부분의 요약 블록은 메시지 수신 여부와 관계없이 해당 경로 내에서 사용자가 수행한 모든 전환을 반영합니다. 이후의 각 단계는 사용자가 가장 최근에 받은 단계인 동안에 발생한 전환만 표시합니다.
 
-{% details 활용 사례 %}
+{% details 사용 사례 %}
 
-#### 활용 사례 1 {#use-case-1}
+#### 사용 사례 1 {#use-case-1}
 
 10개의 푸시 알림이 있는 Canvas 경로가 있으며 전환 이벤트는 "세션 시작"("앱 열기")입니다:
 
@@ -484,7 +484,7 @@ Canvases
 전환 이벤트가 발생할 때 방해금지 시간이 활성화되어 있는 경우에도 동일한 규칙이 적용됩니다.
 {% endalert %}
 
-#### 활용 사례 2 {#use-case-2}
+#### 사용 사례 2 {#use-case-2}
 
 방해금지 시간이 있는 원스텝 Canvas가 있습니다:
 
@@ -554,9 +554,9 @@ Analytics
 Analytics
 {% endapitags %}
 
-Currents 도구는 메시징 참여도와 고객 행동 데이터를 지속적으로 여러 데이터 파트너 중 한 곳으로 스트리밍하여 Braze가 생성하는 고유하고 가치 있는 데이터를 사용하여 다른 최고의 파트너에서 비즈니스 인텔리전스 및 분석 작업을 강화할 수 있도록 지원합니다.
+Currents 도구는 메시징 인게이지먼트와 고객 행동 데이터를 지속적으로 여러 데이터 파트너 중 한 곳으로 스트리밍하여 Braze가 생성하는 고유하고 가치 있는 데이터를 사용하여 다른 최고의 파트너에서 비즈니스 인텔리전스 및 분석 작업을 강화할 수 있도록 지원합니다.
 
-이 데이터에는 메시징 참여 측정기준을 넘어 커스텀 속성 및 이벤트 성과와 같은 보다 복잡한 수치도 포함될 수 있습니다. 자세한 내용은 [Currents 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)을 참조하세요.
+이 데이터에는 메시징 인게이지먼트 측정기준을 넘어 커스텀 속성 및 이벤트 성능과 같은 보다 복잡한 수치도 포함될 수 있습니다. 자세한 내용은 [Currents 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)을 참조하세요.
 
 {% endapi %}
 {% api %}
@@ -572,12 +572,12 @@ Analytics
 1. 대시보드 계정에서 **데이터** 아래의 **참여 보고서**로 이동합니다.
 2. **+ 새 보고서 생성**을 클릭합니다.
 3. 보고서에 컴파일하려는 [Campaign 및 Canvas 메시지]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#manually-select-campaigns-or-canvases)를 개별적으로 또는 [태그별]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)로 추가합니다.
-4. 보고서에 [통계를 추가합니다]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-report).
+4. 보고서에 [통계를 추가합니다]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-reports).
 5. 보고서의 압축 및 구분 기호를 선택합니다.
 6. 이 보고서를 받아야 하는 회사 사용자들의 이메일 주소를 입력합니다.
-7. 보고서에서 데이터를 실행할 [기간]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#time-frame)을 선택합니다.
-8. 데이터 분석을 보고 싶은 [간격(일별, 주별 등)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#data-display)을 선택합니다.
-9. 보고서를 [즉시]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-immediately) 또는 [나중에 지정된 시간에]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-at-designated-time) 전송하도록 스케줄합니다.
+7. 보고서에서 데이터를 실행할 [기간]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-time-frame)을 선택합니다.
+8. 데이터 분석을 보고 싶은 [간격(일별, 주별 등)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-data-display)을 선택합니다.
+9. 보고서를 [즉시]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report) 또는 [나중에 지정된 시간에]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report) 전송하도록 스케줄합니다.
 10. 보고서를 실행한 다음 이메일이 도착하면 열어보세요!
 
 {% endapi %}
@@ -589,9 +589,9 @@ Analytics
 Analytics
 {% endapitags %}
 
-참여 보고서는 트리거된 이메일을 통해 Campaigns 및 Canvases의 특정 메시지에 대한 참여 통계의 CSV를 제공합니다. 특정 데이터는 개별 배리언트 또는 단계 수준이 아닌 Campaign 또는 Canvas 수준에서 집계됩니다. 보고서는 대시보드에 저장되지 않으며, 보고서를 다시 실행하면 통계가 업데이트될 수 있습니다.
+참여 보고서는 트리거된 이메일을 통해 Campaigns 및 Canvases의 특정 메시지에 대한 인게이지먼트 통계의 CSV를 제공합니다. 특정 데이터는 개별 배리언트 또는 단계 수준이 아닌 Campaign 또는 Canvas 수준에서 집계됩니다. 보고서는 대시보드에 저장되지 않으며, 보고서를 다시 실행하면 통계가 업데이트될 수 있습니다.
 
-보고서 빌더를 사용하면 여러 Campaigns 또는 Canvases의 결과를 단일 보기에서 비교할 수 있으므로 어떤 참여 전략이 주요 측정기준에 가장 큰 영향을 미쳤는지 쉽게 확인할 수 있습니다. Campaigns와 Canvases 모두 데이터를 내보내고 보고서를 저장하여 나중에 볼 수 있습니다.
+보고서 빌더를 사용하면 여러 Campaigns 또는 Canvases의 결과를 단일 보기에서 비교할 수 있으므로 어떤 인게이지먼트 전략이 주요 측정기준에 가장 큰 영향을 미쳤는지 쉽게 확인할 수 있습니다. Campaigns와 Canvases 모두 데이터를 내보내고 보고서를 저장하여 나중에 볼 수 있습니다.
 
 Braze에서 보고서 및 분석 사용에 대한 자세한 내용은 [보고서 개요]({{site.baseurl}}/user_guide/analytics/reports)를 참조하세요.
 

@@ -18,8 +18,8 @@ search_tag: Partner
 |------------|-------------|
 | Movable Ink Da Vinci | このパートナーシップを利用するには、Movable Ink Da Vinciのアカウントが必要です。 |
 | Braze Currents - メッセージエンゲージメントイベント | メッセージエンゲージメントイベントデータをMovable Inkに送信するには、Brazeカスタム Currentsエクスポートが必要です。 |
-| Braze REST APIキー | `messages.send`、`sends.id.create`、`campaigns.details`の権限が付与されたBraze REST APIキーが必要です。これは、Brazeダッシュボードの**Settings** > **API Keys**で作成できます。<br><br>詳細な設定方法については、Movable Inkのアカウントチームに直接お問い合わせください。[統合](#integration)セクションを参照してください。|
-| BrazeのDa Vinciアプリインスタンス | Brazeで Da Vinci専用のアプリインスタンスを作成します。新しいアプリは、Brazeダッシュボードの**Settings** > **App Settings** > **+ Add App**で作成できます。アプリ名を「**Movable Ink - Da Vinci**」とし、任意のプラットフォームを選択します（プラットフォームの選択は必須ですが、タイプは機能に影響しません）。[新しいアプリを追加する方法]({{site.baseurl}}/user_guide/administrative/app_settings/workspaces/#step-3-add-your-app-instances)について詳しくはこちらをご覧ください。 |
+| Braze REST APIキー | `messages.send`、`sends.id.create`、`campaigns.details`の権限が付与されたBraze REST APIキーが必要です。これは、Brazeダッシュボードの**設定** > **API キー**で作成できます。<br><br>詳細な設定方法については、Movable Inkのアカウントチームに直接お問い合わせください。[統合](#integration)セクションを参照してください。|
+| BrazeのDa Vinciアプリインスタンス | Brazeで Da Vinci専用のアプリインスタンスを作成します。新しいアプリは、Brazeダッシュボードの**設定** > **アプリ設定** > **アプリを追加**で作成できます。アプリ名を「**Movable Ink - Da Vinci**」とし、任意のプラットフォームを選択します（プラットフォームの選択は必須ですが、タイプは機能に影響しません）。[新しいアプリを追加する方法]({{site.baseurl}}/user_guide/administrative/app_settings/workspaces/#step-3-add-your-app-instances)について詳しくはこちらをご覧ください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}

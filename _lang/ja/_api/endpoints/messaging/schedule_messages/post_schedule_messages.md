@@ -26,7 +26,7 @@ description: "この記事では、「スケジュールされたメッセージ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`messages.schedule.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`messages.schedule.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -83,7 +83,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `campaign_id` | オプション | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `override_messaging_limits` | オプション | ブール値 | キャンペーンのフリークエンシーキャップを無視します。デフォルトは false です。 |
-| `recipient_subscription_state` | オプション | 文字列 | これを使用して、オプトインしたユーザーのみ (`opted_in`)、購読中またはオプトインしているユーザーのみ (`subscribed`)、または配信停止済みのユーザーを含むすべてのユーザー (`all`) にメッセージを送信します。<br><br>`all` の使用は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |
+| `recipient_subscription_state` | オプション | 文字列 | これを使用して、オプトインしたユーザーのみ (`opted_in`)、購読中またはオプトインしているユーザーのみ (`subscribed`)、または購読解除済みのユーザーを含むすべてのユーザー (`all`) にメッセージを送信します。<br><br>`all` の使用は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |
 | `schedule` | 必須 | スケジュールオブジェクト | [スケジュールオブジェクト]({{site.baseurl}}/api/objects_filters/schedule_object)を参照してください。 |
 | `messages` | オプション | メッセージングオブジェクト | [利用可能なメッセージングオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }

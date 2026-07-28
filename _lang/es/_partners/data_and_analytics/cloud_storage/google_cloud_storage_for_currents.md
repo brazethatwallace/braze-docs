@@ -14,7 +14,7 @@ search_tag: Partner
 > [Google Cloud Storage](https://cloud.google.com/storage/) es un sistema de almacenamiento de objetos masivo y escalable para datos no estructurados ofrecido por Google como parte de la línea de productos Cloud Computing.
 
 {% alert important %}
-Si vas a cambiar de proveedor de almacenamiento en la nube, ponte en contacto con tu administrador del éxito del cliente de Braze para que te ayude a configurar y validar tu nueva integración.
+Si vas a cambiar de proveedor de almacenamiento en el cloud, ponte en contacto con tu administrador de éxito de cliente de Braze para que te ayude a configurar y validar tu nueva integración.
 {% endalert %}
 
 La integración de Braze y Google Cloud Storage te permite transmitir datos de Currents a Google Cloud Storage. Posteriormente, puedes utilizar un proceso ETL (extraer, transformar, cargar) para transferir tus datos a otras ubicaciones, como Google BigQuery.
@@ -24,8 +24,8 @@ La integración de Braze y Google Cloud Storage te permite transmitir datos de C
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Google Cloud Storage | Se necesita una cuenta de Google Cloud Storage para beneficiarse de esta asociación. |
-| Currents | Para volver a exportar datos a Google Cloud Storage, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) en tu cuenta. Currents no es necesario si solo estás configurando el archivado de mensajes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Currents | Para volver a exportar datos a Google Cloud Storage, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) en tu cuenta. Currents no es necesario si solo estás configurando el archivado de mensajes. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -41,7 +41,7 @@ Para ello, sigue las siguientes instrucciones, que te guiarán a través de la c
 
 Crea un nuevo rol en tu consola de Google Cloud Platform accediendo a **IAM & admin** > **Roles** > **+ Create Role**.
 
-![]({% image_buster /assets/img/gcs1.png %})
+![Página de roles de IAM de Google Cloud con la acción Crear rol.]({% image_buster /assets/img/gcs1.png %})
 
 Dale un nombre al rol, luego selecciona **+Add Permissions** y elige lo siguiente:
 
@@ -57,7 +57,7 @@ El permiso `storage.objects.delete` es opcional. Permite a Braze limpiar los arc
 
 Cuando hayas terminado, selecciona **Create**.
 
-![]({% image_buster /assets/img/gcs2.png %})
+![Editor de roles personalizados de Google Cloud con permisos de almacenamiento seleccionados.]({% image_buster /assets/img/gcs2.png %})
 
 ### Paso 2: Crear una nueva cuenta de servicio {#step-2-create-a-new-service-account}
 
@@ -65,7 +65,7 @@ Cuando hayas terminado, selecciona **Create**.
 
 Crea una nueva cuenta de servicio en tu consola de Google Cloud Platform accediendo a **IAM & admin** > **Service Accounts** y seleccionando **Create Service Account**.
 
-![]({% image_buster /assets/img/gcs3.png %})
+![Página de cuentas de servicio de Google Cloud con la opción Crear cuenta de servicio seleccionada.]({% image_buster /assets/img/gcs3.png %})
 
 A continuación, asigna un nombre a la cuenta de servicio y concédele acceso al rol personalizado que acabas de crear.
 
@@ -75,7 +75,7 @@ A continuación, asigna un nombre a la cuenta de servicio y concédele acceso al
 
 En la parte inferior de la página, utiliza el botón **Create Key** para crear una clave privada **JSON** y utilizarla en Braze. Una vez creada la clave, se descargará en tu máquina.
 
-![]({% image_buster /assets/img/gcs5.png %})
+![Cuadro de diálogo de creación de clave de cuenta de servicio de Google Cloud configurado con el tipo de clave JSON.]({% image_buster /assets/img/gcs5.png %})
 
 ### Paso 3: Configurar Currents en Braze {#step-3-set-up-currents-in-braze}
 
@@ -93,7 +93,7 @@ Por último, desplázate hasta la parte inferior de la página y selecciona los 
 
 ### Paso 4: Configurar las exportaciones de Google Cloud Storage {#step-4-set-up-google-cloud-storage-exports}
 
-Para configurar las exportaciones de Google Cloud Storage (GCS), ve a **Socios tecnológicos** > **Google Cloud Storage**, introduce tus credenciales de GCS y selecciona **Make this the default data export destination**.
+Para configurar las exportaciones de Google Cloud Storage (GCS), ve a **Partners tecnológicos** > **Google Cloud Storage**, introduce tus credenciales de GCS y selecciona **Make this the default data export destination**.
 
 Ten en cuenta que la organización y el contenido de los archivos exportados serán idénticos en todas las integraciones de AWS S3, Microsoft Azure y Google Cloud Storage.
 
@@ -119,15 +119,15 @@ Para verificar estos permisos en el panel de Braze, ve a la página **Google Clo
 
 ## Comportamiento de la exportación {#export-behavior}
 
-Los usuarios que hayan integrado una solución de almacenamiento en la nube y estén intentando exportar API, informes del dashboard o informes CSV experimentarán lo siguiente:
+Los usuarios que hayan integrado una solución de almacenamiento en el cloud y estén intentando exportar API, informes del panel o informes CSV experimentarán lo siguiente:
 
 - Todas las exportaciones de la API no devolverán una URL de descarga en el cuerpo de la respuesta y deberán recuperarse a través del almacenamiento de datos.
-- Todos los informes del dashboard y los informes CSV se enviarán al correo electrónico del usuario para su descarga (sin necesidad de permisos de almacenamiento) y se realizará una copia de seguridad en el almacenamiento de datos.
+- Todos los informes del panel y los informes CSV se enviarán al correo electrónico del usuario para su descarga (sin necesidad de permisos de almacenamiento) y se realizará una copia de seguridad en el almacenamiento de datos.
 
 {% alert important %}
 **Requisito de formato JSON**: Para las exportaciones JSON, Braze utiliza el formato JSONL (JSON delimitado por nuevas líneas), en el que cada línea contiene un objeto JSON independiente. Este formato difiere del JSON estándar, que es una única matriz u objeto JSON. Cada línea del archivo exportado es un objeto JSON válido, pero el archivo en su conjunto no es un único documento JSON válido. Al procesar estos archivos, analiza cada línea individualmente como un objeto JSON distinto, en lugar de intentar analizar todo el archivo como un único documento JSON.
 
-Las exportaciones de Currents utilizan el formato Apache Avro (archivos `.avro`), no JSON. Este requisito de formato JSON se aplica a las exportaciones de datos del dashboard y a las exportaciones de API que utilizan el formato JSON.
+Las exportaciones de Currents utilizan el formato Apache Avro (archivos `.avro`), no JSON. Este requisito de formato JSON se aplica a las exportaciones de datos del panel y a las exportaciones de API que utilizan el formato JSON.
 {% endalert %}
 
 ## Solución de problemas {#troubleshooting}

@@ -14,11 +14,11 @@ description: "Dieser Referenzartikel beschreibt die Schritte zur Erstellung eine
 
 | Anforderung | Beschreibung |
 | --- | --- |
-| Zwei-Faktor-Authentifizierung oder SSO | Sie müssen die [Zwei-Faktor-Authentifizierung]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication) (2FA) oder [Single Sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) für Ihr Konto aktiviert haben. |
+| Zwei-Faktor-Authentifizierung oder SSO | Sie müssen die [Zwei-Faktor-Authentifizierung]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa) (2FA) oder [Single Sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) für Ihr Konto aktiviert haben. |
 | Korrekte Berechtigungen | Sie müssen entweder Konto-Admin oder Workspace-Admin sein oder über die Nutzer:innen-Berechtigung „Transformationen verwalten“ verfügen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## 1. Schritt: Quellplattform identifizieren {#step-1-identify-a-source-platform}
+## Schritt 1: Quellplattform identifizieren {#step-1-identify-a-source-platform}
 
 Identifizieren Sie eine externe Plattform, die Sie mit Braze verbinden möchten, und überprüfen Sie, ob die Plattform Webhooks unterstützt. Diese Einstellungen werden manchmal auch als „API-Benachrichtigungen“ oder „Anfragen für Webdienste“ bezeichnet.
 
@@ -26,11 +26,11 @@ Im Folgenden finden Sie ein Beispiel für einen [Typeform-Webhook](https://www.t
 
 ![Ein Beispiel für eine Typeform-Webhook-Nutzlast in den Typeform-Plattformeinstellungen.]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
-## 2. Schritt: Transformation erstellen {#step-2-create-a-transformation}
+## Schritt 2: Transformation erstellen {#step-2-create-a-transformation}
 
 {% multi_lang_include data_activation/create_transformation.md location="default" %}
 
-## 3. Schritt: Test-Webhook senden (empfohlen) {#step-3-send-a-test-webhook-recommended}
+## Schritt 3: Test-Webhook senden (empfohlen) {#step-3-send-a-test-webhook-recommended}
 
 Dieser Schritt ist optional, aber wir empfehlen, einen Test-Webhook von Ihrer Quellplattform an Ihre neu erstellte Transformation zu senden.
 
@@ -46,17 +46,17 @@ So sieht es bei Typeform aus:
 ![Beispiel für Datentransformationscode, der den Webhook auf Braze-Nutzerprofile abbildet.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Braze Datentransformation unterstützt möglicherweise noch keine externen Plattformen, die eine spezielle Überprüfung oder Authentifizierung für Webhooks erfordern. Wenn Sie diese Art von Plattform mit Braze Datentransformation nutzen möchten, sollten Sie ein [Produktfeedback]({{site.baseurl}}/user_guide/administer/personal/product_portal) hinterlassen.
+Braze Datentransformation unterstützt möglicherweise noch keine externen Plattformen, die eine spezielle Überprüfung oder Authentifizierung für Webhooks erfordern. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="webhook authentication for external platforms" %}
 {% endalert %}
 
-## 4. Schritt: Transformationscode schreiben {#step-4-write-transformation-code}
+## Schritt 4: Transformationscode schreiben {#step-4-write-transformation-code}
 
 Wenn Sie wenig bis gar keine Erfahrung mit JavaScript-Code haben oder detailliertere Anweisungen bevorzugen, folgen Sie dem Tab **Anfänger – POST: Nutzer:innen tracken** oder **Anfänger – PUT: Mehrere Katalogartikel aktualisieren** zum Schreiben Ihres Transformationscodes.
 
 Wenn Sie Entwickler:in sind oder über umfangreiche Erfahrung mit JavaScript-Code verfügen, folgen Sie dem Tab **Fortgeschritten – POST: Nutzer:innen tracken** für übergeordnete Anweisungen zum Schreiben Ihres Transformationscodes.
 
 {% alert tip %}
-Um Transformationscode mit KI zu generieren, wählen Sie **Code with Operator** über dem Transformationscode-Editor. Dazu muss ein Webhook an Ihre Transformation gesendet worden sein. Um stattdessen mit einem vorgefertigten Template zu beginnen, wählen Sie **Insert Template**. Beispiel-Prompts finden Sie unter [Datentransformationscode generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
+Um Transformationscode mit KI zu generieren, wählen Sie **Code with Operator** im Transformationscode-Editor. Dazu muss ein Webhook an Ihre Transformation gesendet worden sein. Um stattdessen mit einem vorgefertigten Template zu beginnen, wählen Sie **Insert Template**. Beispiel-Prompts finden Sie unter [Datentransformationscode generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
 
 **Code with Operator** ist nur verfügbar, wenn Operator für Ihr Konto aktiviert ist. Wenn Sie diese Option nicht sehen, wenden Sie sich an Ihren Account Manager.
 {% endalert %}
@@ -200,13 +200,7 @@ Ihre Webhook-Integration ist nun abgeschlossen!
 
 In diesem Schritt transformieren Sie die Webhook-Nutzlast von der Quellplattform in einen Rückgabewert für ein JavaScript-Objekt. Dieser Rückgabewert muss dem Format des Anfragekörpers für den `/users/track`-Endpunkt entsprechen:
 
-- Der Transformationscode wird in der Programmiersprache JavaScript akzeptiert. Jeder Standard-JavaScript-Kontrollfluss, wie z. B. die if/else-Logik, wird unterstützt.
-- Der Transformationscode greift über die Variable `payload` auf den Anfragekörper des Webhooks zu. Diese Variable ist ein Objekt, das durch das Parsen des JSON-Anfragekörpers erstellt wird.
-- Alle Features, die in unserem `/users/track`-Endpunkt unterstützt werden, werden unterstützt, einschließlich:
-  - Nutzer:innen-Attribut-Objekte, Event-Objekte und Kauf-Objekte
-  - Verschachtelte Attribute und verschachtelte Eigenschaften von angepassten Events
-  - Updates für Abo-Gruppen
-  - E-Mail-Adresse als Bezeichner
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 Wählen Sie **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 
@@ -217,7 +211,7 @@ Externe Netzwerkanfragen, Bibliotheken von Drittanbietern und Webhooks, die nich
 {% endtab %}
 {% endtabs %}
 
-## 5. Schritt: Transformation überwachen {#step-5-monitor-your-transformation}
+## Schritt 5: Transformation überwachen {#step-5-monitor-your-transformation}
 
 Nachdem Sie Ihre Transformation aktiviert haben, finden Sie in den Analytics auf der Hauptseite **Transformations** eine Zusammenfassung der Performance.
 

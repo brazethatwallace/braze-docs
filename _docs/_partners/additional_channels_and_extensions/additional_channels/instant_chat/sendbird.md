@@ -17,8 +17,7 @@ _This integration is maintained by Sendbird._
 ## About the integration
 
 The Braze and Sendbird integration allows company users to:
-* Utilize Braze segmentation and triggering capabilities to initiate personalized in-app notifications.
-* Create tailored in-app notifications on the Sendbird Notifications platform, which are then delivered within the app environment, enhancing user engagement.
+{% multi_lang_include partners/instant_chat/sendbird_integration_bullets.md %}
 
 By harnessing the joint capabilities of Braze and Sendbird Notifications, businesses can elevate customer engagement and drive higher conversion rates through effective in-app notification strategies.
 
@@ -34,7 +33,7 @@ By harnessing the joint capabilities of Braze and Sendbird Notifications, busine
 
 ## Use cases
 
-![]({% image_buster /assets/img/sendbird/use-cases.png %})
+![Diagram summarizing Braze and Sendbird Notifications integration use cases for marketing and transactional messaging.]({% image_buster /assets/img/sendbird/use-cases.png %})
 
 The Braze and Sendbird Notifications integration offers a range of use cases to boost customer engagement and deliver an exceptional user experience:
 
@@ -47,7 +46,7 @@ The Braze and Sendbird Notifications integration offers a range of use cases to 
 
 [Sendbird templates](https://sendbird.com/docs/notifications/v1/templates) allow you to send personalized in-app notifications by building and using multiple templates for each channel. Templates can be created and customized on Sendbird Dashboard without writing code.
 
-![]({% image_buster /assets/img/sendbird/sendbird-dashboard-template.png %})
+![Sendbird dashboard template editor for creating notification templates.]({% image_buster /assets/img/sendbird/sendbird-dashboard-template.png %})
 
 ### Step 2: Set up the Braze integration on Sendbird dashboard
 
@@ -59,7 +58,7 @@ Once you have provided all fields, click **Save** to complete the integration an
 
 Next, you must install [Sendbird Notification Builder](https://chrome.google.com/webstore/detail/apbhgfffamdcdogeijjcnjbmghahoaji). This Google Chrome extension lets you send customized notifications through Sendbird on the Braze Dashboard.
 
-![]({% image_buster /assets/img/sendbird/sendbird-notification-builder.png %})
+![Sendbird Notification Builder Chrome extension panel in the Braze dashboard.]({% image_buster /assets/img/sendbird/sendbird-notification-builder.png %})
 
 #### Add Sendbird credentials to the extension
 
@@ -88,14 +87,14 @@ In Braze, from **Templates & Media**, go to **Webhook Templates** and choose the
 ### Campaigns
 
 1. In the Braze dashboard, on the **Campaigns** page, click **Create Campaign** > **Webhook**.
-2. Select the webhook template you created above. It's highly recommended you use the Batch endpoint for campaigns.
+2. Select the webhook template you created in this section. It's highly recommended you use the Batch endpoint for campaigns.
 3. Customize the template by editing its variables in the **Compose** tab.
 
 ### Canvas
 
 1. From a new or existing Canvas, add a **Message** component. 
 2. Open the component and select **Webhook** from the **Messaging Channels**.
-3. Select the webhook template you created above. It's highly recommended you use the Real-time endpoint for Canvases.
+3. Select the webhook template you created in this section. It's highly recommended you use the Real-time endpoint for Canvases.
 4. Customize the template by editing its variables in the **Compose** tab.
 
 ## Customization

@@ -1,15 +1,15 @@
 ---
 nav_title: FAQ
-article_title: "FAQ sur l'Ingestion de données cloud"
+article_title: "FAQ sur l'ingestion de données cloud"
 page_order: 10
 page_type: FAQ
-description: "Cette page répond aux questions fréquemment posées sur l'Ingestion de données cloud."
+description: "Cette page répond aux questions fréquemment posées sur l'ingestion de données cloud."
 toc_headers: h2
 ---
 
 # Questions fréquemment posées {#frequently-asked-questions}
 
-> Cette page contient des réponses à certaines questions fréquemment posées concernant l'Ingestion de données cloud.
+> Cette page contient des réponses à certaines questions fréquemment posées concernant l'ingestion de données cloud.
 
 ## Pourquoi ai-je reçu l'e-mail suivant : « Error in CDI Sync » ? {#why-was-i-emailed-error-in-cdi-sync}
 
@@ -130,7 +130,7 @@ Si vous recevez cette erreur, consultez [Databricks : Erreur Forbidden lors de l
 
 ## Comment mettre à jour mes préférences d'alerte par e-mail pour les intégrations CDI ? {#how-do-i-update-my-email-alert-preferences-for-cdi-integrations}
 
-Chaque intégration dispose de ses propres préférences de notification. Accédez à la page CDI et sélectionnez le nom de l'intégration que vous souhaitez mettre à jour. Dans la section **Préférences de notification**, vous pouvez modifier la façon dont vous recevez les alertes pour l'intégration sélectionnée.
+Chaque intégration dispose de ses propres préférences de notification. Accédez à la page CDI et sélectionnez le nom de l'intégration que vous souhaitez mettre à jour. Dans la section **Notification preferences**, vous pouvez modifier la façon dont vous recevez les alertes pour l'intégration sélectionnée.
 
 ## Que se passe-t-il si un `UPDATED_AT` futur est synchronisé avec une intégration ? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
@@ -142,7 +142,7 @@ CDI utilise `UPDATED_AT` pour déterminer quelles données sont nouvelles. Une f
 
 ## Pourquoi le nombre de « Rows Synced » ne correspond-il pas à celui de mon entrepôt ? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-CDI utilise `UPDATED_AT` pour décider quels enregistrements récupérer lors d'une synchronisation. Consultez [cette illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced) pour comprendre le fonctionnement. Au début d'une synchronisation, CDI interroge votre entrepôt de données pour obtenir tous les enregistrements dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` traitée. Les enregistrements situés exactement à l'horodatage limite peuvent également être re-synchronisés si de nouvelles lignes partagent cet horodatage. Tout enregistrement récupéré au moment de l'exécution de la requête est synchronisé dans Braze. Voici les cas courants où un enregistrement pourrait ne pas être synchronisé :
+CDI utilise `UPDATED_AT` pour décider quels enregistrements récupérer lors d'une synchronisation. Consultez [cette illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#how-it-works) pour comprendre le fonctionnement. Au début d'une synchronisation, CDI interroge votre entrepôt de données pour obtenir tous les enregistrements dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` traitée. Les enregistrements situés exactement à l'horodatage limite peuvent également être re-synchronisés si de nouvelles lignes partagent cet horodatage. Tout enregistrement récupéré au moment de l'exécution de la requête est synchronisé dans Braze. Voici les cas courants où un enregistrement pourrait ne pas être synchronisé :
 
 - Vous ajoutez des enregistrements à la table avec une valeur `UPDATED_AT` qui a déjà été traitée.
 - Vous mettez à jour les valeurs des enregistrements après leur traitement par une synchronisation, mais vous laissez `UPDATED_AT` inchangé.
@@ -226,7 +226,7 @@ Braze dispose des mesures suivantes pour CDI :
 
 - Toutes les informations d'identification sont chiffrées dans notre base de données, et seuls certains employés y ont accès après authentification.
 - Nous utilisons des connexions chiffrées pour récupérer les données depuis les entrepôts des clients.
-- Nous effectuons des requêtes vers les endpoints de l'API Braze en utilisant les mêmes clés API et connexions TLS (sécurité de la couche de transport) que nous recommandons à nos clients d'utiliser.
+- Nous effectuons des requêtes vers les endpoints de l'API Braze en utilisant les mêmes clés API et connexions TLS que nous recommandons à nos clients d'utiliser.
 - Nous mettons régulièrement à jour nos bibliothèques et appliquons tous les correctifs de sécurité.
 
 ### Vos mesures {#your-measures}

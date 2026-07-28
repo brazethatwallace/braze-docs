@@ -7,8 +7,9 @@ Scenarios:
   3: External PR author, no docs reviewer, older than 24h
   4: Docs-team tagged as reviewer, no other reviewers, no approval, older than 24h
   5: Any PR with no activity for 20+ days — fires once as a final catch-all
+  6: Docs-team tagged + non-docs approval exists + no docs-team review yet, 24h+ since tagged
 
-Scenarios 1–4 fire once, then remind every 2 days up to 5 reminders.
+Scenarios 1–4 and 6 fire once, then remind every 2 days up to 5 reminders.
 Scenario 5 fires once only.
 """
 
@@ -124,6 +125,25 @@ def get_pr_reviews(repo, pr_number, token):
     except Exception:
         return []
 
+def get_docs_team_tagged_time(repo, pr_number, token):
+    """Return the most recent datetime docs-team was requested as a reviewer, or None."""
+    url = f"https://api.github.com/repos/{repo}/issues/{pr_number}/timeline"
+    try:
+        events = gh_paginate(url, token)
+        last_request = None
+        for event in events:
+            if event.get("event") == "review_requested":
+                team = event.get("requested_team")
+                if team and team.get("slug", "").lower() == "docs-team":
+                    ts = event.get("created_at")
+                    if ts:
+                        dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+                        if last_request is None or dt > last_request:
+                            last_request = dt
+        return last_request
+    except Exception:
+        return None
+
 def get_pr_requested_reviewers(repo, pr_number, token):
     url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}/requested_reviewers"
     try:
@@ -139,16 +159,6 @@ def should_remind(last_reminded_str, reminder_count):
         return False
     last_dt = datetime.fromisoformat(last_reminded_str)
     return (datetime.now(timezone.utc) - last_dt) >= timedelta(days=REMINDER_INTERVAL_DAYS)
-
-def slack_ts_to_iso(slack_ts):
-    """Convert a Slack message timestamp to an ISO 8601 UTC string."""
-    if not slack_ts:
-        return None
-    try:
-        unix = float(str(slack_ts).split(".")[0])
-        return datetime.fromtimestamp(unix, tz=timezone.utc).isoformat()
-    except (ValueError, TypeError, OSError):
-        return None
 
 def resolve_mention(login, github_to_slack, oncall_docs_mention):
     """Convert a GitHub login to a Slack mention string."""
@@ -249,6 +259,10 @@ def main():
 
     scenario5_notified = set(state.get("scenario5_notified", []))
 
+    scenario6_notified       = set(state.get("scenario6_notified", []))
+    scenario6_last_reminded  = state.get("scenario6_last_reminded", {})
+    scenario6_reminder_count = state.get("scenario6_reminder_count", {})
+
     thread_ts_map = state.get("thread_ts", {})
 
     # ── Build docs team set ──────────────────────────────────────────────────────
@@ -276,12 +290,13 @@ def main():
     new_s3 = []; remind_s3 = []
     new_s4 = []; remind_s4 = []
     new_s5 = []
+    new_s6 = []; remind_s6 = []
 
     # Resolved notifications
-    resolved_s1 = []; resolved_s2 = []; resolved_s3 = []; resolved_s4 = []; resolved_s5 = []
+    resolved_s1 = []; resolved_s2 = []; resolved_s3 = []; resolved_s4 = []; resolved_s5 = []; resolved_s6 = []
 
     # Currently active PRs per scenario
-    current_s1 = set(); current_s2 = set(); current_s3 = set(); current_s4 = set(); current_s5 = set()
+    current_s1 = set(); current_s2 = set(); current_s3 = set(); current_s4 = set(); current_s5 = set(); current_s6 = set()
 
     for pr in prs:
         pr_number  = pr["number"]
@@ -338,10 +353,8 @@ def main():
                        "reason": "no docs-team reviewer tagged"}
             if pr_number not in scenario1_notified:
                 new_s1.append(pr_data)
-            elif should_remind(
-                    scenario1_last_reminded.get(pr_num_str)
-                    or slack_ts_to_iso(thread_ts_map.get(f"s1_{pr_number}")),
-                    scenario1_reminder_count.get(pr_num_str, 0)):
+            elif should_remind(scenario1_last_reminded.get(pr_num_str),
+                               scenario1_reminder_count.get(pr_num_str, 0)):
                 remind_s1.append(pr_data)
 
         # ── Scenario 2 ────────────────────────────────────────────────────────
@@ -386,16 +399,19 @@ def main():
         # ── Scenario 3 ────────────────────────────────────────────────────────
         author_is_external = author_lower not in docs_team
 
-        if author_is_external and older_than_24h and no_docs_reviewer:
+        # Also consider a docs-team assignee as "covered" — not just reviewers
+        assignees = pr.get("assignees", [])
+        docs_team_assigned = any(a["login"].lower() in docs_team for a in assignees)
+        no_docs_owner = no_docs_reviewer and not docs_team_assigned
+
+        if author_is_external and older_than_24h and no_docs_owner:
             current_s3.add(pr_number)
             pr_data = {"pr_number": pr_number, "title": pr_title, "url": pr_url,
                        "author_mention": author_mention, "open_days": open_days}
             if pr_number not in scenario3_notified:
                 new_s3.append(pr_data)
-            elif should_remind(
-                    scenario3_last_reminded.get(pr_num_str)
-                    or slack_ts_to_iso(thread_ts_map.get(f"s3_{pr_number}")),
-                    scenario3_reminder_count.get(pr_num_str, 0)):
+            elif should_remind(scenario3_last_reminded.get(pr_num_str),
+                               scenario3_reminder_count.get(pr_num_str, 0)):
                 remind_s3.append(pr_data)
 
         # ── Scenario 4 ────────────────────────────────────────────────────────
@@ -425,18 +441,29 @@ def main():
             for r in reviews
         )
 
+        # Look up when docs-team was tagged (shared by Scenarios 4 and 6)
+        docs_team_tagged_dt = None
+
         if docs_team_is_requested and no_other_human_reviewers and no_human_approvals \
-                and older_than_24h and not has_do_not_merge:
-            current_s4.add(pr_number)
-            pr_data = {"pr_number": pr_number, "title": pr_title, "url": pr_url,
-                       "author_mention": author_mention, "open_days": open_days}
-            if pr_number not in scenario4_notified:
-                new_s4.append(pr_data)
-            elif should_remind(
-                    scenario4_last_reminded.get(pr_num_str)
-                    or slack_ts_to_iso(thread_ts_map.get(f"s4_{pr_number}")),
-                    scenario4_reminder_count.get(pr_num_str, 0)):
-                remind_s4.append(pr_data)
+                and not has_do_not_merge:
+            docs_team_tagged_dt = get_docs_team_tagged_time(repo, pr_number, token)
+            if docs_team_tagged_dt is None:
+                # Fall back to PR age if timeline lookup fails
+                docs_team_tagged_dt = created_dt
+            tagged_age = datetime.now(timezone.utc) - docs_team_tagged_dt
+            tagged_days = tagged_age.days
+            tagged_24h = tagged_age >= timedelta(hours=24)
+
+            if tagged_24h:
+                current_s4.add(pr_number)
+                pr_data = {"pr_number": pr_number, "title": pr_title, "url": pr_url,
+                           "author_mention": author_mention, "open_days": open_days,
+                           "tagged_days": tagged_days}
+                if pr_number not in scenario4_notified:
+                    new_s4.append(pr_data)
+                elif should_remind(scenario4_last_reminded.get(pr_num_str),
+                                   scenario4_reminder_count.get(pr_num_str, 0)):
+                    remind_s4.append(pr_data)
 
         # ── Scenario 5 ────────────────────────────────────────────────────────
         # Any PR with no activity for 20+ days — fires once as a final catch-all
@@ -453,6 +480,36 @@ def main():
                     "open_days": open_days,
                     "stale_days": days_since(updated_at),
                 })
+
+        # ── Scenario 6 ────────────────────────────────────────────────────────
+        # Docs-team tagged + non-docs approval + no docs-team review yet, 24h+ since tagged
+        non_docs_approved = any(
+            r["state"] == "APPROVED"
+            and r.get("user")
+            and r["user"].get("type", "User") != "Bot"
+            and r["user"]["login"].lower() not in docs_team
+            and r["user"]["login"].lower() not in ignored_reviewers
+            for r in reviews
+        )
+        docs_has_reviewed = bool(docs_team_individuals & reviewed_logins)
+
+        if docs_team_is_requested and non_docs_approved and not docs_has_reviewed and not has_do_not_merge:
+            # Use when docs-team was tagged, not PR creation date
+            if docs_team_tagged_dt is None:
+                docs_team_tagged_dt = get_docs_team_tagged_time(repo, pr_number, token)
+            tagged_age_s6 = datetime.now(timezone.utc) - (docs_team_tagged_dt or created_dt)
+            tagged_days_s6 = tagged_age_s6.days
+
+            if tagged_age_s6 >= timedelta(hours=24):
+                current_s6.add(pr_number)
+                pr_data = {"pr_number": pr_number, "title": pr_title, "url": pr_url,
+                           "author_mention": author_mention, "open_days": open_days,
+                           "tagged_days": tagged_days_s6}
+                if pr_number not in scenario6_notified:
+                    new_s6.append(pr_data)
+                elif should_remind(scenario6_last_reminded.get(pr_num_str),
+                                   scenario6_reminder_count.get(pr_num_str, 0)):
+                    remind_s6.append(pr_data)
 
     # ── Find resolved PRs ────────────────────────────────────────────────────────
     for pr_number in list(scenario1_notified):
@@ -480,6 +537,11 @@ def main():
         if pr_number not in current_s5:
             resolved_s5.append({"pr_number": pr_number,
                                  "thread_ts": thread_ts_map.get(f"s5_{pr_number}")})
+
+    for pr_number in list(scenario6_notified):
+        if pr_number not in current_s6:
+            resolved_s6.append({"pr_number": pr_number,
+                                 "thread_ts": thread_ts_map.get(f"s6_{pr_number}")})
 
     # ── Remove resolved from state ───────────────────────────────────────────────
     new_s1_set  = scenario1_notified.copy()
@@ -515,10 +577,17 @@ def main():
     for r in resolved_s5:
         new_s5_set.discard(r["pr_number"])
 
+    new_s6_set = scenario6_notified.copy()
+    for r in resolved_s6:
+        n = r["pr_number"]
+        new_s6_set.discard(n)
+        scenario6_last_reminded.pop(str(n), None)
+        scenario6_reminder_count.pop(str(n), None)
+
     warning_footer = f"\n_⚠️ Note: {warning}_" if warning else ""
 
     # ── Post resolved reactions ──────────────────────────────────────────────────
-    for r in resolved_s1 + resolved_s2 + resolved_s3 + resolved_s4 + resolved_s5:
+    for r in resolved_s1 + resolved_s2 + resolved_s3 + resolved_s4 + resolved_s5 + resolved_s6:
         ts = r.get("thread_ts")
         if ts and slack_token and slack_channel:
             slack_react(slack_token, slack_channel, ts)
@@ -634,7 +703,7 @@ def main():
         text = (
             f"🔔 *Docs-team PR ready for review*\n"
             f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
-            f"Owner: {pr['author_mention']}  |  Open {pr['open_days']} days\n"
+            f"Owner: {pr['author_mention']}  |  Tagged for review {pr['tagged_days']} days ago\n"
             f"{oncall_docs_mention} this PR is waiting on a docs-team review — please take a look, leave feedback, or approve and merge."
             f"{warning_footer}"
         )
@@ -647,7 +716,7 @@ def main():
         text = (
             f"🔔 *Reminder: Docs-team PR still waiting for review*\n"
             f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
-            f"Owner: {pr['author_mention']}  |  Open {pr['open_days']} days\n"
+            f"Owner: {pr['author_mention']}  |  Tagged for review {pr['tagged_days']} days ago\n"
             f"{oncall_docs_mention} this PR is still waiting on a docs-team review."
             f"{warning_footer}"
         )
@@ -669,6 +738,33 @@ def main():
                         notified_set=new_s5_set,
                         scenario_key="s5")
 
+    # ── Post Scenario 6 ──────────────────────────────────────────────────────────
+    for pr in new_s6:
+        text = (
+            f"🔔 *Docs-team review needed: PR has stakeholder approval*\n"
+            f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
+            f"Owner: {pr['author_mention']}  |  Tagged for review {pr['tagged_days']} days ago\n"
+            f"{oncall_docs_mention} this PR has been approved by stakeholders and is waiting on a docs-team review."
+            f"{warning_footer}"
+        )
+        post_and_record(text, pr["pr_number"],
+                        notified_set=new_s6_set,
+                        last_reminded_dict=scenario6_last_reminded,
+                        scenario_key="s6")
+
+    for pr in remind_s6:
+        text = (
+            f"🔔 *Reminder: Docs-team review still needed*\n"
+            f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
+            f"Owner: {pr['author_mention']}  |  Tagged for review {pr['tagged_days']} days ago\n"
+            f"{oncall_docs_mention} this PR still needs a docs-team review — stakeholders have already approved."
+            f"{warning_footer}"
+        )
+        post_and_record(text, pr["pr_number"],
+                        last_reminded_dict=scenario6_last_reminded,
+                        reminder_count_dict=scenario6_reminder_count,
+                        scenario_key="s6")
+
     # ── Save state ───────────────────────────────────────────────────────────────
     state["scenario1_notified"]       = sorted(new_s1_set)
     state["scenario1_last_reminded"]  = scenario1_last_reminded
@@ -688,6 +784,10 @@ def main():
 
     state["scenario5_notified"] = sorted(new_s5_set)
 
+    state["scenario6_notified"]       = sorted(new_s6_set)
+    state["scenario6_last_reminded"]  = scenario6_last_reminded
+    state["scenario6_reminder_count"] = scenario6_reminder_count
+
     state["thread_ts"] = thread_ts_map
     save_json(STATE_PATH, state)
 
@@ -697,11 +797,13 @@ def main():
         "new_scenario3": new_s3, "reminders_scenario3": remind_s3,
         "new_scenario4": new_s4, "reminders_scenario4": remind_s4,
         "new_scenario5": new_s5,
+        "new_scenario6": new_s6, "reminders_scenario6": remind_s6,
         "resolved_scenario1": resolved_s1,
         "resolved_scenario2": resolved_s2,
         "resolved_scenario3": resolved_s3,
         "resolved_scenario4": resolved_s4,
         "resolved_scenario5": resolved_s5,
+        "resolved_scenario6": resolved_s6,
         "total_open_prs": total_open_prs,
     }
     if warning:

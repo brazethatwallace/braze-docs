@@ -209,7 +209,7 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
         <th scope="row">Duplizieren von Inhalten</th>
         <td>N/A</td>
         <td>Einige Inhalte, wie Segmente und Content-Card-Kampagnen, können nicht über Workspaces hinweg kopiert werden.</td>
-        <td>Sie können <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>Campaigns, Canvases und Landing-Pages über Workspaces hinweg kopieren</a>. Unterstützte Inhalte umfassen Campaigns und Canvases für berechtigte Kanäle sowie Landing-Pages, E-Mail-Templates, Feature-Flags und Content Blocks.<br><br>Sie können Segmente, Campaigns, Canvases und Landing-Pages duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
+        <td>Sie können <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>Campaigns, Canvases und Landing-Pages über Workspaces hinweg kopieren</a>. Unterstützte Inhalte umfassen Campaigns und Canvases für berechtigte Kanäle sowie Landing-Pages, E-Mail-Templates, Feature-Flags und Content Blocks.<br><br>Sie können Segmente, Campaigns, Canvases und Landing-Pages duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
         <td>N/A</td>
     </tr>
     <tr>
@@ -221,6 +221,10 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
     </tr>
     </tbody>
 </table>
+
+{% alert note %}
+Informationen dazu, wie sich MAU bei der Anzeige aller Apps im Vergleich zu einer einzelnen App unterscheidet, finden Sie unter [Monatlich aktive Nutzer:innen]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+{% endalert %}
 
 ## Best Practices {#best-practices}
 

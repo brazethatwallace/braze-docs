@@ -128,7 +128,7 @@ Inbox Vision classifies accessibility issues by severity to help you prioritize 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Severity levels" }
 
 {% alert important %}
-The drag-and-drop editor does not support setting a document `<title>` element, so the accessibility scanner always fails this check.<br><br>This limitation is tracked for future improvements. If this affects your workflows or your users, [share your feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback) so we can prioritize impactful fixes.
+The drag-and-drop editor does not support setting a document `<title>` element, so the accessibility scanner always fails this check.<br><br>This limitation is tracked for future improvements. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### Understanding automated accessibility testing

@@ -15,69 +15,73 @@ Liquid-Personalisierung für Landing-Pages ist nur im Pro-Tier der Landing-Pages
 
 ## Liquid einfügen {#inserting-liquid}
 
-Im Drag-and-Drop-Editor können Sie Liquid-Personalisierung sowohl im Editor als auch in den Seiten- oder Block-Einstellungen im rechten Panel einfügen. Anleitungen zur Implementierung von Liquid finden Sie in unserer speziellen [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid).
+Im Drag-and-Drop-Editor können Sie Liquid-Personalisierung sowohl im Editor als auch in den Seiten- oder Blockeinstellungen im rechten Panel einfügen. Anleitungen zur Implementierung von Liquid finden Sie in unserer speziellen [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 
 ![Landing-Page-Editor mit hinzugefügter Liquid-Personalisierung.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
-## Vorschau und Testen {#previewing-and-testing}
+## Vorschau und Tests {#previewing-and-testing}
 
 Wenn Sie eine Landing-Page im Editor in der Vorschau anzeigen, können Sie die Seite als zufällige:r Nutzer:in, als bestehende:r Nutzer:in oder als benutzerdefinierte:r Nutzer:in betrachten.
 
 Wenn Sie die Landing-Page jedoch über die Datentabelle oder die Seite **Landing-Page-Details** in der Vorschau anzeigen, können Sie sie nur als zufällige:r Nutzer:in betrachten.
 
-## Hinweise zur Personalisierung {#personalization-considerations}
+## Überlegungen zur Personalisierung {#personalization-considerations}
 
 Um eine optimale Performance bei personalisierten Landing-Pages zu gewährleisten, beachten Sie die folgenden Größenbeschränkungen:
 
 - **Speichern einer Landing-Page:** Wenn die Größe 500&nbsp;KB überschreitet, erhalten Sie möglicherweise eine Warnmeldung, die darauf hinweist, dass die Seite unsere Größenbeschränkungen überschritten hat, was die Veröffentlichung verhindern kann.
-- **Rendering mit Liquid-Personalisierung:** Die Gesamtgröße darf 1&nbsp;MB nicht überschreiten. Andernfalls kann die Seite automatisch von Braze zurückgezogen werden.
+- **Rendern mit Liquid-Personalisierung:** Die Gesamtgröße darf 1&nbsp;MB nicht überschreiten. Andernfalls wird die Seite möglicherweise automatisch von Braze depubliziert.
 
-### Zurückziehen von Landing-Pages vermeiden {#avoid-unpublishing-landing-pages}
+### Depublizierung von Landing-Pages vermeiden {#avoid-unpublishing-landing-pages}
 
-Wenn Ihre Seite diese Größenbeschränkungen überschreitet, erhalten Sie eine E-Mail, dass sie möglicherweise zurückgezogen wird, wenn sie die Grenze weiterhin überschreitet. Wenn der Schwellenwert erreicht ist, wird die Seite automatisch zurückgezogen, und Sie erhalten eine Benachrichtigung.
+Wenn Ihre Seite diese Größenbeschränkungen überschreitet, erhalten Sie eine E-Mail mit dem Hinweis, dass sie depubliziert werden kann, wenn sie die Grenze weiterhin überschreitet. Wenn der Schwellenwert erreicht wird, wird die Seite automatisch depubliziert und Sie erhalten eine Benachrichtigung.
 
 Um zu verhindern, dass Ihre Seite die Größenbeschränkungen überschreitet oder langsame Ladezeiten auftreten, stellen Sie sicher, dass die Liquid-Personalisierung:
 
-- Nicht kontinuierlich durch große Datensätze iteriert oder diese referenziert.
+- Nicht kontinuierlich große Datensätze durchläuft oder referenziert.
 - Nicht auf umfangreiche mathematische oder bedingte Logik innerhalb des Liquid-Blocks angewiesen ist.
 
-Vermeiden Sie außerdem das direkte Einbetten großer Skripte, Stylesheets und Base64-kodierter Assets in Ihren Landing-Page-Code. Diese Inline-Assets zählen zur Seitengrößenbeschränkung und können das Rendering verlangsamen. Laden Sie stattdessen Schriftarten, Bilder, Stylesheets und Skripte in die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) hoch. Assets, die über die Medienbibliothek bereitgestellt werden, werden auf dem CDN von Braze gehostet, sodass sie nicht für das Liquid-Rendering verarbeitet werden und nicht zur Seitengrößenbeschränkung zählen.
+Vermeiden Sie außerdem das direkte Einbetten großer Skripte, Stylesheets und Base64-kodierter Assets in Ihren Landing-Page-Code. Diese Inline-Assets zählen zur Seitengrößenbeschränkung und können das Rendern verlangsamen. Laden Sie stattdessen Schriftarten, Bilder, Stylesheets und Skripte in die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) hoch. Assets, die über die Medienbibliothek bereitgestellt werden, werden auf dem Braze-CDN gehostet, sodass sie nicht für das Liquid-Rendering verarbeitet werden und nicht zur Seitengrößenbeschränkung zählen.
 
 ### Liquid für identifizierte und anonyme Nutzer:innen verwenden {#use-liquid-for-identified-and-anonymous-users}
 
-Liquid kann das Landing-Page-Erlebnis sowohl für identifizierte als auch für anonyme Besucher:innen anpassen.
+Liquid kann das Landing-Page-Erlebnis sowohl für identifizierte als auch für anonyme Nutzer:innen anpassen.
 
-- **Identifizierte Nutzer:innen:** Verlinken Sie die Landing-Page aus einer Braze-Nachricht und fügen Sie den [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags) hinzu. Dadurch wird die Person mit ihrem Braze-Profil verknüpft und das Seitenerlebnis personalisiert.
-- **Anonyme Besucher:innen:** Verwenden Sie Liquid für kontextuelle, nicht profilbasierte Inhalte, wie z. B. eine Zufallszahl oder eine tageszeitabhängige Begrüßung.
+- **Identifizierte Nutzer:innen:** Verlinken Sie die Landing-Page aus einer Braze-Nachricht und fügen Sie den [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags) hinzu. Dadurch wird die Nutzer:in mit ihrem Braze-Profil verknüpft und das Seitenerlebnis personalisiert.
+- **Anonyme Nutzer:innen:** Verwenden Sie Liquid für kontextuelle, nicht profilbasierte Inhalte, wie z. B. eine Zufallszahl oder eine tageszeitabhängige Begrüßung.
 
 ### Formularfelder vorausfüllen {#pre-fill-form-fields}
 
-Wenn ein Landing-Page-Formularfeld einem Nutzerprofilattribut zugeordnet ist, können Sie dieses Feld für wiederkehrende Nutzer:innen vorausfüllen. Dies reduziert die Hürden beim Ausfüllen von Formularen und verbessert die Abschlussraten für bekannte Besucher:innen.
+Wenn ein Landing-Page-Formularfeld einem Nutzerprofil-Attribut zugeordnet ist, können Sie dieses Feld für wiederkehrende Nutzer:innen vorausfüllen. Dies reduziert die Hürden beim Ausfüllen und verbessert die Abschlussraten für bekannte Nutzer:innen.
 
 So verwenden Sie vorausgefüllte Formularfelder:
 
 1. Wählen Sie Ihr Formularfeld im Drag-and-Drop-Editor aus.
-2. Ordnen Sie im rechten Einstellungs-Panel das Feld dem entsprechenden Profilattribut zu.
-3. Wählen Sie **Pre-fill from user profile** aus.
+2. Ordnen Sie im Einstellungs-Panel auf der rechten Seite das Feld dem entsprechenden Profil-Attribut zu.
+3. Wählen Sie **Aus Nutzerprofil vorausfüllen** aus.
 
 ![Einstellungen für Landing-Page-Formularfelder mit der Option zum Vorausfüllen aus Nutzerprofildaten.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
 
-Das Vorausfüllen funktioniert nur für [identifizierte Nutzer:innen](#use-liquid-for-identified-and-anonymous-users). Für anonyme Besucher:innen behalten Formularfelder ihren Standardzustand bei:
+Das Vorausfüllen funktioniert nur für [identifizierte Nutzer:innen](#use-liquid-for-identified-and-anonymous-users). Für anonyme Nutzer:innen behalten Formularfelder ihren Standardzustand:
 
-- **Eingabefelder:** Zeigen ihren Platzhaltertext an.
-- **Kontrollkästchen, Optionsfelder und ähnliche Steuerelemente:** Bleiben nicht ausgewählt, bis Nutzer:innen mit ihnen interagieren.
+- **Eingabefelder:** Zeigen ihren Platzhalter-Text an.
+- **Checkboxen, Radio-Buttons und ähnliche Steuerelemente:** Bleiben nicht ausgewählt, bis die Nutzer:innen mit ihnen interagieren.
 
-## Externe Daten mit benutzerdefiniertem Code abrufen {#fetching-external-data-with-custom-code}
+{% alert warning %}
+Wenn Nutzer:innen einen Landing-Page-Link (aus einer E-Mail, SMS oder einer anderen Nachricht) an eine andere Person weiterleiten, sieht die empfangende Person die vorausgefüllten Daten, die für die ursprünglichen Nutzer:innen bestimmt waren. Dies ist die gleiche Sicherheitsüberlegung, die auch für Abmelde-Links und Preference-Center-Links gilt. Berücksichtigen Sie die Sensibilität der Daten, die Sie vorausfüllen, und das Weiterleitungsverhalten Ihrer Zielgruppe, wenn Sie dieses Feature verwenden.
+{% endalert %}
+
+## Externe Daten mit Custom Code abrufen {#fetching-external-data-with-custom-code}
 
 Sie können einen **Custom-Code**-Block verwenden, um Daten von externen Endpunkten abzurufen und auf Ihrer Landing-Page anzuzeigen. Dieser Ansatz führt die Anfrage clientseitig (im Browser der Nutzer:innen) aus, sodass die Seite schnell geladen wird, ohne serverseitige Rendering-Verzögerungen.
 
 {% alert warning %}
-Beim Abrufen externer Daten sind Sie für die Sicherheit Ihrer Implementierung verantwortlich. Externe Bezeichner, die in API-Aufrufen verwendet werden, sollten UUIDs sein oder ein gleichwertig sicheres Benennungsschema verwenden – siehe [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+Beim Abrufen externer Daten sind Sie für die Sicherheit Ihrer Implementierung verantwortlich. Externe Bezeichner, die in API-Aufrufen verwendet werden, sollten UUIDs sein oder ein gleichwertig sicheres Benennungsschema verwenden, siehe [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 {% endalert %}
 
 ### Anwendungsfall {#use-case}
 
-Dieses Muster ist nützlich, wenn Sie nutzerspezifische Daten anzeigen müssen, die nicht in Braze gespeichert sind. Beispiele hierfür sind Realtime-Bestandsdaten, personalisierte Empfehlungen oder andere Daten, die Ihre Organisation in separaten Systemen verwaltet.
+Dieses Muster ist nützlich, wenn Sie nutzerspezifische Daten anzeigen müssen, die nicht in Braze gespeichert sind. Beispiele sind Echtzeit-Bestandsdaten, personalisierte Empfehlungen oder andere Daten, die Ihre Organisation in separaten Systemen verwaltet.
 
 ### Beispielimplementierung {#example-implementation}
 
@@ -120,19 +124,27 @@ window.onload = () => {
 ```
 {% endraw %}
 
-### Hinweise {#considerations}
+### Überlegungen {#considerations}
 
-Beim Abrufen externer Daten in Landing-Pages:
+Beim Abrufen externer Daten auf Landing-Pages:
 
 - **Ladezustände:** Nutzer:innen sehen Platzhaltertext, bis der Endpunkt antwortet. Erwägen Sie, einen Ladeindikator oder ein Skeleton-Screen hinzuzufügen.
 - **Fehlerbehandlung:** Wenn der Endpunkt fehlschlägt oder langsam antwortet, kann die Seite fehlerhaft erscheinen. Implementieren Sie geeignete Fehlermeldungen und Fallbacks.
-- **Performance:** Die Seite wird sofort geladen, aber die Daten erscheinen erst, nachdem die externe Anfrage abgeschlossen ist. Halten Sie Ihre API-Antworten schnell für das beste Nutzererlebnis.
-- **Sicherheit:** Stellen Sie sicher, dass Ihr API-Endpunkt den Bezeichner validiert und nur Daten zurückgibt, die die Person sehen darf. Implementieren Sie Rate-Limiting, um Missbrauch zu verhindern. Hinweise zur Wahl sicherer Bezeichner finden Sie unter [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+- **Performance:** Die Seite wird sofort geladen, aber die Daten erscheinen erst, nachdem die externe Anfrage abgeschlossen ist. Halten Sie Ihre API-Antworten schnell für die beste Nutzererfahrung.
+- **Sicherheit:** Stellen Sie sicher, dass Ihr API-Endpunkt den Bezeichner validiert und nur Daten zurückgibt, die die Nutzer:innen sehen dürfen. Implementieren Sie Rate-Limiting, um Missbrauch zu verhindern. Hinweise zur Wahl sicherer Bezeichner finden Sie unter [Best Practices für die Benennung von Nutzer-IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+
+{% alert warning %}
+Bei Liquid-personalisierten Landing-Pages verarbeitet Braze die Trennzeichen {% raw %}`{{`{% endraw %} und {% raw %}`{%`{% endraw %} überall dort, wo sie im HTML der Landing-Page erscheinen – einschließlich innerhalb von JavaScript-Strings, Kommentaren und regulären Ausdrücken. Dies gilt für die gesamte Seite, aber **Custom-Code**-Blöcke sind die wahrscheinlichste Stelle, an der diese Sequenzen versehentlich vorkommen.
+
+Wenn diese Sequenzen ohne passende schließende Tags erscheinen (zum Beispiel {% raw %}`/* version {{ 2.0 */`{% endraw %}), behandelt Braze sie als offene Liquid-Tags. Andere gültige Liquid-Tags auf der Seite werden möglicherweise nicht gerendert, oder das Liquid-Rendering kann an anderer Stelle im selben Block fehlschlagen. In schwerwiegenden Fällen kann fehlerhaftes Liquid die Veröffentlichung der Seite verhindern oder dazu führen, dass sie nicht mehr veröffentlicht wird (siehe [Fallback-Seiten](#fallback-pages)).
+
+Um dies zu vermeiden, escapen oder entfernen Sie {% raw %}`{{`{% endraw %} und {% raw %}`{%`{% endraw %} aus Nicht-Liquid-Kontexten, teilen Sie die Sequenzen in JavaScript auf (zum Beispiel {% raw %}`'{' + '{'`{% endraw %}). Liquid wird serverseitig ausgeführt, bevor das Skript ausgeführt wird. Sie können auch größere Nicht-Liquid-Abschnitte in {% raw %}`&#123;% raw %&#125;...&#123;% endraw %&#125;`{% endraw %}-Tags einschließen.
+{% endalert %}
 
 ## Fallback-Seiten {#fallback-pages}
 
-Wenn Ihre Nutzer:innen versuchen, auf eine Seite zuzugreifen, die zurückgezogen wurde, sehen sie eine Meldung, dass die Seite derzeit nicht geladen werden kann. Gründe für das Zurückziehen einer Seite sind unter anderem:
+Wenn Ihre Nutzer:innen versuchen, auf eine Seite zuzugreifen, die nicht mehr veröffentlicht ist, wird eine Nachricht angezeigt, dass die Seite derzeit nicht geladen werden kann. Gründe dafür, dass eine Seite nicht mehr veröffentlicht ist, können sein:
 
 - Komplexes oder fehlerhaftes Liquid, das zu langen Renderzeiten führen kann
 - Netzwerkprobleme der Nutzer:innen
-- Überschreitung der maximalen Landing-Page-Größenbeschränkungen
+- Überschreitung der maximalen Größenbeschränkungen für Landing-Pages

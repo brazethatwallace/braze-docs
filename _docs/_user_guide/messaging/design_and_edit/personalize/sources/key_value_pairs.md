@@ -203,4 +203,8 @@ To add a key-value pair to a Content Card, go to the **Settings** tab in the Bra
 
 ![Add key-value pair to Content Card]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}
 
+{% alert note %}
+Control variants do not support key-value pairs. If you need to capture analytics for control groups in A/B tests, create a message variant with a key-value pair such as `control=true` and hide it in your app code while logging impressions.
+{% endalert %}
+
 

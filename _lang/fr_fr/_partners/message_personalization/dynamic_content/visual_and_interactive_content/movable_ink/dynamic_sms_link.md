@@ -8,7 +8,7 @@ search_tag: Partner
 
 # Aperçu du lien SMS dynamique {#dynamic-sms-link-preview}
 
-> Avec l'aperçu de lien SMS dynamique de Movable Ink, vous pouvez tirer parti de l'immersion du MMS au même coût que le SMS. Cela vous permet d'utiliser Braze et Movable Ink pour offrir des expériences d'envoi de messages riches, personnalisées et rentables.
+> Avec l'aperçu de lien SMS dynamique de Movable Ink, vous pouvez tirer parti de l'immersion du MMS au même coût que le SMS. Cela vous permet d'utiliser Braze et Movable Ink pour offrir des expériences de communication riches, personnalisées et rentables.
 
 ## Conditions préalables {#prerequisites}
 
@@ -17,13 +17,13 @@ search_tag: Partner
 | Compte Movable Ink | Un compte Movable Ink est nécessaire pour bénéficier de ce partenariat. |
 | Source de données | Vous devez connecter une source de données à Movable Ink. Cela peut être fait via un fichier CSV, l'importation de site web ou une API. |
 | Capacités d'envoi de MMS | Confirmez que vous êtes configuré pour le MMS via Braze. |
-| [Raccourcissement de lien]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) | Confirmez que le raccourcissement des liens est activé. |
+| [Raccourcissement de lien]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) | Confirmez que le raccourcissement des liens est activé. |
 | Carte de contact | Votre marque (l'expéditeur) doit être enregistrée en tant que contact sur le téléphone de l'utilisateur pour que l'aperçu du lien fonctionne avec iOS. Cela peut être fait avec une carte de contact ou une autre méthode. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
-Suivez les étapes ci-dessous pour envoyer des liens SMS dynamiques pour les systèmes d'exploitation iOS et Android.
+Suivez les étapes correspondantes dans cette section pour envoyer des liens SMS dynamiques pour les systèmes d'exploitation iOS et Android.
 
 ### iOS
 
@@ -33,7 +33,7 @@ Pour autoriser les images d'aperçu de lien sur iOS, les utilisateurs doivent aj
 
 #### Étape 1 : Créer une campagne de carte de contact {#step-1-create-a-contact-card-campaign}
 
-Une fois que les utilisateurs ont enregistré votre marque en tant que contact, que ce soit par le biais d'une [carte de contact]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card/) ou d'une autre méthode, ils pourront voir les invites **Tap to Load Preview** et les liens Movable Ink.
+Une fois que les utilisateurs ont enregistré votre marque en tant que contact, que ce soit par le biais d'une [carte de contact]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card) ou d'une autre méthode, ils pourront voir les invites **Tap to Load Preview** et les liens Movable Ink.
 
 ![1]{: style="max-width:30%;"}
 
@@ -47,7 +47,7 @@ Une fois que les utilisateurs ont enregistré votre marque en tant que contact, 
     - Ajoutez votre lien Movable Ink **en dernier**, après tout autre texte dans le corps du message. <br><br>![2]{: style="max-width:50%;"}
 
 {% alert tip %}
-Consultez [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) pour un rappel sur la personnalisation Liquid.
+Consultez [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) pour un rappel sur la personnalisation Liquid.
 {% endalert %}
 
 {: start="4"}
@@ -55,7 +55,7 @@ Consultez [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/persona
 
 ![3]{: style="max-width:70%;"}
 
-Une fois que les utilisateurs ont chargé l'aperçu du lien, une image personnalisée s'affiche avec la possibilité de rediriger vers votre site web, votre application ou votre page d'accueil.
+Une fois que les utilisateurs ont chargé l'aperçu du lien, une image personnalisée s'affiche avec la possibilité de rediriger vers votre site web, votre application ou votre page de destination.
 
 ![4]{: style="max-width:30%;"}
 

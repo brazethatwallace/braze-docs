@@ -48,7 +48,7 @@ page_order: 1
 
 ### 閉じるXボタン {#close-x-button}
 
-モーダルおよびフルスクリーンのアプリ内メッセージでは、メッセージの右上隅に<i class="fa-solid fa-xmark"></i>として表示される閉じるボタンをカスタマイズできます。カスタマイズオプションには、ボタンの位置、サイズ、塗りつぶし色、背景色、ボーダースタイル、ボーダー半径があります。
+モーダルおよびフルスクリーンのアプリ内メッセージでは、メッセージの上部に<i class="fa-solid fa-xmark"></i>として表示される閉じるボタンをカスタマイズできます。カスタマイズオプションには、ボタンの位置、サイズ、塗りつぶし色、背景色、ボーダースタイル、ボーダー半径があります。
 
 ![アプリ内メッセージの閉じるXボタンをカスタマイズするオプション（ボタンサイズ、塗りつぶし色、背景色、ボーダースタイル、ボーダー半径を含む）。]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -90,7 +90,7 @@ page_order: 1
 
 ![選択可能なドラッグ＆ドロップボックス。]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-各ブロックには、パディングの細かい制御など、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイルパネルに自動的に切り替わります。詳細については、[エディターブロックのプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties)を参照してください。
+各ブロックには、パディングの細かいコントロールなど、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイルパネルに自動的に切り替わります。詳細については、[エディターブロックのプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties)を参照してください。
 
 アプリ内メッセージを作成する際、ツールバーでモバイル、タブレット、またはデスクトップビューを選択して、ユーザーグループに対してアプリ内メッセージがどのように表示されるかをプレビューできます。これにより、コンテンツがレスポンシブであることを確認し、必要な調整を随時行うことができます。
 
@@ -113,6 +113,31 @@ page_order: 1
 {% alert tip %}
 特定のブロックの選択が難しい場合は、ブロックのインラインツールバーの上矢印を使用して、各親ブロックにフォーカスを移動できます。
 {% endalert %}
+
+#### Liquidで背景画像を動的に切り替える {#swap-background-images-with-liquid}
+
+ユーザーデータ（カスタム属性やユーザープロパティなど）に基づいて背景画像を動的に切り替えるには、Liquid {% raw %}`{% capture %}`{% endraw %}ブロックを使用して、HTMLとCSSが読み込まれる前に正しい画像URLを変数に割り当てます。
+
+Liquidロジックをメッセージの先頭に配置し、キャプチャした変数を背景画像のURLフィールドで参照します。これにより、各ユーザーのデータに基づいて正しい画像が選択されます。
+
+画像URLをキャプチャした後、{% raw %}`{{ image_url | strip }}`{% endraw %}を使用して余分な空白を除去したURLを出力します。このLiquidを背景画像のURLフィールドに貼り付けることで、異なるユーザーに異なる画像を動的に表示できます。
+
+##### 例 {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
 
 ### Liquidの追加 {#adding-liquid}
 

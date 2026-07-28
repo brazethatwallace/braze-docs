@@ -13,21 +13,21 @@ search_tag: Partner
 
 A integração entre a Braze e a Hightouch permite que você crie campanhas melhores na Braze com dados atualizados de clientes de seu data warehouse. Ao sincronizar automaticamente os dados de clientes na Braze, você não precisa mais se preocupar com a consistência dos dados e pode se concentrar na criação de experiências de clientes de classe mundial.
 
-Essa integração também permite a [importação de coortes de usuários para a Braze]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/hightouch_cohort_import/), enviando campanhas direcionadas com base em dados que podem existir apenas em seu data warehouse.
+Essa integração também permite a [importação de coortes de usuários para a Braze]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/hightouch_cohort_import), enviando campanhas direcionadas com base em dados que podem existir apenas em seu data warehouse.
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 |---|---|
 | Conta Hightouch | É necessário ter uma conta Hightouch para aproveitar essa parceria.
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `users.export.ids`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
-| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).<br><br>A Hightouch requer o nome do cluster em que sua instância da Braze está localizada. Por exemplo, se seu endpoint da Braze for `https://rest.iad-01.braze.com`, você só precisará de `iad-01`.|
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `users.export.ids`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints).<br><br>A Hightouch requer o nome do cluster em que sua instância da Braze está localizada. Por exemplo, se seu endpoint da Braze for `https://rest.iad-01.braze.com`, você só precisará de `iad-01`.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
 * Sincronize dados de usuários e contas na Braze para criar campanhas hiperpersonalizadas.
-* Atualize automaticamente seus Segments da Braze com dados novos de seu warehouse.
+* Atualize automaticamente seus segmentos da Braze com dados novos de seu warehouse.
 * Ofereça melhores experiências trazendo dados de outros pontos de contato do cliente para a Braze.
 * Importe coortes de usuários para a Braze, permitindo o envio de campanhas e Canvas direcionados.
 
@@ -37,7 +37,7 @@ Essa integração também permite a [importação de coortes de usuários para a
 
 1. Na plataforma Hightouch, na seção **Destinations**, clique em **Add destination**.
 2. Selecione **Braze** na lista de destinos disponíveis.
-3. Forneça seu endpoint REST da Braze (excluindo "https://rest.") e sua chave da API REST da Braze.<br><br>![]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
+3. Forneça seu endpoint REST da Braze (excluindo "https://rest.") e sua chave da API REST da Braze.<br><br>![Formulário de configuração do destino Hightouch Braze com campos de endpoint e chave de API.]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
 
 ### Etapa 2: Sincronização de objetos e eventos {#step-2-object-and-event-syncing}
 

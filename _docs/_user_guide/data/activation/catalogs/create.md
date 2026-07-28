@@ -52,7 +52,7 @@ Before you upload your CSV file, ensure that your CSV file meets the following r
 |-----------------|---------|
 | Headers | The first column in the CSV file must be named `id`, and each row must have a unique `id` value. |
 | Columns | A CSV file can have a maximum of 1,000 fields (columns), and each column name can be up to 250 characters long. |
-| File size | For Free plans, the total size of all CSV files across a company is limited to 100 MB. For Pro plans, the maximum file size for a single CSV file is 2 GB. |
+| File size | For Free plans, the total size of all CSV files across a company is limited to 500 MB. For Pro plans, the maximum file size for a single CSV file is 2 GB. |
 | Field values | Each cell (field value) can contain up to 5,000 characters. |
 | Valid characters | The `id` column and all header values can only contain letters, numbers, hyphens, and underscores. |
 | Data types | Supported data types for CSV uploads include string, number, boolean, time, and geolocation. For the full list of data types, including those available only through the API and CDI, refer to [Supported data types](#supported-data-types). |
@@ -93,7 +93,7 @@ You can also [use templates in a catalog name](#template-catalog-names), letting
 Select **Process Catalog** to create the catalog.
 
 {% alert important %}
-Your CSV file can be rejected if you go above your [tier](#tiers). 
+Your CSV file can be rejected if you go earlier in this section your [tier](#tiers). 
 {% endalert %}
 
 ### Tutorial: Creating a catalog from a CSV file
@@ -145,6 +145,10 @@ Next, we'll name this catalog "games_catalog" and select the **Process Catalog**
 Note that you won't be able to edit this name after the catalog is created. You can delete a catalog and re-upload an updated version using the same catalog name.
 
 After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
+
+{% alert important %}
+Previously uploaded CSV files are available to download from the **Catalogs** page for 30 days after the upload date. After 30 days, the file is permanently deleted and can no longer be accessed.
+{% endalert %}
 {% endtab %}
 
 {% tab Create in browser %}
@@ -239,7 +243,7 @@ For example, if you want to edit an individual catalog item, you can use the [`/
 
 ## Catalog storage {#tiers}
 
-The free version of catalogs supports CSV file sizes of up to 100 MB for all CSV files combined across your company, whereas the Catalogs Pro version supports CSV file sizes of up to 2 GB for a single CSV file.
+The free version of catalogs supports CSV file sizes of up to 500 MB for all CSV files combined across your company, whereas the Catalogs Pro version supports CSV file sizes of up to 2 GB for a single CSV file.
 
 {% alert important %}
 The package entitlement shown in the Braze dashboard is rounded to the nearest unit for visual purposes; however, you are still entitled to the full entitlement purchased. To request an upgrade for catalog storage, contact your Braze account manager.
@@ -247,11 +251,11 @@ The package entitlement shown in the Braze dashboard is rounded to the nearest u
 
 ### Free version
 
-The storage size for the free version of catalogs is up to 100&nbsp;MB. You can have unlimited items as long as they're under 100&nbsp;MB. 
+The storage size for the free version of catalogs is up to 500&nbsp;MB. You can have unlimited items as long as they're under 500&nbsp;MB. 
 
 #### Catalogs Pro
 
-At a company level, the maximum storage for Catalogs Pro is based on the size of catalog data. The storage size options are: 5&nbsp;GB, 10&nbsp;GB, or 15&nbsp;GB. Note that the free version's storage (100&nbsp;MB) is included in each of these plans.
+At a company level, the maximum storage for Catalogs Pro is based on the size of catalog data. The storage size options are: 5&nbsp;GB, 10&nbsp;GB, or 15&nbsp;GB. Note that the free version's storage (500&nbsp;MB) is included in each of these plans.
 
 ## Specifications
 

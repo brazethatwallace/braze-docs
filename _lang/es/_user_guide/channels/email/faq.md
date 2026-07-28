@@ -13,15 +13,15 @@ channel: email
 
 ## ¿Qué ocurre cuando se envía un correo electrónico y varios perfiles tienen la misma dirección de correo electrónico? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Si varios usuarios con direcciones de correo electrónico coincidentes están en un segmento que va a recibir una campaña, se selecciona un único perfil de usuario con esa dirección de correo electrónico en el momento del envío. De esta forma, el correo electrónico se envía solo una vez y se deduplica, lo que garantiza que no llegue a la misma dirección de correo electrónico varias veces.
+Si varios usuarios con direcciones de correo electrónico coincidentes están en un segmento que va a recibir una Campaign, se selecciona un único perfil de usuario con esa dirección de correo electrónico en el momento del envío. De esta forma, el correo electrónico se envía solo una vez y se deduplica, lo que garantiza que no llegue a la misma dirección de correo electrónico varias veces.
 
 **Direcciones de correo electrónico únicas:** Braze no exige que las direcciones de correo electrónico sean únicas entre perfiles. Si dependes de una relación uno a uno entre una dirección de correo electrónico y un perfil, monitorea internamente los duplicados al crear usuarios.
 
-**Deduplicación antes de Liquid:** Para envíos en los que Braze deduplica por dirección de correo electrónico dentro de un mismo despacho (por ejemplo, Campaigns planificadas donde varios miembros del segmento con la misma dirección se procesan juntos), esa deduplicación ocurre antes de que Liquid se ejecute para el perfil elegido para representar esa dirección. Si Liquid aborta para ese perfil (por ejemplo, con [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), esa dirección no recibe el mensaje en ese despacho, incluidos los perfiles que ya fueron omitidos por la deduplicación. Los envíos desencadenados no aplican esa misma deduplicación de direcciones dentro del despacho; varios perfiles que comparten una dirección pueden seguir siendo elegibles en un mismo lote, por lo que este comportamiento de aborto no se aplica de la misma manera (consulta el siguiente párrafo).
+**Deduplicación antes de Liquid:** Para envíos en los que Braze deduplica por dirección de correo electrónico dentro de un mismo despacho (por ejemplo, Campaigns programadas donde varios miembros del segmento con la misma dirección se procesan juntos), esa deduplicación ocurre antes de que Liquid se ejecute para el perfil elegido para representar esa dirección. Si Liquid aborta para ese perfil (por ejemplo, con [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), esa dirección no recibe el mensaje en ese despacho, incluidos los perfiles que ya fueron omitidos por la deduplicación. Los envíos desencadenados no aplican esa misma deduplicación de direcciones dentro del despacho; varios perfiles que comparten una dirección pueden seguir siendo elegibles en un mismo lote, por lo que este comportamiento de aborto no se aplica de la misma manera (consulta el siguiente párrafo).
 
 Si varios perfiles comparten una dirección de correo electrónico y uno de ellos cancela la suscripción, Braze actualiza otros perfiles (hasta 100) con esa dirección al mismo estado de suscripción. Esto se aplica a las cancelaciones de suscripción y a otros cambios, como el estado de suscripción global y los estados individuales de los grupos de suscripción.
 
-**Grupos semilla:** Para Campaigns con [Grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups), Braze selecciona un perfil para la entrega principal cuando varios perfiles comparten una dirección. Ese destinatario principal podría no estar en tu grupo semilla, incluso cuando otro perfil con la misma dirección sí lo está.
+**Grupos semilla:** Para Campaigns con [grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups), Braze selecciona un perfil para la entrega principal cuando varios perfiles comparten una dirección. Ese destinatario principal podría no estar en tu grupo semilla, incluso cuando otro perfil con la misma dirección sí lo está.
 
 Los siguientes escenarios pueden hacer que parezca que un usuario recibió un correo electrónico dos veces:
 
@@ -40,7 +40,7 @@ Los usuarios no se deduplican por correo electrónico en la entrada al Canvas, p
 
 Las Campaigns desencadenadas por API deduplicarán o enviarán duplicados dependiendo de dónde se defina la audiencia. Los correos electrónicos duplicados deben dirigirse por separado en la llamada a la API utilizando `user_ids` distintos para recibir múltiples entregas. Estos son tres posibles escenarios para las Campaigns desencadenadas por API:
 
-- **Escenario 1: Correos electrónicos duplicados en el segmento objetivo:** Si el mismo correo electrónico aparece en varios perfiles de usuario que están agrupados en los filtros de audiencia del dashboard para una Campaign desencadenada por API, solo uno de los perfiles recibe el correo electrónico.
+- **Escenario 1: Correos electrónicos duplicados en el segmento objetivo:** Si el mismo correo electrónico aparece en varios perfiles de usuario que están agrupados en los filtros de audiencia del panel para una Campaign desencadenada por API, solo uno de los perfiles recibe el correo electrónico.
 - **Escenario 2: Correos electrónicos duplicados en diferentes `user_ids` dentro del objeto de destinatarios:** Si el mismo correo electrónico aparece dentro de múltiples valores de `external_user_id` referenciados por el objeto `recipients`, el correo electrónico se envía dos veces.
 - **Escenario 3: Correos electrónicos duplicados debido a `user_ids` duplicados dentro del objeto de destinatarios:** Si intentas añadir el mismo perfil de usuario dos veces, solo uno de los perfiles recibe el correo electrónico.
 
@@ -54,7 +54,7 @@ Evita las [pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/engagement_
 
 #### Canvas y direcciones de correo electrónico duplicadas {#canvas-and-duplicate-email-addresses}
 
-Para los recorridos en Canvas, que las direcciones de correo electrónico duplicadas reciban un envío o más de uno puede depender del procesamiento por lotes de entrada, la temporización de los pasos y otros factores. Considera el comportamiento como indefinido hasta que lo valides para tu recorrido. Cuando sea posible, fusiona o consolida los perfiles duplicados. Si necesitas un cambio en el producto, envía tus comentarios a través de tu equipo de Braze.
+Para los recorridos en Canvas, que las direcciones de correo electrónico duplicadas reciban un envío o más de uno puede depender del procesamiento por lotes de entrada, la temporización de los pasos y otros factores. Considera el comportamiento como indefinido hasta que lo valides para tu recorrido. Cuando sea posible, fusiona o consolida los perfiles duplicados. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### ¿Qué ocurre con el estado de suscripción cuando la dirección de correo electrónico de un usuario cambia a una compartida por otro usuario? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -66,13 +66,13 @@ No. Las actualizaciones realizadas en la configuración de correo electrónico s
 
 ### ¿Qué es una "buena" tasa de entrega de correo electrónico? {#what-is-a-good-email-delivery-rate}
 
-Normalmente, el "número mágico" es alrededor del 98 % de mensajes entregados con una tasa de rebote no superior al 3 %. Si tu entrega cae por debajo de eso, generalmente hay motivo de preocupación.
+Normalmente, el "número mágico" es alrededor del 98 % de mensajes entregados con una tasa de rebote no superior al 3 %. Si se entrega menos del 98 % de los mensajes, generalmente hay motivo de preocupación.
 
-Sin embargo, una tasa superior al 98 % aún puede tener problemas de capacidad de entrega. Por ejemplo, si todos tus rebotes provienen de un solo dominio, eso es una señal clara de un problema de reputación con ese proveedor.
+Sin embargo, una tasa de entrega del 98 % o superior aún puede tener problemas de capacidad de entrega. Por ejemplo, si todos tus rebotes provienen de un solo dominio, eso es una señal clara de un problema de reputación con ese proveedor.
 
 Además, los mensajes pueden estar siendo entregados y terminando en correo no deseado, lo que indica problemas de reputación potencialmente graves. Es importante monitorear no solo la cantidad de mensajes que se entregan, sino también las tasas de apertura y clics para determinar si los usuarios realmente están viendo los mensajes en sus buzones de entrada. Dado que los proveedores generalmente no informan de cada instancia de correo no deseado, una tasa de correo no deseado de incluso el 1 % podría ser motivo de preocupación y análisis adicional.
 
-Finalmente, tu negocio y los tipos de correos electrónicos que envías también pueden afectar la entrega. Por ejemplo, alguien que envía principalmente [correos electrónicos transaccionales]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) debería esperar ver una mejor tasa que alguien que envía muchos mensajes de marketing.
+Finalmente, tu negocio y los tipos de correos electrónicos que envías también pueden afectar la entrega. Por ejemplo, alguien que envía principalmente [correos transaccionales]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) debería esperar ver una mejor tasa que alguien que envía muchos mensajes de marketing.
 
 ### ¿Por qué mis métricas de entrega de correo electrónico no suman el 100 %? {#why-are-my-email-delivery-metrics-not-adding-up-to-100}
 
@@ -86,7 +86,7 @@ Un bucle de retroalimentación de correo electrónico (FBL) permite a los remite
 
 ### ¿Qué son los píxeles de seguimiento de apertura? {#what-are-open-tracking-pixels}
 
-Los [píxeles de seguimiento de apertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel) utilizan el dominio de seguimiento de clics del remitente para rastrear los eventos de apertura de correo electrónico. El píxel es una etiqueta de imagen que se añade al HTML del correo electrónico. Generalmente es el último elemento HTML dentro de la etiqueta body. Cuando un usuario carga su correo electrónico, se realiza una solicitud para cargar la imagen desde el dominio de seguimiento de marca, lo que registra un evento de apertura.
+Los [píxeles de seguimiento de apertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) utilizan el dominio de seguimiento de clics del remitente para rastrear los eventos de apertura de correo electrónico. El píxel es una etiqueta de imagen que se añade al HTML del correo electrónico. Generalmente es el último elemento HTML dentro de la etiqueta body. Cuando un usuario carga su correo electrónico, se realiza una solicitud para cargar la imagen desde el dominio de seguimiento de marca, lo que registra un evento de apertura.
 
 ### ¿Qué ocurre cuando se detiene una Campaign de correo electrónico o un Canvas? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -110,6 +110,35 @@ Puedes no ver aperturas ni clics en correos electrónicos si hay una configuraci
 - Hay un problema de SSL donde las URL de seguimiento son `http` en lugar de `https`.
 - Hay un problema con tu CDN donde la cadena de agente de usuario en los eventos de apertura, los eventos de clic o ambos no se están completando.
 
+### ¿Por qué veo un comportamiento inusual de aperturas o clics en correos electrónicos? {#why-am-i-seeing-unusual-email-open-or-click-behavior}
+
+Si notas patrones inesperados en tus métricas de apertura o clics de correo electrónico, como un solo usuario que parece hacer clic en todos los enlaces inmediatamente, o aperturas que no se registran como se esperaba, revisa las siguientes causas comunes:
+
+#### El recorte del correo electrónico elimina el píxel de seguimiento {#email-clipping-removes-the-tracking-pixel}
+
+Cuando un correo electrónico es recortado por el proveedor de correo electrónico del destinatario (como Gmail, que recorta los mensajes de más de aproximadamente 102 KB), el contenido en la parte inferior del correo electrónico puede truncarse. Dado que el píxel de seguimiento de apertura normalmente se inserta en la parte inferior del correo electrónico, el recorte puede impedir que funcione el seguimiento de aperturas.
+
+**Cómo identificarlo:** Verifica si el correo electrónico muestra un enlace de "Ver mensaje completo" o similar en la parte inferior. Puedes usar [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para previsualizar el correo electrónico completo con desplazamiento y verificar si el mensaje está siendo recortado.
+
+**Cómo resolverlo:** Puedes configurar Braze para colocar el píxel de seguimiento en la parte superior del correo electrónico en lugar de la inferior. Mover el píxel de seguimiento puede afectar la forma en que algunos clientes de correo electrónico renderizan tu HTML, así que prueba tus correos electrónicos en Inbox Vision después de realizar este cambio. Ten en cuenta que si el destinatario tiene las imágenes deshabilitadas, las aperturas no se pueden rastrear independientemente de la ubicación del píxel.
+
+#### Estadísticas retrasadas o clics sin aperturas {#delayed-stats-or-clicks-without-opens}
+
+El seguimiento de aperturas depende de que el destinatario cargue el correo electrónico con las imágenes habilitadas. En algunos casos, las estadísticas pueden aparecer retrasadas o los clics pueden registrarse sin aperturas correspondientes debido a:
+
+- El destinatario visualiza el correo electrónico en un panel de vista previa sin abrirlo completamente, y luego hace clic en los enlaces directamente desde la vista previa.
+- El cliente de correo electrónico no carga las imágenes (y por lo tanto el píxel de seguimiento) hasta después de que el destinatario haya interactuado con los enlaces.
+
+#### El software de seguridad simula clics en enlaces {#security-software-simulates-link-clicks}
+
+Algunas herramientas de seguridad de correo electrónico corporativo (como Barracuda, Proofpoint y servicios similares) escanean los correos electrónicos entrantes haciendo clic automáticamente en todos los enlaces del mensaje para verificar que son seguros. Esto puede resultar en eventos de clic que aparecen segundos después del envío, a menudo con todos los enlaces del correo electrónico clicados en rápida sucesión.
+
+Este comportamiento es más común con dominios de correo electrónico institucionales (como escuelas secundarias, universidades y entornos corporativos) y es más probable cuando tu dominio de envío difiere significativamente de tu dominio de seguimiento. Configurar un [dominio de seguimiento de marca personalizado]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) puede reducir la frecuencia de estos clics automatizados.
+
+**Cómo identificarlo:** Busca la dirección IP del evento de clic (disponible en los datos de Currents) en un motor de búsqueda. Si la IP está asociada con un proveedor de seguridad conocido (como Barracuda Networks), es probable que los clics sean automatizados. También puedes ver un encabezado `User-Agent` consistente en múltiples clics automatizados.
+
+Para más contexto sobre cómo el escaneo de seguridad afecta las métricas de correo electrónico, consulta [Gestión de aumentos en las tasas de clics]({{site.baseurl}}/user_guide/channels/email/reporting).
+
 ### ¿Cuáles son los riesgos potenciales de desencadenar clics del servidor? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
 Ciertos elementos de un mensaje de correo electrónico, como mensajes excesivamente largos o demasiados signos de exclamación, pueden desencadenar respuestas de seguridad del correo electrónico. Estas respuestas pueden afectar los informes y la reputación de la IP y llevar a los usuarios a cancelar su suscripción.
@@ -132,7 +161,7 @@ Si un usuario hace clic en el enlace de cancelación de suscripción dos veces (
 
 No. Braze no ofrece esta funcionalidad. Esto se debe a que la gran mayoría de los correos electrónicos se abren en dispositivos móviles y en clientes de correo electrónico modernos, que renderizan imágenes y contenido sin problemas.
 
-**Solución alternativa:** Para lograr este mismo resultado, puedes alojar el contenido de tu correo electrónico en una página de inicio externa (como tu sitio web), que luego se puede enlazar desde la Campaign de correo electrónico que estás creando usando la herramienta **Link** al editar el cuerpo del correo electrónico.
+**Solución alternativa:** Para lograr este mismo resultado, puedes alojar el contenido de tu correo electrónico en una página de destino externa (como tu sitio web), que luego se puede enlazar desde la Campaign de correo electrónico que estás creando usando la herramienta **Link** al editar el cuerpo del correo electrónico.
 
 ### ¿Braze convierte automáticamente las URL en texto plano o el texto "www." en enlaces? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
@@ -152,7 +181,7 @@ Para mitigar esto:
 - **Usa un centro de preferencias:** En lugar de un enlace directo de cancelación de suscripción, usa un [centro de preferencias]({{site.baseurl}}/user_guide/channels/email/subscriptions) que requiera la interacción del usuario para confirmar la acción de cancelación de suscripción. Los escáneres de seguridad normalmente no completan formularios de varios pasos.
 - **Revisa los registros de cancelación de suscripción:** Verifica el encabezado `User-Agent` y la dirección IP en los datos de eventos de cancelación de suscripción de Currents para identificar patrones consistentes con el escaneo automatizado (como encabezados `User-Agent` consistentes en múltiples cancelaciones de suscripción).
 
-Para más detalles sobre cómo el escaneo del lado del servidor puede afectar las métricas de correo electrónico, consulta [Gestión de aumentos en las tasas de clics]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+Para más detalles sobre cómo el escaneo del lado del servidor puede afectar las métricas de correo electrónico, consulta [Gestión de aumentos en las tasas de clics]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### ¿Por qué mi tasa de aperturas por máquina ha cambiado inesperadamente? {#why-has-my-machine-open-rate-changed-unexpectedly}
 
@@ -162,7 +191,7 @@ Las [aperturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_gloss
 - Actualizaciones en las funciones de privacidad del proveedor de correo electrónico o en los comportamientos de detección de bots.
 - Cambios en la segmentación o el direccionamiento de tu audiencia.
 
-Los porcentajes de aperturas por máquina no son una medida fiable de la interacción real. Para una visión más precisa del rendimiento del correo electrónico, concéntrate en *Otras aperturas* (aperturas no realizadas por máquina) y *Clics únicos*. También puedes comparar estas métricas a lo largo del tiempo usando el [Panel de rendimiento del correo electrónico]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance).
+Los porcentajes de aperturas por máquina no son una medida fiable de la participación real. Para una visión más precisa del rendimiento del correo electrónico, concéntrate en *Otras aperturas* (aperturas no realizadas por máquina) y *Clics únicos*. También puedes comparar estas métricas a lo largo del tiempo usando el [Panel de rendimiento del correo electrónico]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance).
 
 ### ¿Por qué mis vínculos profundos no funcionan en Gmail? {#why-are-my-deep-links-not-working-in-gmail}
 
@@ -172,11 +201,11 @@ Para solucionar esto:
 
 - **Usa Universal Links (iOS) o App Links (Android).** Estos usan URL estándar `https://` que abren tu aplicación cuando está instalada y recurren a una página web en caso contrario. Consulta [Universal Links y App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links) para obtener instrucciones de configuración.
 - **Usa un proveedor de vinculación en profundidad.** Servicios como [Branch](https://www.branch.io/) generan vínculos profundos con formato HTTP que son compatibles con clientes de correo electrónico, incluido Gmail.
-- **Configura un punto de conexión de redirección.** Aloja un punto de conexión `https://` en tu servidor que redirija a la URL de esquema personalizado de tu aplicación. Los clientes de correo electrónico preservarán el enlace `https://`, y la redirección se encargará de abrir la aplicación.
+- **Configura un endpoint de redirección.** Aloja un endpoint `https://` en tu servidor que redirija a la URL de esquema personalizado de tu aplicación. Los clientes de correo electrónico preservarán el enlace `https://`, y la redirección se encargará de abrir la aplicación.
 
-### ¿La métrica *Aperturas únicas* incluye las *Aperturas por máquina*? {#does-the-unique-opens-metric-include-machine-opens}
+### ¿La métrica *Unique Opens* incluye las *aperturas por máquina*? {#does-the-unique-opens-metric-include-machine-opens}
 
-Sí. *Aperturas únicas* incluye las *Aperturas por máquina*. Puedes ver ambas métricas en la vista de **Campaign Analytics** y en el **Generador de informes**.
+Sí. *Unique Opens* incluye las *aperturas por máquina*. Puedes ver ambas métricas en la vista de **Campaign Analytics** y en el **generador de informes**.
 
 ### ¿Por qué mi volumen de entrega de correo electrónico no coincide con mi volumen de envío? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
@@ -225,7 +254,7 @@ Usa las siguientes tablas para acotar la causa.
 | El usuario no era elegible para la Campaign o el Canvas | Verifica la configuración de **Target Audiences** (para Campaigns) o **Target Audience** (para Canvas) en los [ajustes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) para confirmar que el usuario cumplía con todos los filtros de audiencia, criterios de segmento y reglas de entrega en el momento del envío. |
 | El mensaje fue abortado | Verifica el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) en busca de motivos de aborto, como errores de Liquid o campos obligatorios faltantes. |
 | La dirección de correo electrónico del usuario no era válida o faltaba | En **Búsqueda de usuarios**, verifica el perfil del usuario para confirmar que tenía una dirección de correo electrónico válida registrada en el momento del envío. |
-| La dirección de correo electrónico del usuario tuvo un rebote duro previamente | Un rebote duro marca la dirección de correo electrónico como no válida e impide futuros envíos a esa dirección. De manera similar, si un destinatario marca tu correo electrónico como correo no deseado, Braze solo envía correos electrónicos transaccionales a ese usuario, no Campaigns estándar. Verifica la pestaña **Engagement** en el perfil del usuario. Para más información, consulta [Direcciones de correo electrónico canceladas]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) y [Rebotes y correos electrónicos no válidos]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
+| La dirección de correo electrónico del usuario tuvo un rebote duro previamente | Un rebote duro marca la dirección de correo electrónico como no válida e impide futuros envíos a esa dirección. De manera similar, si un destinatario marca tu correo electrónico como correo no deseado, Braze solo envía correos transaccionales a ese usuario, no Campaigns estándar. Verifica la pestaña **Engagement** en el perfil del usuario. Para más información, consulta [Direcciones de correo electrónico canceladas]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) y [Rebotes y correos electrónicos no válidos]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
 | El usuario canceló la suscripción al correo electrónico | Verifica el estado de suscripción del usuario en **Contact Settings** en la pestaña **Engagement**. Braze no envía correos electrónicos a usuarios que han cancelado la suscripción. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Causa de que el correo electrónico no se envió" }
 
@@ -242,7 +271,21 @@ Usa las siguientes tablas para acotar la causa.
 
 ### ¿Cómo puedo optimizar las imágenes en Outlook? {#how-can-i-optimize-images-in-outlook}
 
-Outlook a menudo usa un renderizado al estilo de Microsoft Word, que puede añadir un borde alrededor de las imágenes. Puedes envolver el contenido para que se oculte en los clientes de Office usando comentarios condicionales estándar, por ejemplo:
+Outlook a menudo usa el renderizado de Microsoft Word en lugar del renderizado estándar del navegador, lo que puede hacer que las imágenes se rendericen incorrectamente o añadir bordes alrededor de las imágenes.
+
+Si las imágenes se muestran más grandes de lo esperado en Outlook, añade el siguiente CSS a la imagen:
+
+```css
+max-width: 100%;
+```
+
+Por ejemplo:
+
+```html
+<img src="your-image.png" style="max-width: 100%;" alt="Description">
+```
+
+También puedes envolver el contenido para que se oculte en Outlook de escritorio usando comentarios condicionales:
 
 ```html
 <!--[if !mso]><!-- -->
@@ -256,6 +299,12 @@ Las imágenes SVG no se recomiendan para correo electrónico debido al soporte l
 
 En su lugar, usa formatos ampliamente compatibles como PNG o JPEG para que las imágenes se rendericen de forma fiable.
 
+### ¿Puedo incrustar videos en correos electrónicos? {#can-i-embed-videos-in-emails}
+
+Los videos incrustados no son compatibles de forma nativa con muchos clientes de correo electrónico populares como Gmail, Outlook y Yahoo. Como resultado, los elementos de video incrustados pueden no mostrarse como se espera o pueden no aparecer en absoluto. Además, incrustar video directamente en un correo electrónico puede aumentar significativamente el tamaño del correo electrónico, lo que incrementa la probabilidad de que el mensaje sea marcado como correo no deseado.
+
+En su lugar, puedes crear un GIF o una imagen estática que se asemeje a un video en un reproductor de video, y luego enlazar esa imagen a tu video. Cuando los usuarios hacen clic en la imagen, son dirigidos al video alojado en tu sitio web o en una plataforma de video.
+
 ### ¿Se pueden usar variables Liquid asignadas en una parte del creador de mensajes en otra? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 
 No. Cada parte del correo electrónico (asunto, cuerpo, encabezados, botones, etc.) se genera por separado, por lo que las variables Liquid asignadas en un campo no están disponibles en otro. Asigna las variables en cada campo que las necesite.
@@ -267,6 +316,15 @@ Primero, confirma que tienes los [permisos de usuario]({{site.baseurl}}/user_gui
 ### ¿Necesito registrar dominios para correos electrónicos de retransmisión o enmascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 El [servicio de retransmisión de correo electrónico privado de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) requiere que registres tus dominios de envío en el Portal de Desarrolladores de Apple para evitar rebotes. Google Shielded Email no requiere un proceso manual de registro de dominio ni de lista de permitidos.
+
+
+### ¿Puedo añadir hipervínculos en las líneas del asunto o preencabezados del correo electrónico? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
+
+No. Los proveedores de buzón de entrada no admiten la adición de hipervínculos en las líneas del asunto del correo electrónico. Aunque algunos proveedores de buzón de entrada escanean automáticamente las líneas del asunto y convierten direcciones físicas, fechas u horas en enlaces clicables, esto ocurre automáticamente en el dispositivo del destinatario y está fuera del control de Braze (o de cualquier ESP).
+
+De manera similar, la adición de hipervínculos dentro del preencabezado no es compatible en la industria del correo electrónico.
+
+Si necesitas una funcionalidad similar al contenido clicable en la línea del asunto o el área del preencabezado, considera usar [Gmail Promotions]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab) para añadir anotaciones interactivas a tus correos electrónicos para los usuarios de Gmail.
 
 ### ¿Qué significa el motivo de rebote `unable to get mx info` o `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
 

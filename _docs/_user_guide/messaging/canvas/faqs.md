@@ -135,6 +135,15 @@ _Unique Recipients_ can be higher than the audience you expected because Braze t
 
 For example, if a user receives a Canvas step on Monday and again on Friday and converts after each send, Braze can count two recipient rows and two in-scope conversions. With recurring entries or re-eligibility, the same small set of profiles can produce multiple _Unique Recipients_ over several days.
 
+### Why is my Canvas experiencing lower send rates?
+
+If you find that your daily scheduled Canvas sends to fewer users over time, check for the following:
+
+- **Check if re-eligibility is turned on:** Without re-eligibility, Braze enters each user into the Canvas only once. On daily scheduled Canvases, only users who match the audience and have not yet entered the Canvas are eligible for each entry. As more users enter, each later entry has fewer eligible users, so entry volume declines.
+- **Check if the audience has fixed membership:** Audiences built from a fixed user list (such as a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) used as a segment filter) do not gain new members automatically. Without new entrants, entry volume cannot rebound as users enter the Canvas.
+
+For [delivery speed rate limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) and other factors that lower sends for a single occurrence, see [Why are sends lower than the estimated audience size?](#why-are-sends-lower-than-the-estimated-audience-size).
+
 ## Analytics and conversions
 
 ### How are user conversions tracked in a Canvas?
@@ -194,7 +203,7 @@ No, but you can [archive a Canvas]({{site.baseurl}}/user_guide/messaging/governa
 
 ### How do I resume an archived Canvas or campaign?
 
-Archived messages do not send until you return them to an editable state. [Unarchive]({{site.baseurl}}/user_guide/messaging/governance/archiving/#unarchiving-campaigns-and-canvases) the campaign or Canvas, set the entry schedule or send time to a future window (or duplicate the journey if you need a clean copy), then **Resume** or launch as required. See [Archive campaigns and Canvases]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+Archived messages do not send until you return them to an editable state. [Unarchive]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving) the campaign or Canvas, set the entry schedule or send time to a future window (or duplicate the journey if you need a clean copy), then **Resume** or launch as required. See [Archive campaigns and Canvases]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
 ### Why doesn't my Canvas save when no error appears?
 
@@ -308,11 +317,7 @@ Exception events are created using Action Paths. Action Paths only support "afte
 
 If you encounter a "Request Timed Out" error while editing a Canvas and need to contact [Braze Support]({{site.baseurl}}/braze_support), include the following information to help speed up resolution:
 
-- **Screen recording:** A recording of the steps you took before seeing the error, including any page transitions.
-- **Timestamp and time zone:** The exact time the error occurred and your time zone.
-- **Browser and version:** The browser you're using (for example, Chrome 120, Safari 17) and whether you've tried reproducing the error in a different browser.
-- **Steps to reproduce:** A clear description of the actions that trigger the error, including any specific Canvas steps or configurations involved.
-- **Network logs (optional):** Open your browser developer tools (**Network** tab), reproduce the error, and export the network log as an HTTP Archive (HAR) log file. This helps the support team identify which API call is timing out.
+{% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='canvas' %}
 
 ## Canvas delivery and troubleshooting
 
@@ -339,6 +344,10 @@ Braze does not include a built-in invisible tracking pixel for webhook steps. Re
 For action-based and API-triggered Canvases, Braze deduplicates trigger events so a user can enter at most about **once per second** for the same Canvas. If a user performs the same trigger multiple times within one second, only one entry is processed.
 
 To allow multiple entries in the same second, space trigger events by at least 1.1 seconds (for example, when you control event timing from your server). For campaign-style behavior that allows multiple same-second triggers, compare your use case to [campaigns]({{site.baseurl}}/user_guide/messaging/campaigns) with appropriate scheduling and re-eligibility settings.
+
+### When are users de-duplicated in API-triggered Canvases?
+
+If a user re-enters an API-triggered Canvas and reaches a Delay step where they are already enqueued from a previous entry for an identical message, Braze de-duplicates the user to prevent duplicate sends. The second Canvas instance exits, so the number of entries may exceed the number of sends.
 
 ### Why does a test push go to the wrong app, but live sends look correct?
 

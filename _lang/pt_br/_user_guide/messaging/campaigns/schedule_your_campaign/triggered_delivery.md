@@ -143,7 +143,9 @@ Campanhas transacionais incluem mensagens enviadas após o usuário concluir uma
 
 Além disso, ao criar campanhas de boas-vindas, você pode disparar mensagens para envio após o usuário se registrar ou configurar uma conta. Escalonar mensagens para serem enviadas em diferentes dias após o registro permite criar um processo de integração completo.
 
-## Por que um usuário não recebeu minha campanha disparada? {#why-did-a-user-not-receive-my-triggered-campaign}
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Por que um usuário não recebeu minha campanha disparada? {#why-did-a-user-not-receive-my-triggered-campaign}
 
 Qualquer uma dessas situações impedirá que um usuário que completou o evento de gatilho receba a campanha:
 
@@ -158,13 +160,13 @@ Qualquer uma dessas situações impedirá que um usuário que completou o evento
 
 Por exemplo, imagine que você deseja enviar uma campanha disparada por evento para usuários masculinos que acabaram de se registrar. Quando o usuário se registra, você registra um evento personalizado `registration` e simultaneamente define o atributo `gender` do usuário. O evento pode disparar a campanha antes que a Braze tenha processado o gênero do usuário, impedindo-o de receber a campanha.
 
-Como prática recomendada, certifique-se de que o atributo no qual a campanha é segmentada seja enviado aos servidores da Braze antes do evento. Se isso não for possível, a melhor maneira de garantir a entrega é usar [propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) para anexar as propriedades relevantes do usuário ao evento e aplicar um filtro de propriedade para a propriedade específica do evento em vez de um filtro de segmentação. No nosso exemplo, você adicionaria uma propriedade `gender` ao evento personalizado `registration` para que a Braze tenha garantidamente os dados necessários quando sua campanha for disparada.
+Como prática recomendada, certifique-se de que o atributo no qual a campanha é segmentada seja enviado aos servidores da Braze antes do evento. Se isso não for possível, a melhor maneira de garantir a entrega é usar [propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) para anexar as propriedades relevantes do usuário ao evento e aplicar um filtro de propriedade para a propriedade específica do evento em vez de um filtro de segmentação. No nosso exemplo, você adicionaria uma propriedade `gender` ao evento personalizado `registration` para que a Braze tenha garantidamente os dados necessários quando sua campanha for disparada.
 
 Além disso, se uma campanha for baseada em ação e tiver uma postergação, você pode marcar a opção **Reavaliar associação ao segmento no momento do envio** para garantir que os usuários ainda façam parte do público-alvo quando a mensagem for enviada.
 
-### Avaliação dos critérios de público {#audience-criteria-evaluation}
+#### Avaliação dos critérios de público {#audience-criteria-evaluation}
 
-Para campanhas que envolvem uma postergação antes do envio (incluindo limite de taxa, fuso horário local, Intelligent Timing ou um agendamento de gatilho), quando o segmento é reavaliado depende do tipo e das configurações da campanha.
+Para campanhas que envolvem uma postergação antes do envio (incluindo limite de frequência, fuso horário local, Intelligent Timing ou um agendamento de gatilho), quando o segmento é reavaliado depende do tipo e das configurações da campanha.
 
 Em campanhas baseadas em ação com postergação, se você selecionar **Reavaliar associação ao segmento no momento do envio**, os usuários serão reavaliados antes do envio da mensagem, de modo que apenas os usuários que ainda atendem aos critérios do segmento no momento do envio receberão a mensagem.
 
@@ -177,7 +179,7 @@ Recomendamos alterar o público-alvo para incluir todos os usuários ou verifica
 
 ![Captura de tela relacionada à avaliação dos critérios de público.]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
 
-### Solução de problemas com eventos personalizados {#troubleshooting-custom-events}
+#### Solução de problemas com eventos personalizados {#troubleshooting-custom-events}
 
 Primeiro, confirme que o evento personalizado está sendo enviado para a Braze. Acesse **Analytics** > **Relatório de eventos personalizados** e selecione o respectivo evento personalizado e o intervalo de datas. Se o evento não aparecer, confirme que ele está configurado corretamente e que o usuário realizou a ação correta.
 
@@ -191,3 +193,9 @@ Se o evento personalizado aparecer, investigue mais fazendo o seguinte:
 {% alert note %}
 Mensagens no app só podem ser disparadas por eventos enviados pelo SDK, não pela REST API.
 {% endalert %}
+
+### Quando as campanhas baseadas em ação avaliam a associação ao público? {#when-do-action-based-campaigns-evaluate-audience-membership}
+
+A Braze avalia a associação ao público quando processa o evento de gatilho, antes do envio da mensagem. Por padrão, a Braze verifica se o usuário corresponde ao público-alvo no momento do enfileiramento. Se a campanha tiver uma postergação, você pode selecionar **Reavaliar associação ao segmento no momento do envio** para verificar os critérios de público novamente imediatamente antes do envio — por exemplo, quando um usuário pode realizar a ação de gatilho e depois sair do público antes que o envio seja concluído.
+
+Para saber mais, consulte [Avaliação dos critérios de público](#audience-criteria-evaluation).

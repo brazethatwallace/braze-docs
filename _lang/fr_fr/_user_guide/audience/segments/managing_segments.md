@@ -25,24 +25,24 @@ Vous pouvez restreindre la liste pour n'afficher que les segments actifs ou arch
 ### Filtres {#filters}
 
 Triez les segments de la liste en ajustant les filtres suivants :
-- **Dernière modification par :** L'utilisateur qui a modifié les segments en dernier
-- **Dernière modification :** Plage de temps pendant laquelle les segments ont été modifiés pour la dernière fois
-- **Taille estimée :** Plage approximative du nombre d'utilisateurs dans les segments
-- **Étiquettes :** Étiquettes associées aux segments
-- **Équipes :** Équipes associées aux segments
-- **Segments avec suivi avancé uniquement :** Afficher uniquement les segments pour lesquels le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) est activé.
+- **Last Edited By :** l'utilisateur qui a modifié les segments en dernier
+- **Last Edited :** plage de temps pendant laquelle les segments ont été modifiés pour la dernière fois
+- **Estimated Size :** plage approximative du nombre d'utilisateurs dans les segments
+- **Tags :** tags associés aux segments
+- **Teams :** Teams associées aux segments
+- **Advanced Tracking Segments Only :** afficher uniquement les segments pour lesquels le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) est activé.
 
 ### Colonnes {#columns}
 
 Voici les colonnes d'informations que vous pouvez sélectionner pour les afficher dans la liste des segments :
-- **Filtres :** Nombre de filtres dans le segment
-- **Dernière modification :** Date de la dernière modification du segment
-- **Dernière modification par :** L'utilisateur qui a modifié le segment en dernier
-- **Étiquettes :** Étiquettes associées au segment
-- **Équipes :** Équipes associées au segment
-- **Taille estimée :** Nombre estimé d'utilisateurs dans le segment
-- **Canvas :** Nombre de Canvas qui utilisent le segment
-- **Campaigns :** Nombre de Campaigns qui utilisent le segment
+- **Filters :** nombre de filtres dans le segment
+- **Last edited :** date de la dernière modification du segment
+- **Last edited by :** l'utilisateur qui a modifié le segment en dernier
+- **Tags :** tags associés au segment
+- **Teams :** Teams associées au segment
+- **Estimated size :** nombre estimé d'utilisateurs dans le segment
+- **Canvases :** nombre de Canvas qui utilisent le segment
+- **Campaigns :** nombre de Campaigns qui utilisent le segment
 
 ### Afficher uniquement les favoris {#show-starred-only}
 
@@ -61,10 +61,10 @@ Pour éviter les boucles de segments se référençant mutuellement, les segment
 ![Le menu de modification d'un segment affichant les options « Edit », « Duplicate », « Archive » et « Add to starred ».]({% image_buster /assets/img/segment/segments_page_edit_menu.png %}){: style="float:right;max-width:25%;"}
 
 Pour gérer un segment spécifique, survolez-le et sélectionnez l'icône de menu à la fin de la ligne pour afficher les options suivantes :
-- **Edit :** Modifier les filtres de votre segment.
-- **Duplicate :** Créer une copie de votre segment.
-- **Archive :** Archiver le segment. Notez que cela archivera également toutes les Campaigns ou Canvas qui utilisent ce segment.
-- **Add to starred :** Marquer le segment comme favori, ce qui vous permet d'y accéder rapidement en cochant la case « Show starred only » dans la section des segments.
+- **Edit :** modifier les filtres de votre segment.
+- **Duplicate :** créer une copie de votre segment.
+- **Archive :** archiver le segment. Notez que cela archivera également toutes les Campaigns ou Canvas qui utilisent ce segment.
+- **Add to starred :** marquer le segment comme favori, ce qui vous permet d'y accéder rapidement en cochant la case « Show starred only » dans la section des segments.
 
 Vous pouvez également effectuer des actions groupées, notamment l'archivage groupé et l'étiquetage groupé, en cochant les cases à côté de plusieurs noms de segments.
 

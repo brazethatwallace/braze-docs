@@ -1,4 +1,4 @@
-> Beim Erstellen einer angepassten UI für Content Cards müssen Sie Analytics wie Impressionen, Klicks und Ausblendungen manuell protokollieren, da dies nur für Standard-Kartenmodelle automatisch erfolgt. Die Protokollierung dieser Ereignisse ist ein Standardbestandteil der Integration von Content Cards und für eine genaue Kampagnen-Berichterstattung und Abrechnung unerlässlich. Füllen Sie dazu Ihre angepasste UI mit Daten aus den Braze-Datenmodellen und protokollieren Sie die Ereignisse anschließend manuell. Sobald Sie wissen, wie man Analytics protokolliert, können Sie sehen, wie Braze-Kund:innen häufig [angepasste Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+> Beim Erstellen einer angepassten UI für Content Cards müssen Sie Analytics wie Impressionen, Klicks und Ausblendungen manuell protokollieren, da dies nur für Standard-Kartenmodelle automatisch erfolgt. Die Protokollierung dieser Ereignisse ist ein Standardbestandteil der Integration von Content Cards und für eine genaue Campaign-Berichterstattung und Abrechnung unerlässlich. Füllen Sie dazu Ihre angepasste UI mit Daten aus den Braze-Datenmodellen und protokollieren Sie die Ereignisse anschließend manuell. Sobald Sie wissen, wie man Analytics protokolliert, können Sie sehen, wie Braze-Kund:innen häufig [angepasste Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ## Analytics protokollieren {#logging-analytics}
 
@@ -40,7 +40,7 @@ braze.openSession();
 ```
 
 {% alert note %}
-Content Cards werden nur dann beim Sitzungsstart aktualisiert, wenn vor `openSession()` eine Abo-Anfrage aufgerufen wird. Sie können [den Feed auch jederzeit manuell aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/).
+Content Cards werden nur dann beim Sitzungsstart aktualisiert, wenn vor `openSession()` eine Abo-Anfrage aufgerufen wird. Sie können [den Feed auch jederzeit manuell aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
 {% endalert %}
 
 {% endtab %}
@@ -135,6 +135,10 @@ Um auf das Content-Cards-Datenmodell zuzugreifen, rufen Sie [`contentCards.cards
 let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
+{% alert note %}
+Das Lesen von `contentCards.cards`, `contentCards.unviewedCards` oder `contentCards.lastUpdate` blockiert den aufrufenden Thread, bis das SDK seine Operationen nach der Initialisierung abgeschlossen hat. Verwenden Sie die nicht-blockierenden Getter unter [Nicht-blockierende Snapshot-Zugriffsmethoden](#non-blocking-snapshot-accessors) für Hauptthread- oder latenzempfindliche Kontexte.
+{% endalert %}
+
 Außerdem können Sie ein Abo abschließen, um Änderungen an Ihren Content Cards zu beobachten. Dafür gibt es zwei Möglichkeiten:
 1. Ein Cancellable verwenden oder
 2. Einen `AsyncStream` verwenden.
@@ -156,6 +160,27 @@ let cancellable = AppDelegate.braze?.contentCards.subscribeToUpdates { [weak sel
 let stream: AsyncStream<[Braze.ContentCard]> = AppDelegate.braze?.contentCards.cardsStream
 ```
 
+### Nicht-blockierende Snapshot-Zugriffsmethoden {#non-blocking-snapshot-accessors}
+
+Verwenden Sie diese Methoden, um den aktuellen zwischengespeicherten Zustand zu lesen, ohne den aufrufenden Thread zu blockieren. Jeder Completion-Handler wird immer auf dem Hauptthread ausgeliefert.
+
+```swift
+// All cached cards.
+AppDelegate.braze?.contentCards.getCachedContentCards { cards in
+  // Use `cards` here.
+}
+
+// Unviewed cards only (excludes control cards).
+AppDelegate.braze?.contentCards.getUnviewedCards { cards in
+  // Use `cards` here.
+}
+
+// Date of the last server sync for the current user (nil until the first sync completes).
+AppDelegate.braze?.contentCards.getLastUpdate { date in
+  // Use `date` here.
+}
+```
+
 {% endsubtab %}
 {% subtab Objective-C %}
 
@@ -172,21 +197,32 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 }];
 ```
 
+Um den aktuellen zwischengespeicherten Zustand zu lesen, ohne den aufrufenden Thread zu blockieren, verwenden Sie die folgenden Methoden. Jeder Completion-Handler wird auf dem Hauptthread ausgeliefert.
+
+```objc
+// All cached cards.
+[AppDelegate.braze.contentCards getCachedContentCardsWithCompletion:^(NSArray<BRZContentCardRaw *> *cards) {
+  // Use `cards` here.
+}];
+
+// Unviewed cards only (excludes control cards).
+[AppDelegate.braze.contentCards getUnviewedCardsWithCompletion:^(NSArray<BRZContentCardRaw *> *cards) {
+  // Use `cards` here.
+}];
+
+// Date of the last server sync for the current user (nil until the first sync completes).
+[AppDelegate.braze.contentCards getLastUpdateWithCompletion:^(NSDate * _Nullable date) {
+  // Use `date` here.
+}];
+```
+
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
 {% tab react native %}
 
-Um die Daten der Content Cards abzurufen, verwenden Sie die Methode `getContentCards`:
-
-```javascript
-import Braze from "@braze/react-native-sdk";
-
-const cards = await Braze.getContentCards();
-```
-
-Um über Updates informiert zu werden, abonnieren Sie die Update-Ereignisse der Content Cards:
+Um auf Updates zu reagieren, abonnieren Sie die Update-Ereignisse der Content Cards:
 
 ```javascript
 const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (update) => {
@@ -201,16 +237,18 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
 });
 ```
 
+Um die zuletzt zwischengespeicherten Content-Card-Daten abzurufen:
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+const cachedCards = await Braze.getCachedContentCards();
+```
+
 Um eine manuelle Aktualisierung der Content Cards von den Braze-Servern anzufordern:
 
 ```javascript
 Braze.requestContentCardsRefresh();
-```
-
-Um zwischengespeicherte Content Cards ohne Netzwerkanfrage zu erhalten:
-
-```javascript
-const cachedCards = await Braze.getCachedContentCards();
 ```
 
 {% endtab %}
@@ -388,7 +426,7 @@ function onCardClick(card) {
 |---|---|
 | `url` | Eine gültige URL oder eine gültige Braze-Aktions-URL mit dem Schema `brazeActions://`. |
 | `openLinkInNewTab` | (Optional) Ob die URL in einem neuen Tab geöffnet werden soll. Standardmäßig `false`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verarbeitung des Klickverhaltens" }
 
 {% alert important %}
 Wenn Sie `handleBrazeAction()` nicht aufrufen, werden im Braze-Dashboard konfigurierte Klickverhalten (wie „Angepasstes Event protokollieren“ oder „Zu URL navigieren“) für Karten in einem angepassten Feed nicht ausgeführt.
@@ -397,12 +435,12 @@ Wenn Sie `handleBrazeAction()` nicht aufrufen, werden im Braze-Dashboard konfigu
 {% endtab %}
 {% tab android %}
 
-Das Klickverhalten wird von der Standard-Content-Cards-UI automatisch verarbeitet. Für angepasste Implementierungen verwenden Sie die Schnittstelle [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html), die im Abschnitt [Analytics protokollieren](#logging-analytics) oben beschrieben wird.
+Das Klickverhalten wird von der Standard-Content-Cards-UI automatisch verarbeitet. Für angepasste Implementierungen verwenden Sie die Schnittstelle [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html), die im Abschnitt [Analytics protokollieren](#logging-analytics) beschrieben wird.
 
 {% endtab %}
 {% tab swift %}
 
-Das Klickverhalten wird von der Standard-Content-Cards-UI automatisch verarbeitet. Für angepasste Implementierungen verwenden Sie das Protokoll [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate), das im Abschnitt [Analytics protokollieren](#logging-analytics) oben beschrieben wird.
+Das Klickverhalten wird von der Standard-Content-Cards-UI automatisch verarbeitet. Für angepasste Implementierungen verwenden Sie das Protokoll [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate), das im Abschnitt [Analytics protokollieren](#logging-analytics) beschrieben wird.
 
 {% endtab %}
 {% endtabs %}

@@ -175,6 +175,17 @@ Also, variant messages that require longer render time, such as those with large
 
 For triggered in-app message campaigns that include delayed displays, control group impressions will be recorded when the end user would have originally received the in-app message. For example, if a campaign is set to delay the display by one hour, control group impressions will not be logged until the one-hour delay has passed. This helps with the accurate tracking of impressions related to the intended timing of the message delivery.
 
+## Removing message variants after launch
+
+If you remove a message variant from a campaign or Canvas by clicking the **X** in the composer (for example, when replacing a message from a template), the variant is marked as deleted. Analytics are tied to each variant's unique ID, so removing a variant affects reporting:
+
+- Pre-existing analytics for the deleted variant (such as opens, clicks, and conversions) no longer appear in the current campaign or Canvas step analytics.
+- Variant-level breakdowns exclude deleted variants. If you add a replacement variant, it receives a new variant ID and starts with no historical stats, so metrics may show as 0.
+
+This applies only when you delete and re-add variants. Editing the content of an existing variant in place does not affect historical analytics.
+
+For more details on deleted variants in reporting, see [Deleted message variants]({{site.baseurl}}/user_guide/analytics/reports/report_builder#deleted-message-variants).
+
 ## Recommended follow-ups {#recommended-follow-ups}
 
 One multivariate and A/B test can (and should!) inspire ideas for future tests, as well as guide you toward changes in your messaging strategy. Possible follow-up actions include the following:

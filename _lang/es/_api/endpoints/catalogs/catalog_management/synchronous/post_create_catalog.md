@@ -6,7 +6,7 @@ page_order: 3
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Crear catálogo de Braze."
 
 ---
 {% api %}
@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear un catálogo.
+> Utiliza este endpoint para crear un catálogo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#af9f3e2d-b7e7-49e7-aa64-f4652892be6e {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.create`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -106,7 +106,7 @@ El tipo de datos `geo` almacena una coordenada geográfica como una matriz con e
 
 ## Respuesta {#response}
 
-Hay dos respuestas de código de estado para este punto de conexión: `201` y `400`.
+Hay dos respuestas de código de estado para este endpoint: `201` y `400`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

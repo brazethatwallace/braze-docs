@@ -55,7 +55,7 @@ Use the Braze SDK to update a user's subscription state.
 
 #### REST API
 
-Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to update the [`email_subscribe` attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) for a user. For example, to set a user's email subscription state to unsubscribed when they use a custom unsubscribe link, include `email_subscribe: "unsubscribed"` in the user attributes in your request.
+Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to update the [`email_subscribe` attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) for a user. For example, to set a user's email subscription state to unsubscribed when they use a custom unsubscribe link, include `email_subscribe: "unsubscribed"` in the user attributes in your request.
 
 #### User profile
 
@@ -159,13 +159,18 @@ You can see counts of users who changed their subscription state (subscribed or 
 
 The email preference center lets you manage which users receive subscription group newsletters. Find it in the dashboard under **Subscription Groups**. Each subscription group you create is added to the preference center list. 
 
-To learn more about how to add or customize a preference center, refer to [Preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions).
+To learn more about how to add or customize a preference center, refer to [Preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
+
 
 ## Changing email subscriptions {#changing-email-subscriptions}
 
 In most cases, users manage their email subscription through links included in the emails they receive. Insert a legally compliant footer with an unsubscribe link at the bottom of every email. When users select the unsubscribe URL, Braze unsubscribes them and shows a landing page confirming the change. Include this Liquid tag: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
 
-When a user selects "Unsubscribe from all of the above types of emails" in the preference center, Braze sets their global email subscription status to `unsubscribed` and unsubscribes them from all groups.
+{% alert note %}
+You can use the {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} Liquid tag only in email campaigns and Canvases. You cannot use this tag in other messaging channels.
+{% endalert %}
+
+When a user selects "Unsubscribe from all of the listed types of emails" in the preference center, Braze sets their global email subscription status to `unsubscribed` and unsubscribes them from all groups.
 
 ### Creating custom footers {#custom-footer}
 
@@ -186,7 +191,7 @@ To use a custom landing page instead:
 1. Go to **Email Preferences** > **Subscription Pages and Footers**.
 2. Add the HTML for your custom page.
 
-Include a resubscribe link (for example {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) so users can undo an accidental unsubscribe.
+Include a resubscribe link (for example {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) so users can undo an accidental unsubscribe. Like {% raw %}`${set_user_to_unsubscribed_url}`{% endraw %}, you can use this tag in only email campaigns and Canvases.
 
 You can also send users to your site and update status with the Braze REST API (for example link with {% raw %}`?user_id={{${user_id}}}`{% endraw %} and then call [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status).
 
@@ -204,7 +209,7 @@ Use a custom opt-in page to let users acknowledge and control notification prefe
 2. Select **Subscription Pages and Footers**.
 3. Customize the styling in the **Custom opt-in page** section to see how that indicates to your users that they've been subscribed.
 
-Users reach this page through the {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} tag.
+Users reach this page through the {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} tag. Like other email subscription Liquid tags, you can use this tag in only email campaigns and Canvases.
 
 {% alert tip %}
 Use a double opt-in process to improve outreach. Braze sends an additional confirmation email where a user confirms notification preferences via a link. After confirmation, the user is opted in.

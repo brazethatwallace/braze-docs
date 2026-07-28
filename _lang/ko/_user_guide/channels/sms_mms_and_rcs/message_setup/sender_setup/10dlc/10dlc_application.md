@@ -12,7 +12,7 @@ channel:
 
 > 이 문서에서는 10DLC 등록을 위해 Braze와 협력하는 경우 Braze에 제공해야 하는 회사 및 SMS Campaign 정보를 다룹니다.
 
-Braze에 10DLC 등록 지원을 구매한 경우, 계약에 따라 아래 이메일로 필요한 모든 정보를 보내주셔야 합니다.
+Braze에 10DLC 등록 지원을 구매한 경우, 계약에 따라 아래 섹션에 안내된 이메일로 필요한 모든 정보를 보내주셔야 합니다.
 
 관련 스크린샷과 첨부 파일을 포함하여 모든 내용을 [smsapplications@braze.com](mailto:smsapplications@braze.com)으로 보내주세요. 10DLC에 대한 질문이 있으시면 [Braze SMS 10DLC 가이드]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf)를 확인하거나 Braze 고객 성공 매니저에게 문의해 주세요.
 
@@ -32,7 +32,7 @@ Braze에 10DLC 등록 지원을 구매한 경우, 계약에 따라 아래 이메
 | 사업 업종 | {::nomarkdown} <ul><li>Automotive</li><li>Agriculture</li><li>Banking</li><li>Consumer</li><li>Education</li><li>Electronics</li><li>Engineering</li><li>Energy</li><li>Fast Moving Consumer Goods</li><li>Financial</li><li>Fintech</li><li>Food & Beverage</li><li>Government</li><li>Healthcare</li><li>Hospitality</li><li>Insurance</li><li>Jewelry</li><li>Legal</li><li>Manufacturing</li><li>Media</li><li>Not-for-Profit</li><li>Oil & Gas</li><li>Online</li><li>Raw Materials</li><li>Real Estate</li><li>Religion</li><li>Retail</li><li>Technology</li><li>Telecommunications</li><li>Transportation</li><li>Travel</li></ul>{:/} | |
 | 웹사이트 URL |                                                               | 제공된 웹사이트는 등록된 브랜드를 반영하고 접근 가능해야 합니다. |
 | 사업 운영 지역 (해당하는 항목 모두 선택) | {::nomarkdown} <ul><li>Africa</li><li>Asia</li><li>Europe</li><li>Latin America</li><li>USA & Canada</li></ul>{:/}    |    |
-| 전체 법적 사업체 주소 (도로명, 도시, 주, 우편번호) |                                                               | EIN 또는 등록 목록에 표시된 대로 사업체 주소를 입력하세요.  |
+| 전체 법적 사업체 주소 (도로명, 구/군/시, 주, 우편번호) |                                                               | EIN 또는 등록 목록에 표시된 대로 사업체 주소를 입력하세요.  |
 | 회사 유형 | {::nomarkdown} <ul><li>Private</li><li>Non-Profit</li><li>Government</li><li>Public</li></ul> {:/}  |     |
 | 상장 기업인 경우, 종목 코드를 제공해 주세요 |                                                               |                                                              |
 | 공인 대리인 #1&nbsp;-&nbsp;이름 |                                                               | Braze가 짧은 코드와 관련하여 발생할 수 있는 문제에 대한 첫 번째 연락 창구가 됩니다. 이 정보는 공개되지 않으며 통신사가 파일에 보관하기 위한 것입니다(이 필드 및 이후 필드에 적용됩니다). |
@@ -45,10 +45,10 @@ Braze에 10DLC 등록 지원을 구매한 경우, 계약에 따라 아래 이메
 | 선택 사항 공인 대리인 #2&nbsp;-&nbsp;직함 |                                                               |                                                              |
 | 선택 사항 공인 대리인 #2&nbsp;-&nbsp;직위 |                                                               |                                                              |
 | 선택 사항 공인 대리인 #2&nbsp;-&nbsp;전화번호 |                                                               |                                                              |
-| 전체 법적 사업체 주소 (도로명, 도시, 주, 우편번호) |                                                               |                                                              |
+| 전체 법적 사업체 주소 (도로명, 구/군/시, 주, 우편번호) |                                                               |                                                              |
 | 회사 유형 (비공개, 비영리, 정부, 상장 (종목 코드를 제공해 주세요)) |                                       |                                                              |
 | 상장 기업인 경우, 종목 코드를 제공해 주세요 |                                                               |                                                              |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Company Information (10DLC)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="회사 정보 (10DLC)" }
 
 ## SMS Campaign 정보 {#sms-campaign-information}
 
@@ -74,4 +74,4 @@ Braze에 10DLC 등록 지원을 구매한 경우, 계약에 따라 아래 이메
 | 예상 일일 발송량 | | 이 특정 사용 사례/구독 그룹에 대해 하루 평균 발송되는 메시지 수를 표시해 주세요. 예: 10,000. |
 | 행동 유도 체크리스트 | | {::nomarkdown} <p>행동 유도에는 다음 내용이 포함되어야 합니다:</p><ol><li>제품 설명</li><li>메시지 빈도 공개</li><li>전체 이용약관 링크</li><li>전체 개인정보 보호정책 링크</li><li>STOP 키워드 안내</li><li>HELP 키워드 안내</li><li>"Message and Data Rates may apply" 공개</li></ol> {:/} |
 | 행동 유도 예시 | | ![필수 세부 정보가 모두 포함된 행동 유도 예시.]({{site.baseurl}}/assets/img_archive/10dlc_cta_example.png) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS campaign information" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS Campaign 정보" }

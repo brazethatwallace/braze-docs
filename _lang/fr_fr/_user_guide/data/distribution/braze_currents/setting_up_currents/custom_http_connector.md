@@ -30,7 +30,7 @@ Vous aurez besoin d'une URL d'endpoint pour configurer cette intégration. Votre
 
 ### Étape 2 : Configurer Braze Currents {#step-2-configure-braze-currents}
 
-Dans Braze, accédez à **Intégrations partenaires** > **Exportation de données**, cliquez sur **Créer** et sélectionnez **Custom Currents Export**.
+Dans Braze, accédez à **Intégrations partenaires** > **Exportation de données**, cliquez sur **Créer un nouveau Current** et sélectionnez **Custom Currents Export**.
 
 Donnez un nom à votre export ainsi qu'un e-mail de contact, puis passez à la page **Current Details**. Sur cette page, saisissez l'URL de votre endpoint et le jeton bearer facultatif.
 
@@ -49,7 +49,7 @@ Pour la structure du payload de chaque événement, sélectionnez l'onglet **Cus
 
 ### Surveillance des erreurs {#error-monitoring}
 
-Pour éviter la perte de données et les interruptions de service, il est essentiel de surveiller vos endpoints en permanence et de traiter rapidement toute erreur ou temps d'arrêt.
+Pour éviter la perte de données et les interruptions de service, il est essentiel de surveiller vos endpoints en permanence et de traiter rapidement toute erreur ou tout temps d'arrêt.
 
 Pour la plupart des types d'erreurs (telles que les erreurs serveur et les erreurs de connexion réseau), Braze réessaiera activement la transmission des événements. Si le problème persiste pendant plus de 5 jours, l'intégration sera automatiquement désactivée. Les nouveaux événements entrants seront abandonnés et définitivement perdus.
 
@@ -123,11 +123,11 @@ Tout comme nos [schémas de stockage d'entrepôt de données]({{site.baseurl}}/u
 
 ## Gestion des erreurs et mécanisme de réessai {#error-handling-and-retry-mechanism}
 
-Si une erreur survient, Braze mettra en file d'attente et réessaiera la requête en fonction du code de retour HTTP reçu. Si le problème persiste pendant plus de 5 jours, l'intégration sera automatiquement désactivée : les nouveaux événements entrants seront abandonnés et définitivement perdus, et les événements déjà en file d'attente seront définitivement supprimés après une rétention de 7 jours. Si des données sont bloquées pendant plus de 24 heures, nos ingénieurs d'astreinte seront automatiquement alertés. Pour un détail complet de la gestion de chaque code de statut, consultez le tableau ci-dessous.
+Si une erreur survient, Braze mettra en file d'attente et réessaiera la requête en fonction du code de retour HTTP reçu. Si le problème persiste pendant plus de 5 jours, l'intégration sera automatiquement désactivée : les nouveaux événements entrants seront abandonnés et définitivement perdus, et les événements déjà en file d'attente seront définitivement supprimés après une rétention de 7 jours. Si des données sont bloquées pendant plus de 24 heures, nos ingénieurs d'astreinte seront automatiquement alertés. Pour un détail complet de la gestion de chaque code de statut, consultez le tableau dans la section suivante.
 
 Si votre intégration Currents renvoie des erreurs d'authentification, Braze vous enverra automatiquement un e-mail de notification.
 
-Tout code d'erreur HTTP non répertorié ci-dessous sera traité comme une erreur HTTP `5XX`.
+Tout code d'erreur HTTP non répertorié dans la section suivante sera traité comme une erreur HTTP `5XX`.
 
 {% alert warning %}
 Si le problème persiste pendant plus de 5 jours, l'intégration sera désactivée. Les nouveaux événements entrants seront abandonnés et définitivement perdus, et les événements déjà en file d'attente seront définitivement supprimés après une rétention de 7 jours.
@@ -146,7 +146,7 @@ Les codes de statut HTTP suivants seront reconnus par notre client connecteur :
   <tbody>
     <tr>
       <td><code>2XX</code></td>
-      <td>Réussi</td>
+      <td>Réussite</td>
       <td>Les données d'événement ne seront pas renvoyées.</td>
     </tr>
     <tr>

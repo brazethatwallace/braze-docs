@@ -71,12 +71,12 @@ Campaign, Canvas 또는 Segment가 임계값을 초과하여 시작할 수 없�
 필터 최적화에 대한 추가 지원이 필요하면 [고객지원에 문의]({{site.baseurl}}/braze_support)할 수도 있습니다.
 
 {% alert note %}
-문자 수 제한은 2025년 4월부터 적용되기 시작했습니다. 2025년 4월 이전에 시작된 Campaigns 및 Canvases는 면제되어 제한을 계속 초과할 수 있지만, 새로 생성된 Campaigns 및 Canvases는 제한을 초과할 수 없습니다. 면제된 Campaign 또는 Canvas를 편집하거나 복제하는 경우, 오디언스가 제한 이하로 업데이트될 때까지 시작할 수 없습니다.
+문자 수 제한은 2025년 4월부터 적용되기 시작했습니다. 2025년 4월 이전에 시작된 Campaign 및 Canvases는 면제되어 제한을 계속 초과할 수 있지만, 새로 생성된 Campaign 및 Canvases는 제한을 초과할 수 없습니다. 면제된 Campaign 또는 Canvas를 편집하거나 복제하는 경우, 오디언스가 제한 이하로 업데이트될 때까지 시작할 수 없습니다.
 {% endalert %}
 
-### X개의 활성 또는 중지된 Campaigns 또는 Canvases가 오디언스 복잡도 임계값을 초과함 {#x-active-or-stopped-campaigns-or-canvases-exceed-the-audience-complexity-threshold}
+### X개의 활성 또는 중지된 Campaign 또는 Canvases가 오디언스 복잡도 임계값을 초과함 {#x-active-or-stopped-campaigns-or-canvases-exceed-the-audience-complexity-threshold}
 
-이 배너는 활성 또는 중지된 Campaigns 또는 Canvases의 오디언스가 오디언스 복잡도 임계값을 초과할 때마다 Campaign 또는 Canvas 목록 상단에 표시됩니다. 배너를 선택하면 임계값을 초과하는 Campaigns 또는 Canvases만 필터링하여 표시한 다음, [타겟 오디언스가 너무 복잡하여 시작할 수 없음](#target-audience-is-too-complex-to-launch)의 문제 해결 단계를 따르세요.
+이 배너는 활성 또는 중지된 Campaign 또는 Canvases의 오디언스가 오디언스 복잡도 임계값을 초과할 때마다 Campaign 또는 Canvas 목록 상단에 표시됩니다. 배너를 선택하면 임계값을 초과하는 Campaign 또는 Canvases만 필터링하여 표시한 다음, [타겟 오디언스가 너무 복잡하여 시작할 수 없음](#target-audience-is-too-complex-to-launch)의 문제 해결 단계를 따르세요.
 
 ![4개의 활성 또는 중지된 Canvases가 오디언스 복잡도 임계값을 초과한다는 오류 배너]({% image_buster /assets/img/segment/audience_complexity_threshold_banner.png %})
 
@@ -98,7 +98,7 @@ Braze는 개별 Segment 필터를 최대 10,000바이트로 제한하며, 이는
 
 ### 사용자가 더 이상 Segment에 포함되지 않음 {#user-is-no-longer-in-a-segment}
 
-Segment를 생성할 때 사용자를 찾을 수 없는 경우, Segment 자격을 결정하는 사용자 데이터가 해당 사용자의 자체 활동이나 이전에 상호작용한 다른 Campaigns 및 Canvases의 결과로 변경되었을 수 있습니다. 재자격이 활성화되어 있으면 고객 프로필에 수신된 Campaign의 최신 데이터가 표시됩니다.
+Segment를 생성할 때 사용자를 찾을 수 없는 경우, Segment 자격을 결정하는 사용자 데이터가 해당 사용자의 자체 활동이나 이전에 상호작용한 다른 Campaign 및 Canvases의 결과로 변경되었을 수 있습니다. 재자격이 활성화되어 있으면 고객 프로필에 수신된 Campaign의 최신 데이터가 표시됩니다.
 
 특정 사용자가 현재 Segment와 일치하는지 테스트하려면 [사용자 미리보기 또는 사용자 조회]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)를 사용하세요.
 
@@ -112,9 +112,9 @@ Segment를 생성할 때 사용자를 찾을 수 없는 경우, Segment 자격�
 
 필터 옵션은 커스텀 속성에 대해 Braze에 전달하는 형식(데이터 유형)과 관련이 있습니다. Braze가 커스텀 속성에 대해 인식하는 데이터 유형을 확인하려면 **데이터 설정** > **커스텀 속성**으로 이동하세요.
 
-필터 옵션이 변경된 경우, 이는 데이터가 이전과 다른 형식(데이터 유형)으로 Braze에 전달되고 있음을 나타냅니다. 다양한 데이터 유형과 필터링 옵션에 대한 자세한 설명은 [커스텀 속성 데이터 유형]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types)을 참조하세요.
+필터 옵션이 변경된 경우, 이는 데이터가 이전과 다른 형식(데이터 유형)으로 Braze에 전달되고 있음을 나타냅니다. 다양한 데이터 유형과 필터링 옵션에 대한 자세한 설명은 [커스텀 속성 데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 참조하세요.
 
-대시보드에서 커스텀 속성의 데이터 유형을 변경하면 다른 형식으로 Braze에 전송되는 데이터가 거부된다는 점에 유의하세요. 해당 속성이 활성 Campaigns, Canvases 또는 Segments에서 참조되고 있는 동안에는 커스텀 속성의 데이터 유형을 변경할 수 없으며, 대시보드에서 오류가 표시되고 변경이 차단됩니다.
+대시보드에서 커스텀 속성의 데이터 유형을 변경하면 다른 형식으로 Braze에 전송되는 데이터가 거부된다는 점에 유의하세요. 해당 속성이 활성 Campaign, Canvases 또는 Segments에서 참조되고 있는 동안에는 커스텀 속성의 데이터 유형을 변경할 수 없으며, 대시보드에서 오류가 표시되고 변경이 차단됩니다.
 
 커스텀 속성의 **값** 탭은 약 250,000명의 사용자 샘플에서 가져온 결과를 표시합니다. 문제 해결을 위해 특정 속성 값이 존재하는지 확인하는 데 **값** 탭을 사용하지 마세요. 자세한 내용은 [값 탭]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#values-tab)을 참조하세요.
 
@@ -122,7 +122,7 @@ Segment를 생성할 때 사용자를 찾을 수 없는 경우, Segment 자격�
 
 제한적으로 보이는 필터에도 불구하고 Segment가 예상보다 훨씬 큰 경우, 동일한 속성에 대해 부정 필터(`다음이 아님`, `같지 않음`, `정규식과 일치하지 않음` 또는 `포함되지 않음`)를 **OR** 연산자와 함께 두 번 이상 사용하고 있는지 확인하세요. 이 조합은 해당 속성의 모든 값을 가진 사용자를 타겟팅할 수 있습니다.
 
-**AND** 대신 **OR**을 사용해야 하는 경우에 대한 안내는 Segment 생성의 [OR 연산자를 피해야 하는 경우]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator)를 참조하세요.
+**AND** 대신 **OR**을 사용해야 하는 경우에 대한 안내는 Segment 생성의 [OR 연산자를 피해야 하는 경우]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#segmentation-logic-using-and-and-or)를 참조하세요.
 
 ## 분석 및 보고 {#analytics-and-reporting}
 

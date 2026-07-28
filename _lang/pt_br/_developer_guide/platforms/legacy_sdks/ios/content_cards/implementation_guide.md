@@ -14,18 +14,18 @@ noindex: true
 
 <br>
 {% alert important %}
-Está procurando o guia básico de integração de Content Cards para desenvolvedores? Encontre [aqui]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
+Está procurando o guia básico de integração de Content Cards para desenvolvedores? Encontre o [guia básico de integração de Content Cards para desenvolvedores]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
 {% endalert %}
 
 # Guia de implementação de Content Cards {#content-card-implementation-guide}
 
-> Este guia de implementação opcional e avançado aborda considerações sobre o código de Content Cards, três casos de uso personalizados criados por nossa equipe, trechos de código que os acompanham e orientações sobre o registro de impressões, cliques e descartes. Visite nosso repositório de demonstrações da Braze [aqui](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Este guia de implementação está centrado em uma implementação Swift, mas são fornecidos trechos em Objective-C para os interessados.
+> Este guia de implementação opcional e avançado aborda considerações sobre o código de Content Cards, três casos de uso personalizados criados por nossa equipe, trechos de código que os acompanham e orientações sobre o registro de impressões, cliques e descartes. Visite nosso repositório de demonstrações da Braze [Repositório de Demonstrações da Braze no GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Este guia de implementação está centrado em uma implementação Swift, mas são fornecidos trechos em Objective-C para os interessados.
 
 ## Considerações sobre o código {#code-considerations}
 
 ### Content Cards como objetos personalizados {#content-cards-as-custom-objects}
 
-Assim como um foguete que adiciona um propulsor, seus próprios objetos personalizados podem ser estendidos para funcionar como Content Cards. Superfícies de API limitadas como essa oferecem flexibilidade para trabalhar com diferentes back-ends de dados de forma intercambiável. Isso pode ser feito em conformidade com o protocolo `ContentCardable` e implementando o inicializador (como visto nos trechos de código a seguir) e, por meio do uso da struct `ContentCardData`, permite acessar os dados `ABKContentCard`. A carga útil `ABKContentCard` será usada para inicializar a struct `ContentCardData` e o próprio objeto personalizado, tudo a partir de um tipo `Dictionary` por meio do inicializador fornecido com o protocolo.
+Assim como um foguete que adiciona um propulsor, seus próprios objetos personalizados podem ser estendidos para funcionar como Content Cards. Superfícies de API limitadas como essa oferecem flexibilidade para trabalhar com diferentes backends de dados de forma intercambiável. Isso pode ser feito em conformidade com o protocolo `ContentCardable` e implementando o inicializador (como visto nos trechos de código a seguir) e, por meio do uso da struct `ContentCardData`, permite acessar os dados `ABKContentCard`. A carga útil `ABKContentCard` será usada para inicializar a struct `ContentCardData` e o próprio objeto personalizado, tudo a partir de um tipo `Dictionary` por meio do inicializador fornecido com o protocolo.
 
 O inicializador também inclui um enum `ContentCardClassType`. Esse enum é usado para decidir qual objeto será inicializado. Por meio do uso de pares chave-valor no dashboard da Braze, você pode definir uma chave `class_type` explícita que será usada para determinar qual objeto inicializar. Esses pares chave-valor para Content Cards são exibidos na variável `extras` do `ABKContentCard`. Outro componente central do inicializador é o parâmetro de dicionário `metaData`. O `metaData` inclui tudo do `ABKContentCard` analisado em uma série de chaves e valores. Depois que os cartões relevantes forem analisados e convertidos em seus objetos personalizados, o app estará pronto para começar a trabalhar com eles como se tivessem sido instanciados a partir de JSON ou de qualquer outra fonte.
 
@@ -427,7 +427,7 @@ O `class_type` é usado para determinar quais dos seus objetos personalizados se
 
 ## Casos de uso {#sample-use-cases}
 
-Fornecemos três casos de uso abaixo. Cada caso de uso oferece uma explicação detalhada, trechos de código relevantes e uma visão de como as variáveis do Content Card podem parecer e ser usadas no dashboard da Braze:
+Fornecemos três casos de uso na seção a seguir. Cada caso de uso oferece uma explicação detalhada, trechos de código relevantes e uma visão de como as variáveis do Content Card podem parecer e ser usadas no dashboard da Braze:
 - [Content Cards como conteúdo suplementar](#content-cards-as-supplemental-content)
 - [Content Cards em um centro de mensagens](#content-cards-in-a-message-center)
 - [Content Cards interativos](#interactive-content-cards)

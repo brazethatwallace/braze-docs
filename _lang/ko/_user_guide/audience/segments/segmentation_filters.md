@@ -4,7 +4,7 @@ nav_title: 세분화 필터
 article_title: 세분화 필터
 layout: glossary_page
 glossary_top_header: "세분화 필터"
-glossary_top_text: "Braze SDK는 특정 기능과 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터 모음을 제공합니다. 필터 카테고리별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.<br><br>사용자를 세분화하는 데 사용할 수 있는 다양한 커스텀 속성 데이터 유형에 대해 알아보려면 <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">커스텀 속성 데이터 유형</a> 을 참조하세요. 간격 필터는 100년으로 제한됩니다."
+glossary_top_text: "Braze SDK는 특정 기능과 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터 모음을 제공합니다. 필터 카테고리별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.<br><br>사용자를 세분화하는 데 사용할 수 있는 다양한 커스텀 속성 데이터 유형에 대해 알아보려면 <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">커스텀 속성 데이터 유형</a> 을 참조하세요. 간격 필터는 100년으로 제한됩니다."
 
 page_type: glossary
 tool: Segments
@@ -61,7 +61,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: 커스텀 속성의 등록정보인 속성입니다.<br><br>중첩된 시간 커스텀 속성을 필터링할 때 "연중 일자" 또는 "시간"을 기준으로 필터링할 수 있습니다. "연중 일자"는 비교 시 월과 일만 확인합니다. "시간"은 연도를 포함한 전체 타임스탬프를 비교합니다.
+    description: 커스텀 속성의 속성정보인 속성입니다.<br><br>중첩된 시간 커스텀 속성을 필터링할 때 "연중 일자" 또는 "시간"을 기준으로 필터링할 수 있습니다. "연중 일자"는 비교 시 월과 일만 확인합니다. "시간"은 연도를 포함한 전체 타임스탬프를 비교합니다.
     tags:
       - Custom attribute
   - name: Day of Recurring Event
@@ -69,7 +69,7 @@ glossaries:
     tags:
       - Custom attribute
   - name: Custom Event
-    description: 사용자가 특별히 기록된 이벤트를 수행했는지 여부를 판단합니다.<br><br>예시:<br>activity_name 등록정보가 있는 활동 완료.<br><br>시간대:<br>UTC - 캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다
+    description: 사용자가 특별히 기록된 이벤트를 수행했는지 여부를 판단합니다.<br><br>예시:<br>activity_name 속성정보가 있는 활동 완료.<br><br>시간대:<br>UTC - 캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다
     tags:
       - Custom events
   - name: First Did Custom Event
@@ -85,7 +85,7 @@ glossaries:
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
-    description: 사용자가 지정된 캘린더 일수(1~30일) 내에 특정 등록정보와 관련하여 특별히 기록된 이벤트를 0~50회 수행했는지 여부를 판단합니다. (캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다)<br><a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a> <br><br>예시:<br> "event_name" 등록정보가 있는 즐겨찾기 추가가 지난 1 캘린더 일 내에 정확히 0회<br><br>시간대:<br>UTC - 모든 시간대를 고려하기 위해, 1 캘린더 일은 Segment가 평가되는 시점에 따라 24-48시간의 사용자 기록을 확인합니다. 2 캘린더 일의 경우 48-72시간의 사용자 기록을 확인하며, 이후도 마찬가지입니다.
+    description: 사용자가 지정된 캘린더 일수(1~30일) 내에 특정 속성정보와 관련하여 특별히 기록된 이벤트를 0~50회 수행했는지 여부를 판단합니다. (캘린더 일 = 1 캘린더 일은 24-48시간의 사용자 기록을 확인합니다)<br><a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a> <br><br>예시:<br> "event_name" 속성정보가 있는 즐겨찾기 추가가 지난 1 캘린더 일 내에 정확히 0회<br><br>시간대:<br>UTC - 모든 시간대를 고려하기 위해, 1 캘린더 일은 Segment가 평가되는 시점에 따라 24-48시간의 사용자 기록을 확인합니다. 2 캘린더 일의 경우 48-72시간의 사용자 기록을 확인하며, 이후도 마찬가지입니다.
     tags:
       - Custom events
   - name: Email Address
@@ -313,7 +313,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
-    description: 푸시에 대한 <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">구독 상태</a> 를 기준으로 사용자를 세분화합니다.
+    description: 푸시에 대한 <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">구독 상태</a> 를 기준으로 사용자를 세분화합니다.
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
@@ -337,7 +337,7 @@ glossaries:
     tags:
       - Purchase behavior
   - name: X Purchase Property In Y Days
-    description: 지정된 캘린더 일수(1~30일) 내에 특정 구매 등록정보와 관련하여 구매가 이루어진 횟수를 기준으로 사용자를 세분화합니다. <br> <a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a>
+    description: 지정된 캘린더 일수(1~30일) 내에 특정 구매 속성정보와 관련하여 구매가 이루어진 횟수를 기준으로 사용자를 세분화합니다. <br> <a href="/docs/x-in-y-behavior">X-in-Y 동작에 대해 자세히 알아보세요.</a>
     tags:
       - Purchase behavior
   - name: First Made Purchase
@@ -365,43 +365,43 @@ glossaries:
     tags:
       - Purchase behavior
   - name: Last order placed (last 730 days)
-    description: 사용자가 마지막으로 주문한 시점을 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가되며, 최대 조회 기간은 최근 2년입니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자가 마지막으로 주문한 시점을 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가되며, 최대 조회 기간은 최근 2년입니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total orders count (last 730 days)
-    description: 최근 2년 내 사용자의 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 이 수에는 취소된 주문이 제외되며, 취소된 주문은 주문 취소에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 사용하여 추적해야 합니다. 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 내 사용자의 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 이 수에는 취소된 주문이 제외되며, 취소된 주문은 주문 취소에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 사용하여 추적해야 합니다. 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total orders count
-    description: 사용자의 전체 기간에 걸친 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 이 수에는 취소된 주문이 제외되며, 취소된 주문은 주문 취소에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 사용하여 추적해야 합니다. 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자의 전체 기간에 걸친 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 이 수에는 취소된 주문이 제외되며, 취소된 주문은 주문 취소에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 사용하여 추적해야 합니다. 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total canceled orders count (last 730 days)
-    description: 최근 2년 내 사용자가 취소한 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 내 사용자가 취소한 총 주문 수를 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Customer lifetime value (last 730 days)
-    description: 사용자가 브랜드와의 구매 이력에서 생성할 것으로 예상되는 총 매출을 기준으로 세분화합니다. 계산은 최근 730일을 고려하며, 평균 주문 금액(AOV)에 총 주문 수를 곱한 후 사용자의 활성 구매 기간(첫 번째 주문과 가장 최근 주문 사이의 기간)을 반영합니다. 이 필터는 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 에서 추적된 데이터를 사용합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자가 브랜드와의 구매 이력에서 생성할 것으로 예상되는 총 매출을 기준으로 세분화합니다. 계산은 최근 730일을 고려하며, 평균 주문 금액(AOV)에 총 주문 수를 곱한 후 사용자의 활성 구매 기간(첫 번째 주문과 가장 최근 주문 사이의 기간)을 반영합니다. 이 필터는 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 에서 추적된 데이터를 사용합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total refund value (last 730 days)
-    description: 최근 2년 동안 사용자에게 부여된 환불 금액을 기준으로 세분화하며, 이는 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 동안 사용자에게 부여된 환불 금액을 기준으로 세분화하며, 이는 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total refund value
-    description: 사용자의 전체 기간에 걸쳐 부여된 총 환불 금액을 기준으로 세분화하며, 이는 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자의 전체 기간에 걸쳐 부여된 총 환불 금액을 기준으로 세분화하며, 이는 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total revenue (last 730 days)
-    description: 최근 2년 동안 사용자의 주문에서 발생한 총 매출을 기준으로 세분화하며, 주문 완료에 대한 eCommerce 이벤트의 매출에서 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 의 매출을 차감하여 계산합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 동안 사용자의 주문에서 발생한 총 매출을 기준으로 세분화하며, 주문 완료에 대한 이커머스 이벤트의 매출에서 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 의 매출을 차감하여 계산합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Total revenue
-    description: 사용자의 전체 기간에 걸쳐 주문에서 발생한 총 매출을 기준으로 세분화하며, 주문 완료에 대한 eCommerce 이벤트의 매출에서 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 의 매출을 차감하여 계산합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 사용자의 전체 기간에 걸쳐 주문에서 발생한 총 매출을 기준으로 세분화하며, 주문 완료에 대한 이커머스 이벤트의 매출에서 주문 환불에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 의 매출을 차감하여 계산합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 이 필터에 대해 실시간으로 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Average order value (last 730 days)
-    description: 최근 2년 동안 사용자 주문의 평균(산술 평균) 금액을 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eCommerce 권장 이벤트</a> 를 기반으로 합니다(eCommerce 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
+    description: 최근 2년 동안 사용자 주문의 평균(산술 평균) 금액을 기준으로 세분화하며, 이는 주문 완료에 대한 <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">이커머스 권장 이벤트</a> 를 기반으로 합니다(이커머스 이벤트를 추적하지 않는 워크스페이스에는 이 필터에 대한 데이터가 없습니다). 사용자는 하루에 한 번 이 필터에 대해 평가됩니다.<br><br>이 필터는 베타 버전입니다. 이 필터를 사용하려면 Braze 계정 매니저에게 문의하세요.
     tags:
       - eCommerce
   - name: Country
@@ -469,11 +469,11 @@ glossaries:
     tags:
       - Devices
   - name: Device OS
-    description: 지정된 운영체제를 가진 기기가 하나 이상인 사용자를 세분화합니다. 운영체제 범위로 사용자를 세분화하려면 <a href="/docs/user_guide/audience/segments/segmentation_filters#device-os-version-number">기기 OS 버전 번호</a> 필터를 사용하세요.
+    description: 지정된 운영 체제를 가진 기기가 하나 이상인 사용자를 세분화합니다. 운영 체제 범위로 사용자를 세분화하려면 <a href="/docs/user_guide/audience/segments/segmentation_filters#device-os-version-number">기기 OS 버전 번호</a> 필터를 사용하세요.
     tags:
       - Devices
   - name: Device OS Version Number
-    description: 지정된 범위 내의 운영체제 버전을 가진 기기가 하나 이상인 사용자를 세분화합니다. 예를 들어, iOS 운영체제 버전이 26.0 이상인 사용자를 타겟팅할 수 있습니다.
+    description: 지정된 범위 내의 운영 체제 버전을 가진 기기가 하나 이상인 사용자를 세분화합니다. 예를 들어, iOS 운영 체제 버전이 26.0 이상인 사용자를 타겟팅할 수 있습니다.
     tags:
       - Devices
   - name: Most Recent Device Locale
@@ -489,7 +489,7 @@ glossaries:
     tags:
       - Devices
   - name: Web Browser
-    description: 웹사이트에 접속하는 데 사용하는 웹 브라우저를 기준으로 사용자를 세분화합니다.
+    description: 웹사이트에 접속하는 데 사용하는 웹 브라우저를 기준으로 사용자를 세분화합니다. 이 필터는 가장 최근에 사용한 브라우저뿐만 아니라 사용자의 기기 이력에 있는 모든 브라우저와 일치합니다.
     tags:
       - Devices
   - name: Device IDFA
@@ -573,11 +573,11 @@ glossaries:
     tags:
       - Install attribution
   - name: Churn Risk Category
-    description: 특정 예측에 따른 이탈 위험 카테고리를 기준으로 사용자를 세분화합니다.
+    description: 특정 예측에 따른 고객이탈 위험 카테고리를 기준으로 사용자를 세분화합니다.
     tags:
       - Intelligence and predictive
   - name: Churn Risk Score
-    description: 특정 예측에 따른 이탈 위험 점수를 기준으로 사용자를 세분화합니다.
+    description: 특정 예측에 따른 고객이탈 위험 점수를 기준으로 사용자를 세분화합니다.
     tags:
       - Intelligence and predictive
   - name: Event Likelihood Category
@@ -613,7 +613,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: E.164 형식의 전화번호 필드를 기준으로 사용자를 세분화합니다.<br><br>전화번호가 Braze에 전송되면, Braze는 SMS, RCS 및 WhatsApp 채널을 통해 발송하는 데 사용되는 <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">e.164 형식</a> 으로 변환을 시도합니다. 번호가 올바르게 형식화되지 않으면 변환 프로세스가 실패할 수 있으며, 이 경우 고객 프로필에 형식이 지정되지 않은 전화번호는 있지만 발송용 전화번호는 없게 됩니다. 이 Segment 필터는 e.164 형식의 전화번호(사용 가능한 경우)를 기준으로 사용자를 반환합니다.<br><br>사용 사례:<br> - SMS, RCS 또는 WhatsApp 메시지를 발송할 때 가장 정확한 타겟 오디언스 규모를 파악하려면 이 필터를 사용하세요. <br>- 이 필터와 함께 정규표현식(regex)을 사용하여 특정 국가 코드의 전화번호를 기준으로 세분화하세요. <br>- e.164 변환 프로세스에 실패한 전화번호를 기준으로 사용자를 세분화하려면 이 필터를 사용하세요.
+    description: E.164 형식의 전화번호 필드를 기준으로 사용자를 세분화합니다.<br><br>전화번호가 Braze에 전송되면, Braze는 SMS, RCS 및 WhatsApp 채널을 통해 발송하는 데 사용되는 <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">e.164 형식</a> 으로 변환을 시도합니다. 번호가 올바르게 형식화되지 않으면 변환 프로세스가 실패할 수 있으며, 이 경우 고객 프로필에 형식이 지정되지 않은 전화번호는 있지만 발송용 전화번호는 없게 됩니다. 이 Segment 필터는 e.164 형식의 전화번호(사용 가능한 경우)를 기준으로 사용자를 반환합니다.<br><br>사용 사례:<br> - SMS, RCS 또는 WhatsApp 메시지를 발송할 때 가장 정확한 타겟 오디언스 규모를 파악하려면 이 필터를 사용하세요. <br>- 이 필터와 함께 정규표현식(regex)을 사용하여 특정 국가 코드의 전화번호를 기준으로 세분화하세요. <br>- e.164 변환 프로세스에 실패한 전화번호를 기준으로 사용자를 세분화하려면 이 필터를 사용하세요.
     tags:
       - Other Filters
 ---

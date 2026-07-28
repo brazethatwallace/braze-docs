@@ -5,17 +5,17 @@ hidden: true
 
 # Integración de uso compartido de datos de Snowflake {#snowflake-data-sharing-integration}
 
-> Cuando se utiliza Snowflake Data Share como método de integración, Braze aprovisionará un recurso compartido en tu instancia de Snowflake en nombre del cliente. Este recurso compartido incluirá automáticamente todos los eventos de interacción con mensajes y de comportamiento de los usuarios.
+> Cuando se utiliza Snowflake Data Share como método de integración, Braze aprovisiona un recurso compartido en tu instancia de Snowflake en nombre del cliente. Este recurso compartido incluye automáticamente todos los eventos de participación con mensajes y de comportamiento de los usuarios.
 
-Los recursos compartidos se aprovisionan por cliente después de que este haya adquirido un derecho de uso compartido de datos de Snowflake. Cuando un cliente solicita un uso compartido de datos, Braze añadirá un recurso compartido al espacio de trabajo del cliente, y este podrá utilizar la interfaz de usuario de autoservicio para añadir los datos de la cuenta Snowflake del socio correspondiente.
+Los recursos compartidos se aprovisionan por cliente después de que este haya adquirido un derecho de uso compartido de datos de Snowflake. Cuando un cliente solicita un uso compartido de datos, Braze añade un recurso compartido al espacio de trabajo del cliente, y este puede utilizar la interfaz de usuario de autoservicio para añadir los datos de la cuenta Snowflake del partner correspondiente.
 
-![]({% image_buster /assets/img/snowflake.png %})
+![Aprovisionamiento de uso compartido de datos de Snowflake en el panel de Braze]({% image_buster /assets/img/snowflake.png %})
 
 Una vez aprovisionado el recurso compartido, se puede acceder inmediatamente a todos los datos desde la instancia de Snowflake como un recurso compartido de datos entrantes.
 
-![]({% image_buster /assets/img/snowflake2.png %})
+![Recurso compartido de datos entrantes de Snowflake en la instancia de Snowflake del cliente]({% image_buster /assets/img/snowflake2.png %})
 
-Dentro de tu instancia de Snowflake, verás un recurso compartido por región. Cada tabla tiene una columna, `app_group_id`, que es efectivamente una clave de inquilino para Braze. A medida que se añadan nuevos clientes a un recurso compartido dentro de la misma región, aparecerán como diferentes `app_group_ids` dentro de las tablas existentes.
+Dentro de tu instancia de Snowflake, verás un recurso compartido por región. Cada tabla tiene una columna, `app_group_id`, que es efectivamente una clave de inquilino para Braze. A medida que se añaden nuevos clientes a un recurso compartido dentro de la misma región, aparecen como diferentes `app_group_ids` dentro de las tablas existentes.
 
 {% alert important %}
 Braze aloja actualmente todos los datos a nivel de usuario en las regiones Snowflake AWS US East-1 y EU-Central (Frankfurt). Aunque Braze puede compartir entre regiones, es más rentable para los clientes si compartimos con `US-EAST-1` y/o `EU-CENTRAL-1`.
@@ -33,9 +33,7 @@ Se esperan duplicados, pero todos los eventos tienen un identificador único, la
 
 ### Cambios sin ruptura {#non-breaking-changes}
 
-Los cambios sin ruptura pueden producirse en cualquier momento y generalmente proporcionan funcionalidad adicional. Ejemplos de cambios sin ruptura:
-- Añadir una nueva tabla o vista
-- Añadir una columna a una tabla o vista existente
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Dado que las columnas nuevas se consideran cambios sin ruptura, Braze recomienda encarecidamente enumerar explícitamente las columnas de interés en cada consulta en lugar de utilizar consultas `SELECT *`. Otra posibilidad es crear vistas que nombren explícitamente las columnas y, a continuación, consultar esas vistas en lugar de las tablas directamente.
@@ -43,26 +41,23 @@ Dado que las columnas nuevas se consideran cambios sin ruptura, Braze recomienda
 
 ### Cambios de ruptura {#breaking-changes}
 
-Siempre que sea posible, los cambios de ruptura irán precedidos de un anuncio y de un periodo de migración. Algunos ejemplos de cambios de ruptura son:
-- Eliminar una tabla o una vista
-- Eliminar una columna de una tabla o vista existente
-- Modificar el tipo o la nulabilidad de una columna existente
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ## Cuándo se actualizan las tablas SNAPSHOTS y CHANGELOGS {#when-snapshots-and-changelogs-tables-are-updated}
 
-Las tablas SNAPSHOTS y CHANGELOGS realizan un seguimiento de los cambios en las Campaigns y los Canvas. Comprender cuándo se actualizan estas tablas es importante para consultar las variaciones de mensajes y las configuraciones de Canvas más recientes.
+Las tablas SNAPSHOTS y CHANGELOGS realizan un seguimiento de los cambios en las campañas y los Canvas. Comprender cuándo se actualizan estas tablas es importante para consultar las variaciones de mensajes y las configuraciones de Canvas más recientes.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 
 Se añade una fila a `CHANGELOGS_CAMPAIGN_SHARED` cuando:
-- Se lanza la Campaign, O
+- Se lanza la campaña, O
 - Se modifica cualquiera de los siguientes campos con captura de instantánea:
   - Nombre
   - Acciones (incluidos los cambios en el contenido de los mensajes)
   - Comportamientos de conversión
 
 {% alert important %}
-Guardar o actualizar el borrador posterior al lanzamiento no desencadena automáticamente una actualización. La actualización se desencadena solo cuando lanzas la Campaign o aplicas los cambios del borrador posterior al lanzamiento a la Campaign activa.
+Guardar o actualizar el borrador posterior al lanzamiento no desencadena automáticamente una actualización. La actualización se desencadena solo cuando lanzas la campaña o aplicas los cambios del borrador posterior al lanzamiento a la campaña activa.
 {% endalert %}
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED

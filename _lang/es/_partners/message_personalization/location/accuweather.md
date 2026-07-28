@@ -10,7 +10,7 @@ search_tag: Partner
 
 # AccuWeather
 
-> [AccuWeather](https://www.accuweather.com/) es una empresa de medios de comunicación que presta servicios de predicción meteorológica en todo el mundo. Con AccuWeather, puedes enriquecer y personalizar tus campañas de marketing, así como automatizar las traducciones mediante el uso de [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) de Braze.
+> [AccuWeather](https://www.accuweather.com/) es una empresa de medios de comunicación que presta servicios de predicción meteorológica en todo el mundo. Con AccuWeather, puedes enriquecer y personalizar tus campañas de marketing, así como automatizar las traducciones mediante el uso del [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) de Braze.
 
 _Esta integración está mantenida por AccuWeather._
 
@@ -38,9 +38,9 @@ A continuación se indican las API de AccuWeather a las que puedes hacer referen
 | [Traducciones](https://apidev.accuweather.com/developers/translationsApiGuide) | Obtén una lista de los idiomas disponibles. Obtén traducciones para grupos específicos de frases. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="API de AccuWeather disponibles" }
 
-## Ejemplo de Contenido conectado {#connected-content-example}
+## Ejemplo de contenido conectado {#connected-content-example}
 
-El siguiente ejemplo muestra una llamada de Contenido conectado que muestra dos tipos diferentes de mensajes basados en las condiciones actuales del código postal de un usuario en EE. UU. Se utilizan los puntos de conexión de la API de ubicaciones y condiciones actuales de AccuWeather.
+El siguiente ejemplo muestra una llamada de contenido conectado que muestra dos tipos diferentes de mensajes basados en las condiciones actuales del código postal de un usuario en EE. UU. Se utilizan los endpoints de la API de ubicaciones y condiciones actuales de AccuWeather.
 {% raw %}
 
 ```liquid
@@ -58,13 +58,13 @@ Enjoy the weather!
 ```
 {% endraw %}
 
-![Un mensaje push de Contenido conectado que dice "It's raining! Grab an Umbrella!" mostrado en un dispositivo Android]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
+![Un mensaje push de contenido conectado que dice "It's raining! Grab an Umbrella!" mostrado en un dispositivo Android]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
 
-En los siguientes ejemplos se desglosan las dos llamadas de Contenido conectado.
+En los siguientes ejemplos se desglosan las dos llamadas de contenido conectado.
 
 {% tabs %}
 {% tab Ubicaciones %}
-#### Ejemplo de API de ubicaciones {#locations-api-example}
+### Ejemplo de API de ubicaciones {#locations-api-example}
 
 {% raw %}
 Dentro de la primera etiqueta `connected_content`, se realiza una solicitud GET a la [API de ubicaciones](https://apidev.accuweather.com/developers/locationsAPIguide). Para este ejemplo, puedes aprovechar alternativamente la `{{${city}}}` del usuario si no dispones de un atributo personalizado de código postal.
@@ -157,7 +157,7 @@ Este objeto JSON puede almacenarse en una variable local `location_info` especif
 {% endtab %}
 {% tab Condiciones actuales %}
 
-#### Ejemplo de API de condiciones actuales {#current-conditions-api-example}
+### Ejemplo de API de condiciones actuales {#current-conditions-api-example}
 
 Para la segunda etiqueta `connected_content`, se realiza una solicitud GET a la [API de condiciones actuales](https://apidev.accuweather.com/developers/currentConditionsAPIGuide). La **clave de ubicación** deberá añadirse a la URL de la solicitud. Este es el ejemplo de etiqueta `connected_content`:
 
