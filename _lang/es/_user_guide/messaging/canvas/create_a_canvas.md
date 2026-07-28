@@ -110,7 +110,7 @@ Puedes controlar otros aspectos del comportamiento del Canvas desde la ventana *
 ![Un ejemplo de entrega basada en acciones. Los usuarios entrarán en el Canvas si realizan una compra con una ventana de entrada que comienza a la 1:30 pm del 10 de junio de 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
 {% alert note %}
-**Interactuar con paso en Canvas** no está disponible como desencadenante de entrada basado en acciones para Canvas. Solo se puede usar como desencadenante para campañas. Para desencadenar un Canvas desde otro, usa el componente de Canvas [Enviar a destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination), o crea un [webhook de Braze a Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) que llame al endpoint `/canvas/trigger/send`.
+**Interactuar con paso en Canvas** no está disponible como desencadenante de entrada basado en acciones para Canvas. Solo se puede usar como desencadenante para Campaigns. Para desencadenar un Canvas desde otro, usa el componente de Canvas [Enviar a destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination), o crea un [webhook de Braze a Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) que llame al endpoint `/canvas/trigger/send`.
 {% endalert %}
 
 {% alert important %}
