@@ -26,7 +26,7 @@ En tant que développeur d'applications, vous contrôlez les données que vous e
 Cet article fournit des informations relatives aux données traitées par le SDK Braze en lien avec la rubrique de sécurité du questionnaire Google. Cet article ne constitue pas un avis juridique ; nous vous recommandons donc de consulter votre équipe juridique avant de soumettre toute information à Google.
 {% endalert %}
 
-### Questions
+### Questions {#questions}
 
 | Questions | Réponses concernant le SDK Braze |
 |---|---|

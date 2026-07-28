@@ -15,6 +15,10 @@ Para conteúdo espelhado do README do SDK na documentação, veja [Guias de repo
 Após integrar o SDK, você pode ativar a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para adicionar uma camada adicional de segurança, impedindo solicitações não autorizadas ao SDK. A autenticação do SDK está disponível para Web, Android, Swift, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) e Expo.
 {% endalert %}
 
+{% alert note %}
+Se a inicialização do SDK falhar com erros de confiança de certificado HTTPS (por exemplo, `SSLHandshakeException` com `Trust anchor for certification path not found`), consulte [Solução de problemas de erros de confiança de certificado do SDK]({{site.baseurl}}/developer_guide/sdk_integration/troubleshooting_certificate_errors).
+{% endalert %}
+
 {% sdktabs %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/web/sdk_integration.md %}

@@ -20,7 +20,7 @@ Braze React Native SDKは、iOSおよびAndroidアプリをBrazeに接続しま�
 - **アプリ内メッセージ**：デフォルトのBraze UIまたはサブスクリプションとログAPIによるカスタムハンドリング
 - **Content Cards**：デフォルトのフィードUI、またはカードを取得して独自のUIを構築
 - **バナー**：`BrazeBannerView`を含む、プレースメントベースのHTMLバナー
-- **プッシュ通知**：権限プロンプト、トークン登録、ペイロードリスナー（[ネイティブセットアップ](#native-setup)のプラットフォームに関する注意事項を参照）
+- **プッシュ通知**：権限プロンプト、トークン登録、ペイロードリスナー（以下のプラットフォームに関する注意事項を参照）
 - **フィーチャーフラグ**：リフレッシュ、プロパティの読み取り、インプレッションの記録
 - **分析**：カスタムイベント、購入、即時フラッシュ
 - **SDKコントロール**：SDKの有効化/無効化、ローカルデータの消去、SDK認証署名
@@ -49,7 +49,7 @@ npm install @braze/react-native-sdk
 
 このセクションでは、Braze React Native SDKを初期化するために必要な最小限の設定を説明します。
 
-1. [インストール](#installation)でnpmパッケージをインストールします。
+1. npmパッケージをインストールします（上記を参照）。
 2. AndroidとiOSの**ネイティブセットアップ**を完了します（設定、権限、必要に応じてプッシュ）。
 3. JavaScriptからSDKを初期化して使用を開始します：
 
@@ -73,7 +73,7 @@ TypeScriptの型定義はパッケージに同梱されています（GitHubの`
 
 ## ネイティブセットアップ {#native-setup}
 
-> **信頼できる情報源：** ステップバイステップの画面、Gradle/CocoaPodsの変更、およびAndroid XMLキーの完全なリストは、[Braze React Nativeデベロッパーガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)にあります。AndroidおよびiOSセクションのスニペットは最小限の例です。
+> **信頼できる情報源：** ステップバイステップの画面、Gradle/CocoaPodsの変更、およびAndroid XMLキーの完全なリストは、[Braze React Native開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)にあります。以下のスニペットは最小限の例です。
 
 ### Android
 
@@ -301,7 +301,7 @@ Braze.enableSDK();
 
 ## イベント {#events}
 
-`Braze.addListener(event, callback)` でイベントを購読できます。この呼び出しはサブスクリプションオブジェクトを返します。リスニングを停止するには、そのオブジェクトの **`.remove()`** を呼び出します。
+`Braze.addListener(event, callback)`でイベントを購読できます。この呼び出しはサブスクリプションオブジェクトを返します。リスニングを停止するには、そのオブジェクトの**`.remove()`**を呼び出します。
 
 **リスナーの設定：**
 
@@ -322,7 +322,7 @@ const subscription = Braze.addListener(
 subscription.remove();
 ```
 
-Reactコンポーネントでは、サブスクリプションを保存し、クリーンアップ時に `.remove()` を呼び出します（例：`useEffect` のreturn内）。
+Reactコンポーネントでは、サブスクリプションを保存し、クリーンアップ時に`.remove()`を呼び出します（例：`useEffect`のreturn内）：
 
 ``` typescript
 useEffect(() => {
@@ -347,11 +347,10 @@ useEffect(() => {
 
 ## 統合に関する注意事項 {#integration-notes}
 
-- **Expo**: 手動のネイティブ設定を避けるため、可能な限り[Braze Expoプラグイン](https://github.com/braze-inc/braze-expo-plugin)を使用してください。
-- **New Architecture / Turbo Modules**: 最新のプラグインバージョンでサポートされています。移行する場合は、開発者ガイドおよびサンプルの`AppDelegate` / Gradle設定に従ってください。
-- **プライバシー（iOS）**: `updateTrackingPropertyAllowList`などのメソッドは、プライバシーマニフェスト関連の設定をサポートしています。詳細は[Swiftプライバシーマニフェスト](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)を参照してください。
-
-## - **Jest**: `react-native`のネイティブモジュールまたはBraze Turboモジュールをモックします（パターンについてはこのリポジトリの`__tests__/jest.setup.js`を参照してください）。 {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
+- **Expo**：手動のネイティブ設定を避けるため、可能な限り[Braze Expoプラグイン](https://github.com/braze-inc/braze-expo-plugin)を使用してください。
+- **New Architecture / Turbo Modules**：最新のプラグインバージョンでサポートされています。移行する場合は、開発者ガイドおよびサンプルの`AppDelegate` / Gradle設定に従ってください。
+- **プライバシー（iOS）**：`updateTrackingPropertyAllowList`などのメソッドは、プライバシーマニフェスト関連の設定をサポートしています。詳細は[Swiftプライバシーマニフェスト](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)を参照してください。
+## - **Jest**：`react-native`のネイティブモジュールまたはBraze Turboモジュールをモックします（パターンについてはこのリポジトリの`__tests__/jest.setup.js`を参照してください）。 {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
 
 ## バージョンサポート {#version-support}
 
@@ -363,7 +362,7 @@ useEffect(() => {
 | Brazeプラグイン | React Native | 新アーキテクチャ |
 |--------------|--------------|------------------|
 | 9.0.0+       | ≥ 0.71       | はい              |
-| 6.0.0+       | ≥ 0.68       | はい (≥ 0.70.0)   |
+| 6.0.0+       | ≥ 0.68       | はい（≥ 0.70.0）   |
 | 2.0.0+       | ≥ 0.68       | はい              |
 | ≤ 1.41.0     | ≤ 0.71       | いいえ               |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="バージョンサポート" }

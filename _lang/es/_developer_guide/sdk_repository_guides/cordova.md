@@ -25,13 +25,13 @@ Para empezar, consulta los siguientes recursos:
 | 2.31.0+         | >= 12.0.0       | >= 5.0.0    |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos mínimos de versión" }
 
-Este SDK también hereda los requisitos de los SDK nativos de Braze subyacentes. Asegúrate de cumplir también con los siguientes requisitos de los SDK nativos:
+Este SDK también hereda los requisitos de los SDK nativos de Braze subyacentes. Asegúrate de cumplir también con las listas a continuación:
 * [Requisitos del SDK de Android](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
 * [Requisitos del SDK de Swift](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 
 ## Instalación del SDK {#installing-the-sdk}
 {% alert warning %}
-Solo añade el SDK Braze de Cordova utilizando los métodos que se indican a continuación. No intentes instalarlo con otros métodos, ya que podría provocar una brecha de seguridad.
+Solo añade el SDK de Braze para Cordova utilizando los métodos que se indican a continuación. No intentes instalarlo con otros métodos, ya que podría provocar una brecha de seguridad.
 {% endalert %}
 ``` text
 # To use the base SDK functionality, install using the `master` branch.

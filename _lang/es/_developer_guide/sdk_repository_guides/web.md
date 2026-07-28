@@ -29,12 +29,14 @@ Ya sea que estés creando una aplicación de página única, un sitio de comerci
 
 Antes de integrar el SDK web de Braze, necesitarás:
 
-{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
+- **Cuenta de Braze**: una cuenta de Braze con acceso a la API
+- **Clave de API**: la clave de API de tu aplicación desde el panel de Braze
+- **Endpoint del SDK**: la URL de tu endpoint del SDK de Braze (por ejemplo, `sdk.iad-01.braze.com`)
 
 ### Obtener tus credenciales {#getting-your-credentials}
 
 1. **Clave de API**: se encuentra en tu panel de Braze en **Configuración** > **Claves de API**
-2. **Punto final de SDK**: se encuentra en **Configuración** > **Autenticación SDK** > **Puntos finales**
+2. **Endpoint del SDK**: se encuentra en **Configuración** > **Autenticación SDK** > **Endpoints**
 3. **Service worker**: necesario para las notificaciones push (consulta la sección de notificaciones push)
 
 ## Instalación {#installation}

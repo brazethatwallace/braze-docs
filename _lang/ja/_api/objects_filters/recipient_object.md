@@ -13,7 +13,7 @@ description: "この参照記事では、Braze 受信者オブジェクトのさ
 
 このオブジェクトには、`external_user_id`、`user_alias`、`braze_id`、または `email` のいずれかを含める必要があります。**リクエストでは1つだけ指定してください。**
 
-受信者オブジェクトを使用すると、[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)、[トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object)、[キャンバスエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)、および[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を組み合わせることができます。
+受信者オブジェクトを使用すると、[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)、[トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object)、[キャンバスエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)、および[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を組み合わせることができます。
 
 ## オブジェクト本体 {#object-body}
 
@@ -41,7 +41,7 @@ description: "この参照記事では、Braze 受信者オブジェクトのさ
 - [ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
 - [外部ユーザーID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
 - [優先順位付け]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
-- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)
+- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 
 ## 受信者オブジェクトの重複排除 {#recipient-object-deduping}
 

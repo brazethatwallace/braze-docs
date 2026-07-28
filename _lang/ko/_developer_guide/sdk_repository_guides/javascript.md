@@ -71,7 +71,9 @@ await openSession();
 
 Braze JavaScript SDK를 통합하기 전에 다음이 필요합니다:
 
-{% multi_lang_include developer_guide/sdk_api_prerequisites.md %}
+- **Braze 계정**: API 접근 권한이 있는 Braze 계정
+- **API 키**: Braze 대시보드에서 확인할 수 있는 앱의 API 키
+- **SDK 엔드포인트**: Braze SDK 엔드포인트 URL(예: `sdk.iad-01.braze.com`)
 
 ### 자격 증명 확인하기 {#getting-your-credentials}
 

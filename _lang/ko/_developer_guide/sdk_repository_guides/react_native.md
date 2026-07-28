@@ -20,7 +20,7 @@ Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고�
 - **인앱 메시지**: 기본 Braze UI 또는 구독 및 로깅 API를 통한 커스텀 처리
 - **Content Cards**: 기본 피드 UI 또는 카드를 가져와 자체 UI 구축
 - **배너**: `BrazeBannerView`를 포함한 배치 기반 HTML 배너
-- **푸시 알림**: 권한 프롬프트, 토큰 등록, 페이로드 리스너([네이티브 설정](#native-setup)의 플랫폼 참고 사항 참조)
+- **푸시 알림**: 권한 프롬프트, 토큰 등록, 페이로드 리스너(아래 플랫폼 참고 사항 참조)
 - **기능 플래그**: 새로고침, 속성정보 읽기, 노출 횟수 기록
 - **분석**: 커스텀 이벤트, 구매, 즉시 플러시
 - **SDK 제어**: SDK 활성화/비활성화, 로컬 데이터 삭제, SDK 인증 서명
@@ -49,7 +49,7 @@ npm install @braze/react-native-sdk
 
 이 섹션에서는 Braze React Native SDK를 초기화하는 데 필요한 최소 설정을 보여줍니다.
 
-1. [설치](#installation)에서 npm 패키지를 설치합니다.
+1. npm 패키지를 설치합니다(위 참조).
 2. Android 및 iOS에 대한 **네이티브 설정**을 완료합니다(구성, 권한, 필요한 경우 푸시 등).
 3. JavaScript에서 SDK를 초기화하고 사용을 시작합니다:
 
@@ -73,7 +73,7 @@ TypeScript 타이핑은 패키지와 함께 제공됩니다(GitHub의 `src/index
 
 ## 네이티브 설정 {#native-setup}
 
-> **참고 자료:** 단계별 화면, Gradle/CocoaPods 변경 사항, Android XML 키의 전체 목록은 [Braze React Native 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)에서 확인할 수 있습니다. Android 및 iOS 섹션의 스니펫은 최소한의 예시입니다.
+> **참고 자료:** 단계별 화면, Gradle/CocoaPods 변경 사항, Android XML 키의 전체 목록은 [Braze React Native 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)에서 확인할 수 있습니다. 아래 스니펫은 최소한의 예시입니다.
 
 ### Android
 
@@ -350,7 +350,6 @@ useEffect(() => {
 - **Expo**: 가능한 경우 수동 네이티브 연결을 피하기 위해 [Braze Expo 플러그인](https://github.com/braze-inc/braze-expo-plugin)을 사용하세요.
 - **New Architecture / Turbo Modules**: 최신 플러그인 버전에서 지원됩니다. 마이그레이션하는 경우 개발자 가이드와 샘플 `AppDelegate` / Gradle 설정을 참조하세요.
 - **개인정보 보호(iOS)**: `updateTrackingPropertyAllowList`와 같은 메서드는 개인정보 보호 매니페스트 관련 구성을 지원합니다. 자세한 내용은 [Swift 개인정보 보호 매니페스트](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)를 참조하세요.
-
 ## - **Jest**: `react-native` 네이티브 모듈 또는 Braze Turbo 모듈을 모킹합니다(패턴은 이 리포지토리의 `__tests__/jest.setup.js`를 참조하세요). {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
 
 ## 버전 지원 {#version-support}

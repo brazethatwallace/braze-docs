@@ -46,7 +46,7 @@ Android TV용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 1. 앱에서 알림을 표시할 커스텀 뷰를 만듭니다.
 2. [커스텀 알림 팩토리]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display)를 만듭니다. 이렇게 하면 기본 SDK 동작이 재정의되어 알림을 수동으로 표시할 수 있습니다. `null`을 반환하면 SDK가 처리하지 않으므로 알림을 표시하려면 커스텀 코드가 필요합니다. 이 단계를 완료하면 Android TV로 푸시를 보낼 수 있습니다.<br><br>
-3. (선택 사항) 클릭 분석을 효과적으로 추적하려면 클릭 분석 추적을 설정합니다. Braze 푸시 열람 및 수신 의도를 수신하는 [푸시 콜백]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_push-callback)을 만들어 이를 구현할 수 있습니다.
+3. (선택 사항) 클릭 분석을 효과적으로 추적하려면 클릭 분석 추적을 설정합니다. Braze 푸시 열람 및 수신 인텐트를 수신하는 [푸시 콜백]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_push-callback)을 만들어 이를 구현할 수 있습니다.
 
 {% alert note %}
 이러한 알림은 지속되지 않으며 기기가 표시하는 동안에만 사용자에게 보입니다. 이는 Android TV의 알림 센터가 알림 기록을 지원하지 않기 때문입니다.
@@ -61,7 +61,7 @@ Android TV용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 ## 모범 사례 {#best-practices}
 
-Braze를 사용하는 마케터의 경우, Android TV로 Campaign(캠페인)을 시작하는 것은 Android 모바일 앱으로 푸시를 보내는 것과 동일합니다. 이러한 기기만 타겟팅하려면 세분화에서 Android TV 앱을 선택하세요.
+Braze를 사용하는 마케터의 경우, Android TV로 Campaign을 시작하는 것은 Android 모바일 앱으로 푸시를 보내는 것과 동일합니다. 이러한 기기만 타겟팅하려면 세분화에서 Android TV 앱을 선택하세요.
 
 FCM에서 반환하는 전달 및 클릭 응답은 모바일 Android 기기와 동일한 규칙을 따르므로, 오류는 메시지 활동 로그에서 확인할 수 있습니다.
 

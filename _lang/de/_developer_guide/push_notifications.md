@@ -59,7 +59,7 @@ Um zu testen, ob Ihre Push-Implementierung erfolgreich ist, senden Sie eine Bena
 - **Wenn die Anwendung geschlossen ist**: Die Push-Nachricht wird als Toast-Benachrichtigung auf dem Bildschirm angezeigt.
 - **Wenn die Anwendung geöffnet ist**: Sie haben die Möglichkeit, die Nachricht in Ihrer eigenen gehosteten UI anzuzeigen. Orientieren Sie sich am UI-Styling der In-App-Nachrichten des Android Mobile SDK.
 
-## Best Practices
+## Best Practices {#best-practices}
 
 Für Marketer, die Braze verwenden, ist das Starten einer Campaign für Android TV identisch mit dem Starten eines Push an Android-Mobile-Apps. Um diese Geräte exklusiv anzusprechen, wählen Sie die Android-TV-App in der Segmentierung aus.
 

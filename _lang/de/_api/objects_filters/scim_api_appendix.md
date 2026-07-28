@@ -14,7 +14,7 @@ alias: /scim_api_appendix/
 {% sdktab Legacy SCIM API %}
 
 {% alert important %}
-Braze bietet jetzt [granulare Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), eine flexiblere Möglichkeit, den Zugriff von Nutzer:innen zu verwalten. Weitere Informationen finden Sie unter [Migration zu granularen Berechtigungen]({{site.baseurl}}/granular_permissions_migration/) und im Tab [Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/), um die granularen SCIM-API-Objekte und den Anhang einzusehen.
+Braze bietet jetzt [granulare Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), eine flexiblere Möglichkeit, den Zugriff von Nutzer:innen zu verwalten. Weitere Informationen finden Sie unter [Migration zu granularen Berechtigungen]({{site.baseurl}}/granular_permissions_migration) und im Tab [Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/), um die granularen SCIM-API-Objekte und den Anhang einzusehen.
 {% endalert %}
 
 ## Berechtigungsobjekt {#permissions-object}
