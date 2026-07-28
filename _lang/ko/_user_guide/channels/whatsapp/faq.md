@@ -21,6 +21,7 @@ channel:
 - [WhatsApp 템플릿 및 작성기](#whatsapp-templates-and-composer)
 - [전달 가능성 및 청구](#deliverability-and-billing)
 - [통합, 데이터 및 리포팅](#integrations-data-and-reporting)
+- [미디어 및 이미지](#media-and-images)
 
 ### WhatsApp 비즈니스 계정 {#whatsapp-business-accounts}
 
@@ -48,7 +49,6 @@ Braze 대시보드의 임베디드 가입 플로우를 통해 WhatsApp 비즈니
 OBA는 표시 이름 옆에 녹색 체크 표시를 제공하며 선택 사항입니다. 비즈니스 인증을 완료한 후 공식 비즈니스 계정을 신청할 수 있습니다. 비즈니스 인증과 공식 비즈니스 계정은 서로 다른 WhatsApp 개념입니다.
 
 #### WhatsApp Business 표시 이름이 거부되는 이유는 무엇인가요? {#why-might-my-whatsapp-business-display-name-be-rejected}
-
 WhatsApp Business 표시 이름 거부는 Meta에 의해 관리됩니다. 표시 이름이 거부된 경우 [WhatsApp의 표시 이름 가이드라인](https://faq.whatsapp.com/793641088597363)을 참조하세요.
 
 표시 이름이 가이드라인을 충족하는데도 여전히 거부되는 경우, Braze는 구체적인 거부 사유를 확인할 수 없습니다. 그러나 가장 일반적인 거부 사유는 비즈니스의 온라인 존재감이 너무 낮거나, 비즈니스가 [규제 또는 제한 제품](https://business.whatsapp.com/policy#further-guidance)을 마케팅하고 있는 경우입니다.
@@ -56,7 +56,6 @@ WhatsApp Business 표시 이름 거부는 Meta에 의해 관리됩니다. 표시
 표시 이름 거부에 대한 추가 안내는 [Meta 리소스]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources)를 참조하세요.
 
 ### WhatsApp 비즈니스 계정 전화번호 {#whatsapp-business-account-phone-numbers}
-
 #### WhatsApp 비즈니스 계정에 전화번호가 필요한가요? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 네, 접근 가능한 번호가 필요합니다. 임베디드 가입 플로우를 진행할 때 2단계 인증으로 전화번호를 확인하게 됩니다. 이 전화번호는 다른 WhatsApp 계정(비즈니스 또는 개인)에서 사용할 수 없습니다.
 
@@ -167,8 +166,8 @@ WhatsApp 템플릿에 이미지, 행동 유도(URL 또는 전화번호), 빠른 
 #### 템플릿이 WhatsApp의 커머스 정책 위반으로 잘못 플래그된 경우 어떻게 하나요? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
 Meta가 템플릿을 잘못 플래그했다고 판단되면 WhatsApp에서 보낸 이메일의 검토 링크를 사용하여 재검토를 요청하세요. WhatsApp Business 팀이 결정을 검토하고 적절한 경우 이를 번복합니다.
 
-#### 가져온 WhatsApp 템플릿이 작성기에서 "메시지 미완성"으로 표시되는 이유는 무엇인가요? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
-"메시지 미완성" 경고는 작성기에서 필수 템플릿 변수 슬롯이 유효한 값으로 채워지지 않았을 때 나타납니다.
+#### 가져온 WhatsApp 템플릿이 작성기에서 "Message Incomplete"로 표시되는 이유는 무엇인가요? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
+"Message Incomplete" 경고는 작성기에서 필수 템플릿 변수 슬롯이 유효한 값으로 채워지지 않았을 때 나타납니다.
 
 [WhatsApp 템플릿 빌더]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)를 사용하여 템플릿을 만들면 Braze가 변수를 순차적 자리 표시자({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %} 등)로 다시 번호를 매깁니다. Meta의 WhatsApp Manager에서 외부적으로 만든 템플릿에는 변수 매핑 오류가 발생하기 쉬운 패턴이 포함될 수 있습니다. 예를 들어:
 
@@ -179,7 +178,7 @@ Meta가 템플릿을 잘못 플래그했다고 판단되면 WhatsApp에서 보�
 이 문제를 해결하려면 Meta의 WhatsApp Manager에서 템플릿을 편집하여 순차적 자리 표시자 형식을 사용한 다음 Braze로 다시 가져오세요. Braze에서 각 필수 변수 필드가 유효한 Liquid 값으로 채워져 있는지 확인하세요.
 
 #### WhatsApp Campaign이 템플릿 미리보기는 정상인데 발송되지 않는 이유는 무엇인가요? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
-템플릿 미리보기는 정상적으로 표시되지만 처리 원장에 **중단**이 표시되고 세부 정보에 "Param text cannot have new-line/tab characters or more than 4 consecutive spaces"라고 나타나면, 메시지의 Liquid 템플릿 매개변수 값을 확인하세요. WhatsApp은 매개변수 텍스트 값에 다음이 포함되지 않도록 요구합니다:
+템플릿 미리보기는 정상적으로 표시되지만 처리 원장에 **Abort**가 표시되고 세부 정보에 "Param text cannot have new-line/tab characters or more than 4 consecutive spaces"라고 나타나면, 메시지의 Liquid 템플릿 매개변수 값을 확인하세요. WhatsApp은 매개변수 텍스트 값에 다음이 포함되지 않도록 요구합니다:
 
 - 줄바꿈 문자
 - 탭 문자
@@ -196,18 +195,19 @@ Meta가 템플릿을 잘못 플래그했다고 판단되면 WhatsApp에서 보�
 아니요. 메시지가 전달되지 않으면 요금이 청구되지 않습니다.
 
 #### 사용자가 내 비즈니스를 차단하면 어떻게 되나요? {#what-happens-if-a-user-blocks-my-business}
-사용자가 귀하의 비즈니스를 차단하면 이후 보내려는 메시지가 전달되지 않으며 요금도 청구되지 않습니다.
+사용자가 귀하의 비즈니스를 차단하면 이후 보내려는 메시지가 전달되지 않으며 요금도 청구되지 않습니다. 사용자의 구독 상태는 업데이트되지 않습니다.
 
 #### 사용자가 메시지를 신고하면 어떻게 되나요? {#what-happens-if-a-user-reports-a-message}
-사용자가 메시지를 신고해도 이후 해당 사용자에게 메시지를 보낼 수 있습니다. 그러나 신고는 채널에서의 품질 등급에 영향을 줄 수 있습니다.
-
-#### 사용자가 내 비즈니스를 차단하거나 신고하면 Braze에서 구독 상태가 업데이트되나요? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
-아니요. Braze 구독 상태는 업데이트되지 않습니다.
+사용자가 메시지를 신고해도 이후 해당 사용자에게 메시지를 보낼 수 있습니다. 그러나 신고는 채널에서의 품질 등급에 영향을 줄 수 있습니다. 사용자의 구독 상태는 업데이트되지 않습니다.
 
 #### 내 WhatsApp 계정을 신고한 사용자를 향후 발송에서 제외하려면 어떻게 하나요? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
 Braze는 계정이 플래그되거나 신고될 때 WhatsApp으로부터 알림을 받지 않으므로, Braze에서 해당 사용자를 자동으로 식별하거나 제외할 수 없습니다. 계정을 신고한 사용자는 WhatsApp 구독 그룹에 남아 있을 수 있으며 향후 메시지 수신 자격을 유지할 수 있습니다.
 
 그러나 사용자가 수신 거부 키워드로 응답할 때 트리거되는 Campaign을 설정하여 [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)를 사용해 자동으로 구독을 해제할 수 있습니다. 자세한 내용은 [WhatsApp 옵트인 및 수신 거부 프로세스]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process)를 참조하세요.
+
+#### Braze는 WhatsApp 전달 실패 시 자동 SMS 대체를 지원하나요? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
+
+아니요. Braze는 네이티브 WhatsApp-SMS 대체 경로를 제공하지 않습니다. 다른 채널로 재시도하려면 WhatsApp 발송 실패 사용자를 세분화하고(예: Currents 실패 이벤트를 통해) SMS 또는 이메일 Campaign을 타겟팅하세요.
 
 #### WhatsApp 응답 메시지는 무료인가요? {#are-whatsapp-response-messages-free}
 
@@ -254,3 +254,8 @@ WhatsApp은 양방향 메시징에 중점을 둔 채널이므로 개별 메시�
 
 - **비즈니스 시작 대화**: 비즈니스가 최종 사용자에게 승인된 템플릿 메시지를 보내면서 시작하는 대화입니다. 비즈니스가 메시지를 보내는 즉시 24시간 기간이 시작됩니다.
 - **사용자 시작 대화**: 최종 사용자가 비즈니스에 메시지를 보내면서 시작하는 대화입니다. 비즈니스가 응답 메시지를 보내면 24시간 기간이 시작됩니다.
+
+### 미디어 및 이미지 {#media-and-images}
+
+#### WhatsApp 메시지로 발송 시 이미지가 로드되지 않는 이유는 무엇인가요? {#why-wont-images-load-when-sent-as-a-whatsapp-message}
+사용자가 WhatsApp 메시지의 이미지가 다운로드되지 않거나 다운로드 아이콘이 반응하지 않는다고 보고하는 경우, 이는 이전 WhatsApp 앱 버전의 알려진 문제 때문일 가능성이 높습니다. 이 문제는 일반적으로 기기를 최신 버전의 WhatsApp으로 업그레이드하면 해결됩니다.

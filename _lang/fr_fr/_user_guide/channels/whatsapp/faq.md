@@ -21,6 +21,7 @@ channel:
 - [Modèles WhatsApp et compositeur](#whatsapp-templates-and-composer)
 - [Livrabilité et facturation](#deliverability-and-billing)
 - [Intégrations, données et reporting](#integrations-data-and-reporting)
+- [Médias et images](#media-and-images)
 
 ### Comptes WhatsApp Business {#whatsapp-business-accounts}
 
@@ -195,18 +196,19 @@ Il existe diverses raisons pour lesquelles un message pourrait ne pas être livr
 Non. Si un message n'est pas livré, vous ne serez pas facturé.
 
 #### Que se passe-t-il si un utilisateur bloque mon entreprise ? {#what-happens-if-a-user-blocks-my-business}
-Si un utilisateur bloque votre entreprise, les messages suivants que vous tenterez d'envoyer ne seront pas livrés, et vous ne serez pas facturé.
+Si un utilisateur bloque votre entreprise, les messages suivants que vous tenterez d'envoyer ne seront pas livrés, et vous ne serez pas facturé. Le statut d'abonnement de l'utilisateur ne sera pas mis à jour.
 
 #### Que se passe-t-il si un utilisateur signale un message ? {#what-happens-if-a-user-reports-a-message}
-Si un utilisateur signale un message, vous pouvez toujours envoyer des messages ultérieurs à cet utilisateur. Cependant, le signalement peut affecter votre évaluation de qualité sur le canal.
-
-#### Si un utilisateur bloque ou signale mon entreprise, son statut d'abonnement sera-t-il mis à jour dans Braze ? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
-Non. Son statut d'abonnement Braze ne sera pas mis à jour.
+Si un utilisateur signale un message, vous pouvez toujours envoyer des messages ultérieurs à cet utilisateur. Cependant, le signalement peut affecter votre évaluation de qualité sur le canal. Le statut d'abonnement de l'utilisateur ne sera pas mis à jour.
 
 #### Comment puis-je exclure les utilisateurs qui signalent mon compte WhatsApp des prochains envois ? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
 Braze ne reçoit pas de notifications de WhatsApp lorsque votre compte est signalé, vous ne pouvez donc pas identifier ou exclure automatiquement ces utilisateurs dans Braze. Les utilisateurs qui signalent votre compte peuvent rester dans votre groupe d'abonnement WhatsApp et continuer à être éligibles pour les futurs messages.
 
 Vous pouvez toutefois configurer une Campaign qui se déclenche lorsqu'un utilisateur répond avec un mot-clé de désabonnement, ce qui le désabonne automatiquement à l'aide de l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Pour plus d'informations, consultez [Processus d'abonnement et de désabonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+
+#### Braze prend-il en charge le basculement automatique vers le SMS lorsque la livraison WhatsApp échoue ? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
+
+Non. Braze ne propose pas de chemin de basculement natif de WhatsApp vers le SMS. Pour réessayer sur un autre canal, segmentez les utilisateurs dont les envois WhatsApp ont échoué (par exemple, via les événements d'échec Currents) et ciblez-les avec une Campaign SMS ou e-mail.
 
 #### Les messages de réponse WhatsApp sont-ils gratuits ? {#are-whatsapp-response-messages-free}
 
@@ -253,3 +255,8 @@ WhatsApp est un canal axé sur la messagerie bidirectionnelle et s'articule donc
 
 - **Conversation initiée par l'entreprise** : une conversation où l'entreprise commence en envoyant un modèle de message approuvé à l'utilisateur final. Dès que l'entreprise envoie un message, la fenêtre de 24 heures commence.
 - **Conversation initiée par l'utilisateur** : une conversation où l'utilisateur final envoie un message à l'entreprise. Lorsque l'entreprise envoie un message en réponse, la fenêtre de 24 heures commence.
+
+### Médias et images {#media-and-images}
+
+#### Pourquoi les images ne se chargent-elles pas lorsqu'elles sont envoyées dans un message WhatsApp ? {#why-wont-images-load-when-sent-as-a-whatsapp-message}
+Si des utilisateurs signalent que les images dans les messages WhatsApp ne se téléchargent pas ou que l'icône de téléchargement ne répond pas, cela est probablement dû à un problème connu dans les anciennes versions de l'application WhatsApp. Ce problème peut généralement être résolu en mettant à jour l'appareil vers la version la plus récente de WhatsApp.

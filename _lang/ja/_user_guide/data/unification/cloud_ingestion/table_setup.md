@@ -56,7 +56,7 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
 
 | データタイプ | フォーマット参照 |
 | --- | --- |
-| `attributes` | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `attributes` | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOADカラムを設定する" }

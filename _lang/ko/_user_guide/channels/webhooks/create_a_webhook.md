@@ -20,14 +20,14 @@ search_rank: 2
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
-메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaigns는 단일 타겟팅 메시징 캠페인에 더 적합하고, Canvases는 다단계 사용자 여정에 더 적합합니다.
+메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign(캠페인)은 단일 타겟팅 메시징 캠페인에 더 적합하고, Canvas는 다단계 사용자 여정에 더 적합합니다.
 
 {% tabs %}
 {% tab Campaign %}
 
 **단계:**
 
-1. **메시징** > **Campaigns**로 이동하여 **Campaign 만들기**를 선택합니다.
+1. **메시징** > **Campaigns**로 이동하여 **캠페인 만들기**를 선택합니다.
 2. **웹훅**을 선택하거나, 여러 채널을 타겟팅하는 캠페인의 경우 **멀티채널**을 선택합니다.
 3. 캠페인에 명확하고 의미 있는 이름을 지정합니다.
 4. (선택 사항) 이 캠페인의 사용 방법을 설명하는 설명을 추가합니다.
@@ -126,13 +126,17 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ## 3단계: 추가 설정 구성 {#step-3-configure-additional-settings}
 
-### 요청 헤더 (선택 사항) {#request-headers-optional}
+### 요청 헤더(선택 사항) {#request-headers-optional}
 
 특정 엔드포인트에서는 요청에 헤더를 포함해야 할 수 있습니다. 작성기의 **작성** 섹션에서 필요한 만큼 헤더를 추가할 수 있습니다.
 
-!["Authorization" 키와 "Content-type" 키에 대한 요청 헤더 예시.]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
+!['Authorization' 키와 'Content-Type' 키에 대한 요청 헤더 예시.]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-일반적인 요청 헤더에는 `Content-Type` 사양(XML 또는 JSON과 같이 본문에서 예상되는 데이터 유형을 설명)과 공급업체 또는 시스템에서 제공한 자격 증명이 포함된 인증 헤더가 있습니다.
+일반적인 요청 헤더에는 [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) 사양(XML 또는 JSON과 같이 본문에서 예상되는 데이터 유형을 설명)과 공급업체 또는 시스템에서 제공한 자격 증명이 포함된 [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) 헤더가 있습니다.
+
+{% alert note %}
+HTTP 헤더 이름은 [RFC 7230, 섹션 3.2("각 헤더 필드는 대소문자를 구분하지 않는 필드 이름으로 구성됩니다")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2)에 따라 대소문자를 구분하지 않습니다. 수신 엔드포인트 또는 중간 서비스(예: CDN)가 헤더 대소문자를 변환하더라도 헤더 처리에는 영향을 미치지 않습니다. `Content-Type`, `content-type`, `CONTENT-TYPE`은 모두 동일하게 처리됩니다.
+{% endalert %}
 
 콘텐츠-유형 사양에는 `Content-Type` 키를 사용해야 합니다. 일반적인 값은 `application/json` 또는 `application/x-www-form-urlencoded`입니다.
 
@@ -140,7 +144,7 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ## 4단계: 메시지 테스트 발송 {#step-4-test-send-your-message}
 
-Campaign을 실행하기 전에, Braze에서는 웹훅을 테스트하여 요청이 올바르게 포맷되었는지 확인하는 것을 권장합니다.
+캠페인을 실행하기 전에, Braze에서는 웹훅을 테스트하여 요청이 올바르게 포맷되었는지 확인하는 것을 권장합니다.
 
 이를 위해 **테스트** 탭으로 전환하고 테스트 웹훅을 발송합니다. 랜덤 사용자, 특정 사용자(이메일 주소 또는 외부 사용자 ID 입력), 또는 원하는 속성을 가진 커스텀 사용자로 웹훅을 테스트할 수 있습니다.
 
@@ -160,20 +164,20 @@ Campaign을 실행하기 전에, Braze에서는 웹훅을 테스트하여 요청
 
 자세한 내용은 [테스트 메시지 발송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=webhook)을 참조하세요.
 
-## 5단계: Campaign 또는 Canvas의 나머지 부분 구성하기 {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## 5단계: 캠페인 또는 Canvas의 나머지 부분 구성하기 {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-다음으로, Campaign의 나머지 부분을 구성합니다. 웹훅을 구성하기 위한 도구 활용 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
+다음으로, 캠페인의 나머지 부분을 구성합니다. 웹훅을 구성하기 위한 도구 활용 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
 ### 전달 스케줄 또는 트리거 선택하기 {#choose-delivery-schedule-or-trigger}
 
-웹훅은 예약된 시간, 실행 기반 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)을 참조하세요.
+웹훅은 예약된 시간, 실행 기반 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [캠페인 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)을 참조하세요.
 
-실행 기반 전달의 경우, Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)도 설정할 수 있습니다.
+실행 기반 전달의 경우, 캠페인의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)도 설정할 수 있습니다.
 
-이 단계에서는 사용자가 Campaign을 다시 받을 수 있도록 [재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)을 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
+이 단계에서는 사용자가 캠페인을 다시 받을 수 있도록 [재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)을 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
 ### 타겟 사용자 선택하기 {#choose-users-to-target}
 
@@ -183,7 +187,7 @@ Campaign을 실행하기 전에, Braze에서는 웹훅을 테스트하여 요청
 
 ### 전환 이벤트 선택하기 {#choose-conversion-events}
 
-Braze에서는 사용자가 Campaign을 수신한 후 특정 행동인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 얼마나 자주 수행하는지 추적할 수 있습니다. 사용자가 지정된 행동을 취할 경우 전환으로 집계되는 최대 30일의 기간을 설정할 수 있습니다.
+Braze에서는 사용자가 캠페인을 수신한 후 특정 행동인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 얼마나 자주 수행하는지 추적할 수 있습니다. 사용자가 지정된 행동을 취할 경우 전환으로 집계되는 최대 30일의 기간을 설정할 수 있습니다.
 
 {% endtab %}
 
@@ -196,26 +200,26 @@ Braze에서는 사용자가 Campaign을 수신한 후 특정 행동인 [전환 �
 
 ## 6단계: 검토 및 배포 {#step-6-review-and-deploy}
 
-Campaign 또는 Canvas의 마지막 구성을 완료한 후, 세부 사항을 검토하고 테스트한 다음 전송하세요!
+캠페인 또는 Canvas의 마지막 구성을 완료한 후, 세부 사항을 검토하고 테스트한 다음 전송하세요!
 
 ## 알아두어야 할 사항 {#things-to-know}
 
 ### 오류, 재시도 로직 및 타임아웃 {#errors-retry-logic-and-timeouts}
 
-웹훅은 Braze 서버가 외부 엔드포인트에 요청을 보내는 방식에 의존하며, 간혹 오류가 발생할 수 있습니다. 가장 흔한 오류로는 구문 오류, 만료된 API 키, 사용량 제한, 예기치 않은 서버 측 문제 등이 있습니다. 웹훅 Campaign을 전송하기 전에 다음을 확인하세요:
+웹훅은 Braze 서버가 외부 엔드포인트에 요청을 보내는 방식에 의존하며, 간혹 오류가 발생할 수 있습니다. 가장 흔한 오류로는 구문 오류, 만료된 API 키, 사용량 제한, 예기치 않은 서버 측 문제 등이 있습니다. 웹훅 캠페인을 전송하기 전에 다음을 확인하세요:
 
 - 웹훅의 구문 오류를 테스트하세요
 - 개인화된 변수에 기본값이 설정되어 있는지 확인하세요
 
 웹훅 전송에 실패하면 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 오류 메시지가 기록되며, 오류 타임스탬프, 앱 이름, 오류에 대한 세부 정보가 포함됩니다.
 
-![현재 사용자에 대한 정보를 조회하려면 활성 액세스 토큰을 사용해야 한다는 메시지가 표시된 웹훅 오류]({% image_buster /assets/img_archive/webhook-error.png %})
+![현재 사용자에 대한 정보를 조회하려면 활성 액세스 토큰을 사용해야 한다는 메시지가 표시된 웹훅 오류.]({% image_buster /assets/img_archive/webhook-error.png %})
 
 오류 메시지만으로 오류의 원인을 충분히 파악할 수 없는 경우, 사용 중인 API 엔드포인트의 설명서를 확인하세요. 일반적으로 해당 엔드포인트에서 사용하는 오류 코드에 대한 설명과 주요 원인이 안내되어 있습니다.
 
 #### 응답 코드 및 재시도 로직 {#response-codes-and-retry-logic}
 
-웹훅 요청이 전송되면 수신 서버는 요청 처리 결과를 나타내는 응답 코드를 반환합니다. 다음 표는 서버가 보낼 수 있는 다양한 응답, Campaign 분석에 미치는 영향, 그리고 오류 발생 시 Braze가 Campaign을 재전송하는지 여부를 요약합니다:
+웹훅 요청이 전송되면 수신 서버는 요청 처리 결과를 나타내는 응답 코드를 반환합니다. 다음 표는 서버가 보낼 수 있는 다양한 응답, 캠페인 분석에 미치는 영향, 그리고 오류 발생 시 Braze가 캠페인을 재전송하는지 여부를 요약합니다:
 
 | 응답 코드 | 수신됨으로 표시? | 재시도? |
 |---------------|-----------|----------|
@@ -231,15 +235,23 @@ Campaign 또는 Canvas의 마지막 구성을 완료한 후, 세부 사항을 �
 Braze는 이 섹션 앞부분에 언급된 상태 코드에 대해 지수 백오프를 사용하여 30분 이내에 최대 5회까지 재시도합니다. 엔드포인트에 도달할 수 없는 경우, 재시도가 24시간에 걸쳐 분산될 수 있습니다.<br><br>각 웹훅은 타임아웃까지 90초가 허용됩니다.
 {% endalert %}
 
-`Retry-After` 및 사용량 제한 응답 헤더는 Braze가 **재시도 가능한** 요청(예: `408`, `429`, 또는 `5XX` 이후)을 다시 시도하기까지 대기하는 시간에 영향을 줄 수 있습니다. 이 헤더는 `401`과 같이 재시도 불가능한 응답을 재시도 대상으로 만들지는 않습니다.
+`Retry-After` 및 사용량 제한 응답 헤더는 Braze가 **재시도 가능한** 요청(예: `408`, `429` 또는 `5XX` 이후)을 다시 시도하기까지 대기하는 시간에 영향을 줄 수 있습니다. 이 헤더는 `401`과 같이 재시도 불가능한 응답을 재시도 대상으로 만들지는 않습니다.
+
+#### 403 Forbidden 및 IP 허용 목록 {#403-forbidden-and-ip-allowlisting}
+
+`403 Forbidden` 응답은 엔드포인트가 요청을 수신했지만 거부했음을 의미합니다. 일반적인 원인으로는 유효하지 않거나 누락된 인증, 불충분한 API 권한, 그리고 Braze의 아웃바운드 IP 주소를 차단하는 네트워크 규칙(예: 방화벽 또는 웹 애플리케이션 방화벽)이 있습니다.
+
+웹훅 요청이 지속적으로 `403`을 반환하고 인증 헤더가 올바른 경우, 웹훅을 수신하는 서버에서 해당 클러스터의 Braze IP를 허용 목록에 추가하세요. [IP 허용 목록](#ip-allowlisting)을 참조하세요. 연결된 콘텐츠 요청도 동일한 아웃바운드 IP를 사용합니다. [연결된 콘텐츠 IP 허용 목록]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)을 참조하세요.
+
+기타 `4XX` 문제 해결 단계는 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors)을 참조하세요.
 
 #### 인증 및 연결된 콘텐츠 자격 증명 {#authentication-and-connected-content-credentials}
 
 아웃바운드 웹훅 HTTP 요청은 엔드포인트에 대한 인증을 위해 [연결된 콘텐츠 자격 증명]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types)(`:basic_auth` 또는 `:auth_credentials`)을 첨부하는 것을 지원하지 않습니다. 대신 웹훅의 **요청 헤더**를 사용하여 인증을 설정하세요. 전송 시점에 토큰이나 시크릿을 가져오려면 헤더 또는 본문 필드에 {% raw %}`{% connected_content %}`{% endraw %} 태그를 배치하여 웹훅이 전송되기 전에 Liquid가 이를 처리하도록 할 수 있습니다.
 
-#### 저장된 웹훅 템플릿 및 Campaign 사용 {#saved-webhook-templates-and-campaign-usage}
+#### 저장된 웹훅 템플릿 및 캠페인 사용 {#saved-webhook-templates-and-campaign-usage}
 
-Braze는 특정 **저장된 웹훅 템플릿**을 참조하는 모든 Campaign 또는 캔버스 단계를 나열하는 기본 제공 보고서를 제공하지 않습니다. 사용 현황을 감사하려면 동일한 URL과 HTTP 메서드를 사용하는 웹훅 단계를 검토하거나 [Braze 지원팀]({{site.baseurl}}/support_contact)에 문의하세요.
+Braze는 특정 **저장된 웹훅 템플릿**을 참조하는 모든 캠페인 또는 캔버스 단계를 나열하는 기본 제공 보고서를 제공하지 않습니다. 사용 현황을 감사하려면 동일한 URL과 HTTP 메서드를 사용하는 웹훅 단계를 검토하거나 [Braze 지원팀]({{site.baseurl}}/support_contact)에 문의하세요.
 
 #### 문제 해결 및 추가 오류 세부 정보 {#troubleshooting-and-additional-error-details}
 
@@ -261,4 +273,4 @@ Braze 간 웹훅을 만들고 허용 목록을 사용하는 경우, `127.0.0.1`�
 
 개별 사용자 또는 사용자 Segment를 삭제하려면 **오디언스** > **오디언스 관리** > **사용자 삭제**로 이동하세요. 대시보드는 대량 Segment 삭제(최대 1,000만 프로필)를 지원하며, 7일간의 취소 기간이 포함되고, 공유 REST API 사용량 제한을 소비하지 않습니다. 단계, 제한 사항 및 권한에 대한 자세한 내용은 [사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)를 참조하세요.
 
-소규모 배치로 프로그래밍 방식의 삭제를 수행하려면 웹훅 Campaign 대신 [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)를 사용하세요.
+소규모 배치로 프로그래밍 방식의 삭제를 수행하려면 웹훅 캠페인 대신 [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)를 사용하세요.

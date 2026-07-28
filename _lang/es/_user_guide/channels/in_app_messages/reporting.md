@@ -34,8 +34,23 @@ Para los mensajes dentro de la aplicación, esta página define las impresiones 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de mensajes dentro de la aplicación" }
 
 {% alert tip %}
-Las *Impresiones totales* pueden superar a las *Impresiones únicas* cuando un usuario ve el mensaje más de una vez en el mismo día calendario (consulta las definiciones de métricas en la tabla anterior). Para investigar usuarios con recuentos de impresiones inflados, crea un segmento con el filtro **Recuento de dispositivos** configurado en **más de** `1`, y el filtro **Mensaje recibido de Campaign** para la campaña específica.
+Las *Impresiones totales* pueden superar a las *Impresiones únicas* cuando un usuario ve el mensaje más de una vez en el mismo día calendario (consulta las definiciones de métricas en la tabla anterior). Para investigar usuarios con recuentos de impresiones inflados, crea un segmento con el filtro **Recuento de dispositivos** configurado en **más de** `1`, y el filtro **Mensaje recibido de Campaign** para la Campaign específica.
 {% endalert %}
+
+### Seguimiento de clics {#click-tracking}
+
+Braze registra una impresión cuando un mensaje dentro de la aplicación se hace visible en pantalla. Para los mensajes dentro de la aplicación creados con el [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), la siguiente tabla describe qué cuenta como un clic.
+
+| Acción del usuario | Clic registrado |
+|-------------|--------------|
+| El usuario hace clic en el cuerpo del mensaje cuando el mensaje no tiene botones | Sí (clic en el cuerpo) |
+| El usuario hace clic en un botón | Sí (clic en el botón) |
+| El usuario hace clic en el botón de cerrar (X) | No |
+| El usuario toca o hace clic fuera del mensaje para descartarlo (cuando está habilitado) | No |
+| El usuario cierra la aplicación mientras el mensaje se muestra | No |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Seguimiento de clics" }
+
+Para consultar las definiciones de clics en el cuerpo y clics en botones, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 Para los desequilibrios de impresiones entre el grupo de control y la variante en las pruebas A/B, consulta [Discrepancias entre el grupo de control y la variante]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 

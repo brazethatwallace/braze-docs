@@ -143,6 +143,8 @@ Si vous avez des descriptions de lignes, vous devez utiliser **Matches regex** p
 
 Les messages de réponse doivent être envoyés dans les 24 heures suivant la réception du message d'un utilisateur. Pour aider à créer des expériences réussies, Braze vérifie la logique du message pour confirmer qu'il existe un message entrant de l'utilisateur en amont qui débloque le message de réponse.
 
+Pour les réponses en moins d'une minute dans les flux Canvas bidirectionnels, réduisez au minimum les étapes entre le déclencheur entrant et l'envoi du message de réponse. L'architecture du Canvas, les allers-retours de webhooks et le traitement par lots des mises à jour utilisateur peuvent ajouter de la latence. Consultez [Minimiser la latence de réponse pour les flux bidirectionnels]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
+
 Les événements suivants débloquent les messages de réponse :
 
 - Message entrant
@@ -194,3 +196,7 @@ Cependant, le champ Liquid `inbound_media_urls`, qui référence l'URL de ce mé
 {% alert note %}
 Si vous enregistrez une valeur `inbound_media_urls` dans un attribut personnalisé utilisateur pour une utilisation ultérieure, tenez compte de cette expiration de sept jours. Toute tentative d'accès à l'URL après son expiration entraînera un lien cassé.
 {% endalert %}
+
+### Nom de profil entrant {#inbound-profile-name}
+
+Lorsque Meta inclut un nom d'affichage dans un message WhatsApp entrant, Braze l'expose sous la forme de l'attribut Liquid {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} sur cet événement entrant. Cette valeur reflète le nom que l'utilisateur a défini dans WhatsApp et peut ne pas correspondre aux données du profil CRM. Validez les données avant de les utiliser dans vos messages, ou utilisez une étape de mise à jour utilisateur dans un Canvas pour les enregistrer dans un champ de profil en vue d'une utilisation ultérieure. Pour une liste complète des attributs Liquid WhatsApp, consultez [Balises de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

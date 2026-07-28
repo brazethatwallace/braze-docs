@@ -19,7 +19,4 @@ description: "Problemas comunes y soluciones para BrazeAI Operator<sup>TM</sup>.
 | Límite de uso diario superado | Se ha alcanzado el límite de uso de toda la empresa. Espera a que se restablezca el límite (se restablece cada 24 horas). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Problemas comunes" }
 
-## Limitaciones {#limitations}
-
-- **Acceso a los datos:** Operator puede ver el contenido de la página activa, excepto el contenido dentro de editores de arrastrar y soltar. También puede buscar algunos datos específicos de la empresa, como Campaigns anteriores, catálogos y atributos personalizados. Sin embargo, actualmente no puede generar nuevos informes ni ejecutar consultas de informes.
-- **Límites de uso:** Operator tiene un límite de uso diario para toda la empresa que se restablece cada 24 horas. Si se alcanza el límite, aparecerá un banner con el mensaje «Límite de uso diario superado» en el chat y no se podrán realizar más solicitudes hasta que se restablezca el límite.
+Para saber qué puede y qué no puede hacer Operator en el panel, consulta [Limitaciones]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#limitations).

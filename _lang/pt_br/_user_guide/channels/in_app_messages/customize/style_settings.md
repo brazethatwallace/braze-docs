@@ -94,6 +94,8 @@ Cada bloco tem suas próprias configurações, como controle granular de preench
 
 Ao criar sua mensagem no app, você pode selecionar uma visualização para celular, tablet ou desktop na barra de ferramentas para pré-visualizar como sua mensagem no app ficará para seus grupos de usuários. Isso garante que seu conteúdo seja responsivo, e você pode fazer os ajustes necessários ao longo do caminho.
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
+
 ## Detalhes criativos {#creative-details}
 
 ### Tela cheia em telas maiores {#fullscreen}
@@ -102,7 +104,7 @@ Em um tablet ou navegador de desktop, uma mensagem no app em tela cheia ficará 
 
 ![Exemplo de mensagem no app em tela cheia.]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### Adicionando uma imagem de fundo {#adding-a-background-image}
+### Adicionar uma imagem de fundo {#add-a-background-image}
 
 Você pode adicionar uma imagem ao fundo da sua mensagem a partir da guia **Message styles**.
 
@@ -139,7 +141,7 @@ https://example.com/images/default-background.png
 ```
 {% endraw %}
 
-### Adicionando Liquid {#adding-liquid}
+### Adicionar Liquid {#add-liquid}
 
 ![Ícone para adicionar personalização Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
@@ -147,7 +149,7 @@ Para adicionar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/pe
 
 Em seguida, pegue o snippet Liquid gerado e insira-o na sua mensagem. Após projetar e criar sua mensagem no app, acesse **Preview & Test** para pré-visualizar sua mensagem.
 
-### Usando o Assistente de Copywriting com IA {#using-the-ai-copywriter}
+### Usar o Assistente de Copywriting com IA {#use-the-ai-copywriter}
 
 Quando um bloco de texto é selecionado na sua mensagem no app, selecione <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de Copywriting com IA"></i> **Assistente de Copywriting com IA** na barra de ferramentas do bloco para abrir o [assistente de copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). O Assistente de Copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para suas mensagens.
 
@@ -157,7 +159,7 @@ Você pode economizar alguns cliques destacando o texto dentro do bloco antes de
 
 ![GIF do Assistente de Copywriting com IA.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### Redefinindo estilos para o padrão {#resetting-styles-to-default}
+### Redefinir estilos para o padrão {#reset-styles-to-default}
 
 Propriedades que você alterou em relação ao estilo padrão são marcadas com um ponto laranja. Para redefinir uma propriedade específica para seu estilo padrão, passe o mouse sobre o campo e selecione **Reset to default**.
 
@@ -165,7 +167,7 @@ Propriedades que você alterou em relação ao estilo padrão são marcadas com 
 
 Você também pode redefinir toda a estilização de um elemento selecionado clicando em <i class="fas fa-paintbrush" title="Botão de copiar ou colar estilos"></i> ao lado do nome do painel de propriedades e selecionando **Reset to default styles**.
 
-### Copiando e colando estilos {#copying-and-pasting-styles}
+### Copiar e colar estilos {#copy-and-paste-styles}
 
 Após fazer alterações na estilização de um elemento, você pode copiar e colar esses estilos em outro elemento. Ao colar estilos, apenas as propriedades relevantes para aquele elemento são aplicadas.
 

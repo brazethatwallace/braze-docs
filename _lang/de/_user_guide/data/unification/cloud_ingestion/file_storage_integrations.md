@@ -1,7 +1,7 @@
 ---
 nav_title: Integrationen in die Dateiablage
 article_title: Integrationen in die Dateiablage
-description: "Diese Seite behandelt die Braze Cloud-Datenaufnahme und wie Sie relevante Daten von S3 mit Braze synchronisieren."
+description: "Diese Seite behandelt die Braze Cloud-Datenaufnahme und wie Sie relevante Daten von Amazon S3 oder Google Cloud Storage mit Braze synchronisieren."
 page_order: 4
 page_type: reference
 
@@ -9,11 +9,16 @@ page_type: reference
 
 # Integrationen in die Dateiablage {#file-storage-integrations}
 
-> Auf dieser Seite erfahren Sie, wie Sie die Unterstützung für die Cloud-Datenaufnahme einrichten und relevante Daten von S3 mit Braze synchronisieren.
+> Auf dieser Seite erfahren Sie, wie Sie die Cloud-Datenaufnahme einrichten, um Daten von Amazon S3 oder Google Cloud Storage mit Braze zu synchronisieren.
 
 ## Funktionsweise {#how-it-works}
 
-Sie können Cloud Data Ingestion (CDI) für S3 verwenden, um einen oder mehrere S3-Buckets in Ihrem AWS-Konto direkt in Braze zu integrieren. Wenn neue Dateien in S3 veröffentlicht werden, wird eine Nachricht an SQS gesendet, und Braze Cloud Data Ingestion nimmt diese neuen Dateien auf.
+Sie können Cloud Data Ingestion (CDI) verwenden, um einen oder mehrere Storage-Buckets in Ihrem Cloud-Konto direkt in Braze zu integrieren. Wenn Sie eine neue Datei zu einem Bucket hinzufügen, veröffentlicht Ihr Cloud-Anbieter eine Benachrichtigung, und Braze Cloud Data Ingestion synchronisiert die Daten.
+
+Der Benachrichtigungsmechanismus hängt von Ihrem Anbieter ab:
+
+- **Amazon S3:** Wenn neue Dateien in S3 veröffentlicht werden, wird eine Nachricht an eine Amazon Simple Queue Service (SQS)-Warteschlange gesendet, und Braze konsumiert diese Nachricht, um die neue Datei aufzunehmen.
+- **Google Cloud Storage (GCS):** Wenn neue Dateien im Bucket finalisiert werden, veröffentlicht GCS eine `OBJECT_FINALIZE`-Benachrichtigung an ein Pub/Sub-Topic. Braze konsumiert diese Benachrichtigungen über ein Pub/Sub-Abo, um die neue Datei aufzunehmen.
 
 Cloud Data Ingestion unterstützt Folgendes:
 
@@ -22,17 +27,20 @@ Cloud Data Ingestion unterstützt Folgendes:
 - Parquet-Dateien
 - Attribute, angepasste Events, Kauf-Events, Nutzer:innen löschen und Katalogdaten
 
-## Voraussetzungen {#prerequisites}
+## Cloud-Datenaufnahme einrichten {#setting-up-cloud-data-ingestion}
+
+Die Einrichtungsschritte hängen von Ihrem Dateispeicher-Anbieter ab. Wählen Sie den Tab für Ihren Anbieter und führen Sie anschließend die gemeinsame Konfiguration in den folgenden Abschnitten durch.
+
+{% tabs %}
+{% tab Amazon S3 %}
 
 Für die Integration benötigen Sie die folgenden Ressourcen:
 
- - S3-Bucket für die Datenspeicherung
- - SQS-Warteschlange für Benachrichtigungen über neue Dateien
- - IAM-Rolle für den Braze-Zugriff
+- S3-Bucket für die Datenspeicherung
+- SQS-Warteschlange für Benachrichtigungen über neue Dateien
+- IAM-Rolle für den Braze-Zugriff
 
 ### AWS-Definitionen {#aws-definitions}
-
-Zunächst eine Übersicht der Begriffe, die bei dieser Aufgabe verwendet werden.
 
 | Begriff | Definition |
 | --- | --- |
@@ -43,7 +51,7 @@ Zunächst eine Übersicht der Begriffe, die bei dieser Aufgabe verwendet werden.
 
 ## Cloud-Datenaufnahme in AWS einrichten {#setting-up-cloud-data-ingestion-in-aws}
 
-### 1. Schritt: Quell-Bucket erstellen {#step-1-create-a-source-bucket}
+### Schritt 1: Quell-Bucket erstellen {#step-1-create-a-source-bucket}
 
 Erstellen Sie in Ihrem AWS-Konto einen S3-Bucket für allgemeine Zwecke mit Standardeinstellungen. S3-Buckets können über Synchronisierungen hinweg wiederverwendet werden, solange der Ordner eindeutig ist.
 
@@ -57,7 +65,7 @@ Die Standardeinstellungen sind:
 
 Notieren Sie sich die Region, in der Sie den Bucket erstellt haben – Sie erstellen im nächsten Schritt eine SQS-Warteschlange in derselben Region.
 
-### 2. Schritt: SQS-Warteschlange erstellen {#step-2-create-sqs-queue}
+### Schritt 2: SQS-Warteschlange erstellen {#step-2-create-sqs-queue}
 
 Erstellen Sie eine SQS-Warteschlange, um zu verfolgen, wann Objekte zu dem von Ihnen erstellten Bucket hinzugefügt werden. Verwenden Sie vorerst die Standard-Konfigurationseinstellungen.
 
@@ -71,7 +79,7 @@ Notieren Sie sich den ARN und die URL der SQS-Warteschlange – Sie benötigen d
 
 ![Auswählen von „Advanced“ mit einem Beispiel-JSON-Objekt, um festzulegen, wer auf eine Warteschlange zugreifen darf.]({% image_buster /assets/img/cloud_ingestion/s3_ARN.png %})
 
-### 3. Schritt: Zugriffsrichtlinie einrichten {#step-3-set-up-access-policy}
+### Schritt 3: Zugriffsrichtlinie einrichten {#step-3-set-up-access-policy}
 
 Um die Zugriffsrichtlinie einzurichten, wählen Sie **Advanced options**.
 
@@ -97,7 +105,7 @@ Fügen Sie die folgende Anweisung an die Zugriffsrichtlinie der Warteschlange an
 }
 ```
 
-### 4. Schritt: Ereignisbenachrichtigung zum S3-Bucket hinzufügen {#step-4-add-an-event-notification-to-the-s3-bucket}
+### Schritt 4: Ereignisbenachrichtigung zum S3-Bucket hinzufügen {#step-4-add-an-event-notification-to-the-s3-bucket}
 
 1. Gehen Sie in dem in Schritt 1 erstellten Bucket zu **Properties** > **Event notifications**.
 2. Geben Sie der Konfiguration einen Namen. Geben Sie optional ein Präfix oder Suffix an, wenn nur eine Teilmenge der Dateien von Braze aufgenommen werden soll.
@@ -107,7 +115,7 @@ Fügen Sie die folgende Anweisung an die Zugriffsrichtlinie der Warteschlange an
 Wenn Sie Ihre Dateien in den Stammordner eines S3-Buckets hochladen und dann einige der Dateien in einen bestimmten Ordner im Bucket verschieben, kann ein unerwarteter Fehler auftreten. Stattdessen können Sie die Ereignisbenachrichtigungen so ändern, dass sie nur für Dateien im Präfix gesendet werden, keine Dateien außerhalb dieses Präfixes in den S3-Bucket legen oder die Integration ohne Präfix aktualisieren, wodurch dann alle Dateien aufgenommen werden.
 {% endalert %}
 
-### 5. Schritt: IAM-Richtlinie erstellen {#step-5-create-an-iam-policy}
+### Schritt 5: IAM-Richtlinie erstellen {#step-5-create-an-iam-policy}
 
 Erstellen Sie eine IAM-Richtlinie, um Braze die Interaktion mit Ihrem Quell-Bucket zu ermöglichen. Melden Sie sich zunächst bei der AWS-Verwaltungskonsole als Konto-Administrator an.
 
@@ -153,7 +161,7 @@ Erstellen Sie eine IAM-Richtlinie, um Braze die Interaktion mit Ihrem Quell-Buck
 
 ![Das Beschreibungsfeld für die Richtlinie.]({% image_buster /assets/img/create_policy_4_created.png %})
 
-### 6. Schritt: IAM-Rolle erstellen {#step-6-create-an-iam-role}
+### Schritt 6: IAM-Rolle erstellen {#step-6-create-an-iam-role}
 
 Um die Einrichtung in AWS abzuschließen, erstellen Sie eine IAM-Rolle und hängen die IAM-Richtlinie aus Schritt 5 an.
 
@@ -174,7 +182,7 @@ Um die Einrichtung in AWS abzuschließen, erstellen Sie eine IAM-Rolle und häng
 ![Die S3-Seite „Create Role“. Diese Seite enthält Felder für den Rollennamen, die Rollenbeschreibung, vertrauenswürdige Entitäten, Richtlinien und die Berechtigungsgrenze.]({% image_buster /assets/img/create_role_2_another.png %})<br><br>
 
 {: start="7"}
-6. Hängen Sie die in Schritt 5 erstellte Richtlinie an die Rolle an. Suchen Sie die Richtlinie in der Suchleiste und setzen Sie ein Häkchen neben der Richtlinie, um sie anzuhängen. Wählen Sie anschließend **Next**.
+6. Hängen Sie die in Schritt 4 erstellte Richtlinie an die Rolle an. Suchen Sie die Richtlinie in der Suchleiste und setzen Sie ein Häkchen neben der Richtlinie, um sie anzuhängen. Wählen Sie anschließend **Next**.
 
 ![Rollen-ARN mit der ausgewählten Richtlinie „new-policy-name“.]({% image_buster /assets/img/create_role_3_attach.png %})
 
@@ -216,17 +224,238 @@ Geben Sie der Rolle einen Namen und eine Beschreibung und wählen Sie **Create R
 8. Fügen Sie Kontakt-E-Mail(s) für Benachrichtigungen hinzu, falls die Synchronisierung aufgrund von Zugriffs- oder Berechtigungsproblemen unterbrochen wird. Aktivieren Sie optional Benachrichtigungen für Fehler auf Nutzer:innen-Ebene und erfolgreiche Synchronisierungen.
 9. Erstellen Sie die Synchronisierung.
 
+{% endtab %}
+{% tab Google Cloud Storage %}
+
+Für die Integration benötigen Sie die folgenden Ressourcen:
+
+- Einen Cloud-Storage-Bucket für die Datenspeicherung
+- Ein Pub/Sub-Topic und ein Abo für Benachrichtigungen über neue Dateien
+- Ein Dienstkonto, dessen JSON-Schlüssel Sie in Braze hochladen
+
+### GCP-Definitionen {#gcp-definitions}
+
+| Begriff | Definition |
+| --- | --- |
+| Google-Cloud-Projekt | Ein Projekt organisiert alle Ihre Google-Cloud-Ressourcen und wird durch eine eindeutige Projekt-ID und Projektnummer identifiziert. |
+| Cloud-Storage-Bucket | Ein Bucket ist der Container, der die Datendateien enthält, die Braze aufnehmen soll. |
+| Pub/Sub-Topic | Ein Topic ist die benannte Ressource, die Benachrichtigungen über neue Dateien von Ihrem Cloud-Storage-Bucket empfängt. |
+| Pub/Sub-Abo | Ein Abo wird an ein Topic angehängt und stellt dessen Nachrichten zu. Braze konsumiert Benachrichtigungen über neue Dateien über ein Pull-Abo. |
+| Dienstkonto | Ein Dienstkonto ist eine nicht-menschliche Identität, die Braze verwendet, um auf Ihren Bucket und Ihr Abo zuzugreifen. Sie laden dessen JSON-Schlüssel in Braze hoch. |
+| IAM-Rolle | Eine Identity-and-Access-Management-Rolle (IAM-Rolle) ist eine Sammlung von Berechtigungen, die Sie dem Dienstkonto für Ihren Bucket und Ihr Abo gewähren. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="GCP-Definitionen" }
+
+## Cloud-Datenaufnahme in Google Cloud einrichten {#setting-up-cloud-data-ingestion-in-google-cloud}
+
+### Schritt 1: Cloud-Storage-Bucket erstellen {#step-1-create-a-cloud-storage-bucket}
+
+Gehen Sie in der Google-Cloud-Konsole zu **Cloud Storage** > **Buckets** > **Create**. Notieren Sie sich die Projekt-ID und den Bucket-Namen – Sie benötigen diese, wenn Sie die Quelle in Braze konfigurieren. Wir empfehlen, den einheitlichen Zugriff auf Bucket-Ebene zu aktivieren, damit Berechtigungen über IAM verwaltet werden.
+
+Alternativ können Sie den Bucket mit gcloud erstellen:
+
+```shell
+gcloud storage buckets create gs://YOUR-BUCKET-NAME \
+  --project=YOUR-PROJECT-ID \
+  --location=YOUR-REGION \
+  --uniform-bucket-level-access
+```
+
+### Schritt 2: Pub/Sub-Topic und Abo erstellen {#step-2-create-a-pubsub-topic-and-subscription}
+
+Gehen Sie in der Google-Cloud-Konsole zu **Pub/Sub** > **Topics** > **Create topic**. Sie können Google ein Standard-Abo erstellen lassen oder eines separat anlegen. Erstellen Sie dann ein **Pull**-Abo für dieses Topic.
+
+Alternativ verwenden Sie gcloud:
+
+```shell
+gcloud pubsub topics create YOUR-TOPIC --project=YOUR-PROJECT-ID
+gcloud pubsub subscriptions create YOUR-SUBSCRIPTION \
+  --topic=YOUR-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
+```
+
+Notieren Sie sich die **Abo-ID** – Braze benötigt das Abo (nicht das Topic), wenn Sie die Synchronisierung erstellen. Das Abo muss ein Pull-Abo sein.
+
+### Schritt 3: Bucket-Benachrichtigungen an das Topic senden {#step-3-send-bucket-notifications-to-the-topic}
+
+{% alert important %}
+Das Erstellen einer Cloud-Storage-zu-Pub/Sub-Benachrichtigung ist in der Google-Cloud-Konsole nicht verfügbar. Sie müssen gcloud (hier gezeigt), Terraform oder die JSON-API verwenden. Weitere Informationen finden Sie unter [Pub/Sub-Benachrichtigungen für Cloud Storage konfigurieren](https://cloud.google.com/storage/docs/reporting-changes#enabling) in der Google-Cloud-Dokumentation.
+{% endalert %}
+
+Gewähren Sie zunächst dem Cloud-Storage-Dienst-Agenten die Berechtigung, an das Topic zu veröffentlichen, und erstellen Sie dann die Benachrichtigung für `OBJECT_FINALIZE`. Das Ereignis `OBJECT_FINALIZE` wird ausgelöst, wenn ein neues Objekt im Bucket erstellt oder finalisiert wird.
+
+```shell
+# Get the Cloud Storage service agent for your project
+gcloud storage service-agent --project=YOUR-PROJECT-ID
+
+# Grant it Pub/Sub Publisher on the topic
+gcloud pubsub topics add-iam-policy-binding YOUR-TOPIC \
+  --project=YOUR-PROJECT-ID \
+  --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
+  --role="roles/pubsub.publisher"
+
+# Create the OBJECT_FINALIZE notification (optionally scope to a folder with --object-prefix)
+gcloud storage buckets notifications create gs://YOUR-BUCKET-NAME \
+  --topic=YOUR-TOPIC \
+  --event-types=OBJECT_FINALIZE \
+  --payload-format=json
+```
+
+Ersetzen Sie die folgenden Platzhalter in diesen Befehlen:
+
+- `YOUR-PROJECT-ID`: Ihre Google-Cloud-Projekt-ID, der menschenlesbare Bezeichner (z. B. `my-gcp-project`).
+- `YOUR-TOPIC`: Das Pub/Sub-Topic, das Sie in [Schritt 2](#step-2-create-a-pubsub-topic-and-subscription) erstellt haben.
+- `YOUR-BUCKET-NAME`: Ihr Cloud-Storage-Bucket-Name.
+- `YOUR-PROJECT-NUMBER`: Ihre Projektnummer, der numerische Bezeichner, der in der E-Mail-Adresse des Cloud-Storage-Dienst-Agenten verwendet wird. Diese unterscheidet sich von der Projekt-ID. Sie finden sie im **Dashboard** der Google-Cloud-Konsole oder führen den folgenden Befehl aus:
+
+```shell
+gcloud projects describe YOUR-PROJECT-ID --format="value(projectNumber)"
+```
+
+### Schritt 4: Dienstkonto erstellen {#step-4-create-a-service-account}
+
+Gehen Sie in der Google-Cloud-Konsole zu **IAM & Admin** > **Service Accounts** > **Create service account**.
+
+Alternativ verwenden Sie gcloud:
+
+```shell
+gcloud iam service-accounts create braze-cdi-gcs \
+  --project=YOUR-PROJECT-ID \
+  --display-name="Braze CDI GCS"
+```
+
+### Schritt 5: Berechtigungen gewähren {#step-5-grant-permissions}
+
+Der Konnektor benötigt genau diese Berechtigungen: `storage.buckets.get`, `storage.objects.get` und `storage.objects.list` für den Bucket sowie `pubsub.subscriptions.consume` für das Abo. Sie können diese mit einer angepassten Rolle oder vordefinierten Rollen gewähren.
+
+**Angepasste Rolle:** Erstellen Sie eine angepasste Rolle mit genau diesen Berechtigungen und binden Sie sie an den Bucket und das Abo:
+
+```shell
+gcloud iam roles create brazeCdiGcs --project=YOUR-PROJECT-ID \
+  --title="Braze CDI GCS" \
+  --permissions=storage.buckets.get,storage.objects.get,storage.objects.list,pubsub.subscriptions.consume \
+  --stage=GA
+
+gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
+
+gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
+  --project=YOUR-PROJECT-ID \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
+```
+
+**Vordefinierte Rollen:** Gewähren Sie `roles/storage.objectViewer` und `roles/storage.legacyBucketReader` für den Bucket sowie `roles/pubsub.subscriber` für das Abo. Die Rolle `objectViewer` stellt `storage.objects.get` und `storage.objects.list` bereit, und `legacyBucketReader` stellt `storage.buckets.get` bereit:
+
+```shell
+gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="roles/storage.objectViewer"
+gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="roles/storage.legacyBucketReader"
+gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
+  --project=YOUR-PROJECT-ID \
+  --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+  --role="roles/pubsub.subscriber"
+```
+
+### Schritt 6: JSON-Schlüssel erstellen {#step-6-create-a-json-key}
+
+Öffnen Sie in der Google-Cloud-Konsole das Dienstkonto, gehen Sie zu **Keys** > **Add key** > **Create new key** und wählen Sie **JSON**.
+
+Alternativ verwenden Sie gcloud:
+
+```shell
+gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
+  --iam-account=braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com
+```
+
+## Cloud-Datenaufnahme in Braze einrichten
+
+1. Gehen Sie in Braze zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Sources**, wählen Sie **Add data source** und dann **Google Cloud Storage**.
+
+![Der Bildschirm „Add New Source“ mit Google Cloud Storage in der Liste der Datenquellen ausgewählt.]({% image_buster /assets/img/cloud_ingestion/gcs_source_picker.png %})
+
+{: start="2"}
+2. Füllen Sie die Quellfelder aus:
+    - **Bucket** – Ihr Bucket-Name
+    - **Project ID** – Ihre GCP-Projekt-ID
+    - **Service account JSON key** – Laden Sie die Schlüsseldatei aus Schritt 6 hoch und geben Sie den Zugangsdaten einen Namen
+
+![Das Google-Cloud-Storage-Quellformular mit den Feldern für Bucket, Projekt-ID und Upload der Zugangsdaten.]({% image_buster /assets/img/cloud_ingestion/gcs_source_form.png %})
+
+{: start="3"}
+3. Wählen Sie **Test connection** und dann **Connect to Source**.
+4. Erstellen Sie eine Synchronisierung. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Syncs** und wählen Sie **Create data sync**. Wählen Sie einen Synchronisierungsnamen und einen **Data Type** (z. B. **User Attributes**, **Custom Events**, **Purchase Events**, **Catalog** oder **Delete Users**) und wählen Sie dann **Next**.
+5. Wählen Sie im Schritt **Data definition** Ihre GCS-Quelle aus und geben Sie Folgendes an:
+    - **Pub/Sub subscription ID** – die Abo-ID aus Schritt 2 (nicht das Topic)
+    - **Folder path** (optional) – ein Pfadpräfix innerhalb des Buckets (siehe [Ordner in einem gemeinsam genutzten Bucket synchronisieren](#syncing-a-folder-in-a-shared-bucket))
+
+![Das Google-Cloud-Storage-Synchronisierungsformular mit den Feldern für Pub/Sub-Abo-ID und Ordnerpfad.]({% image_buster /assets/img/cloud_ingestion/gcs_sync_form.png %})
+
+{: start="6"}
+6. Wählen Sie **Preview and validate**, um zu bestätigen, dass Braze das Abo erreichen und die verfügbaren Dateien auflisten kann. Ein erfolgreicher Test listet vorhandene Dateien im Bucket auf, diese werden jedoch nicht automatisch synchronisiert.
+7. Fügen Sie Kontakt-E-Mail(s) für Fehlerbenachrichtigungen hinzu. Google-Cloud-Storage-Synchronisierungen sind ereignisgesteuert, sodass kein Zeitplan erforderlich ist – Braze nimmt neue Dateien auf, sobald sie hochgeladen werden. Überprüfen Sie die Zusammenfassung und wählen Sie dann **Create sync**.
+
+### Ordner in einem gemeinsam genutzten Bucket synchronisieren {#syncing-a-folder-in-a-shared-bucket}
+
+Sie können einen Bucket über mehrere Synchronisierungen hinweg wiederverwenden, aber jede Synchronisierung muss einen eigenen Ordner **und** ein eigenes dediziertes Pub/Sub-Abo verwenden.
+
+{% alert important %}
+Der Ordnerpfad und das Abo müssen bei allen Synchronisierungen in einem Workspace eindeutig sein, wenn mehrere Synchronisierungen denselben Quell-Bucket verwenden.
+{% endalert %}
+
+Für jeden Ordner, den Sie in einem gemeinsam genutzten Bucket synchronisieren möchten:
+
+1. Setzen Sie das Feld **Folder** der Synchronisierung auf das Pfadpräfix (z. B. `attributes/`). Braze listet und nimmt nur Objekte auf, deren Pfad mit diesem Präfix beginnt.
+2. Erstellen Sie ein dediziertes Topic und eine auf das Präfix beschränkte Benachrichtigung für diesen Ordner, und erstellen Sie dann ein Abo für dieses Topic:
+
+    ```shell
+    # One topic per folder
+    gcloud pubsub topics create YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID
+
+    # Grant the Cloud Storage service agent publisher on the topic
+    gcloud pubsub topics add-iam-policy-binding YOUR-ATTRIBUTES-TOPIC \
+      --project=YOUR-PROJECT-ID \
+      --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
+      --role="roles/pubsub.publisher"
+
+    # Notification scoped to the folder with --object-prefix
+    gcloud storage buckets notifications create gs://YOUR-BUCKET-NAME \
+      --topic=YOUR-ATTRIBUTES-TOPIC --event-types=OBJECT_FINALIZE \
+      --payload-format=json --object-prefix=attributes/
+
+    # One subscription per sync
+    gcloud pubsub subscriptions create YOUR-ATTRIBUTES-SUBSCRIPTION \
+      --topic=YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
+    ```
+
+3. Gewähren Sie dem Braze-Dienstkonto die Berechtigung zum Konsumieren dieses Abos, wie in [Schritt 5](#step-5-grant-permissions):
+
+    ```shell
+    gcloud pubsub subscriptions add-iam-policy-binding YOUR-ATTRIBUTES-SUBSCRIPTION \
+      --project=YOUR-PROJECT-ID \
+      --member="serviceAccount:braze-cdi-gcs@YOUR-PROJECT-ID.iam.gserviceaccount.com" \
+      --role="roles/pubsub.subscriber"
+    ```
+
+    Wenn Sie die angepasste Rolle in [Schritt 5](#step-5-grant-permissions) erstellt haben, verwenden Sie stattdessen `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"`.
+4. Wenn Sie die Synchronisierung in Braze erstellen, geben Sie die neue **Pub/Sub subscription ID** und den **Folder path** dieses Ordners ein, damit die Synchronisierung nur die Dateien dieses Ordners aufnimmt.
+
+
+{% endtab %}
+{% endtabs %}
 
 ## Erforderliche Dateiformate {#required-file-formats}
 
-Cloud Data Ingestion unterstützt JSON-, CSV- und Parquet-Dateien. Die erforderlichen Spalten hängen vom Datentyp ab:
+Die erforderlichen Dateiformate sind für Amazon S3 und Google Cloud Storage identisch. Cloud Data Ingestion unterstützt JSON-, CSV- und Parquet-Dateien. Die erforderlichen Spalten hängen vom Datentyp ab:
 
 - Nutzerdaten (Attribute, angepasste Events, Kauf-Events) verwenden Nutzer:innen-Bezeichner und eine Nutzlast
 - Katalogdaten verwenden Katalog-Bezeichner
 
-Wenn Sie S3 für Katalogdaten verwenden, nutzen Sie diese Seite zusammen mit [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) für katalogspezifische Anforderungen und Verhaltensweisen.
+Wenn Sie Dateispeicher für Katalogdaten verwenden, nutzen Sie diese Seite zusammen mit [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) für katalogspezifische Anforderungen und Verhaltensweisen.
 
-Braze erzwingt keine zusätzlichen Anforderungen an Dateinamen über die von AWS vorgegebenen hinaus. Dateinamen sollten eindeutig sein. Das Anhängen eines Zeitstempels hilft, die Eindeutigkeit sicherzustellen.
+Braze erzwingt keine zusätzlichen Anforderungen an Dateinamen über die von Ihrem Dateispeicher-Anbieter vorgegebenen hinaus. Dateinamen sollten eindeutig sein. Das Anhängen eines Zeitstempels hilft, die Eindeutigkeit sicherzustellen.
 
 Beispiele für alle unterstützten Dateitypen (Attribute, angepasste Events, Käufe, Kataloge und Nutzer:innen löschen) finden Sie in den Beispieldateien unter [braze-examples](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion/braze-examples/payloads/file_storage).
 
@@ -317,18 +546,18 @@ Fügen Sie eine optionale `DELETED`-Spalte hinzu. Wenn `DELETED` den Wert `true`
 
 ## Daten löschen {#deleting-data}
 
-Cloud Data Ingestion für S3 unterstützt das Löschen von Nutzer:innen und Katalogartikeln über Datei-Uploads. Verwenden Sie für jedes Szenario separate Synchronisierungen und Dateiformate.
+Cloud Data Ingestion für Dateispeicher unterstützt das Löschen von Nutzer:innen und Katalogartikeln über Datei-Uploads. Verwenden Sie für jedes Szenario separate Synchronisierungen und Dateiformate.
 
 - **[Nutzer:innen löschen](#deleting-users)** – Erstellen Sie eine Synchronisierung mit dem Datentyp **Delete Users** und laden Sie Dateien hoch, die ausschließlich Nutzer:innen-Bezeichner enthalten (keine Nutzlast).
 - **[Katalogartikel löschen](#deleting-catalog-items)** – Nutzen Sie Ihre bestehende Katalogsynchronisierung und fügen Sie eine Spalte `deleted` (oder `DELETED`) hinzu, um Artikel zum Entfernen zu markieren.
 
 ### Nutzer:innen löschen {#deleting-users}
 
-So löschen Sie Nutzerprofile in Braze mithilfe von Dateien in S3:
+So löschen Sie Nutzerprofile in Braze mithilfe von Dateien in Ihrem Quell-Bucket:
 
-1. Erstellen Sie eine neue Cloud-Datenaufnahme-Synchronisierung (gleiche [AWS- und Braze-Einrichtung](#setting-up-cloud-data-ingestion-in-aws) wie für andere Synchronisierungen).
+1. Erstellen Sie eine neue Cloud-Datenaufnahme-Synchronisierung (gleiche Einrichtung wie für andere Synchronisierungen).
 2. Stellen Sie bei der Konfiguration der Synchronisierung in Braze den **Datentyp** auf **Delete Users** ein.
-3. Laden Sie Dateien in Ihren S3-Bucket hoch, die ausschließlich Spalten mit Nutzer:innen-Bezeichnern enthalten. Fügen Sie keine `PAYLOAD`-Spalte hinzu – die Synchronisierung schlägt fehl, wenn eine Nutzlast vorhanden ist, um versehentliche Löschungen zu vermeiden.
+3. Laden Sie Dateien in Ihren Quell-Bucket hoch, die ausschließlich Spalten mit Nutzer:innen-Bezeichnern enthalten. Fügen Sie keine `PAYLOAD`-Spalte hinzu – die Synchronisierung schlägt fehl, wenn eine Nutzlast vorhanden ist, um versehentliche Löschungen zu vermeiden.
 
 Jede Zeile in der Datei muss genau eine Nutzer:in identifizieren, und zwar mit einer der folgenden Angaben:
 
@@ -363,7 +592,7 @@ Wenn die Synchronisierung ausgeführt wird, verarbeitet Braze neue Dateien im Bu
 
 So entfernen Sie Artikel aus einem Katalog mithilfe von Dateispeicher:
 
-1. Verwenden Sie dieselbe S3-Synchronisierung, die Sie zur [Synchronisierung von Katalogdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) (Datentyp **Catalogs**) verwenden.
+1. Verwenden Sie dieselbe Synchronisierung, die Sie zur [Synchronisierung von Katalogdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) (Datentyp **Catalogs**) verwenden.
 2. Fügen Sie in Ihren CSV- oder JSON-Dateien eine optionale Spalte **`deleted`** (oder **`DELETED`**) hinzu.
 3. Setzen Sie `deleted` auf `true` für jeden Katalogartikel, den Sie aus dem Katalog in Braze entfernen möchten.
 
@@ -386,7 +615,7 @@ Wenn die Synchronisierung ausgeführt wird, führen Zeilen mit `deleted: true` d
 
 ## Wissenswertes {#things-to-know}
 
-- Dateien, die dem S3-Quell-Bucket hinzugefügt werden, sollten 512&nbsp;MB nicht überschreiten. Dateien, die größer als 512&nbsp;MB sind, führen zu einem Fehler und werden nicht mit Braze synchronisiert.
+- Dateien, die dem Quell-Bucket hinzugefügt werden, sollten 512&nbsp;MB nicht überschreiten. Dieses Limit gilt sowohl für Amazon S3 als auch für Google Cloud Storage. Dateien, die größer als 512&nbsp;MB sind, führen zu einem Fehler und werden nicht mit Braze synchronisiert.
 - Es gibt zwar keine zusätzliche Begrenzung für die Anzahl der Zeilen pro Datei, aber wir empfehlen, kleinere Dateien zu verwenden, um die Geschwindigkeit Ihrer Synchronisierungen zu verbessern. Eine 500&nbsp;MB große Datei würde beispielsweise deutlich länger zur Aufnahme benötigen als fünf einzelne 100&nbsp;MB große Dateien.
 - Es gibt kein zusätzliches Limit für die Anzahl der Dateien, die in einem bestimmten Zeitraum hochgeladen werden können.
 - Die Reihenfolge innerhalb von oder zwischen Dateien wird nicht garantiert. Wir empfehlen, Updates in regelmäßigen Abständen zu bündeln, wenn Sie auf mögliche Race-Conditions achten.
@@ -395,11 +624,11 @@ Wenn die Synchronisierung ausgeführt wird, führen Zeilen mit `deleted: true` d
 
 ### Hochladen und Verarbeitung von Dateien {#uploading-files-and-processing}
 
-CDI verarbeitet nur Dateien, die nach der Erstellung der Synchronisierung hinzugefügt werden. Dabei sucht Braze nach neu hinzugefügten Dateien, was eine neue Nachricht an SQS triggert. Dadurch wird eine neue Synchronisierung gestartet, um die neue Datei zu verarbeiten.
+CDI verarbeitet nur Dateien, die nach der Erstellung der Synchronisierung hinzugefügt werden. Dabei sucht Braze nach neu hinzugefügten Dateien, was eine neue Benachrichtigung triggert. Dadurch wird eine neue Synchronisierung gestartet, um die neue Datei zu verarbeiten. Bei Amazon S3 ist die Benachrichtigung eine Nachricht an SQS. Bei Google Cloud Storage ist es eine `OBJECT_FINALIZE`-Nachricht an Pub/Sub.
 
-Sie können vorhandene Dateien verwenden, um zu überprüfen, ob Braze auf Ihren Bucket zugreifen und aufzunehmende Dateien erkennen kann. Diese Dateien werden jedoch nicht mit Braze synchronisiert. Damit CDI sie verarbeiten kann, müssen Sie alle vorhandenen Dateien, die synchronisiert werden sollen, erneut auf S3 hochladen.
+Sie können vorhandene Dateien verwenden, um zu überprüfen, ob Braze auf Ihren Bucket zugreifen und aufzunehmende Dateien erkennen kann. Diese Dateien werden jedoch nicht mit Braze synchronisiert. Damit CDI sie verarbeiten kann, müssen Sie alle vorhandenen Dateien, die synchronisiert werden sollen, erneut in den Quell-Bucket hochladen.
 
-### Umgang mit unerwarteten Dateifehlern {#handling-unexpected-file-errors}
+### Umgang mit unerwarteten Dateifehlern (Amazon S3) {#handling-unexpected-file-errors-amazon-s3}
 
 Wenn Sie eine hohe Anzahl von Fehlern oder fehlgeschlagenen Dateien beobachten, fügt möglicherweise ein anderer Prozess Dateien in einem anderen Ordner als dem CDI-Zielordner zum S3-Bucket hinzu.
 
@@ -410,3 +639,15 @@ Wenn Ihr Problem mit S3-Benachrichtigungen oder SQS-Zielberechtigungen zusammenh
 - [Aktivieren und Konfigurieren von Ereignisbenachrichtigungen über die Amazon-S3-Konsole](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html)
 - [Erteilen von Berechtigungen zum Veröffentlichen von Ereignisbenachrichtigungen an ein Ziel](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html)
 - [Fehlerbehebung bei Problemen in Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-troubleshooting.html)
+
+### Umgang mit unerwarteten Dateifehlern (Google Cloud Storage) {#handling-unexpected-file-errors-google-cloud-storage}
+
+Wie bei Amazon S3 verarbeitet CDI nur Dateien, die nach der Erstellung der Synchronisierung hochgeladen werden. Jedes neue Objekt löst eine `OBJECT_FINALIZE`-Nachricht an Ihr Pub/Sub-Topic aus. Um Dateien aufzunehmen, die bereits im Bucket vorhanden sind, laden Sie sie erneut hoch.
+
+Wenn Dateien nicht aufgenommen werden, überprüfen Sie Folgendes:
+
+- Die Bucket-Benachrichtigung existiert. Listen Sie die Benachrichtigungen des Buckets mit `gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME` auf.
+- Der Cloud-Storage-Dienst-Agent hat `roles/pubsub.publisher` für das Topic.
+- Das Braze-Dienstkonto hat die Berechtigung zum Konsumieren des Abos (`pubsub.subscriptions.consume`, gewährt über die angepasste Rolle oder `roles/pubsub.subscriber`).
+
+Weitere Informationen finden Sie unter [Pub/Sub-Benachrichtigungen für Cloud Storage](https://cloud.google.com/storage/docs/pubsub-notifications) in der Google-Cloud-Dokumentation.

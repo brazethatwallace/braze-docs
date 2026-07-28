@@ -25,6 +25,20 @@ A continuación, configura tu texto y notificaciones de la misma manera que lo h
 
 ![Configura tu texto y notificaciones de la misma manera que lo harías normalmente para notificaciones planificadas y selecciona API-Triggered Delivery. Para más información sobre cómo desencadenar estas campañas desde tu servidor, consulta el artículo sobre envío de campañas desencadenadas por API.]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
+## Reducir el retraso entre el desencadenador de API y el envío {#reducing-delay-between-your-api-trigger-and-send}
+
+Si los mensajes tardan más de lo esperado en enviarse después de llamar al endpoint de desencadenamiento, comprueba si el perfil de usuario está listo en el momento del desencadenamiento.
+
+De forma predeterminada, `send_to_existing_only` es `true` en [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns). Braze solo envía a usuarios existentes y no crea perfiles nuevos en esa llamada. Para crear o actualizar un usuario y enviar en la misma solicitud, establece `send_to_existing_only` en `false` e incluye un objeto `attributes` en cada destinatario.
+
+Para campañas de correo electrónico, incluye también `email` (y cualquier otro campo de entrega requerido) dentro de `attributes`. Si el perfil no tiene una dirección de correo electrónico cuando desencadenas el envío, Braze reintenta durante aproximadamente 2 horas mientras espera a que lleguen los datos del perfil. Incluir `email` en la misma llamada evita ese retraso.
+
+Para ver todos los parámetros de solicitud, ejemplos y el comportamiento de reintentos, consulta [Enviar campañas desencadenadas por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#recipient-limits-and-profile-creation) y el [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object).
+
+{% alert note %}
+Esta guía aplica a campañas desencadenadas por API (`/campaigns/trigger/send`). El [endpoint de correo transaccional]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message) utiliza una estructura de solicitud diferente (`recipient`, singular) y no admite `send_to_existing_only`. Para crear un usuario de forma integrada con envíos transaccionales, pasa `attributes` en el objeto `recipient`.
+{% endalert %}
+
 ## Uso del contenido con plantilla incluido en una solicitud de API {#using-the-templated-content-included-with-an-api-request}
 
 Además de desencadenar el mensaje, también puedes incluir contenido con la solicitud de API para incorporarlo como plantilla en el mensaje dentro del objeto `trigger_properties`. Este contenido puede referenciarse en el cuerpo del mensaje. Usa exactamente dos llaves por cada etiqueta de Liquid en `trigger_properties` y en el texto del mensaje. Un ejemplo es: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Una `{` o `}` adicional es una causa común de [fallos de personalización desencadenada por API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).

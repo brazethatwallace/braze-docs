@@ -94,6 +94,8 @@ page_order: 1
 
 アプリ内メッセージを作成する際、ツールバーでモバイル、タブレット、またはデスクトップビューを選択して、ユーザーグループに対してアプリ内メッセージがどのように表示されるかをプレビューできます。これにより、コンテンツがレスポンシブであることを確認し、必要な調整を随時行うことができます。
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
+
 ## クリエイティブの詳細 {#creative-details}
 
 ### 大画面でのフルスクリーン {#fullscreen}
@@ -102,7 +104,7 @@ page_order: 1
 
 ![フルスクリーンのアプリ内メッセージの例。]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### 背景画像の追加 {#adding-a-background-image}
+### 背景画像の追加 {#add-a-background-image}
 
 **メッセージスタイル**タブからメッセージの背景に画像を追加できます。
 
@@ -139,7 +141,7 @@ https://example.com/images/default-background.png
 ```
 {% endraw %}
 
-### Liquidの追加 {#adding-liquid}
+### Liquidの追加 {#add-liquid}
 
 ![Liquidパーソナライゼーションを追加するアイコン。]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
@@ -147,7 +149,7 @@ https://example.com/images/default-background.png
 
 次に、生成されたLiquidスニペットをメッセージに挿入します。アプリ内メッセージのデザインと構築が完了したら、**プレビュー＆テスト**に移動してメッセージをプレビューします。
 
-### AIコピーライターの使用 {#using-the-ai-copywriter}
+### AIコピーライターの使用 {#use-the-ai-copywriter}
 
 アプリ内メッセージでテキストブロックを選択した状態で、ブロックツールバーの<i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> **AIコピーライター**を選択すると、[AI搭載コピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)が起動します。AIコピーライティングアシスタントは、簡単な製品名や説明をOpenAIのGPT3コピー生成ツールに渡し、メッセージング用の人間らしいマーケティングコピーを生成します。
 
@@ -157,7 +159,7 @@ https://example.com/images/default-background.png
 
 ![AIコピーライターのGIF。]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### スタイルをデフォルトにリセット {#resetting-styles-to-default}
+### スタイルをデフォルトにリセット {#reset-styles-to-default}
 
 デフォルトのスタイルから変更されたプロパティには、オレンジ色のドットが表示されます。特定のプロパティをデフォルトのスタイルにリセットするには、フィールドにカーソルを合わせて**デフォルトにリセット**を選択します。
 
@@ -165,7 +167,7 @@ https://example.com/images/default-background.png
 
 選択した要素のすべてのスタイルをリセットするには、プロパティパネル名の横にある<i class="fas fa-paintbrush" title="スタイルのコピーまたは貼り付けボタン"></i>を選択し、**デフォルトスタイルにリセット**を選択します。
 
-### スタイルのコピーと貼り付け {#copying-and-pasting-styles}
+### スタイルのコピーと貼り付け {#copy-and-paste-styles}
 
 要素のスタイルを変更した後、そのスタイルを別の要素にコピーして貼り付けることができます。スタイルを貼り付ける際、その要素に関連するプロパティのみが適用されます。
 

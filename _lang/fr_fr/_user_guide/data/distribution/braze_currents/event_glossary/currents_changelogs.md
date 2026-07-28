@@ -101,7 +101,7 @@ tool: Currents
     * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped du destinataire associé à cet événement.
 
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.InboundReceive` :
-    * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped de l'utilisateur à partir duquel le message a été reçu.
+    * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped de l'utilisateur ayant envoyé le message.
     * Le champ `user_phone_number` est désormais *facultatif*.
 
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.Read` :
