@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@6.8.0
 ```
 
 {% alert important %}
-La version du SDK Web de Braze doit être 5.4.0 ou ultérieure.
+La version minimale prise en charge du SDK Web de Braze est la 5.4.0. Pour les intégrations personnalisées de Shopify (y compris les vitrines headless), vous recevez des notifications lorsque de nouvelles versions du SDK sont disponibles, mais vous gérez les mises à jour de votre côté en mettant à jour à la fois le code de votre vitrine et la version du SDK dans les paramètres d'intégration.
 {% endalert %}
 
 Ensuite, [incluez ce paramètre]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) en tant que clé de premier niveau dans votre fichier `vite.config.js` :
@@ -138,7 +138,7 @@ Les politiques de sécurité du contenu (généralement situées dans le fichier
 Suivez le moment où un acheteur se connecte à son compte et synchronise ses informations utilisateur avec Braze. Cela inclut l'appel à notre méthode `changeUser` pour identifier les clients avec un ID externe Braze.
 
 {% alert note %}
-Nous ne disposons pas actuellement de recommandations pour la prise en charge d'un ID externe Braze personnalisé. Si vous en avez besoin pour votre intégration, contactez votre CSM.
+Nous ne disposons pas actuellement de recommandations pour la prise en charge d'un ID externe Braze personnalisé. Si vous en avez besoin pour votre intégration, contactez votre Customer Success Manager.
 {% endalert %}
 
 Avant de commencer, assurez-vous d'avoir configuré les URI de rappel pour que la connexion client fonctionne dans Hydrogen. Pour plus d'informations, consultez [Utilisation de l'API de compte client avec Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
@@ -574,7 +574,7 @@ function CartLineUpdateButton({children, lines}) {
 
 ### Étape 1 : Connecter votre boutique Shopify {#step-1-connect-your-shopify-store}
 
-Rendez-vous sur la page partenaire de Shopify pour commencer votre configuration. Tout d'abord, sélectionnez **Begin Setup** pour installer l'application Braze depuis l'App Store de Shopify. Suivez les étapes guidées pour terminer le processus d'installation.
+Rendez-vous sur la page partenaire de Shopify pour commencer votre configuration. Tout d'abord, sélectionnez **Begin Setup** pour installer l'application Braze depuis la boutique d'applications de Shopify. Suivez les étapes guidées pour terminer le processus d'installation.
 
 ![Page de configuration de l'intégration Shopify sur le tableau de bord de Braze.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 

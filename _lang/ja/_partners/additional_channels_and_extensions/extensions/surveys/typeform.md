@@ -58,13 +58,7 @@ BrazeとTypeformを統合することで、以下のことが可能になりま�
 
 この戻り値は、Brazeの`/users/track`リクエスト本文の形式に準拠する必要があります。
 
-- 変換コードはJavaScriptプログラミング言語で記述します。if/elseロジックなど、標準的なJavaScript制御フローがすべてサポートされています。
-- 変換コードは、payload変数を通じてWebhookリクエスト本文にアクセスします。この変数は、リクエスト本文のJSONを解析して生成されたオブジェクトです。
-- `/users/track`エンドポイントでサポートされるすべての機能がサポートされています。以下が含まれます。
-    - ユーザー属性オブジェクト、イベントオブジェクト、購入オブジェクト
-    - ネストされた属性とネストされたカスタムイベントプロパティ
-    - サブスクリプショングループの更新
-    - 識別子としてのメールアドレス
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## TypeformのWebhookペイロードの例 {#example-typeform-webhook-payload}
 
@@ -618,6 +612,6 @@ return brazecall;
 
 ![Typeformの送信後にカスタムイベントが記録されたユーザープロファイル。]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
-## モニタリングとトラブルシューティング {#monitoring-and-troubleshooting}
+## 監視とトラブルシューティング {#monitoring-and-troubleshooting}
 
-変換のモニタリングとトラブルシューティングの詳細については、「[変換のモニタリング]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation)」セクションを参照してください。
+変換の監視とトラブルシューティングの詳細については、「[変換の監視]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation)」セクションを参照してください。

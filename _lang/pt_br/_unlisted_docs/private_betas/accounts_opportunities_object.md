@@ -65,7 +65,7 @@ table td {
 | `phone`            | String     | Não*      | O número de telefone do usuário. |
 | `user_role`             | String     | Não       | O cargo que o usuário ocupa na conta, como "diretor" ou "colaborador". |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-<sup>Um dos campos `external_id`, `email`, `phone` ou `user_alias` é obrigatório para identificar um usuário.</sup>
+<sup>*Um dos campos `external_id`, `email`, `phone` ou `user_alias` é obrigatório para identificar um usuário.</sup>
 
 #### Usando um arquivo CSV {#using-a-csv-file}
 

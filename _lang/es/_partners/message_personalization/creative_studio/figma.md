@@ -36,7 +36,7 @@ Ve a la comunidad de Figma para acceder al [plugin Braze Export](https://www.fig
 
 En Figma, también puedes encontrar el plugin Figma to Braze Export en la sección **Plugins**.
 
-### Paso 2: Conectar con Braze {#step-2-connect-to-braze}
+### Paso 2: Conéctate a Braze {#step-2-connect-to-braze}
 
 Después de la instalación, selecciona **Connect to Braze** para conectar tu cuenta de Braze y luego selecciona **Continue**.
 
@@ -48,6 +48,6 @@ Selecciona las imágenes y activos visuales que deseas exportar a Braze. Para se
 
 El nombre de la imagen o activo visual exportado utiliza el nombre del marco seleccionado en Figma.
 
-### Paso 4: Exportar a Braze {#step-4-export-to-braze}
+### Paso 4: Exporta a Braze {#step-4-export-to-braze}
 
 Selecciona **Export to Braze**. Tus imágenes y activos visuales se cargan en la biblioteca de medios de Braze. Todas las imágenes importadas mediante esta integración tienen su fuente configurada como **Figma**.

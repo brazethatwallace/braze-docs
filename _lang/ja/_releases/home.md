@@ -14,11 +14,173 @@ page_type: reference
 このページに記載されている更新の詳細については、アカウントマネージャーにお問い合わせいただくか、[サポートチケットを開いて]({{site.baseurl}}/user_guide/administer/personal/braze_support)ください。また、[SDK変更ログ]({{site.baseurl}}/developer_guide/changelogs)では、毎月のSDKリリース、改良、および破壊的変更に関する詳細を確認することもできます。
 {% endalert %}
 
+{% details 2026年7月23日 %}
+
+## 2026年7月23日リリース {#july-23-2026-release}
+
+### データ＆レポート {#data-reporting}
+
+#### メッセージング診断ダッシュボード {#messaging-diagnostics-dashboard}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[メッセージング診断ダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard)は、メッセージ送信結果の概要を提供し、トレンドを把握してメッセージング設定の潜在的な問題を診断できます。このダッシュボードは、キャンペーンやキャンバスからのメッセージが期待どおりに送信されなかった理由を理解するのに役立ちます。この機能へのアクセスについては、カスタマーサクセスマネージャーにお問い合わせください。
+
+#### CSVカスタムイベントマッパー {#csv-custom-events-mapper}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+カスタムイベントの[CSVインポートフロー]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#about-csv-import)に、インポート前にイベント名とイベントプロパティヘッダーをBrazeフィールドにマッピングできるマッパーが追加されました。この更新により、カスタムイベントのエクスペリエンスがカスタム属性フローと統一され、アップロード前のファイル再フォーマットの必要性が軽減されます。フローには、CSVのアップロード、必須フィールドとイベントのマッピング、イベントプロパティのマッピング、インポート前のターゲティング設定の選択が含まれます。ファイルが既に期待されるフォーマットに一致している場合は、マッピングの変更なしでフローを続行できます。
+
+#### カタログの無料ストレージが最大500 MBに対応 {#catalogs-free-storage-now-supports-up-to-500-mb}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers)の無料版が、すべてのCSVファイルで最大500 MBのストレージをサポートするようになりました。
+
+### BrazeAI<sup>TM</sup>
+
+#### Operatorが設定ページを更新可能に {#operator-can-now-update-settings-pages-for-you}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities)が、より多くの設定ページで直接変更を行えるようになりました。設定画面をクリックして操作する代わりに、自然言語で変更内容を記述できます。サポートされるページは以下のとおりです。
+
+- クワイエットアワー
+- プッシュ設定
+- メッセージングレート制限
+- メッセージングルールと常時承認ワークフロー
+- その他の識別子とAPI制限
+- 連絡先情報
+
+たとえば、クワイエットアワーページで、OperatorにSMSのクワイエットアワーを午後9時から午前8時に設定するよう依頼できます。
+
+#### リモートBraze MCPサーバー {#remote-braze-mcp-server}
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server)は、Claude、ChatGPT、Cursor、VSCode、Codex、Google Antigravity、Claude CodeなどのAIエージェントをBrazeに直接接続できるリモートホスト型の接続です。自然言語を通じて、エージェントはキャンペーン、キャンバス、セグメントの分析、カスタム属性、イベント、KPI、カタログを読み取り、メールテンプレート、Content Blocks、メディアライブラリアセットを作成または更新できます。ユーザープロファイルのPIIは公開されません。
+
+接続するには、MCPクライアントに1つのエンドポイントURLを貼り付けます。USの場合は`https://mcp.braze.com/mcp`、EUの場合は`https://mcp.braze.eu/mcp`です。その後、SSOを含むOAuthでサインインします。サーバーは利用可能なツールとともに起動します。
+
+### オーケストレーション {#orchestration}
+
+#### チームのオーディエンススコーピング {#teams-audience-scoping}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)のオーディエンス設定が複数のフィルターをサポートするようになりました。
+
+### チャネルとタッチポイント {#channels-touchpoints}
+
+#### アプリ内メッセージとランディングページのアンケート評価スケール {#survey-rating-scale-for-in-app-messages-and-landing-pages}
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+[ランディングページアンケート]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#rating-scale)と[アプリ内メッセージアンケート]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/surveys#rating-scale)の両方のフォームブロックに数値評価スケールを追加して、カスタムコードなしでセンチメント、満足度、推奨度を収集できます。1〜10、1〜5、0〜10（標準NPSレンジ）の3つのレンジがサポートされています。
+
+#### WhatsApp期間限定オファーテンプレート {#whatsapp-limited-time-offer-templates}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[WhatsApp期間限定オファーテンプレート]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates)は、オファーの有効期限が近づくとオプションのカウントダウン付きで期間限定のプロモーションオファーを表示します。季節セールやユーザー属性にパーソナライズされたオファーなど、期間限定のプロモーションにこのレイアウトを使用します。
+
+#### Shopifyセルフサーブ SDKバージョンアップグレード {#shopify-self-serve-sdk-version-upgrade}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+新しい[Shopify]({{site.baseurl}}/partners/ecommerce/shopify)顧客は、セットアップ時に最新のBraze Web SDKおよびJavaScript SDKバージョンでプロビジョニングされます。既存の顧客は、インテグレーション設定で現在のSDKバージョンを確認し、新しいバージョンが利用可能になったときに通知を受け取り、インテグレーション設定からセルフサーブでアップグレードできます。
+
+#### バナー用HTMLエディタ {#html-editor-for-banners}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+バナーを作成する際に、[HTMLエディタを使用して]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner)構築できるようになりました。HTMLエディタは、独自のHTMLテンプレートを既に管理しているチームや、バナーのマークアップとスタイリングを完全にコントロールしたいチームに最適です。カスタムHTMLをエディタに直接記述または貼り付けできます。
+
+#### メディアライブラリのファイル置換 {#replace-a-file-in-the-media-library}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+URLとアセットIDを安定させたまま、[既存のメディアライブラリアセットのファイルを置換]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)できるようになりました。URLが変わらないため、そのアセットを参照するキャンペーン、キャンバス、Content Block、テンプレートは自動的に更新されたファイルを反映するため、使用されているすべての場所で手動で再アップロードや再リンクする必要がありません。
+
+#### メディアライブラリのグリッドビュー {#grid-view-for-the-media-library}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+メディアライブラリと一部のテンプレートライブラリで、既存のリストビューに加えてグリッドビューが提供されるようになりました。グリッドビューは、アセットをサムネイルと主要なメタデータ（名前、タイプ、最終更新日）とともに表示し、ファイル名ではなく見た目で画像やクリエイティブを素早く見つけることができます。フィルタリングと検索は両方のビューで同じように機能します。
+
+#### 共有可能プレビューが追加チャネルに対応 {#shareable-preview-support-for-more-channels}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[共有可能プレビュー]({{site.baseurl}}/user_guide/channels/email/html_editor#step-3b-preview-and-test-your-message)が以下の追加チャネルをサポートするようになりました。
+
+- SMS、MMS、RCS
+- WhatsApp
+- プッシュ
+- Content Cards
+- LINE
+
+キャンペーンまたはメッセージからリンクを生成し、Brazeダッシュボードにアクセスできないレビュアー（ブランド、法務、外部エージェンシーなど）と共有できます。受信者は任意のブラウザでリンクを開き、テストパーソナライゼーションを含め、顧客が見るようにレンダリングされたメッセージを確認できます。
+
+#### プッシュ認証情報更新API {#push-credentials-update-api}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[プッシュ認証情報更新エンドポイント]({{site.baseurl}}/api/endpoints/apps/post_update_push_credential)を使用して、プッシュ認証情報をプログラムで更新できるようになりました。各リクエストは1つのアプリと1つのプラットフォーム（`apple`、`firebase`、`huawei`、または`kindle`）を更新し、認証情報ペイロードをBase64エンコード値として受け入れます。これにより、手動のダッシュボードアップロードに依存せずに、大規模なアプリポートフォリオと認証情報ローテーションポリシーを管理できます。
+
+### パートナーシップ {#partnerships}
+
+#### Refiner - アンケート {#refiner-surveys}
+
+[Refiner](https://refiner.io)は、SaaSおよびモバイルアプリ向けのアプリ内アンケートプラットフォームです。プロダクトチームやVoC（顧客の声）チームが、ターゲットを絞ったアプリ内アンケートを起動し、NPS、CSAT、CES、製品フィードバック、ゼロパーティユーザーデータを継続的に収集できます。
+
+#### Stayfilm - ビジュアルとインタラクティブコンテンツ {#stayfilm-visual-and-interactive-content}
+
+[Stayfilm](https://www.stayfilm.com/)は、大規模な自動パーソナライズ動画制作のためのREST APIです。データ、画像、テキスト、サウンドトラック、ナレーション、ビジュアルエフェクトを統合して、eコマース、マーケットプレイス、CRMワークフロー、マーケティングキャンペーン向けのカスタマイズされた動画コンテンツを生成します。
+
+#### Validity - データと分析 {#validity-data-and-analytics}
+
+[Validity Everest](https://www.validity.com/everest/)は、受信トレイ配置の測定と送信レピュテーションの保護に役立つメールデリバラビリティプラットフォームです。BrazeとValidityのインテグレーションは、EverestシードリストをBrazeに同期し、対象のキャンペーンやキャンバスに自動的にシードを配置し、エンゲージメント指標をValidity Inboxに取り込むことで、シードベースの配置と実際のサブスクライバーエンゲージメントを比較できます。
+
+### SDK
+
+以下のSDK更新がリリースされました。詳細については、[SDK変更ログ]({{site.baseurl}}/developer_guide/changelogs)を参照してください。
+
+#### SDKの破壊的更新 {#sdk-breaking-updates}
+
+最新のSDK更新がリリースされました。破壊的更新はSDK更新セクションに記載されています。その他すべての更新は、対応するSDK変更ログをご確認ください。
+
+- [Android SDK 43.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v43.0.0)
+    - `unregisterPush`およびログアウトメソッドを追加しました。
+    - eコマースイベントに追加フィールドを追加しました。
+    - プッシュ通知画像読み込みの指数バックオフを追加しました。
+- [Swift SDK 17.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+    - eコマースイベントに追加フィールドを追加しました。
+    - 初期化後のデータ状態を予測可能にしました。
+    - デバイスおよびユーザー識別子のノンブロッキングアクセサーを追加しました。
+    - `Braze.LiveActivities`の非推奨のpush-to-start更新APIを削除しました。
+- [Web SDK 6.10.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
+    - `unregisterPush`およびログアウトメソッドを追加しました。
+    - eコマースイベントに追加フィールドを追加しました。
+    - 起動時の冗長なリフレッシュに関連するバナーおよびContent Cardsの問題を修正しました。
+    - バナー却下のパブリックメソッドを追加しました。
+- [Flutter SDK 21.0.0](https://github.com/braze-inc/braze-flutter-sdk/releases/tag/v21.0.0)
+    - ネイティブiOSブリッジを更新しました。
+    - 非推奨メソッドを削除しました。
+    - `changeUser`、`enableSDK`、`disableSDK`ハンドラーを完了結果を返すように更新しました。
+- [Expo SDK 5.2.0](https://github.com/braze-inc/braze-expo-plugin/releases/tag/v5.2.0)
+    - サンプルアプリをExpo SDK 56に更新しました。
+- [React Native SDK 22.0.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/22.0.0)
+    - バナー却下のサポートを追加しました。
+    - バインディングの更新を含みます。
+
+{% enddetails %}
 {% details 2026年6月25日 %}
 
 ## 2026年6月25日リリース {#june-25-2026-release}
 
-### データ＆レポート {#data-reporting}
+### データ＆レポート
 
 #### Content Cardsおよびバナーの指標名の更新 {#metric-name-update-for-content-cards-and-banners}
 
@@ -88,7 +250,7 @@ Amazon SES経由でメールを送信するワークスペースでは、[デリ
 
 {% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
-### チャネルとタッチポイント {#channels-touchpoints}
+### チャネルとタッチポイント
 
 #### バナーのユーザー却下 {#user-dismissals-for-banners}
 
@@ -124,7 +286,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 テストWhatsAppメッセージを送信した後、メッセージ作成画面で直接[詳細な配信レポート]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-4-view-test-send-results)を確認できます。これにより、メッセージが意図した受信者に届いたことを確認し、起動前に失敗をトラブルシューティングするのに役立ちます。
 
-### パートナーシップ {#partnerships}
+### パートナーシップ
 
 #### Convercus - データと分析 - ロイヤルティ {#convercus-data-and-analytics-loyalty}
 
@@ -152,7 +314,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 ### SDK
 
-#### SDKの破壊的更新 {#sdk-breaking-updates}
+#### SDKの破壊的更新
 
 最新のSDK更新がリリースされました。破壊的更新はSDK更新セクションに記載されています。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
@@ -192,7 +354,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 [コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)を使用して、SMS、MMS、RCSメッセージのフック、本文、CTAを最適化できます。コンテンツオプティマイザーは、AIを使用して大量のコンテンツバリアントを自動的に生成・評価し、メッセージコンテンツを大規模にテスト・最適化するのに役立ちます。
 
-### オーケストレーション {#orchestration}
+### オーケストレーション
 
 #### ワークスペースのタイムゾーン {#workspace-time-zones}
 
@@ -513,7 +675,7 @@ Brazeは新しい[データセンター]({{site.baseurl}}/user_guide/data/infras
 
 [CSVユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)で、プレインポートバリデーションと詳細なエラーレポートがサポートされるようになりました。インポート前に、**ユーザーをインポート**ページで**インポート前にファイルを検証**を選択すると、Brazeがファイルをスキャンし、完全に失敗する行（エラー）と一部の値がスキップされて成功する行（警告）を特定するレポートを生成します。レポートをダウンロードしてCSVを修正して再アップロードするか、そのまま続行できます。インポート完了後、失敗した行のダウンロード可能なレポートも利用でき、各問題の正確な理由が記載されています。
 
-#### メッセージング診断ダッシュボード {#messaging-diagnostics-dashboard}
+#### メッセージング診断ダッシュボード
 
 {% multi_lang_include release_type.md release="Early access" %}
 
@@ -635,7 +797,7 @@ Radius Networksの[Flybuy]({{site.baseurl}}/partners/message_personalization/loc
 
 [コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)は、継続的で高バリアントなコンテンツテストのキャンバスステップで、自動エンゲージメント最適化を実現します。メッセージステップと同様のドラッグ＆ドロップ可能なインターフェイスを使用して、テストするコンポーネントを定義し、AIを使用してバリアントを生成し（または手動で入力）、Liquidタグを使用してこれらのコンポーネントをメッセージコンテンツにマッピングできます。
 
-非コンテキストのマルチアームバンディットオプティマイザに基づいて構築されたコンテンツオプティマイザーは、ユーザーごとに1つのメッセージを送信し、予測推奨に基づいて配信するコンポーネントバリアントの組み合わせを決定します。ステップが時間の経過とともにデータを収集すると、パフォーマンスの高いバリアントは送信割り当てが自然に増え、パフォーマンスの低いバリアントは減ります。コンテンツオプティマイザーは、継続的な最適化を可能にするために、一貫した日次ユーザーボリューム（1日あたり少なくとも数千ユーザー）を持つ繰り返し送信キャンバスで最適に動作します。
+非コンテキストのマルチアームバンディットオプティマイザーに基づいて構築されたコンテンツオプティマイザーは、ユーザーごとに1つのメッセージを送信し、予測推奨に基づいて配信するコンポーネントバリアントの組み合わせを決定します。ステップが時間の経過とともにデータを収集すると、パフォーマンスの高いバリアントは送信割り当てが自然に増え、パフォーマンスの低いバリアントは減ります。コンテンツオプティマイザーは、継続的な最適化を可能にするために、一貫した日次ユーザーボリューム（1日あたり少なくとも数千ユーザー）を持つ繰り返し送信キャンバスで最適に動作します。
 
 ### データ＆レポート
 
@@ -744,115 +906,5 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 最新のSDK更新がリリースされました。破壊的更新はSDK更新セクションに記載されています。その他すべての更新は、対応するSDK変更ログをご確認ください。
 
 {% multi_lang_include releases/sdk/2026_2_5_26_updates.md %}
-
-{% enddetails %}
-
-{% details 2026年1月8日 %}
-## 2026年1月8日リリース {#january-8-2026-release}
-
-### データ＆レポート
-
-#### Currentsイベントの更新 {#updates-to-currents-events}
-
-{% multi_lang_include release_type.md release="General availability" %}
-
-バージョン4では、以下の変更がCurrentsに加えられました。
-
-{% multi_lang_include releases/currents/2026_1_8_26_field_changes.md %}
-
-リリースごとのイベント変更については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)を参照してください。
-
-#### すべての行による同期ログのエクスポート {#export-sync-logs-by-all-rows}
-
-{% multi_lang_include release_type.md release="Early access" %}
-
-[クラウドデータ取り込み**同期ログ**ダッシュボード]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_logs#exporting-sync-logs)で、同期実行の行レベルログのエクスポートを以下から選択できます。
-
-* **エラーのある行：** **Error**ステータスの行のみを含むファイルをダウンロードします。
-* **すべての行：** 実行で処理されたすべての行を含むファイルをダウンロードします。
-
-### チャネルとタッチポイント
-
-#### Bring Your Own（BYO）WhatsAppコネクター {#bring-your-own-byo-whatsapp-connector}
-
-[Bring Your Own（BYO）WhatsAppコネクター]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/byo_connector)は、BrazeとInfobipの間のパートナーシップで、InfobipのWhatsApp Business Manager（WABA）へのBrazeアクセスを提供します。これにより、セグメンテーション、パーソナライゼーション、キャンペーンオーケストレーションにはBrazeを使用しながら、Infobipで直接メッセージングコストを管理・支払いできます。
-
-#### キャンバスのバナー
-
-{% multi_lang_include release_type.md release="Early access" %}
-
-キャンバスの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)のメッセージングチャネルとして**バナー**を選択できます。ドラッグ＆ドロップエディタを使用してパーソナライズされたインラインメッセージを作成し、各ユーザーセッションの開始時に自動的に更新される、非侵入的でコンテキストに関連するエクスペリエンスを提供します。
-
-#### ダイナミックBCC {#dynamic-bcc}
-
-{% multi_lang_include release_type.md release="General availability" %}
-
-[ダイナミックBCC]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/?tab=bcc%20address#dynamic-bcc)では、BCCアドレスにLiquidを使用できます。この機能は**メール設定**でのみ利用可能で、キャンペーン自体では設定できません。メール受信者ごとに1つのBCCアドレスのみが許可されます。
-
-#### チャネルベースのレート制限 {#channel-based-rate-limits}
-
-マルチチャネルのキャンペーンまたはキャンバス全体で共有されるレート制限の代わりに、チャネルごとに特定のレート制限を選択できます。この場合、レート制限は選択した各チャネルに適用されます。たとえば、キャンペーンまたはキャンバスを設定して、キャンペーンまたはキャンバス全体で1分あたり最大5,000件のwebhookと2,500件のSMSメッセージを送信できます。詳細については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)を参照してください。
-
-### パートナーシップ
-
-#### LILT - ローカライゼーション {#lilt-localization}
-
-[LILT]({{site.baseurl}}/partners/lilt)は、エンタープライズ翻訳とコンテンツ作成のための完全なAIソリューションです。LILTにより、グローバル組織はAIエージェントと完全に自動化されたワークフローを使用して、コンテンツ、製品、コミュニケーション、サポート業務を拡張・最適化できます。
-
-### SDKの破壊的更新
-
-最新のSDK更新がリリースされました。破壊的更新はSDK更新セクションに記載されています。その他すべての更新は、対応するSDK変更ログをご確認ください。
-
-{% multi_lang_include releases/sdk/2026_1_8_26_updates.md %}
-
-{% enddetails %}
-
-{% details 2025年12月9日 %}
-
-## 2025年12月9日 {#december-9-2025}
-
-### データ＆レポート
-
-#### ランディングページへのGoogle Tag Managerの追加 {#adding-google-tag-manager-to-a-landing-page}
-
-ランディングページにGoogle Tag Managerを追加するには、ドラッグ＆ドロップエディタでランディングページにカスタムコードブロックを追加し、[Tag Managerコード]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page)をブロックに挿入します。
-
-### オーケストレーション
-
-#### SMS Liquidユースケース {#sms-liquid-use-case}
-
-[受信SMSキーワードに基づいて異なるメッセージで応答する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases#sms-keyword-response)ユースケースは、特定の受信メッセージに異なるメッセージコピーで応答するためのダイナミックなSMSキーワード処理を組み込んでいます。たとえば、誰かが「START」と「JOIN」のテキストを送信した場合に異なる応答を送信できます。
-
-#### Connected Contentの許可リスト {#allowlisting-for-connected-content}
-
-[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)に使用する特定のURLを許可リストに登録できます。この機能にアクセスするには、カスタマーサクセスマネージャーにお問い合わせください。
-
-### チャネルとタッチポイント
-
-#### SMS文字エンコーディング {#sms-character-encoding}
-
-[SMSセグメント計算機]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator)に文字エンコーディング機能が追加されました。**文字エンコーディングを表示**を選択して、どの文字がGSM-7またはUCS-2としてエンコードされているかを確認できます。
-
-![SMSセグメント計算機。テキストボックスにSMSのサンプルメッセージが入力され、文字エンコーディングが有効になっています。]({% image_buster /assets/img/sms/character_encoding.png %}){: style="max-width:70%;"}
-
-#### 最適化されたWhatsAppメッセージ {#whatsapp-messages-with-optimization}
-
-WhatsApp用のMM APIは100%の配信可能性を提供しないため、他のチャネルでメッセージを受信していない可能性のあるユーザーをリターゲティングする方法を理解することが重要です。
-
-ユーザーをリターゲティングするには、特定のメッセージを受信しなかったユーザーのセグメントを構築することをお勧めします。これを行うには、エラーコード`131049`でフィルタリングします。これは、WhatsAppのユーザーごとのマーケティングテンプレート制限の適用によりマーケティングテンプレートメッセージが送信されなかったことを示します。[Braze CurrentsまたはSQLセグメントエクステンションを使用]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery#retargeting-users-on-other-braze-channels)して実行できます。
-
-### パートナーシップ
-
-#### OtherLevels - ダイナミックコンテンツ {#otherlevels-dynamic-content}
-
-[OtherLevels]({{site.baseurl}}/partners/otherlevels)は、生成AIを使用して、従来のコンテンツをオンブランドのパーソナライズされた動画やリッチメディアエクスペリエンスに大規模に変換することで、スポーツブランド、パブリッシャー、オペレーターが顧客とどのようにつながるかを変革するエクスペリエンスプラットフォームです。
-
-### SDK
-
-#### SDKの破壊的更新
-
-最新のSDK更新がリリースされました。破壊的更新はSDK更新セクションに記載されています。その他すべての更新は、対応するSDK変更ログをご確認ください。
-
-- [Web SDK 6.3.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
 
 {% enddetails %}

@@ -770,7 +770,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Moldau</td>
+        <td>Moldawien</td>
         <td>8.70</td>
     </tr>
     <tr>
@@ -2043,11 +2043,11 @@ Die Spaltendefinitionen lauten wie folgt:
 ## Details zur Agent Console {#agent-console-details}
 Braze berechnet Message Credits für Agent-Console-Aufrufe, die über die Braze-Plattform gesendet werden. Ein Aufruf wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig umfasst Ihr Vertrag zehntausend Aufrufe pro Zeitraum Ihrer Abo-Laufzeit.
 
-## Details zum SMS/MMS-Kanal {#smsmms-channel-details}
+## Details zum SMS-/MMS-Kanal {#smsmms-channel-details}
 
 ### SMS-Nachrichtensegmente {#sms-segments}
 
-SMS-Nachrichtensegmente sind die Art und Weise, wie die SMS-Branche Nachrichten zählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen in GSM-7-Kodierung versenden, werden Sie feststellen, dass zwei (2) Nachrichtensegmente gesendet wurden. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
+SMS-Nachrichtensegmente sind die Art und Weise, wie die SMS-Branche Nachrichten zählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen in GSM-7-Kodierung versenden, werden zwei (2) Nachrichtensegmente gesendet. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
 
 ### MMS-Nachrichtensegmente {#mms-segments}
 
@@ -2055,7 +2055,7 @@ Für MMS liegt das Nachrichtenlimit bei 5 MB (dies umfasst das Multimedia-Asset 
 
 ### RCS-Typen {#rcs-types}
 
-RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
+RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie SMS – mit reichhaltigeren Funktionen, die moderne Verbraucher:innen erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -2063,7 +2063,7 @@ RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines di
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Details zu weiteren Kanälen {#additional-channel-details}
+## Weitere Kanaldetails {#additional-channel-details}
 
 ### Webhooks
 
@@ -2093,7 +2093,7 @@ Afghanistan, Australien, Bangladesch, Kambodscha, China, Japan, Laos, Mongolei, 
 
 ### Übriges Mittel- und Osteuropa {#rest-of-central-eastern-europe}
 
-Albanien, Armenien, Aserbaidschan, Belarus, Bulgarien, Kroatien, Tschechische Republik, Georgien, Griechenland, Lettland, Litauen, Mazedonien, Moldau, Serbien, Slowakei, Slowenien, Ukraine
+Albanien, Armenien, Aserbaidschan, Belarus, Bulgarien, Kroatien, Tschechische Republik, Georgien, Griechenland, Lettland, Litauen, Mazedonien, Moldawien, Serbien, Slowakei, Slowenien, Ukraine
 
 ### Übriges Lateinamerika {#rest-of-latin-america}
 

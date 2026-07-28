@@ -50,7 +50,7 @@ Você pode adicionar tags a um evento personalizado após ele ser criado, se tiv
 
 ### Visualizando relatórios de uso {#viewing-usage-reports}
 
-O relatório de uso lista todos os Canvas, Campaigns e Segments que usam um evento personalizado específico. A lista não inclui usos de Liquid.
+O relatório de uso lista todos os Canvas, Campaigns e segmentos que usam um evento personalizado específico. A lista não inclui usos de Liquid.
 
 Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção de múltiplos eventos personalizados e então selecionando **View usage report**.
 
@@ -298,7 +298,7 @@ As propriedades de eventos personalizados são projetadas para ajudá-lo a aumen
 
 Você pode segmentar com base nos valores das propriedades de eventos de duas formas:
 
-1. **Dentro de 30 dias:** A equipe de suporte da Braze pode ativar a segmentação por propriedade de evento com base na frequência e recência de valores específicos de propriedades de eventos dentro dos Segments da Braze. Se você deseja aproveitar as propriedades de eventos dentro de segmentos, entre em contato com o executivo de conta ou gerente de sucesso do cliente da Braze. Esta opção impactará o uso de dados.<br><br>
+1. **Dentro de 30 dias:** A equipe de suporte da Braze pode ativar a segmentação por propriedade de evento com base na frequência e recência de valores específicos de propriedades de eventos dentro dos segmentos da Braze. Se você deseja aproveitar as propriedades de eventos dentro de segmentos, entre em contato com o executivo de conta ou gerente de sucesso do cliente da Braze. Esta opção impactará o uso de dados.<br><br>
 2. **Dentro e além de 30 dias:** Para cobrir tanto a segmentação de propriedades de eventos de curto quanto de longo prazo, você pode usar [extensões de segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension). Este recurso segmenta usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Esta opção não impactará o uso de dados.
 
 Entre em contato com o gerente de sucesso do cliente da Braze para recomendações sobre a melhor abordagem dependendo das suas necessidades específicas.

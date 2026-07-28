@@ -42,19 +42,19 @@ Braze SDK用のCelebrusコネクターは、ユーザーを識別し、識別子
 
 ### Brazeカスタム属性用Celebrusコネクター {#celebrus-connector-for-braze-custom-attributes}
 
-#### ステップ 1: Celebrusで接続の詳細を設定する {#step-1-configure-connected-details-in-celebrus}
+#### ステップ1:Celebrusで接続の詳細を設定する {#step-1-configure-connected-details-in-celebrus}
 
 Brazeカスタム属性用のCelebrusコネクターは、カスタム属性を中間データベースに送信します。このときカスタム属性は、Brazeが受け取る形式で事前にフォーマットされています。Celebrusでは、使用しているデータベースの種類（SnowflakeやRedshiftなど）に応じて、データベースの接続詳細を設定します。
 
-#### ステップ 2: Brazeダッシュボードでクラウドデータ取り込みを設定する {#step-2-configure-cloud-data-ingestion-in-your-braze-dashboard}
+#### ステップ2:Brazeダッシュボードでクラウドデータ取り込みを設定する {#step-2-configure-cloud-data-ingestion-in-your-braze-dashboard}
 
 この統合では、Brazeのクラウドデータ取り込みを使用します。[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)の手順に従って、使用するウェアハウスのタイプに応じて[クラウドデータ取り込みの設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を行ってください。
 
-#### ステップ 3: CelebrusからBrazeにデータを同期する {#step-3-sync-data-from-celebrus-to-braze}
+#### ステップ3:CelebrusからBrazeにデータを同期する {#step-3-sync-data-from-celebrus-to-braze}
 
 Celebrusは、メール、電話番号、`external_id`またはユーザーエイリアスなどの一意の識別子をキャプチャして個人に割り当て、CDIを介してBrazeに送信します。これにより、同一の個人に関するデータをBrazeと同期できます。
 
-Celebrusは、属性値が変更された場合にのみ、定義されている識別子を使用して、Celebrusプロファイルビルダーで定義された顧客属性を送信します。なお、Celebrusプロファイルビルダーで定義された属性名は、デフォルトでBrazeで使用されます。そのため、[Brazeの命名規則]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)に準拠するように、これらの名前を更新してください。
+Celebrusは、属性値が変更された場合にのみ、定義されている識別子を使用して、Celebrusプロファイルビルダーで定義された顧客属性を送信します。なお、Celebrusプロファイルビルダーで定義された属性名は、デフォルトでBrazeで使用されます。そのため、[Brazeの命名規則]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)に準拠するように、これらの名前を更新してください。
 
 {% alert important %}
 現時点では、このリリースではイベントと購入はサポートされていません。<br><br>この統合では、属性を文字列値として送信するため、一部の属性はリストになります（シグナルなど）。現時点では、リストを配列に変換することはできません。ネストされた属性はありません。

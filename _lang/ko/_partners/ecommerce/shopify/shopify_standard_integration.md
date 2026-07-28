@@ -15,24 +15,24 @@ page_order: 1
 ## 1단계: Shopify 스토어 연결 {#step-1-connect-your-shopify-store}
 
 1. Braze에서 **파트너 통합** > **기술 파트너**로 이동한 다음 "Shopify"를 검색합니다.
-2. Shopify 파트너 페이지에서 **Begin setup**을 선택하여 통합 프로세스를 시작합니다.<br><br>![설정 시작 버튼이 있는 Shopify 통합 페이지.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
+2. Shopify 파트너 페이지에서 **설정 시작**을 선택하여 통합 프로세스를 시작합니다.<br><br>![설정 시작 버튼이 있는 Shopify 통합 페이지.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Shopify 앱 스토어에서 Braze 애플리케이션을 설치합니다.<br><br>![애플리케이션 설치 버튼이 있는 Braze 앱 스토어 페이지.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Shopify 계정이 둘 이상의 스토어와 연결되어 있는 경우 헤더의 스토어 아이콘을 선택하고 **Switch stores**를 선택하여 로그인한 스토어를 변경할 수 있습니다.
+Shopify 계정이 둘 이상의 스토어와 연결되어 있는 경우 헤더의 스토어 아이콘을 선택하고 **스토어 전환**을 선택하여 로그인한 스토어를 변경할 수 있습니다.
 {% endalert %}
 
 {: start="4"}
 4. Braze 앱을 설치한 후 Shopify에 연결할 워크스페이스를 확인하기 위해 Braze로 리디렉션됩니다. Shopify 스토어는 하나의 워크스페이스에만 연결할 수 있습니다. 전환이 필요한 경우 올바른 워크스페이스를 선택하세요.<br><br>![올바른 워크스페이스에 있는지 확인하는 창.]({% image_buster /assets/img/shopify/confirm_workspace1.png %}){: style="max-width:70%;"}
 
 {: start="5"}
-5. **Begin setup**을 선택합니다.<br><br>![도메인 입력 필드와 설정 시작 버튼이 있는 "Integration settings".]({% image_buster /assets/img/shopify/choose_account.png %})
+5. **설정 시작**을 선택합니다.<br><br>![도메인 입력 필드와 설정 시작 버튼이 있는 "통합 설정".]({% image_buster /assets/img/shopify/choose_account.png %})
 
 ## 2단계: Braze Web SDK 활성화 {#step-2-enable-braze-web-sdks}
 
 Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SDK와 JavaScript SDK를 자동으로 구현할 수 있습니다.
 
-![표준 설정 또는 커스텀 설정을 통해 구현하는 옵션이 있는 "Enable Web SDK" 단계.]({% image_buster /assets/img/shopify/sdk_setup.png %})
+![표준 설정 또는 커스텀 설정을 통해 구현하는 옵션이 있는 "Web SDK 활성화" 단계.]({% image_buster /assets/img/shopify/sdk_setup.png %})
 
 표준 설정 온보딩 경로를 선택한 후 Braze가 SDK를 초기화하고 로드할 시점을 다음 옵션 중에서 선택해야 합니다:
 - 사이트 방문 시(예: 세션 시작)
@@ -40,6 +40,10 @@ Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SD
 - 계정 가입 시(예: 계정 로그인)
     - 식별된 사용자만 추적
     - 사이트 방문자가 계정에 가입하거나 로그인할 때 데이터 추적 시작
+
+{% alert note %}
+신규 고객은 설정 중에 최신 Braze Web SDK 및 JavaScript SDK 버전으로 프로비저닝됩니다. 기존 고객은 통합 설정에서 현재 SDK 버전을 확인하고, 새 버전이 출시되면 알림을 받으며, 통합 설정에서 직접 업그레이드할 수 있습니다.
+{% endalert %}
 
 ## 3단계: Shopify 데이터 구성 {#step-3-configure-your-shopify-data}
 
@@ -49,7 +53,7 @@ Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SD
 
 이제 추적할 Shopify 데이터를 선택합니다.
 
-![행동 이벤트 및 사용자 속성을 추적하는 체크박스가 있는 "Tracking Shopify data" 섹션.]({% image_buster /assets/img/shopify/tracking_shopify_data.png %})
+![행동 이벤트 및 사용자 속성을 추적하는 체크박스가 있는 "Shopify 데이터 추적" 섹션.]({% image_buster /assets/img/shopify/tracking_shopify_data.png %})
 
 다음 이벤트는 표준 통합에서 기본적으로 활성화됩니다.
 
@@ -64,9 +68,9 @@ Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SD
 
 ### 과거 데이터 백필 설정 {#historical-backfill-setup}
 
-**Track Shopify data** 단계에서 통합의 일부로 초기 과거 데이터 로드를 포함하려면 체크박스를 선택합니다.
+**Shopify 데이터 추적** 단계에서 통합의 일부로 초기 과거 데이터 로드를 포함하려면 체크박스를 선택합니다.
 
-가져오는 항목, 매출 보고 동작, 설정 스크린샷, 그리고 활성 Campaigns 또는 Canvases와 함께 이미 Braze를 사용하고 있는 경우의 안내는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)을 참조하세요.
+가져오는 항목, 매출 보고 동작, 설정 스크린샷, 그리고 활성 Campaign(캠페인) 또는 Canvas와 함께 이미 Braze를 사용하고 있는 경우의 안내는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)을 참조하세요.
 
 ### (고급) 커스텀 데이터 추적 설정 {#advanced-custom-data-tracking-setup}
 
@@ -129,7 +133,7 @@ braze.logCustomEvent(
 
 드롭다운에서 `external_id` 유형을 선택합니다.
 
-!["Collect subscribers" 섹션.]({% image_buster /assets/img/shopify/external_id_standard.png %})
+!["구독자 수집" 섹션.]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 이메일 주소 또는 해시된 이메일 주소를 Braze 외부 ID로 사용하면 데이터 소스 전반에서 ID 관리를 간소화할 수 있습니다. 그러나 사용자 개인정보 보호 및 데이터 보안에 대한 잠재적 위험을 고려하는 것이 중요합니다.<br><br>
@@ -222,7 +226,7 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이
 
 이메일 또는 SMS 채널을 사용하는 경우 이메일 및 SMS 마케팅 옵트인 상태를 Braze에 동기화할 수 있습니다. Shopify에서 이메일 마케팅 옵트인을 동기화하면 Braze는 해당 특정 스토어와 연결된 모든 사용자에 대해 이메일 구독 그룹을 자동으로 생성합니다. 이 구독 그룹에 고유한 이름을 지정해야 합니다.
 
-![이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이 있는 "Collect subscribers" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
+![이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이 있는 "구독자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
@@ -256,8 +260,8 @@ Content Cards 또는 피처 플래그를 추가하려면 개발자와 협력하�
 
 ## 7단계: 설정 완료 {#step-7-finish-setup}
 
-1. 설정을 구성한 후 **Finish Setup**을 선택합니다.
-2. Shopify 테마 설정에서 Braze 앱 임베드를 활성화합니다. **Open Shopify**를 선택하면 Shopify 계정으로 리디렉션되어 스토어의 테마 설정에서 앱 임베드를 활성화할 수 있습니다.
+1. 설정을 구성한 후 **설정 완료**를 선택합니다.
+2. Shopify 테마 설정에서 Braze 앱 임베드를 활성화합니다. **Shopify 열기**를 선택하면 Shopify 계정으로 리디렉션되어 스토어의 테마 설정에서 앱 임베드를 활성화할 수 있습니다.
 
 ![Shopify에서 Braze 앱 임베드를 활성화해야 한다는 배너와 Shopify 열기 버튼.]({% image_buster /assets/img/shopify/open_shopify.png %})
 

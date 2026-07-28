@@ -16,7 +16,7 @@ page_order: 3
 
 Shopify のヘッドレスストアをBrazeと統合するには、以下の2つの目標を達成する必要があります。
 
-1. **Braze Web SDKを初期化してロードし、オンサイトトラッキングを有効にする**<br><br> 手動で Shopify Webサイトにコードを追加して、Brazeオンサイトトラッキングを有効にします。Shopify ヘッドレスストアにBraze SDKを実装することで、セッション、匿名のユーザー行動、チェックアウト前のショッパーアクション、そして開発チームと一緒に選択した[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)や[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)を含むオンサイトアクティビティをトラッキングできます。また、In-App MessagesやContent Cardsなど、SDKがサポートするチャネルを追加することもできます。
+1. **Braze Web SDKを初期化してロードし、オンサイトトラッキングを有効にする**<br><br> 手動で Shopify Webサイトにコードを追加して、Brazeオンサイトトラッキングを有効にします。Shopify ヘッドレスストアにBraze SDKを実装することで、セッション、匿名のユーザー行動、チェックアウト前のショッパーアクション、そして開発チームと一緒に選択した[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)や[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)を含むオンサイトアクティビティをトラッキングできます。また、アプリ内メッセージやContent Cardsなど、SDKがサポートするチャネルを追加することもできます。
 
 {: start="2"}
 2. **BrazeのShopify統合をインストールする**<br><br> ShopifyストアをBrazeに接続すると、Shopify webhookを通じて顧客、チェックアウト、注文、商品データにアクセスできるようになります。
@@ -31,7 +31,7 @@ Shopify のヘッドレスストアをBrazeと統合するには、以下の2つ
 
 ### ステップ1: Braze Webサイトアプリを作成する {#step-1}
 
-Brazeで、**設定** > **アプリ設定**に移動し、**Add app**を選択します。アプリ名に「Shopify」と入力します。
+Brazeで、**設定** > **アプリ設定**に移動し、**アプリを追加**を選択します。アプリ名に「Shopify」と入力します。
 
 {% alert warning %}
 ショップ名は「Shopify」にする必要があります。そうしないと、統合が適切に機能しない場合があります。
@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@6.8.0
 ```
 
 {% alert important %}
-Braze Web SDKバージョンは5.4.0以降である必要があります。
+サポートされるBraze Web SDKの最小バージョンは5.4.0です。Shopifyカスタム統合（ヘッドレスストアフロントを含む）では、新しいSDKバージョンが利用可能になると通知を受け取りますが、ストアフロントコードと統合設定のSDKバージョンの両方を更新することで、アップグレードはお客様側で管理します。
 {% endalert %}
 
 次に、最上位キーとして[この設定]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)を `vite.config.js` ファイルに含めます。
@@ -135,7 +135,7 @@ export async function loader(args) {
 
 ### ステップ4: Shopifyアカウントログインイベントを追加する {#step-4-add-a-shopify-account-login-event}
 
-買い物客がアカウントにサインインし、ユーザー情報をBrazeに同期したタイミングを追跡します。これには、`changeUser` メソッドを呼び出して、Braze external IDで顧客を識別することが含まれます。
+買い物客がアカウントにサインインし、ユーザー情報をBrazeに同期したタイミングをトラッキングします。これには、`changeUser` メソッドを呼び出して、Braze external IDで顧客を識別することが含まれます。
 
 {% alert note %}
 現在のところ、カスタムBraze external IDをサポートするガイダンスはありません。統合にこれが必要な場合は、カスタマーサクセスマネージャーにお問い合わせください。
@@ -392,7 +392,7 @@ async function loadCriticalData({context, params, request}) {
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify cart token alias' %}
 
-1. `cart_updated` イベントを追跡し、カートトークンを設定する関数を定義します。
+1. `cart_updated` イベントをトラッキングし、カートトークンを設定する関数を定義します。
 
 ```java
 export function trackCartUpdated(cart, storefrontUrl) {
@@ -574,23 +574,23 @@ function CartLineUpdateButton({children, lines}) {
 
 ### ステップ1: Shopifyストアを接続する {#step-1-connect-your-shopify-store}
 
-Shopifyパートナーページに移動して設定を開始します。まず、**Begin Setup**を選択し、Shopify App StoreからBrazeアプリケーションをインストールします。ガイドの手順に従って、インストールプロセスを完了します。
+Shopifyパートナーページに移動して設定を開始します。まず、**Begin Setup** を選択し、Shopify App StoreからBrazeアプリケーションをインストールします。ガイドの手順に従って、インストールプロセスを完了します。
 
 ![Brazeダッシュボードの Shopify 統合設定ページ。]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
 ### ステップ2: Braze SDKを有効にする {#step-2-enable-braze-sdks}
 
-Shopify Hydrogenまたはヘッドレスストアの場合は、**Custom setup**オプションを選択します。
+Shopify Hydrogenまたはヘッドレスストアの場合は、**Custom setup** オプションを選択します。
 
 オンボーディングプロセスを続行する前に、Shopify WebサイトでBraze SDKが有効になっていることを確認してください。
 
 ![Braze SDKを有効にする設定ステップ。]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
-### ステップ3: Shopifyデータを追跡する {#step-3-track-shopify-data}
+### ステップ3: Shopifyデータをトラッキングする {#step-3-track-shopify-data}
 
-Shopify webhookを利用するShopifyイベントと属性をさらに追加することで、統合を強化します。この統合で追跡されるデータの詳細については、[Shopifyデータ機能]({{site.baseurl}}/shopify_data_features)を参照してください。
+Shopify webhookを利用するShopifyイベントと属性をさらに追加することで、統合を強化します。この統合でトラッキングされるデータの詳細については、[Shopifyデータ機能]({{site.baseurl}}/shopify_data_features)を参照してください。
 
-![Shopifyデータ追跡の設定ステップ。]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
+![Shopifyデータトラッキングの設定ステップ。]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
 ### ステップ4: 履歴バックフィル（オプション） {#step-4-historical-backfill-optional}
 
@@ -604,7 +604,7 @@ Shopify webhookを利用するShopifyイベントと属性をさらに追加す�
 
 ### ステップ5: カスタムデータトラッキングの設定（上級） {#step-5-custom-data-tracking-setup-advanced}
 
-Braze SDKを使用すると、この統合でサポートされているデータを超えるカスタムイベントやカスタム属性を追跡できます。カスタムイベントは、以下のようなストアでの固有のインタラクションをキャプチャします。
+Braze SDKを使用すると、この統合でサポートされているデータを超えるカスタムイベントやカスタム属性をトラッキングできます。カスタムイベントは、以下のようなストアでの固有のインタラクションをキャプチャします。
 
 <style>
 #custom-data td {
@@ -665,10 +665,7 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 
 #### ステップ6.1: `braze.external_id` メタフィールドを作成する {#step-61-create-the-brazeexternal_id-metafield}
 
-1. Shopifyの管理パネルで、**設定** > **メタフィールド**に移動します。
-2. **顧客** > **定義を追加**を選択します。
-3. **名前空間とキー**に `braze.external_id` と入力します。
-4. **タイプ**で**IDタイプ**を選択します。
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 メタフィールドが作成されたら、顧客に対して値を入力します。次のアプローチをお勧めします。
 
@@ -699,7 +696,7 @@ GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@exa
 ```
 
 
-##### 期待される応答 {#expected-response}
+##### 期待されるレスポンス {#expected-response}
 Brazeは、external IDのJSONを返す `200` ステータスコードを期待します。
 ```json
 {
@@ -714,9 +711,7 @@ Brazeは、external IDのJSONを返す `200` ステータスコードを期待�
 ##### 失敗時の動作とマージ {#failure-behavior-and-merging}
 `200` 以外のステータスコードは失敗と見なされます。
 
-- **マージへの影響:** エンドポイントが失敗した場合（`200` 以外を返す、またはタイムアウトした場合）、Brazeはexternal IDを取得できません。そのため、ShopifyユーザーとBrazeユーザープロファイル間のマージは、その時点では行われません。
-- **再試行ロジック:** Brazeは標準的な即時ネットワーク再試行を試みますが、失敗が続く場合、マージは次の該当イベントまで延期されます（たとえば、次回ユーザーがプロファイルを更新するか、チェックアウトを完了したとき）。
-- **サポート性:** タイムリーなユーザーマージに対応するには、エンドポイントの高可用性を確保し、オプションの `email_address` フィールドを適切に処理するようにしてください。
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 #### ステップ6.3: external IDを入力する {#step-63-input-your-external-id}
 
@@ -724,9 +719,7 @@ Brazeは、external IDのJSONを返す `200` ステータスコードを期待�
 
 ##### 考慮事項 {#considerations}
 
-- Brazeがエンドポイントにリクエストを送信したときにexternal IDが生成されていない場合、`changeUser` 関数が呼び出されると、統合はデフォルトでShopify顧客IDを使用します。このステップは、匿名ユーザープロファイルと識別済みユーザープロファイルをマージするために重要です。そのため、一時的にワークスペース内にさまざまなタイプのexternal IDが存在する場合があります。
-- external IDが `braze.external_id` メタフィールドで使用可能な場合、統合はこのexternal IDを優先して割り当てます。
-    - 以前にShopify顧客IDがBraze external IDとして設定されていた場合は、`braze.external_id` メタフィールドの値に置き換えられます。
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 #### ステップ6.4: ShopifyからメールやSMSのオプトインを収集する（オプション） {#step-64-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -736,11 +729,7 @@ Shopifyからメールまたは SMSマーケティングのオプトインを収
 
 ![メールまたはSMSマーケティングのオプトインを収集するオプションがある「サブスクライバーの収集」セクション。]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-[Shopify概要]({{site.baseurl}}/shopify_overview)で説明されているように、サードパーティ製のキャプチャフォームを使用する場合は、開発者がBraze SDKコードを統合する必要があります。これにより、フォーム送信からメールアドレスとグローバルメール購読ステータスをキャプチャできます。具体的には、`theme.liquid` ファイルに以下のメソッドを実装してテストする必要があります。<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): ユーザープロファイルにメールアドレスを設定します
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): グローバルメール購読ステータスを更新します
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ### ステップ7: 商品を同期する（オプション） {#step-7-sync-products-optional}
 
@@ -758,7 +747,7 @@ Shopify直接統合を使用してIn-App Messages、Content Cards、およびフ
 
 ### ステップ9: 設定を完了する {#step-9-finish-setup}
 
-すべてのステップを終えたら、**Finish Setup**を選択してパートナーページに戻ります。次に、表示されるバナーの指示に従って、Shopify管理ページでBrazeアプリの埋め込みを有効にします。
+すべてのステップを終えたら、**Finish Setup** を選択してパートナーページに戻ります。次に、表示されるバナーの指示に従って、Shopify管理ページでBrazeアプリの埋め込みを有効にします。
 
 ![統合の設定を完了するために、ShopifyでBrazeアプリの埋め込みを有効にするよう促すバナー。]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 

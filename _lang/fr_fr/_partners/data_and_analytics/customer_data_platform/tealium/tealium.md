@@ -42,7 +42,7 @@ Pour en savoir plus sur les avantages et les inconvénients de chaque méthode, 
 {% endtabs %}
 
 {% alert important %}
-Tealium propose des actions de connecteur par lots et non par lots. Le connecteur non par lots doit être utilisé lorsque les requêtes en temps réel sont importantes pour le cas d'usage et qu'il n'y a pas de préoccupation quant au respect des spécifications de limitation du débit de l'API Braze. Contactez le service d'[assistance]({{site.baseurl}}/braze_support) de Braze ou votre gestionnaire du succès des clients si vous avez des questions.<br><br>
+Tealium propose des actions de connecteur par lots et non par lots. Le connecteur non par lots doit être utilisé lorsque les requêtes en temps réel sont importantes pour le cas d'usage et qu'il n'y a pas de préoccupation quant au respect des spécifications de limitation du débit de l'API Braze. Contactez le service d'assistance de Braze ou votre gestionnaire du succès des clients si vous avez des questions.<br><br>
 
 Pour les connecteurs par lots, les requêtes sont mises en file d'attente jusqu'à ce que l'un des seuils suivants soit atteint :<br><br>
 - Nombre maximum de requêtes : 75

@@ -2675,7 +2675,7 @@ erDiagram
 
 {% endsdktab %}
 
-{% sdktab 웹훅 %}
+{% sdktab Webhook %}
 ## 관계 다이어그램
 
 ```mermaid
