@@ -17,8 +17,8 @@ Orchestration is the connection between Decisioning Studio and your customer eng
 
 Think of it this way:
 
-- **Decisioning Studio** decides *what* to send and *when* to send it
-- **Your CEP** handles *how* to send it
+- **Decisioning Studio** decides what to send and when to send it
+- **Your CEP** handles how to send it
 
 ## Choose your CEP
 
@@ -91,7 +91,7 @@ A base template is any message template that your decisioning agent might use. C
 
 - **How many templates?** Your agent can work with one template or multiple. If multiple, the agent can personalize which template each customer receives.
 - **What channels?** Email, push, SMS, or a combination. Each channel may require separate templates and campaigns.
-- **What dynamic elements?** Identify which parts of your message the agent personalizes (subject lines, CTAs, offers, timing, etc.). These become API trigger properties or dynamic placeholders.
+- **What dynamic elements?** Identify which parts of your message the agent personalizes (such as subject lines, CTAs, offers, timing). These become API trigger properties or dynamic placeholders.
 
 ### Re-eligibility settings
 
@@ -195,7 +195,7 @@ Resulting in the following message:
 Decisioning Studio supports native integration with Salesforce Marketing Cloud. Decisioning Studio triggers API events into a journey with data required to populate dynamic elements.
 
 {% alert important %}
-When configuring use cases, **API IDs must be entered in uppercase**. This includes journey IDs, campaign IDs, and any other identifiers. If API IDs are entered in lowercase but your SFMC data contains uppercase UUIDs, event filters will not match and reporting metrics will not populate correctly.
+For your configuration, API IDs must be entered in uppercase. This includes journey IDs, campaign IDs, and any other identifiers. If API IDs are entered in lowercase but your SFMC data contains uppercase UUIDs, the event filters do not match and reporting metrics do not populate correctly.
 {% endalert %}
 
 {% endtab %}

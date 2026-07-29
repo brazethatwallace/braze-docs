@@ -12,22 +12,23 @@ channel: email
 
 > Beim Erstellen Ihrer E-Mail-Campaign ist es wichtig zu beachten, wie Ihre E-Mail-Nachrichten bei Ihren verschiedenen Nutzer:innen und E-Mail-Anbietern (ESPs) ankommen.
 
-## Allgemein {#general}
+## Allgemeines {#general}
 
 Hier sind einige kurze Tipps, die Sie beim Erstellen Ihrer Inhalte beachten sollten:
 
 - Verwenden Sie beim Formatieren Ihrer E-Mail Inline-Stylesheets als CSS.
 - Um ein E-Mail-Template sowohl für die mobile als auch die Desktop-Version zu verwenden, halten Sie die Breite unter 500 Pixeln.
 - Bilder müssen unter 5&nbsp;MB groß sein. Wir empfehlen die Verwendung von PNG, JPEG oder GIF für maximale Kompatibilität. Vermeiden Sie SVG und WebP, da viele große E-Mail-Clients diese noch nicht unterstützen.
-- Legen Sie keine Höhen und Breiten für Bilder fest, da dies unnötigen Leerraum in einer degradierten E-Mail verursachen kann.
+- Legen Sie keine Höhen und Breiten für Bilder fest, da dies in einer degradierten E-Mail unnötigen Leerraum verursachen kann.
 - `div`-Tags sollten nicht verwendet werden, da die meisten E-Mail-Clients deren Verwendung nicht unterstützen. Verwenden Sie stattdessen verschachtelte Tabellen.
 - Vermeiden Sie die Verwendung von JavaScript, da es mit keinem ESP funktioniert.
+- Vermeiden Sie `position: absolute` und `position: relative` in CSS bei E-Mail-Templates. Die meisten E-Mail-Clients unterstützen CSS-Positionierung nicht, was zu Layout-Abweichungen zwischen der Braze-Vorschau und zugestellten E-Mails führt. Verwenden Sie tabellenbasierte Layouts, um geschichtete oder überlappende Effekte zu erzielen.
 - Braze verbessert die Ladezeiten durch die Verwendung eines globalen CDN zum Hosten aller E-Mail-Bilder.
-- Auf Mobilgeräten sind Bildspalten schmal (~100 px pro Spalte), sodass Zeilen mit mehreren Bildern trotzdem passen (zum Beispiel vier Bilder ≈ vier nutzbare Spalten).
+- Auf Mobilgeräten sind Bildspalten schmal (~100 px pro Spalte), sodass Zeilen mit mehreren Bildern dennoch passen (zum Beispiel vier Bilder ≈ vier nutzbare Spalten).
 
 ## Alternativtext {#alternative-text}
 
-Da Spamfilter sowohl auf eine HTML- als auch auf eine Nur-Text-Version einer Nachricht achten, ist die Verwendung von Nur-Text-Alternativen eine hervorragende Möglichkeit, Ihren Spam-Score zu senken. Darüber hinaus kann Alternativtext `(alt="")` dazu dienen, Bilder im E-Mail-Text zu ergänzen und in manchen Fällen zu ersetzen, die möglicherweise vom E-Mail-Anbieter der Nutzer:innen herausgefiltert wurden. Screenreader lesen den Alternativtext vor, um Bilder zu erklären. Dies ist also eine Gelegenheit, in einfacher Sprache wichtige Informationen über ein Bild bereitzustellen.
+Da Spam-Filter sowohl nach einer HTML- als auch nach einer Nur-Text-Version einer Nachricht suchen, ist die Verwendung von Nur-Text-Alternativen eine hervorragende Möglichkeit, Ihren Spam-Score zu senken. Darüber hinaus kann Alternativtext `(alt="")` dazu dienen, Bilder im E-Mail-Text zu ergänzen und in manchen Fällen zu ersetzen, die möglicherweise vom E-Mail-Anbieter der Nutzer:innen herausgefiltert wurden. Screenreader lesen den Alternativtext vor, um Bilder zu erklären – dies ist also eine Gelegenheit, in einfacher Sprache wichtige Informationen über ein Bild bereitzustellen.
 
 {% alert note %}
 Wenn Ihr Alternativtext Anführungszeichen enthält, verwenden Sie einfache Anführungszeichen (`'`) anstelle von doppelten Anführungszeichen (`"`). Doppelte Anführungszeichen können dazu führen, dass das HTML-Attribut vorzeitig geschlossen wird und der Text abgeschnitten wird. Zum Beispiel funktioniert `alt="Product 'Premium' Edition"` korrekt, aber `alt="Product "Premium" Edition"` wird abgeschnitten.
@@ -43,11 +44,11 @@ Die E-Mail-Validierung erfolgt, wenn die E-Mail-Adresse einer Nutzer:in aktualis
 
 E-Mail-Adressen, die über die Braze-Server angesprochen werden, müssen gemäß den Standards von [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822) validiert werden. Braze akzeptiert bestimmte Zeichen nicht und erkennt sie als ungültig. Wenn eine E-Mail einen Bounce verursacht, markiert Braze die E-Mail als ungültig, und der Abo-Status wird nicht geändert.
 
-Informationen zu unzulässigen Zeichen und E-Mail-Validierungsregeln finden Sie unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
+Informationen zu unzulässigen Zeichen und Regeln zur E-Mail-Validierung finden Sie unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
 
 ## Absender- und Antwort-E-Mail-Adressen {#from-and-reply-to-addresses}
 
-Achten Sie beim Festlegen Ihrer Absenderadressen darauf, dass die Domain Ihrer Absender-E-Mail mit Ihrer Versanddomain übereinstimmt (z. B. `marketing.yourdomain.com`). Andernfalls kann es zu einer Fehlausrichtung von SPF und DKIM kommen. Alle Antwort-E-Mail-Adressen können auf Ihre Root-Domain gesetzt werden.
+Wenn Sie Ihre Absenderadressen festlegen, stellen Sie sicher, dass Ihre Absender-E-Mail-Domain mit Ihrer Versanddomain übereinstimmt (z. B. `marketing.yourdomain.com`). Andernfalls kann es zu einer Fehlausrichtung von SPF und DKIM kommen. Alle Antwort-E-Mail-Adressen können auf Ihre Root-Domain gesetzt werden.
 
 {% alert note %}
 Unicode-Kodierung wird in Absenderadressen nicht unterstützt.
@@ -80,14 +81,14 @@ UTM-Parameter kennzeichnen URLs für Analytics. Sie können sie mit Liquid und a
 
 - Verwenden Sie nur ein Fragezeichen `?` in der endgültigen URL (zusätzliche `?`-Zeichen können Anfragen unterbrechen).
 - Vermeiden Sie Leerzeichen und Sonderzeichen in Werten (verwenden Sie `_` oder `-`).
-- Stellen Sie sicher, dass Ihr Analytics-Tool UTMs verarbeitet. Entfernen Sie nachgestellte Leerzeichen in Liquid-`capture`-Blöcken. UTMs unterscheiden zwischen Groß- und Kleinschreibung.
+- Stellen Sie sicher, dass Ihr Analytics-Tool UTMs verarbeitet. Entfernen Sie nachgestellte Leerzeichen in Liquid-`capture`-Blöcken. UTMs sind case-sensitive.
 
 ### HTML-Details prüfen {#check-html-details}
 
 Beachten Sie, dass einige HTML-Tags und -Attribute nicht zulässig sind, da sie potenziell Schadcode im Browser ausführen könnten.
 
 Sehen Sie sich die folgenden Listen für HTML-Tags und -Attribute an, die in Ihren E-Mails nicht zulässig sind:
-{% details Erweitern für nicht zulässige HTML-Tags %}
+{% details Für nicht zulässige HTML-Tags aufklappen %}
 - `<!doctype>`
 - `<applet>`
 - `<bgsound>`
@@ -105,7 +106,7 @@ Sehen Sie sich die folgenden Listen für HTML-Tags und -Attribute an, die in Ihr
 - `<svg>`
 {% enddetails %}
 
-{% details Erweitern für nicht zulässige HTML-Attribute %}
+{% details Für nicht zulässige HTML-Attribute aufklappen %}
 - `<animationend>`
 - `<animationiteration>`
 - `<animationstart>`

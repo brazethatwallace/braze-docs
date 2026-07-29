@@ -32,13 +32,15 @@ guide_featured_list:
 ---
 
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' subject='endpoints' %}
+
 ## Como exportar uma lista de usuários com acesso ao dashboard {#how-to-export-a-list-of-users-with-dashboard-access}
 
 Use este fluxo de trabalho para auditar os usuários que têm acesso ao dashboard da Braze.
 
-1. Baixe o relatório de eventos de segurança em **Configurações** > **Configurações de administrador** > **Configurações de segurança** > **Download de eventos de segurança**.
+1. Baixe o relatório de eventos de segurança em **Configurações** > **Configuração de administrador** > **Configuração de segurança** > **Descarga de evento de segurança**.
 2. Extraia os e-mails dos usuários do relatório.
 3. Para cada e-mail, use [GET: Pesquisar conta de usuário existente do dashboard por e-mail]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user) para recuperar os detalhes do usuário.
-4. Se necessário, use o `id` do recurso retornado com [GET: Procurar uma conta de usuário de dashboard existente por ID de recurso]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information) para obter detalhes adicionais do usuário.
+4. Se necessário, use o `id` do recurso retornado com [GET: Procurar uma conta de usuário de dashboard existente]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information) para obter detalhes adicionais do usuário.
 
-Para ver a lista completa de endpoints SCIM, consulte [Endpoints SCIM]({{site.baseurl}}/api/endpoints/scim). Para saber mais sobre a origem do relatório, consulte [Baixando um relatório de eventos de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report).
+Para a lista completa de endpoints SCIM, consulte [Endpoints SCIM]({{site.baseurl}}/api/endpoints/scim). Para saber mais sobre a origem do relatório, consulte [Baixando um relatório de eventos de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report).

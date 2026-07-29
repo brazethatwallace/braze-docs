@@ -12,16 +12,16 @@ channel:
 
 > Cet article explique comment configurer le [canal de communication KakaoTalk]({{site.baseurl}}/kakaotalk) dans Braze, notamment comment configurer les utilisateurs, réconcilier les ID utilisateur et créer des utilisateurs test KakaoTalk.
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
 | Condition | Description |
 | --- | --- |
-| Compte auprès d'un partenaire KakaoTalk pris en charge | Un compte auprès d'un partenaire KakaoTalk pris en charge, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) ou Infobip, est requis pour utiliser le canal de communication KakaoTalk. |
+| Compte auprès d'un partenaire KakaoTalk pris en charge | Un compte auprès d'un partenaire KakaoTalk pris en charge, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) ou [Infobip](https://marketplace.braze.com/partners/infobip), est requis pour utiliser le canal de communication KakaoTalk. |
 | Canal Business KakaoTalk | Votre compte KakaoTalk doit être un canal Business KakaoTalk pour envoyer des messages KakaoTalk via Braze. Lorsque vous créez un compte, son statut par défaut est basique. Pour faire de votre compte un canal Business, vous devrez vérifier votre entreprise et fournir la documentation pertinente. |
 | Clé d'expéditeur KakaoTalk | Une clé d'expéditeur KakaoTalk valide. |
 | Numéro de téléphone de contact | Un numéro de téléphone de contact pour l'administrateur de votre canal KakaoTalk. |
-| IP Braze ajoutées à la liste d'autorisation du cluster | L'enregistrement de la liste d'autorisation des IP est requis pour tous les clients. Enregistrez les adresses IP Braze de votre cluster avant d'intégrer KakaoTalk dans Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+| IP du cluster Braze ajoutées à la liste d'autorisation | L'enregistrement dans la liste d'autorisation des IP est requis pour tous les clients. Enregistrez les adresses IP Braze de votre cluster avant d'intégrer KakaoTalk dans Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 ### Enregistrer les adresses IP Braze {#register-braze-ip-addresses}
 
@@ -31,29 +31,29 @@ Enregistrez les adresses IP Braze de votre cluster dans votre tableau de bord Co
 2. Sélectionnez **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
 3. Ajoutez les adresses IP de votre cluster Braze. Pour la liste complète des IP par cluster, consultez [Liste d'autorisation des IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 
-![Tableau de bord Comm.One montrant où ajouter des adresses IP.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
+![Tableau de bord Comm.One montrant où ajouter les adresses IP.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
 ### Types de comptes KakaoTalk {#types-of-kakaotalk-accounts}
 
 | Type de compte | Description |
 | --- | --- |
 | Canal basique | Un canal KakaoTalk standard que toute organisation peut configurer. Il permet l'envoi de messages diffusés et le chat 1:1 via KakaoTalk. |
-| [Canal Business](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Un canal KakaoTalk amélioré et vérifié pour les entreprises, qui nécessite un processus de candidature et de vérification. Il offre des fonctionnalités avancées, telles que {::nomarkdown}<ul><li>Badge vérifié</li><li>Apparition en tant que canal recommandé</li><li>Prise en charge de la messagerie professionnelle</li></ul>{:/} |
+| [Canal Business](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Un canal KakaoTalk vérifié et amélioré qui nécessite un processus de candidature et de vérification. Il offre des fonctionnalités avancées, telles que {::nomarkdown}<ul><li>Badge vérifié</li><li>Apparition en tant que canal recommandé</li><li>Prise en charge de la messagerie professionnelle</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Types de comptes KakaoTalk" }
 
-#### Candidater pour un canal Business {#apply-for-a-business-channel}
+#### Demander un canal Business {#apply-for-a-business-channel}
 
-Avant de commencer la candidature, rassemblez la documentation professionnelle suivante :
-- Korean Business Registration Certificate
-- ID of the Business Representative
-- Employment Certificate
-- Industry-specific Licenses
+Avant de commencer la candidature, rassemblez les documents professionnels suivants :
+- Certificat d'enregistrement d'entreprise coréen
+- Pièce d'identité du représentant de l'entreprise
+- Certificat d'emploi
+- Licences spécifiques au secteur d'activité
 
 {% alert important %}
 Les informations de votre canal KakaoTalk (telles que le nom du canal, l'image de profil et autres) doivent correspondre exactement aux informations figurant sur vos documents officiels soumis.
 {% endalert %}
 
-Après avoir rassemblé votre documentation, suivez ces étapes :
+Après avoir rassemblé vos documents, suivez ces étapes :
 
 1. Connectez-vous au [Centre d'administration des canaux KakaoTalk](https://center-pf.kakao.com/).
 2. Sélectionnez le canal KakaoTalk existant que vous souhaitez mettre à niveau.
@@ -79,8 +79,8 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 | **Comm.One Login ID (로그인 아이디)** | Sélectionnez votre profil. |
 | **Sender Key (발신프로필 키)** | Accédez à **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Channel name (카카오톡 채널 프로필명)** | Dans votre tableau de bord Comm.One, accédez à **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
-| **Sender number (연락처)** | {::nomarkdown}<ol><li>Accédez à <b>Account Management (계정 관리)</b>, sélectionnez l'icône de menu, puis sélectionnez <b>View Details (자세히보기)</b>.</li><li>Accédez à <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ol>{:/} |
-| **Credential (ID) et Password (비밀번호)** | Accédez au même emplacement que pour le **Sender number (사업자 등록번호)**, puis accédez à **API** > **Brand Message (브랜드 메시지)**. |
+| **Sender number (연락처)** | {::nomarkdown}<ol><li>Accédez à <b>Account Management (계정 관리)</b>, sélectionnez l'icône de menu, puis sélectionnez <b>View Details (자세히보기)</b>.</li><li>Accédez à <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
+| **Credential (ID) & Password (비밀번호)** | Accédez au même emplacement que pour le **Sender number (사업자 등록번호)**, puis accédez à **API** > **Brand Message (브랜드 메시지)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
@@ -94,10 +94,10 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 ![Tableau de bord Comm.One affichant une clé d'expéditeur masquée.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espace de travail à la fois. Pour utiliser la même clé d'expéditeur dans un autre espace de travail, vous devez d'abord archiver le groupe d'abonnement KakaoTalk dans l'espace de travail d'origine, puis contacter l'[assistance Braze]({{site.baseurl}}/braze_support) pour supprimer l'intégration. Une fois l'intégration supprimée par Braze, vous pouvez configurer l'intégration dans le nouvel espace de travail.
+Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espace de travail à la fois. Pour utiliser la même clé d'expéditeur dans un autre espace de travail, vous devez d'abord archiver le groupe d'abonnement KakaoTalk dans l'espace de travail d'origine, puis contacter le [support Braze]({{site.baseurl}}/braze_support) pour supprimer l'intégration. Une fois que Braze a supprimé l'intégration, vous pouvez configurer l'intégration dans le nouvel espace de travail.
 {% endalert %}
 
-![Identifiants pour un canal KakaoTalk Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
+![Identifiants pour un canal Braze KakaoTalk.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
 
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
@@ -105,7 +105,7 @@ Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espac
 ![Tableau de bord Comm.One affichant un nom de canal masqué.]({% image_buster /assets/img/kakaotalk/channel_profile_name.png %})
 
 {% endtab %}
-{% tab Credential (ID) et Password (비밀번호) %}
+{% tab Credential (ID) & Password (비밀번호) %}
 
 ![Tableau de bord Comm.One affichant un identifiant et un mot de passe masqués.]({% image_buster /assets/img/kakaotalk/id_and_password.png %})
 

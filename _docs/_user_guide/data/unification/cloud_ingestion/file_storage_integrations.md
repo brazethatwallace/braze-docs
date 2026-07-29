@@ -242,7 +242,7 @@ The integration requires the following resources:
 | Pub/Sub topic | A topic is the named resource that receives new-file notifications from your Cloud Storage bucket. |
 | Pub/Sub subscription | A subscription attaches to a topic and delivers its messages. Braze consumes new-file notifications from a pull subscription. |
 | Service account | A service account is a non-human identity that Braze uses to access your bucket and subscription. You upload its JSON key to Braze. |
-| IAM role | An Identity and Access Management (IAM) role is a collection of permissions that you grant to the service account on your bucket and subscription. |
+| IAM role | An Identity and Access Management (IAM) role is a collection of permissions that you assign to the service account on your bucket and subscription. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="GCP definitions" }
 
 ## Setting up Cloud Data Ingestion in Google Cloud
@@ -284,13 +284,13 @@ Don't configure a dead-letter queue on this subscription. Braze doesn't support 
 Creating a Cloud Storage to Pub/Sub notification isn't available in the Google Cloud console. You must use gcloud (shown here), Terraform, or the JSON API. To learn more, see [Configure Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/reporting-changes#enabling) in the Google Cloud documentation.
 {% endalert %}
 
-First, grant the Cloud Storage service agent permission to publish to the topic, then create the notification for `OBJECT_FINALIZE`. The `OBJECT_FINALIZE` event fires whenever a new object is created or finalized in the bucket.
+First, assign the Cloud Storage service agent permission to publish to the topic, then create the notification for `OBJECT_FINALIZE`. The `OBJECT_FINALIZE` event fires whenever a new object is created or finalized in the bucket.
 
 ```shell
 # Get the Cloud Storage service agent for your project
 gcloud storage service-agent --project=YOUR-PROJECT-ID
 
-# Grant it Pub/Sub Publisher on the topic
+# Assign it Pub/Sub Publisher on the topic
 gcloud pubsub topics add-iam-policy-binding YOUR-TOPIC \
   --project=YOUR-PROJECT-ID \
   --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -326,9 +326,9 @@ gcloud iam service-accounts create braze-cdi-gcs \
   --display-name="Braze CDI GCS"
 ```
 
-### Step 5: Grant permissions {#step-5-grant-permissions}
+### Step 5: Assign permissions {#step-5-assign-permissions}
 
-The connector needs exactly these permissions: `storage.buckets.get`, `storage.objects.get`, and `storage.objects.list` on the bucket, and `pubsub.subscriptions.consume` on the subscription. You can grant them with either a custom role or predefined roles.
+The connector needs exactly these permissions: `storage.buckets.get`, `storage.objects.get`, and `storage.objects.list` on the bucket, and `pubsub.subscriptions.consume` on the subscription. You can assign them with either a custom role or predefined roles.
 
 **Custom role:** Create a custom role with exactly those permissions and bind it to the bucket and the subscription:
 
@@ -348,7 +348,7 @@ gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
   --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
 ```
 
-**Predefined roles:** Grant `roles/storage.objectViewer` and `roles/storage.legacyBucketReader` on the bucket, and `roles/pubsub.subscriber` on the subscription. The `objectViewer` role provides `storage.objects.get` and `storage.objects.list`, and `legacyBucketReader` provides `storage.buckets.get`:
+**Predefined roles:** Assign `roles/storage.objectViewer` and `roles/storage.legacyBucketReader` on the bucket, and `roles/pubsub.subscriber` on the subscription. The `objectViewer` role provides `storage.objects.get` and `storage.objects.list`, and `legacyBucketReader` provides `storage.buckets.get`:
 
 ```shell
 gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
@@ -419,7 +419,7 @@ For each folder you want to sync in a shared bucket:
     # One topic per folder
     gcloud pubsub topics create YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID
 
-    # Grant the Cloud Storage service agent publisher on the topic
+    # Assign the Cloud Storage service agent publisher on the topic
     gcloud pubsub topics add-iam-policy-binding YOUR-ATTRIBUTES-TOPIC \
       --project=YOUR-PROJECT-ID \
       --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -435,7 +435,7 @@ For each folder you want to sync in a shared bucket:
       --topic=YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
     ```
 
-3. Grant the Braze service account consume permission on that subscription, as in [Step 5](#step-5-grant-permissions):
+3. Assign the Braze service account consume permission on that subscription, as in [Step 5](#step-5-assign-permissions):
 
     ```shell
     gcloud pubsub subscriptions add-iam-policy-binding YOUR-ATTRIBUTES-SUBSCRIPTION \
@@ -444,7 +444,7 @@ For each folder you want to sync in a shared bucket:
       --role="roles/pubsub.subscriber"
     ```
 
-    If you created the custom role in [Step 5](#step-5-grant-permissions), use `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` instead.
+    If you created the custom role in [Step 5](#step-5-assign-permissions), use `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` instead.
 4. When you create the sync in Braze, enter this folder's new **Pub/Sub subscription ID** and **Folder path** so the sync ingests only that folder's files.
 
 
@@ -653,7 +653,7 @@ If files are not ingested, verify the following:
 
 - The bucket notification exists. List the notifications on the bucket with `gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME`.
 - The Cloud Storage service agent has `roles/pubsub.publisher` on the topic.
-- The Braze service account has consume permission on the subscription (`pubsub.subscriptions.consume`, granted through either the custom role or `roles/pubsub.subscriber`).
+- The Braze service account has consume permission on the subscription (`pubsub.subscriptions.consume`, assigned through either the custom role or `roles/pubsub.subscriber`).
 - The subscription doesn't have a dead-letter queue configured. Braze doesn't support dead-letter queues for Cloud Data Ingestion subscriptions.
 
 For more information, see [Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/pubsub-notifications) in the Google Cloud documentation.

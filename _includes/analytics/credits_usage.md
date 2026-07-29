@@ -266,6 +266,7 @@ The data shown in the **Credits Usage** dashboard is at the contract level and i
 {% endalert %}
 
 - The underlying data is provided in a daily cadence, with the data tables refreshed at 3 am, 9 am, 12 pm, and 6 pm EST. The **Credits Usage** dashboard may take longer than 24 hours to update.
+- When a new contract period starts, updated contract and message credit information can take up to 24 hours to appear. Until that data loads, the dashboard may show only the **Credit Ratios** tab instead of the full overview and channel usage details.
 - Braze follows standard rounding methodology: numbers are rounded up to the nearest tenth.
 
 ### Date range selection

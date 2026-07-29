@@ -57,6 +57,7 @@ Any MCP client that supports remote MCP servers with OAuth can work. Braze has v
 - Cursor
 - OpenAI Codex
 - Claude Code
+- Visual Studio Code
 
 ### What Braze data can my MCP client access?
 

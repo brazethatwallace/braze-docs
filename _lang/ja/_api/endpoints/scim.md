@@ -32,6 +32,8 @@ guide_featured_list:
 ---
 
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' subject='endpoints' %}
+
 ## ダッシュボードにアクセスできるユーザーの一覧をエクスポートする方法 {#how-to-export-a-list-of-users-with-dashboard-access}
 
 このワークフローを使用して、Brazeダッシュボードにアクセスできるユーザーを監査します。
@@ -39,6 +41,6 @@ guide_featured_list:
 1. **設定** > **管理者設定** > **セキュリティ設定** > **セキュリティイベントのダウンロード**からセキュリティイベントレポートをダウンロードします。
 2. レポートからユーザーのメールアドレスを抽出します。
 3. 各メールアドレスについて、[GET: 既存のダッシュボードユーザーアカウントをメールで検索]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user)を使用してユーザーの詳細を取得します。
-4. 必要に応じて、返されたリソース`id`を[GET: 既存のダッシュボードユーザーアカウントの検索]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information)で使用して、追加のユーザー詳細を取得します。
+4. 必要に応じて、返されたリソース`id`を使用して[GET: 既存のダッシュボードユーザーアカウントの検索]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information)で追加のユーザー詳細を取得します。
 
 SCIMエンドポイントの完全な一覧については、[SCIMエンドポイント]({{site.baseurl}}/api/endpoints/scim)を参照してください。レポートソースの詳細については、[セキュリティイベントレポートのダウンロード]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report)を参照してください。
