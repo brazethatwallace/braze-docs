@@ -35,7 +35,7 @@ Cuando `send_to_existing_only` es `true`, Braze solo envía el mensaje a los usu
 
 Cuando `send_to_existing_only` es `false`, debes incluir un objeto `attributes` en el mismo destinatario. El indicador no reemplaza a `attributes`. Braze utiliza `attributes` para la creación o actualización del perfil previa al envío (por ejemplo, añadir campos de `email` o teléfono para la entrega de correo electrónico o SMS, o actualizar grupos de suscripción). Sin ese objeto, no obtienes el comportamiento combinado previsto para usuarios nuevos en [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) o [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
-Ese perfil aún debe cumplir con las reglas de audiencia y elegibilidad de canal del mensaje antes de que Braze lo envíe.
+Ese perfil aún debe cumplir las reglas de audiencia y elegibilidad de canal del mensaje antes de que Braze lo envíe.
 
 - [ID de Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 - [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)

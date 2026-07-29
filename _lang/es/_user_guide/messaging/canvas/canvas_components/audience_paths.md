@@ -17,7 +17,7 @@ Este componente de Canvas reemplaza la necesidad de crear pasos completos excesi
 
 ## Cómo funciona {#how-it-works}
 
-![Una Ruta de audiencia con dos grupos: usuarios comprometidos y el resto.]({% image_buster /assets/img/audience_path/audience_path.png %}){: style="float:right;max-width:45%;margin-left:15px;margin-top:15px;"}
+![Una ruta de audiencia con dos grupos: usuarios comprometidos y el resto.]({% image_buster /assets/img/audience_path/audience_path.png %}){: style="float:right;max-width:45%;margin-left:15px;margin-top:15px;"}
 
 Los usuarios avanzan por la primera rama cuyos criterios cumplan, así que coloca la ruta más importante primero. Esto reduce la ambigüedad sobre a dónde van los usuarios y qué mensajes reciben. Ten en cuenta que este orden no es [editable después del lanzamiento]({{site.baseurl}}/post-launch_edits).
 
@@ -32,25 +32,25 @@ Dentro de un solo paso de Rutas de audiencia, los usuarios se evalúan en orden 
 
 ### Cómo se evalúan los usuarios {#how-users-are-evaluated}
 
-![Canvas que muestra un retraso de 24 horas después de un paso de Mensaje, seguido de una Ruta de audiencia.]({% image_buster /assets/img/audience_path/audience_path5.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+![Canvas que muestra un retraso de 24 horas después de un paso de Mensaje, seguido de una ruta de audiencia.]({% image_buster /assets/img/audience_path/audience_path5.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
-Los usuarios se evalúan según filtros y pertenencia a segmentos **en el momento en que llegan al paso de Ruta de audiencia**, no cuando entraron al Canvas. Después de la evaluación, avanzan inmediatamente a la ruta correspondiente. Cuando un usuario es colocado en un grupo de audiencia, permanece en ese grupo incluso si su perfil de usuario cambia después.
+Los usuarios se evalúan según filtros y pertenencia a segmentos **en el momento en que llegan al paso de ruta de audiencia**, no cuando entraron al Canvas. Después de la evaluación, avanzan inmediatamente a la ruta correspondiente. Cuando un usuario es colocado en un grupo de audiencia, permanece en ese grupo incluso si su perfil de usuario cambia después.
 
 <div style="clear: both;"></div>
 
 {% alert important %}
-Las Rutas de audiencia evalúan según los atributos actuales del usuario, filtros y pertenencia a segmentos en el momento de la evaluación. No evalúan según el evento específico que desencadenó la entrada al Canvas. Para dirigir usuarios según una acción que realizan (como un evento personalizado), usa [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) en su lugar.
+Las Rutas de audiencia evalúan según los atributos actuales del usuario, filtros y pertenencia a segmentos en el momento de la evaluación. No evalúan según el evento específico que desencadenó la entrada al Canvas. Para dirigir usuarios según una acción que realizan (como un evento personalizado), usa [Rutas de Acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) en su lugar.
 {% endalert %}
 
 ### Dar tiempo para las evaluaciones de usuarios {#allowing-time-for-user-evaluations}
 
-Dado que la evaluación es inmediata, es importante agregar un retraso antes de la Ruta de audiencia si los criterios de la ruta dependen de una interacción del usuario con un paso anterior.
+Dado que la evaluación es inmediata, es importante agregar un retraso antes de la ruta de audiencia si los criterios de la ruta dependen de una interacción del usuario con un paso anterior.
 
-Por ejemplo, si se envía a los usuarios el Mensaje A y el siguiente paso es una Ruta de audiencia que evalúa si interactuaron con ese mensaje, todos los usuarios avanzarán al paso para aquellos que no han interactuado con ese mensaje. Esto se debe a que los usuarios avanzaron inmediatamente al paso de Ruta de audiencia sin tiempo para interactuar con el mensaje. En otras palabras, los usuarios se evalúan para una interacción con el mensaje casi inmediatamente después de que se envía el mensaje.
+Por ejemplo, si se envía a los usuarios el Mensaje A y el siguiente paso es una ruta de audiencia que evalúa si interactuaron con ese mensaje, todos los usuarios avanzarán al paso para aquellos que no han interactuado con ese mensaje. Esto se debe a que los usuarios avanzaron inmediatamente al paso de ruta de audiencia sin tiempo para interactuar con el mensaje. En otras palabras, los usuarios se evalúan para una interacción con el mensaje casi inmediatamente después de que se envía el mensaje.
 
-Para dar tiempo a los usuarios de interactuar con un mensaje enviado, agrega un retraso entre el paso de Mensaje y la Ruta de audiencia. Por ejemplo, un retraso de 24 horas les da a los usuarios 24 horas después del envío del mensaje para interactuar con el Mensaje A antes de la evaluación.
+Para dar tiempo a los usuarios de interactuar con un mensaje enviado, agrega un retraso entre el paso de Mensaje y la ruta de audiencia. Por ejemplo, un retraso de 24 horas les da a los usuarios 24 horas después del envío del mensaje para interactuar con el Mensaje A antes de la evaluación.
 
-## Crear una Ruta de audiencia {#creating-an-audience-path}
+## Crear una ruta de audiencia {#creating-an-audience-path}
 
 Para agregar un paso de Rutas de audiencia, haz lo siguiente:
 
@@ -61,15 +61,17 @@ El componente predeterminado de Rutas de audiencia contiene dos grupos de audien
 
 ### Definir grupos de audiencia {#defining-audience-groups}
 
-La siguiente captura de pantalla muestra el diseño de un paso de Rutas de audiencia expandido. Aquí puedes definir hasta ocho grupos de audiencia (uno preestablecido y siete personalizables). Para definir un grupo de audiencia, selecciona el nombre del grupo en el editor de Rutas de audiencia. Puedes renombrar tu grupo de audiencia, elegir los filtros y segmentos que aplican a tu grupo, y agregar o eliminar grupos.
+La siguiente captura de pantalla muestra el diseño de un paso de Rutas de audiencia expandido. Aquí puedes definir hasta ocho grupos de audiencia (uno preestablecido y siete personalizables). Para definir un grupo de audiencia, selecciona el nombre del grupo en el editor de Rutas de audiencia. Puedes renombrar tu grupo de audiencia, elegir los filtros y segmentos que aplican a tu grupo, y agregar o eliminar grupos. Por ejemplo, si quisieras dirigir mensajes de incorporación a un grupo de usuarios, podrías seleccionar filtros de reorientación, como "Ha hecho clic en correo electrónico" y "Ha hecho clic en mensaje dentro de la aplicación".
 
-Por ejemplo, si quisieras dirigir mensajes de incorporación a un grupo de usuarios, podrías seleccionar filtros de reorientación, como "Ha hecho clic en correo electrónico" y "Ha hecho clic en mensaje dentro de la aplicación".
-
-![Una Ruta de audiencia expandida con grupos para "Le encanta la cocina asiática", "Le encanta la cocina latina", "Le encanta la cocina europea" y "El resto".]({% image_buster /assets/img/audience_path/audience_path3.png %})
+![Una ruta de audiencia expandida con grupos para "Le encanta la cocina asiática", "Le encanta la cocina latina", "Le encanta la cocina europea" y "El resto".]({% image_buster /assets/img/audience_path/audience_path3.png %})
 
 Una vez completado el paso de Rutas de audiencia, cada grupo de audiencia tendrá una rama separada. Puedes continuar usando Rutas de audiencia para filtrar aún más tu audiencia, o continuar tu recorrido en Canvas con los pasos estándar de Canvas.
 
-![Dos Rutas de audiencia con diferentes grupos basados en la interacción.]({% image_buster /assets/img/audience_path/audience_path4.png %}){: style="max-width:50%"}
+![Dos Rutas de audiencia con diferentes grupos basados en la participación.]({% image_buster /assets/img/audience_path/audience_path4.png %}){: style="max-width:50%"}
+
+#### Usar filtros de comparación con variables de contexto {#using-comparison-filters-with-context-variables}
+
+Al dividir según una variable de contexto que contiene una fecha, consulta [Filtros de día del año y hora para variables de contexto de fecha]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#day-of-year-and-time-filters-for-date-context-variables) para elegir el tipo de comparación correcto.
 
 ### Probar grupos de audiencia {#testing-audience-groups}
 
@@ -83,9 +85,9 @@ El verdadero poder de las Rutas de audiencia radica en colocar las rutas que má
 
 Al colocar esos segmentos primero en la lista, puedes dirigirte a usuarios que caen en filtros y segmentos específicos mientras también te diriges a usuarios que podrían no cumplir esos criterios específicos, todo en un solo paso de Canvas.
 
-![Una Ruta de audiencia con grupos para "Le gustan los zapatos de Big Brand", "Le gusta Big Brand" y "El resto".]({% image_buster /assets/img/audience_path/audience_path2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
+![Una ruta de audiencia con grupos para "Le gustan los zapatos de Big Brand", "Le gusta Big Brand" y "El resto".]({% image_buster /assets/img/audience_path/audience_path2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
-Por ejemplo, supongamos que quieres enviar a un grupo de usuarios anuncios de nuevos productos. Empezarías colocando los filtros que corresponden a esos productos **primero** en la Ruta de audiencia. Si estuvieras creando una campaña de marketing para la empresa "Big Brand" y una nueva marca de comercio minorista acabara de lanzarse, podrías seleccionar filtros como "Le gustan los zapatos de Big Brand" o "Le gustan los bolsos de Big Brand", y enviar diferentes mensajes de correo electrónico según el grupo filtrado en el que caigan.
+Por ejemplo, supongamos que quieres enviar a un grupo de usuarios anuncios de nuevos productos. Empezarías colocando los filtros que corresponden a esos productos **primero** en la ruta de audiencia. Si estuvieras creando una campaña de marketing para la empresa "Big Brand" y una nueva marca de comercio minorista acabara de lanzarse, podrías seleccionar filtros como "Le gustan los zapatos de Big Brand" o "Le gustan los bolsos de Big Brand", y enviar diferentes mensajes de correo electrónico según el grupo filtrado en el que caigan.
 
 Cuando los usuarios entran en este componente de Rutas de audiencia, primero se evalúan para el Grupo de audiencia 1 "Le gustan los zapatos de Big Brand", la primera ruta en la lista. Si califican, continuarán al siguiente componente definido en tu Canvas. Si no "Les gustan los zapatos de Big Brand", entonces se evaluarán para el siguiente grupo de audiencia, Grupo de audiencia 2 "Le gustan los bolsos de Big Brand", y continuarán al siguiente paso si se cumplen los criterios. Por último, los usuarios que no caigan en los grupos anteriores caerán en el grupo "El resto" y también continuarán al siguiente paso de Canvas que definas para esa ruta.
 
@@ -97,7 +99,7 @@ Si tu Canvas usa un [límite de velocidad]({{site.baseurl}}/user_guide/messaging
 
 Un [número de contenedor aleatorio]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) es un atributo de usuario que se puede usar para crear segmentos uniformemente distribuidos de usuarios aleatorios. Braze usa el número de contenedor aleatorio para agrupar usuarios durante la fase de segmentación de la entrada al Canvas, y cada grupo se procesa por separado. Dependiendo de qué grupos terminen de procesarse primero, algunos usuarios pueden ser limitados en la entrada debido al límite de velocidad, lo que podría causar una distribución desigual de usuarios cuando llegan al paso de Rutas de audiencia.
 
-En este escenario, intenta usar [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) en su lugar.
+En este escenario, intenta usar [recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) en su lugar.
 
 ### Usar el filtro de canal inteligente con Rutas de audiencia {#using-intelligent-channel-filter-with-audience-paths}
 

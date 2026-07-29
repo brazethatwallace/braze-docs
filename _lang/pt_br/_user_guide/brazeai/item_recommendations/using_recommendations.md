@@ -15,7 +15,7 @@ Para um guia passo a passo, confira nosso curso do Braze Learning: [Elaborando e
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de usar recomendações no seu envio de mensagens, você precisará [criar e treinar um motor de recomendações]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations). O treinamento pode levar entre 10 minutos e 36 horas&#8212;você receberá um e-mail quando estiver concluído ou se ocorrer um erro.
+Antes de usar recomendações no seu envio de mensagens, você precisará [criar e treinar um mecanismo de recomendação]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations). O treinamento pode levar entre 10 minutos e 36 horas&#8212;você receberá um e-mail quando estiver concluído ou se ocorrer um erro.
 
 ## Usando recomendações no seu envio de mensagens {#using-recommendations-in-your-messaging}
 
@@ -25,13 +25,13 @@ Depois que sua recomendação terminar o treinamento, você pode personalizar su
 
 {% tabs local %}
 {% tab código pré-formatado %}
-![Modal "Adicionar personalização" com recomendação de item como o tipo de personalização.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
+![Modal "Adicionar personalização" com recomendação de itens como o tipo de personalização.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
-Você pode gerar Liquid na seção **Adicionar personalização** no seu Criador de mensagens:
+Você pode gerar Liquid na seção **Adicionar personalização** no seu criador de mensagem:
 
-1. Em qualquer Criador de mensagens que suporte personalização, selecione <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Adicionar personalização"></i> **Adicionar personalização** para abrir a janela de personalização.
-2. Em **Tipo de personalização**, selecione **Recomendação de item**.
-3. Em **Nome da recomendação de item**, selecione a recomendação que você acabou de criar.
+1. Em qualquer criador de mensagem que suporte personalização, selecione <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Adicionar personalização"></i> **Adicionar personalização** para abrir a janela de personalização.
+2. Em **Tipo de personalização**, selecione **Recomendação de itens**.
+3. Em **Nome da recomendação de itens**, selecione a recomendação que você acabou de criar.
 4. Em **Número de itens previstos**, digite quantos produtos principais você gostaria que fossem inseridos. Por exemplo, você pode exibir os três itens mais comprados.
 5. Em **Informações a serem exibidas**, selecione quais campos do catálogo devem ser incluídos para cada item. Os valores desses campos para cada item serão extraídos do catálogo associado a essa recomendação.
 6. Selecione o ícone **Copiar** e cole o Liquid onde for necessário na sua mensagem.
@@ -40,8 +40,8 @@ Você pode gerar Liquid na seção **Adicionar personalização** no seu Criador
 {% tab código personalizado %}
 Você pode escrever código Liquid personalizado referenciando o objeto `product_recommendation` de um catálogo. Ele contém todos os dados de recomendação do produto gerados dinamicamente para aquele catálogo, estruturados como um array de objetos, onde cada objeto representa um item recomendado.
 
-| Especificação | Informações |
-| ------------- | ----------- |
+| Especificação | Detalhes |
+| ------------- | -------- |
 | **Estrutura** | Cada item é acessado como `items[index]`, onde o índice começa em 0 (para o primeiro item) e incrementa para os itens subsequentes. |
 | **Campos do catálogo** | Cada item do array contém pares de chave-valor correspondentes a campos (colunas) no catálogo. Por exemplo, os campos comuns do catálogo para recomendações do produto incluem:<br>- `name` ou `title`<br>- `price`<br>- `image_url` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Adicione código Liquid" }
@@ -82,7 +82,7 @@ Para incluir vários itens, faça referência a cada item individualmente pelo s
 ```
 {% endraw %}
 
-As recomendações de IA retornam vários produtos como um array, onde `items[0]` é o primeiro item, `items[1]` é o segundo, e assim por diante. Se uma recomendação retornar apenas um item, tentar referenciar `items[1]` resultará em um campo vazio.
+As recomendações de IA retornam vários produtos como um array, onde `items[0]` é o primeiro item, `items[1]` é o segundo, e assim por diante. Se uma recomendação retornar apenas um item, tentar referenciar `items[1]` resultará em um campo em branco.
 {% endtab %}
 {% endtabs %}
 
@@ -112,7 +112,7 @@ Substitua o seguinte:
 | `image_url_field` | O nome do campo no seu catálogo que contém URLs de imagens. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Referencie uma imagem (opcional)" }
 
-Para incluir uma imagem de espaço reservado na sua pré-visualização e nos e-mails de teste, selecione **Escolher imagem** e escolha uma imagem da sua Biblioteca de mídia ou insira a URL de uma imagem do seu site de hospedagem.
+Para incluir uma imagem de espaço reservado na sua prévia e nos e-mails de teste, selecione **Escolher imagem** e escolha uma imagem da sua biblioteca de mídia ou insira a URL de uma imagem do seu site de hospedagem.
 {% endtab %}
 
 {% tab HTML %}

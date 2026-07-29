@@ -2,7 +2,7 @@
 nav_title: "Partage de données"
 article_title: Partage de données Snowflake
 page_order: 0
-description: "Cet article de référence présente l'intégration Snowflake Secure Data Sharing, qui vous permet d'accéder aux données d'engagement et de campagne de Braze directement dans votre instance Snowflake."
+description: "Cet article de référence présente l'intégration Snowflake Secure Data Sharing, qui vous permet d'accéder aux données d'engagement et de Campaign de Braze directement dans votre instance Snowflake."
 page_type: partner
 search_tag: Partner
 
@@ -24,7 +24,7 @@ Avec le partage de données, aucune donnée n'est réellement copiée ou transf�
 
 De plus, grâce aux fonctionnalités intégrées de rôles et d'autorisations de Snowflake, l'accès aux données partagées depuis Braze peut être contrôlé et régi à l'aide des contrôles d'accès déjà en place pour votre compte Snowflake et les données qu'il contient. L'accès peut être restreint et surveillé de la même manière que pour vos propres données.
 
-- **Réduisez le délai d'obtention des informations**<br>Dites adieu aux processus ETL qui prennent des semaines à mettre en place. Les architectures uniques de Braze et Snowflake rendent toutes les données d'engagement client et de campagne immédiatement accessibles et interrogeables dès leur arrivée dans le data lake. Aucune donnée n'est copiée ni déplacée, ce qui vous permet de proposer des expériences client basées uniquement sur les informations les plus pertinentes et les plus récentes.
+- **Réduisez le délai d'obtention des informations**<br>Dites adieu aux processus ETL qui prennent des semaines à mettre en place. Les architectures uniques de Braze et Snowflake rendent toutes les données d'engagement client et de Campaign immédiatement accessibles et interrogeables dès leur arrivée dans le data lake. Aucune donnée n'est copiée ni déplacée, ce qui vous permet de proposer des expériences client basées uniquement sur les informations les plus pertinentes et les plus récentes.
 - **Éliminez les silos de données**<br>Créez une vue globale de vos clients à travers les canaux et les plateformes. Le partage de données facilite plus que jamais la jonction de vos données d'engagement client Braze avec toutes vos autres données Snowflake, offrant des informations plus riches à partir d'une source de vérité unique et fiable.
 - **Évaluez vos performances d'engagement**<br>Optimisez vos stratégies d'engagement client avec Braze Benchmarks. Cet outil interactif, propulsé par Braze et Snowflake, vous permet de comparer les données d'engagement de votre marque à des références par canal, secteur d'activité et plateforme d'appareil.
 
@@ -40,7 +40,7 @@ Pour en savoir plus sur le partage de données Snowflake, consultez l'[Introduct
 
 ## Configuration du Secure Data Sharing {#setting-up-secure-data-sharing}
 
-Chez Snowflake, le partage de données s'effectue entre un [fournisseur de données](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers) et un [consommateur de données](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers). Dans ce contexte, votre compte Braze est le fournisseur de données, car il crée et envoie le datashare&#8212;tandis que votre compte Snowflake est le consommateur de données, car il utilise le datashare pour créer une base de données. Pour plus de détails, consultez [Snowflake : Consommer des données partagées](https://docs.snowflake.com/en/user-guide/data-share-consumers).
+Chez Snowflake, le partage de données s'effectue entre un [fournisseur de données](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers) et un [consommateur de données](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers). Dans ce contexte, votre compte Braze est le fournisseur de données, car il crée et envoie le datashare&#8212;tandis que votre compte Snowflake est le consommateur de données, car il utilise le datashare pour créer une base de données. Pour plus de détails, consultez [Snowflake : consommer des données partagées](https://docs.snowflake.com/en/user-guide/data-share-consumers).
 
 ### Étape 1 : Envoyer le datashare depuis Braze {#step-1-send-the-datashare-from-braze}
 

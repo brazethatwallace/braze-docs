@@ -37,6 +37,21 @@ Pour les messages in-app, cette page définit les impressions uniques en utilisa
 Les *Impressions totales* peuvent dépasser les *Impressions uniques* lorsqu'un utilisateur consulte le message plusieurs fois au cours du même jour calendaire (voir les définitions des indicateurs dans le tableau précédent). Pour identifier les utilisateurs présentant un nombre d'impressions anormalement élevé, créez un segment avec le filtre **Nombre d'appareils** défini sur **supérieur à** `1` et le filtre **A reçu un message de la campagne** pour la campagne concernée.
 {% endalert %}
 
+### Suivi des clics {#click-tracking}
+
+Braze enregistre une impression lorsqu'un message in-app devient visible à l'écran. Pour les messages in-app créés avec l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), le tableau suivant décrit ce qui est comptabilisé comme un clic.
+
+| Action de l'utilisateur | Clic enregistré |
+|-------------|--------------|
+| L'utilisateur clique sur le corps du message lorsque le message ne comporte pas de boutons | Oui (clic sur le corps) |
+| L'utilisateur clique sur un bouton | Oui (clic sur le bouton) |
+| L'utilisateur clique sur le bouton de fermeture (X) | Non |
+| L'utilisateur appuie ou clique en dehors du message pour le fermer (lorsque cette option est activée) | Non |
+| L'utilisateur ferme l'application pendant que le message est affiché | Non |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suivi des clics" }
+
+Pour les définitions des clics sur le corps et des clics sur les boutons, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
+
 Pour les déséquilibres d'impressions entre le groupe de contrôle et la variante dans les tests A/B, consultez [Écarts entre le groupe de contrôle et la variante]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## Comment les conversions s'incrémentent-elles avec la rééligibilité ? {#how-do-conversions-increment-with-re-eligibility}

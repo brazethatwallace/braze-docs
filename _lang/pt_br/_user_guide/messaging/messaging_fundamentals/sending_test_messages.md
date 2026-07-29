@@ -156,6 +156,8 @@ A partir daí, você pode revisar as configurações e o conteúdo da mensagem p
 
 ![Testar e-mail]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
+Se sua campanha de e-mail contém um link da [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center), os envios de teste não geram um link funcional nem permitem salvar preferências. Para testar a Central de Preferências, lance a mensagem para um usuário de teste ou um pequeno segmento interno. Para mais detalhes, consulte [Testando centrais de preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
+
 Se sua campanha de e-mail contém uma imagem grande e não está sendo exibida conforme o esperado no Outlook, considere reduzir as dimensões reais do arquivo da imagem com uma ferramenta de edição ou redimensionamento de imagem, em vez de apenas redimensioná-la com CSS ou HTML.
 
 {% endtab %}
@@ -384,7 +386,7 @@ Você pode testar propriedades de eventos personalizados inserindo valores manua
 
 Existem algumas situações em que as mensagens de teste não se comportam da mesma forma que Campaigns ou Canvas enviados para usuários reais. Nesses casos, considere lançar a Campaign ou o Canvas para um conjunto limitado de usuários de teste para validar esse comportamento.
 
-- Visualizar a Central de Preferências da Braze a partir de mensagens de teste fará com que o botão **Save Preferences** fique esmaecido.
+- Visualizar a [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) da Braze a partir de mensagens de teste faz com que o botão **Save Preferences** fique desativado. As Liquid tags da Central de Preferências também podem não resolver para links válidos. Esse é o comportamento esperado. Para testar de ponta a ponta, consulte [Testando centrais de preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 - Para testar mensagens no app e Content Cards, o usuário alvo deve ter um token de push para o dispositivo alvo.
 - Para testar links de cancelamento de inscrição em e-mails, certifique-se de que o endereço de e-mail do seu usuário de teste esteja no respectivo espaço de trabalho.
 - O cabeçalho `List-Unsubscribe` não é incluído em e-mails enviados pela funcionalidade de mensagem de teste.

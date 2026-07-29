@@ -3,7 +3,7 @@ nav_title: Create a segment
 article_title: Create a Segment
 page_order: 1
 page_type: tutorial
-description: "This how-to article will walk you through how to set up and create a segment using Braze."
+description: "This how-to article walks you through how to set up and create a segment using Braze."
 tool: Segments
 search_rank: 3
 ---
@@ -33,7 +33,7 @@ Optionally, you can do the following:
 
 Choose which apps or platforms you'd like to target by selecting **Users from all apps** (default), or **Users from specific apps**. **Users from specific apps** targets users with at least one session in the specified apps.
 
-For example, if you'd like to send an in-app message to only iOS devices, select your iOS app. This will ensure that users who might use both an iOS and an Android device will only receive the message on their iOS device. In the list of specific apps, the option **Users from no apps** allows you to include users with no sessions and no app data (typically created through user import or REST API).
+For example, if you'd like to send an in-app message to only iOS devices, select your iOS app. This ensures that users who use both an iOS and an Android device only receive the message on their iOS device. In the list of specific apps, the option **Users from no apps** allows you to include users with no sessions and no app data (typically created through user import or REST API).
 
 ![Segment Details panel with the "Users from all apps" option selected in the Apps Used section.]({% image_buster /assets/img_archive/Segment2.png %}){: style="max-width:80%;"}
 

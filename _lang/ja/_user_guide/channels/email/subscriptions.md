@@ -55,7 +55,7 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 
 #### REST API
 
-[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、ユーザーの[`email_subscribe` 属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)を更新します。たとえば、ユーザーがカスタム配信停止リンクを使用した際にメールのサブスクリプション状態を配信停止に設定するには、リクエストのユーザー属性に `email_subscribe: "unsubscribed"` を含めます。
+[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、ユーザーの[`email_subscribe`属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)を更新します。たとえば、ユーザーがカスタム配信停止リンクを使用した際にメールのサブスクリプション状態を配信停止に設定するには、リクエストのユーザー属性に `email_subscribe: "unsubscribed"` を含めます。
 
 #### ユーザープロファイル {#user-profile}
 
@@ -97,7 +97,7 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 
 ## 購読グループ {#subscription-groups}
 
-購読グループは、[グローバル購読ステート](#subscription-states)からオーディエンスをさらに絞り込むことができるセグメントフィルターです。これらのグループにより、エンドユーザーに対してより詳細な購読オプションを提示できます。
+購読グループは、[グローバルサブスクリプション状態](#subscription-states)からオーディエンスをさらに絞り込むことができるセグメントフィルターです。これらのグループにより、エンドユーザーに対してより詳細な購読オプションを提示できます。
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
@@ -131,7 +131,7 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 1. 購読グループのリストからグループを見つけます。
 2. <i class="fa-solid fa-ellipsis-vertical" aria-label="その他のオプション"></i>&nbsp;ドロップダウンメニューから**アーカイブ**を選択します。
 
-Brazeは、アーカイブされたグループのユーザーのステート変更を処理しません。たとえば、アレックスが購読グループ1に購読している状態でそのグループをアーカイブした場合、アレックスは購読解除リンクをクリックしても「購読済み」のままになります。購読グループ1はアーカイブされており、それを使用してメッセージを送信することはできないため、これは問題になりません。
+Brazeは、アーカイブされたグループのユーザーの状態変更を処理しません。たとえば、アレックスが購読グループ1に購読している状態でそのグループをアーカイブした場合、アレックスは購読解除リンクをクリックしても「購読済み」のままになります。購読グループ1はアーカイブされており、それを使用してメッセージを送信することはできないため、これは問題になりません。
 
 #### 購読グループサイズの表示 {#viewing-subscription-group-sizes}
 
@@ -139,27 +139,28 @@ Brazeは、アーカイブされたグループのユーザーのステート変
 
 ![12月2日から11日までの「購読グループ時系列」グラフの例。グラフは6日から7日にかけてユーザー数が約1,000万増加したことを示しています。]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-時系列のカウントが**メール購読ステータスが購読解除**を使用したセグメントと大きく異なる場合、グラフはその**購読グループ**のメンバーシップをカウントしているのに対し、フィルターは**グローバル**なメール購読ステートを反映していることを覚えておいてください。たとえば、ユーザーはグローバルでは購読済みでも、特定のグループからは購読解除されている場合があります。
+時系列のカウントが**メール購読ステータスが購読解除**を使用したセグメントと大きく異なる場合、グラフはその**購読グループ**のメンバーシップをカウントしているのに対し、フィルターは**グローバル**なメール購読状態を反映していることを覚えておいてください。たとえば、ユーザーはグローバルでは購読済みでも、特定のグループからは購読解除されている場合があります。
 
 #### キャンペーン分析での購読グループの表示 {#viewing-subscription-groups-in-campaign-analytics}
 
-特定のメールキャンペーンから購読ステートを変更した（購読または購読解除した）ユーザーの数を、そのキャンペーンの分析ページで確認できます。
+特定のメールキャンペーンから購読状態を変更した（購読または購読解除した）ユーザーの数を、そのキャンペーンの分析ページで確認できます。
 
 1. キャンペーンの**キャンペーン分析**ページで、**メールメッセージパフォーマンス**セクションまでスクロールします。
-2. **購読グループ**の下にある矢印を選択して、顧客が送信したステート変更の合計数を確認します。
+2. **購読グループ**の下にある矢印を選択して、顧客が送信した状態変更の合計数を確認します。
 
-![顧客が送信したステート変更の合計数を表示する「メールメッセージパフォーマンス」ページ。]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
+![顧客が送信した状態変更の合計数を表示する「メールメッセージパフォーマンス」ページ。]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
 
 ### ユーザーのメール購読グループの確認 {#checking-a-users-email-subscription-group}
 
-- **ユーザープロファイル：** 個々のユーザープロファイルには、Brazeダッシュボードの[ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles)ページからアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。また、**エンゲージメント**タブでユーザーのメール購読グループを確認することもできます。
-- **Braze REST API：** [ユーザーの購読グループ一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups)または[ユーザーの購読グループステータス一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)を使用して、個々のユーザープロファイルの購読グループを確認できます。
+- **ユーザープロファイル:** 個々のユーザープロファイルには、Brazeダッシュボードの[ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles)ページからアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。また、**エンゲージメント**タブでユーザーのメール購読グループを確認することもできます。
+- **Braze REST API:** [ユーザーの購読グループ一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups)または[ユーザーの購読グループステータス一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)を使用して、個々のユーザープロファイルの購読グループを確認できます。
 
-## メール設定センター {#email-preference-center}
+## メールユーザー設定センター {#email-preference-center}
 
 メールのユーザー設定センターでは、購読グループのニュースレターを受信するユーザーを管理できます。ダッシュボードの**購読グループ**から確認できます。作成した各購読グループは、ユーザー設定センターのリストに追加されます。
 
-ユーザー設定センターの追加やカスタマイズの詳細については、[ユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions)を参照してください。
+ユーザー設定センターの追加やカスタマイズの詳細については、[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)を参照してください。
+
 
 ## メールサブスクリプションの変更 {#changing-email-subscriptions}
 

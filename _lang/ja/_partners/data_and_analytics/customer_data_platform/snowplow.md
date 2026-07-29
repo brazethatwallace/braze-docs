@@ -59,7 +59,7 @@ Snowplowの高品質な行動データに基づいてBrazeでダイナミック�
 
 フォワーダーを設定する際、転送するSnowplowイベントを選択し、Brazeオブジェクトタイプにマッピングできます：
 
-1. **[ユーザー属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)**：ユーザープロファイルデータとカスタムユーザープロパティを更新します。
+1. **[ユーザー属性]({{site.baseurl}}/api/objects_filters/user_attributes_object)**：ユーザープロファイルデータとカスタムユーザープロパティを更新します。
 2. **[カスタムイベント]({{site.baseurl}}/api/objects_filters/event_object)**：ユーザーのアクションや行動を送信します。
 3. **[購入]({{site.baseurl}}/api/objects_filters/purchase_object)**：商品詳細を含む取引データを送信します。
 

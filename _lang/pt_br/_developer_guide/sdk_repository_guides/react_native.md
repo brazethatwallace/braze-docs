@@ -8,24 +8,24 @@ description: "Referência do README do Braze React Native SDK espelhada do GitHu
 <!-- BEGIN GENERATED README CONTENT -->
 # Guia do repositório do React Native SDK {#react-native-sdk-repository-guide}
 
-## Sobre o Braze React Native SDK
+## Sobre o Braze React Native SDK {#about-the-braze-react-native-sdk}
 
 O Braze React Native SDK conecta seus apps iOS e Android à Braze: perfis de usuário, superfícies de envio de mensagens, análise de dados e Feature Flags. Ele encapsula o [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk) nativo e o [Braze Android SDK](https://github.com/braze-inc/braze-android-sdk) nativo por trás de uma API JavaScript.
 
 **A inicialização é orientada por JavaScript:** você configura a configuração nativa (push, registro, delegates) nos recursos do Android e no `AppDelegate` do iOS, e então chama `Braze.initialize(apiKey, endpoint)` a partir do JavaScript para iniciar o SDK. Isso dá a você controle total sobre quando o SDK é inicializado e com quais credenciais. Após a inicialização, chame outros métodos do SDK (por exemplo, `changeUser`, `logCustomEvent`) conforme necessário.
 
-### O que você pode fazer
+### O que você pode fazer {#what-you-can-do}
 
-- **Gerenciamento de usuários**: Identificar usuários, definir campos de perfil, atributos personalizados, aliases e grupos de inscrições
-- **Mensagens no app**: Interface padrão da Braze ou tratamento personalizado via inscrições e APIs de registro
-- **Content Cards**: Interface de feed padrão, ou buscar cartões e criar sua própria interface
-- **Banners**: Banners HTML baseados em posicionamento, incluindo `BrazeBannerView`
-- **Notificações por push**: Solicitações de permissão, registro de token, listeners de carga útil (veja as notas de plataforma em [Configuração nativa](#native-setup))
-- **Feature Flags**: Atualizar, ler propriedades, registrar impressões
-- **Análise de dados**: Eventos personalizados, compras, envio imediato
-- **Controles do SDK**: Ativar/desativar o SDK, limpar dados locais, assinaturas de autenticação do SDK
+- **Gerenciamento de usuários**: identificar usuários, definir campos de perfil, atributos personalizados, aliases e grupos de inscrições
+- **Mensagens no app**: interface padrão da Braze ou tratamento personalizado via inscrições e APIs de registro
+- **Content Cards**: interface de feed padrão, ou buscar cartões e criar sua própria interface
+- **Banners**: banners HTML baseados em posicionamento, incluindo `BrazeBannerView`
+- **Notificações por push**: solicitações de permissão, registro de token, listeners de carga útil (veja as notas de plataforma abaixo)
+- **Feature Flags**: atualizar, ler propriedades, registrar impressões
+- **Análise de dados**: eventos personalizados, compras, envio imediato
+- **Controles do SDK**: ativar/desativar o SDK, limpar dados locais, assinaturas de autenticação do SDK
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 - **Conta na Braze** com chave de API do app e endpoint de SDK
 - Ambiente de desenvolvimento **React Native** ([configuração do ambiente React Native](https://reactnative.dev/docs/set-up-your-environment))
@@ -35,7 +35,7 @@ O Braze React Native SDK conecta seus apps iOS e Android à Braze: perfis de usu
 
 Para localizar as credenciais no dashboard, siga a [visão geral da integração](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native).
 
-## Instalação
+## Instalação {#installation}
 
 ``` bash
 npm install @braze/react-native-sdk
@@ -45,11 +45,11 @@ npm install @braze/react-native-sdk
 
 ---
 
-## Início rápido
+## Início rápido {#quick-start}
 
-Esta seção mostra a configuração mínima necessária para inicializar o SDK React Native da Braze.
+Esta seção mostra a configuração mínima necessária para inicializar o Braze React Native SDK.
 
-1. Instale o pacote npm em [Instalação](#installation).
+1. Instale o pacote npm (acima).
 2. Conclua a **configuração nativa** para Android e iOS (configuração, permissões, push se necessário).
 3. Inicialize o SDK a partir do JavaScript e comece a usá-lo:
 
@@ -71,9 +71,9 @@ Chamar `Braze.initialize` novamente com credenciais diferentes encerra a instân
 
 ---
 
-## Configuração nativa
+## Configuração nativa {#native-setup}
 
-> **Fonte de referência:** Telas passo a passo, alterações no Gradle/CocoaPods e a lista completa de chaves XML do Android estão no [guia do desenvolvedor React Native da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). Os trechos nas seções Android e iOS são exemplos mínimos.
+> **Fonte de referência:** telas passo a passo, alterações no Gradle/CocoaPods e a lista completa de chaves XML do Android estão no [guia do desenvolvedor React Native da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). Os trechos abaixo são exemplos mínimos.
 
 ### Android
 
@@ -140,7 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endalert %}
 ---
 
-## Referência de configuração
+## Referência de configuração {#configuration-reference}
 
 No React Native, **a configuração é nativa**: o Android lê `res/values/braze.xml`, e o iOS usa closures registradas via **`BrazeReactInitializer.configure`**. Ambas são aplicadas quando `Braze.initialize(apiKey, endpoint)` é chamado a partir do JavaScript.
 
@@ -177,7 +177,7 @@ Defina as propriedades de configuração nativa na closure `configure` passada p
 | **Privacidade/dados** | `api.trackingPropertyAllowList`, `devicePropertyAllowList`, `api.sdkAuthentication` | Alinhe com o [manifesto de privacidade](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/) e as configurações do produto de autenticação do SDK. |
 | **Rede** | `api.requestPolicy`, `api.flushInterval` | Política de repetição de requisições e cadência de envio. |
 | **Inscrição push** | `optInWhenPushAuthorized` | Quando `true`, a inscrição pode mudar para opted-in após o usuário autorizar as notificações. |
-| **IAM + mudanças de usuário** | `preventInAppMessageDisplayForDifferentUser` | Reduz mensagens no app incompatíveis se o ID do usuário mudar. |
+| **IAM e mudanças de usuário** | `preventInAppMessageDisplayForDifferentUser` | Reduz mensagens no app incompatíveis se o ID do usuário mudar. |
 | **Outros** | `forwardUniversalLinks`, `ephemeralEvents`, `useUUIDAsDeviceId`, … | Consulte a documentação do Swift para o comportamento completo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS (Braze.Configuration)" }
 
@@ -185,15 +185,15 @@ A bridge do React Native define **`api.sdkFlavor`** / metadados do SDK específi
 
 ---
 
-## API JavaScript / TypeScript
+## API JavaScript / TypeScript {#javascript-typescript-api}
 
 A exportação padrão do pacote é a classe `Braze` com métodos **estáticos** (por exemplo, `Braze.changeUser`, `Braze.logPurchase`). Constantes como `Braze.Events`, `Braze.Genders` e `Braze.NotificationSubscriptionTypes` estão vinculadas à mesma exportação.
 
 ---
 
-## Recursos principais
+## Recursos principais {#core-features}
 
-### Gerenciamento de usuários
+### Gerenciamento de usuários {#user-management}
 
 ``` typescript
 import Braze from "@braze/react-native-sdk";
@@ -207,7 +207,7 @@ Braze.addToSubscriptionGroup("NEWSLETTER_GROUP_UUID");
 
 **Autenticação do SDK** opcional: passe uma assinatura como segundo argumento para `changeUser`, ou chame `Braze.setSdkAuthenticationSignature(signature)` quando estiver ativado no dashboard.
 
-### Mensagens no app
+### Mensagens no app {#in-app-messages}
 
 - Com a **interface padrão da Braze**, siga a [documentação de mensagens no app](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native); normalmente, você **não** precisa chamar `subscribeToInAppMessage` apenas para exibir a interface padrão.
 - Para tratamento **personalizado**, inscreva-se com `useBrazeUI: false` e registre impressões/cliques conforme necessário:
@@ -245,7 +245,7 @@ const banner = await Braze.getBanner("homepage_banner");
 // <Braze.BrazeBannerView placementId="homepage_banner" />
 ```
 
-### Notificações por push
+### Notificações por push {#push-notifications}
 
 ``` typescript
 Braze.requestPushPermission({
@@ -271,7 +271,7 @@ Braze.refreshFeatureFlags();
 Braze.logFeatureFlagImpression("new_checkout");
 ```
 
-### Análise de dados e compras
+### Análise de dados e compras {#analytics-and-purchases}
 
 ``` typescript
 Braze.logCustomEvent("purchase_completed", { sku: "sku-1" });
@@ -281,7 +281,7 @@ Braze.requestImmediateDataFlush();
 
 Nota: `logPurchase` recebe o **preço como string** (consulte as tipagens).
 
-### Gerenciamento de dados e estado do SDK
+### Gerenciamento de dados e estado do SDK {#data-management-and-sdk-state}
 
 **`changeUser`** apenas informa à Braze qual ID de usuário deve receber a atribuição de **novas** atividades. Ele **não** limpa os dados do SDK armazenados em cache no dispositivo. Não existe uma API separada de "logout": se você precisa de um encerramento de sessão tradicional (limpar o estado local da Braze para que o perfil, as mensagens e os tokens em cache do usuário anterior sejam removidos desta instalação), normalmente você usa **`wipeData()`**. Isso é uma redefinição local completa.
 
@@ -299,7 +299,7 @@ Braze.enableSDK();
 
 ---
 
-## Eventos
+## Eventos {#events}
 
 Inscreva-se com `Braze.addListener(event, callback)`. A chamada retorna um objeto de inscrição; chame **`.remove()`** nele para parar de ouvir.
 
@@ -334,7 +334,7 @@ useEffect(() => {
 ```
 
 | Constante do evento | Carga útil (resumo) |
-|----------------|-------------------|
+|---------------------|---------------------|
 | `Braze.Events.CONTENT_CARDS_UPDATED` | Content Cards mais recentes |
 | `Braze.Events.BANNER_CARDS_UPDATED` | Banners mais recentes |
 | `Braze.Events.FEATURE_FLAGS_UPDATED` | Array de Feature Flags |
@@ -345,15 +345,14 @@ useEffect(() => {
 
 ---
 
-## Notas de integração
+## Notas de integração {#integration-notes}
 
 - **Expo**: use o [plugin Braze Expo](https://github.com/braze-inc/braze-expo-plugin) para evitar configurações nativas manuais sempre que possível.
 - **New Architecture / Turbo Modules**: suportado nas versões mais recentes do plugin; siga o guia do desenvolvedor e as configurações de exemplo do `AppDelegate` / Gradle se você migrar.
 - **Privacidade (iOS)**: métodos como `updateTrackingPropertyAllowList` oferecem suporte à configuração relacionada ao manifesto de privacidade; consulte [Manifesto de privacidade do Swift](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/).
-
 - **Jest**: faça mock dos módulos nativos do `react-native` ou do módulo Braze Turbo (consulte `__tests__/jest.setup.js` neste repositório para ver os padrões).
 
-## Suporte de versão
+## Suporte de versão {#version-support}
 
 {% alert note %}
 Este SDK foi testado com a versão **0.85.3** do React Native.
@@ -375,13 +374,13 @@ Respeite também os requisitos dos SDKs nativos:
 
 ---
 
-## Plugin Braze Expo
+## Plugin Braze Expo {#braze-expo-plugin}
 
 Para fluxos de trabalho gerenciados pelo Expo, consulte o [repositório do plugin Braze Expo](https://github.com/braze-inc/braze-expo-plugin).
 
 ---
 
-## App de exemplo
+## App de exemplo {#sample-app}
 
 `BrazeProject` neste repositório é um exemplo completo (gerenciamento de usuários, Content Cards, Feature Flags, banners, etc.).
 
@@ -408,25 +407,25 @@ npx react-native run-android
 
 ---
 
-## Depuração e solução de problemas
+## Depuração e solução de problemas {#debugging-and-troubleshooting}
 
 Ative o registro de logs da Braze na configuração **nativa** durante o desenvolvimento para que o SDK escreva no console do sistema (Xcode / Android Logcat). Isso ajuda a verificar a inicialização, as alterações de usuário e a entrega de eventos.
 
-- **iOS** — No closure `configure` passado para `BrazeReactInitializer.configure`, defina `config.logger.level = .debug` (ou `.info`). Reduza ou desative em produção para que os logs não fiquem visíveis para os usuários.
+- **iOS** — Na closure `configure` passada para `BrazeReactInitializer.configure`, defina `config.logger.level = .debug` (ou `.info`). Reduza ou desative em produção para que os logs não fiquem visíveis para os usuários.
 - **Android** — Use o recurso `com_braze_logger_initial_log_level` em `braze.xml` ou defina o equivalente em `BrazeConfig.Builder` (consulte [BrazeConfigurationProvider](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/logger-initial-log-level.html)). Use um nível não verboso ou remova a substituição antes do lançamento.
 
 Para uma solução de problemas mais aprofundada (rede, sessão ou comportamento de Campaign), consulte o [guia do desenvolvedor React Native da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native) e a documentação dos SDKs nativos ([Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk)).
 
 ---
 
-## Recursos adicionais
+## Recursos adicionais {#additional-resources}
 
 - [Guia do desenvolvedor da Braze — React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)
 - [Notificações por push — React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)
 - [Repositório no GitHub](https://github.com/braze-inc/braze-react-native-sdk)
 - [Pacote npm](https://www.npmjs.com/package/@braze/react-native-sdk)
 
-## Contato
+## Contato {#contact}
 
 Para dúvidas, entre em contato com o suporte técnico da Braze para obter assistência.
 <!-- END GENERATED README CONTENT -->

@@ -83,6 +83,7 @@ table td {
         <ul>
           <li>Prüfen Sie, ob der API-Schlüssel oder das Token die erforderlichen Berechtigungen hat.</li>
           <li>Stellen Sie sicher, dass Sie die Berechtigungen haben, auf den Endpunkt zuzugreifen.</li>
+          <li>Wenn Anfragen konsistent <code>403</code> zurückgeben und die Authentifizierung korrekt aussieht, blockiert möglicherweise Ihr Server, API-Gateway oder Ihre WAF die ausgehenden IP-Adressen von Braze. Setzen Sie die IPs für Ihren Braze-Cluster auf die Allowlist. Für Webhooks siehe <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP-Allowlisting</a>. Für Connected-Content siehe <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Connected-Content-IP-Allowlisting</a>.</li>
         </ul>
       </td>
     </tr>

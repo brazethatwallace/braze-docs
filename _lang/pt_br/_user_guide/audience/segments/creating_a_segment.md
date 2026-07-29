@@ -18,14 +18,16 @@ Acesse **Público** > **Segments**.
 
 ## Etapa 2: Nomeie seu segmento {#step-2-name-your-segment}
 
-Selecione **Criar segmento** para começar a construir seu segmento. Nomeie seu segmento descrevendo o tipo de usuário que você pretende filtrar. Isso ajudará a identificar o segmento quando você quiser direcioná-lo para suas Campaigns ou Canvas. Títulos vagos de segmentos podem causar confusão.
+Selecione **Criar Segment** para começar a construir seu segmento. Nomeie seu segmento descrevendo o tipo de usuário que você pretende filtrar. Isso ajudará a identificar o segmento quando você quiser direcioná-lo para suas Campaigns ou Canvas. Títulos vagos de segmentos podem causar confusão.
+
+Você também pode pedir ao Operator para ajudar a construir a lógica de filtros do seu segmento a partir de uma descrição do seu público-alvo. Para mais detalhes, consulte [O que você pode fazer com o Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 Opcionalmente, você pode fazer o seguinte:
 - Adicionar uma descrição ao segmento para fornecer mais detalhes sobre a intenção desse público e deixar anotações para outros membros da equipe consultarem.
 - Adicionar uma [equipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) ao seu segmento.
 - Adicionar [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) ao seu segmento para melhor organização.
 
-![Modal de criação de segmento onde o segmento é nomeado "Lapsed Users" com a descrição "This is our main Lapsed User segment to target non-actives within the past fourteen days." com dois botões: Cancelar e Criar segmento.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
+![Modal de criação de segmento onde o segmento é nomeado "Lapsed Users" com a descrição "This is our main Lapsed User segment to target non-actives within the past fourteen days." com dois botões: Cancelar e Criar Segment.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
 
 ## Etapa 3: Escolha seu app ou plataforma {#step-3-choose-your-app-or-platform}
 

@@ -2295,7 +2295,7 @@ RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 �
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-### 추가 채널 세부 정보 {#additional-channel-details}
+## 추가 채널 세부 정보 {#additional-channel-details}
 
 ### 웹훅 {#webhooks}
 
@@ -2327,7 +2327,7 @@ Braze는 Braze 플랫폼에서 전송되는 모든 LINE 메시지에 대해 메�
 
 ### 기타 중앙 및 동유럽 지역 {#rest-of-central-eastern-europe}
 
-알바니아, 아르메니아, 아제르바이잔, 벨라루스, 불가리아, 크로아티아, 체코, 조지아, 그리스, 라트비아, 리투아니아, 북마케도니아, 몰도바, 세르비아, 슬로바키아, 슬로베니아, 우크라이나
+알바니아, 아르메니아, 아제르바이잔, 벨라루스, 불가리아, 크로아티아, 체코, 조지아, 그리스, 라트비아, 리투아니아, 마케도니아, 몰도바, 세르비아, 슬로바키아, 슬로베니아, 우크라이나
 
 ### 기타 라틴 아메리카 지역 {#rest-of-latin-america}
 

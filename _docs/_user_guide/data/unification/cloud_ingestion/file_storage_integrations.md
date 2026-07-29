@@ -274,6 +274,10 @@ gcloud pubsub subscriptions create YOUR-SUBSCRIPTION \
 
 Note the **subscription ID** — Braze needs the subscription (not the topic) when you create the sync. The subscription must be a pull subscription.
 
+{% alert warning %}
+Don't configure a dead-letter queue on this subscription. Braze doesn't support dead-letter queues for Cloud Data Ingestion subscriptions. To learn more, see [Dead-letter topics](https://cloud.google.com/pubsub/docs/dead-letter-topics) in the Google Cloud documentation.
+{% endalert %}
+
 ### Step 3: Send bucket notifications to the topic
 
 {% alert important %}
@@ -403,7 +407,7 @@ You can reuse one bucket across multiple syncs, but each sync must target a dist
 
 
 {% alert important %}
-The folder path and the subscription must both be unique across syncs in a workspace for multiple syncs sharing the same source bucket.
+The folder path and the subscription must both be unique across syncs in a workspace for multiple syncs sharing the same source bucket. As in [Step 2](#step-2-create-a-pubsub-topic-and-subscription), don't configure a dead-letter queue on any of these subscriptions.
 {% endalert %}
 
 For each folder you want to sync in a shared bucket:
@@ -650,5 +654,6 @@ If files are not ingested, verify the following:
 - The bucket notification exists. List the notifications on the bucket with `gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME`.
 - The Cloud Storage service agent has `roles/pubsub.publisher` on the topic.
 - The Braze service account has consume permission on the subscription (`pubsub.subscriptions.consume`, granted through either the custom role or `roles/pubsub.subscriber`).
+- The subscription doesn't have a dead-letter queue configured. Braze doesn't support dead-letter queues for Cloud Data Ingestion subscriptions.
 
 For more information, see [Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/pubsub-notifications) in the Google Cloud documentation.

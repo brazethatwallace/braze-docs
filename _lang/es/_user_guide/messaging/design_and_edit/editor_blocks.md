@@ -170,7 +170,7 @@ Para evitar que el botón de descarga aparezca en imágenes más grandes, puedes
 
 Añadir este enlace evita que Gmail muestre el botón de descarga sin afectar la experiencia del usuario.
 
-### Video
+### Video {#video}
 
 Crea un enlace a contenido de video. Solo se admiten YouTube y Vimeo.
 
@@ -306,7 +306,7 @@ Añade una lista de opciones de las cuales los usuarios pueden seleccionar una. 
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Imagen
+### Imagen {#image}
 
 Inserta una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
@@ -330,7 +330,7 @@ Inserta un hipervínculo en el que los usuarios pueden hacer clic para navegar a
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Espaciador
+### Espaciador {#spacer}
 
 Añade espacio o relleno entre otros bloques.
 

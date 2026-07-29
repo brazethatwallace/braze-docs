@@ -76,6 +76,8 @@ Para personalizar as propriedades de fundo, configurações de borda e mais da s
 
 ![Painel de estilos do criador de Banner.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='banner' %}
+
 {% endtab %}
 {% tab Editor de HTML %}
 

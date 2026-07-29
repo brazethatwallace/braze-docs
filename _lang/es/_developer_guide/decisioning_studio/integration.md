@@ -15,7 +15,7 @@ noindex: true
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder realizar la integración, necesitarás una licencia activa de BrazeAI Decisioning Studio™. ¿Quieres saber más? [Reserva una llamada](https://www.braze.com/get-started/).
+Antes de poder realizar la integración, obtén una licencia activa de BrazeAI Decisioning Studio™. ¿Quieres saber más? [Reserva una llamada](https://www.braze.com/get-started/).
 
 ## Integración de Decisioning Studio {#integrating-decisioning-studio}
 

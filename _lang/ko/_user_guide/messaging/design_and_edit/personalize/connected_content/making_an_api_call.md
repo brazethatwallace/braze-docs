@@ -27,16 +27,62 @@ Braze는 수신자당 동일한 연결된 콘텐츠 API 호출을 두 번 이상
 
 ## 연결된 콘텐츠 호출 보내기 {#send-a-connected-content-call}
 
+연결된 콘텐츠 호출을 보내려면 {% raw %}`{% connected_content %}`{% endraw %} 태그를 사용합니다. 이 태그를 사용하면 `:save`를 사용하여 변수를 할당하거나 선언할 수 있습니다. 이러한 변수의 측면은 나중에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)를 사용하여 메시지에서 참조할 수 있습니다.
+
+### API 호출 분석 {#break-down-the-api-call}
+
+다음 예제는 Sunrise-Sunset API를 사용하여 오늘의 일출 시간을 메시지에 포함합니다.
+
 {% raw %}
-
-연결된 콘텐츠 호출을 보내려면 `{% connected_content %}` 태그를 사용합니다. 이 태그를 사용하면 `:save`를 사용하여 변수를 할당하거나 선언할 수 있습니다. 이러한 변수의 측면은 나중에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)를 사용하여 메시지에서 참조할 수 있습니다.
-
-예를 들어, 다음 메시지 본문은 URL `http://numbersapi.com/random/trivia`에 접근하여 메시지에 재미있는 상식을 포함합니다.
-
 ```
-{% connected_content http://numbersapi.com/random/trivia :save result %}
-Hi there, here is some fun trivia for you!: {{result.text}}
+{% connected_content https://api.sunrise-sunset.org/v2?lat=40.7128&lng=-74.0060&date=today :save result %}
+Hi there, today's sunrise in NYC is at {{result.sunrise}}.
 ```
+{% endraw %}
+
+각 부분이 하는 역할은 다음과 같습니다.
+
+| 구성 요소 | 역할 |
+| --- | --- |
+| `connected_content` 태그 | 메시지를 렌더링하는 동안 Braze에 HTTP 요청을 보내도록 지시합니다. |
+| `https://api.sunrise-sunset.org/v2` | Braze가 호출하는 API 엔드포인트입니다. |
+| `lat=40.7128&lng=-74.0060` | 뉴욕시 좌표에 대한 쿼리 매개변수입니다. |
+| `date=today` | 해당 좌표에서 현재 날짜의 데이터를 요청합니다. |
+| `:save result` | API 응답을 `result`라는 로컬 변수에 저장합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API 호출 분석" }
+
+### Sunrise-Sunset API 응답 작동 방식 {#how-the-sunrise-sunset-api-response-works}
+
+이 엔드포인트는 `sunrise`, `sunset`, `tzid`와 같은 최상위 필드가 포함된 JSON을 반환합니다. 시간은 기본적으로 해당 위치의 시간대로 반환됩니다(이 예제에서는 뉴욕 시간).
+
+예를 들어, 응답 형태는 다음과 유사합니다.
+
+```json
+{
+  "date": "2026-07-23",
+  "tzid": "America/New_York",
+  "sunrise": "2026-07-23T05:42:11-04:00",
+  "sunset": "2026-07-23T20:21:32-04:00"
+}
+```
+
+### API 응답을 Liquid에 매핑하기 {#map-the-api-response-to-liquid}
+
+응답이 `result`로 저장되었으므로, 해당 오브젝트에서 각 필드를 직접 참조할 수 있습니다.
+
+{% raw %}
+```liquid
+{{result.sunrise}}
+{{result.sunset}}
+{{result.tzid}}
+```
+{% endraw %}
+
+연결된 콘텐츠에서 JSON을 저장할 때마다 이 패턴을 사용하세요.
+
+1. `:save`로 API 응답을 저장합니다.
+2. JSON 응답에서 원하는 필드를 찾습니다.
+3. Liquid에서 `saved_variable.field_name`으로 참조합니다.
 
 ### 변수 추가하기 {#add-variables}
 
@@ -44,6 +90,7 @@ Hi there, here is some fun trivia for you!: {{result.text}}
 
 예를 들어, 사용자의 이메일 주소와 ID를 기반으로 콘텐츠를 반환하는 웹 서비스가 있을 수 있습니다. 골뱅이(@)와 같은 특수 문자가 포함된 속성을 전달하는 경우, 다음 이메일 주소 속성에 표시된 것처럼 Liquid 필터 `url_param_escape`를 사용하여 URL에서 허용되지 않는 문자를 URL 친화적인 이스케이프 버전으로 대체해야 합니다.
 
+{% raw %}
 ```
 Hi, here are some articles that you might find interesting:
 
@@ -84,7 +131,7 @@ URL을 사용할 수 없어 404 페이지에 도달하면, Braze는 해당 위�
 
 다음은 서로 다른 메커니즘입니다.
 
-- **429 Too Many Requests:** 엔드포인트(또는 업스트림 서비스)가 이 응답을 반환하고 있습니다. 이는 서버 또는 미들웨어가 트래픽을 거부하고 있음을 의미하며, 종종 자체 사용량 제한이 있기 때문입니다. Braze는 연결된 콘텐츠에 별도의 사용량 제한을 적용하지 않습니다. 연결된 콘텐츠 요청 볼륨은 [메시지 전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)에 따라 직접 확장됩니다. 메시지는 수신자당 여러 번 렌더링될 수 있으므로(예: 이메일 HTML, 일반 텍스트, AMP), 연결된 콘텐츠 요청 수는 해당 사용량 제한을 초과할 수 있습니다. 설정한 분당 메시지 수 이하가 될 것이라고 가정하지 마세요. 429 오류가 발생하면, 예상 요청 볼륨을 처리할 수 있도록 엔드포인트 또는 미들웨어를 확장하거나, Campaign 또는 캔버스 단계 사용량 제한을 낮추어 분당 더 적은 메시지(따라서 더 적은 연결된 콘텐츠 호출)가 발송되도록 하세요.
+- **429 Too Many Requests:** 엔드포인트(또는 업스트림 서비스)가 이 응답을 반환하고 있습니다. 이는 서버 또는 미들웨어가 트래픽을 거부하고 있음을 의미하며, 종종 자체 사용량 제한이 있기 때문입니다. Braze는 연결된 콘텐츠에 별도의 사용량 제한을 적용하지 않습니다. 연결된 콘텐츠 요청 볼륨은 [메시지 전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)에 따라 직접 확장됩니다. 메시지는 수신자당 여러 번 렌더링될 수 있으므로(예: 이메일 HTML, 일반 텍스트, AMP), 연결된 콘텐츠 요청 수는 해당 사용량 제한을 초과할 수 있습니다. 설정한 분당 메시지 수 이하가 될 것이라고 가정하지 마세요. 429 오류가 발생하면, 예상 요청 볼륨을 처리할 수 있도록 엔드포인트 또는 미들웨어를 확장하거나, Campaign 또는 Canvas [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)을 낮추어 분당 더 적은 메시지(따라서 더 적은 연결된 콘텐츠 호출)가 발송되도록 하세요.
 - **비정상 호스트 감지:** 1분 기간 내에 높은 비율과 볼륨의 *실패*가 발생한 후 트리거되는 Braze 측 안전장치입니다. 실패 횟수에는 `408`, `429`, `502`, `503`, `504`, `529` 상태 코드가 포함됩니다. 트리거되면, Braze는 해당 호스트에 대한 요청을 일시적으로 중단하고 실패 응답을 시뮬레이션합니다. 이는 자체 사용량 제한과 독립적입니다. 감지 임계값 및 자세한 내용은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection)을 참조하세요. 비정상 호스트 감지에 걸리지 않으려면, [연결된 콘텐츠 호출 볼륨 이해하기](#understanding-connected-content-call-volume) 및 [대용량 엔드포인트 모범 사례](#best-practices-for-high-volume-endpoints)에 설명된 호출 볼륨을 엔드포인트가 처리할 수 있는지 확인하세요.
 
 ## 효율적인 성능을 위한 고려 사항 {#allowing-for-efficient-performance}
@@ -95,19 +142,34 @@ Braze는 매우 빠른 속도로 메시지를 전달하므로, 콘텐츠를 가�
 
 ## 알아두어야 할 사항 {#things-to-know}
 
-* Braze는 API 호출에 대해 요금을 부과하지 않으며 주어진 데이터 포인트 사용량에 포함되지 않습니다.
-* 연결된 콘텐츠 응답에는 1MB 제한이 있습니다.
-* 연결된 콘텐츠는 메시지가 렌더링될 때 실행됩니다. 인앱 메시지의 경우, 메시지는 노출 시점에 렌더링됩니다.
-* 연결된 콘텐츠 호출은 리디렉션을 따르지 않습니다.
+- Braze는 API 호출에 대해 요금을 부과하지 않으며 주어진 데이터 포인트 사용량에 포함되지 않습니다.
+- 연결된 콘텐츠 응답에는 1MB 제한이 있습니다.
+- 연결된 콘텐츠는 메시지가 렌더링될 때 실행됩니다. 인앱 메시지의 경우, 메시지는 노출 시점에 렌더링됩니다.
+- 연결된 콘텐츠 호출은 리디렉션을 따르지 않습니다.
+
+### 연결된 콘텐츠 호출 처리 방식 {#how-connected-content-calls-are-processed}
+
+단일 메시지 템플릿 내의 연결된 콘텐츠 호출은 Liquid 렌더링 중에 순차적으로(위에서 아래로) 실행됩니다. 이는 하위 호출이 상위 호출에서 설정한 변수를 참조할 수 있음을 의미합니다. 이 예제에서 첫 번째 호출은 사용자 데이터를 검색하고, 두 번째 호출은 해당 데이터를 사용하여 환경설정을 가져옵니다.
+
+{% raw %}
+```liquid
+{% connected_content https://api.example.com/user :save user_data %}
+{% connected_content https://api.example.com/preferences?user_id={{user_data.id}} :save preferences %}
+```
+{% endraw %}
+
+### 글로벌 발송 및 요청 볼륨 {#global-sending-and-request-volume}
+
+연결된 콘텐츠 호출은 단일 메시지 내에서 순차적으로 실행되지만, 메시지는 Campaigns와 Canvases 전체에서 병렬로 발송됩니다. 대용량 발송은 피크 발송 기간 동안 엔드포인트에 상당한 요청 트래픽을 생성할 수 있습니다. 해당 트래픽을 관리하고 조절하는 방법(워크스페이스 메시징 사용량 제한, 전달 속도 사용량 제한조치, 캐싱 포함)에 대해서는 [대용량 엔드포인트 모범 사례](#best-practices-for-high-volume-endpoints)를 참조하세요.
 
 ## 대용량 엔드포인트 모범 사례 {#best-practices-for-high-volume-endpoints}
 
 메시지에서 연결된 콘텐츠를 사용하고 대용량으로 발송하는 경우, 수신자 수 또는 발송 수보다 더 많은 요청을 계획하세요.
 
-1. **최대 부하 추정:** 엔드포인트 또는 미들웨어 크기를 조정할 때 보수적인 배수를 사용하세요. 연결된 콘텐츠 요청은 수신자 수 또는 발송된 메시지 수를 초과할 수 있습니다. 예를 들어, 이메일의 경우 단일 수신자가 여러 호출(HTML, 일반 텍스트, AMP)을 생성할 수 있으므로, 수신자 × 2 또는 × 3이 보수적인 추정치로 자주 사용됩니다.
-2. **적절한 경우 캐싱 사용:** GET 요청은 기본적으로 캐시됩니다. POST 요청의 경우, 응답을 일정 기간 동안 재사용할 수 있을 때(예: 요청별로 변경되지 않는 토큰 또는 콘텐츠) `:cache_max_age`를 추가하세요. [응답 캐싱]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) 및 아래의 [POST 캐싱 FAQ](#what-is-caching-behavior)를 참조하세요.
-3. **전달 속도 사용량 제한 설정:** Campaign 또는 캔버스 단계의 [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)은 연결된 콘텐츠 요청 볼륨을 간접적으로 제한하는 유일한 수단입니다. Braze는 연결된 콘텐츠 자체에 사용량 제한을 적용하지 않습니다. 이는 프록시일 뿐이며 완벽하지 않습니다. 연결된 콘텐츠 요청은 메시지와 1:1이 아니기 때문입니다. 메시지(따라서 연결된 콘텐츠) 볼륨을 엔드포인트가 처리할 수 있는 범위 내로 유지하는 데 사용하세요.
-4. **멱등성 및 재시도를 위한 설계:** Braze는 수신자당 엔드포인트를 두 번 이상 호출할 수 있습니다. 엔드포인트가 잘못된 부작용 없이 중복 요청을 허용할 수 있는지 확인하세요.
+- **최대 부하 추정:** 엔드포인트 또는 미들웨어 크기를 조정할 때 보수적인 배수를 사용하세요. 연결된 콘텐츠 요청은 수신자 수 또는 발송된 메시지 수를 초과할 수 있습니다. 예를 들어, 이메일의 경우 단일 수신자가 여러 호출(HTML, 일반 텍스트, AMP)을 생성할 수 있으므로, 수신자 × 2 또는 × 3이 보수적인 추정치로 자주 사용됩니다.
+- **적절한 경우 캐싱 사용:** GET 요청은 기본적으로 캐시됩니다. POST 요청의 경우, 응답을 일정 기간 동안 재사용할 수 있을 때(예: 요청별로 변경되지 않는 토큰 또는 콘텐츠) `:cache_max_age`를 추가하세요. [응답 캐싱]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) 및 아래의 [POST 캐싱 FAQ](#what-is-caching-behavior)를 참조하세요.
+- **메시지 사용량 제한 설정:** [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) 및 Campaign 또는 Canvases의 [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)은 연결된 콘텐츠 요청 볼륨을 간접적으로 제한합니다. Braze는 연결된 콘텐츠 자체에 사용량 제한을 적용하지 않습니다. 이는 프록시일 뿐이며 완벽하지 않습니다. 연결된 콘텐츠 요청은 메시지와 1:1이 아니기 때문입니다. 메시지(따라서 연결된 콘텐츠) 볼륨을 엔드포인트가 처리할 수 있는 범위 내로 유지하는 데 사용하세요.
+- **멱등성 및 재시도를 위한 설계:** Braze는 수신자당 엔드포인트를 두 번 이상 호출할 수 있습니다. 엔드포인트가 잘못된 부작용 없이 중복 요청을 허용할 수 있는지 확인하세요.
 
 ## 인증 유형 {#authentication-types}
 
@@ -223,6 +285,8 @@ Braze 연결된 콘텐츠를 사용할 때, 특정 API가 사용자 이름과 �
 Braze는 다음 IP 범위에서 연결된 콘텐츠 요청을 보냅니다. 나열된 범위는 허용 목록에 옵트인된 모든 API 키에 자동으로 동적 추가됩니다.
 
 Braze는 모든 서비스에 사용되는 예약된 IP 세트를 보유하고 있으며, 특정 시점에 모든 IP가 활성화되어 있는 것은 아닙니다. 이는 필요한 경우 고객에게 영향을 주지 않고 Braze가 다른 데이터 센터에서 발송하거나 유지보수를 수행할 수 있도록 설계되었습니다. Braze는 연결된 콘텐츠 요청을 할 때 다음에 나열된 IP 중 하나, 일부 또는 전부를 사용할 수 있습니다.
+
+연결된 콘텐츠 요청이 지속적으로 `403 Forbidden`을 반환하고 인증이 올바르게 구성되어 있다면, 요청을 수신하는 서버에서 이 IP를 허용 목록에 추가하세요. `403`은 권한 부족이나 잘못된 자격 증명을 나타낼 수도 있으므로, 네트워크 및 인증 설정을 모두 확인하세요. 웹훅 관련 안내는 [403 Forbidden 및 IP 허용 목록]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#403-forbidden-and-ip-allowlisting)을 참조하세요.
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 

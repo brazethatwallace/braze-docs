@@ -247,7 +247,7 @@ Intelligent Timing은 세션 시작 및 메시지 열람 이벤트를 기반으�
 
 사용자에게 관련 이벤트가 없는 경우, Intelligent Timing은 메시지 설정에서 구성된 대체 설정을 사용합니다. 이는 커스텀 대체 시간 또는 모든 사용자 중 앱 사용이 가장 활발한 시간입니다.
 
-### Campaigns
+### Campaigns {#campaigns}
 
 #### 모든 시간대의 모든 사용자에게 성공적으로 전달하려면 Intelligent Timing Campaign을 얼마나 미리 시작해야 하나요? {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
 

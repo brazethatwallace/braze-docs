@@ -442,7 +442,7 @@ El ejemplo de la derecha muestra un `UICollectionView` con una lista híbrida de
 
 #### Configuración del panel {#dashboard-configuration}
 
-Esta Content Card se entrega mediante una campaña desencadenada por API con pares clave-valor desencadenados por API. Esto es ideal para campañas en las que los valores de la tarjeta dependen de factores externos para determinar qué contenido mostrar al usuario. Ten en cuenta que `class_type` debe conocerse en el momento de la configuración.
+Esta Content Card se entrega mediante una Campaign desencadenada por API con pares clave-valor desencadenados por API. Esto es ideal para Campaigns en las que los valores de la tarjeta dependen de factores externos para determinar qué contenido mostrar al usuario. Ten en cuenta que `class_type` debe conocerse en el momento de la configuración.
 
 ![Los pares clave-valor para el caso de uso de Content Cards complementarias. En este ejemplo, diferentes aspectos de la tarjeta, como "tile_id", "tile_deeplink" y "tile_title", se configuran utilizando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 

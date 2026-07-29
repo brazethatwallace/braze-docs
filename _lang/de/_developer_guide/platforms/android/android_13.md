@@ -14,7 +14,7 @@ description: "Dieser Artikel behandelt Android 13, SDK-Updates, Änderungen an d
 
 Eine vollständige Anleitung zur Migration finden Sie in der [Dokumentation für Android 13 Entwickler:innen](https://developer.android.com/about/versions/13).
 
-## Android 13 Braze SDK
+## Android 13 Braze SDK {#android-13-braze-sdk}
 
 Um sich auf Android 13 vorzubereiten, upgraden Sie bitte Ihr Braze SDK auf die [neueste Version (v21.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300). Damit erhalten Sie Zugang zu unserem neuen [„No-Code“-Push-Primer-Feature]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages).
 

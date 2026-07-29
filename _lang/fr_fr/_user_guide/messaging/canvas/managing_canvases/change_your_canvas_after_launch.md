@@ -66,14 +66,16 @@ L'arrêt d'un Canvas ne fait pas sortir les utilisateurs qui attendent de recevo
 
 Vous pouvez modifier les paramètres et détails suivants après le lancement d'un Canvas :
 
-* Nom et description du Canvas
-* Teams et tags
-* Type d'entrée, planification et contrôles
-* État d'abonnement
-* Limite de débit
-* Limite de fréquence
-* Heures calmes
-* Audience cible
+- Nom et description du Canvas
+- Teams
+- Tags
+  - L'ajout d'un tag après le lancement vous permet de recibler les utilisateurs dans des Segments avec des filtres tels que `Received Message from Campaign or Canvas with Tag`.
+- Type d'entrée, planification et contrôles
+- État d'abonnement
+- Limite de débit
+- Limite de fréquence
+- Heures calmes
+- Audience cible
 
 Après le lancement d'un Canvas :
 

@@ -45,7 +45,7 @@ Braze는 현재 모든 사용자 수준 데이터를 Snowflake AWS US East-1 및
 
 ## SNAPSHOTS 및 CHANGELOGS 테이블이 업데이트되는 시점 {#when-snapshots-and-changelogs-tables-are-updated}
 
-SNAPSHOTS 및 CHANGELOGS 테이블은 Campaigns과 Canvases의 변경 사항을 추적합니다. 이 테이블이 업데이트되는 시점을 이해하는 것은 가장 최근의 메시지 변형 및 Canvas 구성을 쿼리하는 데 중요합니다.
+SNAPSHOTS 및 CHANGELOGS 테이블은 Campaign(캠페인)과 Canvases의 변경 사항을 추적합니다. 이 테이블이 업데이트되는 시점을 이해하는 것은 가장 최근의 메시지 변형 및 Canvas 구성을 쿼리하는 데 중요합니다.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 

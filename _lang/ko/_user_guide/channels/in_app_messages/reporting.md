@@ -37,6 +37,21 @@ tool:
 사용자가 같은 캘린더 일에 메시지를 두 번 이상 조회하면 *총 노출 횟수*가 *고유 노출 횟수*를 초과할 수 있습니다(위 표의 측정기준 정의 참조). 노출 횟수가 비정상적으로 높은 사용자를 조사하려면 **기기 수** 필터를 `1`**보다 큼**으로 설정하고 특정 Campaign에 대한 **Campaign에서 메시지 수신** 필터를 적용하여 Segment를 생성하세요.
 {% endalert %}
 
+### 클릭 추적 {#click-tracking}
+
+Braze는 인앱 메시지가 화면에 표시되면 노출을 기록합니다. [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)로 생성된 인앱 메시지의 경우, 다음 표에서 클릭으로 집계되는 항목을 설명합니다.
+
+| 사용자 동작 | 클릭 기록 |
+|-------------|--------------|
+| 메시지에 버튼이 없을 때 사용자가 메시지 본문을 클릭 | 예 (본문 클릭) |
+| 사용자가 버튼을 클릭 | 예 (버튼 클릭) |
+| 사용자가 닫기 버튼(X)을 클릭 | 아니요 |
+| 사용자가 메시지 외부를 탭하거나 클릭하여 닫기(활성화된 경우) | 아니요 |
+| 메시지가 표시된 상태에서 사용자가 앱을 종료 | 아니요 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 추적" }
+
+본문 클릭과 버튼 클릭의 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요.
+
 A/B 테스트에서 대조군과 배리언트 간의 노출 불균형에 대해서는 [대조군과 배리언트 간의 불일치]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant)를 참조하세요.
 
 ## 재자격 시 전환은 어떻게 증가하나요? {#how-do-conversions-increment-with-re-eligibility}

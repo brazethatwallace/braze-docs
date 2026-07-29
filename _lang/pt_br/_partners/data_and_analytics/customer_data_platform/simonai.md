@@ -11,7 +11,7 @@ search_tag: Partner
 
 > A plataforma de marketing agêntico [Simon AI][1] ajuda equipes de marketing a alcançar uma personalização verdadeiramente individual. Ela combina uma plataforma de dados do cliente composável com agentes de IA que operam diretamente no Snowflake AI Data Cloud para atuar como a equipe de dados e execução de um profissional de marketing.
 
-Use a integração da Braze com o Simon AI para criar e sincronizar públicos avançados com a Braze para orquestração em tempo real e sem código. Com essa integração, você pode aproveitar a resolução de identidade, a unificação de dados de clientes e a segmentação orientada por IA do Simon AI para potencializar campanhas da Braze mais personalizadas e impactantes.
+Use a integração da Braze com o Simon AI para criar e sincronizar públicos avançados com a Braze para orquestração em tempo real e sem código. Com essa integração, você pode aproveitar a resolução de identidade, a unificação de dados de clientes e a segmentação orientada por IA do Simon AI para potencializar Campaigns da Braze mais personalizadas e impactantes.
 
 ## Pré-requisitos {#prerequisites}
 

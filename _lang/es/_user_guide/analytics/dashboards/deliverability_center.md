@@ -19,12 +19,12 @@ Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.ba
 
 {% details Permisos de usuario para el Centro de entrega %}
 
-- Campaigns anzeigen
-- Campaigns editar
-- Campaigns archivar
-- Canvas anzeigen
-- Canvas editar
-- Canvas archivar
+- Ver Campaigns
+- Editar Campaigns
+- Archivar Campaigns
+- Ver Canvas
+- Editar Canvas
+- Archivar Canvas
 - Ver reglas de limitación de frecuencia
 - Editar reglas de limitación de frecuencia
 - Ver priorización de mensajes
@@ -124,6 +124,14 @@ Para ayudarte a comprender las calificaciones de reputación de IP, consulta est
 | Baja | Conocido por recibir tasas elevadas de quejas de correo no deseado regularmente. Es probable que los correos electrónicos de este remitente se filtren a la carpeta de correo no deseado. |
 | Mala | Tiene un historial de recibir tasas elevadas de quejas de correo no deseado. Los correos electrónicos de este dominio casi siempre se rechazan en el momento de la conexión o se filtran a la carpeta de correo no deseado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Reputación de IP" }
+
+{% alert important %}
+Los datos de quejas de correo no deseado que se muestran en Braze se basan en informes de bucle de retroalimentación (FBL) de proveedores de correo electrónico que los comparten, como Microsoft, Yahoo y Comcast. Cuando los usuarios de estos proveedores reportan un correo como no deseado, esas quejas se envían de vuelta a Braze.<br><br>
+Sin embargo, Gmail e iCloud no operan bucles de retroalimentación tradicionales y no reportan quejas de correo no deseado a Braze. Esto significa:<br>
+- Las quejas de correo no deseado de usuarios de Gmail no se incluyen en las métricas de Braze ni están disponibles en los datos de Snowflake o Currents.<br>
+- Solo puedes ver los datos de correo no deseado de Gmail como porcentajes agregados en [Gmail Postmaster Tools](https://www.gmail.com/postmaster/), no como direcciones individuales.<br>
+- Si ves tasas altas de correo no deseado en Gmail Postmaster Tools, esos números no coinciden con tus métricas de quejas de correo no deseado en Braze porque Gmail no comparte esos datos con los remitentes.
+{% endalert %}
 
 #### Reputación de dominio {#domain-reputation}
 
@@ -227,3 +235,14 @@ Estas columnas muestran cuándo se recibieron el primer y el último mensaje env
 {% alert tip %}
 Si estás buscando registros relacionados con uno de tus dominios verificados en Braze, ten en cuenta que el Centro de entrega muestra tus datos de Google Postmaster o Microsoft SNDS, lo que significa que es probable que alguna de las plataformas no tenga datos para compartir con Braze. Alternativamente, intenta mantener un envío de correo electrónico consistente, ya que esto puede llevar a una reputación más alta.
 {% endalert %}
+
+## Quejas de correo no deseado y bucles de retroalimentación {#spam-complaints-and-feedback-loops}
+
+Un bucle de retroalimentación de correo electrónico (FBL) permite a los remitentes de correo electrónico recibir informes cuando los destinatarios marcan mensajes como correo no deseado. Sin embargo, Gmail e iCloud no ofrecen bucles de retroalimentación tradicionales, lo que significa que Braze (a través de SparkPost o SendGrid) no recibe datos de quejas de correo no deseado de estos proveedores.
+
+Dado que los datos de quejas de correo no deseado no están disponibles de Gmail e iCloud, es importante usar otras herramientas para monitorear el estado y la reputación de tu correo electrónico con estos proveedores principales:
+
+- Usa [Google Postmaster Tools](https://www.gmail.com/postmaster/) para monitorear la reputación de dominio e IP, las tasas de correo no deseado y la interacción de los usuarios. Puedes integrar Google Postmaster con Braze como se describe en [Integrar Google Postmaster](#integrating-google-postmaster).
+- Apple no proporciona una herramienta pública de Postmaster equivalente a la de Google. Concéntrate en mantener métricas de interacción sólidas y seguir las mejores prácticas de correo electrónico.
+
+Para mantener una buena capacidad de entrega con todos los proveedores, implementa una [política de desactivación]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) para dejar de enviar automáticamente a usuarios no comprometidos. Esto ayuda a evitar que tus correos electrónicos se marquen como correo no deseado y protege tu reputación como remitente.

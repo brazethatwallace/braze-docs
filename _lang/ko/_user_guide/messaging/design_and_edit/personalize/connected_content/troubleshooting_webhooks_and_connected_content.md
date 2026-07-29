@@ -83,6 +83,7 @@ table td {
         <ul>
           <li>API 키 또는 토큰에 필요한 권한이 있는지 확인합니다.</li>
           <li>엔드포인트에 접근할 수 있는 사용자 권한이 있는지 확인합니다.</li>
+          <li>요청이 지속적으로 <code>403</code>을 반환하고 인증이 올바른 것으로 보이는 경우, 서버, API 게이트웨이 또는 WAF가 Braze의 아웃바운드 IP 주소를 차단하고 있을 수 있습니다. Braze 클러스터의 IP를 허용 목록에 추가하세요. 웹훅의 경우 <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP 허용 목록</a> 을 참조하세요. 연결된 콘텐츠의 경우 <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">연결된 콘텐츠 IP 허용 목록</a> 을 참조하세요.</li>
         </ul>
       </td>
     </tr>

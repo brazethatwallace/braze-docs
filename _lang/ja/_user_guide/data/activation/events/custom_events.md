@@ -11,19 +11,13 @@ search_rank: 2
 
 > この記事では、カスタムイベントとプロパティ、ユーザープロファイルのイベント履歴、関連するセグメンテーションフィルター、キャンバスエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、[イベント]({{site.baseurl}}/user_guide/data/activation/events)を参照してください。
 
-カスタムイベントとは、ユーザーによって実行されたアクションまたはユーザーに関する更新です。カスタムイベントがログに記録されると、任意の数とタイプのフォローアップキャンペーンをトリガーできます。その後、[セグメンテーションフィルター](#segmentation-filters)を使用して、カスタムイベントの発生頻度や最終発生日時に基づいてユーザーをセグメント化できます。これにより、カスタムイベントは、アプリケーション内の高価値のユーザーインタラクションの追跡に最適です。
+カスタムイベントとは、ユーザーによって実行されたアクションまたはユーザーに関する更新です。カスタムイベントが記録されると、任意の数とタイプのフォローアップキャンペーンをトリガーできます。その後、[セグメンテーションフィルター](#segmentation-filters)を使用して、カスタムイベントの発生頻度や最終発生日時に基づいてユーザーをセグメント化できます。これにより、カスタムイベントは、アプリケーション内の高価値のユーザーインタラクションの追跡に最適です。
 
 ## ユースケース {#use-cases}
 
 一般的なカスタムイベントのユースケースをいくつか示します。
 
-- [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)を使用したカスタムイベントに基づくキャンペーンまたはキャンバスのトリガー
-- ユーザーがカスタムイベントを実行した回数、イベントが最後に発生した時刻などに基づくユーザーのセグメント化
-- ダッシュボードの[カスタムイベント分析](#analytics)を使用した、各イベントの発生頻度の集計表示
-- [ファネル]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps)および[リテンション]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)レポートを使用した追加の分析
-- [永続的なエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)を活用し、キャンバスステップで顧客イベントのメタデータをパーソナライゼーションに使用
-- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用したより高度な分析の生成
-- [離脱条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)を設定して、ユーザーがキャンバスから離脱するタイミングを定義
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## カスタムイベントの管理 {#managing-custom-events}
 
@@ -37,9 +31,7 @@ search_rank: 2
 
 カスタムイベントをブロックすると、以下のようになります。
 
-- そのイベントの今後のデータは収集されません。
-- そのイベントのブロックが解除されない限り、既存のデータは利用できません。
-- そのイベントはフィルターやグラフに表示されません。
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 さらに、ブロックされたカスタムイベントがBrazeの他の領域でフィルターやトリガーによって現在参照されている場合、そのイベントを参照しているフィルターやトリガーのすべてのインスタンスが削除およびアーカイブされることを説明する警告モーダルが表示されます。
 

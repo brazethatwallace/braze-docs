@@ -187,7 +187,7 @@ Ihr Liquid wird verwendet, um einen Kalender innerhalb des angegebenen Datumsber
 
 ![Ein Beispiel für einen in Braze gerenderten Kalender.]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 {% tabs local %}
 {% tab Eine Campaign %}
@@ -439,7 +439,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### Segments
+### Segments {#segments}
 
 Zur Auswahl von Segmenten, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) aktiviert ist. Wird auf die Segment-Analytics-ID gesetzt, die den in der Spalte `user_segment_membership_ids` gespeicherten IDs in den Tabellen entspricht, in denen diese Spalte verfügbar ist.
 

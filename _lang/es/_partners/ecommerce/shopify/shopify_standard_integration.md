@@ -41,6 +41,10 @@ Después de seleccionar la ruta de incorporación de la configuración estándar
     - Rastrea solo a los usuarios identificados
     - Inicia el seguimiento de los datos cuando los visitantes del sitio se registran o acceden a sus cuentas
 
+{% alert note %}
+Los nuevos clientes se aprovisionan con las últimas versiones del SDK web y del SDK de JavaScript de Braze durante la configuración. Los clientes existentes pueden ver su versión actual del SDK en la configuración de la integración, recibir notificaciones cuando haya una versión más reciente disponible y realizar actualizaciones de forma autónoma desde la configuración de la integración.
+{% endalert %}
+
 ## Paso 3: Configura tus datos de Shopify {#step-3-configure-your-shopify-data}
 
 ### Configuración de datos estándar {#standard-data-setup}
@@ -181,9 +185,9 @@ Braze envía los siguientes parámetros a tu endpoint:
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id | Sí | Cadena | El ID de cliente de Shopify. |
-| shopify_storefront | Sí | Cadena | El nombre de la tienda para la solicitud. Ej.: `<storefront_name>.myshopify.com` |
-| email_address | No | Cadena | La dirección de correo electrónico del usuario conectado. <br><br>Este campo puede faltar en algunos escenarios de webhook. Tu lógica de endpoint debe tener en cuenta los valores nulos aquí (por ejemplo, obtener el correo electrónico utilizando shopify_customer_id si tu lógica interna lo requiere). |
+| shopify_customer_id  | Sí      | Cadena    | El ID de cliente de Shopify.                                         |
+| shopify_storefront   | Sí      | Cadena    | El nombre de la tienda para la solicitud. Ej.: `<storefront_name>.myshopify.com` |
+| email_address        | No       | Cadena    | La dirección de correo electrónico del usuario conectado. <br><br>Este campo puede faltar en algunos escenarios de webhook. Tu lógica de endpoint debe tener en cuenta los valores nulos aquí (por ejemplo, obtener el correo electrónico utilizando shopify_customer_id si tu lógica interna lo requiere). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Especificaciones del endpoint" }
 
 #### Ejemplo de endpoint {#example-endpoint}

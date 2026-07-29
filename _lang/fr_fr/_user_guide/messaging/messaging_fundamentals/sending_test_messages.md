@@ -23,7 +23,7 @@ Avant de tester votre campagne de communication, il est important d'identifier v
 
 ### Facultatif : Créer un groupe de test de contenu {#optional-create-a-content-test-group}
 
-Un moyen pratique d'organiser vos utilisateurs test est de créer un [groupe de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), qui comprend un groupe d'utilisateurs qui recevront des messages de test provenant de campagnes. Vous pouvez ajouter ce groupe de test au champ **Add Content Test Groups** sous **Test Recipients** dans votre campagne, et lancer vos tests sans créer ni ajouter d'utilisateurs test individuels.
+Un moyen pratique d'organiser vos utilisateurs test est de créer un [groupe de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), qui comprend un groupe d'utilisateurs qui recevront des messages de test provenant de Campaigns. Vous pouvez ajouter ce groupe de test au champ **Add Content Test Groups** sous **Test Recipients** dans votre Campaign, et lancer vos tests sans créer ni ajouter d'utilisateurs test individuels.
 
 ## Étape 2 : Envoyer des messages de test spécifiques au canal {#step-2-send-channel-specific-test-messages}
 
@@ -33,7 +33,7 @@ Pour les étapes d'envoi de messages de test, consultez la section suivante corr
 {% tab Bannières %}
 
 {% alert important %}
-Avant de pouvoir tester des messages de type bannière dans Braze, vous devez créer une campagne de type bannière dans Braze. De plus, vérifiez que l'emplacement que vous souhaitez tester est déjà [intégré dans votre application ou site web]({{site.baseurl}}/developer_guide/banners/placements).
+Avant de pouvoir tester des messages de type bannière dans Braze, vous devez créer une Campaign de type bannière dans Braze. De plus, vérifiez que l'emplacement que vous souhaitez tester est déjà [intégré dans votre application ou site web]({{site.baseurl}}/developer_guide/banners/placements).
 {% endalert %}
 
 Après avoir créé votre message de type bannière, vous pouvez prévisualiser votre bannière ou envoyer un message de test.
@@ -52,7 +52,7 @@ Gardez à l'esprit que votre prévisualisation peut ne pas être identique au re
 
 ### Liste de vérification du test {#test-checklist}
 
-- Votre campagne de type bannière est-elle assignée à un emplacement ?
+- Votre Campaign de type bannière est-elle assignée à un emplacement ?
 - Les images et médias s'affichent-ils et fonctionnent-ils comme prévu sur vos types d'appareils et tailles d'écran ciblés ?
 - Vos liens et boutons dirigent-ils l'utilisateur vers la bonne destination ?
 - Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une valeur d'attribut par défaut au cas où le Liquid ne renverrait aucune information ?
@@ -109,7 +109,7 @@ Si une image de Content Card ne s'affiche pas ou apparaît cassée :
 
 Après l'envoi de vos Content Cards, vous pouvez analyser ou déboguer tout problème depuis le [journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) dans la console de développement.
 
-Un cas d'usage courant consiste à essayer de déboguer pourquoi un utilisateur ne peut pas voir une Content Card particulière. Pour ce faire, vous pouvez consulter les **journaux des événements utilisateurs** pour les Content Cards envoyées au SDK au démarrage de la session, mais avant une impression, et les relier à une campagne spécifique :
+Un cas d'usage courant consiste à essayer de déboguer pourquoi un utilisateur ne peut pas voir une Content Card particulière. Pour ce faire, vous pouvez consulter les **journaux des événements utilisateurs** pour les Content Cards envoyées au SDK au démarrage de la session, mais avant une impression, et les relier à une Campaign spécifique :
 
 1. Allez dans **Settings** > **Event User Log**.
 2. Localisez et développez la requête SDK pour votre utilisateur test.
@@ -156,7 +156,9 @@ Un cas d'usage courant consiste à essayer de déboguer pourquoi un utilisateur 
 
 ![E-mail de test]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
-Si votre campagne d'e-mail contient une image de grande taille et ne s'affiche pas comme prévu dans Outlook, envisagez de réduire les dimensions réelles du fichier image avec un outil d'édition ou de redimensionnement d'image au lieu de simplement la redimensionner avec du CSS ou du HTML.
+Si votre e-mail contient un lien vers un [centre de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center), les envois de test ne génèrent pas de lien fonctionnel et ne permettent pas d'enregistrer les préférences. Pour tester le centre de préférences, lancez le message à un utilisateur test ou à un petit segment interne. Pour plus de détails, consultez [Tester les centres de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
+
+Si votre Campaign d'e-mail contient une image de grande taille et ne s'affiche pas comme prévu dans Outlook, envisagez de réduire les dimensions réelles du fichier image avec un outil d'édition ou de redimensionnement d'image au lieu de simplement la redimensionner avec du CSS ou du HTML.
 
 {% endtab %}
 {% tab Message in-app %}
@@ -336,7 +338,7 @@ Vous pouvez déclencher la campagne vous-même comme méthode robuste pour teste
 2. Utilisez la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) pour envoyer la campagne lorsque l'événement se produit.
 
 {% alert note %}
-Si vous testez une campagne push iOS, vous devez définir le délai à une minute pour vous laisser le temps de quitter l'application, car iOS n'envoie pas de notifications push pour l'application actuellement ouverte. Les autres types de campagnes peuvent être configurés pour un envoi immédiat.
+Si vous testez une Campaign push iOS, vous devez définir le délai à une minute pour vous laisser le temps de quitter l'application, car iOS n'envoie pas de notifications push pour l'application actuellement ouverte. Les autres types de campagnes peuvent être configurés pour un envoi immédiat.
 {% endalert %}
 
 ![Envoi du message de test]({% image_buster /assets/img_archive/testeventproperties-delivery.png %})
@@ -384,7 +386,7 @@ Vous pouvez tester les propriétés d'événement personnalisées en saisissant 
 
 Il existe quelques situations où les messages de test ne se comportent pas de la même manière que les campagnes ou Canvas envoyés à de vrais utilisateurs. Dans ces cas, envisagez de lancer la campagne ou le Canvas à un ensemble limité d'utilisateurs test pour valider ce comportement.
 
-- L'affichage du centre de préférences de Braze à partir de messages de test rendra le bouton **Save Preferences** grisé.
+- L'affichage du [centre de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) de Braze à partir de messages de test désactive le bouton **Save Preferences**. Les étiquettes Liquid du centre de préférences peuvent également ne pas générer de liens valides. Ce comportement est attendu. Pour tester de bout en bout, consultez [Tester les centres de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 - Pour tester les messages in-app et les Content Cards, l'utilisateur cible doit disposer d'un jeton de notification push pour l'appareil cible.
 - Pour tester les liens de désabonnement dans les e-mails, assurez-vous que l'adresse e-mail de votre utilisateur test se trouve dans l'espace de travail correspondant.
 - L'en-tête `List-Unsubscribe` n'est pas inclus dans les e-mails envoyés par la fonctionnalité de message de test.
@@ -394,7 +396,7 @@ Il existe quelques situations où les messages de test ne se comportent pas de l
 
 ### Messages in-app {#in-app-messages}
 
-Si votre campagne de message in-app n'est pas déclenchée par une campagne push, vérifiez la segmentation de la campagne in-app pour confirmer que l'utilisateur correspond à l'audience cible **avant** de recevoir le message push.
+Si votre campagne de message in-app n'est pas déclenchée par une Campaign push, vérifiez la segmentation de la campagne in-app pour confirmer que l'utilisateur correspond à l'audience cible **avant** de recevoir le message push.
 
 Pour les envois de test sur Android et iOS, les messages in-app qui utilisent le comportement au clic **Request push permission** peuvent ne pas s'afficher sur certains appareils. En guise de solution de contournement :
 - **Android :** Les appareils doivent être sous Android 13 et utiliser la version 21.0.0 de notre SDK Android. Une autre raison peut être que l'appareil sur lequel le message in-app est affiché dispose déjà d'une invite au niveau du système. Vous avez peut-être sélectionné **Do not ask again**, vous devrez donc peut-être réinstaller l'application pour réinitialiser les autorisations de notification avant de tester à nouveau.

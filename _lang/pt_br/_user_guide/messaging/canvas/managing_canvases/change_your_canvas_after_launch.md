@@ -66,14 +66,16 @@ Parar um Canvas não faz com que os usuários que estão aguardando para receber
 
 Você pode editar as seguintes configurações e detalhes após lançar um Canvas:
 
-* Nome e descrição do Canvas
-* Equipes e tags
-* Tipo de entrada, cronograma e controles
-* Status de inscrição
-* Limite de frequência
-* Limite de frequência
-* Horário de silêncio
-* Público-alvo
+- Nome e descrição do Canvas
+- Equipes
+- Tags
+  - Adicionar uma tag após o lançamento permite redirecionar usuários em Segments com filtros como `Received Message from Campaign or Canvas with Tag`.
+- Tipo de entrada, cronograma e controles
+- Status de inscrição
+- Limite de frequência
+- Limite de frequência
+- Horário de silêncio
+- Público-alvo
 
 Após o lançamento de um Canvas:
 

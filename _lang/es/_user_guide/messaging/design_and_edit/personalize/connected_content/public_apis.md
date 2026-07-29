@@ -1,13 +1,13 @@
 ---
 nav_title: Usar API públicas
-article_title: API públicas para Contenido conectado
+article_title: API públicas para contenido conectado
 page_order: 10
-description: "Este artículo cubre una lista de API disponibles públicamente que se pueden usar con Contenido conectado."
+description: "Este artículo cubre una lista de API disponibles públicamente que se pueden usar con contenido conectado."
 ---
 
-# Usar API públicas para Contenido conectado {#use-public-apis-for-connected-content}
+# Usar API públicas para contenido conectado {#use-public-apis-for-connected-content}
 
-> Hay una variedad de API disponibles públicamente que se pueden usar para Contenido conectado. Las API públicas te permiten insertar datos personalizados en los mensajes. Esta página recopila una lista de API públicas que podrían usarse para Contenido conectado. Sin embargo, existen muchas más API que ofrecen una amplia variedad de usos potenciales de Contenido conectado.
+> Hay una variedad de API disponibles públicamente que se pueden usar para contenido conectado. Las API públicas te permiten insertar datos personalizados en los mensajes. Esta página recopila una lista de API públicas que podrían usarse para contenido conectado. Sin embargo, existen muchas más API que ofrecen una amplia variedad de usos potenciales de contenido conectado.
 
 Ponte en contacto con nosotros en [success@braze.com](mailto:success@braze.com) para hacernos saber si tienes una API que compartir.
 
@@ -24,27 +24,18 @@ Las API públicas pueden estar sujetas a restricciones de uso y límites de velo
 | [The Guardian API](http://open-platform.theguardian.com/documentation/) | Proporciona datos de artículos del Guardian que incluyen titular, tema, URL, fecha, resumen, etc.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Noticias e información" }
 
-## Eventos y creación de tickets {#events-and-ticketing}
+## Eventos y ticketing {#events-and-ticketing}
 
 |	 API 	| Descripción |
 | --------- | --- |
 | [SeatGeek](http://platform.seatgeek.com/)| Proporciona información de entradas para conciertos, deportes y eventos de teatro.  |
-| [OnConnect](http://developer.tmsapi.com/docs/read/data_v1_1/movies/movie_showtimes) | Proporciona información de taquilla de películas y horarios de funciones en cines de EE. UU. y Canadá. |
 | [Eventbrite](http://developer.eventbrite.com/) | Proporciona datos sobre una variedad de eventos públicos. |
-| [Eventful](http://api.eventful.com/) | Proporciona datos sobre una variedad de eventos públicos. |
 | [Ticketmaster](http://developer.ticketmaster.com/products-and-docs/apis/getting-started/) | Proporciona datos sobre eventos públicos, lugares y precios. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos y creación de tickets" }
-
-## Comida y bebida {#food-and-drink}
-
-|  API  | Descripción |
-| --------- | --- |
-| [BreweryDB](http://www.brewerydb.com/) | Proporciona información sobre cervecerías, cervezas y eventos cerveceros. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comida y bebida" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos y ticketing" }
 
 ## Finanzas {#finance}
 
-|  API  | Descripción |
+|	 API 	| Descripción |
 | --------- | --- |
 | [Barchart OnDemand](https://www.barchartondemand.com/free) | Proporciona una variedad de datos sobre acciones, futuros y divisas. |
 | [CoinDesk](https://www.coindesk.com/api/) | Proporciona una variedad de datos sobre criptomonedas. |
@@ -52,7 +43,7 @@ Las API públicas pueden estar sujetas a restricciones de uso y límites de velo
 
 ## Salud {#health}
 
-|  API  | Descripción |
+|	 API 	| Descripción |
 | --------- | --- |
 | [AirVisual](https://airvisual.com/api) | Proporciona datos sobre calidad del aire y clima. |
 | [Nutritionix Worlds](https://developer.nutritionix.com/) | Proporciona datos nutricionales verificados. |
@@ -81,8 +72,6 @@ Las API públicas pueden estar sujetas a restricciones de uso y límites de velo
 
 |	 API 	| Descripción |
 | --------- | --- |
-| [Numbers API](http://numbersapi.com/) | Proporciona datos curiosos numéricos aleatorios. |
-| [Clearbit](http://blog.clearbit.com/logo) | Proporciona imágenes de logotipos de empresas. |
 | [London Unified](http://api.tfl.gov.uk/#Line) y [NYC MTA](https://new.mta.info/developers) | Proporcionan datos de transporte público en tiempo real, incluyendo estados de líneas, tiempos de llegada, etc. |
 | [Sunrise and Sunset](https://sunrise-sunset.org/api) | Proporciona horarios de amanecer y atardecer para una latitud y longitud determinadas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Varios" }

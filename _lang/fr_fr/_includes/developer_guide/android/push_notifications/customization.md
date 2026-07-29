@@ -179,7 +179,7 @@ setCustomBrazeNotificationFactory(null)
 
 Dans le SDK Braze version 3.1.1, du HTML peut être envoyé à un appareil pour afficher du texte multicolore dans les notifications push.
 
-![Un message de notification push Android « Test de notification push multicolore », où les lettres sont de couleurs différentes, en italique et avec une couleur d'arrière-plan.]({% image_buster /assets/img/multicolor_android_push.png %}){: style="max-width:40%;"}
+![Un message de notification push Android « Multicolor Push test message », où les lettres sont de couleurs différentes, en italique et avec une couleur d'arrière-plan.]({% image_buster /assets/img/multicolor_android_push.png %}){: style="max-width:40%;"}
 
 Cet exemple est affiché avec le code HTML suivant :
 
@@ -332,7 +332,7 @@ Actuellement, Google ne répertorie pas les balises HTML prises en charge pour A
 
 ### Fonctionnement {#how-it-works}
 
-Vous pouvez afficher une image plus grande dans votre notification push Android à l'aide de la fonctionnalité d'image intégrée. Avec cette conception, les utilisateurs n'auront pas à étendre manuellement la notification push pour agrandir l'image. Contrairement aux notifications push standard pour Android, les images des notifications push intégrées ont un rapport hauteur/largeur de 3:2.
+Vous pouvez afficher une image plus grande dans votre notification push Android à l'aide de la fonctionnalité d'image intégrée. Avec cette conception, les utilisateurs n'ont pas besoin d'étendre manuellement la notification push pour agrandir l'image. Contrairement aux notifications push standard pour Android, les images des notifications push intégrées ont un rapport hauteur/largeur de 3:2.
 
 ![Aperçu d'une notification push Android montrant le rendu d'une image intégrée.]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
 
@@ -359,6 +359,23 @@ Il existe de nombreux paramètres avancés disponibles pour les notifications pu
 ### ID de notification {#notification-id}
 
 Un **ID de notification** est un identifiant unique pour une catégorie de message de votre choix qui informe le service de messagerie de ne respecter que le message le plus récent de cet ID. Définir un ID de notification vous permet d'envoyer uniquement le message le plus récent et le plus pertinent, plutôt qu'une pile de messages obsolètes et non pertinents.
+
+#### Empêcher les notifications identiques de s'écraser mutuellement {#preventing-duplicate-notifications-from-overwriting}
+
+Par défaut, lorsque des notifications push ont des titres et des corps de texte identiques, Android génère le même ID de notification pour les deux messages en hachant ensemble les chaînes de titre et de corps. Cela entraîne l'écrasement de la première notification par la seconde, ce qui fait qu'une seule notification apparaît dans le tiroir de notifications.
+
+Pour empêcher les notifications identiques de s'écraser mutuellement, vous pouvez spécifier des valeurs d'ID de notification uniques dans les paramètres de votre notification push Android. Voici quelques options :
+
+- **Utiliser le templating Liquid avec un horodatage :** générez une valeur unique basée sur l'heure actuelle.
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **Génération côté serveur :** pour des valeurs véritablement aléatoires, générez l'ID de notification sur votre serveur et transmettez-le via Liquid. Cela garantit que chaque notification possède un identifiant distinct, permettant à plusieurs notifications de s'afficher simultanément.
 
 ### Priorité de distribution de Firebase Messaging {#fcm-priority}
 

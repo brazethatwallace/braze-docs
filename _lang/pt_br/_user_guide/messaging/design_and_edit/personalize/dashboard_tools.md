@@ -16,7 +16,7 @@ Para regras de sintaxe Liquid, tags compatíveis e padrões avançados, consulte
 A ferramenta **Adicionar Personalização** aparece próxima a campos de texto com suporte a modelos em todo o dashboard, incluindo:
 
 - **Etapas de Campaign e Canvas** para canais que suportam Liquid no corpo ou nos cabeçalhos (por exemplo, e-mail, push, SMS, mensagens no app, Content Cards e webhooks).
-- **Editores de arrastar e soltar**, onde o controle geralmente está na barra de ferramentas do bloco ou do editor. Por exemplo, em mensagens no app de arrastar e soltar, você pode selecionar **Adicionar Personalização**, escolher um tipo de personalização e então inserir o snippet gerado no seu conteúdo antes de pré-visualizar em **Pré-visualização e teste**. Para notas específicas de cada canal, consulte o artigo de arrastar e soltar ou do criador do seu canal (como [Configurações de estilo de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#adding-liquid) ou [Criar um e-mail com arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
+- **Editores de arrastar e soltar**, onde o controle geralmente está na barra de ferramentas do bloco ou do editor. Por exemplo, em mensagens no app de arrastar e soltar, você pode selecionar **Adicionar Personalização**, escolher um tipo de personalização e então inserir o snippet gerado no seu conteúdo antes de pré-visualizar em **Prévia e teste**. Para notas específicas de cada canal, consulte o artigo de arrastar e soltar ou do criador do seu canal (como [Configurações de estilo de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#add-liquid) ou [Criar um e-mail com arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
 - **Criadores especializados** que expõem um seletor de personalização — por exemplo, [recomendações de itens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations) usam opções de **Tipo de Personalização** como **Recomendação de Item** dentro do mesmo estilo de janela.
 - **Landing pages**, onde você pode adicionar personalização com Liquid no editor de arrastar e soltar ou nas configurações de página e bloco. Para mais detalhes, consulte [Personalizar landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages).
 
@@ -24,9 +24,9 @@ A ferramenta **Adicionar Personalização** aparece próxima a campos de texto c
 
 A ferramenta **Adicionar Personalização** ajuda você a inserir Liquid com valores padrão opcionais para que dados de perfil vazios não quebrem seu texto.
 
-![O modal Adicionar Personalização que aparece após selecionar inserir personalização. O modal possui campos para tipo de personalização, atributo, valor padrão opcional e exibe uma pré-visualização da sintaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
+![O modal Adicionar Personalização que aparece após selecionar inserir personalização. O modal possui campos para tipo de personalização, atributo, valor padrão opcional e exibe uma prévia da sintaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
-A ferramenta insere o Liquid com o valor padrão especificado no ponto onde seu cursor estava. O ponto de inserção também é indicado pela caixa de pré-visualização, que mostra o texto antes e depois. Se um bloco de texto estiver destacado, o texto destacado será substituído.
+A ferramenta insere o Liquid com o valor padrão especificado no ponto onde seu cursor estava. O ponto de inserção também é indicado pela caixa de prévia, que mostra o texto antes e depois. Se um bloco de texto estiver destacado, o texto destacado será substituído.
 
 ![Um GIF do modal Adicionar Personalização mostrando o usuário inserindo "fellow traveler" como valor padrão, e o modal substituindo o texto destacado "name" no criador pelo snippet Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
 

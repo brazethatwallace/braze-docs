@@ -4,22 +4,18 @@ article_title: BrazeAI Operator
 page_order: 7
 alias: /operator/
 toc_headers: h2
-description: "Aprenda a acessar e usar o BrazeAI Operator<sup>TM</sup>, um assistente alimentado por IA integrado ao dashboard da Braze, incluindo suas funcionalidades e melhores práticas."
+description: "Aprenda a acessar e usar o BrazeAI Operator<sup>TM</sup>, um assistente alimentado por IA integrado ao dashboard da Braze, incluindo seus recursos e melhores práticas."
 ---
 
 # BrazeAI Operator
 
-> O BrazeAI Operator<sup>TM</sup> é um assistente alimentado por IA integrado ao dashboard. O Operator ajuda a realizar tarefas — respondendo perguntas, orientando na configuração, solucionando problemas e gerando ideias.
+> O BrazeAI Operator<sup>TM</sup> é um assistente alimentado por IA integrado ao dashboard. O Operator ajuda você a criar — rascunhando Campaigns, Segments e conteúdo — e ajuda a se desbloquear, desde responder perguntas e solucionar problemas até gerar ideias.
 
 ## Acessar o Operator {#access-operator}
 
 Abra o Operator de qualquer página no dashboard da Braze.
 
 1. Selecione **BrazeAI Operator<sup>TM</sup>** ao lado do seu perfil de usuário.
-
-![O ícone do BrazeAI Operator ao lado de um perfil de usuário.]({% image_buster /assets/img/operator/operator_icon.png %})
-
-{:start="2"}
 2. O painel de chat do Operator se abre em um painel lateral.
 
 ![O painel de chat do Operator.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
@@ -28,25 +24,27 @@ Abra o Operator de qualquer página no dashboard da Braze.
 Maximize para expandir o painel e facilitar a leitura, ou minimize para manter o Operator disponível enquanto trabalha.
 {% endalert %}
 
+## Usar o Operator {#use-operator}
+
+Descreva o que você está tentando realizar usando linguagem natural. Prompts claros e específicos levam a respostas mais úteis. Os prompts podem variar de uma única pergunta a uma solicitação completa de criação:
+
+- **Faça uma pergunta:** Por que meu Liquid não está sendo renderizado?
+- **Crie algo:** Crie um rascunho de Segment de usuários que abandonaram o carrinho nos últimos 7 dias.
+
+O Operator pode fornecer instruções passo a passo, links para a documentação da Braze, explicações em linguagem simples e rascunhos de Campaigns, Segments e conteúdo que você pode revisar e inserir diretamente no seu trabalho. Para saber como o Operator propõe e aplica mudanças, consulte [Agir com o Operator](#take-action-with-operator).
+
+O Operator usa o [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), que é adequado para tarefas complexas e de múltiplas etapas. Para conhecer toda a gama do que o Operator pode ajudar a criar, consulte [O que você pode fazer com o Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). Para exemplos prontos para uso, consulte a [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
+
 Assista a este vídeo para ver um exemplo do que o Operator pode fazer.
 
 {% multi_lang_include video.html id="lnv9t8hn11" source="wistia" %}
-
-## Usar o Operator {#use-operator}
-
-Descreva o que você está tentando realizar usando linguagem natural. As solicitações podem variar de perguntas simples a pedidos complexos:
-
-- **Simples:** Por que meu Liquid não está sendo renderizado?
-- **Complexo:** Como posso fazer com que a tag `abort_message` da minha mensagem inclua o atributo do usuário que causou a interrupção?
-
-O Operator pode fornecer instruções passo a passo, links para a documentação da Braze e explicações em linguagem simples. Perguntas claras e específicas levam a respostas mais úteis. O Operator usa o [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), que é adequado para tarefas complexas e de múltiplas etapas. Para exemplos prontos para uso, consulte a [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Melhores práticas {#best-practices}
 
 Trate o Operator como uma conversa, não como um mecanismo de busca. Prompts curtos e naturais funcionam melhor.
 
 - **Seja específico:** Em vez de "Me fale sobre o Canvas", tente "Como eu uso jornadas de ação no Canvas?".
-- **Faça perguntas de acompanhamento:** Se a primeira resposta não atender à sua necessidade, peça esclarecimentos ou informações adicionais.
+- **Faça perguntas de acompanhamento:** Se a primeira resposta não atender à sua necessidade, peça esclarecimentos ou informações adicionais. O Operator lembra das mensagens anteriores na conversa até que você limpe o histórico do chat.
 - **Use o contexto da página:** O Operator entende sua localização na Braze. Abra o Operator enquanto visualiza a página relevante para obter os resultados mais precisos.
 
 ## Personalize sua experiência {#customize-your-experience}
@@ -55,7 +53,7 @@ Trate o Operator como uma conversa, não como um mecanismo de busca. Prompts cur
 
 Adicione diretrizes da marca como contexto às consultas do Operator para que as respostas correspondam à voz, ao tom e à personalidade da sua marca. O Operator usa as diretrizes da marca configuradas no seu espaço de trabalho, o que ajuda a garantir uma comunicação consistente quando sugere textos ou explica recursos.
 
-Para configurar diretrizes da marca, acesse **Configurações** > **Diretrizes da marca**. Para mais informações, veja [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
+Para configurar diretrizes da marca, acesse **Content** > **Brand Guidelines**. Para mais informações, consulte [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
 
 ![Selecionando diretrizes da marca no painel de chat do Operator.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
@@ -77,9 +75,9 @@ O Operator mostra seus passos de raciocínio em seções recolhíveis rotuladas 
 
 ![O dropdown "Reasoned" recolhido em uma resposta do Operator.]({% image_buster /assets/img/operator/operator_reasoning_collapsed.png %}){:style="max-width:40%"}
 
-### Aja com o Operator {#take-action-with-operator}
+### Agir com o Operator {#take-action-with-operator}
 
-O Operator pode propor e executar mudanças diretamente no dashboard da Braze, como preencher campos de formulário, atualizar configurações ou gerar conteúdo. Cada mudança proposta é apresentada como um cartão de ação para você revisar e aprovar antes que entre em vigor. Para mais informações sobre como isso funciona, veja [Revisando ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
+O Operator pode propor e executar mudanças diretamente no dashboard da Braze, como preencher campos de formulário, atualizar configurações ou gerar conteúdo. Cada mudança proposta é apresentada como um cartão de ação para você revisar e aprovar antes que entre em vigor. Para mais informações sobre como isso funciona, consulte [Revisando ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
 ### Copie respostas para outras ferramentas {#copy-responses-to-other-tools}
 
@@ -136,6 +134,7 @@ O BrazeAI Operator<sup>TM</sup> integra-se com a OpenAI, que atua como subproces
 
 ## Próximos passos {#next-steps}
 
+- [O que você pode fazer com o Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities): Explore as funcionalidades do Operator em todo o dashboard
 - [Biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Explore exemplos de prompts organizados por página do dashboard
 - [Revisar ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Saiba como revisar e aprovar as alterações propostas pelo Operator
 - [Abrir tickets de suporte]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): Abra tickets de suporte diretamente pelo Operator

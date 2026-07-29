@@ -113,7 +113,7 @@ Um dos seguintes é obrigatório por solicitação: `aliases_to_identify`, `emai
 | `phone_numbers_to_identify` | Obrigatório | Vetor de aliases para identificar o objeto | Números de telefone para identificar usuários. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-### Identificando usuários por endereços de e-mail e números de telefone {#identifying-users-by-email-addresses-and-phone-numbers}
+### Identificação de usuários por endereços de e-mail e números de telefone {#identifying-users-by-email-addresses-and-phone-numbers}
 
 Se um endereço de e-mail ou número de telefone for especificado como identificador, você também deve incluir `prioritization` no identificador.
 

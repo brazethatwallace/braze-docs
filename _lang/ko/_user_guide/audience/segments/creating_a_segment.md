@@ -20,6 +20,8 @@ search_rank: 3
 
 **세그먼트 생성**을 선택하여 세그먼트 구축을 시작합니다. 필터링하려는 사용자 유형을 설명하여 세그먼트의 이름을 지정합니다. 이렇게 하면 Campaigns 또는 Canvases에서 타겟팅할 때 세그먼트를 쉽게 식별할 수 있습니다. 모호한 세그먼트 제목은 혼란을 줄 수 있습니다.
 
+또한 Operator에게 타겟 오디언스에 대한 설명을 바탕으로 세그먼트의 필터 로직을 구축하도록 요청할 수 있습니다. 자세한 내용은 [Operator로 할 수 있는 작업]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences)을 참조하세요.
+
 선택적으로 다음을 수행할 수 있습니다:
 - 세그먼트에 설명을 추가하여 이 오디언스의 의도에 대한 자세한 내용을 제공하고 다른 팀원이 참조할 수 있는 메모를 남깁니다.
 - 세그먼트에 [팀]({{site.baseurl}}/user_guide/administer/global/user_management/teams)을 추가합니다.

@@ -22,6 +22,7 @@ Here are some quick tips to keep in mind while building your content:
 - Don't set heights and widths for images as this can cause unnecessary white space in a degraded email.
 - `div` tags should not be used as most email clients do not support their use. Instead, use nested tables.
 - Avoid using JavaScript because it does not work with any ESP.
+- Avoid CSS `position: absolute` and `position: relative` in email templates. Most email clients do not support CSS positioning, causing layout discrepancies between the Braze preview and delivered emails. Use table-based layouts to achieve layered or overlapping effects.
 - Braze improves load times by using a global CDN to host all email images.
 - On mobile, image columns are narrow (~100px each), so multi-image rows still fit (for example, four images ≈ four usable columns).
 

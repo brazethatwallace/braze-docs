@@ -14,7 +14,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 ## 사전 요구 사항 {#prerequisites}
 
 {% tabs %}
-{% tab 다국어 로케일 %}
+{% tab 다국어 로캘 %}
 
 {% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
@@ -23,7 +23,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 
 | 기능 | 필요한 사용자 권한 |
 | --- | --- |
-| 메시지&nbsp;유형 | Campaigns 및 Canvases에 로케일과 번역을 추가하려면 다음 권한이 필요합니다:<br><br> {::nomarkdown} <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+| 메시지&nbsp;유형 | Campaigns 및 Canvases에 로캘과 번역을 추가하려면 다음 권한이 필요합니다:<br><br> {::nomarkdown} <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사전 요구 사항"}
 
 {% endtab %}
@@ -31,7 +31,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 
 | 기능 | 필요한 사용자 권한 |
 | --- | --- |
-| 템플릿 | 로케일과 번역을 추가하려는 템플릿 유형에 대해 다음 권한이 필요합니다:<br><br> {::nomarkdown} <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
+| 템플릿 | 로캘과 번역을 추가하려는 템플릿 유형에 대해 다음 권한이 필요합니다:<br><br> {::nomarkdown} <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사전 요구 사항" }
 
 {% endtab %}
@@ -142,7 +142,7 @@ URL이 Liquid로 생성되는 경우(예: {% raw %}`{% landing_page_url %}`{% en
 ![저장된 번역이 있는 Content Blocks 목록이 표시된 언어 관리 섹션.]({% image_buster /assets/img/multi-language_support/content_blocks_translations.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-각 Content Blocks에 메시지에 추가된 모든 로캘에 대한 번역이 포함되어 있는지 확인하세요. Content Blocks에 추가한 로캘 중 하나에 대한 번역이 누락된 경우, 해당 로캘의 사용자에게는 원래 언어로 표시됩니다.
+각 콘텐츠 블록에 메시지에 추가된 모든 로캘에 대한 번역이 포함되어 있는지 확인하세요. 콘텐츠 블록에 추가한 로캘 중 하나에 대한 번역이 누락된 경우, 해당 로캘의 사용자에게는 원래 언어로 표시됩니다.
 {% endalert %}
 
 ### 4단계: 번역 추가 {#step-4-add-translations}
@@ -187,13 +187,13 @@ Canvas가 시작된 후에 생성된 캔버스 단계에서 번역 API를 사용
 
 ## 번역 관리 {#manage-translations}
 
-### Canvas 단계 또는 Campaign 복제와 번역 {#duplicate-canvas-steps-or-campaigns-and-translations}
+### 캔버스 단계 또는 Campaign 복제와 번역 {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-Canvas 단계, Campaign 또는 배리언트를 복제하면 번역도 함께 포함됩니다. 워크스페이스 간 복사 시에도 마찬가지이며, 대상 워크스페이스에 로케일이 정의되어 있어야 합니다. Canvas 또는 Campaign을 수정할 때는 번역을 반드시 검토하고 업데이트하세요.
+캔버스 단계, Campaign 또는 배리언트를 복제하면 번역도 함께 포함됩니다. 워크스페이스 간 복사 시에도 마찬가지이며, 대상 워크스페이스에 로캘이 정의되어 있어야 합니다. Canvas 또는 Campaign을 수정할 때는 번역을 반드시 검토하고 업데이트하세요.
 
 ### Content Blocks에 번역 저장 {#save-translations-in-content-blocks}
 
-Content Blocks는 메시지와 동일한 방식으로 다국어를 지원합니다. Content Blocks를 생성하거나 편집할 때 번역할 콘텐츠에 태그를 지정하고, 로케일을 추가하고, CSV 또는 [번역 API]({{site.baseurl}}/api/endpoints/translations)를 사용하여 번역을 업로드할 수 있습니다.
+Content Blocks는 메시지와 동일한 방식으로 다국어를 지원합니다. Content Blocks를 생성하거나 편집할 때 번역할 콘텐츠에 태그를 지정하고, 로캘을 추가하고, CSV 또는 [번역 API]({{site.baseurl}}/api/endpoints/translations)를 사용하여 번역을 업로드할 수 있습니다.
 
 저장된 번역은 해당 콘텐츠 블록에 연결된 상태로 유지됩니다. 블록이 메시지에 추가되면 번역이 자동으로 포함됩니다.
 
@@ -229,7 +229,7 @@ URL은 두 가지 특수 문자를 사용하여 이 동작을 제어합니다:
 
 WCAG 맥락, 채널 및 편집기 동작(랜딩 페이지 포함), 메시지 수준 **접근성** 설정에 대해서는 [접근성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility)의 [접근성 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)를 먼저 참조하세요.
 
-**다국어 메시지**를 사용할 때는 현지화된 발송이 적절한 언어를 선언하도록 접근성 언어를 각 로케일에 맞춰 설정하세요.
+**다국어 메시지**를 사용할 때는 현지화된 발송이 적절한 언어를 선언하도록 접근성 언어를 각 로캘에 맞춰 설정하세요.
 
 #### 접근성 언어 구성 {#configuring-the-accessibility-language}
 
@@ -239,9 +239,9 @@ WCAG 맥락, 채널 및 편집기 동작(랜딩 페이지 포함), 메시지 수
 
 메시지 수준에서는 메시지 설정의 **접근성** 섹션에서 접근성 언어를 설정합니다. 언어 선택, Liquid 사용, 채널별 제한 사항에 대해서는 [접근성 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)를 참조하세요.
 
-##### 로케일 수준 {#locale-level}
+##### 로캘 수준 {#locale-level}
 
-다국어 메시지의 경우 **현지화 설정**에서 각 로케일에 대한 접근성 언어를 설정합니다. **접근성** 섹션에서 {% raw %}`{{accessibility_language}}`{% endraw %}를 사용하면 문서 또는 카드 언어가 해당 로케일 값에 매핑됩니다.
+다국어 메시지의 경우 **현지화 설정**에서 각 로캘에 대한 접근성 언어를 설정합니다. **접근성** 섹션에서 {% raw %}`{{accessibility_language}}`{% endraw %}를 사용하면 문서 또는 카드 언어가 해당 로캘 값에 매핑됩니다.
 
 이 토큰이 새 메시지에 기본적으로 표시되는지 여부는 채널과 편집기에 따라 다릅니다. 예를 들어, 인앱 메시지와 배너는 랜딩 페이지 및 드래그 앤 드롭 이메일과 다르게 동작합니다. 자세한 내용은 [접근성 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)를 참조하세요.
 
@@ -253,9 +253,20 @@ WCAG 맥락, 채널 및 편집기 동작(랜딩 페이지 포함), 메시지 수
 
 - 각 메시지에는 최대 200개의 번역 태그를 사용할 수 있습니다.
 - 각 기본 텍스트(번역 태그 사이의 콘텐츠)는 최대 2,000자까지 가능합니다.
-- 로케일당 번역은 최대 409,600바이트(약 409.6&nbsp;KB)까지 가능합니다.
+- 로캘당 번역은 최대 409,600바이트(약 409.6&nbsp;KB)까지 가능합니다.
 
-#### 특정 로케일의 번역 사본을 변경할 수 있나요? {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
+### 다국어 이메일 템플릿을 다운로드할 때 오류가 발생하는 이유는 무엇인가요? {#why-am-i-receiving-an-error-when-downloading-multi-language-email-templates}
+
+다국어 이메일 템플릿을 다운로드할 때 오류가 발생하는 경우, 번역 태그가 Braze의 이메일 본문 처리 방식과 충돌하는 HTML 속성이나 CSS 스타일링을 감싸고 있을 수 있습니다.
+
+Braze는 HTML 본문과 일반 텍스트 본문을 동일한 메시지의 별도 구성 요소로 처리합니다. 번역 태그에 `href` 참조와 CSS 스타일링이 포함되면 태그가 충돌하여 템플릿이 올바르게 다운로드되지 않을 수 있습니다.
+
+이 문제를 해결하려면:
+- `href` 참조와 CSS 스타일링을 번역 태그에서 제외하세요.
+- [HTML 속성 및 구조](#html-attributes-and-structure)에 설명된 대로 사람이 읽을 수 있는 텍스트 콘텐츠만 번역 태그로 감싸세요.
+- URL의 경우 [URL 현지화](#localize-urls)의 안내를 따르세요.
+
+#### 특정 로캘의 번역 사본을 변경할 수 있나요? {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
 
 네. 먼저 CSV에서 수정한 다음, 파일을 다시 업로드하여 번역 사본을 변경하세요.
 
@@ -273,7 +284,7 @@ WCAG 맥락, 채널 및 편집기 동작(랜딩 페이지 포함), 메시지 수
 
 또한, 정확한 번역을 만들고 성능 또는 크기 제한을 피하기 위해 의미적으로 관련된 작은 텍스트 단위로 감싸는 것을 고려하세요.
 
-#### 특정 로케일의 번역 사본을 변경할 수 있나요?
+#### 특정 로캘의 번역 사본을 변경할 수 있나요?
 
 네. CSV를 사용하는 경우, 먼저 파일에서 수정한 다음 다시 업로드하여 번역 사본을 변경하세요. [번역 API]({{site.baseurl}}/api/endpoints/translations)를 사용하는 경우, 업데이트 엔드포인트를 사용하여 변경하세요.
 
@@ -283,12 +294,12 @@ WCAG 맥락, 채널 및 편집기 동작(랜딩 페이지 포함), 메시지 수
 | --- | --- |
 | 메시지에 서로 다른 텍스트에 매핑되는 동일한 번역 ID가 두 개 이상 포함되어 있습니다. | 이 번역 파일은 다운로드되지 않습니다. |
 | 번역 파일에 하나 이상의 번역 태그 ID가 누락되어 있습니다. | 이 번역 파일은 업로드되지 않습니다. |
-| 번역 파일에 메시지에 없는 로케일이 포함되어 있습니다. | 이 번역 파일은 업로드되지 않습니다. |
+| 번역 파일에 메시지에 없는 로캘이 포함되어 있습니다. | 이 번역 파일은 업로드되지 않습니다. |
 | 번역 템플릿을 다운로드하기 전에 메시지에 번역 태그를 추가해야 합니다. | 이 번역 파일은 다운로드되지 않습니다. |
 | 업로드한 파일에 있는 번역 태그가 메시지에 없습니다. | 추가 번역은 메시지에 저장되지 않습니다. |
 | {% raw %}메시지에 하나 이상의 깨진 Liquid 태그가 포함되어 있습니다. 여는 태그에는 `{% translation your_id_here %}`를 사용하고, 닫는 번역 태그에는 `{% endtranslation %}`를 사용하세요.{% endraw %} | 이 번역 파일은 다운로드되지 않습니다. |
 | 번역 파일에 메시지의 내용과 일치하지 않는 기본 텍스트가 포함되어 있습니다. | 번역은 추가되지만, 원본 메시지 텍스트는 업데이트되지 않습니다. |
-| 메시지의 하나 이상의 로케일이 설정에서 삭제되어 더 이상 존재하지 않습니다. | 이미 추가된 번역은 메시지 내에 계속 존재합니다. 메시지에서 삭제하면 번역이 손실됩니다. |
+| 메시지의 하나 이상의 로캘이 설정에서 삭제되어 더 이상 존재하지 않습니다. | 이미 추가된 번역은 메시지 내에 계속 존재합니다. 메시지에서 삭제하면 번역이 손실됩니다. |
 | 번역 태그에 전체 URL 또는 Liquid로 생성된 URL이 포함되어 있습니다. | URL이 포함된 번역 태그는 링크 깨짐 또는 링크 추적 문제가 발생할 경우를 대비하여 식별됩니다. |
 | 번역 태그에 쿼리 파라미터가 포함되어 있습니다. | 쿼리 파라미터가 포함된 번역 태그는 링크 깨짐 또는 링크 추적 문제가 발생할 경우를 대비하여 식별됩니다. |
 | 번역 태그에 HTML 속성 또는 구조가 포함되어 있습니다. | HTML 속성 또는 구조가 포함된 번역 태그는 스타일 및 서식 문제가 발생할 경우를 대비하여 식별됩니다. |

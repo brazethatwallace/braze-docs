@@ -66,7 +66,7 @@ Si les liens d'e-mails en production cessent de fonctionner pendant la configura
 
 Si vous voyez un message d'erreur indiquant que votre connexion n'est pas privée, cela peut indiquer que votre SSL ou votre CDN n'est pas correctement configuré. Exécutez une commande `dig` dans votre terminal (par exemple, `dig CNAME your_link_tracking_subdomain`). Dans la section `ANSWER SECTION`, si le résultat pointe vers votre fournisseur de services d'e-mailing au lieu de votre CDN, le problème est une mauvaise configuration. Pour que le suivi des clics SSL de Braze fonctionne, le CNAME doit pointer vers votre CDN. Coordonnez-vous avec l'équipe qui gère votre configuration SSL et CDN pour obtenir de l'aide.
 
-## État d'activation du SSL {#ssl-enablement-status}
+## Statut d'activation SSL {#ssl-enablement-status}
 
 **Symptôme :** La configuration SSL est terminée, mais les liens suivis apparaissent toujours en HTTP.
 
@@ -84,7 +84,7 @@ Si vous utilisez Amazon SES comme fournisseur de services d'e-mailing, les probl
 
 ## Problèmes de suivi des clics {#click-tracking-issues}
 
-**Symptôme :** les liens d'e-mail suivis échouent alors que les liens non suivis fonctionnent, ou les utilisateurs voient des erreurs de certificat ou de DNS après avoir cliqué.
+**Symptôme :** Les liens d'e-mail suivis échouent alors que les liens non suivis fonctionnent, ou les utilisateurs voient des erreurs de certificat ou de DNS après avoir cliqué.
 
 Les problèmes courants de redirection résultent généralement d'une mauvaise configuration entre le CDN hébergeant le domaine de suivi et ses certificats SSL associés ou ses enregistrements DNS CNAME. Ces mauvaises configurations entraînent souvent une erreur de confidentialité « la connexion n'est pas sécurisée » ou un échec `404` après avoir cliqué sur un lien d'e-mail suivi.
 
@@ -290,14 +290,15 @@ Utilisez le modèle suivant pour tester la configuration du CDN de votre domaine
 3. Envoyez-vous un e-mail de test et sélectionnez les deux boutons.
 4. Vérifiez que le comportement attendu et les critères de réussite correspondent à ce qui est décrit dans le modèle.
 
-Si votre URL non suivie fonctionne mais que votre URL suivie échoue, il se peut qu'il y ait un problème de configuration. Pour résoudre le problème, consultez la documentation de votre ESP et de votre fournisseur de CDN. Vous pouvez également consulter [SSL chez Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) pour connaître les exigences détaillées en matière de provisionnement de certificats.
+Si votre URL non suivie fonctionne mais que votre URL suivie échoue, il se peut qu'il y ait un problème de configuration. Pour résoudre le problème, consultez la documentation de votre fournisseur de services d'e-mailing et de votre CDN. Vous pouvez également consulter [SSL chez Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) pour connaître les exigences détaillées en matière de provisionnement de certificats.
 
 Utilisez le tableau suivant pour diagnostiquer les erreurs courantes lors du test du suivi des clics.
 
 | Code d'erreur | Résolution des problèmes |
 | --- | --- |
 | `"Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID)` | Vérifiez que votre domaine de suivi dispose d'un certificat SSL valide. |
-| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Vérifiez vos paramètres DNS. Assurez-vous que votre sous-domaine de suivi est configuré conformément aux recommandations de votre CDN et de votre ESP. |
+| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Vérifiez vos paramètres DNS. Assurez-vous que votre sous-domaine de suivi est configuré conformément aux recommandations de votre CDN et de votre fournisseur de services d'e-mailing. |
 | `525 / 526 SSL Error` | Vérifiez que le paramètre SSL de votre CDN (comme Cloudflare) correspond aux capacités de votre origine. |
-| `404 Not Found` | Vérifiez que votre CDN est configuré pour transmettre l'intégralité du chemin de l'URL à l'ESP, plutôt que de pointer vers un répertoire racine vide. |
+| `404 Not Found` | Vérifiez que votre CDN est configuré pour transmettre l'intégralité du chemin de l'URL au fournisseur de services d'e-mailing, plutôt que de pointer vers un répertoire racine vide. |
+| `400 Bad Request: Request Header or Cookie Too Large` | Cette erreur se produit généralement lorsque le domaine de suivi des clics hérite d'un trop grand nombre de cookies volumineux provenant du domaine de votre site web. Braze ne définit ni ne bloque aucun cookie sur le domaine de suivi. Configurez votre CDN pour ne pas envoyer ces cookies au fournisseur de services d'e-mailing lors du reverse-proxy de la requête de suivi des clics. Vous devrez peut-être également augmenter le paramètre `large_client_header_buffers` dans votre configuration nginx (par exemple, `large_client_header_buffers 4 32k;` pour autoriser des en-têtes jusqu'à 32&nbsp;Ko). Pour plus d'informations, consultez votre fournisseur de CDN ou votre équipe d'ingénierie web. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Codes d'erreur et résolution des problèmes" }

@@ -132,7 +132,11 @@ Alguns endpoints podem exigir que você inclua cabeçalhos na sua solicitação.
 
 ![Exemplos de cabeçalhos de solicitação para a chave "Authorization" e a chave "Content-Type".]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-Os cabeçalhos de solicitação mais comuns são as especificações de `Content-Type` (que descrevem o tipo de dados esperado no corpo da solicitação, como XML ou JSON) e os cabeçalhos de autorização que contêm suas credenciais com o seu fornecedor ou sistema.
+Os cabeçalhos de solicitação mais comuns são as especificações de [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) (que descrevem o tipo de dados esperado no corpo da solicitação, como XML ou JSON) e os cabeçalhos de [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) que contêm suas credenciais com o seu fornecedor ou sistema.
+
+{% alert note %}
+Os nomes dos cabeçalhos HTTP não diferenciam maiúsculas de minúsculas, conforme a [RFC 7230, seção 3.2 ("Each header field consists of a case-insensitive field name")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). Se o seu endpoint receptor ou quaisquer serviços intermediários (como CDNs) transformarem a capitalização dos cabeçalhos, isso não afetará o processamento — `Content-Type`, `content-type` e `CONTENT-TYPE` são todos tratados de forma idêntica.
+{% endalert %}
 
 As especificações de tipo de conteúdo devem usar a chave `Content-Type`. Os valores mais comuns são `application/json` ou `application/x-www-form-urlencoded`.
 
@@ -233,6 +237,14 @@ A Braze faz novas tentativas para os códigos de status mencionados anteriorment
 
 Os cabeçalhos de resposta `Retry-After` e de limite de frequência podem afetar o tempo que a Braze aguarda antes de uma tentativa **com nova tentativa** (por exemplo, após `408`, `429` ou `5XX`). Eles não tornam respostas sem nova tentativa, como `401`, elegíveis para nova tentativa.
 
+#### 403 Forbidden e lista de permissões de IP {#403-forbidden-and-ip-allowlisting}
+
+Respostas `403 Forbidden` significam que seu endpoint recebeu a solicitação, mas a recusou. As causas mais comuns incluem autenticação inválida ou ausente, permissões de API insuficientes e regras de rede (como um firewall ou firewall de aplicação web) que bloqueiam os endereços IP de saída da Braze.
+
+Se as solicitações de webhook retornarem consistentemente `403` e seus cabeçalhos de autenticação estiverem corretos, adicione os IPs da Braze para o seu cluster à lista de permissões do servidor que recebe o webhook. Consulte [Lista de permissões de IP](#ip-allowlisting). As solicitações de Connected Content usam os mesmos IPs de saída; consulte [Lista de permissões de IP do Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+
+Para outras etapas de solução de problemas com `4XX`, consulte [Solucionar problemas de solicitações de webhook e Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
+
 #### Autenticação e credenciais de Connected Content {#authentication-and-connected-content-credentials}
 
 A solicitação HTTP de webhook de saída não oferece suporte à anexação de [credenciais de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` ou `:auth_credentials`) para autenticação no seu endpoint. Em vez disso, configure a autenticação usando **Cabeçalhos da solicitação** no webhook. Para buscar um token ou segredo no momento do envio, você pode inserir uma tag {% raw %}`{% connected_content %}`{% endraw %} em um campo de cabeçalho ou corpo para que o Liquid a resolva antes do envio do webhook.
@@ -259,6 +271,6 @@ Se você estiver fazendo um webhook de Braze para Braze e usando a lista de perm
 
 ### Excluir usuários {#delete-users}
 
-Para excluir um usuário individual ou um Segment de usuários, acesse **Público** > **Gerenciar público** > **Excluir usuários**. O dashboard oferece suporte à exclusão em massa de Segments (até 10 milhões de perfis), inclui uma janela de cancelamento de 7 dias e não consome os limites de frequência compartilhados da REST API. Para etapas, limites e permissões, consulte [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
+Para excluir um usuário individual ou um segmento de usuários, acesse **Público** > **Gerenciar público** > **Excluir usuários**. O dashboard oferece suporte à exclusão em massa de segmentos (até 10 milhões de perfis), inclui uma janela de cancelamento de 7 dias e não consome os limites de frequência compartilhados da REST API. Para etapas, limites e permissões, consulte [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
 Para exclusão programática em lotes menores, use o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) em vez de uma campanha de webhook.

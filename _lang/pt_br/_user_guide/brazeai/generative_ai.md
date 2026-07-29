@@ -4,7 +4,7 @@ article_title: IA generativa
 page_order: 5
 layout: dev_guide
 guide_top_header: "IA generativa"
-guide_top_text: "Os recursos de IA generativa da BrazeAI<sup>TM</sup> são acessíveis por meio do <a href=\"{{site.baseurl}}/user_guide/brazeai/operator/\">BrazeAI Operator™</a>, o assistente de IA unificado integrado ao dashboard da Braze. Gere textos, imagens, Liquid e modelos de e-mail em HTML, ou revise seu conteúdo — tudo a partir das superfícies onde você já trabalha."
+guide_top_text: "Os recursos de IA generativa da BrazeAI<sup>TM</sup> são acessíveis por meio do <a href=\"/docs/user_guide/brazeai/operator/\">BrazeAI Operator™</a>, o assistente de IA unificado integrado ao dashboard da Braze. Gere textos, imagens, Liquid e modelos de e-mail em HTML, ou revise seu conteúdo — tudo a partir das superfícies onde você já trabalha."
 description: "Os recursos de IA generativa da BrazeAI<sup>TM</sup> são acessíveis por meio do BrazeAI Operator™, o assistente de IA unificado integrado ao dashboard da Braze."
 
 guide_featured_title: "Recursos"

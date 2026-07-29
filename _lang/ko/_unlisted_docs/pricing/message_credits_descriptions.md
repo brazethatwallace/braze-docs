@@ -18,7 +18,7 @@ hide_toc: true
 
 - [이메일 채널 세부 정보](#email-channel-details)
 - [SMS, MMS 및 RCS 채널 세부 정보](#sms-mms-and-rcs-channel-details)
-  - [SMS 세그먼트](#sms-segments)
+  - [SMS 메시지 세그먼트](#sms-segments)
   - [MMS 메시지](#mms-messages)
   - [RCS 유형](#rcs-types)
 - [WhatsApp 채널 세부 정보](#whatsapp-channel-details)
@@ -43,13 +43,13 @@ hide_toc: true
 
 ## SMS, MMS 및 RCS 채널 세부 정보 {#sms-mms-and-rcs-channel-details}
 
-SMS 및 MMS 크레딧 비율은 Braze 플랫폼에서 발송된 세그먼트 단위로 산정됩니다. RCS 크레딧 비율은 Braze 플랫폼에서 전달된 Basic 및 Rich Media 유형 또는 Single 및 Rich Media 유형 단위로 산정됩니다. 인바운드 및 아웃바운드 유형 모두 청구 대상입니다.
+SMS 및 MMS 크레딧 비율은 Braze 플랫폼에서 발송된 메시지 세그먼트 단위로 산정됩니다. RCS 크레딧 비율은 Braze 플랫폼에서 전달된 Basic 및 Rich Media 유형 또는 Single 및 Rich Media 유형 단위로 산정됩니다. 인바운드 및 아웃바운드 유형 모두 청구 대상입니다.
 
 {% alert note %}
 해당 채널에 적용되는 경우, 통신사 수수료는 별도로 후불 청구되며 액션 크레딧의 일부로 간주되지 않습니다.
 {% endalert %}
 
-### SMS 세그먼트 {#sms-segments}
+### SMS 메시지 세그먼트 {#sms-segments}
 
 SMS 업계에서는 메시지를 SMS 메시지 세그먼트 단위로 계산합니다. 메시지 세그먼트는 정의된 문자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)까지의 그룹으로, 단일 SMS 발송으로 전송됩니다. GSM-7 인코딩을 사용하여 161자의 SMS를 발송하면 두(2)개의 메시지 세그먼트가 전송됩니다. 여러 메시지 세그먼트를 전송하면 추가 요금이 발생합니다.
 

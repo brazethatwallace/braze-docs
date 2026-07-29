@@ -14,7 +14,7 @@ noindex: true
 
 <br>
 {% alert important %}
-Suchen Sie nach dem grundlegenden Entwicklerleitfaden zur Integration von Content Cards? Finden Sie ihn [hier]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
+Suchen Sie nach dem grundlegenden Entwicklerleitfaden zur Integration von Content Cards? Finden Sie ihn im [grundlegenden Entwicklerleitfaden zur Integration von Content Cards]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
 {% endalert %}
 
 # Implementierungsleitfaden für Content Cards {#content-card-implementation-guide}
