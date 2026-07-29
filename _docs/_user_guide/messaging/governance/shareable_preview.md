@@ -70,7 +70,7 @@ Shareable preview is not available for in-app messages.
 | SMS and RCS | These are both governed by the same shareable preview functionality, but each generates its own independent link. |
 | WhatsApp | Shareable preview is available separately for both WhatsApp template messages and WhatsApp response messages. |
 | Content Blocks, email footers, and subscription pages | These generate a preview of the standalone content, independent of any specific campaign or Canvas it's used in. |
-| Landing pages | Preview behaves differently for landing pages than for other channels. See [Preview the page](/docs/user_guide/messaging/landing_pages/create_landing_pages/#step-5-preview-the-page) for details. |
+| Landing pages | Preview behaves differently for landing pages than for other channels. See [Preview the page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#step-5-preview-the-page) for details. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Per-channel nuances" }
 
 ## Frequently asked questions
