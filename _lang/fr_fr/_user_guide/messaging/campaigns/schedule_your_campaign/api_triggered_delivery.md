@@ -13,17 +13,17 @@ platform: API
 
 > Les campagnes déclenchées par API, ou campagnes déclenchées par le serveur, sont idéales pour les cas d'utilisation transactionnels plus avancés. Les campagnes Braze déclenchées par API permettent aux marketeurs de gérer le contenu des campagnes, les tests multivariés et les règles de rééligibilité depuis le tableau de bord de Braze, tout en déclenchant la distribution de ce contenu depuis leurs propres serveurs et systèmes. La requête API qui déclenche le message peut également inclure des données supplémentaires à intégrer dynamiquement dans le message en temps réel.
 
-## Configuration d'une campagne déclenchée par API {#setting-up-an-api-triggered-campaign}
+## Configuration d'une Campaign déclenchée par API {#setting-up-an-api-triggered-campaign}
 
-La configuration d'une campagne déclenchée par API nécessite quelques étapes. Commencez par créer une nouvelle campagne multicanale ou monocanale (avec test multivarié).
+La configuration d'une Campaign déclenchée par API nécessite quelques étapes. Commencez par créer une nouvelle Campaign multicanale ou monocanale (avec test multivarié).
 
 {% alert note %}
-Une campagne déclenchée par API est différente d'une [campagne API]({{site.baseurl}}/developer_guide/rest_api/api_campaigns#api-campaigns).
+Une Campaign déclenchée par API est différente d'une [Campaign API]({{site.baseurl}}/developer_guide/rest_api/api_campaigns#api-campaigns).
 {% endalert %}
 
-Ensuite, configurez votre texte et vos notifications de la même manière que pour des notifications planifiées, puis sélectionnez **API-Triggered Delivery**. Pour plus d'informations sur le déclenchement de ces campagnes depuis votre serveur, consultez cet article sur l'[envoi de campagnes déclenchées par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
+Ensuite, configurez votre texte et vos notifications de la même manière que pour des notifications planifiées, puis sélectionnez **API-Triggered Delivery**. Pour plus d'informations sur le déclenchement de ces Campaigns depuis votre serveur, consultez cet article sur l'[envoi de Campaigns déclenchées par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
-![Configurez votre texte et vos notifications de la même manière que pour des notifications planifiées, puis sélectionnez API-Triggered Delivery. Pour plus d'informations sur le déclenchement de ces campagnes depuis votre serveur, consultez l'article sur l'envoi de campagnes déclenchées par API.]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
+![Configurez votre texte et vos notifications de la même manière que pour des notifications planifiées, puis sélectionnez API-Triggered Delivery. Pour plus d'informations sur le déclenchement de ces Campaigns depuis votre serveur, consultez l'article sur l'envoi de Campaigns déclenchées par API.]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
 ## Réduire le délai entre votre déclencheur API et l'envoi {#reducing-delay-between-your-api-trigger-and-send}
 
@@ -47,10 +47,10 @@ Consultez l'exemple de notification sociale suivant pour plus de contexte.
 
 ![La propriété de déclenchement mentionnée ci-dessus, incluse dans le message pour remplir automatiquement le nom de l'utilisateur, suivie du texte : « a aimé votre photo ! Cliquez ici pour voir ce qu'il a fait récemment. ».]({% image_buster /assets/img_archive/api_triggered_photo_social_example_1.png %}){: style="max-width:70%;"}
 
-## Rééligibilité avec les campagnes déclenchées par API {#re-eligibility-with-api-triggered-campaigns}
+## Rééligibilité avec les Campaigns déclenchées par API {#re-eligibility-with-api-triggered-campaigns}
 
-Le nombre de fois qu'un utilisateur reçoit une campagne déclenchée par API peut être limité à l'aide des paramètres de rééligibilité. Cela signifie que l'utilisateur ne recevra la campagne qu'une seule fois, ou une seule fois dans une fenêtre donnée, quel que soit le nombre de fois où le déclencheur API est activé.
+Le nombre de fois qu'un utilisateur reçoit une Campaign déclenchée par API peut être limité à l'aide des paramètres de rééligibilité. Cela signifie que l'utilisateur ne recevra la Campaign qu'une seule fois, ou une seule fois dans une fenêtre donnée, quel que soit le nombre de fois où le déclencheur API est activé.
 
-Par exemple, imaginons que vous utilisez une campagne déclenchée par API pour envoyer à l'utilisateur une campagne concernant un article qu'il a récemment consulté. Dans ce cas, vous pouvez limiter la campagne à l'envoi d'un maximum d'un message par jour, quel que soit le nombre d'articles consultés, tout en activant le déclencheur API pour chaque article. En revanche, si votre campagne déclenchée par API est transactionnelle, vous voudrez vous assurer que l'utilisateur reçoit la campagne à chaque fois qu'il effectue la transaction en définissant le délai à zéro minute.
+Par exemple, imaginons que vous utilisez une Campaign déclenchée par API pour envoyer à l'utilisateur une Campaign concernant un article qu'il a récemment consulté. Dans ce cas, vous pouvez limiter la Campaign à l'envoi d'un maximum d'un message par jour, quel que soit le nombre d'articles consultés, tout en activant le déclencheur API pour chaque article. En revanche, si votre Campaign déclenchée par API est transactionnelle, vous voudrez vous assurer que l'utilisateur reçoit la Campaign à chaque fois qu'il effectue la transaction en définissant le délai à zéro minute.
 
-![Capture d'écran relative à la rééligibilité avec les campagnes déclenchées par API.]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})
+![Capture d'écran relative à la rééligibilité avec les Campaigns déclenchées par API.]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})
