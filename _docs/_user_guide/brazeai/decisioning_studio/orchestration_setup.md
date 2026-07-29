@@ -195,7 +195,7 @@ Resulting in the following message:
 Decisioning Studio supports native integration with Salesforce Marketing Cloud. Decisioning Studio triggers API events into a journey with data required to populate dynamic elements.
 
 {% alert important %}
-When configuring examples, API IDs must be entered in uppercase. This includes journey IDs, campaign IDs, and any other identifiers. If API IDs are entered in lowercase but your SFMC data contains uppercase UUIDs, the event filters do not match and reporting metrics do not populate correctly.
+For your configuration, API IDs must be entered in uppercase. This includes journey IDs, campaign IDs, and any other identifiers. If API IDs are entered in lowercase but your SFMC data contains uppercase UUIDs, the event filters do not match and reporting metrics do not populate correctly.
 {% endalert %}
 
 {% endtab %}
