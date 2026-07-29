@@ -15,6 +15,9 @@ guide_featured_list:
 - name: Style settings
   link: /docs/user_guide/channels/in_app_messages/customize/style_settings
   image: /assets/img/braze_icons/brush-02.svg
+- name: Custom code and JavaScript bridge
+  link: /docs/user_guide/channels/in_app_messages/custom_code
+  image: /assets/img/braze_icons/code-02.svg
 - name: Dark mode themes
   link: /docs/user_guide/channels/in_app_messages/customize/dark_mode_themes
   image: /assets/img/braze_icons/circle-cut.svg

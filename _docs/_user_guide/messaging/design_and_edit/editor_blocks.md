@@ -338,7 +338,7 @@ Adds space or padding between other blocks.
 
 ### Custom code
 
-Inserts custom HTML, CSS, or JavaScript for advanced customization.
+Inserts custom HTML, CSS, or JavaScript for advanced customization. Clicks inside custom code are not tracked unless you call `brazeBridge.logClick()`. To attach `onclick` handlers that call JavaScript bridge methods (such as `addToSubscriptionGroup` on a submit button), see [Custom code and JavaScript bridge for in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/custom_code/).
 
 | Property | Description |
 | --- | --- |
