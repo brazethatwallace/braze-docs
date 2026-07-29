@@ -39,20 +39,6 @@ Pour consulter l'ensemble des paramètres de requête, des exemples et le compor
 Ces recommandations s'appliquent aux Campaigns déclenchées par API (`/campaigns/trigger/send`). L'[endpoint d'e-mail transactionnel]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message) utilise une structure de requête différente (`recipient`, au singulier) et ne prend pas en charge `send_to_existing_only`. Pour créer un utilisateur en ligne avec des envois transactionnels, transmettez `attributes` dans l'objet `recipient` à la place.
 {% endalert %}
 
-## Réduire le délai entre le déclencheur API et l'envoi {#reducing-delay-between-your-api-trigger-and-send}
-
-Si les messages mettent plus de temps que prévu à être envoyés après l'appel à l'endpoint de déclenchement, vérifiez si le profil utilisateur est prêt au moment du déclenchement.
-
-Par défaut, `send_to_existing_only` est défini sur `true` dans [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns). Braze envoie uniquement aux utilisateurs existants et ne crée pas de nouveaux profils lors de cet appel. Pour créer ou mettre à jour un utilisateur et envoyer le message dans la même requête, définissez `send_to_existing_only` sur `false` et incluez un objet `attributes` pour chaque destinataire.
-
-Pour les campagnes e-mail, incluez également `email` (ainsi que tout autre champ de distribution requis) dans `attributes`. Si le profil ne possède pas d'adresse e-mail au moment du déclenchement de l'envoi, Braze effectue de nouvelles tentatives pendant environ 2 heures en attendant l'arrivée des données du profil. Inclure `email` dans le même appel permet d'éviter ce délai.
-
-Pour consulter l'ensemble des paramètres de requête, des exemples et le comportement de nouvelle tentative, voir [Envoyer des campagnes déclenchées par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#recipient-limits-and-profile-creation) et l'[objet destinataires]({{site.baseurl}}/api/objects_filters/recipient_object).
-
-{% alert note %}
-Ces recommandations s'appliquent aux campagnes déclenchées par API (`/campaigns/trigger/send`). L'[endpoint d'e-mail transactionnel]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message) utilise une structure de requête différente (`recipient`, au singulier) et ne prend pas en charge `send_to_existing_only`. Pour créer un utilisateur en même temps qu'un envoi transactionnel, transmettez `attributes` dans l'objet `recipient`.
-{% endalert %}
-
 ## Utiliser le contenu modélisé inclus dans une requête API {#using-the-templated-content-included-with-an-api-request}
 
 En plus de déclencher le message, vous pouvez également inclure du contenu dans la requête API pour qu'il soit intégré au message via l'objet `trigger_properties`. Ce contenu peut être référencé dans le corps du message. Utilisez exactement deux accolades par étiquette Liquid dans `trigger_properties` et dans le texte du message. Par exemple : {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Un `{` ou `}` supplémentaire est une cause fréquente d'[échecs de personnalisation déclenchée par API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
