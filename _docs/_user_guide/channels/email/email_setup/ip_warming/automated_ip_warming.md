@@ -46,7 +46,7 @@ This feature may not be supported depending on your email infrastructure.
 
 ### Step 1: Set a schedule
 
-1. If your workspace supports multiple IP warming plans, enter a unique **Plan name**. Plan names can contain letters, numbers, hyphens, and underscores only, and must be unique in your workspace. A plan name is required before you can launch.
+1. If your workspace supports multiple IP warming plans, enter a unique **Plan name**. Plan names may contain letters, numbers, hyphens, and underscores only, and must be unique in your workspace. A plan name is required before you can launch.
 2. In the **Sending information** section, select the **From address** to warm IP addresses for. Braze displays the associated **IP pool** and the number of **IP addresses in pool** for that from address.
 3. Enter the **Current daily send volume** and **Target send volume**. Braze suggests a target send volume of up to 2 million sends per IP in the selected pool. If your current daily send volume is 0, the first day of your schedule starts at up to 50 sends per IP, capped at 500 total.
 4. Select the start date for automated IP warming. This date must be at least one day after the plan is launched.
@@ -93,7 +93,7 @@ Next, select the conversion deadline, which is the maximum time that can pass be
 
 Review the details of your IP warming plan. Then, select **Launch**.
 
-## Multiple IP warmups
+## Multiple IP warming
 
 Use multiple automated IP warming plans when you need to warm more than one from address or IP pool.
 
