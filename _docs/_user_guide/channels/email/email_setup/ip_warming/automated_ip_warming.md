@@ -22,7 +22,7 @@ Braze sends to your most engaged subscribers first, which allows daily volume to
 After you complete at least one plan, you can view completed plans at **Settings** > **Email Preferences** > **Automated IP warming**.
 
 {% alert note %}
-If you only see a single-plan experience in your dashboard, your workspace may not have access to multiple IP warming plans yet. Contact your Braze account team for availability.
+If you see only a single-plan experience in your dashboard, your workspace may not have access to multiple IP warming plans yet. Contact your Braze account team for availability.
 {% endalert %}
 
 ## Prerequisites
