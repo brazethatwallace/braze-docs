@@ -466,10 +466,50 @@ HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' \
 If the curl call fails (non-zero exit or HTTP status outside 2xx),
 log a warning and continue — do not treat it as a blocker.
 
+**Jira transition to Done (Won't Do) — selected edge cases only**
+
+For the edge cases **already documented**, **bug or workaround**, and
+**deprecated/removed behavior** (when closing without an edit), after
+posting the comment via curl, transition the ticket to Done with
+resolution "Won't Do" using the same `${AUTH_B64}` constructed above:
+
+```bash
+HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' \
+  --request POST \
+  --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}/transitions" \
+  --header "Authorization: Basic ${AUTH_B64}" \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "transition": { "id": "111" },
+    "fields": {
+      "resolution": { "name": "Won'\''t Do" }
+    }
+  }')
+echo "Jira transition HTTP status: ${HTTP_CODE}"
+```
+
+If the transition fails (non-2xx or curl error), log a warning and
+continue — do not treat it as a blocker.
+
+Do **not** transition tickets for **not enough information** or
+**Salesforce link missing** — those should remain in To Do for the
+writer to action.
+
+**Already documented:**
+When verification (Step 3) shows the reported issue has already been
+addressed in the docs — for example, by a recent PR or existing
+content that fully covers what the ticket asks for:
+1. Post a comment via curl explaining what you found and referencing
+   the existing content and/or PR.
+2. Transition the ticket to Done / Won't Do using the transition curl
+   above.
+3. Close this run without making any edit.
+
 **The ticket contains a Salesforce link but the content has not
 been pasted in:**
 Post a comment with this text, then close this run without making
-an edit:
+an edit. Do **not** transition the ticket — leave it in To Do for the
+writer to action.
 
 > This ticket contains a Salesforce link but the content has not been pasted in. Please add the relevant content directly to the ticket description and move back to To Do to re-trigger the workflow.
 
@@ -481,21 +521,25 @@ once the underlying issue is resolved. Post a comment flagging the
 ticket as a likely bug (for example: "This ticket appears to describe
 a product bug rather than a documentation gap. Please investigate
 whether this should be filed as a Product Question instead."), then
-close this run without making an edit.
+transition the ticket to Done / Won't Do using the transition curl
+above, then close this run without making an edit.
 
 **The ticket asks you to document deprecated, removed-from-UI, or
 retired product behavior:**
 Do not add documentation that presents that behavior as current or
 recommended. Post a comment summarizing what you verified
-(deprecated, removed UI, retired API, and so on) and close this run
-without a how-to edit, unless the ticket is strictly about
-**removing** inaccurate legacy copy — in that case, make only the
-minimal reductive/corrective edit allowed elsewhere in this file.
+(deprecated, removed UI, retired API, and so on), then transition the
+ticket to Done / Won't Do using the transition curl above, then close
+this run without a how-to edit — unless the ticket is strictly about
+**removing** inaccurate legacy copy, in which case make only the
+minimal reductive/corrective edit allowed elsewhere in this file and
+follow the normal PR workflow instead of transitioning the ticket.
 
 **The ticket does not contain enough information to identify the
 correct fix:**
 Post a comment with specific questions for the assigned writer. Do
-not make speculative edits.
+not make speculative edits. Do **not** transition the ticket — leave
+it in To Do for the writer to action.
 
 **The fix would require editing more than one page, or requires a
 structural rewrite:**
