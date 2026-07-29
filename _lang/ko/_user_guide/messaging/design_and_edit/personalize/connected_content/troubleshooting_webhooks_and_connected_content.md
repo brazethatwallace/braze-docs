@@ -9,18 +9,18 @@ description: "증상 색인, HTTP 오류 표, 비정상 호스트 감지 안내�
 
 > 이 페이지에서는 웹훅 및 연결된 콘텐츠의 일반적인 오류 코드를 문제 해결하는 방법을 안내합니다. 설정 방법은 [웹훅 만들기]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) 및 [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하세요.
 
-## 시작하기: 증상 매칭 {#start-here-match-your-symptom}
+## 여기서 시작하세요: 증상 확인하기 {#start-here-match-your-symptom}
 
-아래 표에서 증상을 찾아 관련 섹션으로 이동하세요.
+아래 표에서 해당하는 증상을 찾아 관련 섹션으로 이동하세요.
 
 | 증상 | 이동 |
 | --- | --- |
-| 메시지 활동 로그에서 `4XX` 클라이언트 오류 | [4XX 오류](#4xx-errors) |
-| `5XX` 서버 오류 또는 시간 초과 | [5XX 오류](#5xx-errors) |
+| 메시지 활동 로그의 `4XX` 클라이언트 오류 | [4XX 오류](#4xx-errors) |
+| `5XX` 서버 오류 또는 타임아웃 | [5XX 오류](#5xx-errors) |
 | `598 Host Unhealthy` 또는 요청이 일시적으로 중단됨 | [비정상 호스트 감지]({{site.baseurl}}/support_contact) |
-| 연결된 콘텐츠가 미리보기 또는 발송에서 빈 값으로 렌더링됨 | [연결된 콘텐츠가 응답 본문을 반환하지 않는 경우](#connected-content-returns-no-response-body) |
+| 연결된 콘텐츠가 미리보기 또는 발송 시 빈 값으로 렌더링됨 | [연결된 콘텐츠가 응답 본문을 반환하지 않음](#connected-content-returns-no-response-body) |
 | Braze에서 자동 오류 이메일 수신 | [자동 이메일 및 메시지 활동 로그 항목](#automated-emails-and-message-activity-log-entries) |
-| Currents에서 웹훅 실패 이벤트가 필요함 | [Braze Currents의 추가 실패 인사이트](#additional-failure-insights-in-braze-currents) |
+| Currents에서 웹훅 실패 이벤트가 필요함 | [Braze 커런츠의 추가 실패 인사이트](#additional-failure-insights-in-braze-currents) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="웹훅 및 연결된 콘텐츠 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
@@ -29,15 +29,15 @@ description: "증상 색인, HTTP 오류 표, 비정상 호스트 감지 안내�
 
 1. [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 열고 오류 코드, 타임스탬프, 엔드포인트 URL을 확인합니다.
 2. `4XX` 오류의 경우, 엔드포인트 설명서를 기준으로 요청 구문, 인증 헤더, URL 경로, HTTP 메서드를 확인합니다.
-3. `5XX` 오류의 경우, 엔드포인트 상태, 사용량 제한, Braze가 호스트를 비정상으로 표시했는지 여부를 확인합니다.
-4. 연결된 콘텐츠의 경우, 테스트 사용자에 대해 메시지를 미리보기하고 Liquid가 빈 값이나 JSON을 깨뜨리는 값으로 확인되지 않는지 점검합니다.
-5. 비정상 호스트 감지가 관련될 수 있는 경우, [Braze 고객지원](#unhealthy-host-detection)에 문의하기 전에 [비정상 호스트 감지](#unhealthy-host-detection)를 검토하세요.
+3. `5XX` 오류의 경우, 엔드포인트 상태, 사용량 제한, Braze가 해당 호스트를 비정상으로 표시했는지 여부를 확인합니다.
+4. 연결된 콘텐츠의 경우, 테스트 사용자로 메시지를 미리보기하고 Liquid이 빈 값이나 JSON을 깨뜨리는 값으로 확인되지 않는지 점검합니다.
+5. 비정상 호스트 감지가 관련되어 있을 수 있는 경우, [Braze 지원팀](#unhealthy-host-detection)에 문의하기 전에 [비정상 호스트 감지](#unhealthy-host-detection)를 검토하세요.
 
 ## 4XX 오류 {#4xx-errors}
 
-`4XX` 오류는 엔드포인트로 전송된 요청에 문제가 있음을 나타냅니다. 이러한 오류는 일반적으로 잘못된 형식의 매개변수, 누락된 인증 헤더 또는 잘못된 URL을 포함한 잘못된 요청으로 인해 발생합니다. 이러한 오류는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)에도 적용됩니다.
+`4XX` 오류는 엔드포인트로 전송된 요청에 문제가 있음을 나타냅니다. 이러한 오류는 일반적으로 잘못된 매개변수, 누락된 인증 헤더 또는 잘못된 URL 등 잘못된 요청으로 인해 발생합니다. 이러한 오류는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)에도 적용됩니다.
 
-오류 코드 세부 정보 및 해결 단계는 다음 표를 참조하세요:
+오류 코드 세부 정보 및 해결 단계는 다음 표를 참조하세요.
 
 <style>
 table td {
@@ -62,7 +62,7 @@ table td {
           <li>요청 페이로드에 구문 오류가 없는지 확인합니다.</li>
           <li>모든 필수 필드가 포함되어 있고 올바른 형식인지 확인합니다.</li>
           <li>JSON 페이로드를 전송하는 경우 JSON 구조를 검증합니다.</li>
-          <li>Liquid를 사용하여 웹훅 요청에 개인화 태그를 템플릿으로 적용하는 경우, Liquid가 빈 값으로 확인되거나 JSON을 깨뜨리는 문자(이스케이프되지 않은 따옴표 등)를 생성하지 않는지 확인합니다. 테스트 사용자에 대해 메시지를 미리보기하여 렌더링된 출력이 유효한지 확인합니다.</li>
+          <li>웹훅 요청에서 Liquid를 사용하여 개인화 태그를 템플릿으로 지정하는 경우, Liquid가 빈 값으로 확인되거나 JSON을 깨뜨리는 문자(이스케이프되지 않은 따옴표 등)를 생성하지 않는지 확인합니다. 테스트 사용자에 대해 메시지를 미리보기하여 렌더링된 출력이 유효한지 확인합니다.</li>
         </ul>
       </td>
     </tr>
@@ -99,7 +99,7 @@ table td {
     </tr>
     <tr>
       <td><b>405 Method Not Allowed</b></td>
-      <td>요청 메서드가 엔드포인트에 알려져 있지만 대상 리소스에서 지원되지 않습니다.</td>
+      <td>요청 메서드가 엔드포인트에서 인식되지만 대상 리소스에서 지원되지 않습니다.</td>
       <td>
         <ul>
           <li>요청에 사용된 HTTP 메서드(DELETE, GET, POST, PUT)를 확인합니다.</li>
@@ -109,7 +109,7 @@ table td {
     </tr>
     <tr>
       <td><b>408 Request Timeout</b></td>
-      <td>엔드포인트가 요청 처리 중 시간이 초과되었습니다.</td>
+      <td>엔드포인트가 요청을 처리하는 동안 시간이 초과되었습니다.</td>
       <td>
         <ul>
           <li>요청에 사용된 HTTP 메서드(DELETE, GET, POST, PUT)를 확인합니다.</li>
@@ -143,23 +143,23 @@ table td {
 
 `5XX` 오류는 엔드포인트에 문제가 있음을 나타냅니다. 이러한 오류는 일반적으로 서버 측 문제로 인해 발생합니다.
 
-| 오류 코드 | 의미 |
+| 오류 코드                    | 의미                                                                                                                                         |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **500 Internal Server Error** | 엔드포인트가 요청을 완료하지 못하게 하는 예기치 않은 상태를 만났습니다. |
-| **502 Bad Gateway** | 엔드포인트가 업스트림 서버로부터 잘못된 응답을 받았습니다. |
-| **503 Service Unavailable** | 엔드포인트가 일시적인 과부하 또는 유지보수로 인해 현재 요청을 처리할 수 없습니다. |
-| **504 Gateway Timeout** | 엔드포인트가 업스트림 서버로부터 적시에 응답을 받지 못했습니다. |
-| **529 Host Overloaded** | 엔드포인트 호스트가 과부하 상태이며 응답할 수 없습니다. |
-| **598 Host Unhealthy** | 엔드포인트 호스트가 일시적으로 비정상으로 표시되어 Braze가 응답을 시뮬레이션했습니다. 자세한 내용은 [비정상 호스트 감지](#unhealthy-host-detection)를 참조하세요. |
-| **599 Connection Error** | Braze가 엔드포인트에 연결을 설정하는 동안 네트워크 연결 시간 초과 오류가 발생했으며, 이는 엔드포인트가 불안정하거나 다운되었을 수 있음을 의미합니다. |
+| **500 Internal Server Error** | 엔드포인트가 요청을 완료하지 못하게 하는 예기치 않은 상태를 만났습니다.                                                       |
+| **502 Bad Gateway**           | 엔드포인트가 업스트림 서버로부터 잘못된 응답을 수신했습니다.                                                                                   |
+| **503 Service Unavailable**   | 엔드포인트가 일시적인 과부하 또는 유지보수로 인해 현재 요청을 처리할 수 없습니다.                                                    |
+| **504 Gateway Timeout**       | 엔드포인트가 업스트림 서버로부터 적시에 응답을 받지 못했습니다.                                                                               |
+| **529 Host Overloaded**       | 엔드포인트 호스트가 과부하 상태여서 응답할 수 없습니다. |
+| **598 Host Unhealthy**        | 엔드포인트 호스트가 일시적으로 비정상으로 표시되어 Braze가 응답을 시뮬레이션했습니다. 자세한 내용은 [비정상 호스트 감지](#unhealthy-host-detection)를 참조하세요. |
+| **599 Connection Error**      | Braze가 엔드포인트에 연결을 설정하는 동안 네트워크 연결 시간 초과 오류가 발생했습니다. 이는 엔드포인트가 불안정하거나 다운되었을 수 있음을 의미합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="5XX 오류" }
 
 ### 5XX 오류 해결 {#resolving-5xx-errors}
 
-다음은 일반적인 `5XX` 오류를 문제 해결하기 위한 팁입니다:
+일반적인 `5XX` 오류를 해결하기 위한 팁은 다음과 같습니다:
 
-- **메시지 활동 로그**에서 사용 가능한 구체적인 세부 정보를 오류 메시지에서 확인합니다. 웹훅의 경우 Braze 홈 페이지의 **시간별 성과** 섹션으로 이동하여 웹훅 통계를 선택합니다. 여기에서 오류가 발생한 시점을 나타내는 타임스탬프를 찾을 수 있습니다.
-- 엔드포인트를 과부하시키는 너무 많은 요청을 보내고 있지 않은지 확인합니다. 배치로 전송하거나 사용량 제한을 조정하여 오류가 줄어드는지 확인할 수 있습니다.
+- **Message Activity Log**에서 확인할 수 있는 구체적인 세부 정보를 오류 메시지에서 확인하세요. 웹훅의 경우 Braze 홈 페이지의 **Performance Over Time** 섹션으로 이동하여 웹훅 통계를 선택하세요. 여기에서 오류가 발생한 시점을 나타내는 타임스탬프를 확인할 수 있습니다.
+- 엔드포인트에 과부하를 일으킬 만큼 너무 많은 요청을 보내고 있지 않은지 확인하세요. 배치로 전송하거나 사용량 제한을 조정하여 오류가 줄어드는지 확인할 수 있습니다.
 
 ## 비정상 호스트 감지 {#unhealthy-host-detection}
 

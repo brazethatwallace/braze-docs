@@ -114,7 +114,7 @@ L'utilisation de « Jour de l'année » pour des dates absolues peut produire de
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-Les autorisations granulaires sont en accès anticipé. Lorsque la migration sera planifiée pour votre société, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration).
+Les autorisations granulaires sont en accès anticipé. Lorsque la migration sera planifiée pour votre entreprise, vos administrateurs Braze recevront des e-mails et des bannières dans le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration).
 {% endalert %}
 
 {% endif %}

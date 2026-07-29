@@ -14,9 +14,9 @@ Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고�
 
 **초기화는 JavaScript 기반입니다:** Android 리소스와 iOS `AppDelegate`에서 네이티브 구성(푸시, 로깅, 델리게이트)을 설정한 다음, JavaScript에서 `Braze.initialize(apiKey, endpoint)`를 호출하여 SDK를 시작합니다. 이를 통해 SDK가 초기화되는 시점과 사용할 자격 증명을 완전히 제어할 수 있습니다. 초기화 후 필요에 따라 다른 SDK 메서드(예: `changeUser`, `logCustomEvent`)를 호출합니다.
 
-### 주요 기능 {#what-you-can-do}
+### 수행할 수 있는 작업 {#what-you-can-do}
 
-- **사용자 관리**: 사용자 식별, 프로필 필드 설정, 커스텀 속성, 별칭, 구독 그룹
+- **사용자 관리**: 사용자 식별, 프로필 필드 설정, 커스텀 속성, 별칭 및 구독 그룹 관리
 - **인앱 메시지**: 기본 Braze UI 또는 구독 및 로깅 API를 통한 커스텀 처리
 - **Content Cards**: 기본 피드 UI 또는 카드를 가져와 자체 UI 구축
 - **배너**: `BrazeBannerView`를 포함한 배치 기반 HTML 배너
@@ -27,11 +27,11 @@ Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고�
 
 ## 필수 조건 {#prerequisites}
 
-- Braze 앱 API 키 및 SDK 엔드포인트가 포함된 **Braze 계정**
+- **Braze 계정**: 앱 API 키 및 SDK 엔드포인트 포함
 - **React Native** 개발 환경 ([React Native 환경 설정](https://reactnative.dev/docs/set-up-your-environment))
 - **iOS**: Xcode, CocoaPods (`cd ios && pod install`)
 - **Android**: Android Studio / Gradle; React Native 템플릿에서 요구하는 Kotlin Gradle 플러그인
-- **푸시** (사용하는 경우): FCM(Android) 및 APNs(iOS) 설정은 [푸시 알림 설명서](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)를 참조하세요
+- **푸시** (사용하는 경우): FCM(Android) 및 APNs(iOS) 설정은 [푸시 설명서](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)를 참조하세요
 
 대시보드에서 자격 증명 위치를 확인하려면 [통합 개요](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)를 참조하세요.
 
@@ -65,9 +65,9 @@ Braze.changeUser("user-123");
 Braze.logCustomEvent("button_clicked", { screen: "home" });
 ```
 
-TypeScript 타이핑은 패키지와 함께 제공됩니다(GitHub의 `src/index.d.ts`).
+TypeScript 타입 정의는 패키지에 포함되어 있습니다(GitHub의 `src/index.d.ts`).
 
-다른 자격 증명으로 `Braze.initialize`를 다시 호출하면 현재 인스턴스가 해제되고 다시 생성되므로, 세션 중 재초기화가 가능합니다.
+다른 자격 증명으로 `Braze.initialize`를 다시 호출하면 현재 인스턴스가 해제되고 다시 생성되므로, 세션 중간에 재초기화가 가능합니다.
 
 ---
 
@@ -77,10 +77,10 @@ TypeScript 타이핑은 패키지와 함께 제공됩니다(GitHub의 `src/index
 
 ### Android
 
-- 템플릿에 아직 포함되어 있지 않은 경우 루트 `build.gradle`에 **Kotlin Gradle 플러그인**을 추가합니다(버전은 React Native 버전에 따라 다릅니다).
-- `res/values`에 구성이 포함된 `braze.xml` 리소스 파일을 추가합니다. SDK가 JavaScript에서 `Braze.initialize()`를 호출할 때까지 대기하도록 지연 초기화를 활성화합니다. 다른 구성 값(푸시, 세션 타임아웃 등)은 여전히 이 파일에서 읽혀지며 초기화 시 적용됩니다.
+- 템플릿에 아직 포함되어 있지 않다면 루트 `build.gradle`에 **Kotlin Gradle 플러그인**을 추가합니다(버전은 React Native 버전에 따라 다릅니다).
+- `res/values`에 구성이 포함된 `braze.xml` 리소스 파일을 추가합니다. SDK가 JavaScript에서 `Braze.initialize()`를 호출할 때까지 대기하도록 지연 초기화를 활성화합니다. 기타 구성 값(푸시, 세션 타임아웃 등)은 여전히 이 파일에서 읽혀지며 초기화 시 적용됩니다.
 - `AndroidManifest.xml`에 `INTERNET` 및 `ACCESS_NETWORK_STATE`와 같은 기본 권한이 있는지 확인합니다.
-- 푸시의 경우, FCM 통합과 설명서에 설명된 Braze 전용 발신자 ID / 등록 플래그를 완료합니다.
+- 푸시의 경우, FCM 통합과 설명서에 설명된 Braze 전용 발신자 ID/등록 플래그를 완료합니다.
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -142,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## 구성 참조 {#configuration-reference}
 
-React Native에서 **구성은 네이티브 방식으로** 이루어집니다. Android는 `res/values/braze.xml`을 읽고, iOS는 **`BrazeReactInitializer.configure`**를 통해 등록된 클로저를 사용합니다. 두 가지 모두 JavaScript에서 `Braze.initialize(apiKey, endpoint)`가 호출될 때 적용됩니다.
+React Native에서 **구성은 네이티브 방식으로 이루어집니다**: Android는 `res/values/braze.xml`을 읽고, iOS는 **`BrazeReactInitializer.configure`**를 통해 등록된 클로저를 사용합니다. 두 가지 모두 JavaScript에서 `Braze.initialize(apiKey, endpoint)`가 호출될 때 적용됩니다.
 
 ### Android (`braze.xml`)
 
@@ -156,7 +156,7 @@ React Native에서 **구성은 네이티브 방식으로** 이루어집니다. A
 | `com_braze_api_key` | `string` | JavaScript에서 `Braze.initialize()`를 사용하는 경우 필요하지 않습니다(자격 증명이 JS에서 전달됨). 레거시 네이티브 우선 초기화에서만 필요합니다. |
 | `com_braze_custom_endpoint` | `string` | JavaScript에서 `Braze.initialize()`를 사용하는 경우 필요하지 않습니다. 레거시 네이티브 우선 초기화에서만 필요합니다. |
 | `com_braze_server_target` | `string` | 선택적 클러스터/환경 선택기입니다(예: 일부 내부 또는 스테이징 빌드). Braze 통합에서 별도로 지정하지 않는 한 프로덕션에서는 `com_braze_custom_endpoint`를 사용하는 것이 좋습니다. |
-| `com_braze_firebase_cloud_messaging_registration_enabled` | `bool` | `true`이면 Braze가 FCM에 등록합니다(일반적인 푸시 설정). |
+| `com_braze_firebase_cloud_messaging_registration_enabled` | `bool` | `true`인 경우 Braze가 FCM에 등록합니다(일반적인 푸시 설정). |
 | `com_braze_firebase_cloud_messaging_sender_id` | `string` | 자동 등록이 활성화된 경우의 FCM 발신자 ID입니다. |
 | `com_braze_handle_push_deep_links_automatically` | `bool` | Braze가 푸시 딥링크를 자동으로 열도록 합니다. |
 | `com_braze_trigger_action_minimum_time_interval_seconds` | `integer` | 인앱 메시지 트리거 동작 사이의 최소 시간(초)입니다. |
@@ -176,7 +176,7 @@ React Native에서 **구성은 네이티브 방식으로** 이루어집니다. A
 | **세션** | `sessionTimeout` | 새 세션이 시작되기까지의 비활성 시간입니다(Braze 세션 설명서 참조). |
 | **개인정보 보호/데이터** | `api.trackingPropertyAllowList`, `devicePropertyAllowList`, `api.sdkAuthentication` | [개인정보 보호 매니페스트](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/) 및 SDK 인증 제품 설정에 맞춰 조정하세요. |
 | **네트워킹** | `api.requestPolicy`, `api.flushInterval` | 요청 재시도 정책 및 플러시 주기입니다. |
-| **푸시 구독** | `optInWhenPushAuthorized` | `true`이면 사용자가 알림을 허용한 후 구독 상태가 옵트인으로 변경될 수 있습니다. |
+| **푸시 구독** | `optInWhenPushAuthorized` | `true`인 경우 사용자가 알림을 허용한 후 구독 상태가 옵트인으로 변경될 수 있습니다. |
 | **인앱 메시지 + 사용자 변경** | `preventInAppMessageDisplayForDifferentUser` | 사용자 ID가 변경될 때 일치하지 않는 인앱 메시지를 줄입니다. |
 | **기타** | `forwardUniversalLinks`, `ephemeralEvents`, `useUUIDAsDeviceId`, … | 전체 동작은 Swift 설명서를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS (Braze.Configuration)" }
@@ -205,12 +205,12 @@ Braze.addAlias("external_id", "marketing_id");
 Braze.addToSubscriptionGroup("NEWSLETTER_GROUP_UUID");
 ```
 
-선택 사항인 **SDK 인증**: `changeUser`의 두 번째 인수로 서명을 전달하거나, 대시보드에서 활성화된 경우 `Braze.setSdkAuthenticationSignature(signature)`를 호출합니다.
+선택 사항인 **SDK 인증**: 대시보드에서 활성화된 경우 `changeUser`의 두 번째 인수로 서명을 전달하거나 `Braze.setSdkAuthenticationSignature(signature)`를 호출합니다.
 
 ### 인앱 메시지 {#in-app-messages}
 
 - **기본 Braze UI**를 사용하는 경우, [인앱 메시지 설명서](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native)를 참조하세요. 기본 UI만 표시하려면 일반적으로 `subscribeToInAppMessage`를 호출할 필요가 **없습니다**.
-- **커스텀** 처리의 경우, `useBrazeUI: false`로 구독한 다음 필요에 따라 노출 횟수/클릭을 기록합니다:
+- **커스텀** 처리를 위해서는 `useBrazeUI: false`로 구독한 다음 필요에 따라 노출 횟수/클릭을 기록합니다:
 
 ``` typescript
 Braze.subscribeToInAppMessage(false, (event) => {
@@ -231,7 +231,7 @@ Braze.logContentCardImpression(cardId);
 Braze.logContentCardClicked(cardId);
 ```
 
-`Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, ...)`를 사용하여 업데이트를 수신합니다.
+`Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, ...)`를 사용하여 업데이트를 수신 대기합니다.
 
 ### 배너 {#banners}
 
@@ -257,8 +257,8 @@ Braze.requestPushPermission({
 Braze.registerPushToken(token);
 ```
 
-- **`getInitialPushPayload`**: 알림에서 앱이 열릴 때 RN `Linking` 경합 조건을 방지하기 위해 사용합니다. TypeScript 문서 주석 및 샘플 앱에 설명된 대로 네이티브 훅(iOS의 `BrazeReactUtils`, Android의 `BrazeReactUtils.populateInitialPushPayloadFromIntent`)이 필요합니다.
-- **`Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, ...)`**는 공개 타이핑에 따르면 **Android 전용**입니다.
+- **`getInitialPushPayload`**: 알림에서 앱이 열릴 때 RN `Linking` 경합 조건을 방지하기 위해 사용합니다. TypeScript 문서 주석 및 샘플 앱에 설명된 대로 네이티브 후크(iOS의 `BrazeReactUtils`, Android의 `BrazeReactUtils.populateInitialPushPayloadFromIntent`)가 필요합니다.
+- **`Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, ...)`**는 공개 타이핑에 따라 **Android 전용**입니다.
 
 ### 기능 플래그 {#feature-flags}
 
@@ -283,7 +283,7 @@ Braze.requestImmediateDataFlush();
 
 ### 데이터 관리 및 SDK 상태 {#data-management-and-sdk-state}
 
-**`changeUser`**는 Braze에 **새로운** 활동을 어떤 사용자 ID에 귀속할지만 알려줍니다. 기기에 캐시된 SDK 데이터를 지우지는 **않습니다**. 별도의 "로그아웃" API는 없습니다. 기존 로그아웃 방식(이전 사용자의 캐시된 프로필, 메시지, 토큰이 이 설치에 남지 않도록 로컬 Braze 상태를 지우는 것)이 필요한 경우, 일반적으로 **`wipeData()`**를 사용합니다. 이는 전체 로컬 초기화입니다.
+**`changeUser`**는 Braze에 **새로운** 활동을 어떤 사용자 ID에 귀속할지만 알려줍니다. 기기에 캐시된 SDK 데이터를 지우지는 **않습니다**. 별도의 "로그아웃" API는 없습니다. 기존 로그아웃(이전 사용자의 캐시된 프로필, 메시지, 토큰이 이 설치에서 사라지도록 로컬 Braze 상태를 지우는 것)이 필요한 경우 일반적으로 **`wipeData()`**를 사용합니다. 이는 전체 로컬 초기화입니다.
 
 ``` typescript
 Braze.wipeData();
@@ -291,11 +291,11 @@ Braze.disableSDK();
 Braze.enableSDK();
 ```
 
-**`wipeData()`** — 이 설치에 대한 Braze의 **로컬** 데이터(캐시된 사용자/세션/카드 상태, 푸시 토큰 연결 등)를 지웁니다. 이전 사용자의 Braze 상태를 기기에 남기지 않아야 하는 **로그아웃 방식** 동작, **"이 기기에서 내 데이터 삭제"**, 재설치 없이 **QA** 초기화, 또는 엄격한 **개인정보 보호** 흐름에 사용합니다. **`changeUser`**만으로는 이러한 정리를 수행하지 않으며, **새로운** 이벤트를 수신할 사용자 ID만 설정합니다. **iOS**에서는 동작이 Android와 다를 수 있습니다(예: SDK 비활성화 상태와의 상호작용). 프로덕션에서 이 기능을 사용하는 경우 Braze의 네이티브 설명서를 참조하세요.
+**`wipeData()`** — 이 설치에 대한 Braze의 **로컬** 데이터(캐시된 사용자/세션/카드 상태, 푸시 토큰 연결 등)를 지웁니다. 이전 사용자의 Braze 상태를 기기에 남기지 않아야 하는 **로그아웃 스타일** 동작, **"이 기기에서 내 데이터 삭제"**, 재설치 없이 **QA** 초기화, 또는 엄격한 **개인정보 보호** 흐름에 사용합니다. **`changeUser`**만으로는 해당 정리를 수행하지 않으며, **새로운** 이벤트를 수신할 사용자 ID만 설정합니다. **iOS**에서는 동작이 Android와 다를 수 있습니다(예: SDK 비활성화 상태와의 상호작용). 프로덕션에서 이를 사용하는 경우 Braze의 네이티브 설명서를 참조하세요.
 
 **`disableSDK()`** — SDK 작동을 중지합니다(구성된 대로 수집/전달 없음). **사용자 옵트아웃** 토글, **제한 모드**(규정 준수, 어린이 설정), 또는 종속성을 제거하지 않고 **디버깅**하는 데 사용합니다.
 
-**`enableSDK()`** — **`disableSDK()`** 이후 SDK를 다시 활성화합니다. **iOS**에서는 다시 활성화가 **다음 앱 실행** 전까지 적용되지 않을 수 있습니다. 즉시 재활성화에 의존하기 전에 Braze Swift/iOS 설명서에서 확인하세요.
+**`enableSDK()`** — **`disableSDK()`** 이후 SDK를 다시 켭니다. **iOS**에서는 다시 활성화가 **다음 앱 실행**까지 적용되지 않을 수 있습니다. 즉시 다시 활성화에 의존하기 전에 Braze Swift/iOS 설명서에서 확인하세요.
 
 ---
 
@@ -335,7 +335,7 @@ useEffect(() => {
 
 | 이벤트 상수 | 페이로드(요약) |
 |----------------|-------------------|
-| `Braze.Events.CONTENT_CARDS_UPDATED` | 최신 콘텐츠 카드 |
+| `Braze.Events.CONTENT_CARDS_UPDATED` | 최신 Content Cards |
 | `Braze.Events.BANNER_CARDS_UPDATED` | 최신 배너 |
 | `Braze.Events.FEATURE_FLAGS_UPDATED` | 기능 플래그 배열 |
 | `Braze.Events.IN_APP_MESSAGE_RECEIVED` | 인앱 메시지 이벤트 |
@@ -412,7 +412,7 @@ npx react-native run-android
 개발 중에 **네이티브** 구성에서 Braze 로깅을 활성화하면 SDK가 시스템 콘솔(Xcode / Android Logcat)에 로그를 기록합니다. 이를 통해 초기화, 사용자 변경 및 이벤트 전달을 확인할 수 있습니다.
 
 - **iOS** — `BrazeReactInitializer.configure`에 전달되는 `configure` 클로저에서 `config.logger.level = .debug`(또는 `.info`)를 설정합니다. 프로덕션에서는 사용자에게 로그가 노출되지 않도록 줄이거나 비활성화하세요.
-- **Android** — `braze.xml`에서 `com_braze_logger_initial_log_level` 리소스를 사용하거나 `BrazeConfig.Builder`에서 동일한 설정을 지정합니다([BrazeConfigurationProvider](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/logger-initial-log-level.html) 참조). 릴리스 전에 상세하지 않은 로그 수준을 사용하거나 오버라이드를 제거하세요.
+- **Android** — `braze.xml`에서 `com_braze_logger_initial_log_level` 리소스를 사용하거나 `BrazeConfig.Builder`에서 동일한 설정을 지정합니다([BrazeConfigurationProvider](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/logger-initial-log-level.html) 참조). 릴리스 전에 상세하지 않은 수준으로 변경하거나 오버라이드를 제거하세요.
 
 네트워크, 세션 또는 Campaign 동작에 대한 심층적인 문제 해결은 [Braze React Native 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native) 및 네이티브 SDK 설명서([Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk))를 참조하세요.
 
