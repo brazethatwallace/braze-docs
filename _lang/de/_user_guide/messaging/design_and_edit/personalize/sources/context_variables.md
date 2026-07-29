@@ -63,11 +63,11 @@ Kontextvariablen haben dieselben erwarteten Formate für Datentypen wie [Event-E
 | Objekt (flach) | user_profile |{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Datentypen" }
 
-Standardmäßig ist der Datentyp „Time“ in UTC angegeben. Wenn Sie einen String-Datentyp verwenden, um einen Zeitwert zu speichern, können Sie die Zeit in einer anderen Zeitzone wie PST definieren.
+Standardmäßig ist der Zeit-Datentyp in UTC. Wenn Sie einen String-Datentyp verwenden, um einen Zeitwert zu speichern, können Sie die Zeit in einer anderen Zeitzone wie PST definieren.
 
-Wenn Sie beispielsweise einem/einer Nutzer:in am Tag vor dem Geburtstag eine Nachricht senden möchten, würden Sie die Kontextvariable als Time-Datentyp speichern, da es Liquid-Logik gibt, die mit dem Versand am Vortag verknüpft ist. Wenn Sie jedoch eine Feiertagsnachricht am Weihnachtstag (25. Dezember) senden, müssten Sie die Zeit nicht als dynamische Variable referenzieren, sodass die Verwendung eines String-Datentyps vorzuziehen wäre.
+Wenn Sie beispielsweise einem/einer Nutzer:in am Tag vor dem Geburtstag eine Nachricht senden möchten, würden Sie die Kontextvariable als Zeit-Datentyp speichern, da es Liquid-Logik gibt, die mit dem Versand am Vortag verknüpft ist. Wenn Sie jedoch eine Feiertagsnachricht am Weihnachtstag (25. Dezember) senden, müssten Sie die Zeit nicht als dynamische Variable referenzieren, sodass die Verwendung eines String-Datentyps vorzuziehen wäre.
 
-Für Object-Datentypen können Sie die Punktnotation verwenden, um einen Pfad durch die Daten anzugeben. Wenn Ihr Kontextschritt beispielsweise eine Kontextvariable `order_summary` mit dieser Struktur definiert:
+Für Objekt-Datentypen können Sie die Punktnotation verwenden, um einen Pfad durch die Daten anzugeben. Wenn Ihr Kontextschritt beispielsweise eine Kontextvariable `order_summary` mit dieser Struktur definiert:
 
 ```json
 {
