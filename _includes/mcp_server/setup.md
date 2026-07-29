@@ -133,6 +133,12 @@ During Early Access, Braze maintains an allowlist of supported client domains fo
 
 Clients that run locally on your machine without a custom scheme, such as Claude Code and OpenAI Codex, should also work.
 
+### Tools don't appear in your client
+
+If your agent can't list the Braze tools, wait a few minutes and try again. These issues are often temporary and resolve on their own.
+
+If the problem continues, record a video and send it to [mcp-product@braze.com](mailto:mcp-product@braze.com) for investigation.
+
 ### Agent cannot access expected tools
 
 1. Confirm your dashboard user has the required permissions. Your agent can only use tools that match your own dashboard access.
