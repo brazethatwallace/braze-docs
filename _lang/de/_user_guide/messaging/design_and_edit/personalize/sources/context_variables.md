@@ -229,13 +229,13 @@ Der folgende Filter vergleicht die Kontextvariable `reminder_date` so, dass sie 
 
 ## Standardisierung der Zeitzonenkonsistenz {#time-zone-consistency-standardization}
 
-Obwohl die meisten Event-Eigenschaften mit dem Timestamp-Typ in Canvas bereits in UTC vorliegen, gibt es einige Ausnahmen. Mit der Einführung von Canvas Context werden alle standardmäßigen Timestamp-Event-Eigenschaften in aktionsbasierten Canvases einheitlich in UTC angegeben. Diese Änderung ist Teil einer umfassenderen Maßnahme, um ein vorhersehbareres und konsistenteres Erlebnis beim Bearbeiten von Canvas-Schritten und Nachrichten zu gewährleisten. Beachten Sie, dass diese Änderung alle aktionsbasierten Canvases betrifft, unabhängig davon, ob das jeweilige Canvas einen Context-Schritt verwendet oder nicht.
+Obwohl die meisten Event-Eigenschaften mit dem Zeitstempel-Typ in Canvas bereits in UTC vorliegen, gibt es einige Ausnahmen. Mit der Einführung von Canvas-Kontext werden alle standardmäßigen Zeitstempel-Event-Eigenschaften in aktionsbasierten Canvases einheitlich in UTC angegeben. Diese Änderung ist Teil einer umfassenderen Maßnahme, um ein vorhersehbareres und konsistenteres Erlebnis beim Bearbeiten von Canvas-Schritten und Nachrichten zu gewährleisten. Beachten Sie, dass diese Änderung alle aktionsbasierten Canvases betrifft, unabhängig davon, ob das jeweilige Canvas einen Kontext-Schritt verwendet oder nicht.
 
 {% alert important %}
-Unter allen Umständen empfehlen wir dringend, [Liquid-time_zone-Filter]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#things-to-know) zu verwenden, damit Timestamps in der gewünschten Zeitzone dargestellt werden. Ein Beispiel finden Sie in dieser [häufig gestellten Frage im Artikel zum Context-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#faq-example).
+Unter allen Umständen empfehlen wir dringend, [Liquid-time_zone-Filter]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#things-to-know) zu verwenden, damit Zeitstempel in der gewünschten Zeitzone dargestellt werden. Ein Beispiel finden Sie in dieser [häufig gestellten Frage im Kontext-Schritt-Artikel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#faq-example).
 {% endalert %}
 
 ## Verwandte Artikel {#related-articles}
 
-- [Context-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
+- [Kontext-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [Personalisierung und dynamischer Content mit Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)

@@ -82,9 +82,9 @@ Wenn Sie Single Sign-on (SSO) verwenden, beachten Sie, dass mehrere unterschiedl
 
 ### Passwort zurücksetzen {#resetting-your-password}
 
-Um Ihr Passwort zurückzusetzen, wählen Sie den Link **Forgot your password?** auf der Dashboard-Anmeldeseite. Sie werden aufgefordert, Ihre E-Mail-Adresse einzugeben, um einen Link zum Zurücksetzen Ihres Passworts zu erhalten.
+Um Ihr Passwort zurückzusetzen, wählen Sie den Link **Passwort vergessen?** auf der Dashboard-Anmeldeseite. Sie werden aufgefordert, Ihre E-Mail-Adresse einzugeben, um einen Link zum Zurücksetzen Ihres Passworts zu erhalten.
 
-![Dashboard-Anmeldung mit der Aufforderung „Forgot your password?“.]({% image_buster /assets/img_archive/enable_reset.png %}){: style="max-width:60%"}
+![Dashboard-Anmeldung mit der Aufforderung „Passwort vergessen?“.]({% image_buster /assets/img_archive/enable_reset.png %}){: style="max-width:60%"}
 
 ### Browser-Cache und Cookies löschen {#clearing-your-browser-cache-and-cookies}
 
