@@ -11,7 +11,7 @@ Before you start, make sure you have the following:
 | Prerequisite | Description |
 |--------------|-------------|
 | Early Access enrollment | Your account manager can enroll your company in the Early Access program. |
-| Supported MCP client | Any client that supports remote MCP servers with OAuth can work. Braze has verified Claude, ChatGPT, Cursor, OpenAI Codex, and Claude Code. |
+| Supported MCP client | Any client that supports remote MCP servers with OAuth can work. Braze has verified Claude, ChatGPT, Cursor, OpenAI Codex, Claude Code, and Visual Studio Code. |
 | Braze dashboard account | You sign in with your normal Braze credentials, including SSO or SAML if your company uses it. There is no separate MCP login. |
 | Server endpoint selection | Choose `https://mcp.braze.com/mcp` (US) or `https://mcp.braze.eu/mcp` (EU). Either endpoint can reach any Braze cluster. |
 | No IP allowlisting | Customers who use [IP Allowlisting](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting) cannot participate in Early Access at this time. |
@@ -66,6 +66,7 @@ Client setup guides:
 - [ChatGPT](https://developers.openai.com/api/docs/guides/developer-mode)
 - [Cursor](https://cursor.com/docs/mcp#using-mcpjson)
 - [OpenAI Codex](https://developers.openai.com/codex/mcp)
+- [Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/mcp-servers)
 
 ### Step 3: Sign in to Braze through OAuth
 
