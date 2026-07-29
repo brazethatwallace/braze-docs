@@ -54,13 +54,13 @@ Kontextvariablen haben dieselben erwarteten Formate für Datentypen wie [Event-E
 
 | Datentyp | Beispiel-Variablenname | Beispielwert |
 |---|---|---|
-| Boolean | loyalty_program |{% raw %}<code>true</code>{% endraw %}|
-| Number | credit_score |{% raw %}<code>740</code>{% endraw %}|
+| Boolescher Wert | loyalty_program |{% raw %}<code>true</code>{% endraw %}|
+| Zahl | credit_score |{% raw %}<code>740</code>{% endraw %}|
 | String | product_name |{% raw %}<code>green_tea</code>{% endraw %} |
 | Array | favorite_products |{% raw %}<code>["wireless_headphones", "smart_homehub", "fitness_tracker_swatch"]</code>{% endraw %}|
 | Array (von Objekten) | pet_details |{% raw %}<code>[<br>&emsp;{ "id": 1, "type": "dog", "breed": "beagle", "name": "Gus" }<br>&emsp;,<br>&emsp;{ "id": 2, "type": "cat", "breed": "calico", "name": "Gerald" }<br>]</code>{% endraw %}|
-| Time (in UTC) | last_purchase_date |{% raw %}<code>2025-12-25T08:15:30:250-0800</code>{% endraw %}|
-| Object (flattened) | user_profile |{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
+| Zeit (in UTC) | last_purchase_date |{% raw %}<code>2025-12-25T08:15:30:250-0800</code>{% endraw %}|
+| Objekt (flach) | user_profile |{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Datentypen" }
 
 Standardmäßig ist der Datentyp „Time“ in UTC angegeben. Wenn Sie einen String-Datentyp verwenden, um einen Zeitwert zu speichern, können Sie die Zeit in einer anderen Zeitzone wie PST definieren.
