@@ -105,7 +105,7 @@ Wenn das Löschen des Browser-Caches und der Cookies Ihre Probleme nicht behebt,
 
 Wenn Google Chrome einen „Aw, Snap!“-Fehler anzeigt, hat Chrome Schwierigkeiten, die Braze-Dashboard-Seite zu laden. Informationen zur Fehlerbehebung finden Sie unter [Hilfe bei häufigen Fehlermeldungen in Chrome](https://support.google.com/chrome/answer/95669?co=GENIE.Platform%3DDesktop&hl=en).
 
-### „Please Refresh Page“ oder „Unexpected Error“ beim Navigieren im Dashboard {#please-refresh-page-or-unexpected-error-while-navigating-the-dashboard}
+### „Bitte Seite aktualisieren“ oder „Unerwarteter Fehler“ beim Navigieren im Dashboard {#please-refresh-page-or-unexpected-error-while-navigating-the-dashboard}
 
 Dieser Fehler kann auftreten, wenn eine:r Unternehmensnutzer:in keinem Workspace zugeordnet ist. Zur Fehlerbehebung:
 
