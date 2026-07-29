@@ -43,6 +43,10 @@ When filtering a nested time custom attribute, you can choose to filter with ope
 
 If you select an operator under the **Day of Year** category, only the month and day are checked for comparison instead of the full timestamp of the nested custom attribute value. Selecting an operator under the **Time** category compares the full timestamp, including the year.
 
+{% alert note %}
+When using **in less than** or **in more than** operators with 90 days or more, Braze automatically converts the value to weeks when you save the segment. For example, 90 days is converted to 13 weeks.
+{% endalert %}
+
 ## Use multi-criteria segmentation
 
 Use **Multi-Criteria Segmentation** to create a segment that matches multiple criteria within a single object. This qualifies the user into the segment if they have at least one object in the array that matches all the criteria specified. For example, users only match this segment if their key is not blank, and if their number is more than 0.
