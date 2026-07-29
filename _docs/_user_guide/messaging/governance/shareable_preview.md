@@ -35,7 +35,7 @@ The following behavior is consistent across all supported channels.
 
 ### Generating a link
 
-While composing your message or content, select **Copy preview link** (or a similar option depending on the channel) to generate a shareable link. Braze automatically copies the link to your clipboard.
+While composing your message or content, select **Copy preview link** to generate a shareable link. Braze automatically copies the link to your clipboard.
 
 - The link opens a static, read-only snapshot of your message as it appeared at the moment you generated the link. It doesn't update automatically as you keep editing. Generate a new link to capture your latest changes.
 - If your message includes personalization, such as Liquid or Connected Content that resolves against a test user, a custom user profile, or a random user, the preview reflects that same personalization, matching what you see in **Preview and Test**.
@@ -59,6 +59,10 @@ Treat a link like any other shareable document: only send it to people you inten
 
 While the core experience is the same everywhere, a few channels have small differences worth knowing about.
 
+{% alert note %}
+Shareable preview is not available for in-app messages.
+{% endalert %}
+
 | Channel | What's different |
 |---|---|
 | Email | The preview includes the message's To, From, and Subject line fields, in addition to the message body. <br><br>If you're personalizing as a custom user, values entered as API-trigger properties or event properties may not appear in the preview, even though they display correctly in **Preview and Test**. Custom attributes, test users, and random users aren't affected. |
@@ -66,11 +70,8 @@ While the core experience is the same everywhere, a few channels have small diff
 | SMS and RCS | These are both governed by the same shareable preview functionality, but each generates its own independent link. |
 | WhatsApp | Shareable preview is available separately for both WhatsApp template messages and WhatsApp response messages. |
 | Content Blocks, email footers, and subscription pages | These generate a preview of the standalone content, independent of any specific campaign or Canvas it's used in. |
+| Landing pages | Preview behaves differently for landing pages than for other channels. See [Preview the page](/docs/user_guide/messaging/landing_pages/create_landing_pages/#step-5-preview-the-page) for details. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Per-channel nuances" }
-
-{% alert note %}
-Shareable preview is not available for in-app messages.
-{% endalert %}
 
 ## Frequently asked questions
 
@@ -83,9 +84,9 @@ No. A shareable preview link is a snapshot at the time it was created. Select **
 {% enddetails %}
 
 {% details How long does the link stay active? %}
-Seven days from when it was generated. If you regenerate the link, the new link gets its own seven-day expiration, separate from the original.
+Seven days from when it was generated. If you regenerate the link, the new link gets its own seven-day expiration, separate from the previous.
 {% enddetails %}
 
 {% details Can I revoke a link early? %}
-No, you cannot revoke a link. Regenerating the link doesn't invalidate the previous one. Either link works until it expires after seven days.
+No, you cannot revoke a link. Regenerating the link doesn't invalidate the previous one. All links work until they expire after seven days.
 {% enddetails %}
