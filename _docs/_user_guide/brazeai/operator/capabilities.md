@@ -193,6 +193,10 @@ Operator can reference the following to answer questions or ground the content i
 
 Ask Operator directly if you're not sure whether it can look up a specific piece of information.
 
+### Analyze performance data {#analyze-performance-data}
+
+Ask Operator plain-language questions about your campaign and Canvas performance, and it returns charts, comparisons, and short insights pulled from your workspace data. Unlike Operator's page-aware features, which need context from the page you're on, Analyze answers from anywhere in the dashboard. For more information, see [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+
 ### Write SQL queries {#write-sql-queries}
 
 Operator can help you write SQL for [Segment Extensions](#campaigns-and-audiences) and for Query Builder [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates). Describe the query you want in natural language, and Operator generates SQL for you to review before you run it.
@@ -200,6 +204,21 @@ Operator can help you write SQL for [Segment Extensions](#campaigns-and-audience
 ### Generate data transformation code {#generate-data-transformation-code}
 
 In the [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) editor, select **Insert Code** to generate transformation code that turns an incoming webhook payload into valid Braze API requests. For step-by-step instructions on creating a transformation, see [Create a transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
+
+## Workspace settings {#workspace-settings}
+
+Operator can review and update settings across several workspace configuration pages. Describe the change you want, and Operator proposes it as an action card you review before it's saved. Supported settings pages include but aren't limited to:
+
+- [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
+- [Push settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
+- [Messaging rate limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
+- [Approval workflows]({{site.baseurl}}/user_guide/messaging/governance/approvals), including [messaging rules]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) and always-on approval
+- [APIs and identifiers]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), including [other identifiers]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) and API limits
+- [Admin settings contact information]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+
+{% alert note %}
+Operator's coverage of settings pages expands regularly. **Ask Operator directly** for the most current answer of what it can configure.
+{% endalert %}
 
 ## Limitations {#limitations}
 
