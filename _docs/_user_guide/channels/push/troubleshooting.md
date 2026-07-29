@@ -192,7 +192,7 @@ If you're experiencing issues with links in push notifications unexpectedly open
 
 In your campaign or Canvas step, double-check that **Open web URL inside mobile app** is not selected. If it is, clear the selection and relaunch.
 
-The default interaction for the on-click behavior "Open web URL" differs by SDK version. For SDK versions iOS 2.29.0 and Android 2.0.0 and higher, this option is selected by default and web URLs will open in a web view within the app. Prior to these versions, this option is cleared by default and web URLs open in the device's default web browser.
+The default interaction for the on-click behavior "Open web URL" differs by SDK version. For SDK versions iOS 2.29.0 and Android 2.0.0 and higher, this option is selected by default and web URLs open in a web view within the app. Prior to these versions, this option is cleared by default and web URLs open in the device's default web browser.
 
 If this is not the issue, there may be a problem with your push implementation.
 
