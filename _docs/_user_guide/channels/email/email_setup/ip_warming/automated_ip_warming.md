@@ -95,7 +95,7 @@ Review the details of your IP warming plan. Then, select **Launch**.
 
 ## Multiple IP warmups
 
-Use multiple automated IP warming plans when you need to warm more than one from address or IP pool. Create one plan per from address. If a pool contains multiple dedicated IPs, warm them together in that single plan.
+Use multiple automated IP warming plans when you need to warm more than one from address or IP pool.
 
 | Scenario | Recommendation |
 | --- | --- |
