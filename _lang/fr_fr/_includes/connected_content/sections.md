@@ -14,12 +14,12 @@ Par défaut, le contenu connecté définit un en-tête `Content-Type` sur la req
 
 Par défaut, le contenu connecté effectue une requête HTTP GET vers l'URL spécifiée. Pour effectuer une requête POST à la place, spécifiez `:method post`.
 
-Vous pouvez également fournir un corps POST en spécifiant `:body` suivi d'une chaîne de caractères de requête au format `key1=value1&key2=value2&...` ou d'une référence à des valeurs capturées. Le Content-Type par défaut est `application/x-www-form-urlencoded`. Si vous spécifiez `:content_type application/json` et fournissez un corps encodé en URL tel que `key1=value1&key2=value2`, Braze encodera automatiquement le corps en JSON avant l'envoi.
+Vous pouvez également fournir un payload POST en spécifiant `:body` suivi d'une chaîne de caractères de requête au format `key1=value1&key2=value2&...` ou d'une référence à des valeurs capturées. Le Content-Type par défaut est `application/x-www-form-urlencoded`. Si vous spécifiez `:content_type application/json` et fournissez un corps encodé en URL tel que `key1=value1&key2=value2`, Braze encodera automatiquement le corps en JSON avant l'envoi.
 
 Par défaut, le contenu connecté ne met pas non plus en cache les appels POST. Vous pouvez modifier ce comportement en ajoutant `:cache_max_age` à l'appel POST du contenu connecté.
 
 {% tabs %}
-{% tab Content-Type par défaut %}
+{% tab Content-type par défaut %}
 
 {% raw %}
 ```js

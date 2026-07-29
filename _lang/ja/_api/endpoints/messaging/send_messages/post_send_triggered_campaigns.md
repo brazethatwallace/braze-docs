@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 このセクションでは、Brazeが送信先のユーザープロファイルをどのように選択するか、および1つのプロファイルが選択されなかった場合に何が起こるかについて説明します。
 
-ユーザーの購読グループのステータスは、`attributes`オブジェクト内に`subscription_groups`パラメーターを含めることで更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を参照してください。
+ユーザーの購読グループのステータスは、`attributes`オブジェクト内に`subscription_groups`パラメーターを含めることで更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照してください。
 
 #### 受信者の制限とプロファイル作成 {#recipient-limits-and-profile-creation}
 

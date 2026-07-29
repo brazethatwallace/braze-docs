@@ -20,4 +20,4 @@
 
 {{ heading_level }} Masquer des lignes et des blocs par appareil
 
-Pour adapter votre mise en page aux ordinateurs de bureau par rapport aux tablettes et aux appareils mobiles, sélectionnez une ligne ou un bloc sur le canevas, puis utilisez le bouton **Masquer sur** dans le panneau de propriétés pour le masquer sur **Ordinateur de bureau** ou **Tablette et appareils plus petits**. Une ligne ou un bloc masqué n'apparaîtra pas pour ce type d'appareil, que ce soit lors de la prévisualisation de {{ preview_subject }} dans l'éditeur par glisser-déposer ou {{ live_phrase }}.
+Pour adapter votre mise en page aux ordinateurs de bureau par rapport aux tablettes et aux appareils mobiles, sélectionnez une ligne ou un bloc sur le canevas, puis utilisez le bouton **Hide on** dans le panneau de propriétés pour le masquer sur **Desktop** ou **Tablet and smaller devices**. Une ligne ou un bloc masqué n'apparaîtra pas pour ce type d'appareil, que ce soit lors de la prévisualisation de {{ preview_subject }} dans l'éditeur par glisser-déposer ou {{ live_phrase }}.

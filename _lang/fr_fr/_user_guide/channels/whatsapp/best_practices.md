@@ -7,7 +7,6 @@ page_type: reference
 channel:
   - WhatsApp
 
-
 ---
 # Bonnes pratiques pour WhatsApp {#whatsapp-best-practices}
 
@@ -43,9 +42,9 @@ Pour plus d'informations sur les exigences d'abonnement et des conseils utiles, 
 
 ### Offrir aux clients la possibilité de se désabonner {#give-customers-the-option-to-opt-out}
 
-Les désinscriptions n'ont pas d'impact sur votre note de qualité téléphonique. Il est donc préférable qu'un utilisateur se désabonne des communications WhatsApp plutôt qu'il vous bloque ou vous signale.
+Les désabonnements n'affectent pas votre note de qualité téléphonique. Il est donc préférable qu'un utilisateur se désabonne des communications WhatsApp plutôt qu'il ne vous bloque ou ne vous signale.
 
-Une bonne pratique recommandée consiste à fournir des instructions sur la manière de se désabonner dans le pied de page du premier message que vous envoyez aux utilisateurs. Par exemple, vous pourriez indiquer que les utilisateurs peuvent se désabonner de votre canal WhatsApp en répondant avec votre mot-clé de désinscription. Vous pouvez également inclure régulièrement le pied de page de désinscription dans vos futures Campaigns. Pour savoir comment configurer cela, consultez [Abonnement et désinscription]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
+Une bonne pratique recommandée consiste à fournir des instructions sur la manière de se désabonner dans le pied de page du premier message que vous envoyez aux utilisateurs. Par exemple, vous pourriez indiquer que les utilisateurs peuvent se désabonner de votre canal WhatsApp en répondant avec votre mot-clé de désabonnement. Vous pouvez également inclure régulièrement le pied de page de désabonnement dans vos futures Campaigns. Pour savoir comment configurer cela, consultez [Abonnement et désabonnement]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
 
 ![Message WhatsApp avec un pied de page indiquant de répondre STOP pour se désabonner du canal]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}
 
@@ -54,5 +53,5 @@ Une bonne pratique recommandée consiste à fournir des instructions sur la mani
 Pour les flux Canvas interactifs qui répondent avec des [messages de réponse]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#response-messages) :
 
 - Placez l'étape de message de réponse immédiatement après le déclencheur entrant ou l'évaluation du parcours d'action.
-- Utilisez des [webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) au lieu d'étapes de mise à jour utilisateur lorsque des modifications d'abonnement ne sont pas nécessaires avant la réponse.
+- Utilisez des [webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) au lieu d'étapes de mise à jour de l'utilisateur lorsque des modifications d'abonnement ne sont pas nécessaires avant la réponse.
 - Évitez les longs délais ou les attentes de plusieurs jours entre les messages entrants et les envois de réponse ; la fenêtre de service client WhatsApp est de 24 heures par message entrant.

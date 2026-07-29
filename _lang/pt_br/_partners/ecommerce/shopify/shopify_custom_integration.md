@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@6.8.0
 ```
 
 {% alert important %}
-A versão do Braze Web SDK deve ser 5.4.0 ou posterior.
+A versão mínima suportada do Braze Web SDK é a 5.4.0. Para integrações personalizadas do Shopify (incluindo vitrines headless), você recebe notificações quando novas versões do SDK estão disponíveis, mas gerencia as atualizações do seu lado, atualizando tanto o código da sua vitrine quanto a versão do SDK nas configurações de integração.
 {% endalert %}
 
 Em seguida, [inclua essa configuração]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) como uma chave de nível superior em seu arquivo `vite.config.js`:

@@ -30,7 +30,7 @@ O Google Tag Manager (GTM) permite que você adicione, remova e edite tags remot
 
 Eventos personalizados e outras tags de ação da Braze podem falhar quando são disparados antes que a tag **Braze Initialization** termine de carregar o Web SDK. No Google Tag Manager, abra a tag de ação, acesse **Advanced Settings** > **Tag Sequencing**, selecione **A tag that fires before [this tag] is fired** e escolha sua tag Braze Initialization.
 
-Para mais detalhes, consulte [Verificar o sequenciamento de tags para eventos personalizados]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_tag-sequencing).
+Para saber mais, consulte [Verificar o sequenciamento de tags para eventos personalizados]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_tag-sequencing).
 
 ## Registrar compras com o GTM {#log-purchases-with-gtm}
 

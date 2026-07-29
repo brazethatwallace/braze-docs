@@ -113,6 +113,10 @@ search_rank: 1
 **キャンバスステップとのインタラクション**は、キャンバスのアクションベースのエントリトリガーとしては使用できません。キャンペーンのトリガーとしてのみ使用できます。あるキャンバスから別のキャンバスをトリガーするには、[送信先]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)キャンバスコンポーネントを使用するか、`/canvas/trigger/send`エンドポイントを呼び出す[Braze間Webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas)を作成してください。
 {% endalert %}
 
+{% alert note %}
+**キャンバスステップとのインタラクション**は、キャンバスのアクションベースのエントリトリガーとしては使用できません。キャンペーンのトリガーとしてのみ使用できます。あるキャンバスから別のキャンバスをトリガーするには、[送信先]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)キャンバスコンポーネントを使用するか、`/canvas/trigger/send`エンドポイントを呼び出す[Braze間Webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas)を作成してください。
+{% endalert %}
+
 {% alert important %}
 アクションベースのキャンバスが予想より早くメッセージを送信する場合は、カスタムイベントのタイムスタンプが過去の日時ではなく現在の時刻で送信されていることを確認してください。たとえば、アクションベースのキャンバスにユーザーがカスタムイベントを実行してから3時間の遅延がある場合、Brazeはカスタムイベントと共に送信されたタイムスタンプを使用してその遅延を評価します。タイムスタンプが3時間以上過去の日時になっている場合、Brazeは遅延がすでに経過したものとして扱い、メッセージを即座に送信します。
 {% endalert %}
@@ -143,6 +147,14 @@ APIトリガー配信には、以下のエンドポイントを使用できま�
 
 {% alert important %}
 複数のアプリがあるワークスペースでは、キャンバスのエントリオーディエンスの適格性（セグメントとフィルターを含む）は、ユーザーがキャンバスに入る時点でのみ評価され、個々のメッセージステップでは評価されません。ワークスペースに複数のアプリがあり、メッセージステップが特定のアプリのユーザーのみをターゲットにする必要がある場合は、各メッセージステップで以下のいずれかのアプローチを使用してください。
+- メッセージステップの[配信バリデーション]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations)で**メッセージ送信時にオーディエンスを検証**を有効にし、アプリ固有のセグメントまたはフィルターを追加します。
+- Liquidを使用して、送信時にターゲットデバイスまたはアプリを確認します。
+
+これらの対策がない場合、あるアプリでジャーニーの対象となったユーザーが、ワークスペース内の他のアプリも使用している場合、別のアプリ向けのメッセージを受信する可能性があります。
+{% endalert %}
+
+{% alert important %}
+複数のアプリを持つワークスペースでは、キャンバスのエントリオーディエンスの適格性（セグメントとフィルターを含む）は、ユーザーがキャンバスに入る時点でのみ評価され、個々のメッセージステップでは評価されません。ワークスペースに複数のアプリがあり、メッセージステップが特定のアプリのユーザーのみをターゲットにする必要がある場合は、各メッセージステップで以下のいずれかのアプローチを使用してください。
 - メッセージステップの[配信バリデーション]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations)で**メッセージ送信時にオーディエンスを検証**を有効にし、アプリ固有のセグメントまたはフィルターを追加します。
 - Liquidを使用して、送信時にターゲットデバイスまたはアプリを確認します。
 

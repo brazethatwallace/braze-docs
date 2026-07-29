@@ -96,6 +96,8 @@ Ao criar sua mensagem no app, você pode selecionar uma visualização para celu
 
 {% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
+
 ## Detalhes criativos {#creative-details}
 
 ### Tela cheia em telas maiores {#fullscreen}

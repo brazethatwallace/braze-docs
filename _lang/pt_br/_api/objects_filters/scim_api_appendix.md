@@ -41,7 +41,7 @@ Um objeto de permissões válido é um objeto JSON com os seguintes pares de cha
 | `companyPermissions` | Opcional | Array | Array de strings de permissão no nível da empresa da tabela [Strings de permissão da empresa]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_company), em que a presença da string corresponde ao usuário ter a permissão correspondente. |
 | `roles` | Opcional | Array | Array de [objetos de função]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_role-object). |
 | `appGroup` | Obrigatória | Array | Array de [objetos de permissão do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permission-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permissões" }
 
 ### Objeto de permissões do espaço de trabalho {#workspace-permission-object}
 
@@ -54,7 +54,7 @@ Um objeto de permissão do espaço de trabalho válido é um objeto JSON com os 
 | `appGroupPermissionSets` | Opcional | Array | Array com um único [objeto de conjunto de permissões do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Obrigatória | Array | Array de strings de permissão no nível do espaço de trabalho da tabela [strings de permissão do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings), em que a presença da string corresponde ao usuário ter a permissão correspondente para o espaço de trabalho especificado. |
 | `team` | Opcional | Array | Array de [objetos de permissão de equipe]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object #workspace-permission-object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permissões do espaço de trabalho #workspace-permission-object" }
 
 ### Objeto de conjunto de permissões do espaço de trabalho {#workspace-permissions-set-object}
 
@@ -64,7 +64,7 @@ Um objeto de conjunto de permissões do espaço de trabalho válido é um objeto
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Opcional | String | Nome do conjunto de permissões do espaço de trabalho que está sendo atribuído ao usuário para este espaço de trabalho. |
 | `appGroupPermissionSetID` | Obrigatória se `appGroupPermissionSetName` estiver ausente | String | ID do espaço de trabalho, servindo como um método alternativo de especificar o conjunto de permissões do espaço de trabalho atribuído ao usuário para este espaço de trabalho. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de conjunto de permissões do espaço de trabalho #workspace-permissions-set-object" }
 
 ### Objeto de permissões de equipe {#team-permissions-object}
 
@@ -75,7 +75,7 @@ Um objeto de permissão de equipe válido é um objeto JSON com os seguintes par
 | `teamName` | Opcional | String | Nome da equipe, que pode ser usado para especificar a qual equipe as permissões dentro deste objeto se referem. |
 | `teamId` | Obrigatória se `teamName` estiver ausente | String | ID da equipe, servindo como um método alternativo de especificar a equipe. |
 | `teamPermissions` | Obrigatória | Array | Array de strings de permissão no nível da equipe da tabela [strings de permissão de equipe]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team), em que a presença da string corresponde ao usuário ter a permissão correspondente para a equipe especificada. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permissões de equipe" }
 
 ## Objeto de função {#role-object}
 
@@ -85,7 +85,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | --- | --- | --- | --- |
 | `roleName` | Opcional | String | Nome da função que está sendo atribuída ao usuário. |
 | `roleId` | Obrigatória se `roleName` estiver ausente | String | ID da função, servindo como um método alternativo de especificar a função. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de função" }
 
 ## Apêndice {#appendix}
 
@@ -96,7 +96,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Administrator | `admin` |
 | Can Manage Company Settings | `manage_company_settings` |
 | Can Add/Remove Workspaces | `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de permissão da empresa #company" }
 
 ### Strings de permissão do espaço de trabalho {#workspace-strings}
 
@@ -127,7 +127,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Manage Subscription Groups | `manage_subscription_groups` |
 | Manage Approval Settings | `manage_approval_settings` |
 | Manage Catalogs Dashboard Permission | `manage_catalogs_dashboard_permission` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de permissão do espaço de trabalho #workspace-strings" }
 
 ### Strings de permissão de equipe {#team}
 
@@ -143,7 +143,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | View User Profile | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de permissão de equipe #team" }
 
 ### Strings de departamento {#department-strings}
 
@@ -156,7 +156,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Finance | `finance` |
 | Marketing / Editorial | `marketing` |
 | Product Management | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de departamento" }
 
 
 {% endsdktab %}
@@ -192,7 +192,7 @@ Um objeto de permissões válido é um objeto JSON com os seguintes pares de cha
 | `companyPermissions` | Opcional | Array | Array de [strings de permissão no nível da empresa]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_company), em que a presença da string corresponde ao usuário ter a permissão correspondente. |
 | `roles` | Opcional | Array | Array de [objetos de função]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_role-object). |
 | `appGroup` | Obrigatória | Array | Array de [objetos de permissão do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permissões" }
 
 ### Objeto de permissões do espaço de trabalho {#workspace-permissions-object}
 
@@ -205,7 +205,7 @@ Um objeto de permissão do espaço de trabalho válido é um objeto JSON com os 
 | `appGroupPermissionSets` | Opcional | Array | Array com um único [objeto de conjunto de permissões do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Obrigatória | Array | Array de strings de permissão no nível do espaço de trabalho da tabela [strings de permissão do espaço de trabalho]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), em que a presença da string corresponde ao usuário ter a permissão correspondente para o espaço de trabalho especificado. |
 | `team` | Opcional | Array | Array de [objetos de permissão de equipe]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permissões do espaço de trabalho" }
 
 ### Objeto de conjunto de permissões do espaço de trabalho
 
@@ -215,7 +215,7 @@ Um objeto de conjunto de permissões do espaço de trabalho válido é um objeto
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Opcional | String | Nome do conjunto de permissões do espaço de trabalho que está sendo atribuído ao usuário para este espaço de trabalho. |
 | `appGroupPermissionSetID` | Obrigatória se `appGroupPermissionSetName` estiver ausente | String | ID do espaço de trabalho, servindo como um método alternativo de especificar o conjunto de permissões do espaço de trabalho atribuído ao usuário para este espaço de trabalho. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de conjunto de permissões do espaço de trabalho #workspace-permissions-set-object" }
 
 ### Objeto de permissões de equipe
 
@@ -226,7 +226,7 @@ Um objeto de permissão de equipe válido é um objeto JSON com os seguintes par
 | `teamName` | Opcional | String | Nome da equipe, que pode ser usado para especificar a qual equipe as permissões dentro deste objeto se referem. |
 | `teamId` | Obrigatória se `teamName` estiver ausente | String | ID da equipe, servindo como um método alternativo de especificar a equipe. |
 | `teamPermissions` | Obrigatória | Array | Array de strings de permissão no nível da equipe da tabela [strings de permissão de equipe]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team), em que a presença da string corresponde ao usuário ter a permissão correspondente para a equipe especificada. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permissões de equipe" }
 
 ## Objeto de função
 
@@ -236,7 +236,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | --- | --- | --- | --- |
 | `roleName` | Opcional | String | Nome da função que está sendo atribuída ao usuário. |
 | `roleId` | Obrigatória se `roleName` estiver ausente | String | ID da função, servindo como um método alternativo de especificar a função. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de função" }
 
 ## Apêndice
 
@@ -247,7 +247,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Administrator | `admin` |
 | Manage Company Settings | `manage_company_settings` |
 | Create and delete workspaces | `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de permissão da empresa #company" }
 
 ### Strings de permissão do espaço de trabalho
 
@@ -364,7 +364,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Delete Catalogs | `delete_catalogs` |
 | View Whatsapp Settings | `view_whatsapp_settings` |
 | Edit Technology Partners | `edit_technology_partners` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de permissão do espaço de trabalho #workspace-strings" }
 
 ### Strings de permissão de equipe
 
@@ -417,7 +417,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |
 | Edit Dashboard Users | `edit_dashboard_users` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de permissão de equipe #team" }
 
 ### Strings de departamento
 
@@ -430,7 +430,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Finance | `finance` |
 | Marketing / Editorial | `marketing` |
 | Product Management | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de departamento" }
 
 
 {% endsdktab %}

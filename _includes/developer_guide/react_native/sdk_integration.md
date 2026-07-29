@@ -790,6 +790,10 @@ The following code snippet shows how to import the library in your React Native 
 import Braze from "@braze/react-native-sdk";
 ```
 
+{% alert note %}
+React Native SDK 19.2.0+ supports initializing Braze from the React Native layer or from the native iOS and Android layers. Initialize from the React Native layer to use [delayed initialization](#delayed-initialization), which starts the SDK after an event such as consent or login. If your app initializes Braze in the native layers today, you can keep that setup when you upgrade. To confirm how notifications behave in each setup, see [Push notifications on cold start](#push-notifications-on-cold-start).
+{% endalert %}
+
 Then call `Braze.initialize()` with your app identifier API key and SDK endpoint to create the Braze instance. See the following options for where to call this method in your app flow.
 
 #### Standard initialization
@@ -822,7 +826,7 @@ function onUserConsent() {
 ```
 
 {% alert warning %}
-On iOS, push notifications received before `Braze.initialize()` are queued and processed after initialization. On Android, deep links from push notifications do not resolve while the SDK is waiting to be initialized. If your app relies on immediate deep link handling at launch, use [standard initialization](#standard-initialization) instead.
+On iOS, push notifications received before `Braze.initialize()` are queued and processed after initialization. On Android, Braze doesn't resolve deep links from push notifications while the SDK waits to be initialized. To keep notifications working when one of them launches your app, see [Push notifications on cold start](#push-notifications-on-cold-start).
 {% endalert %}
 
 #### Platform-specific API keys
@@ -848,6 +852,50 @@ You can call `Braze.initialize()` multiple times to re-initialize the SDK with a
 {% alert important %}
 All SDK method calls made before `Braze.initialize()` are ignored on iOS, so call `Braze.initialize()` before using any other Braze methods.
 {% endalert %}
+
+#### Push notifications on cold start
+
+When a notification launches your app from a terminated state, Braze stores the notification payload in the native layer before React Native loads. Because of this, initializing from the React Native layer doesn't change whether the payload reaches your app. To handle these notifications, add the native hooks, then read the payload in your React Native code.
+
+On Android, call `BrazeReactUtils.populateInitialPushPayloadFromIntent(intent)` in the `onCreate()` method of your `MainActivity` class:
+
+```kotlin
+import com.braze.reactbridge.BrazeReactUtils
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    BrazeReactUtils.populateInitialPushPayloadFromIntent(intent)
+}
+```
+
+On iOS, call `populateInitialPayload(fromLaunchOptions:)` in the `application(_:didFinishLaunchingWithOptions:)` method of your `AppDelegate`:
+
+```swift
+if let launchOptions {
+  BrazeReactUtils.sharedInstance().populateInitialPayload(fromLaunchOptions: launchOptions)
+}
+```
+
+Then, read the payload in your React Native code:
+
+```javascript
+Braze.getInitialPushPayload((pushPayload) => {
+  if (pushPayload) {
+    // Handle the notification, such as navigating to the pushPayload.url value
+  }
+});
+```
+
+{% alert important %}
+When delayed initialization is enabled on Android, Braze opens your main activity instead of resolving the deep link in the notification, then passes the notification data to that activity. Handle navigation in your React Native code using the `url` value from `Braze.getInitialPushPayload()`.
+{% endalert %}
+
+Your push registration settings stay in your native configuration for both initialization locations, and Braze applies them when `Braze.initialize()` runs:
+
+- On Android, set `com_braze_firebase_cloud_messaging_registration_enabled` and `com_braze_firebase_cloud_messaging_sender_id` in `braze.xml`.
+- On iOS, set the `push` properties on the configuration object in the `configure` closure you pass to `BrazeReactInitializer.configure`.
+
+If your app depends on deep links from notifications that launch it from a terminated state, use React Native SDK 21.1.0 or later. These versions include fixes for capturing the initial push payload and resolving push deep links on Android. For the full list of changes, see the [React Native SDK changelog](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md).
 
 {% endtab %}
 {% tab React Native SDK 19.1.0 and earlier %}

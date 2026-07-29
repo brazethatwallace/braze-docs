@@ -55,7 +55,7 @@ No existe un límite fijo en el panel sobre cuántos **eventos personalizados** 
 
 ## Ver informes de uso {#viewing-usage-reports}
 
-El informe de uso enumera todos los Canvas, Campaigns y segmentos que utilizan un evento personalizado específico. Esta lista no incluye usos de Liquid.
+El informe de uso enumera todos los Canvas, campañas y segmentos que utilizan un evento personalizado específico. Esta lista no incluye usos de Liquid.
 
 Puedes ver hasta 100 informes de uso a la vez seleccionando las casillas de verificación junto a los eventos personalizados correspondientes y luego seleccionando **Ver informe de uso**.
 
@@ -104,7 +104,7 @@ Cada evento incluye:
 Los casos de uso habituales incluyen:
 
 - Verificar que tu integración de SDK o API está enviando eventos como se espera durante el desarrollo o después de un lanzamiento.
-- Solucionar problemas sobre por qué un usuario entró o no entró en una Campaign o Canvas desencadenados por eventos.
+- Solucionar problemas sobre por qué un usuario entró o no entró en una campaña o Canvas desencadenados por eventos.
 - Investigar un problema de soporte para un usuario específico sin necesidad de configurar una exportación de datos.
 
 {% alert note %}

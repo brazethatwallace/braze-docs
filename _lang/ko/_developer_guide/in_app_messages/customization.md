@@ -49,7 +49,7 @@ Appboy.AppboyBinding.SetInAppMessageDisplayAction(BrazeUnityInAppMessageDisplayA
 
 ## 커스텀 리스너 설정 {#setting-a-custom-listener}
 
-사용자가 인앱 메시지와 상호작용하는 방식을 더 세밀하게 제어해야 하는 경우, `BrazeInAppMessageListener`를 사용하여 `Appboy.AppboyBinding.inAppMessageListener`에 할당합니다. 사용하지 않으려는 델리게이트는 `null`로 남겨두면 됩니다.
+사용자가 인앱 메시지와 상호작용하는 방식을 더 세밀하게 제어해야 하는 경우, `BrazeInAppMessageListener`를 사용하여 `Appboy.AppboyBinding.inAppMessageListener`에 할당하세요. 사용하지 않으려는 델리게이트는 `null`로 남겨두면 됩니다.
 
 ```csharp
 BrazeInAppMessageListener listener = new BrazeInAppMessageListener() {

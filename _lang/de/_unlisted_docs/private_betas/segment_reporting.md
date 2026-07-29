@@ -2,7 +2,7 @@
 nav_title: Segment-Reporting
 article_title: Segment-Reporting im Berichts-Builder
 permalink: /segment_reporting_report_builder/
-description: "Dieser Referenzartikel behandelt Segment als Berichtsdimension im Berichts-Builder, einschließlich der Berichterstattung über Segmente, der Aufschlüsselung nach Segment und der unterstützten Kombinationen."
+description: "Dieser Referenzartikel behandelt Segment als Berichtsdimension im Berichts-Builder, einschließlich der Berichterstattung über Segments, der Aufschlüsselung nach Segment und der unterstützten Kombinationen."
 hidden: true
 noindex: true
 page_type: reference
@@ -10,11 +10,11 @@ page_type: reference
 
 # Segment-Reporting im Berichts-Builder {#segment-reporting-in-report-builder}
 
-> Dieser Artikel erläutert, wie Sie Segmente als Berichtsdimension im Berichts-Builder verwenden, einschließlich der Berichterstattung über Segmente, der Aufschlüsselung nach Segment und der unterstützten Kombinationen.
+> Dieser Artikel erläutert, wie Sie Segments als Berichtsdimension im Berichts-Builder verwenden, einschließlich der Berichterstattung über Segments, der Aufschlüsselung nach Segment und der unterstützten Kombinationen.
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success manager' %}
 
-Der Berichts-Builder unterstützt **Segments** in Zeilen und als Drilldown-Option, sodass Sie sehen können, wie Ihre Segmente performen, und die Campaign- oder Canvas-Performance nach Segment-Zugehörigkeit aufschlüsseln können. Wenn **Segments** nicht in Ihren **Zeilen**- oder **Drilldown**-Dropdowns angezeigt wird, wurde dieses Feature für Ihr Konto nicht aktiviert.
+Der Berichts-Builder unterstützt **Segments** in Zeilen und als Drilldown-Option, sodass Sie sehen können, wie Ihre Segmente performen, und die Campaign- oder Canvas-Performance nach Segment-Zugehörigkeit aufschlüsseln können. Wenn **Segments** nicht in Ihren **Zeilen**- oder **Drilldown**-Dropdowns erscheint, wurde dieses Feature für Ihr Konto noch nicht aktiviert.
 
 Sie können Fragen beantworten wie:
 
@@ -26,9 +26,9 @@ Sie können Fragen beantworten wie:
 Segment-Reporting ist nur für Segmente mit aktiviertem [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) verfügbar. Um **Segments** im **Zeilen**-Dropdown auszuwählen, benötigen Sie die Workspace-Berechtigung [„Dashboard-Berichte anzeigen“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
-## Über Segmente berichten {#report-on-segments}
+## Über Segments berichten {#report-on-segments}
 
-Um direkt über Segmente zu berichten:
+Um direkt über Segments zu berichten:
 
 1. Gehen Sie zu **Analytics** > **Berichts-Builder (Neu)**.
 2. Klicken Sie auf **Neuen Bericht erstellen**.
@@ -58,7 +58,7 @@ Dies ist besonders nützlich für Workspaces, die dieselbe Campaign oder dasselb
 
 ## Unterstützte Kombinationen {#supported-combinations}
 
-Die folgenden **Zeilen**- und **Drilldown**-Kombinationen werden für Segment-Reporting unterstützt:
+Die folgenden **Zeilen**- und **Drilldown**-Kombinationen werden für das Segment-Reporting unterstützt:
 
 | Zeilen | Drilldown |
 | ----- | ----- |

@@ -20,4 +20,4 @@
 
 {{ heading_level }} Zeilen und Blöcke nach Gerät ausblenden
 
-Um Ihr Layout für Desktop im Vergleich zu Tablet und Mobilgerät anzupassen, wählen Sie eine Zeile oder einen Block auf der Arbeitsfläche aus und verwenden Sie dann den Umschalter **Ausblenden auf** im Eigenschaften-Panel, um die Zeile oder den Block auf **Desktop** oder **Tablet und kleinere Geräte** auszublenden. Eine ausgeblendete Zeile oder ein ausgeblendeter Block wird für diesen Gerätetyp nicht angezeigt – weder bei der Vorschau von {{ preview_subject }} im Drag-and-Drop-Editor noch {{ live_phrase }}.
+Um Ihr Layout für Desktop im Vergleich zu Tablet und Mobilgerät anzupassen, wählen Sie eine Zeile oder einen Block auf der Arbeitsfläche aus und verwenden Sie dann den Umschalter **Ausblenden auf** im Eigenschaften-Panel, um das Element auf **Desktop** oder **Tablet und kleinere Geräte** auszublenden. Eine ausgeblendete Zeile oder ein ausgeblendeter Block wird für diesen Gerätetyp nicht angezeigt – weder bei der Vorschau von {{ preview_subject }} im Drag-and-drop-Editor noch {{ live_phrase }}.

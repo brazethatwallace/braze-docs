@@ -9,33 +9,33 @@ description: "症状インデックス、HTTPエラーテーブル、異常ホ�
 
 > このページでは、Webhookとコネクテッドコンテンツの一般的なエラーコードのトラブルシューティング方法について説明します。設定については、[Webhookの作成]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)と[API呼び出しの実行]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)を参照してください。
 
-## ここから始めましょう：症状を照合する {#start-here-match-your-symptom}
+## まずはここから：症状を照合する {#start-here-match-your-symptom}
 
 以下の表で症状を照合し、該当するセクションに移動してください。
 
 | 症状 | 移動先 |
 | --- | --- |
-| メッセージアクティビティログの `4XX` クライアントエラー | [4XX エラー](#4xx-errors) |
-| `5XX` サーバーエラーまたはタイムアウト | [5XX エラー](#5xx-errors) |
-| `598 Host Unhealthy` またはリクエストの一時的な停止 | [異常なホストの検出]({{site.baseurl}}/support_contact) |
-| Connected Contentがプレビューまたは送信時に空白で表示される | [Connected Contentがレスポンスボディを返さない](#connected-content-returns-no-response-body) |
+| メッセージアクティビティログに `4XX` クライアントエラーが表示される | [4XXエラー](#4xx-errors) |
+| `5XX` サーバーエラーまたはタイムアウト | [5XXエラー](#5xx-errors) |
+| `598 Host Unhealthy` またはリクエストが一時的に停止される | [異常ホスト検出]({{site.baseurl}}/support_contact) |
+| コネクテッドコンテンツがプレビューまたは送信で空白として表示される | [コネクテッドコンテンツがレスポンスボディを返さない場合](#connected-content-returns-no-response-body) |
 | Brazeからの自動エラーメール | [自動メールとメッセージアクティビティログのエントリ](#automated-emails-and-message-activity-log-entries) |
 | Currentsでwebhookの失敗イベントが必要 | [Braze Currentsでの追加の失敗インサイト](#additional-failure-insights-in-braze-currents) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="webhookとConnected Contentの症状" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhookとコネクテッドコンテンツの症状" }
 
 ## 標準的な調査パス {#standard-investigation-path}
 
-Webhookまたは Connected Content リクエストが失敗したり、正しくレンダリングされない場合は、このワークフローを使用してください。ステップ1から開始します。
+Webhookまたはコネクテッドコンテンツリクエストが失敗したり、正しくレンダリングされない場合は、このワークフローを使用してください。ステップ1から開始します。
 
 1. [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)を開き、エラーコード、タイムスタンプ、エンドポイントURLを確認します。
-2. `4XX` エラーの場合、エンドポイントのドキュメントと照らし合わせて、リクエスト構文、認証ヘッダー、URLパス、HTTPメソッドを確認します。
-3. `5XX` エラーの場合、エンドポイントの正常性、レート制限、およびBrazeがそのホストを異常と判定していないかを確認します。
-4. Connected Contentの場合、テストユーザーでメッセージをプレビューし、Liquidが空白やJSONを破壊する値に解決されていないことを確認します。
+2. `4XX` エラーの場合は、エンドポイントのドキュメントに照らして、リクエスト構文、認証ヘッダー、URLパス、HTTPメソッドを確認します。
+3. `5XX` エラーの場合は、エンドポイントの正常性、レート制限、およびBrazeがホストを異常としてフラグ付けしたかどうかを確認します。
+4. コネクテッドコンテンツの場合は、テストユーザーでメッセージをプレビューし、Liquidが空白やJSONを壊す値に解決されていないことを確認します。
 5. 異常ホスト検出が関係している可能性がある場合は、[Brazeサポート](#unhealthy-host-detection)に連絡する前に[異常ホスト検出](#unhealthy-host-detection)を確認してください。
 
-## 4XX エラー {#4xx-errors}
+## 4XXエラー {#4xx-errors} {#4xx-errors}
 
-`4XX` エラーは、エンドポイントに送信されたリクエストに問題があることを示します。これらのエラーは通常、不正なパラメーター、認証ヘッダーの欠落、不正な URL など、誤ったリクエストが原因で発生します。これらのエラーは[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)にも適用されます。
+`4XX` エラーは、エンドポイントに送信されたリクエストに問題があることを示します。これらのエラーは通常、不正なパラメーター、認証ヘッダーの欠落、不正なURLなど、誤ったリクエストが原因で発生します。これらのエラーは[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)にも適用されることに注意してください。
 
 エラーコードの詳細と解決手順については、以下の表を参照してください。
 
@@ -45,7 +45,7 @@ table td {
 }
 </style>
 
-<table aria-label="4XX エラー">
+<table aria-label="4XXエラー">
   <thead>
     <tr>
       <th>エラーコード</th>
@@ -61,8 +61,8 @@ table td {
         <ul>
           <li>リクエストペイロードに構文エラーがないか確認してください。</li>
           <li>すべての必須フィールドが含まれ、正しくフォーマットされていることを確認してください。</li>
-          <li>JSON ペイロードを送信している場合は、JSON 構造を検証してください。</li>
-          <li>Liquid を使用して Webhook リクエストにパーソナライゼーションタグをテンプレート化している場合は、Liquid が空白の値に解決されたり、JSON を壊す文字（エスケープされていない引用符など）を生成したりしないことを確認してください。テストユーザーでメッセージをプレビューして、レンダリングされた出力が有効であることを確認してください。</li>
+          <li>JSONペイロードを送信している場合は、JSON構造を検証してください。</li>
+          <li>Liquidを使用してWebhookリクエストにパーソナライゼーションタグをテンプレート化している場合は、Liquidが空白の値に解決されたり、JSONを壊す文字（エスケープされていない引用符など）を生成したりしないことを確認してください。テストユーザーでメッセージをプレビューして、レンダリングされた出力が有効であることを確認してください。</li>
         </ul>
       </td>
     </tr>
@@ -71,38 +71,38 @@ table td {
       <td>リクエストにはユーザー認証が必要です。</td>
       <td>
         <ul>
-          <li>正しい認証情報（API キーやトークンなど）がリクエストヘッダーに含まれていることを確認してください。</li>
+          <li>正しい認証情報（APIキーやトークンなど）がリクエストヘッダーに含まれていることを確認してください。</li>
           <li>エンドポイントにアクセスするためのユーザー権限があることを確認してください。</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><b>403 Forbidden</b></td>
-      <td>エンドポイントはリクエストを理解しましたが、承認を拒否しました。</td>
+      <td>エンドポイントはリクエストを理解しましたが、認可を拒否しました。</td>
       <td>
         <ul>
-          <li>API キーまたはトークンに必要な権限があるか確認してください。</li>
+          <li>APIキーまたはトークンに必要な権限があるか確認してください。</li>
           <li>エンドポイントにアクセスするためのユーザー権限があることを確認してください。</li>
-          <li>リクエストが一貫して <code>403</code> を返し、認証が正しいように見える場合、サーバー、API ゲートウェイ、または WAF が Braze の送信 IP アドレスをブロックしている可能性があります。Braze クラスターの IP を許可リストに追加してください。Webhook については、<a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP 許可リスト</a> を参照してください。Connected Content については、<a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Connected Content IP 許可リスト</a> を参照してください。</li>
+          <li>リクエストが一貫して <code>403</code> を返し、認証が正しいと思われる場合、サーバー、APIゲートウェイ、またはWAFがBrazeの送信元IPアドレスをブロックしている可能性があります。Brazeクラスターに対応するIPを許可リストに追加してください。Webhookについては、<a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP許可リスト</a> を参照してください。コネクテッドコンテンツについては、<a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">コネクテッドコンテンツのIP許可リスト</a> を参照してください。</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><b>404 Not Found</b></td>
-      <td>エンドポイントがリクエストされたリソースを見つけることができません。</td>
+      <td>エンドポイントがリクエストされたリソースを見つけられません。</td>
       <td>
         <ul>
-          <li>エンドポイント URL にタイプミスや不正なパスがないか確認してください。</li>
+          <li>エンドポイントURLにタイプミスや不正なパスがないか確認してください。</li>
           <li>アクセスしようとしているリソースが存在することを確認してください。</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><b>405 Method Not Allowed</b></td>
-      <td>リクエストメソッドはエンドポイントに認識されていますが、対象リソースではサポートされていません。</td>
+      <td>リクエストメソッドはエンドポイントに認識されていますが、ターゲットリソースではサポートされていません。</td>
       <td>
         <ul>
-          <li>リクエストで使用されている HTTP メソッド（DELETE、GET、POST、PUT）を確認してください。</li>
+          <li>リクエストで使用されているHTTPメソッド（DELETE、GET、POST、PUT）を確認してください。</li>
           <li>エンドポイントが使用しているメソッドをサポートしていることを確認してください。</li>
         </ul>
       </td>
@@ -112,17 +112,17 @@ table td {
       <td>エンドポイントがリクエストの処理中にタイムアウトしました。</td>
       <td>
         <ul>
-          <li>リクエストで使用されている HTTP メソッド（DELETE、GET、POST、PUT）を確認してください。</li>
+          <li>リクエストで使用されているHTTPメソッド（DELETE、GET、POST、PUT）を確認してください。</li>
           <li>エンドポイントが使用しているメソッドをサポートしていることを確認してください。</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><b>409 Conflict</b></td>
-      <td>リソースの現在の状態との競合により、リクエストが完了しませんでした。</td>
+      <td>リソースの現在の状態との競合により、リクエストが不完全です。</td>
       <td>
         <ul>
-          <li>リクエストで使用されている HTTP メソッド（DELETE、GET、POST、PUT）を確認してください。</li>
+          <li>リクエストで使用されているHTTPメソッド（DELETE、GET、POST、PUT）を確認してください。</li>
           <li>エンドポイントが使用しているメソッドをサポートしていることを確認してください。</li>
         </ul>
       </td>
@@ -139,27 +139,27 @@ table td {
   </tbody>
 </table>
 
-## 5XX エラー {#5xx-errors}
+## 5XXエラー {#5xx-errors} {#5xx-errors}
 
 `5XX` エラーは、エンドポイントに問題があることを示します。これらのエラーは通常、サーバー側の問題が原因で発生します。
 
-| エラーコード                    | 意味                                                                                                                                         |
+| エラーコード | 意味 |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **500 Internal Server Error** | エンドポイントがリクエストの完了を妨げる予期しない状態に遭遇しました。                                                       |
-| **502 Bad Gateway**           | エンドポイントが上流サーバーから無効なレスポンスを受信しました。                                                                                   |
-| **503 Service Unavailable**   | エンドポイントは一時的な過負荷またはメンテナンスのため、現在リクエストを処理できません。                                                    |
-| **504 Gateway Timeout**       | エンドポイントが上流サーバーからタイムリーなレスポンスを受信できませんでした。                                                                               |
-| **529 Host Overloaded**       | エンドポイントのホストが過負荷状態で応答できませんでした。 |
-| **598 Host Unhealthy**        | エンドポイントのホストが一時的に異常とマークされているため、Brazeがレスポンスをシミュレートしました。詳細については、[異常ホスト検出](#unhealthy-host-detection)を参照してください。 |
-| **599 Connection Error**      | Brazeがエンドポイントへの接続を確立しようとした際にネットワーク接続タイムアウトエラーが発生しました。エンドポイントが不安定またはダウンしている可能性があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="5XX エラー" }
+| **500 Internal Server Error** | エンドポイントがリクエストの完了を妨げる予期しない状態に遭遇しました。 |
+| **502 Bad Gateway** | エンドポイントがアップストリームサーバーから無効な応答を受信しました。 |
+| **503 Service Unavailable** | エンドポイントは一時的な過負荷またはメンテナンスのため、現在リクエストを処理できません。 |
+| **504 Gateway Timeout** | エンドポイントがアップストリームサーバーからタイムリーな応答を受信できませんでした。 |
+| **529 Host Overloaded** | エンドポイントホストが過負荷状態で応答できませんでした。 |
+| **598 Host Unhealthy** | エンドポイントホストが一時的に異常と判定されたため、Brazeが応答をシミュレートしました。詳細については、[異常ホスト検出](#unhealthy-host-detection)を参照してください。 |
+| **599 Connection Error** | Brazeがエンドポイントへの接続を確立しようとした際にネットワーク接続タイムアウトエラーが発生しました。エンドポイントが不安定またはダウンしている可能性があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5XXエラー" }
 
-### 5XX エラーの解決 {#resolving-5xx-errors}
+### 5XXエラーの解決 {#resolving-5xx-errors}
 
 一般的な `5XX` エラーのトラブルシューティングのヒントを以下に示します。
 
-- **メッセージアクティビティログ**で利用可能な具体的な詳細についてエラーメッセージを確認してください。webhookの場合は、Brazeホームページの**パフォーマンスの推移**セクションに移動し、webhookの統計を選択してください。ここから、エラーが発生したタイムスタンプを確認できます。
-- エンドポイントに過負荷をかけるほど多くのリクエストを送信していないことを確認してください。バッチ送信やレート制限の調整を行い、エラーが減少するかどうかを確認できます。
+- **メッセージアクティビティログ**で利用可能な具体的な詳細についてエラーメッセージを確認してください。webhookの場合は、Brazeホームページの**経時パフォーマンス**セクションに移動し、webhookの統計を選択してください。ここから、エラーが発生したタイムスタンプを確認できます。
+- エンドポイントを過負荷にするほど多くのリクエストを送信していないことを確認してください。バッチで送信するか、レート制限を調整して、エラーが減少するかどうかを確認できます。
 
 ## 異常ホスト検出 {#unhealthy-host-detection}
 

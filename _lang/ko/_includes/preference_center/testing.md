@@ -1,11 +1,11 @@
 ## 환경설정 센터 테스트 {#testing-preference-centers}
 
-환경설정 센터 링크는 발송 시점에 각 사용자에 대해 생성되며, 실시간 Campaign 또는 Canvas 발송에 연결됩니다. 테스트 발송 및 편집기 미리보기에서는 구독 변경 사항 저장이 지원되지 않습니다. 이는 예상된 동작입니다.
+환경설정 센터 링크는 발송 시점에 각 사용자별로 생성되며, 실시간 Campaign 또는 Canvas 발송에 연결됩니다. 테스트 발송 및 에디터 미리보기에서는 구독 변경 사항 저장이 지원되지 않습니다. 이는 의도된 동작입니다.
 
 ### 표시되는 내용 {#what-youll-see}
 
-- **테스트 발송:** 환경설정 센터 Liquid 태그가 유효한 링크로 확인되지 않을 수 있습니다. 페이지가 로드되더라도 **환경설정 저장** 버튼이 비활성화되어 있으며, 구독 변경 사항이 저장되지 않습니다.
-- **드래그 앤 드롭 편집기 미리보기 탭:** 레이아웃과 스타일을 미리 볼 수 있지만, 편집기에서 환경설정 저장을 테스트할 수는 없습니다.
+- **테스트 발송:** 환경설정 센터 Liquid 태그가 유효한 링크로 변환되지 않을 수 있습니다. 페이지가 로드되더라도 **환경설정 저장** 버튼이 비활성화되어 있으며, 구독 변경 사항이 저장되지 않습니다.
+- **드래그 앤 드롭 에디터 미리보기 탭:** 레이아웃과 스타일링을 미리 볼 수 있지만, 에디터에서 환경설정 저장을 테스트할 수는 없습니다.
 
 ### 포괄적인 테스트 방법 {#how-to-test-end-to-end}
 
@@ -18,7 +18,7 @@
 5. Braze 대시보드에서 해당 사용자의 프로필에 변경 사항이 반영되었는지 확인합니다.
 
 {% if include.section == "api" %}
-API로 구축된 환경설정 센터의 경우, [환경설정 센터 URL 생성 엔드포인트]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center)를 사용하여 테스트 발송 외부에서 특정 사용자에 대한 작동 가능한 URL을 가져올 수 있습니다.
+API로 구축한 환경설정 센터의 경우, [환경설정 센터 URL 생성 엔드포인트]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center)를 사용하여 테스트 발송 외부에서 특정 사용자에 대한 작동 가능한 URL을 가져올 수 있습니다.
 {% endif %}
 
 기타 테스트 발송 제한 사항은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages#limitations)를 참조하세요.
@@ -27,8 +27,8 @@ API로 구축된 환경설정 센터의 경우, [환경설정 센터 URL 생성 
 
 | 방법 | 레이아웃 미리보기 | 구독 변경 사항 저장 |
 | --- | --- | --- |
-| 드래그 앤 드롭 편집기 **미리보기** 탭 | 예 | 아니요 |
-| Campaign 또는 Canvas **테스트 전송** | 부분적(이메일 수신됨) | 아니요 |
+| 드래그 앤 드롭 에디터 **미리보기** 탭 | 예 | 아니요 |
+| Campaign 또는 Canvas **테스트 전송** | 부분적 (이메일 수신됨) | 아니요 |
 | 테스트 사용자 또는 Segment에 실시간 발송 | 예 | 예 |
 | [환경설정 센터 URL 생성]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) API | 예 | 예 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="미리보기, 테스트 발송 및 실시간 발송" }

@@ -18,7 +18,7 @@ Para acessar o construtor de landing pages, você precisa de [determinadas permi
 Uma landing page é uma página web ativa e publicada com uma URL compartilhável que seus clientes podem visitar.
 
 {% alert note %}
-Os modelos de landing page são pontos de partida de design não publicados, sem URL pública, o que significa que não podem ser compartilhados com seus clientes. Para criar uma página a partir de um modelo, consulte [Usando modelos](#using-templates).
+Os modelos de landing page são pontos de partida de design não publicados, sem URL pública, o que significa que não podem ser compartilhados com seus clientes. Para criar uma página a partir de um modelo, consulte [Usar modelos](#using-templates).
 {% endalert %}
 
 ### Etapa 1: Criar um novo rascunho {#step-1-create-a-new-draft}
@@ -183,7 +183,7 @@ Os modelos podem ser acessados e gerenciados tanto no editor de landing pages qu
 
 ## Gerenciar modelos {#manage-templates}
 
-Você pode visualizar, arquivar ou editar modelos de landing page. É possível duplicar seus próprios modelos de landing page (localizados em **Seus Modelos**), mas não os modelos da Braze. Ao editar uma landing page, você pode salvar sua landing page como modelo, fazer alterações no modelo ou excluir o conteúdo da landing page.
+Você pode visualizar, arquivar ou editar modelos de landing page. É possível duplicar seus próprios modelos de landing page (localizados em **Your Templates**), mas não os modelos da Braze. Ao editar uma landing page, você pode salvar sua landing page como modelo, fazer alterações no modelo ou excluir o conteúdo da landing page.
 
 ![Um menu suspenso com opções para salvar, alterar e excluir uma landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
@@ -193,7 +193,7 @@ Para analisar a eficácia da sua landing page, acesse **Messaging** > **Landing 
 
 ![A seção de análise de dados de uma landing page.]({% image_buster /assets/img/landing_pages/analytics.png %})
 
-## Lidando com erros de envio de formulário {#handling-form-submission-errors}
+## Lidar com erros de envio de formulário {#handling-form-submission-errors}
 
 Se um usuário tentar enviar um formulário com campos ausentes ou entradas não suportadas, ele verá uma mensagem de erro genérica e não conseguirá enviar.
 
@@ -203,4 +203,4 @@ Causas comuns:
 - Caracteres especiais são usados em campos de texto
 - Uma caixa de seleção obrigatória não está marcada
 
-As mensagens de erro exibidas aos usuários não podem ser personalizadas. Pré-visualize sua landing page para confirmar o comportamento dos campos antes de publicar.
+As mensagens de erro exibidas aos usuários não podem ser personalizadas. Visualize sua landing page para confirmar o comportamento dos campos antes de publicar.

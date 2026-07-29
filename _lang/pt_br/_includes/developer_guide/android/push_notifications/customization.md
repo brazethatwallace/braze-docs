@@ -377,6 +377,23 @@ Para evitar que notificações idênticas sobrescrevam umas às outras, você po
 
 - **Geração no lado do servidor:** Para valores verdadeiramente aleatórios, gere o ID de notificação no seu servidor e passe-o por meio de Liquid. Isso garante que cada notificação tenha um identificador distinto, permitindo que várias notificações sejam exibidas simultaneamente.
 
+#### Evitando que notificações duplicadas sejam sobrescritas {#preventing-duplicate-notifications-from-overwriting}
+
+Por padrão, quando notificações por push têm títulos e textos de corpo idênticos, o Android gera o mesmo ID de notificação para ambas as mensagens, fazendo um hash do título e do corpo juntos. Isso faz com que a segunda notificação sobrescreva a primeira, resultando em apenas uma notificação aparecendo na bandeja de notificações.
+
+Para evitar que notificações idênticas se sobrescrevam, você pode especificar valores únicos de ID de notificação nas configurações de notificação por push do Android. Aqui estão algumas opções:
+
+- **Use templates Liquid com um timestamp:** Gere um valor único com base no horário atual.
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **Geração no lado do servidor:** Para valores verdadeiramente aleatórios, gere o ID de notificação no seu servidor e passe-o via Liquid. Isso garante que cada notificação tenha um identificador distinto, permitindo que múltiplas notificações sejam exibidas simultaneamente.
+
 ### Prioridade de entrega do Firebase Messaging {#fcm-priority}
 
 O campo [Prioridade de entrega do Firebase Messaging](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) permite controlar se um push é enviado com prioridade "normal" ou "alta" para o Firebase Cloud Messaging.

@@ -61,79 +61,79 @@ Segment 빌더에서 **`Foreground Push Enabled`**, **`Foreground Push Enabled f
 
 ## 푸시 권한 {#push-permission}
 
-푸시가 활성화된 모든 플랫폼(iOS, 웹, Android)은 OS 수준의 시스템 프롬프트를 통해 명시적인 옵트인을 요구하며, 다음 섹션에서 설명하는 약간의 차이점이 있습니다.
+모든 푸시 지원 플랫폼(iOS, 웹, Android)은 OS 수준의 시스템 프롬프트를 통한 명시적 옵트인을 요구하며, 다음 섹션에서 설명하는 약간의 차이가 있습니다.
 
-사용자의 결정은 최종적이며 거부한 후에는 다시 요청할 수 없으므로, [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) 인앱 메시지를 활용하는 것이 옵트인율을 높이는 중요한 전략입니다.
+사용자의 결정은 최종적이며 거부 후에는 다시 요청할 수 없으므로, [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) 인앱 메시지를 사용하는 것이 옵트인율을 높이는 중요한 전략입니다.
 
-**네이티브 OS 푸시 권한 프롬프트**
+**기본 OS 푸시 권한 프롬프트**
 
-|플랫폼|스크린샷|설명|
+| 플랫폼 | 스크린샷 | 설명 |
 |--|--|--|
-|iOS| ![iOS 네이티브 푸시 프롬프트로 "My App이 알림을 보내려고 합니다"라는 메시지와 하단에 "허용 안 함" 및 "허용" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | [임시 푸시](#provisional-push) 권한을 요청하는 경우에는 해당되지 않습니다.|
-|Android| ![Android 푸시 메시지로 "Kitchenerie에서 알림을 보내도록 허용하시겠습니까?"라는 메시지와 하단에 "허용" 및 "허용 안 함" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | 이 푸시 권한은 Android 13에서 도입되었습니다. Android 13 이전에는 푸시를 보내는 데 권한이 필요하지 않았습니다.|
-|웹| ![웹 브라우저의 네이티브 푸시 프롬프트로 "Braze.com에서 알림을 표시하려고 합니다"라는 메시지와 하단에 "차단" 및 "허용" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
+| iOS | ![iOS 기본 푸시 프롬프트로 "My App would like to send you notifications"라는 메시지와 하단에 "Don't Allow"와 "Allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | [임시 푸시](#provisional-push) 권한을 요청할 때는 적용되지 않습니다. |
+| Android | ![Android 푸시 메시지로 "Allow Kitchenerie to send you notifications?"라는 메시지와 하단에 "Allow"와 "Don't allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | 이 푸시 권한은 Android 13에서 도입되었습니다. Android 13 이전에는 푸시를 보내는 데 권한이 필요하지 않았습니다. |
+| 웹 | ![웹 브라우저의 기본 푸시 프롬프트로 "Braze.com wants to show notification"이라는 메시지와 하단에 "Block"과 "Allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="푸시 권한" }
 
 ### Android
 
-Android 13 이전에는 푸시 알림을 보내는 데 권한이 필요하지 않았습니다. Android 12 이하에서는 Braze가 자동으로 푸시 토큰을 요청할 때 첫 번째 세션에서 모든 사용자가 `Subscribed`로 간주됩니다. 이 시점에서 사용자는 해당 기기에 대한 유효한 푸시 토큰과 `Subscribed`의 기본 구독 상태로 **푸시가 활성화**됩니다.
+Android 13 이전에는 푸시 알림을 보내는 데 권한이 필요하지 않았습니다. Android 12 이하에서는 Braze가 자동으로 푸시 토큰을 요청할 때 첫 번째 세션에서 모든 사용자가 `Subscribed`로 간주됩니다. 이 시점에서 사용자는 해당 기기에 대한 유효한 푸시 토큰과 `Subscribed`의 기본 구독 상태로 **푸시 활성화** 상태가 됩니다.
 
 [Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13)부터는 사용자에게 푸시 권한을 요청하고 승인을 받아야 합니다. 앱에서 적절한 시점에 사용자에게 수동으로 권한을 요청할 수 있지만, 그렇지 않으면 앱이 [알림 채널](https://developer.android.com/reference/android/app/NotificationChannel)을 생성할 때 자동으로 프롬프트가 표시됩니다.
 
 ### iOS
 
-![시스템 알림 센터의 알림으로 하단에 "Yachtr 앱에서 계속 알림을 받으시겠습니까?"라는 메시지와 아래에 "유지" 또는 "끄기" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/ios-provisional-push.png %}){: style="float:right;max-width:430px;width:40%;margin-left:15px;border:0"}
+![시스템 알림 센터의 알림으로 하단에 "Keep receiving notifications from the Yachtr app?"이라는 메시지와 아래에 "Keep" 또는 "Turn Off" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/ios-provisional-push.png %}){: style="float:right;max-width:430px;width:40%;margin-left:15px;border:0"}
 
 앱에서 임시 푸시 또는 승인된 푸시를 요청할 수 있습니다.
 
-승인된 푸시는 알림을 보내기 전에 사용자의 명시적인 권한이 필요한 반면, [임시 푸시](https://www.braze.com/resources/articles/mastering-provisional-push)는 소리나 알림 없이 알림 센터로 __조용히__ 알림을 보낼 수 있습니다.
+승인된 푸시는 알림을 보내기 전에 사용자의 명시적 권한이 필요한 반면, [임시 푸시](https://www.braze.com/resources/articles/mastering-provisional-push)는 소리나 알림 없이 알림 센터에 직접 __조용히__ 알림을 보낼 수 있습니다.
 
 #### 임시 승인 및 조용한 푸시 {#provisional-push}
 
 iOS 12(2018년 출시) 이전에는 모든 사용자가 푸시 알림을 받으려면 명시적으로 옵트인해야 했습니다.
 
-iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/mastering-provisional-push)을 도입하여, 브랜드가 사용자의 알림 센터에 명시적으로 옵트인하기 전에 조용한 푸시 알림을 보낼 수 있도록 했습니다. 이를 통해 메시지의 가치를 일찍 보여줄 수 있는 기회를 제공합니다. 자세한 내용은 [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)을 참조하세요.
+iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/mastering-provisional-push)을 도입하여, 브랜드가 사용자가 명시적으로 옵트인하기 전에 사용자의 알림 센터에 조용한 푸시 알림을 보낼 수 있게 했으며, 이를 통해 메시지의 가치를 일찍 보여줄 수 있는 기회를 제공합니다. 자세한 내용은 [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)을 참조하세요.
 
 ### 웹 {#web}
 
-웹의 경우 네이티브 브라우저 권한 대화 상자를 통해 명시적인 사용자 옵트인을 요청해야 합니다.
+웹의 경우, 기본 브라우저 권한 대화 상자를 통해 명시적인 사용자 옵트인을 요청해야 합니다.
 
-앱에서 언제든지 권한 프롬프트를 표시할 수 있는 iOS 및 Android와 달리, 일부 최신 브라우저는 "사용자 제스처"(마우스 클릭 또는 키 입력)에 의해 트리거된 경우에만 프롬프트를 표시합니다. 사이트에서 페이지 로드 시 푸시 알림 권한을 요청하려고 하면 브라우저에 의해 무시되거나 차단될 가능성이 높습니다.
+앱에서 언제든지 권한 프롬프트를 표시할 수 있는 iOS 및 Android와 달리, 일부 최신 브라우저는 "사용자 제스처"(마우스 클릭 또는 키 입력)에 의해 트리거된 경우에만 프롬프트를 표시합니다. 사이트가 페이지 로드 시 푸시 알림 권한을 요청하려고 하면 브라우저에 의해 무시되거나 차단될 가능성이 높습니다.
 
-따라서 페이지가 로드될 때 무작위로 요청하는 것이 아니라, 사용자가 웹사이트의 어딘가를 클릭했을 때만 권한을 요청해야 합니다.
+따라서 페이지가 로드될 때 무작위로 요청하는 것이 아니라, 사용자가 웹사이트의 어딘가를 클릭할 때만 권한을 요청해야 합니다.
 
 ## 푸시 토큰 {#push-tokens}
 
-[푸시 토큰]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle)은 사용자의 기기에서 생성되는 고유한 익명 식별자로, 각 수신자의 알림을 어디로 보낼지 식별하기 위해 Braze로 전송됩니다.
+[푸시 토큰]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle)은 사용자의 기기에서 생성되어 Braze로 전송되는 고유한 익명 식별자로, 각 수신자의 알림을 어디로 보낼지 식별하는 데 사용됩니다.
 
-[푸시 토큰]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle)이 분류되는 두 가지 방식이 있으며, 이는 사용자에게 푸시 알림을 보내는 방법을 이해하는 데 필수적입니다.
+[푸시 토큰]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle)을 분류하는 두 가지 방법이 있으며, 이는 사용자에게 푸시 알림을 보내는 방법을 이해하는 데 필수적입니다.
 
 1. **포그라운드 푸시**는 사용자 기기의 포그라운드에 일반적인 가시적 푸시 알림을 보내는 기능을 제공합니다.
-2. **백그라운드 푸시**는 특정 기기가 해당 브랜드의 푸시 알림 수신에 옵트인했는지 여부와 관계없이 사용할 수 있습니다. 백그라운드 푸시를 통해 브랜드는 사일런트 푸시 알림(의도적으로 표시되지 않는 알림)을 기기에 보내 [제거 추적]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking)과 같은 핵심 기능을 지원할 수 있습니다.
+2. **백그라운드 푸시**는 특정 기기가 해당 브랜드의 푸시 알림 수신을 옵트인했는지 여부에 관계없이 사용할 수 있습니다. 백그라운드 푸시를 통해 브랜드는 [제거 추적]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking)과 같은 핵심 기능을 지원하기 위해 의도적으로 표시되지 않는 알림인 사일런트 푸시 알림을 기기에 보낼 수 있습니다.
 
-사용자 프로필에 앱과 연결된 유효한 포그라운드 푸시 토큰이 있으면, Braze는 해당 사용자를 해당 앱에 대해 "푸시 등록됨"으로 간주합니다. 그런 다음 Braze는 이러한 사용자를 식별하는 데 도움이 되는 특정 세분화 필터인 `Foreground Push Enabled for App,`을 제공합니다.
+사용자 프로필에 앱과 연결된 유효한 포그라운드 푸시 토큰이 있으면, Braze는 해당 사용자를 해당 앱에 대해 "푸시 등록됨"으로 간주합니다. 그러면 Braze는 이러한 사용자를 식별하는 데 도움이 되는 특정 세분화 필터인 `Foreground Push Enabled for App,`을 제공합니다.
 
 {% alert note %}
-`Foreground Push Enabled for App` 필터는 해당 앱에 대한 유효한 포그라운드 및 백그라운드 푸시 토큰의 존재 여부만 고려합니다. 그러나 보다 일반적인 [`Foreground Push Enabled`](#foreground-push-enabled) 필터는 워크스페이스 내 모든 앱에 대해 푸시 알림을 명시적으로 활성화한 사용자를 세분화합니다. 이 수에는 포그라운드 푸시만 포함되며, 탈퇴한 사용자는 포함되지 않습니다. 이 필터 및 기타 필터에 대한 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)에서 확인할 수 있습니다.
+`Foreground Push Enabled for App` 필터는 해당 앱에 대한 유효한 포그라운드 및 백그라운드 푸시 토큰의 존재만 고려합니다. 그러나 보다 일반적인 [`Foreground Push Enabled`](#foreground-push-enabled) 필터는 워크스페이스 내 모든 앱에 대해 푸시 알림을 명시적으로 활성화한 사용자를 세분화합니다. 이 수에는 포그라운드 푸시만 포함되며 구독을 취소한 사용자는 포함되지 않습니다. 이러한 필터 및 기타 필터에 대한 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 참조하세요.
 
-소수의 사용자에게는 처리 지연으로 인해 일시적인 불일치가 발생할 수 있습니다. 사용자의 프로필에 유효한 포그라운드 푸시 토큰이 있지만 `Foreground Push Enabled` 필터와 일치하지 않을 수 있습니다. 토큰이 존재하더라도 프로필에 포그라운드 푸시가 활성화되지 않은 것으로 잠시 표시될 수 있습니다. 이는 보통 처리가 완료되면 해결됩니다.
+소수의 사용자에 대해 처리 지연으로 인해 일시적인 불일치가 발생할 수 있습니다. 사용자가 프로필에 유효한 포그라운드 푸시 토큰을 가지고 있지만 `Foreground Push Enabled` 필터와 일치하지 않을 수 있습니다. 토큰이 존재하더라도 프로필에 포그라운드 푸시가 활성화되지 않은 것으로 잠시 표시될 수 있습니다. 이는 일반적으로 처리가 완료되면 해결됩니다.
 {% endalert %}
 
 ### 하나의 기기에 여러 사용자 {#multiple-users-on-one-device}
 
-푸시 토큰은 기기와 앱 모두에 고유하므로, 동일한 기기를 사용하는 여러 사용자를 푸시 토큰으로 구분하는 것은 불가능합니다.
+푸시 토큰은 기기와 앱 모두에 고유하므로, 동일한 기기를 사용하는 여러 사용자를 구분하는 데 푸시 토큰을 사용할 수 없습니다.
 
-예를 들어, Charlie와 Kim이라는 두 명의 사용자가 있다고 가정해 보겠습니다. Charlie가 자신의 휴대폰에서 앱의 푸시 알림을 활성화한 상태에서, Kim이 Charlie의 휴대폰을 사용하여 Charlie의 프로필에서 로그아웃하고 자신의 프로필로 로그인하면, 푸시 토큰은 Kim의 프로필로 재할당됩니다. 이후 Kim이 로그아웃하고 Charlie가 다시 로그인할 때까지 해당 기기에서 푸시 토큰은 Kim의 프로필에 할당된 상태로 유지됩니다.
+예를 들어, Charlie와 Kim이라는 두 명의 사용자가 있다고 가정합니다. Charlie가 자신의 휴대폰에서 앱의 푸시 알림을 활성화한 상태에서 Kim이 Charlie의 휴대폰을 사용하여 Charlie의 프로필에서 로그아웃하고 자신의 프로필로 로그인하면, 푸시 토큰이 Kim의 프로필로 재할당됩니다. 그러면 Kim이 로그아웃하고 Charlie가 다시 로그인할 때까지 해당 기기에서 푸시 토큰은 Kim의 프로필에 할당된 상태로 유지됩니다.
 
-앱이나 웹사이트는 기기당 하나의 푸시 가입만 가질 수 있습니다. 따라서 사용자가 기기나 웹사이트에서 로그아웃하고 새로운 사용자가 로그인하면, 푸시 토큰은 새 사용자에게 재할당됩니다. 이는 사용자 프로필의 **인게이지먼트** 탭에 있는 **연락처 설정** 섹션에 반영됩니다.
+앱이나 웹사이트는 기기당 하나의 푸시 구독만 가질 수 있습니다. 따라서 사용자가 기기나 웹사이트에서 로그아웃하고 새 사용자가 로그인하면, 푸시 토큰이 새 사용자에게 재할당됩니다. 이는 사용자 프로필의 **Engagement** 탭에 있는 **Contact Settings** 섹션에 반영됩니다:
 
-![사용자 프로필의 **인게이지먼트** 탭에 표시된 푸시 토큰 변경 로그로, 푸시 토큰이 다른 사용자에게 이동된 시점과 해당 토큰 정보를 보여줍니다.]({% image_buster /assets/img/push_token_changelog.png %})
+![사용자 프로필의 Engagement 탭에 있는 푸시 토큰 변경 로그로, 푸시 토큰이 다른 사용자에게 이동된 시점과 해당 토큰이 무엇인지 나열합니다.]({% image_buster /assets/img/push_token_changelog.png %})
 
-푸시 공급자(APNs/FCM)가 하나의 기기에서 여러 사용자를 구분할 방법이 없기 때문에, 기기에서 푸시 대상 사용자를 결정하기 위해 마지막으로 로그인한 사용자에게 푸시 토큰을 전달합니다.
+푸시 제공업체(APNs/FCM)가 하나의 기기에서 여러 사용자를 구분할 방법이 없기 때문에, 기기에서 푸시 대상으로 지정할 사용자를 결정하기 위해 마지막으로 로그인한 사용자에게 푸시 토큰을 전달합니다.
 
 ### 여러 기기와 한 명의 사용자 {#multiple-devices-and-one-user}
 
-푸시 가입 상태는 사용자 기반이며 개별 앱에 한정되지 않습니다. 푸시 가입 상태는 마지막으로 설정된 값입니다. 따라서 사용자가 푸시 알림에 옵트인한 경우, 모든 적격 기기에서 푸시 가입 상태가 `Opted-In`이 됩니다. 이후 사용자가 애플리케이션이나 브랜드에서 제공하는 다른 방법을 통해 푸시 알림을 명시적으로 탈퇴하면, 푸시 가입 상태가 `Unsubscribed`로 업데이트되며 푸시 등록된 어떤 기기에서도 푸시 알림을 수신할 수 없습니다.
+푸시 구독 상태는 사용자 기반이며 개별 앱에 특정되지 않습니다. 푸시 구독 상태는 마지막으로 설정된 값입니다. 따라서 사용자가 푸시 알림을 옵트인한 경우, 모든 적격 기기에서 푸시 구독 상태가 `Opted-In`이 됩니다. 사용자가 나중에 애플리케이션이나 브랜드가 제공하는 다른 방법을 통해 푸시 알림 구독을 명시적으로 취소하면, 푸시 구독 상태가 `Unsubscribed`로 업데이트되며 푸시 등록된 기기에서 푸시 알림을 받을 수 없습니다.
 
 ## Foreground Push Enabled 필터 {#foreground-push-enabled}
 
@@ -151,42 +151,42 @@ iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/m
 푸시 등록 상태를 확인하는 방법에 대한 자세한 내용은 [푸시 등록 상태]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)를 참조하세요.
 {% endalert %}
 
-## 푸시 등록 및 체인지로그 정보 찾기 {#finding-push-registration-and-changelog-information}
+## 푸시 등록 및 변경 로그 정보 찾기 {#finding-push-registration-and-changelog-information}
 
-대시보드에서 푸시 등록 및 푸시 체인지로그에 대한 정보를 다음 위치에서 확인할 수 있습니다.
+대시보드에서 푸시 등록 및 푸시 변경 로그에 대한 정보를 다음에서 확인할 수 있습니다:
 
-- **세분화** – 사용자의 가입 상태, 활성화 상태, 포그라운드 및 백그라운드 활성화 상태로 필터링합니다.
+- **세분화** – 사용자의 구독 상태, 활성화 상태, 포그라운드 및 백그라운드 활성화 상태별로 필터링합니다.
 - **Campaign 분석** – 단일 Campaign 또는 Canvas에 대한 푸시 통계 및 피드백을 확인합니다.
-- **고객 프로필(인게이지먼트 탭)** – 특정 사용자의 **연락처 설정** 및 푸시 체인지로그를 확인합니다.
+- **사용자 프로필(Engagement 탭)** – 특정 사용자의 **Contact Settings** 및 푸시 변경 로그를 확인합니다.
 
-푸시 활성화 상태를 검토할 때, **푸시 등록 대상**은 해당 사용자에게 Braze가 포그라운드 푸시를 보낼 수 있는 플랫폼을 나타냅니다. iOS 및 Android에서 사용자가 포그라운드 푸시 활성화 상태에서 백그라운드 푸시 활성화(`remote_notification_enabled`) 상태로 전환된 경우, 푸시 체인지로그에 "Push token was updated from foreground push enabled to foreground push disabled."로 기록됩니다.
+푸시 활성화 상태를 검토할 때, **Push Registered for**는 Braze가 해당 사용자에게 포그라운드 푸시를 보낼 수 있는 플랫폼을 나타냅니다. iOS 및 Android에서 사용자가 포그라운드 푸시 활성화에서 백그라운드 푸시 활성화(`remote_notification_enabled`)로 전환된 경우, 푸시 변경 로그에 "Push token was updated from foreground push enabled to foreground push disabled."로 기록됩니다.
 
-사용자가 테스트 사용자로 추가된 경우, **개발자 콘솔** > **이벤트 사용자 로그**에서 고객 프로필에 `remote_notification_enabled`가 `true` 또는 `false`인 SDK 요청이 표시됩니다. SDK 업데이트가 고객 프로필에 반영되기까지 약간의 지연이 있으므로, 업데이트를 확인하려면 고객 프로필을 새로고침해야 할 수 있습니다.
+사용자가 테스트 사용자로 추가된 경우, **개발자 콘솔** > **이벤트 사용자 로그**에서 사용자 프로필에 `remote_notification_enabled`가 `true` 또는 `false`인 SDK 요청이 표시됩니다. SDK 업데이트가 사용자 프로필에 반영되기까지 약간의 지연이 있으므로, 업데이트를 확인하려면 사용자 프로필을 새로고침해야 할 수 있습니다.
 
 **iOS 푸시 상태에 대한 세분화 필터:**
 
-- **iOS 포그라운드 및 백그라운드 푸시 비활성화:** 사용자에게 아직 푸시 안내가 표시되지 않았습니다.
-- **iOS 백그라운드 활성화:** 사용자에게 푸시 안내가 표시되었으나 거부했거나, 수락한 후 기기 설정에서 푸시 알림을 끈 경우입니다(사용자가 세션을 가진 후 반영됩니다).
-- **iOS 포그라운드 활성화:** 사용자에게 푸시 안내가 표시되었으며 포그라운드 푸시를 수신할 수 있는 상태입니다.
+- **iOS 포그라운드 및 백그라운드 푸시 비활성화:** 사용자에게 아직 푸시 프롬프트가 표시되지 않았습니다.
+- **iOS 백그라운드 활성화:** 사용자에게 푸시 프롬프트가 표시되었고 거부했거나, 수락한 후 나중에 기기 설정에서 푸시 알림을 끈 경우입니다(사용자가 세션을 가진 후 반영됨).
+- **iOS 포그라운드 활성화:** 사용자에게 푸시 프롬프트가 표시되었고 포그라운드 푸시를 받을 수 있는 상태입니다.
 
-Campaign 분석에서는 이 섹션의 앞부분에서 설명한 내용에 따라 푸시 통계가 인라인으로 표시됩니다. Campaign 또는 Canvas에 진입한 사용자의 고객 프로필을 다운로드하여 교차 참조할 수도 있습니다.
+Campaign 분석은 이 섹션의 앞부분에서 설명한 세부 사항에 맞춰 푸시 통계를 인라인으로 반영합니다. Campaign 또는 Canvas에 진입한 사용자 프로필을 다운로드하여 사용자 프로필을 교차 참조할 수도 있습니다.
 
 ## 기타 플랫폼별 시나리오 {#other-platform-specific-scenarios}
 
 {% tabs %}
 {% tab 웹 %}
 
-사용자가 네이티브 푸시 권한 프롬프트를 수락하면 가입 상태가 `opted in`으로 변경됩니다.
+사용자가 기본 푸시 권한 프롬프트를 수락하면, 구독 상태가 `opted in`으로 변경됩니다.
 
-가입을 관리하려면 사용자 메서드 [`setPushNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype)을 사용하여 사이트에 환경설정 페이지를 만들 수 있으며, 이후 대시보드에서 옵트아웃 상태별로 사용자를 필터링할 수 있습니다.
+구독을 관리하려면 사용자 메서드 [`setPushNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype)을 사용하여 사이트에 선호 설정 페이지를 만든 다음, 대시보드에서 옵트아웃 상태별로 사용자를 필터링할 수 있습니다.
 
-사용자가 브라우저에서 알림을 비활성화하면 해당 사용자에게 전송된 다음 푸시 알림이 반송되며, Braze는 사용자의 푸시 토큰을 그에 맞게 업데이트합니다. 이는 푸시 활성화 필터(`Background or Foreground Push Enabled`, `Foreground Push Enabled`, `Foreground Push Enabled for App`)의 자격 관리에 사용됩니다. 사용자 프로필에 설정된 가입 상태는 사용자 수준 설정이며 푸시가 반송될 때 변경되지 않습니다.
+사용자가 브라우저에서 알림을 비활성화하면, 해당 사용자에게 보내는 다음 푸시 알림이 반송되며, Braze는 사용자의 푸시 토큰을 그에 맞게 업데이트합니다. 이는 푸시 활성화 필터(`Background or Foreground Push Enabled`, `Foreground Push Enabled` 및 `Foreground Push Enabled for App`)의 적격성을 관리하는 데 사용됩니다. 사용자 프로필에 설정된 구독 상태는 사용자 수준 설정이며 푸시가 반송될 때 변경되지 않습니다.
 
 ### 410 웹 푸시 토큰 오류 {#410-web-push-token-errors}
 
-`410: Gone` 오류가 발생하면, 이는 사용자가 OS 설정의 브라우저에서 웹 푸시 알림을 비활성화했거나, 같은 기기에서 다른 사용자로 로그인하고 있거나, 사용자가 한동안 웹사이트를 방문하지 않은 경우에 발생할 수 있습니다.
+`410: Gone` 오류가 발생하면, 사용자가 OS 설정의 브라우저에서 웹 푸시 알림을 비활성화했거나, 동일한 기기에서 다른 사용자로 로그인하고 있거나, 사용자가 한동안 웹사이트를 방문하지 않은 경우에 발생할 수 있습니다.
 
-`410: Endpoint Not Valid` 오류가 발생하면, 이는 웹 푸시 토큰(본질적으로 URL)이 만료되었음을 의미할 수 있습니다. 사용자가 사이트를 다시 방문하지 않거나 브라우저가 토큰을 무효화한 경우에 발생할 수 있습니다. 또한 브라우저에 따라 주기적으로(보통 몇 개월마다) 발생할 수도 있습니다. 사용자가 사이트를 다시 방문할 때 브라우저가 여전히 "허용"으로 설정되어 있으면, Braze는 해당 기기에 대한 새로운 토큰을 자동으로 수집합니다. 이는 SDK 초기화 중에 [`disablePushTokenMaintenance` 초기화 옵션](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#initializationoptions)이 사용되지 않는 것을 전제로 합니다.
+`410: Endpoint Not Valid` 오류가 발생하면, 웹 푸시 토큰(본질적으로 URL)이 만료되었음을 의미할 수 있습니다. 이는 사용자가 사이트를 다시 방문하지 않거나 브라우저가 토큰을 무효화한 경우에 발생할 수 있습니다. 또한 브라우저에 따라 주기적으로(보통 몇 개월마다) 발생할 수 있습니다. 사용자가 사이트를 다시 방문할 때 브라우저가 여전히 "허용"으로 설정되어 있으면, Braze는 해당 기기에 대한 새로운 토큰을 자동으로 수집합니다. 이는 SDK 초기화 중에 [`disablePushTokenMaintenance` 초기화 옵션](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#initializationoptions)이 사용되지 않는 것을 전제로 합니다.
 
 {% alert note %}
 웹 플랫폼은 백그라운드 또는 사일런트 푸시를 허용하지 않습니다.
@@ -195,39 +195,39 @@ Campaign 분석에서는 이 섹션의 앞부분에서 설명한 내용에 따�
 {% tab Android %}
 
 포그라운드 푸시가 활성화된 사용자가 OS 설정에서 푸시를 비활성화하면, 다음 세션 시작 시:
-- Braze는 해당 사용자를 포그라운드 푸시 비활성화로 표시하고 더 이상 푸시 메시지 전송을 시도하지 않습니다.
-- `Foreground Push Enabled for App (Android)` 필터와 `Foreground Push Enabled` 세분화 필터(사용자 프로필의 다른 앱에 유효한 포그라운드 푸시 토큰이 없다고 가정)는 `false`를 반환합니다.
+- Braze는 해당 사용자를 포그라운드 푸시 비활성화로 표시하고 더 이상 푸시 메시지를 보내려고 시도하지 않습니다.
+- `Foreground Push Enabled for App (Android)` 필터와 `Foreground Push Enabled` 세분화 필터(사용자 프로필의 다른 앱에 유효한 포그라운드 푸시 토큰이 없는 경우)는 `false`를 반환합니다.
 
 이 시나리오에서는 백그라운드 푸시 토큰이 여전히 존재하므로, 세분화 필터 `Background or Foreground Push Enabled = true`를 사용하여 백그라운드(사일런트) 푸시 알림을 계속 보낼 수 있습니다.
 
 Android의 경우, Braze는 다음과 같은 경우 사용자를 푸시 비활성화로 간주합니다:
 
 - 사용자가 기기에서 앱을 제거한 경우.
-- 반송으로 인해 푸시 메시지 전달에 실패한 경우. 이는 주로 제거로 인해 발생하지만, 앱 업데이트, 새 푸시 토큰 버전 또는 형식 변경으로 인해 발생할 수도 있습니다.
-- Firebase Cloud Messaging에 푸시 등록이 실패한 경우(네트워크 연결 불량 또는 FCM에 연결 실패하여 유효한 토큰을 반환하지 못하는 경우에 발생할 수 있음).
+- 반송으로 인해 푸시 메시지 전달에 실패한 경우. 이는 주로 제거로 인해 발생하지만, 앱 업데이트, 새 푸시 토큰 버전 또는 형식으로 인해 발생할 수도 있습니다.
+- Firebase Cloud Messaging에 대한 푸시 등록이 실패한 경우(네트워크 연결 불량 또는 FCM에 연결하거나 유효한 토큰을 반환하는 데 실패하여 발생하는 경우가 있음).
 - 사용자가 기기 설정에서 앱의 푸시 알림을 차단한 후 세션을 기록한 경우.
 
 {% alert note %}
-Android 푸시 알림은 앱이 포그라운드 또는 백그라운드(아직 실행 중)에 있을 때만 가로챌 수 있습니다. 앱이 종료되었거나 완전히 종료된 경우에는 알림을 가로챌 수 없습니다.
+앱이 포그라운드 또는 백그라운드(아직 실행 중)에 있을 때만 Android 푸시 알림을 가로챌 수 있습니다. 앱이 종료되었거나 완전히 종료된 경우에는 알림을 가로챌 수 없습니다.
 {% endalert %}
 
 {% endtab %}
 {% tab iOS %}
 
-사용자가 포그라운드 푸시 옵트인 프롬프트를 수락했는지 여부와 관계없이, Xcode에서 원격 알림을 활성화하고 앱에서 [`registerForRemoteNotifications()`](https://developer.apple.com/documentation/uikit/uiapplication/1623078-registerforremotenotifications)를 호출하면 백그라운드 푸시를 보낼 수 있습니다.
+사용자가 포그라운드 푸시 옵트인 프롬프트를 수락하는지 여부에 관계없이, Xcode에서 원격 알림이 활성화되어 있고 앱이 [`registerForRemoteNotifications()`](https://developer.apple.com/documentation/uikit/uiapplication/1623078-registerforremotenotifications)를 호출하면 백그라운드 푸시를 보낼 수 있습니다.
 
-앱이 임시 승인을 받았거나 사용자가 푸시에 옵트인한 경우, 포그라운드 푸시 토큰을 받게 되어 모든 유형의 푸시를 보낼 수 있습니다. Braze에서는 포그라운드 푸시가 활성화된 iOS 사용자를 명시적(앱 수준) 또는 임시(기기 수준)로 푸시 활성화된 것으로 간주합니다.
+앱이 임시 승인을 받았거나 사용자가 푸시를 옵트인한 경우, 포그라운드 푸시 토큰을 받게 되어 모든 유형의 푸시를 보낼 수 있습니다. Braze에서는 포그라운드 푸시가 활성화된 iOS 사용자를 명시적(앱 수준) 또는 임시(기기 수준)로 푸시 활성화된 것으로 간주합니다.
 
-사용자가 OS 수준에서 푸시 알림 수신을 거부하면, 푸시 가입 상태는 `Subscribed`가 되며 프로필에 포그라운드 푸시 토큰이 등록되었다고 표시되지 않습니다.
+사용자가 OS 수준에서 푸시 알림 수신을 거부하면, 푸시 구독 상태는 `Subscribed`가 되며 프로필에 포그라운드 푸시 토큰이 등록되었다고 표시되지 않습니다.
 
 처음에 OS 수준에서 옵트인한 사용자가 OS 설정에서 푸시 알림을 비활성화하는 시나리오에서는, 다음 세션 시작 시 다음과 같은 일이 발생합니다:
-- Braze는 해당 사용자를 포그라운드 푸시 비활성화로 표시하고 더 이상 푸시 메시지 전송을 시도하지 않습니다.
-- `Foreground Push Enabled for App (iOS)` 필터와 `Foreground Push Enabled` 세분화 필터(사용자 프로필의 다른 앱에 유효한 포그라운드 푸시 토큰이 없다고 가정)는 `false`를 반환합니다.
+- Braze는 해당 사용자를 포그라운드 푸시 비활성화로 표시하고 더 이상 푸시 메시지를 보내려고 시도하지 않습니다.
+- `Foreground Push Enabled for App (iOS)` 필터와 `Foreground Push Enabled` 세분화 필터(사용자 프로필의 다른 앱에 유효한 포그라운드 푸시 토큰이 없는 경우)는 `false`를 반환합니다.
 
 이 시나리오에서는 백그라운드 푸시 토큰이 여전히 존재하므로, 세분화 필터 `Background or Foreground Push Enabled = true`를 사용하여 백그라운드(사일런트) 푸시 알림을 계속 보낼 수 있습니다.
 
 {% alert note %}
-iOS는 푸시 알림이 표시되기 전에 앱이 푸시 알림을 가로채는 것을 허용하지 않습니다. 즉, 앱(및 Braze)은 알림을 표시하거나 숨길 수 있는지에 대한 제어 권한이 없습니다. 사용자는 기기 설정에서 앱의 푸시 알림을 옵트아웃할 수 있지만, 이는 운영 체제에 의해 제어됩니다.
+iOS는 푸시 알림이 표시되기 전에 앱이 푸시 알림을 가로채는 것을 허용하지 않습니다. 이는 앱(및 Braze)이 알림을 표시하거나 숨길 수 있는지에 대한 제어권이 없음을 의미합니다. 사용자는 기기 설정에서 앱의 푸시 알림을 옵트아웃할 수 있지만, 이는 운영 체제에 의해 제어됩니다.
 {% endalert %}
 
 {% endtab %}

@@ -24,21 +24,21 @@ Kontaktieren Sie uns unter [success@braze.com](mailto:success@braze.com), um uns
 | [The Guardian API](http://open-platform.theguardian.com/documentation/) | Stellt Guardian-Artikeldaten bereit, darunter Überschrift, Thema, URL, Datum, Zusammenfassung usw. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nachrichten und Informationen" }
 
-## Veranstaltungen und Ticketing {#events-and-ticketing}
+## Ereignisse und Ticketing {#events-and-ticketing}
 
 |	 API 	| Beschreibung |
 | --------- | --- |
-| [SeatGeek](http://platform.seatgeek.com/)| Stellt Ticketinformationen für Konzerte, Sportveranstaltungen und Theateraufführungen bereit.  |
+| [SeatGeek](http://platform.seatgeek.com/) | Stellt Ticketinformationen für Konzerte, Sportveranstaltungen und Theateraufführungen bereit. |
 | [Eventbrite](http://developer.eventbrite.com/) | Stellt Daten zu einer Vielzahl öffentlicher Veranstaltungen bereit. |
 | [Ticketmaster](http://developer.ticketmaster.com/products-and-docs/apis/getting-started/) | Stellt Daten zu öffentlichen Veranstaltungen, Veranstaltungsorten und Preisen bereit. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Veranstaltungen und Ticketing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisse und Ticketing" }
 
 ## Finanzen {#finance}
 
 |	 API 	| Beschreibung |
 | --------- | --- |
-| [Barchart OnDemand](https://www.barchartondemand.com/free) | Bietet eine Vielzahl von Aktien-, Futures- und Devisendaten. |
-| [CoinDesk](https://www.coindesk.com/api/) | Bietet eine Vielzahl von Kryptowährungsdaten. |
+| [Barchart OnDemand](https://www.barchartondemand.com/free) | Stellt eine Vielzahl von Aktien-, Futures- und Devisendaten bereit. |
+| [CoinDesk](https://www.coindesk.com/api/) | Stellt eine Vielzahl von Kryptowährungsdaten bereit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Finanzen" }
 
 ## Gesundheit {#health}
@@ -46,19 +46,19 @@ Kontaktieren Sie uns unter [success@braze.com](mailto:success@braze.com), um uns
 |	 API 	| Beschreibung |
 | --------- | --- |
 | [AirVisual](https://airvisual.com/api) | Stellt Luftqualitäts- und Wetterdaten bereit. |
-| [Nutritionix Worlds](https://developer.nutritionix.com/) | Stellt verifizierte Ernährungsdaten bereit. |
-| [USDA Nutrients](https://fdc.nal.usda.gov/api-guide.html) | Bietet Zugriff auf die National Nutrient Database. |
+| [Nutritionix Worlds](https://developer.nutritionix.com/) | Stellt verifizierte Nährwertdaten bereit. |
+| [USDA Nutrients](https://fdc.nal.usda.gov/api-guide.html) | Bietet Zugang zur National Nutrient Database. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gesundheit" }
 
 ## Musik {#music}
 
 |	 API 	| Beschreibung |
 | --------- | --- |
-| [Last.fm](http://www.last.fm/api) | Bietet eine Vielzahl von Musikdaten, darunter Künstlerinformationen, empfohlene Künstler und mehr. |
-| [iTunes](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) | Bietet Daten zu einer Vielzahl von Artikeln im iTunes Store, App Store und iBooks Store. |
-| [Bandsintown](http://www.bandsintown.com/api/overview) | Bietet lokale Konzertinformationen und empfiehlt Live-Musik-Events. |
-| [Songkick](http://www.songkick.com/developer) | Bietet Live-Musik-Informationen mit Künstlern, Veranstaltungsorten, Standorten und mehr. |
-| [Discogs](http://www.discogs.com/developers/) | Bietet Informationen zu Künstlern, Labels und Aufnahmen. |
+| [Last.fm](http://www.last.fm/api) | Stellt eine Vielzahl von Musikdaten bereit, darunter Künstlerinformationen, empfohlene Künstler und mehr. |
+| [iTunes](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) | Stellt Daten zu einer Vielzahl von Artikeln in den iTunes-, App Store- und iBooks-Stores bereit. |
+| [Bandsintown](http://www.bandsintown.com/api/overview) | Stellt lokale Konzertinformationen bereit und empfiehlt Live-Musik-Events. |
+| [Songkick](http://www.songkick.com/developer) | Stellt Live-Musikinformationen mit Künstlern, Veranstaltungsorten, Standorten usw. bereit. |
+| [Discogs](http://www.discogs.com/developers/) | Stellt Informationen zu Künstlern, Labels und Aufnahmen bereit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Musik" }
 
 ## Produktinformationen {#product-information}
@@ -72,7 +72,7 @@ Kontaktieren Sie uns unter [success@braze.com](mailto:success@braze.com), um uns
 
 |	 API 	| Beschreibung |
 | --------- | --- |
-| [London Unified](http://api.tfl.gov.uk/#Line) und [NYC MTA](https://new.mta.info/developers) | Stellen Realtime-Daten zum öffentlichen Nahverkehr bereit, einschließlich Linienstatus, Ankunftszeiten usw. |
+| [London Unified](http://api.tfl.gov.uk/#Line) und [NYC MTA](https://new.mta.info/developers) | Stellen Realtime-Daten zum öffentlichen Nahverkehr bereit, darunter Linienstatus, Ankunftszeiten usw. |
 | [Sunrise and Sunset](https://sunrise-sunset.org/api) | Stellt Sonnenuntergangs- und Sonnenaufgangszeiten für einen bestimmten Breiten- und Längengrad bereit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verschiedenes" }
 

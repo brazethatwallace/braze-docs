@@ -6,13 +6,13 @@ noindex: true
 hide_toc: true
 ---
 
-# Message Credits - Sigma (confidentiel)
+# Message Credits - Sigma (confidentiel) {#message-credits-sigma-confidential}
 
 > Message Credits est la structure de packaging multi-produits de Braze pour notre Agent Console natif, ainsi que nos offres SMS, MMS, RCS, WhatsApp et LINE. Les Message Credits offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication Braze et de certaines fonctionnalités d'IA. Les crédits vous donnent accès à l'ensemble des canaux présentés dans le tableau de cette page.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
-## Définitions
+## Définitions {#definitions}
 
 Les définitions des colonnes sont les suivantes :
 
@@ -22,7 +22,7 @@ Les définitions des colonnes sont les suivantes :
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tableau des ratios de crédits pour Message Credits - Sigma
+## Tableau des ratios de crédits pour Message Credits - Sigma {#credit-ratio-table-for-message-credits-sigma}
 
 {% details Cliquez pour développer %}
 <table class="credits-table" aria-label="Tableau des ratios de crédits pour Message Credits - Sigma">
@@ -2270,34 +2270,36 @@ Les définitions des colonnes sont les suivantes :
 
 ------
 
-## Détails de l'Agent Console
+## Détails de l'Agent Console {#agent-console-details}
 Braze facture des Message Credits pour les invocations de l'Agent Console envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent initie un appel vers un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.
 
-## Détails du canal SMS/MMS
+## Détails du canal SMS/MMS {#smsmms-channel-details}
 
-### Segments SMS
+### Segments SMS {#sms-segments}
 
 Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en utilisant l'encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraînera des frais supplémentaires.
 
-### Segments MMS
+### Segments MMS {#mms-segments}
 
-Pour les MMS, la limite de taille du message est de 5 Mo (cela inclut la ressource multimédia et la taille du corps du message). Par mesure de précaution, Braze recommande de ne pas dépasser 600 Ko pour votre ressource multimédia tout en incluant un corps de message.
+Pour les MMS, la limite de taille du message est de 5 Mo (cela inclut la ressource multimédia et la taille du corps du message). Par mesure de précaution, Braze recommande de ne pas dépasser 600 Ko pour votre ressource multimédia tout en incluant également un corps de message.
 
-### Types RCS
+### Types RCS {#rcs-types}
 
-Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des capacités plus riches que les consommateurs modernes attendent désormais : contenu enrichi (images, vidéos, documents), envoi vérifié et brandé, fonctionnalités interactives telles que les réponses et actions suggérées, et bien plus encore.
+Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des fonctionnalités plus riches auxquelles les consommateurs modernes s'attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
-## Détails du canal WhatsApp
+## Détails du canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
+
+## Détails supplémentaires par canal {#additional-channel-details}
 
 ### Webhooks
 
 Les webhooks font partie des crédits de messages depuis le 9 décembre 2024. Braze facturera des crédits de messages pour tout webhook envoyé depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks par période de votre durée d'abonnement. Les webhooks supplémentaires seront facturés conformément à votre bon de commande.
 
-### Connecteurs SMS tiers (BYO)
+### Connecteurs SMS tiers (BYO) {#bring-your-own-byo-sms-connectors}
 
 Braze permet aux clients de s'intégrer à des fournisseurs tiers pour envoyer des messages SMS via le modèle « connecteur SMS BYO ». Braze facturera des crédits de messages pour chaque message envoyé depuis la plateforme Braze via les connecteurs SMS BYO.
 
@@ -2305,32 +2307,32 @@ Braze permet aux clients de s'intégrer à des fournisseurs tiers pour envoyer d
 
 Braze facturera des crédits de messages pour tout message LINE envoyé depuis la plateforme Braze.
 
-## Répartition par région de facturation
+## Répartition par région de facturation {#billing-region-breakdown}
 
-### Amérique du Nord
+### Amérique du Nord {#north-america}
 
 États-Unis, Canada
 
-### Reste de l'Afrique
+### Reste de l'Afrique {#rest-of-africa}
 
 Algérie, Angola, Bénin, Botswana, Burkina Faso, Burundi, Cameroun, Tchad, Congo, Érythrée, Éthiopie, Gabon, Gambie, Ghana, Guinée-Bissau, Côte d'Ivoire, Kenya, Lesotho, Liberia, Libye, Madagascar, Malawi, Mali, Mauritanie, Maroc, Mozambique, Namibie, Niger, Rwanda, Sénégal, Sierra Leone, Somalie, Soudan du Sud, Soudan, Eswatini, Tanzanie, Togo, Tunisie, Ouganda, Zambie
 
-### Reste de l'Asie-Pacifique
+### Reste de l'Asie-Pacifique {#rest-of-asia-pacific}
 
 Afghanistan, Australie, Bangladesh, Cambodge, Chine, Japon, Laos, Mongolie, Népal, Nouvelle-Zélande, Papouasie-Nouvelle-Guinée, Philippines, Sri Lanka, Taïwan, Tadjikistan, Thaïlande, Turkménistan, Ouzbékistan, Vietnam
 
-### Reste de l'Europe centrale et orientale
+### Reste de l'Europe centrale et orientale {#rest-of-central-eastern-europe}
 
 Albanie, Arménie, Azerbaïdjan, Biélorussie, Bulgarie, Croatie, République tchèque, Géorgie, Grèce, Lettonie, Lituanie, Macédoine, Moldavie, Serbie, Slovaquie, Slovénie, Ukraine
 
-### Reste de l'Amérique latine
+### Reste de l'Amérique latine {#rest-of-latin-america}
 
 Bolivie, Costa Rica, République dominicaine, Équateur, El Salvador, Guatemala, Haïti, Honduras, Jamaïque, Nicaragua, Panama, Paraguay, Porto Rico, Uruguay, Venezuela
 
-### Reste du Moyen-Orient
+### Reste du Moyen-Orient {#rest-of-middle-east}
 
 Bahreïn, Irak, Jordanie, Koweït, Liban, Oman, Yémen
 
-### Reste de l'Europe occidentale
+### Reste de l'Europe occidentale {#rest-of-western-europe}
 
 Autriche, Belgique, Danemark, Finlande, Irlande, Norvège, Portugal, Suède, Suisse

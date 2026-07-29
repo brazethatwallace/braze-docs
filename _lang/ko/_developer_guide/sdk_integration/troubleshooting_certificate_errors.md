@@ -9,7 +9,7 @@ description: "Android, Swift 및 기타 SDK에서 Braze SDK 초기화를 차단�
 
 SSL 또는 TLS 인증서 신뢰 오류로 SDK 초기화가 실패하는 경우, 이는 일반적으로 기기, 시뮬레이터, 브라우저 또는 서버가 Braze 엔드포인트의 인증서 체인을 검증할 수 없음을 의미합니다.
 
-예를 들어, Android 또는 기타 JVM 기반 환경에서 다음과 같은 오류가 표시될 수 있습니다:
+예를 들어, Android 또는 기타 JVM 기반 환경에서 다음과 같은 오류가 표시될 수 있습니다.
 
 ```
 javax.net.ssl.SSLHandshakeException: java.security.cert.CertPathValidatorException: Trust anchor for certification path not found

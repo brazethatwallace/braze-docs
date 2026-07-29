@@ -10,7 +10,7 @@ channel:
 - preference center
 page_order: 3
 page_type: reference
-description: "Cet article de référence couvre les blocs éditeur dans l'éditeur par glisser-déposer pour les e-mails, les messages in-app, les pages de destination, les bannières et les centres de préférence des e-mails par glisser-déposer."
+description: "Cet article de référence couvre les blocs éditeur dans l'éditeur par glisser-déposer pour les e-mails, les messages in-app, les pages de destination, les bannières et les centres de préférences des e-mails par glisser-déposer."
 tool: Media
 ---
 
@@ -133,7 +133,7 @@ Ajoute de l'espace ou du remplissage entre les autres blocs.
 | Hauteur | Ajuste la hauteur du bloc d'espacement. La valeur par défaut est 60 px. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Espacement" }
 
-### Image
+### Image {#image}
 
 Insère une image depuis la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Pour les images dynamiques (images avec Liquid ou contenu connecté), vous devez définir une image de secours pour utiliser les paramètres de largeur automatique. Pour les spécifications d'image, consultez les [spécifications d'image pour les e-mails]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#email).
 
@@ -226,7 +226,7 @@ Insère du HTML brut. Recommandé pour [Liquid]({{site.baseurl}}/liquid), comme 
 | HTML | Ajoutez ou modifiez du HTML brut, y compris [Liquid]({{site.baseurl}}/liquid) pour la personnalisation ou la logique conditionnelle. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
-### Menu
+### Menu {#menu}
 
 Crée un menu flexible pour le message que vous concevez.
 
@@ -306,7 +306,7 @@ Ajoute une liste d'options parmi lesquelles les utilisateurs peuvent en sélecti
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Image
+### Image {#image}
 
 Insère une image depuis la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
@@ -330,7 +330,7 @@ Insère un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour acc�
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Espacement
+### Espacement {#spacer}
 
 Ajoute de l'espace ou du remplissage entre les autres blocs.
 

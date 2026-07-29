@@ -2,7 +2,7 @@
 page_order: 1.35
 nav_title: 証明書信頼エラー
 article_title: SDK証明書信頼エラーのトラブルシューティング
-description: "Braze SDKの初期化をブロックする可能性のあるHTTPS証明書信頼エラーのトラブルシューティング方法について説明します（Android、Swift、その他のSDK対応）。"
+description: "Braze SDKの初期化をブロックする可能性があるHTTPS証明書信頼エラーのトラブルシューティング方法について説明します（Android、Swift、その他のSDK対応）。"
 ---
 
 # SDK証明書信頼エラーのトラブルシューティング {#troubleshooting-sdk-certificate-trust-errors}
@@ -21,7 +21,7 @@ javax.net.ssl.SSLHandshakeException: java.security.cert.CertPathValidatorExcepti
 
 - 企業プロキシ、ファイアウォール、またはトラフィック検査ツールが、ランタイムが信頼しない証明書を使用してHTTPSトラフィックを傍受している。
 - デバイス、シミュレーター、ブラウザー、またはサーバーのトラストストアに、必要なルート証明書または中間証明書がない。
-- ローカルのセキュリティ設定が、BrazeエンドポイントへのアウトバウンドHTTPSをブロックしている。
+- ローカルセキュリティ設定がBrazeエンドポイントへのアウトバウンドHTTPSをブロックしている。
 - アプリレベルの証明書またはトランスポートセキュリティ設定が接続をブロックしている。
 
 ## トラブルシューティングステップ {#troubleshooting-steps}
@@ -41,5 +41,5 @@ javax.net.ssl.SSLHandshakeException: java.security.cert.CertPathValidatorExcepti
    - 完全なエラーとタイムスタンプを共有し、証明書チェーン、TLS検査設定、および許可リストルールを確認してもらいます。
 
 {% alert note %}
-Braze SDKのトラフィックはHTTPSを使用するため、証明書信頼の失敗は、制限的なネットワークポリシーを持つ環境において、すべてのBraze SDK（Android、Swift、Web、React Native、Flutter、Unity、Cordovaを含む）に影響を与える可能性があります。
+Braze SDKのトラフィックはHTTPSを使用するため、証明書信頼の失敗は、制限的なネットワークポリシーを持つ環境において、あらゆるBraze SDK（Android、Swift、Web、React Native、Flutter、Unity、Cordovaを含む）に影響を与える可能性があります。
 {% endalert %}

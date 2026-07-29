@@ -177,7 +177,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received SMS
-    description: Segmenta a tus usuarios por la hora en que el último mensaje SMS, MMS o RCS fue entregado al proveedor de SMS o RCS. Esto no garantiza que el mensaje haya sido entregado en el dispositivo del usuario. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por el momento en que el último mensaje SMS, MMS o RCS fue entregado al proveedor de SMS o RCS. Esto no garantiza que el mensaje haya sido entregado en el dispositivo del usuario. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Retargeting
   - name: Last Received Webhook

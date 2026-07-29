@@ -149,6 +149,14 @@ Dans les espaces de travail comportant plusieurs applications, l'éligibilité d
 Sans ces mesures de protection, les utilisateurs qui se sont qualifiés pour le parcours dans une application peuvent recevoir des messages destinés à une autre application s'ils utilisent également d'autres applications dans votre espace de travail.
 {% endalert %}
 
+{% alert important %}
+Dans les espaces de travail comportant plusieurs applications, l'éligibilité de l'audience d'entrée du Canvas (y compris les segments et les filtres) n'est évaluée que lorsque les utilisateurs entrent dans le Canvas, et non à chaque étape de message individuelle. Si votre espace de travail comporte plusieurs applications et que vous devez vous assurer que les étapes de message ne ciblent que les utilisateurs d'une application spécifique, utilisez l'une des approches suivantes dans chaque étape de message :
+- Activez **Valider l'audience à l'envoi du message** dans les [validations de livraison]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) de l'étape de message et ajoutez des segments ou filtres spécifiques à l'application.
+- Utilisez Liquid pour vérifier l'appareil ou l'application ciblée au moment de l'envoi.
+
+Sans ces mesures de protection, les utilisateurs qui se sont qualifiés pour le parcours dans une application peuvent recevoir des messages destinés à une autre application s'ils utilisent également d'autres applications de votre espace de travail.
+{% endalert %}
+
 Dans **Contrôles d'entrée**, vous pouvez limiter le nombre d'utilisateurs à chaque exécution planifiée du Canvas. Pour les Canvas déclenchés par API et par événement, cette limite s'applique à chaque heure UTC.
 
 {% multi_lang_include alerts/warning_alerts.md alert='Canvas race condition audience trigger' %}

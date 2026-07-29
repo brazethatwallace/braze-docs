@@ -57,6 +57,8 @@ Puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templ
 
 ## Solución de problemas {#troubleshooting}
 
+### Errores de carga {#upload-errors}
+
 Hay varios mensajes de error de correo electrónico que puedes recibir al cargar un archivo de plantilla HTML. Si recibes un error, consulta la siguiente tabla para ver los problemas comunes y sus correcciones recomendadas:
 
 | Error | Corrección |
@@ -71,6 +73,14 @@ Hay varios mensajes de error de correo electrónico que puedes recibir al cargar
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 Ten en cuenta que al descargar los archivos de Campaigns HTML, pasos en Canvas con mensajes de correo electrónico o plantillas en una máquina Windows, el carácter `|` (barra vertical) no es compatible, por lo que es posible que necesites usar una aplicación diferente para extraer el contenido descargado del archivo ZIP.
+
+### El correo electrónico no se renderiza correctamente {#email-not-rendering-properly}
+
+Si tu correo electrónico no se renderiza correctamente, verifica cada bloque de contenido para asegurarte de que no haya encabezados `<!doctype>` adicionales.
+
+Si hay un encabezado `<!doctype>` en la propia plantilla HTML junto con un doctype HTML en uno de los bloques de contenido, el correo electrónico no se renderizará correctamente. Trata los bloques de contenido como fragmentos HTML que se agregan a la estructura de documento existente de la plantilla de correo electrónico. Los bloques de contenido no deben contener etiquetas body adicionales ni ningún código HTML de la plantilla. En algunos casos, herramientas como Emailify pueden importar código preescrito con estructura HTML adicional, así que revisa cuidadosamente los bloques de contenido importados.
+
+También verifica si hay etiquetas y nombres de clase duplicados en tu plantilla y bloques de contenido, ya que pueden causar problemas de renderizado.
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

@@ -26,12 +26,12 @@ Esto generalmente es un problema de configuración de red o de confianza de cert
 
 ## Pasos para la solución de problemas {#troubleshooting-steps}
 
-1. Confirma tu endpoint de SDK y el acceso a la red.
+1. Confirma tu punto final de SDK y el acceso a la red.
    - Verifica que estás usando el [punto final de SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints) correcto para tu espacio de trabajo.
    - Verifica que tu entorno puede alcanzar ese endpoint a través de HTTPS.
 2. Compara el comportamiento en diferentes redes.
    - Prueba en una red diferente (por ejemplo, datos móviles en lugar de Wi-Fi corporativo).
-   - Si el problema solo ocurre en una red, la causa raíz probablemente sea la configuración del proxy o del firewall.
+   - Si el problema solo ocurre en una red, la causa raíz probablemente sea la configuración del proxy o firewall.
 3. Valida tu configuración de confianza.
    - Confirma que los certificados raíz e intermedios requeridos están instalados y son de confianza en el entorno de ejecución donde se ejecuta el SDK.
    - Si tu entorno usa autoridades de certificación personalizadas, confirma que esos certificados están distribuidos correctamente.

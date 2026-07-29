@@ -10,7 +10,8 @@ description: "Découvrez comment utiliser la variante gagnante ou la variante pe
 
 > Découvrez comment utiliser l'optimisation des variantes lors de la création de tests multivariés et de tests A/B.
 
-## Push {#push}
+
+## Notification push {#push}
 
 Lors de la [création d'un test A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) pour les notifications push, une option d'optimisation est disponible : [Sélection de variante BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection). Cette fonctionnalité permet à vos tests A/B à envoi unique ou récurrents d'exécuter automatiquement une expérience et d'optimiser les meilleurs résultats d'engagement.
 

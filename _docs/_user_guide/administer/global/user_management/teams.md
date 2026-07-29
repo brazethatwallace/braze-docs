@@ -112,8 +112,9 @@ For Canvases, team filters only validate users at Canvas entry. After a user ent
  
 ![Adding a Team tag to a campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
-- Based on the *definitions* applied when the Team was created, when a Team filter is assigned, that engagement tool's audience is restricted to user profiles that match the definition.
-- Based on assigned *permissions*, Team members will only be allowed to access dashboard engagement tools that have their Team filter set. If they have limited or no workspace permissions, they must add a Team filter to certain objects before they can save or launch them. Team members are also able to filter Canvases, campaigns, Content Cards, and segments by Team to identify content relevant to them.
+- Based on the definitions applied when the Team was created, when a Team filter is assigned, that engagement tool's audience is restricted to user profiles that match the definition.
+- Based on assigned permissions, Team members are only allowed to access dashboard engagement tools that have their Team filter set. If they have limited or no workspace permissions, they must add a Team filter to certain objects before they can save or launch them. Team members can also filter Canvases, campaigns, Content Cards, and segments by Team to identify content relevant to them.
+- Users with Team-level permissions only don't see **Created by** or **Last edited by** filters on the segments, campaigns, or Canvas pages. Braze hides these filters so Team-only users can't browse all Braze users from those dropdowns.
 
 ### Use cases
 

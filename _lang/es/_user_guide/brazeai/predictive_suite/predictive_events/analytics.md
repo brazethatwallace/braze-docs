@@ -78,7 +78,7 @@ Utilizando esta información, te animamos a que decidas cuántos de los verdader
 
 ## Tabla de correlación de eventos {#correlation_table}
 
-Este análisis muestra los atributos o comportamientos de los usuarios que están correlacionados con los eventos de la audiencia de predicción. Los atributos evaluados son edad, país, sexo e idioma. Los comportamientos que se analizan incluyen sesiones, compras, total de dólares gastados, eventos personalizados, y campañas y pasos en Canvas recibidos en los últimos 30 días.
+Este análisis muestra los atributos o comportamientos de los usuarios que están correlacionados con los eventos de la audiencia de predicción. Los atributos evaluados son edad, país, sexo e idioma. Los comportamientos que se analizan incluyen sesiones, compras, total de dólares gastados, eventos personalizados, y Campaigns y pasos en Canvas recibidos en los últimos 30 días.
 
 Las tablas se dividen en izquierda y derecha para los más y los menos propensos a realizar el evento, respectivamente. Para cada fila, en la segunda columna se muestra la proporción en la que los usuarios con el comportamiento o atributo de la primera columna tienen más o menos probabilidades de realizar el evento. Este número es el cociente de las puntuaciones de probabilidad de los usuarios con este comportamiento o atributo dividido por la probabilidad de realizar el evento de toda la audiencia de predicción.
 

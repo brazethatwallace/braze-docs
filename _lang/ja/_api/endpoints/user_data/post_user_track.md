@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を参照してください |
+| `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照してください |
 | `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)を参照してください |
 | `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を参照してください |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
@@ -247,13 +247,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 
-## 応答 {#responses}
+## レスポンス {#responses}
 
-上記のAPIリクエストのいずれかを使用する場合、次の3つの一般的な応答のいずれかを受け取ります：[成功メッセージ](#successful-message)、[非致命的なエラーを含む成功メッセージ](#successful-message-with-non-fatal-errors)、または[致命的なエラーを含むメッセージ](#message-with-fatal-errors)。
+上記のAPIリクエストのいずれかを使用する場合、次の3つの一般的なレスポンスのいずれかを受け取ります：[成功メッセージ](#successful-message)、[非致命的なエラーを含む成功メッセージ](#successful-message-with-non-fatal-errors)、または[致命的なエラーを含むメッセージ](#message-with-fatal-errors)。
 
 ### 成功メッセージ {#successful-message}
 
-成功メッセージの場合、次の応答が返されます：
+成功メッセージの場合、次のレスポンスが返されます：
 
 ```json
 {
@@ -266,7 +266,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 ### 非致命的なエラーを含む成功メッセージ {#successful-message-with-non-fatal-errors}
 
-メッセージは成功したが、長いイベントリストの中に無効なイベントオブジェクトが1つあるなど、非致命的なエラーがある場合、次の応答が返されます：
+メッセージは成功したが、長いイベントリストの中に無効なイベントオブジェクトが1つあるなど、非致命的なエラーがある場合、次のレスポンスが返されます：
 
 ```json
 {
@@ -283,7 +283,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 ### 致命的なエラーを含むメッセージ {#message-with-fatal-errors}
 
-メッセージに致命的なエラーがある場合、次の応答が返されます：
+メッセージに致命的なエラーがある場合、次のレスポンスが返されます：
 
 ```json
 {
@@ -296,15 +296,15 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 }
 ```
 
-### 致命的なエラー応答コード {#fatal-error-response-codes}
+### 致命的なエラーレスポンスコード {#fatal-error-response-codes}
 
-リクエストが致命的なエラーに遭遇した場合にBrazeが返すステータスコードと関連するエラーメッセージについては、[致命的エラーと応答]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
+リクエストが致命的なエラーに遭遇した場合にBrazeが返すステータスコードと関連するエラーメッセージについては、[致命的エラーとレスポンス]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
 「provided external_id is blacklisted and disallowed」というエラーが表示された場合、リクエストに「ダミーユーザー」が含まれている可能性があります。詳細については、[スパムのブロック]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking)を参照してください。
 
 ### エンドポイント固有のエラー {#endpoint-specific-errors}
 
-以下のエラーは`/users/track`エンドポイントに固有のもので、応答の`errors`配列で返されます。リクエスト内の個々のオブジェクトの問題をトラブルシューティングする際に使用してください。
+以下のエラーは`/users/track`エンドポイントに固有のもので、レスポンスの`errors`配列で返されます。リクエスト内の個々のオブジェクトの問題をトラブルシューティングする際に使用してください。
 
 | エラー | 説明 |
 |---|---|
@@ -372,17 +372,17 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 
 競合とベストプラクティスの詳細については、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)を参照してください。
 
-### `/users/track`の応答が予想より遅いのはなぜですか？ {#why-is-my-userstrack-response-slower-than-i-expect}
+### `/users/track`のレスポンスが予想より遅いのはなぜですか？ {#why-is-my-userstrack-response-slower-than-i-expect}
 
 成功した`/users/track`コールは通常すぐに受け入れられますが、Brazeは属性、イベント、購入の更新を非同期で処理します。ペイロードが大きい場合や、[RESTエンドポイント]({{site.baseurl}}/api/basics#endpoints)へのネットワークルーティングが遅い場合、体感レイテンシーが増加することがあります。ユーザーごとの同期的な確認応答やコール間のより厳密な順序付けが必要な場合は、[`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous)（**限定ベータ**）を参照してください。
 
 ### レート制限は`/users/track`にどのように影響しますか？ {#how-do-rate-limits-affect-userstrack}
 
-[レート制限](#rate-limit)に近づくと、`429`応答を受け取ります。サポートされている契約での`429`以外の応答については、[CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAUのレート制限ヘッダー](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)に記載されている`X-RateLimit-*`応答ヘッダーを使用して、現在の時間枠の残量を確認できます。
+[レート制限](#rate-limit)に近づくと、`429`レスポンスを受け取ります。サポートされている契約での`429`以外のレスポンスについては、[CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAUのレート制限ヘッダー](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)に記載されている`X-RateLimit-*`レスポンスヘッダーを使用して、現在の時間枠の残量を確認できます。
 
 ### `400 Bad Request`で構文またはパースエラーが返されるのはなぜですか？ {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
 
-構文またはパースエラーを伴うHTTP `400`は、通常リクエスト本文が有効なJSONではないことを意味します。一般的な原因には、末尾のカンマ、JSON内のコメント、シングルクォートの文字列、ペイロードの前の余分な開き`{`、`Content-Type`ヘッダーが`application/json`であるにもかかわらず非JSON本文を送信していることなどがあります。送信前にJSONリンターでペイロードを検証し、HTTPクライアントがオブジェクトをJSONエンコードしていること（生の文字列を連結するのではなく）を確認し、本文がUTF-8エンコードされていることを確認してください。その他の`400`応答（ペイロードサイズやリクエストごとのオブジェクト制限など）については、[致命的エラーと応答]({{site.baseurl}}/api/errors#fatal-errors)およびこのページの[エンドポイント固有のエラー](#endpoint-specific-errors)テーブルを参照してください。
+構文またはパースエラーを伴うHTTP `400`は、通常リクエスト本文が有効なJSONではないことを意味します。一般的な原因には、末尾のカンマ、JSON内のコメント、シングルクォートの文字列、ペイロードの前の余分な開き`{`、`Content-Type`ヘッダーが`application/json`であるにもかかわらず非JSON本文を送信していることなどがあります。送信前にJSONリンターでペイロードを検証し、HTTPクライアントがオブジェクトをJSONエンコードしていること（生の文字列を連結するのではなく）を確認し、本文がUTF-8エンコードされていることを確認してください。その他の`400`レスポンス（ペイロードサイズやリクエストごとのオブジェクト制限など）については、[致命的エラーとレスポンス]({{site.baseurl}}/api/errors#fatal-errors)およびこのページの[エンドポイント固有のエラー](#endpoint-specific-errors)テーブルを参照してください。
 
 ## CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
@@ -397,7 +397,7 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 
 ### CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAUのレート制限ヘッダー {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-レート制限されていない（`429`以外の）すべての応答には、クライアントに対して1時間あたりのレート制限時間枠の状態を示す以下のHTTP応答ヘッダーが含まれます。これらのヘッダーを使用してリクエストレートを管理してください：
+レート制限されていない（`429`以外の）すべてのレスポンスには、クライアントに対して1時間あたりのレート制限時間枠の状態を示す以下のHTTPレスポンスヘッダーが含まれます。これらのヘッダーを使用してリクエストレートを管理してください：
 
 | ヘッダー名 | 説明 |
 | ----------------------- | ------------------------------------------------------------------------------------------- |

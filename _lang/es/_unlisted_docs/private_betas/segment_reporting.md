@@ -14,7 +14,7 @@ page_type: reference
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success manager' %}
 
-El generador de informes admite **Segments** en filas y como opción de desglose, para que puedas ver el rendimiento de tus Segments y desglosar el rendimiento de Campaigns o Canvas por pertenencia a un Segment. Si **Segments** no aparece en tus menús desplegables de **Rows** o **Drilldown**, esta característica no se ha habilitado para tu cuenta.
+El generador de informes admite **Segments** en filas y como opción de desglose, para que puedas ver el rendimiento de tus Segments y desglosar el rendimiento de Campaigns o Canvas por pertenencia a un Segment. Si **Segments** no aparece en los desplegables de **Rows** o **Drilldown**, esta característica no se ha habilitado para tu cuenta.
 
 Puedes responder preguntas como:
 
@@ -23,7 +23,7 @@ Puedes responder preguntas como:
 - ¿Cómo se compara la participación entre Segments para una sola Campaign o Canvas?
 
 {% alert note %}
-Los informes por Segment solo están disponibles para Segments con [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) habilitado. Para seleccionar **Segments** en el menú desplegable **Rows**, necesitas el [permiso "View Dashboard Reports"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) a nivel de espacio de trabajo.
+Los informes por Segment solo están disponibles para Segments con [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) habilitado. Para seleccionar **Segments** en el desplegable de **Rows**, necesitas el [permiso "Ver informes del panel"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) a nivel de espacio de trabajo.
 {% endalert %}
 
 ## Generar informes sobre Segments {#report-on-segments}
@@ -32,13 +32,13 @@ Para generar informes sobre Segments directamente:
 
 1. Ve a **Analytics** > **Report Builder (New)**.
 2. Haz clic en **Create New Report**.
-3. En el menú desplegable **Rows**, selecciona **Segments**.
+3. En el desplegable de **Rows**, selecciona **Segments**.
 4. (Opcional) Selecciona **Add drilldown** para desglosar aún más los datos del Segment:
-   - **Campaigns and Canvases:** Consulta qué Campaigns y Canvas se dirigieron al Segment, y cómo rindió cada uno.
-   - **Date:** Consulta cómo evolucionan el tamaño o el rendimiento de un Segment a lo largo del tiempo. Combínalo con un gráfico de líneas para visualizar la tendencia.
-5. En **Report content**, abre el menú desplegable **Segments** y selecciona los Segments que deseas añadir a tu informe.
-6. Selecciona métricas en **Columns** > **Customize Metrics** y luego establece tu rango de fechas en **Report content**.
-7. Si añadiste un desglose de **Campaigns and Canvases**, agrega las Campaigns y Canvas que deseas incluir en el informe.
+   - **Campaigns and Canvases:** Ve qué Campaigns y Canvas están dirigidos al Segment, y cómo rindió cada uno.
+   - **Date:** Ve cómo el tamaño o las tendencias de rendimiento de un Segment evolucionan a lo largo del tiempo. Combínalo con un gráfico de líneas para visualizar la tendencia.
+5. En **Report content**, abre el desplegable de **Segments** y selecciona los Segments que deseas añadir a tu informe.
+6. Selecciona métricas en **Columns** > **Customize Metrics**, luego establece tu rango de fechas en **Report content**.
+7. Si añadiste un desglose de **Campaigns and Canvases**, añade las Campaigns y Canvas que deseas incluir en el informe.
 8. Haz clic en **Save and run**.
 
 Para el flujo de trabajo completo del generador de informes, consulta [Crear un informe]({{site.baseurl}}/user_guide/analytics/reports/report_builder#creating-a-report).
@@ -47,18 +47,18 @@ Para el flujo de trabajo completo del generador de informes, consulta [Crear un 
 
 Para desglosar informes de Campaigns, Canvas o canales por Segment:
 
-1. En el menú desplegable **Rows**, selecciona **Campaigns**, **Canvases** o **Campaigns and Canvases**.
+1. En el desplegable de **Rows**, selecciona **Campaigns**, **Canvases** o **Campaigns and Canvases**.
 2. Selecciona **Add drilldown** y elige **Segment**.
-3. En **Report content**, abre el menú desplegable **Segments** y selecciona los Segments que deseas añadir a tu informe.
-4. Selecciona métricas en **Columns** > **Customize Metrics** y luego establece tu rango de fechas en **Report content**.
-5. Agrega las Campaigns o Canvas que deseas incluir en el informe.
+3. En **Report content**, abre el desplegable de **Segments** y selecciona los Segments que deseas añadir a tu informe.
+4. Selecciona métricas en **Columns** > **Customize Metrics**, luego establece tu rango de fechas en **Report content**.
+5. Añade las Campaigns o Canvas que deseas incluir en el informe.
 6. Haz clic en **Save and run** para ver el rendimiento desglosado por cada Segment al que se dirigieron tus Campaigns o Canvas.
 
 Esto es especialmente útil para espacios de trabajo que envían la misma Campaign o Canvas a múltiples Segments. Puedes ver cómo respondió cada Segment sin tener que cruzar manualmente la pertenencia al Segment con el rendimiento de la Campaign.
 
 ## Combinaciones compatibles {#supported-combinations}
 
-Las siguientes combinaciones de **Rows** y **Drilldown** son compatibles para informes por Segment:
+Las siguientes combinaciones de **Rows** y **Drilldown** son compatibles para los informes por Segment:
 
 | Filas | Desglose |
 | ----- | ----- |
@@ -71,19 +71,19 @@ Las siguientes combinaciones de **Rows** y **Drilldown** son compatibles para in
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Combinaciones compatibles de filas y desglose"}
 
 {% alert note %}
-El generador de informes admite un desglose a la vez. Si seleccionas **Campaigns** en el menú desplegable **Rows**, puedes desglosar por **Variant** o **Segment**, pero no ambos en el mismo informe.
+El generador de informes admite un desglose a la vez. Si seleccionas **Campaigns** en el desplegable de **Rows**, puedes desglosar por **Variant** o **Segment**, pero no ambos en el mismo informe.
 {% endalert %}
 
 ## Disponibilidad de métricas {#metrics-availability}
 
-No todas las métricas del generador de informes están disponibles cuando generas informes sobre Segments. Las métricas que puedes seleccionar también dependen de si **Segments** está en **Rows** o **Drilldown**, y de si el informe incluye una dimensión de Campaign o Canvas.
+No todas las métricas del generador de informes están disponibles cuando generas informes sobre Segments. Las métricas que puedes seleccionar también dependen de si **Segments** está en **Rows** o en **Drilldown**, y de si el informe incluye una dimensión de Campaign o Canvas.
 
 | Métrica | Disponibilidad |
 | ----- | ----- |
 | Métricas de canal y mensajería general | Disponibles para las combinaciones compatibles de filas y desglose. |
-| Conteos de conversión (Conversiones A–D) y nombres de eventos de conversión | Disponibles cuando las dimensiones de Segment y Campaign o Canvas aparecen juntas. Usa **Segments** en filas con un desglose de **Campaigns and Canvases**; o usa **Campaigns**, **Canvases** o **Campaigns and Canvases** en filas con un desglose de **Segment**. |
+| Recuentos de conversión (Conversiones A–D) y nombres de eventos de conversión | Disponibles cuando las dimensiones de Segment y Campaign o Canvas aparecen juntas. Usa **Segments** en filas con un desglose de **Campaigns and Canvases**; o usa **Campaigns**, **Canvases** o **Campaigns and Canvases** en filas con un desglose de **Segment**. |
 | Ingresos y tasa de conversión | No disponibles para informes con dimensión de Segment. |
-| Ingresos y conteo de compras del Segment | Disponibles solo cuando **Segments** está en filas. |
+| Ingresos y recuento de compras del Segment | Disponibles solo cuando **Segments** está en filas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Disponibilidad de métricas de informes por Segment"}
 
 Para más información sobre cómo tus selecciones de filas y desglose afectan las métricas, consulta [Disponibilidad de métricas]({{site.baseurl}}/user_guide/analytics/reports/report_builder#metrics-availability) en el generador de informes.

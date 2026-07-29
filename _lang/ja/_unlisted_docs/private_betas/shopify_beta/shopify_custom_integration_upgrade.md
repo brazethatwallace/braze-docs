@@ -25,7 +25,7 @@ hidden: true
 | 要件 | 説明 |
 |-----------------------|-------------|
 | **重要な変更** | レガシーコネクターから新しいコネクターへの重要な変更をすべて[Shopifyアップグレードの概要]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)で確認してください。 |
-| **アップグレードの前提条件** | エンジニアリングチームとマーケティングチームで必要な[アップグレードの前提条件]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites)をすべて完了してください。ShopifyヘッドレスストアをBrazeでアップグレードするには、2つの重要なステップを完了する必要があります。<br><br>- Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にする<br>- 製品内アップグレードエクスペリエンスを通じて既存のストアをアップグレードする |
+| **アップグレードの前提条件** | 開発チームとマーケティングチームで必要な[アップグレードの前提条件]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites)をすべて完了してください。ShopifyヘッドレスストアをBrazeでアップグレードするには、2つの重要なステップを完了する必要があります。<br><br>- Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にする<br>- 製品内アップグレードエクスペリエンスを通じて既存のストアをアップグレードする |
 | **破壊的変更** | Brazeでフラグが立てられたすべての破壊的変更を確認し、修正してください。詳細なウォークスルーについては、[破壊的変更の修正](#fixing-breaking-changes-fixing-breaking-changes)に進んでください。 |
 {: .reset-td-br-1 .reset-td-br-2  role="presentation"}
 
@@ -39,23 +39,19 @@ Shopifyデータを使用している影響を受けるキャンバス、キャ�
 
 ![破壊的変更の影響を確認するためのモーダル。]({% image_buster /assets/unlisted_docs/img/shopify/review_breaking_changes.png %})
 
-ほとんどのイベントでは、「OR」演算子を使用して新しい必須Shopifyイベントと属性を含め、アクティブなメッセージのスムーズなアップグレードを促進することをお勧めします。より具体的なケースについては、以下を参照してください。
+ほとんどのイベントでは、「OR」オペレーターを使用して新しい必須Shopifyイベントと属性を含め、アクティブなメッセージのスムーズなアップグレードを促進することをお勧めします。より具体的なケースについては、以下を参照してください。
 
 {% tabs local %}
 {% tab 放棄カート %}
 放棄カートメッセージングでは、以下を含む新しい放棄カートキャンバステンプレートを使用する必要があります。
 
-- 「カート更新を実行」アクションに基づく新しいトリガー
-- 購入プロセスを進めた顧客を除外するための事前定義された終了条件
-- 製品パーソナライゼーションをサポートする新しいショッピングカートLiquidタグ
+{% multi_lang_include partners/shopify/abandoned_cart_template_features.md %}
 {% endtab %}
 
 {% tab 放棄チェックアウト %}
 放棄チェックアウトメッセージングでは、以下を含む新しい放棄チェックアウトキャンバステンプレートを使用する必要があります。
 
-- エントリ条件に事前定義された ecommerce.checkout_started イベント
-- 購入プロセスを進めた顧客を除外するための事前定義された終了条件
-- 製品パーソナライゼーションをサポートする新しいショッピングカートLiquidタグ
+{% multi_lang_include partners/shopify/abandoned_checkout_template_features.md %}
 
 連携を通じて利用可能な新しいeコマースキャンバステンプレートと製品パーソナライゼーション用の事前定義されたHTMLブロックの完全なリストについては、[キャンバスユーザージャーニーの作成]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys)を参照してください。
 
@@ -69,7 +65,7 @@ Shopify連携で廃止されたイベントを使用するアクティブなメ�
 {% tab サブスクライバーリスト %}
 連携を通じてShopifyからメールまたはSMSサブスクライバーを収集している場合、アクティブなメッセージにShopifyストアの対応するサブスクライバーリストが含まれていることを確認してください。
 
-アップグレードが完了すると、連携用の新しいデフォルトサブスクリプショングループが作成されます。これらをアクティブなメッセージングの一部として活用する必要があります。変更の詳細については、[サブスクライバーの収集]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)を参照してください。
+アップグレードが完了すると、連携用の新しいデフォルト購読グループが作成されます。これらをアクティブなメッセージングの一部として活用する必要があります。変更の詳細については、[サブスクライバーの収集]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection)を参照してください。
 {% endtab %}
 {% endtabs %}
 
@@ -81,7 +77,7 @@ Shopify連携で廃止されたイベントを使用するアクティブなメ�
 
 ### ステップ1: Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にする {#step-1}
 
-まだ行っていない場合は、Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にしてください。詳細なウォークスルーについては、[Shopifyカスタム連携のセットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1)を参照してください。
+まだ行っていない場合は、Braze Web SDKを初期化して読み込み、オンサイトトラッキングを有効にしてください。詳細なウォークスルーについては、[Shopifyカスタム連携の設定]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1)を参照してください。
 - Braze Webアプリを作成する
 - サブドメインと環境変数を追加する
 - オンサイトトラッキングを有効にする
@@ -140,23 +136,20 @@ external IDタイプを選択するには、Brazeに戻り、**external IDを確
 
 #### ステップ4.1: `braze.external_id` メタフィールドを作成する {#step-41-create-the-brazeexternal_id-metafield}
 
-1. Shopify管理パネルで、**設定** > **メタフィールド**に移動します。
-2. **顧客** > **定義を追加**を選択します。
-3. **名前空間とキー**に `braze.external_id` と入力します。
-4. **タイプ**で**IDタイプ**を選択します。
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 メタフィールドが作成されたら、顧客に対してそれを入力します。以下のアプローチをお勧めします。
 
-- **顧客作成webhookをリッスンする:** [`customer/create` イベント](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks)をリッスンするwebhookを設定します。これにより、新しい顧客が作成されたときにメタフィールドを書き込むことができます。
+- **顧客作成webhookをリッスンする:** [`customer/create`イベント](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks)をリッスンするwebhookを設定します。これにより、新しい顧客が作成されたときにメタフィールドを書き込むことができます。
 - **既存の顧客をバックフィルする:** [Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用して、以前に作成された顧客のメタフィールドをバックフィルします。
 
 #### ステップ4.2: external IDを取得するエンドポイントを作成する {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
-Brazeがexternal IDを取得するために呼び出せるパブリックエンドポイントを作成する必要があります。これは、Shopifyが `braze.external_id` メタフィールドを提供できないシナリオで必要です。
+Brazeがexternal IDを取得するために呼び出せるパブリックエンドポイントを作成する必要があります。これは、Shopifyが`braze.external_id`メタフィールドを提供できないシナリオで必要です。
 
 ##### エンドポイントの仕様 {#endpoint-specifications}
 
-**方法:** `GET`
+**メソッド:** `GET`
 
 | パラメーター | 説明 |
 | --- | --- |
@@ -174,7 +167,7 @@ https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example
 
 ##### 期待されるレスポンス {#expected-response}
 
-Brazeは `200` ステータスコードを期待します。その他のコードは失敗とみなされます。
+Brazeは`200`ステータスコードを期待します。その他のコードは失敗とみなされます。
 
 {% raw %}
 ```json
@@ -183,7 +176,7 @@ Brazeは `200` ステータスコードを期待します。その他のコー�
 {% endraw %}
 
 {% alert important %}
-`shopify_customer_id` と `email_address` がShopifyの顧客値と一致していることを検証することが重要です。[Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用して、これらのパラメーターを検証し、`braze.external_id` メタフィールドを取得できます。
+`shopify_customer_id`と`email_address`がShopifyの顧客値と一致していることを検証することが重要です。[Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用して、これらのパラメーターを検証し、`braze.external_id`メタフィールドを取得できます。
 {% endalert %}
 
 #### ステップ4.3: external IDを入力する {#step-43-input-your-external-id}
@@ -192,9 +185,7 @@ Brazeは `200` ステータスコードを期待します。その他のコー�
 
 ##### 考慮事項 {#considerations}
 
-- Brazeがエンドポイントにリクエストを送信した時点でexternal IDが生成されていない場合、`changeUser` 関数が呼び出された際に連携はデフォルトでShopify顧客IDを使用します。このステップは、匿名ユーザープロファイルと識別済みユーザープロファイルのマージに不可欠です。その結果、ワークスペース内に異なるタイプのexternal IDが一時的に存在する期間が発生する場合があります。
-- `braze.external_id` メタフィールドでexternal IDが利用可能になると、連携はこのexternal IDを優先して割り当てます。
-    - Shopify顧客IDが以前にBrazeのexternal IDとして設定されていた場合、`braze.external_id` メタフィールドの値に置き換えられます。
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### ステップ5: Brazeアプリ埋め込みを有効にする {#step-5-enable-the-braze-app-embed}
 
@@ -214,9 +205,6 @@ Brazeに戻ると、Shopify連携のインストールが完了した際に通�
 
 新しいShopifyコネクターが稼働していることを確認するには、以下をテストしてください。
 
-- **アクティブなキャンバス、キャンペーン、セグメント:** 正しく機能していることを確認します。
-- **ID管理プロセス:** これらのプロセスが期待どおりに動作していることを確認します。
-- **SDKカスタマイズ（オプション）:** BrazeとShopifyの連携にカスタマイズ（カスタムイベントや属性のログ記録など）を行った場合、アップグレード後にそれらが正しく動作していることを確認します。
-- **メールまたはSMSサブスクライバーの収集（オプション）:** 以前にメールまたはSMSサブスクライバーの収集を有効にしていた場合、アップグレード中にサブスクライバーの最新ステータスを反映する新しいデフォルトサブスクリプショングループが作成されます。デフォルトサブスクリプショングループの名前はShopifyストアフロントの名前になります。これらの新しいデフォルトサブスクリプショングループはアップグレード後約5時間で利用可能になり、アクティブなメッセージに追加する必要があります。
+{% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
 ご質問がある場合は、[サポートにお問い合わせ]({{site.baseurl}}/user_guide/administrative/access_braze/support)ください。

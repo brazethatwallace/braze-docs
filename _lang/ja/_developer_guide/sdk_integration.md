@@ -92,7 +92,7 @@ m.Braze = getBrazeInstance(m.BrazeTask)
 
 ### ログ {#logging}
 
-Braze統合をデバッグするには、RokuデバッグコンソールでBrazeログを確認できます。詳しくは、Roku Developersの[コードのデバッグ](https://developer.roku.com/docs/developer-program/debugging/debugging-channels.md)を参照してください。
+Brazeの統合をデバッグするには、Rokuデバッグコンソールでログを確認できます。詳しくは、Roku Developersの[コードのデバッグ](https://developer.roku.com/docs/developer-program/debugging/debugging-channels.md)を参照してください。
 
 {% endsdktab %}
 

@@ -31,7 +31,7 @@ channel: email
 3. [클릭 추적 문제 해결 템플릿](#click-tracking-issues)을 사용하여 테스트 이메일을 발송하세요. 추적된 URL과 추적되지 않은 URL을 비교하세요.
 4. 추적된 링크가 403 오류로 실패하는 경우, CDN 및 WAF 규칙(사용자 에이전트, 쿼리 문자열, 리디렉트 패턴)을 검토하세요.
 5. 설정이 완료되었지만 링크가 여전히 HTTP인 경우, Braze 고객 성공 매니저에게 연락하여 Braze에서 SSL이 활성화되었는지 확인하세요.
-6. 문제가 지속되는 경우, CDN 또는 IT 팀과 협력하고 오류 코드 및 CDN 또는 도메인 공급자의 세부 정보를 포함하여 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
+6. 문제가 지속되면 CDN 또는 IT 팀과 협력하고, 오류 코드 및 CDN 또는 도메인 공급자의 세부 정보를 포함하여 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 
 ## 주요 개념 {#key-concepts}
 
@@ -44,11 +44,11 @@ channel: email
 
 갑자기 이메일 열람율이 낮아진 경우, SSL 인증서가 최신 상태인지 확인하세요. 만료된 경우 CDN 또는 인증서 공급자를 통해 SSL 인증서를 갱신해야 합니다.
 
-## 리디렉션 링크에서 HTTP 403 {#http-403-on-redirect-links}
+## 리디렉트 링크에서 HTTP 403 발생 {#http-403-on-redirect-links}
 
 **증상:** 추적된 이메일 링크가 "403 Forbidden"을 반환합니다.
 
-추적 리디렉션 링크가 "403 Forbidden"을 반환하는 경우, 이 오류는 콘텐츠 전송 네트워크(CDN) 또는 웹 애플리케이션 방화벽(WAF)에서 발생하는 경우가 많습니다. 예를 들어, 특정 사용자 에이전트, 쿼리 문자열 또는 리디렉션 패턴을 차단하는 AWS WAF 또는 Amazon CloudFront 규칙이 원인일 수 있습니다. CDN 또는 클라우드 공급자와 함께 차단된 요청 로그 및 측정기준을 검토하세요. AWS의 경우 [CloudFront 문제 해결](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)을 참조하세요.
+추적 리디렉트 링크가 "403 Forbidden"을 반환하는 경우, 이 오류는 콘텐츠 전송 네트워크(CDN) 또는 웹 애플리케이션 방화벽(WAF)에서 발생하는 경우가 많습니다. 예를 들어, 특정 사용자 에이전트, 쿼리 문자열 또는 리디렉트 패턴을 차단하는 AWS WAF 또는 Amazon CloudFront 규칙이 원인일 수 있습니다. CDN 또는 클라우드 공급자와 함께 차단된 요청 로그 및 측정기준을 검토하세요. AWS의 경우 [CloudFront 문제 해결](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)을 참조하세요.
 
 문제가 클릭 추적에 한정된 것인지 확인하려면 테스트 링크 하나에 대해 클릭 추적을 끄세요([링크별 클릭 추적 끄기]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis) 참조). 클릭 추적이 꺼져 있을 때 대상 URL이 로드되지만 추적이 켜져 있을 때 403을 반환하면, 클릭 추적 도메인, CDN 및 WAF 구성에 집중하세요.
 
@@ -300,5 +300,5 @@ SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우
 | `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | DNS 설정을 확인하세요. CDN 및 ESP 권장 구성에 따라 추적 하위 도메인이 구성되어 있는지 확인하세요. |
 | `525 / 526 SSL Error` | CDN(예: Cloudflare)의 SSL 설정이 Origin의 기능과 일치하는지 확인하세요. |
 | `404 Not Found` | CDN이 빈 루트 디렉토리를 가리키는 대신 전체 URL 경로를 ESP에 전달하도록 구성되어 있는지 확인하세요. |
-| `400 Bad Request: Request Header or Cookie Too Large` | 이 오류는 일반적으로 클릭 추적 도메인이 웹사이트 도메인에서 너무 많은 대용량 쿠키를 상속받을 때 발생합니다. Braze는 추적 도메인에 쿠키를 설정하거나 차단하지 않습니다. 클릭 추적 요청을 리버스 프록시할 때 해당 쿠키를 ESP로 전송하지 않도록 CDN을 구성하세요. nginx 구성에서 `large_client_header_buffers` 설정을 늘려야 할 수도 있습니다(예: `large_client_header_buffers 4 32k;`로 설정하면 최대 32&nbsp;KB의 헤더를 허용합니다). 자세한 내용은 CDN 공급자 또는 웹사이트 엔지니어링 팀에 문의하세요. |
+| `400 Bad Request: Request Header or Cookie Too Large` | 이 오류는 일반적으로 클릭 추적 도메인이 웹사이트 도메인에서 너무 많은 대용량 쿠키를 상속받을 때 발생합니다. Braze는 추적 도메인에 쿠키를 설정하거나 차단하지 않습니다. 클릭 추적 요청을 리버스 프록시할 때 해당 쿠키를 ESP에 전송하지 않도록 CDN을 구성하세요. nginx 구성에서 `large_client_header_buffers` 설정을 늘려야 할 수도 있습니다(예: `large_client_header_buffers 4 32k;`로 설정하면 최대 32&nbsp;KB의 헤더를 허용합니다). 자세한 내용은 CDN 공급자 또는 웹사이트 엔지니어링 팀에 문의하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="오류 코드 및 문제 해결" }

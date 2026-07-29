@@ -20,4 +20,4 @@
 
 {{ heading_level }} Ocultar filas y bloques por dispositivo
 
-Para adaptar tu diseño a escritorio frente a tableta y móvil, selecciona una fila o un bloque en el lienzo y luego usa la opción **Ocultar en** en el panel de propiedades para ocultarlo en **Escritorio** o **Tableta y dispositivos más pequeños**. Una fila o bloque oculto no aparecerá para ese tipo de dispositivo, ya sea al previsualizar {{ preview_subject }} en el editor de arrastrar y soltar o {{ live_phrase }}.
+Para adaptar tu diseño a escritorio frente a tableta y móvil, selecciona una fila o un bloque en el lienzo y luego usa el alternador **Ocultar en** en el panel de propiedades para ocultarlo en **Escritorio** o **Tableta y dispositivos más pequeños**. Una fila o bloque oculto no aparecerá para ese tipo de dispositivo, ya sea al previsualizar {{ preview_subject }} en el editor de arrastrar y soltar o {{ live_phrase }}.

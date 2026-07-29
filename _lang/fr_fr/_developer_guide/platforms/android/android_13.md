@@ -16,7 +16,7 @@ Reportez-vous à la [documentation destinée aux développeurs d'Android 13](htt
 
 ## SDK Braze pour Android 13 {#android-13-braze-sdk}
 
-Pour vous préparer à Android 13, veuillez mettre à jour votre SDK Braze vers la [dernière version (v21.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300). Vous aurez ainsi accès à notre nouvelle [fonctionnalité d'amorçage de notifications push « sans code »]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages).
+Pour vous préparer à Android 13, mettez à jour votre SDK Braze vers la [dernière version (v21.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300). Vous aurez ainsi accès à notre nouvelle [fonctionnalité d'amorçage de notifications push « sans code »]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages).
 
 ## Modifications dans Android 13 {#changes-in-android-13}
 

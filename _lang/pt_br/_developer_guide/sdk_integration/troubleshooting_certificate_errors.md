@@ -38,7 +38,7 @@ Isso geralmente é um problema de configuração de rede ou de confiança de cer
 4. Revise as configurações de segurança da plataforma.
    - Se o seu app ou ambiente possui regras explícitas de transporte ou certificado, confirme que essas configurações permitem requisições HTTPS para os endpoints da Braze.
 5. Trabalhe com sua equipe de rede ou segurança.
-   - Compartilhe o erro completo e o timestamp para que possam verificar as cadeias de certificados, as configurações de inspeção TLS e as regras de allowlist.
+   - Compartilhe o erro completo e o timestamp para que possam verificar as cadeias de certificados, as configurações de inspeção TLS e as regras de lista de permissões.
 
 {% alert note %}
 Como o tráfego do SDK da Braze usa HTTPS, falhas de confiança de certificado podem afetar qualquer SDK da Braze (incluindo Android, Swift, Web, React Native, Flutter, Unity e Cordova) em ambientes com políticas de rede restritivas.

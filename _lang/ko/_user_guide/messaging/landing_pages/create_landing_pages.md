@@ -133,6 +133,8 @@ page_order: 0
 
 {% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
+
 #### 선택 필드와 필수 필드 {#optional-and-required-fields}
 
 양식 필드를 필수 또는 선택으로 설정할 수 있습니다. 필수 필드는 양식을 제출하기 전에 반드시 작성해야 합니다. 선택 필드는 사용자가 비워두거나 선택하지 않을 수 있습니다.

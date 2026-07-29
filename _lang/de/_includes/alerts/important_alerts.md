@@ -9,7 +9,7 @@ Private Browserfenster unterstützen keinen Web-Push.
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-Wenn Sie Ihrer Campaign oder Ihrem Canvas eine BCC-Adresse hinzufügen, verdoppelt sich die Anzahl der abrechnungsfähigen E-Mails für die Campaign oder Canvas-Komponente, da Braze eine Nachricht an Ihre Nutzer:innen und eine an Ihre BCC-Adresse sendet.
+Wenn Sie Ihrer Campaign oder Ihrem Canvas eine BCC-Adresse hinzufügen, verdoppelt sich die Anzahl der abrechnungsfähigen E-Mails für die Campaign oder die Canvas-Komponente, da Braze eine Nachricht an Ihre Nutzer:innen und eine an Ihre BCC-Adresse sendet.
 {% endalert %}
 
 {% endif %}
@@ -101,7 +101,7 @@ Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn 
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Auswahl zwischen den Filtertypen „Tag des Jahres“ und „Zeit“**: Wenn Sie Kontextvariablen filtern, die Datumsangaben enthalten, wählen Sie den korrekten Vergleichstyp, je nachdem, ob sich das Datum jedes Jahr wiederholt. Verwenden Sie „Tag des Jahres“ nur, wenn das Jahr nicht im Wert enthalten ist, den die Kontextvariable erzeugt.
+**Auswahl zwischen den Filtertypen „Tag des Jahres“ und „Zeit“**: Wenn Sie Kontextvariablen filtern, die Datumsangaben enthalten, wählen Sie den korrekten Vergleichstyp, je nachdem, ob sich das Datum jedes Jahr wiederholt. Verwenden Sie „Tag des Jahres“ nur, wenn der Wert, den die Kontextvariable erzeugt, kein Jahr enthält.
 
 - **Verwenden Sie „Tag des Jahres“,** wenn sich das Datum jedes Jahr wiederholt (z. B. Geburtstage, Jahrestage oder Feiertage wie Weihnachten). Dieser Vergleichstyp berechnet auf Grundlage des Tages im Jahr (1–365/366) und ignoriert die Jahreskomponente.
 - **Verwenden Sie „Zeit“,** wenn es sich um ein absolutes Datum handelt, das sich nicht wiederholt (z. B. Vertragsende, Terminvereinbarungen oder Abo-Verlängerungsdaten). Dieser Vergleichstyp berechnet auf Grundlage des vollständigen Zeitstempels einschließlich des Jahres.
@@ -122,7 +122,7 @@ Granulare Berechtigungen befinden sich derzeit in der Early-Access-Phase. Wenn f
 {% if include.alert == 'WhatsApp audio and documents' %}
 
 {% alert note %}
-Die [Braze-Medienbibliothek]({{site.baseurl}}/media_library) unterstützt nur Bilder und Videos. Audio-Dateien und Dokumente müssen über eine gehostete URL referenziert werden.
+Die [Braze-Medienbibliothek]({{site.baseurl}}/media_library) unterstützt nur Bilder und Video. Audio-Dateien und Dokumente müssen über eine gehostete URL referenziert werden.
 {% endalert %}
 
 {% endif %}

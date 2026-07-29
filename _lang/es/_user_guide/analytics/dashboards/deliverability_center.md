@@ -19,12 +19,12 @@ Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.ba
 
 {% details Permisos de usuario para el Centro de entrega %}
 
-- Campaigns anzeigen
-- Campaigns editar
-- Campaigns archivar
-- Canvas anzeigen
-- Canvas editar
-- Canvas archivar
+- Ver Campaigns
+- Editar Campaigns
+- Archivar Campaigns
+- Ver Canvas
+- Editar Canvas
+- Archivar Canvas
 - Ver reglas de limitación de frecuencia
 - Editar reglas de limitación de frecuencia
 - Ver priorización de mensajes
@@ -65,18 +65,18 @@ Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.ba
 
 ## Configura tu cuenta de Google Postmaster {#set-up-your-google-postmaster-account}
 
-Antes de conectarte al Centro de capacidad de entrega, necesitarás configurar una cuenta de Google Postmaster Tools. Puedes usar una cuenta de Gmail personal o de trabajo para configurar tu Google Postmaster.
+Antes de conectarte al Centro de entrega, necesitarás configurar una cuenta de Google Postmaster Tools. Puedes usar una cuenta de Gmail personal o de trabajo para configurar tu Google Postmaster.
 
 1. Ve al [panel de Google Postmaster Tools](https://postmaster.google.com/managedomains?pli=1).
 2. En la parte inferior de la página, selecciona <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Introduce tu dominio raíz (principal) para autenticar tu correo electrónico. Asegúrate de que el registro TXT esté vinculado a este dominio raíz (principal), **no** al subdominio que estás usando a través de Braze. Verificar el dominio raíz (principal) te permite agregar subdominios posteriormente en Postmaster Tools sin crear registros TXT adicionales. Por ejemplo, al verificar `braze.com`, puedes agregar después `demo.braze.com` como un subdominio separado en Postmaster Tools para ver métricas a nivel de subdominio.
-4. Google genera un registro TXT que se puede agregar directamente al DNS de tu dominio. Generalmente, esto lo gestiona quien administra tu DNS. Para obtener información y orientación sobre cómo actualizar tu DNS específico, consulta [Verificar tu dominio (pasos específicos del host)](https://support.google.com/a/topic/1409901).
-5. Selecciona **Next**. <br>![Un ejemplo del dominio "demo.braze.com" para autenticar un correo electrónico.]({% image_buster /assets/img_archive/domain_authentication.png %})
-6. Después de agregar el registro TXT al DNS, regresa al panel de Google Postmaster Tools y selecciona **Verify**. Este paso confirma que eres el propietario del dominio, para que puedas acceder a las métricas de capacidad de entrega de Gmail en tu cuenta de Postmaster. <br>![Un mensaje para verificar la propiedad del dominio "demo.braze.com".]({% image_buster /assets/img_archive/domain_verification.png %})
+4. Google genera un registro TXT que se puede agregar directamente al DNS de tu dominio. Esto generalmente lo gestiona quien administra tu DNS. Para obtener información y orientación sobre cómo actualizar tu DNS específico, consulta [Verificar tu dominio (pasos específicos del host)](https://support.google.com/a/topic/1409901).
+5. Selecciona **Next**. <br>![Un ejemplo de dominio "demo.braze.com" para autenticar un correo electrónico.]({% image_buster /assets/img_archive/domain_authentication.png %})
+6. Después de agregar el registro TXT al DNS, vuelve al panel de Google Postmaster Tools y selecciona **Verify**. Este paso confirma que eres el propietario del dominio, para que puedas acceder a las métricas de capacidad de entrega de Gmail en tu cuenta de Postmaster. <br>![Un mensaje para verificar la propiedad del dominio "demo.braze.com".]({% image_buster /assets/img_archive/domain_verification.png %})
 7. Después de verificar el dominio raíz (principal), agrega tus subdominios de envío a Google Postmaster.
 
 {% alert note %}
-Si tus subdominios no están incluidos en el Centro de capacidad de entrega para Google Postmaster, esto puede deberse a que solo se agregó el dominio raíz (principal) a Google Postmaster. Después de verificar los dominios raíz en Google Postmaster, puedes agregar tus subdominios, que se verifican automáticamente. Este proceso permite que Google informe sobre métricas a nivel de subdominio, que luego se pueden incorporar al Centro de capacidad de entrega de Braze.
+Si tus subdominios no aparecen en el Centro de entrega de Google Postmaster, esto puede deberse a que solo se agregó el dominio raíz (principal) a Google Postmaster. Después de verificar los dominios raíz en Google Postmaster, puedes agregar tus subdominios, que se verifican automáticamente. Este proceso permite que Google informe sobre métricas a nivel de subdominio, que luego se pueden importar al Centro de entrega de Braze.
 {% endalert %}
 
 ## Integrar Google Postmaster {#integrating-google-postmaster}
@@ -170,23 +170,23 @@ Para más ideas sobre cómo mejorar la capacidad de entrega, lee [Problemas de c
 
 ## Configurar Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 
-Si Microsoft es tu principal proveedor de buzón de entrada, puedes ver los datos de Microsoft SNDS en el Deliverability Center. Esto incluye las IP de envío dedicadas para espacios de trabajo que utilizan Amazon SES, SendGrid o SparkPost. Usa estos datos para monitorear el estado de las IP y comprender cómo los proveedores de buzón de entrada de Microsoft están calificando tus envíos.
+Si Microsoft es tu proveedor principal de buzón de entrada, puedes ver los datos de Microsoft SNDS en el Centro de entrega. Esto incluye IP de envío dedicadas para espacios de trabajo que usan Amazon SES, SendGrid o SparkPost. Usa estos datos para monitorear el estado de las IP y comprender cómo los proveedores de buzón de entrada de Microsoft están calificando tus envíos.
 
-Microsoft SNDS proporciona datos a nivel de IP sobre quejas de correo no deseado, impactos en trampas de correo no deseado y volumen de envío según lo reportado por los proveedores de buzón de entrada de Microsoft, como Outlook, Hotmail y Live.
+Microsoft SNDS proporciona datos a nivel de IP sobre quejas de correo no deseado, impactos de trampas de correo no deseado y volumen de envío según lo informado por los proveedores de buzón de entrada de Microsoft, como Outlook, Hotmail y Live.
 
 {% alert important %}
-Si no ves tus datos en el Deliverability Center, contacta con [Soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) con una lista de tus direcciones IP.
+Si no ves tus datos en el Centro de entrega, ponte en contacto con [Soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) con una lista de tus direcciones IP.
 {% endalert %}
 
 ### Amazon SES
 
-Para los espacios de trabajo que envían correo electrónico a través de Amazon SES, el Deliverability Center muestra las métricas de Microsoft SNDS para tus IP de envío dedicadas. Braze rellena hasta 90 días de datos históricos de SNDS cuando esta característica se activa para tu espacio de trabajo.
+Para espacios de trabajo que envían correo electrónico a través de Amazon SES, el Centro de entrega muestra las métricas de Microsoft SNDS para tus IP de envío dedicadas. Braze rellena hasta 90 días de datos históricos de SNDS cuando esta característica se activa para tu espacio de trabajo.
 
 {% alert note %}
-Amazon SES no proporciona las métricas **Trap message period start** ni **Trap message period end**. Para las IP de envío de SES, esas columnas están ocultas en la tabla de Microsoft SNDS. Aún puedes ver otras métricas de SNDS para esas IP, incluidos los impactos en trampas de correo no deseado.
+Amazon SES no proporciona las métricas **Trap message period start** ni **Trap message period end**. Para las IP de envío de SES, esas columnas están ocultas en la tabla de Microsoft SNDS. Aún puedes ver otras métricas de SNDS para esas IP, incluyendo impactos de trampas de correo no deseado.
 {% endalert %}
 
-![Un ejemplo de resultados de Microsoft SNDS, que incluye IP de muestra, destinatarios, comandos RCPT, comandos DATA, resultado de filtro, tasa de quejas, inicio y fin del período de mensajes trampa, e impactos en trampas de correo no deseado.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
+![Un ejemplo de resultados de Microsoft SNDS, incluyendo IP de muestra, destinatarios, comandos RCPT, comandos DATA, resultado del filtro, tasa de quejas, período de inicio y fin de mensajes trampa e impactos de trampas de correo no deseado.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
 
 ### Métricas y definiciones
 
@@ -200,49 +200,49 @@ Esta métrica se refiere al número de destinatarios en los mensajes transmitido
 
 Esta métrica rastrea el número de comandos DATA enviados por la IP. Los comandos DATA son parte del protocolo SMTP utilizado para enviar correo.
 
-#### Resultados de filtro {#filter-results}
+#### Resultados del filtro {#filter-results}
 
-Consulta esta tabla para comprender los resultados de filtro.
+Consulta esta tabla para comprender los resultados del filtro.
 
 | Resultado | Definición |
 | ----- | ---------- |
 | Verde | Considerado correo no deseado por el filtro de correo no deseado de Microsoft hasta el 10% del período de tiempo dado. |
 | Amarillo | Considerado correo no deseado por el filtro de correo no deseado de Microsoft entre el 10% y el 90% del período de tiempo dado. |
 | Rojo | Considerado correo no deseado por el filtro de correo no deseado de Microsoft más del 90% del período de tiempo dado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Resultados de filtro" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Resultados del filtro" }
 
 #### Tasa de quejas {#complaint-rate}
 
-Es la fracción del tiempo en que un mensaje recibido desde la IP es reportado como queja por un usuario de Hotmail o Windows Live durante el período de actividad. Los usuarios tienen la opción de reportar casi todos los mensajes como correo no deseado a través de la interfaz de usuario web.
+Esta es la fracción de tiempo en que un mensaje recibido desde la IP es reportado como queja por un usuario de Hotmail o Windows Live durante el período de actividad. Los usuarios tienen la opción de reportar casi todos los mensajes como correo no deseado a través de la interfaz web de usuario.
 
 Para calcular la tasa de quejas, divide el número de quejas entre el número de destinatarios del mensaje.
 
 | Resultado | Definición |
 | ----- | ---------- |
-| Menos del 0,3% | La tasa de quejas ideal. |
-| Más del 0,3% | Revisa tu proceso de registro y asegúrate de que tu enlace para cancelar suscripción funcione. También considera si el correo podría estar mejor personalizado para tu audiencia. |
-| Más del 100% | Ten en cuenta que SNDS muestra las quejas del día en que fueron reportadas, no retroactivamente contra el día en que se entregó el correo que generó la queja. |
+| Menos del 0.3% | La tasa de quejas ideal. |
+| Más del 0.3% | Revisa tu proceso de registro y asegúrate de que tu enlace para cancelar suscripción funcione. También considera si el correo podría personalizarse mejor para tu audiencia. |
+| Más del 100% | Ten en cuenta que SNDS muestra las quejas del día en que se reportaron, no retroactivamente contra el día en que se entregó el correo que generó la queja. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tasa de quejas" }
 
-#### Impactos en trampas de correo no deseado {#spam-trap-hits}
+#### Impactos de trampas de correo no deseado {#spam-trap-hits}
 
-Los impactos en trampas de correo no deseado son el número de mensajes enviados a "cuentas trampa", que son cuentas mantenidas por Outlook.com que no solicitan ningún correo. Es probable que cualquier mensaje enviado a estas cuentas trampa se considere correo no deseado, por lo que es importante monitorear esta métrica para asegurarte de que sea baja. Un número bajo de impactos en trampas de correo no deseado significa que los mensajes no se están enviando a estas cuentas y se están enviando a cuentas reales.
+Los impactos de trampas de correo no deseado son el número de mensajes enviados a "cuentas trampa", que son cuentas mantenidas por Outlook.com que no solicitan ningún correo. Es probable que cualquier mensaje enviado a estas cuentas trampa se considere correo no deseado, por lo que es importante monitorear esta métrica para asegurarte de que sea baja. Un número bajo de impactos de trampas de correo no deseado significa que los mensajes no se envían a estas cuentas y se están enviando a cuentas reales.
 
-#### Inicio y fin del período de mensajes trampa {#trap-message-period-start-and-end}
+#### Período de inicio y fin de mensajes trampa {#trap-message-period-start-and-end}
 
-Estas columnas muestran cuándo se recibieron el primer y el último mensaje enviados a cuentas trampa desde la IP durante el período de actividad. Amazon SES no proporciona estas métricas, por lo que las columnas están ocultas cuando solo ves las IP de envío de SES en la tabla de Microsoft SNDS.
+Estas columnas muestran cuándo se recibieron el primer y el último mensaje enviados a cuentas trampa desde la IP durante el período de actividad. Amazon SES no proporciona estas métricas, por lo que las columnas están ocultas cuando solo ves IP de envío de SES en la tabla de Microsoft SNDS.
 
 {% alert tip %}
-Si buscas registros relacionados con uno de tus dominios verificados en Braze, ten en cuenta que el Deliverability Center muestra tus datos de Google Postmaster o Microsoft SNDS, lo que significa que es probable que alguna de las plataformas no tenga datos para compartir con Braze. Alternativamente, intenta mantener una entrega de correo electrónico consistente, ya que esto puede llevar a una mayor reputación.
+Si estás buscando registros relacionados con uno de tus dominios verificados en Braze, ten en cuenta que el Centro de entrega muestra tus datos de Google Postmaster o Microsoft SNDS, lo que significa que es probable que alguna de las plataformas no tenga datos para compartir con Braze. Alternativamente, intenta mantener un envío de correo electrónico consistente, ya que esto puede llevar a una reputación más alta.
 {% endalert %}
 
 ## Quejas de correo no deseado y bucles de retroalimentación {#spam-complaints-and-feedback-loops}
 
-Un bucle de retroalimentación de correo electrónico (FBL) permite a los remitentes de correo electrónico recibir informes cuando los destinatarios marcan los mensajes como correo no deseado. Sin embargo, Gmail e iCloud no ofrecen bucles de retroalimentación tradicionales, lo que significa que Braze (a través de SparkPost o SendGrid) no recibe datos de quejas de correo no deseado de estos proveedores.
+Un bucle de retroalimentación de correo electrónico (FBL) permite a los remitentes de correo electrónico recibir informes cuando los destinatarios marcan mensajes como correo no deseado. Sin embargo, Gmail e iCloud no ofrecen bucles de retroalimentación tradicionales, lo que significa que Braze (a través de SparkPost o SendGrid) no recibe datos de quejas de correo no deseado de estos proveedores.
 
-Dado que los datos de quejas de correo no deseado no están disponibles en Gmail e iCloud, es importante utilizar otras herramientas para supervisar la salud y la reputación de tu correo electrónico con estos proveedores principales:
+Dado que los datos de quejas de correo no deseado no están disponibles de Gmail e iCloud, es importante usar otras herramientas para monitorear el estado y la reputación de tu correo electrónico con estos proveedores principales:
 
-- Usa [Google Postmaster Tools](https://www.gmail.com/postmaster/) para supervisar la reputación del dominio y la IP, las tasas de correo no deseado y la participación de los usuarios. Puedes integrar Google Postmaster con Braze como se describe en [Integrar Google Postmaster](#integrating-google-postmaster).
-- Apple no proporciona una herramienta Postmaster pública equivalente a la de Google. Concéntrate en mantener métricas de participación sólidas y seguir las mejores prácticas de correo electrónico.
+- Usa [Google Postmaster Tools](https://www.gmail.com/postmaster/) para monitorear la reputación de dominio e IP, las tasas de correo no deseado y la interacción de los usuarios. Puedes integrar Google Postmaster con Braze como se describe en [Integrar Google Postmaster](#integrating-google-postmaster).
+- Apple no proporciona una herramienta pública de Postmaster equivalente a la de Google. Concéntrate en mantener métricas de interacción sólidas y seguir las mejores prácticas de correo electrónico.
 
-Para mantener una buena capacidad de entrega con todos los proveedores, implementa una [política de extinción]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) para dejar de enviar automáticamente a los usuarios no comprometidos. Esto ayuda a evitar que tus correos electrónicos se marquen como correo no deseado y protege tu reputación del remitente.
+Para mantener una buena capacidad de entrega con todos los proveedores, implementa una [política de desactivación]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) para dejar de enviar automáticamente a usuarios no comprometidos. Esto ayuda a evitar que tus correos electrónicos se marquen como correo no deseado y protege tu reputación como remitente.

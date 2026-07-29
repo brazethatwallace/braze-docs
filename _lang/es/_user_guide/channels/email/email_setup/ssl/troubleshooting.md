@@ -15,12 +15,12 @@ channel: email
 
 | Síntoma | Ir a |
 | --- | --- |
-| Las tasas de apertura de correo electrónico bajaron repentinamente | [Tasas de apertura de correo electrónico bajas](#low-email-open-rates) |
+| Las tasas de apertura de correo electrónico cayeron repentinamente | [Tasas de apertura de correo electrónico bajas](#low-email-open-rates) |
 | Los enlaces rastreados devuelven HTTP 403 | [HTTP 403 en enlaces de redirección](#http-403-on-redirect-links) |
-| El DNS o CNAME apunta al ESP en lugar del CDN | [Problemas con el registro de dominio](#domain-registry-issues) |
+| El DNS o CNAME apunta al ESP en lugar del CDN | [Problemas con el registro de dominios](#domain-registry-issues) |
 | "La conexión no es privada" o los enlaces fallan durante la configuración | [Problemas con el CDN](#cdn-issues) |
-| La configuración de SSL está completa pero los enlaces siguen mostrando HTTP | [Estado de habilitación de SSL](#ssl-enablement-status) |
-| La URL rastreada falla pero la URL sin rastreo funciona | [Problemas con el seguimiento de clics](#click-tracking-issues) |
+| La configuración SSL está completa pero los enlaces siguen mostrando HTTP | [Estado de habilitación de SSL](#ssl-enablement-status) |
+| La URL rastreada falla pero la URL sin seguimiento funciona | [Problemas con el seguimiento de clics](#click-tracking-issues) |
 | Errores de habilitación de SSL específicos de Amazon SES | [Amazon SES](#amazon-ses) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de SSL" }
 
@@ -28,7 +28,7 @@ channel: email
 
 1. Confirma que tu subdominio de seguimiento de clics apunta a tu [red de entrega de contenido (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it), no directamente a tu proveedor de servicios de correo electrónico (SendGrid, SparkPost o Amazon SES). Pide a tu equipo de TI o web que verifique que la configuración de tu dominio coincide con tu configuración de Braze. Para los requisitos de Braze, consulta [Adquirir un certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
 2. Confirma que tu certificado SSL está activo para el dominio de seguimiento. Pide a tu equipo de TI o web que confirme que el certificado está vigente y cubre tu subdominio de seguimiento de clics. Para los pasos de configuración y guías específicas de CDN, consulta [Adquirir un certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) y [Recursos adicionales]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
-3. Envía un correo electrónico de prueba usando la [plantilla de solución de problemas de seguimiento de clics](#click-tracking-issues). Compara las URL con seguimiento frente a las que no tienen seguimiento.
+3. Envía un correo electrónico de prueba utilizando la [plantilla de solución de problemas de seguimiento de clics](#click-tracking-issues). Compara las URL con seguimiento frente a las que no tienen seguimiento.
 4. Si los enlaces con seguimiento fallan con un error 403, revisa las reglas de CDN y WAF (agentes de usuario, cadenas de consulta, patrones de redirección).
 5. Si la configuración está completa pero los enlaces siguen siendo HTTP, contacta a tu administrador de éxito de cliente de Braze para confirmar que Braze habilitó SSL.
 6. Para problemas persistentes, coordina con tu CDN o equipo de TI y contacta a [soporte de Braze]({{site.baseurl}}/braze_support) con los códigos de error y cualquier detalle de tu CDN o proveedor de dominios.
@@ -36,7 +36,7 @@ channel: email
 ## Conceptos clave {#key-concepts}
 
 - **URL con seguimiento:** Envuelve el enlace HTTPS original en tu dominio de seguimiento. Cuando un usuario hace clic en él, el dominio de seguimiento resuelve la solicitud y redirige al destino final. Un CDN te permite hacer seguimiento de URL seguras (HTTPS). Sin él, los usuarios pueden encontrar un error de privacidad de "la conexión no es segura".
-- **URL sin seguimiento:** Mantiene la URL original intacta, omitiendo el CDN para servir como entorno de control.
+- **URL sin seguimiento:** Mantiene la URL original intacta, omitiendo el CDN para servir como un entorno de control.
 
 ## Tasas bajas de apertura de correo electrónico {#low-email-open-rates}
 
@@ -300,5 +300,5 @@ Usa la siguiente tabla para diagnosticar errores comunes al probar el seguimient
 | `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Revisa tu configuración de DNS. Asegúrate de que tu subdominio de seguimiento esté configurado según la configuración recomendada por tu CDN y ESP. |
 | `525 / 526 SSL Error` | Verifica que la configuración de SSL en tu CDN (como Cloudflare) coincida con la capacidad de tu Origin. |
 | `404 Not Found` | Verifica que tu CDN esté configurado para reenviar la ruta completa de la URL al ESP, en lugar de apuntar a un directorio raíz vacío. |
-| `400 Bad Request: Request Header or Cookie Too Large` | Este error suele ocurrir cuando el dominio de seguimiento de clics hereda demasiadas cookies grandes del dominio de tu sitio web. Braze no establece ni bloquea ninguna cookie en el dominio de seguimiento. Configura tu CDN para que no envíe esas cookies al ESP al hacer proxy inverso de la solicitud de seguimiento de clics. También es posible que necesites aumentar la configuración de `large_client_header_buffers` en tu configuración de nginx (por ejemplo, `large_client_header_buffers 4 32k;` para permitir encabezados de hasta 32&nbsp;KB). Para más información, consulta a tu proveedor de CDN o equipo de ingeniería del sitio web. |
+| `400 Bad Request: Request Header or Cookie Too Large` | Este error suele ocurrir cuando el dominio de seguimiento de clics hereda demasiadas cookies grandes del dominio de tu sitio web. Braze no establece ni bloquea cookies en el dominio de seguimiento. Configura tu CDN para que no envíe esas cookies al ESP al hacer proxy inverso de la solicitud de seguimiento de clics. También es posible que necesites aumentar la configuración de `large_client_header_buffers` en tu configuración de nginx (por ejemplo, `large_client_header_buffers 4 32k;` para permitir encabezados de hasta 32&nbsp;KB). Para más información, consulta a tu proveedor de CDN o equipo de ingeniería web. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de error y solución de problemas" }

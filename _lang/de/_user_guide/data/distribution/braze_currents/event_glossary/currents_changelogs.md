@@ -5,7 +5,7 @@ description: "Diese Seite enthält die Event-Änderungen für jede Currents-Vers
 tool: Currents
 ---
 
-# Currents-Changelog
+# Currents-Changelog {#currents-changelog}
 
 ## Änderungen in Version 11 (Veröffentlichungsdatum: 05.08.2026) {#changes-in-version-11-release-date-2026-08-05}
 

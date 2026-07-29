@@ -21,11 +21,11 @@ Braze peut envoyer des notifications push aux appareils Android à l'aide de [Ba
 
 Pour créer un compte Baidu, rendez-vous sur le [portail Baidu](https://www.baidu.com/) et cliquez sur **登录** (Se connecter) pour faire apparaître une boîte de dialogue qui vous permettra de vous connecter ou de créer un nouveau compte.
 
-![Portail Baidu]({% image_buster /assets/img_archive/baidu_portal.png %})
+![]({% image_buster /assets/img_archive/baidu_portal.png %})
 
 Pour créer un nouveau compte, en bas de la boîte de dialogue de connexion, cliquez sur **立即注册** (nouveau compte).
 
-![Boîte de dialogue de connexion Baidu]({% image_buster /assets/img_archive/baidu_login_dialog.png %}){: style="max-width:70%;"}
+![]({% image_buster /assets/img_archive/baidu_login_dialog.png %}){: style="max-width:70%;"}
 
 Saisissez votre nom d'utilisateur, votre numéro de téléphone et votre mot de passe dans la page de création de compte. Ensuite, cliquez sur le bouton « Recevoir le code de vérification ». Vous recevrez alors un SMS de Baidu contenant un code de vérification. Enfin, acceptez l'accord de licence et cliquez sur **注册** (créer un compte) pour vous enregistrer. Si ces étapes de configuration échouent, essayez de vous enregistrer à l'aide de la connexion Cloud Baidu telle que décrite dans cet [article sur la connexion](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/).
 
@@ -35,37 +35,37 @@ Saisissez votre nom d'utilisateur, votre numéro de téléphone et votre mot de 
 
 Ensuite, vous devez vous inscrire en tant que développeur Baidu. Commencez par vous rendre sur le [portail des développeurs Baidu](http://developer.baidu.com/) et choisissez **注册** (créer un nouveau compte de développeur) pour commencer l'enregistrement.
 
-![Portail des développeurs Baidu]({% image_buster /assets/img_archive/baidu_dev_portal.png %})
+![]({% image_buster /assets/img_archive/baidu_dev_portal.png %})
 
 Sur la page d'inscription, choisissez votre type de compte (个人 pour les particuliers, 公司 pour les entreprises) et le type de développeur (développeur est présélectionné et correct dans la plupart des cas). Saisissez votre nom, une biographie et un numéro de téléphone avec l'indicatif du pays entre parenthèses (par exemple, (1)xxxxxxxxxx). Cliquez sur **发送验证码** (envoyer le code de vérification) et entrez le code de vérification dans la ligne suivante. Les deux champs suivants, le site Internet du développeur et le logo du développeur, sont facultatifs. Acceptez l'accord de licence et cliquez sur **提交** (envoyer) pour valider. Vous disposez maintenant d'un compte de développeur Baidu.
 
-![Page d'inscription développeur Baidu]({% image_buster /assets/img_archive/baidu_dev_reg.png %})
+![]({% image_buster /assets/img_archive/baidu_dev_reg.png %})
 
 ## Étape 3 : Enregistrer votre application auprès de Baidu {#step-3-register-your-application-with-baidu}
 
 Pour enregistrer votre application auprès de Baidu, rendez-vous sur le [portail de projets Baidu](http://developer.baidu.com/console#app/project) et cliquez sur **创建工程** (créer un projet).
 
-![Portail de projets Baidu]({% image_buster /assets/img_archive/baidu_project.png %})
+![]({% image_buster /assets/img_archive/baidu_project.png %})
 
 Sur la page suivante, saisissez le nom de votre application. Les deux cases à cocher suivantes permettent d'activer des services Baidu supplémentaires. Dans la plupart des cas, elles doivent rester décochées.
 
-![Nom de l'application Baidu]({% image_buster /assets/img_archive/baidu_app_name.png %})
+![]({% image_buster /assets/img_archive/baidu_app_name.png %})
 
 Lors de la configuration de votre application, vous serez redirigé vers une console qui affiche des informations sur votre application, y compris la clé API. Ensuite, cliquez sur **云推送** (cloud push) dans la barre latérale. Sur la page suivante, cliquez sur **推送设置** (configurer les notifications push).
 
-![Console de l'application Baidu]({% image_buster /assets/img_archive/baidu_app_console.png %})
+![]({% image_buster /assets/img_archive/baidu_app_console.png %})
 
-![Page de continuation Baidu]({% image_buster /assets/img_archive/baidu_continue.png %})
+![]({% image_buster /assets/img_archive/baidu_continue.png %})
 
 Sur la page suivante, saisissez le nom du paquet de votre application (par exemple, `com.braze.sample`) et indiquez si les messages doivent être mis en cache et, le cas échéant, pendant combien de temps (en heures). Cela indique à Baidu pendant combien de temps continuer à essayer d'envoyer des messages aux utilisateurs hors ligne. Cliquez sur **保存设置** (enregistrer les paramètres) pour enregistrer.
 
-![Configuration du cloud push Baidu]({% image_buster /assets/img_archive/baidu_configure_cloud.png %})
+![]({% image_buster /assets/img_archive/baidu_configure_cloud.png %})
 
 ## Étape 4 : Ajouter Baidu à votre application {#step-4-add-baidu-to-your-application}
 
 Rendez-vous sur le [portail du SDK push Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk) et téléchargez la dernière version du SDK Android Baidu Cloud Push.
 
-![SDK Baidu]({% image_buster /assets/img_archive/baidu_sdk.png %})
+![]({% image_buster /assets/img_archive/baidu_sdk.png %})
 
 Dans le SDK, vous trouverez le fichier jar du service de notification push et les bibliothèques natives spécifiques à la plateforme. Intégrez-les à votre projet. Assurez-vous que votre application cible la version du SDK la plus élevée actuellement prise en charge par Baidu. Cette documentation est à jour pour la version `4.6.2.38` du SDK Android Baidu Cloud Push.
 
@@ -230,7 +230,7 @@ Vous devez saisir votre clé API Baidu et votre clé secrète Baidu dans le tabl
 
 Sur la page **Gérer les paramètres**, sélectionnez votre application Android China et entrez votre clé API Baidu et votre clé secrète Baidu dans la section des notifications push.
 
-![Clé API]({% image_buster /assets/img_archive/baidu_api_key.png %} "APIKey"){: style="max-width:80%;"}
+![]({% image_buster /assets/img_archive/baidu_api_key.png %} "APIKey"){: style="max-width:80%;"}
 
 ## Ressources complémentaires {#additional-resources}
 

@@ -15,22 +15,22 @@ Braze Web SDKを使用すると、Brazeのカスタマーエンゲージメン�
 ### できること {#what-you-can-do}
 
 - **ユーザー管理**: Webアプリケーション全体でユーザーのアイデンティティ、属性、行動を追跡・管理します
-- **アプリ内メッセージ**: ユーザーがサイトをアクティブに利用している間に、ターゲットを絞ったメッセージや通知を表示します
+- **アプリ内メッセージング**: ユーザーがサイトをアクティブに使用している間に、ターゲットを絞ったメッセージや通知を表示します
 - **Content Cards**: リアルタイムで更新されるパーソナライズされたコンテンツフィードやプロモーションカードを表示します
 - **バナー**: サイト内の特定のプレースメントにバナーメッセージを表示します
 - **プッシュ通知**: ユーザーがサイトにいないときでもWebプッシュ通知を送信してエンゲージメントを促進します
-- **フィーチャーフラグ**: サーバーサイドのフィーチャーフラグ管理で機能のロールアウトやABテストをコントロールします
+- **フィーチャーフラグ**: サーバーサイドのフィーチャーフラグ管理で機能のロールアウトやABテストを制御します
 - **分析**: カスタムイベント、ユーザーインタラクション、コンバージョン指標を追跡します
 - **セッション管理**: ユーザーセッションとエンゲージメントパターンを監視します
 
-シングルページアプリケーション、ECサイト、コンテンツプラットフォームのいずれを構築する場合でも、Braze Web SDKはパーソナライズされた魅力的なユーザー体験を創出し、成長とリテンションを促進するために必要なツールを提供します。
+シングルページアプリケーション、ECサイト、コンテンツプラットフォームのいずれを構築する場合でも、Braze Web SDKは成長とリテンションを促進するパーソナライズされた魅力的なユーザー体験を作成するために必要なツールを提供します。
 
 ## 前提条件 {#prerequisites}
 
 Braze Web SDKを統合する前に、以下が必要です。
 
 - **Brazeアカウント**: APIアクセスが可能なBrazeアカウント
-- **APIキー**: Brazeダッシュボードから取得したアプリのAPIキー
+- **APIキー**: BrazeダッシュボードからのアプリのAPIキー
 - **SDKエンドポイント**: BrazeのSDKエンドポイントURL（例: `sdk.iad-01.braze.com`）
 
 ### 認証情報の取得 {#getting-your-credentials}
@@ -66,35 +66,35 @@ braze.changeUser('Jane Doe');
 
 ### 初期化オプション {#initialization-options}
 
-`initialize` 関数は、以下のプロパティを持つオプションオブジェクトを受け取ります。
+`initialize`関数は、以下のプロパティを持つオプションオブジェクトを受け取ります。
 
 | オプション | 型 | デフォルト | 説明 |
 |--------|------|---------|-------------|
-| `baseUrl` | `string` | **必須** | このオプションは、Braze Web SDKが統合に適切なエンドポイントを使用するように設定するために必要です。例: `braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'sdk.iad-03.braze.com' })` |
-| `enableLogging` | `boolean` | `false` | デフォルトでログを有効にするには true に設定します。これにより、Braze は JavaScript コンソールにログを出力するようになり、すべてのユーザーに表示されます。本番環境にページをリリースする前に、この設定を削除するか、setLogger で代替のロガーを提供してください。 |
-| `allowUserSuppliedJavascript` | `boolean` | `false` | デフォルトでは、Braze Web SDKはユーザー提供の JavaScript クリックアクションを許可せず、HTML アプリ内メッセージやバナーも有効にしません。これらは Braze ダッシュボードユーザーがサイト上で JavaScript を実行できるようにするためです。Braze ダッシュボードユーザーが悪意のない JavaScript クリックアクションを記述することを信頼する場合は、このプロパティを true に設定してください。 |
-| `doNotLoadFontAwesome` | `boolean` | `false` | Braze はアプリ内メッセージのアイコンに Font Awesome を使用します。デフォルトでは、Braze は FontAwesome CDN から FontAwesome 4.7.0 を自動的に読み込みます。この動作を無効にするには（例えば、サイトでカスタマイズされたバージョンの FontAwesome を使用している場合）、このオプションを `true` に設定してください。この場合、サイトに FontAwesome が読み込まれていることを確認する責任はお客様にあります。そうしないと、アプリ内メッセージが正しくレンダリングされない場合があります。 |
-| `inAppMessageZIndex` | `number` | `999999` | デフォルトでは、Braze SDKは z-index 999999 でIn-App Messagesを表示します。このデフォルトを上書きするには、このオプションに値を指定してください。 |
-| `sessionTimeoutInSeconds` | `number` | `30` | デフォルトでは、セッションは30秒間操作がないとタイムアウトします。このデフォルトを上書きするには、このオプションに値を指定してください。 |
-| `deviceId` | `string` | 自動生成 | デフォルトでは、Braze はランダムな GUID をデバイス ID として割り当てます。このデフォルトを上書きして独自の値を設定するには、この設定オプションに値を指定してください。 |
-| `appVersion` | `string` | `undefined` | このオプションに値を指定すると、Braze に送信されるユーザーイベントが指定されたバージョンに関連付けられ、ユーザーセグメンテーションに使用できます。 |
-| `appVersionNumber` | `string` | `undefined` | ユーザーセグメンテーションに使用できる数値のアプリバージョン値です。この値は「1.2.3.4」のように4つのフィールドで送信する必要があり、そうでない場合は無視されます。注: `appVersion` も同じ値または一意の名前で設定する必要があります。 |
-| `contentSecurityNonce` | `string` | `undefined` | このオプションに値を指定すると、Braze SDKはSDKが作成するすべての `<script>` および `<style>` 要素にその nonce を追加します。これにより、Braze SDKをWebサイトのコンテンツセキュリティポリシーと連携させることができます。この nonce の設定に加えて、FontAwesome の読み込みを許可する必要がある場合があります。これは、コンテンツセキュリティポリシーの許可リストに `use.fontawesome.com` を追加するか、`doNotLoadFontAwesome` オプションを使用して手動で読み込むことで対応できます。 |
-| `noCookies` | `boolean` | `false` | デフォルトでは、Braze Web SDKは Cookie を使用します。Cookie の使用を無効にするには、このオプションを true に設定してください。Cookie を無効にすると、セッション間でユーザーの ID を記憶するSDKの機能に影響を与える可能性があります。 |
-| `allowCrawlerActivity` | `boolean` | `false` | デフォルトでは、Braze Web SDKはユーザーエージェント文字列に基づいて、Google などの既知のスパイダーやWebクローラーからのアクティビティを無視します。これにより、データポイントが節約され、分析がより正確になり、ページランクが向上する可能性があります。ただし、これらのクローラーからのアクティビティを Braze に記録したい場合は、このオプションを true に設定できます。 |
-| `disablePushTokenMaintenance` | `boolean` | `false` | デフォルトでは、すでにWebプッシュ許可を付与しているユーザー（例えば requestPushPermission を通じて、または以前のプッシュプロバイダーから）は、配信性を確保するために新しいセッションで自動的にプッシュトークンを Braze バックエンドと同期します。この動作を無効にするには、このオプションを true に設定してください。 |
-| `enableSdkAuthentication` | `boolean` | `false` | SDK認証機能を有効にするには true に設定します。SDK認証の詳細については、製品ドキュメントを参照してください。 |
-| `manageServiceWorkerExternally` | `boolean` | `false` | デフォルトでは、Braze Web SDKはプッシュ通知用に独自のサービスワーカーを管理します。アプリケーションですでにサービスワーカーを管理しており、Braze のサービスワーカー機能をそこに組み込みたい場合は、このオプションを true に設定し、サービスワーカーファイルに Braze のサービスワーカーコードを含めてください。 |
-| `minimumIntervalBetweenTriggerActionsInSeconds` | `number` | `30` | デフォルトでは、トリガーアクション（例えば、アプリ内メッセージの表示）はユーザーごとに30秒に1回のみ実行できます。このデフォルトを上書きするには、このオプションに値を指定してください。 |
-| `serviceWorkerLocation` | `string` | `undefined` | デフォルトでは、Braze Web SDKはドメインのルートでサービスワーカーファイルを探します。このデフォルトを上書きしてサービスワーカーファイルのカスタムロケーションを指定するには、このオプションに値を指定してください。 |
-| `safariWebsitePushId` | `string` | `undefined` | Safari プッシュ通知に必要です。この値は Apple Developer アカウントで確認できます。Safari プッシュ通知の設定の詳細については、製品ドキュメントを参照してください。 |
-| `localization` | `string` | `undefined` | このオプションに値を指定すると、Braze SDKはアプリ内メッセージとContent Cardsをそのロケールで表示しようとします。 |
-| `openInAppMessagesInNewTab` | `boolean` | `false` | デフォルトでは、アプリ内メッセージ内のリンクは同じタブで開きます。新しいタブで開くようにするには、このオプションを true に設定してください。 |
-| `openCardsInNewTab` | `boolean` | `false` | デフォルトでは、Content Cards内のリンクは同じタブで開きます。新しいタブで開くようにするには、このオプションを true に設定してください。 |
-| `requireExplicitInAppMessageDismissal` | `boolean` | `false` | デフォルトでは、アプリ内メッセージはメッセージの外側をクリックするか Escape キーを押すことで閉じることができます。ユーザーが明示的に閉じるボタンまたはアクションボタンをクリックしてメッセージを閉じることを要求するには、このオプションを true に設定してください。 |
-| `devicePropertyAllowlist` | `string[]` | `undefined` | デフォルトでは、Braze SDKは DeviceProperties 内のすべてのデバイスプロパティを自動的に検出して収集します。この動作を上書きするには、DeviceProperties の配列を指定してください。Braze サーバーへのすべてのプロパティの送信を無効にするには、空の配列を指定してください。一部のプロパティがないと、すべての機能が正しく動作しない場合があります。例えば、タイムゾーンがないと、ローカルタイムゾーン配信は機能しません。 |
-| `serviceWorkerScope` | `string` | `undefined` | デフォルトでは、Braze Web SDKはデフォルトのスコープ（サービスワーカーのディレクトリ）でサービスワーカーを登録します。このデフォルトを上書きしてサービスワーカーのカスタムスコープを指定するには、このオプションに値を指定してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="初期化オプション" }
+| `baseUrl` | `string` | **必須** | このオプションは、統合に適切なエンドポイントを使用するようBraze Web SDKを設定するために必須です。例: `braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'sdk.iad-03.braze.com' })` |
+| `enableLogging` | `boolean` | `false` | デフォルトでログを有効にするにはtrueに設定します。これによりBrazeがJavaScriptコンソールにログを出力するようになり、すべてのユーザーに表示されます。本番環境にリリースする前に、このオプションを削除するか、setLoggerで代替ロガーを提供してください。 |
+| `allowUserSuppliedJavascript` | `boolean` | `false` | デフォルトでは、Braze Web SDKはユーザー提供のJavaScriptクリックアクションを許可せず、HTMLアプリ内メッセージやバナーも有効にしません。これらはBrazeダッシュボードのユーザーがサイト上でJavaScriptを実行できるようにするためです。Brazeダッシュボードのユーザーが悪意のないJavaScriptクリックアクションを記述することを信頼する場合は、このプロパティをtrueに設定してください。 |
+| `doNotLoadFontAwesome` | `boolean` | `false` | Brazeはアプリ内メッセージのアイコンにFont Awesomeを使用しています。デフォルトでは、BrazeはFontAwesome CDNからFontAwesome 4.7.0を自動的に読み込みます。この動作を無効にするには（例えば、サイトでカスタマイズされたバージョンのFontAwesomeを使用している場合）、このオプションを`true`に設定してください。この場合、サイトでFontAwesomeが読み込まれていることを確認する責任はお客様にあります。そうしないと、アプリ内メッセージが正しくレンダリングされない場合があります。 |
+| `inAppMessageZIndex` | `number` | `999999` | デフォルトでは、Braze SDKはIn-App Messagesをz-index 999999で表示します。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
+| `sessionTimeoutInSeconds` | `number` | `30` | デフォルトでは、セッションは30秒間操作がないとタイムアウトします。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
+| `deviceId` | `string` | 自動生成 | デフォルトでは、BrazeはデバイスIDとしてランダムなGUIDを割り当てます。この設定オプションに値を指定すると、そのデフォルトを独自の値で上書きできます。 |
+| `appVersion` | `string` | `undefined` | このオプションに値を指定すると、Brazeに送信されるユーザーイベントが指定されたバージョンに関連付けられ、ユーザーセグメンテーションに使用できます。 |
+| `appVersionNumber` | `string` | `undefined` | ユーザーセグメンテーションに使用できる数値のアプリバージョン値です。この値は「1.2.3.4」のように4つのフィールドで送信する必要があり、そうでない場合は無視されます。注: `appVersion`も設定する必要があり、同じ値またはこのバージョンの一意の名前を使用してください。 |
+| `contentSecurityNonce` | `string` | `undefined` | このオプションに値を指定すると、Braze SDKはSDKが作成するすべての`<script>`および`<style>`要素にnonceを追加します。これにより、WebサイトのContent Security PolicyでBraze SDKを動作させることができます。このnonceの設定に加えて、FontAwesomeの読み込みを許可する必要がある場合があります。Content Security Policyの許可リストに`use.fontawesome.com`を追加するか、`doNotLoadFontAwesome`オプションを使用して手動で読み込んでください。 |
+| `noCookies` | `boolean` | `false` | デフォルトでは、Braze Web SDKはCookieを使用します。Cookieの使用を無効にするには、このオプションをtrueに設定してください。Cookieを無効にすると、セッション間でユーザーのアイデンティティを記憶するSDKの機能に影響を与える可能性があります。 |
+| `allowCrawlerActivity` | `boolean` | `false` | デフォルトでは、Braze Web SDKはユーザーエージェント文字列に基づいて、Googleなどの既知のスパイダーやWebクローラーからのアクティビティを無視します。これによりデータポイントが節約され、分析がより正確になり、ページランクが向上する可能性があります。ただし、Brazeにこれらのクローラーからのアクティビティを記録させたい場合は、このオプションをtrueに設定できます。 |
+| `disablePushTokenMaintenance` | `boolean` | `false` | デフォルトでは、すでにWebプッシュ許可を付与しているユーザー（例: requestPushPermissionまたは以前のプッシュプロバイダーを通じて）は、配信性を確保するために新しいセッションでBrazeバックエンドとプッシュトークンを自動的に同期します。この動作を無効にするには、このオプションをtrueに設定してください。 |
+| `enableSdkAuthentication` | `boolean` | `false` | SDK認証機能を有効にするにはtrueに設定します。SDK認証の詳細については、製品ドキュメントを参照してください。 |
+| `manageServiceWorkerExternally` | `boolean` | `false` | デフォルトでは、Braze Web SDKはプッシュ通知用に独自のService Workerを管理します。アプリケーションですでにService Workerを管理しており、BrazeのService Worker機能を組み込みたい場合は、このオプションをtrueに設定し、Service WorkerファイルにBrazeのService Workerコードを含めてください。 |
+| `minimumIntervalBetweenTriggerActionsInSeconds` | `number` | `30` | デフォルトでは、トリガーアクション（例: アプリ内メッセージの表示）はユーザーごとに30秒に1回のみ実行できます。このオプションに値を指定すると、そのデフォルトを上書きできます。 |
+| `serviceWorkerLocation` | `string` | `undefined` | デフォルトでは、Braze Web SDKはドメインのルートでService Workerファイルを探します。このオプションに値を指定すると、そのデフォルトを上書きし、Service Workerファイルのカスタムロケーションを指定できます。 |
+| `safariWebsitePushId` | `string` | `undefined` | Safariプッシュ通知に必須です。この値はApple Developerアカウントで確認できます。Safariプッシュ通知の設定の詳細については、製品ドキュメントを参照してください。 |
+| `localization` | `string` | `undefined` | このオプションに値を指定すると、Braze SDKはそのロケールでアプリ内メッセージやContent Cardsを表示しようとします。 |
+| `openInAppMessagesInNewTab` | `boolean` | `false` | デフォルトでは、アプリ内メッセージのリンクは同じタブで開きます。新しいタブで開くようにするには、このオプションをtrueに設定してください。 |
+| `openCardsInNewTab` | `boolean` | `false` | デフォルトでは、Content Cardsのリンクは同じタブで開きます。新しいタブで開くようにするには、このオプションをtrueに設定してください。 |
+| `requireExplicitInAppMessageDismissal` | `boolean` | `false` | デフォルトでは、アプリ内メッセージはメッセージの外側をクリックするかEscapeキーを押すことで閉じることができます。ユーザーが明示的に閉じるボタンまたはアクションボタンをクリックしてメッセージを閉じることを要求するには、このオプションをtrueに設定してください。 |
+| `devicePropertyAllowlist` | `string[]` | `undefined` | デフォルトでは、Braze SDKはDevicePropertiesのすべてのデバイスプロパティを自動的に検出して収集します。この動作を上書きするには、DevicePropertiesの配列を指定してください。すべてのプロパティのBrazeサーバーへの送信を無効にするには、空の配列を指定してください。一部のプロパティがないと、すべての機能が正しく動作しない場合があります。例えば、タイムゾーンがないと、ローカルタイムゾーン配信が機能しません。 |
+| `serviceWorkerScope` | `string` | `undefined` | デフォルトでは、Braze Web SDKはデフォルトのスコープ（Service Workerのディレクトリ）でService Workerを登録します。このオプションに値を指定すると、そのデフォルトを上書きし、Service Workerのカスタムスコープを指定できます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Initialization Options" }
 
 ---
 
@@ -161,7 +161,7 @@ if (user) {
 }
 ```
 
-#### ユーザーの位置情報の設定 {#set-user-location}
+#### ユーザーロケーションの設定 {#set-user-location}
 
 ``` typescript
 import { getUser } from "@braze/web-sdk";
@@ -204,7 +204,7 @@ import { wipeData } from "@braze/web-sdk";
 wipeData();
 ```
 
-### アプリ内メッセージ {#in-app-messages}
+### In-App Messages
 
 #### 自動表示 {#automatic-display}
 
@@ -240,7 +240,7 @@ subscribeToInAppMessage((inAppMessage) => {
 });
 ```
 
-#### アプリ内メッセージのインタラクションを記録する {#log-in-app-message-interactions}
+#### アプリ内メッセージインタラクションの記録 {#log-in-app-message-interactions}
 
 ``` typescript
 import {
@@ -309,7 +309,7 @@ const container = document.getElementById('content-cards-container');
 showContentCards(container);
 ```
 
-#### Content Cardsの更新を購読する {#subscribe-to-content-cards-updates}
+#### Content Cards更新のサブスクライブ {#subscribe-to-content-cards-updates}
 
 ``` typescript
 import { subscribeToContentCardsUpdates } from "@braze/web-sdk";
@@ -320,7 +320,7 @@ subscribeToContentCardsUpdates((cards) => {
 });
 ```
 
-#### Content Cardsのインタラクションを記録する {#log-content-card-interactions}
+#### Content Cardsインタラクションの記録 {#log-content-card-interactions}
 
 ``` typescript
 import {
@@ -351,7 +351,7 @@ showContentCards(null, (cards) => {
 });
 ```
 
-#### Content Cardsの更新をリクエストする {#request-content-cards-refresh}
+#### Content Cardsの更新リクエスト {#request-content-cards-refresh}
 
 ``` typescript
 import { requestContentCardsRefresh } from "@braze/web-sdk";
@@ -471,7 +471,7 @@ if (featureFlag) {
 }
 ```
 
-#### フィーチャーフラグの更新を購読する {#subscribe-to-feature-flag-updates}
+#### フィーチャーフラグ更新のサブスクライブ {#subscribe-to-feature-flag-updates}
 
 ``` typescript
 import { subscribeToFeatureFlagsUpdates } from "@braze/web-sdk";
@@ -483,7 +483,7 @@ subscribeToFeatureFlagsUpdates((featureFlags) => {
 });
 ```
 
-#### フィーチャーフラグのインプレッションを記録する {#log-feature-flag-impressions}
+#### フィーチャーフラグインプレッションの記録 {#log-feature-flag-impressions}
 
 ``` typescript
 import { logFeatureFlagImpression } from "@braze/web-sdk";
@@ -494,7 +494,7 @@ if (featureFlag) {
 }
 ```
 
-#### フィーチャーフラグの更新をリクエストする {#request-feature-flags-refresh}
+#### フィーチャーフラグの更新リクエスト {#request-feature-flags-refresh}
 
 ``` typescript
 import { refreshFeatureFlags } from "@braze/web-sdk";
@@ -520,7 +520,7 @@ if (banner) {
 }
 ```
 
-#### バナーの更新を購読する {#subscribe-to-banner-updates}
+#### バナー更新のサブスクライブ {#subscribe-to-banner-updates}
 
 ``` typescript
 import { insertBanner, subscribeToBannersUpdates } from "@braze/web-sdk";
@@ -538,7 +538,7 @@ subscribeToBannersUpdates((banners) => {
 });
 ```
 
-#### カスタムUIでバナーを非表示にする {#dismiss-banners-in-a-custom-ui}
+#### カスタムUIでのバナーの非表示 {#dismiss-banners-in-a-custom-ui}
 
 ``` typescript
 import { dismissBanner, getBanner, subscribeToBannersUpdates } from "@braze/web-sdk";
@@ -569,9 +569,9 @@ subscribeToBannersUpdates((banners) => {
 });
 ```
 
-`dismissBanner(banner)` を呼び出すと、SDKはバナーの非表示状態を処理し、アクティブなバナー更新からそのバナーを削除し、バナーの非表示イベント購読者に通知し、非表示状態をBrazeに同期します。カスタムUIでは、`dismissBanner` をローカルUIの変更のみ、または分析ログメソッドのみとして扱うのではなく、`subscribeToBannersUpdates` を使用して非表示になったバナーの削除に対応する必要があります。
+`dismissBanner(banner)`を呼び出すと、SDKはバナーの非表示状態を処理し、アクティブなバナー更新からバナーを削除し、バナーの非表示イベントサブスクライバーに通知し、非表示をBrazeに同期します。カスタムUIでは、`dismissBanner`をローカルUIの変更のみや分析ログメソッドのみとして扱うのではなく、`subscribeToBannersUpdates`を使用して非表示されたバナーの削除に対応する必要があります。
 
-#### バナーの更新をリクエストする {#request-banner-refresh}
+#### バナーの更新リクエスト {#request-banner-refresh}
 
 ``` typescript
 import { requestBannersRefresh } from "@braze/web-sdk";
@@ -696,7 +696,7 @@ import { setSdkAuthenticationSignature } from "@braze/web-sdk";
 setSdkAuthenticationSignature('your-signature-here');
 ```
 
-#### 認証失敗の購読 {#subscribe-to-authentication-failures}
+#### 認証失敗のサブスクライブ {#subscribe-to-authentication-failures}
 
 ``` typescript
 import { subscribeToSdkAuthenticationFailures } from "@braze/web-sdk";
@@ -714,9 +714,9 @@ subscribeToSdkAuthenticationFailures((error) => {
 
 ### SSRフレームワーク {#ssr-frameworks}
 
-Next.jsなどのサーバーサイドレンダリング（SSR）フレームワークを使用している場合、SDKはブラウザ環境で実行されることを前提としているため、エラーが発生することがあります。SDKをダイナミックインポートすることで、これらの問題を解決できます。
+Next.jsなどのサーバーサイドレンダリング（SSR）フレームワークを使用している場合、SDKはブラウザ環境で実行されることを前提としているため、エラーが発生する可能性があります。SDKを動的にインポートすることで、これらの問題を解決できます。
 
-SDKの必要な部分を別ファイルにエクスポートし、そのファイルをコンポーネントにダイナミックインポートすることで、ツリーシェイキングのメリットを維持できます。
+必要なSDKの部分を別のファイルにエクスポートし、そのファイルをコンポーネントに動的にインポートすることで、ツリーシェイキングの利点を維持できます。
 
 ``` javascript
 // MyComponent/braze-exports.js
@@ -736,7 +736,7 @@ useEffect(() => {
 }, []);
 ```
 
-また、webpackを使用してアプリをバンドルしている場合は、マジックコメントを活用して、SDKの必要な部分のみをダイナミックインポートできます。
+また、webpackを使用してアプリをバンドルしている場合は、マジックコメントを利用して必要なSDKの部分のみを動的にインポートできます。
 
 ``` javascript
 // MyComponent.js
@@ -756,7 +756,7 @@ useEffect(() => {
 
 ### Vite
 
-Viteを使用していて、循環依存関係に関する警告や `Uncaught TypeError: Class extends value undefined is not a constructor or null` が表示される場合は、Braze SDKを依存関係の検出から除外する必要があるかもしれません。
+Viteを使用していて、循環依存関係に関する警告や`Uncaught TypeError: Class extends value undefined is not a constructor or null`が表示される場合は、Braze SDKを依存関係の検出から除外する必要がある場合があります。
 
 ``` javascript
 export default {
@@ -768,7 +768,7 @@ export default {
 
 ### Jestフレームワーク {#jest-framework}
 
-Jestを使用している場合、`SyntaxError: Unexpected token 'export'` のようなエラーが表示されることがあります。これを修正するには、`package.json` の設定を調整してBraze SDKを無視するようにします。
+Jestを使用している場合、`SyntaxError: Unexpected token 'export'`のようなエラーが表示されることがあります。これを修正するには、`package.json`の設定を調整してBraze SDKを無視するようにしてください。
 
 ``` json
 {
@@ -784,11 +784,11 @@ Jestを使用している場合、`SyntaxError: Unexpected token 'export'` の�
 
 #### AMDサポートの無効化 {#disable-amd-support}
 
-サイトでRequireJSやその他のAMDモジュールローダーを使用しているが、Braze Web SDKをCDN経由で読み込みたい場合は、AMDサポートを含まないバージョンのライブラリを読み込むことができます。このバージョンのライブラリは、次のCDNロケーションから読み込めます：`https://js.appboycdn.com/web-sdk/6.3/braze.no-amd.min.js`
+サイトでRequireJSまたは別のAMDモジュールローダーを使用しているが、CDNを通じてBraze Web SDKを読み込みたい場合は、AMDサポートを含まないバージョンのライブラリを読み込むことができます。このバージョンのライブラリは、CDNロケーション`https://js.appboycdn.com/web-sdk/6.3/braze.no-amd.min.js`から読み込めます。
 
 #### モジュールローダー {#module-loader}
 
-RequireJSやその他のAMDモジュールローダーを使用している場合は、ライブラリのコピーをセルフホスティングし、他のリソースと同様に参照することをお勧めします。
+RequireJSまたは他のAMDモジュールローダーを使用している場合は、ライブラリのコピーをセルフホスティングし、他のリソースと同様に参照することをお勧めします。
 
 ``` javascript
 require(['path/to/braze.min.js'], function(braze) {
@@ -800,68 +800,68 @@ require(['path/to/braze.min.js'], function(braze) {
 
 ### Accelerated Mobile Pages（AMP） {#accelerated-mobile-pages-amp}
 
-AMP統合には、以下の手順が必要です。
+AMP統合には、以下が必要です。
 
-1. **AMP Webプッシュスクリプトを含める**：headに非同期スクリプトタグを追加します
-2. **購読ウィジェットを追加する**：ユーザーが購読/購読解除できるウィジェットを追加します
-3. **ヘルパーファイルを追加する**：`helper-iframe.html` と `permission-dialog.html` を含めます
-4. **サービスワーカーを作成する**：Brazeサービスワーカーファイルを追加します
-5. **AMP Webプッシュ要素を設定する**：APIキーとベースURLをクエリパラメーターとして `amp-web-push` 要素を追加します
+1. **AMP Webプッシュスクリプトの追加**: headに非同期スクリプトタグを追加します
+2. **サブスクリプションウィジェットの追加**: ユーザーが購読/購読解除できるウィジェットを追加します
+3. **ヘルパーファイルの追加**: `helper-iframe.html`と`permission-dialog.html`を含めます
+4. **Service Workerの作成**: BrazeのService Workerファイルを追加します
+5. **AMP Webプッシュ要素の設定**: APIキーとベースURLをクエリパラメーターとして`amp-web-push`要素を追加します
 
-AMPの詳細な統合手順については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
+AMP統合の詳細な手順については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
 
 ### Electron
 
-ElectronはWebプッシュ通知を公式にはサポートしていません（この[GitHubイシュー](https://github.com/electron/electron/issues/6697)を参照）。Brazeではテストされていませんが、試すことができる他の[オープンソースの回避策](https://github.com/MatthieuLemoine/electron-push-receiver)があります。
+Electronは公式にはWebプッシュ通知をサポートしていません（この[GitHubイシュー](https://github.com/electron/electron/issues/6697)を参照）。Brazeではテストされていませんが、試すことができる他の[オープンソースの回避策](https://github.com/MatthieuLemoine/electron-push-receiver)があります。
 
 ### CDN統合 {#cdn-integration}
 
-- **スクリプトの読み込み**：スクリプトタグの読み込み後に初期化するには、スクリプトタグの後に初期化コードを配置するか、スクリプトタグの `onload` イベントハンドラーを使用します
-- **グローバルアクセス**：CDN経由で読み込んだ場合、SDKは `window.braze` として利用できます
+- **スクリプトの読み込み**: スクリプトタグの後に初期化コードを配置するか、スクリプトタグの`onload`イベントハンドラーを使用して、スクリプトタグの読み込み後に初期化します
+- **グローバルアクセス**: CDN経由で読み込んだ場合、SDKは`window.braze`として利用できます
 
-### サービスワーカー（プッシュ通知） {#service-worker-push-notifications}
+### Service Worker（プッシュ通知） {#service-worker-push-notifications}
 
-- **必須**：プッシュ通知を機能させるには、Brazeサービスワーカーを含める必要があります
-- **デフォルトの登録**：デフォルトでは、Braze Web SDKは `requestPushPermission()` が呼び出されたとき、およびすでにプッシュ許可を付与しているユーザーの新しいセッション開始時に、サービスワーカーを自動的に登録・管理します。ただし、Brazeサービスワーカーコードを含むサービスワーカーファイルを、想定されるロケーションにホスティングする必要があります。
-- **独自のサービスワーカーの管理**：アプリケーションですでにサービスワーカーを管理している場合は、初期化オプション `manageServiceWorkerExternally` を `true` に設定し、Brazeサービスワーカーコードをサービスワーカーファイルに追加して、`navigator.serviceWorker.register()` を使用して自分で登録します
-- **プッシュ許可**：ユーザーの操作（ボタンクリックなど）に応じて `braze.requestPushPermission()` を呼び出します。ブラウザの許可をリクエストする前に、ソフトプッシュプロンプト（カスタムUI）を使用してください
+- **必須**: プッシュ通知を機能させるには、BrazeのService Workerを含める必要があります
+- **デフォルトの登録**: デフォルトでは、Braze Web SDKは`requestPushPermission()`が呼び出されたとき、およびすでにプッシュ許可を付与しているユーザーの新しいセッション開始時に、Service Workerを自動的に登録・管理します。ただし、BrazeのService Workerコードを含むService Workerファイルを想定されるロケーションにホスティングする必要があります。
+- **独自のService Workerの管理**: アプリケーションですでにService Workerを管理している場合は、`manageServiceWorkerExternally`初期化オプションを`true`に設定し、Service WorkerファイルにBrazeのService Workerコードを追加して、`navigator.serviceWorker.register()`を使用して自分で登録してください
+- **プッシュ許可**: ユーザーインタラクション（例: ボタンクリック）に応じて`braze.requestPushPermission()`を呼び出します。ブラウザの許可をリクエストする前に、ソフトプッシュプロンプト（カスタムUI）を使用してください
 
 ### タグマネージャー {#tag-managers}
 
 #### Tealium iQ
 
-Tealium iQは、基本的なターンキーBraze統合を提供します。統合を設定するには、Tealiumタグ管理インターフェイスでBrazeを検索し、ダッシュボードからWeb SDK APIキーを入力します。詳細やTealiumの詳しい設定サポートについては、[統合ドキュメント](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)を確認するか、Tealiumのアカウントマネージャーにお問い合わせください。
+Tealium iQは、基本的なターンキーBraze統合を提供します。統合を設定するには、Tealiumタグ管理インターフェイスでBrazeを検索し、ダッシュボードからWeb SDK APIキーを入力してください。詳細やTealiumの設定サポートについては、[統合ドキュメント](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)を確認するか、Tealiumのアカウントマネージャーにお問い合わせください。
 
 #### Google Tag Manager
 
-Web SDKは、Google Tag Managerコンテナ内のカスタムHTMLタグから初期化および呼び出しが可能です。GTM経由でBrazeにイベントを送信する例については、[Google Tag Managerサンプルアプリ](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager)を参照するか、詳細については[統合ドキュメント](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager)をご覧ください。
+Web SDKは、Google Tag Managerコンテナ内のカスタムHTMLタグから初期化および呼び出すことができます。GTMを介してBrazeにイベントを送信する例については、[Google Tag Managerサンプルアプリ](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager)を参照するか、詳細については[統合ドキュメント](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager)をご確認ください。
 
 #### その他のタグマネージャー {#other-tag-managers}
 
-Brazeは、カスタムHTMLタグ内で統合手順に従うことで、他のタグ管理ソリューションとも互換性がある場合があります。これらのソリューションの評価についてサポートが必要な場合は、Brazeの担当者にお問い合わせください。
+Brazeは、カスタムHTMLタグ内の統合手順に従うことで、他のタグ管理ソリューションとも互換性がある場合があります。これらのソリューションの評価についてサポートが必要な場合は、Brazeの担当者にお問い合わせください。
 
 ---
 
 ## ライブラリ {#libraries}
 
-以下の表は、利用可能なBraze Web SDKのディストリビューションを説明しています。
+以下の表は、利用可能なBraze Web SDKディストリビューションを説明しています。
 
 | 名前 | 説明 | npm | CDN URL
 | ---- | ----------- | --- | -------
-| Full | UIを含む完全なSDKです。npm版を使用する場合、JavaScriptバンドラーがUIコードを含む未使用のコードを除去します。 | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.10/braze.min.js
-| Core | UIを含まないSDKです。このバージョンのSDKを使用する場合、In-App MessagesやContent Cardsの独自UIを実装してください。CSSを通じてカスタマイズ可能なUI要素を提供するため、ほとんどの統合にはFullライブラリを使用してください。 | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.core.min.js
-| No-AMD | AMDサポートを含まない完全なSDKです。サイトでRequireJSや他のAMDモジュールローダーを使用しているが、CDN経由でSDKを読み込みたい場合に便利です。 | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.no-amd.min.js
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="ライブラリ" }
+| Full | UIを含む完全なSDKです。npmバージョンを使用する場合、JavaScriptバンドラーはUIコードを含む未使用のコードを削除します。 | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.10/braze.min.js
+| Core | UIなしのSDKです。このバージョンのSDKを使用する場合、In-App MessagesとContent Cards用に独自のUIを実装する必要があります。UI要素はCSSでカスタマイズ可能なため、ほとんどの統合にはフルライブラリを使用してください。 | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.core.min.js
+| No-AMD | AMDサポートなしの完全なSDKです。サイトでRequireJSまたは別のAMDモジュールローダーを使用しているが、CDNを通じてSDKを読み込みたい場合に便利です。 | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.no-amd.min.js
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Libraries" }
 
 ## サポートされているブラウザ {#supported-browsers}
 
-- 最新のChromiumベースのブラウザ（Chrome、Edge、Opera）
+- モダンなChromiumベースのブラウザ（Chrome、Edge、Opera）
 - Firefox
 - Safari
 
 ## デバッグとトラブルシューティング {#debugging-troubleshooting}
 
-初期化関数にオプション `enableLogging: true` を渡すと（`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`）、BrazeがJavaScriptコンソールにログを出力するようになります。これは開発時に役立ちますが、すべてのユーザーに表示されるため、ページを本番環境にリリースする前にこのオプションを削除するか、[代替のロガーを設定](https://js.appboycdn.com/web-sdk/6.10/doc/modules/braze.html#setlogger)してください。
+initialize関数にオプション`enableLogging: true`を渡すと（`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`）、BrazeがJavaScriptコンソールにログを出力するようになります。これは開発時に有用ですが、すべてのユーザーに表示されるため、本番環境にリリースする前にこのオプションを削除するか、[代替ロガーを提供](https://js.appboycdn.com/web-sdk/6.10/doc/modules/braze.html#setlogger)してください。
 
 ## Font Awesome
 
@@ -875,7 +875,7 @@ Brazeはアプリ内メッセージのアイコンに[Font Awesome](http://forta
 
 ## お問い合わせ {#contact}
 
-ご質問がある場合は、Brazeテクニカルサポートにお問い合わせください。
+ご質問がある場合は、Brazeテクニカルサポートまでお問い合わせください。
 <!-- END GENERATED README CONTENT -->
 
 リポジトリの詳細とサンプルプロジェクトについては、[https://github.com/braze-inc/braze-web-sdk](https://github.com/braze-inc/braze-web-sdk)を参照してください。

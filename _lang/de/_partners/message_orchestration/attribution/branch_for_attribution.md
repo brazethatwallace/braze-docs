@@ -113,7 +113,7 @@ Branch-Attribution-Felder werden wie folgt auf Braze abgebildet:
 
 ## Attribution-Daten von Facebook und X (ehemals Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 
-Attribution-Daten für Campaigns auf Facebook und X (ehemals Twitter) sind nicht über unsere Partner verfügbar. Diese Medienquellen erlauben ihren Partnern nicht, Attribution-Daten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
+Attribution-Daten für Kampagnen auf Facebook und X (ehemals Twitter) sind nicht über unsere Partner verfügbar. Diese Medienquellen erlauben ihren Partnern nicht, Attribution-Daten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
 
 ## Branch-Klick-Tracking-URLs in Braze (optional) {#branch-click-tracking-urls-in-braze-optional}
 

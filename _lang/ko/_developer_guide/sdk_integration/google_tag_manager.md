@@ -22,7 +22,7 @@ Google Tag Manager(GTM)를 사용하면 프로덕션 코드 릴리스나 엔지�
 
 | 태그 유형 | 사용 사례 |
 |--------|--------|
-| 초기화 태그 | 이 태그를 사용하면 사이트의 코드를 수정할 필요 없이 [Web Braze SDK를 통합]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web)할 수 있습니다.|
+| 초기화 태그 | 이 태그를 사용하면 사이트의 코드를 수정할 필요 없이 [웹 Braze SDK를 통합]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web)할 수 있습니다.|
 | 동작 태그 | 이 태그를 사용하면 [Content Cards를 생성]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager)하고, [사용자 속성을 설정]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web)하고, [데이터 수집을 관리]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web)할 수 있습니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="웹용 Google Tag Manager 정보" }
 

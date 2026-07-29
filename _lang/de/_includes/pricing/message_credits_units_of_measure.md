@@ -9,5 +9,5 @@ Verschiedene Produkte verwenden unterschiedliche Maßeinheiten im Reporting.
 - **LINE:** Sends
 - **KakaoTalk:** Sends
 
-Carrier-Gebühren für SMS, MMS und RCS werden separat (nachträglich) abgerechnet und sind nicht Teil dieser Message Credits SKU.
+Carrier-Gebühren für SMS, MMS und RCS werden separat (nachträglich) abgerechnet und sind nicht Teil dieser Message-Credits-SKU.
 {% endalert %}

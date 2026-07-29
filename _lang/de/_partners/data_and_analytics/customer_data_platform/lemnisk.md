@@ -40,7 +40,7 @@ Geben Sie unter **Basic Details** einen Namen, eine Beschreibung, einen Kanal un
 
 ![Eingabe der grundlegenden Konfigurationsdetails für eine neue External API in Lemnisk]({% image_buster /assets/img/lemnisk/ext_api_basic_details.png %})
 
-Geben Sie unter **External API details** die entsprechenden Details für Ihren `users.track`-Endpunkt ein. Mit {% raw %}`{{}}`{% endraw %} können Sie mehrere Felder auf Engagement-Ebene definieren, sodass Sie für verschiedene Kampagnen unterschiedliche Werte festlegen können.
+Geben Sie unter **External API details** die entsprechenden Details für Ihren `users.track`-Endpunkt ein. Mit {% raw %}`{{}}`{% endraw %} können Sie mehrere Felder auf Engagement-Ebene definieren, sodass Sie für verschiedene Campaigns unterschiedliche Werte festlegen können.
 
 ![Ausfüllen der Endpunkt- und Payload-Details für die External API]({% image_buster /assets/img/lemnisk/ext_api_ext_api_details.png %})
 

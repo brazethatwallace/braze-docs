@@ -45,7 +45,7 @@ O rastreamento de desinstalações pode ser impreciso. As métricas que você v�
 
 ### Etapa 1: Ativar push em segundo plano {#step-1-enable-background-push}
 
-Em seu projeto Xcode, acesse **Capabilities** e verifique se **Background Modes** está ativado. Para saber mais, consulte [notificação por push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift).
+Em seu projeto Xcode, acesse **Capacidades** e verifique se os **Modos de segundo plano** estão ativados. Para saber mais, consulte [notificação por push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift).
 
 ### Etapa 2: Ignorar notificações por push internas {#step-2-ignore-internal-push-notifications}
 
@@ -55,7 +55,7 @@ O SDK do Swift da Braze usa notificações por push em segundo plano para coleta
 
 Em seguida, envie a si mesmo uma notificação por push de teste pelo dashboard da Braze (não se preocupe&#8212;ela não atualiza seu perfil de usuário).
 
-1. Acesse **Messaging** > **Campaigns** e crie uma campanha de notificação por push usando a plataforma relevante.
+1. Acesse **Envio de mensagens** > **Campaigns** e crie uma campanha de notificação por push usando a plataforma relevante.
 2. Acesse **Settings** > **App Settings** e adicione a chave `appboy_uninstall_tracking` com o valor `true` relevante e, em seguida, marque **Add Content-Available Flag**.
 3. Use a página de **prévia** para enviar a si mesmo um push de teste de rastreamento de desinstalação.
 4. Verifique se o seu app não realiza nenhuma ação automática indesejada ao receber uma notificação por push.

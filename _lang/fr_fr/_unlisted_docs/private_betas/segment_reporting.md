@@ -2,7 +2,7 @@
 nav_title: Rapports par Segment
 article_title: Rapports par Segment dans le générateur de rapports
 permalink: /segment_reporting_report_builder/
-description: "Cet article de référence traite de l'utilisation des Segments comme dimension de rapport dans le générateur de rapports, y compris comment créer des rapports sur les Segments, ventiler par Segment, et quelles combinaisons sont prises en charge."
+description: "Cet article de référence traite de l'utilisation des Segments comme dimension de rapport dans le générateur de rapports, y compris comment créer des rapports sur les Segments, ventiler par Segment et quelles combinaisons sont prises en charge."
 hidden: true
 noindex: true
 page_type: reference
@@ -10,29 +10,29 @@ page_type: reference
 
 # Rapports par Segment dans le générateur de rapports {#segment-reporting-in-report-builder}
 
-> Cet article explique comment utiliser les Segments comme dimension de rapport dans le générateur de rapports, y compris comment créer des rapports sur les Segments, ventiler par Segment, et quelles combinaisons sont prises en charge.
+> Cet article explique comment utiliser les Segments comme dimension de rapport dans le générateur de rapports, y compris comment créer des rapports sur les Segments, ventiler par Segment et quelles combinaisons sont prises en charge.
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success manager' %}
 
-Le générateur de rapports prend en charge les **Segments** dans les lignes et comme option de ventilation, afin que vous puissiez voir les performances de vos Segments et ventiler les performances des Campaigns ou des Canvas par appartenance à un Segment. Si **Segments** n'apparaît pas dans vos menus déroulants **Lignes** ou **Ventilation**, cette fonctionnalité n'a pas été activée pour votre compte.
+Le générateur de rapports prend en charge les **Segments** dans les lignes et comme option de ventilation, afin que vous puissiez voir les performances de vos Segments et ventiler les performances des Campaigns ou des Canvas par appartenance à un Segment. Si **Segments** n'apparaît pas dans vos menus déroulants **Rows** ou **Drilldown**, cette fonctionnalité n'a pas été activée pour votre compte.
 
 Vous pouvez répondre à des questions telles que :
 
 - Comment un Segment spécifique performe-t-il au fil du temps ?
 - Quelles Campaigns et quels Canvas ciblent un Segment donné, et comment chacun a-t-il performé ?
-- Comment l'engagement se compare-t-il entre les Segments pour une même Campaign ou un même Canvas ?
+- Comment l'engagement se compare-t-il entre les Segments pour une seule Campaign ou un seul Canvas ?
 
 {% alert note %}
-Les rapports par Segment sont disponibles uniquement pour les Segments avec le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) activé. Pour sélectionner **Segments** dans le menu déroulant **Lignes**, vous devez disposer de la [permission « View Dashboard Reports » au niveau de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Les rapports par Segment sont disponibles uniquement pour les Segments avec le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) activé. Pour sélectionner **Segments** dans le menu déroulant **Rows**, vous devez disposer de la [permission « View Dashboard Reports » au niveau de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
-## Créer un rapport sur les Segments {#report-on-segments}
+## Créer des rapports sur les Segments {#report-on-segments}
 
-Pour créer un rapport directement sur les Segments :
+Pour créer des rapports directement sur les Segments :
 
 1. Accédez à **Analytics** > **Report Builder (New)**.
 2. Cliquez sur **Create New Report**.
-3. Dans le menu déroulant **Lignes**, sélectionnez **Segments**.
+3. Dans le menu déroulant **Rows**, sélectionnez **Segments**.
 4. (Facultatif) Sélectionnez **Add drilldown** pour ventiler davantage les données du Segment :
    - **Campaigns and Canvases :** voir quelles Campaigns et quels Canvas ciblent le Segment, et comment chacun a performé.
    - **Date :** voir comment la taille ou les performances d'un Segment évoluent au fil du temps. Associez avec un graphique en courbes pour visualiser la tendance.
@@ -45,9 +45,9 @@ Pour le flux de travail complet du générateur de rapports, consultez [Créer u
 
 ## Ventiler par Segment {#drill-down-by-segment}
 
-Pour ventiler les rapports de Campaigns, de Canvas ou par canal par Segment :
+Pour ventiler les rapports de Campaigns, Canvas ou canaux par Segment :
 
-1. Dans le menu déroulant **Lignes**, sélectionnez **Campaigns**, **Canvases** ou **Campaigns and Canvases**.
+1. Dans le menu déroulant **Rows**, sélectionnez **Campaigns**, **Canvases** ou **Campaigns and Canvases**.
 2. Sélectionnez **Add drilldown**, puis choisissez **Segment**.
 3. Dans **Report content**, ouvrez le menu déroulant **Segments** et sélectionnez les Segments à ajouter à votre rapport.
 4. Sélectionnez les indicateurs dans **Columns** > **Customize Metrics**, puis définissez votre plage de dates dans **Report content**.
@@ -58,9 +58,9 @@ Cette approche est particulièrement utile pour les espaces de travail qui envoi
 
 ## Combinaisons prises en charge {#supported-combinations}
 
-Les combinaisons de **Lignes** et de **Ventilation** suivantes sont prises en charge pour les rapports par Segment :
+Les combinaisons de **Rows** et **Drilldown** suivantes sont prises en charge pour les rapports par Segment :
 
-| Lignes | Ventilation |
+| Rows | Drilldown |
 | ----- | ----- |
 | Segment | Campaigns and Canvases |
 | Segment | Date |
@@ -68,22 +68,22 @@ Les combinaisons de **Lignes** et de **Ventilation** suivantes sont prises en ch
 | Campaign | Variante |
 | Canvas | Segment |
 | Campaigns and Canvases | Segment |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Combinaisons de lignes et de ventilation prises en charge"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Combinaisons de lignes et de ventilations prises en charge"}
 
 {% alert note %}
-Le générateur de rapports prend en charge une seule ventilation à la fois. Si vous sélectionnez **Campaigns** dans le menu déroulant **Lignes**, vous pouvez ventiler par **Variante** ou par **Segment**, mais pas les deux dans le même rapport.
+Le générateur de rapports prend en charge une seule ventilation à la fois. Si vous sélectionnez **Campaigns** dans le menu déroulant **Rows**, vous pouvez ventiler par **Variant** ou **Segment**, mais pas les deux dans le même rapport.
 {% endalert %}
 
 ## Disponibilité des indicateurs {#metrics-availability}
 
-Tous les indicateurs du générateur de rapports ne sont pas disponibles lorsque vous créez un rapport sur les Segments. Les indicateurs que vous pouvez sélectionner dépendent également du fait que **Segments** se trouve dans **Lignes** ou dans **Ventilation**, et que le rapport inclut ou non une dimension Campaign ou Canvas.
+Tous les indicateurs du générateur de rapports ne sont pas disponibles lorsque vous créez des rapports sur les Segments. Les indicateurs que vous pouvez sélectionner dépendent également du fait que **Segments** se trouve dans **Rows** ou **Drilldown**, et que le rapport inclut ou non une dimension Campaign ou Canvas.
 
 | Indicateur | Disponibilité |
 | ----- | ----- |
-| Indicateurs de canal et de messagerie générale | Disponibles pour les combinaisons de lignes et de ventilation prises en charge. |
-| Nombre de conversions (Conversions A–D) et noms des événements de conversion | Disponibles lorsque les dimensions Segment et Campaign ou Canvas apparaissent ensemble. Utilisez **Segments** dans les lignes avec une ventilation **Campaigns and Canvases** ; ou utilisez **Campaigns**, **Canvases** ou **Campaigns and Canvases** dans les lignes avec une ventilation **Segment**. |
+| Indicateurs de canal et de messagerie générale | Disponibles pour les combinaisons de lignes et de ventilations prises en charge. |
+| Nombre de conversions (Conversions A–D) et noms d'événements de conversion | Disponibles lorsque les dimensions Segment et Campaign ou Canvas apparaissent ensemble. Utilisez **Segments** dans les lignes avec une ventilation **Campaigns and Canvases** ; ou utilisez **Campaigns**, **Canvases** ou **Campaigns and Canvases** dans les lignes avec une ventilation **Segment**. |
 | Chiffre d'affaires et taux de conversion | Non disponibles pour les rapports dimensionnés par Segment. |
 | Chiffre d'affaires et nombre d'achats par Segment | Disponibles uniquement lorsque **Segments** se trouve dans les lignes. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Disponibilité des indicateurs pour les rapports par Segment"}
 
-Pour en savoir plus sur l'impact de vos sélections de lignes et de ventilation sur les indicateurs, consultez [Disponibilité des indicateurs]({{site.baseurl}}/user_guide/analytics/reports/report_builder#metrics-availability) dans le générateur de rapports.
+Pour en savoir plus sur l'impact de vos sélections de lignes et de ventilations sur les indicateurs, consultez [Disponibilité des indicateurs]({{site.baseurl}}/user_guide/analytics/reports/report_builder#metrics-availability) dans le générateur de rapports.

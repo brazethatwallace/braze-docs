@@ -16,7 +16,7 @@ description: "Découvrez comment suivre les désinstallations grâce au SDK de B
 
 ### Étape 1 : Mise en place du FCM {#step-1-set-up-fcm}
 
-Le SDK Android Braze utilise Firebase Cloud Messaging (FCM) pour envoyer des notifications push silencieuses, qui sont utilisées pour collecter des analyses/analytiques de suivi de désinstallation. Si ce n'est pas déjà fait, [configurez]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#android_setting-up-push-notifications) ou [migrez vers l']({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) API Firebase Cloud Messaging pour les notifications push.
+Le SDK Android Braze utilise Firebase Cloud Messaging (FCM) pour envoyer des notifications push silencieuses, qui sont utilisées pour collecter des analyses/analytiques de suivi de désinstallation. Si ce n'est pas déjà fait, [configurez]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#android_setting-up-push-notifications) ou [migrez vers l']({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)API Firebase Cloud Messaging pour les notifications push.
 
 ### Étape 2 : Détecter manuellement le suivi des désinstallations (facultatif) {#step-2-manually-detect-uninstall-tracking-optional}
 
@@ -51,13 +51,13 @@ Dans votre projet Xcode, allez dans **Capacités** et assurez-vous que les **Mod
 
 Le SDK Swift de Braze utilise des notifications push en arrière-plan pour collecter des analyses/analytiques de suivi de désinstallation. Assurez-vous que votre application [ignore les notifications push internes]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications) afin qu'elle n'effectue pas d'actions non désirées lorsque celles-ci sont envoyées.
 
-### Étape 3 : Envoyer un push de test (facultatif) {#step-3-send-a-test-push-optional}
+### Étape 3 : Envoyer une notification push de test (facultatif) {#step-3-send-a-test-push-optional}
 
 Ensuite, envoyez-vous une notification push de test à partir du tableau de bord de Braze (ne vous inquiétez pas&#8212;elle ne mettra pas à jour votre profil utilisateur).
 
-1. Allez dans **Envoi de messages** > **Campagnes** et créez une campagne de notification push à l'aide de la plateforme correspondante.
-2. Allez dans **Settings** > **App Settings** et ajoutez la clé `appboy_uninstall_tracking` avec la valeur `true` correspondante, puis cochez **Add Content-Available Flag**.
-3. Utilisez la page **Preview** pour vous envoyer une notification push de test de suivi de désinstallation.
+1. Allez dans **Envoi de messages** > **Campaigns** et créez une campagne de notification push à l'aide de la plateforme correspondante.
+2. Allez dans **Paramètres** > **Paramètres de l'application** et ajoutez la clé `appboy_uninstall_tracking` avec la valeur `true` correspondante, puis cochez **Add Content-Available Flag**.
+3. Utilisez la page **Aperçu** pour vous envoyer une notification push de test de suivi de désinstallation.
 4. Vérifiez que votre application n'effectue aucune action automatique non désirée lorsqu'elle reçoit une notification push.
 
 {% alert note %}

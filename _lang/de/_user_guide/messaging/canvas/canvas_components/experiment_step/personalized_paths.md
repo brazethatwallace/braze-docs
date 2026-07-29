@@ -10,72 +10,72 @@ tool: Canvas
 
 > Personalisierte Pfade ähneln der [personalisierten Variante]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#personalized-variant) in Campaigns und ermöglichen es Ihnen, jeden Punkt einer Canvas-Journey für einzelne Nutzer:innen basierend auf der Conversion-Wahrscheinlichkeit zu personalisieren.
 
-## Wie Personalisierte Pfade funktionieren {#how-personalized-paths-works}
+## So funktionieren personalisierte Pfade {#how-personalized-paths-works}
 
-Wenn Personalisierte Pfade in einem Experimentpfade-Schritt aktiviert sind, unterscheidet sich das Verhalten leicht, je nachdem, ob Ihr Canvas für einen einmaligen Versand oder für wiederkehrende Versendungen konfiguriert ist:
+Wenn personalisierte Pfade in einem Experimentpfad-Schritt aktiviert sind, unterscheidet sich das Verhalten leicht, je nachdem, ob Ihr Canvas für einen einmaligen Versand oder für wiederkehrende Versendungen konfiguriert ist:
 
-- **Einmaliger Canvas-Versand:** Eine Gruppe von Nutzer:innen wird in einer Verzögerungsgruppe zurückgehalten. Die übrigen Nutzer:innen durchlaufen einen ersten Test, um ein Vorhersagemodell für eine von Ihnen konfigurierte Dauer zu trainieren – mindestens 24 Stunden für optimale Ergebnisse. Nach dem Test wird ein Modell erstellt, das lernt, welche Verhaltensweisen der Nutzer:innen mit einer höheren Wahrscheinlichkeit einer Konversion auf einem bestimmten Pfad verbunden waren. Schließlich wird jede:r Nutzer:in in der Verzögerungsgruppe auf den Pfad geleitet, der basierend auf den gezeigten Verhaltensweisen und den Erkenntnissen des Vorhersagemodells aus dem ersten Test am wahrscheinlichsten zu einer Konversion führt.
-- **Wiederkehrende, aktionsbasierte und API-getriggerte Canvases:** Ein erstes Experiment wird mit allen Nutzer:innen durchgeführt, die den Experimentpfad während eines festgelegten Zeitfensters betreten. Um die Integrität des Experiments zu wahren, wird Nutzer:innen, die vor Ende des Zeitfensters mehrere Nachrichten erhalten, jedes Mal dieselbe Variante zugewiesen. Nach dem Experimentfenster wird jede:r Nutzer:in auf den Pfad geleitet, der für sie am wahrscheinlichsten zu einer Konversion führt.
+- **Einmaliger Canvas-Versand:** Eine Gruppe von Nutzer:innen wird in einer Verzögerungsgruppe zurückgehalten. Die übrigen Nutzer:innen durchlaufen einen initialen Test, um ein prädiktives Modell für eine von Ihnen konfigurierte Dauer zu trainieren – mindestens 24 Stunden für beste Ergebnisse. Nach dem Test wird ein Modell erstellt, das lernt, welche Nutzerverhalten mit einer höheren Conversion-Wahrscheinlichkeit auf einem bestimmten Pfad verbunden waren. Schließlich wird jede:r Nutzer:in in der Verzögerungsgruppe den Pfad entlang gesendet, der basierend auf dem gezeigten Verhalten und den Erkenntnissen des prädiktiven Modells aus dem initialen Test am wahrscheinlichsten zu einer Conversion führt.
+- **Wiederkehrende, aktionsgetriggerte und API-getriggerte Canvases:** Ein initiales Experiment wird mit allen Nutzer:innen durchgeführt, die während eines festgelegten Zeitfensters den Experimentpfad betreten. Um die Integrität des Experiments zu wahren, wird Nutzer:innen, die vor Ende des Zeitfensters mehrere Nachrichten erhalten, jedes Mal dieselbe Variante zugewiesen. Nach dem Experiment-Zeitfenster wird jede:r Nutzer:in den Pfad entlang gesendet, der am wahrscheinlichsten zu einer Conversion führt.
 
 ## Personalisierte Pfade verwenden {#using-personalized-paths}
 
-### Schritt 1: Experimentpfad hinzufügen {#step-1-add-an-experiment-path}
+### Schritt 1: Einen Experimentpfad hinzufügen {#step-1-add-an-experiment-path}
 
-Fügen Sie Ihrem Canvas einen [Experimentpfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) hinzu und aktivieren Sie dann **Personalisierte Pfade**.
+Fügen Sie Ihrem Canvas einen [Experimentpfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) hinzu und aktivieren Sie dann **Personalized Paths**.
 
-![Fügen Sie Ihrem Canvas einen Experimentpfad hinzu und aktivieren Sie dann „Personalisierte Pfade“.]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
+![Fügen Sie Ihrem Canvas einen Experimentpfad hinzu und aktivieren Sie dann „Personalized Paths“.]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
 
 ### Schritt 2: Einstellungen für personalisierte Pfade konfigurieren {#step-2-configure-personalized-paths-settings}
 
 Legen Sie das Konversions-Event fest, das den Gewinner bestimmen soll. Wenn keine Konversions-Events verfügbar sind, kehren Sie zum ersten Schritt der Canvas-Einrichtung zurück und [weisen Sie Konversions-Events zu]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events).
 
-Wenn Sie Öffnungen oder Klicks als Konversions-Event auswählen, stellen Sie sicher, dass der erste Schritt im Pfad ein [Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) ist. Braze zählt nur das Engagement des ersten Nachrichtenschritts in jedem jeweiligen Pfad. Wenn der Pfad mit einem anderen Schritt beginnt (z. B. einem Verzögerungs- oder Zielgruppenpfadschritt) und die Nachricht erst später kommt, wird diese Nachricht bei der Performance-Bewertung nicht berücksichtigt.
+Wenn Sie Öffnungen oder Klicks als Konversions-Event wählen, stellen Sie sicher, dass der erste Schritt im Pfad ein [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) ist. Braze zählt nur das Engagement des ersten Nachrichten-Schritts in jedem jeweiligen Pfad. Wenn der Pfad mit einem anderen Schritt beginnt (wie einem Verzögerungs- oder Zielgruppenpfad-Schritt) und die Nachricht erst später kommt, wird diese Nachricht bei der Performance-Bewertung nicht berücksichtigt.
 
-Legen Sie dann das **Experimentfenster** fest. Das **Experimentfenster** bestimmt, wie lange Nutzer:innen alle Pfade durchlaufen, bevor der beste Pfad für jede:n Nutzer:in in der Verzögerungsgruppe ausgewählt wird. Das Fenster beginnt, wenn die/der erste Nutzer:in den Schritt betritt.
+Legen Sie dann das **Experiment Window** fest. Das **Experiment Window** bestimmt, wie lange Nutzer:innen alle Pfade durchlaufen, bevor der beste Pfad für jede:n Nutzer:in in der Verzögerungsgruppe ausgewählt wird. Das Zeitfenster beginnt, wenn die erste Person den Schritt betritt.
 
 ![Screenshot zu Schritt 2: Einstellungen für personalisierte Pfade konfigurieren.]({% image_buster /assets/img/experiment_step/experiment_personalized_settings.png %})
 
 ### Schritt 3: Fallback festlegen {#step-3-determine-fallback}
 
-Standardmäßig werden alle zukünftigen Nutzer:innen den einzelnen leistungsstärksten Pfad durchlaufen, wenn die Testergebnisse nicht ausreichen, um einen statistisch signifikanten Gewinner zu ermitteln.
+Standardmäßig werden alle zukünftigen Nutzer:innen den einzelnen leistungsstärksten Pfad entlang gesendet, wenn die Testergebnisse nicht ausreichen, um einen statistisch signifikanten Gewinner zu ermitteln.
 
-Alternativ können Sie **Alle zukünftigen Nutzer:innen weiterhin den Mix aus Pfaden senden** auswählen.
+Alternativ können Sie **Continue sending all future users the mix of paths** auswählen.
 
-![Alternativ können Sie „Alle zukünftigen Nutzer:innen weiterhin den Mix aus Pfaden senden“ auswählen.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
+![Alternativ können Sie „Continue sending all future users the mix of paths“ auswählen.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
 
-Diese Option sendet zukünftige Nutzer:innen gemäß den in der Experimentpfad-Verteilung angegebenen Prozentsätzen durch den Mix aus Pfaden.
+Diese Option sendet zukünftige Nutzer:innen den Mix aus Pfaden gemäß den in der Experimentpfad-Verteilung angegebenen Prozentsätzen entlang.
 
 ![Screenshot zu Schritt 3: Fallback festlegen.]({% image_buster /assets/img/experiment_step/experiment_personalized_percentages.png %})
 
 {% alert note %}
-Wenn das Experiment mit unzureichenden Ergebnissen abgeschlossen wird, wird nur der Tab **Initiales Experiment** angezeigt, da das Modell feststellt, dass die Personalisierung einen einzelnen leistungsstärksten Pfad nicht übertreffen würde. Weitere Details finden Sie unter [Analytics](#analytics).
+Wenn das Experiment mit unzureichenden Ergebnissen abgeschlossen wird, wird nur der Tab **Initial Experiment** angezeigt, da das Modell feststellt, dass die Personalisierung nicht besser abschneiden würde als ein einzelner leistungsstärkster Pfad. Weitere Details finden Sie unter [Analytics](#analytics).
 {% endalert %}
 
-### Schritt 4: Pfade hinzufügen und Canvas starten {#step-4-add-your-paths-and-launch-the-canvas}
+### Schritt 4: Pfade hinzufügen und den Canvas starten {#step-4-add-your-paths-and-launch-the-canvas}
 
 {% tabs local %}
-{% tab Einmalversand-Canvas %}
+{% tab Einmaliger Canvas-Versand %}
 
-Eine einzelne Experimentpfad-Komponente kann bis zu vier Pfade enthalten. Bei Einmalversand-Canvases können Sie jedoch nur bis zu drei Pfade hinzufügen, wenn personalisierte Pfade aktiviert sind. Der vierte Pfad sollte für die Verzögerungsgruppe reserviert sein, die Braze automatisch zu Ihrem Experiment hinzufügt.
+Eine einzelne Experimentpfad-Komponente kann bis zu vier Pfade enthalten. Bei einmaligen Canvases können Sie jedoch nur bis zu drei Pfade hinzufügen, wenn personalisierte Pfade aktiviert sind. Der vierte Pfad sollte für die Verzögerungsgruppe reserviert sein, die Braze automatisch zu Ihrem Experiment hinzufügt.
 
-Schließen Sie die Einrichtung Ihres Canvas nach Bedarf ab und starten Sie ihn. Sobald die/der erste Nutzer:in das Experiment betreten hat, können Sie das Canvas überprüfen, um die eingehenden Analytics zu sehen und die [Performance Ihres Experiments zu verfolgen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
+Schließen Sie die Einrichtung Ihres Canvas nach Bedarf ab und starten Sie ihn. Sobald die erste Person das Experiment betreten hat, können Sie den Canvas überprüfen, um die eingehenden Analytics zu sehen und die [Performance Ihres Experiments zu verfolgen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
 
-![Screenshot zu Schritt 4: Pfade hinzufügen und Canvas starten.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
+![Screenshot zu Schritt 4: Pfade hinzufügen und den Canvas starten.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_pending.png %}){: style="max-width:75%;" }
 
-Wenn das Experimentfenster abgelaufen und das Experiment abgeschlossen ist, sendet Braze die Nutzer:innen in der Verzögerungsgruppe auf ihre jeweiligen Pfade mit der höchsten personalisierten Konversionswahrscheinlichkeit, basierend auf der Empfehlung des prädiktiven Modells.
+Wenn das Experiment-Zeitfenster abgelaufen und das Experiment abgeschlossen ist, sendet Braze die Nutzer:innen in der Verzögerungsgruppe auf ihre jeweiligen Pfade mit der höchsten personalisierten Conversion-Wahrscheinlichkeit, basierend auf der Empfehlung des prädiktiven Modells.
 
-![Screenshot zu Schritt 4: Pfade hinzufügen und Canvas starten.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
+![Screenshot zu Schritt 4: Pfade hinzufügen und den Canvas starten.]({% image_buster /assets/img/experiment_step/experiment_personalized_delay_group_complete.png %}){: style="max-width:75%;" }
 
 {% endtab %}
-{% tab Wiederkehrendes, aktionsbasiertes oder API-getriggertes Canvas %}
+{% tab Wiederkehrender, aktionsgetriggerter oder API-getriggerter Canvas %}
 
 Sie können bis zu vier Pfade in einem einzelnen Experimentpfad testen. Fügen Sie Ihre Pfade hinzu, schließen Sie die Einrichtung Ihres Canvas nach Bedarf ab und starten Sie ihn.
 
-Sobald die/der erste Nutzer:in das Experiment betreten hat, können Sie das Canvas überprüfen, um die eingehenden Analytics zu sehen und die [Performance Ihres Experiments zu verfolgen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
+Sobald die erste Person das Experiment betreten hat, können Sie den Canvas überprüfen, um die eingehenden Analytics zu sehen und die [Performance Ihres Experiments zu verfolgen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
 
-Wenn das Experimentfenster abgelaufen und das Experiment abgeschlossen ist, werden alle nachfolgenden Nutzer:innen, die das Canvas betreten, auf den Pfad geleitet, der für sie am wahrscheinlichsten zu einer Konversion führt.
+Wenn das Experiment-Zeitfenster abgelaufen und das Experiment abgeschlossen ist, werden alle nachfolgenden Nutzer:innen, die den Canvas betreten, den Pfad entlang gesendet, der am wahrscheinlichsten zu einer Conversion für sie führt.
 
-![Screenshot zu Schritt 4: Pfade hinzufügen und Canvas starten.]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
+![Screenshot zu Schritt 4: Pfade hinzufügen und den Canvas starten.]({% image_buster /assets/img/experiment_step/experiment_personalized_recurring_analytics.png %}){: style="max-width:75%;" }
 
 {% endtab %}
 {% endtabs %}
@@ -84,7 +84,7 @@ Wenn das Experimentfenster abgelaufen und das Experiment abgeschlossen ist, werd
 
 Wenn personalisierte Pfade aktiviert sind und ausreichende Ergebnisse liefern, ist Ihre Analytics-Ansicht in zwei Tabs unterteilt: **Initial Experiment** und **Personalized Paths**.
 
-Wenn das Experiment mit unzureichenden Ergebnissen abgeschlossen wird (zum Beispiel wenn der prognostizierte Lift des Modells unter dem Schwellenwert von 0,5 % liegt oder keine aussagekräftigen Nutzersegmente identifiziert werden), wird nur der Tab **Initial Experiment** angezeigt, da das Modell feststellt, dass die Personalisierung nicht besser abschneiden würde als ein einzelner leistungsstärkster Pfad. In diesem Fall wird Ihr konfiguriertes Fallback-Verhalten angewendet, und es stehen keine Analytics für personalisierte Pfade zur Verfügung.
+Wenn das Experiment mit unzureichenden Ergebnissen abgeschlossen wird (z. B. wenn der prognostizierte Lift des Modells unter dem Schwellenwert von 0,5 % liegt oder keine aussagekräftigen Nutzersegmente identifiziert werden), wird nur der Tab **Initial Experiment** angezeigt, da das Modell feststellt, dass die Personalisierung nicht besser abschneiden würde als ein einzelner leistungsstärkster Pfad. In diesem Fall wird Ihr konfiguriertes Fallback-Verhalten angewendet, und es stehen keine Analytics für personalisierte Pfade zur Verfügung.
 
 {% tabs local %}
 {% tab Initial Experiment %}
@@ -149,6 +149,6 @@ Die drei Karten auf dieser Seite zeigen Ihren prognostizierten Lift, die Gesamte
 
 ## Personalisierte Pfade mit Zustellung zur Ortszeit verwenden {#using-personalized-paths-with-local-time-delivery}
 
-Wir empfehlen nicht, die Zustellung zur Ortszeit in Canvases mit personalisierten Pfaden zu verwenden. Der Grund dafür ist, dass Experimentfenster beginnen, sobald die erste Nutzer:in den Schritt durchläuft. Nutzer:innen in sehr frühen Zeitzonen können den Schritt betreten und den Start des Experimentfensters viel früher als erwartet auslösen, was dazu führen kann, dass das Experiment endet, bevor der Großteil Ihrer Nutzer:innen in typischeren Zeitzonen genügend Zeit hatte, den Canvas zu betreten und zu konvertieren.
+Wir empfehlen nicht, die Zustellung zur Ortszeit in Canvases mit personalisierten Pfaden zu verwenden. Dies liegt daran, dass Experiment-Zeitfenster beginnen, wenn die erste Person den Schritt durchläuft. Nutzer:innen in sehr frühen Zeitzonen können den Schritt betreten und den Start des Experiment-Zeitfensters viel früher als erwartet auslösen, was dazu führen kann, dass das Experiment abgeschlossen wird, bevor der Großteil Ihrer Nutzer:innen in typischeren Zeitzonen genügend Zeit hatte, den Canvas zu betreten und zu konvertieren.
 
-Wenn Sie alternativ die Zustellung zur Ortszeit verwenden möchten, nutzen Sie ein Experimentfenster von 24–48 oder mehr Stunden. Auf diese Weise betreten Nutzer:innen in frühen Zeitzonen den Canvas und lösen den Start des Experiments aus, aber es verbleibt noch ausreichend Zeit im Experimentfenster. Nutzer:innen in späteren Zeitzonen haben dann immer noch genügend Zeit, den Canvas und den Experimentschritt mit personalisierten Pfaden zu betreten und möglicherweise zu konvertieren, bevor das Experimentfenster abläuft.
+Wenn Sie alternativ die Zustellung zur Ortszeit verwenden möchten, nutzen Sie ein Experiment-Zeitfenster von 24–48 oder mehr Stunden. Auf diese Weise betreten Nutzer:innen in frühen Zeitzonen den Canvas und lösen den Start des Experiments aus, aber es bleibt genügend Zeit im Experiment-Zeitfenster. Nutzer:innen in späteren Zeitzonen haben dann noch ausreichend Zeit, den Canvas und den Experimentpfad-Schritt mit personalisierten Pfaden zu betreten und möglicherweise zu konvertieren, bevor das Experiment-Zeitfenster abläuft.

@@ -31,7 +31,7 @@ lazy_partner_tabs: true
 
 このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報の種類を示しています。コンポーネントをしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやチャートを作成し、その他の貴重なデータ指標を活用できます。
 
-![メッセージエンゲージメントイベントの内訳。メール購読解除イベントを示し、リストされたプロパティがユーザー固有のプロパティ、キャンペーンまたはキャンバスのトラッキングプロパティ、イベント固有のプロパティにグループ化されています]({% image_buster /assets/img/message_engagement_event.png %})
+![メッセージエンゲージメントイベントの内訳。ユーザー固有のプロパティ、キャンペーンまたはキャンバスのトラッキングプロパティ、イベント固有のプロパティにグループ化されたプロパティを含むメール購読解除イベントを示しています]({% image_buster /assets/img/message_engagement_event.png %})
 
 メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン/キャンバスのトラッキング**プロパティ、および**イベント固有**のプロパティで構成されています。
 
@@ -63,7 +63,7 @@ lazy_partner_tabs: true
 
 {% enddetails %}
 
-{% details メッセージエンゲージメントイベントに関する考慮事項 %}
+{% details メッセージエンゲージメントイベントに関する注意事項 %}
 
 - Currentsは、ペイロードが900&nbsp;KBを超えるイベントをドロップします。
 - キャンバスフローに関連するオブジェクトには、グループ化に使用でき、[キャンバス詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)を通じて人間が読める名前に変換できるIDがあります。
@@ -911,7 +911,28 @@ Subscription
 {% endtabs %}
 
 ### プロパティの詳細
-{% multi_lang_include currents/property_details_dispatch_state_source.md %}
+<ul>
+<li><code>dispatch_id</code> は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生したすべてのプッシュイベントには同じ <code>dispatch_id</code> が含まれます。<code>dispatch_id</code> を使用して、同じディスパッチに属するイベントをグループ化し、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化して相関させることができます。</li>
+<li><code>state_change_source</code> は、完全なソース名の文字列を返します。例えば、ソースがCSVインポートの場合、文字列 <code>CSV import</code> が返されます。利用可能なソースを以下に示します。</li>
+</ul>
+<table class="reset-td-br-1 reset-td-br-2" role="presentation">
+<thead>
+<tr><th>ソース</th><th>説明</th></tr>
+</thead>
+<tbody>
+<tr><td>SDK</td><td>SDKエンドポイント</td></tr>
+<tr><td>ダッシュボード</td><td>ユーザーの購読状態がダッシュボードのユーザープロファイルページから更新された場合</td></tr>
+<tr><td>購読ページ</td><td>ユーザー設定センター以外のメールリンクを介してユーザーが購読解除した場合</td></tr>
+<tr><td>REST API</td><td>REST APIエンドポイント</td></tr>
+<tr><td>CSVインポート</td><td>CSVユーザーインポート</td></tr>
+<tr><td>ユーザー設定センター</td><td>ユーザー設定センターからユーザーが更新された場合</td></tr>
+<tr><td>受信メッセージ</td><td>SMSなどのチャネルを経由するエンドユーザーからのインバウンドメッセージによってユーザーが更新された場合</td></tr>
+<tr><td>移行</td><td>内部移行または保守スクリプトによってユーザーが更新された場合</td></tr>
+<tr><td>ユーザーマージ</td><td>ユーザーのマージプロセスによってユーザーが更新された場合</td></tr>
+<tr><td>キャンバスユーザー更新ステップ</td><td>キャンバスユーザー更新ステップによってユーザーが更新された場合</td></tr>
+</tbody>
+</table>
+
 
 
 {% endapi %}
@@ -2800,7 +2821,7 @@ Canvas, Progression
 Banner, Abort
 {% endapitags %}
 
-このイベントは、予定されていたバナーメッセージが何らかの理由で中止された場合に発生します。
+このイベントは、もともとスケジュールされていたバナーメッセージが何らかの理由で中止された場合に発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -4183,7 +4204,7 @@ Abort, Content Cards
 
 ### プロパティの詳細
 
-- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 - `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 Content Card messages every 1 week`
@@ -4456,8 +4477,8 @@ Content Cards, Clicks
 
 ### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
+- `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)を参照してください。
+- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
 
 {% endapi %}
 
@@ -4727,8 +4748,8 @@ Content Cards, Dismissal
 
 ### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
+- `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)を参照してください。
+- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
 
 {% endapi %}
 
@@ -4998,8 +5019,8 @@ Content Cards, Impressions
 
 ### プロパティの詳細
 
-- `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id) を参照してください。
-- Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して `ad_id` の送信を有効にしてください。
+- `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)を参照してください。
+- Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
 
 {% endapi %}
 
@@ -7659,9 +7680,9 @@ Email, Sends
 
 ### プロパティの詳細
 
-- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
-- `message_extras` を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id`の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
+- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
 
 {% endapi %}
 
@@ -7913,8 +7934,8 @@ Email, Bounce
 
 ### プロパティの詳細
 
-- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id`の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
 
 {% endapi %}
 
@@ -12544,7 +12565,7 @@ RCS, Abort
 ### プロパティの詳細
 
 - `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
-- `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中断された場合、`frequency_capped`になります。
+- `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
 - `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 RCS messages every 1 week`
 
 {% endapi %}
@@ -13758,7 +13779,7 @@ RCS, Rejection
 RCS, Sends
 {% endapitags %}
 
-このイベントは、Brazeからラストマイルデリバリーパートナーへ RCS メッセージが送信された際に生成されます。
+このイベントは、BrazeからラストマイルデリバリーパートナーへRCSメッセージが送信された際に生成されます。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13998,7 +14019,7 @@ RCS, Sends
 
 ### プロパティの詳細
 
-- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -14231,7 +14252,7 @@ SMS, Sends
 このイベントは、SMSが通信事業者に送信されたときに発生します。
 
 {% alert important %}
-`CarrierSend` は、レガシーインフラストラクチャのユーザーに対してのみサポートされています。
+`CarrierSend` は、レガシーインフラのユーザーに対してのみサポートされています。
 {% endalert %}
 
 {% tabs %}
@@ -14716,7 +14737,7 @@ SMS, Delivery
 SMS, Delivery, Failure
 {% endapitags %}
 
-このイベントは、SMSで配信エラーが発生したときに発生します。このイベントと提供されたエラーコードを使用して、SMS配信に関する問題のトラブルシューティングに役立てることができます。
+このイベントは、SMSで配信失敗が発生したときに発生します。このイベントと提供されたエラーコードを使用して、SMS配信に関する問題のトラブルシューティングに役立ててください。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15203,7 +15224,7 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
 SMS, Rejection
 {% endapitags %}
 
-このイベントは、SMS送信が通信事業者によって拒否されたときに発生します。これはいくつかの理由で起こる可能性があります。このイベントと提供されたエラーコードを使用して、SMS配信に関する問題のトラブルシューティングに役立てることができます。
+このイベントは、SMS送信が通信事業者によって拒否されたときに発生します。これはいくつかの理由で起こる可能性があります。このイベントと提供されたエラーコードを使用して、SMS配信に関する問題のトラブルシューティングに役立ててください。
 
 {% alert note %}
 Brazeは、イベントがログ記録のために処理される時点でBrazeユーザープロファイルがワークスペースにまだ存在している場合にのみ、`users.messages.sms.Rejection`をCurrents、Snowflakeデータ共有、および関連するエクスポートに送信します。そのプロファイルが事前に削除されていた場合、データウェアハウスやCurrentsエクスポートにこのイベントは表示されません。同じ処理ルールは、Brazeが同じパイプラインを通じてログに記録する他の`users.messages.sms.*`アウトバウンドイベント（配信、配信失敗、キャリアへの送信など）にも適用されます。ワークスペースレベルのSMS指標には、Snowflakeの行と1対1で対応しない集計カウントが含まれる場合があります。
@@ -18745,7 +18766,7 @@ WhatsApp, Read
 WhatsApp, Retry
 {% endapitags %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定された再試行ウィンドウ内で後から再試行される場合に発生します。これはメッセージ優先順位付けのベータ版をご利用のお客様のみが使用できます。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定されたリトライウィンドウ内で後から再試行される場合に発生します。これはメッセージ優先順位付けのベータ版をご利用のお客様のみが使用できます。
 
 {% tabs %}
 {% tab Cloud Storage %}

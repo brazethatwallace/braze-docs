@@ -78,6 +78,8 @@ Pour personnaliser les propriétés d'arrière-plan, les paramètres de bordure 
 
 {% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='banner' %}
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='banner' %}
+
 {% endtab %}
 {% tab Éditeur HTML %}
 

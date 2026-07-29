@@ -77,7 +77,7 @@ S3バケットに保存されたエクスポートファイルは、ダウンロ
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-Shopify連携は、Shopifyの顧客作成と顧客更新のwebhookをサポートしています。これらはデータ設定の構成設定にあります。Shopifyでユーザープロファイルが作成または更新されると、対応するBrazeのユーザープロファイルも作成または更新されます。<br><br>これらのアクションはBrazeでカスタムイベントをトリガーせず、[ShopifyのユーザーデータをBrazeと同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works)させるためだけに使用されます。同期されるデータには、[カスタム属性]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes)、[標準属性項目]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes)、および設定内で有効にされている場合は[購読グループの状態]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
+Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポートしています。これらはデータ設定の構成設定にあります。Shopifyでユーザープロファイルが作成または更新されると、対応するBrazeのユーザープロファイルも作成または更新されます。<br><br>これらのアクションはBrazeでカスタムイベントをトリガーせず、[ShopifyのユーザーデータをBrazeと同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works)させるためだけに使用されます。同期されるデータには、[カスタム属性]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes)、[標準属性項目]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes)、および設定内で有効にされている場合は[購読グループの状態]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
 {% endalert %}
 
 {% endif %}
@@ -101,7 +101,7 @@ Shopify連携は、Shopifyの顧客作成と顧客更新のwebhookをサポー�
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**「Day of year」と「Time」のフィルタータイプの選択について**：日付を含むコンテキスト変数をフィルタリングする際は、その日付が毎年繰り返されるかどうかに基づいて、適切な比較タイプを選択してください。「Day of year」は、コンテキスト変数が生成する値に年が含まれていない場合にのみ使用してください。
+**「Day of year」と「Time」のフィルタータイプの選択について**：日付を含むコンテキスト変数をフィルタリングする際は、その日付が毎年繰り返されるかどうかに基づいて、適切な比較タイプを選択してください。コンテキスト変数が生成する値に年が含まれていない場合にのみ、「Day of year」を使用してください。
 
 - **毎年繰り返される日付（誕生日、記念日、クリスマスなどの祝日など）には「Day of year」を使用してください。**この比較タイプは、年の要素を無視し、その年の日数（1〜365/366）に基づいて計算します。
 - **繰り返されない絶対日付（契約終了日、予約日、購読の更新日など）には「Time」を使用してください。**この比較タイプは、年を含む完全なタイムスタンプに基づいて計算します。

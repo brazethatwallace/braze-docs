@@ -317,7 +317,7 @@ Après avoir [importé vos données dans Braze](#importing-data-to-braze), vous 
 
 ### Étape 1 : Créer un segment {#step-1-build-a-segment}
 
-Ensuite, créez un segment qui combine les données utilisateur et les données de compte. Dans cet exemple, vous ciblez les directeurs d'entreprises du secteur de la santé pour augmenter les inscriptions à un nouveau webinaire de votre entreprise de promotion de la santé.
+Créez un segment qui combine les données utilisateur et les données de compte. Dans cet exemple, vous ciblez les directeurs d'entreprises du secteur de la santé pour augmenter les inscriptions à un nouveau webinaire de votre entreprise de promotion de la santé.
 
 1. Accédez à **Audience** > **Segments**, puis sélectionnez **Create Segment**.
 2. Donnez un nom à votre segment.

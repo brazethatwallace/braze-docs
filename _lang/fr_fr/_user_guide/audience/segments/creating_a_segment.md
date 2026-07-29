@@ -20,7 +20,9 @@ Allez dans **Audience** > **Segments**.
 
 Sélectionnez **Create Segment** pour commencer à construire votre segment. Nommez votre segment en décrivant le type d'utilisateur que vous souhaitez filtrer. Cela vous aidera à identifier le segment lorsque vous voudrez le cibler pour vos Campaigns ou Canvas. Des titres de segment vagues peuvent prêter à confusion.
 
-Vous pouvez également effectuer les actions suivantes :
+Vous pouvez également demander à Operator de vous aider à construire la logique de filtrage de votre segment à partir d'une description de votre audience cible. Pour plus de détails, consultez [Ce que vous pouvez faire avec Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
+
+Vous pouvez aussi effectuer les actions suivantes :
 - Ajouter une description au segment pour fournir plus de détails sur l'intention de cette audience et laisser des notes auxquelles les autres membres de l'équipe pourront se référer.
 - Ajouter une [équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) à votre segment.
 - Ajouter des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) à votre segment pour une meilleure organisation.

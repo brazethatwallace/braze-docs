@@ -7,9 +7,49 @@ tool: Currents
 
 # Currents変更ログ {#currents-changelog}
 
-## バージョン10の変更点（リリース日：2026年7月1日） {#changes-in-version-10-release-date-2026-07-01}
+## バージョン11の変更点（リリース日：2026年8月5日） {#changes-in-version-11-release-date-2026-08-05}
 
 ### ストレージに関する変更: {#changes-for-storage}
+
+* 新しいイベントタイプ `contentoptimizer.ComponentStore` を追加しました。
+
+* 新しいイベントタイプ `users.canvas.costep.Conversion` を追加しました。
+
+* 新しいイベントタイプ `users.messages.landingpage.Click` を追加しました。
+
+* 新しいイベントタイプ `users.messages.landingpage.FormSubmission` を追加しました。
+
+* 新しいイベントタイプ `users.messages.landingpage.Impression` を追加しました。
+
+* 新しいイベントタイプ `users.messages.survey.Response` を追加しました。
+
+* イベントタイプ `agentconsole.AgentExecuted` のフィールド変更:
+    * 新しい `string` フィールド `thinking_level` を追加しました: リクエストに使用された思考または推論レベル
+
+* イベントタイプ `users.messages.banner.Click` のフィールド変更:
+    * 新しい `boolean` フィールド `is_unique` を追加しました: このメッセージバリエーションに対するユーザーの初回クリックかどうか（ユニーククリック統計にカウントされます）
+
+* イベントタイプ `users.messages.banner.Dismiss` のフィールド変更:
+    * 新しい `boolean` フィールド `is_unique` を追加しました: このメッセージバリエーションに対するユーザーの初回非表示かどうか（ユニーク非表示統計にカウントされます）
+
+* イベントタイプ `users.messages.banner.Impression` のフィールド変更:
+    * 新しい `boolean` フィールド `is_unique` を追加しました: このメッセージバリエーションに対するユーザーの初回インプレッションかどうか（ユニークインプレッション統計にカウントされます）
+
+* イベントタイプ `users.messages.contentcard.Click` のフィールド変更:
+    * 新しい `boolean` フィールド `is_unique` を追加しました: このメッセージバリエーションに対するユーザーの初回クリックかどうか（ユニーククリック統計にカウントされます）
+
+* イベントタイプ `users.messages.contentcard.Dismiss` のフィールド変更:
+    * 新しい `boolean` フィールド `is_unique` を追加しました: このメッセージバリエーションに対するユーザーの初回非表示かどうか（ユニーク非表示統計にカウントされます）
+
+* イベントタイプ `users.messages.contentcard.Impression` のフィールド変更:
+    * 新しい `boolean` フィールド `is_unique` を追加しました: このメッセージバリエーションに対するユーザーの初回インプレッションかどうか（ユニークインプレッション統計にカウントされます）
+
+* イベントタイプ `users.messages.featureflag.Impression` のフィールド変更:
+    * 新しい `boolean` フィールド `is_unique` を追加しました: このフィーチャーフラグに対するユーザーの初回インプレッションかどうか（ユニークインプレッション統計にカウントされます）
+
+## バージョン10の変更点（リリース日：2026年7月1日） {#changes-in-version-10-release-date-2026-07-01}
+
+### ストレージに関する変更:
 
 * 新しいイベントタイプ `users.canvas.costep.Send` を追加しました。
 

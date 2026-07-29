@@ -56,7 +56,7 @@ Content Cards를 기존 피드에 원활하게 혼합하여 여러 피드의 데
 
 ### API 트리거 키-값 페어 {#api-triggered-key-value-pairs}
 
-[API 트리거 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)은 카드의 값이 외부 요인에 따라 사용자에게 표시할 콘텐츠를 결정할 때 사용할 수 있는 좋은 전략입니다. 예를 들어 보조 콘텐츠를 표시하려면 Liquid를 사용하여 키-값 페어를 설정합니다. 설정 시 `class_type`을 알아야 합니다.
+[API 트리거 Campaign(캠페인)]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)은 카드의 값이 외부 요인에 따라 사용자에게 표시할 콘텐츠를 결정할 때 사용할 수 있는 좋은 전략입니다. 예를 들어 보조 콘텐츠를 표시하려면 Liquid를 사용하여 키-값 페어를 설정합니다. 설정 시 `class_type`을 알아야 합니다.
 
 ![보조 Content Cards 사용 사례에 대한 키-값 페어입니다. 이 예시에서는 카드의 다양한 측면인 "tile_id", "tile_deeplink", "tile_title"이 Liquid를 사용하여 설정됩니다.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 

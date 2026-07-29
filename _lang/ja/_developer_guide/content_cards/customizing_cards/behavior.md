@@ -122,11 +122,13 @@ Braze.getInstance(context).contentCardUnviewedCount
 
 次のサンプルでは、`braze.contentCards`を使用して未読Content Cardsの数をリクエストして表示しています。アプリが閉じられ、ユーザーのセッションが終了した後、このコードはカードカウントをリクエストし、`viewed`プロパティに基づいてカードの数をフィルタリングします。
 
+[`UIScene`ライフサイクル](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)を採用しているアプリ（[Xcode 27以降](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)でビルドされたアプリに必須）では、`AppDelegate.swift`の`applicationDidEnterBackground(_:)`ではなく、`SceneDelegate.swift`の`sceneDidEnterBackground(_:)`で実装する必要があります。
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。

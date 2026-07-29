@@ -75,7 +75,7 @@ Les éléments suivants ne sont pas pris en charge dans cette bêta :
 
 ### Étape 1 : Connecter votre boutique Shopify compatible Markets {#step-1-connect-your-shopify-markets-enabled-store}
 
-1. Connectez votre boutique en utilisant soit l'[intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration), soit l'[intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration). Une fois votre boutique connectée, configurez Shopify Markets dans le compositeur de configuration.
+1. Connectez votre boutique en utilisant soit l'[intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) soit l'[intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration). Une fois votre boutique connectée, configurez Shopify Markets dans le compositeur de configuration.
 2. Complétez le flux OAuth et confirmez que Braze demande les portées Markets dans l'OAuth :
    - `read_markets`
    - `read_publications`

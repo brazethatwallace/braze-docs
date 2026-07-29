@@ -1,6 +1,6 @@
 # Utilisation du serveur Braze MCP {#using-the-braze-mcp-server}
 
-> Découvrez comment interagir avec vos données Braze à l'aide d'outils de langage naturel tels que Claude et Cursor. Pour plus d'informations générales, consultez [Serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> Découvrez comment interagir avec vos données Braze en langage naturel après vous être connecté au serveur Braze MCP distant. Pour plus d'informations, consultez [Serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -10,268 +10,154 @@ Avant de pouvoir utiliser cette fonctionnalité, vous devez [configurer le serve
 
 ## Bonnes pratiques {#best-practices}
 
-Lorsque vous utilisez le serveur Braze MCP via des outils de langage naturel tels que Claude et Cursor, gardez ces conseils à l'esprit pour obtenir les meilleurs résultats :
+Lorsque vous utilisez le serveur Braze MCP via des outils de langage naturel, gardez ces conseils à l'esprit :
 
-- Les LLM peuvent commettre des erreurs : vérifiez toujours leurs réponses.
-- Pour l'analyse des données, précisez clairement la période souhaitée. Les plages plus courtes donnent souvent des résultats plus précis.
-- Utilisez la [terminologie Braze](https://www.braze.com/resources/articles/glossary) exacte afin que votre LLM appelle la bonne fonction.
-- Si les résultats semblent incomplets, demandez à votre LLM de poursuivre ou d'approfondir.
-- Essayez des requêtes créatives ! Selon votre client MCP, vous pourrez peut-être exporter un fichier CSV ou d'autres fichiers utiles.
+- Confirmez l'espace de travail dans votre requête, surtout si vous avez accès à plusieurs espaces de travail.
+- Soyez précis sur les plages de dates et les indicateurs lorsque vous demandez des analyses.
+- Demandez à l'agent de confirmer quels outils il a utilisés lors de la validation des résultats.
+- Comparez les recommandations à fort impact avec les données sources dans le tableau de bord de Braze.
 
 ## Exemples d'utilisation {#usage-examples}
 
-Après avoir [configuré le serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez interagir avec Braze en langage naturel grâce à des outils tels que Claude ou Cursor. Voici quelques exemples pour vous aider à démarrer :
+Après avoir [configuré le serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez interagir avec Braze en langage naturel. Voici quelques exemples pour vous aider à démarrer.
 
-### Quelles sont les fonctions Braze à ma disposition ? {#what-are-my-available-braze-functions}
+### À quels espaces de travail ai-je accès ? {#which-workspaces-can-i-access}
 
 {% tabs %}
-{% tab Claude %}
-**Exemple de requête**
+{% tab Exemple de requête %}
 
-`What are my available Braze functions?`
-
-**Exemple de réponse**
-
-J'ai interrogé le serveur Braze MCP avec `list_functions` et trouvé 38 fonctions API disponibles.
-
-Voici quelques exemples par catégorie :
-
-- **Analyse et gestion des Campaigns**
-  - `get_campaign_dataseries`
-  - `get_campaign_details`
-  - `get_campaign_list`
-- **Analyse et gestion des Canvas**
-  - `get_canvas_data_series`
-  - `get_canvas_data_summary`
-  - `get_canvas_list`
-  - `get_canvas_details`
-- **Modèles**
-  - `create_email_template`
-- **Content Blocks**
-  - `create_content_block`
-  - `get_content_blocks`
-  - `get_content_block_info`
-  - `update_content_block`
+`Show my available Braze workspaces and tell me which one to use for production campaign analytics.`
 {% endtab %}
+{% tab Exemple de réponse %}
 
-{% tab Cursor %}
-**Exemple de requête**
+J'ai appelé `get_workspaces` et trouvé ces espaces de travail :
 
-`What are my available Braze functions?`
+- `Marketing - Production` (`app_group_id` : `YOUR-APP-GROUP-ID-1`)
+- `Marketing - Staging` (`app_group_id` : `YOUR-APP-GROUP-ID-2`)
 
-**Exemple de réponse**
-
-Je vais vérifier vos fonctions disponibles à l'aide du serveur Braze MCP.
-
-- Appel de `list_functions`
-
-D'après le résultat, vous disposez de 38 fonctions API Braze organisées en catégories telles que :
-
-- Analyse et gestion des Campaigns
-- Analyse et gestion des Canvas
-- Modèles
-- Content Blocks
-
-Exemples de fonctions :
-
-- `get_campaign_list`
-- `get_canvas_list`
-- `get_canvas_details`
-- `create_email_template`
-- `update_content_block`
+Utilisez `Marketing - Production` pour les requêtes d'analyse de campagnes en production.
 {% endtab %}
 {% endtabs %}
 
-Pour en savoir plus sur la fonction `list_functions`, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#general-functions){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#general-functions){% endif %}.
+Pour plus d'informations, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#workspaces){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#workspaces){% endif %}.
 
-### Obtenir des détails sur un ID Canvas {#get-details-about-a-canvas-id}
+### Afficher les performances des campagnes de la semaine dernière {#show-me-campaign-performance-for-last-week}
 
 {% tabs %}
-{% tab Claude %}
-**Exemple de requête**
+{% tab Exemple de requête %}
 
-`Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
-
-**Exemple de réponse**
-
-J'ai récupéré les détails de `YOUR-TEST-CANVAS-ID-123` à l'aide de `get_canvas_details`.
-
-- **Nom du Canvas :** `YOUR-TEST-CANVAS-NAME`
-- **ID :** `YOUR-TEST-CANVAS-ID-123`
-- **État :** Brouillon (non activé)
-- **Créé le :** 15 janv. 2026, 10 h 30 UTC
-- **Dernière mise à jour :** 16 janv. 2026, 14 h 45 UTC
-- **Type de planification :** Basé sur le temps
-- **Canal principal :** E-mail
-
-Détails du message e-mail :
-
-- **Objet :** `YOUR-TEST-SUBJECT-LINE`
-- **Expéditeur :** `YOUR-TEST-SENDER@example.com`
-- **ID du message :** `YOUR-TEST-MESSAGE-ID-123`
+`In the Marketing - Production workspace, show campaign performance for the last seven days, including sends, opens, clicks, and top performers.`
 {% endtab %}
+{% tab Exemple de réponse %}
 
-{% tab Cursor %}
-**Exemple de requête**
+J'ai utilisé `get_campaign_list` et `get_campaign_dataseries` pour l'espace de travail et la plage de dates demandés.
 
-`Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
+Résumé :
 
-**Exemple de réponse**
+- Total d'envois : `YOUR-TEST-SENDS`
+- Total d'ouvertures : `YOUR-TEST-OPENS`
+- Total de clics : `YOUR-TEST-CLICKS`
+- Campagne avec le plus d'ouvertures : `YOUR-TEST-CAMPAIGN-NAME`
 
-J'ai récupéré ce Canvas à l'aide de `get_canvas_details` :
-
-- **ID du Canvas :** `YOUR-TEST-CANVAS-ID-123`
-- **Nom du Canvas :** `YOUR-TEST-CANVAS-NAME`
-- **État :** Brouillon
-- **Canal :** E-mail
-- **ID du message :** `YOUR-TEST-MESSAGE-ID-123`
-
-Résumé du contenu de l'e-mail :
-
-1. Section d'en-tête avec image de marque
-2. Section de titre principal
-3. Section héros avec bouton CTA
-4. Section de fonctionnalités avec contenu complémentaire
+Je peux détailler ces résultats par campagne, canal ou jour si nécessaire.
 {% endtab %}
 {% endtabs %}
 
-Pour en savoir plus sur la fonction `get_canvas_details`, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#canvases){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#canvases){% endif %}.
-
-### Afficher mes Canvas récents {#show-me-my-recent-canvases}
-
-{% tabs %}
-{% tab Claude %}
-**Exemple de requête**
-
-`Show me my recent Canvases`
-
-**Exemple de réponse**
-
-J'ai vérifié vos outils disponibles avec `list_functions`, puis utilisé `get_canvas_list` pour récupérer vos Canvas les plus récemment modifiés.
-
-Canvas les plus récents :
-
-1. **YOUR-TEST-CANVAS-ALPHA**
-   - ID : `YOUR-TEST-ID-123`
-   - Dernière modification : 16 janv. 2026, 14 h 45 UTC
-2. **YOUR-TEST-CANVAS-BETA**
-   - ID : `YOUR-TEST-ID-456`
-   - Dernière modification : 15 janv. 2026, 11 h 10 UTC
-3. **YOUR-TEST-CANVAS-GAMMA**
-   - ID : `YOUR-TEST-ID-789`
-   - Dernière modification : 14 janv. 2026, 20 h 25 UTC
-{% endtab %}
-
-{% tab Cursor %}
-**Exemple de requête**
-
-`Show me my recent Canvases`
-
-**Exemple de réponse**
-
-Je vais récupérer votre liste de Canvas récents depuis le serveur Braze MCP.
-
-- Appel de `list_functions`
-- Appel de `get_canvas_list`
-
-Canvas récents (triés par date de dernière modification) :
-
-- **Nom du Canvas :** `YOUR-TEST-CANVAS-ALPHA`
-  - **Dernière modification :** 16 janv. 2026, 14 h 45 UTC
-  - **ID du Canvas :** `YOUR-TEST-ID-123`
-  - **Étiquettes :** `lifecycle`, `email`
-- **Nom du Canvas :** `YOUR-TEST-CANVAS-BETA`
-  - **Dernière modification :** 15 janv. 2026, 11 h 10 UTC
-  - **ID du Canvas :** `YOUR-TEST-ID-456`
-  - **Étiquettes :** `promo`
-{% endtab %}
-{% endtabs %}
-
-Pour en savoir plus sur la fonction `get_canvas_list`, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#canvases){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#canvases){% endif %}.
+Pour plus d'informations, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#campaigns){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#campaigns){% endif %}.
 
 ### Créer un modèle d'e-mail {#create-an-email-template}
 
 {% tabs %}
-{% tab Claude %}
-**Exemple de requête**
+{% tab Exemple de requête %}
 
-`Create an email template named "YOUR-TEST-TEMPLATE-NAME" for onboarding messages.`
-
-**Exemple de réponse**
-
-J'ai créé votre modèle avec `create_email_template`.
-
-- **Nom du modèle :** `YOUR-TEST-TEMPLATE-NAME`
-- **ID du modèle :** `YOUR-TEST-TEMPLATE-ID-123`
-- **Ligne d'objet :** `YOUR-TEST-SUBJECT-LINE`
-- **Accroche :** `YOUR-TEST-PREHEADER`
-- **Créé le :** 16 janv. 2026, 15 h 10 UTC
-
-Vous pouvez désormais référencer `YOUR-TEST-TEMPLATE-ID-123` lors de la création ou de la mise à jour de Campaigns et de Canvas.
+`In the Marketing - Production workspace, create an onboarding email template named "YOUR-TEST-TEMPLATE-NAME".`
 {% endtab %}
+{% tab Exemple de réponse %}
 
-{% tab Cursor %}
-**Exemple de requête**
-
-`Create an email template named "YOUR-TEST-TEMPLATE-NAME" for onboarding messages.`
-
-**Exemple de réponse**
-
-J'ai utilisé `create_email_template` et créé un nouveau modèle avec succès.
+J'ai utilisé `create_email_template` et créé votre modèle.
 
 - **ID du modèle :** `YOUR-TEST-TEMPLATE-ID-123`
 - **Nom du modèle :** `YOUR-TEST-TEMPLATE-NAME`
-- **Objet :** `YOUR-TEST-SUBJECT-LINE`
-- **Description :** `Onboarding lifecycle template`
-
-Si vous le souhaitez, je peux également générer un corps HTML de départ et une version texte brut de secours pour ce modèle.
+- **Espace de travail :** `Marketing - Production`
 {% endtab %}
 {% endtabs %}
 
-Pour en savoir plus sur la fonction `create_email_template`, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates){% endif %}.
+Pour plus d'informations, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates){% endif %}.
 
-### Mettre à jour un bloc de contenu {#update-a-content-block}
+## Exemples de workflows {#example-workflows}
+
+Ces exemples combinent plusieurs outils pour accomplir une tâche de bout en bout.
+
+### Rapport sur plusieurs espaces de travail {#report-across-multiple-workspaces}
 
 {% tabs %}
-{% tab Claude %}
-**Exemple de requête**
+{% tab Exemple de requête %}
 
-`Update content block "YOUR-TEST-CONTENT-BLOCK-ID-123" with new body copy for our spring promotion.`
-
-**Exemple de réponse**
-
-J'ai mis à jour votre bloc de contenu à l'aide de `update_content_block`.
-
-- **ID du bloc de contenu :** `YOUR-TEST-CONTENT-BLOCK-ID-123`
-- **Nom :** `YOUR-TEST-CONTENT-BLOCK-NAME`
-- **État :** Mis à jour
-- **Mis à jour le :** 16 janv. 2026, 15 h 25 UTC
-
-Aperçu :
-
-`YOUR-TEST-CONTENT-BLOCK-BODY-V2`
+`Get me an analytics report for the past week from my US Prod workspace and my EU Prod workspace, and compare total sends and open rates.`
 {% endtab %}
+{% tab Exemple de réponse %}
 
-{% tab Cursor %}
-**Exemple de requête**
+J'ai appelé `get_workspaces` pour confirmer l'accès, puis exécuté `get_campaign_dataseries` pour chaque espace de travail sur les sept derniers jours.
 
-`Update content block "YOUR-TEST-CONTENT-BLOCK-ID-123" with new body copy for our spring promotion.`
+- `US Prod` : `YOUR-TEST-SENDS` envois, `YOUR-TEST-OPEN-RATE` taux d'ouverture
+- `EU Prod` : `YOUR-TEST-SENDS` envois, `YOUR-TEST-OPEN-RATE` taux d'ouverture
 
-**Exemple de réponse**
-
-J'ai exécuté `update_content_block` et confirmé que la mise à jour a été effectuée.
-
-- **ID du bloc de contenu :** `YOUR-TEST-CONTENT-BLOCK-ID-123`
-- **Version précédente :** `v1`
-- **Version actuelle :** `v2`
-- **Dernière mise à jour :** 16 janv. 2026, 15 h 25 UTC
-
-Aperçu du contenu mis à jour :
-
-`YOUR-TEST-CONTENT-BLOCK-BODY-V2`
+`US Prod` a envoyé plus de messages cette semaine, tandis que `EU Prod` a obtenu le meilleur taux d'ouverture. Je peux détailler chaque espace de travail par campagne ou par canal.
 {% endtab %}
 {% endtabs %}
 
-Pour en savoir plus sur la fonction `update_content_block`, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#content-blocks){% endif %}.
+### Copier des modèles du staging vers la production {#copy-templates-from-staging-to-production}
+
+{% tabs %}
+{% tab Exemple de requête %}
+
+`Copy the email templates from my Staging workspace to my Production workspace.`
+{% endtab %}
+{% tab Exemple de réponse %}
+
+J'ai utilisé `get_email_templates` et `get_email_template_info` pour lire les modèles dans `Staging`, puis `create_email_template` pour recréer chacun d'entre eux dans `Production`.
+
+- `YOUR-TEST-TEMPLATE-NAME-1` : créé dans `Production` (`YOUR-TEST-TEMPLATE-ID-1`)
+- `YOUR-TEST-TEMPLATE-NAME-2` : créé dans `Production` (`YOUR-TEST-TEMPLATE-ID-2`)
+
+J'ai ignoré les modèles de l'éditeur par glisser-déposer, que `get_email_template_info` ne prend pas en charge. N'hésitez pas à me demander de vérifier les modèles copiés.
+{% endtab %}
+{% endtabs %}
+
+### Résumé hebdomadaire de la santé des campagnes {#summarize-weekly-campaign-health}
+
+{% tabs %}
+{% tab Exemple de requête %}
+
+`Give me a weekly campaign health summary for the Production workspace.`
+{% endtab %}
+{% tab Exemple de réponse %}
+
+J'ai utilisé `get_campaign_list` et `get_campaign_dataseries` pour récupérer les sept derniers jours d'activité dans `Production`.
+
+- Total d'envois : `YOUR-TEST-SENDS`
+- Taux d'ouverture : `YOUR-TEST-OPEN-RATE`
+- Taux de clics : `YOUR-TEST-CLICK-RATE`
+- Campagne avec le plus de conversions : `YOUR-TEST-CAMPAIGN-NAME`
+
+Les envois ont augmenté d'une semaine à l'autre. Je peux ajouter une ventilation par canal ou signaler les campagnes dont l'engagement est en baisse.
+{% endtab %}
+{% endtabs %}
+
+## Fonctionnement du serveur MCP distant {#how-the-remote-mcp-server-works}
+
+Lorsque vous envoyez une requête, plusieurs étapes se déroulent en arrière-plan :
+
+1. **Vous formulez votre requête dans votre client.** Vous saisissez une demande en langage naturel, par exemple pour obtenir les performances des campagnes de la semaine dernière.
+2. **Le modèle du client sélectionne les outils.** Le modèle d'IA de votre client interprète votre demande et la traduit en un ou plusieurs appels d'outils Braze, tels que `get_campaign_list` et `get_campaign_dataseries`.
+3. **Braze exécute l'appel d'outil.** Le serveur MCP distant reçoit chaque appel d'outil via votre session OAuth authentifiée, applique l'espace de travail que vous avez spécifié et l'exécute sur l'endpoint REST API de Braze correspondant.
+4. **Braze renvoie le résultat.** Le serveur renvoie les données à votre client, qui les met en forme et vous les présente.
+
+Votre accès est l'intersection de deux éléments :
+
+- **Les scopes accordés lors de l'autorisation de la connexion**, tels que `mcp:tools`.
+- **Vos propres permissions utilisateur dans le tableau de bord.** Si vous ne pouvez pas consulter les campagnes dans le tableau de bord, votre agent ne le peut pas non plus. Si vous pouvez créer des modèles d'e-mail, votre agent le peut aussi. Un agent ne peut jamais dépasser votre propre niveau d'accès.
+
+Le contexte de l'espace de travail est transmis avec chaque requête plutôt que stocké dans un fichier de configuration local, de sorte qu'une seule connexion peut fonctionner sur tous les espaces de travail auxquels vous êtes autorisé à accéder.
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

@@ -26,18 +26,18 @@ Vous pouvez synchroniser vos produits avec un catalogue Braze via le flux d'inst
 
 ### Étape 2 : Sélectionner votre identifiant de produit {#step-2-select-your-product-identifier}
 
-Sélectionnez l'identifiant de produit à utiliser comme ID de catalogue :
-- Shopify Variant ID
-- SKU
+Sélectionnez l'identifiant de produit principal à utiliser comme ID de catalogue Braze :
 
-Les valeurs d'ID et d'en-tête pour l'identifiant de produit que vous choisissez ne peuvent inclure que des lettres, des chiffres, des tirets et des underscores. Si l'identifiant de produit ne respecte pas ce format, Braze le filtrera de votre synchronisation de catalogue.
+- **Shopify Variant ID** est un bon choix par défaut lorsque vos SKU sont manquants, dupliqués entre les variantes, ou peuvent contenir des caractères tels que des barres obliques, des points, des espaces ou des esperluettes. Les Variant ID sont numériques et respectent toujours ces exigences.
+- **SKU** fonctionne bien lorsque chaque variante possède un SKU unique qui respecte les mêmes règles de caractères que le Shopify Variant ID, et que vous souhaitez utiliser les SKU de vente au détail comme clé de catalogue pour vos messages ou analyses.
+  - Vous pouvez utiliser des SKU en texte libre contenant des caractères non autorisés en utilisant le Shopify Variant ID au lieu du SKU.
 
-Il s'agira de l'identifiant principal que vous utiliserez pour référencer les informations du catalogue Braze.
+La valeur que vous sélectionnez devient l'`item_id` du catalogue et ne peut contenir que des lettres, des chiffres, des tirets et des underscores.
 
 {% alert note %}
-Si vous sélectionnez SKU comme ID de votre catalogue, assurez-vous que tous vos produits et variantes dans votre boutique ont un SKU défini et qu'il est unique.<br><br>
+Si vous utilisez le SKU comme ID de votre catalogue, assurez-vous que tous vos produits et variantes dans votre boutique ont un SKU défini et qu'il est unique.<br><br>
 - Si un article n'a pas de SKU, Braze ne peut pas synchroniser ce produit dans le catalogue.
-- Si plusieurs produits possèdent le même SKU, cela peut entraîner un comportement inattendu ou l'écrasement involontaire des informations du produit par le SKU en double.
+- Si plusieurs produits possèdent le même SKU, cela peut entraîner un comportement inattendu ou l'écrasement involontaire des informations du produit.
 {% endalert %}
 
 ### Étape 3 : Configurer des données produit supplémentaires (facultatif) {#step-3}
@@ -725,6 +725,8 @@ Si la synchronisation de vos produits Shopify rencontre une erreur, cela pourrai
 | Erreur | Raison | Solution |
 | --- | --- | --- |
 | Erreur du serveur | Cela se produit lorsqu'il y a une erreur de serveur du côté de Shopify au moment de la synchronisation de vos produits. | [Désactivez la synchronisation](#deactivate) et resynchronisez l'ensemble de votre inventaire de produits. |
-| SKU en double | Cela se produit si vous utilisez un SKU comme ID d'article de catalogue et que plusieurs produits partagent le même SKU. Comme l'ID de l'article du catalogue doit être unique, tous vos produits doivent avoir des SKU uniques. | Vérifiez votre liste complète de produits et de variantes dans Shopify pour vous assurer qu'il n'y a pas de SKU en double. S'il y en a, mettez-les à jour pour qu'ils soient uniques dans votre compte de boutique Shopify. Une fois la correction effectuée, [désactivez la synchronisation](#deactivate) et resynchronisez l'ensemble de votre inventaire de produits. |
+| SKU en double | Cela se produit si vous utilisez un SKU comme ID d'article de catalogue et que plusieurs variantes partagent le même SKU. Chaque `item_id` de catalogue doit être unique, de sorte que les articles concernés peuvent ne pas se synchroniser, accumuler des enregistrements d'erreur ou voir leurs informations produit écrasées involontairement. | Vérifiez votre liste complète de produits et de variantes dans Shopify pour vous assurer qu'il n'y a pas de SKU en double. S'il y en a, mettez-les à jour pour qu'ils soient uniques dans votre compte de boutique Shopify. Une fois la correction effectuée, [désactivez la synchronisation](#deactivate) et resynchronisez l'ensemble de votre inventaire de produits. |
 | Limite du catalogue dépassée | Cela se produit lorsque vous dépassez votre limite de catalogue. Braze ne pourra pas terminer la synchronisation ou la maintenir active en raison de l'absence d'espace de stockage disponible. | Il existe deux solutions à ce problème :<br><br>1. Contactez votre gestionnaire de compte pour passer à un niveau supérieur afin d'augmenter votre limite de catalogue.<br><br>2. Libérez de l'espace de stockage en supprimant l'un des éléments suivants :<br>- Des articles de catalogue d'autres catalogues<br>- D'autres catalogues<br>- Des sélections créées<br><br> Après avoir utilisé l'une ou l'autre des solutions, la synchronisation doit être désactivée puis relancée. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Résolution des problèmes" }
+
+Pour plus de détails sur la validation des articles de catalogue, consultez la section [Résolution des problèmes]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) dans la documentation de l'API des catalogues.

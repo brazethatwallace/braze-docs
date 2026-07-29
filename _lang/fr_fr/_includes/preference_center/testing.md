@@ -14,7 +14,7 @@ Pour vérifier que les liens et les boutons du centre de préférences fonctionn
 1. Créez une Campaign ou une étape d'e-mail Canvas qui inclut votre étiquette Liquid du centre de préférences.
 2. Ciblez uniquement vos utilisateurs test ou un petit segment interne.
 3. Lancez le message et ouvrez l'e-mail depuis une vraie boîte de réception (pas **Envoyer le test**).
-4. Sélectionnez le lien du centre de préférences, mettez à jour les groupes d'abonnement, puis sélectionnez **Enregistrer les préférences**.
+4. Sélectionnez le lien du centre de préférences, mettez à jour les groupes d'abonnement et sélectionnez **Enregistrer les préférences**.
 5. Confirmez les modifications sur le profil de l'utilisateur dans le tableau de bord de Braze.
 
 {% if include.section == "api" %}
@@ -28,7 +28,7 @@ Pour les autres limitations des envois de test, consultez la section [Envoyer de
 | Méthode | Prévisualisation de la mise en page | Enregistrement des modifications d'abonnement |
 | --- | --- | --- |
 | Onglet **Prévisualisation** de l'éditeur par glisser-déposer | Oui | Non |
-| **Envoyer le test** d'une Campaign ou d'un Canvas | Partiel (l'e-mail est reçu) | Non |
+| **Envoyer le test** de la Campaign ou du Canvas | Partiel (l'e-mail arrive) | Non |
 | Envoi en direct à un utilisateur test ou un segment | Oui | Oui |
 | API [Générer l'URL du centre de préférences]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) | Oui | Oui |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prévisualisation, envoi de test et envoi en direct" }

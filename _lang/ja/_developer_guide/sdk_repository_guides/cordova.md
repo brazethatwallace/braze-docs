@@ -19,7 +19,7 @@ Braze Cordova SDKは、Brazeのメッセージング、分析、ユーザーエ�
 
 ## 最小バージョン要件 {#minimum-version-requirements}
 
-| Braze プラグイン | Cordova Android | Cordova iOS |
+| Brazeプラグイン | Cordova Android | Cordova iOS |
 | ------------ | --------------- | ----------- |
 | 10.0.0+      | >= 13.0.0       | >= 5.0.0    |
 | 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
@@ -27,7 +27,7 @@ Braze Cordova SDKは、Brazeのメッセージング、分析、ユーザーエ�
 
 このSDKは、基盤となるBrazeネイティブSDKの要件も継承します。以下のリストにも準拠してください。
 * [Android SDKの要件](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
-* [SWIFT SDKの要件](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
+* [Swift SDKの要件](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 
 ## SDKのインストール {#installing-the-sdk}
 {% alert warning %}

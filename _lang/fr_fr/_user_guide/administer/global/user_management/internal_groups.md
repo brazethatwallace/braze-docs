@@ -24,7 +24,7 @@ Pour créer et gérer des groupes internes, vous avez besoin des [autorisations 
 - Afficher les groupes internes
 - Modifier les groupes internes
 - Afficher le journal d'activité des messages
-- Afficher le journal des événements utilisateur
+- Afficher le journal des événements utilisateurs
 - Afficher les identifiants API
 - Afficher le tableau de bord d'utilisation de l'API
 - Afficher les limites de l'API
@@ -43,7 +43,7 @@ Pour créer un groupe interne :
 4. Choisissez un ou plusieurs types de groupe, comme indiqué dans le tableau suivant.
 
 | Type de groupe | Description |
-|---|---|
+|--------------------|---------------------------------------------------------------------------------------------|
 | **User Event Group** | Utilisez-le pour vérifier les événements ou les journaux de votre appareil de test. |
 | **Content Test Group** | Utilisez-le pour les notifications push, les e-mails et les messages in-app afin d'envoyer une copie rendue du message. |
 | **Seed Group** | Envoie automatiquement une copie de l'e-mail à tous les membres du groupe initiateur lors de l'envoi. |
@@ -61,9 +61,9 @@ Après avoir créé votre groupe interne, ajoutez des utilisateurs test en tant 
 2. Choisissez parmi les méthodes suivantes pour rechercher et sélectionner vos utilisateurs test.
 
 | Méthode | Description |
-|---|---|
+|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Ajouter un utilisateur identifié** | Recherchez l'utilisateur par son ID externe, son adresse e-mail, son numéro de téléphone ou son jeton de notification push. |
-| **Ajouter un utilisateur anonyme** | Recherchez par adresse IP. Ensuite, fournissez un nom pour chaque utilisateur test que vous ajoutez. C'est le nom auquel tous les journaux d'événements sont associés sur la page [Journal des événements utilisateur]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log). |
+| **Ajouter un utilisateur anonyme** | Recherchez par adresse IP. Ensuite, fournissez un nom pour chaque utilisateur test que vous ajoutez. C'est le nom auquel tous les journaux d'événements sont associés sur la page [Journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log). |
 | **Ajout en masse d'utilisateurs** | Copiez et collez une liste d'adresses e-mail ou d'ID externes. Vous ne pouvez ajouter que des utilisateurs déjà connus dans le tableau de bord. Pour plus d'informations, consultez [Importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ajouter des utilisateurs test" }
 

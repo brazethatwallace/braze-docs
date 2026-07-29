@@ -1,13 +1,13 @@
 ---
 nav_title: Usar API públicas
-article_title: API públicas para Contenido conectado
+article_title: API públicas para contenido conectado
 page_order: 10
-description: "Este artículo cubre una lista de API disponibles públicamente que se pueden usar con Contenido conectado."
+description: "Este artículo cubre una lista de API disponibles públicamente que se pueden usar con contenido conectado."
 ---
 
-# Usar API públicas para Contenido conectado {#use-public-apis-for-connected-content}
+# Usar API públicas para contenido conectado {#use-public-apis-for-connected-content}
 
-> Hay una variedad de API disponibles públicamente que se pueden usar para Contenido conectado. Las API públicas te permiten insertar datos personalizados en los mensajes. Esta página recopila una lista de API públicas que podrían usarse para Contenido conectado. Sin embargo, existen muchas más API que ofrecen una amplia variedad de usos potenciales de Contenido conectado.
+> Hay una variedad de API disponibles públicamente que se pueden usar para contenido conectado. Las API públicas te permiten insertar datos personalizados en los mensajes. Esta página recopila una lista de API públicas que podrían usarse para contenido conectado. Sin embargo, existen muchas más API que ofrecen una amplia variedad de usos potenciales de contenido conectado.
 
 Ponte en contacto con nosotros en [success@braze.com](mailto:success@braze.com) para hacernos saber si tienes una API que compartir.
 

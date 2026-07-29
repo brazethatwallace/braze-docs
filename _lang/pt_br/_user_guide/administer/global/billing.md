@@ -47,7 +47,7 @@ Em **Eventos e atributos mais usados por app**, você pode verificar os fatores 
 
 ![Eventos e atributos mais usados por app]({% image_buster /assets/img/most_used_events_attributes_time.png %})
 
-Para cada app, você pode selecionar **See breakdown** para visualizar uma contagem estimada de cada atributo personalizado, atributo de perfil e evento personalizado específico para o período selecionado, bem como a porcentagem das atualizações de atributos e eventos desse app que foram geradas por esse atributo ou evento.
+Para cada app, você pode selecionar **Ver detalhamento** para visualizar uma contagem estimada de cada atributo personalizado, atributo de perfil e evento personalizado específico para o período selecionado, bem como a porcentagem das atualizações de atributos e eventos desse app que foram geradas por esse atributo ou evento.
 
 ![Guia de detalhamento de eventos e atributos mais usados por app]({% image_buster /assets/img/most_used_events_attributes_2.png %}){: style="max-width:60%"}
 

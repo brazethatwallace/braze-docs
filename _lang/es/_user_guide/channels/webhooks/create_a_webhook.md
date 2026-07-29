@@ -33,7 +33,7 @@ Para obtener más información sobre qué son los webhooks y cómo puedes usarlo
 4. (Opcional) Añade una descripción para explicar cómo se utilizará esta campaña.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario.
    * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas específicas.
-5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plantillas de webhook para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plantillas de webhook para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
@@ -112,9 +112,9 @@ La opción de texto sin formato te da la flexibilidad de escribir una solicitud 
 
 Tanto la [personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) como la [internacionalización]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) usando Liquid son compatibles con el texto sin formato.
 
-![Un ejemplo de cuerpo de solicitud con texto sin formato usando Liquid.]({% image_buster /assets/img_archive/webhook_rawtext.png %})
+![Un ejemplo de un cuerpo de solicitud con texto sin formato usando Liquid.]({% image_buster /assets/img_archive/webhook_rawtext.png %})
 
-Si configuras el [encabezado de solicitud](#request-headers-optional) `Content-Type` como `application/x-www-form-url-encoded`, el cuerpo de la solicitud debe estar formateado como una cadena codificada en URL. Por ejemplo:
+Si configuras el `Content-Type` del [encabezado de solicitud](#request-headers-optional) como `application/x-www-form-url-encoded`, el cuerpo de la solicitud debe estar formateado como una cadena codificada en URL. Por ejemplo:
 
 {% raw %}
 ```
@@ -135,12 +135,12 @@ Ciertos endpoints pueden requerir que incluyas encabezados en tu solicitud. En l
 Los encabezados de solicitud más comunes son las especificaciones de [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) (que describen qué tipo de datos se esperan en el cuerpo, como XML o JSON) y los encabezados de [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) que contienen tus credenciales con tu proveedor o sistema.
 
 {% alert note %}
-Los nombres de encabezados HTTP no distinguen entre mayúsculas y minúsculas según [RFC 7230, sección 3.2 ("Each header field consists of a case-insensitive field name")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). Si tu endpoint receptor o cualquier servicio intermedio (como CDN) transforma las mayúsculas y minúsculas de los encabezados, esto no afectará al procesamiento de los encabezados: `Content-Type`, `content-type` y `CONTENT-TYPE` se tratan de forma idéntica.
+Los nombres de los encabezados HTTP no distinguen entre mayúsculas y minúsculas según [RFC 7230, sección 3.2 ("Each header field consists of a case-insensitive field name")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). Si tu endpoint receptor o cualquier servicio intermedio (como CDN) transforma las mayúsculas y minúsculas de los encabezados, esto no afectará al procesamiento de los encabezados: `Content-Type`, `content-type` y `CONTENT-TYPE` se tratan de forma idéntica.
 {% endalert %}
 
-Las especificaciones de tipo de contenido deben usar la clave `Content-Type`. Los valores más comunes son `application/json` o `application/x-www-form-urlencoded`.
+Las especificaciones de tipo de contenido deben utilizar la clave `Content-Type`. Los valores más comunes son `application/json` o `application/x-www-form-urlencoded`.
 
-Los encabezados de autorización deben usar la clave `Authorization`. Los valores más comunes son {% raw %} `Bearer {{YOUR_TOKEN}}` o `Basic {{YOUR_TOKEN}}` {% endraw %} donde `YOUR_TOKEN` son las credenciales proporcionadas por tu proveedor o sistema.
+Los encabezados de autorización deben utilizar la clave `Authorization`. Los valores más comunes son {% raw %} `Bearer {{YOUR_TOKEN}}` o `Basic {{YOUR_TOKEN}}` {% endraw %} donde `YOUR_TOKEN` son las credenciales proporcionadas por tu proveedor o sistema.
 
 ## Paso 4: Envía un mensaje de prueba {#step-4-test-send-your-message}
 
@@ -193,14 +193,14 @@ Braze te permite hacer un seguimiento de la frecuencia con la que los usuarios r
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu paso en Canvas. Para obtener más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu paso en Canvas. Para obtener más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariantes y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
 
 {% endtab %}
 {% endtabs %}
 
 ## Paso 6: Revisar e implementar {#step-6-review-and-deploy}
 
-Cuando hayas terminado de crear la última de tus Campaign o Canvas, revisa los detalles, pruébala y envíala.
+Cuando hayas terminado de crear tu Campaign o Canvas, revisa los detalles, pruébala y envíala.
 
 ## Cosas que debes saber {#things-to-know}
 
@@ -211,7 +211,7 @@ Los webhooks dependen de que los servidores de Braze realicen solicitudes a un e
 - Prueba tu webhook en busca de errores de sintaxis
 - Asegúrate de que las variables personalizadas tengan valores predeterminados
 
-Si tu webhook no se envía, se registra un mensaje de error en el [registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), que incluye detalles como la marca de tiempo del error, el nombre de la aplicación y detalles sobre el error.
+Si tu webhook no se envía, se registra un mensaje de error en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), que incluye detalles como la marca de tiempo del error, el nombre de la aplicación y detalles sobre el error.
 
 ![Error de webhook con el mensaje "An active access token must be used to query information about the current user".]({% image_buster /assets/img_archive/webhook-error.png %})
 
@@ -232,24 +232,24 @@ Cuando se envía la solicitud del webhook, el servidor receptor devuelve un cód
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Códigos de respuesta y lógica de reintentos" }
 
 {% alert note %}
-Braze reintenta los códigos de estado mencionados anteriormente en esta sección hasta cinco veces en 30 minutos utilizando retirada exponencial. Si no podemos alcanzar tu endpoint, los reintentos pueden distribuirse a lo largo de un período de 24 horas.<br><br>Cada webhook tiene un tiempo de espera máximo de 90 segundos.
+Braze reintenta los códigos de estado mencionados anteriormente en esta sección hasta cinco veces en un plazo de 30 minutos utilizando retirada exponencial. Si no podemos alcanzar tu endpoint, los reintentos pueden distribuirse a lo largo de un período de 24 horas.<br><br>Cada webhook tiene un tiempo de espera máximo de 90 segundos.
 {% endalert %}
 
 Los encabezados de respuesta `Retry-After` y de límite de velocidad pueden afectar cuánto tiempo espera Braze antes de un intento **reintentable** (por ejemplo, después de `408`, `429` o `5XX`). No hacen que las respuestas no reintentables, como `401`, sean elegibles para reintento.
 
 #### 403 Forbidden y lista de IP permitidas {#403-forbidden-and-ip-allowlisting}
 
-Las respuestas `403 Forbidden` significan que tu endpoint recibió la solicitud pero la rechazó. Las causas comunes incluyen autenticación no válida o ausente, permisos de API insuficientes y reglas de red (como un firewall o un firewall de aplicaciones web) que bloquean las direcciones IP de salida de Braze.
+Las respuestas `403 Forbidden` significan que tu endpoint recibió la solicitud pero la rechazó. Las causas comunes incluyen autenticación no válida o ausente, permisos de API insuficientes y reglas de red (como un firewall o un firewall de aplicaciones web) que bloquean las direcciones IP salientes de Braze.
 
-Si las solicitudes de webhook devuelven consistentemente `403` y tus encabezados de autenticación son correctos, añade las IP de Braze a la lista de permitidas de tu clúster en el servidor que recibe el webhook. Consulta [Lista de IP permitidas](#ip-allowlisting). Las solicitudes de contenido conectado utilizan las mismas IP de salida; consulta [Lista de IP permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+Si las solicitudes de webhook devuelven `403` de forma consistente y tus encabezados de autenticación son correctos, añade las IP de Braze para tu clúster a la lista de permitidas en el servidor que recibe el webhook. Consulta [Lista de IP permitidas](#ip-allowlisting). Las solicitudes de contenido conectado utilizan las mismas IP salientes; consulta [Lista de IP permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
 
 Para otros pasos de solución de problemas con `4XX`, consulta [Solucionar problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
 
 #### Autenticación y credenciales de contenido conectado {#authentication-and-connected-content-credentials}
 
-La solicitud HTTP de webhook saliente no admite adjuntar [credenciales de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` o `:auth_credentials`) para autenticarse contra tu endpoint. En su lugar, configura la autenticación utilizando **Encabezados de solicitud** en el webhook. Para obtener un token o secreto en el momento del envío, puedes colocar una etiqueta {% raw %}`{% connected_content %}`{% endraw %} en un campo de encabezado o cuerpo para que Liquid la resuelva antes de que se envíe el webhook.
+La solicitud HTTP saliente del webhook no admite adjuntar [credenciales de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` o `:auth_credentials`) para autenticarse contra tu endpoint. Configura la autenticación utilizando **Encabezados de solicitud** en el webhook en su lugar. Para obtener un token o secreto en el momento del envío, puedes colocar una etiqueta {% raw %}`{% connected_content %}`{% endraw %} en un campo de encabezado o cuerpo para que Liquid la resuelva antes de que se envíe el webhook.
 
-#### Plantillas de webhook guardadas y uso en Campaigns {#saved-webhook-templates-and-campaign-usage}
+#### Plantillas de webhook guardadas y uso en campañas {#saved-webhook-templates-and-campaign-usage}
 
 Braze no proporciona un informe integrado que enumere cada Campaign o paso en Canvas que haga referencia a una **plantilla de webhook guardada** determinada. Para auditar el uso, revisa los pasos de webhook que utilizan la misma URL y método HTTP, o contacta con [soporte de Braze]({{site.baseurl}}/support_contact).
 
@@ -261,7 +261,7 @@ Para explicaciones detalladas, pasos de solución de problemas y orientación so
 
 Cuando se envía un webhook desde Braze, los servidores de Braze realizan solicitudes de red a los servidores de nuestros clientes o de terceros. Con la lista de IP permitidas, puedes verificar que las solicitudes de webhook provienen de Braze, añadiendo una capa de seguridad.
 
-Braze enviará webhooks desde las siguientes IP. Las IP enumeradas se añaden automática y dinámicamente a cualquier clave de API que haya optado por la lista de permitidas.
+Braze enviará webhooks desde las siguientes IP. Las IP enumeradas se añaden automática y dinámicamente a cualquier clave de API que haya sido habilitada para la lista de permitidas.
 
 {% alert important %}
 Si estás realizando un webhook de Braze a Braze y utilizas la lista de permitidas, deberías incluir en la lista todas las siguientes IP, incluyendo `127.0.0.1`.
@@ -271,6 +271,6 @@ Si estás realizando un webhook de Braze a Braze y utilizas la lista de permitid
 
 ### Eliminar usuarios {#delete-users}
 
-Para eliminar un usuario individual o un Segment de usuarios, ve a **Audiencia** > **Gestionar audiencia** > **Eliminar usuarios**. El panel admite la eliminación masiva de Segments (hasta 10 millones de perfiles), incluye una ventana de cancelación de 7 días y no consume los límites de velocidad compartidos de la REST API. Para conocer los pasos, límites y permisos, consulta [Eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
+Para eliminar un usuario individual o un segmento de usuarios, ve a **Audiencia** > **Gestionar audiencia** > **Eliminar usuarios**. El panel admite la eliminación masiva de segmentos (hasta 10 millones de perfiles), incluye una ventana de cancelación de 7 días y no consume los límites de velocidad compartidos de la REST API. Para conocer los pasos, límites y permisos, consulta [Eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
 Para la eliminación programática en lotes más pequeños, utiliza el [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) en lugar de una campaña de webhook.
