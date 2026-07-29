@@ -248,6 +248,27 @@ Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-
 
 ## Troubleshooting Liquid errors
 
+### Why is my Liquid code not working when it looks correct?
+
+If your Liquid code appears syntactically correct but isn't working, check for smart quotes (curly quotes like `' '` or `" "`) and smart dashes (em dashes like `—`) instead of straight quotes (`' '` or `" "`) and hyphens (`-`). Liquid only recognizes straight ASCII characters, so smart quotes and dashes will cause parsing errors.
+
+This commonly happens when the macOS keyboard setting **Use smart quotes and dashes** is enabled, which automatically converts characters as you type in the Braze dashboard.
+
+To disable this setting on macOS:
+
+1. Go to **System Settings** > **Keyboard** > **Text Input** > **Edit**.
+2. Uncheck **Use smart quotes and dashes**.
+
+| Example | Curly quotes (does not work) | Straight quotes (works) |
+| --- | --- | --- |
+| Default value | {% raw %}`{{${first_name} | default: ‘Torchie’}}`{% endraw %} | {% raw %}`{{${first_name} | default: 'Torchie'}}`{% endraw %} |
+| Conditional | {% raw %}`{% if ${country} contains ‘US’ %}`{% endraw %} | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Smart quote examples" }
+
+This applies to default values, conditionals, and any other Liquid that uses quotes. Curly and straight quotes can look the same on screen, so compare your code carefully or paste it into a plain-text editor.
+
+For more information on quote usage in Liquid, see [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
+
 ### Why am I seeing an "Unexpected end token" Liquid error?
 
 This error usually indicates extra or missing curly braces. Do not nest {% raw %}`{{ }}`{% endraw %} inside another Liquid tag expression. For example, use {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} rather than wrapping the attribute reference in an additional pair of braces.
