@@ -57,8 +57,6 @@ Use this workflow for every deep linking incident. Start at step 1.
 
 **Symptom:** A universal link (for example, `https://myapp.com/products/123`) opens in Safari instead of your app.
 
-If a universal link (for example, `https://myapp.com/products/123`) opens in Safari instead of your app:
-
 ### Verify the Associated Domains entitlement
 
 In Xcode, go to your app target > **Signing & Capabilities** and check that `applinks:yourdomain.com` is listed in **Associated Domains**.
@@ -170,8 +168,6 @@ If you use a custom in-app message display delegate or Content Card click handle
 ## "Open Web URL Inside App" shows a blank or broken page {#open-web-url-inside-app-shows-a-blank-or-broken-page}
 
 **Symptom:** Selecting **Open Web URL Inside App** results in a blank or broken WebView.
-
-If selecting **Open Web URL Inside App** results in a blank or broken WebView:
 
 1. **Verify the URL uses HTTPS.** The SDK's WebView requires ATS-compliant URLs. HTTP links fail silently.
 2. **Check for Content Security Policy headers.** If the target web page sets `X-Frame-Options: DENY` or a restrictive `Content-Security-Policy`, it blocks rendering in a WebView.
