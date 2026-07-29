@@ -160,7 +160,7 @@ You can preview your landing page in the editor's **Preview** tab. After saving 
 In the editor, you can also select **Copy preview link** to share the page with reviewers who don't have dashboard access.
 
 - If your landing page doesn't use Liquid, this link is the same as the direct URL from **Copy URL**, opened in preview mode.
-- If your landing page uses Liquid and you have the Landing Pages Pro entitlement, the link instead renders the live page on demand and reflects your current changes rather than a snapshot from when you generated the link. Content is personalized per user. The preview displays the Braze favicon and cannot be changed.
+- If your landing page uses Liquid and you have the Landing Pages Pro entitlement, the link instead renders the live page on demand and reflects your current changes rather than a snapshot from when you generated the link. Content is personalized per user.
 
 For preview links on other channels, see [shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
