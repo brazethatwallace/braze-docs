@@ -1,27 +1,29 @@
 ---
-nav_title: "GET: Buscar una cuenta de usuario existente en el dashboard"
-article_title: "GET: Buscar una cuenta de usuario existente en el dashboard"
+nav_title: "GET: Buscar una cuenta de usuario existente en el panel"
+article_title: "GET: Buscar una cuenta de usuario existente en el panel"
 alias: /get_see_user_account_information/
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto de conexión de Braze para buscar el ID de recurso de una cuenta de usuario existente en el dashboard."
+description: "Este artículo describe los detalles sobre el endpoint de Braze para buscar el ID de recurso de una cuenta de usuario existente en el panel."
 ---
 
 {% api %}
-# Buscar una cuenta de usuario existente en el dashboard por ID de recurso {#look-up-an-existing-dashboard-user-account-by-resource-id}
+# Buscar una cuenta de usuario existente en el panel por ID de recurso {#look-up-an-existing-dashboard-user-account-by-resource-id}
 {% apimethod get %}
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para buscar una cuenta de usuario existente en el dashboard especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
+> Utiliza este endpoint para buscar una cuenta de usuario existente en el panel especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#3df40764-8f74-4532-aed3-ab8a6cb92122 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
+Para utilizar este endpoint, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Límite de velocidad {#rate-limit}
 

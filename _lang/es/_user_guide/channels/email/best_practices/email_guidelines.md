@@ -14,16 +14,17 @@ channel: email
 
 ## General {#general}
 
-Aquí tienes algunos consejos rápidos a tener en cuenta mientras construyes tu contenido:
+Aquí tienes algunos consejos rápidos que debes tener en cuenta al crear tu contenido:
 
 - Al dar formato a tu correo electrónico, usa hojas de estilo en línea como CSS.
 - Para usar una plantilla de correo electrónico tanto para versiones móviles como de escritorio, mantén el ancho por debajo de 500 píxeles.
-- Las imágenes deben tener menos de 5&nbsp;MB. Recomendamos usar PNG, JPEG o GIF para máxima compatibilidad. Evita SVG y WebP, ya que muchos clientes de correo electrónico importantes aún no los admiten.
-- No establezcas alturas y anchos para las imágenes, ya que esto puede causar espacios en blanco innecesarios en un correo electrónico degradado.
+- Las imágenes deben pesar menos de 5&nbsp;MB. Recomendamos usar PNG, JPEG o GIF para máxima compatibilidad. Evita SVG y WebP, ya que muchos clientes de correo electrónico importantes aún no los admiten.
+- No establezcas alturas ni anchos para las imágenes, ya que esto puede causar espacios en blanco innecesarios en un correo electrónico degradado.
 - No se deben usar etiquetas `div`, ya que la mayoría de los clientes de correo electrónico no admiten su uso. En su lugar, usa tablas anidadas.
 - Evita usar JavaScript porque no funciona con ningún ESP.
-- Braze mejora los tiempos de carga usando un CDN global para alojar todas las imágenes de correo electrónico.
-- En dispositivos móviles, las columnas de imágenes son estrechas (~100px cada una), por lo que las filas con múltiples imágenes aún caben (por ejemplo, cuatro imágenes ≈ cuatro columnas utilizables).
+- Evita `position: absolute` y `position: relative` de CSS en las plantillas de correo electrónico. La mayoría de los clientes de correo electrónico no admiten el posicionamiento CSS, lo que causa discrepancias de diseño entre la vista previa de Braze y los correos electrónicos entregados. Usa diseños basados en tablas para lograr efectos de capas o superposición.
+- Braze mejora los tiempos de carga utilizando un CDN global para alojar todas las imágenes de correo electrónico.
+- En dispositivos móviles, las columnas de imágenes son estrechas (~100 px cada una), por lo que las filas con múltiples imágenes siguen encajando (por ejemplo, cuatro imágenes ≈ cuatro columnas utilizables).
 
 ## Texto alternativo {#alternative-text}
 
@@ -39,7 +40,7 @@ Si tu texto alternativo contiene comillas, usa comillas simples (`'`) en lugar d
 La validación se utiliza para las direcciones de correo electrónico del panel, las direcciones de correo electrónico de los usuarios finales (tus clientes) y las direcciones de remitente y responder a de un mensaje de correo electrónico.
 {% endalert %}
 
-La validación de correo electrónico se produce cuando la dirección de correo electrónico de un usuario se actualiza o se importa a Braze mediante la API, la carga de CSV, el SDK o se modifica en el panel. Ten en cuenta que las direcciones de correo electrónico no pueden incluir espacios en blanco y, si se envían a través de la API, los espacios en blanco pueden provocar un error `400`.
+La validación de correo electrónico se produce cuando la dirección de correo electrónico de un usuario se actualiza o se importa a Braze a través de la API, la carga de CSV, el SDK o se modifica en el panel. Ten en cuenta que las direcciones de correo electrónico no pueden incluir espacios en blanco y, si se envían a través de la API, los espacios en blanco pueden provocar un error `400`.
 
 Las direcciones de correo electrónico dirigidas a través de los servidores de Braze deben validarse según los estándares [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). Braze no acepta ciertos caracteres y los reconoce como no válidos. Si un correo electrónico rebota, Braze marca el correo electrónico como no válido y el estado de suscripción no se modifica.
 
@@ -47,7 +48,7 @@ Para obtener información sobre los caracteres no permitidos y las reglas de val
 
 ## Direcciones de remitente y responder a {#from-and-reply-to-addresses}
 
-Al configurar tus direcciones de remitente, asegúrate de que el dominio del correo electrónico del remitente coincida con tu dominio de envío (como `marketing.yourdomain.com`). No hacerlo puede provocar una desalineación de SPF y DKIM. Todos los correos electrónicos de responder a se pueden configurar con tu dominio raíz.
+Al configurar tus direcciones de remitente, asegúrate de que el dominio del correo electrónico del remitente coincida con tu dominio de envío (como `marketing.yourdomain.com`). No hacerlo puede provocar una desalineación de SPF y DKIM. Todos los correos electrónicos de responder a se pueden configurar en tu dominio raíz.
 
 {% alert note %}
 La codificación Unicode no es compatible en las direcciones de remitente.
@@ -69,7 +70,7 @@ El diseño puede romperse cuando el HTML/CSS generado por Braze entra en conflic
 
 - Elimina primero el HTML/CSS personalizado
 - Valida que las fuentes personalizadas se carguen correctamente en la vista previa
-- Revisa el relleno de filas y columnas
+- Comprueba el relleno de filas y columnas
 - Prefiere diseños basados en tablas y mantente dentro del ancho del editor.
 
 Los Content Blocks que incorporan HTML externo al editor también pueden romper el diseño.

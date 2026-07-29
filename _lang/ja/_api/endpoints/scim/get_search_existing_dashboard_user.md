@@ -23,6 +23,8 @@ scim/v2/Users?filter=userName%20eq%20"user%40test.com"
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5037d810-b822-4c54-bb51-f30470a42a95 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin`ヘッダーとしてサービスOriginを使用します。詳細については、[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning)を参照してください。
@@ -54,7 +56,7 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],

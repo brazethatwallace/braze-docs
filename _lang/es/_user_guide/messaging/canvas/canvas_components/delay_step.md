@@ -23,11 +23,11 @@ Para crear un retraso, añade un paso a tu Canvas. Arrastra y suelta el componen
 
 Puedes extender los pasos de retraso hasta dos años (730 días). Por ejemplo, si estás incorporando nuevos usuarios para tu aplicación, puedes añadir un retraso extendido de dos meses antes de enviar un paso de mensaje para animar a los usuarios que no han iniciado una sesión.
 
-## Tipos de retraso de tiempo {#time-delay-types}
+## Tipos de retraso temporal {#time-delay-types}
 
 Puedes elegir el tipo de retraso antes del siguiente mensaje en tu Canvas. Puedes establecer un retraso para que tus usuarios esperen durante un periodo de tiempo determinado, o retrasar a tus usuarios hasta una fecha y hora específicas.
 
-Si hay un retraso de tiempo, es de esperar que algunos usuarios avancen al siguiente paso del Canvas solo después del retraso. Los usuarios que se encuentren en el retraso no se añadirán a la métrica _Proceeded to Next Step_. Para más información, consulta [Análisis de retraso](#delay-analytics).
+Si hay un retraso temporal, es de esperar que algunos usuarios avancen al siguiente paso del Canvas solo después del retraso. Los usuarios que se encuentren en el retraso no se añadirán a la métrica _Proceeded to Next Step_. Para más información, consulta [Análisis de retrasos](#delay-analytics).
 
 {% tabs %}
 {% tab Duración %}
@@ -36,7 +36,7 @@ Seleccionar **Duración** te permite retrasar a los usuarios durante un número 
 
 Ten en cuenta la diferencia entre cómo se calculan los "días" y los "días naturales".
 
-- Un "día" son 24 horas y se calcula a partir del momento en que el usuario entra en el paso de retraso.
+- Un "día" equivale a 24 horas y se calcula a partir del momento en que el usuario entra en el paso de retraso.
 - Un "día natural" define el tiempo de espera hasta la siguiente hora especificada, que podría ser inferior a 24 horas. Puedes elegir retrasar en la hora de la empresa o en la hora local del usuario. Si no se especifica una hora, el usuario se retrasa hasta la medianoche del día siguiente en la hora de la empresa.
 
 ### Comportamiento del retraso: "días naturales" a una hora específica frente a "días" {#delay-behavior-calendar-days-at-a-specific-time-versus-days}
@@ -47,7 +47,7 @@ Por el contrario, cuando seleccionas **días** como unidad sin **A una hora espe
 
 También puedes seleccionar **A una hora específica** para especificar cuándo avanzan los usuarios en el Canvas. Esta opción tiene en cuenta la hora en que el usuario entró en el paso de retraso. Si esta hora es posterior a la hora configurada en los ajustes, Braze añade más horas al retraso.
 
-Como ejemplo, supongamos que hoy es 11 de diciembre y nuestro paso de retraso está configurado con una **Duración** de una semana a las 8 am UTC. Si un usuario entra en el paso de retraso el 4 de diciembre, se libera del paso de retraso para continuar su recorrido hoy si originalmente entró en el paso de retraso antes de las 8 am UTC. Si entró en el paso de retraso después de esa hora, el usuario se retrasa hasta el día siguiente (la siguiente ocurrencia de esa hora).
+Como ejemplo, supongamos que hoy es 11 de diciembre y nuestro paso de retraso está configurado como **Duración** de una semana a las 8 AM UTC. Si un usuario entra en el paso de retraso el 4 de diciembre, sale del paso de retraso para continuar su recorrido hoy si originalmente entró en el paso de retraso antes de las 8 AM UTC. Si entró en el paso de retraso después de esa hora, el usuario se retrasa hasta el día siguiente (la siguiente ocurrencia de esa hora).
 
 {% endtab %}
 {% tab Fecha del calendario %}
@@ -56,7 +56,7 @@ Seleccionar **Fecha del calendario** te permite retener a los usuarios en el pas
 
 ### Consideraciones {#considerations}
 
-#### Los usuarios no recibirán pasos o mensajes con fechas pasadas {#users-wont-receive-past-dated-steps-or-messages}
+#### Los usuarios no recibirán pasos ni mensajes con fechas pasadas {#users-wont-receive-past-dated-steps-or-messages}
 
 Si la fecha y hora seleccionadas ya han pasado en el momento en que los usuarios llegan al paso de retraso, los usuarios salen del Canvas. Puede haber hasta 31 días entre el inicio del Canvas y las fechas elegidas para los pasos de "esperar hasta un día exacto".
 
@@ -64,32 +64,36 @@ Si la fecha y hora seleccionadas ya han pasado en el momento en que los usuarios
 Si participas en el [acceso anticipado a Canvas Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context), puedes establecer retrasos de hasta 2 años.
 {% endalert %}
 
-Por ejemplo, los usuarios no recibirán pasos o mensajes en estos escenarios:
+Por ejemplo, los usuarios no recibirán pasos ni mensajes en estos escenarios:
 
-- Un mensaje está programado para enviarse el 3 de mayo a las 9 pm, pero el paso de retraso expira el 3 de mayo a las 9 am.
+- Un mensaje está programado para enviarse el 3 de mayo a las 9 PM, pero el paso de retraso expira el 3 de mayo a las 9 AM.
 - Un paso de Canvas se retrasa hasta una hora específica en la zona horaria local del usuario, pero los usuarios no tienen una zona horaria configurada en su perfil de usuario. El retraso entonces se establece de forma predeterminada en la zona horaria de la empresa para estos usuarios, que ya ha pasado la hora especificada.
 
 #### Los usuarios salen si un paso de retraso posterior está dentro del periodo de un paso de retraso anterior {#users-exit-if-a-subsequent-delay-step-is-within-a-prior-delay-steps-timeline}
 
-Si el Canvas tiene dos pasos de retraso pero el primer paso de retraso es más largo que el segundo paso de retraso, los usuarios también salen del Canvas.
+Si el Canvas tiene dos pasos de retraso pero el primer paso de retraso es más largo que el segundo, los usuarios también salen del Canvas.
 
 Por ejemplo, supongamos que un Canvas tiene estos pasos:
-- Paso 1: paso de mensaje
-- Paso 2: paso de retraso hasta el 13 de diciembre a las 10 pm
-- Paso 3: paso de mensaje
-- Paso 4: paso de retraso hasta el 13 de diciembre a las 7 pm
-- Paso 5: paso de mensaje
+- Paso 1: Paso de mensaje
+- Paso 2: Paso de retraso hasta el 13 de diciembre a las 10 PM
+- Paso 3: Paso de mensaje
+- Paso 4: Paso de retraso hasta el 13 de diciembre a las 7 PM
+- Paso 5: Paso de mensaje
 
 Los usuarios que entran en el paso 4 salen del Canvas antes de recibir el paso 5 porque el retraso del paso 4 forma parte del periodo del paso 2.
 
 {% endtab %}
 {% tab Día de la semana %}
 
-Seleccionar **Día de la semana** te permite retener a los usuarios en el paso hasta un día específico de la semana, a una hora específica. Por ejemplo, puedes retrasar a los usuarios hasta la próxima vez que llegue el jueves a las 4 pm en la zona horaria de la empresa.
+Seleccionar **Día de la semana** te permite retener a los usuarios en el paso hasta un día específico de la semana, a una hora específica. Por ejemplo, puedes retrasar a los usuarios hasta la próxima vez que llegue el jueves a las 4 PM en la zona horaria de la empresa.
 
 Para configurar esto correctamente, también debes seleccionar qué sucede si el usuario entra en el Canvas en el día de la semana seleccionado (por ejemplo, jueves), pero después de la hora especificada. Puedes elegir avanzar al usuario el mismo día o retenerlo hasta la semana siguiente.
 {% endtab %}
 {% endtabs %}
+
+### Actualizaciones de perfil durante los retrasos {#profile-updates-during-delays}
+
+Si un usuario entra en un Canvas y añade una dirección de correo electrónico válida durante el paso de retraso antes de que este finalice, recibe el correo electrónico en el siguiente paso. Esto se aplica también a otras actualizaciones de perfil. Cualquier cambio en los atributos del usuario o en la información de contacto durante el retraso se refleja cuando el usuario avanza a los pasos posteriores.
 
 ## Uso de los pasos de demora {#using-delay-steps}
 
@@ -109,7 +113,7 @@ Si añades un componente de demora a tu Canvas y no hay pasos posteriores, cualq
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
-Selecciona la opción **Personalizar demora** para configurar una demora personalizada para tus usuarios. Puedes usar esto con un [paso de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) para seleccionar la variable de contexto por la cual aplicar la demora. Esto anula la hora del día establecida en el atributo o propiedad seleccionados. Es útil cuando aplicas un desfase en días o semanas y quieres que los usuarios avancen a una hora específica. La zona horaria proviene del atributo o la propiedad, o usa la alternativa si no hay ninguna disponible.
+Selecciona el conmutador **Personalizar demora** para configurar una demora personalizada para tus usuarios. Puedes usar esto con un [paso de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) para seleccionar la variable de contexto por la que demorar. Esto anula la hora del día establecida en el atributo o propiedad seleccionados. Es útil cuando aplicas un desfase en días o semanas y quieres que los usuarios avancen a una hora específica. La zona horaria proviene del atributo o la propiedad, o usa la alternativa si no hay ninguna disponible.
 
 #### Comportamiento de la zona horaria para "a una hora específica" {#time-zone-behavior-for-at-specific-time}
 
@@ -125,7 +129,7 @@ Es posible que un atributo personalizado o una variable de contexto no tenga ni 
 
 #### Caso de uso {#use-case}
 
-Supongamos que quieres recordar a tus clientes que compren pasta de dientes dentro de 30 días. Usando una combinación de un paso de contexto y un paso de demora, puedes seleccionar esta variable de contexto para aplicar la demora. En este caso, tu paso de contexto tendría los siguientes campos:
+Supongamos que quieres recordar a tus clientes que compren pasta de dientes dentro de 30 días. Usando una combinación de un paso de contexto y un paso de demora, puedes seleccionar esta variable de contexto por la que demorar. En este caso, tu paso de contexto tendría los siguientes campos:
 
 - **Nombre de la variable de contexto:** product_reminder_interval
 - **Tipo de datos:** Hora
@@ -133,7 +137,7 @@ Supongamos que quieres recordar a tus clientes que compren pasta de dientes dent
 
 ![La variable "product_reminder_interval" y su valor.]({% image_buster /assets/img/context_step1.png %})
 
-A continuación, como quieres recordar a tus clientes dentro de 30 días, seleccionarás **Hasta un día específico** como opción de demora y seleccionarás **Personalizar demora** para usar la información de tu paso de contexto. Esto significa que tus usuarios se retienen hasta la variable de contexto seleccionada.
+A continuación, como quieres recordar a tus clientes dentro de 30 días, seleccionarás **Hasta un día específico** como opción de demora y seleccionarás **Personalizar demora** para usar la información de tu paso de contexto. Esto significa que tus usuarios se demoran hasta la variable de contexto seleccionada.
 
 ## Análisis de retrasos {#delay-analytics}
 
@@ -153,7 +157,7 @@ Las series temporales de estos análisis están disponibles en la vista expandid
 
 ### Errores de personalización fallida {#personalization-failed-errors}
 
-Si los usuarios no están activando un retraso personalizado, podría deberse a que el paso de Contexto que configuraste para calificarlos para el paso de Retraso no está funcionando como esperabas. Cuando una [variable de contexto no es válida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), el usuario continúa a través de tu Canvas sin que el paso de Contexto establezca su contexto. Esto puede provocar que no califiquen para pasos posteriores en tu Canvas, como los retrasos personalizados.
+Si los usuarios no están activando un retraso personalizado, podría deberse a que el paso de contexto que configuraste para calificarlos para el paso de retraso no está funcionando como esperabas. Cuando una [variable de contexto no es válida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), el usuario continúa a través de tu Canvas sin que el paso de contexto establezca su contexto. Esto puede provocar que no califiquen para pasos posteriores en tu Canvas, como los retrasos personalizados.
 
 ## Solución de problemas
 
@@ -161,4 +165,4 @@ Si los usuarios no están activando un retraso personalizado, podría deberse a 
 
 Cuando [detienes un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases), los usuarios que ya están esperando en un paso de retraso no salen inmediatamente. Braze aún programa la finalización del retraso, pero **no se envían más mensajes** mientras el Canvas está detenido.
 
-Si vuelves a habilitar el Canvas antes de que transcurra el retraso de un usuario, este puede avanzar al siguiente paso según lo programado. Si la ventana de retraso ya pasó mientras el Canvas estaba detenido, esos usuarios salen del Canvas en lugar de recibir el siguiente paso. Para ver ejemplos, consulta [¿Qué sucede cuando detienes un Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) y [Detener Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).
+Si vuelves a habilitar el Canvas antes de que el retraso de un usuario termine, puede avanzar al siguiente paso según lo programado. Si la ventana de retraso ya pasó mientras el Canvas estaba detenido, esos usuarios salen del Canvas en lugar de recibir el siguiente paso. Para ver ejemplos, consulta [¿Qué sucede cuando detienes un Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) y [Detener Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).

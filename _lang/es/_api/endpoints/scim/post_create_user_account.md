@@ -1,28 +1,30 @@
 ---
-nav_title: "POST: Crear una nueva cuenta de usuario en el dashboard"
-article_title: "POST: Crear una nueva cuenta de usuario en el dashboard"
+nav_title: "POST: Crear una nueva cuenta de usuario en el panel"
+article_title: "POST: Crear una nueva cuenta de usuario en el panel"
 alias: /post_create_user_account/
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear nueva cuenta de usuario en el dashboard de Braze."
+description: "En este artículo se describen los detalles del endpoint de Braze Crear nueva cuenta de usuario en el panel."
 
 ---
 
 {% api %}
-# Crear una nueva cuenta de usuario en el dashboard {#create-new-dashboard-user-account}
+# Crear una nueva cuenta de usuario en el panel {#create-new-dashboard-user-account}
 {% apimethod post %}
 /scim/v2/Users
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear una nueva cuenta de usuario en el dashboard especificando correo electrónico, nombre y apellidos, y permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo).
+> Utiliza este endpoint para crear una nueva cuenta de usuario en el panel especificando correo electrónico, nombre y apellidos, y permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#768a3c9d-ce1d-44fc-a0e4-d556b09f7aa3 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
+Para utilizar este endpoint, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Límite de velocidad {#rate-limit}
 
@@ -220,7 +222,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 
 ### Estados de error {#error-states}
 
-Si ya existe en Braze un usuario con este `userName` o dirección de correo electrónico, el punto de conexión responderá con:
+Si ya existe en Braze un usuario con este `userName` o dirección de correo electrónico, el endpoint responderá con:
 
 ```http
 HTTP/1.1 409 Conflict

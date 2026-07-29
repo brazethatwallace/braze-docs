@@ -19,9 +19,11 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Such
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#3df40764-8f74-4532-aed3-ab8a6cb92122 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ihre Dienst-Herkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzerbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ihre Dienst-Herkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 

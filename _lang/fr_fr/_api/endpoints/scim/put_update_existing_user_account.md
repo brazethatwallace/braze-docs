@@ -17,11 +17,13 @@ description: "Cet article présente en détail l'endpoint Braze Mettre à jour u
 
 > Utilisez cet endpoint pour mettre à jour un compte utilisateur de tableau de bord existant en spécifiant la ressource `id` renvoyée par la méthode SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
-Il vous permet de mettre à jour le prénom et le nom de famille, les autorisations (pour définir les autorisations au niveau de la société, de l'espace de travail et de l'équipe) et le département.
+Il vous permet de mettre à jour le prénom et le nom de famille, les autorisations (pour définir les autorisations au niveau de l'entreprise, de l'espace de travail et de l'équipe) et le département.
 
 Pour des raisons de sécurité, `userName` (adresse e-mail) ne peut pas être mis à jour via cet endpoint. Si vous souhaitez modifier le `userName` (adresse e-mail) d'un utilisateur, contactez l'[Assistance]({{site.baseurl}}/support_contact).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
+
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
 
 ## Conditions préalables {#prerequisites}
 
