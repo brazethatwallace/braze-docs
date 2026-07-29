@@ -145,6 +145,183 @@ If you use manual push integration, and your app calls `wipeData()` and later re
 
 To resume data collection, set [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) to `true`. Keep in mind, this will not restore any previously wiped data.
 
+## Logout and Unregister Push
+
+The Braze SDK provides methods to stop targeting a device when a user unregisters from push notifications or logs out. These methods remove push registration data from the current user on the Braze server and the SDK, so Braze no longer sends future push notification campaigns to that user.
+
+### Logout {#logout}
+
+When a user logs out from an application, call the SDK's `logout` method to remove the device's push registration from the current user and automatically perform cleanup actions on the SDK. The `logout` method performs the following:
+
+- Unregisters the device's push token, and any Live Activities push-to-start tokens, from the current user on the Braze server.
+- If the unregister call succeeds, the SDK wipes locally-stored SDK data and disables the SDK.
+- On failure, raises an error and an `isRetriable` flag to allow the integrator to take action.
+
+{% subtabs local %}
+{% subtab Swift %}
+
+The following completion-handler example shows `logout` success and failure handling. Use it for callback-based flows, and replace the logging with your app's retry or re-authentication logic.
+
+```swift
+// Completion handler
+AppDelegate.braze?.logout { result in
+  switch result {
+  case .success:
+    print("Logout successful")
+  case .failure(let error):
+    print("Logout failed: \(error.message), isRetriable: \(error.isRetriable)")
+  }
+}
+```
+
+The following async example shows the suspending `logout` API. Use it for async workflows and customize the success and failure branches for your app.
+
+```swift
+// Async/await
+do {
+  try await AppDelegate.braze?.logout()
+  print("Logout successful")
+} catch let error as Braze.LogoutErrorResult {
+  print("Logout failed: \(error.message), isRetriable: \(error.isRetriable)")
+}
+```
+
+{% endsubtab %}
+{% subtab OBJECTIVE-C %}
+
+This Objective-C example shows completion-based `logout` handling. Use it in Objective-C integrations and replace the logging with your app flow.
+
+```objc
+[AppDelegate.braze logoutWithCompletion:^(NSError * _Nullable error) {
+  if (error) {
+    NSNumber *isRetriable = error.userInfo[BRZLogoutErrorUserInfoKey.isRetriable];
+    NSLog(@"Logout failed: %@, isRetriable=%@", error.localizedDescription, isRetriable);
+  }
+}];
+```
+
+{% endsubtab %}
+{% endsubtabs local %}
+
+#### Re-enable tracking and push after `logout`
+
+After a successful `logout`, set [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) back to `true`, then re-register for notifications with your operating system (OS) or push provider by following [Swift push setup]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
+
+#### Avoid immediate unregister calls
+
+Avoid calling `logout` or `unregisterPush` directly after registering for push notifications with the OS or push provider. Due to asynchronous server processing, this can rarely re-add the push token to the Braze user.
+
+### Unregister Push {#unregister-push}
+
+To stop sending push to a device without additional automated cleanup, use the `unregisterPush` method. This removes the device's push token from the current user on Braze's server, and clears the locally-stored token.
+
+{% subtabs local %}
+{% subtab Swift %}
+
+The following completion-handler example shows `unregisterPush` success and failure handling. Use it for callback-based flows, and replace the logging with your own retry logic.
+
+```swift
+// Completion handler
+AppDelegate.braze?.notifications.unregisterPush { result in
+  switch result {
+  case .success:
+    print("Push unregistered successfully")
+  case .failure(let error):
+    print("Push unregistration failed: \(error.message), isRetriable: \(error.isRetriable)")
+  }
+}
+```
+
+The following async example shows the suspending `unregisterPush` API. Use it for async workflows and customize the success and failure branches for your app.
+
+```swift
+// Async/await
+do {
+  try await AppDelegate.braze?.notifications.unregisterPush()
+  print("Push unregistered successfully")
+} catch let error as Braze.PushUnregistrationError {
+  print("Push unregistration failed: \(error.message), isRetriable: \(error.isRetriable)")
+}
+```
+
+{% endsubtab %}
+{% subtab OBJECTIVE-C %}
+
+This Objective-C example shows completion-based `unregisterPush` handling. Use it in Objective-C integrations and replace the logging with your app flow.
+
+```objc
+[AppDelegate.braze.notifications unregisterPushWithCompletion:^(NSError * _Nullable error) {
+  if (error) {
+    NSNumber *isRetriable = error.userInfo[BRZPushUnregistrationErrorUserInfoKey.isRetriable];
+    NSNumber *statusCode = error.userInfo[BRZPushUnregistrationErrorUserInfoKey.httpStatusCode];
+    NSLog(@"Push unregistration failed: %@, isRetriable=%@ status=%@",
+          error.localizedDescription, isRetriable, statusCode);
+  }
+}];
+```
+
+{% endsubtab %}
+{% endsubtabs local %}
+
+#### Re-register push after `unregisterPush`
+
+After calling `unregisterPush`, re-register for notifications with your OS or push provider by following [Swift push setup]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) before sending Braze push notifications again.
+
+#### Avoid immediate unregister calls
+
+Avoid calling `logout` or `unregisterPush` directly after registering for push notifications with the OS or push provider. Due to asynchronous server processing, this can rarely re-add the push token to the Braze user.
+
+### Unregister push-to-start tokens for Live Activities {#unregister-push-to-start}
+
+Live Activities can be started remotely using push-to-start tokens. To stop Braze from remotely starting Live Activities on a device, call the `unregisterPushToStart` method to unregister all currently-registered types (default) or a specified list of Activity types.
+
+Note that currently-running Live Activities continue to receive updates and that this method will only remove the ability to start new activities remotely. For more information on Live Activities, see [Live Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities).
+
+{% alert note %}
+Avoid calling `logout` or `unregisterPushToStart` directly after calling `registerPushToStart` for a Live Activity. Due to the asynchronous nature of server processing, in rare cases, this can lead to the push-to-start token being re-added to the Braze user.
+{% endalert %}
+
+The following example shows how to unregister all push-to-start activity types. Use it when a signed-out user should no longer receive new remotely started Live Activities.
+
+```swift
+// Unregister all currently-registered activity types
+// Completion handler
+AppDelegate.braze?.liveActivities.unregisterPushToStart { result in
+  switch result {
+  case .success:
+    print("Push-to-start unregistered successfully")
+  case .failure(let error):
+    print("Push-to-start unregistration failed: \(error.message), isRetriable: \(error.isRetriable)")
+  }
+}
+
+// Async/await
+do {
+  try await AppDelegate.braze?.liveActivities.unregisterPushToStart()
+  print("Push-to-start unregistered successfully")
+} catch let error as Braze.PushUnregistrationError {
+  print("Push-to-start unregistration failed: \(error.message), isRetriable: \(error.isRetriable)")
+}
+```
+
+The following example shows how to unregister specific activity types. Use it when only selected Live Activities should stop being started remotely.
+
+```swift
+// Unregister specific activity types
+AppDelegate.braze?.liveActivities.unregisterPushToStart(types: ["ActivityType1", "ActivityType2"]) { result in
+  switch result {
+  case .success:
+    print("Push-to-start unregistered successfully")
+  case .failure(let error):
+    print("Push-to-start unregistration failed: \(error.message), isRetriable: \(error.isRetriable)")
+  }
+}
+```
+
+{% alert note %}
+`unregisterPushToStart` doesn't have an Objective-C API, as Live Activities rely on Swift-only types.
+{% endalert %}
+
 ## IDFV collection
 
 In previous versions of the Braze iOS SDK, the IDFV (Identifier for Vendor) field was automatically collected as the user's device ID. Beginning in Swift SDK `v5.7.0`, the IDFV field was optionally disabled, and instead, Braze would set a random UUID as the device ID. Starting in Swift SDK `v7.0.0`, the IDFV field will not be collected by default, and a UUID will be set as the device ID instead.
