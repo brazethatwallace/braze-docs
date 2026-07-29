@@ -44,7 +44,7 @@ When filtering a nested time custom attribute, you can choose to filter with ope
 If you select an operator under the **Day of Year** category, only the month and day are checked for comparison instead of the full timestamp of the nested custom attribute value. Selecting an operator under the **Time** category compares the full timestamp, including the year.
 
 {% alert note %}
-When using **in less than** or **in more than** operators with 90 days or more, Braze automatically converts the value to weeks when you save the segment. For example, 90 days is converted to 13 weeks.
+When using **Time** operators that support day and week units (such as **is more than**, **is less than**, **exactly**, and **after**), Braze automatically converts the value to weeks when you save the segment. For example, 91 days is converted to 13 weeks. Both day and week units are supported for these filters.
 {% endalert %}
 
 ## Use multi-criteria segmentation
