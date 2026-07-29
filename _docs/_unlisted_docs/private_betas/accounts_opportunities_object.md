@@ -125,6 +125,16 @@ To import your data through CSV:
 
 ![The "Upload data" dropdown on the "Accounts" page in Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
+### Troubleshooting CSV imports
+
+#### Empty rows in Account Objects CSV imports
+
+If you import Account Objects data and see empty rows on the **Accounts** page, check whether account field values contain commas.
+
+In Account Objects CSV imports, commas in values can be interpreted as separators. This can cause values to be parsed incorrectly and result in empty rows on the dashboard.
+
+To fix this issue, remove commas from the original CSV file and upload it again. For example, change `"$5,000,000"` to `"$5000000"` or `"$5 million"` before re-uploading.
+
 ## Use the Braze API {#using-the-braze-api}
 
 APIs (Application Programming Interfaces) allow different software systems to communicate programmatically. When you interact with the Braze API, you send HTTP requests to specific endpoints. Endpoints are structured URLs that accept instructions and return responses. The HTTP method tells Braze what action to perform, and the request body contains the data.
