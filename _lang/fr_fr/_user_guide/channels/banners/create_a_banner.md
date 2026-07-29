@@ -15,7 +15,7 @@ channel:
 
 ## Prérequis {#prerequisites}
 
-Avant de pouvoir lancer votre Banner, votre équipe de développement doit [configurer les placements dans votre application ou votre site web]({{site.baseurl}}/developer_guide/banners/placements). Vous pouvez tout de même préparer votre campagne Banner en attendant, mais vous ne pourrez pas lancer la campagne tant que les placements ne seront pas configurés.
+Avant de pouvoir lancer votre Banner, votre équipe de développement doit [configurer les placements dans votre application ou votre site web]({{site.baseurl}}/developer_guide/banners/placements). Vous pouvez tout de même préparer votre Campaign Banner en attendant, mais vous ne pourrez pas la lancer tant que les placements ne seront pas configurés.
 
 ## Créer un message Banner {#create-a-banner-message}
 
@@ -23,21 +23,21 @@ Avant de pouvoir lancer votre Banner, votre équipe de développement doit [conf
 
 ### Étape 2 : Choisir où créer votre message {#step-2-choose-where-to-build-your-message}
 
-Vous ne savez pas si votre message doit être envoyé via une campagne ou un Canvas ? Les campagnes sont plus adaptées aux envois de messages ciblés et ponctuels, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
+Vous ne savez pas si votre message doit être envoyé via une Campaign ou un Canvas ? Les Campaigns conviennent mieux aux messages ciblés ponctuels, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
 
 {% tabs %}
 {% tab Campaign %}
 
 1. Allez dans **Messagerie** > **Campaigns** et sélectionnez **Créer une campagne**.
 2. Sélectionnez **Banner**.
-3. Donnez à votre campagne un nom clair et significatif.
-4. Ajoutez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire. Les tags facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le générateur de rapports, vous pouvez filtrer par les tags pertinents.
-5. Sélectionnez l'emplacement que vous avez précédemment créé pour l'associer à votre campagne.
+3. Donnez à votre Campaign un nom clair et significatif.
+4. Ajoutez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire. Les tags facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le générateur de rapports, vous pouvez filtrer par les tags pertinents.
+5. Sélectionnez l'emplacement que vous avez précédemment créé pour l'associer à votre Campaign.
 6. Ajoutez des variantes si nécessaire. Vous pouvez choisir un type de message et une mise en page différents pour chacune. Pour en savoir plus sur les variantes, consultez [Test multivarié et test A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
-7. Choisissez une date et une heure de début pour votre campagne Banner. Par défaut, les Banners durent indéfiniment. Vous pouvez modifier cela en sélectionnant **Heure de fin** et en spécifiant une date et une heure de fin.
+7. Choisissez une date et une heure de début pour votre Campaign Banner. Par défaut, les Banners durent indéfiniment. Vous pouvez modifier cela en sélectionnant **Heure de fin** et en spécifiant une date et une heure de fin.
 
 {% alert tip %}
-Si tous les messages de votre campagne sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite sélectionner **Copier depuis la variante** dans le menu déroulant **Ajouter une variante**.
+Si tous les messages de votre Campaign sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite sélectionner **Copier depuis la variante** dans le menu déroulant **Ajouter une variante**.
 {% endalert %}
 
 {% endtab %}
@@ -93,7 +93,7 @@ Pour le suivi des clics et des fermetures dans votre HTML personnalisé, vous de
 {% endtabs %}
 
 {% alert note %}
-Pour cibler des utilisateurs dans différentes langues au sein d'une seule campagne Banner, consultez [Messages multilingues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+Pour cibler des utilisateurs dans différentes langues au sein d'une seule Campaign Banner, consultez [Messages multilingues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 {% endalert %}
 
 #### Étape 3.2 : Définir le comportement au clic (facultatif) {#step-32-define-on-click-behavior-optional}
@@ -139,7 +139,7 @@ Lorsque la fermeture est activée, vous pouvez personnaliser le bouton de fermet
 | **Label ARIA** | Le label accessible pour le bouton de fermeture, utilisé par les lecteurs d'écran. Par défaut « Fermer » si laissé vide. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paramètres du bouton de fermeture" }
 
-Lorsqu'un utilisateur ferme un Banner, celui-ci ne s'affiche plus pour cet utilisateur, même s'il remplit toujours les critères de ciblage de la campagne.
+Lorsqu'un utilisateur ferme un Banner, celui-ci ne s'affiche plus pour cet utilisateur, même s'il remplit toujours les critères de ciblage de la Campaign.
 
 {% endtab %}
 {% tab Éditeur HTML %}
@@ -150,7 +150,7 @@ Dans l'éditeur HTML, la fermeture est gérée dans votre HTML en utilisant `bra
 <a href="#" onclick="brazeBridge.logClick(); brazeBridge.closeMessage();">&#x2715; Close</a>
 ```
 
-Lorsqu'un utilisateur ferme un Banner de cette manière, celui-ci ne s'affiche plus pour cet utilisateur, même s'il remplit toujours les critères de ciblage de la campagne.
+Lorsqu'un utilisateur ferme un Banner de cette manière, celui-ci ne s'affiche plus pour cet utilisateur, même s'il remplit toujours les critères de ciblage de la Campaign.
 
 Pour la référence complète du pont JavaScript, consultez [Code personnalisé et pont JavaScript pour les Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
 
@@ -165,7 +165,7 @@ Vous pouvez ajouter des propriétés personnalisées à un Banner pour y attache
 
 Les propriétés personnalisées fonctionnent de la même manière dans l'éditeur par glisser-déposer et dans l'éditeur HTML. Pour ajouter une propriété personnalisée, sélectionnez **Paramètres** > **Propriétés** > **Ajouter une propriété**.
 
-![La page des propriétés montrant l'option d'ajouter la première propriété personnalisée à une campagne Banner.]({% image_buster /assets/img/banners/add_property.png %})
+![La page des propriétés montrant l'option d'ajouter la première propriété personnalisée à une Campaign Banner.]({% image_buster /assets/img/banners/add_property.png %})
 
 Pour chaque propriété que vous souhaitez ajouter, remplissez les champs suivants :
 
@@ -180,7 +180,7 @@ Lorsque vous avez terminé, sélectionnez **Terminé**.
 
 ![La page des propriétés avec une propriété de type chaîne de caractères ayant une clé « color » et une valeur « #FF0000 ».]({% image_buster /assets/img/banners/example_property.png %})
 
-### Étape 4 : Construire le reste de votre campagne ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+### Étape 4 : Construire le reste de votre Campaign ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -190,18 +190,18 @@ Lorsque vous avez terminé, sélectionnez **Terminé**.
 La [priorité du Banner]({{site.baseurl}}/user_guide/channels/banners#priority) détermine l'ordre dans lequel les Banners sont affichés s'ils partagent le même emplacement. Pour définir manuellement la priorité :
 
 1. Sélectionnez **Set exact priority**.
-2. Glissez-déposez les campagnes pour les ordonner avec la bonne priorité.
+2. Glissez-déposez les Campaigns pour les ordonner avec la bonne priorité.
 3. Sélectionnez **Apply Sort**.
 
 {% alert tip %}
-Si vous avez plusieurs campagnes Banner utilisant le même ID d'emplacement, nous vous recommandons d'utiliser le trieur de priorité par glisser-déposer pour définir la priorité exacte.
+Si vous avez plusieurs Campaigns Banner utilisant le même ID d'emplacement, nous vous recommandons d'utiliser le trieur de priorité par glisser-déposer pour définir la priorité exacte.
 {% endalert %}
 
 #### Configurer la rééligibilité (facultatif) {#re-eligibility}
 
-Par défaut, les utilisateurs qui ferment un Banner ne sont jamais rééligibles pour cette campagne. Pour permettre aux utilisateurs ayant fermé le Banner de le revoir, allez à l'étape **Contrôles de distribution** et sélectionnez **Permettre aux utilisateurs de redevenir éligibles pour recevoir la campagne**. Lorsque cette option est activée, définissez une fenêtre de temporisation en minutes, heures, jours ou semaines.
+Par défaut, les utilisateurs qui ferment un Banner ne sont jamais rééligibles pour cette Campaign. Pour permettre aux utilisateurs ayant fermé le Banner de le revoir, allez à l'étape **Contrôles de distribution** et sélectionnez **Permettre aux utilisateurs de redevenir éligibles pour recevoir la campagne**. Lorsque cette option est activée, définissez une fenêtre de temporisation en minutes, heures, jours ou semaines.
 
-Le compte à rebours commence lorsque l'utilisateur ferme le Banner. Après l'expiration de la fenêtre, l'utilisateur est automatiquement rééligible — aucun redémarrage de campagne n'est nécessaire. La rééligibilité est suivie par utilisateur et par campagne.
+Le compte à rebours commence lorsque l'utilisateur ferme le Banner. Après l'expiration de la fenêtre, l'utilisateur est automatiquement rééligible — aucun redémarrage de Campaign n'est nécessaire. La rééligibilité est suivie par utilisateur et par Campaign.
 
 #### Choisir votre audience {#choose-your-audience}
 
@@ -210,11 +210,11 @@ Le compte à rebours commence lorsque l'utilisateur ferme le Banner. Après l'ex
 {% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
-2. Dans **Attribuer des conversions**, suivez la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne en définissant des événements de conversion avec une fenêtre allant jusqu'à 30 jours pour comptabiliser l'action comme une conversion.
+2. Dans **Attribuer des conversions**, suivez la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une Campaign en définissant des événements de conversion avec une fenêtre allant jusqu'à 30 jours pour comptabiliser l'action comme une conversion.
 
 #### Choisir les événements de conversion {#choose-conversion-events}
 
-Braze vous permet de suivre les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), c'est-à-dire la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion est comptabilisée si l'utilisateur effectue l'action spécifiée.
+Braze vous permet de suivre les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), c'est-à-dire la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une Campaign. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion est comptabilisée si l'utilisateur effectue l'action spécifiée.
 
 {% endtab %}
 
@@ -222,7 +222,7 @@ Braze vous permet de suivre les [événements de conversion]({{site.baseurl}}/us
 
 Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, mettre en œuvre le [test multivarié]({{site.baseurl}}/user_guide/messaging/ab_testing) et la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 
-Pour contrôler la rééligibilité des étapes Banner dans Canvas, utilisez les paramètres de réentrée Canvas. Pour en savoir plus, consultez [Rééligibilité pour les campagnes et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
+Pour contrôler la rééligibilité des étapes Banner dans Canvas, utilisez les paramètres de réentrée Canvas. Pour en savoir plus, consultez [Rééligibilité pour les Campaigns et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 
 {% endtab %}
 {% endtabs %}
@@ -233,4 +233,4 @@ Pour contrôler la rééligibilité des étapes Banner dans Canvas, utilisez les
 
 ### Étape 6 : Vérifier et déployer {#step-6-review-and-deploy}
 
-Après avoir terminé la création de votre campagne ou Canvas, vérifiez ses détails, [testez-la]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages), puis envoyez-la lorsque vous êtes prêt.
+Après avoir terminé la création de votre Campaign ou Canvas, vérifiez ses détails, [testez-la]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages), puis envoyez-la lorsque vous êtes prêt.
