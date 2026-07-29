@@ -534,6 +534,7 @@ else
     }')
 fi
 
+set +e
 HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' \
   --request POST \
   --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}/comment" \
@@ -541,6 +542,12 @@ HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data "${COMMENT_JSON}")
+COMMENT_CURL_EXIT=$?
+set -e
+
+if [ "${COMMENT_CURL_EXIT}" -ne 0 ] || [ "${HTTP_CODE:-0}" -lt 200 ] || [ "${HTTP_CODE:-0}" -ge 300 ]; then
+  echo "Warning: Jira comment failed (HTTP ${HTTP_CODE:-?}, curl exit ${COMMENT_CURL_EXIT}); continuing."
+fi
 ```
 
 For **not enough information** and **Salesforce link missing**, when
@@ -559,6 +566,7 @@ posting the comment via curl, transition the ticket to Done with
 resolution "Won't Do" using the same `${AUTH_B64}` constructed above:
 
 ```bash
+set +e
 HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' \
   --request POST \
   --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}/transitions" \
@@ -570,7 +578,14 @@ HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' \
       "resolution": { "name": "Won'\''t Do" }
     }
   }')
-echo "Jira transition HTTP status: ${HTTP_CODE}"
+TRANSITION_CURL_EXIT=$?
+set -e
+
+echo "Jira transition HTTP status: ${HTTP_CODE} (curl exit ${TRANSITION_CURL_EXIT})"
+
+if [ "${TRANSITION_CURL_EXIT}" -ne 0 ] || [ "${HTTP_CODE:-0}" -lt 200 ] || [ "${HTTP_CODE:-0}" -ge 300 ]; then
+  echo "Warning: Jira transition failed (HTTP ${HTTP_CODE:-?}, curl exit ${TRANSITION_CURL_EXIT}); continuing."
+fi
 ```
 
 If the transition fails (non-2xx or curl error), log a warning and
