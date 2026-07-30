@@ -307,7 +307,7 @@ When using Connected Content to retrieve files from Amazon S3, configure your bu
       "Resource": "arn:aws:s3:::your-bucket-name/*",
       "Condition": {
         "IpAddress": {
-          "aws:SourceIp": ["YOUR_BRAZE_IP_RANGE"]
+          "aws:SourceIp": ["{YOUR_BRAZE_IP_RANGE}"]
         }
       }
     }
