@@ -3,7 +3,7 @@ nav_title: Troubleshooting
 article_title: Troubleshoot SSL click tracking
 page_order: 5
 page_type: reference
-description: "Diagnose SSL click-tracking and CDN configuration issues using a symptom index and standard investigation path."
+description: "Diagnose SSL click tracking and CDN configuration issues using a symptom index and standard investigation path."
 channel: email
 ---
 
@@ -38,7 +38,7 @@ channel: email
 - **Click tracking domain (CTD):** The branded subdomain Braze uses to wrap links for click tracking (for example, `clicks.mail.yourbrand.com`).
 - **Tracked URL:** Wraps the original HTTPS link in your tracking domain. When a user clicks it, the tracking domain resolves the request and redirects to the final destination. A CDN allows you to track secure (HTTPS) URLs. Without it, users may encounter a "connection is not secure" privacy error.
 - **Untracked URL:** Maintains the original URL intact, bypassing the CDN to serve as a control environment.
-- **Phase 1 versus Phase 2 DNS:** Phase 1 points your click tracking domain CNAME directly to your email service provider (ESP) for initial HTTP verification. Phase 2 points the CNAME to your CDN or web application firewall (WAF), which terminates SSL and proxies requests to the ESP with the required headers.
+- **Phase 1 and Phase 2 routing:** Phase 1 points your click tracking domain CNAME directly to your email service provider (ESP) for initial HTTP verification. Phase 2 points the CNAME to your CDN or web application firewall (WAF), which terminates SSL and proxies requests to the ESP with the required headers. For ESP-specific CNAME destinations, see [ESP Phase 1 and Phase 2 routing](#esp-phase-1-and-phase-2-routing).
 
 ## Click tracking domains and DNS phases {#click-tracking-domains-and-dns-phases}
 
@@ -74,7 +74,7 @@ If you instruct Braze to enable SSL click tracking but leave your DNS CNAME poin
 
 ### Certificate does not cover the tracking subdomain (Phase 2)
 
-If your DNS points to your CDN (Cloudflare, CloudFront, and so on) but your security team applied a certificate that only covers primary web assets (for example, `yourbrand.com` and `www.yourbrand.com`), the specific click tracking subdomain (for example, `clicks.mail.yourbrand.com`) is not included. The CDN serves a certificate that does not match the tracking domain, and browsers show a privacy error.
+If your DNS points to your CDN (Cloudflare, CloudFront, and so on) but your security team applied a certificate that only covers primary web assets (for example, `yourbrand.com` and `www.yourbrand.com`), the specific click-tracking subdomain (for example, `clicks.mail.yourbrand.com`) is not included. The CDN serves a certificate that does not match the tracking domain, and browsers show a privacy error.
 
 ## Triage workflow {#triage-workflow}
 
@@ -124,7 +124,7 @@ If you're suddenly experiencing low email open rates, confirm that the SSL certi
 
 If tracked redirect links return `403 Forbidden`, the failure often occurs at your content delivery network (CDN) or web application firewall (WAF)—for example, rules on AWS WAF or Amazon CloudFront that block certain user agents, query strings, or redirect patterns. Review blocked-request logs and metrics with your CDN or cloud provider. For AWS, see [Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
-To see whether the problem is specific to click tracking, turn off click tracking for one test link (see [Turning off click-tracking on a link-to-link basis]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). If the destination URL loads when click tracking is off but returns `403` when tracking is on, focus on configuration for your click-tracking domain, CDN, and WAF. If your CNAME still points to the ESP while SSL is enabled, you may see an [SSL name mismatch error](#ssl-name-mismatch-errors) instead—start with the [triage workflow](#triage-workflow).
+To see whether the problem is specific to click tracking, turn off click tracking for one test link (see [Turning off click-tracking on a link-to-link basis]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). If the destination URL loads when click tracking is off but returns `403` when tracking is on, focus on configuration for your click tracking domain, CDN, and WAF. If your CNAME still points to the ESP while SSL is enabled, you may see an [SSL name mismatch error](#ssl-name-mismatch-errors) instead—start with the [triage workflow](#triage-workflow).
 
 ## Domain registry issues {#domain-registry-issues}
 
@@ -151,7 +151,7 @@ If you complete SSL setup and links still appear as HTTP, contact your Braze cus
 If you're using Amazon SES as your email service provider, the following configuration issues can prevent Braze from enabling SSL or cause errors during setup:
 
 - **Region mismatch:** Confirm your CDN origin points to the AWS tracking domain for your Braze cluster. US clusters use `r.us-east-1.awstrack.me`. EU clusters use `r.eu-central-1.awstrack.me`. Using the wrong region can block SSL enablement.
-- **Host header:** Amazon SES requires your CDN to forward the correct host header. Enable the `X-Forwarded-Host` header on your click-tracking domain. For Phase 1 and Phase 2 routing requirements, refer to [ESP Phase 1 and Phase 2 routing](#esp-phase-1-and-phase-2-routing).
+- **Host header:** Amazon SES requires your CDN to forward the correct host header. Enable the `X-Forwarded-Host` header on your click tracking domain. For Phase 1 and Phase 2 routing requirements, refer to [ESP Phase 1 and Phase 2 routing](#esp-phase-1-and-phase-2-routing).
 - **Proxy configuration:** A proxy or CDN setup that overrides or conflicts with the host header can cause SSL enablement to fail. Review proxy settings with your CDN provider to confirm they don't interfere with host header forwarding.
 - **Route 53 alias record:** If you use Route 53 to manage DNS for your domain, create an [alias record in Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html) that points to your CDN distribution (for example, `d111111abcdef8.cloudfront.net`). Using a standard CNAME instead of an alias record can return HTTP 400 errors.
 - **Header forwarding disabled:** If SSL enablement still fails after you configure `X-Forwarded-Host`, try disabling header forwarding on your CDN or proxy. Some setups resolve the issue when forwarding is turned off entirely. Work with your IT team or CDN provider to test this configuration.
@@ -374,5 +374,5 @@ Use the following table to diagnose common errors when testing click tracking.
 | `"This site can’t be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Check your DNS settings. Ensure your tracking subdomain is configured per your CDN and ESP recommended configuration. |
 | `525 / 526 SSL Error` | Check that the SSL setting in your CDN (like Cloudflare) matches your Origin's capability. |
 | `404 Not Found` | Check that your CDN is configured to forward the entire URL path to the ESP, rather than pointing to a blank root directory. |
-| `400 Bad Request: Request Header or Cookie Too Large` | This error typically occurs when the click-tracking domain inherits too many large cookies from your website's domain. Braze does not set or block any cookies on the tracking domain. Configure your CDN to not send those cookies to the ESP when reverse-proxying the click-tracking request. You may also need to increase the `large_client_header_buffers` setting in your nginx configuration (for example, `large_client_header_buffers 4 32k;` to allow headers up to 32&nbsp;KB). For more information, consult your CDN provider or website engineering team. |
+| `400 Bad Request: Request Header or Cookie Too Large` | This error typically occurs when the click tracking domain inherits too many large cookies from your website's domain. Braze does not set or block any cookies on the tracking domain. Configure your CDN to not send those cookies to the ESP when reverse-proxying the click-tracking request. You may also need to increase the `large_client_header_buffers` setting in your nginx configuration (for example, `large_client_header_buffers 4 32k;` to allow headers up to 32&nbsp;KB). For more information, consult your CDN provider or website engineering team. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Error codes and troubleshooting" }
