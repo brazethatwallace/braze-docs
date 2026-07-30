@@ -180,7 +180,7 @@ Yes, you can segment based on button clicks for up to two buttons in your messag
 
 ### Can I customize my in-app message using custom HTML or JavaScript or transfer existing HTML messages into the editor?
 
-You can't directly transfer existing HTML messages into the editor, but you can insert raw HTML, CSS, and JavaScript into a **Custom code** block. You can use **Custom code** blocks to embed third-party videos and advanced Liquid, such as Connected Content or conditional statements. For `brazeBridge` JavaScript methods and click tracking examples, see [Custom HTML in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#backward-incompatible-changes).
+You can't directly transfer existing HTML messages into the editor, but you can insert raw HTML, CSS, and JavaScript into a **Custom code** block. You can use **Custom code** blocks to embed third-party videos and advanced Liquid, such as Connected Content or conditional statements. For `brazeBridge` JavaScript methods and click tracking examples, see [Custom HTML in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
 
 ### How can I create a slideup in-app message?
 
