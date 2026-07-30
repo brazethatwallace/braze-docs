@@ -45,7 +45,7 @@ channel: email
 SSL click tracking requires a two-phase DNS setup because Braze does not provision or renew external security certificates on your behalf.
 
 1. **Phase 1 (initial setup):** Your click tracking domain CNAME points directly to your ESP endpoint for unencrypted HTTP verification.
-2. **Phase 2 (SSL deployment):** You update the CNAME to your client-owned CDN or WAF edge, which holds your custom SSL certificate and proxies requests to the ESP with the required headers. The ESP logs the click and redirects the recipient to the final destination.
+2. **Phase 2 (SSL deployment):** You update the CNAME to your CDN or WAF edge, which holds your custom SSL certificate and proxies requests to the ESP with the required headers. The ESP logs the click and redirects the recipient to the final destination.
 
 {% alert important %}
 Braze enables SSL click tracking only after Phase 1 verification is complete. If SSL is enabled but your DNS still points to the ESP (Phase 1), recipients can see [SSL name mismatch errors](#ssl-name-mismatch-errors).
@@ -57,9 +57,9 @@ When troubleshooting link tracking errors, check whether your DNS record points 
 
 | ESP | Phase 1 CNAME destination (direct to ESP) | Phase 2 CNAME destination | Required CDN configuration |
 | --- | --- | --- | --- |
-| Amazon SES | `r.us-east-1.awstrack.me` (US)<br>`r.eu-central-1.awstrack.me` (EU) | Client-owned CDN endpoint (for example, `d123.cloudfront.net`, `ssl.fastly.net`, or Cloudflare) | Enable the `X-Forwarded-Host` header with your click tracking domain name |
-| SendGrid | `sendgrid.net` | Client-owned CDN endpoint | Forward original `Host` headers (or custom branded tracking IDs) to the origin without dropping parameters |
-| SparkPost | `spgo.io` | Client-owned CDN endpoint | Enable `X-Forwarded-Host` and forward the original `User-Agent` header intact |
+| Amazon SES | `r.us-east-1.awstrack.me` (US)<br>`r.eu-central-1.awstrack.me` (EU) | Your CDN endpoint (for example, `d123.cloudfront.net`, `ssl.fastly.net`, or Cloudflare) | Enable the `X-Forwarded-Host` header with your click tracking domain name |
+| SendGrid | `sendgrid.net` | Your CDN endpoint | Forward original `Host` headers (or custom branded tracking IDs) to the origin without dropping parameters |
+| SparkPost | `spgo.io` | Your CDN endpoint | Enable `X-Forwarded-Host` and forward the original `User-Agent` header intact |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="ESP Phase 1 and Phase 2 routing" }
 
 For CDN setup steps and partner documentation, refer to [SSL at Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl).
@@ -96,7 +96,7 @@ In the `ANSWER SECTION`, review where the CNAME resolves:
 
 ### Step 2: Validate the TLS certificate
 
-Force a live TLS validation against your click tracking domain to see exactly which certificate browsers receive. Enter your click tracking domain into an external SSL checker, such as [SSL Shopper's SSL Checker](https://www.sslshopper.com/ssl-checker.html#hostname=clicks.itv.com) (replace `clicks.itv.com` with your domain).
+Force a live TLS validation against your click tracking domain to see exactly which certificate browsers receive. Enter your click tracking domain into an external SSL checker, such as [SSL Shopper's SSL Checker](https://www.sslshopper.com/ssl-checker.html#hostname=clicks.mail.yourbrand.com) (replace `clicks.mail.yourbrand.com` with your domain).
 
 Confirm the following:
 
@@ -108,7 +108,7 @@ Confirm the following:
 For a more detailed TLS report, you can also use [Qualys SSL Labs SSL Server Test](https://www.ssllabs.com/ssltest/).
 {% endalert %}
 
-### CDN configuration issues
+### Step 3: Review CDN configuration issues
 
 If live email links break during setup, you may have pointed DNS toward your CDN before completing configuration. This can appear as a wrong link or connection error. Contact your CDN provider and review their documentation to troubleshoot proxy and origin settings. Coordinate with the team that manages your SSL and CDN configuration for further assistance.
 
