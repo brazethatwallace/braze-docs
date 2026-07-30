@@ -1,31 +1,33 @@
 ---
-nav_title: "PUT: Actualizar cuenta de usuario del dashboard"
-article_title: "PUT: Actualizar cuenta de usuario del dashboard"
+nav_title: "PUT: Actualizar cuenta de usuario del panel"
+article_title: "PUT: Actualizar cuenta de usuario del panel"
 alias: /post_update_existing_user_account/
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Actualizar una cuenta de usuario existente del dashboard de Braze."
+description: "En este artículo se describen los detalles del endpoint Actualizar una cuenta de usuario existente del panel de Braze."
 ---
 
 {% api %}
-# Actualizar cuenta de usuario del dashboard {#update-dashboard-user-account}
+# Actualizar cuenta de usuario del panel {#update-dashboard-user-account}
 {% apimethod put %}
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para actualizar una cuenta de usuario existente del dashboard especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
+> Utiliza este endpoint para actualizar una cuenta de usuario existente del panel especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
 Te permite actualizar los nombres y apellidos, los permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo) y el departamento.
 
-Por razones de seguridad, `userName` (dirección de correo electrónico) no se puede actualizar a través de este punto de conexión. Si deseas cambiar el `userName` (dirección de correo electrónico) de un usuario, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact).
+Por razones de seguridad, `userName` (dirección de correo electrónico) no se puede actualizar a través de este endpoint. Si deseas cambiar el `userName` (dirección de correo electrónico) de un usuario, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
+Para utilizar este endpoint, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Límite de velocidad {#rate-limit}
 
@@ -35,7 +37,7 @@ Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás e
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `id` | Obligatorio | Cadena | El ID del recurso del usuario. Este parámetro es devuelto por los métodos `POST` `/scim/v2/Users/` o `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+| `id` | Obligatorio | Cadena | El ID del recurso del usuario. Este parámetro es devuelto por los métodos `POST` `/scim/v2/Users/` o `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la ruta" }
 
 ## Cuerpo de la solicitud {#request-body}
@@ -206,7 +208,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 ```
 
 ### Estados de error {#error-states}
-Si un usuario con este ID no existe en Braze, el punto de conexión responderá con:
+Si un usuario con este ID no existe en Braze, el endpoint responderá con:
 
 ```http
 HTTP/1.1 404 Not Found

@@ -21,16 +21,16 @@ Para criar uma postergação, adicione uma etapa ao seu Canvas. Arraste e solte 
 
 ### Postergações estendidas {#extended-delays}
 
-Você pode estender etapas de Postergação em até dois anos (730 dias). Por exemplo, se você está fazendo a integração de novos usuários do seu app, pode adicionar uma postergação estendida de dois meses antes de enviar uma etapa de Mensagem para incentivar os usuários que ainda não iniciaram uma sessão.
+Você pode estender etapas de Postergação em até dois anos (730 dias). Por exemplo, se você está fazendo a integração de novos usuários do seu app, pode adicionar uma postergação estendida de dois meses antes de enviar uma etapa de Mensagem para incentivar os usuários que não iniciaram uma sessão.
 
-## Tipos de postergação de tempo {#time-delay-types}
+## Tipos de postergação {#time-delay-types}
 
 Você pode escolher o tipo de postergação antes da próxima mensagem no seu Canvas. É possível definir uma postergação para que os usuários aguardem um período de tempo determinado ou postergar os usuários até uma data e hora específicas.
 
-Se houver uma postergação de tempo, é esperado que alguns usuários avancem para a próxima etapa do Canvas somente após a postergação. Os usuários que estiverem na postergação não serão adicionados à métrica _Proceeded to Next Step_. Para saber mais, consulte [Análise de dados de postergação](#delay-analytics).
+Se houver uma postergação, é esperado que alguns usuários avancem para a próxima etapa do Canvas somente após a postergação. Os usuários que estiverem na postergação não serão adicionados à métrica _Proceeded to Next Step_. Para saber mais, consulte [Análise de dados de postergação](#delay-analytics).
 
 {% tabs %}
-{% tab Duration %}
+{% tab Duração %}
 
 Selecionar **Duration** permite postergar os usuários por um número definido de segundos, minutos, horas, dias ou semanas, e em um horário específico. Por exemplo, você pode postergar os usuários por quatro horas ou por um dia.
 
@@ -41,16 +41,16 @@ Observe a diferença entre como "dias" e "dias corridos" são calculados.
 
 ### Comportamento da postergação: "dias corridos" em um horário específico versus "dias" {#delay-behavior-calendar-days-at-a-specific-time-versus-days}
 
-Quando você seleciona **calendar days** como unidade e ativa **At a specific time** (por exemplo, **1 calendar day at 9 AM**), o Canvas calcula primeiro a data corrida alvo e depois aplica o horário agendado. Por exemplo, se uma etapa do Canvas envia às 21h de segunda-feira e a etapa de postergação está definida como **1 calendar day at 9 AM**, a próxima etapa envia às 9h de terça-feira. O Canvas calcula segunda-feira + 1 dia corrido = terça-feira e depois aplica o horário das 9h.
+Quando você seleciona **dias corridos** como unidade e ativa **At a specific time** (por exemplo, **1 dia corrido às 9h**), o Canvas calcula primeiro a data corrida alvo e depois aplica o horário agendado. Por exemplo, se uma etapa do Canvas envia às 21h de segunda-feira e a etapa de postergação está definida como **1 dia corrido às 9h**, a próxima etapa envia às 9h de terça-feira. O Canvas calcula segunda-feira + 1 dia corrido = terça-feira e, em seguida, aplica o horário das 9h.
 
-Por outro lado, quando você seleciona **days** como unidade sem **At a specific time** (por exemplo, **After 1 day**), o Canvas aguarda um período completo de 24 horas a partir do momento em que o usuário entra na etapa de postergação. Por exemplo, se uma etapa envia às 9h35 de 13 de outubro e a etapa de postergação é **After 1 day**, a próxima etapa envia às 9h35 de 14 de outubro.
+Por outro lado, quando você seleciona **dias** como unidade sem **At a specific time** (por exemplo, **After 1 day**), o Canvas aguarda um período completo de 24 horas a partir do momento em que o usuário entra na etapa de postergação. Por exemplo, se uma etapa envia às 9h35 de 13 de outubro e a etapa de postergação é **After 1 day**, a próxima etapa envia às 9h35 de 14 de outubro.
 
 Você também pode selecionar **At a specific time** para especificar quando os usuários avançam no Canvas. Essa opção leva em consideração o horário em que o usuário entrou na etapa de postergação. Se esse horário for posterior ao horário configurado nas configurações, a Braze adiciona mais horas à postergação.
 
 Como exemplo, digamos que hoje é 11 de dezembro e nossa etapa de postergação está definida como **Duration** de uma semana às 8h UTC. Se um usuário entrar na etapa de postergação em 4 de dezembro, ele será liberado da etapa de postergação para continuar sua jornada hoje, caso tenha entrado originalmente na etapa de postergação antes das 8h UTC. Se ele entrou na etapa de postergação após esse horário, o usuário será postergado até o dia seguinte (a próxima ocorrência desse horário).
 
 {% endtab %}
-{% tab Calendar date %}
+{% tab Data do calendário %}
 
 Selecionar **Calendar date** permite manter os usuários na etapa até uma data e hora específicas.
 
@@ -83,7 +83,7 @@ Por exemplo, digamos que um Canvas tenha estas etapas:
 Os usuários que entrarem na Etapa 4 sairão do Canvas antes de receber a Etapa 5, porque a postergação da Etapa 4 faz parte do período da Etapa 2.
 
 {% endtab %}
-{% tab Day of the week %}
+{% tab Dia da semana %}
 
 Selecionar **Day of the week** permite manter os usuários na etapa até um dia da semana específico, em um horário específico. Por exemplo, você pode postergar os usuários até a próxima quinta-feira às 16h no fuso horário da empresa.
 
@@ -91,9 +91,13 @@ Para configurar isso corretamente, você também deve selecionar o que acontece 
 {% endtab %}
 {% endtabs %}
 
+### Atualizações de perfil durante postergações {#profile-updates-during-delays}
+
+Se um usuário entrar em um Canvas e adicionar um endereço de e-mail válido durante a etapa de postergação antes que ela termine, ele receberá o e-mail na próxima etapa. Isso se aplica a outras atualizações de perfil também. Quaisquer alterações em atributos de usuário ou informações de contato durante a postergação são refletidas quando o usuário avança para as etapas subsequentes.
+
 ## Usando etapas de Postergação {#using-delay-steps}
 
-Digamos que estamos em 10 de junho. No dia 11 de junho, você gostaria que os usuários entrassem no Canvas e recebessem uma mensagem sobre uma promoção futura. Depois, você quer manter os usuários no Canvas até 17 de junho às 15h no fuso local. Às 15h no fuso local do dia 17 de junho, você quer enviar aos usuários uma mensagem de lembrete sobre a promoção.
+Digamos que estamos no dia 10 de junho. No dia 11 de junho, você gostaria que os usuários entrassem no Canvas e recebessem uma mensagem sobre uma promoção futura. Depois, você quer manter os usuários no Canvas até 17 de junho às 15h no fuso local. Às 15h no fuso local do dia 17 de junho, você quer enviar aos usuários uma mensagem de lembrete sobre a promoção.
 
 A sequência de etapas do Canvas poderia ser assim:
 
@@ -120,7 +124,7 @@ Ao configurar postergações personalizadas com a opção **em horário específ
 - **Tipo de dados time:** Se o atributo ou variável de contexto for um tipo de dados time, ele segue UTC. Isso ocorre porque o tipo de dados time é sempre convertido para UTC quando salvo no banco de dados, então "em horário específico" sempre referencia UTC quando a variável está definida como tipo de dados time. Por exemplo, `2025-06-10T10:00:00-08:00` usa UTC+0.
 
 {% alert note %}
-É possível que um atributo personalizado ou variável de contexto não tenha nem um horário específico nem um fuso horário se for um tipo de dados string. Se for um tipo de dados time, você precisará especificar o horário e o fuso horário. No entanto, se o atributo personalizado ou variável de contexto for uma string "irrelevante" (como "product_name"), o usuário sai do Canvas.
+É possível que um atributo personalizado ou variável de contexto não tenha nem um horário específico nem um fuso horário se for um tipo de dados string. Se for um tipo de dados time, você precisará especificar o horário e o fuso horário. No entanto, se o atributo personalizado ou variável de contexto for uma string "irrelevante" (como "product_name"), o usuário sairá do Canvas.
 {% endalert %}
 
 #### Caso de uso {#use-case}
@@ -135,7 +139,7 @@ Digamos que você quer lembrar seus clientes de comprar pasta de dente daqui a 3
 
 Em seguida, como você quer lembrar seus clientes daqui a 30 dias, selecione **Até um dia específico** como a opção de postergação e selecione **Personalizar postergação** para usar as informações da sua etapa de Contexto. Isso significa que seus usuários serão postergados até a variável de Contexto selecionada.
 
-## Análise de dados da postergação {#delay-analytics}
+## Análise de dados de postergação {#delay-analytics}
 
 Os componentes de postergação têm as seguintes métricas disponíveis na visualização de análise de dados de um Canvas ativo ou anteriormente ativo.
 
@@ -145,7 +149,7 @@ Os componentes de postergação têm as seguintes métricas disponíveis na visu
 | _Prosseguiu para a próxima etapa_ | Reflete o número de entradas que prosseguiram para a próxima etapa no Canvas. |
 | _Saiu do Canvas_ | Reflete o número de entradas que saíram do Canvas e não prosseguiram para a próxima etapa. |
 | _Falha na personalização_ | Reflete o número de vezes que uma mensagem personalizada ou conteúdo destinado a um usuário não pôde ser entregue devido ao seguinte:<br> {::nomarkdown}<ul><li>O valor da postergação está no passado</li><li>O valor da postergação está mais de 2 anos no futuro</li><li>O valor <b>Após uma duração</b> não é um número</li><li>O valor <b>Até um dia específico</b> não é uma data ou string formatada como data</li></ul>{:/} <br>Consulte [Erros de falha na personalização](#personaliztion-failed-errors) para mais detalhes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Análise de dados da postergação" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análise de dados de postergação" }
 
 As séries temporais dessas análises estão disponíveis na visualização expandida do componente.
 

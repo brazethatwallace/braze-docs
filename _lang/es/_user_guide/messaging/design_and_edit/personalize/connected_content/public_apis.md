@@ -21,7 +21,7 @@ Las API públicas pueden estar sujetas a restricciones de uso y límites de velo
 | --------- | --- |
 | [OpenWeatherMap](http://openweathermap.org/api) | Proporciona datos meteorológicos actuales, pronósticos de 5 y 16 días, y datos históricos. |
 | [NYT Article Search](https://developer.nytimes.com/docs/articlesearch-product/1/overview) | Proporciona datos de artículos del NYT que incluyen titular, tema, URL, fecha, resumen, etc. |
-| [The Guardian API](http://open-platform.theguardian.com/documentation/) | Proporciona datos de artículos del Guardian que incluyen titular, tema, URL, fecha, resumen, etc.|
+| [The Guardian API](http://open-platform.theguardian.com/documentation/) | Proporciona datos de artículos de The Guardian que incluyen titular, tema, URL, fecha, resumen, etc.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Noticias e información" }
 
 ## Eventos y ticketing {#events-and-ticketing}
@@ -45,7 +45,7 @@ Las API públicas pueden estar sujetas a restricciones de uso y límites de velo
 
 |	 API 	| Descripción |
 | --------- | --- |
-| [AirVisual](https://airvisual.com/api) | Proporciona datos sobre calidad del aire y clima. |
+| [AirVisual](https://airvisual.com/api) | Proporciona datos de calidad del aire y clima. |
 | [Nutritionix Worlds](https://developer.nutritionix.com/) | Proporciona datos nutricionales verificados. |
 | [USDA Nutrients](https://fdc.nal.usda.gov/api-guide.html) | Proporciona acceso a la base de datos nacional de nutrientes. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Salud" }
@@ -55,25 +55,25 @@ Las API públicas pueden estar sujetas a restricciones de uso y límites de velo
 |	 API 	| Descripción |
 | --------- | --- |
 | [Last.fm](http://www.last.fm/api) | Proporciona una variedad de datos musicales, incluyendo información de artistas, artistas recomendados y más. |
-| [iTunes](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) | Proporciona datos sobre una variedad de artículos en las tiendas de iTunes, App Store e iBooks. |
+| [iTunes](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) | Proporciona datos sobre una variedad de elementos en las tiendas de iTunes, App Store e iBooks. |
 | [Bandsintown](http://www.bandsintown.com/api/overview) | Proporciona información sobre conciertos locales y recomienda eventos de música en vivo. |
-| [Songkick](http://www.songkick.com/developer) | Proporciona información de música en vivo con artistas, lugares, ubicaciones, etc. |
+| [Songkick](http://www.songkick.com/developer) | Proporciona información sobre música en vivo con artistas, lugares, ubicaciones, etc. |
 | [Discogs](http://www.discogs.com/developers/) | Proporciona información sobre artistas, sellos discográficos y grabaciones. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Música" }
 
-## Información de productos {#product-information}
+## Información de producto {#product-information}
 
 |	 API 	| Descripción |
 | --------- | --- |
-| [eBay](http://developer.ebay.com/devzone/shopping/docs/concepts/shoppingapiguide.html) | Proporciona datos en vivo de eBay, incluyendo datos de artículos, búsquedas populares y más. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Información de productos" }
+| [eBay](http://developer.ebay.com/devzone/shopping/docs/concepts/shoppingapiguide.html) | Proporciona datos en vivo de eBay, incluidos datos de artículos, búsquedas populares y más. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Información de producto" }
 
 ## Varios {#miscellaneous}
 
-|	 API 	| Descripción |
+| API | Descripción |
 | --------- | --- |
 | [London Unified](http://api.tfl.gov.uk/#Line) y [NYC MTA](https://new.mta.info/developers) | Proporcionan datos de transporte público en tiempo real, incluyendo estados de líneas, tiempos de llegada, etc. |
-| [Sunrise and Sunset](https://sunrise-sunset.org/api) | Proporciona horarios de amanecer y atardecer para una latitud y longitud determinadas. |
+| [Sunrise and Sunset](https://sunrise-sunset.org/api) | Proporciona los horarios de amanecer y atardecer para una latitud y longitud determinadas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Varios" }
 
 [16]: [success@braze.com](mailto:success@braze.com)

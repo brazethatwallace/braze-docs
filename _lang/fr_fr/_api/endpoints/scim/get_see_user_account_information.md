@@ -19,6 +19,8 @@ description: "Cet article présente les détails de l'endpoint Braze Rechercher 
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#3df40764-8f74-4532-aed3-ab8a6cb92122 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l'origine de votre service comme en-tête `X-Request-Origin`. Pour plus d'informations, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning).
@@ -31,7 +33,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `id` | Requis | Chaîne de caractères | L'ID de ressource de l'utilisateur. Ce paramètre est renvoyé par les méthodes `POST` `/scim/v2/Users/` ou `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+| `id` | Requis | Chaîne de caractères | L'ID de ressource de l'utilisateur. Ce paramètre est renvoyé par les méthodes `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 ## Corps de la requête {#request-body}

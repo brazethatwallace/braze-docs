@@ -16,7 +16,7 @@ Teams는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 
 
 모든 Braze 계약에서 Teams를 사용할 수 있는 것은 아닙니다. 이 기능에 접근하려면 Braze 계정 매니저에게 문의하거나 [저희에게 연락하세요](mailto:success@braze.com).
 
-## Teams는 권한 세트 및 역할과 어떻게 다른가요? {#how-do-teams-differ-from-permission-sets-and-roles}
+## Teams은 권한 세트 및 역할과 어떻게 다른가요? {#how-do-teams-differ-from-permission-sets-and-roles}
 
 {% multi_lang_include permissions/differences.md content="Differences" %}
 
@@ -30,74 +30,74 @@ Teams는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 
 
 Teams가 커스텀 속성, 언어 또는 국가로 정의된 경우, 해당 Teams를 사용하여 Campaigns, Canvases, Content Cards, Segments 등의 기능에 대해 최종 사용자를 필터링할 수 있습니다. 자세한 내용은 [Teams 태그 할당](#tags-and-filters)을 참조하세요.
 
-## 사용자를 Teams에 할당하기 {#assign-users-to-teams}
+## Teams에 사용자 할당하기 {#assign-users-to-teams}
 
-Braze 관리자와 "회사 설정 관리 가능"이라는 회사 수준 권한이 있는 제한된 사용자는 제한된 접근 권한이 있는 회사 사용자에게 Teams 수준 권한을 할당할 수 있습니다. Teams에 할당되면, 회사 사용자는 Teams 생성 시 정의된 사용자 언어, 위치 또는 커스텀 속성과 같은 특정 Teams에서 사용 가능한 데이터만 읽거나 쓸 수 있습니다.
+Braze 관리자 및 "회사 설정 관리 가능" 회사 수준 권한을 가진 제한된 사용자는 제한된 액세스 권한을 가진 회사 사용자에게 팀 수준 권한을 할당할 수 있습니다. 팀에 할당되면 회사 사용자는 팀이 생성될 때 정의된 사용자 언어, 위치 또는 커스텀 속성과 같이 해당 팀에서 사용할 수 있는 데이터만 읽거나 쓸 수 있도록 제한됩니다.
 
 ### 사용자를 삭제하지 않고 회사 사용자 권한 제한하기 {#limit-company-user-permissions-without-deleting-a-user}
 
-회사 사용자의 계정을 유지하면서 로그인을 중지하려면 [사용자를 일시 중지]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users)하세요. 일시 중지하면 계정이 비활성 상태가 되어 사용자가 로그인할 수 없습니다.
+회사 사용자의 계정을 유지하면서 로그인을 중지하려면 사용자를 삭제하는 대신 [사용자를 일시 중지]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users)하세요. 일시 중지하면 계정이 비활성 상태가 되어 사용자가 로그인할 수 없습니다.
 
-사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집합니다. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 접근 권한만 남겨두세요. 예를 들어 "미디어 라이브러리 자산 보기"만 남길 수 있습니다. 자세한 내용은 [사용자 권한 편집]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions)을 참조하세요.
+사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집하세요. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 액세스만 남겨두세요(예: "미디어 라이브러리 에셋 보기"). 자세한 내용은 [사용자 권한 편집하기]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions)를 참조하세요.
 
-Teams 권한은 워크스페이스 권한 위에서 작동합니다. 사용자를 Teams에 할당하는 경우, 필요한 최소한의 Teams 수준 권한만 부여하고 Campaigns, Canvases, Segments 또는 고객 프로필에 대한 권한은 부여하지 마세요. 사용자는 워크스페이스에 남아 로그인할 수 있지만, 대부분의 메시징 또는 오디언스 작업을 수행할 수 없습니다.
+팀 권한은 워크스페이스 권한 위에서 작동합니다. 사용자를 팀에 할당하는 경우, 필요한 최소한의 팀 수준 권한만 부여하고 Campaigns, Canvases, Segments 또는 고객 프로필에 대한 권한은 부여하지 마세요. 사용자는 워크스페이스에 남아 있고 로그인할 수 있지만 대부분의 메시징 또는 오디언스 작업을 수행할 수 없습니다.
 
-사용자를 Teams에 할당하려면 **설정** > **회사 사용자**로 이동하여 Teams에 추가할 사용자를 선택합니다.
+사용자를 팀에 할당하려면 **설정** > **회사 사용자**로 이동하여 팀에 추가할 사용자를 선택하세요.
 
-그런 다음 아래 단계를 수행합니다:
+그런 다음 다음 단계를 수행하세요:
 
-1. **워크스페이스 수준 권한** 섹션에서 사용자가 아직 포함되지 않은 경우 적절한 워크스페이스에 추가합니다.
+1. **워크스페이스 수준 권한** 섹션에서 사용자가 아직 포함되어 있지 않은 경우 적절한 워크스페이스에 추가하세요.
 
-![배너 템플릿 권한 세트가 있는 워크스페이스 수준 권한.]({% image_buster /assets/img/team_level_permissions.png %})
+![배너 템플릿 권한이 설정된 워크스페이스 수준 권한.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. **+ Teams 수준 권한 추가**를 선택한 다음, 이 사용자를 추가할 **Teams**를 선택합니다.
-3. **Teams** 권한 섹션에서 특정 권한을 할당합니다.
+2. **+ 팀 수준 권한 추가**를 선택한 다음, 이 사용자를 추가할 **팀**을 선택하세요.
+3. **팀** 권한 섹션에서 특정 권한을 할당하세요.
 
-![Teams 수준 랜딩 페이지 템플릿 권한.]({% image_buster /assets/img/teams.png %})
+![팀 수준 랜딩 페이지 템플릿 권한.]({% image_buster /assets/img/teams.png %})
 
-### 사용 가능한 Teams 수준 권한 {#available-team-level-permissions}
+### 사용 가능한 팀 수준 권한 {#available-team-level-permissions}
 
-다음은 Teams 수준에서 할당할 수 있는 모든 권한입니다. 여기에 나열되지 않은 권한은 워크스페이스 수준에서만 부여되며, 이러한 권한은 **Teams** 권한 열에 "--"로 표시됩니다.
+다음은 팀 수준에서 할당할 수 있는 모든 권한입니다. 여기에 나열되지 않은 권한은 워크스페이스 수준에서만 부여되며, 이러한 권한은 **Teams** 권한 열에 "--"로 표시됩니다.
 
 - Campaigns 보기
 - Campaigns 편집
-- Campaigns 아카이브
-- Campaigns 시작
+- Campaigns 보관
+- Campaigns 실행
 - Campaigns 승인
 - Canvases 보기
 - Canvases 편집
-- Canvases 아카이브
-- Canvases 시작
+- Canvases 보관
+- Canvases 실행
 - Canvases 승인
 - Content Blocks 보기
 - Content Blocks 편집
-- Content Blocks 아카이브
-- Content Blocks 시작
+- Content Blocks 보관
+- Content Blocks 실행
 - Segments 보기
 - Segments 편집
-- Segments 아카이브
-- 인앱 메시지 템플릿 보기
-- 인앱 메시지 템플릿 편집
-- 인앱 메시지 템플릿 아카이브
+- Segments 보관
+- IAM 템플릿 보기
+- IAM 템플릿 편집
+- IAM 템플릿 보관
 - 이메일 템플릿 보기
 - 이메일 템플릿 편집
-- 이메일 템플릿 아카이브
+- 이메일 템플릿 보관
 - 웹훅 템플릿 보기
 - 웹훅 템플릿 편집
-- 웹훅 템플릿 아카이브
+- 웹훅 템플릿 보관
 - 이메일 링크 템플릿 보기
 - 이메일 링크 템플릿 편집
-- 미디어 라이브러리 자산 보기
-- 미디어 라이브러리 자산 편집
-- 미디어 라이브러리 자산 삭제
+- 미디어 라이브러리 에셋 보기
+- 미디어 라이브러리 에셋 편집
+- 미디어 라이브러리 에셋 삭제
 - 사용자 데이터 내보내기
-- 고객 프로필 보기(PII 수정됨)
+- 고객 프로필 보기 (PII 삭제됨)
 - PII 보기
 - 대시보드 사용자 편집
 - Canvas 템플릿 편집
 - Canvas 템플릿 보기
-- Canvas 템플릿 아카이브
+- Canvas 템플릿 보관
 - 대시보드 보고서 보기
 - 대시보드 보고서 편집
 - 대시보드 보고서 삭제
@@ -112,8 +112,9 @@ Canvases의 경우, Teams 필터는 Canvas 진입 시에만 사용자를 검증�
 
 ![Campaign에 Teams 태그를 추가하는 모습.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
-- Teams 생성 시 적용된 *정의*에 따라, Teams 필터가 할당되면 해당 참여 툴의 오디언스는 정의와 일치하는 고객 프로필로 제한됩니다.
-- 할당된 *권한*에 따라, Teams 멤버는 자신의 Teams 필터가 설정된 대시보드 참여 툴에만 접근할 수 있습니다. 워크스페이스 권한이 제한적이거나 없는 경우, 특정 오브젝트를 저장하거나 시작하기 전에 Teams 필터를 추가해야 합니다. Teams 멤버는 또한 Teams별로 Canvases, Campaigns, Content Cards 및 Segments를 필터링하여 관련 콘텐츠를 식별할 수 있습니다.
+- Teams 생성 시 적용된 정의에 따라, Teams 필터가 할당되면 해당 참여 툴의 오디언스는 정의와 일치하는 고객 프로필로 제한됩니다.
+- 할당된 권한에 따라, Teams 멤버는 자신의 Teams 필터가 설정된 대시보드 참여 툴에만 접근할 수 있습니다. 워크스페이스 권한이 제한적이거나 없는 경우, 특정 오브젝트를 저장하거나 실행하기 전에 Teams 필터를 추가해야 합니다. Teams 멤버는 또한 Teams별로 Canvases, Campaigns, Content Cards 및 Segments를 필터링하여 관련 콘텐츠를 식별할 수 있습니다.
+- Teams 수준 권한만 가진 사용자에게는 Segments, Campaigns 또는 Canvas 페이지에서 **Created by** 또는 **Last edited by** 필터가 표시되지 않습니다. Braze는 Teams 전용 사용자가 해당 드롭다운에서 모든 Braze 사용자를 탐색할 수 없도록 이러한 필터를 숨깁니다.
 
 ### 사용 사례 {#use-cases}
 
@@ -126,7 +127,7 @@ Braze의 마케터인 Michelle에 대한 다음 두 가지 시나리오를 살�
 
 ![워크스페이스 수준 권한이 없고 16개의 Teams 기반 권한이 있는 커스텀 권한.]({% image_buster /assets/img_archive/scenario1.png %})
 
-Michelle의 할당된 권한에 따라, Campaign을 생성할 때 해당 Campaign에 "Development" Teams만 할당할 수 있습니다. Teams가 할당되지 않으면 Campaign을 시작할 수 없으며, 다른 Teams 태그를 보거나 접근할 수 없습니다.
+Michelle의 할당된 권한에 따라, Campaign을 생성할 때 해당 Campaign에 "Development" Teams만 할당할 수 있습니다. Teams가 할당되지 않으면 Campaign을 실행할 수 없으며, 다른 Teams 태그를 보거나 접근할 수 없습니다.
 
 !["Development" Teams 태그만 표시되는 Campaign Teams 태그 드롭다운.]({% image_buster /assets/img_archive/team_permissions_scenario1.gif %})
 
@@ -137,39 +138,39 @@ Michelle의 할당된 권한에 따라, Campaign을 생성할 때 해당 Campaig
 
 ![하나의 워크스페이스 수준 권한과 15개의 Teams 기반 권한이 있는 커스텀 권한.]({% image_buster /assets/img_archive/scenario2.png %})
 
-Michelle은 "Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리 및 환경설정 센터 접근"이라는 워크스페이스 수준 권한을 가지고 있으므로, 생성하는 Campaign에 다른 Teams 필터를 보고 할당할 수 있습니다.
+Michelle은 "Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, 미디어 라이브러리 및 환경설정 센터 접근"이라는 워크스페이스 수준 권한을 가지고 있으므로, 생성하는 Campaign에 다른 Teams 필터를 보고 할당할 수 있습니다.
 
 ![여러 Teams 태그가 있는 Campaign Teams 태그 드롭다운]({% image_buster /assets/img_archive/team_permissions_scenario2.gif %})
 
-첫 번째 시나리오와 마찬가지로, Michelle은 Campaign을 시작하기 전에 Development Teams 태그를 추가해야 합니다.
+첫 번째 시나리오와 마찬가지로, Michelle은 Campaign을 실행하기 전에 Development Teams 태그를 추가해야 합니다.
 
 {% endtab %}
 {% endtabs %}
 
-## Teams로 테스트 {#test-with-teams}
+## Teams로 테스트하기 {#test-with-teams}
 
-Teams의 가능한 사용 사례 중 하나는 프로덕션 환경에서 콘텐츠를 테스트하고 시작하기 위한 Teams 기반 승인 시스템을 만드는 것입니다.
+Teams의 가능한 사용 사례 중 하나는 프로덕션 환경에서 콘텐츠를 테스트하고 실행하기 위한 Teams 기반 승인 시스템을 만드는 것입니다.
 
-이를 위해 테스트 사용자에게만 접근할 수 있는 "Development" Teams를 생성합니다. 테스트 사용자가 커스텀 속성으로 식별 가능한 경우 Teams를 테스트 사용자에게만 접근하도록 제한할 수 있습니다. 그런 다음 Teams를 생성하거나 편집할 때 커스텀 속성을 정의로 추가합니다(앞의 [Teams 생성](#creating-Teams) 섹션 참조). 승인자는 모든 사용자에 대한 접근 권한을 가져야 합니다.
+이를 위해 테스트 사용자에게만 액세스할 수 있는 "Development" 팀을 만드세요. 테스트 사용자가 커스텀 속성으로 식별 가능한 경우, 팀이 테스트 사용자에게만 액세스하도록 제한할 수 있습니다. 그런 다음, 팀을 만들거나 편집할 때 해당 커스텀 속성을 정의로 추가하세요(앞의 [Teams 만들기](#creating-Teams) 섹션을 참조하세요). 승인자는 모든 사용자에 대한 액세스 권한을 가져야 합니다.
 
 일반적인 프로세스는 다음과 같습니다:
 
-1. Development Teams가 Campaign을 생성하고 "Development" Teams 태그를 추가합니다.
-2. Development Teams가 테스트 사용자에게 Campaign을 시작합니다.
-3. 승인자 Teams가 로컬 Campaign 디자인을 검증하고, 승격 및 시작합니다. 시작하려면 승인자 Teams가 Teams 태그를 "Development"에서 "[All Teams]"로 변경하고 Campaign을 다시 시작합니다.
+1. Development 팀이 Campaign을 만들고 "Development" 팀 태그를 추가합니다.
+2. Development 팀이 테스트 사용자에게 Campaign을 실행합니다.
+3. 승인자 팀이 로컬 Campaign 디자인을 검증하고, 승격한 후 실행합니다. 실행하려면 승인자 팀이 팀 태그를 "Development"에서 "[All Teams]"로 변경하고 Campaign을 다시 실행합니다.
 
 활성 Campaign에 대한 변경 사항:
 
-1. Development Teams가 실행 중인 Campaign을 복제하고, "Development" Teams 태그를 추가한 후 저장합니다.
-2. Development Teams가 편집을 수행하고 승인자 Teams와 공유합니다.
-3. 승인자 Teams가 "Development" Teams 태그를 제거하고, 이전 Campaign을 일시 중지한 후 새 Campaign을 시작합니다.
+1. Development 팀이 실행 중인 Campaign을 복제하고, "Development" 팀 태그를 추가한 후 저장합니다.
+2. Development 팀이 수정 사항을 적용하고 승인자 팀과 공유합니다.
+3. 승인자 팀이 "Development" 팀 태그를 제거하고, 이전 Campaign을 일시 중지한 후 새 Campaign을 실행합니다.
 
-## 기존 Teams 아카이브 {#archive-an-existing-team}
+## 기존 팀 보관하기 {#archive-an-existing-team}
 
-**내부 팀** 페이지에서 Teams를 아카이브할 수 있습니다.
+**내부 Teams** 페이지에서 Teams를 보관할 수 있습니다.
 
-아카이브할 하나 이상의 Teams를 선택합니다. Teams가 Braze 내의 어떤 오브젝트와도 연결되어 있지 않으면 즉시 아카이브됩니다. Teams가 오브젝트와 연결되어 있는 경우, 아카이브 프로세스 후 Teams를 제거하거나 교체하는 옵션이 표시됩니다.
+보관할 Teams를 하나 또는 여러 개 선택합니다. 해당 팀이 Braze 내의 어떤 오브젝트와도 연결되어 있지 않으면 즉시 보관됩니다. 팀이 오브젝트와 연결되어 있는 경우, 보관 프로세스 후 팀을 제거하거나 팀을 교체하는 옵션이 표시됩니다.
 
-![Braze의 오브젝트와 연결된 Teams를 아카이브하는 모습]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
+![Braze에서 오브젝트와 연결된 팀을 보관하는 화면]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
 
-Braze 관리자는 아카이브된 Teams를 선택하고 **아카이브 해제**를 선택하여 Teams의 아카이브를 해제할 수 있습니다.
+Braze 관리자는 보관된 팀을 선택한 후 **보관 해제**를 선택하여 팀의 보관을 해제할 수 있습니다.

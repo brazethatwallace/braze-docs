@@ -16,18 +16,19 @@ channel: email
 
 Voici quelques conseils rapides à garder à l'esprit lors de la création de votre contenu :
 
-- Lorsque vous mettez en forme votre e-mail, utilisez des feuilles de style en ligne comme CSS.
+- Lors de la mise en forme de votre e-mail, utilisez des feuilles de style en ligne (inline CSS).
 - Pour utiliser un même modèle d'e-mail pour les versions mobile et bureau, maintenez la largeur en dessous de 500 pixels.
 - Les images doivent faire moins de 5&nbsp;Mo. Nous recommandons d'utiliser les formats PNG, JPEG ou GIF pour une compatibilité maximale. Évitez les formats SVG et WebP, car de nombreux clients de messagerie majeurs ne les prennent pas encore en charge.
 - Ne définissez pas de hauteurs et de largeurs pour les images, car cela peut provoquer des espaces blancs inutiles dans un e-mail dégradé.
 - Les balises `div` ne doivent pas être utilisées, car la plupart des clients de messagerie ne prennent pas en charge leur utilisation. Utilisez plutôt des tableaux imbriqués.
 - Évitez d'utiliser JavaScript, car il ne fonctionne avec aucun fournisseur de services d'e-mailing.
-- Braze améliore les temps de chargement en utilisant un CDN mondial pour héberger toutes les images d'e-mail.
+- Évitez `position: absolute` et `position: relative` en CSS dans les modèles d'e-mail. La plupart des clients de messagerie ne prennent pas en charge le positionnement CSS, ce qui entraîne des écarts de mise en page entre l'aperçu Braze et les e-mails livrés. Utilisez des mises en page basées sur des tableaux pour obtenir des effets de superposition ou de chevauchement.
+- Braze améliore les temps de chargement en utilisant un CDN global pour héberger toutes les images d'e-mail.
 - Sur mobile, les colonnes d'images sont étroites (~100 px chacune), de sorte que les rangées multi-images s'affichent correctement (par exemple, quatre images ≈ quatre colonnes utilisables).
 
 ## Texte alternatif {#alternative-text}
 
-Étant donné que les filtres anti-spam vérifient la présence d'une version HTML et d'une version en texte brut d'un message, l'utilisation d'alternatives en texte brut est un excellent moyen de réduire votre score de spam. De plus, le texte alternatif `(alt="")` peut servir à compléter, et dans certains cas à remplacer, les images incluses dans le corps de votre e-mail qui auraient pu être filtrées par le fournisseur de messagerie de l'utilisateur. Les lecteurs d'écran annoncent le texte alternatif pour décrire les images, c'est donc une opportunité d'utiliser un langage simple pour fournir des informations clés sur une image.
+Étant donné que les filtres anti-spam vérifient la présence d'une version HTML et d'une version en texte brut d'un message, l'utilisation d'alternatives en texte brut est un excellent moyen de réduire votre score de spam. De plus, le texte alternatif `(alt="")` peut servir à compléter, et dans certains cas à remplacer, les images incluses dans le corps de votre e-mail qui auraient pu être filtrées par le fournisseur de messagerie de l'utilisateur. Les lecteurs d'écran annoncent le texte alternatif pour expliquer les images, c'est donc une opportunité d'utiliser un langage simple pour fournir des informations clés sur une image.
 
 {% alert note %}
 Si votre texte alternatif contient des guillemets, utilisez des guillemets simples (`'`) au lieu de guillemets doubles (`"`). Les guillemets doubles peuvent provoquer la fermeture prématurée de l'attribut HTML, coupant ainsi le texte. Par exemple, `alt="Product 'Premium' Edition"` fonctionne correctement, mais `alt="Product "Premium" Edition"` est tronqué.
@@ -45,12 +46,12 @@ Les adresses e-mail ciblées via les serveurs Braze doivent être validées conf
 
 Pour plus d'informations sur les caractères non autorisés et les règles de validation des e-mails, consultez [Validation des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
 
-## Adresses d'expéditeur et de réponse {#from-and-reply-to-addresses}
+## Adresses d'expédition et de réponse {#from-and-reply-to-addresses}
 
-Lorsque vous configurez vos adresses d'expéditeur (« from »), assurez-vous que le domaine de votre e-mail d'expéditeur correspond à votre domaine d'envoi (par exemple `marketing.yourdomain.com`). Si ce n'est pas le cas, cela peut entraîner un désalignement SPF et DKIM. Toutes les adresses de réponse peuvent être définies sur votre domaine racine.
+Lorsque vous configurez vos adresses d'expédition, assurez-vous que le domaine de votre e-mail d'expédition correspond à votre domaine d'envoi (tel que `marketing.yourdomain.com`). Ne pas respecter cette règle peut entraîner un désalignement SPF et DKIM. Toutes les adresses de réponse peuvent être définies sur votre domaine racine.
 
 {% alert note %}
-L'encodage Unicode n'est pas pris en charge dans les adresses d'expéditeur (« from »).
+L'encodage Unicode n'est pas pris en charge dans les adresses d'expédition.
 {% endalert %}
 
 ## Pièces jointes dans les e-mails {#attachments}
@@ -69,7 +70,7 @@ La mise en page peut se casser lorsque le HTML/CSS généré par Braze entre en 
 
 - Supprimez d'abord le HTML/CSS personnalisé
 - Vérifiez que les polices personnalisées se chargent correctement dans l'aperçu
-- Contrôlez le remplissage (padding) des lignes et des colonnes
+- Vérifiez le remplissage (padding) des lignes et des colonnes
 - Privilégiez les mises en page basées sur des tableaux et restez dans les limites de largeur de l'éditeur.
 
 Les Content Blocks qui intègrent du HTML provenant de l'extérieur de l'éditeur peuvent également casser la mise en page.
@@ -80,7 +81,7 @@ Les paramètres UTM balisent les URL à des fins d'analyse. Vous pouvez les cons
 
 - N'utilisez qu'un seul point d'interrogation `?` dans l'URL finale (des caractères `?` supplémentaires peuvent interrompre les requêtes).
 - Évitez les espaces et les caractères spéciaux dans les valeurs (utilisez `_` ou `-`).
-- Vérifiez que votre outil d'analyse ingère bien les UTM. Supprimez les espaces de fin à l'intérieur des blocs Liquid `capture`. Les UTM sont sensibles à la casse.
+- Vérifiez que votre outil d'analyse ingère les UTM. Supprimez les espaces de fin à l'intérieur des blocs Liquid `capture`. Les UTM sont sensibles à la casse.
 
 ### Vérifier les détails HTML {#check-html-details}
 

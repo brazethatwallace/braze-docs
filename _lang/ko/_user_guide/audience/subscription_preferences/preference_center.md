@@ -19,4 +19,3 @@ guide_featured_list:
   image: /assets/img/braze_icons/mail-01.svg
 
 ---
-<br><br>

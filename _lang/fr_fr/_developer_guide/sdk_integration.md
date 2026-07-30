@@ -114,5 +114,5 @@ Pour déboguer votre intégration Braze, vous pouvez consulter la console de dé
 {% endsdktabs %}
 
 {% alert note %}
-Lors de l'assurance qualité de votre intégration SDK, utilisez l'[outil de débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) pour résoudre les problèmes sans avoir à activer la journalisation détaillée dans votre application.
+Lors de l'assurance qualité de votre intégration SDK, utilisez le [débogueur du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) pour résoudre les problèmes sans avoir à activer la journalisation détaillée dans votre application.
 {% endalert %}

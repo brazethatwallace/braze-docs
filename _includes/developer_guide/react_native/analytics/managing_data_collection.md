@@ -58,3 +58,7 @@ Braze.updateTrackingPropertyAllowList({
 ```
 
 For more information, refer to [Privacy Manifest]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest/).
+
+## Logout and Unregister Push
+
+This feature is not yet supported on the React Native SDK.
