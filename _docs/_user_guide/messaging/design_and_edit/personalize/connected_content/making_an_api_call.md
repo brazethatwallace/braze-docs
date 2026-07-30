@@ -298,17 +298,24 @@ When using Connected Content to retrieve files from Amazon S3, configure your bu
 
 ```json
 {
-  "Effect": "Allow",
-  "Principal": "*",
-  "Action": "s3:GetObject",
-  "Resource": "arn:aws:s3:::your-bucket-name/*",
-  "Condition": {
-    "IpAddress": {
-      "aws:SourceIp": ["12.34.456.789", "..."]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::your-bucket-name/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": ["{YOUR_BRAZE_IP_RANGE}"]
+        }
+      }
     }
-  }
+  ]
 }
 ```
+
+Replace `{YOUR_BRAZE_IP_RANGE}` with the Braze IP ranges for your instance listed in [Connected Content IP allowlisting](#connected-content-ip-allowlisting). You can add one or more ranges as separate values in the `aws:SourceIp` array.
 
 {: start="2"}
 2. **Review S3 Block Public Access settings:** Bucket policies that use `Principal: "*"` are treated as public access by AWS, even with IP conditions. You may need to allow bucket-policy-based public access while keeping ACL-based public access blocked.
