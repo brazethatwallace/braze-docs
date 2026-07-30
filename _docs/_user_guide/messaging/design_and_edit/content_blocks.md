@@ -110,14 +110,14 @@ When auditing where a Content Block is used, review each linked message or step 
 Content Blocks can be nested, but only once. You can nest Content Block A into Content Block B, but you can't then nest Content Block B into Content Block C.
 
 {% alert warning %}
-Nothing will prevent you from nesting a third level of Content Block, but you will not see the content expand in nests beyond the second. The content and the Liquid snippet are removed from the message.
+Nothing prevents you from nesting a third level of Content Block, but you do not see the content expand in nests beyond the second. The content and the Liquid snippet are removed from the message.
 {% endalert %}
 
 Links inside a nested Content Block count toward the total link count of the parent message. If you use a single Content Block with many conditional links, such as country-specific URLs for localization, the parent message can accumulate a large number of links, which can slow down or prevent saving a Canvas. For large-scale localization, use [multi-language messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) instead of conditional links in a single Content Block.
 
 ## Update and copy Content Blocks
 
-If you choose to update a Content Block, it will update in all messages where the Content Block is inserted via Liquid. If the Content Block is imported using the **Content Blocks** dropdown under **Rows** in the drag-and-drop editor, it won't be updated in all messages.
+If you choose to update a Content Block, it updates in all messages where the Content Block is inserted via Liquid. If the Content Block is imported using the **Content Blocks** dropdown under **Rows** in the drag-and-drop editor, it isn't updated in all messages.
 
 If you want to update a Content Block for a single message or make a copy to use in other messages, you can either copy the HTML from the original message to your new one, or edit the original Content Block (it must have been used in a message already) and save it. You will get a prompt that allows you to save it as a new Content Block.
 
