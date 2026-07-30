@@ -338,7 +338,7 @@ Adds space or padding between other blocks.
 
 ### Custom code
 
-Inserts custom HTML, CSS, or JavaScript for advanced customization. Clicks inside custom code are not tracked unless you call `brazeBridge.logClick()`. For `brazeBridge` JavaScript methods and click tracking examples, see [Backward incompatible changes]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#backward-incompatible-changes) in Custom HTML in-app messages.
+Inserts custom HTML, CSS, or JavaScript for advanced customization.
 
 | Property | Description |
 | --- | --- |
