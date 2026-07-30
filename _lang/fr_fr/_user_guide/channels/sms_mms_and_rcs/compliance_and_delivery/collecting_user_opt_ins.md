@@ -7,6 +7,7 @@ page_type: reference
 channel:
   - SMS
 
+
 ---
 
 # Collecter les abonnements des utilisateurs {#collect-user-opt-ins}
@@ -21,7 +22,7 @@ Demandez aux utilisateurs d'envoyer « START », « UNSTOP », « YES » ou un m
 
 Pour permettre aux utilisateurs de s'abonner aux SMS depuis un message in-app, utilisez le [formulaire de capture de numéro de téléphone]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture) fourni par Braze pour créer un formulaire personnalisé qui vous permet de collecter des numéros de téléphone et de développer votre liste SMS.
 
-![Compositeur de message in-app avec un modèle pour la capture de numéro de téléphone.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
+![Compositeur de message in-app avec un modèle de capture de numéro de téléphone.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
 
 Braze recommande également d'utiliser la fonctionnalité de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in). Cette fonctionnalité fonctionne automatiquement avec le formulaire de capture de numéro de téléphone du message in-app, invitant les utilisateurs à confirmer leur intention après avoir soumis leur numéro de téléphone via le formulaire.
 
@@ -78,5 +79,5 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 {% alert note %}
 Pour inscrire les utilisateurs dans le workflow de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) lors de l'abonnement via la REST API, définissez `use_double_opt_in_logic` sur `true` dans votre requête. Ce paramètre est pris en charge par [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status), [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2) et [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 <br><br>
-Les mises à jour d'abonnement via la REST API ne déclenchent pas automatiquement de messages de bienvenue. Pour envoyer un message de bienvenue, créez une campagne déclenchée par une action avec le déclencheur [Update Subscription Group Status]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#update-subscription-group-status) et définissez la source de mise à jour sur **REST API**.
+Les mises à jour d'abonnement via la REST API ne déclenchent pas automatiquement les messages de bienvenue. Pour envoyer un message de bienvenue, créez une campagne basée sur une action avec le déclencheur [Update Subscription Group Status]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#update-subscription-group-status) et définissez la source de mise à jour sur **REST API**.
 {% endalert %}

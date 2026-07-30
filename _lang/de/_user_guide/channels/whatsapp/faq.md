@@ -17,7 +17,7 @@ channel:
 - [WhatsApp-Geschäftskonten](#whatsapp-business-accounts)
 - [Telefonnummern für WhatsApp-Geschäftskonten](#whatsapp-business-account-phone-numbers)
 - [Opt-in und Abo-Management](#opt-in-and-subscription-management)
-- [Messaging-Limits und Qualitätsbewertung](#messaging-limits-and-quality-rating)
+- [Nachrichtenlimits und Qualitätsbewertung](#messaging-limits-and-quality-rating)
 - [WhatsApp-Templates und Composer](#whatsapp-templates-and-composer)
 - [Zustellbarkeit und Abrechnung](#deliverability-and-billing)
 - [Integrationen, Daten und Reporting](#integrations-data-and-reporting)
@@ -32,7 +32,7 @@ Wir empfehlen, Ihr WhatsApp-Geschäftskonto (WABA) über den eingebetteten Regis
 Ja, Sie müssen trotzdem ein WhatsApp-Geschäftskonto erstellen. Wir empfehlen, [Ihr WABA unter Ihrem Haupt-Meta-Geschäftskonto einzuordnen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 #### Wie greife ich auf mein WhatsApp-Geschäftskonto zu? {#how-do-i-access-my-whatsapp-business-account}
-Nachdem Sie den eingebetteten Registrierungsablauf abgeschlossen haben, können Sie auf Ihr Konto unter business.facebook.com zugreifen, indem Sie zum [WhatsApp-Bereich](https://business.facebook.com/wa/manage/home) navigieren.
+Nach Abschluss des eingebetteten Registrierungsablaufs können Sie auf Ihr Konto unter business.facebook.com zugreifen, indem Sie zum [WhatsApp-Bereich](https://business.facebook.com/wa/manage/home) navigieren.
 
 #### Kann ich mehrere WABAs mit Braze verbinden? {#can-i-connect-multiple-wabas-to-braze}
 Ja, Sie können bis zu 10 WhatsApp-Geschäftskonten pro Workspace hinzufügen, und jedes Geschäftskonto kann unter einem anderen Meta Business Manager eingeordnet werden.
@@ -43,10 +43,10 @@ Ja, Sie können bis zu 10 WhatsApp-Geschäftskonten pro Workspace hinzufügen, u
 Nein. Meta kontrolliert die Währung für Ihr WhatsApp-Geschäftskonto, und Braze kann sie nicht ändern oder umrechnen. Um eine andere Währung zu verwenden, [erstellen Sie ein separates WhatsApp-Geschäftskonto]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) mit dieser Währung oder kontaktieren Sie den Meta-Support, um zu fragen, ob die Währung Ihres bestehenden Kontos aktualisiert werden kann.
 
 #### Was ist die Geschäftsverifizierung? {#what-is-business-verification}
-Die Geschäftsverifizierung ist ein WhatsApp-Konzept, das sicherstellt, dass die Marke ein legitimes Unternehmen ist. Sie kann im WhatsApp Manager abgeschlossen werden. Die Geschäftsverifizierung ist auch erforderlich, um das Messaging zu skalieren. Ohne Geschäftsverifizierung können Kund:innen nur bis zu 250 eindeutige Endnutzer:innen in einem rollierenden 24-Stunden-Zeitraum anschreiben.
+Die Geschäftsverifizierung ist ein WhatsApp-Konzept, das sicherstellt, dass die Marke ein legitimes Unternehmen ist. Sie kann im WhatsApp Manager abgeschlossen werden. Die Geschäftsverifizierung ist auch erforderlich, um das Messaging zu skalieren. Ohne Geschäftsverifizierung können Kund:innen nur bis zu 250 eindeutige Endnutzer:innen in einem rollierenden 24-Stunden-Zeitraum erreichen.
 
 #### Was ist ein offizielles Geschäftskonto? {#what-is-an-official-business-account}
-OBA verleiht Ihnen das grüne Häkchen neben Ihrem Anzeigenamen und ist optional. Sie können sich nach Abschluss der Geschäftsverifizierung für ein offizielles Geschäftskonto bewerben. Beachten Sie, dass Geschäftsverifizierung und offizielles Geschäftskonto unterschiedliche WhatsApp-Konzepte sind.
+OBA verleiht Ihnen das grüne Häkchen neben Ihrem Anzeigenamen und ist optional. Sie können ein offizielles Geschäftskonto beantragen, nachdem Sie die Geschäftsverifizierung abgeschlossen haben. Beachten Sie, dass Geschäftsverifizierung und offizielles Geschäftskonto unterschiedliche WhatsApp-Konzepte sind.
 
 #### Warum könnte mein WhatsApp-Business-Anzeigename abgelehnt werden? {#why-might-my-whatsapp-business-display-name-be-rejected}
 Ablehnungen von WhatsApp-Business-Anzeigenamen werden von Meta geregelt. Wenn Ihr Anzeigename abgelehnt wird, lesen Sie die [Richtlinien für Anzeigenamen von WhatsApp](https://faq.whatsapp.com/793641088597363).
@@ -79,10 +79,10 @@ Ja. Sie können [Telefonnummern von Nutzer:innen importieren]({{site.baseurl}}/u
 #### Muss ich ein Opt-in einholen, um Marketing-Nachrichten an Endnutzer:innen auf WhatsApp zu senden? {#do-i-need-to-collect-opt-in-to-send-marketing-messages-to-end-users-on-whatsapp}
 Ja, WhatsApp verlangt von Unternehmen, dass sie eine [Opt-in-Einwilligung einholen](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/), um Marketing-Nachrichten an Endnutzer:innen zu senden.
 
-#### Kann ich Endnutzer:innen auf WhatsApp proaktiv anschreiben, um eine Opt-in-Einwilligung einzuholen? {#can-i-proactively-message-end-users-on-whatsapp-to-collect-opt-in-consent}
-Wenn Sie sich entscheiden, Endnutzer:innen proaktiv anzuschreiben, sollte Ihre erste geschäftsinitiierte Nachricht die Nutzer:innen fragen, ob sie Marketing-Nachrichten von Ihrem Unternehmen erhalten möchten, und den Meta-Anforderungen für das [Einholen von Opt-ins](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) entsprechen. Bedenken Sie, dass WhatsApp die Reputation Ihres Unternehmens auf dem Kanal überwacht. Die empfohlene Best Practice ist daher, gegenüber Endnutzer:innen transparent zu sein und nur Nachrichten zu senden, die sie ausdrücklich erhalten möchten.
+#### Kann ich Endnutzer:innen proaktiv auf WhatsApp anschreiben, um eine Opt-in-Einwilligung einzuholen? {#can-i-proactively-message-end-users-on-whatsapp-to-collect-opt-in-consent}
+Wenn Sie sich entscheiden, Endnutzer:innen proaktiv anzuschreiben, sollte Ihre erste geschäftsinitiierte Nachricht fragen, ob die Nutzer:innen Marketing-Nachrichten von Ihrem Unternehmen erhalten möchten, und den Meta-Anforderungen für das [Einholen von Opt-ins](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) entsprechen. Beachten Sie, dass WhatsApp die Reputation Ihres Unternehmens auf dem Kanal überwacht. Die empfohlene Best Practice ist daher, gegenüber Endnutzer:innen transparent zu sein und nur Nachrichten zu senden, die sie ausdrücklich erhalten möchten.
 
-#### Muss ich die Telefonnummer der Endnutzer:innen erfassen, wenn ich das Opt-in einhole? {#do-i-need-to-collect-the-end-users-phone-number-when-i-collect-opt-in}
+#### Muss ich die Telefonnummer der Endnutzer:innen beim Einholen des Opt-ins erfassen? {#do-i-need-to-collect-the-end-users-phone-number-when-i-collect-opt-in}
 Sie benötigen die Telefonnummer der Endnutzer:innen im Braze-Profil, um ihnen Nachrichten senden zu können.
 - Wenn Sie die Nummer bereits haben, müssen Sie sie beim Opt-in nicht erneut erfassen.
 - Wenn Sie die Nummer der Endnutzer:innen nicht haben, sollte Ihre Opt-in-Methode die Erfassung der Telefonnummer beinhalten.
@@ -104,38 +104,38 @@ Ihre Nutzer:innen können sich auf zwei Arten abmelden:
 1. Richten Sie eine eingehende WhatsApp-Nachricht mit einem bestimmten Abmelde-Schlüsselwort ein und verwenden Sie einen Webhook, um den Abo-Status der Nutzer:innen zu aktualisieren.
 2. Fügen Sie eine Schnellantwort zur Abmeldung im WhatsApp-Template hinzu, mit einem entsprechenden Webhook zur Aktualisierung.
 
-### Messaging-Limits und Qualitätsbewertung {#messaging-limits-and-quality-rating}
+### Nachrichtenlimits und Qualitätsbewertung {#messaging-limits-and-quality-rating}
 
-#### Was sind Messaging-Limits? {#what-are-messaging-limits}
-Messaging-Limits sind ein WhatsApp-Integritätskonzept. Sie bestimmen die maximale Anzahl geschäftsinitiierter Konversationen, die jede Telefonnummer in einem rollierenden 24-Stunden-Zeitraum starten kann. Es gibt vier Messaging-Limit-Stufen: 1k, 10k, 100k und unbegrenzt.
+#### Was sind Nachrichtenlimits? {#what-are-messaging-limits}
+Nachrichtenlimits sind ein WhatsApp-Konzept zum Aufbau der Integrität. Sie bestimmen die maximale Anzahl geschäftsinitiierter Konversationen, die jede Telefonnummer in einem rollierenden 24-Stunden-Zeitraum starten kann. Es gibt vier Nachrichtenlimit-Stufen: 1k, 10k, 100k und unbegrenzt.
 
-#### Wie erhöhe ich mein Messaging-Limit? {#how-do-i-increase-my-messaging-limit}
-WhatsApp erhöht Ihr Messaging-Limit, wenn Sie die folgenden Bedingungen erfüllen:
-1. Der [Telefonnummernstatus](https://www.facebook.com/business/help/896873687365001) ist **Verbunden**
+#### Wie erhöhe ich mein Nachrichtenlimit? {#how-do-i-increase-my-messaging-limit}
+WhatsApp erhöht Ihr Nachrichtenlimit, wenn Sie die folgenden Bedingungen erfüllen:
+1. Der [Status der Telefonnummer](https://www.facebook.com/business/help/896873687365001) ist **Verbunden**
 2. Die [Qualitätsbewertung der Telefonnummer](https://www.facebook.com/business/help/896873687365001) ist **Mittel** oder **Hoch**
-3. In den letzten sieben Tagen haben Sie X oder mehr Konversationen mit eindeutigen Nutzer:innen initiiert, wobei X Ihr aktuelles Messaging-Limit geteilt durch 2 ist
+3. In den letzten sieben Tagen haben Sie X oder mehr Konversationen mit eindeutigen Nutzer:innen initiiert, wobei X Ihr aktuelles Nachrichtenlimit geteilt durch 2 ist
 
 Um also von 100k auf unbegrenzt zu wechseln, müssen Sie mindestens 50.000 geschäftsinitiierte Konversationen in einem 7-Tage-Zeitraum senden.
 
-#### Wie lange dauert es, mein Messaging-Limit zu erhöhen? {#how-long-does-it-take-to-increase-my-messaging-limits}
-Wenn alle vorherigen Bedingungen erfüllt sind, können Sie Ihr Messaging-Limit innerhalb von 4 Tagen von 1k auf unbegrenzt erhöhen.
+#### Wie lange dauert es, mein Nachrichtenlimit zu erhöhen? {#how-long-does-it-take-to-increase-my-messaging-limits}
+Wenn alle vorherigen Bedingungen erfüllt sind, können Sie Ihr Nachrichtenlimit innerhalb von 4 Tagen von 1k auf unbegrenzt erhöhen.
 
-#### Wo kann ich mein aktuelles Messaging-Limit einsehen? {#where-can-i-see-my-current-messaging-limit}
-Sie können Ihre aktuellen Messaging-Limits im Tab **WhatsApp Manager > Übersichts-Dashboard > Insights** überprüfen.
+#### Wo kann ich mein aktuelles Nachrichtenlimit einsehen? {#where-can-i-see-my-current-messaging-limit}
+Sie können Ihre aktuellen Nachrichtenlimits im Tab **WhatsApp Manager > Übersichts-Dashboard > Insights** überprüfen.
 
-#### Was passiert, wenn ich versuche, Nachrichten zu senden, obwohl ich mein Messaging-Limit bereits erreicht habe? {#what-happens-if-i-attempt-to-send-messages-when-i-have-already-reached-my-messaging-limit}
-Wenn Sie versuchen, eine Campaign oder ein Canvas an mehr eindeutige Nutzer:innen zu senden, als Ihr aktuelles Limit erlaubt, werden die Nachrichten nicht gesendet. Braze versucht weiterhin, die Nachrichten erneut zu senden, wenn/falls Ihr Messaging-Limit erhöht wird – bis zu einem Tag lang.
+#### Was passiert, wenn ich versuche, Nachrichten zu senden, obwohl ich mein Nachrichtenlimit bereits erreicht habe? {#what-happens-if-i-attempt-to-send-messages-when-i-have-already-reached-my-messaging-limit}
+Wenn Sie versuchen, eine Campaign oder ein Canvas an mehr eindeutige Nutzer:innen zu senden, als Ihr aktuelles Limit erlaubt, werden die Nachrichten nicht gesendet. Braze versucht weiterhin, die Nachrichten erneut zu senden, wenn/sobald Ihr Nachrichtenlimit erhöht wird, und zwar bis zu einem Tag lang.
 
-#### Kann mein Messaging-Limit sinken? {#can-my-messaging-limit-decrease}
-Ja, wenn Ihre Qualitätsbewertung der Telefonnummer zu stark sinkt, besteht das Risiko, dass WhatsApp Ihr Messaging-Limit verringert. Braze empfiehlt, qualitätsbezogene Updates von WhatsApp zu abonnieren und sich benachrichtigen zu lassen, einschließlich Updates zu Ihrem Telefonnummernstatus und Ihrer Messaging-Limit-Stufe. Sie können Benachrichtigungen direkt im WhatsApp Manager-Dashboard abonnieren.
+#### Kann mein Nachrichtenlimit sinken? {#can-my-messaging-limit-decrease}
+Ja, wenn Ihre Qualitätsbewertung der Telefonnummer zu stark sinkt, besteht das Risiko, dass WhatsApp Ihr Nachrichtenlimit verringert. Braze empfiehlt, qualitätsbezogene Updates von WhatsApp zu abonnieren und sich benachrichtigen zu lassen, einschließlich Updates zum Status Ihrer Telefonnummer und zur Nachrichtenlimit-Stufe. Sie können Benachrichtigungen direkt im WhatsApp Manager-Dashboard abonnieren.
 
 #### Welche Faktoren beeinflussen die Qualitätsbewertung der Telefonnummer, und was passiert, wenn meine Qualitätsbewertung zu stark sinkt? {#what-factors-affect-phone-number-quality-rating-and-what-happens-when-my-quality-rating-drops-too-low}
 Faktoren, die die Qualitätsbewertung der Telefonnummer beeinflussen, umfassen das Blockieren eines Unternehmens durch Endnutzer:innen (und die Gründe, die sie beim Blockieren angeben) sowie das Melden eines Unternehmens durch Endnutzer:innen.
 
-Wenn eine Qualitätsbewertung niedrig ist, ändert sich der Telefonnummernstatus von **Verbunden** zu **Markiert**. Wenn sich die Qualität innerhalb von sieben Tagen nicht verbessert, kehrt der Status zu **Verbunden** zurück. Allerdings wird das Messaging-Limit auf die nächste Stufe verringert. Beispielsweise hat eine Telefonnummer, die zuvor ein Messaging-Limit von 100.000 hatte, nun ein Messaging-Limit von 10.000.
+Wenn eine Qualitätsbewertung niedrig ist, ändert sich der Status der Telefonnummer von **Verbunden** zu **Markiert**. Wenn sich die Qualität innerhalb von sieben Tagen nicht verbessert, kehrt der Status zu **Verbunden** zurück. Allerdings sinkt das Nachrichtenlimit auf die nächste Stufe. Beispielsweise hat eine Telefonnummer, die zuvor ein Nachrichtenlimit von 100.000 hatte, nun ein Nachrichtenlimit von 10.000.
 
 #### Was ist das Meta-Durchsatzlimit? {#what-is-the-meta-throughput-limit}
-Meta hat ein eigenes Durchsatzlimit, das vom WABA-Messaging-Limit getrennt ist. Das Standardlimit, das die Cloud-API unterstützt, beträgt 80 Nachrichten pro Sekunde. Wenn Sie davon ausgehen, dass Ihre Campaigns dieses Limit überschreiten, können Sie eine [Erhöhung Ihres Limits beantragen](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput). Meta empfiehlt, diesen Antrag mindestens drei Tage vor dem Versand der Campaigns einzureichen.
+Meta hat ein eigenes Durchsatzlimit, das vom WABA-Nachrichtenlimit getrennt ist. Das Standardlimit, das die Cloud-API unterstützt, beträgt 80 Nachrichten pro Sekunde. Wenn Sie davon ausgehen, dass Ihre Campaigns dieses Limit überschreiten, können Sie eine [Erhöhung beantragen](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput). Meta empfiehlt, diesen Antrag mindestens drei Tage vor dem Versand der Campaign einzureichen.
 
 ### WhatsApp-Templates und Composer {#whatsapp-templates-and-composer}
 
@@ -167,18 +167,18 @@ Sie können Bilder, Handlungsaufforderungen (URL oder Telefonnummer) und Schnell
 Wenn Sie glauben, dass Meta Ihr Template fälschlicherweise markiert hat, verwenden Sie den Überprüfungslink in der E-Mail von WhatsApp, um eine erneute Überprüfung anzufordern. Das WhatsApp-Business-Team überprüft die Entscheidung und hebt sie gegebenenfalls auf.
 
 #### Warum zeigt mein importiertes WhatsApp-Template im Composer „Nachricht unvollständig“ an? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
-Die Warnung „Nachricht unvollständig“ erscheint, wenn erforderliche Template-Variablenfelder im Composer nicht mit gültigen Werten befüllt sind.
+Die Warnung „Nachricht unvollständig“ erscheint, wenn erforderliche Template-Variablenplätze im Composer nicht mit gültigen Werten befüllt sind.
 
-Wenn Sie Templates mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen, nummeriert Braze Variablen in sequenzielle Platzhalter um ({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %} usw.). Templates, die extern im WhatsApp Manager von Meta erstellt wurden, können weiterhin Muster enthalten, die die Variablenzuordnung fehleranfällig machen, wie z. B.:
+Wenn Sie Templates mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) erstellen, nummeriert Braze Variablen in sequenzielle Platzhalter um ({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %} usw.). Templates, die extern im WhatsApp Manager von Meta erstellt wurden, können noch Muster enthalten, die die Variablenzuordnung fehleranfällig machen, wie zum Beispiel:
 
-- Nicht-sequenzielle Nummerierung (z. B. {% raw %}`{{1}}`, `{{3}}`, `{{5}}`{% endraw %})
-- Fehlende Variablen in der Sequenz (z. B. Überspringen von {% raw %}`{{2}}`{% endraw %})
+- Nicht-sequenzielle Nummerierung (zum Beispiel {% raw %}`{{1}}`, `{{3}}`, `{{5}}`{% endraw %})
+- Fehlende Variablen in der Sequenz (zum Beispiel Überspringen von {% raw %}`{{2}}`{% endraw %})
 - Variablen, die mit einer anderen Zahl als 1 beginnen
 
 Um dies zu beheben, bearbeiten Sie Ihr Template im WhatsApp Manager von Meta, um sequenzielle Platzhalterformatierung zu verwenden, und importieren Sie es dann erneut in Braze. Bestätigen Sie in Braze, dass jedes erforderliche Variablenfeld mit einem gültigen Liquid-Wert befüllt ist.
 
-#### Warum wird meine WhatsApp-Campaign nicht gesendet, obwohl das Template in der Vorschau korrekt angezeigt wird? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
-Wenn Ihr Template in der Vorschau korrekt angezeigt wird, aber das Verarbeitungsprotokoll **Abbruch** mit dem Detail „Param text cannot have new-line/tab characters or more than 4 consecutive spaces“ zeigt, überprüfen Sie die Liquid-Template-Parameterwerte in Ihrer Nachricht. WhatsApp verlangt, dass Parametertext-Werte Folgendes nicht enthalten:
+#### Warum wird meine WhatsApp-Campaign nicht gesendet, obwohl die Template-Vorschau funktioniert? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
+Wenn Ihr Template korrekt in der Vorschau angezeigt wird, aber das Verarbeitungsprotokoll **Abbruch** mit dem Detail „Param text cannot have new-line/tab characters or more than 4 consecutive spaces“ zeigt, überprüfen Sie die mit Liquid befüllten Parameterwerte in Ihrer Nachricht. WhatsApp verlangt, dass Parametertext-Werte Folgendes nicht enthalten:
 
 - Zeilenumbruchzeichen
 - Tabulatorzeichen
@@ -201,13 +201,13 @@ Wenn ein:e Nutzer:in Ihr Unternehmen blockiert, werden nachfolgende Nachrichten,
 Wenn ein:e Nutzer:in eine Nachricht meldet, können Sie weiterhin nachfolgende Nachrichten an sie senden. Allerdings kann die Meldung Ihre Qualitätsbewertung auf dem Kanal beeinflussen. Der Abo-Status der Nutzer:innen wird nicht aktualisiert.
 
 #### Wie kann ich Nutzer:innen, die mein WhatsApp-Konto melden, von zukünftigen Sendungen ausschließen? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
-Braze erhält keine Benachrichtigungen von WhatsApp, wenn Ihr Konto markiert oder gemeldet wird, sodass Sie diese Nutzer:innen in Braze nicht automatisch identifizieren oder ausschließen können. Nutzer:innen, die Ihr Konto melden, können in Ihrer WhatsApp-Abo-Gruppe verbleiben und weiterhin für zukünftige Nachrichten berechtigt sein.
+Braze erhält keine Benachrichtigungen von WhatsApp, wenn Ihr Konto markiert oder gemeldet wird, sodass Sie diese Nutzer:innen nicht automatisch in Braze identifizieren oder ausschließen können. Nutzer:innen, die Ihr Konto melden, können in Ihrer WhatsApp-Abo-Gruppe verbleiben und weiterhin für zukünftige Nachrichten berechtigt sein.
 
 Sie können jedoch eine Campaign einrichten, die ausgelöst wird, wenn ein:e Nutzer:in mit einem Abmelde-Schlüsselwort antwortet, wodurch sie automatisch über den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) abgemeldet werden. Weitere Informationen finden Sie unter [WhatsApp-Opt-in- und Opt-out-Prozess]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 #### Unterstützt Braze einen automatischen SMS-Fallback, wenn die WhatsApp-Zustellung fehlschlägt? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
 
-Nein. Braze bietet keinen nativen WhatsApp-zu-SMS-Fallback-Pfad. Um es über einen anderen Kanal erneut zu versuchen, segmentieren Sie Nutzer:innen mit fehlgeschlagenen WhatsApp-Sendungen (z. B. über Currents-Fehlerereignisse) und richten Sie eine SMS- oder E-Mail-Campaign darauf aus.
+Nein. Braze bietet keinen nativen WhatsApp-zu-SMS-Fallback-Pfad. Um es über einen anderen Kanal erneut zu versuchen, segmentieren Sie Nutzer:innen mit fehlgeschlagenen WhatsApp-Sendungen (zum Beispiel über Currents-Fehlerereignisse) und richten Sie eine SMS- oder E-Mail-Campaign darauf aus.
 
 #### Sind WhatsApp-Antwortnachrichten kostenlos? {#are-whatsapp-response-messages-free}
 
@@ -215,9 +215,9 @@ Antwortnachrichten, die im Braze-Campaign- oder Canvas-Editor verfasst werden (k
 
 | Nachrichtentyp | Action Credits | Hinweise |
 |---|---|---|
-| Antwortnachricht (eingehende Antwort) | Nicht verbraucht | In Braze verfasst; kein von Meta genehmigtes Template. |
-| Template-Nachricht | Verbraucht | Marketing-, Utility-, Authentifizierungs- und zeitlich begrenzte Angebots-Templates werden pro Sendung abgerechnet. |
-| Utility-Template im Service-Fenster | Nicht von Meta berechnet | Meta berechnet keine Utility-Templates, die innerhalb von 24 Stunden nach einer nutzer:inneninitiierten Nachricht gesendet werden. Der Action-Credit-Verbrauch richtet sich nach Ihrem Vertrag. |
+| Antwortnachricht (eingehende Antwort) | Werden nicht verbraucht | In Braze verfasst; kein von Meta genehmigtes Template. |
+| Template-Nachricht | Werden verbraucht | Marketing-, Utility-, Authentifizierungs- und zeitlich begrenzte Angebots-Templates werden pro Sendung abgerechnet. |
+| Utility-Template im Service-Fenster | Werden von Meta nicht berechnet | Meta berechnet keine Utility-Templates, die innerhalb von 24 Stunden nach einer nutzer:inneninitiierten Nachricht gesendet werden. Der Action-Credit-Verbrauch richtet sich nach Ihrem Vertrag. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Action Credits für Antwortnachrichten" }
 
 Für Canvas-Flows, in denen Nutzer:innen nach dem ursprünglichen 24-Stunden-Fenster auf Schnellantworten tippen, siehe [Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
@@ -225,11 +225,11 @@ Für Canvas-Flows, in denen Nutzer:innen nach dem ursprünglichen 24-Stunden-Fen
 #### Was passiert, wenn ein:e Nutzer:in nach Ablauf des 24-Stunden-Fensters antwortet oder auf eine Schnellantwort tippt? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
 Ein neues 24-Stunden-Kundenservice-Fenster wird geöffnet. Siehe [Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
-#### Muss ich die Dauer meines Canvas-Aktionspfads auf 31 Tage für WhatsApp-Schnellantworten einstellen? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+#### Muss ich meinen Canvas-Aktionspfad auf 31 Tage für WhatsApp-Schnellantworten einstellen? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
 Nein. Die Standard-Aktionspfad-Dauer ist ausreichend. Siehe [Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
 #### Kann ich sehen, wie viele WhatsApp-Credits eine bestimmte Campaign oder ein Canvas verbraucht hat? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
-Derzeit nicht im Braze-Dashboard. Campaign- und Canvas-Analytics zeigen Sendungen, Zustellungen und Fehler, aber nicht den Credit-Verbrauch pro Nachricht. Sendezahlen stimmen nicht eins zu eins mit dem Credit-Verbrauch überein, da Template-Kategorie und Nachrichtentyp die Abrechnung unterschiedlich beeinflussen. Weitere Informationen zur Abrechnung finden Sie unter [Sind WhatsApp-Antwortnachrichten kostenlos?](#are-whatsapp-response-messages-free).
+Derzeit nicht im Braze-Dashboard. Campaign- und Canvas-Analytics zeigen Sendungen, Zustellungen und Fehler, aber nicht den Credit-Verbrauch pro Nachricht. Sendezahlen stimmen nicht eins zu eins mit der Credit-Nutzung überein, da Template-Kategorie und Nachrichtentyp die Abrechnung unterschiedlich beeinflussen. Weitere Informationen zur Abrechnung finden Sie unter [Sind WhatsApp-Antwortnachrichten kostenlos?](#are-whatsapp-response-messages-free).
 
 ### Integrationen, Daten und Reporting {#integrations-data-and-reporting}
 
@@ -241,7 +241,7 @@ Wenn Sie WhatsApp bereits als Kundensupport-Kanal nutzen, empfehlen wir, Ihr akt
 #### Wie kann ich die Lücke zwischen meinem Kundensupport-Messaging und meinem Marketing-Messaging über Braze überbrücken? {#how-can-i-bridge-the-gap-between-my-customer-support-messaging-and-my-marketing-messaging-via-braze}
 Sie können WhatsApp-Liquid-Eigenschaften verwenden, um eingehende WhatsApp-Nachrichteninhalte (einschließlich Nachrichtentext und Medien-URLs) von Braze an andere Plattformen weiterzuleiten, einschließlich jedes Kundensupport-Tools. Weitere Details finden Sie unter [Unterstützte Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
-Um Informationen an Braze zu senden, z. B. um anzuzeigen, dass ein:e Nutzer:in sich in einer aktiven Support-Konversation befindet, können Sie ein angepasstes Attribut protokollieren (z. B. einen booleschen Wert „hat bestehenden Support-Chat = true/false“) und dieses als Segmentierungskriterium in Ihren Marketing-Campaigns verwenden. Sie können auch Deeplinks zwischen zwei Chat-Threads erstellen, um Nutzer:innen vom Marketing-Thread zum Support-Thread und umgekehrt zu leiten.
+Um Informationen an Braze zu senden, zum Beispiel um anzuzeigen, dass ein:e Nutzer:in sich in einer aktiven Support-Konversation befindet, können Sie ein angepasstes Attribut protokollieren (wie einen booleschen Wert „hat bestehenden Support-Chat = true/false“) und dieses als Segmentierungskriterium in Ihren Marketing-Campaigns verwenden. Sie können auch Deeplinks zwischen zwei Chat-Threads erstellen, um Nutzer:innen vom Marketing-Thread zum Support-Thread und umgekehrt zu leiten.
 
 #### Speichert Braze Nutzer:innenantworten? {#does-braze-store-user-responses}
 Nachrichten werden nur so lange gespeichert, wie sie zur Verarbeitung benötigt werden. Um auf Nutzer:innennachrichten zuzugreifen, verwenden Sie Currents.

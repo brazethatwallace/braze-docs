@@ -181,9 +181,9 @@ Pour les attributs **booléens**, les options de segmentation suivantes sont dis
 
 | Options de segmentation | Filtre déroulant | Options de saisie | Exemples |
 | ---------------------| --------------- | ------------- | -------- |
-| Vérifier si la valeur booléenne **est** soit vraie, fausse, vraie ou non définie, ou fausse ou non définie | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** ou **FALSE OR NOT SET** | Si ce filtre spécifie `coffee_drinker`, un utilisateur correspondra à ce filtre dans les circonstances suivantes : <br> {::nomarkdown}<ul><li>Si ce filtre est <code>true</code> et que l'utilisateur possède la valeur <code>coffee_drinker</code></li><li>Si ce filtre est <code>false</code> et que l'utilisateur ne possède pas la valeur <code>coffee_drinker</code></li><li>Si ce filtre est <code>true or not set</code> et que l'utilisateur possède la valeur <code>coffee_drinker</code> ou aucune valeur</li><li>Si ce filtre est <code>false or not set</code> et que l'utilisateur ne possède pas <code>coffee_drinker</code> ou aucune valeur</li></ul>{:/} |
-| Vérifier si la valeur booléenne **existe** dans le profil d'un utilisateur et n'est pas nulle | **IS NOT BLANK**  | **N/A** | Si ce filtre spécifie `coffee_drinker` et qu'un utilisateur possède une valeur pour l'attribut `coffee_drinker`, l'utilisateur correspondra à ce filtre. |
-| Vérifier si la valeur booléenne **n'existe pas** dans le profil d'un utilisateur ou est nulle | **IS BLANK**  | **N/A** | Si ce filtre spécifie `coffee_drinker` et qu'un utilisateur ne possède pas l'attribut `coffee_drinker` ou que la valeur de `coffee_drinker` est nulle, l'utilisateur correspondra à ce filtre.|
+| Vérifier si la valeur booléenne **est** soit vraie, fausse, vraie ou non définie, ou fausse ou non définie | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** ou **FALSE OR NOT SET** | Si ce filtre spécifie `coffee_drinker`, un utilisateur correspondra à ce filtre dans les circonstances suivantes : <br> {::nomarkdown}<ul><li>Si ce filtre est <code>true</code> et que l'utilisateur a la valeur <code>coffee_drinker</code></li><li>Si ce filtre est <code>false</code> et que l'utilisateur n'a pas la valeur <code>coffee_drinker</code></li><li>Si ce filtre est <code>true or not set</code> et que l'utilisateur a la valeur <code>coffee_drinker</code> ou aucune valeur</li><li>Si ce filtre est <code>false or not set</code> et que l'utilisateur n'a pas <code>coffee_drinker</code> ou aucune valeur</li></ul>{:/} |
+| Vérifier si la valeur booléenne **existe** dans le profil d'un utilisateur et n'est pas null | **IS NOT BLANK**  | **N/A** | Si ce filtre spécifie `coffee_drinker` et qu'un utilisateur a une valeur pour l'attribut `coffee_drinker`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si la valeur booléenne **n'existe pas** dans le profil d'un utilisateur ou est null | **IS BLANK**  | **N/A** | Si ce filtre spécifie `coffee_drinker` et qu'un utilisateur n'a pas l'attribut `coffee_drinker` ou que la valeur de `coffee_drinker` est null, l'utilisateur correspondra à ce filtre.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Valeurs booléennes (vrai/faux)" }
 
 {% endtab %}
@@ -197,17 +197,17 @@ Pour les attributs **numériques**, les options de segmentation suivantes sont d
 
 | Options de segmentation | Filtre déroulant | Options de saisie | Exemples |
 | ---------------------| --------------- | ------------- | -------- |
-| Vérifier si l'attribut numérique **est exactement** un **nombre** | **EXACTLY** | **NUMBER** | Si ce filtre spécifie `10` et qu'un profil utilisateur possède la valeur `10`, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut numérique **n'est pas égal à** un **nombre** | **DOES NOT EQUAL** | **NUMBER** | Si ce filtre spécifie `10` et qu'un profil utilisateur ne possède pas la valeur `10`, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut numérique **est supérieur à** un **nombre** | **MORE THAN** | **NUMBER** | Si ce filtre spécifie `10` et qu'un profil utilisateur possède une valeur supérieure à `10`, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut numérique **est inférieur à** un **nombre** | **LESS THAN** | **NUMBER** | Si ce filtre spécifie `10` et qu'un profil utilisateur possède une valeur inférieure à `10`, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut numérique **existe** dans le profil d'un utilisateur et n'est pas nul | **IS NOT BLANK** | **N/A** | Si un profil utilisateur contient l'attribut numérique spécifié, quelle que soit la valeur, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut numérique **n'existe pas** dans le profil d'un utilisateur ou est nul | **IS BLANK** | **N/A** | Si un profil utilisateur ne contient pas l'attribut numérique spécifié ou si la valeur de l'attribut est nulle, l'utilisateur correspondra à ce filtre.|
+| Vérifier si l'attribut numérique **est exactement** un **nombre** | **EXACTLY** | **NUMBER** | Si ce filtre spécifie `10` et qu'un profil utilisateur a la valeur `10`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut numérique **n'est pas égal à** un **nombre** | **DOES NOT EQUAL** | **NUMBER** | Si ce filtre spécifie `10` et qu'un profil utilisateur n'a pas la valeur `10`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut numérique **est supérieur à** un **nombre** | **MORE THAN** | **NUMBER** | Si ce filtre spécifie `10` et qu'un profil utilisateur a une valeur supérieure à `10`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut numérique **est inférieur à** un **nombre** | **LESS THAN** | **NUMBER** | Si ce filtre spécifie `10` et qu'un profil utilisateur a une valeur inférieure à `10`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut numérique **existe** dans le profil d'un utilisateur et n'est pas null | **IS NOT BLANK** | **N/A** | Si un profil utilisateur contient l'attribut numérique spécifié, quelle que soit la valeur, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut numérique **n'existe pas** dans le profil d'un utilisateur ou est null | **IS BLANK** | **N/A** | Si un profil utilisateur ne contient pas l'attribut numérique spécifié ou si la valeur de l'attribut est null, l'utilisateur correspondra à ce filtre.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Détails des attributs numériques" }
 
 #### Détails des attributs numériques {#number-attribute-details}
 
-- Les filtres « Exactly 0 » et « Less Than » incluent les utilisateurs dont les champs sont NULL
+- Les filtres « Exactement 0 » et « Inférieur à » incluent les utilisateurs dont les champs sont NULL
   - Pour exclure les utilisateurs sans valeur pour les attributs personnalisés, vous devez inclure le filtre **is not blank**.
 
 {% endtab %}
@@ -238,6 +238,8 @@ Lors de la segmentation avec le filtre **DOES NOT MATCH REGEX**, vous devez déj
 {% endtab %}
 {% tab Tableaux %}
 
+### Tableaux {#arrays}
+
 Les tableaux ont une taille maximale de 100&nbsp;Ko. La longueur par défaut d'un attribut est de 500 éléments maximum (par exemple, si vous envoyez un attribut tel que « Films regardés » défini à 500, lorsqu'un utilisateur regarde un 501e film, le premier film est supprimé et le plus récent est ajouté). Notez que si vous saisissez des valeurs comportant des espaces entre, avant ou après les mots, Braze vérifiera également ces mêmes espaces.
 
 Les attributs personnalisés de type tableau ne peuvent pas être importés via l'[importation CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Pour charger des valeurs de tableau, utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion).
@@ -252,24 +254,24 @@ Si un attribut personnalisé de type tableau apparaît dans un profil utilisateu
 
 1. Accédez à **Data Settings** > **Custom Attributes**.
 2. Filtrez la liste par **Array**.
-3. Trouvez l'attribut et vérifiez sa **Max Length**.
-4. Si **Max Length** est `0`, mettez-la à jour avec une valeur supérieure à `0`.
+3. Trouvez l'attribut et vérifiez sa **longueur maximale**.
+4. Si la **longueur maximale** est `0`, mettez-la à jour avec une valeur supérieure à `0`.
 
-Définir **Max Length** à `0` empêche les valeurs de s'afficher dans le profil utilisateur.
+Définir la **longueur maximale** à `0` empêche les valeurs de s'afficher dans le profil utilisateur.
 
-Pour des exemples de comportement des tableaux côté SDK, consultez l'[aperçu de l'analytique]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#arrays).
+Pour des exemples de comportement des tableaux côté SDK, consultez l'[aperçu de l'analytique]({{site.baseurl}}/developer_guide/analytics#arrays).
 
 Pour les attributs de type **tableau**, les options de segmentation suivantes sont disponibles.
 
 | Options de segmentation | Filtre déroulant | Options de saisie | Exemples |
 | ---------------------| --------------- | ------------- | -------- |
-| Vérifier si l'attribut de type tableau **inclut une valeur qui correspond exactement** à une valeur saisie | **INCLUDES VALUE** | **STRING** | Si ce filtre spécifie `sci-fi` et qu'un profil utilisateur possède la valeur `sci-fi`, l'utilisateur correspondra à ce filtre.|
-| Vérifier si l'attribut de type tableau **n'inclut pas une valeur qui correspond exactement** à une valeur saisie | **DOESN'T INCLUDE VALUE** | **STRING** | Si ce filtre spécifie `sci-fi` et qu'un profil utilisateur ne possède pas la valeur `sci-fi`, l'utilisateur correspondra à ce filtre.|
+| Vérifier si l'attribut de type tableau **inclut une valeur qui correspond exactement** à une valeur saisie | **INCLUDES VALUE** | **STRING** | Si ce filtre spécifie `sci-fi` et qu'un profil utilisateur a la valeur `sci-fi`, l'utilisateur correspondra à ce filtre.|
+| Vérifier si l'attribut de type tableau **n'inclut pas une valeur qui correspond exactement** à une valeur saisie | **DOESN'T INCLUDE VALUE** | **STRING** | Si ce filtre spécifie `sci-fi` et qu'un profil utilisateur n'a pas la valeur `sci-fi`, l'utilisateur correspondra à ce filtre.|
 | Vérifier si l'attribut de type tableau **contient une valeur qui correspond partiellement** à une valeur saisie **OU** à une expression régulière | **MATCHES REGEX** | **STRING** **OU** **REGULAR EXPRESSION**<br>Maximum de 32 764 caractères | |
-| Vérifier si l'attribut de type tableau **possède une valeur** ou n'est pas vide | **HAS A VALUE** | **N/A** | Si ce filtre spécifie `favorite_genres` et qu'un profil utilisateur contient `favorite_genres` avec n'importe quelle valeur, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut de type tableau **a une valeur** ou n'est pas vide | **HAS A VALUE** | **N/A** | Si ce filtre spécifie `favorite_genres` et qu'un profil utilisateur contient `favorite_genres` avec n'importe quelle valeur, l'utilisateur correspondra à ce filtre. |
 | Vérifier si l'attribut de type tableau **est vide** ou n'existe pas | **IS EMPTY** | **N/A** | Si ce filtre spécifie `favorite_genres` et qu'un profil utilisateur ne contient pas `favorite_genres` ou contient `favorite_genres` mais sans aucune valeur, l'utilisateur correspondra à ce filtre.|
-| Vérifier si l'attribut de type tableau **inclut une valeur qui correspond exactement à l'une** des valeurs saisies | **INCLUDES ANY OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum) | Si ce filtre spécifie `sci-fi, fantasy, romance` et qu'un profil utilisateur possède n'importe quelle combinaison de `sci-fi`, `fantasy` ou `romance`, y compris une seule d'entre elles (comme uniquement `sci-fi`). Un utilisateur peut avoir `horror` ou une autre valeur dans sa chaîne s'il possède également l'une des valeurs `sci-fi`, `fantasy` ou `romance`.|
-| Vérifier si l'attribut de type tableau **n'inclut aucune valeur qui correspond exactement à l'une** des valeurs saisies | **INCLUDES NONE OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum) | Si ce filtre spécifie `sci-fi, fantasy, romance` et qu'un profil utilisateur ne possède aucune combinaison de `sci-fi`, `fantasy` ou `romance`, l'utilisateur correspondra à ce filtre. L'utilisateur peut avoir `horror` ou une autre valeur s'il ne possède aucune des valeurs `sci-fi`, `fantasy` ou `romance`.|
+| Vérifier si l'attribut de type tableau **inclut une valeur qui correspond exactement à l'une** des valeurs saisies | **INCLUDES ANY OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum) | Si ce filtre spécifie `sci-fi, fantasy, romance` et qu'un profil utilisateur contient n'importe quelle combinaison de `sci-fi`, `fantasy` ou `romance`, y compris une seule d'entre elles (comme uniquement `sci-fi`). Un utilisateur peut avoir `horror` ou une autre valeur dans sa chaîne s'il possède également l'une des valeurs `sci-fi`, `fantasy` ou `romance`.|
+| Vérifier si l'attribut de type tableau **n'inclut aucune valeur qui correspond exactement à l'une** des valeurs saisies | **INCLUDES NONE OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum) | Si ce filtre spécifie `sci-fi, fantasy, romance` et qu'un profil utilisateur ne contient aucune combinaison de `sci-fi`, `fantasy` ou `romance`, l'utilisateur correspondra à ce filtre. L'utilisateur peut avoir `horror` ou une autre valeur s'il ne possède aucune des valeurs `sci-fi`, `fantasy` ou `romance`.|
 | Vérifier si l'attribut de type tableau **contient une valeur qui correspond partiellement à l'une** des valeurs saisies | **VALUES CONTAIN ANY OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum) | Si ce filtre spécifie `gold` et qu'un tableau de profil utilisateur contient `gold` dans au moins une chaîne, l'utilisateur correspondra à ce filtre. Cela inclut des valeurs de chaîne comme `gold_tier`, `former_gold_tier` et d'autres.|
 | Vérifier si l'attribut de type tableau **ne contient aucune valeur qui correspond partiellement à l'une** des valeurs saisies | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum) | Si ce filtre spécifie `gold` et qu'un tableau de profil utilisateur ne contient pas `gold` dans aucune chaîne, l'utilisateur correspondra à ce filtre. Cela signifie que les utilisateurs ayant des valeurs de chaîne comme `gold_tier` et `former_gold_tier` ne correspondront pas à ce filtre.|
 | Vérifier si l'attribut de type tableau **inclut toutes** les valeurs saisies | **IS ALL OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum) | Si ce filtre spécifie `sci-fi, fantasy, romance` et qu'un profil utilisateur possède toutes ces valeurs, l'utilisateur correspondra à ce filtre. L'utilisateur peut également avoir `horror` ou d'autres valeurs et correspondre à ce filtre.|
@@ -290,7 +292,7 @@ Pour en savoir plus sur l'utilisation des expressions régulières (regex), cons
 
 Les attributs de type heure sont utiles pour stocker la dernière fois qu'une action spécifique a été effectuée, afin de proposer à vos utilisateurs des messages de réengagement ciblés.
 
-Les filtres temporels utilisant des dates relatives (par exemple, il y a plus d'un jour, il y a moins de deux jours) mesurent un jour comme 24 heures. Toute campagne que vous exécutez avec ces filtres inclura tous les utilisateurs par tranches de 24 heures. Par exemple, `last used app more than 1 day ago` capturera tous les utilisateurs qui « ont utilisé l'application pour la dernière fois il y a plus de 24 heures » à partir du moment exact où la campagne s'exécute. Il en va de même pour les campagnes définies avec des plages de dates plus longues — cinq jours à partir de l'activation signifient les 120 heures précédentes.
+Les filtres temporels utilisant des dates relatives (par exemple, il y a plus d'un jour, il y a moins de deux jours) mesurent un jour comme 24 heures. Toute Campaign que vous exécutez avec ces filtres inclura tous les utilisateurs par tranches de 24 heures. Par exemple, `last used app more than 1 day ago` capturera tous les utilisateurs qui « ont utilisé l'application pour la dernière fois il y a plus de 24 heures » à partir du moment exact où la Campaign est exécutée. Il en va de même pour les Campaigns définies avec des plages de dates plus longues — ainsi, cinq jours à partir de l'activation signifient les 120 heures précédentes.
 
 Pour cibler les utilisateurs dont un attribut de type heure se situe dans une plage temporelle, utilisez deux filtres d'audience : `in more than` pour la borne inférieure et `in less than` pour la borne supérieure. Un seul filtre ne peut pas exprimer les deux côtés de cette plage. Par exemple, pour cibler les utilisateurs dont un attribut de type heure se situe dans les prochaines 24 heures (entre maintenant et un jour à partir de maintenant), appliquez `in more than 0 days` et `in less than 1 day`.
 
@@ -302,15 +304,19 @@ Pour les attributs de type **heure**, les options de segmentation suivantes sont
 
 | Options de segmentation | Filtre déroulant | Options de saisie | Exemples |
 | ---------------------| --------------- | ------------- | -------- |
-| Vérifier si l'attribut de type heure **est antérieur à** une **date sélectionnée** | **BEFORE** | **CALENDAR DATE SELECTOR** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur possède une date antérieure à `2024-1-31`, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut de type heure **est postérieur à** une **date sélectionnée** | **AFTER** | **CALENDAR DATE SELECTOR** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur possède une date postérieure à `2024-1-31`, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut de type heure remonte à **plus de X** **jours** | **MORE THAN** | **NUMBER OF DAYS AGO** | Si ce filtre spécifie `7` et qu'un profil utilisateur possède une date remontant à plus de sept jours, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut de type heure remonte à **moins de X** **jours** | **LESS THAN** | **NUMBER OF DAYS AGO** | Si ce filtre spécifie `7` et qu'un profil utilisateur possède une date remontant à moins de sept jours, l'utilisateur correspondra à ce filtre.|
-| Vérifier si l'attribut de type heure est **dans plus de X** **jours dans le futur** | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** | Si ce filtre spécifie `7` et qu'un profil utilisateur possède une date située à plus de sept jours dans le futur, l'utilisateur correspondra à ce filtre.|
-| Vérifier si l'attribut de type heure est **dans moins de X** **jours dans le futur** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Si ce filtre spécifie `7` et qu'un profil utilisateur possède une date située à moins de sept jours dans le futur, l'utilisateur correspondra à ce filtre.|
-| Vérifier si l'attribut de type heure **existe** dans le profil d'un utilisateur et n'est pas nul | **IS NOT BLANK** | **N/A** | Si ce filtre spécifie un attribut de type heure présent dans un profil utilisateur, l'utilisateur correspondra à ce filtre.|
-| Vérifier si l'attribut de type heure **n'existe pas** dans le profil d'un utilisateur ou est nul | **IS BLANK** | **N/A** | Si ce filtre spécifie un attribut de type heure absent du profil utilisateur, l'utilisateur correspondra à ce filtre. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Détails des attributs de type heure" }
+| Vérifier si l'attribut de type heure **est antérieur à** une **date sélectionnée** | **BEFORE** | **CALENDAR DATE SELECTOR** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur a une date antérieure à `2024-1-31`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut de type heure **est postérieur à** une **date sélectionnée** | **AFTER** | **CALENDAR DATE SELECTOR** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur a une date postérieure à `2024-1-31`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut de type heure date de **plus de X** **jours** | **MORE THAN** | **NUMBER OF DAYS AGO** | Si ce filtre spécifie `7` et qu'un profil utilisateur a une date datant de plus de sept jours, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut de type heure date de **moins de X** **jours** | **LESS THAN** | **NUMBER OF DAYS AGO** | Si ce filtre spécifie `7` et qu'un profil utilisateur a une date datant de moins de sept jours, l'utilisateur correspondra à ce filtre.|
+| Vérifier si l'attribut de type heure est **dans plus de X** **jours dans le futur** | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** | Si ce filtre spécifie `7` et qu'un profil utilisateur a une date située à plus de sept jours dans le futur, l'utilisateur correspondra à ce filtre.|
+| Vérifier si l'attribut de type heure est **dans moins de X** **jours dans le futur** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Si ce filtre spécifie `7` et qu'un profil utilisateur a une date située à moins de sept jours dans le futur, l'utilisateur correspondra à ce filtre.|
+| Vérifier si l'attribut de type heure **existe** dans le profil d'un utilisateur et n'est pas null | **IS NOT BLANK** | **N/A** | Si ce filtre spécifie un attribut de type heure présent dans un profil utilisateur, l'utilisateur correspondra à ce filtre.|
+| Vérifier si l'attribut de type heure **n'existe pas** dans le profil d'un utilisateur ou est null | **IS BLANK** | **N/A** | Si ce filtre spécifie un attribut de type heure qui n'est pas dans un profil utilisateur, l'utilisateur correspondra à ce filtre. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Détails des attributs numériques" }
+
+{% alert note %}
+Lorsque vous utilisez les opérateurs **in less than** ou **in more than** avec 90 jours ou plus, Braze convertit automatiquement la valeur en semaines lorsque vous enregistrez le Segment. Par exemple, 90 jours est converti en 13 semaines.
+{% endalert %}
 
 #### Détails des attributs de type heure {#time-attribute-details}
 
@@ -319,7 +325,7 @@ Pour les attributs de type **heure**, les options de segmentation suivantes sont
 {% endtab %}
 {% tab Objets %}
 
-Vous pouvez utiliser des attributs personnalisés imbriqués pour envoyer des objets en tant que type de données pour les attributs personnalisés. Pour en savoir plus, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Vous pouvez utiliser des attributs personnalisés imbriqués pour envoyer des objets comme type de données pour les attributs personnalisés. Pour plus d'informations, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% endtab %}
 {% tab Tableaux d'objets %}

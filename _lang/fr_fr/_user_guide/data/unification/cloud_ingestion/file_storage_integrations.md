@@ -46,7 +46,7 @@ L'intégration nécessite les ressources suivantes :
 | --- | --- |
 | Amazon Resource Name (ARN) | L'ARN est un identifiant unique pour les ressources AWS. |
 | Identity and Access Management (IAM) | IAM est un service web qui vous permet de contrôler de manière sécurisée l'accès aux ressources AWS. Dans ce tutoriel, vous allez créer une politique IAM et l'attribuer à un rôle IAM pour intégrer votre compartiment S3 à l'ingestion de données cloud de Braze. |
-| Amazon Simple Queue Service (SQS) | SQS est une file d'attente hébergée qui vous permet d'intégrer des systèmes logiciels distribués et des composants. |
+| Amazon Simple Queue Service (SQS) | SQS est une file d'attente hébergée qui vous permet d'intégrer des systèmes et composants logiciels distribués. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Définitions AWS" }
 
 ## Configuration de l'ingestion de données cloud dans AWS {#setting-up-cloud-data-ingestion-in-aws}
@@ -218,9 +218,9 @@ Donnez un nom et une description au rôle, puis sélectionnez **Create Role**.
 
 6. Saisissez les informations restantes issues du processus de configuration AWS. Spécifiez les éléments suivants :
 - URL SQS (doit être unique pour chaque nouvelle intégration)
-- Chemin du dossier (facultatif, doit être unique parmi les synchronisations d'un espace de travail)
+- Chemin du dossier (facultatif, doit être unique entre les synchronisations d'un espace de travail)
 
-7. Sélectionnez un type de données et cliquez sur **Tester la connexion** pour confirmer que Braze peut lister les fichiers disponibles à l'ingestion (pas les données contenues dans ces fichiers). Une fois le test réussi, sélectionnez **Suivant : Notifications**.
+7. Sélectionnez un type de données et cliquez sur **Tester la connexion** pour confirmer que Braze peut lister les fichiers disponibles à l'ingestion (et non les données contenues dans ces fichiers). Une fois le test réussi, sélectionnez **Suivant : Notifications**.
 8. Ajoutez une ou plusieurs adresses e-mail de contact pour les notifications en cas de rupture de la synchronisation due à des problèmes d'accès ou d'autorisations. Vous pouvez également activer les notifications pour les erreurs au niveau utilisateur et les synchronisations réussies.
 9. Créez la synchronisation.
 
@@ -242,14 +242,14 @@ L'intégration nécessite les ressources suivantes :
 | Sujet Pub/Sub | Un sujet est la ressource nommée qui reçoit les notifications de nouveaux fichiers depuis votre compartiment Cloud Storage. |
 | Abonnement Pub/Sub | Un abonnement est rattaché à un sujet et distribue ses messages. Braze consomme les notifications de nouveaux fichiers à partir d'un abonnement de type pull. |
 | Compte de service | Un compte de service est une identité non humaine que Braze utilise pour accéder à votre compartiment et à votre abonnement. Vous téléchargez sa clé JSON dans Braze. |
-| Rôle IAM | Un rôle Identity and Access Management (IAM) est un ensemble d'autorisations que vous accordez au compte de service sur votre compartiment et votre abonnement. |
+| Rôle IAM | Un rôle Identity and Access Management (IAM) est un ensemble d'autorisations que vous attribuez au compte de service sur votre compartiment et votre abonnement. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Définitions GCP" }
 
 ## Configuration de l'ingestion de données cloud dans Google Cloud {#setting-up-cloud-data-ingestion-in-google-cloud}
 
 ### Étape 1 : Créer un compartiment Cloud Storage {#step-1-create-a-cloud-storage-bucket}
 
-Dans la console Google Cloud, accédez à **Cloud Storage** > **Buckets** > **Create**. Notez l'ID du projet et le nom du compartiment, car vous en aurez besoin lors de la configuration de la source dans Braze. Nous recommandons d'activer l'accès uniforme au niveau du compartiment afin que les autorisations soient gérées avec IAM.
+Dans la console Google Cloud, accédez à **Cloud Storage** > **Buckets** > **Create**. Notez l'ID du projet et le nom du compartiment — vous en aurez besoin lors de la configuration de la source dans Braze. Nous recommandons d'activer l'accès uniforme au niveau du compartiment afin que les autorisations soient gérées avec IAM.
 
 Vous pouvez également créer le compartiment avec gcloud :
 
@@ -272,10 +272,10 @@ gcloud pubsub subscriptions create YOUR-SUBSCRIPTION \
   --topic=YOUR-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
 ```
 
-Notez l'**ID de l'abonnement** : Braze a besoin de l'abonnement (et non du sujet) lorsque vous créez la synchronisation. L'abonnement doit être de type pull.
+Notez l'**ID d'abonnement** — Braze a besoin de l'abonnement (et non du sujet) lorsque vous créez la synchronisation. L'abonnement doit être de type pull.
 
 {% alert warning %}
-Ne configurez pas de file d'attente de lettres mortes (dead-letter queue) sur cet abonnement. Braze ne prend pas en charge les files d'attente de lettres mortes pour les abonnements d'ingestion de données cloud. Pour en savoir plus, consultez [Dead-letter topics](https://cloud.google.com/pubsub/docs/dead-letter-topics) dans la documentation Google Cloud.
+Ne configurez pas de file d'attente de lettres mortes sur cet abonnement. Braze ne prend pas en charge les files d'attente de lettres mortes pour les abonnements d'ingestion de données cloud. Pour en savoir plus, consultez [Dead-letter topics](https://cloud.google.com/pubsub/docs/dead-letter-topics) dans la documentation Google Cloud.
 {% endalert %}
 
 ### Étape 3 : Envoyer les notifications du compartiment vers le sujet {#step-3-send-bucket-notifications-to-the-topic}
@@ -290,7 +290,7 @@ Commencez par accorder à l'agent de service Cloud Storage l'autorisation de pub
 # Get the Cloud Storage service agent for your project
 gcloud storage service-agent --project=YOUR-PROJECT-ID
 
-# Grant it Pub/Sub Publisher on the topic
+# Assign it Pub/Sub Publisher on the topic
 gcloud pubsub topics add-iam-policy-binding YOUR-TOPIC \
   --project=YOUR-PROJECT-ID \
   --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -305,10 +305,10 @@ gcloud storage buckets notifications create gs://YOUR-BUCKET-NAME \
 
 Remplacez les marques substitutives suivantes dans ces commandes :
 
-- `YOUR-PROJECT-ID` : l'ID de votre projet Google Cloud, l'identifiant lisible (par exemple, `my-gcp-project`).
+- `YOUR-PROJECT-ID` : l'ID de votre projet Google Cloud, l'identifiant lisible par l'humain (par exemple, `my-gcp-project`).
 - `YOUR-TOPIC` : le sujet Pub/Sub que vous avez créé à l'[étape 2](#step-2-create-a-pubsub-topic-and-subscription).
 - `YOUR-BUCKET-NAME` : le nom de votre compartiment Cloud Storage.
-- `YOUR-PROJECT-NUMBER` : le numéro de votre projet, l'identifiant numérique utilisé dans l'adresse e-mail de l'agent de service Cloud Storage. Il est différent de l'ID du projet. Vous le trouverez sur le **Dashboard** de la console Google Cloud, ou en exécutant la commande suivante :
+- `YOUR-PROJECT-NUMBER` : le numéro de votre projet, l'identifiant numérique utilisé dans l'adresse e-mail de l'agent de service Cloud Storage. Il est différent de l'ID du projet. Vous pouvez le trouver sur le **Dashboard** dans la console Google Cloud, ou exécuter la commande suivante :
 
 ```shell
 gcloud projects describe YOUR-PROJECT-ID --format="value(projectNumber)"
@@ -326,9 +326,9 @@ gcloud iam service-accounts create braze-cdi-gcs \
   --display-name="Braze CDI GCS"
 ```
 
-### Étape 5 : Accorder les autorisations {#step-5-grant-permissions}
+### Étape 5 : Attribuer les autorisations {#step-5-assign-permissions}
 
-Le connecteur nécessite exactement les autorisations suivantes : `storage.buckets.get`, `storage.objects.get` et `storage.objects.list` sur le compartiment, ainsi que `pubsub.subscriptions.consume` sur l'abonnement. Vous pouvez les accorder avec un rôle personnalisé ou des rôles prédéfinis.
+Le connecteur nécessite exactement ces autorisations : `storage.buckets.get`, `storage.objects.get` et `storage.objects.list` sur le compartiment, et `pubsub.subscriptions.consume` sur l'abonnement. Vous pouvez les attribuer avec un rôle personnalisé ou des rôles prédéfinis.
 
 **Rôle personnalisé :** créez un rôle personnalisé avec exactement ces autorisations et liez-le au compartiment et à l'abonnement :
 
@@ -348,7 +348,7 @@ gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
   --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
 ```
 
-**Rôles prédéfinis :** accordez `roles/storage.objectViewer` et `roles/storage.legacyBucketReader` sur le compartiment, et `roles/pubsub.subscriber` sur l'abonnement. Le rôle `objectViewer` fournit `storage.objects.get` et `storage.objects.list`, et `legacyBucketReader` fournit `storage.buckets.get` :
+**Rôles prédéfinis :** attribuez `roles/storage.objectViewer` et `roles/storage.legacyBucketReader` sur le compartiment, et `roles/pubsub.subscriber` sur l'abonnement. Le rôle `objectViewer` fournit `storage.objects.get` et `storage.objects.list`, et `legacyBucketReader` fournit `storage.buckets.get` :
 
 ```shell
 gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
@@ -382,24 +382,24 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
 
 {: start="2"}
 2. Remplissez les champs de la source :
-    - **Bucket** : le nom de votre compartiment
-    - **Project ID** : l'ID de votre projet GCP
-    - **Service account JSON key** : téléchargez le fichier de clé de l'étape 6 et donnez un nom à l'identifiant
+    - **Bucket** — le nom de votre compartiment
+    - **Project ID** — l'ID de votre projet GCP
+    - **Service account JSON key** — téléchargez le fichier de clé de l'étape 6 et donnez un nom à l'identifiant
 
-![Le formulaire de source Google Cloud Storage affichant les champs Bucket, Project ID et téléchargement de l'identifiant.]({% image_buster /assets/img/cloud_ingestion/gcs_source_form.png %})
+![Le formulaire de source Google Cloud Storage affichant les champs Bucket, Project ID et téléchargement d'identifiant.]({% image_buster /assets/img/cloud_ingestion/gcs_source_form.png %})
 
 {: start="3"}
 3. Sélectionnez **Tester la connexion**, puis sélectionnez **Se connecter à la source**.
 4. Créez une synchronisation. Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Synchronisations** et sélectionnez **Créer une synchronisation de données**. Choisissez un nom de synchronisation et un **type de données** (tel que **User Attributes**, **Custom Events**, **Purchase Events**, **Catalog** ou **Delete Users**), puis sélectionnez **Suivant**.
 5. À l'étape **Définition des données**, sélectionnez votre source GCS, puis spécifiez les éléments suivants :
-    - **Pub/Sub subscription ID** : l'ID de l'abonnement de l'étape 2 (pas le sujet)
-    - **Folder path** (facultatif) : un préfixe de chemin dans le compartiment (voir [Synchroniser un dossier dans un compartiment partagé](#syncing-a-folder-in-a-shared-bucket))
+    - **Pub/Sub subscription ID** — l'ID d'abonnement de l'étape 2 (et non le sujet)
+    - **Folder path** (facultatif) — un préfixe de chemin dans le compartiment (voir [Synchroniser un dossier dans un compartiment partagé](#syncing-a-folder-in-a-shared-bucket))
 
 ![Le formulaire de synchronisation Google Cloud Storage affichant les champs Pub/Sub subscription ID et Folder path.]({% image_buster /assets/img/cloud_ingestion/gcs_sync_form.png %})
 
 {: start="6"}
 6. Sélectionnez **Prévisualiser et valider** pour confirmer que Braze peut atteindre l'abonnement et lister les fichiers disponibles à l'ingestion. Un test réussi affichera les fichiers existants dans le compartiment, mais ces fichiers ne seront pas synchronisés automatiquement.
-7. Ajoutez une ou plusieurs adresses e-mail de contact pour les notifications d'erreurs. Les synchronisations Google Cloud Storage sont pilotées par les événements, aucune planification n'est donc nécessaire : Braze ingère les nouveaux fichiers au fur et à mesure de leur téléchargement. Vérifiez le résumé, puis sélectionnez **Créer la synchronisation**.
+7. Ajoutez une ou plusieurs adresses e-mail de contact pour les notifications d'erreur. Les synchronisations Google Cloud Storage sont pilotées par les événements, aucune planification n'est donc nécessaire — Braze ingère les nouveaux fichiers au fur et à mesure de leur téléchargement. Vérifiez le résumé, puis sélectionnez **Créer la synchronisation**.
 
 ### Synchroniser un dossier dans un compartiment partagé {#syncing-a-folder-in-a-shared-bucket}
 
@@ -407,7 +407,7 @@ Vous pouvez réutiliser un même compartiment pour plusieurs synchronisations, m
 
 
 {% alert important %}
-Le chemin du dossier et l'abonnement doivent tous deux être uniques parmi les synchronisations d'un espace de travail lorsque plusieurs synchronisations partagent le même compartiment source. Comme à l'[étape 2](#step-2-create-a-pubsub-topic-and-subscription), ne configurez pas de file d'attente de lettres mortes sur ces abonnements.
+Le chemin du dossier et l'abonnement doivent tous deux être uniques entre les synchronisations d'un espace de travail pour plusieurs synchronisations partageant le même compartiment source. Comme à l'[étape 2](#step-2-create-a-pubsub-topic-and-subscription), ne configurez pas de file d'attente de lettres mortes sur ces abonnements.
 {% endalert %}
 
 Pour chaque dossier que vous souhaitez synchroniser dans un compartiment partagé :
@@ -419,7 +419,7 @@ Pour chaque dossier que vous souhaitez synchroniser dans un compartiment partag�
     # One topic per folder
     gcloud pubsub topics create YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID
 
-    # Grant the Cloud Storage service agent publisher on the topic
+    # Assign the Cloud Storage service agent publisher on the topic
     gcloud pubsub topics add-iam-policy-binding YOUR-ATTRIBUTES-TOPIC \
       --project=YOUR-PROJECT-ID \
       --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -435,7 +435,7 @@ Pour chaque dossier que vous souhaitez synchroniser dans un compartiment partag�
       --topic=YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
     ```
 
-3. Accordez au compte de service Braze l'autorisation de consommer sur cet abonnement, comme à l'[étape 5](#step-5-grant-permissions) :
+3. Attribuez au compte de service Braze l'autorisation de consommer sur cet abonnement, comme à l'[étape 5](#step-5-assign-permissions) :
 
     ```shell
     gcloud pubsub subscriptions add-iam-policy-binding YOUR-ATTRIBUTES-SUBSCRIPTION \
@@ -444,7 +444,7 @@ Pour chaque dossier que vous souhaitez synchroniser dans un compartiment partag�
       --role="roles/pubsub.subscriber"
     ```
 
-    Si vous avez créé le rôle personnalisé à l'[étape 5](#step-5-grant-permissions), utilisez `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` à la place.
+    Si vous avez créé le rôle personnalisé à l'[étape 5](#step-5-assign-permissions), utilisez `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` à la place.
 4. Lorsque vous créez la synchronisation dans Braze, saisissez le nouvel **ID d'abonnement Pub/Sub** et le **chemin du dossier** de ce dossier afin que la synchronisation n'ingère que les fichiers de ce dossier.
 
 
@@ -458,9 +458,9 @@ Les formats de fichiers requis sont les mêmes pour Amazon S3 et Google Cloud St
 - Les données utilisateur (attributs, événements personnalisés, événements d'achat) utilisent des identifiants utilisateur et un payload
 - Les données de catalogue utilisent des identifiants de catalogue
 
-Si vous utilisez le stockage de fichiers pour les données de catalogue, consultez cette page avec [Synchroniser et supprimer les données de catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) pour les exigences et le comportement spécifiques aux catalogues.
+Si vous utilisez le stockage de fichiers pour les données de catalogue, consultez cette page ainsi que [Synchroniser et supprimer les données de catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) pour les exigences et le comportement spécifiques aux catalogues.
 
-Braze n'impose aucune exigence supplémentaire concernant les noms de fichiers au-delà de ce qu'impose votre fournisseur de stockage de fichiers. Les noms de fichiers doivent être uniques. L'ajout d'un horodatage contribue à garantir l'unicité.
+Braze n'impose aucune exigence supplémentaire concernant les noms de fichiers au-delà de ce qu'impose votre fournisseur de stockage de fichiers. Les noms de fichiers doivent être uniques. L'ajout d'un horodatage contribue à garantir cette unicité.
 
 Pour des exemples de tous les types de fichiers pris en charge (attributs, événements personnalisés, achats, catalogues et suppressions d'utilisateurs), consultez les fichiers d'exemple dans [braze-examples](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion/braze-examples/payloads/file_storage).
 
@@ -480,7 +480,7 @@ Pour les synchronisations de données utilisateur (attributs, événements perso
 En plus d'un identifiant, chaque ligne doit inclure une colonne `payload` contenant une chaîne JSON des champs que vous souhaitez synchroniser avec l'utilisateur dans Braze.
 
 {% alert note %}
-Contrairement aux sources d'entrepôt de données, la colonne `UPDATED_AT` n'est ni requise ni prise en charge pour les synchronisations de stockage de fichiers.
+Contrairement aux sources d'entrepôt de données, la colonne `UPDATED_AT` n'est ni requise ni prise en charge pour les synchronisations par stockage de fichiers.
 {% endalert %}
 
 ### Identifiants de catalogue {#catalog-identifiers}
@@ -491,7 +491,7 @@ Pour les synchronisations de catalogue, votre fichier source doit contenir les c
 | --- | --- | --- |
 | `ID` | Oui | L'identifiant unique de l'élément de catalogue. Utilisé pour créer, mettre à jour ou supprimer l'élément dans Braze. |
 | `payload` | Oui | Une chaîne JSON des champs et valeurs du catalogue à synchroniser. Doit correspondre au schéma de votre catalogue dans Braze. |
-| `DELETED` | Non | Lorsque la valeur est `true`, l'élément de catalogue avec l'`ID` correspondant est supprimé du catalogue dans Braze. Omettez cette colonne ou définissez-la sur `false` pour les opérations de création ou de mise à jour. |
+| `DELETED` | Non | Lorsque la valeur est `true`, l'élément de catalogue correspondant à l'`ID` est supprimé du catalogue dans Braze. Omettez cette colonne ou définissez-la sur `false` pour les opérations de création ou de mise à jour. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifiants de catalogue" }
 
 ### Exemples {#examples}
@@ -574,7 +574,7 @@ Chaque ligne du fichier doit identifier exactement un utilisateur à l'aide de l
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Suppression d'utilisateurs" }
 
 {% alert important %}
-La suppression d'utilisateurs est permanente et ne peut pas être annulée. N'incluez que les utilisateurs que vous souhaitez réellement supprimer. Pour plus de détails, consultez [Supprimer des utilisateurs avec l'ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users).
+La suppression d'utilisateurs est permanente et ne peut pas être annulée. N'incluez que les utilisateurs que vous avez l'intention de supprimer. Pour plus de détails, consultez [Supprimer des utilisateurs avec l'ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users).
 {% endalert %}
 
 **Exemple – JSON (suppression d'utilisateurs) :**
@@ -621,9 +621,9 @@ Lorsque la synchronisation s'exécute, les lignes avec `deleted: true` entraîne
 ## Informations importantes {#things-to-know}
 
 - Les fichiers ajoutés au compartiment source ne doivent pas dépasser 512&nbsp;Mo. Cette limite s'applique à Amazon S3 et à Google Cloud Storage. Les fichiers de plus de 512&nbsp;Mo génèrent une erreur et ne sont pas synchronisés avec Braze.
-- Bien qu'il n'y ait pas de limite supplémentaire sur le nombre de lignes par fichier, nous recommandons d'utiliser des fichiers plus petits pour améliorer la vitesse d'exécution de vos synchronisations. Par exemple, un fichier de 500&nbsp;Mo prendrait considérablement plus de temps à ingérer que cinq fichiers distincts de 100&nbsp;Mo.
-- Il n'y a pas de limite supplémentaire sur le nombre de fichiers téléversés dans un laps de temps donné.
-- L'ordonnancement n'est pas pris en charge au sein des fichiers ni entre eux. Nous recommandons de regrouper les mises à jour périodiquement si vous surveillez d'éventuelles conditions de concurrence.
+- Bien qu'il n'y ait pas de limite supplémentaire sur le nombre de lignes par fichier, nous recommandons d'utiliser des fichiers plus petits pour améliorer la vitesse d'exécution de vos synchronisations. Par exemple, l'ingestion d'un fichier de 500&nbsp;Mo prendrait considérablement plus de temps que celle de cinq fichiers distincts de 100&nbsp;Mo.
+- Il n'y a pas de limite supplémentaire sur le nombre de fichiers téléchargés dans un laps de temps donné.
+- L'ordonnancement n'est pas pris en charge au sein des fichiers ni entre eux. Nous recommandons de regrouper les mises à jour de manière périodique si vous surveillez d'éventuelles conditions de concurrence.
 
 ## Résolution des problèmes {#troubleshooting}
 
@@ -635,25 +635,25 @@ Vous pouvez utiliser des fichiers existants pour vérifier que Braze peut accéd
 
 ### Gestion des erreurs de fichiers inattendues (Amazon S3) {#handling-unexpected-file-errors-amazon-s3}
 
-Si vous observez un nombre élevé d'erreurs ou de fichiers en échec, il est possible qu'un autre processus ajoute des fichiers au compartiment S3 dans un dossier autre que le dossier cible pour CDI.
+Si vous observez un nombre élevé d'erreurs ou de fichiers en échec, il est possible qu'un autre processus ajoute des fichiers au compartiment S3 dans un dossier différent du dossier cible pour CDI.
 
 Lorsque des fichiers sont téléchargés vers le compartiment source mais pas dans le dossier source, CDI traite la notification SQS, mais n'effectue aucune action sur le fichier, ce qui peut apparaître comme une erreur.
 
-Si votre problème est lié aux notifications S3 ou aux permissions de destination SQS (par exemple, des erreurs de validation de destination), consultez la documentation AWS :
+Si votre problème est lié aux notifications S3 ou aux autorisations de destination SQS (par exemple, des erreurs de validation de destination), consultez la documentation AWS :
 
 - [Activation et configuration des notifications d'événements à l'aide de la console Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html)
-- [Octroi des permissions pour publier des messages de notification d'événements vers une destination](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html)
+- [Octroi d'autorisations pour publier des messages de notification d'événements vers une destination](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html)
 - [Résolution des problèmes dans Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-troubleshooting.html)
 
 ### Gestion des erreurs de fichiers inattendues (Google Cloud Storage) {#handling-unexpected-file-errors-google-cloud-storage}
 
-Comme pour Amazon S3, CDI ne traite que les fichiers téléchargés après la création de la synchronisation. Chaque nouvel objet déclenche un message `OBJECT_FINALIZE` vers votre sujet Pub/Sub. Pour ingérer des fichiers qui existent déjà dans le compartiment, re-téléchargez-les.
+Comme pour Amazon S3, CDI ne traite que les fichiers téléchargés après la création de la synchronisation. Chaque nouvel objet déclenche un message `OBJECT_FINALIZE` vers votre topic Pub/Sub. Pour ingérer des fichiers qui existent déjà dans le compartiment, re-téléchargez-les.
 
 Si les fichiers ne sont pas ingérés, vérifiez les points suivants :
 
 - La notification du compartiment existe. Listez les notifications du compartiment avec `gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME`.
-- L'agent de service Cloud Storage dispose du rôle `roles/pubsub.publisher` sur le sujet.
-- Le compte de service Braze dispose de la permission de consommation sur l'abonnement (`pubsub.subscriptions.consume`, accordée via le rôle personnalisé ou `roles/pubsub.subscriber`).
+- L'agent de service Cloud Storage dispose du rôle `roles/pubsub.publisher` sur le topic.
+- Le compte de service Braze dispose de l'autorisation de consommation sur l'abonnement (`pubsub.subscriptions.consume`, attribuée via le rôle personnalisé ou `roles/pubsub.subscriber`).
 - L'abonnement n'a pas de file d'attente de lettres mortes configurée. Braze ne prend pas en charge les files d'attente de lettres mortes pour les abonnements Cloud Data Ingestion.
 
 Pour plus d'informations, consultez [Notifications Pub/Sub pour Cloud Storage](https://cloud.google.com/storage/docs/pubsub-notifications) dans la documentation Google Cloud.

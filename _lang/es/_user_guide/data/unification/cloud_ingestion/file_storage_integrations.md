@@ -218,7 +218,7 @@ Asigna un nombre y una descripción al rol y selecciona **Create Role**.
 
 6. Introduce la información restante del proceso de configuración de AWS. Especifica lo siguiente:
 - URL de SQS (debe ser única para cada nueva integración)
-- Ruta de carpeta (opcional, debe ser única entre las sincronizaciones de un espacio de trabajo)
+- Ruta de carpeta (opcional, debe ser única en todas las sincronizaciones de un espacio de trabajo)
 
 7. Selecciona un tipo de datos y selecciona **Test Connection** para confirmar que Braze puede listar los archivos disponibles para ingestar (no los datos dentro de esos archivos). Una vez que la prueba sea exitosa, selecciona **Next: Notifications**.
 8. Añade correo(s) electrónico(s) de contacto para recibir notificaciones si la sincronización se interrumpe por problemas de acceso o permisos. Opcionalmente, activa las notificaciones para errores a nivel de usuario y sincronizaciones exitosas.
@@ -242,7 +242,7 @@ La integración requiere los siguientes recursos:
 | Tema de Pub/Sub | Un tema es el recurso con nombre que recibe notificaciones de archivos nuevos desde tu contenedor de Cloud Storage. |
 | Suscripción de Pub/Sub | Una suscripción se adjunta a un tema y entrega sus mensajes. Braze consume las notificaciones de archivos nuevos desde una suscripción de tipo pull. |
 | Cuenta de servicio | Una cuenta de servicio es una identidad no humana que Braze utiliza para acceder a tu contenedor y suscripción. Subes su clave JSON a Braze. |
-| Rol IAM | Un rol de Identity and Access Management (IAM) es una colección de permisos que otorgas a la cuenta de servicio en tu contenedor y suscripción. |
+| Rol IAM | Un rol de Identity and Access Management (IAM) es una colección de permisos que asignas a la cuenta de servicio en tu contenedor y suscripción. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Definiciones de GCP" }
 
 ## Configuración de la ingesta de datos en el cloud en Google Cloud {#setting-up-cloud-data-ingestion-in-google-cloud}
@@ -284,13 +284,13 @@ No configures una cola de mensajes no entregados en esta suscripción. Braze no 
 La creación de una notificación de Cloud Storage a Pub/Sub no está disponible en la consola de Google Cloud. Debes usar gcloud (como se muestra aquí), Terraform o la API JSON. Para obtener más información, consulta [Configure Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/reporting-changes#enabling) en la documentación de Google Cloud.
 {% endalert %}
 
-Primero, otorga al agente de servicio de Cloud Storage permiso para publicar en el tema y, a continuación, crea la notificación para `OBJECT_FINALIZE`. El evento `OBJECT_FINALIZE` se activa cada vez que se crea o finaliza un nuevo objeto en el contenedor.
+Primero, asigna al agente de servicio de Cloud Storage permiso para publicar en el tema y, a continuación, crea la notificación para `OBJECT_FINALIZE`. El evento `OBJECT_FINALIZE` se activa cada vez que se crea o finaliza un nuevo objeto en el contenedor.
 
 ```shell
 # Get the Cloud Storage service agent for your project
 gcloud storage service-agent --project=YOUR-PROJECT-ID
 
-# Grant it Pub/Sub Publisher on the topic
+# Assign it Pub/Sub Publisher on the topic
 gcloud pubsub topics add-iam-policy-binding YOUR-TOPIC \
   --project=YOUR-PROJECT-ID \
   --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -326,9 +326,9 @@ gcloud iam service-accounts create braze-cdi-gcs \
   --display-name="Braze CDI GCS"
 ```
 
-### Paso 5: Otorgar permisos {#step-5-grant-permissions}
+### Paso 5: Asignar permisos {#step-5-assign-permissions}
 
-El conector necesita exactamente estos permisos: `storage.buckets.get`, `storage.objects.get` y `storage.objects.list` en el contenedor, y `pubsub.subscriptions.consume` en la suscripción. Puedes otorgarlos con un rol personalizado o con roles predefinidos.
+El conector necesita exactamente estos permisos: `storage.buckets.get`, `storage.objects.get` y `storage.objects.list` en el contenedor, y `pubsub.subscriptions.consume` en la suscripción. Puedes asignarlos con un rol personalizado o con roles predefinidos.
 
 **Rol personalizado:** crea un rol personalizado con exactamente esos permisos y vincúlalo al contenedor y a la suscripción:
 
@@ -348,7 +348,7 @@ gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
   --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
 ```
 
-**Roles predefinidos:** otorga `roles/storage.objectViewer` y `roles/storage.legacyBucketReader` en el contenedor, y `roles/pubsub.subscriber` en la suscripción. El rol `objectViewer` proporciona `storage.objects.get` y `storage.objects.list`, y `legacyBucketReader` proporciona `storage.buckets.get`:
+**Roles predefinidos:** asigna `roles/storage.objectViewer` y `roles/storage.legacyBucketReader` en el contenedor, y `roles/pubsub.subscriber` en la suscripción. El rol `objectViewer` proporciona `storage.objects.get` y `storage.objects.list`, y `legacyBucketReader` proporciona `storage.buckets.get`:
 
 ```shell
 gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
@@ -399,7 +399,7 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
 
 {: start="6"}
 6. Selecciona **Preview and validate** para confirmar que Braze puede acceder a la suscripción y listar los archivos disponibles para ingestar. Una prueba exitosa mostrará los archivos existentes en el contenedor, pero esos archivos no se sincronizarán automáticamente.
-7. Añade correo(s) electrónico(s) de contacto para notificaciones de errores. Las sincronizaciones de Google Cloud Storage se basan en eventos, por lo que no se requiere un horario: Braze ingesta los archivos nuevos a medida que se suben. Revisa el resumen y selecciona **Create sync**.
+7. Añade correo(s) electrónico(s) de contacto para notificaciones de errores. Las sincronizaciones de Google Cloud Storage se basan en eventos, por lo que no se requiere una programación: Braze ingesta los archivos nuevos a medida que se suben. Revisa el resumen y selecciona **Create sync**.
 
 ### Sincronizar una carpeta en un contenedor compartido {#syncing-a-folder-in-a-shared-bucket}
 
@@ -407,7 +407,7 @@ Puedes reutilizar un contenedor en varias sincronizaciones, pero cada sincroniza
 
 
 {% alert important %}
-La ruta de carpeta y la suscripción deben ser únicas entre las sincronizaciones de un espacio de trabajo cuando varias sincronizaciones comparten el mismo contenedor de origen. Como en el [paso 2](#step-2-create-a-pubsub-topic-and-subscription), no configures una cola de mensajes no entregados en ninguna de estas suscripciones.
+La ruta de carpeta y la suscripción deben ser únicas en todas las sincronizaciones de un espacio de trabajo cuando varias sincronizaciones comparten el mismo contenedor de origen. Como en el [paso 2](#step-2-create-a-pubsub-topic-and-subscription), no configures una cola de mensajes no entregados en ninguna de estas suscripciones.
 {% endalert %}
 
 Para cada carpeta que desees sincronizar en un contenedor compartido:
@@ -419,7 +419,7 @@ Para cada carpeta que desees sincronizar en un contenedor compartido:
     # One topic per folder
     gcloud pubsub topics create YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID
 
-    # Grant the Cloud Storage service agent publisher on the topic
+    # Assign the Cloud Storage service agent publisher on the topic
     gcloud pubsub topics add-iam-policy-binding YOUR-ATTRIBUTES-TOPIC \
       --project=YOUR-PROJECT-ID \
       --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -435,7 +435,7 @@ Para cada carpeta que desees sincronizar en un contenedor compartido:
       --topic=YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
     ```
 
-3. Otorga a la cuenta de servicio de Braze permiso de consumo en esa suscripción, como en el [paso 5](#step-5-grant-permissions):
+3. Asigna a la cuenta de servicio de Braze permiso de consumo en esa suscripción, como en el [paso 5](#step-5-assign-permissions):
 
     ```shell
     gcloud pubsub subscriptions add-iam-policy-binding YOUR-ATTRIBUTES-SUBSCRIPTION \
@@ -444,29 +444,29 @@ Para cada carpeta que desees sincronizar en un contenedor compartido:
       --role="roles/pubsub.subscriber"
     ```
 
-    Si creaste el rol personalizado en el [paso 5](#step-5-grant-permissions), usa `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` en su lugar.
+    Si creaste el rol personalizado en el [paso 5](#step-5-assign-permissions), usa `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` en su lugar.
 4. Cuando crees la sincronización en Braze, introduce el nuevo **Pub/Sub subscription ID** y la **Folder path** de esta carpeta para que la sincronización ingeste solo los archivos de esa carpeta.
 
 
 {% endtab %}
 {% endtabs %}
 
-## Formatos de archivo requeridos {#required-file-formats}
+## Formatos de archivo obligatorios {#required-file-formats}
 
-Los formatos de archivo requeridos son los mismos para Amazon S3 y Google Cloud Storage. La ingesta de datos en el cloud admite archivos JSON, CSV y Parquet. Las columnas requeridas dependen del tipo de datos:
+Los formatos de archivo obligatorios son los mismos para Amazon S3 y Google Cloud Storage. La ingesta de datos en el cloud admite archivos JSON, CSV y Parquet. Las columnas obligatorias dependen del tipo de datos:
 
 - Los datos de usuario (atributos, eventos personalizados, eventos de compra) utilizan identificadores de usuario y una carga útil
 - Los datos de catálogo utilizan identificadores de catálogo
 
 Si utilizas almacenamiento de archivos para datos de catálogo, usa esta página junto con [Sincronizar y eliminar datos de catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) para conocer los requisitos y el comportamiento específicos de los catálogos.
 
-Braze no impone requisitos adicionales de nombre de archivo más allá de los que aplica tu proveedor de almacenamiento de archivos. Los nombres de archivo deben ser únicos. Agregar una marca de tiempo ayuda a garantizar la unicidad.
+Braze no impone requisitos adicionales de nombre de archivo más allá de los que aplica tu proveedor de almacenamiento de archivos. Los nombres de archivo deben ser únicos. Añadir una marca de tiempo ayuda a garantizar la unicidad.
 
 Para ver ejemplos de todos los tipos de archivo admitidos (atributos, eventos personalizados, compras, catálogos y eliminaciones de usuarios), consulta los archivos de ejemplo en [braze-examples](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion/braze-examples/payloads/file_storage).
 
 ### Identificadores de usuario {#user-identifiers}
 
-Para las sincronizaciones de datos de usuario (atributos, eventos personalizados, eventos de compra), cada fila en tu archivo de origen requiere exactamente un identificador de usuario y una columna `PAYLOAD`. Un archivo de origen puede contener filas con diferentes tipos de identificadores, pero cada fila individual solo debe usar uno.
+Para las sincronizaciones de datos de usuario (atributos, eventos personalizados, eventos de compra), cada fila de tu archivo de origen requiere exactamente un identificador de usuario y una columna `PAYLOAD`. Un archivo de origen puede contener filas con diferentes tipos de identificadores, pero cada fila individual solo debe usar uno.
 
 | Identificador | Descripción |
 | --- | --- |
@@ -477,10 +477,10 @@ Para las sincronizaciones de datos de usuario (atributos, eventos personalizados
 | `PHONE` | El número de teléfono del usuario. Si existen múltiples perfiles con el mismo número de teléfono, se prioriza el perfil actualizado más recientemente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuario" }
 
-Además de un identificador, cada fila debe incluir una columna `PAYLOAD` que contenga una cadena JSON de los campos que deseas sincronizar con el usuario en Braze.
+Además de un identificador, cada fila debe incluir una columna `PAYLOAD` que contenga una cadena JSON con los campos que deseas sincronizar con el usuario en Braze.
 
 {% alert note %}
-A diferencia de los orígenes de datos de almacén de datos, la columna `UPDATED_AT` no es requerida ni compatible para las sincronizaciones de almacenamiento de archivos.
+A diferencia de los orígenes de datos de almacén de datos, la columna `UPDATED_AT` no es obligatoria ni está admitida para las sincronizaciones de almacenamiento de archivos.
 {% endalert %}
 
 ### Identificadores de catálogo {#catalog-identifiers}
@@ -490,7 +490,7 @@ Para las sincronizaciones de catálogo, tu archivo de origen debe contener las s
 | Columna | Obligatorio | Descripción |
 | --- | --- | --- |
 | `ID` | Sí | El identificador único del elemento del catálogo. Se utiliza para crear, actualizar o eliminar el elemento en Braze. |
-| `PAYLOAD` | Sí | Una cadena JSON de los campos y valores del catálogo a sincronizar. Debe coincidir con el esquema de tu catálogo en Braze. |
+| `PAYLOAD` | Sí | Una cadena JSON con los campos y valores del catálogo a sincronizar. Debe coincidir con el esquema de tu catálogo en Braze. |
 | `DELETED` | No | Cuando es `true`, el elemento del catálogo con el `ID` correspondiente se elimina del catálogo en Braze. Omite esta columna o establécela en `false` para operaciones de creación o actualización. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identificadores de catálogo" }
 
@@ -508,7 +508,7 @@ Para las sincronizaciones de catálogo, tu archivo de origen debe contener las s
 {"external_id":"s3-qa-6","payload":"{\"name\": \"T93MJ\", \"age\": 47, \"subscriber\": true, \"retention\": {\"previous_purchases\": 10, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600856\"}"}
 ```
 {% alert important %}
-Cada línea en tu archivo de origen debe contener JSON válido, o el archivo será omitido.
+Cada línea de tu archivo de origen debe contener JSON válido, o el archivo se omitirá.
 {% endalert %}
 {% endtab %}
 {% tab JSON Custom Events %}
@@ -517,7 +517,7 @@ Cada línea en tu archivo de origen debe contener JSON válido, o el archivo ser
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 ```
 {% alert important %}
-Cada línea en tu archivo de origen debe contener JSON válido, o el archivo será omitido.
+Cada línea de tu archivo de origen debe contener JSON válido, o el archivo se omitirá.
 {% endalert %}
 {% endtab %}
 {% tab JSON Purchase Events %}
@@ -526,7 +526,7 @@ Cada línea en tu archivo de origen debe contener JSON válido, o el archivo ser
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 ```
 {% alert important %}
-Cada línea en tu archivo de origen debe contener JSON válido, o el archivo será omitido.
+Cada línea de tu archivo de origen debe contener JSON válido, o el archivo se omitirá.
 {% endalert %}
 
 {% endtab %}
@@ -544,17 +544,17 @@ ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-Incluye una columna `DELETED` opcional. Cuando `DELETED` es `true`, ese elemento del catálogo se elimina del catálogo en Braze. Para la lista completa de columnas requeridas, consulta [Identificadores de catálogo](#catalog-identifiers). Para el comportamiento de eliminación, consulta [Eliminar elementos del catálogo](#deleting-catalog-items). Para un flujo de configuración de catálogo de extremo a extremo (incluyendo la creación del catálogo de destino y el comportamiento de sincronización), consulta [Sincronizar y eliminar datos de catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
+Incluye una columna `DELETED` opcional. Cuando `DELETED` es `true`, ese elemento del catálogo se elimina del catálogo en Braze. Para ver la lista completa de columnas obligatorias, consulta [Identificadores de catálogo](#catalog-identifiers). Para conocer el comportamiento de eliminación, consulta [Eliminar elementos del catálogo](#deleting-catalog-items). Para un flujo de configuración de catálogo de extremo a extremo (incluida la creación del catálogo de destino y el comportamiento de sincronización), consulta [Sincronizar y eliminar datos de catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 {% endtab %}
 
 {% endtabs %}
 
 ## Eliminación de datos {#deleting-data}
 
-La ingesta de datos en el cloud para almacenamiento de archivos permite eliminar usuarios y elementos de catálogo mediante la carga de archivos. Utiliza sincronizaciones y formatos de archivo independientes para cada caso.
+La ingesta de datos en el cloud para almacenamiento de archivos permite eliminar usuarios y elementos de catálogo mediante la carga de archivos. Usa sincronizaciones y formatos de archivo independientes para cada caso.
 
-- **[Eliminación de usuarios](#deleting-users)** – Crea una sincronización con el tipo de datos **Delete Users** y carga archivos que contengan únicamente identificadores de usuario (sin carga útil).
-- **[Eliminación de elementos de catálogo](#deleting-catalog-items)** – Utiliza tu sincronización de catálogo existente y añade una columna `deleted` (o `DELETED`) para marcar los elementos que deseas eliminar.
+- **[Eliminación de usuarios](#deleting-users)**: crea una sincronización con el tipo de datos **Delete Users** y carga archivos que contengan solo identificadores de usuario (sin carga útil).
+- **[Eliminación de elementos de catálogo](#deleting-catalog-items)**: usa tu sincronización de catálogo existente y añade una columna `deleted` (o `DELETED`) para marcar los elementos que deseas eliminar.
 
 ### Eliminación de usuarios {#deleting-users}
 
@@ -562,7 +562,7 @@ Para eliminar perfiles de usuario en Braze utilizando archivos en tu contenedor 
 
 1. Crea una nueva sincronización de ingesta de datos en el cloud (la misma configuración que para otras sincronizaciones).
 2. Al configurar la sincronización en Braze, establece **Data Type** en **Delete Users**.
-3. Carga archivos en tu contenedor de origen que contengan únicamente columnas de identificadores de usuario. No incluyas una columna `PAYLOAD`: la sincronización falla si hay carga útil presente, para evitar eliminaciones accidentales.
+3. Carga archivos en tu contenedor de origen que contengan solo columnas de identificadores de usuario. No incluyas una columna `PAYLOAD`: la sincronización falla si hay carga útil presente, para evitar eliminaciones accidentales.
 
 Cada fila del archivo debe identificar exactamente a un usuario utilizando uno de los siguientes:
 
@@ -574,7 +574,7 @@ Cada fila del archivo debe identificar exactamente a un usuario utilizando uno d
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eliminación de usuarios" }
 
 {% alert important %}
-La eliminación de usuarios es permanente y no se puede deshacer. Incluye únicamente los usuarios que tengas la intención de eliminar. Para más detalles, consulta [Eliminar usuarios con la ingesta de datos en el cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users).
+La eliminación de usuarios es permanente y no se puede deshacer. Incluye solo los usuarios que tengas la intención de eliminar. Para más detalles, consulta [Eliminar usuarios con la ingesta de datos en el cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users).
 {% endalert %}
 
 **Ejemplo – JSON (eliminación de usuarios):**
@@ -597,7 +597,7 @@ Cuando se ejecuta la sincronización, Braze procesa los archivos nuevos en el co
 
 Para eliminar elementos de un catálogo utilizando almacenamiento de archivos:
 
-1. Utiliza la misma sincronización que usas para [sincronizar datos de catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) (tipo de datos **Catalogs**).
+1. Usa la misma sincronización que utilizas para [sincronizar datos de catálogo]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) (tipo de datos **Catalogs**).
 2. En tus archivos CSV o JSON, añade una columna opcional **`deleted`** (o **`DELETED`**).
 3. Establece `deleted` en `true` para cualquier elemento de catálogo que desees eliminar del catálogo en Braze.
 
@@ -653,7 +653,7 @@ Si los archivos no se ingieren, verifica lo siguiente:
 
 - La notificación del contenedor existe. Enumera las notificaciones del contenedor con `gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME`.
 - El agente de servicio de Cloud Storage tiene `roles/pubsub.publisher` en el tema.
-- La cuenta de servicio de Braze tiene permiso de consumo en la suscripción (`pubsub.subscriptions.consume`, otorgado a través del rol personalizado o de `roles/pubsub.subscriber`).
+- La cuenta de servicio de Braze tiene permiso de consumo en la suscripción (`pubsub.subscriptions.consume`, asignado a través del rol personalizado o de `roles/pubsub.subscriber`).
 - La suscripción no tiene configurada una cola de mensajes no entregados. Braze no admite colas de mensajes no entregados para las suscripciones de Cloud Data Ingestion.
 
 Para más información, consulta [Notificaciones de Pub/Sub para Cloud Storage](https://cloud.google.com/storage/docs/pubsub-notifications) en la documentación de Google Cloud.

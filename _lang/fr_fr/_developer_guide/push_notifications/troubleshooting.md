@@ -2,17 +2,46 @@
 page_order: 10.9
 nav_title: Résolution des problèmes
 article_title: Résolution des problèmes des notifications push pour le SDK Braze
+description: "Diagnostiquez les problèmes de distribution et d'affichage des notifications push à l'aide d'un index de symptômes, d'un parcours d'investigation standard et de vérifications spécifiques au SDK par plateforme."
 channel:
   - push notifications
 ---
 
 # Résolution des problèmes des notifications push {#troubleshoot-push-notifications}
 
-> Découvrez comment résoudre les problèmes liés aux notifications push pour le SDK Braze.
+> Utilisez cette page pour diagnostiquer les problèmes de distribution et d'affichage des notifications push sur un appareil. Pour les vérifications de distribution côté tableau de bord (statut d'abonnement, segments, plafonds), consultez [Résolution des problèmes des notifications push]({{site.baseurl}}/user_guide/channels/push/troubleshooting).
+
+Avant de déboguer, ajoutez-vous en tant qu'[utilisateur test]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users) et consultez [Envoi de messages de test]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages).
+
+## Commencez ici : identifiez votre symptôme {#start-here-match-your-symptom}
+
+Trouvez le comportement que vous observez dans le tableau, puis suivez les étapes de la section correspondante. Si vous ne savez pas quelle section s'applique, utilisez le [parcours d'investigation standard](#standard-investigation-path).
+
+| Symptôme | Aller à |
+| --- | --- |
+| Notification push non reçue sur une plateforme | Sélectionnez l'onglet de votre SDK dans [Résolution des problèmes par plateforme](#platform-specific-troubleshooting) |
+| Les sauts de ligne autour des étiquettes Liquid semblent incorrects lors de l'enregistrement | [Sauts de ligne dans les notifications push](#push-linebreaks) |
+| Vérifications de distribution côté tableau de bord (abonnement, segment, plafonds) | [Résolution des problèmes des notifications push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) |
+| Le deep link depuis la notification push ne s'ouvre pas correctement | [Résolution des problèmes de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting) |
+| Codes d'erreur push courants | [Messages d'erreur push courants]({{site.baseurl}}/user_guide/channels/push/push_error_codes) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme push SDK" }
+
+## Parcours d'investigation standard {#standard-investigation-path}
+
+Utilisez ce flux de travail pour chaque incident de notification push. Commencez à l'étape 1.
+
+1. Confirmez que l'appareil dispose d'un jeton de notification push valide et que l'autorisation push est accordée dans les paramètres de l'appareil.
+2. Dans le tableau de bord, confirmez que l'utilisateur test correspond au [segment]({{site.baseurl}}/user_guide/channels/push/troubleshooting#segment) de la Campaign ou du Canvas et qu'il ne fait pas partie du [groupe de contrôle]({{site.baseurl}}/user_guide/channels/push/troubleshooting#control-group-status).
+3. Envoyez une [notification push de test]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages) à l'appareil de test.
+4. [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduisez le problème et consultez les instructions spécifiques à la plateforme dans l'[onglet de votre SDK](#platform-specific-troubleshooting).
+5. Si le problème persiste, contactez l'[Assistance Braze]({{site.baseurl}}/braze_support) avec les journaux détaillés, la plateforme, la version du SDK et l'ID de la Campaign ou du Canvas.
+
+## Résolution des problèmes par plateforme {#platform-specific-troubleshooting}
+
+Sélectionnez l'onglet de votre SDK pour les vérifications de configuration et d'affichage spécifiques à la plateforme.
 
 {% sdktabs %}
 {% sdktab web %}
-
 ## Résolution des problèmes {#troubleshooting}
 
 Si vous rencontrez des problèmes après avoir configuré les notifications push, tenez compte des points suivants :
@@ -29,7 +58,6 @@ Si vous rencontrez des problèmes après avoir configuré les notifications push
 {% endsdktab %}
 
 {% sdktab swift %}
-
 ## Comprendre le flux de travail Braze/APNs {#understanding-the-brazeapns-workflow}
 
 Le service Apple Push Notification (APNs) est l'infrastructure permettant d'envoyer des notifications push aux applications fonctionnant sur les plateformes Apple. Voici la structure simplifiée du fonctionnement de l'activation des notifications push pour les appareils de vos utilisateurs et de la manière dont Braze peut leur envoyer des notifications push :
@@ -95,12 +123,12 @@ De plus, Braze fournit également un journal des modifications push sur le profi
 #### Received unregistered sending to push token {#received-unregistered-sending}
 
 - Assurez-vous que le jeton de notification push envoyé à Braze depuis la méthode `AppDelegate.braze?.notifications.register(deviceToken:)` est valide. Vous pouvez consulter le **Journal d'activité des messages** pour voir le jeton de notification push. Il devrait ressembler à quelque chose comme `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, une longue chaîne de caractères contenant un mélange de lettres et de chiffres. Si votre jeton de notification push semble différent, vérifiez votre [code]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-32-register-push-tokens-with-braze) pour l'envoi des jetons de notification push à Braze.
-- Assurez-vous que votre profil de provisionnement push correspond à l'environnement que vous testez. Les certificats universels peuvent être configurés dans le tableau de bord de Braze pour envoyer vers l'environnement APN de développement ou de production. Utiliser un certificat de développement pour une application de production ou un certificat de production pour une application de développement ne fonctionnera pas.
+- Assurez-vous que votre profil de provisionnement push correspond à l'environnement que vous testez. Les certificats universels peuvent être configurés dans le tableau de bord de Braze pour envoyer vers l'environnement APNs de développement ou de production. Utiliser un certificat de développement pour une application de production ou un certificat de production pour une application de développement ne fonctionnera pas.
  - Vérifiez que le jeton de notification push que vous avez téléchargé vers Braze correspond au profil de provisionnement que vous avez utilisé pour compiler l'application à partir de laquelle vous avez envoyé le jeton de notification push.
 
 #### Device token not for topic {#device-token-not-for-topic}
 
-APN renvoie `DeviceTokenNotForTopic` (statut HTTP 400) lorsque le jeton de notification push ne correspond pas au sujet (identifiant de bundle) configuré pour vos identifiants. Braze peut afficher cela dans le **Journal d'activité des messages** ou les journaux de distribution push sous la forme `DeviceTokenNotForTopic`.
+APNs renvoie `DeviceTokenNotForTopic` (statut HTTP 400) lorsque le jeton de notification push ne correspond pas au sujet (identifiant de bundle) configuré pour vos identifiants. Braze peut afficher cela dans le **Journal d'activité des messages** ou les journaux de distribution push sous la forme `DeviceTokenNotForTopic`.
 
 Pour résoudre l'incohérence :
 
@@ -114,7 +142,7 @@ Préférez les clés d'authentification `.p8` lorsque c'est possible. Pour les t
 
 #### BadDeviceToken sending to push token {#baddevicetoken-sending-to-push-token}
 
-Le `BadDeviceToken` est un code d'erreur APN et ne provient pas de Braze. Plusieurs raisons peuvent expliquer cette réponse, notamment les suivantes :
+Le `BadDeviceToken` est un code d'erreur APNs et ne provient pas de Braze. Plusieurs raisons peuvent expliquer cette réponse, notamment les suivantes :
 
 {% multi_lang_include developer_guide/push_notifications/invalid_push_token_reasons.md %}
 
@@ -135,7 +163,7 @@ Assurez-vous que votre application est correctement configurée pour autoriser l
     2. Sélectionnez l'identifiant Apple que vous utilisez pour votre compte développeur et cliquez sur **View Details**.
     3. Sur la page suivante, cliquez sur **<i class="fas fa-redo-alt"></i> Refresh** et confirmez que vous téléchargez bien tous les profils de provisionnement disponibles.
 - Vérifiez que vous avez [correctement activé la capacité push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-2-enable-push-capabilities) dans votre application.
-- Vérifiez que votre profil de provisionnement push correspond à l'environnement dans lequel vous effectuez vos tests. Les certificats universels peuvent être configurés dans le tableau de bord de Braze pour envoyer vers l'environnement APN de développement ou de production. L'utilisation d'un certificat de développement pour une application en production ou d'un certificat de production pour une application de développement ne fonctionnera pas.
+- Vérifiez que votre profil de provisionnement push correspond à l'environnement dans lequel vous effectuez vos tests. Les certificats universels peuvent être configurés dans le tableau de bord de Braze pour envoyer vers l'environnement APNs de développement ou de production. L'utilisation d'un certificat de développement pour une application en production ou d'un certificat de production pour une application de développement ne fonctionnera pas.
 - Vérifiez que vous appelez bien notre méthode `registerPushToken` en définissant un point d'arrêt dans votre code.
 - Assurez-vous de tester sur un appareil (les notifications push ne fonctionnent pas sur un simulateur) et de disposer d'une bonne connectivité réseau.
 
@@ -201,7 +229,6 @@ Si les ouvertures sont bien enregistrées, vérifiez s'il s'agit d'un problème 
 {% endsdktab %}
 
 {% sdktab .NET MAUI (Xamarin) %}
-
 ## Résolution des problèmes
 
 ### La notification push n'apparaît pas après la fermeture de l'application depuis le gestionnaire de tâches {#push-doesnt-appear-after-app-is-closed-from-task-switcher}

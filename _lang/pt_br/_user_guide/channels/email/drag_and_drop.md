@@ -29,10 +29,10 @@ O editor de arrastar e soltar usa [Conteúdo](#content) e [Linhas](#rows) como o
     <tbody>
     <tr>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="A guia 'Rows' que inclui diferentes combinações estruturais para o layout do seu e-mail." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="A guia 'Linhas' que inclui diferentes combinações estruturais para o layout do seu e-mail." style="max-width: 100%; height: auto;">
         </td>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="A guia 'Content' que inclui blocos básicos, mídia e avançados." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="A guia 'Conteúdo' que inclui blocos básicos, mídia e avançados." style="max-width: 100%; height: auto;">
         </td>
     </tr>
     </tbody>
@@ -70,22 +70,22 @@ Embora o editor de arrastar e soltar simplifique seu fluxo de trabalho com esses
 
 ### Linhas {#rows}
 
-**Linhas** são unidades estruturais que definem a composição horizontal de uma seção da mensagem usando colunas. Você pode usar linhas vazias ou [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Usar mais de uma coluna permite colocar diferentes elementos de conteúdo lado a lado. Dessa forma, você pode adicionar todos os elementos estruturais necessários à sua mensagem, independentemente do modelo que selecionou ao começar.
+**Linhas** são unidades estruturais que definem a composição horizontal de uma seção da mensagem usando colunas. Você pode usar linhas vazias ou [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Usar mais de uma coluna permite colocar diferentes elementos de conteúdo lado a lado. Dessa forma, você pode adicionar todos os elementos estruturais necessários à sua mensagem, independentemente do modelo selecionado no início.
 
 #### Aninhar imagens dentro de blocos de texto {#nesting-images-inside-text-blocks}
 
-Não é possível aninhar uma imagem dentro de um parágrafo ou outro bloco de texto no editor de arrastar e soltar. Para posicionar uma imagem ao lado ou dentro de um layout de texto, use colunas em uma **Linha**: por exemplo, uma linha com várias colunas no desktop com **Hide on mobile** para essa linha, e uma linha separada apenas para dispositivos móveis (com **Hide on desktop** e **Do not stack on mobile** conforme necessário) para que a imagem e o texto fiquem alinhados corretamente em telas pequenas.
+Não é possível aninhar uma imagem dentro de um parágrafo ou outro bloco de texto no editor de arrastar e soltar. Para posicionar uma imagem ao lado ou dentro de um layout de texto, use colunas em uma **Linha**: por exemplo, uma linha com várias colunas no desktop com **Ocultar no celular** para essa linha, e uma linha separada apenas para dispositivos móveis (com **Ocultar no desktop** e **Não empilhar no celular** conforme necessário) para que a imagem e o texto fiquem alinhados corretamente em telas pequenas.
 
 #### Estilo de cartões {#cards-style}
 
-**Cards Style** é uma propriedade de linha que permite adicionar espaçamento entre colunas e arredondar seus cantos. Com a formatação de estilo de cartão, você pode criar layouts visualmente mais atraentes para destacar seu conteúdo mais importante, como novos recursos de produto, depoimentos, ofertas especiais, atualizações de notícias e muito mais.
+**Estilo de cartões** é uma propriedade de linha que permite adicionar espaçamento entre colunas e arredondar seus cantos. Com a formatação de estilo de cartão, você pode criar layouts visualmente mais atraentes para destacar seu conteúdo mais importante, como novos recursos de produto, depoimentos, ofertas especiais, atualizações de notícias e muito mais.
 
 ## Usando o editor de arrastar e soltar {#using-the-drag-and-drop-editor}
 
 Não tem certeza se sua mensagem de e-mail deve ser enviada usando uma campanha ou um Canvas? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas é melhor para jornadas de usuário com várias etapas.
 
 {% alert note %}
-Você não pode salvar um e-mail de arrastar e soltar de uma campanha ou Canvas diretamente em **Templates** > **Email Templates** como um modelo de e-mail. Crie primeiro em **Templates**, ou consulte [Posso salvar meu e-mail de arrastar e soltar como modelo depois de criá-lo na minha campanha ou Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recriar um modelo de arrastar e soltar ou exportar HTML com **Download file**.
+Você não pode salvar um e-mail de arrastar e soltar de uma campanha ou Canvas diretamente em **Modelos** > **Modelos de e-mail** como um modelo de e-mail. Crie primeiro em **Modelos**, ou consulte [Posso salvar meu e-mail de arrastar e soltar como modelo depois de criá-lo na minha campanha ou Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recriar um modelo de arrastar e soltar ou exportar HTML com **Baixar arquivo**.
 {% endalert %}
 
 Depois de selecionar onde construir sua mensagem, vamos mergulhar nas etapas para criar um e-mail de arrastar e soltar.
@@ -99,53 +99,53 @@ Depois de selecionar o editor de arrastar e soltar como sua experiência de edi�
 - Usar um modelo de e-mail de arrastar e soltar salvo.
 
 {% alert note %}
-Para usar um modelo HTML personalizado existente ou modelos criados por terceiros, você deve recriar o modelo acessando **Content** > **Email** e selecionando **Drag-And-Drop Editor** como sua experiência de edição.
+Para usar um modelo HTML personalizado existente ou modelos criados por terceiros, você deve recriar o modelo acessando **Conteúdo** > **E-mail** e selecionando **Editor de arrastar e soltar** como sua experiência de edição.
 {% endalert %}
 
-Você também pode acessar todos os modelos na seção **Templates**.
+Você também pode acessar todos os modelos na seção **Modelos**.
 
-Depois de selecionar seu modelo, você verá uma visão geral do seu e-mail em **Email Variants**, que inclui as informações de envio e o corpo do e-mail.
+Depois de selecionar seu modelo, você verá uma visão geral do seu e-mail em **Variantes de e-mail**, que inclui as informações de envio e o corpo do e-mail.
 
-Em seguida, selecione **Edit Email Body** para começar a projetar a estrutura do e-mail no editor de arrastar e soltar.
+Em seguida, selecione **Editar corpo do e-mail** para começar a projetar a estrutura do e-mail no editor de arrastar e soltar.
 
-![A seção "Email Variants" com um exemplo de corpo de e-mail.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
+![A seção "Variantes de e-mail" com um exemplo de corpo de e-mail.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
 
 ### Etapa 2: Crie seu e-mail {#step-2-build-your-email}
 
-A experiência de edição de arrastar e soltar é dividida em três seções: **Sending Settings**, **Content** e **Preview & Test**. A mágica de construir o corpo do seu e-mail acontece na seção **Content**. Antes de criar seu e-mail, é importante entender os componentes principais que guiam sua experiência de criação de e-mail. Se precisar revisar, consulte [Sobre o editor](#about-the-editor).
+A experiência de edição de arrastar e soltar é dividida em três seções: **Configurações de envio**, **Conteúdo** e **Prévia e teste**. A mágica de construir o corpo do seu e-mail acontece na seção **Conteúdo**. Antes de criar seu e-mail, é importante entender os componentes principais que guiam sua experiência de criação de e-mail. Se precisar revisar, consulte [Sobre o editor](#about-the-editor).
 
 Quando estiver pronto, use os blocos de conteúdo de arrastar e soltar para criar seu e-mail.
 
-1. Selecione o painel **Rows**. Arraste e solte as configurações de linha no editor principal. Isso mapeará o layout do conteúdo do seu e-mail.
+1. Selecione o painel **Linhas**. Arraste e solte as configurações de linha no editor principal. Isso mapeará o layout do conteúdo do seu e-mail.
 - Observe que novas configurações devem ser arrastadas para o topo ou para a parte inferior de uma seção existente.
-- Quando você seleciona uma configuração de linha, as configurações de **Row Properties** aparecem para personalização adicional de cores de fundo da linha, imagens e tamanhos de coluna personalizados.
-2. Selecione o painel **Content**. Arraste e solte os blocos de conteúdo desejados nos componentes de linha.
-- Você também pode arrastar qualquer um dos blocos de **Content** para o editor principal. Isso cria uma linha para o bloco.
-- Você pode refinar ainda mais o bloco selecionando-o e ajustando os campos em **Content Properties** e **Block Options**. Isso inclui editar espaçamento entre letras, preenchimento, altura da linha e mais.
+- Quando você seleciona uma configuração de linha, as configurações de **Propriedades da linha** aparecem para personalização adicional de cores de fundo da linha, imagens e tamanhos de coluna personalizados.
+2. Selecione o painel **Conteúdo**. Arraste e solte os blocos de conteúdo desejados nos componentes de linha.
+- Você também pode arrastar qualquer um dos blocos de **Conteúdo** para o editor principal. Isso cria uma linha para o bloco.
+- Você pode refinar ainda mais o bloco selecionando-o e ajustando os campos em **Propriedades do conteúdo** e **Opções do bloco**. Isso inclui editar espaçamento entre letras, preenchimento, altura da linha e mais.
 
 Confira [Outras personalizações](#other-customizations) para outras formas de personalizar ainda mais seu e-mail de arrastar e soltar.
 
-Ao criar seu e-mail, você pode alternar entre a visualização de desktop e mobile para pré-visualizar como sua mensagem de e-mail ficará para seus grupos de usuários. Isso verificará se seu conteúdo é responsivo, e você pode fazer os ajustes necessários ao longo do caminho.
+Ao criar seu e-mail, você pode alternar entre a visualização para desktop e para dispositivo móvel para ver como sua mensagem de e-mail ficará para seus grupos de usuários. Isso verificará se seu conteúdo é responsivo, e você pode fazer os ajustes necessários ao longo do caminho.
 
 {% alert tip %}
-Precisa de ajuda para criar textos incríveis? Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso nas suas mensagens.
+Precisa de ajuda para criar textos incríveis? Experimente usar o [Assistente de copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso no seu envio de mensagens.
 
-![Botão do assistente de copywriting, localizado no painel Content ao lado de Style Settings no editor de arrastar e soltar.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
+![Botão do assistente de copywriting, localizado no painel de Conteúdo ao lado de Configurações de estilo no editor de arrastar e soltar.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
 
 ### Etapa 3: Adicione suas informações de envio {#step-3-add-your-sending-information}
 
-Depois de terminar de projetar e criar sua mensagem de e-mail, é hora de adicionar suas informações de envio na seção **Sending Settings**.
+Depois de terminar de projetar e criar sua mensagem de e-mail, é hora de adicionar suas informações de envio na seção **Configurações de envio**.
 
 {% multi_lang_include email/sending_info_steps.md %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
-Uma prévia no painel do lado direito será preenchida com as informações de envio que você adicionou. Essas informações também podem ser atualizadas acessando **Settings** > **Email Preferences** > **Sending Configuration**.
+Uma prévia no painel do lado direito será preenchida com as informações de envio que você adicionou. Essas informações também podem ser atualizadas acessando **Configurações** > **Preferências de e-mail** > **Configuração de envio**.
 
 #### Adicionar anexos de e-mail {#add-email-attachments}
 
-Em **Sending Settings** > **Advanced**, você pode adicionar anexos de e-mail pelos seguintes métodos:
+Em **Configurações de envio** > **Avançado**, você pode adicionar anexos de e-mail pelos seguintes métodos:
 
 {% multi_lang_include email/attachment_upload_options.md %}
 
@@ -153,10 +153,10 @@ Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/be
 
 #### Personalizar o cabeçalho do e-mail (avançado) {#personalize-your-email-header-advanced}
 
-Em **Sending Settings**, você pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail, o que permite enviar dados adicionais de volta para outros provedores de serviços de e-mail. Personalizar um cabeçalho de e-mail, como incluir o nome do destinatário, também pode contribuir para a probabilidade de seu e-mail ser aberto.
+Em **Configurações de envio**, você pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail, o que permite enviar dados adicionais de volta para outros provedores de serviços de e-mail. Personalizar um cabeçalho de e-mail, como incluir o nome do destinatário, também pode contribuir para a probabilidade de seu e-mail ser aberto.
 
 {% alert note %}
-A funcionalidade avançada aparecerá no criador de campanha ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir pares de chave-valor de cabeçalho ou extras (se configurados).
+A funcionalidade avançada aparecerá no criador de campanha ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir um cabeçalho ou pares de chave-valor extras (se configurados).
 {% endalert %}
 
 ### Etapa 4: Teste seu e-mail {#step-4-test-your-email}
@@ -167,35 +167,33 @@ Depois de adicionar suas informações de envio, é hora de finalmente testar se
 Se o e-mail parecer diferente no editor do que na prévia ou no envio de teste, confirme que todas as tags estão fechadas, os atributos de imagem têm valores e as imagens de fundo não estão borradas nas bordas.
 {% endalert %}
 
-Acesse a seção **Preview and Test**. Aqui, você tem a opção de pré-visualizar seu e-mail como um usuário ou enviar uma mensagem de teste. Esta seção também inclui o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), que permite verificar se seu e-mail foi renderizado corretamente em diferentes clientes mobile e web.
+Acesse a seção **Prévia e teste**. Aqui, você tem a opção de visualizar seu e-mail como um usuário ou enviar uma mensagem de teste. Esta seção também inclui o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), que permite verificar se seu e-mail foi renderizado corretamente em diferentes clientes móveis e web.
 
 {% alert tip %}
-Você também pode usar o botão **Dark Mode Preview** no painel de prévia para visualizar o corpo do seu e-mail no modo escuro e ajustar seu e-mail conforme necessário.
+Você também pode usar o botão **Prévia do modo escuro** no painel de prévia para visualizar o corpo do seu e-mail no modo escuro e ajustar seu e-mail conforme necessário.
 {% endalert %}
 
 Como você pode visualizar três versões diferentes do mesmo e-mail no editor real, no Inbox Vision e como um e-mail de teste real, é importante alinhar os detalhes em todas as suas plataformas.
 
 #### Prévia e envio de teste {#preview-and-test-send}
 
-Na guia **Preview as a User**, você pode selecionar os seguintes tipos de usuário para pré-visualizar sua mensagem.
+Na guia **Prévia como usuário**, você pode selecionar os seguintes tipos de usuário para visualizar sua mensagem.
 
-- **Random User:** a Braze selecionará aleatoriamente um usuário do banco de dados e pré-visualizará o e-mail com base nos atributos ou informações de eventos desse usuário.
-- **Select User:** você pode selecionar um usuário específico com base no endereço de e-mail ou ID externo. O e-mail será pré-visualizado com base nos atributos e informações de eventos desse usuário.
-- **Custom User:** você pode personalizar um usuário. A Braze oferecerá campos para todos os atributos e eventos disponíveis. Você pode inserir qualquer informação que deseja ver no e-mail de prévia.
+- **Usuário aleatório:** a Braze selecionará aleatoriamente um usuário do banco de dados e visualizará o e-mail com base em seus atributos ou informações de eventos.
+- **Selecionar usuário:** você pode selecionar um usuário específico com base em seu endereço de e-mail ou ID externo. O e-mail será visualizado com base nos atributos e informações de eventos desse usuário.
+- **Usuário personalizado:** você pode personalizar um usuário. A Braze oferecerá campos para todos os atributos e eventos disponíveis. Você pode inserir qualquer informação que deseja ver no e-mail de prévia.
 
 {% alert note %}
 O usuário aleatório pode ou não fazer parte dos seus critérios de segmentação. A segmentação é selecionada depois, então a Braze não tem conhecimento do seu público-alvo neste momento.
 {% endalert %}
 
-Você também pode selecionar **Copy preview link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link durará sete dias antes de precisar ser regenerado.
+Você também pode selecionar **Copiar link de prévia** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. Para saber mais, consulte [Prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
-Observe que quaisquer edições feitas em um modelo de e-mail não serão refletidas em um link gerado anteriormente. Você precisará gerar um novo link de prévia para ver as edições.
-
-![Prévia de e-mail com um botão para "Copy preview link" e copiar o link gerado.]({% image_buster /assets/img/dnd_email_link_preview.png %})
+![Prévia de e-mail com um botão para "Copiar link de prévia" e copiar o link gerado.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
 #### Usar o Inbox Vision {#use-inbox-vision}
 
-O Inbox Vision permite que você visualize suas campanhas de e-mail da perspectiva de clientes de e-mail e dispositivos móveis. Para testar sua mensagem de e-mail usando o Inbox Vision, selecione **Inbox Vision** na seção **Preview & Test** e selecione **Run Inbox Vision**.
+O Inbox Vision permite visualizar suas campanhas de e-mail da perspectiva de clientes de e-mail e dispositivos móveis. Para testar sua mensagem de e-mail usando o Inbox Vision, selecione **Inbox Vision** na seção **Prévia e teste** e selecione **Executar Inbox Vision**.
 
 É importante testar e verificar os detalhes mais finos da sua mensagem de e-mail. Por exemplo, imagens de fundo em mensagens de e-mail podem às vezes causar linhas brancas ou desconexões entre imagens, ou clientes como o Windows Outlook podem não exibir imagens de fundo. Usar o Inbox Vision pode ajudar a identificar essas discrepâncias entre clientes. Nesse cenário, defina uma cor de fundo de fallback para que essas imagens possam ser renderizadas conforme esperado.
 
@@ -211,14 +209,14 @@ O tamanho médio dos dados HTML exportados foi reduzido, levando a carregamento 
 A renderização HTML foi aprimorada com base nas seguintes atualizações que minimizam o número de comentários condicionais e consultas de mídia CSS. Como resultado, os arquivos HTML são menores e codificados de forma mais eficiente.
 - Migração de um design baseado em elementos `<div>` para uma base de código formatada em `<table aria-label="Usar o Inbox Vision">` padrão
   <caption>Usar o Inbox Vision</caption>
-- Os [blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) foram recodificados para maior concisão
+- Os [blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) foram recodificados para concisão
 - O código HTML final é comprimido para remover espaços em branco entre tags
 - Divisores transparentes são automaticamente convertidos em preenchimento de conteúdo
 {% enddetails %}
 
 ## Outras personalizações {#other-customizations}
 
-À medida que você continua criando e-mails de arrastar e soltar, pode personalizar ainda mais cada corpo de e-mail usando uma combinação desses detalhes criativos para capturar a atenção e o interesse do seu público na sua mensagem.
+À medida que você continua criando e-mails com arrastar e soltar, pode personalizar ainda mais cada corpo de e-mail usando uma combinação desses detalhes criativos para capturar a atenção e o interesse do seu público na sua mensagem.
 
 {% alert tip %}
 Você pode criar um tema personalizado para o editor de arrastar e soltar usando as [configurações de estilo global]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings).
@@ -226,7 +224,7 @@ Você pode criar um tema personalizado para o editor de arrastar e soltar usando
 
 ### Imagens com largura automática {#auto-width-images}
 
-As imagens adicionadas ao seu e-mail serão automaticamente definidas como **Auto width**. Para ajustar essa configuração, desative **Auto width** e ajuste a porcentagem de largura conforme necessário.
+As imagens adicionadas ao seu e-mail serão automaticamente definidas como **Largura automática**. Para ajustar essa configuração, desative a opção **Largura automática** e ajuste a porcentagem de largura conforme necessário.
 
 ![Opção de largura automática na guia Conteúdo do editor de arrastar e soltar.]({% image_buster /assets/img/dnd/dnd1.png %})
 
@@ -240,7 +238,7 @@ Usando camadas de cores, você pode alterar a cor do plano de fundo do e-mail, d
 
 ![Opções de bloco para o editor de arrastar e soltar.]({% image_buster /assets/img/dnd/dnd3.png %}){: style="float:right;max-width:25%;margin-left:15px;"}
 
-Para ajustar o preenchimento, role para baixo até **Block Options** e selecione **More Options**. Você pode ajustar o preenchimento com precisão para deixar seu e-mail com a aparência ideal.
+Para ajustar o preenchimento, role para baixo até **Opções de bloco** e selecione **Mais opções**. Você pode ajustar o preenchimento com precisão para deixar seu e-mail com a aparência ideal.
 
 ### Plano de fundo do conteúdo {#content-background}
 
@@ -248,9 +246,9 @@ Você pode adicionar uma imagem de fundo à configuração da sua linha, permiti
 
 ### Atributo de idioma {#language-attribute}
 
-Você pode definir o atributo de idioma acessando a guia **Settings** e selecionando o idioma desejado. Você também pode direcionar o atributo de usuário {%raw%} `{{${language}}}` {%endraw%} se a mensagem for destinada a usuários com valores de idioma dinâmicos.
+Você pode definir o atributo de idioma acessando a guia **Configurações** e selecionando o idioma desejado. Você também pode usar o atributo de usuário {%raw%} `{{${language}}}` {%endraw%} se a mensagem for destinada a usuários com valores de idioma dinâmicos.
 
-![Definindo o valor de "Language" para um e-mail.]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
+![Definindo o valor de "Idioma" para um e-mail.]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
 
 ### Personalização {#personalization}
 
@@ -258,10 +256,10 @@ Você pode definir o atributo de idioma acessando a guia **Settings** e selecion
 
 O Liquid básico é compatível com o editor de e-mail de arrastar e soltar. Para adicionar personalização ao seu e-mail:
 
-1. Selecione **Personalization** na seção **Content**.
+1. Selecione **Personalização** na seção **Conteúdo**.
 2. Selecione o tipo de personalização. Isso inclui atributos padrão (standard), atributos de dispositivo, atributos personalizados e mais.
 3. Pesquise o atributo a ser adicionado.
-4. Copie o snippet de Liquid gerado e cole-o no corpo do seu e-mail.
+4. Copie o snippet Liquid gerado e cole-o no corpo do seu e-mail.
 
 A personalização com Liquid não é compatível com blocos de imagem e campos de tipo de link de botão.
 
@@ -275,19 +273,19 @@ A URL da sua imagem deve começar com `https://`. Usar `http://` causa falha no 
 
 ### Direção do texto {#text-direction}
 
-Ao compor sua mensagem, você pode alternar a direção do texto entre da esquerda para a direita e da direita para a esquerda selecionando o respectivo botão **Text direction**. Você pode usar essa opção ao criar mensagens em idiomas como árabe e hebraico.
+Ao compor sua mensagem, você pode alternar a direção do texto entre da esquerda para a direita e da direita para a esquerda selecionando o respectivo botão **Direção do texto**. Você pode usar essa opção ao criar mensagens em idiomas como árabe e hebraico.
 
 ![Menu do editor de arrastar e soltar de e-mail com botão para alternar o alinhamento do texto entre direita para esquerda e esquerda para direita.]({% image_buster /assets/img/dnd/dnd_template1.png %}){: style="max-width:50%;"}
 
-A aparência final das mensagens da direita para a esquerda depende em grande parte de como os provedores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+A aparência final das mensagens da direita para a esquerda depende em grande parte de como os provedores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas com a maior precisão possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### HTML
 
 #### Atributos HTML para links {#html-attributes-to-links}
 
-![A seção "Attributes" com o atributo "clicktracking" desativado para um link.]({% image_buster /assets/img/dnd_custom_attributes.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![A seção "Atributos" com o atributo "clicktracking" desativado para um link.]({% image_buster /assets/img/dnd_custom_attributes.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Ao usar links, botões, imagens e vídeos no editor de arrastar e soltar, selecione **Add new attribute** em **Attributes** na seção **Content** para adicionar informações adicionais às tags HTML nos e-mails. Isso pode ser especialmente útil para personalização de mensagens, segmentação e estilização.
+Ao usar links, botões, imagens e vídeos no editor de arrastar e soltar, selecione **Adicionar novo atributo** em **Atributos** na seção **Conteúdo** para anexar informações adicionais às tags HTML nos e-mails. Isso pode ser especialmente útil para personalização de mensagens, segmentação e estilização.
 
 Um caso de uso comum é inserir um atributo na sua tag de âncora para desativar o rastreamento de cliques ao enviar pela Braze.
 
@@ -297,11 +295,11 @@ Um caso de uso comum é inserir um atributo na sua tag de âncora para desativar
 Outro caso de uso comum é sinalizar links específicos como links universais. Links universais são links que redirecionam para o seu app, proporcionando aos seus usuários uma experiência integrada.
 
 * **SendGrid:** `universal = "true"`
-* **SparkPost:** `data-msys-sublink = "open-in-app"` (um [sub-caminho personalizado](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#custom-link-sub-paths) deve ser configurado)
+* **SparkPost:** `data-msys-sublink = "open-in-app"` (um [subcaminho personalizado](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#custom-link-sub-paths) deve ser configurado)
 
 Para configurar links universais, consulte [Links universais e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
-Alternativamente, você pode integrar com um dos nossos parceiros de atribuição, como [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) ou [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer#email-deep-linking-and-click-tracking), para gerenciar links universais.
+Como alternativa, você pode integrar com um dos nossos parceiros de atribuição, como [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) ou [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer#email-deep-linking-and-click-tracking), para gerenciar links universais.
 
 Por fim, atributos predefinidos estão disponíveis para ajudar a tornar sua mensagem acessível. Para saber mais, consulte nosso artigo dedicado [Criando mensagens acessíveis na Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility).
 
@@ -330,13 +328,13 @@ Qualquer conteúdo adicionado fora das tags `<head>` será adicionado após a ta
 | `link` | `rel` | Define relacionamentos entre a mensagem atual e a vinculada. | ```<link rel="stylesheet">``` |
 | `link` | `type` | Tipo do recurso vinculado. | ```<link type="text/css">``` |
 | `link` | `sizes` | Especifica os tamanhos dos ícones. | ```<link rel="icon" sizes="32x32" href="favicon-32.png">``` |
-| `link` | `media` | Especifica a mídia ou dispositivo para o qual os estilos se aplicam. | ```<link rel="stylesheet" media="screen" href="style.css">``` |
+| `link` | `media` | Especifica a mídia ou dispositivo ao qual os estilos se aplicam. | ```<link rel="stylesheet" media="screen" href="style.css">``` |
 | `meta` | `name` | Define o título do documento exibido nas abas do navegador. | ```<meta name="viewport" content="width=device-width, initial-scale=1">``` |
 | `meta` | `content` | Define o título do documento exibido nas abas do navegador. | ```<meta name="description" content="Page about our newest products">``` |
 | `meta` | `charset` | Declara a codificação de caracteres. | ```<meta charset="UTF-8">``` |
 | `meta` | `property` | Define o título do documento exibido nas abas do navegador. | ```<meta property="og:title" content="Website title">``` |
 | `style` | `type` | Tipo MIME do conteúdo de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
-| `style` | `media` | Especifica a mídia ou dispositivo para o qual os estilos se aplicam. | ```<style media="print">body { font-size: 12pt; }</style>``` |
+| `style` | `media` | Especifica a mídia ou dispositivo ao qual os estilos se aplicam. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sem atributos | A tag `title` não aceita nenhum atributo. | ```<title>Kitchenerie</title>``` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tags e atributos permitidos por tag" }
 

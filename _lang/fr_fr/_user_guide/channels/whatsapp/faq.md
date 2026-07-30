@@ -18,7 +18,7 @@ channel:
 - [Numéro de téléphone du compte WhatsApp Business](#whatsapp-business-account-phone-numbers)
 - [Abonnement et gestion des abonnements](#opt-in-and-subscription-management)
 - [Limites de communication et évaluation de la qualité](#messaging-limits-and-quality-rating)
-- [Modèles et éditeur WhatsApp](#whatsapp-templates-and-composer)
+- [Modèles et compositeur WhatsApp](#whatsapp-templates-and-composer)
 - [Livrabilité et facturation](#deliverability-and-billing)
 - [Intégrations, données et rapports](#integrations-data-and-reporting)
 - [Médias et images](#media-and-images)
@@ -32,7 +32,7 @@ Nous vous recommandons de créer votre compte WhatsApp Business (WABA) via le fl
 Oui, vous devez tout de même créer un compte WhatsApp Business. Nous vous recommandons de [rattacher votre WABA à votre compte Meta Business principal]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 #### Comment accéder à mon compte WhatsApp Business ? {#how-do-i-access-my-whatsapp-business-account}
-Après avoir terminé le flux d'inscription intégré, vous pouvez accéder à votre compte sur business.facebook.com en naviguant vers la [section WhatsApp](https://business.facebook.com/wa/manage/home).
+Après avoir complété le flux d'inscription intégré, vous pouvez accéder à votre compte sur business.facebook.com en naviguant vers la [section WhatsApp](https://business.facebook.com/wa/manage/home).
 
 #### Puis-je connecter plusieurs WABA à Braze ? {#can-i-connect-multiple-wabas-to-braze}
 Oui, vous pouvez ajouter jusqu'à 10 comptes WhatsApp Business par espace de travail, et chaque compte Business peut être rattaché à un Meta Business Manager différent.
@@ -40,24 +40,24 @@ Oui, vous pouvez ajouter jusqu'à 10 comptes WhatsApp Business par espace de tra
 ![Diagramme de l'écosystème Braze et WhatsApp, montrant comment les espaces de travail et les comptes WhatsApp Business se connectent entre eux : vous pouvez connecter un groupe d'abonnement à un numéro de téléphone, plusieurs comptes WhatsApp Business à un espace de travail, et un espace de travail à plusieurs Meta Business Portfolios.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
 #### Puis-je changer la devise de mon compte WhatsApp Business ? {#can-i-change-my-whatsapp-business-account-currency}
-Non. Meta contrôle la devise de votre compte WhatsApp Business, et Braze ne peut ni la modifier ni la convertir. Pour utiliser une devise différente, [créez un compte WhatsApp Business distinct]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) avec cette devise, ou contactez le support Meta pour demander s'ils peuvent mettre à jour la devise de votre compte existant.
+Non. Meta contrôle la devise de votre compte WhatsApp Business, et Braze ne peut pas la modifier ni la convertir. Pour utiliser une devise différente, [créez un compte WhatsApp Business distinct]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) avec cette devise, ou contactez le support Meta pour demander s'ils peuvent mettre à jour la devise de votre compte existant.
 
 #### Qu'est-ce que la vérification d'entreprise ? {#what-is-business-verification}
 La vérification d'entreprise est un concept WhatsApp utilisé pour s'assurer que la marque est une entreprise légitime. Elle peut être effectuée dans le WhatsApp Manager. La vérification d'entreprise est également requise pour augmenter les volumes de communication. Sans vérification d'entreprise, les clients ne peuvent envoyer des messages qu'à 250 utilisateurs finaux uniques maximum sur une période glissante de 24 heures.
 
-#### Qu'est-ce qu'un compte Business officiel ? {#what-is-an-official-business-account}
-L'OBA vous donne la coche verte à côté de votre nom d'affichage et est facultatif. Vous pouvez demander un compte Business officiel après avoir terminé la vérification d'entreprise. Notez que la vérification d'entreprise et le compte Business officiel sont des concepts WhatsApp différents.
+#### Qu'est-ce qu'un compte professionnel officiel ? {#what-is-an-official-business-account}
+L'OBA vous donne la coche verte à côté de votre nom d'affichage et est optionnel. Vous pouvez demander un compte professionnel officiel après avoir complété la vérification d'entreprise. Notez que la vérification d'entreprise et le compte professionnel officiel sont des concepts WhatsApp différents.
 
 #### Pourquoi mon nom d'affichage WhatsApp Business pourrait-il être rejeté ? {#why-might-my-whatsapp-business-display-name-be-rejected}
-Les rejets de noms d'affichage WhatsApp Business sont régis par Meta. Si votre nom d'affichage est rejeté, consultez les [directives de nom d'affichage de WhatsApp](https://faq.whatsapp.com/793641088597363) pour connaître leurs recommandations.
+Les rejets de noms d'affichage WhatsApp Business sont régis par Meta. Si votre nom d'affichage est rejeté, consultez les [directives de Meta relatives aux noms d'affichage](https://faq.whatsapp.com/793641088597363).
 
-Si votre nom d'affichage respecte les directives et est toujours rejeté, Braze ne peut pas voir les raisons spécifiques. Cependant, la raison la plus courante de rejet est que la présence en ligne de l'entreprise est trop faible, ou que l'entreprise commercialise des [produits réglementés ou restreints](https://business.whatsapp.com/policy#further-guidance).
+Si votre nom d'affichage respecte les directives et est toujours rejeté, Braze ne peut pas consulter les raisons spécifiques. Cependant, la raison la plus courante de rejet est que la présence en ligne de l'entreprise est trop faible, ou que l'entreprise commercialise des [produits réglementés ou restreints](https://business.whatsapp.com/policy#further-guidance).
 
 Pour plus d'informations sur les rejets de noms d'affichage, consultez les [ressources Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
 
 ### Numéros de téléphone du compte WhatsApp Business {#whatsapp-business-account-phone-numbers}
 #### Ai-je besoin d'un numéro de téléphone pour mon compte WhatsApp Business ? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
-Oui, vous avez besoin d'un numéro auquel vous avez accès. Il vous sera demandé de vérifier votre numéro de téléphone avec l'authentification à deux facteurs lorsque vous passerez par le flux d'inscription intégré. Le numéro de téléphone ne peut pas être utilisé pour d'autres comptes WhatsApp (professionnels ou personnels).
+Oui, vous avez besoin d'un numéro auquel vous avez accès. Il vous sera demandé de vérifier votre numéro de téléphone avec l'authentification à deux facteurs lors du flux d'inscription intégré. Le numéro de téléphone ne peut pas être utilisé pour d'autres comptes WhatsApp (professionnels ou personnels).
 
 #### Quels types de numéros de téléphone sont pris en charge par WhatsApp ? {#what-types-of-phone-numbers-are-supported-with-whatsapp}
 Consultez les exigences de Meta concernant les [numéros de téléphone](https://developers.facebook.com/docs/whatsapp/phone-numbers) pour plus d'informations.
@@ -80,7 +80,7 @@ Oui. Vous pouvez [importer les numéros de téléphone des utilisateurs]({{site.
 Oui, WhatsApp exige que les entreprises [recueillent le consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) pour envoyer des messages marketing aux utilisateurs finaux.
 
 #### Puis-je envoyer proactivement des messages aux utilisateurs finaux sur WhatsApp pour recueillir leur consentement ? {#can-i-proactively-message-end-users-on-whatsapp-to-collect-opt-in-consent}
-Si vous choisissez d'envoyer proactivement des messages aux utilisateurs finaux, votre premier message initié par l'entreprise devrait demander à l'utilisateur s'il souhaite recevoir des messages marketing de votre entreprise et devrait être conforme aux exigences de Meta pour [l'obtention du consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/). Gardez à l'esprit que WhatsApp surveille la réputation de votre entreprise sur le canal, la bonne pratique recommandée est donc d'être explicite avec les utilisateurs finaux et de n'envoyer que les messages qu'ils ont indiqué vouloir recevoir.
+Si vous choisissez d'envoyer proactivement des messages aux utilisateurs finaux, votre premier message initié par l'entreprise devrait demander à l'utilisateur s'il souhaite recevoir des messages marketing de votre entreprise et devrait être conforme aux exigences de Meta pour [l'obtention du consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/). Gardez à l'esprit que WhatsApp surveille la réputation de votre entreprise sur le canal, et la bonne pratique recommandée est d'être explicite avec les utilisateurs finaux et de n'envoyer que les messages qu'ils ont indiqué vouloir recevoir.
 
 #### Dois-je recueillir le numéro de téléphone de l'utilisateur final lorsque je recueille le consentement ? {#do-i-need-to-collect-the-end-users-phone-number-when-i-collect-opt-in}
 Vous devez disposer du numéro de téléphone de l'utilisateur final sur le profil Braze pour lui envoyer des messages.
@@ -88,13 +88,13 @@ Vous devez disposer du numéro de téléphone de l'utilisateur final sur le prof
 - Si vous n'avez pas le numéro de l'utilisateur final, votre méthode d'abonnement doit inclure la collecte du numéro de téléphone.
 
 #### Comment mettre à jour le statut d'abonnement des utilisateurs finaux qui s'abonnent ? {#how-do-i-update-the-subscription-status-of-end-users-who-opt-in}
-La gestion des abonnements du canal WhatsApp fonctionne de manière similaire aux autres canaux Braze. Consultez [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) pour plus d'informations.
+La gestion des abonnements du canal WhatsApp fonctionne de manière similaire aux autres canaux Braze. Consultez [Gestion des abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) pour plus d'informations.
 
 #### Si j'ai déjà une liste d'utilisateurs qui ont consenti à recevoir des messages marketing sur WhatsApp, comment mettre à jour leur statut d'abonnement dans Braze ? {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
 Vous pouvez mettre à jour leur statut d'abonnement via l'[importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional).
 
 #### Quelles méthodes dois-je utiliser pour recueillir les consentements ? {#what-methods-should-i-use-to-collect-opt-ins}
-Braze recommande de consulter les [directives de Meta pour les méthodes de consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) afin de maintenir la conformité. Consultez la ressource suivante pour des [idées et suggestions de canaux et d'abonnement](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit) de Braze.
+Braze recommande de consulter les [directives de Meta sur les méthodes de consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) pour rester en conformité. Consultez la ressource suivante pour des [idées et suggestions de canaux et d'abonnement](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit) de Braze.
 
 #### Le double abonnement est-il requis pour WhatsApp ? {#is-double-opt-in-required-for-whatsapp}
 Non, le double abonnement n'est pas requis.
@@ -135,9 +135,9 @@ Les facteurs qui affectent l'évaluation de la qualité du numéro de téléphon
 Lorsqu'une évaluation de qualité est basse, le statut du numéro de téléphone passe de **Connected** à **Flagged**. Si la qualité ne s'améliore pas en sept jours, le statut revient à **Connected**. Cependant, la limite de communication diminuera au niveau suivant. Par exemple, un numéro de téléphone qui avait une limite de communication de 100 000 a désormais une limite de 10 000.
 
 #### Quelle est la limite de débit Meta ? {#what-is-the-meta-throughput-limit}
-Meta a sa propre limite de débit, distincte de la limite de communication WABA. La limite par défaut prise en charge par l'API cloud est de 80 messages par seconde. Si vous pensez que vos Campaigns dépasseront cette limite, vous pouvez [demander](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput) une augmentation de votre limite. Meta recommande de soumettre cette demande au moins trois jours avant les envois de Campaign.
+Meta a sa propre limite de débit, distincte de la limite de communication du WABA. La limite par défaut prise en charge par l'API cloud est de 80 messages par seconde. Si vous pensez que vos Campaigns dépasseront cette limite, vous pouvez [demander](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput) une augmentation de votre limite. Meta recommande de soumettre cette demande au moins trois jours avant les envois de Campaigns.
 
-### Modèles et éditeur WhatsApp {#whatsapp-templates-and-composer}
+### Modèles et compositeur WhatsApp {#whatsapp-templates-and-composer}
 
 #### Qu'est-ce qu'un modèle WhatsApp ? {#what-is-a-whatsapp-template}
 WhatsApp exige que tous les messages initiés par l'entreprise commencent par un modèle approuvé. Le modèle inclut le texte du message, ainsi que des médias enrichis optionnels comme des images, des appels à l'action et des boutons de réponse rapide. Une fois les modèles approuvés par WhatsApp, ils peuvent être utilisés pour composer un message WhatsApp dans Braze.
@@ -166,8 +166,8 @@ Vous pouvez ajouter des images, des appels à l'action (URL ou numéro de télé
 #### Que faire si mon modèle a été signalé à tort pour violation de la politique commerciale de WhatsApp ? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
 Si vous pensez que Meta a signalé votre modèle à tort, utilisez le lien de révision dans l'e-mail de WhatsApp pour demander un réexamen. L'équipe WhatsApp Business examine la décision et l'annule si nécessaire.
 
-#### Pourquoi mon modèle WhatsApp importé affiche-t-il « Message Incomplete » dans l'éditeur ? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
-L'avertissement « Message Incomplete » apparaît lorsque les emplacements de variables requis du modèle ne sont pas remplis avec des valeurs valides dans l'éditeur.
+#### Pourquoi mon modèle WhatsApp importé affiche-t-il « Message Incomplete » dans le compositeur ? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
+L'avertissement « Message Incomplete » apparaît lorsque les emplacements de variables requis du modèle ne sont pas remplis avec des valeurs valides dans le compositeur.
 
 Lorsque vous créez des modèles à l'aide du [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder), Braze renumérote les variables en marques substitutives séquentielles ({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %}, etc.). Les modèles créés en externe dans le WhatsApp Manager de Meta peuvent encore inclure des schémas qui rendent le mappage des variables sujet aux erreurs, tels que :
 
@@ -198,7 +198,7 @@ Non. Si un message n'est pas distribué, vous n'êtes pas facturé.
 Si un utilisateur bloque votre entreprise, les messages suivants que vous tentez d'envoyer ne sont pas distribués, et vous n'êtes pas facturé. Le statut d'abonnement de l'utilisateur ne sera pas mis à jour.
 
 #### Que se passe-t-il si un utilisateur signale un message ? {#what-happens-if-a-user-reports-a-message}
-Si un utilisateur signale un message, vous pouvez toujours lui envoyer des messages par la suite. Cependant, le signalement peut affecter votre évaluation de qualité sur le canal. Le statut d'abonnement de l'utilisateur n'est pas mis à jour.
+Si un utilisateur signale un message, vous pouvez toujours lui envoyer des messages par la suite. Cependant, le signalement peut affecter votre évaluation de qualité sur le canal. Le statut d'abonnement de l'utilisateur ne sera pas mis à jour.
 
 #### Comment puis-je exclure les utilisateurs qui signalent mon compte WhatsApp des prochains envois ? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
 Braze ne reçoit pas de notifications de WhatsApp lorsque votre compte est signalé, vous ne pouvez donc pas identifier ou exclure automatiquement ces utilisateurs dans Braze. Les utilisateurs qui signalent votre compte peuvent rester dans votre groupe d'abonnement WhatsApp et continuer à être éligibles pour les futurs messages.
@@ -216,8 +216,8 @@ Les messages de réponse composés dans l'éditeur de Campaign ou Canvas de Braz
 | Type de message | Crédits d'action | Notes |
 |---|---|---|
 | Message de réponse (réponse entrante) | Non consommés | Composé dans Braze ; pas un modèle approuvé par Meta. |
-| Message modèle | Consommés | Les modèles marketing, utilitaires, d'authentification et d'offre à durée limitée sont facturés par envoi. |
-| Modèle utilitaire dans la fenêtre de service | Non consommés par Meta | Meta ne facture pas les modèles utilitaires envoyés dans les 24 heures suivant un message initié par l'utilisateur. La consommation de crédits d'action suit votre contrat. |
+| Message de modèle | Consommés | Les modèles marketing, utilitaires, d'authentification et d'offre à durée limitée sont facturés par envoi. |
+| Modèle utilitaire dans la fenêtre de service | Non consommés par Meta | Meta ne facture pas les modèles utilitaires envoyés dans les 24 heures suivant un message initié par l'utilisateur. La consommation de crédits d'action dépend de votre contrat. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Crédits d'action des messages de réponse" }
 
 Pour les flux Canvas où les utilisateurs appuient sur des réponses rapides après la fenêtre initiale de 24 heures, consultez [Réponses rapides et messages entrants en dehors de la fenêtre de 24 heures]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
@@ -228,7 +228,7 @@ Une nouvelle fenêtre de service client de 24 heures s'ouvre. Consultez [Répons
 #### Dois-je configurer la durée de mon parcours d'action Canvas à 31 jours pour les réponses rapides WhatsApp ? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
 Non. La durée par défaut du parcours d'action est suffisante. Consultez [Réponses rapides et messages entrants en dehors de la fenêtre de 24 heures]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
-#### Puis-je voir combien de crédits WhatsApp une Campaign ou un Canvas spécifique a consommés ? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
+#### Puis-je voir combien de crédits WhatsApp une Campaign ou un Canvas spécifique a consommé ? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
 Pas dans le tableau de bord de Braze actuellement. Les analyses de Campaign et Canvas affichent les envois, les distributions et les échecs, mais pas la consommation de crédits par message. Le nombre d'envois ne correspond pas exactement à l'utilisation des crédits, car la catégorie du modèle et le type de message affectent la facturation différemment. Pour les détails de facturation, consultez [Les messages de réponse WhatsApp sont-ils gratuits ?](#are-whatsapp-response-messages-free).
 
 ### Intégrations, données et rapports {#integrations-data-and-reporting}
@@ -252,7 +252,7 @@ Vous pouvez voir les destinataires uniques, les envois, les distributions, les l
 #### Qu'est-ce qu'une conversation WhatsApp ? {#what-is-a-whatsapp-conversation}
 WhatsApp est un canal axé sur la communication bidirectionnelle et s'appuie donc sur les conversations (plutôt que sur le nombre de messages individuels). Une conversation est un fil de 24 heures entre une entreprise et un utilisateur final.
 
-- **Conversation initiée par l'entreprise** : une conversation où l'entreprise commence en envoyant un message modèle approuvé à l'utilisateur final. Dès que l'entreprise envoie un message, la fenêtre de 24 heures commence.
+- **Conversation initiée par l'entreprise** : une conversation où l'entreprise commence en envoyant un message de modèle approuvé à l'utilisateur final. Dès que l'entreprise envoie un message, la fenêtre de 24 heures commence.
 - **Conversation initiée par l'utilisateur** : une conversation où l'utilisateur final envoie un message à l'entreprise. Lorsque l'entreprise envoie un message en réponse, la fenêtre de 24 heures commence.
 
 ### Médias et images {#media-and-images}

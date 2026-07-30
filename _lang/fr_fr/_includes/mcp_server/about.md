@@ -6,45 +6,45 @@
 Le serveur MCP distant est en accès anticipé. Contactez votre gestionnaire de compte pour demander l'accès.
 {% endalert %}
 
-## Qu'est-ce que le protocole de contexte de modèle (MCP) ? {#what-is-model-context-protocol-mcp}
+## Qu'est-ce que le Model Context Protocol (MCP) ? {#what-is-model-context-protocol-mcp}
 
-​​Le protocole MCP (Model Context Protocol) est une norme qui permet aux agents d'intelligence artificielle de se connecter à une autre plateforme et d'utiliser ses données. Il se compose de deux parties principales :
+​​Le Model Context Protocol, ou MCP, est un standard qui permet aux agents IA de se connecter à une autre plateforme et d'interagir avec ses données. Il se compose de deux éléments principaux :
 
-- **Client MCP :** l'application sur laquelle l'agent d'intelligence artificielle est exécuté, telle que Cursor ou Claude.
-- **Serveur MCP :** un service fourni par une autre plateforme, telle que Braze, qui détermine les outils que l'intelligence artificielle peut utiliser et les données auxquelles elle peut accéder.
+- **Client MCP :** L'application dans laquelle l'agent IA s'exécute, comme Cursor ou Claude.
+- **Serveur MCP :** Un service fourni par une autre plateforme, comme Braze, qui définit les outils que l'IA peut utiliser et les données auxquelles elle peut accéder.
 
 ## À propos du serveur MCP Braze {#about-the-braze-mcp-server}
 
-Après avoir [configuré le serveur MCP Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez connecter des outils d'intelligence artificielle tels que des agents, des assistants et des chatbots directement à Braze, leur permettant ainsi de lire des données agrégées telles que les analyses Canvas et Campaign, les attributs personnalisés, les segments, et bien plus encore. Le serveur MCP Braze est particulièrement adapté pour :
+Après avoir [configuré le serveur MCP Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez connecter des outils d'IA tels que des agents, des assistants et des chatbots directement à Braze, leur permettant de lire des données agrégées comme les analyses de Canvas et de Campaign, les attributs personnalisés, les Segments, et bien plus encore. Le serveur MCP Braze est idéal pour :
 
-- Créer des outils basés sur l'intelligence artificielle nécessitant le contexte Braze.
-- Les ingénieurs CRM élaborant des workflows en plusieurs étapes pour les agents.
-- Les marketeurs techniques explorant les requêtes en langage naturel.
+- Créer des outils alimentés par l'IA qui nécessitent un contexte Braze.
+- Les ingénieurs CRM qui conçoivent des workflows d'agents à plusieurs étapes.
+- Les marketeurs techniques qui expérimentent des requêtes en langage naturel.
 
-Le serveur MCP Braze comprend des outils en lecture et en écriture. Ces outils ne renvoient pas les données des profils utilisateurs Braze. Vos agents héritent des autorisations de votre compte utilisateur du tableau de bord Braze. Pour consulter la liste complète des outils disponibles, voir [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
+Le serveur MCP Braze comprend des outils de lecture et d'écriture. Ces outils ne renvoient pas de données issues des profils utilisateur Braze. Vos agents héritent des permissions de votre utilisateur du tableau de bord de Braze. Pour consulter la liste complète des outils disponibles, voir [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
 Les outils exposant des données d'identification au niveau utilisateur ne sont pas disponibles.
 {% endalert %}
 
-Utilisez le serveur MCP pour poser des questions sur les performances des Campaigns et des Canvas, explorer vos segments et attributs personnalisés, générer des rapports et créer du contenu tel que des modèles d'e-mail, des Content Blocks et des ressources de la bibliothèque multimédia en langage naturel.
+Utilisez le serveur MCP pour poser des questions sur les performances des Campaigns et des Canvas, explorer vos Segments et attributs personnalisés, générer des rapports et créer du contenu tel que des modèles d'e-mail, des Content Blocks et des ressources de la bibliothèque multimédia grâce au langage naturel.
 
 ## Le serveur MCP bêta est-il obsolète ? {#is-the-beta-mcp-server-deprecated}
 
-Oui. Le serveur MCP hébergé localement, publié en août 2025, est obsolète et ne recevra plus de mises à jour. Vous pouvez continuer à l'utiliser, mais Braze recommande de migrer vers la version hébergée à distance.
+Oui. Le serveur MCP hébergé localement, publié en août 2025, est obsolète et ne recevra pas de mises à jour supplémentaires. Vous pouvez continuer à l'utiliser, mais Braze recommande de migrer vers la version hébergée à distance.
 
 ### En quoi le serveur distant est-il différent ? {#how-is-the-remote-server-different}
 
-Le précédent serveur MCP Braze fonctionnait localement sur votre machine. Vous deviez installer un package, gérer un fichier de configuration et créer une clé API Braze avec les autorisations appropriées. Le serveur MCP distant supprime cette configuration locale.
+Le précédent serveur MCP de Braze s'exécutait localement sur votre machine. Vous deviez installer un package, gérer un fichier de configuration et créer une clé API Braze avec les permissions appropriées. Le serveur MCP distant supprime cette configuration locale.
 
-Connectez-vous depuis un client MCP pris en charge en moins d'une minute. L'authentification utilise OAuth. L'accès est lié à votre compte utilisateur du tableau de bord Braze, et non à une clé API partagée, de sorte que ce qu'un agent peut voir et faire reflète vos autorisations dans le tableau de bord. Si un utilisateur du tableau de bord perd son accès dans Braze, le client perd également son accès.
+Connectez-vous depuis un client MCP compatible en moins d'une minute. L'authentification utilise OAuth. L'accès est lié à votre compte utilisateur du tableau de bord de Braze, et non à une clé API partagée. Ainsi, ce qu'un agent peut voir et faire reflète vos permissions dans le tableau de bord. Si un utilisateur du tableau de bord perd son accès dans Braze, le client perd également son accès.
 
 Les principales différences sont :
 
-- **Configuration :** collez une URL Braze au lieu d'installer un package et de modifier des fichiers de configuration.
-- **Authentification :** connectez-vous avec votre compte Braze au lieu de créer une clé API.
-- **Autorisations :** l'accès est basé sur votre compte utilisateur du tableau de bord au lieu des autorisations de clé API.
-- **Ciblage de l'espace de travail :** le contexte de l'espace de travail est transmis par requête au lieu d'être fixé dans la configuration locale.
+- **Configuration :** Collez une URL Braze au lieu d'installer un package et de modifier des fichiers de configuration.
+- **Authentification :** Connectez-vous avec votre compte Braze au lieu de créer une clé API.
+- **Permissions :** L'accès est basé sur votre compte utilisateur du tableau de bord au lieu des permissions de la clé API.
+- **Ciblage de l'espace de travail :** Le contexte de l'espace de travail est transmis à chaque requête au lieu d'être fixé dans la configuration locale.
 
 ## Foire aux questions (FAQ) {#faq}
 
@@ -57,6 +57,7 @@ Tout client MCP prenant en charge les serveurs MCP distants avec OAuth peut fonc
 - Cursor
 - OpenAI Codex
 - Claude Code
+- Visual Studio Code
 
 ### À quelles données Braze mon client MCP a-t-il accès ? {#what-braze-data-can-my-mcp-client-access}
 

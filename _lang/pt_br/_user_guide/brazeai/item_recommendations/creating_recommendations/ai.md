@@ -11,7 +11,7 @@ page_order: 1
 
 ## Sobre recomendações de itens com IA {#about-ai-item-recommendations}
 
-Use recomendações de itens com IA para calcular os produtos mais populares ou criar recomendações de IA personalizadas para um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) específico. Depois de criar sua recomendação, você pode usar personalização para inserir esses produtos nas suas mensagens.
+Use recomendações de itens com IA para calcular os produtos mais populares ou criar recomendações de IA personalizadas para um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) específico. Depois de criar sua recomendação, você pode usar a personalização para inserir esses produtos nas suas mensagens.
 
 {% alert tip %}
 As [recomendações de IA Personalizado](#recommendation-types) funcionam melhor com pelo menos algumas centenas de itens de catálogo, no máximo 100.000 itens de catálogo e, normalmente, pelo menos 30.000 usuários com dados de compra ou interação. Isso é apenas um guia aproximado e pode variar. Os outros tipos de recomendação podem funcionar com menos dados, inclusive quando **Mais Popular** é usado como fallback.
@@ -39,7 +39,7 @@ Você pode criar uma recomendação de itens com IA a partir de dois lugares no 
 {% endtab %}
 
 {% tab A partir de um catálogo %}
-Você também pode criar uma recomendação diretamente a partir de um catálogo individual. Selecione seu catálogo na página **Catalogs** e, em seguida, selecione **Create Recommendation**.
+Você também pode criar uma recomendação diretamente a partir de um catálogo individual. Selecione seu catálogo na página **Catalogs** e depois selecione **Create Recommendation**.
 {% endtab %}
 {% endtabs %}
 
@@ -51,21 +51,21 @@ Dê um nome à sua recomendação e uma descrição opcional.
 
 ### Etapa 3: Definir sua recomendação {#recommendation-type}
 
-Selecione um tipo de recomendação. Cada tipo usa os últimos seis meses de dados de interação com itens, como dados de compra, pedido realizado ou evento personalizado. Para informações mais detalhadas e casos de uso de cada tipo, consulte [Tipos e casos de uso]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
+Selecione um tipo de recomendação. Cada tipo usa os últimos seis meses de dados de interação com itens, como compra, pedido realizado ou dados de eventos personalizados. Para informações mais detalhadas e casos de uso de cada tipo, consulte [Tipos e casos de uso]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
-Ao usar **Mais Recente** ou **IA Personalizado**, usuários com dados insuficientes para criar recomendações individualizadas recebem itens **Mais Popular** como fallback. O fallback **Mais Popular** retorna apenas itens que existem no catálogo vinculado.<br><br>Para recomendações de **IA Personalizado**, visualize a **Taxa de personalização** na página **Analytics** para ver qual porcentagem de usuários que realizaram o evento configurado nos últimos 24 meses tem recomendações personalizadas armazenadas em seu perfil. Para recomendações **Mais Recente**, a página **Analytics** mostra a proporção de usuários que recebem recomendações **Mais Recente** em comparação com o fallback **Mais Popular**.
+Ao usar **Mais Recente** ou **IA Personalizado**, usuários com dados insuficientes para criar recomendações individualizadas recebem itens **Mais Popular** como fallback. O fallback **Mais Popular** retorna apenas itens que existem no catálogo vinculado.<br><br>Para recomendações **IA Personalizado**, visualize a **Taxa de personalização** na página **Analytics** para ver qual porcentagem de usuários que realizaram o evento configurado nos últimos 24 meses tem recomendações personalizadas armazenadas em seu perfil. Para recomendações **Mais Recente**, a página **Analytics** mostra a proporção de usuários que recebem recomendações **Mais Recente** em comparação com o fallback **Mais Popular**.
 {% endalert %}
 
 #### Etapa 3.1: Excluir compras ou interações anteriores (opcional) {#step-31-exclude-prior-purchases-or-interactions-optional}
 
-Para evitar sugerir itens que um usuário já comprou ou interagiu, selecione **Do not recommend items users have previously interacted with**. Essa opção está disponível apenas quando o **Tipo** da recomendação está definido como **AI Personalized**.
+Para evitar sugerir itens que um usuário já comprou ou interagiu, selecione **Do not recommend items users have previously interacted with**. Essa opção está disponível apenas quando o **Tipo** da recomendação está definido como **IA Personalizado**.
 
 ![Etapa "Definir sua recomendação" com "IA Personalizado" como tipo e a opção "Não recomendar itens com os quais os usuários já interagiram" selecionada.]({% image_buster /assets/img/item_recs_2-3.png %})
 
-Essa configuração impede que as mensagens reutilizem itens que um usuário já comprou ou interagiu, desde que a recomendação tenha sido atualizada recentemente. Itens comprados ou com interação entre atualizações da recomendação ainda podem aparecer. Para a versão gratuita das recomendações de itens, as atualizações acontecem semanalmente. Para a versão pro das recomendações de itens com IA, as atualizações acontecem a cada 24 horas.
+Essa configuração impede que as mensagens reutilizem itens que um usuário já comprou ou interagiu, desde que a recomendação tenha sido atualizada recentemente. Itens comprados ou com interação entre atualizações da recomendação ainda podem aparecer. Para a versão gratuita de recomendação de itens, as atualizações acontecem semanalmente. Para a versão pro de recomendação de itens com IA, as atualizações acontecem a cada 24 horas.
 
-Por exemplo, ao usar a versão pro das recomendações de itens com IA, se um usuário comprar algo e depois receber um e-mail de marketing dentro de 30 minutos, o item que ele acabou de comprar pode não ser excluído do e-mail a tempo. No entanto, qualquer mensagem enviada após 24 horas não incluirá esse item.
+Por exemplo, ao usar a versão pro de recomendação de itens com IA, se um usuário comprar algo e depois receber um e-mail de marketing em 30 minutos, o item que ele acabou de comprar pode não ser excluído do e-mail a tempo. No entanto, qualquer mensagem enviada após 24 horas não incluirá esse item.
 
 #### Etapa 3.2: Selecionar um catálogo {#step-32-select-a-catalog}
 
@@ -86,12 +86,12 @@ Se você não encontrar sua seleção, verifique se ela está configurada no seu
 Selecione o evento para o qual você deseja que essa recomendação seja otimizada. Esse evento geralmente é uma compra, mas também pode ser qualquer interação com um item.
 
 {% alert tip %}
-Ao configurar recomendações de itens com IA, a escolha do evento é importante. Seu evento de disparo determina quem recebe uma recomendação gerada por IA — as recomendações de itens com IA são geradas para usuários que concluíram o evento configurado, então essa escolha determina diretamente quem recebe as recomendações. Selecione um evento que cubra todo o Segment de público que você deseja alcançar.<br><br>Ao mesmo tempo, equilibre cobertura com relevância. Eventos de topo de funil (como Produto Visualizado) tendem a capturar um público mais amplo, mas são menos conectados aos resultados de negócio, enquanto eventos de fundo de funil (como Comprado) tendem a produzir recomendações mais direcionadas e relevantes para o negócio. O melhor evento é aquele que equilibra cobertura com impacto nos resultados.
+Ao configurar recomendações de itens com IA, sua escolha de evento é importante. Seu evento de disparo determina quem recebe uma recomendação gerada por IA — as recomendações de itens com IA são geradas para usuários que concluíram o evento que você configurar, então essa escolha determina diretamente quem recebe recomendações. Selecione um evento que cubra todo o Segment de público que você deseja alcançar.<br><br>Ao mesmo tempo, equilibre cobertura com relevância. Eventos do topo do funil (como Produto Visualizado) tendem a capturar um público mais amplo, mas são menos conectados aos resultados de negócio, enquanto eventos do fundo do funil (como Comprado) tendem a produzir recomendações mais direcionadas e relevantes para o negócio. O melhor evento é aquele que equilibra cobertura com influência nos resultados.
 {% endalert %}
 
 Você pode otimizar para:
 
-- Eventos de compra com o [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object)
+- Eventos de compra com o [Objeto de Compra]({{site.baseurl}}/api/objects_filters/purchase_object)
 - Eventos personalizados que representam uma compra
 - Eventos personalizados que representam qualquer outra interação com item (como visualizações de produto, cliques ou reproduções de mídia)
 - Pedidos realizados com o [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
@@ -121,9 +121,9 @@ Existem alguns requisitos para selecionar sua propriedade:
 - Deve mapear para o campo `id` do catálogo selecionado.
 - **Se você selecionou o evento de pedido realizado ou está usando [eventos de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) para treinar recomendações de itens:** Insira `products.product_id` para o ID do produto.
   - O campo pode estar dentro de um array de produtos ou terminar com um array de IDs. Em ambos os casos, cada ID de produto será tratado como um evento separado e sequencial com o mesmo timestamp.
-- **Se você selecionou o objeto de compra:** Deve ser o `product_id` ou um campo do `properties` do seu evento de interação.
-- **Se você selecionou um evento personalizado:** Deve ser um campo do `properties` do seu evento personalizado.
-- Campos aninhados devem ser digitados no dropdown **Property Name** em notação de ponto com o formato `event_property.nested_property`. Por exemplo, ao selecionar a propriedade aninhada `district_name` dentro da propriedade de evento `location`, você digitaria `location.district_name`.
+- **Se você selecionou o Objeto de Compra:** Deve ser o `product_id` ou um campo do `properties` do seu evento de interação.
+- **Se você selecionou Evento Personalizado:** Deve ser um campo do `properties` do seu evento personalizado.
+- Campos aninhados devem ser digitados no dropdown **Property Name** em notação de ponto com o formato `event_property.nested_property`. Por exemplo, se estiver selecionando a propriedade aninhada `district_name` dentro da propriedade de evento `location`, você digitaria `location.district_name`. Para mais informações sobre propriedades aninhadas em eventos personalizados, consulte [Objetos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 #### Exemplos de mapeamento {#example-mappings}
 
@@ -172,7 +172,7 @@ Os exemplos de mapeamento a seguir fazem referência a este catálogo de exemplo
 
 Digamos que você queira usar o evento personalizado `added_to_cart` para recomendar produtos semelhantes antes que o cliente finalize a compra. O evento `added_to_cart` tem uma propriedade de evento chamada `product_sku`.
 
-Então, a propriedade `product_sku` deve incluir pelo menos um dos valores da coluna `id` no catálogo de exemplo: "ADI-BL-7", "ADI-RD-8", "ADI-WH-9" ou "ADI-PP-10". Você não precisa de eventos para todos os itens do catálogo, mas precisa de alguns deles para que o mecanismo de recomendação tenha conteúdo suficiente para trabalhar.
+Então, a propriedade `product_sku` deve incluir pelo menos um dos valores da coluna `id` no catálogo de exemplo: "ADI-BL-7", "ADI-RD-8", "ADI-WH-9" ou "ADI-PP-10". Você não precisa de eventos para cada item do catálogo, mas precisa de alguns deles para que o mecanismo de recomendação tenha conteúdo suficiente para trabalhar.
 
 ##### Exemplo de objeto de evento personalizado {#example-custom-event-object}
 
@@ -248,7 +248,7 @@ Um objeto de compra é enviado pela API quando uma compra é realizada.
 
 Em termos de mapeamento, uma lógica semelhante se aplica para objetos de compra assim como para eventos personalizados, exceto que você pode escolher entre usar o `product_id` do objeto de compra ou um campo no objeto `properties`.
 
-Lembre-se de que você não precisa de eventos para todos os itens do catálogo, mas precisa de alguns deles para que o mecanismo de recomendação tenha conteúdo suficiente para trabalhar.
+Lembre-se, você não precisa de eventos para cada item do catálogo, mas precisa de alguns deles para que o mecanismo de recomendação tenha conteúdo suficiente para trabalhar.
 
 ##### Exemplo de objeto de compra mapeado para o ID do produto {#example-purchase-object-mapped-to-product-id}
 
@@ -332,6 +332,6 @@ Este evento tem uma propriedade `"sku": "ADI-RD-8"`, que mapeia para o segundo i
 
 ### Etapa 6: Treinar a recomendação {#step-6-train-the-recommendation}
 
-Quando estiver pronto, selecione **Create Recommendation**. Esse processo pode levar de 10 minutos a 36 horas para ser concluído. Você receberá uma atualização por e-mail quando a recomendação for treinada com sucesso ou uma explicação sobre o motivo pelo qual a criação pode ter falhado.
+Quando estiver pronto, selecione **Create Recommendation**. Esse processo pode levar de 10 minutos a 36 horas para ser concluído. Você receberá uma atualização por e-mail quando a recomendação for treinada com sucesso ou uma explicação do motivo pelo qual a criação pode ter falhado.
 
-Você pode encontrar a recomendação na página **Predictions**, onde poderá editá-la ou arquivá-la conforme necessário. As recomendações serão retreinadas automaticamente uma vez por semana (versão paga) ou por mês (versão gratuita).
+Você pode encontrar a recomendação na página **Predictions**, onde pode editá-la ou arquivá-la conforme necessário. As recomendações serão retreinadas automaticamente uma vez por semana (paga) ou por mês (gratuita).

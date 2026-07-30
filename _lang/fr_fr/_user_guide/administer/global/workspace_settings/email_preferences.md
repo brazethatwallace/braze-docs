@@ -19,16 +19,16 @@ Les **Préférences des e-mails** se trouvent sous **Paramètres** dans le table
 
 ## Configuration de l'envoi {#sending-configuration}
 
-Les paramètres d'e-mail de la section **Configuration de l'envoi** déterminent les détails inclus dans vos campagnes d'e-mail. Ces paramètres sont principalement liés à ce que votre utilisateur voit lorsqu'il reçoit un e-mail de Braze.
+Les paramètres d'e-mail de la section **Configuration de l'envoi** déterminent les informations incluses dans vos campagnes d'e-mail. Ces paramètres concernent principalement ce que vos utilisateurs voient lorsqu'ils reçoivent un e-mail de Braze.
 
 ### Paramètres des e-mails sortants {#outbound-email-settings}
 
-Lors de la configuration de vos paramètres d'e-mail, les paramètres des e-mails sortants identifient le nom et les adresses e-mail utilisés lorsque Braze envoie des e-mails à vos utilisateurs.
+Lors de la configuration de vos paramètres d'e-mail, les paramètres des e-mails sortants définissent le nom et les adresses e-mail utilisés lorsque Braze envoie des e-mails à vos utilisateurs.
 
 {% tabs local %}
 {% tab Nom d'affichage et adresse %}
 
-Dans cette section, vous pouvez ajouter les noms et adresses e-mail que vous pouvez utiliser lorsque Braze envoie des e-mails à vos utilisateurs. Les noms d'affichage et les adresses e-mail sont disponibles dans les options **Informations d'envoi** lorsque vous composez votre campagne d'e-mail. Notez que les modifications apportées aux paramètres des e-mails sortants ne s'appliquent pas rétroactivement aux envois existants.
+Dans cette section, vous pouvez ajouter les noms et adresses e-mail utilisables lorsque Braze envoie des e-mails à vos utilisateurs. Les noms d'affichage et les adresses e-mail sont disponibles dans les options **Informations d'envoi** lors de la composition de votre campagne d'e-mail. Notez que les modifications apportées aux paramètres des e-mails sortants ne s'appliquent pas rétroactivement aux envois existants.
 
 ![Section « Paramètres des e-mails sortants » avec des champs pour différents noms d'affichage et domaines.]({% image_buster /assets/img/email_settings/display_name_address.png %})
 
@@ -38,7 +38,7 @@ Les clients Apple Mail ne reconnaissent pas le symbole `@` lorsqu'il est utilis�
 
 #### Personnaliser avec Liquid {#personalize-with-liquid}
 
-Vous pouvez également utiliser [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dans les champs **Nom d'affichage de l'expéditeur**, **Partie locale** et **Domaine** pour modéliser dynamiquement le nom et l'adresse e-mail de l'expéditeur en fonction d'attributs personnalisés. Notez que pour utiliser Liquid dans le champ **Domaine**, vous devez accéder aux options **Informations d'envoi** d'une campagne d'e-mail et cocher la case **Personnaliser le nom d'affichage et l'adresse de l'expéditeur**.
+Vous pouvez également utiliser [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dans les champs **Nom d'affichage de l'expéditeur**, **Partie locale** et **Domaine** pour créer dynamiquement le nom de l'expéditeur et l'adresse e-mail en fonction d'attributs personnalisés. Notez que pour utiliser Liquid dans le champ **Domaine**, vous devez accéder aux options **Informations d'envoi** d'une campagne d'e-mail et cocher la case **Personnaliser le nom d'affichage et l'adresse de l'expéditeur**.
 
 ![Paramètres d'envoi avec des champs pour personnaliser le nom d'affichage de l'expéditeur, l'adresse et le domaine.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
@@ -59,17 +59,17 @@ Default to English Display Name
 {% endtab %}
 {% tab Adresse de réponse %}
 
-L'ajout d'une adresse e-mail dans cette section vous permet de la sélectionner comme adresse de réponse pour votre campagne d'e-mail. Vous pouvez également définir une adresse e-mail par défaut en sélectionnant **Définir par défaut**. Ces adresses e-mail seront disponibles dans les options **Informations d'envoi** lorsque vous composez votre campagne d'e-mail.
+L'ajout d'une adresse e-mail dans cette section vous permet de la sélectionner comme adresse de réponse pour votre campagne d'e-mail. Vous pouvez également définir une adresse e-mail par défaut en sélectionnant **Définir par défaut**. Ces adresses e-mail seront disponibles dans les options **Informations d'envoi** lors de la composition de votre campagne d'e-mail.
 
 ![Section « Adresse de réponse » avec des champs pour saisir plusieurs adresses de réponse.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
 {% alert note %}
-Les domaines d'envoi Braze n'acceptent pas les e-mails entrants. Si un destinataire répond à un e-mail envoyé depuis un domaine d'envoi configuré par Braze, sa réponse sera rejetée avec une erreur `550 5.7.1 relaying denied`. L'adresse de réponse n'a pas besoin de partager le même domaine que l'adresse de l'expéditeur. Si vous devez recevoir des réponses — par exemple, pour collecter des confirmations d'invitations de calendrier — utilisez un sous-domaine qui n'est pas configuré pour l'envoi et qui dispose d'une boîte de réception configurée pour accepter les e-mails.
+Les domaines d'envoi Braze n'acceptent pas les e-mails entrants. Si un destinataire répond à un e-mail envoyé depuis un domaine d'envoi configuré dans Braze, sa réponse sera rejetée avec une erreur `550 5.7.1 relaying denied`. L'adresse de réponse n'a pas besoin de partager le même domaine que l'adresse de l'expéditeur. Si vous devez recevoir des réponses — par exemple, pour collecter des confirmations d'invitations de calendrier — utilisez un sous-domaine qui n'est pas configuré pour l'envoi et qui dispose d'une boîte de réception configurée pour accepter les e-mails.
 {% endalert %}
 
 #### Personnaliser avec Liquid
 
-Vous pouvez également utiliser [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dans le champ **Adresse de réponse** pour modéliser dynamiquement l'adresse de réponse en fonction d'attributs personnalisés. Par exemple, vous pouvez utiliser une logique conditionnelle pour envoyer les réponses à différentes régions ou départements :
+Vous pouvez également utiliser [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dans le champ **Adresse de réponse** pour créer dynamiquement l'adresse de réponse en fonction d'attributs personnalisés. Par exemple, vous pouvez utiliser une logique conditionnelle pour diriger les réponses vers différentes régions ou services :
 
 {% raw %}
 ```liquid
@@ -85,13 +85,13 @@ Vous pouvez également utiliser [Liquid]({{site.baseurl}}/user_guide/messaging/d
 {% endtab %}
 {% tab Adresse CCI %}
 
-Cette section vous permet de gérer les adresses CCI que vous pouvez ajouter aux e-mails sortants envoyés depuis Braze. L'ajout d'une adresse CCI à un e-mail envoie une copie identique du message que votre utilisateur reçoit à votre boîte de réception CCI. C'est un outil utile pour conserver des copies des messages envoyés à vos utilisateurs à des fins de conformité ou de support client. Les e-mails CCI ne sont pas inclus dans les rapports et l'analyse des e-mails.
+Cette section vous permet de gérer les adresses CCI que vous pouvez ajouter aux e-mails sortants envoyés depuis Braze. L'ajout d'une adresse CCI à un e-mail envoie une copie identique du message reçu par votre utilisateur vers votre boîte de réception CCI. C'est un outil utile pour conserver des copies des messages envoyés à vos utilisateurs à des fins de conformité ou de support client. Les e-mails CCI ne sont pas inclus dans les rapports et l'analyse des e-mails.
 
 Les adresses CCI sont disponibles pour Amazon SES, SendGrid et SparkPost. Comme alternative aux adresses CCI, nous recommandons d'utiliser l'[archivage des messages]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) pour enregistrer une copie des messages envoyés aux utilisateurs à des fins d'archivage ou de conformité.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-Après avoir ajouté une adresse, celle-ci sera disponible à la sélection lors de la composition d'un e-mail dans des Campaigns ou des étapes Canvas. Sélectionnez **Définir par défaut** à côté d'une adresse pour que cette adresse soit sélectionnée par défaut lors du lancement d'une nouvelle campagne d'e-mail ou d'un composant Canvas. Pour remplacer ce paramètre au niveau du message, vous pouvez sélectionner **Pas de CCI** lors de la configuration de votre message.
+Après avoir ajouté une adresse, celle-ci sera disponible à la sélection lors de la composition d'un e-mail dans des Campaigns ou des étapes Canvas. Sélectionnez **Définir par défaut** à côté d'une adresse pour que celle-ci soit sélectionnée par défaut lors du lancement d'une nouvelle campagne d'e-mail ou d'un composant Canvas. Pour remplacer ce paramètre au niveau du message, vous pouvez sélectionner **Pas de CCI** lors de la configuration de votre message.
 
 Si vous exigez que tous les e-mails envoyés depuis Braze incluent une adresse CCI, vous pouvez activer le bouton **Exiger une adresse CCI pour toutes vos campagnes d'e-mail**. Cela vous obligera à sélectionner une adresse par défaut, qui sera automatiquement sélectionnée pour les nouvelles campagnes d'e-mail ou les étapes Canvas. L'adresse par défaut sera également automatiquement ajoutée à tous les messages déclenchés via notre REST API. Il n'est pas nécessaire de modifier la requête API existante pour inclure l'adresse.
 
@@ -106,33 +106,33 @@ Par exemple, vous pouvez ajouter {% raw %}`{{custom_attribute.${support_agent}}}
 {% endtab %}
 {% endtabs %}
 
-## Pixel de suivi d'ouverture {#open-tracking-pixel}
+## Pixel de suivi des ouvertures {#open-tracking-pixel}
 
 [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-open-tracking-pixel/){: style="float:right;width:120px;border:0;" class="noimgborder"}
 
-Le pixel de suivi d'ouverture des e-mails est une image invisible de 1 x 1&nbsp;px qui est automatiquement insérée dans le HTML de votre e-mail. Ce pixel aide Braze à détecter si vos utilisateurs ont ouvert votre e-mail. Lorsque le client de messagerie d'un utilisateur envoie une requête à notre pixel de suivi, la requête peut contenir des informations telles que l'adresse IP, l'agent utilisateur et l'horodatage. Les informations d'ouverture des e-mails peuvent être très utiles, car elles vous aident à déterminer des stratégies marketing efficaces en comprenant les taux d'ouverture correspondants.
+Le pixel de suivi des ouvertures d'e-mails est une image invisible de 1 x 1&nbsp;px qui est automatiquement insérée dans le code HTML de votre e-mail. Ce pixel aide Braze à détecter si vos utilisateurs ont ouvert votre e-mail. Lorsque le client de messagerie d'un utilisateur envoie une requête à notre pixel de suivi, cette requête peut contenir des informations telles que l'adresse IP, l'agent utilisateur et l'horodatage. Les informations sur l'ouverture des e-mails peuvent être très utiles pour déterminer des stratégies marketing efficaces en analysant les taux d'ouverture correspondants.
 
 ### Emplacement {#placement}
 
 Le comportement par défaut dans Braze consiste à ajouter le pixel de suivi en bas de votre e-mail, généralement dans une balise `<body>`. Pour la majorité des utilisateurs, c'est l'emplacement idéal pour placer le pixel.
 
-Bien que le pixel soit déjà stylisé pour provoquer le moins de changements visuels possible, tout changement visuel involontaire serait le moins visible en bas d'un e-mail. C'est également le comportement par défaut pour les fournisseurs de services d'e-mail tels que SendGrid et SparkPost.
+Bien que le pixel soit déjà stylisé pour provoquer le moins de changements visuels possible, tout changement visuel involontaire serait le moins visible en bas d'un e-mail. C'est également le comportement par défaut pour les fournisseurs de messagerie tels que SendGrid et SparkPost.
 
 Pour réduire les comportements inattendus, conservez le Liquid à l'intérieur des balises `<html>`. Les balises de niveau document imbriquées ou dupliquées peuvent modifier la façon dont l'e-mail est analysé et l'emplacement du pixel, ce qui peut affecter le suivi des ouvertures et la mise en page. Pour plus d'informations, consultez [Utiliser Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
 
 ### Modifier l'emplacement {#update-the-placement}
 
-Braze prend actuellement en charge le remplacement de l'emplacement par défaut du pixel de suivi d'ouverture de l'ESP (la dernière balise dans le `<body>` d'un e-mail) pour le déplacer vers la première balise du `<body>`.
+Braze prend actuellement en charge le remplacement de l'emplacement par défaut du pixel de suivi des ouvertures de l'ESP (la dernière balise dans le `<body>` d'un e-mail) pour le déplacer vers la première balise du `<body>`.
 
-![Section « Pixel de suivi d'ouverture » avec les options de déplacement pour SendGrid, SparkPost ou Amazon SES.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
+![Section « Pixel de suivi des ouvertures » avec les options de déplacement pour SendGrid, SparkPost ou Amazon SES.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
 
 Pour modifier l'emplacement :
 
 1. Dans Braze, accédez à **Paramètres** > **Préférences des e-mails**.
-2. Sélectionnez l'une des options suivantes : **Move for SendGrid**, **Move for SparkPost** ou **Move for Amazon SES**
+2. Sélectionnez l'une des options suivantes : **Move for SendGrid**, **Move for SparkPost** ou **Move for Amazon SES**.
 3. Sélectionnez **Enregistrer**.
 
-Après l'enregistrement, Braze envoie des instructions spéciales à l'ESP pour placer le pixel de suivi d'ouverture en haut de tous les e-mails HTML.
+Après l'enregistrement, Braze envoie des instructions spéciales à l'ESP pour placer le pixel de suivi des ouvertures en haut de tous les e-mails HTML.
 
 {% alert important %}
 L'activation du SSL encapsule l'URL du pixel de suivi avec HTTPS au lieu de HTTP. Si votre SSL est mal configuré, cela peut affecter l'efficacité du pixel de suivi.
@@ -277,7 +277,7 @@ Utilisez le bouton pour inclure « [TEST] » et « [SEED] » dans les lignes d'o
 
 L'insertion CSS est une technique qui intègre automatiquement les styles CSS dans vos e-mails et nouveaux e-mails. Pour certains clients de messagerie, cela peut améliorer le rendu de vos e-mails.
 
-La modification de ce paramètre n'affecte aucun de vos messages ou modèles d'e-mail existants. Vous pouvez remplacer cette valeur par défaut à tout moment lors de la composition de messages ou de modèles. Pour en savoir plus, consultez la section [Insertion CSS]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
+La modification de ce paramètre n'affecte aucun de vos messages ou modèles d'e-mails existants. Vous pouvez remplacer cette valeur par défaut à tout moment lors de la composition de messages ou de modèles. Pour en savoir plus, consultez la section [Insertion CSS]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
 
 ## Réabonner les utilisateurs lorsque leur adresse e-mail change {#resubscribe-users-when-their-email-changes}
 
@@ -322,7 +322,7 @@ Vous pouvez créer une page d'abonnement personnalisée en utilisant votre propr
 {% endtabs %}
 
 {% alert tip %}
-Dans la section **Aperçu** d'une page d'abonnement ou d'un pied de page, sélectionnez **Copier le lien d'aperçu** pour générer et copier un lien d'aperçu partageable qui montre à quoi ressemble le pied de page d'e-mail, la page de désabonnement ou la page d'abonnement pour un utilisateur aléatoire. Le lien est valable sept jours avant de devoir être régénéré.
+Dans la section **Aperçu** d'une page d'abonnement ou d'un pied de page, sélectionnez **Copier le lien d'aperçu** pour générer et copier un lien d'aperçu partageable qui montre à quoi ressemble le pied de page d'e-mail, la page de désabonnement ou la page d'abonnement pour un utilisateur aléatoire. Pour en savoir plus, consultez [Aperçu partageable]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 {% endalert %}
 
 ## Questions fréquemment posées {#frequently-asked-questions}
@@ -338,7 +338,7 @@ Un centre de préférences n'est pas considéré comme un lien de désabonnement
 {% enddetails %}
 
 {% details Dois-je modifier les Campaigns et Canvas d'e-mails passés pour appliquer le paramètre de désabonnement en un clic après l'avoir activé ? %}
-Si vous n'avez aucun des cas d'usage pour le paramètre de désabonnement en un clic au niveau du message (list-unsubscribe), aucune action n'est requise tant que le paramètre est activé dans les **Préférences des e-mails**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les Campaigns d'e-mails et les étapes Canvas antérieures en conséquence.
+Si vous n'avez aucun des cas d'usage pour le paramètre de désabonnement en un clic au niveau du message (list-unsubscribe), aucune action n'est requise tant que le paramètre est activé dans les **Préférences des e-mails**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les Campaigns d'e-mails et les étapes Canvas précédentes en conséquence.
 {% enddetails %}
 
 {% details Je peux voir l'en-tête list-unsubscribe et l'en-tête de désabonnement en un clic dans le message original ou les données brutes, mais pourquoi le bouton de désabonnement ne s'affiche-t-il pas dans Gmail ou Yahoo ? %}
@@ -355,7 +355,7 @@ Si vous ajoutez de la logique conditionnelle, évitez les valeurs de sortie qui 
 
 ### Désabonnement en un clic au niveau du message (list-unsubscribe)
 
-{% details Si j'ajoute manuellement les en-têtes d'e-mail pour le désabonnement en un clic et que l'en-tête de désabonnement par e-mail est activé, quel est le comportement attendu ? %}
+{% details Si j'ajoute manuellement les en-têtes d'e-mail pour le désabonnement en un clic et que l'en-tête de désabonnement des e-mails est activé, quel est le comportement attendu ? %}
 Les en-têtes d'e-mail ajoutés pour le désabonnement en un clic (list-unsubscribe) s'appliquent à tous les envois futurs de cette Campaign.
 {% enddetails %}
 
@@ -363,12 +363,12 @@ Les en-têtes d'e-mail ajoutés pour le désabonnement en un clic (list-unsubscr
 Pour une Campaign avec test A/B, Braze envoie aléatoirement à un utilisateur l'une des variantes. Si vous avez deux groupes d'abonnement différents définis sur la même Campaign (la variante A est associée au groupe d'abonnement A, et la variante B est associée au groupe d'abonnement B), nous ne pouvons pas garantir que les utilisateurs abonnés uniquement au groupe d'abonnement B recevront la variante B. Il peut y avoir un scénario où des utilisateurs se désabonnent d'un groupe d'abonnement dont ils se sont déjà retirés.
 {% enddetails %}
 
-{% details Le paramètre d'en-tête de désabonnement par e-mail est désactivé dans les Préférences des e-mails, mais dans les informations d'envoi de ma Campaign, le paramètre de désabonnement en un clic (list-unsubscribe) est défini sur « Utiliser la valeur par défaut de l'espace de travail ». Est-ce un bug ? %}
-Non. Si le paramètre de l'espace de travail est désactivé et que le paramètre au niveau du message est défini sur **Utiliser la valeur par défaut de l'espace de travail**, alors Braze suit ce qui est configuré dans les **Préférences des e-mails**. Cela signifie que nous n'ajoutons pas l'en-tête de désabonnement en un clic pour la Campaign.
+{% details Le paramètre d'en-tête de désabonnement des e-mails est désactivé dans les Préférences des e-mails, mais dans les informations d'envoi de ma Campaign, le paramètre de désabonnement en un clic (list-unsubscribe) est défini sur « Utiliser la valeur par défaut de l'espace de travail ». Est-ce un bug ? %}
+Non. Si le paramètre de l'espace de travail est désactivé et que le paramètre du message est défini sur **Utiliser la valeur par défaut de l'espace de travail**, alors Braze suit ce qui est configuré dans les **Préférences des e-mails**. Cela signifie que nous n'ajoutons pas l'en-tête de désabonnement en un clic pour la Campaign.
 {% enddetails %}
 
 {% details Que se passe-t-il si un groupe d'abonnement est archivé ? Cela casse-t-il le désabonnement en un clic sur les e-mails envoyés ? %}
-Si un groupe d'abonnement référencé dans les **informations d'envoi** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus sur le tableau de bord (filtre de Segment, profil utilisateur et zones similaires).
+Si un groupe d'abonnement référencé dans les **Informations d'envoi** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus sur le tableau de bord (filtre de Segment, profil utilisateur et zones similaires).
 {% enddetails %}
 
 {% details Le paramètre de désabonnement en un clic est-il disponible pour les modèles d'e-mails ? %}

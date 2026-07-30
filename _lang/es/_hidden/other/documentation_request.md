@@ -457,7 +457,7 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>Importante: </b>
-                  Copilot redactará esta sugerencia y será revisada por el equipo de Docs. Confirma que <strong>no se incluye información específica de clientes</strong> ni <strong>enlaces</strong>.
+                  La IA ayuda a redactar esta sugerencia, que el equipo de Docs y otras partes interesadas internas revisan antes de su publicación. Confirma que <strong>no aparece información específica de clientes</strong> ni <strong>enlaces de clientes</strong>.
                 </div>
               </div>
               </div>

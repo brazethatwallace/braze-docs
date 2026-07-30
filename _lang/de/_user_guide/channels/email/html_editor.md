@@ -68,7 +68,7 @@ Wir empfehlen, pro E-Mail-Campaign eine Bearbeitungserfahrung auszuwählen. Wäh
 
 ## 3. Schritt: E-Mail verfassen {#step-3-compose-your-email}
 
-Nachdem Sie Ihr Template ausgewählt haben, sehen Sie eine Übersicht Ihrer E-Mail, von der aus Sie direkt zum Vollbild-Editor springen können, um Ihre E-Mail zu verfassen, Ihre Versandinformationen zu ändern und Warnungen zur Zustellbarkeit oder Rechtskonformität einzusehen. Sie können beim Verfassen zwischen den Tabs HTML, Klassisch, Klartext und [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) wechseln.
+Nachdem Sie Ihr Template ausgewählt haben, sehen Sie eine Übersicht Ihrer E-Mail, von der aus Sie direkt zum Vollbild-Editor springen können, um Ihre E-Mail zu entwerfen, Ihre Versandinformationen zu ändern und Warnungen zur Zustellbarkeit oder Rechtskonformität einzusehen. Sie können beim Verfassen zwischen den Tabs HTML, Klassisch, Klartext und [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) wechseln.
 
 ![Der Button „Aus HTML regenerieren“.]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
@@ -80,7 +80,7 @@ Um Bewegung in einer E-Mail mit einer korrekten Vorschau hinzuzufügen, verwende
 
 
 {% alert important %}
-Braze entfernt automatisch HTML-Event-Handler, die als Attribute referenziert werden. Dadurch wird das HTML modifiziert. Überprüfen Sie die E-Mail daher erneut, nachdem Sie fertig sind. Erfahren Sie mehr über [HTML-Handler](https://www.w3schools.com/tags/ref_eventattributes.asp).
+Braze entfernt automatisch HTML-Event-Handler, die als Attribute referenziert werden. Dadurch wird das HTML verändert – überprüfen Sie die E-Mail daher erneut, nachdem Sie fertig sind. Erfahren Sie mehr über [HTML-Handler](https://www.w3schools.com/tags/ref_eventattributes.asp).
 {% endalert %}
 
 {% alert tip %}
@@ -114,7 +114,7 @@ Weitere Informationen zur Gradient-Syntax finden Sie unter [CSS-Gradienten auf W
 
 ### Schritt 3.1: Versandinformationen hinzufügen {#step-31-add-your-sending-information}
 
-Nachdem Sie Ihre E-Mail-Nachricht fertig gestaltet und erstellt haben, fügen Sie Ihre Versandinformationen unter **Versandeinstellungen** hinzu.
+Nachdem Sie Ihre E-Mail-Nachricht entworfen und erstellt haben, fügen Sie Ihre Versandinformationen unter **Versandeinstellungen** hinzu.
 
 {% multi_lang_include email/sending_info_steps.md %}
 
@@ -138,7 +138,7 @@ Lesen Sie die [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/be
 
 ##### E-Mail-Header {#email-headers}
 
-Um E-Mail-Header hinzuzufügen, wählen Sie **Neuen Header hinzufügen**. E-Mail-Header enthalten Informationen über die gesendete E-Mail. Diese [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) umfassen in der Regel Absender-, Empfänger-, Authentifizierungsprotokoll- und Routing-Informationen. Braze fügt automatisch die gemäß RFC erforderlichen Header-Informationen hinzu, damit E-Mails die Posteingangsanbieter erreichen.
+Um E-Mail-Header hinzuzufügen, wählen Sie **Neuen Header hinzufügen**. E-Mail-Header enthalten Informationen über die gesendete E-Mail. Diese [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) umfassen in der Regel Absender-, Empfänger:innen-, Authentifizierungsprotokoll- und Routing-Informationen. Braze fügt automatisch die gemäß RFC erforderlichen Header-Informationen hinzu, damit E-Mails die Posteingangsanbieter erreichen.
 
 Braze bietet Ihnen die Flexibilität, bei Bedarf zusätzliche E-Mail-Header für erweiterte Anwendungsfälle hinzuzufügen. Es gibt einige reservierte Felder, die die Braze-Plattform beim Versand überschreibt.
 
@@ -193,7 +193,7 @@ Vermeiden Sie die Verwendung der folgenden Schlüssel:
 
 E-Mail-Extras ermöglichen es Ihnen, zusätzliche Daten an andere E-Mail-Anbieter zurückzusenden. Dies ist nur für erweiterte Anwendungsfälle relevant, daher sollten Sie E-Mail-Extras nur verwenden, wenn Ihr Unternehmen dies bereits eingerichtet hat.
 
-Um E-Mail-Extras hinzuzufügen, gehen Sie zu den **Versandinformationen** und wählen Sie **Neues Extra hinzufügen**.
+Um E-Mail-Extras hinzuzufügen, gehen Sie zu **Versandinformationen** und wählen Sie **Neues Extra hinzufügen**.
 
 {% alert warning %}
 Die Gesamtmenge der hinzugefügten Schlüssel-Wert-Paare sollte 1 KB nicht überschreiten. Andernfalls werden die Nachrichten abgebrochen.
@@ -205,9 +205,9 @@ E-Mail-Extra-Werte werden nicht an Currents oder Snowflake veröffentlicht. Wenn
 
 Nachdem Sie Ihre E-Mail fertig verfasst haben, testen Sie sie vor dem Versand. Wählen Sie am unteren Rand des Übersichtsbildschirms **Vorschau und Test**.
 
-Hier können Sie eine Vorschau anzeigen, wie Ihre E-Mail im Posteingang von Kund:innen erscheint. Mit der ausgewählten Option **Als Nutzer:in anzeigen** können Sie Ihre E-Mail als zufällige:r Nutzer:in in der Vorschau anzeigen, eine:n bestimmte:n Nutzer:in auswählen oder eine:n benutzerdefinierte:n Nutzer:in erstellen. So können Sie testen, ob Ihre Connected-Content- und Personalisierungsaufrufe wie erwartet funktionieren.
+Hier können Sie eine Vorschau anzeigen, wie Ihre E-Mail im Posteingang von Kund:innen erscheint. Mit der ausgewählten Option **Als Nutzer:in anzeigen** können Sie Ihre E-Mail als zufällige:r Nutzer:in in der Vorschau anzeigen, eine:n bestimmte:n Nutzer:in auswählen oder eine:n angepasste:n Nutzer:in erstellen. So können Sie testen, ob Ihre Connected-Content- und Personalisierungsaufrufe wie erwartet funktionieren.
 
-Anschließend können Sie **Vorschau-Link kopieren**, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussehen wird. Der Link ist sieben Tage gültig, bevor er neu generiert werden muss.
+Anschließend können Sie **Vorschau-Link kopieren**, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussehen wird. Weitere Informationen finden Sie unter [Teilbare Vorschau]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
 Sie können auch zwischen Desktop-, Mobil- und Klartextansichten wechseln, um ein Gefühl dafür zu bekommen, wie Ihre Nachricht in verschiedenen Kontexten erscheint.
 
@@ -222,25 +222,25 @@ Wenn Sie für eine abschließende Prüfung bereit sind, wählen Sie **Testversan
 Wenn Sie Probleme mit Ihrer E-Mail feststellen oder Änderungen vornehmen möchten, wählen Sie **E-Mail bearbeiten**, um zum Editor zurückzukehren.
 
 {% alert tip %}
-E-Mail-Clients, die Vorschautext unterstützen, ziehen immer genug Zeichen ein, um den gesamten verfügbaren Vorschautextbereich zu füllen. Dies kann jedoch dazu führen, dass der Vorschautext unvollständig oder nicht optimal ist.
-<br><br>Um dies zu vermeiden, können Sie nach Ihrem gewünschten Vorschautext Leerraum erstellen, damit E-Mail-Clients keinen anderen ablenkenden Text oder Zeichen in den Umschlaginhalt ziehen. Im Bereich **Versandeinstellungen** können Sie das Kontrollkästchen **Leerraum nach Preheader hinzufügen** aktivieren, um automatisch Leerraum hinzuzufügen. <br><br>Alternativ können Sie, wenn Sie mehr Kontrolle benötigen, manuell eine Kette von Zero-Width-Non-Joinern (‌`&zwnj;`) und geschützten Leerzeichen (`&nbsp;`) nach dem gewünschten Vorschautext hinzufügen. <br><br>Wenn der folgende Code am Ende Ihres Vorschautexts im Preheader-Bereich für den HTML-Editor hinzugefügt wird, erzeugt er den gewünschten Leerraum:<br><br>
+E-Mail-Clients, die Vorschautext unterstützen, ziehen immer genügend Zeichen ein, um den gesamten verfügbaren Vorschautextbereich zu füllen. Dies kann jedoch dazu führen, dass der Vorschautext unvollständig oder nicht optimal ist.
+<br><br>Um dies zu vermeiden, können Sie nach Ihrem gewünschten Vorschautext Leerraum erstellen, damit E-Mail-Clients keinen anderen ablenkenden Text oder Zeichen in den Umschlaginhalt ziehen. Im Bereich **Versandeinstellungen** können Sie das Kontrollkästchen **Leerraum nach Preheader hinzufügen** aktivieren, um automatisch Leerraum hinzuzufügen. <br><br>Alternativ können Sie, wenn Sie mehr Kontrolle benötigen, manuell eine Kette von breitenlosen Nicht-Verbindern (‌`&zwnj;`) und geschützten Leerzeichen (`&nbsp;`) nach dem Vorschautext hinzufügen, der angezeigt werden soll. <br><br>Wenn Sie den folgenden Code am Ende Ihres Vorschautexts im Preheader-Bereich für den HTML-Editor hinzufügen, wird der gewünschte Leerraum erzeugt:<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
 ```
 
-Für den Drag-and-Drop-Editor fügen Sie nur die Zero-Width-Non-Joiner (‌`&zwnj;`) ohne die `<div>`-Formatierung direkt im Preheader im Bereich **Versandeinstellungen** hinzu.
+Für den Drag-and-Drop-Editor fügen Sie nur die breitenlosen Nicht-Verbinder (‌`&zwnj;`) ohne die `<div>`-Formatierung direkt im Preheader im Bereich **Versandeinstellungen** hinzu.
 {% endalert %}
 
 {% alert note %}
-In der Apple-Mail-App müssen Bild-Links in HTML-E-Mails `https://`-URLs verwenden, um klickbar zu sein. Verwenden Sie sichere Links für jedes Bild, das in einem Anchor-Tag eingebettet ist, wenn Sie Klicks von Apple-Mail-Empfänger:innen erwarten.
+In der Apple-Mail-App müssen Bild-Links in HTML-E-Mails `https://`-URLs verwenden, um klickbar zu sein. Verwenden Sie sichere Links für jedes Bild, das in einem Anker-Tag eingebettet ist, wenn Sie Klicks von Apple-Mail-Empfänger:innen erwarten.
 {% endalert %}
 
 ### Schritt 3.3: Auf E-Mail-Fehler prüfen {#step-33-check-for-email-errors}
 
 Vor dem Versand markiert der Editor häufige Probleme:
 
-- Anzeigename des Absenders und Header nicht gemeinsam festgelegt
+- Absender-Anzeigename und Header nicht gemeinsam festgelegt
 - Ungültige Absender- oder Antwortadressen
 - Doppelte Header-Schlüssel
 - Liquid-Syntaxfehler
@@ -251,7 +251,7 @@ Vor dem Versand markiert der Editor häufige Probleme:
 - Fehlender Abmeldelink
 - Absender-Domain nicht auf der Allowlist (Versand wird stark gedrosselt)
 
-## Schritt 4: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 4: Den Rest Ihrer Campaign oder Ihres Canvas erstellen {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -269,25 +269,25 @@ Sie können auch die Dauer der Campaign festlegen, [Ruhezeiten]({{site.baseurl}}
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
-Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segments oder Filter auswählen. Braze zeigt eine Live-Vorschau der Segment-Population an, einschließlich der Anzahl der Nutzer:innen, die per E-Mail erreichbar sind. Die genaue Segment-Zugehörigkeit wird unmittelbar vor dem Versand berechnet.
+Als Nächstes können Sie [Nutzer:innen ansprechen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segments oder Filter auswählen. Braze zeigt eine Live-Vorschau der Segment-Population an, einschließlich der Anzahl der Nutzer:innen, die per E-Mail erreichbar sind. Die genaue Segment-Zugehörigkeit wird unmittelbar vor dem Versand berechnet.
 
 {% multi_lang_include audience/target_audiences.md %}
 
-Sie können auch festlegen, dass Ihre Campaign nur an Nutzer:innen mit einem bestimmten [Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions) gesendet wird, z. B. an diejenigen, die E-Mails abonniert haben und per Opt-in zugestimmt haben.
+Sie können auch festlegen, dass Ihre Campaign nur an Nutzer:innen mit einem bestimmten [Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions) gesendet wird, z. B. an diejenigen, die abonniert und für E-Mails angemeldet sind.
 
 Optional können Sie die Zustellung auch auf eine bestimmte Anzahl von Nutzer:innen innerhalb des Segments beschränken oder Nutzer:innen erlauben, dieselbe Nachricht bei einer Wiederholung der Campaign erneut zu erhalten.
 
 {% alert note %}
-Beim Erstellen einer neuen E-Mail-Campaign ist die Kontrollgruppe standardmäßig auf 20 % eingestellt und kann je nach Bedarf angepasst oder entfernt werden.
+Beim Erstellen einer neuen E-Mail-Campaign ist die Kontrollgruppe standardmäßig auf 20 % eingestellt und kann je nach Bedarf für Ihre Campaign angepasst oder entfernt werden.
 {% endalert %}
 
 #### Multichannel-Campaigns mit E-Mail und Push {#multichannel-campaigns-with-email-and-push}
 
-Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen, möchten Sie Ihre Campaign möglicherweise so einschränken, dass nur Nutzer:innen, die ausdrücklich per Opt-in zugestimmt haben, die Nachricht erhalten (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Angenommen, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
+Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen, möchten Sie Ihre Campaign möglicherweise so einschränken, dass nur Nutzer:innen, die ausdrücklich angemeldet sind, die Nachricht erhalten (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Angenommen, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
 {% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
-Wählen Sie dazu unter **Zielgruppen-Zusammenfassung** aus, diese Campaign nur an „Nutzer:innen mit Opt-in“ zu senden. Diese Option stellt sicher, dass nur Nutzer:innen mit Opt-in Ihre E-Mail erhalten, und Braze sendet Ihre Push-Nachricht standardmäßig nur an Nutzer:innen, die Push aktiviert haben.
+Wählen Sie dazu unter **Zielgruppenübersicht** aus, diese Campaign nur an „nur angemeldete Nutzer:innen“ zu senden. Diese Option stellt sicher, dass nur angemeldete Nutzer:innen Ihre E-Mail erhalten, und Braze sendet Ihre Push-Nachricht standardmäßig nur an Nutzer:innen, die Push aktiviert haben.
 
 {% alert important %}
 Fügen Sie bei dieser Konfiguration im Schritt **Zielgruppen** keine Filter hinzu, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
@@ -295,18 +295,18 @@ Fügen Sie bei dieser Konfiguration im Schritt **Zielgruppen** keine Filter hinz
 
 ### Konversions-Events auswählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen, nachzuverfolgen, wie oft Nutzer:innen nach dem Empfang einer Campaign bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), ausführen. Sie können jede der folgenden Aktionen als Konversions-Event festlegen:
+Braze ermöglicht es Ihnen, nachzuverfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach dem Empfang einer Campaign ausführen. Sie können jede der folgenden Aktionen als Konversions-Event festlegen:
 
 - App öffnen
 - Kauf tätigen (Dies kann ein allgemeiner Kauf oder ein bestimmter Artikel sein)
 - Bestimmtes angepasstes Event ausführen
 - E-Mail öffnen
 
-Sie können ein Zeitfenster von bis zu 30 Tagen festlegen, in dem Braze eine Konversion zählt, wenn die Nutzer:innen die angegebene Aktion ausführen. Obwohl Braze Öffnungen und Klicks automatisch erfasst, können Sie das Konversions-Event auf eine Öffnung oder einen Klick setzen, um die [intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) zu verwenden.
+Sie können ein Zeitfenster von bis zu 30 Tagen festlegen, in dem Braze eine Konversion zählt, wenn Nutzer:innen die angegebene Aktion ausführen. Obwohl Braze Öffnungen und Klicks automatisch erfasst, können Sie das Konversions-Event auf eine Öffnung oder einen Klick setzen, um die [intelligente Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) zu verwenden.
 {% endtab %}
 
 {% tab Canvas %}
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponenten. Weitere Informationen zum Aufbau Ihres Canvas, zur Implementierung multivariater Tests und der intelligenten Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponenten. Weitere Informationen zum Aufbau des restlichen Canvas, zur Implementierung multivariater Tests und der intelligenten Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) unserer Canvas-Dokumentation.
 {% endtab %}
 {% endtabs %}
 

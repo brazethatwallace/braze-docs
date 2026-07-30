@@ -15,9 +15,9 @@ Operator는 워크스페이스(브랜드 가이드라인, 커스텀 속성, 연�
 
 후속 대화를 이어갈 수 있습니다. Operator는 채팅 기록을 지울 때까지 이전 메시지를 기억합니다.
 
-## 필수 조건 {#prerequisites}
+## 사전 요구 사항 {#prerequisites}
 
-Operator는 사용자와 동일한 권한을 가지므로, 특정 동작에는 해당 영역에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
+Operator는 사용자와 동일한 권한을 가지므로, 특정 작업에는 해당 영역에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
 
 ## Operator가 만들 수 있는 것 {#what-operator-can-create}
 
@@ -101,13 +101,15 @@ Operator는 HTML 모드가 있는 모든 채널 또는 편집기에서 전체 �
 
 Operator는 메시지 전반에 삽입하는 재사용 가능한 콘텐츠 조각인 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)를 만드는 데 도움을 줄 수 있습니다. 원하는 블록을 설명하면 Operator가 저장하기 전에 검토할 수 있는 콘텐츠를 작성합니다. Content Blocks는 공유되므로, 하나를 업데이트하면 이를 참조하는 모든 메시지가 업데이트됩니다.
 
+Operator는 대시보드에서 Content Blocks를 한 번에 하나씩 만듭니다. Content Blocks를 대량으로 만들려면 `content_blocks.create` 권한이 있는 API 키를 사용하여 [Content Block 만들기]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) 엔드포인트를 사용하세요.
+
 ### 메시지 템플릿 만들기 {#create-message-templates}
 
 Operator는 Campaigns 전반에 적용할 수 있는 재사용 가능한 [메시지 템플릿]({{site.baseurl}}/user_guide/messaging/templates)을 만드는 데 도움을 줄 수 있습니다. 원하는 템플릿을 설명하면 Operator가 저장하기 전에 검토할 수 있는 초안을 작성합니다. 템플릿 생성은 메시지 생성과 유사하게 작동하므로, 지원되는 채널과 편집기에 대해서는 [메시지 생성](#generate-messages)을 참조하세요.
 
 ### Liquid 생성 {#generate-liquid}
 
-Operator는 [Liquid 구문]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)에 매우 능숙합니다. 워크스페이스의 데이터를 기반으로 복잡한 Liquid 로직을 생성할 수 있으며, 여기에는 예시 값을 찾기 위한 속성, 이벤트, [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 데이터 조회가 포함됩니다. 또한 Campaign의 기존 Liquid를 검토하고 설명할 수 있습니다.
+Operator는 [Liquid 구문]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)에 매우 능숙합니다. 워크스페이스의 데이터를 기반으로 복잡한 Liquid 로직을 생성할 수 있으며, 여기에는 예시 값을 찾기 위한 속성, 이벤트, [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 데이터 조회가 포함됩니다. 또한 Campaigns의 기존 Liquid를 검토하고 설명할 수 있습니다.
 
 카피라이팅과 마찬가지로, 어디서든 Operator에게 Liquid 생성을 요청할 수 있으며 모든 채널과 메시지 작성기에서 작동합니다. 메시지 작성기 내에서 사용할 때 가장 좋은 결과를 얻을 수 있으며, 이 경우 Operator가 작성 중인 메시지의 전체 컨텍스트를 파악합니다.
 
@@ -141,7 +143,7 @@ Operator는 후속 질문을 할 수 있지만, 세부 정보를 미리 제공�
 
 ### 이미지 생성 {#generate-images}
 
-Operator는 OpenAI의 AI 시스템이자 Braze 서드파티 제공업체인 [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/)을 사용하여 이미지를 생성합니다. 이를 통해 자연어 설명에서 사실적인 이미지와 아트를 만들 수 있습니다.
+Operator는 OpenAI의 인공지능 시스템이자 Braze 서드파티 제공업체인 [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/)을 사용하여 이미지를 생성합니다. 이를 통해 자연어 설명에서 사실적인 이미지와 아트를 만들 수 있습니다.
 
 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에서 **자산 업로드** 패널의 **Generate with Operator**를 선택하세요. 원하는 이미지를 설명하면 Operator가 이미지를 생성하고 미디어 라이브러리에 직접 저장합니다.
 
@@ -167,8 +169,8 @@ SMS, Android 푸시, iOS 푸시, 전통적인 인앱 메시지의 **테스트** 
 
 콘텐츠 검토를 최대한 활용하려면 다음을 고려하세요:
 
-- **메시지를 교정하세요:** 콘텐츠 검토가 오류를 식별하는 데 도움이 될 수 있지만, 콘텐츠를 수동으로 교정하는 것은 여전히 필수적입니다. AI가 생성한 제안을 유용한 가이드로 활용하되, 정확성을 보장하기 위해 본인의 판단을 사용하세요.
-- **톤 분석을 이해하세요:** 톤 분석 결과는 주관적이며 AI 모델의 이해에 기반합니다. 유용한 인사이트를 제공할 수 있지만, 의도한 톤과 대화 맥락을 고려하여 적절한 조정을 하세요.
+- **메시지를 교정하세요:** 콘텐츠 검토가 오류를 식별하는 데 도움이 될 수 있지만, 콘텐츠를 수동으로 교정하는 것은 여전히 필수적입니다. 인공지능이 생성한 제안을 유용한 가이드로 활용하되, 정확성을 보장하기 위해 본인의 판단을 사용하세요.
+- **톤 분석을 이해하세요:** 톤 분석 결과는 주관적이며 인공지능 모델의 이해에 기반합니다. 유용한 인사이트를 제공할 수 있지만, 의도한 톤과 대화 맥락을 고려하여 적절한 조정을 하세요.
 - **표시된 공격적인 언어를 다시 확인하세요:** 공격적인 언어 감지는 강력하게 설계되었지만, 간혹 오탐지가 발생할 수 있습니다. 표시된 섹션을 신중하게 검토하고 필요에 따라 적절한 변경을 하세요.
 
 ## 데이터 자동화 및 조회 {#data-automation-and-lookup}
@@ -177,7 +179,7 @@ Operator는 워크스페이스 데이터와 Braze 설명서에 대한 참조 역
 
 ### Operator가 조회할 수 있는 것 {#what-operator-can-look-up}
 
-Operator는 질문에 답하거나 생성하는 콘텐츠의 근거로 다음을 참조할 수 있습니다:
+Operator는 질문에 답하거나 생성하는 콘텐츠의 근거로 다음을 참조할 수 있으며, 이에 국한되지 않습니다:
 
 - Braze 설명서
 - [Segments]({{site.baseurl}}/user_guide/audience/segments)
@@ -191,6 +193,10 @@ Operator는 질문에 답하거나 생성하는 콘텐츠의 근거로 다음을
 
 특정 정보를 조회할 수 있는지 확실하지 않은 경우 Operator에게 직접 물어보세요.
 
+### 성능 데이터 분석 {#analyze-performance-data}
+
+Campaign 및 Canvas 성능에 대해 Operator에게 자연어로 질문하면, 워크스페이스 데이터에서 차트, 비교, 간단한 인사이트를 가져와 제공합니다. 현재 페이지의 컨텍스트가 필요한 Operator의 페이지 인식 기능과 달리, 분석 기능은 대시보드 어디에서든 응답할 수 있습니다. 자세한 내용은 [Operator 분석]({{site.baseurl}}/user_guide/brazeai/operator/analyze)을 참조하세요.
+
 ### SQL 쿼리 작성 {#write-sql-queries}
 
 Operator는 [세그먼트 확장](#campaigns-and-audiences) 및 쿼리 빌더 [쿼리 템플릿]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)을 위한 SQL을 작성하는 데 도움을 줄 수 있습니다. 원하는 쿼리를 자연어로 설명하면 Operator가 실행하기 전에 검토할 수 있는 SQL을 생성합니다.
@@ -198,6 +204,21 @@ Operator는 [세그먼트 확장](#campaigns-and-audiences) 및 쿼리 빌더 [�
 ### 데이터 변환 코드 생성 {#generate-data-transformation-code}
 
 [데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation) 편집기에서 **Insert Code**를 선택하여 수신 웹훅 페이로드를 유효한 Braze API 요청으로 변환하는 변환 코드를 생성합니다. 변환을 만드는 단계별 지침은 [변환 만들기]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation)를 참조하세요.
+
+## 워크스페이스 설정 {#workspace-settings}
+
+Operator는 여러 워크스페이스 구성 페이지에서 설정을 검토하고 업데이트할 수 있습니다. 원하는 변경 사항을 설명하면, Operator가 저장하기 전에 검토할 수 있는 액션 카드로 제안합니다. 지원되는 설정 페이지에는 다음이 포함되지만 이에 국한되지 않습니다:
+
+- [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
+- [푸시 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
+- [메시징 사용량 제한]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
+- [승인 워크플로]({{site.baseurl}}/user_guide/messaging/governance/approvals), [메시징 규칙]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) 및 상시 승인 포함
+- [API 및 식별자]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), [기타 식별자]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) 및 API 제한 포함
+- [관리자 설정 연락처 정보]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+
+{% alert note %}
+Operator의 설정 페이지 지원 범위는 정기적으로 확장됩니다. 현재 구성할 수 있는 항목에 대한 최신 답변을 얻으려면 **Operator에 직접 문의하세요**.
+{% endalert %}
 
 ## 제한 사항 {#limitations}
 
@@ -208,6 +229,7 @@ Operator의 지원 범위는 자주 변경됩니다. 특정 화면이나 워크�
 Operator의 대시보드 지원 범위는 넓지만 한계가 있습니다.
 
 - **Canvases:** Operator는 [Canvases]({{site.baseurl}}/user_guide/messaging/canvas)를 만들거나 편집할 수 없지만, 기존 Canvas의 구성(타겟팅 및 전달 설정 등)을 참조하여 질문에 답하고 출력의 근거로 사용할 수 있습니다.
+- **Campaign 복제:** Operator는 Campaigns 목록 보기에서 기존 Campaign을 복제할 수 없습니다. 유사한 Campaign을 만들려면 Operator에게 처음부터 새로 만들도록 요청하거나, 목록 보기의 **More Actions** 메뉴에서 수동으로 Campaign을 복제하세요.
 - **드래그 앤 드롭 편집기:** Operator는 [이메일]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [배너]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)용 드래그 앤 드롭 편집기에서 메시지 디자인을 직접 생성하거나 삽입할 수 없습니다. 해당 HTML 편집기로 전환하여 Operator를 사용하거나, Operator에게 카피 등의 콘텐츠를 생성하도록 요청한 후 수동으로 붙여넣으세요. 지원되는 채널과 편집기에 대해서는 [메시지 생성](#generate-messages)을 참조하세요.
 - **화면 가시성:** Operator는 페이지 인식 컨텍스트를 사용하여 사용자가 보고 있는 내용을 이해하며, 지원되는 미리보기와 편집기 내의 콘텐츠도 포함됩니다. 페이지의 일부가 Operator가 읽을 수 있는 범위 밖에 있으면, 추측하는 대신 알려주므로 해당 콘텐츠를 직접 설명할 수 있습니다.
 - **사용 한도:** Operator에는 24시간마다 초기화되는 회사 전체 일일 사용 한도가 있습니다. 이미지 생성도 이 한도에 포함됩니다. 한도에 도달하면 "일일 사용 한도 초과" 메시지가 표시되며 초기화될 때까지 추가 요청을 할 수 없습니다. 문제 해결 단계는 [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting)을 참조하세요.

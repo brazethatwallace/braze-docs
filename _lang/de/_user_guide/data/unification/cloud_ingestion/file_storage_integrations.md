@@ -242,7 +242,7 @@ Die Integration erfordert die folgenden Ressourcen:
 | Pub/Sub-Topic | Ein Topic ist die benannte Ressource, die Benachrichtigungen über neue Dateien von Ihrem Cloud Storage-Bucket empfängt. |
 | Pub/Sub-Abo | Ein Abo wird an ein Topic angehängt und liefert dessen Nachrichten. Braze konsumiert Benachrichtigungen über neue Dateien aus einem Pull-Abo. |
 | Dienstkonto | Ein Dienstkonto ist eine nicht-menschliche Identität, die Braze verwendet, um auf Ihren Bucket und Ihr Abo zuzugreifen. Sie laden dessen JSON-Schlüssel in Braze hoch. |
-| IAM-Rolle | Eine Identity-and-Access-Management-Rolle (IAM-Rolle) ist eine Sammlung von Berechtigungen, die Sie dem Dienstkonto für Ihren Bucket und Ihr Abo gewähren. |
+| IAM-Rolle | Eine Identity and Access Management (IAM)-Rolle ist eine Sammlung von Berechtigungen, die Sie dem Dienstkonto für Ihren Bucket und Ihr Abo zuweisen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="GCP-Definitionen" }
 
 ## Cloud-Datenaufnahme in Google Cloud einrichten {#setting-up-cloud-data-ingestion-in-google-cloud}
@@ -284,13 +284,13 @@ Konfigurieren Sie keine Dead-Letter-Warteschlange für dieses Abo. Braze unterst
 Das Erstellen einer Cloud Storage-zu-Pub/Sub-Benachrichtigung ist in der Google Cloud-Konsole nicht verfügbar. Sie müssen gcloud (hier gezeigt), Terraform oder die JSON-API verwenden. Weitere Informationen finden Sie unter [Configure Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/reporting-changes#enabling) in der Google Cloud-Dokumentation.
 {% endalert %}
 
-Gewähren Sie zunächst dem Cloud Storage-Dienst-Agenten die Berechtigung, an das Topic zu veröffentlichen, und erstellen Sie dann die Benachrichtigung für `OBJECT_FINALIZE`. Das Ereignis `OBJECT_FINALIZE` wird ausgelöst, wenn ein neues Objekt im Bucket erstellt oder finalisiert wird.
+Weisen Sie zunächst dem Cloud Storage-Dienst-Agenten die Berechtigung zum Veröffentlichen im Topic zu und erstellen Sie dann die Benachrichtigung für `OBJECT_FINALIZE`. Das Ereignis `OBJECT_FINALIZE` wird ausgelöst, wenn ein neues Objekt im Bucket erstellt oder finalisiert wird.
 
 ```shell
 # Get the Cloud Storage service agent for your project
 gcloud storage service-agent --project=YOUR-PROJECT-ID
 
-# Grant it Pub/Sub Publisher on the topic
+# Assign it Pub/Sub Publisher on the topic
 gcloud pubsub topics add-iam-policy-binding YOUR-TOPIC \
   --project=YOUR-PROJECT-ID \
   --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -326,11 +326,11 @@ gcloud iam service-accounts create braze-cdi-gcs \
   --display-name="Braze CDI GCS"
 ```
 
-### Schritt 5: Berechtigungen gewähren {#step-5-grant-permissions}
+### Schritt 5: Berechtigungen zuweisen {#step-5-assign-permissions}
 
-Der Konnektor benötigt genau diese Berechtigungen: `storage.buckets.get`, `storage.objects.get` und `storage.objects.list` für den Bucket sowie `pubsub.subscriptions.consume` für das Abo. Sie können diese mit einer angepassten Rolle oder vordefinierten Rollen gewähren.
+Der Konnektor benötigt genau diese Berechtigungen: `storage.buckets.get`, `storage.objects.get` und `storage.objects.list` für den Bucket sowie `pubsub.subscriptions.consume` für das Abo. Sie können diese mit einer benutzerdefinierten Rolle oder vordefinierten Rollen zuweisen.
 
-**Angepasste Rolle:** Erstellen Sie eine angepasste Rolle mit genau diesen Berechtigungen und binden Sie sie an den Bucket und das Abo:
+**Benutzerdefinierte Rolle:** Erstellen Sie eine benutzerdefinierte Rolle mit genau diesen Berechtigungen und binden Sie sie an den Bucket und das Abo:
 
 ```shell
 gcloud iam roles create brazeCdiGcs --project=YOUR-PROJECT-ID \
@@ -348,7 +348,7 @@ gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
   --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
 ```
 
-**Vordefinierte Rollen:** Gewähren Sie `roles/storage.objectViewer` und `roles/storage.legacyBucketReader` für den Bucket sowie `roles/pubsub.subscriber` für das Abo. Die Rolle `objectViewer` stellt `storage.objects.get` und `storage.objects.list` bereit, und `legacyBucketReader` stellt `storage.buckets.get` bereit:
+**Vordefinierte Rollen:** Weisen Sie `roles/storage.objectViewer` und `roles/storage.legacyBucketReader` für den Bucket sowie `roles/pubsub.subscriber` für das Abo zu. Die Rolle `objectViewer` stellt `storage.objects.get` und `storage.objects.list` bereit, und `legacyBucketReader` stellt `storage.buckets.get` bereit:
 
 ```shell
 gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
@@ -407,7 +407,7 @@ Sie können einen Bucket über mehrere Synchronisierungen hinweg wiederverwenden
 
 
 {% alert important %}
-Der Ordnerpfad und das Abo müssen beide über Synchronisierungen in einem Workspace hinweg eindeutig sein, wenn mehrere Synchronisierungen denselben Quell-Bucket verwenden. Wie in [Schritt 2](#step-2-create-a-pubsub-topic-and-subscription) beschrieben, konfigurieren Sie keine Dead-Letter-Warteschlange für diese Abos.
+Der Ordnerpfad und das Abo müssen über Synchronisierungen in einem Workspace hinweg eindeutig sein, wenn mehrere Synchronisierungen denselben Quell-Bucket verwenden. Wie in [Schritt 2](#step-2-create-a-pubsub-topic-and-subscription) beschrieben, konfigurieren Sie keine Dead-Letter-Warteschlange für diese Abos.
 {% endalert %}
 
 Für jeden Ordner, den Sie in einem gemeinsam genutzten Bucket synchronisieren möchten:
@@ -419,7 +419,7 @@ Für jeden Ordner, den Sie in einem gemeinsam genutzten Bucket synchronisieren m
     # One topic per folder
     gcloud pubsub topics create YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID
 
-    # Grant the Cloud Storage service agent publisher on the topic
+    # Assign the Cloud Storage service agent publisher on the topic
     gcloud pubsub topics add-iam-policy-binding YOUR-ATTRIBUTES-TOPIC \
       --project=YOUR-PROJECT-ID \
       --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -435,7 +435,7 @@ Für jeden Ordner, den Sie in einem gemeinsam genutzten Bucket synchronisieren m
       --topic=YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
     ```
 
-3. Gewähren Sie dem Braze-Dienstkonto die Berechtigung zum Konsumieren dieses Abos, wie in [Schritt 5](#step-5-grant-permissions) beschrieben:
+3. Weisen Sie dem Braze-Dienstkonto die Berechtigung zum Konsumieren dieses Abos zu, wie in [Schritt 5](#step-5-assign-permissions) beschrieben:
 
     ```shell
     gcloud pubsub subscriptions add-iam-policy-binding YOUR-ATTRIBUTES-SUBSCRIPTION \
@@ -444,7 +444,7 @@ Für jeden Ordner, den Sie in einem gemeinsam genutzten Bucket synchronisieren m
       --role="roles/pubsub.subscriber"
     ```
 
-    Wenn Sie die angepasste Rolle in [Schritt 5](#step-5-grant-permissions) erstellt haben, verwenden Sie stattdessen `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"`.
+    Wenn Sie die benutzerdefinierte Rolle in [Schritt 5](#step-5-assign-permissions) erstellt haben, verwenden Sie stattdessen `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"`.
 4. Wenn Sie die Synchronisierung in Braze erstellen, geben Sie die neue **Pub/Sub subscription ID** und den **Folder path** dieses Ordners ein, damit die Synchronisierung nur die Dateien dieses Ordners aufnimmt.
 
 
@@ -460,7 +460,7 @@ Die erforderlichen Dateiformate sind für Amazon S3 und Google Cloud Storage ide
 
 Wenn Sie Dateispeicher für Katalogdaten verwenden, nutzen Sie diese Seite zusammen mit [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) für katalogspezifische Anforderungen und Verhaltensweisen.
 
-Braze stellt keine zusätzlichen Anforderungen an Dateinamen über die Vorgaben Ihres Dateispeicheranbieters hinaus. Dateinamen sollten eindeutig sein. Das Anhängen eines Zeitstempels hilft, die Eindeutigkeit sicherzustellen.
+Braze erzwingt keine zusätzlichen Anforderungen an Dateinamen über das hinaus, was Ihr Dateispeicheranbieter vorgibt. Dateinamen sollten eindeutig sein. Das Anhängen eines Zeitstempels hilft, die Eindeutigkeit sicherzustellen.
 
 Beispiele für alle unterstützten Dateitypen (Attribute, angepasste Events, Käufe, Kataloge und Nutzer-Löschungen) finden Sie in den Beispieldateien unter [braze-examples](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion/braze-examples/payloads/file_storage).
 
@@ -497,7 +497,7 @@ Für Katalog-Synchronisierungen muss Ihre Quelldatei die folgenden Spalten entha
 ### Beispiele {#examples}
 
 {% tabs %}
-{% tab JSON-Attribute %}
+{% tab JSON Attributes %}
 ``` json
 {"external_id":"s3-qa-0","payload":"{\"name\": \"GT896\", \"age\": 74, \"subscriber\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}"}
 {"external_id":"s3-qa-1","payload":"{\"name\": \"HSCJC\", \"age\": 86, \"subscriber\": false, \"retention\": {\"previous_purchases\": 0, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600824\"}"}
@@ -511,7 +511,7 @@ Für Katalog-Synchronisierungen muss Ihre Quelldatei die folgenden Spalten entha
 Jede Zeile in Ihrer Quelldatei muss gültiges JSON enthalten, andernfalls wird die Datei übersprungen.
 {% endalert %}
 {% endtab %}
-{% tab Angepasste JSON-Events %}
+{% tab JSON Custom Events %}
 ``` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
@@ -520,7 +520,7 @@ Jede Zeile in Ihrer Quelldatei muss gültiges JSON enthalten, andernfalls wird d
 Jede Zeile in Ihrer Quelldatei muss gültiges JSON enthalten, andernfalls wird die Datei übersprungen.
 {% endalert %}
 {% endtab %}
-{% tab JSON-Kauf-Events %}
+{% tab JSON Purchase Events %}
 ``` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
@@ -530,7 +530,7 @@ Jede Zeile in Ihrer Quelldatei muss gültiges JSON enthalten, andernfalls wird d
 {% endalert %}
 
 {% endtab %}
-{% tab CSV-Attribute %}
+{% tab CSV Attributes %}
 ```plaintext
 external_id,payload
 s3-qa-load-0-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""SNXIM"", ""age"": 54, ""subscriber"": true, ""retention"": {""previous_purchases"": 19, ""vip"": true}, ""last_visit"": ""2023-08-08T16:03:26.598806""}"
@@ -538,7 +538,7 @@ s3-qa-load-1-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""0J747"", ""age""
 s3-qa-load-2-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""EP1U0"", ""age"": 99, ""subscriber"": false, ""retention"": {""previous_purchases"": 23, ""vip"": false}, ""last_visit"": ""2023-08-08T16:03:26.598822""}"
 ```
 {% endtab %}
-{% tab CSV-Kataloge %}
+{% tab CSV Catalogs  %}
 ```plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
@@ -616,7 +616,7 @@ ID,PAYLOAD,DELETED
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 
-Wenn der Sync ausgeführt wird, bewirken Zeilen mit `deleted: true`, dass der entsprechende Katalogartikel in Braze gelöscht wird. Informationen zum vollständigen Verhalten bei Katalog-Sync und -Löschung finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
+Wenn der Sync ausgeführt wird, bewirken Zeilen mit `deleted: true`, dass der entsprechende Katalogartikel in Braze gelöscht wird. Informationen zum vollständigen Verhalten bei Katalogsynchronisierung und -löschung finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 
 ## Wissenswertes {#things-to-know}
 
@@ -629,7 +629,7 @@ Wenn der Sync ausgeführt wird, bewirken Zeilen mit `deleted: true`, dass der en
 
 ### Hochladen und Verarbeiten von Dateien {#uploading-files-and-processing}
 
-CDI verarbeitet nur Dateien, die nach der Erstellung der Synchronisierung hinzugefügt werden. Dabei sucht Braze nach neu hinzugefügten Dateien, was eine neue Benachrichtigung auslöst. Diese startet eine neue Synchronisierung, um die neue Datei zu verarbeiten. Bei Amazon S3 ist die Benachrichtigung eine Nachricht an SQS. Bei Google Cloud Storage handelt es sich um eine `OBJECT_FINALIZE`-Nachricht an Pub/Sub.
+CDI verarbeitet nur Dateien, die nach der Erstellung der Synchronisierung hinzugefügt werden. In diesem Prozess sucht Braze nach neu hinzugefügten Dateien, was eine neue Benachrichtigung auslöst. Dadurch wird eine neue Synchronisierung gestartet, um die neue Datei zu verarbeiten. Bei Amazon S3 ist die Benachrichtigung eine Nachricht an SQS. Bei Google Cloud Storage handelt es sich um eine `OBJECT_FINALIZE`-Nachricht an Pub/Sub.
 
 Sie können vorhandene Dateien verwenden, um zu überprüfen, ob Braze auf Ihren Bucket zugreifen und Dateien zur Aufnahme erkennen kann. Diese werden jedoch nicht mit Braze synchronisiert. Damit CDI sie verarbeiten kann, müssen Sie alle vorhandenen Dateien, die synchronisiert werden sollen, erneut in den Quell-Bucket hochladen.
 
@@ -651,9 +651,9 @@ Wie bei Amazon S3 verarbeitet CDI nur Dateien, die nach der Erstellung der Synch
 
 Wenn Dateien nicht aufgenommen werden, überprüfen Sie Folgendes:
 
-- Die Bucket-Benachrichtigung existiert. Listen Sie die Benachrichtigungen des Buckets mit `gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME` auf.
+- Die Bucket-Benachrichtigung existiert. Listen Sie die Benachrichtigungen für den Bucket mit `gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME` auf.
 - Der Cloud-Storage-Dienst-Agent hat `roles/pubsub.publisher` für das Topic.
-- Das Braze-Dienstkonto hat die Berechtigung zum Konsumieren des Abos (`pubsub.subscriptions.consume`, erteilt entweder über die benutzerdefinierte Rolle oder `roles/pubsub.subscriber`).
+- Das Braze-Dienstkonto hat die Berechtigung zum Konsumieren des Abos (`pubsub.subscriptions.consume`, zugewiesen entweder über die benutzerdefinierte Rolle oder `roles/pubsub.subscriber`).
 - Für das Abo ist keine Dead-Letter-Warteschlange konfiguriert. Braze unterstützt keine Dead-Letter-Warteschlangen für Cloud-Data-Ingestion-Abos.
 
 Weitere Informationen finden Sie unter [Pub/Sub-Benachrichtigungen für Cloud Storage](https://cloud.google.com/storage/docs/pubsub-notifications) in der Google-Cloud-Dokumentation.

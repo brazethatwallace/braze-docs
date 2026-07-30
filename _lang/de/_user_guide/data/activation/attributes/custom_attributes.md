@@ -21,14 +21,14 @@ In Braze gespeicherte angepasste Attribute können zum Aufbau von Zielgruppen-Se
 
 Einige gängige Anwendungsfälle für angepasste Attribute sind:
 
-- Targeting und Unterdrückung von Zielgruppen durch Segmentierung von Nutzer:innen anhand von Merkmalen wie Treuestufe, Abo-Status, bevorzugter Sprache oder Tariftyp
-- Personalisierung von Nachrichten mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) durch Referenzierung von Attributen wie dem Vornamen, den Rewards-Punkten oder der Lieblingskategorie einer Nutzerin oder eines Nutzers
-- Tracking von Lebenszyklusphasen und Nutzerzuständen, wie z. B. Onboarding-Phase, Kontostatus oder Enddatum der Testphase
-- Zählung von Aktionen mit geringem Wert mithilfe von [numerischen Attributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), z. B. durch Inkrementierung eines `feature_views_count`-Attributs bei jedem Aufruf eines Features durch Nutzer:innen
-- Erfassung des letzten Zeitpunkts von Aktionen mit geringem Wert mithilfe von [Zeitattributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), wie z. B. `last_support_ticket_at` oder `last_password_reset_at`
-- Speicherung von Nutzerinteressen und -verlauf als [Arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), wie z. B. Lieblingsgenres oder kürzlich angesehene Inhalte, für interessenbasiertes Targeting
-- Speicherung umfangreicherer Profildaten als [Objekte]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) oder [Arrays von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), wie z. B. strukturierte Präferenzen oder mehrere gespeicherte Adressen
-- Auslösung aktionsbasierter Nachrichten bei Änderung eines Attributwerts mithilfe von [Attribut-Triggern]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), z. B. Versand einer Stufenaufstiegs-Benachrichtigung, wenn sich das Attribut `rewards_tier` einer Nutzerin oder eines Nutzers ändert
+- Zielgruppen ansprechen und unterdrücken, indem Nutzer:innen anhand von Merkmalen wie Treuestufe, Abo-Status, bevorzugter Sprache oder Tariftyp segmentiert werden
+- Nachrichten mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) personalisieren, indem auf Attribute wie den Vornamen, Rewards-Punkte oder die Lieblingskategorie verwiesen wird
+- Lebenszyklusphasen und Nutzerzustände verfolgen, wie z. B. Onboarding-Phase, Kontostatus oder Enddatum der Testphase
+- Aktionen mit geringem Wert mithilfe von [numerischen Attributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) zählen, z. B. durch Inkrementieren eines `feature_views_count`-Attributs bei jedem Aufruf eines Features
+- Erfassen, wann Aktionen mit geringem Wert zuletzt stattgefunden haben, mithilfe von [Zeitattributen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), wie z. B. `last_support_ticket_at` oder `last_password_reset_at`
+- Interessen und Verlauf von Nutzer:innen als [Arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) speichern, z. B. Lieblingsgenres oder kürzlich angesehene Inhalte, für interessenbasiertes Targeting
+- Umfangreichere Profildaten als [Objekte]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) oder [Arrays von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) speichern, z. B. strukturierte Präferenzen oder mehrere gespeicherte Adressen
+- Aktionsbasierte Nachrichten auslösen, wenn sich ein Attributwert ändert, mithilfe von [Attribut-Triggern]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), z. B. eine Benachrichtigung über einen Stufenaufstieg senden, wenn sich das Attribut `rewards_tier` ändert
 
 ## Angepasste Attribute verwalten {#managing-custom-attributes}
 
@@ -45,6 +45,10 @@ Wenn ein angepasstes Array-Attribut in einem Nutzerprofil ohne Werte angezeigt w
 {% alert important %}
 Für ein korrektes Nachrichten-Targeting stellen Sie sicher, dass der Datentyp Ihres angepassten Attributs mit dem tatsächlichen angepassten Attribut übereinstimmt. <br><br>Wenn beispielsweise `newsletter_subscribed` als String definiert ist, sollte Ihre Liquid-Syntax so aussehen: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}`{% endraw %}. Wenn `newsletter_subscribed` als boolescher Wert definiert ist, sollte die Liquid-Syntax keine einfachen Anführungszeichen enthalten: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == true %}`{% endraw %}.
 {% endalert %}
+
+### Fehlerbehebung bei doppelten angepassten Attributen oder Events {#troubleshooting-duplicate-custom-attributes-or-events}
+
+{% multi_lang_include data_activation/troubleshooting_duplicate_custom_data_entries.md %}
 
 Von dieser Seite aus können Sie vorhandene angepasste Attribute anzeigen, verwalten, erstellen oder auf die Blockliste setzen. Wählen Sie das Menü neben einem angepassten Attribut für die folgenden Aktionen:
 
@@ -85,7 +89,7 @@ Es gibt zwei Möglichkeiten, angepasste Attribute aus Nutzerprofilen zu entferne
 
 Um die Liste der angepassten Attribute als CSV-Datei zu exportieren, wählen Sie oben auf der Seite **Alle exportieren**. Die CSV-Datei wird generiert, und ein Download-Link wird Ihnen per E-Mail zugesendet.
 
-## Datentyp eines angepassten Attributs ändern {#change-custom-attribute-type}
+## Typ eines angepassten Attributs ändern {#change-custom-attribute-type}
 
 ### Voraussetzungen {#prerequisites}
 
@@ -113,7 +117,7 @@ Sie können bis zu 100 Nutzungsberichte gleichzeitig anzeigen, indem Sie die Kon
 
 ### Tab „Werte“ {#values-tab}
 
-Wenn Sie einen Nutzungsbericht anzeigen, wählen Sie den Tab **Werte** aus, um die häufigsten Werte der ausgewählten angepassten Attribute basierend auf einer Stichprobe von ungefähr 250.000 Nutzer:innen anzuzeigen. Da die Ergebnisse aus einer Teilmenge von Nutzer:innen entnommen werden, enthält die Stichprobe nicht alle vorhandenen Werte. Das bedeutet, dass der Tab **Werte** nicht zur Fehlerbehebung oder für Anwendungsfälle verwendet werden sollte, die Daten aller Nutzer:innen erfordern.
+Wenn Sie einen Nutzungsbericht anzeigen, wählen Sie den Tab **Werte** aus, um die häufigsten Werte der ausgewählten angepassten Attribute basierend auf einer Stichprobe von ungefähr 250.000 Nutzer:innen anzuzeigen. Da die Ergebnisse aus einer Teilmenge von Nutzer:innen stammen, enthält die Stichprobe nicht alle vorhandenen Werte. Das bedeutet, dass der Tab **Werte** nicht zur Fehlerbehebung oder für Anwendungsfälle verwendet werden sollte, die Daten aller Nutzer:innen erfordern.
 
 ![Nutzungsbericht für ausgewählte angepasste Attribute mit geöffnetem Tab „Werte“, der ein Kreisdiagramm der Länderattributwerte wie „US“ und „PR“ zeigt.]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
@@ -152,7 +156,7 @@ Beim Löschen oder Aufheben eines angepassten Attributs unterscheidet sich das V
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }
 
 {% alert important %}
-Bei Nicht-String-Datentypen, bei denen der Datentyp im Braze-Dashboard manuell festgelegt wird (nicht automatisch erkannt), müssen Sie `null` verwenden, um den Wert aufzuheben. Die Übergabe von `""` ist nur für String-Attribute gültig – beispielsweise wird das Setzen eines booleschen Attributs auf `""` als leerer String behandelt, was ein ungültiger Wert für diesen Typ ist. Um einen booleschen Wert aufzuheben, übergeben Sie `null`.
+Bei nicht-String-Datentypen, deren Datentyp im Braze-Dashboard manuell festgelegt wurde (nicht automatisch erkannt), müssen Sie `null` verwenden, um den Wert aufzuheben. Die Übergabe von `""` ist nur für String-Attribute gültig – beispielsweise wird das Setzen eines booleschen Attributs auf `""` als leerer String behandelt, was ein ungültiger Wert für diesen Typ ist. Um einen booleschen Wert aufzuheben, übergeben Sie `null`.
 
 Beachten Sie, dass der CSV-Import `null` nicht unterstützt – boolesche Werte in CSV-Importen müssen `TRUE` oder `FALSE` sein.
 {% endalert %}

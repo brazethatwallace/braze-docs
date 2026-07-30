@@ -7,6 +7,7 @@ page_type: reference
 channel:
   - SMS
 
+
 ---
 
 # Recopilar adhesiones voluntarias de usuarios {#collect-user-opt-ins}
@@ -17,7 +18,7 @@ channel:
 
 Pide a los usuarios que envíen "START", "UNSTOP", "YES" o una palabra clave de adhesión voluntaria personalizada a tu número para añadirlos automáticamente a tu grupo de suscripción. En tu sitio web, aplicación móvil o incluso en publicidad, puedes solicitar a los usuarios que hagan esto para la adhesión voluntaria, y puedes ofrecer un incentivo si resulta útil.
 
-## Opción 2: Los usuarios se suscriben mediante un mensaje dentro de la aplicación {#option-2-users-opt-in-via-in-app-message}
+## Opción 2: Los usuarios se suscriben a través de un mensaje dentro de la aplicación {#option-2-users-opt-in-via-in-app-message}
 
 Para permitir que los usuarios se suscriban a SMS desde un mensaje dentro de la aplicación, utiliza el [formulario de captura de número de teléfono]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture) proporcionado por Braze para crear un formulario con tu marca que te permita recopilar números de teléfono y hacer crecer tu lista de SMS.
 
@@ -76,7 +77,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 {% endraw %}
 
 {% alert note %}
-Para que los usuarios ingresen al flujo de [doble adhesión voluntaria de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) al suscribirse a través de la REST API, establece `use_double_opt_in_logic` en `true` en tu solicitud. Este parámetro es compatible con [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status), [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2) y [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+Para incluir a los usuarios en el flujo de trabajo de [doble adhesión voluntaria de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) al suscribirlos a través de la REST API, establece `use_double_opt_in_logic` en `true` en tu solicitud. Este parámetro es compatible con [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status), [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2) y [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 <br><br>
 Las actualizaciones de suscripción a través de la REST API no desencadenan automáticamente mensajes de bienvenida. Para enviar un mensaje de bienvenida, crea una Campaign basada en acciones con el desencadenador [Actualizar estado del grupo de suscripción]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#update-subscription-group-status) y establece la fuente de actualización en **REST API**.
 {% endalert %}

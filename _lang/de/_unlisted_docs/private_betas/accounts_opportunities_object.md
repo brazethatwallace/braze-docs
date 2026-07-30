@@ -25,17 +25,17 @@ Konto-Objekte befinden sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Br
 
 ## So funktioniert es {#how-it-works}
 
-Konto-Objekte sind benutzerdefinierte Datenstrukturen, die das Unternehmen einer Nutzerin oder eines Nutzers repräsentieren. Sie sind mit Nutzerprofilen verknüpft, sodass Sie B2B-Segmente erstellen und Nachrichten personalisieren können. Verwenden Sie Kontofelder wie Unternehmensname, Branche, Rolle oder Deal-Status mit Braze-Katalogen, Segmentierungsfiltern und Liquid-Tags.
+Account-Objekte sind angepasste Datenstrukturen, die das Unternehmen einer Nutzerin oder eines Nutzers repräsentieren. Sie sind mit Nutzerprofilen verknüpft, sodass Sie B2B-Segmente erstellen und Nachrichten personalisieren können. Verwenden Sie Account-Felder wie Firmenname, Branche, Rolle oder Deal-Status mit Braze-Katalogen, Segmentierungsfiltern und Liquid-Tags.
 
-Zum Beispiel können Sie Nutzer:innen im Gesundheitswesen ansprechen und personalisierte Nachrichten an Ärzt:innen und Krankenhausadministrator:innen senden, um Ihre Nachricht noch relevanter zu gestalten.
+Sie können beispielsweise Nutzer:innen ansprechen, die im Gesundheitswesen tätig sind, und personalisierte Nachrichten an Ärzt:innen und Krankenhausadministrator:innen senden, um Ihre Nachricht noch relevanter zu gestalten.
 
-Um Konto-Objekte zu verwenden, importieren Sie drei Arten von Daten in Braze:
+Um Account-Objekte zu verwenden, importieren Sie drei Arten von Daten in Braze:
 
-- **Nutzerdaten:** Individuelle Nutzerprofile zur Identifizierung jeder Person in Braze (z. B. über `external_id`, E-Mail, Telefon oder Nutzer-Alias). Importieren Sie Nutzerdaten per CSV.
-- **Nutzer-Konto-Beziehungsdaten:** Die Beziehung zwischen einer Nutzerin oder einem Nutzer und einem Konto, einschließlich des zugehörigen Unternehmens und der Rolle bei diesem Konto. Importieren Sie diese Beziehungsdaten per CSV.
-- **Kontodaten:** Die Unternehmensdatensätze selbst, wie Unternehmensname, Branche, Jahresumsatz und andere firmografische Details. Dies sind die Datensätze, die Sie in Segmenten und Nachrichten für Targeting und Personalisierung verwenden. Importieren Sie Kontodaten per CSV oder über die Braze REST API.
+- **Nutzerdaten:** Individuelle Nutzerprofile, die zur Identifizierung jeder Person in Braze verwendet werden (zum Beispiel über `external_id`, E-Mail, Telefon oder Nutzer-Alias). Importieren Sie Nutzerdaten per CSV.
+- **Nutzer-Account-Beziehungsdaten:** Die Beziehung zwischen einer Nutzerin oder einem Nutzer und einem Account, einschließlich des Unternehmens, dem sie angehören, und der Rolle, die sie in diesem Account haben. Importieren Sie diese Beziehungsdaten per CSV.
+- **Account-Daten:** Die Unternehmensdatensätze selbst, wie Firmenname, Branche, Jahresumsatz und andere firmografische Details. Dies sind die Datensätze, auf die Sie in Segmenten und Nachrichten abzielen und gegen die Sie personalisieren. Importieren Sie Account-Daten per CSV oder über die Braze REST API.
 
-Alle drei Datentypen müssen importiert werden, damit Konto-Objekte funktionieren. Nutzerdaten identifizieren Personen in Braze, Nutzer-Konto-Beziehungsdaten verbinden diese Nutzer:innen mit bestimmten Konten und Rollen, und Kontodaten liefern die Attribute auf Unternehmensebene, die für Segmentierung und Personalisierung verwendet werden.
+Alle drei Datentypen müssen importiert werden, damit Account-Objekte funktionieren. Nutzerdaten identifizieren Personen in Braze, Nutzer-Account-Beziehungsdaten verknüpfen diese Nutzer:innen mit bestimmten Accounts und Rollen, und Account-Daten liefern die Attribute auf Unternehmensebene, die für Segmentierung und Personalisierung verwendet werden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -43,11 +43,11 @@ Bevor Sie dieses Feature nutzen können, müssen bereits Nutzer:innen in Braze v
 
 ## Daten in Braze importieren {#import-data-to-braze}
 
-Um Konto-Objekte in Ihren Nachrichten zu verwenden, sollten Ihre Nutzerdaten bereits in Braze vorhanden sein. Führen Sie von dort aus zwei Importe durch: Importieren Sie zunächst Nutzer-Konto-Beziehungsdaten, um Kontozuordnungen und Rollen festzulegen (derzeit nur per CSV). Importieren Sie dann Kontodaten mit den Unternehmensdetails, die für Segmentierung und Personalisierung verwendet werden (per CSV oder über die Braze REST API).
+Um Account-Objekte in Ihren Nachrichten zu verwenden, sollten Ihre Nutzerdaten bereits in Braze vorhanden sein. Führen Sie anschließend zwei Importe durch: Importieren Sie zunächst die Nutzer-Account-Beziehungsdaten, um Account-Zuordnungen und Rollen festzulegen (derzeit nur per CSV). Importieren Sie dann die Account-Daten mit den Unternehmensdetails, die für Segmentierung und Personalisierung verwendet werden (per CSV oder über die Braze REST API).
 
-### Schritt 1: Nutzer-Konto-Beziehungsdaten importieren {#step-1-import-user-account-relationship-data}
+### Schritt 1: Nutzer-Account-Beziehungsdaten importieren {#step-1-import-user-account-relationship-data}
 
-Importieren Sie zunächst Ihre Nutzer-Konto-Beziehungsdaten als CSV-Datei mit den folgenden Feldern in Braze. Dies hilft Braze, bestehende Nutzer:innen den richtigen Konten und Rollen zuzuordnen.
+Importieren Sie zunächst Ihre Nutzer-Account-Beziehungsdaten als CSV-Datei mit den folgenden Feldern in Braze. So kann Braze bestehende Nutzer:innen den richtigen Accounts und Rollen zuordnen.
 
 <style>
 table td {
@@ -55,31 +55,31 @@ table td {
 }
 </style>
 
-| Feldname | Feldtyp | Erforderlich | Beschreibung |
+| Feldname         | Feldtyp    | Erforderlich | Beschreibung                                                                                           |
 |------------------|------------|----------|-------------------------------------------------------------------------------------------------------|
-| `account_id`       | String     | Ja      | Das Konto, dem die Nutzerin oder der Nutzer angehört. Dies entspricht dem Feld `id` des Konto-Objekts (CRM-ID). |
-| `external_id`      | String     | Ja      | Die [externe ID](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#identified-user-profiles) der Nutzerin oder des Nutzers in Braze. |
-| `user_alias_name`  | String     | Nein*      | Der [Alias-Name](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases) der Nutzerin oder des Nutzers in Braze. |
-| `user_alias_label` | String     | Nein*      | Das [Alias-Label](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users) der Nutzerin oder des Nutzers in Braze. |
-| `email`            | String     | Nein*     | Die E-Mail-Adresse der Nutzerin oder des Nutzers. |
-| `phone`            | String     | Nein*      | Die Telefonnummer der Nutzerin oder des Nutzers. |
-| `user_role`             | String     | Nein       | Die Rolle der Nutzerin oder des Nutzers beim Konto, z. B. „Direktor:in“ oder „Mitarbeiter:in“. |
+| `account_id`       | String     | Ja      | Der Account, zu dem die Nutzer:in gehört. Entspricht dem Feld `id` des Account-Objekts (CRM-ID). |
+| `external_id`      | String     | Ja      | Die [externe ID](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#identified-user-profiles) der Nutzer:in in Braze. |
+| `user_alias_name`  | String     | Nein*      | Der [Alias-Name](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases) der Nutzer:in in Braze. |
+| `user_alias_label` | String     | Nein*      | Das [Alias-Label](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users) der Nutzer:in in Braze. |
+| `email`            | String     | Nein*     | Die E-Mail-Adresse der Nutzer:in. |
+| `phone`            | String     | Nein*      | Die Telefonnummer der Nutzer:in. |
+| `user_role`             | String     | Nein       | Die Rolle der Nutzer:in im Account, z. B. „Verzeichnis“ oder „Mitarbeiter:in“. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-<sup>Eines von `external_id`, `email`, `phone` oder `user_alias` ist erforderlich, um eine Nutzerin oder einen Nutzer zu identifizieren.</sup>
+<sup>Eines der Felder `external_id`, `email`, `phone` oder `user_alias` ist erforderlich, um eine Nutzer:in zu identifizieren.</sup>
 
 #### CSV-Datei verwenden {#using-a-csv-file}
 
-Laden Sie Ihre CSV-Datei mit Nutzer-Konto-Beziehungen in Braze hoch:
+Laden Sie Ihre CSV-Datei mit den Nutzer-Account-Beziehungen in Braze hoch:
 
-1. Gehen Sie zu **Dateneinstellungen** > **Konten**.
-2. Wählen Sie **Daten aktualisieren**.
-3. Wählen Sie unter **CSV-Upload** die Option **Nutzer:innen** und laden Sie Ihre Datei in Braze hoch.
+1. Gehen Sie zu **Data Settings** > **Accounts**.
+2. Wählen Sie **Update data**.
+3. Wählen Sie unter **CSV upload** die Option **Users** und laden Sie Ihre Datei in Braze hoch.
 
-![Das Dropdown-Menü „Daten hochladen“ auf der Seite „Konten“ in Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![Das Dropdown „Upload data“ auf der Seite „Accounts“ in Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
-### Schritt 2: Kontodaten importieren {#step-2-import-account-data}
+### Schritt 2: Account-Daten importieren {#step-2-import-account-data}
 
-Konten sind Unternehmen, denen Ihre Nutzer:innen angehören. Importieren Sie Ihre Kontodaten als CSV-Datei mit den folgenden Feldern in Braze. Beachten Sie, dass jedem Konto eine ID und ein Name zugewiesen werden muss.
+Accounts sind Unternehmen, denen Ihre Nutzer:innen angehören. Importieren Sie Ihre Account-Daten als CSV-Datei mit den folgenden Feldern in Braze. Beachten Sie, dass jedem Account eine ID und ein Name zugewiesen werden muss.
 
 <style>
 table td {
@@ -87,43 +87,53 @@ table td {
 }
 </style>
 
-| Feldname | Feldtyp | Erforderlich | Beschreibung |
+| Feldname                      | Feldtyp    | Erforderlich | Beschreibung                                                                        |
 |-----------------------------|------------|----------|------------------------------------------------------------------------------------|
-| `id`                          | String     | Ja      | Die ID des Kontos in Ihrer CRM-Plattform (Customer Relationship Management). |
-| `name`                        | String     | Ja      | Der Name des Kontos. |
-| `type`                        | String     | Nein       | Der Kontotyp, z. B. Kund:in, Partner oder Reseller. |
-| `annual_revenue`              | String     | Nein       | Jahresumsatz des Kontos. |
-| `industry`                    | String     | Nein       | Branche, in der das Konto tätig ist. |
-| `number_of_employees`         | String     | Nein       | Anzahl der Mitarbeiter:innen, unterstützt Bereiche. |
-| `address`                     | String     | Nein       | Straßenadresse des Kontos. |
-| `city`                        | String     | Nein       | Ort, an dem sich das Konto befindet. |
-| `state`                       | String     | Nein       | Bundesstaat, in dem sich das Konto befindet. |
-| `postal_code`                 | String     | Nein       | Postleitzahl der Kontoadresse. |
-| `country`                     | String     | Nein       | Land, in dem sich das Konto befindet. |
-| `notes`                       | String     | Nein       | Zusätzliche Anmerkungen zum Konto. |
-| `website`                     | String     | Nein       | Website-URL des Kontos. |
-| `main_phone`                  | String     | Nein       | Haupttelefonnummer des Kontos. |
-| `created_date`                | Time       | Nein       | Datum, an dem das Konto erstellt wurde. |
-| `account_owner_email_address` | String     | Nein       | Eine interne Kontoinhaberin oder ein interner Kontoinhaber (z. B. „Tom aus dem Vertrieb von Unternehmen A betreut Unternehmen B“). |
-| `parent_account_id`           | String     | Nein       | ID des übergeordneten Kontos, falls zutreffend (z. B. Verknüpfung mit der ID eines Mutterunternehmens). |
-| `sic_code`                    | String     | Nein       | Standard-Branchenklassifizierungscode. |
-| Benutzerdefinierte Felder                 | N/A        | Nein       | Benutzerdefinierte Felder, die von Ihnen definiert und verwaltet werden. |
+| `id`                          | String     | Ja      | Die ID des Accounts in Ihrer CRM-Plattform (Customer Relationship Management). |
+| `name`                        | String     | Ja      | Der Name des Accounts.                                                                |
+| `type`                        | String     | Nein       | Der Typ des Accounts, z. B. Kund:in, Partner oder Reseller.                                                                                   |
+| `annual_revenue`              | String     | Nein       | Jahresumsatz des Accounts.                                                      |
+| `industry`                    | String     | Nein       | Branche, in der der Account tätig ist.                                             |
+| `number_of_employees`         | String     | Nein       | Anzahl der Mitarbeitenden, unterstützt Bereiche.                                           |
+| `address`                     | String     | Nein       | Straßenadresse des Accounts.                                                      |
+| `city`                        | String     | Nein       | Ort, an dem sich der Account befindet.                                                  |
+| `state`                       | String     | Nein       | Bundesland/Staat, in dem sich der Account befindet.                                                 |
+| `postal_code`                 | String     | Nein       | Postleitzahl der Account-Adresse.                                              |
+| `country`                     | String     | Nein       | Land, in dem sich der Account befindet.                                               |
+| `notes`                       | String     | Nein       | Zusätzliche Anmerkungen zum Account.                                                 |
+| `website`                     | String     | Nein       | Website-URL des Accounts.                                                        |
+| `main_phone`                  | String     | Nein       | Haupttelefonnummer des Accounts.                                                  |
+| `created_date`                | Time       | Nein       | Datum, an dem der Account erstellt wurde.                                                  |
+| `account_owner_email_address` | String     | Nein       | Interne:r Account-Inhaber:in (z. B. „Tom aus dem Vertrieb von Unternehmen A betreut Unternehmen B“).      |
+| `parent_account_id`           | String     | Nein       | ID des übergeordneten Accounts, falls zutreffend (z. B. Verknüpfung mit der ID eines Mutterunternehmens). |
+| `sic_code`                    | String     | Nein       | Branchenklassifizierungscode (SIC-Code).                                              |
+| Benutzerdefinierte Felder                 | N/A        | Nein       | Benutzerdefinierte Felder, die von Ihnen definiert und verwaltet werden.                                                             |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 {% alert note %}
-Obwohl einige Felder optional sind, fügen Sie sie nach Möglichkeit hinzu, da es sich um reservierte Feldnamen handelt, die helfen, Ihre Daten organisiert zu halten.
+Obwohl einige Felder optional sind, sollten Sie sie nach Möglichkeit angeben, da es sich um reservierte Feldnamen handelt, die dazu beitragen, Ihre Daten organisiert zu halten.
 {% endalert %}
 
-Importieren Sie als Nächstes Ihre Kontodaten in Braze, indem Sie eine CSV-Datei hochladen oder die Braze REST API verwenden. Sie können diese Daten unter **Dateneinstellungen** einsehen. Sie können diese Daten nicht im Browser-Editor bearbeiten.
+Importieren Sie anschließend Ihre Account-Daten in Braze, indem Sie eine CSV-Datei hochladen oder die Braze REST API verwenden. Sie können diese Daten unter **Data Settings** einsehen. Eine Bearbeitung im Browser-Editor ist nicht möglich.
 
 #### CSV-Datei verwenden
 
 So importieren Sie Ihre Daten per CSV:
 
-1. Gehen Sie zu **Dateneinstellungen** > **Konten**.
-2. Wählen Sie **Daten aktualisieren**.
-3. Wählen Sie unter **CSV-Upload** die Option **Kontodaten** und laden Sie Ihre Datei in Braze hoch.
+1. Gehen Sie zu **Data Settings** > **Accounts**.
+2. Wählen Sie **Update data**.
+3. Wählen Sie unter **CSV upload** die Option **Account Data** und laden Sie Ihre Datei in Braze hoch.
 
-![Das Dropdown-Menü „Daten hochladen“ auf der Seite „Konten“ in Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![Das Dropdown „Upload data“ auf der Seite „Accounts“ in Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+
+### Fehlerbehebung bei CSV-Importen {#troubleshooting-csv-imports}
+
+#### Leere Zeilen bei CSV-Importen von Account-Objekten {#empty-rows-in-account-objects-csv-imports}
+
+Wenn Sie Account-Objekt-Daten importieren und auf der Seite **Accounts** leere Zeilen sehen, prüfen Sie, ob Account-Feldwerte Kommas enthalten.
+
+Bei CSV-Importen von Account-Objekten können Kommas in Werten als Trennzeichen interpretiert werden. Dies kann dazu führen, dass Werte falsch geparst werden und leere Zeilen im Dashboard erscheinen.
+
+Um dieses Problem zu beheben, entfernen Sie Kommas aus der ursprünglichen CSV-Datei und laden Sie sie erneut hoch. Ändern Sie beispielsweise `"$5,000,000"` in `"$5000000"` oder `"$5 million"`, bevor Sie die Datei erneut hochladen.
 
 ## Braze API verwenden {#using-the-braze-api}
 
@@ -313,39 +323,39 @@ curl -X DELETE https://YOUR_REST_API_URL/business/accounts/ACC001 \
 
 ## Objekte in Nachrichten verwenden {#using-objects-in-messages}
 
-Nachdem Sie [Ihre Daten in Braze importiert](#importing-data-to-braze) haben, können Sie Konto-Objekte verwenden, um ein Segment zu erstellen und personalisierte Nachrichten mit Liquid an Nutzer:innen zu senden.
+Nachdem Sie Ihre [Daten in Braze importiert](#importing-data-to-braze) haben, können Sie Account-Objekte verwenden, um ein Segment zu erstellen und personalisierte Nachrichten mithilfe von Liquid an Nutzer:innen zu senden.
 
 ### Schritt 1: Segment erstellen {#step-1-build-a-segment}
 
-Erstellen Sie als Nächstes ein Segment, das Nutzerdaten und Kontodaten kombiniert. In diesem Beispiel sprechen Sie Direktor:innen bei Unternehmen im Gesundheitswesen an, um die Registrierung für ein neues Webinar Ihres Gesundheitsförderungsunternehmens zu steigern.
+Erstellen Sie als Nächstes ein Segment, das Nutzerdaten und Account-Daten kombiniert. In diesem Beispiel sprechen Sie Direktor:innen bei Unternehmen im Gesundheitswesen an, um die Registrierung für ein neues Webinar Ihres Gesundheitsförderungsunternehmens zu steigern.
 
-1. Gehen Sie zu **Zielgruppe** > **Segments** und wählen Sie **Segment erstellen**.
+1. Gehen Sie zu **Audience** > **Segments** und wählen Sie **Create Segment** aus.
 2. Geben Sie Ihrem Segment einen Namen.
-3. Wählen Sie im **Segment Builder** den Filter **Unternehmen** und richten Sie die folgenden Segmentierungsfilter ein. Wenn Sie fertig sind, wählen Sie **Speichern**.
+3. Wählen Sie im **Segment Builder** den Filter **Business** aus und richten Sie die folgenden Segmentierungsfilter ein. Wenn Sie fertig sind, wählen Sie **Save** aus.
 
-| Filter | Beschreibung |
+| Filter                          | Beschreibung                                      |
 |---------------------------------|--------------------------------------------------|
-| `Role is exactly director` | Zielt auf Nutzer:innen ab, deren Rolle genau „Direktor:in“ ist |
-| `Accounts industry matches regex healthcare` | Findet Nutzer:innen in Konten mit Branchen, die mit dem Gesundheitswesen zusammenhängen |
+| `Role is exactly director`      | Zielt auf Nutzer:innen ab, deren Rolle speziell „Director“ ist |
+| `Accounts industry matches regex healthcare` | Findet Nutzer:innen in Accounts mit Branchen, die mit dem Gesundheitswesen zusammenhängen |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert important %}
-Derzeit müssen Sie zum Verwenden mehrerer Kontofilter **Kriterien hinzufügen** auswählen, anstatt das Dropdown-Menü **ODER/UND** zu verwenden.
+Um derzeit mehrere Account-Filter zu verwenden, wählen Sie **Add Criteria** aus, anstatt das **OR/AND**-Dropdown zu verwenden.
 {% endalert %}
 
-![Segmentierungsfilter, die eingerichtet wurden, um ein Segment für Nutzer:innen zu erstellen, die Direktor:innen bei Unternehmen im Gesundheitswesen sind.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
+![Segmentierungsfilter, die so eingerichtet sind, dass ein Segment für Nutzer:innen erstellt wird, die Direktor:innen bei Unternehmen im Gesundheitswesen sind.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
 
 {% alert note %}
-Die Segmentierung funktioniert nur für die ersten 1.000 Kontodatensätze, die den Kriterien entsprechen. Sie können bis zu einen Unternehmensfilter pro Segment verwenden, und alle Kriterien müssen in einem Filter enthalten sein.
+Die Segmentierung funktioniert nur für die ersten 1.000 Account-Datensätze, die den Kriterien entsprechen. Sie können bis zu einen Business-Filter pro Segment verwenden, und alle Kriterien müssen in einem Filter enthalten sein.
 {% endalert %}
 
-### Schritt 2: Liquid zur Personalisierung verwenden {#step-2-use-liquid-to-personalize}
+### Schritt 2: Mit Liquid personalisieren {#step-2-use-liquid-to-personalize}
 
 Jetzt können Sie Ihre Nachricht personalisieren, um Nutzer:innen Informationen über Opportunities zu senden. In diesem Beispiel verfassen Sie eine Nachricht an Ihre Direktor:innen und verlinken sie zum Webinar. Sie können auch einen Braze-Katalog verwenden, um branchenspezifische Bilder für die Personalisierung abzurufen.
 
-#### Schritt 2.1: Mit Kontoinformationen personalisieren {#step-21-personalize-with-account-information}
+#### Schritt 2.1: Mit Account-Informationen personalisieren {#step-21-personalize-with-account-information}
 
-Wählen Sie **Unternehmen** als Personalisierungstyp und dann **Name**, um die Nachricht mit dem Unternehmensnamen der Nutzerin oder des Nutzers zu personalisieren.
+Wählen Sie **Business** als Personalisierungstyp aus und dann **Name**, um die Nachricht mit dem Firmennamen der Nutzer:innen zu personalisieren.
 
 Folgendes wird in Ihre Zwischenablage kopiert.
 
@@ -356,11 +366,11 @@ Folgendes wird in Ihre Zwischenablage kopiert.
 ```
 {% endraw %}
 
-Braze generiert den {% raw %}`{% business %}`{% endraw %}-Tag, der ein Array namens `business_accounts` erstellt, das Kontoinformationen für das zugehörige Konto enthält.
+Braze generiert den {% raw %}`{% business %}`{% endraw %}-Tag, der ein Array namens `business_accounts` erstellt, das Account-Informationen für den zugehörigen Account enthält.
 
 Passen Sie die automatisch generierte Ausgabe an, um Ihre Nachricht zu erstellen.
 
-Im folgenden Beispiel verschieben Sie den Aufruf des {% raw %}`{% business %}`{% endraw %}-Tags an den Anfang der Nachricht und personalisieren mit dem Vornamen der Nutzerin oder des Nutzers. Verwenden Sie den Kontonamen, um die Nachricht zu personalisieren. Die Liquid-Ausgabe bleibt gleich, aber Sie platzieren sie an verschiedenen Stellen der Nachricht.
+Im folgenden Beispiel verschieben Sie den Aufruf des {% raw %}`{% business %}`{% endraw %}-Tags an den Anfang der Nachricht und personalisieren mit dem Vornamen der Nutzer:innen. Verwenden Sie den Account-Namen, um die Nachricht zu personalisieren. Die Liquid-Ausgabe bleibt gleich, aber Sie platzieren sie in verschiedenen Teilen der Nachricht.
 
 {% raw %}
 ```javascript
@@ -372,7 +382,7 @@ We would love to invite you and your peers at {{ business_accounts[0].name }} to
 ```
 {% endraw %}
 
-Die Ausgabe sieht ähnlich wie die folgende aus:
+Die Ausgabe sieht in etwa wie folgt aus:
 
 {% raw %}
 ```javascript
@@ -386,10 +396,10 @@ We would love to invite you and your peers at Sunshine Health to join our latest
 
 Personalisieren Sie als Nächstes Ihre Nachricht weiter, indem Sie Braze-Kataloge verwenden, um ein Bild hinzuzufügen und zu speichern, das dem Unternehmen im Gesundheitswesen entspricht.
 
-Für dieses Beispiel nehmen Sie Folgendes an:
+Für dieses Beispiel nehmen Sie an, dass Sie Folgendes haben:
 
-- Ein eingerichteter Katalog namens `industry_assets`
-- Die ID für jeden Katalogeintrag ist der Name einer Branche, die den Branchen in Ihren Konten entspricht
+- Einen eingerichteten Katalog namens `industry_assets`
+- Die ID für jeden Katalogeintrag ist der Name einer Branche, die den Branchen in Ihren Accounts entspricht
 - Die Bild-URL-Links für ein primäres und ein sekundäres Bild.
 
 Das Folgende ist ein Beispiel für das in dieser Personalisierung verwendete Liquid.

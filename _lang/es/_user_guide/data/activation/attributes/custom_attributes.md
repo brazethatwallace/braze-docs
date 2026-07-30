@@ -21,14 +21,14 @@ Cuando se almacenan en Braze, los atributos personalizados pueden utilizarse par
 
 Algunos ejemplos comunes de atributos personalizados incluyen:
 
-- Segmentar y suprimir audiencias segmentando a los usuarios en función de rasgos como el nivel de fidelización, el estado de suscripción, el idioma preferido o el tipo de plan
-- Personalizar mensajes con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) haciendo referencia a atributos como el nombre del usuario, los puntos de recompensas o la categoría favorita
-- Seguimiento de las etapas del ciclo de vida y los estados del usuario, como la etapa de incorporación, el estado de la cuenta o la fecha de finalización del periodo de prueba
+- Segmentar y suprimir audiencias segmentando usuarios en función de rasgos como nivel de fidelización, estado de suscripción, idioma preferido o tipo de plan
+- Personalizar mensajes con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) haciendo referencia a atributos como el nombre de un usuario, puntos de recompensas o categoría favorita
+- Seguimiento de etapas del ciclo de vida y estados de usuario, como etapa de incorporación, estado de la cuenta o fecha de fin de prueba
 - Contar acciones de bajo valor con [atributos numéricos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como incrementar un atributo `feature_views_count` cada vez que un usuario visualiza una característica
 - Registrar cuándo ocurrieron por última vez acciones de bajo valor mediante [atributos de tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como `last_support_ticket_at` o `last_password_reset_at`
-- Almacenar intereses e historial del usuario como [arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como géneros favoritos o contenido visto recientemente, para segmentación basada en intereses
+- Almacenar intereses e historial de usuario como [arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como géneros favoritos o contenido visto recientemente, para segmentación basada en intereses
 - Almacenar datos de perfil más completos como [objetos]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) o [arrays de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), como preferencias estructuradas o múltiples direcciones guardadas
-- Desencadenar mensajes basados en acciones cuando cambia el valor de un atributo mediante [desencadenadores de atributos]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), como enviar una notificación de subida de nivel cuando cambia el `rewards_tier` de un usuario
+- Desencadenar mensajes basados en acciones cuando cambia el valor de un atributo mediante [desencadenadores de atributos]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), como enviar una notificación de subida de nivel cuando el `rewards_tier` de un usuario cambia
 
 ## Gestión de atributos personalizados {#managing-custom-attributes}
 
@@ -45,6 +45,10 @@ Si un atributo personalizado de tipo array aparece en un perfil de usuario sin v
 {% alert important %}
 Para una correcta segmentación del mensaje, asegúrate de que el tipo de datos de tu atributo personalizado coincida con el atributo personalizado real. <br><br>Por ejemplo, si `newsletter_subscribed` está definido como una cadena, tu sintaxis Liquid debería verse así: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}`{% endraw %}. Si `newsletter_subscribed` está definido como booleano, la sintaxis Liquid no debería tener comillas simples: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == true %}`{% endraw %}.
 {% endalert %}
+
+### Solución de problemas de atributos personalizados o eventos duplicados {#troubleshooting-duplicate-custom-attributes-or-events}
+
+{% multi_lang_include data_activation/troubleshooting_duplicate_custom_data_entries.md %}
 
 Desde esta página, puedes ver, gestionar, crear o bloquear atributos personalizados existentes. Selecciona el menú junto a un atributo personalizado para las siguientes acciones:
 
@@ -89,7 +93,7 @@ Para exportar la lista de atributos personalizados como un archivo CSV, seleccio
 
 ### Requisitos previos {#prerequisites}
 
-El atributo personalizado no debe estar actualmente en uso en ninguna Campaign, Canvas ni Segment activos. Si intentas cambiar el tipo de datos mientras el atributo aún está referenciado, el panel muestra un error y bloquea el cambio.
+El atributo personalizado no debe estar actualmente en uso en ninguna Campaign, Canvas o Segment activo. Si intentas cambiar el tipo de datos mientras el atributo aún está referenciado, el panel muestra un error y bloquea el cambio.
 
 ### Cambiar el tipo de datos {#changing-the-data-type}
 

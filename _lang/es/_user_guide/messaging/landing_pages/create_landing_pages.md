@@ -35,23 +35,23 @@ Introduce un nombre y una descripción para la página de inicio. Estos detalles
 
 #### Detalles del sitio {#site-details}
 
-Configura metaetiquetas para personalizar cómo aparece tu página en la pestaña del navegador y optimizar los resultados de los motores de búsqueda. Estos serán visibles para tus clientes.
+Configura las metaetiquetas para personalizar cómo aparece tu página en la pestaña del navegador y optimizar los resultados de los motores de búsqueda. Estos serán visibles para tus clientes.
 
-Te sugerimos seguir estas buenas prácticas:
+Te sugerimos seguir estas mejores prácticas:
 
 | Campo | Descripción | Recomendaciones |
 | --- | --- | --- |
 | Título del sitio | El título que se muestra en la pestaña del navegador. | Usa hasta 60 caracteres. |
 | Meta descripción | Un fragmento de texto que se muestra en los resultados de búsqueda. | Usa entre 140 y 160 caracteres. |
 | Favicon | El icono que aparece junto al título del sitio en la pestaña del navegador. | Usa una relación de aspecto de 1:1 y un tipo de archivo compatible: PNG, JPEG o ICO. |
-| URL de la página | Esta es la ruta URL de tu página de inicio. Este valor también se referencia al usar [etiquetas de Liquid de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que puedes incrustar en un mensaje para identificar automáticamente cuándo envían tu formulario. | Este valor debe ser único en tu espacio de trabajo. |
+| URL de la página | Esta es la ruta URL a tu página de inicio. Este valor también se referencia al usar [etiquetas de Liquid de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que puedes incrustar en un mensaje para identificar automáticamente cuándo envían tu formulario. | Este valor debe ser único en tu espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalles del sitio" }
 
 ### Paso 3: Personalizar la página {#step-3-customize-the-page}
 
 Si aún no lo has hecho, selecciona **Guardar como borrador**. Para empezar a personalizar tu página, selecciona **Editar página de inicio**. El editor de arrastrar y soltar precargará una plantilla predeterminada que puedes personalizar para adaptarla a tu caso de uso.
 
-![Un ejemplo de página de inicio creándose en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
+![Un ejemplo de página de inicio siendo creada en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
 El editor utiliza dos tipos de componentes para la composición de páginas de inicio: bloques básicos y bloques de formulario. Todos los bloques deben colocarse en una fila. Para una referencia dedicada de cada bloque y sus propiedades, consulta [Bloques de editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
@@ -76,11 +76,11 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 
 #### Texto con span {#span-text}
 
-Para aplicar estilos específicos a bloques de texto sin código personalizado, resalta el texto que deseas estilizar y luego selecciona **Wrap with span for style**.
+Para aplicar estilos específicos a bloques de texto sin código personalizado, resalta el texto que deseas estilizar y luego selecciona **Envolver con span para estilo**.
 
-![Cuadro de texto con diferentes secciones de texto estilizadas, como diferentes tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción de "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Cuadro de texto con diferentes secciones de texto estilizadas, como diferentes tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción "Envolver con span para estilo".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
-Ajusta las propiedades del span para actualizar el estilo de tu texto, que incluyen:
+Ajusta las propiedades del span para actualizar el estilo de tu texto, que incluye:
 
 - Familia, peso y tamaño de fuente
 - Altura de línea
@@ -119,13 +119,13 @@ Después de crear una página de inicio con un formulario, asegúrate de incrust
 
 Puedes establecer estilos que se apliquen a todos los bloques de componentes relevantes en tu página de inicio desde la pestaña **Contenedor de página**. Estos estilos se aplican en toda tu página excepto donde los anules con un bloque específico.
 
-Te recomendamos configurar los estilos a nivel de contenedor de página antes de personalizar los estilos a nivel de bloque. También puedes añadir una imagen de fondo para toda la página.
+Te recomendamos configurar los estilos a nivel del contenedor de página antes de personalizar los estilos a nivel de bloque. También puedes añadir una imagen de fondo para toda la página.
 
 ![La sección "Contenedor de página" con opciones para personalizar imágenes de fondo, colores, detalles de borde y estilo de contenido.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
-#### Adaptable a los dispositivos del usuario {#responsive-to-user-devices}
+#### Receptivo a los dispositivos del usuario {#responsive-to-user-devices}
 
-Puedes hacer que tu página de inicio se adapte al tamaño del dispositivo del usuario apilando columnas verticalmente en pantallas más pequeñas. Para habilitar esto, añade una columna a la fila que deseas hacer adaptable y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
+Puedes hacer que tu página de inicio sea receptiva al tamaño del dispositivo del usuario apilando columnas verticalmente en pantallas más pequeñas. Para habilitar esto, añade una columna en la fila que deseas hacer receptiva y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
 
 Cuando está habilitado, también puedes invertir el apilamiento de columnas para controlar el orden vertical del contenido multicolumna en pantallas más pequeñas. Esto hace que las páginas se vean y se sientan mejor en dispositivos móviles sin código personalizado.
 
@@ -159,9 +159,20 @@ Si tu página de confirmación se abre en una nueva pestaña, un usuario que reg
 
 ### Paso 5: Previsualizar la página {#step-5-preview-the-page}
 
-Puedes previsualizar tu página de inicio en la pestaña **Vista previa** del editor. Después de guardar tu página de inicio como borrador, puedes visitar la URL yendo a **Páginas de inicio** y seleccionando **Copiar URL** junto a tu página de inicio. También puedes compartir la URL con colaboradores.
+Puedes previsualizar tu página de inicio en la pestaña **Vista previa** del editor. Después de guardar tu página de inicio como borrador, puedes visitar la URL yendo a **Páginas de inicio** y seleccionando **Copiar URL** junto a tu página de inicio.
 
 ![Una página de inicio con el menú abierto mostrando la opción "Copiar URL".]({% image_buster /assets/img/landing_pages/copy-url.png %})
+
+#### Compartir un enlace de vista previa {#sharing-a-preview-link}
+
+En el editor, también puedes seleccionar **Copiar enlace de vista previa** para compartir la página con revisores que no tienen acceso al panel.
+
+- Si tu página de inicio no usa Liquid, este enlace es el mismo que la URL directa de **Copiar URL**, abierta en modo de vista previa.
+- Si tu página de inicio usa Liquid y tienes el derecho Landing Pages Pro, el enlace en su lugar renderiza la página en vivo bajo demanda y refleja tus cambios actuales en lugar de una instantánea de cuando generaste el enlace. El contenido se personaliza por usuario.
+
+Para enlaces de vista previa en otros canales, consulta [vista previa compartible]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
+
+### Paso 6: Publicar {#step-6-publish}
 
 Antes de publicar, asegúrate de que:
 
@@ -175,11 +186,11 @@ Cuando estés listo, selecciona **Publicar página de inicio**.
 Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios en iOS y en Safari (incluidos los controles integrados de Safari y las extensiones de terceros) pueden afectar negativamente el comportamiento de las páginas de inicio cuando un botón **Enviar** de formulario también abre otra URL, ya sea que esa URL se abra en la misma pestaña o en una nueva pestaña.
 {% endalert %}
 
-## Uso de plantillas {#use-templates}
+## Usar plantillas {#use-templates}
 
-Las plantillas de páginas de inicio son puntos de partida de diseño reutilizables que te ayudan a crear páginas de inicio más rápido. Una plantilla no tiene URL pública y los clientes no pueden visitarla. Para crear una página de inicio en vivo a partir de una plantilla, selecciona la plantilla al crear una nueva página de inicio, personalízala según sea necesario y publícala.
+Las plantillas de páginas de inicio son puntos de partida de diseño reutilizables que te ayudan a crear páginas de inicio más rápido. Una plantilla no tiene URL pública y los clientes no pueden visitarla. Para crear una página de inicio en vivo a partir de una plantilla, selecciona la plantilla al crear una nueva página de inicio, personalízala según sea necesario y luego publícala.
 
-Puedes acceder a las plantillas y gestionarlas tanto en el editor de páginas de inicio como desde la página **Plantillas de páginas de inicio** (**Contenido** > **Página de inicio**). Las plantillas de páginas de inicio requieren un nombre y una descripción opcional.
+Puedes acceder a las plantillas y gestionarlas tanto en el editor de páginas de inicio como desde la página **Landing Page Templates** (**Content** > **Landing Page**). Las plantillas de páginas de inicio requieren un nombre y una descripción opcional.
 
 ## Gestionar plantillas {#manage-templates}
 
@@ -187,7 +198,7 @@ Puedes previsualizar, archivar o editar plantillas de páginas de inicio. Puedes
 
 ![Un menú desplegable con opciones para guardar, cambiar y eliminar una página de inicio.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Consultar análisis {#view-analytics}
+## Ver análisis {#view-analytics}
 
 Para analizar la eficacia de tu página de inicio, ve a **Mensajería** > **Páginas de inicio** y selecciona una página de inicio que hayas publicado. Aquí puedes hacer seguimiento del número de vistas de página, clics en la página, envíos de página y las tasas de envío de tu página de inicio.
 

@@ -23,7 +23,7 @@ Landing-Page-Templates sind unveröffentlichte Design-Ausgangspunkte ohne öffen
 
 ### Schritt 1: Neuen Entwurf erstellen {#step-1-create-a-new-draft}
 
-Gehen Sie zu **Messaging** > **Landing-Pages** und wählen Sie **Landing-Page erstellen**. Sie können auch den Namen einer bestehenden Landing-Page auswählen, um diese zu duplizieren oder Änderungen vorzunehmen.
+Gehen Sie zu **Messaging** > **Landing-Pages** und wählen Sie **Landing-Page erstellen**. Sie können auch den Namen einer bestehenden Landing-Page auswählen, um sie zu duplizieren oder Änderungen vorzunehmen.
 
 ### Schritt 2: Seitendetails eingeben {#step-2-enter-the-page-details}
 
@@ -67,18 +67,18 @@ Sie können diese Blöcke verwenden, um Inhalte hinzuzufügen und das Layout Ihr
 | Titel | Ein Textblock zum Hinzufügen einer Überschrift oder eines Titels zu Ihrem Inhalt. Nützlich zum Strukturieren von Abschnitten und zur Verbesserung der Lesbarkeit. |
 | Absatz | Ein Textblock für längere Beschreibungen oder zusätzlichen Kontext. Unterstützt Rich-Text-Formatierung. |
 | Button | Ein klickbares Element, das Nutzer:innen zu einer bestimmten Aktion weiterleitet, z. B. zum Öffnen eines Links oder zum Absenden eines Formulars. |
-| Optionsfeld | Fügt eine Liste von Optionen hinzu, aus denen Nutzer:innen eine auswählen können. Bei der Übermittlung wird das zugehörige angepasste Attribut im Nutzerprofil protokolliert. |
+| Optionsfeld | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen können. Bei der Übermittlung wird das zugehörige angepasste Attribut im Nutzerprofil protokolliert. |
 | Bild | Ein Block zur Anzeige von Bildern. Sie können ein Bild hochladen oder eine URL angeben, um auf eine externe Quelle zu verweisen. |
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
 | Abstandshalter | Ein unsichtbarer Block, der vertikalen Abstand zwischen Elementen hinzufügt, um Layout und Lesbarkeit zu verbessern. |
 | Benutzerdefinierter Code | Ein Block, mit dem Sie benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen einfügen und ausführen können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Seite anpassen" }
 
-#### Span-Text
+#### Span-Text {#span-text}
 
 Um bestimmte Stile auf Textblöcke ohne benutzerdefinierten Code anzuwenden, markieren Sie den Text, den Sie gestalten möchten, und wählen Sie dann **Mit Span für Stil umschließen**.
 
-![Textfeld mit verschiedenen stilisierten Textabschnitten, wie unterschiedlichen Schriftgrößen und Farben, und einem hervorgehobenen Abschnitt, der eine Symbolleiste mit der Option „Mit Span für Stil umschließen“ anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Textfeld mit verschiedenen stilisierten Textabschnitten, wie unterschiedlichen Schriftgrößen und Farben, und einem hervorgehobenen Bereich, der eine Symbolleiste mit der Option „Mit Span für Stil umschließen“ anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
 Passen Sie die Span-Eigenschaften an, um Ihre Textgestaltung zu aktualisieren, einschließlich:
 
@@ -101,9 +101,9 @@ Sie können diese Blöcke verwenden, um ein Formular zu erstellen, das von Nutze
 | Blocktyp | Beschreibung |
 |---------------|-------------|
 | E-Mail-Erfassung | Ein Formularfeld für E-Mail-Adressen. Bei der Übermittlung wird die E-Mail-Adresse dem Nutzerprofil in Braze hinzugefügt. |
-| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Bei der Übermittlung werden die Nutzer:innen für Ihre SMS- oder WhatsApp-Abo-Gruppe angemeldet. |
+| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Bei der Übermittlung wird die Nutzer:in Ihrer SMS- oder WhatsApp-Abo-Gruppe hinzugefügt. |
 | Eingabefeld | Ein Formularfeld, das Standardattribute (wie Vor- und Nachname) oder einen angepassten Attribut-String Ihrer Wahl unterstützt. |
-| Dropdown | Nutzer:innen können einen Eintrag aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
+| Dropdown | Nutzer:innen können einen Artikel aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
 | Kontrollkästchen | Wenn Nutzer:innen das Kästchen ankreuzen, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht angekreuzt wird, wird das Attribut auf `false` gesetzt. |
 | Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren Auswahlmöglichkeiten wählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
@@ -117,7 +117,7 @@ Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbe
 
 #### Seitencontainer-Stile {#page-container-styles}
 
-Sie können Stile festlegen, die auf alle relevanten Komponentenblöcke Ihrer Landing-Page angewendet werden, und zwar über den Tab **Seitencontainer**. Diese Stile gelten überall auf Ihrer Seite, außer dort, wo Sie sie mit einem bestimmten Block überschreiben.
+Sie können Stile festlegen, die auf alle relevanten Komponentenblöcke Ihrer Landing-Page angewendet werden, und zwar über den Tab **Seitencontainer**. Diese Stile gelten überall auf Ihrer Seite, es sei denn, Sie überschreiben sie mit einem bestimmten Block.
 
 Wir empfehlen, zuerst Stile auf Seitencontainer-Ebene einzurichten, bevor Sie Stile auf Block-Ebene anpassen. Sie können auch ein Hintergrundbild für die gesamte Seite hinzufügen.
 
@@ -127,7 +127,7 @@ Wir empfehlen, zuerst Stile auf Seitencontainer-Ebene einzurichten, bevor Sie St
 
 Sie können Ihre Landing-Page responsiv für die Bildschirmgröße der Nutzergeräte gestalten, indem Sie Spalten auf kleineren Bildschirmen vertikal stapeln. Um dies zu aktivieren, fügen Sie eine Spalte in die Zeile ein, die Sie responsiv gestalten möchten, und schalten Sie dann **Auf kleineren Bildschirmen vertikal stapeln** im Bereich **Spalten anpassen** ein.
 
-Wenn diese Option aktiviert ist, können Sie auch die Stapelreihenfolge der Spalten umkehren, um die vertikale Anordnung von mehrspaltigem Inhalt auf kleineren Bildschirmen zu steuern. So sehen Seiten auf Mobilgeräten besser aus und fühlen sich besser an – ohne benutzerdefinierten Code.
+Wenn aktiviert, können Sie auch die Stapelreihenfolge der Spalten umkehren, um die vertikale Reihenfolge von mehrspaltigem Inhalt auf kleineren Bildschirmen zu steuern. So sehen und fühlen sich Seiten auf Mobilgeräten besser an – ohne benutzerdefinierten Code.
 
 ![Der Schalter „Auf kleineren Bildschirmen vertikal stapeln“ im Bereich „Spalten anpassen“.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
@@ -145,7 +145,7 @@ Um beispielsweise die Einwilligungserfassung vor dem Absenden des Formulars zu e
 
 Wenn Ihre Landing-Page kein Formular enthält, fahren Sie mit dem nächsten Schritt fort.
 
-Wenn Ihre Landing-Page ein [Formular](#form-blocks) enthält, erstellen Sie eine zweite Landing-Page als Bestätigungserlebnis. Diese Seite sollte den Nutzer:innen danken oder einen nächsten Schritt nach dem Absenden des Formulars anbieten.
+Wenn Ihre Landing-Page ein [Formular](#form-blocks) enthält, erstellen Sie eine zweite Landing-Page als Bestätigungserlebnis. Diese Seite sollte Nutzer:innen danken oder einen nächsten Schritt nach dem Absenden des Formulars anbieten.
 
 So verknüpfen Sie die Bestätigungsseite:
 - Wählen Sie den **Absenden**-Button in Ihrem Formular aus
@@ -159,9 +159,20 @@ Wenn Ihre Bestätigungsseite in einem neuen Tab geöffnet wird, kann es vorkomme
 
 ### Schritt 5: Seite in der Vorschau anzeigen {#step-5-preview-the-page}
 
-Sie können Ihre Landing-Page im Tab **Vorschau** des Editors in der Vorschau anzeigen. Nachdem Sie Ihre Landing-Page als Entwurf gespeichert haben, können Sie die URL aufrufen, indem Sie zu **Landing-Pages** gehen und neben Ihrer Landing-Page **URL kopieren** auswählen. Sie können die URL auch mit Mitarbeitenden teilen.
+Sie können Ihre Landing-Page im Tab **Vorschau** des Editors in der Vorschau anzeigen. Nachdem Sie Ihre Landing-Page als Entwurf gespeichert haben, können Sie die URL besuchen, indem Sie zu **Landing-Pages** gehen und neben Ihrer Landing-Page **URL kopieren** auswählen.
 
 ![Eine Landing-Page mit geöffnetem Menü, das die Option „URL kopieren“ zeigt.]({% image_buster /assets/img/landing_pages/copy-url.png %})
+
+#### Vorschau-Link teilen {#sharing-a-preview-link}
+
+Im Editor können Sie auch **Vorschau-Link kopieren** auswählen, um die Seite mit Prüfer:innen zu teilen, die keinen Dashboard-Zugang haben.
+
+- Wenn Ihre Landing-Page kein Liquid verwendet, ist dieser Link derselbe wie die direkte URL von **URL kopieren**, geöffnet im Vorschaumodus.
+- Wenn Ihre Landing-Page Liquid verwendet und Sie über die Landing Pages Pro-Berechtigung verfügen, rendert der Link stattdessen die Live-Seite auf Abruf und spiegelt Ihre aktuellen Änderungen wider, anstatt einen Snapshot vom Zeitpunkt der Link-Erstellung. Inhalte werden pro Nutzer:in personalisiert.
+
+Für Vorschau-Links auf anderen Kanälen siehe [Teilbare Vorschau]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
+
+### Schritt 6: Veröffentlichen {#step-6-publish}
 
 Stellen Sie vor der Veröffentlichung sicher, dass:
 
@@ -175,11 +186,11 @@ Wenn Sie bereit sind, wählen Sie **Landing-Page veröffentlichen**.
 Aggressive Pop-up-Blocker und Werbeblocker auf iOS und in Safari (einschließlich der integrierten Steuerungen von Safari und Erweiterungen von Drittanbietern) können das Verhalten von Landing-Pages negativ beeinflussen, wenn ein **Absenden**-Button des Formulars gleichzeitig eine andere URL öffnet – unabhängig davon, ob diese URL im selben Tab oder in einem neuen Tab geöffnet wird.
 {% endalert %}
 
-## Templates verwenden {#using-templates}
+## Templates verwenden {#use-templates}
 
-Landing-Page-Templates sind wiederverwendbare Design-Ausgangspunkte, die Ihnen helfen, Landing-Pages schneller zu erstellen. Ein Template hat keine öffentliche URL und kann nicht von Kund:innen besucht werden. Um eine Live-Landing-Page aus einem Template zu erstellen, wählen Sie das Template beim Erstellen einer neuen Landing-Page aus, passen Sie es nach Bedarf an und veröffentlichen Sie es.
+Landing-Page-Templates sind wiederverwendbare Design-Ausgangspunkte, die Ihnen helfen, Landing-Pages schneller zu erstellen. Ein Template hat keine öffentliche URL und kann von Kund:innen nicht besucht werden. Um eine Live-Landing-Page aus einem Template zu erstellen, wählen Sie das Template beim Erstellen einer neuen Landing-Page aus, passen Sie es nach Bedarf an und veröffentlichen Sie es.
 
-Templates können sowohl im Landing-Page-Editor als auch auf der Seite **Landing-Page-Templates** (**Inhalt** > **Landing-Page**) aufgerufen und verwaltet werden. Landing-Page-Templates erfordern einen Namen und eine optionale Beschreibung.
+Templates können sowohl im Landing-Page-Editor als auch auf der Seite **Landing Page Templates** (**Content** > **Landing Page**) aufgerufen und verwaltet werden. Landing-Page-Templates erfordern einen Namen und eine optionale Beschreibung.
 
 ## Templates verwalten {#manage-templates}
 
@@ -189,7 +200,7 @@ Sie können Landing-Page-Templates in der Vorschau anzeigen, archivieren oder be
 
 ## Analytics anzeigen {#view-analytics}
 
-Um die Effektivität Ihrer Landing-Page zu analysieren, gehen Sie zu **Messaging** > **Landing-Pages** und wählen Sie eine veröffentlichte Landing-Page aus. Hier können Sie die Anzahl der Seitenaufrufe, Seitenklicks, Formularübermittlungen und die Übermittlungsraten Ihrer Landing-Page verfolgen.
+Um die Effektivität Ihrer Landing-Page zu analysieren, gehen Sie zu **Messaging** > **Landing-Pages** und wählen Sie eine veröffentlichte Landing-Page aus. Hier können Sie die Anzahl der Seitenaufrufe, Seitenklicks, Seitenübermittlungen und die Übermittlungsraten Ihrer Landing-Page verfolgen.
 
 ![Der Analytics-Bereich einer Landing-Page.]({% image_buster /assets/img/landing_pages/analytics.png %})
 

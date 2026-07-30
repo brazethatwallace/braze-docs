@@ -25,7 +25,7 @@ Pour commencer, consultez les ressources suivantes :
 | 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exigences de version minimale" }
 
-Ce SDK hérite également des exigences de ses SDK natifs Braze sous-jacents. Veillez à respecter également les listes ci-dessous :
+Ce SDK hérite également des exigences de ses SDK natifs Braze sous-jacents. Veillez à respecter les listes d'exigences suivantes :
 * [Exigences du SDK Android](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
 * [Exigences du SDK Swift](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 

@@ -13,22 +13,22 @@ channel: email
 
 ## O que acontece quando um e-mail é enviado e vários perfis têm o mesmo endereço de e-mail? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Se vários usuários com endereços de e-mail correspondentes estiverem em um segmento para receber uma campanha, um único perfil de usuário com esse endereço de e-mail será selecionado no momento do envio. Dessa forma, o e-mail é enviado apenas uma vez e deduplicado, garantindo que não chegue ao mesmo endereço de e-mail várias vezes.
+Se vários usuários com endereços de e-mail correspondentes estiverem em um segmento para receber uma campanha, um único perfil de usuário com esse endereço de e-mail é selecionado no momento do envio. Dessa forma, o e-mail é enviado apenas uma vez e deduplicado, garantindo que não chegue ao mesmo endereço de e-mail várias vezes.
 
-**Endereços de e-mail exclusivos:** a Braze não exige endereços de e-mail exclusivos entre perfis. Se você depende de uma relação de um para um entre um endereço de e-mail e um perfil, monitore duplicatas internamente ao criar usuários.
+**Endereços de e-mail exclusivos:** A Braze não exige endereços de e-mail exclusivos entre perfis. Se você depende de uma relação um-para-um entre um endereço de e-mail e um perfil, monitore duplicatas internamente ao criar usuários.
 
-**Deduplicação antes do Liquid:** para envios em que a Braze deduplica por endereço de e-mail dentro de um único despacho (por exemplo, Campaigns agendadas em que vários membros do segmento com o mesmo endereço são processados juntos), essa deduplicação acontece antes de o Liquid ser executado para o perfil escolhido para representar aquele endereço. Se o Liquid abortar para esse perfil (por exemplo, com [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), esse endereço não receberá a mensagem naquele despacho — incluindo perfis já ignorados pela deduplicação. Envios disparados não aplicam essa mesma deduplicação de endereço dentro do despacho; vários perfis que compartilham um endereço podem permanecer elegíveis em um lote, então esse comportamento de interrupção não se aplica da mesma forma (veja o próximo parágrafo).
+**Deduplicação antes do Liquid:** Para envios em que a Braze deduplica por endereço de e-mail dentro de um único despacho (por exemplo, Campaigns agendadas em que vários membros do segmento com o mesmo endereço são processados juntos), essa deduplicação acontece antes de o Liquid ser executado para o perfil escolhido para representar aquele endereço. Se o Liquid abortar para esse perfil (por exemplo, com [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), esse endereço não recebe a mensagem naquele despacho — incluindo perfis já ignorados pela deduplicação. Envios disparados não aplicam essa mesma deduplicação de endereço dentro do despacho; vários perfis que compartilham um endereço podem permanecer elegíveis em um único lote, então esse comportamento de interrupção não se aplica da mesma forma (veja o próximo parágrafo).
 
-Se vários perfis compartilham um endereço de e-mail e um perfil cancela a inscrição, a Braze atualiza outros perfis (até 100) com esse endereço para o mesmo estado de inscrição. Isso se aplica a cancelamentos de inscrição e outras alterações, como estado de inscrição global e status de grupos de inscrições individuais.
+Se vários perfis compartilham um endereço de e-mail e um perfil cancela a inscrição, a Braze atualiza outros perfis (até 100) com esse endereço para o mesmo estado de inscrição. Isso se aplica a cancelamentos de inscrição e outras alterações, como estado de inscrição global e status individuais de grupos de inscrições.
 
-**Grupos de teste:** para Campaigns com [grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups), a Braze seleciona um perfil para entrega principal quando vários perfis compartilham um endereço. Esse destinatário principal pode não estar no seu grupo de teste, mesmo quando outro perfil com o mesmo endereço está.
+**Grupos de teste:** Para Campaigns com [grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups), a Braze seleciona um perfil para entrega principal quando vários perfis compartilham um endereço. Esse destinatário principal pode não estar no seu grupo de teste, mesmo quando outro perfil com o mesmo endereço está.
 
 Os seguintes cenários podem fazer parecer que um usuário recebeu um e-mail duas vezes:
 
-- **Listas de teste ou destinatários de teste:** endereços de teste e destinatários internos de teste podem receber um envio além do seu público principal, o que pode parecer uma duplicata quando uma caixa de entrada corresponde tanto a um perfil quanto a uma entrada de teste.
-- **Ocorreu um erro durante a criação da Campaign ou do Canvas:** o usuário pode não receber o mesmo envio duas vezes, mas pode receber dois e-mails separados com a mesma linha de assunto. Quando uma Campaign ou Canvas é duplicado, verifique os detalhes de configuração do e-mail, como imagens ou linhas de assunto. Você também pode consultar os changelogs para ver se a Campaign ou o Canvas foi modificado após o lançamento — uma duplicata pode compartilhar a mesma linha de assunto que a original quando o usuário a recebeu.
-- **Vários perfis de usuário têm encaminhamento de e-mail:** se um usuário tem várias contas em um determinado app, mas uma conta encaminha e-mails, o usuário recebe a Campaign uma vez por caixa de entrada; o e-mail pode aparecer duas vezes na caixa de entrada para onde as mensagens são encaminhadas. Apenas alguns provedores indicam quando um e-mail foi encaminhado de outra conta.
-- **Configuração de e-mail do destinatário:** alguns clientes mesclam caixas de entrada ("caixa de entrada universal"). Se a mesma Campaign direciona várias contas que compartilham uma caixa de entrada, pode parecer que uma pessoa recebeu a Campaign duas vezes quando dois perfis distintos foram realmente contatados. O destinatário pode confirmar se várias contas estão combinadas em uma caixa de entrada.
+- **Listas de teste ou destinatários de teste:** Endereços de teste e destinatários internos de teste podem receber um envio além do seu público principal, o que pode parecer uma duplicata quando uma caixa de entrada corresponde tanto a um perfil quanto a uma entrada de teste.
+- **Ocorreu um erro durante a criação da Campaign ou do Canvas:** O usuário pode não receber o mesmo envio duas vezes, mas pode receber dois e-mails separados com a mesma linha de assunto. Quando uma Campaign ou Canvas é duplicado, verifique os detalhes de configuração do e-mail, como imagens ou linhas de assunto. Você também pode consultar os changelogs para ver se a Campaign ou o Canvas foi modificado após o lançamento — uma duplicata pode compartilhar a mesma linha de assunto que a original quando o usuário a recebeu.
+- **Vários perfis de usuário têm encaminhamento de e-mail:** Se um usuário tem várias contas em um determinado app, mas uma conta encaminha e-mails, o usuário recebe a Campaign uma vez por caixa de entrada; o e-mail pode aparecer duas vezes na caixa de entrada para onde as mensagens são encaminhadas. Apenas alguns provedores indicam quando um e-mail foi encaminhado de outra conta.
+- **Configuração de e-mail do destinatário:** Alguns clientes mesclam caixas de entrada ("caixa de entrada universal"). Se a mesma Campaign direciona várias contas que compartilham uma caixa de entrada, pode parecer que uma pessoa recebeu a Campaign duas vezes quando dois perfis distintos foram realmente contatados. O destinatário pode confirmar se várias contas estão combinadas em uma caixa de entrada.
 
 Essa deduplicação se aplica quando os usuários direcionados estão no mesmo despacho. A reelegibilidade é avaliada por perfil, não por endereço de e-mail.
 
@@ -40,9 +40,9 @@ Os usuários não são deduplicados por e-mail na entrada do Canvas, então pode
 
 Campaigns disparadas por API deduplicarão ou enviarão duplicatas dependendo de onde o público é definido. E-mails duplicados devem ser direcionados separadamente na chamada de API usando `user_ids` distintos para receber várias entregas. Aqui estão três cenários possíveis para Campaigns disparadas por API:
 
-- **Cenário 1: E-mails duplicados no segmento alvo:** se o mesmo e-mail aparece em vários perfis de usuário que estão agrupados nos filtros de público do dashboard para uma Campaign disparada por API, apenas um dos perfis recebe o e-mail.
-- **Cenário 2: E-mails duplicados em diferentes `user_ids` dentro do objeto de destinatários:** se o mesmo e-mail aparece em vários valores de `external_user_id` referenciados pelo objeto `recipients`, o e-mail é enviado duas vezes.
-- **Cenário 3: E-mails duplicados devido a `user_ids` duplicados dentro do objeto de destinatários:** se você tentar adicionar o mesmo perfil de usuário duas vezes, apenas um dos perfis recebe o e-mail.
+- **Cenário 1: E-mails duplicados no segmento de destino:** Se o mesmo e-mail aparece em vários perfis de usuário que estão agrupados nos filtros de público do dashboard para uma Campaign disparada por API, apenas um dos perfis recebe o e-mail.
+- **Cenário 2: E-mails duplicados em diferentes `user_ids` dentro do objeto de destinatários:** Se o mesmo e-mail aparece em vários valores de `external_user_id` referenciados pelo objeto `recipients`, o e-mail é enviado duas vezes.
+- **Cenário 3: E-mails duplicados devido a `user_ids` duplicados dentro do objeto de destinatários:** Se você tentar adicionar o mesmo perfil de usuário duas vezes, apenas um dos perfis recebe o e-mail.
 
 {% alert important %}
 Se você enviar uma Campaign de API por meio de uma chamada de API (excluindo Campaigns disparadas por API), e vários usuários forem especificados no público do segmento com o mesmo endereço de e-mail, o envio será feito para esse endereço tantas vezes quantas estiver listado na chamada. Isso ocorre porque as chamadas de API são consideradas como construídas intencionalmente.
@@ -54,7 +54,7 @@ Evite [testes multivariantes e A/B]({{site.baseurl}}/user_guide/engagement_tools
 
 #### Canvas e endereços de e-mail duplicados {#canvas-and-duplicate-email-addresses}
 
-Para jornadas do Canvas, se endereços de e-mail duplicados recebem um envio ou mais de um pode depender do lote de entrada, do tempo das etapas e de outros fatores. Trate o comportamento como indefinido até que você o valide para sua jornada. Quando possível, mescle ou consolide perfis duplicados. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
+Para jornadas do Canvas, se endereços de e-mail duplicados recebem um envio ou mais de um pode depender do lote de entrada, do tempo das etapas e de outros fatores. Trate o comportamento como indefinido até que você o valide para sua jornada. Sempre que possível, mescle ou consolide perfis duplicados. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### O que acontece com o estado de inscrição quando o endereço de e-mail de um usuário é alterado para um compartilhado por outro usuário? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -66,7 +66,7 @@ Não. As atualizações feitas nas configurações de e-mail de saída não afet
 
 ### O que é uma "boa" taxa de entrega de e-mail? {#what-is-a-good-email-delivery-rate}
 
-Normalmente, o "número mágico" é em torno de 98% das mensagens entregues com uma taxa de bounce não superior a 3%. Se menos de 98% das mensagens forem entregues, geralmente há motivo para preocupação.
+Normalmente, o "número mágico" é em torno de 98% das mensagens entregues com uma taxa de bounce não superior a 3%. Se menos de 98% das mensagens são entregues, geralmente há motivo para preocupação.
 
 No entanto, uma taxa de entrega de 98% ou mais ainda pode ter problemas de entregabilidade. Por exemplo, se todos os seus bounces vêm de um único domínio, isso é um sinal claro de um problema de reputação com esse provedor.
 
@@ -78,15 +78,15 @@ Por fim, seu negócio e os tipos de e-mails que você envia também podem afetar
 
 As métricas de entrega de e-mail (entregas, bounces e taxa de SPAM) podem não somar 100% por causa de e-mails que sofreram soft bounce e depois não foram entregues após o período de nova tentativa de até 72 horas.
 
-Soft bounces são e-mails que retornam devido a um problema temporário ou transitório, como "caixa de entrada cheia", "servidor temporariamente indisponível" e outros. Se um e-mail com soft bounce ainda não for entregue após 72 horas, esse e-mail não será contabilizado nas métricas de entrega da Campaign.
+Soft bounces são e-mails que retornam devido a um problema temporário ou transitório, como "caixa de correio cheia", "servidor temporariamente indisponível" e outros. Se um e-mail com soft bounce ainda não for entregue após 72 horas, esse e-mail não será contabilizado nas métricas de entrega da Campaign.
 
 ### O que é um loop de feedback de e-mail? {#what-is-an-email-feedback-loop}
 
-Um loop de feedback de e-mail (FBL) permite que os remetentes monitorem sua reputação identificando Campaigns que recebem um alto volume de reclamações. Para etapas de implementação de um loop de feedback do Gmail, consulte o artigo [Loop de feedback do Google](https://support.google.com/a/answer/6254652).
+Um loop de feedback de e-mail (FBL) permite que os remetentes monitorem sua reputação identificando Campaigns que recebem um alto volume de reclamações. Para etapas de implementação de um loop de feedback do Gmail, consulte o artigo [Loop de Feedback do Google](https://support.google.com/a/answer/6254652).
 
 ### O que são pixels de rastreamento de abertura? {#what-are-open-tracking-pixels}
 
-[Pixels de rastreamento de abertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) utilizam o domínio de rastreamento de cliques de e-mail do remetente para rastrear eventos de abertura de e-mail. O pixel é uma tag de imagem anexada ao HTML do e-mail. Geralmente é o último elemento HTML dentro da tag body. Quando um usuário carrega seu e-mail, uma solicitação é feita para preencher a imagem a partir do domínio de rastreamento personalizado, que registra um evento de abertura.
+[Pixels de rastreamento de abertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) utilizam o domínio de rastreamento de cliques do remetente para rastrear eventos de abertura de e-mail. O pixel é uma tag de imagem anexada ao HTML do e-mail. Geralmente é o último elemento HTML dentro da tag body. Quando um usuário carrega seu e-mail, uma solicitação é feita para preencher a imagem a partir do domínio de rastreamento personalizado, o que registra um evento de abertura.
 
 ### Posso rastrear aberturas de e-mails renderizados em texto simples? {#can-i-track-opens-for-emails-rendered-in-plain-text}
 
@@ -104,12 +104,12 @@ Para Campaigns de e-mail e Canvas, o botão de parar não interrompe imediatamen
 
 Embora a Braze não envie mais solicitações depois que a Campaign ou o Canvas é interrompido, as análises ainda podem aumentar enquanto o provedor de serviços de e-mail termina de processar as solicitações já em andamento.
 
-### Por que estou vendo mais _Total de cliques_ do que _Total de aberturas_ nas minhas análises de e-mail? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
+### Por que estou vendo mais *Total de cliques* do que *Total de aberturas* nas minhas análises de e-mail? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
-_Total de aberturas_ é a contagem de quantas vezes o e-mail foi aberto pelos usuários, enquanto _Total de cliques_ é a contagem de quantas vezes os usuários clicaram dentro do e-mail entregue, incluindo qualquer tipo de clique, como cliques em links. Você pode estar vendo mais cliques do que aberturas por qualquer um dos seguintes motivos:
+*Total de aberturas* é a contagem de quantas vezes o e-mail foi aberto pelos usuários, enquanto *Total de cliques* é a contagem de quantas vezes os usuários clicaram dentro do e-mail entregue, incluindo qualquer tipo de clique, como cliques em links. Você pode estar vendo mais cliques do que aberturas por qualquer um dos seguintes motivos:
 
 - Os usuários estão realizando vários cliques no corpo do e-mail dentro de uma única abertura.
-- Os usuários clicam em alguns links do e-mail dentro do painel de pré-visualização de seus telefones. Nesse caso, a Braze registra esse e-mail como clicado, mas não como aberto.
+- Os usuários clicam em alguns links do e-mail dentro do painel de prévia de seus telefones. Nesse caso, a Braze registra esse e-mail como clicado, mas não como aberto.
 - Os usuários reabrem um e-mail que previamente visualizaram.
 
 ### Por que estou vendo zero aberturas e cliques de e-mail? {#why-am-i-seeing-zero-email-opens-and-clicks}
@@ -124,18 +124,18 @@ Se você notar padrões inesperados nas suas métricas de abertura ou clique de 
 
 #### O corte de e-mail remove o pixel de rastreamento {#email-clipping-removes-the-tracking-pixel}
 
-Quando um e-mail é cortado pelo provedor de e-mail do destinatário (como o Gmail cortando mensagens com mais de aproximadamente 102 KB), o conteúdo na parte inferior do e-mail pode ser truncado. Como o pixel de rastreamento de abertura é normalmente inserido na parte inferior do e-mail, o corte pode impedir o funcionamento do rastreamento de abertura.
+Quando um e-mail é cortado pelo provedor de e-mail do destinatário (como o Gmail cortando mensagens com mais de aproximadamente 102 KB), o conteúdo na parte inferior do e-mail pode ser truncado. Como o pixel de rastreamento de abertura é normalmente inserido na parte inferior do e-mail, o corte pode impedir que o rastreamento de abertura funcione.
 
-**Como identificar:** verifique se o e-mail exibe um link "Ver mensagem completa" ou similar na parte inferior. Você pode usar o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para pré-visualizar o e-mail completo com rolagem e verificar se a mensagem está sendo cortada.
+**Como identificar:** Verifique se o e-mail exibe um link "Ver mensagem completa" ou similar na parte inferior. Você pode usar o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para visualizar o e-mail completo com rolagem e verificar se a mensagem está sendo cortada.
 
-**Como resolver:** você pode configurar a Braze para colocar o pixel de rastreamento no topo do e-mail em vez da parte inferior. Mover o pixel de rastreamento pode afetar como alguns clientes de e-mail renderizam seu HTML, então teste seus e-mails no Inbox Vision após fazer essa alteração. Observe que, se o destinatário tiver imagens desativadas, as aberturas não podem ser rastreadas independentemente da posição do pixel.
+**Como resolver:** Você pode configurar a Braze para colocar o pixel de rastreamento no topo do e-mail em vez da parte inferior. Mover o pixel de rastreamento pode afetar como alguns clientes de e-mail renderizam seu HTML, então teste seus e-mails no Inbox Vision após fazer essa alteração. Observe que, se o destinatário tiver imagens desativadas, as aberturas não podem ser rastreadas independentemente da posição do pixel.
 
 #### Estatísticas atrasadas ou cliques sem aberturas {#delayed-stats-or-clicks-without-opens}
 
 O rastreamento de abertura depende do destinatário carregar o e-mail com imagens ativadas. Em alguns casos, as estatísticas podem parecer atrasadas ou cliques podem ser registrados sem aberturas correspondentes devido a:
 
-- O destinatário visualizar o e-mail em um painel de pré-visualização sem abri-lo completamente, e então clicar em links diretamente da pré-visualização.
-- O cliente de e-mail não carregar imagens (e, portanto, o pixel de rastreamento) até depois que o destinatário interagiu com os links.
+- O destinatário visualizar o e-mail em um painel de prévia sem abri-lo completamente, e depois clicar em links diretamente da prévia.
+- O cliente de e-mail não carregar imagens (e, portanto, o pixel de rastreamento) até depois que o destinatário já interagiu com os links.
 
 #### Software de segurança simula cliques em links {#security-software-simulates-link-clicks}
 
@@ -143,7 +143,7 @@ Algumas ferramentas de segurança de e-mail corporativo (como Barracuda, Proofpo
 
 Esse comportamento é mais comum com domínios de e-mail institucionais (como escolas, universidades e ambientes corporativos) e é mais provável quando seu domínio de envio difere significativamente do seu domínio de rastreamento. Configurar um [domínio de rastreamento personalizado]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) pode reduzir a frequência desses cliques automatizados.
 
-**Como identificar:** procure o endereço IP do evento de clique (disponível nos dados do Currents) em um mecanismo de busca. Se o IP estiver associado a um provedor de segurança conhecido (como Barracuda Networks), os cliques provavelmente são automatizados. Você também pode ver um cabeçalho User-Agent consistente em vários cliques automatizados.
+**Como identificar:** Pesquise o endereço IP do evento de clique (disponível nos dados do Currents) em um mecanismo de busca. Se o IP estiver associado a um provedor de segurança conhecido (como Barracuda Networks), os cliques provavelmente são automatizados. Você também pode ver um cabeçalho User-Agent consistente em vários cliques automatizados.
 
 Para contexto adicional sobre como a varredura de segurança afeta as métricas de e-mail, consulte [Lidando com aumentos nas taxas de cliques]({{site.baseurl}}/user_guide/channels/email/reporting).
 
@@ -159,9 +159,9 @@ A Braze rastreia links de cancelamento de inscrição se o seguinte Liquid for u
 
 ### Por que estou vendo um número diferente de cancelamentos de inscrição do que cliques no meu link de cancelamento de inscrição? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-Se houver mais _Cancelamentos de inscrição_ do que usuários que clicaram no link de cancelamento de inscrição no corpo do e-mail, o [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) frequentemente explica a diferença. O list-unsubscribe é um caminho adicional de cancelamento de inscrição no cabeçalho do e-mail (não o link no corpo da sua mensagem). Quando um usuário cancela a inscrição dessa forma, isso conta como _Cancelamento de inscrição_, mas não conta como um clique na URL de cancelamento de inscrição rastreada no corpo.
+Se houver mais *Cancelamentos de inscrição* do que usuários que clicaram no link de cancelamento de inscrição no corpo do e-mail, o [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) frequentemente explica a diferença. O list-unsubscribe é um caminho adicional de cancelamento de inscrição no cabeçalho do e-mail (não o link no corpo da sua mensagem). Quando um usuário cancela a inscrição dessa forma, isso conta como *Cancelamento de inscrição*, mas não conta como um clique na URL de cancelamento de inscrição rastreada no corpo.
 
-Se o número total de cliques no link de cancelamento de inscrição no corpo for maior que o número de _Cancelamentos de inscrição_, os usuários podem ter clicado no link mais de uma vez — por exemplo, se cancelaram a inscrição, se reinscreveram e cancelaram novamente, as análises de e-mail podem registrar vários cliques no detalhamento de cliques.
+Se o número total de cliques no link de cancelamento de inscrição no corpo for maior que o número de *Cancelamentos de inscrição*, os usuários podem ter clicado no link mais de uma vez — por exemplo, se cancelaram a inscrição, se reinscreveram e cancelaram novamente, as análises de e-mail podem registrar vários cliques no detalhamento de cliques.
 
 Se um usuário clicar no link de cancelamento de inscrição duas vezes (por exemplo, se cancelou a inscrição, se inscreveu novamente e depois cancelou novamente), isso conta duas vezes nas análises de e-mail.
 
@@ -169,15 +169,21 @@ Se um usuário clicar no link de cancelamento de inscrição duas vezes (por exe
 
 Não. A Braze não oferece essa funcionalidade. Isso ocorre porque a grande maioria dos e-mails é aberta em dispositivos móveis e em clientes de e-mail modernos, que renderizam imagens e conteúdo sem problemas.
 
-**Alternativa:** para alcançar esse mesmo resultado, você pode hospedar o conteúdo do seu e-mail em uma landing page externa (como seu website), que pode então ser vinculada a partir da Campaign de e-mail que você está criando usando a ferramenta **Link** ao editar o corpo do e-mail.
+**Alternativa:** Para alcançar esse mesmo resultado, você pode hospedar o conteúdo do seu e-mail em uma landing page externa (como seu website), que pode então ser vinculada a partir da Campaign de e-mail que você está criando usando a ferramenta **Link** ao editar o corpo do e-mail.
 
 ### A Braze converte automaticamente URLs em texto simples ou texto "www." em links? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
-Não. A Braze não escaneia sua mensagem e converte texto simples, como texto que começa com `www.` ou que se parece com uma URL, em hiperlinks. Apenas links que você define com tags de âncora HTML (`<a href="...">`) são processados através da renderização normal e dos recursos de link da Braze.
+Não. A Braze não escaneia sua mensagem e converte texto simples, como texto que começa com `www.` ou que se parece com uma URL, em hiperlinks. Apenas links que você define com tags de âncora HTML (`<a href="...">`) são processados através da renderização normal e dos recursos de link na Braze.
 
 Se um destinatário vê texto simples exibido como um link clicável, esse comportamento geralmente vem do cliente de e-mail dele (por exemplo, Gmail, Outlook ou Apple Mail). Muitos clientes detectam strings semelhantes a URLs após a mensagem ser entregue e as transformam em links no dispositivo do destinatário. A Braze não controla esse comportamento e não pode desativá-lo para o destinatário.
 
 Para aparência, rastreamento e estilização previsíveis de links, use tags `<a href>` explícitas em vez de URLs em texto simples.
+
+### Posso controlar o atributo `target` em links de e-mail? {#can-i-control-the-target-attribute-on-email-links}
+
+Embora você possa definir o atributo `target` (como `target="_blank"` ou `target="_top"`) em links no HTML do seu e-mail, a maioria dos clientes de e-mail ignora ou substitui esse atributo. Por exemplo, o Gmail efetivamente força um comportamento semelhante ao `_blank` independentemente do que você especificar.
+
+Como o comportamento dos clientes de e-mail varia, o atributo `target` não deve ser usado como garantia para controlar como os links abrem. Para detalhes sobre quais clientes de e-mail suportam o atributo `target`, consulte [caniemail.com](https://www.caniemail.com/features/html-target/).
 
 ### Por que meus usuários estão sendo automaticamente cancelados por software de segurança de e-mail? {#why-are-my-users-being-auto-unsubscribed-by-email-security-software}
 
@@ -185,39 +191,39 @@ Algumas ferramentas de segurança de e-mail corporativo (como Barracuda, Proofpo
 
 Para mitigar isso:
 
-- **Recomende que os destinatários adicionem seu domínio de envio à lista de permissões:** trabalhe com as equipes de TI dos destinatários afetados para adicionar seu domínio de envio e os domínios de rastreamento da Braze à lista de permissões de segurança de e-mail deles.
-- **Use uma Central de Preferências:** em vez de um link direto de cancelamento de inscrição, use uma [Central de Preferências]({{site.baseurl}}/user_guide/channels/email/subscriptions) que exija interação do usuário para confirmar a ação de cancelamento de inscrição. Scanners de segurança normalmente não completam formulários de várias etapas.
-- **Revise os logs de cancelamento de inscrição:** verifique o cabeçalho `User-Agent` e o endereço IP nos dados de eventos de cancelamento de inscrição do Currents para identificar padrões consistentes com varredura automatizada (como cabeçalhos `User-Agent` consistentes em vários cancelamentos de inscrição).
+- **Recomende que os destinatários adicionem seu domínio de envio à lista de permissões:** Trabalhe com as equipes de TI dos destinatários afetados para adicionar seu domínio de envio e os domínios de rastreamento da Braze à lista de permissões de segurança de e-mail deles.
+- **Use uma Central de Preferências:** Em vez de um link direto de cancelamento de inscrição, use uma [Central de Preferências]({{site.baseurl}}/user_guide/channels/email/subscriptions) que exija interação do usuário para confirmar a ação de cancelamento de inscrição. Scanners de segurança normalmente não completam formulários de múltiplas etapas.
+- **Revise os logs de cancelamento de inscrição:** Verifique o cabeçalho `User-Agent` e o endereço IP nos dados de eventos de cancelamento de inscrição do Currents para identificar padrões consistentes com varredura automatizada (como cabeçalhos `User-Agent` consistentes em vários cancelamentos de inscrição).
 
 Para mais detalhes sobre como a varredura do lado do servidor pode afetar as métricas de e-mail, consulte [Lidando com aumentos nas taxas de cliques]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Por que minha taxa de abertura por máquina mudou inesperadamente? {#why-has-my-machine-open-rate-changed-unexpectedly}
 
-[Aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) são disparadas por recursos de segurança de e-mail como a proteção de privacidade de e-mail do Apple Mail (MPP), que pré-carrega o conteúdo do e-mail (incluindo o pixel de rastreamento) sem que o usuário abra fisicamente o e-mail. As taxas de abertura por máquina podem flutuar com base em:
+[Aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) são disparadas por recursos de segurança de e-mail como a Proteção de Privacidade do Apple Mail (MPP), que pré-carrega o conteúdo do e-mail (incluindo o pixel de rastreamento) sem que o usuário abra fisicamente o e-mail. As taxas de abertura por máquina podem flutuar com base em:
 
-- Mudanças na proporção do seu público que usa Apple Mail ou outros clientes de e-mail com privacidade habilitada.
+- Mudanças na proporção do seu público que usa Apple Mail ou outros clientes de e-mail com privacidade ativada.
 - Atualizações nos recursos de privacidade do provedor de e-mail ou comportamentos de detecção de bots.
 - Mudanças na segmentação ou direcionamento do seu público.
 
 As porcentagens de abertura por máquina não são uma medida confiável do engajamento real. Para uma visão mais precisa do desempenho do e-mail, concentre-se em *Outras aberturas* (aberturas não por máquina) e *Cliques únicos*. Você também pode comparar essas métricas ao longo do tempo usando o [Dashboard de desempenho de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance).
 
-### Por que meus deep links não funcionam no Gmail? {#why-are-my-deep-links-not-working-in-gmail}
+### Por que meus deep links não estão funcionando no Gmail? {#why-are-my-deep-links-not-working-in-gmail}
 
 O Gmail remove todos os links não HTTP/HTTPS das mensagens de e-mail. Se seu deep link usa um esquema personalizado (como `myapp://path/to/content`), o Gmail o removerá, e o link não funcionará para destinatários que leem o e-mail no Gmail. Essa é uma limitação do Gmail, não da Braze.
 
 Para contornar isso:
 
-- **Use Universal Links (iOS) ou App Links (Android).** Esses usam URLs `https://` padrão que abrem seu app quando instalado e redirecionam para uma página web caso contrário. Consulte [Universal Links e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links) para instruções de configuração.
+- **Use Universal Links (iOS) ou App Links (Android).** Esses usam URLs padrão `https://` que abrem seu app quando instalado e voltam para uma página web caso contrário. Consulte [Universal Links e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links) para instruções de configuração.
 - **Use um provedor de deep linking.** Serviços como [Branch](https://www.branch.io/) geram deep links em formato HTTP que são compatíveis com clientes de e-mail, incluindo o Gmail.
 - **Configure um endpoint de redirecionamento.** Hospede um endpoint `https://` no seu servidor que redirecione para a URL de esquema personalizado do seu app. Os clientes de e-mail preservarão o link `https://`, e o redirecionamento cuida de abrir o app.
 
 ### A métrica *Aberturas únicas* inclui *Aberturas por máquina*? {#does-the-unique-opens-metric-include-machine-opens}
 
-Sim. *Aberturas únicas* incluem *Aberturas por máquina*. Você pode visualizar ambas as métricas na visualização **Análise da Campaign** e no **Report Builder**.
+Sim. *Aberturas únicas* incluem *Aberturas por máquina*. Você pode visualizar ambas as métricas na visualização de **Análise da Campaign** e no **Report Builder**.
 
 ### Por que meu volume de entrega de e-mail não corresponde ao meu volume de envio? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
-Após um e-mail ser enviado, a caixa de entrada do destinatário decide quando ele é entregue. As mensagens podem ser adiadas por horas ou dias por causa de uma caixa de entrada cheia, limitação do provedor de serviços de e-mail a partir de um determinado IP e motivos similares.
+Depois que um e-mail é enviado, a caixa de entrada do destinatário decide quando ele é entregue. As mensagens podem ser adiadas por horas ou dias por causa de uma caixa de correio cheia, limitação do provedor de serviços de e-mail a partir de um determinado IP e motivos similares.
 
 Quando mensagens adiadas são entregues em um dia do calendário diferente do dia de envio, as _Entregas_ podem exceder os _Envios_ para o mesmo intervalo de datas. Quando muitos adiamentos chegam em um dia, os _Envios_ podem exceder as _Entregas_ para esse intervalo.
 
@@ -226,7 +232,7 @@ Quando mensagens adiadas são entregues em um dia do calendário diferente do di
 Esse aviso pode persistir para Campaigns duplicadas de uma Campaign que não tinha um link de cancelamento de inscrição. Para resolvê-lo:
 
 - Para e-mails HTML, vá para a guia **Texto simples** e selecione **Regenerar a partir do HTML**.
-- Após duplicar, duplique a variante e remova a variante original. **Não** selecione a variante original, ou o aviso pode ser transferido.
+- Após duplicar, duplique a variante e depois remova a variante original. **Não** selecione a variante original, ou o aviso pode ser transferido.
 
 ### Por que um usuário recebeu um e-mail que não deveria ter recebido? {#why-did-a-user-receive-an-email-they-shouldnt-have}
 
@@ -234,11 +240,11 @@ A entrega pode parecer incorreta mesmo quando a Braze se comportou conforme conf
 
 - **Perfis duplicados** que compartilham uma caixa de entrada (veja [O que acontece quando um e-mail é enviado e vários perfis têm o mesmo endereço de e-mail?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
 - **Listas de teste, destinatários de teste ou endereços internos** incluídos no público ou em um envio como CC/BCC.
-- **Tempo do segmento ou Canvas:** o usuário correspondeu ao público ou à etapa do Canvas quando a Braze avaliou a elegibilidade, e então os atributos ou o estado de inscrição mudaram antes de ele ler a mensagem.
+- **Timing do Segment ou Canvas:** o usuário correspondeu ao público ou à etapa do Canvas quando a Braze avaliou a elegibilidade, e então os atributos ou o estado de inscrição mudaram antes de ele ler a mensagem.
 - **Grupos de inscrições:** o usuário permaneceu inscrito em um grupo que sua mensagem direcionou, mesmo que seu estado de inscrição global sugerisse o contrário.
-- **API ou importações de arquivo** que atualizaram o usuário após a segmentação, mas antes de você esperar que a alteração fosse aplicada.
+- **Importações de API ou arquivo** que atualizaram o usuário após a segmentação, mas antes de você esperar que a alteração fosse aplicada.
 
-Revise o [Log de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), os changelogs da Campaign ou do Canvas e a definição do segmento. Se você ainda não conseguir reconciliar o envio, entre em contato com o suporte da Braze com identificadores do usuário, `dispatch_id` (se disponível) e carimbos de data/hora.
+Revise o [Log de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), os changelogs da Campaign ou do Canvas e a definição do segmento. Se você ainda não conseguir reconciliar o envio, entre em contato com o suporte da Braze com identificadores do usuário, `dispatch_id` (se disponível) e timestamps.
 
 ### Por que um usuário não recebeu minha mensagem de e-mail? {#why-hasnt-a-user-received-my-email-message}
 
@@ -250,7 +256,7 @@ Existem vários motivos pelos quais um usuário não recebe um e-mail que você 
 - A mensagem pode estar na pasta de SPAM dele.
 
 {% alert tip %}
-Um evento de entrega na Braze significa que o e-mail foi aceito pelo servidor do provedor de caixa de entrada. No entanto, isso não garante que a mensagem apareça na caixa de entrada do usuário. O provedor de caixa de entrada pode direcionar a mensagem para SPAM ou, em casos raros, impedir silenciosamente a exibição da mensagem.
+Um evento de entrega na Braze significa que o e-mail foi aceito pelo servidor do provedor de caixa de correio. No entanto, isso não garante que a mensagem apareça na caixa de entrada do usuário. O provedor de caixa de correio pode direcionar a mensagem para SPAM ou, em casos raros, impedir silenciosamente a exibição da mensagem.
 {% endalert %}
 
 Use as tabelas a seguir para identificar a causa.
@@ -270,11 +276,11 @@ Use as tabelas a seguir para identificar a causa.
 
 | Possível causa | O que verificar |
 |---|---|
-| O provedor de caixa de entrada (MBP) estava inacessível | Um problema temporário impediu que o e-mail chegasse ao MBP do destinatário. Isso normalmente se resolve com novas tentativas. Os provedores de serviços de e-mail tentam novamente soft bounces por até 72 horas. |
+| O provedor de caixa de correio (MBP) estava inacessível | Um problema temporário impediu que o e-mail chegasse ao MBP do destinatário. Isso normalmente se resolve com novas tentativas. Os provedores de serviços de e-mail tentam novamente soft bounces por até 72 horas. |
 | O MBP rejeitou o e-mail | O servidor de e-mail do destinatário rejeitou o e-mail. Revise o [Log de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) para detalhes do bounce. |
 | O MBP descartou silenciosamente o e-mail | O MBP aceitou o e-mail, mas não o exibiu para o usuário e não retornou um bounce. Isso está fora do controle da Braze e não pode ser detectado nos logs da Braze. |
 | O e-mail foi para a pasta de SPAM | O MBP identificou a mensagem como SPAM e a direcionou para a pasta de SPAM ou lixo eletrônico do usuário. Peça ao usuário para verificar sua pasta de SPAM. |
-| O destinatário tem filtragem de e-mail personalizada | O usuário ou o administrador de TI dele pode ter configurado regras de caixa de entrada que filtram, redirecionam ou excluem mensagens recebidas. |
+| O destinatário tem filtragem de e-mail personalizada | O usuário ou o administrador de TI dele pode ter configurado regras de caixa de correio que filtram, redirecionam ou excluem mensagens recebidas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Causa do e-mail não estar na caixa de entrada" }
 
 ### Como posso otimizar imagens no Outlook? {#how-can-i-optimize-images-in-outlook}
@@ -293,7 +299,7 @@ Por exemplo:
 <img src="your-image.png" style="max-width: 100%;" alt="Description">
 ```
 
-Você também pode envolver conteúdo para que ele fique oculto no Outlook desktop usando comentários condicionais:
+Você também pode envolver o conteúdo para que ele fique oculto no Outlook desktop usando comentários condicionais:
 
 ```html
 <!--[if !mso]><!-- -->
@@ -311,11 +317,11 @@ Em vez disso, use formatos amplamente suportados como PNG ou JPEG para que as im
 
 Vídeos incorporados não são nativamente suportados por muitos clientes de e-mail populares como Gmail, Outlook e Yahoo. Como resultado, elementos de vídeo incorporados podem não ser exibidos como pretendido ou podem não aparecer de forma alguma. Além disso, incorporar vídeo diretamente em um e-mail pode aumentar significativamente o tamanho do e-mail, o que aumenta a chance de a mensagem ser marcada como SPAM.
 
-Em vez disso, você pode criar um GIF ou imagem estática que se assemelhe a um vídeo em um player de vídeo e então vincular essa imagem ao seu vídeo. Quando os usuários clicam na imagem, eles são direcionados ao vídeo hospedado no seu website ou em uma plataforma de vídeo.
+Em vez disso, você pode criar um GIF ou imagem estática que se assemelhe a um vídeo em um player de vídeo e depois vincular essa imagem ao seu vídeo. Quando os usuários clicam na imagem, eles são direcionados ao vídeo hospedado no seu website ou em uma plataforma de vídeo.
 
 ### Variáveis Liquid atribuídas em uma parte do criador de mensagem podem ser usadas em outra? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 
-Não. Cada parte do e-mail (assunto, corpo, cabeçalhos, botões e assim por diante) é gerada separadamente, então variáveis Liquid atribuídas em um campo não estão disponíveis em outro. Atribua variáveis em cada campo que precisar delas.
+Não. Cada parte do e-mail (assunto, corpo, cabeçalhos, botões e assim por diante) é gerada separadamente, então o Liquid atribuído em um campo não está disponível em outro. Atribua variáveis em cada campo que precisar delas.
 
 ### Meu modelo de e-mail está faltando. Onde está? {#my-email-template-is-missing-where-is-it}
 
@@ -327,33 +333,33 @@ O [Private Email Relay da Apple]({{site.baseurl}}/user_guide/channels/email/best
 
 ### Posso adicionar hiperlinks em linhas de assunto ou pré-cabeçalhos de e-mail? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
 
-Não. Adicionar hiperlinks em linhas de assunto de e-mail não é suportado pelos provedores de caixa de entrada. Embora alguns provedores de caixa de entrada escaneiem automaticamente as linhas de assunto e convertam endereços físicos, datas ou horários em links clicáveis, isso acontece automaticamente no dispositivo do destinatário e está fora do controle da Braze (ou de qualquer provedor de serviços de e-mail).
+Não. Adicionar hiperlinks em linhas de assunto de e-mail não é suportado pelos provedores de caixa de correio. Embora alguns provedores de caixa de correio escaneiem automaticamente as linhas de assunto e convertam endereços físicos, datas ou horários em links clicáveis, isso acontece automaticamente no dispositivo do destinatário e está fora do controle da Braze (ou de qualquer provedor de serviços de e-mail).
 
-Da mesma forma, adicionar hiperlinks dentro do pré-cabeçalho não é suportado em toda a indústria de e-mail.
+Da mesma forma, adicionar hiperlinks dentro do pré-cabeçalho não é suportado na indústria de e-mail.
 
 Se você precisa de funcionalidade semelhante a conteúdo clicável na linha de assunto ou na área do pré-cabeçalho, considere usar [Gmail Promotions]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab) para adicionar anotações interativas aos seus e-mails para usuários do Gmail.
 
 ### O que significa o motivo de bounce `unable to get mx info` ou `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
 
-No [Log de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), um motivo de bounce semelhante ao seguinte indica um problema ao resolver a configuração de e-mail do domínio receptor (o domínio após o `@` no endereço), não com a composição da mensagem da Braze:
+No [Log de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), um motivo de bounce semelhante ao seguinte indica um problema ao resolver a configuração de e-mail do domínio receptor (o domínio após o `@` no endereço), não à composição da mensagem da Braze:
 
 As causas típicas incluem:
 
-- Registros **MX** ausentes, incorretos ou inacessíveis para esse domínio
+- **Registros MX** ausentes, incorretos ou inacessíveis para esse domínio
 - Nomes de host de e-mail de entrada que não resolvem ou que falham nas verificações de **PTR (DNS reverso)** esperadas pela infraestrutura receptora
 - Domínios inválidos ou digitados incorretamente no endereço de e-mail
 
 **Próximos passos:**
 
 - Confirme a ortografia do endereço e do domínio.
-- Se o endereço estiver correto, entre em contato com o proprietário da caixa de entrada ou a equipe de TI desse domínio.
-- Peça que eles auditem os registros MX e DNS relacionados, incluindo registros PTR para seus servidores de e-mail, com o provedor DNS deles.
+- Se o endereço estiver correto, entre em contato com o proprietário da caixa de correio ou a equipe de TI desse domínio.
+- Peça que auditem os registros MX e DNS relacionados, incluindo registros PTR para seus servidores de e-mail, com o provedor DNS deles.
 
 Outros destinatários geralmente não são afetados. Para saber como soft bounces aparecem nos relatórios, consulte [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
 
 ### Por que recebo um alerta de SPAM ao enviar um e-mail da Braze para mim mesmo? {#why-do-i-get-a-spam-alert-when-sending-an-email-from-braze-to-myself}
 
-Se você enviar um e-mail de teste da Braze para seu próprio endereço de e-mail e vir um aviso de SPAM ou alerta de phishing — como "o domínio de envio é semelhante ao domínio da sua empresa, mas não o reconhecemos" — esse é um recurso comum de segurança anti-phishing, não um erro na sua configuração da Braze.
+Se você enviar um e-mail de teste da Braze para seu próprio endereço de e-mail e vir um aviso de SPAM ou alerta de phishing — como "o domínio de envio é semelhante ao domínio da sua empresa, mas não o reconhecemos" — esse é um recurso comum de segurança anti-phishing, não um erro na configuração da Braze.
 
 Esse alerta normalmente aparece quando o domínio de envio do e-mail corresponde ao domínio do destinatário (por exemplo, ambos são `@suaempresa.com`). Os sistemas de segurança de e-mail sinalizam isso porque golpistas frequentemente falsificam domínios que se parecem com o domínio da empresa do destinatário.
 
@@ -365,4 +371,4 @@ Para verificar se seu e-mail está configurado corretamente:
 
 Para evitar que esse alerta apareça:
 
-Peça à sua equipe de TI para adicionar seu domínio de envio da Braze e os endereços IP à lista de permissões nos serviços de segurança de e-mail ou gateway de e-mail da sua empresa. Isso informa ao seu sistema de segurança para confiar nos e-mails da sua infraestrutura de envio da Braze.
+Peça à sua equipe de TI para adicionar seu domínio de envio da Braze e os endereços IP à lista de permissões nos serviços de segurança de e-mail ou gateway de e-mail da sua empresa. Isso informa ao seu sistema de segurança que deve confiar nos e-mails da sua infraestrutura de envio da Braze.

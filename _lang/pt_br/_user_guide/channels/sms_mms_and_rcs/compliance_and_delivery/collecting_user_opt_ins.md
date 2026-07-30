@@ -7,6 +7,7 @@ page_type: reference
 channel:
   - SMS
 
+
 ---
 
 # Coletar opt-ins de usuários {#collect-user-opt-ins}
@@ -15,11 +16,11 @@ channel:
 
 ## Opção 1: Peça aos usuários para enviar uma mensagem para seu código curto ou longo {#option-1-ask-users-to-text-your-short-or-long-code}
 
-Peça aos usuários para enviar "START", "UNSTOP", "YES" ou uma palavra-chave de aceitação personalizada para o seu número, adicionando-os automaticamente ao seu grupo de inscrições. No seu website, app ou até mesmo em publicidade, você pode solicitar que os usuários façam isso para aceitar, e pode oferecer um incentivo se for útil.
+Peça aos usuários para enviar "START", "UNSTOP", "YES" ou uma palavra-chave de aceitação personalizada para o seu número, e eles serão adicionados automaticamente ao seu grupo de inscrições. No seu website, app ou até mesmo em publicidade, você pode solicitar que os usuários façam isso para aceitar, e pode oferecer um incentivo se for útil.
 
-## Opção 2: Usuários fazem aceitação via mensagem no app {#option-2-users-opt-in-via-in-app-message}
+## Opção 2: Usuários fazem a aceitação por mensagem no app {#option-2-users-opt-in-via-in-app-message}
 
-Para permitir que os usuários façam aceitação de SMS a partir de uma mensagem no app, use o [formulário de captura de número de telefone]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture) fornecido pela Braze para criar um formulário personalizado que permite coletar números de telefone e expandir sua lista de SMS.
+Para permitir que os usuários façam a aceitação de SMS por meio de uma mensagem no app, use o [formulário de captura de número de telefone]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture) fornecido pela Braze para criar um formulário personalizado que permite coletar números de telefone e expandir sua lista de SMS.
 
 ![Criador de mensagem no app com um modelo para captura de número de telefone.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
 
@@ -27,7 +28,7 @@ A Braze recomenda que você também use o recurso de [aceitação dupla de SMS](
 
 ## Opção 3: Fluxo de inscrição {#option-3-sign-up-flow}
 
-Quando um novo usuário se inscreve ou registra no website ou app, peça o número de telefone e o e-mail. Inclua uma caixa de seleção para receber e-mails promocionais e SMS.
+Quando um novo usuário se inscreve ou registra no website ou app, solicite o número de telefone e o e-mail. Inclua uma caixa de seleção para receber e-mails e SMS promocionais.
 
 Após a inscrição do usuário, faça o seguinte:
 
@@ -50,7 +51,7 @@ POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 {% endraw %}
 
 {: start="2"}
-2. Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para inscrever o usuário no SMS.
+2. Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para inscrever o usuário em SMS.
 
 {% raw %}
 ```
@@ -76,7 +77,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 {% endraw %}
 
 {% alert note %}
-Para incluir usuários no fluxo de [dupla aceitação de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) ao inscrevê-los pela REST API, defina `use_double_opt_in_logic` como `true` na sua requisição. Esse parâmetro é compatível com [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status), [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2) e [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+Para incluir usuários no fluxo de [aceitação dupla de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) ao inscrevê-los pela REST API, defina `use_double_opt_in_logic` como `true` na sua requisição. Esse parâmetro é compatível com [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status), [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2) e [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 <br><br>
-Atualizações de inscrição pela REST API não disparam automaticamente mensagens de boas-vindas. Para enviar uma mensagem de boas-vindas, crie uma Campaign baseada em ação com o disparador [Atualizar status do grupo de inscrições]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#update-subscription-group-status) e defina a origem da atualização como **REST API**.
+Atualizações de inscrição pela REST API não disparam automaticamente mensagens de boas-vindas. Para enviar uma mensagem de boas-vindas, crie uma Campaign baseada em ação com o disparador [Update Subscription Group Status]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#update-subscription-group-status) e defina a origem da atualização como **REST API**.
 {% endalert %}
