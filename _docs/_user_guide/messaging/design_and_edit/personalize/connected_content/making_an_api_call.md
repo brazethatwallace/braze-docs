@@ -298,15 +298,20 @@ When using Connected Content to retrieve files from Amazon S3, configure your bu
 
 ```json
 {
-  "Effect": "Allow",
-  "Principal": "*",
-  "Action": "s3:GetObject",
-  "Resource": "arn:aws:s3:::your-bucket-name/*",
-  "Condition": {
-    "IpAddress": {
-      "aws:SourceIp": ["12.34.456.789", "..."]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::your-bucket-name/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": ["YOUR_BRAZE_IP_RANGE"]
+        }
+      }
     }
-  }
+  ]
 }
 ```
 
