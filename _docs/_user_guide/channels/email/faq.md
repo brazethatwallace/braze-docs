@@ -124,6 +124,12 @@ _Total Opens_ is the count of how many times the email was opened by users, wher
 - Users click on some email links within the preview pane of their phones. In this case, Braze logs this email as being clicked but not opened.
 - Users reopen an email that they previewed earlier.
 
+### Why are my click counts higher than my segment of users who clicked?
+
+Campaign analytics show the total number of click events, while segments return the number of unique users who performed those clicks. Because each user can click multiple times, the total clicks in analytics is often higher than the count of users who clicked when you create a segment.
+
+For example, if 100 users each click a link 3 times, campaign analytics show 300 total clicks, but a segment filtered by "Clicked Email" for that campaign returns 100 users.
+
 ### Why am I seeing zero email opens and clicks?
 
 You may see no email opens or clicks if there's a misconfiguration in your tracking domain. This can be due to any of the following reasons:
