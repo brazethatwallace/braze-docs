@@ -26,8 +26,8 @@ channel: email
 
 ## Standard investigation path
 
-1. Confirm your click-tracking subdomain points to your [content delivery network (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it)—not directly to your email service provider (SendGrid, SparkPost, or Amazon SES). Ask your IT or web team to verify your domain settings match your Braze setup. For Braze requirements, see [Acquire an SSL certificate]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
-2. Confirm your SSL certificate is active for the tracking domain. Ask your IT or web team to confirm the certificate is current and covers your click-tracking subdomain. For setup steps and CDN-specific guides, see [Acquire an SSL certificate]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) and [Additional resources]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+1. Confirm your click tracking subdomain points to your [content delivery network (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it)—not directly to your email service provider (SendGrid, SparkPost, or Amazon SES). Ask your IT or web team to verify your domain settings match your Braze setup. For Braze requirements, see [Acquire an SSL certificate]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Confirm your SSL certificate is active for the tracking domain. Ask your IT or web team to confirm the certificate is current and covers your click tracking subdomain. For setup steps and CDN-specific guides, see [Acquire an SSL certificate]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) and [Additional resources]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
 3. Send a test email using the [click tracking troubleshooting template](#click-tracking-issues). Compare tracked versus untracked URLs.
 4. If tracked links fail with 403, review CDN and WAF rules (user agents, query strings, redirect patterns).
 5. If setup is complete but links remain HTTP, contact your Braze customer success manager to confirm Braze enabled SSL.
@@ -74,7 +74,7 @@ If you instruct Braze to enable SSL click tracking but leave your DNS CNAME poin
 
 ### Certificate does not cover the tracking subdomain (Phase 2)
 
-If your DNS points to your CDN (Cloudflare, CloudFront, and so on) but your security team applied a certificate that only covers primary web assets (for example, `yourbrand.com` and `www.yourbrand.com`), the specific click-tracking subdomain (for example, `clicks.mail.yourbrand.com`) is not included. The CDN serves a certificate that does not match the tracking domain, and browsers show a privacy error.
+If your DNS points to your CDN (Cloudflare, CloudFront, and so on) but your security team applied a certificate that only covers primary web assets (for example, `yourbrand.com` and `www.yourbrand.com`), the specific click tracking subdomain (for example, `clicks.mail.yourbrand.com`) is not included. The CDN serves a certificate that does not match the tracking domain, and browsers show a privacy error.
 
 ## Triage workflow {#triage-workflow}
 
@@ -110,7 +110,7 @@ For a more detailed TLS report, you can also use [Qualys SSL Labs SSL Server Tes
 
 ### Step 3: Review CDN configuration issues
 
-If live email links break during setup, you may have pointed DNS toward your CDN before completing configuration. This can appear as a wrong link or connection error. Contact your CDN provider and review their documentation to troubleshoot proxy and origin settings. Coordinate with the team that manages your SSL and CDN configuration for further assistance.
+If live email links break during setup, confirm that DNS was not pointed to your CDN before configuration was complete. This can appear as a wrong link or connection error. Contact your CDN provider and review their documentation to troubleshoot proxy and origin settings. Coordinate with the team that manages your SSL and CDN configuration for further assistance.
 
 ## Low email open rates {#low-email-open-rates}
 
