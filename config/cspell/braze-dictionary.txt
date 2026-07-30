@@ -233,6 +233,7 @@ Discogs
 Dixa
 Diátaxis
 DMARC
+domainkey
 drawables
 Dreamhost
 drilldown
@@ -706,6 +707,7 @@ SANGU
 Saucey
 scannability
 scaries
+scph
 Schellman
 SCIM
 screencap
