@@ -108,8 +108,8 @@ To see descriptions of what each user permission includes and how to use them, c
 
 You can assign a Team to Canvases, campaigns, Content Cards, segments, email templates, webhook templates, Content Blocks, and media library assets with the **Add Team** filter.
 
-For Canvases, team filters only validate users at Canvas entry. After a user enters a Canvas, they continue to receive messages from all Canvas steps even if their attributes change and they no longer match the team filter criteria. Team filters don't behave like delivery validations that re-evaluate users at each message step.
- 
+For Canvases, Braze only checks whether users match the team filter criteria when they enter the Canvas. After a user enters a Canvas, they continue to receive messages from all Canvas steps even if their attributes change and they no longer match the team filter criteria. Team filters don't behave like [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations), which re-evaluate users at each Message step send.
+
 ![Adding a Team tag to a campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
 - Based on the definitions applied when the Team was created, when a Team filter is assigned, that engagement tool's audience is restricted to user profiles that match the definition.
