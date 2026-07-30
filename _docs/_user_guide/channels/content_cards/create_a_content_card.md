@@ -293,6 +293,10 @@ This approach keeps all your analytics unified in a single campaign. Newly eligi
 
 Let's say you have a campaign that's triggered by a session start and has re-eligibility set to 30 days. A user received the campaign two days ago, and you want to change the copy. First, stop the campaign and remove the card from the feed. Second, re-publish the campaign with the new copy. If the user has another session, they receive the new card in 28 days.
 
+{% alert note %}
+If you stop a campaign, edit the removal event settings, and restart the campaign without removing cards from the feed, any existing cards in users' feeds use the updated removal event settings. The cards don't retain the original removal event configuration from when they were first sent.
+{% endalert %}
+
 #### Removing and expiring cards
 
 ##### Manual card removal

@@ -58,7 +58,7 @@ Por exemplo, suponha que você queira que os usuários que preferem push recebam
 Campaigns e etapas do Canvas que ignoram o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules) não são contabilizadas pelo Canal Inteligente e não podem contribuir para os requisitos de dados.
 {% endalert %}
 
-## Mobile push
+## Mobile push {#mobile-push}
 
 O mobile push incorpora Android, iOS, Kindle e outros canais de dispositivos móveis disponíveis na Braze. A Braze pontua cada plataforma móvel separadamente ao calcular as taxas de engajamento.
 

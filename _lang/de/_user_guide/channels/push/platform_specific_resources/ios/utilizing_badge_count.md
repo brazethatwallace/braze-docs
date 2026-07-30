@@ -20,7 +20,7 @@ Der Badge-Zähler kann verwendet werden, um Nutzer:innen erneut anzusprechen, di
 
 ## Badge-Zähler mit Braze {#badge-count-with-braze}
 
-Sie können den gewünschten Badge-Zähler angeben, wenn Sie eine Push-Benachrichtigung über das Braze-Dashboard verfassen. Dieser kann auf ein Nutzer:innen-Attribut mit personalisiertem Messaging gesetzt werden, was endlos anpassbare Logik ermöglicht. Wenn Sie eine stille Push-Benachrichtigung senden möchten, die den Badge-Zähler aktualisiert, ohne die Nutzer:innen zu stören, fügen Sie das Flag „Content-Available“ zu Ihrer Push-Benachrichtigung hinzu und lassen Sie den Nachrichteninhalt leer.
+Sie können den gewünschten Badge-Zähler angeben, wenn Sie eine Push-Benachrichtigung über das Braze-Dashboard verfassen. Dieser kann auf ein Attribut der Nutzer:innen mit personalisiertem Messaging gesetzt werden, was endlos anpassbare Logik ermöglicht. Wenn Sie eine stille Push-Benachrichtigung senden möchten, die den Badge-Zähler aktualisiert, ohne die Nutzer:innen zu stören, fügen Sie das Flag „Content-Available“ zu Ihrer Push-Benachrichtigung hinzu und lassen Sie den Nachrichteninhalt leer.
 
 {% alert note %}
 Sie fragen sich, wie Sie Badge-Zähler für Android festlegen können? Android handhabt App-Badging für Push automatisch, daher gibt es in Braze keine Anpassungseinstellungen für Badging.

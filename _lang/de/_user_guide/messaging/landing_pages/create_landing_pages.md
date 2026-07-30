@@ -13,7 +13,7 @@ page_order: 0
 
 Um auf den Landing-Page-Builder zuzugreifen, benötigen Sie [bestimmte Berechtigungen]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Wenn Sie keinen Zugriff haben, wenden Sie sich an Ihre:n Braze-Administrator:in.
 
-## Landing-Page erstellen {#creating-a-landing-page}
+## Landing-Page erstellen {#create-a-landing-page}
 
 Eine Landing-Page ist eine veröffentlichte Webseite mit einer teilbaren URL, die Ihre Kund:innen besuchen können.
 
@@ -101,9 +101,9 @@ Sie können diese Blöcke verwenden, um ein Formular zu erstellen, das von Nutze
 | Blocktyp | Beschreibung |
 |---------------|-------------|
 | E-Mail-Erfassung | Ein Formularfeld für E-Mail-Adressen. Bei der Übermittlung wird die E-Mail-Adresse dem Nutzerprofil in Braze hinzugefügt. |
-| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Bei der Übermittlung wird die Nutzer:in für Ihre SMS- oder WhatsApp-Abo-Gruppe angemeldet. |
+| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Bei der Übermittlung werden die Nutzer:innen für Ihre SMS- oder WhatsApp-Abo-Gruppe angemeldet. |
 | Eingabefeld | Ein Formularfeld, das Standardattribute (wie Vor- und Nachname) oder einen angepassten Attribut-String Ihrer Wahl unterstützt. |
-| Dropdown | Nutzer:innen können einen Artikel aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
+| Dropdown | Nutzer:innen können einen Eintrag aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
 | Kontrollkästchen | Wenn Nutzer:innen das Kästchen ankreuzen, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht angekreuzt wird, wird das Attribut auf `false` gesetzt. |
 | Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren Auswahlmöglichkeiten wählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
@@ -130,6 +130,8 @@ Sie können Ihre Landing-Page responsiv für die Bildschirmgröße der Nutzerger
 Wenn diese Option aktiviert ist, können Sie auch die Stapelreihenfolge der Spalten umkehren, um die vertikale Anordnung von mehrspaltigem Inhalt auf kleineren Bildschirmen zu steuern. So sehen Seiten auf Mobilgeräten besser aus und fühlen sich besser an – ohne benutzerdefinierten Code.
 
 ![Der Schalter „Auf kleineren Bildschirmen vertikal stapeln“ im Bereich „Spalten anpassen“.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
+
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
 
 #### Optionale und erforderliche Felder {#optional-and-required-fields}
 
@@ -179,15 +181,15 @@ Landing-Page-Templates sind wiederverwendbare Design-Ausgangspunkte, die Ihnen h
 
 Templates können sowohl im Landing-Page-Editor als auch auf der Seite **Landing-Page-Templates** (**Inhalt** > **Landing-Page**) aufgerufen und verwaltet werden. Landing-Page-Templates erfordern einen Namen und eine optionale Beschreibung.
 
-## Templates verwalten {#managing-templates}
+## Templates verwalten {#manage-templates}
 
 Sie können Landing-Page-Templates in der Vorschau anzeigen, archivieren oder bearbeiten. Sie können Ihre eigenen Landing-Page-Templates (unter **Ihre Templates**) duplizieren, jedoch keine Braze-Templates. Beim Bearbeiten einer Landing-Page können Sie Ihre Landing-Page als Template speichern, Änderungen am Template vornehmen oder den Inhalt der Landing-Page löschen.
 
 ![Ein Dropdown mit Optionen zum Speichern, Ändern und Löschen einer Landing-Page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Analytics anzeigen {#viewing-analytics}
+## Analytics anzeigen {#view-analytics}
 
-Um die Effektivität Ihrer Landing-Page zu analysieren, gehen Sie zu **Messaging** > **Landing-Pages** und wählen Sie eine veröffentlichte Landing-Page aus. Hier können Sie die Anzahl der Seitenaufrufe, Seitenklicks, Seitenübermittlungen und die Übermittlungsraten Ihrer Landing-Page verfolgen.
+Um die Effektivität Ihrer Landing-Page zu analysieren, gehen Sie zu **Messaging** > **Landing-Pages** und wählen Sie eine veröffentlichte Landing-Page aus. Hier können Sie die Anzahl der Seitenaufrufe, Seitenklicks, Formularübermittlungen und die Übermittlungsraten Ihrer Landing-Page verfolgen.
 
 ![Der Analytics-Bereich einer Landing-Page.]({% image_buster /assets/img/landing_pages/analytics.png %})
 

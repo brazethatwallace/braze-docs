@@ -20,6 +20,7 @@ Um eine Kampagne zu erstellen und zu starten, benötigen Sie die Berechtigungen 
 - Erstellen oder wählen Sie die [Segmente]({{site.baseurl}}/user_guide/audience/segments) aus, die festlegen, wer Ihre Nachrichten erhalten soll.
 - Lesen Sie [Kampagnen-Grundlagen]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics), damit Messaging-Kanäle, Zustellungstypen und Conversion Goals zu Ihrem Anwendungsfall passen.
 - Für eine geführte Anleitung zu Zustellung, Targeting und Conversions absolvieren Sie den Braze-Lernkurs [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions).
+- Bitten Sie Operator, Ihnen beim Entwurf Ihrer Kampagne aus einem Briefing zu helfen oder Targeting- und Zustellungsentscheidungen zu verfeinern. Weitere Informationen finden Sie unter [Was Sie mit Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 ## Kampagnen-Composer {#campaign-composer}
 
@@ -80,7 +81,7 @@ Rate-Limits für Sends, die mehrere Kanäle umfassen, werden unter [Multichannel
 {% endtab %}
 {% endtabs %}
 
-## 1. Schritt: Nachrichten verfassen {#step-1-compose-messages}
+## Schritt 1: Nachrichten verfassen {#step-1-compose-messages}
 
 ### Kampagnendetails {#campaign-details}
 
@@ -104,10 +105,10 @@ Verfassen Sie in diesem Schritt kanalspezifische Inhalte. Eine ausführliche Anl
 Fügen Sie Varianten hinzu, wenn Sie kreative oder Zustellungsaufteilungen vergleichen möchten. Hintergrundinformationen zu Experimenten und Kontrollgruppen finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Wenn jede Variante ähnlichen Textinhalt verwendet, verfassen Sie die Nachricht, **bevor** Sie zusätzliche Varianten hinzufügen. Verwenden Sie dann **Copy from Variant** aus dem Menü **Variante hinzufügen**, um Arbeit über Varianten oder Kanäle hinweg wiederzuverwenden.
+Wenn jede Variante ähnlichen Textinhalt verwendet, verfassen Sie die Nachricht, **bevor** Sie zusätzliche Varianten hinzufügen. Verwenden Sie dann **Von Variante kopieren** aus dem Menü **Variante hinzufügen**, um Arbeit über Varianten oder Kanäle hinweg wiederzuverwenden.
 {% endalert %}
 
-## 2. Schritt: Zustellung planen {#step-2-schedule-delivery}
+## Schritt 2: Zustellung planen {#step-2-schedule-delivery}
 
 Wählen Sie, wann Nutzer:innen berechtigt werden, die Kampagne zu erhalten:
 
@@ -116,17 +117,17 @@ Wählen Sie, wann Nutzer:innen berechtigt werden, die Kampagne zu erhalten:
 | [Geplante Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery) | Senden Sie zu einem bestimmten Zeitpunkt oder in einem bestimmten Rhythmus. |
 | [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) | Senden Sie, wenn Nutzer:innen Verhaltensweisen ausführen oder von Ihnen definierte Bedingungen erfüllen. |
 | [API-getriggerte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) | Senden Sie, wenn Ihre Systeme Braze aufrufen, um die Kampagne für berechtigte Nutzer:innen zu triggern. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Zustellung planen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Zustellung planen" }
 
 Informationen zu Planungskonzepten in Braze finden Sie unter [Kampagne planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-### Zustellungs-Kontrollgruppen {#delivery-controls}
+### Zustellungskontrollen {#delivery-controls}
 
 Je nach Zustellungstyp können Sie die [Wiederberechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) anpassen (ob Nutzer:innen erneut in die Kampagne eintreten dürfen) und die [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)-Regeln des Workspace berücksichtigen. Sie können auch [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) konfigurieren, damit Nachrichten nicht während eingeschränkter Zeitfenster gesendet werden.
 
-## 3. Schritt: Zielgruppen definieren {#step-3-target-audiences}
+## Schritt 3: Zielgruppen definieren {#step-3-target-audiences}
 
-Definieren Sie unter **Target Audiences**, wer berechtigt ist, die Kampagne zu erhalten. Alle Targeting-Optionen, UI-Anleitungen und Screenshots finden Sie unter [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
+Definieren Sie unter **Zielgruppen**, wer berechtigt ist, die Kampagne zu erhalten. Alle Targeting-Optionen, UI-Anleitungen und Screenshots finden Sie unter [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
 
 ### Targeting-Optionen {#targeting-options}
 
@@ -140,7 +141,7 @@ Nach dem Hinzufügen von Segmenten oder Filtern zeigt die **Zielgruppen-Zusammen
 
 ### Nutzer:innen-Suche {#user-lookup}
 
-Nach dem Hinzufügen von Segmenten oder Filtern können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie nach Nutzer:innen suchen, um zu bestätigen, ob sie den Segmentkriterien entsprechen. Suchen Sie dazu im Abschnitt **User Lookup** nach der `external_id` oder `braze_id` von Nutzer:innen. Eine Suche nach E-Mail-Adresse ist hier nicht möglich. Weitere Informationen finden Sie unter [Segmente testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
+Nach dem Hinzufügen von Segmenten oder Filtern können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie nach Nutzer:innen suchen, um zu bestätigen, ob sie den Segmentkriterien entsprechen. Suchen Sie dazu im Abschnitt **Nutzer:innen-Suche** nach der `external_id` oder `braze_id` von Nutzer:innen. Eine Suche nach E-Mail-Adresse ist hier nicht möglich. Weitere Informationen finden Sie unter [Segmente testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
 
 Wenn Nutzer:innen den Segment-, Filter- und App-Kriterien entsprechen, wird dies durch einen Hinweis bestätigt. Wenn Nutzer:innen einen Teil oder alle Segment-, Filter- oder App-Kriterien nicht erfüllen, werden die fehlenden Kriterien zur Fehlerbehebung aufgelistet.
 
@@ -162,7 +163,7 @@ Sie können einen [multivariaten oder A/B-Test]({{site.baseurl}}/user_guide/mess
 
 Für Push-, E-Mail- und Webhook-Kampagnen, die für einen einmaligen Versand geplant sind, können Sie auch eine [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) verwenden. Eine Optimierung reserviert einen Teil Ihrer Zielgruppe vom A/B-Test und hält ihn für einen zweiten optimierten Versand zurück, der auf den Ergebnissen des ersten Tests basiert.
 
-## 4. Schritt: Konversions-Events zuweisen {#step-4-assign-conversion-events}
+## Schritt 4: Konversions-Events zuweisen {#step-4-assign-conversion-events}
 
 [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) messen Ergebnisse, nachdem Nutzer:innen Ihre Kampagne erhalten haben (oder in die Kontrollgruppe eingetreten sind). Braze verwendet standardmäßig **Starts Session** innerhalb eines kurzen Zeitfensters (drei Tage). Sie können Konversions-Events definieren, die zu Ihren KPIs passen – bis zu vier Events pro Kampagne.
 
@@ -172,7 +173,7 @@ Nach dem Start können Sie das [Conversions-Dashboard]({{site.baseurl}}/user_gui
 Sie können nach dem Start der Kampagne keine Konversions-Events mehr hinzufügen oder entfernen. Bestätigen Sie die Events vor dem Start.
 {% endalert %}
 
-## 5. Schritt: Zusammenfassung prüfen und starten {#step-5-review-summary-and-launch}
+## Schritt 5: Zusammenfassung prüfen und starten {#step-5-review-summary-and-launch}
 
 Der Schritt **Zusammenfassung prüfen** zeigt Planung, Zielgruppe, Varianten und Messaging-Einstellungen. Bevor Sie Ihre Kampagne starten:
 

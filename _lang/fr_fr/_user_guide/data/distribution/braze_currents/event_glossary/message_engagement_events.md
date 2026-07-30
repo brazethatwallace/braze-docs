@@ -15,7 +15,7 @@ lazy_partner_tabs: true
 
 {% details Portée du schéma et ressources associées %}
 
-Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons aux partenaires de stockage en entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas qui s'appliquent aux autres partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et vérifiez leurs pages respectives.
+Les schémas de stockage s'appliquent aux données d'événements en fichiers plats que nous envoyons aux partenaires de stockage en entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas qui s'appliquent aux autres partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et vérifiez leurs pages respectives.
 
 {% alert tip %}
 Ces événements sont également disponibles sous forme de tables SQL dans le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
@@ -29,7 +29,7 @@ Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site
 
 ## Structure des événements {#event-structure}
 
-Cette décomposition des événements montre le type d'informations généralement incluses dans un événement d'engagement lié aux messages. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe de stratégie d'aide à la décision peuvent utiliser les données d'événements Currents entrantes pour créer des rapports et des graphiques basés sur les données, et tirer parti d'autres indicateurs de données précieux.
+Cette décomposition des événements montre le type d'informations généralement incluses dans un événement d'engagement lié aux messages. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrantes pour créer des rapports et des graphiques basés sur les données, et tirer parti d'autres indicateurs de données précieux.
 
 ![Décomposition d'un événement d'engagement lié aux messages montrant un événement de désabonnement par e-mail avec les propriétés répertoriées regroupées par propriétés spécifiques à l'utilisateur, propriétés de suivi de Campaign ou Canvas, et propriétés spécifiques à l'événement]({% image_buster /assets/img/message_engagement_event.png %})
 
@@ -65,9 +65,9 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% details Considérations relatives aux événements d'engagement liés aux messages %}
 
-- Currents supprime les événements dont les payloads dépassent 900&nbsp;Ko.
+- Currents supprime les événements dont le payload dépasse 900&nbsp;Ko.
 - Les objets liés à Canvas Flow possèdent des identifiants que vous pouvez utiliser pour le regroupement et traduire en noms lisibles via l'[endpoint d'exportation des détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Certains champs peuvent ne pas afficher leur état le plus récent immédiatement après la mise à jour d'une Campaign ou d'un Canvas :
+- Certains champs peuvent ne pas refléter leur état le plus récent immédiatement après la mise à jour d'une Campaign ou d'un Canvas :
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -7429,7 +7429,7 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
 Email, Sends
 {% endapitags %}
 
-Cet événement se produit lorsqu'une demande d'envoi d'e-mail a été transmise avec succès entre Braze et Sendgrid. Cependant, cela ne signifie pas que l'e-mail a été reçu dans la boîte de réception de l'utilisateur. Braze n'enregistre pas les événements dans les profils utilisateur ni dans les destinations Currents (telles que Snowflake) si l'événement ne peut pas être associé à la fois à l'adresse e-mail et à l'ID utilisateur liés à l'événement e-mail.
+Cet événement se produit lorsqu'une demande d'envoi d'e-mail a été transmise avec succès entre Braze et SendGrid. Cependant, cela ne signifie pas que l'e-mail a été reçu dans la boîte de réception de l'utilisateur. Braze n'enregistre pas les événements dans les profils utilisateur ni dans les destinations Currents (telles que Snowflake) si l'événement ne peut pas être associé à la fois à l'adresse e-mail et à l'ID utilisateur liés à l'événement e-mail.
 
 {% tabs %}
 {% tab Cloud Storage %}

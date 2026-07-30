@@ -16,7 +16,7 @@ channel:
 
 | Requirement | Description |
 | --- | --- |
-| Account with a supported KakaoTalk partner | An account with a supported KakaoTalk partner, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) or Infobip, is required to use the KakaoTalk messaging channel. |
+| Account with a supported KakaoTalk partner | An account with a supported KakaoTalk partner, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) or [Infobip](https://marketplace.braze.com/partners/infobip), is required to use the KakaoTalk messaging channel. |
 | KakaoTalk Business channel | Your KakaoTalk account must be a KakaoTalk Business channel to send KakaoTalk messages through Braze. When you create an account, its default status is basic. To make your account a Business channel, you'll need to verify your business and provide relevant documentation. |
 | KakaoTalk Sender Key | A valid KakaoTalk Sender Key. |
 | Contact phone number | A contact phone number for your KakaoTalk channel's administrator. |

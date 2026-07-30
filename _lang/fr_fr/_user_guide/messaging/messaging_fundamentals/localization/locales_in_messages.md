@@ -135,7 +135,7 @@ Après avoir ajouté des étiquettes de traduction à votre message, sélectionn
 
 #### Content Blocks contenant des traductions {#content-blocks-containing-translation}
 
-Si votre message contient des Content Blocks qui ont déjà des traductions enregistrées, vous n'avez pas besoin de les télécharger à nouveau. Les traductions enregistrées sont automatiquement appliquées lorsque le Content Block est ajouté à votre message.
+Si votre message contient des Content Blocks qui ont déjà des traductions enregistrées, vous n'avez pas besoin de les téléverser à nouveau. Les traductions enregistrées sont automatiquement appliquées lorsque le Content Block est ajouté à votre message.
 
 Dans la fenêtre modale **Gérer les langues**, les Content Blocks avec des traductions enregistrées apparaissent dans la liste, aux côtés des locales qu'ils prennent en charge. Cela vous permet de voir quelles parties de votre message sont déjà localisées avant d'ajouter de nouvelles traductions.
 
@@ -149,12 +149,12 @@ Assurez-vous que chaque Content Block inclut des traductions pour chaque locale 
 
 Après avoir sélectionné les locales, ajoutez des traductions à votre message en utilisant l'une des méthodes suivantes :
 
-![L'onglet Ajouter des traductions avec des options pour télécharger les traductions par CSV ou en se connectant à des partenaires de traduction.]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
+![L'onglet Ajouter des traductions avec des options pour téléverser les traductions par CSV ou en se connectant à des partenaires de traduction.]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
 
 {% tabs %}
-{% tab Télécharger un modèle CSV %}
+{% tab Téléverser un modèle CSV %}
 
-Sélectionnez **Télécharger le modèle** pour télécharger un CSV contenant une matrice de vos ID de traduction et locales sélectionnés. Saisissez les traductions pour chaque locale. Téléchargez le fichier complété et les traductions seront appliquées à votre message.
+Sélectionnez **Télécharger le modèle** pour télécharger un CSV contenant une matrice de vos ID de traduction et locales sélectionnés. Saisissez les traductions pour chaque locale. Téléversez le fichier complété et les traductions seront appliquées à votre message.
 
 {% alert important %}
 Pour éviter les problèmes d'affichage avec les caractères non anglais, évitez d'utiliser Excel pour votre CSV de traduction.
@@ -187,13 +187,13 @@ Pour prévisualiser votre message, sélectionnez l'option **Utilisateur multilin
 
 ## Gérer les traductions {#manage-translations}
 
-### Dupliquer des étapes Canvas ou des Campaigns, et les traductions {#duplicate-canvas-steps-or-campaigns-and-translations}
+### Dupliquer des étapes Canvas ou des campagnes, et les traductions {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-Lorsque vous dupliquez une étape Canvas, une Campaign ou une variante, les traductions sont incluses. Cela s'applique également lors de la copie entre espaces de travail, à condition que les paramètres régionaux soient définis dans l'espace de travail de destination. Veillez à vérifier et mettre à jour les traductions en conséquence lorsque vous apportez des modifications à votre Canvas ou Campaign.
+Lorsque vous dupliquez une étape Canvas, une Campaign ou une variante, les traductions sont incluses. Cela s'applique également lors de la copie entre espaces de travail, à condition que les locales soient définies dans l'espace de travail de destination. Veillez à vérifier et mettre à jour les traductions en conséquence lorsque vous apportez des modifications à votre Canvas ou votre Campaign.
 
 ### Enregistrer les traductions dans les Content Blocks {#save-translations-in-content-blocks}
 
-Les Content Blocks prennent en charge le multilingue de la même manière que les messages. Lors de la création ou de la modification de Content Blocks, vous pouvez étiqueter le contenu pour la traduction, ajouter des paramètres régionaux et importer des traductions à l'aide d'un fichier CSV ou de l'[API de traduction]({{site.baseurl}}/api/endpoints/translations).
+Les Content Blocks prennent en charge le multilingue de la même manière que les messages. Lors de la création ou de la modification de Content Blocks, vous pouvez étiqueter le contenu pour la traduction, ajouter des locales et téléverser des traductions à l'aide d'un fichier CSV ou de l'[API de traduction]({{site.baseurl}}/api/endpoints/translations).
 
 Les traductions enregistrées restent associées au Content Block. Lorsque le bloc est ajouté à un message, ses traductions sont automatiquement incluses.
 
@@ -209,9 +209,9 @@ Lorsque vous remplissez le fichier de traduction pour des langues écrites de dr
 
 ### Suivi des liens dans les e-mails {#email-link-tracking}
 
-Dans les Campaigns par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) et le [modèle de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
+Dans les campagnes par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) et les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 
-Lorsqu'une URL est encadrée par des balises de traduction, Braze peut ne pas être en mesure de déterminer où ajouter ces informations de suivi. Pour garantir le bon fonctionnement, vous devez inclure un caractère spécial à la fin de l'URL pour indiquer où le suivi doit être ajouté.
+Lorsqu'une URL est encadrée par des étiquettes de traduction, Braze peut ne pas être en mesure de déterminer où ajouter ces informations de suivi. Pour garantir le bon fonctionnement, vous devez inclure un caractère spécial à la fin de l'URL pour indiquer où le suivi doit être ajouté.
 
 Les URL utilisent deux caractères spéciaux pour contrôler ce fonctionnement :
   - `?` ajoute le suivi à une URL qui n'en contient pas encore.
@@ -219,17 +219,17 @@ Les URL utilisent deux caractères spéciaux pour contrôler ce fonctionnement :
 
 | URL | Contient&nbsp;`?` | Description | Exemple |
 | --- | --- | --- | --- |
-| URL standard | Non | Ajoutez `?` après la balise de traduction fermante si l'URL n'en contient pas déjà un. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?">Shop Now</a>```{% endraw %} |
-| URL standard | Oui | Utilisez `&` à la fin de l'URL (après la balise de traduction fermante) si elle contient déjà `?`. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
-| Générée par Liquid | Non | Utilisez `?` après les balises de traduction fermantes si l'URL générée n'en contient pas déjà un. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
-| Générée par Liquid | Oui | Utilisez `&` après la balise de traduction fermante si l'URL générée contient déjà un `?`. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
+| URL standard | Non | Ajoutez `?` après l'étiquette de traduction fermante si l'URL n'en contient pas déjà un. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?">Shop Now</a>```{% endraw %} |
+| URL standard | Oui | Utilisez `&` à la fin de l'URL (après l'étiquette de traduction fermante) si elle contient déjà `?`. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
+| Générée par Liquid | Non | Utilisez `?` après les étiquettes de traduction fermantes si l'URL générée n'en contient pas déjà un. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
+| Générée par Liquid | Oui | Utilisez `&` après l'étiquette de traduction fermante si l'URL générée contient déjà un `?`. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Suivi des liens dans les e-mails" }
 
 ### Paramètres de langue et accessibilité {#language-settings-and-accessibility}
 
 Commencez par [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) dans [Accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) pour le contexte WCAG, le comportement par canal et éditeur (y compris les pages de destination), et les paramètres d'**accessibilité** au niveau du message.
 
-Lorsque vous utilisez des **messages multilingues**, alignez la langue d'accessibilité avec chaque paramètre régional afin que les envois localisés déclarent la langue appropriée.
+Lorsque vous utilisez des **messages multilingues**, alignez la langue d'accessibilité avec chaque locale afin que les envois localisés déclarent la langue appropriée.
 
 #### Configurer la langue d'accessibilité {#configuring-the-accessibility-language}
 
@@ -239,21 +239,32 @@ Vous pouvez définir la langue d'accessibilité à deux niveaux :
 
 Au niveau du message, définissez la langue d'accessibilité dans la section **Accessibilité** des paramètres de votre message. Pour sélectionner une langue, utiliser Liquid et connaître les limitations par canal, consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
 
-##### Niveau du paramètre régional {#locale-level}
+##### Niveau de la locale {#locale-level}
 
-Pour les messages multilingues, définissez la langue d'accessibilité pour chaque paramètre régional dans les **paramètres de localisation**. Vous pouvez utiliser {% raw %}`{{accessibility_language}}`{% endraw %} dans la section **Accessibilité** afin que la langue du document ou de la carte corresponde aux valeurs de ces paramètres régionaux.
+Pour les messages multilingues, définissez la langue d'accessibilité pour chaque locale dans les **paramètres de localisation**. Vous pouvez utiliser {% raw %}`{{accessibility_language}}`{% endraw %} dans la section **Accessibilité** afin que la langue du document ou de la carte corresponde aux valeurs de ces locales.
 
-L'affichage par défaut de ce jeton pour les nouveaux messages dépend du canal et de l'éditeur. Par exemple, les In-App Messages et les Banners se comportent différemment des pages de destination et des e-mails en glisser-déposer. Consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) pour plus de détails.
+L'affichage par défaut de ce jeton pour les nouveaux messages dépend du canal et de l'éditeur. Par exemple, les In-App Messages et les bannières se comportent différemment des pages de destination et des e-mails en glisser-déposer. Consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) pour plus de détails.
 
 ## Questions fréquentes {#frequently-asked-questions}
 
-### Quelles sont les limites pour les tags de traduction ? {#what-are-the-limits-for-translation-tags}
+### Quelles sont les limites pour les étiquettes de traduction ? {#what-are-the-limits-for-translation-tags}
 
-Lorsque vous utilisez des tags de traduction, les limites suivantes s'appliquent :
+Lorsque vous utilisez des étiquettes de traduction, les limites suivantes s'appliquent :
 
-- Chaque message peut contenir jusqu'à 200 tags de traduction.
-- Chaque texte par défaut (le contenu entre les tags de traduction) peut contenir jusqu'à 2 000 caractères.
+- Chaque message peut contenir jusqu'à 200 étiquettes de traduction.
+- Chaque texte par défaut (le contenu entre les étiquettes de traduction) peut contenir jusqu'à 2 000 caractères.
 - Les traductions par locale peuvent contenir jusqu'à 409 600 octets (environ 409,6&nbsp;Ko).
+
+### Pourquoi est-ce que je reçois une erreur lors du téléchargement de modèles d'e-mail multilingues ? {#why-am-i-receiving-an-error-when-downloading-multi-language-email-templates}
+
+Si vous rencontrez des erreurs lors du téléchargement de modèles d'e-mail multilingues, les étiquettes de traduction encadrent peut-être des attributs HTML ou du style CSS qui entrent en conflit avec la façon dont Braze traite le corps des e-mails.
+
+Braze traite le corps HTML et le corps en texte brut comme des composants distincts du même message. Lorsque les étiquettes de traduction incluent des références `href` et du style CSS, cela peut entraîner des étiquettes en conflit qui empêchent le téléchargement correct du modèle.
+
+Pour résoudre ce problème :
+- Excluez les références `href` et le style CSS des étiquettes de traduction.
+- N'encadrez que le contenu textuel lisible par l'utilisateur dans les étiquettes de traduction, comme décrit dans [Attributs et structure HTML](#html-attributes-and-structure).
+- Pour les URL, suivez les recommandations de [Localiser les URL](#localize-urls).
 
 #### Puis-je modifier le texte traduit dans l'une de mes locales ? {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
 
@@ -263,15 +274,15 @@ Oui. Commencez par effectuer la modification dans le CSV, puis téléversez à n
 
 Non. Vous devez [fournir vos propres traductions](#step-4-add-translations) soit en téléversant un CSV, soit en utilisant l'API de traduction.
 
-### Puis-je imbriquer des tags de traduction ? {#can-i-nest-translation-tags}
+### Puis-je imbriquer des étiquettes de traduction ? {#can-i-nest-translation-tags}
 
 Non.
 
-#### Puis-je envelopper des messages HTML entiers dans un tag de traduction ? {#can-i-wrap-entire-html-messages-in-a-translation-tag}
+#### Puis-je encadrer des messages HTML entiers dans une étiquette de traduction ? {#can-i-wrap-entire-html-messages-in-a-translation-tag}
 
-Non. En tant que bonne pratique, vous ne devez envelopper que le texte lisible par l'humain ou le contenu qui doit être localisé. Cela permet d'éviter les problèmes de mise en forme, de liens ou d'autres éléments non textuels.
+Non. En tant que bonne pratique, vous ne devez encadrer que le texte lisible par l'utilisateur ou le contenu qui doit être localisé. Cela permet d'éviter les problèmes de mise en forme, de liens ou d'autres éléments non textuels.
 
-De plus, envisagez d'envelopper des portions de texte plus petites et sémantiquement liées afin de créer des traductions précises et d'éviter les limitations de performance ou de taille.
+De plus, envisagez d'encadrer des portions de texte plus petites et sémantiquement liées afin de créer des traductions précises et d'éviter les limitations de performance ou de taille.
 
 #### Puis-je modifier le texte traduit dans l'une de mes locales ?
 
@@ -282,14 +293,14 @@ Oui. Si vous utilisez un CSV, commencez par effectuer la modification dans le fi
 | Scénario | Validation dans Braze |
 | --- | --- |
 | Un message contient deux ou plusieurs ID de traduction identiques qui correspondent à des textes différents. | Ce fichier de traduction ne sera pas téléchargé. |
-| Un fichier de traduction ne contient pas un ou plusieurs ID de tags de traduction. | Ce fichier de traduction ne sera pas téléversé. |
+| Un fichier de traduction ne contient pas un ou plusieurs ID d'étiquettes de traduction. | Ce fichier de traduction ne sera pas téléversé. |
 | Un fichier de traduction contient des locales absentes du message. | Ce fichier de traduction ne sera pas téléversé. |
-| Les tags de traduction doivent être ajoutés à un message avant de télécharger le modèle de traduction. | Ce fichier de traduction ne sera pas téléchargé. |
-| Des tags de traduction présents dans votre fichier téléversé sont absents de votre message. | Les traductions supplémentaires ne seront pas enregistrées dans le message. |
-| {% raw %}Un message contient un ou plusieurs tags Liquid incorrects. Pour ouvrir les tags, utilisez `{% translation your_id_here %}`, fermez les tags de traduction avec `{% endtranslation %}`.{% endraw %} | Ce fichier de traduction ne sera pas téléchargé. |
+| Les étiquettes de traduction doivent être ajoutées à un message avant de télécharger le modèle de traduction. | Ce fichier de traduction ne sera pas téléchargé. |
+| Des étiquettes de traduction présentes dans votre fichier téléversé sont absentes de votre message. | Les traductions supplémentaires ne seront pas enregistrées dans le message. |
+| {% raw %}Un message contient une ou plusieurs étiquettes Liquid incorrectes. Pour ouvrir les étiquettes, utilisez `{% translation your_id_here %}`, fermez les étiquettes de traduction avec `{% endtranslation %}`.{% endraw %} | Ce fichier de traduction ne sera pas téléchargé. |
 | Un fichier de traduction contient un texte par défaut qui ne correspond pas à celui du message. | Les traductions sont ajoutées, mais le texte original du message n'est pas mis à jour. |
 | Une ou plusieurs locales d'un message ont été supprimées dans les paramètres et n'existent plus. | Les traductions déjà ajoutées continuent d'exister dans le message. Si elles sont supprimées du message, les traductions sont perdues. |
-| Les tags de traduction contiennent des URL complètes ou des URL générées par Liquid. | Les tags de traduction contenant des URL sont identifiés en cas de problèmes de liens brisés ou de suivi des liens. |
-| Les tags de traduction incluent des paramètres de requête. | Les tags de traduction contenant des paramètres de requête sont identifiés en cas de problèmes de liens brisés ou de suivi des liens. |
-| Les tags de traduction contiennent des attributs ou des structures HTML. | Les tags de traduction contenant des attributs ou des structures HTML sont identifiés en cas de problèmes de styles et de mise en forme. |
+| Les étiquettes de traduction contiennent des URL complètes ou des URL générées par Liquid. | Les étiquettes de traduction contenant des URL sont identifiées en cas de problèmes de liens brisés ou de suivi des liens. |
+| Les étiquettes de traduction incluent des paramètres de requête. | Les étiquettes de traduction contenant des paramètres de requête sont identifiées en cas de problèmes de liens brisés ou de suivi des liens. |
+| Les étiquettes de traduction contiennent des attributs ou des structures HTML. | Les étiquettes de traduction contenant des attributs ou des structures HTML sont identifiées en cas de problèmes de styles et de mise en forme. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Quelles validations ou vérifications supplémentaires Braze effectue-t-il ?" }

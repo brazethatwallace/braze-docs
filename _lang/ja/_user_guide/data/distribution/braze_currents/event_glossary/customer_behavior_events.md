@@ -1643,7 +1643,10 @@ Brazeがトークンを削除すると、独立した「remove」イベントが
 - [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)エンドポイントまたは重複ユーザーのクリーンアップが、孤立したユーザーのトークンを存続するユーザーに移行する。
 
 {% alert note %}
-REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)またはSDKの `changeUser` による同一プロファイルの識別（匿名プロファイルにexternal IDを割り当てる場合）では、`user_id` は変更されず、追加と削除のペアイベントは発行されません。代わりに、Brazeは既存の各プッシュトークンに対して「update」イベントを発行し、`external_user_id` を識別されたユーザーのexternal IDに設定します。`changeUser` がトークンをあるユーザープロファイルから別のユーザープロファイルに移動する場合は、上記の追加と削除のペアイベントが引き続き発行されます。
+REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)またはSDKの[`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles)による同一プロファイルの識別では、`user_id` を変更せずに匿名プロファイルにexternal IDを割り当てることができます。
+この場合、Brazeは[追加と削除のペアイベント](#add-and-remove-pairs)を発行しません。
+代わりに、Brazeは既存の各プッシュトークンに対して「update」イベントを発行し、`external_user_id` を識別されたユーザーのexternal IDに設定します。
+`changeUser` がトークンをあるユーザープロファイルから別のユーザープロファイルに移動する場合は、[追加と削除のペア](#add-and-remove-pairs)セクションで説明されている[追加と削除のペアイベント](#add-and-remove-pairs)が引き続き発行されます。
 {% endalert %}
 
 #### 最新のアクティブなトークン状態のクエリ {#querying-for-the-latest-active-token-state}

@@ -77,7 +77,7 @@ Um eine Schätzung zu erhalten, wie viele Nutzer:innen die Nachricht in jeder St
 
 ![Das Vorschau-Chart für Android-Push zeigt, dass das höchste Engagement zwischen 12 und 14 Uhr liegt und die beliebteste App-Nutzungszeit 14 Uhr ist.]({% image_buster /assets/img/intel-timing-preview.png %})
 
-### Schritt 2: Wählen Sie ein Sendedatum {#step-2-choose-a-send-date}
+### Schritt 2: Sendedatum wählen {#step-2-choose-a-send-date}
 
 Wählen Sie dann ein Sendedatum für Ihre Campaign aus. Bitte beachten Sie beim Planen von Campaigns mit intelligentem Timing Folgendes:
 
@@ -247,7 +247,7 @@ Intelligentes Timing plant Nachrichten während der „engagiertesten Stunde“ 
 
 Wenn für eine:n Nutzer:in keine relevanten Ereignisse vorliegen, verwendet intelligentes Timing die in Ihren Nachrichteneinstellungen konfigurierte Fallback-Einstellung – entweder eine benutzerdefinierte Fallback-Zeit oder die beliebteste Zeit für die Nutzung der App unter allen Nutzer:innen.
 
-### Campaigns
+### Campaigns {#campaigns}
 
 #### Wie weit im Voraus sollte ich eine Campaign mit intelligentem Timing starten, um sie erfolgreich an alle Nutzer:innen in allen Zeitzonen zuzustellen? {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
 

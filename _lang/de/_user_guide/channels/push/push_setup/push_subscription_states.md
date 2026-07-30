@@ -115,6 +115,8 @@ Wenn ein Nutzerprofil ein gültiges Vordergrund-Push-Token hat, das mit einer Ap
 
 {% alert note %}
 Der Filter `Foreground Push Enabled for App` berücksichtigt nur das Vorhandensein eines gültigen Vordergrund- und Hintergrund-Push-Tokens für die jeweilige App. Der allgemeinere Filter [`Foreground Push Enabled`](#foreground-push-enabled) segmentiert jedoch Nutzer:innen, die Push-Benachrichtigungen für beliebige Apps in Ihrem Workspace explizit aktiviert haben. Diese Zählung umfasst nur Vordergrund-Push und schließt Nutzer:innen aus, die sich abgemeldet haben. Weitere Informationen zu diesen und anderen Filtern finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+
+Bei einem kleinen Prozentsatz von Nutzer:innen können Verarbeitungsverzögerungen zu einer kurzfristigen Diskrepanz führen: Nutzer:innen haben möglicherweise ein gültiges Vordergrund-Push-Token in ihrem Profil, stimmen aber dennoch nicht mit dem Filter `Foreground Push Enabled` überein. Ihr Profil kann kurzzeitig anzeigen, dass Vordergrund-Push nicht aktiviert ist, obwohl ein Token vorhanden ist. Dies klärt sich in der Regel, sobald die Verarbeitung aufgeholt hat.
 {% endalert %}
 
 ### Mehrere Nutzer:innen auf einem Gerät {#multiple-users-on-one-device}
@@ -141,7 +143,7 @@ Der Filter `Foreground Push Enabled` berücksichtigt Folgendes:
 - Die Fähigkeit von Braze, eine Push-Benachrichtigung zu senden (Vordergrund-Push-Token)
 - Die allgemeine Präferenz der Nutzer:innen, Push auf einem ihrer Geräte zu empfangen (Push-Abo-Status)
 
-![Ein Screenshot des Dashboards, der zeigt, dass Nutzer:innen „Push Registered for Marketing (iOS)“ sind]({% image_buster /assets/img/push_enablement.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
+![Ein Screenshot des Dashboards, der zeigt, dass Nutzer:innen „Push Registered for Marketing (iOS)“ sind.]({% image_buster /assets/img/push_enablement.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
 Nutzer:innen gelten als „Push-aktiviert“ oder „Push-registriert“, wenn sie ein aktives Vordergrund-Push-Token für eine App in Ihrem Workspace haben, was bedeutet, dass der Push-Aktivierungsstatus app-spezifisch ist.
 

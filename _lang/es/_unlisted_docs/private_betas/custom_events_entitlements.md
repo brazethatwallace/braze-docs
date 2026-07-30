@@ -10,7 +10,7 @@ hidden: true
 
 Los eventos personalizados son acciones realizadas por tus usuarios o actualizaciones sobre ellos. Cuando se registran eventos personalizados, pueden desencadenar cualquier número y tipo de campañas de seguimiento. Luego puedes usar [filtros de segmentación](#segmentation-filters) para segmentar usuarios en función de la frecuencia y la última vez que ocurrieron esos eventos personalizados. Esto hace que los eventos personalizados sean ideales para rastrear interacciones de alto valor de los usuarios dentro de tu aplicación.
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Algunos casos de uso comunes de eventos personalizados incluyen:
 
@@ -209,7 +209,7 @@ Los filtros de segmentación por propiedades de eventos incluyen:
 
 {% multi_lang_include data_activation/custom_event_property_filters.md %}
 
-![Un grupo de filtros que "ha realizado 'Carrito abandonado' con la propiedad 'número de artículos' y el valor '2' 'más de' '1' vez en los últimos '30' días naturales.][3]
+![Un grupo de filtros que indica que se ha realizado "Carrito abandonado" con la propiedad "número de artículos" y el valor "2" "más de" "1" vez en los últimos "30" días naturales.][3]
 
 Los datos solo se registran para una propiedad de evento determinada después de que tu administrador de éxito de cliente la haya habilitado, y las propiedades de eventos solo están disponibles a partir de esa fecha en adelante.
 
@@ -269,7 +269,7 @@ Para los Canvas creados con el editor original, `canvas_entry_properties` solo s
 No puedes usar `event_properties` en el paso de mensaje principal. En su lugar, debes usar `canvas_entry_properties` o agregar un paso de Rutas de Acción con el evento correspondiente **antes** del paso de mensaje que incluye `event_properties`.
 {% endalert %}
 
-Las propiedades de eventos se refieren a las propiedades que estableces para eventos personalizados y compras. Estas `event_properties` se pueden usar en Campaigns con entrega basada en acciones y en Canvas.
+Las propiedades de eventos se refieren a las propiedades que estableces para eventos personalizados y compras. Estas `event_properties` se pueden usar en campañas con entrega basada en acciones y en Canvas.
 
 En Canvas Flow, las propiedades de eventos personalizados y de compra se pueden usar en Liquid en cualquier paso de mensaje que siga a un paso de Rutas de Acción. Asegúrate de usar {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} si haces referencia a estas `event_properties`. Estos eventos deben ser eventos personalizados o eventos de compra para usarse de esta manera en el componente de mensaje.
 

@@ -240,7 +240,7 @@ class GlideIntegrationApplication : Application() {
 
 ## Jetpack Composeによるカスタム画像読み込み {#custom-image-loading-with-jetpack-compose}
 
-Jetpack Composeで画像の読み込みをオーバーライドするには、[`imageComposable`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#-808910455%2FProperties%2F-1725759721)に値を渡します。この関数は `Card` を受け取り、必要な画像とモディファイアをレンダリングします。または、`ContentCardsList` の `customCardComposer` を使用してカード全体をレンダリングすることもできます。
+Jetpack Composeで画像の読み込みをオーバーライドするには、[`imageComposable`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#-808910455%2FProperties%2F-1725759721)に値を渡します。この関数は `Card` を受け取り、必要な画像とモディファイアをレンダリングします。または、`ContentCardsList`の `customCardComposer` を使用してカード全体をレンダリングすることもできます。
 
 次の例では、`imageComposable` 関数にリストされているカードにGlideのComposeライブラリを使用しています。
 

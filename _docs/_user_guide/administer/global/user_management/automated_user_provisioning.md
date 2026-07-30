@@ -12,6 +12,8 @@ alias: /scim/automated_user_provisioning/
 
 > Automated user provisioning lets you create and manage Braze users through an API instead of manually in the dashboard. Braze supports this through System for Cross-domain Identity Management (SCIM). This article walks you through what information to provide, how to generate your SCIM token, and where to find your SCIM API endpoint.
 
+{% multi_lang_include scim/scim_alerts.md alert='one_integration' %}
+
 ## Accessing SCIM provisioning settings
 
 {% alert important %}
@@ -32,6 +34,8 @@ SCIM provisioning availability depends on your platform edition. If this feature
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
 Use the **Okta - Braze app** option if you set up the Braze app for SAML SSO in Okta. If you set up a custom app for SSO, follow the instructions in the [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning) tab.
+
+{% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
 ## Step 1: Set up SCIM provisioning
 
@@ -84,6 +88,8 @@ Select **Test API Credentials**. A verification message appears if the integrati
 
 Use the **Okta - Custom app integration** option if you set up a custom app for SSO. If you set up the Braze app for SAML SSO in Okta, follow the instructions in the [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning) tab.
 
+{% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
+
 ## Step 1: Set up SCIM provisioning
 
 ### Step 1.1: Enable SCIM
@@ -121,6 +127,8 @@ Use the **Okta - Custom app integration** option if you set up a custom app for 
 {% tab Entra ID %}
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Entra ID integration' %}
+
+{% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Entra ID' %}
 
 ## Step 1: Set up SCIM provisioning app
 

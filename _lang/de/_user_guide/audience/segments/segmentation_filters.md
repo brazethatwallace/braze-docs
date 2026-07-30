@@ -61,7 +61,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: "Attribute, die Eigenschaften von angepassten Attributen sind.<br><br>Beim Filtern eines verschachtelten angepassten Zeitattributs können Sie wählen, ob nach „Tag des Jahres“ oder „Zeit“ gefiltert werden soll. „Tag des Jahres“ vergleicht nur Monat und Tag. „Zeit“ vergleicht den vollständigen Zeitstempel einschließlich des Jahres."
+    description: "Attribute, die Eigenschaften von angepassten Attributen sind.<br><br>Beim Filtern eines verschachtelten angepassten Zeitattributs können Sie wählen, ob nach „Tag des Jahres“ oder „Zeit“ gefiltert werden soll. „Tag des Jahres“ vergleicht nur Monat und Tag. „Zeit“ vergleicht den vollständigen Zeitstempel einschließlich des Jahres. Dieselbe Logik gilt beim Filtern nach Kontextvariablen in Canvas-Zielgruppenpfaden; siehe <a href=\"/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables\">Tag-des-Jahres- und Zeitfilter für Datums-Kontextvariablen</a> für Details."
     tags:
       - Custom attribute
   - name: Day of Recurring Event

@@ -45,19 +45,19 @@ Dado que las columnas nuevas se consideran cambios sin ruptura, Braze recomienda
 
 ## Cuándo se actualizan las tablas SNAPSHOTS y CHANGELOGS {#when-snapshots-and-changelogs-tables-are-updated}
 
-Las tablas SNAPSHOTS y CHANGELOGS realizan un seguimiento de los cambios en las campañas y los Canvas. Comprender cuándo se actualizan estas tablas es importante para consultar las variaciones de mensajes y las configuraciones de Canvas más recientes.
+Las tablas SNAPSHOTS y CHANGELOGS realizan un seguimiento de los cambios en las Campaigns y los Canvas. Comprender cuándo se actualizan estas tablas es importante para consultar las variaciones de mensajes y las configuraciones de Canvas más recientes.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 
 Se añade una fila a `CHANGELOGS_CAMPAIGN_SHARED` cuando:
-- Se lanza la campaña, O
+- Se lanza la Campaign, O
 - Se modifica cualquiera de los siguientes campos con captura de instantánea:
   - Nombre
   - Acciones (incluidos los cambios en el contenido de los mensajes)
   - Comportamientos de conversión
 
 {% alert important %}
-Guardar o actualizar el borrador posterior al lanzamiento no desencadena automáticamente una actualización. La actualización se desencadena solo cuando lanzas la campaña o aplicas los cambios del borrador posterior al lanzamiento a la campaña activa.
+Guardar o actualizar el borrador posterior al lanzamiento no desencadena automáticamente una actualización. La actualización se desencadena solo cuando lanzas la Campaign o aplicas los cambios del borrador posterior al lanzamiento a la Campaign activa.
 {% endalert %}
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED

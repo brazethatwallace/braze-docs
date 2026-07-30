@@ -13,7 +13,7 @@ page_order: 0
 
 Pour accéder au générateur de pages de destination, vous avez besoin de [certaines autorisations]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Si vous n'y avez pas accès, demandez de l'aide à votre administrateur Braze.
 
-## Créer une page de destination {#creating-a-landing-page}
+## Créer une page de destination {#create-a-landing-page}
 
 Une page de destination est une page web publiée et accessible en direct, dotée d'une URL partageable que vos clients peuvent consulter.
 
@@ -131,6 +131,8 @@ Lorsque cette option est activée, vous pouvez également inverser l'empilement 
 
 ![Le bouton bascule « Vertically stack on smaller screens » dans la section « Customize columns ».]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
+
 #### Champs facultatifs et obligatoires {#optional-and-required-fields}
 
 Vous pouvez choisir si un champ de formulaire est obligatoire ou facultatif. Les champs obligatoires doivent être remplis avant que le formulaire puisse être soumis. Les champs facultatifs peuvent être laissés vides ou non sélectionnés par un utilisateur.
@@ -173,25 +175,25 @@ Lorsque vous êtes prêt, sélectionnez **Publish Landing Page**.
 Les bloqueurs de pop-ups et de publicités agressifs sur iOS et dans Safari (y compris les contrôles intégrés de Safari et les extensions tierces) peuvent avoir un impact négatif sur le comportement des pages de destination lorsqu'un bouton **Submit** de formulaire ouvre également une autre URL, que cette URL s'ouvre dans le même onglet ou dans un nouvel onglet.
 {% endalert %}
 
-## Utilisation des modèles {#using-templates}
+## Utiliser des modèles {#using-templates}
 
 Les modèles de pages de destination sont des points de départ de conception réutilisables qui vous aident à créer des pages de destination plus rapidement. Un modèle n'a pas d'URL publique et ne peut pas être visité par les clients. Pour créer une page de destination en direct à partir d'un modèle, sélectionnez le modèle lors de la création d'une nouvelle page de destination, personnalisez-le selon vos besoins, puis publiez-le.
 
 Les modèles sont accessibles et gérables à la fois dans l'éditeur de pages de destination et depuis la page **Landing Page Templates** (**Content** > **Landing Page**). Les modèles de pages de destination nécessitent un nom et une description facultative.
 
-## Gestion des modèles {#managing-templates}
+## Gérer les modèles {#manage-templates}
 
-Vous pouvez prévisualiser, archiver ou modifier des modèles de page de destination. Vous pouvez dupliquer vos propres modèles de page de destination (situés dans **Vos modèles**), mais pas les modèles Braze. Lors de la modification d'une page de destination, vous pouvez enregistrer votre page de destination en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page de destination.
+Vous pouvez prévisualiser, archiver ou modifier des modèles de page de destination. Vous pouvez dupliquer vos propres modèles de page de destination (situés dans **Your Templates**), mais pas les modèles Braze. Lors de la modification d'une page de destination, vous pouvez enregistrer votre page de destination en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page de destination.
 
 ![Un menu déroulant avec des options pour enregistrer, modifier et supprimer une page de destination.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Consulter les analyses {#viewing-analytics}
+## Consulter les analyses {#view-analytics}
 
 Pour analyser l'efficacité de votre page de destination, accédez à **Messaging** > **Landing Pages**, puis sélectionnez une page de destination que vous avez publiée. Vous pouvez y suivre le nombre de vues de page, de clics sur la page, de soumissions de page, ainsi que les taux de soumission de votre page de destination.
 
 ![La section d'analyse d'une page de destination.]({% image_buster /assets/img/landing_pages/analytics.png %})
 
-## Gestion des erreurs de soumission de formulaire {#handling-form-submission-errors}
+## Gérer les erreurs de soumission de formulaire {#handling-form-submission-errors}
 
 Si un utilisateur tente de soumettre un formulaire avec des données manquantes ou non prises en charge, il verra un message d'erreur générique et ne pourra pas soumettre.
 
@@ -201,4 +203,4 @@ Causes courantes :
 - Des caractères spéciaux sont utilisés dans les champs de texte
 - Une case à cocher obligatoire n'est pas sélectionnée
 
-Les messages d'erreur affichés aux utilisateurs ne peuvent pas être personnalisés. Prévisualisez votre page d'accueil pour confirmer le comportement des champs avant de publier.
+Les messages d'erreur affichés aux utilisateurs ne peuvent pas être personnalisés. Prévisualisez votre page de destination pour confirmer le comportement des champs avant de publier.

@@ -15,48 +15,48 @@ tool:
 
 Si no activas el seguimiento analítico para un segmento, podrás acceder a [las estadísticas en tiempo real]({{site.baseurl}}/user_guide/audience/segments/segment_data#segment-statistics) de ese segmento y dirigirte a sus usuarios con campañas. La única diferencia es si puedes acceder a las herramientas de análisis específicas mencionadas en esta página.
 
-## Activar el seguimiento analítico por segmentos {#turning-on-segment-analytics}
+## Activar el análisis de segmentos {#turning-on-segment-analytics}
 
 En la sección **Segment Details** de la página de un segmento, activa **Analytics Tracking**.
 
-![Activación del seguimiento analítico de un segmento]({% image_buster /assets/img_archive/A_Tracking_2.png %})
+![Alternancia de seguimiento de análisis para un segmento]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
-Una aplicación puede tener activado el seguimiento de hasta 25 segmentos. Braze recomienda realizar un seguimiento de los segmentos que te resulten importantes para analizar los efectos de tus campañas sobre las sesiones, los ingresos y las compras.
+Un espacio de trabajo puede tener el seguimiento activado para un máximo de 25 segmentos. Braze recomienda hacer seguimiento de los segmentos que son importantes para ti a la hora de analizar y comprender los efectos de tus Campaigns en las sesiones, los ingresos y las compras.
 
 {% alert note %}
-Después de habilitar el seguimiento analítico, puede haber un retraso hasta que se completen los datos del segmento. Si los datos no se completan en un plazo de 24 horas, [ponte en contacto con Soporte]({{site.baseurl}}/braze_support).
+Después de habilitar el seguimiento de análisis, espera un tiempo antes de que los datos del segmento se muestren en tus informes. Si los datos no aparecen en un plazo de 24 horas, [contacta con soporte]({{site.baseurl}}/braze_support).
 {% endalert %}
 
-## Ver los ingresos y las compras a lo largo del tiempo {#viewing-revenue-and-purchases-over-time}
+## Visualización de ingresos y compras a lo largo del tiempo {#viewing-revenue-and-purchases-over-time}
 
-Ve a **Analytics** > **Revenue Report** para ver los datos sobre [ingresos y compras a lo largo del tiempo para este segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report).
+Ve a **Analytics** > **Revenue Report** para ver datos sobre [ingresos y compras a lo largo del tiempo para este segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report).
 
-Los gráficos de ingresos y compras reflejan la actividad registrada después de que se active el seguimiento analítico para ese segmento. Activar el seguimiento no rellena retroactivamente las compras anteriores en esos informes. Cuando compares segmentos, utiliza solo intervalos de tiempo en los que el seguimiento estuviera habilitado para cada segmento que selecciones.
+Los gráficos de ingresos y compras reflejan la actividad registrada después de que se activa el seguimiento de análisis para ese segmento. Activar el seguimiento no rellena retroactivamente las compras anteriores en esos informes. Cuando compares segmentos, usa solo intervalos de tiempo en los que el seguimiento estuviera habilitado para cada segmento que selecciones.
 
 ![Datos de ingresos por segmento]({% image_buster /assets/img_archive/Revenue.png %})
 
-Para comparar visualmente los datos de los segmentos en cualquier intervalo de tiempo personalizado, añade o elimina segmentos del gráfico. Selecciona **By Segment** en el desplegable **Breakdown** y, a continuación, selecciona tus segmentos en **Breakdown values**.
+Para comparar visualmente los datos de segmentos en cualquier intervalo de tiempo personalizado, añade o elimina segmentos del gráfico. Selecciona **By Segment** en el desplegable **Breakdown** y luego selecciona tus segmentos en **Breakdown values**.
 
 Selecciona cualquier nombre de segmento en la leyenda del gráfico para activar o desactivar la visibilidad de las métricas de ese segmento.
 
-![Ingresos por múltiples segmentos]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
+![Ingresos para múltiples segmentos]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
 ## Sesiones a lo largo del tiempo {#sessions-over-time}
 
-Del mismo modo, puedes encontrar datos sobre [las sesiones a lo largo del tiempo para este segmento en particular]({{site.baseurl}}/user_guide/analytics/dashboards/home) en la página **Home**.
+De manera similar, puedes encontrar datos sobre [sesiones a lo largo del tiempo para este Segment en particular]({{site.baseurl}}/user_guide/analytics/dashboards/home) en la página **Inicio**.
 
-![Datos de sesiones por segmento]({% image_buster /assets/img_archive/events_over_time2.png %})
+![Datos de sesiones por Segment]({% image_buster /assets/img_archive/events_over_time2.png %})
 
 ## Ver eventos personalizados a lo largo del tiempo {#view-custom-events-over-time}
 
-Para ver los datos de [los eventos personalizados a lo largo del tiempo para los segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics), ve a **Analytics** > **Custom events report**.
+Consulta los datos de [eventos personalizados a lo largo del tiempo para Segments]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) yendo a **Analytics** > **Informe de eventos personalizados**.
 
-## Uso de las plantillas del generador de consultas {#using-query-builder-templates}
+## Uso de plantillas del Query Builder {#using-query-builder-templates}
 
-Cuando el seguimiento analítico está activado, puedes utilizar las plantillas de informes del generador de consultas para desglosar las métricas de rendimiento de campañas, Canvas, variantes y pasos por segmentos. Para saber más, consulta [Datos de segmentos]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment).
+Cuando el seguimiento de análisis está activado, puedes usar las plantillas de informes del Query Builder para desglosar las métricas de rendimiento de Campaigns, Canvas, variantes y pasos por Segments. Para obtener más información, consulta [Datos de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-### ¿Qué debo comprobar si el seguimiento analítico parece incorrecto o está vacío? {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
+### ¿Qué debo verificar si el seguimiento de análisis parece incorrecto o está vacío? {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
 
-Confirma que **Analytics Tracking** sigue habilitado en **Segment Details**, que no has superado el límite por aplicación (25 segmentos con seguimiento) y espera hasta 24 horas para que los datos se completen después de habilitar el seguimiento por primera vez. Si los problemas continúan, verifica la definición del segmento y el intervalo de fechas del informe, y luego [ponte en contacto con Soporte]({{site.baseurl}}/braze_support).
+Confirma que **Analytics Tracking** sigue habilitado en **Segment Details**, que no has excedido el límite por espacio de trabajo (25 Segments con seguimiento) y espera hasta 24 horas para que los datos se completen después de habilitar el seguimiento por primera vez. Si los problemas continúan, verifica la definición del Segment y el rango de fechas del informe, y luego [contacta a Soporte]({{site.baseurl}}/braze_support).

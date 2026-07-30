@@ -51,7 +51,7 @@ O Decisioning Studio Pro adiciona:
 - Conexão com qualquer fonte de dados primários
 - Decisão multicanal
 - Padrões de orquestração estendidos
-- Suporte dedicado da equipe de serviços de tomada de decisão por IA da Braze
+- Suporte dedicado da equipe de serviços de AI Decisioning da Braze
 
 ## Próximas etapas {#next-steps}
 

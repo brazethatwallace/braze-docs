@@ -159,9 +159,20 @@ If your confirmation page opens in a new tab, a user who returns to the original
 
 ### Step 5: Preview the page
 
-You can preview your landing page in the editor's **Preview** tab. After saving your landing page as a draft, you can visit the URL by going to **Landing Pages** and selecting **Copy URL** next to your landing page. You can also share the URL with collaborators.
+You can preview your landing page in the editor's **Preview** tab. After saving your landing page as a draft, you can visit the URL by going to **Landing Pages** and selecting **Copy URL** next to your landing page.
 
 ![A landing page with the menu open to show the "Copy URL" option.]({% image_buster /assets/img/landing_pages/copy-url.png %})
+
+#### Sharing a preview link
+
+In the editor, you can also select **Copy preview link** to share the page with reviewers who don't have dashboard access.
+
+- If your landing page doesn't use Liquid, this link is the same as the direct URL from **Copy URL**, opened in preview mode.
+- If your landing page uses Liquid and you have the Landing Pages Pro entitlement, the link instead renders the live page on demand and reflects your current changes rather than a snapshot from when you generated the link. Content is personalized per user.
+
+For preview links on other channels, see [shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
+
+### Step 6: Publish
 
 Before you publish, make sure:
 

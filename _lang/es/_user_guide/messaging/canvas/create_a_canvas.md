@@ -109,6 +109,10 @@ Puedes controlar otros aspectos del comportamiento del Canvas desde la ventana *
 
 ![Un ejemplo de entrega basada en acciones. Los usuarios entrarán en el Canvas si realizan una compra con una ventana de entrada que comienza a la 1:30 pm del 10 de junio de 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
+{% alert note %}
+**Interactuar con paso en Canvas** no está disponible como desencadenante de entrada basado en acciones para Canvas. Solo se puede usar como desencadenante para Campaigns. Para desencadenar un Canvas desde otro, usa el componente de Canvas [Enviar a destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination), o crea un [webhook de Braze a Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) que llame al endpoint `/canvas/trigger/send`.
+{% endalert %}
+
 {% alert important %}
 Si tu Canvas basado en acciones envía mensajes antes de lo esperado, verifica que la marca de tiempo de tu evento personalizado se envíe con la hora actual en lugar de una hora retroactiva. Por ejemplo, si un Canvas basado en acciones tiene un retraso de tres horas después de que un usuario realiza un evento personalizado, Braze usa la marca de tiempo enviada con el evento personalizado para evaluar ese retraso. Si la marca de tiempo está retroactiva por más de tres horas, Braze trata el retraso como ya transcurrido y envía el mensaje inmediatamente.
 {% endalert %}
@@ -136,6 +140,14 @@ Si un usuario vuelve a entrar en el Canvas, alcanza el mismo componente que su e
 ### Paso 1.3: Configura tu audiencia de entrada objetivo {#step-13-set-your-target-entry-audience}
 
 Solo los usuarios que coincidan con tus criterios definidos pueden entrar en el recorrido en el paso **Audiencia objetivo**, lo que significa que Braze evalúa la audiencia objetivo para elegibilidad primero **antes** de que los usuarios entren en el recorrido del Canvas. Por ejemplo, si quieres dirigirte a usuarios nuevos, puedes seleccionar un segmento de usuarios que usaron tu aplicación por primera vez hace menos de una semana.
+
+{% alert important %}
+En espacios de trabajo con múltiples aplicaciones, la elegibilidad de la audiencia de entrada al Canvas (incluyendo segmentos y filtros) se evalúa solo cuando los usuarios entran en el Canvas, no en los pasos de mensaje individuales. Si tu espacio de trabajo tiene múltiples aplicaciones y necesitas asegurarte de que los pasos de mensaje se dirijan solo a usuarios de una aplicación específica, usa uno de los siguientes enfoques en cada paso de mensaje:
+- Activa **Validar audiencia al enviar el mensaje** en las [validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) del paso de mensaje y añade segmentos o filtros específicos de la aplicación.
+- Usa Liquid para verificar el dispositivo o la aplicación objetivo en el momento del envío.
+
+Sin estas medidas de seguridad, los usuarios que calificaron para el recorrido en una aplicación pueden recibir mensajes destinados a otra aplicación si también usan otras aplicaciones en tu espacio de trabajo.
+{% endalert %}
 
 En **Controles de entrada**, puedes limitar el número de usuarios cada vez que el Canvas está programado para ejecutarse. Para Canvas basados en desencadenantes de API y basados en acciones, este límite se aplica cada hora UTC.
 

@@ -224,6 +224,37 @@ If you notice extra spacing in sent messages that use Content Blocks with Liquid
 ```
 {% endraw %}
 
+
+### Why does multi-line Liquid create unexpected whitespace in the drag-and-drop editors?
+
+When Liquid code is spread across multiple lines in the in-app message drag-and-drop editor or email drag-and-drop editor, each {% raw %}`{% %}`{% endraw %} block renders as non-visible text. The line breaks are preserved as empty lines before the visible output, causing unexpected whitespace.
+
+#### Solution 1: Use whitespace control tags (recommended)
+
+Add hyphens inside the tag delimiters to strip surrounding whitespace while keeping code readable:
+
+{% raw %}
+```liquid
+{%- assign event_date = {{custom_attribute.${PreferredPickupDate}}} | date: "%s" -%}
+{%- assign today = 'now' | date: "%s" -%}
+{%- assign difference = event_date | minus: today -%}
+{%- assign difference_days = difference | divided_by: 86400 -%}
+Only {{ difference_days }} days until your move!
+```
+{% endraw %}
+
+#### Solution 2: Consolidate Liquid onto a single line
+
+Remove all line breaks so the Liquid is on one continuous line:
+
+{% raw %}
+```liquid
+{% assign event_date = {{custom_attribute.${PreferredPickupDate}}} | date: "%s" %}{% assign today = 'now' | date: "%s" %}{% assign difference = event_date | minus: today %}{% assign difference_days = difference | divided_by: 86400 %}Only {{ difference_days }} days until your move!
+```
+{% endraw %}
+
+Both approaches prevent unwanted empty lines in your rendered message. This applies to the in-app message drag-and-drop editor, the email drag-and-drop editor, and Content Blocks with Liquid. For more information, see [Whitespace control](https://shopify.github.io/liquid/basics/whitespace/).
+
 ### Why is my Content Block missing from **Row** in the drag-and-drop search tool?
 
 Some Content Blocks do not appear under **Row** in the drag-and-drop editor search. Add an HTML block from the **Content** tab (**Advanced**), then insert the Content Block Liquid tag in that HTML block to render the block content.
@@ -247,6 +278,27 @@ This abort occurs when Liquid in the **From** address produces invalid syntax, s
 Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-To configuration. Pair it with your **From** display name settings as needed. See [Email settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) for workspace-specific options.
 
 ## Troubleshooting Liquid errors
+
+### Why is my Liquid code not working when it looks correct?
+
+If your Liquid code appears syntactically correct but isn't working, check for smart quotes (curly quotes like `' '` or `" "`) and smart dashes (em dashes like `—`) instead of straight quotes (`' '` or `" "`) and hyphens (`-`). Liquid only recognizes straight ASCII characters, so smart quotes and dashes will cause parsing errors.
+
+This commonly happens when the macOS keyboard setting **Use smart quotes and dashes** is enabled, which automatically converts characters as you type in the Braze dashboard.
+
+To disable this setting on macOS:
+
+1. Go to **System Settings** > **Keyboard** > **Text Input** > **Edit**.
+2. Uncheck **Use smart quotes and dashes**.
+
+| Example | Curly quotes (does not work) | Straight quotes (works) |
+| --- | --- | --- |
+| Default value | {% raw %}`{{${first_name} | default: ‘Torchie’}}`{% endraw %} | {% raw %}`{{${first_name} | default: 'Torchie'}}`{% endraw %} |
+| Conditional | {% raw %}`{% if ${country} contains ‘US’ %}`{% endraw %} | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Smart quote examples" }
+
+This applies to default values, conditionals, and any other Liquid that uses quotes. Curly and straight quotes can look the same on screen, so compare your code carefully or paste it into a plain-text editor.
+
+For more information on quote usage in Liquid, see [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
 ### Why am I seeing an "Unexpected end token" Liquid error?
 

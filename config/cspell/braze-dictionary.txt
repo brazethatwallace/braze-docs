@@ -65,6 +65,7 @@ Amplitude
 anonymised
 Antavo
 Antavo’s
+antispam
 Aphex
 apitest
 APNs
@@ -115,6 +116,7 @@ Blinkist
 blocklist
 Blocklisted
 Blocklisting
+blocklists
 Bluebeam
 Blueconic
 Bluedot
@@ -251,6 +253,7 @@ EKUGUSII
 Emailable
 Emailify
 emailnotification
+Emarsys
 EMEA
 emea
 endalert
@@ -395,6 +398,7 @@ iOS
 IOSFOREGROUND
 iPad
 iPhone
+Ironport
 Jampp
 Jebbit
 JHGFJHHYX
@@ -692,6 +696,7 @@ résumé
 safelist
 Sageflo
 Sailec
+Sailthru
 saleswings
 salesy
 SAMBURU
@@ -773,6 +778,7 @@ sortby
 Spamhaus
 spamminess
 spammy
+spamtrap
 Sparkpost
 Speedrunning
 Splio
@@ -842,6 +848,7 @@ Thoughtspot
 throughs
 Tinyclues
 TISAX
+Tiscali
 Tizen
 tmenu
 TOKENSTATECHANGE
@@ -949,6 +956,7 @@ Xamarin
 Xample
 xcframework
 xcprivacy
+Xfinity
 Xsell
 Ymxha
 Yachtr

@@ -124,7 +124,7 @@ Além disso, sua consulta SQL padrão deve aderir às seguintes regras:
 Todas as consultas de atualização incremental consistem em duas partes: uma consulta e detalhes do esquema.
 
 1. No editor, escreva uma consulta que selecione `user_id`s da tabela desejada.
-2. Adicione detalhes do esquema selecionando um **Operador**, **Número de vezes** e **Período de tempo** nos campos acima do editor. A consulta verificará se a soma da coluna agregada atende a uma determinada condição especificada pelos placeholders {% raw %}`{{operator}}` e `{{number of times}}`{% endraw %}. Isso funciona de forma semelhante ao fluxo de trabalho para criação de extensões de segmento clássicas.<br><br>
+2. Adicione detalhes do esquema selecionando um **Operador**, **Número de vezes** e **Período de tempo** nos campos na parte superior do editor. A consulta verificará se a soma da coluna agregada atende a uma determinada condição especificada pelos placeholders {% raw %}`{{operator}}` e `{{number of times}}`{% endraw %}. Isso funciona de forma semelhante ao fluxo de trabalho para criação de extensões de segmento clássicas.<br><br>
    - **Operador:** Indique se o evento ocorreu mais do que, menos do que ou igual a um número de ocorrências.<br>
    ![Campo do operador com "More than" selecionado.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
    - **Número de vezes:** Quantas vezes você gostaria de avaliar o evento em relação ao operador.<br>

@@ -1,7 +1,7 @@
 ---
 nav_title: Lemnisk
 article_title: Lemnisk와 Braze 통합
-description: "이 참조 문서에서는 AI 기반 고객 데이터 플랫폼 주도 마케팅 자동화 플랫폼인 Braze와 Lemnisk의 파트너십에 대해 자세히 설명하며, 다양한 소스에서 Lemnisk에 수집한 사용자 데이터를 Braze로 스트리밍하여 Braze의 도구를 사용해 다양한 채널과 대상에서 활성화할 수 있도록 지원합니다."
+description: "이 참조 문서에서는 인공지능 기반 고객 데이터 플랫폼 주도 마케팅 자동화 플랫폼인 Braze와 Lemnisk의 파트너십에 대해 자세히 설명하며, 다양한 소스에서 Lemnisk에 수집한 사용자 데이터를 Braze로 스트리밍하여 Braze의 도구를 사용해 다양한 채널과 대상에서 활성화할 수 있도록 지원합니다."
 alias: /partners/lemnisk/
 page_type: partner
 search_tag: Partner

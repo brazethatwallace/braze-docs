@@ -88,6 +88,14 @@ An email feedback loop (FBL) allows senders to monitor their reputation by ident
 
 [Open tracking pixels]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) leverage a sender's email click tracking domain to track email open events. The pixel is an image tag appended to the email's HTML. It is most commonly the last HTML element within the body tag. When a user loads their email, a request is made to populate the image from the branded tracking domain, which logs an open event.
 
+### Can I track opens for emails rendered in plain text?
+
+No. Braze tracks email opens using an [open tracking pixel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#open-tracking-pixel) embedded in the email's HTML. When the recipient's email client loads the email, it requests this image, and Braze logs an open event.
+
+Because plain text emails cannot contain images, the open tracking pixel is not included, so opens cannot be tracked for emails rendered in plain text. Clicks can still be tracked, as hyperlinks remain functional in plain text.
+
+This is expected behavior. For open-rate accuracy, design emails as HTML and be aware that opens won't be counted when recipients view the plain text version.
+
 ### What happens when an email campaign or Canvas is stopped?
 
 Users are prevented from entering the Canvas, and no further messages are sent out. 
@@ -170,6 +178,12 @@ No. Braze does not scan your message and convert plain text, such as text that s
 If a recipient sees plain text shown as a clickable link, that behavior usually comes from their email client (for example, Gmail, Outlook, or Apple Mail). Many clients detect URL-like strings after the message is delivered and turn them into links on the recipient's device. Braze does not control that behavior and cannot turn it off for the recipient.
 
 For predictable link appearance, tracking, and styling, use explicit `<a href>` tags instead of plain text URLs.
+
+### Can I control the `target` attribute on email links?
+
+While you can set the `target` attribute (such as `target="_blank"` or `target="_top"`) on links in your email HTML, most email clients ignore or override this attribute. For example, Gmail effectively forces `_blank`-like behavior regardless of what you specify.
+
+Because email client behavior varies, the `target` attribute should not be relied on to control how links open. For details on which email clients support the `target` attribute, refer to [caniemail.com](https://www.caniemail.com/features/html-target/).
 
 ### Why are my users being auto-unsubscribed by email security software?
 

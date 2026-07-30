@@ -24,16 +24,7 @@ Si une action échoue après approbation, Operator vous en informe avec les dét
 
 ### Disponibilité {#availability}
 
-Les cartes d'action sont prises en charge dans les éditeurs et pages suivants.
-
-- **Éditeurs de messages :**
-    - Messages in-app (éditeur traditionnel uniquement)
-    - Content Cards
-    - E-mail (éditeur HTML uniquement)
-    - Notifications push
-    - SMS/MMS/RCS
-    - Webhooks
-- Page [Créer un agent personnalisé]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+Les cartes d'action sont prises en charge pour le contenu des messages dans les mêmes canaux et éditeurs où Operator peut générer des messages, ainsi que sur la page [Créer un agent personnalisé]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents). Pour connaître les canaux et éditeurs pris en charge, consultez [Générer des messages]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
 
 Sur les autres pages, Operator fournit une liste d'étapes à suivre dans l'interface utilisateur au lieu d'agir lui-même. Les fonctionnalités d'Operator sont régulièrement améliorées, et une couverture élargie des outils de création est prévue.
 
@@ -50,7 +41,7 @@ Le bouton **Approbation automatique des actions** se trouve dans le panneau de d
 - **Activé :** Les actions suggérées par Operator sont exécutées immédiatement sans nécessiter d'approbation manuelle. Certaines actions nécessitent toujours une approbation explicite pour des raisons de sécurité, comme la génération d'images ou la modification de paramètres au niveau de l'espace de travail.
 - **Désactivé (par défaut) :** Toutes les actions proposées suivent le processus de vérification manuelle décrit ci-dessus.
 
-![Le bouton d'approbation automatique et la fenêtre modale de confirmation dans le panneau de discussion d'Operator.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
+![Le bouton d'approbation automatique et la boîte de dialogue modale de confirmation dans le panneau de discussion d'Operator.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
 
 L'approbation automatique se réinitialise lorsque vous actualisez la page, ouvrez un nouvel onglet ou vous déconnectez puis vous reconnectez. Naviguer entre les pages du tableau de bord ne la réinitialise pas. L'approbation automatique peut être désactivée à tout moment.
 

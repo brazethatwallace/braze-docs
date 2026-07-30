@@ -8,7 +8,7 @@ hide_toc: true
 
 # Crédits de message - Theta (confidentiel)
 
-> Les crédits de message constituent la structure de packaging multiproduit de Braze pour nos offres natives Agent Console, SMS, MMS, RCS, WhatsApp et LINE. Les crédits de message offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication Braze et de certaines fonctionnalités d'IA. Les crédits vous donnent accès à n'importe lequel des canaux présentés dans le tableau de cette page.
+> Les crédits de message constituent la structure de packaging multi-produits de Braze pour nos offres natives Agent Console, SMS, MMS, RCS, WhatsApp et LINE. Les crédits de message offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication de Braze et de certaines fonctionnalités d'IA. Les crédits vous donnent accès à n'importe lequel des canaux présentés dans le tableau de cette page.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
@@ -2283,7 +2283,7 @@ Les segments de message SMS correspondent à la manière dont l'industrie du SMS
 
 ### Segments MMS
 
-Pour les MMS, la limite de taille du message est de 5 Mo (cela inclut la ressource multimédia et la taille du corps du message). Par mesure de précaution, Braze recommande de ne pas dépasser 600 Ko pour votre ressource multimédia tout en incluant également un corps de message.
+Pour les MMS, la limite de message est de 5 Mo (cela inclut la ressource multimédia et la taille du corps du message). Par mesure de précaution, Braze recommande de ne pas dépasser 600 Ko pour votre ressource multimédia tout en incluant également un corps de message.
 
 ### Types RCS
 

@@ -143,6 +143,8 @@ Si tienes descripciones de filas, debes usar **Matches regex** para especificar 
 
 Los mensajes de respuesta deben enviarse dentro de las 24 horas posteriores a la recepción del mensaje de un usuario. Para ayudar a crear experiencias exitosas, Braze verifica la lógica del mensaje para confirmar que hay un mensaje entrante del usuario anterior que desbloquea el mensaje de respuesta.
 
+Para respuestas en menos de un minuto en flujos bidireccionales de Canvas, minimiza los pasos entre el desencadenante entrante y el envío del mensaje de respuesta. La arquitectura de Canvas, los viajes de ida y vuelta de webhooks y el procesamiento por lotes de actualizaciones de usuario pueden agregar latencia. Consulta [Minimizar la latencia de respuesta para flujos bidireccionales]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
+
 Los siguientes eventos desbloquean los mensajes de respuesta:
 
 - Mensaje entrante
@@ -178,7 +180,7 @@ sequenceDiagram
 #### Cosas que debes saber {#things-to-know}
 
 - El paso del mensaje de respuesta aún debe estar dentro de las 24 horas del mensaje entrante del usuario. En la mayoría de los flujos de Canvas, la respuesta se envía inmediatamente después de que se evalúa la ruta de acción, por lo que esto no suele ser un problema.
-- No confundas la ventana de servicio al cliente de 24 horas con los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) de Canvas, que pueden usar una ventana de hasta 30 días. Las ventanas de conversión controlan la atribución; no afectan si un mensaje de respuesta puede enviarse.
+- La ventana de servicio al cliente de 24 horas es diferente de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) de Canvas, que pueden usar una ventana de hasta 30 días. Las ventanas de conversión controlan la atribución; no afectan si un mensaje de respuesta puede enviarse.
 - Para facturación, consulta [¿Los mensajes de respuesta de WhatsApp son gratuitos?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
 
 ### Filtrar por un atributo de tiempo personalizado {#filtering-by-a-custom-time-attribute}
@@ -194,3 +196,7 @@ Sin embargo, el campo Liquid `inbound_media_urls`, que hace referencia a la URL 
 {% alert note %}
 Si guardas un valor de `inbound_media_urls` en un atributo personalizado de usuario para usarlo más adelante, ten en cuenta esta expiración de siete días. Intentar acceder a la URL después de que haya expirado resultará en un enlace roto.
 {% endalert %}
+
+### Nombre de perfil entrante {#inbound-profile-name}
+
+Cuando Meta incluye un nombre para mostrar en un mensaje entrante de WhatsApp, Braze lo expone como el atributo Liquid {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} en ese evento entrante. Este valor refleja el nombre que el usuario configuró en WhatsApp y puede no coincidir con los datos del perfil del CRM. Valida los datos antes de usarlos en el texto dirigido al usuario, o usa un paso de actualización de usuario en Canvas para guardarlo en un campo de perfil para usarlo más adelante. Para obtener una lista completa de los atributos Liquid de WhatsApp, consulta [Etiquetas de personalización compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

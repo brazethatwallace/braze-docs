@@ -41,6 +41,10 @@ Depois de selecionar a jornada de integração da configuração padrão, você 
     - Rastreia apenas usuários identificados
     - Começa o rastreamento de dados quando os visitantes do site se inscrevem ou fazem login em suas contas
 
+{% alert note %}
+Novos clientes são provisionados nas versões mais recentes do Braze Web SDK e do JavaScript SDK durante a configuração. Clientes existentes podem visualizar a versão atual do SDK nas configurações de integração, ser notificados quando uma versão mais recente estiver disponível e fazer upgrades por conta própria nas configurações de integração.
+{% endalert %}
+
 ## Etapa 3: Configure seus dados da Shopify {#step-3-configure-your-shopify-data}
 
 ### Configuração de dados padrão {#standard-data-setup}

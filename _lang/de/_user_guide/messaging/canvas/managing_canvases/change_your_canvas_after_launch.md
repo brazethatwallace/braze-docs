@@ -66,14 +66,16 @@ Das Stoppen eines Canvas führt nicht dazu, dass Nutzer:innen, die auf den Empfa
 
 Sie können die folgenden Einstellungen und Details nach dem Start eines Canvas bearbeiten:
 
-* Canvas-Name und -Beschreibung
-* Teams und Tags
-* Eingangstyp, Zeitplan und Steuerungen
-* Abo-Status
-* Rate-Limits
-* Frequency-Capping
-* Ruhezeiten
-* Zielgruppe
+- Canvas-Name und -Beschreibung
+- Teams
+- Tags
+  - Das Hinzufügen eines Tags nach dem Start ermöglicht es Ihnen, Nutzer:innen in Segmenten mit Filtern wie `Received Message from Campaign or Canvas with Tag` erneut anzusprechen.
+- Eingangstyp, Zeitplan und Steuerungen
+- Abo-Status
+- Rate-Limiting
+- Frequency-Capping
+- Ruhezeiten
+- Zielgruppe
 
 Nachdem ein Canvas gestartet wurde:
 

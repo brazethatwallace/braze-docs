@@ -114,7 +114,7 @@ No site do Shopify, siga as instruções para reautorizar seu app da Braze. Isso
 O processo de reautorização pode levar alguns minutos, mas será atualizado automaticamente na sua página do Shopify quando for concluído.
 {% endalert %}
 
-![Painel de upgrade do Shopify com um ícone de carregamento ao lado de "Reauthorize the Braze app".]({% image_buster /assets/unlisted_docs/img/shopify/reauthorize_app_loading.png %}){: style="max-width:35%;"}
+![Painel de upgrade do Shopify com um ícone de carregamento ao lado de "Reautorizar o app da Braze".]({% image_buster /assets/unlisted_docs/img/shopify/reauthorize_app_loading.png %}){: style="max-width:35%;"}
 
 ### Etapa 4: Escolher um tipo de ID externo {#step-4-choose-an-external-id-type}
 

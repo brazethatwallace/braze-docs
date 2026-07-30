@@ -57,7 +57,7 @@ Pour placer un lien vers le centre de préférences dans vos e-mails, utilisez l
 ```
 {%endraw%}
 
-Vous pouvez également utiliser une combinaison de HTML incluant du Liquid. Par exemple, vous pouvez coller ce qui suit comme URL dans l'éditeur HTML ou l'éditeur par glisser-déposer. Cela affiche la disposition de base du centre de préférences qui répertorie automatiquement tous les groupes d'abonnement e-mail. Si vous utilisez l'[aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing), ajoutez un point d'interrogation final (`?`) après l'étiquette Liquid afin que Braze puisse ajouter les paramètres de suivi.
+Vous pouvez également utiliser une combinaison de HTML incluant du Liquid. Par exemple, vous pouvez coller ce qui suit comme URL dans l'éditeur HTML ou l'éditeur par glisser-déposer. Cela affiche la disposition de base du centre de préférences qui répertorie automatiquement tous les groupes d'abonnement e-mail. Si vous utilisez l'[aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing), ajoutez un point d'interrogation final (`?`) après l'étiquette Liquid afin que Braze puisse ajouter les paramètres de suivi.
 
 {% raw %}
 ```html
@@ -65,11 +65,9 @@ Vous pouvez également utiliser une combinaison de HTML incluant du Liquid. Par 
 ```
 {%endraw%}
 
-Le centre de préférences dispose d'une case à cocher permettant à vos utilisateurs de se désabonner de tous les e-mails. Notez que vous ne pouvez pas enregistrer ces préférences si elles sont envoyées en tant que message de test.
+Le centre de préférences dispose d'une case à cocher permettant à vos utilisateurs de se désabonner de tous les e-mails.
 
-{% alert important %}
-L'étiquette Liquid ci-dessus ne fonctionne que lors du lancement d'une campagne ou d'un Canvas. L'envoi d'un e-mail de test ne génère pas de lien valide. Pour vérifier le lien du centre de préférences, lancez le message dans une campagne ciblant uniquement votre profil de test.
-{% endalert %}
+{% multi_lang_include preference_center/testing.md section="api" %}
 
 #### Modifier un centre de préférences {#edit-a-preference-center}
 
@@ -116,15 +114,19 @@ Cette approche ne nécessite pas de paires de valeurs de chaîne de requête int
 
 ## Foire aux questions {#frequently-asked-questions}
 
+### Pourquoi mon centre de préférences ne fonctionne-t-il pas dans un envoi de test ? {#why-doesnt-my-preference-center-work-in-a-test-send}
+
+Les liens du centre de préférences nécessitent un contexte d'envoi réel. Les envois de test ne génèrent pas d'URL de centre de préférences valides, et le bouton **Enregistrer les préférences** est désactivé si la page se charge. Il s'agit du comportement attendu. Pour tester de bout en bout, lancez une campagne ou une étape Canvas vers un utilisateur test ou un petit segment interne, ou utilisez l'[endpoint de génération d'URL du centre de préférences]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Pour plus de détails, consultez [Tester les centres de préférences](#testing-preference-centers).
+
 ### Je n'ai pas créé de centre de préférences. Pourquoi est-ce que je vois « PreferenceCenterBrazeDefault » sur mon tableau de bord ? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
 
-Cela est utilisé pour afficher le centre de préférences lorsque le Liquid hérité {%raw%}`${preference_center_url}`{%endraw%} est utilisé, ce qui signifie que les étapes du Canvas ou les modèles qui font référence à {%raw%}`${preference_center_url}` ou `preference_center.${PreferenceCenterBrazeDefault}`{%endraw%} ne fonctionneront pas. Cela s'applique également aux messages précédemment envoyés qui incluaient le Liquid hérité ou « PreferenceCenterBrazeDefault » dans le message.
+Cela est utilisé pour afficher le centre de préférences lorsque le Liquid hérité {%raw%}`${preference_center_url}`{%endraw%} est utilisé, ce qui signifie que les étapes Canvas ou les modèles qui font référence à {%raw%}`${preference_center_url}` ou `preference_center.${PreferenceCenterBrazeDefault}`{%endraw%} ne fonctionneront pas. Cela s'applique également aux messages précédemment envoyés qui incluaient le Liquid hérité ou « PreferenceCenterBrazeDefault » dans le message.
 
 Si vous faites référence à {%raw%}`${preference_center_url}`{%endraw%} dans un nouveau message, un centre de préférences nommé « PreferenceCenterBrazeDefault » sera créé à nouveau.
 
 ### Les centres de préférences prennent-ils en charge plusieurs langues ? {#do-preference-centers-support-multiple-languages}
 
-Non. Cependant, vous pouvez utiliser Liquid lors de la rédaction du HTML pour les pages personnalisées d'abonnement et de désabonnement. Si vous utilisez des liens dynamiques pour gérer les désabonnements, il s'agit d'un lien unique.
+Non. Cependant, vous pouvez tirer parti de Liquid lors de la rédaction du HTML pour les pages personnalisées d'abonnement et de désabonnement. Si vous utilisez des liens dynamiques pour gérer les désabonnements, il s'agit d'un lien unique.
 
 Par exemple, si vous suivez le taux de désabonnement des utilisateurs hispanophones, vous devrez soit utiliser des campagnes distinctes, soit exploiter les analyses autour de Currents (comme vérifier quand un utilisateur se désabonne et consulter la langue préférée de cet utilisateur).
 
