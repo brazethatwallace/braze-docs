@@ -55,6 +55,10 @@ Give the role a name, then select **+Add Permissions** and choose the following:
 The `storage.objects.delete` permission is optional. It allows Braze to clean up incomplete files.<br><br>In rare circumstances, Google Cloud may terminate connections early, resulting in Braze writing incomplete files to Google Cloud Storage. In most cases, Braze will retry and create a new file with the correct data, leaving the old file in Google Cloud Storage.
 {% endalert %}
 
+{% alert important %}
+If your bucket uses [hierarchical namespace](https://cloud.google.com/storage/docs/hns-overview), you must also add the `storage.folders.create` permission. On these buckets, folders are managed resources, so Braze needs this permission to create the folder structure for your exported files. Without it, Braze cannot write to the bucket and the integration fails to export data.
+{% endalert %}
+
 When you're finished, select **Create**.
 
 ![Google Cloud custom role editor with storage permissions selected.]({% image_buster /assets/img/gcs2.png %})
