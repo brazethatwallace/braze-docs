@@ -309,6 +309,52 @@ Use the following tables to narrow down the cause.
 | The recipient has custom mail filtering | The user or their IT administrator may have configured mailbox rules that filter, redirect, or delete incoming messages. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cause for email not in inbox" }
 
+### How do I troubleshoot email deliverability issues?
+
+If your emails are delayed, deferred, or bouncing, review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) for bounce and deferral details, then identify where the issue occurs in the delivery chain. Common deliverability problems fall into four categories:
+
+#### Reading ESP rate-limit responses
+
+Your email service provider (ESP), such as Amazon SES, SparkPost, or SendGrid, returns SMTP response codes when accepting or deferring messages. Rate-limit responses typically use 4xx codes, which indicate temporary failures:
+
+- **421:** Service temporarily unavailable, often due to high volume, connection limits, or server resource constraints. The message remains queued and your ESP retries delivery automatically.
+- **429:** API rate limit exceeded. You've sent too many requests within the allowed time window.
+- **450 / 451:** Temporary deferral due to volume or connections. The recipient server is asking you to slow down.
+
+When you see these codes in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) or your ESP dashboard, reduce send volume to the affected domain and use progressively longer retry intervals. Continuing at full volume while rate-limited can escalate temporary deferrals to permanent rejections.
+
+#### Mailbox provider rate limits
+
+Mailbox providers enforce their own rate limits on incoming mail, separate from Braze's sending controls. These limits can be strict and are outside your direct control:
+
+- Virgin Media / NTL (UK): Uses hourly rate limiting that triggers `421 4.1.1 MXIN503 Hourly ratelimit for your IP exceeded` errors. These limits can affect even low-volume senders. They are enforced at the IP level across all senders sharing that IP.
+- Gmail, Yahoo, iCloud, Microsoft: Each provider has proprietary throttling thresholds based on your sender reputation, volume, and engagement patterns.
+
+If you encounter provider-specific rate limiting, consider batching your sends over a longer time period or segmenting by mailbox provider to spread volume more gradually. Check your recipient list for concentration at one provider—if most recipients use one domain, stagger delivery.
+
+#### Corporate email delays from antivirus scanning
+
+Business email addresses often pass through corporate security gateways that scan messages before delivery. This can delay emails by 15 to 20 minutes or longer, especially for messages with:
+
+- Large attachments
+- Links to unfamiliar domains
+- Content that resembles phishing patterns
+
+These delays occur because security systems queue messages for behavioral analysis in isolated sandbox environments. If a large volume of mail arrives simultaneously, messages queue for analysis and the delay extends further. This is normal behavior for enterprise email security and is not something you can bypass. When sending time-sensitive messages to corporate recipients, account for this processing window in your communication timeline.
+
+#### Troubleshooting Google 421 4.7.28 rate-limit errors
+
+Gmail returns a `421-4.7.28` error when it detects an unusual rate of unsolicited email from your IP address, sending IP range, SPF domain, DKIM domain, or URL domain. This is a temporary throttle, not a permanent block, but it signals that your sending volume, velocity, or reputation does not meet Gmail's current expectations.
+
+If you receive this error:
+
+1. Pause non-essential sends immediately for 24 to 48 hours. Continuing to send while throttled escalates the issue and can lead to permanent 550 rejections.
+2. Confirm that SPF, DKIM, and DMARC are correctly configured and that your From: header aligns with your authentication.
+3. Check [Google Postmaster Tools](https://postmaster.google.com/) and the Braze [Deliverability Center]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center/) (after connecting Google Postmaster) for your domain's compliance status and spam complaint rates. Your user-reported spam rate must stay below 0.1% (the hard ceiling is 0.3%).
+4. After the pause, resume sending at 10 to 20% of previous volume to your most engaged recipients only. Increase volume slowly over several weeks only if no further 4xx errors occur.
+
+For additional guidance, see [Google's Bulk Email Senders Guidelines](https://support.google.com/mail/answer/81126).
+
 ### How can I optimize images in Outlook?
 
 Outlook often uses Microsoft Word rendering rather than standard browser rendering, which can cause images to render incorrectly or add borders around images.
