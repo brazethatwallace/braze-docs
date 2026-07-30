@@ -224,6 +224,37 @@ If you notice extra spacing in sent messages that use Content Blocks with Liquid
 ```
 {% endraw %}
 
+
+### Why does multi-line Liquid create unexpected whitespace in the drag-and-drop editors?
+
+When Liquid code is spread across multiple lines in the in-app message drag-and-drop editor or email drag-and-drop editor, each {% raw %}`{% %}`{% endraw %} block renders as non-visible text. The line breaks are preserved as empty lines before the visible output, causing unexpected whitespace.
+
+#### Solution 1: Use whitespace control tags (recommended)
+
+Add hyphens inside the tag delimiters to strip surrounding whitespace while keeping code readable:
+
+{% raw %}
+```liquid
+{%- assign event_date = {{custom_attribute.${PreferredPickupDate}}} | date: "%s" -%}
+{%- assign today = 'now' | date: "%s" -%}
+{%- assign difference = event_date | minus: today -%}
+{%- assign difference_days = difference | divided_by: 86400 -%}
+Only {{ difference_days }} days until your move!
+```
+{% endraw %}
+
+#### Solution 2: Consolidate Liquid onto a single line
+
+Remove all line breaks so the Liquid is on one continuous line:
+
+{% raw %}
+```liquid
+{% assign event_date = {{custom_attribute.${PreferredPickupDate}}} | date: "%s" %}{% assign today = 'now' | date: "%s" %}{% assign difference = event_date | minus: today %}{% assign difference_days = difference | divided_by: 86400 %}Only {{ difference_days }} days until your move!
+```
+{% endraw %}
+
+Both approaches prevent unwanted empty lines in your rendered message. This applies to the in-app message drag-and-drop editor, the email drag-and-drop editor, and Content Blocks with Liquid. For more information, see [Whitespace control](https://shopify.github.io/liquid/basics/whitespace/).
+
 ### Why is my Content Block missing from **Row** in the drag-and-drop search tool?
 
 Some Content Blocks do not appear under **Row** in the drag-and-drop editor search. Add an HTML block from the **Content** tab (**Advanced**), then insert the Content Block Liquid tag in that HTML block to render the block content.
