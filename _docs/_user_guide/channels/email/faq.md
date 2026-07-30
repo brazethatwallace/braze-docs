@@ -303,7 +303,7 @@ Instead, use widely supported formats such as PNG or JPEG so images render relia
 
 Embedded videos are not natively supported by many popular email clients such as Gmail, Outlook, and Yahoo. As a result, embedded video elements may not display as intended or may not appear at all. Additionally, embedding video directly in an email can significantly increase the email size, which increases the chance that the message may be marked as spam.
 
-Instead, you can create a GIF or static image that resembles a video in a video player, then link that image to your video. When users click the image, they are directed to the video hosted on your website or a video platform.
+Instead, you can create a GIF or static image that resembles a video in a video player, then link that image to your video. When users click the image, they are directed to the video hosted on your website or a video platform. Braze also supports integration with [Playable]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/playable/), which provides optimized video content that autoplays in supported email clients.
 
 ### Can Liquid variables assigned in one part of the message composer be used in another?
 
