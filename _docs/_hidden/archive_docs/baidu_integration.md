@@ -5,6 +5,7 @@ platform: Android
 permalink: /baidu_integration/
 description: "This article shows how to set up a Baidu Android integration."
 hidden: true
+excerpt_separator: ""
 ---
 # Baidu integration
 {% alert warning %}
