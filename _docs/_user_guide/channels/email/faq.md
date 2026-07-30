@@ -96,6 +96,18 @@ Because plain text emails cannot contain images, the open tracking pixel is not 
 
 This is expected behavior. For open-rate accuracy, design emails as HTML and be aware that opens won't be counted when recipients view the plain text version.
 
+### How does email tracking work when recipients forward emails?
+
+When a recipient forwards an email, the forwarded email includes the same open tracking pixel and click tracking links as the original. This means:
+
+- If someone who was not in your original campaign audience receives a forwarded email and opens it, Braze records an open event.
+- If they click a link in the forwarded email, Braze records a click event.
+- These events are attributed to the original recipient's profile, not the person who received the forwarded email, because the tracking pixel and links are tied to the original recipient.
+
+Braze cannot distinguish between opens and clicks from the original recipient and those from people who received a forwarded copy. This is standard behavior for email tracking pixels and affects all email service providers.
+
+When analyzing email metrics, be aware that forwarding activity can contribute to open and click counts. If you notice unusually high engagement rates or repeated activity from the same profile over time, forwarding may be a factor.
+
 ### What happens when an email campaign or Canvas is stopped?
 
 Users are prevented from entering the Canvas, and no further messages are sent out. 
