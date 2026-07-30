@@ -148,6 +148,14 @@ When an email is clipped by the recipient's email provider (such as Gmail clippi
 
 **How to resolve:** You can configure Braze to place the tracking pixel at the top of the email instead of the bottom. Moving the tracking pixel may affect how some email clients render your HTML, so test your emails in Inbox Vision after making this change. Note that if the recipient has images disabled, opens cannot be tracked regardless of pixel placement.
 
+#### Tracking pixel causes white gap at top of email
+
+When the open tracking pixel is positioned at the top of an email, a visible white line or gap can appear at the top of the email body, particularly on mobile devices.
+
+**How to identify:** In Braze, go to **Settings** > **Email Preferences** and select the **Open Tracking Pixel** section. If **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES** is enabled for your sending provider, the pixel is positioned at the top of your email HTML. If you notice a white gap or line at the top of your rendered email, this setting may be the cause.
+
+**How to resolve:** Turn off the relevant **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES** toggle in the **Open Tracking Pixel** section for your sending provider. The tracking pixel is usually less visible at the bottom of an email. Test your emails in [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) after changing placement. For more information, see [Update the placement]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement).
+
 #### Delayed stats or clicks without opens
 
 Open tracking relies on the recipient loading the email with images enabled. In some cases, stats may appear delayed or clicks may be logged without corresponding opens due to:
