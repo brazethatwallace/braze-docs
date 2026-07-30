@@ -100,12 +100,19 @@ Content Blocks inserted via Liquid **are linked** to the original Content Block 
 - Using HTML Content Blocks in drag-and-drop emails **or** drag-and-drop Content Blocks in HTML emails may result in unexpected rendering issues. This is because the drag-and-drop editor generates HTML and CSS that dynamically renders the content, whereas the HTML editor is more static.
 - If you insert a drag-and-drop Content Block using Liquid, Braze doesn't include styles from the block's HTML `<head>`. Responsive styles, such as mobile-specific CSS, may not render as expected. If the block relies on responsive CSS, add that CSS to the message or template that includes the Content Block.
 - Canvas event properties are only supported in a Canvas. If you reference a Content Block with Canvas entry properties in a campaign, it won't populate.
+- If a message with multiple Content Blocks isn't rendering as expected, such as when Liquid tags or HTML appear as visible text instead of being processed, an unclosed tag or other error in one of the Content Blocks is often the cause. To identify the source, remove the Content Blocks from the affected message one at a time until the message renders correctly. The last Content Block you remove before the issue disappears is the one causing the problem.
+- `<code>` HTML tags render in monospace font in most email clients by default, regardless of any font styling set on the Content Block. Avoid wrapping text in `<code>` tags unless you want that monospace appearance.
+- When you insert a Content Block with Liquid into a custom HTML email template, CSS rules in the parent template can override styles defined inside the Content Block. To learn more, see [Content Blocks in custom HTML templates]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline/#content-blocks-in-custom-html-templates).
 
 ## Preview Content Blocks
 
 After adding a Content Block in an active campaign or Canvas, you can preview it from the Content Blocks Library by hovering over the Content Block and selecting the <i class="fa fa-eye preview-icon"></i> **Preview** icon. 
 
 This preview includes information about the Content Block such as who created it, tags, creation date, last edited date, description, editor type, inclusion count with details (a clickable list of messages or Content Blocks that use the Content Block), and an actual preview of the Content Block.
+
+{% alert note %}
+When auditing where a Content Block is used, review each linked message or step individually to confirm its status.
+{% endalert %}
 
 ## Nest Content Blocks
 
@@ -114,6 +121,8 @@ Content Blocks can be nested, but only once. You can nest Content Block A into C
 {% alert warning %}
 Nothing will prevent you from nesting a third level of Content Block, but you will not see the content expand in nests beyond the second. The content and the Liquid snippet are removed from the message.
 {% endalert %}
+
+Links inside a nested Content Block count toward the total link count of the parent message. If you use a single Content Block with many conditional links, such as country-specific URLs for localization, the parent message can accumulate a large number of links, which can slow down or prevent saving a Canvas. For large-scale localization, use [multi-language messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) instead of conditional links in a single Content Block.
 
 ## Update and copy Content Blocks
 
