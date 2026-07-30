@@ -87,6 +87,7 @@ Authy
 autofilllist
 Automations
 autoplay
+autoplays
 autoresizing
 autoresponses
 Azure
