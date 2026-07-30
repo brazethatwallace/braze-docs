@@ -143,6 +143,8 @@ Se você tiver descrições de linhas, deve usar **Matches regex** para especifi
 
 As mensagens de resposta precisam ser enviadas dentro de 24 horas após o recebimento da mensagem do usuário. Para ajudar a criar experiências bem-sucedidas, a Braze verifica a lógica da mensagem para confirmar que há uma mensagem de entrada do usuário anterior que desbloqueia a mensagem de resposta.
 
+Para respostas em menos de um minuto em fluxos de Canvas de mão dupla, minimize as etapas entre o gatilho de entrada e o envio da mensagem de resposta. A arquitetura do Canvas, as idas e vindas de webhooks e o processamento em lote de atualizações de usuário podem adicionar latência. Consulte [Minimizar a latência de resposta para fluxos de mão dupla]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
+
 Os seguintes eventos desbloqueiam mensagens de resposta:
 
 - Mensagem de entrada
@@ -194,3 +196,7 @@ No entanto, o campo Liquid `inbound_media_urls`, que referencia a URL dessa míd
 {% alert note %}
 Se você salvar um valor de `inbound_media_urls` em um atributo personalizado do usuário para uso posterior, esteja ciente dessa expiração de sete dias. Tentar acessar a URL após a expiração resultará em um link quebrado.
 {% endalert %}
+
+### Nome do perfil de entrada {#inbound-profile-name}
+
+Quando a Meta inclui um nome de exibição em uma mensagem de entrada do WhatsApp, a Braze o expõe como o atributo Liquid {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} nesse evento de entrada. Esse valor reflete o nome que o usuário definiu no WhatsApp e pode não corresponder aos dados do perfil no CRM. Valide os dados antes de usá-los em textos voltados ao usuário, ou use uma etapa de atualização de usuário no Canvas para salvá-lo em um campo de perfil para uso posterior. Para uma lista completa dos atributos Liquid do WhatsApp, consulte [Tags de personalização compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

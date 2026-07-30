@@ -31,9 +31,9 @@ SQL 변수를 사용하면 다음과 같은 이점이 있습니다:
 
 다음을 교체합니다:
 
-| 입력 안내      | 설명                                                                                                                              |
+| 입력 안내 | 설명 |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `variable_type`   | 사용하려는 사전 정의된 변수 유형(예: `campaign` 또는 `catalog_fields`). 전체 목록은 [지원되는 변수 유형](#variable-types)을 참조하세요. |
+| `variable_type` | 사용하려는 사전 정의된 변수 유형(예: `campaign` 또는 `catalog_fields`). 전체 목록은 [지원되는 변수 유형](#variable-types)을 참조하세요. |
 | `custom_label` | 쿼리 빌더의 **변수** 탭에서 변수를 식별하는 데 사용되는 레이블입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="1단계: 변수 추가" }
 
@@ -187,7 +187,7 @@ Liquid는 지정된 날짜 범위 내에서 캘린더를 표시하는 데 사용
 
 ![Braze에서 렌더링된 캘린더 예시.]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 {% tabs local %}
 {% tab 단일 Campaign %}
@@ -439,7 +439,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### Segments
+### Segments {#segments}
 
 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화된 Segments를 선택하는 데 사용합니다. 이 열이 사용 가능한 테이블의 `user_segment_membership_ids` 열에 저장된 ID에 해당하는 Segment 분석 ID로 설정합니다.
 

@@ -202,3 +202,7 @@ Gebouncte E-Mails liefern keine Schlüssel-Wert-Paare an SparkPost oder SendGrid
 Um ein Schlüssel-Wert-Paar zu einer Content Card hinzuzufügen, gehen Sie zum Tab **Settings** im Braze-Nachrichten-Editor und wählen Sie **Add New Pair**.
 
 ![Schlüssel-Wert-Paar zu Content Card hinzufügen]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}
+
+{% alert note %}
+Kontrollvarianten unterstützen keine Schlüssel-Wert-Paare. Wenn Sie Analytics für Kontrollgruppen in A/B-Tests erfassen müssen, erstellen Sie eine Nachrichtenvariante mit einem Schlüssel-Wert-Paar wie `control=true` und blenden Sie diese in Ihrem App-Code aus, während Sie Impressionen protokollieren.
+{% endalert %}

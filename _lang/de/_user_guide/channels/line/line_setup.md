@@ -102,7 +102,7 @@ Nach Abschluss des Integrationsprozesses ruft Braze automatisch die LINE-Followe
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook-Einstellungen bearbeiten" }
 
 {% alert note %}
-Wenn Sie das Kanalgeheimnis für einen bereits integrierten LINE-Kanal aktualisieren oder rotieren müssen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support), um eine Aktualisierung anzufordern.
+Sie können das Kanalgeheimnis und den Kanalzugriffstoken für einen bereits integrierten LINE-Kanal aktualisieren oder rotieren, indem Sie zu **Partnerintegrationen** > **Technologie-Partner** > **LINE** gehen und Ihre Integration auswählen.
 {% endalert %}
 
 {: start="3"}

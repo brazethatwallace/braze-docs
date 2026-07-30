@@ -8,14 +8,14 @@ search_tag: Partner
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake データ共有 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake データ共有 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
-> Snowflakeの[セキュアデータ共有](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html)を使用すると、一般的なデータプロバイダーとの関係で生じるワークフローの摩擦や遅延、障害点、不要なコストを心配することなく、BrazeのSnowflakeポータル上のデータに安全にアクセスできます。データ共有は、以下の統合または[Snowflakeリーダーアカウント]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts)を通じて設定できます。
+> Snowflakeの[セキュアデータ共有](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html)を使用すると、一般的なデータプロバイダーとの関係で生じるワークフローの摩擦や遅延、障害点、不要なコストを心配することなく、BrazeのSnowflakeポータル上のデータに安全にアクセスできます。データ共有は、以下の統合または[Snowflakeリーダーアカウント]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents#snowflake-reader-accounts)を通じて設定できます。
 
-Snowflakeデータ共有は、Brazeデータディストリビューションの一部です。データディストリビューションオプションの全体的な概要については、[データディストリビューション]({{site.baseurl}}/user_guide/data/distribution/)を参照してください。
+Snowflakeデータ共有は、Brazeデータディストリビューションの一部です。データディストリビューションオプションの全体的な概要については、[データディストリビューション]({{site.baseurl}}/user_guide/data/distribution)を参照してください。
 
 {% alert tip %}
-**Snowflakeアカウントなしで Snowflakeレベルのデータにアクセスしたいですか？**<br>[Snowflakeリーダーアカウント]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts)をご確認ください。リーダーアカウントでは、Brazeがアカウントを作成してデータを共有し、ログインしてデータにアクセスするための認証情報を提供します。これにより、すべてのデータ共有と使用料金は完全にBrazeが処理します。
+**Snowflakeアカウントなしで Snowflakeレベルのデータにアクセスしたいですか？**<br>[Snowflakeリーダーアカウント]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents#snowflake-reader-accounts)をご確認ください。リーダーアカウントでは、Brazeがアカウントを作成してデータを共有し、ログインしてデータにアクセスするための認証情報を提供します。これにより、すべてのデータ共有と使用料金は完全にBrazeが処理します。
 {% endalert %}
 
 ## セキュアデータ共有について {#about-secure-data-sharing}
@@ -24,7 +24,7 @@ Snowflakeデータ共有は、Brazeデータディストリビューションの
 
 さらに、Snowflakeの組み込みロールと権限機能を使用することで、Brazeから共有されたデータへのアクセスは、Snowflakeアカウントおよびそのデータに対して既に設定されているアクセス制御を使用して管理・統制できます。アクセスは、自社データと同じ方法で制限および監視できます。
 
-- **インサイトまでの時間を短縮**<br>構築に数週間かかるETLプロセスに別れを告げましょう。BrazeとSnowflakeの独自のアーキテクチャにより、すべてのカスタマーエンゲージメントおよびキャンペーンデータは、データレイクに到着した瞬間からすぐにアクセスおよびクエリが可能です。データのコピーや移動は行われないため、最も関連性が高く最新の情報のみに基づいてカスタマーエクスペリエンスを提供できます。
+- **インサイトまでの時間を短縮**<br>構築に数週間かかるETLプロセスに別れを告げましょう。BrazeとSnowflakeの独自のアーキテクチャにより、すべてのカスタマーエンゲージメントおよびキャンペーンデータは、データレイクに到着した瞬間からすぐにアクセスおよびクエリが可能です。データのコピーや移動は行われないため、最も関連性が高く最新の情報のみに基づいて顧客体験を提供できます。
 - **データのサイロ化を解消**<br>チャネルやプラットフォーム全体で顧客の全体像を構築できます。データ共有により、Brazeのカスタマーエンゲージメントデータと他のすべてのSnowflakeデータの結合がこれまで以上に簡単になり、単一の信頼できる情報源からより豊富なインサイトを得ることができます。
 - **エンゲージメントの比較評価**<br>Brazeベンチマークを使用してカスタマーエンゲージメント戦略を最適化しましょう。BrazeとSnowflakeを活用したこのインタラクティブツールにより、チャネル、業界、デバイスプラットフォーム全体のベンチマークとブランドのエンゲージメントデータを比較できます。
 
@@ -44,10 +44,7 @@ Snowflakeでは、データ共有は[データプロバイダー](https://docs.s
 
 ### ステップ1: Brazeからデータシェアを送信する {#step-1-send-the-datashare-from-braze}
 
-1. Brazeで、**Partner Integrations** > **Data Sharing**に移動します。
-2. Snowflakeアカウントの詳細とロケーターを入力します。アカウントロケーターを取得するには、送信先アカウントで `SELECT CURRENT_ACCOUNT()` を実行します。
-3. CRRシェアを使用している場合は、クラウドプロバイダーとリージョンを指定します。
-4. 完了したら、**Create Datashare**を選択します。これにより、データシェアがSnowflakeアカウントに送信されます。
+{% multi_lang_include partners/snowflake/data_sharing_account_steps.md %}
 
 ### ステップ2: Snowflakeでデータベースを作成する {#step-2-create-the-database-in-snowflake}
 
@@ -61,8 +58,8 @@ Snowflakeでは、データ共有は[データプロバイダー](https://docs.s
 3. 新しいデータベースをクエリするための権限を付与します。
 
 {% alert warning %}
-Brazeダッシュボードでシェアを削除して再作成した場合は、以前に作成したデータベースを削除し、`CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` を使用して再作成する必要があります。
-複数のワークスペースが同じSnowflakeアカウントにデータを共有している場合は、マルチワークスペース設定の管理に関するガイダンスについて[Snowflakeデータ共有FAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/)を参照してください。
+Brazeダッシュボードでシェアを削除して再作成した場合は、以前に作成したデータベースを削除し、`CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` を使用して再作成し、インバウンドシェアをクエリする必要があります。
+複数のワークスペースが同じSnowflakeアカウントにデータを共有している場合は、マルチワークスペース設定の管理に関するガイダンスについて[Snowflakeデータ共有FAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs)を参照してください。
 {% endalert %}
 
 ## 使用方法と可視化 {#usage-and-visualization}
@@ -71,11 +68,7 @@ Brazeダッシュボードでシェアを削除して再作成した場合は、
 
 Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下のことができます:
 
-- 複雑なレポートの作成
-- アトリビューションモデリングの実行
-- 社内でのセキュアな共有
-- 生のイベントまたはユーザーデータをCRM（Salesforceなど）にマッピング
-- その他
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
 [生のテーブルスキーマをダウンロードできます。](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
@@ -85,8 +78,8 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 
 | Brazeスキーマ | Snowflakeスキーマ | 説明 |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられるユニーク識別子です。 |
-| `external_id` | `"EXTERNAL_USER_ID"` | 顧客が設定するユーザープロファイルのユニーク識別子です。 |
+| `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられる一意の識別子です。 |
+| `external_id` | `"EXTERNAL_USER_ID"` | 顧客が設定するユーザープロファイルの一意の識別子です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーIDスキーマ" }
 
 ## 重要な情報と制限事項 {#important-information-and-limitations}
@@ -95,9 +88,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 
 #### 非破壊的変更 {#non-breaking-changes}
 
-非破壊的変更はいつでも発生する可能性があり、通常は追加機能を提供します。非破壊的変更の例:
-- 新しいテーブルまたはビューの追加
-- 既存のテーブルまたはビューへのカラムの追加
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 新しいカラムは非破壊的変更と見なされるため、Brazeでは各クエリで `SELECT *` クエリを使用する代わりに、対象のカラムを明示的にリストすることを強く推奨します。または、カラムを明示的に指定するビューを作成し、テーブルを直接クエリする代わりにそのビューをクエリすることもできます。
@@ -105,10 +96,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 
 #### 破壊的変更 {#breaking-changes}
 
-可能な場合、破壊的変更の前にアナウンスと移行期間が設けられます。破壊的変更の例:
-- テーブルまたはビューの削除
-- 既存のテーブルまたはビューからのカラムの削除
-- 既存カラムの型またはnull許容性の変更
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Snowflakeリージョン {#snowflake-regions}
 
@@ -143,5 +131,5 @@ Snowflakeの過去のイベントデータのアーカイブは2019年4月まで
 データに対して実行されるクエリの速度、パフォーマンス、コストは、データのクエリに使用するウェアハウスのサイズによって決まります。場合によっては、分析でアクセスするデータ量に応じて、クエリを正常に実行するためにより大きなウェアハウスサイズを使用する必要があることがあります。Snowflakeには、最適なサイズの決定方法に関する優れたリソースがあります。[ウェアハウスの概要](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html)や[ウェアハウスに関する考慮事項](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)を参照してください。
 
 {% alert tip %}
-Snowflakeの設定時に参照できるクエリの例については、[サンプルクエリ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/)および[ETLイベントパイプラインの設定]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/)の例をご確認ください。
+Snowflakeの設定時に参照できるクエリの例については、[サンプルクエリ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries)および[ETLイベントパイプラインの設定]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup)の例をご確認ください。
 {% endalert %}

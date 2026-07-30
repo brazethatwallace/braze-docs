@@ -88,6 +88,26 @@ An email feedback loop (FBL) allows senders to monitor their reputation by ident
 
 [Open tracking pixels]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) leverage a sender's email click tracking domain to track email open events. The pixel is an image tag appended to the email's HTML. It is most commonly the last HTML element within the body tag. When a user loads their email, a request is made to populate the image from the branded tracking domain, which logs an open event.
 
+### Can I track opens for emails rendered in plain text?
+
+No. Braze tracks email opens using an [open tracking pixel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#open-tracking-pixel) embedded in the email's HTML. When the recipient's email client loads the email, it requests this image, and Braze logs an open event.
+
+Because plain text emails cannot contain images, the open tracking pixel is not included, so opens cannot be tracked for emails rendered in plain text. Clicks can still be tracked, as hyperlinks remain functional in plain text.
+
+This is expected behavior. For open-rate accuracy, design emails as HTML and be aware that opens won't be counted when recipients view the plain text version.
+
+### How does email tracking work when recipients forward emails?
+
+When a recipient forwards an email, the forwarded email includes the same open tracking pixel and click tracking links as the original. This means:
+
+- If someone who was not in your original campaign audience receives a forwarded email and opens it, Braze records an open event.
+- If they click a link in the forwarded email, Braze records a click event.
+- These events are attributed to the original recipient's profile, not the person who received the forwarded email, because the tracking pixel and links are tied to the original recipient.
+
+Braze cannot distinguish between opens and clicks from the original recipient and those from people who received a forwarded copy. This is standard behavior for email tracking pixels and affects all email service providers.
+
+When analyzing email metrics, be aware that forwarding activity can contribute to open and click counts. If you notice unusually high engagement rates or repeated activity from the same profile over time, forwarding may be a factor.
+
 ### What happens when an email campaign or Canvas is stopped?
 
 Users are prevented from entering the Canvas, and no further messages are sent out. 
@@ -103,6 +123,12 @@ _Total Opens_ is the count of how many times the email was opened by users, wher
 - Users are performing multiple clicks on the body of the email within a single open.
 - Users click on some email links within the preview pane of their phones. In this case, Braze logs this email as being clicked but not opened.
 - Users reopen an email that they previewed earlier.
+
+### Why are my click counts higher than my segment of users who clicked?
+
+Campaign analytics show the total number of click events, while segments return the number of unique users who performed those clicks. Because each user can click multiple times, the total clicks in analytics is often higher than the count of users who clicked when you create a segment.
+
+For example, if 100 users each click a link 3 times, campaign analytics show 300 total clicks, but a segment filtered by "Clicked Email" for that campaign returns 100 users.
 
 ### Why am I seeing zero email opens and clicks?
 
@@ -121,6 +147,14 @@ When an email is clipped by the recipient's email provider (such as Gmail clippi
 **How to identify:** Check whether the email displays a "View entire message" or similar link at the bottom. You can use [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to preview the full scrollable email and verify whether the message is being clipped.
 
 **How to resolve:** You can configure Braze to place the tracking pixel at the top of the email instead of the bottom. Moving the tracking pixel may affect how some email clients render your HTML, so test your emails in Inbox Vision after making this change. Note that if the recipient has images disabled, opens cannot be tracked regardless of pixel placement.
+
+#### Tracking pixel causes white gap at top of email
+
+When the open tracking pixel is positioned at the top of an email, a visible white line or gap can appear at the top of the email body, particularly on mobile devices.
+
+**How to identify:** In Braze, go to **Settings** > **Email Preferences** and select the **Open Tracking Pixel** section. If **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES** is enabled for your sending provider, the pixel is positioned at the top of your email HTML. If you notice a white gap or line at the top of your rendered email, this setting may be the cause.
+
+**How to resolve:** Turn off the relevant **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES** toggle in the **Open Tracking Pixel** section for your sending provider. The tracking pixel is usually less visible at the bottom of an email. Test your emails in [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) after changing placement. For more information, see [Update the placement]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement).
 
 #### Delayed stats or clicks without opens
 
@@ -170,6 +204,12 @@ No. Braze does not scan your message and convert plain text, such as text that s
 If a recipient sees plain text shown as a clickable link, that behavior usually comes from their email client (for example, Gmail, Outlook, or Apple Mail). Many clients detect URL-like strings after the message is delivered and turn them into links on the recipient's device. Braze does not control that behavior and cannot turn it off for the recipient.
 
 For predictable link appearance, tracking, and styling, use explicit `<a href>` tags instead of plain text URLs.
+
+### Can I control the `target` attribute on email links?
+
+While you can set the `target` attribute (such as `target="_blank"` or `target="_top"`) on links in your email HTML, most email clients ignore or override this attribute. For example, Gmail effectively forces `_blank`-like behavior regardless of what you specify.
+
+Because email client behavior varies, the `target` attribute should not be relied on to control how links open. For details on which email clients support the `target` attribute, refer to [caniemail.com](https://www.caniemail.com/features/html-target/).
 
 ### Why are my users being auto-unsubscribed by email security software?
 
@@ -269,6 +309,52 @@ Use the following tables to narrow down the cause.
 | The recipient has custom mail filtering | The user or their IT administrator may have configured mailbox rules that filter, redirect, or delete incoming messages. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cause for email not in inbox" }
 
+### How do I troubleshoot email deliverability issues?
+
+If your emails are delayed, deferred, or bouncing, review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) for bounce and deferral details, then identify where the issue occurs in the delivery chain. Common deliverability problems fall into four categories:
+
+#### Reading ESP rate-limit responses
+
+Your email service provider (ESP), such as Amazon SES, SparkPost, or SendGrid, returns SMTP response codes when accepting or deferring messages. Rate-limit responses typically use 4xx codes, which indicate temporary failures:
+
+- **421:** Service temporarily unavailable, often due to high volume, connection limits, or server resource constraints. The message remains queued and your ESP retries delivery automatically.
+- **429:** API rate limit exceeded. You've sent too many requests within the allowed time window.
+- **450 / 451:** Temporary deferral due to volume or connections. The recipient server is asking you to slow down.
+
+When you see these codes in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) or your ESP dashboard, reduce send volume to the affected domain and use progressively longer retry intervals. Continuing at full volume while rate-limited can escalate temporary deferrals to permanent rejections.
+
+#### Mailbox provider rate limits
+
+Mailbox providers enforce their own rate limits on incoming mail, separate from Braze's sending controls. These limits can be strict and are outside your direct control:
+
+- Virgin Media / NTL (UK): Uses hourly rate limiting that triggers `421 4.1.1 MXIN503 Hourly ratelimit for your IP exceeded` errors. These limits can affect even low-volume senders. They are enforced at the IP level across all senders sharing that IP.
+- Gmail, Yahoo, iCloud, Microsoft: Each provider has proprietary throttling thresholds based on your sender reputation, volume, and engagement patterns.
+
+If you encounter provider-specific rate limiting, consider batching your sends over a longer time period or segmenting by mailbox provider to spread volume more gradually. Check your recipient list for concentration at one provider—if most recipients use one domain, stagger delivery.
+
+#### Corporate email delays from antivirus scanning
+
+Business email addresses often pass through corporate security gateways that scan messages before delivery. This can delay emails by 15 to 20 minutes or longer, especially for messages with:
+
+- Large attachments
+- Links to unfamiliar domains
+- Content that resembles phishing patterns
+
+These delays occur because security systems queue messages for behavioral analysis in isolated sandbox environments. If a large volume of mail arrives simultaneously, messages queue for analysis and the delay extends further. This is normal behavior for enterprise email security and is not something you can bypass. When sending time-sensitive messages to corporate recipients, account for this processing window in your communication timeline.
+
+#### Troubleshooting Google 421 4.7.28 rate-limit errors
+
+Gmail returns a `421-4.7.28` error when it detects an unusual rate of unsolicited email from your IP address, sending IP range, SPF domain, DKIM domain, or URL domain. This is a temporary throttle, not a permanent block, but it signals that your sending volume, velocity, or reputation does not meet Gmail's current expectations.
+
+If you receive this error:
+
+1. Pause non-essential sends immediately for 24 to 48 hours. Continuing to send while throttled escalates the issue and can lead to permanent 550 rejections.
+2. Confirm that SPF, DKIM, and DMARC are correctly configured and that your From: header aligns with your authentication.
+3. Check [Google Postmaster Tools](https://postmaster.google.com/) and the Braze [Deliverability Center]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center/) (after connecting Google Postmaster) for your domain's compliance status and spam complaint rates. Your user-reported spam rate must stay below 0.1% (the hard ceiling is 0.3%).
+4. After the pause, resume sending at 10 to 20% of previous volume to your most engaged recipients only. Increase volume slowly over several weeks only if no further 4xx errors occur.
+
+For additional guidance, see [Google's Bulk Email Senders Guidelines](https://support.google.com/mail/answer/81126).
+
 ### How can I optimize images in Outlook?
 
 Outlook often uses Microsoft Word rendering rather than standard browser rendering, which can cause images to render incorrectly or add borders around images.
@@ -303,7 +389,7 @@ Instead, use widely supported formats such as PNG or JPEG so images render relia
 
 Embedded videos are not natively supported by many popular email clients such as Gmail, Outlook, and Yahoo. As a result, embedded video elements may not display as intended or may not appear at all. Additionally, embedding video directly in an email can significantly increase the email size, which increases the chance that the message may be marked as spam.
 
-Instead, you can create a GIF or static image that resembles a video in a video player, then link that image to your video. When users click the image, they are directed to the video hosted on your website or a video platform.
+Instead, you can create a GIF or static image that resembles a video in a video player, then link that image to your video. When users click the image, they are directed to the video hosted on your website or a video platform. Braze also supports integration with [Playable]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/playable/), which provides optimized video content that autoplays in supported email clients.
 
 ### Can Liquid variables assigned in one part of the message composer be used in another?
 

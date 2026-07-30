@@ -1,0 +1,2 @@
+- **Blocs de recommandations** : Définissez des algorithmes et des filtres pour alimenter le contenu personnalisé des utilisateurs, qui se propage à l'ouverture de l'e-mail.
+- **Blocs de contenu dynamique** : Ciblez différentes promotions et différents messages selon les utilisateurs. Le ciblage peut être basé sur l'affinité ou sur l'audience. Dynamic Yield détermine quelle expérience personnalisée diffuser à l'ouverture de l'e-mail.

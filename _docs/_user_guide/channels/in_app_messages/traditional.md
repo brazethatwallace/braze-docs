@@ -255,13 +255,15 @@ Choose between the following options:
 - **Dismiss Automatically:** Select how many seconds the message will remain on the screen.
 - **Wait for User Swipe or Touch:** Requires a dismissal or close option.
 
+Dismissing a message logs an impression but not a click. For how clicks are tracked by user action, see [Click tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/#click-tracking).
+
 ### Slide up position
 
 This setting only applies to the Slideup message type. Choose between having your slideup appear **From Bottom of App Screen** or **From Top of App Screen**.
 
 ### HTML and assets
 
-This setting only applies to the Custom code message type. Copy and paste HTML into the available space and upload your assets using a ZIP file.
+This setting only applies to the custom code message type. Copy and paste HTML into the available space and upload your assets using a [ZIP file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#zip-file-uploads).
 
 ### Email capture input placeholder
 

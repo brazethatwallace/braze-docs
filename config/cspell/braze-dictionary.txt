@@ -65,6 +65,7 @@ Amplitude
 anonymised
 Antavo
 Antavo’s
+antispam
 Aphex
 apitest
 APNs
@@ -86,6 +87,7 @@ Authy
 autofilllist
 Automations
 autoplay
+autoplays
 autoresizing
 autoresponses
 Azure
@@ -100,6 +102,7 @@ Bandsintown
 Barchart
 BASA
 bdocs
+Beefree
 behaviour
 BENA
 BIMI
@@ -113,6 +116,7 @@ Blinkist
 blocklist
 Blocklisted
 Blocklisting
+blocklists
 Bluebeam
 Blueconic
 Bluedot
@@ -229,6 +233,7 @@ Discogs
 Dixa
 Diátaxis
 DMARC
+domainkey
 drawables
 Dreamhost
 drilldown
@@ -247,7 +252,9 @@ ecommerce
 edume
 EKUGUSII
 Emailable
+Emailify
 emailnotification
+Emarsys
 EMEA
 emea
 endalert
@@ -392,6 +399,7 @@ iOS
 IOSFOREGROUND
 iPad
 iPhone
+Ironport
 Jampp
 Jebbit
 JHGFJHHYX
@@ -689,6 +697,7 @@ résumé
 safelist
 Sageflo
 Sailec
+Sailthru
 saleswings
 salesy
 SAMBURU
@@ -698,6 +707,7 @@ SANGU
 Saucey
 scannability
 scaries
+scph
 Schellman
 SCIM
 screencap
@@ -770,6 +780,7 @@ sortby
 Spamhaus
 spamminess
 spammy
+spamtrap
 Sparkpost
 Speedrunning
 Splio
@@ -839,6 +850,7 @@ Thoughtspot
 throughs
 Tinyclues
 TISAX
+Tiscali
 Tizen
 tmenu
 TOKENSTATECHANGE
@@ -946,6 +958,7 @@ Xamarin
 Xample
 xcframework
 xcprivacy
+Xfinity
 Xsell
 Ymxha
 Yachtr

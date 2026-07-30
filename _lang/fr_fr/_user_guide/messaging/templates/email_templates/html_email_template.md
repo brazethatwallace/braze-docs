@@ -12,7 +12,7 @@ channel:
 
 # Télécharger un modèle d'e-mail HTML {#upload-an-html-email-template}
 
-> Le tableau de bord de Braze vous permet de télécharger vos propres modèles d'e-mail HTML et de les enregistrer pour une utilisation ultérieure dans des campagnes. Vous pouvez également [créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) à l'aide de notre éditeur.
+> Le tableau de bord de Braze vous permet de télécharger vos propres modèles d'e-mail HTML et de les enregistrer pour une utilisation ultérieure dans des Campaigns. Vous pouvez également [créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) à l'aide de notre éditeur.
 
 ## Conditions requises {#upload-requirements}
 
@@ -39,23 +39,25 @@ Dans la section **Template content**, sélectionnez **Upload file**. Sélectionn
 
 ### Étape 4 : Finaliser et enregistrer votre modèle {#step-4-finish-and-save-your-template}
 
-N'oubliez pas d'enregistrer votre modèle en sélectionnant **Save template**. Vous êtes maintenant prêt à utiliser ce modèle dans n'importe quelle campagne ou Canvas de votre choix.
+N'oubliez pas d'enregistrer votre modèle en sélectionnant **Save template**. Vous êtes maintenant prêt à utiliser ce modèle dans n'importe quelle Campaign ou Canvas de votre choix.
 
 {% alert note %}
-Si vous apportez des modifications à un modèle existant, ces changements ne seront pas reflétés dans les campagnes créées à l'aide de versions précédentes de ce modèle.
+Si vous apportez des modifications à un modèle existant, ces changements ne seront pas reflétés dans les Campaigns créées à l'aide de versions précédentes de ce modèle.
 {% endalert %}
 
-## Utiliser vos modèles dans des campagnes API {#api_for_upload_email_templates}
+## Utiliser vos modèles dans des Campaigns API {#api_for_upload_email_templates}
 
-Pour utiliser votre e-mail dans une campagne API, vous avez besoin de l'`email_template_id`, qui se trouve en bas de tout modèle d'e-mail créé dans Braze.
+Pour utiliser votre e-mail dans une Campaign API, vous avez besoin de l'`email_template_id`, qui se trouve en bas de tout modèle d'e-mail créé dans Braze.
 
 ![Section de l'identifiant API d'un modèle d'e-mail HTML.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:50%;"}
 
 ## Gérer les modèles d'e-mail {#managing-email-templates}
 
-Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) des modèles d'e-mail ! Pour en savoir plus sur la création et la gestion des modèles et du contenu créatif, consultez la page [Modèles]({{site.baseurl}}/user_guide/messaging/templates).
+Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) des modèles d'e-mail. Pour en savoir plus sur la création et la gestion des modèles et du contenu créatif, consultez la page [Modèles]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Résolution des problèmes {#troubleshooting}
+
+### Erreurs de téléchargement {#upload-errors}
 
 Plusieurs messages d'erreur peuvent s'afficher lors du téléchargement d'un fichier de modèle HTML. Si vous recevez une erreur, consultez le tableau suivant pour connaître les problèmes courants et les corrections recommandées :
 
@@ -70,7 +72,15 @@ Plusieurs messages d'erreur peuvent s'afficher lors du téléchargement d'un fic
 | `Missing Images` | Si des images sont référencées dans votre fichier HTML mais ne sont pas incluses dans le dossier d'images du fichier ZIP, vous recevez une erreur de fichier. Inspectez votre fichier et corrigez les erreurs éventuelles (comme les fautes de frappe), ou ajoutez les images manquantes à votre fichier ZIP et réessayez le téléchargement. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
-Notez que lors du téléchargement des fichiers pour des campagnes HTML, des étapes Canvas avec des messages e-mail ou des modèles sur une machine Windows, le caractère `|` (barre verticale) n'est pas pris en charge. Vous devrez peut-être utiliser une autre application pour extraire le contenu téléchargé du fichier ZIP.
+Notez que lors du téléchargement des fichiers pour des Campaigns HTML, des étapes Canvas avec des messages e-mail ou des modèles sur une machine Windows, le caractère `|` (barre verticale) n'est pas pris en charge. Vous devrez peut-être utiliser une autre application pour extraire le contenu téléchargé du fichier ZIP.
+
+### L'e-mail ne s'affiche pas correctement {#email-not-rendering-properly}
+
+Si votre e-mail ne s'affiche pas correctement, vérifiez chaque bloc de contenu pour vous assurer qu'il n'y a pas d'en-têtes `<!doctype>` supplémentaires.
+
+Si un en-tête `<!doctype>` est présent dans le modèle HTML lui-même en plus d'un doctype HTML dans l'un des blocs de contenu, l'e-mail ne s'affiche pas correctement. Traitez les blocs de contenu comme des fragments HTML ajoutés à la structure de document existante du modèle d'e-mail. Les blocs de contenu ne doivent pas contenir de balises body supplémentaires ni de code HTML du modèle. Dans certains cas, des outils comme Emailify peuvent importer du code pré-écrit avec une structure HTML supplémentaire. Examinez donc attentivement les blocs de contenu importés.
+
+Vérifiez également qu'il n'y a pas de balises et de noms de classes dupliqués entre votre modèle et vos blocs de contenu, car cela peut provoquer des problèmes d'affichage.
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 

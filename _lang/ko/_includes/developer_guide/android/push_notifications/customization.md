@@ -358,15 +358,32 @@ Braze 대시보드를 통해 전송되는 Android 푸시 알림에는 다양한 
 
 ### 알림 ID {#notification-id}
 
-**Notification ID**는 선택한 메시지 카테고리에 대한 고유 식별자로, 메시징 서비스에 해당 ID의 가장 최근 메시지만 고려하도록 알립니다. 알림 ID를 설정하면 오래되고 관련성이 없는 메시지 더미 대신 가장 최근의 관련성 있는 메시지만 보낼 수 있습니다.
+**알림 ID**는 선택한 메시지 카테고리에 대한 고유 식별자로, 메시징 서비스에 해당 ID의 가장 최근 메시지만 고려하도록 알립니다. 알림 ID를 설정하면 오래되고 관련성이 없는 메시지 더미 대신 가장 최근의 관련성 있는 메시지만 보낼 수 있습니다.
+
+#### 동일한 알림이 덮어쓰기되는 것 방지 {#preventing-duplicate-notifications-from-overwriting}
+
+기본적으로 푸시 알림의 제목과 본문 텍스트가 동일하면 Android는 제목과 본문 문자열을 함께 해싱하여 두 메시지에 동일한 알림 ID를 생성합니다. 이로 인해 두 번째 알림이 첫 번째 알림을 덮어쓰게 되어 알림 트레이에 하나의 알림만 표시됩니다.
+
+동일한 알림이 서로 덮어쓰기되는 것을 방지하려면 Android 푸시 알림 설정에서 고유한 알림 ID 값을 지정할 수 있습니다. 다음은 몇 가지 옵션입니다:
+
+- **타임스탬프를 사용한 Liquid 템플릿:** 현재 시간을 기반으로 고유한 값을 생성합니다.
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **서버 측 생성:** 진정한 랜덤 값을 위해 서버에서 알림 ID를 생성하고 Liquid를 통해 전달합니다. 이렇게 하면 각 알림에 고유한 식별자가 부여되어 여러 알림이 동시에 표시될 수 있습니다.
 
 ### Firebase 메시징 전달 우선순위 {#fcm-priority}
 
 [Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) 필드를 통해 푸시를 "normal" 또는 "high" 우선순위로 Firebase Cloud Messaging에 전송할지 여부를 제어할 수 있습니다.
 
-### 유지 시간(TTL) {#ttl}
+### TTL(유지 시간) {#ttl}
 
-**Time to Live**(TTL) 필드에서는 푸시 메시징 서비스에 메시지를 저장할 커스텀 기간을 설정할 수 있습니다. TTL의 기본값은 FCM의 경우 4주, ADM의 경우 31일입니다.
+**TTL**(Time to Live) 필드에서는 푸시 메시징 서비스에 메시지를 저장할 커스텀 기간을 설정할 수 있습니다. TTL의 기본값은 FCM의 경우 4주, ADM의 경우 31일입니다.
 
 ### 요약 텍스트 {#summary-text}
 
@@ -382,7 +399,7 @@ Braze 대시보드를 통해 전송되는 Android 푸시 알림에는 다양한 
 
 ### 커스텀 URI {#custom-uri}
 
-**Custom URI** 기능을 사용하면 알림을 클릭할 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI가 지정되지 않은 경우 알림을 클릭하면 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부에 딥링킹하고 사용자를 앱 외부에 존재하는 리소스로 연결할 수 있습니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 그림과 같이 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다:
+**커스텀 URI** 기능을 사용하면 알림을 클릭할 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI가 지정되지 않은 경우 알림을 클릭하면 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부에 딥링킹하고 사용자를 앱 외부에 존재하는 리소스로 연결할 수 있습니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 통해 또는 그림과 같이 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다:
 
 ![Braze 푸시 작성기의 딥링킹 고급 설정.]({% image_buster /assets/img_archive/deep_link.png %})
 
@@ -415,7 +432,7 @@ Android 또는 Fire OS 푸시 알림에서 설정할 수 있는 우선순위 수
 
 Android O에서는 알림 소리가 알림 채널의 속성이 되었습니다. 개발자와 협력하여 채널 구성 중 소리를 정의한 다음 대시보드를 사용하여 알림을 보낼 때 적절한 채널을 선택해야 합니다.
 
-Android O 이전 버전을 실행하는 기기의 경우, Braze를 사용하면 대시보드 작성기를 통해 개별 푸시 메시지의 소리를 설정할 수 있습니다. 기기에서 로컬 사운드 리소스를 지정하면 됩니다(예: `android.resource://com.mycompany.myapp/raw/mysound`). 이 필드에서 "default"를 지정하면 기기에서 기본 알림 소리가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다.
+Android O 이전 버전을 실행하는 기기의 경우, Braze를 사용하면 대시보드 작성기를 통해 개별 푸시 메시지의 소리를 설정할 수 있습니다. 기기에서 로컬 사운드 리소스를 지정하면 됩니다(예: `android.resource://com.mycompany.myapp/raw/mysound`). 이 필드에서 "default"를 지정하면 기기에서 기본 알림 소리가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 통해 또는 푸시 작성기의 **Advanced Settings** 아래의 대시보드를 통해 지정할 수 있습니다.
 
 ![Braze 푸시 작성기의 사운드 고급 설정.]({% image_buster /assets/img_archive/sound_android.png %})
 

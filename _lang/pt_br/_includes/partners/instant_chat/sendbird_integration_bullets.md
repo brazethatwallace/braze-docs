@@ -1,0 +1,2 @@
+- Use os recursos de segmentação e disparo da Braze para iniciar notificações personalizadas no app.
+- Crie notificações personalizadas no app na plataforma Sendbird Notifications, que são então entregues dentro do ambiente do app, aumentando o engajamento do usuário.

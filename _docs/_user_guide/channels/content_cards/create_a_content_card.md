@@ -31,7 +31,7 @@ Use campaigns for single, simple messaging (such as informing users about a prod
 5. Add and name as many variants as you like for your campaign. You can choose different platforms, message types, and layouts for each of your added variants. For more on variants, refer to [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-If all of the messages in your campaign are going to be similar or have the same content, compose your message before adding additional variants. You can then select **Copy from Variant** from the **Add Variant** dropdown.
+If all messages in your campaign are similar or have the same content, compose your message before adding additional variants. You can then select **Copy from Variant** from the **Add Variant** dropdown.
 {% endalert %}
 
 {% endtab %}
@@ -94,7 +94,7 @@ Each message type and platform may have its own suggested proportions and requir
 
 #### Pin to top
 
-Braze displays a pinned card at the top of a user's feed and the user can't dismiss it. If a user's feed has multiple pinned cards, Braze orders them chronologically. When Braze delivers a Content Card, it is either pinned or unpinned, and that status does not change for the lifetime of the card. If you change the pinned setting on a campaign, the update applies to cards sent in the future only. It does not change the pinned status of cards already in a user's feed.
+Braze displays a pinned card at the top of a user's feed and the user can't dismiss it. If a user's feed has multiple pinned cards, Braze orders them chronologically. When Braze delivers a Content Card, it is either pinned or unpinned, and that status does not change for the lifetime of the card. If you change the pinned setting on a campaign, the update applies only to cards sent after the modification. It does not change the pinned status of cards already in a user's feed.
 
 ![Side-by-side of the Content Card preview in Braze for Mobile and Web with the option "Pin this card to the top of the feed" selected.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -144,7 +144,7 @@ For example, if an action-based Content Card is sent at 2 pm today with a 1-day 
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
-For action-based delivery, there is an expected short delay before the Content Card appears. For example, when a campaign is triggered on session start, this trigger event must first be flushed to Braze's servers. Next, the user's eligibility for the campaign is recorded. When the SDK syncs, the card is created and returned in the same sync response. If the SDK sync happened before the user's eligibility is recorded, they do not receive the card. For first-session users, this delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead.
+For action-based delivery, there is an expected short delay before the Content Card appears. For details on why this happens and how to minimize it, refer to [Why don't Content Cards appear immediately after a trigger event?]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#why-dont-content-cards-appear-immediately-after-a-trigger-event).
 
 #### Scheduled delivery
 
@@ -171,7 +171,7 @@ If you haven't done so already, complete the remaining sections of your Canvas c
 
 ## Step 6: Review and deploy
 
-After you've finished building the last of your campaign or Canvas, review its details, [test it]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages), then send it when you're ready. For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card).
+After you finish building your campaign or Canvas, review its details, [test it]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages), then send it. For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card).
 
 {% alert warning %}
 After a Content Card is launched, it can't be edited. It can only be stopped from sending to new users and removed from users' feeds. Refer to [Updating sent cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards) to understand how you can approach this scenario.
@@ -217,7 +217,7 @@ Each user can have up to 250 non-expired Content Cards in their feed at any give
 
 To prevent issues with the card limit, we advise the following best practices:
 
-- **Use shorter expiration dates:** For campaigns that are time sensitive (such as a weekend sale), set a specific expiration date. This way, cards are automatically removed from the feed and won't count towards the limit after they are no longer relevant.
+- **Use shorter expiration dates:** For campaigns that are time sensitive (such as a weekend sale), set a specific expiration date. This way, cards are automatically removed from the feed and no longer count toward the limit after they are no longer relevant.
 - **Leverage action-based removal:** Set up removal events for transactional or goal-based cards. For example, a card prompting a user to complete their profile should be removed as soon as a `profile_completed` event is logged.
 - **Audit long-running campaigns:** Review recurring or ongoing campaigns to ensure they aren't creating a poor experience for your users by filling the feed with too many cards over time.
 
@@ -246,7 +246,7 @@ For users to only receive a message from a specific campaign once, add an audien
 
 ### Managing live Content Cards
 
-After Content Cards have been sent, they sit waiting in an "inbox" ready to be delivered to the user (similar to what happens for emails). After content is pulled into the Content Card (at the time of display), it cannot be changed during its lifespan. This applies even if you're calling an API through Connected Content, and the data from the endpoint changes. This data won't get updated. It can only be stopped from sending to new users and removed from users' feeds. If you modify a campaign, only future cards that are sent have the update.
+After Content Cards have been sent, they sit waiting in an "inbox" ready to be delivered to the user (similar to what happens for emails). After content is pulled into the Content Card (at the time of display), it cannot be changed during its lifespan. This applies even if you're calling an API through Connected Content, and the data from the endpoint changes. This data is not updated. It can only be stopped from sending to new users and removed from users' feeds. If you modify a campaign, only cards sent after the modification include the update.
 
 #### Updating launched cards
 
@@ -269,10 +269,10 @@ When you duplicate the campaign, you need to define the audience for the new ver
 
 ###### Impact
 
-- **Existing recipients:** New and existing recipients would see the updated card at the next feed refresh if they are eligible.
-- **Reporting:** Each version of the card would have separate analytics.
+- **Existing recipients:** New and existing recipients see the updated card at the next feed refresh if they are eligible.
+- **Reporting:** Each version of the card has separate analytics.
 
-Let's say you've set a campaign to be triggered by a session start, and it has re-eligibility set to 30 days. A user received the campaign two days ago, and you want to change the copy. First, you'd archive the campaign and remove the cards from the feed. Second, you'd duplicate the campaign and re-launch with the new copy. If the user has another session, they'll immediately receive the new card.
+Let's say you set a campaign to be triggered by a session start, and it has re-eligibility set to 30 days. A user received the campaign two days ago, and you want to change the copy. First, archive the campaign and remove the cards from the feed. Second, duplicate the campaign and re-launch with the new copy. If the user has another session, they immediately receive the new card.
 
 ##### Option 2: Stop and relaunch the same campaign
 
@@ -288,10 +288,14 @@ This approach keeps all your analytics unified in a single campaign. Newly eligi
 
 ###### Impact
 
-* **Existing recipients:** Users who have already received the card would not receive the updated cards until they become re-eligible. If re-eligibility is turned off, they would never receive the new card.
-* **Reporting:** One campaign contains all reporting analytics for the card versions launched. Braze won't differentiate between the versions launched.
+* **Existing recipients:** Users who have already received the card do not receive the updated cards until they become re-eligible. If re-eligibility is turned off, they never receive the new card.
+* **Reporting:** One campaign contains all reporting analytics for the card versions launched. Braze does not differentiate between the versions launched.
 
-Let's say you have a campaign that's triggered by a session start and has re-eligibility set to 30 days. A user received the campaign two days ago, and you want to change the copy. First, stop the campaign and remove the card from the feed. Second, re-publish the campaign with the new copy. If the user has another session, they'll receive the new card in 28 days.
+Let's say you have a campaign that's triggered by a session start and has re-eligibility set to 30 days. A user received the campaign two days ago, and you want to change the copy. First, stop the campaign and remove the card from the feed. Second, re-publish the campaign with the new copy. If the user has another session, they receive the new card in 28 days.
+
+{% alert note %}
+If you stop a campaign, edit the removal event settings, and restart the campaign without removing cards from the feed, any existing cards in users' feeds use the updated removal event settings. The cards don't retain the original removal event configuration from when they were first sent.
+{% endalert %}
 
 #### Removing and expiring cards
 
@@ -313,7 +317,7 @@ This removal is not instantaneous. There is a processing delay, so it may take s
 {% endalert %}
 
 {% alert tip %}
-You can specify multiple custom events and purchases that should remove a card from a user's feed. When **any** of those actions are performed by the user, any existing cards sent by the campaign's cards are removed. Any future eligible cards continue to be sent according to the message's schedule.
+You can specify multiple custom events and purchases that should remove a card from a user's feed. When any of those actions are performed by the user, any existing cards sent by the campaign's cards are removed. Eligible cards continue to be sent according to the message's schedule.
 {% endalert %}
 
 ![Content Card Removal Conditions panel with Content Card Removal Event option.]({% image_buster /assets/img/content_cards/content_card_removal_event.png %})
@@ -341,3 +345,25 @@ Content Cards sync on a schedule and when your app refreshes the feed. Sync beha
 ### Impact of stopping Content Cards campaigns
 
 When you stop a campaign and select **Remove card after the next sync**, Braze removes the card from user feeds on the next refresh. Impression counts may be lower than send counts because users cannot impress cards that are removed before they view them.
+
+## Troubleshooting
+
+### Why don't Content Cards appear immediately after a trigger event?
+
+For action-based delivery campaigns (such as session start), there is an expected short delay between the trigger event and the card becoming available. This delay occurs because:
+
+- The trigger event is flushed to Braze's servers
+- The campaign is triggered and the user's eligibility is recorded
+- The Content Card is created in the database for that user
+- The SDK syncs and pulls all available cards to the device
+
+If the SDK sync happens before the user's eligibility is recorded, the user does not receive the card.
+
+For new users in their first session, this delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead.
+
+If you need to minimize delays for both new and existing users, you can create two campaigns:
+
+- **Existing users with session count greater than 0:** Use a scheduled delivery campaign. Cards are pre-created and immediately available.
+- **New users with session count equal to 0:** Use an action-triggered campaign. Cards are created after the first session trigger.
+
+This approach ensures existing users see cards instantly while still reaching new users after a brief delay in their first session. For additional strategies to improve latency, refer to [Improve low latency for Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements).

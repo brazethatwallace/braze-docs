@@ -34,7 +34,7 @@ Por ejemplo, si un cliente tiene dos vuelos próximos, tendrá dos estados de re
 
 Puedes definir hasta 10 variables de contexto por [paso de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). Cada nombre de variable puede tener hasta 100 caracteres y solo debe usar letras, números o guiones bajos.
 
-Las definiciones de variables de contexto pueden tener hasta 10 240 caracteres. Si pasas variables de contexto a un Canvas desencadenado por API, comparten el mismo espacio de nombres que las variables creadas en un paso de contexto. Por ejemplo, si envías una variable `purchased_item` en el [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) dentro del objeto de contexto, puedes hacer referencia a ella como {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Si redefines esa variable en un paso de contexto, el nuevo valor sobrescribirá el valor de la API para el recorrido de ese usuario.
+Las definiciones de variables de contexto pueden tener hasta 10 240 caracteres. Si pasas variables de contexto a un Canvas desencadenado por API, comparten el mismo espacio de nombres que las variables creadas en un paso de contexto. Por ejemplo, si envías una variable `purchased_item` en el objeto de contexto del [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases), puedes hacer referencia a ella como {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Si redefines esa variable en un paso de contexto, el nuevo valor sobrescribirá el valor de la API para el recorrido de ese usuario.
 
 Puedes almacenar hasta 50 KB por paso de contexto, distribuidos en un máximo de 10 variables. Si el tamaño total de todas las variables en un paso supera los 50 KB, las variables que excedan el límite no se evaluarán ni almacenarán. Por ejemplo, si tienes tres variables en un paso de contexto:
 
@@ -183,15 +183,26 @@ Las variables de contexto se declaran y solo son accesibles dentro del alcance d
 
 De manera similar a cómo las variables de contexto de Canvas tienen tipos predefinidos, las comparaciones entre variables de contexto y valores estáticos deben tener [tipos de datos coincidentes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). El filtro de variable de contexto permite comparaciones entre múltiples tipos de datos para booleanos, números, cadenas, hora y día del año, de forma similar a las comparaciones para [atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
+Aquí tienes un ejemplo de un filtro de variable de contexto que compara la variable de contexto `product_name` con la regex `/braze/`.
+
+![Una configuración de filtro para la variable de contexto "product_name" que coincida con la regex "/braze/".]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### Filtros de día del año y hora para variables de contexto de fecha {#day-of-year-and-time-filters-for-date-context-variables}
+
+Para usar filtros de comparación de **Día del año** u **Hora** con una variable de contexto:
+
+1. Añade un [paso de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) que establezca una variable de contexto con una fecha de calendario (por ejemplo, 23 de octubre de 2025).
+2. Añade un paso de [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) después del paso de contexto.
+3. En el paso de rutas de audiencia, añade un filtro que divida a los usuarios en función de esa variable de contexto.
+4. Elige una comparación de la categoría **Día del año** u **Hora**.
+
+Si una variable de contexto no tiene un tipo declarado, Braze muestra todos los tipos de comparación disponibles en el menú desplegable, incluyendo tanto **Día del año** como **Hora**. Si la variable se declara como tipo **hora** en el paso de contexto, solo se muestran las comparaciones de **Día del año** y **Hora**. Para otros tipos de datos con un tipo conocido (por ejemplo, un atributo personalizado anidado con un tipo de hora), solo se muestran las comparaciones que aplican a ese tipo.
+
 {% alert note %}
 Usa el mismo tipo de datos para tu variable de contexto y la comparación. Por ejemplo, si tu variable de contexto es un tipo de datos de hora, usa comparaciones de hora (como "antes" o "después"). Usar tipos de datos que no coinciden (como comparaciones de cadena con una variable de contexto de hora) puede causar un comportamiento inesperado.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-Aquí tienes un ejemplo de un filtro de variable de contexto que compara la variable de contexto `product_name` con la regex `/braze/`.
-
-![Una configuración de filtro para la variable de contexto "product_name" que coincida con la regex "/braze/".]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### Comparar con variables de contexto o atributos personalizados {#comparing-to-context-variables-or-custom-attributes}
 

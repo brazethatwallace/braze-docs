@@ -18,7 +18,7 @@ En este caso, mejor significa el canal que tiene la mayor probabilidad de partic
 
 El canal inteligente calcula una tasa de participación para cada usuario en cada canal compatible, clasifica esos canales y trata el canal con la clasificación más alta como el mejor canal de ese usuario.
 
-Para habilitar el filtro de canal inteligente, selecciona el filtro **Intelligent Channel** en la página **Públicos objetivo** al crear una Campaign o un Canvas.
+Para habilitar el filtro de canal inteligente, selecciona el filtro **Intelligent Channel** en la página **Target Audiences** al crear una Campaign o un Canvas.
 
 ## Cómo se calcula la participación por canal {#how-engagement-is-calculated-by-channel}
 

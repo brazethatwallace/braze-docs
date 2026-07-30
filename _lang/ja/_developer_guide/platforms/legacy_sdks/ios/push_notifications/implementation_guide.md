@@ -18,7 +18,7 @@ noindex: true
 
 # プッシュ通知実装ガイド {#push-notification-implementation-guide}
 
-> このオプションの高度な実装ガイドでは、プッシュ通知コンテンツアプリの拡張機能を活用してプッシュメッセージを最大限に活用する方法について説明します。当社チームが構築した3つのカスタムユースケース、付随するコードスニペット、および分析のロギングに関するガイダンスが含まれています。[こちらから Braze Demo リポジトリ](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)にアクセスしてください！この実装ガイドは Swift の実装を中心としていますが、興味のある方のために Objective-C のスニペットも提供されています。
+> このオプションの高度な実装ガイドでは、プッシュ通知コンテンツアプリの拡張機能を活用してプッシュメッセージを最大限に活用する方法について説明します。当社チームが構築した3つのカスタムユースケース、付随するコードスニペット、および分析のロギングに関するガイダンスが含まれています。[こちらから Braze Demo リポジトリ](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)にアクセスしてください！この実装ガイドはSwiftの実装を中心としていますが、興味のある方のためにObjective-Cのスニペットも提供されています。
 
 ## 通知コンテンツアプリの拡張機能 {#notification-content-app-extensions}
 
@@ -70,7 +70,7 @@ Objective-C<br>
 
 #### ダッシュボードの設定 {#dashboard-configuration}
 
-ダッシュボードでカスタムビューを設定するには、通知ボタン設定で表示する特定のカテゴリを入力します。次に、通知コンテンツ拡張の `.plist` で、カスタムカテゴリを `UNNotificationExtensionCategory` 属性に設定する必要があります。ここで指定される値は、Brazeダッシュボードで設定されている値と一致する必要があります。最後に、プッシュ通知でユーザーインタラクションを有効にするには、`UNNotificationExtensionInteractionEnabled` キーを true に設定します。
+ダッシュボードでカスタムビューを設定するには、通知ボタン設定で表示する特定のカテゴリを入力します。次に、通知コンテンツ拡張の `.plist` で、カスタムカテゴリを `UNNotificationExtensionCategory` 属性に設定する必要があります。ここで指定される値は、Brazeダッシュボードで設定されている値と一致する必要があります。最後に、プッシュ通知でユーザーインタラクションを有効にするには、`UNNotificationExtensionInteractionEnabled` キーをtrueに設定します。
 
 ![Brazeダッシュボードの通知ボタンセクションで、iOS通知カテゴリフィールドが「match_game」に設定されている。]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
 

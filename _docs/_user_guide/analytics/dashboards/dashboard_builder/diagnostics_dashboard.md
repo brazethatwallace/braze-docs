@@ -15,6 +15,10 @@ toc_headers: h2
 The **Messaging Diagnostics** dashboard is generally available. Contact your customer success manager if you're interested in getting access to the feature.
 {% endalert %}
 
+{% alert note %}
+To access the **Messaging Diagnostics** dashboard, you need the "View Dashboard Reports" [user permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) for your workspace.
+{% endalert %}
+
 ## Key concepts
 
 ### Sent and delivered

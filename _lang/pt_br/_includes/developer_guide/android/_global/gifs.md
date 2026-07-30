@@ -174,7 +174,7 @@ Para evitar isso:
 
 Isso separa o carregamento de imagens da renderização da interface e mantém o seu carregador de imagens personalizado compatível com o SDK Android 36.0.0 e posterior.
 
-Essa orientação se aplica a carregadores de imagens personalizados para Android. Mensagens no app para web já suportam GIFs nativamente.
+Essa orientação se aplica a carregadores de imagens personalizados para Android. Mensagens no app para web já aceitam GIFs nativamente.
 
 O exemplo em Kotlin a seguir usa valores de espaço reservado para demonstrar esse padrão:
 

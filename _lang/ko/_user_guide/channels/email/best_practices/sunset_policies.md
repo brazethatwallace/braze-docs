@@ -12,7 +12,28 @@ channel: email
 
 > 최대한 많은 사용자에게 Campaign을 보내고 싶을 수도 있지만, 실제로는 참여하지 않는 사용자에게 메시지를 보내는 것을 중단하는 것이 유리한 경우가 있습니다.
 
-이메일의 경우 발신 IP에는 참여도, 스팸 신고, 차단 목록 등을 고려한 평판 점수가 있습니다. [Sender Score](https://www.senderscore.org/)나 [Outlook의 Smart Network Data Service](https://postmaster.live.com/snds/) 같은 도구를 사용하여 평판 점수를 모니터링할 수 있습니다. 평판 점수가 지속적으로 낮으면 ISP 및 사서함 필터가 참여 중인 수신자를 포함하여 모든 수신자에 대해 자동으로 이메일을 스팸 또는 우선순위가 낮은 폴더로 분류할 수 있습니다. 일몰 정책을 만들면 활성 수신자에게만 이메일을 전송하는 데 도움이 됩니다.
+이메일의 경우, 발신 IP와 도메인 평판은 참여도, 스팸 신고, 차단 목록 등에 영향을 미칩니다. 평판이 지속적으로 낮으면 ISP 및 메일함 필터가 비활성 수신자뿐만 아니라 모든 수신자에 대해 이메일을 스팸 또는 우선순위가 낮은 폴더로 분류할 수 있습니다. 일몰 정책은 참여하지 않는 사용자에 대한 지속적인 발송을 제한하여 평판을 보호하는 데 도움이 됩니다. 정기적인 모니터링과 함께 사용하면 문제를 조기에 발견할 수 있습니다.
+
+## IP 및 도메인 상태 모니터링 {#monitor-ip-and-domain-health}
+
+[전달 가능성 센터]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center)를 사용하여 메일함 공급자가 발송을 어떻게 인식하는지 추적하세요:
+
+- **Google Postmaster Tools**(계정 연결 후): Gmail 관련 가시성을 위한 IP 평판, 도메인 평판, 전달 오류, 인증(SPF, DKIM, DMARC) 및 암호화 측정기준.
+- **Microsoft Smart Network Data Services(SNDS)**(IP에 대해 구성된 경우): 필터 결과, 불만 비율, 스팸 트랩 적중을 포함한 Outlook 및 Microsoft 메일함 IP 상태.
+
+보다 광범위한 발송 위생에 대해서는 [이메일 전달 가능성 개선]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) 및 [전달 가능성 함정과 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)을 참조하세요.
+
+추가 신호를 위해 Braze 외부에서 [Sender Score](https://www.senderscore.org/)나 [Outlook Smart Network Data Services](https://postmaster.live.com/snds/) 같은 외부 도구를 활용할 수도 있습니다.
+
+## 억제 목록 사용 {#use-suppression-lists}
+
+[억제 목록]({{site.baseurl}}/user_guide/audience/suppression_lists)은 Segment 필터로 정의된 사용자 그룹으로, 타겟 Segment에 포함되더라도 기본적으로 Campaign이나 Canvases를 수신하지 않습니다. 비활성 또는 참여하지 않는 수신자의 경우, 억제 목록은 워크스페이스 전체의 안전장치 역할을 합니다. 사용자가 비활성 기준을 충족하면 모든 Segment나 Campaign을 개별적으로 편집하지 않아도 대부분의 메시징 수신이 중단됩니다.
+
+일몰 정책에 맞추려면, 더 이상 지속적인 프로모션 이메일을 받지 않아야 하는 사용자를 캡처하는 필터(예: `Last Engaged With Message` 또는 **리타겟팅** 아래의 기타 필터)를 사용하여 억제 목록을 구성하세요. 정책에서 "참여하지 않는" 사용자를 정의할 때 사용하는 것과 동일한 조회 기간 및 채널 선택을 적용합니다. 멤버십은 동적이므로 사용자가 필터 조건을 충족하면 진입하고, 다시 참여하면 빠져나갑니다.
+
+최종 윈백이나 승인된 트랜잭션 여정과 같이 비활성 사용자에게도 특정 발송을 전달하고 싶다면, 억제 목록에 예외 태그를 구성하여 해당 태그가 있는 Campaign이나 Canvases가 사용자가 타겟 오디언스에 있을 때 여전히 전달되도록 하세요. 억제 목록은 세분화와 함께 작동하며, 세분화는 발송에 포함할 대상을 정의할 수 있습니다. 설정 단계, 권한 및 제한 사항에 대해서는 [억제 목록 설정]({{site.baseurl}}/user_guide/audience/suppression_lists#setup)을 참조하세요.
+
+## 세분화 필터 사용 {#use-segmentation-filters}
 
 세분화 필터를 사용하면 이메일, 푸시 및 인앱 알림에 대한 일몰 정책을 쉽게 구현하여 메시지가 스팸으로 표시되는 것을 방지할 수 있습니다. 다음은 일몰 정책을 만들 때 고려해야 할 몇 가지 사항입니다:
 

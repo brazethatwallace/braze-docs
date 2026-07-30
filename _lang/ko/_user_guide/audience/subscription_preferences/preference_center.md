@@ -14,9 +14,8 @@ guide_featured_list:
 - name: API 이메일 환경설정 센터
   link: /docs/user_guide/audience/subscription_preferences/preference_center/api_preference_center
   image: /assets/img/braze_icons/list.svg
-- name: 드래그 앤 드롭 이메일 환경설정 센터
+- name: 드래그 앤 드롭 환경설정 센터
   link: /docs/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center
   image: /assets/img/braze_icons/mail-01.svg
 
 ---
-<br><br>

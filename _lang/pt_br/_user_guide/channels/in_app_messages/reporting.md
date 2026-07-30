@@ -37,6 +37,21 @@ Para mensagens no app, esta página define impressões únicas usando um limite 
 O *Total de impressões* pode exceder as *Impressões únicas* quando um usuário visualiza a mensagem mais de uma vez no mesmo dia corrido (consulte as definições de métricas na tabela anterior). Para investigar usuários com contagens de impressões infladas, crie um segmento com o filtro **Device Count** definido como **more than** `1` e o filtro **Received Message from Campaign** para a Campaign específica.
 {% endalert %}
 
+### Rastreamento de cliques {#click-tracking}
+
+A Braze registra uma impressão quando uma mensagem no app se torna visível na tela. Para mensagens no app criadas com o [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), a tabela a seguir descreve o que conta como um clique.
+
+| Ação do usuário | Clique registrado |
+|-------------|--------------|
+| O usuário clica no corpo da mensagem quando a mensagem não tem botões | Sim (clique no corpo) |
+| O usuário clica em um botão | Sim (clique no botão) |
+| O usuário clica no botão de fechar (X) | Não |
+| O usuário toca ou clica fora da mensagem para dispensá-la (quando ativado) | Não |
+| O usuário fecha o app enquanto a mensagem está sendo exibida | Não |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rastreamento de cliques" }
+
+Para definições de cliques no corpo e cliques em botões, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
+
 Para desequilíbrios de impressões entre o grupo de controle e a variante em testes A/B, consulte [Discrepâncias entre o grupo de controle e a variante]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## Como as conversões são incrementadas com a reelegibilidade? {#how-do-conversions-increment-with-re-eligibility}

@@ -12,11 +12,15 @@ channel:
 
 > O conector Bring Your Own (BYO) WhatsApp oferece uma parceria entre a Braze e a Infobip, na qual você dá à Braze acesso ao seu Infobip WhatsApp Business Manager (WABA). Isso permite que você gerencie e pague pelos custos de envio de mensagens diretamente com a Infobip, enquanto usa a Braze para segmentação, personalização e orquestração de campanhas. A Braze mantém todas as funcionalidades existentes que o canal WhatsApp oferece, como mensagens de saída, processamento de mensagens de entrada, fluxos do WhatsApp e análise de dados.
 
+{% alert note %}
+Para migrar de outros provedores de soluções de negócios (BSPs) para a integração com a Braze, consulte [Migrar de outro provedor de soluções de negócios]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider).
+{% endalert %}
+
 ## Requisitos {#requirements}
 
 | Requisito | Descrição |
 | --- | --- |
-| Conta Infobip | Uma conta Infobip é necessária para usar o conector BYO WhatsApp.
+| Conta Infobip | Uma conta Infobip é necessária para usar o conector BYO WhatsApp. |
 | Créditos de mensagem ou ação | Você consome créditos de ação da Braze ao enviar mensagens pelo WhatsApp. |
 | Requisitos do WhatsApp | Conclua todos os [requisitos do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#prerequisites). |
 | Número de telefone | Sugerimos que você [adquira um número de telefone pela Infobip](https://www.infobip.com/docs/numbers/getting-started) por conveniência. |
@@ -30,9 +34,9 @@ Antes de configurar o conector BYO WhatsApp, confirme que os envios anteriores d
 
 - A conta WhatsApp Business e o número de telefone nunca foram conectados a um parceiro antes
 - A conta WhatsApp Business está conectada diretamente à Braze pela integração nativa.
-    - Siga as etapas em [Migração de número de telefone do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) para migrar seus números de telefone para uma nova conta WhatsApp Business, um número de telefone por vez.
+    - Siga as etapas em [Migrar entre contas WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts) para migrar seus números de telefone para uma nova conta WhatsApp Business, um número de telefone por vez.
 - A conta WhatsApp Business está conectada a um provedor de soluções diferente da Braze e da Infobip
-    - Siga as etapas em [Migração de número de telefone do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) para migrar seus números de telefone para uma nova conta WhatsApp Business, um número de telefone por vez.
+    - Siga as etapas em [Migrar entre contas WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts) para migrar seus números de telefone para uma nova conta WhatsApp Business, um número de telefone por vez.
 
 ## Etapa 1: Recuperar informações da conta Infobip {#step-1}
 
@@ -67,7 +71,7 @@ Antes de configurar o conector BYO WhatsApp, confirme que os envios anteriores d
 1. Na Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** > **WhatsApp**
 2. Selecione a guia **BYO Connector - Infobip**.
 
-![A página de Parceiros de tecnologia do WhatsApp.]({% image_buster /assets/img/whatsapp/byo_connector/byo_tab_tech_parners.png %})
+![A página de parceiros de tecnologia do WhatsApp.]({% image_buster /assets/img/whatsapp/byo_connector/byo_tab_tech_parners.png %})
 
 {: start="3"}
 3. Insira a chave de API e a URL base da [Etapa 1](#step-1).
@@ -112,6 +116,6 @@ Embora todas as funcionalidades existentes com a Braze sejam suportadas, estes c
 
 | Caso de uso | Motivo |
 | --- | --- |
-| Processar mensagens de entrada na Braze e na Infobip | Isso impede cadeias lógicas que são acionadas por qualquer um dos sistemas, consequentemente gerando threads de mensagens duplicadas e potencialmente contraditórias. |
+| Processar mensagens de entrada na Braze e na Infobip | Isso impede cadeias lógicas que são disparadas por qualquer um dos sistemas, consequentemente gerando threads de mensagens duplicadas e potencialmente contraditórias. |
 | Enviar mensagens pela Braze e pela Infobip | Para contas WhatsApp Business conectadas à Braze, todo o envio é originado pela Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Considerações" }

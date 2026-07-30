@@ -208,7 +208,7 @@ Sie können `UIApplicationOpenSettingsURLString` nutzen, um Nutzer:innen über P
 
 Um Nutzer:innen aus Ihrer App in die iOS-Einstellungen zu bringen:
 1. Vergewissern Sie sich zunächst, dass Ihre Anwendung entweder für [schemabasierte Deeplinks](#swift_register-a-scheme) oder für [universelle Links](#swift_universal-links) eingerichtet ist.
-2. Legen Sie eine URI für Deeplinks auf die Seite **Einstellungen** fest (z. B. `myapp://settings` oder `https://www.braze.com/settings`).
+2. Legen Sie eine URI für Deeplinking zur Seite **Einstellungen** fest (z. B. `myapp://settings` oder `https://www.braze.com/settings`).
 3. Wenn Sie angepasste schemabasierte Deeplinks verwenden, fügen Sie den folgenden Code zu Ihrem `scene:openURLContexts:`-Handler hinzu:
 
 {% tabs %}

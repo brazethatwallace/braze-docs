@@ -16,7 +16,7 @@ search_tag: Partner
 ![Um gráfico de visão geral da Tealium que mostra como os diferentes produtos da Tealium e a plataforma da Braze se encaixam para ativar campanhas entre canais em tempo real.]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
 A integração da Braze e da Tealium permite rastrear seus usuários e encaminhar dados para vários provedores de análise de dados de usuários. A Tealium permite que você:
-- Sincronize públicos da Tealium com o [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream) para a Braze para uso na personalização de Campaigns e Canvas da Braze ou na criação de segmentos.
+- Sincronize públicos da Tealium com o [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream) para a Braze para uso na personalização de Campaigns e Canvas da Braze ou na criação de Segments.
 - [Importe dados entre plataformas](#choose-your-integration-type). A Braze oferece uma integração de SDK [lado a lado](#side-by-side-sdk-integration) para seus aplicativos Android, iOS e web e uma integração de [servidor para servidor](#server-to-server-integration) que pode ser usada em qualquer plataforma que possa relatar dados de eventos.<br><br>
 
 {% tabs %}

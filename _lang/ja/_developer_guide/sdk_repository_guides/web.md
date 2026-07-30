@@ -14,7 +14,7 @@ Braze Web SDKを使用すると、Brazeのカスタマーエンゲージメン�
 
 ### できること {#what-you-can-do}
 
-- **ユーザー管理**: Webアプリケーション全体でユーザーのアイデンティティ、属性、動作を追跡・管理します
+- **ユーザー管理**: Webアプリケーション全体でユーザーのアイデンティティ、属性、行動を追跡・管理します
 - **アプリ内メッセージング**: ユーザーがサイトをアクティブに使用している間に、ターゲットを絞ったメッセージや通知を表示します
 - **Content Cards**: リアルタイムで更新されるパーソナライズされたコンテンツフィードやプロモーションカードを表示します
 - **バナー**: サイト内の特定のプレースメントにバナーメッセージを表示します
@@ -848,9 +848,9 @@ Brazeは、カスタムHTMLタグ内の統合手順に従うことで、他の�
 
 | 名前 | 説明 | npm | CDN URL
 | ---- | ----------- | --- | -------
-| Full | UIを含む完全なSDKです。npmバージョンを使用する場合、JavaScriptバンドラーはUIコードを含む未使用のコードを削除します。 | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.9/braze.min.js
-| Core | UIなしのSDKです。このバージョンのSDKを使用する場合、In-App MessagesとContent Cards用に独自のUIを実装する必要があります。UI要素はCSSでカスタマイズ可能なため、ほとんどの統合にはフルライブラリを使用してください。 | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.core.min.js
-| No-AMD | AMDサポートなしの完全なSDKです。サイトでRequireJSまたは別のAMDモジュールローダーを使用しているが、CDNを通じてSDKを読み込みたい場合に便利です。 | N/A | https://js.appboycdn.com/web-sdk/6.9/braze.no-amd.min.js
+| Full | UIを含む完全なSDKです。npmバージョンを使用する場合、JavaScriptバンドラーはUIコードを含む未使用のコードを削除します。 | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.10/braze.min.js
+| Core | UIなしのSDKです。このバージョンのSDKを使用する場合、In-App MessagesとContent Cards用に独自のUIを実装する必要があります。UI要素はCSSでカスタマイズ可能なため、ほとんどの統合にはフルライブラリを使用してください。 | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.core.min.js
+| No-AMD | AMDサポートなしの完全なSDKです。サイトでRequireJSまたは別のAMDモジュールローダーを使用しているが、CDNを通じてSDKを読み込みたい場合に便利です。 | N/A | https://js.appboycdn.com/web-sdk/6.10/braze.no-amd.min.js
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Libraries" }
 
 ## サポートされているブラウザ {#supported-browsers}
@@ -861,7 +861,7 @@ Brazeは、カスタムHTMLタグ内の統合手順に従うことで、他の�
 
 ## デバッグとトラブルシューティング {#debugging-troubleshooting}
 
-initialize関数にオプション`enableLogging: true`を渡すと（`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`）、BrazeがJavaScriptコンソールにログを出力するようになります。これは開発時に有用ですが、すべてのユーザーに表示されるため、本番環境にリリースする前にこのオプションを削除するか、[代替ロガーを提供](https://js.appboycdn.com/web-sdk/6.9/doc/modules/braze.html#setlogger)してください。
+initialize関数にオプション`enableLogging: true`を渡すと（`braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT', enableLogging: true });`）、BrazeがJavaScriptコンソールにログを出力するようになります。これは開発時に有用ですが、すべてのユーザーに表示されるため、本番環境にリリースする前にこのオプションを削除するか、[代替ロガーを提供](https://js.appboycdn.com/web-sdk/6.10/doc/modules/braze.html#setlogger)してください。
 
 ## Font Awesome
 

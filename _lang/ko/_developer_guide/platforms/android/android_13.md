@@ -14,7 +14,7 @@ description: "이 문서에서는 Android 13, SDK 업데이트, 푸시 권한 �
 
 전체 마이그레이션 가이드는 [Android 13 개발자 설명서](https://developer.android.com/about/versions/13)를 참조하세요.
 
-## Android 13 Braze SDK
+## Android 13 Braze SDK {#android-13-braze-sdk}
 
 Android 13에 대비하려면 Braze SDK를 [최신 버전(v21.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300)으로 업그레이드하세요. 이렇게 하면 새로운 ['코드 없는' 푸시 프라이머 기능]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages)에 액세스할 수 있습니다.
 

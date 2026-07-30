@@ -113,7 +113,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `phone_numbers_to_identify` | 필수 | 식별할 별칭 오브젝트 배열 | 사용자를 식별하기 위한 전화번호입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-### 이메일 주소 및 전화번호로 사용자 식별 {#identifying-users-by-email-addresses-and-phone-numbers}
+### 이메일 주소 및 전화번호로 사용자 식별하기 {#identifying-users-by-email-addresses-and-phone-numbers}
 
 이메일 주소나 전화번호를 식별자로 지정하는 경우 식별자에 `prioritization`도 포함해야 합니다.
 

@@ -1,0 +1,61 @@
+# Validate Support analyzer Phase 2 rules and dry-run smoke on PRs.
+#
+# Run locally:
+#   python scripts/validate_support_analyzer_phase2_rules.py --root .
+#   python scripts/support_analyzer_phase2.py .github/fixtures/support_analyzer_phase2_smoke.csv \
+#     --root . --dry-run --strict-anchors
+
+name: Validate support analyzer Phase 2
+
+on:
+  pull_request:
+    paths:
+      - ".github/support_analyzer_phase2_rules.yml"
+      - ".github/fixtures/support_analyzer_phase2_smoke.csv"
+      - "scripts/support_analyzer_phase2.py"
+      - "scripts/validate_support_analyzer_phase2_rules.py"
+      - "scripts/test_support_analyzer_phase2_hardening.py"
+      - ".github/workflows/validate-support-analyzer-phase2.yml"
+
+concurrency:
+  group: validate-support-analyzer-phase2-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate-phase2:
+    name: Rules validation and dry-run smoke
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml pytest --quiet
+
+      - name: Validate Phase 2 rules YAML
+        run: |
+          python scripts/validate_support_analyzer_phase2_rules.py \
+            --root "$GITHUB_WORKSPACE" \
+            --rules .github/support_analyzer_phase2_rules.yml
+
+      - name: Phase 2 dry-run smoke (fixture CSV)
+        run: |
+          python scripts/support_analyzer_phase2.py \
+            .github/fixtures/support_analyzer_phase2_smoke.csv \
+            --root "$GITHUB_WORKSPACE" \
+            --rules .github/support_analyzer_phase2_rules.yml \
+            --assignees-map .github/support_analyzer_doc_assignees.csv \
+            --dry-run \
+            --strict-anchors
+
+      - name: Run Phase 2 hardening unit tests
+        working-directory: scripts
+        run: python3 -m pytest test_support_analyzer_phase2_hardening.py -v

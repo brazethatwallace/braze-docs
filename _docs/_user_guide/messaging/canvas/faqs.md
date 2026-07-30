@@ -345,6 +345,10 @@ For action-based and API-triggered Canvases, Braze deduplicates trigger events s
 
 To allow multiple entries in the same second, space trigger events by at least 1.1 seconds (for example, when you control event timing from your server). For campaign-style behavior that allows multiple same-second triggers, compare your use case to [campaigns]({{site.baseurl}}/user_guide/messaging/campaigns) with appropriate scheduling and re-eligibility settings.
 
+### When are users de-duplicated in API-triggered Canvases?
+
+If a user re-enters an API-triggered Canvas and reaches a Delay step where they are already enqueued from a previous entry for an identical message, Braze de-duplicates the user to prevent duplicate sends. The second Canvas instance exits, so the number of entries may exceed the number of sends.
+
 ### Why does a test push go to the wrong app, but live sends look correct?
 
 **Test push** on a user profile is delivered to every push-enabled device for that profile. When multiple apps are installed on a device, the OS typically delivers the test notification to the first available app, which may not be the app you intend to validate.

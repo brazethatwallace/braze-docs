@@ -61,7 +61,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: "Attributs qui sont les propriétés d'attributs personnalisés.<br><br>Lors du filtrage d'un attribut personnalisé imbriqué de type date, vous pouvez choisir de filtrer par « Jour de l'année » ou « Heure ». « Jour de l'année » compare uniquement le mois et le jour. « Heure » compare l'horodatage complet, y compris l'année."
+    description: "Attributs qui sont les propriétés d'attributs personnalisés.<br><br>Lors du filtrage d'un attribut personnalisé imbriqué de type date, vous pouvez choisir de filtrer par « Jour de l'année » ou « Heure ». « Jour de l'année » compare uniquement le mois et le jour. « Heure » compare l'horodatage complet, y compris l'année. La même logique s'applique lors du filtrage sur les variables de contexte dans les parcours d'audience Canvas ; consultez <a href=\"/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables\">Filtres Jour de l'année et Heure pour les variables de contexte de type date</a> pour plus de détails."
     tags:
       - Custom attribute
   - name: Day of Recurring Event

@@ -41,6 +41,10 @@ Après avoir sélectionné le parcours d'onboarding standard, vous devrez choisi
     - Suit uniquement les utilisateurs identifiés
     - Commence le suivi des données lorsque les visiteurs du site s'inscrivent ou se connectent à leur compte
 
+{% alert note %}
+Les nouveaux clients sont provisionnés avec les dernières versions du SDK Web et du SDK JavaScript de Braze lors de la configuration. Les clients existants peuvent consulter leur version actuelle du SDK dans les paramètres d'intégration, être notifiés lorsqu'une version plus récente est disponible et effectuer eux-mêmes la mise à jour depuis les paramètres d'intégration.
+{% endalert %}
+
 ## Étape 3 : Configurez vos données Shopify {#step-3-configure-your-shopify-data}
 
 ### Configuration standard des données {#standard-data-setup}

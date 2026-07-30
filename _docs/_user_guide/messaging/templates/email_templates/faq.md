@@ -61,6 +61,12 @@ Link templates are expanded and added to each URL prior to any Liquid expansion 
 
 Avoid adding the question mark (?) to your Liquid as this will cause link templates to first add a question mark (?), and then later the Liquid expansion process will add a second question mark (?).
 
+#### Hardcoded URLs versus custom attributes
+
+When you use a hardcoded URL in the HTML editor (for example, `https://braze.com?12345`), Braze detects that a `?` already exists and automatically uses `&` to append your link template parameters. However, when you use a custom attribute that contains a URL with a `?` (for example, {% raw %}`{{custom_attribute.${my_url}}}`{% endraw %} where `my_url` is `https://braze.com?12345`), Braze does not check whether a `?` already exists in the custom attribute's value. In this case, the link template adds another `?` before the parameters, resulting in a URL like `https://braze.com?12345?utm_source=...`.
+
+To avoid this issue when using custom attributes that may contain query parameters, hardcode the `?` or `&` after the custom attribute based on whether the custom attribute value includes query parameters. For example, if your custom attribute always includes a `?`, use {% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %} to ensure the link template appends parameters correctly.
+
 ## Link aliasing
 
 ### How will enabling link aliasing impact my Content Blocks and link templates?

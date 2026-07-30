@@ -23,6 +23,10 @@ Some common custom event use cases include:
 
 You can manage, create, or blocklist custom events in the dashboard by going to **Data Settings** > **Custom Events**.
 
+### Troubleshooting duplicate custom attributes or events
+
+{% multi_lang_include data_activation/troubleshooting_duplicate_custom_data_entries.md %}
+
 Select the menu next to a custom event for the following actions:
 
 ### Blocklisting

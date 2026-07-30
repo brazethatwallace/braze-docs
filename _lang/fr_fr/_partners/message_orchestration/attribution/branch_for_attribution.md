@@ -82,7 +82,7 @@ braze.deviceId { deviceId in
 
 ### Étape 2 : Obtenir la clé d'importation des données de Braze {#step-2-get-the-braze-data-import-key}
 
-Dans Braze, naviguez vers **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Branch**.
+Dans Braze, naviguez vers **Partner Integrations** > **Technology Partners** et sélectionnez **Branch**.
 
 Ici, vous trouverez l'endpoint REST et pourrez générer votre clé d'importation des données Braze. Une fois la clé générée, vous pouvez créer une nouvelle clé ou invalider une clé existante. La clé d'importation des données et l'endpoint REST sont utilisés à l'étape suivante lors de la configuration d'un postback dans le tableau de bord de Branch.<br><br>![Cette image montre la section « Importation de données pour l'attribution d'installation » qui se trouve sur la page de la technologie Branch. Cette section affiche la clé d'importation des données et l'endpoint REST.]({% image_buster /assets/img/attribution/branch.png %}){: style="max-width:90%;"}
 

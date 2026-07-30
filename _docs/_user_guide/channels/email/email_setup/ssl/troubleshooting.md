@@ -1,17 +1,37 @@
 ---
 nav_title: Troubleshooting
-article_title: SSL Troubleshooting
+article_title: Troubleshoot SSL click tracking
 page_order: 5
 page_type: reference
-description: "Troubleshoot SSL click tracking issues, including DNS phase routing, SSL name mismatch errors, and CDN certificate configuration for your click tracking domain."
+description: "Diagnose SSL click-tracking and CDN configuration issues using a symptom index and standard investigation path."
 channel: email
 ---
 
-# Troubleshooting
+# Troubleshoot SSL click tracking
 
-> Use these tips to identify common SSL click tracking issues. When Braze wraps links in your branded click tracking domain (for example, `clicks.mail.yourbrand.com`), HTTPS requires your DNS to route through a content delivery network (CDN) that holds your SSL certificate. Use the [triage workflow](#triage-workflow) to determine whether the issue is DNS routing or certificate scoping.
+> Use this page to identify common SSL click tracking issues. Note that the following guidance is generic because every CDN is unique. For CDN configuration, certificates, or proxy issues, contact your CDN's support team, as these configurations take place outside of Braze.
 
-The troubleshooting guidance is generic because every CDN is unique. For CDN configuration, certificates, or proxy issues, contact your CDN's support team, as these configurations take place outside of the Braze ecosystem.
+## Start here: Match your symptom
+
+| Symptom | Go to |
+| --- | --- |
+| Email open rates dropped suddenly | [Low email open rates](#low-email-open-rates) |
+| Tracked links return HTTP 403 | [HTTP 403 on redirect links](#http-403-on-redirect-links) |
+| DNS or CNAME points to ESP instead of CDN | [Domain registry issues](#domain-registry-issues) |
+| "Connection isn't private" or links break during setup | [CDN issues](#cdn-issues) |
+| SSL setup complete but links still show HTTP | [SSL enablement status](#ssl-enablement-status) |
+| Tracked URL fails but untracked URL works | [Click tracking issues](#click-tracking-issues) |
+| Amazon SES–specific SSL enablement errors | [Amazon SES](#amazon-ses) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SSL symptom" }
+
+## Standard investigation path
+
+1. Confirm your click-tracking subdomain points to your [content delivery network (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it)—not directly to your email service provider (SendGrid, SparkPost, or Amazon SES). Ask your IT or web team to verify your domain settings match your Braze setup. For Braze requirements, see [Acquire an SSL certificate]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Confirm your SSL certificate is active for the tracking domain. Ask your IT or web team to confirm the certificate is current and covers your click-tracking subdomain. For setup steps and CDN-specific guides, see [Acquire an SSL certificate]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) and [Additional resources]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+3. Send a test email using the [click tracking troubleshooting template](#click-tracking-issues). Compare tracked versus untracked URLs.
+4. If tracked links fail with 403, review CDN and WAF rules (user agents, query strings, redirect patterns).
+5. If setup is complete but links remain HTTP, contact your Braze customer success manager to confirm Braze enabled SSL.
+6. For persistent issues, coordinate with your CDN or IT team and contact [Braze Support]({{site.baseurl}}/braze_support) with error codes and any details from your CDN or domain provider.
 
 ## Key concepts
 
@@ -92,17 +112,38 @@ For a more detailed TLS report, you can also use [Qualys SSL Labs SSL Server Tes
 
 If live email links break during setup, you may have pointed DNS toward your CDN before completing configuration. This can appear as a wrong link or connection error. Contact your CDN provider and review their documentation to troubleshoot proxy and origin settings. Coordinate with the team that manages your SSL and CDN configuration for further assistance.
 
-## Low email open rates
+## Low email open rates {#low-email-open-rates}
+
+**Symptom:** Email open rates dropped suddenly after SSL or CDN changes.
 
 If you're suddenly experiencing low email open rates, confirm that the SSL certificate is up-to-date. If it's expired, you must renew that SSL certificate with your CDN or certificate provider.
 
-## HTTP 403 on redirect links
+## HTTP 403 on redirect links {#http-403-on-redirect-links}
+
+**Symptom:** Tracked email links return "403 Forbidden".
 
 If tracked redirect links return `403 Forbidden`, the failure often occurs at your content delivery network (CDN) or web application firewall (WAF)—for example, rules on AWS WAF or Amazon CloudFront that block certain user agents, query strings, or redirect patterns. Review blocked-request logs and metrics with your CDN or cloud provider. For AWS, see [Troubleshooting issues with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
 To see whether the problem is specific to click tracking, turn off click tracking for one test link (see [Turning off click-tracking on a link-to-link basis]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). If the destination URL loads when click tracking is off but returns `403` when tracking is on, focus on configuration for your click-tracking domain, CDN, and WAF. If your CNAME still points to the ESP while SSL is enabled, you may see an [SSL name mismatch error](#ssl-name-mismatch-errors) instead—start with the [triage workflow](#triage-workflow).
 
-## SSL enablement status
+## Domain registry issues {#domain-registry-issues}
+
+**Symptom:** DNS or CNAME for your tracking subdomain points to your ESP instead of your CDN.
+
+Run a dig command to confirm you point link tracking at the CDN. In your terminal run `dig CNAME link_tracking_subdomain`. Under `ANSWER SECTION`, it lists where your CNAME points. If it points to the email service provider (SendGrid, SparkPost, or Amazon SES) and not your CDN, reconfigure your domain registry to point to your CDN.
+
+## CDN issues {#cdn-issues}
+
+**Symptom:** Users see "connection isn't private" errors, or links break during CDN setup.
+
+If live email links break during setup, you likely pointed DNS toward your CDN before proper configuration. This can appear as a "wrong link" error. Contact your CDN provider and review their documentation to troubleshoot configuration.
+
+If you see an error message that your connection isn't private, this can indicate that your SSL or CDN isn't configured correctly. Run a `dig` command in your terminal (for example, `dig CNAME your_link_tracking_subdomain`). In the `ANSWER SECTION`, if the result points to your ESP instead of your CDN, the issue is a misconfiguration. For Braze SSL click tracking to work, the CNAME should point to your CDN. Coordinate with the team that manages your SSL and CDN configuration for further assistance.
+>>>>>>> develop
+
+## SSL enablement status {#ssl-enablement-status}
+
+**Symptom:** SSL setup is complete but tracked links still appear as HTTP.
 
 If you complete SSL setup and links still appear as HTTP, contact your Braze customer success manager to confirm Braze enabled SSL. Braze enables SSL only after all setup steps are complete.
 
@@ -116,7 +157,9 @@ If you're using Amazon SES as your email service provider, the following configu
 - **Route 53 alias record:** If you use Route 53 to manage DNS for your domain, create an [alias record in Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html) that points to your CDN distribution (for example, `d111111abcdef8.cloudfront.net`). Using a standard CNAME instead of an alias record can return HTTP 400 errors.
 - **Header forwarding disabled:** If SSL enablement still fails after you configure `X-Forwarded-Host`, try disabling header forwarding on your CDN or proxy. Some setups resolve the issue when forwarding is turned off entirely. Work with your IT team or CDN provider to test this configuration.
 
-## Click tracking issues
+## Click tracking issues {#click-tracking-issues}
+
+**Symptom:** Tracked email links fail but untracked links work, or users see certificate or DNS errors after clicking.
 
 Common redirection issues typically result from an improper configuration between the CDN hosting the tracking domain and its associated SSL certificates or DNS CNAME records. These misconfigurations often cause users to receive a "connection is not secure" privacy error or a `404` failure after clicking a tracked email link.
 
@@ -332,5 +375,5 @@ Use the following table to diagnose common errors when testing click tracking.
 | `"This site can’t be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Check your DNS settings. Ensure your tracking subdomain is configured per your CDN and ESP recommended configuration. |
 | `525 / 526 SSL Error` | Check that the SSL setting in your CDN (like Cloudflare) matches your Origin's capability. |
 | `404 Not Found` | Check that your CDN is configured to forward the entire URL path to the ESP, rather than pointing to a blank root directory. |
+| `400 Bad Request: Request Header or Cookie Too Large` | This error typically occurs when the click-tracking domain inherits too many large cookies from your website's domain. Braze does not set or block any cookies on the tracking domain. Configure your CDN to not send those cookies to the ESP when reverse-proxying the click-tracking request. You may also need to increase the `large_client_header_buffers` setting in your nginx configuration (for example, `large_client_header_buffers 4 32k;` to allow headers up to 32&nbsp;KB). For more information, consult your CDN provider or website engineering team. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Error codes and troubleshooting" }
-

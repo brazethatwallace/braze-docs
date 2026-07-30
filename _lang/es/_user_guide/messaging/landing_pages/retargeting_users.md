@@ -15,7 +15,7 @@ Antes de empezar, tendrás que crear una [página de inicio]({{site.baseurl}}/us
 
 ## Reorientar usuarios {#retargeting-users}
 
-Braze realiza un seguimiento automático cuando un usuario envía un formulario de página de inicio. Puedes ver el número total de envíos de un formulario en [análisis de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#viewing-analytics). Sin embargo, para reorientar a usuarios específicos, tendrás que reorientar a los usuarios a través del formulario de tu página de inicio utilizando uno de los siguientes métodos:
+Braze realiza un seguimiento automático cuando un usuario envía un formulario de página de inicio. Puedes ver el número total de envíos de un formulario en [análisis de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#view-analytics). Sin embargo, para reorientar a usuarios específicos, tendrás que reorientar a los usuarios a través del formulario de tu página de inicio utilizando uno de los siguientes métodos:
 
 - **Usando un segmento:** Puedes crear un nuevo segmento para identificar automáticamente a los usuarios que han enviado o no un formulario de página de inicio.
 - **Usando un desencadenante de mensaje:** Puedes configurar un desencadenante de mensaje para enviar automáticamente un mensaje a los usuarios o introducirlos en un Canvas después de que envíen el formulario.

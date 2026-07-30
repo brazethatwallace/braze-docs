@@ -58,7 +58,7 @@ Nehmen wir an, Sie möchten, dass Nutzer:innen, die Push-Nachrichten bevorzugen,
 Campaigns und Canvas-Schritte, die das [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules) ignorieren, werden vom intelligenten Kanal nicht berücksichtigt und können nicht zu den Datenanforderungen beitragen.
 {% endalert %}
 
-## Mobile-Push
+## Mobile-Push {#mobile-push}
 
 Mobile-Push umfasst Android, iOS, Kindle und andere Kanäle für mobile Geräte, die auf Braze verfügbar sind. Braze bewertet jede mobile Plattform separat bei der Berechnung der Engagement-Raten.
 

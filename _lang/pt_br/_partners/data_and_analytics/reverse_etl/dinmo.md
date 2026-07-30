@@ -129,7 +129,7 @@ Durante a configuração da ativação:
    * **Event time**: Timestamp de quando o evento ocorreu
    * **External ID**: ID externo do usuário associado ao evento
 3. Mapeie propriedades opcionais do evento para nomes de atributos da Braze.
-4. Defina a programação de frequência com que novos eventos são enviados para a Braze.
+4. Defina o cronograma de frequência com que novos eventos são enviados para a Braze.
 
 ### Sincronizar status de inscrição {#synchronize-subscription-statuses}
 

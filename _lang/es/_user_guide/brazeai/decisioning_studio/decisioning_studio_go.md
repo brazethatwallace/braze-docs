@@ -11,7 +11,7 @@ description: "Aprende a configurar e integrar BrazeAI Decisioning Studio<sup>TM<
 
 ## Acerca de Decisioning Studio Go {#about-decisioning-studio-go}
 
-Decisioning Studio Go es un agente de toma de decisiones con IA para programas de correo electrónico recurrentes. En lugar de elegir una única línea del asunto, hora de envío o imagen ganadora para toda la audiencia, el agente selecciona la mejor combinación para cada destinatario en función de su participación pasada.
+Decisioning Studio Go es un agente de decisión con IA para programas de correo electrónico recurrentes. En lugar de elegir una única línea del asunto, hora de envío o imagen ganadora para toda la audiencia, el agente selecciona la mejor combinación para cada destinatario en función de su participación pasada.
 
 Tú defines las variantes entre las que el agente puede elegir, como líneas del asunto, CTA, imágenes, días de envío y horas de envío. Para cada usuario de tu segmento, el agente elige la opción con más probabilidades de generar participación, dentro de las restricciones y el calendario que configures.
 
@@ -29,7 +29,7 @@ A medida que los usuarios interactúan —o no—, el agente aprende. Los inform
 
 | Configuración | Descripción |
 |---|---|
-| **Audiencia** | Un único segmento de Braze como público de entrada. El agente divide automáticamente el segmento entre el grupo de toma de decisiones y el grupo de control aleatorio. |
+| **Audiencia** | Un único segmento de Braze como público de entrada. El agente divide automáticamente el segmento entre el grupo de decisión y el grupo de control aleatorio. |
 | **Calendario** | Frecuencia de envío (por ejemplo, una única selección tres veces por semana), días de la semana permitidos, horas tranquilas en la zona horaria local del usuario y cumplimiento de las reglas de limitación de frecuencia a nivel de agente. |
 | **Creativos** | Uno o más creativos base creados en el creador de Braze. Dentro de cada creativo base, puedes marcar una línea del asunto, un CTA y una imagen como puntos de personalización mediante etiquetas de Liquid, y luego proporcionar una lista de variantes para cada uno. El agente decide qué creativo base y variante usar para cada destinatario. |
 | **Restricciones** | Límites que impiden que el agente envíe el mismo creativo base o la misma línea del asunto a un usuario más de una vez dentro de una ventana que tú defines. |

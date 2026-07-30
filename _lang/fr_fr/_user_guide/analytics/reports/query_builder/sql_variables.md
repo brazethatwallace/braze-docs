@@ -187,7 +187,7 @@ Votre Liquid sera utilisé pour afficher un calendrier dans la plage de dates do
 
 ![Un exemple de calendrier rendu dans Braze.]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 {% tabs local %}
 {% tab une Campaign %}
@@ -439,7 +439,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### Segments
+### Segments {#segments}
 
 Pour sélectionner des Segments dont le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) est activé. Défini sur l'identifiant analytique du Segment, qui correspond aux identifiants stockés dans la colonne `user_segment_membership_ids` dans les tables où cette colonne est disponible.
 

@@ -99,11 +99,11 @@ Die Linkverkürzung ist auch für reine API-Nachrichten über den [`/messages/se
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Optional | Boolean | Setzen Sie `link_shortening_enabled` auf `true`, um die Linkverkürzung und das Klick-Tracking auf Campaign-Ebene zu aktivieren. Für die Nutzung des Trackings müssen `campaign_id` und `message_variation_id` vorhanden sein. |
 | `user_click_tracking_enabled` | Optional | Boolean | Setzen Sie `user_click_tracking_enabled` auf `true`, um die Linkverkürzung sowie das Klick-Tracking auf Campaign- und Nutzer:innen-Ebene zu aktivieren. Sie können die getrackten Daten verwenden, um Segmente von Nutzer:innen zu erstellen, die auf URLs geklickt haben.<br><br> Um diesen Parameter zu verwenden, muss `link_shortening_enabled` auf `true` gesetzt sein, und `campaign_id` sowie `message_variation_id` müssen vorhanden sein. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="URLs im /messages/send-Endpunkt verkürzen" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="URLs im /messages/send-Endpunkt verkürzen" }
 
 Eine vollständige Liste der Anfrageparameter finden Sie unter [Anfrageparameter]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
-## Testen {#testing}
+## Testen {#legacy_testing}
 
 Bevor Sie Ihre Campaign oder Ihr Canvas starten, empfiehlt es sich, Ihre Nachricht zunächst in der Vorschau anzuzeigen und zu testen. Gehen Sie dazu zum Tab **Test**, um eine SMS- oder RCS-Nachricht an [Inhalts-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder eine:n einzelne:n Nutzer:in in der Vorschau anzuzeigen und zu senden.
 

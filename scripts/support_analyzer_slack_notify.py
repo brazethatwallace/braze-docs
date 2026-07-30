@@ -156,8 +156,6 @@ def main() -> None:
     export_result = os.environ.get("NEEDS_EXPORT_RESULT", "")
     digest_result = os.environ.get("NEEDS_DIGEST_RESULT", "")
     phase2_result = os.environ.get("NEEDS_PHASE2_RESULT", "")
-    close_digest_result = os.environ.get("NEEDS_CLOSE_DIGEST_RESULT", "")
-    digest_pr = (os.environ.get("DIGEST_PR_NUMBER") or "").strip()
     skip_phase2 = (os.environ.get("SKIP_PHASE2") or "").lower() in ("1", "true", "yes")
 
     summary_path = Path(
@@ -178,12 +176,6 @@ def main() -> None:
         failed_jobs.append("digest")
     if not skip_phase2 and _job_failed(phase2_result):
         failed_jobs.append("phase 2")
-    close_digest_failed = _job_failed(close_digest_result)
-    if close_digest_failed and not failed_jobs:
-        # Phase 2 PRs may still be valid; treat as a warning, not a hard failure.
-        pass
-    elif close_digest_failed:
-        failed_jobs.append("close digest PR")
 
     explicit = _load_github_to_slack()
     slack_index: dict[str, str] = {}
@@ -202,11 +194,11 @@ def main() -> None:
     lines: list[str] = []
 
     if opened:
-        lines.append(f":white_check_mark: *Support analyzer (Looker)* — opened {len(opened)} Phase 2 draft PR(s)")
-        if close_digest_failed:
-            lines.append(
-                ":warning: _Could not auto-close the digest PR; close it manually or check the workflow log._"
-            )
+        n_opened = len(opened)
+        pr_label = "PR" if n_opened == 1 else "PRs"
+        lines.append(
+            f":white_check_mark: *Support analyzer (Looker)* — opened {n_opened} support-analyzer {pr_label}"
+        )
         if run_url:
             lines.append(run_url)
         for item in opened:
@@ -222,39 +214,7 @@ def main() -> None:
             if mention:
                 line += f" — {mention}"
             lines.append(line)
-        if digest_pr:
-            repo = (os.environ.get("GITHUB_REPOSITORY") or "").strip()
-            if repo:
-                digest_url = f"https://github.com/{repo}/pull/{digest_pr}"
-                lines.append(
-                    f"_Digest PR <{digest_url}|#{digest_pr}> was closed automatically after Phase 2._"
-                )
         _post_message(token, channel, "\n".join(lines))
-        return
-
-    # No Phase 2 PRs — notify only when digest PR was created (export-only success is quiet).
-    if digest_pr and digest_result == "success":
-        repo = (os.environ.get("GITHUB_REPOSITORY") or "").strip()
-        digest_url = f"https://github.com/{repo}/pull/{digest_pr}" if repo else ""
-        if skip_phase2:
-            text = (
-                f":white_check_mark: *Support analyzer (Looker)* — digest only (Phase 2 skipped)\n"
-                f"<{digest_url}|Digest PR #{digest_pr}>\n{run_url}"
-            )
-        else:
-            text = (
-                f":white_check_mark: *Support analyzer (Looker)* — no Phase 2 PRs matched rules\n"
-                f"<{digest_url}|Digest PR #{digest_pr}>\n{run_url}"
-            )
-        _post_message(token, channel, text)
-        return
-
-    if close_digest_failed:
-        text = (
-            f":warning: *Support analyzer (Looker)* — Phase 2 finished but closing the digest PR failed\n"
-            f"{run_url}"
-        )
-        _post_message(token, channel, text)
         return
 
     print("Nothing to post to Slack for this run.", file=sys.stderr)

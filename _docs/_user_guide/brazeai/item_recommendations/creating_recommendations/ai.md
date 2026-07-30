@@ -25,7 +25,7 @@ Use AI item recommendations to calculate the most popular products or create per
 
 Before you start, you must have the following:
 
-- At least one [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) to use any of the recommendation types described in the following section.
+- At least one [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) to use any of the [recommendation types]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 - Purchase or event data on Braze (custom events, the order placed event, or the purchase object) that includes a reference to the item and must match the catalog item IDs.
 
 ### Step 1: Create a new recommendation
@@ -51,10 +51,10 @@ Give your recommendation a name and optional description.
 
 ### Step 3: Define your recommendation {#recommendation-type}
 
-Select a recommendation type. Each type uses the last six months of item interaction data, such as a purchase, an order placed, or custom event data. For more detailed information and uses cases for each, see [Types and Uses Cases]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
+Select a recommendation type. Each type uses the last six months of item interaction data, such as a purchase, an order placed, or custom event data. For more detailed information and use cases for each, see [Types and use cases]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
-When using **Most Recent** or **AI Personalized**, users with insufficient data to create individualized recommendations will receive **Most Popular** items as a fallback. You can see an approximation of the proportion of users receiving the **Most Popular** fallback displayed on the **Analytics** page. The **Most Popular** fallback only returns items that exist in the linked catalog. 
+When using **Most Recent** or **AI Personalized**, users with insufficient data to create individualized recommendations receive **Most Popular** items as a fallback. The **Most Popular** fallback only returns items that exist in the linked catalog.<br><br>For **AI Personalized** recommendations, view the **Personalization rate** on the **Analytics** page to see what percentage of users who performed the configured event in the past 24 months have personalized recommendations stored on their profile. For **Most Recent** recommendations, the **Analytics** page shows the share of users receiving **Most Recent** recommendations versus the **Most Popular** fallback.
 {% endalert %}
 
 #### Step 3.1: Exclude prior purchases or interactions (optional)
@@ -86,7 +86,7 @@ If you can't find your selection, make sure it's set up in your catalog first.
 Select the event you want this recommendation to optimize for. This event is usually a purchase, but it can also be any interaction with an item.
 
 {% alert tip %}
-When configuring AI item recommendations, your choice of event is important. Your triggering event determines who gets an AI-generated recommendation—AI item recommendations are generated for users who have completed the event you configure, so this choice directly determines who receives recommendations. Select an event that covers the full audience segment you want to reach.<br><br> At the same time, balance coverage against relevance. Top-of-funnel events (like Product Viewed) tend to capture a broader audience but be less connected to business outcomes, whereas bottom-of-funnel events (like Purchased) tend to produce more targeted, business-relevant recommendations. The best event is one that balances coverage with influence on the bottom line.
+When configuring AI item recommendations, your choice of event is important. Your triggering event determines who gets an AI-generated recommendation—AI item recommendations are generated for users who have completed the event you configure, so this choice directly determines who receives recommendations. Select an event that covers the full audience segment you want to reach.<br><br>At the same time, balance coverage against relevance. Top-of-funnel events (like Product Viewed) tend to capture a broader audience but be less connected to business outcomes, whereas bottom-of-funnel events (like Purchased) tend to produce more targeted, business-relevant recommendations. The best event is one that balances coverage with influence on the bottom line.
 {% endalert %}
 
 You can optimize for:
@@ -110,7 +110,7 @@ To create a recommendation, you need to tell Braze which field of your interacti
 
 Select this field for the **Property Name**.
 
-The **Property Name** field will pre-populate with a list of fields sent through the SDK to Braze. If enough data is provided, these properties will also be ranked in order of probability to be the correct property. Select the one that corresponds to the `id` field of the catalog.
+The **Property Name** field pre-populates with a list of fields sent through the SDK to Braze. If enough data is provided, these properties are also ranked in order of probability to be the correct property. Select the one that corresponds to the `id` field of the catalog.
 
 ![The property name "purchase_item" selected that corresponds to the item IDs in the catalog.]({% image_buster /assets/img/item_recs_4.png %})
 
@@ -123,7 +123,7 @@ There are some requirements for selecting your property:
   - The field can be inside an array of products, or end with an array of IDs. In either case, each product ID will be treated as a separate, sequential event with the same timestamp.
 - **If you selected Purchase Object:** Must be the `product_id` or a field of your interaction event's `properties`.
 - **If you selected Custom Event:** Must be a field of your custom event's `properties`.
-- Nested fields must be typed into the **Property Name** dropdown in dot notation with the format of `event_property.nested_property`. For example, if selecting the nested property `district_name` within the event property `location`, you would enter `location.district_name`.
+- Nested fields must be typed into the **Property Name** dropdown in dot notation with the format of `event_property.nested_property`. For example, if selecting the nested property `district_name` within the event property `location`, you would enter `location.district_name`. For more on nested properties in custom events, see [Nested objects]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 #### Example mappings
 

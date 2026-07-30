@@ -24,7 +24,7 @@ Braze는 [통합 링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and
 {% sdktabs %}
 {% sdktab Legacy %}
 
-링크 단축 및 클릭 추적을 사용하면 SMS 또는 RCS 메시지에 포함된 URL을 자동으로 단축하고 클릭률 분석을 수집하여 사용자가 Campaigns에 어떻게 참여하고 있는지 이해하는 데 도움이 되는 추가 인게이지먼트 측정기준을 제공합니다.
+링크 단축 및 클릭 추적을 사용하면 SMS 또는 RCS 메시지에 포함된 URL을 자동으로 단축하고 클릭률 분석을 수집하여 사용자가 Campaign에 어떻게 참여하고 있는지 이해하는 데 도움이 되는 추가 인게이지먼트 측정기준을 제공합니다.
 
 링크 단축 및 클릭 추적은 Campaigns와 Canvases 모두에서 [메시지 배리언트 수준]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign)에서 활성화할 수 있습니다.
 

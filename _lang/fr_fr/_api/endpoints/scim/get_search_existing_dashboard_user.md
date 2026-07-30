@@ -17,13 +17,15 @@ scim/v2/Users?filter=userName%20eq%20"user%40test.com"
 
 > Utilisez cet endpoint pour rechercher un compte utilisateur de tableau de bord existant en spécifiant son e-mail dans le paramètre de requête du filtre.
 
-Veuillez noter que, lorsque le paramètre de requête est encodé par URL, il s'affichera ainsi :
+Notez que lorsque le paramètre de requête est encodé en URL, il s'affiche ainsi :
 
 `/scim/v2/Users?filter=userName%20eq%20%22user@example.com%22`
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5037d810-b822-4c54-bb51-f30470a42a95 {% endapiref %}
 
-## Conditions préalables {#prerequisites}
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
+## Prérequis {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l'origine de votre service comme en-tête `X-Request-Origin`. Pour plus d'informations, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning).
 

@@ -300,6 +300,10 @@ Before you upload your CSV file, rename it to the import name you want to see in
 The file preview shows only the first few rows of your file. To check every row before importing, use [file validation](#file-validation).
 {% endalert %}
 
+{% alert important %}
+CSV user imports are available to download from the dashboard for 14 days after upload. After this period, the file is deleted from storage and is no longer accessible.
+{% endalert %}
+
 ### Step 5: Map your fields {#csv-data-mapping}
 
 After the preview, you can map your CSV headers to Braze attributes, events, or event properties. Braze automatically maps fields in your CSV file to attributes, events, or event properties with identical names, and creates new fields where necessary. You’ll also have the flexibility to manually adjust suggestions or select different attributes, events, or properties.
@@ -428,6 +432,17 @@ Setting `language` or `country` on a user through CSV import or API prevents Bra
 If you used [file validation](#file-validation), start with the error report, as it includes the specific issue for each flagged row and a description of how to fix it. For rows that failed during import rather than validation, download the error report by hovering over the row and selecting the <i class="fas fa-download" title="Download"></i> button on the **Import Users** page.
 
 For troubleshooting CSV import, review these common issues in the following sections.
+
+### CSV import stuck on Calculating
+
+In **Import Users**, `Calculating` means Braze is still preparing the file for processing. During this step, the row count can display as `0 / Calculating` until preparation finishes.
+
+If your import appears stuck on Calculating:
+
+- Let the import continue. Don't cancel and re-upload unless Braze Support advises it.
+- Confirm your file is within supported limits in [Constructing your CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#import-options).
+- Review [Step 4: Upload your file](#step-4-upload-your-file) and [Step 8: Start your CSV import](#step-8-start-your-csv-import) for expected dashboard behavior and processing times.
+- Contact Braze Support if `Calculating` lasts far longer than expected for your file size after you've confirmed those checks.
 
 ### Use email as `external_id`
 

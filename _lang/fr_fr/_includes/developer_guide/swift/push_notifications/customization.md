@@ -131,12 +131,12 @@ Après avoir enregistré une catégorie, utilisez le tableau de bord de Braze po
 Il est nécessaire de définir des boutons d'action sur le tableau de bord de Braze uniquement pour les comportements qui ne peuvent pas être créés localement dans votre code Swift, tels que la création de deep links vers votre application ou les redirections vers une URL web. Ces actions doivent être configurées sur le tableau de bord afin de pouvoir définir l'URL ou le deep link à ouvrir. Pour les boutons d'action qui suppriment simplement la notification sans ouvrir l'application, il n'est pas nécessaire de les configurer sur le tableau de bord : la suppression est gérée automatiquement par iOS. Enregistrez simplement votre catégorie personnalisée et ses actions dans le code de votre application, puis saisissez le nom de catégorie correspondant dans le tableau de bord.
 {% endalert %}
 
-1. Dans le tableau de bord de Braze, sélectionnez **Messaging** > **Push Notifications**, puis choisissez votre [campagne push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) iOS.
+1. Dans le tableau de bord de Braze, sélectionnez **Messaging** > **Push Notifications**, puis choisissez votre [Campaign push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) iOS.
 2. Sous **Compose push notification**, activez les **Action Buttons**.
 3. Dans le menu déroulant **iOS Notification Category**, sélectionnez **Enter pre-registered custom iOS Category**.
 4. Enfin, entrez l'une des catégories que vous avez créées plus tôt. L'exemple suivant utilise la catégorie personnalisée : `LIKE_CATEGORY`.
 
-![Le tableau de bord de la campagne push avec la configuration des catégories personnalisées.]({% image_buster /assets/img_archive/ios-notification-category.png %})
+![Le tableau de bord de la Campaign push avec la configuration des catégories personnalisées.]({% image_buster /assets/img_archive/ios-notification-category.png %})
 
 ### Exemple : catégorie de notification push personnalisée {#example-custom-push-category}
 
@@ -252,9 +252,9 @@ Pour plus d'informations, consultez la documentation du développeur Apple conce
 
 ## Paramètres {#settings}
 
-Lorsque vous créez une campagne push via le tableau de bord, cliquez sur l'onglet **Settings** à l'étape **Compose** pour afficher les paramètres avancés disponibles.
+Lorsque vous créez une Campaign push via le tableau de bord, cliquez sur l'onglet **Settings** à l'étape **Compose** pour afficher les paramètres avancés disponibles.
 
-![Onglet des paramètres de composition d'une campagne push iOS de Braze avec les options avancées.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Onglet des paramètres de composition d'une Campaign push iOS de Braze avec les options avancées.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ### Paires clé-valeur {#key-value-pairs}
 

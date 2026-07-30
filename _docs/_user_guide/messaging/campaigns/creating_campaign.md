@@ -20,6 +20,7 @@ To create and launch a campaign, you need "Edit Campaigns" and "Launch Campaigns
 - Build or choose the [segments]({{site.baseurl}}/user_guide/audience/segments) that define who should receive your messages.
 - Review [Campaign basics]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics) so messaging channels, delivery types, and conversion goals align with your use case.
 - For a guided walkthrough of delivery, targeting, and conversions, take the [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze Learning course.
+- Ask Operator to help draft your campaign from a brief, or refine targeting and delivery choices. For details, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 ## Campaign composer
 
@@ -137,6 +138,10 @@ Workspace [suppression lists]({{site.baseurl}}/user_guide/audience/suppression_l
 ### Audience summary
 
 After adding segments or filters, the **Audience Summary** gives preview of what that segment population looks like, including how many users within that segment are reachable through your selected channels. Reachable counts reflect your workspace data, channel setup, and filters. Keep in mind that exact segment membership is always calculated before the message is sent. For very large audiences, Braze may show estimates until you calculate exact statistics.
+
+{% alert note %}
+If you have a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group) set up, the reachable user count shown in your campaign target audience is smaller than the reachable user count shown for the same segment. This is because the campaign excludes users in the global control group, while the segment count does not.
+{% endalert %}
 
 ### User Lookup
 
