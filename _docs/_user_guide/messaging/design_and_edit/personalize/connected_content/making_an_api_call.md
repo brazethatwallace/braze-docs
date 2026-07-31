@@ -356,6 +356,26 @@ You can also verify the Liquid tag includes the parameters your endpoint expects
 
 For high error rates from your host, review [Unhealthy host detection]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) and [Connected Content call volume](#understanding-connected-content-call-volume).
 
+### Ampersand encoding in email POST requests
+
+In email messages, HTML parsing automatically converts ampersands (`&`) inside {% raw %}`{% capture %}`{% endraw %} blocks to `&amp;`. For `application/x-www-form-urlencoded` POST requests, this causes the request to send parameter names with an `amp;` prefix (for example, `amp;username`), which can break the API call.
+
+To work around this issue, use the `replace` filter to remove the `amp;` prefix before passing the body to `:body`:
+
+{% raw %}
+```liquid
+{% capture body_with_amps %}
+grant_type=client_credentials&username=test&password=test
+{% endcapture %}
+{% connected_content https://api.example.com/token
+   :method post
+   :body {{body_with_amps | replace: "amp;", ""}}
+   :content_type application/x-www-form-urlencoded
+   :save token
+%}
+```
+{% endraw %}
+
 ## Frequently asked questions
 
 ### Why are there more Connected Content calls than users or sends?
