@@ -69,3 +69,7 @@ You can generate images from **Content** > **Media Library** by selecting **AI I
 
 Vanity URLs for Media Library assets aren't supported because custom URLs would break CDN delivery. You can replace an image at its existing URL when campaigns already reference that URL. For more information, see [Replace a file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
 
+### Why does Chrome save JPEG or PNG images as WebP files?
+
+When using Chrome to save images from the media library, the browser may automatically convert JPEG or PNG files to WebP format. This is Chrome's default behavior for image downloads and is not specific to Braze. If you need to save images in their original format, try using a different browser such as Safari or Firefox.
+
