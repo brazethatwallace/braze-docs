@@ -9,7 +9,7 @@ channel: email
 
 # Troubleshoot SSL click tracking
 
-> Use this page to identify common SSL click tracking issues. Note that the following guidance is generic because every CDN is unique. For CDN configuration, certificates, or proxy issues, contact your CDN's support team, as these configurations take place outside of Braze.
+> Use this page to identify common SSL click tracking issues. The following guidance is generic because every CDN is unique. For CDN configuration, certificates, or proxy issues, contact your CDN's support team, as these configurations take place outside of Braze.
 
 ## Start here: Match your symptom
 

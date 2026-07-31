@@ -22,7 +22,7 @@ The Braze and DinMo integration pushes segments and data models from your wareho
 | --- | --- |
 | DinMo account | A [DinMo account](https://www.dinmo.com/) with permission to create destinations is required to take advantage of this partnership. |
 | Braze REST API key | A Braze REST API key with the [permissions](#api-key-permissions) required for the destination services you plan to use. This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint | Your REST endpoint URL. Your endpoint depends on the [Braze URL for your instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| Braze REST endpoint | Your REST endpoint URL. Your endpoint depends on the [API endpoints]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) for your Braze instance. |
 | Braze dashboard URL | Your Braze dashboard URL for your instance (for example, `https://dashboard.iad-01.braze.com`). For more information, see [Available SDK endpoints]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
 | Data warehouse and data model | Before beginning the integration, connect your data warehouse in DinMo and define a model or segment for the data you want to sync to Braze. For more information, see [DinMo Braze integration guide](https://docs.dinmo.io/integrations/destination-platforms/braze). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
