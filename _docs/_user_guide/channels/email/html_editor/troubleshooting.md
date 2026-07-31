@@ -57,6 +57,7 @@ Emails render differently depending on browsers and email clients, so take note 
 
 - Preview your emails using [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to see what your emails look like in different browsers and email clients.
 - After you've identified which browsers or email clients are causing issues, let your developer team know that they'll need to modify their HTML and make edits to accommodate those browsers or email clients.
+- If the issue is specific to [how alt text displays]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text), keep in mind that this behavior is controlled by the recipient's email client, not Braze.
 
 ### Unbalanced HTML in Liquid templates {#unbalanced-html-in-liquid-templates}
 
