@@ -44,6 +44,7 @@ For example, a user might receive an in-app message with an eight-second delay a
 - Do users need to copy message text (such as a discount or voucher code)? On iOS and Android, users can long-press text or text input fields to copy content. Long-press doesn't work on images, so use text or text input fields instead of images that contain codes or other copy users might need to copy.
 - For fullscreen in-app messages, is your image or other media within the [safe zone]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
 - For survey in-app messages, do you want to log attributes or submissions? Have you set up your confirmation page?
+- If you're including video in your in-app message: While Braze doesn't enforce a technical limit on video file size for local playback on device, keep in mind that users may have slow connections, costly data plans, or limited storage. Optimize video files to balance quality and file size.
 
 ## Conversion considerations
 
