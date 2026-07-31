@@ -217,7 +217,7 @@ Custom attribute arrays (including arrays of objects) have a capacity of 100 KB.
 
 If your arrays approach this capacity, consider limiting the number of objects you populate to keep the total size within 100 KB.
 
-For more information on custom attributes, see [Custom attribute data types]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes#custom-attribute-data-types).
+For more information on custom attributes, see [Custom attribute data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 ## Related articles
 
