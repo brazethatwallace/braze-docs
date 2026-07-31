@@ -260,7 +260,7 @@ Renderiza linhas de produtos de um [Catálogo de Produtos]({{site.baseurl}}/user
 | Título do produto | Mostra ou oculta o título do produto para cada bloco. |
 | Preço | Mostra ou oculta o preço do produto. |
 | Botão para URL do produto | Mostra ou oculta um botão de chamada para ação vinculado à URL do produto. |
-| Quantidade | *(Dinâmico, apenas Canvas, quando o gatilho de entrada não é um evento de visualização de produto)* Mostra ou oculta a quantidade do produto do evento-gatilho. |
+| Quantidade | *(Dinâmico, apenas Canvas, quando o evento-gatilho de entrada não é um evento de visualização de produto)* Mostra ou oculta a quantidade do produto do evento-gatilho. |
 | Orientação do produto | Define a posição da imagem dentro de cada bloco: **Imagem à esquerda**, **Imagem ao centro** ou **Imagem à direita**. |
 | Alinhamento | Define o alinhamento horizontal do conteúdo dentro de cada bloco. |
 | Máximo de produtos por linha | Define quantos produtos aparecem por linha: **1**, **2** ou **3** (**3** está disponível apenas quando a orientação é **Imagem ao centro**). |
@@ -272,7 +272,7 @@ Renderiza linhas de produtos de um [Catálogo de Produtos]({{site.baseurl}}/user
 
 Você pode adicionar personalização ao seu e-mail usando Liquid ou Connected Content.
 
-- **Liquid:** Em **Conteúdo** > **Personalização**, selecione um atributo, copie o snippet e cole-o em um bloco de Título, Parágrafo ou Lista (Liquid básico) ou bloco HTML (Liquid avançado). Em geral, embora você possa usar Liquid básico em blocos de Título, Parágrafo e Lista, recomendamos usar blocos HTML para lógica mais pesada para evitar problemas de layout. Observe que o Liquid não é compatível em blocos de imagem ou em campos de URL de botão.
+- **Liquid:** Em **Conteúdo** > **Personalização**, selecione um atributo, copie o snippet e cole-o em um bloco HTML. Embora snippets básicos de Liquid possam funcionar em blocos de Título, Parágrafo e Lista, colocar Liquid nesses blocos pode causar comportamento inesperado e problemas de layout. Para evitar problemas, use blocos HTML para qualquer lógica Liquid. Observe que o Liquid não é compatível em blocos de imagem ou em campos de URL de botão.
 - **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** Adicione um bloco **HTML** e coloque sua chamada {% raw %}`{% connected_content %}`{% endraw %} lá.
 
 {% endsdktab %}

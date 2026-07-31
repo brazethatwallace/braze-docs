@@ -25,7 +25,7 @@ Wählen Sie den Editor aus, den Sie verwenden:
 {% sdktab email %}
 ## E-Mail-Editor-Blöcke {#email-editor-blocks}
 
-Editor-Blöcke befinden sich im Bereich **Inhalt** für E-Mail-Nachrichten. Ziehen Sie einen Block in eine Spalte im **Drag-and-Drop-Editor**; er passt sich automatisch an die Spaltenbreite an.
+Editor-Blöcke befinden sich im Bereich **Content** für E-Mail-Nachrichten. Ziehen Sie einen Block in eine Spalte im **Drag-and-Drop-Editor**; er passt sich automatisch an die Spaltenbreite an.
 
 Weitere Informationen zum Erstellen von E-Mails im **Drag-and-Drop-Editor** finden Sie unter [E-Mail per Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) und <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Weitere Anpassungen</a> in diesem Artikel.
 
@@ -124,7 +124,7 @@ Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um beim Abstan
 | Align | Verschiebt die Linie nach links, zentriert oder rechts. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
-### Spacer
+### Spacer {#spacer}
 
 Fügt Abstand oder Padding zwischen anderen Blöcken hinzu.
 
@@ -272,12 +272,12 @@ Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/mes
 
 Sie können Ihre E-Mail mithilfe von Liquid oder Connected Content personalisieren.
 
-- **Liquid:** Wählen Sie unter **Content** > **Personalization** ein Attribut aus, kopieren Sie das Snippet und fügen Sie es in einen Title-, Paragraph- oder List-Block (einfaches Liquid) oder HTML-Block (erweitertes Liquid) ein. Im Allgemeinen können Sie einfaches Liquid in Title-, Paragraph- und List-Blöcken verwenden, wir empfehlen jedoch HTML-Blöcke für umfangreichere Logik, um Layoutprobleme zu vermeiden. Beachten Sie, dass Liquid in Image-Blöcken oder in Button-URL-Feldern nicht unterstützt wird.
+- **Liquid:** Wählen Sie unter **Content** > **Personalization** ein Attribut aus, kopieren Sie das Snippet und fügen Sie es in einen HTML-Block ein. Einfache Liquid-Snippets funktionieren zwar möglicherweise in Title-, Paragraph- und List-Blöcken, aber die Platzierung von Liquid in diesen Blöcken kann zu unerwartetem Verhalten und Layoutproblemen führen. Um Probleme zu vermeiden, verwenden Sie HTML-Blöcke für jegliche Liquid-Logik. Beachten Sie, dass Liquid in Image-Blöcken oder in Button-URL-Feldern nicht unterstützt wird.
 - **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** Fügen Sie einen **HTML**-Block hinzu und platzieren Sie Ihren {% raw %}`{% connected_content %}`{% endraw %}-Aufruf dort.
 
 {% endsdktab %}
 
-{% sdktab In-App Messages %}
+{% sdktab in-app messages %}
 ## In-App-Nachrichten-Editor-Blöcke {#in-app-message-editor-blocks}
 
 Editor-Blöcke befinden sich im Bereich **Build** für In-App-Nachrichten. Ziehen Sie einen Block in eine Spalte; er passt sich automatisch an die Spaltenbreite an. Wählen Sie einen Block aus, um seine Einstellungen im rechten Seitenpanel zu bearbeiten.
@@ -399,7 +399,7 @@ Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content 
 
 {% endsdktab %}
 
-{% sdktab Landing-Pages %}
+{% sdktab landing pages %}
 ## Landing-Page-Editor-Blöcke {#landing-page-editor-blocks}
 
 Editor-Blöcke für Landing-Pages befinden sich im Bereich **Build** des **Drag-and-Drop-Editors** unter **Rows** und Blockkategorien. Ziehen Sie einen Block in eine Zeilenspalte; er passt sich automatisch an die Spaltenbreite an. Wählen Sie einen Block aus, um seine Einstellungen im rechten Eigenschaftenpanel zu bearbeiten.
@@ -531,7 +531,7 @@ Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content 
 
 {% endsdktab %}
 
-{% sdktab Banner %}
+{% sdktab banners %}
 ## Banner-Editor-Blöcke {#banner-editor-blocks}
 
 Ziehen Sie im Banner-Composer Zeilen und Blöcke aus dem Bereich **Build** in die Arbeitsfläche, um Ihre Nachricht zu gestalten. Wählen Sie **Styles**, um seitenweites Styling anzupassen, oder wählen Sie einen Block oder eine Zeile aus, um deren Eigenschaften im Seitenpanel zu bearbeiten.
@@ -626,7 +626,7 @@ Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content 
 
 {% endsdktab %}
 
-{% sdktab Präferenzzentrum %}
+{% sdktab preference center %}
 ## Präferenzzentrum-Editor-Blöcke {#preference-center-editor-blocks}
 
 Ziehen Sie Blöcke aus dem Bereich **Build** in eine Zeile im Drag-and-Drop-Präferenzzentrum-Editor. Jeder Block hat eigene Einstellungen; das rechte Seitenpanel wechselt zu den Eigenschaften oder dem Styling des ausgewählten Elements.

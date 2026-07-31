@@ -14,11 +14,11 @@ tool: Reporting
 
 ## Berichte abonnieren {#subscribing-to-reports}
 
-Sie können diesen Bericht auf der Seite **Präferenzen für Benachrichtigungen** abonnieren.
+Sie können diesen Bericht über die Seite **Benachrichtigungseinstellungen** abonnieren.
 
-1. Gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Präferenzen für Benachrichtigungen**.
-2. Wählen Sie den **Wochenbericht für Analytics** aus und fügen Sie sich zur Liste der Empfänger:innen hinzu.
+1. Gehen Sie zu **Einstellungen** > **Administratoreinstellungen** > **Benachrichtigungseinstellungen**.
+2. Wählen Sie den **Wochenbericht für Analytics** aus und fügen Sie sich selbst oder andere Braze-Dashboard-Nutzer:innen zur Empfänger:innenliste hinzu. Externe E-Mail-Adressen können nicht hinzugefügt werden.
 
 ## Angepasste Events zu Berichten hinzufügen {#adding-custom-events-to-reports}
 
-Wenn Sie angepasste Events verwenden, können Sie zusätzlich bis zu fünf wichtige Events auf der Seite **Angepasste Events** auswählen, die in Ihren Wochenbericht aufgenommen werden sollen. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events**, um diese Events jederzeit zu aktualisieren.
+Wenn Sie angepasste Events verwenden, können Sie zusätzlich bis zu fünf wichtige Events auf der Seite **Angepasste Events** auswählen, die in Ihren Wochenbericht aufgenommen werden. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events**, um diese Events jederzeit zu aktualisieren.

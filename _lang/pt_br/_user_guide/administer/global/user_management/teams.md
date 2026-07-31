@@ -38,7 +38,7 @@ Administradores da Braze e usuários limitados com a permissão de nível de emp
 
 Para impedir que um usuário da empresa faça login e ao mesmo tempo preservar sua conta, [suspenda o usuário]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). A suspensão coloca a conta em um estado inativo em que o usuário não consegue fazer login.
 
-Se o usuário precisar continuar com acesso ao login com capacidades limitadas, acesse **Configurações** > **Usuários da empresa**, selecione o usuário e edite suas permissões. Remova as permissões de nível de espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
+Se o usuário precisar continuar podendo fazer login com capacidades limitadas, acesse **Configurações** > **Usuários da empresa**, selecione o usuário e edite suas permissões. Remova as permissões de nível de espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
 As permissões de equipe funcionam sobre as permissões do espaço de trabalho. Se você atribuir o usuário a uma equipe, conceda apenas as permissões mínimas de nível de equipe necessárias e não conceda permissões para Campaigns, Canvas, Segments ou perfis de usuário. Eles permanecem no espaço de trabalho e podem fazer login, mas não conseguem executar a maioria das ações de envio de mensagens ou de público.
 
@@ -48,13 +48,13 @@ Em seguida, execute as seguintes etapas:
 
 1. Na seção **Permissões de nível de espaço de trabalho**, adicione o usuário ao espaço de trabalho apropriado, caso ele ainda não esteja incluído.
 
-![Permissões de nível de espaço de trabalho com o conjunto de permissões de modelo de banner.]({% image_buster /assets/img/team_level_permissions.png %})
+![Permissões de nível de espaço de trabalho com a permissão de modelo de banner definida.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Selecione **+ Adicionar permissões de nível de equipe** e, em seguida, selecione a **Equipe** à qual você deseja adicionar esse usuário.
+2. Selecione **+ Adicionar permissões de nível de equipe** e, em seguida, selecione a **Equipe** à qual você deseja adicionar este usuário.
 3. Atribua permissões específicas na seção de permissões da **Equipe**.
 
-![Permissões de modelo de landing page no nível de equipe.]({% image_buster /assets/img/teams.png %})
+![Permissões de modelo de landing page de nível de equipe.]({% image_buster /assets/img/teams.png %})
 
 ### Permissões de nível de equipe disponíveis {#available-team-level-permissions}
 
@@ -108,7 +108,7 @@ Para ver descrições do que cada permissão de usuário inclui e como usá-las,
 
 Você pode atribuir uma Equipe a Canvas, Campaigns, Content Cards, Segments, modelos de e-mail, modelos de webhook, Content Blocks e ativos da biblioteca de mídia com o filtro **Adicionar equipe**.
 
-Para Canvas, os filtros de equipe validam os usuários apenas na entrada do Canvas. Depois que um usuário entra em um Canvas, ele continua recebendo mensagens de todas as etapas do Canvas, mesmo que seus atributos mudem e ele não corresponda mais aos critérios do filtro de equipe. Os filtros de equipe não se comportam como validações de entrega que reavaliam os usuários em cada etapa de mensagem.
+Para Canvas, a Braze só verifica se os usuários correspondem aos critérios do filtro de equipe quando eles entram no Canvas. Depois que um usuário entra em um Canvas, ele continua recebendo mensagens de todas as etapas do Canvas, mesmo que seus atributos mudem e ele não corresponda mais aos critérios do filtro de equipe. Os filtros de equipe não se comportam como [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations), que reavaliam os usuários a cada envio de etapa de mensagem.
 
 ![Adicionando uma tag de Equipe a uma campanha.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 

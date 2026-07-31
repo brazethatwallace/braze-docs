@@ -51,7 +51,7 @@ CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 �
 {% tab 사용자 별칭 %}
 `external_id`가 없는 사용자를 타겟팅하려면 사용자 별칭이 포함된 사용자 목록을 가져올 수 있습니다. 별칭은 대체 고유 사용자 식별자 역할을 하며, 가입하지 않았거나 앱에서 계정을 만들지 않은 익명 사용자에게 마케팅하려는 경우 유용할 수 있습니다.
 
-별칭 전용 사용자 프로필을 업로드하거나 업데이트하는 경우 CSV에 다음 두 열이 있어야 합니다:
+별칭 전용 고객 프로필을 업로드하거나 업데이트하는 경우 CSV에 다음 두 열이 있어야 합니다:
 
 - `user_alias_name`: 고유 사용자 식별자로, `external_id`의 대안입니다.
 - `user_alias_label`: 사용자 별칭을 그룹화하기 위한 공통 레이블입니다.
@@ -65,7 +65,7 @@ CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 �
 가져오기에서 `user_alias_name`과 `user_alias_label`을 모두 제공하면 Braze는 동일한 `user_alias_name`과 `user_alias_label`을 가진 기존 사용자를 업데이트합니다. 사용자를 찾을 수 없으면 Braze는 해당 `user_alias_name`이 설정된 새로 식별된 사용자를 생성합니다.
 
 {% alert important %}
-이미 `external_id`가 있는 기존 사용자를 `user_alias_name`으로 업데이트하는 데 CSV 가져오기를 사용할 수 없습니다. 대신 연결된 `user_alias_name`으로 새 사용자 프로필이 생성됩니다. 별칭 전용 사용자를 `external_id`와 연결하려면 [사용자 식별 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용합니다.
+이미 `external_id`가 있는 기존 사용자를 `user_alias_name`으로 업데이트하기 위해 CSV 가져오기를 사용할 수 없습니다. 대신 연결된 `user_alias_name`으로 새 고객 프로필이 생성됩니다. 별칭 전용 사용자를 `external_id`와 연결하려면 [사용자 식별 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용합니다.
 {% endalert %}
 
 다운로드: [CSV 속성 가져오기 템플릿: 사용자 별칭]({{site.baseurl}}/assets/download_file/braze-user-import-alias-template-csv.xlsx?c0ce6c0aa1e901395161d87c5ba17747)
@@ -73,12 +73,12 @@ CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 �
 
 <!-- TAB -->
 {% tab Braze ID %}
-`external_id` 또는 `user_alias_name`과 `user_alias_label` 값 대신 내부 Braze ID 값을 사용하여 Braze에서 기존 사용자 프로필을 업데이트하려면 `braze_id`를 열 헤더로 지정합니다.
+`external_id` 또는 `user_alias_name`과 `user_alias_label` 값 대신 내부 Braze ID 값을 사용하여 Braze에서 기존 고객 프로필을 업데이트하려면 `braze_id`를 열 헤더로 지정합니다.
 
-이 방법은 세분화 내 CSV 내보내기 옵션을 통해 Braze에서 사용자 데이터를 내보낸 후 해당 기존 사용자에게 새 커스텀 속성을 추가하려는 경우 유용할 수 있습니다.
+세분화 내 CSV 내보내기 옵션을 통해 Braze에서 사용자 데이터를 내보낸 후 해당 기존 사용자에게 새 커스텀 속성을 추가하려는 경우 유용할 수 있습니다.
 
 {% alert important %}
-`braze_id`를 사용하여 CSV 가져오기로 새 사용자를 생성할 수 없습니다. 이 방법은 Braze 플랫폼 내의 기존 사용자를 업데이트하는 데만 사용할 수 있습니다.
+`braze_id`를 사용하여 CSV 가져오기로 새 사용자를 생성할 수 없습니다. 이 방법은 Braze 플랫폼 내에서 기존 사용자를 업데이트하는 데만 사용할 수 있습니다.
 {% endalert %}
 
 {% alert tip %}
@@ -94,12 +94,12 @@ Braze 대시보드의 CSV 내보내기에서 `braze_id` 값이 `Appboy ID`로 �
 - CSV 파일이 올바르게 포맷되었는지 확인합니다.
 
 {% alert note %}
-CSV 파일에 이메일 주소와 전화번호를 모두 포함하면 프로필을 조회할 때 이메일 주소가 전화번호보다 우선합니다.
+CSV 파일에 이메일 주소와 전화번호를 모두 포함하는 경우 프로필을 조회할 때 이메일 주소가 전화번호보다 우선합니다.
 {% endalert %}
 
 해당 이메일 주소 또는 전화번호를 가진 기존 프로필이 있으면 해당 프로필이 업데이트되며, Braze는 새 프로필을 생성하지 않습니다. 동일한 이메일 주소를 가진 프로필이 여러 개 있는 경우 Braze는 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)와 동일한 로직을 사용하여 가장 최근에 업데이트된 프로필을 업데이트합니다.
 
-해당 이메일 주소 또는 전화번호를 가진 프로필이 존재하지 않으면 Braze는 해당 식별자로 새 프로필을 생성합니다. [`/users/identify` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용하여 나중에 이 프로필을 식별할 수 있습니다. 사용자 프로필을 삭제하려면 [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) 엔드포인트를 사용할 수도 있습니다.
+해당 이메일 주소 또는 전화번호를 가진 프로필이 존재하지 않으면 Braze는 해당 식별자로 새 프로필을 생성합니다. [`/users/identify` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용하여 나중에 이 프로필을 식별할 수 있습니다. 고객 프로필을 삭제하려면 [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) 엔드포인트를 사용할 수도 있습니다.
 {% endtab %}
 {% endtabs %}
 
@@ -194,7 +194,7 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV 및 Cloud Dat
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="구독 그룹 상태 업데이트(선택 사항)" }
 
 {% alert note %}
-사용자 가져오기에서 행당 하나의 `subscription_group_id`만 설정할 수 있습니다. 행마다 다른 `subscription_group_id` 값을 가질 수 있습니다. 그러나 동일한 사용자를 여러 구독 그룹에 등록해야 하는 경우 여러 번 가져오기를 수행해야 합니다.
+사용자 가져오기에서 행당 하나의 `subscription_group_id`만 설정할 수 있습니다. 서로 다른 행에는 서로 다른 `subscription_group_id` 값을 가질 수 있습니다. 그러나 동일한 사용자를 여러 구독 그룹에 등록해야 하는 경우 여러 번 가져오기를 수행해야 합니다.
 {% endalert %}
 {% endtab %}
 
@@ -212,7 +212,7 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV 및 Cloud Dat
 
 #### 커스텀 이벤트 필드 {#custom-event-fields}
 
-다음 테이블에 나열된 표준 필드 외에도 CSV에 이벤트 속성정보에 대한 추가 열 헤더를 포함할 수 있습니다. 이러한 속성정보의 열 헤더는 `<event_name>.properties.<property name>` 또는 `<property name>` 형식이어야 합니다.
+다음 테이블에 나열된 표준 필드 외에도 CSV에는 이벤트 속성정보에 대한 추가 열 헤더가 포함될 수 있습니다. 이러한 속성정보의 열 헤더는 `<event_name>.properties.<property name>` 또는 `<property name>` 형식이어야 합니다.
 
 예를 들어 커스텀 이벤트 `trip_booked`에 `destination`과 `duration` 속성정보가 있을 수 있습니다. 열 헤더 `trip_booked.properties.destination`과 `trip_booked.properties.duration`을 사용하여 이를 가져올 수 있습니다. 헤더에서 `<property name>`으로 속성정보를 나타낼 수도 있습니다. Braze는 해당 CSV 셀에 값이 있는지 여부에 따라 각 이벤트에 대한 관련 속성정보를 감지합니다.
 
@@ -259,7 +259,7 @@ CSV를 사용하여 커스텀 이벤트를 가져올 때 성공적인 데이터 
 
 이 표기법은 Braze에 `rented_movie`라는 커스텀 이벤트를 생성하고 해당 특정 이벤트 인스턴스에 `movie_name`과 `genre` 속성정보를 첨부하도록 지시합니다.
 
-점 표기법과 비점 표기법을 조합하여 속성정보를 가져오면 Braze가 중복 헤더를 감지하여 CSV 업로드가 실패할 수 있습니다. 이는 동일한 파일 내에 `rented_movie.properties.movie_name`과 `movie_name` 헤더가 있을 때 발생합니다. 이를 방지하려면 헤더에 하나의 속성정보 형식만 사용합니다.
+속성정보 가져오기에 점 표기법과 비점 표기법을 혼합하여 사용하면 Braze가 중복 헤더를 감지하여 CSV 업로드가 실패할 수 있습니다. 이는 동일한 파일 내에 `rented_movie.properties.movie_name`과 `movie_name` 헤더가 있을 때 발생합니다. 이를 방지하려면 헤더에 하나의 속성정보 형식만 사용합니다.
 
 ##### 행당 하나의 이벤트 {#one-event-per-row}
 
@@ -348,7 +348,7 @@ CSV 사용자 가져오기는 업로드 후 14일 동안 대시보드에서 다�
 | 새 Segment | 새 타겟팅 필터에서 새 Segment도 생성하려면 **타겟팅 필터 생성 및 새 Segment에 추가**를 선택합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="6단계: 타겟팅 기본 설정 선택 #targeting-preferences" }
 
-!['Halloween season fun'이라는 CSV 파일이 포함된 'CSV에서 업데이트/가져옴' 필터가 있는 필터 그룹.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
+!["Halloween season fun"이라는 CSV 파일이 포함된 "CSV에서 업데이트/가져옴" 필터가 있는 필터 그룹.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
 ### 7단계: 파일 유효성 검사(선택 사항) {#file-validation}
 
@@ -380,13 +380,13 @@ CSV 사용자 가져오기는 업로드 후 14일 동안 대시보드에서 다�
 | **경고** | 해당 행은 가져오지만 일부 값이 삭제됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="오류 보고서 이해" }
 
-보고서를 검토한 후 원본 파일에서 문제를 수정하고 다시 업로드하거나, 가져오기를 진행하고 부분 결과를 수락할 수 있습니다.
+보고서를 검토한 후 원본 파일의 문제를 수정하고 다시 업로드하거나, 가져오기를 진행하고 부분 결과를 수락할 수 있습니다.
 
 
 
 ### 8단계: CSV 가져오기 시작 {#step-8-start-your-csv-import}
 
-준비가 되면 **가져오기 시작**을 선택합니다. **사용자 가져오기** 페이지에서 현재 진행 상황을 추적할 수 있으며, 이 페이지는 5초마다 자동으로 새로고침됩니다.
+준비가 되면 **가져오기 시작**을 선택합니다. **사용자 가져오기** 페이지에서 현재 진행 상황을 추적할 수 있으며, 5초마다 자동으로 새로고침됩니다.
 처리는 CSV 크기에 따라 몇 분에서 몇 시간까지 걸릴 수 있습니다. 이 시간 동안 대시보드가 응답하지 않거나 느리게 응답할 수 있지만 가져오기는 계속 실행 중입니다.
 
 {% alert note %}
@@ -418,9 +418,9 @@ CSV 파일에서 가져온 각 고객 데이터는 고객 프로필의 기존 �
 
 | 고려 사항 | 세부 정보 |
 |---|---|
-| 외부 ID | `external_id`만 포함된 CSV를 업로드하면 데이터 포인트가 기록되지 않습니다. 이를 통해 데이터 한도에 영향을 주지 않고 기존 Braze 사용자를 세분화할 수 있습니다. 그러나 `email` 또는 `phone`과 같은 필드를 포함하면 기존 사용자 데이터를 덮어쓰고 데이터 포인트가 기록**됩니다**. <br><br>`external_id`, `braze_id` 또는 `user_alias_name`만 포함하는 등 세분화 목적으로만 사용되는 CSV 가져오기는 데이터 포인트를 기록하지 않습니다. |
+| 외부 ID | `external_id`만 포함된 CSV를 업로드하면 데이터 포인트가 기록되지 않습니다. 이를 통해 데이터 한도에 영향을 주지 않고 기존 Braze 사용자를 세분화할 수 있습니다. 그러나 `email`이나 `phone` 같은 필드를 포함하면 기존 사용자 데이터를 덮어쓰고 데이터 포인트가 **기록됩니다**. <br><br>`external_id`, `braze_id`, 또는 `user_alias_name`만 포함하는 등 세분화 목적으로만 사용되는 CSV 가져오기는 데이터 포인트를 기록하지 않습니다. |
 | 빈 값 | CSV의 빈 값은 기존 고객 프로필 데이터를 덮어쓰지 않습니다. 가져오기 시 모든 사용자 속성이나 커스텀 이벤트를 포함할 필요는 없습니다. |
-| 구독 상태 | `email_subscribe`, `push_subscribe`, `subscription_group_id` 또는 `subscription_state`를 업데이트해도 데이터 포인트 사용량에 포함되지 **않습니다**. |
+| 구독 상태 | `email_subscribe`, `push_subscribe`, `subscription_group_id`, 또는 `subscription_state`를 업데이트해도 데이터 포인트 사용량에 포함되지 **않습니다**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="데이터 포인트 고려 사항" }
 
 {% alert important %}
@@ -433,24 +433,35 @@ CSV 가져오기 또는 API를 통해 사용자의 `language` 또는 `country`�
 
 CSV 가져오기 문제 해결을 위해 다음 섹션에서 일반적인 문제를 확인하세요.
 
+### CSV 가져오기가 Calculating에서 멈춤 {#csv-import-stuck-on-calculating}
+
+**Import Users**에서 `Calculating`은 Braze가 아직 파일을 처리하기 위해 준비 중임을 의미합니다. 이 단계에서 준비가 완료될 때까지 행 수가 `0 / Calculating`으로 표시될 수 있습니다.
+
+가져오기가 Calculating에서 멈춘 것으로 보이는 경우:
+
+- 가져오기를 계속 진행하세요. Braze 지원팀에서 권고하지 않는 한 취소하고 다시 업로드하지 마세요.
+- [CSV 구성하기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#import-options)에서 파일이 지원되는 제한 범위 내에 있는지 확인하세요.
+- [4단계: 파일 업로드](#step-4-upload-your-file) 및 [8단계: CSV 가져오기 시작](#step-8-start-your-csv-import)에서 예상되는 대시보드 동작 및 처리 시간을 확인하세요.
+- 위의 확인 사항을 모두 점검한 후에도 파일 크기에 비해 `Calculating`이 예상보다 훨씬 오래 지속되면 Braze 지원팀에 문의하세요.
+
 ### 이메일을 `external_id`로 사용 {#use-email-as-external_id}
 
-Braze는 이메일 주소를 `external_id`로 사용하는 것을 권장하지 않습니다. 이메일을 `external_id`로 사용하는 경우, 사용자가 이메일 채널에서 계속 타겟팅 가능하도록 CSV에 `external_id`와 `email` 열을 모두 포함하세요. 열 구분자로 콜론(`:`)이 아닌 쉼표(`,`)를 사용하세요.
+Braze는 이메일 주소를 `external_id`로 사용하는 것을 권장하지 않습니다. 이메일을 `external_id`로 사용하는 경우, 사용자가 이메일 채널에서 타겟팅 가능하도록 CSV에 `external_id`와 `email` 열을 모두 포함하세요. 열 구분자로 쉼표(`,`)를 사용하세요. 콜론(`:`)은 사용하지 마세요.
 
 ### `external_id` 값의 따옴표 문자 {#quote-characters-in-external_id-values}
 
-`external_id` 셀에 큰따옴표가 포함된 경우, [이스케이프되지 않았거나 짝이 맞지 않는 큰따옴표](#missing-row)에 설명된 대로 문자를 두 번 입력(`""`)하여 이스케이프하세요. CSV 가져오기는 백슬래시 이스케이프를 사용하지 않습니다.
+`external_id` 셀에 큰따옴표가 포함된 경우, [이스케이프되지 않았거나 짝이 맞지 않는 큰따옴표](#missing-row)에 설명된 대로 문자를 두 번 입력하여(`""`) 이스케이프하세요. CSV 가져오기는 백슬래시 이스케이프를 사용하지 않습니다.
 
-### CSV 가져오기가 Segment 필터로 사용할 수 없음 {#csv-import-isnt-available-as-a-segment-filter}
+### CSV 가져오기를 Segment 필터로 사용할 수 없음 {#csv-import-isnt-available-as-a-segment-filter}
 
-CSV 가져오기를 Segment 필터로 사용하려면 업로드 시 타겟팅 기본 설정을 활성화해야 합니다.
+CSV 가져오기를 Segment 필터로 사용하려면 업로드 중에 타겟팅 기본 설정을 활성화해야 합니다.
 
 기존 가져오기에 대해 타겟팅 가용성이 활성화되어 있는지 확인하려면:
 
 1. **Import Users** 페이지에서 CSV 가져오기를 찾으세요.
 2. 해당 가져오기에 **Go to Segment**가 표시되는지 확인하세요.
-3. **Go to Segment**가 표시되면, CSV를 `Updated/Imported from CSV` Segment 필터에서 사용할 수 있습니다.
-4. **Go to Segment**가 표시되지 않으면, 해당 가져오기에 대해 타겟팅 가용성이 활성화되지 않은 것입니다.
+3. **Go to Segment**가 표시되면 해당 CSV를 `Updated/Imported from CSV` Segment 필터에서 사용할 수 있습니다.
+4. **Go to Segment**가 표시되지 않으면 해당 가져오기에 대해 타겟팅 가용성이 활성화되지 않은 것입니다.
 
 CSV 업로드가 완료된 후에는 타겟팅 가용성을 활성화할 수 없습니다. 해당 CSV를 Segment 필터로 사용하려면 파일을 다시 업로드하고, [6단계: 타겟팅 기본 설정 선택](#step-6-choose-targeting-preferences)에서 **Create targeting filter** 또는 **Create targeting filter and add to new segment**를 선택하세요.
 
@@ -474,12 +485,12 @@ CSV 파일에 빈 행이 있고 CSV 파일의 총 줄 수보다 적은 행이 �
 
 | 문제 | 해결 방법 |
 |---|---|
-| 중복된 외부 ID, 사용자 별칭, Braze ID, 이메일 주소 또는 전화번호 | 중복된 외부 ID 열이 있는 경우, 행이 올바른 형식이더라도 잘못된 형식이거나 가져오지 못한 행이 발생할 수 있습니다. 경우에 따라 특정 오류가 보고되지 않을 수 있습니다. 중복을 확인하고 제거한 후 다시 업로드하세요. |
+| 중복된 외부 ID, 사용자 별칭, Braze ID, 이메일 주소 또는 전화번호 | 중복된 외부 ID 열이 있는 경우, 행이 올바른 형식이더라도 잘못된 형식이거나 가져오지 못한 행이 발생할 수 있습니다. 경우에 따라 특정 오류가 보고되지 않을 수 있습니다. 중복 항목을 확인하고 제거한 후 다시 업로드하세요. |
 | 악센트 문자 | CSV에 악센트가 포함된 이름이나 속성이 있을 수 있습니다. 가져오기 문제를 방지하려면 파일이 UTF-8로 인코딩되어 있는지 확인하세요. |
 | Braze ID가 고아 사용자에 속함 | 사용자가 다른 사용자로 병합되어 Braze가 Braze ID를 남아 있는 프로필과 연결할 수 없는 경우, 해당 행은 가져오지 않습니다. |
 | 빈 행 | CSV의 빈 행은 잘못된 데이터 오류를 유발할 수 있습니다. Excel이나 Sheets가 아닌 일반 텍스트 편집기를 사용하여 확인하세요. |
-| 이스케이프되지 않았거나 짝이 맞지 않는 큰따옴표(`"`) | 큰따옴표는 쉼표가 포함된 문자열 값을 감쌉니다. 값 자체에 큰따옴표가 포함된 경우, 두 번 입력(`""`)하여 이스케이프하세요. 이스케이프되지 않았거나 짝이 맞지 않는 큰따옴표는 잘못된 형식의 행을 유발합니다. |
-| 일관되지 않은 줄 바꿈 | 혼합된 줄 바꿈(예: `\n`과 `\r\n`)은 데이터의 첫 번째 행이 헤더의 일부로 처리될 수 있습니다. 16진수 또는 고급 텍스트 편집기를 사용하여 검사하고 수정하세요. |
+| 이스케이프되지 않았거나 짝이 맞지 않는 큰따옴표(`"`) | 큰따옴표는 쉼표가 포함된 문자열 값을 감쌉니다. 값 자체에 큰따옴표가 포함된 경우, 두 번 입력하여(`""`) 이스케이프하세요. 이스케이프되지 않았거나 짝이 맞지 않는 큰따옴표는 잘못된 형식의 행을 유발합니다. |
+| 일관되지 않은 줄 바꿈 | 혼합된 줄 바꿈(예: `\n`과 `\r\n`)은 첫 번째 데이터 행이 헤더의 일부로 처리될 수 있습니다. 16진수 또는 고급 텍스트 편집기를 사용하여 검사하고 수정하세요. |
 | 잘못 인코딩된 파일 | 악센트가 허용되더라도 파일은 UTF-8로 인코딩되어야 합니다. 다른 인코딩은 부분적으로 작동할 수 있지만 완전히 지원되지는 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="누락된 행" }
 
@@ -495,18 +506,18 @@ CSV 파일에 빈 행이 있고 CSV 파일의 총 줄 수보다 적은 행이 �
 
 #### 유효하지 않은 이메일 주소 {#invalid-email-addresses}
 
-업로드가 오류와 함께 완료된 경우, 하나 이상의 유효하지 않은 암호화된 이메일 주소가 있을 수 있습니다. Braze로 가져오기 전에 모든 이메일 주소가 올바르게 암호화되었는지 확인하세요.
+업로드가 오류와 함께 완료된 경우, 하나 이상의 유효하지 않은 암호화된 이메일 주소가 있을 수 있습니다. Braze로 가져오기 전에 모든 이메일 주소가 올바르게 암호화되어 있는지 확인하세요.
 
 - **Braze에서 [이메일 주소를 업데이트하거나 가져올 때]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption#step-3-import-and-update-users)**, 이메일이 포함된 모든 곳에서 해시된 이메일 값을 사용하세요. 이러한 해시 이메일 값은 내부 팀에서 제공합니다.
 - **새 사용자를 생성할 때**, 사용자의 암호화된 이메일 값과 함께 `email_encrypted`를 추가해야 합니다. 그렇지 않으면 Braze가 사용자를 생성하지 않습니다. 마찬가지로, 이메일이 없는 기존 사용자에게 이메일 주소를 추가하는 경우 `email_encrypted`를 추가해야 합니다. 그렇지 않으면 Braze가 사용자를 업데이트하지 않습니다.
 
-#### 커스텀 속성으로 가져온 데이터 {#data-imported-as-custom-attribute}
+#### 데이터가 커스텀 속성으로 가져와짐 {#data-imported-as-custom-attribute}
 
-기본 사용자 데이터(예: `email` 또는 `first_name`)가 커스텀 속성으로 가져와진 경우, CSV 파일의 대소문자와 간격을 확인하세요. 예를 들어, `First_name`은 커스텀 속성으로 가져와지지만, `first_name`은 사용자 프로필의 "이름" 필드에 올바르게 가져와집니다.
+기본 사용자 데이터(예: `email` 또는 `first_name`)가 커스텀 속성으로 가져와진 경우, CSV 파일의 대소문자와 공백을 확인하세요. 예를 들어, `First_name`은 커스텀 속성으로 가져와지지만, `first_name`은 사용자 프로필의 "이름" 필드에 올바르게 가져와집니다.
 
 #### 커스텀 속성의 데이터 유형 변경 {#change-a-custom-attributes-data-type}
 
-기존 커스텀 속성의 데이터 유형을 변경해야 하는 경우(예: 문자열에서 불리언으로), CSV를 가져오기 전에 대시보드의 [**커스텀 속성**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) 페이지에서 데이터 유형을 업데이트하세요. CSV의 데이터 유형이 속성의 현재 정의된 데이터 유형과 일치하지 않으면 가져오기가 오류와 함께 실패합니다.
+기존 커스텀 속성의 데이터 유형을 변경해야 하는 경우(예: 문자열에서 부울로), CSV를 가져오기 전에 대시보드의 [**커스텀 속성**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) 페이지에서 데이터 유형을 업데이트하세요. CSV의 데이터 유형이 속성의 현재 정의된 데이터 유형과 일치하지 않으면 가져오기가 오류와 함께 실패합니다.
 
 #### 여러 데이터 유형 {#multiple-data-types}
 
@@ -533,6 +544,6 @@ brazetest2,test2@example.com,Unsubscribed,Unsubscribed
 | 문제 | 해결 방법 |
 |---|---|
 | 팝업 차단기 | 페이지가 표시되지 않을 수 있습니다. 브라우저가 Braze 대시보드 웹사이트에서 팝업을 허용하고 있는지 확인하세요. |
-| 오래된 브라우저 | 브라우저가 최신 상태인지 확인하고, 그렇지 않은 경우 최신 버전으로 업데이트하세요. |
+| 오래된 브라우저 | 브라우저가 최신 상태인지 확인하세요. 최신 상태가 아니면 최신 버전으로 업데이트하세요. |
 | 백그라운드 프로세스 | 모든 브라우저 인스턴스를 닫은 다음 컴퓨터를 재시작하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="\"Select CSV File\"이 작동하지 않음" }

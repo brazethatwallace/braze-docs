@@ -13,50 +13,50 @@ tool: Campaigns
 
 ## 前提条件 {#prerequisites}
 
-キャンペーンを作成して起動するには、「キャンペーンを編集」と「キャンペーンを起動」の権限が必要です。ワークスペース権限の完全なリストとダッシュボードでの表示方法については、[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
+キャンペーンを作成して起動するには、「キャンペーンを編集」と「キャンペーンを起動」の権限が必要です。ワークスペースの権限の一覧とダッシュボードでの表示については、[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
 
 ### 始める前に {#before-you-begin}
 
-- メッセージを受け取るべきユーザーを定義する[セグメント]({{site.baseurl}}/user_guide/audience/segments)を作成または選択します。
-- メッセージングチャネル、配信タイプ、コンバージョン目標がユースケースに合っているか、[キャンペーンの基本情報]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics)を確認します。
-- 配信、ターゲティング、コンバージョンのガイド付きウォークスルーについては、[キャンペーンセットアップ](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze Learningコースを受講してください。
+- メッセージを受け取るユーザーを定義する[セグメント]({{site.baseurl}}/user_guide/audience/segments)を作成するか、既存のものを選択してください。
+- メッセージングチャネル、配信タイプ、コンバージョン目標がユースケースに合っているか、[キャンペーンの基本]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics)を確認してください。
+- 配信、ターゲティング、コンバージョンのガイド付きウォークスルーについては、[キャンペーンの設定](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze Learningコースを受講してください。
 - オペレーターに依頼して、ブリーフからキャンペーンの下書きを作成したり、ターゲティングや配信の選択を改善したりできます。詳細については、[オペレーターでできること]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences)を参照してください。
 
 ## キャンペーンコンポーザー {#campaign-composer}
 
-キャンペーンコンポーザーでは、配信、オーディエンス、コンバージョン、起動設定を定義します。続行する前に、単一チャネルまたはマルチチャネルのキャンペーンのどちらを作成するかを決めてください。
+キャンペーンコンポーザーでは、配信、オーディエンス、コンバージョン、ローンチ設定を定義します。続行する前に、シングルチャネルキャンペーンとマルチチャネルキャンペーンのどちらを作成するかを決めてください。
 
 {% tabs %}
-{% tab 単一チャネル %}
+{% tab シングルチャネル %}
 
-単一チャネルキャンペーンは、1回の起動につき1つのメッセージングチャネルでユーザーにリーチします。
+シングルチャネルキャンペーンは、1回のローンチにつき1つのメッセージングチャネルを通じてユーザーにリーチします。
 
 ### 違い {#whats-different}
 
 #### コンバージョンとレポート {#single-channel-conversions}
 
-単一チャネルキャンペーンの場合、Brazeはそのチャネルからの送信に対して、キャンペーンに割り当てた[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を追跡します。アトリビューションウィンドウとカウントルールについては、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
+シングルチャネルキャンペーンの場合、Brazeはキャンペーンに割り当てた[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を、そのチャネルからの送信に対してトラッキングします。アトリビューションウィンドウとカウントルールについては、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
 
 ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)と送信制限は引き続き適用されます。
 
-### 単一チャネルキャンペーンを作成する {#create-a-single-channel-campaign}
+### シングルチャネルキャンペーンを作成する {#create-a-single-channel-campaign}
 
-キャンペーンを作成するには：
+キャンペーンを作成するには:
 
 1. **メッセージング** > **キャンペーン**に移動します。
 2. **キャンペーンを作成**を選択します。
 3. ユースケースに合った[チャネル]({{site.baseurl}}/user_guide/channels)を選択します。
-4. [作成ステップ](#step-1-compose-messages)で、そのチャネルのコピーを作成してプレビューします。
+4. [作成ステップ](#step-1-compose-messages)で、そのチャネル用のコピーを作成しプレビューします。
 
-各キャンペーンは一度に1つのチャネルタイプを使用します。クリエイティブの分割比較や[ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を実行したい場合は、バリアントを追加してください。
+各キャンペーンでは一度に1つのチャネルタイプを使用します。クリエイティブの分割比較や[ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を行いたい場合は、バリアントを追加してください。
 
 {% endtab %}
 {% tab マルチチャネル %}
 
-マルチチャネルキャンペーンは、1回の起動で複数のメッセージングチャネルを通じてユーザーにリーチします。たとえば、メールとプッシュ通知を同時に送信できます。
+マルチチャネルキャンペーンは、1回のローンチで複数のメッセージングチャネルを通じてユーザーにリーチします。たとえば、メールとプッシュ通知を同時に送信できます。
 
 {% alert note %}
-[In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages)はマルチチャネルキャンペーンでは利用できません。代わりに単一チャネルキャンペーンまたはキャンバスを作成してください。
+[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages)はマルチチャネルキャンペーンでは利用できません。代わりにシングルチャネルキャンペーンまたはキャンバスを作成してください。
 {% endalert %}
 
 ### 違い
@@ -67,9 +67,9 @@ tool: Campaigns
 
 #### コンバージョンとレポート {#multichannel-conversions}
 
-マルチチャネルキャンペーンの場合、Brazeはチャネルごとに[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を追跡します。ユーザーが複数のチャネルでメッセージを受信した後にコンバージョンした場合、Brazeはそのコンバージョンをそれらのチャネルにアトリビューションできます。コンバージョン数は*ユニークユーザー*を超える場合があり、レートは100%を超える場合があります。完全なルールについては、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
+マルチチャネルキャンペーンの場合、Brazeは[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)をチャネルごとにトラッキングします。ユーザーが複数のチャネルでメッセージを受信した後にコンバージョンした場合、Brazeはそのコンバージョンをそれらのチャネルにアトリビューションできます。コンバージョン数は*ユニークユーザー*を超える場合があり、レートが100%を超えることもあります。詳細なルールについては、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
 
-チャネルをまたぐ送信のレート制限については、[マルチチャネルキャンペーンとキャンバス]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases)で説明されています。ワークスペース全体のルール（マルチチャネル送信がキャップにどのようにカウントされるかを含む）については、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)を参照してください。
+複数のチャネルにまたがる送信のレート制限については、[マルチチャネルキャンペーンとキャンバス]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases)で説明されています。ワークスペース全体のルール（マルチチャネル送信がキャップにどのようにカウントされるかを含む）については、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)を参照してください。
 
 ### マルチチャネルキャンペーンを作成する {#create-a-multichannel-campaign}
 
@@ -137,7 +137,11 @@ Braze全体のスケジューリングの概念については、[キャンペ�
 
 ### オーディエンスの概要 {#audience-summary}
 
-セグメントまたはフィルターを追加した後、**オーディエンスの概要**はそのセグメント母集団の概要をプレビューとして表示します。これには、選択したチャネルを通じてリーチ可能なセグメント内のユーザー数が含まれます。リーチ可能な数は、ワークスペースデータ、チャネル設定、フィルターを反映しています。正確なセグメントメンバーシップは常にメッセージ送信前に計算されることに注意してください。非常に大きなオーディエンスの場合、Brazeは正確な統計を計算するまで推定値を表示する場合があります。
+セグメントまたはフィルターを追加した後、**オーディエンスの概要**にそのセグメント母集団のプレビューが表示されます。これには、選択したチャネルを通じてリーチ可能なセグメント内のユーザー数が含まれます。リーチ可能な数は、ワークスペースデータ、チャネル設定、フィルターを反映しています。正確なセグメントメンバーシップは常にメッセージ送信前に計算されることに注意してください。非常に大きなオーディエンスの場合、Brazeは正確な統計を計算するまで推定値を表示する場合があります。
+
+{% alert note %}
+[グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group)を設定している場合、キャンペーンのターゲットオーディエンスに表示されるリーチ可能なユーザー数は、同じセグメントに表示されるリーチ可能なユーザー数よりも少なくなります。これは、キャンペーンがグローバルコントロールグループのユーザーを除外する一方で、セグメントのカウントでは除外しないためです。
+{% endalert %}
 
 ### ユーザー検索 {#user-lookup}
 
@@ -147,7 +151,7 @@ Braze全体のスケジューリングの概念については、[キャンペ�
 
 ### これらのユーザーに送信する {#send-to-these-users}
 
-サブスクリプションベースのチャネル（メール、SMSなど）の場合、**これらのユーザーに送信**を使用して、購読中でメールにオプトインしているユーザーなど、特定の購読ステータスを持つユーザーにのみキャンペーンを送信します。
+購読ベースのチャネル（メール、SMSなど）の場合、**これらのユーザーに送信**を使用して、購読中でメールにオプトインしているユーザーなど、特定の購読ステータスを持つユーザーにのみキャンペーンを送信します。
 
 ### 送信量を制限する {#limit-send-volume}
 

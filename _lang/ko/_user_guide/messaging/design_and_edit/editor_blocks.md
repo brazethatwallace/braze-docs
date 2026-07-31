@@ -272,7 +272,7 @@ Vimeo에서 호스팅하는 비디오는 공개로 설정된 경우에만 작동
 
 Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추가할 수 있습니다.
 
-- **Liquid:** **콘텐츠** > **개인화**에서 속성을 선택하고 스니펫을 복사한 다음 제목, 단락 또는 목록 블록(기본 Liquid) 또는 HTML 블록(고급 Liquid)에 붙여넣습니다. 일반적으로 제목, 단락, 목록 블록에서 기본 Liquid를 사용할 수 있지만, 레이아웃 문제를 방지하기 위해 복잡한 로직에는 HTML 블록을 사용하는 것이 좋습니다. Liquid는 이미지 블록이나 버튼 URL 필드에서는 지원되지 않습니다.
+- **Liquid:** **콘텐츠** > **개인화**에서 속성을 선택하고 스니펫을 복사한 다음 HTML 블록에 붙여넣습니다. 기본 Liquid 스니펫은 제목, 단락, 목록 블록에서도 작동할 수 있지만, 이러한 블록에 Liquid를 배치하면 예기치 않은 동작과 레이아웃 문제가 발생할 수 있습니다. 문제를 방지하려면 모든 Liquid 로직에 HTML 블록을 사용하세요. Liquid는 이미지 블록이나 버튼 URL 필드에서는 지원되지 않습니다.
 - **[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** **HTML** 블록을 추가하고 {% raw %}`{% connected_content %}`{% endraw %} 호출을 배치합니다.
 
 {% endsdktab %}

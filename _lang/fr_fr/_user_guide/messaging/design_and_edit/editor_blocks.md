@@ -272,7 +272,7 @@ Affiche des lignes de produits à partir d'un [catalogue de produits]({{site.bas
 
 Vous pouvez ajouter de la personnalisation à votre e-mail en utilisant Liquid ou le contenu connecté.
 
-- **Liquid :** Sous **Contenu** > **Personnalisation**, sélectionnez un attribut, copiez l'extrait de code et collez-le dans un bloc Titre, Paragraphe ou Liste (Liquid de base) ou un bloc HTML (Liquid avancé). En général, bien que vous puissiez utiliser du Liquid de base dans les blocs Titre, Paragraphe et Liste, nous recommandons d'utiliser les blocs HTML pour une logique plus complexe afin d'éviter les problèmes de mise en page. Notez que Liquid n'est pas pris en charge dans les blocs d'image ni dans les champs d'URL des boutons.
+- **Liquid :** Sous **Contenu** > **Personnalisation**, sélectionnez un attribut, copiez l'extrait de code et collez-le dans un bloc HTML. Bien que les extraits Liquid de base puissent fonctionner dans les blocs Titre, Paragraphe et Liste, placer du Liquid dans ces blocs peut provoquer un comportement inattendu et des problèmes de mise en page. Pour éviter les problèmes, utilisez les blocs HTML pour toute logique Liquid. Notez que Liquid n'est pas pris en charge dans les blocs d'image ni dans les champs d'URL des boutons.
 - **[Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) :** Ajoutez un bloc **HTML** et placez-y votre appel {% raw %}`{% connected_content %}`{% endraw %}.
 
 {% endsdktab %}

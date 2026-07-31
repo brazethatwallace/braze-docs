@@ -28,10 +28,10 @@ Hier sind einige kurze Tipps, die Sie beim Erstellen Ihrer Inhalte beachten soll
 
 ## Alternativtext {#alternative-text}
 
-Da Spam-Filter sowohl nach einer HTML- als auch nach einer Nur-Text-Version einer Nachricht suchen, ist die Verwendung von Nur-Text-Alternativen eine hervorragende Möglichkeit, Ihren Spam-Score zu senken. Darüber hinaus kann Alternativtext `(alt="")` dazu dienen, Bilder im E-Mail-Text zu ergänzen und in manchen Fällen zu ersetzen, die möglicherweise vom E-Mail-Anbieter der Nutzer:innen herausgefiltert wurden. Screenreader lesen den Alternativtext vor, um Bilder zu erklären – dies ist also eine Gelegenheit, in einfacher Sprache wichtige Informationen über ein Bild bereitzustellen.
+Da Spam-Filter sowohl nach einer HTML- als auch nach einer Nur-Text-Version einer Nachricht suchen, ist die Verwendung von Nur-Text-Alternativen eine hervorragende Möglichkeit, Ihren Spam-Score zu senken. Darüber hinaus kann Alternativtext `(alt="")` dazu dienen, Bilder im E-Mail-Text zu ergänzen und in einigen Fällen zu ersetzen, die möglicherweise vom E-Mail-Anbieter der Nutzer:innen herausgefiltert wurden. Screenreader lesen Alternativtext vor, um Bilder zu erklären. Dies ist also eine Gelegenheit, in einfacher Sprache wichtige Informationen über ein Bild bereitzustellen.
 
 {% alert note %}
-Wenn Ihr Alternativtext Anführungszeichen enthält, verwenden Sie einfache Anführungszeichen (`'`) anstelle von doppelten Anführungszeichen (`"`). Doppelte Anführungszeichen können dazu führen, dass das HTML-Attribut vorzeitig geschlossen wird und der Text abgeschnitten wird. Zum Beispiel funktioniert `alt="Product 'Premium' Edition"` korrekt, aber `alt="Product "Premium" Edition"` wird abgeschnitten.
+Wenn Ihr Alternativtext Anführungszeichen enthält, verwenden Sie einfache Anführungszeichen (`'`) anstelle von doppelten Anführungszeichen (`"`). Doppelte Anführungszeichen können dazu führen, dass HTML das Attribut vorzeitig schließt und der Text abgeschnitten wird. Zum Beispiel funktioniert `alt="Product 'Premium' Edition"` korrekt, aber `alt="Product "Premium" Edition"` wird abgeschnitten.
 {% endalert %}
 
 ## E-Mail-Validierung {#email-validation}
@@ -64,12 +64,12 @@ Wenn Sie Anhänge zu E-Mail-Nachrichten hinzufügen, beachten Sie die folgenden 
 - Halten Sie jeden Anhang unter 2&nbsp;MB.
 - Senden Sie keine sensiblen Informationen als Anhang. Leiten Sie Nutzer:innen stattdessen zu Ihrem sicheren Portal weiter, um die Informationen dort einzusehen.
 
-## Layout (Drag-and-Drop und benutzerdefiniertes HTML) {#layout-drag-and-drop-and-custom-html}
+## Layout (Drag-and-Drop und angepasstes HTML) {#layout-drag-and-drop-and-custom-html}
 
-Das Layout kann fehlerhaft dargestellt werden, wenn von Braze generiertes HTML/CSS mit benutzerdefiniertem HTML in Konflikt gerät. Gehen Sie in diesem Fall wie folgt vor:
+Das Layout kann fehlerhaft dargestellt werden, wenn von Braze generiertes HTML/CSS mit angepasstem HTML in Konflikt gerät. Gehen Sie in diesem Fall wie folgt vor:
 
-- Entfernen Sie zunächst benutzerdefiniertes HTML/CSS
-- Überprüfen Sie, ob benutzerdefinierte Schriftarten in der Vorschau korrekt geladen werden
+- Entfernen Sie zunächst angepasstes HTML/CSS
+- Überprüfen Sie, ob angepasste Schriftarten in der Vorschau korrekt geladen werden
 - Überprüfen Sie das Padding von Zeilen und Spalten
 - Bevorzugen Sie tabellenbasierte Layouts und bleiben Sie innerhalb der Breite des Editors
 
@@ -88,7 +88,7 @@ UTM-Parameter kennzeichnen URLs für Analytics. Sie können sie mit Liquid und a
 Beachten Sie, dass einige HTML-Tags und -Attribute nicht zulässig sind, da sie potenziell Schadcode im Browser ausführen könnten.
 
 Sehen Sie sich die folgenden Listen für HTML-Tags und -Attribute an, die in Ihren E-Mails nicht zulässig sind:
-{% details Für nicht zulässige HTML-Tags aufklappen %}
+{% details Aufklappen für nicht zulässige HTML-Tags %}
 - `<!doctype>`
 - `<applet>`
 - `<bgsound>`
@@ -106,7 +106,7 @@ Sehen Sie sich die folgenden Listen für HTML-Tags und -Attribute an, die in Ihr
 - `<svg>`
 {% enddetails %}
 
-{% details Für nicht zulässige HTML-Attribute aufklappen %}
+{% details Aufklappen für nicht zulässige HTML-Attribute %}
 - `<animationend>`
 - `<animationiteration>`
 - `<animationstart>`
@@ -250,3 +250,22 @@ Sehen Sie sich die folgenden Listen für HTML-Tags und -Attribute an, die in Ihr
 - `<seeksegmenttime>`
 - `<transitionend>`
 {% enddetails %}
+
+## Fehlerbehebung bei doppelten E-Mails {#troubleshooting-duplicate-emails}
+
+Wenn Nutzer:innen berichten, dass sie doppelte E-Mails erhalten, können die folgenden Szenarien Ihnen helfen, die Ursache zu identifizieren:
+
+### Konfigurationsfehler bei der Erstellung von Campaigns oder Canvas {#configuration-error-at-campaign-or-canvas-creation}
+
+Nutzer:innen erhalten möglicherweise nicht dieselbe E-Mail zweimal, aber sie könnten zwei separate E-Mails mit derselben Betreffzeile erhalten. Wenn eine Campaign oder ein Canvas dupliziert wird, können grundlegende E-Mail-Konfigurationsdetails wie Bilder oder die Betreffzeile leicht übersehen werden.
+
+So untersuchen Sie das Problem:
+
+1. Überprüfen Sie das Nutzerprofil und sehen Sie sich jedes Canvas und jede Campaign an, die die Nutzer:innen erhalten haben.
+2. Überprüfen Sie die Änderungsprotokolle, um festzustellen, ob die Campaign oder das Canvas nach dem Start geändert wurde. Es ist möglich, dass die Campaign oder das Canvas zum Zeitpunkt des Empfangs dieselbe Betreffzeile wie das Original hatte.
+
+### Campaign wurde mehrfach gesendet {#campaign-sent-multiple-times}
+
+Wenn die Anzahl der gesendeten Nachrichten deutlich größer ist als die Anzahl der Nutzer:innen in der Zielgruppe, kann dies darauf hindeuten, dass die Campaign mehrfach gestartet wurde.
+
+Weitere Informationen darüber, wie Braze mit doppelten E-Mail-Adressen und Deduplizierung umgeht, finden Sie in den [E-Mail-FAQ]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).

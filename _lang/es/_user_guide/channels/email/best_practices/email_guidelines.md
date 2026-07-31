@@ -14,17 +14,17 @@ channel: email
 
 ## General {#general}
 
-Aquí tienes algunos consejos rápidos que debes tener en cuenta al crear tu contenido:
+Aquí tienes algunos consejos rápidos a tener en cuenta mientras construyes tu contenido:
 
-- Al dar formato a tu correo electrónico, usa hojas de estilo en línea como CSS.
+- Al dar formato a tu correo electrónico, utiliza hojas de estilo en línea como CSS.
 - Para usar una plantilla de correo electrónico tanto para versiones móviles como de escritorio, mantén el ancho por debajo de 500 píxeles.
 - Las imágenes deben pesar menos de 5&nbsp;MB. Recomendamos usar PNG, JPEG o GIF para máxima compatibilidad. Evita SVG y WebP, ya que muchos clientes de correo electrónico importantes aún no los admiten.
-- No establezcas alturas ni anchos para las imágenes, ya que esto puede causar espacios en blanco innecesarios en un correo electrónico degradado.
-- No se deben usar etiquetas `div`, ya que la mayoría de los clientes de correo electrónico no admiten su uso. En su lugar, usa tablas anidadas.
+- No establezcas alturas y anchos para las imágenes, ya que esto puede causar espacios en blanco innecesarios en un correo electrónico degradado.
+- No deben usarse etiquetas `div`, ya que la mayoría de los clientes de correo electrónico no admiten su uso. En su lugar, utiliza tablas anidadas.
 - Evita usar JavaScript porque no funciona con ningún ESP.
-- Evita `position: absolute` y `position: relative` de CSS en las plantillas de correo electrónico. La mayoría de los clientes de correo electrónico no admiten el posicionamiento CSS, lo que causa discrepancias de diseño entre la vista previa de Braze y los correos electrónicos entregados. Usa diseños basados en tablas para lograr efectos de capas o superposición.
+- Evita `position: absolute` y `position: relative` de CSS en las plantillas de correo electrónico. La mayoría de los clientes de correo electrónico no admiten el posicionamiento CSS, lo que causa discrepancias de diseño entre la vista previa de Braze y los correos electrónicos entregados. Utiliza diseños basados en tablas para lograr efectos de capas o superposición.
 - Braze mejora los tiempos de carga utilizando un CDN global para alojar todas las imágenes de correo electrónico.
-- En dispositivos móviles, las columnas de imágenes son estrechas (~100 px cada una), por lo que las filas con múltiples imágenes siguen encajando (por ejemplo, cuatro imágenes ≈ cuatro columnas utilizables).
+- En dispositivos móviles, las columnas de imágenes son estrechas (~100px cada una), por lo que las filas con múltiples imágenes aún caben (por ejemplo, cuatro imágenes ≈ cuatro columnas utilizables).
 
 ## Texto alternativo {#alternative-text}
 
@@ -40,7 +40,7 @@ Si tu texto alternativo contiene comillas, usa comillas simples (`'`) en lugar d
 La validación se utiliza para las direcciones de correo electrónico del panel, las direcciones de correo electrónico de los usuarios finales (tus clientes) y las direcciones de remitente y responder a de un mensaje de correo electrónico.
 {% endalert %}
 
-La validación de correo electrónico se produce cuando la dirección de correo electrónico de un usuario se actualiza o se importa a Braze a través de la API, la carga de CSV, el SDK o se modifica en el panel. Ten en cuenta que las direcciones de correo electrónico no pueden incluir espacios en blanco y, si se envían a través de la API, los espacios en blanco pueden provocar un error `400`.
+La validación de correo electrónico se produce cuando la dirección de correo electrónico de un usuario se actualiza o se importa a Braze mediante la API, la carga de CSV, el SDK o se modifica en el panel. Ten en cuenta que las direcciones de correo electrónico no pueden incluir espacios en blanco y, si se envían a través de la API, los espacios en blanco pueden provocar un error `400`.
 
 Las direcciones de correo electrónico dirigidas a través de los servidores de Braze deben validarse según los estándares [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). Braze no acepta ciertos caracteres y los reconoce como no válidos. Si un correo electrónico rebota, Braze marca el correo electrónico como no válido y el estado de suscripción no se modifica.
 
@@ -48,7 +48,7 @@ Para obtener información sobre los caracteres no permitidos y las reglas de val
 
 ## Direcciones de remitente y responder a {#from-and-reply-to-addresses}
 
-Al configurar tus direcciones de remitente, asegúrate de que el dominio del correo electrónico del remitente coincida con tu dominio de envío (como `marketing.yourdomain.com`). No hacerlo puede provocar una desalineación de SPF y DKIM. Todos los correos electrónicos de responder a se pueden configurar en tu dominio raíz.
+Al configurar tus direcciones de remitente, asegúrate de que el dominio del correo electrónico del remitente coincida con tu dominio de envío (como `marketing.yourdomain.com`). No hacerlo puede provocar una desalineación de SPF y DKIM. Todos los correos electrónicos de responder a se pueden configurar con tu dominio raíz.
 
 {% alert note %}
 La codificación Unicode no es compatible en las direcciones de remitente.
@@ -250,3 +250,22 @@ Consulta las siguientes listas de etiquetas y atributos HTML que no están permi
 - `<seeksegmenttime>`
 - `<transitionend>`
 {% enddetails %}
+
+## Solución de problemas de correos electrónicos duplicados {#troubleshooting-duplicate-emails}
+
+Si los usuarios informan que reciben correos electrónicos duplicados, los siguientes escenarios pueden ayudarte a identificar la causa:
+
+### Error de configuración en la creación de la Campaign o Canvas {#configuration-error-at-campaign-or-canvas-creation}
+
+Es posible que los usuarios no reciban el mismo correo electrónico dos veces, sino que reciban dos correos electrónicos separados con la misma línea del asunto. Cuando se duplica una Campaign o Canvas, es fácil pasar por alto detalles básicos de configuración del correo electrónico, como las imágenes o la línea del asunto.
+
+Para investigar:
+
+1. Revisa el perfil de usuario y examina cada Canvas y Campaign que recibió el usuario.
+2. Revisa los registros de cambios para ver si la Campaign o Canvas se modificó después del lanzamiento. Es posible que la Campaign o Canvas tuviera la misma línea del asunto que la original cuando el usuario la recibió.
+
+### Campaign enviada varias veces {#campaign-sent-multiple-times}
+
+Si el número de mensajes enviados es significativamente mayor que el número de usuarios en la audiencia, esto puede indicar que la Campaign se lanzó varias veces.
+
+Para obtener más información sobre cómo Braze gestiona las direcciones de correo electrónico duplicadas y la deduplicación, consulta las [Preguntas frecuentes sobre correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
