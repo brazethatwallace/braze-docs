@@ -2,7 +2,7 @@
 nav_title: About Audience Sync
 article_title: About Audience Sync
 alias: /partners/about_audience_sync/
-description: "This reference article will cover how to use Braze Audience Sync to Facebook, to deliver advertisements based upon behavioral triggers, segmentation, and more."
+description: "This reference article covers how to use Braze Audience Sync to Facebook, to deliver advertisements based upon behavioral triggers, segmentation, and more."
 page_order: 0
 Tool:
   - Canvas
@@ -43,7 +43,7 @@ table td {
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Up to 24 hours | N/A | Yes | {::nomarkdown}<ul><li>There is no minimum audience size for CRM audiences in The Trade Desk.</li><li>There is no limit for how many audiences The Trade Desk supports.</li><li>If you sync to an audience with a region set to the EU, phone number is not supported.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Between 24 and 48 hours | TikTok processes 50 queries per second and 10,000 users per request. Braze batches users every 5 seconds. | Yes | {::nomarkdown}<ul><li>TikTok supports up to 400 ad audiences.</li><li>TikTok audiences require at least 1,000 users to start serving ads.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
-<sup>When the rate limit is reached, Braze will retry syncs for 13 hours.</sup>
+<sup>When the rate limit is reached, Braze retries syncs for 13 hours.</sup>
 
 ## How it works
 
@@ -66,21 +66,21 @@ For each partner, you’ll need to configure the following as part of your Audie
 - Action to either add or remove users 
 - Fields to match 
 
-Keep in mind that Braze will sync users as soon as they enter the Audience Sync step within your Canvas. 
+Keep in mind that Braze syncs users as soon as they enter the Audience Sync step within your Canvas. 
 
-For each Audience Sync destination, the partner may have different requirements for which fields we can send. Refer to the specific partner documentation for more details. 
+For each Audience Sync destination, the partner may have different requirements for which fields Braze can send. Refer to the specific partner documentation for more details. 
 
 ### Audience Sync Pro
 
-To use an Audience Sync Pro partner including TikTok, Pinterest, Snapchat, or Criteo, you’ll be able to select your partners based on your Audience Sync Pro purchase allotments in the **Audience Sync Pro** section on the **Technology Partners** page.
+To use an Audience Sync Pro partner including TikTok, Pinterest, Snapchat, or Criteo, you can select your partners based on your Audience Sync Pro purchase allotments in the **Audience Sync Pro** section on the **Technology Partners** page.
 
 ![Audience Sync Pro with no partners selected yet.]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
 
-First, select the partners you intend to use by selecting Select Partners. Each purchase of Audience Sync Pro will provide you 3 allotted Audience Sync Pro destinations, which will be available within each of your workspaces within your dashboard.
+First, select the partners you intend to use. Each purchase of Audience Sync Pro provides you 3 allotted Audience Sync Pro destinations, which are available within each of your workspaces within your dashboard.
 
 ![Option to select up to three partners to connect to Braze.]({% image_buster /assets/img/audience_sync/audience_sync_pro2.png %}){: style="max-width:65%;"}
 
-After selecting your Audience Sync Pro destinations, connect your selected partner ad account by clicking on the partner tile.
+After selecting your Audience Sync Pro destinations, connect your selected partner ad account by clicking the partner tile.
 
 ![An example of Snapchat and TikTok selected as partners for Audience Sync.]({% image_buster /assets/img/audience_sync/audience_sync_pro3a.png %}){: style="max-width:70%;"}
 
@@ -100,7 +100,7 @@ When users enter an Audience Sync step in Canvas, Braze enqueues them into a bat
 
 High-volume Canvases may dispatch sooner because batches fill faster. Lower-volume Canvases wait until the latency timer expires. Braze doesn't guarantee a fixed dispatch time; the timing depends on batch size and the configured latency window.
 
-Braze records dispatch activity in internal logs for monitoring and troubleshooting, but these timestamps are not exposed as queryable fields. After Braze dispatches a batch to the partner API, the partner processes the audience update according to their own Service Level Agreements—typically 6-48 hours. 
+Braze records dispatch activity in internal logs for monitoring and troubleshooting, but these timestamps are not exposed as queryable fields. After Braze dispatches a batch to the partner API, the partner processes the audience update according to their own Service Level Agreements—typically 6–48 hours. 
 
 Braze doesn't receive confirmation from partners that individual users have been matched or synced. Partner responses are HTTP acknowledgments of receipt, not match confirmations. To verify that an audience has been populated, check the partner's ad platform (such as Google Ads Audience Manager or Meta Business Manager).
 
