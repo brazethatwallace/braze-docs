@@ -29,6 +29,8 @@ Here are some quick tips to keep in mind while building your content:
 
 Since spam filters watch for both an HTML and a plain text version of a message, utilizing plain text alternatives is a great way to lower your spam score. In addition, alternative text `(alt="")` can serve to complement and in some cases stand in lieu of images included in your email body that may have been filtered out by a user's email provider. Screen readers announce alt text to explain images, so this is an opportunity to use plain language to provide key information about an image.
 
+The recipient's email client, not Braze, controls how alt text displays. For details on this behavior across clients like Gmail, Outlook, and Apple Mail, refer to [How email clients display alt text]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
+
 {% alert note %}
 If your alt text contains quotation marks, use single quotes (`'`) instead of double quotes (`"`). Double quotes can cause HTML to prematurely close the attribute, cutting off the text. For example, `alt="Product 'Premium' Edition"` works correctly, but `alt="Product "Premium" Edition"` is truncated.
 {% endalert %}
