@@ -370,13 +370,29 @@ Braze.getInstance(context).setRegisteredPushToken("FCM_TOKEN");
 ```
 {% endalert %}
 
+#### Using multiple Firebase projects {#multiple-firebase-projects}
+
+If your app uses multiple Firebase projects, use these steps:
+
+1. Keep Braze push on the default Firebase project initialized from your app's `google-services.json`.
+2. If you use a custom Firebase messaging service, complete [Register Installation IDs in custom Firebase messaging services](#android_register-installation-id-custom-firebase-service).
+3. If your app obtains a push token another way, manually set `registeredPushToken` as shown in the previous tip.
+
+{% alert important %}
+Firebase Cloud Messaging has no supported API for retrieving a token from a `FirebaseApp` that you initialize manually. `FirebaseMessagingService` callbacks such as `onNewToken` and `onRegistered` only fire for the default project. For more information, see [Configure multiple projects](https://firebase.google.com/docs/projects/multiprojects) in the Firebase documentation.
+{% endalert %}
+
+For version details, see [SDK changelogs]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
+
 ### Step 8: Remove automatic requests in your application class
 
 To prevent Braze from triggering unnecessary network requests every time you send silent push notifications, remove any automatic network requests configured in your `Application` class's `onCreate()` method. For more information see, [Android Developer Reference: Application](https://developer.android.com/reference/android/app/Application).
 
 ## Displaying notifications
 
-### Step 1: Register Braze Firebase Messaging Service
+<a id="android_step-1-register-braze-firebase-messaging-service"></a>
+
+### Step 1: Register Braze Firebase Messaging Service {#register-braze-firebase-messaging-service}
 
 You can either create a new, existing, or non-Braze Firebase Messaging Service. Choose whichever best meets your specific needs.
 
@@ -403,11 +419,23 @@ Before Braze SDK 3.1.1, `AppboyFcmReceiver` was used to handle FCM push. The `Ap
 {% tab Existing %}
 If you already have a Firebase Messaging Service registered, you can pass [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) objects to Braze via [`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html). This method will only display a notification if the [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) object originated from Braze and will safely ignore if not.
 
+<a id="android_register-installation-id-custom-firebase-service"></a>
+
+#### Register Installation IDs in custom Firebase messaging services {#register-installation-id-custom-firebase-service}
+
+If you're using `firebase-messaging` v25.1.0 or later, Firebase registration uses the Firebase Installation ID. In your custom Firebase messaging service, override `onRegistered` and set `registeredPushToken`.
+
 {% subtabs %}
 {% subtab JAVA %}
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+  @Override
+  public void onRegistered(String installationId) {
+    super.onRegistered(installationId);
+    Braze.getInstance(this).setRegisteredPushToken(installationId);
+  }
+
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
     super.onMessageReceived(remoteMessage);
@@ -427,6 +455,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 ```kotlin
 class MyFirebaseMessagingService : FirebaseMessagingService() {
+  override fun onRegistered(installationId: String) {
+    super.onRegistered(installationId)
+    Braze.getInstance(this).registeredPushToken = installationId
+  }
+
   override fun onMessageReceived(remoteMessage: RemoteMessage?) {
     super.onMessageReceived(remoteMessage)
     if (BrazeFirebaseMessagingService.handleBrazeRemoteMessage(this, remoteMessage)) {
